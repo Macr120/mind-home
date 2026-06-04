@@ -1,7 +1,9 @@
 import { type ThreeEvent } from '@react-three/fiber'
 import { useHouse } from '../state/houseStore'
+import { useDiseño, OBJETO_SLOTS } from '../state/disenoStore'
 import { localWallSegments, WALL_H, SIZE } from './walls'
 import { Furniture } from './Furniture'
+import { ObjetoView } from './catalogo'
 
 function lighten(hex: string, amt: number) {
   const n = parseInt(hex.slice(1), 16)
@@ -31,6 +33,10 @@ export function Room3D({
   const nearRoomId = useHouse((s) => s.nearRoomId)
   const seleccionado = selectedRoomId === id
   const cerca = nearRoomId === id
+  // Personalización de muebles y decoración del cuarto.
+  const muebleColor = useDiseño((s) => s.furnitureColors[id])
+  const objetos = useDiseño((s) => s.objetos)
+  const objetosCuarto = objetos.filter((o) => o.roomId === id)
 
   const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation()
@@ -76,8 +82,18 @@ export function Room3D({
         </mesh>
       ))}
 
-      {/* Mueble temático */}
-      <Furniture id={id} />
+      {/* Mueble temático (recolorable) */}
+      <Furniture id={id} color={muebleColor} />
+
+      {/* Objetos de decoración colocados por el usuario */}
+      {objetosCuarto.map((o) => {
+        const [sx, sz] = OBJETO_SLOTS[o.slot] ?? [0, 0]
+        return (
+          <group key={o.id} position={[sx, 0.2, sz]}>
+            <ObjetoView tipo={o.tipo} color={o.color} />
+          </group>
+        )
+      })}
     </group>
   )
 }

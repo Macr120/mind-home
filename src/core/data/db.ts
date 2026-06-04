@@ -433,6 +433,16 @@ export interface DisenoRoom {
   roomId: string  // coincide con RoomModule.id
   color: string   // hex
   nombre?: string // nombre personalizado (vacío = usar el default)
+  muebleColor?: string // color del mueble principal (vacío = default)
+}
+
+/** Objeto de decoración colocado en un cuarto (catálogo). */
+export interface ObjetoCuarto {
+  id?: number
+  roomId: string
+  tipo: string  // id del catálogo (catalogo.tsx)
+  color: string // hex
+  slot: number  // 0-3: esquina del cuarto donde se coloca
 }
 
 /** Colores del avatar Roblox del usuario. */
@@ -476,6 +486,7 @@ export class MindHomeDB extends Dexie {
   perfilUsuario!: Table<PerfilUsuario, number>
   disenoRooms!: Table<DisenoRoom, number>
   disenoAvatar!: Table<DisenoAvatar, number>
+  objetosCuarto!: Table<ObjetoCuarto, number>
 
   constructor() {
     super('mind-home')
@@ -746,6 +757,10 @@ export class MindHomeDB extends Dexie {
       perfilUsuario: '++id',
       disenoRooms: '++id, roomId',
       disenoAvatar: '++id',
+    })
+    // v14: objetos de decoración por cuarto (Dexie conserva las tablas previas)
+    this.version(14).stores({
+      objetosCuarto: '++id, roomId',
     })
   }
 }

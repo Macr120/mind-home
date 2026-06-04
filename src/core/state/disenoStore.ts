@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { db } from '../data/db'
+import { db, type ObjetoCuarto } from '../data/db'
 import { rooms } from '../registry'
 
 /**
@@ -22,11 +22,19 @@ interface DisenoState {
   roomColors: Record<string, string>
   /** nombres personalizados por roomId, vacío = usar el nombre del módulo */
   roomNames: Record<string, string>
+  /** color del mueble principal por roomId, vacío = default */
+  furnitureColors: Record<string, string>
+  /** objetos de decoración colocados (todos los cuartos) */
+  objetos: ObjetoCuarto[]
   avatar: { cabeza: string; torso: string; piernas: string }
   cargado: boolean
   cargar: () => Promise<void>
   setRoomColor: (roomId: string, color: string) => Promise<void>
   setRoomName: (roomId: string, nombre: string) => Promise<void>
+  setFurnitureColor: (roomId: string, color: string) => Promise<void>
+  addObjeto: (roomId: string, tipo: string, color: string) => Promise<void>
+  setObjetoColor: (id: number, color: string) => Promise<void>
+  removeObjeto: (id: number) => Promise<void>
   setAvatarColor: (
     parte: 'cabeza' | 'torso' | 'piernas',
     color: string,
@@ -35,27 +43,43 @@ interface DisenoState {
   resetAvatar: () => Promise<void>
 }
 
+/** Posiciones (local al cuarto) de las 4 ranuras de decoración. */
+export const OBJETO_SLOTS: [number, number][] = [
+  [-1.9, 1.8],
+  [1.9, 1.8],
+  [-1.9, 0.2],
+  [1.9, 0.2],
+]
+export const MAX_OBJETOS = OBJETO_SLOTS.length
+
 export const useDiseño = create<DisenoState>((set, get) => ({
   roomColors: {},
   roomNames: {},
+  furnitureColors: {},
+  objetos: [],
   avatar: { ...AVATAR_DEFAULT },
   cargado: false,
 
   cargar: async () => {
-    const [disenoRooms, disenoAvatars] = await Promise.all([
+    const [disenoRooms, disenoAvatars, objetos] = await Promise.all([
       db.disenoRooms.toArray(),
       db.disenoAvatar.toArray(),
+      db.objetosCuarto.toArray(),
     ])
     const roomColors: Record<string, string> = {}
     const roomNames: Record<string, string> = {}
+    const furnitureColors: Record<string, string> = {}
     for (const d of disenoRooms) {
       if (d.color) roomColors[d.roomId] = d.color
       if (d.nombre) roomNames[d.roomId] = d.nombre
+      if (d.muebleColor) furnitureColors[d.roomId] = d.muebleColor
     }
     const av = disenoAvatars[0]
     set({
       roomColors,
       roomNames,
+      furnitureColors,
+      objetos,
       avatar: av
         ? { cabeza: av.cabeza, torso: av.torso, piernas: av.piernas }
         : { ...AVATAR_DEFAULT },
@@ -80,6 +104,44 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     }
   },
 
+  setFurnitureColor: async (roomId, color) => {
+    set((s) => ({ furnitureColors: { ...s.furnitureColors, [roomId]: color } }))
+    const existing = await db.disenoRooms.where('roomId').equals(roomId).first()
+    if (existing?.id) await db.disenoRooms.update(existing.id, { muebleColor: color })
+    else {
+      const base = rooms.find((r) => r.id === roomId)?.color ?? '#94a3b8'
+      await db.disenoRooms.add({ roomId, color: base, nombre: '', muebleColor: color })
+    }
+  },
+
+  addObjeto: async (roomId, tipo, color) => {
+    const usados = new Set(
+      get().objetos.filter((o) => o.roomId === roomId).map((o) => o.slot),
+    )
+    let slot = -1
+    for (let i = 0; i < MAX_OBJETOS; i++) {
+      if (!usados.has(i)) {
+        slot = i
+        break
+      }
+    }
+    if (slot === -1) return // cuarto lleno
+    const id = await db.objetosCuarto.add({ roomId, tipo, color, slot })
+    set((s) => ({ objetos: [...s.objetos, { id, roomId, tipo, color, slot }] }))
+  },
+
+  setObjetoColor: async (id, color) => {
+    set((s) => ({
+      objetos: s.objetos.map((o) => (o.id === id ? { ...o, color } : o)),
+    }))
+    await db.objetosCuarto.update(id, { color })
+  },
+
+  removeObjeto: async (id) => {
+    set((s) => ({ objetos: s.objetos.filter((o) => o.id !== id) }))
+    await db.objetosCuarto.delete(id)
+  },
+
   setAvatarColor: async (parte, color) => {
     set((s) => ({ avatar: { ...s.avatar, [parte]: color } }))
     const { avatar } = get()
@@ -93,11 +155,19 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     set((s) => {
       const rc = { ...s.roomColors }
       const rn = { ...s.roomNames }
+      const fc = { ...s.furnitureColors }
       delete rc[roomId]
       delete rn[roomId]
-      return { roomColors: rc, roomNames: rn }
+      delete fc[roomId]
+      return {
+        roomColors: rc,
+        roomNames: rn,
+        furnitureColors: fc,
+        objetos: s.objetos.filter((o) => o.roomId !== roomId),
+      }
     })
     await db.disenoRooms.where('roomId').equals(roomId).delete()
+    await db.objetosCuarto.where('roomId').equals(roomId).delete()
   },
 
   resetAvatar: async () => {
