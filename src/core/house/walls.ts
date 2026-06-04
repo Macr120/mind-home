@@ -40,19 +40,29 @@ export function doorFor(position: [number, number, number]) {
   return { axis, sign }
 }
 
-/** Segmentos de pared (locales) de un cuarto, con el hueco de la puerta. */
+// Límites de la cuadrícula 4×3 (cols x: -9..9 · filas z: -6..6).
+const X_MIN = -9
+const X_MAX = 9
+const Z_MIN = -6
+const Z_MAX = 6
+
+/**
+ * Segmentos de pared (locales) de un cuarto. Cada lado que da a otro cuarto
+ * (interior) lleva una puerta (hueco al centro); el perímetro queda sólido.
+ * Así todos los cuartos quedan conectados y se puede atravesar entre ellos.
+ */
 export function localWallSegments(position: [number, number, number]): Seg[] {
-  const { axis: dAxis, sign: dSign } = doorFor(position)
-  const sides: { axis: Axis; sign: number }[] = [
-    { axis: 'z', sign: -1 },
-    { axis: 'z', sign: 1 },
-    { axis: 'x', sign: -1 },
-    { axis: 'x', sign: 1 },
+  const [x, , z] = position
+  // Un lado tiene puerta si hay un cuarto vecino en esa dirección.
+  const sides: { axis: Axis; sign: number; puerta: boolean }[] = [
+    { axis: 'z', sign: -1, puerta: z > Z_MIN + 0.1 }, // norte
+    { axis: 'z', sign: 1, puerta: z < Z_MAX - 0.1 }, // sur
+    { axis: 'x', sign: -1, puerta: x > X_MIN + 0.1 }, // oeste
+    { axis: 'x', sign: 1, puerta: x < X_MAX - 0.1 }, // este
   ]
   const segs: Seg[] = []
-  for (const { axis, sign } of sides) {
-    const isDoor = axis === dAxis && sign === dSign
-    if (!isDoor) {
+  for (const { axis, sign, puerta } of sides) {
+    if (!puerta) {
       if (axis === 'z')
         segs.push({ cx: 0, cz: sign * HALF, sx: SIZE + WALL_T, sz: WALL_T })
       else segs.push({ cx: sign * HALF, cz: 0, sx: WALL_T, sz: SIZE + WALL_T })

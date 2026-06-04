@@ -1,37 +1,13 @@
-import type { RefObject } from 'react'
-import type { OrbitControls } from '@react-three/drei'
-import type { OrthographicCamera } from 'three'
-
-type OrbitControlsImpl = React.ComponentRef<typeof OrbitControls>
-
-const MIN_ZOOM = 8
-const MAX_ZOOM = 45
+import { useCam } from '../state/cameraStore'
 
 /**
  * Botones de navegación de la casa 3D: rotar a las esquinas, zoom y reset.
- * También funciona arrastrar (rotar) y rueda del ratón (zoom).
+ * Conducen el estado de la cámara (useCam); CameraRig lo aplica suavemente.
  */
-export function NavControls({
-  controlsRef,
-}: {
-  controlsRef: RefObject<OrbitControlsImpl | null>
-}) {
-  const rotar = (dir: 1 | -1) => {
-    const c = controlsRef.current
-    if (!c) return
-    c.setAzimuthalAngle(c.getAzimuthalAngle() + (dir * Math.PI) / 2)
-    c.update()
-  }
-
-  const zoom = (factor: number) => {
-    const c = controlsRef.current
-    if (!c) return
-    const cam = c.object as OrthographicCamera
-    cam.zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, cam.zoom * factor))
-    cam.updateProjectionMatrix()
-  }
-
-  const reset = () => controlsRef.current?.reset()
+export function NavControls() {
+  const rotar = useCam((s) => s.rotar)
+  const zoomBy = useCam((s) => s.zoomBy)
+  const reset = useCam((s) => s.reset)
 
   return (
     <div className="absolute bottom-4 right-4 z-10 flex flex-col items-center gap-2">
@@ -46,10 +22,10 @@ export function NavControls({
       </div>
       {/* Zoom */}
       <div className="flex gap-2">
-        <Boton onClick={() => zoom(1.25)} title="Acercar">
+        <Boton onClick={() => zoomBy(1.25)} title="Acercar">
           +
         </Boton>
-        <Boton onClick={() => zoom(0.8)} title="Alejar">
+        <Boton onClick={() => zoomBy(0.8)} title="Alejar">
           −
         </Boton>
       </div>

@@ -1,5 +1,6 @@
 import { rooms, type RoomModule } from '../registry'
 import { useHouse } from '../state/houseStore'
+import { useCam } from '../state/cameraStore'
 
 const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
   { key: 'cuerpo', label: 'Cuerpo' },
@@ -10,7 +11,13 @@ const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
 
 export function RoomSideMenu() {
   const selectedRoomId = useHouse((s) => s.selectedRoomId)
-  const enterFromMenu = useHouse((s) => s.enterFromMenu)
+  const openRoom = useHouse((s) => s.openRoom)
+  const focusRoom = useCam((s) => s.focusRoom)
+
+  const irACuarto = (room: RoomModule) => {
+    focusRoom(room.posicion)
+    useHouse.setState({ selectedRoomId: room.id })
+  }
 
   return (
     <aside
@@ -22,7 +29,9 @@ export function RoomSideMenu() {
           🏠 Mind Home
         </h1>
         <p className="mt-1 text-[11px] leading-snug text-white/45">
-          Elige un cuarto para entrar al instante.
+          <b className="text-white/70">Ir</b> acerca la cámara al cuarto ·{' '}
+          <b className="text-white/70">Entrar</b> abre su app. Muévete con
+          WASD/flechas o el pad.
         </p>
       </div>
 
@@ -35,28 +44,24 @@ export function RoomSideMenu() {
               <h2 className="mb-1.5 px-2 text-[10px] font-bold uppercase tracking-wider text-white/30">
                 {label}
               </h2>
-              <ul className="flex flex-col gap-0.5">
+              <ul className="flex flex-col gap-1.5">
                 {grupo.map((room) => {
                   const activo = selectedRoomId === room.id
                   return (
-                    <li key={room.id}>
-                      <button
-                        type="button"
-                        onClick={() => enterFromMenu(room.id)}
-                        aria-current={activo ? 'true' : undefined}
-                        className="flex w-full items-center gap-2.5 rounded-lg border px-2.5 py-2 text-left text-sm transition"
-                        style={{
-                          borderColor: activo
-                            ? room.color
-                            : 'rgba(255,255,255,0.06)',
-                          background: activo
-                            ? `${room.color}28`
-                            : 'transparent',
-                          boxShadow: activo
-                            ? `inset 3px 0 0 ${room.color}`
-                            : 'none',
-                        }}
-                      >
+                    <li
+                      key={room.id}
+                      className="rounded-lg border transition"
+                      style={{
+                        borderColor: activo
+                          ? room.color
+                          : 'rgba(255,255,255,0.06)',
+                        background: activo
+                          ? `${room.color}1f`
+                          : 'rgba(255,255,255,0.02)',
+                      }}
+                    >
+                      {/* Encabezado del cuarto */}
+                      <div className="flex items-center gap-2.5 px-2.5 pt-2">
                         <span
                           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-lg"
                           style={{
@@ -68,7 +73,7 @@ export function RoomSideMenu() {
                           {room.icon}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block truncate font-semibold text-white/90">
+                          <span className="block truncate text-sm font-semibold text-white/90">
                             {room.nombre.split(' · ')[0]}
                           </span>
                           {room.nombre.includes(' · ') && (
@@ -77,7 +82,26 @@ export function RoomSideMenu() {
                             </span>
                           )}
                         </span>
-                      </button>
+                      </div>
+
+                      {/* Dos acciones */}
+                      <div className="flex gap-1.5 px-2 pb-2 pt-2">
+                        <button
+                          type="button"
+                          onClick={() => irACuarto(room)}
+                          className="flex-1 rounded-md border border-white/10 bg-white/5 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10"
+                        >
+                          📍 Ir
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => openRoom(room.id)}
+                          className="flex-1 rounded-md py-1.5 text-xs font-bold transition hover:brightness-110"
+                          style={{ background: room.color, color: '#0f1115' }}
+                        >
+                          Entrar ›
+                        </button>
+                      </div>
                     </li>
                   )
                 })}
