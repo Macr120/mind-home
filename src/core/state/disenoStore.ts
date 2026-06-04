@@ -106,5 +106,19 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 }))
 
+/**
+ * Color y nombre EFECTIVOS de un cuarto = personalización del usuario si existe,
+ * si no, los del registro. Fuente única para casa 3D, menú lateral y cabeceras.
+ */
+export function useRoomVisual(id: string, colorBase: string, nombreBase: string) {
+  const color = useDiseño((s) => s.roomColors[id] ?? colorBase)
+  const nombre = useDiseño((s) => s.roomNames[id] || nombreBase)
+  return { color, nombre }
+}
+
+if (import.meta.env.DEV) {
+  ;(window as unknown as { useDiseño: typeof useDiseño }).useDiseño = useDiseño
+}
+
 /** Carga el diseño una vez al arrancar la app. */
 useDiseño.getState().cargar()

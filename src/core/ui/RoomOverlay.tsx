@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { useHouse } from '../state/houseStore'
 import { getRoom } from '../registry'
+import { useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
 
 /**
@@ -10,9 +11,13 @@ import { ErrorBoundary } from './ErrorBoundary'
 export function RoomOverlay() {
   const activeRoom = useHouse((s) => s.activeRoom)
   const closeRoom = useHouse((s) => s.closeRoom)
-  if (!activeRoom) return null
-
-  const room = getRoom(activeRoom)
+  const room = activeRoom ? getRoom(activeRoom) : null
+  // Color/nombre efectivos (ligados con el menú y la casa). Hook antes de cualquier return.
+  const { color, nombre } = useRoomVisual(
+    room?.id ?? '',
+    room?.color ?? '#94a3b8',
+    room?.nombre ?? '',
+  )
   if (!room) return null
 
   const { App } = room
@@ -21,7 +26,7 @@ export function RoomOverlay() {
     <div className="absolute inset-0 z-20 flex flex-col bg-[#0f1115]">
       <header
         className="flex items-center gap-3 px-4 py-3 border-b border-white/10"
-        style={{ borderTopColor: room.color }}
+        style={{ borderTopColor: color }}
       >
         <button
           onClick={closeRoom}
@@ -29,8 +34,8 @@ export function RoomOverlay() {
         >
           ‹ Volver a la casa
         </button>
-        <h1 className="text-lg font-bold" style={{ color: room.color }}>
-          {room.nombre}
+        <h1 className="text-lg font-bold" style={{ color }}>
+          {nombre}
         </h1>
         <span className="ml-auto text-xs uppercase tracking-wide text-white/40">
           {room.categoria}

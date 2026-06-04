@@ -1,6 +1,7 @@
 import { rooms, type RoomModule } from '../registry'
 import { useHouse } from '../state/houseStore'
 import { useCam } from '../state/cameraStore'
+import { useDiseño } from '../state/disenoStore'
 
 const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
   { key: 'cuerpo', label: 'Cuerpo' },
@@ -13,6 +14,9 @@ export function RoomSideMenu() {
   const selectedRoomId = useHouse((s) => s.selectedRoomId)
   const openRoom = useHouse((s) => s.openRoom)
   const focusRoom = useCam((s) => s.focusRoom)
+  // Color y nombre personalizados (ligados con la casa 3D y Diseño de casa).
+  const roomColors = useDiseño((s) => s.roomColors)
+  const roomNames = useDiseño((s) => s.roomNames)
 
   const irACuarto = (room: RoomModule) => {
     focusRoom(room.posicion)
@@ -47,17 +51,16 @@ export function RoomSideMenu() {
               <ul className="flex flex-col gap-1.5">
                 {grupo.map((room) => {
                   const activo = selectedRoomId === room.id
+                  // Efectivos: personalización del usuario o, si no, el registro.
+                  const color = roomColors[room.id] ?? room.color
+                  const nombre = roomNames[room.id] || room.nombre
                   return (
                     <li
                       key={room.id}
                       className="rounded-lg border transition"
                       style={{
-                        borderColor: activo
-                          ? room.color
-                          : 'rgba(255,255,255,0.06)',
-                        background: activo
-                          ? `${room.color}1f`
-                          : 'rgba(255,255,255,0.02)',
+                        borderColor: activo ? color : 'rgba(255,255,255,0.06)',
+                        background: activo ? `${color}1f` : 'rgba(255,255,255,0.02)',
                       }}
                     >
                       {/* Encabezado del cuarto */}
@@ -65,20 +68,18 @@ export function RoomSideMenu() {
                         <span
                           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-lg"
                           style={{
-                            background: activo
-                              ? `${room.color}44`
-                              : 'rgba(255,255,255,0.06)',
+                            background: activo ? `${color}44` : 'rgba(255,255,255,0.06)',
                           }}
                         >
                           {room.icon}
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="block truncate text-sm font-semibold text-white/90">
-                            {room.nombre.split(' · ')[0]}
+                            {nombre.split(' · ')[0]}
                           </span>
-                          {room.nombre.includes(' · ') && (
+                          {nombre.includes(' · ') && (
                             <span className="block truncate text-[10px] text-white/40">
-                              {room.nombre.split(' · ')[1]}
+                              {nombre.split(' · ')[1]}
                             </span>
                           )}
                         </span>
@@ -97,7 +98,7 @@ export function RoomSideMenu() {
                           type="button"
                           onClick={() => openRoom(room.id)}
                           className="flex-1 rounded-md py-1.5 text-xs font-bold transition hover:brightness-110"
-                          style={{ background: room.color, color: '#0f1115' }}
+                          style={{ background: color, color: '#0f1115' }}
                         >
                           Entrar ›
                         </button>

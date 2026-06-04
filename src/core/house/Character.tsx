@@ -58,7 +58,10 @@ export function Character() {
         .set(0, 0, 0)
         .addScaledVector(_fwd, f)
         .addScaledVector(_right, s)
-      if (_move.lengthSq() > 0) _move.normalize().multiplyScalar(SPEED)
+      // Velocidad proporcional a cuánto se empuja el joystick (máx 1 = SPEED).
+      const mag = Math.min(1, _move.length())
+      if (mag > 0.001) _move.normalize().multiplyScalar(mag * SPEED)
+      else _move.set(0, 0, 0)
 
       let x = cur.x
       let z = cur.z
