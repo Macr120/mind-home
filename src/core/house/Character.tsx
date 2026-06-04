@@ -33,15 +33,22 @@ export function Character() {
 
   useFrame(() => {
     if (!ref.current) return
-    const target = useHouse.getState().target
+    const { target, freeMove } = useHouse.getState()
     const cur = ref.current.position
     const nx = THREE.MathUtils.lerp(cur.x, target.x, 0.32)
     const nz = THREE.MathUtils.lerp(cur.z, target.z, 0.32)
 
     let x = cur.x
     let z = cur.z
-    if (!chocado(nx, z)) x = nx
-    if (!chocado(x, nz)) z = nz
+    if (freeMove) {
+      // Movimiento libre (menú lateral): atraviesa paredes.
+      x = nx
+      z = nz
+    } else {
+      // Movimiento normal: las paredes lo detienen (desliza eje por eje).
+      if (!chocado(nx, z)) x = nx
+      if (!chocado(x, nz)) z = nz
+    }
 
     cur.set(x, 0, z)
     playerPos.copy(cur)

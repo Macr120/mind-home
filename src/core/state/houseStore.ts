@@ -17,7 +17,11 @@ interface HouseState {
   target: THREE.Vector3
   /** Incrementa al cambiar destino para forzar actualización en la escena 3D. */
   navTick: number
+  /** Si el personaje ignora las paredes (al entrar desde el menú lateral). */
+  freeMove: boolean
   setTarget: (x: number, z: number) => void
+  /** Desde el menú: el avatar va al cuarto ignorando paredes y entra al instante. */
+  enterFromMenu: (id: string) => void
   /** Cuarto elegido en el menú o con clic en la casa. */
   selectedRoomId: string | null
   /** Cuarto cuya puerta está al alcance (el más próximo gana). */
@@ -41,11 +45,25 @@ interface HouseState {
 export const useHouse = create<HouseState>((set, get) => ({
   target: new THREE.Vector3(-3, 0, 0),
   navTick: 0,
+  freeMove: false,
   setTarget: (x, z) =>
     set((s) => ({
       target: new THREE.Vector3(x, 0, z),
       navTick: s.navTick + 1,
+      freeMove: false,
     })),
+  enterFromMenu: (id) => {
+    const room = getRoom(id)
+    if (!room) return
+    const [x, , z] = room.posicion
+    set((s) => ({
+      selectedRoomId: id,
+      target: new THREE.Vector3(x, 0, z),
+      navTick: s.navTick + 1,
+      freeMove: true,
+      activeRoom: id,
+    }))
+  },
   selectedRoomId: null,
   nearRoomId: null,
   setNearRoomId: (id) =>
