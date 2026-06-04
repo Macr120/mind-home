@@ -3,6 +3,7 @@ import { useHouse } from '../state/houseStore'
 import { rooms } from '../registry'
 import { Character } from './Character'
 import { RoomMarker } from './RoomMarker'
+import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 
 /** Suelo base de la casa: al hacer clic, el personaje camina a ese punto. */
@@ -63,6 +64,7 @@ export function House() {
         <RoomMarker key={room.id} room={room} />
       ))}
 
+      <RoomProximity />
       <Character />
     </Canvas>
   )

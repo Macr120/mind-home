@@ -23,6 +23,15 @@ export interface Seg {
   sz: number
 }
 
+/** Punto frente a la puerta (mundo x,z) donde debe parar el personaje. */
+export function roomEntrance(position: [number, number, number]): [number, number] {
+  const [x, , z] = position
+  const { axis, sign } = doorFor(position)
+  const offset = HALF + 1.0
+  if (axis === 'x') return [x + sign * offset, z]
+  return [x, z + sign * offset]
+}
+
 /** La puerta del cuarto mira hacia el centro de la casa. */
 export function doorFor(position: [number, number, number]) {
   const [x, , z] = position

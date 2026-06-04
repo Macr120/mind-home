@@ -27,13 +27,15 @@ function chocado(x: number, z: number) {
  */
 export function Character() {
   const ref = useRef<THREE.Group>(null)
-  const target = useHouse((s) => s.target)
+  // navTick fuerza re-render al elegir cuarto en el menú lateral
+  useHouse((s) => s.navTick)
 
   useFrame(() => {
     if (!ref.current) return
+    const target = useHouse.getState().target
     const cur = ref.current.position
-    const nx = THREE.MathUtils.lerp(cur.x, target.x, 0.15)
-    const nz = THREE.MathUtils.lerp(cur.z, target.z, 0.15)
+    const nx = THREE.MathUtils.lerp(cur.x, target.x, 0.32)
+    const nz = THREE.MathUtils.lerp(cur.z, target.z, 0.32)
 
     let x = cur.x
     let z = cur.z

@@ -1,5 +1,7 @@
+import { Suspense } from 'react'
 import { useHouse } from '../state/houseStore'
 import { getRoom } from '../registry'
+import { ErrorBoundary } from './ErrorBoundary'
 
 /**
  * Cuando hay un cuarto activo, dibuja su mini-app 2D a pantalla completa
@@ -34,8 +36,18 @@ export function RoomOverlay() {
           {room.categoria}
         </span>
       </header>
-      <main className="flex-1 overflow-auto p-4 md:p-6">
-        <App />
+      <main className="min-h-0 flex-1 overflow-auto p-4 md:p-6">
+        <ErrorBoundary titulo={`Error en ${room.nombre}`}>
+          <Suspense
+            fallback={
+              <div className="flex min-h-[40vh] items-center justify-center text-white/50">
+                Cargando {room.nombre}…
+              </div>
+            }
+          >
+            <App />
+          </Suspense>
+        </ErrorBoundary>
       </main>
     </div>
   )

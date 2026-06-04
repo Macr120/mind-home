@@ -1,3 +1,5 @@
+import { type ThreeEvent } from '@react-three/fiber'
+import { useHouse } from '../state/houseStore'
 import { localWallSegments, WALL_H, SIZE } from './walls'
 import { Furniture } from './Furniture'
 
@@ -24,13 +26,41 @@ export function Room3D({
 }) {
   const segs = localWallSegments(position)
   const floorColor = lighten(color, 35)
+  const interactRoom = useHouse((s) => s.interactRoom)
+  const selectedRoomId = useHouse((s) => s.selectedRoomId)
+  const nearRoomId = useHouse((s) => s.nearRoomId)
+  const seleccionado = selectedRoomId === id
+  const cerca = nearRoomId === id
+
+  const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
+    e.stopPropagation()
+    interactRoom(id)
+  }
 
   return (
     <group position={position}>
-      {/* Piso del cuarto */}
-      <mesh position={[0, 0.1, 0]} receiveShadow>
+      {/* Piso del cuarto (clic: ir o entrar) */}
+      <mesh
+        position={[0, 0.1, 0]}
+        receiveShadow
+        onClick={onFloorClick}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          document.body.style.cursor = 'pointer'
+        }}
+        onPointerOut={() => {
+          document.body.style.cursor = 'default'
+        }}
+      >
         <boxGeometry args={[SIZE - 0.1, 0.2, SIZE - 0.1]} />
-        <meshStandardMaterial color={floorColor} roughness={0.85} />
+        <meshStandardMaterial
+          color={floorColor}
+          roughness={0.85}
+          emissive={color}
+          emissiveIntensity={
+            cerca ? 0.35 : seleccionado ? 0.18 : 0
+          }
+        />
       </mesh>
 
       {/* Paredes */}
