@@ -1,4 +1,6 @@
+import { useRef } from 'react'
 import { Canvas, type ThreeEvent } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { rooms } from '../registry'
@@ -6,6 +8,7 @@ import { Character } from './Character'
 import { RoomMarker } from './RoomMarker'
 import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
+import { NavControls } from '../ui/NavControls'
 
 /** Suelo base de la casa: al hacer clic, el personaje camina a ese punto. */
 function BaseFloor() {
@@ -29,15 +32,29 @@ function BaseFloor() {
 
 export function House() {
   const roomColors = useDiseño((s) => s.roomColors)
+  const controls = useRef<React.ComponentRef<typeof OrbitControls>>(null)
   return (
-    <Canvas
-      shadows
-      orthographic
-      camera={{ position: [22, 22, 22], zoom: 17, near: -100, far: 300 }}
-      onCreated={({ camera }) => camera.lookAt(0, 0, 0)}
-      style={{ position: 'absolute', inset: 0 }}
-    >
-      <color attach="background" args={['#0f1115']} />
+    <>
+      <Canvas
+        shadows
+        orthographic
+        camera={{ position: [22, 22, 22], zoom: 17, near: -100, far: 300 }}
+        style={{ position: 'absolute', inset: 0 }}
+      >
+        <color attach="background" args={['#0f1115']} />
+        <OrbitControls
+          ref={controls}
+          makeDefault
+          target={[0, 0, 0]}
+          enablePan={false}
+          enableDamping
+          dampingFactor={0.12}
+          minZoom={8}
+          maxZoom={45}
+          minPolarAngle={Math.PI / 10}
+          maxPolarAngle={Math.PI / 2.3}
+          rotateSpeed={0.6}
+        />
       <ambientLight intensity={0.75} />
       <directionalLight
         position={[18, 28, 12]}
@@ -68,6 +85,8 @@ export function House() {
 
       <RoomProximity />
       <Character />
-    </Canvas>
+      </Canvas>
+      <NavControls controlsRef={controls} />
+    </>
   )
 }
