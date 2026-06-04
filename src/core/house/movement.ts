@@ -65,6 +65,9 @@ export function onKey(e: KeyboardEvent, down: boolean) {
   ) {
     return
   }
+  // Evitar que las flechas hagan scroll de la página (causa principal de que
+  // parezcan no funcionar: el navegador las consume para desplazar el DOM).
+  if (k.startsWith('arrow')) e.preventDefault()
   if (down) pressed.add(k)
   else pressed.delete(k)
   recomputeKeys()

@@ -6,8 +6,8 @@ import { useDiseño } from '../state/disenoStore'
 import { wallColliders } from './walls'
 import { moveInput } from './movement'
 
-const RADIO = 0.4  // radio del personaje para colisiones
-const SPEED = 0.045 // velocidad base — más lenta para precisión
+const RADIO = 0.4   // radio del personaje para colisiones
+const SPEED = 0.022 // velocidad base — precisa para navegar cuartos
 
 // Temporales reutilizables (un solo Character en escena).
 const _fwd = new THREE.Vector3()
