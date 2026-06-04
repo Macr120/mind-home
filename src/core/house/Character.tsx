@@ -97,30 +97,30 @@ export function Character() {
   return (
     <group ref={ref} position={[-3, 0, 0]}>
       {/* piernas */}
-      <mesh position={[-0.14, 0.3, 0]} castShadow>
+      <mesh position={[-0.14, 0.3, 0]}>
         <boxGeometry args={[0.24, 0.6, 0.26]} />
         <meshStandardMaterial color={av.piernas} />
       </mesh>
-      <mesh position={[0.14, 0.3, 0]} castShadow>
+      <mesh position={[0.14, 0.3, 0]}>
         <boxGeometry args={[0.24, 0.6, 0.26]} />
         <meshStandardMaterial color={av.piernas} />
       </mesh>
       {/* torso */}
-      <mesh position={[0, 0.92, 0]} castShadow>
+      <mesh position={[0, 0.92, 0]}>
         <boxGeometry args={[0.6, 0.62, 0.3]} />
         <meshStandardMaterial color={av.torso} />
       </mesh>
       {/* brazos */}
-      <mesh position={[-0.42, 0.92, 0]} castShadow>
+      <mesh position={[-0.42, 0.92, 0]}>
         <boxGeometry args={[0.2, 0.6, 0.26]} />
         <meshStandardMaterial color={av.torso} />
       </mesh>
-      <mesh position={[0.42, 0.92, 0]} castShadow>
+      <mesh position={[0.42, 0.92, 0]}>
         <boxGeometry args={[0.2, 0.6, 0.26]} />
         <meshStandardMaterial color={av.torso} />
       </mesh>
       {/* cabeza */}
-      <mesh position={[0, 1.5, 0]} castShadow>
+      <mesh position={[0, 1.5, 0]}>
         <boxGeometry args={[0.44, 0.44, 0.44]} />
         <meshStandardMaterial color={av.cabeza} />
       </mesh>

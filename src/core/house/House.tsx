@@ -3,7 +3,6 @@ import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { rooms } from '../registry'
 import { Character } from './Character'
-import { RoomMarker } from './RoomMarker'
 import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { CameraRig } from './CameraRig'
@@ -38,15 +37,22 @@ export function House() {
         orthographic
         camera={{ position: [22, 22, 22], zoom: 17, near: -100, far: 300 }}
         style={{ position: 'absolute', inset: 0 }}
+        dpr={[1, 1.5]}
+        onCreated={({ gl }) => {
+          // La casa es estática: renderiza la sombra UNA vez y congélala.
+          // (gran ahorro: no recalcular sombras de ~150 mallas cada frame)
+          gl.shadowMap.autoUpdate = false
+          gl.shadowMap.needsUpdate = true
+        }}
       >
         <color attach="background" args={['#0f1115']} />
         <CameraRig />
-      <ambientLight intensity={0.75} />
+      <ambientLight intensity={0.8} />
       <directionalLight
         position={[18, 28, 12]}
-        intensity={1.05}
+        intensity={1.0}
         castShadow
-        shadow-mapSize={[2048, 2048]}
+        shadow-mapSize={[1024, 1024]}
         shadow-camera-left={-24}
         shadow-camera-right={24}
         shadow-camera-top={24}
@@ -64,9 +70,6 @@ export function House() {
           position={room.posicion}
           color={roomColors[room.id] ?? room.color}
         />
-      ))}
-      {rooms.map((room) => (
-        <RoomMarker key={room.id} room={room} />
       ))}
 
       <RoomProximity />
