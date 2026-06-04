@@ -1,0 +1,47 @@
+---
+description: Cómo agregar o construir un cuarto (mini-app) nuevo en Mind Home.
+globs: src/rooms/**
+alwaysApply: false
+---
+
+# Agregar un cuarto a Mind Home
+
+Un cuarto = una carpeta en `src/rooms/<id>/` que exporta un `RoomModule`.
+
+## 1. Crear la mini-app 2D
+`src/rooms/<id>/MiApp.tsx` — componente React normal. Para datos, usa un repo de
+`src/core/data/repository.ts` (no toques `db` directo). Tema oscuro + Tailwind.
+
+## 2. Exportar el RoomModule
+`src/rooms/<id>/index.tsx`:
+```tsx
+import type { RoomModule } from '../../core/registry'
+import { MiApp } from './MiApp'
+
+const cuarto: RoomModule = {
+  id: 'cocina',                 // único, kebab/lowercase
+  nombre: 'Cocina · Nutrición',
+  icon: '🍳',                   // emoji que flota sobre el cuarto
+  categoria: 'cuerpo',          // 'cuerpo' | 'mente' | 'complemento' | 'config'
+  posicion: [-9, 0, -6],        // celda en la cuadrícula 4×3 (ver registry.ts)
+  color: '#f59e0b',
+  App: MiApp,
+}
+export default cuarto
+```
+
+## 3. Registrarlo
+En `src/core/registry.ts`, reemplaza el placeholder `proximo(...)` de ese id por el
+import del módulo real y agrégalo al array `rooms`. La casa dibuja su plataforma, paredes,
+mueble (en `Furniture.tsx`, por `id`) y botón "Entrar" automáticamente.
+
+## 4. Datos nuevos (si aplica)
+En `src/core/data/db.ts`: agrega la interfaz y la tabla, y sube `this.version(n).stores({...})`.
+En `repository.ts`: `export const miRepo = createRepository(db.miTabla)`
+(usa `createRepository(db.tabla, 'id', false)` si la tabla no tiene campo `fecha`).
+
+## 5. Mueble 3D del cuarto
+Agrega un `case '<id>':` en `src/core/house/Furniture.tsx` con primitivas (B/Cyl/Sphere).
+
+## Posiciones de la cuadrícula (cols x: -9 -3 3 9 · filas z: -6 0 6)
+Ver el array `rooms` en `registry.ts` para no chocar posiciones.
