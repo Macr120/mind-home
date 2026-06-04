@@ -6,8 +6,8 @@ import { useDiseño } from '../state/disenoStore'
 import { wallColliders } from './walls'
 import { moveInput } from './movement'
 
-const RADIO = 0.4 // radio del personaje para colisiones
-const SPEED = 0.095 // velocidad de movimiento libre por frame
+const RADIO = 0.4  // radio del personaje para colisiones
+const SPEED = 0.045 // velocidad base — más lenta para precisión
 
 // Temporales reutilizables (un solo Character en escena).
 const _fwd = new THREE.Vector3()
@@ -44,24 +44,35 @@ export function Character() {
   useFrame(() => {
     if (!ref.current) return
     const cur = ref.current.position
-    const { f, s } = moveInput
+    const { f, s, dx, dz } = moveInput
+    const hayInput = f !== 0 || s !== 0 || dx !== 0 || dz !== 0
 
-    if (f !== 0 || s !== 0) {
-      // Dirección "adelante" = hacia donde mira la cámara (proyectada al piso).
-      camera.getWorldDirection(_fwd)
-      _fwd.y = 0
-      if (_fwd.lengthSq() < 1e-6) _fwd.set(0, 0, -1)
-      _fwd.normalize()
-      _right.set(_fwd.z, 0, -_fwd.x) // perpendicular (derecha de pantalla)
+    if (hayInput) {
+      _move.set(0, 0, 0)
 
-      _move
-        .set(0, 0, 0)
-        .addScaledVector(_fwd, f)
-        .addScaledVector(_right, s)
-      // Velocidad proporcional a cuánto se empuja el joystick (máx 1 = SPEED).
-      const mag = Math.min(1, _move.length())
-      if (mag > 0.001) _move.normalize().multiplyScalar(mag * SPEED)
-      else _move.set(0, 0, 0)
+      if (dx !== 0 || dz !== 0) {
+        // ── Teclado: diagonales fijas del mundo isométrico (ignoran rotación cámara).
+        _move.set(dx, 0, dz)
+        const mag = Math.min(1, _move.length())
+        if (mag > 0.001) _move.normalize().multiplyScalar(mag * SPEED)
+        else _move.set(0, 0, 0)
+      } else {
+        // ── Joystick: relativo a la cámara.
+        // "adelante" = hacia donde apunta la cámara en el piso.
+        camera.getWorldDirection(_fwd)
+        _fwd.y = 0
+        if (_fwd.lengthSq() < 1e-6) _fwd.set(0, 0, -1)
+        _fwd.normalize()
+        // Derecha de pantalla (corrección de inversión): -fwd.z, 0, fwd.x
+        _right.set(-_fwd.z, 0, _fwd.x)
+
+        _move
+          .addScaledVector(_fwd, f)
+          .addScaledVector(_right, s)
+        const mag = Math.min(1, _move.length())
+        if (mag > 0.001) _move.normalize().multiplyScalar(mag * SPEED)
+        else _move.set(0, 0, 0)
+      }
 
       let x = cur.x
       let z = cur.z
@@ -74,7 +85,7 @@ export function Character() {
       useHouse.getState().target.set(x, 0, z)
       ref.current.lookAt(x + _move.x, 0, z + _move.z)
     } else {
-      // Clic en la casa / menú lateral: deslizar hacia el destino.
+      // Sin input — clic en la casa o menú lateral: deslizar hacia el destino.
       const { target, freeMove } = useHouse.getState()
       const nx = THREE.MathUtils.lerp(cur.x, target.x, 0.32)
       const nz = THREE.MathUtils.lerp(cur.z, target.z, 0.32)

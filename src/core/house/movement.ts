@@ -1,17 +1,26 @@
 /**
- * Input de movimiento libre del avatar (teclado WASD/flechas + pad en pantalla).
- * `moveInput` lo lee Character cada frame (sin re-render de React).
- * - f: adelante(+1)/atrás(-1) relativo a la cámara
- * - s: derecha(+1)/izquierda(-1) relativo a la cámara
+ * Input de movimiento libre del avatar (teclado WASD/flechas + joystick).
+ *
+ * - f, s: componentes para el joystick (relativo a la cámara).
+ * - dx, dz: desplazamiento FIJO del teclado en coordenadas del mundo isométrico.
+ *   Las flechas usan las diagonales iso (NE/NO/SE/SO) para moverse de forma natural
+ *   sin importar la rotación de la cámara.
  */
-export const moveInput = { f: 0, s: 0 }
+export const moveInput = {
+  f: 0,   // joystick adelante/atrás (relativo a cámara)
+  s: 0,   // joystick derecha/izquierda (relativo a cámara)
+  dx: 0,  // teclado: desplazamiento fijo en X del mundo
+  dz: 0,  // teclado: desplazamiento fijo en Z del mundo
+}
 
-const keyState = { f: 0, s: 0 }
+const keyState = { dx: 0, dz: 0 }
 const padState = { f: 0, s: 0 }
 
 function sync() {
-  moveInput.f = Math.max(-1, Math.min(1, keyState.f + padState.f))
-  moveInput.s = Math.max(-1, Math.min(1, keyState.s + padState.s))
+  moveInput.f = Math.max(-1, Math.min(1, padState.f))
+  moveInput.s = Math.max(-1, Math.min(1, padState.s))
+  moveInput.dx = keyState.dx
+  moveInput.dz = keyState.dz
 }
 
 const MOVE_KEYS = [
@@ -20,15 +29,25 @@ const MOVE_KEYS = [
 ]
 const pressed = new Set<string>()
 
+/**
+ * Diagonales isométricas del teclado (en coordenadas del MUNDO, no de cámara):
+ *
+ *   Arriba    → NO: (-1, -1)  el personaje sube-izq en pantalla iso
+ *   Abajo     → SE: (+1, +1)  baja-der
+ *   Derecha   → NE: (+1, -1)  sube-der
+ *   Izquierda → SO: (-1, +1)  baja-izq
+ *
+ * (Se normalizan después para que la diagonal tenga la misma velocidad.)
+ */
 function recomputeKeys() {
-  let f = 0
-  let s = 0
-  if (pressed.has('w') || pressed.has('arrowup')) f += 1
-  if (pressed.has('s') || pressed.has('arrowdown')) f -= 1
-  if (pressed.has('d') || pressed.has('arrowright')) s += 1
-  if (pressed.has('a') || pressed.has('arrowleft')) s -= 1
-  keyState.f = f
-  keyState.s = s
+  let dx = 0
+  let dz = 0
+  if (pressed.has('arrowup') || pressed.has('w')) { dx -= 1; dz -= 1 }
+  if (pressed.has('arrowdown') || pressed.has('s')) { dx += 1; dz += 1 }
+  if (pressed.has('arrowright') || pressed.has('d')) { dx += 1; dz -= 1 }
+  if (pressed.has('arrowleft') || pressed.has('a')) { dx -= 1; dz += 1 }
+  keyState.dx = dx
+  keyState.dz = dz
   sync()
 }
 
@@ -51,7 +70,7 @@ export function onKey(e: KeyboardEvent, down: boolean) {
   recomputeKeys()
 }
 
-/** Lo usa el pad en pantalla (presionar/soltar). */
+/** Lo usa el joystick en pantalla. */
 export function setPad(f: number, s: number) {
   padState.f = f
   padState.s = s
@@ -60,8 +79,8 @@ export function setPad(f: number, s: number) {
 
 export function clearInput() {
   pressed.clear()
-  keyState.f = 0
-  keyState.s = 0
+  keyState.dx = 0
+  keyState.dz = 0
   padState.f = 0
   padState.s = 0
   sync()
