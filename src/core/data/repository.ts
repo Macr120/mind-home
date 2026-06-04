@@ -109,6 +109,9 @@ export const gratitudDiariaRepo = createRepository(db.gratitudDiaria)
 export const perfilMindfulnessRepo = createRepository(db.perfilMindfulness, 'id', false)
 
 export const vehiculosRepo = createRepository(db.vehiculos, 'creadoEn')
+export const perfilUsuarioRepo = createRepository(db.perfilUsuario, 'id', false)
+export const disenoRoomsRepo = createRepository(db.disenoRooms, 'roomId', false)
+export const disenoAvatarRepo = createRepository(db.disenoAvatar, 'id', false)
 export const registrosMantenimientoRepo = createRepository(db.registrosMantenimiento)
 
 export function useMantenimientosVehiculo(vehiculoId: number | null) {

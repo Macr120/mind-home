@@ -1,5 +1,6 @@
 import { Canvas, type ThreeEvent } from '@react-three/fiber'
 import { useHouse } from '../state/houseStore'
+import { useDiseño } from '../state/disenoStore'
 import { rooms } from '../registry'
 import { Character } from './Character'
 import { RoomMarker } from './RoomMarker'
@@ -27,6 +28,7 @@ function BaseFloor() {
 }
 
 export function House() {
+  const roomColors = useDiseño((s) => s.roomColors)
   return (
     <Canvas
       shadows
@@ -57,7 +59,7 @@ export function House() {
           key={room.id}
           id={room.id}
           position={room.posicion}
-          color={room.color}
+          color={roomColors[room.id] ?? room.color}
         />
       ))}
       {rooms.map((room) => (

@@ -1,5 +1,7 @@
 import type { ComponentType } from 'react'
 import biblioteca from '../rooms/biblioteca'
+import configuraciones from '../rooms/configuraciones'
+import diseno from '../rooms/diseno'
 import entretenimiento from '../rooms/entretenimiento'
 import garage from '../rooms/garage'
 import jardin from '../rooms/jardin'
@@ -9,8 +11,6 @@ import ejercicio from '../rooms/ejercicio'
 import despacho from '../rooms/despacho'
 import diario from '../rooms/diario'
 import recamara from '../rooms/recamara'
-import { ComingSoon } from '../rooms/_shared/ComingSoon'
-
 /**
  * Contrato que CADA cuarto debe cumplir para "enchufarse" a la casa.
  * Agregar un cuarto = crear su carpeta en src/rooms/ y registrarlo abajo.
@@ -28,16 +28,6 @@ export interface RoomModule {
   App: ComponentType
 }
 
-/** Atajo para cuartos todavía no desarrollados. */
-const proximo = (
-  id: string,
-  nombre: string,
-  icon: string,
-  categoria: RoomModule['categoria'],
-  posicion: [number, number, number],
-  color: string,
-): RoomModule => ({ id, nombre, icon, categoria, posicion, color, App: ComingSoon })
-
 // Distribución en cuadrícula 4×3 (12 espacios). Cols x: -9 -3 3 9 · Filas z: -6 0 6
 export const rooms: RoomModule[] = [
   // Fila trasera
@@ -53,8 +43,8 @@ export const rooms: RoomModule[] = [
   // Fila frontal
   garage,
   diario,
-  proximo('configuraciones', 'Configuraciones', '⚙️', 'config', [3, 0, 6], '#94a3b8'),
-  proximo('diseno', 'Diseño de casa', '🏠', 'config', [9, 0, 6], '#cbd5e1'),
+  configuraciones,
+  diseno,
 ]
 
 export const getRoom = (id: string) => rooms.find((r) => r.id === id)

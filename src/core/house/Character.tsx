@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useHouse, playerPos } from '../state/houseStore'
+import { useDiseño } from '../state/disenoStore'
 import { wallColliders } from './walls'
 
 const RADIO = 0.4 // radio del personaje para colisiones
@@ -27,8 +28,8 @@ function chocado(x: number, z: number) {
  */
 export function Character() {
   const ref = useRef<THREE.Group>(null)
-  // navTick fuerza re-render al elegir cuarto en el menú lateral
   useHouse((s) => s.navTick)
+  const av = useDiseño((s) => s.avatar)
 
   useFrame(() => {
     if (!ref.current) return
@@ -55,30 +56,30 @@ export function Character() {
       {/* piernas */}
       <mesh position={[-0.14, 0.3, 0]} castShadow>
         <boxGeometry args={[0.24, 0.6, 0.26]} />
-        <meshStandardMaterial color="#2f5fd0" />
+        <meshStandardMaterial color={av.piernas} />
       </mesh>
       <mesh position={[0.14, 0.3, 0]} castShadow>
         <boxGeometry args={[0.24, 0.6, 0.26]} />
-        <meshStandardMaterial color="#2f5fd0" />
+        <meshStandardMaterial color={av.piernas} />
       </mesh>
       {/* torso */}
       <mesh position={[0, 0.92, 0]} castShadow>
         <boxGeometry args={[0.6, 0.62, 0.3]} />
-        <meshStandardMaterial color="#e23b3b" />
+        <meshStandardMaterial color={av.torso} />
       </mesh>
       {/* brazos */}
       <mesh position={[-0.42, 0.92, 0]} castShadow>
         <boxGeometry args={[0.2, 0.6, 0.26]} />
-        <meshStandardMaterial color="#e23b3b" />
+        <meshStandardMaterial color={av.torso} />
       </mesh>
       <mesh position={[0.42, 0.92, 0]} castShadow>
         <boxGeometry args={[0.2, 0.6, 0.26]} />
-        <meshStandardMaterial color="#e23b3b" />
+        <meshStandardMaterial color={av.torso} />
       </mesh>
       {/* cabeza */}
       <mesh position={[0, 1.5, 0]} castShadow>
         <boxGeometry args={[0.44, 0.44, 0.44]} />
-        <meshStandardMaterial color="#ffd23b" />
+        <meshStandardMaterial color={av.cabeza} />
       </mesh>
     </group>
   )

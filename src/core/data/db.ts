@@ -416,6 +416,33 @@ export interface RegistroMantenimiento {
   proximaFecha?: string
 }
 
+// ----- Configuraciones · Perfil y diseño -----
+
+/** Perfil del usuario (una sola fila, id=1). */
+export interface PerfilUsuario {
+  id?: number
+  nombre: string
+  emoji: string
+  nacimiento?: string // ISO yyyy-mm-dd
+  bio: string
+}
+
+/** Personalización visual de un cuarto. */
+export interface DisenoRoom {
+  id?: number
+  roomId: string  // coincide con RoomModule.id
+  color: string   // hex
+  nombre?: string // nombre personalizado (vacío = usar el default)
+}
+
+/** Colores del avatar Roblox del usuario. */
+export interface DisenoAvatar {
+  id?: number
+  cabeza: string   // hex
+  torso: string    // hex
+  piernas: string  // hex
+}
+
 // ----- Base de datos -----
 
 export class MindHomeDB extends Dexie {
@@ -446,6 +473,9 @@ export class MindHomeDB extends Dexie {
   juegosMesa!: Table<JuegoMesa, number>
   progresoTema!: Table<ProgresoTema, number>
   noticias!: Table<Noticia, number>
+  perfilUsuario!: Table<PerfilUsuario, number>
+  disenoRooms!: Table<DisenoRoom, number>
+  disenoAvatar!: Table<DisenoAvatar, number>
 
   constructor() {
     super('mind-home')
@@ -683,6 +713,39 @@ export class MindHomeDB extends Dexie {
       juegosMesa: '++id, categoria, estado, creadoEn, ultimaPartida',
       progresoTema: '++id, temaId, pilarId, estado, actualizadoEn',
       noticias: '++id, fecha, categoria, leido, destacada, creadoEn',
+    })
+    // v13: Configuraciones y Diseño de casa
+    this.version(13).stores({
+      transacciones: '++id, fecha, tipo, categoria',
+      sueno: '++id, fecha',
+      anecdotas: '++id, fecha',
+      metas: '++id',
+      presupuestos: '++id, categoria',
+      perfilNutricion: '++id',
+      registrosComida: '++id, fecha, momento',
+      planComidas: '++id, fecha, momento',
+      registrosAgua: '++id, fecha',
+      alimentosFavoritos: '++id, nombre',
+      perfilEjercicio: '++id',
+      sesionesEjercicio: '++id, fecha, tipo',
+      seriesFuerza: '++id, sesionId, orden',
+      mediaArchivo: '++id, tipo, genero, fecha, estado, creadoEn',
+      viajes: '++id, estado, pais, fechaInicio, creadoEn',
+      actividadesViaje: '++id, viajeId, fecha, orden',
+      gastosViaje: '++id, viajeId, fecha, categoria',
+      checklistViaje: '++id, viajeId, categoria',
+      sesionesMindfulness: '++id, fecha, tipo',
+      registroAnimo: '++id, fecha',
+      gratitudDiaria: '++id, fecha',
+      perfilMindfulness: '++id',
+      vehiculos: '++id, tipo, creadoEn',
+      registrosMantenimiento: '++id, vehiculoId, fecha, tipo',
+      juegosMesa: '++id, categoria, estado, creadoEn, ultimaPartida',
+      progresoTema: '++id, temaId, pilarId, estado, actualizadoEn',
+      noticias: '++id, fecha, categoria, leido, destacada, creadoEn',
+      perfilUsuario: '++id',
+      disenoRooms: '++id, roomId',
+      disenoAvatar: '++id',
     })
   }
 }
