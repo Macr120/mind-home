@@ -1,9 +1,10 @@
-import { rooms } from '../registry'
-
 /**
  * Geometría de las paredes de los cuartos, en un solo lugar.
- * La usan Room3D (para dibujar) y Character (para colisiones), así nunca
+ * La usan Room3D (para dibujar) y el layoutStore (para colisiones), así nunca
  * se desincronizan: lo que ves es exactamente contra lo que chocas.
+ *
+ * Las puertas se abren solo hacia cuartos VECINOS colocados (ocupación), por lo
+ * que el mapa puede tener cualquier subconjunto de cuartos y siempre se conecta bien.
  */
 
 export const SIZE = 6 // tamaño del cuarto
@@ -40,25 +41,28 @@ export function doorFor(position: [number, number, number]) {
   return { axis, sign }
 }
 
-// Límites de la cuadrícula 4×3 (cols x: -9..9 · filas z: -6..6).
-const X_MIN = -9
-const X_MAX = 9
-const Z_MIN = -6
-const Z_MAX = 6
+/** Tamaño de celda de la rejilla (= tamaño del cuarto). */
+export const SPACING = SIZE
+
+/** Clave de celda del mundo para el conjunto de ocupación. */
+export const cellKey = (x: number, z: number) => `${x},${z}`
 
 /**
- * Segmentos de pared (locales) de un cuarto. Cada lado que da a otro cuarto
- * (interior) lleva una puerta (hueco al centro); el perímetro queda sólido.
- * Así todos los cuartos quedan conectados y se puede atravesar entre ellos.
+ * Segmentos de pared (locales) de un cuarto. Cada lado que da a un cuarto
+ * vecino COLOCADO lleva una puerta (hueco al centro); los demás quedan sólidos.
+ * `ocupado` es el conjunto de claves "x,z" de los cuartos presentes en el mapa.
  */
-export function localWallSegments(position: [number, number, number]): Seg[] {
+export function localWallSegments(
+  position: [number, number, number],
+  ocupado: Set<string>,
+): Seg[] {
   const [x, , z] = position
-  // Un lado tiene puerta si hay un cuarto vecino en esa dirección.
+  // Un lado tiene puerta si el cuarto vecino en esa dirección está colocado.
   const sides: { axis: Axis; sign: number; puerta: boolean }[] = [
-    { axis: 'z', sign: -1, puerta: z > Z_MIN + 0.1 }, // norte
-    { axis: 'z', sign: 1, puerta: z < Z_MAX - 0.1 }, // sur
-    { axis: 'x', sign: -1, puerta: x > X_MIN + 0.1 }, // oeste
-    { axis: 'x', sign: 1, puerta: x < X_MAX - 0.1 }, // este
+    { axis: 'z', sign: -1, puerta: ocupado.has(cellKey(x, z - SPACING)) }, // norte
+    { axis: 'z', sign: 1, puerta: ocupado.has(cellKey(x, z + SPACING)) }, // sur
+    { axis: 'x', sign: -1, puerta: ocupado.has(cellKey(x - SPACING, z)) }, // oeste
+    { axis: 'x', sign: 1, puerta: ocupado.has(cellKey(x + SPACING, z)) }, // este
   ]
   const segs: Seg[] = []
   for (const { axis, sign, puerta } of sides) {
@@ -85,13 +89,16 @@ export interface AABB {
   maxZ: number
 }
 
-/** Todos los colliders de pared de la casa (se calcula una vez al cargar). */
-export const wallColliders: AABB[] = rooms.flatMap((r) => {
-  const [x, , z] = r.posicion
-  return localWallSegments(r.posicion).map((s) => ({
+/** Colliders de pared de un cuarto (mundo), dado el conjunto de ocupación. */
+export function collidersForRoom(
+  position: [number, number, number],
+  ocupado: Set<string>,
+): AABB[] {
+  const [x, , z] = position
+  return localWallSegments(position, ocupado).map((s) => ({
     minX: x + s.cx - s.sx / 2,
     maxX: x + s.cx + s.sx / 2,
     minZ: z + s.cz - s.sz / 2,
     maxZ: z + s.cz + s.sz / 2,
   }))
-})
+}

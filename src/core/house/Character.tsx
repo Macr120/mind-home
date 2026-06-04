@@ -3,7 +3,8 @@ import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useHouse, playerPos } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
-import { wallColliders } from './walls'
+import { useLayout } from '../state/layoutStore'
+import type { AABB } from './walls'
 import { moveInput } from './movement'
 
 const RADIO = 0.4   // radio del personaje para colisiones
@@ -15,8 +16,8 @@ const _right = new THREE.Vector3()
 const _move = new THREE.Vector3()
 
 /** ¿La posición (x,z) cae dentro de alguna pared (inflada por el radio)? */
-function chocado(x: number, z: number) {
-  for (const c of wallColliders) {
+function chocado(x: number, z: number, colliders: AABB[]) {
+  for (const c of colliders) {
     if (
       x > c.minX - RADIO &&
       x < c.maxX + RADIO &&
@@ -44,6 +45,7 @@ export function Character() {
   useFrame(() => {
     if (!ref.current) return
     const cur = ref.current.position
+    const colliders = useLayout.getState().wallColliders
     const { f, s, dx, dz } = moveInput
     const hayInput = f !== 0 || s !== 0 || dx !== 0 || dz !== 0
 
@@ -76,8 +78,8 @@ export function Character() {
 
       let x = cur.x
       let z = cur.z
-      if (!chocado(cur.x + _move.x, cur.z)) x = cur.x + _move.x
-      if (!chocado(x, cur.z + _move.z)) z = cur.z + _move.z
+      if (!chocado(cur.x + _move.x, cur.z, colliders)) x = cur.x + _move.x
+      if (!chocado(x, cur.z + _move.z, colliders)) z = cur.z + _move.z
 
       cur.set(x, 0, z)
       playerPos.copy(cur)
@@ -96,8 +98,8 @@ export function Character() {
         x = nx
         z = nz
       } else {
-        if (!chocado(nx, z)) x = nx
-        if (!chocado(x, nz)) z = nz
+        if (!chocado(nx, z, colliders)) x = nx
+        if (!chocado(x, nz, colliders)) z = nz
       }
 
       cur.set(x, 0, z)

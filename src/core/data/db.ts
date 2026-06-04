@@ -445,6 +445,13 @@ export interface ObjetoCuarto {
   slot: number  // 0-3: esquina del cuarto donde se coloca
 }
 
+/** Layout editable: qué cuartos están colocados en el mapa 3D. */
+export interface LayoutCuarto {
+  id?: number
+  roomId: string
+  placed: boolean
+}
+
 /** Colores del avatar Roblox del usuario. */
 export interface DisenoAvatar {
   id?: number
@@ -487,6 +494,7 @@ export class MindHomeDB extends Dexie {
   disenoRooms!: Table<DisenoRoom, number>
   disenoAvatar!: Table<DisenoAvatar, number>
   objetosCuarto!: Table<ObjetoCuarto, number>
+  layout!: Table<LayoutCuarto, number>
 
   constructor() {
     super('mind-home')
@@ -761,6 +769,10 @@ export class MindHomeDB extends Dexie {
     // v14: objetos de decoración por cuarto (Dexie conserva las tablas previas)
     this.version(14).stores({
       objetosCuarto: '++id, roomId',
+    })
+    // v15: layout editable del mapa (qué cuartos están colocados)
+    this.version(15).stores({
+      layout: '++id, roomId',
     })
   }
 }

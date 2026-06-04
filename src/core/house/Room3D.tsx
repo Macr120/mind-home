@@ -1,6 +1,7 @@
 import { type ThreeEvent } from '@react-three/fiber'
 import { useHouse } from '../state/houseStore'
 import { useDiseño, OBJETO_SLOTS } from '../state/disenoStore'
+import { useLayout } from '../state/layoutStore'
 import { localWallSegments, WALL_H, SIZE } from './walls'
 import { Furniture } from './Furniture'
 import { ObjetoView } from './catalogo'
@@ -26,7 +27,8 @@ export function Room3D({
   position: [number, number, number]
   color: string
 }) {
-  const segs = localWallSegments(position)
+  const ocupado = useLayout((s) => s.ocupado)
+  const segs = localWallSegments(position, ocupado)
   const floorColor = lighten(color, 35)
   const interactRoom = useHouse((s) => s.interactRoom)
   const selectedRoomId = useHouse((s) => s.selectedRoomId)

@@ -1,12 +1,25 @@
-import { Canvas, type ThreeEvent } from '@react-three/fiber'
+import { useEffect } from 'react'
+import { Canvas, useThree, type ThreeEvent } from '@react-three/fiber'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
+import { useLayout } from '../state/layoutStore'
 import { rooms } from '../registry'
 import { Character } from './Character'
 import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { CameraRig } from './CameraRig'
 import { NavControls } from '../ui/NavControls'
+import { EditPanel } from '../ui/EditPanel'
+
+/** Reactiva la sombra estática una vez cuando cambia el layout (agregar/quitar). */
+function ShadowUpdater() {
+  const gl = useThree((s) => s.gl)
+  const placed = useLayout((s) => s.placed)
+  useEffect(() => {
+    gl.shadowMap.needsUpdate = true
+  }, [gl, placed])
+  return null
+}
 
 /** Suelo base de la casa: al hacer clic, el personaje camina a ese punto. */
 function BaseFloor() {
@@ -30,6 +43,7 @@ function BaseFloor() {
 
 export function House() {
   const roomColors = useDiseño((s) => s.roomColors)
+  const placed = useLayout((s) => s.placed)
   return (
     <>
       <Canvas
@@ -47,6 +61,7 @@ export function House() {
       >
         <color attach="background" args={['#0f1115']} />
         <CameraRig />
+        <ShadowUpdater />
       <ambientLight intensity={0.8} />
       <directionalLight
         position={[18, 28, 12]}
@@ -63,19 +78,22 @@ export function House() {
 
       <BaseFloor />
 
-      {rooms.map((room) => (
-        <Room3D
-          key={room.id}
-          id={room.id}
-          position={room.posicion}
-          color={roomColors[room.id] ?? room.color}
-        />
-      ))}
+      {rooms
+        .filter((room) => placed[room.id])
+        .map((room) => (
+          <Room3D
+            key={room.id}
+            id={room.id}
+            position={room.posicion}
+            color={roomColors[room.id] ?? room.color}
+          />
+        ))}
 
       <RoomProximity />
       <Character />
       </Canvas>
       <NavControls />
+      <EditPanel />
     </>
   )
 }
