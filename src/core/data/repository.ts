@@ -48,6 +48,9 @@ export function createRepository<T extends { id?: number }>(
     async remove(id: number): Promise<void> {
       return table.delete(id)
     },
+    async list(): Promise<T[]> {
+      return table.toArray()
+    },
   }
 }
 

@@ -49,18 +49,18 @@ src/
 ## Cuartos
 | # | Cuarto | App | Estado |
 |---|--------|-----|--------|
-| 1 | Cocina | Nutrición | ⬜ |
-| 2 | Ejercicio | Rutinas | ⬜ |
+| 1 | Cocina | Nutrición | ✅ |
+| 2 | Ejercicio | Rutinas | ✅ |
 | 3 | Recámara | Descanso + Anecdotario | ✅ |
-| 4 | Sala entretenimiento | Películas + Juegos | ⬜ |
-| 5 | Biblioteca | Aprendizaje | ⬜ |
+| 4 | Sala entretenimiento | Películas + Juegos | ✅ |
+| 5 | Biblioteca | Aprendizaje | ✅ |
 | 6 | Despacho | Finanzas | ✅ |
-| 7 | Sala | Viajes | ⬜ |
-| 8 | Jardín | Mindfulness | ⬜ |
-| 9 | Garage/Taller | Máquinas | ⬜ |
-| 10 | Diario | **Noticias que se actualizan cada día** (NO es el anecdotario) | ⬜ |
-| A | Configuraciones | menú | ⬜ |
-| B | Diseño de casa | menú | ⬜ |
+| 7 | Sala | Viajes | ✅ |
+| 8 | Jardín | Mindfulness | ✅ |
+| 9 | Garage/Taller | Vehículos | ✅ |
+| 10 | Diario | **Noticias (briefing RSS diario)** — NO es el anecdotario | ✅ |
+| A | Configuraciones | Perfil y datos | ✅ |
+| B | Diseño de casa | Colores, avatar, editor de mapa | ✅ |
 
 ## Calidad "premium"
 Cada cuarto debe acercarse a apps premium del mercado. Antes de construir/pulir un cuarto,

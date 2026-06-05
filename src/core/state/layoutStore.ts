@@ -1,6 +1,8 @@
 import { create } from 'zustand'
 import { db } from '../data/db'
 import { rooms } from '../registry'
+import { useCam } from './cameraStore'
+import { useInteractUi } from './interactUiStore'
 import {
   cellId,
   cabeEnRejilla,
@@ -12,6 +14,7 @@ import {
   COLS,
   ROWS,
   MAX_AREA,
+  MAX_DIM,
   SIZE_DEFAULT,
   type AABB,
   type Cell,
@@ -164,16 +167,24 @@ export const useLayout = create<LayoutState>((set, get) => ({
     })
   },
 
-  setEditMode: (v) =>
+  setEditMode: (v) => {
+    if (v) useInteractUi.getState().clear()
     set({
       editMode: v,
       draggingId: null,
       previewCell: null,
       editingRoomId: v ? get().editingRoomId : null,
-    }),
+    })
+    if (v && !get().editingRoomId) useCam.getState().reset()
+    else if (!v) useCam.getState().reset()
+  },
 
-  editRoom: (id) =>
-    set({ editMode: true, editingRoomId: id, draggingId: null, previewCell: null }),
+  editRoom: (id) => {
+    const saliaDeCuarto = get().editingRoomId != null && id == null
+    set({ editMode: true, editingRoomId: id, draggingId: null, previewCell: null })
+    if (id) useCam.getState().focusRoomEdit(roomWorldPos(id))
+    else if (saliaDeCuarto) useCam.getState().reset()
+  },
 
   toggleRoom: async (id) => {
     const placed = { ...get().placed, [id]: !get().placed[id] }
@@ -194,9 +205,9 @@ export const useLayout = create<LayoutState>((set, get) => ({
   },
 
   resizeRoom: async (id, size) => {
-    const w = Math.max(1, Math.min(4, Math.round(size.w)))
-    const h = Math.max(1, Math.min(4, Math.round(size.h)))
-    if (w * h > MAX_AREA) return // máximo 4 veces el espacio estándar
+    const w = Math.max(1, Math.min(MAX_DIM, Math.round(size.w)))
+    const h = Math.max(1, Math.min(MAX_DIM, Math.round(size.h)))
+    if (w * h > MAX_AREA) return // máximo según MAX_AREA
     const { placed, cells, sizes } = get()
     if (!esFootprintLibre(placed, cells, sizes, id, cells[id], { w, h })) return
     const nuevos = { ...sizes, [id]: { w, h } }

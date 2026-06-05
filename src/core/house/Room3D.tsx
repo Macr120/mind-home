@@ -3,10 +3,11 @@ import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { esFootprintLibre, useLayout } from '../state/layoutStore'
 import { roomWallSegments, WALL_H, SIZE, SIZE_DEFAULT } from './walls'
-import { Furniture } from './Furniture'
 import { ObjetoView } from './catalogo'
+import { esMueblePrincipal } from './muebles'
+import { useInteractUi } from '../state/interactUiStore'
 
-function lighten(hex: string, amt: number) {
+function tint(hex: string, amt: number) {
   const n = parseInt(hex.slice(1), 16)
   const r = Math.min(255, Math.max(0, ((n >> 16) & 255) + amt))
   const g = Math.min(255, Math.max(0, ((n >> 8) & 255) + amt))
@@ -43,8 +44,12 @@ export function Room3D({
   const W = size.w * SIZE
   const H = size.h * SIZE
   const segs = roomWallSegments(cells[id], size, ocupado, overrides, doorPos)
-  const floorColor = lighten(color, 35)
-  const interactRoom = useHouse((s) => s.interactRoom)
+  const conTecho = useHouse((s) => s.conTecho)
+  const floorColor = tint(color, 35)
+  const techoColor = tint(color, -25)
+  const setTarget = useHouse((s) => s.setTarget)
+  const selectMueble = useInteractUi((s) => s.selectMueble)
+  const clearInteract = useInteractUi((s) => s.clear)
   const selectedRoomId = useHouse((s) => s.selectedRoomId)
   const nearRoomId = useHouse((s) => s.nearRoomId)
   const seleccionado = selectedRoomId === id
@@ -54,7 +59,6 @@ export function Room3D({
     !arrastrando ||
     !previewCell ||
     esFootprintLibre(placed, cells, sizes, id, previewCell, size)
-  const muebleColor = useDiseño((s) => s.furnitureColors[id])
   const objetos = useDiseño((s) => s.objetos)
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
@@ -70,7 +74,8 @@ export function Room3D({
   const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
     if (editMode) return
     e.stopPropagation()
-    interactRoom(id)
+    clearInteract()
+    setTarget(e.point.x, e.point.z)
   }
   // Mover cuartos solo en "Editar mapa" SIN un cuarto en edición.
   // Al editar un cuarto (engrane), el piso no arrastra el cuarto (se arrastran objetos).
@@ -119,18 +124,34 @@ export function Room3D({
         </mesh>
       ))}
 
-      {/* Mueble temático (recolorable) */}
-      <Furniture id={id} color={muebleColor} />
+      {/* Techo (toggle 🏠 junto a Mind Home) */}
+      {conTecho && (
+        <mesh position={[0, WALL_H + 0.06, 0]} castShadow receiveShadow>
+          <boxGeometry args={[W - 0.12, 0.12, H - 0.12]} />
+          <meshStandardMaterial color={techoColor} roughness={0.75} />
+        </mesh>
+      )}
 
-      {/* Decoración (posición libre · arrastrable al editar el cuarto) */}
+      {/* Objetos (mueble permanente + decoración · arrastrables al editar el cuarto) */}
       {objetosCuarto.map((o) => {
         const ox = o.x ?? slotPos(o.slot)[0]
         const oz = o.z ?? slotPos(o.slot)[1]
         const drag = draggingObjeto === o.id
+        const rotY = ((o.rotY ?? 0) * Math.PI) / 180
+        const esPrincipal = esMueblePrincipal(o)
         return (
           <group
             key={o.id}
             position={[ox, drag ? 0.6 : 0.2, oz]}
+            rotation={[0, rotY, 0]}
+            onClick={
+              !editMode && esPrincipal
+                ? (e) => {
+                    e.stopPropagation()
+                    selectMueble(id)
+                  }
+                : undefined
+            }
             onPointerDown={
               objetosEditables
                 ? (e) => {
@@ -139,14 +160,16 @@ export function Room3D({
                   }
                 : undefined
             }
-            onPointerOver={
-              objetosEditables
-                ? (e) => {
-                    e.stopPropagation()
-                    document.body.style.cursor = 'grab'
-                  }
-                : undefined
-            }
+            onPointerOver={(e) => {
+              e.stopPropagation()
+              if (objetosEditables) document.body.style.cursor = 'grab'
+              else if (!editMode && esPrincipal)
+                document.body.style.cursor = 'pointer'
+            }}
+            onPointerOut={() => {
+              if (!useDiseño.getState().draggingObjeto && !editMode)
+                document.body.style.cursor = 'default'
+            }}
           >
             <ObjetoView tipo={o.tipo} color={o.color} />
           </group>

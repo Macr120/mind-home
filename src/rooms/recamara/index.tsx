@@ -3,7 +3,7 @@ import { RecamaraApp } from './RecamaraApp'
 
 const recamara: RoomModule = {
   id: 'recamara',
-  nombre: 'Recámara 1',
+  nombre: 'Recámara · Sueño',
   icon: '🛏️',
   categoria: 'cuerpo',
   posicion: [3, 0, -6],

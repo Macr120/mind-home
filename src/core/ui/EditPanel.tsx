@@ -1,6 +1,5 @@
 import { rooms, getRoom } from '../registry'
-import { useLayout, roomWorldPos } from '../state/layoutStore'
-import { useCam } from '../state/cameraStore'
+import { useLayout } from '../state/layoutStore'
 import { useDiseño } from '../state/disenoStore'
 import { ObjetosTab } from '../../rooms/diseno/ObjetosTab'
 import { ColorPicker } from '../../rooms/diseno/ColorPicker'
@@ -20,15 +19,11 @@ export function EditPanel() {
   const setEditMode = useLayout((s) => s.setEditMode)
   const toggleRoom = useLayout((s) => s.toggleRoom)
   const placed = useLayout((s) => s.placed)
-  const focusRoom = useCam((s) => s.focusRoom)
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
   const setRoomColor = useDiseño((s) => s.setRoomColor)
 
-  const editar = (id: string | null) => {
-    editRoom(id)
-    if (id) focusRoom(roomWorldPos(id))
-  }
+  const editar = (id: string | null) => editRoom(id)
 
   if (!editMode) {
     return (
@@ -73,8 +68,8 @@ export function EditPanel() {
         {room ? (
           <>
             Edita paredes y tamaño.{' '}
-            <b className="text-white/65">Arrastra los objetos</b> dentro del
-            cuarto para colocarlos.
+            <b className="text-white/65">Arrastra el mueble y la decoración</b>{' '}
+            dentro del cuarto (el mueble principal no se puede quitar).
           </>
         ) : (
           <>

@@ -436,15 +436,19 @@ export interface DisenoRoom {
   muebleColor?: string // color del mueble principal (vacío = default)
 }
 
-/** Objeto de decoración colocado en un cuarto (catálogo). */
+/** Objeto colocado en un cuarto (catálogo o mueble temático). */
 export interface ObjetoCuarto {
   id?: number
   roomId: string
-  tipo: string  // id del catálogo (catalogo.tsx)
+  tipo: string  // id del catálogo o `mueble:<roomId>`
   color: string // hex
   slot: number  // (heredado) ranura; con x/z se ignora
   x?: number    // posición libre dentro del cuarto (relativa al centro)
   z?: number
+  /** Rotación en grados (eje Y). */
+  rotY?: number
+  /** Mueble principal del cuarto: no se puede quitar, sí mover y recolorear. */
+  permanente?: boolean
 }
 
 /** Layout editable: qué cuartos están colocados y en qué celda de la rejilla. */
@@ -782,6 +786,10 @@ export class MindHomeDB extends Dexie {
     })
     // v15: layout editable del mapa (qué cuartos están colocados)
     this.version(15).stores({
+      layout: '++id, roomId',
+    })
+    // v16: rotación de objetos en el cuarto (rotY en objetosCuarto, sin índice nuevo)
+    this.version(16).stores({
       layout: '++id, roomId',
     })
   }

@@ -8,21 +8,57 @@ import { Character } from './Character'
 import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { CameraRig } from './CameraRig'
+import { CameraControls } from './CameraControls'
 import { RoomDragController } from './RoomDragController'
 import { ObjetoDragController } from './ObjetoDragController'
 import { roomCenter, SIZE_DEFAULT } from './walls'
 import { NavControls } from '../ui/NavControls'
 import { EditPanel } from '../ui/EditPanel'
+import { InteractAnchor } from './InteractAnchor'
+import { useInteractUi } from '../state/interactUiStore'
 
-/** Reactiva la sombra estática cuando cambia el layout (agregar/quitar/mover). */
+/** En modo edición las sombras quedan congeladas y dejan “fantasmas” al mover objetos. */
+function ShadowMode() {
+  const gl = useThree((s) => s.gl)
+  const editMode = useLayout((s) => s.editMode)
+  useEffect(() => {
+    gl.shadowMap.enabled = !editMode
+    if (!editMode) gl.shadowMap.needsUpdate = true
+  }, [editMode, gl])
+  return null
+}
+
+/** Reactiva la sombra estática cuando cambia el layout (solo fuera de edición). */
 function ShadowUpdater() {
   const gl = useThree((s) => s.gl)
+  const editMode = useLayout((s) => s.editMode)
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
+  const editingRoomId = useLayout((s) => s.editingRoomId)
+  const conTecho = useHouse((s) => s.conTecho)
   useEffect(() => {
+    if (editMode) return
     gl.shadowMap.needsUpdate = true
-  }, [gl, placed, cells])
+  }, [gl, editMode, placed, cells, editingRoomId, conTecho])
   return null
+}
+
+function SceneLight() {
+  const editMode = useLayout((s) => s.editMode)
+  return (
+    <directionalLight
+      position={[18, 28, 12]}
+      intensity={1.0}
+      castShadow={!editMode}
+      shadow-mapSize={[1024, 1024]}
+      shadow-camera-left={-24}
+      shadow-camera-right={24}
+      shadow-camera-top={24}
+      shadow-camera-bottom={-24}
+      shadow-camera-near={0.1}
+      shadow-camera-far={90}
+    />
+  )
 }
 
 /** Suelo base de la casa: al hacer clic, el personaje camina a ese punto. */
@@ -30,9 +66,11 @@ function BaseFloor() {
   const setTarget = useHouse((s) => s.setTarget)
   const editMode = useLayout((s) => s.editMode)
   const floorColor = useDiseño((s) => s.roomColors['__piso__']) ?? '#0c0e13'
+  const clearInteract = useInteractUi((s) => s.clear)
   const onClick = (e: ThreeEvent<MouseEvent>) => {
     if (editMode) return // en edición el clic no mueve al avatar
     e.stopPropagation()
+    clearInteract()
     setTarget(e.point.x, e.point.z)
   }
   return (
@@ -55,6 +93,8 @@ export function House() {
   const sizes = useLayout((s) => s.sizes)
   const draggingId = useLayout((s) => s.draggingId)
   const previewCell = useLayout((s) => s.previewCell)
+  const editingRoomId = useLayout((s) => s.editingRoomId)
+  const aislarCuarto = Boolean(editingRoomId)
   return (
     <>
       <Canvas
@@ -72,25 +112,26 @@ export function House() {
       >
         <color attach="background" args={['#0f1115']} />
         <CameraRig />
+        <CameraControls />
+        <ShadowMode />
         <ShadowUpdater />
       <ambientLight intensity={0.8} />
-      <directionalLight
-        position={[18, 28, 12]}
-        intensity={1.0}
-        castShadow
-        shadow-mapSize={[1024, 1024]}
-        shadow-camera-left={-24}
-        shadow-camera-right={24}
-        shadow-camera-top={24}
-        shadow-camera-bottom={-24}
-        shadow-camera-near={0.1}
-        shadow-camera-far={90}
-      />
+      <SceneLight />
 
       <BaseFloor />
+      {/* Cuadrícula muy sutil sobre el piso (celdas de 6 unidades) */}
+      <gridHelper
+        args={[36, 6, '#ffffff', '#ffffff']}
+        position={[0, 0.02, 0]}
+        material-transparent
+        material-opacity={0.05}
+      />
 
       {rooms
-        .filter((room) => placed[room.id])
+        .filter(
+          (room) =>
+            placed[room.id] && (!aislarCuarto || room.id === editingRoomId),
+        )
         .map((room) => {
           const arrastrando = draggingId === room.id
           const cell =
@@ -106,10 +147,11 @@ export function House() {
           )
         })}
 
-      <RoomProximity />
-      <RoomDragController />
+      {!aislarCuarto && <RoomProximity />}
+      {!aislarCuarto && <InteractAnchor />}
+      {!aislarCuarto && <RoomDragController />}
       <ObjetoDragController />
-      <Character />
+      {!aislarCuarto && <Character />}
       </Canvas>
       <NavControls />
       <EditPanel />

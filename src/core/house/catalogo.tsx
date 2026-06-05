@@ -1,5 +1,6 @@
 import { Suspense, useMemo } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { Furniture } from './Furniture'
 
 /**
  * Catálogo de objetos de decoración. Soporta dos tipos de recurso:
@@ -146,8 +147,12 @@ function GlbObjeto({ src, escala = 1 }: { src: string; escala?: number }) {
   return <primitive object={cloned} scale={escala} />
 }
 
-/** Dibuja un objeto del catálogo (primitiva o .glb). */
+/** Dibuja un objeto del catálogo, mueble temático o .glb. */
 export function ObjetoView({ tipo, color }: { tipo: string; color: string }) {
+  if (tipo.startsWith('mueble:')) {
+    const roomId = tipo.slice('mueble:'.length)
+    return <Furniture id={roomId} color={color} />
+  }
   const item = getCatalogoItem(tipo)
   if (!item) return null
   if (item.glb) {

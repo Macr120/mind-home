@@ -4,6 +4,7 @@ import { getRoom } from '../registry'
 import { estaEnPuerta } from '../house/navigation'
 import { roomEntrance } from '../house/walls'
 import { roomWorldPos } from './layoutStore'
+import { useInteractUi } from './interactUiStore'
 
 export { playerPos } from './playerPosition'
 
@@ -37,10 +38,13 @@ interface HouseState {
   goToRoom: (id: string) => void
   /** Selecciona el cuarto y camina a su puerta. */
   selectRoom: (id: string) => void
-  /** Clic en casa: selecciona/ir; si ya está seleccionado y cerca, entra. */
+  /** Clic en el cuarto 3D: solo camina a la puerta (no abre la mini-app). */
   interactRoom: (id: string) => void
   /** Abre el cuarto si el personaje está en la puerta. */
   tryEnterRoom: (id: string) => void
+  /** Vista 3D con techo cerrado en cada cuarto. */
+  conTecho: boolean
+  toggleTecho: () => void
 }
 
 export const useHouse = create<HouseState>((set, get) => ({
@@ -51,7 +55,7 @@ export const useHouse = create<HouseState>((set, get) => ({
     set((s) => ({
       target: new THREE.Vector3(x, 0, z),
       navTick: s.navTick + 1,
-      freeMove: false,
+      freeMove: true,
     })),
   enterFromMenu: (id) => {
     const room = getRoom(id)
@@ -73,8 +77,14 @@ export const useHouse = create<HouseState>((set, get) => ({
   setCanEnterSelected: (v) =>
     set((s) => (s.canEnterSelected === v ? s : { canEnterSelected: v })),
   activeRoom: null,
-  openRoom: (id) => set({ activeRoom: id }),
-  closeRoom: () => set({ activeRoom: null, selectedRoomId: null }),
+  openRoom: (id) => {
+    useInteractUi.getState().clear()
+    set({ activeRoom: id, selectedRoomId: id })
+  },
+  closeRoom: () => {
+    useInteractUi.getState().clear()
+    set({ activeRoom: null, selectedRoomId: null })
+  },
   goToRoom: (id) => {
     const room = getRoom(id)
     if (!room) return
@@ -89,19 +99,19 @@ export const useHouse = create<HouseState>((set, get) => ({
       selectedRoomId: id,
       target: new THREE.Vector3(x, 0, z),
       navTick: s.navTick + 1,
+      freeMove: false,
     }))
   },
   interactRoom: (id) => {
-    const room = getRoom(id)
-    if (!room) return
-    const { selectedRoomId } = get()
-    if (selectedRoomId === id && estaEnPuerta(roomWorldPos(id))) get().openRoom(id)
-    else get().selectRoom(id)
+    if (!getRoom(id)) return
+    get().selectRoom(id)
   },
   tryEnterRoom: (id: string) => {
     const room = getRoom(id)
     if (room && estaEnPuerta(roomWorldPos(id))) get().openRoom(id)
   },
+  conTecho: false,
+  toggleTecho: () => set((s) => ({ conTecho: !s.conTecho })),
 }))
 
 // Acceso a la store desde la consola en desarrollo (depuración/pruebas).

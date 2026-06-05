@@ -84,7 +84,8 @@ export interface Size {
   h: number
 }
 export const SIZE_DEFAULT: Size = { w: 1, h: 1 }
-export const MAX_AREA = 4 // máximo 4 veces el espacio estándar
+export const MAX_DIM = 4 // máximo de celdas por lado
+export const MAX_AREA = 16 // máximo 16 veces el espacio estándar (hasta 4×4)
 
 /** Clave de celda (col,row) para el conjunto de ocupación. */
 export const cellId = (col: number, row: number) => `${col},${row}`

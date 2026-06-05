@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { rooms, DESCRIPCIONES, type RoomModule } from '../registry'
 import { useHouse } from '../state/houseStore'
-import { useCam } from '../state/cameraStore'
 import { useDiseño } from '../state/disenoStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
+import { useCam } from '../state/cameraStore'
+import { tituloSubtituloCuarto } from './roomDisplay'
+import { TechoToggleButton } from './TechoToggleButton'
 
 const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
   { key: 'cuerpo', label: 'Cuerpo' },
@@ -13,25 +15,15 @@ const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
 ]
 
 export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
-  const selectedRoomId = useHouse((s) => s.selectedRoomId)
   const openRoom = useHouse((s) => s.openRoom)
-  const focusRoom = useCam((s) => s.focusRoom)
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
   const placed = useLayout((s) => s.placed)
   const editRoom = useLayout((s) => s.editRoom)
   const [mostrarAgregar, setMostrarAgregar] = useState(false)
 
-  const irACuarto = (room: RoomModule) => {
-    focusRoom(roomWorldPos(room.id))
-    useHouse.setState({ selectedRoomId: room.id })
-  }
-
-  /** Engrane: edita el cuarto específico (zoom + panel de objetos). */
-  const editarCuarto = (room: RoomModule) => {
-    focusRoom(roomWorldPos(room.id))
-    editRoom(room.id)
-  }
+  /** Editar cuarto (zoom + panel de objetos). */
+  const editarCuarto = (room: RoomModule) => editRoom(room.id)
 
   const disponibles = rooms.filter((r) => !placed[r.id])
 
@@ -52,14 +44,14 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             <span className="h-0.5 w-4 rounded bg-white/70" />
             <span className="h-0.5 w-4 rounded bg-white/70" />
           </button>
-          <h1 className="text-lg font-black tracking-tight text-white/90">
+          <h1 className="min-w-0 flex-1 truncate text-lg font-black tracking-tight text-white/90">
             🏠 Mind Home
           </h1>
+          <TechoToggleButton />
         </div>
         <p className="mt-1 text-[11px] leading-snug text-white/45">
-          <b className="text-white/70">Ir</b> acerca la cámara ·{' '}
-          <b className="text-white/70">Entrar</b> abre la app ·{' '}
-          <b className="text-white/70">⚙️</b> edita el cuarto.
+          <b className="text-white/70">Editar</b> personaliza el cuarto ·{' '}
+          <b className="text-white/70">Entrar</b> abre la app.
         </p>
       </div>
 
@@ -76,67 +68,57 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               </h2>
               <ul className="flex flex-col gap-1.5">
                 {grupo.map((room) => {
-                  const activo = selectedRoomId === room.id
                   const color = roomColors[room.id] ?? room.color
                   const nombre = roomNames[room.id] || room.nombre
+                  const { titulo, subtitulo } = tituloSubtituloCuarto(room, nombre)
                   return (
                     <li
                       key={room.id}
-                      className="relative rounded-lg border transition"
+                      className="rounded-lg border px-2 py-1.5 transition"
                       style={{
-                        borderColor: activo ? color : 'rgba(255,255,255,0.06)',
-                        background: activo ? `${color}1f` : 'rgba(255,255,255,0.02)',
+                        borderColor: 'rgba(255,255,255,0.06)',
+                        background: 'rgba(255,255,255,0.02)',
                       }}
                     >
-                      {/* Engrane de edición (esquina superior derecha) */}
-                      <button
-                        type="button"
-                        onClick={() => editarCuarto(room)}
-                        title="Editar este cuarto"
-                        className="absolute right-1.5 top-1.5 z-10 flex h-6 w-6 items-center justify-center rounded-md text-sm text-white/40 transition hover:bg-white/10 hover:text-white/90"
-                      >
-                        ⚙️
-                      </button>
-
-                      {/* Encabezado del cuarto */}
-                      <div className="flex items-center gap-2.5 px-2.5 pt-2 pr-8">
-                        <span
-                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-lg"
-                          style={{
-                            background: activo ? `${color}44` : 'rgba(255,255,255,0.06)',
-                          }}
-                        >
-                          {room.icon}
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          <span className="block truncate text-sm font-semibold text-white/90">
-                            {nombre.split(' · ')[0]}
+                      <div className="flex items-center gap-2">
+                        <div className="flex min-w-0 flex-1 items-center gap-2">
+                          <span
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-lg"
+                            style={{ background: `${color}33` }}
+                          >
+                            {room.icon}
                           </span>
-                          {nombre.includes(' · ') && (
-                            <span className="block truncate text-[10px] text-white/40">
-                              {nombre.split(' · ')[1]}
+                          <span className="min-w-0 flex-1 leading-tight">
+                            <span className="block truncate text-sm font-semibold text-white/90">
+                              {titulo}
                             </span>
-                          )}
-                        </span>
-                      </div>
+                            {subtitulo && (
+                              <span className="block truncate text-[11px] text-white/45">
+                                {subtitulo}
+                              </span>
+                            )}
+                          </span>
+                        </div>
 
-                      {/* Dos acciones */}
-                      <div className="flex gap-1.5 px-2 pb-2 pt-2">
-                        <button
-                          type="button"
-                          onClick={() => irACuarto(room)}
-                          className="flex-1 rounded-md border border-white/10 bg-white/5 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10"
-                        >
-                          📍 Ir
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => openRoom(room.id)}
-                          className="flex-1 rounded-md py-1.5 text-xs font-bold transition hover:brightness-110"
-                          style={{ background: color, color: '#0f1115' }}
-                        >
-                          Entrar ›
-                        </button>
+                        <div className="flex shrink-0 flex-col gap-1">
+                          <button
+                            type="button"
+                            onClick={() => editarCuarto(room)}
+                            title="Editar este cuarto"
+                            className="flex min-w-[5.25rem] items-center justify-center gap-1 rounded-md border border-white/10 bg-white/5 px-2 py-2 text-xs font-bold text-white/80 transition hover:bg-white/12"
+                          >
+                            <span className="text-sm leading-none">⚙️</span>
+                            <span>Editar</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => openRoom(room.id)}
+                            className="min-w-[5.25rem] rounded-md px-2 py-2 text-xs font-bold transition hover:brightness-110"
+                            style={{ background: color, color: '#0f1115' }}
+                          >
+                            Entrar ›
+                          </button>
+                        </div>
                       </div>
                     </li>
                   )
@@ -172,22 +154,25 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   )
 }
 
-/** Menú retraído: botón flotante (3 líneas + Mind Home). */
+/** Menú retraído: botón flotante (3 líneas + Mind Home) y toggle de techo. */
 export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   return (
-    <button
-      type="button"
-      onClick={onToggle}
-      title="Abrir menú"
-      className="absolute left-3 top-3 z-30 flex items-center gap-2 rounded-lg border border-white/10 bg-black/55 px-3 py-2 backdrop-blur-sm transition hover:bg-white/15"
-    >
-      <span className="flex flex-col items-center justify-center gap-[3px]">
-        <span className="h-0.5 w-4 rounded bg-white/80" />
-        <span className="h-0.5 w-4 rounded bg-white/80" />
-        <span className="h-0.5 w-4 rounded bg-white/80" />
-      </span>
-      <span className="text-sm font-black text-white/90">🏠 Mind Home</span>
-    </button>
+    <div className="absolute left-3 top-3 z-30 flex items-center gap-2">
+      <button
+        type="button"
+        onClick={onToggle}
+        title="Abrir menú"
+        className="flex items-center gap-2 rounded-lg border border-white/10 bg-black/55 px-3 py-2 backdrop-blur-sm transition hover:bg-white/15"
+      >
+        <span className="flex flex-col items-center justify-center gap-[3px]">
+          <span className="h-0.5 w-4 rounded bg-white/80" />
+          <span className="h-0.5 w-4 rounded bg-white/80" />
+          <span className="h-0.5 w-4 rounded bg-white/80" />
+        </span>
+        <span className="text-sm font-black text-white/90">🏠 Mind Home</span>
+      </button>
+      <TechoToggleButton />
+    </div>
   )
 }
 
@@ -214,7 +199,7 @@ function CuartoDisponible({ room }: { room: RoomModule }) {
           {room.icon}
         </span>
         <span className="truncate text-sm font-semibold text-white/90">
-          {room.nombre.split(' · ')[0]}
+          {tituloSubtituloCuarto(room, room.nombre).titulo}
         </span>
       </div>
       <p className="mt-1.5 text-[11px] leading-snug text-white/50">

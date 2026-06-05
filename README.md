@@ -32,10 +32,10 @@ src/
 │   ├── state/             # stores Zustand
 │   ├── ui/                # HUD y overlay compartidos
 │   └── registry.ts        # contrato RoomModule + lista de cuartos
-├── rooms/                 # UNA CARPETA POR APP (trabajar una a la vez)
-│   ├── despacho/          # ✅ Finanzas
-│   └── recamara/          # ✅ Cama (Descanso) + Escritorio (Anecdotario)
-└── config/                # menús Configuraciones / Diseño de casa (pendiente)
+├── rooms/                 # UNA CARPETA POR CUARTO (12 mini-apps)
+│   ├── despacho/          # Finanzas · recamara/ · cocina/ · diario/ · …
+│   ├── configuraciones/   # Perfil y copia de seguridad
+│   └── diseno/            # Colores, avatar y editor del mapa 3D
 ```
 
 ## Cómo agregar un cuarto nuevo
@@ -68,18 +68,18 @@ src/
 
 | # | Cuarto | App | Estado |
 |---|--------|-----|--------|
-| 1 | Cocina | Nutrición | ⬜ |
-| 2 | Ejercicio | Rutinas | ⬜ |
+| 1 | Cocina | Nutrición | ✅ |
+| 2 | Ejercicio | Rutinas | ✅ |
 | 3 | Recámara | Descanso + Anecdotario | ✅ |
-| 4 | Sala entretenimiento | Películas + Juegos | ⬜ |
-| 5 | Biblioteca | Aprendizaje | ⬜ |
+| 4 | Sala entretenimiento | Películas + Juegos | ✅ |
+| 5 | Biblioteca | Aprendizaje | ✅ |
 | 6 | Despacho | Finanzas | ✅ |
-| 7 | Sala | Viajes | ⬜ |
-| 8 | Jardín | Mindfulness | ⬜ |
-| 9 | Garage/Taller | Máquinas | ⬜ |
-| 10 | Diario | Noticias (se actualizan cada día) | ⬜ |
-| A | Configuraciones | menú | ⬜ |
-| B | Diseño de casa | menú | ⬜ |
+| 7 | Sala | Viajes | ✅ |
+| 8 | Jardín | Mindfulness | ✅ |
+| 9 | Garage/Taller | Vehículos | ✅ |
+| 10 | Diario | Noticias (briefing diario) | ✅ |
+| A | Configuraciones | Perfil y datos | ✅ |
+| B | Diseño de casa | Colores, avatar, mapa | ✅ |
 
 ## Migración a la nube (futuro)
 

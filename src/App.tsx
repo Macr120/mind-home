@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { House } from './core/house/House'
+import { InteractOverlay } from './core/ui/InteractOverlay'
 import { RoomOverlay } from './core/ui/RoomOverlay'
 import { RoomSideMenu, FloatingMenuButton } from './core/ui/RoomSideMenu'
 import { KeyboardMove, MoveControls } from './core/ui/MoveControls'
 import { useLayout } from './core/state/layoutStore'
-
 export default function App() {
   const editMode = useLayout((s) => s.editMode)
+  const editingRoomId = useLayout((s) => s.editingRoomId)
   const [sidebarOpen, setSidebarOpen] = useState(true)
+
+  /** Al editar un cuarto (⚙️ + zoom), el panel derecho necesita espacio: cierra el menú. */
+  useEffect(() => {
+    if (editingRoomId) setSidebarOpen(false)
+  }, [editingRoomId])
+
   return (
     <div className="flex h-full w-full overflow-hidden bg-[#0f1115]">
       {!editMode && <KeyboardMove />}
@@ -18,7 +25,8 @@ export default function App() {
           <FloatingMenuButton onToggle={() => setSidebarOpen(true)} />
         )}
         {!editMode && <MoveControls />}
-        <RoomOverlay />
+        {!editMode && <InteractOverlay />}
+        <RoomOverlay menuFlotante={!sidebarOpen} />
       </div>
     </div>
   )

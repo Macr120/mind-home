@@ -4,7 +4,7 @@ import type { RoomModule } from '../registry'
 
 /**
  * Etiqueta sobre el cuarto: siempre clicable.
- * Lejos → icono (ir al cuarto). Cerca (único más próximo) → nombre + Entrar.
+ * Clic en el icono: camina a la puerta del cuarto (entrar solo por menú o Interactuar).
  */
 export function RoomMarker({ room }: { room: RoomModule }) {
   const nearRoomId = useHouse((s) => s.nearRoomId)
@@ -12,9 +12,7 @@ export function RoomMarker({ room }: { room: RoomModule }) {
   const interactRoom = useHouse((s) => s.interactRoom)
   const cerca = nearRoomId === room.id
   const seleccionado = selectedRoomId === room.id
-  const canEnterSelected = useHouse((s) => s.canEnterSelected)
-  const puedeAbrir = cerca && seleccionado && canEnterSelected
-  const destacar = seleccionado
+  const destacar = seleccionado || cerca
 
   return (
     <group position={[room.posicion[0], 3, room.posicion[2]]}>
@@ -38,45 +36,17 @@ export function RoomMarker({ room }: { room: RoomModule }) {
             boxShadow: destacar ? `0 0 16px ${room.color}55` : 'none',
           }}
         >
-          {puedeAbrir ? (
-            <>
-              <div
-                style={{
-                  color: '#fff',
-                  fontWeight: 700,
-                  fontSize: 14,
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 4px #000, 0 0 2px #000',
-                }}
-              >
-                {room.icon} {room.nombre.split(' · ')[0]}
-              </div>
-              <span
-                style={{
-                  display: 'inline-block',
-                  marginTop: 5,
-                  padding: '6px 16px',
-                  borderRadius: 10,
-                  background: room.color,
-                  color: '#0f1115',
-                  fontWeight: 800,
-                  fontSize: 13,
-                  boxShadow: '0 3px 10px rgba(0,0,0,.5)',
-                }}
-              >
-                Entrar ›
-              </span>
-            </>
-          ) : seleccionado ? (
+          {cerca || seleccionado ? (
             <span
               style={{
                 fontSize: 14,
                 fontWeight: 700,
                 color: '#fff',
-                textShadow: '0 1px 4px #000',
+                whiteSpace: 'nowrap',
+                textShadow: '0 1px 4px #000, 0 0 2px #000',
               }}
             >
-              {room.icon}
+              {room.icon} {room.nombre.split(' · ')[0]}
             </span>
           ) : (
             <span

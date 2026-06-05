@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import { rooms } from '../../core/registry'
-import { useDiseño, MAX_OBJETOS } from '../../core/state/disenoStore'
+import {
+  useDiseño,
+  MAX_OBJETOS,
+  objetosDecorativos,
+  muebleDeCuarto,
+} from '../../core/state/disenoStore'
+import { MUEBLES_DEFAULT } from '../../core/house/muebles'
 import { CATALOGO } from '../../core/house/catalogo'
-import { ColorPicker } from './ColorPicker'
+import { PropiedadesObjeto } from './PropiedadesObjeto'
 
 export function ObjetosTab({
   roomId: roomIdProp,
@@ -18,23 +24,16 @@ export function ObjetosTab({
     if (onRoomChange) onRoomChange(id)
     else setRoomIdLocal(id)
   }
-  const {
-    furnitureColors,
-    objetos,
-    setFurnitureColor,
-    addObjeto,
-    setObjetoColor,
-    removeObjeto,
-  } = useDiseño()
+  const { objetos, addObjeto, removeObjeto } = useDiseño()
 
   const room = rooms.find((r) => r.id === roomId)!
-  const muebleColor = furnitureColors[roomId] ?? '#7a5230'
-  const objetosCuarto = objetos.filter((o) => o.roomId === roomId)
-  const lleno = objetosCuarto.length >= MAX_OBJETOS
+  const mueble = muebleDeCuarto(objetos, roomId)
+  const defMueble = MUEBLES_DEFAULT[roomId]
+  const decoracion = objetosDecorativos(objetos, roomId)
+  const lleno = decoracion.length >= MAX_OBJETOS
 
   return (
     <div className="space-y-5">
-      {/* Selector de cuarto */}
       <div>
         <p className="mb-2 text-xs font-bold uppercase tracking-wider text-white/40">
           Cuarto
@@ -60,13 +59,20 @@ export function ObjetosTab({
         </p>
       </div>
 
-      {/* Color del mueble principal */}
+      {/* Mueble principal (permanente) */}
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="mb-3 text-sm font-semibold">Color del mueble principal</p>
-        <ColorPicker
-          value={muebleColor}
-          onChange={(c) => setFurnitureColor(roomId, c)}
-        />
+        <p className="mb-1 text-sm font-semibold">
+          {defMueble?.icon ?? room.icon} Mueble principal
+        </p>
+        <p className="mb-3 text-[11px] text-white/40 leading-snug">
+          Fijo en el cuarto: puedes rotarlo, recolorearlo y moverlo en el mapa (modo
+          edición). No se puede quitar.
+        </p>
+        {mueble ? (
+          <PropiedadesObjeto objeto={mueble} />
+        ) : (
+          <p className="text-xs text-white/35">Cargando mueble…</p>
+        )}
       </div>
 
       {/* Agregar decoración */}
@@ -74,7 +80,7 @@ export function ObjetosTab({
         <div className="mb-3 flex items-center justify-between">
           <p className="text-sm font-semibold">Agregar decoración</p>
           <span className="text-xs text-white/40">
-            {objetosCuarto.length}/{MAX_OBJETOS}
+            {decoracion.length}/{MAX_OBJETOS}
           </span>
         </div>
         <div className="grid grid-cols-3 gap-2">
@@ -93,18 +99,18 @@ export function ObjetosTab({
         </div>
         {lleno && (
           <p className="mt-2 text-center text-[11px] text-amber-400/80">
-            Cuarto lleno ({MAX_OBJETOS} objetos). Quita alguno para agregar más.
+            Cuarto lleno ({MAX_OBJETOS} extras). Quita alguno para agregar más.
           </p>
         )}
       </div>
 
       {/* Decoración colocada */}
-      {objetosCuarto.length > 0 && (
+      {decoracion.length > 0 && (
         <div className="space-y-3">
           <p className="text-xs font-bold uppercase tracking-wider text-white/40">
-            En este cuarto
+            Decoración extra
           </p>
-          {objetosCuarto.map((o) => {
+          {decoracion.map((o) => {
             const item = CATALOGO.find((i) => i.id === o.tipo)
             return (
               <div
@@ -122,10 +128,7 @@ export function ObjetosTab({
                     ✕
                   </button>
                 </div>
-                <ColorPicker
-                  value={o.color}
-                  onChange={(c) => o.id && setObjetoColor(o.id, c)}
-                />
+                <PropiedadesObjeto objeto={o} />
               </div>
             )
           })}

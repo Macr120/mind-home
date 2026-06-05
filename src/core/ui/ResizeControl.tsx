@@ -1,5 +1,5 @@
 import { useLayout, esFootprintLibre } from '../state/layoutStore'
-import { SIZE_DEFAULT, MAX_AREA, type Size } from '../house/walls'
+import { SIZE_DEFAULT, MAX_AREA, MAX_DIM, type Size } from '../house/walls'
 
 /**
  * Control de tamaño del cuarto (multi-celda): ancho × largo.
@@ -15,6 +15,8 @@ export function ResizeControl({ roomId }: { roomId: string }) {
   const valido = (s: Size) =>
     s.w >= 1 &&
     s.h >= 1 &&
+    s.w <= MAX_DIM &&
+    s.h <= MAX_DIM &&
     s.w * s.h <= MAX_AREA &&
     esFootprintLibre(placed, cells, sizes, roomId, cells[roomId], s)
 
