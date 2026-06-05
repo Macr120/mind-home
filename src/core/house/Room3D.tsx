@@ -72,8 +72,11 @@ export function Room3D({
     e.stopPropagation()
     interactRoom(id)
   }
+  // Mover cuartos solo en "Editar mapa" SIN un cuarto en edición.
+  // Al editar un cuarto (engrane), el piso no arrastra el cuarto (se arrastran objetos).
+  const puedeMoverCuarto = editMode && !editingRoomId
   const onFloorDown = (e: ThreeEvent<PointerEvent>) => {
-    if (!editMode) return
+    if (!puedeMoverCuarto) return
     e.stopPropagation()
     startDrag(id)
   }
@@ -89,7 +92,9 @@ export function Room3D({
         onPointerOver={(e) => {
           e.stopPropagation()
           if (!editMode) document.body.style.cursor = 'pointer'
-          else if (!arrastrando) document.body.style.cursor = 'grab'
+          else if (puedeMoverCuarto && !arrastrando)
+            document.body.style.cursor = 'grab'
+          else document.body.style.cursor = 'default'
         }}
         onPointerOut={() => {
           if (!useLayout.getState().draggingId) document.body.style.cursor = 'default'

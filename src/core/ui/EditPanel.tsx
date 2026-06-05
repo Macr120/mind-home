@@ -71,7 +71,11 @@ export function EditPanel() {
 
       <p className="border-b border-white/10 px-4 py-2 text-[11px] leading-snug text-white/45">
         {room ? (
-          <>Edita paredes y objetos del cuarto.</>
+          <>
+            Edita paredes y tamaño.{' '}
+            <b className="text-white/65">Arrastra los objetos</b> dentro del
+            cuarto para colocarlos.
+          </>
         ) : (
           <>
             <b className="text-white/65">Arrastra los cuartos</b> para moverlos, o
