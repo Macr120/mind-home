@@ -1,13 +1,13 @@
 # 🏠 Mind Home
 
 Casa isométrica 3D navegable donde cada cuarto es una mini-app 2D independiente
-pero interconectada (organización, hábitos, finanzas, etc.). **10 apps en 1.**
+pero interconectada (organización, hábitos, finanzas, etc.). **12 apps en 1.**
 
 ## Stack
 
 - **React + TypeScript + Vite** — base, un solo código para web y (futuro) móvil
 - **React Three Fiber + drei** (Three.js) — casa isométrica 3D
-- **Zustand** — estado global (personaje, cuarto activo)
+- **Zustand** — estado global (personaje, cámara, cuarto activo)
 - **Tailwind CSS v4** — estilos de las apps 2D
 - **Dexie (IndexedDB)** — datos locales; migrable a Supabase sin tocar las apps
 - **Capacitor** (pendiente) — empaquetado iOS/Android
@@ -18,24 +18,56 @@ pero interconectada (organización, hábitos, finanzas, etc.). **10 apps en 1.**
 npm install      # instalar dependencias
 npm run dev      # servidor de desarrollo (http://localhost:5173)
 npm run build    # build de producción
+npm run lint     # ESLint
 ```
+
+## Casa 3D y navegación
+
+| Acción | Ratón | Táctil |
+|--------|-------|--------|
+| Mover personaje | Clic en el suelo (atraviesa paredes) | Joystick inferior izquierdo |
+| Pan (mover vista) | Botón central + arrastrar | Dos dedos |
+| Zoom | Rueda | Pellizco (juntar/separar) |
+| Centrar vista | Doble clic con botón central | — |
+| Entrar a un cuarto | Clic en el **mueble principal** → diálogo (p. ej. «Descansar») | Igual |
+| Menú lateral | Botón **Entrar ›** en cada tarjeta | Igual |
+
+- **🏠 Mind Home** (esquina superior izquierda): abre/cierra el menú de cuartos.
+- **🏠** (a su derecha): alterna vista **con techo** / **sin techo** en los cuartos.
+- **‹ Volver a la casa**: en la esquina superior derecha al estar dentro de una mini-app.
+
+## Editor del mapa
+
+- **✏️ Editar mapa** (esquina superior derecha del mapa): arrastra cuartos, cambia color del piso, edita paredes y puertas.
+- **⚙️ Editar** en el menú lateral: edita un cuarto (paredes, tamaño, objetos, color del mueble).
+- La cámara se centra a la izquierda del panel de edición; controles de vista abajo a la izquierda (rotar, zoom, reiniciar).
+- En edición las sombras se desactivan para evitar artefactos al mover objetos.
 
 ## Estructura
 
 ```
 src/
-├── core/                  # núcleo compartido (se construye 1 vez)
-│   ├── house/             # escena 3D, personaje, cámara, marcadores
-│   ├── data/              # capa de datos
-│   │   ├── db.ts          # Dexie: ÚNICO punto que toca la BD (cambiar aquí para la nube)
-│   │   └── repository.ts  # repositorios reactivos (useAll/add/update/remove)
-│   ├── state/             # stores Zustand
-│   ├── ui/                # HUD y overlay compartidos
+├── core/
+│   ├── house/             # escena 3D, cuartos, cámara, controles, muebles
+│   ├── data/
+│   │   ├── db.ts          # Dexie: único punto que toca la BD
+│   │   └── repository.ts  # repositorios reactivos
+│   ├── state/             # Zustand (casa, layout, cámara, diseño, interacción)
+│   ├── ui/                # menú lateral, overlay, editor, diálogo de interacción
 │   └── registry.ts        # contrato RoomModule + lista de cuartos
-├── rooms/                 # UNA CARPETA POR CUARTO (12 mini-apps)
-│   ├── despacho/          # Finanzas · recamara/ · cocina/ · diario/ · …
+├── rooms/                 # una carpeta por cuarto (12 mini-apps)
+│   ├── cocina/            # Nutrición
+│   ├── ejercicio/         # Rutinas
+│   ├── recamara/          # Sueño + anecdotario
+│   ├── despacho/          # Finanzas
+│   ├── biblioteca/        # Enciclopedia
+│   ├── entretenimiento/   # Archivo multimedia + juegos de mesa
+│   ├── sala/              # Viajes
+│   ├── jardin/            # Mindfulness
+│   ├── garage/            # Vehículos
+│   ├── diario/            # Noticias
 │   ├── configuraciones/   # Perfil y copia de seguridad
-│   └── diseno/            # Colores, avatar y editor del mapa 3D
+│   └── diseno/            # Colores, avatar, objetos del mapa
 ```
 
 ## Cómo agregar un cuarto nuevo
@@ -50,36 +82,36 @@ src/
    const cuarto: RoomModule = {
      id: 'cocina',
      nombre: 'Cocina · Nutrición',
+     icon: '🍳',
      categoria: 'cuerpo',
-     posicion: [-3, 0, 3], // ubicación en la casa
+     posicion: [-9, 0, -6],
      color: '#f59e0b',
      App: MiApp,
    }
    export default cuarto
    ```
 
-3. Registrarlo en `src/core/registry.ts` (importar + agregar al array `rooms`).
-   La casa dibuja su plataforma y botón "Entrar" automáticamente.
+3. Registrarlo en `src/core/registry.ts` y en `DESCRIPCIONES`.
+4. Añadir el mueble en `src/core/house/muebles.ts` y `Furniture.tsx`.
+5. Añadir la acción de interacción en `src/core/ui/roomInteract.ts` (p. ej. `Cocinar`).
+6. Si guarda datos: tabla en `src/core/data/db.ts` + repo en `repository.ts` (nueva versión Dexie).
 
-4. Si guarda datos: agregar la tabla en `src/core/data/db.ts` y un repo en
-   `repository.ts`.
+## Cuartos
 
-## Cuartos planificados
-
-| # | Cuarto | App | Estado |
-|---|--------|-----|--------|
-| 1 | Cocina | Nutrición | ✅ |
-| 2 | Ejercicio | Rutinas | ✅ |
-| 3 | Recámara | Descanso + Anecdotario | ✅ |
-| 4 | Sala entretenimiento | Películas + Juegos | ✅ |
-| 5 | Biblioteca | Aprendizaje | ✅ |
-| 6 | Despacho | Finanzas | ✅ |
-| 7 | Sala | Viajes | ✅ |
-| 8 | Jardín | Mindfulness | ✅ |
-| 9 | Garage/Taller | Vehículos | ✅ |
-| 10 | Diario | Noticias (briefing diario) | ✅ |
-| A | Configuraciones | Perfil y datos | ✅ |
-| B | Diseño de casa | Colores, avatar, mapa | ✅ |
+| Cuarto | App | Interacción 3D |
+|--------|-----|----------------|
+| Cocina | Nutrición | Cocinar |
+| Ejercicio | Rutinas | Entrenar |
+| Recámara | Sueño + Anecdotario | Descansar |
+| Despacho | Finanzas | Finanzas |
+| Biblioteca | Enciclopedia | Estudiar |
+| Entretenimiento | Multimedia + mesa | Entretenerse |
+| Sala | Viajes | Planear viaje |
+| Jardín | Mindfulness | Meditar |
+| Garage | Vehículos | Mantenimiento |
+| Diario | Noticias | Leer noticias |
+| Configuraciones | Perfil y datos | Configurar |
+| Diseño | Colores, avatar, mapa | Personalizar |
 
 ## Migración a la nube (futuro)
 
