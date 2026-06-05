@@ -12,8 +12,6 @@ export const WALL_H = 2.4 // alto de pared
 export const WALL_T = 0.35 // grosor de pared
 export const DOOR_W = 2.2 // ancho de la puerta
 export const HALF = SIZE / 2
-const SEG = (SIZE - DOOR_W) / 2 // largo de cada mitad de pared con puerta
-const OFF = DOOR_W / 2 + SEG / 2 // desplazamiento de cada mitad
 
 export type Axis = 'x' | 'z'
 /** Segmento de pared en el plano XZ, local al centro del cuarto. */
@@ -79,6 +77,42 @@ export function defaultCell(position: [number, number, number]): Cell {
   return worldToCell(position[0], position[2])
 }
 
+// ── Tamaño de cuartos (multi-celda) ───────────────────────────────────────────
+/** Tamaño de un cuarto en celdas: ancho (w) × largo (h). */
+export interface Size {
+  w: number
+  h: number
+}
+export const SIZE_DEFAULT: Size = { w: 1, h: 1 }
+export const MAX_AREA = 4 // máximo 4 veces el espacio estándar
+
+/** Clave de celda (col,row) para el conjunto de ocupación. */
+export const cellId = (col: number, row: number) => `${col},${row}`
+
+/** Celdas que ocupa un cuarto (ancla + tamaño). */
+export function footprintCells(cell: Cell, size: Size): Cell[] {
+  const out: Cell[] = []
+  for (let i = 0; i < size.w; i++)
+    for (let j = 0; j < size.h; j++)
+      out.push({ col: cell.col + i, row: cell.row + j })
+  return out
+}
+
+/** Centro del cuarto (mundo) según su celda ancla y tamaño. */
+export function roomCenter(cell: Cell, size: Size): [number, number, number] {
+  return cellToWorld(cell.col + (size.w - 1) / 2, cell.row + (size.h - 1) / 2)
+}
+
+/** ¿El footprint cabe en la rejilla? */
+export function cabeEnRejilla(cell: Cell, size: Size): boolean {
+  return (
+    cell.col >= 0 &&
+    cell.row >= 0 &&
+    cell.col + size.w <= COLS &&
+    cell.row + size.h <= ROWS
+  )
+}
+
 // ── Paredes y vanos manuales ──────────────────────────────────────────────────
 /** Lado del cuarto: Norte, Sur, Este, Oeste. */
 export type SideKey = 'N' | 'S' | 'E' | 'O'
@@ -87,67 +121,90 @@ export type WallState = 'pared' | 'puerta' | 'abierto'
 export type WallOverrides = Partial<Record<SideKey, WallState>>
 export const SIDE_KEYS: SideKey[] = ['N', 'S', 'E', 'O']
 
-const SIDE_DELTA: Record<SideKey, [number, number]> = {
-  N: [0, -1],
-  S: [0, 1],
-  O: [-1, 0],
-  E: [1, 0],
+/** ¿Hay un cuarto vecino al otro lado de este lado del footprint? */
+function vecinoEnLado(
+  cell: Cell,
+  size: Size,
+  side: SideKey,
+  ocupado: Set<string>,
+): boolean {
+  if (side === 'N')
+    return Array.from({ length: size.w }, (_, i) => i).some((i) =>
+      ocupado.has(cellId(cell.col + i, cell.row - 1)),
+    )
+  if (side === 'S')
+    return Array.from({ length: size.w }, (_, i) => i).some((i) =>
+      ocupado.has(cellId(cell.col + i, cell.row + size.h)),
+    )
+  if (side === 'O')
+    return Array.from({ length: size.h }, (_, j) => j).some((j) =>
+      ocupado.has(cellId(cell.col - 1, cell.row + j)),
+    )
+  return Array.from({ length: size.h }, (_, j) => j).some((j) =>
+    ocupado.has(cellId(cell.col + size.w, cell.row + j)),
+  )
 }
 
-/** Estado automático de un lado: 'puerta' si hay vecino colocado, si no 'pared'. */
+/** Estado automático de un lado: 'puerta' si hay vecino, si no 'pared'. */
 export function autoWall(
-  position: [number, number, number],
+  cell: Cell,
+  size: Size,
   ocupado: Set<string>,
   side: SideKey,
 ): WallState {
-  const [x, , z] = position
-  const [dx, dz] = SIDE_DELTA[side]
-  return ocupado.has(cellKey(x + dx * SPACING, z + dz * SPACING))
-    ? 'puerta'
-    : 'pared'
+  return vecinoEnLado(cell, size, side, ocupado) ? 'puerta' : 'pared'
 }
 
 /** Estado efectivo (concreto) de un lado: override del usuario o el automático. */
 export function effectiveWall(
-  position: [number, number, number],
+  cell: Cell,
+  size: Size,
   ocupado: Set<string>,
   overrides: WallOverrides | undefined,
   side: SideKey,
 ): WallState {
-  return overrides?.[side] ?? autoWall(position, ocupado, side)
+  return overrides?.[side] ?? autoWall(cell, size, ocupado, side)
 }
 
 /**
- * Segmentos de pared (locales) de un cuarto.
- * - Sin override: puerta si el cuarto vecino está colocado; si no, pared.
- * - override 'pared' → pared sólida · 'puerta' → vano con puerta · 'abierto' → sin pared.
+ * Segmentos de pared (LOCALES al centro) de un cuarto de tamaño w×h.
+ * Cada lado: 'pared' sólida, 'puerta' con vano, o 'abierto' (sin pared).
  */
-export function localWallSegments(
-  position: [number, number, number],
+export function roomWallSegments(
+  cell: Cell,
+  size: Size,
   ocupado: Set<string>,
   overrides?: WallOverrides,
 ): Seg[] {
-  const [x, , z] = position
-  const sides: { axis: Axis; sign: number; key: SideKey; vecino: boolean }[] = [
-    { axis: 'z', sign: -1, key: 'N', vecino: ocupado.has(cellKey(x, z - SPACING)) },
-    { axis: 'z', sign: 1, key: 'S', vecino: ocupado.has(cellKey(x, z + SPACING)) },
-    { axis: 'x', sign: -1, key: 'O', vecino: ocupado.has(cellKey(x - SPACING, z)) },
-    { axis: 'x', sign: 1, key: 'E', vecino: ocupado.has(cellKey(x + SPACING, z)) },
+  const W = size.w * SIZE
+  const H = size.h * SIZE
+  const sides: {
+    axis: Axis
+    sign: number
+    key: SideKey
+    len: number
+    half: number
+  }[] = [
+    { axis: 'z', sign: -1, key: 'N', len: W, half: H / 2 },
+    { axis: 'z', sign: 1, key: 'S', len: W, half: H / 2 },
+    { axis: 'x', sign: -1, key: 'O', len: H, half: W / 2 },
+    { axis: 'x', sign: 1, key: 'E', len: H, half: W / 2 },
   ]
   const segs: Seg[] = []
-  for (const { axis, sign, key, vecino } of sides) {
-    const ov = overrides?.[key]
-    if (ov === 'abierto') continue // vano completo: sin pared
-    const puerta = ov === 'puerta' ? true : ov === 'pared' ? false : vecino
-    if (!puerta) {
+  for (const { axis, sign, key, len, half } of sides) {
+    const est = effectiveWall(cell, size, ocupado, overrides, key)
+    if (est === 'abierto') continue
+    if (est === 'pared') {
       if (axis === 'z')
-        segs.push({ cx: 0, cz: sign * HALF, sx: SIZE + WALL_T, sz: WALL_T })
-      else segs.push({ cx: sign * HALF, cz: 0, sx: WALL_T, sz: SIZE + WALL_T })
+        segs.push({ cx: 0, cz: sign * half, sx: len + WALL_T, sz: WALL_T })
+      else segs.push({ cx: sign * half, cz: 0, sx: WALL_T, sz: len + WALL_T })
     } else {
+      const seg = (len - DOOR_W) / 2
+      const off = DOOR_W / 2 + seg / 2
       for (const dir of [-1, 1]) {
         if (axis === 'z')
-          segs.push({ cx: dir * OFF, cz: sign * HALF, sx: SEG, sz: WALL_T })
-        else segs.push({ cx: sign * HALF, cz: dir * OFF, sx: WALL_T, sz: SEG })
+          segs.push({ cx: dir * off, cz: sign * half, sx: seg, sz: WALL_T })
+        else segs.push({ cx: sign * half, cz: dir * off, sx: WALL_T, sz: seg })
       }
     }
   }
@@ -162,17 +219,18 @@ export interface AABB {
   maxZ: number
 }
 
-/** Colliders de pared de un cuarto (mundo), dado el conjunto de ocupación. */
+/** Colliders de pared de un cuarto (mundo) según celda, tamaño y ocupación. */
 export function collidersForRoom(
-  position: [number, number, number],
+  cell: Cell,
+  size: Size,
   ocupado: Set<string>,
   overrides?: WallOverrides,
 ): AABB[] {
-  const [x, , z] = position
-  return localWallSegments(position, ocupado, overrides).map((s) => ({
-    minX: x + s.cx - s.sx / 2,
-    maxX: x + s.cx + s.sx / 2,
-    minZ: z + s.cz - s.sz / 2,
-    maxZ: z + s.cz + s.sz / 2,
+  const [cx, , cz] = roomCenter(cell, size)
+  return roomWallSegments(cell, size, ocupado, overrides).map((s) => ({
+    minX: cx + s.cx - s.sx / 2,
+    maxX: cx + s.cx + s.sx / 2,
+    minZ: cz + s.cz - s.sz / 2,
+    maxZ: cz + s.cz + s.sz / 2,
   }))
 }

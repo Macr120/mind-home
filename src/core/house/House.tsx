@@ -9,7 +9,7 @@ import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { CameraRig } from './CameraRig'
 import { RoomDragController } from './RoomDragController'
-import { cellToWorld } from './walls'
+import { roomCenter, SIZE_DEFAULT } from './walls'
 import { NavControls } from '../ui/NavControls'
 import { EditPanel } from '../ui/EditPanel'
 
@@ -51,6 +51,7 @@ export function House() {
   const roomColors = useDiseño((s) => s.roomColors)
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
+  const sizes = useLayout((s) => s.sizes)
   const draggingId = useLayout((s) => s.draggingId)
   const previewCell = useLayout((s) => s.previewCell)
   return (
@@ -93,7 +94,7 @@ export function House() {
           const arrastrando = draggingId === room.id
           const cell =
             arrastrando && previewCell ? previewCell : cells[room.id]
-          const [x, , z] = cellToWorld(cell.col, cell.row)
+          const [x, , z] = roomCenter(cell, sizes[room.id] ?? SIZE_DEFAULT)
           return (
             <Room3D
               key={room.id}

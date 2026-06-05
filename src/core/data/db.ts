@@ -452,6 +452,8 @@ export interface LayoutCuarto {
   placed: boolean
   col?: number // celda en la rejilla (vacío = celda por defecto)
   row?: number
+  w?: number // tamaño en celdas (ancho)
+  h?: number // tamaño en celdas (largo)
   /** Paredes/vanos manuales por lado (vacío = automático). */
   muros?: Partial<Record<'N' | 'S' | 'E' | 'O', 'pared' | 'puerta' | 'abierto'>>
 }

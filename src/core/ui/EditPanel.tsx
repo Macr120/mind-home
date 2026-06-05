@@ -5,6 +5,7 @@ import { useDiseño } from '../state/disenoStore'
 import { ObjetosTab } from '../../rooms/diseno/ObjetosTab'
 import { ColorPicker } from '../../rooms/diseno/ColorPicker'
 import { WallEditor } from './WallEditor'
+import { ResizeControl } from './ResizeControl'
 
 /**
  * Modo edición.
@@ -84,6 +85,9 @@ export function EditPanel() {
           <>
             <div className="rounded-xl border border-white/10 bg-white/5 p-3">
               <WallEditor roomId={room.id} />
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+              <ResizeControl roomId={room.id} />
             </div>
             <ObjetosTab roomId={editingRoomId ?? undefined} onRoomChange={editar} />
           </>

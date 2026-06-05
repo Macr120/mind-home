@@ -1,8 +1,8 @@
 import { type ThreeEvent } from '@react-three/fiber'
 import { useHouse } from '../state/houseStore'
-import { useDiseño, OBJETO_SLOTS } from '../state/disenoStore'
-import { esCeldaLibre, useLayout } from '../state/layoutStore'
-import { localWallSegments, WALL_H, SIZE } from './walls'
+import { useDiseño } from '../state/disenoStore'
+import { esFootprintLibre, useLayout } from '../state/layoutStore'
+import { roomWallSegments, WALL_H, SIZE, SIZE_DEFAULT } from './walls'
 import { Furniture } from './Furniture'
 import { ObjetoView } from './catalogo'
 
@@ -16,7 +16,7 @@ function lighten(hex: string, amt: number) {
 
 /**
  * Estructura 3D de un cuarto estilo Roblox: piso de color, paredes chunky con
- * puerta (geometría tomada de walls.ts) y un mueble temático.
+ * puertas (de walls.ts), mueble temático y decoración. Soporta tamaño w×h.
  */
 export function Room3D({
   id,
@@ -31,11 +31,16 @@ export function Room3D({
   const overrides = useLayout((s) => s.wallOverrides[id])
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
+  const sizes = useLayout((s) => s.sizes)
   const editMode = useLayout((s) => s.editMode)
   const draggingId = useLayout((s) => s.draggingId)
   const previewCell = useLayout((s) => s.previewCell)
   const startDrag = useLayout((s) => s.startDrag)
-  const segs = localWallSegments(position, ocupado, overrides)
+
+  const size = sizes[id] ?? SIZE_DEFAULT
+  const W = size.w * SIZE
+  const H = size.h * SIZE
+  const segs = roomWallSegments(cells[id], size, ocupado, overrides)
   const floorColor = lighten(color, 35)
   const interactRoom = useHouse((s) => s.interactRoom)
   const selectedRoomId = useHouse((s) => s.selectedRoomId)
@@ -46,27 +51,31 @@ export function Room3D({
   const celdaValida =
     !arrastrando ||
     !previewCell ||
-    esCeldaLibre(placed, cells, id, previewCell)
-  // Personalización de muebles y decoración del cuarto.
+    esFootprintLibre(placed, cells, sizes, id, previewCell, size)
   const muebleColor = useDiseño((s) => s.furnitureColors[id])
   const objetos = useDiseño((s) => s.objetos)
   const objetosCuarto = objetos.filter((o) => o.roomId === id)
 
+  /** Posición de una ranura de decoración (esquinas del footprint). */
+  const slotPos = (slot: number): [number, number] => [
+    (slot % 2 === 0 ? -1 : 1) * (W / 2 - 1.4),
+    (slot < 2 ? -1 : 1) * (H / 2 - 1.4),
+  ]
+
   const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
-    if (editMode) return // en edición el clic no navega
+    if (editMode) return
     e.stopPropagation()
     interactRoom(id)
   }
-
   const onFloorDown = (e: ThreeEvent<PointerEvent>) => {
-    if (!editMode) return // arrastrar cuartos solo en modo edición
+    if (!editMode) return
     e.stopPropagation()
     startDrag(id)
   }
 
   return (
     <group position={position}>
-      {/* Piso del cuarto (clic: ir/entrar · en edición: arrastrar) */}
+      {/* Piso del cuarto */}
       <mesh
         position={[0, 0.1, 0]}
         receiveShadow
@@ -81,7 +90,7 @@ export function Room3D({
           if (!useLayout.getState().draggingId) document.body.style.cursor = 'default'
         }}
       >
-        <boxGeometry args={[SIZE - 0.1, 0.2, SIZE - 0.1]} />
+        <boxGeometry args={[W - 0.1, 0.2, H - 0.1]} />
         <meshStandardMaterial
           color={floorColor}
           roughness={0.85}
@@ -94,12 +103,7 @@ export function Room3D({
 
       {/* Paredes */}
       {segs.map((s, i) => (
-        <mesh
-          key={i}
-          position={[s.cx, WALL_H / 2, s.cz]}
-          castShadow
-          receiveShadow
-        >
+        <mesh key={i} position={[s.cx, WALL_H / 2, s.cz]} castShadow receiveShadow>
           <boxGeometry args={[s.sx, WALL_H, s.sz]} />
           <meshStandardMaterial color={color} roughness={0.6} />
         </mesh>
@@ -108,9 +112,9 @@ export function Room3D({
       {/* Mueble temático (recolorable) */}
       <Furniture id={id} color={muebleColor} />
 
-      {/* Objetos de decoración colocados por el usuario */}
+      {/* Decoración colocada por el usuario */}
       {objetosCuarto.map((o) => {
-        const [sx, sz] = OBJETO_SLOTS[o.slot] ?? [0, 0]
+        const [sx, sz] = slotPos(o.slot)
         return (
           <group key={o.id} position={[sx, 0.2, sz]}>
             <ObjetoView tipo={o.tipo} color={o.color} />

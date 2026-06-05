@@ -1,6 +1,11 @@
 import { getRoom } from '../registry'
-import { useLayout, roomWorldPos } from '../state/layoutStore'
-import { effectiveWall, type SideKey, type WallState } from '../house/walls'
+import { useLayout } from '../state/layoutStore'
+import {
+  effectiveWall,
+  SIZE_DEFAULT,
+  type SideKey,
+  type WallState,
+} from '../house/walls'
 
 const INFO: Record<WallState, { label: string; color: string }> = {
   pared: { label: 'Pared', color: '#b45309' },
@@ -15,12 +20,13 @@ const INFO: Record<WallState, { label: string; color: string }> = {
 export function WallEditor({ roomId }: { roomId: string }) {
   const overrides = useLayout((s) => s.wallOverrides[roomId])
   const ocupado = useLayout((s) => s.ocupado)
+  const cell = useLayout((s) => s.cells[roomId])
+  const size = useLayout((s) => s.sizes[roomId]) ?? SIZE_DEFAULT
   const cycleWall = useLayout((s) => s.cycleWall)
   const room = getRoom(roomId)
-  const pos = roomWorldPos(roomId)
 
   const estado = (side: SideKey): WallState =>
-    effectiveWall(pos, ocupado, overrides, side)
+    effectiveWall(cell, size, ocupado, overrides, side)
 
   const Lado = ({ side, className }: { side: SideKey; className: string }) => (
     <button
