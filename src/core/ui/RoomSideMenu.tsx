@@ -12,7 +12,7 @@ const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
   { key: 'config', label: 'Configuración' },
 ]
 
-export function RoomSideMenu() {
+export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const selectedRoomId = useHouse((s) => s.selectedRoomId)
   const openRoom = useHouse((s) => s.openRoom)
   const focusRoom = useCam((s) => s.focusRoom)
@@ -41,9 +41,21 @@ export function RoomSideMenu() {
       aria-label="Menú de cuartos"
     >
       <div className="border-b border-white/10 px-4 py-4">
-        <h1 className="text-lg font-black tracking-tight text-white/90">
-          🏠 Mind Home
-        </h1>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={onToggle}
+            title="Retraer menú"
+            className="flex h-7 w-7 shrink-0 flex-col items-center justify-center gap-[3px] rounded-md transition hover:bg-white/10"
+          >
+            <span className="h-0.5 w-4 rounded bg-white/70" />
+            <span className="h-0.5 w-4 rounded bg-white/70" />
+            <span className="h-0.5 w-4 rounded bg-white/70" />
+          </button>
+          <h1 className="text-lg font-black tracking-tight text-white/90">
+            🏠 Mind Home
+          </h1>
+        </div>
         <p className="mt-1 text-[11px] leading-snug text-white/45">
           <b className="text-white/70">Ir</b> acerca la cámara ·{' '}
           <b className="text-white/70">Entrar</b> abre la app ·{' '}
@@ -156,6 +168,31 @@ export function RoomSideMenu() {
           </div>
         )}
       </div>
+    </aside>
+  )
+}
+
+/** Menú retraído: solo las 3 líneas y el título vertical. */
+export function CollapsedSidebar({ onToggle }: { onToggle: () => void }) {
+  return (
+    <aside className="flex h-full w-12 shrink-0 flex-col items-center gap-3 border-r border-white/10 bg-[#12151c] py-4">
+      <button
+        type="button"
+        onClick={onToggle}
+        title="Abrir menú"
+        className="flex h-9 w-9 flex-col items-center justify-center gap-[3px] rounded-md transition hover:bg-white/10"
+      >
+        <span className="h-0.5 w-5 rounded bg-white/80" />
+        <span className="h-0.5 w-5 rounded bg-white/80" />
+        <span className="h-0.5 w-5 rounded bg-white/80" />
+      </button>
+      <span className="text-xl">🏠</span>
+      <span
+        className="mt-1 text-xs font-black tracking-wide text-white/70"
+        style={{ writingMode: 'vertical-rl' }}
+      >
+        Mind Home
+      </span>
     </aside>
   )
 }

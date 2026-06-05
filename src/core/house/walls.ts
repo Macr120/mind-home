@@ -79,25 +79,36 @@ export function defaultCell(position: [number, number, number]): Cell {
   return worldToCell(position[0], position[2])
 }
 
+// ── Paredes y vanos manuales ──────────────────────────────────────────────────
+/** Lado del cuarto: Norte, Sur, Este, Oeste. */
+export type SideKey = 'N' | 'S' | 'E' | 'O'
+/** Estado manual de un lado (sin valor = automático según vecinos). */
+export type WallState = 'pared' | 'puerta' | 'abierto'
+export type WallOverrides = Partial<Record<SideKey, WallState>>
+export const SIDE_KEYS: SideKey[] = ['N', 'S', 'E', 'O']
+
 /**
- * Segmentos de pared (locales) de un cuarto. Cada lado que da a un cuarto
- * vecino COLOCADO lleva una puerta (hueco al centro); los demás quedan sólidos.
- * `ocupado` es el conjunto de claves "x,z" de los cuartos presentes en el mapa.
+ * Segmentos de pared (locales) de un cuarto.
+ * - Sin override: puerta si el cuarto vecino está colocado; si no, pared.
+ * - override 'pared' → pared sólida · 'puerta' → vano con puerta · 'abierto' → sin pared.
  */
 export function localWallSegments(
   position: [number, number, number],
   ocupado: Set<string>,
+  overrides?: WallOverrides,
 ): Seg[] {
   const [x, , z] = position
-  // Un lado tiene puerta si el cuarto vecino en esa dirección está colocado.
-  const sides: { axis: Axis; sign: number; puerta: boolean }[] = [
-    { axis: 'z', sign: -1, puerta: ocupado.has(cellKey(x, z - SPACING)) }, // norte
-    { axis: 'z', sign: 1, puerta: ocupado.has(cellKey(x, z + SPACING)) }, // sur
-    { axis: 'x', sign: -1, puerta: ocupado.has(cellKey(x - SPACING, z)) }, // oeste
-    { axis: 'x', sign: 1, puerta: ocupado.has(cellKey(x + SPACING, z)) }, // este
+  const sides: { axis: Axis; sign: number; key: SideKey; vecino: boolean }[] = [
+    { axis: 'z', sign: -1, key: 'N', vecino: ocupado.has(cellKey(x, z - SPACING)) },
+    { axis: 'z', sign: 1, key: 'S', vecino: ocupado.has(cellKey(x, z + SPACING)) },
+    { axis: 'x', sign: -1, key: 'O', vecino: ocupado.has(cellKey(x - SPACING, z)) },
+    { axis: 'x', sign: 1, key: 'E', vecino: ocupado.has(cellKey(x + SPACING, z)) },
   ]
   const segs: Seg[] = []
-  for (const { axis, sign, puerta } of sides) {
+  for (const { axis, sign, key, vecino } of sides) {
+    const ov = overrides?.[key]
+    if (ov === 'abierto') continue // vano completo: sin pared
+    const puerta = ov === 'puerta' ? true : ov === 'pared' ? false : vecino
     if (!puerta) {
       if (axis === 'z')
         segs.push({ cx: 0, cz: sign * HALF, sx: SIZE + WALL_T, sz: WALL_T })
@@ -125,9 +136,10 @@ export interface AABB {
 export function collidersForRoom(
   position: [number, number, number],
   ocupado: Set<string>,
+  overrides?: WallOverrides,
 ): AABB[] {
   const [x, , z] = position
-  return localWallSegments(position, ocupado).map((s) => ({
+  return localWallSegments(position, ocupado, overrides).map((s) => ({
     minX: x + s.cx - s.sx / 2,
     maxX: x + s.cx + s.sx / 2,
     minZ: z + s.cz - s.sz / 2,

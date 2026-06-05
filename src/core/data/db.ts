@@ -452,6 +452,8 @@ export interface LayoutCuarto {
   placed: boolean
   col?: number // celda en la rejilla (vacío = celda por defecto)
   row?: number
+  /** Paredes/vanos manuales por lado (vacío = automático). */
+  muros?: Partial<Record<'N' | 'S' | 'E' | 'O', 'pared' | 'puerta' | 'abierto'>>
 }
 
 /** Colores del avatar Roblox del usuario. */

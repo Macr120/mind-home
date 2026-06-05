@@ -3,6 +3,7 @@ import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useCam } from '../state/cameraStore'
 import { useDiseño } from '../state/disenoStore'
 import { ObjetosTab } from '../../rooms/diseno/ObjetosTab'
+import { WallEditor } from './WallEditor'
 
 /**
  * Editor de cuarto (modo edición): muestra los recursos para agregar objetos
@@ -68,9 +69,14 @@ export function EditPanel() {
         <b className="text-white/65">arrastrar cuartos</b> en el mapa para moverlos.
       </p>
 
-      <div className="min-h-0 flex-1 overflow-y-auto p-3">
+      <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-3">
         {room ? (
-          <ObjetosTab roomId={editingRoomId ?? undefined} onRoomChange={editar} />
+          <>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+              <WallEditor roomId={room.id} />
+            </div>
+            <ObjetosTab roomId={editingRoomId ?? undefined} onRoomChange={editar} />
+          </>
         ) : (
           <p className="px-2 py-6 text-center text-sm text-white/40">
             No hay cuartos en el mapa. Agrega uno desde el menú lateral

@@ -28,13 +28,14 @@ export function Room3D({
   color: string
 }) {
   const ocupado = useLayout((s) => s.ocupado)
+  const overrides = useLayout((s) => s.wallOverrides[id])
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
   const editMode = useLayout((s) => s.editMode)
   const draggingId = useLayout((s) => s.draggingId)
   const previewCell = useLayout((s) => s.previewCell)
   const startDrag = useLayout((s) => s.startDrag)
-  const segs = localWallSegments(position, ocupado)
+  const segs = localWallSegments(position, ocupado, overrides)
   const floorColor = lighten(color, 35)
   const interactRoom = useHouse((s) => s.interactRoom)
   const selectedRoomId = useHouse((s) => s.selectedRoomId)
