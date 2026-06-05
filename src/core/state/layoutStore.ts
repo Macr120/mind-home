@@ -19,6 +19,7 @@ import {
   type SideKey,
   type WallState,
   type WallOverrides,
+  type DoorPos,
 } from '../house/walls'
 
 /**
@@ -30,6 +31,7 @@ import {
 type Cells = Record<string, Cell>
 type Sizes = Record<string, Size>
 type Overrides = Record<string, WallOverrides>
+type Doors = Record<string, DoorPos>
 
 const sizeDe = (sizes: Sizes, id: string): Size => sizes[id] ?? SIZE_DEFAULT
 
@@ -46,6 +48,7 @@ function derivar(
   cells: Cells,
   sizes: Sizes,
   wallOverrides: Overrides = {},
+  doorPos: Doors = {},
 ) {
   const colocados = rooms.filter((r) => placed[r.id] && cells[r.id])
   const ocupado = new Set<string>()
@@ -53,7 +56,13 @@ function derivar(
     for (const c of footprintCells(cells[r.id], sizeDe(sizes, r.id)))
       ocupado.add(cellId(c.col, c.row))
   const wallColliders: AABB[] = colocados.flatMap((r) =>
-    collidersForRoom(cells[r.id], sizeDe(sizes, r.id), ocupado, wallOverrides[r.id]),
+    collidersForRoom(
+      cells[r.id],
+      sizeDe(sizes, r.id),
+      ocupado,
+      wallOverrides[r.id],
+      doorPos[r.id],
+    ),
   )
   return { ocupado, wallColliders }
 }
@@ -84,6 +93,7 @@ interface LayoutState {
   ocupado: Set<string>
   wallColliders: AABB[]
   wallOverrides: Overrides
+  doorPos: Doors
   draggingId: string | null
   previewCell: Cell | null
   cargado: boolean
@@ -95,6 +105,8 @@ interface LayoutState {
   moveRoom: (id: string, cell: Cell) => Promise<void>
   resizeRoom: (id: string, size: Size) => Promise<void>
   cycleWall: (roomId: string, side: SideKey) => Promise<void>
+  /** Desliza la puerta de un lado (delta, se acumula y acota a -1..1). */
+  slideDoor: (roomId: string, side: SideKey, delta: number) => Promise<void>
   startDrag: (id: string) => void
   setPreview: (cell: Cell | null) => void
   endDrag: () => Promise<void>
@@ -107,7 +119,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
   editMode: false,
   editingRoomId: null,
   wallOverrides: {},
-  ...derivar(todos(true), celdasDefault(), tamanosDefault(), {}),
+  doorPos: {},
+  ...derivar(todos(true), celdasDefault(), tamanosDefault(), {}, {}),
   draggingId: null,
   previewCell: null,
   cargado: false,
@@ -118,6 +131,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const cells = celdasDefault()
     const sizes = tamanosDefault()
     const wallOverrides: Overrides = {}
+    const doorPos: Doors = {}
     if (filas.length === 0) {
       placed = todos(true)
       await db.layout.bulkAdd(
@@ -136,6 +150,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
         }
         if (f?.w && f?.h) sizes[r.id] = { w: f.w, h: f.h }
         if (f?.muros) wallOverrides[r.id] = f.muros
+        if (f?.puertas) doorPos[r.id] = f.puertas
       }
     }
     set({
@@ -143,7 +158,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
       cells,
       sizes,
       wallOverrides,
-      ...derivar(placed, cells, sizes, wallOverrides),
+      doorPos,
+      ...derivar(placed, cells, sizes, wallOverrides, doorPos),
       cargado: true,
     })
   },
@@ -161,19 +177,19 @@ export const useLayout = create<LayoutState>((set, get) => ({
 
   toggleRoom: async (id) => {
     const placed = { ...get().placed, [id]: !get().placed[id] }
-    set({ placed, ...derivar(placed, get().cells, get().sizes, get().wallOverrides) })
+    set({ placed, ...derivar(placed, get().cells, get().sizes, get().wallOverrides, get().doorPos) })
     await upsert(id, { placed: placed[id] })
   },
 
   setAll: async (v) => {
     const placed = todos(v)
-    set({ placed, ...derivar(placed, get().cells, get().sizes, get().wallOverrides) })
+    set({ placed, ...derivar(placed, get().cells, get().sizes, get().wallOverrides, get().doorPos) })
     await Promise.all(rooms.map((r) => upsert(r.id, { placed: v })))
   },
 
   moveRoom: async (id, cell) => {
     const cells = { ...get().cells, [id]: cell }
-    set({ cells, ...derivar(get().placed, cells, get().sizes, get().wallOverrides) })
+    set({ cells, ...derivar(get().placed, cells, get().sizes, get().wallOverrides, get().doorPos) })
     await upsert(id, { col: cell.col, row: cell.row })
   },
 
@@ -184,7 +200,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const { placed, cells, sizes } = get()
     if (!esFootprintLibre(placed, cells, sizes, id, cells[id], { w, h })) return
     const nuevos = { ...sizes, [id]: { w, h } }
-    set({ sizes: nuevos, ...derivar(placed, cells, nuevos, get().wallOverrides) })
+    set({ sizes: nuevos, ...derivar(placed, cells, nuevos, get().wallOverrides, get().doorPos) })
     await upsert(id, { w, h })
   },
 
@@ -201,19 +217,38 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const siguiente = orden[(orden.indexOf(actual) + 1) % orden.length]
     const muros: WallOverrides = { ...(wallOverrides[roomId] ?? {}), [side]: siguiente }
     const nuevos = { ...wallOverrides, [roomId]: muros }
-    set({ wallOverrides: nuevos, ...derivar(get().placed, cells, sizes, nuevos) })
+    set({
+      wallOverrides: nuevos,
+      ...derivar(get().placed, cells, sizes, nuevos, get().doorPos),
+    })
     await upsert(roomId, { muros })
+  },
+
+  slideDoor: async (roomId, side, delta) => {
+    const { doorPos } = get()
+    const actual = doorPos[roomId]?.[side] ?? 0
+    const valor = Math.max(-1, Math.min(1, actual + delta))
+    const puertas: DoorPos = { ...(doorPos[roomId] ?? {}), [side]: valor }
+    const nuevos = { ...doorPos, [roomId]: puertas }
+    set({
+      doorPos: nuevos,
+      ...derivar(get().placed, get().cells, get().sizes, get().wallOverrides, nuevos),
+    })
+    await upsert(roomId, { puertas })
   },
 
   startDrag: (id) => set({ draggingId: id, previewCell: get().cells[id] }),
 
   setPreview: (cell) => {
-    const { draggingId, placed, cells, sizes, wallOverrides } = get()
+    const { draggingId, placed, cells, sizes, wallOverrides, doorPos } = get()
     if (!draggingId || !cell) {
       set(
         cell
           ? { previewCell: cell }
-          : { previewCell: null, ...derivar(placed, cells, sizes, wallOverrides) },
+          : {
+              previewCell: null,
+              ...derivar(placed, cells, sizes, wallOverrides, doorPos),
+            },
       )
       return
     }
@@ -221,7 +256,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const previewCells = { ...cells, [draggingId]: anclado }
     set({
       previewCell: anclado,
-      ...derivar(placed, previewCells, sizes, wallOverrides),
+      ...derivar(placed, previewCells, sizes, wallOverrides, doorPos),
     })
   },
 
@@ -234,8 +269,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
     ) {
       await get().moveRoom(draggingId, previewCell)
     }
-    const { placed: p, cells: c, sizes: s, wallOverrides: w } = get()
-    set({ draggingId: null, previewCell: null, ...derivar(p, c, s, w) })
+    const { placed: p, cells: c, sizes: s, wallOverrides: w, doorPos: d } = get()
+    set({ draggingId: null, previewCell: null, ...derivar(p, c, s, w, d) })
   },
 }))
 
@@ -274,6 +309,7 @@ async function upsert(
     w: number
     h: number
     muros: WallOverrides
+    puertas: DoorPos
   }>,
 ) {
   const fila = await db.layout.where('roomId').equals(roomId).first()

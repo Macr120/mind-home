@@ -29,6 +29,7 @@ export function Room3D({
 }) {
   const ocupado = useLayout((s) => s.ocupado)
   const overrides = useLayout((s) => s.wallOverrides[id])
+  const doorPos = useLayout((s) => s.doorPos[id])
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
   const sizes = useLayout((s) => s.sizes)
@@ -40,7 +41,7 @@ export function Room3D({
   const size = sizes[id] ?? SIZE_DEFAULT
   const W = size.w * SIZE
   const H = size.h * SIZE
-  const segs = roomWallSegments(cells[id], size, ocupado, overrides)
+  const segs = roomWallSegments(cells[id], size, ocupado, overrides, doorPos)
   const floorColor = lighten(color, 35)
   const interactRoom = useHouse((s) => s.interactRoom)
   const selectedRoomId = useHouse((s) => s.selectedRoomId)

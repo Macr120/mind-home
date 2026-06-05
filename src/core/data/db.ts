@@ -456,6 +456,8 @@ export interface LayoutCuarto {
   h?: number // tamaño en celdas (largo)
   /** Paredes/vanos manuales por lado (vacío = automático). */
   muros?: Partial<Record<'N' | 'S' | 'E' | 'O', 'pared' | 'puerta' | 'abierto'>>
+  /** Desplazamiento de la puerta por lado (-1..1, 0 = centro). */
+  puertas?: Partial<Record<'N' | 'S' | 'E' | 'O', number>>
 }
 
 /** Colores del avatar Roblox del usuario. */

@@ -166,15 +166,19 @@ export function effectiveWall(
   return overrides?.[side] ?? autoWall(cell, size, ocupado, side)
 }
 
+/** Desplazamiento de la puerta a lo largo del muro, por lado (-1..1, 0 = centro). */
+export type DoorPos = Partial<Record<SideKey, number>>
+
 /**
  * Segmentos de pared (LOCALES al centro) de un cuarto de tamaño w×h.
- * Cada lado: 'pared' sólida, 'puerta' con vano, o 'abierto' (sin pared).
+ * Cada lado: 'pared' sólida, 'puerta' con vano (deslizable), o 'abierto'.
  */
 export function roomWallSegments(
   cell: Cell,
   size: Size,
   ocupado: Set<string>,
   overrides?: WallOverrides,
+  doorPos?: DoorPos,
 ): Seg[] {
   const W = size.w * SIZE
   const H = size.h * SIZE
@@ -199,12 +203,19 @@ export function roomWallSegments(
         segs.push({ cx: 0, cz: sign * half, sx: len + WALL_T, sz: WALL_T })
       else segs.push({ cx: sign * half, cz: 0, sx: WALL_T, sz: len + WALL_T })
     } else {
-      const seg = (len - DOOR_W) / 2
-      const off = DOOR_W / 2 + seg / 2
-      for (const dir of [-1, 1]) {
+      // Puerta deslizable: el hueco se centra en `g` (según el desplazamiento).
+      const maxSlide = (len - DOOR_W) / 2
+      const g = Math.max(-1, Math.min(1, doorPos?.[key] ?? 0)) * maxSlide
+      const partes: [number, number][] = [
+        // [centro, largo] de cada mitad del muro a los lados del hueco
+        [(-len / 2 + (g - DOOR_W / 2)) / 2, g - DOOR_W / 2 + len / 2],
+        [((g + DOOR_W / 2) + len / 2) / 2, len / 2 - (g + DOOR_W / 2)],
+      ]
+      for (const [centro, largo] of partes) {
+        if (largo <= 0.02) continue
         if (axis === 'z')
-          segs.push({ cx: dir * off, cz: sign * half, sx: seg, sz: WALL_T })
-        else segs.push({ cx: sign * half, cz: dir * off, sx: WALL_T, sz: seg })
+          segs.push({ cx: centro, cz: sign * half, sx: largo, sz: WALL_T })
+        else segs.push({ cx: sign * half, cz: centro, sx: WALL_T, sz: largo })
       }
     }
   }
@@ -225,9 +236,10 @@ export function collidersForRoom(
   size: Size,
   ocupado: Set<string>,
   overrides?: WallOverrides,
+  doorPos?: DoorPos,
 ): AABB[] {
   const [cx, , cz] = roomCenter(cell, size)
-  return roomWallSegments(cell, size, ocupado, overrides).map((s) => ({
+  return roomWallSegments(cell, size, ocupado, overrides, doorPos).map((s) => ({
     minX: cx + s.cx - s.sx / 2,
     maxX: cx + s.cx + s.sx / 2,
     minZ: cz + s.cz - s.sz / 2,
