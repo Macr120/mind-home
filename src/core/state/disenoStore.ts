@@ -26,6 +26,8 @@ interface DisenoState {
   furnitureColors: Record<string, string>
   /** objetos de decoración colocados (todos los cuartos) */
   objetos: ObjetoCuarto[]
+  /** objeto que se está arrastrando dentro de un cuarto (modo edición) */
+  draggingObjeto: number | null
   avatar: { cabeza: string; torso: string; piernas: string }
   cargado: boolean
   cargar: () => Promise<void>
@@ -34,6 +36,10 @@ interface DisenoState {
   setFurnitureColor: (roomId: string, color: string) => Promise<void>
   addObjeto: (roomId: string, tipo: string, color: string) => Promise<void>
   setObjetoColor: (id: number, color: string) => Promise<void>
+  /** Mueve un objeto a (x,z) relativo al centro del cuarto (solo estado). */
+  setObjetoPos: (id: number, x: number, z: number) => void
+  startObjetoDrag: (id: number) => void
+  endObjetoDrag: () => Promise<void>
   removeObjeto: (id: number) => Promise<void>
   setAvatarColor: (
     parte: 'cabeza' | 'torso' | 'piernas',
@@ -43,20 +49,18 @@ interface DisenoState {
   resetAvatar: () => Promise<void>
 }
 
-/** Posiciones (local al cuarto) de las 4 ranuras de decoración. */
-export const OBJETO_SLOTS: [number, number][] = [
-  [-1.9, 1.8],
-  [1.9, 1.8],
-  [-1.9, 0.2],
-  [1.9, 0.2],
-]
-export const MAX_OBJETOS = OBJETO_SLOTS.length
+/** Posición por defecto (local) de un objeto nuevo, según cuántos haya. */
+function posDefault(n: number): { x: number; z: number } {
+  return { x: ((n % 3) - 1) * 1.6, z: 1.4 - Math.floor(n / 3) * 1.6 }
+}
+export const MAX_OBJETOS = 8
 
 export const useDiseño = create<DisenoState>((set, get) => ({
   roomColors: {},
   roomNames: {},
   furnitureColors: {},
   objetos: [],
+  draggingObjeto: null,
   avatar: { ...AVATAR_DEFAULT },
   cargado: false,
 
@@ -115,19 +119,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   addObjeto: async (roomId, tipo, color) => {
-    const usados = new Set(
-      get().objetos.filter((o) => o.roomId === roomId).map((o) => o.slot),
-    )
-    let slot = -1
-    for (let i = 0; i < MAX_OBJETOS; i++) {
-      if (!usados.has(i)) {
-        slot = i
-        break
-      }
-    }
-    if (slot === -1) return // cuarto lleno
-    const id = await db.objetosCuarto.add({ roomId, tipo, color, slot })
-    set((s) => ({ objetos: [...s.objetos, { id, roomId, tipo, color, slot }] }))
+    const n = get().objetos.filter((o) => o.roomId === roomId).length
+    if (n >= MAX_OBJETOS) return
+    const { x, z } = posDefault(n)
+    const item = { roomId, tipo, color, slot: 0, x, z }
+    const id = await db.objetosCuarto.add(item)
+    set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
   },
 
   setObjetoColor: async (id, color) => {
@@ -135,6 +132,21 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       objetos: s.objetos.map((o) => (o.id === id ? { ...o, color } : o)),
     }))
     await db.objetosCuarto.update(id, { color })
+  },
+
+  setObjetoPos: (id, x, z) =>
+    set((s) => ({
+      objetos: s.objetos.map((o) => (o.id === id ? { ...o, x, z } : o)),
+    })),
+
+  startObjetoDrag: (id) => set({ draggingObjeto: id }),
+
+  endObjetoDrag: async () => {
+    const id = get().draggingObjeto
+    set({ draggingObjeto: null })
+    if (id == null) return
+    const o = get().objetos.find((x) => x.id === id)
+    if (o) await db.objetosCuarto.update(id, { x: o.x, z: o.z })
   },
 
   removeObjeto: async (id) => {

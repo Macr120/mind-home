@@ -9,6 +9,7 @@ import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { CameraRig } from './CameraRig'
 import { RoomDragController } from './RoomDragController'
+import { ObjetoDragController } from './ObjetoDragController'
 import { roomCenter, SIZE_DEFAULT } from './walls'
 import { NavControls } from '../ui/NavControls'
 import { EditPanel } from '../ui/EditPanel'
@@ -107,6 +108,7 @@ export function House() {
 
       <RoomProximity />
       <RoomDragController />
+      <ObjetoDragController />
       <Character />
       </Canvas>
       <NavControls />

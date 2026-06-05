@@ -442,7 +442,9 @@ export interface ObjetoCuarto {
   roomId: string
   tipo: string  // id del catálogo (catalogo.tsx)
   color: string // hex
-  slot: number  // 0-3: esquina del cuarto donde se coloca
+  slot: number  // (heredado) ranura; con x/z se ignora
+  x?: number    // posición libre dentro del cuarto (relativa al centro)
+  z?: number
 }
 
 /** Layout editable: qué cuartos están colocados y en qué celda de la rejilla. */

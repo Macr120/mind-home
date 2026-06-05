@@ -34,6 +34,7 @@ export function Room3D({
   const cells = useLayout((s) => s.cells)
   const sizes = useLayout((s) => s.sizes)
   const editMode = useLayout((s) => s.editMode)
+  const editingRoomId = useLayout((s) => s.editingRoomId)
   const draggingId = useLayout((s) => s.draggingId)
   const previewCell = useLayout((s) => s.previewCell)
   const startDrag = useLayout((s) => s.startDrag)
@@ -55,7 +56,10 @@ export function Room3D({
     esFootprintLibre(placed, cells, sizes, id, previewCell, size)
   const muebleColor = useDiseño((s) => s.furnitureColors[id])
   const objetos = useDiseño((s) => s.objetos)
+  const draggingObjeto = useDiseño((s) => s.draggingObjeto)
+  const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const objetosCuarto = objetos.filter((o) => o.roomId === id)
+  const objetosEditables = editMode && editingRoomId === id
 
   /** Posición de una ranura de decoración (esquinas del footprint). */
   const slotPos = (slot: number): [number, number] => [
@@ -113,11 +117,32 @@ export function Room3D({
       {/* Mueble temático (recolorable) */}
       <Furniture id={id} color={muebleColor} />
 
-      {/* Decoración colocada por el usuario */}
+      {/* Decoración (posición libre · arrastrable al editar el cuarto) */}
       {objetosCuarto.map((o) => {
-        const [sx, sz] = slotPos(o.slot)
+        const ox = o.x ?? slotPos(o.slot)[0]
+        const oz = o.z ?? slotPos(o.slot)[1]
+        const drag = draggingObjeto === o.id
         return (
-          <group key={o.id} position={[sx, 0.2, sz]}>
+          <group
+            key={o.id}
+            position={[ox, drag ? 0.6 : 0.2, oz]}
+            onPointerDown={
+              objetosEditables
+                ? (e) => {
+                    e.stopPropagation()
+                    if (o.id != null) startObjetoDrag(o.id)
+                  }
+                : undefined
+            }
+            onPointerOver={
+              objetosEditables
+                ? (e) => {
+                    e.stopPropagation()
+                    document.body.style.cursor = 'grab'
+                  }
+                : undefined
+            }
+          >
             <ObjetoView tipo={o.tipo} color={o.color} />
           </group>
         )
