@@ -445,11 +445,13 @@ export interface ObjetoCuarto {
   slot: number  // 0-3: esquina del cuarto donde se coloca
 }
 
-/** Layout editable: qué cuartos están colocados en el mapa 3D. */
+/** Layout editable: qué cuartos están colocados y en qué celda de la rejilla. */
 export interface LayoutCuarto {
   id?: number
   roomId: string
   placed: boolean
+  col?: number // celda en la rejilla (vacío = celda por defecto)
+  row?: number
 }
 
 /** Colores del avatar Roblox del usuario. */

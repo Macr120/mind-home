@@ -2,6 +2,7 @@ import { rooms, type RoomModule } from '../registry'
 import { useHouse } from '../state/houseStore'
 import { useCam } from '../state/cameraStore'
 import { useDiseño } from '../state/disenoStore'
+import { roomWorldPos } from '../state/layoutStore'
 
 const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
   { key: 'cuerpo', label: 'Cuerpo' },
@@ -19,7 +20,7 @@ export function RoomSideMenu() {
   const roomNames = useDiseño((s) => s.roomNames)
 
   const irACuarto = (room: RoomModule) => {
-    focusRoom(room.posicion)
+    focusRoom(roomWorldPos(room.id))
     useHouse.setState({ selectedRoomId: room.id })
   }
 

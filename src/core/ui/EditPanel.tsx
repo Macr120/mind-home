@@ -50,7 +50,9 @@ function PanelEdicion({ onClose }: { onClose: () => void }) {
       <div className="border-b border-white/10 px-4 py-3">
         <p className="text-[11px] leading-snug text-white/45">
           Activa los cuartos que quieres en tu casa. El mapa puede estar vacío,
-          con todos, o solo los que elijas.
+          con todos, o solo los que elijas.{' '}
+          <b className="text-white/65">Arrastra un cuarto</b> en el mapa para
+          moverlo a otra celda.
         </p>
         <div className="mt-2 flex gap-2">
           <button

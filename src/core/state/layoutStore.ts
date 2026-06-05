@@ -1,22 +1,41 @@
 import { create } from 'zustand'
 import { db } from '../data/db'
 import { rooms } from '../registry'
-import { cellKey, collidersForRoom, type AABB } from '../house/walls'
+import {
+  cellKey,
+  cellToWorld,
+  collidersForRoom,
+  defaultCell,
+  type AABB,
+  type Cell,
+} from '../house/walls'
 
 /**
- * Layout editable del mapa: qué cuartos están colocados. Es data-driven (no fijo
- * en código) para poder agregar/quitar cuartos en modo edición y, más adelante,
- * moverlos/redimensionarlos. Las colisiones se recalculan al cambiar.
+ * Layout editable del mapa: qué cuartos están colocados y en qué CELDA de la
+ * rejilla. Es data-driven (no fijo en código): se pueden agregar/quitar y mover
+ * (drag) los cuartos. Las puertas y colisiones se recalculan al cambiar.
  */
 
-/** Deriva el conjunto de ocupación y los colliders a partir de los colocados. */
-function derivar(placed: Record<string, boolean>) {
+type Cells = Record<string, Cell>
+
+/** Posición del mundo de un cuarto según su celda actual. */
+function worldOf(cells: Cells, id: string): [number, number, number] {
+  const c = cells[id]
+  if (!c) return [0, 0, 0]
+  return cellToWorld(c.col, c.row)
+}
+
+/** Deriva ocupación y colliders de los cuartos colocados en sus celdas. */
+function derivar(placed: Record<string, boolean>, cells: Cells) {
   const colocados = rooms.filter((r) => placed[r.id])
   const ocupado = new Set(
-    colocados.map((r) => cellKey(r.posicion[0], r.posicion[2])),
+    colocados.map((r) => {
+      const [x, , z] = worldOf(cells, r.id)
+      return cellKey(x, z)
+    }),
   )
   const wallColliders: AABB[] = colocados.flatMap((r) =>
-    collidersForRoom(r.posicion, ocupado),
+    collidersForRoom(worldOf(cells, r.id), ocupado),
   )
   return { ocupado, wallColliders }
 }
@@ -24,67 +43,136 @@ function derivar(placed: Record<string, boolean>) {
 const todos = (v: boolean) =>
   Object.fromEntries(rooms.map((r) => [r.id, v])) as Record<string, boolean>
 
+const celdasDefault = (): Cells =>
+  Object.fromEntries(rooms.map((r) => [r.id, defaultCell(r.posicion)]))
+
 interface LayoutState {
-  /** placed[roomId] = está en el mapa 3D */
   placed: Record<string, boolean>
+  cells: Cells
   editMode: boolean
-  /** claves "x,z" de cuartos colocados (para las puertas) */
   ocupado: Set<string>
-  /** colliders de pared actuales (los lee Character) */
   wallColliders: AABB[]
+  /** Cuarto que se está arrastrando (modo edición). */
+  draggingId: string | null
+  /** Celda destino previa mientras se arrastra. */
+  previewCell: Cell | null
   cargado: boolean
   cargar: () => Promise<void>
   setEditMode: (v: boolean) => void
   toggleRoom: (id: string) => Promise<void>
   setAll: (v: boolean) => Promise<void>
+  moveRoom: (id: string, cell: Cell) => Promise<void>
+  startDrag: (id: string) => void
+  setPreview: (cell: Cell | null) => void
+  endDrag: () => Promise<void>
 }
 
 export const useLayout = create<LayoutState>((set, get) => ({
   placed: todos(true),
+  cells: celdasDefault(),
   editMode: false,
-  ...derivar(todos(true)),
+  ...derivar(todos(true), celdasDefault()),
+  draggingId: null,
+  previewCell: null,
   cargado: false,
 
   cargar: async () => {
     const filas = await db.layout.toArray()
     let placed: Record<string, boolean>
+    const cells = celdasDefault()
     if (filas.length === 0) {
       placed = todos(true)
-      await db.layout.bulkAdd(rooms.map((r) => ({ roomId: r.id, placed: true })))
-    } else {
-      placed = Object.fromEntries(
-        rooms.map((r) => [
-          r.id,
-          filas.find((f) => f.roomId === r.id)?.placed ?? true,
-        ]),
+      await db.layout.bulkAdd(
+        rooms.map((r) => {
+          const c = cells[r.id]
+          return { roomId: r.id, placed: true, col: c.col, row: c.row }
+        }),
       )
+    } else {
+      placed = {}
+      for (const r of rooms) {
+        const f = filas.find((x) => x.roomId === r.id)
+        placed[r.id] = f?.placed ?? true
+        if (f && f.col !== undefined && f.row !== undefined) {
+          cells[r.id] = { col: f.col, row: f.row }
+        }
+      }
     }
-    set({ placed, ...derivar(placed), cargado: true })
+    set({ placed, cells, ...derivar(placed, cells), cargado: true })
   },
 
-  setEditMode: (v) => set({ editMode: v }),
+  setEditMode: (v) => set({ editMode: v, draggingId: null, previewCell: null }),
 
   toggleRoom: async (id) => {
     const placed = { ...get().placed, [id]: !get().placed[id] }
-    set({ placed, ...derivar(placed) })
-    const fila = await db.layout.where('roomId').equals(id).first()
-    if (fila?.id) await db.layout.update(fila.id, { placed: placed[id] })
-    else await db.layout.add({ roomId: id, placed: placed[id] })
+    set({ placed, ...derivar(placed, get().cells) })
+    await upsert(id, { placed: placed[id] })
   },
 
   setAll: async (v) => {
     const placed = todos(v)
-    set({ placed, ...derivar(placed) })
-    const filas = await db.layout.toArray()
-    await Promise.all(
-      rooms.map(async (r) => {
-        const f = filas.find((x) => x.roomId === r.id)
-        if (f?.id) await db.layout.update(f.id, { placed: v })
-        else await db.layout.add({ roomId: r.id, placed: v })
-      }),
-    )
+    set({ placed, ...derivar(placed, get().cells) })
+    await Promise.all(rooms.map((r) => upsert(r.id, { placed: v })))
+  },
+
+  moveRoom: async (id, cell) => {
+    const cells = { ...get().cells, [id]: cell }
+    set({ cells, ...derivar(get().placed, cells) })
+    await upsert(id, { col: cell.col, row: cell.row })
+  },
+
+  startDrag: (id) => set({ draggingId: id, previewCell: get().cells[id] }),
+
+  setPreview: (cell) => {
+    const { draggingId, placed, cells } = get()
+    if (!draggingId || !cell) {
+      set(
+        cell
+          ? { previewCell: cell }
+          : { previewCell: null, ...derivar(placed, cells) },
+      )
+      return
+    }
+    const previewCells = { ...cells, [draggingId]: cell }
+    set({ previewCell: cell, ...derivar(placed, previewCells) })
+  },
+
+  endDrag: async () => {
+    const { draggingId, previewCell, placed, cells } = get()
+    if (draggingId && previewCell && esCeldaLibre(placed, cells, draggingId, previewCell)) {
+      await get().moveRoom(draggingId, previewCell)
+    }
+    const { placed: p, cells: c } = get()
+    set({ draggingId: null, previewCell: null, ...derivar(p, c) })
   },
 }))
+
+/** ¿La celda está libre (ningún otro cuarto colocado la ocupa)? */
+export function esCeldaLibre(
+  placed: Record<string, boolean>,
+  cells: Cells,
+  exceptId: string,
+  cell: Cell,
+): boolean {
+  return !rooms.some(
+    (r) =>
+      r.id !== exceptId &&
+      placed[r.id] &&
+      cells[r.id]?.col === cell.col &&
+      cells[r.id]?.row === cell.row,
+  )
+}
+
+/** Posición del mundo de un cuarto (para navegación/cámara, fuera de React). */
+export function roomWorldPos(id: string): [number, number, number] {
+  return worldOf(useLayout.getState().cells, id)
+}
+
+async function upsert(roomId: string, patch: Partial<{ placed: boolean; col: number; row: number }>) {
+  const fila = await db.layout.where('roomId').equals(roomId).first()
+  if (fila?.id) await db.layout.update(fila.id, patch)
+  else await db.layout.add({ roomId, placed: true, ...patch })
+}
 
 if (import.meta.env.DEV) {
   ;(window as unknown as { useLayout: typeof useLayout }).useLayout = useLayout

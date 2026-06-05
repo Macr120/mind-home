@@ -47,6 +47,38 @@ export const SPACING = SIZE
 /** Clave de celda del mundo para el conjunto de ocupación. */
 export const cellKey = (x: number, z: number) => `${x},${z}`
 
+// ── Rejilla editable 6×5 ──────────────────────────────────────────────────────
+// Los 12 cuartos por defecto caen en el bloque interno 4×3 (mismas posiciones de
+// antes: cols x -9..9, filas z -6..6) y queda un borde de celdas libres para mover.
+export const COLS = 6
+export const ROWS = 5
+
+export interface Cell {
+  col: number
+  row: number
+}
+
+const clamp = (v: number, min: number, max: number) =>
+  Math.max(min, Math.min(max, v))
+
+/** Celda (col,row) → posición del mundo [x, 0, z]. */
+export function cellToWorld(col: number, row: number): [number, number, number] {
+  return [(col - (COLS - 1) / 2) * SPACING, 0, (row - (ROWS - 1) / 2) * SPACING]
+}
+
+/** Posición del mundo → celda más cercana (acotada a la rejilla). */
+export function worldToCell(x: number, z: number): Cell {
+  return {
+    col: clamp(Math.round(x / SPACING + (COLS - 1) / 2), 0, COLS - 1),
+    row: clamp(Math.round(z / SPACING + (ROWS - 1) / 2), 0, ROWS - 1),
+  }
+}
+
+/** Celda por defecto de un cuarto a partir de su posición del registro. */
+export function defaultCell(position: [number, number, number]): Cell {
+  return worldToCell(position[0], position[2])
+}
+
 /**
  * Segmentos de pared (locales) de un cuarto. Cada lado que da a un cuarto
  * vecino COLOCADO lleva una puerta (hueco al centro); los demás quedan sólidos.

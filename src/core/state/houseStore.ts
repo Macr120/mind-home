@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { getRoom } from '../registry'
 import { estaEnPuerta } from '../house/navigation'
 import { roomEntrance } from '../house/walls'
+import { roomWorldPos } from './layoutStore'
 
 export { playerPos } from './playerPosition'
 
@@ -55,7 +56,7 @@ export const useHouse = create<HouseState>((set, get) => ({
   enterFromMenu: (id) => {
     const room = getRoom(id)
     if (!room) return
-    const [x, , z] = room.posicion
+    const [x, , z] = roomWorldPos(id)
     set((s) => ({
       selectedRoomId: id,
       target: new THREE.Vector3(x, 0, z),
@@ -77,13 +78,13 @@ export const useHouse = create<HouseState>((set, get) => ({
   goToRoom: (id) => {
     const room = getRoom(id)
     if (!room) return
-    const [x, z] = roomEntrance(room.posicion)
+    const [x, z] = roomEntrance(roomWorldPos(id))
     get().setTarget(x, z)
   },
   selectRoom: (id) => {
     const room = getRoom(id)
     if (!room) return
-    const [x, z] = roomEntrance(room.posicion)
+    const [x, z] = roomEntrance(roomWorldPos(id))
     set((s) => ({
       selectedRoomId: id,
       target: new THREE.Vector3(x, 0, z),
@@ -94,12 +95,12 @@ export const useHouse = create<HouseState>((set, get) => ({
     const room = getRoom(id)
     if (!room) return
     const { selectedRoomId } = get()
-    if (selectedRoomId === id && estaEnPuerta(room.posicion)) get().openRoom(id)
+    if (selectedRoomId === id && estaEnPuerta(roomWorldPos(id))) get().openRoom(id)
     else get().selectRoom(id)
   },
   tryEnterRoom: (id: string) => {
     const room = getRoom(id)
-    if (room && estaEnPuerta(room.posicion)) get().openRoom(id)
+    if (room && estaEnPuerta(roomWorldPos(id))) get().openRoom(id)
   },
 }))
 
