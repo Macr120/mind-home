@@ -87,6 +87,36 @@ export type WallState = 'pared' | 'puerta' | 'abierto'
 export type WallOverrides = Partial<Record<SideKey, WallState>>
 export const SIDE_KEYS: SideKey[] = ['N', 'S', 'E', 'O']
 
+const SIDE_DELTA: Record<SideKey, [number, number]> = {
+  N: [0, -1],
+  S: [0, 1],
+  O: [-1, 0],
+  E: [1, 0],
+}
+
+/** Estado automático de un lado: 'puerta' si hay vecino colocado, si no 'pared'. */
+export function autoWall(
+  position: [number, number, number],
+  ocupado: Set<string>,
+  side: SideKey,
+): WallState {
+  const [x, , z] = position
+  const [dx, dz] = SIDE_DELTA[side]
+  return ocupado.has(cellKey(x + dx * SPACING, z + dz * SPACING))
+    ? 'puerta'
+    : 'pared'
+}
+
+/** Estado efectivo (concreto) de un lado: override del usuario o el automático. */
+export function effectiveWall(
+  position: [number, number, number],
+  ocupado: Set<string>,
+  overrides: WallOverrides | undefined,
+  side: SideKey,
+): WallState {
+  return overrides?.[side] ?? autoWall(position, ocupado, side)
+}
+
 /**
  * Segmentos de pared (locales) de un cuarto.
  * - Sin override: puerta si el cuarto vecino está colocado; si no, pared.

@@ -6,6 +6,7 @@ import {
   cellToWorld,
   collidersForRoom,
   defaultCell,
+  effectiveWall,
   type AABB,
   type Cell,
   type SideKey,
@@ -157,17 +158,19 @@ export const useLayout = create<LayoutState>((set, get) => ({
   },
 
   cycleWall: async (roomId, side) => {
-    const orden: (WallState | undefined)[] = [
-      undefined,
-      'pared',
-      'puerta',
-      'abierto',
-    ]
-    const actual = get().wallOverrides[roomId]?.[side]
+    const orden: WallState[] = ['pared', 'puerta', 'abierto']
+    // Parte del estado EFECTIVO actual (sin "auto"): override o el automático.
+    const actual = effectiveWall(
+      roomWorldPos(roomId),
+      get().ocupado,
+      get().wallOverrides[roomId],
+      side,
+    )
     const siguiente = orden[(orden.indexOf(actual) + 1) % orden.length]
-    const muros: WallOverrides = { ...(get().wallOverrides[roomId] ?? {}) }
-    if (siguiente) muros[side] = siguiente
-    else delete muros[side]
+    const muros: WallOverrides = {
+      ...(get().wallOverrides[roomId] ?? {}),
+      [side]: siguiente,
+    }
     const wallOverrides = { ...get().wallOverrides, [roomId]: muros }
     set({ wallOverrides, ...derivar(get().placed, get().cells, wallOverrides) })
     await upsert(roomId, { muros })

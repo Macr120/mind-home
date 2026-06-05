@@ -13,3 +13,23 @@ body,
 * {
   box-sizing: border-box;
 }
+
+/* Scrollbar sutil (menú lateral, paneles). */
+.scroll-sutil {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+}
+.scroll-sutil::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scroll-sutil::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-sutil::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+.scroll-sutil::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}

@@ -63,7 +63,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
         </p>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-2 py-3">
+      <div className="scroll-sutil min-h-0 flex-1 overflow-y-auto px-2 py-3">
         {CATEGORIAS.map(({ key, label }) => {
           const grupo = rooms.filter(
             (r) => r.categoria === key && placed[r.id],
@@ -172,28 +172,22 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   )
 }
 
-/** Menú retraído: solo las 3 líneas y el título vertical. */
-export function CollapsedSidebar({ onToggle }: { onToggle: () => void }) {
+/** Menú retraído: botón flotante (3 líneas + Mind Home). */
+export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   return (
-    <aside className="flex h-full w-12 shrink-0 flex-col items-center gap-3 border-r border-white/10 bg-[#12151c] py-4">
-      <button
-        type="button"
-        onClick={onToggle}
-        title="Abrir menú"
-        className="flex h-9 w-9 flex-col items-center justify-center gap-[3px] rounded-md transition hover:bg-white/10"
-      >
-        <span className="h-0.5 w-5 rounded bg-white/80" />
-        <span className="h-0.5 w-5 rounded bg-white/80" />
-        <span className="h-0.5 w-5 rounded bg-white/80" />
-      </button>
-      <span className="text-xl">🏠</span>
-      <span
-        className="mt-1 text-xs font-black tracking-wide text-white/70"
-        style={{ writingMode: 'vertical-rl' }}
-      >
-        Mind Home
+    <button
+      type="button"
+      onClick={onToggle}
+      title="Abrir menú"
+      className="absolute left-3 top-3 z-30 flex items-center gap-2 rounded-lg border border-white/10 bg-black/55 px-3 py-2 backdrop-blur-sm transition hover:bg-white/15"
+    >
+      <span className="flex flex-col items-center justify-center gap-[3px]">
+        <span className="h-0.5 w-4 rounded bg-white/80" />
+        <span className="h-0.5 w-4 rounded bg-white/80" />
+        <span className="h-0.5 w-4 rounded bg-white/80" />
       </span>
-    </aside>
+      <span className="text-sm font-black text-white/90">🏠 Mind Home</span>
+    </button>
   )
 }
 

@@ -28,6 +28,7 @@ function ShadowUpdater() {
 function BaseFloor() {
   const setTarget = useHouse((s) => s.setTarget)
   const editMode = useLayout((s) => s.editMode)
+  const floorColor = useDiseño((s) => s.roomColors['__piso__']) ?? '#0c0e13'
   const onClick = (e: ThreeEvent<MouseEvent>) => {
     if (editMode) return // en edición el clic no mueve al avatar
     e.stopPropagation()
@@ -41,7 +42,7 @@ function BaseFloor() {
       receiveShadow
     >
       <planeGeometry args={[40, 36]} />
-      <meshStandardMaterial color="#0c0e13" />
+      <meshStandardMaterial color={floorColor} />
     </mesh>
   )
 }

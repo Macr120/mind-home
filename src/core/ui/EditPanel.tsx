@@ -3,12 +3,14 @@ import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useCam } from '../state/cameraStore'
 import { useDiseño } from '../state/disenoStore'
 import { ObjetosTab } from '../../rooms/diseno/ObjetosTab'
+import { ColorPicker } from '../../rooms/diseno/ColorPicker'
 import { WallEditor } from './WallEditor'
 
 /**
- * Editor de cuarto (modo edición): muestra los recursos para agregar objetos
- * al cuarto que se está editando (elegido con el engrane ⚙️ del menú lateral).
- * También se puede arrastrar cuartos en el mapa para moverlos.
+ * Modo edición.
+ * - Sin cuarto seleccionado: mover cuartos (drag) + recursos del mapa (piso),
+ *   sin zoom.
+ * - Con cuarto (engrane ⚙️): edita paredes y objetos de ese cuarto, con zoom.
  */
 export function EditPanel() {
   const editMode = useLayout((s) => s.editMode)
@@ -20,6 +22,7 @@ export function EditPanel() {
   const focusRoom = useCam((s) => s.focusRoom)
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
+  const setRoomColor = useDiseño((s) => s.setRoomColor)
 
   const editar = (id: string | null) => {
     editRoom(id)
@@ -30,9 +33,9 @@ export function EditPanel() {
     return (
       <button
         type="button"
-        onClick={() => editar(rooms.find((r) => placed[r.id])?.id ?? null)}
+        onClick={() => setEditMode(true)}
         className="absolute right-4 top-4 z-10 rounded-lg border border-white/10 bg-black/50 px-3 py-2 text-sm font-semibold text-white/85 backdrop-blur-sm transition hover:bg-white/15"
-        title="Editar objetos de los cuartos"
+        title="Editar el mapa de la casa"
       >
         ✏️ Editar mapa
       </button>
@@ -42,6 +45,7 @@ export function EditPanel() {
   const room = editingRoomId ? getRoom(editingRoomId) : null
   const color = room ? roomColors[room.id] ?? room.color : '#94a3b8'
   const nombre = room ? roomNames[room.id] || room.nombre : ''
+  const floorColor = roomColors['__piso__'] ?? '#0c0e13'
 
   const quitarDelMapa = () => {
     if (!room) return
@@ -65,11 +69,17 @@ export function EditPanel() {
       </header>
 
       <p className="border-b border-white/10 px-4 py-2 text-[11px] leading-snug text-white/45">
-        Agrega objetos al cuarto. También puedes{' '}
-        <b className="text-white/65">arrastrar cuartos</b> en el mapa para moverlos.
+        {room ? (
+          <>Edita paredes y objetos del cuarto.</>
+        ) : (
+          <>
+            <b className="text-white/65">Arrastra los cuartos</b> para moverlos, o
+            usa el <b className="text-white/65">⚙️</b> de un cuarto para editarlo.
+          </>
+        )}
       </p>
 
-      <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-3">
+      <div className="scroll-sutil min-h-0 flex-1 space-y-4 overflow-y-auto p-3">
         {room ? (
           <>
             <div className="rounded-xl border border-white/10 bg-white/5 p-3">
@@ -78,10 +88,13 @@ export function EditPanel() {
             <ObjetosTab roomId={editingRoomId ?? undefined} onRoomChange={editar} />
           </>
         ) : (
-          <p className="px-2 py-6 text-center text-sm text-white/40">
-            No hay cuartos en el mapa. Agrega uno desde el menú lateral
-            (➕ Agregar cuarto).
-          </p>
+          <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+            <p className="mb-3 text-sm font-semibold">Piso de la casa</p>
+            <ColorPicker
+              value={floorColor}
+              onChange={(c) => setRoomColor('__piso__', c)}
+            />
+          </div>
         )}
       </div>
 
