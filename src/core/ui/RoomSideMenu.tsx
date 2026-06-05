@@ -1,8 +1,9 @@
-import { rooms, type RoomModule } from '../registry'
+import { useState } from 'react'
+import { rooms, DESCRIPCIONES, type RoomModule } from '../registry'
 import { useHouse } from '../state/houseStore'
 import { useCam } from '../state/cameraStore'
 import { useDiseño } from '../state/disenoStore'
-import { roomWorldPos } from '../state/layoutStore'
+import { useLayout, roomWorldPos } from '../state/layoutStore'
 
 const CATEGORIAS: { key: RoomModule['categoria']; label: string }[] = [
   { key: 'cuerpo', label: 'Cuerpo' },
@@ -15,14 +16,24 @@ export function RoomSideMenu() {
   const selectedRoomId = useHouse((s) => s.selectedRoomId)
   const openRoom = useHouse((s) => s.openRoom)
   const focusRoom = useCam((s) => s.focusRoom)
-  // Color y nombre personalizados (ligados con la casa 3D y Diseño de casa).
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
+  const placed = useLayout((s) => s.placed)
+  const editRoom = useLayout((s) => s.editRoom)
+  const [mostrarAgregar, setMostrarAgregar] = useState(false)
 
   const irACuarto = (room: RoomModule) => {
     focusRoom(roomWorldPos(room.id))
     useHouse.setState({ selectedRoomId: room.id })
   }
+
+  /** Engrane: edita el cuarto específico (zoom + panel de objetos). */
+  const editarCuarto = (room: RoomModule) => {
+    focusRoom(roomWorldPos(room.id))
+    editRoom(room.id)
+  }
+
+  const disponibles = rooms.filter((r) => !placed[r.id])
 
   return (
     <aside
@@ -34,15 +45,17 @@ export function RoomSideMenu() {
           🏠 Mind Home
         </h1>
         <p className="mt-1 text-[11px] leading-snug text-white/45">
-          <b className="text-white/70">Ir</b> acerca la cámara al cuarto ·{' '}
-          <b className="text-white/70">Entrar</b> abre su app. Muévete con
-          WASD/flechas o el pad.
+          <b className="text-white/70">Ir</b> acerca la cámara ·{' '}
+          <b className="text-white/70">Entrar</b> abre la app ·{' '}
+          <b className="text-white/70">⚙️</b> edita el cuarto.
         </p>
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-2 py-3">
         {CATEGORIAS.map(({ key, label }) => {
-          const grupo = rooms.filter((r) => r.categoria === key)
+          const grupo = rooms.filter(
+            (r) => r.categoria === key && placed[r.id],
+          )
           if (grupo.length === 0) return null
           return (
             <section key={key} className="mb-4">
@@ -52,20 +65,29 @@ export function RoomSideMenu() {
               <ul className="flex flex-col gap-1.5">
                 {grupo.map((room) => {
                   const activo = selectedRoomId === room.id
-                  // Efectivos: personalización del usuario o, si no, el registro.
                   const color = roomColors[room.id] ?? room.color
                   const nombre = roomNames[room.id] || room.nombre
                   return (
                     <li
                       key={room.id}
-                      className="rounded-lg border transition"
+                      className="relative rounded-lg border transition"
                       style={{
                         borderColor: activo ? color : 'rgba(255,255,255,0.06)',
                         background: activo ? `${color}1f` : 'rgba(255,255,255,0.02)',
                       }}
                     >
+                      {/* Engrane de edición (esquina superior derecha) */}
+                      <button
+                        type="button"
+                        onClick={() => editarCuarto(room)}
+                        title="Editar este cuarto"
+                        className="absolute right-1.5 top-1.5 z-10 flex h-6 w-6 items-center justify-center rounded-md text-sm text-white/40 transition hover:bg-white/10 hover:text-white/90"
+                      >
+                        ⚙️
+                      </button>
+
                       {/* Encabezado del cuarto */}
-                      <div className="flex items-center gap-2.5 px-2.5 pt-2">
+                      <div className="flex items-center gap-2.5 px-2.5 pt-2 pr-8">
                         <span
                           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-lg"
                           style={{
@@ -111,7 +133,70 @@ export function RoomSideMenu() {
             </section>
           )
         })}
+
+        {/* Agregar cuarto nuevo */}
+        <button
+          type="button"
+          onClick={() => setMostrarAgregar((v) => !v)}
+          className="mt-1 flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/15 py-2.5 text-sm font-semibold text-white/60 transition hover:border-white/30 hover:text-white/90"
+        >
+          ➕ Agregar cuarto {disponibles.length > 0 && `(${disponibles.length})`}
+        </button>
+
+        {mostrarAgregar && (
+          <div className="mt-2 space-y-2">
+            {disponibles.length === 0 && (
+              <p className="px-2 py-3 text-center text-xs text-white/40">
+                Todos los cuartos ya están en tu casa.
+              </p>
+            )}
+            {disponibles.map((room) => (
+              <CuartoDisponible key={room.id} room={room} />
+            ))}
+          </div>
+        )}
       </div>
     </aside>
+  )
+}
+
+/** Tarjeta de un cuarto disponible (no colocado) con descripción y botón. */
+function CuartoDisponible({ room }: { room: RoomModule }) {
+  const toggleRoom = useLayout((s) => s.toggleRoom)
+  const focusRoom = useCam((s) => s.focusRoom)
+
+  const agregar = async () => {
+    await toggleRoom(room.id) // lo coloca en el mapa
+    focusRoom(roomWorldPos(room.id))
+  }
+
+  return (
+    <div
+      className="rounded-lg border p-2.5"
+      style={{ borderColor: `${room.color}44`, background: `${room.color}10` }}
+    >
+      <div className="flex items-center gap-2">
+        <span
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-base"
+          style={{ background: `${room.color}33` }}
+        >
+          {room.icon}
+        </span>
+        <span className="truncate text-sm font-semibold text-white/90">
+          {room.nombre.split(' · ')[0]}
+        </span>
+      </div>
+      <p className="mt-1.5 text-[11px] leading-snug text-white/50">
+        {DESCRIPCIONES[room.id] ?? ''}
+      </p>
+      <button
+        type="button"
+        onClick={agregar}
+        className="mt-2 w-full rounded-md py-1.5 text-xs font-bold text-black transition hover:brightness-110"
+        style={{ background: room.color }}
+      >
+        Agregar a la casa
+      </button>
+    </div>
   )
 }

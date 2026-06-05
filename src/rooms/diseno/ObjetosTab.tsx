@@ -4,8 +4,20 @@ import { useDiseño, MAX_OBJETOS } from '../../core/state/disenoStore'
 import { CATALOGO } from '../../core/house/catalogo'
 import { ColorPicker } from './ColorPicker'
 
-export function ObjetosTab() {
-  const [roomId, setRoomId] = useState(rooms[0].id)
+export function ObjetosTab({
+  roomId: roomIdProp,
+  onRoomChange,
+}: {
+  /** Si se pasa, el cuarto lo controla el padre (editor 3D). */
+  roomId?: string
+  onRoomChange?: (id: string) => void
+}) {
+  const [roomIdLocal, setRoomIdLocal] = useState(rooms[0].id)
+  const roomId = roomIdProp ?? roomIdLocal
+  const setRoomId = (id: string) => {
+    if (onRoomChange) onRoomChange(id)
+    else setRoomIdLocal(id)
+  }
   const {
     furnitureColors,
     objetos,

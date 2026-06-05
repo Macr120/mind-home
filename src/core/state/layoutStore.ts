@@ -50,6 +50,8 @@ interface LayoutState {
   placed: Record<string, boolean>
   cells: Cells
   editMode: boolean
+  /** Cuarto cuyos objetos se están editando (panel de recursos). */
+  editingRoomId: string | null
   ocupado: Set<string>
   wallColliders: AABB[]
   /** Cuarto que se está arrastrando (modo edición). */
@@ -59,6 +61,8 @@ interface LayoutState {
   cargado: boolean
   cargar: () => Promise<void>
   setEditMode: (v: boolean) => void
+  /** Entra a editar los objetos de un cuarto específico (con zoom). */
+  editRoom: (id: string | null) => void
   toggleRoom: (id: string) => Promise<void>
   setAll: (v: boolean) => Promise<void>
   moveRoom: (id: string, cell: Cell) => Promise<void>
@@ -71,6 +75,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
   placed: todos(true),
   cells: celdasDefault(),
   editMode: false,
+  editingRoomId: null,
   ...derivar(todos(true), celdasDefault()),
   draggingId: null,
   previewCell: null,
@@ -101,7 +106,16 @@ export const useLayout = create<LayoutState>((set, get) => ({
     set({ placed, cells, ...derivar(placed, cells), cargado: true })
   },
 
-  setEditMode: (v) => set({ editMode: v, draggingId: null, previewCell: null }),
+  setEditMode: (v) =>
+    set({
+      editMode: v,
+      draggingId: null,
+      previewCell: null,
+      editingRoomId: v ? get().editingRoomId : null,
+    }),
+
+  editRoom: (id) =>
+    set({ editMode: true, editingRoomId: id, draggingId: null, previewCell: null }),
 
   toggleRoom: async (id) => {
     const placed = { ...get().placed, [id]: !get().placed[id] }

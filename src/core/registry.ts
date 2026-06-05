@@ -48,3 +48,19 @@ export const rooms: RoomModule[] = [
 ]
 
 export const getRoom = (id: string) => rooms.find((r) => r.id === id)
+
+/** Descripción corta de cada cuarto (para el listado de "Agregar cuarto"). */
+export const DESCRIPCIONES: Record<string, string> = {
+  cocina: 'Nutrición: registra comidas, macros, agua y tu plan semanal.',
+  ejercicio: 'Rutinas de fuerza, resistencia y flexibilidad con metas.',
+  recamara: 'Controla tu descanso y escribe tu anecdotario personal.',
+  despacho: 'Finanzas: presupuesto, gastos por categoría, gráficas y metas.',
+  biblioteca: 'Tu enciclopedia de aprendizaje y progreso por temas.',
+  entretenimiento: 'Archivo de películas, series, libros y juegos de mesa.',
+  sala: 'Planifica viajes: itinerario, gastos, checklist y lista de deseos.',
+  jardin: 'Mindfulness: meditación, respiración, ánimo y gratitud.',
+  garage: 'Mantenimiento de tus vehículos y sus servicios.',
+  diario: 'Central de noticias del día, por categorías.',
+  configuraciones: 'Tu perfil, copia de seguridad y ajustes de la app.',
+  diseno: 'Personaliza colores, nombres, avatar y objetos de la casa.',
+}
