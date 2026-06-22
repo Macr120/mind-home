@@ -1,17 +1,52 @@
 @import 'tailwindcss';
 
+/* Variables del tema de interfaz (se sobreescriben en <html> desde temasUI.ts). */
+:root {
+  --ui-bg: #0f1115;
+  --ui-panel: #12151c;
+  --ui-panel-2: #171b24;
+  --ui-accent: #6ea8fe;
+  --ui-accent-ink: #0b1020;
+  --ui-font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
 html,
 body,
 #root {
   height: 100%;
   margin: 0;
-  background: #0f1115;
+  background: var(--ui-bg);
   color: #e7e9ee;
-  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-family: var(--ui-font);
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Clases semánticas del chrome (cambian de color con el tema activo). */
+.ui-app {
+  background: var(--ui-bg);
+}
+.ui-panel {
+  background: var(--ui-panel);
+}
+.ui-panel-2 {
+  background: var(--ui-panel-2);
+}
+/* Panel translúcido (flota sobre la escena 3D): chat, prompts, editor. */
+.ui-panel-glass {
+  background: color-mix(in srgb, var(--ui-panel) 92%, transparent);
+}
+.ui-accent-bg {
+  background: var(--ui-accent);
+  color: var(--ui-accent-ink);
+}
+.text-accent {
+  color: var(--ui-accent);
+}
+.border-accent {
+  border-color: var(--ui-accent);
 }
 
 /* Scrollbar sutil (menú lateral, paneles). */

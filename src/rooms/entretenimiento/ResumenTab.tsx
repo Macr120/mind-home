@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { JuegoMesa, MediaArchivo } from '../../core/data/db'
 import { COLOR, CATEGORIAS_MESA, TIPOS_MEDIA, getCategoriaMesa } from './constantes'
 import { añoDe } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function ResumenTab({
   media,
@@ -10,11 +11,13 @@ export function ResumenTab({
   media: MediaArchivo[]
   juegos: JuegoMesa[]
 }) {
+  const t = useT()
+
   const porTipoMedia = useMemo(
     () =>
-      TIPOS_MEDIA.map((t) => ({
-        ...t,
-        count: media.filter((i) => i.tipo === t.id).length,
+      TIPOS_MEDIA.map((tipoItem) => ({
+        ...tipoItem,
+        count: media.filter((i) => i.tipo === tipoItem.id).length,
       })),
     [media],
   )
@@ -58,28 +61,28 @@ export function ResumenTab({
     <div className="space-y-5">
       <div className="grid grid-cols-2 gap-3">
         <div className="rounded-xl border border-white/10 p-4 col-span-2" style={{ background: `${COLOR}18` }}>
-          <p className="text-xs text-white/50">Tu sala de entretenimiento</p>
+          <p className="text-xs text-white/50">{t('entre.r.sala', 'Tu sala de entretenimiento')}</p>
           <p className="text-2xl font-black" style={{ color: COLOR }}>
-            {media.length} títulos · {juegos.length} juegos de mesa
+            {t('entre.r.titulos', `${media.length} títulos · ${juegos.length} juegos de mesa`, { m: String(media.length), j: String(juegos.length) })}
           </p>
         </div>
-        <MiniStat label="Partidas registradas" valor={String(partidasTotal)} />
+        <MiniStat label={t('entre.r.partidas', 'Partidas registradas')} valor={String(partidasTotal)} />
         <MiniStat
-          label="Nota media (archivo)"
+          label={t('entre.r.nota', 'Nota media (archivo)')}
           valor={promedioMedia > 0 ? `${promedioMedia.toFixed(1)} ★` : '—'}
         />
       </div>
 
-      {porTipoMedia.some((t) => t.count > 0) && (
+      {porTipoMedia.some((tipoItem) => tipoItem.count > 0) && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-3">📺 Archivo multimedia</p>
+          <p className="text-sm font-semibold mb-3">{t('entre.r.archivo', '📺 Archivo multimedia')}</p>
           <div className="grid grid-cols-2 gap-2">
-            {porTipoMedia.map((t) => (
-              <div key={t.id} className="flex items-center gap-2 rounded-lg bg-black/25 px-3 py-2">
-                <span className="text-xl">{t.icon}</span>
+            {porTipoMedia.map((tipoItem) => (
+              <div key={tipoItem.id} className="flex items-center gap-2 rounded-lg bg-black/25 px-3 py-2">
+                <span className="text-xl">{tipoItem.icon}</span>
                 <div>
-                  <p className="text-sm font-medium">{t.label}</p>
-                  <p className="text-xs text-white/40">{t.count}</p>
+                  <p className="text-sm font-medium">{tipoItem.label}</p>
+                  <p className="text-xs text-white/40">{tipoItem.count}</p>
                 </div>
               </div>
             ))}
@@ -89,7 +92,7 @@ export function ResumenTab({
 
       {porCategoriaMesa.length > 0 && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-3">🎲 Ludoteca por categoría</p>
+          <p className="text-sm font-semibold mb-3">{t('entre.r.ludoteca', '🎲 Ludoteca por categoría')}</p>
           <div className="flex flex-wrap gap-2">
             {porCategoriaMesa.map((c) => (
               <span
@@ -106,7 +109,7 @@ export function ResumenTab({
 
       {masJugados.length > 0 && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">🏆 Más jugados en mesa</p>
+          <p className="text-sm font-semibold mb-2">{t('entre.r.masJugados', '🏆 Más jugados en mesa')}</p>
           <ul className="space-y-1.5">
             {masJugados.map((j) => {
               const c = getCategoriaMesa(j.categoria)
@@ -115,7 +118,7 @@ export function ResumenTab({
                   <span>
                     {c.icon} {j.nombre}
                   </span>
-                  <span className="text-white/45 shrink-0">{j.vecesJugado} partidas</span>
+                  <span className="text-white/45 shrink-0">{j.vecesJugado} {t('entre.r.partida', 'partidas')}</span>
                 </li>
               )
             })}
@@ -125,13 +128,13 @@ export function ResumenTab({
 
       {destacadosMedia.length > 0 && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">⭐ Favoritos del archivo</p>
+          <p className="text-sm font-semibold mb-2">{t('entre.r.favoritos', '⭐ Favoritos del archivo')}</p>
           <ul className="space-y-2 text-sm">
             {destacadosMedia.map((i) => {
-              const t = TIPOS_MEDIA.find((x) => x.id === i.tipo)
+              const tipoItem = TIPOS_MEDIA.find((x) => x.id === i.tipo)
               return (
                 <li key={i.id}>
-                  {t?.icon} {i.titulo}{' '}
+                  {tipoItem?.icon} {i.titulo}{' '}
                   <span className="text-amber-400">{i.calificacion}★</span>
                 </li>
               )
@@ -142,7 +145,7 @@ export function ResumenTab({
 
       {porAño.length > 0 && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">Por año (archivo)</p>
+          <p className="text-sm font-semibold mb-2">{t('entre.r.porAño', 'Por año (archivo)')}</p>
           <div className="flex flex-wrap gap-2">
             {porAño.map(([año, count]) => (
               <span key={año} className="rounded-lg bg-white/10 px-3 py-1 text-sm">
@@ -155,7 +158,7 @@ export function ResumenTab({
 
       {media.length === 0 && juegos.length === 0 && (
         <p className="text-center text-sm text-white/40 py-6">
-          Usa las pestañas Archivo y Juegos de mesa para empezar tu colección.
+          {t('entre.r.vacio', 'Usa las pestañas Archivo y Juegos de mesa para empezar tu colección.')}
         </p>
       )}
     </div>

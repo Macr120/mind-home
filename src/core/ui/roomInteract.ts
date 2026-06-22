@@ -10,8 +10,8 @@ export const ACCION_CUARTO: Record<string, string> = {
   jardin: 'Meditar',
   garage: 'Mantenimiento',
   diario: 'Leer noticias',
-  configuraciones: 'Configurar',
-  diseno: 'Personalizar',
+  bodega: 'Revisar bodega',
+  hobbies: 'Practicar',
 }
 
 export function accionCuarto(roomId: string): string {

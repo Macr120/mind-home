@@ -1,0 +1,40 @@
+---
+description: Shell de la casa 3D — escena, cámara, personaje, menú, editor. NO mini-apps de cuartos.
+globs:
+  - src/core/house/**
+  - src/core/state/**
+  - src/core/ui/**
+  - src/App.tsx
+alwaysApply: false
+---
+
+# Contexto CASA (shell 3D)
+
+Trabajas en el **controlador** de Mind Home, no en las mini-apps 2D de `src/rooms/`.
+
+## Alcance
+
+- **3D**: `House`, `Room3D`, `Character`, `Furniture`, `walls.ts`, `muebles.ts`
+- **Estado**: `houseStore`, `layoutStore`, `cameraStore`, `disenoStore`, `interactUiStore`
+- **UI shell**: menú lateral, overlay, `EditPanel`, `core/ui/editor/` (colores, avatar, objetos), HUD
+
+## No hacer aquí
+
+- Lógica de negocio de nutrición, finanzas, viajes, etc.
+- Importar `*App.tsx` de cuartos (solo `registry.ts` lista módulos).
+- Tocar `db.ts` salvo que el usuario pida `[DATOS]` explícitamente.
+
+## Contrato con apps
+
+- Cada cuarto se registra en `registry.ts` (`RoomModule`).
+- Entrar: `openRoom(id)` desde menú o diálogo sobre mueble principal.
+- Mueble 3D: `case` en `Furniture.tsx` por `id` del cuarto.
+
+## Referencias
+
+- Estado del proyecto: `docs/AVANCE.md` (sección Casa)
+- Workflow: `docs/COMO-TRABAJAR.md`
+
+## Verificación
+
+`npm run dev` — probar navegación, editor, entrar/salir de un cuarto.

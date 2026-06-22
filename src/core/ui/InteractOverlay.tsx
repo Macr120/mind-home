@@ -1,4 +1,5 @@
-import { getRoom } from '../registry'
+import { useEffect } from 'react'
+import { getCuarto } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
 import { useRoomVisual } from '../state/disenoStore'
@@ -16,10 +17,25 @@ export function InteractOverlay() {
   const roomId = useInteractUi((s) => s.focusRoomId)
   const screenX = useInteractUi((s) => s.screenX)
   const screenY = useInteractUi((s) => s.screenY)
+  const clear = useInteractUi((s) => s.clear)
+
+  // Cerrar la etiqueta al hacer clic en cualquier otra cosa de la pantalla.
+  // Se difiere con setTimeout para asegurar que el clic que abrió la burbuja
+  // ya terminó de propagarse hasta window antes de registrar el listener;
+  // en React 19 el flush puede ser síncrono dentro del handler de R3F.
+  useEffect(() => {
+    if (!roomId) return
+    const handle = () => clear()
+    const timer = setTimeout(() => window.addEventListener('click', handle), 0)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('click', handle)
+    }
+  }, [roomId, clear])
 
   if (editMode || activeRoom || !roomId) return null
 
-  const room = getRoom(roomId)
+  const room = getCuarto(roomId)
   if (!room) return null
 
   return (

@@ -2,8 +2,10 @@ import { useMemo } from 'react'
 import type { Noticia } from '../../core/data/db'
 import { CATEGORIAS, COLOR } from './constantes'
 import { hoyISO } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function ResumenTab({ noticias }: { noticias: Noticia[] }) {
+  const t = useT()
   const hoy = hoyISO()
 
   const porCategoria = useMemo(() => {
@@ -32,21 +34,21 @@ export function ResumenTab({ noticias }: { noticias: Noticia[] }) {
           className="rounded-xl border p-4 col-span-2"
           style={{ background: `${COLOR}18`, borderColor: `${COLOR}44` }}
         >
-          <p className="text-xs text-white/50">Tu central</p>
+          <p className="text-xs text-white/50">{t('diario.r.central', 'Tu central')}</p>
           <p className="text-3xl font-black" style={{ color: COLOR }}>
             {noticias.length}{' '}
-            <span className="text-lg font-semibold text-white/50">noticias</span>
+            <span className="text-lg font-semibold text-white/50">{t('diario.r.noticias', 'noticias')}</span>
           </p>
         </div>
-        <MiniStat label="Hoy" valor={String(hoyCount)} />
-        <MiniStat label="Sin leer" valor={String(noLeidas)} />
-        <MiniStat label="Destacadas" valor={String(destacadas)} />
-        <MiniStat label="Categorías usadas" valor={String(porCategoria.length)} />
+        <MiniStat label={t('diario.r.hoy', 'Hoy')} valor={String(hoyCount)} />
+        <MiniStat label={t('diario.r.sinLeer', 'Sin leer')} valor={String(noLeidas)} />
+        <MiniStat label={t('diario.r.destacadas', 'Destacadas')} valor={String(destacadas)} />
+        <MiniStat label={t('diario.r.catUsadas', 'Categorías usadas')} valor={String(porCategoria.length)} />
       </div>
 
       {porCategoria.length > 0 && (
         <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-3">Por categoría</p>
+          <p className="text-sm font-semibold mb-3">{t('diario.r.porCat', 'Por categoría')}</p>
           <div className="space-y-2">
             {porCategoria.map((c) => (
               <div key={c.id}>
@@ -70,7 +72,7 @@ export function ResumenTab({ noticias }: { noticias: Noticia[] }) {
 
       {porFecha.length > 0 && (
         <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">Actividad por fecha</p>
+          <p className="text-sm font-semibold mb-2">{t('diario.r.porFecha', 'Actividad por fecha')}</p>
           <div className="flex flex-wrap gap-2">
             {porFecha.map(([fecha, count]) => (
               <span key={fecha} className="rounded-lg bg-pink-500/15 border border-pink-500/30 px-3 py-1.5 text-sm">
@@ -84,7 +86,7 @@ export function ResumenTab({ noticias }: { noticias: Noticia[] }) {
 
       {noticias.length === 0 && (
         <p className="text-center text-sm text-white/40 py-6">
-          Añade noticias en la central para ver estadísticas.
+          {t('diario.r.vacio', 'Añade noticias en la central para ver estadísticas.')}
         </p>
       )}
     </div>

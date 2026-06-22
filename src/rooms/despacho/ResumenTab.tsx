@@ -3,6 +3,7 @@ import type { Transaccion } from '../../core/data/db'
 import { presupuestosRepo } from '../../core/data/repository'
 import { getCategoria } from './categorias'
 import { money, money2, mesCorto, sumarMeses } from './mes'
+import { useT } from '../../core/i18n/useT'
 
 const PRESUPUESTO_KEY = '__mensual__'
 
@@ -48,6 +49,7 @@ export function ResumenTab({
   const presupuesto = presu?.monto ?? 0
   const pct = presupuesto > 0 ? Math.min(100, (gastos / presupuesto) * 100) : 0
   const excedido = presupuesto > 0 && gastos > presupuesto
+  const t = useT()
 
   const guardarPresupuesto = async (valor: number) => {
     if (presu?.id) await presupuestosRepo.update(presu.id, { monto: valor })
@@ -56,17 +58,15 @@ export function ResumenTab({
 
   return (
     <div className="space-y-5">
-      {/* Tarjetas del mes */}
       <div className="grid grid-cols-3 gap-3">
-        <Tarjeta titulo="Ingresos" valor={money(ingresos)} color="#34d399" />
-        <Tarjeta titulo="Gastos" valor={money(gastos)} color="#f87171" />
-        <Tarjeta titulo="Balance" valor={money(balance)} color={balance >= 0 ? '#60a5fa' : '#f87171'} />
+        <Tarjeta titulo={t('despacho.r.ingresos', 'Ingresos')} valor={money(ingresos)} color="#34d399" />
+        <Tarjeta titulo={t('despacho.r.gastos', 'Gastos')} valor={money(gastos)} color="#f87171" />
+        <Tarjeta titulo={t('despacho.r.balance', 'Balance')} valor={money(balance)} color={balance >= 0 ? '#60a5fa' : '#f87171'} />
       </div>
 
-      {/* Presupuesto mensual */}
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold">Presupuesto mensual</span>
+          <span className="text-sm font-semibold">{t('despacho.presupuesto', 'Presupuesto mensual')}</span>
           <div className="flex items-center gap-1 text-sm">
             <span className="text-white/40">$</span>
             <input
@@ -88,18 +88,17 @@ export function ResumenTab({
             </div>
             <p className={`mt-2 text-xs ${excedido ? 'text-red-400 font-semibold' : 'text-white/50'}`}>
               {excedido
-                ? `⚠️ Excediste el presupuesto por ${money2(gastos - presupuesto)}`
-                : `Llevas ${money2(gastos)} de ${money2(presupuesto)} (${Math.round(pct)}%)`}
+                ? t('despacho.excedido', `⚠️ Excediste el presupuesto por ${money2(gastos - presupuesto)}`, { n: money2(gastos - presupuesto) })
+                : t('despacho.progreso', `Llevas ${money2(gastos)} de ${money2(presupuesto)} (${Math.round(pct)}%)`, { used: money2(gastos), total: money2(presupuesto), pct: String(Math.round(pct)) })}
             </p>
           </>
         )}
       </div>
 
-      {/* Gastos por categoría */}
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-3">Gastos por categoría</p>
+        <p className="text-sm font-semibold mb-3">{t('despacho.catGastos', 'Gastos por categoría')}</p>
         {porCategoria.length === 0 && (
-          <p className="text-white/40 text-sm">Sin gastos este mes.</p>
+          <p className="text-white/40 text-sm">{t('despacho.sinGastos', 'Sin gastos este mes.')}</p>
         )}
         <div className="space-y-2.5">
           {porCategoria.map(({ cat, monto }) => (
@@ -123,15 +122,14 @@ export function ResumenTab({
         </div>
       </div>
 
-      {/* Tendencia 6 meses */}
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-3">Balance · últimos 6 meses</p>
+        <p className="text-sm font-semibold mb-3">{t('despacho.tendencia', 'Balance · últimos 6 meses')}</p>
         <div className="flex items-stretch justify-between gap-2 h-28">
-          {tendencia.map((t) => {
-            const h = (Math.abs(t.balance) / maxAbs) * 100
-            const pos = t.balance >= 0
+          {tendencia.map((punto) => {
+            const h = (Math.abs(punto.balance) / maxAbs) * 100
+            const pos = punto.balance >= 0
             return (
-              <div key={t.mes} className="flex-1 flex flex-col items-center gap-1">
+              <div key={punto.mes} className="flex-1 flex flex-col items-center gap-1">
                 <div className="flex-1 w-full flex items-end justify-center">
                   <div
                     className="w-5 rounded-t"
@@ -139,10 +137,10 @@ export function ResumenTab({
                       height: `${Math.max(4, h)}%`,
                       background: pos ? '#60a5fa' : '#f87171',
                     }}
-                    title={money2(t.balance)}
+                    title={money2(punto.balance)}
                   />
                 </div>
-                <span className="text-[10px] text-white/40">{mesCorto(t.mes)}</span>
+                <span className="text-[10px] text-white/40">{mesCorto(punto.mes)}</span>
               </div>
             )
           })}

@@ -1,11 +1,11 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import { getRoom } from '../registry'
+import { getCuarto } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
 import { useDiseño, muebleDeCuarto } from '../state/disenoStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useInteractUi } from '../state/interactUiStore'
-import { MUEBLES_DEFAULT } from './muebles'
+import { nivelBaseY } from './walls'
 
 const _world = new THREE.Vector3()
 const ALTURA = 3.1
@@ -21,15 +21,16 @@ export function InteractAnchor() {
   const objetos = useDiseño((s) => s.objetos)
 
   useFrame(() => {
-    if (editMode || activeRoom || !focusRoomId || !getRoom(focusRoomId)) return
+    if (editMode || activeRoom || !focusRoomId || !getCuarto(focusRoomId)) return
 
     const [rx, , rz] = roomWorldPos(focusRoomId)
     const mueble = muebleDeCuarto(objetos, focusRoomId)
-    const def = MUEBLES_DEFAULT[focusRoomId]
-    const ox = mueble?.x ?? def?.x ?? 0
-    const oz = mueble?.z ?? def?.z ?? 0
+    const ox = mueble?.x ?? 0
+    const oz = mueble?.z ?? 0
+    // Altura del nivel del cuarto (la burbuja sigue al cuarto aunque esté elevado).
+    const y0 = nivelBaseY(useLayout.getState().niveles[focusRoomId] ?? 0, useHouse.getState().conTecho)
 
-    _world.set(rx + ox, ALTURA, rz + oz)
+    _world.set(rx + ox, y0 + ALTURA, rz + oz)
     _world.project(camera)
 
     const x = (_world.x * 0.5 + 0.5) * size.width

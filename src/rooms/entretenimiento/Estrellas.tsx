@@ -1,3 +1,5 @@
+import { useT } from '../../core/i18n/useT'
+
 /** Selector / visualización de calificación 1–5. */
 export function Estrellas({
   valor,
@@ -8,6 +10,7 @@ export function Estrellas({
   onChange?: (n: number) => void
   soloLectura?: boolean
 }) {
+  const t = useT()
   return (
     <div className="flex gap-0.5" role={soloLectura ? undefined : 'group'}>
       {[1, 2, 3, 4, 5].map((n) => (
@@ -19,7 +22,7 @@ export function Estrellas({
           className={`text-lg leading-none transition ${
             soloLectura ? 'cursor-default' : 'hover:scale-110'
           } ${n <= valor ? 'text-amber-400' : 'text-white/20'}`}
-          aria-label={`${n} estrellas`}
+          aria-label={t('ui.estrellas', `${n} estrellas`, { n: String(n) })}
         >
           ★
         </button>

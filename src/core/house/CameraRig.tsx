@@ -3,22 +3,28 @@ import { useThree, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import {
   useCam,
+  camAnim,
   EDIT_PANEL_PX,
   EDIT_FOCUS_PANEL_FRAC,
   CAM_BASE_AZ,
+  ISO_EL,
+  CAM_R,
 } from '../state/cameraStore'
 import { useLayout } from '../state/layoutStore'
 
-// Geometría isométrica fija: radio horizontal y altura de la cámara.
-// (Coincide con la posición inicial [22,22,22] mirando al origen.)
-const R_H = 31.113 // sqrt(22^2 + 22^2)
-const H = 22
-const BASE_AZ = CAM_BASE_AZ
+/** Interpola un ángulo tomando siempre el camino corto (maneja el salto en ±π). */
+function lerpAngulo(actual: number, objetivo: number, t: number) {
+  let d = objetivo - actual
+  while (d > Math.PI) d -= 2 * Math.PI
+  while (d < -Math.PI) d += 2 * Math.PI
+  return actual + d * t
+}
 
 /**
- * Mueve la cámara ortográfica de forma suave según el estado de useCam:
- * rota entre las 4 esquinas, hace zoom y enfoca cuartos. El ángulo vertical
- * es fijo, así que nunca se voltea de cabeza ni baja del piso.
+ * Mueve la cámara ortográfica de forma suave según el estado de useCam: gira al
+ * azimut/elevación objetivo (los elige el cubo de navegación), hace zoom y enfoca
+ * cuartos. La elevación va de las esquinas iso a la planta (cenital) o a los alzados
+ * laterales. Publica la orientación animada en `camAnim` para que el cubo gire igual.
  *
  * Con el panel de edición abierto (`editMode`), desplaza el enfoque a la izquierda
  * para centrar el mapa/cuarto en el área visible (panel derecho w-80).
@@ -28,20 +34,30 @@ export function CameraRig() {
   const size = useThree((s) => s.size)
   const viewport = useThree((s) => s.viewport)
   const focusRef = useRef(new THREE.Vector3(0, 0, 0))
-  const azRef = useRef(BASE_AZ)
+  const azRef = useRef(CAM_BASE_AZ)
+  const elRef = useRef(ISO_EL)
   const tmp = useRef(new THREE.Vector3())
 
   useFrame(() => {
-    const { focus, azStep, zoom } = useCam.getState()
+    const { focus, az, el, zoom, vista } = useCam.getState()
+    // En primera/tercera persona la cámara la conduce FollowCamera (perspectiva).
+    if (vista !== 'iso') return
+    // Guarda de seguridad: si la cámara activa en R3F todavía es la perspectiva (transición),
+    // no la tocamos — aplicar zoom ortográfico a una PerspectiveCamera destruye su FOV.
+    if (!(cam instanceof THREE.OrthographicCamera)) return
     const editMode = useLayout.getState().editMode
 
     if (cam.view) cam.clearViewOffset()
 
-    const desiredAz = BASE_AZ + azStep * (Math.PI / 2)
-    azRef.current += (desiredAz - azRef.current) * 0.14
+    azRef.current = lerpAngulo(azRef.current, az, 0.14)
+    elRef.current += (el - elRef.current) * 0.14
     const a = azRef.current
+    const e = elRef.current
+    // Publica la orientación animada para el cubo de navegación.
+    camAnim.az = a
+    camAnim.el = e
 
-    tmp.current.set(focus[0], 0, focus[1])
+    tmp.current.set(focus[0], focus[1], focus[2])
     if (editMode) {
       const w = Math.max(1, size.width)
       const dpr = viewport.dpr || 1
@@ -58,10 +74,12 @@ export function CameraRig() {
 
     focusRef.current.lerp(tmp.current, 0.12)
 
+    const ce = Math.cos(e)
+    const se = Math.sin(e)
     cam.position.set(
-      focusRef.current.x + R_H * Math.cos(a),
-      H,
-      focusRef.current.z + R_H * Math.sin(a),
+      focusRef.current.x + CAM_R * ce * Math.cos(a),
+      focusRef.current.y + CAM_R * se,
+      focusRef.current.z + CAM_R * ce * Math.sin(a),
     )
     cam.lookAt(focusRef.current)
 

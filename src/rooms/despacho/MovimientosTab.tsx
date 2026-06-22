@@ -3,6 +3,7 @@ import type { Transaccion } from '../../core/data/db'
 import { finanzasRepo } from '../../core/data/repository'
 import { CATEGORIAS_GASTO, CATEGORIAS_INGRESO, getCategoria } from './categorias'
 import { hoyISO, money2, nombreMes } from './mes'
+import { useT } from '../../core/i18n/useT'
 
 export function MovimientosTab({
   mes,
@@ -42,28 +43,29 @@ export function MovimientosTab({
     setNota('')
   }
 
+  const t = useT()
+
   return (
     <div className="space-y-5">
-      {/* Formulario */}
       <form
         onSubmit={agregar}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
         <div className="flex gap-2">
-          {(['gasto', 'ingreso'] as const).map((t) => (
+          {(['gasto', 'ingreso'] as const).map((tipo2) => (
             <button
-              key={t}
+              key={tipo2}
               type="button"
-              onClick={() => cambiarTipo(t)}
+              onClick={() => cambiarTipo(tipo2)}
               className={`flex-1 rounded-lg py-2 text-sm font-semibold capitalize transition ${
-                tipo === t
-                  ? t === 'gasto'
+                tipo === tipo2
+                  ? tipo2 === 'gasto'
                     ? 'bg-red-400 text-black'
                     : 'bg-emerald-400 text-black'
                   : 'bg-white/5 hover:bg-white/10'
               }`}
             >
-              {t}
+              {t(`despacho.m.${tipo2}`, tipo2)}
             </button>
           ))}
         </div>
@@ -94,7 +96,7 @@ export function MovimientosTab({
             onChange={(e) => setMonto(e.target.value)}
             type="number"
             step="0.01"
-            placeholder="Monto"
+            placeholder={t('despacho.m.monto', 'Monto')}
             className="rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
           />
           <input
@@ -107,25 +109,24 @@ export function MovimientosTab({
         <input
           value={nota}
           onChange={(e) => setNota(e.target.value)}
-          placeholder="Nota (opcional)"
+          placeholder={t('despacho.m.nota', 'Nota (opcional)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
         />
         <button
           type="submit"
           className="w-full rounded-lg bg-blue-400 py-2 font-bold text-black hover:bg-blue-300 transition"
         >
-          Agregar movimiento
+          {t('despacho.m.agregar', 'Agregar movimiento')}
         </button>
       </form>
 
-      {/* Lista del mes */}
       <div className="space-y-2">
         <p className="text-xs uppercase tracking-wide text-white/40">
-          {nombreMes(mes)} · {delMes.length} movimientos
+          {nombreMes(mes)} · {t('despacho.m.movs', `${delMes.length} movimientos`, { n: String(delMes.length) })}
         </p>
         {delMes.length === 0 && (
           <p className="text-center text-white/40 text-sm py-6">
-            Sin movimientos este mes.
+            {t('despacho.m.sinMovs', 'Sin movimientos este mes.')}
           </p>
         )}
         {delMes.map((m) => {
@@ -158,7 +159,7 @@ export function MovimientosTab({
               <button
                 onClick={() => m.id && finanzasRepo.remove(m.id)}
                 className="text-white/30 hover:text-white/70 px-1"
-                title="Eliminar"
+                title={t('chat.eliminar', 'Eliminar')}
               >
                 ✕
               </button>

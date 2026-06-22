@@ -12,6 +12,7 @@ import {
   paisesUnicos,
   type FiltrosViajes,
 } from './filtros'
+import { useT } from '../../core/i18n/useT'
 
 export function ListaViajesTab({
   viajes,
@@ -22,6 +23,7 @@ export function ListaViajesTab({
   gastosPorViaje: Map<number, number>
   onAbrir: (id: number) => void
 }) {
+  const t = useT()
   const [filtros, setFiltros] = useState<FiltrosViajes>(FILTROS_VACIOS)
   const [mostrarForm, setMostrarForm] = useState(false)
   const [editando, setEditando] = useState<Viaje | null>(null)
@@ -49,7 +51,7 @@ export function ListaViajesTab({
         onClick={() => setMostrarForm((v) => !v)}
         className="w-full rounded-xl py-2.5 font-bold bg-teal-400 text-black"
       >
-        {mostrarForm ? 'Ocultar formulario' : '✈️ Nuevo viaje'}
+        {mostrarForm ? t('sala.lista.ocultar', 'Ocultar formulario') : t('sala.lista.nuevo', '✈️ Nuevo viaje')}
       </button>
 
       {mostrarForm && (
@@ -63,57 +65,59 @@ export function ListaViajesTab({
         <input
           value={filtros.busqueda}
           onChange={(e) => set({ busqueda: e.target.value })}
-          placeholder="Buscar destino, país, título…"
+          placeholder={t('sala.lista.buscar', 'Buscar destino, país, título…')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <div className="grid grid-cols-2 gap-2">
           <Select
-            label="Estado"
+            label={t('sala.lista.estado', 'Estado')}
             value={filtros.estado}
             onChange={(v) => set({ estado: v as FiltrosViajes['estado'] })}
             opciones={[
-              { v: 'todos', l: 'Todos' },
+              { v: 'todos', l: t('sala.lista.todos', 'Todos') },
               ...ESTADOS.map((e) => ({ v: e.id, l: `${e.icon} ${e.label}` })),
             ]}
           />
           <Select
-            label="País"
+            label={t('sala.lista.pais', 'País')}
             value={filtros.pais}
             onChange={(v) => set({ pais: v })}
             opciones={[
-              { v: 'todos', l: 'Todos' },
+              { v: 'todos', l: t('sala.lista.todos', 'Todos') },
               ...paises.map((p) => ({ v: p, l: p })),
             ]}
           />
           <Select
-            label="Año"
+            label={t('sala.lista.año', 'Año')}
             value={filtros.año}
             onChange={(v) => set({ año: v })}
             opciones={[
-              { v: 'todos', l: 'Todos' },
+              { v: 'todos', l: t('sala.lista.todos', 'Todos') },
               ...años.map((a) => ({ v: a, l: a })),
             ]}
           />
           <Select
-            label="Orden"
+            label={t('sala.lista.orden', 'Orden')}
             value={filtros.orden}
             onChange={(v) => set({ orden: v as FiltrosViajes['orden'] })}
             opciones={[
-              { v: 'fecha', l: 'Por fecha' },
-              { v: 'titulo', l: 'A–Z' },
-              { v: 'presupuesto', l: 'Presupuesto' },
+              { v: 'fecha', l: t('sala.lista.porFecha', 'Por fecha') },
+              { v: 'titulo', l: t('sala.lista.az', 'A–Z') },
+              { v: 'presupuesto', l: t('sala.lista.presupuesto', 'Presupuesto') },
             ]}
           />
         </div>
       </div>
 
-      <p className="text-xs text-white/40">{lista.length} viajes</p>
+      <p className="text-xs text-white/40">
+        {t('sala.lista.count', `${lista.length} viajes`, { n: String(lista.length) })}
+      </p>
 
       {lista.length === 0 ? (
         <div className="rounded-xl border border-dashed border-white/15 p-8 text-center text-sm text-white/40">
           {viajes.length === 0
-            ? 'Aún no hay viajes. Registra uno pasado o planea el próximo.'
-            : 'Ningún viaje coincide con los filtros.'}
+            ? t('sala.lista.vacio', 'Aún no hay viajes. Registra uno pasado o planea el próximo.')
+            : t('sala.lista.sinFiltro', 'Ningún viaje coincide con los filtros.')}
         </div>
       ) : (
         <div className="space-y-3">

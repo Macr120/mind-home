@@ -3,6 +3,7 @@ import type { RegistroMantenimiento, Vehiculo } from '../../core/data/db'
 import { registrosMantenimientoRepo } from '../../core/data/repository'
 import { COLOR, PLANTILLAS_SERVICIO, TIPOS_MANTENIMIENTO } from './constantes'
 import { hoyISO, sumarDias } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function FormularioMantenimiento({
   vehiculo,
@@ -15,6 +16,7 @@ export function FormularioMantenimiento({
   onGuardado: () => void
   onCancelar: () => void
 }) {
+  const t = useT()
   const [fecha, setFecha] = useState(inicial?.fecha ?? hoyISO())
   const [tipo, setTipo] = useState<RegistroMantenimiento['tipo']>(
     inicial?.tipo ?? 'revision',
@@ -72,7 +74,7 @@ export function FormularioMantenimiento({
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
       <p className="text-sm font-semibold">
-        {inicial ? '✏️ Editar servicio' : '🔧 Registrar mantenimiento'}
+        {inicial ? t('garage.mant.editar', '✏️ Editar servicio') : t('garage.mant.nuevo', '🔧 Registrar mantenimiento')}
       </p>
 
       <div className="flex flex-wrap gap-1.5">
@@ -89,7 +91,7 @@ export function FormularioMantenimiento({
       </div>
 
       <label className="block text-xs text-white/50">
-        Fecha
+        {t('garage.mant.fecha', 'Fecha')}
         <input
           type="date"
           className={input}
@@ -99,28 +101,28 @@ export function FormularioMantenimiento({
       </label>
 
       <label className="block text-xs text-white/50">
-        Tipo de servicio
+        {t('garage.mant.tipo', 'Tipo de servicio')}
         <select
           className={input}
           value={tipo}
           onChange={(e) => setTipo(e.target.value as RegistroMantenimiento['tipo'])}
         >
-          {TIPOS_MANTENIMIENTO.map((t) => (
-            <option key={t.id} value={t.id}>
-              {t.label}
+          {TIPOS_MANTENIMIENTO.map((tm) => (
+            <option key={tm.id} value={tm.id}>
+              {tm.label}
             </option>
           ))}
         </select>
       </label>
 
       <label className="block text-xs text-white/50">
-        Título *
+        {t('garage.mant.titulo', 'Título *')}
         <input className={input} value={titulo} onChange={(e) => setTitulo(e.target.value)} />
       </label>
 
       <div className="grid grid-cols-2 gap-2">
         <label className="block text-xs text-white/50">
-          Costo (MXN)
+          {t('garage.mant.costo', 'Costo (MXN)')}
           <input
             type="number"
             min={0}
@@ -130,7 +132,7 @@ export function FormularioMantenimiento({
           />
         </label>
         <label className="block text-xs text-white/50">
-          Odómetro ({vehiculo.unidad})
+          {t('garage.mant.odo', `Odómetro (${vehiculo.unidad})`, { unit: vehiculo.unidad })}
           <input
             type="number"
             min={0}
@@ -142,15 +144,15 @@ export function FormularioMantenimiento({
       </div>
 
       <label className="block text-xs text-white/50">
-        Taller / mecánico
+        {t('garage.mant.taller', 'Taller / mecánico')}
         <input className={input} value={taller} onChange={(e) => setTaller(e.target.value)} />
       </label>
 
-      <p className="text-xs font-semibold text-amber-400/90 pt-1">Próximo servicio (opcional)</p>
+      <p className="text-xs font-semibold text-amber-400/90 pt-1">{t('garage.mant.proximo', 'Próximo servicio (opcional)')}</p>
 
       <div className="grid grid-cols-2 gap-2">
         <label className="block text-xs text-white/50">
-          A los {vehiculo.unidad}
+          {t('garage.mant.proxOdo', `A los ${vehiculo.unidad}`, { unit: vehiculo.unidad })}
           <input
             type="number"
             min={0}
@@ -161,7 +163,7 @@ export function FormularioMantenimiento({
           />
         </label>
         <label className="block text-xs text-white/50">
-          Fecha límite
+          {t('garage.mant.proxFecha', 'Fecha límite')}
           <input
             type="date"
             className={input}
@@ -172,7 +174,7 @@ export function FormularioMantenimiento({
       </div>
 
       <label className="block text-xs text-white/50">
-        Notas
+        {t('garage.mant.notas', 'Notas')}
         <textarea
           className={`${input} min-h-[50px]`}
           value={nota}
@@ -187,14 +189,14 @@ export function FormularioMantenimiento({
           className="flex-1 rounded-xl py-2.5 text-sm font-bold text-black"
           style={{ background: COLOR }}
         >
-          Guardar
+          {t('garage.mant.guardar', 'Guardar')}
         </button>
         <button
           type="button"
           onClick={onCancelar}
           className="rounded-xl px-4 py-2.5 text-sm bg-white/10"
         >
-          Cancelar
+          {t('garage.mant.cancelar', 'Cancelar')}
         </button>
       </div>
     </div>

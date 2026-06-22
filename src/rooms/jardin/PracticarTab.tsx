@@ -4,8 +4,10 @@ import { PRESETS, TIPOS, getTipo } from './constantes'
 import { hoyISO } from './fecha'
 import { RespiracionGuiada } from './RespiracionGuiada'
 import { Temporizador } from './Temporizador'
+import { useT } from '../../core/i18n/useT'
 
 export function PracticarTab() {
+  const t = useT()
   const [presetId, setPresetId] = useState(PRESETS[0].id)
   const [activo, setActivo] = useState(false)
   const [nota, setNota] = useState('')
@@ -42,18 +44,18 @@ export function PracticarTab() {
             filtroTipo === 'todos' ? 'bg-emerald-400 text-black' : 'bg-white/5'
           }`}
         >
-          Todos
+          {t('jardin.prac.todos', 'Todos')}
         </button>
-        {TIPOS.map((t) => (
+        {TIPOS.map((tipoItem) => (
           <button
-            key={t.id}
+            key={tipoItem.id}
             type="button"
-            onClick={() => setFiltroTipo(t.id)}
+            onClick={() => setFiltroTipo(tipoItem.id)}
             className={`shrink-0 rounded-lg px-2 py-1 text-xs ${
-              filtroTipo === t.id ? 'bg-emerald-400 text-black' : 'bg-white/5'
+              filtroTipo === tipoItem.id ? 'bg-emerald-400 text-black' : 'bg-white/5'
             }`}
           >
-            {t.icon}
+            {tipoItem.icon}
           </button>
         ))}
       </div>
@@ -89,7 +91,7 @@ export function PracticarTab() {
           onClick={() => setActivo(true)}
           className="w-full rounded-xl py-3 font-bold bg-emerald-400 text-black text-lg"
         >
-          Comenzar · {preset.duracionMin} min
+          {t('jardin.prac.comenzar', `Comenzar · ${preset.duracionMin} min`, { n: String(preset.duracionMin) })}
         </button>
       ) : (
         <>
@@ -111,7 +113,7 @@ export function PracticarTab() {
             onClick={() => setActivo(false)}
             className="w-full rounded-lg py-2 text-sm bg-white/10"
           >
-            Pausar
+            {t('jardin.prac.pausar', 'Pausar')}
           </button>
           {esRespiracion && (
             <button
@@ -119,7 +121,7 @@ export function PracticarTab() {
               onClick={completar}
               className="w-full rounded-lg py-2 text-sm font-bold bg-emerald-400 text-black"
             >
-              Terminar y guardar
+              {t('jardin.prac.terminar', 'Terminar y guardar')}
             </button>
           )}
         </>
@@ -128,7 +130,7 @@ export function PracticarTab() {
       <input
         value={nota}
         onChange={(e) => setNota(e.target.value)}
-        placeholder="Nota después de la sesión (opcional)"
+        placeholder={t('jardin.prac.ph.nota', 'Nota después de la sesión (opcional)')}
         className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
       />
     </div>

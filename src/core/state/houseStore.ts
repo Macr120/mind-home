@@ -1,10 +1,13 @@
 import { create } from 'zustand'
 import * as THREE from 'three'
-import { getRoom } from '../registry'
+import { getCuarto } from './cuartosStore'
 import { estaEnPuerta } from '../house/navigation'
-import { roomEntrance } from '../house/walls'
+import { roomEntrance, nivelBaseY } from '../house/walls'
 import { roomWorldPos } from './layoutStore'
 import { useInteractUi } from './interactUiStore'
+import { useCam } from './cameraStore'
+import { playerPos } from './playerPosition'
+import type { Acceso } from '../data/db'
 
 export { playerPos } from './playerPosition'
 
@@ -14,6 +17,16 @@ export { playerPos } from './playerPosition'
  * La posición VIVA del personaje está en `playerPos` (mutable, sin re-render).
  * El store guarda destino, selección y cuarto activo.
  */
+
+/** Transición animada del personaje subiendo o bajando por un acceso. */
+export interface Transicion {
+  acceso: Acceso
+  desde: number
+  hacia: number
+  inicio: number // performance.now() al iniciar
+  startX: number
+  startZ: number
+}
 
 interface HouseState {
   target: THREE.Vector3
@@ -45,6 +58,19 @@ interface HouseState {
   /** Vista 3D con techo cerrado en cada cuarto. */
   conTecho: boolean
   toggleTecho: () => void
+  /** Nivel/piso en el que está el personaje (0 = planta baja). */
+  playerLevel: number
+  /** Acceso al alcance y dirección posible (subir/bajar), o null. */
+  nearAcceso: Acceso | null
+  nearDir: 'subir' | 'bajar' | null
+  setNearAcceso: (acceso: Acceso | null, dir: 'subir' | 'bajar' | null) => void
+  /** Sube/baja un nivel usando el acceso al alcance (inicia la animación por el acceso). */
+  subirNivel: () => void
+  bajarNivel: () => void
+  /** Animación en curso de subir/bajar (la conduce Character), o null. */
+  transicion: Transicion | null
+  /** La llama Character al terminar la animación: fija el nivel y suelta al personaje. */
+  terminarTransicion: () => void
 }
 
 export const useHouse = create<HouseState>((set, get) => ({
@@ -58,7 +84,7 @@ export const useHouse = create<HouseState>((set, get) => ({
       freeMove: true,
     })),
   enterFromMenu: (id) => {
-    const room = getRoom(id)
+    const room = getCuarto(id)
     if (!room) return
     const [x, , z] = roomWorldPos(id)
     set((s) => ({
@@ -86,13 +112,13 @@ export const useHouse = create<HouseState>((set, get) => ({
     set({ activeRoom: null, selectedRoomId: null })
   },
   goToRoom: (id) => {
-    const room = getRoom(id)
+    const room = getCuarto(id)
     if (!room) return
     const [x, z] = roomEntrance(roomWorldPos(id))
     get().setTarget(x, z)
   },
   selectRoom: (id) => {
-    const room = getRoom(id)
+    const room = getCuarto(id)
     if (!room) return
     const [x, z] = roomEntrance(roomWorldPos(id))
     set((s) => ({
@@ -103,15 +129,78 @@ export const useHouse = create<HouseState>((set, get) => ({
     }))
   },
   interactRoom: (id) => {
-    if (!getRoom(id)) return
+    if (!getCuarto(id)) return
     get().selectRoom(id)
   },
   tryEnterRoom: (id: string) => {
-    const room = getRoom(id)
+    const room = getCuarto(id)
     if (room && estaEnPuerta(roomWorldPos(id))) get().openRoom(id)
   },
   conTecho: false,
-  toggleTecho: () => set((s) => ({ conTecho: !s.conTecho })),
+  toggleTecho: () => {
+    const conTecho = !get().conTecho
+    set({ conTecho })
+    // Al apilar/explotar cambia la altura del nivel: la cámara mantiene al jugador en cuadro.
+    const cam = useCam.getState()
+    const baseY = nivelBaseY(get().playerLevel, conTecho)
+    useCam.setState({ focus: [cam.focus[0], baseY, cam.focus[2]] })
+  },
+  playerLevel: 0,
+  nearAcceso: null,
+  nearDir: null,
+  setNearAcceso: (acceso, dir) =>
+    set((s) =>
+      s.nearAcceso === acceso && s.nearDir === dir ? s : { nearAcceso: acceso, nearDir: dir },
+    ),
+  subirNivel: () => {
+    const { nearAcceso, nearDir, playerLevel, transicion } = get()
+    if (!nearAcceso || nearDir !== 'subir' || transicion) return
+    set({
+      transicion: {
+        acceso: nearAcceso,
+        desde: playerLevel,
+        hacia: playerLevel + 1,
+        inicio: performance.now(),
+        startX: playerPos.x,
+        startZ: playerPos.z,
+      },
+      nearAcceso: null,
+      nearDir: null,
+    })
+  },
+  bajarNivel: () => {
+    const { nearAcceso, nearDir, playerLevel, transicion } = get()
+    if (!nearAcceso || nearDir !== 'bajar' || playerLevel <= 0 || transicion) return
+    set({
+      transicion: {
+        acceso: nearAcceso,
+        desde: playerLevel,
+        hacia: playerLevel - 1,
+        inicio: performance.now(),
+        startX: playerPos.x,
+        startZ: playerPos.z,
+      },
+      nearAcceso: null,
+      nearDir: null,
+    })
+  },
+  transicion: null,
+  terminarTransicion: () => {
+    const { transicion, navTick, conTecho } = get()
+    if (!transicion) return
+    const yFinal = nivelBaseY(transicion.hacia, conTecho)
+    playerPos.y = yFinal
+    // El personaje ya quedó en el aterrizaje (lo dejó Character); fija nivel y suéltalo.
+    set({
+      playerLevel: transicion.hacia,
+      transicion: null,
+      target: new THREE.Vector3(playerPos.x, 0, playerPos.z),
+      navTick: navTick + 1,
+      freeMove: true,
+    })
+    // La cámara sigue al jugador al nuevo piso (Y) y lo recentra.
+    useCam.setState({ focus: [playerPos.x, yFinal, playerPos.z] })
+  },
 }))
 
 // Acceso a la store desde la consola en desarrollo (depuración/pruebas).

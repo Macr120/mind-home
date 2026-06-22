@@ -1,8 +1,14 @@
 # Mind Home
 
 App de una **casa isométrica 3D estilo Roblox** donde cada cuarto es una mini-app 2D
-independiente pero interconectada ("10 apps en 1"). Web (Vite + React), futuro móvil
+independiente pero interconectada (**12 apps en 1**). Web (Vite + React), futuro móvil
 con Capacitor.
+
+## Organización por contexto
+
+- **Estado del avance**: [`docs/AVANCE.md`](docs/AVANCE.md) — casa vs cada cuarto
+- **Cómo trabajar sin ruido**: [`docs/COMO-TRABAJAR.md`](docs/COMO-TRABAJAR.md)
+- Etiquetas en prompts: `[CASA]`, `[DATOS]`, `[COCINA]`, …
 
 ## Stack
 - **React 19 + TypeScript + Vite**
@@ -52,15 +58,17 @@ src/
 | 1 | Cocina | Nutrición | ✅ |
 | 2 | Ejercicio | Rutinas | ✅ |
 | 3 | Recámara | Descanso + Anecdotario | ✅ |
-| 4 | Sala entretenimiento | Películas + Juegos | ✅ |
+| 4 | Despacho | Finanzas | ✅ |
 | 5 | Biblioteca | Aprendizaje | ✅ |
-| 6 | Despacho | Finanzas | ✅ |
+| 6 | Entretenimiento | Películas, series, libros, juegos de mesa | ✅ |
 | 7 | Sala | Viajes | ✅ |
 | 8 | Jardín | Mindfulness | ✅ |
 | 9 | Garage/Taller | Vehículos | ✅ |
 | 10 | Diario | **Noticias (briefing RSS diario)** — NO es el anecdotario | ✅ |
-| A | Configuraciones | Perfil y datos | ✅ |
-| B | Diseño de casa | Colores, avatar, editor de mapa | ✅ |
+| A | Bodega | Inventario y respaldo | ✅ |
+| B | Hobbies | Pasatiempos y proyectos | ✅ |
+
+**Personalización de la casa** (colores, avatar, objetos, perfil): modo **✏️ Editar mapa** → panel derecho (`EditPanel`).
 
 ## Calidad "premium"
 Cada cuarto debe acercarse a apps premium del mercado. Antes de construir/pulir un cuarto,

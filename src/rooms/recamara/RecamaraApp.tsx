@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { DescansoTab } from './DescansoTab'
 import { AnecdotarioTab } from './AnecdotarioTab'
+import { useT } from '../../core/i18n/useT'
 
 type Herramienta = 'cama' | 'escritorio'
 
 export function RecamaraApp() {
+  const t = useT()
   const [tab, setTab] = useState<Herramienta>('cama')
 
   return (
     <div className="mx-auto max-w-2xl space-y-5">
-      {/* Selector de herramienta dentro del cuarto */}
       <div className="flex gap-2">
         <button
           onClick={() => setTab('cama')}
@@ -17,7 +18,7 @@ export function RecamaraApp() {
             tab === 'cama' ? 'bg-cyan-400 text-black' : 'bg-white/5 hover:bg-white/10'
           }`}
         >
-          🛏️ Cama · Descanso
+          {t('recamara.cama', '🛏️ Cama · Descanso')}
         </button>
         <button
           onClick={() => setTab('escritorio')}
@@ -27,7 +28,7 @@ export function RecamaraApp() {
               : 'bg-white/5 hover:bg-white/10'
           }`}
         >
-          ✍️ Escritorio · Anecdotario
+          {t('recamara.escritorio', '✍️ Escritorio · Anecdotario')}
         </button>
       </div>
 

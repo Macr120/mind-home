@@ -18,6 +18,7 @@ import {
   getTipo,
 } from './constantes'
 import { diasEntre, dinero, formatearRango } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function DetalleViaje({
   viaje,
@@ -26,6 +27,7 @@ export function DetalleViaje({
   viaje: Viaje
   onVolver: () => void
 }) {
+  const t = useT()
   const id = viaje.id!
   const [editando, setEditando] = useState(false)
   const [tab, setTab] = useState<'itinerario' | 'gastos' | 'checklist'>('itinerario')
@@ -62,6 +64,12 @@ export function DetalleViaje({
     await db.checklistViaje.bulkAdd(items)
   }
 
+  const tabsDetalle = [
+    ['itinerario', t('sala.detalle.tab.itinerario', '📅 Itinerario')],
+    ['gastos', t('sala.detalle.tab.gastos', '💰 Gastos')],
+    ['checklist', t('sala.detalle.tab.checklist', '✅ Checklist')],
+  ] as const
+
   return (
     <div className="space-y-4">
       <button
@@ -69,7 +77,7 @@ export function DetalleViaje({
         onClick={onVolver}
         className="text-sm font-semibold text-teal-400 hover:underline"
       >
-        ‹ Volver a viajes
+        {t('sala.detalle.volver', '‹ Volver a viajes')}
       </button>
 
       <div className="rounded-xl bg-teal-500/10 border border-teal-500/30 p-4">
@@ -82,7 +90,7 @@ export function DetalleViaje({
             </p>
             <p className="text-sm text-white/45 mt-1">
               {formatearRango(viaje.fechaInicio, viaje.fechaFin)} ·{' '}
-              {diasEntre(viaje.fechaInicio, viaje.fechaFin)} días
+              {t('sala.detalle.dias', `${diasEntre(viaje.fechaInicio, viaje.fechaFin)} días`, { n: String(diasEntre(viaje.fechaInicio, viaje.fechaFin)) })}
             </p>
             <span className="inline-block mt-2 text-xs rounded-md bg-teal-500/30 px-2 py-0.5">
               {estado.icon} {estado.label}
@@ -94,7 +102,7 @@ export function DetalleViaje({
         )}
         {viaje.presupuesto > 0 && (
           <p className="text-sm mt-2">
-            Presupuesto {dinero(viaje.presupuesto)} · Gastado{' '}
+            {t('sala.detalle.presupuesto', `Presupuesto ${dinero(viaje.presupuesto)} · Gastado`, { p: dinero(viaje.presupuesto) })}{' '}
             <span className={gastado > viaje.presupuesto ? 'text-red-400' : 'text-teal-300'}>
               {dinero(gastado)}
             </span>
@@ -113,24 +121,18 @@ export function DetalleViaje({
           onClick={() => setEditando(true)}
           className="mt-3 text-xs font-semibold text-teal-300 hover:underline"
         >
-          Editar viaje
+          {t('sala.detalle.editar', 'Editar viaje')}
         </button>
       </div>
 
       <div className="flex gap-1">
-        {(
-          [
-            ['itinerario', '📅 Itinerario'],
-            ['gastos', '💰 Gastos'],
-            ['checklist', '✅ Checklist'],
-          ] as const
-        ).map(([t, label]) => (
+        {tabsDetalle.map(([id2, label]) => (
           <button
-            key={t}
+            key={id2}
             type="button"
-            onClick={() => setTab(t)}
+            onClick={() => setTab(id2)}
             className={`flex-1 rounded-lg py-2 text-xs font-semibold ${
-              tab === t ? 'bg-teal-400 text-black' : 'bg-white/5'
+              tab === id2 ? 'bg-teal-400 text-black' : 'bg-white/5'
             }`}
           >
             {label}
@@ -164,6 +166,7 @@ function ItinerarioPanel({
   viaje: Viaje
   actividades: import('../../core/data/db').ActividadViaje[]
 }) {
+  const t = useT()
   const [titulo, setTitulo] = useState('')
   const [fecha, setFecha] = useState(viaje.fechaInicio)
   const [hora, setHora] = useState('')
@@ -194,7 +197,7 @@ function ItinerarioPanel({
         <input
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
-          placeholder="Actividad (museo, restaurante, tour…)"
+          placeholder={t('sala.itin.ph.act', 'Actividad (museo, restaurante, tour…)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <div className="grid grid-cols-2 gap-2">
@@ -216,15 +219,15 @@ function ItinerarioPanel({
         <input
           value={nota}
           onChange={(e) => setNota(e.target.value)}
-          placeholder="Nota (opcional)"
+          placeholder={t('sala.itin.ph.nota', 'Nota (opcional)')}
           className="w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
         />
         <button type="submit" className="w-full rounded-lg py-2 text-sm font-bold bg-teal-400/90 text-black">
-          Añadir al itinerario
+          {t('sala.itin.añadir', 'Añadir al itinerario')}
         </button>
       </form>
       {porFecha.length === 0 ? (
-        <p className="text-sm text-white/40">Sin actividades planeadas.</p>
+        <p className="text-sm text-white/40">{t('sala.itin.vacio', 'Sin actividades planeadas.')}</p>
       ) : (
         <ul className="space-y-2">
           {porFecha.map((a) => (
@@ -264,6 +267,7 @@ function GastosPanel({
   gastos: import('../../core/data/db').GastoViaje[]
   presupuesto: number
 }) {
+  const t = useT()
   const [concepto, setConcepto] = useState('')
   const [monto, setMonto] = useState('')
   const [categoria, setCategoria] =
@@ -293,7 +297,7 @@ function GastosPanel({
         <input
           value={concepto}
           onChange={(e) => setConcepto(e.target.value)}
-          placeholder="Concepto"
+          placeholder={t('sala.gastos.ph.concepto', 'Concepto')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <div className="flex flex-wrap gap-1">
@@ -315,7 +319,7 @@ function GastosPanel({
             type="number"
             value={monto}
             onChange={(e) => setMonto(e.target.value)}
-            placeholder="Monto"
+            placeholder={t('sala.gastos.ph.monto', 'Monto')}
             className="rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
           />
           <input
@@ -326,11 +330,11 @@ function GastosPanel({
           />
         </div>
         <button type="submit" className="w-full rounded-lg py-2 text-sm font-bold bg-teal-400/90 text-black">
-          Registrar gasto
+          {t('sala.gastos.registrar', 'Registrar gasto')}
         </button>
       </form>
       <p className="text-sm font-semibold">
-        Total: {dinero(total)}
+        {t('sala.gastos.total', `Total: ${dinero(total)}`, { n: dinero(total) })}
         {presupuesto > 0 && (
           <span className="text-white/40 font-normal">
             {' '}
@@ -373,6 +377,7 @@ function ChecklistPanel({
   items: import('../../core/data/db').ChecklistViaje[]
   onSembrar: () => void
 }) {
+  const t = useT()
   const [texto, setTexto] = useState('')
   const [categoria] =
     useState<import('../../core/data/db').CategoriaChecklist>('equipaje')
@@ -399,14 +404,14 @@ function ChecklistPanel({
           onClick={onSembrar}
           className="w-full rounded-xl py-2 text-sm font-semibold bg-white/10 hover:bg-white/15"
         >
-          Cargar checklist sugerido
+          {t('sala.check.cargar', 'Cargar checklist sugerido')}
         </button>
       )}
       <form onSubmit={agregar} className="flex gap-2">
         <input
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
-          placeholder="Nuevo ítem"
+          placeholder={t('sala.check.ph', 'Nuevo ítem')}
           className="flex-1 rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <button type="submit" className="rounded-lg px-3 bg-teal-400 text-black font-bold">
@@ -414,7 +419,7 @@ function ChecklistPanel({
         </button>
       </form>
       <p className="text-xs text-white/40">
-        {listos} de {items.length} listos
+        {t('sala.check.progreso', `${listos} de ${items.length} listos`, { done: String(listos), total: String(items.length) })}
       </p>
       <ul className="space-y-1">
         {items.map((item) => (

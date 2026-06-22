@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { suenoRepo } from '../../core/data/repository'
+import { useT } from '../../core/i18n/useT'
 
 const hoy = () => new Date().toISOString().slice(0, 10)
 
@@ -28,10 +29,12 @@ export function DescansoTab() {
     setNota('')
   }
 
+  const t = useT()
+
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-white/5 p-4 border border-white/10 text-center">
-        <p className="text-xs text-white/50">Promedio de sueño</p>
+        <p className="text-xs text-white/50">{t('recamara.sueno.promedio', 'Promedio de sueño')}</p>
         <p className="text-3xl font-black text-cyan-300">{promedio} h</p>
       </div>
 
@@ -40,7 +43,7 @@ export function DescansoTab() {
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
         <label className="block text-sm">
-          Horas dormidas
+          {t('recamara.sueno.horas', 'Horas dormidas')}
           <input
             type="number"
             step="0.5"
@@ -50,7 +53,7 @@ export function DescansoTab() {
           />
         </label>
         <div>
-          <span className="text-sm">Calidad</span>
+          <span className="text-sm">{t('recamara.sueno.calidad', 'Calidad')}</span>
           <div className="mt-1 flex gap-1">
             {[1, 2, 3, 4, 5].map((n) => (
               <button
@@ -58,7 +61,7 @@ export function DescansoTab() {
                 type="button"
                 onClick={() => setCalidad(n)}
                 className="text-2xl"
-                title={`${n} de 5`}
+                title={t('recamara.sueno.nDe5', `${n} de 5`, { n: String(n) })}
               >
                 {n <= calidad ? '★' : '☆'}
               </button>
@@ -68,14 +71,14 @@ export function DescansoTab() {
         <input
           value={nota}
           onChange={(e) => setNota(e.target.value)}
-          placeholder="Nota (ej. desperté cansado)"
+          placeholder={t('recamara.sueno.ph.nota', 'Nota (ej. desperté cansado)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
         />
         <button
           type="submit"
           className="w-full rounded-lg bg-cyan-400 py-2 font-bold text-black hover:bg-cyan-300 transition"
         >
-          Registrar descanso
+          {t('recamara.sueno.guardar', 'Registrar descanso')}
         </button>
       </form>
 

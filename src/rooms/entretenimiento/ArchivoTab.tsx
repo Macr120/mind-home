@@ -11,8 +11,10 @@ import {
   generosUnicos,
   type FiltrosArchivo,
 } from './filtrosMedia'
+import { useT } from '../../core/i18n/useT'
 
 export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
+  const t = useT()
   const [filtros, setFiltros] = useState<FiltrosArchivo>(FILTROS_VACIOS)
   const [mostrarForm, setMostrarForm] = useState(false)
   const [editando, setEditando] = useState<MediaArchivo | null>(null)
@@ -34,6 +36,10 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
     )
   }
 
+  const countText = lista.length === 1
+    ? `1 ${t('entre.arch.entrada', 'entrada')}`
+    : `${lista.length} ${t('entre.arch.entradas', 'entradas')}`
+
   return (
     <div className="space-y-4">
       <button
@@ -42,7 +48,7 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
         className="w-full rounded-xl py-2.5 font-bold text-black hover:opacity-90"
         style={{ background: COLOR }}
       >
-        {mostrarForm ? 'Ocultar formulario' : '➕ Añadir título'}
+        {mostrarForm ? t('entre.arch.ocultar', 'Ocultar formulario') : t('entre.arch.añadir', '➕ Añadir título')}
       </button>
 
       {mostrarForm && (
@@ -53,48 +59,48 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
       )}
 
       <div className="rounded-xl bg-white/5 p-3 border border-white/10 space-y-3">
-        <p className="text-xs font-bold uppercase tracking-wider text-white/35">Filtrar y ordenar</p>
+        <p className="text-xs font-bold uppercase tracking-wider text-white/35">{t('entre.arch.filtrar', 'Filtrar y ordenar')}</p>
         <input
           value={filtros.busqueda}
           onChange={(e) => actualizar({ busqueda: e.target.value })}
-          placeholder="Buscar título, reseña, autor…"
+          placeholder={t('entre.arch.buscar', 'Buscar título, reseña, autor…')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
         />
 
         <div className="grid grid-cols-2 gap-2">
           <SelectFiltro
-            label="Tipo"
+            label={t('entre.arch.tipo', 'Tipo')}
             value={filtros.tipo}
             onChange={(v) => actualizar({ tipo: v as FiltrosArchivo['tipo'] })}
             opciones={[
-              { value: 'todos', label: 'Todos' },
-              ...TIPOS_MEDIA.map((t) => ({ value: t.id, label: `${t.icon} ${t.label}` })),
+              { value: 'todos', label: t('entre.arch.todos', 'Todos') },
+              ...TIPOS_MEDIA.map((tipo) => ({ value: tipo.id, label: `${tipo.icon} ${tipo.label}` })),
             ]}
           />
           <SelectFiltro
-            label="Género"
+            label={t('entre.arch.genero', 'Género')}
             value={filtros.genero}
             onChange={(v) => actualizar({ genero: v })}
             opciones={[
-              { value: 'todos', label: 'Todos' },
+              { value: 'todos', label: t('entre.arch.todos', 'Todos') },
               ...generos.map((g) => ({ value: g, label: g })),
             ]}
           />
           <SelectFiltro
-            label="Año (fecha)"
+            label={t('entre.arch.año', 'Año (fecha)')}
             value={filtros.año}
             onChange={(v) => actualizar({ año: v })}
             opciones={[
-              { value: 'todos', label: 'Todos' },
+              { value: 'todos', label: t('entre.arch.todos', 'Todos') },
               ...años.map((a) => ({ value: a, label: a })),
             ]}
           />
           <SelectFiltro
-            label="Estado"
+            label={t('entre.arch.estado', 'Estado')}
             value={filtros.estado}
             onChange={(v) => actualizar({ estado: v as FiltrosArchivo['estado'] })}
             opciones={[
-              { value: 'todos', label: 'Todos' },
+              { value: 'todos', label: t('entre.arch.todos', 'Todos') },
               ...ESTADOS_MEDIA.map((e) => ({ value: e.id, label: e.label })),
             ]}
           />
@@ -103,11 +109,11 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
         <div className="flex gap-2">
           {(
             [
-              ['reciente', 'Más reciente'],
-              ['antiguo', 'Más antiguo'],
-              ['titulo', 'A–Z'],
+              ['reciente', 'entre.arch.reciente', 'Más reciente'],
+              ['antiguo', 'entre.arch.antiguo', 'Más antiguo'],
+              ['titulo', 'entre.arch.titulo', 'A–Z'],
             ] as const
-          ).map(([id, label]) => (
+          ).map(([id, key, fallback]) => (
             <button
               key={id}
               type="button"
@@ -117,22 +123,22 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
               }`}
               style={filtros.orden === id ? { background: COLOR } : undefined}
             >
-              {label}
+              {t(key, fallback)}
             </button>
           ))}
         </div>
       </div>
 
       <p className="text-xs text-white/40">
-        {lista.length} {lista.length === 1 ? 'entrada' : 'entradas'}
-        {items.length !== lista.length && ` (de ${items.length} en total)`}
+        {countText}
+        {items.length !== lista.length && ` (${t('entre.arch.deTotalEs', `de ${items.length} en total`, { n: String(items.length) })})`}
       </p>
 
       {lista.length === 0 ? (
         <div className="rounded-xl border border-dashed border-white/15 p-8 text-center text-white/40 text-sm">
           {items.length === 0
-            ? 'Tu archivo está vacío. Añade la primera película, serie, libro o videojuego.'
-            : 'Ninguna entrada coincide con los filtros.'}
+            ? t('entre.arch.vacio', 'Tu archivo está vacío. Añade la primera película, serie, libro o videojuego.')
+            : t('entre.arch.sinFiltro', 'Ninguna entrada coincide con los filtros.')}
         </div>
       ) : (
         <div className="space-y-3">

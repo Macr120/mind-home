@@ -3,15 +3,17 @@ import { gastosViajeRepo, viajesRepo } from '../../core/data/repository'
 import { DetalleViaje } from './DetalleViaje'
 import { ListaViajesTab } from './ListaViajesTab'
 import { ResumenTab } from './ResumenTab'
+import { useT } from '../../core/i18n/useT'
 
 type Tab = 'resumen' | 'viajes'
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: 'resumen', label: '📊 Resumen' },
-  { id: 'viajes', label: '✈️ Viajes' },
+const TABS: { id: Tab; labelEs: string }[] = [
+  { id: 'resumen', labelEs: '📊 Resumen' },
+  { id: 'viajes', labelEs: '✈️ Viajes' },
 ]
 
 export function SalaApp() {
+  const t = useT()
   const [tab, setTab] = useState<Tab>('resumen')
   const [viajeId, setViajeId] = useState<number | null>(null)
 
@@ -39,20 +41,19 @@ export function SalaApp() {
   return (
     <div className="mx-auto max-w-2xl space-y-4">
       <p className="text-xs text-white/45 leading-relaxed">
-        Planifica viajes futuros, guarda tu lista de deseos y archiva viajes pasados con
-        reseña, itinerario día a día, gastos y checklist de preparación.
+        {t('sala.desc', 'Planifica viajes futuros, guarda tu lista de deseos y archiva viajes pasados con reseña, itinerario día a día, gastos y checklist de preparación.')}
       </p>
 
       <div className="flex gap-2">
-        {TABS.map((t) => (
+        {TABS.map((tabItem) => (
           <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
+            key={tabItem.id}
+            onClick={() => setTab(tabItem.id)}
             className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
-              tab === t.id ? 'bg-teal-400 text-black' : 'bg-white/5 hover:bg-white/10'
+              tab === tabItem.id ? 'bg-teal-400 text-black' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
-            {t.label}
+            {t(`sala.tab.${tabItem.id}`, tabItem.labelEs)}
           </button>
         ))}
       </div>

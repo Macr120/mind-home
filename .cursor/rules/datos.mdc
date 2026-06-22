@@ -1,0 +1,28 @@
+---
+description: Capa de datos — Dexie, migraciones y repositorios reactivos.
+globs:
+  - src/core/data/**
+alwaysApply: false
+---
+
+# Contexto DATOS
+
+Único punto de acceso a IndexedDB. Las apps en `src/rooms/` **solo** usan repos exportados
+en `repository.ts`.
+
+## Al agregar o cambiar datos
+
+1. Interfaz TypeScript en `db.ts`
+2. Subir `this.version(n).stores({ ... })` (nunca reutilizar número de versión)
+3. `export const xRepo = createRepository(db.tabla)` en `repository.ts`
+4. En el cuarto: `xRepo.useAll()`, `.add()`, `.update()`, `.remove()`
+
+## Reglas
+
+- Ningún archivo en `src/rooms/` importa `db` ni `dexie`.
+- `createRepository(db.tabla, 'id', false)` si la tabla no tiene campo `fecha`.
+- Migración futura a Supabase: reescribir solo `db.ts` (+ adaptar repos si hace falta).
+
+## Verificación
+
+`npx tsc --noEmit` después de cambiar tipos o versiones.

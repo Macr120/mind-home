@@ -1,0 +1,380 @@
+import { useEffect, useRef } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
+import * as THREE from 'three'
+import { useHouse } from '../state/houseStore'
+import { useLayout, SIN_OCUPACION } from '../state/layoutStore'
+import { playerPos } from '../state/playerPosition'
+import type { Acceso } from '../data/db'
+import {
+  cellToWorld,
+  worldToCell,
+  cellId,
+  doorFor,
+  nivelBaseY,
+  HALF,
+  SIZE,
+  WALL_H,
+  LADO_DIR,
+  type TipoAcceso,
+  type SideKey,
+} from './walls'
+
+/** Pared de la celda que mira al centro de la casa (acceso por defecto, sin lado guardado). */
+function ladoDeCelda(col: number, row: number): SideKey {
+  const [cx, , cz] = cellToWorld(col, row)
+  const { axis, sign } = doorFor([cx, 0, cz])
+  return axis === 'x' ? (sign < 0 ? 'O' : 'E') : sign < 0 ? 'N' : 'S'
+}
+
+/**
+ * Estructuras 3D para subir a un nivel: escalera, elevador o resbaladilla (con
+ * escalera). Hay UNA por nivel, anclada en la celda del primer cuarto de ese nivel,
+ * sobre el lado que mira al centro de la casa. Abarca de la altura del nivel de abajo
+ * a la del de arriba: se estira cuando el piso flota (techo OFF) y se compacta al
+ * apilarse (techo ON).
+ */
+
+const COLOR: Record<TipoAcceso, { base: string; detalle: string }> = {
+  escalera: { base: '#c69a72', detalle: '#7f5539' },
+  elevador: { base: '#aab2bd', detalle: '#5c636e' },
+  resbaladilla: { base: '#bae6fd', detalle: '#38bdf8' },
+}
+
+/** Medio lado del hueco del elevador / radio del tubo. */
+const HUECO = 0.9
+
+/** Escalera de caracol: peldaños radiales en espiral alrededor de un poste central. */
+function EscaleraEspiral({
+  altura,
+  landing,
+  base,
+  detalle,
+}: {
+  altura: number
+  landing: number
+  base: string
+  detalle: string
+}) {
+  const paso = 0.32 // alto entre peldaños
+  const n = Math.max(4, Math.round(landing / paso))
+  const rise = landing / n
+  const R = 1.25 // radio de los peldaños
+  const dTheta = Math.PI / 4 // un giro completo cada 8 peldaños
+  return (
+    <>
+      {/* poste central hasta el techo del nivel de arriba */}
+      <mesh position={[0, altura / 2, 0]} castShadow>
+        <cylinderGeometry args={[0.16, 0.16, altura, 12]} />
+        <meshStandardMaterial color={detalle} roughness={0.6} metalness={0.2} />
+      </mesh>
+      {Array.from({ length: n }, (_, i) => {
+        const th = i * dTheta
+        const y = (i + 1) * rise
+        return (
+          <mesh
+            key={i}
+            position={[(R / 2) * Math.cos(th), y, (R / 2) * Math.sin(th)]}
+            rotation={[0, -th, 0]}
+            castShadow
+            receiveShadow
+          >
+            <boxGeometry args={[R, 0.12, 0.7]} />
+            <meshStandardMaterial color={base} roughness={0.85} />
+          </mesh>
+        )
+      })}
+    </>
+  )
+}
+
+/** Cabina de cristal del elevador (estática por ahora; se anima en la transición). */
+function CabinaCristal({ baseY, acceso }: { baseY: number; acceso: Acceso }) {
+  const ref = useRef<THREE.Group>(null)
+  useFrame(() => {
+    if (!ref.current) return
+    const t = useHouse.getState().transicion
+    const activo = t != null && t.acceso.id === acceso.id
+    // En transición la cabina sigue al personaje; si no, reposa cerca del piso de abajo.
+    const objetivo = activo ? playerPos.y - baseY : 1
+    ref.current.position.y += (objetivo - ref.current.position.y) * (activo ? 1 : 0.12)
+  })
+  return (
+    <group ref={ref} position={[0, 1, 0]}>
+      <mesh castShadow>
+        <boxGeometry args={[2 * HUECO - 0.12, 1.9, 2 * HUECO - 0.12]} />
+        <meshStandardMaterial
+          color="#bae6fd"
+          transparent
+          opacity={0.28}
+          metalness={0.1}
+          roughness={0.05}
+        />
+      </mesh>
+      {/* piso de la cabina */}
+      <mesh position={[0, -0.95, 0]}>
+        <boxGeometry args={[2 * HUECO - 0.05, 0.1, 2 * HUECO - 0.05]} />
+        <meshStandardMaterial color="#5c636e" metalness={0.5} roughness={0.4} />
+      </mesh>
+    </group>
+  )
+}
+
+/** Elevador: estructura cuadrada de postes con una cabina de cristal que sube/baja. */
+function Elevador({ altura, baseY, acceso, detalle }: { altura: number; baseY: number; acceso: Acceso; detalle: string }) {
+  const postes: [number, number][] = [
+    [-HUECO, -HUECO],
+    [HUECO, -HUECO],
+    [-HUECO, HUECO],
+    [HUECO, HUECO],
+  ]
+  return (
+    <>
+      {postes.map(([x, z], i) => (
+        <mesh key={i} position={[x, altura / 2, z]} castShadow>
+          <boxGeometry args={[0.18, altura, 0.18]} />
+          <meshStandardMaterial color={detalle} metalness={0.6} roughness={0.35} />
+        </mesh>
+      ))}
+      {/* marcos inferior y superior */}
+      {[0.09, altura - 0.09].map((y, i) => (
+        <mesh key={'m' + i} position={[0, y, 0]}>
+          <boxGeometry args={[2 * HUECO + 0.18, 0.16, 2 * HUECO + 0.18]} />
+          <meshStandardMaterial color={detalle} metalness={0.5} roughness={0.4} />
+        </mesh>
+      ))}
+      <CabinaCristal baseY={baseY} acceso={acceso} />
+    </>
+  )
+}
+
+/** Tubo de succión: cilindro translúcido con aros, por el que el personaje sube/baja. */
+function Tubo({ altura, base, detalle }: { altura: number; base: string; detalle: string }) {
+  const aros = Math.max(2, Math.round(altura / 1.6))
+  return (
+    <>
+      <mesh position={[0, altura / 2, 0]}>
+        <cylinderGeometry args={[HUECO, HUECO, altura, 20, 1, true]} />
+        <meshStandardMaterial
+          color={base}
+          transparent
+          opacity={0.2}
+          side={THREE.DoubleSide}
+          roughness={0.1}
+          metalness={0.1}
+        />
+      </mesh>
+      {Array.from({ length: aros }, (_, i) => (
+        <mesh
+          key={i}
+          position={[0, (i + 0.5) * (altura / aros), 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          castShadow
+        >
+          <torusGeometry args={[HUECO, 0.07, 8, 22]} />
+          <meshStandardMaterial color={detalle} metalness={0.4} roughness={0.4} />
+        </mesh>
+      ))}
+    </>
+  )
+}
+
+function Estructura({
+  tipo,
+  altura,
+  landing,
+  baseY,
+  acceso,
+}: {
+  tipo: TipoAcceso
+  altura: number
+  landing: number
+  baseY: number
+  acceso: Acceso
+}) {
+  const c = COLOR[tipo]
+  if (tipo === 'elevador')
+    return <Elevador altura={altura} baseY={baseY} acceso={acceso} detalle={c.detalle} />
+  if (tipo === 'resbaladilla') return <Tubo altura={altura} base={c.base} detalle={c.detalle} />
+  return <EscaleraEspiral altura={altura} landing={landing} base={c.base} detalle={c.detalle} />
+}
+
+/** Radio alrededor del acceso para mostrar el prompt de subir/bajar. */
+const RADIO_ACCESO = 3.5
+
+/**
+ * Detecta si el personaje está al alcance de un acceso (al pie, para subir; o en la
+ * cima, para bajar) según su nivel actual, y lo publica en el store para el prompt 2D.
+ */
+export function AccesoProximity() {
+  const setNearAcceso = useHouse((s) => s.setNearAcceso)
+  useFrame(() => {
+    const accesos = useLayout.getState().accesos
+    if (accesos.length === 0 || useHouse.getState().transicion) {
+      setNearAcceso(null, null)
+      return
+    }
+    const level = useHouse.getState().playerLevel
+    let mejor: { a: Acceso; dir: 'subir' | 'bajar'; d: number } | null = null
+    for (const a of accesos) {
+      const [cx, , cz] = cellToWorld(a.col, a.row)
+      // Posición real de la estructura: misma lógica que el componente Accesos.
+      const lado = a.lado ?? ladoDeCelda(a.col, a.row)
+      const dir = LADO_DIR[lado]
+      const offset = HALF + 1.2
+      const bx = cx + dir.dx * offset
+      const bz = cz + dir.dz * offset
+      if (a.nivel - 1 === level) {
+        // Subir: al pie del acceso (fuera de la celda, en el lado correcto).
+        const d = Math.hypot(playerPos.x - bx, playerPos.z - bz)
+        if (d <= RADIO_ACCESO && (!mejor || d < mejor.d)) mejor = { a, dir: 'subir', d }
+      }
+      if (a.nivel === level) {
+        // Bajar: en la cima, también junto a la estructura.
+        const d = Math.hypot(playerPos.x - bx, playerPos.z - bz)
+        if (d <= RADIO_ACCESO && (!mejor || d < mejor.d)) mejor = { a, dir: 'bajar', d }
+      }
+    }
+    setNearAcceso(mejor?.a ?? null, mejor?.dir ?? null)
+  })
+  return null
+}
+
+export function Accesos() {
+  const accesos = useLayout((s) => s.accesos)
+  const conTecho = useHouse((s) => s.conTecho)
+  const editMode = useLayout((s) => s.editMode)
+  const editingRoomId = useLayout((s) => s.editingRoomId)
+  const draggingAcceso = useLayout((s) => s.draggingAcceso)
+  const previewAcceso = useLayout((s) => s.previewAcceso)
+  const previewLado = useLayout((s) => s.previewLado)
+  const startAccesoDrag = useLayout((s) => s.startAccesoDrag)
+  const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  if (accesos.length === 0) return null
+  // En edición (sin un cuarto aislado) el acceso se puede arrastrar.
+  const editable = editMode && !editingRoomId
+  // Nivel del acceso que se arrastra (para resaltar dónde se puede soltar).
+  const dragNivel = draggingAcceso != null
+    ? accesos.find((a) => a.id === draggingAcceso)?.nivel ?? null
+    : null
+  return (
+    <>
+      {accesos.map((a) => {
+        const arrastrando = draggingAcceso === a.id
+        const col = arrastrando && previewAcceso ? previewAcceso.col : a.col
+        const row = arrastrando && previewAcceso ? previewAcceso.row : a.row
+        const lado = arrastrando && previewLado ? previewLado : a.lado ?? ladoDeCelda(col, row)
+        const [cx, , cz] = cellToWorld(col, row)
+        const dir = LADO_DIR[lado]
+        const offset = HALF + 1.2
+        const bx = cx + dir.dx * offset
+        const bz = cz + dir.dz * offset
+        const baseY = nivelBaseY(a.nivel - 1, conTecho)
+        const landing = nivelBaseY(a.nivel, conTecho) - baseY
+        const altura = landing + WALL_H // la infraestructura llega casi al techo del nivel
+        // El frente local (+Z) mira hacia el cuarto, según la pared elegida.
+        const rotY = dir.rotY
+        return (
+          <group
+            key={a.id ?? `${a.nivel}-${a.col}-${a.row}`}
+            position={[bx, baseY, bz]}
+            rotation={[0, rotY, 0]}
+          >
+            <Estructura tipo={a.tipo} altura={altura} landing={landing} baseY={baseY} acceso={a} />
+            {/* Caja de agarre invisible y AMPLIA: el poste/tubo es muy delgado para
+                clicarlo; esta columna cubre toda la altura y facilita el drag. */}
+            {editable && (
+              <mesh
+                position={[0, altura / 2, 0]}
+                onPointerDown={(e) => {
+                  e.stopPropagation()
+                  if (a.id != null) startAccesoDrag(a.id)
+                }}
+                onPointerOver={(e) => {
+                  e.stopPropagation()
+                  if (useLayout.getState().draggingAcceso == null)
+                    document.body.style.cursor = 'grab'
+                }}
+                onPointerOut={() => {
+                  if (useLayout.getState().draggingAcceso == null)
+                    document.body.style.cursor = 'default'
+                }}
+              >
+                <cylinderGeometry args={[1.4, 1.4, altura, 8]} />
+                <meshBasicMaterial transparent opacity={arrastrando ? 0.12 : 0} depthWrite={false} color="#7dd3fc" />
+              </mesh>
+            )}
+          </group>
+        )
+      })}
+
+      {/* Mientras se arrastra un acceso: resaltar las celdas válidas (cuartos del
+          nivel del acceso); la celda bajo el cursor se pinta en verde. */}
+      {dragNivel != null &&
+        [...(ocupadoPorNivel.get(dragNivel) ?? [])].map((key) => {
+          const [c, r] = key.split(',').map(Number)
+          const [hx, , hz] = cellToWorld(c, r)
+          const hy = nivelBaseY(dragNivel, conTecho) + 0.18
+          const activo = previewAcceso?.col === c && previewAcceso?.row === r
+          return (
+            <mesh key={`dz-${key}`} position={[hx, hy, hz]} rotation={[-Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[SIZE - 0.2, SIZE - 0.2]} />
+              <meshBasicMaterial
+                color={activo ? '#34d399' : '#7dd3fc'}
+                transparent
+                opacity={activo ? 0.5 : 0.22}
+                depthWrite={false}
+              />
+            </mesh>
+          )
+        })}
+    </>
+  )
+}
+
+const _planeA = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0)
+const _rayA = new THREE.Raycaster()
+const _hitA = new THREE.Vector3()
+
+/**
+ * Arrastre de un acceso en edición: proyecta el cursor sobre el plano del NIVEL del
+ * acceso (donde flotan los cuartos superiores visibles, hacia los que el usuario
+ * apunta). Solo acepta soltar sobre una celda con un cuarto de ese nivel.
+ */
+export function AccesoDrag() {
+  const camera = useThree((s) => s.camera)
+  const pointer = useThree((s) => s.pointer)
+  useFrame(() => {
+    const { draggingAcceso, accesos } = useLayout.getState()
+    if (draggingAcceso == null) return
+    document.body.style.cursor = 'grabbing'
+    const ac = accesos.find((a) => a.id === draggingAcceso)
+    if (!ac) return
+    // Plano del nivel superior: ahí se ven (flotando) los cuartos a los que se suelta.
+    _planeA.constant = -nivelBaseY(ac.nivel, useHouse.getState().conTecho)
+    _rayA.setFromCamera(pointer, camera)
+    if (_rayA.ray.intersectPlane(_planeA, _hitA)) {
+      const cell = worldToCell(_hitA.x, _hitA.z)
+      const occ = useLayout.getState().ocupadoPorNivel.get(ac.nivel) ?? SIN_OCUPACION
+      if (occ.has(cellId(cell.col, cell.row))) {
+        // Pared más cercana al cursor dentro de la celda (borde N/S/E/O).
+        const [ccx, , ccz] = cellToWorld(cell.col, cell.row)
+        const dx = _hitA.x - ccx
+        const dz = _hitA.z - ccz
+        const lado: SideKey =
+          Math.abs(dx) >= Math.abs(dz) ? (dx >= 0 ? 'E' : 'O') : dz >= 0 ? 'S' : 'N'
+        useLayout.getState().setAccesoPreview(cell, lado)
+      }
+    }
+  })
+  useEffect(() => {
+    const soltar = () => {
+      if (useLayout.getState().draggingAcceso != null) {
+        useLayout.getState().endAccesoDrag()
+        document.body.style.cursor = 'default'
+      }
+    }
+    window.addEventListener('pointerup', soltar)
+    return () => window.removeEventListener('pointerup', soltar)
+  }, [])
+  return null
+}

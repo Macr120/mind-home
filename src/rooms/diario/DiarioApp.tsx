@@ -10,15 +10,17 @@ import { ResumenTab } from './ResumenTab'
 import { COLOR } from './constantes'
 import { hoyISO } from './fecha'
 import { sembrarDiario } from './seed'
+import { useT } from '../../core/i18n/useT'
 
 type Tab = 'central' | 'resumen'
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: 'central', label: '📰 Central' },
-  { id: 'resumen', label: '📊 Resumen' },
+const TABS: { id: Tab; labelEs: string }[] = [
+  { id: 'central', labelEs: '📰 Central' },
+  { id: 'resumen', labelEs: '📊 Resumen' },
 ]
 
 export function DiarioApp() {
+  const t = useT()
   const [tab, setTab] = useState<Tab>('central')
   const [syncMsg, setSyncMsg] = useState<string | null>(null)
   const [syncCargando, setSyncCargando] = useState(false)
@@ -34,10 +36,10 @@ export function DiarioApp() {
     if (r.error) setSyncMsg(r.error)
     else if (r.nuevas > 0)
       setSyncMsg(
-        `${r.nuevas} titular${r.nuevas === 1 ? '' : 'es'} nuevo${r.nuevas === 1 ? '' : 's'} hoy`,
+        t('diario.sync.nuevas', `${r.nuevas} titular${r.nuevas === 1 ? '' : 'es'} nuevo${r.nuevas === 1 ? '' : 's'} hoy`, { n: String(r.nuevas), s: r.nuevas === 1 ? '' : 'es' }),
       )
-    else setSyncMsg('Briefing al día')
-  }, [syncCargando])
+    else setSyncMsg(t('diario.sync.alDia', 'Briefing al día'))
+  }, [syncCargando, t])
 
   const inicioHecho = useRef(false)
   useEffect(() => {
@@ -49,16 +51,15 @@ export function DiarioApp() {
   const ultima = fechaUltimaSync()
   const etiquetaSync =
     ultima === hoyISO()
-      ? 'Actualizado hoy'
+      ? t('diario.sync.hoy', 'Actualizado hoy')
       : ultima
-        ? `Última sync: ${ultima}`
-        : 'Sin sincronizar hoy'
+        ? t('diario.sync.ultima', `Última sync: ${ultima}`, { fecha: ultima })
+        : t('diario.sync.sin', 'Sin sincronizar hoy')
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
       <p className="text-xs text-white/45 leading-relaxed">
-        Briefing diario desde medios en español, más tus recortes manuales. Filtra por
-        categoría y marca lo que ya leíste.
+        {t('diario.desc', 'Briefing diario desde medios en español, más tus recortes manuales. Filtra por categoría y marca lo que ya leíste.')}
       </p>
 
       <div
@@ -67,7 +68,7 @@ export function DiarioApp() {
       >
         <div className="min-w-0 flex-1">
           <p className="text-xs font-bold" style={{ color: COLOR }}>
-            🔄 Briefing del día
+            {t('diario.sync.titulo', '🔄 Briefing del día')}
           </p>
           <p className="text-[11px] text-white/45">{etiquetaSync}</p>
           {syncMsg && (
@@ -81,21 +82,21 @@ export function DiarioApp() {
           className="shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold text-black disabled:opacity-50"
           style={{ background: COLOR }}
         >
-          {syncCargando ? '…' : 'Actualizar'}
+          {syncCargando ? '…' : t('diario.sync.btn', 'Actualizar')}
         </button>
       </div>
 
       <div className="flex gap-2">
-        {TABS.map((t) => (
+        {TABS.map((tabItem) => (
           <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
+            key={tabItem.id}
+            onClick={() => setTab(tabItem.id)}
             className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
-              tab === t.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
+              tab === tabItem.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
             }`}
-            style={tab === t.id ? { background: COLOR } : undefined}
+            style={tab === tabItem.id ? { background: COLOR } : undefined}
           >
-            {t.label}
+            {t(`diario.tab.${tabItem.id}`, tabItem.labelEs)}
           </button>
         ))}
       </div>

@@ -3,6 +3,7 @@ import type { Vehiculo } from '../../core/data/db'
 import { vehiculosRepo } from '../../core/data/repository'
 import { COLOR, TIPOS_VEHICULO } from './constantes'
 import { hoyISO } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function FormularioVehiculo({
   inicial,
@@ -13,6 +14,7 @@ export function FormularioVehiculo({
   onGuardado: () => void
   onCancelar: () => void
 }) {
+  const t = useT()
   const [nombre, setNombre] = useState(inicial?.nombre ?? '')
   const [tipo, setTipo] = useState<Vehiculo['tipo']>(inicial?.tipo ?? 'auto')
   const [marca, setMarca] = useState(inicial?.marca ?? '')
@@ -50,24 +52,24 @@ export function FormularioVehiculo({
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
       <p className="text-sm font-semibold">
-        {inicial ? '✏️ Editar vehículo' : '➕ Nuevo vehículo'}
+        {inicial ? t('garage.form.editar', '✏️ Editar vehículo') : t('garage.form.nuevo', '➕ Nuevo vehículo')}
       </p>
 
       <label className="block text-xs text-white/50">
-        Nombre *
+        {t('garage.form.nombre', 'Nombre *')}
         <input className={input} value={nombre} onChange={(e) => setNombre(e.target.value)} />
       </label>
 
       <label className="block text-xs text-white/50">
-        Tipo
+        {t('garage.form.tipo', 'Tipo')}
         <select
           className={input}
           value={tipo}
           onChange={(e) => setTipo(e.target.value as Vehiculo['tipo'])}
         >
-          {TIPOS_VEHICULO.map((t) => (
-            <option key={t.id} value={t.id}>
-              {t.icon} {t.label}
+          {TIPOS_VEHICULO.map((tipoItem) => (
+            <option key={tipoItem.id} value={tipoItem.id}>
+              {tipoItem.icon} {tipoItem.label}
             </option>
           ))}
         </select>
@@ -75,18 +77,18 @@ export function FormularioVehiculo({
 
       <div className="grid grid-cols-2 gap-2">
         <label className="block text-xs text-white/50">
-          Marca
+          {t('garage.form.marca', 'Marca')}
           <input className={input} value={marca} onChange={(e) => setMarca(e.target.value)} />
         </label>
         <label className="block text-xs text-white/50">
-          Modelo
+          {t('garage.form.modelo', 'Modelo')}
           <input className={input} value={modelo} onChange={(e) => setModelo(e.target.value)} />
         </label>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
         <label className="block text-xs text-white/50">
-          Año
+          {t('garage.form.año', 'Año')}
           <input
             type="number"
             className={input}
@@ -95,7 +97,7 @@ export function FormularioVehiculo({
           />
         </label>
         <label className="block text-xs text-white/50">
-          Placas / serie
+          {t('garage.form.placas', 'Placas / serie')}
           <input
             className={input}
             value={matricula}
@@ -106,7 +108,7 @@ export function FormularioVehiculo({
 
       <div className="grid grid-cols-2 gap-2">
         <label className="block text-xs text-white/50">
-          Odómetro actual
+          {t('garage.form.odo', 'Odómetro actual')}
           <input
             type="number"
             min={0}
@@ -116,20 +118,20 @@ export function FormularioVehiculo({
           />
         </label>
         <label className="block text-xs text-white/50">
-          Unidad
+          {t('garage.form.unidad', 'Unidad')}
           <select
             className={input}
             value={unidad}
             onChange={(e) => setUnidad(e.target.value as Vehiculo['unidad'])}
           >
-            <option value="km">Kilómetros</option>
-            <option value="mi">Millas</option>
+            <option value="km">{t('garage.form.km', 'Kilómetros')}</option>
+            <option value="mi">{t('garage.form.mi', 'Millas')}</option>
           </select>
         </label>
       </div>
 
       <label className="block text-xs text-white/50">
-        Notas
+        {t('garage.form.notas', 'Notas')}
         <textarea
           className={`${input} min-h-[60px]`}
           value={notas}
@@ -144,14 +146,14 @@ export function FormularioVehiculo({
           className="flex-1 rounded-xl py-2.5 text-sm font-bold text-black"
           style={{ background: COLOR }}
         >
-          Guardar
+          {t('garage.form.guardar', 'Guardar')}
         </button>
         <button
           type="button"
           onClick={onCancelar}
           className="rounded-xl px-4 py-2.5 text-sm bg-white/10 hover:bg-white/15"
         >
-          Cancelar
+          {t('garage.form.cancelar', 'Cancelar')}
         </button>
       </div>
     </div>

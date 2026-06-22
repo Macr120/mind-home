@@ -5,6 +5,7 @@ import { ENFOQUES_FLEX } from './constantes'
 import { RUTINAS } from './rutinas'
 import { minutosTipo, sesionesSemana } from './stats'
 import { HistorialDia } from './ResistenciaTab'
+import { useT } from '../../core/i18n/useT'
 
 export function FlexibilidadTab({
   fecha,
@@ -44,10 +45,12 @@ export function FlexibilidadTab({
     setNota('')
   }
 
+  const t = useT()
+
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-violet-500/10 border border-violet-500/25 p-4">
-        <p className="text-xs text-white/50">Movilidad y estiramiento · semana</p>
+        <p className="text-xs text-white/50">{t('ejercicio.flex.movilidad', 'Movilidad y estiramiento · semana')}</p>
         <p className="text-2xl font-black text-violet-300">
           {minSemana}{' '}
           <span className="text-base font-semibold text-white/50">/ {metaMinutos} min</span>
@@ -81,12 +84,12 @@ export function FlexibilidadTab({
         onSubmit={guardar}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
-        <p className="text-sm font-semibold">🧘 Registrar flexibilidad</p>
+        <p className="text-sm font-semibold">{t('ejercicio.flex.registrar', '🧘 Registrar flexibilidad')}</p>
         <input
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
-          placeholder="Nombre de la sesión"
+          placeholder={t('ejercicio.flex.ph.nombre', 'Nombre de la sesión')}
         />
         <div className="flex flex-wrap gap-1.5">
           {ENFOQUES_FLEX.map((e) => (
@@ -104,7 +107,7 @@ export function FlexibilidadTab({
         </div>
         <div className="grid grid-cols-2 gap-2">
           <label className="text-xs text-white/50">
-            Minutos
+            {t('ejercicio.minutos', 'Minutos')}
             <input
               type="number"
               value={duracion}
@@ -113,7 +116,7 @@ export function FlexibilidadTab({
             />
           </label>
           <label className="text-xs text-white/50">
-            Intensidad RPE
+            {t('ejercicio.intensidad', 'Intensidad RPE')}
             <input
               type="number"
               min={1}
@@ -127,14 +130,14 @@ export function FlexibilidadTab({
         <input
           value={nota}
           onChange={(e) => setNota(e.target.value)}
-          placeholder="Posturas, limitaciones, progreso..."
+          placeholder={t('ejercicio.ph.notas.flex', 'Posturas, limitaciones, progreso...')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <button
           type="submit"
           className="w-full rounded-xl py-2.5 font-bold bg-violet-400 text-black"
         >
-          Guardar sesión
+          {t('ejercicio.guardar', 'Guardar sesión')}
         </button>
       </form>
 

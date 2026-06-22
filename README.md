@@ -38,10 +38,17 @@ npm run lint     # ESLint
 
 ## Editor del mapa
 
-- **✏️ Editar mapa** (esquina superior derecha del mapa): arrastra cuartos, cambia color del piso, edita paredes y puertas.
+- **✏️ Editar mapa** (esquina superior derecha del mapa): arrastra cuartos, personaliza colores/nombres/avatar/perfil, edita paredes y puertas.
 - **⚙️ Editar** en el menú lateral: edita un cuarto (paredes, tamaño, objetos, color del mueble).
 - La cámara se centra a la izquierda del panel de edición; controles de vista abajo a la izquierda (rotar, zoom, reiniciar).
 - En edición las sombras se desactivan para evitar artefactos al mover objetos.
+
+## Desarrollo (contextos)
+
+Para no mezclar la casa 3D con las mini-apps al trabajar con IA:
+
+- [`docs/AVANCE.md`](docs/AVANCE.md) — qué está hecho (casa + 12 apps)
+- [`docs/COMO-TRABAJAR.md`](docs/COMO-TRABAJAR.md) — etiquetas `[CASA]`, `[COCINA]`, etc.
 
 ## Estructura
 
@@ -66,8 +73,8 @@ src/
 │   ├── jardin/            # Mindfulness
 │   ├── garage/            # Vehículos
 │   ├── diario/            # Noticias
-│   ├── configuraciones/   # Perfil y copia de seguridad
-│   └── diseno/            # Colores, avatar, objetos del mapa
+│   ├── bodega/            # Inventario y respaldo de datos
+│   └── hobbies/           # Pasatiempos y proyectos creativos
 ```
 
 ## Cómo agregar un cuarto nuevo
@@ -110,8 +117,10 @@ src/
 | Jardín | Mindfulness | Meditar |
 | Garage | Vehículos | Mantenimiento |
 | Diario | Noticias | Leer noticias |
-| Configuraciones | Perfil y datos | Configurar |
-| Diseño | Colores, avatar, mapa | Personalizar |
+| Bodega | Inventario y respaldo | Revisar bodega |
+| Hobbies | Pasatiempos | Practicar |
+
+Colores, avatar, objetos y perfil: **✏️ Editar mapa** (panel derecho), no un cuarto aparte.
 
 ## Migración a la nube (futuro)
 

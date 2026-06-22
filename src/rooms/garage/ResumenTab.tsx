@@ -2,6 +2,7 @@ import type { RegistroMantenimiento, Vehiculo } from '../../core/data/db'
 import { COLOR } from './constantes'
 import { dinero, hoyISO } from './fecha'
 import { alertasMantenimiento, gastoAnio } from './stats'
+import { useT } from '../../core/i18n/useT'
 
 export function ResumenTab({
   vehiculos,
@@ -12,6 +13,7 @@ export function ResumenTab({
   registros: RegistroMantenimiento[]
   onAbrirVehiculo: (id: number) => void
 }) {
+  const t = useT()
   const año = hoyISO().slice(0, 4)
   const gastado = gastoAnio(registros, año)
   const alertas = alertasMantenimiento(vehiculos, registros)
@@ -25,25 +27,27 @@ export function ResumenTab({
           <p className="text-2xl font-black" style={{ color: COLOR }}>
             {vehiculos.length}
           </p>
-          <p className="text-[10px] text-white/45 uppercase tracking-wide">Vehículos</p>
+          <p className="text-[10px] text-white/45 uppercase tracking-wide">{t('garage.r.vehiculos', 'Vehículos')}</p>
         </div>
         <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
           <p className="text-2xl font-black" style={{ color: COLOR }}>
             {registros.length}
           </p>
-          <p className="text-[10px] text-white/45 uppercase tracking-wide">Servicios</p>
+          <p className="text-[10px] text-white/45 uppercase tracking-wide">{t('garage.r.servicios', 'Servicios')}</p>
         </div>
         <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
           <p className="text-lg font-black" style={{ color: COLOR }}>
             {dinero(gastado)}
           </p>
-          <p className="text-[10px] text-white/45 uppercase tracking-wide">Gasto {año}</p>
+          <p className="text-[10px] text-white/45 uppercase tracking-wide">
+            {t('garage.r.gasto', `Gasto ${año}`, { año })}
+          </p>
         </div>
       </div>
 
       {vencidos.length > 0 && (
         <section className="rounded-xl bg-red-500/10 border border-red-500/35 p-4 space-y-2">
-          <p className="text-sm font-bold text-red-300">⚠️ Mantenimiento vencido</p>
+          <p className="text-sm font-bold text-red-300">{t('garage.r.vencido', '⚠️ Mantenimiento vencido')}</p>
           {vencidos.map((a, i) => (
             <button
               key={`${a.vehiculoId}-${a.titulo}-${i}`}
@@ -62,7 +66,7 @@ export function ResumenTab({
 
       {proximos.length > 0 && (
         <section className="rounded-xl bg-amber-500/10 border border-amber-500/30 p-4 space-y-2">
-          <p className="text-sm font-bold text-amber-200">📅 Próximamente</p>
+          <p className="text-sm font-bold text-amber-200">{t('garage.r.proximo', '📅 Próximamente')}</p>
           {proximos.map((a, i) => (
             <button
               key={`p-${a.vehiculoId}-${i}`}
@@ -81,13 +85,13 @@ export function ResumenTab({
 
       {alertas.length === 0 && vehiculos.length > 0 && (
         <p className="text-sm text-white/50 text-center py-4 rounded-xl bg-white/5 border border-white/10">
-          ✅ Sin alertas. Registra el próximo servicio en cada mantenimiento para recibir avisos.
+          {t('garage.r.sinAlertas', '✅ Sin alertas. Registra el próximo servicio en cada mantenimiento para recibir avisos.')}
         </p>
       )}
 
       {vehiculos.length === 0 && (
         <p className="text-sm text-white/50 text-center py-6">
-          Añade tu primera bicicleta, auto o moto en la pestaña Vehículos.
+          {t('garage.r.sinVehiculos', 'Añade tu primera bicicleta, auto o moto en la pestaña Vehículos.')}
         </p>
       )}
     </div>

@@ -1,29 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
-import { onKey, setPad, clearInput } from '../house/movement'
-
-/** Conecta el teclado (WASD/flechas) al movimiento del avatar. */
-export function KeyboardMove() {
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => onKey(e, true)
-    const up = (e: KeyboardEvent) => onKey(e, false)
-    window.addEventListener('keydown', down)
-    window.addEventListener('keyup', up)
-    return () => {
-      window.removeEventListener('keydown', down)
-      window.removeEventListener('keyup', up)
-      clearInput()
-    }
-  }, [])
-  return null
-}
+import { setPad } from '../house/movement'
+import { setLookPad, clearLook } from '../house/lookInput'
+import { useT } from '../i18n/useT'
 
 const R = 38 // radio máximo del knob
 
 /**
- * Joystick analógico en pantalla: arrastra el knob hacia cualquier dirección
- * (360°) y el avatar se mueve hacia allá, con velocidad según qué tan lejos lo lleves.
+ * Joystick analógico en pantalla: arrastra el knob en cualquier dirección (360°)
+ * y reporta su posición normalizada (-1..1) por `onChange`; `onEnd` al soltar.
  */
-export function MoveControls() {
+function Joystick({
+  label,
+  onChange,
+  onEnd,
+}: {
+  label: string
+  onChange: (x: number, y: number) => void
+  onEnd: () => void
+}) {
   const baseRef = useRef<HTMLDivElement>(null)
   const [knob, setKnob] = useState({ x: 0, y: 0 })
   const activo = useRef(false)
@@ -42,8 +36,7 @@ export function MoveControls() {
       dy = (dy / dist) * R
     }
     setKnob({ x: dx, y: dy })
-    // arriba = adelante, derecha = strafe a la derecha
-    setPad(-dy / R, dx / R)
+    onChange(dx / R, dy / R)
   }
 
   const onDown = (e: React.PointerEvent) => {
@@ -62,29 +55,46 @@ export function MoveControls() {
       /* sin captura activa */
     }
     setKnob({ x: 0, y: 0 })
-    setPad(0, 0)
+    onEnd()
   }
 
   return (
-    <div className="absolute bottom-4 left-4 z-10 select-none">
+    <div
+      ref={baseRef}
+      onPointerDown={onDown}
+      onPointerMove={onMove}
+      onPointerUp={onUp}
+      onPointerCancel={onUp}
+      onPointerLeave={onUp}
+      className="relative flex h-24 w-24 touch-none items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-sm"
+      title={`Arrastra para ${label}`}
+    >
+      <span className="pointer-events-none absolute text-[10px] text-white/25">{label}</span>
       <div
-        ref={baseRef}
-        onPointerDown={onDown}
-        onPointerMove={onMove}
-        onPointerUp={onUp}
-        onPointerCancel={onUp}
-        onPointerLeave={onUp}
-        className="relative flex h-24 w-24 touch-none items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-sm"
-        title="Arrastra para moverte"
-      >
-        <span className="pointer-events-none absolute text-[10px] text-white/25">
-          mover
-        </span>
-        <div
-          className="pointer-events-none h-10 w-10 rounded-full border border-white/20 bg-white/80 shadow-lg"
-          style={{ transform: `translate(${knob.x}px, ${knob.y}px)` }}
-        />
-      </div>
+        className="pointer-events-none h-10 w-10 rounded-full border border-white/20 bg-white/80 shadow-lg"
+        style={{ transform: `translate(${knob.x}px, ${knob.y}px)` }}
+      />
+    </div>
+  )
+}
+
+/** Joystick de MOVIMIENTO (abajo a la izquierda). */
+export function MoveControls() {
+  const t = useT()
+  return (
+    <div className="absolute bottom-4 left-4 z-10 select-none">
+      <Joystick label={t('ui.mover', 'mover')} onChange={(x, y) => setPad(-y, x)} onEnd={() => setPad(0, 0)} />
+    </div>
+  )
+}
+
+/** Joystick de VISTA (1ª/3ª persona): gira la cámara. Lo posiciona quien lo monta. */
+export function LookPad() {
+  const t = useT()
+  useEffect(() => clearLook, [])
+  return (
+    <div className="select-none">
+      <Joystick label={t('ui.mirar', 'mirar')} onChange={(x, y) => setLookPad(x, y)} onEnd={() => clearLook()} />
     </div>
   )
 }

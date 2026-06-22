@@ -22,3 +22,8 @@ export const useInteractUi = create<InteractUiState>((set, get) => ({
   setScreen: (screenX, screenY) => set({ screenX, screenY }),
   clear: () => set({ focusRoomId: null }),
 }))
+
+if (import.meta.env.DEV) {
+  ;(window as unknown as { useInteractUi: typeof useInteractUi }).useInteractUi =
+    useInteractUi
+}

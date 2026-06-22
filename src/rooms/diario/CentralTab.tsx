@@ -12,8 +12,10 @@ import {
 } from './filtros'
 import { FormularioNoticia } from './FormularioNoticia'
 import { TarjetaNoticia } from './TarjetaNoticia'
+import { useT } from '../../core/i18n/useT'
 
 export function CentralTab({ noticias }: { noticias: Noticia[] }) {
+  const t = useT()
   const [filtros, setFiltros] = useState<FiltrosNoticias>(FILTROS_VACIOS)
   const [mostrarForm, setMostrarForm] = useState(false)
   const [editando, setEditando] = useState<Noticia | null>(null)
@@ -35,6 +37,10 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
     )
   }
 
+  const countText = lista.length === 1
+    ? t('diario.central.count1', `1 noticia`, { n: '1' })
+    : t('diario.central.count', `${lista.length} noticias`, { n: String(lista.length) })
+
   return (
     <div className="space-y-4">
       <div
@@ -43,10 +49,10 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
       >
         <div>
           <p className="text-sm font-bold" style={{ color: COLOR }}>
-            📰 Central de noticias
+            {t('diario.central.titulo', '📰 Central de noticias')}
           </p>
           <p className="text-xs text-white/45 mt-0.5">
-            {noLeidas} sin leer · {noticias.length} en total
+            {t('diario.central.sinLeer', `${noLeidas} sin leer · ${noticias.length} en total`, { n: String(noLeidas), t: String(noticias.length) })}
           </p>
         </div>
         <button
@@ -57,7 +63,7 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
           }`}
           style={filtros.soloNoLeidas ? { background: COLOR } : undefined}
         >
-          No leídas
+          {t('diario.central.noLeidas', 'No leídas')}
         </button>
       </div>
 
@@ -67,7 +73,7 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
         className="w-full rounded-xl py-2.5 font-bold text-black"
         style={{ background: COLOR }}
       >
-        {mostrarForm ? 'Ocultar formulario' : '➕ Añadir noticia'}
+        {mostrarForm ? t('diario.central.ocultar', 'Ocultar formulario') : t('diario.central.añadir', '➕ Añadir noticia')}
       </button>
 
       {mostrarForm && (
@@ -78,19 +84,19 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
       )}
 
       <div className="rounded-xl bg-white/5 p-3 border border-white/10 space-y-3">
-        <p className="text-xs font-bold uppercase tracking-wider text-white/35">Filtros</p>
+        <p className="text-xs font-bold uppercase tracking-wider text-white/35">{t('diario.central.filtros', 'Filtros')}</p>
 
         <input
           value={filtros.busqueda}
           onChange={(e) => actualizar({ busqueda: e.target.value })}
-          placeholder="Buscar titular, resumen, fuente…"
+          placeholder={t('diario.central.buscar', 'Buscar titular, resumen, fuente…')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
 
         <div className="flex gap-1.5 overflow-x-auto pb-0.5">
           <ChipCat
             activo={filtros.categoria === 'todos'}
-            label="Todas"
+            label={t('diario.central.todas', 'Todas')}
             onClick={() => actualizar({ categoria: 'todos' })}
           />
           {CATEGORIAS.map((c) => (
@@ -109,7 +115,7 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
 
         <div className="grid grid-cols-2 gap-2">
           <label className="text-xs text-white/50">
-            Desde
+            {t('diario.central.desde', 'Desde')}
             <input
               type="date"
               value={filtros.fechaDesde}
@@ -118,7 +124,7 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
             />
           </label>
           <label className="text-xs text-white/50">
-            Hasta
+            {t('diario.central.hasta', 'Hasta')}
             <input
               type="date"
               value={filtros.fechaHasta}
@@ -134,14 +140,14 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
             onClick={() => actualizar({ fechaDesde: hoyISO(), fechaHasta: hoyISO() })}
             className="text-xs rounded-lg px-2 py-1 bg-white/10 hover:bg-white/15"
           >
-            Hoy
+            {t('diario.central.hoy', 'Hoy')}
           </button>
           <button
             type="button"
             onClick={() => actualizar({ fechaDesde: '', fechaHasta: '' })}
             className="text-xs rounded-lg px-2 py-1 bg-white/10 hover:bg-white/15"
           >
-            Todas las fechas
+            {t('diario.central.todasFechas', 'Todas las fechas')}
           </button>
           {fechas.slice(0, 5).map((f) => (
             <button
@@ -161,21 +167,21 @@ export function CentralTab({ noticias }: { noticias: Noticia[] }) {
             }`}
             style={filtros.soloDestacadas ? { background: COLOR } : undefined}
           >
-            ★ Destacadas
+            {t('diario.central.destacadas', '★ Destacadas')}
           </button>
         </div>
       </div>
 
       <p className="text-xs text-white/40">
-        {lista.length} {lista.length === 1 ? 'noticia' : 'noticias'}
-        {noticias.length !== lista.length && ` (de ${noticias.length})`}
+        {countText}
+        {noticias.length !== lista.length && ` (${t('diario.central.deTotalEs', `de ${noticias.length}`, { n: String(noticias.length) })})`}
       </p>
 
       {grupos.length === 0 ? (
         <div className="rounded-xl border border-dashed border-white/15 p-8 text-center text-sm text-white/40">
           {noticias.length === 0
-            ? 'Tu central está vacía. Guarda titulares que quieras seguir o leer después.'
-            : 'Ninguna noticia coincide con los filtros.'}
+            ? t('diario.central.vacio', 'Tu central está vacía. Guarda titulares que quieras seguir o leer después.')
+            : t('diario.central.sinFiltro', 'Ninguna noticia coincide con los filtros.')}
         </div>
       ) : (
         <div className="space-y-6">

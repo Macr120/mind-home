@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { PerfilEjercicio } from '../../core/data/db'
 import { perfilEjercicioRepo } from '../../core/data/repository'
 import { PERFIL_DEFECTO } from './constantes'
+import { useT } from '../../core/i18n/useT'
 
 export function MetasTab({
   perfil,
@@ -39,61 +40,55 @@ export function MetasTab({
     setDias(v.d)
   }
 
+  const t = useT()
+
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-2">🎯 Objetivos semanales</p>
+        <p className="text-sm font-semibold mb-2">{t('ejercicio.metas.titulo', '🎯 Objetivos semanales')}</p>
         <p className="text-xs text-white/45 mb-3">
-          Inspirado en programas progresivos (Apple Fitness+, Fitbod, Peloton):
-          define cuánto quieres entrenar cada modalidad.
+          {t('ejercicio.metas.desc', 'Inspirado en programas progresivos (Apple Fitness+, Fitbod, Peloton): define cuánto quieres entrenar cada modalidad.')}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
-          {(
-            [
-              ['balance', 'Equilibrado'],
-              ['fuerza', 'Hipertrofia'],
-              ['cardio', 'Resistencia'],
-              ['movilidad', 'Movilidad'],
-            ] as const
-          ).map(([id, label]) => (
+          {(['balance', 'fuerza', 'cardio', 'movilidad'] as const).map((id) => (
             <button
               key={id}
               type="button"
               onClick={() => preset(id)}
               className="rounded-lg bg-rose-500/15 border border-rose-500/30 px-3 py-1.5 text-xs font-semibold text-rose-200"
             >
-              {label}
+              {t(`ejercicio.preset.${id}`, id === 'balance' ? 'Equilibrado' : id === 'fuerza' ? 'Hipertrofia' : id === 'cardio' ? 'Resistencia' : 'Movilidad')}
             </button>
           ))}
         </div>
         <div className="grid grid-cols-2 gap-3">
-          <Campo label="🏋️ Sesiones fuerza / sem" value={fuerza} onChange={setFuerza} />
-          <Campo label="🏃 Min resistencia / sem" value={resistencia} onChange={setResistencia} />
-          <Campo label="🧘 Min flexibilidad / sem" value={flex} onChange={setFlex} />
-          <Campo label="📅 Días activos / sem" value={dias} onChange={setDias} />
+          <Campo label={t('ejercicio.metas.fuerza', '🏋️ Sesiones fuerza / sem')} value={fuerza} onChange={setFuerza} />
+          <Campo label={t('ejercicio.metas.resistencia', '🏃 Min resistencia / sem')} value={resistencia} onChange={setResistencia} />
+          <Campo label={t('ejercicio.metas.flex', '🧘 Min flexibilidad / sem')} value={flex} onChange={setFlex} />
+          <Campo label={t('ejercicio.metas.dias', '📅 Días activos / sem')} value={dias} onChange={setDias} />
         </div>
         <button
           type="button"
           onClick={guardar}
           className="mt-4 w-full rounded-xl py-2.5 font-bold bg-rose-400 text-black"
         >
-          Guardar metas
+          {t('ejercicio.metas.guardar', 'Guardar metas')}
         </button>
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10 text-sm text-white/55 space-y-2">
-        <p className="font-semibold text-white/80">Qué incluye cada pilar</p>
+        <p className="font-semibold text-white/80">{t('ejercicio.metas.pilares', 'Qué incluye cada pilar')}</p>
         <p>
-          <strong className="text-orange-300">Fuerza</strong> — series, repeticiones, peso,
-          volumen total y records (estilo Fitbod).
+          <strong className="text-orange-300">{t('ejercicio.tab.fuerza', '🏋️ Fuerza')}</strong>{' '}
+          — {t('ejercicio.pilar.fuerza', 'series, repeticiones, peso, volumen total y records (estilo Fitbod).')}
         </p>
         <p>
-          <strong className="text-sky-300">Resistencia</strong> — cardio, HIIT, distancia y
-          RPE por zonas (estilo Peloton / NTC).
+          <strong className="text-sky-300">{t('ejercicio.tab.resistencia', '🏃 Resistencia')}</strong>{' '}
+          — {t('ejercicio.pilar.resistencia', 'cardio, HIIT, distancia y RPE por zonas (estilo Peloton / NTC).')}
         </p>
         <p>
-          <strong className="text-violet-300">Flexibilidad</strong> — yoga, movilidad y
-          estiramientos por enfoque corporal.
+          <strong className="text-violet-300">{t('ejercicio.tab.flexibilidad', '🧘 Flexibilidad')}</strong>{' '}
+          — {t('ejercicio.pilar.flex', 'yoga, movilidad y estiramientos por enfoque corporal.')}
         </p>
       </div>
     </div>

@@ -2,6 +2,7 @@ import type { MediaArchivo } from '../../core/data/db'
 import { COLOR, getEstadoMedia, getTipoMedia } from './constantes'
 import { Estrellas } from './Estrellas'
 import { formatearFecha } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function TarjetaMedia({
   item,
@@ -12,6 +13,7 @@ export function TarjetaMedia({
   onEditar: () => void
   onEliminar: () => void
 }) {
+  const t = useT()
   const tipo = getTipoMedia(item.tipo)
   const estado = getEstadoMedia(item.estado)
 
@@ -50,10 +52,10 @@ export function TarjetaMedia({
 
         <div className="mt-3 flex gap-2">
           <button type="button" onClick={onEditar} className="text-xs font-semibold hover:underline" style={{ color: COLOR }}>
-            Editar
+            {t('entre.tarjeta.editar', 'Editar')}
           </button>
           <button type="button" onClick={onEliminar} className="text-xs text-white/35 hover:text-red-400">
-            Eliminar
+            {t('entre.tarjeta.eliminar', 'Eliminar')}
           </button>
         </div>
       </div>

@@ -12,6 +12,7 @@ import {
 import { EMOCIONES, PRESETS, COLOR } from './constantes'
 import { hoyISO, nombreDia } from './fecha'
 import { minutosDelDia, rachaDias } from './stats'
+import { useT } from '../../core/i18n/useT'
 
 export function HoyTab({
   sesiones,
@@ -24,6 +25,7 @@ export function HoyTab({
   gratitudHoy?: GratitudDiaria
   objetivoMin: number
 }) {
+  const t = useT()
   const hoy = hoyISO()
   const minHoy = minutosDelDia(sesiones, hoy)
   const racha = rachaDias(sesiones)
@@ -82,11 +84,13 @@ export function HoyTab({
             style={{ width: `${pct}%`, background: COLOR }}
           />
         </div>
-        <p className="text-xs text-white/45 mt-2">🔥 Racha: {racha} días</p>
+        <p className="text-xs text-white/45 mt-2">
+          {t('jardin.hoy.racha', `🔥 Racha: ${racha} días`, { n: String(racha) })}
+        </p>
       </div>
 
       <section className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
-        <p className="text-sm font-semibold">¿Cómo te sientes hoy?</p>
+        <p className="text-sm font-semibold">{t('jardin.hoy.animo', '¿Cómo te sientes hoy?')}</p>
         <div className="flex gap-2 flex-wrap">
           {EMOCIONES.map((e) => (
             <button
@@ -107,11 +111,13 @@ export function HoyTab({
           onChange={(e) => setNivel(parseInt(e.target.value, 10))}
           className="w-full"
         />
-        <p className="text-xs text-white/40 text-center">Nivel {nivel}/5</p>
+        <p className="text-xs text-white/40 text-center">
+          {t('jardin.hoy.nivel', `Nivel ${nivel}/5`, { n: String(nivel) })}
+        </p>
         <input
           value={notaAnimo}
           onChange={(e) => setNotaAnimo(e.target.value)}
-          placeholder="Nota breve (opcional)"
+          placeholder={t('jardin.hoy.ph.nota', 'Nota breve (opcional)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <button
@@ -119,12 +125,12 @@ export function HoyTab({
           onClick={guardarAnimo}
           className="w-full rounded-lg py-2 text-sm font-bold bg-emerald-500/25 text-emerald-200 border border-emerald-500/30"
         >
-          Guardar estado de ánimo
+          {t('jardin.hoy.guardarAnimo', 'Guardar estado de ánimo')}
         </button>
       </section>
 
       <section className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-2">
-        <p className="text-sm font-semibold">🙏 Tres gratitudes</p>
+        <p className="text-sm font-semibold">{t('jardin.hoy.gratitudes', '🙏 Tres gratitudes')}</p>
         <input
           value={g1}
           onChange={(e) => setG1(e.target.value)}
@@ -148,12 +154,12 @@ export function HoyTab({
           onClick={guardarGratitud}
           className="w-full rounded-lg py-2 text-sm font-semibold bg-white/10 hover:bg-white/15"
         >
-          Guardar gratitud
+          {t('jardin.hoy.guardarGrat', 'Guardar gratitud')}
         </button>
       </section>
 
       <section>
-        <p className="text-sm font-semibold mb-2">Inicio rápido</p>
+        <p className="text-sm font-semibold mb-2">{t('jardin.hoy.inicioRapido', 'Inicio rápido')}</p>
         <div className="flex gap-2 overflow-x-auto pb-1">
           {PRESETS.slice(0, 4).map((p) => (
             <button
@@ -168,7 +174,7 @@ export function HoyTab({
           ))}
         </div>
         <p className="text-[10px] text-white/35 mt-1">
-          Registra la sesión al instante. Para temporizador, ve a Practicar.
+          {t('jardin.hoy.timerNote', 'Registra la sesión al instante. Para temporizador, ve a Practicar.')}
         </p>
       </section>
     </div>

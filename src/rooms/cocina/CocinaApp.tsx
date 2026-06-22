@@ -12,17 +12,19 @@ import { ResumenTab } from './ResumenTab'
 import { hoyISO, nombreFecha, sumarDias } from './fecha'
 import { perfilEfectivo, usePerfil } from './usePerfil'
 import { sembrarCocina } from './seed'
+import { useT } from '../../core/i18n/useT'
 
 type Tab = 'resumen' | 'diario' | 'plan' | 'metas'
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: 'resumen', label: '📊 Resumen' },
-  { id: 'diario', label: '📝 Diario' },
-  { id: 'plan', label: '📅 Plan' },
-  { id: 'metas', label: '⚙️ Metas' },
+const TABS: { id: Tab; labelEs: string }[] = [
+  { id: 'resumen', labelEs: '📊 Resumen' },
+  { id: 'diario', labelEs: '📝 Diario' },
+  { id: 'plan', labelEs: '📅 Plan' },
+  { id: 'metas', labelEs: '⚙️ Metas' },
 ]
 
 export function CocinaApp() {
+  const t = useT()
   const [tab, setTab] = useState<Tab>('resumen')
   const [fecha, setFecha] = useState(hoyISO())
   const [semana, setSemana] = useState(semanaDesdeHoy())
@@ -43,15 +45,15 @@ export function CocinaApp() {
   return (
     <div className="mx-auto max-w-2xl space-y-4">
       <div className="flex gap-2 overflow-x-auto pb-0.5">
-        {TABS.map((t) => (
+        {TABS.map((tabItem) => (
           <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
+            key={tabItem.id}
+            onClick={() => setTab(tabItem.id)}
             className={`shrink-0 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-              tab === t.id ? 'bg-amber-400 text-black' : 'bg-white/5 hover:bg-white/10'
+              tab === tabItem.id ? 'bg-amber-400 text-black' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
-            {t.label}
+            {t(`cocina.tab.${tabItem.id}`, tabItem.labelEs)}
           </button>
         ))}
       </div>
@@ -73,7 +75,7 @@ export function CocinaApp() {
                 onClick={() => setFecha(hoyISO())}
                 className="block mx-auto text-[10px] text-amber-400 hover:underline"
               >
-                Ir a hoy
+                {t('nav.irHoy', 'Ir a hoy')}
               </button>
             )}
           </div>
@@ -94,15 +96,17 @@ export function CocinaApp() {
             onClick={() => setSemana((s) => sumarDias(s, -7))}
             className="rounded-lg px-2 hover:bg-white/10"
           >
-            ‹ Sem
+            {t('nav.sem.prev', '‹ Sem')}
           </button>
-          <span className="text-white/60">Semana del {semana.slice(8)}/{semana.slice(5, 7)}</span>
+          <span className="text-white/60">
+            {t('cocina.sem.label', `Semana del ${semana.slice(8)}/${semana.slice(5, 7)}`, { d: semana.slice(8), m: semana.slice(5, 7) })}
+          </span>
           <button
             type="button"
             onClick={() => setSemana((s) => sumarDias(s, 7))}
             className="rounded-lg px-2 hover:bg-white/10"
           >
-            Sem ›
+            {t('nav.sem.next', 'Sem ›')}
           </button>
         </div>
       )}

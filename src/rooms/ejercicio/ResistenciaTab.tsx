@@ -4,6 +4,7 @@ import { sesionesEjercicioRepo } from '../../core/data/repository'
 import { TIPOS_CARDIO } from './constantes'
 import { RUTINAS } from './rutinas'
 import { minutosTipo, sesionesSemana } from './stats'
+import { useT } from '../../core/i18n/useT'
 
 export function ResistenciaTab({
   fecha,
@@ -44,10 +45,12 @@ export function ResistenciaTab({
     setNota('')
   }
 
+  const t = useT()
+
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-sky-500/10 border border-sky-500/25 p-4">
-        <p className="text-xs text-white/50">Minutos cardio esta semana</p>
+        <p className="text-xs text-white/50">{t('ejercicio.cardio.minSemana', 'Minutos cardio esta semana')}</p>
         <p className="text-2xl font-black text-sky-300">
           {minSemana}{' '}
           <span className="text-base font-semibold text-white/50">/ {metaMinutos} min</span>
@@ -80,7 +83,7 @@ export function ResistenciaTab({
         onSubmit={guardar}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
-        <p className="text-sm font-semibold">🏃 Registrar cardio / resistencia</p>
+        <p className="text-sm font-semibold">{t('ejercicio.cardio.registrar', '🏃 Registrar cardio / resistencia')}</p>
         <div className="flex flex-wrap gap-1.5">
           {TIPOS_CARDIO.map((t) => (
             <button
@@ -97,7 +100,7 @@ export function ResistenciaTab({
         </div>
         <div className="grid grid-cols-3 gap-2">
           <label className="text-xs text-white/50">
-            Minutos
+            {t('ejercicio.minutos', 'Minutos')}
             <input
               type="number"
               value={duracion}
@@ -106,7 +109,7 @@ export function ResistenciaTab({
             />
           </label>
           <label className="text-xs text-white/50">
-            Km (opc.)
+            {t('ejercicio.km', 'Km (opc.)')}
             <input
               type="number"
               step="0.1"
@@ -116,7 +119,7 @@ export function ResistenciaTab({
             />
           </label>
           <label className="text-xs text-white/50">
-            RPE
+            {t('ejercicio.rpe', 'RPE')}
             <input
               type="number"
               min={1}
@@ -128,19 +131,19 @@ export function ResistenciaTab({
           </label>
         </div>
         <p className="text-[10px] text-white/35">
-          Zonas: RPE 1–4 recuperación · 5–6 aeróbico · 7–8 umbral · 9–10 máximo
+          {t('ejercicio.zonas', 'Zonas: RPE 1–4 recuperación · 5–6 aeróbico · 7–8 umbral · 9–10 máximo')}
         </p>
         <input
           value={nota}
           onChange={(e) => setNota(e.target.value)}
-          placeholder="Notas (ritmo, pendiente, sensación...)"
+          placeholder={t('ejercicio.ph.notas.cardio', 'Notas (ritmo, pendiente, sensación...)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <button
           type="submit"
           className="w-full rounded-xl py-2.5 font-bold bg-sky-400 text-black"
         >
-          Guardar sesión
+          {t('ejercicio.guardar', 'Guardar sesión')}
         </button>
       </form>
 
@@ -162,10 +165,11 @@ export function HistorialDia({
   color: string
   onEliminar: (id: number) => void
 }) {
+  const t = useT()
   if (sesiones.length === 0) return null
   return (
     <div className="space-y-2">
-      <p className="text-sm font-semibold">Hoy</p>
+      <p className="text-sm font-semibold">{t('ejercicio.hoy', 'Hoy')}</p>
       {sesiones.map((s) => (
         <div
           key={s.id}

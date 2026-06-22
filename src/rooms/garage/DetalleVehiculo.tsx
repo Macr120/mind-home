@@ -9,6 +9,7 @@ import { COLOR, getTipoMantenimiento, getTipoVehiculo } from './constantes'
 import { dinero, formatearFecha } from './fecha'
 import { FormularioMantenimiento } from './FormularioMantenimiento'
 import { FormularioVehiculo } from './FormularioVehiculo'
+import { useT } from '../../core/i18n/useT'
 
 export function DetalleVehiculo({
   vehiculo,
@@ -17,6 +18,7 @@ export function DetalleVehiculo({
   vehiculo: Vehiculo
   onVolver: () => void
 }) {
+  const t = useT()
   const id = vehiculo.id!
   const [editandoVehiculo, setEditandoVehiculo] = useState(false)
   const [nuevoServicio, setNuevoServicio] = useState(false)
@@ -70,7 +72,7 @@ export function DetalleVehiculo({
         className="text-sm font-semibold hover:underline"
         style={{ color: COLOR }}
       >
-        ‹ Volver al garaje
+        {t('garage.detalle.volver', '‹ Volver al garaje')}
       </button>
 
       <div
@@ -87,7 +89,9 @@ export function DetalleVehiculo({
               {vehiculo.modelo && ` ${vehiculo.modelo}`}
             </p>
             {vehiculo.matricula && (
-              <p className="text-xs text-white/45 mt-1">Placas: {vehiculo.matricula}</p>
+              <p className="text-xs text-white/45 mt-1">
+                {t('garage.detalle.placas', `Placas: ${vehiculo.matricula}`, { n: vehiculo.matricula })}
+              </p>
             )}
           </div>
           <button
@@ -95,13 +99,13 @@ export function DetalleVehiculo({
             onClick={() => setEditandoVehiculo(true)}
             className="text-xs bg-white/10 rounded-lg px-2 py-1 hover:bg-white/15"
           >
-            Editar
+            {t('garage.detalle.editar', 'Editar')}
           </button>
         </div>
 
         <div className="mt-4 flex gap-2 items-end">
           <label className="flex-1 text-xs text-white/50">
-            Odómetro actual ({vehiculo.unidad})
+            {t('garage.detalle.odo', `Odómetro actual (${vehiculo.unidad})`, { unit: vehiculo.unidad })}
             <input
               type="number"
               min={0}
@@ -116,12 +120,12 @@ export function DetalleVehiculo({
             className="rounded-lg px-3 py-2 text-xs font-bold text-black shrink-0"
             style={{ background: COLOR }}
           >
-            Actualizar
+            {t('garage.detalle.actualizar', 'Actualizar')}
           </button>
         </div>
 
         <p className="text-xs text-white/40 mt-3">
-          {servicios.length} servicios registrados · Gasto total {dinero(gastoTotal)}
+          {t('garage.detalle.servicios', `${servicios.length} servicios registrados · Gasto total ${dinero(gastoTotal)}`, { n: String(servicios.length), cost: dinero(gastoTotal) })}
         </p>
       </div>
 
@@ -131,14 +135,14 @@ export function DetalleVehiculo({
         className="w-full rounded-xl py-3 text-sm font-bold text-black"
         style={{ background: COLOR }}
       >
-        🔧 Registrar mantenimiento
+        {t('garage.detalle.registrar', '🔧 Registrar mantenimiento')}
       </button>
 
       <div className="space-y-2">
-        <p className="text-sm font-semibold text-white/70">Historial</p>
+        <p className="text-sm font-semibold text-white/70">{t('garage.detalle.historial', 'Historial')}</p>
         {servicios.length === 0 ? (
           <p className="text-sm text-white/45 py-4 text-center rounded-xl bg-white/5">
-            Aún no hay servicios. Registra el último cambio de aceite, cadena, etc.
+            {t('garage.detalle.sinServicios', 'Aún no hay servicios. Registra el último cambio de aceite, cadena, etc.')}
           </p>
         ) : (
           servicios.map((r) => {
@@ -161,7 +165,7 @@ export function DetalleVehiculo({
                     )}
                     {(r.proximoOdometro != null || r.proximaFecha) && (
                       <p className="text-xs mt-1" style={{ color: COLOR }}>
-                        Próximo:
+                        {t('garage.detalle.proximo', 'Próximo:')}
                         {r.proximoOdometro != null &&
                           ` ${r.proximoOdometro.toLocaleString('es-MX')} ${vehiculo.unidad}`}
                         {r.proximoOdometro != null && r.proximaFecha && ' · '}
@@ -179,14 +183,14 @@ export function DetalleVehiculo({
                       onClick={() => r.id && setEditServicioId(r.id)}
                       className="block text-[10px] text-white/40 hover:text-white/70"
                     >
-                      Editar
+                      {t('garage.detalle.editar', 'Editar')}
                     </button>
                     <button
                       type="button"
                       onClick={() => r.id && void registrosMantenimientoRepo.remove(r.id)}
                       className="block text-[10px] text-white/40 hover:text-red-400"
                     >
-                      Borrar
+                      {t('garage.detalle.borrar', 'Borrar')}
                     </button>
                   </div>
                 </div>

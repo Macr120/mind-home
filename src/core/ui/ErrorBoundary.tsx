@@ -3,6 +3,7 @@ import { Component, type ErrorInfo, type ReactNode } from 'react'
 interface Props {
   children: ReactNode
   titulo?: string
+  textoReintentar?: string
 }
 
 interface State {
@@ -34,7 +35,7 @@ export class ErrorBoundary extends Component<Props, State> {
             onClick={() => this.setState({ error: null })}
             className="mt-4 rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold hover:bg-white/20"
           >
-            Reintentar
+            {this.props.textoReintentar ?? 'Reintentar'}
           </button>
         </div>
       )

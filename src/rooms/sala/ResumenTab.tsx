@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { Viaje } from '../../core/data/db'
 import { COLOR, getTipo } from './constantes'
 import { dinero, formatearRango, hoyISO } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function ResumenTab({
   viajes,
@@ -12,6 +13,7 @@ export function ResumenTab({
   gastosPorViaje: Map<number, number>
   onAbrir: (id: number) => void
 }) {
+  const t = useT()
   const hoy = hoyISO()
 
   const proximos = useMemo(
@@ -44,20 +46,20 @@ export function ResumenTab({
           className="rounded-xl border border-white/10 p-4 col-span-2"
           style={{ background: `${COLOR}18` }}
         >
-          <p className="text-xs text-white/50">Países visitados</p>
+          <p className="text-xs text-white/50">{t('sala.r.paises', 'Países visitados')}</p>
           <p className="text-3xl font-black" style={{ color: COLOR }}>
             {paises}
           </p>
         </div>
-        <Mini label="Próximos" valor={String(proximos.length)} />
-        <Mini label="Lista de deseos" valor={String(wishlist.length)} />
-        <Mini label="Completados" valor={String(completados.length)} />
-        <Mini label="Gasto registrado" valor={dinero(gastoTotal)} />
+        <Mini label={t('sala.r.proximos', 'Próximos')} valor={String(proximos.length)} />
+        <Mini label={t('sala.r.wishlist', 'Lista de deseos')} valor={String(wishlist.length)} />
+        <Mini label={t('sala.r.completados', 'Completados')} valor={String(completados.length)} />
+        <Mini label={t('sala.r.gasto', 'Gasto registrado')} valor={dinero(gastoTotal)} />
       </div>
 
       {proximos.length > 0 && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-3">🛫 Próximos viajes</p>
+          <p className="text-sm font-semibold mb-3">{t('sala.r.secProx', '🛫 Próximos viajes')}</p>
           <ul className="space-y-2">
             {proximos.slice(0, 4).map((v) => (
               <li key={v.id}>
@@ -76,7 +78,7 @@ export function ResumenTab({
           </ul>
           {presupuestoProx > 0 && (
             <p className="text-xs text-white/40 mt-2">
-              Presupuesto planeado: {dinero(presupuestoProx)}
+              {t('sala.r.presupuesto', `Presupuesto planeado: ${dinero(presupuestoProx)}`, { n: dinero(presupuestoProx) })}
             </p>
           )}
         </section>
@@ -84,7 +86,7 @@ export function ResumenTab({
 
       {wishlist.length > 0 && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">✨ Lista de deseos</p>
+          <p className="text-sm font-semibold mb-2">{t('sala.r.secWish', '✨ Lista de deseos')}</p>
           <ul className="space-y-1.5">
             {wishlist.map((v) => (
               <li key={v.id}>
@@ -103,7 +105,7 @@ export function ResumenTab({
 
       {completados.length > 0 && (
         <section className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">✅ Viajes recientes</p>
+          <p className="text-sm font-semibold mb-2">{t('sala.r.secRec', '✅ Viajes recientes')}</p>
           <ul className="space-y-2">
             {completados.slice(0, 3).map((v) => (
               <li key={v.id} className="text-sm">
@@ -125,7 +127,7 @@ export function ResumenTab({
 
       {viajes.length === 0 && (
         <p className="text-center text-sm text-white/40 py-8">
-          Registra tu primer viaje en la pestaña Viajes.
+          {t('sala.r.vacio', 'Registra tu primer viaje en la pestaña Viajes.')}
         </p>
       )}
     </div>

@@ -1,47 +1,62 @@
 import { useEffect } from 'react'
-import { useThree, useFrame } from '@react-three/fiber'
-import * as THREE from 'three'
+import { useThree } from '@react-three/fiber'
 import { useLayout } from '../state/layoutStore'
-import { worldToCell } from './walls'
-
-const _plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0)
-const _ray = new THREE.Raycaster()
-const _hit = new THREE.Vector3()
+import { useHouse } from '../state/houseStore'
+import { celdaBajoCursor } from './arrastreCelda'
 
 /**
- * Mientras se arrastra un cuarto (modo edición), proyecta el cursor sobre el
- * piso, lo ajusta a la celda más cercana y actualiza la vista previa. Al soltar
- * (pointerup en cualquier parte), confirma el movimiento.
+ * Arrastre de cuartos del registro: sigue el puntero en ventana (2D + 3D)
+ * y confirma al soltar (pointerup / pointercancel).
  */
 export function RoomDragController() {
+  const gl = useThree((s) => s.gl)
   const camera = useThree((s) => s.camera)
-  const pointer = useThree((s) => s.pointer)
+  const draggingId = useLayout((s) => s.draggingId)
   const setPreview = useLayout((s) => s.setPreview)
   const endDrag = useLayout((s) => s.endDrag)
-
-  useFrame(() => {
-    if (!useLayout.getState().draggingId) return
-    document.body.style.cursor = 'grabbing'
-    _ray.setFromCamera(pointer, camera)
-    if (_ray.ray.intersectPlane(_plane, _hit)) {
-      const cell = worldToCell(_hit.x, _hit.z)
-      const prev = useLayout.getState().previewCell
-      if (!prev || prev.col !== cell.col || prev.row !== cell.row) {
-        setPreview(cell)
-      }
-    }
-  })
+  const gridCols = useLayout((s) => s.gridCols)
+  const gridRows = useLayout((s) => s.gridRows)
+  const niveles = useLayout((s) => s.niveles)
+  const conTecho = useHouse((s) => s.conTecho)
 
   useEffect(() => {
-    const soltar = () => {
-      if (useLayout.getState().draggingId) {
-        endDrag()
-        document.body.style.cursor = 'default'
-      }
+    if (!draggingId) return
+
+    const nivel = niveles[draggingId] ?? 0
+
+    const proyectar = (clientX: number, clientY: number) =>
+      celdaBajoCursor(clientX, clientY, {
+        canvas: gl.domElement,
+        camera,
+        nivel,
+        conTecho,
+        gridCols,
+        gridRows,
+      })
+
+    const onMove = (e: PointerEvent) => {
+      const cell = proyectar(e.clientX, e.clientY)
+      if (!cell) return
+      const prev = useLayout.getState().previewCell
+      if (!prev || prev.col !== cell.col || prev.row !== cell.row) setPreview(cell)
+      document.body.style.cursor = 'grabbing'
     }
+
+    const soltar = () => {
+      void endDrag()
+      document.body.style.cursor = 'default'
+    }
+
+    window.addEventListener('pointermove', onMove)
     window.addEventListener('pointerup', soltar)
-    return () => window.removeEventListener('pointerup', soltar)
-  }, [endDrag])
+    window.addEventListener('pointercancel', soltar)
+    return () => {
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('pointerup', soltar)
+      window.removeEventListener('pointercancel', soltar)
+      if (!useLayout.getState().draggingId) document.body.style.cursor = 'default'
+    }
+  }, [draggingId, gl, camera, niveles, conTecho, gridCols, gridRows, setPreview, endDrag])
 
   return null
 }

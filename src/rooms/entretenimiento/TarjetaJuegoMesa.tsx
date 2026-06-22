@@ -3,6 +3,7 @@ import { juegosMesaRepo } from '../../core/data/repository'
 import { COLOR, getCategoriaMesa, getEstadoMesa } from './constantes'
 import { Estrellas } from './Estrellas'
 import { formatearFecha, hoyISO } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function TarjetaJuegoMesa({
   item,
@@ -13,6 +14,7 @@ export function TarjetaJuegoMesa({
   onEditar: () => void
   onEliminar: () => void
 }) {
+  const t = useT()
   const cat = getCategoriaMesa(item.categoria)
   const estado = getEstadoMesa(item.estado)
   const jugadores =
@@ -27,6 +29,10 @@ export function TarjetaJuegoMesa({
       ultimaPartida: hoyISO(),
     })
   }
+
+  const vezWord = item.vecesJugado === 1
+    ? t('entre.mesa.tarjeta.vez', 'vez')
+    : t('entre.mesa.tarjeta.veces', 'veces')
 
   return (
     <article
@@ -57,8 +63,8 @@ export function TarjetaJuegoMesa({
       </div>
 
       <p className="mt-2 text-xs text-white/50">
-        Jugado {item.vecesJugado} {item.vecesJugado === 1 ? 'vez' : 'veces'}
-        {item.ultimaPartida && ` · Última: ${formatearFecha(item.ultimaPartida)}`}
+        {t('entre.mesa.tarjeta.jugado', `Jugado ${item.vecesJugado} ${vezWord}`, { n: String(item.vecesJugado), vez: vezWord })}
+        {item.ultimaPartida && ` · ${t('entre.mesa.tarjeta.ultima', `Última: ${formatearFecha(item.ultimaPartida)}`, { fecha: formatearFecha(item.ultimaPartida) })}`}
       </p>
 
       {item.notas && <p className="mt-2 text-sm text-white/65 line-clamp-3">{item.notas}</p>}
@@ -70,13 +76,13 @@ export function TarjetaJuegoMesa({
           className="rounded-lg px-2.5 py-1 text-xs font-bold text-black"
           style={{ background: COLOR }}
         >
-          +1 partida hoy
+          {t('entre.mesa.tarjeta.partida', '+1 partida hoy')}
         </button>
         <button type="button" onClick={onEditar} className="text-xs font-semibold hover:underline" style={{ color: COLOR }}>
-          Editar
+          {t('entre.mesa.tarjeta.editar', 'Editar')}
         </button>
         <button type="button" onClick={onEliminar} className="text-xs text-white/35 hover:text-red-400">
-          Eliminar
+          {t('entre.mesa.tarjeta.eliminar', 'Eliminar')}
         </button>
       </div>
     </article>

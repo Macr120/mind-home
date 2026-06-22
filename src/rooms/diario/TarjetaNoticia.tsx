@@ -1,6 +1,7 @@
 import type { Noticia } from '../../core/data/db'
 import { noticiasRepo } from '../../core/data/repository'
 import { COLOR, getCategoria } from './constantes'
+import { useT } from '../../core/i18n/useT'
 
 export function TarjetaNoticia({
   item,
@@ -11,6 +12,7 @@ export function TarjetaNoticia({
   onEditar: () => void
   onEliminar: () => void
 }) {
+  const t = useT()
   const cat = getCategoria(item.categoria)
 
   const toggleLeido = () => {
@@ -31,7 +33,7 @@ export function TarjetaNoticia({
           className={`shrink-0 w-5 h-5 rounded border mt-0.5 flex items-center justify-center text-[10px] ${
             item.leido ? 'bg-pink-500/40 border-pink-400' : 'border-white/30'
           }`}
-          title={item.leido ? 'Marcar no leída' : 'Marcar leída'}
+          title={item.leido ? t('diario.tarjeta.noLeida', 'Marcar no leída') : t('diario.tarjeta.leida', 'Marcar leída')}
         >
           {item.leido ? '✓' : ''}
         </button>
@@ -44,7 +46,7 @@ export function TarjetaNoticia({
               {cat.icon} {cat.label}
             </span>
             {item.destacada && (
-              <span className="text-[10px] text-amber-300 font-semibold">★ Destacada</span>
+              <span className="text-[10px] text-amber-300 font-semibold">{t('diario.tarjeta.destacada', '★ Destacada')}</span>
             )}
             {item.fuente && <span className="text-[10px] text-white/40">{item.fuente}</span>}
           </div>
@@ -60,17 +62,17 @@ export function TarjetaNoticia({
               className="inline-block mt-2 text-xs font-semibold hover:underline"
               style={{ color: COLOR }}
             >
-              Leer enlace →
+              {t('diario.tarjeta.leer', 'Leer enlace →')}
             </a>
           )}
         </div>
       </div>
       <div className="mt-3 flex gap-3 ml-7">
         <button type="button" onClick={onEditar} className="text-xs font-semibold hover:underline" style={{ color: COLOR }}>
-          Editar
+          {t('diario.tarjeta.editar', 'Editar')}
         </button>
         <button type="button" onClick={onEliminar} className="text-xs text-white/35 hover:text-red-400">
-          Eliminar
+          {t('diario.tarjeta.eliminar', 'Eliminar')}
         </button>
       </div>
     </article>

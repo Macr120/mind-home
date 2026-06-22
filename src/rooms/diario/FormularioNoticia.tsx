@@ -3,6 +3,7 @@ import type { Noticia } from '../../core/data/db'
 import { noticiasRepo } from '../../core/data/repository'
 import { CATEGORIAS, COLOR } from './constantes'
 import { hoyISO } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function FormularioNoticia({
   inicial,
@@ -13,6 +14,7 @@ export function FormularioNoticia({
   onGuardado?: () => void
   onCancelar?: () => void
 }) {
+  const t = useT()
   const [fecha, setFecha] = useState(inicial?.fecha ?? hoyISO())
   const [categoria, setCategoria] = useState<Noticia['categoria']>(
     inicial?.categoria ?? 'nacional',
@@ -51,16 +53,16 @@ export function FormularioNoticia({
   return (
     <form onSubmit={guardar} className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10">
       <p className="text-sm font-semibold">
-        {inicial ? '✏️ Editar noticia' : '📰 Añadir noticia'}
+        {inicial ? t('diario.form.editar', '✏️ Editar noticia') : t('diario.form.nuevo', '📰 Añadir noticia')}
       </p>
 
       <div className="grid grid-cols-2 gap-2">
         <label className="text-xs text-white/50">
-          Fecha
+          {t('diario.form.fecha', 'Fecha')}
           <input type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} className={`mt-0.5 ${input}`} required />
         </label>
         <label className="text-xs text-white/50">
-          Categoría
+          {t('diario.form.cat', 'Categoría')}
           <select
             value={categoria}
             onChange={(e) => setCategoria(e.target.value as Noticia['categoria'])}
@@ -75,34 +77,34 @@ export function FormularioNoticia({
         </label>
       </div>
 
-      <input value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder="Titular *" required className={input} />
+      <input value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder={t('diario.form.ph.titular', 'Titular *')} required className={input} />
 
       <textarea
         value={resumen}
         onChange={(e) => setResumen(e.target.value)}
-        placeholder="Resumen o nota *"
+        placeholder={t('diario.form.ph.resumen', 'Resumen o nota *')}
         rows={4}
         required
         className={`${input} resize-none`}
       />
 
-      <input value={fuente} onChange={(e) => setFuente(e.target.value)} placeholder="Fuente (medio, autor…)" className={input} />
+      <input value={fuente} onChange={(e) => setFuente(e.target.value)} placeholder={t('diario.form.ph.fuente', 'Fuente (medio, autor…)')} className={input} />
 
-      <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Enlace (opcional)" type="url" className={input} />
+      <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder={t('diario.form.ph.url', 'Enlace (opcional)')} type="url" className={input} />
 
       <label className="flex items-center gap-2 text-sm text-white/70">
         <input type="checkbox" checked={destacada} onChange={(e) => setDestacada(e.target.checked)} />
-        Destacar en portada
+        {t('diario.form.destacar', 'Destacar en portada')}
       </label>
 
       <div className="flex gap-2">
         {onCancelar && (
           <button type="button" onClick={onCancelar} className="flex-1 rounded-xl py-2.5 bg-white/5">
-            Cancelar
+            {t('diario.form.cancelar', 'Cancelar')}
           </button>
         )}
         <button type="submit" className="flex-1 rounded-xl py-2.5 font-bold text-black" style={{ background: COLOR }}>
-          Guardar
+          {t('diario.form.guardar', 'Guardar')}
         </button>
       </div>
     </form>

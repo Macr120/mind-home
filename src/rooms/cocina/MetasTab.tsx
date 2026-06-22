@@ -4,6 +4,7 @@ import { favoritosRepo, perfilNutricionRepo } from '../../core/data/repository'
 import { PERFIL_DEFECTO } from './constantes'
 import { caloriasDesdeMacros } from './macros'
 import type { PerfilConId } from './macros'
+import { useT } from '../../core/i18n/useT'
 
 export function MetasTab({
   perfil,
@@ -74,12 +75,13 @@ export function MetasTab({
     parseFloat(carbos) || 0,
     parseFloat(grasas) || 0,
   )
+  const t = useT()
 
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
         <div className="flex items-center justify-between">
-          <p className="text-sm font-semibold">🎯 Objetivos diarios</p>
+          <p className="text-sm font-semibold">{t('cocina.metas.objetivos', '🎯 Objetivos diarios')}</p>
           <button
             type="button"
             onClick={sugerirMacros}
@@ -89,26 +91,26 @@ export function MetasTab({
           </button>
         </div>
         <div className="grid grid-cols-2 gap-3">
-          <CampoMeta label="Calorías (kcal)" value={calorias} onChange={setCalorias} />
-          <CampoMeta label="Agua (ml)" value={agua} onChange={setAgua} />
-          <CampoMeta label="Proteína (g)" value={proteinas} onChange={setProteinas} />
-          <CampoMeta label="Carbohidratos (g)" value={carbos} onChange={setCarbos} />
-          <CampoMeta label="Grasas (g)" value={grasas} onChange={setGrasas} />
+          <CampoMeta label={t('cocina.metas.cal', 'Calorías (kcal)')} value={calorias} onChange={setCalorias} />
+          <CampoMeta label={t('cocina.metas.aguaMl', 'Agua (ml)')} value={agua} onChange={setAgua} />
+          <CampoMeta label={t('cocina.metas.prot', 'Proteína (g)')} value={proteinas} onChange={setProteinas} />
+          <CampoMeta label={t('cocina.metas.carb', 'Carbohidratos (g)')} value={carbos} onChange={setCarbos} />
+          <CampoMeta label={t('cocina.metas.gras', 'Grasas (g)')} value={grasas} onChange={setGrasas} />
         </div>
         <p className="text-xs text-white/40">
-          Suma macros ≈ {kcalSugeridas} kcal (fórmula 4-4-9)
+          {t('cocina.metas.suma', `Suma macros ≈ ${kcalSugeridas} kcal (fórmula 4-4-9)`, { n: String(kcalSugeridas) })}
         </p>
         <button
           type="button"
           onClick={guardarPerfil}
           className="w-full rounded-xl py-2.5 font-bold bg-amber-400 text-black"
         >
-          Guardar objetivos
+          {t('cocina.metas.guardar', 'Guardar objetivos')}
         </button>
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-2">🧮 Calculadora rápida (TDEE)</p>
+        <p className="text-sm font-semibold mb-2">{t('cocina.tdee.titulo', '🧮 Calculadora rápida (TDEE)')}</p>
         <CalculadoraTdee onAplicar={(k) => setCalorias(String(k))} />
       </div>
 
@@ -116,17 +118,17 @@ export function MetasTab({
         onSubmit={agregarFavorito}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
-        <p className="text-sm font-semibold">⭐ Despensa rápida</p>
+        <p className="text-sm font-semibold">{t('cocina.despensa', '⭐ Despensa rápida')}</p>
         <input
           value={fNombre}
           onChange={(e) => setFNombre(e.target.value)}
-          placeholder="Nombre del alimento"
+          placeholder={t('cocina.ph.alimento', 'Nombre del alimento')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
         />
         <input
           value={fPorcion}
           onChange={(e) => setFPorcion(e.target.value)}
-          placeholder="Porción (ej. 1 taza)"
+          placeholder={t('cocina.ph.porcion', 'Porción (ej. 1 taza)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
         />
         <div className="grid grid-cols-4 gap-2">
@@ -139,7 +141,7 @@ export function MetasTab({
           type="submit"
           className="w-full rounded-xl py-2 font-semibold bg-white/10 hover:bg-white/15"
         >
-          Añadir a favoritos
+          {t('cocina.añadirFav', 'Añadir a favoritos')}
         </button>
       </form>
 
@@ -194,6 +196,7 @@ function CampoMeta({
 }
 
 function CalculadoraTdee({ onAplicar }: { onAplicar: (kcal: number) => void }) {
+  const t = useT()
   const [peso, setPeso] = useState('70')
   const [altura, setAltura] = useState('170')
   const [edad, setEdad] = useState('30')
@@ -215,9 +218,9 @@ function CalculadoraTdee({ onAplicar }: { onAplicar: (kcal: number) => void }) {
   return (
     <div className="space-y-2 text-sm">
       <div className="grid grid-cols-3 gap-2">
-        <CampoMeta label="Peso kg" value={peso} onChange={setPeso} />
-        <CampoMeta label="Altura cm" value={altura} onChange={setAltura} />
-        <CampoMeta label="Edad" value={edad} onChange={setEdad} />
+        <CampoMeta label={t('cocina.tdee.peso', 'Peso kg')} value={peso} onChange={setPeso} />
+        <CampoMeta label={t('cocina.tdee.altura', 'Altura cm')} value={altura} onChange={setAltura} />
+        <CampoMeta label={t('cocina.tdee.edad', 'Edad')} value={edad} onChange={setEdad} />
       </div>
       <div className="flex gap-2">
         {(['m', 'f'] as const).map((s) => (
@@ -229,7 +232,7 @@ function CalculadoraTdee({ onAplicar }: { onAplicar: (kcal: number) => void }) {
               sexo === s ? 'bg-amber-400 text-black' : 'bg-white/5'
             }`}
           >
-            {s === 'm' ? 'Hombre' : 'Mujer'}
+            {s === 'm' ? t('cocina.tdee.hombre', 'Hombre') : t('cocina.tdee.mujer', 'Mujer')}
           </button>
         ))}
       </div>
@@ -238,18 +241,18 @@ function CalculadoraTdee({ onAplicar }: { onAplicar: (kcal: number) => void }) {
         onChange={(e) => setActividad(e.target.value)}
         className="w-full rounded-lg bg-black/30 px-2 py-2 text-sm border border-white/10"
       >
-        <option value="1.2">Sedentario</option>
-        <option value="1.375">Ligero</option>
-        <option value="1.55">Moderado</option>
-        <option value="1.725">Activo</option>
-        <option value="1.9">Muy activo</option>
+        <option value="1.2">{t('cocina.tdee.sedentario', 'Sedentario')}</option>
+        <option value="1.375">{t('cocina.tdee.ligero', 'Ligero')}</option>
+        <option value="1.55">{t('cocina.tdee.moderado', 'Moderado')}</option>
+        <option value="1.725">{t('cocina.tdee.activo', 'Activo')}</option>
+        <option value="1.9">{t('cocina.tdee.muyActivo', 'Muy activo')}</option>
       </select>
       <button
         type="button"
         onClick={calcular}
         className="w-full rounded-lg py-2 bg-white/10 font-semibold hover:bg-white/15"
       >
-        Aplicar TDEE a calorías objetivo
+        {t('cocina.tdee.aplicar', 'Aplicar TDEE a calorías objetivo')}
       </button>
     </div>
   )

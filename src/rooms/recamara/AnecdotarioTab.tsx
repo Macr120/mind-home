@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { anecdotasRepo } from '../../core/data/repository'
+import { useT } from '../../core/i18n/useT'
 
 const hoy = () => new Date().toISOString().slice(0, 10)
 const ANIMOS = ['😀', '🙂', '😐', '😔', '😣', '🤩', '😴']
@@ -12,12 +13,14 @@ export function AnecdotarioTab() {
 
   const lista = entradas ?? []
 
+  const t = useT()
+
   const guardar = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!contenido.trim()) return
     await anecdotasRepo.add({
       fecha: hoy(),
-      titulo: titulo.trim() || 'Sin título',
+      titulo: titulo.trim() || t('recamara.anec.sinTitulo', 'Sin título'),
       contenido: contenido.trim(),
       animo,
     })
@@ -48,13 +51,13 @@ export function AnecdotarioTab() {
         <input
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
-          placeholder="Título del día"
+          placeholder={t('recamara.anec.titulo', 'Título del día')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 outline-none border border-white/10 focus:border-white/30"
         />
         <textarea
           value={contenido}
           onChange={(e) => setContenido(e.target.value)}
-          placeholder="¿Qué pasó hoy? ¿Qué aprendiste?"
+          placeholder={t('recamara.anec.ph', '¿Qué pasó hoy? ¿Qué aprendiste?')}
           rows={4}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30 resize-none"
         />
@@ -62,14 +65,14 @@ export function AnecdotarioTab() {
           type="submit"
           className="w-full rounded-lg bg-violet-400 py-2 font-bold text-black hover:bg-violet-300 transition"
         >
-          Guardar anécdota
+          {t('recamara.anec.guardar', 'Guardar anécdota')}
         </button>
       </form>
 
       <div className="space-y-3">
         {lista.length === 0 && (
           <p className="text-center text-white/40 text-sm py-8">
-            Tu anecdotario está vacío. Escribe tu primer recuerdo.
+            {t('recamara.anec.vacio', 'Tu anecdotario está vacío. Escribe tu primer recuerdo.')}
           </p>
         )}
         {lista.map((a) => (

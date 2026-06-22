@@ -8,6 +8,7 @@ import {
   TIPOS_VIAJE,
 } from './constantes'
 import { hoyISO } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function FormularioViaje({
   inicial,
@@ -18,6 +19,7 @@ export function FormularioViaje({
   onGuardado?: () => void
   onCancelar?: () => void
 }) {
+  const t = useT()
   const [titulo, setTitulo] = useState(inicial?.titulo ?? '')
   const [destino, setDestino] = useState(inicial?.destino ?? '')
   const [pais, setPais] = useState(inicial?.pais ?? 'México')
@@ -68,13 +70,13 @@ export function FormularioViaje({
       className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
     >
       <p className="text-sm font-semibold">
-        {inicial ? '✏️ Editar viaje' : '✈️ Nuevo viaje'}
+        {inicial ? t('sala.form.editar', '✏️ Editar viaje') : t('sala.form.nuevo', '✈️ Nuevo viaje')}
       </p>
 
       <input
         value={titulo}
         onChange={(e) => setTitulo(e.target.value)}
-        placeholder="Nombre del viaje (ej. Verano en Oaxaca)"
+        placeholder={t('sala.form.ph.nombre', 'Nombre del viaje (ej. Verano en Oaxaca)')}
         required
         className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-teal-400/50"
       />
@@ -83,7 +85,7 @@ export function FormularioViaje({
         <input
           value={destino}
           onChange={(e) => setDestino(e.target.value)}
-          placeholder="Ciudad / destino"
+          placeholder={t('sala.form.ph.destino', 'Ciudad / destino')}
           required
           className="rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
@@ -97,36 +99,36 @@ export function FormularioViaje({
               {p}
             </option>
           ))}
-          <option value="__otro__">Otro país…</option>
+          <option value="__otro__">{t('sala.form.otroPais', 'Otro país…')}</option>
         </select>
       </div>
       {pais === '__otro__' && (
         <input
           value={paisCustom}
           onChange={(e) => setPaisCustom(e.target.value)}
-          placeholder="País"
+          placeholder={t('sala.form.ph.pais', 'País')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
       )}
 
       <div className="flex flex-wrap gap-1.5">
-        {TIPOS_VIAJE.map((t) => (
+        {TIPOS_VIAJE.map((tipoItem) => (
           <button
-            key={t.id}
+            key={tipoItem.id}
             type="button"
-            onClick={() => setTipoViaje(t.id)}
+            onClick={() => setTipoViaje(tipoItem.id)}
             className={`rounded-lg px-2 py-1 text-xs font-semibold ${
-              tipoViaje === t.id ? 'bg-teal-400 text-black' : 'bg-white/5'
+              tipoViaje === tipoItem.id ? 'bg-teal-400 text-black' : 'bg-white/5'
             }`}
           >
-            {t.icon} {t.label}
+            {tipoItem.icon} {tipoItem.label}
           </button>
         ))}
       </div>
 
       <div className="grid grid-cols-2 gap-2">
         <label className="text-xs text-white/50">
-          Ida
+          {t('sala.form.ida', 'Ida')}
           <input
             type="date"
             value={fechaInicio}
@@ -135,7 +137,7 @@ export function FormularioViaje({
           />
         </label>
         <label className="text-xs text-white/50">
-          Regreso
+          {t('sala.form.regreso', 'Regreso')}
           <input
             type="date"
             value={fechaFin}
@@ -164,27 +166,27 @@ export function FormularioViaje({
         type="number"
         value={presupuesto}
         onChange={(e) => setPresupuesto(e.target.value)}
-        placeholder="Presupuesto estimado (MXN)"
+        placeholder={t('sala.form.presupuesto', 'Presupuesto estimado (MXN)')}
         className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
       />
 
       <input
         value={companeros}
         onChange={(e) => setCompaneros(e.target.value)}
-        placeholder="Compañeros de viaje (opcional)"
+        placeholder={t('sala.form.companeros', 'Compañeros de viaje (opcional)')}
         className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
       />
 
       {estado === 'completado' && (
         <>
           <div>
-            <p className="text-xs text-white/50 mb-1">Tu experiencia</p>
+            <p className="text-xs text-white/50 mb-1">{t('sala.form.experiencia', 'Tu experiencia')}</p>
             <Estrellas valor={calificacion} onChange={setCalificacion} />
           </div>
           <textarea
             value={resena}
             onChange={(e) => setResena(e.target.value)}
-            placeholder="Reseña del viaje: highlights, tips, qué repetirías…"
+            placeholder={t('sala.form.ph.resena', 'Reseña del viaje: highlights, tips, qué repetirías…')}
             rows={3}
             className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 resize-none"
           />
@@ -198,14 +200,14 @@ export function FormularioViaje({
             onClick={onCancelar}
             className="flex-1 rounded-xl py-2.5 font-semibold bg-white/5"
           >
-            Cancelar
+            {t('sala.form.cancelar', 'Cancelar')}
           </button>
         )}
         <button
           type="submit"
           className="flex-1 rounded-xl py-2.5 font-bold bg-teal-400 text-black"
         >
-          Guardar viaje
+          {t('sala.form.guardar', 'Guardar viaje')}
         </button>
       </div>
     </form>

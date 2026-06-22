@@ -1,0 +1,157 @@
+import type { TemaId } from './temas'
+
+/**
+ * Catálogo de recursos 3D por cuarto (derivado de recursos_3d_decoracion.xlsx).
+ * Fuente de verdad de QUÉ objetos vive en cada cuarto, su prioridad, atributos
+ * modificables, materiales sugeridos y temas compatibles. El render 3D de cada
+ * recurso se irá añadiendo por capas; esta es solo la capa de datos.
+ */
+
+export type Prioridad = 'indispensable' | 'recomendado' | 'opcional'
+export type NivelDetalle = 'bajo' | 'medio' | 'alto'
+
+export interface RecursoCuarto {
+  /** ID del catálogo original. */
+  id: number
+  /** roomId del proyecto (coincide con RoomModule.id). */
+  cuarto: string
+  nombre: string
+  categoria: string
+  prioridad: Prioridad
+  /** Atributos modificables (color, material, escala, rotacion, estado, variante, …). */
+  atributos: string[]
+  /** Materiales/acabados sugeridos. */
+  materiales: string[]
+  /** Temas compatibles; 'todas' = compatible con cualquier tema. */
+  temas: TemaId[] | 'todas'
+  detalle: NivelDetalle
+  notas?: string
+}
+
+export const RECURSOS: RecursoCuarto[] = [
+  { id: 1, cuarto: "cocina", nombre: "Gabinetes (superiores e inferiores)", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "laminado", "mate", "alto brillo"], temas: ["medieval", "vaquero", "barbie", "navidad"], detalle: "medio", notas: "Modulares para adaptarse a cualquier muro" },
+  { id: 2, cuarto: "cocina", nombre: "Isla / Barra central", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "mármol", "cuarzo"], temas: "todas", detalle: "medio", notas: "Superficie decorable para adornos temáticos" },
+  { id: 3, cuarto: "cocina", nombre: "Refrigerador", categoria: "Electrodomésticos", prioridad: "indispensable", atributos: ["color", "material", "estado"], materiales: ["Acero inox", "blanco", "negro"], temas: ["espacio", "cyberpunk", "barbie"], detalle: "medio", notas: "Puerta abrible y luz interior opcionales" },
+  { id: 4, cuarto: "cocina", nombre: "Estufa con campana", categoria: "Electrodomésticos", prioridad: "indispensable", atributos: ["color", "material", "estado"], materiales: ["Acero", "esmalte"], temas: ["medieval", "vaquero"], detalle: "medio", notas: "Estado: flama encendida/apagada" },
+  { id: 5, cuarto: "cocina", nombre: "Fregadero con grifo", categoria: "Plomería", prioridad: "indispensable", atributos: ["material", "color"], materiales: ["Acero", "cerámica", "cobre"], temas: ["medieval", "vaquero"], detalle: "bajo", notas: "Grifo como sub-malla" },
+  { id: 6, cuarto: "cocina", nombre: "Bancos de barra", categoria: "Mobiliario", prioridad: "recomendado", atributos: ["color", "material", "escala", "rotacion"], materiales: ["Madera", "metal", "tela", "piel"], temas: ["vaquero", "barbie", "cyberpunk"], detalle: "bajo", notas: "Instanciables" },
+  { id: 7, cuarto: "cocina", nombre: "Iluminación colgante", categoria: "Iluminación", prioridad: "recomendado", atributos: ["color", "estado", "escala"], materiales: ["Metal", "vidrio", "mimbre"], temas: ["medieval", "cyberpunk", "espacio", "navidad"], detalle: "bajo", notas: "Estado encendido/apagado" },
+  { id: 8, cuarto: "cocina", nombre: "Frutero / Plantas de barra", categoria: "Decoración", prioridad: "opcional", atributos: ["color", "variante"], materiales: ["Cerámica", "vidrio"], temas: ["barbie", "vaquero", "espacio"], detalle: "bajo", notas: "Punto focal temático fácil de intercambiar" },
+  { id: 9, cuarto: "cocina", nombre: "Reloj / Cuadro de pared", categoria: "Decoración", prioridad: "opcional", atributos: ["variante", "escala"], materiales: ["Madera", "metal"], temas: ["terror", "medieval", "vaquero"], detalle: "bajo" },
+  { id: 10, cuarto: "ejercicio", nombre: "Caminadora", categoria: "Equipo cardio", prioridad: "indispensable", atributos: ["color", "estado"], materiales: ["Plástico", "metal"], temas: ["espacio", "cyberpunk"], detalle: "alto", notas: "Pantalla con contenido on/off" },
+  { id: 11, cuarto: "ejercicio", nombre: "Rack de mancuernas", categoria: "Equipo fuerza", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Goma", "acero"], temas: ["cyberpunk", "espacio", "medieval"], detalle: "medio", notas: "Mancuernas instanciables por peso" },
+  { id: 12, cuarto: "ejercicio", nombre: "Banco de pesas ajustable", categoria: "Equipo fuerza", prioridad: "indispensable", atributos: ["color", "material", "rotacion"], materiales: ["Piel sintética", "acero"], temas: ["cyberpunk", "vaquero"], detalle: "medio", notas: "Respaldo articulable opcional" },
+  { id: 13, cuarto: "ejercicio", nombre: "Espejo de pared (piso a techo)", categoria: "Estructural / Deco", prioridad: "indispensable", atributos: ["marco", "escala"], materiales: ["Vidrio", "aluminio"], temas: ["barbie", "cyberpunk"], detalle: "bajo", notas: "Refleja el espacio; clave en gimnasios" },
+  { id: 14, cuarto: "ejercicio", nombre: "Colchoneta / Tapete", categoria: "Piso", prioridad: "recomendado", atributos: ["color", "textura", "escala"], materiales: ["Goma EVA", "vinil"], temas: ["barbie", "cyberpunk", "navidad"], detalle: "bajo", notas: "Modular en losetas" },
+  { id: 15, cuarto: "ejercicio", nombre: "Estación multifuncional / Power rack", categoria: "Equipo fuerza", prioridad: "recomendado", atributos: ["color", "escala"], materiales: ["Acero"], temas: ["cyberpunk", "espacio"], detalle: "alto" },
+  { id: 16, cuarto: "ejercicio", nombre: "Bicicleta estática", categoria: "Equipo cardio", prioridad: "recomendado", atributos: ["color", "estado"], materiales: ["Metal", "plástico"], temas: ["espacio", "cyberpunk"], detalle: "alto", notas: "Pedales/rueda animables" },
+  { id: 17, cuarto: "ejercicio", nombre: "Dispensador de agua / Garrafón", categoria: "Mobiliario", prioridad: "opcional", atributos: ["color", "material"], materiales: ["Plástico"], temas: ["espacio", "cyberpunk"], detalle: "bajo", notas: "Prop ambiental" },
+  { id: 18, cuarto: "ejercicio", nombre: "Pantalla / TV de pared", categoria: "Electrónica", prioridad: "opcional", atributos: ["estado", "escala"], materiales: [], temas: "todas", detalle: "bajo", notas: "Contenido intercambiable" },
+  { id: 19, cuarto: "ejercicio", nombre: "Póster motivacional", categoria: "Decoración", prioridad: "opcional", atributos: ["variante"], materiales: [], temas: "todas", detalle: "bajo", notas: "Textura intercambiable" },
+  { id: 20, cuarto: "garage", nombre: "Puerta de garage seccional", categoria: "Estructural", prioridad: "indispensable", atributos: ["color", "material", "estado"], materiales: ["Metal", "madera"], temas: ["cyberpunk", "espacio", "medieval", "terror", "navidad"], detalle: "medio", notas: "Estado abierta/cerrada; admite corona/telarañas" },
+  { id: 21, cuarto: "garage", nombre: "Banco de trabajo", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "metal"], temas: ["vaquero", "medieval", "cyberpunk"], detalle: "medio", notas: "Superficie para props de herramientas" },
+  { id: 22, cuarto: "garage", nombre: "Estantería metálica", categoria: "Almacenamiento", prioridad: "indispensable", atributos: ["color", "escala"], materiales: ["Acero"], temas: ["espacio", "cyberpunk"], detalle: "bajo", notas: "Modular; instanciable" },
+  { id: 23, cuarto: "garage", nombre: "Gabinete de herramientas", categoria: "Almacenamiento", prioridad: "recomendado", atributos: ["color", "material", "estado"], materiales: ["Metal"], temas: ["cyberpunk", "espacio", "vaquero"], detalle: "medio", notas: "Cajones abribles" },
+  { id: 24, cuarto: "garage", nombre: "Tablero perforado con herramientas", categoria: "Almacenamiento / Deco", prioridad: "recomendado", atributos: ["color", "variante"], materiales: ["Metal", "madera"], temas: ["vaquero", "medieval", "cyberpunk"], detalle: "medio", notas: "Herramientas como overlay" },
+  { id: 25, cuarto: "garage", nombre: "Luminaria LED de techo", categoria: "Iluminación", prioridad: "recomendado", atributos: ["estado", "color"], materiales: ["Metal"], temas: ["cyberpunk", "espacio", "terror"], detalle: "bajo", notas: "Encendido/apagado" },
+  { id: 26, cuarto: "garage", nombre: "Llantas / Neumáticos apilados", categoria: "Props", prioridad: "opcional", atributos: ["escala", "cantidad"], materiales: ["Goma"], temas: ["vaquero", "cyberpunk"], detalle: "bajo", notas: "Instanciables" },
+  { id: 27, cuarto: "garage", nombre: "Compresor de aire", categoria: "Equipo", prioridad: "opcional", atributos: ["color"], materiales: ["Metal"], temas: ["espacio", "cyberpunk"], detalle: "bajo", notas: "Prop ambiental" },
+  { id: 28, cuarto: "garage", nombre: "Bicicletas colgadas", categoria: "Props", prioridad: "opcional", atributos: ["color", "variante"], materiales: ["Metal"], temas: ["cyberpunk", "barbie"], detalle: "medio" },
+  { id: 29, cuarto: "biblioteca", nombre: "Librero de pared (modular)", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "MDF"], temas: ["medieval", "terror", "cyberpunk", "navidad"], detalle: "medio", notas: "Anaqueles modulables; soporta luces/guirnaldas" },
+  { id: 30, cuarto: "biblioteca", nombre: "Sillón de lectura", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "textura"], materiales: ["Tela", "piel", "terciopelo"], temas: ["medieval", "barbie", "terror", "vaquero"], detalle: "medio", notas: "Cojín como overlay" },
+  { id: 31, cuarto: "biblioteca", nombre: "Lámpara de pie", categoria: "Iluminación", prioridad: "indispensable", atributos: ["color", "estado", "escala"], materiales: ["Metal", "tela"], temas: ["medieval", "cyberpunk", "terror"], detalle: "bajo", notas: "Encendido/apagado" },
+  { id: 32, cuarto: "biblioteca", nombre: "Libros (props)", categoria: "Props", prioridad: "recomendado", atributos: ["color", "variante"], materiales: ["Papel", "cartón"], temas: ["medieval", "terror", "espacio"], detalle: "bajo", notas: "Instanciables; llenan anaqueles" },
+  { id: 33, cuarto: "biblioteca", nombre: "Escalera rodante de biblioteca", categoria: "Mobiliario", prioridad: "recomendado", atributos: ["color", "material"], materiales: ["Madera", "latón"], temas: ["medieval", "terror"], detalle: "bajo", notas: "Riel como sub-malla" },
+  { id: 34, cuarto: "biblioteca", nombre: "Mesa lateral / auxiliar", categoria: "Mobiliario", prioridad: "recomendado", atributos: ["color", "material"], materiales: ["Madera", "mármol"], temas: "todas", detalle: "bajo", notas: "Superficie decorable" },
+  { id: 35, cuarto: "biblioteca", nombre: "Alfombra", categoria: "Textiles", prioridad: "recomendado", atributos: ["color", "textura", "escala"], materiales: ["Lana", "sintético"], temas: ["medieval", "barbie", "terror"], detalle: "bajo" },
+  { id: 36, cuarto: "biblioteca", nombre: "Globo terráqueo", categoria: "Decoración", prioridad: "opcional", atributos: ["escala", "variante"], materiales: ["Metal", "papel"], temas: ["medieval", "espacio", "vaquero"], detalle: "bajo", notas: "Rotación opcional" },
+  { id: 37, cuarto: "biblioteca", nombre: "Reloj de pared / Cuadros", categoria: "Decoración", prioridad: "opcional", atributos: ["variante", "escala"], materiales: ["Madera", "metal"], temas: ["terror", "medieval"], detalle: "bajo" },
+  { id: 38, cuarto: "recamara", nombre: "Cama con cabecera (King/Queen)", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "textura", "escala"], materiales: ["Tela", "piel", "madera"], temas: ["medieval", "barbie", "espacio", "cyberpunk", "terror", "navidad"], detalle: "medio", notas: "Ropa de cama intercambiable (overlay)" },
+  { id: 39, cuarto: "recamara", nombre: "Burós / Mesas de noche (par)", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material"], materiales: ["Madera", "lacado"], temas: "todas", detalle: "bajo", notas: "Instanciables; superficie decorable" },
+  { id: 40, cuarto: "recamara", nombre: "Lámpara de buró", categoria: "Iluminación", prioridad: "indispensable", atributos: ["color", "estado"], materiales: ["Cerámica", "metal", "tela"], temas: ["barbie", "cyberpunk", "medieval"], detalle: "bajo", notas: "Encendido/apagado" },
+  { id: 41, cuarto: "recamara", nombre: "Cómoda / Cajonera", categoria: "Almacenamiento", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera"], temas: ["medieval", "barbie", "vaquero"], detalle: "medio", notas: "Cajones abribles" },
+  { id: 42, cuarto: "recamara", nombre: "Clóset / Armario", categoria: "Almacenamiento", prioridad: "recomendado", atributos: ["color", "material", "estado"], materiales: ["Madera", "espejo"], temas: ["barbie", "terror", "espacio"], detalle: "medio", notas: "Puertas abribles" },
+  { id: 43, cuarto: "recamara", nombre: "Cortinas", categoria: "Textiles", prioridad: "recomendado", atributos: ["color", "textura", "escala"], materiales: ["Lino", "blackout", "terciopelo"], temas: ["medieval", "barbie", "terror", "navidad"], detalle: "bajo" },
+  { id: 44, cuarto: "recamara", nombre: "Tapete / Alfombra", categoria: "Textiles", prioridad: "recomendado", atributos: ["color", "textura"], materiales: ["Lana"], temas: ["medieval", "barbie", "terror"], detalle: "bajo" },
+  { id: 45, cuarto: "recamara", nombre: "Espejo de cuerpo completo", categoria: "Decoración", prioridad: "recomendado", atributos: ["marco", "escala"], materiales: ["Madera", "metal"], temas: ["barbie", "terror", "cyberpunk"], detalle: "bajo" },
+  { id: 46, cuarto: "recamara", nombre: "Banca de pie de cama", categoria: "Mobiliario", prioridad: "opcional", atributos: ["color", "material"], materiales: ["Tela", "piel"], temas: ["barbie", "medieval", "vaquero"], detalle: "bajo" },
+  { id: 47, cuarto: "recamara", nombre: "Cuadros / Arte de pared", categoria: "Decoración", prioridad: "opcional", atributos: ["variante", "escala"], materiales: ["Lienzo", "madera"], temas: ["terror", "medieval", "barbie"], detalle: "bajo", notas: "Textura intercambiable" },
+  { id: 48, cuarto: "despacho", nombre: "Escritorio", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "metal", "vidrio"], temas: ["medieval", "cyberpunk", "espacio", "barbie", "vaquero"], detalle: "medio", notas: "Superficie decorable" },
+  { id: 49, cuarto: "despacho", nombre: "Silla ejecutiva / ergonómica", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "rotacion"], materiales: ["Piel", "malla", "tela"], temas: ["cyberpunk", "espacio", "barbie", "medieval"], detalle: "medio", notas: "Altura/giro animables" },
+  { id: 50, cuarto: "despacho", nombre: "Monitor / Computadora", categoria: "Electrónica", prioridad: "indispensable", atributos: ["estado", "escala", "variante"], materiales: ["Plástico", "metal"], temas: ["espacio", "cyberpunk", "barbie"], detalle: "medio", notas: "Pantalla on/off con contenido" },
+  { id: 51, cuarto: "despacho", nombre: "Librero / Repisas", categoria: "Almacenamiento", prioridad: "recomendado", atributos: ["color", "material", "escala"], materiales: ["Madera", "metal"], temas: ["medieval", "cyberpunk"], detalle: "bajo", notas: "Props de libros instanciables" },
+  { id: 52, cuarto: "despacho", nombre: "Lámpara de escritorio", categoria: "Iluminación", prioridad: "recomendado", atributos: ["color", "estado", "rotacion"], materiales: ["Metal"], temas: ["cyberpunk", "espacio", "barbie"], detalle: "bajo", notas: "Brazo articulable" },
+  { id: 53, cuarto: "despacho", nombre: "Archivero", categoria: "Almacenamiento", prioridad: "recomendado", atributos: ["color", "material"], materiales: ["Metal", "madera"], temas: ["espacio", "cyberpunk", "vaquero"], detalle: "bajo", notas: "Cajones abribles" },
+  { id: 54, cuarto: "despacho", nombre: "Planta de interior", categoria: "Decoración", prioridad: "recomendado", atributos: ["escala", "variante", "maceta"], materiales: ["Cerámica"], temas: ["barbie", "vaquero", "espacio"], detalle: "bajo", notas: "Nochebuena en Navidad" },
+  { id: 55, cuarto: "despacho", nombre: "Pizarrón / Corcho", categoria: "Decoración / Func.", prioridad: "opcional", atributos: ["variante", "escala"], materiales: ["Madera", "corcho"], temas: ["cyberpunk", "espacio"], detalle: "bajo", notas: "Contenido como overlay" },
+  { id: 56, cuarto: "despacho", nombre: "Reloj / Cuadros", categoria: "Decoración", prioridad: "opcional", atributos: ["variante"], materiales: ["Madera", "metal"], temas: ["terror", "medieval"], detalle: "bajo" },
+  { id: 57, cuarto: "entretenimiento", nombre: "Mesa de billar", categoria: "Mobiliario / Juego", prioridad: "indispensable", atributos: ["color", "material"], materiales: ["Fieltro", "madera"], temas: ["vaquero", "cyberpunk", "barbie", "medieval"], detalle: "alto", notas: "Bolas y tacos instanciables" },
+  { id: 58, cuarto: "entretenimiento", nombre: "Pantalla / TV grande", categoria: "Electrónica", prioridad: "indispensable", atributos: ["estado", "escala"], materiales: ["Plástico"], temas: "todas", detalle: "medio", notas: "Contenido intercambiable" },
+  { id: 59, cuarto: "entretenimiento", nombre: "Consola + control", categoria: "Electrónica", prioridad: "indispensable", atributos: ["variante", "estado"], materiales: ["Plástico"], temas: ["espacio", "cyberpunk", "barbie"], detalle: "medio", notas: "Luz de estado on/off" },
+  { id: 60, cuarto: "entretenimiento", nombre: "Iluminación LED RGB", categoria: "Iluminación", prioridad: "recomendado", atributos: ["color", "estado", "patron"], materiales: [], temas: ["cyberpunk", "espacio", "terror", "barbie", "navidad"], detalle: "bajo", notas: "Cambia color y animación" },
+  { id: 61, cuarto: "entretenimiento", nombre: "Sillón gamer / Puff", categoria: "Mobiliario", prioridad: "recomendado", atributos: ["color", "material", "escala"], materiales: ["Tela", "piel sintética"], temas: ["cyberpunk", "barbie", "espacio"], detalle: "medio" },
+  { id: 62, cuarto: "entretenimiento", nombre: "Futbolín / Mesa de hockey", categoria: "Juego", prioridad: "recomendado", atributos: ["color", "variante"], materiales: ["Madera", "plástico"], temas: ["cyberpunk", "vaquero", "barbie"], detalle: "alto", notas: "Jugadores/disco animables" },
+  { id: 63, cuarto: "entretenimiento", nombre: "Mini bar / Frigobar", categoria: "Mobiliario", prioridad: "opcional", atributos: ["color", "material", "estado"], materiales: ["Madera", "metal"], temas: ["vaquero", "cyberpunk", "espacio", "navidad"], detalle: "medio", notas: "Luz interior on/off" },
+  { id: 64, cuarto: "entretenimiento", nombre: "Mesa de ping pong / Dardos", categoria: "Juego", prioridad: "opcional", atributos: ["variante", "estado"], materiales: ["Madera"], temas: ["vaquero", "cyberpunk"], detalle: "medio" },
+  { id: 65, cuarto: "entretenimiento", nombre: "Estantería de premios / juegos", categoria: "Almacenamiento", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Madera", "metal"], temas: ["medieval", "cyberpunk"], detalle: "bajo", notas: "Props instanciables" },
+  { id: 66, cuarto: "sala", nombre: "Sofá (3 plazas)", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "textura", "escala"], materiales: ["Tela", "piel", "terciopelo"], temas: "todas", detalle: "medio", notas: "Cojines/manta como overlay" },
+  { id: 67, cuarto: "sala", nombre: "Mesa de centro", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "vidrio", "mármol"], temas: "todas", detalle: "bajo", notas: "Superficie decorable" },
+  { id: 68, cuarto: "sala", nombre: "Mueble de TV / Entretenimiento", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material"], materiales: ["Madera", "lacado"], temas: "todas", detalle: "medio" },
+  { id: 69, cuarto: "sala", nombre: "Televisión", categoria: "Electrónica", prioridad: "indispensable", atributos: ["estado", "escala"], materiales: ["Plástico"], temas: "todas", detalle: "bajo", notas: "Contenido on/off" },
+  { id: 70, cuarto: "sala", nombre: "Sillón individual", categoria: "Mobiliario", prioridad: "recomendado", atributos: ["color", "material"], materiales: ["Tela", "piel"], temas: ["medieval", "barbie", "vaquero"], detalle: "medio" },
+  { id: 71, cuarto: "sala", nombre: "Tapete / Alfombra", categoria: "Textiles", prioridad: "recomendado", atributos: ["color", "textura", "escala"], materiales: ["Lana", "yute"], temas: ["medieval", "barbie", "terror", "navidad"], detalle: "bajo" },
+  { id: 72, cuarto: "sala", nombre: "Lámpara de pie", categoria: "Iluminación", prioridad: "recomendado", atributos: ["color", "estado"], materiales: ["Metal", "tela"], temas: ["medieval", "cyberpunk", "terror"], detalle: "bajo", notas: "Encendido/apagado" },
+  { id: 73, cuarto: "sala", nombre: "Cojines decorativos", categoria: "Textiles", prioridad: "recomendado", atributos: ["color", "textura", "variante"], materiales: ["Tela"], temas: "todas", detalle: "bajo", notas: "Instanciables; rápido cambio temático" },
+  { id: 74, cuarto: "sala", nombre: "Cortinas", categoria: "Textiles", prioridad: "recomendado", atributos: ["color", "textura"], materiales: ["Lino", "blackout"], temas: ["medieval", "barbie", "terror", "navidad"], detalle: "bajo" },
+  { id: 75, cuarto: "sala", nombre: "Plantas decorativas", categoria: "Decoración", prioridad: "opcional", atributos: ["escala", "variante", "maceta"], materiales: ["Cerámica"], temas: ["barbie", "vaquero", "espacio", "navidad"], detalle: "bajo", notas: "Nochebuena en Navidad" },
+  { id: 76, cuarto: "sala", nombre: "Chimenea", categoria: "Estructural / Deco", prioridad: "opcional", atributos: ["material", "estado"], materiales: ["Piedra", "mármol", "ladrillo"], temas: ["medieval", "terror", "vaquero", "navidad"], detalle: "medio", notas: "Fuego on/off; admite calcetines/guirnalda" },
+  { id: 77, cuarto: "jardin", nombre: "Árboles", categoria: "Vegetación", prioridad: "indispensable", atributos: ["escala", "variante", "color"], materiales: ["Corteza", "follaje"], temas: ["medieval", "terror", "espacio", "vaquero", "navidad"], detalle: "alto", notas: "Instanciables; usar LOD" },
+  { id: 78, cuarto: "jardin", nombre: "Arbustos / Setos", categoria: "Vegetación", prioridad: "indispensable", atributos: ["escala", "forma", "color"], materiales: ["Follaje"], temas: ["medieval", "terror", "barbie", "navidad"], detalle: "medio", notas: "Instanciables" },
+  { id: 79, cuarto: "jardin", nombre: "Césped / Pasto", categoria: "Terreno", prioridad: "indispensable", atributos: ["textura", "color", "densidad"], materiales: ["Pasto"], temas: ["espacio", "vaquero", "terror"], detalle: "bajo", notas: "Material por estación" },
+  { id: 80, cuarto: "jardin", nombre: "Mobiliario de exterior (mesa + sillas)", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material"], materiales: ["Ratán", "metal", "madera"], temas: ["medieval", "barbie", "vaquero", "cyberpunk"], detalle: "medio" },
+  { id: 81, cuarto: "jardin", nombre: "Macetas / Jardineras", categoria: "Decoración", prioridad: "recomendado", atributos: ["color", "material", "escala", "variante"], materiales: ["Barro", "cerámica", "concreto"], temas: "todas", detalle: "bajo", notas: "Instanciables" },
+  { id: 82, cuarto: "jardin", nombre: "Iluminación de jardín (string lights / caminos)", categoria: "Iluminación", prioridad: "recomendado", atributos: ["color", "estado", "patron"], materiales: ["Metal", "vidrio"], temas: ["cyberpunk", "espacio", "terror", "barbie", "navidad"], detalle: "bajo", notas: "Encendido/apagado y animación" },
+  { id: 83, cuarto: "jardin", nombre: "Asador / Parrilla", categoria: "Equipo", prioridad: "recomendado", atributos: ["color", "material", "estado"], materiales: ["Acero", "ladrillo"], temas: ["vaquero", "medieval", "cyberpunk"], detalle: "medio", notas: "Fuego/brasas on/off" },
+  { id: 84, cuarto: "jardin", nombre: "Sombrilla / Pérgola", categoria: "Estructural", prioridad: "recomendado", atributos: ["color", "material", "escala"], materiales: ["Tela", "madera", "metal"], temas: ["medieval", "barbie", "vaquero"], detalle: "medio" },
+  { id: 85, cuarto: "jardin", nombre: "Fuente / Estanque", categoria: "Decoración", prioridad: "opcional", atributos: ["escala", "material", "estado"], materiales: ["Piedra", "concreto"], temas: ["medieval", "barbie", "terror", "espacio"], detalle: "alto", notas: "Agua animable on/off" },
+  { id: 86, cuarto: "jardin", nombre: "Camino de piedra / Adoquín", categoria: "Terreno", prioridad: "opcional", atributos: ["textura", "color", "forma"], materiales: ["Piedra", "ladrillo"], temas: ["medieval", "terror", "espacio", "vaquero"], detalle: "bajo", notas: "Modular" },
+  { id: 87, cuarto: "jardin", nombre: "Cerca / Reja", categoria: "Estructural", prioridad: "opcional", atributos: ["color", "material", "escala"], materiales: ["Madera", "metal"], temas: ["medieval", "vaquero", "terror", "cyberpunk"], detalle: "bajo", notas: "Modular; admite overlays" },
+  { id: 88, cuarto: "bodega", nombre: "Estantería industrial (racks)", categoria: "Almacenamiento", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Acero", "madera"], temas: ["medieval", "vaquero", "cyberpunk"], detalle: "bajo", notas: "Modular; instanciable en múltiples alturas" },
+  { id: 89, cuarto: "bodega", nombre: "Cajas y contenedores", categoria: "Props", prioridad: "indispensable", atributos: ["color", "variante", "escala"], materiales: ["Cartón", "plástico"], temas: "todas", detalle: "bajo", notas: "Instanciables; etiquetas como overlay intercambiable" },
+  { id: 90, cuarto: "bodega", nombre: "Iluminación de techo (fluorescente / LED)", categoria: "Iluminación", prioridad: "indispensable", atributos: ["estado", "color", "escala"], materiales: ["Metal"], temas: ["cyberpunk", "espacio", "terror"], detalle: "bajo", notas: "Encendido/apagado; parpadeo en tema Terror" },
+  { id: 91, cuarto: "bodega", nombre: "Lavadora + Secadora", categoria: "Electrodomésticos", prioridad: "recomendado", atributos: ["color", "estado"], materiales: ["Plástico", "metal"], temas: ["espacio", "cyberpunk", "barbie"], detalle: "medio", notas: "Estado: ciclo en marcha; puerta abrible" },
+  { id: 92, cuarto: "bodega", nombre: "Gabinete / Archivero de almacenamiento", categoria: "Almacenamiento", prioridad: "recomendado", atributos: ["color", "material", "estado"], materiales: ["Metal", "madera"], temas: ["medieval", "vaquero", "cyberpunk"], detalle: "bajo", notas: "Cajones abribles; modular" },
+  { id: 93, cuarto: "bodega", nombre: "Escalera de tijera", categoria: "Equipo", prioridad: "recomendado", atributos: ["color", "material", "estado"], materiales: ["Aluminio", "madera"], temas: ["medieval", "vaquero"], detalle: "bajo", notas: "Estado abierta/cerrada" },
+  { id: 94, cuarto: "bodega", nombre: "Fregadero utilitario / Lavadero", categoria: "Plomería", prioridad: "recomendado", atributos: ["material", "color"], materiales: ["Acero", "concreto", "cerámica"], temas: ["medieval", "vaquero"], detalle: "bajo", notas: "Grifo como sub-malla" },
+  { id: 95, cuarto: "bodega", nombre: "Ganchos y percheros de pared", categoria: "Almacenamiento", prioridad: "recomendado", atributos: ["color", "material", "escala"], materiales: ["Metal", "madera"], temas: "todas", detalle: "bajo", notas: "Instanciables; permiten colgar props temáticos" },
+  { id: 96, cuarto: "bodega", nombre: "Panel eléctrico / Caja de fusibles", categoria: "Estructural", prioridad: "opcional", atributos: ["color", "estado"], materiales: ["Metal"], temas: ["cyberpunk", "espacio", "terror"], detalle: "bajo", notas: "Estado abierto/cerrado con cables visibles" },
+  { id: 97, cuarto: "bodega", nombre: "Carrito / Trolley de almacenamiento", categoria: "Mobiliario", prioridad: "opcional", atributos: ["color", "material"], materiales: ["Metal"], temas: ["espacio", "cyberpunk"], detalle: "bajo", notas: "Ruedas girables opcional" },
+  { id: 98, cuarto: "bodega", nombre: "Bote de basura / Reciclaje", categoria: "Props", prioridad: "opcional", atributos: ["color", "variante"], materiales: ["Plástico"], temas: ["barbie", "cyberpunk"], detalle: "bajo", notas: "Variante separación de residuos" },
+]
+
+/** Recursos de un cuarto, ordenados por prioridad (indispensable primero). */
+const ORDEN_PRIORIDAD: Record<Prioridad, number> = {
+  indispensable: 0,
+  recomendado: 1,
+  opcional: 2,
+}
+export function recursosDeCuarto(roomId: string): RecursoCuarto[] {
+  return RECURSOS.filter((r) => r.cuarto === roomId).sort(
+    (a, b) => ORDEN_PRIORIDAD[a.prioridad] - ORDEN_PRIORIDAD[b.prioridad],
+  )
+}
+
+/** ¿El recurso es compatible con el tema dado? ('todas' siempre lo es.) */
+export function recursoCompatibleConTema(r: RecursoCuarto, tema: TemaId): boolean {
+  return r.temas === 'todas' || r.temas.includes(tema)
+}
+
+/**
+ * ¿El recurso (por id) entra en el inventario del tema activo?
+ * Sin tema (null) todo es válido; con tema, solo los compatibles según `temas`.
+ */
+export function recursoIdEnTema(id: number, tema: TemaId | null): boolean {
+  if (!tema) return true
+  const r = RECURSOS.find((x) => x.id === id)
+  return r ? recursoCompatibleConTema(r, tema) : true
+}

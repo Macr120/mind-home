@@ -4,8 +4,10 @@ import { progresoTemaRepo } from '../../core/data/repository'
 import { COLOR, SIGUIENTE_ESTADO, getEstadoTema } from './constantes'
 import { hoyISO } from './fecha'
 import { PILARES } from './pilares'
+import { useT } from '../../core/i18n/useT'
 
 export function IndiceTab({ progreso }: { progreso: ProgresoTema[] }) {
+  const t = useT()
   const [busqueda, setBusqueda] = useState('')
   const [pilarAbierto, setPilarAbierto] = useState<string | null>(PILARES[0]?.id ?? null)
 
@@ -25,11 +27,11 @@ export function IndiceTab({ progreso }: { progreso: ProgresoTema[] }) {
       const ramas = pilar.ramas
         .map((rama) => {
           const temas = rama.temas.filter(
-            (t) =>
+            (tema) =>
               coincidePilar ||
               rama.titulo.toLowerCase().includes(q) ||
-              t.titulo.toLowerCase().includes(q) ||
-              t.descripcion.toLowerCase().includes(q),
+              tema.titulo.toLowerCase().includes(q) ||
+              tema.descripcion.toLowerCase().includes(q),
           )
           return temas.length ? { ...rama, temas } : null
         })
@@ -68,28 +70,27 @@ export function IndiceTab({ progreso }: { progreso: ProgresoTema[] }) {
         className="rounded-xl border p-4 text-sm"
         style={{ background: `${COLOR}18`, borderColor: `${COLOR}44` }}
       >
-        <p className="font-bold text-white/90">Mapa del conocimiento</p>
+        <p className="font-bold text-white/90">{t('biblioteca.mapa', 'Mapa del conocimiento')}</p>
         <p className="text-xs text-white/50 mt-1 leading-relaxed">
-          Índice temático inspirado en los grandes pilares de la enciclopedia occidental y las
-          ramas UNESCO. Toca un tema para marcarlo: explorado → en estudio → revisado.
+          {t('biblioteca.mapa.desc', 'Índice temático inspirado en los grandes pilares de la enciclopedia occidental y las ramas UNESCO. Toca un tema para marcarlo: explorado → en estudio → revisado.')}
         </p>
       </div>
 
       <input
         value={busqueda}
         onChange={(e) => setBusqueda(e.target.value)}
-        placeholder="Buscar pilar, rama o tema…"
+        placeholder={t('biblioteca.buscar', 'Buscar pilar, rama o tema…')}
         className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-indigo-400/40"
       />
 
       {pilaresFiltrados.length === 0 ? (
-        <p className="text-center text-sm text-white/40 py-8">Sin resultados para tu búsqueda.</p>
+        <p className="text-center text-sm text-white/40 py-8">{t('biblioteca.sinResultados', 'Sin resultados para tu búsqueda.')}</p>
       ) : (
         <div className="space-y-2">
           {pilaresFiltrados.map((pilar) => {
             const abierto = pilarAbierto === pilar.id
             const temasPilar = pilar.ramas.flatMap((r) => r.temas)
-            const marcados = temasPilar.filter((t) => mapa.has(t.id)).length
+            const marcados = temasPilar.filter((tema) => mapa.has(tema.id)).length
 
             return (
               <section
@@ -144,13 +145,13 @@ export function IndiceTab({ progreso }: { progreso: ProgresoTema[] }) {
                                       <span
                                         className="shrink-0 text-[10px] font-bold rounded-md px-2 py-0.5 text-black"
                                         style={{ background: COLOR }}
-                                        title="Toca para avanzar o quitar"
+                                        title={t('biblioteca.avanzar', 'Toca para avanzar o quitar')}
                                       >
                                         {est.icon} {est.label}
                                       </span>
                                     ) : (
                                       <span className="shrink-0 text-[10px] text-white/30">
-                                        + marcar
+                                        {t('biblioteca.marcar', '+ marcar')}
                                       </span>
                                     )}
                                   </div>

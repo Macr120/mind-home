@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react'
 import biblioteca from '../rooms/biblioteca'
-import configuraciones from '../rooms/configuraciones'
-import diseno from '../rooms/diseno'
+import bodega from '../rooms/bodega'
+import hobbies from '../rooms/hobbies'
 import entretenimiento from '../rooms/entretenimiento'
 import garage from '../rooms/garage'
 import jardin from '../rooms/jardin'
@@ -12,44 +12,102 @@ import despacho from '../rooms/despacho'
 import diario from '../rooms/diario'
 import recamara from '../rooms/recamara'
 /**
- * Contrato que CADA cuarto debe cumplir para "enchufarse" a la casa.
- * Agregar un cuarto = crear su carpeta en src/rooms/ y registrarlo abajo.
+ * Esquema de captura declarativo: describe QUÉ datos forman un registro del
+ * cuarto, sin decir cómo extraerlos del texto. La capa de IA leerá estos
+ * esquemas como "herramientas" (el modelo llena los campos y `guardar` crea
+ * el registro real vía repos). Las `descripcion` están escritas para el
+ * modelo: deben bastar para llenar el campo sin ver el código.
  */
-export interface RoomModule {
-  id: string
-  nombre: string
-  /** Emoji que flota sobre el cuarto cuando estás lejos. */
-  icon: string
-  categoria: 'cuerpo' | 'mente' | 'complemento' | 'config'
-  /** Posición [x, y, z] del cuarto sobre el plano de la casa (cuadrícula). */
-  posicion: [number, number, number]
-  color: string
-  /** La mini-app 2D que se abre al entrar. */
-  App: ComponentType
+export interface CampoCaptura {
+  campo: string
+  tipo: 'texto' | 'numero' | 'fecha' | 'opcion'
+  /** Qué significa el campo y cómo llenarlo (dirigida al modelo de IA). */
+  descripcion: string
+  /** Valores permitidos cuando tipo === 'opcion'. */
+  opciones?: string[]
+  requerido?: boolean
 }
 
-// Distribución en cuadrícula 4×3 (12 espacios). Cols x: -9 -3 3 9 · Filas z: -6 0 6
-export const rooms: RoomModule[] = [
-  // Fila trasera
+export interface EsquemaCaptura {
+  /** Identificador del tipo de registro (ej. 'comida', 'agua'). */
+  id: string
+  /** Qué representa un registro de este tipo (dirigida al modelo de IA). */
+  descripcion: string
+  campos: CampoCaptura[]
+  /** Crea el registro real a partir de los campos llenados (usa repos). */
+  guardar: (valores: Record<string, unknown>) => Promise<void>
+}
+
+// Coerciones seguras para `guardar`: los valores llegan del modelo (unknown).
+export const vTexto = (v: unknown, def = ''): string => (typeof v === 'string' && v.trim() ? v.trim() : def)
+export const vNumero = (v: unknown, def = 0): number => {
+  const n = typeof v === 'number' ? v : typeof v === 'string' ? Number(v) : NaN
+  return Number.isFinite(n) ? n : def
+}
+export const vFecha = (v: unknown): string =>
+  typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v) ? v : new Date().toISOString().slice(0, 10)
+
+/**
+ * Plantilla de app: una mini-app 2D del catálogo que el usuario puede ASIGNAR a un
+ * objeto de un cuarto. La plantilla NO es un cuarto; la identidad del cuarto vive en
+ * `Cuarto` (src/core/data/db.ts) y el store dinámico `useCuartos`. Una plantilla aporta
+ * el componente `App`, su captura rápida y sus esquemas para el orquestador/IA.
+ *
+ * Agregar una plantilla = crear su carpeta en src/rooms/ y registrarla abajo.
+ */
+export interface Plantilla {
+  id: string
+  nombre: string
+  /** Emoji de la plantilla (se hereda al cuarto/objeto si se desea). */
+  icon: string
+  categoria: 'cuerpo' | 'mente' | 'complemento' | 'config'
+  color: string
+  /** La mini-app 2D que se abre al usar la plantilla. */
+  App: ComponentType
+  /** Legado: posición en la cuadrícula del modelo viejo (ya no se usa). */
+  posicion?: [number, number, number]
+  /**
+   * Quick-capture determinista (regex): intenta convertir texto libre en un
+   * registro real. Retorna true si guardó algo. Es el fallback sin red/sin IA;
+   * la capa de IA usa `esquemas` en su lugar.
+   */
+  capturar?: (texto: string) => Promise<boolean>
+  /** Tipos de registro que esta plantilla puede capturar (contrato para la IA). */
+  esquemas?: EsquemaCaptura[]
+}
+
+/** @deprecated Usar `Plantilla`. Alias para no romper los módulos de src/rooms/. */
+export type RoomModule = Plantilla
+
+/** Catálogo de plantillas (las 12 apps). Antes eran los "cuartos" cableados. */
+export const plantillas: Plantilla[] = [
   cocina,
   ejercicio,
-  recamara, // [3, 0, -6]
-  despacho, // [9, 0, -6]
-  // Fila media
+  recamara,
+  despacho,
   biblioteca,
   entretenimiento,
   sala,
   jardin,
-  // Fila frontal
   garage,
   diario,
-  configuraciones,
-  diseno,
+  bodega,
+  hobbies,
 ]
 
-export const getRoom = (id: string) => rooms.find((r) => r.id === id)
+export const getPlantilla = (id: string) => plantillas.find((p) => p.id === id)
 
-/** Descripción corta de cada cuarto (para el listado de "Agregar cuarto"). */
+/**
+ * @deprecated El arreglo estático ya NO representa los cuartos de la casa (que ahora
+ * son dinámicos: `useCuartos`). Se mantiene como alias del CATÁLOGO de plantillas para
+ * el orquestador/IA, que referencia plantillas por su id. Para instancias de cuarto usa
+ * `useCuartos` / `getCuarto`.
+ */
+export const rooms = plantillas
+/** @deprecated Alias del catálogo. Para instancias de cuarto usa `getCuarto`. */
+export const getRoom = getPlantilla
+
+/** Descripción corta de cada plantilla (para el catálogo de asignación). */
 export const DESCRIPCIONES: Record<string, string> = {
   cocina: 'Nutrición: registra comidas, macros, agua y tu plan semanal.',
   ejercicio: 'Rutinas de fuerza, resistencia y flexibilidad con metas.',
@@ -61,6 +119,6 @@ export const DESCRIPCIONES: Record<string, string> = {
   jardin: 'Mindfulness: meditación, respiración, ánimo y gratitud.',
   garage: 'Mantenimiento de tus vehículos y sus servicios.',
   diario: 'Central de noticias del día, por categorías.',
-  configuraciones: 'Tu perfil, copia de seguridad y ajustes de la app.',
-  diseno: 'Personaliza colores, nombres, avatar y objetos de la casa.',
+  bodega: 'Inventario y archivo: guarda cosas y respalda tus datos.',
+  hobbies: 'Tus pasatiempos y proyectos creativos.',
 }

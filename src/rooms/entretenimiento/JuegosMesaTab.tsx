@@ -5,8 +5,10 @@ import { CATEGORIAS_MESA, COLOR, ESTADOS_MESA } from './constantes'
 import { FormularioJuegoMesa } from './FormularioJuegoMesa'
 import { TarjetaJuegoMesa } from './TarjetaJuegoMesa'
 import { FILTROS_MESA_VACIOS, aplicarFiltrosMesa, type FiltrosMesa } from './filtrosMesa'
+import { useT } from '../../core/i18n/useT'
 
 export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
+  const t = useT()
   const [filtros, setFiltros] = useState<FiltrosMesa>(FILTROS_MESA_VACIOS)
   const [mostrarForm, setMostrarForm] = useState(false)
   const [editando, setEditando] = useState<JuegoMesa | null>(null)
@@ -28,10 +30,10 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
     <div className="space-y-4">
       <div className="rounded-xl border p-3 text-sm" style={{ background: `${COLOR}15`, borderColor: `${COLOR}44` }}>
         <p className="font-semibold" style={{ color: COLOR }}>
-          🎲 Tu ludoteca
+          {t('entre.mesa.titulo', '🎲 Tu ludoteca')}
         </p>
         <p className="text-xs text-white/50 mt-1">
-          {enColeccion} en colección · {juegos.length} registrados en total
+          {t('entre.mesa.coleccion', `${enColeccion} en colección · ${juegos.length} registrados en total`, { n: String(enColeccion), t: String(juegos.length) })}
         </p>
       </div>
 
@@ -41,7 +43,7 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
         className="w-full rounded-xl py-2.5 font-bold text-black"
         style={{ background: COLOR }}
       >
-        {mostrarForm ? 'Ocultar formulario' : '➕ Añadir juego de mesa'}
+        {mostrarForm ? t('entre.mesa.ocultar', 'Ocultar formulario') : t('entre.mesa.añadir', '➕ Añadir juego de mesa')}
       </button>
 
       {mostrarForm && (
@@ -55,12 +57,12 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
         <input
           value={filtros.busqueda}
           onChange={(e) => setFiltros((f) => ({ ...f, busqueda: e.target.value }))}
-          placeholder="Buscar por nombre, editorial, notas…"
+          placeholder={t('entre.mesa.buscar', 'Buscar por nombre, editorial, notas…')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <div className="grid grid-cols-2 gap-2">
           <label className="text-xs text-white/50">
-            Categoría
+            {t('entre.mesa.cat', 'Categoría')}
             <select
               value={filtros.categoria}
               onChange={(e) =>
@@ -71,7 +73,7 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
               }
               className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
             >
-              <option value="todos">Todas</option>
+              <option value="todos">{t('entre.mesa.todas', 'Todas')}</option>
               {CATEGORIAS_MESA.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.icon} {c.label}
@@ -80,7 +82,7 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
             </select>
           </label>
           <label className="text-xs text-white/50">
-            Estado
+            {t('entre.mesa.estado', 'Estado')}
             <select
               value={filtros.estado}
               onChange={(e) =>
@@ -91,7 +93,7 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
               }
               className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
             >
-              <option value="todos">Todos</option>
+              <option value="todos">{t('entre.mesa.todos', 'Todos')}</option>
               {ESTADOS_MESA.map((e) => (
                 <option key={e.id} value={e.id}>
                   {e.label}
@@ -103,11 +105,11 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
         <div className="flex gap-2">
           {(
             [
-              ['reciente', 'Recientes'],
-              ['nombre', 'A–Z'],
-              ['jugadas', 'Más jugados'],
+              ['reciente', 'entre.mesa.reciente', 'Recientes'],
+              ['nombre', 'entre.mesa.nombre', 'A–Z'],
+              ['jugadas', 'entre.mesa.jugadas', 'Más jugados'],
             ] as const
-          ).map(([id, label]) => (
+          ).map(([id, key, fallback]) => (
             <button
               key={id}
               type="button"
@@ -117,7 +119,7 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
               }`}
               style={filtros.orden === id ? { background: COLOR } : undefined}
             >
-              {label}
+              {t(key, fallback)}
             </button>
           ))}
         </div>
@@ -126,8 +128,8 @@ export function JuegosMesaTab({ juegos }: { juegos: JuegoMesa[] }) {
       {lista.length === 0 ? (
         <div className="rounded-xl border border-dashed border-white/15 p-8 text-center text-sm text-white/40">
           {juegos.length === 0
-            ? 'Registra Catan, Wingspan, Dixit… y lleva el conteo de partidas.'
-            : 'Ningún juego coincide con los filtros.'}
+            ? t('entre.mesa.vacio', 'Registra Catan, Wingspan, Dixit… y lleva el conteo de partidas.')
+            : t('entre.mesa.sinFiltro', 'Ningún juego coincide con los filtros.')}
         </div>
       ) : (
         <div className="space-y-3">

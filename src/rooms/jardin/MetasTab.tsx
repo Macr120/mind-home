@@ -2,8 +2,10 @@ import { useState } from 'react'
 import type { PerfilMindfulness } from '../../core/data/db'
 import { perfilMindfulnessRepo } from '../../core/data/repository'
 import { PERFIL_DEFECTO } from './constantes'
+import { useT } from '../../core/i18n/useT'
 
 export function MetasTab({ perfil }: { perfil: PerfilMindfulness }) {
+  const t = useT()
   const [minutos, setMinutos] = useState(String(perfil.minutosDiariosObjetivo))
 
   const guardar = async () => {
@@ -14,12 +16,12 @@ export function MetasTab({ perfil }: { perfil: PerfilMindfulness }) {
 
   return (
     <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-4">
-      <p className="text-sm font-semibold">⚙️ Meta diaria de mindfulness</p>
+      <p className="text-sm font-semibold">{t('jardin.metas.titulo', '⚙️ Meta diaria de mindfulness')}</p>
       <p className="text-xs text-white/45">
-        Inspirado en Headspace y Calm: una meta pequeña y constante construye el hábito.
+        {t('jardin.metas.desc', 'Inspirado en Headspace y Calm: una meta pequeña y constante construye el hábito.')}
       </p>
       <label className="block text-xs text-white/50">
-        Minutos por día
+        {t('jardin.metas.label', 'Minutos por día')}
         <input
           type="number"
           min={1}
@@ -46,7 +48,7 @@ export function MetasTab({ perfil }: { perfil: PerfilMindfulness }) {
         onClick={guardar}
         className="w-full rounded-xl py-2.5 font-bold bg-emerald-400 text-black"
       >
-        Guardar meta
+        {t('jardin.metas.guardar', 'Guardar meta')}
       </button>
     </div>
   )

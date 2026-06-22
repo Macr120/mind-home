@@ -4,6 +4,7 @@ import { aguaRepo, comidasRepo } from '../../core/data/repository'
 import { MOMENTOS } from './constantes'
 import { getMomento } from './momentos'
 import { caloriasDesdeMacros } from './macros'
+import { useT } from '../../core/i18n/useT'
 
 export function DiarioTab({
   fecha,
@@ -70,12 +71,13 @@ export function DiarioTab({
   }
 
   const pctAgua = aguaObjetivo > 0 ? Math.min(100, (aguaMl / aguaObjetivo) * 100) : 0
+  const t = useT()
 
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold">💧 Hidratación</span>
+          <span className="text-sm font-semibold">{t('cocina.hidratacion', '💧 Hidratación')}</span>
           <span className="text-sm text-white/60">
             {aguaMl} / {aguaObjetivo} ml
           </span>
@@ -104,7 +106,7 @@ export function DiarioTab({
         onSubmit={agregar}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
-        <p className="text-sm font-semibold">Registrar comida</p>
+        <p className="text-sm font-semibold">{t('cocina.registrar', 'Registrar comida')}</p>
         <div className="grid grid-cols-4 gap-1.5">
           {MOMENTOS.map((m) => (
             <button
@@ -138,33 +140,33 @@ export function DiarioTab({
         <input
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
-          placeholder="Qué comiste..."
+          placeholder={t('cocina.ph.comiste', 'Qué comiste...')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
         />
         <div className="grid grid-cols-4 gap-2">
           <Campo label="kcal" value={calorias} onChange={setCalorias} />
-          <Campo label="Prot g" value={proteinas} onChange={setProteinas} />
-          <Campo label="Carb g" value={carbos} onChange={setCarbos} />
-          <Campo label="Gras g" value={grasas} onChange={setGrasas} />
+          <Campo label={t('cocina.proteina', 'Prot') + ' g'} value={proteinas} onChange={setProteinas} />
+          <Campo label={t('cocina.carbos', 'Carb') + ' g'} value={carbos} onChange={setCarbos} />
+          <Campo label={t('cocina.grasas', 'Gras') + ' g'} value={grasas} onChange={setGrasas} />
         </div>
         <input
           value={nota}
           onChange={(e) => setNota(e.target.value)}
-          placeholder="Nota (opcional)"
+          placeholder={t('cocina.ph.nota', 'Nota (opcional)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
         />
         <button
           type="submit"
           className="w-full rounded-xl py-2.5 font-bold bg-amber-400 text-black hover:bg-amber-300"
         >
-          Añadir a {getMomento(momento).label}
+          {t('cocina.añadir', `Añadir a ${getMomento(momento).label}`, { momento: getMomento(momento).label })}
         </button>
       </form>
 
       <div className="space-y-3">
-        <p className="text-sm font-semibold">Registro del día</p>
+        <p className="text-sm font-semibold">{t('cocina.registroDia', 'Registro del día')}</p>
         {delDia.length === 0 && (
-          <p className="text-sm text-white/40">Sin comidas registradas.</p>
+          <p className="text-sm text-white/40">{t('cocina.sinComidas', 'Sin comidas registradas.')}</p>
         )}
         {MOMENTOS.map((m) => {
           const items = delDia.filter((c) => c.momento === m.id)
@@ -192,7 +194,7 @@ export function DiarioTab({
                       type="button"
                       onClick={() => item.id && comidasRepo.remove(item.id)}
                       className="text-white/30 hover:text-red-400 px-1"
-                      aria-label="Eliminar"
+                      aria-label={t('chat.eliminar', 'Eliminar')}
                     >
                       ×
                     </button>

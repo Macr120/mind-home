@@ -3,7 +3,7 @@ import { useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useCam, panFocusByPixels } from '../state/cameraStore'
 import { useDiseño } from '../state/disenoStore'
-import { useLayout, roomWorldPos } from '../state/layoutStore'
+import { useLayout, mapFocusPos } from '../state/layoutStore'
 
 const dist2 = (a: Touch, b: Touch) =>
   Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY)
@@ -11,6 +11,7 @@ const dist2 = (a: Touch, b: Touch) =>
 /**
  * Controles de cámara en el canvas:
  * - Ratón: rueda = zoom, botón central + arrastre = pan, doble clic central = centrar mapa
+ * - Iso: clic derecho + arrastre vertical = inclinar vista arriba/abajo
  * - Táctil: dos dedos = pan; separar/juntar = zoom
  */
 export function CameraControls() {
@@ -29,9 +30,24 @@ export function CameraControls() {
     midX: number
     midY: number
   }>({ on: false, dist: 0, midX: 0, midY: 0 })
+  const tiltMouse = useRef<{ on: boolean; y: number }>({ on: false, y: 0 })
 
   useEffect(() => {
     const el = gl.domElement
+
+    const quitarFocoCampos = () => {
+      const active = document.activeElement as HTMLElement | null
+      if (
+        active &&
+        (active.tagName === 'INPUT' ||
+          active.tagName === 'TEXTAREA' ||
+          active.tagName === 'SELECT' ||
+          active.isContentEditable)
+      ) {
+        active.blur()
+      }
+    }
+    el.addEventListener('pointerdown', quitarFocoCampos)
 
     const arrastrandoAlgo = () =>
       useLayout.getState().draggingId != null ||
@@ -43,26 +59,26 @@ export function CameraControls() {
     })
 
     const aplicarPan = (dx: number, dy: number) => {
-      const { zoom, azStep } = useCam.getState()
+      const { zoom, az } = useCam.getState()
       const { w, h } = frustum()
-      panFocusByPixels(dx, dy, size.width, size.height, zoom, azStep, w, h)
+      panFocusByPixels(dx, dy, size.width, size.height, zoom, az, w, h)
     }
 
     const centrarMapa = () => {
-      const editingRoomId = useLayout.getState().editingRoomId
-      if (editingRoomId) {
-        useCam.getState().focusRoomEdit(roomWorldPos(editingRoomId))
-      } else {
-        useCam.getState().reset()
-      }
+      useCam.getState().centrarIso(mapFocusPos())
     }
 
+    // En 1ª/3ª persona el zoom/pan los gestiona FollowCamera (perspectiva).
+    const enIso = () => useCam.getState().vista === 'iso'
+
     const onWheel = (e: WheelEvent) => {
+      if (!enIso()) return
       e.preventDefault()
       useCam.getState().zoomWheel(e.deltaY)
     }
 
     const onMouseDown = (e: MouseEvent) => {
+      if (!enIso()) return
       if (e.button !== 1) return
       e.preventDefault()
       if (e.detail >= 2) {
@@ -92,6 +108,7 @@ export function CameraControls() {
     }
 
     const onTouchStart = (e: TouchEvent) => {
+      if (!enIso()) return
       if (e.touches.length !== 2) return
       touch.current.on = true
       touch.current.dist = dist2(e.touches[0], e.touches[1])
@@ -100,6 +117,7 @@ export function CameraControls() {
     }
 
     const onTouchMove = (e: TouchEvent) => {
+      if (!enIso()) return
       if (!touch.current.on || e.touches.length !== 2) return
       if (arrastrandoAlgo()) return
       e.preventDefault()
@@ -120,14 +138,36 @@ export function CameraControls() {
       if (e.touches.length < 2) touch.current.on = false
     }
 
+    const onRightDown = (e: MouseEvent) => {
+      if (!enIso()) return
+      if (e.button !== 2) return
+      e.preventDefault()
+      tiltMouse.current = { on: true, y: e.clientY }
+    }
+
+    const onRightMove = (e: MouseEvent) => {
+      if (!tiltMouse.current.on) return
+      e.preventDefault()
+      const dy = e.clientY - tiltMouse.current.y
+      tiltMouse.current.y = e.clientY
+      useCam.getState().inclinarIso(dy)
+    }
+
+    const finTiltMouse = (e: MouseEvent) => {
+      if (e.button === 2) tiltMouse.current.on = false
+    }
+
     const onContextMenu = (e: MouseEvent) => {
-      if (e.button === 1) e.preventDefault()
+      if (enIso() || e.button === 1) e.preventDefault()
     }
 
     el.addEventListener('wheel', onWheel, { passive: false })
     el.addEventListener('mousedown', onMouseDown)
+    el.addEventListener('mousedown', onRightDown)
     window.addEventListener('mousemove', onMouseMove)
+    window.addEventListener('mousemove', onRightMove)
     window.addEventListener('mouseup', finPanMouse)
+    window.addEventListener('mouseup', finTiltMouse)
     el.addEventListener('touchstart', onTouchStart, { passive: true })
     el.addEventListener('touchmove', onTouchMove, { passive: false })
     el.addEventListener('touchend', onTouchEnd)
@@ -135,10 +175,15 @@ export function CameraControls() {
     el.addEventListener('contextmenu', onContextMenu)
 
     return () => {
+      el.removeEventListener('pointerdown', quitarFocoCampos)
       el.removeEventListener('wheel', onWheel)
       el.removeEventListener('mousedown', onMouseDown)
+      el.removeEventListener('mousedown', onRightDown)
       window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mousemove', onRightMove)
       window.removeEventListener('mouseup', finPanMouse)
+      window.removeEventListener('mouseup', finTiltMouse)
+      tiltMouse.current.on = false
       el.removeEventListener('touchstart', onTouchStart)
       el.removeEventListener('touchmove', onTouchMove)
       el.removeEventListener('touchend', onTouchEnd)

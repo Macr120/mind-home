@@ -7,8 +7,11 @@ alwaysApply: true
 # Mind Home — Guía para la IA
 
 App de una **casa isométrica 3D estilo Roblox** donde cada cuarto es una mini-app 2D
-independiente pero interconectada ("10 apps en 1"). Web (Vite + React), futuro móvil
+independiente pero interconectada (**12 apps en 1**). Web (Vite + React), futuro móvil
 con Capacitor.
+
+**Contexto detallado**: `docs/AVANCE.md` (estado) y `docs/COMO-TRABAJAR.md` (cómo acotar tareas).
+Etiquetas: `[CASA]`, `[DATOS]`, `[COCINA]`, etc.
 
 ## Stack
 - **React 19 + TypeScript + Vite**

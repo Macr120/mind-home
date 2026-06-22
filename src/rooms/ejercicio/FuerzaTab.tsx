@@ -7,6 +7,7 @@ import {
 } from '../../core/data/repository'
 import { RUTINAS } from './rutinas'
 import { recordsFuerza, volumenSerie, volumenSesion } from './stats'
+import { useT } from '../../core/i18n/useT'
 
 interface FilaEjercicio {
   ejercicio: string
@@ -91,6 +92,8 @@ export function FuerzaTab({
     setNota('')
   }
 
+  const t = useT()
+
   return (
     <div className="space-y-5">
       <div className="flex gap-2 overflow-x-auto pb-1">
@@ -110,16 +113,16 @@ export function FuerzaTab({
         onSubmit={guardar}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
-        <p className="text-sm font-semibold">🏋️ Registrar sesión de fuerza</p>
+        <p className="text-sm font-semibold">{t('ejercicio.fuerza.registrar', '🏋️ Registrar sesión de fuerza')}</p>
         <input
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
-          placeholder="Nombre del entreno"
+          placeholder={t('ejercicio.fuerza.ph.nombre', 'Nombre del entreno')}
         />
         <div className="grid grid-cols-2 gap-2">
           <label className="text-xs text-white/50">
-            Duración (min)
+            {t('ejercicio.duracion', 'Duración (min)')}
             <input
               type="number"
               value={duracion}
@@ -128,7 +131,7 @@ export function FuerzaTab({
             />
           </label>
           <label className="text-xs text-white/50">
-            RPE (1–10)
+            {t('ejercicio.rpe', 'RPE (1–10)')}
             <input
               type="number"
               min={1}
@@ -141,7 +144,7 @@ export function FuerzaTab({
         </div>
 
         <div className="space-y-2">
-          <p className="text-xs font-semibold text-white/50">Ejercicios</p>
+          <p className="text-xs font-semibold text-white/50">{t('ejercicio.ejercicios', 'Ejercicios')}</p>
           {filas.map((f, i) => (
             <div key={i} className="grid grid-cols-12 gap-1 text-xs">
               <input
@@ -151,7 +154,7 @@ export function FuerzaTab({
                   n[i] = { ...n[i], ejercicio: e.target.value }
                   setFilas(n)
                 }}
-                placeholder="Ejercicio"
+                placeholder={t('ejercicio.fuerza.ph.ej', 'Ejercicio')}
                 className="col-span-5 rounded-lg bg-black/30 px-2 py-1.5 border border-white/10"
               />
               <input
@@ -191,27 +194,27 @@ export function FuerzaTab({
             onClick={agregarFila}
             className="text-xs text-orange-300 hover:underline"
           >
-            + Añadir ejercicio
+            {t('ejercicio.fuerza.añadir', '+ Añadir ejercicio')}
           </button>
         </div>
 
         <input
           value={nota}
           onChange={(e) => setNota(e.target.value)}
-          placeholder="Notas (progresión, sensaciones...)"
+          placeholder={t('ejercicio.ph.notas.fuerza', 'Notas (progresión, sensaciones...)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
         />
         <button
           type="submit"
           className="w-full rounded-xl py-2.5 font-bold bg-orange-400 text-black"
         >
-          Guardar entreno
+          {t('ejercicio.fuerza.guardar', 'Guardar entreno')}
         </button>
       </form>
 
       {records.length > 0 && (
         <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">🏆 Records personales</p>
+          <p className="text-sm font-semibold mb-2">{t('ejercicio.records', '🏆 Records personales')}</p>
           <ul className="space-y-1.5">
             {records.slice(0, 6).map((r) => (
               <li key={r.ejercicio} className="flex justify-between text-sm">
@@ -247,10 +250,11 @@ function ListaSesiones({
   todasSeries: SerieFuerza[]
   onEliminar: (id: number) => void
 }) {
+  const t = useT()
   if (sesiones.length === 0) return null
   return (
     <div className="space-y-2">
-      <p className="text-sm font-semibold">Hoy</p>
+      <p className="text-sm font-semibold">{t('ejercicio.hoy', 'Hoy')}</p>
       {sesiones.map((s) => {
         const series = todasSeries
           .filter((x) => x.sesionId === s.id)

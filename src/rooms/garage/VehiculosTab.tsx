@@ -3,6 +3,7 @@ import type { RegistroMantenimiento, Vehiculo } from '../../core/data/db'
 import { registrosMantenimientoRepo, vehiculosRepo } from '../../core/data/repository'
 import { COLOR, getTipoVehiculo } from './constantes'
 import { FormularioVehiculo } from './FormularioVehiculo'
+import { useT } from '../../core/i18n/useT'
 
 export function VehiculosTab({
   vehiculos,
@@ -13,6 +14,7 @@ export function VehiculosTab({
   registros: RegistroMantenimiento[]
   onAbrir: (id: number) => void
 }) {
+  const t = useT()
   const eliminar = async (id: number) => {
     for (const r of registros.filter((x) => x.vehiculoId === id)) {
       if (r.id) await registrosMantenimientoRepo.remove(r.id)
@@ -38,12 +40,12 @@ export function VehiculosTab({
         className="w-full rounded-xl py-3 text-sm font-bold text-black"
         style={{ background: COLOR }}
       >
-        ➕ Añadir vehículo
+        {t('garage.veh.añadir', '➕ Añadir vehículo')}
       </button>
 
       {vehiculos.length === 0 ? (
         <p className="text-center text-sm text-white/45 py-8">
-          Bicicletas, autos, motos y más — todo en un solo garaje.
+          {t('garage.veh.vacio', 'Bicicletas, autos, motos y más — todo en un solo garaje.')}
         </p>
       ) : (
         vehiculos.map((v) => {
@@ -79,7 +81,7 @@ export function VehiculosTab({
                   type="button"
                   onClick={() => void eliminar(v.id!)}
                   className="text-xs text-white/35 hover:text-red-400 shrink-0"
-                  title="Eliminar"
+                  title={t('chat.eliminar', 'Eliminar')}
                 >
                   🗑️
                 </button>

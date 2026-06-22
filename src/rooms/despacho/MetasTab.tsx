@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { metasRepo } from '../../core/data/repository'
 import { money2 } from './mes'
+import { useT } from '../../core/i18n/useT'
 
 export function MetasTab() {
+  const t = useT()
   const metas = metasRepo.useAll() ?? []
   const [nombre, setNombre] = useState('')
   const [objetivo, setObjetivo] = useState('')
@@ -22,19 +24,19 @@ export function MetasTab() {
         onSubmit={crear}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
-        <p className="text-sm font-semibold">Nueva meta de ahorro</p>
+        <p className="text-sm font-semibold">{t('despacho.meta.nueva', 'Nueva meta de ahorro')}</p>
         <div className="grid grid-cols-3 gap-2">
           <input
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            placeholder="Ej. Viaje a Japón"
+            placeholder={t('despacho.meta.ph.nombre', 'Ej. Viaje a Japón')}
             className="col-span-2 rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
           />
           <input
             value={objetivo}
             onChange={(e) => setObjetivo(e.target.value)}
             type="number"
-            placeholder="Meta $"
+            placeholder={t('despacho.meta.ph.objetivo', 'Meta $')}
             className="rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
           />
         </div>
@@ -42,14 +44,14 @@ export function MetasTab() {
           type="submit"
           className="w-full rounded-lg bg-amber-400 py-2 font-bold text-black hover:bg-amber-300 transition"
         >
-          Crear meta
+          {t('despacho.meta.crear', 'Crear meta')}
         </button>
       </form>
 
       <div className="space-y-3">
         {metas.length === 0 && (
           <p className="text-center text-white/40 text-sm py-6">
-            Aún no tienes metas. ¡Crea tu primer objetivo de ahorro!
+            {t('despacho.meta.vacio', 'Aún no tienes metas. ¡Crea tu primer objetivo de ahorro!')}
           </p>
         )}
         {metas.map((m) => (
@@ -65,6 +67,7 @@ function MetaCard({
 }: {
   meta: { id?: number; nombre: string; objetivo: number; ahorrado: number }
 }) {
+  const t = useT()
   const [abono, setAbono] = useState('')
   const pct = Math.min(100, (meta.ahorrado / meta.objetivo) * 100)
   const completa = meta.ahorrado >= meta.objetivo
@@ -106,14 +109,14 @@ function MetaCard({
           value={abono}
           onChange={(e) => setAbono(e.target.value)}
           type="number"
-          placeholder="Abonar $"
+          placeholder={t('despacho.meta.ph.abono', 'Abonar $')}
           className="flex-1 rounded-lg bg-black/30 px-3 py-1.5 text-sm outline-none border border-white/10 focus:border-white/30"
         />
         <button
           onClick={abonar}
           className="rounded-lg bg-emerald-400 px-4 py-1.5 text-sm font-bold text-black hover:bg-emerald-300 transition"
         >
-          + Abonar
+          {t('despacho.meta.abonar', '+ Abonar')}
         </button>
       </div>
     </div>

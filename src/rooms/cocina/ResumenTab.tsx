@@ -4,6 +4,7 @@ import { hoyISO, sumarDias } from './fecha'
 import { MacroAnillo } from './MacroAnillo'
 import { adherenciaCalorias, pctObjetivo, sumarMacros } from './macros'
 import { COLOR } from './constantes'
+import { useT } from '../../core/i18n/useT'
 
 export function ResumenTab({
   fecha,
@@ -43,6 +44,7 @@ export function ResumenTab({
 
   const pctCal = pctObjetivo(tot.calorias, perfil.calorias)
   const pctAgua = pctObjetivo(aguaDia, perfil.aguaMl)
+  const t = useT()
 
   return (
     <div className="space-y-5">
@@ -51,7 +53,7 @@ export function ResumenTab({
           className="rounded-xl border border-white/10 p-4 col-span-2"
           style={{ background: `${COLOR}18` }}
         >
-          <p className="text-xs text-white/50">Calorías hoy</p>
+          <p className="text-xs text-white/50">{t('cocina.calHoy', 'Calorías hoy')}</p>
           <p className="text-3xl font-black" style={{ color: COLOR }}>
             {tot.calorias}
             <span className="text-lg font-semibold text-white/50">
@@ -70,40 +72,40 @@ export function ResumenTab({
           </div>
           <p className="mt-2 text-xs text-white/50">
             {calRestantes > 0
-              ? `Te quedan ${calRestantes} kcal para tu objetivo`
-              : '⚠️ Superaste el objetivo calórico de hoy'}
+              ? t('cocina.calRestantes', `Te quedan ${calRestantes} kcal para tu objetivo`, { n: String(calRestantes) })
+              : t('cocina.calSuperado', '⚠️ Superaste el objetivo calórico de hoy')}
           </p>
         </div>
-        <TarjetaMini titulo="Adherencia 7d" valor={`${adherencia}%`} sub="±10% del objetivo" />
-        <TarjetaMini titulo="Agua" valor={`${(aguaDia / 1000).toFixed(1)} L`} sub={`${pctAgua}% meta`} />
+        <TarjetaMini titulo={t('cocina.adherencia7d', 'Adherencia 7d')} valor={`${adherencia}%`} sub={t('cocina.adherenciaSub', '±10% del objetivo')} />
+        <TarjetaMini titulo={t('cocina.aguaMeta', 'Agua')} valor={`${(aguaDia / 1000).toFixed(1)} L`} sub={t('cocina.aguaMetaPct', `${pctAgua}% meta`, { n: String(pctAgua) })} />
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-4">Macros del día</p>
+        <p className="text-sm font-semibold mb-4">{t('cocina.macrosDia', 'Macros del día')}</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 justify-items-center">
           <MacroAnillo
-            label="Proteína"
+            label={t('cocina.proteina', 'Proteína')}
             consumido={tot.proteinas}
             objetivo={perfil.proteinas}
             unidad="g"
             color="#f472b6"
           />
           <MacroAnillo
-            label="Carbos"
+            label={t('cocina.carbos', 'Carbos')}
             consumido={tot.carbohidratos}
             objetivo={perfil.carbohidratos}
             unidad="g"
             color="#60a5fa"
           />
           <MacroAnillo
-            label="Grasas"
+            label={t('cocina.grasas', 'Grasas')}
             consumido={tot.grasas}
             objetivo={perfil.grasas}
             unidad="g"
             color="#a78bfa"
           />
           <MacroAnillo
-            label="Agua"
+            label={t('cocina.aguaMeta', 'Agua')}
             consumido={aguaDia}
             objetivo={perfil.aguaMl}
             unidad="ml"
@@ -113,13 +115,13 @@ export function ResumenTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-3">Calorías · últimos 7 días</p>
+        <p className="text-sm font-semibold mb-3">{t('cocina.cal7dias', 'Calorías · últimos 7 días')}</p>
         <div className="flex items-stretch justify-between gap-1.5 h-28">
-          {tendencia7.map((t) => {
-            const h = (t.calorias / maxCal) * 100
-            const esHoy = t.fecha === fecha
+          {tendencia7.map((punto) => {
+            const h = (punto.calorias / maxCal) * 100
+            const esHoy = punto.fecha === fecha
             return (
-              <div key={t.fecha} className="flex-1 flex flex-col items-center gap-1">
+              <div key={punto.fecha} className="flex-1 flex flex-col items-center gap-1">
                 <div className="flex-1 w-full flex items-end justify-center">
                   <div
                     className="w-full max-w-8 rounded-t transition-all"
@@ -127,16 +129,16 @@ export function ResumenTab({
                       height: `${Math.max(6, h)}%`,
                       background: esHoy ? COLOR : 'rgba(245,158,11,0.45)',
                     }}
-                    title={`${t.calorias} kcal`}
+                    title={`${punto.calorias} kcal`}
                   />
                 </div>
-                <span className="text-[9px] text-white/40">{t.fecha.slice(8)}</span>
+                <span className="text-[9px] text-white/40">{punto.fecha.slice(8)}</span>
               </div>
             )
           })}
         </div>
         <p className="text-[10px] text-white/35 text-center mt-2">
-          Objetivo diario: {perfil.calorias} kcal
+          {t('cocina.objetivoDiario', `Objetivo diario: ${perfil.calorias} kcal`, { n: String(perfil.calorias) })}
         </p>
       </div>
     </div>

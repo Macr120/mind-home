@@ -4,6 +4,7 @@ import { comidasRepo, planComidasRepo } from '../../core/data/repository'
 import { MOMENTOS } from './constantes'
 import { diasSemana, etiquetaDia, hoyISO, inicioSemana } from './fecha'
 import { getMomento } from './momentos'
+import { useT } from '../../core/i18n/useT'
 
 export function PlanTab({
   semanaInicio,
@@ -75,6 +76,8 @@ export function PlanTab({
     })
   }
 
+  const t = useT()
+
   return (
     <div className="space-y-5">
       <div className="flex gap-1 overflow-x-auto pb-1">
@@ -101,7 +104,7 @@ export function PlanTab({
         onSubmit={agregarPlan}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
-        <p className="text-sm font-semibold">Planificar comida</p>
+        <p className="text-sm font-semibold">{t('cocina.plan.planificar', 'Planificar comida')}</p>
         <div className="grid grid-cols-4 gap-1.5">
           {MOMENTOS.map((m) => (
             <button
@@ -137,7 +140,7 @@ export function PlanTab({
           <input
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            placeholder="Platillo planeado"
+            placeholder={t('cocina.plan.ph.platillo', 'Platillo planeado')}
             className="flex-1 rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
           />
           <input
@@ -152,13 +155,13 @@ export function PlanTab({
           type="submit"
           className="w-full rounded-xl py-2 font-bold bg-amber-400/90 text-black"
         >
-          Añadir al plan de {etiquetaDia(diaSel)}
+          {t('cocina.plan.añadir', `Añadir al plan de ${etiquetaDia(diaSel)}`, { dia: etiquetaDia(diaSel) })}
         </button>
       </form>
 
       <div className="rounded-xl bg-white/5 border border-white/10 divide-y divide-white/5">
         {delDia.length === 0 && (
-          <p className="p-4 text-sm text-white/40">Sin comidas planeadas este día.</p>
+          <p className="p-4 text-sm text-white/40">{t('cocina.plan.vacio', 'Sin comidas planeadas este día.')}</p>
         )}
         {delDia.map((p) => (
           <div key={p.id} className="flex items-center gap-2 px-3 py-2.5 text-sm">
@@ -185,7 +188,7 @@ export function PlanTab({
               onClick={() => copiarAlDiario(p)}
               className="text-[10px] font-semibold text-amber-400 hover:underline"
             >
-              → Diario
+              {t('cocina.plan.diario', '→ Diario')}
             </button>
             <button
               type="button"
@@ -199,9 +202,9 @@ export function PlanTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-2">🛒 Lista de compras (semana)</p>
+        <p className="text-sm font-semibold mb-2">{t('cocina.plan.compras', '🛒 Lista de compras (semana)')}</p>
         {listaCompra.length === 0 ? (
-          <p className="text-sm text-white/40">Planifica comidas para generar la lista.</p>
+          <p className="text-sm text-white/40">{t('cocina.plan.sinCompras', 'Planifica comidas para generar la lista.')}</p>
         ) : (
           <ul className="space-y-1.5">
             {listaCompra.map(([nombre, veces]) => (

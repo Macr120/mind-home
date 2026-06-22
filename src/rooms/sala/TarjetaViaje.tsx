@@ -2,6 +2,7 @@ import type { Viaje } from '../../core/data/db'
 import { Estrellas } from './Estrellas'
 import { COLOR, getEstado, getTipo } from './constantes'
 import { diasEntre, dinero, formatearRango } from './fecha'
+import { useT } from '../../core/i18n/useT'
 
 export function TarjetaViaje({
   viaje,
@@ -14,6 +15,7 @@ export function TarjetaViaje({
   onAbrir: () => void
   onEliminar: () => void
 }) {
+  const t = useT()
   const estado = getEstado(viaje.estado)
   const tipo = getTipo(viaje.tipoViaje)
   const dias = diasEntre(viaje.fechaInicio, viaje.fechaFin)
@@ -39,7 +41,9 @@ export function TarjetaViaje({
             <p className="text-sm text-white/55">
               {viaje.destino}, {viaje.pais}
             </p>
-            <p className="text-xs text-white/40 mt-1">{formatearRango(viaje.fechaInicio, viaje.fechaFin)} · {dias} días</p>
+            <p className="text-xs text-white/40 mt-1">
+              {formatearRango(viaje.fechaInicio, viaje.fechaFin)} · {t('sala.tarjeta.dias', `${dias} días`, { n: String(dias) })}
+            </p>
           </div>
           <button
             type="button"
@@ -48,7 +52,7 @@ export function TarjetaViaje({
               onEliminar()
             }}
             className="text-white/30 hover:text-red-400 text-lg px-1"
-            aria-label="Eliminar"
+            aria-label={t('sala.tarjeta.eliminar', 'Eliminar')}
           >
             ×
           </button>
@@ -77,7 +81,7 @@ export function TarjetaViaje({
               />
             </div>
             <p className="text-[10px] text-white/40 mt-0.5">
-              Gastado {dinero(gastado)} ({Math.round(pct)}%)
+              {t('sala.tarjeta.gastado', `Gastado ${dinero(gastado)} (${Math.round(pct)}%)`, { dinero: dinero(gastado), pct: String(Math.round(pct)) })}
             </p>
           </div>
         )}
