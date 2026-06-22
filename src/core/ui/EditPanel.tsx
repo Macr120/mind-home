@@ -20,9 +20,8 @@ export function EditPanel() {
   const editingRoomId = useLayout((s) => s.editingRoomId)
   const editRoom = useLayout((s) => s.editRoom)
   const setEditMode = useLayout((s) => s.setEditMode)
-  const toggleRoom = useLayout((s) => s.toggleRoom)
-  const placed = useLayout((s) => s.placed)
   const cuartos = useCuartos((s) => s.cuartos)
+  const eliminarCuarto = useCuartos((s) => s.eliminar)
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
   const planosActivo = usePlanos((s) => s.activo)
@@ -38,10 +37,10 @@ export function EditPanel() {
   const color = room ? roomColors[room.id] ?? room.color : planosActivo ? '#6ee7b7' : '#94a3b8'
   const nombre = room ? roomNames[room.id] || room.nombre : ''
 
-  const quitarDelMapa = () => {
+  const eliminarDelMapa = () => {
     if (!room) return
-    toggleRoom(room.id)
-    const otro = cuartos.find((r) => r.id !== room.id && placed[r.id])
+    const otro = cuartos.find((r) => r.id !== room.id)
+    eliminarCuarto(room.id)
     editar(otro ? otro.id : null)
   }
 
@@ -139,10 +138,10 @@ export function EditPanel() {
       {room && (
         <div className="border-t border-white/10 p-3">
           <button
-            onClick={quitarDelMapa}
+            onClick={eliminarDelMapa}
             className="w-full rounded-lg border border-red-400/30 bg-red-400/10 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-400/20"
           >
-            {t('mapa.quitar', 'Quitar del mapa')}
+            {t('mapa.eliminarCuarto', 'Eliminar cuarto')}
           </button>
         </div>
       )}

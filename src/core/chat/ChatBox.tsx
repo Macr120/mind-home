@@ -96,7 +96,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const idioma = useAjustes((s) => s.idioma)
   const entradas = bitacoraRepo.useAll()
   const memorias = memoriasRepo.useAll()
-  const toggleRoom = useLayout((s) => s.toggleRoom)
+  const addRoomGround = useLayout((s) => s.addRoomGround)
   const placed = useLayout((s) => s.placed)
   const mascotaId = useMascota((s) => s.mascota)
   const setMascota = useMascota((s) => s.setMascota)
@@ -259,10 +259,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       return
     }
 
-    // Comandos del arquitecto: agregar / quitar cuarto
+    // Comandos del arquitecto: agregar (asegura colocación) / quitar (elimina) cuarto
     if (interp.comando && interp.roomId) {
-      await toggleRoom(interp.roomId)
-      decir(interp.comando, nombreCorto(interp.roomId))
+      const nom = nombreCorto(interp.roomId)
+      if (interp.comando === 'quitar') await useCuartos.getState().eliminar(interp.roomId)
+      else await addRoomGround(interp.roomId)
+      decir(interp.comando, nom)
       setTexto('')
       return
     }

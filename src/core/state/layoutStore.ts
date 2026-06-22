@@ -195,6 +195,60 @@ const formasDefault = (): Footprints =>
 
 const nivelesDefault = (): Niveles => Object.fromEntries(losCuartos().map((r) => [r.id, 0]))
 
+/**
+ * Garantiza que cada cuarto esté colocado (placed=true) en una celda válida y ÚNICA
+ * dentro de su nivel. Repara estados rotos (sin colocar o solapados en la misma celda)
+ * reubicando a la primera celda libre. Muta placed/cells y devuelve los ids cambiados.
+ */
+function curarColocacionCuartos(
+  cuartos: Cuarto[],
+  placed: Record<string, boolean>,
+  cells: Cells,
+  footprints: Footprints,
+  niveles: Niveles,
+  gridCols: number,
+  gridRows: number,
+): Set<string> {
+  const cambiados = new Set<string>()
+  const ocupadoPorNivel = new Map<number, Set<string>>()
+  const occDe = (lvl: number) => {
+    let s = ocupadoPorNivel.get(lvl)
+    if (!s) ocupadoPorNivel.set(lvl, (s = new Set<string>()))
+    return s
+  }
+  for (const r of cuartos) {
+    if (placed[r.id] !== true) {
+      placed[r.id] = true
+      cambiados.add(r.id)
+    }
+    const occ = occDe(nivelDe(niveles, r.id))
+    const fp = fpDe(footprints, r.id)
+    const cell = cells[r.id]
+    const valida =
+      cell &&
+      cabeEnRejilla(cell, fp, gridCols, gridRows) &&
+      !roomSubCells(cell, fp).some((k) => occ.has(k))
+    let destino: Cell = cell ?? { col: 0, row: 0 }
+    if (!valida) {
+      let libre: Cell | null = null
+      for (let row = 0; row < gridRows && !libre; row++) {
+        for (let col = 0; col < gridCols; col++) {
+          const c = { col, row }
+          if (cabeEnRejilla(c, fp, gridCols, gridRows) && !roomSubCells(c, fp).some((k) => occ.has(k))) {
+            libre = c
+            break
+          }
+        }
+      }
+      destino = libre ?? destino
+      cells[r.id] = destino
+      cambiados.add(r.id)
+    }
+    for (const k of roomSubCells(destino, fp)) occ.add(k)
+  }
+  return cambiados
+}
+
 /** Acota la celda ancla para que el footprint quepa en la rejilla actual. */
 function clampAnchor(cell: Cell, fp: Footprint, cols: number, rows: number): Cell {
   return {
@@ -451,6 +505,13 @@ export const useLayout = create<LayoutState>((set, get) => ({
       if (f?.estilos) edgeStyles[r.id] = f.estilos
       if (f?.pinceles) pinceles[r.id] = f.pinceles
       if (f?.formasCelda) formasCelda[r.id] = f.formasCelda
+    }
+    // Sanar colocación: un cuarto SIEMPRE vive en el mapa, en una celda única.
+    // Repara datos donde un cuarto quedó sin colocar o solapado (p. ej. tras un
+    // "quitar" antiguo), reubicándolo a una celda libre. Persiste solo lo que cambia.
+    const sanados = curarColocacionCuartos(cuartos, placed, cells, footprints, niveles, gridCols, gridRows)
+    for (const rid of sanados) {
+      await upsert(rid, { placed: true, col: cells[rid].col, row: cells[rid].row })
     }
     // Reparación: cada acceso debe tener ABIERTO el muro de su lado tanto en el cuarto
     // superior como en el inferior (accesos viejos no abrían el de abajo → bloqueaban
