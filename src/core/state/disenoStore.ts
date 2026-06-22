@@ -3,7 +3,7 @@ import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto } from '../dat
 import { esMueblePrincipal } from '../house/muebles'
 import type { TemaId } from '../house/temas'
 import type { PisoTipoId } from '../house/pisos'
-import type { TechoTipoId, TechoFormaId, TechoParams } from '../house/techos'
+import type { TechoTipoId, TechoFormaId, TechoParams, TechoCeldaForma } from '../house/techos'
 import { techoSugeridoPorTema, TECHO_PARAMS_DEFAULT } from '../house/techos'
 import type { FondoId } from '../house/fondos'
 import { fondoSugeridoPorTema } from '../house/fondos'
@@ -90,6 +90,8 @@ interface DisenoState {
   roomTechoFormas: Record<string, TechoFormaId>
   /** Parámetros editables de la forma del techo por cuarto (ausente = valores por defecto). */
   roomTechoParams: Record<string, TechoParams>
+  /** Forma de techo POR CELDA: roomId → (offKey `offCol,offRow` → forma). Fabricación por rejilla. */
+  roomTechoFormasCelda: Record<string, Record<string, TechoCeldaForma>>
   /** Extensiones de techo (celdas absolutas fuera del footprint del cuarto). */
   roomTechoExtra: Record<string, import('../house/walls').Cell[]>
   /** objetos colocados (muebles permanentes + decoración) */
@@ -186,6 +188,8 @@ interface DisenoState {
   setRoomTechoForma: (roomId: string, forma: TechoFormaId) => Promise<void>
   /** Ajusta uno o varios parámetros de la forma del techo del cuarto. */
   setRoomTechoParam: (roomId: string, patch: Partial<TechoParams>) => Promise<void>
+  /** Fija (o limpia con null) la forma de techo de UNA celda del cuarto (fabricación por rejilla). */
+  setRoomTechoCeldaForma: (roomId: string, offKey: string, forma: TechoCeldaForma | null) => Promise<void>
   /** Extiende el techo una línea completa (toda una dirección) sobre cuartos vecinos. */
   addTechoLinea: (roomId: string, celdas: import('../house/walls').Cell[]) => Promise<void>
   /** Retrae una línea completa (borde) de extensión del techo. */
@@ -338,6 +342,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   roomMuroImagenAjuste: {},
   roomTechoFormas: {},
   roomTechoParams: {},
+  roomTechoFormasCelda: {},
   roomTechoExtra: {},
   objetos: [],
   draggingObjeto: null,
@@ -371,6 +376,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const roomTechoColors: Record<string, string> = {}
     const roomTechoFormas: Record<string, TechoFormaId> = {}
     const roomTechoParams: Record<string, TechoParams> = {}
+    const roomTechoFormasCelda: Record<string, Record<string, TechoCeldaForma>> = {}
     const roomTechoExtra: Record<string, import('../house/walls').Cell[]> = {}
     let temaGlobal: TemaId | null = null
     let techoTipo: TechoTipoId | null = null
@@ -417,6 +423,9 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       if (d.techoForma) roomTechoFormas[d.roomId] = d.techoForma as TechoFormaId
       if (d.techoParams) {
         roomTechoParams[d.roomId] = { ...TECHO_PARAMS_DEFAULT, ...(d.techoParams as Partial<TechoParams>) }
+      }
+      if (d.techoFormasCelda && Object.keys(d.techoFormasCelda).length) {
+        roomTechoFormasCelda[d.roomId] = d.techoFormasCelda
       }
       if (d.techoExtra?.length) roomTechoExtra[d.roomId] = d.techoExtra
     }
@@ -485,6 +494,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       roomMuroImagenAjuste,
       roomTechoFormas,
       roomTechoParams,
+      roomTechoFormasCelda,
       roomTechoExtra,
       objetos: objetosConMuebles,
       temaGlobal,
@@ -914,6 +924,26 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     }
   },
 
+  setRoomTechoCeldaForma: async (roomId, offKey, forma) => {
+    const prev = get().roomTechoFormasCelda[roomId] ?? {}
+    const next = { ...prev }
+    if (forma) next[offKey] = forma
+    else delete next[offKey]
+    set((s) => {
+      const room = { ...s.roomTechoFormasCelda }
+      if (Object.keys(next).length) room[roomId] = next
+      else delete room[roomId]
+      return { roomTechoFormasCelda: room }
+    })
+    const persistible = Object.keys(next).length ? next : undefined
+    const existing = await db.disenoRooms.where('roomId').equals(roomId).first()
+    if (existing?.id) await db.disenoRooms.update(existing.id, { techoFormasCelda: persistible })
+    else if (persistible) {
+      const defaultColor = colorCuarto(roomId)
+      await db.disenoRooms.add({ roomId, color: defaultColor, nombre: '', techoFormasCelda: persistible })
+    }
+  },
+
   resetRoomTecho: async (roomId) => {
     // Vuelve a heredar el techo de la casa, pero CONSERVA la imagen subida
     // (solo se desactiva) para poder re-elegirla después. Solo el botón ✕ la borra.
@@ -922,12 +952,13 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       const cols = { ...s.roomTechoColors }
       const formas = { ...s.roomTechoFormas }
       const params = { ...s.roomTechoParams }
+      const formasCelda = { ...s.roomTechoFormasCelda }
       const extra = { ...s.roomTechoExtra }
       delete tipos[roomId]; delete cols[roomId]
-      delete formas[roomId]; delete params[roomId]; delete extra[roomId]
+      delete formas[roomId]; delete params[roomId]; delete formasCelda[roomId]; delete extra[roomId]
       return {
         roomTechoTipos: tipos, roomTechoColors: cols,
-        roomTechoFormas: formas, roomTechoParams: params, roomTechoExtra: extra,
+        roomTechoFormas: formas, roomTechoParams: params, roomTechoFormasCelda: formasCelda, roomTechoExtra: extra,
         roomTechoImagenActiva: { ...s.roomTechoImagenActiva, [roomId]: false },
       }
     })
@@ -940,6 +971,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         delete (o as DisenoRoom).techoColor
         delete (o as DisenoRoom).techoForma
         delete (o as DisenoRoom).techoParams
+        delete (o as DisenoRoom).techoFormasCelda
         delete (o as DisenoRoom).techoExtra
       })
     }

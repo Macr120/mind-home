@@ -380,6 +380,7 @@ export function Room3D({
   const roomTechoTipos = useDiseño((s) => s.roomTechoTipos)
   const roomTechoFormas = useDiseño((s) => s.roomTechoFormas)
   const roomTechoParams = useDiseño((s) => s.roomTechoParams)
+  const roomTechoFormasCelda = useDiseño((s) => s.roomTechoFormasCelda)
   const roomTechoColors = useDiseño((s) => s.roomTechoColors)
   const roomTechoImagenes = useDiseño((s) => s.roomTechoImagenes)
   const roomTechoImagenActiva = useDiseño((s) => s.roomTechoImagenActiva)
@@ -486,6 +487,11 @@ export function Room3D({
       : idAbajo !== undefined
         ? (roomTechoParams[idAbajo] ?? techoParamsPropia)
         : techoParamsPropia
+
+  // Fabricación de techo POR CELDA (rejilla): si el cuarto tiene formas de celda,
+  // cada celda se dibuja con su propia forma (las no tocadas quedan planas).
+  const techoCeldas = roomTechoFormasCelda[id] ?? {}
+  const hayTechoPorCelda = Object.keys(techoCeldas).length > 0
 
   // Plano sin inclinación = losetas por celda; cualquier otra forma (o plano inclinado) = pieza única.
   const techoPlanoLosetas = techoForma === 'plano' && techoParams.inclinacion <= 0
@@ -851,7 +857,7 @@ export function Room3D({
           ))}
 
       {/* Techo (toggle 🏠): losa por celda o forma única según configuración. */}
-      {conTecho && hayTechoVisible && techoPlanoLosetas &&
+      {conTecho && hayTechoVisible && !hayTechoPorCelda && techoPlanoLosetas &&
         offsetsTechoVisibles.map((off, i) => {
           const [lx, lz] = cellLocalRect(off, boundsTechoRect)
           return (
@@ -874,7 +880,7 @@ export function Room3D({
             />
           )
         })}
-      {conTecho && hayTechoVisible && !techoPlanoLosetas && (
+      {conTecho && hayTechoVisible && !hayTechoPorCelda && !techoPlanoLosetas && (
         <group position={[techoDx, 0, techoDz]}>
           <TechoForma
             forma={techoForma}
@@ -897,6 +903,62 @@ export function Room3D({
           />
         </group>
       )}
+
+      {/* Techo POR CELDA (rejilla): cada celda con su forma; las no tocadas, planas.
+          Por ahora la forma 3D solo se aplica a celdas CUADRADAS (triángulo/círculo: losa plana). */}
+      {conTecho && hayTechoVisible && hayTechoPorCelda &&
+        offsetsTechoVisibles.map((off, i) => {
+          const [lx, lz] = cellLocalRect(off, boundsTechoRect)
+          const clave = claveCeldaOff(off.col, off.row)
+          const cf = techoCeldas[clave]
+          const formaPiso = formaEnCelda(formasEfectivas, clave)
+          const usaForma =
+            !!cf &&
+            esFormaCuadrada(formaPiso) &&
+            !(cf.forma === 'plano' && cf.params.inclinacion <= 0)
+          if (!usaForma) {
+            return (
+              <TechoLoseta
+                key={i}
+                tipo={techoTipo}
+                colorCuarto={techoColor}
+                tinte={techoTinte}
+                imagen={techoImagen}
+                imagenAjuste={techoImagenAjuste}
+                y={alturaTecho + 0.06}
+                lx={lx}
+                lz={lz}
+                mN={margenLado(off, 0, -1)}
+                mS={margenLado(off, 0, 1)}
+                mO={margenLado(off, -1, 0)}
+                mE={margenLado(off, 1, 0)}
+                atenuado={atenuado}
+                formaLoseta={formaPiso}
+              />
+            )
+          }
+          return (
+            <group key={i} position={[lx, alturaTecho + 0.06, lz]}>
+              <TechoForma
+                forma={cf.forma}
+                params={cf.params}
+                tipo={techoTipo}
+                colorCuarto={techoColor}
+                tinte={techoTinte}
+                imagen={techoImagen}
+                imagenAjuste={techoImagenAjuste}
+                W={SIZE}
+                H={SIZE}
+                yBase={0}
+                margenN={margenLado(off, 0, -1)}
+                margenS={margenLado(off, 0, 1)}
+                margenO={margenLado(off, -1, 0)}
+                margenE={margenLado(off, 1, 0)}
+                atenuado={atenuado}
+              />
+            </group>
+          )
+        })}
 
       {/* Objetos (mueble + decoración) — ocultos en cuartos atenuados.
           El tema activo re-viste sus primitivas vía TemaContext. */}

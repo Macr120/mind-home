@@ -451,6 +451,12 @@ export interface DisenoRoom {
   techoParams?: import('../house/techos').TechoParams
   /** Celdas absolutas (col,row) donde el techo se extiende más allá del footprint. */
   techoExtra?: import('../house/walls').Cell[]
+  /**
+   * Forma de techo POR CELDA (clave `offCol,offRow`). Si una celda aparece aquí,
+   * su techo se fabrica individualmente con esa forma; las demás usan la forma del
+   * cuarto. Vacío/ausente = techo en conjunto (forma única del cuarto).
+   */
+  techoFormasCelda?: Record<string, import('../house/techos').TechoCeldaForma>
 }
 
 /** Objeto colocado en un cuarto (catálogo o mueble temático). */

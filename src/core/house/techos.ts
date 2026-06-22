@@ -311,3 +311,50 @@ export const TECHO_PARAMS_DEFAULT: TechoParams = {
   inclinacion: 0,
   dir: 0,
 }
+
+// ── Forma del techo POR CELDA ─────────────────────────────────────────────────
+/** Forma + parámetros de techo de UNA celda (fabricación por rejilla). */
+export interface TechoCeldaForma {
+  forma: TechoFormaId
+  params: TechoParams
+}
+
+/** Opción de techo elegible para una celda (preset base que el usuario rota/ajusta). */
+export interface TechoCeldaPreset {
+  id: string
+  nombre: string
+  emoji: string
+  forma: TechoFormaId
+  params: Partial<TechoParams>
+}
+
+/**
+ * Opciones de techo para una celda CUADRADA. Las celdas triangular/circular
+ * tendrán su propio juego de opciones (se añaden en un paso posterior).
+ */
+export const TECHO_CELDA_PRESETS_CUADRADO: TechoCeldaPreset[] = [
+  { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
+  { id: 'una_agua', nombre: '1 agua', emoji: '🛖', forma: 'dos_aguas', params: { aguas: 1 } },
+  { id: 'dos_aguas', nombre: '2 aguas', emoji: '🏠', forma: 'dos_aguas', params: { aguas: 2 } },
+  { id: 'piramidal', nombre: 'Pirámide', emoji: '🔺', forma: 'dos_aguas', params: { aguas: 4 } },
+  { id: 'abovedado', nombre: 'Bóveda', emoji: '🛢️', forma: 'abovedado', params: {} },
+  { id: 'cupula', nombre: 'Cúpula', emoji: '🕌', forma: 'cupula', params: {} },
+]
+
+/** Construye la forma de celda a partir de un preset y una dirección (0–3). */
+export function celdaFormaDePreset(preset: TechoCeldaPreset, dir = 0): TechoCeldaForma {
+  return { forma: preset.forma, params: { ...TECHO_PARAMS_DEFAULT, ...preset.params, dir } }
+}
+
+/** Id del preset que corresponde a una forma de celda (para resaltar el activo). */
+export function presetDeCeldaForma(cf: TechoCeldaForma | undefined): string {
+  if (!cf) return 'plano'
+  if (cf.forma === 'cupula') return 'cupula'
+  if (cf.forma === 'abovedado') return 'abovedado'
+  if (cf.forma === 'dos_aguas') {
+    if (cf.params.aguas === 1) return 'una_agua'
+    if (cf.params.aguas === 4) return 'piramidal'
+    return 'dos_aguas'
+  }
+  return 'plano'
+}
