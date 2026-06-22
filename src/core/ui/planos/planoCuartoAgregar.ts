@@ -1,5 +1,3 @@
-import { zonasRepo } from '../../data/repository'
-import { murosInicialesZona } from '../../house/murosZona'
 import type { Cell, Footprint } from '../../house/walls'
 import { celdaEnteraEsLibre, normalizarCeldasEnteras } from '../../house/planoGeometria'
 import { celdasConexas } from '../../house/techoCeldas'
@@ -7,7 +5,10 @@ import type { ZonaPlano } from '../../data/db'
 import type { SeleccionPlano } from '../../state/planosStore'
 import { useCuartos } from '../../state/cuartosStore'
 
-/** Crea un cuarto básico desde las celdas marcadas en el croquis. */
+/**
+ * Crea un CUARTO real desde las celdas marcadas en el croquis. Así aparece en el
+ * menú de Mind Home y admite que se le asigne una app (antes creaba solo una zona).
+ */
 export async function confirmarCuartoAgregar(opts: {
   celdasMarcadas: Cell[]
   nivel: number
@@ -16,10 +17,8 @@ export async function confirmarCuartoAgregar(opts: {
   footprints: Record<string, Footprint>
   niveles: Record<string, number>
   zonas: ZonaPlano[]
-  ocupadoLayout: Set<string>
   setAviso: (aviso: string | null) => void
   limpiarMarcadas: () => void
-  setPendienteNombre: (id: number) => void
   setSeleccion: (s: SeleccionPlano) => void
 }): Promise<void> {
   const {
@@ -30,10 +29,8 @@ export async function confirmarCuartoAgregar(opts: {
     footprints,
     niveles,
     zonas,
-    ocupadoLayout,
     setAviso,
     limpiarMarcadas,
-    setPendienteNombre,
     setSeleccion,
   } = opts
 
@@ -65,20 +62,10 @@ export async function confirmarCuartoAgregar(opts: {
   }
 
   const celdas = espacio.map((c) => ({ col: c.col, row: c.row }))
-  const muros = murosInicialesZona(celdas, nivel, ocupadoLayout, zonas)
 
-  const n = zonas.filter((z) => z.nivel === nivel).length + 1
-  const id = await zonasRepo.add({
-    nombre: `Cuarto ${n}`,
-    color: '#94a3b8',
-    nivel,
-    celdas,
-    pisoTipo: null,
-    pisoColor: '#a8a29e',
-    muros,
-  })
+  const n = useCuartos.getState().cuartos.length + 1
+  const id = await useCuartos.getState().crearEnCeldas({ nombre: `Cuarto ${n}` }, celdas, nivel)
   limpiarMarcadas()
   setAviso(null)
-  setPendienteNombre(id)
-  setSeleccion({ tipo: 'zona', zonaId: id })
+  setSeleccion({ tipo: 'cuarto', roomId: id })
 }

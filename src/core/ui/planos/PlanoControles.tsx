@@ -150,7 +150,6 @@ export function PlanoControles() {
   const cells = useLayout((s) => s.cells)
   const footprints = useLayout((s) => s.footprints)
   const niveles = useLayout((s) => s.niveles)
-  const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
   const accesos = useLayout((s) => s.accesos)
   const nivel = usePlanos((s) => s.nivel)
   const capa = usePlanos((s) => s.capa)
@@ -166,7 +165,6 @@ export function PlanoControles() {
   const limpiarMarcadas = usePlanos((s) => s.limpiarMarcadas)
   const deshacerMarcada = usePlanos((s) => s.deshacerMarcada)
   const setAviso = usePlanos((s) => s.setAviso)
-  const setPendienteNombre = usePlanos((s) => s.setPendienteNombre)
   const setSeleccion = usePlanos((s) => s.setSeleccion)
   const seleccion = usePlanos((s) => s.seleccion)
 
@@ -195,7 +193,6 @@ export function PlanoControles() {
     celdasConexas(normalizarCeldasEnteras(celdasMarcadas))
 
   const confirmar = () => {
-    const ocupadoLayout = ocupadoPorNivel.get(nivel) ?? new Set<string>()
     void confirmarCuartoAgregar({
       celdasMarcadas,
       nivel,
@@ -204,10 +201,8 @@ export function PlanoControles() {
       footprints,
       niveles,
       zonas,
-      ocupadoLayout,
       setAviso,
       limpiarMarcadas,
-      setPendienteNombre,
       setSeleccion,
     })
   }

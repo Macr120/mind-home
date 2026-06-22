@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { db, type Cuarto } from '../data/db'
+import type { Cell } from '../house/walls'
 
 /**
  * Cuartos creados por el usuario (instancias genéricas). Sustituye al arreglo
@@ -24,6 +25,12 @@ interface CuartosState {
   cargar: () => Promise<void>
   /** Crea un cuarto vacío y lo coloca en una celda libre. Devuelve su id. */
   crear: (parcial?: Partial<Pick<Cuarto, 'nombre' | 'icon' | 'color' | 'categoria'>>) => Promise<string>
+  /** Crea un cuarto con la forma dibujada (celdas absolutas) en un nivel. Devuelve su id. */
+  crearEnCeldas: (
+    parcial: Partial<Pick<Cuarto, 'nombre' | 'icon' | 'color' | 'categoria'>> | undefined,
+    celdas: Cell[],
+    nivel: number,
+  ) => Promise<string>
   renombrar: (id: string, nombre: string) => Promise<void>
   setColor: (id: string, color: string) => Promise<void>
   setIcon: (id: string, icon: string) => Promise<void>
@@ -61,6 +68,25 @@ export const useCuartos = create<CuartosState>((set, get) => ({
     // Import dinámico para evitar el ciclo layoutStore ↔ cuartosStore en la carga.
     const { useLayout } = await import('./layoutStore')
     await useLayout.getState().colocarCuartoNuevo(cuarto.id)
+    return cuarto.id
+  },
+
+  crearEnCeldas: async (parcial, celdas, nivel) => {
+    const cuartos = get().cuartos
+    const orden = cuartos.length
+    const cuarto: Cuarto = {
+      id: nuevoId(),
+      nombre: parcial?.nombre ?? 'Cuarto nuevo',
+      icon: parcial?.icon ?? '🚪',
+      color: parcial?.color ?? COLORES_DEFAULT[orden % COLORES_DEFAULT.length],
+      categoria: parcial?.categoria ?? 'complemento',
+      creado: new Date().toISOString(),
+      orden,
+    }
+    await db.cuartos.add(cuarto)
+    set({ cuartos: [...cuartos, cuarto] })
+    const { useLayout } = await import('./layoutStore')
+    await useLayout.getState().colocarCuartoEnCeldas(cuarto.id, celdas, nivel)
     return cuarto.id
   },
 

@@ -381,6 +381,8 @@ interface LayoutState {
   toggleRoom: (id: string) => Promise<void>
   /** Coloca un cuarto NUEVO (recién creado) en la primera celda libre de planta baja. */
   colocarCuartoNuevo: (id: string) => Promise<void>
+  /** Coloca un cuarto NUEVO con la forma dibujada (celdas absolutas) en un nivel dado. */
+  colocarCuartoEnCeldas: (id: string, celdas: Cell[], nivel: number) => Promise<void>
   /** Retira por completo un cuarto eliminado: estado + filas de layout/diseño/objetos. */
   quitarCuarto: (id: string) => Promise<void>
   /** Coloca un cuarto en planta baja (nivel 0). */
@@ -709,6 +711,24 @@ export const useLayout = create<LayoutState>((set, get) => ({
       ...recompute({ ...get(), placed: newPlaced, cells: newCells, footprints: newFps, niveles: newNiveles }),
     })
     await upsert(id, { placed: true, col: destino.col, row: destino.row, footprint: fp, nivel: 0 })
+  },
+
+  colocarCuartoEnCeldas: async (id, celdas, nivel) => {
+    if (!celdas.length) return get().colocarCuartoNuevo(id)
+    const { zonaAnchorFootprint } = await import('../house/planoGeometria')
+    const { anchor, footprint } = zonaAnchorFootprint(celdas)
+    const placed = { ...get().placed, [id]: true }
+    const cells = { ...get().cells, [id]: anchor }
+    const footprints = { ...get().footprints, [id]: footprint }
+    const niveles = { ...get().niveles, [id]: nivel }
+    set({
+      placed,
+      cells,
+      footprints,
+      niveles,
+      ...recompute({ ...get(), placed, cells, footprints, niveles }),
+    })
+    await upsert(id, { placed: true, col: anchor.col, row: anchor.row, footprint, nivel })
   },
 
   quitarCuarto: async (id) => {
