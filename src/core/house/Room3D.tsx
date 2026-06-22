@@ -44,6 +44,7 @@ import { PINCELES_DEFAULT } from './murosPuertas'
 import type { TipoPuertaId } from './murosPuertas'
 import { TechoLoseta } from './TechoLoseta'
 import { TechoForma } from './TechoForma'
+import { TechoCeldaNoCuadrada } from './TechoCeldaNoCuadrada'
 import { TECHO_PARAMS_DEFAULT } from './techos'
 import { offsetsTecho, techoExtraDeOtroEnCelda } from './techoCeldas'
 import { claveCeldaOff, formaEnCelda, esFormaCuadrada } from './formasLoseta'
@@ -912,11 +913,8 @@ export function Room3D({
           const clave = claveCeldaOff(off.col, off.row)
           const cf = techoCeldas[clave]
           const formaPiso = formaEnCelda(formasEfectivas, clave)
-          const usaForma =
-            !!cf &&
-            esFormaCuadrada(formaPiso) &&
-            !(cf.forma === 'plano' && cf.params.inclinacion <= 0)
-          if (!usaForma) {
+          const esFlat = !cf || (cf.forma === 'plano' && cf.params.inclinacion <= 0)
+          if (esFlat) {
             return (
               <TechoLoseta
                 key={i}
@@ -937,23 +935,40 @@ export function Room3D({
               />
             )
           }
+          // Celda cuadrada: caja TechoForma a escala de celda.
+          if (esFormaCuadrada(formaPiso)) {
+            return (
+              <group key={i} position={[lx, alturaTecho + 0.06, lz]}>
+                <TechoForma
+                  forma={cf.forma}
+                  params={cf.params}
+                  tipo={techoTipo}
+                  colorCuarto={techoColor}
+                  tinte={techoTinte}
+                  imagen={techoImagen}
+                  imagenAjuste={techoImagenAjuste}
+                  W={SIZE}
+                  H={SIZE}
+                  yBase={0}
+                  margenN={margenLado(off, 0, -1)}
+                  margenS={margenLado(off, 0, 1)}
+                  margenO={margenLado(off, -1, 0)}
+                  margenE={margenLado(off, 1, 0)}
+                  atenuado={atenuado}
+                />
+              </group>
+            )
+          }
+          // Celda triangular/circular: geometría propia siguiendo su silueta.
           return (
             <group key={i} position={[lx, alturaTecho + 0.06, lz]}>
-              <TechoForma
-                forma={cf.forma}
-                params={cf.params}
+              <TechoCeldaNoCuadrada
+                formaLoseta={formaPiso}
+                cf={cf}
                 tipo={techoTipo}
                 colorCuarto={techoColor}
                 tinte={techoTinte}
-                imagen={techoImagen}
-                imagenAjuste={techoImagenAjuste}
-                W={SIZE}
-                H={SIZE}
-                yBase={0}
-                margenN={margenLado(off, 0, -1)}
-                margenS={margenLado(off, 0, 1)}
-                margenO={margenLado(off, -1, 0)}
-                margenE={margenLado(off, 1, 0)}
+                tile={SIZE}
                 atenuado={atenuado}
               />
             </group>

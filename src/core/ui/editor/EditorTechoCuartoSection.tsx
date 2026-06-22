@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from 'react'
+import { useRef, type ReactNode } from 'react'
 import type { Cuarto } from '../../data/db'
 import { useDiseño } from '../../state/disenoStore'
 import { useLayout } from '../../state/layoutStore'
@@ -7,12 +7,12 @@ import {
   TECHOS_TEMA,
   TECHO_FORMAS,
   TECHO_PARAMS_DEFAULT,
-  TECHO_CELDA_PRESETS_CUADRADO,
-  celdaFormaDePreset,
+  presetsTechoCelda,
   presetDeCeldaForma,
+  siguienteTechoCelda,
 } from '../../house/techos'
 import { FOOTPRINT_DEFAULT, footprintBounds } from '../../house/walls'
-import { claveCeldaOff, formaEnCelda, esFormaCuadrada } from '../../house/formasLoseta'
+import { claveCeldaOff, formaEnCelda } from '../../house/formasLoseta'
 import { useT } from '../../i18n/useT'
 import { TechoMaterialSwatch } from './TechoMaterialSwatch'
 import { ColorPicker } from './ColorPicker'
@@ -478,7 +478,7 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
   )
 }
 
-/** Fabricación de techo POR CELDA: elige una forma (pincel) y tócala en la rejilla. */
+/** Fabricación de techo POR CELDA: toca una celda para recorrer las formas de SU silueta. */
 function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
   const t = useT()
   const fp = useLayout((s) => s.footprints[roomId]) ?? FOOTPRINT_DEFAULT
@@ -486,83 +486,44 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
   const techoCeldas = useDiseño((s) => s.roomTechoFormasCelda[roomId])
   const setRoomTechoCeldaForma = useDiseño((s) => s.setRoomTechoCeldaForma)
 
-  const [brushId, setBrushId] = useState('dos_aguas')
-  const [dir, setDir] = useState(0)
-
   const bounds = footprintBounds(fp)
   const enFp = (col: number, row: number) => fp.some((c) => c.col === col && c.row === row)
-  const preset =
-    TECHO_CELDA_PRESETS_CUADRADO.find((p) => p.id === brushId) ?? TECHO_CELDA_PRESETS_CUADRADO[0]
+  const presetsDe = (clave: string) => presetsTechoCelda(formaEnCelda(formasCelda, clave).forma)
 
-  const aplicarA = (col: number, row: number) => {
+  const tocar = (col: number, row: number) => {
     const clave = claveCeldaOff(col, row)
-    if (!esFormaCuadrada(formaEnCelda(formasCelda, clave))) return // por ahora solo cuadradas
-    setRoomTechoCeldaForma(
-      roomId,
-      clave,
-      preset.id === 'plano' ? null : celdaFormaDePreset(preset, dir),
-    )
+    const cf = techoCeldas?.[clave]
+    setRoomTechoCeldaForma(roomId, clave, siguienteTechoCelda(cf, presetsDe(clave)))
   }
 
-  const aplicarTodas = () => {
-    for (const c of fp) aplicarA(c.col, c.row)
-  }
-
-  const emojiCelda = (col: number, row: number) => {
-    const pid = presetDeCeldaForma(techoCeldas?.[claveCeldaOff(col, row)])
-    return TECHO_CELDA_PRESETS_CUADRADO.find((p) => p.id === pid)?.emoji ?? '⬛'
+  const aplanarTodo = () => {
+    for (const c of fp) setRoomTechoCeldaForma(roomId, claveCeldaOff(c.col, c.row), null)
   }
 
   return (
     <div className="space-y-2 rounded-lg border border-white/10 bg-black/20 p-2.5">
-      <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">
-        {t('editor.techoCelda.titulo', 'Techo por celda')}
-      </p>
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">
+          {t('editor.techoCelda.titulo', 'Techo por celda')}
+        </p>
+        {techoCeldas && Object.keys(techoCeldas).length > 0 && (
+          <button
+            type="button"
+            onClick={aplanarTodo}
+            className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-semibold text-white/60 transition hover:bg-white/10"
+          >
+            {t('editor.techoCelda.aplanar', 'Aplanar todo')}
+          </button>
+        )}
+      </div>
       <p className="text-[10px] leading-snug text-white/40">
         {t(
           'editor.techoCelda.desc',
-          'Elige una forma y toca las celdas para fabricar el techo celda por celda. (Triángulo y círculo: próximamente.)',
+          'Toca una celda para recorrer sus formas de techo (vuelve a tocar para girar). Cada silueta —cuadrado, triángulo, círculo— tiene sus propias opciones.',
         )}
       </p>
 
-      {/* Pincel: formas disponibles para celda cuadrada */}
-      <div className="grid grid-cols-6 gap-1">
-        {TECHO_CELDA_PRESETS_CUADRADO.map((p) => (
-          <button
-            key={p.id}
-            type="button"
-            onClick={() => setBrushId(p.id)}
-            title={p.nombre}
-            className={`flex items-center justify-center rounded-md border py-1 text-base transition ${
-              brushId === p.id
-                ? 'border-emerald-400/70 bg-emerald-400/15'
-                : 'border-white/10 bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            {p.emoji}
-          </button>
-        ))}
-      </div>
-
-      <div className="flex items-center gap-2">
-        <button
-          type="button"
-          onClick={() => setDir((d) => (d + 1) % 4)}
-          title={t('editor.techoCelda.girar', 'Girar la forma')}
-          className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
-        >
-          🔄 {['↑', '→', '↓', '←'][dir]}
-        </button>
-        <button
-          type="button"
-          onClick={aplicarTodas}
-          className="flex-1 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
-        >
-          {t('editor.techoCelda.todas', 'Aplicar a todas')}
-        </button>
-      </div>
-
-      {/* Rejilla del cuarto: cada celda muestra su forma de techo */}
+      {/* Rejilla del cuarto: cada celda muestra su forma de techo según su silueta */}
       <div
         className="inline-grid gap-0.5"
         style={{ gridTemplateColumns: `repeat(${bounds.w}, 1.5rem)` }}
@@ -570,23 +531,19 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
         {Array.from({ length: bounds.h }).flatMap((_, row) =>
           Array.from({ length: bounds.w }).map((_, col) => {
             if (!enFp(col, row)) return <span key={`${col},${row}`} />
-            const cuadrada = esFormaCuadrada(formaEnCelda(formasCelda, claveCeldaOff(col, row)))
+            const clave = claveCeldaOff(col, row)
+            const preset = presetDeCeldaForma(techoCeldas?.[clave], presetsDe(clave))
+            const formaPiso = formaEnCelda(formasCelda, clave).forma
+            const icono = formaPiso === 'triangular' ? '◣' : formaPiso === 'circular' ? '◔' : ''
             return (
               <button
                 key={`${col},${row}`}
                 type="button"
-                onClick={() => aplicarA(col, row)}
-                disabled={!cuadrada}
-                title={
-                  cuadrada
-                    ? undefined
-                    : t('editor.techoCelda.soloCuadrado', 'Por ahora solo celdas cuadradas')
-                }
-                className={`flex h-6 w-6 items-center justify-center rounded text-sm transition ${
-                  cuadrada ? 'bg-white/10 hover:bg-white/20' : 'cursor-not-allowed bg-white/5 opacity-40'
-                }`}
+                onClick={() => tocar(col, row)}
+                title={`${preset.nombre}${icono ? ` · ${icono}` : ''}`}
+                className="flex h-6 w-6 items-center justify-center rounded bg-white/10 text-sm transition hover:bg-white/20"
               >
-                {cuadrada ? emojiCelda(col, row) : '·'}
+                {preset.emoji}
               </button>
             )
           }),

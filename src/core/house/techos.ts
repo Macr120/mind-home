@@ -326,35 +326,71 @@ export interface TechoCeldaPreset {
   emoji: string
   forma: TechoFormaId
   params: Partial<TechoParams>
+  /** true si la orientación (dir) cambia su aspecto (se puede girar). */
+  gira?: boolean
 }
 
-/**
- * Opciones de techo para una celda CUADRADA. Las celdas triangular/circular
- * tendrán su propio juego de opciones (se añaden en un paso posterior).
- */
+/** Opciones de techo para una celda CUADRADA. */
 export const TECHO_CELDA_PRESETS_CUADRADO: TechoCeldaPreset[] = [
   { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
-  { id: 'una_agua', nombre: '1 agua', emoji: '🛖', forma: 'dos_aguas', params: { aguas: 1 } },
-  { id: 'dos_aguas', nombre: '2 aguas', emoji: '🏠', forma: 'dos_aguas', params: { aguas: 2 } },
+  { id: 'una_agua', nombre: '1 agua', emoji: '🛖', forma: 'dos_aguas', params: { aguas: 1 }, gira: true },
+  { id: 'dos_aguas', nombre: '2 aguas', emoji: '🏠', forma: 'dos_aguas', params: { aguas: 2 }, gira: true },
   { id: 'piramidal', nombre: 'Pirámide', emoji: '🔺', forma: 'dos_aguas', params: { aguas: 4 } },
-  { id: 'abovedado', nombre: 'Bóveda', emoji: '🛢️', forma: 'abovedado', params: {} },
+  { id: 'abovedado', nombre: 'Bóveda', emoji: '🛢️', forma: 'abovedado', params: {}, gira: true },
   { id: 'cupula', nombre: 'Cúpula', emoji: '🕌', forma: 'cupula', params: {} },
 ]
+
+/** Opciones de techo para una celda TRIANGULAR. */
+export const TECHO_CELDA_PRESETS_TRIANGULO: TechoCeldaPreset[] = [
+  { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
+  { id: 'pico', nombre: 'Pico', emoji: '⛺', forma: 'cupula', params: {} },
+  { id: 'una_agua', nombre: '1 agua', emoji: '🛖', forma: 'dos_aguas', params: { aguas: 1 }, gira: true },
+]
+
+/** Opciones de techo para una celda CIRCULAR (cuarto de círculo). */
+export const TECHO_CELDA_PRESETS_CIRCULO: TechoCeldaPreset[] = [
+  { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
+  { id: 'cono', nombre: 'Cono', emoji: '🔻', forma: 'cupula', params: {} },
+]
+
+/** Presets de techo válidos para la forma de piso de una celda. */
+export function presetsTechoCelda(
+  forma: 'cuadrado' | 'triangular' | 'circular' | undefined,
+): TechoCeldaPreset[] {
+  if (forma === 'triangular') return TECHO_CELDA_PRESETS_TRIANGULO
+  if (forma === 'circular') return TECHO_CELDA_PRESETS_CIRCULO
+  return TECHO_CELDA_PRESETS_CUADRADO
+}
 
 /** Construye la forma de celda a partir de un preset y una dirección (0–3). */
 export function celdaFormaDePreset(preset: TechoCeldaPreset, dir = 0): TechoCeldaForma {
   return { forma: preset.forma, params: { ...TECHO_PARAMS_DEFAULT, ...preset.params, dir } }
 }
 
-/** Id del preset que corresponde a una forma de celda (para resaltar el activo). */
-export function presetDeCeldaForma(cf: TechoCeldaForma | undefined): string {
-  if (!cf) return 'plano'
-  if (cf.forma === 'cupula') return 'cupula'
-  if (cf.forma === 'abovedado') return 'abovedado'
-  if (cf.forma === 'dos_aguas') {
-    if (cf.params.aguas === 1) return 'una_agua'
-    if (cf.params.aguas === 4) return 'piramidal'
-    return 'dos_aguas'
+/** Preset (de la lista dada) que corresponde a una forma de celda, para resaltar el activo. */
+export function presetDeCeldaForma(
+  cf: TechoCeldaForma | undefined,
+  presets: TechoCeldaPreset[] = TECHO_CELDA_PRESETS_CUADRADO,
+): TechoCeldaPreset {
+  if (!cf) return presets[0]
+  const m = presets.find(
+    (p) =>
+      p.forma === cf.forma &&
+      (cf.forma !== 'dos_aguas' || (p.params.aguas ?? 2) === (cf.params.aguas ?? 2)),
+  )
+  return m ?? presets[0]
+}
+
+/** Siguiente forma de techo al tocar una celda: gira las direccionales, luego avanza. */
+export function siguienteTechoCelda(
+  cf: TechoCeldaForma | undefined,
+  presets: TechoCeldaPreset[],
+): TechoCeldaForma | null {
+  const actual = presetDeCeldaForma(cf, presets)
+  const idx = presets.findIndex((p) => p.id === actual.id)
+  if (cf && actual.gira && (cf.params.dir ?? 0) < 3) {
+    return { forma: cf.forma, params: { ...cf.params, dir: (cf.params.dir ?? 0) + 1 } }
   }
-  return 'plano'
+  const next = presets[(idx + 1) % presets.length]
+  return next.id === 'plano' ? null : celdaFormaDePreset(next, 0)
 }

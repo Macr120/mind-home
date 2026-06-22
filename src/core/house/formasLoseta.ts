@@ -488,3 +488,35 @@ export function geometriaTechoLoseta3D(
 export function esFormaCuadrada(formaLoseta?: CeldaFormaLoseta): boolean {
   return !formaLoseta || formaLoseta.forma === 'cuadrado'
 }
+
+/**
+ * Contorno (perímetro) de la loseta en el plano del mundo (x,z), centrado en la celda.
+ * Usa la misma silueta que el piso (incluye el arco en celdas circulares). Sirve de
+ * base para fabricar el techo por celda (tienda, cono, pendiente).
+ */
+export function outlineCeldaXZ(formaLoseta: CeldaFormaLoseta, tile: number): { x: number; z: number }[] {
+  // shapeLoseta3D vive en X/Y; el piso se tumba con rotateX(-90°) → Y pasa a -Z.
+  const pts = shapeLoseta3D(formaLoseta, tile).getPoints(24).map((p) => ({ x: p.x, z: -p.y }))
+  // Quita duplicados consecutivos (incl. el cierre) para no generar caras degeneradas.
+  const out: { x: number; z: number }[] = []
+  for (const p of pts) {
+    const last = out[out.length - 1]
+    if (!last || Math.abs(last.x - p.x) > 1e-4 || Math.abs(last.z - p.z) > 1e-4) out.push(p)
+  }
+  return out
+}
+
+/** Centro del círculo (esquina recta) de una celda circular, en mundo (x,z). */
+export function centroCirculoCelda(formaLoseta: CeldaFormaLoseta, tile: number): { x: number; z: number } {
+  const h = tile / 2
+  switch (esquinaCuartoCirculo(formaLoseta.rotacion)) {
+    case 'tr':
+      return { x: h, z: -h }
+    case 'tl':
+      return { x: -h, z: -h }
+    case 'bl':
+      return { x: -h, z: h }
+    default:
+      return { x: h, z: h }
+  }
+}
