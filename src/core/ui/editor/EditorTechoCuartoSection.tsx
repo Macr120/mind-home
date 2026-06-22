@@ -1,4 +1,4 @@
-import { useRef, type ReactNode } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import type { Cuarto } from '../../data/db'
 import { useDiseño } from '../../state/disenoStore'
 import { useLayout } from '../../state/layoutStore'
@@ -9,8 +9,10 @@ import {
   TECHO_PARAMS_DEFAULT,
   presetsTechoCelda,
   presetDeCeldaForma,
-  siguienteTechoCelda,
+  celdaFormaDePreset,
 } from '../../house/techos'
+import type { TechoCeldaForma } from '../../house/techos'
+import type { FormaLoseta } from '../../house/formasLoseta'
 import { FOOTPRINT_DEFAULT, footprintBounds } from '../../house/walls'
 import { claveCeldaOff, formaEnCelda } from '../../house/formasLoseta'
 import { useT } from '../../i18n/useT'
@@ -478,23 +480,24 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
   )
 }
 
-/** Fabricación de techo POR CELDA: toca una celda para recorrer las formas de SU silueta. */
+const NOMBRE_SILUETA: Record<FormaLoseta, string> = {
+  cuadrado: 'Cuadrado',
+  triangular: 'Triángulo',
+  circular: 'Círculo',
+}
+
+/** Fabricación de techo POR CELDA: selecciona una celda y ajusta el techo de SU silueta. */
 function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
   const t = useT()
   const fp = useLayout((s) => s.footprints[roomId]) ?? FOOTPRINT_DEFAULT
   const formasCelda = useLayout((s) => s.formasCelda[roomId])
   const techoCeldas = useDiseño((s) => s.roomTechoFormasCelda[roomId])
   const setRoomTechoCeldaForma = useDiseño((s) => s.setRoomTechoCeldaForma)
+  const [sel, setSel] = useState<string | null>(null)
 
   const bounds = footprintBounds(fp)
   const enFp = (col: number, row: number) => fp.some((c) => c.col === col && c.row === row)
-  const presetsDe = (clave: string) => presetsTechoCelda(formaEnCelda(formasCelda, clave).forma)
-
-  const tocar = (col: number, row: number) => {
-    const clave = claveCeldaOff(col, row)
-    const cf = techoCeldas?.[clave]
-    setRoomTechoCeldaForma(roomId, clave, siguienteTechoCelda(cf, presetsDe(clave)))
-  }
+  const formaPisoDe = (clave: string) => formaEnCelda(formasCelda, clave).forma
 
   const aplanarTodo = () => {
     for (const c of fp) setRoomTechoCeldaForma(roomId, claveCeldaOff(c.col, c.row), null)
@@ -519,11 +522,11 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
       <p className="text-[10px] leading-snug text-white/40">
         {t(
           'editor.techoCelda.desc',
-          'Toca una celda para recorrer sus formas de techo (vuelve a tocar para girar). Cada silueta —cuadrado, triángulo, círculo— tiene sus propias opciones.',
+          'Selecciona una celda y ajusta su techo abajo. Cada silueta —cuadrado, triángulo, círculo— tiene sus propias opciones.',
         )}
       </p>
 
-      {/* Rejilla del cuarto: cada celda muestra su forma de techo según su silueta */}
+      {/* Rejilla: cada celda muestra su forma de techo; clic = seleccionar */}
       <div
         className="inline-grid gap-0.5"
         style={{ gridTemplateColumns: `repeat(${bounds.w}, 1.5rem)` }}
@@ -532,16 +535,20 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
           Array.from({ length: bounds.w }).map((_, col) => {
             if (!enFp(col, row)) return <span key={`${col},${row}`} />
             const clave = claveCeldaOff(col, row)
-            const preset = presetDeCeldaForma(techoCeldas?.[clave], presetsDe(clave))
-            const formaPiso = formaEnCelda(formasCelda, clave).forma
-            const icono = formaPiso === 'triangular' ? '◣' : formaPiso === 'circular' ? '◔' : ''
+            const formaPiso = formaPisoDe(clave)
+            const preset = presetDeCeldaForma(techoCeldas?.[clave], presetsTechoCelda(formaPiso))
+            const seleccionada = sel === clave
             return (
               <button
                 key={`${col},${row}`}
                 type="button"
-                onClick={() => tocar(col, row)}
-                title={`${preset.nombre}${icono ? ` · ${icono}` : ''}`}
-                className="flex h-6 w-6 items-center justify-center rounded bg-white/10 text-sm transition hover:bg-white/20"
+                onClick={() => setSel(clave)}
+                title={`${NOMBRE_SILUETA[formaPiso]} · ${preset.nombre}`}
+                className={`flex h-6 w-6 items-center justify-center rounded text-sm transition ${
+                  seleccionada
+                    ? 'bg-emerald-400/20 ring-1 ring-emerald-400/70'
+                    : 'bg-white/10 hover:bg-white/20'
+                }`}
               >
                 {preset.emoji}
               </button>
@@ -549,6 +556,160 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
           }),
         )}
       </div>
+
+      {/* Panel paramétrico de la celda seleccionada (según su silueta) */}
+      {sel && enFp(...claveACol(sel)) && (
+        <AjustesCeldaTecho
+          roomId={roomId}
+          clave={sel}
+          silueta={formaPisoDe(sel)}
+          cf={techoCeldas?.[sel]}
+        />
+      )}
+    </div>
+  )
+}
+
+/** Convierte una clave `col,row` en [col, row]. */
+function claveACol(clave: string): [number, number] {
+  const [c, r] = clave.split(',').map(Number)
+  return [c, r]
+}
+
+/** Ajustes paramétricos del techo de UNA celda, adaptados a su silueta. */
+function AjustesCeldaTecho({
+  roomId,
+  clave,
+  silueta,
+  cf,
+}: {
+  roomId: string
+  clave: string
+  silueta: FormaLoseta
+  cf: TechoCeldaForma | undefined
+}) {
+  const t = useT()
+  const setRoomTechoCeldaForma = useDiseño((s) => s.setRoomTechoCeldaForma)
+  const presets = presetsTechoCelda(silueta)
+  const activo = presetDeCeldaForma(cf, presets)
+  const p = cf?.params ?? TECHO_PARAMS_DEFAULT
+
+  const elegir = (presetId: string) => {
+    const preset = presets.find((x) => x.id === presetId) ?? presets[0]
+    setRoomTechoCeldaForma(
+      roomId,
+      clave,
+      preset.id === 'plano' ? null : celdaFormaDePreset(preset, p.dir),
+    )
+  }
+  const setParam = (patch: Partial<typeof p>) => {
+    if (!cf) return
+    setRoomTechoCeldaForma(roomId, clave, { forma: cf.forma, params: { ...cf.params, ...patch } })
+  }
+
+  return (
+    <div className="space-y-2.5 rounded-lg border border-emerald-400/25 bg-emerald-400/[0.04] p-2.5">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-300/70">
+        {t('editor.techoCelda.celda', 'Celda')} · {NOMBRE_SILUETA[silueta]}
+      </p>
+
+      {/* Formas válidas para esta silueta */}
+      <div className={`grid gap-1.5 ${presets.length >= 6 ? 'grid-cols-6' : 'grid-cols-3'}`}>
+        {presets.map((pr) => (
+          <button
+            key={pr.id}
+            type="button"
+            onClick={() => elegir(pr.id)}
+            title={pr.nombre}
+            className={`flex items-center justify-center rounded-md border py-1 text-base transition ${
+              activo.id === pr.id
+                ? 'border-emerald-400/70 bg-emerald-400/15'
+                : 'border-white/10 bg-white/5 hover:bg-white/10'
+            }`}
+          >
+            {pr.emoji}
+          </button>
+        ))}
+      </div>
+
+      {/* Parámetros según la forma elegida (solo si no es plano) */}
+      {cf && (
+        <>
+          {silueta === 'cuadrado' && cf.forma === 'plano' && (
+            <Slider
+              label={t('editor.techoCuarto.inclinacion', 'Inclinación')}
+              value={p.inclinacion}
+              min={0}
+              max={1}
+              step={0.05}
+              onChange={(v) => setParam({ inclinacion: v })}
+            />
+          )}
+
+          {cf.forma === 'dos_aguas' && silueta === 'cuadrado' && (
+            <div>
+              <span className="mb-1 block text-[10px] text-white/45">
+                {t('editor.techoCuarto.aguas', 'N° de aguas')}
+              </span>
+              <div className="grid grid-cols-3 gap-1.5">
+                {[
+                  { n: 1, et: t('editor.techoCuarto.aguas1', '1 · inclinado') },
+                  { n: 2, et: t('editor.techoCuarto.aguas2', '2 · dos aguas') },
+                  { n: 4, et: t('editor.techoCuarto.aguas4', '4 · pabellón') },
+                ].map(({ n, et }) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => setParam({ aguas: n })}
+                    className={[
+                      'rounded-md border px-1 py-1.5 text-[10px] font-semibold transition',
+                      p.aguas === n
+                        ? 'border-amber-400/70 bg-amber-400/15 text-amber-200'
+                        : 'border-white/10 bg-white/5 text-white/55 hover:bg-white/10',
+                    ].join(' ')}
+                  >
+                    {et}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Altura: aplica a casi todas las formas con volumen */}
+          {cf.forma !== 'plano' && (
+            <Slider
+              label={t('editor.techoCuarto.altura', 'Altura')}
+              value={p.altura}
+              min={0.4}
+              max={2}
+              step={0.05}
+              onChange={(v) => setParam({ altura: v })}
+            />
+          )}
+
+          {silueta === 'cuadrado' && cf.forma === 'abovedado' && (
+            <Slider
+              label={t('editor.techoCuarto.curvatura', 'Curvatura')}
+              value={p.curva}
+              min={0.35}
+              max={1}
+              step={0.05}
+              onChange={(v) => setParam({ curva: v })}
+            />
+          )}
+
+          {/* Orientación: solo en formas direccionales (no en pico/cono/cúpula simétricos) */}
+          {activo.gira && (
+            <button
+              type="button"
+              onClick={() => setParam({ dir: ((p.dir ?? 0) + 1) % 4 })}
+              className="w-full rounded-md border border-white/10 bg-white/5 py-1.5 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+            >
+              ⟳ {t('editor.techoCuarto.dir', 'Girar orientación')}
+            </button>
+          )}
+        </>
+      )}
     </div>
   )
 }
