@@ -64,12 +64,12 @@ function Slider({
 
 function ChipForma({
   activo,
-  emoji,
+  formaId,
   nombre,
   onClick,
 }: {
   activo: boolean
-  emoji: string
+  formaId: string
   nombre: string
   onClick: () => void
 }) {
@@ -78,13 +78,13 @@ function ChipForma({
       type="button"
       onClick={onClick}
       className={[
-        'flex flex-col items-center gap-0.5 rounded-lg border px-1 py-2 text-center transition',
+        'flex flex-col items-center gap-1 rounded-lg border px-1 py-1.5 text-center transition',
         activo
           ? 'border-amber-400/70 bg-amber-400/15 text-amber-200'
           : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
       ].join(' ')}
     >
-      <span className="text-lg leading-none">{emoji}</span>
+      <TechoPresetIcono id={formaId} className="h-6 w-9" />
       <span className="text-[10px] font-medium leading-tight">{nombre}</span>
     </button>
   )
@@ -164,6 +164,15 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
   const imagenActiva = !!techoImagen && (roomTechoImagenActiva[room.id] ?? false)
   const ajuste = roomTechoImagenAjuste[room.id] ?? 'x1'
 
+  // Silueta del cuarto: si es UNA sola celda triangular/circular, la forma del
+  // cuarto se elige con las opciones de esa silueta (no las de caja rectangular).
+  const fp = useLayout((s) => s.footprints[room.id]) ?? FOOTPRINT_DEFAULT
+  const formasCelda = useLayout((s) => s.formasCelda[room.id])
+  const techoCeldas = useDiseño((s) => s.roomTechoFormasCelda[room.id])
+  const claveUnica = fp.length === 1 ? claveCeldaOff(fp[0].col, fp[0].row) : null
+  const siluetaUnica = claveUnica ? formaEnCelda(formasCelda, claveUnica).forma : 'cuadrado'
+  const cuartoConForma = !!claveUnica && siluetaUnica !== 'cuadrado' // 1 celda triángulo/círculo
+
   const onSubirImagen = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (!file) return
@@ -185,9 +194,20 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
         )}
       </p>
 
-      {/* Techo por celda (fabricación por rejilla) */}
-      <TechoPorCeldaGrid roomId={room.id} />
+      {/* Techo por celda: solo cuartos de varias celdas (los de 1 celda se editan abajo). */}
+      {fp.length > 1 && <TechoPorCeldaGrid roomId={room.id} />}
 
+      {cuartoConForma ? (
+        // Cuarto de UNA celda triangular/circular: forma propia de su silueta.
+        <AjustesCeldaTecho
+          roomId={room.id}
+          clave={claveUnica!}
+          silueta={siluetaUnica}
+          cf={techoCeldas?.[claveUnica!]}
+          titulo={t('editor.techoCuarto.formaCuarto', 'Forma del cuarto')}
+        />
+      ) : (
+        <>
       {/* Forma (en conjunto) */}
       <div>
         <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wider text-white/40">
@@ -198,7 +218,7 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
             <ChipForma
               key={f.id}
               activo={formaActual === f.id}
-              emoji={f.emoji}
+              formaId={f.id}
               nombre={t(`editor.techoForma.${f.id}` as Parameters<typeof t>[0], f.nombre)}
               onClick={() => setRoomTechoForma(room.id, f.id)}
             />
@@ -304,6 +324,8 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
           </button>
         )}
       </div>
+        </>
+      )}
 
       {/* Material */}
       <div>
@@ -583,11 +605,14 @@ function AjustesCeldaTecho({
   clave,
   silueta,
   cf,
+  titulo,
 }: {
   roomId: string
   clave: string
   silueta: FormaLoseta
   cf: TechoCeldaForma | undefined
+  /** Encabezado alternativo (p. ej. "Forma del cuarto" para cuartos de 1 celda). */
+  titulo?: string
 }) {
   const t = useT()
   const setRoomTechoCeldaForma = useDiseño((s) => s.setRoomTechoCeldaForma)
@@ -611,7 +636,7 @@ function AjustesCeldaTecho({
   return (
     <div className="space-y-2.5 rounded-lg border border-emerald-400/25 bg-emerald-400/[0.04] p-2.5">
       <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-300/70">
-        {t('editor.techoCelda.celda', 'Celda')} · {NOMBRE_SILUETA[silueta]}
+        {titulo ?? `${t('editor.techoCelda.celda', 'Celda')} · ${NOMBRE_SILUETA[silueta]}`}
       </p>
 
       {/* Formas válidas para esta silueta */}
