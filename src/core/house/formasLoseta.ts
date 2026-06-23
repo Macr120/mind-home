@@ -506,6 +506,28 @@ export function outlineCeldaXZ(formaLoseta: CeldaFormaLoseta, tile: number): { x
   return out
 }
 
+/** Los 3 vértices de una celda triangular en mundo (x,z), según su rotación. */
+export function verticesTrianguloXZ(formaLoseta: CeldaFormaLoseta, tile: number): { x: number; z: number }[] {
+  const h = tile / 2
+  let pts: [number, number][]
+  switch (formaLoseta.rotacion) {
+    case 90:
+      pts = [[-h, h], [h, h], [-h, -h]]
+      break
+    case 180:
+      pts = [[h, h], [h, -h], [-h, h]]
+      break
+    case 270:
+      pts = [[h, -h], [-h, -h], [h, h]]
+      break
+    default:
+      pts = [[-h, -h], [-h, h], [h, -h]]
+      break
+  }
+  // shapeLoseta3D vive en X/Y; el piso se tumba con rotateX(-90°) → Y pasa a -Z.
+  return pts.map(([x, y]) => ({ x, z: -y }))
+}
+
 /** Centro del círculo (esquina recta) de una celda circular, en mundo (x,z). */
 export function centroCirculoCelda(formaLoseta: CeldaFormaLoseta, tile: number): { x: number; z: number } {
   const h = tile / 2

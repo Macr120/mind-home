@@ -17,6 +17,7 @@ import { FOOTPRINT_DEFAULT, footprintBounds } from '../../house/walls'
 import { claveCeldaOff, formaEnCelda } from '../../house/formasLoseta'
 import { useT } from '../../i18n/useT'
 import { TechoMaterialSwatch } from './TechoMaterialSwatch'
+import { TechoPresetIcono } from './TechoPresetIcono'
 import { ColorPicker } from './ColorPicker'
 
 const AJUSTES = [
@@ -544,13 +545,13 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
                 type="button"
                 onClick={() => setSel(clave)}
                 title={`${NOMBRE_SILUETA[formaPiso]} · ${preset.nombre}`}
-                className={`flex h-6 w-6 items-center justify-center rounded text-sm transition ${
+                className={`flex h-6 w-6 items-center justify-center rounded transition ${
                   seleccionada
-                    ? 'bg-emerald-400/20 ring-1 ring-emerald-400/70'
-                    : 'bg-white/10 hover:bg-white/20'
+                    ? 'bg-emerald-400/20 text-emerald-200 ring-1 ring-emerald-400/70'
+                    : 'bg-white/10 text-white/80 hover:bg-white/20'
                 }`}
               >
-                {preset.emoji}
+                <TechoPresetIcono id={preset.id} className="h-4 w-5" />
               </button>
             )
           }),
@@ -621,13 +622,13 @@ function AjustesCeldaTecho({
             type="button"
             onClick={() => elegir(pr.id)}
             title={pr.nombre}
-            className={`flex items-center justify-center rounded-md border py-1 text-base transition ${
+            className={`flex items-center justify-center rounded-md border py-1.5 transition ${
               activo.id === pr.id
-                ? 'border-emerald-400/70 bg-emerald-400/15'
-                : 'border-white/10 bg-white/5 hover:bg-white/10'
+                ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-200'
+                : 'border-white/10 bg-white/5 text-white/75 hover:bg-white/10'
             }`}
           >
-            {pr.emoji}
+            <TechoPresetIcono id={pr.id} className="h-5 w-7" />
           </button>
         ))}
       </div>

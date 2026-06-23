@@ -343,8 +343,8 @@ export const TECHO_CELDA_PRESETS_CUADRADO: TechoCeldaPreset[] = [
 /** Opciones de techo para una celda TRIANGULAR. */
 export const TECHO_CELDA_PRESETS_TRIANGULO: TechoCeldaPreset[] = [
   { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
-  { id: 'pico', nombre: 'Pico', emoji: '⛺', forma: 'cupula', params: {} },
-  { id: 'una_agua', nombre: '1 agua', emoji: '🛖', forma: 'dos_aguas', params: { aguas: 1 }, gira: true },
+  { id: 'un_pico', nombre: 'Un pico', emoji: '⛰️', forma: 'cupula', params: {}, gira: true },
+  { id: 'dos_picos', nombre: 'Dos picos', emoji: '⛰️', forma: 'dos_aguas', params: {}, gira: true },
 ]
 
 /** Opciones de techo para una celda CIRCULAR (cuarto de círculo). */
