@@ -21,10 +21,21 @@ export interface Transaccion {
 
 export interface RegistroSueno {
   id?: number
-  fecha: string // ISO yyyy-mm-dd
+  fecha: string // ISO yyyy-mm-dd (día en que se despertó)
   horas: number
   calidad: number // 1-5
   nota?: string
+  /** Hora de acostarse (HH:mm), opcional. */
+  horaAcostarse?: string
+  /** Hora de despertar (HH:mm), opcional. */
+  horaDespertar?: string
+}
+
+/** Horario objetivo de descanso (una sola fila). */
+export interface PerfilDescanso {
+  id?: number
+  horaObjetivoDormir: string // HH:mm
+  horaObjetivoDespertar: string // HH:mm
 }
 
 export interface Anecdota {
@@ -446,6 +457,7 @@ export class MindHomeDB extends Dexie {
   juegosMesa!: Table<JuegoMesa, number>
   progresoTema!: Table<ProgresoTema, number>
   noticias!: Table<Noticia, number>
+  perfilDescanso!: Table<PerfilDescanso, number>
 
   constructor() {
     super('mind-home')
@@ -683,6 +695,39 @@ export class MindHomeDB extends Dexie {
       juegosMesa: '++id, categoria, estado, creadoEn, ultimaPartida',
       progresoTema: '++id, temaId, pilarId, estado, actualizadoEn',
       noticias: '++id, fecha, categoria, leido, destacada, creadoEn',
+    })
+    // v13: Recámara · Descanso premium (horario objetivo de sueño).
+    // `sueno` gana campos no indexados (horaAcostarse/horaDespertar) que no
+    // requieren cambio de esquema; solo se declara la tabla nueva.
+    this.version(13).stores({
+      transacciones: '++id, fecha, tipo, categoria',
+      sueno: '++id, fecha',
+      anecdotas: '++id, fecha',
+      metas: '++id',
+      presupuestos: '++id, categoria',
+      perfilNutricion: '++id',
+      registrosComida: '++id, fecha, momento',
+      planComidas: '++id, fecha, momento',
+      registrosAgua: '++id, fecha',
+      alimentosFavoritos: '++id, nombre',
+      perfilEjercicio: '++id',
+      sesionesEjercicio: '++id, fecha, tipo',
+      seriesFuerza: '++id, sesionId, orden',
+      mediaArchivo: '++id, tipo, genero, fecha, estado, creadoEn',
+      viajes: '++id, estado, pais, fechaInicio, creadoEn',
+      actividadesViaje: '++id, viajeId, fecha, orden',
+      gastosViaje: '++id, viajeId, fecha, categoria',
+      checklistViaje: '++id, viajeId, categoria',
+      sesionesMindfulness: '++id, fecha, tipo',
+      registroAnimo: '++id, fecha',
+      gratitudDiaria: '++id, fecha',
+      perfilMindfulness: '++id',
+      vehiculos: '++id, tipo, creadoEn',
+      registrosMantenimiento: '++id, vehiculoId, fecha, tipo',
+      juegosMesa: '++id, categoria, estado, creadoEn, ultimaPartida',
+      progresoTema: '++id, temaId, pilarId, estado, actualizadoEn',
+      noticias: '++id, fecha, categoria, leido, destacada, creadoEn',
+      perfilDescanso: '++id',
     })
   }
 }
