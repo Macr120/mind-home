@@ -53,6 +53,7 @@ export function createRepository<T extends { id?: number }>(
 
 export const finanzasRepo = createRepository(db.transacciones)
 export const suenoRepo = createRepository(db.sueno)
+export const perfilDescansoRepo = createRepository(db.perfilDescanso, 'id', false)
 export const anecdotasRepo = createRepository(db.anecdotas)
 export const metasRepo = createRepository(db.metas, 'id', false)
 export const presupuestosRepo = createRepository(db.presupuestos, 'id', false)
