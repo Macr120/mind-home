@@ -77,7 +77,7 @@ export function GridResizer() {
                 onClick={() => expandGrid(dir)}
                 disabled={!puedeExpandir}
                 title={`Expandir hacia ${dir}`}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-white/20 bg-black/70 text-base font-bold text-emerald-400 backdrop-blur-sm transition hover:bg-emerald-400/20 disabled:cursor-not-allowed disabled:text-white/20"
+                className="ui-panel-glass flex h-7 w-7 items-center justify-center rounded-md border border-white/20 text-base font-bold text-emerald-400 backdrop-blur-sm transition hover:bg-emerald-400/20 disabled:cursor-not-allowed disabled:text-white/20"
               >
                 +
               </button>
@@ -86,7 +86,7 @@ export function GridResizer() {
                 onClick={() => contractGrid(dir)}
                 disabled={!puedeContr}
                 title={`Contraer desde ${dir}`}
-                className="flex h-7 w-7 items-center justify-center rounded-md border border-white/20 bg-black/70 text-base font-bold text-red-400 backdrop-blur-sm transition hover:bg-red-400/20 disabled:cursor-not-allowed disabled:text-white/20"
+                className="ui-panel-glass flex h-7 w-7 items-center justify-center rounded-md border border-white/20 text-base font-bold text-red-400 backdrop-blur-sm transition hover:bg-red-400/20 disabled:cursor-not-allowed disabled:text-white/20"
               >
                 −
               </button>

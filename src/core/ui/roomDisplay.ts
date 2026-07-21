@@ -3,7 +3,6 @@ import { DESCRIPCIONES } from '../registry'
 const SUBTITULO_FALLBACK: Record<string, string> = {
   recamara: 'Sueño y anécdotas',
   entretenimiento: 'Archivo y juegos de mesa',
-  bodega: 'Inventario y archivo',
   hobbies: 'Pasatiempos y proyectos',
 }
 

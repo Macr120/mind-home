@@ -28,7 +28,7 @@ export function InteractAnchor() {
     const ox = mueble?.x ?? 0
     const oz = mueble?.z ?? 0
     // Altura del nivel del cuarto (la burbuja sigue al cuarto aunque esté elevado).
-    const y0 = nivelBaseY(useLayout.getState().niveles[focusRoomId] ?? 0, useHouse.getState().conTecho)
+    const y0 = nivelBaseY(useLayout.getState().niveles[focusRoomId] ?? 0, !useHouse.getState().explotado)
 
     _world.set(rx + ox, y0 + ALTURA, rz + oz)
     _world.project(camera)

@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import type { ThreeEvent } from '@react-three/fiber'
 import { usePlanos } from '../state/planosStore'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { zonasRepo } from '../data/repository'
-import { aristasEnNivel, COLOR_ARISTA } from './planoGeometria'
+import { aristasEnNivel } from './planoGeometria'
 import { aristasZonasEnNivel } from './murosZona'
 import { paintZonaMuro } from '../ui/planos/paintZonaMuro'
 import {
@@ -13,6 +13,8 @@ import {
   nivelBaseY,
   HALF,
   WALL_H,
+  WALL_T,
+  SIZE,
   FOOTPRINT_DEFAULT,
   type Cell,
   type SideKey,
@@ -27,40 +29,79 @@ const DELTA: Record<SideKey, [number, number]> = {
   E: [HALF, 0],
 }
 
-/** Marcador clicable de una arista en 3D: color según estado, resaltado si está seleccionado. */
-function MarcadorArista({
+// Verde: colocar muro en arista vacía. Ámbar: muro existente seleccionable.
+const COLOR_GHOST_VACIO = '#34d399'
+const COLOR_GHOST_MURO = '#fde047'
+
+// Evita que el colocador de muros libres cree un muro duplicado cuando el clic fue
+// sobre una arista de cuarto/zona (que solo selecciona/edita). Se marca en el pointerdown
+// de la arista y PlanoMuros3DController lo consume (una sola vez) en su pointerup.
+let _clicAristaEn = 0
+function marcarClicArista() {
+  _clicAristaEn = performance.now()
+}
+export function consumirClicArista(): boolean {
+  const reciente = _clicAristaEn > 0 && performance.now() - _clicAristaEn < 1000
+  _clicAristaEn = 0
+  return reciente
+}
+
+/** Caja del muro de una arista según su lado (N/S a lo largo de X; E/O a lo largo de Z). */
+function dimsArista(side: SideKey): [number, number, number] {
+  return side === 'N' || side === 'S' ? [SIZE, WALL_H, WALL_T] : [WALL_T, WALL_H, SIZE]
+}
+
+/**
+ * Arista de muro clicable en 3D: invisible en reposo (sin cubos). Al pasar el cursor (o si
+ * está seleccionada) muestra un ghost translúcido del muro — verde si la arista está vacía
+ * (colocar) o ámbar si ya hay muro (seleccionar/editar). Clic aplica la herramienta.
+ */
+function AristaMuro3D({
   x,
   y,
   z,
-  color,
+  side,
+  vacia,
   resaltado,
   onClick,
 }: {
   x: number
   y: number
   z: number
-  color: string
+  side: SideKey
+  vacia: boolean
   resaltado: boolean
   onClick: (e: ThreeEvent<MouseEvent>) => void
 }) {
+  const [hover, setHover] = useState(false)
+  const activo = hover || resaltado
+  const color = vacia ? COLOR_GHOST_VACIO : COLOR_GHOST_MURO
   return (
     <mesh
       position={[x, y, z]}
       onClick={onClick}
+      onPointerDown={(e) => {
+        e.stopPropagation()
+        marcarClicArista()
+      }}
       onPointerOver={(e) => {
         e.stopPropagation()
+        setHover(true)
         document.body.style.cursor = 'pointer'
       }}
       onPointerOut={() => {
+        setHover(false)
         document.body.style.cursor = 'default'
       }}
     >
-      <boxGeometry args={resaltado ? [0.7, 0.9, 0.7] : [0.5, 0.7, 0.5]} />
+      <boxGeometry args={dimsArista(side)} />
       <meshStandardMaterial
         color={color}
-        emissive={resaltado ? '#ffffff' : color}
-        emissiveIntensity={resaltado ? 0.6 : 0.25}
-        roughness={0.4}
+        transparent
+        opacity={activo ? 0.4 : 0}
+        emissive={color}
+        emissiveIntensity={activo ? 0.5 : 0}
+        depthWrite={false}
       />
     </mesh>
   )
@@ -78,7 +119,7 @@ export function PlanoParedes3DEditor() {
   const seleccion = usePlanos((s) => s.seleccion)
   const setSeleccion = usePlanos((s) => s.setSeleccion)
 
-  const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
   const footprints = useLayout((s) => s.footprints)
@@ -90,8 +131,10 @@ export function PlanoParedes3DEditor() {
   const setEdgeEstilo = useLayout((s) => s.setEdgeEstilo)
   const zonas = zonasRepo.useAll() ?? []
 
-  const activo = planosActivo && capa === 'paredes'
-  const baseY = nivelBaseY(nivel, conTecho) + WALL_H * 0.5
+  // Marcadores por arista solo al CREAR (herramienta 'muro'). En Seleccionar/Puertas/Ventanas
+  // la selección la hace PlanoMuroSelector3D por raycast de la malla real (sin ghost de caja).
+  const activo = planosActivo && capa === 'paredes' && herramienta === 'muro'
+  const baseY = nivelBaseY(nivel, apilado) + WALL_H * 0.5
 
   const aristasCuartos = useMemo(
     () =>
@@ -109,27 +152,19 @@ export function PlanoParedes3DEditor() {
 
   if (!activo) return null
 
-  const colorDe = (estado: WallState, ventana: boolean) => {
-    if (estado === 'puerta') return COLOR_ARISTA.puerta
-    if (estado === 'abierto') return COLOR_ARISTA.abierto
-    return ventana ? COLOR_ARISTA.abierto : COLOR_ARISTA.pared
-  }
-
+  // Solo modo Crear (herramienta 'muro'): si la arista está vacía, se coloca muro; si ya hay
+  // muro, el clic solo la selecciona. (Puerta/ventana se aplican con PlanoMuroSelector3D.)
   const accionCuarto = (roomId: string, off: Cell, side: SideKey, estado: WallState) => {
     setSeleccion({ tipo: 'arista', roomId, off, side })
-    if (herramienta === 'puerta') void paintEdge(roomId, off, side, 'puerta')
-    else if (herramienta === 'ventana') {
-      if (estado !== 'abierto') void setEdgeEstilo(roomId, off, side, { muro: { ventana: true } })
-    } else if (herramienta === 'muro') {
+    if (estado === 'abierto') {
       void paintEdge(roomId, off, side, 'pared')
       void setEdgeEstilo(roomId, off, side, { muro: { ventana: false } })
     }
   }
 
-  const accionZona = (zonaId: number, off: Cell, side: SideKey) => {
+  const accionZona = (zonaId: number, off: Cell, side: SideKey, estado: WallState) => {
     setSeleccion({ tipo: 'arista-zona', zonaId, off, side })
-    if (herramienta === 'puerta') void paintZonaMuro(zonaId, off, side, 'puerta')
-    else if (herramienta === 'muro') void paintZonaMuro(zonaId, off, side, 'pared')
+    if (estado === 'abierto') void paintZonaMuro(zonaId, off, side, 'pared')
   }
 
   return (
@@ -142,6 +177,7 @@ export function PlanoParedes3DEditor() {
         const [lx, lz] = tileLocalEnCuarto(anchor, edge.off, fp)
         const [dx, dz] = DELTA[edge.side]
         const ventana = !!edgeStyles[roomId]?.[`${edge.off.col},${edge.off.row},${edge.side}`]?.muro?.ventana
+        const vacia = estado === 'abierto' && !ventana
         const sel =
           seleccion?.tipo === 'arista' &&
           seleccion.roomId === roomId &&
@@ -149,12 +185,13 @@ export function PlanoParedes3DEditor() {
           seleccion.off.row === edge.off.row &&
           seleccion.side === edge.side
         return (
-          <MarcadorArista
+          <AristaMuro3D
             key={`mc-${roomId}-${i}`}
             x={rx + lx + dx}
             y={baseY}
             z={rz + lz + dz}
-            color={colorDe(estado, ventana)}
+            side={edge.side}
+            vacia={vacia}
             resaltado={sel}
             onClick={(e) => {
               e.stopPropagation()
@@ -171,6 +208,7 @@ export function PlanoParedes3DEditor() {
         const [rx, , rz] = centroCuarto3D(anchor, footprint)
         const [lx, lz] = tileLocalEnCuarto(anchor, edge.off, footprint)
         const [dx, dz] = DELTA[edge.side]
+        const vacia = estado === 'abierto'
         const sel =
           seleccion?.tipo === 'arista-zona' &&
           seleccion.zonaId === zonaId &&
@@ -178,16 +216,17 @@ export function PlanoParedes3DEditor() {
           seleccion.off.row === edge.off.row &&
           seleccion.side === edge.side
         return (
-          <MarcadorArista
+          <AristaMuro3D
             key={`mz-${zonaId}-${i}`}
             x={rx + lx + dx}
             y={baseY}
             z={rz + lz + dz}
-            color={colorDe(estado, false)}
+            side={edge.side}
+            vacia={vacia}
             resaltado={sel}
             onClick={(e) => {
               e.stopPropagation()
-              accionZona(zonaId, edge.off, edge.side)
+              accionZona(zonaId, edge.off, edge.side, estado)
             }}
           />
         )

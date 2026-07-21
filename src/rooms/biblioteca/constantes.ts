@@ -1,26 +1,19 @@
-import type { EstadoTemaEnciclopedia } from '../../core/data/db'
+import { PILARES } from './pilares'
 
 export const COLOR = '#818cf8'
 
-export const ESTADOS_TEMA: {
-  id: EstadoTemaEnciclopedia
-  label: string
-  icon: string
-}[] = [
-  { id: 'explorado', label: 'Explorado', icon: '👀' },
-  { id: 'en_estudio', label: 'En estudio', icon: '📚' },
-  { id: 'revisado', label: 'Revisado', icon: '✅' },
-]
-
-export function getEstadoTema(id: EstadoTemaEnciclopedia) {
-  return ESTADOS_TEMA.find((e) => e.id === id) ?? ESTADOS_TEMA[0]
+/** Campo comodín para charlas y entradas aún sin clasificar. */
+export const PILAR_GENERAL = {
+  id: 'general',
+  titulo: 'General',
+  icon: '🗂️',
+  descripcion: 'Charlas y entradas sin campo asignado todavía.',
 }
 
-export const SIGUIENTE_ESTADO: Record<
-  EstadoTemaEnciclopedia,
-  EstadoTemaEnciclopedia | null
-> = {
-  explorado: 'en_estudio',
-  en_estudio: 'revisado',
-  revisado: null,
+/** Duraciones del temporizador de estudio (minutos). */
+export const DURACIONES_ESTUDIO = [15, 25, 45]
+
+/** Pilar (campo del conocimiento) por id, con fallback al campo General. */
+export function getPilar(id: string) {
+  return PILARES.find((p) => p.id === id) ?? PILAR_GENERAL
 }

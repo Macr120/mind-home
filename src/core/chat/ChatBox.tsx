@@ -1,14 +1,18 @@
-import { useMemo, useRef, useState, useEffect } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
-import { bitacoraRepo, memoriasRepo, mensajesChatRepo, useUltimosMensajes } from '../data/repository'
+import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
 import { useAjustes } from '../state/ajustesStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useMascota } from '../state/mascotaStore'
+import { useDialogo } from '../state/dialogoStore'
 import { useDiseño } from '../state/disenoStore'
 import { playerPos } from '../state/houseStore'
 import { getCatalogoItem } from '../house/catalogo'
 import { interpretar, appsAsignadas } from './dispatcher'
+import { interpretarEdicionLocal } from './editorAcciones'
+import { interpretarAyuda, type AyudaDetectada } from './ayuda'
+import { useTutorial } from '../tutorial/tutorialStore'
 import {
   iaActiva,
   interpretarIA,
@@ -21,11 +25,18 @@ import {
   setModeloLocal,
   type ProveedorId,
 } from './ia'
-import { responder, type EventoTipo } from './mascotas'
+import { responder, nombreAsistente, saludoAsistente, type EventoTipo } from './mascotas'
 import { useAsistentes } from '../state/asistentesStore'
 import { ChatConversacion } from './ChatConversacion'
 import { AsistentesConfig } from './AsistentesConfig'
+import { ManualComandos } from './ManualComandos'
 import { useT } from '../i18n/useT'
+import { Icono } from '../ui/iconos/Icono'
+import { useHud } from '../state/hudStore'
+import { BotonPlegarHud } from '../ui/HudPlegable'
+import { vivo } from '../ui/estilos'
+import { iaHabilitada } from '../edicion'
+import { ErrorIA } from '../cuenta/api'
 
 /** Mínimo de la Web Speech API que usamos (no viene en lib.dom). */
 interface ReconocimientoVoz {
@@ -84,7 +95,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const t = useT()
   const [texto, setTexto] = useState('')
   const [abierto, setAbierto] = useState(false)
-  const [plegado, setPlegado] = useState(false)
+  const plegado = useHud((s) => s.plegado.chat)
   const [retagId, setRetagId] = useState<number | null>(null)
   const [imagen, setImagen] = useState<ImagenLocal | null>(null)
   const [grabando, setGrabando] = useState(false)
@@ -108,34 +119,62 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const setPensando = useMascota((s) => s.setPensando)
   const asistentes = useAsistentes((s) => s.lista)
   const [configAbierto, setConfigAbierto] = useState(false)
+  const [manualAbierto, setManualAbierto] = useState(false)
   // Pestaña del panel: chats (con quién platicaste) o registros de la bitácora.
   const [pestana, setPestana] = useState<'chats' | 'registros'>('chats')
   const ultimos = useUltimosMensajes()
   const addObjeto = useDiseño((s) => s.addObjeto)
   const mascota = asistentes.find((a) => a.id === mascotaId) ?? asistentes[0]
 
-  /** Con el menú lateral abierto, pliega el chat para no tapar la UI. */
-  useEffect(() => {
+  /** Con el menú lateral abierto se cierran los paneles del chat (ajuste en render, sin efecto). */
+  const [prevMenuAbierto, setPrevMenuAbierto] = useState(false)
+  if (menuAbierto !== prevMenuAbierto) {
+    setPrevMenuAbierto(menuAbierto)
     if (menuAbierto) {
       setAbierto(false)
       setConfigAbierto(false)
-      setPlegado(true)
-    } else {
-      setPlegado(false)
     }
+  }
+
+  /**
+   * ...y el chat queda plegado mientras dure (también al arrancar, que el menú ya
+   * viene abierto); al cerrarlo vuelve a su barra. El plegado vive en el store del HUD.
+   */
+  useEffect(() => {
+    useHud.getState().setPlegado('chat', menuAbierto)
   }, [menuAbierto])
 
   // Previsualización en vivo de a dónde irá la entrada.
   const interp = useMemo(() => interpretar(texto), [texto])
+  // Orden de edición de la casa detectada sin IA (pintar, tema, avatar, etc.).
+  const edicion = useMemo(() => interpretarEdicionLocal(texto), [texto])
+  // Petición de ayuda/tutorial detectada sin IA («¿cómo funciona la cocina?»).
+  const ayuda = useMemo(() => interpretarAyuda(texto), [texto])
   // El id detectado puede ser una APP (captura/recordar) o un CUARTO (comando):
   // sus ids son disjuntos, así que se resuelve probando ambos.
   const destino = interp.roomId ? getPlantilla(interp.roomId) ?? getCuarto(interp.roomId) : null
   const destinoCaptura = interp.roomId ? getPlantilla(interp.roomId) : null
   const objetoCat = interp.objeto ? getCatalogoItem(interp.objeto) : null
+  // Color de marca del chip de interpretación (null = neutro). Con `texto-vivo` el
+  // texto queda legible en claro y oscuro; el fondo es un tinte del mismo color.
+  const chipColor =
+    ayuda
+      ? '#a78bfa'
+      : edicion
+        ? '#6ea8fe'
+        : interp.objeto && objetoCat
+          ? objetoCat.defaultColor
+          : interp.comando === 'recordar'
+            ? '#a78bfa'
+            : destino
+              ? destino.color
+              : null
 
-  /** Hace hablar al asistente (la respuesta sale por la burbuja flotante 3D). */
+  /** Hace hablar al asistente del hilo abierto (la respuesta sale por la burbuja flotante 3D). */
   const decir = (tipo: EventoTipo, cuarto?: string, objeto?: string) => {
-    hablar(responder(mascota.forma, { tipo, cuarto, objeto }))
+    const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
+    const quien = asistentes.find((a) => a.id === destinoId) ?? mascota
+    hablar(responder(quien.forma, { tipo, cuarto, objeto }, t), { asistenteId: quien.id })
   }
 
   /** Abre la conversación tipo chat con un asistente (cierra los otros paneles). */
@@ -180,8 +219,8 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       const motivo = ev.error ?? ''
       if (motivo === 'no-speech') return // terminó sin oír nada, no es un error real
       const MENSAJES: Record<string, string> = {
-        'not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado 🔒 junto a la dirección.'),
-        'service-not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado 🔒 junto a la dirección.'),
+        'not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
+        'service-not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
         'audio-capture': t('chat.voz.sinMic', 'No encontré ningún micrófono en este equipo.'),
         network: t('chat.voz.red', 'El dictado del navegador necesita internet.'),
         'language-not-supported': t('chat.voz.idioma', 'Tu navegador no soporta dictado en este idioma.'),
@@ -211,26 +250,56 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   /** Nombre corto traducido (para mostrar en la UI). */
   const nombreCortoT = (roomId: string) =>
     t(`room.${roomId}.nombre`, nombreCorto(roomId))
+  /** Nombre corto del objetivo de una ayuda (app traducida o menú sin el prefijo "Menú ·"). */
+  const nombreAyuda = (a: AyudaDetectada) =>
+    (a.plantillaId
+      ? nombreCortoT(a.plantillaId).split(' · ')[0]
+      : (t(a.tutorial.titulo.clave, a.tutorial.titulo.es).split('·').pop() ?? '').trim()
+    ).toLowerCase()
 
   const enviar = async () => {
     if (!interp.texto.trim() && !imagen) return
-    // El asistente se reubica al lugar desde donde le pediste algo.
-    irA(playerPos.x + 1.2, playerPos.z + 1.2)
+    // Hilo de destino: el diálogo cara a cara manda; luego la conversación abierta; si no, el activo.
+    const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
+    // Contexto para la IA: se lee ANTES de guardar el turno actual (evita duplicarlo).
+    const historial = await ultimosMensajesAsistente(destinoId, 12)
+    // El asistente activo se reubica al lugar desde donde le pediste algo.
+    if (destinoId === mascotaId) irA(playerPos.x + 1.2, playerPos.z + 1.2)
 
-    // Lo que escribes queda en la conversación con el asistente activo.
+    // Lo que escribes queda en la conversación del hilo abierto.
     mensajesChatRepo.add({
-      asistenteId: mascotaId,
+      asistenteId: destinoId,
       rol: 'usuario',
       texto: interp.texto.trim() || '📷 Foto',
       creado: new Date().toISOString(),
     })
+
+    // Ayuda: «¿cómo funciona X?» contesta con el resumen; «tutorial de X» lanza
+    // el tour del mago en pantalla. Determinista: funciona con y sin IA.
+    if (ayuda) {
+      if (ayuda.modo === 'tour') {
+        hablar(t('tut.chat.abriendo', 'Ahí va: el mago te lo enseña en pantalla.'), { asistenteId: destinoId })
+        void useTutorial.getState().iniciar(ayuda.tutorial)
+      } else {
+        hablar(
+          `${t(ayuda.tutorial.resumen.clave, ayuda.tutorial.resumen.es)} ${t(
+            'tut.chat.ofrecer',
+            'Escribe «tutorial de {n}» o pulsa su botón ? y te lo muestro en pantalla.',
+            { n: nombreAyuda(ayuda) },
+          )}`,
+          { asistenteId: destinoId },
+        )
+      }
+      setTexto('')
+      return
+    }
 
     // Crear objeto del catálogo en el cuarto más cercano al avatar.
     if (interp.objeto) {
       const item = getCatalogoItem(interp.objeto)
       const roomId = cuartoMasCercano()
       if (!item || !roomId) {
-        hablar('No hay ningún cuarto en el mapa donde colocarlo. Agrega uno primero.')
+        hablar('No hay ningún cuarto en el mapa donde colocarlo. Agrega uno primero.', { asistenteId: destinoId })
         setTexto('')
         return
       }
@@ -269,27 +338,43 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       return
     }
 
+    // Edición de la casa pedida por chat (pintar, tema, avatar…): funciona con o sin IA.
+    if (edicion) {
+      const msg = await edicion.ejecutar()
+      await bitacoraRepo.add({
+        texto: interp.texto,
+        creado: new Date().toISOString(),
+        procesado: true,
+      })
+      hablar(msg, { asistenteId: destinoId })
+      setTexto('')
+      return
+    }
+
     // Capa de IA: el modelo interpreta, registra vía esquemas y responde en
     // la voz de la mascota. Si falla (sin red, clave inválida), cae al
     // dispatcher determinista de abajo sin que el usuario pierda el mensaje.
     if (conIA) {
       try {
         // Burbuja "pensando…" inmediata: feedback de que el Enter sí envió.
-        setPensando(true)
+        setPensando(true, destinoId)
         const textoMsg = interp.texto.trim() || 'Registra lo que muestra la imagen.'
         const r = await interpretarIA(
           textoMsg,
-          mascotaId,
+          destinoId,
           imagen ? { base64: imagen.base64, mediaType: imagen.mediaType } : null,
+          historial,
         )
         await bitacoraRepo.add({
           texto: interp.texto.trim() || '📷 Foto',
           roomId: r.roomIds[0],
           creado: new Date().toISOString(),
-          procesado: r.capturado,
+          procesado: r.capturado || r.ediciones.length > 0 || !!r.creado3d,
         })
-        if (r.respuesta) hablar(r.respuesta)
-        else if (r.rutinaCreada) hablar(`⏰ Rutina «${r.rutinaCreada}» creada. La verás en el panel de rutinas.`)
+        if (r.creado3d) hablar(r.respuesta ?? t('chat.creado3d', 'Creé «{desc}»: lo puse en el mapa junto a mí y lo guardé en tu inventario 🧊', { desc: r.creado3d }), { asistenteId: destinoId })
+        else if (r.respuesta) hablar(r.respuesta, { asistenteId: destinoId })
+        else if (r.rutinaCreada) hablar(t('chat.rutinaCreada', '⏰ Rutina «{n}» creada. La verás en el panel de rutinas.', { n: r.rutinaCreada }), { asistenteId: destinoId })
+        else if (r.ediciones.length) hablar(r.ediciones.join(' '), { asistenteId: destinoId })
         else if (r.capturado) decir('capturado', r.roomIds.map(nombreCorto).join(' y '))
         else if (r.memoriaGuardada) decir('recordado')
         else decir('sinClasificar')
@@ -297,6 +382,18 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         setImagen(null)
         return
       } catch (err) {
+        // Sin plan o sin cuota: mensaje claro con CTA, no el fallback silencioso.
+        if (err instanceof ErrorIA && (err.codigo === 'cuota-agotada' || err.codigo === 'sin-pro')) {
+          hablar(
+            err.codigo === 'cuota-agotada'
+              ? t('chat.cuotaAgotada', 'Agotaste tu cuota de IA de este mes. Revisa tu uso en Editor → Configuraciones → Cuenta.')
+              : t('chat.sinPro', 'La IA es parte del plan Pro. Actívalo en Editor → Configuraciones → Cuenta.'),
+            { asistenteId: destinoId },
+          )
+          setTexto('')
+          setImagen(null)
+          return
+        }
         console.warn('[Mind Home] IA no disponible, usando dispatcher local:', err)
         setPensando(false)
         setImagen(null) // el dispatcher local no puede ver fotos
@@ -358,7 +455,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
   const recientes = entradas?.slice(0, 15) ?? []
   const memoriasVigentes = memorias?.filter((m) => m.vigente) ?? []
-  const chatPlegado = menuAbierto && plegado && !conversacion
+  const chatPlegado = plegado && !conversacion
 
   return (
     // left-44: margen al joystick (izq.); right-48: deja hueco con el cubo/botones de rotación (der.).
@@ -377,8 +474,19 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         <AsistentesConfig onCerrar={() => setConfigAbierto(false)} />
       )}
 
+      {/* Manual de comandos: qué pedirle al asistente (determinista, por tema) */}
+      {manualAbierto && !conversacion && (
+        <ManualComandos
+          onUsar={(frase) => {
+            setTexto(frase)
+            setManualAbierto(false)
+          }}
+          onCerrar={() => setManualAbierto(false)}
+        />
+      )}
+
       {/* Historial reciente + selector de mascota */}
-      {abierto && !conversacion && !configAbierto && (
+      {abierto && !conversacion && !configAbierto && !manualAbierto && (
         <div className="ui-panel-glass mb-2 max-h-72 overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
           {/* Cabecera: elegir asistente */}
           <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
@@ -396,22 +504,34 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                       abrirConv(m.id)
                     } else {
                       setMascota(m.id)
-                      hablar(m.saludo)
+                      hablar(saludoAsistente(t, m))
                     }
                   }}
                   title={
                     m.id === mascotaId
-                      ? `${m.nombre} · ${t('chat.abrirConv', 'ver conversación')}`
-                      : m.nombre
+                      ? `${nombreAsistente(t, m)} · ${t('chat.abrirConv', 'ver conversación')}`
+                      : nombreAsistente(t, m)
                   }
                   className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg text-lg transition ${
                     m.id === mascotaId ? 'bg-emerald-500/20 ring-1 ring-emerald-400/50' : 'hover:bg-white/10'
                   }`}
                 >
-                  {m.emoji}
+                  <Icono emoji={m.emoji} />
                 </button>
               ))}
             </div>
+            <button
+              type="button"
+              data-tut="chat.manual"
+              onClick={() => {
+                setConfigAbierto(false)
+                setManualAbierto(true)
+              }}
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
+              title={t('chat.manual.abrir', 'Manual: qué puedes pedir')}
+            >
+              <Icono nombre="registros" />
+            </button>
             <button
               type="button"
               onClick={() => {
@@ -421,7 +541,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
               className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
               title={t('chat.config.abrir', 'Configurar asistentes')}
             >
-              ⚙️
+              <Icono nombre="ajustes" />
             </button>
           </div>
 
@@ -434,11 +554,15 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                 onClick={() => setPestana(p)}
                 className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold transition ${
                   pestana === p
-                    ? 'bg-emerald-500/15 text-emerald-300'
+                    ? 'bg-emerald-500/15 text-emerald-400'
                     : 'text-white/40 hover:bg-white/10 hover:text-white/70'
                 }`}
               >
-                {p === 'chats' ? `💬 ${t('chat.tab.chats', 'Chats')}` : `🗒️ ${t('chat.tab.registros', 'Registros')}`}
+                {p === 'chats' ? (
+                  <><Icono nombre="chat" /> {t('chat.tab.chats', 'Chats')}</>
+                ) : (
+                  <><Icono nombre="nota" /> {t('chat.tab.registros', 'Registros')}</>
+                )}
               </button>
             ))}
           </div>
@@ -455,11 +579,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                   className="flex w-full items-center gap-2.5 rounded-xl px-2 py-2 text-left transition hover:bg-white/5"
                 >
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 text-xl">
-                    {m.emoji}
+                    <Icono emoji={m.emoji} />
                   </span>
                   <div className="min-w-0 flex-1">
                     <p className="flex items-baseline justify-between gap-2">
-                      <span className="truncate text-sm font-semibold text-white/85">{m.nombre}</span>
+                      <span className="truncate text-sm font-semibold text-white/85">{nombreAsistente(t, m)}</span>
                       {u && (
                         <span className="shrink-0 text-[10px] text-white/35">
                           {new Date(u.creado).toLocaleTimeString(undefined, {
@@ -474,7 +598,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                         ? u.rol === 'usuario'
                           ? `${t('chat.tu', 'Tú')}: ${u.texto}`
                           : u.texto
-                        : m.saludo}
+                        : saludoAsistente(t, m)}
                     </p>
                   </div>
                 </button>
@@ -486,13 +610,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           {/* Memorias del arquitecto: lo que sabe de ti entre sesiones */}
           {memoriasVigentes.length > 0 && (
             <div className="mb-2 border-b border-white/10 px-1 pb-2">
-              <p className="mb-1 text-[11px] font-semibold text-violet-300/70">
-                🧠 {t('chat.memorias', 'Lo que recuerdo de ti')}
+              <p className="mb-1 text-[11px] font-semibold text-violet-400/70">
+                <Icono nombre="memoria" /> {t('chat.memorias', 'Lo que recuerdo de ti')}
               </p>
               {memoriasVigentes.map((m) => (
                 <div key={m.id} className="flex items-start gap-2 rounded-lg px-1 py-1 hover:bg-white/5">
                   <span className="mt-0.5 text-sm leading-none">
-                    {(m.roomId && (getPlantilla(m.roomId) ?? getCuarto(m.roomId))?.icon) || '🧠'}
+                    <Icono emoji={(m.roomId && (getPlantilla(m.roomId) ?? getCuarto(m.roomId))?.icon) || '🧠'} />
                   </span>
                   <p className="min-w-0 flex-1 break-words text-xs text-white/75">{m.hecho}</p>
                   <button
@@ -501,7 +625,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                     className="px-1 py-0.5 text-[11px] text-white/20 transition hover:text-white/60"
                     title={t('chat.olvidar', 'Olvidar')}
                   >
-                    ✕
+                    <Icono nombre="cerrar" />
                   </button>
                 </div>
               ))}
@@ -520,7 +644,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             return (
               <div key={e.id} className="group">
                 <div className="flex items-start gap-2 rounded-xl px-2 py-1.5 hover:bg-white/5">
-                  <span className="mt-0.5 text-base leading-none">{room ? room.icon : '🗒️'}</span>
+                  <span className="mt-0.5 text-base leading-none"><Icono emoji={room ? room.icon : '🗒️'} /></span>
                   {/* Tocar el registro abre la conversación con el asistente. */}
                   <div
                     className="min-w-0 flex-1 cursor-pointer"
@@ -530,7 +654,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                     <p className="break-words text-sm text-white/85">{e.texto}</p>
                     <p className="flex items-center gap-1.5 text-[10px] text-white/35">
                       <span>{room ? nombreCortoT(room.id) : t('chat.sinClasificar', 'Sin clasificar')}</span>
-                      {e.procesado && <span className="text-emerald-400">✓ {t('chat.capturado', 'capturado')}</span>}
+                      {e.procesado && <span className="text-emerald-400"><Icono nombre="confirmar" /> {t('chat.capturado', 'capturado')}</span>}
                       <span>·</span>
                       <span>
                         {new Date(e.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
@@ -544,7 +668,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                       className={`rounded px-1 py-0.5 text-[11px] transition hover:bg-white/10 ${enRetag ? 'text-white/80' : 'text-white/25 hover:text-white/70'}`}
                       title={t('chat.reclasificar', 'Reclasificar')}
                     >
-                      ✏️
+                      <Icono nombre="editar" />
                     </button>
                     <button
                       type="button"
@@ -571,7 +695,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                         className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/70 hover:bg-white/15"
                         style={{ borderColor: `${r.color}44` }}
                       >
-                        <span>{r.icon}</span>
+                        <span><Icono emoji={r.icon} /></span>
                         <span>{nombreCortoT(r.id)}</span>
                       </button>
                     ))}
@@ -588,11 +712,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       {chatPlegado ? (
         <button
           type="button"
-          onClick={() => setPlegado(false)}
-          title={`${mascota.nombre} · ${t('chat.abrir', 'Abrir chat')}`}
-          className="ml-auto flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-black/55 text-2xl shadow-xl backdrop-blur-md transition hover:scale-105 hover:bg-white/10"
+          onClick={() => useHud.getState().setPlegado('chat', false)}
+          title={`${nombreAsistente(t, mascota)} · ${t('chat.abrir', 'Abrir chat')}`}
+          className="ui-hud ml-auto flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10"
         >
-          {mascota.emoji}
+          <Icono emoji={mascota.emoji} />
         </button>
       ) : (
         <>
@@ -613,22 +737,21 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       )}
 
       {/* Barra de entrada */}
-      <div className="ui-panel-glass relative flex items-center gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
-        {menuAbierto && (
-          <button
-            type="button"
-            onClick={() => setPlegado(true)}
-            className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-sm text-white/45 transition hover:bg-white/10 hover:text-white/80"
-            title={t('chat.plegar', 'Plegar chat')}
-          >
-            ›
-          </button>
-        )}
-        {/* Selector de modelo de IA */}
-        {menuModelo && (
+      <div data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex items-center gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
+        {/* Plegar el chat: deja solo la carita del asistente (como los cuadrantes del HUD). */}
+        <BotonPlegarHud
+          zona="chat"
+          onPlegar={() => {
+            setAbierto(false)
+            setConfigAbierto(false)
+            setManualAbierto(false)
+          }}
+        />
+        {/* Selector de modelo de IA (solo Pro / pruebas internas) */}
+        {iaHabilitada() && menuModelo && (
           <div className="ui-panel-glass absolute bottom-full right-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
             <p className="mb-1.5 px-1 text-[11px] font-semibold text-white/50">
-              🧠 {t('chat.modelo.titulo', 'Modelo de IA de los asistentes')}
+              <Icono nombre="memoria" /> {t('chat.modelo.titulo', 'Modelo de IA de los asistentes')}
             </p>
             <div className="space-y-1">
               {PROVEEDORES.map((p) => {
@@ -641,11 +764,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                     onClick={() => elegirProveedor(p.id)}
                     className={`flex w-full items-center gap-2 rounded-lg border px-2 py-1.5 text-xs font-semibold transition ${
                       activo
-                        ? 'border-emerald-400/40 bg-emerald-500/15 text-white'
+                        ? 'border-emerald-400/40 bg-emerald-600 texto-cta'
                         : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
                     }`}
                   >
-                    <span>{p.emoji}</span>
+                    <span><Icono emoji={p.emoji} /></span>
                     <span className="flex-1 text-left">{p.nombre}</span>
                     {listo && <span className="text-[10px] text-emerald-400">●</span>}
                   </button>
@@ -699,12 +822,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
               setAbierto((v) => !v)
             }
           }}
-          title={abierto ? t('chat.ocultar', 'Ocultar bitácora') : `${mascota.nombre} · ${t('chat.verBitacora', 'ver bitácora')}`}
+          data-tut="chat.asistente"
+          title={abierto ? t('chat.ocultar', 'Ocultar bitácora') : `${nombreAsistente(t, mascota)} · ${t('chat.verBitacora', 'ver bitácora')}`}
           className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-2xl transition hover:scale-105 ${
             abierto || conversacion ? 'bg-emerald-500/20' : 'bg-white/5 hover:bg-white/10'
           }`}
         >
-          {mascota.emoji}
+          <Icono emoji={mascota.emoji} />
         </button>
 
         {/* Adjuntar foto/archivo (requiere IA activa para interpretarla) */}
@@ -736,6 +860,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
         <div className="relative min-w-0 flex-1">
           <input
+            data-tut="chat.input"
             value={texto}
             onChange={(ev) => setTexto(ev.target.value)}
             onKeyDown={onKeyDown}
@@ -746,10 +871,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                     obj: objetoCat.nombre.toLowerCase(),
                   })
                 : interp.comando === 'recordar'
-                ? t('chat.ph.recordar', '🧠 Guardar en la memoria de {pet}', { pet: mascota.nombre })
+                ? t('chat.ph.recordar', '🧠 Guardar en la memoria de {pet}', { pet: nombreAsistente(t, mascota) })
                 : interp.comando
                 ? `${interp.comando === 'agregar' ? t('chat.ph.agregar', '➕ Agregar') : t('chat.ph.quitar', '➖ Quitar')} ${destino ? nombreCortoT(destino.id) : '…'} ${t('chat.ph.delMapa', 'del mapa')}`
-                : t('chat.ph.principal', 'Dile a {pet} qué hiciste…  (usa @cuarto para forzar destino)', { pet: mascota.nombre })
+                : t('chat.ph.principal', 'Dile a {pet} qué hiciste…  (usa @cuarto para forzar destino)', { pet: nombreAsistente(t, mascota) })
             }
             className="w-full bg-transparent py-1.5 text-sm text-white/90 placeholder:text-white/30 focus:outline-none"
           />
@@ -758,30 +883,38 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         {/* Chip de destino, comando u objeto en vivo */}
         {texto.trim() && (
           <span
-            className="flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-semibold"
+            className={`flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-semibold${chipColor ? ' texto-vivo' : ''}`}
             style={
-              interp.objeto && objetoCat
-                ? { backgroundColor: `${objetoCat.defaultColor}22`, color: objetoCat.defaultColor }
-                : interp.comando === 'recordar'
-                ? { backgroundColor: 'rgba(167,139,250,0.15)', color: '#a78bfa' }
-                : destino
-                ? { backgroundColor: `${destino.color}22`, color: destino.color }
-                : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.45)' }
+              chipColor
+                ? { ...vivo(chipColor), backgroundColor: `color-mix(in srgb, ${chipColor} 15%, transparent)` }
+                : {
+                    backgroundColor: 'color-mix(in srgb, var(--ui-ink) 6%, transparent)',
+                    color: 'color-mix(in srgb, var(--ui-ink) 45%, transparent)',
+                  }
             }
           >
-            {interp.objeto && objetoCat ? (
+            {ayuda ? (
+              <span className="max-w-[12rem] truncate">
+                <span className="font-bold">?</span>{' '}
+                {ayuda.modo === 'tour'
+                  ? t('tut.chat.chipTour', 'Tutorial: {n}', { n: nombreAyuda(ayuda) })
+                  : t('tut.chat.chipAyuda', 'Ayuda: {n}', { n: nombreAyuda(ayuda) })}
+              </span>
+            ) : edicion ? (
+              <span className="max-w-[12rem] truncate">{edicion.resumen}</span>
+            ) : interp.objeto && objetoCat ? (
               <>
-                <span>{objetoCat.icon}</span>
+                <span><Icono emoji={objetoCat.icon} /></span>
                 <span>{t('chat.chip.crear', 'Crear')} {objetoCat.nombre.toLowerCase()}</span>
               </>
             ) : interp.comando === 'recordar' ? (
               <>
-                <span>🧠</span>
+                <span><Icono nombre="memoria" /></span>
                 <span>{t('chat.chip.recordar', 'Recordar')}</span>
               </>
             ) : interp.comando ? (
               <>
-                <span>{interp.comando === 'agregar' ? '➕' : '➖'}</span>
+                <span><Icono nombre={interp.comando === 'agregar' ? 'agregar' : 'quitar'} /></span>
                 <span>{destino ? nombreCortoT(destino.id) : '?'}</span>
                 {destino && (
                   <span className="ml-0.5 text-[10px] opacity-60">
@@ -791,11 +924,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
               </>
             ) : (
               <>
-                <span>{destino ? destino.icon : '🗒️'}</span>
+                <span><Icono emoji={destino ? destino.icon : '🗒️'} /></span>
                 <span className="max-w-[7rem] truncate">
                   {destino ? nombreCortoT(destino.id) : t('chat.sinClasificar', 'Sin clasificar')}
                 </span>
-                {destinoCaptura?.capturar && <span className="ml-0.5 text-[10px] opacity-60">⚡</span>}
+                {destinoCaptura?.capturar && <span className="ml-0.5 text-[10px] opacity-60"><Icono nombre="energia" /></span>}
               </>
             )}
           </span>
@@ -808,40 +941,42 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             onClick={toggleVoz}
             className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition ${
               grabando
-                ? 'animate-pulse bg-red-500/20 text-red-300'
+                ? 'animate-pulse bg-red-500/20 text-red-400'
                 : 'text-white/45 hover:bg-white/10 hover:text-white/85'
             }`}
             title={grabando ? t('chat.vozParar', 'Detener dictado') : t('chat.voz', 'Dictar por voz')}
           >
-            🎤
+            <Icono nombre="microfono" />
           </button>
         )}
 
-        {/* Modelo de IA */}
-        <button
-          type="button"
-          onClick={() => setMenuModelo((v) => !v)}
-          className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${
-            menuModelo ? 'bg-white/10' : ''
-          }`}
-          title={t('chat.modelo', 'Modelo de IA: {prov}', { prov: proveedor.nombre })}
-        >
-          {proveedor.emoji}
-          <span
-            className={`absolute right-1 top-1 h-1.5 w-1.5 rounded-full ${
-              conIA ? 'bg-emerald-400' : 'bg-white/20'
+        {/* Modelo de IA (solo Pro / pruebas internas) */}
+        {iaHabilitada() && (
+          <button
+            type="button"
+            onClick={() => setMenuModelo((v) => !v)}
+            className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${
+              menuModelo ? 'bg-white/10' : ''
             }`}
-          />
-        </button>
+            title={t('chat.modelo', 'Modelo de IA: {prov}', { prov: proveedor.nombre })}
+          >
+            <Icono emoji={proveedor.emoji} />
+            <span
+              className={`absolute right-1 top-1 h-1.5 w-1.5 rounded-full ${
+                conIA ? 'bg-emerald-400' : 'bg-white/20'
+              }`}
+            />
+          </button>
+        )}
 
         <button
           type="button"
           onClick={enviar}
           disabled={!interp.texto.trim() && !imagen}
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-emerald-500/90 text-lg text-white transition hover:bg-emerald-400 disabled:opacity-30"
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-emerald-600 text-lg texto-cta transition hover:bg-emerald-600 disabled:opacity-30"
           title={t('chat.registrar', 'Registrar')}
         >
-          ↑
+          <Icono nombre="enviar" />
         </button>
       </div>
         </>

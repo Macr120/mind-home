@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react'
-
 /**
  * Ajuste del fondo basado en ANCLA: qué punto de la imagen (0–1) cae en el centro
  * del viewport, más un zoom donde 1 = imagen completa visible («contain»).
@@ -20,10 +18,6 @@ export function clampAjuste(a: AjusteFondoImagen): AjusteFondoImagen {
     anclaV: a.anclaV,
     escala: Math.min(4, Math.max(0.2, a.escala)),
   }
-}
-
-export function ajusteFondoInicial(): AjusteFondoImagen {
-  return { anclaU: 0.5, anclaV: 0.5, escala: 1 }
 }
 
 /** Escala base «contain»: la imagen completa cabe en el viewport (sin recortar). */
@@ -55,24 +49,6 @@ export function layoutFondoImagen(
   const top = ch * 0.5 - anclaV * altoD
 
   return { anchoD, altoD, left, top }
-}
-
-/** Estilo CSS para el <img> de la vista previa (mismas coordenadas que el 3D). */
-export function estiloPreviewFondo(
-  anchoImg: number,
-  altoImg: number,
-  anchoVp: number,
-  altoVp: number,
-  ajuste: AjusteFondoImagen,
-): Pick<CSSProperties, 'width' | 'height' | 'left' | 'top' | 'maxWidth'> {
-  const e = layoutFondoImagen(anchoImg, altoImg, anchoVp, altoVp, ajuste)
-  return {
-    width: e.anchoD,
-    height: e.altoD,
-    left: e.left,
-    top: e.top,
-    maxWidth: 'none',
-  }
 }
 
 /**

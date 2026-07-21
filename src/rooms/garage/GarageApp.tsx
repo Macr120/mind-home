@@ -6,17 +6,20 @@ import { VehiculosTab } from './VehiculosTab'
 import { COLOR } from './constantes'
 import { sembrarGarage } from './seed'
 import { useT } from '../../core/i18n/useT'
+import { tabInicial } from '../../core/state/intencionApp'
+import { Icono } from '../../core/ui/iconos/Icono'
+import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
 type Tab = 'resumen' | 'vehiculos'
 
-const TABS: { id: Tab; labelEs: string }[] = [
-  { id: 'resumen', labelEs: '📊 Resumen' },
-  { id: 'vehiculos', labelEs: '🔧 Vehículos' },
+const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+  { id: 'resumen', icono: 'progreso', labelEs: 'Resumen' },
+  { id: 'vehiculos', icono: 'herramienta', labelEs: 'Vehículos' },
 ]
 
 export function GarageApp() {
   const t = useT()
-  const [tab, setTab] = useState<Tab>('resumen')
+  const [tab, setTab] = useState<Tab>(() => tabInicial('garage', TABS.map((x) => x.id), 'resumen'))
   const [vehiculoId, setVehiculoId] = useState<number | null>(null)
 
   const vehiculos = vehiculosRepo.useAll() ?? []
@@ -46,13 +49,14 @@ export function GarageApp() {
         {TABS.map((tabItem) => (
           <button
             key={tabItem.id}
+            data-tut={`garage.tab.${tabItem.id}`}
             onClick={() => setTab(tabItem.id)}
             className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
               tab === tabItem.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
             }`}
             style={tab === tabItem.id ? { background: COLOR } : undefined}
           >
-            {t(`garage.tab.${tabItem.id}`, tabItem.labelEs)}
+            <Icono nombre={tabItem.icono} /> {t(`garage.tab.${tabItem.id}`, tabItem.labelEs)}
           </button>
         ))}
       </div>

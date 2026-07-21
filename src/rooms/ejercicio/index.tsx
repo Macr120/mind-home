@@ -1,9 +1,15 @@
 import type { RoomModule, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
-import { sesionesEjercicioRepo } from '../../core/data/repository'
+import { rutinasRepo, sesionesEjercicioRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoEntrenamiento } from '../../core/data/db'
+import { agendaDelDia } from './agenda'
 import { EjercicioApp } from './EjercicioApp'
+import { fechaLocalISO } from '../../core/fechaLocal'
+import { tutorialEjercicio } from './tutorial'
+
+/** Los tres tipos, para recorrer lo agendado de todos a la vez. */
+const TIPOS_ENTRENAMIENTO: TipoEntrenamiento[] = ['fuerza', 'resistencia', 'flexibilidad']
 
 const TIPO_FUERZA = ['pesas', 'gym', 'gimnasio', 'fuerza', 'musculacion', 'pecho', 'espalda', 'piernas', 'brazos', 'hombros']
 const TIPO_FLEXIBILIDAD = ['yoga', 'stretching', 'flexibilidad', 'estiramiento', 'estirar', 'pilates']
@@ -33,7 +39,7 @@ async function capturar(texto: string): Promise<boolean> {
   const tipo = detectarTipo(tokens)
 
   await sesionesEjercicioRepo.add({
-    fecha: new Date().toISOString().slice(0, 10),
+    fecha: fechaLocalISO(),
     tipo,
     titulo: texto.slice(0, 60),
     duracionMin: duracion,
@@ -84,6 +90,38 @@ const ejercicio: RoomModule = {
   App: EjercicioApp,
   capturar,
   esquemas,
+  tutorial: tutorialEjercicio,
+  // Booleana a propósito: las metas de la app son SEMANALES (3 sesiones/semana) y
+  // repartirlas entre 7 días daría objetivos absurdos ("0.43 sesiones hoy"). Aquí
+  // solo se pregunta si entrenaste; el contrato semanal sigue en su pestaña.
+  metaDiaria: {
+    clave: 'ejercicio.metaDiaria',
+    etiquetaEs: 'Entrena hoy',
+    seccion: 'fuerza',
+    del: async (fecha) => {
+      const hecho = (await sesionesEjercicioRepo.list()).filter((s) => s.fecha === fecha).length
+      // Por repo y no por `db`: esto corre dentro de `useLiveQuery`, que rastrea las
+      // consultas para re-ejecutarse sola cuando cambia lo agendado.
+      const rutinas = await rutinasRepo.list()
+      const plan = TIPOS_ENTRENAMIENTO.flatMap((tipo) => agendaDelDia(rutinas, tipo, fecha))
+      return {
+        hecho,
+        objetivo: 1,
+        // Sin entrenar aún, lo agendado dice qué toca; ya entrenado, no estorba.
+        detalle:
+          hecho === 0 && plan.length > 0 ? plan.map((p) => p.rutinaNombre).join(' · ') : undefined,
+      }
+    },
+  },
+  comandos: [
+    { seccion: 'metas', etiqueta: 'Metas', nombres: ['metas de ejercicio'] },
+    { seccion: 'fuerza', etiqueta: 'Fuerza', nombres: ['fuerza', 'pesas', 'piramide'] },
+    { seccion: 'resistencia', etiqueta: 'Resistencia', nombres: ['resistencia', 'cardio'] },
+    { seccion: 'flexibilidad', etiqueta: 'Flexibilidad', nombres: ['flexibilidad', 'estiramientos'] },
+    // Apuntaba a una sección 'plan' que nunca existió (caía en Metas). El
+    // cronograma es la pestaña que responde a lo que se le pedía.
+    { seccion: 'cronograma', etiqueta: 'Cronograma', nombres: ['plan de ejercicio', 'plan de entrenamiento', 'cronograma de ejercicio'] },
+  ],
 }
 
 export default ejercicio

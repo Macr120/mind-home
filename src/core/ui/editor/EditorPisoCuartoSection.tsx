@@ -2,9 +2,12 @@ import { useRef } from 'react'
 import type { CSSProperties } from 'react'
 import type { Cuarto } from '../../data/db'
 import { useDiseño } from '../../state/disenoStore'
+import { useLayout } from '../../state/layoutStore'
 import { PISOS, type PisoTipo } from '../../house/pisos'
+import { esFormaCuadrada } from '../../house/formasLoseta'
 import { ColorPicker } from './ColorPicker'
 import { useT } from '../../i18n/useT'
+import { Icono } from '../iconos/Icono'
 
 /** Estilo de la miniatura de cada textura: imagen real o patrón CSS para los procedurales. */
 function swatchStyle(p: PisoTipo): CSSProperties {
@@ -28,9 +31,9 @@ function swatchStyle(p: PisoTipo): CSSProperties {
 }
 
 const AJUSTES = [
-  { id: 'x1', label: 'Grande' },
-  { id: 'x2', label: 'Medio' },
-  { id: 'x4', label: 'Mosaico' },
+  { id: 'x1', clave: 'grande', labelEs: 'Grande' },
+  { id: 'x2', clave: 'medio', labelEs: 'Medio' },
+  { id: 'x4', clave: 'mosaico', labelEs: 'Mosaico' },
 ] as const
 
 /** Selector de piso interno de un cuarto: textura + color + imagen personalizada. */
@@ -50,6 +53,19 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
   const desactivarRoomPisoImagen = useDiseño((s) => s.desactivarRoomPisoImagen)
   const eliminarRoomPisoImagen   = useDiseño((s) => s.eliminarRoomPisoImagen)
   const setRoomPisoImagenAjuste  = useDiseño((s) => s.setRoomPisoImagenAjuste)
+
+  // Piso exterior (solo aplica si el cuarto tiene celdas con forma: triángulo/círculo).
+  const roomPisoExtTipos   = useDiseño((s) => s.roomPisoExtTipos)
+  const roomPisoExtColors  = useDiseño((s) => s.roomPisoExtColors)
+  const setRoomPisoExtTipo  = useDiseño((s) => s.setRoomPisoExtTipo)
+  const setRoomPisoExtColor = useDiseño((s) => s.setRoomPisoExtColor)
+  const resetRoomPisoExt    = useDiseño((s) => s.resetRoomPisoExt)
+  const formasCelda = useLayout((s) => s.formasCelda[room.id])
+  const tieneCeldasForma = !!formasCelda && Object.values(formasCelda).some((f) => !esFormaCuadrada(f))
+  const personalizadoExt = room.id in roomPisoExtTipos
+  const extTipo      = roomPisoExtTipos[room.id] ?? null
+  const extColorActivo = personalizadoExt && extTipo === null
+  const extColor     = roomPisoExtColors[room.id] ?? room.color
 
   const personalizado = room.id in roomPisoTipos
   const pisoTipo      = roomPisoTipos[room.id] ?? null
@@ -85,7 +101,7 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
             className={[
               'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
               colorActivo
-                ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-300'
+                ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
                 : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
             ].join(' ')}
           >
@@ -115,7 +131,7 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
                 className={[
                   'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
                   activo
-                    ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-300'
+                    ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
                     : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
                 ].join(' ')}
               >
@@ -158,12 +174,12 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
             >
               <img
                 src={pisoImagen}
-                alt="Piso personalizado"
+                alt={t('editor.piso.alt', 'Piso personalizado')}
                 className="h-full w-full object-cover"
               />
               {imagenActiva && (
-                <div className="absolute right-1.5 top-1.5 rounded bg-emerald-400/80 px-1.5 py-0.5 text-[9px] font-bold text-black">
-                  ACTIVA
+                <div className="absolute right-1.5 top-1.5 rounded bg-emerald-600 px-1.5 py-0.5 text-[9px] font-bold texto-cta">
+                  {t('editor.imgActiva', 'ACTIVA')}
                 </div>
               )}
             </div>
@@ -174,7 +190,7 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
                 <button
                   type="button"
                   onClick={() => activarRoomPisoImagen(room.id)}
-                  className="flex-1 rounded-md border border-emerald-400/40 bg-emerald-400/10 py-1.5 text-[10px] font-semibold text-emerald-300 transition hover:bg-emerald-400/20"
+                  className="flex-1 rounded-md border border-emerald-400/40 bg-emerald-400/10 py-1.5 text-[10px] font-semibold text-emerald-400 transition hover:bg-emerald-400/20"
                 >
                   {t('editor.pisoCuarto.usarImagen', 'Usar imagen')}
                 </button>
@@ -220,11 +236,11 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
                       className={[
                         'flex-1 rounded-md border py-1.5 text-[10px] font-semibold transition',
                         ajuste === a.id
-                          ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-300'
+                          ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
                           : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10',
                       ].join(' ')}
                     >
-                      {a.label}
+                      {t(`editor.tamano.${a.clave}`, a.labelEs)}
                     </button>
                   ))}
                 </div>
@@ -237,7 +253,7 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
             onClick={() => fileInputRef.current?.click()}
             className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-white/5 py-4 text-[11px] text-white/50 transition hover:border-white/40 hover:bg-white/8 hover:text-white/70"
           >
-            <span className="text-base">🖼️</span>
+            <span className="text-base"><Icono nombre="imagen" /></span>
             {t('editor.pisoCuarto.subirImagen', 'Subir imagen')}
           </button>
         )}
@@ -250,6 +266,91 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
           onChange={onSubirImagen}
         />
       </div>
+
+      {/* ── Sección 4: Piso exterior (solo celdas con forma) ─── */}
+      {tieneCeldasForma && (
+        <div className="border-t border-white/10 pt-3">
+          <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-white/40">
+            {t('editor.pisoCuarto.exterior', 'Piso exterior')}
+          </p>
+          <p className="mb-2 text-[10px] leading-snug text-white/40">
+            {t(
+              'editor.pisoCuarto.exteriorDesc',
+              'Material del trozo de celda fuera de la silueta en esquinas con forma (triángulo/círculo).',
+            )}
+          </p>
+          <div className="grid grid-cols-3 gap-1.5">
+            {/* Jardín por defecto */}
+            <button
+              type="button"
+              onClick={() => resetRoomPisoExt(room.id)}
+              className={[
+                'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
+                !personalizadoExt
+                  ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
+                  : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
+              ].join(' ')}
+            >
+              <div className="w-full rounded-md" style={{ height: 28, backgroundColor: '#5a6e58' }} />
+              <span className="text-[10px] font-medium leading-tight">
+                {t('editor.pisoCuarto.exteriorJardin', 'Jardín')}
+              </span>
+            </button>
+
+            {/* Color sólido */}
+            <button
+              type="button"
+              onClick={() => setRoomPisoExtColor(room.id, extColor)}
+              className={[
+                'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
+                extColorActivo
+                  ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
+                  : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
+              ].join(' ')}
+            >
+              <div
+                className="w-full rounded-md"
+                style={{
+                  height: 28,
+                  background: extColorActivo
+                    ? extColor
+                    : 'linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff)',
+                }}
+              />
+              <span className="text-[10px] font-medium leading-tight">
+                {t('editor.piso.colorSolido', 'Color sólido')}
+              </span>
+            </button>
+
+            {/* Texturas */}
+            {PISOS.map((p) => {
+              const activo = personalizadoExt && extTipo === p.id
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => setRoomPisoExtTipo(room.id, p.id)}
+                  className={[
+                    'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
+                    activo
+                      ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
+                      : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
+                  ].join(' ')}
+                >
+                  <div className="w-full rounded-md bg-cover bg-center" style={{ height: 28, ...swatchStyle(p) }} />
+                  <span className="text-[10px] font-medium leading-tight">{p.nombre}</span>
+                </button>
+              )
+            })}
+          </div>
+
+          {extColorActivo && (
+            <div className="mt-2">
+              <ColorPicker value={extColor} onChange={(c) => setRoomPisoExtColor(room.id, c)} />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }

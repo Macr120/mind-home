@@ -10,16 +10,70 @@ export const moveInput = {
   s: 0,
   kf: 0,
   ks: 0,
+  /** Vertical por teclado (OVNI en vuelo): Space=+1 / Shift=-1. */
+  kv: 0,
+  /** Vertical por botones táctiles del overlay de montura. */
+  pv: 0,
 }
 
-const keyState = { kf: 0, ks: 0 }
-const padState = { f: 0, s: 0 }
+const keyState = { kf: 0, ks: 0, kv: 0 }
+const padState = { f: 0, s: 0, v: 0 }
 
 function sync() {
   moveInput.f = Math.max(-1, Math.min(1, padState.f))
   moveInput.s = Math.max(-1, Math.min(1, padState.s))
   moveInput.kf = keyState.kf
   moveInput.ks = keyState.ks
+  moveInput.kv = keyState.kv
+  moveInput.pv = Math.max(-1, Math.min(1, padState.v))
+}
+
+/**
+ * Con el vuelo activo (montado en el OVNI) se capturan Space/Shift para subir y
+ * bajar. Fuera de vuelo esas teclas NO se mapean (ni preventDefault): cero
+ * cambios para botones enfocados, chat, etc.
+ */
+let vueloActivo = false
+
+export function setVueloActivo(v: boolean) {
+  vueloActivo = v
+  if (!v) {
+    pressed.delete('space')
+    pressed.delete('shift')
+    padState.v = 0
+    recomputeKeys()
+  }
+}
+
+/** Montado en vehículo terrestre: se captura Space (kv=1) como freno de derrape. */
+let driftActivo = false
+
+export function setDriftActivo(v: boolean) {
+  driftActivo = v
+  if (!v) {
+    pressed.delete('space')
+    recomputeKeys()
+  }
+}
+
+/**
+ * Con un cuarto abierto (overlay 2D) el teclado es de la mini-app (minijuegos,
+ * formularios), no del avatar: no se mueve ni se hace preventDefault.
+ */
+let cuartoAbierto = false
+
+export function setCuartoAbierto(v: boolean) {
+  cuartoAbierto = v
+  if (v && pressed.size) clearInput()
+}
+
+/** ¿Hay un overlay que captura el teclado (cuarto abierto o editor a pantalla completa)? */
+export const hayCuartoAbierto = () => cuartoAbierto
+
+/** Botones ↑/↓ del overlay de montura (móvil). */
+export function setPadVertical(v: number) {
+  padState.v = v
+  sync()
 }
 
 const MOVE_KEYS = new Set([
@@ -30,6 +84,12 @@ const MOVE_KEYS = new Set([
 /** Identificador estable por tecla (key + code + keyCode). */
 function idTecla(e: KeyboardEvent): string | null {
   const k = e.key.toLowerCase()
+  if (vueloActivo || driftActivo) {
+    if (e.code === 'Space' || k === ' ' || k === 'spacebar') return 'space'
+  }
+  if (vueloActivo) {
+    if (e.code === 'ShiftLeft' || e.code === 'ShiftRight' || k === 'shift') return 'shift'
+  }
   if (MOVE_KEYS.has(k)) return k
   if (k === 'up' || k === 'down' || k === 'left' || k === 'right') return `arrow${k}`
 
@@ -89,6 +149,7 @@ function recomputeKeys() {
   if (pressed.has('arrowleft') || pressed.has('a')) ks -= 1
   keyState.kf = kf
   keyState.ks = ks
+  keyState.kv = (pressed.has('space') ? 1 : 0) - (pressed.has('shift') ? 1 : 0)
   sync()
 }
 
@@ -128,19 +189,20 @@ function escribiendoEnCampo() {
   )
 }
 
-export function onKey(e: KeyboardEvent, down: boolean) {
+function onKey(e: KeyboardEvent, down: boolean) {
   const k = idTecla(e)
   if (!k) return
 
-  const enCampo = escribiendoEnCampo()
-  // Escribiendo en un campo (chat box, etc.): las teclas escriben, NO mueven
-  // al avatar. Las sueltas sí se procesan para no dejarlo caminando solo.
-  if (enCampo && down) {
+  const ignorar = escribiendoEnCampo() || cuartoAbierto
+  // Escribiendo en un campo (chat box, etc.) o con un cuarto abierto: las teclas
+  // son de la UI, NO mueven al avatar. Las sueltas sí se procesan para no
+  // dejarlo caminando solo.
+  if (ignorar && down) {
     if (pressed.size) clearInput()
     return
   }
 
-  if (!enCampo) e.preventDefault()
+  if (!ignorar) e.preventDefault()
 
   if (!down) {
     pressed.delete(k)
@@ -159,12 +221,14 @@ export function setPad(f: number, s: number) {
   sync()
 }
 
-export function clearInput() {
+function clearInput() {
   pressed.clear()
   keyState.kf = 0
   keyState.ks = 0
+  keyState.kv = 0
   padState.f = 0
   padState.s = 0
+  padState.v = 0
   sync()
 }
 

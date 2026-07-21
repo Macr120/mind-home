@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Icono de la app (manifest). Maskable: el dibujo cabe dentro de la zona
+       segura (círculo centrado de radio 40% = 205px), así ningún recorte de
+       Android se lleva un trozo de la casa. Fondo opaco a propósito: iOS y
+       Android rellenan la transparencia con un color que no elegimos. -->
+  <rect width="512" height="512" fill="#863bff"/>
+  <!-- La casa isométrica, centrada en (256, 235) y de 180×180. -->
+  <g>
+    <!-- Techo -->
+    <path d="M256 145 346 190 256 235 166 190Z" fill="#ede6ff"/>
+    <!-- Cara izquierda (en sombra) -->
+    <path d="M166 190 256 235 256 325 166 280Z" fill="#5b21b6"/>
+    <!-- Cara derecha -->
+    <path d="M256 235 346 190 346 280 256 325Z" fill="#7e14ff"/>
+    <!-- Puerta -->
+    <path d="M283 268 311 254 311 292 283 306Z" fill="#ede6ff" opacity="0.85"/>
+  </g>
+</svg>

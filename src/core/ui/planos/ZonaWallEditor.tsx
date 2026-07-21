@@ -1,15 +1,15 @@
 import { useMemo } from 'react'
 import { useT } from '../../i18n/useT'
 import { zonasRepo } from '../../data/repository'
-import { useLayout, SIN_OCUPACION } from '../../state/layoutStore'
+import { useLayout } from '../../state/layoutStore'
 import {
   roomEdges,
   effectiveEdge,
   type WallState,
 } from '../../house/walls'
 import { zonaAnchorFootprint, ocupadoConZonas } from '../../house/planoGeometria'
-import { murosEfectivosZona } from '../../house/murosZona'
 import { paintZonaMuro } from './paintZonaMuro'
+import { vivo } from '../estilos'
 
 const INFO: Record<WallState, { labelEs: string; color: string }> = {
   pared: { labelEs: 'Pared', color: '#b45309' },
@@ -36,10 +36,9 @@ export function ZonaWallEditor({
   const zona = zonas.find((z) => z.id === zonaId)
   const estadoActual = useMemo(() => {
     if (!zona) return 'pared' as WallState
-    const occ = ocupadoPorNivel.get(zona.nivel) ?? SIN_OCUPACION
     const { anchor, footprint } = zonaAnchorFootprint(zona.celdas)
     const ocupado = ocupadoConZonas(zona.nivel, ocupadoPorNivel, zonas, zona.id)
-    const muros = murosEfectivosZona(zona, zonas, occ)
+    const muros = zona.muros ?? {}
     const e = roomEdges(anchor, footprint, ocupado).find(
       (x) => x.off.col === off.col && x.off.row === off.row && x.side === side,
     )
@@ -64,17 +63,17 @@ export function ZonaWallEditor({
               key={est}
               type="button"
               onClick={() => void paintZonaMuro(zonaId, off, side, est)}
-              className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[11px] font-medium transition"
+              className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[11px] font-medium transition${activo ? ' texto-vivo' : ''}`}
               style={
                 activo
                   ? {
+                      ...vivo(info.color),
                       background: `${info.color}22`,
-                      color: info.color,
                       boxShadow: `inset 0 0 0 1px ${info.color}55`,
                     }
                   : {
-                      background: 'rgba(255,255,255,0.04)',
-                      color: 'rgba(255,255,255,0.65)',
+                      background: 'color-mix(in srgb, var(--ui-ink) 5%, transparent)',
+                      color: 'color-mix(in srgb, var(--ui-ink) 65%, transparent)',
                     }
               }
             >

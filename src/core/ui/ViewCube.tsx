@@ -196,7 +196,7 @@ function CuboEscena() {
 /** Ancho del widget (NavControls alinea botones al mismo ancho). */
 export const VIEW_CUBE_PX = 128
 /** Alto del lienzo (debe coincidir con el contenedor para que el Canvas no quede a 0px). */
-export const VIEW_CUBE_H = 128
+const VIEW_CUBE_H = 128
 
 export function ViewCube() {
   const t = useT()

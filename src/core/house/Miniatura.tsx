@@ -5,6 +5,7 @@ import * as THREE from 'three'
 import { ObjetoView } from './catalogo'
 import { TemaContext } from './primitivas'
 import { getTema, type Tema, type TemaId } from './temas'
+import type { Pieza3D } from '../chat/mascotas'
 
 /**
  * Miniaturas del inventario = imágenes PNG del modelo real.
@@ -21,6 +22,14 @@ interface Peticion {
   tipo: string
   color: string
   temaId: TemaId | null
+  /** Objetos tipo 'piezas': las primitivas a renderizar. */
+  piezas?: Pieza3D[]
+  /** Objetos tipo 'glb': el modelo subido por el usuario. */
+  modeloGlb?: Blob
+  /** Objetos 'cuadro-foto' y 'espectacular': la foto subida por el usuario. */
+  foto?: Blob
+  /** Anuncios: el texto del letrero. */
+  texto?: string
 }
 
 interface ThumbState {
@@ -44,8 +53,19 @@ const useThumbs = create<ThumbState>((set, get) => ({
     set((s) => ({ urls: { ...s.urls, [clave]: url }, cola: s.cola.filter((q) => q.clave !== clave) })),
 }))
 
-const claveDe = (tipo: string, color: string, tema: Tema | null) =>
-  `${tipo}|${tema?.id ?? 'base'}|${color}`
+/** `idObjeto` distingue objetos 'glb' entre sí (un Blob no se puede serializar en la clave). */
+const claveDe = (
+  tipo: string,
+  color: string,
+  tema: Tema | null,
+  piezas?: Pieza3D[],
+  idObjeto?: number,
+  foto?: Blob,
+  texto?: string,
+) =>
+  `${tipo}|${tema?.id ?? 'base'}|${color}${piezas ? `|${JSON.stringify(piezas)}` : ''}${
+    idObjeto != null ? `|${idObjeto}` : ''
+  }${foto ? `|f${foto.size}` : ''}${texto ? `|t${texto}` : ''}`
 
 /** Centra y escala el contenido a ~2 unidades en el origen. */
 function ajustar(g: THREE.Group) {
@@ -99,7 +119,8 @@ function Captura({ req }: { req: Peticion }) {
   return (
     <group ref={ref}>
       <TemaContext.Provider value={getTema(req.temaId)}>
-        <ObjetoView tipo={req.tipo} color={req.color} />
+        {/* sinReflejo: en el canvas oculto no hay escena que reflejar. */}
+        <ObjetoView tipo={req.tipo} color={req.color} piezas={req.piezas} modeloGlb={req.modeloGlb} foto={req.foto} texto={req.texto} sinReflejo />
       </TemaContext.Provider>
     </group>
   )
@@ -131,18 +152,33 @@ export function MiniaturaModelo({
   color,
   tema,
   className,
+  piezas,
+  modeloGlb,
+  foto,
+  texto,
+  idObjeto,
 }: {
   tipo: string
   color: string
   tema: Tema | null
   className?: string
+  /** Objetos tipo 'piezas': las primitivas del objeto (invalidan la caché al editarse). */
+  piezas?: Pieza3D[]
+  /** Objetos tipo 'glb': el modelo subido por el usuario. */
+  modeloGlb?: Blob
+  /** Objetos 'cuadro-foto' y 'espectacular': la foto (su tamaño invalida la caché al cambiarla). */
+  foto?: Blob
+  /** Anuncios: el texto del letrero (invalida la caché al editarlo). */
+  texto?: string
+  /** Id del objeto (distingue objetos 'glb' entre sí en la clave de caché). */
+  idObjeto?: number
 }) {
-  const clave = claveDe(tipo, color, tema)
+  const clave = claveDe(tipo, color, tema, piezas, modeloGlb ? idObjeto : undefined, foto, texto)
   const url = useThumbs((s) => s.urls[clave])
   const pedir = useThumbs((s) => s.pedir)
   useEffect(() => {
-    if (!url) pedir({ clave, tipo, color, temaId: tema?.id ?? null })
-  }, [clave, url, tipo, color, tema, pedir])
+    if (!url) pedir({ clave, tipo, color, temaId: tema?.id ?? null, piezas, modeloGlb, foto, texto })
+  }, [clave, url, tipo, color, tema, pedir, piezas, modeloGlb, foto, texto])
   return url ? (
     <img src={url} className={className} alt="" draggable={false} />
   ) : (

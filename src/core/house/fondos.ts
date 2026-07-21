@@ -3,6 +3,7 @@ import type { TemaId } from './temas'
 /** Fondo de cielo / «wallpaper» de la escena 3D. `auto` = ciclo día/noche. */
 export type FondoId =
   | 'auto'
+  | 'color_fijo'
   | 'cielo_claro'
   | 'cielo_oscuro'
   | 'aurora'

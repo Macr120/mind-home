@@ -1,6 +1,8 @@
 import { useDiseño } from '../../state/disenoStore'
 import { TEMAS } from '../../house/temas'
 import { useT } from '../../i18n/useT'
+import { Icono } from '../iconos/Icono'
+import { EditorTemaDetalle } from './EditorTemaDetalle'
 
 /**
  * Selector de tema estacional global de la casa (editor de mapa).
@@ -23,11 +25,15 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
           onClick={() => setTemaGlobal(null)}
           className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm transition"
           style={{
-            background: temaGlobal == null ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.05)',
-            boxShadow: temaGlobal == null ? 'inset 0 0 0 1px rgba(255,255,255,0.5)' : 'none',
+            background:
+              temaGlobal == null
+                ? 'color-mix(in srgb, var(--ui-ink) 12%, transparent)'
+                : 'color-mix(in srgb, var(--ui-ink) 5%, transparent)',
+            boxShadow:
+              temaGlobal == null ? 'inset 0 0 0 1px color-mix(in srgb, var(--ui-ink) 45%, transparent)' : 'none',
           }}
         >
-          <span className="text-lg">🏠</span>
+          <span className="text-lg"><Icono nombre="casa" /></span>
           <span className="text-white/80">{t('editor.tema.sin', 'Sin tema')}</span>
         </button>
         {TEMAS.map((tema) => (
@@ -37,16 +43,20 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
             onClick={() => setTemaGlobal(tema.id)}
             className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-sm transition"
             style={{
-              background: temaGlobal === tema.id ? `${tema.paleta[0]}55` : 'rgba(255,255,255,0.05)',
+              background:
+                temaGlobal === tema.id
+                  ? `${tema.paleta[0]}55`
+                  : 'color-mix(in srgb, var(--ui-ink) 5%, transparent)',
               boxShadow: temaGlobal === tema.id ? `inset 0 0 0 1px ${tema.paleta[1] ?? tema.paleta[0]}` : 'none',
             }}
             title={tema.nombre}
           >
-            <span className="text-lg">{tema.icon}</span>
+            <span className="text-lg"><Icono emoji={tema.icon} /></span>
             <span className="text-white/80">{tema.nombre}</span>
           </button>
         ))}
       </div>
+      {temaGlobal != null && <EditorTemaDetalle />}
     </div>
   )
 }

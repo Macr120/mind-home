@@ -41,7 +41,7 @@ const btnFlotante = (activo: boolean) =>
     'flex h-9 flex-1 items-center justify-center transition active:scale-95',
     activo
       ? 'bg-emerald-100 text-emerald-800'
-      : 'text-stone-600 hover:bg-stone-100 hover:text-stone-900',
+      : 'text-white/70 hover:bg-white/10',
   ].join(' ')
 
 /** Botones flotantes: abren la sección correspondiente en el panel lateral. */
@@ -51,7 +51,7 @@ export function PlanoAccionesFlotantes() {
   const toggleMenuPlano = usePlanos((s) => s.toggleMenuPlano)
 
   return (
-    <div className="flex w-full overflow-hidden rounded-lg border border-stone-300 bg-white shadow-md">
+    <div className="ui-panel-glass flex w-full overflow-hidden rounded-lg border border-white/10 shadow-md backdrop-blur-sm">
       <button
         type="button"
         title={t('planos.menu.cielo', 'Fondo de cielo')}

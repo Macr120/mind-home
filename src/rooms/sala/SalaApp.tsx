@@ -1,80 +1,63 @@
-import { useMemo, useState } from 'react'
-import { gastosViajeRepo, viajesRepo } from '../../core/data/repository'
-import { DetalleViaje } from './DetalleViaje'
-import { ListaViajesTab } from './ListaViajesTab'
-import { ResumenTab } from './ResumenTab'
+import { useState } from 'react'
+import { lugaresViajeRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
+import { tabInicial } from '../../core/state/intencionApp'
+import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
+import { Icono } from '../../core/ui/iconos/Icono'
+import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { BitacoraTab } from './BitacoraTab'
+import { MapaTab } from './MapaTab'
+import { PorConocerTab } from './PorConocerTab'
+import { RutasTab } from './RutasTab'
 
-type Tab = 'resumen' | 'viajes'
+type Tab = 'mapa' | 'porConocer' | 'rutas' | 'bitacora' | 'cronograma'
 
-const TABS: { id: Tab; labelEs: string }[] = [
-  { id: 'resumen', labelEs: '📊 Resumen' },
-  { id: 'viajes', labelEs: '✈️ Viajes' },
+const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+  { id: 'mapa', icono: 'mundo', labelEs: 'Mapa' },
+  { id: 'porConocer', icono: 'boleto', labelEs: 'Itinerario' },
+  { id: 'rutas', icono: 'despegue', labelEs: 'Rutas' },
+  { id: 'bitacora', icono: 'foto', labelEs: 'Bitácora' },
+  { id: 'cronograma', icono: 'calendario', labelEs: 'Cronograma' },
 ]
 
 export function SalaApp() {
   const t = useT()
-  const [tab, setTab] = useState<Tab>('resumen')
-  const [viajeId, setViajeId] = useState<number | null>(null)
+  const [tab, setTab] = useState<Tab>(() => tabInicial('sala', TABS.map((x) => x.id), 'mapa'))
+  const [lugarBitacora, setLugarBitacora] = useState<number | null>(null)
 
-  const viajes = viajesRepo.useAll() ?? []
-  const todosGastos = gastosViajeRepo.useAll() ?? []
+  const lugares = lugaresViajeRepo.useAll() ?? []
 
-  const gastosPorViaje = useMemo(() => {
-    const mapa = new Map<number, number>()
-    for (const g of todosGastos) {
-      mapa.set(g.viajeId, (mapa.get(g.viajeId) ?? 0) + g.monto)
-    }
-    return mapa
-  }, [todosGastos])
-
-  const viajeSel = viajeId ? viajes.find((v) => v.id === viajeId) : null
-
-  if (viajeSel) {
-    return (
-      <div className="mx-auto max-w-2xl">
-        <DetalleViaje viaje={viajeSel} onVolver={() => setViajeId(null)} />
-      </div>
-    )
+  const irABitacora = (lugarId: number) => {
+    setLugarBitacora(lugarId)
+    setTab('bitacora')
   }
 
   return (
-    <div className="mx-auto max-w-2xl space-y-4">
-      <p className="text-xs text-white/45 leading-relaxed">
-        {t('sala.desc', 'Planifica viajes futuros, guarda tu lista de deseos y archiva viajes pasados con reseña, itinerario día a día, gastos y checklist de preparación.')}
+    <div className="mx-auto max-w-3xl space-y-4">
+      <p className="text-xs leading-relaxed text-white/45">
+        {t('sala.desc', 'Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje y bitácora con fotos y anécdotas.')}
       </p>
 
       <div className="flex gap-2">
         {TABS.map((tabItem) => (
           <button
             key={tabItem.id}
+            data-tut={`sala.tab.${tabItem.id}`}
             onClick={() => setTab(tabItem.id)}
             className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
-              tab === tabItem.id ? 'bg-teal-400 text-black' : 'bg-white/5 hover:bg-white/10'
+              tab === tabItem.id ? 'bg-teal-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
-            {t(`sala.tab.${tabItem.id}`, tabItem.labelEs)}
+            <Icono nombre={tabItem.icono} /> {t(`sala.tab.${tabItem.id}`, tabItem.labelEs)}
           </button>
         ))}
       </div>
 
-      {tab === 'resumen' && (
-        <ResumenTab
-          viajes={viajes}
-          gastosPorViaje={gastosPorViaje}
-          onAbrir={(id) => {
-            setViajeId(id)
-            setTab('viajes')
-          }}
-        />
-      )}
-      {tab === 'viajes' && (
-        <ListaViajesTab
-          viajes={viajes}
-          gastosPorViaje={gastosPorViaje}
-          onAbrir={setViajeId}
-        />
-      )}
+      {tab === 'mapa' && <MapaTab lugares={lugares} onIrABitacora={irABitacora} />}
+      {tab === 'porConocer' && <PorConocerTab lugares={lugares} />}
+      {tab === 'rutas' && <RutasTab lugares={lugares} />}
+      {tab === 'bitacora' && <BitacoraTab lugares={lugares} lugarInicial={lugarBitacora} />}
+      {tab === 'cronograma' && <CronogramaApp plantillaId="sala" />}
     </div>
   )
 }

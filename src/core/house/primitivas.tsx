@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react'
+import * as THREE from 'three'
 import { matTema, type Tema } from './temas'
+import { useDiseño } from '../state/disenoStore'
 
 /**
  * Primitivas temáticas compartidas (estilo Roblox). Cualquier mesh hecho con
@@ -12,13 +14,42 @@ export const TemaContext = createContext<Tema | null>(null)
 
 type Vec3 = [number, number, number]
 
+/** Mapa de bandas para el cel-shading (estilo cómic): 4 escalones de luz. */
+let gradienteToon: THREE.DataTexture | null = null
+function gradientMapToon(): THREE.DataTexture {
+  if (gradienteToon) return gradienteToon
+  const tex = new THREE.DataTexture(new Uint8Array([90, 150, 210, 255]), 4, 1, THREE.RedFormat)
+  tex.minFilter = THREE.NearestFilter
+  tex.magFilter = THREE.NearestFilter
+  tex.needsUpdate = true
+  gradienteToon = tex
+  return tex
+}
+
+/** Material de primitiva: estándar (PBR) o toon con bandas si el efecto 'toon' está activo. */
+function MatPrimitiva({ c, rough }: { c: string; rough: number }) {
+  const tema = useContext(TemaContext)
+  const toon = useDiseño((s) => s.efectosVisuales && s.efectosConfig.toon?.on === true)
+  const m = matTema(c, tema, rough)
+  if (toon) {
+    return (
+      <meshToonMaterial
+        color={m.color}
+        gradientMap={gradientMapToon()}
+        emissive={m.emissive ?? '#000000'}
+        emissiveIntensity={m.emissiveIntensity ?? 0}
+      />
+    )
+  }
+  return <meshStandardMaterial {...m} />
+}
+
 /** Caja temática. */
 export function TB({ p, s, c, rough }: { p: Vec3; s: Vec3; c: string; rough?: number }) {
-  const tema = useContext(TemaContext)
   return (
     <mesh position={p} castShadow receiveShadow>
       <boxGeometry args={s} />
-      <meshStandardMaterial {...matTema(c, tema, rough ?? 0.7)} />
+      <MatPrimitiva c={c} rough={rough ?? 0.7} />
     </mesh>
   )
 }
@@ -39,22 +70,20 @@ export function TC({
   rough?: number
   seg?: number
 }) {
-  const tema = useContext(TemaContext)
   return (
     <mesh position={p} castShadow receiveShadow>
       <cylinderGeometry args={[r, r, h, seg]} />
-      <meshStandardMaterial {...matTema(c, tema, rough ?? 0.7)} />
+      <MatPrimitiva c={c} rough={rough ?? 0.7} />
     </mesh>
   )
 }
 
 /** Esfera temática. */
 export function TS({ p, r, c, rough }: { p: Vec3; r: number; c: string; rough?: number }) {
-  const tema = useContext(TemaContext)
   return (
     <mesh position={p} castShadow receiveShadow>
       <sphereGeometry args={[r, 16, 16]} />
-      <meshStandardMaterial {...matTema(c, tema, rough ?? 0.6)} />
+      <MatPrimitiva c={c} rough={rough ?? 0.6} />
     </mesh>
   )
 }

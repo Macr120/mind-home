@@ -1,4 +1,4 @@
-import { plantillas, type Plantilla } from '../registry'
+import { plantillasTodas, type Plantilla } from '../registry'
 import { useDiseño } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
 
@@ -10,7 +10,7 @@ import { useCuartos } from '../state/cuartosStore'
 export function appsAsignadas(): Plantilla[] {
   const ids = new Set<string>()
   for (const o of useDiseño.getState().objetos) if (o.plantillaId) ids.add(o.plantillaId)
-  return plantillas.filter((p) => ids.has(p.id))
+  return plantillasTodas().filter((p) => ids.has(p.id))
 }
 
 /**
@@ -29,7 +29,7 @@ export function appsAsignadas(): Plantilla[] {
  *   3. Si nada coincide → sin cuarto (queda sin clasificar en la bitácora).
  */
 
-export type Comando = 'agregar' | 'quitar' | 'recordar'
+type Comando = 'agregar' | 'quitar' | 'recordar'
 
 export interface Interpretacion {
   /** Cuarto principal detectado (primero), o null si quedó sin clasificar. */
@@ -48,25 +48,27 @@ export interface Interpretacion {
 
 /** Palabras clave por cuarto (capa sin IA). Acentos ignorados al comparar. */
 const PALABRAS: Record<string, string[]> = {
-  cocina: ['comi', 'comer', 'comida', 'desayuno', 'almuerzo', 'cena', 'nutricion', 'agua', 'calorias', 'receta', 'macros'],
+  // 'pese' (me pesé) y no 'peso': chocaría con ejercicio ("peso muerto").
+  cocina: ['comi', 'comer', 'comida', 'desayuno', 'almuerzo', 'cena', 'nutricion', 'agua', 'calorias', 'receta', 'macros', 'pese'],
   ejercicio: ['entrene', 'gym', 'gimnasio', 'pesas', 'corri', 'correr', 'rutina', 'fuerza', 'cardio', 'flexibilidad'],
-  recamara: ['dormi', 'sueno', 'descanse', 'descanso', 'siesta', 'anecdota'],
+  descanso: ['dormi', 'sueno', 'descanse', 'descanso', 'siesta', 'alarma', 'despertador'],
+  anecdotario: ['anecdota', 'anecdotario', 'recuerdo'],
   despacho: ['gaste', 'gasto', 'pague', 'compre', 'ingreso', 'dinero', 'presupuesto', 'ahorro', 'finanzas', 'factura', 'cobre'],
   biblioteca: ['estudie', 'aprendi', 'curso', 'leccion', 'tema'],
   entretenimiento: ['pelicula', 'serie', 'vi', 'jugue', 'videojuego', 'partida'],
-  sala: ['viaje', 'viajar', 'vuelo', 'hotel', 'itinerario', 'destino'],
+  sala: ['viaje', 'viajar', 'vuelo', 'destino', 'ruta', 'bitacora', 'visite', 'visitar'],
   jardin: ['medite', 'meditacion', 'respiracion', 'gratitud', 'animo', 'mindfulness'],
   garage: ['coche', 'auto', 'moto', 'bici', 'bicicleta', 'mantenimiento', 'aceite', 'servicio', 'taller', 'odometro'],
   diario: ['noticia', 'noticias', 'briefing'],
-  bodega: ['inventario', 'guarde', 'respaldo', 'archive'],
   hobbies: ['hobby', 'pasatiempo', 'manualidad', 'proyecto'],
+  idiomas: ['idioma', 'idiomas', 'vocabulario', 'ingles', 'frances', 'aleman', 'japones', 'italiano', 'portugues', 'repase', 'repasar', 'practique', 'tarjetas'],
 }
 
 /**
  * Sinónimos → id de objeto del catálogo (capa sin IA). Las claves deben existir
  * como `id` en CATALOGO (catalogo.tsx). Permite "crea una guitarra" → 'guitarra'.
  */
-const OBJETOS: Record<string, string[]> = {
+export const OBJETOS: Record<string, string[]> = {
   guitarra: ['guitarra', 'guitar'],
   planta: ['planta', 'maceta', 'flor', 'flores', 'cactus'],
   lampara: ['lampara', 'luz', 'foco'],
@@ -114,7 +116,7 @@ function tokensRelevantes(fragmento: string): string[] {
 }
 
 /** Busca un CUARTO (instancia) por id o nombre — para comandos agregar/quitar. */
-function buscarCuarto(fragmento: string) {
+export function buscarCuarto(fragmento: string) {
   const tokens = tokensRelevantes(fragmento)
   if (tokens.length === 0) return undefined
   const cuartos = useCuartos.getState().cuartos

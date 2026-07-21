@@ -14,7 +14,7 @@ import {
 
 export const MAPA_SUPERFICIE_ID = '__mapa_superficie__'
 
-export type MapaSuperficieModo = 'color' | 'textura' | 'imagen' | 'ninguno'
+type MapaSuperficieModo = 'color' | 'textura' | 'imagen' | 'ninguno'
 
 /** Apariencia del área de dibujo (papel sepia), rejilla y base del mapa 3D. */
 export interface MapaSuperficieAjustes {
@@ -60,12 +60,14 @@ export function serializarMapaSuperficie(a: MapaSuperficieAjustes): { color: str
 /** Color del margen blanco del plano, sincronizado con el fondo de cielo. */
 export function colorMargenPlanoDesdeCielo(opts: {
   fondoId: FondoId
+  fondoColorFijo?: string
   fondoImagenActivo: number | null
   temaGlobal: TemaId | null
   minutos: number
 }): string {
-  const { fondoId, fondoImagenActivo, temaGlobal, minutos } = opts
+  const { fondoId, fondoColorFijo, fondoImagenActivo, temaGlobal, minutos } = opts
   if (fondoImagenActivo != null) return '#e8eaef'
+  if (fondoId === 'color_fijo') return aclararParaMargen(fondoColorFijo ?? '#87ceeb')
   const fondoDef = getFondo(fondoId)
   if (fondoDef.id === 'auto') {
     const cielo = estadoCielo(minutos, 40)

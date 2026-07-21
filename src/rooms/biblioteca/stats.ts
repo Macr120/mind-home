@@ -1,44 +1,55 @@
-import type { ProgresoTema } from '../../core/data/db'
-import { contarIndice, PILARES } from './pilares'
+import type { SesionEstudio } from '../../core/data/db'
+import { fechaLocalISO } from '../../core/fechaLocal'
+import { hoyISO } from './fecha'
 
-export function estadisticasEnciclopedia(progreso: ProgresoTema[]) {
-  const indice = contarIndice()
-  const porEstado = {
-    explorado: 0,
-    en_estudio: 0,
-    revisado: 0,
-  }
-  for (const p of progreso) porEstado[p.estado] += 1
+// Helpers de fecha del cuarto (mismo criterio que hobbies/stats.ts; los
+// rooms no se importan entre sí).
+export function sumarDias(fecha: string, delta: number): string {
+  const d = new Date(`${fecha}T12:00:00`)
+  d.setDate(d.getDate() + delta)
+  return fechaLocalISO(d)
+}
 
-  const marcados = progreso.length
-  const cobertura =
-    indice.temas > 0 ? Math.round((marcados / indice.temas) * 100) : 0
+export function inicioSemana(fecha: string): string {
+  const d = new Date(`${fecha}T12:00:00`)
+  const dia = d.getDay()
+  const ajuste = dia === 0 ? -6 : 1 - dia
+  d.setDate(d.getDate() + ajuste)
+  return fechaLocalISO(d)
+}
 
-  const porPilar = PILARES.map((pilar) => {
-    const temaIds = new Set(
-      pilar.ramas.flatMap((r) => r.temas.map((t) => t.id)),
-    )
-    const delPilar = progreso.filter((p) => temaIds.has(p.temaId))
-    return {
-      id: pilar.id,
-      titulo: pilar.titulo,
-      icon: pilar.icon,
-      total: temaIds.size,
-      marcados: delPilar.length,
-      revisados: delPilar.filter((p) => p.estado === 'revisado').length,
-    }
-  }).sort((a, b) => b.marcados - a.marcados)
+export function diasSemana(desdeLunes: string): string[] {
+  return Array.from({ length: 7 }, (_, i) => sumarDias(desdeLunes, i))
+}
 
-  const recientes = [...progreso]
-    .sort((a, b) => b.actualizadoEn.localeCompare(a.actualizadoEn))
-    .slice(0, 5)
+/** Convierte "#rrggbb" + alfa en rgba(). */
+export function rgba(hex: string, alpha: number) {
+  const n = parseInt(hex.slice(1), 16)
+  const r = (n >> 16) & 255
+  const g = (n >> 8) & 255
+  const b = n & 255
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+}
 
-  return {
-    ...indice,
-    marcados,
-    cobertura,
-    porEstado,
-    porPilar,
-    recientes,
-  }
+/** Minutos estudiados por fecha (yyyy-mm-dd). */
+export function minutosPorDia(sesiones: SesionEstudio[]): Map<string, number> {
+  const m = new Map<string, number>()
+  for (const s of sesiones) m.set(s.fecha, (m.get(s.fecha) ?? 0) + s.minutos)
+  return m
+}
+
+/** Racha actual: días consecutivos hacia atrás; hoy sin estudio no rompe hasta mañana. */
+export function rachaActual(fechas: Set<string>): number {
+  const inicio = fechas.has(hoyISO()) ? 0 : 1
+  let n = 0
+  while (fechas.has(sumarDias(hoyISO(), -(inicio + n)))) n++
+  return n
+}
+
+/** Formatea minutos: "45 m" o "1 h 35 m". */
+export function fmtMin(min: number): string {
+  if (min < 60) return `${min} m`
+  const h = Math.floor(min / 60)
+  const m = min % 60
+  return m ? `${h} h ${m} m` : `${h} h`
 }

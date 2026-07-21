@@ -1,4 +1,5 @@
 export type SeccionMapaId =
+  | 'mapa'
   | 'ajustes'
   | 'inventario'
   | 'tema'
@@ -7,15 +8,12 @@ export type SeccionMapaId =
 
 export type SeccionCuartoId = 'piso' | 'paredes' | 'techo' | 'objetos'
 
-export const ORDEN_MAPA_DEFAULT: SeccionMapaId[] = [
-  'ajustes',
-  'inventario',
-  'tema',
-  'fondo',
-  'perfil',
-]
+// La pestaña "Mapa" del editor: el resto vive en otras pestañas (perfil → Personajes,
+// ajustes → Configuraciones), en la barra del constructor (fondo de cielo) o en el side
+// menu de Mind Home (inventario y catálogo).
+const ORDEN_MAPA_DEFAULT: SeccionMapaId[] = ['tema']
 
-export const ORDEN_CUARTO_DEFAULT: SeccionCuartoId[] = [
+const ORDEN_CUARTO_DEFAULT: SeccionCuartoId[] = [
   'piso',
   'paredes',
   'techo',
@@ -23,6 +21,7 @@ export const ORDEN_CUARTO_DEFAULT: SeccionCuartoId[] = [
 ]
 
 export const TITULOS_MAPA: Record<SeccionMapaId, string> = {
+  mapa: 'Mapa',
   ajustes: 'Interfaz e idioma',
   inventario: 'Inventario y catálogo',
   tema: 'Tema de la casa',
@@ -41,8 +40,15 @@ const KEY_ORDEN_MAPA = 'mind-home-editor-orden-mapa'
 const KEY_ORDEN_CUARTO = 'mind-home-editor-orden-cuarto'
 const KEY_COLAPSO = 'mind-home-editor-colapso'
 
-/** Secciones de mapa retiradas del panel. */
-const SECCIONES_MAPA_RETIRADAS = new Set(['techo', 'piso'])
+/** Secciones de mapa retiradas de la pestaña Mapa (viven en otras pestañas / barra / side menu). */
+const SECCIONES_MAPA_RETIRADAS = new Set([
+  'techo',
+  'piso',
+  'ajustes',
+  'perfil',
+  'fondo',
+  'inventario',
+])
 
 /** Secciones de cuarto retiradas del panel (p. ej. `forma` → edición en escena 3D). */
 const SECCIONES_CUARTO_RETIRADAS = new Set(['forma', 'apariencia'])

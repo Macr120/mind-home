@@ -200,7 +200,3 @@ export function esSinPiso(tipo: string | null | undefined): boolean {
 
 export const getPisoTipo = (id: PisoTipoId | null) =>
   id ? PISOS.find((p) => p.id === id) ?? null : null
-
-/** Piso sugerido por un tema (o null si no hay sugerencia). */
-export const pisoSugeridoPorTema = (temaId: TemaId | null): PisoTipoId | null =>
-  temaId ? (PISOS.find((p) => p.tema === temaId)?.id ?? null) : null

@@ -1,7 +1,7 @@
 # Mind Home
 
 App de una **casa isométrica 3D estilo Roblox** donde cada cuarto es una mini-app 2D
-independiente pero interconectada (**12 apps en 1**). Web (Vite + React), futuro móvil
+independiente pero interconectada (muchas apps en 1). Web (Vite + React), futuro móvil
 con Capacitor.
 
 ## Organización por contexto
@@ -25,7 +25,7 @@ src/
     data/       db.ts (Dexie) + repository.ts (repos reactivos)
     state/      houseStore.ts (Zustand)
     ui/         HUD, RoomOverlay
-    registry.ts contrato RoomModule + lista de los 12 cuartos
+    registry.ts contrato RoomModule + lista de cuartos/plantillas
   rooms/<id>/   UNA CARPETA POR CUARTO (la mini-app 2D)
 ```
 
@@ -41,6 +41,21 @@ src/
 4. **Idioma**: todo el texto de UI y los comentarios en **español**.
 5. **Estilo**: tema oscuro (fondo `#0f1115`), Tailwind utility-first, sin librerías de
    UI externas. Las gráficas se hacen con divs/SVG (sin librería de charts).
+6. **Variables de Configuraciones** (`idioma`, `estiloIconos`, `modoUI`, `temaUI` de
+   `src/core/state/ajustesStore.ts` — el usuario las cambia en la pestaña Configuraciones).
+   TODO cambio de UI debe respetarlas:
+   - **Texto nuevo** → siempre `t('clave', 'Español')` (hook `useT` de `src/core/i18n/useT.ts`)
+     y su traducción inglesa en `src/core/i18n/dict.ts` **en el mismo cambio**. Nunca texto
+     visible hardcodeado (tampoco en `title`, `placeholder`, `alt` o `aria-label`).
+   - **Icono nuevo** → siempre `<Icono nombre="...">` de `src/core/ui/iconos/` (o
+     `<Icono emoji={dato}>` si el emoji viene de datos/BD); nunca un emoji crudo en JSX.
+     Si no existe la entrada, añade `{ emoji, Svg }` al `CATALOGO` de
+     `src/core/ui/iconos/catalogo.ts`. No incrustes emojis dentro de los textos de `t()`.
+   - **Excepciones que sí conservan emoji**: `<option>` de selects, `placeholder` de inputs,
+     mensajes de celebración/notificación («¡Ganaste! 🎉»), frases de mascota
+     (`core/chat/mascotas.ts`), etiquetas `<text>` dentro de SVG (croquis/diales) y
+     cualquier emoji que el usuario guardó como dato.
+   - Colores/tema: usa las clases `ui-*`/variables `--ui-*` (nunca hardcodear fondos).
 
 ## Agregar un cuarto nuevo
 1. Crear `src/rooms/<id>/MiApp.tsx` — componente React 2D con Tailwind, tema oscuro.
@@ -65,10 +80,14 @@ src/
 | 8 | Jardín | Mindfulness | ✅ |
 | 9 | Garage/Taller | Vehículos | ✅ |
 | 10 | Diario | **Noticias (briefing RSS diario)** — NO es el anecdotario | ✅ |
-| A | Bodega | Inventario y respaldo | ✅ |
 | B | Hobbies | Pasatiempos y proyectos | ✅ |
+| C | Anecdotario | Fotos y recuerdos (separado de Recámara) | ✅ |
 
 **Personalización de la casa** (colores, avatar, objetos, perfil): modo **✏️ Editar mapa** → panel derecho (`EditPanel`).
+
+**Respaldo de datos** (exportar/restaurar/borrar): Editor → pestaña Configuraciones →
+sección «Respaldo de datos» (`EditorRespaldoSection`). Antes vivía en el cuarto Bodega,
+eliminado en jul 2026.
 
 ## Calidad "premium"
 Cada cuarto debe acercarse a apps premium del mercado. Antes de construir/pulir un cuarto,
@@ -78,7 +97,7 @@ gráficas, categorías con iconos, metas de ahorro).
 ## Verificación
 ```bash
 npm run dev      # http://localhost:5173
-npx tsc --noEmit # tipos
+npx tsc -b       # tipos (¡OJO! --noEmit NO valida nada aquí: tsconfig usa references)
 npm run build    # build de producción
 ```
 Los tres deben pasar sin errores antes de dar por hecho un cambio.

@@ -1,10 +1,11 @@
 import { useRef } from 'react'
 import { useT } from '../../i18n/useT'
+import { Icono } from '../iconos/Icono'
 
 const AJUSTES = [
-  { id: 'x1', label: 'Grande' },
-  { id: 'x2', label: 'Medio' },
-  { id: 'x4', label: 'Mosaico' },
+  { id: 'x1', clave: 'grande', labelEs: 'Grande' },
+  { id: 'x2', clave: 'medio', labelEs: 'Medio' },
+  { id: 'x4', clave: 'mosaico', labelEs: 'Mosaico' },
 ] as const
 
 /** Bloque reutilizable: subir / activar imagen de piso. */
@@ -53,8 +54,8 @@ export function EditorPisoImagenBlock({
           >
             <img src={previewUrl} alt="" className="h-full w-full object-cover" draggable={false} />
             {imagenActiva && (
-              <div className="absolute right-1.5 top-1.5 rounded bg-emerald-400/80 px-1.5 py-0.5 text-[9px] font-bold text-black">
-                ACTIVA
+              <div className="absolute right-1.5 top-1.5 rounded bg-emerald-600 px-1.5 py-0.5 text-[9px] font-bold texto-cta">
+                {t('editor.imgActiva', 'ACTIVA')}
               </div>
             )}
           </div>
@@ -64,7 +65,7 @@ export function EditorPisoImagenBlock({
               <button
                 type="button"
                 onClick={onActivar}
-                className="flex-1 rounded-md border border-emerald-400/40 bg-emerald-400/10 py-1.5 text-[10px] font-semibold text-emerald-300 transition hover:bg-emerald-400/20"
+                className="flex-1 rounded-md border border-emerald-400/40 bg-emerald-400/10 py-1.5 text-[10px] font-semibold text-emerald-400 transition hover:bg-emerald-400/20"
               >
                 {t('editor.pisoCuarto.usarImagen', 'Usar imagen')}
               </button>
@@ -108,11 +109,11 @@ export function EditorPisoImagenBlock({
                     className={[
                       'flex-1 rounded-md border py-1.5 text-[10px] font-semibold transition',
                       ajuste === a.id
-                        ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-300'
+                        ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
                         : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10',
                     ].join(' ')}
                   >
-                    {a.label}
+                    {t(`editor.tamano.${a.clave}`, a.labelEs)}
                   </button>
                 ))}
               </div>
@@ -125,7 +126,7 @@ export function EditorPisoImagenBlock({
           onClick={() => fileInputRef.current?.click()}
           className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-white/5 py-4 text-[11px] text-white/50 transition hover:border-white/40 hover:bg-white/8 hover:text-white/70"
         >
-          <span className="text-base">🖼️</span>
+          <span className="text-base"><Icono nombre="imagen" /></span>
           {t('editor.pisoCuarto.subirImagen', 'Subir imagen')}
         </button>
       )}

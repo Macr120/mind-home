@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import type { MediaArchivo, TipoMedia } from '../../core/data/db'
 import { mediaArchivoRepo } from '../../core/data/repository'
-import { COLOR, ESTADOS_MEDIA, GENEROS_SUGERIDOS, TIPOS_MEDIA } from './constantes'
+import { COLOR, ESTADOS_MEDIA, TIPOS_MEDIA } from './constantes'
 import { Estrellas } from './Estrellas'
 import { hoyISO } from './fecha'
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function FormularioMedia({
   inicial,
@@ -19,7 +20,6 @@ export function FormularioMedia({
   const [tipo, setTipo] = useState<TipoMedia>(inicial?.tipo ?? 'pelicula')
   const [titulo, setTitulo] = useState(inicial?.titulo ?? '')
   const [genero, setGenero] = useState(inicial?.genero ?? '')
-  const [generoCustom, setGeneroCustom] = useState('')
   const [fecha, setFecha] = useState(inicial?.fecha ?? hoyISO())
   const [estado, setEstado] = useState<MediaArchivo['estado']>(
     inicial?.estado ?? 'completado',
@@ -28,17 +28,14 @@ export function FormularioMedia({
   const [resena, setResena] = useState(inicial?.resena ?? '')
   const [autor, setAutor] = useState(inicial?.autor ?? '')
 
-  const generoFinal = genero === '__otro__' ? generoCustom.trim() : genero
-  const sugeridos = GENEROS_SUGERIDOS[tipo]
-
   const guardar = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!titulo.trim() || !generoFinal) return
+    if (!titulo.trim() || !genero.trim()) return
 
     const datos = {
       tipo,
       titulo: titulo.trim(),
-      genero: generoFinal,
+      genero: genero.trim(),
       fecha,
       estado,
       calificacion,
@@ -62,7 +59,8 @@ export function FormularioMedia({
       className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
     >
       <p className="text-sm font-semibold">
-        {inicial ? t('entre.form.editarTitulo', '✏️ Editar entrada') : t('entre.form.añadirTitulo', '➕ Añadir al archivo')}
+        <Icono nombre={inicial ? 'editar' : 'agregar'} />{' '}
+        {inicial ? t('entre.form.editarTitulo', 'Editar entrada') : t('entre.form.añadirTitulo', 'Añadir al archivo')}
       </p>
 
       <div className="grid grid-cols-4 gap-1.5">
@@ -70,16 +68,13 @@ export function FormularioMedia({
           <button
             key={tipoItem.id}
             type="button"
-            onClick={() => {
-              setTipo(tipoItem.id)
-              setGenero('')
-            }}
+            onClick={() => setTipo(tipoItem.id)}
             className={`rounded-lg py-2 text-xs font-semibold transition ${
               tipo === tipoItem.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
             }`}
             style={tipo === tipoItem.id ? { background: COLOR } : undefined}
           >
-            {tipoItem.icon} {tipoItem.label}
+            <Icono emoji={tipoItem.icon} /> {tipoItem.label}
           </button>
         ))}
       </div>
@@ -93,39 +88,13 @@ export function FormularioMedia({
         className={input}
       />
 
-      <div className="flex flex-wrap gap-1.5">
-        {sugeridos.map((g) => (
-          <button
-            key={g}
-            type="button"
-            onClick={() => setGenero(g)}
-            className={`rounded-lg px-2.5 py-1 text-xs font-medium ${
-              genero === g ? 'text-black' : 'bg-white/5 text-white/70'
-            }`}
-            style={genero === g ? { background: `${COLOR}cc` } : undefined}
-          >
-            {g}
-          </button>
-        ))}
-        <button
-          type="button"
-          onClick={() => setGenero('__otro__')}
-          className={`rounded-lg px-2.5 py-1 text-xs ${
-            genero === '__otro__' ? 'text-black' : 'bg-white/5'
-          }`}
-          style={genero === '__otro__' ? { background: `${COLOR}cc` } : undefined}
-        >
-          {t('entre.form.otroGenero', 'Otro…')}
-        </button>
-      </div>
-      {genero === '__otro__' && (
-        <input
-          value={generoCustom}
-          onChange={(e) => setGeneroCustom(e.target.value)}
-          placeholder={t('entre.form.ph.genero', 'Escribe el género')}
-          className={input}
-        />
-      )}
+      <input
+        value={genero}
+        onChange={(e) => setGenero(e.target.value)}
+        placeholder={t('entre.form.genero', 'Género')}
+        required
+        className={input}
+      />
 
       <div className="grid grid-cols-2 gap-2">
         <label className="text-xs text-white/50">

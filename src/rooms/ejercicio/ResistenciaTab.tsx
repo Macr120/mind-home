@@ -1,198 +1,589 @@
-import { useState } from 'react'
-import type { SesionEjercicio } from '../../core/data/db'
-import { sesionesEjercicioRepo } from '../../core/data/repository'
-import { TIPOS_CARDIO } from './constantes'
-import { RUTINAS } from './rutinas'
-import { minutosTipo, sesionesSemana } from './stats'
+import { useMemo, useState } from 'react'
+import type { SesionEjercicio, SplitCardio } from '../../core/data/db'
+import {
+  gruposCardioRepo,
+  rutinasCardioRepo,
+  sesionesEjercicioRepo,
+  splitsCardioRepo,
+} from '../../core/data/repository'
+import type { PlanDelDia } from './agenda'
+import { TarjetaRutina } from './TarjetaRutina'
+import { AutocompleteEjercicio } from './AutocompleteEjercicio'
+import { CardioEnVivo, RutaSvg } from './CardioEnVivo'
+import { aGrupoCatalogo } from './catalogo'
+import { CrearRutinaCardio } from './CrearRutinaCardio'
+import { HeatmapMensual } from './HeatmapMensual'
+import { useImagenesPorClave } from './imagenIA'
+import { MiniaturaEjercicio } from './MiniaturaEjercicio'
+import { hoyISO, nombreFecha } from './fecha'
+import {
+  minutosTipo,
+  normalizarEjercicio,
+  ritmoMinKm,
+  sesionesSemana,
+  sesionesTipo,
+  statsResistencia,
+} from './stats'
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
+
+const SUBS_R = [
+  { id: 'catalogo', icono: 'cuarto-biblioteca', labelEs: 'Catálogo' },
+  { id: 'rutinas', icono: 'lista', labelEs: 'Rutinas' },
+  { id: 'progreso', icono: 'tendencia', labelEs: 'Progreso' },
+] as const
+
+type SubResistencia = (typeof SUBS_R)[number]['id']
+
+
+const TITULO_DEFECTO = 'Carrera'
+
+/** Un tramo del formulario: actividad + minutos + km (la sesión es la suma). */
+interface FilaCardio {
+  actividad: string
+  minutos: string
+  km: string
+}
+
+const filaVacia = (): FilaCardio => ({ actividad: '', minutos: '30', km: '' })
 
 export function ResistenciaTab({
   fecha,
   sesiones,
+  planDia,
   metaMinutos,
+  metaSesiones,
 }: {
   fecha: string
   sesiones: SesionEjercicio[]
+  planDia: PlanDelDia[]
   metaMinutos: number
+  metaSesiones: number
 }) {
-  const [tipo, setTipo] = useState(TIPOS_CARDIO[0])
-  const [duracion, setDuracion] = useState('30')
-  const [distancia, setDistancia] = useState('')
+  const [subR, setSubR] = useState<SubResistencia>('catalogo')
+  const [titulo, setTitulo] = useState(TITULO_DEFECTO)
+  const [filas, setFilas] = useState<FilaCardio[]>([{ ...filaVacia(), actividad: TITULO_DEFECTO }])
+  const [ppm, setPpm] = useState('')
   const [rpe, setRpe] = useState('6')
   const [nota, setNota] = useState('')
+  const [editandoId, setEditandoId] = useState<number | null>(null)
+  const [rutinasAbierto, setRutinasAbierto] = useState(true)
 
-  const delDia = sesiones.filter(
-    (s) => s.fecha === fecha && s.tipo === 'resistencia',
-  )
+  const rutinas = rutinasCardioRepo.useAll() ?? []
+  const gruposCardio = gruposCardioRepo.useAll() ?? []
+  const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposCardio), [gruposCardio])
+  const imgPorClave = useImagenesPorClave()
+  const todosSplits = splitsCardioRepo.useAll() ?? []
+
+  // Al cambiar de día se descarta la edición en curso (ajuste en render, sin efecto)
+  const [prevFecha, setPrevFecha] = useState(fecha)
+  if (fecha !== prevFecha) {
+    setPrevFecha(fecha)
+    setEditandoId(null)
+  }
+
+  const delDia = sesiones.filter((s) => s.fecha === fecha && s.tipo === 'resistencia')
+  const stats = statsResistencia(sesiones)
   const semana = sesionesSemana(sesiones)
-  const minSemana = minutosTipo(semana, 'resistencia')
-  const pct = metaMinutos > 0 ? Math.min(100, (minSemana / metaMinutos) * 100) : 0
+  const semanaMin = minutosTipo(semana, 'resistencia')
+  const semanaSes = sesionesTipo(semana, 'resistencia')
+
+  const splitsPorSesion = useMemo(() => {
+    const m = new Map<number, SplitCardio[]>()
+    for (const s of todosSplits) {
+      const lista = m.get(s.sesionId)
+      if (lista) lista.push(s)
+      else m.set(s.sesionId, [s])
+    }
+    for (const lista of m.values()) lista.sort((a, b) => a.orden - b.orden)
+    return m
+  }, [todosSplits])
+
+  // La sesión es la suma de sus tramos (como los parciales de un triatlón).
+  const sumaMin = filas.reduce(
+    (a, f) => a + (f.actividad.trim() ? parseInt(f.minutos, 10) || 0 : 0),
+    0,
+  )
+  const sumaKm = filas.reduce(
+    (a, f) => a + (f.actividad.trim() ? parseFloat(f.km) || 0 : 0),
+    0,
+  )
+
+  const recientes = useMemo(() => {
+    const vistos = new Set<string>()
+    const res: string[] = []
+    for (const s of sesiones) {
+      if (s.tipo !== 'resistencia') continue
+      const clave = normalizarEjercicio(s.titulo)
+      if (!clave || vistos.has(clave)) continue
+      vistos.add(clave)
+      res.push(s.titulo)
+    }
+    return res
+  }, [sesiones])
+
+  const actualizarFila = (i: number, patch: Partial<FilaCardio>) =>
+    setFilas((prev) => prev.map((f, idx) => (idx === i ? { ...f, ...patch } : f)))
+
+  const agregarFila = () => setFilas((f) => [...f, filaVacia()])
+
+  const aplicarRutina = (r: { nombre: string; duracionMin: number; ejercicios?: string[] }) => {
+    setTitulo(r.nombre)
+    if (r.ejercicios?.length) {
+      // Reparte la duración de la rutina entre sus tramos como punto de partida.
+      const porTramo = Math.max(1, Math.round(r.duracionMin / r.ejercicios.length))
+      setFilas(r.ejercicios.map((a) => ({ actividad: a, minutos: String(porTramo), km: '' })))
+    } else {
+      setFilas([{ actividad: r.nombre, minutos: String(r.duracionMin), km: '' }])
+    }
+    if (subR !== 'rutinas') setSubR('rutinas')
+  }
+
+  const usarProgramada = (p: PlanDelDia) => {
+    const r = rutinas.find((x) => x.nombre === p.rutinaNombre)
+    aplicarRutina(r ?? { nombre: p.rutinaNombre, duracionMin: p.duracionMin })
+  }
+
+  const editarSesion = (s: SesionEjercicio) => {
+    if (!s.id) return
+    setEditandoId(s.id)
+    setTitulo(s.titulo)
+    setPpm(s.ppmProm ? String(s.ppmProm) : '')
+    setRpe(s.rpe ? String(s.rpe) : '')
+    setNota(s.nota ?? '')
+    const suyos = splitsPorSesion.get(s.id) ?? []
+    setFilas(
+      suyos.length
+        ? suyos.map((x) => ({
+            actividad: x.actividad,
+            minutos: String(x.minutos),
+            km: x.km ? String(x.km) : '',
+          }))
+        : // Sesión sin tramos (p. ej. grabada en vivo): se edita como un tramo único.
+          [{ actividad: s.titulo, minutos: String(s.duracionMin), km: s.distanciaKm ? String(s.distanciaKm) : '' }],
+    )
+    setSubR('rutinas')
+  }
+
+  const cancelarEdicion = () => {
+    setEditandoId(null)
+    setTitulo(TITULO_DEFECTO)
+    setFilas([{ ...filaVacia(), actividad: TITULO_DEFECTO }])
+    setPpm('')
+    setRpe('6')
+    setNota('')
+  }
 
   const guardar = async (e: React.FormEvent) => {
     e.preventDefault()
-    const mins = parseInt(duracion, 10)
-    if (!mins || mins <= 0) return
-    await sesionesEjercicioRepo.add({
-      fecha,
-      tipo: 'resistencia',
-      titulo: tipo,
-      duracionMin: mins,
-      distanciaKm: parseFloat(distancia) || undefined,
+    const validas = filas.filter((f) => f.actividad.trim())
+    if (validas.length === 0 || sumaMin <= 0) return
+
+    const datos = {
+      titulo: titulo.trim() || 'Cardio',
+      duracionMin: sumaMin,
+      distanciaKm: sumaKm > 0 ? +sumaKm.toFixed(2) : undefined,
+      ppmProm: parseInt(ppm, 10) || undefined,
       rpe: parseInt(rpe, 10) || undefined,
       nota: nota.trim() || undefined,
-    })
-    setDistancia('')
-    setNota('')
+    }
+
+    let sesionId: number
+    if (editandoId !== null) {
+      sesionId = editandoId
+      await sesionesEjercicioRepo.update(editandoId, datos)
+      const viejos = todosSplits.filter((x) => x.sesionId === editandoId)
+      await Promise.all(viejos.map((x) => x.id && splitsCardioRepo.remove(x.id)))
+    } else {
+      sesionId = await sesionesEjercicioRepo.add({ fecha, tipo: 'resistencia', ...datos })
+    }
+    await splitsCardioRepo.bulkAdd(
+      validas.map((f, i) => ({
+        sesionId,
+        actividad: f.actividad.trim(),
+        minutos: parseInt(f.minutos, 10) || 0,
+        km: parseFloat(f.km) || undefined,
+        orden: i,
+      })),
+    )
+    cancelarEdicion()
   }
 
   const t = useT()
 
   return (
     <div className="space-y-5">
-      <div className="rounded-xl bg-sky-500/10 border border-sky-500/25 p-4">
-        <p className="text-xs text-white/50">{t('ejercicio.cardio.minSemana', 'Minutos cardio esta semana')}</p>
-        <p className="text-2xl font-black text-sky-300">
-          {minSemana}{' '}
-          <span className="text-base font-semibold text-white/50">/ {metaMinutos} min</span>
-        </p>
-        <div className="mt-2 h-2 rounded-full bg-black/40 overflow-hidden">
-          <div
-            className="h-full rounded-full bg-sky-400 transition-all"
-            style={{ width: `${pct}%` }}
-          />
+      {planDia.length > 0 && (
+        <div className="space-y-1.5">
+          {planDia.map((p) => (
+            <div
+              key={p.rutinaId}
+              className="flex items-center gap-2 rounded-xl bg-sky-500/10 border border-sky-500/25 px-3 py-2 text-sm"
+            >
+              <p className="flex-1 min-w-0 truncate">
+                <span className="font-semibold text-sky-400">
+                  <Icono nombre="calendario" /> {t('ejercicio.plan.dia', 'Plan del día')}
+                  {p.hora ? ` · ${p.hora}` : ''}:
+                </span>{' '}
+                {p.rutinaNombre} · {p.duracionMin} min
+              </p>
+              <button
+                type="button"
+                onClick={() => usarProgramada(p)}
+                className="shrink-0 rounded-lg bg-sky-600 px-3 py-1 text-xs font-bold texto-cta"
+              >
+                {t('ejercicio.rutina.usar', 'Usar rutina')}
+              </button>
+            </div>
+          ))}
         </div>
-      </div>
+      )}
 
-      <div className="flex gap-2 overflow-x-auto pb-1">
-        {RUTINAS.resistencia.map((r) => (
+      <div className="flex gap-1.5">
+        {SUBS_R.map((s) => (
           <button
-            key={r.nombre}
+            key={s.id}
             type="button"
-            onClick={() => {
-              setTipo(r.nombre)
-              setDuracion(String(r.duracionMin))
-            }}
-            className="shrink-0 rounded-lg bg-sky-500/15 border border-sky-500/30 px-3 py-2 text-xs font-semibold text-sky-200"
+            onClick={() => setSubR(s.id)}
+            className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-semibold ${
+              subR === s.id
+                ? 'bg-sky-500/25 text-sky-400 border border-sky-500/40'
+                : 'bg-white/5 border border-white/10 hover:bg-white/10'
+            }`}
           >
-            {r.nombre}
+            <Icono nombre={s.icono} /> {t(`ejercicio.sub.${s.id}`, s.labelEs)}
           </button>
         ))}
       </div>
 
-      <form
-        onSubmit={guardar}
-        className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
-      >
-        <p className="text-sm font-semibold">{t('ejercicio.cardio.registrar', '🏃 Registrar cardio / resistencia')}</p>
-        <div className="flex flex-wrap gap-1.5">
-          {TIPOS_CARDIO.map((t) => (
-            <button
-              key={t}
-              type="button"
-              onClick={() => setTipo(t)}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${
-                tipo === t ? 'bg-sky-400 text-black' : 'bg-white/5'
-              }`}
-            >
-              {t}
-            </button>
-          ))}
-        </div>
-        <div className="grid grid-cols-3 gap-2">
-          <label className="text-xs text-white/50">
-            {t('ejercicio.minutos', 'Minutos')}
-            <input
-              type="number"
-              value={duracion}
-              onChange={(e) => setDuracion(e.target.value)}
-              className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
-            />
-          </label>
-          <label className="text-xs text-white/50">
-            {t('ejercicio.km', 'Km (opc.)')}
-            <input
-              type="number"
-              step="0.1"
-              value={distancia}
-              onChange={(e) => setDistancia(e.target.value)}
-              className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
-            />
-          </label>
-          <label className="text-xs text-white/50">
-            {t('ejercicio.rpe', 'RPE')}
-            <input
-              type="number"
-              min={1}
-              max={10}
-              value={rpe}
-              onChange={(e) => setRpe(e.target.value)}
-              className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
-            />
-          </label>
-        </div>
-        <p className="text-[10px] text-white/35">
-          {t('ejercicio.zonas', 'Zonas: RPE 1–4 recuperación · 5–6 aeróbico · 7–8 umbral · 9–10 máximo')}
-        </p>
-        <input
-          value={nota}
-          onChange={(e) => setNota(e.target.value)}
-          placeholder={t('ejercicio.ph.notas.cardio', 'Notas (ritmo, pendiente, sensación...)')}
-          className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
-        />
-        <button
-          type="submit"
-          className="w-full rounded-xl py-2.5 font-bold bg-sky-400 text-black"
-        >
-          {t('ejercicio.guardar', 'Guardar sesión')}
-        </button>
-      </form>
+      {subR === 'catalogo' && <CrearRutinaCardio />}
 
-      <HistorialDia
-        sesiones={delDia}
-        color="text-sky-300"
-        onEliminar={(id) => sesionesEjercicioRepo.remove(id)}
-      />
+      {subR === 'rutinas' && (
+        <>
+          <div className="rounded-xl bg-white/5 border border-white/10">
+            <button
+              type="button"
+              onClick={() => setRutinasAbierto((v) => !v)}
+              className="flex w-full items-center justify-between gap-2 px-3 py-2.5"
+            >
+              <span className="text-base font-bold">
+                <Icono nombre="lista" /> {t('ejercicio.rutinas.biblioteca', 'Mis rutinas')}{' '}
+                <span className="text-white/40">({rutinas.length})</span>
+              </span>
+              <Icono nombre={rutinasAbierto ? 'subir' : 'bajar'} className="text-white/40" />
+            </button>
+            {rutinasAbierto && (
+              <div className="space-y-2 px-3 pb-3">
+                {rutinas.length === 0 && (
+                  <p className="text-xs text-white/40">
+                    {t('ejercicio.rutinas.vacio', 'No tienes rutinas. Créalas en Catálogo.')}
+                  </p>
+                )}
+                {rutinas.map((r) => (
+                  <TarjetaRutina
+                    key={r.id ?? r.nombre}
+                    rutina={r}
+                    tipo="resistencia"
+                    acento={{ boton: 'bg-sky-600', hoverBorde: 'hover:border-sky-500/50' }}
+                    imgPorClave={imgPorClave}
+                    onUsar={() => aplicarRutina(r)}
+                    onBorrar={() => r.id && rutinasCardioRepo.remove(r.id)}
+                    hechoHoy={delDia.length > 0}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {fecha === hoyISO() ? (
+            <CardioEnVivo actividad={titulo} />
+          ) : (
+            <p className="rounded-xl bg-white/5 border border-white/10 p-3 text-xs text-white/40">
+              {t('ejercicio.vivo.soloHoy', 'El entrenamiento en vivo solo está disponible para hoy.')}
+            </p>
+          )}
+
+          <form onSubmit={guardar} className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10">
+            <p className="text-base font-bold">
+              <Icono nombre={editandoId !== null ? 'editar' : 'tab-cardio'} />{' '}
+              {editandoId !== null
+                ? t('ejercicio.cardio.editando', 'Editando sesión de cardio')
+                : t('ejercicio.cardio.registrar', 'Registrar cardio / resistencia')}
+            </p>
+
+            <label className="block text-xs font-semibold text-white/70">
+              {t('ejercicio.cardio.titulo', 'Título de la actividad')}
+              <input
+                value={titulo}
+                onChange={(e) => setTitulo(e.target.value)}
+                className="mt-0.5 w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
+                placeholder={t('ejercicio.cardio.ph.titulo', 'Título de la sesión')}
+              />
+            </label>
+
+            <div className="flex items-center justify-between rounded-lg bg-black/20 px-3 py-2">
+              <span className="text-xs font-semibold text-white/70">
+                {t('ejercicio.cardio.suma', 'Suma de los tramos')}
+              </span>
+              <span className="text-base font-bold text-sky-400">
+                {sumaMin} min{sumaKm > 0 ? ` · ${sumaKm.toFixed(2)} km` : ''}
+              </span>
+            </div>
+
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-white/50">
+                {t('ejercicio.cardio.tramos', 'Tramos · actividad, minutos y km')}
+              </p>
+              {filas.map((f, i) => (
+                <div key={i} className="flex items-center gap-1.5">
+                  <MiniaturaEjercicio
+                    nombre={f.actividad}
+                    registro={imgPorClave.get(normalizarEjercicio(f.actividad))}
+                    hoverBorde="hover:border-sky-500/50"
+                    tamano="sm"
+                  />
+                  <div className="grid flex-1 grid-cols-12 gap-1 text-xs">
+                    <AutocompleteEjercicio
+                      className="col-span-6"
+                      value={f.actividad}
+                      onChange={(v) => actualizarFila(i, { actividad: v })}
+                      onSelect={(nombre) => actualizarFila(i, { actividad: nombre })}
+                      grupos={catalogoNombres}
+                      recientes={recientes}
+                      placeholder={t('ejercicio.cardio.ph.actividad', 'Actividad')}
+                    />
+                    <input
+                      value={f.minutos}
+                      onChange={(e) => actualizarFila(i, { minutos: e.target.value })}
+                      placeholder={t('ejercicio.cardio.ph.min', 'min')}
+                      className="col-span-3 rounded-lg bg-black/30 px-1 py-1.5 border border-white/10 text-center"
+                    />
+                    <input
+                      value={f.km}
+                      onChange={(e) => actualizarFila(i, { km: e.target.value })}
+                      placeholder={t('ejercicio.cardio.ph.km', 'km')}
+                      className="col-span-3 rounded-lg bg-black/30 px-1 py-1.5 border border-white/10 text-center"
+                    />
+                  </div>
+                </div>
+              ))}
+              <button type="button" onClick={agregarFila} className="text-xs text-sky-400 hover:underline">
+                {t('ejercicio.cardio.anadirTramo', '+ Añadir tramo')}
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <label className="text-xs font-semibold text-white/70">
+                {t('ejercicio.ppm', 'PPM (opc.)')}
+                <input
+                  type="number"
+                  value={ppm}
+                  onChange={(e) => setPpm(e.target.value)}
+                  className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
+                />
+              </label>
+              <label className="text-xs font-semibold text-white/70">
+                {t('ejercicio.rpe', 'RPE')}
+                <input
+                  type="number"
+                  min={1}
+                  max={10}
+                  value={rpe}
+                  onChange={(e) => setRpe(e.target.value)}
+                  className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10"
+                />
+              </label>
+            </div>
+            <p className="text-[10px] text-white/35">
+              {t('ejercicio.zonas', 'Zonas: RPE 1–4 recuperación · 5–6 aeróbico · 7–8 umbral · 9–10 máximo')}
+            </p>
+            <input
+              value={nota}
+              onChange={(e) => setNota(e.target.value)}
+              placeholder={t('ejercicio.ph.notas.cardio', 'Notas (ritmo, pendiente, sensación...)')}
+              className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10"
+            />
+            <div className="flex gap-2">
+              {editandoId !== null && (
+                <button
+                  type="button"
+                  onClick={cancelarEdicion}
+                  className="flex-1 rounded-xl py-2.5 font-bold bg-white/10 text-white/70"
+                >
+                  {t('ejercicio.cancelar', 'Cancelar')}
+                </button>
+              )}
+              <button type="submit" className="flex-1 rounded-xl py-2.5 font-bold bg-sky-600 texto-cta">
+                {editandoId !== null
+                  ? t('ejercicio.actualizar', 'Actualizar sesión')
+                  : t('ejercicio.guardar', 'Guardar sesión')}
+              </button>
+            </div>
+          </form>
+
+          <HistorialDia
+            fecha={fecha}
+            sesiones={delDia}
+            color="text-sky-400"
+            splitsPorSesion={splitsPorSesion}
+            onEditar={editarSesion}
+            onEliminar={async (id) => {
+              if (editandoId === id) cancelarEdicion()
+              const suyos = todosSplits.filter((x) => x.sesionId === id)
+              await Promise.all(suyos.map((x) => x.id && splitsCardioRepo.remove(x.id)))
+              await sesionesEjercicioRepo.remove(id)
+            }}
+          />
+        </>
+      )}
+
+      {subR === 'progreso' && (
+        <>
+          <div className="grid grid-cols-2 gap-3">
+            <HeatmapMensual sesiones={sesiones} tipo="resistencia" color="#38bdf8" />
+            <div className="grid grid-rows-2 gap-3">
+              <StatCard
+                label={t('ejercicio.stats.minutos', 'Minutos totales')}
+                valor={String(stats.totalMin)}
+                semana={semanaMin}
+                meta={metaMinutos}
+                color="#38bdf8"
+              />
+              <StatCard
+                label={t('ejercicio.stats.sesiones', 'Sesiones')}
+                valor={String(stats.totalSes)}
+                semana={semanaSes}
+                meta={metaSesiones}
+                color="#38bdf8"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-3">
+            <StatCard label={t('ejercicio.stats.km', 'Km totales')} valor={stats.totalKm.toFixed(1)} />
+            <StatCard
+              label={t('ejercicio.stats.masLarga', 'Más larga')}
+              valor={stats.masLarga > 0 ? `${stats.masLarga.toFixed(1)} km` : '—'}
+            />
+            <StatCard
+              label={t('ejercicio.stats.mejorRitmo', 'Mejor ritmo')}
+              valor={stats.mejorRitmo > 0 ? `${ritmoMinKm(stats.mejorRitmo, 1)} /km` : '—'}
+            />
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+export function StatCard({
+  label,
+  valor,
+  semana,
+  meta,
+  color,
+}: {
+  label: string
+  valor: string
+  /** Valor de esta semana (para la barra de progreso vs meta). */
+  semana?: number
+  meta?: number
+  color?: string
+}) {
+  const t = useT()
+  const conBarra = meta !== undefined && meta > 0
+  const pct = conBarra ? Math.min(100, ((semana ?? 0) / meta) * 100) : 0
+  return (
+    <div className="flex flex-col justify-center rounded-xl bg-white/5 p-3 border border-white/10">
+      <p className="text-xs font-semibold text-white/70">{label}</p>
+      <p className="text-lg font-bold text-white/90">{valor}</p>
+      {conBarra && (
+        <div className="mt-1.5">
+          <p className="text-[10px] text-white/45">
+            {semana ?? 0} / {meta} {t('ejercicio.r.porSemana', '· sem')}
+          </p>
+          <div className="mt-0.5 h-1.5 w-full rounded-full bg-black/40 overflow-hidden">
+            <div
+              className="h-full rounded-full transition-all"
+              style={{ width: `${pct}%`, background: color ?? '#888' }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
 export function HistorialDia({
+  fecha,
   sesiones,
   color,
+  splitsPorSesion,
+  onEditar,
   onEliminar,
 }: {
+  fecha: string
   sesiones: SesionEjercicio[]
   color: string
+  /** Solo resistencia: los tramos de cada sesión, para desglosarla. */
+  splitsPorSesion?: Map<number, SplitCardio[]>
+  onEditar: (s: SesionEjercicio) => void
   onEliminar: (id: number) => void
 }) {
   const t = useT()
   if (sesiones.length === 0) return null
   return (
     <div className="space-y-2">
-      <p className="text-sm font-semibold">{t('ejercicio.hoy', 'Hoy')}</p>
-      {sesiones.map((s) => (
-        <div
-          key={s.id}
-          className="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-2.5 text-sm"
-        >
-          <div className="flex-1 min-w-0">
-            <p className="font-medium">{s.titulo}</p>
-            <p className="text-xs text-white/40">
-              {s.duracionMin} min
-              {s.distanciaKm ? ` · ${s.distanciaKm} km` : ''}
-              {s.rpe ? ` · RPE ${s.rpe}` : ''}
-            </p>
+      <p className="text-base font-bold capitalize">
+        {fecha === hoyISO() ? t('ejercicio.hoy', 'Hoy') : nombreFecha(fecha)}
+      </p>
+      {sesiones.map((s) => {
+        const splits = s.id ? (splitsPorSesion?.get(s.id) ?? []) : []
+        return (
+          <div key={s.id} className="rounded-xl bg-white/5 border border-white/10 px-3 py-2.5 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="flex-1 min-w-0">
+                <p className="font-medium">{s.titulo}</p>
+                <p className="text-xs text-white/40">
+                  {s.duracionMin} min
+                  {s.distanciaKm ? ` · ${s.distanciaKm} km` : ''}
+                  {s.distanciaKm ? ` · ${ritmoMinKm(s.duracionMin, s.distanciaKm)} /km` : ''}
+                  {s.ppmProm ? ` · ⌀${s.ppmProm} ppm` : ''}
+                  {s.rpe ? ` · RPE ${s.rpe}` : ''}
+                </p>
+              </div>
+              {s.ruta && s.ruta.length > 1 && (
+                <RutaSvg puntos={s.ruta} color="#38bdf8" className="h-9 w-14 shrink-0" />
+              )}
+              <span className={`font-semibold ${color}`}>{s.duracionMin}′</span>
+              <button
+                type="button"
+                onClick={() => onEditar(s)}
+                title={t('ejercicio.editar', 'Editar')}
+                className="text-white/30 hover:text-white/80"
+              >
+                <Icono nombre="editar" />
+              </button>
+              <button
+                type="button"
+                onClick={() => s.id && onEliminar(s.id)}
+                className="text-white/30 hover:text-red-400"
+              >
+                ×
+              </button>
+            </div>
+            {splits.length > 1 && (
+              <ul className="mt-1 text-xs text-white/55">
+                {splits.map((x) => (
+                  <li key={x.id}>
+                    {x.actividad}: {x.minutos} min{x.km ? ` · ${x.km} km` : ''}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-          <span className={`font-semibold ${color}`}>{s.duracionMin}′</span>
-          <button
-            type="button"
-            onClick={() => s.id && onEliminar(s.id)}
-            className="text-white/30 hover:text-red-400"
-          >
-            ×
-          </button>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

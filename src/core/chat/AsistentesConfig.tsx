@@ -1,11 +1,22 @@
 import { useState } from 'react'
 import { useMascota } from '../state/mascotaStore'
 import { useAsistentes } from '../state/asistentesStore'
-import { MASCOTAS, COLOR_FORMA, type Asistente } from './mascotas'
+import {
+  MASCOTAS,
+  COLOR_FORMA,
+  VOZ_FORMA,
+  nombreAsistente,
+  nombreForma,
+  saludoAsistente,
+  type Asistente,
+} from './mascotas'
+import { hayVoz, hablarVoz, vozDeAsistente, vocesDisponibles, langVoz } from '../audio/voz'
 import { iaActiva, generarModelo3D } from './ia'
+import { iaHabilitada } from '../edicion'
 import { getPlantilla } from '../registry'
 import { appsAsignadas } from './dispatcher'
 import { useT } from '../i18n/useT'
+import { Icono } from '../ui/iconos/Icono'
 
 /** Nombre corto de la app (sin el "· algo"). */
 const nombreCorto = (roomId: string) => getPlantilla(roomId)?.nombre.split(' · ')[0] ?? roomId
@@ -44,7 +55,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
   return (
     <div className="ui-panel-glass mb-2 max-h-[60vh] overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
       <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
-        <span className="text-sm">⚙️</span>
+        <span className="text-sm"><Icono nombre="ajustes" /></span>
         <span className="flex-1 text-[11px] font-semibold text-white/50">
           {t('chat.config.titulo', 'Tus asistentes')}
         </span>
@@ -65,11 +76,11 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
           <div key={a.id}>
             <div className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-white/5">
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/5 text-lg">
-                {a.emoji}
+                <Icono emoji={a.emoji} />
               </span>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm text-white/85">
-                  {a.nombre}
+                  {nombreAsistente(t, a)}
                   {activo && (
                     <span className="ml-1.5 text-[10px] font-semibold text-emerald-400">
                       ● {t('chat.config.activo', 'activo')}
@@ -77,9 +88,10 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
                   )}
                 </p>
                 <p className="truncate text-[10px] text-white/35">
+                  <Icono nombre="archivador" />{' '}
                   {a.cuartos.length > 0
-                    ? `🗂️ ${a.cuartos.map(nombreCorto).join(', ')}`
-                    : t('chat.config.archivaTodo', '🗂️ Archiva en todos los cuartos')}
+                    ? a.cuartos.map(nombreCorto).join(', ')
+                    : t('chat.config.archivaTodo', 'Archiva en todos los cuartos')}
                 </p>
               </div>
               <button
@@ -96,7 +108,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
                     : t('chat.config.ponerMapa', 'Poner en el mapa')
                 }
               >
-                🗺️
+                <Icono nombre="mapa" />
               </button>
               <button
                 type="button"
@@ -106,7 +118,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
                 }`}
                 title={t('chat.config.editar', 'Personalizar')}
               >
-                ✏️
+                <Icono nombre="editar" />
               </button>
               <button
                 type="button"
@@ -127,9 +139,9 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
         <button
           type="button"
           onClick={crear}
-          className="flex items-center gap-1 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
+          className="flex items-center gap-1 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500/20"
         >
-          ➕ {t('chat.config.nuevo', 'Crear asistente')}
+          <Icono nombre="agregar" /> {t('chat.config.nuevo', 'Crear asistente')}
         </button>
         {ocultos.length > 0 && (
           <>
@@ -142,9 +154,9 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
                 type="button"
                 onClick={() => restaurar(a.id)}
                 className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/60 transition hover:bg-white/15"
-                title={`${t('chat.config.restaurarUno', 'Restaurar a')} ${a.nombre}`}
+                title={`${t('chat.config.restaurarUno', 'Restaurar a')} ${nombreAsistente(t, a)}`}
               >
-                {a.emoji} {a.nombre}
+                <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
               </button>
             ))}
           </>
@@ -265,7 +277,7 @@ function FormAsistente({
                 }`}
                 style={activo ? { borderColor: `${r.color}66` } : undefined}
               >
-                <span>{r.icon}</span>
+                <span><Icono emoji={r.icon} /></span>
                 <span>{nombreCorto(r.id)}</span>
               </button>
             )
@@ -282,14 +294,14 @@ function FormAsistente({
               key={f.id}
               type="button"
               onClick={() => guardar({ ...a, forma: f.id, modelo3d: undefined, modeloGlb: undefined })}
-              title={f.nombre}
+              title={nombreForma(t, f)}
               className={`grid h-7 w-7 place-items-center rounded-lg text-base transition ${
                 a.forma === f.id && !tieneModeloPropio
                   ? 'bg-emerald-500/20 ring-1 ring-emerald-400/50'
                   : 'hover:bg-white/10'
               }`}
             >
-              {f.emoji}
+              <Icono emoji={f.emoji} />
             </button>
           ))}
           <input
@@ -301,7 +313,8 @@ function FormAsistente({
           />
         </div>
 
-        {/* Describir la forma y que la construya la IA */}
+        {/* Describir la forma con IA: solo Pro. Subir un .glb propio sigue en gratis. */}
+        {iaHabilitada() && (
         <div className="flex gap-1.5">
           <input
             value={descForma}
@@ -319,18 +332,19 @@ function FormAsistente({
             type="button"
             onClick={generarForma}
             disabled={!iaActiva() || generando || !descForma.trim()}
-            className="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 text-xs font-semibold text-emerald-300 transition hover:bg-emerald-500/20 disabled:opacity-30"
+            className="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20 disabled:opacity-30"
             title={t('chat.config.formaGenerar', 'Crear la forma con IA')}
           >
-            {generando ? <span className="animate-pulse">…</span> : '✨'}
+            {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}
           </button>
         </div>
-        {errorForma && <p className="px-1 text-[10px] text-red-300/80">{errorForma}</p>}
+        )}
+        {errorForma && <p className="px-1 text-[10px] text-red-400/80">{errorForma}</p>}
 
         {/* Subir un .glb propio / quitar el modelo personalizado */}
         <div className="flex items-center gap-1.5">
           <label className="cursor-pointer rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/60 transition hover:bg-white/15">
-            📦 {t('chat.config.subirGlb', 'Subir modelo .glb')}
+            <Icono nombre="cuarto-bodega" /> {t('chat.config.subirGlb', 'Subir modelo .glb')}
             <input
               type="file"
               accept=".glb,.gltf,model/gltf-binary"
@@ -355,6 +369,161 @@ function FormAsistente({
           )}
         </div>
       </div>
+
+      {/* Voz TTS: leer o no lo que dice + voz del sistema y tono/velocidad propios */}
+      <div className="space-y-1.5 rounded-lg border border-white/10 bg-white/5 p-1.5">
+        <button
+          type="button"
+          onClick={() => guardar({ ...a, vozLeer: !a.vozLeer })}
+          disabled={!hayVoz()}
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-[11px] font-semibold transition disabled:opacity-30 ${
+            a.vozLeer
+              ? 'ui-accent-bg border-transparent'
+              : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+          }`}
+        >
+          <span className="shrink-0 text-[11px]">{a.vozLeer ? '✓' : '○'}</span>
+          <span className="min-w-0 flex-1 truncate">
+            {t('chat.config.vozLeer', 'Leer en voz alta lo que dice')}
+          </span>
+        </button>
+        <div className="flex items-center gap-1.5">
+          <span className="shrink-0 text-[10px] text-white/35">
+            {t('chat.config.voz', 'Voz:')}
+          </span>
+          <select
+            value={a.vozNombre ?? ''}
+            onChange={(e) => guardar({ ...a, vozNombre: e.target.value || undefined })}
+            disabled={!hayVoz()}
+            className={`${inputCls} min-w-0 flex-1 disabled:opacity-40`}
+          >
+            <option value="">{t('chat.config.vozAuto', 'Automática (por idioma)')}</option>
+            {vocesDisponibles(langVoz()).map((v) => (
+              <option key={v.name} value={v.name}>
+                {v.name}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            onClick={() => {
+              const v = vozDeAsistente(a)
+              hablarVoz(saludoAsistente(t, a), {
+                vozNombre: v.vozNombre,
+                rate: v.rate,
+                pitch: v.pitch,
+                volumen: v.volumen,
+              })
+            }}
+            disabled={!hayVoz()}
+            className="shrink-0 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/60 transition hover:bg-white/15 disabled:opacity-30"
+            title={t('chat.config.vozProbar', 'Probar la voz')}
+          >
+            <Icono nombre="bocina" />
+          </button>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-16 shrink-0 text-[10px] text-white/40">
+            {t('chat.config.vozTono', 'Tono')}
+          </span>
+          <input
+            type="range"
+            min={0.5}
+            max={1.5}
+            step={0.05}
+            value={a.vozPitch ?? VOZ_FORMA[a.forma].pitch}
+            onChange={(e) => guardar({ ...a, vozPitch: parseFloat(e.target.value) })}
+            className="min-w-0 flex-1"
+            style={{ accentColor: 'var(--ui-accent)' }}
+          />
+          <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+            ×{(a.vozPitch ?? VOZ_FORMA[a.forma].pitch).toFixed(2)}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-16 shrink-0 text-[10px] text-white/40">
+            {t('chat.config.vozVelocidad', 'Velocidad')}
+          </span>
+          <input
+            type="range"
+            min={0.6}
+            max={1.4}
+            step={0.05}
+            value={a.vozRate ?? VOZ_FORMA[a.forma].rate}
+            onChange={(e) => guardar({ ...a, vozRate: parseFloat(e.target.value) })}
+            className="min-w-0 flex-1"
+            style={{ accentColor: 'var(--ui-accent)' }}
+          />
+          <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+            ×{(a.vozRate ?? VOZ_FORMA[a.forma].rate).toFixed(2)}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="w-16 shrink-0 text-[10px] text-white/40">
+            {t('chat.config.vozVolumen', 'Volumen')}
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={1}
+            step={0.05}
+            value={a.vozVolumen ?? 1}
+            onChange={(e) => guardar({ ...a, vozVolumen: parseFloat(e.target.value) })}
+            className="min-w-0 flex-1"
+            style={{ accentColor: 'var(--ui-accent)' }}
+          />
+          <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+            {Math.round((a.vozVolumen ?? 1) * 100)}%
+          </span>
+        </div>
+      </div>
+
+      {/* Comentarios espontáneos: si los hace y qué tan seguido */}
+      <div className="space-y-1.5 rounded-lg border border-white/10 bg-white/5 p-1.5">
+        <button
+          type="button"
+          onClick={() => guardar({ ...a, espontaneo: a.espontaneo === false })}
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-[11px] font-semibold transition ${
+            a.espontaneo !== false
+              ? 'ui-accent-bg border-transparent'
+              : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+          }`}
+        >
+          <span className="shrink-0 text-[11px]">{a.espontaneo !== false ? '✓' : '○'}</span>
+          <span className="min-w-0 flex-1 truncate">
+            {t('chat.config.espontaneo', 'Comentarios espontáneos')}
+          </span>
+        </button>
+        <div className="flex items-center justify-between px-0.5">
+          <span className="text-[10px] text-white/40">
+            <Icono nombre="corazon" /> {t('chat.config.corazon', 'Corazón (espontaneidad)')}
+          </span>
+          <span className="text-[10px] font-semibold text-white/55">
+            {a.espontaneo === false
+              ? t('chat.config.corazonOff', 'Apagados')
+              : etiquetaCorazon(a.corazon ?? 0.5, t)}
+          </span>
+        </div>
+        <input
+          type="range"
+          min={0}
+          max={1}
+          step={0.05}
+          value={a.corazon ?? 0.5}
+          onChange={(e) => guardar({ ...a, corazon: parseFloat(e.target.value) })}
+          disabled={a.espontaneo === false}
+          className="w-full disabled:opacity-30"
+          style={{ accentColor: 'var(--ui-accent)' }}
+        />
+      </div>
     </div>
   )
+}
+
+/** Etiqueta humana del nivel de corazón (0..1). */
+function etiquetaCorazon(v: number, t: ReturnType<typeof useT>): string {
+  if (v <= 0) return t('corazon.nivel.0', 'Callado')
+  if (v < 0.35) return t('corazon.nivel.1', 'Tranquilo')
+  if (v < 0.7) return t('corazon.nivel.2', 'Hablador')
+  return t('corazon.nivel.3', 'Parlanchín')
 }

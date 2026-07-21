@@ -1,11 +1,11 @@
 /** Tema leaf en el índice enciclopédico. */
-export interface TemaIndice {
+interface TemaIndice {
   id: string
   titulo: string
   descripcion: string
 }
 
-export interface RamaIndice {
+interface RamaIndice {
   id: string
   titulo: string
   temas: TemaIndice[]
@@ -297,6 +297,41 @@ export const PILARES: PilarConocimiento[] = [
     ],
   },
   {
+    id: 'idiomas',
+    titulo: 'Idiomas',
+    icon: '🗣️',
+    descripcion: 'Aprendizaje de lenguas extranjeras: vocabulario, gramática, pronunciación y práctica.',
+    ramas: [
+      {
+        id: 'idi-aprendizaje',
+        titulo: 'Fundamentos del aprendizaje',
+        temas: [
+          { id: 'idi-vocabulario', titulo: 'Vocabulario', descripcion: 'Adquisición y repaso de palabras y frases útiles.' },
+          { id: 'idi-gramatica', titulo: 'Gramática', descripcion: 'Estructuras, tiempos verbales y sintaxis comparada.' },
+          { id: 'idi-pronunciacion', titulo: 'Pronunciación y escucha', descripcion: 'Fonética, acento y comprensión oral.' },
+        ],
+      },
+      {
+        id: 'idi-lenguas',
+        titulo: 'Lenguas del mundo',
+        temas: [
+          { id: 'idi-ingles', titulo: 'Inglés', descripcion: 'La lengua franca global.' },
+          { id: 'idi-romances', titulo: 'Lenguas romances', descripcion: 'Francés, italiano, portugués y sus parentescos.' },
+          { id: 'idi-asiaticas', titulo: 'Lenguas asiáticas', descripcion: 'Japonés, chino, coreano y sus escrituras.' },
+        ],
+      },
+      {
+        id: 'idi-practica',
+        titulo: 'Práctica y cultura',
+        temas: [
+          { id: 'idi-conversacion', titulo: 'Conversación', descripcion: 'Fluidez, expresiones y situaciones cotidianas.' },
+          { id: 'idi-lectura', titulo: 'Lectura y escritura', descripcion: 'Textos graduados, redacción y ortografía.' },
+          { id: 'idi-inmersion', titulo: 'Cultura e inmersión', descripcion: 'Costumbres, medios y viajes para aprender.' },
+        ],
+      },
+    ],
+  },
+  {
     id: 'artes',
     titulo: 'Artes y expresión',
     icon: '🎨',
@@ -414,8 +449,4 @@ export function todosLosTemas() {
       r.temas.map((t) => ({ ...t, pilarId: p.id, pilarTitulo: p.titulo, ramaId: r.id })),
     ),
   )
-}
-
-export function getPilar(id: string) {
-  return PILARES.find((p) => p.id === id)
 }

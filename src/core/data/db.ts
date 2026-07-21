@@ -1,4 +1,7 @@
 import Dexie, { type Table } from 'dexie'
+import { nombreAleatorio } from '../house/nombresAnimales'
+import { syncMiddleware } from './sync/middleware'
+import { TABLAS_SYNC } from './sync/syncables'
 
 /**
  * Capa de datos LOCAL (IndexedDB vía Dexie).
@@ -25,18 +28,38 @@ export interface RegistroSueno {
   horas: number
   calidad: number // 1-5
   nota?: string
+  /** Hora en que se acostó ('HH:mm'); permite puntuar la constancia del horario. */
+  horaAcostarse?: string
+  /** Hora en que despertó ('HH:mm'). */
+  horaDespertar?: string
+  /** Veces que se despertó durante la noche. */
+  interrupciones?: number
 }
 
-export interface Anecdota {
+/** Horario de sueño y despertador (una fila, estilo Apple Sueño). */
+export interface PerfilSueno {
+  id?: number
+  horaDormir: string    // 'HH:mm' hora de dormir programada
+  horaDespertar: string // 'HH:mm' hora del despertador
+  objetivoHoras: number // objetivo de sueño por noche
+  alarmaActiva: boolean // el despertador suena (con la app abierta)
+  // Recordatorios de la noche (opcionales: las filas viejas no los traen).
+  avisoDormir?: boolean    // aviso a la hora de dormir
+  avisoPantallas?: boolean // aviso una hora antes, para dejar las pantallas
+}
+
+interface Anecdota {
   id?: number
   fecha: string // ISO yyyy-mm-dd
   titulo: string
   contenido: string
   animo: string // emoji o palabra
+  /** Fotos del recuerdo (redimensionadas al guardar). */
+  fotos?: Blob[]
 }
 
 /** Meta de ahorro (Finanzas). */
-export interface Meta {
+interface Meta {
   id?: number
   nombre: string
   objetivo: number
@@ -44,10 +67,16 @@ export interface Meta {
 }
 
 /** Presupuesto. categoria '__mensual__' = presupuesto total del mes. */
-export interface Presupuesto {
+interface Presupuesto {
   id?: number
   categoria: string
   monto: number
+}
+
+/** Acción de la watchlist de Mercados (ticker US, ej. AAPL). */
+export interface AccionWatch {
+  id?: number
+  simbolo: string
 }
 
 // ----- Cocina · Nutrición -----
@@ -60,6 +89,26 @@ export interface PerfilNutricion {
   carbohidratos: number
   grasas: number
   aguaMl: number
+  // Datos para la TDEE (persisten entre sesiones; el peso se sincroniza al pesarse).
+  pesoKg?: number
+  alturaCm?: number
+  edad?: number
+  sexo?: 'm' | 'f'
+  /** Factor de actividad (1.2–1.9). */
+  actividad?: number
+  /** Preset de dieta aplicado sobre la TDEE. */
+  objetivo?: 'deficit' | 'mantener' | 'superavit'
+  /** Peso al que se quiere llegar (kg); ausente = sin meta de peso. */
+  pesoObjetivoKg?: number
+  /** Ritmo pactado en kg por semana (siempre positivo; el signo lo da `objetivo`). */
+  ritmoKgSemana?: number
+}
+
+/** Pesaje corporal (kg) para seguir la tendencia de la dieta. */
+export interface RegistroPeso {
+  id?: number
+  fecha: string
+  kg: number
 }
 
 export type MomentoComida = 'desayuno' | 'comida' | 'cena' | 'snack'
@@ -96,15 +145,68 @@ export interface RegistroAgua {
   ml: number
 }
 
-/** Despensa rápida para registrar en un toque. */
-export interface AlimentoFavorito {
+/** Lista de compras guardada (colección con nombre) del súper. */
+export interface ListaCompra {
   id?: number
   nombre: string
-  porcion: string
+  creadoEn: string
+  /** Portada opcional: subida por el usuario o generada con IA (sin índice). */
+  foto?: Blob
+}
+
+/** Artículo de la lista de compras del súper, agrupado por categoría (pasillo). */
+export interface ItemCompra {
+  id?: number
+  nombre: string
+  /** Cantidad en texto libre: "2 kg", "3 piezas" (opcional). */
+  cantidad?: string
+  /** Id de CATEGORIAS_COMPRA (rooms/cocina/categoriasCompra.ts). */
+  categoria: string
+  comprado: boolean
+  creadoEn: string
+  /** Lista guardada a la que pertenece; ausente = suelto en el generador ("Crear lista"). */
+  listaId?: number
+}
+
+/** Receta del recetario (manual o pedida a la IA). Macros POR PORCIÓN. */
+export interface Receta {
+  id?: number
+  nombre: string
+  emoji: string
+  porciones: number
+  /** Tiempo total de preparación en minutos. */
+  minutos: number
+  etiquetas: string[]
+  /** Carpeta/cocina para agrupar (ej. "Italiana", "Mexicana"). Vacío = sin carpeta. */
+  carpeta?: string
+  /** Cada ingrediente incluye su cantidad: "200 g de arroz". */
+  ingredientes: string[]
+  pasos: string[]
   calorias: number
   proteinas: number
   carbohidratos: number
   grasas: number
+  fuente: 'manual' | 'ia' | 'seed'
+  creadaEn: string
+  /** Foto del platillo: subida por el usuario o generada con IA (sin índice). */
+  foto?: Blob
+}
+
+/** Dieta preguardada: plan de alimentación con recetas asociadas y metas opcionales. */
+export interface DietaGuardada {
+  id?: number
+  nombre: string
+  descripcion: string
+  /** Metas opcionales que se pueden aplicar al perfil de objetivos. */
+  calorias?: number
+  proteinas?: number
+  carbohidratos?: number
+  grasas?: number
+  /** Ids de Receta que acompañan a la dieta. */
+  recetaIds: number[]
+  creadoEn: string
+  /** Portada opcional: subida por el usuario o generada con IA (sin índice). */
+  foto?: Blob
 }
 
 // ----- Ejercicio · Rutinas -----
@@ -136,6 +238,11 @@ export interface SesionEjercicio {
   enfoque?: string
   /** Fuerza: volumen total calculado (kg·reps). */
   volumenKg?: number
+  /** Resistencia: pulsaciones promedio y máximas (sensor Bluetooth o manual). */
+  ppmProm?: number
+  ppmMax?: number
+  /** Resistencia: trazo GPS de la ruta grabada en vivo. */
+  ruta?: { lat: number; lng: number }[]
 }
 
 /** Serie de un ejercicio dentro de una sesión de fuerza. */
@@ -147,6 +254,144 @@ export interface SerieFuerza {
   repeticiones: number
   pesoKg: number
   orden: number
+}
+
+/** Rutina agendada en el plan semanal de ejercicio (0 = lunes … 6 = domingo). */
+export interface RutinaProgramada {
+  id?: number
+  diaSemana: number
+  tipo: TipoEntrenamiento
+  rutinaNombre: string
+  duracionMin: number
+}
+
+/** Rutina de fuerza (plantilla reutilizable): preguardada sembrada o creada por el usuario. */
+export interface RutinaFuerza {
+  id?: number
+  nombre: string
+  duracionMin: number
+  ejercicios: string[]
+  descripcion?: string
+  creadoEn: string
+}
+
+/** Actividad de cardio añadida por el usuario al catálogo de resistencia. */
+export interface ActividadCardio {
+  id?: number
+  nombre: string
+  creadoEn: string
+}
+
+/** Categoría editable del catálogo de cardio (una lista de actividades). */
+export interface CategoriaCardio {
+  id?: number
+  nombre: string
+  actividades: string[]
+  creadoEn: string
+}
+
+/** Rutina de flexibilidad (plantilla): sembrada de fundamentales o creada por el usuario. */
+export interface RutinaFlex {
+  id?: number
+  nombre: string
+  duracionMin: number
+  ejercicios: string[]
+  enfoque?: string
+  descripcion?: string
+  creadoEn: string
+}
+
+/** Ejercicio de fuerza dentro de un grupo del catálogo: nombre y técnica. */
+export interface EjercicioFuerza {
+  nombre: string
+  descripcion?: string
+}
+
+/**
+ * Grupo (categoría muscular) editable del catálogo de fuerza — p. ej. "Pecho".
+ * `grupoId` es un slug estable: en los grupos de la semilla coincide con el id
+ * original que referencia la pirámide de enfoques (`ejercicio.grupo.<id>` en i18n).
+ */
+export interface GrupoFuerza {
+  id?: number
+  grupoId: string
+  label: string
+  orden: number
+  ejercicios: EjercicioFuerza[]
+}
+
+/** Postura de flexibilidad dentro de un grupo del catálogo. */
+export interface EjercicioFlex {
+  nombre: string
+  descripcion?: string
+  dificultad?: string
+  tiempo?: string
+}
+
+/** Grupo (enfoque) editable del catálogo de flexibilidad. */
+export interface GrupoFlex {
+  id?: number
+  grupoId: string
+  label: string
+  orden: number
+  ejercicios: EjercicioFlex[]
+}
+
+/** Actividad de cardio dentro de un grupo del catálogo: nombre y técnica. */
+export interface EjercicioCardio {
+  nombre: string
+  descripcion?: string
+}
+
+/** Grupo (categoría) editable del catálogo de resistencia. Sustituye a `CategoriaCardio`. */
+export interface GrupoCardio {
+  id?: number
+  grupoId: string
+  label: string
+  orden: number
+  ejercicios: EjercicioCardio[]
+}
+
+/** Rutina de resistencia (plantilla): lista de actividades que se hacen como tramos. */
+export interface RutinaCardio {
+  id?: number
+  nombre: string
+  duracionMin: number
+  ejercicios: string[]
+  descripcion?: string
+  creadoEn: string
+}
+
+/**
+ * Tramo ("split", como en un triatlón) dentro de una sesión de resistencia: la
+ * sesión es la suma de sus tramos. Las sesiones grabadas en vivo con GPS no
+ * tienen tramos (son una sola actividad continua con su ruta).
+ */
+export interface SplitCardio {
+  id?: number
+  sesionId: number
+  actividad: string
+  minutos: number
+  km?: number
+  orden: number
+}
+
+/** Postura dentro de una sesión de flexibilidad: tiempo (seg) × repeticiones. */
+export interface SerieFlex {
+  id?: number
+  sesionId: number
+  ejercicio: string
+  segundos: number
+  repeticiones: number
+  orden: number
+}
+
+/** Imagen (miniatura) subida para un ejercicio del catálogo; indexada por nombre normalizado. */
+export interface ImagenEjercicio {
+  id?: number
+  /** Nombre del ejercicio normalizado (normalizarEjercicio); único. */
+  clave: string
+  imagen: Blob
 }
 
 // ----- Entretenimiento · Archivo multimedia -----
@@ -201,117 +446,226 @@ export interface JuegoMesa {
   creadoEn: string
 }
 
-// ----- Biblioteca · Enciclopedia -----
+// ----- Biblioteca · Enciclopedia conversacional -----
 
-export type EstadoTemaEnciclopedia = 'explorado' | 'en_estudio' | 'revisado'
-
-/** Progreso del usuario sobre un tema del índice enciclopédico. */
-export interface ProgresoTema {
+/** Charla con el Sabio, clasificada en un campo del conocimiento (pilar). */
+export interface ConversacionBiblio {
   id?: number
+  /** Lo genera la IA tras el primer intercambio; editable por el usuario. */
+  titulo: string
+  /** Id de PILARES o 'general' mientras no esté clasificada. */
   pilarId: string
-  temaId: string
-  estado: EstadoTemaEnciclopedia
-  nota?: string
+  /** Nodo del índice del que nació la charla (ancla de ramificación del árbol). */
+  temaId?: string
+  /** ISO: ya se ofreció/hizo la ramificación (panel 🌿); silencia el panel al salir. */
+  ramificadaEn?: string
+  creadoEn: string
   actualizadoEn: string
 }
 
-// ----- Diario · Central de noticias -----
-
-export type CategoriaNoticia =
-  | 'mundo'
-  | 'nacional'
-  | 'politica'
-  | 'economia'
-  | 'tecnologia'
-  | 'ciencia'
-  | 'salud'
-  | 'deportes'
-  | 'cultura'
-  | 'entretenimiento'
-  | 'local'
-  | 'otro'
-
-/** Noticia guardada en la central personal. */
-export interface Noticia {
+/** Mensaje dentro de una charla de la biblioteca. */
+export interface MensajeBiblio {
   id?: number
-  /** Fecha de publicación o del día (ISO yyyy-mm-dd). */
-  fecha: string
-  categoria: CategoriaNoticia
+  conversacionId: number
+  rol: 'usuario' | 'asistente'
+  texto: string
+  creado: string
+}
+
+/** Entrada wiki de la enciclopedia personal (destilada de una charla o manual). */
+export interface EntradaBiblio {
+  id?: number
+  /** Id de PILARES o 'general'. */
+  pilarId: string
+  /** Tema del índice de pilares.ts si aplica. */
+  temaId?: string
   titulo: string
   resumen: string
-  fuente?: string
-  url?: string
-  leido: boolean
-  destacada: boolean
+  puntosClave: string[]
+  /** Charla origen (ausente = entrada manual o charla borrada). */
+  conversacionId?: number
   creadoEn: string
+  actualizadoEn: string
 }
 
-// ----- Sala · Viajes -----
-
-export type EstadoViaje = 'wishlist' | 'planificado' | 'proximo' | 'completado'
-
-export type TipoViaje =
-  | 'playa'
-  | 'ciudad'
-  | 'aventura'
-  | 'negocios'
-  | 'ruta'
-  | 'otro'
-
-/** Viaje pasado, en curso o futuro. */
-export interface Viaje {
+/** Sesión de estudio con temporizador (minutos por campo). */
+export interface SesionEstudio {
   id?: number
-  titulo: string
-  destino: string
-  pais: string
-  fechaInicio: string
-  fechaFin: string
-  estado: EstadoViaje
-  tipoViaje: TipoViaje
-  presupuesto: number
-  moneda: string
-  calificacion: number
-  resena: string
-  companeros?: string
-  creadoEn: string
-}
-
-/** Parada o actividad dentro de un viaje. */
-export interface ActividadViaje {
-  id?: number
-  viajeId: number
+  pilarId: string
+  entradaId?: number
+  minutos: number
+  /** yyyy-mm-dd local. */
   fecha: string
-  titulo: string
-  hora?: string
   nota?: string
-  orden: number
 }
 
-export type CategoriaGastoViaje =
-  | 'vuelo'
-  | 'hotel'
-  | 'comida'
-  | 'transporte'
-  | 'actividad'
-  | 'otro'
-
-export interface GastoViaje {
+/** Nodo dinámico del índice vivo (los temas de pilares.ts son el esqueleto estático). */
+export interface TemaArbol {
   id?: number
-  viajeId: number
-  concepto: string
-  monto: number
-  categoria: CategoriaGastoViaje
+  /** Id único estable ('din-…'); comparte espacio con los ids de pilares.ts en temaId de entradas/charlas. */
+  temaId: string
+  pilarId: string
+  /** Id de tema estático, temaId de otro nodo dinámico, o null = raíz del campo (pregunta libre). */
+  padreId: string | null
+  titulo: string
+  descripcion: string
+  creadoEn: string
+  /** Charla que lo desbloqueó (se desliga si la charla se borra). */
+  conversacionId?: number
+}
+
+// ----- Diario · Periódico del día (titulares + efemérides) -----
+
+export type CategoriaTitular =
+  | 'mundo'
+  | 'economia'
+  | 'tecnologia'
+  | 'salud'
+  | 'deportes'
+  | 'entretenimiento'
+
+/** Titular del feed del día (tarjeta con imagen). */
+export interface Titular {
+  categoria: CategoriaTitular
+  titulo: string
+  resumen: string
+  fuente: string
+  url: string
+  /** URL remota de la imagen del artículo (si el feed la trae). */
+  imagen?: string
+  /** Fecha-hora de publicación según el feed. */
+  publicado: string
+}
+
+export type TipoEfemeride =
+  | 'historia'
+  | 'arte'
+  | 'libro'
+  | 'personalidad'
+  | 'especie'
+  | 'palabra'
+  | 'frase'
+
+/** Tarjeta de efeméride del día. */
+export interface Efemeride {
+  tipo: TipoEfemeride
+  /** Evento / obra / libro / nombre / especie / palabra / cita. */
+  titulo: string
+  /** Artista / autor / ocupación / nombre científico / clase gramatical. */
+  subtitulo?: string
+  texto: string
+  /** URL remota (Wikipedia). */
+  imagen?: string
+  /** '1885', 'n. 1975', … */
+  anio?: string
+}
+
+/** Edición del periódico: efímera, solo vive la del día actual. */
+export interface EdicionDiario {
+  id?: number
+  /** Fecha local yyyy-mm-dd. */
+  fecha: string
+  titulares: Titular[]
+  efemerides: Efemeride[]
+  /** Idioma con el que se armó; si cambia, la edición se rehace. */
+  idioma?: 'es' | 'en'
+}
+
+/** Día en que se abrió el diario (histórico ligero para el progreso). */
+export interface LecturaDiario {
+  id?: number
   fecha: string
 }
 
-export type CategoriaChecklist = 'documentos' | 'equipaje' | 'reservas' | 'otro'
+// ----- Sala · Viajes (mapa, lugares, rutas y bitácora) -----
 
-export interface ChecklistViaje {
+/** Lugar del mundo: pendiente por conocer o ya visitado. */
+export interface LugarViaje {
   id?: number
-  viajeId: number
+  nombre: string
+  pais: string
+  estado?: string
+  ciudad?: string
+  lat?: number
+  lng?: number
+  /** 0 = por conocer, 1 = visitado (numérico para poder indexarlo). */
+  visitado: 0 | 1
+  fechaVisita?: string
+  /** Fecha agendada del lugar (solo pendientes; aparece en el calendario). */
+  fechaPlan?: string
+  /** Meta de ahorro vinculada en el despacho (suma de su hoja de plan). */
+  metaId?: number
+  nota?: string
+  creadoEn: string
+}
+
+/** Fila de la hoja de plan día a día de un lugar por conocer. */
+export interface DiaItinerario {
+  id?: number
+  lugarId: number
+  /** Día 1, 2, 3… (autonumerado al agregar). */
+  dia: number
+  /** yyyy-mm-dd → aparece en el calendario global. */
+  fecha?: string
+  inicio?: string
+  destino?: string
+  hospedaje?: string
+  actividades?: string
+  transporte?: string
+  presupuesto?: number
+}
+
+/** Ruta de viaje: secuencia ordenada de lugares. */
+export interface RutaViaje {
+  id?: number
+  nombre: string
+  lugarIds: number[]
+  creadoEn: string
+}
+
+/** Foto de portada elegida para la carpeta (país) de la bitácora. */
+export interface PortadaViaje {
+  id?: number
+  pais: string
+  foto: Blob
+}
+
+/** Foto de portada elegida para el álbum de un lugar de la bitácora. */
+export interface PortadaLugar {
+  id?: number
+  lugarId: number
+  foto: Blob
+}
+
+/** Fila congelada dentro de un itinerario guardado (copia, no referencia a diasItinerario). */
+export interface FilaItinerarioGuardado {
+  dia: number
+  fecha?: string
+  inicio?: string
+  destino?: string
+  hospedaje?: string
+  actividades?: string
+  transporte?: string
+  presupuesto?: number
+}
+
+/** Itinerario guardado a mano: snapshot independiente del lugar de origen (sobrevive aunque se borre). */
+export interface ItinerarioGuardado {
+  id?: number
+  nombre: string
+  contexto?: string
+  filas: FilaItinerarioGuardado[]
+  creadoEn: string
+}
+
+/** Recuerdo de la bitácora de viajes: foto y anécdota de un lugar visitado. */
+export interface RecuerdoViaje {
+  id?: number
+  lugarId: number
+  fecha: string
   texto: string
-  listo: boolean
-  categoria: CategoriaChecklist
+  fotos?: Blob[]
+  creadoEn: string
 }
 
 // ----- Jardín · Mindfulness -----
@@ -324,7 +678,7 @@ export type TipoPractica =
   | 'sonido'
   | 'movimiento'
 
-/** Sesión de mindfulness completada o en curso. */
+/** Sesión de meditación o respiración completada. */
 export interface SesionMindfulness {
   id?: number
   fecha: string
@@ -332,11 +686,14 @@ export interface SesionMindfulness {
   titulo: string
   duracionMin: number
   nota?: string
-  /** Id de práctica guiada predefinida. */
-  presetId?: string
+  /** Tema de la meditación guiada (ansiedad, foco…) o patrón de respiración (caja, 478). */
+  tema?: string
+  /** Check-in emocional 1–5 antes/después de la sesión (opcional). */
+  animoAntes?: number
+  animoDespues?: number
 }
 
-/** Check-in diario de ánimo (un registro por día). */
+/** Legado (app vieja del jardín): se conserva por datos históricos. */
 export interface RegistroAnimo {
   id?: number
   fecha: string
@@ -354,7 +711,7 @@ export interface GratitudDiaria {
   item3: string
 }
 
-/** Objetivos de práctica diaria. */
+/** Legado (app vieja del jardín): se conserva por datos históricos. */
 export interface PerfilMindfulness {
   id?: number
   minutosDiariosObjetivo: number
@@ -369,7 +726,7 @@ export type TipoVehiculo =
   | 'camioneta'
   | 'otro'
 
-export type UnidadOdometro = 'km' | 'mi'
+type UnidadOdometro = 'km' | 'mi'
 
 /** Vehículo registrado (bicicleta, auto, moto, etc.). */
 export interface Vehiculo {
@@ -418,15 +775,6 @@ export interface RegistroMantenimiento {
 
 // ----- Perfil y personalización de la casa (editor de mapa) -----
 
-/** Perfil del usuario (una sola fila, id=1). */
-export interface PerfilUsuario {
-  id?: number
-  nombre: string
-  emoji: string
-  nacimiento?: string // ISO yyyy-mm-dd
-  bio: string
-}
-
 /** Personalización visual de un cuarto. */
 export interface DisenoRoom {
   id?: number
@@ -438,6 +786,14 @@ export interface DisenoRoom {
   pisoTipo?: string
   /** Color del piso cuando no hay material o es personalizado. */
   pisoColor?: string
+  /**
+   * Material del piso EXTERIOR de las celdas con forma (triángulo/círculo): el trozo
+   * de celda fuera de la silueta del cuarto. Id de material, '__color__' = color sólido
+   * (pisoExtColor), ausente/'' = jardín por defecto.
+   */
+  pisoExtTipo?: string
+  /** Color del piso exterior cuando pisoExtTipo = '__color__'. */
+  pisoExtColor?: string
   /** Tinte de color del techo (vacío = color nativo del material). */
   techoColor?: string
   /**
@@ -457,25 +813,61 @@ export interface DisenoRoom {
    * cuarto. Vacío/ausente = techo en conjunto (forma única del cuarto).
    */
   techoFormasCelda?: Record<string, import('../house/techos').TechoCeldaForma>
+  /** Personalización del usuario de un tema (solo en filas centinela `__tema_ov_<id>__`). */
+  temaOverride?: import('../house/temas').TemaOverride
+  /** Config de efectos de "sin tema" (solo en la fila centinela `__estilo__`). */
+  efectosConfig?: import('../house/estilos').EfectosConfig
 }
 
 /** Objeto colocado en un cuarto (catálogo o mueble temático). */
 export interface ObjetoCuarto {
   id?: number
   roomId: string
-  tipo: string  // id del catálogo o `mueble:<roomId>`
+  tipo: string  // id del catálogo, `mueble:<roomId>`, `recurso:<n>` o 'piezas'
   color: string // hex
   slot: number  // (heredado) ranura; con x/z se ignora
   x?: number    // posición libre dentro del cuarto (relativa al centro)
   z?: number
-  /** Rotación en grados (eje Y). */
+  /** Rotación en grados (eje Y = girar). */
   rotY?: number
+  /** Rotación en grados eje X (inclinar adelante/atrás). */
+  rotX?: number
+  /** Rotación en grados eje Z (inclinar a los lados). */
+  rotZ?: number
+  /** Altura extra en unidades (levantar/flotar sobre el suelo). */
+  y?: number
+  /** Tamaño del objeto (1 = normal). Solo visual; no afecta colisiones. */
+  escala?: number
+  /** Intensidad de los efectos del objeto especial (agua, luz o velocidad del juego); 1 = normal. */
+  fx?: number
+  /** Objeto construido con geometría básica (tipo 'piezas'): sus primitivas. */
+  piezas?: import('../chat/mascotas').Pieza3D[]
+  /** Tipo previo de un objeto convertido a piezas (para regresar a lo predeterminado). */
+  tipoOriginal?: string
+  /** Nombre personalizado del objeto (vacío = el del catálogo/recurso o genérico). */
+  nombre?: string
   /** Mueble principal del cuarto: no se puede quitar, sí mover y recolorear. */
   permanente?: boolean
   /** ID del grupo al que pertenece este objeto (para mover conjuntos juntos). */
   grupoId?: string
   /** Plantilla (app) asignada a este objeto; vacío = objeto decorativo sin app. */
   plantillaId?: string
+  /** Solo objetos de biblioteca (roomId LIBRERIA): categoría/carpeta del inventario. */
+  categoria?: string
+  /** Solo objetos de biblioteca BASE: id del recurso del catálogo del que salió. */
+  baseId?: number
+  /** Solo objetos de biblioteca: posición dentro de su carpeta (drag & drop). */
+  orden?: number
+  /** Instancia colocada: id del objeto de biblioteca del que salió (para su fila hija en el inventario). */
+  libreriaId?: number
+  /** Objeto con un modelo .glb subido por el usuario (tipo 'glb'), ya optimizado/decimado. */
+  modeloGlb?: Blob
+  /** Animación del objeto (preset de conjunto y/o poses de piezas). */
+  animacion?: import('../house/animacion').AnimacionModelo
+  /** Foto del usuario mostrada en el marco (objetos especiales 'cuadro-foto' y 'espectacular'). */
+  foto?: Blob
+  /** Texto que muestra el letrero (solo anuncios: espectacular/letrero-vegas/letrero-neon). */
+  texto?: string
 }
 
 /**
@@ -495,10 +887,12 @@ export interface Cuarto {
   creado: string // ISO timestamp
   /** Orden de aparición en el menú lateral. */
   orden: number
+  /** Ambiente musical fijado por el usuario ('silencio' = cuarto callado); ausente = auto por su app. */
+  temaMusical?: import('../state/ajustesStore').MoodMusica | 'silencio'
 }
 
 /** Configuración global del mapa (tamaño de la rejilla). */
-export interface MapaConfig {
+interface MapaConfig {
   id?: number
   cols: number
   rows: number
@@ -510,8 +904,8 @@ export interface MapaConfig {
  */
 export interface Acceso {
   id?: number
-  nivel: number // nivel al que sube (≥ 1)
-  tipo: 'escalera' | 'elevador' | 'resbaladilla'
+  nivel: number // nivel al que sube (≥ 1) o del sótano (-1)
+  tipo: 'escalera' | 'elevador' | 'resbaladilla' | 'escalera-marina'
   col: number // celda ancla del acceso
   row: number
   /** Pared del cuarto superior a la que se ancla (N/S/E/O). Vacío = derivar hacia el centro. */
@@ -519,7 +913,7 @@ export interface Acceso {
 }
 
 /** Layout editable: qué cuartos están colocados, en qué celda y con qué forma. */
-export interface LayoutCuarto {
+interface LayoutCuarto {
   id?: number
   roomId: string
   placed: boolean
@@ -539,12 +933,16 @@ export interface LayoutCuarto {
   pinceles?: import('../house/murosPuertas').PincelesCuarto
   /** Forma de loseta por offset de footprint: clave `offCol,offRow`. */
   formasCelda?: Record<string, { forma: 'cuadrado' | 'triangular' | 'circular'; rotacion: 0 | 90 | 180 | 270 }>
+  /** Espacio abierto (jardín): no dibuja muros, puertas/portones ni techo, y no colisiona. */
+  sinMuros?: boolean
+  /** Alberca (solo sótanos): el cuarto se llena de agua animada y nunca lleva techo. */
+  agua?: boolean
   /** Legado: desplazamiento de puerta por lado (ya no se usa). */
   puertas?: Partial<Record<'N' | 'S' | 'E' | 'O', number>>
 }
 
 /** Imagen personalizada de piso de un cuarto. */
-export interface PisoImagenCuarto {
+interface PisoImagenCuarto {
   id?: number
   roomId: string
   imagen: Blob
@@ -555,7 +953,7 @@ export interface PisoImagenCuarto {
 }
 
 /** Imagen personalizada de techo de un cuarto. */
-export interface TechoImagenCuarto {
+interface TechoImagenCuarto {
   id?: number
   roomId: string
   imagen: Blob
@@ -566,7 +964,7 @@ export interface TechoImagenCuarto {
 }
 
 /** Imagen personalizada de un muro (arista) de un cuarto. */
-export interface MuroImagenCuarto {
+interface MuroImagenCuarto {
   id?: number
   roomId: string
   /** Clave de arista `${offCol},${offRow},${lado}`. */
@@ -576,6 +974,16 @@ export interface MuroImagenCuarto {
   ajuste: string
   /** ¿Está siendo usada actualmente como textura del muro? */
   activa: boolean
+}
+
+/** Grafiti pintado sobre una cara de un muro (juguete Grafiti). */
+export interface Grafiti {
+  id?: number
+  /** Identidad de la cara: `cuarto:${roomId}:${clave}:${cara}` (cara N|S|E|O mundial)
+   *  o `libre:${muroLibreId}:${seg}:${cara}` (cara A|B local del segmento). */
+  superficie: string
+  /** PNG con transparencia (proporción = cara del muro). */
+  imagen: Blob
 }
 
 /** Imagen personalizada de fondo de cielo (wallpaper). */
@@ -595,15 +1003,23 @@ export interface FondoImagen {
 }
 
 /** Colores del avatar Roblox del usuario. */
-export interface DisenoAvatar {
+interface DisenoAvatar {
   id?: number
+  /** Nombre del personaje principal (vacío = "Tú" por defecto). */
+  nombre?: string
   cabeza: string   // hex
   torso: string    // hex
   piernas: string  // hex
+  /** Tamaño del personaje (1 = normal). */
+  escala?: number
+  /** Ropa puesta: JSON de prendas (Ropa de house/apariencia). */
+  ropa?: string
   /** Modelo 3D generado por IA: JSON de piezas primitivas (Pieza3D[]). */
   modelo3d?: string
   /** Modelo .glb subido por el usuario (gana a modelo3d y a los cubos). */
   modeloGlb?: Blob
+  /** Animación del personaje: JSON de AnimacionModelo (house/animacion). */
+  animacion?: string
 }
 
 // ----- Bitácora · el arquitecto (orquestador) -----
@@ -614,7 +1030,7 @@ export interface DisenoAvatar {
  * que el dispatcher determinista detecta (o sin cuarto). La capa de IA luego
  * leerá estas entradas para convertirlas en registros reales de cada cuarto.
  */
-export interface EntradaBitacora {
+interface EntradaBitacora {
   id?: number
   texto: string
   roomId?: string   // id del cuarto detectado (vacío = sin clasificar)
@@ -629,7 +1045,7 @@ export interface EntradaBitacora {
  * Hoy se crean con el comando "recuerda que…"; la capa de IA las generará
  * automáticamente desde la bitácora y las usará como contexto al interpretar.
  */
-export interface Memoria {
+interface Memoria {
   id?: number
   hecho: string
   roomId?: string   // cuarto relacionado (vacío = sobre el usuario en general)
@@ -644,7 +1060,7 @@ export interface Memoria {
  * Cada asistente tiene su propio hilo: lo que el usuario escribió y lo que
  * el asistente respondió quedan aquí para releerlos cuando se quiera.
  */
-export interface MensajeChat {
+interface MensajeChat {
   id?: number
   asistenteId: string // 'mago', 'gato', … o 'custom-<n>'
   rol: 'usuario' | 'asistente'
@@ -669,11 +1085,25 @@ export interface AsistenteGuardado {
   /** Ids de cuartos de los que es responsable de archivar (vacío = todos). */
   cuartos?: string[]
   color?: string // color principal del modelo 3D (vacío = el de la forma)
+  /** Tamaño del personaje (1 = normal). */
+  escala?: number
+  /** Ropa puesta: JSON de prendas (Ropa de house/apariencia). */
+  ropa?: string
   /** Modelo 3D generado por IA: JSON de piezas primitivas (Pieza3D[]). */
   modelo3d?: string
   /** Modelo .glb subido por el usuario. */
   modeloGlb?: Blob
+  /** Animación del personaje: JSON de AnimacionModelo (house/animacion). */
+  animacion?: string
   enMapa: boolean // aparece como personaje en el mapa
+  /** Voz TTS: nombre de la voz del sistema (vacío = automática por idioma). */
+  vozNombre?: string
+  /** Voz TTS: tono 0.5–1.5. */
+  vozPitch?: number
+  /** Voz TTS: velocidad 0.6–1.4. */
+  vozRate?: number
+  /** Corazón 0–1: qué tan seguido comenta por su cuenta (0 = nunca). */
+  corazon?: number
   /** Integrado "eliminado" por el usuario (se puede restaurar). */
   oculto?: boolean
 }
@@ -698,8 +1128,32 @@ export interface PasoRutina {
  * - semanal: cada semana en los días de `dias` (puede terminar en `fechaFin`)
  * - indefinido: como semanal pero sin fecha de fin (`dias` vacío = todos los días)
  * - personalizado: legacy (se trata como semanal)
+ * - mensual: el mismo día del mes que `fechaInicio`, cada mes
+ * - anual: el mismo día y mes que `fechaInicio`, cada año
+ * - rango: activa todos los días de `fechaInicio` a `fechaFin` (una meta con
+ *   principio y final, trazada sobre el calendario)
+ * (mensual/anual/rango solo salen de trazar una meta en el calendario; no
+ * tienen editor manual, ver EditorRutina)
  */
-export type RepeticionRutina = 'una_vez' | 'semanal' | 'indefinido' | 'personalizado'
+export type RepeticionRutina =
+  | 'una_vez'
+  | 'semanal'
+  | 'indefinido'
+  | 'personalizado'
+  | 'mensual'
+  | 'anual'
+  | 'rango'
+
+/**
+ * Capa con la que algo pinta en el calendario: año atrás (lava suave todo el año)
+ * … hora al frente (solo su franja). Es jerarquía de fondo, no de estructura.
+ *
+ * En una rutina normal es un campo que se elige. En una meta ya NO se guarda: se
+ * deriva de cuánto dura su periodo (`alcanceDe` en `core/metas.ts`), porque una
+ * meta de tres semanas es "de mes" por definición y pedírselo al usuario era
+ * hacerle repetir con un selector lo que ya dijo con las fechas.
+ */
+export type Alcance = 'anio' | 'mes' | 'semana' | 'dia' | 'hora'
 
 /**
  * Rutina: secuencia de pasos que cruza cuartos, programada por hora y días.
@@ -722,11 +1176,202 @@ export interface Rutina {
   fechaInicio?: string
   /** Fin de la serie (yyyy-mm-dd); vacío = sin fin. */
   fechaFin?: string
+  /** Fechas (yyyy-mm-dd) que la serie se salta: ese día se editó por separado. */
+  excepciones?: string[]
   /** Color del evento en el calendario (hex; vacío = verde por defecto). */
   color?: string
   pasos: PasoRutina[]
   activa: boolean
   creadoEn: string
+  /** Rutina espejo de otra fuente: 'sueno' la genera el horario de Descanso. */
+  origen?: 'sueno'
+  /**
+   * App (plantilla) a la que pertenece el evento o la meta: le da su color en el
+   * calendario, la mete en el cronograma de esa app y decide qué aviso se calla
+   * desde Configuraciones. Sin valor = evento de la casa, sin app.
+   */
+  plantillaId?: string
+  /**
+   * `false` silencia el aviso de esta rutina. Lo usa el espejo de sueño, que hasta
+   * ahora se callaba por no tener pasos (ver `debeAvisar` en core/rutinas.ts).
+   */
+  avisar?: boolean
+  /**
+   * Actividad CONCRETA que este bloque agenda: `fuerza:12`, `momento:cena`,
+   * `hobby:3`. Con `plantillaId` la fila dice de qué APP es; con `actividadId`,
+   * de QUÉ de esa app — sin él, los cuatro momentos de cocina serían la misma cosa.
+   * Lo arma `actividadId()` (core/rutinas.ts) y el prefijo evita que `hobby:3`
+   * choque con `fuerza:3`.
+   *
+   * Solo vive mientras la fila es el espejo de esa actividad: lo borran partir un
+   * día de la serie (`soloEseDia`) y cambiar de app en el editor.
+   */
+  actividadId?: string
+  /** Sección de la app a la que lleva su aviso (la pestaña donde se registra). */
+  seccion?: string
+  /** Nota libre (sobre todo para metas sueltas, sin checklist de pasos). */
+  nota?: string
+  /**
+   * Solo rutinas: no aparece en ningún día del calendario. En una meta ya no se
+   * usa — ahí lo dice `fechaInicio` (con fecha, va al calendario; sin fecha, vive
+   * solo en la lista), que es lo que el usuario ya editaba a mano.
+   */
+  suelta?: boolean
+  /** Completada, solo para metas sueltas (las agendadas usan `EjecucionRutina.hecho`, con fecha). */
+  completada?: boolean
+  /**
+   * Índices de `pasos` ya hechos, solo para ramas del árbol sin agendar: no tienen
+   * fecha que sirva de llave (las agendadas usan `EjecucionRutina.pasosHechos`).
+   */
+  pasosHechos?: number[]
+  /**
+   * Capa en la que pinta (Mes/Año); sin valor = 'dia', la más específica.
+   * Solo rutinas: en una meta se deriva de la duración y este campo se ignora.
+   */
+  alcance?: Alcance
+  /** Pertenece a la lista de Metas del calendario. */
+  esMeta?: boolean
+  /** Meta que la contiene; sin valor = está en el primer nivel de la lista. */
+  padreId?: number
+  /** Posición entre hermanas (arrastrar para reordenar). */
+  orden?: number
+}
+
+/**
+ * Palomita MANUAL de la meta diaria de una app. La fila SOLO existe cuando el
+ * usuario contradice (o confirma a mano) lo que dice la actividad real: sin fila
+ * manda el automático. Es por día, así que caduca sola a medianoche.
+ */
+export interface MetaDiariaManual {
+  id?: number
+  plantillaId: string
+  /** yyyy-mm-dd local (nunca toISOString: ver core/fechaLocal.ts). */
+  fecha: string
+  hecha: boolean
+}
+
+/**
+ * Objetivo diario de las apps que no lo tienen ya en su propio perfil (biblioteca
+ * y las genéricas). Cocina, jardín e idiomas NO usan esta tabla: el suyo vive en
+ * `perfilNutricion`, `perfilMindfulness` y las tarjetas vencidas del SRS.
+ */
+export interface ObjetivoDiario {
+  id?: number
+  plantillaId: string
+  /** 0 = meta apagada (no se evalúa ni avisa). */
+  valor: number
+}
+
+/**
+ * Traduce el plan viejo de ejercicio a bloques del calendario (ver la v82). Va
+ * aparte y sin tocar IndexedDB porque es donde están las dos trampas del cambio y
+ * conviene poder mirarlas sin montar una migración: **agrupar** («Pierna» los L, X
+ * y V son TRES filas allá y UN bloque aquí) y el **desfase de días** (`diaSemana`
+ * es 0=lunes; `Rutina.dias`, 0=domingo).
+ *
+ * `catalogo` mapea `${tipo}|${nombre}` → id de la rutina del catálogo, que es de
+ * donde sale la llave estable: la fila vieja solo guardaba el nombre.
+ */
+export function planAEjercicioBloques(
+  plan: RutinaProgramada[],
+  catalogo: Map<string, number>,
+  fechaInicio: string,
+): Omit<Rutina, 'id'>[] {
+  const grupos = new Map<string, RutinaProgramada[]>()
+  for (const p of plan) {
+    const clave = `${p.tipo}|${p.rutinaNombre}`
+    grupos.set(clave, [...(grupos.get(clave) ?? []), p])
+  }
+
+  const usadas = new Set<string>()
+  const bloques: Omit<Rutina, 'id'>[] = []
+  for (const [clave, filas] of grupos) {
+    const { tipo, rutinaNombre, duracionMin } = filas[0]
+    const idCat = catalogo.get(clave)
+    // Dos rutinas del catálogo con el mismo nombre: la segunda va sin llave, o el
+    // control adoptaría un bloque ajeno.
+    const llave = idCat != null && !usadas.has(clave) ? `${tipo}:${idCat}` : undefined
+    if (llave) usadas.add(clave)
+    bloques.push({
+      nombre: rutinaNombre,
+      emoji: '💪',
+      // Sin hora a propósito: `planEjercicio` nunca la tuvo, e inventar un '07:00'
+      // sería pintarle al usuario una alarma que jamás puso. Cae en la fila "Sin
+      // hora" del calendario con sus días, que es el dato que sí había.
+      dias: [...new Set(filas.map((f) => (f.diaSemana + 1) % 7))].sort((a, b) => a - b),
+      repeticion: 'semanal',
+      fechaInicio,
+      color: '#fb7185',
+      pasos: [
+        {
+          titulo: rutinaNombre,
+          roomId: 'ejercicio',
+          esquemaId: 'sesion',
+          valores: { tipo, titulo: rutinaNombre, duracionMin },
+        },
+      ],
+      activa: true,
+      creadoEn: new Date().toISOString(),
+      plantillaId: 'ejercicio',
+      actividadId: llave,
+      seccion: tipo,
+      // Nunca encender un aviso que nadie pidió: el plan viejo no avisaba.
+      avisar: false,
+    })
+  }
+  return bloques
+}
+
+export type NivelPartida = 'cero' | 'algo' | 'medio' | 'avanzado'
+
+/** Lo que se le pregunta al usuario antes de pedirle un plan a la IA. */
+export interface EntradaPlan {
+  /** yyyy-mm-dd; sin valor = sin fecha objetivo (la IA decide cuánto debe durar). */
+  fechaObjetivo?: string
+  horasSemana: number
+  /** Días que puede dedicarle, 0=domingo … 6=sábado como en `Rutina.dias`. */
+  dias: number[]
+  nivel: NivelPartida
+}
+
+/** Un nodo del árbol propuesto. Todavía NO es una meta: vive embebido en su plan. */
+export interface NodoPlan {
+  /** Id local dentro del plan (1..N), para que `padre` no dependa de la posición. */
+  id: number
+  /** Id local de su padre; sin valor = primer nivel del plan. */
+  padre?: number
+  nombre: string
+  /** Día en que empieza, contado desde el día 0 del plan (nunca desde su padre). */
+  ini: number
+  /** Último día que ocupa, inclusivo. */
+  fin: number
+}
+
+/**
+ * Un cronograma ALTERNATIVO para una meta: lo propone la IA, el usuario lo compara
+ * contra el real superpuesto en el mismo eje y, si le gusta, lo acepta.
+ *
+ * Los nodos llevan días RELATIVOS a `inicioISO` en vez de fechas porque la IA cuenta
+ * enteros pequeños mucho mejor que calendarios (con fechas ISO devuelve días que no
+ * existen y años equivocados); de paso, correr el plan entero a otro arranque es
+ * cambiar un campo y no cuesta otra llamada.
+ */
+export interface PlanMeta {
+  id?: number
+  /** `Rutina.id` de la meta (con `esMeta`) para la que se propuso. */
+  metaId: number
+  /** Etiqueta corta ("Plan A"); es dato, como el nombre de una meta. */
+  nombre: string
+  /** El día 0 del plan en el calendario. Reanclar = cambiar SOLO esto. */
+  inicioISO: string
+  nodos: NodoPlan[]
+  /** Lo que se contestó en el formulario: para enseñarlo y para regenerar. */
+  entrada: EntradaPlan
+  /** La frase con la que la IA resume su propuesta. */
+  resumen?: string
+  creadoEn: string
+  /** Cuándo se pasó al cronograma real; sin valor = sigue siendo propuesta. */
+  aceptadoEn?: string
 }
 
 /** Qué pasos de una rutina se completaron en un día (para rachas y digest). */
@@ -736,6 +1381,8 @@ export interface EjecucionRutina {
   fecha: string // yyyy-mm-dd
   /** Índices de pasos completados. */
   pasosHechos: number[]
+  /** Palomeada entera desde Metas (sin índice: no necesita migración de esquema). */
+  hecho?: boolean
 }
 
 // ----- Base de datos -----
@@ -762,6 +1409,63 @@ export interface ZonaPlano {
   formasCelda?: Record<string, { forma: 'cuadrado' | 'triangular' | 'circular'; rotacion: 0 | 90 | 180 | 270 }>
 }
 
+/**
+ * Muro independiente del plano (no ligado a un cuarto). Dos clases:
+ * - `arista`: un lado recto de la rejilla (orient h/v en la esquina col,row). Las 4
+ *   "paredes del cuadrado" se ponen una por una.
+ * - `forma`: solo el segmento de una celda — diagonal (triangular) o arco (circular).
+ * Estilo editable (textura, color, altura) común a ambas.
+ */
+export interface MuroLibre {
+  id?: number
+  nivel: number
+  clase: 'arista' | 'forma'
+  /** clase 'arista': orientación del lado (h = horizontal, v = vertical). */
+  orient?: 'h' | 'v'
+  /** arista: índice de esquina de rejilla; forma: celda. */
+  col: number
+  row: number
+  /** clase 'forma': triángulo (diagonal) o círculo (arco). */
+  forma?: 'triangular' | 'circular'
+  rotacion?: 0 | 90 | 180 | 270
+  /** Textura del muro (TipoMuroId): solido, ladrillo, madera, vitraje… */
+  tipo?: string
+  color?: string
+  /** Altura como factor de WALL_H (1 = altura normal). */
+  alto?: number
+  /** Silueta superior: recta (default), arco o triángulo. */
+  silueta?: 'recta' | 'arco' | 'triangulo'
+  /** Parámetros de la silueta (igual que los muros de cuarto). */
+  formaAlto?: number // alto del arco/pico, factor de WALL_H
+  formaAncho?: number // ancho del pico (triángulo), factor del largo
+  formaPosX?: number // posición del pico (triángulo), -1…1
+  formaDividir?: boolean // la silueta lleva color propio
+  formaColor?: string
+  /** Ventana en el muro (arista/triángulo): hueco + cristal. */
+  ventana?: boolean
+  ventAncho?: number // factor del largo del muro
+  ventAlto?: number // factor del alto del muro (0–1)
+  ventColor?: string
+  /** Puerta en el muro: hueco que llega al piso (+ hoja sólida animada). */
+  puerta?: boolean
+  puertaAncho?: number // factor del largo del muro
+  puertaColor?: string
+  puertaAlto?: number // alto de la puerta, factor del alto del muro (0–1)
+  puertaTipo?: 'recta' | 'sin' | 'doble' | 'porton' | 'corredera' // tipo de hoja (como en cuartos); 'sin' = vano abierto
+  /** Remate del vano sobre la hoja (como la silueta de los muros). */
+  puertaForma?: 'recta' | 'arco' | 'triangulo'
+  puertaFormaAlto?: number // alto del arco/pico, factor de WALL_H
+  puertaFormaAncho?: number // base del pico (triángulo), factor del ancho del vano
+  puertaFormaPosX?: number // posición del pico dentro de su base (-1…1)
+  /** Geometría de la abertura (compartida entre puerta y ventana). */
+  ventForma?: 'cuadrado' | 'circulo' | 'triangulo' // forma del hueco (ventana)
+  ventPosX?: number // posición horizontal a lo largo del muro (-1 izq … 1 der)
+  ventPosY?: number // centro vertical de la ventana, factor del alto (0–1)
+  ventRot?: number // rotación de la forma en grados (cuadrado → rombo)
+  ventMosaico?: boolean // cristal dividido en piezas (vitral)
+  ventMulticolor?: boolean // cada pieza del mosaico con un color distinto
+}
+
 /** Piso personalizado de una celda o sub-celda (¼) del plano. */
 export interface PisoExteriorCelda {
   id?: number
@@ -777,9 +1481,369 @@ export interface PisoExteriorCelda {
   forma?: { forma: 'cuadrado' | 'triangular' | 'circular'; rotacion: 0 | 90 | 180 | 270 }
 }
 
-export class MindHomeDB extends Dexie {
+// ----- Infraestructura del mapa (caminos y huerto) -----
+
+/** Tramo de camino por celda del mapa exterior (pista, riel o montaña rusa). */
+export interface CaminoCelda {
+  id?: number
+  col: number
+  row: number
+  tipo: 'pista' | 'riel' | 'coaster'
+  /** Solo montaña rusa: nivel de altura del riel (0–6, cada nivel = 0.6 u). */
+  altura?: number
+  /** Solo pista: celda con la línea de meta del circuito (una sola en el mapa). */
+  meta?: boolean
+}
+
+/** Especies sembrables del huerto (catálogo con tiempos en src/core/house/cultivos.ts). */
+export type EspecieCultivo = 'zanahoria' | 'lechuga' | 'girasol' | 'tomate' | 'maiz' | 'calabaza'
+
+/** Parcela de tierra por celda; con especie = cultivo en curso (estado derivado de timestamps). */
+export interface CultivoCelda {
+  id?: number
+  col: number
+  row: number
+  especie?: EspecieCultivo
+  /** ms época de la siembra. */
+  plantadoEn?: number
+  /** ms época del último riego (al sembrar = plantadoEn). */
+  regadoEn?: number
+  /** Cosechas acumuladas de la parcela. */
+  cosechas?: number
+  /** ms época de instalación del aspersor (riega su celda + 8 vecinas para siempre). */
+  aspersorEn?: number
+}
+
+/** Tipos de animal de granja (catálogo con tiempos en src/core/state/granjaStore.ts). */
+export type TipoAnimal = 'gallina' | 'cerdo' | 'vaca' | 'cabra' | 'oveja'
+
+/** Accesorio de juego dentro de un corral: ocupa una celda del rect (máx. 1 por celda). */
+export type TipoAccesorio = 'lodo' | 'tina' | 'pelota'
+
+export interface AccesorioCorral {
+  tipo: TipoAccesorio
+  /** Celda ABSOLUTA del mapa (sobrevive a agrandar el corral). */
+  col: number
+  row: number
+}
+
+/** Corral de la granja: rectángulo de celdas del mapa con varios animales dentro. */
+export interface Corral {
+  id?: number
+  /** Celda de origen (esquina). */
+  col: number
+  row: number
+  /** Tamaño en celdas, ≥1. */
+  ancho: number
+  alto: number
+  accesorios?: AccesorioCorral[]
+}
+
+/** Animal de granja: vive dentro de un corral (varios por corral). */
+export interface AnimalGranja {
+  id?: number
+  corralId: number
+  tipo: TipoAnimal
+  /** ms época de la última comida; hambriento al vencer la ventana de su especie. */
+  alimentadoEn: number
+  /** ms época del último mimo (caricia, baño o juego); aburrido al vencer la ventana. */
+  mimadoEn?: number
+  nombre?: string
+  /** Celda legada pre-v86 (solo la lee la reparación de respaldos viejos). */
+  col?: number
+  row?: number
+}
+
+/** Cesta del huerto: cosechas acumuladas por especie (el alimento de la granja). */
+export interface CestaEspecie {
+  id?: number
+  especie: EspecieCultivo
+  cantidad: number
+}
+
+/** Marcador persistente del minijuego de una cancha (`canchaId` = id del objeto de mapa). */
+export interface MarcadorCancha {
+  id?: number
+  canchaId: number
+  /** Goles/puntos; en tenis, los puntos del juego en curso (0,1,2,3,AD…). */
+  yo: number
+  rival: number
+  // Tenis contra la IA: partido al mejor de 3 sets.
+  juegosYo?: number
+  juegosRival?: number
+  setsYo?: number
+  setsRival?: number
+  /** Tenis solo: récord de golpes seguidos contra el frontón. */
+  mejorPeloteo?: number
+}
+
+/** Pista de carreras de trazo libre: curva Catmull-Rom por puntos de control. */
+export interface PistaLibre {
+  id?: number
+  /** Puntos de control en coordenadas de mundo (la META va en el primero). */
+  puntos: { x: number; z: number }[]
+  /** Circuito cerrado (el final se une con la meta; requisito para correr). */
+  cerrada: boolean
+  fecha: number
+}
+
+/** Récords del modo carrera: una fila por línea de meta y por vehículo. */
+export interface RecordCarrera {
+  id?: number
+  metaCol: number
+  metaRow: number
+  /** TipoVehiculo terrestre (bicicleta/motocicleta/automovil). */
+  vehiculo: string
+  /** Mejor vuelta en ms. */
+  mejorVuelta?: number
+  /** Mejor tiempo total (ms) y a cuántas vueltas se logró. */
+  mejorTotal?: number
+  vueltasDeTotal?: number
+  // Contra un asistente rival.
+  victorias?: number
+  derrotas?: number
+  fecha: number
+}
+
+// ----- Hobbies · Práctica de pasatiempos -----
+
+/** Pasatiempo del usuario, con color propio y meta semanal opcional. */
+export interface Hobby {
+  id?: number
+  nombre: string
+  emoji: string
+  /** Hex de la paleta del cuarto; tiñe heatmaps y acentos. */
+  color: string
+  /** Meta: días de práctica por semana (1–7); sin meta si falta. */
+  metaDiasSemana?: number
+  creadoEn: string
+}
+
+/** Sesión de práctica registrada de un hobby. */
+export interface SesionHobby {
+  id?: number
+  hobbyId: number
+  fecha: string // yyyy-mm-dd local
+  minutos: number
+  nota?: string
+  /** Proyecto al que se dedicó la sesión (opcional). */
+  proyectoId?: number
+}
+
+/** Proyecto dentro de un hobby (ej. "tejer bufanda" en "tejido"). */
+export interface ProyectoHobby {
+  id?: number
+  hobbyId: number
+  nombre: string
+  estado: 'en-curso' | 'terminado'
+  creadoEn: string
+  terminadoEn?: string // yyyy-mm-dd local al terminar
+}
+
+/** Tipo de herramienta (bloque) de una plantilla personalizada. */
+export type TipoBloque =
+  | 'notas'
+  | 'checklist'
+  | 'contador'
+  | 'enlaces'
+  | 'lista'
+  | 'valoracion'
+  | 'bitacora'
+  | 'progreso'
+  | 'habito'
+  | 'sesiones'
+  | 'cuenta'
+  | 'galeria'
+
+/** Bloque de una plantilla personalizada (estructura, no datos). */
+export interface BloqueDef {
+  /** Id estable dentro de la plantilla; forma parte del nombre de la tool de IA. */
+  id: string
+  tipo: TipoBloque
+  titulo: string
+  /** Meta opcional: contador/progreso (valor a alcanzar), sesiones (minutos), hábito (veces/semana). */
+  meta?: number
+  /** Solo progreso: unidad de la medición (kg, $, págs…). */
+  unidad?: string
+  /** Solo cuenta regresiva: fecha objetivo `yyyy-mm-dd`. */
+  fecha?: string
+}
+
+/** Plantilla (app) creada por el usuario combinando bloques genéricos. */
+export interface PlantillaCustom {
+  /** 'custom-<timestamp>' — nunca choca con los ids de las apps de código. */
+  id: string
+  nombre: string
+  icon: string // emoji
+  color: string
+  bloques: BloqueDef[]
+  creadoEn: string
+}
+
+/** Dato de un bloque: fila única (nota/contador/valoración) o n filas (checklist, lista, bitácora…). */
+export interface ItemPlantilla {
+  id?: number
+  plantillaId: string
+  bloqueId: string
+  /** Nota, pendiente, item de lista, entrada de bitácora, título de enlace o nota de sesión. */
+  texto?: string
+  /** Solo checklist. */
+  hecho?: boolean
+  /** Solo enlaces. */
+  url?: string
+  /** Contador (acumulado), valoración (1-5), progreso (medición) o sesiones (minutos). */
+  valor?: number
+  /** Solo galería: imagen comprimida. */
+  foto?: Blob
+  creadoEn: string
+}
+
+/**
+ * Carpeta del catálogo de plantillas: agrupa apps del sistema y plantillas
+ * personalizadas. El nombre es editable y `miembros` guarda los ids de plantilla
+ * en orden. Una plantilla pertenece a un solo grupo.
+ */
+export interface GrupoPlantilla {
+  id?: number
+  nombre: string
+  /** Emoji opcional que se muestra en el encabezado de la carpeta. */
+  emoji?: string
+  /** Orden de la carpeta en el catálogo (arrastrar para reordenar). */
+  orden: number
+  /** Ids de plantilla en este grupo, en orden. */
+  miembros: string[]
+  /** Carpeta de la semilla inicial: no se puede borrar (las creadas por el usuario sí). */
+  esBase?: boolean
+}
+
+/** Objeto del conjunto de una app: recurso 3D (o `tipo` especial), su posición y si es el principal. */
+export interface SiembraGuardada {
+  /** Id de recurso del catálogo; ausente si es un objeto especial (`tipo`). */
+  recurso?: number
+  /** Tipo literal de un objeto especial (p. ej. el principal animado); gana sobre `recurso`. */
+  tipo?: string
+  x: number
+  z: number
+  /** El objeto principal es el punto de entrada del cuarto (uno por conjunto). */
+  principal?: boolean
+  /** Rotación en Y (grados); ausente = 0. */
+  rotY?: number
+  /** Escala visual del objeto; ausente = 1. */
+  escala?: number
+}
+
+/** Conjunto de objetos que coloca una app al asignarse (editable por el usuario). */
+export interface ObjetosPlantilla {
+  plantillaId: string
+  objetos: SiembraGuardada[]
+}
+
+// ----- Idiomas · aprendizaje de lenguas -----
+
+/** Perfil de un idioma que el usuario aprende (una fila por idioma). */
+export interface PerfilIdioma {
+  id?: number
+  /** Código BCP-47 para la voz del navegador: 'en-US', 'fr-FR', 'ja-JP'… */
+  codigo: string
+  nombre: string
+  /** Emoji de bandera (dato → <Icono emoji={…}>). */
+  bandera: string
+  /** Nivel MCER del usuario en este idioma: A1…C2. */
+  nivel: string
+  creadoEn: string
+}
+
+export type TipoTarjeta = 'palabra' | 'frase' | 'expresion'
+
+/** Tarjeta de vocabulario con su estado de repaso espaciado (Leitner) embebido. */
+export interface TarjetaIdioma {
+  id?: number
+  idiomaId: number
+  /** En el idioma objetivo. */
+  termino: string
+  /** En español. */
+  traduccion: string
+  /** Frase de ejemplo en el idioma objetivo (alimenta el ejercicio de completar). */
+  ejemplo?: string
+  tipo: TipoTarjeta
+  /** Tema del temario (estático de temario.ts o dinámico); ausente = suelta. */
+  temaId?: string
+  /** Nivel MCER del término. */
+  nivel: string
+  /** Caja Leitner 0..6 (los intervalos crecen con la caja). */
+  caja: number
+  /** yyyy-mm-dd local del próximo repaso (vencida si <= hoy). */
+  proximaISO: string
+  ultimaISO?: string
+  fuente: 'manual' | 'charla' | 'ia'
+  creadoEn: string
+}
+
+/** Charla de práctica con el tutor, por idioma. */
+export interface ConversacionIdioma {
+  id?: number
+  idiomaId: number
+  /** Lo pone la IA tras el primer intercambio; editable. */
+  titulo: string
+  /** Tema del temario del que nació o al que se clasificó. */
+  temaId?: string
+  /** ISO: ya se extrajo vocabulario (silencia el ofrecimiento al salir). */
+  destiladaEn?: string
+  creadoEn: string
+  actualizadoEn: string
+}
+
+export interface MensajeIdioma {
+  id?: number
+  conversacionId: number
+  rol: 'usuario' | 'asistente'
+  texto: string
+  creado: string
+}
+
+/** Nodo dinámico del temario (los temas de temario.ts son el esqueleto estático). */
+export interface TemaIdioma {
+  id?: number
+  /** Id único estable 'din-…'; comparte espacio con los ids de temario.ts. */
+  temaId: string
+  idiomaId: number
+  /** Nivel MCER del que cuelga. */
+  nivel: string
+  /** Tema estático u otro dinámico; null = raíz del nivel. */
+  padreId: string | null
+  titulo: string
+  descripcion: string
+  creadoEn: string
+  /** Charla que lo desbloqueó (se desliga si la charla se borra). */
+  conversacionId?: number
+}
+
+/** Actividad de repaso agregada: una fila por idioma y día (heatmap/racha/XP). */
+export interface RepasoIdioma {
+  id?: number
+  idiomaId: number
+  /** yyyy-mm-dd local. */
+  fecha: string
+  /** Respuestas dadas ese día (tarjetas + ejercicios). */
+  repasos: number
+  aciertos: number
+}
+
+// ----- Música -----
+
+/** Pista subida por el usuario (Blob local): suena en el Wrapped o de ambiente. */
+export interface PistaMusica {
+  id?: number
+  nombre: string
+  blob: Blob
+  creadoEn: string
+  duracionSeg?: number
+}
+
+class MindHomeDB extends Dexie {
   transacciones!: Table<Transaccion, number>
   sueno!: Table<RegistroSueno, number>
+  perfilSueno!: Table<PerfilSueno, number>
   anecdotas!: Table<Anecdota, number>
   metas!: Table<Meta, number>
   presupuestos!: Table<Presupuesto, number>
@@ -787,15 +1851,34 @@ export class MindHomeDB extends Dexie {
   registrosComida!: Table<RegistroComida, number>
   planComidas!: Table<PlanComida, number>
   registrosAgua!: Table<RegistroAgua, number>
-  alimentosFavoritos!: Table<AlimentoFavorito, number>
+  recetas!: Table<Receta, number>
+  dietasGuardadas!: Table<DietaGuardada, number>
+  itemsCompra!: Table<ItemCompra, number>
+  listasCompra!: Table<ListaCompra, number>
+  registrosPeso!: Table<RegistroPeso, number>
   perfilEjercicio!: Table<PerfilEjercicio, number>
   sesionesEjercicio!: Table<SesionEjercicio, number>
   seriesFuerza!: Table<SerieFuerza, number>
+  planEjercicio!: Table<RutinaProgramada, number>
+  rutinasFuerza!: Table<RutinaFuerza, number>
+  actividadesCardio!: Table<ActividadCardio, number>
+  categoriasCardio!: Table<CategoriaCardio, number>
+  rutinasFlex!: Table<RutinaFlex, number>
+  seriesFlex!: Table<SerieFlex, number>
+  gruposFuerza!: Table<GrupoFuerza, number>
+  gruposFlex!: Table<GrupoFlex, number>
+  gruposCardio!: Table<GrupoCardio, number>
+  rutinasCardio!: Table<RutinaCardio, number>
+  splitsCardio!: Table<SplitCardio, number>
+  imagenesEjercicio!: Table<ImagenEjercicio, number>
   mediaArchivo!: Table<MediaArchivo, number>
-  viajes!: Table<Viaje, number>
-  actividadesViaje!: Table<ActividadViaje, number>
-  gastosViaje!: Table<GastoViaje, number>
-  checklistViaje!: Table<ChecklistViaje, number>
+  lugaresViaje!: Table<LugarViaje, number>
+  diasItinerario!: Table<DiaItinerario, number>
+  rutasViaje!: Table<RutaViaje, number>
+  bitacoraViaje!: Table<RecuerdoViaje, number>
+  portadasViaje!: Table<PortadaViaje, number>
+  portadasLugar!: Table<PortadaLugar, number>
+  itinerariosGuardados!: Table<ItinerarioGuardado, number>
   sesionesMindfulness!: Table<SesionMindfulness, number>
   registroAnimo!: Table<RegistroAnimo, number>
   gratitudDiaria!: Table<GratitudDiaria, number>
@@ -803,9 +1886,13 @@ export class MindHomeDB extends Dexie {
   vehiculos!: Table<Vehiculo, number>
   registrosMantenimiento!: Table<RegistroMantenimiento, number>
   juegosMesa!: Table<JuegoMesa, number>
-  progresoTema!: Table<ProgresoTema, number>
-  noticias!: Table<Noticia, number>
-  perfilUsuario!: Table<PerfilUsuario, number>
+  conversacionesBiblio!: Table<ConversacionBiblio, number>
+  mensajesBiblio!: Table<MensajeBiblio, number>
+  entradasBiblio!: Table<EntradaBiblio, number>
+  sesionesEstudio!: Table<SesionEstudio, number>
+  temasArbol!: Table<TemaArbol, number>
+  edicionesDiario!: Table<EdicionDiario, number>
+  lecturasDiario!: Table<LecturaDiario, number>
   disenoRooms!: Table<DisenoRoom, number>
   disenoAvatar!: Table<DisenoAvatar, number>
   objetosCuarto!: Table<ObjetoCuarto, number>
@@ -815,16 +1902,48 @@ export class MindHomeDB extends Dexie {
   bitacora!: Table<EntradaBitacora, number>
   memorias!: Table<Memoria, number>
   rutinas!: Table<Rutina, number>
+  planesMeta!: Table<PlanMeta, number>
   ejecucionesRutina!: Table<EjecucionRutina, number>
+  metasDiariasManual!: Table<MetaDiariaManual, number>
+  objetivosDiarios!: Table<ObjetivoDiario, number>
   mensajesChat!: Table<MensajeChat, number>
   asistentes!: Table<AsistenteGuardado, number>
   fondosImagen!: Table<FondoImagen, number>
   pisosImagenCuarto!: Table<PisoImagenCuarto, number>
   techosImagenCuarto!: Table<TechoImagenCuarto, number>
   murosImagenCuarto!: Table<MuroImagenCuarto, number>
+  grafitis!: Table<Grafiti, number>
   zonas!: Table<ZonaPlano, number>
   pisosExterior!: Table<PisoExteriorCelda, number>
+  murosLibres!: Table<MuroLibre, number>
   cuartos!: Table<Cuarto, string>
+  watchlist!: Table<AccionWatch, number>
+  hobbies!: Table<Hobby, number>
+  sesionesHobby!: Table<SesionHobby, number>
+  proyectosHobby!: Table<ProyectoHobby, number>
+  plantillasCustom!: Table<PlantillaCustom, string>
+  itemsPlantilla!: Table<ItemPlantilla, number>
+  gruposPlantilla!: Table<GrupoPlantilla, number>
+  objetosPlantilla!: Table<ObjetosPlantilla, string>
+  idiomas!: Table<PerfilIdioma, number>
+  tarjetasIdioma!: Table<TarjetaIdioma, number>
+  conversacionesIdioma!: Table<ConversacionIdioma, number>
+  mensajesIdioma!: Table<MensajeIdioma, number>
+  temasIdioma!: Table<TemaIdioma, number>
+  repasosIdioma!: Table<RepasoIdioma, number>
+  caminos!: Table<CaminoCelda, number>
+  cultivos!: Table<CultivoCelda, number>
+  animales!: Table<AnimalGranja, number>
+  corrales!: Table<Corral, number>
+  cesta!: Table<CestaEspecie, number>
+  marcadores!: Table<MarcadorCancha, number>
+  carreras!: Table<RecordCarrera, number>
+  pistasLibres!: Table<PistaLibre, number>
+  pistasMusica!: Table<PistaMusica, number>
+  // Internas de sincronización (prefijo `_`: ni respaldo ni sync ni UI).
+  _outbox!: Table<EntradaOutbox, number>
+  _syncMeta!: Table<SyncMeta, string>
+  _pendientes!: Table<PendienteSync, number>
 
   constructor() {
     super('mind-home')
@@ -1201,10 +2320,580 @@ export class MindHomeDB extends Dexie {
     this.version(34).stores({
       cuartos: 'id, orden',
     })
+    // v35: muros independientes por celda libre (forma + rotación)
+    this.version(35).stores({
+      murosLibres: '++id, nivel, [nivel+col+row]',
+    })
+    // v36: muros independientes rediseñados (arista | forma + estilo). El modelo
+    // anterior es incompatible; se limpia la tabla (era experimental y sin datos reales).
+    this.version(36)
+      .stores({ murosLibres: '++id, nivel' })
+      .upgrade((tx) => tx.table('murosLibres').clear())
+    // v37: tamaño (escala) por objeto. Campo sin índice en objetosCuarto.
+    this.version(37).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v38: objetos construidos con geometría básica (piezas en objetosCuarto, sin índice).
+    this.version(38).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v39: tipo original de objetos convertidos a piezas (campo sin índice).
+    this.version(39).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v40: nombre personalizado por objeto (campo sin índice).
+    this.version(40).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v41: recetario de cocina.
+    this.version(41).stores({
+      recetas: '++id, nombre, creadaEn',
+    })
+    // v42: lista de compras del súper.
+    this.version(42).stores({
+      itemsCompra: '++id, creadoEn',
+    })
+    // v43: pesajes corporales; perfilNutricion gana datos TDEE (sin índice).
+    this.version(43).stores({
+      registrosPeso: '++id, fecha',
+    })
+    // v44: plan semanal de rutinas de ejercicio.
+    this.version(44).stores({
+      planEjercicio: '++id, diaSemana',
+    })
+    // v45: cardio en vivo — ppm y ruta GPS en sesionesEjercicio (campos sin índice).
+    this.version(45).stores({
+      sesionesEjercicio: '++id, fecha, tipo',
+    })
+    // v46: la recámara se separa en dos apps (descanso + anecdotario). Perfil de
+    // sueño (horario + despertador); sueño gana horas/interrupciones y anécdotas
+    // ganan fotos (campos sin índice). Migra referencias 'recamara' → nueva app.
+    this.version(46)
+      .stores({ perfilSueno: '++id' })
+      .upgrade(async (tx) => {
+        // Objetos con la app vieja ligada → la app de descanso (la cama).
+        const objetos = (await tx.table('objetosCuarto').toArray()) as { id?: number; plantillaId?: string }[]
+        for (const o of objetos) {
+          if (o.plantillaId === 'recamara' && o.id != null) {
+            await tx.table('objetosCuarto').update(o.id, { plantillaId: 'descanso' })
+          }
+        }
+        // Asistentes que archivaban la recámara → descanso + anecdotario.
+        const asistentes = (await tx.table('asistentes').toArray()) as { id?: number; cuartos?: string[] }[]
+        for (const a of asistentes) {
+          if (a.cuartos?.includes('recamara') && a.id != null) {
+            const cuartos = a.cuartos.flatMap((c) => (c === 'recamara' ? ['descanso', 'anecdotario'] : [c]))
+            await tx.table('asistentes').update(a.id, { cuartos })
+          }
+        }
+        // Pasos de rutinas que apuntaban a la recámara → por esquema.
+        const rutinas = (await tx.table('rutinas').toArray()) as { id?: number; pasos?: { roomId: string; esquemaId?: string }[] }[]
+        for (const r of rutinas) {
+          if (r.id != null && r.pasos?.some((p) => p.roomId === 'recamara')) {
+            const pasos = r.pasos.map((p) =>
+              p.roomId === 'recamara'
+                ? { ...p, roomId: p.esquemaId === 'anecdota' ? 'anecdotario' : 'descanso' }
+                : p,
+            )
+            await tx.table('rutinas').update(r.id, { pasos })
+          }
+        }
+      })
+    // v47: listas de compras guardadas (itemsCompra gana listaId, sin índice);
+    // se elimina la despensa rápida (favoritos): se borra su tabla.
+    this.version(47).stores({
+      listasCompra: '++id, creadoEn',
+      alimentosFavoritos: null,
+    })
+    // v48: dietas preguardadas (recetas asociadas). Receta gana carpeta (sin índice).
+    this.version(48).stores({
+      dietasGuardadas: '++id, creadoEn',
+    })
+    // v49: rutinas de fuerza creadas por el usuario (plantillas del catálogo).
+    this.version(49).stores({
+      rutinasFuerza: '++id, creadoEn',
+    })
+    // v50: actividades de cardio personalizadas del usuario.
+    this.version(50).stores({
+      actividadesCardio: '++id, creadoEn',
+    })
+    // v51: rutinas de flexibilidad (fundamentales sembradas + propias del usuario).
+    this.version(51).stores({
+      rutinasFlex: '++id, creadoEn',
+    })
+    // v52: categorías editables del catálogo de cardio.
+    this.version(52).stores({
+      categoriasCardio: '++id, creadoEn',
+    })
+    // v53: posturas (tiempo × reps) de las sesiones de flexibilidad.
+    this.version(53).stores({
+      seriesFlex: '++id, sesionId',
+    })
+    // v54: imágenes (miniaturas) subidas por ejercicio del catálogo, por nombre normalizado.
+    this.version(54).stores({
+      imagenesEjercicio: '++id, &clave',
+    })
+    // v55: watchlist de acciones de la pestaña Mercados (despacho).
+    this.version(55).stores({
+      watchlist: '++id, simbolo',
+    })
+    // v56: sala rehecha — mapamundi con pines, lugares por conocer, rutas y
+    // bitácora. Se eliminan las tablas del planificador de viajes anterior.
+    this.version(56).stores({
+      lugaresViaje: '++id, visitado, pais, creadoEn',
+      rutasViaje: '++id, creadoEn',
+      bitacoraViaje: '++id, lugarId, fecha',
+      viajes: null,
+      actividadesViaje: null,
+      gastosViaje: null,
+      checklistViaje: null,
+    })
+    // v57: itinerarios con nombre (LugarViaje gana itinerarioId/fechaPlan, sin
+    // índice) y portada elegida por país para los álbumes de la bitácora.
+    this.version(57).stores({
+      itinerariosViaje: '++id, creadoEn',
+      portadasViaje: '++id, &pais',
+    })
+    // v58: hoja de plan día a día por itinerario (calendario + meta en despacho).
+    this.version(58).stores({
+      diasItinerario: '++id, itinerarioId',
+    })
+    // v59: el plan pasa de "itinerarios con nombre" a un plan por cada lugar.
+    // Los días se reindexan por lugarId y se elimina la tabla de itinerarios;
+    // las portadas de la bitácora ahora también pueden ser por lugar.
+    this.version(59)
+      .stores({
+        diasItinerario: '++id, lugarId',
+        portadasLugar: '++id, &lugarId',
+        itinerariosViaje: null,
+      })
+      .upgrade(async (tx) => {
+        // Los días viejos apuntaban a itinerarios que ya no existen: se limpian.
+        await tx.table('diasItinerario').clear()
+        // Sus metas de ahorro quedan huérfanas en el despacho (nombre "✈️ …").
+        const metas = tx.table('metas')
+        for (const m of await metas.toArray()) {
+          if (typeof m.nombre === 'string' && m.nombre.startsWith('✈️')) await metas.delete(m.id)
+        }
+      })
+    // v60: itinerarios guardados a mano (snapshot independiente del lugar de origen).
+    this.version(60).stores({
+      itinerariosGuardados: '++id, creadoEn',
+    })
+    // v61: hobbies con seguimiento real — sesiones de práctica y proyectos.
+    this.version(61).stores({
+      hobbies: '++id, creadoEn',
+      sesionesHobby: '++id, hobbyId, fecha',
+      proyectosHobby: '++id, hobbyId, creadoEn',
+    })
+    // v62: biblioteca rehecha — enciclopedia conversacional: charlas con IA,
+    // entradas wiki destiladas y sesiones de estudio. Se elimina el marcado
+    // manual de temas (progresoTema); la cobertura ahora sale de las entradas.
+    this.version(62).stores({
+      conversacionesBiblio: '++id, pilarId, actualizadoEn',
+      mensajesBiblio: '++id, conversacionId, creado',
+      entradasBiblio: '++id, pilarId, conversacionId, actualizadoEn',
+      sesionesEstudio: '++id, pilarId, fecha',
+      progresoTema: null,
+    })
+    // v63: índice vivo de la biblioteca — cada charla desbloquea subtemas que
+    // cuelgan de los temas semilla de pilares.ts (o del campo, si es pregunta libre).
+    this.version(63).stores({
+      temasArbol: '++id, &temaId, pilarId, padreId',
+    })
+    // v64: diario rehecho — periódico efímero del día (titulares + efemérides)
+    // que se regenera a medianoche; se elimina la central de noticias manual.
+    this.version(64).stores({
+      edicionesDiario: '++id, &fecha',
+      lecturasDiario: '++id, &fecha',
+      noticias: null,
+    })
+    // v65: los asistentes ya no se inventan por app (id `app-<plantillaId>`). Ahora
+    // se elige uno de los asistentes existentes desde el catálogo de Plantillas;
+    // se borran los asistentes automáticos que creó el modelo anterior.
+    this.version(65).upgrade(async (tx) => {
+      const tabla = tx.table('asistentes')
+      const filas = (await tabla.toArray()) as { id?: number; asistenteId?: string }[]
+      for (const a of filas) {
+        if (a.id != null && a.asistenteId?.startsWith('app-')) await tabla.delete(a.id)
+      }
+    })
+    // v66: plantillas personalizadas — el usuario arma su propia app combinando
+    // bloques (notas, checklist, contador, enlaces); definición + datos por bloque.
+    this.version(66).stores({
+      plantillasCustom: 'id, creadoEn',
+      itemsPlantilla: '++id, plantillaId, [plantillaId+bloqueId]',
+    })
+    // v67: carpetas del catálogo de plantillas (grupos editables con miembros).
+    this.version(67).stores({
+      gruposPlantilla: '++id, orden',
+    })
+    // v68: las carpetas de la semilla inicial no se pueden borrar (esBase); las
+    // filas ya existentes son todas de la semilla, así que se marcan.
+    this.version(68).upgrade(async (tx) => {
+      const tabla = tx.table('gruposPlantilla')
+      for (const g of await tabla.toArray()) {
+        if (g.id != null && g.esBase === undefined) await tabla.update(g.id, { esBase: true })
+      }
+    })
+    // v69: conjunto de objetos editable por app (override de la siembra de código).
+    this.version(69).stores({
+      objetosPlantilla: 'plantillaId',
+    })
+    // v70: objetos con modelo .glb subido (tipo 'glb'). Campo sin índice en objetosCuarto.
+    this.version(70).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v71: rotación en 3 ejes (rotX/rotZ) y altura (y) por objeto. Campos sin índice.
+    this.version(71).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v72: animación por objeto/personaje (preset, poses, activación). Campos sin índice
+    // también en asistentes y disenoAvatar.
+    this.version(72).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v73: app de idiomas — tutor conversacional, vocabulario con repaso
+    // espaciado (Leitner), temario por niveles MCER y actividad diaria.
+    this.version(73).stores({
+      idiomas: '++id, &codigo, creadoEn',
+      tarjetasIdioma: '++id, idiomaId, [idiomaId+proximaISO], creadoEn',
+      conversacionesIdioma: '++id, idiomaId, actualizadoEn',
+      mensajesIdioma: '++id, conversacionId, creado',
+      temasIdioma: '++id, &temaId, idiomaId, creadoEn',
+      repasosIdioma: '++id, &[idiomaId+fecha], idiomaId, fecha',
+    })
+    // v74: objetos especiales — foto del usuario en cuadros (tipo 'cuadro-foto').
+    // Campo sin índice en objetosCuarto.
+    this.version(74).stores({
+      objetosCuarto: '++id, roomId',
+    })
+    // v75: juguete Grafiti — pintura por cara de muro (PNG transparente).
+    this.version(75).stores({
+      grafitis: '++id, &superficie',
+    })
+    // v76: catálogos de fuerza y flexibilidad editables (grupos + ejercicios
+    // propios, además de la semilla). grupoId es estable para no romper la
+    // pirámide de enfoques al agregar o borrar grupos.
+    this.version(76).stores({
+      gruposFuerza: '++id, orden',
+      gruposFlex: '++id, orden',
+    })
+    // v77: resistencia con la misma estructura que fuerza/flex — catálogo de
+    // grupos editables (con descripción), rutinas propias y sesiones por tramos
+    // ("splits" tipo triatlón). `categoriasCardio` queda obsoleta: sus datos se
+    // migran a `gruposCardio` en el seed.
+    this.version(77).stores({
+      gruposCardio: '++id, orden',
+      rutinasCardio: '++id, creadoEn',
+      splitsCardio: '++id, sesionId, orden',
+    })
+    // v78: las metas del calendario pasan de 4 listas planas a un árbol. `esMeta`
+    // marca la pertenencia al árbol (antes lo hacía `suelta`, que ahora solo dice
+    // "sin fecha"): las metas de siempre quedan como raíces de su plazo. Los campos
+    // nuevos no llevan índice, así que solo hace falta migrar los datos.
+    this.version(78).upgrade(async (tx) => {
+      await tx
+        .table('rutinas')
+        .toCollection()
+        .modify((r: Rutina) => {
+          if (r.suelta) r.esMeta = true
+        })
+    })
+    // v79: las metas dejan de ser un árbol de peldaños fijos (año→mes→semana→día→
+    // hora, repartido en cuatro listas de plazo) y pasan a ser UNA lista anidable
+    // libre. El modelo viejo no se puede traducir al nuevo sin inventar: el plazo
+    // de cada rama era obligatorio y cargaba el significado de sus fechas, así que
+    // se arranca de cero por decisión del usuario.
+    //
+    // El filtro por `esMeta` es la parte importante: las metas comparten tabla con
+    // las rutinas del calendario (ejercicio, descanso, recordatorios…), que NO se
+    // tocan. Nunca un `clear()` aquí.
+    this.version(79).upgrade(async (tx) => {
+      await tx
+        .table('rutinas')
+        .toCollection()
+        .filter((r: Rutina) => r.esMeta === true)
+        .delete()
+    })
+    // v80: cronogramas ALTERNATIVOS para una meta — los propone la IA y el usuario
+    // los compara superpuestos sobre el real antes de aceptarlos. Los nodos van
+    // embebidos (todavía no son metas: no tienen por qué ensuciar `rutinas`) y con
+    // días relativos a `inicioISO`. `metaId` va indexado porque borrar una meta
+    // tiene que llevarse sus planes.
+    this.version(80).stores({
+      planesMeta: '++id, metaId, creadoEn',
+    })
+    // v81: la meta diaria de cada app. `metasDiariasManual` solo guarda los días en
+    // que el usuario contradice al automático (sin fila manda la actividad real), y
+    // `objetivosDiarios` el objetivo de las apps que no lo tienen en su propio perfil.
+    // `Rutina.plantillaId` y `Rutina.avisar` no llevan índice: como en v78, basta con
+    // migrar los datos.
+    //
+    // El espejo de sueño se callaba por no tener pasos, que es justo de lo que
+    // `debeAvisar` deja de depender; sin este `avisar: false` pasaría a notificar
+    // cada noche a la hora de dormir. Filtrado por `origen`: nunca un `clear()`.
+    this.version(81)
+      .stores({
+        metasDiariasManual: '++id, [plantillaId+fecha], fecha',
+        objetivosDiarios: '++id, &plantillaId',
+      })
+      .upgrade(async (tx) => {
+        await tx
+          .table('rutinas')
+          .toCollection()
+          .modify((r: Rutina) => {
+            if (r.origen === 'sueno') r.avisar = false
+          })
+      })
+    // v82: el plan de ejercicio pasa a ser calendario. `planEjercicio` guardaba
+    // "los lunes toca Pierna" en una tabla suya, con UNA FILA POR DÍA, sin hora y
+    // sin forma de borrarlo; ahora cada rutina agendada es un bloque de `rutinas`
+    // como los demás, con hora, aviso y su «Quitar».
+    //
+    // La tabla vieja se queda con sus datos a propósito: el respaldo vuelca
+    // `db.tables` entero, así que quitarla haría que los respaldos anteriores la
+    // reportaran como "tabla desconocida". Deja de leerse, y ya.
+    this.version(82).upgrade(async (tx) => {
+      const plan = (await tx.table('planEjercicio').toArray()) as RutinaProgramada[]
+      if (plan.length === 0) return
+
+      // Los catálogos dan el id de la llave estable; la fila vieja solo tiene el nombre.
+      const catalogo = new Map<string, number>()
+      for (const [tipo, tabla] of [
+        ['fuerza', 'rutinasFuerza'],
+        ['resistencia', 'rutinasCardio'],
+        ['flexibilidad', 'rutinasFlex'],
+      ] as const) {
+        for (const r of await tx.table(tabla).toArray()) {
+          const clave = `${tipo}|${r.nombre}`
+          if (r.id != null && !catalogo.has(clave)) catalogo.set(clave, r.id)
+        }
+      }
+
+      const hoy = new Date()
+      const fechaInicio = `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(2, '0')}-${String(hoy.getDate()).padStart(2, '0')}`
+      const bloques = planAEjercicioBloques(plan, catalogo, fechaInicio)
+      if (bloques.length > 0) await tx.table('rutinas').bulkAdd(bloques)
+    })
+    // v83: infraestructura del mapa — caminos por celda (pistas/rieles/montaña rusa)
+    // y huerto (parcelas + cultivos). El índice único &[col+row] = una fila por celda.
+    this.version(83).stores({
+      caminos: '++id, &[col+row]',
+      cultivos: '++id, &[col+row]',
+    })
+    // v84 (fase 2): granja (un animal por celda-corral), cesta de cosechas por
+    // especie (alimento de los animales) y marcador persistente por cancha.
+    this.version(84).stores({
+      animales: '++id, &[col+row]',
+      cesta: '++id, &especie',
+      marcadores: '++id, &canchaId',
+    })
+    // v85: modo carrera — récords por línea de meta y vehículo.
+    this.version(85).stores({
+      carreras: '++id, &[metaCol+metaRow+vehiculo]',
+    })
+    // v86: corrales rectangulares multi-animal. El animal deja de anclarse a su
+    // celda (índice único &[col+row]) y cuelga de un corral con nombre propio.
+    this.version(86)
+      .stores({
+        corrales: '++id',
+        animales: '++id, corralId',
+      })
+      .upgrade(async (tx) => {
+        // Cada animal existente estrena corral 1×1 en su celda y nombre aleatorio.
+        // col/row se conservan a propósito: reparan respaldos pre-v86 restaurados.
+        const animales = await tx.table('animales').toArray()
+        for (const a of animales) {
+          const corralId = await tx.table('corrales').add({ col: a.col, row: a.row, ancho: 1, alto: 1 })
+          await tx.table('animales').update(a.id, { corralId, nombre: nombreAleatorio(), mimadoEn: Date.now() })
+        }
+        // Los tiempos de cultivo se acortaron (÷12): refrescar el riego de los
+        // cultivos en curso para que no amanezcan marchitos con la ventana nueva.
+        const ahora = Date.now()
+        await tx
+          .table('cultivos')
+          .toCollection()
+          .modify((c) => {
+            if (c.especie && c.plantadoEn != null) c.regadoEn = ahora
+          })
+      })
+    // v87: pista de carreras de TRAZO LIBRE (curva por puntos de control).
+    this.version(87).stores({
+      pistasLibres: '++id',
+    })
+    // v88: pistas de música subidas por el usuario (el blob no se indexa).
+    this.version(88).stores({
+      pistasMusica: '++id, creadoEn',
+    })
+    // v89: sincronización multi-dispositivo. Cada tabla sincronizable gana el
+    // índice único `&uid` (identidad global entre dispositivos) y aparecen las
+    // internas `_outbox` (cola de cambios), `_syncMeta` (cursor/estado) y
+    // `_pendientes` (registros remotos esperando a su padre). El backfill solo
+    // AÑADE campos (uid/updatedAt): no re-codifica blobs ni borra nada.
+    // Las tablas excluidas del sync (ver sync/syncables.ts) no se tocan.
+    this.version(89)
+      .stores({
+        _outbox: '++id, [tabla+uid]',
+        _syncMeta: 'clave',
+        _pendientes: '++id, tabla',
+        transacciones: '++id, fecha, tipo, categoria, &uid',
+        sueno: '++id, fecha, &uid',
+        anecdotas: '++id, fecha, &uid',
+        metas: '++id, &uid',
+        presupuestos: '++id, categoria, &uid',
+        perfilNutricion: '++id, &uid',
+        registrosComida: '++id, fecha, momento, &uid',
+        planComidas: '++id, fecha, momento, &uid',
+        registrosAgua: '++id, fecha, &uid',
+        perfilEjercicio: '++id, &uid',
+        sesionesEjercicio: '++id, fecha, tipo, &uid',
+        seriesFuerza: '++id, sesionId, orden, &uid',
+        mediaArchivo: '++id, tipo, genero, fecha, estado, creadoEn, &uid',
+        sesionesMindfulness: '++id, fecha, tipo, &uid',
+        gratitudDiaria: '++id, fecha, &uid',
+        vehiculos: '++id, tipo, creadoEn, &uid',
+        registrosMantenimiento: '++id, vehiculoId, fecha, tipo, &uid',
+        juegosMesa: '++id, categoria, estado, creadoEn, ultimaPartida, &uid',
+        disenoRooms: '++id, roomId, &uid',
+        disenoAvatar: '++id, &uid',
+        objetosCuarto: '++id, roomId, &uid',
+        layout: '++id, roomId, &uid',
+        mapaConfig: '++id, &uid',
+        bitacora: '++id, creado, roomId, &uid',
+        accesos: '++id, nivel, &uid',
+        memorias: '++id, creado, roomId, &uid',
+        mensajesChat: '++id, creado, asistenteId, &uid',
+        asistentes: '++id, asistenteId, &uid',
+        rutinas: '++id, creadoEn, &uid',
+        ejecucionesRutina: '++id, rutinaId, fecha, &uid',
+        fondosImagen: '++id, creado, &uid',
+        pisosImagenCuarto: '++id, roomId, &uid',
+        techosImagenCuarto: '++id, roomId, &uid',
+        murosImagenCuarto: '++id, roomId, [roomId+clave], &uid',
+        zonas: '++id, nivel, &uid',
+        pisosExterior: '++id, nivel, [nivel+col+row], &uid',
+        cuartos: 'id, orden, &uid',
+        murosLibres: '++id, nivel, &uid',
+        recetas: '++id, nombre, creadaEn, &uid',
+        itemsCompra: '++id, creadoEn, &uid',
+        registrosPeso: '++id, fecha, &uid',
+        perfilSueno: '++id, &uid',
+        listasCompra: '++id, creadoEn, &uid',
+        dietasGuardadas: '++id, creadoEn, &uid',
+        rutinasFuerza: '++id, creadoEn, &uid',
+        actividadesCardio: '++id, creadoEn, &uid',
+        rutinasFlex: '++id, creadoEn, &uid',
+        seriesFlex: '++id, sesionId, &uid',
+        watchlist: '++id, simbolo, &uid',
+        lugaresViaje: '++id, visitado, pais, creadoEn, &uid',
+        rutasViaje: '++id, creadoEn, &uid',
+        bitacoraViaje: '++id, lugarId, fecha, &uid',
+        portadasViaje: '++id, &pais, &uid',
+        diasItinerario: '++id, lugarId, &uid',
+        portadasLugar: '++id, &lugarId, &uid',
+        itinerariosGuardados: '++id, creadoEn, &uid',
+        hobbies: '++id, creadoEn, &uid',
+        sesionesHobby: '++id, hobbyId, fecha, &uid',
+        proyectosHobby: '++id, hobbyId, creadoEn, &uid',
+        conversacionesBiblio: '++id, pilarId, actualizadoEn, &uid',
+        mensajesBiblio: '++id, conversacionId, creado, &uid',
+        entradasBiblio: '++id, pilarId, conversacionId, actualizadoEn, &uid',
+        sesionesEstudio: '++id, pilarId, fecha, &uid',
+        temasArbol: '++id, &temaId, pilarId, padreId, &uid',
+        lecturasDiario: '++id, &fecha, &uid',
+        plantillasCustom: 'id, creadoEn, &uid',
+        itemsPlantilla: '++id, plantillaId, [plantillaId+bloqueId], &uid',
+        gruposPlantilla: '++id, orden, &uid',
+        objetosPlantilla: 'plantillaId, &uid',
+        idiomas: '++id, &codigo, creadoEn, &uid',
+        tarjetasIdioma: '++id, idiomaId, [idiomaId+proximaISO], creadoEn, &uid',
+        conversacionesIdioma: '++id, idiomaId, actualizadoEn, &uid',
+        mensajesIdioma: '++id, conversacionId, creado, &uid',
+        temasIdioma: '++id, &temaId, idiomaId, creadoEn, &uid',
+        repasosIdioma: '++id, &[idiomaId+fecha], idiomaId, fecha, &uid',
+        grafitis: '++id, &superficie, &uid',
+        gruposFuerza: '++id, orden, &uid',
+        gruposFlex: '++id, orden, &uid',
+        gruposCardio: '++id, orden, &uid',
+        rutinasCardio: '++id, creadoEn, &uid',
+        splitsCardio: '++id, sesionId, orden, &uid',
+        planesMeta: '++id, metaId, creadoEn, &uid',
+        metasDiariasManual: '++id, [plantillaId+fecha], fecha, &uid',
+        objetivosDiarios: '++id, &plantillaId, &uid',
+        caminos: '++id, &[col+row], &uid',
+        cultivos: '++id, &[col+row], &uid',
+        animales: '++id, corralId, &uid',
+        cesta: '++id, &especie, &uid',
+        marcadores: '++id, &canchaId, &uid',
+        carreras: '++id, &[metaCol+metaRow+vehiculo], &uid',
+        corrales: '++id, &uid',
+        pistasLibres: '++id, &uid',
+      })
+      .upgrade(async (tx) => {
+        // Identidad global para lo ya existente. `modify` reescribe el registro
+        // (clon estructurado, inevitable en IndexedDB) pero sin re-codificar
+        // los blobs; las tablas pesadas excluidas no pasan por aquí.
+        for (const nombre of TABLAS_SYNC) {
+          await tx
+            .table(nombre)
+            .toCollection()
+            .modify((r: Record<string, unknown>) => {
+              if (typeof r.uid !== 'string' || !r.uid) r.uid = crypto.randomUUID()
+              if (typeof r.updatedAt !== 'number') r.updatedAt = Date.now()
+            })
+        }
+      })
   }
 }
 
+/** Cola local de cambios pendientes de push (la escribe el middleware). */
+export interface EntradaOutbox {
+  id?: number
+  tabla: string
+  uid: string
+  op: 'upsert' | 'delete'
+}
+
+/** Metadatos del motor de sync (cursor de pull, bootstrap, hashes de blobs). */
+export interface SyncMeta {
+  clave: string
+  valor: unknown
+}
+
+/** Registro remoto cuyo padre (FK numérica) aún no llegó: se reintenta. */
+export interface PendienteSync {
+  id?: number
+  tabla: string
+  uid: string
+  datos: unknown
+  updatedAt: number
+  deleted: boolean
+}
+
 export const db = new MindHomeDB()
+
+// Toda transacción de ESCRITURA incluye `_outbox`: así el middleware puede
+// encolar el cambio DENTRO de la misma transacción aunque el caller solo haya
+// declarado su tabla (mismo truco que dexie-observable con `_changes`).
+type CreadorTx = (
+  mode: IDBTransactionMode,
+  storeNames: string[],
+  dbschema: unknown,
+  parentTransaction?: unknown,
+) => unknown
+const dbConTx = db as unknown as { _createTransaction: CreadorTx }
+const crearTxOriginal = dbConTx._createTransaction.bind(db)
+dbConTx._createTransaction = (mode, storeNames, dbschema, parentTransaction) => {
+  const stores =
+    mode === 'readwrite' && !storeNames.includes('_outbox')
+      ? [...storeNames, '_outbox']
+      : storeNames
+  return crearTxOriginal(mode, stores, dbschema, parentTransaction)
+}
+
+// Sella uid/updatedAt y encola en _outbox en TODA mutación sincronizable.
+db.use(syncMiddleware)
 
 db.open().catch((err) => {
   console.error('[Mind Home] No se pudo abrir IndexedDB:', err)

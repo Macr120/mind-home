@@ -2,39 +2,56 @@ import { useEffect, useState } from 'react'
 import {
   aguaRepo,
   comidasRepo,
-  favoritosRepo,
-  planComidasRepo,
+  dietasGuardadasRepo,
+  itemsCompraRepo,
+  listasCompraRepo,
+  pesoRepo,
+  recetasRepo,
 } from '../../core/data/repository'
+import { ComprasTab } from './ComprasTab'
 import { DiarioTab } from './DiarioTab'
+import { DietasTab } from './DietasTab'
 import { MetasTab } from './MetasTab'
-import { PlanTab, semanaDesdeHoy } from './PlanTab'
+import { RecetasTab } from './RecetasTab'
 import { ResumenTab } from './ResumenTab'
 import { hoyISO, nombreFecha, sumarDias } from './fecha'
 import { perfilEfectivo, usePerfil } from './usePerfil'
 import { sembrarCocina } from './seed'
 import { useT } from '../../core/i18n/useT'
+import { tabInicial } from '../../core/state/intencionApp'
+import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
+import { Icono } from '../../core/ui/iconos/Icono'
+import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-type Tab = 'resumen' | 'diario' | 'plan' | 'metas'
+// 'plan' ya es la Dieta desde antes: el cronograma no puede llamarse así.
+type Tab = 'metas' | 'diario' | 'plan' | 'cronograma' | 'recetas' | 'compras'
 
-const TABS: { id: Tab; labelEs: string }[] = [
-  { id: 'resumen', labelEs: '📊 Resumen' },
-  { id: 'diario', labelEs: '📝 Diario' },
-  { id: 'plan', labelEs: '📅 Plan' },
-  { id: 'metas', labelEs: '⚙️ Metas' },
+const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+  { id: 'metas', icono: 'progreso', labelEs: 'Metas' },
+  { id: 'diario', icono: 'tab-diario', labelEs: 'Comidas' },
+  { id: 'plan', icono: 'calendario', labelEs: 'Dieta' },
+  { id: 'cronograma', icono: 'objetivo', labelEs: 'Cronograma' },
+  { id: 'recetas', icono: 'tab-recetas', labelEs: 'Recetas' },
+  { id: 'compras', icono: 'tab-compras', labelEs: 'Compras' },
 ]
+
+/** Pestañas que navegan por fecha (muestran la barra ‹ hoy ›). */
+const TABS_CON_FECHA: Tab[] = ['metas', 'diario']
 
 export function CocinaApp() {
   const t = useT()
-  const [tab, setTab] = useState<Tab>('resumen')
+  const [tab, setTab] = useState<Tab>(() => tabInicial('cocina', TABS.map((x) => x.id), 'metas'))
   const [fecha, setFecha] = useState(hoyISO())
-  const [semana, setSemana] = useState(semanaDesdeHoy())
 
   const perfilRaw = usePerfil()
   const perfil = perfilEfectivo(perfilRaw)
   const comidas = comidasRepo.useAll() ?? []
   const agua = aguaRepo.useAll() ?? []
-  const planes = planComidasRepo.useAll() ?? []
-  const favoritos = favoritosRepo.useAll() ?? []
+  const recetas = recetasRepo.useAll() ?? []
+  const dietas = dietasGuardadasRepo.useAll() ?? []
+  const itemsCompra = itemsCompraRepo.useAll() ?? []
+  const listasCompra = listasCompraRepo.useAll() ?? []
+  const pesos = pesoRepo.useAll() ?? []
 
   const aguaDia = agua.filter((a) => a.fecha === fecha).reduce((s, a) => s + a.ml, 0)
 
@@ -48,18 +65,19 @@ export function CocinaApp() {
         {TABS.map((tabItem) => (
           <button
             key={tabItem.id}
+            data-tut={`cocina.tab.${tabItem.id}`}
             onClick={() => setTab(tabItem.id)}
             className={`shrink-0 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-              tab === tabItem.id ? 'bg-amber-400 text-black' : 'bg-white/5 hover:bg-white/10'
+              tab === tabItem.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
-            {t(`cocina.tab.${tabItem.id}`, tabItem.labelEs)}
+            <Icono nombre={tabItem.icono} /> {t(`cocina.tab.${tabItem.id}`, tabItem.labelEs)}
           </button>
         ))}
       </div>
 
-      {tab !== 'metas' && (
-        <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
+      {TABS_CON_FECHA.includes(tab) && (
+        <div data-tut="cocina.fecha" className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
           <button
             type="button"
             onClick={() => setFecha((f) => sumarDias(f, -1))}
@@ -89,30 +107,11 @@ export function CocinaApp() {
         </div>
       )}
 
-      {tab === 'plan' && (
-        <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10 text-sm">
-          <button
-            type="button"
-            onClick={() => setSemana((s) => sumarDias(s, -7))}
-            className="rounded-lg px-2 hover:bg-white/10"
-          >
-            {t('nav.sem.prev', '‹ Sem')}
-          </button>
-          <span className="text-white/60">
-            {t('cocina.sem.label', `Semana del ${semana.slice(8)}/${semana.slice(5, 7)}`, { d: semana.slice(8), m: semana.slice(5, 7) })}
-          </span>
-          <button
-            type="button"
-            onClick={() => setSemana((s) => sumarDias(s, 7))}
-            className="rounded-lg px-2 hover:bg-white/10"
-          >
-            {t('nav.sem.next', 'Sem ›')}
-          </button>
+      {tab === 'metas' && (
+        <div className="space-y-6">
+          <ResumenTab fecha={fecha} comidas={comidas} agua={agua} perfil={perfil} pesos={pesos} />
+          <MetasTab perfil={perfilRaw} />
         </div>
-      )}
-
-      {tab === 'resumen' && (
-        <ResumenTab fecha={fecha} comidas={comidas} agua={agua} perfil={perfil} />
       )}
       {tab === 'diario' && (
         <DiarioTab
@@ -120,15 +119,12 @@ export function CocinaApp() {
           comidas={comidas}
           aguaMl={aguaDia}
           aguaObjetivo={perfil.aguaMl}
-          favoritos={favoritos}
         />
       )}
-      {tab === 'plan' && (
-        <PlanTab semanaInicio={semana} planes={planes} favoritos={favoritos} />
-      )}
-      {tab === 'metas' && (
-        <MetasTab perfil={perfilRaw} favoritos={favoritos} />
-      )}
+      {tab === 'plan' && <DietasTab dietas={dietas} recetas={recetas} />}
+      {tab === 'cronograma' && <CronogramaApp plantillaId="cocina" />}
+      {tab === 'recetas' && <RecetasTab recetas={recetas} />}
+      {tab === 'compras' && <ComprasTab items={itemsCompra} listas={listasCompra} />}
     </div>
   )
 }

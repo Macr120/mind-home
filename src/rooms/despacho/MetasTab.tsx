@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { metasRepo } from '../../core/data/repository'
 import { money2 } from './mes'
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function MetasTab() {
   const t = useT()
@@ -42,7 +43,7 @@ export function MetasTab() {
         </div>
         <button
           type="submit"
-          className="w-full rounded-lg bg-amber-400 py-2 font-bold text-black hover:bg-amber-300 transition"
+          className="w-full rounded-lg bg-amber-600 py-2 font-bold texto-cta hover:brightness-110 transition"
         >
           {t('despacho.meta.crear', 'Crear meta')}
         </button>
@@ -85,8 +86,7 @@ function MetaCard({
     <div className="rounded-xl bg-white/5 p-4 border border-white/10">
       <div className="flex items-center">
         <h3 className="font-bold">
-          {completa ? '🏆 ' : '🎯 '}
-          {meta.nombre}
+          <Icono nombre={completa ? 'trofeo' : 'objetivo'} /> {meta.nombre}
         </h3>
         <button
           onClick={() => meta.id && metasRepo.remove(meta.id)}
@@ -114,7 +114,7 @@ function MetaCard({
         />
         <button
           onClick={abonar}
-          className="rounded-lg bg-emerald-400 px-4 py-1.5 text-sm font-bold text-black hover:bg-emerald-300 transition"
+          className="rounded-lg bg-emerald-600 px-4 py-1.5 text-sm font-bold texto-cta hover:brightness-110 transition"
         >
           {t('despacho.meta.abonar', '+ Abonar')}
         </button>

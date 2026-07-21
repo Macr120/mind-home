@@ -1,4 +1,3 @@
-import type { Cell } from './walls'
 import { getPisoTipo, esSinPiso, type PisoTipo, type PisoTipoId } from './pisos'
 import type { CeldaFormaLoseta } from './formasLoseta'
 import type { PisoExteriorCelda } from '../data/db'
@@ -32,11 +31,6 @@ export function cuadrantesDeCelda<T>(
   return { hayAlguno: recs.some((r) => r !== undefined), recs }
 }
 
-/** Celda (¼) del cuadrante i de la celda (col,row), para selección/pintado. */
-export function celdaCuadrante(col: number, row: number, i: number): Cell {
-  return { col: col + CUADRANTES_OFF[i].dc, row: row + CUADRANTES_OFF[i].dr }
-}
-
 /** Material de piso resuelto para pasar a `PisoCelda` (base de celda u override de cuadrante). */
 export interface MatPiso {
   /** "Quitar piso": no se dibuja loseta. */
@@ -64,7 +58,8 @@ export function matDeRegistroPiso(
   const imagenActiva = !!(rec.pisoImagenActiva && rec.pisoImagen)
   return {
     sinPiso: false,
-    color: rec.pisoColor ?? conf?.color ?? colorDefecto,
+    // `|| `(no `??`): un color vacío ("") debe caer al del tipo o al de defecto.
+    color: rec.pisoColor || conf?.color || colorDefecto,
     roughness: conf?.roughness ?? 0.85,
     metalness: conf?.metalness ?? 0,
     pisoConf: imagenActiva ? null : conf,

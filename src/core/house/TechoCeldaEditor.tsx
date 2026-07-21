@@ -33,6 +33,7 @@ export function TechoCeldaEditor() {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
 
   const roomTechoExtra = useDiseño((s) => s.roomTechoExtra)
   const addTechoLinea = useDiseño((s) => s.addTechoLinea)
@@ -54,7 +55,7 @@ export function TechoCeldaEditor() {
   const nivel = niveles[roomId] ?? 0
   const ocupado = ocupadoPorNivel.get(nivel) ?? SIN_OCUPACION
   const ocupadoSup = ocupadoPorNivel.get(nivel + 1)
-  const y0 = nivelBaseY(nivel, conTecho)
+  const y0 = nivelBaseY(nivel, apilado)
 
   const alturaPorCelda = alturaTechoPorNivel.get(nivel) ?? new Map<string, number>()
   const alturaActual = alturaPorCelda.get(cellId(anchor.col, anchor.row)) ?? 0
@@ -94,7 +95,7 @@ export function TechoCeldaEditor() {
                 void removeTechoLinea(roomId, celdas)
               }}
               title={`Retraer techo del ${ETIQUETA_DIR[dir]}`}
-              className="flex h-7 w-7 items-center justify-center rounded-md border border-white/20 bg-black/60 text-base font-bold text-red-400 backdrop-blur-sm transition hover:bg-red-400/25"
+              className="ui-panel-glass flex h-7 w-7 items-center justify-center rounded-md border border-white/20 text-base font-bold text-red-400 backdrop-blur-sm transition hover:bg-red-400/25"
             >
               −
             </button>
@@ -120,7 +121,7 @@ export function TechoCeldaEditor() {
                 void addTechoLinea(roomId, celdas)
               }}
               title={`Extender techo hacia el ${ETIQUETA_DIR[dir]}`}
-              className="flex h-8 w-8 items-center justify-center rounded-md border border-amber-400/45 bg-black/60 text-lg font-bold text-amber-300 backdrop-blur-sm transition hover:bg-amber-400/20"
+              className="ui-panel-glass flex h-8 w-8 items-center justify-center rounded-md border border-amber-400/45 text-lg font-bold text-amber-500 backdrop-blur-sm transition hover:bg-amber-400/20"
             >
               +
             </button>

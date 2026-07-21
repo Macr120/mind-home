@@ -11,6 +11,8 @@
  * y efectos propios según el tema; esta capa cubre el "re-vestido" base.
  */
 
+import type { EstiloVisualId, EfectosConfig } from './estilos'
+
 export type TemaId =
   | 'medieval'
   | 'espacio'
@@ -39,7 +41,45 @@ export interface Tema {
   fondo: string
   /** Texturas del "shell" (muros, piso, techo) por tema — hoja 4 del Excel. */
   shell: TemaShell
+  /** Modulación de la iluminación del ciclo día/noche (opcional; sin esto la luz es la de siempre). */
+  luz?: TemaLuz
+  /** Niebla de la escena (opcional; near/far en profundidad de vista, la escena vive entre ~25 y ~60). */
+  niebla?: TemaNiebla
+  /** Estilo de render sugerido al activar este tema por primera vez (default 'normal'). */
+  estilo?: EstiloVisualId
 }
+
+/**
+ * Ajustes de luz por tema. El ciclo día/noche sigue mandando: el tema solo
+ * TIÑE los colores de las luces (mezcla) y ESCALA sus intensidades.
+ */
+export interface TemaLuz {
+  /** Tinte que se mezcla sobre el color de la luz direccional (sol/luna de escena). */
+  sol?: string
+  /** Cuánto tiñe el sol (0..1). */
+  fuerzaSol?: number
+  /** Multiplicador de intensidad de la luz direccional. */
+  intensidadSol?: number
+  /** Tinte que se mezcla sobre el color de la luz ambiental. */
+  ambiente?: string
+  /** Cuánto tiñe el ambiente (0..1). */
+  fuerzaAmbiente?: number
+  /** Color de los focos nocturnos de los cuartos (default cálido '#ffd9a0'). */
+  focos?: string
+  /** Intensidad del entorno IBL (reflejos; default 0.25). */
+  ibl?: number
+  /** Exposición del tone mapping (default 1). */
+  exposicion?: number
+}
+
+export interface TemaNiebla {
+  color: string
+  near: number
+  far: number
+}
+
+/** Fuerza por defecto con la que el tema tiñe las luces. */
+export const FUERZA_LUZ_DEFAULT = 0.35
 
 /** Colores del cascarón (muros/piso/techo) que reemplaza el tema (hoja 4). */
 export interface TemaShell {
@@ -64,7 +104,10 @@ export const TEMAS: Tema[] = [
     emissive: '#000000',
     emissiveIntensity: 0,
     fondo: '#1a1410',
+    estilo: 'normal',
     shell: { muroInt: '#8c8073', muroExt: '#6d665c', piso: '#7c746a', techo: '#5b4326' },
+    luz: { sol: '#ffd9a8', intensidadSol: 0.95, ambiente: '#e8d5b8', focos: '#ffb066', ibl: 0.2, exposicion: 0.95 },
+    niebla: { color: '#2a2018', near: 40, far: 110 },
   },
   {
     id: 'espacio',
@@ -78,7 +121,9 @@ export const TEMAS: Tema[] = [
     emissive: '#22d3ee',
     emissiveIntensity: 0.15,
     fondo: '#0a0f1f',
+    estilo: 'normal',
     shell: { muroInt: '#e2e8f2', muroExt: '#aab6c6', piso: '#e8eef6', techo: '#cdd6e2' },
+    luz: { sol: '#cfe0ff', intensidadSol: 1.05, ambiente: '#dce6ff', focos: '#cfe8ff', ibl: 0.5 },
   },
   {
     id: 'terror',
@@ -92,7 +137,10 @@ export const TEMAS: Tema[] = [
     emissive: '#7f1d1d',
     emissiveIntensity: 0.06,
     fondo: '#0a0608',
+    estilo: 'comic',
     shell: { muroInt: '#574f4a', muroExt: '#2e2724', piso: '#3a322c', techo: '#322b29' },
+    luz: { sol: '#a8c0b0', fuerzaSol: 0.5, intensidadSol: 0.7, ambiente: '#8fa598', focos: '#9fe3a8', ibl: 0.15, exposicion: 0.85 },
+    niebla: { color: '#1a2420', near: 26, far: 62 },
   },
   {
     id: 'barbie',
@@ -106,7 +154,10 @@ export const TEMAS: Tema[] = [
     emissive: '#ff7ab8',
     emissiveIntensity: 0.08,
     fondo: '#2a0f1f',
+    estilo: 'miniatura',
     shell: { muroInt: '#ffb3d4', muroExt: '#ff9ec9', piso: '#ffd4e6', techo: '#ffc1dc' },
+    luz: { sol: '#ffe0ef', intensidadSol: 1.1, ambiente: '#ffe8f2', focos: '#ff9ec9', ibl: 0.3, exposicion: 1.05 },
+    niebla: { color: '#ffd4e6', near: 45, far: 120 },
   },
   {
     id: 'vaquero',
@@ -120,7 +171,10 @@ export const TEMAS: Tema[] = [
     emissive: '#000000',
     emissiveIntensity: 0,
     fondo: '#1c130b',
+    estilo: 'retro',
     shell: { muroInt: '#b59169', muroExt: '#a07c4c', piso: '#8a5a30', techo: '#6b4a28' },
+    luz: { sol: '#ffc98a', fuerzaSol: 0.45, ambiente: '#f0d0a8', focos: '#ffb066', ibl: 0.2 },
+    niebla: { color: '#c9a67a', near: 38, far: 100 },
   },
   {
     id: 'cyberpunk',
@@ -134,7 +188,10 @@ export const TEMAS: Tema[] = [
     emissive: '#d946ef',
     emissiveIntensity: 0.25,
     fondo: '#080312',
+    estilo: 'neon',
     shell: { muroInt: '#1d1a2e', muroExt: '#14111e', piso: '#0f0c18', techo: '#1a1726' },
+    luz: { sol: '#b8a8ff', fuerzaSol: 0.45, intensidadSol: 0.85, ambiente: '#9fb0e8', focos: '#22d3ee', ibl: 0.5 },
+    niebla: { color: '#14102a', near: 30, far: 80 },
   },
   {
     id: 'navidad',
@@ -148,17 +205,63 @@ export const TEMAS: Tema[] = [
     emissive: '#dc2626',
     emissiveIntensity: 0.1,
     fondo: '#0c1a10',
+    estilo: 'neon',
     shell: { muroInt: '#caa78c', muroExt: '#2f5e3a', piso: '#7a5230', techo: '#5b4326' },
+    luz: { sol: '#dceaff', ambiente: '#e8f0ff', focos: '#ffb066', ibl: 0.25 },
+    niebla: { color: '#dce8f4', near: 36, far: 95 },
   },
 ]
 
-export function getTema(id: TemaId | null | undefined): Tema | null {
-  if (!id) return null
-  return TEMAS.find((t) => t.id === id) ?? null
+/**
+ * Personalización del usuario sobre un tema: cualquier campo del tema puede
+ * sobreescribirse (solo se guardan los que difieren del default). Los objetos
+ * anidados (shell/luz/niebla) se fusionan campo a campo.
+ */
+export interface TemaOverride {
+  tinte?: string
+  fuerza?: number
+  roughness?: number
+  metalness?: number
+  emissive?: string
+  emissiveIntensity?: number
+  fondo?: string
+  shell?: Partial<TemaShell>
+  luz?: Partial<TemaLuz>
+  niebla?: Partial<TemaNiebla>
+  /** Estilo de render elegido para este tema (sobreescribe el sugerido). */
+  estilo?: EstiloVisualId
+  /** Postprocesado activado para este tema. */
+  efectos?: boolean
+  /** Ajuste fino de efectos (on/off + intensidad por efecto) de este tema. */
+  efectosConfig?: EfectosConfig
 }
 
-/** Fondo de escena según el tema (default oscuro de la app si no hay tema). */
-export const FONDO_DEFAULT = '#0f1115'
+/** Fusiona un tema base con la personalización del usuario (o lo devuelve tal cual). */
+export function fusionarTema(base: Tema, ov: TemaOverride | undefined): Tema {
+  if (!ov) return base
+  const { shell, luz, niebla, ...rest } = ov
+  const fusion: Tema = { ...base, ...rest, shell: { ...base.shell, ...shell } }
+  if (base.luz || luz) fusion.luz = { ...base.luz, ...luz }
+  if (base.niebla || niebla) fusion.niebla = { ...base.niebla, ...niebla } as TemaNiebla
+  return fusion
+}
+
+/**
+ * Registro de personalizaciones activas. Lo mantiene sincronizado `disenoStore`
+ * (fuente de verdad + persistencia); así `getTema` devuelve el tema ya fusionado
+ * en TODOS sus usos (escena, previews, cálculos) sin propagar el override a mano.
+ */
+let OVERRIDES: Partial<Record<TemaId, TemaOverride>> = {}
+export function aplicarOverridesTema(ov: Partial<Record<TemaId, TemaOverride>>) {
+  OVERRIDES = ov
+}
+
+export function getTema(id: TemaId | null | undefined): Tema | null {
+  if (!id) return null
+  const base = TEMAS.find((t) => t.id === id)
+  if (!base) return null
+  return fusionarTema(base, OVERRIDES[id])
+}
 
 /** Mezcla lineal de dos colores hex (#rrggbb). `t` = 0 → a, 1 → b. */
 export function mezclar(a: string, b: string, t: number): string {

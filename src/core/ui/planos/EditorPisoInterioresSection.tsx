@@ -44,7 +44,8 @@ export function EditorPisoInterioresSection({ nivel }: { nivel: number }) {
   }
 
   return (
-    <EditorPisoMaterialForm
+    <div className="space-y-4">
+      <EditorPisoMaterialForm
       descripcion={descripcion}
       pisoTipo={pisoTipo}
       floorColor={floorColor}
@@ -93,6 +94,7 @@ export function EditorPisoInterioresSection({ nivel }: { nivel: number }) {
         setAjuste(a)
         void ajustarPisoImagenInterioresNivel(nivel, zonas, a)
       }}
-    />
+      />
+    </div>
   )
 }

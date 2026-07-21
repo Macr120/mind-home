@@ -3,7 +3,7 @@ export function PropiedadGrupo({
   titulo,
   children,
 }: {
-  titulo: string
+  titulo: React.ReactNode
   children: React.ReactNode
 }) {
   return (

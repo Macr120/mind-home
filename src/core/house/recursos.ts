@@ -7,8 +7,8 @@ import type { TemaId } from './temas'
  * recurso se irá añadiendo por capas; esta es solo la capa de datos.
  */
 
-export type Prioridad = 'indispensable' | 'recomendado' | 'opcional'
-export type NivelDetalle = 'bajo' | 'medio' | 'alto'
+type Prioridad = 'indispensable' | 'recomendado' | 'opcional'
+type NivelDetalle = 'bajo' | 'medio' | 'alto'
 
 export interface RecursoCuarto {
   /** ID del catálogo original. */
@@ -116,6 +116,15 @@ export const RECURSOS: RecursoCuarto[] = [
   { id: 85, cuarto: "jardin", nombre: "Fuente / Estanque", categoria: "Decoración", prioridad: "opcional", atributos: ["escala", "material", "estado"], materiales: ["Piedra", "concreto"], temas: ["medieval", "barbie", "terror", "espacio"], detalle: "alto", notas: "Agua animable on/off" },
   { id: 86, cuarto: "jardin", nombre: "Camino de piedra / Adoquín", categoria: "Terreno", prioridad: "opcional", atributos: ["textura", "color", "forma"], materiales: ["Piedra", "ladrillo"], temas: ["medieval", "terror", "espacio", "vaquero"], detalle: "bajo", notas: "Modular" },
   { id: 87, cuarto: "jardin", nombre: "Cerca / Reja", categoria: "Estructural", prioridad: "opcional", atributos: ["color", "material", "escala"], materiales: ["Madera", "metal"], temas: ["medieval", "vaquero", "terror", "cyberpunk"], detalle: "bajo", notas: "Modular; admite overlays" },
+  { id: 99, cuarto: "jardin", nombre: "Flor simple", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Follaje"], temas: "todas", detalle: "bajo", notas: "Instanciables" },
+  { id: 100, cuarto: "jardin", nombre: "Girasol", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Follaje"], temas: "todas", detalle: "bajo", notas: "Instanciables" },
+  { id: 101, cuarto: "jardin", nombre: "Mata de flores", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Follaje"], temas: "todas", detalle: "bajo", notas: "Instanciables" },
+  { id: 102, cuarto: "jardin", nombre: "Cactus saguaro", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Follaje"], temas: "todas", detalle: "medio" },
+  { id: 103, cuarto: "jardin", nombre: "Cactus en maceta", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Follaje", "barro"], temas: "todas", detalle: "bajo", notas: "Instanciables" },
+  { id: 104, cuarto: "jardin", nombre: "Maceta con planta", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Barro", "cerámica"], temas: "todas", detalle: "bajo", notas: "Instanciables" },
+  { id: 105, cuarto: "jardin", nombre: "Maceta colgante", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Barro", "fibra"], temas: "todas", detalle: "bajo", notas: "Colgante: ajustar con la altura" },
+  { id: 106, cuarto: "jardin", nombre: "Jardinera", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Madera", "barro"], temas: "todas", detalle: "bajo" },
+  { id: 107, cuarto: "jardin", nombre: "Orquídea", categoria: "Vegetación", prioridad: "opcional", atributos: ["color", "escala"], materiales: ["Cerámica", "flor"], temas: "todas", detalle: "bajo", notas: "Instanciables" },
   { id: 88, cuarto: "bodega", nombre: "Estantería industrial (racks)", categoria: "Almacenamiento", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Acero", "madera"], temas: ["medieval", "vaquero", "cyberpunk"], detalle: "bajo", notas: "Modular; instanciable en múltiples alturas" },
   { id: 89, cuarto: "bodega", nombre: "Cajas y contenedores", categoria: "Props", prioridad: "indispensable", atributos: ["color", "variante", "escala"], materiales: ["Cartón", "plástico"], temas: "todas", detalle: "bajo", notas: "Instanciables; etiquetas como overlay intercambiable" },
   { id: 90, cuarto: "bodega", nombre: "Iluminación de techo (fluorescente / LED)", categoria: "Iluminación", prioridad: "indispensable", atributos: ["estado", "color", "escala"], materiales: ["Metal"], temas: ["cyberpunk", "espacio", "terror"], detalle: "bajo", notas: "Encendido/apagado; parpadeo en tema Terror" },
@@ -127,22 +136,16 @@ export const RECURSOS: RecursoCuarto[] = [
   { id: 96, cuarto: "bodega", nombre: "Panel eléctrico / Caja de fusibles", categoria: "Estructural", prioridad: "opcional", atributos: ["color", "estado"], materiales: ["Metal"], temas: ["cyberpunk", "espacio", "terror"], detalle: "bajo", notas: "Estado abierto/cerrado con cables visibles" },
   { id: 97, cuarto: "bodega", nombre: "Carrito / Trolley de almacenamiento", categoria: "Mobiliario", prioridad: "opcional", atributos: ["color", "material"], materiales: ["Metal"], temas: ["espacio", "cyberpunk"], detalle: "bajo", notas: "Ruedas girables opcional" },
   { id: 98, cuarto: "bodega", nombre: "Bote de basura / Reciclaje", categoria: "Props", prioridad: "opcional", atributos: ["color", "variante"], materiales: ["Plástico"], temas: ["barbie", "cyberpunk"], detalle: "bajo", notas: "Variante separación de residuos" },
+  // Pistolas de la rueda de herramientas (ids 200+: fuera del rango de cuartos).
+  { id: 200, cuarto: "mapa", nombre: "Pistola láser", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Metal"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
+  { id: 201, cuarto: "mapa", nombre: "Pistola de portales", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Metal"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
+  { id: 202, cuarto: "mapa", nombre: "Pistola de burbujas", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Plástico"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
+  { id: 203, cuarto: "mapa", nombre: "Lanzador de fuegos", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Metal"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
+  { id: 204, cuarto: "mapa", nombre: "Lata de grafiti", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Metal"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
 ]
 
-/** Recursos de un cuarto, ordenados por prioridad (indispensable primero). */
-const ORDEN_PRIORIDAD: Record<Prioridad, number> = {
-  indispensable: 0,
-  recomendado: 1,
-  opcional: 2,
-}
-export function recursosDeCuarto(roomId: string): RecursoCuarto[] {
-  return RECURSOS.filter((r) => r.cuarto === roomId).sort(
-    (a, b) => ORDEN_PRIORIDAD[a.prioridad] - ORDEN_PRIORIDAD[b.prioridad],
-  )
-}
-
 /** ¿El recurso es compatible con el tema dado? ('todas' siempre lo es.) */
-export function recursoCompatibleConTema(r: RecursoCuarto, tema: TemaId): boolean {
+function recursoCompatibleConTema(r: RecursoCuarto, tema: TemaId): boolean {
   return r.temas === 'todas' || r.temas.includes(tema)
 }
 

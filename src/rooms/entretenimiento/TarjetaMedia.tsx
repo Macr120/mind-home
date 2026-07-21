@@ -3,6 +3,8 @@ import { COLOR, getEstadoMedia, getTipoMedia } from './constantes'
 import { Estrellas } from './Estrellas'
 import { formatearFecha } from './fecha'
 import { useT } from '../../core/i18n/useT'
+import { vivo } from '../../core/ui/estilos'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function TarjetaMedia({
   item,
@@ -24,7 +26,7 @@ export function TarjetaMedia({
     >
       <div className="p-3.5">
         <div className="flex items-start gap-2">
-          <span className="text-2xl shrink-0">{tipo.icon}</span>
+          <span className="text-2xl shrink-0"><Icono emoji={tipo.icon} /></span>
           <div className="min-w-0 flex-1">
             <h3 className="font-bold text-white/95 leading-snug">{item.titulo}</h3>
             {item.autor && <p className="text-xs text-white/45 mt-0.5">{item.autor}</p>}
@@ -51,7 +53,7 @@ export function TarjetaMedia({
         )}
 
         <div className="mt-3 flex gap-2">
-          <button type="button" onClick={onEditar} className="text-xs font-semibold hover:underline" style={{ color: COLOR }}>
+          <button type="button" onClick={onEditar} className="text-xs font-semibold hover:underline texto-vivo" style={vivo(COLOR)}>
             {t('entre.tarjeta.editar', 'Editar')}
           </button>
           <button type="button" onClick={onEliminar} className="text-xs text-white/35 hover:text-red-400">

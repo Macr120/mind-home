@@ -4,6 +4,7 @@ import { registrosMantenimientoRepo } from '../../core/data/repository'
 import { COLOR, PLANTILLAS_SERVICIO, TIPOS_MANTENIMIENTO } from './constantes'
 import { hoyISO, sumarDias } from './fecha'
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function FormularioMantenimiento({
   vehiculo,
@@ -74,7 +75,8 @@ export function FormularioMantenimiento({
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
       <p className="text-sm font-semibold">
-        {inicial ? t('garage.mant.editar', '✏️ Editar servicio') : t('garage.mant.nuevo', '🔧 Registrar mantenimiento')}
+        <Icono nombre={inicial ? 'editar' : 'herramienta'} />{' '}
+        {inicial ? t('garage.mant.editar', 'Editar servicio') : t('garage.mant.nuevo', 'Registrar mantenimiento')}
       </p>
 
       <div className="flex flex-wrap gap-1.5">
@@ -159,7 +161,7 @@ export function FormularioMantenimiento({
             className={input}
             value={proximoOdometro}
             onChange={(e) => setProximoOdometro(e.target.value)}
-            placeholder="Ej. 52000"
+            placeholder={t('garage.mant.ph.proxOdo', 'Ej. 52000')}
           />
         </label>
         <label className="block text-xs text-white/50">

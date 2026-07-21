@@ -1,9 +1,14 @@
 import { useState } from 'react'
-import type { AlimentoFavorito, MomentoComida, RegistroComida } from '../../core/data/db'
+import type { MomentoComida, RegistroComida } from '../../core/data/db'
 import { aguaRepo, comidasRepo } from '../../core/data/repository'
-import { MOMENTOS } from './constantes'
+import { HORA_SUGERIDA, MOMENTOS } from './constantes'
+import { actividadId } from '../../core/rutinas'
+import { HorarioActividad } from '../../core/ui/HorarioActividad'
+import { Icono } from '../../core/ui/iconos/Icono'
 import { getMomento } from './momentos'
 import { caloriasDesdeMacros } from './macros'
+import { estimarMacros } from './estimarMacros'
+import { iaActiva } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
 
 export function DiarioTab({
@@ -11,14 +16,13 @@ export function DiarioTab({
   comidas,
   aguaMl,
   aguaObjetivo,
-  favoritos,
 }: {
   fecha: string
   comidas: RegistroComida[]
   aguaMl: number
   aguaObjetivo: number
-  favoritos: AlimentoFavorito[]
 }) {
+  const t = useT()
   const [momento, setMomento] = useState<MomentoComida>('desayuno')
   const [nombre, setNombre] = useState('')
   const [calorias, setCalorias] = useState('')
@@ -26,17 +30,28 @@ export function DiarioTab({
   const [carbos, setCarbos] = useState('')
   const [grasas, setGrasas] = useState('')
   const [nota, setNota] = useState('')
+  const [estimando, setEstimando] = useState(false)
+  const [errorIA, setErrorIA] = useState('')
 
   const delDia = comidas
     .filter((c) => c.fecha === fecha)
     .sort((a, b) => a.momento.localeCompare(b.momento))
 
-  const aplicarFavorito = (f: AlimentoFavorito) => {
-    setNombre(f.nombre)
-    setCalorias(String(f.calorias))
-    setProteinas(String(f.proteinas))
-    setCarbos(String(f.carbohidratos))
-    setGrasas(String(f.grasas))
+  const estimar = async () => {
+    if (!nombre.trim() || estimando) return
+    setEstimando(true)
+    setErrorIA('')
+    try {
+      const m = await estimarMacros(nombre.trim())
+      setCalorias(String(m.calorias))
+      setProteinas(String(m.proteinas))
+      setCarbos(String(m.carbohidratos))
+      setGrasas(String(m.grasas))
+    } catch {
+      setErrorIA(t('cocina.estimar.error', 'No se pudo estimar. Escribe los valores a mano.'))
+    } finally {
+      setEstimando(false)
+    }
   }
 
   const agregar = async (e: React.FormEvent) => {
@@ -71,13 +86,12 @@ export function DiarioTab({
   }
 
   const pctAgua = aguaObjetivo > 0 ? Math.min(100, (aguaMl / aguaObjetivo) * 100) : 0
-  const t = useT()
 
   return (
     <div className="space-y-5">
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
         <div className="flex items-center justify-between">
-          <span className="text-sm font-semibold">{t('cocina.hidratacion', '💧 Hidratación')}</span>
+          <span className="text-sm font-semibold"><Icono nombre="humedad" /> {t('cocina.hidratacion', 'Hidratación')}</span>
           <span className="text-sm text-white/60">
             {aguaMl} / {aguaObjetivo} ml
           </span>
@@ -94,7 +108,7 @@ export function DiarioTab({
               key={ml}
               type="button"
               onClick={() => agregarAgua(ml)}
-              className="flex-1 rounded-lg bg-emerald-500/20 py-2 text-xs font-semibold text-emerald-300 hover:bg-emerald-500/30"
+              className="flex-1 rounded-lg bg-emerald-500/20 py-2 text-xs font-semibold text-emerald-400 hover:bg-emerald-500/30"
             >
               +{ml} ml
             </button>
@@ -114,28 +128,13 @@ export function DiarioTab({
               type="button"
               onClick={() => setMomento(m.id)}
               className={`rounded-lg py-2 text-xs font-semibold transition ${
-                momento === m.id ? 'bg-amber-400 text-black' : 'bg-white/5 hover:bg-white/10'
+                momento === m.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
               }`}
             >
-              {m.icon}
+              <Icono emoji={m.icon} />
             </button>
           ))}
         </div>
-
-        {favoritos.length > 0 && (
-          <div className="flex gap-2 overflow-x-auto pb-1">
-            {favoritos.map((f) => (
-              <button
-                key={f.id}
-                type="button"
-                onClick={() => aplicarFavorito(f)}
-                className="shrink-0 rounded-lg bg-white/5 px-3 py-1.5 text-xs border border-white/10 hover:bg-white/10"
-              >
-                {f.nombre}
-              </button>
-            ))}
-          </div>
-        )}
 
         <input
           value={nombre}
@@ -143,6 +142,24 @@ export function DiarioTab({
           placeholder={t('cocina.ph.comiste', 'Qué comiste...')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
         />
+        {iaActiva() && (
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={estimar}
+              disabled={!nombre.trim() || estimando}
+              className="rounded-lg bg-white/10 px-3 py-1.5 text-xs font-semibold hover:bg-white/15 disabled:opacity-40"
+            >
+              <Icono nombre="brillo" />{' '}
+              {estimando
+                ? t('cocina.estimar.cargando', 'Estimando…')
+                : t('cocina.estimar', 'Estimar calorías y macros')}
+            </button>
+            <span className="text-[10px] text-white/40">
+              {errorIA || t('cocina.estimar.ayuda', 'Aproximado; puedes corregirlo.')}
+            </span>
+          </div>
+        )}
         <div className="grid grid-cols-4 gap-2">
           <Campo label="kcal" value={calorias} onChange={setCalorias} />
           <Campo label={t('cocina.proteina', 'Prot') + ' g'} value={proteinas} onChange={setProteinas} />
@@ -157,11 +174,46 @@ export function DiarioTab({
         />
         <button
           type="submit"
-          className="w-full rounded-xl py-2.5 font-bold bg-amber-400 text-black hover:bg-amber-300"
+          className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
         >
           {t('cocina.añadir', `Añadir a ${getMomento(momento).label}`, { momento: getMomento(momento).label })}
         </button>
       </form>
+
+      {/* Sección propia, y no la cabecera de cada grupo de abajo: esos grupos solo
+          existen si ya registraste algo, así que no podrías ponerle hora a la cena
+          hasta haber cenado — que es justo cuando hace falta. */}
+      <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-4">
+        <p className="text-sm font-bold text-amber-400">
+          <Icono nombre="alarma" /> {t('cocina.horarios', 'Horarios de comida')}
+        </p>
+        <p className="text-xs text-white/40">
+          {t('cocina.horarios.ayuda', 'A qué hora comes cada cosa. Aparecen en tu calendario y te avisan si quieres.')}
+        </p>
+        <div className="space-y-1.5">
+          {MOMENTOS.map((m) => (
+            <div key={m.id} className="flex items-center gap-2">
+              <span className="w-24 shrink-0 text-xs font-semibold text-white/70">
+                <Icono emoji={m.icon} /> {m.label}
+              </span>
+              <HorarioActividad
+                actividad={{
+                  actividadId: actividadId('momento', m.id),
+                  plantillaId: 'cocina',
+                  nombre: m.label,
+                  emoji: m.icon,
+                  horaSugerida: HORA_SUGERIDA[m.id],
+                  seccion: 'diario',
+                  // Sin registro rápido a propósito: una comida necesita nombre y
+                  // macros, y una «Cena» de un toque sería 0 kcal envenenando los
+                  // totales. El aviso lleva aquí, que es donde se captura.
+                }}
+                hechoHoy={delDia.some((c) => c.momento === m.id)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="space-y-3">
         <p className="text-sm font-semibold">{t('cocina.registroDia', 'Registro del día')}</p>
@@ -175,7 +227,7 @@ export function DiarioTab({
           return (
             <div key={m.id} className="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
               <div className="flex items-center gap-2 px-3 py-2 bg-white/5 text-sm font-semibold">
-                <span>{m.icon}</span>
+                <span><Icono emoji={m.icon} /></span>
                 <span>{m.label}</span>
                 <span className="ml-auto text-amber-400">{kcal} kcal</span>
               </div>

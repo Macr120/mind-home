@@ -2,9 +2,16 @@ import { Suspense, useState } from 'react'
 import { useHouse } from '../state/houseStore'
 import { getCuarto } from '../state/cuartosStore'
 import { getPlantilla, type Plantilla } from '../registry'
+import { intencionAppActiva } from '../state/intencionApp'
 import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
+import { metaDiariaDe } from '../metaDiaria'
+import { AvisoActividadBanner } from './AvisoActividadBanner'
+import { MetaDiariaBarra } from './MetaDiariaBarra'
 import { useT } from '../i18n/useT'
+import { Icono } from './iconos/Icono'
+import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
+import { ControlMusica } from './ControlMusica'
 
 /**
  * Cuando hay un cuarto activo, dibuja la app de la plantilla asignada a sus objetos.
@@ -24,6 +31,8 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
     cuarto?.nombre ?? '',
   )
   const [seleccionada, setSeleccionada] = useState<string | null>(null)
+  // Marca de la última intención de chat aplicada (para aplicarla una sola vez).
+  const [intencionVista, setIntencionVista] = useState<number | null>(null)
 
   if (!cuarto) return null
 
@@ -36,13 +45,22 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
   }
   const apps = [...mapa.values()]
 
+  // La intención del chat («abre las compras») preselecciona su app en el
+  // lanzador aunque el cuarto tenga varias (ajuste en render, sin efecto).
+  const intencion = intencionAppActiva()
+  if (intencion && intencion.creada !== intencionVista && mapa.has(intencion.appId)) {
+    setIntencionVista(intencion.creada)
+    setSeleccionada(intencion.appId)
+  }
+
   const activa =
     apps.length === 1 ? apps[0] : apps.find((p) => p.id === seleccionada) ?? null
   const App = activa?.App
 
   return (
-    <div className="absolute inset-0 z-20 flex flex-col bg-[#0f1115]">
+    <div className="ui-app absolute inset-0 z-20 flex flex-col">
       <header
+        data-tut="room.header"
         className={`flex items-center gap-3 border-b border-white/10 py-3 pr-4 ${menuFlotante ? 'pl-52' : 'pl-4'}`}
         style={{ borderTopColor: color }}
       >
@@ -65,15 +83,31 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
             </span>
           )}
         </h1>
+        {/* Música: el tema de este cuarto y la ambiental, sin salir de la app. */}
+        <ControlMusica cuartoId={cuarto.id} className="ml-auto" />
+        {/* Tutorial de la app abierta, a la izquierda de «Volver a la casa». */}
+        {activa && <BotonTutorialApp plantilla={activa} montada />}
         <button
           type="button"
+          data-tut="room.volver"
           onClick={closeRoom}
-          className="ml-auto shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
+          className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
         >
           {t('ui.volverCasa', '‹ Volver a la casa')}
         </button>
       </header>
-      <main className="min-h-0 flex-1 overflow-auto p-4 md:p-6">
+      {/* La meta diaria de la app abierta: montada aquí una vez, y no en cada app. */}
+      {activa && metaDiariaDe(activa.id) && (
+        <div data-tut="room.meta">
+          <MetaDiariaBarra plantillaId={activa.id} color={activa.color} />
+        </div>
+      )}
+      {/* El aviso de sus actividades agendadas (la burbuja no se ve desde aquí). */}
+      {activa && <AvisoActividadBanner plantillaId={activa.id} />}
+      <main
+        data-tut-zona={activa ? `app:${activa.id}` : undefined}
+        className="min-h-0 flex-1 overflow-auto p-4 md:p-6"
+      >
         {apps.length === 0 ? (
           <div className="flex min-h-[40vh] flex-col items-center justify-center gap-2 text-center text-white/50">
             <p>{t('ui.sinApp', 'Este cuarto no tiene ninguna app asignada.')}</p>
@@ -98,7 +132,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           </ErrorBoundary>
         ) : (
           // Lanzador: el cuarto tiene varias apps, elige cuál abrir.
-          <div className="mx-auto grid max-w-md grid-cols-2 gap-3 pt-4 sm:grid-cols-3">
+          <div data-tut="room.lanzador" className="mx-auto grid max-w-md grid-cols-2 gap-3 pt-4 sm:grid-cols-3">
             {apps.map((p) => (
               <button
                 key={p.id}
@@ -111,7 +145,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
                   className="flex h-12 w-12 items-center justify-center rounded-xl text-2xl"
                   style={{ background: `${p.color}33` }}
                 >
-                  {p.icon}
+                  <Icono emoji={p.icon} />
                 </span>
                 <span className="text-center text-sm font-semibold text-white/90">
                   {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}

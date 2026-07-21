@@ -8,7 +8,9 @@ import { playerPos } from '../state/playerPosition'
 import { useLayout } from '../state/layoutStore'
 import { puedeMoverCuartoRegistro } from './planoGeometria'
 import { usePlanos } from '../state/planosStore'
+import { useEditorUi } from '../state/editorUiStore'
 import { zonasRepo, pisosExteriorRepo } from '../data/repository'
+import type { PisoExteriorCelda } from '../data/db'
 import { ocupadoConZonas } from './planoGeometria'
 import {
   roomWallSegments,
@@ -21,15 +23,20 @@ import {
   centroRelativo,
   cellId,
   tileOcupado,
+  nivelBaseY,
   WALL_H,
   WALL_T,
   SIZE,
   FOOTPRINT_DEFAULT,
   type Vano,
+  type SideKey,
+  type Cell,
 } from './walls'
 import { ObjetoView, altoDeTipo } from './catalogo'
+import { GrupoAnimado } from './Animado'
 import { esMueblePrincipal } from './muebles'
-import { getTema, colorConTema, mezclar } from './temas'
+import { colorConTema, mezclar } from './temas'
+import { useTemaActivo } from './useTema'
 import { TemaContext } from './primitivas'
 import { useInteractUi } from '../state/interactUiStore'
 import { MarcadorEntrada } from './marcadorEntrada'
@@ -40,16 +47,37 @@ import { colorExteriorDefecto } from './PisosExterior3D'
 import { CUADRANTES_OFF, cuadrantesDeCelda, matDeRegistroPiso, type MatPiso } from './pisoSubcelda'
 import { useBlobUrlMap } from './useBlobUrlMap'
 import { getPisoTipo, esSinPiso } from './pisos'
-import { PINCELES_DEFAULT } from './murosPuertas'
+import { PINCELES_DEFAULT, VANO_FORMA_ALTO_DEFAULT } from './murosPuertas'
 import type { TipoPuertaId } from './murosPuertas'
+import {
+  ABRE_ANG,
+  PUERTA_ALTO,
+  PUERTA_BASE_Y,
+  PUERTA_GROSOR,
+  hojasDeAbertura,
+  HojaPuertaMesh,
+  MontanteVanoMesh,
+  type Hoja,
+  type RemateHoja,
+} from './puertaHojas'
 import { TechoLoseta } from './TechoLoseta'
 import { TechoForma } from './TechoForma'
 import { TechoCeldaNoCuadrada } from './TechoCeldaNoCuadrada'
 import { TECHO_PARAMS_DEFAULT } from './techos'
 import { offsetsTecho, techoExtraDeOtroEnCelda } from './techoCeldas'
-import { claveCeldaOff, formaEnCelda, esFormaCuadrada } from './formasLoseta'
+import {
+  claveCeldaOff,
+  formaEnCelda,
+  esFormaCuadrada,
+  subformasDeCelda,
+  type CeldaFormaLoseta,
+} from './formasLoseta'
 import { filtrarSegmentosPorForma } from './murosPerimetroLoseta'
 import { MurosPerimetroFormaCuarto } from './MurosPerimetroFormaCuarto'
+import { AguaCuarto } from './AguaCuarto'
+import { ComplementoPisoSotano } from './ComplementoPisoSotano'
+import { consumirClicMuro } from './PlanoMuroSelector3D'
+import { GrafitisMuroCuarto } from './grafiti'
 
 function tint(hex: string, amt: number) {
   const n = parseInt(hex.slice(1), 16)
@@ -59,77 +87,21 @@ function tint(hex: string, amt: number) {
   return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')
 }
 
-const PUERTA_GROSOR = 0.18
-const PUERTA_ALTO = WALL_H - 0.08
-const PUERTA_BASE_Y = 0.1 // se apoya sobre el piso
-const ABRE_ANG = 1.9 // ángulo máximo de apertura (~109°)
-
-/** Una hoja batiente: bisagra (local al cuarto), giro cerrado y sentido de apertura. */
-interface Hoja {
-  hingeX: number
-  hingeZ: number
-  /** Yaw con la hoja cerrada (alineada al muro, apuntando de bisagra a extremo). */
-  closedYaw: number
-  /** +1/−1: sentido de giro que abre hacia el interior del cuarto. */
-  signo: number
-  width: number
-}
-
-/**
- * Hojas de un vano: una para 'puerta', dos (batientes opuestos) para 'porton'.
- * Cada hoja gira sobre su bisagra (un extremo del hueco) y abre hacia el interior.
- */
-function hojasDeVano(v: Vano): Hoja[] {
-  const ax = v.horizontal ? 1 : 0
-  const az = v.horizontal ? 0 : 1
-  const half = v.ancho / 2
-  const end1 = { x: v.cx - ax * half, z: v.cz - az * half }
-  const end2 = { x: v.cx + ax * half, z: v.cz + az * half }
-  const centro = { x: v.cx, z: v.cz }
-  const mk = (
-    hinge: { x: number; z: number },
-    far: { x: number; z: number },
-    width: number,
-  ): Hoja => {
-    const dx = far.x - hinge.x
-    const dz = far.z - hinge.z
-    const len = Math.hypot(dx, dz) || 1
-    // Yaw cerrado: el +X local apunta de bisagra a extremo.
-    const closedYaw = Math.atan2(-dz / len, dx / len)
-    // Sentido que abre hacia la normal interior (dot del giro +90° con la normal).
-    const yawPlus = closedYaw + Math.PI / 2
-    const signo = Math.cos(yawPlus) * v.nx + -Math.sin(yawPlus) * v.nz >= 0 ? 1 : -1
-    return { hingeX: hinge.x, hingeZ: hinge.z, closedYaw, signo, width }
-  }
-  if (v.tipo === 'porton') return [mk(end1, centro, half), mk(end2, centro, half)]
-  return [mk(end1, end2, v.ancho)]
-}
-
 /** Colores fijos de fachada: no siguen el tema, son materiales "reales". */
 const PORTON_COLOR = '#b8c4cc'
 const PUERTA_COLOR = '#3b1e09'
 
-function HojaPuertaMesh({
-  width,
-  color,
-  alto = PUERTA_ALTO,
-}: {
-  width: number
-  color: string
-  alto?: number
-}) {
-  const y = PUERTA_BASE_Y + alto / 2
-  return (
-    <group>
-      <mesh position={[width / 2, y, 0]} castShadow receiveShadow>
-        <boxGeometry args={[width - 0.04, alto, PUERTA_GROSOR]} />
-        <meshStandardMaterial color={color} roughness={0.8} metalness={0.05} />
-      </mesh>
-      <mesh position={[width - 0.24, PUERTA_BASE_Y + alto * 0.46, PUERTA_GROSOR / 2 + 0.04]}>
-        <sphereGeometry args={[0.07, 8, 8]} />
-        <meshStandardMaterial color="#c8a855" roughness={0.3} metalness={0.7} />
-      </mesh>
-    </group>
+/** Hojas batientes del vano del cuarto (delega en la geometría común de hojas). */
+function hojasDeVano(v: Vano): Hoja[] {
+  return hojasDeAbertura(
+    v.cx,
+    v.cz,
+    v.horizontal ? 1 : 0,
+    v.horizontal ? 0 : 1,
+    v.ancho,
+    v.nx,
+    v.nz,
+    v.tipo === 'porton',
   )
 }
 
@@ -172,6 +144,20 @@ function VanoFachada({
   const ax = vano.horizontal ? 1 : 0
   const az = vano.horizontal ? 0 : 1
   const half = vano.ancho / 2
+  // Remate del vano (arco/pico): la hoja lo integra (batientes) o lo llena un
+  // montante fijo (corredera/portón). Mismo clamp que el hueco del dintel.
+  const remate: RemateHoja | undefined =
+    vano.tipo === 'puerta' && vano.vanoForma && vano.vanoForma !== 'recta'
+      ? {
+          forma: vano.vanoForma,
+          extra: Math.min(
+            WALL_H * (vano.vanoFormaAlto ?? VANO_FORMA_ALTO_DEFAULT),
+            Math.max(0, He - hAlto - 0.02),
+          ),
+          ancho: vano.vanoFormaAncho ?? 1,
+          posX: vano.vanoFormaPosX ?? 0,
+        }
+      : undefined
 
   useFrame(() => {
     const wx = roomPos[0] + vano.cx
@@ -246,6 +232,17 @@ function VanoFachada({
         </mesh>
       )}
 
+      {/* Montante fijo del remate (corredera y portón de láminas): tapa el arco/pico
+          del vano mientras la hoja rectangular se mueve por debajo. */}
+      {vano.tipo === 'puerta' && (tipoPuerta === 'corredera' || tipoPuerta === 'porton') && remate && (
+        <group
+          position={[vano.cx, hAlto, vano.cz]}
+          rotation={[0, vano.horizontal ? 0 : -Math.PI / 2, 0]}
+        >
+          <MontanteVanoMesh ancho={vano.ancho} remate={remate} color={colorPuerta} />
+        </group>
+      )}
+
       {vano.tipo === 'puerta' && tipoPuerta === 'corredera' && (
         <group ref={correderaRef} position={[vano.cx, 0, vano.cz]}>
           <mesh position={[0, PUERTA_BASE_Y + hAlto / 2, 0]} castShadow receiveShadow>
@@ -292,7 +289,14 @@ function VanoFachada({
             position={[h.hingeX, 0, h.hingeZ]}
             rotation={[0, h.closedYaw, 0]}
           >
-            <HojaPuertaMesh width={h.width} color={colorPuerta} alto={hAlto} />
+            <HojaPuertaMesh
+              width={h.width}
+              color={colorPuerta}
+              alto={hAlto}
+              remate={remate}
+              un0={tipoPuerta === 'doble' ? (i === 0 ? -1 : 1) : -1}
+              un1={tipoPuerta === 'doble' ? 0 : 1}
+            />
           </group>
         ))}
     </group>
@@ -326,6 +330,10 @@ export function Room3D({
 }) {
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
   const niveles = useLayout((s) => s.niveles)
+  // Espacio abierto (jardín): sin muros, portones ni techo — solo piso y objetos.
+  const sinMuros = useLayout((s) => s.sinMuros[id] ?? false)
+  // Alberca (sótano lleno de agua): lámina animada y nunca lleva techo.
+  const conAgua = useLayout((s) => s.conAgua[id] ?? false)
   const overrides = useLayout((s) => s.wallOverrides[id])
   const edgeStyles = useLayout((s) => s.edgeStyles[id])
   const pinceles = useLayout((s) => s.pinceles[id] ?? PINCELES_DEFAULT)
@@ -334,6 +342,11 @@ export function Room3D({
   const footprints = useLayout((s) => s.footprints)
   const editMode = useLayout((s) => s.editMode)
   const editingRoomId = useLayout((s) => s.editingRoomId)
+  const editorTab = useEditorUi((s) => s.tab)
+  const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
+  const setTab = useEditorUi((s) => s.setTab)
+  const editor3d = useEditorUi((s) => s.editor3d)
+  const inventarioObjetosActivo = useEditorUi((s) => s.inventarioObjetosActivo)
   const draggingId = useLayout((s) => s.draggingId)
   const previewCell = useLayout((s) => s.previewCell)
   const dragOriginCell = useLayout((s) => s.dragOriginCell)
@@ -342,7 +355,9 @@ export function Room3D({
   const planosCapa = usePlanos((s) => s.capa)
   const planosHerramienta = usePlanos((s) => s.herramienta)
   const setSeleccionPlano = usePlanos((s) => s.setSeleccion)
+  const setModoPlano = usePlanos((s) => s.setModo)
   const seleccionPlano = usePlanos((s) => s.seleccion)
+  const muroSelHover = usePlanos((s) => s.muroSelHover)
 
   const fp = footprints[id] ?? FOOTPRINT_DEFAULT
   const nivel = niveles[id] ?? 0
@@ -358,25 +373,52 @@ export function Room3D({
   const W = bounds.w * SIZE
   const H = bounds.h * SIZE
   const formasCeldaLayout = useLayout((s) => s.formasCelda[id])
+  const formasCeldaTodos = useLayout((s) => s.formasCelda)
   const formasEfectivas = useMemo(() => formasCeldaLayout ?? {}, [formasCeldaLayout])
+  // Recortes finos (rejilla fina) por celda: referencia estable para no regenerar geometría.
+  const subformasPorCelda = useMemo(() => {
+    const m = new Map<string, (CeldaFormaLoseta | undefined)[] | null>()
+    for (const off of fp) {
+      m.set(claveCeldaOff(off.col, off.row), subformasDeCelda(formasEfectivas, off.col, off.row))
+    }
+    return m
+  }, [fp, formasEfectivas])
   const segs = useMemo(() => {
-    if (!anchorCell) return []
-    const raw = roomWallSegments(anchorCell, fp, ocupado, overrides, edgeStyles, pinceles)
+    if (!anchorCell || sinMuros) return []
+    const raw = roomWallSegments(anchorCell, fp, ocupado, overrides, edgeStyles, pinceles, formasEfectivas)
     return filtrarSegmentosPorForma(raw, formasEfectivas)
-  }, [anchorCell, fp, ocupado, overrides, edgeStyles, pinceles, formasEfectivas])
+  }, [anchorCell, sinMuros, fp, ocupado, overrides, edgeStyles, pinceles, formasEfectivas])
+  // Cuerpos por arista: solo las aristas de UN cuerpo llevan grafiti (una puerta la parte en 2).
+  const cuerposGrafiti = useMemo(() => {
+    const m = new Map<string, number>()
+    for (const s of segs) {
+      if (s.clave && !s.alturaM && !s.yBase) m.set(s.clave, (m.get(s.clave) ?? 0) + 1)
+    }
+    return m
+  }, [segs])
   const vanos = useMemo(() => {
-    if (!anchorCell) return []
-    return roomDoorways(anchorCell, fp, ocupado, overrides, edgeStyles, pinceles)
-  }, [anchorCell, fp, ocupado, overrides, edgeStyles, pinceles])
+    if (!anchorCell || sinMuros) return []
+    return roomDoorways(anchorCell, fp, ocupado, overrides, edgeStyles, pinceles, formasEfectivas)
+  }, [anchorCell, sinMuros, fp, ocupado, overrides, edgeStyles, pinceles, formasEfectivas])
   // El techo se apoya en el muro más alto del cuarto (no en una altura fija).
   const alturaTecho = alturaTechoDeSegs(segs)
   const conTechoGlobal = useHouse((s) => s.conTecho)
-  const conTecho = forzarTecho ?? conTechoGlobal
+  const apilado = !useHouse((s) => s.explotado)
+  // Alberca: sótano con agua — abierta por definición (nunca se tapa con techo).
+  const esAlberca = conAgua && nivel < 0
+  // El espacio abierto (jardín) y la alberca nunca llevan techo, aunque la casa lo active.
+  const conTecho = (forzarTecho ?? conTechoGlobal) && !sinMuros && !esAlberca
+  /**
+   * El cuarto flota en el aire (piso alto con la casa explotada): no se apoya en nada, así
+   * que fuera de su silueta no hay "exterior" que mostrar. Lo usa el relleno de las celdas
+   * con figura: si se dibujara flotando, taparía los recortes y el cuarto se vería cuadrado.
+   */
+  const flotando = nivel > 0 && !apilado
   // Tema global: reemplaza las texturas del shell (muros/piso/techo) por las del
   // tema (hoja 4 del Excel), mezclándolas con el color del cuarto para conservar
   // su identidad. Sin tema, se usa el color del cuarto con tintes relativos.
   const temaGlobalRaw = useDiseño((s) => s.temaGlobal)
-  const tema = getTema(temaGlobalRaw)
+  const tema = useTemaActivo()
   const techoTipoGlobal = useDiseño((s) => s.techoTipo)
   const roomTechoTipos = useDiseño((s) => s.roomTechoTipos)
   const roomTechoFormas = useDiseño((s) => s.roomTechoFormas)
@@ -400,8 +442,6 @@ export function Room3D({
   const techoParamsPropia = roomTechoParams[id] ?? TECHO_PARAMS_DEFAULT
 
   // Techo: losa por celda (footprint + extensiones), con visibilidad por celda.
-  const ocupadoNivelSup = ocupadoPorNivel.get(nivel + 1)
-
   const offsetsTechoAll = anchorCell ? offsetsTecho(anchorCell, fp, roomTechoExtra) : fp
   const boundsTechoRect = footprintBoundsRect(offsetsTechoAll)
   const Wt = boundsTechoRect.w * SIZE
@@ -414,9 +454,14 @@ export function Room3D({
   const esCeldaFootprint = (off: { col: number; row: number }) =>
     fp.some((o) => o.col === off.col && o.row === off.row)
 
+  /**
+   * Poner techo = TODOS los cuartos reciben el suyo, también los que tienen otro encima:
+   * el cuarto de arriba puede taparlos solo en parte (anclas a ½ celda, footprint distinto)
+   * y entonces quedaban destapados. Apilado y bien cubierto, la losa queda escondida bajo el
+   * piso de arriba (va 0.25 más abajo, no compite con él).
+   */
   const celdaTechoVisible = (off: { col: number; row: number }) => {
     const abs = absDeOffset(off)
-    if (ocupadoNivelSup && tileOcupado(ocupadoNivelSup, abs.col, abs.row)) return false
     if (techoExtraDeOtroEnCelda(abs, id, nivel, roomTechoExtraAll, placed, niveles)) return false
     // Extensiones solo sobre celdas con cuarto (no terrazas en vacío).
     if (!esCeldaFootprint(off) && !tileOcupado(ocupado, abs.col, abs.row)) return false
@@ -465,37 +510,77 @@ export function Room3D({
     E: ladoCajaFachada(offsetsTechoVisibles.filter((o) => o.col === maxColTecho), 1, 0) ? WALL_T / 2 : 0,
   }
 
-  // Si hay un cuarto directamente abajo sin override propio, heredamos su forma de techo.
-  const idAbajo: string | undefined =
-    nivel > 0
-      ? Object.keys(placed).find(
-          (rid) =>
-            placed[rid] &&
-            (niveles[rid] ?? 0) === nivel - 1 &&
-            cells[rid]?.col === cells[id]?.col &&
-            cells[rid]?.row === cells[id]?.row,
-        )
-      : undefined
-  const techoForma =
-    id in roomTechoFormas
+  /** Cuarto colocado justo encima (+1) o debajo (−1) de este, en la misma ancla. */
+  const idEnNivel = (delta: number): string | undefined =>
+    Object.keys(placed).find(
+      (rid) =>
+        placed[rid] &&
+        rid !== id &&
+        (niveles[rid] ?? 0) === nivel + delta &&
+        cells[rid]?.col === cells[id]?.col &&
+        cells[rid]?.row === cells[id]?.row,
+    )
+  const idAbajo = nivel > 0 ? idEnNivel(-1) : undefined
+  /**
+   * Un piso no se puede asentar sobre una bóveda/cono: mientras haya un cuarto encima,
+   * el techo de este SOLO puede ser plano. No se toca el dato — al borrar el piso de
+   * arriba su forma vuelve sola.
+   */
+  const techoSoloPlano = idEnNivel(1) !== undefined
+  /**
+   * ¿Misma figura que el cuarto `otro`? Igual footprint e igual silueta por celda (formas
+   * enteras y recortes finos). Una bóveda hecha para un cuarto redondo no encaja en uno
+   * cuadrado, así que solo con la misma figura se hereda su techo.
+   */
+  const mismaFigura = (otro: string): boolean => {
+    const fpOtro = footprints[otro] ?? FOOTPRINT_DEFAULT
+    if (fpOtro.length !== fp.length) return false
+    const claves = new Set(fp.map((o) => claveCeldaOff(o.col, o.row)))
+    if (!fpOtro.every((o) => claves.has(claveCeldaOff(o.col, o.row)))) return false
+    const sOtro = formasCeldaTodos[otro] ?? {}
+    return [...new Set([...Object.keys(formasEfectivas), ...Object.keys(sOtro)])].every((k) => {
+      const a = formasEfectivas[k]
+      const b = sOtro[k]
+      return (a?.forma ?? 'cuadrado') === (b?.forma ?? 'cuadrado') && (a?.rotacion ?? 0) === (b?.rotacion ?? 0)
+    })
+  }
+  // Sin techo propio, se hereda el del cuarto de abajo (así la figura sube con el piso nuevo).
+  const heredaDeAbajo = idAbajo !== undefined && mismaFigura(idAbajo) ? idAbajo : undefined
+  const techoForma = techoSoloPlano
+    ? 'plano'
+    : id in roomTechoFormas
       ? techoFormaPropia
-      : idAbajo !== undefined
-        ? (roomTechoFormas[idAbajo] ?? techoFormaPropia)
+      : heredaDeAbajo
+        ? (roomTechoFormas[heredaDeAbajo] ?? techoFormaPropia)
         : techoFormaPropia
-  const techoParams =
-    id in roomTechoParams
+  const techoParams = techoSoloPlano
+    ? TECHO_PARAMS_DEFAULT
+    : id in roomTechoParams
       ? techoParamsPropia
-      : idAbajo !== undefined
-        ? (roomTechoParams[idAbajo] ?? techoParamsPropia)
+      : heredaDeAbajo
+        ? (roomTechoParams[heredaDeAbajo] ?? techoParamsPropia)
         : techoParamsPropia
 
   // Fabricación de techo POR CELDA (rejilla): si el cuarto tiene formas de celda,
-  // cada celda se dibuja con su propia forma (las no tocadas quedan planas).
-  const techoCeldas = roomTechoFormasCelda[id] ?? {}
+  // cada celda se dibuja con su propia forma (las no tocadas quedan planas). La figura
+  // de un cuarto (cono, tienda…) vive aquí, así que también se hereda del de abajo.
+  const techoCeldas = techoSoloPlano
+    ? {}
+    : (roomTechoFormasCelda[id] ?? (heredaDeAbajo ? roomTechoFormasCelda[heredaDeAbajo] : undefined) ?? {})
   const hayTechoPorCelda = Object.keys(techoCeldas).length > 0
 
   // Plano sin inclinación = losetas por celda; cualquier otra forma (o plano inclinado) = pieza única.
   const techoPlanoLosetas = techoForma === 'plano' && techoParams.inclinacion <= 0
+
+  // Cuarto con figuras (celda entera triángulo/círculo o recortes finos): la pieza
+  // única de caja W×H ignoraría la silueta, así que su forma de techo no plana se
+  // fabrica celda a celda (cada celda aplica la forma sobre su propia silueta).
+  const tieneFiguras = useMemo(
+    () => Object.values(formasEfectivas).some((f) => f.forma !== 'cuadrado'),
+    [formasEfectivas],
+  )
+  const formaGlobalPorCelda = !techoPlanoLosetas && tieneFiguras
+  const techoPorCelda = hayTechoPorCelda || formaGlobalPorCelda
 
   // Dos aguas: si el muro del lado del hastial ya tiene forma "triángulo" lo
   // bastante ancha para cerrar todo ese lado, el muro hace de hastial (apoya
@@ -519,6 +604,8 @@ export function Room3D({
   const baseColor = shell ? mezclar(color, shell.muroInt, 0.4) : colorConTema(color, tema)
   const roomPisoTipos = useDiseño((s) => s.roomPisoTipos)
   const roomPisoColors = useDiseño((s) => s.roomPisoColors)
+  const roomPisoExtTipos = useDiseño((s) => s.roomPisoExtTipos)
+  const roomPisoExtColors = useDiseño((s) => s.roomPisoExtColors)
   const roomPisoImagenes = useDiseño((s) => s.roomPisoImagenes)
   const roomPisoImagenActiva = useDiseño((s) => s.roomPisoImagenActiva)
   const roomPisoImagenAjuste = useDiseño((s) => s.roomPisoImagenAjuste)
@@ -588,7 +675,13 @@ export function Room3D({
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const objetosCuarto = objetos.filter((o) => o.roomId === id)
-  const objetosEditables = editMode && editingRoomId === id && !preview
+  // Objetos arrastrables/seleccionables: al editar este cuarto o en la pestaña Objetos
+  // del editor de mapa, o con el editor 3D activo (en 3ª/1ª persona).
+  const objetosEditables =
+    !preview &&
+    (editor3d ||
+      (editMode && (editingRoomId === id || (!editingRoomId && editorTab === 'objetos'))) ||
+      inventarioObjetosActivo)
 
   // Overrides de piso por cuadrante (sub-celdas, coords de ¼) que caen dentro del cuarto.
   const pisosOverride = pisosExteriorRepo.useAll() ?? []
@@ -618,6 +711,36 @@ export function Room3D({
   }, [anchorCell, fp, overrideMap])
   const overrideUrls = useBlobUrlMap(overrideBlobs)
   const colorJardin = colorExteriorDefecto(temaGlobalRaw)
+  // Material del piso exterior de PLANTA BAJA que rodea el pozo (nivel 0): para pintar el
+  // relleno (complemento) de un sótano con el MISMO suelo del mapa, no un color genérico.
+  const pisoExt0Map = useMemo(() => {
+    if (nivel >= 0) return null
+    const m = new Map<string, (typeof pisosOverride)[0]>()
+    for (const p of pisosOverride) {
+      if ((p.nivel ?? 0) !== 0) continue
+      m.set(`${p.col},${p.row}`, p)
+    }
+    return m
+  }, [pisosOverride, nivel])
+  const matPisoExtEn = (absCol: number, absRow: number): MatPiso => {
+    const rec = pisoExt0Map?.get(`${Math.round(absCol)},${Math.round(absRow)}`)
+    return rec
+      ? matDeRegistroPiso(rec, undefined, colorJardin)
+      : { sinPiso: false, color: colorJardin, roughness: 0.85, metalness: 0, pisoConf: null, pisoImagenAjuste: 'x1' }
+  }
+  // Piso EXTERIOR de las celdas con forma (el trozo fuera de la silueta): material propio
+  // del cuarto si el usuario lo eligió; si no, jardín por defecto. Se edita aparte del interior.
+  const pisoExtMat: MatPiso | null =
+    id in roomPisoExtTipos
+      ? matDeRegistroPiso(
+          {
+            pisoTipo: roomPisoExtTipos[id],
+            pisoColor: roomPisoExtColors[id],
+          } as PisoExteriorCelda,
+          undefined,
+          colorJardin,
+        )
+      : null
 
   /** Posición de una ranura de decoración (esquinas de la caja contenedora). */
   const slotPos = (slot: number): [number, number] => [
@@ -626,6 +749,20 @@ export function Room3D({
   ]
 
   const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
+    // Editor 3D: tocar el piso abre el editor de MAPA en modo "Piso interior" y
+    // selecciona este cuarto (el panel muestra su editor de piso). Si ya estamos en la
+    // capa Pisos, lo gestiona PlanoPisos3DController (selección a ½ bajo el cursor).
+    if (editor3d && !atenuado && !preview) {
+      // Si el clic fue sobre un muro (lo gestionó PlanoMuroSelector3D), no abrir el piso.
+      if (consumirClicMuro()) return
+      if (!(planosActivo && planosCapa === 'pisos')) {
+        e.stopPropagation()
+        setTab('mapa')
+        setModoPlano('piso-int')
+        setSeleccionPlano({ tipo: 'cuarto', roomId: id })
+      }
+      return
+    }
     if (editMode || atenuado || preview) return
     // En 1ª/3ª persona el clic en el suelo no mueve (el arrastre gira la cámara).
     if (useCam.getState().vista !== 'iso') return
@@ -636,17 +773,47 @@ export function Room3D({
   // Mover cuartos en Editar mapa, o en Planos con herramienta Mover.
   const planosMover =
     planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'mover'
-  const planosAgregar =
-    planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'agregar'
   const planosEditarForma =
     planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'editar-forma'
   const puedeMoverCuarto =
-    editMode && !editingRoomId && !atenuado && !preview && (!planosActivo || planosMover)
+    editMode && !editor3d && !editingRoomId && editorTab === 'mapa' && !atenuado && !preview && (!planosActivo || planosMover)
   const onFloorDown = (e: ThreeEvent<PointerEvent>) => {
     if (!puedeMoverCuarto) return
     e.stopPropagation()
     if (planosMover) setSeleccionPlano({ tipo: 'cuarto', roomId: id })
     startDrag(id)
+  }
+  // Editor 3D (perspectiva, fuera de la capa Paredes): tocar un muro abre el editor de
+  // MAPA en el modo del elemento (ventana si el muro tiene ventana, si no muros) y
+  // selecciona esa arista. Dentro de la capa Paredes lo gestiona PlanoMuroSelector3D
+  // (raycast por la malla, válido para muros rectos, circulares y triangulares).
+  const muroClicEditor3d = editor3d && !atenuado && !preview && !(planosActivo && planosCapa === 'paredes')
+  // Techo clicable solo cuando es visible (toggle 🏠) y no estamos ya editando techos
+  // (entonces lo gestiona PlanoTechos3DEditor); evita robar clics al piso con el techo apagado.
+  const techoClicEditor3d =
+    editor3d && !atenuado && !preview && conTecho && !(planosActivo && planosCapa === 'techos')
+  const seleccionarMuro = (clave: string, ventana: boolean) => {
+    const [c, r, side] = clave.split(',')
+    setTab('mapa')
+    setModoPlano(ventana ? 'ventanas' : 'muros')
+    setSeleccionPlano({
+      tipo: 'arista',
+      roomId: id,
+      off: { col: Number(c), row: Number(r) },
+      side: side as SideKey,
+    })
+  }
+  // Clic en la hoja de una puerta de fachada → modo Puertas con esa arista seleccionada.
+  const seleccionarPuerta = (off: Cell, side: SideKey) => {
+    setTab('mapa')
+    setModoPlano('puertas')
+    setSeleccionPlano({ tipo: 'arista', roomId: id, off, side })
+  }
+  // Clic en el techo → modo Techos con el cuarto seleccionado.
+  const seleccionarTecho = () => {
+    setTab('mapa')
+    setModoPlano('techos')
+    setSeleccionPlano({ tipo: 'cuarto', roomId: id })
   }
 
   return (
@@ -665,18 +832,24 @@ export function Room3D({
         const emissiveIntSel = atenuado
           ? 0
           : resaltadoPlano
-            ? 0.45
+            // En capa Pisos el resaltado es tenue para no tapar la textura del piso aplicado.
+            ? planosCapa === 'pisos'
+              ? 0.12
+              : 0.45
             : arrastrando
               ? celdaValida
                 ? 0.5
                 : 0.35
-              : cerca
+              // Brillos de juego (cercanía/selección) NO aplican en edición de planos:
+              // taparían la textura del piso que se está editando.
+              : !planosActivo && cerca
                 ? 0.35
-                : seleccionado
+                : !planosActivo && seleccionado
                   ? 0.18
                   : 0
         const ac = anchorCell.col + off.col
         const ar = anchorCell.row + off.row
+        const subEf = subformasPorCelda.get(claveCeldaOff(off.col, off.row)) ?? null
         const { hayAlguno, recs } = cuadrantesDeCelda(ac, ar, (c, r) => overrideMap.get(`${c},${r}`))
         if (hayAlguno) {
           const base: MatPiso = {
@@ -688,15 +861,19 @@ export function Room3D({
             pisoImagen,
             pisoImagenAjuste,
           }
-          const overrides = recs.map((q, qi) =>
-            q
+          // Cuadrante con recorte fino: su mini-loseta (pintada o base) toma la forma.
+          const overrides = recs.map((q, qi) => {
+            const mat = q
               ? matDeRegistroPiso(
                   q,
                   overrideUrls.get(`${ac + CUADRANTES_OFF[qi].dc},${ar + CUADRANTES_OFF[qi].dr}`),
                   floorColor,
                 )
-              : null,
-          )
+              : null
+            const sub = subEf?.[qi]
+            if (!sub) return mat
+            return { ...(mat ?? base), forma: sub }
+          })
           return (
             <group key={i}>
               <PisoCuadrantes3D cx={lx} cz={lz} base={base} overrides={overrides} atenuado={atenuado} />
@@ -710,6 +887,7 @@ export function Room3D({
             lx={lx}
             lz={lz}
             formaLoseta={formaEf}
+            subformas={subEf}
             color={floorColor}
             roughness={floorRough}
             metalness={floorMetal}
@@ -720,10 +898,10 @@ export function Room3D({
             pisoImagenAjuste={pisoImagenAjuste}
             colorTinte={roomPisoColors[id]}
             atenuado={atenuado}
-            onClick={atenuado || planosAgregar || planosEditarForma ? undefined : onFloorClick}
-            onPointerDown={atenuado || planosAgregar || planosEditarForma ? undefined : onFloorDown}
+            onClick={atenuado || planosEditarForma ? undefined : onFloorClick}
+            onPointerDown={atenuado || planosEditarForma ? undefined : onFloorDown}
             onPointerOver={
-              atenuado || planosAgregar || planosEditarForma
+              atenuado || planosEditarForma
                 ? undefined
                 : (e) => {
                     e.stopPropagation()
@@ -734,7 +912,7 @@ export function Room3D({
                   }
             }
             onPointerOut={
-              atenuado || planosAgregar || planosEditarForma
+              atenuado || planosEditarForma
                 ? undefined
                 : () => {
                     if (!useLayout.getState().draggingId)
@@ -743,28 +921,27 @@ export function Room3D({
             }
           />
         )
-        if (esFormaCuadrada(formaEf)) return <group key={i}>{losetaForma}</group>
-        // Celda con forma: relleno bajo la loseta (jardín u override de celda entera) para tapar el hueco.
-        const recRelleno = overrideMap.get(`${ac},${ar}`)
-        const matRelleno: MatPiso = recRelleno
-          ? matDeRegistroPiso(recRelleno, overrideUrls.get(`${ac},${ar}`), colorJardin)
-          : { sinPiso: false, color: colorJardin, roughness: 0.85, metalness: 0, pisoConf: null, pisoImagenAjuste: 'x1' }
+        if (esFormaCuadrada(formaEf) && !subEf) return <group key={i}>{losetaForma}</group>
+        // Celda con forma (entera o recorte fino): el exterior (el trozo fuera de la
+        // silueta) lo aporta la CAPA de piso exterior continua (PisosExterior3D), que pasa
+        // por debajo. Solo si el cuarto definió un piso exterior PROPIO se dibuja un
+        // relleno encima de esa capa — y nunca si el cuarto flota (ver `flotando`).
         return (
           <group key={i}>
-            {!matRelleno.sinPiso && (
-              <group position={[0, -0.02, 0]}>
+            {pisoExtMat && !pisoExtMat.sinPiso && !flotando && (
+              <group position={[0, -0.01, 0]}>
                 <PisoCelda
                   lx={lx}
                   lz={lz}
-                  formaLoseta={matRelleno.forma}
-                  color={matRelleno.color}
-                  roughness={matRelleno.roughness}
-                  metalness={matRelleno.metalness}
+                  formaLoseta={pisoExtMat.forma}
+                  color={pisoExtMat.color}
+                  roughness={pisoExtMat.roughness}
+                  metalness={pisoExtMat.metalness}
                   emissive="#000000"
                   emissiveIntensity={0}
-                  pisoConf={matRelleno.pisoConf}
-                  pisoImagen={matRelleno.pisoImagen}
-                  pisoImagenAjuste={matRelleno.pisoImagenAjuste}
+                  pisoConf={pisoExtMat.pisoConf}
+                  pisoImagen={pisoExtMat.pisoImagen}
+                  pisoImagenAjuste={pisoExtMat.pisoImagenAjuste}
                   atenuado={atenuado}
                 />
               </group>
@@ -774,18 +951,74 @@ export function Room3D({
         )
       })}
 
+      {/* Alberca: lámina de agua animada por celda, a un pelo del borde del pozo. La
+          silueta (forma entera + recortes finos) mantiene el agua DENTRO del cuarto. */}
+      {esAlberca && !atenuado && anchorCell && (
+        <AguaCuarto
+          celdas={fp.map((off) => {
+            const [lx, lz] = tileLocalEnCuarto(anchorCell, off, fp)
+            return {
+              lx,
+              lz,
+              forma: formaEnCelda(formasEfectivas, claveCeldaOff(off.col, off.row)),
+              subformas: subformasPorCelda.get(claveCeldaOff(off.col, off.row)) ?? null,
+            }
+          })}
+        />
+      )}
+
+      {/* Sótano con celdas no-cuadradas: rellena el trozo fuera de la silueta del pozo con
+          el MISMO piso exterior del mapa; si no, se vería el vacío en las esquinas. Va un
+          pelín por debajo del borde (world y≈-0.02) para que los muros del cuarto se vean
+          por encima, no compitan a la misma altura. */}
+      {nivel < 0 && !atenuado && anchorCell &&
+        fp.map((off) => {
+          const clave = claveCeldaOff(off.col, off.row)
+          const forma = formaEnCelda(formasEfectivas, clave)
+          const subformas = subformasPorCelda.get(clave) ?? null
+          if (esFormaCuadrada(forma) && !subformas) return null
+          const [lx, lz] = tileLocalEnCuarto(anchorCell, off, fp)
+          return (
+            <ComplementoPisoSotano
+              key={`comp-${clave}`}
+              lx={lx}
+              lz={lz}
+              y={-nivelBaseY(nivel, apilado) - 0.02}
+              forma={forma}
+              subformas={subformas}
+              mat={matPisoExtEn(anchorCell.col + off.col, anchorCell.row + off.row)}
+            />
+          )
+        })}
+
       {/* Paredes: la fachada (exterior) se viste distinto al muro interior; los
           pisos ≥ 1 llevan ventanas en la fachada para diferenciarse de la base. */}
       {segs.map((s, i) => {
         const mk = s.clave ? `${id}::${s.clave}` : ''
         const imagen = mk && roomMuroImagenActiva[mk] ? roomMuroImagenes[mk] : undefined
-        const resaltadoArista =
+        // Foto del cuadro empotrado: misma tabla de imágenes por arista, clave con sufijo.
+        const fotoCuadro = mk && s.ventContenido === 'cuadro' ? roomMuroImagenes[`${mk}#cuadro`] : undefined
+        const seleccionadaArista =
           seleccionPlano?.tipo === 'arista' &&
           seleccionPlano.roomId === id &&
           s.clave === `${seleccionPlano.off.col},${seleccionPlano.off.row},${seleccionPlano.side}`
-        return (
+        const hoverArista =
+          !!s.clave &&
+          muroSelHover != null &&
+          'roomId' in muroSelHover &&
+          muroSelHover.roomId === id &&
+          s.clave === `${muroSelHover.off.col},${muroSelHover.off.row},${muroSelHover.side}`
+        const resaltadoArista = seleccionadaArista || hoverArista
+        const clicable = muroClicEditor3d && !!s.clave
+        // userData para el raycast de PlanoMuroSelector3D (selección por la malla real).
+        const muroSelData = s.clave
+          ? (() => {
+              const [oc, or, osd] = s.clave.split(',')
+              return { muroSel: { roomId: id, off: { col: Number(oc), row: Number(or) }, side: osd as SideKey, ventana: !!s.ventana } }
+            })()
+          : undefined
+        const muro = (
           <MuroSegment
-            key={i}
             cx={s.cx}
             cz={s.cz}
             sx={s.sx}
@@ -802,16 +1035,24 @@ export function Room3D({
             ventPosY={s.ventPosY}
             ventPosX={s.ventPosX}
             ventForma={s.ventForma}
+            ventContenido={s.ventContenido}
+            ventCara={s.ventCara}
             ventRot={s.ventRot}
             ventColor={s.ventColor}
             ventMosaico={s.ventMosaico}
             ventMulticolor={s.ventMulticolor}
+            ventFoto={fotoCuadro}
+            caraInterior={s.caraInterior}
             forma={s.forma}
             formaAlto={s.formaAlto}
             formaAncho={s.formaAncho}
             formaPosX={s.formaPosX}
             formaDividir={s.formaDividir}
             formaColor={s.formaColor}
+            vanoForma={s.vanoForma}
+            vanoFormaAlto={s.vanoFormaAlto}
+            vanoFormaAncho={s.vanoFormaAncho}
+            vanoFormaPosX={s.vanoFormaPosX}
             imagen={imagen}
             imagenAjuste={mk ? roomMuroImagenAjuste[mk] : undefined}
             baseColor={baseColor}
@@ -819,16 +1060,48 @@ export function Room3D({
             roughness={wallRough}
             extRough={extRough}
             metalness={wallMetal}
-            emissive={resaltadoArista ? '#fde047' : wallEmissive}
-            emissiveInt={resaltadoArista ? 1.3 : wallEmissiveInt}
+            emissive={resaltadoArista ? '#f59e0b' : wallEmissive}
+            emissiveInt={resaltadoArista ? 1.1 : wallEmissiveInt}
             atenuado={atenuado}
             marcoVentana={marcoColor}
             cristal={cristalColor}
           />
         )
+        // Grafitis guardados sobre las caras de la arista (capa decal, hermana del muro).
+        const grafitisMuro =
+          s.clave && !s.alturaM && !s.yBase && !atenuado && cuerposGrafiti.get(s.clave) === 1 ? (
+            <GrafitisMuroCuarto roomId={id} clave={s.clave} cx={s.cx} cz={s.cz} sx={s.sx} sz={s.sz} alto={s.alto} />
+          ) : null
+        if (!clicable)
+          return (
+            <group key={i} userData={muroSelData}>
+              {muro}
+              {grafitisMuro}
+            </group>
+          )
+        return (
+          <group
+            key={i}
+            userData={muroSelData}
+            onClick={(e) => {
+              e.stopPropagation()
+              seleccionarMuro(s.clave!, !!s.ventana)
+            }}
+            onPointerOver={(e) => {
+              e.stopPropagation()
+              document.body.style.cursor = 'pointer'
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = 'default'
+            }}
+          >
+            {muro}
+            {grafitisMuro}
+          </group>
+        )
       })}
 
-      {anchorCell && (
+      {anchorCell && !sinMuros && (
         <MurosPerimetroFormaCuarto
           anchor={anchorCell}
           fp={fp}
@@ -839,6 +1112,14 @@ export function Room3D({
           extRough={extRough}
           metalness={wallMetal}
           atenuado={atenuado}
+          edgeStyles={edgeStyles}
+          overrides={overrides}
+          pinceles={pinceles}
+          roomId={id}
+          nivel={nivel}
+          fotoCuadroDe={(clave) => roomMuroImagenes[`${id}::${clave}#cuadro`]}
+          seleccion={seleccionPlano}
+          hover={muroSelHover}
         />
       )}
 
@@ -847,18 +1128,44 @@ export function Room3D({
       {!atenuado &&
         vanos
           .filter((v) => v.exterior)
-          .map((v, i) => (
-            <VanoFachada
-              key={i}
-              vano={v}
-              roomPos={position}
-              marco={marcoColor}
-              nivel={nivel}
-            />
-          ))}
+          .map((v, i) => {
+            const fachada = (
+              <VanoFachada
+                vano={v}
+                roomPos={position}
+                marco={marcoColor}
+                nivel={nivel}
+              />
+            )
+            if (!v.off || !v.side) return <group key={i}>{fachada}</group>
+            const off = v.off
+            const side = v.side
+            // userData: clicar la hoja de la puerta selecciona la arista de su muro.
+            const vanoSel = { muroSel: { roomId: id, off, side, ventana: false } }
+            if (!muroClicEditor3d) return <group key={i} userData={vanoSel}>{fachada}</group>
+            return (
+              <group
+                key={i}
+                userData={vanoSel}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  seleccionarPuerta(off, side)
+                }}
+                onPointerOver={(e) => {
+                  e.stopPropagation()
+                  document.body.style.cursor = 'pointer'
+                }}
+                onPointerOut={() => {
+                  document.body.style.cursor = 'default'
+                }}
+              >
+                {fachada}
+              </group>
+            )
+          })}
 
       {/* Techo (toggle 🏠): losa por celda o forma única según configuración. */}
-      {conTecho && hayTechoVisible && !hayTechoPorCelda && techoPlanoLosetas &&
+      {conTecho && hayTechoVisible && !techoPorCelda && techoPlanoLosetas &&
         offsetsTechoVisibles.map((off, i) => {
           const [lx, lz] = cellLocalRect(off, boundsTechoRect)
           return (
@@ -878,10 +1185,11 @@ export function Room3D({
               mE={margenLado(off, 1, 0)}
               atenuado={atenuado}
               formaLoseta={formaEnCelda(formasEfectivas, claveCeldaOff(off.col, off.row))}
+              subformas={subformasPorCelda.get(claveCeldaOff(off.col, off.row)) ?? null}
             />
           )
         })}
-      {conTecho && hayTechoVisible && !hayTechoPorCelda && !techoPlanoLosetas && (
+      {conTecho && hayTechoVisible && !techoPorCelda && !techoPlanoLosetas && (
         <group position={[techoDx, 0, techoDz]}>
           <TechoForma
             forma={techoForma}
@@ -906,13 +1214,17 @@ export function Room3D({
       )}
 
       {/* Techo POR CELDA (rejilla): cada celda con su forma; las no tocadas, planas.
-          Por ahora la forma 3D solo se aplica a celdas CUADRADAS (triángulo/círculo: losa plana). */}
-      {conTecho && hayTechoVisible && hayTechoPorCelda &&
+          También cubre la forma única de un cuarto con figuras: cada celda fabrica
+          esa forma sobre su propia silueta (caja, triángulo, círculo o recortes). */}
+      {conTecho && hayTechoVisible && techoPorCelda &&
         offsetsTechoVisibles.map((off, i) => {
           const [lx, lz] = cellLocalRect(off, boundsTechoRect)
           const clave = claveCeldaOff(off.col, off.row)
-          const cf = techoCeldas[clave]
+          const cf =
+            techoCeldas[clave] ??
+            (formaGlobalPorCelda ? { forma: techoForma, params: techoParams } : undefined)
           const formaPiso = formaEnCelda(formasEfectivas, clave)
+          const subEfCelda = subformasPorCelda.get(clave) ?? null
           const esFlat = !cf || (cf.forma === 'plano' && cf.params.inclinacion <= 0)
           if (esFlat) {
             return (
@@ -932,11 +1244,12 @@ export function Room3D({
                 mE={margenLado(off, 1, 0)}
                 atenuado={atenuado}
                 formaLoseta={formaPiso}
+                subformas={subEfCelda}
               />
             )
           }
-          // Celda cuadrada: caja TechoForma a escala de celda.
-          if (esFormaCuadrada(formaPiso)) {
+          // Celda cuadrada sin recortes: caja TechoForma a escala de celda.
+          if (esFormaCuadrada(formaPiso) && !subEfCelda) {
             return (
               <group key={i} position={[lx, alturaTecho + 0.06, lz]}>
                 <TechoForma
@@ -959,7 +1272,7 @@ export function Room3D({
               </group>
             )
           }
-          // Celda triangular/circular: geometría propia siguiendo su silueta.
+          // Celda triangular/circular o con recortes finos: geometría por silueta.
           return (
             <group key={i} position={[lx, alturaTecho + 0.06, lz]}>
               <TechoCeldaNoCuadrada
@@ -970,6 +1283,7 @@ export function Room3D({
                 tinte={techoTinte}
                 tile={SIZE}
                 atenuado={atenuado}
+                subformas={subEfCelda}
               />
             </group>
           )
@@ -983,15 +1297,16 @@ export function Room3D({
           const ox = o.x ?? slotPos(o.slot)[0]
           const oz = o.z ?? slotPos(o.slot)[1]
           const drag = draggingObjeto === o.id
-          const rotY = ((o.rotY ?? 0) * Math.PI) / 180
+          const D = Math.PI / 180
           const esPrincipal = esMueblePrincipal(o)
           return (
             <group
               key={o.id}
-              position={[ox, drag ? 0.6 : 0.2, oz]}
-              rotation={[0, rotY, 0]}
+              position={[ox, (drag ? 0.6 : 0.2) + (o.y ?? 0), oz]}
+              rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
+              scale={o.escala ?? 1}
               onClick={
-                !editMode && esPrincipal && !preview
+                !editMode && !editor3d && !inventarioObjetosActivo && esPrincipal && !preview
                   ? (e) => {
                       e.stopPropagation()
                       selectMueble(id)
@@ -1002,7 +1317,12 @@ export function Room3D({
                 objetosEditables
                   ? (e) => {
                       e.stopPropagation()
-                      if (o.id != null) startObjetoDrag(o.id)
+                      if (o.id != null) {
+                        // En el editor 3D abre el panel de Objetos con este objeto.
+                        if (editor3d) setTab('objetos')
+                        setObjetoSel(o.id)
+                        startObjetoDrag(o.id)
+                      }
                     }
                   : undefined
               }
@@ -1017,12 +1337,47 @@ export function Room3D({
                   document.body.style.cursor = 'default'
               }}
             >
-              <ObjetoView tipo={o.tipo} color={o.color} />
+              <GrupoAnimado anim={o.animacion} nivel={nivel}>
+                <ObjetoView
+                  tipo={o.tipo}
+                  color={o.color}
+                  piezas={o.piezas}
+                  modeloGlb={o.modeloGlb}
+                  foto={o.foto}
+                  texto={o.texto}
+                  anim={o.animacion}
+                  nivelAnim={nivel}
+                  objetoId={o.id}
+                  fx={o.fx}
+                />
+              </GrupoAnimado>
               {esPrincipal && <MarcadorEntrada y={altoDeTipo(o.tipo) + 0.45} />}
             </group>
           )
           })}
         </TemaContext.Provider>
+      )}
+
+      {/* Editor 3D: plano invisible sobre el techo para seleccionarlo (modo Techos). */}
+      {techoClicEditor3d && (
+        <mesh
+          position={[0, alturaTecho + 0.3, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          onClick={(e) => {
+            e.stopPropagation()
+            seleccionarTecho()
+          }}
+          onPointerOver={(e) => {
+            e.stopPropagation()
+            document.body.style.cursor = 'pointer'
+          }}
+          onPointerOut={() => {
+            document.body.style.cursor = 'default'
+          }}
+        >
+          <planeGeometry args={[W, H]} />
+          <meshBasicMaterial transparent opacity={0} depthWrite={false} />
+        </mesh>
       )}
     </group>
   )

@@ -1,59 +1,161 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useThree } from '@react-three/fiber'
 import { useCuartos } from '../state/cuartosStore'
-import { useLayout } from '../state/layoutStore'
+import { useLayout, SIN_OCUPACION } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { usePlanos } from '../state/planosStore'
 import { zonasRepo } from '../data/repository'
 import {
   SIZE,
+  WALL_H,
+  WALL_T,
   cellToWorld,
   nivelBaseY,
+  roomWallSegments,
   type Cell,
 } from './walls'
-import { trasladarCeldasZona, celdaEnteraEsLibre, normalizarCeldasEnteras, zonaEnCelda, cuartoIdEnTile } from './planoGeometria'
-import { celdaEnteraBajoCursor } from './arrastreCelda'
+import { trasladarCeldasZona, zonaEnCelda, cuartoIdEnTile } from './planoGeometria'
+import { celdaEnteraBajoCursor, celdaBajoCursor, cuadranteBajoCursor } from './arrastreCelda'
 import { finalizarArrastreZona } from '../ui/planos/planoZonaDrag'
 import { aplicarFormaEnPlano } from '../ui/planos/planoEditarForma'
+import { aplicarPincelCuarto, aplicarPincelCuartoFino } from '../ui/planos/planoPincelCuarto'
+import { geometriaLoseta3D, type FormaLoseta } from './formasLoseta'
+import { filtrarSegmentosPorForma, perimetroFormaCelda } from './murosPerimetroLoseta'
+import { PINCELES_DEFAULT } from './murosPuertas'
 
-/** Marcadores de espacio interior al agregar cuarto (celdas enteras). */
-function CeldasMarcadas3D({ nivel, celdas }: { nivel: number; celdas: Cell[] }) {
-  const conTecho = useHouse((s) => s.conTecho)
-  const y = nivelBaseY(nivel, conTecho) + 0.1
-  const enteras = useMemo(() => normalizarCeldasEnteras(celdas), [celdas])
-
-  return (
-    <>
-      {enteras.map((c) => {
-        const [x, , z] = cellToWorld(c.col, c.row)
-        const tile = SIZE - 0.12
-        return (
-          <mesh key={`mk3d-${c.col},${c.row}`} position={[x, y, z]} rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[tile, tile]} />
-            <meshStandardMaterial color="#a8a29e" transparent opacity={0.75} depthWrite={false} />
-          </mesh>
-        )
-      })}
-    </>
-  )
-}
-
-/** Resaltado de la celda bajo el cursor (Agregar / Editar forma / Borrar). */
-function HoverCelda3D({ nivel, cell, color = '#34d399' }: { nivel: number; cell: Cell; color?: string }) {
-  const conTecho = useHouse((s) => s.conTecho)
+/** Resaltado de la celda (o cuadrante fino) bajo el cursor (Editar forma / Borrar / Pincel fino). */
+function HoverCelda3D({
+  nivel,
+  cell,
+  color = '#34d399',
+  lado = SIZE - 0.2,
+}: {
+  nivel: number
+  cell: Cell
+  color?: string
+  lado?: number
+}) {
+  const apilado = !useHouse((s) => s.explotado)
   const [x, , z] = cellToWorld(cell.col, cell.row)
-  const y = nivelBaseY(nivel, conTecho) + 0.25
+  const y = nivelBaseY(nivel, apilado) + 0.25
   return (
     <mesh position={[x, y, z]} rotation={[-Math.PI / 2, 0, 0]}>
-      <planeGeometry args={[SIZE - 0.2, SIZE - 0.2]} />
+      <planeGeometry args={[lado, lado]} />
       <meshStandardMaterial color={color} transparent opacity={0.5} depthWrite={false} />
     </mesh>
   )
 }
 
+const COLOR_FANTASMA_CUARTO = '#34d399'
+const SEG_ARCO_FANTASMA = 14
+
+/** Material translúcido verde compartido por las paredes del fantasma. */
+function MatFantasma() {
+  return (
+    <meshStandardMaterial
+      color={COLOR_FANTASMA_CUARTO}
+      transparent
+      opacity={0.4}
+      emissive={COLOR_FANTASMA_CUARTO}
+      emissiveIntensity={0.4}
+    />
+  )
+}
+
+/**
+ * Preview del pincel: fantasma del cuarto bajo el cursor con sus paredes levantadas
+ * (igual que el cuarto real). Solo se muestra sobre celdas libres: al hacer clic el
+ * cuarto se materializa y el fantasma desaparece; los siguientes clics rotan la forma
+ * real. El arco del círculo se segmenta igual que `MuroArcoPerimetro` para que coincida
+ * con el muro curvo del cuarto real.
+ */
+function HoverFormaCelda3D({
+  nivel,
+  cell,
+  forma,
+  rotacion,
+}: {
+  nivel: number
+  cell: Cell
+  forma: FormaLoseta
+  rotacion: 0 | 90 | 180 | 270
+}) {
+  const apilado = !useHouse((s) => s.explotado)
+  const [x, , z] = cellToWorld(cell.col, cell.row)
+  const yBase = nivelBaseY(nivel, apilado)
+  const { geoPiso, segs, diagonales, arcos } = useMemo(() => {
+    const fc = { forma, rotacion }
+    const formas = { '0,0': fc }
+    const raw = roomWallSegments(cell, [{ col: 0, row: 0 }], SIN_OCUPACION, undefined, undefined, PINCELES_DEFAULT, formas)
+    const extras = perimetroFormaCelda(fc, 0, 0)?.extras ?? []
+    return {
+      geoPiso: geometriaLoseta3D(fc, SIZE - 0.2, 'plano'),
+      segs: filtrarSegmentosPorForma(raw, formas),
+      diagonales: extras.filter((e) => e.tipo === 'diagonal'),
+      arcos: extras.filter((e) => e.tipo === 'arco'),
+    }
+  }, [forma, rotacion, cell.col, cell.row])
+
+  return (
+    <group>
+      {/* Silueta del piso */}
+      <mesh position={[x, yBase + 0.25, z]} rotation={[-Math.PI / 2, 0, 0]} geometry={geoPiso}>
+        <meshStandardMaterial color={COLOR_FANTASMA_CUARTO} transparent opacity={0.5} depthWrite={false} />
+      </mesh>
+      {/* Muros rectos del perímetro */}
+      {segs.map((s, i) => (
+        <mesh key={`s${i}`} position={[x + s.cx, yBase + WALL_H / 2, z + s.cz]}>
+          <boxGeometry args={[s.sx, WALL_H, s.sz]} />
+          <MatFantasma />
+        </mesh>
+      ))}
+      {/* Muro diagonal (triángulo) */}
+      {diagonales.map((m, i) => {
+        const dx = m.x2 - m.x1
+        const dz = m.z2 - m.z1
+        const len = Math.hypot(dx, dz)
+        const yaw = Math.atan2(dz, dx)
+        return (
+          <mesh
+            key={`d${i}`}
+            position={[x + (m.x1 + m.x2) / 2, yBase + WALL_H / 2, z + (m.z1 + m.z2) / 2]}
+            rotation={[0, -yaw, 0]}
+          >
+            <boxGeometry args={[len, WALL_H, WALL_T]} />
+            <MatFantasma />
+          </mesh>
+        )
+      })}
+      {/* Muro curvo (círculo) en segmentos finos, idéntico al del cuarto real */}
+      {arcos.map((m, ai) => {
+        let da = m.a1 - m.a0
+        while (da > Math.PI) da -= 2 * Math.PI
+        while (da <= -Math.PI) da += 2 * Math.PI
+        const paso = da / SEG_ARCO_FANTASMA
+        return Array.from({ length: SEG_ARCO_FANTASMA }, (_, i) => {
+          const a = m.a0 + paso * (i + 0.5)
+          const px = m.cx + m.r * Math.cos(a)
+          const pz = m.cz + m.r * Math.sin(a)
+          const chord = m.r * Math.abs(paso) * 1.02
+          return (
+            <mesh
+              key={`a${ai}-${i}`}
+              position={[x + px, yBase + WALL_H / 2, z + pz]}
+              rotation={[0, -(a + Math.PI / 2), 0]}
+            >
+              <boxGeometry args={[chord, WALL_H, WALL_T]} />
+              <MatFantasma />
+            </mesh>
+          )
+        })
+      })}
+    </group>
+  )
+}
+
 /**
  * Interacción 3D en Planos → capa Cuartos:
- * - Agregar: clic en suelo (2D o 3D) para marcar celdas.
+ * - Pincel de forma: clic en suelo (2D o 3D) para crear/alterar celdas con preview.
  * - Mover zonas: arrastre con proyección unificada 2D + 3D.
  * - Cuartos del registro: `RoomDragController` (misma proyección).
  */
@@ -65,8 +167,6 @@ export function PlanoCuartos3DController() {
   const capa = usePlanos((s) => s.capa)
   const herramienta = usePlanos((s) => s.herramienta)
   const nivel = usePlanos((s) => s.nivel)
-  const celdasMarcadas = usePlanos((s) => s.celdasMarcadas)
-  const toggleCeldaMarcada = usePlanos((s) => s.toggleCeldaMarcada)
   const setAviso = usePlanos((s) => s.setAviso)
   const setSeleccion = usePlanos((s) => s.setSeleccion)
   const draggingZonaId = usePlanos((s) => s.draggingZonaId)
@@ -79,16 +179,21 @@ export function PlanoCuartos3DController() {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const toggleRoom = useLayout((s) => s.toggleRoom)
-  const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
   const cuartos = useCuartos((s) => s.cuartos)
 
   const zonas = zonasRepo.useAll() ?? []
 
   const formaLoseta = usePlanos((s) => s.formaLoseta)
+  const pincelForma = usePlanos((s) => s.pincelForma)
+  const rotForma = usePlanos((s) => s.rotForma)
+  const detalleRejilla = usePlanos((s) => s.detalleRejilla)
 
   const cuartos3D = planosActivo && capa === 'cuartos'
-  const agregar = cuartos3D && herramienta === 'agregar'
-  const moverZona = cuartos3D && herramienta === 'mover'
+  const pincel = cuartos3D && pincelForma != null
+  // Pincel + rejilla fina: el clic recorta el CUADRANTE (esquina fina) del cuarto.
+  const pincelFino = pincel && detalleRejilla === 'subcelda'
+  const moverZona = cuartos3D && herramienta === 'mover' && !pincel
   const editarForma = cuartos3D && herramienta === 'editar-forma'
   const borrar = cuartos3D && herramienta === 'borrar'
   const [hover, setHover] = useState<Cell | null>(null)
@@ -108,11 +213,40 @@ export function PlanoCuartos3DController() {
         canvas: gl.domElement,
         camera,
         nivel,
-        conTecho,
+        apilado,
         gridCols,
         gridRows,
       }),
-    [gl, camera, nivel, conTecho, gridCols, gridRows],
+    [gl, camera, nivel, apilado, gridCols, gridRows],
+  )
+
+  // Pincel: snap a ½ celda (los cuartos se colocan en media rejilla, igual que al mover).
+  const proyectarPincel = useCallback(
+    (clientX: number, clientY: number) =>
+      celdaBajoCursor(clientX, clientY, {
+        canvas: gl.domElement,
+        camera,
+        nivel,
+        apilado,
+        gridCols,
+        gridRows,
+      }),
+    [gl, camera, nivel, apilado, gridCols, gridRows],
+  )
+
+  // Pincel fino: esquina del CUADRANTE bajo el cursor (solo suelo 3D; el croquis tiene
+  // su propio hit-test). `cuadranteBajoCursor` da el centro (±¼): +0.25 da la esquina.
+  const proyectarCuadrante = useCallback(
+    (clientX: number, clientY: number): Cell | null => {
+      const q = cuadranteBajoCursor(clientX, clientY, {
+        canvas: gl.domElement,
+        camera,
+        nivel,
+        apilado,
+      })
+      return q ? { col: q.col + 0.25, row: q.row + 0.25 } : null
+    },
+    [gl, camera, nivel, apilado],
   )
 
   // Mover zona hace snap a celda ENTERA (igual que Agregar): las zonas son de
@@ -124,53 +258,11 @@ export function PlanoCuartos3DController() {
         canvas: gl.domElement,
         camera,
         nivel,
-        conTecho,
+        apilado,
         gridCols,
         gridRows,
       }),
-    [gl, camera, nivel, conTecho, gridCols, gridRows],
-  )
-
-  const onAgregarDown = useCallback(
-    (clientX: number, clientY: number) => {
-      const c = proyectarAgregar(clientX, clientY)
-      if (!c) return
-      const celda = { col: Math.round(c.col), row: Math.round(c.row) }
-      const k = `${celda.col},${celda.row}`
-      const yaMarcada = usePlanos.getState().celdasMarcadas.some((m) => `${m.col},${m.row}` === k)
-      if (
-        !yaMarcada &&
-        !celdaEnteraEsLibre(
-          celda,
-          nivel,
-          placed,
-          cells,
-          footprints,
-          niveles,
-          zonas,
-          idsCuartosNivel,
-          anchorDe,
-        )
-      ) {
-        setAviso('Esa celda ya está ocupada. Elige un espacio libre.')
-        return
-      }
-      setAviso(null)
-      toggleCeldaMarcada(celda)
-    },
-    [
-      proyectarAgregar,
-      nivel,
-      placed,
-      cells,
-      footprints,
-      niveles,
-      zonas,
-      idsCuartosNivel,
-      anchorDe,
-      setAviso,
-      toggleCeldaMarcada,
-    ],
+    [gl, camera, nivel, apilado, gridCols, gridRows],
   )
 
   const onBorrarDown = useCallback(
@@ -215,6 +307,51 @@ export function PlanoCuartos3DController() {
     [proyectarAgregar, nivel, formaLoseta, zonas, placed, cells, footprints, idsCuartosNivel, setAviso],
   )
 
+  const onPincelDown = useCallback(
+    (clientX: number, clientY: number) => {
+      if (!pincelForma) return
+      // Rejilla fina: recorta la esquina del cuadrante tocado en el 3D.
+      if (detalleRejilla === 'subcelda') {
+        const q = proyectarCuadrante(clientX, clientY)
+        if (!q) return
+        void aplicarPincelCuartoFino({
+          col: q.col,
+          row: q.row,
+          forma: pincelForma,
+          nivel,
+          placed,
+          cells,
+          footprints,
+          niveles,
+          zonas,
+          idsCuartosNivel,
+          setAviso,
+          setSeleccion,
+        })
+        return
+      }
+      const c = proyectarPincel(clientX, clientY)
+      if (!c) return
+      void aplicarPincelCuarto({
+        col: c.col,
+        row: c.row,
+        forma: pincelForma,
+        rotacion: rotForma,
+        nivel,
+        placed,
+        cells,
+        footprints,
+        niveles,
+        zonas,
+        idsCuartosNivel,
+        setAviso,
+        setSeleccion,
+        onCuartoCreado: () => usePlanos.getState().setHerramienta('expandir'),
+      })
+    },
+    [pincelForma, rotForma, detalleRejilla, proyectarCuadrante, proyectarPincel, nivel, placed, cells, footprints, niveles, zonas, idsCuartosNivel, setAviso, setSeleccion],
+  )
+
   useEffect(() => {
     if (!borrar) return
     const dom = gl.domElement
@@ -228,12 +365,23 @@ export function PlanoCuartos3DController() {
     return () => dom.removeEventListener('pointerdown', onDown)
   }, [borrar, gl, onBorrarDown])
 
-  // Hover: resaltar la celda bajo el cursor (Agregar / Editar forma / Borrar).
   useEffect(() => {
-    if (!agregar && !editarForma && !borrar) {
-      setHover(null)
-      return
+    if (!pincel) return
+    const dom = gl.domElement
+    const onDown = (ev: PointerEvent) => {
+      if (ev.button !== 0) return
+      const rect = dom.getBoundingClientRect()
+      if (ev.clientX < rect.left || ev.clientX > rect.right || ev.clientY < rect.top || ev.clientY > rect.bottom) return
+      onPincelDown(ev.clientX, ev.clientY)
     }
+    dom.addEventListener('pointerdown', onDown)
+    return () => dom.removeEventListener('pointerdown', onDown)
+  }, [pincel, gl, onPincelDown])
+
+  // Hover: resaltar la celda bajo el cursor (Pincel / Editar forma / Borrar).
+  useEffect(() => {
+    // Sin herramienta activa no hay hover: el cleanup previo ya lo dejó en null.
+    if (!editarForma && !borrar && !pincel) return
     const dom = gl.domElement
     const onMove = (ev: PointerEvent) => {
       const rect = dom.getBoundingClientRect()
@@ -246,15 +394,20 @@ export function PlanoCuartos3DController() {
         setHover(null)
         return
       }
-      const c = proyectarAgregar(ev.clientX, ev.clientY)
-      setHover(c ? { col: Math.round(c.col), row: Math.round(c.row) } : null)
+      // Pincel: hover en ½ celda (o cuadrante con la rejilla fina); el resto, celda entera.
+      const c = pincelFino
+        ? proyectarCuadrante(ev.clientX, ev.clientY)
+        : pincel
+          ? proyectarPincel(ev.clientX, ev.clientY)
+          : proyectarAgregar(ev.clientX, ev.clientY)
+      setHover(c ? (pincel ? c : { col: Math.round(c.col), row: Math.round(c.row) }) : null)
     }
     dom.addEventListener('pointermove', onMove)
     return () => {
       dom.removeEventListener('pointermove', onMove)
       setHover(null)
     }
-  }, [agregar, editarForma, borrar, gl, proyectarAgregar])
+  }, [editarForma, borrar, pincel, pincelFino, gl, proyectarAgregar, proyectarPincel, proyectarCuadrante])
 
   useEffect(() => {
     if (!editarForma) return
@@ -275,26 +428,6 @@ export function PlanoCuartos3DController() {
     dom.addEventListener('pointerdown', onDown)
     return () => dom.removeEventListener('pointerdown', onDown)
   }, [editarForma, gl, onEditarFormaDown])
-
-  useEffect(() => {
-    if (!agregar) return
-    const dom = gl.domElement
-    const onDown = (ev: PointerEvent) => {
-      if (ev.button !== 0) return
-      const rect = dom.getBoundingClientRect()
-      if (
-        ev.clientX < rect.left ||
-        ev.clientX > rect.right ||
-        ev.clientY < rect.top ||
-        ev.clientY > rect.bottom
-      ) {
-        return
-      }
-      onAgregarDown(ev.clientX, ev.clientY)
-    }
-    dom.addEventListener('pointerdown', onDown)
-    return () => dom.removeEventListener('pointerdown', onDown)
-  }, [agregar, gl, onAgregarDown])
 
   useEffect(() => {
     if (!moverZona || draggingZonaId == null) return
@@ -367,8 +500,21 @@ export function PlanoCuartos3DController() {
 
   return (
     <>
-      {agregar && <CeldasMarcadas3D nivel={nivel} celdas={celdasMarcadas} />}
-      {(agregar || editarForma || borrar) && hover && (
+      {/* Pincel fino: resalta el cuadrante que se va a recortar. */}
+      {pincelFino && hover && (
+        <HoverCelda3D
+          nivel={nivel}
+          cell={{ col: hover.col - 0.25, row: hover.row - 0.25 }}
+          lado={SIZE / 2 - 0.15}
+        />
+      )}
+      {/* El fantasma solo sobre celdas libres: al materializar el cuarto desaparece. */}
+      {pincel && !pincelFino && pincelForma && hover &&
+        !cuartoIdEnTile(hover, idsCuartosNivel, cells, footprints, anchorDe) &&
+        !zonaEnCelda(zonas, nivel, hover.col, hover.row) && (
+          <HoverFormaCelda3D nivel={nivel} cell={hover} forma={pincelForma} rotacion={pincelForma === 'cuadrado' ? 0 : rotForma} />
+        )}
+      {!pincel && (editarForma || borrar) && hover && (
         <HoverCelda3D nivel={nivel} cell={hover} color={borrar ? '#f87171' : '#34d399'} />
       )}
     </>

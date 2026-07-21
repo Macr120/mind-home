@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { setPad } from '../house/movement'
 import { setLookPad, clearLook } from '../house/lookInput'
 import { useT } from '../i18n/useT'
+import { useHud } from '../state/hudStore'
+import { BotonPlegarHud } from './HudPlegable'
 
 const R = 38 // radio máximo del knob
 
@@ -66,7 +68,7 @@ function Joystick({
       onPointerUp={onUp}
       onPointerCancel={onUp}
       onPointerLeave={onUp}
-      className="relative flex h-24 w-24 touch-none items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-sm"
+      className="ui-hud relative flex h-24 w-24 touch-none items-center justify-center rounded-full border border-white/10"
       title={`Arrastra para ${label}`}
     >
       <span className="pointer-events-none absolute text-[10px] text-white/25">{label}</span>
@@ -81,9 +83,13 @@ function Joystick({
 /** Joystick de MOVIMIENTO (abajo a la izquierda). */
 export function MoveControls() {
   const t = useT()
+  // Plegado: el joystick se va y la esquina queda con el abanico de herramientas.
+  const plegado = useHud((s) => s.plegado.infIzq)
+  if (plegado) return null
   return (
-    <div className="absolute bottom-4 left-4 z-10 select-none">
+    <div data-tut="nav.joystick" className="absolute bottom-4 left-4 z-10 flex items-start gap-1 select-none">
       <Joystick label={t('ui.mover', 'mover')} onChange={(x, y) => setPad(-y, x)} onEnd={() => setPad(0, 0)} />
+      <BotonPlegarHud zona="infIzq" />
     </div>
   )
 }

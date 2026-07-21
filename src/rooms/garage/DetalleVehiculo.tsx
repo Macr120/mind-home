@@ -10,6 +10,8 @@ import { dinero, formatearFecha } from './fecha'
 import { FormularioMantenimiento } from './FormularioMantenimiento'
 import { FormularioVehiculo } from './FormularioVehiculo'
 import { useT } from '../../core/i18n/useT'
+import { vivo } from '../../core/ui/estilos'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function DetalleVehiculo({
   vehiculo,
@@ -80,7 +82,7 @@ export function DetalleVehiculo({
         style={{ background: `${COLOR}18`, borderColor: `${COLOR}44` }}
       >
         <div className="flex items-start gap-3">
-          <span className="text-4xl">{tipo.icon}</span>
+          <span className="text-4xl"><Icono emoji={tipo.icon} /></span>
           <div className="flex-1">
             <h2 className="text-xl font-black">{vehiculo.nombre}</h2>
             <p className="text-sm text-white/60">
@@ -135,7 +137,7 @@ export function DetalleVehiculo({
         className="w-full rounded-xl py-3 text-sm font-bold text-black"
         style={{ background: COLOR }}
       >
-        {t('garage.detalle.registrar', '🔧 Registrar mantenimiento')}
+        <Icono nombre="herramienta" /> {t('garage.detalle.registrar', 'Registrar mantenimiento')}
       </button>
 
       <div className="space-y-2">
@@ -161,10 +163,10 @@ export function DetalleVehiculo({
                         ` · ${r.odometro.toLocaleString('es-MX')} ${vehiculo.unidad}`}
                     </p>
                     {r.taller && (
-                      <p className="text-xs text-white/40 mt-0.5">📍 {r.taller}</p>
+                      <p className="text-xs text-white/40 mt-0.5"><Icono nombre="ubicacion" /> {r.taller}</p>
                     )}
                     {(r.proximoOdometro != null || r.proximaFecha) && (
-                      <p className="text-xs mt-1" style={{ color: COLOR }}>
+                      <p className="text-xs mt-1 texto-vivo" style={vivo(COLOR)}>
                         {t('garage.detalle.proximo', 'Próximo:')}
                         {r.proximoOdometro != null &&
                           ` ${r.proximoOdometro.toLocaleString('es-MX')} ${vehiculo.unidad}`}

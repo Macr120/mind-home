@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { AjusteFondoImagen } from '../../house/fondosImagen'
 import {
-  AJUSTE_FONDO_DEFAULT,
   ajusteTrasArrastre,
   clampAjuste,
   layoutFondoImagen,
@@ -45,7 +44,6 @@ export function EditorFondoImagenPreview({
   const t = useT()
   const boxRef = useRef<HTMLDivElement>(null)
   const arrastre = useRef<{ px: number; py: number; ajuste: AjusteFondoImagen } | null>(null)
-  const calc = useRef({ scale: 1 })
   const [dims, setDims] = useState<{ ancho: number; alto: number } | null>(null)
   const [box, setBox] = useState({ w: 300, h: 169 })
 
@@ -90,8 +88,6 @@ export function EditorFondoImagenPreview({
     offX = (box.w - unionW * scale) / 2 - minX * scale
     offY = (box.h - unionH * scale) / 2 - minY * scale
   }
-  calc.current.scale = scale
-
   const onPointerDown = (ev: React.PointerEvent) => {
     ev.currentTarget.setPointerCapture(ev.pointerId)
     arrastre.current = { px: ev.clientX, py: ev.clientY, ajuste }
@@ -99,7 +95,7 @@ export function EditorFondoImagenPreview({
 
   const onPointerMove = (ev: React.PointerEvent) => {
     if (!arrastre.current || !dims) return
-    const s = calc.current.scale || 1
+    const s = scale || 1
     const dxScreen = (ev.clientX - arrastre.current.px) / s
     const dyScreen = (ev.clientY - arrastre.current.py) / s
     onAjuste(
@@ -122,7 +118,7 @@ export function EditorFondoImagenPreview({
 
   return (
     <div className="space-y-2.5 rounded-xl border border-emerald-400/25 bg-black/30 p-2.5">
-      <p className="text-[11px] font-semibold text-emerald-200/90">
+      <p className="text-[11px] font-semibold text-emerald-400/90">
         {t('editor.fondo.previewTitulo', 'Ajusta el fondo — arrastra la imagen; el marco es tu pantalla')}
       </p>
 
@@ -226,7 +222,7 @@ export function EditorFondoImagenPreview({
           type="button"
           disabled={guardando || !dims}
           onClick={onGuardar}
-          className="flex-1 rounded-lg bg-emerald-500 py-1.5 text-[11px] font-bold text-black hover:bg-emerald-400 disabled:opacity-40"
+          className="flex-1 rounded-lg bg-emerald-600 py-1.5 text-[11px] font-bold texto-cta hover:bg-emerald-600 disabled:opacity-40"
         >
           {guardando
             ? t('editor.fondo.guardando', 'Guardando…')
@@ -236,5 +232,3 @@ export function EditorFondoImagenPreview({
     </div>
   )
 }
-
-export { AJUSTE_FONDO_DEFAULT }

@@ -4,8 +4,12 @@ export type TipoMuroId = 'solido' | 'ventana' | 'ladrillo' | 'madera' | 'vitraje
 export type TipoPuertaId = 'recta' | 'sin' | 'doble' | 'porton' | 'corredera'
 /** Perfil superior del muro (silueta), independiente de la textura. */
 export type FormaMuroId = 'recta' | 'arco' | 'esquinas' | 'triangulo'
-/** Forma del cristal de la ventana. */
-export type VentanaFormaId = 'cuadrado' | 'circulo'
+/** Remate del vano de la puerta: recto (rectángulo), arco o pico triangular. */
+export type FormaVanoId = Exclude<FormaMuroId, 'esquinas'>
+/** Forma del cristal de la ventana / abertura. */
+export type VentanaFormaId = 'cuadrado' | 'circulo' | 'triangulo'
+/** Qué vive en el vano: ventana (cristal), cuadro con foto o espejo con reflejo. */
+export type VentanaContenidoId = 'ventana' | 'cuadro' | 'espejo'
 
 export interface EstiloMuro {
   tipo: TipoMuroId
@@ -21,6 +25,10 @@ export interface EstiloMuro {
   ventPosY?: number // factor de WALL_H (centro vertical)
   ventPosX?: number // posición horizontal a lo largo del muro (-1 izq … 1 der)
   ventForma?: VentanaFormaId // cuadrado (default) o círculo
+  /** Contenido del vano: ventana (default), cuadro con foto o espejo (empotrados, sin hueco). */
+  ventContenido?: VentanaContenidoId
+  /** Cara del muro donde vive el cuadro/espejo (default 'interior'; la otra queda lisa). */
+  ventCara?: 'interior' | 'exterior'
   ventRot?: number // rotación del cristal en grados (cuadrado → rombo a 45°)
   ventColor?: string // color del cristal (default celeste)
   ventMosaico?: boolean // cristal dividido en piezas (vitral)
@@ -42,6 +50,11 @@ export interface EstiloPuerta {
   anchoVano?: number // factor de DOOR_W
   alto?: number // alto de la hoja como factor del alto del muro (0–1)
   posX?: number // posición horizontal a lo largo del muro (-1 izq … 1 der)
+  /** Remate del vano sobre la hoja: recto (default), arco o pico triangular. */
+  vanoForma?: FormaVanoId
+  vanoFormaAlto?: number // alto del arco/pico, factor de WALL_H (como formaAlto del muro)
+  vanoFormaAncho?: number // base del pico (triángulo), factor del ancho del vano
+  vanoFormaPosX?: number // posición del pico dentro de su base (-1 izq … 1 der)
 }
 
 export interface EstiloArista {
@@ -136,27 +149,77 @@ export const TIPOS_PUERTA: {
   },
 ]
 
-export const TIPOS_FORMA_MURO: { id: FormaMuroId; nombre: string }[] = [
+export const TIPOS_FORMA_MURO: { id: FormaVanoId; nombre: string }[] = [
   { id: 'recta', nombre: 'Recta' },
   { id: 'arco', nombre: 'Arco' },
-  { id: 'esquinas', nombre: 'Esquinas altas' },
   { id: 'triangulo', nombre: 'Triángulo' },
 ]
+
+// ── Remate del vano de puerta (compartido por todos los tipos de muro) ────────
+/** Alto por defecto del arco/pico del vano, factor de WALL_H. */
+export const VANO_FORMA_ALTO_DEFAULT = 0.35
+
+/**
+ * Perfil del remate del vano (fracción 0–1 del alto extra) en la columna
+ * un ∈ [-1 … 1] del ancho del vano. Fuente única: la usan el dintel de los
+ * cuartos, el hueco de los muros libres/diagonales y el muro curvo, para que
+ * la silueta del vano sea idéntica en todos los tipos de muro.
+ */
+export function perfilFormaVano(forma: FormaVanoId, un: number, ancho = 1, posX = 0): number {
+  if (forma === 'arco') return Math.sqrt(Math.max(0, 1 - un * un))
+  if (forma === 'triangulo') {
+    const half = Math.max(0.05, Math.min(1, ancho))
+    const apex = posX * half
+    // Vértice exacto aparte: con el pico en el borde de la base (posX ±1) una de las
+    // pendientes tiene ancho 0 y la fórmula lineal lo aplastaría a 0.
+    if (un === apex) return 1
+    if (un < apex) {
+      const izq = apex + half
+      return izq <= 1e-6 ? 0 : Math.max(0, (un + half) / izq)
+    }
+    const der = half - apex
+    return der <= 1e-6 ? 0 : Math.max(0, (half - un) / der)
+  }
+  return 0
+}
+
+/**
+ * Puntos (un, fracción) del remate del vano recorridos de un=+1 a un=−1, para
+ * construir shapes 2D: el arco muestreado y el triángulo con vértices exactos.
+ */
+export function puntosRemateVano(forma: FormaVanoId, ancho = 1, posX = 0): [number, number][] {
+  if (forma === 'arco') {
+    const pts: [number, number][] = []
+    const N = 24
+    for (let i = 0; i <= N; i++) {
+      const t = (Math.PI * i) / N
+      pts.push([Math.cos(t), Math.sin(t)])
+    }
+    return pts
+  }
+  if (forma === 'triangulo') {
+    const half = Math.max(0.05, Math.min(1, ancho))
+    const apex = posX * half
+    const pts: [number, number][] = []
+    if (half < 0.999) pts.push([1, 0])
+    pts.push([half, 0], [apex, 1], [-half, 0])
+    if (half < 0.999) pts.push([-1, 0])
+    return pts
+  }
+  return []
+}
 
 export const TIPOS_VENTANA_FORMA: { id: VentanaFormaId; nombre: string }[] = [
   { id: 'cuadrado', nombre: 'Cuadrado' },
   { id: 'circulo', nombre: 'Círculo' },
+  { id: 'triangulo', nombre: 'Triángulo' },
+]
+
+export const TIPOS_VENTANA_CONTENIDO: { id: VentanaContenidoId; nombre: string }[] = [
+  { id: 'ventana', nombre: 'Ventana' },
+  { id: 'cuadro', nombre: 'Cuadro' },
+  { id: 'espejo', nombre: 'Espejo' },
 ]
 
 /** Color del cristal por defecto (celeste claro). */
 export const VENTANA_COLOR_DEFAULT = '#bcdcff'
-
-export function muroDefecto(tipo: TipoMuroId = 'solido'): EstiloMuro {
-  const c = TIPOS_MURO.find((t) => t.id === tipo)!
-  return { tipo, color: c.defaultColor }
-}
-
-export function puertaDefecto(tipo: TipoPuertaId = 'recta'): EstiloPuerta {
-  const c = TIPOS_PUERTA.find((t) => t.id === tipo)!
-  return { tipo, color: c.defaultColor }
-}

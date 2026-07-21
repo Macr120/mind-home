@@ -1,35 +1,35 @@
-import { plantillas, DESCRIPCIONES } from '../registry'
+import { plantillasCuarto, DESCRIPCIONES } from '../registry'
 import { useAsignar } from '../state/asignarStore'
 import { useDiseño } from '../state/disenoStore'
 import { getCuarto } from '../state/cuartosStore'
+import { iniciarAsignacion } from '../state/amueblarStore'
 import { useT } from '../i18n/useT'
-
-/** Objeto 3D por defecto que encarna una app cuando se asigna desde el menú. */
-const TIPO_OBJETO_APP = 'mesa'
+import { Icono } from './iconos/Icono'
 
 /**
- * Catálogo de plantillas (apps) para asignar a un cuarto u objeto.
+ * Catálogo de plantillas (apps) para asignar a un cuarto u objeto. Solo lista
+ * las apps LIBRES (cada app vive en un solo cuarto a la vez).
+ * La app llega con su conjunto de objetos (el asistente que la atiende se elige
+ * en el catálogo de Plantillas del inventario).
  * - Si `objetoId` viene definido, fija la plantilla en ese objeto.
- * - Si no, crea un objeto-app nuevo en el cuarto con la plantilla.
+ * - Si no, siembra el conjunto y liga la app al objeto principal.
  */
 export function AsignarPlantillaDialog() {
   const t = useT()
   const cuartoId = useAsignar((s) => s.cuartoId)
   const objetoId = useAsignar((s) => s.objetoId)
   const cerrar = useAsignar((s) => s.cerrar)
-  const addObjeto = useDiseño((s) => s.addObjeto)
-  const setObjetoPlantilla = useDiseño((s) => s.setObjetoPlantilla)
+  const objetos = useDiseño((s) => s.objetos)
 
   if (!cuartoId) return null
   const cuarto = getCuarto(cuartoId)
 
-  const elegir = async (plantillaId: string, color: string) => {
-    if (objetoId != null) {
-      await setObjetoPlantilla(objetoId, plantillaId)
-    } else {
-      await addObjeto(cuartoId, TIPO_OBJETO_APP, color, plantillaId)
-    }
+  const asignadas = new Set(objetos.map((o) => o.plantillaId).filter(Boolean))
+  const disponibles = plantillasCuarto().filter((p) => !asignadas.has(p.id))
+
+  const elegir = async (plantillaId: string) => {
     cerrar()
+    await iniciarAsignacion(cuartoId, plantillaId, objetoId)
   }
 
   return (
@@ -38,7 +38,7 @@ export function AsignarPlantillaDialog() {
       onClick={cerrar}
     >
       <div
-        className="ui-panel flex max-h-[80vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151c]"
+        className="ui-panel ui-pop flex max-h-[80vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <header className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
@@ -55,12 +55,20 @@ export function AsignarPlantillaDialog() {
           </button>
         </header>
 
-        <div className="scroll-sutil grid min-h-0 grid-cols-2 gap-2 overflow-y-auto p-3 sm:grid-cols-3">
-          {plantillas.map((p) => (
+        {disponibles.length === 0 && (
+          <p className="px-4 py-6 text-center text-xs leading-relaxed text-white/45">
+            {t(
+              'plantillas.todasAsignadas',
+              'Todas las apps ya viven en un cuarto. Si borras un cuarto, su plantilla vuelve aquí.',
+            )}
+          </p>
+        )}
+        <div className="grid min-h-0 grid-cols-2 gap-2 overflow-y-auto p-3 sm:grid-cols-3">
+          {disponibles.map((p) => (
             <button
               key={p.id}
               type="button"
-              onClick={() => elegir(p.id, p.color)}
+              onClick={() => elegir(p.id)}
               className="flex flex-col items-start gap-1.5 rounded-xl border p-3 text-left transition hover:bg-white/8"
               style={{ borderColor: `${p.color}44`, background: `${p.color}10` }}
               title={DESCRIPCIONES[p.id] ?? p.nombre}
@@ -69,7 +77,7 @@ export function AsignarPlantillaDialog() {
                 className="flex h-9 w-9 items-center justify-center rounded-md text-lg"
                 style={{ background: `${p.color}33` }}
               >
-                {p.icon}
+                <Icono emoji={p.icon} />
               </span>
               <span className="text-sm font-semibold text-white/90">
                 {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}

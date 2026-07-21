@@ -3,9 +3,10 @@ import { useLayout } from '../state/layoutStore'
 import { useCiclo } from '../state/cicloStore'
 import { useCuartos } from '../state/cuartosStore'
 import { estadoCielo } from './cielo'
+import { useTemaActivo } from './useTema'
 import { roomCenter, nivelBaseY, WALL_H, SIZE_DEFAULT } from './walls'
 
-/** Color cálido de los focos encendidos. */
+/** Color cálido de los focos encendidos (el tema puede cambiarlo). */
 const FOCO_COLOR = '#ffd9a0'
 
 /**
@@ -20,8 +21,10 @@ export function FocosCasa() {
   const cells = useLayout((s) => s.cells)
   const sizes = useLayout((s) => s.sizes)
   const niveles = useLayout((s) => s.niveles)
-  const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
   const cuartos = useCuartos((s) => s.cuartos)
+  const tema = useTemaActivo()
+  const focoColor = tema?.luz?.focos ?? FOCO_COLOR
 
   const { nocheFactor } = estadoCielo(minutos)
   // Se encienden también al atardecer/amanecer (no solo cuando es noche cerrada).
@@ -35,15 +38,15 @@ export function FocosCasa() {
         .filter((r) => placed[r.id] && cells[r.id])
         .map((r) => {
           const [x, , z] = roomCenter(cells[r.id], sizes[r.id] ?? SIZE_DEFAULT)
-          const y = nivelBaseY(niveles[r.id] ?? 0, conTecho) + WALL_H * 0.78
+          const y = nivelBaseY(niveles[r.id] ?? 0, apilado) + WALL_H * 0.78
           return (
             <group key={r.id} position={[x, y, z]}>
               {/* Intensidad alta (candelas físicas de Three.js); distance cubre todo el cuarto */}
-              <pointLight color={FOCO_COLOR} intensity={28 * fuerza} distance={16} decay={1.6} />
+              <pointLight color={focoColor} intensity={28 * fuerza} distance={16} decay={1.6} />
               <mesh>
                 {/* Bombilla un poco más grande para que sea visible de noche */}
                 <sphereGeometry args={[0.22, 12, 12]} />
-                <meshBasicMaterial color={FOCO_COLOR} toneMapped={false} />
+                <meshBasicMaterial color={focoColor} toneMapped={false} />
               </mesh>
             </group>
           )

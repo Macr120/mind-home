@@ -1,140 +1,119 @@
-import type { ProgresoTema } from '../../core/data/db'
-import { COLOR, ESTADOS_TEMA } from './constantes'
-import { estadisticasEnciclopedia } from './stats'
-import { PILARES, todosLosTemas } from './pilares'
+import { useMemo } from 'react'
+import { conversacionesBiblioRepo, entradasBiblioRepo, sesionesEstudioRepo, temasArbolRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
+import { vivo } from '../../core/ui/estilos'
+import { Icono } from '../../core/ui/iconos/Icono'
+import { COLOR, PILAR_GENERAL } from './constantes'
+import { PILARES, contarIndice } from './pilares'
+import { hoyISO } from './fecha'
+import { HeatmapEstudio } from './HeatmapEstudio'
+import { fmtMin, inicioSemana, minutosPorDia, rachaActual } from './stats'
 
-export function ResumenTab({ progreso }: { progreso: ProgresoTema[] }) {
+/** Panorama de la enciclopedia (cobertura por campo) y del tiempo de estudio. */
+export function ResumenTab() {
   const t = useT()
-  const stats = estadisticasEnciclopedia(progreso)
-  const temaPorId = new Map(todosLosTemas().map((tema) => [tema.id, tema]))
-  const maxPilar = Math.max(1, ...stats.porPilar.map((p) => p.marcados))
+  const entradas = entradasBiblioRepo.useAll() ?? []
+  const sesiones = sesionesEstudioRepo.useAll() ?? []
+  const charlas = conversacionesBiblioRepo.useAll() ?? []
+  const nodos = temasArbolRepo.useAll() ?? []
+  const indice = contarIndice()
+
+  const { porPilar, camposConEntrada, temasCubiertos } = useMemo(() => {
+    const conteo = new Map<string, number>()
+    for (const e of entradas) conteo.set(e.pilarId, (conteo.get(e.pilarId) ?? 0) + 1)
+    const porPilar = [...PILARES, PILAR_GENERAL]
+      .map((p) => ({ id: p.id, titulo: p.titulo, icon: p.icon, entradas: conteo.get(p.id) ?? 0 }))
+      .filter((p) => p.entradas > 0)
+      .sort((a, b) => b.entradas - a.entradas)
+    return {
+      porPilar,
+      camposConEntrada: PILARES.filter((p) => (conteo.get(p.id) ?? 0) > 0).length,
+      temasCubiertos: new Set(entradas.map((e) => e.temaId).filter(Boolean)).size,
+    }
+  }, [entradas])
+
+  const { minPorDia, totalMin, semanaMin, racha } = useMemo(() => {
+    const minPorDia = minutosPorDia(sesiones)
+    let totalMin = 0
+    for (const min of minPorDia.values()) totalMin += min
+    const lunes = inicioSemana(hoyISO())
+    const semanaMin = sesiones.filter((s) => s.fecha >= lunes).reduce((acc, s) => acc + s.minutos, 0)
+    return { minPorDia, totalMin, semanaMin, racha: rachaActual(new Set(sesiones.map((s) => s.fecha))) }
+  }, [sesiones])
+
+  const maxEntradas = Math.max(1, ...porPilar.map((p) => p.entradas))
 
   return (
-    <div className="space-y-5">
-      <div className="grid grid-cols-2 gap-3">
-        <div
-          className="rounded-xl border border-white/10 p-4 col-span-2"
-          style={{ background: `${COLOR}18` }}
-        >
-          <p className="text-xs text-white/50">{t('biblioteca.r.indice', 'Índice enciclopédico')}</p>
-          <p className="text-3xl font-black" style={{ color: COLOR }}>
-            {t('biblioteca.r.pilares', `${stats.pilares} pilares`, { n: String(stats.pilares) })}
-          </p>
-          <p className="text-sm text-white/55 mt-1">
-            {t('biblioteca.r.ramas', `${stats.ramas} ramas temáticas · ${stats.temas} entradas en el índice`, { r: String(stats.ramas), t: String(stats.temas) })}
-          </p>
-        </div>
-        <MiniStat label={t('biblioteca.r.marcados', 'Temas marcados')} valor={String(stats.marcados)} />
-        <MiniStat label={t('biblioteca.r.cobertura', 'Cobertura del índice')} valor={`${stats.cobertura}%`} />
-      </div>
-
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-3">{t('biblioteca.r.progreso', 'Tu progreso de exploración')}</p>
-        <div className="grid grid-cols-3 gap-2">
-          {ESTADOS_TEMA.map((e) => (
-            <div key={e.id} className="rounded-lg bg-black/25 p-3 text-center">
-              <p className="text-lg">{e.icon}</p>
-              <p className="text-xl font-black" style={{ color: COLOR }}>
-                {stats.porEstado[e.id]}
-              </p>
-              <p className="text-[10px] text-white/45">{e.label}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-3 h-2 rounded-full bg-black/40 overflow-hidden">
-          <div
-            className="h-full rounded-full transition-all"
-            style={{
-              width: `${stats.cobertura}%`,
-              background: COLOR,
-            }}
-          />
-        </div>
-        <p className="text-[10px] text-white/40 mt-1 text-center">
-          {t('biblioteca.r.sinExplorar', `${stats.temas - stats.marcados} temas sin explorar aún`, { n: String(stats.temas - stats.marcados) })}
+    <div className="space-y-4">
+      <div className="rounded-xl border border-white/10 p-4" style={{ background: `${COLOR}18` }}>
+        <p className="text-xs text-white/50">{t('biblioteca.r.titulo', 'Tu enciclopedia personal')}</p>
+        <p className="text-3xl font-black texto-vivo" style={vivo(COLOR)}>
+          {t('biblioteca.r.entradas', '{n} entradas', { n: String(entradas.length) })}
         </p>
+        <p className="mt-1 text-sm text-white/55">
+          {t('biblioteca.r.cobertura', '{c}/{total} campos con entradas · {t}/{temas} temas del índice', {
+            c: String(camposConEntrada),
+            total: String(PILARES.length),
+            t: String(temasCubiertos),
+            // El denominador crece con el árbol: temas semilla + desbloqueados.
+            temas: String(indice.temas + nodos.length),
+          })}
+        </p>
+        {nodos.length > 0 && (
+          <p className="mt-1 text-xs text-white/45">
+            <Icono nombre="brillo" /> {t('biblioteca.r.arbol', '{n} temas desbloqueados por tus charlas', { n: String(nodos.length) })}
+          </p>
+        )}
       </div>
 
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-3">{t('biblioteca.r.actPilar', 'Actividad por pilar')}</p>
-        <div className="space-y-2">
-          {stats.porPilar.map((p) => (
-            <div key={p.id}>
-              <div className="flex justify-between text-sm mb-0.5">
-                <span>
-                  {p.icon} {p.titulo}
-                </span>
-                <span className="text-white/40">
-                  {p.marcados}/{p.total}
-                  {p.revisados > 0 && ` · ${p.revisados} ✓`}
-                </span>
-              </div>
-              <div className="h-1.5 rounded-full bg-black/40 overflow-hidden">
-                <div
-                  className="h-full rounded-full"
-                  style={{
-                    width: `${(p.marcados / maxPilar) * 100}%`,
-                    background: COLOR,
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-2 gap-3">
+        <MiniStat label={t('biblioteca.r.charlas', 'Charlas con el Sabio')} valor={String(charlas.length)} />
+        <MiniStat label={t('biblioteca.r.estudioTotal', 'Estudio total')} valor={fmtMin(totalMin)} />
+        <MiniStat label={t('biblioteca.r.semana', 'Esta semana')} valor={fmtMin(semanaMin)} />
+        <MiniStat
+          label={t('biblioteca.r.racha', 'Racha de estudio')}
+          valor={t('biblioteca.r.rachaDias', '{n} días', { n: String(racha) })}
+        />
       </div>
 
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-2">{t('biblioteca.r.volumen', 'Volumen del índice por pilar')}</p>
-        <div className="grid grid-cols-2 gap-2">
-          {PILARES.map((p) => {
-            const n = p.ramas.reduce((s, r) => s + r.temas.length, 0)
-            return (
-              <div
-                key={p.id}
-                className="flex items-center gap-2 rounded-lg bg-black/25 px-2.5 py-2"
-              >
-                <span className="text-lg">{p.icon}</span>
-                <div className="min-w-0">
-                  <p className="text-xs font-medium truncate">{p.titulo}</p>
-                  <p className="text-[10px] text-white/40">{t('biblioteca.r.temas', `${n} temas`, { n: String(n) })}</p>
+      {porPilar.length > 0 && (
+        <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+          <p className="mb-3 text-sm font-semibold">{t('biblioteca.r.porCampo', 'Entradas por campo')}</p>
+          <div className="space-y-2">
+            {porPilar.map((p) => (
+              <div key={p.id}>
+                <div className="mb-0.5 flex justify-between text-sm">
+                  <span>
+                    <Icono emoji={p.icon} /> {p.titulo}
+                  </span>
+                  <span className="text-white/40">{p.entradas}</span>
+                </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-black/40">
+                  <div
+                    className="h-full rounded-full"
+                    style={{ width: `${(p.entradas / maxEntradas) * 100}%`, background: COLOR }}
+                  />
                 </div>
               </div>
-            )
-          })}
-        </div>
-      </div>
-
-      {stats.recientes.length > 0 && (
-        <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-          <p className="text-sm font-semibold mb-2">{t('biblioteca.r.recientes', 'Últimos temas tocados')}</p>
-          <ul className="space-y-1.5 text-sm">
-            {stats.recientes.map((p) => {
-              const tema = temaPorId.get(p.temaId)
-              const est = ESTADOS_TEMA.find((e) => e.id === p.estado)
-              return (
-                <li key={p.id} className="flex justify-between gap-2">
-                  <span className="text-white/85 truncate">{tema?.titulo ?? p.temaId}</span>
-                  <span className="text-white/40 shrink-0">
-                    {est?.icon} {p.actualizadoEn}
-                  </span>
-                </li>
-              )
-            })}
-          </ul>
+            ))}
+          </div>
         </div>
       )}
 
-      <p className="text-xs text-white/35 text-center leading-relaxed px-2">
-        {t('biblioteca.r.proximo', 'Próximamente: artículos enlazados a cada tema. El archivo de películas y libros está en Sala de entretenimiento.')}
-      </p>
+      <HeatmapEstudio minPorDia={minPorDia} color={COLOR} />
+
+      {entradas.length === 0 && sesiones.length === 0 && (
+        <p className="px-4 text-center text-xs leading-relaxed text-white/35">
+          {t('biblioteca.r.vacio', 'Tu biblioteca está esperando: charla con el Sabio, destila entradas y estudia con el temporizador para ver crecer estas gráficas.')}
+        </p>
+      )}
     </div>
   )
 }
 
 function MiniStat({ label, valor }: { label: string; valor: string }) {
   return (
-    <div className="rounded-xl bg-white/5 p-3 border border-white/10">
+    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
       <p className="text-xs text-white/50">{label}</p>
       <p className="text-xl font-bold text-white/90">{valor}</p>
     </div>

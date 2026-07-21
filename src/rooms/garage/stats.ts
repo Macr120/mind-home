@@ -80,7 +80,3 @@ export function gastoAnio(registros: RegistroMantenimiento[], año: string) {
     .filter((r) => r.fecha.startsWith(año) && r.costo)
     .reduce((s, r) => s + (r.costo ?? 0), 0)
 }
-
-export function ultimoServicio(registros: RegistroMantenimiento[], vehiculoId: number) {
-  return registros.find((r) => r.vehiculoId === vehiculoId)
-}

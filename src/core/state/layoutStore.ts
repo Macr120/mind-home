@@ -3,12 +3,14 @@ import { db, type Acceso, type Cuarto } from '../data/db'
 import { useCuartos } from './cuartosStore'
 import { useCam, ZOOM_DEFAULT } from './cameraStore'
 import { useInteractUi } from './interactUiStore'
+import { useEditorUi } from './editorUiStore'
 import { usePlanos } from './planosStore'
 import { useHouse } from './houseStore'
 import {
   cellId,
   cabeEnRejilla,
   collidersForRoom,
+  formasColisionRoom,
   alturaTechoRoom,
   defaultCell,
   footprintCells,
@@ -32,6 +34,7 @@ import {
   COLS,
   ROWS,
   MAX_GRID,
+  SPACING,
   SIZE_DEFAULT,
   FOOTPRINT_DEFAULT,
   SIDE_KEYS,
@@ -50,17 +53,22 @@ import {
   type EstiloPuerta,
   type PincelesCuarto,
 } from '../house/murosPuertas'
-import {
-  repararMurosCuartosRegistro,
-  repararMurosZonasExistentes,
-} from '../house/repararMurosConstruccion'
+import { puertaInicialCuarto, murosAbiertosExterior } from '../house/murosZona'
 import {
   formaEnCelda,
   formasAbsAOff,
+  claveCeldaOff,
+  claveSubceldaOff,
+  cuadrantesDelLado,
+  rotInicialSubforma,
+  esFormaCuadrada,
+  migrarClavesSubcelda,
   remapearFormasOffTrasAncla,
   siguienteFormaEnCelda,
+  SUBQ_OFF,
   type FormaLoseta,
   type FormasCeldaMap,
+  type CeldaFormaLoseta,
 } from '../house/formasLoseta'
 
 /**
@@ -104,6 +112,8 @@ interface RecomputeIn {
   wallOverrides?: Overrides
   edgeStyles?: EdgeStyles
   pinceles?: PincelesPorCuarto
+  formasCelda?: FormasCeldaPorCuarto
+  conAgua?: Record<string, boolean>
 }
 
 /**
@@ -111,10 +121,12 @@ interface RecomputeIn {
  * colocados. Dos cuartos solo compiten por una celda si están en el MISMO nivel, así
  * que un cuarto de arriba puede apilarse sobre el footprint de otro de abajo.
  */
-function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edgeStyles = {}, pinceles = {} }: RecomputeIn) {
+function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edgeStyles = {}, pinceles = {}, formasCelda = {}, conAgua = {} }: RecomputeIn) {
   const colocados = losCuartos().filter((r) => placed[r.id] && cells[r.id])
   const sizes: Sizes = {}
   const ocupadoPorNivel = new Map<number, Set<string>>()
+  // Sub-celdas (½) de las albercas (sótanos con agua): el personaje flota sobre ellas.
+  const subCeldasAgua = new Set<string>()
   const setDe = (lvl: number) => {
     let s = ocupadoPorNivel.get(lvl)
     if (!s) ocupadoPorNivel.set(lvl, (s = new Set<string>()))
@@ -130,7 +142,10 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
     if (lvl === 0) nBase++
     const occ = setDe(lvl)
     // Ocupación por SUB-CELDA (½): detecta traslapes y vecinos a media rejilla.
-    for (const k of roomSubCells(cells[r.id], fp)) occ.add(k)
+    const subs = roomSubCells(cells[r.id], fp)
+    for (const k of subs) occ.add(k)
+    // Albercas (sótano con agua): sus sub-celdas marcan dónde flota el personaje.
+    if (lvl < 0 && conAgua[r.id]) for (const k of subs) subCeldasAgua.add(k)
   }
   setFlota(flotaPara(nBase))
   const wallCollidersByLevel: Record<number, AABB[]> = {}
@@ -143,7 +158,11 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
     const occ = ocupadoPorNivel.get(lvl) ?? SIN_OCUPACION
     const fp = fpDe(footprints, r.id)
     const arr = wallCollidersByLevel[lvl] ?? (wallCollidersByLevel[lvl] = [])
-    arr.push(...collidersForRoom(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id]))
+    arr.push(...collidersForRoom(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id], formasCelda[r.id]))
+    // Curvas/diagonales de formas (enteras y finas): colisión muestreada con el vano
+    // abierto donde hay puerta (se puede entrar y salir por ellas).
+    const fcol = formasColisionRoom(cells[r.id], fp, formasCelda[r.id], wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id])
+    arr.push(...fcol.muros)
     const altura = alturaTechoRoom(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id])
     let aMap = alturaTechoPorNivel.get(lvl)
     if (!aMap) alturaTechoPorNivel.set(lvl, (aMap = new Map()))
@@ -152,7 +171,8 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
     const [wcx, , wcz] = centroCuarto3D(cells[r.id], fp)
     let pArr = puertasPorNivel.get(lvl)
     if (!pArr) puertasPorNivel.set(lvl, (pArr = []))
-    for (const v of roomDoorways(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id])) {
+    pArr.push(...fcol.puertas)
+    for (const v of roomDoorways(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id], formasCelda[r.id])) {
       const dx = wcx + v.cx
       const dz = wcz + v.cz
       const along = v.ancho / 2 + 0.5 // a lo largo del vano
@@ -181,6 +201,7 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
     wallColliders: wallCollidersByLevel[0] ?? [],
     puertasPorNivel,
     alturaTechoPorNivel,
+    subCeldasAgua,
   }
 }
 
@@ -332,7 +353,7 @@ function migrarMuros(muros: Record<string, string>, fp: Footprint): WallOverride
   return out
 }
 
-type DirGrid = 'N' | 'S' | 'E' | 'O'
+export type DirGrid = 'N' | 'S' | 'E' | 'O'
 
 interface LayoutState {
   placed: Record<string, boolean>
@@ -359,11 +380,17 @@ interface LayoutState {
   puertasPorNivel: Map<number, AABB[]>
   /** Altura de techo (la del muro más alto) por celda absoluta, por nivel. */
   alturaTechoPorNivel: Map<number, Map<string, number>>
+  /** Sub-celdas (½) de las albercas (sótanos con agua): donde el personaje flota. */
+  subCeldasAgua: Set<string>
   wallOverrides: Overrides
   edgeStyles: EdgeStyles
   pinceles: PincelesPorCuarto
   /** Forma de loseta por offset de footprint (cuartos del registro). */
   formasCelda: FormasCeldaPorCuarto
+  /** Cuartos de espacio abierto (jardín): sin muros/puertas/techo ni colisión. */
+  sinMuros: Record<string, boolean>
+  /** Albercas (sótanos): cuartos llenos de agua animada, siempre destapados. */
+  conAgua: Record<string, boolean>
   draggingId: string | null
   previewCell: Cell | null
   /** Celda ancla al iniciar el arrastre (para validar zonas bajo el origen). */
@@ -376,13 +403,18 @@ interface LayoutState {
   previewLado: SideKey | null
   cargado: boolean
   cargar: () => Promise<void>
-  setEditMode: (v: boolean) => void
+  /** `mantenerVista`: al cerrar (v=false), no resetea la cámara (p. ej. al abrir el side menu de Mind Home). */
+  setEditMode: (v: boolean, opts?: { mantenerVista?: boolean }) => void
   editRoom: (id: string | null) => void
   toggleRoom: (id: string) => Promise<void>
   /** Coloca un cuarto NUEVO (recién creado) en la primera celda libre de planta baja. */
   colocarCuartoNuevo: (id: string) => Promise<void>
   /** Coloca un cuarto NUEVO con la forma dibujada (celdas absolutas) en un nivel dado. */
   colocarCuartoEnCeldas: (id: string, celdas: Cell[], nivel: number) => Promise<void>
+  /** Marca el cuarto como espacio abierto (jardín): sin muros/puertas/techo ni colisión. */
+  marcarSinMuros: (id: string) => Promise<void>
+  /** Llena/vacía de agua un cuarto de sótano (alberca). */
+  setAgua: (id: string, v: boolean) => Promise<void>
   /** Retira por completo un cuarto eliminado: estado + filas de layout/diseño/objetos. */
   quitarCuarto: (id: string) => Promise<void>
   /** Coloca un cuarto en planta baja (nivel 0). */
@@ -391,6 +423,16 @@ interface LayoutState {
   addRoomOnTop: (id: string, baseRoomId: string, tipoAcceso?: TipoAcceso) => Promise<void>
   /** Crea el acceso de un nivel (uno por nivel). */
   addAcceso: (nivel: number, tipo: TipoAcceso, col: number, row: number, lado: SideKey) => Promise<void>
+  /** Cambia el tipo (escalera/elevador/resbaladilla) de un acceso existente. */
+  setAccesoTipo: (id: number, tipo: TipoAcceso) => Promise<void>
+  /** Cuarto recién creado que estrena un nivel sin acceso: pide elegir el tipo de ascenso. */
+  accesoPendiente: { nivel: number; col: number; row: number } | null
+  /** Si el nivel (≥1) aún no tiene acceso, abre la petición para elegir el tipo de ascenso. */
+  pedirAccesoNivel: (nivel: number, col: number, row: number) => void
+  /** Crea el acceso del nivel pendiente con el tipo elegido y abre sus muros. */
+  confirmarAccesoNivel: (tipo: TipoAcceso) => Promise<void>
+  /** Descarta la petición de acceso (el nivel queda sin acceso por ahora). */
+  cancelarAccesoNivel: () => void
   /** ¿Hay al menos un cuarto en planta baja? (requisito para apilar). */
   hayPlantaBaja: () => boolean
   /** Cuartos colocados que aún no tienen otro directamente encima (candidatos para apilar). */
@@ -418,6 +460,18 @@ interface LayoutState {
   ) => Promise<void>
   /** Agrega una celda (absoluta) a la forma del cuarto. */
   addRoomCell: (id: string, abs: Cell) => Promise<void>
+  /**
+   * Expande el cuarto a la celda (absoluta). Si la celda vecina propia tiene forma de
+   * círculo/triángulo, mueve esa forma a la celda nueva (la silueta avanza) y deja su
+   * antiguo lugar como cuadrado. Si no hay forma, equivale a `addRoomCell`.
+   */
+  expandirCeldaCuarto: (id: string, abs: Cell) => Promise<void>
+  /**
+   * Inverso de `expandirCeldaCuarto`: quita la celda (absoluta) devolviendo su silueta
+   * (círculo/triángulo o esquinas finas del borde) a la celda vecina que queda, para que
+   * la figura recupere su forma anterior en vez de dejar un cuadrado.
+   */
+  contraerCeldaCuarto: (id: string, abs: Cell) => Promise<void>
   /** Quita una celda (absoluta) de la forma del cuarto. */
   removeRoomCell: (id: string, abs: Cell) => Promise<void>
   /** Cicla una arista del cuarto: Pared → Puerta → Abierto. */
@@ -433,8 +487,24 @@ interface LayoutState {
   ) => Promise<void>
   /** Actualiza el pincel (tipo/color por defecto) de un cuarto. */
   setPinceles: (id: string, p: PincelesCuarto) => Promise<void>
-  /** Forma de una celda del cuarto (offset en footprint). Doble aplicación rota. */
-  setCeldaForma: (id: string, offKey: string, forma: FormaLoseta) => Promise<void>
+  /**
+   * Forma de una celda del cuarto (offset en footprint). Sin `rotacionForzada`, doble
+   * aplicación rota (+90°); con ella, la fija directamente en esa rotación (botones de posición).
+   */
+  setCeldaForma: (id: string, offKey: string, forma: FormaLoseta, rotacionForzada?: 0 | 90 | 180 | 270) => Promise<void>
+  /**
+   * Recorte fino de un cuadrante (rejilla fina): cicla crear (rotación hacia la esquina
+   * exterior) → rotar ×3 → quitar. `cuadrado` quita el recorte directamente.
+   */
+  pintarSubformaCelda: (
+    id: string,
+    offCol: number,
+    offRow: number,
+    cuadrante: number,
+    forma: FormaLoseta,
+  ) => Promise<void>
+  /** Fija la forma (absoluta) en TODAS las celdas del cuarto, o la quita (null). */
+  aplicarFormaCuartoTodas: (id: string, forma: CeldaFormaLoseta | null) => Promise<void>
   startDrag: (id: string) => void
   setPreview: (cell: Cell | null) => void
   endDrag: () => Promise<void>
@@ -456,12 +526,15 @@ export const useLayout = create<LayoutState>((set, get) => ({
   edgeStyles: {},
   pinceles: {},
   formasCelda: {},
+  sinMuros: {},
+  conAgua: {},
   draggingId: null,
   previewCell: null,
   dragOriginCell: null,
   draggingAcceso: null,
   previewAcceso: null,
   previewLado: null,
+  accesoPendiente: null,
   cargado: false,
   ...recompute({
     placed: todos(true),
@@ -489,6 +562,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const edgeStyles: EdgeStyles = {}
     const pinceles: PincelesPorCuarto = {}
     const formasCelda: FormasCeldaPorCuarto = {}
+    const sinMuros: Record<string, boolean> = {}
+    const conAgua: Record<string, boolean> = {}
     // Casa data-driven: cada cuarto creado por el usuario toma su colocación de la
     // fila de `layout` correspondiente (o defaults si aún no tiene). Sin siembra fija.
     for (const r of cuartos) {
@@ -506,7 +581,10 @@ export const useLayout = create<LayoutState>((set, get) => ({
       if (f?.muros) wallOverrides[r.id] = migrarMuros(f.muros, fpDe(footprints, r.id))
       if (f?.estilos) edgeStyles[r.id] = f.estilos
       if (f?.pinceles) pinceles[r.id] = f.pinceles
-      if (f?.formasCelda) formasCelda[r.id] = f.formasCelda
+      // Migra claves de sub-celda del esquema inicial (paso ½) al de centros (¼/¾).
+      if (f?.formasCelda) formasCelda[r.id] = migrarClavesSubcelda(f.formasCelda)!
+      if (f?.sinMuros) sinMuros[r.id] = true
+      if (f?.agua) conAgua[r.id] = true
     }
     // Sanar colocación: un cuarto SIEMPRE vive en el mapa, en una celda única.
     // Repara datos donde un cuarto quedó sin colocar o solapado (p. ej. tras un
@@ -520,6 +598,9 @@ export const useLayout = create<LayoutState>((set, get) => ({
     // al bajar). Idempotente: solo persiste los cuartos que realmente cambian.
     const reparados = new Set<string>()
     for (const a of accesos) {
+      // Escalera marina (sótano, nivel < 0): decorativa, sin vano — el pozo se accede
+      // caminando por encima (suelo continuo), nunca por un hueco en el muro.
+      if (a.nivel < 0) continue
       const lado: SideKey = a.lado ?? ladoDesdeDoor(a.col, a.row)
       for (const nivel of [a.nivel, a.nivel - 1]) {
         const r = losCuartos().find(
@@ -542,6 +623,55 @@ export const useLayout = create<LayoutState>((set, get) => ({
     }
     for (const rid of reparados) await upsert(rid, { muros: wallOverrides[rid] })
 
+    // Sótanos: la escalera marina NUNCA lleva vano (se accede caminando por encima). Si
+    // una versión anterior dejó un muro abierto por error (p. ej. al arrastrarla), se
+    // cierra aquí — defensivo, corre siempre (barato: solo itera los accesos).
+    const cerrados = new Set<string>()
+    for (const a of accesos) {
+      if (a.nivel >= 0) continue
+      const lado: SideKey = a.lado ?? ladoDesdeDoor(a.col, a.row)
+      const r = losCuartos().find(
+        (rm) =>
+          placed[rm.id] &&
+          cells[rm.id] &&
+          (niveles[rm.id] ?? 0) === a.nivel &&
+          footprintCells(cells[rm.id], fpDe(footprints, rm.id)).some(
+            (fc) => fc.col === a.col && fc.row === a.row,
+          ),
+      )
+      if (!r) continue
+      const anchor = cells[r.id]
+      const off = { col: a.col - anchor.col, row: a.row - anchor.row }
+      const key = edgeKey(off, lado)
+      if (wallOverrides[r.id]?.[key] == null) continue
+      const m = { ...wallOverrides[r.id] }
+      delete m[key]
+      wallOverrides[r.id] = m
+      cerrados.add(r.id)
+    }
+    for (const rid of cerrados) await upsert(rid, { muros: wallOverrides[rid] })
+
+    // Reparación: la escalera marina debe estar en una celda de SU cuarto de sótano. Un
+    // dato viejo (el cuarto se movió sin ella, antes de que `moveRoom` la siguiera) pudo
+    // dejarla huérfana; se re-ancla a la celda ancla del cuarto de ese nivel. Idempotente.
+    for (const a of accesos) {
+      if (a.nivel >= 0 || a.id == null) continue
+      let ancla: Cell | null = null
+      const celdasNivel = new Set<string>()
+      for (const rm of losCuartos()) {
+        if (!placed[rm.id] || !cells[rm.id] || (niveles[rm.id] ?? 0) !== a.nivel) continue
+        if (!ancla) ancla = cells[rm.id]
+        for (const c of footprintCells(cells[rm.id], fpDe(footprints, rm.id))) {
+          celdasNivel.add(`${c.col},${c.row}`)
+        }
+      }
+      if (!ancla || celdasNivel.has(`${a.col},${a.row}`)) continue // sin cuarto o ya alineada
+      a.col = ancla.col
+      a.row = ancla.row
+      a.lado = ladoDesdeDoor(ancla.col, ancla.row)
+      await db.accesos.update(a.id, { col: a.col, row: a.row, lado: a.lado })
+    }
+
     const zonas = await db.zonas.toArray()
     // Migración única: retirar "zonas sombra" (ZonaPlano con roomId). Su geometría pasa al
     // cuarto del registro (footprint/muros/losetas) y la zona se elimina, dejando el footprint
@@ -549,11 +679,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const sombras = zonas.filter(
       (z) => z.roomId && z.id != null && losCuartos().some((r) => r.id === z.roomId),
     )
-    let zonasVigentes = zonas
     if (sombras.length) {
       const { zonaAnchorFootprint } = await import('../house/planoGeometria')
-      const { murosEfectivosZona } = await import('../house/murosZona')
-      zonasVigentes = zonas.filter((z) => !z.roomId)
       for (const z of sombras) {
         const rid = z.roomId!
         const { anchor, footprint } = zonaAnchorFootprint(z.celdas)
@@ -564,20 +691,13 @@ export const useLayout = create<LayoutState>((set, get) => ({
         const fo = formasAbsAOff(z.formasCelda, anchor)
         if (fo) formasCelda[rid] = fo
         else delete formasCelda[rid]
-      }
-      // Ocupación con los footprints ya migrados → distingue fachada de muro interior.
-      const occMig = recompute({
-        placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles,
-      }).ocupadoPorNivel
-      for (const z of sombras) {
-        const rid = z.roomId!
-        wallOverrides[rid] = murosEfectivosZona(z, zonasVigentes, occMig.get(z.nivel) ?? new Set<string>())
+        wallOverrides[rid] = { ...(z.muros ?? {}) }
         edgeStyles[rid] = {}
         await upsert(rid, {
           placed: true,
-          col: cells[rid].col,
-          row: cells[rid].row,
-          footprint: footprints[rid],
+          col: anchor.col,
+          row: anchor.row,
+          footprint,
           nivel: z.nivel,
           muros: wallOverrides[rid],
           estilos: {},
@@ -586,18 +706,6 @@ export const useLayout = create<LayoutState>((set, get) => ({
         await db.zonas.delete(z.id!)
       }
     }
-    const pre = recompute({ placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles })
-    await repararMurosZonasExistentes(pre.ocupadoPorNivel)
-    const { wallOverrides: ovReparados, cambiados } = repararMurosCuartosRegistro({
-      placed,
-      cells,
-      footprints,
-      niveles,
-      wallOverrides,
-      ocupadoPorNivel: pre.ocupadoPorNivel,
-      zonas: zonasVigentes,
-    })
-    for (const rid of cambiados) await upsert(rid, { muros: ovReparados[rid] })
 
     set({
       placed,
@@ -607,20 +715,44 @@ export const useLayout = create<LayoutState>((set, get) => ({
       accesos,
       gridCols,
       gridRows,
-      wallOverrides: ovReparados,
+      wallOverrides,
       edgeStyles,
       pinceles,
       formasCelda,
-      ...recompute({ placed, cells, footprints, niveles, wallOverrides: ovReparados, edgeStyles, pinceles }),
+      sinMuros,
+      conAgua,
+      ...recompute({ placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles, formasCelda, conAgua }),
       cargado: true,
     })
+
+    // Sin cuarto sembrado: la casa la arma la bienvenida (los intereses elegidos) y,
+    // si no se elige ninguno, el paso 1 de su guía enseña a crear el primero.
+
+    // Migración única: los cuartos que ya hospedan una app "sin muros" (jardín) quedan
+    // como espacio abierto. Las apps nuevas lo hacen al asignarse (ver plantillaBundle).
+    if (localStorage.getItem('mh_jardin_sin_muros_v2') !== '1') {
+      localStorage.setItem('mh_jardin_sin_muros_v2', '1')
+      const { plantillas } = await import('../registry')
+      const idsSinMuros = new Set(plantillas.filter((p) => p.sinMuros).map((p) => p.id))
+      if (idsSinMuros.size) {
+        const objetos = await db.objetosCuarto.toArray()
+        const cuartosAbrir = new Set(
+          objetos.filter((o) => o.plantillaId && idsSinMuros.has(o.plantillaId)).map((o) => o.roomId),
+        )
+        for (const rid of cuartosAbrir) {
+          if (get().placed[rid]) await get().marcarSinMuros(rid)
+        }
+      }
+    }
   },
 
-  setEditMode: (v) => {
+  setEditMode: (v, opts) => {
+    // Editor 3D (perspectiva): se edita desde 3ª/1ª persona, sin tocar la cámara.
+    const persp = useEditorUi.getState().editor3d
     if (v) {
       useInteractUi.getState().clear()
-      // Forzar iso antes de activar el modo edición (la edición asume cámara ortográfica).
-      useCam.getState().setVista('iso')
+      // Forzar iso antes de activar el modo edición (la edición iso asume cámara ortográfica).
+      if (!persp) useCam.getState().setVista('iso')
     } else {
       usePlanos.getState().setActivo(false)
     }
@@ -629,21 +761,39 @@ export const useLayout = create<LayoutState>((set, get) => ({
       editMode: v,
       draggingId: null,
       previewCell: null,
-      editingRoomId: v ? editingAntes : null,
+      // `mantenerVista`: al ocultar el panel (p. ej. se abrió el side menu de Mind Home) NO
+      // se limpia editingRoomId — seguimos "dentro" del cuarto, solo se ocultó el panel; así
+      // el botón flotante sigue visible y `setEditMode(true)` retoma el mismo cuarto.
+      editingRoomId: v || opts?.mantenerVista ? editingAntes : null,
     })
-    if (v && !editingAntes) {
+    if (v && !editingAntes && !persp) {
       // Centrar la cámara en toda la casa (todos los niveles).
       useCam.setState({ focus: mapFocusPos(), zoom: ZOOM_DEFAULT })
     } else if (!v) {
-      useCam.getState().reset()
+      // Al salir, la vista en perspectiva se conserva (solo iso vuelve a su encuadre).
+      // `mantenerVista`: cerrar sin mover la cámara ni salir del cuarto.
+      if (!persp && !opts?.mantenerVista) useCam.getState().reset()
+      useEditorUi.getState().setEditor3d(false)
     }
   },
 
   editRoom: (id) => {
-    // Forzar iso antes de editar (evita que la cámara perspectiva quede activa durante edición).
-    useCam.getState().setVista('iso')
+    // En el editor 3D (perspectiva) se edita un cuarto sin cambiar la cámara.
+    const persp = useEditorUi.getState().editor3d
+    // Forzar iso antes de editar (evita que la cámara perspectiva quede activa durante edición iso).
+    if (!persp) useCam.getState().setVista('iso')
     const saliaDeCuarto = get().editingRoomId != null && id == null
     set({ editMode: true, editingRoomId: id, draggingId: null, previewCell: null })
+    if (id) {
+      // Editar un cuarto = editor de mapa enfocado en él: pestaña Mapa, su nivel y el
+      // cuarto seleccionado (el croquis hace zoom sobre él y las props actúan sobre él).
+      // El cuarto se selecciona AL FINAL: setNivel/setModo limpian la selección.
+      useEditorUi.getState().setTab('mapa')
+      usePlanos.getState().setNivel(get().niveles[id] ?? 0)
+      usePlanos.getState().setModo('cuartos')
+      usePlanos.getState().setSeleccion({ tipo: 'cuarto', roomId: id })
+    }
+    if (persp) return
     if (id) useCam.getState().focusRoomEdit(roomFocusPos(id))
     else if (saliaDeCuarto) useCam.getState().reset()
   },
@@ -673,8 +823,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const placed = { ...get().placed, [id]: !get().placed[id] }
     set({ placed, ...recompute({ ...get(), placed }) })
     await upsert(id, { placed: placed[id] })
-    if (quitando && nivel >= 1) {
-      // Si era el último cuarto de su nivel, retira el acceso de ese nivel.
+    // Si era el último cuarto de su nivel (piso alto o sótano), retira su acceso.
+    if (quitando && nivel !== 0) {
       const quedan = losCuartos().some((r) => get().placed[r.id] && nivelDe(get().niveles, r.id) === nivel)
       if (!quedan) {
         const ac = get().accesos.find((a) => a.nivel === nivel)
@@ -687,52 +837,110 @@ export const useLayout = create<LayoutState>((set, get) => ({
   colocarCuartoNuevo: async (id) => {
     const { placed, cells, footprints, niveles, gridCols, gridRows } = get()
     const fp = [...FOOTPRINT_DEFAULT]
-    // Primera celda libre en planta baja (nivel 0).
+    // La casa crece en RECTÁNGULO, no en hilera: entre las celdas libres de la planta
+    // baja gana la que deja la planta más compacta (menor perímetro del rectángulo que
+    // la envuelve y, a igualdad, la más cuadrada). Así los cuartos conservan fachada
+    // al frente para su puerta en vez de alinearse en una fila larga.
+    const ocupadas: Cell[] = []
+    for (const r of losCuartos()) {
+      if (!placed[r.id] || !cells[r.id] || nivelDe(niveles, r.id) !== 0) continue
+      ocupadas.push(...footprintCells(cells[r.id], fpDe(footprints, r.id)))
+    }
     let destino: Cell | null = null
-    for (let row = 0; row < gridRows && !destino; row++) {
+    let mejor = Infinity
+    for (let row = 0; row < gridRows; row++) {
       for (let col = 0; col < gridCols; col++) {
         const cell = { col, row }
-        if (esFootprintLibre(placed, cells, footprints, niveles, id, cell, fp, 0)) {
+        if (!esFootprintLibre(placed, cells, footprints, niveles, id, cell, fp, 0)) continue
+        const todas = [...ocupadas, ...footprintCells(cell, fp)]
+        const cols = todas.map((c) => c.col)
+        const rows = todas.map((c) => c.row)
+        const w = Math.max(...cols) - Math.min(...cols) + 1
+        const h = Math.max(...rows) - Math.min(...rows) + 1
+        // Pesos escalonados: primero el perímetro, luego lo cuadrado, luego la cercanía al origen.
+        const puntaje = (w + h) * 1000 + Math.abs(w - h) * 40 + row + col
+        if (puntaje < mejor) {
+          mejor = puntaje
           destino = cell
-          break
         }
       }
     }
     if (!destino) destino = { col: 0, row: 0 }
+    // Cuarto nuevo: nace con UNA puerta exterior (después el usuario la mueve o agrega más).
+    const muros = puertaInicialCuarto(destino, fp, get().ocupadoPorNivel.get(0) ?? SIN_OCUPACION)
     const newPlaced = { ...placed, [id]: true }
     const newCells = { ...cells, [id]: destino }
     const newFps = { ...footprints, [id]: fp }
     const newNiveles = { ...niveles, [id]: 0 }
+    const newOv = { ...get().wallOverrides, [id]: muros }
     set({
       placed: newPlaced,
       cells: newCells,
       footprints: newFps,
       niveles: newNiveles,
-      ...recompute({ ...get(), placed: newPlaced, cells: newCells, footprints: newFps, niveles: newNiveles }),
+      wallOverrides: newOv,
+      ...recompute({ ...get(), placed: newPlaced, cells: newCells, footprints: newFps, niveles: newNiveles, wallOverrides: newOv }),
     })
-    await upsert(id, { placed: true, col: destino.col, row: destino.row, footprint: fp, nivel: 0 })
+    await upsert(id, { placed: true, col: destino.col, row: destino.row, footprint: fp, nivel: 0, muros })
   },
 
   colocarCuartoEnCeldas: async (id, celdas, nivel) => {
     if (!celdas.length) return get().colocarCuartoNuevo(id)
     const { zonaAnchorFootprint } = await import('../house/planoGeometria')
     const { anchor, footprint } = zonaAnchorFootprint(celdas)
+    // Cuarto nuevo: nace con UNA puerta exterior (después el usuario la mueve o agrega más).
+    // Sótanos: sin puerta inicial — el otro lado del muro es tierra (se vería el vacío).
+    const muros =
+      nivel < 0
+        ? {}
+        : puertaInicialCuarto(anchor, footprint, get().ocupadoPorNivel.get(nivel) ?? SIN_OCUPACION)
     const placed = { ...get().placed, [id]: true }
     const cells = { ...get().cells, [id]: anchor }
     const footprints = { ...get().footprints, [id]: footprint }
     const niveles = { ...get().niveles, [id]: nivel }
+    const wallOverrides = { ...get().wallOverrides, [id]: muros }
     set({
       placed,
       cells,
       footprints,
       niveles,
-      ...recompute({ ...get(), placed, cells, footprints, niveles }),
+      wallOverrides,
+      ...recompute({ ...get(), placed, cells, footprints, niveles, wallOverrides }),
     })
-    await upsert(id, { placed: true, col: anchor.col, row: anchor.row, footprint, nivel })
+    await upsert(id, { placed: true, col: anchor.col, row: anchor.row, footprint, nivel, muros })
+    // Sótano: la escalera marina (una por nivel -1) nace con el primer cuarto excavado.
+    if (nivel < 0 && !get().nivelTieneAcceso(nivel)) {
+      await get().addAcceso(nivel, 'escalera-marina', anchor.col, anchor.row, ladoDesdeDoor(anchor.col, anchor.row))
+    }
+  },
+
+  marcarSinMuros: async (id) => {
+    const { cells, footprints, niveles, wallOverrides, sinMuros } = get()
+    const anchor = cells[id]
+    if (!anchor) return
+    // Abrir las aristas exteriores deja el cuarto sin colisiones (colliders derivan de los
+    // muros); el flag `sinMuros` hace que Room3D no dibuje muros/portones ni techo.
+    const fp = fpDe(footprints, id)
+    const ocupado = get().ocupadoPorNivel.get(niveles[id] ?? 0) ?? SIN_OCUPACION
+    const muros: WallOverrides = { ...(wallOverrides[id] ?? {}), ...murosAbiertosExterior(anchor, fp, ocupado) }
+    const nuevosOv = { ...wallOverrides, [id]: muros }
+    const nuevosSin = { ...sinMuros, [id]: true }
+    set({ wallOverrides: nuevosOv, sinMuros: nuevosSin, ...recompute({ ...get(), wallOverrides: nuevosOv }) })
+    await upsert(id, { muros, sinMuros: true })
+  },
+
+  setAgua: async (id, v) => {
+    const conAgua = { ...get().conAgua }
+    if (v) conAgua[id] = true
+    else delete conAgua[id]
+    // Recalcula subCeldasAgua (de ahí sale la flotación del personaje).
+    set({ conAgua, ...recompute({ ...get(), conAgua }) })
+    await upsert(id, { agua: v })
   },
 
   quitarCuarto: async (id) => {
     const st = get()
+    const nivel = nivelDe(st.niveles, id)
     const clon = <T,>(o: Record<string, T>): Record<string, T> => {
       const n: Record<string, T> = { ...o }
       delete n[id]
@@ -746,6 +954,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const edgeStyles = clon(st.edgeStyles)
     const pinceles = clon(st.pinceles)
     const formasCelda = clon(st.formasCelda)
+    const conAgua = clon(st.conAgua)
     set({
       placed,
       cells,
@@ -755,13 +964,27 @@ export const useLayout = create<LayoutState>((set, get) => ({
       edgeStyles,
       pinceles,
       formasCelda,
+      conAgua,
       editingRoomId: st.editingRoomId === id ? null : st.editingRoomId,
-      ...recompute({ placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles }),
+      ...recompute({ placed, cells, footprints, niveles, wallOverrides, edgeStyles, pinceles, formasCelda, conAgua }),
     })
     const fila = await db.layout.where('roomId').equals(id).first()
     if (fila?.id) await db.layout.delete(fila.id)
     await db.disenoRooms.where('roomId').equals(id).delete()
     await db.objetosCuarto.where('roomId').equals(id).delete()
+    // Si era el último cuarto de su nivel (piso alto o sótano), retira su acceso.
+    if (nivel !== 0) {
+      const quedan = losCuartos().some((r) => get().placed[r.id] && nivelDe(get().niveles, r.id) === nivel)
+      if (!quedan) {
+        const ac = get().accesos.find((a) => a.nivel === nivel)
+        if (ac?.id != null) await db.accesos.delete(ac.id)
+        if (ac) set({ accesos: get().accesos.filter((a) => a.nivel !== nivel) })
+      }
+    }
+    // Purga los objetos del cuarto también en memoria (sus plantillas vuelven al
+    // catálogo sin recargar). Import dinámico: disenoStore importa este store.
+    const { useDiseño } = await import('./disenoStore')
+    useDiseño.setState((s) => ({ objetos: s.objetos.filter((o) => o.roomId !== id) }))
   },
 
   addRoomGround: async (id) => {
@@ -815,6 +1038,30 @@ export const useLayout = create<LayoutState>((set, get) => ({
     set({ accesos: [...get().accesos, acceso] })
   },
 
+  setAccesoTipo: async (id, tipo) => {
+    set({ accesos: get().accesos.map((a) => (a.id === id ? { ...a, tipo } : a)) })
+    await db.accesos.update(id, { tipo })
+  },
+
+  pedirAccesoNivel: (nivel, col, row) => {
+    if (nivel < 1 || get().nivelTieneAcceso(nivel)) return
+    set({ accesoPendiente: { nivel, col, row } })
+  },
+  confirmarAccesoNivel: async (tipo) => {
+    const p = get().accesoPendiente
+    if (!p) return
+    const lado = ladoDesdeDoor(p.col, p.row)
+    await get().addAcceso(p.nivel, tipo, p.col, p.row, lado)
+    // Abre el muro del acceso en el cuarto de este nivel y en el de abajo (subir y bajar).
+    const wallOverrides = { ...get().wallOverrides }
+    const afectados = new Set<string>()
+    setMuro(get, wallOverrides, afectados, p.nivel, { col: p.col, row: p.row }, lado, 'abierto')
+    setMuro(get, wallOverrides, afectados, p.nivel - 1, { col: p.col, row: p.row }, lado, 'abierto')
+    set({ wallOverrides, accesoPendiente: null, ...recompute({ ...get(), wallOverrides }) })
+    for (const rid of afectados) await upsert(rid, { muros: wallOverrides[rid] ?? {} })
+  },
+  cancelarAccesoNivel: () => set({ accesoPendiente: null }),
+
   startAccesoDrag: (id) => set({ draggingAcceso: id, previewAcceso: null, previewLado: null }),
   setAccesoPreview: (cell, lado) =>
     set((s) =>
@@ -832,6 +1079,16 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const ac = get().accesos.find((a) => a.id === id)
     if (!ac) return
     const nivel = ac.nivel
+    // Escalera marina (sótano): decorativa, sin vano — el pozo se accede caminando por
+    // encima (suelo continuo), nunca por un hueco en el muro. Solo reposiciona.
+    if (nivel < 0) {
+      const accesos = get().accesos.map((a) =>
+        a.id === id ? { ...a, col: cell.col, row: cell.row, lado } : a,
+      )
+      set({ accesos })
+      await db.accesos.update(id, { col: cell.col, row: cell.row, lado })
+      return
+    }
     const wallOverrides = { ...get().wallOverrides }
     const afectados = new Set<string>()
     // Cierra los muros anteriores en el cuarto SUPERIOR e INFERIOR.
@@ -886,13 +1143,23 @@ export const useLayout = create<LayoutState>((set, get) => ({
     set({ cells: newCells, ...recompute({ ...get(), cells: newCells }) })
     await upsert(id, { col: cell.col, row: cell.row })
     if (prev && fp?.length && (prev.col !== cell.col || prev.row !== cell.row)) {
+      const dc = cell.col - prev.col
+      const dr = cell.row - prev.row
       const { trasladarPisosInteriores } = await import('../data/repository')
-      await trasladarPisosInteriores(
-        nivel,
-        footprintCells(prev, fp),
-        cell.col - prev.col,
-        cell.row - prev.row,
-      )
+      await trasladarPisosInteriores(nivel, footprintCells(prev, fp), dc, dr)
+      // Sótano: la escalera marina vive DENTRO del pozo — se traslada con el cuarto (a
+      // diferencia de los ascensos de pisos altos, que quedan fijos entre plantas).
+      if (nivel < 0) {
+        const celdasViejas = footprintCells(prev, fp)
+        const ac = get().accesos.find(
+          (a) => a.nivel === nivel && celdasViejas.some((c) => c.col === a.col && c.row === a.row),
+        )
+        if (ac?.id != null) {
+          const movido = { col: ac.col + dc, row: ac.row + dr }
+          set({ accesos: get().accesos.map((a) => (a.id === ac.id ? { ...a, ...movido } : a)) })
+          await db.accesos.update(ac.id, movido)
+        }
+      }
     }
   },
 
@@ -913,7 +1180,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
       wallOverrides,
       edgeStyles,
       formasCelda,
-      ...recompute({ ...get(), placed, cells, footprints, wallOverrides, edgeStyles }),
+      ...recompute({ ...get(), placed, cells, footprints, wallOverrides, edgeStyles, formasCelda }),
     })
     await upsert(id, {
       placed: true,
@@ -962,7 +1229,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
       wallOverrides: newOv,
       edgeStyles: newEst,
       formasCelda,
-      ...recompute({ ...get(), cells: newCells, footprints: newFps, wallOverrides: newOv }),
+      ...recompute({ ...get(), cells: newCells, footprints: newFps, wallOverrides: newOv, formasCelda }),
     })
     await upsert(id, {
       col: norm.anchor.col,
@@ -972,6 +1239,137 @@ export const useLayout = create<LayoutState>((set, get) => ({
       estilos: norm.estilos,
       ...(formasNuevas !== undefined ? { formasCelda: formasNuevas } : {}),
     })
+    // El techo por celda va por offset igual que las formas: sigue a su celda al reanclar.
+    const { useDiseño } = await import('./disenoStore')
+    await useDiseño.getState().remapearTechoCeldas(id, anchor, fp, norm.anchor, norm.fp)
+  },
+
+  expandirCeldaCuarto: async (id, abs) => {
+    const { cells, footprints, formasCelda } = get()
+    const anchor = cells[id]
+    if (!anchor) return
+    const fp = fpDe(footprints, id)
+    const formas = formasCelda[id]
+    const propias = new Set(fp.map((c) => cellId(c.col, c.row)))
+    // Celda propia vecina cuya silueta "empuja" hacia `abs`: forma de celda entera
+    // (círculo/triángulo) o, si no, los recortes finos del lado que da a `abs`.
+    let origen:
+      | { cell: Cell; forma: CeldaFormaLoseta; subs?: undefined }
+      | { cell: Cell; forma?: undefined; subs: { i: number; f: CeldaFormaLoseta }[] }
+      | null = null
+    for (const s of SIDE_KEYS) {
+      const v = { col: abs.col + DELTA[s].col, row: abs.row + DELTA[s].row }
+      const off = { col: v.col - anchor.col, row: v.row - anchor.row }
+      if (!propias.has(cellId(off.col, off.row))) continue
+      const f = formaEnCelda(formas, claveCeldaOff(off.col, off.row))
+      if (!esFormaCuadrada(f)) {
+        origen = { cell: v, forma: f }
+        break
+      }
+      // Esquinas finas: solo avanzan los cuadrantes que tocan el lado por el que crece.
+      const subs = cuadrantesDelLado(abs.col - v.col, abs.row - v.row)
+        .map((i) => ({ i, f: formas?.[claveSubceldaOff(off.col, off.row, i)] }))
+        .filter((x): x is { i: number; f: CeldaFormaLoseta } => !!x.f && !esFormaCuadrada(x.f))
+      if (subs.length) {
+        origen = { cell: v, subs }
+        break
+      }
+    }
+    // Sin silueta que mover: expansión normal (cuadrado).
+    if (!origen) return get().addRoomCell(id, abs)
+
+    await get().addRoomCell(id, abs)
+    // addRoomCell pudo reanclar el cuarto; relee y confirma que la celda se agregó.
+    const st = get()
+    const anchor2 = st.cells[id]
+    const fp2 = fpDe(st.footprints, id)
+    const tieneNueva = fp2.some(
+      (o) => anchor2.col + o.col === abs.col && anchor2.row + o.row === abs.row,
+    )
+    if (!tieneNueva) return // no se pudo expandir (ocupada/fuera de rejilla)
+    const nueva = { col: abs.col - anchor2.col, row: abs.row - anchor2.row }
+    const vieja = { col: origen.cell.col - anchor2.col, row: origen.cell.row - anchor2.row }
+    const roomFormas = { ...(st.formasCelda[id] ?? {}) }
+    if (origen.forma) {
+      // La silueta avanza a la celda nueva; su antiguo lugar queda cuadrado.
+      roomFormas[claveCeldaOff(nueva.col, nueva.row)] = origen.forma
+      delete roomFormas[claveCeldaOff(vieja.col, vieja.row)]
+    } else {
+      // Cada esquina fina avanza al MISMO cuadrante de la celda nueva (el borde redondeado
+      // pasa a ser el exterior) y se borra del suyo, que queda a escuadra.
+      for (const { i, f } of origen.subs) {
+        roomFormas[claveSubceldaOff(nueva.col, nueva.row, i)] = f
+        delete roomFormas[claveSubceldaOff(vieja.col, vieja.row, i)]
+      }
+    }
+    const formasCelda2 = { ...st.formasCelda, [id]: roomFormas }
+    set({ formasCelda: formasCelda2, ...recompute({ ...st, formasCelda: formasCelda2 }) })
+    await upsert(id, { formasCelda: roomFormas })
+    // El techo fabricado viaja con la silueta que avanza: si no, la figura se quedaría
+    // con techo plano y su tienda/cono sobre la celda que acaba de quedar cuadrada.
+    const kVieja = claveCeldaOff(vieja.col, vieja.row)
+    const { useDiseño } = await import('./disenoStore')
+    const cfVieja = useDiseño.getState().roomTechoFormasCelda[id]?.[kVieja]
+    if (cfVieja) {
+      await useDiseño.getState().setRoomTechoCeldaForma(id, claveCeldaOff(nueva.col, nueva.row), cfVieja)
+      await useDiseño.getState().setRoomTechoCeldaForma(id, kVieja, null)
+    }
+  },
+
+  contraerCeldaCuarto: async (id, abs) => {
+    const { cells, footprints, formasCelda } = get()
+    const anchor = cells[id]
+    if (!anchor) return
+    const fp = fpDe(footprints, id)
+    if (fp.length <= 1) return get().removeRoomCell(id, abs)
+    const off = { col: abs.col - anchor.col, row: abs.row - anchor.row }
+    const resto = fp.filter((c) => !(c.col === off.col && c.row === off.row))
+    // Sin cambio real o partiría el cuarto: que decida removeRoomCell (no hará nada).
+    if (resto.length === fp.length || !conexo(resto)) return get().removeRoomCell(id, abs)
+
+    const formas = formasCelda[id]
+    if (formas) {
+      const quedan = new Set(resto.map((c) => cellId(c.col, c.row)))
+      // Celda vecina que queda: al retirarse `abs`, ella pasa a ser el borde exterior.
+      let destino: { off: Cell; dc: number; dr: number } | null = null
+      for (const s of SIDE_KEYS) {
+        const v = { col: off.col + DELTA[s].col, row: off.row + DELTA[s].row }
+        if (!quedan.has(cellId(v.col, v.row))) continue
+        destino = { off: v, dc: off.col - v.col, dr: off.row - v.row }
+        break
+      }
+      if (destino) {
+        const roomFormas = { ...formas }
+        let movio = false
+        const fEntera = formas[claveCeldaOff(off.col, off.row)]
+        if (fEntera && !esFormaCuadrada(fEntera)) {
+          // La silueta retrocede entera a la vecina.
+          roomFormas[claveCeldaOff(destino.off.col, destino.off.row)] = fEntera
+          movio = true
+        } else {
+          // Solo las esquinas del borde exterior (las que avanzaron al expandir) regresan
+          // al mismo cuadrante de la vecina, restaurando la figura original.
+          for (const i of cuadrantesDelLado(destino.dc, destino.dr)) {
+            const f = formas[claveSubceldaOff(off.col, off.row, i)]
+            if (!f || esFormaCuadrada(f)) continue
+            roomFormas[claveSubceldaOff(destino.off.col, destino.off.row, i)] = f
+            movio = true
+          }
+        }
+        // Se aplica antes de quitar: removeRoomCell descarta las claves de la celda que se va.
+        if (movio) {
+          set({ formasCelda: { ...formasCelda, [id]: roomFormas } })
+          // El techo retrocede con su silueta; el de la celda que se va lo descarta removeRoomCell.
+          const { useDiseño } = await import('./disenoStore')
+          const cfOff = useDiseño.getState().roomTechoFormasCelda[id]?.[claveCeldaOff(off.col, off.row)]
+          if (cfOff)
+            await useDiseño
+              .getState()
+              .setRoomTechoCeldaForma(id, claveCeldaOff(destino.off.col, destino.off.row), cfOff)
+        }
+      }
+    }
+    await get().removeRoomCell(id, abs)
   },
 
   removeRoomCell: async (id, abs) => {
@@ -1012,7 +1410,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
       wallOverrides: newOv,
       edgeStyles: newEst,
       formasCelda,
-      ...recompute({ ...get(), cells: newCells, footprints: newFps, wallOverrides: newOv }),
+      ...recompute({ ...get(), cells: newCells, footprints: newFps, wallOverrides: newOv, formasCelda }),
     })
     await upsert(id, {
       col: norm.anchor.col,
@@ -1022,6 +1420,9 @@ export const useLayout = create<LayoutState>((set, get) => ({
       estilos: norm.estilos,
       ...(formasNuevas !== undefined ? { formasCelda: formasNuevas } : { formasCelda: undefined }),
     })
+    // Sigue a su celda al reanclar; la celda quitada pierde su techo.
+    const { useDiseño } = await import('./disenoStore')
+    await useDiseño.getState().remapearTechoCeldas(id, anchor, fp, norm.anchor, norm.fp)
   },
 
   cycleEdge: async (id, off, side) => {
@@ -1043,11 +1444,18 @@ export const useLayout = create<LayoutState>((set, get) => ({
 
   paintEdge: async (id, off, side, estado) => {
     const { cells, footprints, ocupadoPorNivel, niveles, wallOverrides, edgeStyles, pinceles } = get()
-    const occ = ocupadoPorNivel.get(nivelDe(niveles, id)) ?? SIN_OCUPACION
-    const e = roomEdges(cells[id], fpDe(footprints, id), occ).find(
-      (x) => x.off.col === off.col && x.off.row === off.row && x.side === side,
-    )
-    if (!e) return
+    // Arista VIRTUAL de un recorte fino (off = centro del cuadrante): válida si el
+    // cuadrante tiene subforma; no existe en roomEdges.
+    if (!Number.isInteger(off.col) || !Number.isInteger(off.row)) {
+      const f = get().formasCelda[id]?.[claveCeldaOff(off.col, off.row)]
+      if (!f || esFormaCuadrada(f)) return
+    } else {
+      const occ = ocupadoPorNivel.get(nivelDe(niveles, id)) ?? SIN_OCUPACION
+      const e = roomEdges(cells[id], fpDe(footprints, id), occ).find(
+        (x) => x.off.col === off.col && x.off.row === off.row && x.side === side,
+      )
+      if (!e) return
+    }
     const key = edgeKey(off, side)
     const pin = pinceles[id] ?? PINCELES_DEFAULT
     const muros: WallOverrides = { ...(wallOverrides[id] ?? {}), [key]: estado }
@@ -1094,13 +1502,63 @@ export const useLayout = create<LayoutState>((set, get) => ({
     await upsert(id, { pinceles: p })
   },
 
-  setCeldaForma: async (id, offKey, forma) => {
+  setCeldaForma: async (id, offKey, forma, rotacionForzada) => {
     const prevMap = get().formasCelda[id] ?? {}
     const prev = formaEnCelda(prevMap, offKey)
-    const next = siguienteFormaEnCelda(prev.forma === forma ? prev : undefined, forma)
+    const next =
+      rotacionForzada != null
+        ? { forma, rotacion: rotacionForzada }
+        : siguienteFormaEnCelda(prev.forma === forma ? prev : undefined, forma)
     const roomFormas = { ...prevMap, [offKey]: next }
+    // La forma entera reemplaza los recortes finos de esa celda (no se mezclan).
+    const [oc, or] = offKey.split(',').map(Number)
+    for (let i = 0; i < SUBQ_OFF.length; i++) delete roomFormas[claveSubceldaOff(oc, or, i)]
     const formasCelda = { ...get().formasCelda, [id]: roomFormas }
-    set({ formasCelda })
+    // Recalcula colisiones: una celda con forma cierra sus muros (sin puerta), así
+    // chocas contra lo mismo que ves.
+    set({ formasCelda, ...recompute({ ...get(), formasCelda }) })
+    await upsert(id, { formasCelda: roomFormas })
+  },
+
+  pintarSubformaCelda: async (id, offCol, offRow, cuadrante, forma) => {
+    const prevMap = get().formasCelda[id] ?? {}
+    const clave = claveSubceldaOff(offCol, offRow, cuadrante)
+    const prev = prevMap[clave]
+    const roomFormas = { ...prevMap }
+    if (forma === 'cuadrado') {
+      if (!prev) return // nada que quitar
+      delete roomFormas[clave]
+    } else if (prev?.forma === forma) {
+      const rotInicial = rotInicialSubforma(forma, cuadrante)
+      const rotFinal = (rotInicial + 270) % 360
+      if (prev.rotacion === rotFinal) {
+        delete roomFormas[clave] // giro completo: quitar el recorte
+      } else {
+        roomFormas[clave] = { forma, rotacion: ((prev.rotacion + 90) % 360) as 0 | 90 | 180 | 270 }
+      }
+    } else {
+      roomFormas[clave] = { forma, rotacion: rotInicialSubforma(forma, cuadrante) }
+      // El recorte fino reemplaza la forma entera de la celda (no se mezclan).
+      const kEntera = claveCeldaOff(offCol, offRow)
+      if (roomFormas[kEntera] && !esFormaCuadrada(roomFormas[kEntera])) delete roomFormas[kEntera]
+    }
+    const formasCelda = { ...get().formasCelda, [id]: roomFormas }
+    set({ formasCelda, ...recompute({ ...get(), formasCelda }) })
+    await upsert(id, { formasCelda: roomFormas })
+  },
+
+  aplicarFormaCuartoTodas: async (id, forma) => {
+    const anchor = get().cells[id]
+    const fp = get().footprints[id]
+    if (!anchor || !fp) return
+    const roomFormas: FormasCeldaMap = {}
+    if (forma) {
+      for (const c of footprintCells(anchor, fp)) {
+        roomFormas[claveCeldaOff(c.col - anchor.col, c.row - anchor.row)] = forma
+      }
+    }
+    const formasCelda = { ...get().formasCelda, [id]: roomFormas }
+    set({ formasCelda, ...recompute({ ...get(), formasCelda }) })
     await upsert(id, { formasCelda: roomFormas })
   },
 
@@ -1225,12 +1683,20 @@ export const useLayout = create<LayoutState>((set, get) => ({
       cells: newCells,
       ...recompute({ ...get(), cells: newCells }),
     })
+    // La cámara sigue el ½ celda que el contenido se recorre al recentrar la rejilla,
+    // para que el borde pulsado crezca en SU dirección y el contenido no salte.
+    nudgeFocoPorBorde(dir, +1)
+    const { desplazarPisoExteriorTodo, rellenarBordePisoExterior } = await import('../data/repository')
     if (dir === 'O' || dir === 'N') {
       const dc = dir === 'O' ? 1 : 0
       const dr = dir === 'N' ? 1 : 0
       const { useDiseño } = await import('./disenoStore')
       await useDiseño.getState().desplazarTechoExtra(dc, dr)
+      // El piso exterior sigue al contenido recentrado para no desalinearse.
+      await desplazarPisoExteriorTodo(dc, dr)
     }
+    // Las celdas nuevas heredan el piso exterior de la celda contigua (jardín continuo).
+    await rellenarBordePisoExterior(dir, newCols, newRows)
     await guardarGridConfig(newCols, newRows)
     if (newCells !== cells)
       await Promise.all(
@@ -1284,9 +1750,14 @@ export const useLayout = create<LayoutState>((set, get) => ({
       cells: newCells,
       ...recompute({ ...get(), cells: newCells }),
     })
+    // Al encoger, el contenido se recorre al lado contrario: la cámara lo sigue (negativo).
+    nudgeFocoPorBorde(dir, -1)
     const { useDiseño } = await import('./disenoStore')
     if (dir === 'O' || dir === 'N') {
       await useDiseño.getState().ajustarTechoEnContraccion(dir)
+      // El piso exterior sigue al contenido recentrado (igual que al crecer).
+      const { desplazarPisoExteriorTodo } = await import('../data/repository')
+      await desplazarPisoExteriorTodo(dir === 'O' ? -1 : 0, dir === 'N' ? -1 : 0)
     } else {
       await useDiseño.getState().podarTechoExtra(newCols, newRows)
     }
@@ -1297,6 +1768,21 @@ export const useLayout = create<LayoutState>((set, get) => ({
       )
   },
 }))
+
+/**
+ * Mueve el foco de la cámara ½ celda para compensar el recentrado de la rejilla al
+ * crecer (signo +1) o encoger (-1) por un borde, así el contenido queda fijo en pantalla
+ * y la rejilla crece/encoge en la dirección del borde pulsado.
+ */
+function nudgeFocoPorBorde(dir: DirGrid, signo: 1 | -1) {
+  const dz = dir === 'N' ? 0.5 : dir === 'S' ? -0.5 : 0
+  const dx = dir === 'O' ? 0.5 : dir === 'E' ? -0.5 : 0
+  if (dx === 0 && dz === 0) return
+  const f = useCam.getState().focus
+  useCam.setState({
+    focus: [f[0] + signo * dx * SPACING, f[1], f[2] + signo * dz * SPACING],
+  })
+}
 
 /** Desplaza todas las celdas ancla del mapa por (dc, dr). */
 function desplazarCeldas(cells: Cells, dc: number, dr: number): Cells {
@@ -1428,13 +1914,31 @@ export function roomWorldPos(id: string): [number, number, number] {
 }
 
 /**
+ * ¿Qué cuarto de NIVEL 0 ocupa la posición de mundo (x,z)? Devuelve su id o null.
+ * Usa la caja del cuarto (mismo criterio que el clamp del arrastre). Sirve para que
+ * un objeto libre soltado sobre un cuarto pase a pertenecer a él.
+ */
+export function cuartoEnMundo(x: number, z: number): string | null {
+  const st = useLayout.getState()
+  for (const c of useCuartos.getState().cuartos) {
+    if (st.placed[c.id] !== true || nivelDe(st.niveles, c.id) !== 0) continue
+    const [cx, , cz] = worldOf(st.cells, st.sizes, c.id)
+    const size = st.sizes[c.id] ?? SIZE_DEFAULT
+    if (Math.abs(x - cx) <= (size.w * SPACING) / 2 && Math.abs(z - cz) <= (size.h * SPACING) / 2) {
+      return c.id
+    }
+  }
+  return null
+}
+
+/**
  * Posición del cuarto INCLUYENDO la altura de su nivel: la cámara enfoca y ROTA
  * alrededor de este punto, así un cuarto elevado no se sale del cuadro.
  */
 export function roomFocusPos(id: string): [number, number, number] {
   const [x, , z] = roomWorldPos(id)
   const nivel = useLayout.getState().niveles[id] ?? 0
-  return [x, nivelBaseY(nivel, useHouse.getState().conTecho), z]
+  return [x, nivelBaseY(nivel, !useHouse.getState().explotado), z]
 }
 
 /**
@@ -1443,7 +1947,7 @@ export function roomFocusPos(id: string): [number, number, number] {
  */
 export function mapFocusPos(): [number, number, number] {
   const { placed, cells, sizes, niveles } = useLayout.getState()
-  const conTecho = useHouse.getState().conTecho
+  const apilado = !useHouse.getState().explotado
   const ids = losCuartos().filter((r) => placed[r.id] && cells[r.id]).map((r) => r.id)
   if (ids.length === 0) return [0, 0, 0]
   let minX = Infinity, maxX = -Infinity
@@ -1451,7 +1955,7 @@ export function mapFocusPos(): [number, number, number] {
   let minZ = Infinity, maxZ = -Infinity
   for (const id of ids) {
     const [x, , z] = worldOf(cells, sizes, id)
-    const y = nivelBaseY(niveles[id] ?? 0, conTecho)
+    const y = nivelBaseY(niveles[id] ?? 0, apilado)
     if (x < minX) minX = x
     if (x > maxX) maxX = x
     if (y < minY) minY = y
@@ -1474,6 +1978,8 @@ async function upsert(
     estilos: Record<string, EstiloArista>
     pinceles: PincelesCuarto
     formasCelda: FormasCeldaMap
+    sinMuros: boolean
+    agua: boolean
   }>,
 ) {
   const fila = await db.layout.where('roomId').equals(roomId).first()

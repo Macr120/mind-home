@@ -1,18 +1,21 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useCuartos, getCuarto } from '../../state/cuartosStore'
+import { useT } from '../../i18n/useT'
 import { useLayout, SIN_OCUPACION } from '../../state/layoutStore'
 import { useDiseño } from '../../state/disenoStore'
 import { useCiclo } from '../../state/cicloStore'
 import { usePlanos } from '../../state/planosStore'
-import { zonasRepo, pisosExteriorRepo } from '../../data/repository'
+import { zonasRepo, pisosExteriorRepo, murosLibresRepo, crearMuroAristaLibre, ciclarMuroFormaLibre, primeraRotMuroForma, setEstiloMuroLibre } from '../../data/repository'
 import type { ZonaPlano } from '../../data/db'
 import {
   cellId,
   edgeKey,
   footprintCells,
   tileOcupado,
+  SIDE_KEYS,
   type Cell,
   type EdgeInfo,
+  type SideKey,
 } from '../../house/walls'
 import {
   PLANO_CELL_PX,
@@ -23,6 +26,7 @@ import {
   celdaASvg,
   celdaCentroSvg,
   celdaSnapEnPlano,
+  svgACuadrante,
   tilesMediaEnEje,
   celdasOcupadasEnNivel,
   aristasEnNivel,
@@ -32,29 +36,28 @@ import {
   GROSOR_ARISTA,
   zonaEnCelda,
   cuartoIdEnTile,
-  celdaEnteraEsLibre,
-  aristasPerimetroCeldas,
   puedeMoverZona,
   puedeMoverCuartoRegistro,
-  normalizarCeldasEnteras,
   centroSvgZona,
   centroSvgFootprint,
   zonaAnchorFootprint,
-  ocupadoConZonas,
   celdaEsExterior,
   tileRectEnSvg,
   PLANO_TEXTO,
   PLANO_GRID_FUERTE,
   PLANO_GRID_SUAVE,
   PLANO_PAPEL_BORDE,
+  aristaMasCercanaEnPlano,
 } from '../../house/planoGeometria'
+import { objetivoMuroArista, objetivoMuroForma } from '../../house/murosLibre'
 import {
   MAPA_SUPERFICIE_ID,
   colorMargenPlanoDesdeCielo,
   rellenoPapelPlano,
 } from '../../house/mapaSuperficie'
-import { aristasZonasEnNivel, murosInicialesZona } from '../../house/murosZona'
-import { roomEdges } from '../../house/walls'
+import { aristasZonasEnNivel } from '../../house/murosZona'
+import { celdasEdicionCuarto } from '../../house/roomCellEdicion'
+import { aplicarPincelCuarto, aplicarPincelCuartoFino } from './planoPincelCuarto'
 import { paintZonaMuro } from './paintZonaMuro'
 import { registrarSvgPlano } from '../../house/arrastreCelda'
 import {
@@ -70,12 +73,21 @@ import {
   esFormaCuadrada,
   deltaTrasladoAncla,
   trasladarFormasCelda,
+  subformasDeCelda,
+  offSubcelda,
+  rotInicialSubforma,
   type FormasCeldaMap,
 } from '../../house/formasLoseta'
 import { aplicarFormaEnPlano } from './planoEditarForma'
+import { colorExteriorDefecto } from '../../house/PisosExterior3D'
 import { LosetaFormaSvg } from './LosetaFormaSvg'
-import { PerimetroFormaPlanoSvg } from './PerimetroFormaPlanoSvg'
-import { ladoGrillaActivo } from '../../house/murosPerimetroLoseta'
+import { PerimetroFormaPlanoSvg, TrazoPerimetroSvg } from './PerimetroFormaPlanoSvg'
+import {
+  ladoGrillaActivo,
+  ladoGrillaActivoEnMapa,
+  perimetroFormaCelda,
+  extrasPerimetroSubformasSvg,
+} from '../../house/murosPerimetroLoseta'
 import { PlanoPapelRelleno } from './PlanoPapelRelleno'
 import { usePlanoViewport } from './usePlanoViewport'
 import { usePlanoRotacionCam } from './usePlanoRotacionCam'
@@ -83,6 +95,7 @@ import { useCam } from '../../state/cameraStore'
 
 /** Croquis SVG ortogonal interactivo (vista en planta). */
 export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void } = {}) {
+  const t = useT()
   const svgRef = useRef<SVGSVGElement>(null)
   const rotWrapRef = useRef<HTMLDivElement>(null)
 
@@ -97,6 +110,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const cells = useLayout((s) => s.cells)
   const footprints = useLayout((s) => s.footprints)
   const niveles = useLayout((s) => s.niveles)
+  const editingRoomId = useLayout((s) => s.editingRoomId)
   const cuartos = useCuartos((s) => s.cuartos)
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
   const wallOverrides = useLayout((s) => s.wallOverrides)
@@ -107,8 +121,10 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const startDrag = useLayout((s) => s.startDrag)
   const paintEdge = useLayout((s) => s.paintEdge)
   const setEdgeEstilo = useLayout((s) => s.setEdgeEstilo)
-  const toggleRoom = useLayout((s) => s.toggleRoom)
+  const eliminarCuarto = useCuartos((s) => s.eliminar)
   const formasCeldaLayout = useLayout((s) => s.formasCelda)
+  const expandirCeldaCuarto = useLayout((s) => s.expandirCeldaCuarto)
+  const contraerCeldaCuarto = useLayout((s) => s.contraerCeldaCuarto)
 
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
@@ -117,6 +133,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const roomTechoExtra = useDiseño((s) => s.roomTechoExtra)
   const mapaSuperficie = useDiseño((s) => s.mapaSuperficie)
   const fondoId = useDiseño((s) => s.fondoId)
+  const fondoColorFijo = useDiseño((s) => s.fondoColorFijo)
   const fondoImagenActivo = useDiseño((s) => s.fondoImagenActivo)
   const temaGlobal = useDiseño((s) => s.temaGlobal)
   const mapaImagenUrl = useDiseño((s) => s.roomPisoImagenes[MAPA_SUPERFICIE_ID])
@@ -127,14 +144,21 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
 
   const nivel = usePlanos((s) => s.nivel)
   const capa = usePlanos((s) => s.capa)
+  const modo = usePlanos((s) => s.modo)
   const detalleRejilla = usePlanos((s) => s.detalleRejilla)
   const herramienta = usePlanos((s) => s.herramienta)
   const formaLoseta = usePlanos((s) => s.formaLoseta)
+  const pincelForma = usePlanos((s) => s.pincelForma)
+  const formaMuro = usePlanos((s) => s.formaMuro)
+  const orientMuro = usePlanos((s) => s.orientMuro)
+  const rotForma = usePlanos((s) => s.rotForma)
+  const muroHover = usePlanos((s) => s.muroHover)
+  const setMuroHover = usePlanos((s) => s.setMuroHover)
+  const muroLibreSel = usePlanos((s) => s.muroLibreSel)
+  const setMuroLibreSel = usePlanos((s) => s.setMuroLibreSel)
   const seleccion = usePlanos((s) => s.seleccion)
-  const celdasMarcadas = usePlanos((s) => s.celdasMarcadas)
   const setSeleccion = usePlanos((s) => s.setSeleccion)
   const toggleCeldaExterior = usePlanos((s) => s.toggleCeldaExterior)
-  const toggleCeldaMarcada = usePlanos((s) => s.toggleCeldaMarcada)
   const setAviso = usePlanos((s) => s.setAviso)
   const draggingZonaId = usePlanos((s) => s.draggingZonaId)
   const previewZonaCeldas = usePlanos((s) => s.previewZonaCeldas)
@@ -143,12 +167,18 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
 
   const zonas = zonasRepo.useAll() ?? []
   const pisosExterior = pisosExteriorRepo.useAll() ?? []
+  const murosLibres = murosLibresRepo.useAll() ?? []
+  const murosLibresNivel = murosLibres.filter((m) => m.nivel === nivel)
+
+  // Pincel de forma + rejilla fina: el clic recorta CUADRANTES (esquinas finas) de un
+  // cuarto; las losetas dejan pasar el puntero para que el fondo resuelva el cuadrante.
+  const pincelFino = capa === 'cuartos' && !!pincelForma && detalleRejilla === 'subcelda'
 
   const vp = useMemo(() => viewportPlano(gridCols, gridRows), [gridCols, gridRows])
   const areaPx = useMemo(() => areaPlanoPx(gridCols, gridRows), [gridCols, gridRows])
   const fondoMargen = useMemo(
-    () => colorMargenPlanoDesdeCielo({ fondoId, fondoImagenActivo, temaGlobal, minutos }),
-    [fondoId, fondoImagenActivo, temaGlobal, minutos],
+    () => colorMargenPlanoDesdeCielo({ fondoId, fondoColorFijo, fondoImagenActivo, temaGlobal, minutos }),
+    [fondoId, fondoColorFijo, fondoImagenActivo, temaGlobal, minutos],
   )
   const rellenoPapel = useMemo(
     () => rellenoPapelPlano(mapaSuperficie, mapaImagenActiva ? mapaImagenUrl : undefined),
@@ -158,13 +188,30 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const gridSuave = mapaSuperficie.rejillaSuave || PLANO_GRID_SUAVE
   const bordePapel = mapaSuperficie.papelBorde || PLANO_PAPEL_BORDE
 
+  // Editando un cuarto: el croquis encaja/zoom sobre su footprint (coords SVG del plano).
+  const focoCuarto = useMemo(() => {
+    if (!editingRoomId) return null
+    const anchor = cells[editingRoomId]
+    const fp = footprints[editingRoomId]
+    if (!anchor || !fp?.length) return null
+    if ((niveles[editingRoomId] ?? 0) !== nivel) return null
+    let minC = Infinity, minR = Infinity, maxC = -Infinity, maxR = -Infinity
+    for (const c of footprintCells(anchor, fp)) {
+      minC = Math.min(minC, c.col); minR = Math.min(minR, c.row)
+      maxC = Math.max(maxC, c.col); maxR = Math.max(maxR, c.row)
+    }
+    const tl = celdaASvg(minC, minR)
+    const br = celdaASvg(maxC + 1, maxR + 1)
+    return { x: tl.x, y: tl.y, w: br.x - tl.x, h: br.y - tl.y }
+  }, [editingRoomId, cells, footprints, niveles, nivel])
+
   const {
     containerRef,
     mergeSvgRef,
     fitToContainer,
     cursorPan,
     viewBoxStr,
-  } = usePlanoViewport(vp.ancho, vp.alto)
+  } = usePlanoViewport(vp.ancho, vp.alto, focoCuarto)
 
   const svgRefCombinado = useCallback(
     (node: SVGSVGElement | null) => {
@@ -235,6 +282,34 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
 
   const idsCuartosNivel = useMemo(() => cuartosNivel.map((r) => r.id), [cuartosNivel])
 
+  // Nivel de contexto tenue: en un piso alto, el de abajo (solo se construye encima);
+  // en el sótano, la planta baja (para ubicar la excavación respecto a la casa).
+  const cuartosNivelInferior = useMemo(() => {
+    const nivelContexto = nivel > 0 ? nivel - 1 : nivel < 0 ? 0 : null
+    if (nivelContexto == null) return []
+    return cuartos.filter((r) => placed[r.id] && (niveles[r.id] ?? 0) === nivelContexto)
+  }, [nivel, cuartos, placed, niveles])
+
+  // Aristas colocables para muro libre (modo Muros · cuadrado): TODOS los bordes de la
+  // rejilla (muros rectos independientes). Cada arista = (orient, col, row) de esquina.
+  const muroModo = capa === 'paredes' && herramienta === 'muro'
+  // En Puertas/Ventanas también se puede tocar un muro libre (para ponerle puerta/ventana).
+  const muroLibreClicable = capa === 'paredes'
+  /** Clic en un muro libre: lo selecciona y, en Puertas/Ventanas, le crea la abertura al momento. */
+  const clicMuroLibre = (id: number | null | undefined) => {
+    setMuroLibreSel(id ?? null)
+    if (id == null) return
+    if (herramienta === 'puerta') void setEstiloMuroLibre(id, { puerta: true, ventana: false })
+    else if (herramienta === 'ventana') void setEstiloMuroLibre(id, { ventana: true, puerta: false })
+  }
+  // La diagonal/arco se selecciona en Puertas/Ventanas (en Muros, el clic en la celda rota).
+  const formaMuroSeleccionable = capa === 'paredes' && herramienta !== 'muro'
+  const muroAristaMode = muroModo && formaMuro === 'cuadrado'
+  // Muro recto: la rejilla del croquis no necesita el detalle fino (los muros van a la
+  // celda entera); si venía activo de otro modo (p.ej. Cuartos), aquí se ignora. El clic se
+  // resuelve por proximidad (manejarClickPlano), sin depender de líneas guía visibles.
+  const rejillaVisible = muroAristaMode ? 'celda' : detalleRejilla
+
   // Celdas de cuartos colocados a ½ celda (no enteras): para ofrecerles cuadrantes finos.
   const celdasFinasExtra = useMemo(() => {
     if (detalleRejilla !== 'subcelda') return []
@@ -302,21 +377,63 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   )
 
   const aristaActivaCuarto = useCallback(
-    (roomId: string, offCol: number, offRow: number, lado: import('../../house/walls').SideKey) => {
-      const offKey = claveCeldaOff(offCol, offRow)
-      return ladoGrillaActivo(formaEnCelda(formasCuartoDe(roomId), offKey), lado)
-    },
+    (roomId: string, offCol: number, offRow: number, lado: import('../../house/walls').SideKey) =>
+      // Considera forma entera Y recortes finos: un lado parcialmente consumido oculta la
+      // línea entera (las mitades vivas las dibujan los trazos del perímetro fino).
+      ladoGrillaActivoEnMapa(formasCuartoDe(roomId), offCol, offRow, lado),
     [formasCuartoDe],
+  )
+
+  /**
+   * Cuadrante (0..3) bajo esa esquina, para el fantasma fino: relativo a la celda del
+   * cuarto que lo contiene o, en espacio libre, a la celda entera (ahí el clic crea).
+   */
+  const cuadranteEnCuarto = useCallback(
+    (q: Cell): number => {
+      for (const room of cuartosNivel) {
+        const anchor = anchorDe(room.id)
+        const f = footprints[room.id]
+        if (!anchor || !f) continue
+        for (const c of f) {
+          const fc = anchor.col + c.col
+          const fr = anchor.row + c.row
+          if (q.col >= fc && q.col < fc + 1 && q.row >= fr && q.row < fr + 1) {
+            return (q.col - fc >= 0.25 ? 1 : 0) + (q.row - fr >= 0.25 ? 2 : 0)
+          }
+        }
+      }
+      return (q.col - Math.floor(q.col) >= 0.25 ? 1 : 0) + (q.row - Math.floor(q.row) >= 0.25 ? 2 : 0)
+    },
+    [cuartosNivel, anchorDe, footprints],
   )
 
   const onPointerDownCelda = (c: Cell, roomIdHint?: string, zonaIdHint?: number) => {
     if (capa === 'cuartos') {
-      if (herramienta === 'agregar') {
-        const celda = { col: Math.round(c.col), row: Math.round(c.row) }
-        const k = `${celda.col},${celda.row}`
-        const yaMarcada = celdasMarcadas.some((x) => `${x.col},${x.row}` === k)
-        const libre = celdaEnteraEsLibre(
-          celda,
+      // Pincel de forma activo: coloca/altera la celda (crear → rotar → borrar).
+      if (pincelForma) {
+        // Rejilla fina: la celda llega como esquina de cuadrante (paso ½).
+        if (detalleRejilla === 'subcelda') {
+          void aplicarPincelCuartoFino({
+            col: c.col,
+            row: c.row,
+            forma: pincelForma,
+            nivel,
+            placed,
+            cells,
+            footprints,
+            niveles,
+            zonas,
+            idsCuartosNivel,
+            setAviso,
+            setSeleccion,
+          })
+          return
+        }
+        void aplicarPincelCuarto({
+          col: c.col,
+          row: c.row,
+          forma: pincelForma,
+          rotacion: rotForma,
           nivel,
           placed,
           cells,
@@ -324,16 +441,14 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           niveles,
           zonas,
           idsCuartosNivel,
-          anchorDe,
-        )
-        if (!yaMarcada && !libre) {
-          setAviso('Esa celda ya está ocupada. Elige un espacio libre.')
-          return
-        }
-        setAviso(null)
-        toggleCeldaMarcada(celda)
+          setAviso,
+          setSeleccion,
+          onCuartoCreado: () => usePlanos.getState().setHerramienta('expandir'),
+        })
         return
       }
+      // Expandir: solo actúan los botones +/− (el clic en el cuerpo no hace nada).
+      if (herramienta === 'expandir') return
       if (herramienta === 'mover') {
         const rid =
           roomIdHint ??
@@ -366,7 +481,8 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           return
         }
         if (roomIdHint) {
-          void toggleRoom(roomIdHint)
+          // Borrar en el plano = eliminar el cuarto (también desaparece del menú lateral).
+          void eliminarCuarto(roomIdHint)
           setSeleccion(null)
         }
         return
@@ -399,34 +515,36 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
     }
 
     if (capa === 'pisos') {
-      const celda = { col: Math.round(c.col), row: Math.round(c.row) }
-      const occTile = ocupanteEnTile(celda)
-      const roomId = roomIdHint ?? (occTile?.tipo === 'cuarto' ? occTile.roomId : undefined)
-      if (roomId) {
-        // Celda con forma (triángulo/círculo): pintar su relleno; si es cuadrada, editar el cuarto.
-        const a = anchorDe(roomId)
-        const forma = a
-          ? formaEnCelda(formasCuartoDe(roomId), claveCeldaOff(celda.col - a.col, celda.row - a.row))
-          : undefined
-        if (forma && !esFormaCuadrada(forma)) {
-          toggleCeldaExterior(celda)
+      // Piso interior: selecciona el cuarto/zona bajo el cursor (a ½ celda, para caer sobre
+      // cuartos colocados a media rejilla). No aplica formas ni toca el exterior.
+      if (modo === 'piso-int') {
+        const occTile = ocupanteEnTile(c)
+        const roomId = roomIdHint ?? (occTile?.tipo === 'cuarto' ? occTile.roomId : undefined)
+        if (roomId) {
+          setSeleccion({ tipo: 'cuarto', roomId })
           return
         }
-        setSeleccion({ tipo: 'cuarto', roomId })
+        const zid = zonaIdHint ?? zonaEnCelda(zonas, nivel, c.col, c.row)?.id
+        if (zid != null) setSeleccion({ tipo: 'zona', zonaId: zid })
         return
       }
-      const zid =
-        zonaIdHint ?? zonaEnCelda(zonas, nivel, celda.col, celda.row)?.id
-      if (zid != null) {
-        const z = zonas.find((zz) => zz.id === zid)
-        const forma = formaEnCelda(z?.formasCelda, claveCeldaAbs(celda.col, celda.row))
-        if (!esFormaCuadrada(forma)) {
-          toggleCeldaExterior(celda)
-          return
-        }
-        setSeleccion({ tipo: 'zona', zonaId: zid })
-        return
-      }
+      // Piso exterior: es la CAPA de abajo; se pinta en cualquier celda, incluso debajo de un
+      // cuarto. Siempre alterna la celda exterior (entera).
+      toggleCeldaExterior({ col: Math.round(c.col), row: Math.round(c.row) })
+      return
+    }
+
+    if (capa === 'techos') {
+      const rid = roomEnCelda(c)
+      if (rid) setSeleccion({ tipo: 'cuarto', roomId: rid })
+      return
+    }
+
+    if (capa === 'paredes' && herramienta === 'muro') {
+      // El cuadrado (muro recto) se maneja antes, en manejarClickPlano (arista más cercana).
+      // Aquí solo llega forma (triángulo/círculo) en celda libre.
+      // Celda a ½ (ya llega enganchada desde el snap); se alinea con cuartos a media rejilla.
+      const celda = { col: c.col, row: c.row }
       if (
         celdaEsExterior(
           celda.col,
@@ -439,15 +557,15 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           anchorDe,
         )
       ) {
-        toggleCeldaExterior(celda)
-        return
+        const formaSel = formaMuro as 'triangular' | 'circular'
+        void ciclarMuroFormaLibre(
+          nivel,
+          celda.col,
+          celda.row,
+          formaSel,
+          primeraRotMuroForma(formaSel, rotForma),
+        ).then((r) => setMuroLibreSel(r?.id ?? null))
       }
-      return
-    }
-
-    if (capa === 'techos') {
-      const rid = roomEnCelda(c)
-      if (rid) setSeleccion({ tipo: 'cuarto', roomId: rid })
       return
     }
 
@@ -456,20 +574,36 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
 
   const onClickArista = (roomId: string, off: Cell, side: (typeof aristas)[0]['edge']['side']) => {
     if (capa !== 'paredes') return
+    // En Puertas/Ventanas: el primer clic selecciona la arista para editar; el segundo clic
+    // sobre la misma la deselecciona (toggle).
+    if (
+      (herramienta === 'puerta' || herramienta === 'ventana') &&
+      seleccion?.tipo === 'arista' &&
+      seleccion.roomId === roomId &&
+      edgeKey(seleccion.off, seleccion.side) === edgeKey(off, side)
+    ) {
+      setSeleccion(null)
+      return
+    }
     setSeleccion({ tipo: 'arista', roomId, off, side })
-
-    const item = aristas.find(
-      (a) => a.roomId === roomId && a.edge.off.col === off.col && a.edge.off.row === off.row && a.edge.side === side,
-    )
-    if (!item) return
 
     const k = edgeKey(off, side)
     const muro = edgeStyles[roomId]?.[k]?.muro
 
+    // Arista VIRTUAL de un recorte fino (off fraccionario): no existe en `aristas`; se
+    // aplica directo (el recorte es un muro sólido propio, sin estado 'abierto').
+    const esVirtual = !Number.isInteger(off.col) || !Number.isInteger(off.row)
+    if (!esVirtual) {
+      const item = aristas.find(
+        (a) => a.roomId === roomId && a.edge.off.col === off.col && a.edge.off.row === off.row && a.edge.side === side,
+      )
+      if (!item) return
+      if (herramienta === 'ventana' && item.estado === 'abierto') return
+    }
+
     if (herramienta === 'puerta') {
       void paintEdge(roomId, off, side, 'puerta')
     } else if (herramienta === 'ventana') {
-      if (item.estado === 'abierto') return
       void setEdgeEstilo(roomId, off, side, { muro: { ventana: true } })
     } else if (herramienta === 'muro') {
       void paintEdge(roomId, off, side, 'pared')
@@ -517,33 +651,10 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   }
 
   const [hoverTecho, setHoverTecho] = useState<string | null>(null)
-  const [hoverAgregar, setHoverAgregar] = useState<Cell | null>(null)
   const [hoverPisos, setHoverPisos] = useState<Cell | null>(null)
-
-  const celdasMarcadasEnteras = useMemo(
-    () => normalizarCeldasEnteras(celdasMarcadas),
-    [celdasMarcadas],
-  )
-
-  const perimetroAgregar = useMemo(
-    () => (herramienta === 'agregar' ? aristasPerimetroCeldas(celdasMarcadasEnteras) : []),
-    [herramienta, celdasMarcadasEnteras],
-  )
-
-  const previewPuertasAgregar = useMemo(() => {
-    if (herramienta !== 'agregar' || celdasMarcadasEnteras.length === 0) return []
-    const occ = ocupadoPorNivel.get(nivel) ?? SIN_OCUPACION
-    const muros = murosInicialesZona(celdasMarcadasEnteras, nivel, occ, zonas)
-    const { anchor, footprint } = zonaAnchorFootprint(celdasMarcadasEnteras)
-    const ocupado = ocupadoConZonas(nivel, ocupadoPorNivel, zonas)
-    return roomEdges(anchor, footprint, ocupado)
-      .filter((e) => {
-        const st = muros[edgeKey(e.off, e.side)] ?? e.auto
-        return st === 'puerta'
-      })
-      .map((e) => aristaASegmento(anchor, e))
-      .filter((s): s is NonNullable<typeof s> => s != null)
-  }, [herramienta, celdasMarcadasEnteras, nivel, ocupadoPorNivel, zonas])
+  const [hoverPisoFino, setHoverPisoFino] = useState<Cell | null>(null)
+  const [hoverPisoIntRoom, setHoverPisoIntRoom] = useState<string | null>(null)
+  const [hoverPincel, setHoverPincel] = useState<Cell | null>(null)
 
   const lineasTecho = useMemo(() => {
     if (capa !== 'techos' || !seleccion || seleccion.tipo !== 'cuarto') return null
@@ -604,9 +715,8 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
     esSinPiso(pisoExteriorMap.get(`${col},${row}`)?.tipo)
 
   const pisoSwatchExterior = (col: number, row: number) =>
-    pisoExteriorMap.get(`${col},${row}`)?.color ?? '#3d4450'
+    pisoExteriorMap.get(`${col},${row}`)?.color ?? colorExteriorDefecto(temaGlobal)
 
-  const capaColocacion = capa === 'cuartos' && herramienta === 'agregar'
   const capaMover = capa === 'cuartos' && herramienta === 'mover'
   const capaSeleccionPisos = capa === 'pisos' && herramienta === 'seleccionar'
 
@@ -701,7 +811,25 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
     e.preventDefault()
     const p = svgPoint(e.clientX, e.clientY)
     if (!p) return
-    const det = capaColocacion ? ('celda' as const) : detalleRejilla
+    // Muro recto (Lados): coloca/borra la arista más cercana al punto — misma predicción
+    // que el fantasma (aristaMasCercanaEnPlano), sin depender de guías visibles en la rejilla.
+    if (muroAristaMode) {
+      const a = aristaMasCercanaEnPlano(p.x, p.y, orientMuro)
+      void crearMuroAristaLibre(nivel, a.orient, a.col, a.row).then(setMuroLibreSel)
+      return
+    }
+    // Pincel fino: el clic apunta al cuadrante de ¼ bajo el cursor.
+    if (pincelFino) {
+      const q = svgACuadrante(p.x, p.y, gridCols, gridRows)
+      if (q) onPointerDownCelda(q)
+      return
+    }
+    const det =
+      (capa === 'cuartos' && pincelForma) ||
+      (capa === 'paredes' && herramienta === 'muro') ||
+      (modo === 'piso-int' && detalleRejilla === 'celda')
+        ? ('subcelda' as const)
+        : detalleRejilla
     const c = celdaSnapEnPlano(p.x, p.y, gridCols, gridRows, det)
     if (!c) return
     onPointerDownCelda(c)
@@ -715,7 +843,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
         cursorPan ? 'cursor-grabbing' : 'cursor-default',
       ].join(' ')}
       style={{ background: fondoMargen }}
-      title="Rueda: zoom · Shift/Alt + arrastrar: mover · Doble clic en margen: encajar"
+      title={t('plano.controles', 'Rueda: zoom · Shift/Alt + arrastrar: mover · Doble clic en margen: encajar')}
     >
       <div ref={rotWrapRef} className="h-full min-h-0 w-full flex-1">
       <svg
@@ -723,6 +851,49 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
         viewBox={viewBoxStr}
         preserveAspectRatio="xMidYMid meet"
         className="block h-full w-full"
+        onPointerMove={
+          (modo === 'cuartos' && pincelForma) || modo === 'piso-int' || muroModo
+            ? (ev) => {
+                const p = svgPoint(ev.clientX, ev.clientY)
+                // Muros (Crear): fantasma del muro que resultaría del clic, igual que el mapa 3D.
+                if (muroModo) {
+                  if (!p) {
+                    setMuroHover(null)
+                    return
+                  }
+                  if (formaMuro === 'cuadrado') {
+                    const a = aristaMasCercanaEnPlano(p.x, p.y, orientMuro)
+                    setMuroHover(objetivoMuroArista(murosLibresNivel, nivel, a))
+                  } else {
+                    const forma = formaMuro as 'triangular' | 'circular'
+                    const celdaF = celdaSnapEnPlano(p.x, p.y, gridCols, gridRows, 'subcelda')
+                    setMuroHover(celdaF ? objetivoMuroForma(murosLibresNivel, nivel, celdaF, forma, rotForma) : null)
+                  }
+                  return
+                }
+                const c = p
+                  ? pincelFino
+                    ? svgACuadrante(p.x, p.y, gridCols, gridRows)
+                    : celdaSnapEnPlano(p.x, p.y, gridCols, gridRows, 'subcelda')
+                  : null
+                if (modo === 'cuartos') setHoverPincel(c)
+                // Piso interior: resalta la FIGURA del cuarto bajo el cursor (como techos).
+                else {
+                  const occ = c ? ocupanteEnTile(c) : null
+                  setHoverPisoIntRoom(occ?.tipo === 'cuarto' ? occ.roomId : null)
+                }
+              }
+            : undefined
+        }
+        onPointerLeave={
+          (modo === 'cuartos' && pincelForma) || modo === 'piso-int' || muroModo
+            ? () => {
+                setHoverPincel(null)
+                setHoverPisoIntRoom(null)
+                if (muroModo) setMuroHover(null)
+              }
+            : undefined
+        }
       >
         <rect
           x={0}
@@ -745,8 +916,8 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           relleno={rellenoPapel}
         />
 
-        {/* Fondo clicable (herramientas que no usan capa de colocación ni rejilla de pisos) */}
-        {!capaColocacion && !capaSeleccionPisos && (
+        {/* Fondo clicable (herramientas que no usan la rejilla de pisos) */}
+        {!capaSeleccionPisos && (
           <rect
             x={PLANO_PAD}
             y={PLANO_PAD}
@@ -758,7 +929,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
         )}
 
         {/* Rejilla del croquis */}
-        {detalleRejilla === 'celda'
+        {rejillaVisible === 'celda'
           ? Array.from({ length: gridCols }, (_, col) =>
               Array.from({ length: gridRows }, (_, row) => {
                 const { x, y } = celdaASvg(col, row)
@@ -798,25 +969,13 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
               }),
             )}
 
-        {/* Piso exterior bajo cuartos (visible al mover: el hueco queda como exterior) */}
-        {capa !== 'techos' &&
-          capa !== 'paredes' &&
+        {/* Piso exterior: CAPA CONTINUA de fondo bajo todo (como el suelo en el 3D). No se
+            recorta por ocupación; los cuartos se dibujan encima con su forma, así triángulos,
+            círculos y cuartos a media rejilla dejan ver el piso exterior en el hueco. También
+            se muestra en Techos (atenuado) para ver el piso bajo los techos. */}
+        {capa !== 'paredes' &&
           Array.from({ length: gridCols }, (_, col) =>
             Array.from({ length: gridRows }, (_, row) => {
-              if (
-                !celdaEsExterior(
-                  col,
-                  row,
-                  nivel,
-                  idsCuartosNivel,
-                  cellsEfectivos,
-                  footprints,
-                  zonas,
-                  anchorDe,
-                )
-              ) {
-                return null
-              }
               if (exteriorSinPiso(col, row)) return null
               const { x, y } = celdaASvg(col, row)
               return (
@@ -827,13 +986,99 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                   width={PLANO_CELL_PX - 2}
                   height={PLANO_CELL_PX - 2}
                   fill={pisoSwatchExterior(col, row)}
-                  opacity={capa === 'cuartos' ? 0.55 : 0.9}
+                  opacity={capa === 'cuartos' || capa === 'techos' ? 0.55 : 0.9}
                   rx={2}
                   pointerEvents="none"
                 />
               )
             }),
           )}
+
+        {/* Previsualizador del piso de abajo (nivel alto): cuartos del nivel inferior en
+            tenue, para ubicarse y construir encima. */}
+        {cuartosNivelInferior.map((room) => {
+          const anchor = cells[room.id]
+          const fp = footprints[room.id]
+          if (!anchor || !fp) return null
+          const color = roomColors[room.id] ?? room.color
+          return footprintCells(anchor, fp).map((c) => {
+            const { x, y, w, h } = tileRectEnSvg(c.col, c.row)
+            const offC = c.col - anchor.col
+            const offR = c.row - anchor.row
+            return (
+              <LosetaFormaSvg
+                key={`prev-${room.id}-${c.col}-${c.row}`}
+                x={x}
+                y={y}
+                w={w}
+                h={h}
+                forma={formaEnCelda(formasCuartoDe(room.id), claveCeldaOff(offC, offR))}
+                subformas={subformasDeCelda(formasCuartoDe(room.id), offC, offR)}
+                fill={color}
+                opacity={0.16}
+                stroke={color}
+                strokeWidth={1}
+                pointerEvents="none"
+              />
+            )
+          })
+        })}
+
+        {/* Muros libres existentes: aristas (línea) y formas (diagonal/arco). */}
+        {murosLibresNivel.map((m) => {
+          const sel = muroLibreSel === m.id
+          const stroke = sel ? '#34d399' : m.color || COLOR_ARISTA.pared
+          if (m.clase === 'arista' && m.orient) {
+            const p1 = celdaASvg(m.col, m.row)
+            const p2 = m.orient === 'h' ? celdaASvg(m.col + 1, m.row) : celdaASvg(m.col, m.row + 1)
+            return (
+              <line
+                key={`ml-${m.id}`}
+                x1={p1.x}
+                y1={p1.y}
+                x2={p2.x}
+                y2={p2.y}
+                stroke={stroke}
+                strokeWidth={GROSOR_ARISTA + (sel ? 2 : 0)}
+                strokeLinecap="round"
+                style={{ cursor: muroLibreClicable ? 'pointer' : 'default' }}
+                pointerEvents={muroLibreClicable ? undefined : 'none'}
+                onPointerDown={(ev) => {
+                  ev.stopPropagation()
+                  // En Muros: seleccionada → segundo clic la borra. En Puertas/Ventanas: crea la abertura.
+                  if (muroModo && muroLibreSel === m.id && m.orient) {
+                    void crearMuroAristaLibre(nivel, m.orient, m.col, m.row).then(setMuroLibreSel)
+                  } else {
+                    clicMuroLibre(m.id)
+                  }
+                }}
+              />
+            )
+          }
+          if (m.clase === 'forma' && m.forma) {
+            const { x, y } = celdaASvg(m.col, m.row)
+            return (
+              <PerimetroFormaPlanoSvg
+                key={`ml-${m.id}`}
+                forma={{ forma: m.forma, rotacion: m.rotacion ?? 0 }}
+                x={x}
+                y={y}
+                w={PLANO_CELL_PX}
+                h={PLANO_CELL_PX}
+                stroke={stroke}
+                onPointerDown={
+                  formaMuroSeleccionable
+                    ? (ev) => {
+                        ev.stopPropagation()
+                        clicMuroLibre(m.id)
+                      }
+                    : undefined
+                }
+              />
+            )
+          }
+          return null
+        })}
 
         {capa !== 'pisos' &&
           zonasPlanoRender.map((z) => {
@@ -861,7 +1106,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                 stroke={invalido ? '#ef4444' : z.color}
                 strokeWidth={sel || arrastrando ? 2 : 1}
                 opacity={arrastrando ? 0.92 : 1}
-                pointerEvents={capaColocacion ? 'none' : undefined}
+                pointerEvents={pincelFino ? 'none' : undefined}
                 onPointerDown={(ev) => {
                   ev.stopPropagation()
                   onPointerDownCelda(c, undefined, z.id)
@@ -940,6 +1185,8 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
               if (fill == null) return null
               const { x, y, w, h } = tileRectEnSvg(c.col, c.row)
               const sel = seleccion?.tipo === 'zona' && seleccion.zonaId === z.id
+              // "Todos los interiores": se resalta la figura de la zona (como techos).
+              const grupoInt = modo === 'piso-int' && seleccion?.tipo === 'pisos-interiores'
               const forma = formaEnCelda(formasZonaEn(z, visibles), claveCeldaAbs(c.col, c.row))
               return (
                 <g key={`pz-${z.id}-${c.col}-${c.row}`}>
@@ -963,8 +1210,8 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                     forma={forma}
                     fill={fill}
                     opacity={0.9}
-                    stroke={sel ? '#fff' : 'rgba(255,255,255,0.15)'}
-                    strokeWidth={sel ? 2 : 1}
+                    stroke={sel || grupoInt ? '#fff' : 'rgba(255,255,255,0.15)'}
+                    strokeWidth={sel || grupoInt ? 2 : 1}
                     pointerEvents={capaSeleccionPisos ? 'none' : undefined}
                     onPointerDown={(ev) => {
                       ev.stopPropagation()
@@ -976,7 +1223,10 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
             })
           })}
 
+        {/* Swatch del piso de cada cuarto: solo en piso exterior. En piso interior los cuartos
+            se ven con SU color (uniformes), no con la textura del piso (que la edita el panel). */}
         {capa === 'pisos' &&
+          modo !== 'piso-int' &&
           cuartosNivel.map((room) => {
             const anchor = anchorDe(room.id)
             const fp = footprints[room.id]
@@ -986,11 +1236,13 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
               if (fill == null) return null
               const { x, y, w, h } = tileRectEnSvg(c.col, c.row)
               const sel = seleccion?.tipo === 'cuarto' && seleccion.roomId === room.id
-              const offKey = claveCeldaOff(c.col - anchor.col, c.row - anchor.row)
-              const forma = formaEnCelda(formasCuartoDe(room.id), offKey)
+              const offC = c.col - anchor.col
+              const offR = c.row - anchor.row
+              const forma = formaEnCelda(formasCuartoDe(room.id), claveCeldaOff(offC, offR))
+              const sub = subformasDeCelda(formasCuartoDe(room.id), offC, offR)
               return (
                 <g key={`p-${room.id}-${c.col}-${c.row}`}>
-                  {!esFormaCuadrada(forma) && (
+                  {(!esFormaCuadrada(forma) || sub) && (
                     <rect
                       x={x + 1}
                       y={y + 1}
@@ -1008,6 +1260,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                     w={w}
                     h={h}
                     forma={forma}
+                    subformas={sub}
                     fill={fill}
                     opacity={0.9}
                     stroke={sel ? '#fff' : 'rgba(255,255,255,0.15)'}
@@ -1076,6 +1329,11 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                   w={w}
                   h={h}
                   forma={formaEnCelda(formasCuartoDe(roomId), offKey)}
+                  subformas={
+                    anchor && fp
+                      ? subformasDeCelda(formasCuartoDe(roomId), c.col - anchor.col, c.row - anchor.row)
+                      : null
+                  }
                   fill={color}
                   opacity={sel ? 0.55 : 0.35}
                   stroke={sel ? '#fff' : color}
@@ -1092,6 +1350,12 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           if (!anchor || !fp) return null
           const color = roomColors[room.id] ?? room.color
           const sel = seleccion?.tipo === 'cuarto' && seleccion.roomId === room.id
+          // Piso interior: resalta la FIGURA del cuarto al pasar el cursor, al seleccionarlo,
+          // o cuando está activo "todos los interiores" (como techos, nunca la rejilla).
+          const enPisoInt = capa === 'pisos' && modo === 'piso-int'
+          const hov = enPisoInt && hoverPisoIntRoom === room.id
+          const grupoInt = enPisoInt && seleccion?.tipo === 'pisos-interiores'
+          const resaltado = enPisoInt && (sel || hov || grupoInt)
           const nombre = roomNames[room.id] || room.nombre.split(' · ')[0]
           const arrastrando = draggingId === room.id
           const invalido = arrastrando && !cuartoArrastrandoValido
@@ -1100,7 +1364,9 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
             <g key={room.id}>
               {footprintCells(anchor, fp).map((c) => {
                 const { x, y, w, h } = tileRectEnSvg(c.col, c.row)
-                const offKey = claveCeldaOff(c.col - anchor.col, c.row - anchor.row)
+                const offC = c.col - anchor.col
+                const offR = c.row - anchor.row
+                const offKey = claveCeldaOff(offC, offR)
                 return (
                   <LosetaFormaSvg
                     key={`r-${room.id}-${c.col}-${c.row}`}
@@ -1109,19 +1375,32 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                     w={w}
                     h={h}
                     forma={formaEnCelda(formasCuartoDe(room.id), offKey)}
+                    subformas={subformasDeCelda(formasCuartoDe(room.id), offC, offR)}
                     fill={
                       invalido
                         ? 'rgba(239,68,68,0.45)'
                         : capa === 'pisos'
-                          ? 'transparent'
+                          ? (enPisoInt ? color : 'transparent')
                           : color
                     }
                     opacity={
-                      capa === 'techos' ? 0.25 : arrastrando ? 0.92 : sel ? 0.95 : 0.75
+                      capa === 'techos'
+                        ? 0.25
+                        : enPisoInt
+                          ? (resaltado ? 0.55 : 0.32)
+                          : arrastrando ? 0.92 : sel ? 0.95 : 0.75
                     }
-                    stroke={invalido ? '#ef4444' : sel ? '#1e40af' : 'rgba(61,41,20,0.35)'}
-                    strokeWidth={sel || arrastrando ? 2 : 1}
-                    pointerEvents={capaColocacion || capa === 'pisos' ? 'none' : undefined}
+                    stroke={
+                      invalido
+                        ? '#ef4444'
+                        : sel
+                          ? '#1e40af'
+                          : hov || grupoInt
+                            ? '#ffffff'
+                            : 'rgba(61,41,20,0.35)'
+                    }
+                    strokeWidth={sel || arrastrando || hov || grupoInt ? 2 : 1}
+                    pointerEvents={capa === 'pisos' || pincelFino ? 'none' : undefined}
                     onPointerDown={(ev) => {
                       ev.stopPropagation()
                       onPointerDownCelda(c, room.id)
@@ -1138,18 +1417,144 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                   textAnchor="middle"
                   dominantBaseline="middle"
                   fill={PLANO_TEXTO}
-                  fontSize={11}
+                  fontSize={6}
                   fontWeight={700}
                   pointerEvents="none"
                   opacity={0.9}
                 >
-                  {room.icon} {nombre.length > 8 ? nombre.slice(0, 7) + '…' : nombre}
+                  {room.icon} {nombre.length > 12 ? nombre.slice(0, 11) + '…' : nombre}
                 </text>
                 )
               })()}
             </g>
           )
         })}
+
+        {/* Fantasma de la forma del pincel bajo el cursor (preview en el croquis). */}
+        {modo === 'cuartos' && pincelForma && hoverPincel && (() => {
+          // Rejilla fina: fantasma del cuadrante con la rotación que recortará la esquina.
+          if (pincelFino) {
+            const { x, y } = celdaASvg(hoverPincel.col, hoverPincel.row)
+            const i = cuadranteEnCuarto(hoverPincel)
+            return (
+              <LosetaFormaSvg
+                x={x}
+                y={y}
+                w={PLANO_SUB_PX}
+                h={PLANO_SUB_PX}
+                forma={{ forma: pincelForma, rotacion: rotInicialSubforma(pincelForma, i) }}
+                fill="#34d399"
+                opacity={0.55}
+                stroke="#34d399"
+                strokeWidth={1.5}
+                pointerEvents="none"
+              />
+            )
+          }
+          const { x, y, w, h } = tileRectEnSvg(hoverPincel.col, hoverPincel.row)
+          return (
+            <LosetaFormaSvg
+              x={x}
+              y={y}
+              w={w}
+              h={h}
+              forma={{ forma: pincelForma, rotacion: pincelForma === 'cuadrado' ? 0 : rotForma }}
+              fill="#34d399"
+              opacity={0.45}
+              stroke="#34d399"
+              strokeWidth={1.5}
+              pointerEvents="none"
+            />
+          )
+        })()}
+
+        {/* Fantasma del muro (recto/triángulo/círculo) bajo el cursor: mismo cálculo que
+            el mapa 3D (verde = lo que colocaría/avanzaría, rojo = lo borraría). */}
+        {muroModo && muroHover && (() => {
+          const color = muroHover.borra ? '#f87171' : '#34d399'
+          if (muroHover.clase === 'arista' && muroHover.orient) {
+            const p1 = celdaASvg(muroHover.col, muroHover.row)
+            const p2 =
+              muroHover.orient === 'h'
+                ? celdaASvg(muroHover.col + 1, muroHover.row)
+                : celdaASvg(muroHover.col, muroHover.row + 1)
+            return (
+              <line
+                x1={p1.x}
+                y1={p1.y}
+                x2={p2.x}
+                y2={p2.y}
+                stroke={color}
+                strokeWidth={GROSOR_ARISTA + 2}
+                strokeLinecap="round"
+                opacity={0.7}
+                pointerEvents="none"
+              />
+            )
+          }
+          if (muroHover.clase === 'forma' && muroHover.forma) {
+            const { x, y } = celdaASvg(muroHover.col, muroHover.row)
+            return (
+              <PerimetroFormaPlanoSvg
+                forma={{ forma: muroHover.forma, rotacion: (muroHover.rotacion ?? 0) as 0 | 90 | 180 | 270 }}
+                x={x}
+                y={y}
+                w={PLANO_CELL_PX}
+                h={PLANO_CELL_PX}
+                stroke={color}
+                strokeWidth={GROSOR_ARISTA + 2}
+                opacity={0.7}
+              />
+            )
+          }
+          return null
+        })()}
+
+        {/* Herramienta Expandir: botones +/− de TODOS los cuartos del nivel para
+            crecerlos, recortarlos o eliminarlos (el '−' de un cuarto de 1 celda lo borra). */}
+        {modo === 'cuartos' &&
+          !pincelForma &&
+          herramienta === 'expandir' &&
+          !draggingId &&
+          cuartosNivel.map((room) => {
+            const anchor = anchorDe(room.id)
+            const fp = footprints[room.id]
+            if (!anchor || !fp) return null
+            const ocupado = ocupadoPorNivel.get(niveles[room.id] ?? 0) ?? SIN_OCUPACION
+            const { quitar, agregar } = celdasEdicionCuarto(anchor, fp, ocupado, gridCols, gridRows)
+            const unaCelda = fp.length <= 1
+            return (
+              <g key={`exp-${room.id}`}>
+                {quitar.map(({ cell, puede }) => {
+                  if (!puede) return null
+                  const { x, y, w, h } = tileRectEnSvg(cell.col, cell.row)
+                  return (
+                    <BotonCeldaSvg
+                      key={`mm-${room.id}-${cell.col}-${cell.row}`}
+                      cx={x + w / 2}
+                      cy={y + h / 2}
+                      signo="−"
+                      onTap={() =>
+                        unaCelda ? void eliminarCuarto(room.id) : void contraerCeldaCuarto(room.id, cell)
+                      }
+                    />
+                  )
+                })}
+                {agregar.map((v) => {
+                  const { x, y, w, h } = tileRectEnSvg(v.col, v.row)
+                  return (
+                    <BotonCeldaSvg
+                      key={`pp-${room.id}-${v.col}-${v.row}`}
+                      cx={x + w / 2}
+                      cy={y + h / 2}
+                      signo="+"
+                      onTap={() => void expandirCeldaCuarto(room.id, v)}
+                    />
+                  )
+                })}
+              </g>
+            )
+          })}
 
         {(capa === 'paredes' || capa === 'cuartos') &&
           aristas.map(({ roomId, edge, estado }, i) => {
@@ -1173,7 +1578,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                 strokeWidth={sel ? GROSOR_ARISTA + 2 : GROSOR_ARISTA}
                 strokeLinecap="round"
                 opacity={capa === 'cuartos' ? 0.35 : 1}
-                pointerEvents={capaColocacion || capaMover ? 'none' : undefined}
+                pointerEvents={capaMover ? 'none' : undefined}
                 onPointerDown={(ev) => {
                   ev.stopPropagation()
                   onClickArista(roomId, edge.off, edge.side)
@@ -1206,7 +1611,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                 strokeWidth={sel ? GROSOR_ARISTA + 2 : GROSOR_ARISTA}
                 strokeLinecap="round"
                 opacity={capa === 'cuartos' ? 0.35 : 1}
-                pointerEvents={capaColocacion || capaMover ? 'none' : undefined}
+                pointerEvents={capaMover ? 'none' : undefined}
                 onPointerDown={(ev) => {
                   ev.stopPropagation()
                   onClickAristaZona(zonaId, edge.off, edge.side)
@@ -1243,23 +1648,82 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
             const fp = footprints[room.id]
             if (!anchor || !fp) return []
             const color = roomColors[room.id] ?? room.color
-            return footprintCells(anchor, fp).map((c) => {
+            const propias = new Set(fp.map((pc) => cellId(pc.col, pc.row)))
+            const puedeClic =
+              capa === 'paredes' && (herramienta === 'puerta' || herramienta === 'ventana')
+            return footprintCells(anchor, fp).flatMap((c) => {
               const { x, y, w, h } = tileRectEnSvg(c.col, c.row)
-              const offKey = claveCeldaOff(c.col - anchor.col, c.row - anchor.row)
+              const off = { col: c.col - anchor.col, row: c.row - anchor.row }
+              const offKey = claveCeldaOff(off.col, off.row)
               const forma = formaEnCelda(formasCuartoDe(room.id), offKey)
-              if (esFormaCuadrada(forma)) return null
-              return (
-                <PerimetroFormaPlanoSvg
-                  key={`pfr-${room.id}-${c.col}-${c.row}`}
-                  forma={forma}
-                  x={x}
-                  y={y}
-                  w={w}
-                  h={h}
-                  stroke={color}
-                  opacity={capa === 'cuartos' ? 0.55 : 1}
-                />
-              )
+              const sub = subformasDeCelda(formasCuartoDe(room.id), off.col, off.row)
+              const out: React.ReactElement[] = []
+              // La diagonal/arco toma la puerta/ventana de su lado representativo (el que la
+              // forma cubre). En Puertas/Ventanas el clic sobre ella crea la abertura, igual
+              // que en los lados rectos y en los muros libres.
+              if (!esFormaCuadrada(forma)) {
+                const ladoRep = SIDE_KEYS.find((s) => !perimetroFormaCelda(forma, 0, 0)?.lados.has(s))
+                const clicable = puedeClic && !!ladoRep
+                out.push(
+                  <PerimetroFormaPlanoSvg
+                    key={`pfr-${room.id}-${c.col}-${c.row}`}
+                    forma={forma}
+                    x={x}
+                    y={y}
+                    w={w}
+                    h={h}
+                    stroke={color}
+                    opacity={capa === 'cuartos' ? 0.55 : 1}
+                    onPointerDown={
+                      clicable
+                        ? (ev) => {
+                            ev.stopPropagation()
+                            onClickArista(room.id, off, ladoRep!)
+                          }
+                        : undefined
+                    }
+                  />,
+                )
+              }
+              // Recortes finos: mini-diagonales/arcos + mitades rectas conservadas, con el
+              // mismo clic de puerta/ventana sobre su lado representativo.
+              if (sub) {
+                const ladosExternos = new Set<SideKey>(
+                  SIDE_KEYS.filter(
+                    (s) =>
+                      !propias.has(
+                        cellId(
+                          off.col + (s === 'O' ? -1 : s === 'E' ? 1 : 0),
+                          off.row + (s === 'N' ? -1 : s === 'S' ? 1 : 0),
+                        ),
+                      ),
+                  ),
+                )
+                extrasPerimetroSubformasSvg(sub, x, y, w, h, ladosExternos).forEach((ex, j) => {
+                  const clicable = puedeClic && !!ex.ladoRep
+                  // El recorte fino es un muro propio: su arista de estilo es la VIRTUAL del
+                  // cuadrante; las mitades rectas pertenecen al lado real.
+                  const offClic =
+                    ex.cuadrante != null ? offSubcelda(off.col, off.row, ex.cuadrante) : off
+                  out.push(
+                    <TrazoPerimetroSvg
+                      key={`pfs-${room.id}-${c.col}-${c.row}-${j}`}
+                      extra={ex.extra}
+                      stroke={color}
+                      opacity={capa === 'cuartos' ? 0.55 : 1}
+                      onPointerDown={
+                        clicable
+                          ? (ev) => {
+                              ev.stopPropagation()
+                              onClickArista(room.id, offClic, ex.ladoRep!)
+                            }
+                          : undefined
+                      }
+                    />,
+                  )
+                })
+              }
+              return out
             })
           })}
 
@@ -1267,14 +1731,16 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
         {capaSeleccionPisos &&
           Array.from({ length: gridCols }, (_, col) =>
             Array.from({ length: gridRows }, (_, row) => {
-              if (detalleRejilla === 'subcelda') {
-                // Modo fino: 4 sub-cuadrantes clicables por celda (interior y exterior).
+              if (detalleRejilla === 'subcelda' && modo === 'piso-ext') {
+                // Modo fino (solo EXTERIOR): 4 sub-cuadrantes clicables por celda. El interior
+                // ignora la rejilla fina: cae al bloque de celda entera y solo selecciona.
                 const { x, y } = celdaASvg(col, row)
                 return CUADRANTES_OFF.map((o, qi) => {
                   const q = { col: col + o.dc, row: row + o.dr }
                   const sel =
                     seleccion?.tipo === 'exterior' &&
                     seleccion.celdas.some((c) => c.col === q.col && c.row === q.row)
+                  const hov = hoverPisoFino?.col === q.col && hoverPisoFino?.row === q.row
                   return (
                     <rect
                       key={`ps-${col}-${row}-${qi}`}
@@ -1283,9 +1749,13 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                       width={PLANO_SUB_PX}
                       height={PLANO_SUB_PX}
                       fill={sel ? 'rgba(52,211,153,0.4)' : 'transparent'}
-                      stroke={sel ? '#10b981' : '#34d399'}
-                      strokeWidth={sel ? 2 : 0.4}
+                      stroke={sel ? '#10b981' : hov ? '#ffffff' : '#34d399'}
+                      strokeWidth={sel ? 2 : hov ? 2 : 0.4}
                       style={{ cursor: 'cell' }}
+                      onPointerEnter={() => setHoverPisoFino(q)}
+                      onPointerLeave={() =>
+                        setHoverPisoFino((h) => (h?.col === q.col && h?.row === q.row ? null : h))
+                      }
                       onPointerDown={(ev) => {
                         ev.stopPropagation()
                         toggleCeldaExterior(q)
@@ -1309,19 +1779,15 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                 seleccion.roomId === occ.roomId
               const selZona =
                 seleccion?.tipo === 'zona' && occ?.tipo === 'zona' && seleccion.zonaId === occ.zonaId
-              const esExterior = celdaEsExterior(
-                col,
-                row,
-                nivel,
-                idsCuartosNivel,
-                cells,
-                footprints,
-                zonas,
-                anchorDe,
-              )
               const { x, y } = celdaASvg(col, row)
               const activa = selExterior || selInteriorGrupo || selCuarto || selZona
-              const resaltarHover = hover && (esExterior || !occ)
+              // Piso exterior: el fantasma se muestra en CUALQUIER celda (también bajo un cuarto),
+              // porque es la capa de abajo. En interior, la figura del cuarto reemplaza este
+              // resaltado de celda (no se dibuja el cuadro de la rejilla por cuarto/zona).
+              const hoverable = modo !== 'piso-int'
+              const resaltarHover = hover && hoverable && !activa
+              // En piso interior la rejilla no se resalta: lo hace la figura del cuarto/zona.
+              const bordeRejilla = modo === 'piso-int' ? false : activa
               return (
                 <rect
                   key={`ps-${col}-${row}`}
@@ -1330,14 +1796,12 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                   width={PLANO_CELL_PX}
                   height={PLANO_CELL_PX}
                   fill={
-                    selExterior || selInteriorGrupo
+                    modo !== 'piso-int' && (selExterior || selInteriorGrupo)
                       ? 'rgba(52,211,153,0.4)'
-                      : resaltarHover
-                        ? 'rgba(52,211,153,0.15)'
-                        : 'transparent'
+                      : 'transparent'
                   }
-                  stroke={activa ? '#10b981' : resaltarHover ? '#34d399' : undefined}
-                  strokeWidth={activa ? 2 : resaltarHover ? 1 : 0}
+                  stroke={bordeRejilla ? '#10b981' : resaltarHover ? '#ffffff' : undefined}
+                  strokeWidth={bordeRejilla ? 2 : resaltarHover ? 1.5 : 0}
                   style={{ cursor: 'cell' }}
                   onPointerEnter={() => setHoverPisos(celda)}
                   onPointerLeave={() =>
@@ -1352,9 +1816,10 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
             }),
           )}
 
-        {/* Cuadrantes finos extra sobre celdas de cuartos a ½ celda (la rejilla entera no las cubre). */}
+        {/* Cuadrantes finos extra sobre celdas de cuartos a ½ celda (solo EXTERIOR). */}
         {capaSeleccionPisos &&
           detalleRejilla === 'subcelda' &&
+          modo === 'piso-ext' &&
           celdasFinasExtra.map((cell) => {
             const { x, y } = celdaASvg(cell.col, cell.row)
             return CUADRANTES_OFF.map((o, qi) => {
@@ -1362,6 +1827,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
               const sel =
                 seleccion?.tipo === 'exterior' &&
                 seleccion.celdas.some((c) => c.col === q.col && c.row === q.row)
+              const hov = hoverPisoFino?.col === q.col && hoverPisoFino?.row === q.row
               return (
                 <rect
                   key={`psx-${cell.col},${cell.row}-${qi}`}
@@ -1370,9 +1836,13 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                   width={PLANO_SUB_PX}
                   height={PLANO_SUB_PX}
                   fill={sel ? 'rgba(52,211,153,0.4)' : 'transparent'}
-                  stroke={sel ? '#10b981' : '#34d399'}
-                  strokeWidth={sel ? 2 : 0.4}
+                  stroke={sel ? '#10b981' : hov ? '#ffffff' : '#34d399'}
+                  strokeWidth={sel ? 2 : hov ? 2 : 0.4}
                   style={{ cursor: 'cell' }}
+                  onPointerEnter={() => setHoverPisoFino(q)}
+                  onPointerLeave={() =>
+                    setHoverPisoFino((h) => (h?.col === q.col && h?.row === q.row ? null : h))
+                  }
                   onPointerDown={(ev) => {
                     ev.stopPropagation()
                     toggleCeldaExterior(q)
@@ -1381,87 +1851,6 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
               )
             })
           })}
-
-        {/* Espacio interior + rejilla clicable (Agregar cuarto) */}
-        {capaColocacion &&
-          Array.from({ length: gridCols }, (_, col) =>
-            Array.from({ length: gridRows }, (_, row) => {
-              const celda = { col, row }
-              const k = `${col},${row}`
-              const marcada = celdasMarcadasEnteras.some((x) => `${x.col},${x.row}` === k)
-              const hover =
-                hoverAgregar?.col === col && hoverAgregar?.row === row && !marcada
-              const { x, y } = celdaASvg(col, row)
-              return (
-                <g key={`ag-${col}-${row}`}>
-                  {marcada && (
-                    <rect
-                      x={x + 2}
-                      y={y + 2}
-                      width={PLANO_CELL_PX - 4}
-                      height={PLANO_CELL_PX - 4}
-                      fill="#a8a29e"
-                      opacity={0.85}
-                      rx={2}
-                      pointerEvents="none"
-                    />
-                  )}
-                  <rect
-                    x={x}
-                    y={y}
-                    width={PLANO_CELL_PX}
-                    height={PLANO_CELL_PX}
-                    fill={
-                      marcada
-                        ? 'transparent'
-                        : hover
-                          ? 'rgba(52,211,153,0.15)'
-                          : 'transparent'
-                    }
-                    stroke={marcada ? 'transparent' : hover ? '#34d399' : undefined}
-                    strokeWidth={marcada ? 0 : 1}
-                    style={{ cursor: 'cell' }}
-                    onPointerEnter={() => setHoverAgregar(celda)}
-                    onPointerLeave={() =>
-                      setHoverAgregar((h) => (h?.col === col && h?.row === row ? null : h))
-                    }
-                    onPointerDown={(ev) => {
-                      ev.stopPropagation()
-                      onPointerDownCelda(celda)
-                    }}
-                  />
-                </g>
-              )
-            }),
-          )}
-
-        {perimetroAgregar.map((ln, i) => (
-          <line
-            key={`per-${i}`}
-            x1={ln.x1}
-            y1={ln.y1}
-            x2={ln.x2}
-            y2={ln.y2}
-            stroke="#78350f"
-            strokeWidth={3}
-            strokeLinecap="square"
-            pointerEvents="none"
-          />
-        ))}
-
-        {previewPuertasAgregar.map((ln, i) => (
-          <line
-            key={`pda-${i}`}
-            x1={ln.x1}
-            y1={ln.y1}
-            x2={ln.x2}
-            y2={ln.y2}
-            stroke={COLOR_ARISTA.puerta}
-            strokeWidth={GROSOR_ARISTA + 1}
-            strokeLinecap="round"
-            pointerEvents="none"
-          />
-        ))}
 
         {lineasTecho && (
           <>
@@ -1528,5 +1917,36 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
       </svg>
       </div>
     </div>
+  )
+}
+
+/** Botón circular +/− sobre una celda del croquis (agrandar/recortar cuarto). */
+function BotonCeldaSvg({
+  cx,
+  cy,
+  signo,
+  onTap,
+}: {
+  cx: number
+  cy: number
+  signo: '+' | '−'
+  onTap: () => void
+}) {
+  const mas = signo === '+'
+  return (
+    <g style={{ cursor: 'pointer' }} onPointerDown={(ev) => { ev.stopPropagation(); onTap() }}>
+      <circle cx={cx} cy={cy} r={12} fill={mas ? '#22c55e' : '#ef4444'} stroke="#fff" strokeWidth={1.5} />
+      <text
+        x={cx}
+        y={cy + 4}
+        textAnchor="middle"
+        fill={mas ? '#000' : '#fff'}
+        fontSize={15}
+        fontWeight={900}
+        pointerEvents="none"
+      >
+        {signo}
+      </text>
+    </g>
   )
 }

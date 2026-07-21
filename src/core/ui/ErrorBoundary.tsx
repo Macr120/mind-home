@@ -26,7 +26,7 @@ export class ErrorBoundary extends Component<Props, State> {
     if (this.state.error) {
       return (
         <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-6 text-center">
-          <p className="text-lg font-bold text-red-300">
+          <p className="text-lg font-bold text-red-400">
             {this.props.titulo ?? 'Algo falló al cargar'}
           </p>
           <p className="mt-2 text-sm text-white/60">{this.state.error.message}</p>

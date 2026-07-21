@@ -12,22 +12,18 @@ function margenFit(ancho: number, alto: number) {
 }
 
 /** ViewBox base del contenido con margen visual. */
-export function viewBoxContenido(ancho: number, alto: number): ViewBoxPlano {
+function viewBoxContenido(ancho: number, alto: number): ViewBoxPlano {
   const m = margenFit(ancho, alto)
   return { x: -m, y: -m, w: ancho + m * 2, h: alto + m * 2 }
 }
 
-/**
- * Encaja el plano en el contenedor visible (ya descontado el panel lateral).
- * Reserva espacio abajo/derecha para los botones flotantes.
- */
-export function viewBoxEncaje(
-  contentW: number,
-  contentH: number,
+/** Encaja un rectángulo `base` (coords de contenido) dentro del contenedor visible,
+ *  reservando espacio abajo/derecha para los botones flotantes. */
+function encajarRect(
+  base: ViewBoxPlano,
   containerW: number,
   containerH: number,
 ): ViewBoxPlano {
-  const base = viewBoxContenido(contentW, contentH)
   const padL = 12
   const padT = 12
   const padR = 20
@@ -51,7 +47,36 @@ export function viewBoxEncaje(
   }
 }
 
-export function usePlanoViewport(contentW: number, contentH: number) {
+/**
+ * Encaja el plano en el contenedor visible (ya descontado el panel lateral).
+ * Reserva espacio abajo/derecha para los botones flotantes.
+ */
+function viewBoxEncaje(
+  contentW: number,
+  contentH: number,
+  containerW: number,
+  containerH: number,
+): ViewBoxPlano {
+  return encajarRect(viewBoxContenido(contentW, contentH), containerW, containerH)
+}
+
+/** Encaja un cuarto concreto (rect en coords de contenido) con un margen a su alrededor. */
+function viewBoxEncajeFoco(
+  foco: ViewBoxPlano,
+  containerW: number,
+  containerH: number,
+): ViewBoxPlano {
+  const m = Math.max(foco.w, foco.h) * 0.35
+  const base = { x: foco.x - m, y: foco.y - m, w: foco.w + m * 2, h: foco.h + m * 2 }
+  return encajarRect(base, containerW, containerH)
+}
+
+export function usePlanoViewport(
+  contentW: number,
+  contentH: number,
+  /** Si se da, el croquis encaja sobre este rectángulo (coords de contenido) en vez de todo el plano. */
+  foco?: ViewBoxPlano | null,
+) {
   const containerRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement | null>(null)
   const [viewBox, setViewBox] = useState<ViewBoxPlano>(() =>
@@ -62,23 +87,29 @@ export function usePlanoViewport(contentW: number, contentH: number) {
   const panStart = useRef<{ x: number; y: number; vb: ViewBoxPlano } | null>(null)
   const [cursorPan, setCursorPan] = useState(false)
   const viewBoxRef = useRef(viewBox)
-  viewBoxRef.current = viewBox
+  useEffect(() => {
+    viewBoxRef.current = viewBox
+  }, [viewBox])
 
   const fitToContainer = useCallback(() => {
     const el = containerRef.current
     if (!el || contentW <= 0 || contentH <= 0) return
     const { width, height } = el.getBoundingClientRect()
     if (width < 8 || height < 8) return
-    setViewBox(viewBoxEncaje(contentW, contentH, width, height))
+    setViewBox(
+      foco
+        ? viewBoxEncajeFoco(foco, width, height)
+        : viewBoxEncaje(contentW, contentH, width, height),
+    )
     userModified.current = false
-  }, [contentW, contentH])
+  }, [contentW, contentH, foco])
 
   useEffect(() => {
     userModified.current = false
     fitToContainer()
     const id = requestAnimationFrame(() => fitToContainer())
     return () => cancelAnimationFrame(id)
-  }, [contentW, contentH, fitToContainer])
+  }, [contentW, contentH, foco, fitToContainer])
 
   useEffect(() => {
     const el = containerRef.current

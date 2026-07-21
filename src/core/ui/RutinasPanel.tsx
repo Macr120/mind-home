@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import type { Rutina, PasoRutina, RepeticionRutina } from '../data/db'
 import { rutinasRepo, useEjecucionesDeFecha } from '../data/repository'
-import { getPlantilla } from '../registry'
+import { getPlantilla, plantillasAgendables } from '../registry'
 import { appsAsignadas } from '../chat/dispatcher'
-import { hoyISO, tocaHoy, togglePaso, pasosHechosHoy, estaPendiente, revisarRecordatorios, textoRepeticion, DIAS_SEMANA } from '../rutinas'
+import { hoyISO, tocaHoy, togglePaso, pasosHechosHoy, estaPendiente, textoRepeticion, DIAS_SEMANA } from '../rutinas'
 import { useRutinasUI } from '../state/rutinasUiStore'
+import { pedirPermiso, permisoNotificaciones } from '../notificaciones'
 import { useT } from '../i18n/useT'
+import { COLORES_RUTINA } from './coloresRutina'
+import { FilaAviso } from './FilaAviso'
+import { Icono } from './iconos/Icono'
 
 /** Etiquetas cortas de los días (índice = getDay(): 0=domingo). */
-const DIAS = [...DIAS_SEMANA]
+export const DIAS = [...DIAS_SEMANA]
 
 const PASO_VACIO: PasoRutina = { titulo: '', roomId: 'cocina' }
 
@@ -31,25 +35,19 @@ export function RutinasPanel() {
   const rutinas = rutinasRepo.useAll()
   const ejecuciones = useEjecucionesDeFecha(hoyISO())
 
-  // Recordatorios: el asistente avisa cuando una rutina llega a su hora.
-  useEffect(() => {
-    const id = setInterval(revisarRecordatorios, 30_000)
-    revisarRecordatorios()
-    return () => clearInterval(id)
-  }, [])
-
   const deHoy = (rutinas ?? []).filter(tocaHoy)
 
   return (
     <>
       {abierto && (
-        <div className="ui-panel-glass absolute right-3 top-24 z-20 flex max-h-[70vh] w-80 flex-col rounded-2xl border border-white/10 shadow-xl backdrop-blur-md">
+        <div data-tut="rutinas.panel" data-tut-zona="rutinas" className="ui-panel-glass absolute right-3 top-24 z-20 flex max-h-[70vh] w-80 flex-col rounded-2xl border border-white/10 shadow-xl backdrop-blur-md">
           <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
-            <p className="flex-1 text-sm font-semibold">⏰ {t('rutinas.titulo', 'Rutinas')}</p>
+            <p className="flex-1 text-sm font-semibold"><Icono nombre="alarma" /> {t('rutinas.titulo', 'Rutinas')}</p>
             <button
               type="button"
+              data-tut="rutinas.nueva"
               onClick={() => setEditando(rutinaNueva())}
-              className="rounded-lg bg-emerald-500/90 px-2 py-1 text-[11px] font-bold text-white transition hover:bg-emerald-400"
+              className="rounded-lg bg-emerald-600 px-2 py-1 text-[11px] font-bold texto-cta transition hover:bg-emerald-600"
             >
               + {t('rutinas.nueva', 'Nueva')}
             </button>
@@ -98,7 +96,7 @@ export function RutinasPanel() {
                   )}
                   {(rutinas ?? []).map((r) => (
                     <div key={r.id} className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5">
-                      <span>{r.emoji}</span>
+                      <span><Icono emoji={r.emoji} /></span>
                       <div className="min-w-0 flex-1">
                         <p className={`truncate text-xs font-semibold ${r.activa ? 'text-white/85' : 'text-white/35 line-through'}`}>
                           {r.nombre}
@@ -112,7 +110,7 @@ export function RutinasPanel() {
                         type="button"
                         onClick={() => r.id != null && rutinasRepo.update(r.id, { activa: !r.activa })}
                         className={`rounded px-1.5 py-0.5 text-[10px] font-bold transition ${
-                          r.activa ? 'bg-emerald-500/20 text-emerald-300' : 'bg-white/10 text-white/40'
+                          r.activa ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white/40'
                         }`}
                         title={r.activa ? t('rutinas.pausar', 'Pausar') : t('rutinas.activar', 'Activar')}
                       >
@@ -124,7 +122,7 @@ export function RutinasPanel() {
                         className="px-1 text-[11px] text-white/30 transition hover:text-white/80"
                         title={t('rutinas.editar', 'Editar')}
                       >
-                        ✏️
+                        <Icono nombre="editar" />
                       </button>
                       <button
                         type="button"
@@ -155,7 +153,7 @@ function TarjetaHoy({ rutina, hechos, pendiente }: { rutina: Rutina; hechos: Set
   return (
     <div className={`rounded-xl border p-2 ${pendiente ? 'border-amber-400/40 bg-amber-500/10' : 'border-white/10 bg-white/5'}`}>
       <div className="mb-1.5 flex items-center gap-2">
-        <span>{rutina.emoji}</span>
+        <span><Icono emoji={rutina.emoji} /></span>
         <p className="flex-1 truncate text-xs font-semibold text-white/85">{rutina.nombre}</p>
         {rutina.hora && <span className="text-[10px] text-white/40">{rutina.hora}</span>}
         {total > 0 && (
@@ -180,7 +178,7 @@ function TarjetaHoy({ rutina, hechos, pendiente }: { rutina: Rutina; hechos: Set
             >
               <span
                 className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] ${
-                  hecho ? 'border-emerald-400 bg-emerald-500/30 text-emerald-200' : 'border-white/25'
+                  hecho ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400' : 'border-white/25'
                 }`}
               >
                 {hecho ? '✓' : ''}
@@ -189,11 +187,11 @@ function TarjetaHoy({ rutina, hechos, pendiente }: { rutina: Rutina; hechos: Set
                 {p.titulo}
               </span>
               {p.esquemaId && (
-                <span className="text-[10px] text-amber-300/80" title={t('rutinas.autoRegistro', 'Registra automáticamente en el cuarto')}>
-                  ⚡
+                <span className="text-[10px] text-amber-400/80" title={t('rutinas.autoRegistro', 'Registra automáticamente en el cuarto')}>
+                  <Icono nombre="energia" />
                 </span>
               )}
-              <span className="text-xs opacity-60">{room?.icon}</span>
+              <span className="text-xs opacity-60">{room && <Icono emoji={room.icon} />}</span>
             </button>
           )
         })
@@ -205,12 +203,6 @@ function TarjetaHoy({ rutina, hechos, pendiente }: { rutina: Rutina; hechos: Set
     </div>
   )
 }
-
-/** Paleta de colores de evento (estilo Google Calendar, tema oscuro). */
-export const COLORES_RUTINA = [
-  '#10b981', '#3b82f6', '#a78bfa', '#f472b6',
-  '#f59e0b', '#ef4444', '#14b8a6', '#64748b',
-]
 
 /** Rutina en blanco para el editor (la usa también el calendario). */
 export function rutinaNueva(base: Partial<Rutina> = {}): Rutina {
@@ -228,7 +220,7 @@ export function rutinaNueva(base: Partial<Rutina> = {}): Rutina {
   }
 }
 
-const MODOS_REPETICION: { id: Exclude<RepeticionRutina, 'personalizado'>; labelKey: string; fallback: string }[] = [
+export const MODOS_REPETICION: { id: Exclude<RepeticionRutina, 'personalizado'>; labelKey: string; fallback: string }[] = [
   { id: 'una_vez', labelKey: 'rutinas.rep.unaVez', fallback: 'Solo una vez' },
   { id: 'semanal', labelKey: 'rutinas.rep.semanal', fallback: 'Cada semana' },
   { id: 'indefinido', labelKey: 'rutinas.rep.indefinido', fallback: 'Indefinidamente' },
@@ -255,7 +247,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
     const repRaw = r.repeticion ?? 'indefinido'
     const rep = repRaw === 'personalizado' ? 'semanal' : repRaw
     let dias = [...r.dias].sort()
-    let fechaInicio = r.fechaInicio || hoyISO()
+    const fechaInicio = r.fechaInicio || hoyISO()
     let fechaFin = r.fechaFin
 
     if (rep === 'una_vez') {
@@ -320,6 +312,34 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
         />
       </div>
 
+      {/* App a la que pertenece: le da color en el calendario, la mete en el
+          cronograma de esa app y decide qué aviso se calla desde Configuraciones. */}
+      <select
+        value={r.plantillaId ?? ''}
+        onChange={(e) => {
+          const id = e.target.value || undefined
+          const p = id ? getPlantilla(id) : undefined
+          // Hereda la identidad de la app solo si el evento aún no la tocó.
+          setR((prev) => ({
+            ...prev,
+            plantillaId: id,
+            // La fila deja de ser el espejo de aquella actividad: sin esto, el
+            // control de la app vieja seguiría adoptando un evento que ya no es suyo.
+            actividadId: undefined,
+            emoji: p && prev.emoji === '⏰' ? p.icon : prev.emoji,
+            color: p && !prev.color ? p.color : prev.color,
+          }))
+        }}
+        className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
+      >
+        <option value="">{t('rutinas.sinApp', 'Sin app (evento de la casa)')}</option>
+        {plantillasAgendables().map((p) => (
+          <option key={p.id} value={p.id}>
+            {p.icon} {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}
+          </option>
+        ))}
+      </select>
+
       {/* Horario: inicio – fin (el fin dibuja la duración en el calendario) */}
       <div className="flex items-center gap-1.5">
         <input
@@ -337,6 +357,27 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
           onChange={(e) => setR({ ...r, horaFin: e.target.value })}
           disabled={!r.hora}
           className="flex-1 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 focus:outline-none disabled:opacity-30"
+        />
+      </div>
+
+      {/* Aviso a su hora: va aquí porque es la hora lo que gobierna (sin hora no
+          hay a qué avisar). `avisar` sin valor = avisa, como lee `debeAvisar`. */}
+      <div className={r.hora ? '' : 'pointer-events-none opacity-30'}>
+        <FilaAviso
+          icono="alarma"
+          texto={t('rutinas.avisar', 'Avisarme a su hora')}
+          hint={
+            permisoNotificaciones() === 'granted'
+              ? t('rutinas.avisar.hint', 'Te llegará una notificación.')
+              : t('rutinas.avisar.hintSinPermiso', 'Te avisaremos dentro de la app.')
+          }
+          activo={r.avisar !== false}
+          onCambio={(v) => {
+            if (v) void pedirPermiso()
+            setR({ ...r, avisar: v })
+          }}
+          on={t('rutinas.avisar.on', 'Sí')}
+          off={t('rutinas.avisar.off', 'No')}
         />
       </div>
 
@@ -372,7 +413,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
               onClick={() => cambiarRepeticion(m.id)}
               className={`rounded-md border px-2 py-1.5 text-[10px] font-semibold transition ${
                 rep === m.id
-                  ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-200'
+                  ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-400'
                   : 'border-white/10 bg-white/5 text-white/45 hover:text-white/75'
               }`}
             >
@@ -388,6 +429,13 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
             onChange={(e) => setR({ ...r, fechaInicio: e.target.value })}
             className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 focus:outline-none"
           />
+        )}
+
+        {/* Mensual/anual/rango: salen de trazar la meta en el calendario (ver Calendario.tsx). */}
+        {(rep === 'mensual' || rep === 'anual' || rep === 'rango') && (
+          <p className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[10px] text-white/50">
+            <Icono nombre="repetir" /> {textoRepeticion(r)} — {t('rutinas.rep.soloTrazo', 'se agendó trazándola en el calendario; vuelve a trazarla para cambiar las fechas')}
+          </p>
         )}
 
         {muestraDias && (
@@ -407,7 +455,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
                     }
                     className={`h-7 flex-1 rounded-md border text-[11px] font-bold transition ${
                       activo
-                        ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-200'
+                        ? 'border-emerald-400/50 bg-emerald-500/20 text-emerald-400'
                         : 'border-white/10 bg-white/5 text-white/40'
                     }`}
                   >
@@ -457,7 +505,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
             <select
               value={p.roomId}
               onChange={(e) => setPaso(i, { roomId: e.target.value })}
-              className="rounded-md border border-white/10 bg-white/5 px-1 py-1.5 text-xs text-white/85 focus:outline-none [&>option]:bg-neutral-900"
+              className="rounded-md border border-white/10 bg-white/5 px-1 py-1.5 text-xs text-white/85 focus:outline-none [&>option]:bg-[var(--ui-panel)]"
             >
               {appsAsignadas().map((room) => (
                 <option key={room.id} value={room.id}>
@@ -501,7 +549,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
           type="button"
           onClick={guardar}
           disabled={!r.nombre.trim()}
-          className="flex-1 rounded-lg bg-emerald-500/90 py-1.5 text-xs font-bold text-white transition hover:bg-emerald-400 disabled:opacity-30"
+          className="flex-1 rounded-lg bg-emerald-600 py-1.5 text-xs font-bold texto-cta transition hover:bg-emerald-600 disabled:opacity-30"
         >
           {t('rutinas.guardar', 'Guardar')}
         </button>

@@ -1,4 +1,12 @@
 import { mezclar, type TemaId } from './temas'
+import { piezasDesdeElemento } from './piezasDesdeModelo'
+import type { Pieza3D } from '../chat/mascotas'
+import {
+  TIPO_OLLA, TIPO_DESPERTADOR, TIPO_LIBRERO_LIBRO, TIPO_GLOBO,
+  TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
+  TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE,
+  TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_SILLON, TIPO_CALENDARIO,
+} from './especialesPlantillaMeta'
 
 /**
  * Modelos 3D individuales de los recursos INDISPENSABLES (ver `recursos.ts`).
@@ -907,6 +915,201 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       )
     },
   },
+  // JAR-FLO Flor simple
+  99: {
+    icon: '🌼',
+    defaultColor: '#f472b6',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <C p={[0, 0.19, 0]} r={0.02} h={0.38} c="#3f7d34" seg={6} />
+          <S p={[0.09, 0.16, 0.02]} r={0.05} c="#3f7d34" />
+          {[0, 1, 2, 3, 4, 5].map((i) => {
+            const a = (i / 6) * Math.PI * 2
+            return <S key={i} p={[Math.cos(a) * 0.11, 0.45, Math.sin(a) * 0.11]} r={0.07} c={m} />
+          })}
+          <S p={[0, 0.47, 0]} r={0.055} c="#fbbf24" />
+        </group>
+      )
+    },
+  },
+  // JAR-GIR Girasol
+  100: {
+    icon: '🌻',
+    defaultColor: '#facc15',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <C p={[0, 0.35, 0]} r={0.025} h={0.7} c="#3f7d34" seg={6} />
+          <S p={[0.1, 0.3, 0.02]} r={0.06} c="#3f7d34" />
+          <S p={[-0.09, 0.45, -0.02]} r={0.05} c="#3f7d34" />
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
+            const a = (i / 8) * Math.PI * 2
+            return <S key={i} p={[Math.cos(a) * 0.17, 0.78, Math.sin(a) * 0.17]} r={0.06} c={m} />
+          })}
+          <C p={[0, 0.78, 0]} r={0.1} h={0.06} c="#7c4a24" seg={12} />
+        </group>
+      )
+    },
+  },
+  // JAR-MFL Mata de flores
+  101: {
+    icon: '🌺',
+    defaultColor: '#ec4899',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <S p={[0, 0.22, 0]} r={0.22} c="#3f7d34" rough={0.95} />
+          <S p={[0.16, 0.18, 0.1]} r={0.2} c="#356e2c" rough={0.95} />
+          <S p={[-0.15, 0.18, -0.08]} r={0.18} c="#3f7d34" rough={0.95} />
+          <S p={[0.12, 0.42, 0.1]} r={0.05} c={m} />
+          <S p={[-0.18, 0.34, 0.04]} r={0.05} c={m} />
+          <S p={[0.02, 0.44, -0.14]} r={0.05} c={m} />
+          <S p={[-0.02, 0.4, 0.18]} r={0.05} c={m} />
+          <S p={[0.24, 0.3, -0.06]} r={0.045} c="#fbbf24" />
+          <S p={[-0.22, 0.24, -0.16]} r={0.045} c="#f8fafc" />
+        </group>
+      )
+    },
+  },
+  // JAR-CSA Cactus saguaro
+  102: {
+    icon: '🌵',
+    defaultColor: '#4d7c2a',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <C p={[0, 0.7, 0]} r={0.2} h={1.4} c={m} seg={10} rt={0.16} />
+          <S p={[0, 1.4, 0]} r={0.16} c={m} />
+          {/* Brazos en codo */}
+          <B p={[-0.3, 0.85, 0]} s={[0.24, 0.13, 0.13]} c={m} />
+          <C p={[-0.38, 1.05, 0]} r={0.09} h={0.45} c={m} seg={8} />
+          <S p={[-0.38, 1.28, 0]} r={0.09} c={m} />
+          <B p={[0.28, 1.0, 0]} s={[0.2, 0.12, 0.12]} c={m} />
+          <C p={[0.36, 1.18, 0]} r={0.08} h={0.4} c={m} seg={8} />
+          <S p={[0.36, 1.38, 0]} r={0.08} c={m} />
+          <S p={[0, 1.52, 0]} r={0.06} c="#f472b6" />
+        </group>
+      )
+    },
+  },
+  // JAR-CMA Cactus en maceta
+  103: {
+    icon: '🪴',
+    defaultColor: '#c2410c',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <C p={[0, 0.11, 0]} r={0.13} h={0.22} c={m} rt={0.17} />
+          <C p={[0, 0.22, 0]} r={0.14} h={0.03} c="#3a2e2a" />
+          <C p={[0, 0.4, 0]} r={0.09} h={0.36} c="#4d7c2a" seg={8} rt={0.075} />
+          <S p={[0, 0.58, 0]} r={0.075} c="#4d7c2a" />
+          <B p={[0.12, 0.44, 0]} s={[0.14, 0.07, 0.07]} c="#4d7c2a" />
+          <C p={[0.17, 0.54, 0]} r={0.038} h={0.16} c="#4d7c2a" seg={6} />
+          <S p={[0, 0.66, 0]} r={0.035} c="#fbbf24" />
+        </group>
+      )
+    },
+  },
+  // JAR-MPL Maceta con planta
+  104: {
+    icon: '🌱',
+    defaultColor: '#c2410c',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <C p={[0, 0.14, 0]} r={0.15} h={0.28} c={m} rt={0.19} />
+          <C p={[0, 0.28, 0]} r={0.16} h={0.03} c="#3a2e2a" />
+          <S p={[0, 0.46, 0]} r={0.2} c="#2f7d32" rough={0.95} />
+          <S p={[0.12, 0.58, 0.06]} r={0.14} c="#356e2c" rough={0.95} />
+          <S p={[-0.12, 0.56, -0.05]} r={0.13} c="#2f7d32" rough={0.95} />
+        </group>
+      )
+    },
+  },
+  // JAR-MCO Maceta colgante (se cuelga ajustando la altura del objeto)
+  105: {
+    icon: '🍃',
+    defaultColor: '#b45309',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <C p={[0, 0.63, 0]} r={0.012} h={0.36} c="#94a3b8" seg={6} />
+          <C p={[0, 0.36, 0]} r={0.12} h={0.18} c={m} rt={0.16} />
+          <C p={[0, 0.46, 0]} r={0.13} h={0.03} c="#3a2e2a" />
+          <S p={[0, 0.52, 0]} r={0.14} c="#2f7d32" rough={0.95} />
+          {/* Guías colgantes */}
+          <S p={[0.14, 0.38, 0.06]} r={0.05} c="#2f7d32" />
+          <S p={[0.17, 0.26, 0.08]} r={0.04} c="#356e2c" />
+          <S p={[-0.13, 0.34, -0.08]} r={0.05} c="#2f7d32" />
+          <S p={[-0.16, 0.2, -0.1]} r={0.04} c="#356e2c" />
+        </group>
+      )
+    },
+  },
+  // JAR-JAR Jardinera
+  106: {
+    icon: '🌷',
+    defaultColor: '#7c4a24',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      return (
+        <group>
+          <B p={[0, 0.14, 0]} s={[1.1, 0.28, 0.34]} c={m} />
+          <B p={[0, 0.29, 0]} s={[1.0, 0.04, 0.26]} c="#3a2e2a" />
+          {['#ec4899', '#fbbf24', '#f8fafc'].map((flor, i) => {
+            const x = (i - 1) * 0.33
+            return (
+              <group key={i}>
+                <S p={[x, 0.38, 0]} r={0.09} c="#2f7d32" rough={0.95} />
+                <S p={[x, 0.48, 0]} r={0.045} c={flor} />
+              </group>
+            )
+          })}
+        </group>
+      )
+    },
+  },
+  // JAR-ORQ Orquídea (en maceta): tallo arqueado con flores que tiñe el usuario
+  107: {
+    icon: '🌸',
+    defaultColor: '#c084fc',
+    render: (c, t) => {
+      const m = prim(c, pal(t))
+      // Flores a lo largo del tallo, arqueadas hacia +x.
+      const flores: [number, number][] = [[0.0, 0.86], [0.17, 0.92], [0.33, 0.85]]
+      return (
+        <group>
+          {/* Maceta de cerámica clara + sustrato */}
+          <C p={[0, 0.12, 0]} r={0.12} h={0.24} c="#e5e7eb" rt={0.15} />
+          <C p={[0, 0.24, 0]} r={0.125} h={0.03} c="#3a2e2a" />
+          {/* Hojas anchas en la base */}
+          <B p={[-0.12, 0.3, 0.06]} s={[0.18, 0.05, 0.12]} c="#2f7d32" />
+          <B p={[0.13, 0.31, -0.05]} s={[0.16, 0.05, 0.11]} c="#357e2c" />
+          {/* Tallo */}
+          <C p={[0.03, 0.55, 0]} r={0.018} h={0.62} c="#3f7d34" seg={6} />
+          {/* Flores: 5 pétalos + centro + labio */}
+          {flores.map(([fx, fy], i) => (
+            <group key={i}>
+              {[0, 1, 2, 3, 4].map((j) => {
+                const a = (j / 5) * Math.PI * 2
+                return <S key={j} p={[fx + Math.cos(a) * 0.07, fy + Math.sin(a) * 0.07, 0.01]} r={0.055} c={m} />
+              })}
+              <S p={[fx, fy, 0.05]} r={0.04} c="#fde68a" />
+              <S p={[fx, fy - 0.06, 0.06]} r={0.03} c="#a21caf" />
+            </group>
+          ))}
+        </group>
+      )
+    },
+  },
   // ===================== BODEGA =====================
   // BOD-EST Estantería industrial
   88: {
@@ -970,9 +1173,108 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       )
     },
   },
+
+  // ===================== PISTOLAS (rueda de herramientas) =====================
+  // Apuntan a +Z y apoyan la empuñadura en y=0 (misma orientación que la mano
+  // del avatar en arma.tsx). Sus piezas editadas se ven en la mano.
+  200: {
+    icon: '🔫',
+    defaultColor: '#334155',
+    render: (c) => (
+      <group>
+        <B p={[0, 0.5, 0.1]} s={[0.24, 0.28, 0.85]} c={c} rough={0.35} metal={0.5} />
+        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#1e293b" />
+        <mesh position={[0, 0.5, 0.6]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.1, 0.1, 0.3, 12]} />
+          <meshStandardMaterial color="#f87171" emissive="#ef4444" emissiveIntensity={1.4} toneMapped={false} />
+        </mesh>
+      </group>
+    ),
+  },
+  201: {
+    icon: '🌀',
+    defaultColor: '#e2e8f0',
+    render: (c) => (
+      <group>
+        <B p={[0, 0.5, 0.1]} s={[0.24, 0.28, 0.85]} c={c} rough={0.3} metal={0.4} />
+        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#94a3b8" />
+        <mesh position={[0, 0.5, 0.6]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <torusGeometry args={[0.13, 0.045, 10, 20]} />
+          <meshStandardMaterial color="#38bdf8" emissive="#38bdf8" emissiveIntensity={1.4} toneMapped={false} />
+        </mesh>
+      </group>
+    ),
+  },
+  202: {
+    icon: '🫧',
+    defaultColor: '#7dd3fc',
+    render: (c) => (
+      <group>
+        <B p={[0, 0.5, 0.05]} s={[0.24, 0.28, 0.7]} c={c} rough={0.25} />
+        <B p={[0, 0.2, -0.15]} s={[0.2, 0.42, 0.26]} c="#0ea5e9" />
+        <mesh position={[0, 0.5, 0.55]} castShadow>
+          <sphereGeometry args={[0.16, 14, 14]} />
+          <meshStandardMaterial color="#bae6fd" emissive="#7dd3fc" emissiveIntensity={0.4} transparent opacity={0.45} roughness={0.1} />
+        </mesh>
+      </group>
+    ),
+  },
+  203: {
+    icon: '🎆',
+    defaultColor: '#b91c1c',
+    render: (c) => (
+      <group>
+        {/* tubo lanzador inclinado hacia arriba-adelante */}
+        <mesh position={[0, 0.55, 0.1]} rotation={[Math.PI / 3, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.13, 0.16, 0.9, 12]} />
+          <meshStandardMaterial color={c} roughness={0.5} />
+        </mesh>
+        <mesh position={[0, 0.86, 0.28]} rotation={[Math.PI / 3, 0, 0]}>
+          <cylinderGeometry args={[0.11, 0.11, 0.08, 12]} />
+          <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={1.2} toneMapped={false} />
+        </mesh>
+        <B p={[0, 0.2, -0.12]} s={[0.2, 0.42, 0.26]} c="#7f1d1d" />
+      </group>
+    ),
+  },
+  204: {
+    icon: '🎨',
+    defaultColor: '#e11d48',
+    render: (c) => (
+      <group>
+        {/* cuerpo de la lata */}
+        <mesh position={[0, 0.42, 0]} castShadow>
+          <cylinderGeometry args={[0.22, 0.22, 0.84, 14]} />
+          <meshStandardMaterial color={c} roughness={0.35} metalness={0.35} />
+        </mesh>
+        {/* aro superior */}
+        <mesh position={[0, 0.9, 0]} castShadow>
+          <cylinderGeometry args={[0.17, 0.22, 0.12, 14]} />
+          <meshStandardMaterial color="#cbd5e1" metalness={0.7} roughness={0.3} />
+        </mesh>
+        {/* boquilla */}
+        <mesh position={[0, 1.02, 0]} castShadow>
+          <cylinderGeometry args={[0.07, 0.07, 0.14, 10]} />
+          <meshStandardMaterial color="#f8fafc" roughness={0.5} />
+        </mesh>
+      </group>
+    ),
+  },
 }
 
 export const getModelo = (id: number): ModeloRecurso | undefined => MODELOS[id]
+
+/**
+ * Réplica editable de un recurso como lista de piezas: reproduce fielmente su
+ * forma (con los colores de la variante del tema activo) para poder modelarla en
+ * el editor. Devuelve null si el recurso no existe o no produce mallas.
+ */
+export function piezasDesdeRecurso(id: number, color: string, tema: TemaId | null): Pieza3D[] | null {
+  const modelo = getModelo(id)
+  if (!modelo) return null
+  const piezas = piezasDesdeElemento(modelo.render(color, tema), { expandir: true })
+  return piezas.length ? piezas : null
+}
 
 /**
  * Footprint de COLISIÓN por recurso: medias extensiones [hx, hz] en su eje local.
@@ -989,6 +1291,7 @@ export const COLISION: Record<number, [number, number]> = {
   57: [1.3, 0.75], 58: [1.5, 0.1], 59: [0.7, 0.28],
   66: [1.4, 0.5], 67: [0.7, 0.4], 68: [1.3, 0.28], 69: [1.1, 0.1],
   77: [0.7, 0.7], 78: [0.4, 0.4], 80: [0.6, 1.1],
+  102: [0.3, 0.3], 104: [0.2, 0.2], 106: [0.55, 0.2],
   88: [1.8, 0.3], 89: [0.4, 0.4],
 }
 
@@ -997,58 +1300,69 @@ export const ALTO: Record<number, number> = {
   1: 2.3, 10: 1.9, 20: 2.2, 29: 2.3, 38: 1.5, 48: 0.7, 57: 0.85, 66: 1.2, 80: 0.7, 88: 2.3,
 }
 
-/** Una instancia a sembrar al inicio: recurso + posición local en el cuarto. */
+/** Una instancia a sembrar al inicio: recurso 3D (o `tipo` especial) + posición local en el cuarto. */
 export interface Siembra {
-  recurso: number
+  /** Id de recurso del catálogo; ausente si es un objeto especial (`tipo`). */
+  recurso?: number
+  /** Tipo literal de un objeto especial (principal animado); gana sobre `recurso`. */
+  tipo?: string
   x: number
   z: number
   principal?: boolean
+  /** Rotación en Y (grados); ausente = 0. */
+  rotY?: number
+  /** Escala visual del objeto; ausente = 1. */
+  escala?: number
 }
 
 /** Auto-colocación inicial de indispensables por cuarto (separados). */
 export const SIEMBRA: Record<string, Siembra[]> = {
   cocina: [
-    { recurso: 1, x: -0.4, z: -2.3, principal: true },
+    { recurso: 1, x: -0.4, z: -2.3 },
     { recurso: 2, x: 0, z: 0.5 },
+    { tipo: TIPO_OLLA, x: 0, z: 0.5, principal: true },
     { recurso: 3, x: -2.4, z: -2.1 },
     { recurso: 4, x: 0.7, z: -2.3 },
     { recurso: 5, x: -1.5, z: -2.3 },
   ],
   ejercicio: [
-    { recurso: 10, x: -0.7, z: -1.8, principal: true },
+    { tipo: TIPO_CAMINADORA, x: -0.7, z: -1.5, principal: true },
     { recurso: 11, x: 1.8, z: -2.2 },
     { recurso: 12, x: 0, z: 0.4 },
     { recurso: 13, x: 2.7, z: 0.4 },
   ],
   garage: [
-    { recurso: 20, x: 0, z: 2.65, principal: true },
-    { recurso: 21, x: -1.6, z: 1.6 },
-    { recurso: 22, x: 2.3, z: -1.0 },
+    { tipo: TIPO_ESTANTERIA_HERR, x: -2.1, z: -2.5, principal: true },
+    { recurso: 22, x: 2.1, z: -2.5 },
+    { recurso: 21, x: 0, z: 0 },
   ],
   biblioteca: [
-    { recurso: 29, x: 0, z: -2.45, principal: true },
-    { recurso: 30, x: 0.4, z: 0.9 },
+    { tipo: TIPO_LIBRERO_LIBRO, x: -2.1, z: -2.35, principal: true },
+    { recurso: 30, x: 0.4, z: 0.9, rotY: 180 },
     { recurso: 31, x: -2.1, z: 0.6 },
   ],
-  recamara: [
-    { recurso: 38, x: 0, z: -0.3, principal: true },
+  descanso: [
+    { recurso: 38, x: 0, z: -0.3 },
     { recurso: 39, x: 0, z: -1.4 },
-    { recurso: 40, x: 1.7, z: -1.4 },
+    { tipo: TIPO_DESPERTADOR, x: 1.7, z: -1.4, principal: true },
     { recurso: 41, x: -2.4, z: 1.2 },
   ],
+  anecdotario: [
+    { tipo: TIPO_PERIODICO, x: -1.4, z: -2.3, principal: true, escala: 1.2 },
+    { recurso: 40, x: 1.6, z: -2.1 },
+  ],
   despacho: [
-    { recurso: 48, x: 0, z: -1.8, principal: true },
-    { recurso: 49, x: 0, z: -0.9 },
-    { recurso: 50, x: 0, z: -2.05 },
+    { tipo: TIPO_LAPTOP, x: 0, z: -1.7, principal: true },
+    { recurso: 49, x: 0, z: -0.8, rotY: 180 },
   ],
   entretenimiento: [
-    { recurso: 57, x: 0, z: 0.4, principal: true },
-    { recurso: 58, x: 0, z: -2.6 },
-    { recurso: 59, x: 0, z: -2.2 },
+    { tipo: TIPO_REPISA_JUEGOS, x: -2.2, z: -2.2, principal: true },
+    { recurso: 57, x: 0, z: 0.4 },
   ],
   sala: [
-    { recurso: 66, x: 0, z: 1.2, principal: true },
-    { recurso: 67, x: 0, z: 0.3 },
+    { recurso: 66, x: 0, z: 1.5 },
+    { recurso: 67, x: -2.0, z: -2.3 },
+    { tipo: TIPO_GLOBO, x: -2.0, z: -2.3, principal: true },
     { recurso: 68, x: 0, z: -2.4 },
     { recurso: 69, x: 0, z: -2.5 },
   ],
@@ -1058,7 +1372,7 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { recurso: 77, x: 1.9, z: -1.9 },
     { recurso: 78, x: 2.0, z: 1.6 },
     { recurso: 78, x: -2.1, z: 1.7 },
-    { recurso: 80, x: 0.3, z: 0.2, principal: true },
+    { tipo: TIPO_TAPETE, x: 0, z: 1.4, principal: true },
   ],
   bodega: [
     { recurso: 88, x: 0, z: 2.35, principal: true },
@@ -1067,10 +1381,16 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { recurso: 89, x: 0.2, z: -2.3 },
     { recurso: 90, x: 0, z: 0.2 },
   ],
+  // Plantillas usables sin siembra previa (caían al objeto-app genérico 'mesa').
+  diario: [{ tipo: TIPO_SILLON, x: -1.4, z: -2.3, principal: true }],
+  hobbies: [{ tipo: TIPO_GUITARRA, x: -2.0, z: -2.2, principal: true }],
+  idiomas: [{ tipo: TIPO_PLANTA_REGAR, x: -1.6, z: -1.6, principal: true }],
+  // El calendario cuelga del muro del fondo.
+  calendario: [{ tipo: TIPO_CALENDARIO, x: 0, z: -2.4, principal: true }],
 }
 
 /** IDs de recurso únicos que un cuarto puede agregar (los que tienen modelo). */
 export function recursosModelables(roomId: string): number[] {
-  const ids = (SIEMBRA[roomId] ?? []).map((s) => s.recurso)
+  const ids = (SIEMBRA[roomId] ?? []).map((s) => s.recurso).filter((n): n is number => n != null)
   return [...new Set(ids)]
 }

@@ -18,7 +18,7 @@ export type TechoTipoId =
   | 'neon_techo'
   | 'nieve_techo'
 
-export type TechoCategoria = 'generico' | 'tema'
+type TechoCategoria = 'generico' | 'tema'
 
 export interface TechoTipo {
   id: TechoTipoId
@@ -331,7 +331,7 @@ export interface TechoCeldaPreset {
 }
 
 /** Opciones de techo para una celda CUADRADA. */
-export const TECHO_CELDA_PRESETS_CUADRADO: TechoCeldaPreset[] = [
+const TECHO_CELDA_PRESETS_CUADRADO: TechoCeldaPreset[] = [
   { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
   { id: 'una_agua', nombre: '1 agua', emoji: '🛖', forma: 'dos_aguas', params: { aguas: 1 }, gira: true },
   { id: 'dos_aguas', nombre: '2 aguas', emoji: '🏠', forma: 'dos_aguas', params: { aguas: 2 }, gira: true },
@@ -341,7 +341,7 @@ export const TECHO_CELDA_PRESETS_CUADRADO: TechoCeldaPreset[] = [
 ]
 
 /** Opciones de techo para una celda TRIANGULAR. */
-export const TECHO_CELDA_PRESETS_TRIANGULO: TechoCeldaPreset[] = [
+const TECHO_CELDA_PRESETS_TRIANGULO: TechoCeldaPreset[] = [
   { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
   { id: 'un_pico', nombre: 'Un pico', emoji: '⛰️', forma: 'dos_aguas', params: { aguas: 1 }, gira: true },
   { id: 'dos_picos', nombre: 'Dos picos', emoji: '⛰️', forma: 'dos_aguas', params: { aguas: 2 }, gira: true },
@@ -349,17 +349,33 @@ export const TECHO_CELDA_PRESETS_TRIANGULO: TechoCeldaPreset[] = [
 ]
 
 /** Opciones de techo para una celda CIRCULAR (cuarto de círculo). */
-export const TECHO_CELDA_PRESETS_CIRCULO: TechoCeldaPreset[] = [
+const TECHO_CELDA_PRESETS_CIRCULO: TechoCeldaPreset[] = [
   { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
   { id: 'cono', nombre: 'Cono', emoji: '🔻', forma: 'cupula', params: {} },
+]
+
+/**
+ * Opciones de techo para una celda cuadrada CON RECORTES FINOS (rejilla fina).
+ * Solo formas que se pueden fabricar sobre su silueta recortada: plano (losa),
+ * faldones (1/2 aguas recortadas) y tienda (pirámide/carpa hasta un ápice; en
+ * recortes circulares hace de cono). Bóveda/cúpula quedan fuera: son superficies
+ * curvas que no se pueden recortar a una silueta arbitraria sin CSG.
+ */
+const TECHO_CELDA_PRESETS_RECORTES: TechoCeldaPreset[] = [
+  { id: 'plano', nombre: 'Plano', emoji: '⬛', forma: 'plano', params: { inclinacion: 0 } },
+  { id: 'una_agua', nombre: '1 agua', emoji: '🛖', forma: 'dos_aguas', params: { aguas: 1 }, gira: true },
+  { id: 'dos_aguas', nombre: '2 aguas', emoji: '🏠', forma: 'dos_aguas', params: { aguas: 2 }, gira: true },
+  { id: 'piramidal', nombre: 'Tienda', emoji: '🔺', forma: 'cupula', params: {} },
 ]
 
 /** Presets de techo válidos para la forma de piso de una celda. */
 export function presetsTechoCelda(
   forma: 'cuadrado' | 'triangular' | 'circular' | undefined,
+  conRecortes = false,
 ): TechoCeldaPreset[] {
   if (forma === 'triangular') return TECHO_CELDA_PRESETS_TRIANGULO
   if (forma === 'circular') return TECHO_CELDA_PRESETS_CIRCULO
+  if (conRecortes) return TECHO_CELDA_PRESETS_RECORTES
   return TECHO_CELDA_PRESETS_CUADRADO
 }
 
@@ -382,16 +398,3 @@ export function presetDeCeldaForma(
   return m ?? presets[0]
 }
 
-/** Siguiente forma de techo al tocar una celda: gira las direccionales, luego avanza. */
-export function siguienteTechoCelda(
-  cf: TechoCeldaForma | undefined,
-  presets: TechoCeldaPreset[],
-): TechoCeldaForma | null {
-  const actual = presetDeCeldaForma(cf, presets)
-  const idx = presets.findIndex((p) => p.id === actual.id)
-  if (cf && actual.gira && (cf.params.dir ?? 0) < 3) {
-    return { forma: cf.forma, params: { ...cf.params, dir: (cf.params.dir ?? 0) + 1 } }
-  }
-  const next = presets[(idx + 1) % presets.length]
-  return next.id === 'plano' ? null : celdaFormaDePreset(next, 0)
-}

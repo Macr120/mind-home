@@ -6,6 +6,10 @@
  * por una llamada al modelo con el tono de la mascota como system prompt.
  */
 
+import type { Ropa } from '../house/apariencia'
+import type { AnimacionModelo } from '../house/animacion'
+import type { TFunc } from '../i18n/useT'
+
 export type MascotaId = 'mago' | 'gato' | 'perro' | 'buho' | 'robot'
 
 export interface Mascota {
@@ -48,19 +52,15 @@ export const MASCOTAS: Mascota[] = [
 
 export const MASCOTA_DEFAULT: MascotaId = 'mago'
 
-export function getMascota(id: MascotaId): Mascota {
-  return MASCOTAS.find((m) => m.id === id) ?? MASCOTAS[0]
-}
-
 /**
  * Pieza primitiva de un modelo 3D generado por IA: el modelo describe el
  * personaje como una lista de cajas/esferas/conos/cilindros y aquí se renderiza.
  */
 export interface Pieza3D {
-  tipo: 'caja' | 'esfera' | 'cono' | 'cilindro'
+  tipo: 'caja' | 'esfera' | 'cono' | 'cilindro' | 'plano'
   /** Posición del centro [x, y, z] (y=0 es el suelo). */
   pos: [number, number, number]
-  /** caja: [w,h,d] · esfera: [radio] · cono: [radio, alto] · cilindro: [radioTop, radioBot, alto]. */
+  /** caja: [w,h,d] · esfera: [radio] · cono: [radio, alto] · cilindro: [radioTop, radioBot, alto] · plano: [ancho, alto]. */
   tam: number[]
   color: string
   /** Rotación opcional en radianes [x, y, z]. */
@@ -89,12 +89,41 @@ export interface Asistente {
   cuartos: string[]
   /** Color principal del modelo 3D (vacío = el propio de la forma). */
   color?: string
+  /** Tamaño del personaje (1 = normal). */
+  escala?: number
+  /** Ropa que lleva puesta (mismas prendas que el personaje principal). */
+  ropa?: Ropa
   /** Modelo 3D generado por IA a partir de una descripción (gana a `forma`). */
   modelo3d?: Pieza3D[]
   /** Modelo .glb subido por el usuario (gana a `modelo3d` y `forma`). */
   modeloGlb?: Blob
+  /** Animación del personaje (preset idle y/o poses de sus piezas). */
+  animacion?: AnimacionModelo
   /** Aparece como personaje en el mapa (el activo siempre aparece). */
   enMapa: boolean
+  /** Lee en voz alta lo que dice, sin pedírselo (ausente = no). */
+  vozLeer?: boolean
+  /** Voz TTS: nombre exacto de una voz del sistema (vacío = automática por idioma). */
+  vozNombre?: string
+  /** Voz TTS: tono 0.5–1.5 (ausente = el de su forma). */
+  vozPitch?: number
+  /** Voz TTS: velocidad 0.6–1.4 (ausente = la de su forma). */
+  vozRate?: number
+  /** Voz TTS: volumen 0–1 (ausente = 1). */
+  vozVolumen?: number
+  /** Comenta cosas por su cuenta mientras pasea (ausente = sí). */
+  espontaneo?: boolean
+  /** Corazón 0–1: qué tan seguido comenta por su cuenta (0 = nunca). */
+  corazon?: number
+}
+
+/** Voz por defecto de cada forma (rate/pitch del TTS del navegador). */
+export const VOZ_FORMA: Record<MascotaId, { rate: number; pitch: number }> = {
+  mago: { rate: 0.9, pitch: 0.75 },
+  gato: { rate: 1.06, pitch: 1.25 },
+  perro: { rate: 1.12, pitch: 1.15 },
+  buho: { rate: 0.85, pitch: 0.7 },
+  robot: { rate: 0.95, pitch: 0.35 },
 }
 
 /** Color por defecto del cuerpo de cada forma 3D. */
@@ -189,10 +218,32 @@ const FRASES: Record<MascotaId, Record<EventoTipo, string[]>> = {
 }
 
 /** Genera la respuesta de la mascota para un evento (capa sin IA). */
-export function responder(id: MascotaId, ev: EventoResp): string {
+export function responder(id: MascotaId, ev: EventoResp, t: TFunc): string {
   const opciones = FRASES[id][ev.tipo]
-  const plantilla = opciones[Math.floor(Math.random() * opciones.length)]
+  const i = Math.floor(Math.random() * opciones.length)
+  const plantilla = t(`mascota.${id}.${ev.tipo}.${i}`, opciones[i])
   return plantilla
-    .replace('{c}', ev.cuarto ?? 'la bitácora')
-    .replace('{o}', ev.objeto ?? 'el objeto')
+    .replace('{c}', ev.cuarto ?? t('mascota.bitacora', 'la bitácora'))
+    .replace('{o}', ev.objeto ?? t('mascota.elObjeto', 'el objeto'))
 }
+
+/**
+ * Nombre/saludo traducidos de un asistente, SOLO si sigue siendo el valor por
+ * defecto de su plantilla integrada (así nunca se pisa lo que el usuario
+ * escribió a mano en el panel de personalización, que es texto 100% suyo).
+ * Los asistentes creados por el usuario (id `custom-*`) no tienen plantilla:
+ * se devuelven tal cual.
+ */
+function campoBase(t: TFunc, a: Pick<Asistente, 'id' | 'nombre' | 'saludo'>, campo: 'nombre' | 'saludo'): string {
+  const base = MASCOTAS.find((m) => m.id === a.id)
+  if (!base || a[campo] !== base[campo]) return a[campo]
+  return t(`mascota.${a.id}.${campo}`, base[campo])
+}
+
+export const nombreAsistente = (t: TFunc, a: Pick<Asistente, 'id' | 'nombre' | 'saludo'>): string =>
+  campoBase(t, a, 'nombre')
+export const saludoAsistente = (t: TFunc, a: Pick<Asistente, 'id' | 'nombre' | 'saludo'>): string =>
+  campoBase(t, a, 'saludo')
+
+/** Nombre de una forma/plantilla integrada (para pickers de solo lectura). */
+export const nombreForma = (t: TFunc, m: Mascota): string => t(`mascota.${m.id}.nombre`, m.nombre)

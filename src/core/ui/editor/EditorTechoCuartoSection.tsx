@@ -14,16 +14,17 @@ import {
 import type { TechoCeldaForma } from '../../house/techos'
 import type { FormaLoseta } from '../../house/formasLoseta'
 import { FOOTPRINT_DEFAULT, footprintBounds } from '../../house/walls'
-import { claveCeldaOff, formaEnCelda } from '../../house/formasLoseta'
+import { claveCeldaOff, formaEnCelda, subformasDeCelda } from '../../house/formasLoseta'
 import { useT } from '../../i18n/useT'
+import { Icono } from '../iconos/Icono'
 import { TechoMaterialSwatch } from './TechoMaterialSwatch'
 import { TechoPresetIcono } from './TechoPresetIcono'
 import { ColorPicker } from './ColorPicker'
 
 const AJUSTES = [
-  { id: 'x1', label: 'Grande' },
-  { id: 'x2', label: 'Medio' },
-  { id: 'x4', label: 'Mosaico' },
+  { id: 'x1', clave: 'grande', labelEs: 'Grande' },
+  { id: 'x2', clave: 'medio', labelEs: 'Medio' },
+  { id: 'x4', clave: 'mosaico', labelEs: 'Mosaico' },
 ] as const
 
 // ── Componentes de UI internos ─────────────────────────────────────────────
@@ -80,7 +81,7 @@ function ChipForma({
       className={[
         'flex flex-col items-center gap-1 rounded-lg border px-1 py-1.5 text-center transition',
         activo
-          ? 'border-amber-400/70 bg-amber-400/15 text-amber-200'
+          ? 'border-amber-400/70 bg-amber-400/15 text-amber-400'
           : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
       ].join(' ')}
     >
@@ -111,7 +112,7 @@ function Chip({
       className={[
         'flex flex-col items-center gap-1 rounded-lg border px-1.5 py-2 text-center transition',
         activo
-          ? 'border-amber-400/70 bg-amber-400/15 text-amber-200'
+          ? 'border-amber-400/70 bg-amber-400/15 text-amber-400'
           : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
       ].join(' ')}
     >
@@ -164,14 +165,35 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
   const imagenActiva = !!techoImagen && (roomTechoImagenActiva[room.id] ?? false)
   const ajuste = roomTechoImagenAjuste[room.id] ?? 'x1'
 
-  // Silueta del cuarto: si es UNA sola celda triangular/circular, la forma del
-  // cuarto se elige con las opciones de esa silueta (no las de caja rectangular).
+  // Silueta del cuarto: si es UNA sola celda triangular/circular o con recortes
+  // finos, la forma del cuarto se elige con las opciones de esa silueta (no las
+  // de caja rectangular, que la ignorarían).
   const fp = useLayout((s) => s.footprints[room.id]) ?? FOOTPRINT_DEFAULT
   const formasCelda = useLayout((s) => s.formasCelda[room.id])
   const techoCeldas = useDiseño((s) => s.roomTechoFormasCelda[room.id])
   const claveUnica = fp.length === 1 ? claveCeldaOff(fp[0].col, fp[0].row) : null
   const siluetaUnica = claveUnica ? formaEnCelda(formasCelda, claveUnica).forma : 'cuadrado'
-  const cuartoConForma = !!claveUnica && siluetaUnica !== 'cuadrado' // 1 celda triángulo/círculo
+  const recortesUnica =
+    !!claveUnica && subformasDeCelda(formasCelda, fp[0].col, fp[0].row) != null
+  const cuartoConForma = !!claveUnica && (siluetaUnica !== 'cuadrado' || recortesUnica)
+
+  // Con un cuarto encima, el techo solo puede ser plano: un piso no se asienta sobre una
+  // bóveda. La forma guardada se respeta y vuelve al borrar el piso de arriba (ver Room3D).
+  const techoSoloPlano = useLayout((s) => {
+    const nivel = s.niveles[room.id] ?? 0
+    const c = s.cells[room.id]
+    return (
+      !!c &&
+      Object.keys(s.placed).some(
+        (rid) =>
+          s.placed[rid] &&
+          rid !== room.id &&
+          (s.niveles[rid] ?? 0) === nivel + 1 &&
+          s.cells[rid]?.col === c.col &&
+          s.cells[rid]?.row === c.row,
+      )
+    )
+  })
 
   const onSubirImagen = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -185,24 +207,34 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
       <p className="text-[11px] leading-snug text-white/45">
         {t(
           'editor.techoCuarto.desc',
-          'Activa el techo 🏠 en el preview para verlo. Sin elegir nada, hereda el techo de la casa.',
+          'Activa el techo en el preview para verlo. Sin elegir nada, hereda el techo de la casa.',
         )}
         {' '}
         {t(
           'editor.techoCuarto.propagarMapa',
-          'Con el techo 🏠 activo, el techo es una sola losa: usa el + de cada dirección para extenderlo de forma uniforme sobre cuartos vecinos, y − para retraer ese borde.',
+          'Con el techo activo, el techo es una sola losa: usa el + de cada dirección para extenderlo de forma uniforme sobre cuartos vecinos, y − para retraer ese borde.',
         )}
       </p>
 
-      {/* Techo por celda: solo cuartos de varias celdas (los de 1 celda se editan abajo). */}
-      {fp.length > 1 && <TechoPorCeldaGrid roomId={room.id} />}
+      {techoSoloPlano && (
+        <p className="rounded-lg border border-amber-400/25 bg-amber-400/[0.06] p-2.5 text-[11px] leading-snug text-amber-400/80">
+          {t(
+            'editor.techoCuarto.soloPlano',
+            'Este cuarto tiene un piso encima, así que su techo se ve plano (un piso no se asienta sobre una bóveda). Borra el piso de arriba para recuperar su forma.',
+          )}
+        </p>
+      )}
 
-      {cuartoConForma ? (
-        // Cuarto de UNA celda triangular/circular: forma propia de su silueta.
+      {/* Techo por celda: solo cuartos de varias celdas (los de 1 celda se editan abajo). */}
+      {!techoSoloPlano && fp.length > 1 && <TechoPorCeldaGrid roomId={room.id} />}
+
+      {techoSoloPlano ? null : cuartoConForma ? (
+        // Cuarto de UNA celda triangular/circular o con recortes: forma de su silueta.
         <AjustesCeldaTecho
           roomId={room.id}
           clave={claveUnica!}
           silueta={siluetaUnica}
+          conRecortes={recortesUnica}
           cf={techoCeldas?.[claveUnica!]}
           titulo={t('editor.techoCuarto.formaCuarto', 'Forma del cuarto')}
         />
@@ -262,7 +294,7 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
                     className={[
                       'rounded-md border px-1 py-1.5 text-[10px] font-semibold transition',
                       p.aguas === n
-                        ? 'border-amber-400/70 bg-amber-400/15 text-amber-200'
+                        ? 'border-amber-400/70 bg-amber-400/15 text-amber-400'
                         : 'border-white/10 bg-white/5 text-white/55 hover:bg-white/10',
                     ].join(' ')}
                   >
@@ -408,10 +440,10 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
               ].join(' ')}
               style={{ height: 72 }}
             >
-              <img src={techoImagen} alt="Techo personalizado" className="h-full w-full object-cover" />
+              <img src={techoImagen} alt={t('editor.techo.alt', 'Techo personalizado')} className="h-full w-full object-cover" />
               {imagenActiva && (
-                <div className="absolute right-1.5 top-1.5 rounded bg-amber-400/80 px-1.5 py-0.5 text-[9px] font-bold text-black">
-                  ACTIVA
+                <div className="absolute right-1.5 top-1.5 rounded bg-amber-600 px-1.5 py-0.5 text-[9px] font-bold texto-cta">
+                  {t('editor.imgActiva', 'ACTIVA')}
                 </div>
               )}
             </div>
@@ -421,7 +453,7 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
                 <button
                   type="button"
                   onClick={() => activarRoomTechoImagen(room.id)}
-                  className="flex-1 rounded-md border border-amber-400/40 bg-amber-400/10 py-1.5 text-[10px] font-semibold text-amber-200 transition hover:bg-amber-400/20"
+                  className="flex-1 rounded-md border border-amber-400/40 bg-amber-400/10 py-1.5 text-[10px] font-semibold text-amber-400 transition hover:bg-amber-400/20"
                 >
                   {t('editor.techoCuarto.usarImagen', 'Usar imagen')}
                 </button>
@@ -465,11 +497,11 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
                       className={[
                         'flex-1 rounded-md border py-1.5 text-[10px] font-semibold transition',
                         ajuste === a.id
-                          ? 'border-amber-400/70 bg-amber-400/15 text-amber-200'
+                          ? 'border-amber-400/70 bg-amber-400/15 text-amber-400'
                           : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10',
                       ].join(' ')}
                     >
-                      {a.label}
+                      {t(`editor.tamano.${a.clave}`, a.labelEs)}
                     </button>
                   ))}
                 </div>
@@ -482,7 +514,7 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
             onClick={() => fileInputRef.current?.click()}
             className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-white/20 bg-white/5 py-4 text-[11px] text-white/50 transition hover:border-white/40 hover:bg-white/8 hover:text-white/70"
           >
-            <span className="text-base">🖼️</span>
+            <span className="text-base"><Icono nombre="imagen" /></span>
             {t('editor.techoCuarto.subirImagen', 'Subir imagen')}
           </button>
         )}
@@ -521,6 +553,8 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
   const bounds = footprintBounds(fp)
   const enFp = (col: number, row: number) => fp.some((c) => c.col === col && c.row === row)
   const formaPisoDe = (clave: string) => formaEnCelda(formasCelda, clave).forma
+  const conRecortesDe = (col: number, row: number) =>
+    subformasDeCelda(formasCelda, col, row) != null
 
   const aplanarTodo = () => {
     for (const c of fp) setRoomTechoCeldaForma(roomId, claveCeldaOff(c.col, c.row), null)
@@ -559,7 +593,10 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
             if (!enFp(col, row)) return <span key={`${col},${row}`} />
             const clave = claveCeldaOff(col, row)
             const formaPiso = formaPisoDe(clave)
-            const preset = presetDeCeldaForma(techoCeldas?.[clave], presetsTechoCelda(formaPiso))
+            const preset = presetDeCeldaForma(
+              techoCeldas?.[clave],
+              presetsTechoCelda(formaPiso, conRecortesDe(col, row)),
+            )
             const seleccionada = sel === clave
             return (
               <button
@@ -569,7 +606,7 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
                 title={`${NOMBRE_SILUETA[formaPiso]} · ${preset.nombre}`}
                 className={`flex h-6 w-6 items-center justify-center rounded transition ${
                   seleccionada
-                    ? 'bg-emerald-400/20 text-emerald-200 ring-1 ring-emerald-400/70'
+                    ? 'bg-emerald-400/20 text-emerald-400 ring-1 ring-emerald-400/70'
                     : 'bg-white/10 text-white/80 hover:bg-white/20'
                 }`}
               >
@@ -586,6 +623,7 @@ function TechoPorCeldaGrid({ roomId }: { roomId: string }) {
           roomId={roomId}
           clave={sel}
           silueta={formaPisoDe(sel)}
+          conRecortes={conRecortesDe(...claveACol(sel))}
           cf={techoCeldas?.[sel]}
         />
       )}
@@ -604,19 +642,22 @@ function AjustesCeldaTecho({
   roomId,
   clave,
   silueta,
+  conRecortes = false,
   cf,
   titulo,
 }: {
   roomId: string
   clave: string
   silueta: FormaLoseta
+  /** Celda cuadrada con recortes finos: catálogo de formas por silueta recortada. */
+  conRecortes?: boolean
   cf: TechoCeldaForma | undefined
   /** Encabezado alternativo (p. ej. "Forma del cuarto" para cuartos de 1 celda). */
   titulo?: string
 }) {
   const t = useT()
   const setRoomTechoCeldaForma = useDiseño((s) => s.setRoomTechoCeldaForma)
-  const presets = presetsTechoCelda(silueta)
+  const presets = presetsTechoCelda(silueta, conRecortes)
   const activo = presetDeCeldaForma(cf, presets)
   const p = cf?.params ?? TECHO_PARAMS_DEFAULT
 
@@ -635,7 +676,7 @@ function AjustesCeldaTecho({
 
   return (
     <div className="space-y-2.5 rounded-lg border border-emerald-400/25 bg-emerald-400/[0.04] p-2.5">
-      <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-300/70">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/70">
         {titulo ?? `${t('editor.techoCelda.celda', 'Celda')} · ${NOMBRE_SILUETA[silueta]}`}
       </p>
 
@@ -649,7 +690,7 @@ function AjustesCeldaTecho({
             title={pr.nombre}
             className={`flex items-center justify-center rounded-md border py-1.5 transition ${
               activo.id === pr.id
-                ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-200'
+                ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
                 : 'border-white/10 bg-white/5 text-white/75 hover:bg-white/10'
             }`}
           >
@@ -672,7 +713,8 @@ function AjustesCeldaTecho({
             />
           )}
 
-          {cf.forma === 'dos_aguas' && silueta === 'cuadrado' && (
+          {/* Con recortes finos el nº de aguas lo fijan los presets (sin pabellón). */}
+          {cf.forma === 'dos_aguas' && silueta === 'cuadrado' && !conRecortes && (
             <div>
               <span className="mb-1 block text-[10px] text-white/45">
                 {t('editor.techoCuarto.aguas', 'N° de aguas')}
@@ -690,7 +732,7 @@ function AjustesCeldaTecho({
                     className={[
                       'rounded-md border px-1 py-1.5 text-[10px] font-semibold transition',
                       p.aguas === n
-                        ? 'border-amber-400/70 bg-amber-400/15 text-amber-200'
+                        ? 'border-amber-400/70 bg-amber-400/15 text-amber-400'
                         : 'border-white/10 bg-white/5 text-white/55 hover:bg-white/10',
                     ].join(' ')}
                   >

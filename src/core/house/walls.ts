@@ -9,9 +9,28 @@
 
 import type { EstiloArista, EstiloMuro, EstiloPuerta, PincelesCuarto } from './murosPuertas'
 import { PINCELES_DEFAULT } from './murosPuertas'
+import type { FormasCeldaMap } from './formasLoseta'
+import {
+  claveCeldaOff,
+  formaEnCelda,
+  subformasDeCelda,
+  offSubcelda,
+} from './formasLoseta'
+import {
+  ladoGrillaActivo,
+  ladoGrillaActivoEnMapa,
+  mitadesConsumidasLado,
+  perimetroFormaCelda,
+  itemsPerimetroSubformas,
+  type MuroExtraPerimetro,
+} from './murosPerimetroLoseta'
 
 export const SIZE = 6 // tamaño del cuarto
 export const WALL_H = 2.4 // alto de pared
+/** Cuánto baja la lámina de agua de una alberca respecto al borde (muro al ras del suelo). */
+export const AGUA_BAJO_BORDE = 0.35
+/** Altura LOCAL de la lámina de agua sobre el piso del sótano (la comparten agua y personaje). */
+export const AGUA_ALTURA_LOCAL = WALL_H - AGUA_BAJO_BORDE
 export const WALL_T = 0.35 // grosor de pared
 export const DOOR_W = 2.2 // ancho de la puerta
 export const HALF = SIZE / 2
@@ -24,10 +43,10 @@ export const HALF = SIZE / 2
 export const FORMA_ALTO_TECHO = 2.6 / WALL_H
 
 // ── Niveles (pisos apilables) ─────────────────────────────────────────────────
-/** Acceso para subir a un nivel: escalera, elevador o resbaladilla (con escalera). */
-export type TipoAcceso = 'escalera' | 'elevador' | 'resbaladilla'
+/** Acceso de un nivel: escalera/elevador/resbaladilla (pisos altos) o escalera marina (sótano). */
+export type TipoAcceso = 'escalera' | 'elevador' | 'resbaladilla' | 'escalera-marina'
 /** Altura apilada de cada nivel (techo ON): el piso de arriba se asienta sobre el de abajo. */
-export const NIVEL_ALTURA = WALL_H + 0.2
+const NIVEL_ALTURA = WALL_H + 0.2
 
 /** Holgura base de la separación explotada (mínimo visible aunque haya 1 solo cuarto). */
 const FLOTA_BASE = NIVEL_ALTURA + 2.2
@@ -58,14 +77,19 @@ export function setFlota(g: number) {
 
 /**
  * Altura del mundo (base del piso) de un nivel. Planta baja (0) siempre en el suelo;
- * los de arriba flotan (vista explotada) salvo que la casa esté techada, donde se apilan.
+ * los de arriba se asientan sobre el piso de abajo (`apilado`) o flotan separados para
+ * verlos todos (vista explotada). Es independiente del techo: la casa puede tener techo
+ * y estar explotada a la vez.
+ * Sótanos (nivel < 0): excavados exactamente un alto de muro bajo la rejilla — sus muros
+ * rematan al ras del suelo (borde de alberca/búnker) y NUNCA se explotan hacia abajo.
  */
-export function nivelBaseY(nivel: number, conTecho: boolean): number {
-  if (nivel <= 0) return 0
-  return nivel * (conTecho ? NIVEL_ALTURA : _flota)
+export function nivelBaseY(nivel: number, apilado: boolean): number {
+  if (nivel < 0) return nivel * WALL_H
+  if (nivel === 0) return 0
+  return nivel * (apilado ? NIVEL_ALTURA : _flota)
 }
 
-export type Axis = 'x' | 'z'
+type Axis = 'x' | 'z'
 /** Segmento de pared en el plano XZ, local al centro del cuarto. */
 export interface Seg {
   cx: number
@@ -90,10 +114,14 @@ export interface Seg {
   ventPosY?: number
   ventPosX?: number
   ventForma?: EstiloMuro['ventForma']
+  ventContenido?: EstiloMuro['ventContenido']
+  ventCara?: EstiloMuro['ventCara']
   ventRot?: number
   ventColor?: string
   ventMosaico?: boolean
   ventMulticolor?: boolean
+  /** Signo del eje perpendicular local (+Z del marco de la ventana) que apunta al interior del cuarto. */
+  caraInterior?: 1 | -1
   /** Silueta superior del muro completo (no aplica a las mitades junto a una puerta). */
   forma?: EstiloMuro['forma']
   formaAlto?: number
@@ -105,6 +133,11 @@ export interface Seg {
   alturaM?: number
   /** Base Y del segmento (default 0). Para segmentos que flotan, p.ej. el muro sobre la puerta. */
   yBase?: number
+  /** Remate del vano de la puerta (solo el dintel): recto, arco o pico triangular. */
+  vanoForma?: EstiloPuerta['vanoForma']
+  vanoFormaAlto?: number
+  vanoFormaAncho?: number
+  vanoFormaPosX?: number
   /** Clave de arista (para asociar imagen de fondo por muro). */
   clave?: string
   /** Imagen de fondo (objectURL) inyectada por el render, y su ajuste. */
@@ -132,9 +165,6 @@ export function doorFor(position: [number, number, number]) {
 /** Tamaño de celda de la rejilla (= tamaño del cuarto). */
 export const SPACING = SIZE
 
-/** Clave de celda del mundo para el conjunto de ocupación. */
-export const cellKey = (x: number, z: number) => `${x},${z}`
-
 // ── Rejilla editable (tamaño inicial 6×5, expandible 1×1 – 12×12) ────────────
 export const COLS = 6   // valor inicial / referencia de carga
 export const ROWS = 5
@@ -147,10 +177,6 @@ let _rows = ROWS
 export function setGridDims(cols: number, rows: number) {
   _cols = cols
   _rows = rows
-}
-
-export function getGridDims() {
-  return { cols: _cols, rows: _rows }
 }
 
 export interface Cell {
@@ -167,7 +193,7 @@ export function cellToWorld(col: number, row: number): [number, number, number] 
 }
 
 /** Margen lógico al E/S: permite anclar en la última media celda sin ampliar el papel. */
-export const GRID_MARGEN_MEDIA = 0.5
+const GRID_MARGEN_MEDIA = 0.5
 
 /** Índice centro máximo de ancla para un footprint (respeta minCol/minRow). */
 export function maxIndiceAncla(celdas: number, fp: Footprint): number {
@@ -176,7 +202,7 @@ export function maxIndiceAncla(celdas: number, fp: Footprint): number {
 }
 
 /** Índice centro máximo para cuarto 1×1 (snap en el croquis). */
-export function maxIndiceAnclaBasico(celdas: number): number {
+function maxIndiceAnclaBasico(celdas: number): number {
   return celdas - 1 + GRID_MARGEN_MEDIA
 }
 
@@ -320,14 +346,6 @@ export function cabeEnRejilla(anchor: Cell, fp: Footprint, cols = _cols, rows = 
   return minCol >= 0 && minRow >= 0 && maxCol + 1 <= limE && maxRow + 1 <= limS
 }
 
-/** Centro local (relativo al centro del cuarto) de una celda offset. */
-export function cellLocal(off: Cell, bounds: Size): [number, number] {
-  return [
-    (off.col - (bounds.w - 1) / 2) * SIZE,
-    (off.row - (bounds.h - 1) / 2) * SIZE,
-  ]
-}
-
 // ── Paredes y vanos (por arista del footprint) ────────────────────────────────
 /** Lado de una celda: Norte, Sur, Este, Oeste. */
 export type SideKey = 'N' | 'S' | 'E' | 'O'
@@ -410,7 +428,7 @@ export function worldToSubCell(x: number, z: number): { sc: number; sr: number }
 }
 
 /** ¿Hay cuarto vecino al otro lado de esta arista (sub-celdas justo afuera del tile)? */
-export function vecinoEnLado(
+function vecinoEnLado(
   ocupado: Set<string>,
   col: number,
   row: number,
@@ -502,6 +520,7 @@ export function roomWallSegments(
   overrides?: WallOverrides,
   estilos?: Record<string, EstiloArista>,
   pinceles?: PincelesCuarto,
+  formasCelda?: FormasCeldaMap,
 ): Seg[] {
   const segs: Seg[] = []
   // Celdas propias (offsets relativos al ancla) para detectar extremos de footprint multi-celda.
@@ -511,7 +530,16 @@ export function roomWallSegments(
     propias.has(cellId(base.col + dc, base.row + dr)) ||
     tileOcupado(ocupado, anchor.col + base.col + dc, anchor.row + base.row + dr)
   for (const e of roomEdges(anchor, fp, ocupado)) {
-    const est = effectiveEdge(e, overrides)
+    // Celda con forma (triángulo/círculo, entera o fina): el lado que la forma ENTERA
+    // consume no genera segmento (silueta Y COLISIÓN las pone el perímetro de forma:
+    // MurosPerimetroFormaCuarto + formasColisionRoom). Un lado con recorte FINO en una
+    // mitad conserva la otra mitad como medio segmento sólido (sin puerta/ventana ahí).
+    if (!ladoGrillaActivo(formaEnCelda(formasCelda, claveCeldaOff(e.off.col, e.off.row)), e.side))
+      continue
+    const sub = subformasDeCelda(formasCelda, e.off.col, e.off.row)
+    const [mitadNeg, mitadPos] = sub ? mitadesConsumidasLado(sub, e.side) : [false, false]
+    const ladoConsumido = mitadNeg || mitadPos
+    const est = ladoConsumido ? 'pared' : effectiveEdge(e, overrides)
     if (est === 'abierto') continue
     const exterior = e.auto === 'pared'
     const ea = estiloDeArista(e, estilos, pinceles)
@@ -520,8 +548,11 @@ export function roomWallSegments(
     const t = WALL_T * (em?.grosor ?? 1) // grosor paramétrico del muro
     const clave = edgeKey(e.off, e.side)
     // La ventana es independiente del tipo: bandera `ventana` (compat: tipo 'ventana').
-    const tieneVent = em?.ventana || em?.tipo === 'ventana'
+    const tieneVent = !ladoConsumido && (em?.ventana || em?.tipo === 'ventana')
     const texTipo = em?.tipo === 'ventana' ? 'solido' : em?.tipo
+    // Normal hacia el interior del cuarto (N→+z, S→−z, E→−x, O→+x).
+    const innz = e.side === 'N' ? 1 : e.side === 'S' ? -1 : 0
+    const innx = e.side === 'O' ? 1 : e.side === 'E' ? -1 : 0
     const extra = {
       tipoMuro: texTipo,
       colorMuro: em?.color,
@@ -531,10 +562,15 @@ export function roomWallSegments(
       ventPosY: em?.ventPosY,
       ventPosX: em?.ventPosX,
       ventForma: em?.ventForma,
+      ventContenido: em?.ventContenido,
+      ventCara: em?.ventCara,
       ventRot: em?.ventRot,
       ventColor: em?.ventColor,
       ventMosaico: em?.ventMosaico,
       ventMulticolor: em?.ventMulticolor,
+      // En el marco local de la ventana +Z apunta: muros horizontales → +z mundo;
+      // verticales (girados 90°) → +x mundo. El signo interior sale de la normal.
+      caraInterior: ((e.horizontal ? innz : innx) || 1) as 1 | -1,
       clave,
     }
     // Muros INTERIORES (comparten arista con otro cuarto): cada cuarto dibuja solo su
@@ -545,9 +581,6 @@ export function roomWallSegments(
     const interior = !exterior
     const sep = t * 0.16 // rendija de separación entre muros vecinos
     const tEf = interior ? (t - sep) / 2 : t // grosor efectivo del segmento
-    // Normal hacia el interior del cuarto (N→+z, S→−z, E→−x, O→+x).
-    const innz = e.side === 'N' ? 1 : e.side === 'S' ? -1 : 0
-    const innx = e.side === 'O' ? 1 : e.side === 'E' ? -1 : 0
     const dOff = interior ? sep / 2 + tEf / 2 : 0 // desplazamiento del centro hacia el interior
     const odx = innx * dOff
     const odz = innz * dOff
@@ -561,7 +594,22 @@ export function roomWallSegments(
         formaDividir: em?.formaDividir,
         formaColor: em?.formaColor,
       }
-      if (interior) {
+      if (ladoConsumido) {
+        // Mitades conservadas del lado con recorte fino: medio segmento cada una (son la
+        // COLISIÓN; del render las filtra la clave y las dibuja MurosPerimetroFormaCuarto
+        // con el estilo de su arista).
+        for (const [consumida, sgn] of [
+          [mitadNeg, -1],
+          [mitadPos, 1],
+        ] as const) {
+          if (consumida) continue
+          const mc = (sgn * SIZE) / 4
+          if (e.horizontal)
+            segs.push({ cx: e.cx + mc, cz: e.cz + odz, sx: SIZE / 2, sz: tEf, exterior, ...extra, ...forma })
+          else
+            segs.push({ cx: e.cx + odx, cz: e.cz + mc, sx: tEf, sz: SIZE / 2, exterior, ...extra, ...forma })
+        }
+      } else if (interior) {
         // Media sección pegada al lado del cuarto, separada del eje por la rendija.
         if (e.horizontal)
           segs.push({ cx: e.cx, cz: e.cz + odz, sx: SIZE, sz: tEf, exterior, ...extra, ...forma, ventana: tieneVent })
@@ -594,17 +642,24 @@ export function roomWallSegments(
       const headerH = He - D
       const hcx = e.cx + (e.horizontal ? shift : 0)
       const hcz = e.cz + (e.horizontal ? 0 : shift)
+      // Remate del vano (arco/pico): lo recorta el dintel en su base.
+      const remate = {
+        vanoForma: ep?.vanoForma,
+        vanoFormaAlto: ep?.vanoFormaAlto,
+        vanoFormaAncho: ep?.vanoFormaAncho,
+        vanoFormaPosX: ep?.vanoFormaPosX,
+      }
       // La ventana sobre una puerta va en la cabecera (sin chocar con el vano).
       if (e.horizontal) {
         if (negLen > 0.02) segs.push({ cx: e.cx + negC, cz: e.cz + odz, sx: negLen, sz: tEf, exterior, ...extra })
         if (posLen > 0.02) segs.push({ cx: e.cx + posC, cz: e.cz + odz, sx: posLen, sz: tEf, exterior, ...extra })
         if (headerH > 0.05 && dw > 0.05)
-          segs.push({ cx: hcx, cz: hcz + odz, sx: dw, sz: tEf, exterior, ...extra, alturaM: headerH, yBase: D, ventana: tieneVent })
+          segs.push({ cx: hcx, cz: hcz + odz, sx: dw, sz: tEf, exterior, ...extra, ...remate, alturaM: headerH, yBase: D, ventana: tieneVent })
       } else {
         if (negLen > 0.02) segs.push({ cx: e.cx + odx, cz: e.cz + negC, sx: tEf, sz: negLen, exterior, ...extra })
         if (posLen > 0.02) segs.push({ cx: e.cx + odx, cz: e.cz + posC, sx: tEf, sz: posLen, exterior, ...extra })
         if (headerH > 0.05 && dw > 0.05)
-          segs.push({ cx: hcx + odx, cz: hcz, sx: tEf, sz: dw, exterior, ...extra, alturaM: headerH, yBase: D, ventana: tieneVent })
+          segs.push({ cx: hcx + odx, cz: hcz, sx: tEf, sz: dw, exterior, ...extra, ...remate, alturaM: headerH, yBase: D, ventana: tieneVent })
       }
     }
   }
@@ -613,7 +668,7 @@ export function roomWallSegments(
 
 // ── Vanos (puertas y portones) para el render de fachada ──────────────────────
 /** Tipo de hoja en un vano: 'puerta' (estado puerta) o 'porton' (estado abierto). */
-export type VanoTipo = 'puerta' | 'porton'
+type VanoTipo = 'puerta' | 'porton'
 
 /** Un vano (hueco) de una arista, con lo necesario para dibujar y animar su hoja. */
 export interface Vano {
@@ -637,6 +692,14 @@ export interface Vano {
   /** Tipo visual de la puerta. */
   tipoPuerta?: EstiloPuerta['tipo']
   colorPuerta?: string
+  /** Remate del vano (arco/pico): la hoja toma su forma para llenar el hueco. */
+  vanoForma?: EstiloPuerta['vanoForma']
+  vanoFormaAlto?: number
+  vanoFormaAncho?: number
+  vanoFormaPosX?: number
+  /** Arista (offset + lado) del cuarto a la que pertenece el vano (para seleccionarla). */
+  off?: Cell
+  side?: SideKey
 }
 
 /** Normal hacia el interior del cuarto según el lado de la arista. */
@@ -659,9 +722,13 @@ export function roomDoorways(
   overrides?: WallOverrides,
   estilos?: Record<string, EstiloArista>,
   pinceles?: PincelesCuarto,
+  formasCelda?: FormasCeldaMap,
 ): Vano[] {
   const out: Vano[] = []
   for (const e of roomEdges(anchor, fp, ocupado)) {
+    // Lado consumido por la diagonal/arco de la forma (entera o fina): sin hoja de puerta
+    // aquí (esa silueta la dibuja MurosPerimetroFormaCuarto). El lado completo sí la tiene.
+    if (!ladoGrillaActivoEnMapa(formasCelda, e.off.col, e.off.row, e.side)) continue
     const est = effectiveEdge(e, overrides)
     if (est === 'pared') continue // muro sólido: no hay hueco
     const [nx, nz] = NORMAL_INT[e.side]
@@ -682,6 +749,13 @@ export function roomDoorways(
       nz,
       tipoPuerta: ep?.tipo,
       colorPuerta: ep?.color,
+      // El remate solo aplica al vano de puerta (el 'abierto' no tiene dintel que recortar).
+      vanoForma: est === 'puerta' ? ep?.vanoForma : undefined,
+      vanoFormaAlto: ep?.vanoFormaAlto,
+      vanoFormaAncho: ep?.vanoFormaAncho,
+      vanoFormaPosX: ep?.vanoFormaPosX,
+      off: e.off,
+      side: e.side,
     })
   }
   return out
@@ -695,6 +769,118 @@ export interface AABB {
   maxZ: number
 }
 
+/** Media caja de cada collider muestreado sobre una curva/diagonal de forma. */
+const RC_FORMA = 0.22
+
+/** Muestrea un extra del perímetro (arco/diagonal) como cajitas AABB, saltando el vano. */
+function cajasDeExtraForma(
+  m: MuroExtraPerimetro,
+  hueco: { anchoF: number; posX: number } | null,
+  wx: number,
+  wz: number,
+  muros: AABB[],
+  puertas: AABB[],
+) {
+  const caja = (px: number, pz: number) =>
+    muros.push({ minX: px - RC_FORMA, maxX: px + RC_FORMA, minZ: pz - RC_FORMA, maxZ: pz + RC_FORMA })
+  const zonaPuerta = (px: number, pz: number, half: number) =>
+    puertas.push({ minX: px - half, maxX: px + half, minZ: pz - half, maxZ: pz + half })
+
+  if (m.tipo === 'arco') {
+    let da = m.a1 - m.a0
+    while (da > Math.PI) da -= 2 * Math.PI
+    while (da <= -Math.PI) da += 2 * Math.PI
+    const largo = Math.abs(da) * m.r
+    if (largo < 0.05) return
+    const n = Math.max(4, Math.ceil(largo / 0.3))
+    let u0 = 2
+    let u1 = -1
+    if (hueco) {
+      const aHalf = Math.max(0.05, Math.min(1, hueco.anchoF)) / 2
+      const uc = 0.5 + hueco.posX * (0.5 - aHalf)
+      const holg = 0.15 / largo
+      u0 = uc - aHalf - holg
+      u1 = uc + aHalf + holg
+      const aC = m.a0 + da * uc
+      zonaPuerta(wx + m.cx + m.r * Math.cos(aC), wz + m.cz + m.r * Math.sin(aC), largo * aHalf + 0.7)
+    }
+    for (let i = 0; i <= n; i++) {
+      const u = i / n
+      if (u > u0 && u < u1) continue
+      const a = m.a0 + da * u
+      caja(wx + m.cx + m.r * Math.cos(a), wz + m.cz + m.r * Math.sin(a))
+    }
+    return
+  }
+
+  const dx = m.x2 - m.x1
+  const dz = m.z2 - m.z1
+  const L = Math.hypot(dx, dz)
+  if (L < 0.05) return
+  const n = Math.max(2, Math.ceil(L / 0.3))
+  let u0 = 2
+  let u1 = -1
+  if (hueco) {
+    const ancho = Math.max(0.4, L * Math.max(0.05, Math.min(1, hueco.anchoF)))
+    const margen = Math.max(0, (L - ancho) / 2)
+    const c = 0.5 + (hueco.posX * margen) / L
+    const half = (ancho / 2 + 0.15) / L
+    u0 = c - half
+    u1 = c + half
+    zonaPuerta(wx + m.x1 + dx * c, wz + m.z1 + dz * c, ancho / 2 + 0.7)
+  }
+  for (let i = 0; i <= n; i++) {
+    const u = i / n
+    if (u > u0 && u < u1) continue
+    caja(wx + m.x1 + dx * u, wz + m.z1 + dz * u)
+  }
+}
+
+/**
+ * Colliders (mundo) del perímetro de FORMAS del cuarto: arcos y diagonales, enteros y
+ * finos, muestreados como cajitas — con el VANO abierto donde su arista (real o
+ * virtual) tiene puerta, para poder entrar y salir. Complementa a collidersForRoom
+ * (que pone los muros rectos y las mitades). Devuelve además las zonas de puerta.
+ */
+export function formasColisionRoom(
+  anchor: Cell,
+  fp: Footprint,
+  formasCelda?: FormasCeldaMap,
+  overrides?: WallOverrides,
+  estilos?: Record<string, EstiloArista>,
+  pinceles?: PincelesCuarto,
+): { muros: AABB[]; puertas: AABB[] } {
+  const muros: AABB[] = []
+  const puertas: AABB[] = []
+  if (!formasCelda || Object.keys(formasCelda).length === 0) return { muros, puertas }
+  const [wx, , wz] = centroCuarto3D(anchor, fp)
+  const pin = pinceles ?? PINCELES_DEFAULT
+
+  const procesa = (extras: MuroExtraPerimetro[], offSel: Cell, ladoRep: SideKey | null) => {
+    const key = ladoRep ? edgeKey(offSel, ladoRep) : ''
+    const esPuerta = !!key && overrides?.[key] === 'puerta'
+    const ep = key ? (estilos?.[key]?.puerta ?? pin.puerta) : undefined
+    const hueco = esPuerta ? { anchoF: ep?.anchoVano ?? 0.55, posX: ep?.posX ?? 0 } : null
+    for (const m of extras) cajasDeExtraForma(m, hueco, wx, wz, muros, puertas)
+  }
+
+  for (const off of fp) {
+    const [lx, lz] = tileLocalEnCuarto(anchor, off, fp)
+    const forma = formaEnCelda(formasCelda, claveCeldaOff(off.col, off.row))
+    const per = perimetroFormaCelda(forma, lx, lz)
+    if (per) procesa(per.extras, off, SIDE_KEYS.find((s) => !per.lados.has(s)) ?? null)
+    const sub = subformasDeCelda(formasCelda, off.col, off.row)
+    if (sub) {
+      for (const item of itemsPerimetroSubformas(sub, lx, lz)) {
+        // Las mitades rectas ya colisionan como medio segmento (roomWallSegments).
+        if (item.cuadrante == null) continue
+        procesa(item.extras, offSubcelda(off.col, off.row, item.cuadrante), item.ladoRep)
+      }
+    }
+  }
+  return { muros, puertas }
+}
+
 /** Colliders de pared de un cuarto (mundo) según ancla, footprint y ocupación. */
 export function collidersForRoom(
   anchor: Cell,
@@ -703,9 +889,10 @@ export function collidersForRoom(
   overrides?: WallOverrides,
   estilos?: Record<string, EstiloArista>,
   pinceles?: PincelesCuarto,
+  formasCelda?: FormasCeldaMap,
 ): AABB[] {
   const [cx, , cz] = centroCuarto3D(anchor, fp)
-  return roomWallSegments(anchor, fp, ocupado, overrides, estilos, pinceles)
+  return roomWallSegments(anchor, fp, ocupado, overrides, estilos, pinceles, formasCelda)
     // El dintel sobre la puerta flota en altura: no debe bloquear el paso a nivel de piso.
     .filter((s) => s.alturaM == null)
     .map((s) => ({

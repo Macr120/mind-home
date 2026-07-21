@@ -4,6 +4,7 @@ import { presupuestosRepo } from '../../core/data/repository'
 import { getCategoria } from './categorias'
 import { money, money2, mesCorto, sumarMeses } from './mes'
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 const PRESUPUESTO_KEY = '__mensual__'
 
@@ -17,7 +18,8 @@ export function ResumenTab({
   const presupuestos = presupuestosRepo.useAll() ?? []
   const presu = presupuestos.find((p) => p.categoria === PRESUPUESTO_KEY)
 
-  const delMes = movimientos.filter((m) => m.fecha.startsWith(mes))
+  // Memoizado para que `porCategoria` dependa de una identidad estable.
+  const delMes = useMemo(() => movimientos.filter((m) => m.fecha.startsWith(mes)), [movimientos, mes])
   const ingresos = delMes.filter((m) => m.tipo === 'ingreso').reduce((a, m) => a + m.monto, 0)
   const gastos = delMes.filter((m) => m.tipo === 'gasto').reduce((a, m) => a + m.monto, 0)
   const balance = ingresos - gastos
@@ -88,7 +90,7 @@ export function ResumenTab({
             </div>
             <p className={`mt-2 text-xs ${excedido ? 'text-red-400 font-semibold' : 'text-white/50'}`}>
               {excedido
-                ? t('despacho.excedido', `⚠️ Excediste el presupuesto por ${money2(gastos - presupuesto)}`, { n: money2(gastos - presupuesto) })
+                ? <><Icono nombre="alerta" /> {t('despacho.excedido', `Excediste el presupuesto por ${money2(gastos - presupuesto)}`, { n: money2(gastos - presupuesto) })}</>
                 : t('despacho.progreso', `Llevas ${money2(gastos)} de ${money2(presupuesto)} (${Math.round(pct)}%)`, { used: money2(gastos), total: money2(presupuesto), pct: String(Math.round(pct)) })}
             </p>
           </>
@@ -104,7 +106,7 @@ export function ResumenTab({
           {porCategoria.map(({ cat, monto }) => (
             <div key={cat.id}>
               <div className="flex items-center gap-2 text-sm">
-                <span>{cat.icon}</span>
+                <span><Icono emoji={cat.icon} /></span>
                 <span className="text-white/80">{cat.nombre}</span>
                 <span className="ml-auto text-white/60">{money2(monto)}</span>
                 <span className="w-10 text-right text-white/40 text-xs">

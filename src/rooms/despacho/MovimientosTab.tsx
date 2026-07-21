@@ -4,6 +4,7 @@ import { finanzasRepo } from '../../core/data/repository'
 import { CATEGORIAS_GASTO, CATEGORIAS_INGRESO, getCategoria } from './categorias'
 import { hoyISO, money2, nombreMes } from './mes'
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function MovimientosTab({
   mes,
@@ -46,8 +47,9 @@ export function MovimientosTab({
   const t = useT()
 
   return (
-    <div className="space-y-5">
+    <div data-tut="despacho.movimientos" className="space-y-5">
       <form
+        data-tut="despacho.mov.form"
         onSubmit={agregar}
         className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
       >
@@ -60,8 +62,8 @@ export function MovimientosTab({
               className={`flex-1 rounded-lg py-2 text-sm font-semibold capitalize transition ${
                 tipo === tipo2
                   ? tipo2 === 'gasto'
-                    ? 'bg-red-400 text-black'
-                    : 'bg-emerald-400 text-black'
+                    ? 'bg-red-600 texto-cta'
+                    : 'bg-emerald-600 texto-cta'
                   : 'bg-white/5 hover:bg-white/10'
               }`}
             >
@@ -84,7 +86,7 @@ export function MovimientosTab({
               }`}
               style={categoria === c.id ? { boxShadow: `0 0 0 2px ${c.color}` } : undefined}
             >
-              <span className="text-xl">{c.icon}</span>
+              <span className="text-xl"><Icono emoji={c.icon} /></span>
               <span className="text-white/70">{c.nombre}</span>
             </button>
           ))}
@@ -114,7 +116,7 @@ export function MovimientosTab({
         />
         <button
           type="submit"
-          className="w-full rounded-lg bg-blue-400 py-2 font-bold text-black hover:bg-blue-300 transition"
+          className="w-full rounded-lg bg-blue-600 py-2 font-bold texto-cta hover:brightness-110 transition"
         >
           {t('despacho.m.agregar', 'Agregar movimiento')}
         </button>
@@ -140,7 +142,7 @@ export function MovimientosTab({
                 className="flex h-8 w-8 items-center justify-center rounded-full text-lg"
                 style={{ background: c.color + '33' }}
               >
-                {c.icon}
+                <Icono emoji={c.icon} />
               </span>
               <div className="min-w-0">
                 <p className="text-sm font-medium truncate">
@@ -161,7 +163,7 @@ export function MovimientosTab({
                 className="text-white/30 hover:text-white/70 px-1"
                 title={t('chat.eliminar', 'Eliminar')}
               >
-                ✕
+                <Icono nombre="cerrar" />
               </button>
             </div>
           )

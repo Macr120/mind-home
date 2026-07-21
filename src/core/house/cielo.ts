@@ -13,7 +13,7 @@ const clamp01 = (v: number) => Math.max(0, Math.min(1, v))
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 
 /** Radio por defecto del arco del sol/luna (el componente 3D pasa uno dinámico según el mapa). */
-export const RADIO_CIELO = 55
+const RADIO_CIELO = 55
 
 const SOL_ALTO = '#fff6e8' // sol de mediodía (blanco cálido)
 const SOL_BAJO = '#ff8a3c' // sol rasante (naranja de amanecer/atardecer)
@@ -23,9 +23,9 @@ const CIELO_NOCHE = '#161e36' // azul noche (no negro: la noche no se ve tan osc
 const CIELO_DIA = '#9cc3f0'
 const CIELO_BORDE = '#e8915a' // tinte naranja cerca del horizonte
 
-export type Fase = 'amanecer' | 'dia' | 'atardecer' | 'noche'
+type Fase = 'amanecer' | 'dia' | 'atardecer' | 'noche'
 
-export interface Luz {
+interface Luz {
   /** Posición de la luz (dirección × radio). */
   pos: [number, number, number]
   color: string

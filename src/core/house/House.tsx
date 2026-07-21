@@ -1,11 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
+import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
 import { Character } from './Character'
-import { Asistente3D } from './Asistente3D'
+import { Asistente3D, AsistenteProximity } from './Asistente3D'
 import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { Accesos, AccesoProximity, AccesoDrag } from './Accesos'
@@ -14,38 +15,76 @@ import { FollowCamera } from './FollowCamera'
 import { CameraControls } from './CameraControls'
 import { RoomDragController } from './RoomDragController'
 import { ObjetoDragController } from './ObjetoDragController'
+import { CharacterDragController } from './CharacterDragController'
 import {
   centroCuarto3D,
   SPACING,
   nivelBaseY,
   cellToWorld,
-  footprintCells,
+  tileOcupado,
   FOOTPRINT_DEFAULT,
 } from './walls'
-import { getTema, mezclar } from './temas'
+import { useTemaActivo } from './useTema'
 import { CieloDiaNoche } from './CieloDiaNoche'
+import { EfectosPost } from './EfectosPost'
+import { EntornoIBL } from './EntornoIBL'
 import { FondoEscena } from './FondoEscena'
 import { FondoAnimaciones } from './FondoAnimaciones'
-import { TechoLoseta } from './TechoLoseta'
 import { FocosCasa } from './FocosCasa'
 import { TemaContext } from './primitivas'
 import { ObjetoView } from './catalogo'
+import { GrupoAnimado } from './Animado'
 import { esObjetoMapa } from '../state/disenoStore'
+import { useMontura } from '../state/monturaStore'
+import { VehiculoProximity } from './vehiculos'
+import { ParqueProximity } from './especiales'
+import { PistolaProximity } from './arma'
+import { RafagasLaser } from './proyectiles'
+import { Portales } from './portales'
+import { Fuegos } from './fuegos'
+import { Burbujas } from './burbujas'
+import { GrafitiController } from './grafiti'
+import { Caminos3D, CaminosController } from './caminos'
+import { MarcasDerrape } from './derrape'
+import { CarreraRuntime, RivalCarrera } from './carrera'
+import { ItemsCarreraRuntime, ItemsCarrera3D } from './itemsCarrera'
+import { PistaLibre3D, TrazoLibreController } from './pistaLibre'
+import { Huerto3D, HuertoController, HuertoProximity } from './huerto'
+import { CanchasController } from './canchas'
+import { Granja3D, GranjaController, GranjaProximity } from './granja'
+import { TrenProximity } from './tren'
+import { MinijuegosCanchas } from './minijuegos'
+import { useCanchas, esCancha } from '../state/canchasStore'
 import { NavControls } from '../ui/NavControls'
-import { EditPanel } from '../ui/EditPanel'
+import { EditPanel, SalirCuartoFlotante } from '../ui/EditPanel'
 import { InteractAnchor } from './InteractAnchor'
+import { EtiquetasMapaProjector } from './etiquetasMapa'
+import { EditorAnchor } from './EditorAnchor'
 import { TechoCeldaEditor } from './TechoCeldaEditor'
 import { PlanoTechos3DEditor } from './PlanoTechos3DEditor'
 import { GridResizer } from './GridResizer'
 import { RoomCellEditor } from './RoomCellEditor'
 import { usePlanos } from '../state/planosStore'
+import { useEditorUi } from '../state/editorUiStore'
 import { ZonasPlano3D } from './ZonasPlano3D'
 import { PisosExterior3D } from './PisosExterior3D'
+import { MurosLibres3D } from './MurosLibres3D'
 import { PlanoPisosSeleccion3D } from './PlanoPisosSeleccion3D'
 import { PlanoCuartos3DController } from './PlanoCuartos3DController'
 import { PlanoPisos3DController } from './PlanoPisos3DController'
+import { PlanoMuros3DController } from './PlanoMuros3DController'
 import { PlanoParedes3DEditor } from './PlanoParedes3DEditor'
+import { PlanoMuroSelector3D } from './PlanoMuroSelector3D'
 import { MapaBase3D } from './MapaBase3D'
+
+/** DEV: expone escena/gl/advance en window (mismo patrón que los stores) para depurar. */
+function ExponerEscenaDev() {
+  const state = useThree()
+  useEffect(() => {
+    ;(window as unknown as { __r3f?: unknown }).__r3f = state.get
+  }, [state])
+  return null
+}
 
 /** En modo edición las sombras quedan congeladas y dejan “fantasmas” al mover objetos. */
 function ShadowMode() {
@@ -65,46 +104,58 @@ function ShadowUpdater() {
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
   const editingRoomId = useLayout((s) => s.editingRoomId)
+  // Techo y explosión cambian la silueta que proyecta sombra: ambos la re-disparan.
   const conTecho = useHouse((s) => s.conTecho)
+  const explotado = useHouse((s) => s.explotado)
   useEffect(() => {
     if (editMode) return
     gl.shadowMap.needsUpdate = true
-  }, [gl, editMode, placed, cells, editingRoomId, conTecho])
+  }, [gl, editMode, placed, cells, editingRoomId, conTecho, explotado])
   return null
 }
 
-/** Cuadrícula alineada al rectángulo exacto de celdas disponibles. */
+/**
+ * Cuadrícula del mapa: dibuja SOLO el borde de las celdas exteriores (sin cuarto en
+ * planta baja ni hueco de sótano debajo). Así la rejilla no cruza por encima de los
+ * cuartos ni de las albercas —que la opacaban—, pero sigue delineando el terreno libre.
+ */
 function RejillaMapa({
   gridCols,
   gridRows,
   colorFuerte,
-  colorSuave,
 }: {
   gridCols: number
   gridRows: number
   colorFuerte: string
   colorSuave: string
 }) {
-  const ancho = gridCols * SPACING
-  const alto = gridRows * SPACING
-  const escalaZ = alto / ancho
+  const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  const geometry = useMemo(() => {
+    const occ0 = ocupadoPorNivel.get(0)
+    const occNeg = ocupadoPorNivel.get(-1)
+    const h = SPACING / 2
+    const pts: number[] = []
+    for (let col = 0; col < gridCols; col++) {
+      for (let row = 0; row < gridRows; row++) {
+        // Celda cubierta por un cuarto (nivel 0) o excavada por un sótano: sin rejilla.
+        if ((occ0 && tileOcupado(occ0, col, row)) || (occNeg && tileOcupado(occNeg, col, row))) continue
+        const [x, , z] = cellToWorld(col, row)
+        const x0 = x - h
+        const x1 = x + h
+        const z0 = z - h
+        const z1 = z + h
+        pts.push(x0, 0, z0, x1, 0, z0, x0, 0, z1, x1, 0, z1, x0, 0, z0, x0, 0, z1, x1, 0, z0, x1, 0, z1)
+      }
+    }
+    const g = new THREE.BufferGeometry()
+    g.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3))
+    return g
+  }, [gridCols, gridRows, ocupadoPorNivel])
+  useEffect(() => () => geometry.dispose(), [geometry])
   return (
-    <>
-      <gridHelper
-        args={[ancho, gridCols * 2, colorSuave, colorSuave]}
-        position={[0, 0.018, 0]}
-        scale={[1, 1, escalaZ]}
-        material-transparent
-        material-opacity={0.12}
-      />
-      <gridHelper
-        args={[ancho, gridCols, colorFuerte, colorFuerte]}
-        position={[0, 0.02, 0]}
-        scale={[1, 1, escalaZ]}
-        material-transparent
-        material-opacity={0.22}
-      />
-    </>
+    <lineSegments position={[0, 0.02, 0]} geometry={geometry}>
+      <lineBasicMaterial color={colorFuerte} transparent opacity={0.55} />
+    </lineSegments>
   )
 }
 
@@ -115,107 +166,70 @@ function ObjetosMapa() {
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const editMode = useLayout((s) => s.editMode)
   const editingRoomId = useLayout((s) => s.editingRoomId)
-  const tema = getTema(useDiseño((s) => s.temaGlobal))
-  const editables = editMode && !editingRoomId
-  const items = objetos.filter(esObjetoMapa)
+  const tab = useEditorUi((s) => s.tab)
+  const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
+  const setTab = useEditorUi((s) => s.setTab)
+  const editor3d = useEditorUi((s) => s.editor3d)
+  const inventarioObjetosActivo = useEditorUi((s) => s.inventarioObjetosActivo)
+  // El vehículo que se está conduciendo se dibuja dentro del Character, no aquí.
+  const montadoId = useMontura((s) => s.instanciaId)
+  const tema = useTemaActivo()
+  // En el editor de canchas (modo Editar) las canchas también se pueden ARRASTRAR.
+  const canchasEditar = useCanchas((s) => s.activo && s.clase === null)
+  const editables =
+    editor3d || (editMode && !editingRoomId && tab === 'objetos') || inventarioObjetosActivo
+  const items = objetos.filter(esObjetoMapa).filter((o) => o.id !== montadoId)
   if (items.length === 0) return null
   return (
     <TemaContext.Provider value={tema}>
       {items.map((o) => {
         const drag = draggingObjeto === o.id
-        const rotY = ((o.rotY ?? 0) * Math.PI) / 180
+        const D = Math.PI / 180
+        const arrastrable = editables || (canchasEditar && esCancha(o.tipo))
         return (
           <group
             key={o.id}
-            position={[o.x ?? 0, drag ? 0.6 : 0.2, o.z ?? 0]}
-            rotation={[0, rotY, 0]}
+            position={[o.x ?? 0, (drag ? 0.6 : 0.2) + (o.y ?? 0), o.z ?? 0]}
+            rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
+            scale={o.escala ?? 1}
             onPointerDown={
-              editables
+              arrastrable
                 ? (e) => {
                     e.stopPropagation()
-                    if (o.id != null) startObjetoDrag(o.id)
+                    if (o.id != null) {
+                      if (editor3d) setTab('objetos')
+                      if (!canchasEditar || editables) setObjetoSel(o.id)
+                      startObjetoDrag(o.id)
+                    }
                   }
                 : undefined
             }
             onPointerOver={(e) => {
               e.stopPropagation()
-              if (editables) document.body.style.cursor = 'grab'
+              if (arrastrable) document.body.style.cursor = 'grab'
             }}
             onPointerOut={() => {
               if (!useDiseño.getState().draggingObjeto) document.body.style.cursor = 'default'
             }}
           >
-            <ObjetoView tipo={o.tipo} color={o.color} />
+            <GrupoAnimado anim={o.animacion} nivel={0}>
+              <ObjetoView
+                tipo={o.tipo}
+                color={o.color}
+                piezas={o.piezas}
+                modeloGlb={o.modeloGlb}
+                foto={o.foto}
+                texto={o.texto}
+                anim={o.animacion}
+                nivelAnim={0}
+                objetoId={o.id}
+                fx={o.fx}
+              />
+            </GrupoAnimado>
           </group>
         )
       })}
     </TemaContext.Provider>
-  )
-}
-
-/**
- * Techos caminables (terraza): sobre cada celda con cuarto pero SIN nada encima, dibuja
- * una loseta sólida a la altura del nivel de arriba. Es el techo del cuarto de abajo y
- * sirve de piso para caminar en el nivel superior (ver `pisoPorNivel`). Antes era una
- * rejilla vacía; ahora es superficie real. Se muestra al haber niveles o en edición.
- */
-function TechosCaminables() {
-  const accesos = useLayout((s) => s.accesos)
-  const editMode = useLayout((s) => s.editMode)
-  const placed = useLayout((s) => s.placed)
-  const niveles = useLayout((s) => s.niveles)
-  const cells = useLayout((s) => s.cells)
-  const footprints = useLayout((s) => s.footprints)
-  const roomColors = useDiseño((s) => s.roomColors)
-  const techoTipo = useDiseño((s) => s.techoTipo)
-  const roomTechoTipos = useDiseño((s) => s.roomTechoTipos)
-  const conTecho = useHouse((s) => s.conTecho)
-  const cuartos = useCuartos((s) => s.cuartos)
-
-  if (accesos.length === 0 && !editMode) return null
-
-  // Bases con techo expuesto: cuartos colocados sin otro directamente encima.
-  const colocados = cuartos.filter((r) => placed[r.id] && cells[r.id])
-  const bases = colocados.filter((base) => {
-    const bc = cells[base.id]
-    const bn = niveles[base.id] ?? 0
-    return !colocados.some(
-      (o) =>
-        o.id !== base.id &&
-        (niveles[o.id] ?? 0) === bn + 1 &&
-        cells[o.id].col === bc.col &&
-        cells[o.id].row === bc.row,
-    )
-  })
-  if (bases.length === 0) return null
-
-  return (
-    <>
-      {bases.flatMap((base) => {
-        const nivel = (niveles[base.id] ?? 0) + 1
-        const y = nivelBaseY(nivel, conTecho)
-        const fp = footprints[base.id] ?? FOOTPRINT_DEFAULT
-        const anchor = cells[base.id]
-        if (!anchor) return []
-        // El techo toma el color del cuarto de abajo, oscurecido (aspecto de losa).
-        const techoColor = mezclar(roomColors[base.id] ?? base.color, '#0b0d12', 0.55)
-        // Material: override del cuarto si existe, si no el global (terraza siempre plana).
-        const tipoBase = base.id in roomTechoTipos ? roomTechoTipos[base.id] : techoTipo
-        return footprintCells(anchor, fp).map((c) => {
-          const [x, , z] = cellToWorld(c.col, c.row)
-          return (
-            <TechoLoseta
-              key={`tc-${base.id}-${c.col}-${c.row}`}
-              tipo={tipoBase}
-              colorCuarto={techoColor}
-              y={y + 0.1}
-              lx={x}
-              lz={z}
-            />
-          )
-        })
-      })}
-    </>
   )
 }
 
@@ -225,7 +239,7 @@ export function House() {
   const cells = useLayout((s) => s.cells)
   const footprints = useLayout((s) => s.footprints)
   const niveles = useLayout((s) => s.niveles)
-  const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
   const draggingId = useLayout((s) => s.draggingId)
   const previewCell = useLayout((s) => s.previewCell)
   const editingRoomId = useLayout((s) => s.editingRoomId)
@@ -236,12 +250,33 @@ export function House() {
   const planosActivo = usePlanos((s) => s.activo)
   const planosNivel = usePlanos((s) => s.nivel)
   const planosSeleccion = usePlanos((s) => s.seleccion)
+  const planosModo = usePlanos((s) => s.modo)
+  const planosHerr = usePlanos((s) => s.herramienta)
   const mapaSuperficie = useDiseño((s) => s.mapaSuperficie)
-  const aislarCuarto = Boolean(editingRoomId)
-  const modoPlanos = planosActivo && editMode && !editingRoomId
+  const editorTab = useEditorUi((s) => s.tab)
+  const editor3d = useEditorUi((s) => s.editor3d)
+  // Editar un cuarto ya NO aísla la escena: se usa el editor de mapa COMPLETO para poder
+  // seleccionar muros/puertas/ventanas/piso/techos en 3D. La cámara y el croquis se enfocan
+  // en el cuarto y los DEMÁS cuartos se atenúan (ver `atenuadoEdicion`).
+  const aislarCuarto = false
+  // El editor de mapa (planos) funciona también editando un cuarto y en perspectiva: los
+  // controladores 3D de muros/pisos/techos editan igual desde iso, 3ª y 1ª persona.
+  const modoPlanos = planosActivo && editMode
+  // En el editor sin cuarto, la interacción 3D depende de la pestaña: solo "Mapa" edita
+  // la rejilla y mueve cuartos; "Personajes" arrastra personajes; "Objetos" arrastra objetos.
+  const tabMapa = editorTab === 'mapa'
 
   const resaltadoPlanoId =
     modoPlanos && planosSeleccion?.tipo === 'cuarto' ? planosSeleccion.roomId : null
+  // Herramienta Expandir: muestra los +/− de TODOS los cuartos del nivel para
+  // crecerlos/recortarlos o eliminarlos, sin mover ni cambiar de panel.
+  const editarCeldasPlano = modoPlanos && planosModo === 'cuartos' && planosHerr === 'expandir'
+  const cuartosExpandir = editarCeldasPlano
+    ? cuartos.filter((r) => placed[r.id] && (niveles[r.id] ?? 0) === planosNivel)
+    : []
+  // En el editor de mapa el techo sigue al modo: oculto por defecto (para ver el interior)
+  // y visible —con la forma real del cuarto— solo en modo Techos. Fuera del editor manda 🏠.
+  const forzarTechoEditor = modoPlanos ? planosModo === 'techos' : undefined
 
   return (
     <>
@@ -253,6 +288,7 @@ export function House() {
         camera={{ position: [22, 22, 22], zoom: 17, near: -100, far: 300 }}
         style={{ position: 'absolute', inset: 0 }}
         dpr={[1, 1.5]}
+        gl={{ toneMapping: THREE.ACESFilmicToneMapping }}
         onCreated={({ gl }) => {
           // La casa es estática: renderiza la sombra UNA vez y congélala.
           // (gran ahorro: no recalcular sombras de ~150 mallas cada frame)
@@ -265,20 +301,28 @@ export function House() {
         <CameraControls />
         <ShadowMode />
         <ShadowUpdater />
+        {import.meta.env.DEV && <ExponerEscenaDev />}
       <CieloDiaNoche />
+      <EntornoIBL />
       <FondoEscena />
       <FondoAnimaciones />
 
       {!aislarCuarto && <PisosExterior3D />}
-      {!aislarCuarto && <MapaBase3D />}
-      {!aislarCuarto && (
-        <RejillaMapa
-          gridCols={gridCols}
-          gridRows={gridRows}
-          colorFuerte={mapaSuperficie.rejillaFuerte}
-          colorSuave={mapaSuperficie.rejillaSuave}
-        />
-      )}
+      {/* Infraestructura construida sobre el mapa (caminos, huerto y granja). */}
+      {!aislarCuarto && <Caminos3D />}
+      {!aislarCuarto && <PistaLibre3D />}
+      {!aislarCuarto && <MarcasDerrape />}
+      {!aislarCuarto && <Huerto3D />}
+      {!aislarCuarto && <Granja3D />}
+      {/* Al editar un cuarto se mantienen el suelo y la rejilla del mapa como contexto. */}
+      <MapaBase3D />
+      <RejillaMapa
+        gridCols={gridCols}
+        gridRows={gridRows}
+        colorFuerte={mapaSuperficie.rejillaFuerte}
+        colorSuave={mapaSuperficie.rejillaSuave}
+      />
+      <MurosLibres3D />
 
       {cuartos
         .filter((room) => placed[room.id])
@@ -288,9 +332,12 @@ export function House() {
             arrastrando && previewCell ? previewCell : cells[room.id]
           const fp = footprints[room.id] ?? FOOTPRINT_DEFAULT
           const [x, , z] = centroCuarto3D(cell, fp)
-          const y = nivelBaseY(niveles[room.id] ?? 0, conTecho)
+          const y = nivelBaseY(niveles[room.id] ?? 0, apilado)
           const roomNivel = niveles[room.id] ?? 0
           const otroNivel = modoPlanos && roomNivel !== planosNivel
+          // Editando un cuarto: los DEMÁS se ven atenuados (contexto), el editado a tope.
+          const atenuadoEdicion =
+            Boolean(editingRoomId) && !editor3d && room.id !== editingRoomId
           const resaltado = resaltadoPlanoId === room.id
           return (
             <Room3D
@@ -298,8 +345,9 @@ export function House() {
               id={room.id}
               position={[x, y + (arrastrando ? 0.8 : 0), z]}
               color={roomColors[room.id] ?? room.color}
-              atenuado={otroNivel}
+              atenuado={otroNivel || atenuadoEdicion}
               resaltadoPlano={resaltado}
+              forzarTecho={forzarTechoEditor}
             />
           )
         })}
@@ -309,30 +357,78 @@ export function House() {
 
       {!aislarCuarto && <PlanoCuartos3DController />}
       {!aislarCuarto && <PlanoPisos3DController />}
+      {!aislarCuarto && <PlanoMuros3DController />}
       {!aislarCuarto && <PlanoParedes3DEditor />}
+      {!aislarCuarto && <PlanoMuroSelector3D />}
 
       {!aislarCuarto && <FocosCasa />}
       {!aislarCuarto && <Accesos />}
-      {!aislarCuarto && <TechosCaminables />}
       {!aislarCuarto && <AccesoProximity />}
+      {!aislarCuarto && <VehiculoProximity />}
+      {!aislarCuarto && <CarreraRuntime />}
+      {!aislarCuarto && <RivalCarrera />}
+      {!aislarCuarto && <ItemsCarreraRuntime />}
+      {!aislarCuarto && <ItemsCarrera3D />}
+      {!aislarCuarto && <TrenProximity />}
+      {!aislarCuarto && <MinijuegosCanchas />}
+      {!aislarCuarto && <ParqueProximity />}
+      {!aislarCuarto && <PistolaProximity />}
+      {!aislarCuarto && <HuertoProximity />}
+      {!aislarCuarto && <GranjaProximity />}
+      {!aislarCuarto && <AsistenteProximity />}
       {!aislarCuarto && <ObjetosMapa />}
+      {!aislarCuarto && <RafagasLaser />}
+      {!aislarCuarto && <Portales />}
+      {!aislarCuarto && <Fuegos />}
+      {!aislarCuarto && <Burbujas />}
+      {!aislarCuarto && <GrafitiController />}
+      {!aislarCuarto && <CaminosController />}
+      {!aislarCuarto && <TrazoLibreController />}
+      {!aislarCuarto && <CanchasController />}
+      {!aislarCuarto && <HuertoController />}
+      {!aislarCuarto && <GranjaController />}
       {!aislarCuarto && <RoomProximity />}
       {!aislarCuarto && <InteractAnchor />}
-      {!aislarCuarto && editMode && <RoomDragController />}
+      {!aislarCuarto && <EtiquetasMapaProjector />}
+      {!aislarCuarto && <EditorAnchor />}
+      {!aislarCuarto && editMode && tabMapa && !editor3d && <RoomDragController />}
       {!aislarCuarto && <AccesoDrag />}
       <ObjetoDragController />
-      {!modoPlanos && <GridResizer />}
-      {aislarCuarto && <RoomCellEditor />}
-      {aislarCuarto && <TechoCeldaEditor />}
+      {!aislarCuarto && editMode && editorTab === 'personajes' && !editor3d && <CharacterDragController />}
+      {/* Grid: los botones +/− de tamaño del mapa. En el editor 3D se muestran siempre
+          (en perspectiva) para redimensionar; en iso, solo fuera del modo planos. */}
+      {tabMapa && (editor3d || !modoPlanos) && planosModo !== 'ascensos' && <GridResizer />}
+      {!aislarCuarto &&
+        cuartosExpandir.map((r) => <RoomCellEditor key={r.id} roomId={r.id} />)}
       {!aislarCuarto && modoPlanos && <PlanoTechos3DEditor />}
       {!aislarCuarto && modoPlanos && <TechoCeldaEditor />}
       {!aislarCuarto && <Character />}
       {!aislarCuarto && <Asistente3D />}
+
+      {/* Editor 3D: esfera de cielo invisible. Solo se toca cuando el clic no pega en
+          nada más (cielo) → abre el modo Fondo. */}
+      {editor3d && (
+        <mesh
+          onClick={(e) => {
+            e.stopPropagation()
+            // Tocar el cielo abre Fondo SOLO si ya estás en el editor de mapa. Estando en
+            // Objetos/Personajes, deseleccionar (clic al vacío) no te saca de ahí: el editor
+            // se queda con el último objeto/personaje seleccionado.
+            if (useEditorUi.getState().tab !== 'mapa') return
+            usePlanos.getState().setModo('fondo')
+          }}
+        >
+          <sphereGeometry args={[180, 16, 12]} />
+          <meshBasicMaterial transparent opacity={0} side={THREE.DoubleSide} depthWrite={false} />
+        </mesh>
+      )}
+      <EfectosPost />
       </Canvas>
         </div>
       </div>
       <NavControls />
       <EditPanel />
+      <SalirCuartoFlotante />
     </>
   )
 }

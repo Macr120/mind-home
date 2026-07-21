@@ -1,8 +1,9 @@
 import type { ZonaPlano } from '../data/db'
 import {
+  centroCuarto3D,
+  doorFor,
   edgeKey,
   roomEdges,
-  SIDE_KEYS,
   type Cell,
   type EdgeInfo,
   type Footprint,
@@ -24,56 +25,41 @@ function ordenarPorLado(grupo: EdgeInfo[], side: SideKey): EdgeInfo[] {
 }
 
 /**
- * Puertas exteriores por defecto: una en el centro de cada fachada (N/S/E/O).
- * Las aristas con vecino (auto = puerta) no se guardan: las resuelve `roomEdges`.
+ * Puerta inicial de un cuarto recién creado: UNA sola, al centro de la fachada que
+ * mira hacia afuera del centro de la casa. Solo se aplica al crear; después el
+ * usuario agrega/quita puertas a mano (no hay defaults que reaparezcan).
  */
-export function calcularMurosExteriorDefecto(
+export function puertaInicialCuarto(
   anchor: Cell,
   footprint: Footprint,
   ocupado: Set<string>,
 ): WallOverrides {
-  const muros: WallOverrides = {}
-  const edges = roomEdges(anchor, footprint, ocupado)
-  const exteriores = edges.filter((e) => e.auto === 'pared')
+  const exteriores = roomEdges(anchor, footprint, ocupado).filter((e) => e.auto === 'pared')
+  if (exteriores.length === 0) return {}
+  const [wx, , wz] = centroCuarto3D(anchor, footprint)
+  const { axis, sign } = doorFor([wx, 0, wz])
+  const lado: SideKey = axis === 'x' ? (sign < 0 ? 'E' : 'O') : sign < 0 ? 'S' : 'N'
+  const grupo = exteriores.filter((e) => e.side === lado)
+  const candidatas = grupo.length ? ordenarPorLado(grupo, lado) : exteriores
+  const medio = candidatas[Math.floor((candidatas.length - 1) / 2)]
+  return { [edgeKey(medio.off, medio.side)]: 'puerta' }
+}
 
-  for (const side of SIDE_KEYS) {
-    const grupo = exteriores.filter((e) => e.side === side)
-    if (grupo.length === 0) continue
-    const ordenadas = ordenarPorLado(grupo, side)
-    const medio = ordenadas[Math.floor((ordenadas.length - 1) / 2)]
-    muros[edgeKey(medio.off, medio.side)] = 'puerta'
+/**
+ * Abre TODAS las aristas exteriores (fachada) de un cuarto: lo deja al aire libre,
+ * sin muros ni puerta hacia afuera. Las aristas que dan a un cuarto vecino se dejan
+ * como están (cada cuarto dibuja su propio muro). Para cuartos de tipo jardín.
+ */
+export function murosAbiertosExterior(
+  anchor: Cell,
+  footprint: Footprint,
+  ocupado: Set<string>,
+): WallOverrides {
+  const out: WallOverrides = {}
+  for (const e of roomEdges(anchor, footprint, ocupado)) {
+    if (e.auto === 'pared') out[edgeKey(e.off, e.side)] = 'abierto'
   }
-
-  return muros
-}
-
-/** Muros efectivos de una zona: defaults de fachada + overrides guardados. */
-export function murosEfectivosZona(
-  z: ZonaPlano,
-  todasZonas: ZonaPlano[],
-  ocupadoLayout: Set<string>,
-): WallOverrides {
-  const { anchor, footprint } = zonaAnchorFootprint(z.celdas)
-  const ocupado = ocupadoConZonas(
-    z.nivel,
-    new Map([[z.nivel, new Set(ocupadoLayout)]]),
-    todasZonas,
-    z.id,
-  )
-  const defecto = calcularMurosExteriorDefecto(anchor, footprint, ocupado)
-  return { ...defecto, ...(z.muros ?? {}) }
-}
-
-/** Calcula muros iniciales al construir un cuarto básico. */
-export function murosInicialesZona(
-  celdas: Cell[],
-  nivel: number,
-  ocupadoLayout: Set<string>,
-  zonas: ZonaPlano[],
-): WallOverrides {
-  const { anchor, footprint } = zonaAnchorFootprint(celdas)
-  const ocupado = ocupadoConZonas(nivel, new Map([[nivel, new Set(ocupadoLayout)]]), zonas)
-  return calcularMurosExteriorDefecto(anchor, footprint, ocupado)
+  return out
 }
 
 export interface AristaZonaPlano {
@@ -98,7 +84,7 @@ export function aristasZonasEnNivel(
       zonas,
       z.id,
     )
-    const muros = murosEfectivosZona(z, zonas, ocupadoLayout)
+    const muros = z.muros ?? {}
     for (const e of roomEdges(anchor, footprint, ocupado)) {
       const estado = muros[edgeKey(e.off, e.side)] ?? e.auto
       out.push({ zonaId: z.id!, edge: e, estado })

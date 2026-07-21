@@ -1,26 +1,40 @@
-import type { CategoriaNoticia } from '../../core/data/db'
+import type { CategoriaTitular, TipoEfemeride } from '../../core/data/db'
 
 export const COLOR = '#f472b6'
 
 export const CATEGORIAS: {
-  id: CategoriaNoticia
+  id: CategoriaTitular
   label: string
-  icon: string
+  emoji: string
+  color: string
 }[] = [
-  { id: 'mundo', label: 'Mundo', icon: '🌐' },
-  { id: 'nacional', label: 'Nacional', icon: '🏛️' },
-  { id: 'politica', label: 'Política', icon: '🗳️' },
-  { id: 'economia', label: 'Economía', icon: '📈' },
-  { id: 'tecnologia', label: 'Tecnología', icon: '💻' },
-  { id: 'ciencia', label: 'Ciencia', icon: '🔬' },
-  { id: 'salud', label: 'Salud', icon: '🏥' },
-  { id: 'deportes', label: 'Deportes', icon: '⚽' },
-  { id: 'cultura', label: 'Cultura', icon: '🎭' },
-  { id: 'entretenimiento', label: 'Entretenimiento', icon: '🎬' },
-  { id: 'local', label: 'Local', icon: '📍' },
-  { id: 'otro', label: 'Otro', icon: '📰' },
+  { id: 'mundo', label: 'Mundo', emoji: '🌍', color: '#60a5fa' },
+  { id: 'economia', label: 'Economía', emoji: '💼', color: '#34d399' },
+  { id: 'tecnologia', label: 'Tecnología', emoji: '💻', color: '#a78bfa' },
+  { id: 'salud', label: 'Salud', emoji: '🩺', color: '#f87171' },
+  { id: 'deportes', label: 'Deportes', emoji: '⚽', color: '#fbbf24' },
+  { id: 'entretenimiento', label: 'Entretenimiento', emoji: '🎬', color: '#f472b6' },
 ]
 
-export function getCategoria(id: CategoriaNoticia) {
-  return CATEGORIAS.find((c) => c.id === id) ?? CATEGORIAS[11]
+export function getCategoria(id: CategoriaTitular) {
+  return CATEGORIAS.find((c) => c.id === id) ?? CATEGORIAS[0]
+}
+
+export const TIPOS_EFEMERIDE: {
+  id: TipoEfemeride
+  label: string
+  emoji: string
+  color: string
+}[] = [
+  { id: 'historia', label: 'Un día en la historia', emoji: '📜', color: '#fbbf24' },
+  { id: 'arte', label: 'La obra de arte del día', emoji: '🎨', color: '#f472b6' },
+  { id: 'libro', label: 'El libro del día', emoji: '📖', color: '#34d399' },
+  { id: 'personalidad', label: 'La personalidad del día', emoji: '🌟', color: '#60a5fa' },
+  { id: 'especie', label: 'La especie del día', emoji: '🐾', color: '#fb923c' },
+  { id: 'palabra', label: 'La palabra del día', emoji: '✍️', color: '#a78bfa' },
+  { id: 'frase', label: 'La frase del día', emoji: '💬', color: '#22d3ee' },
+]
+
+export function getTipoEfemeride(id: TipoEfemeride) {
+  return TIPOS_EFEMERIDE.find((e) => e.id === id) ?? TIPOS_EFEMERIDE[0]
 }

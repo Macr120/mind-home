@@ -7,7 +7,25 @@
   --ui-panel-2: #171b24;
   --ui-accent: #6ea8fe;
   --ui-accent-ink: #0b1020;
+  --ui-ink: #e7e9ee;
   --ui-font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Controles nativos (checkbox, date picker, scrollbars) acordes al modo. */
+html {
+  color-scheme: dark;
+}
+html[data-base-ui='claro'] {
+  color-scheme: light;
+}
+
+/* Popup nativo de los <select>: Chromium en Windows compone el fondo
+   translúcido del control sobre blanco e ignora el tema, dejando texto
+   blanco sobre popup blanco. Fondo y tinta sólidos del tema en cada
+   <option> mantienen el menú legible en ambos modos. */
+option {
+  background-color: var(--ui-panel);
+  color: var(--ui-ink);
 }
 
 html,
@@ -16,12 +34,27 @@ body,
   height: 100%;
   margin: 0;
   background: var(--ui-bg);
-  color: #e7e9ee;
+  color: var(--ui-ink);
   font-family: var(--ui-font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Selección de texto y anillo de foco con el acento del tema. */
+::selection {
+  background: color-mix(in srgb, var(--ui-accent) 35%, transparent);
+}
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--ui-accent) 75%, transparent);
+  outline-offset: 1px;
 }
 
 /* Clases semánticas del chrome (cambian de color con el tema activo). */
@@ -34,13 +67,38 @@ body,
 .ui-panel-2 {
   background: var(--ui-panel-2);
 }
-/* Panel translúcido (flota sobre la escena 3D): chat, prompts, editor. */
+/* Panel translúcido (flota sobre la escena 3D): chat, prompts, editor.
+   La opacidad y el desenfoque los controlan los sliders de Configuraciones
+   (variables --ui-vidrio-*, aplicadas desde temasUI.ts). */
 .ui-panel-glass {
-  background: color-mix(in srgb, var(--ui-panel) 92%, transparent);
+  background: color-mix(in srgb, var(--ui-panel) var(--ui-vidrio-alfa, 92%), transparent);
+  backdrop-filter: blur(var(--ui-vidrio-blur, 12px));
+}
+/* Superficie que debe leerse SIEMPRE sobre la escena (tarjeta del tutorial): el
+   panel SÓLIDO del tema, sin el rebaje del modo transparente ni del slider de
+   vidrio; con ellos el texto se mezclaba con la escena y no se leía. */
+.ui-panel-legible {
+  background: var(--ui-panel-solido, var(--ui-panel));
+}
+/* Chips del HUD flotante (reloj, vistas, joystick, botón Editor): el mismo
+   vidrio, pero en capa components para que los hover:bg-* de utilidades y los
+   estados activos (bg-amber-*, etc.) sigan ganando encima. */
+@layer components {
+  .ui-hud {
+    background-color: color-mix(in srgb, var(--ui-panel) var(--ui-vidrio-alfa, 92%), transparent);
+    backdrop-filter: blur(var(--ui-vidrio-blur, 12px));
+  }
 }
 .ui-accent-bg {
-  background: var(--ui-accent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ui-accent) 86%, #fff),
+    var(--ui-accent)
+  );
   color: var(--ui-accent-ink);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 1px 6px color-mix(in srgb, var(--ui-accent) 35%, transparent);
 }
 .text-accent {
   color: var(--ui-accent);
@@ -48,23 +106,189 @@ body,
 .border-accent {
   border-color: var(--ui-accent);
 }
+/* Texto de botones CTA sobre color de marca: blanco fijo en ambos modos
+   (no pasa por --color-white, así que NO se invierte en claro). */
+.texto-cta {
+  color: #fff;
+}
+/* Color de marca del cuarto como texto: vivo en oscuro, entintado en claro. */
+.texto-vivo {
+  color: var(--c);
+}
+html[data-base-ui='claro'] .texto-vivo:where(:not(.ui-noche *)) {
+  color: color-mix(in srgb, var(--c) 55%, #1a2233);
+}
 
-/* Scrollbar sutil (menú lateral, paneles). */
-.scroll-sutil {
+/* Aparición sutil de paneles y diálogos flotantes. */
+@keyframes ui-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+.ui-pop {
+  animation: ui-pop 0.18s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-pop {
+    animation: none;
+  }
+}
+
+/* Tarjeta flotante tipo notificación (editor de evento del calendario): entra
+   deslizándose desde arriba, como un aviso del sistema. */
+@keyframes ui-notif {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+}
+.ui-notif {
+  animation: ui-notif 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-notif {
+    animation: none;
+  }
+}
+
+/* Barra de avance de un slide del Wrapped (estilo historias); la duración y el
+   pausado se controlan inline desde el componente. */
+@keyframes wrapped-avance {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.wrapped-avance {
+  animation: wrapped-avance linear both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wrapped-avance {
+    animation: none;
+    width: 100%;
+  }
+}
+
+/*
+ * Modo claro: temasUI.ts sobreescribe `--color-white`, así que todas las
+ * utilidades `*-white/X` ya se invierten solas. Aquí se re-mapean además los
+ * fondos negros de Tailwind:
+ *  - "hundidos" (inputs, tarjetas: /15–/40) → tinta suave sobre fondo claro.
+ *  - "vidrio oscuro" flotante sobre el 3D (/45–/55) → vidrio claro.
+ * Las zonas `.ui-noche` (lightbox de fotos, overlay nocturno) conservan el
+ * look oscuro y restauran la tinta blanca.
+ */
+html[data-base-ui='claro'] :is(.bg-black\/15, .bg-black\/20):where(:not(.ui-noche *)) {
+  background-color: rgb(15 23 42 / 0.05);
+}
+html[data-base-ui='claro'] :is(.bg-black\/25, .bg-black\/30):where(:not(.ui-noche *)) {
+  background-color: rgb(15 23 42 / 0.07);
+}
+html[data-base-ui='claro'] .bg-black\/40:where(:not(.ui-noche *)) {
+  background-color: rgb(15 23 42 / 0.11);
+}
+html[data-base-ui='claro']
+  :is(.bg-black\/45, .bg-black\/50, .bg-black\/55):where(:not(.ui-noche *)) {
+  background-color: rgb(255 255 255 / 0.7);
+}
+
+/* Modo claro: los tonos 400 de acento pasan al 600 de su familia, para que
+   textos, bordes y anillos de color sean legibles sobre fondo claro. */
+html[data-base-ui='claro'] {
+  --color-red-400: var(--color-red-600);
+  --color-rose-400: var(--color-rose-600);
+  --color-orange-400: var(--color-orange-600);
+  --color-amber-400: var(--color-amber-600);
+  --color-yellow-400: var(--color-yellow-600);
+  --color-lime-400: var(--color-lime-600);
+  --color-green-400: var(--color-green-600);
+  --color-emerald-400: var(--color-emerald-600);
+  --color-teal-400: var(--color-teal-600);
+  --color-cyan-400: var(--color-cyan-600);
+  --color-sky-400: var(--color-sky-600);
+  --color-blue-400: var(--color-blue-600);
+  --color-indigo-400: var(--color-indigo-600);
+  --color-violet-400: var(--color-violet-600);
+  --color-purple-400: var(--color-purple-600);
+  --color-fuchsia-400: var(--color-fuchsia-600);
+  --color-pink-400: var(--color-pink-600);
+}
+.ui-noche {
+  --color-white: #fff;
+  color: #e7e9ee;
+}
+
+/*
+ * Modo transparente: usa la paleta clara (las apps de los cuartos abren
+ * normales) pero temasUI.ts vuelve translúcidos --ui-panel/--ui-panel-2, así
+ * que todos los menús dejan ver la escena.
+ *
+ * El desenfoque NO se aplica aquí a .ui-panel: un `backdrop-filter` convierte
+ * al elemento en el contenedor de los `position: fixed` que cuelgan de él, y
+ * los diálogos y previsualizaciones a pantalla completa que abre el menú
+ * lateral quedarían encajonados en sus 240 px. El vidrio del menú se pinta en
+ * una capa hermana (RoomSideMenu); los paneles flotantes ya traen el suyo en
+ * .ui-panel-glass/.ui-hud.
+ *
+ * El popup nativo de los <select> compone su fondo sobre blanco, así que las
+ * <option> vuelven a fondo sólido.
+ */
+html[data-modo-ui='transparente'] option {
+  background-color: var(--ui-bg);
+}
+
+/* Mago del tutorial: flote sutil en su esquina. */
+@keyframes tut-flote {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.tut-flote {
+  animation: tut-flote 2.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tut-flote {
+    animation: none;
+  }
+}
+
+/*
+ * Deslizador minimalista en TODA la app: fino, sin flechas ni pista, con la
+ * tinta del modo activo (--color-white se invierte solo en base clara).
+ * Chromium 121+ y Firefox usan las dos primeras propiedades; los `::-webkit-*`
+ * quedan para los motores que aún no las soportan.
+ */
+* {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+  scrollbar-color: color-mix(in srgb, var(--color-white, #fff) 16%, transparent) transparent;
 }
-.scroll-sutil::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-.scroll-sutil::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: transparent;
 }
-.scroll-sutil::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+/* El borde transparente + background-clip deja aire a los lados: el pulgar se
+   ve de 4 px flotando, sin canal. */
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-white, #fff) 16%, transparent);
+  background-clip: padding-box;
+  border: 2px solid transparent;
   border-radius: 999px;
 }
-.scroll-sutil::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-white, #fff) 30%, transparent);
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-corner {
+  display: none;
 }

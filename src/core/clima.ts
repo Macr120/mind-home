@@ -37,7 +37,7 @@ async function fetchConTimeout(url: string, ms = TIMEOUT_FETCH): Promise<Respons
   const t = setTimeout(() => ctrl.abort(), ms)
   try {
     return await fetch(url, { signal: ctrl.signal })
-  } catch (e) {
+  } catch {
     if (ctrl.signal.aborted) throw new ClimaError('red', 'Tiempo de espera agotado al consultar el servicio.')
     throw new ClimaError('red', 'Sin conexión al servicio de clima.')
   } finally {
@@ -46,7 +46,7 @@ async function fetchConTimeout(url: string, ms = TIMEOUT_FETCH): Promise<Respons
 }
 
 /** Etiqueta e icono según código WMO (Open-Meteo). */
-export function climaDeCodigo(codigo: number): { icono: string; descripcion: string } {
+function climaDeCodigo(codigo: number): { icono: string; descripcion: string } {
   if (codigo === 0) return { icono: '☀️', descripcion: 'Despejado' }
   if (codigo <= 3) return { icono: '⛅', descripcion: 'Parcialmente nublado' }
   if (codigo <= 48) return { icono: '🌫️', descripcion: 'Niebla' }

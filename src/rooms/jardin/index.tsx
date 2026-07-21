@@ -1,102 +1,99 @@
 import type { RoomModule, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
-import { sesionesMindfulnessRepo, registroAnimoRepo, gratitudDiariaRepo } from '../../core/data/repository'
+import {
+  sesionesMindfulnessRepo,
+  gratitudDiariaRepo,
+  objetivoDiarioDe,
+} from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
-import type { TipoPractica } from '../../core/data/db'
 import { JardinApp } from './JardinApp'
+import { tutorialJardin } from './tutorial'
+import { fechaLocalISO } from '../../core/fechaLocal'
+import { TEMAS, type TemaMeditacion } from './guiones'
 
-const TIPOS_PRACTICA: [string[], TipoPractica][] = [
-  [['medite', 'meditacion', 'meditar'], 'meditacion'],
-  [['respire', 'respiracion', 'respirar', 'respiratorio'], 'respiracion'],
-  [['gratitud', 'agradeci', 'agradezco'], 'gratitud'],
-  [['yoga', 'movimiento', 'tai'], 'movimiento'],
+const TEMAS_TOKENS: [string[], TemaMeditacion][] = [
+  [['ansiedad', 'ansioso', 'ansiosa', 'estres', 'estresado', 'estresada'], 'ansiedad'],
+  [['foco', 'enfoque', 'concentracion', 'concentrarme'], 'foco'],
+  [['gratitud', 'agradecer'], 'gratitud'],
+  [['dormir', 'sueno', 'noche'], 'dormir'],
 ]
 
-function detectarPractica(tokens: Set<string>): TipoPractica {
-  for (const [claves, tipo] of TIPOS_PRACTICA) {
-    if (claves.some((k) => tokens.has(k))) return tipo
-  }
-  return 'meditacion'
-}
-
 async function capturar(texto: string): Promise<boolean> {
+  // Agradecimientos: "agradezco X, Y y Z"
+  const gratMatch = texto.match(/agradezco\s+(.+)/i)
+  if (gratMatch) {
+    const items = gratMatch[1]
+      .split(/,| y /i)
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .slice(0, 3)
+    if (items.length) {
+      await gratitudDiariaRepo.add({
+        fecha: fechaLocalISO(),
+        item1: items[0],
+        item2: items[1] ?? '',
+        item3: items[2] ?? '',
+      })
+      return true
+    }
+  }
+
+  // Sesión con duración: "medité 10 min", "respiración 5 minutos"
   const norm = normalizar(texto)
   const tokens = new Set(norm.split(/[^a-z0-9]+/).filter(Boolean))
-
-  // Registro de ánimo: "animo 7", "estado de animo 8/10", "me siento 6"
-  const animoMatch = norm.match(/(?:animo|mood|siento|estado)[^0-9]*(\d+)/)
-  if (animoMatch) {
-    const nivel = Math.min(10, Math.max(1, parseInt(animoMatch[1])))
-    const EMOCIONES: Record<number, string> = { 1: 'muy mal', 2: 'mal', 3: 'bajo', 4: 'regular', 5: 'neutral', 6: 'bien', 7: 'bien', 8: 'muy bien', 9: 'excelente', 10: 'increíble' }
-    await registroAnimoRepo.add({
-      fecha: new Date().toISOString().slice(0, 10),
-      nivel,
-      emocion: EMOCIONES[nivel] ?? 'neutral',
-      nota: texto,
-    })
-    return true
-  }
-
-  // Sesión de práctica: necesita duración
   const minMatch = norm.match(/(\d+)\s*(?:min(?:utos?)?|m\b)/)
   const hrMatch = norm.match(/(\d+(?:\.\d+)?)\s*h(?:oras?|rs?)?/)
   if (!minMatch && !hrMatch) return false
 
-  const duracion = minMatch
-    ? parseInt(minMatch[1])
-    : Math.round(parseFloat(hrMatch![1]) * 60)
+  const duracion = minMatch ? parseInt(minMatch[1]) : Math.round(parseFloat(hrMatch![1]) * 60)
   if (duracion <= 0) return false
 
-  const tipo = detectarPractica(tokens)
+  const esRespiracion = ['respire', 'respiracion', 'respirar'].some((k) => tokens.has(k))
+  const tema = TEMAS_TOKENS.find(([claves]) => claves.some((k) => tokens.has(k)))?.[1]
   await sesionesMindfulnessRepo.add({
-    fecha: new Date().toISOString().slice(0, 10),
-    tipo,
+    fecha: fechaLocalISO(),
+    tipo: esRespiracion ? 'respiracion' : 'meditacion',
     titulo: texto.slice(0, 60),
     duracionMin: duracion,
+    tema,
     nota: texto,
   })
   return true
 }
 
-const PRACTICAS_VALIDAS = new Set<string>(['meditacion', 'respiracion', 'sueno', 'gratitud', 'sonido', 'movimiento'])
-
 const esquemas: EsquemaCaptura[] = [
   {
-    id: 'animo',
-    descripcion: 'Cómo se siente el usuario hoy (check-in de ánimo).',
-    campos: [
-      { campo: 'nivel', tipo: 'numero', descripcion: 'Nivel de ánimo 1–10 (1 = muy mal, 10 = increíble)', requerido: true },
-      { campo: 'emocion', tipo: 'texto', descripcion: 'Emoción en una palabra (tranquilo, ansioso, contento…)' },
-      { campo: 'nota', tipo: 'texto', descripcion: 'Por qué se siente así, en breve' },
-      { campo: 'fecha', tipo: 'fecha', descripcion: 'Fecha yyyy-mm-dd (hoy si no se menciona)' },
-    ],
-    guardar: async (v) => {
-      await registroAnimoRepo.add({
-        fecha: vFecha(v.fecha),
-        nivel: Math.min(10, Math.max(1, vNumero(v.nivel, 5))),
-        emocion: vTexto(v.emocion, 'neutral'),
-        nota: vTexto(v.nota) || undefined,
-      })
-    },
-  },
-  {
     id: 'practica',
-    descripcion: 'Una práctica de mindfulness que el usuario realizó (meditación, respiración, yoga…).',
+    descripcion: 'Una sesión de meditación o de respiración que el usuario realizó.',
     campos: [
-      { campo: 'tipo', tipo: 'opcion', opciones: ['meditacion', 'respiracion', 'sueno', 'gratitud', 'sonido', 'movimiento'], descripcion: 'Tipo de práctica; yoga/tai-chi = movimiento', requerido: true },
+      {
+        campo: 'tipo',
+        tipo: 'opcion',
+        opciones: ['meditacion', 'respiracion'],
+        descripcion: 'Tipo de práctica',
+        requerido: true,
+      },
       { campo: 'duracionMin', tipo: 'numero', descripcion: 'Duración en minutos', requerido: true },
-      { campo: 'titulo', tipo: 'texto', descripcion: 'Título corto de la sesión' },
+      {
+        campo: 'tema',
+        tipo: 'opcion',
+        opciones: TEMAS.map((t) => t.id),
+        descripcion: 'Tema de la meditación (solo si se menciona)',
+      },
       { campo: 'fecha', tipo: 'fecha', descripcion: 'Fecha yyyy-mm-dd (hoy si no se menciona)' },
     ],
     guardar: async (v) => {
       const duracion = vNumero(v.duracionMin)
       if (duracion <= 0) return
-      const tipo = vTexto(v.tipo)
+      const esRespiracion = vTexto(v.tipo) === 'respiracion'
+      const tema = vTexto(v.tema)
+      const nombreTema = TEMAS.find((t) => t.id === tema)?.nombre
       await sesionesMindfulnessRepo.add({
         fecha: vFecha(v.fecha),
-        tipo: (PRACTICAS_VALIDAS.has(tipo) ? tipo : 'meditacion') as TipoPractica,
-        titulo: vTexto(v.titulo, 'Práctica'),
+        tipo: esRespiracion ? 'respiracion' : 'meditacion',
+        titulo: esRespiracion ? 'Respiración' : nombreTema ? `Meditación · ${nombreTema}` : 'Meditación',
         duracionMin: duracion,
+        tema: tema || undefined,
       })
     },
   },
@@ -124,14 +121,36 @@ const esquemas: EsquemaCaptura[] = [
 
 const jardin: RoomModule = {
   id: 'jardin',
-  nombre: 'Jardín · Mindfulness',
+  nombre: 'Mindfulness · Jardín',
   icon: '🧘',
   categoria: 'complemento',
   posicion: [9, 0, 0],
   color: '#4ade80',
   App: JardinApp,
+  tutorial: tutorialJardin,
   capturar,
   esquemas,
+  sinMuros: true,
+  // `sinRacha` no es cosmético: el jardín no lleva rachas ni castiga faltar (ver
+  // calma.ts). Se enseña lo acumulado y ahí acaba — nunca avisa.
+  metaDiaria: {
+    clave: 'jardin.metaDiaria',
+    etiquetaEs: 'Calma de hoy',
+    unidad: 'min',
+    seccion: 'meditacion',
+    sinRacha: true,
+    del: async (fecha) => ({
+      hecho: (await sesionesMindfulnessRepo.list())
+        .filter((s) => s.fecha === fecha)
+        .reduce((s, x) => s + x.duracionMin, 0),
+      objetivo: await objetivoDiarioDe('jardin', 10),
+    }),
+  },
+  comandos: [
+    { seccion: 'meditacion', etiqueta: 'Meditación', nombres: ['meditacion', 'meditaciones', 'meditar'] },
+    { seccion: 'respiracion', etiqueta: 'Respiración', nombres: ['respiracion', 'respirar'] },
+    { seccion: 'gratitud', etiqueta: 'Agradecimientos', nombres: ['gratitud', 'agradecimientos'] },
+  ],
 }
 
 export default jardin

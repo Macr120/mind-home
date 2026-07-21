@@ -17,7 +17,7 @@ export function RoomDragController() {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const niveles = useLayout((s) => s.niveles)
-  const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
 
   useEffect(() => {
     if (!draggingId) return
@@ -29,7 +29,7 @@ export function RoomDragController() {
         canvas: gl.domElement,
         camera,
         nivel,
-        conTecho,
+        apilado,
         gridCols,
         gridRows,
       })
@@ -56,7 +56,7 @@ export function RoomDragController() {
       window.removeEventListener('pointercancel', soltar)
       if (!useLayout.getState().draggingId) document.body.style.cursor = 'default'
     }
-  }, [draggingId, gl, camera, niveles, conTecho, gridCols, gridRows, setPreview, endDrag])
+  }, [draggingId, gl, camera, niveles, apilado, gridCols, gridRows, setPreview, endDrag])
 
   return null
 }

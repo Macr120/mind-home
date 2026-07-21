@@ -4,6 +4,7 @@ import { vehiculosRepo } from '../../core/data/repository'
 import { COLOR, TIPOS_VEHICULO } from './constantes'
 import { hoyISO } from './fecha'
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function FormularioVehiculo({
   inicial,
@@ -52,7 +53,8 @@ export function FormularioVehiculo({
   return (
     <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
       <p className="text-sm font-semibold">
-        {inicial ? t('garage.form.editar', '✏️ Editar vehículo') : t('garage.form.nuevo', '➕ Nuevo vehículo')}
+        <Icono nombre={inicial ? 'editar' : 'agregar'} />{' '}
+        {inicial ? t('garage.form.editar', 'Editar vehículo') : t('garage.form.nuevo', 'Nuevo vehículo')}
       </p>
 
       <label className="block text-xs text-white/50">

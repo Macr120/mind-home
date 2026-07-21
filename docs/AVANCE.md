@@ -1,6 +1,6 @@
 # Mind Home — Estado del avance
 
-Última actualización: junio 2026. **Fuente de verdad** para saber qué está hecho en la
+Última actualización: julio 2026. **Fuente de verdad** para saber qué está hecho en la
 **casa (shell 3D)** vs cada **mini-app (cuarto)**.
 
 ---
@@ -30,14 +30,14 @@ los repos de `repository.ts`. No importan `db` ni Three.js.
 | Editor cuarto | Zoom/offset con panel derecho, sombras off en edición | ✅ |
 | Controles vista | `NavControls` abajo izquierda en edición | ✅ |
 | Personalización casa | `disenoStore` + editor mapa (`EditPanel`, `core/ui/editor/`) | ✅ |
-| Registro | `registry.ts` — 12 `RoomModule` | ✅ |
+| Registro | `registry.ts` — 13 `RoomModule` | ✅ |
 
 **No tocar al trabajar solo en un cuarto** salvo que cambies contrato, posición, mueble 3D
 o datos compartidos.
 
 ---
 
-## Datos compartidos — `db.ts` v21
+## Datos compartidos — `db.ts` v72 (lista parcial; la fuente real es `db.ts`)
 
 | Repo | Tablas / uso |
 |------|----------------|
@@ -86,6 +86,16 @@ tienen `hora`–`horaFin` y `color` propios (paleta en el editor), se mueven con
 (cambia hora y día de la semana) y se estiran desde el borde inferior. Clic en un bloque
 abre el detalle con la checklist (palomeable solo hoy).
 
+**Planes con IA en el Cronograma** (`planIA.ts` + `planMeta.ts`, UI en `ui/metas/`): el ✨
+—junto al alta de metas y en el detalle de cada una— pregunta fecha objetivo, horas por
+semana, días disponibles y nivel de partida, y la IA propone un cronograma de fases con
+sub-metas. Los planes se guardan como PROPUESTA (`planesMeta`, db v80): no crean ninguna
+meta hasta aceptarlos. El selector de la barra ("Real / ✨ Plan A") los superpone sobre el
+mismo eje con barras de trama diagonal para poder compararlos contra lo real; aceptar los
+convierte en sub-metas con sus fechas, y marca el plan (`aceptadoEn`) en vez de borrarlo.
+Los nodos guardan días RELATIVOS a `inicioISO`: la IA cuenta enteros mucho mejor que
+calendarios, y reanclar el plan entero es cambiar un campo (sin otra llamada).
+
 ---
 
 ## Las 12 mini-apps (cuadrícula 4×3)
@@ -104,11 +114,14 @@ Posiciones: cols `x: -9 -3 3 9` · filas `z: -6 0 6`. Ver `registry.ts`.
 | `jardin` | Jardín · Mindfulness | `rooms/jardin/` | mindfulness, ánimo, gratitud | ✅ meditación, respiración, diario |
 | `garage` | Garage | `rooms/garage/` | vehículos, mantenimiento | ✅ vehículos, servicios |
 | `diario` | Diario · Noticias | `rooms/diario/` | noticias (RSS/briefing) | ✅ central, resumen — **no** es el anecdotario |
-| `bodega` | Bodega | `rooms/bodega/` | — (inventario próximo) | ✅ inventario + archivo/respaldo |
 | `hobbies` | Hobbies | `rooms/hobbies/` | — (persistencia próxima) | ✅ lista de pasatiempos (básico) |
 
 Todas están **registradas y abren** desde la casa. El grado de pulido «premium» varía por cuarto;
 ver `docs/COMO-TRABAJAR.md` para priorizar mejoras sin mezclar contextos.
+
+> La antigua **Bodega** se eliminó como cuarto (jul 2026): su archivo/respaldo vive ahora en
+> **Editor → Configuraciones → Respaldo de datos** (`EditorRespaldoSection`); el inventario
+> nunca pasó de placeholder.
 
 ---
 

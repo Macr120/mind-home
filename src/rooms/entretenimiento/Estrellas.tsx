@@ -1,4 +1,5 @@
 import { useT } from '../../core/i18n/useT'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 /** Selector / visualización de calificación 1–5. */
 export function Estrellas({
@@ -24,7 +25,7 @@ export function Estrellas({
           } ${n <= valor ? 'text-amber-400' : 'text-white/20'}`}
           aria-label={t('ui.estrellas', `${n} estrellas`, { n: String(n) })}
         >
-          ★
+          <Icono nombre="estrella" />
         </button>
       ))}
     </div>

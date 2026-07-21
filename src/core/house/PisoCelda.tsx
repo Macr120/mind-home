@@ -6,40 +6,46 @@ import { CanvasTexture, RepeatWrapping, Texture, TextureLoader } from 'three'
 import { SIZE } from './walls'
 import type { PisoTipo } from './pisos'
 import type { CeldaFormaLoseta } from './formasLoseta'
-import { esFormaCuadrada, geometriaLoseta3D } from './formasLoseta'
+import { esFormaCuadrada, geometriaLoseta3D, FORMA_LOSETA_DEFAULT } from './formasLoseta'
 
 const TILE = SIZE - 0.1
+
+/** Sublista de formas finas por cuadrante (NO,NE,SO,SE) o nada. */
+type Subformas = (CeldaFormaLoseta | undefined)[] | null | undefined
+
+/** ¿La loseta es un cuadrado pleno (sin forma entera ni recortes finos)? */
+function losetaCuadrada(formaLoseta: CeldaFormaLoseta | undefined, subformas: Subformas): boolean {
+  return esFormaCuadrada(formaLoseta) && !subformas
+}
 
 function meshLosetaProps(
   lx: number,
   lz: number,
   formaLoseta: CeldaFormaLoseta | undefined,
+  subformas: Subformas,
   modo: 'solido' | 'plano',
 ): { position: [number, number, number]; rotation?: [number, number, number] } {
-  if (esFormaCuadrada(formaLoseta)) {
-    if (modo === 'solido') return { position: [lx, 0.1, lz] }
-    return { position: [lx, 0.11, lz], rotation: [-Math.PI / 2, 0, 0] }
+  if (losetaCuadrada(formaLoseta, subformas) && modo === 'solido') {
+    return { position: [lx, 0.11, lz] }
   }
-  if (modo === 'solido') {
-    if (esFormaCuadrada(formaLoseta)) return { position: [lx, 0.1, lz] }
-    return { position: [lx, 0.11, lz], rotation: [-Math.PI / 2, 0, 0] }
-  }
-  return { position: [lx, 0.11, lz], rotation: [-Math.PI / 2, 0, 0] }
+  return { position: [lx, 0.21, lz], rotation: [-Math.PI / 2, 0, 0] }
 }
 
 function GeometriaLoseta({
   formaLoseta,
+  subformas,
   modo,
   tile = TILE,
 }: {
   formaLoseta?: CeldaFormaLoseta
+  subformas?: Subformas
   modo: 'solido' | 'plano'
   tile?: number
 }) {
   const geometry = useMemo(() => {
-    if (esFormaCuadrada(formaLoseta)) return null
-    return geometriaLoseta3D(formaLoseta!, tile, modo)
-  }, [formaLoseta, modo, tile])
+    if (losetaCuadrada(formaLoseta, subformas)) return null
+    return geometriaLoseta3D(formaLoseta ?? FORMA_LOSETA_DEFAULT, tile, modo, subformas)
+  }, [formaLoseta, subformas, modo, tile])
 
   useEffect(() => {
     return () => {
@@ -47,7 +53,7 @@ function GeometriaLoseta({
     }
   }, [geometry])
 
-  if (esFormaCuadrada(formaLoseta)) {
+  if (losetaCuadrada(formaLoseta, subformas)) {
     if (modo === 'solido') return <boxGeometry args={[tile, 0.2, tile]} />
     return <planeGeometry args={[tile, tile]} />
   }
@@ -104,6 +110,7 @@ function PisoCeldaProcedural({
   tile = TILE,
   atenuado,
   formaLoseta,
+  subformas,
   onClick,
   onPointerDown,
   onPointerOver,
@@ -117,6 +124,7 @@ function PisoCeldaProcedural({
   tile?: number
   atenuado: boolean
   formaLoseta?: CeldaFormaLoseta
+  subformas?: Subformas
   onClick?: (e: ThreeEvent<MouseEvent>) => void
   onPointerDown?: (e: ThreeEvent<PointerEvent>) => void
   onPointerOver?: (e: ThreeEvent<PointerEvent>) => void
@@ -137,7 +145,7 @@ function PisoCeldaProcedural({
   // Neón: líneas que brillan con el color elegido (o azul nativo).
   const emissiveColor = esNeon ? tinte ?? '#0044ff' : tinte ?? '#000000'
   const emissiveInt = atenuado ? 0 : esNeon ? 0.9 : tinte ? 0.28 : 0
-  const meshProps = meshLosetaProps(lx, lz, formaLoseta, 'plano')
+  const meshProps = meshLosetaProps(lx, lz, formaLoseta, subformas, 'plano')
 
   return (
     <mesh
@@ -148,7 +156,7 @@ function PisoCeldaProcedural({
       onPointerOver={onPointerOver}
       onPointerOut={onPointerOut}
     >
-      <GeometriaLoseta formaLoseta={formaLoseta} modo="plano" tile={tile} />
+      <GeometriaLoseta formaLoseta={formaLoseta} subformas={subformas} modo="plano" tile={tile} />
       <meshStandardMaterial
         map={map}
         color="#ffffff"
@@ -178,6 +186,7 @@ function PisoCeldaTexturado({
   tile = TILE,
   atenuado,
   formaLoseta,
+  subformas,
   onClick,
   onPointerDown,
   onPointerOver,
@@ -196,6 +205,7 @@ function PisoCeldaTexturado({
   tile?: number
   atenuado: boolean
   formaLoseta?: CeldaFormaLoseta
+  subformas?: Subformas
   onClick?: (e: ThreeEvent<MouseEvent>) => void
   onPointerDown?: (e: ThreeEvent<PointerEvent>) => void
   onPointerOver?: (e: ThreeEvent<PointerEvent>) => void
@@ -219,7 +229,7 @@ function PisoCeldaTexturado({
     })
   }, [maps, tileSize, tile])
 
-  const meshProps = meshLosetaProps(lx, lz, formaLoseta, 'plano')
+  const meshProps = meshLosetaProps(lx, lz, formaLoseta, subformas, 'plano')
 
   return (
     <mesh
@@ -230,7 +240,7 @@ function PisoCeldaTexturado({
       onPointerOver={onPointerOver}
       onPointerOut={onPointerOut}
     >
-      <GeometriaLoseta formaLoseta={formaLoseta} modo="plano" tile={tile} />
+      <GeometriaLoseta formaLoseta={formaLoseta} subformas={subformas} modo="plano" tile={tile} />
       <meshStandardMaterial
         {...maps}
         color="#ffffff"
@@ -258,6 +268,7 @@ function PisoCeldaImagen({
   tile = TILE,
   atenuado,
   formaLoseta,
+  subformas,
   onClick,
   onPointerDown,
   onPointerOver,
@@ -270,6 +281,7 @@ function PisoCeldaImagen({
   tile?: number
   atenuado: boolean
   formaLoseta?: CeldaFormaLoseta
+  subformas?: Subformas
   onClick?: (e: ThreeEvent<MouseEvent>) => void
   onPointerDown?: (e: ThreeEvent<PointerEvent>) => void
   onPointerOver?: (e: ThreeEvent<PointerEvent>) => void
@@ -284,7 +296,7 @@ function PisoCeldaImagen({
     t.repeat.set(rep, rep)
     return t
   }, [base, ajuste])
-  const meshProps = meshLosetaProps(lx, lz, formaLoseta, 'plano')
+  const meshProps = meshLosetaProps(lx, lz, formaLoseta, subformas, 'plano')
   return (
     <mesh
       {...meshProps}
@@ -294,7 +306,7 @@ function PisoCeldaImagen({
       onPointerOver={onPointerOver}
       onPointerOut={onPointerOut}
     >
-      <GeometriaLoseta formaLoseta={formaLoseta} modo="plano" tile={tile} />
+      <GeometriaLoseta formaLoseta={formaLoseta} subformas={subformas} modo="plano" tile={tile} />
       <meshStandardMaterial
         map={texture}
         roughness={0.75}
@@ -322,6 +334,7 @@ export function PisoCelda({
   tile = TILE,
   atenuado,
   formaLoseta,
+  subformas,
   onClick,
   onPointerDown,
   onPointerOver,
@@ -344,18 +357,14 @@ export function PisoCelda({
   tile?: number
   atenuado: boolean
   formaLoseta?: CeldaFormaLoseta
+  subformas?: Subformas
   onClick?: (e: ThreeEvent<MouseEvent>) => void
   onPointerDown?: (e: ThreeEvent<PointerEvent>) => void
   onPointerOver?: (e: ThreeEvent<PointerEvent>) => void
   onPointerOut?: (e: ThreeEvent<PointerEvent>) => void
 }) {
-  const meshProps = meshLosetaProps(
-    lx,
-    lz,
-    formaLoseta,
-    esFormaCuadrada(formaLoseta) ? 'solido' : 'plano',
-  )
-  const modoGeo = esFormaCuadrada(formaLoseta) ? 'solido' : 'plano'
+  const modoGeo = losetaCuadrada(formaLoseta, subformas) ? 'solido' : 'plano'
+  const meshProps = meshLosetaProps(lx, lz, formaLoseta, subformas, modoGeo)
   const solido = (
     <mesh
       {...meshProps}
@@ -365,7 +374,7 @@ export function PisoCelda({
       onPointerOver={onPointerOver}
       onPointerOut={onPointerOut}
     >
-      <GeometriaLoseta formaLoseta={formaLoseta} modo={modoGeo} tile={tile} />
+      <GeometriaLoseta formaLoseta={formaLoseta} subformas={subformas} modo={modoGeo} tile={tile} />
       <meshStandardMaterial
         color={color}
         roughness={roughness}
@@ -389,6 +398,7 @@ export function PisoCelda({
           tile={tile}
           atenuado={atenuado}
           formaLoseta={formaLoseta}
+          subformas={subformas}
           onClick={onClick}
           onPointerDown={onPointerDown}
           onPointerOver={onPointerOver}
@@ -408,6 +418,7 @@ export function PisoCelda({
         tile={tile}
         atenuado={atenuado}
         formaLoseta={formaLoseta}
+        subformas={subformas}
         onClick={onClick}
         onPointerDown={onPointerDown}
         onPointerOver={onPointerOver}
@@ -432,6 +443,7 @@ export function PisoCelda({
         tile={tile}
         atenuado={atenuado}
         formaLoseta={formaLoseta}
+        subformas={subformas}
         onClick={onClick}
         onPointerDown={onPointerDown}
         onPointerOver={onPointerOver}

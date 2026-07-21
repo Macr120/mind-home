@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import {
@@ -22,6 +22,8 @@ const _pos = new THREE.Vector3()
 
 const ALTURA_OJOS = 1.5 // altura de la cabeza del avatar (primera persona)
 const ALTURA_OBJETIVO = 1.2 // punto al que mira la cámara en tercera persona
+const FOV_GRAFITI = 55 // vista grafiti: encuadre del lienzo sin deformar
+const FOV_DIALOGO = 50 // vista diálogo: plano medio sobre el hombro, estilo RPG
 
 /**
  * Cámara en perspectiva que sigue al personaje en primera y tercera persona.
@@ -42,15 +44,14 @@ export function FollowCamera() {
   const size = useThree((s) => s.size)
 
   // DEV: permite leer la cámara activa de R3F desde la consola (depuración).
-  if (import.meta.env.DEV) {
-    ;(window as unknown as { __r3fGet?: typeof get }).__r3fGet = get
-  }
+  useEffect(() => {
+    if (import.meta.env.DEV) {
+      ;(window as unknown as { __r3fGet?: typeof get }).__r3fGet = get
+    }
+  }, [get])
 
-  // Cámara perspectiva persistente (creada una vez) y referencia a la ortográfica original.
-  const perspRef = useRef<THREE.PerspectiveCamera | null>(null)
-  if (!perspRef.current) {
-    perspRef.current = new THREE.PerspectiveCamera(70, 1, 0.1, 600)
-  }
+  // Cámara perspectiva persistente (creada una sola vez).
+  const [persp] = useState(() => new THREE.PerspectiveCamera(70, 1, 0.1, 600))
   const orthoRef = useRef<THREE.OrthographicCamera | null>(null)
 
   // Guarda la ortográfica del Canvas para restaurarla al volver a iso (StrictMode / cambios de vista).
@@ -66,7 +67,7 @@ export function FollowCamera() {
       if (orthoRef.current) set({ camera: orthoRef.current })
       return
     }
-    const cam = perspRef.current!
+    const cam = persp
     // Resetear zoom antes de activar: CameraRig puede haberlo contaminado si corrió
     // un frame con vista='iso' mientras la cámara activa aún era la perspectiva.
     cam.zoom = 1
@@ -82,7 +83,7 @@ export function FollowCamera() {
 
   // Mantiene el aspect ratio de la perspectiva al redimensionar la ventana.
   useEffect(() => {
-    const cam = perspRef.current!
+    const cam = persp
     cam.aspect = size.width / Math.max(1, size.height)
     cam.updateProjectionMatrix()
   }, [size])
@@ -193,7 +194,7 @@ export function FollowCamera() {
 
   useFrame(() => {
     if (!activa) return
-    const cam = perspRef.current!
+    const cam = persp
     // Joystick de vista: gira la cámara de forma continua mientras se sostiene.
     if (lookPad.x !== 0 || lookPad.y !== 0) {
       useCam.getState().orbit(lookPad.x * LOOK_PAD_K, lookPad.y * LOOK_PAD_K)
@@ -205,6 +206,50 @@ export function FollowCamera() {
 
     // El desplazamiento de viewport solo aplica en interior; en 1ª/3ª se limpia.
     if (st.vista !== 'interior' && cam.view?.enabled) cam.clearViewOffset()
+
+    if (st.vista === 'grafiti' && st.grafitiCam) {
+      // Cámara fija sobre la normal de la cara, a la distancia que encuadra el
+      // lienzo completo (con margen); el zoom de entrada lo da el lerp.
+      const g = st.grafitiCam
+      if (cam.fov !== FOV_GRAFITI) {
+        cam.fov = FOV_GRAFITI
+        cam.updateProjectionMatrix()
+      }
+      const tanMedio = Math.tan((FOV_GRAFITI * Math.PI) / 360)
+      const d = Math.min(
+        5.5,
+        Math.max(1.2, 1.15 * Math.max(g.alto / 2 / tanMedio, g.ancho / 2 / (tanMedio * cam.aspect))),
+      )
+      _pos.set(g.centro[0] + Math.sin(g.rotY) * d, g.centro[1], g.centro[2] + Math.cos(g.rotY) * d)
+      cam.position.lerp(_pos, 0.12)
+      _look.set(g.centro[0], g.centro[1], g.centro[2])
+      cam.lookAt(_look)
+      cam.updateMatrixWorld()
+      return
+    }
+
+    if (st.vista === 'dialogo' && st.dialogoCam) {
+      // Sobre el hombro: detrás-lateral del jugador, mirando la cabeza del NPC.
+      if (cam.fov !== FOV_DIALOGO) {
+        cam.fov = FOV_DIALOGO
+        cam.updateProjectionMatrix()
+      }
+      const n = st.dialogoCam.npc
+      _fwd.set(n[0] - playerPos.x, 0, n[2] - playerPos.z)
+      if (_fwd.lengthSq() < 0.001) _fwd.set(0, 0, 1)
+      _fwd.normalize()
+      // Detrás (−fwd·1.7), corrida al hombro derecho (perp = (fwd.z, 0, −fwd.x)·0.95) y alta.
+      _pos.set(
+        playerPos.x - _fwd.x * 1.7 + _fwd.z * 0.95,
+        playerPos.y + 1.75,
+        playerPos.z - _fwd.z * 1.7 - _fwd.x * 0.95,
+      )
+      cam.position.lerp(_pos, 0.08)
+      _look.set(n[0], n[1], n[2])
+      cam.lookAt(_look)
+      cam.updateMatrixWorld()
+      return
+    }
 
     if (st.vista === 'interior' && st.interiorCenter) {
       // De pie en el CENTRO del cuarto, mirando la pared de enfrente (yaw/pitch).

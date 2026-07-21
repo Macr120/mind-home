@@ -1,13 +1,9 @@
 import { EditorSeccion } from './EditorSeccion'
 import { useEditorSeccionesMapa } from './useEditorSecciones'
 import { TITULOS_MAPA, type SeccionMapaId } from './editorSecciones'
-import { EditorAjustesSection } from './EditorAjustesSection'
 import { EditorTemaSection } from './EditorTemaSection'
-import { EditorFondoSection } from './EditorFondoSection'
 import { useT } from '../../i18n/useT'
-import { EditorAvatarSection } from './EditorAvatarSection'
-import { EditorPerfilSection } from './EditorPerfilSection'
-import { EditorInventarioSection } from './EditorInventarioSection'
+import { ConstructorMapa } from '../planos/ConstructorMapa'
 
 /** Panel de secciones del editor de mapa (plegables y reordenables). */
 export function EditorPanelMapa() {
@@ -16,27 +12,8 @@ export function EditorPanelMapa() {
 
   const contenidoMapa = (id: SeccionMapaId) => {
     switch (id) {
-      case 'ajustes':
-        return <EditorAjustesSection embed />
-      case 'inventario':
-        return <EditorInventarioSection embed />
       case 'tema':
         return <EditorTemaSection embed />
-      case 'fondo':
-        return <EditorFondoSection embed />
-      case 'perfil':
-        // Perfil del usuario + su avatar 3D, en una sola sección.
-        return (
-          <div className="space-y-4">
-            <EditorPerfilSection embed />
-            <div className="border-t border-white/10 pt-3">
-              <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-white/40">
-                {t('editor.mapa.avatar', 'Avatar del personaje')}
-              </p>
-              <EditorAvatarSection embed />
-            </div>
-          </div>
-        )
       default:
         return null
     }
@@ -44,6 +21,38 @@ export function EditorPanelMapa() {
 
   return (
     <div className="space-y-3">
+      {/* Sección "Mapa": el constructor unificado (barra de modos + croquis + editor de abajo),
+          plegable como las demás secciones. */}
+      <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5">
+        <div className="flex min-h-[34px] items-center gap-0.5 bg-black/15 px-1.5 py-1.5">
+          <button
+            type="button"
+            onClick={() => s.toggle('mapa')}
+            className="flex h-7 w-6 shrink-0 items-center justify-center text-[10px] text-white/50 transition hover:text-white/85"
+            aria-expanded={s.abierto('mapa')}
+            aria-label={
+              s.abierto('mapa')
+                ? t('editor.sec.contraerMapa', 'Contraer Mapa')
+                : t('editor.sec.expandirMapa', 'Expandir Mapa')
+            }
+          >
+            {s.abierto('mapa') ? '▼' : '▶'}
+          </button>
+          <button
+            type="button"
+            onClick={() => s.toggle('mapa')}
+            className="min-w-0 flex-1 truncate text-left text-sm font-semibold text-white/85"
+          >
+            {t('editor.mapa.mapa', 'Mapa')}
+          </button>
+        </div>
+        {s.abierto('mapa') && (
+          <div className="border-t border-white/10 p-3">
+            <ConstructorMapa />
+          </div>
+        )}
+      </div>
+
       {s.orden.map((id) => (
         <EditorSeccion<SeccionMapaId>
           key={id}

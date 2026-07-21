@@ -1,9 +1,22 @@
 import type { RoomModule, EsquemaCaptura } from '../../core/registry'
-import { vTexto, vNumero, vFecha } from '../../core/registry'
+import { vTexto, vNumero, vFecha, vLista } from '../../core/registry'
 import type { MomentoComida } from '../../core/data/db'
-import { aguaRepo, comidasRepo } from '../../core/data/repository'
+import {
+  aguaRepo,
+  comidasRepo,
+  dietasGuardadasRepo,
+  itemsCompraRepo,
+  listasCompraRepo,
+  perfilNutricionRepo,
+  recetasRepo,
+} from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
+import { CATEGORIAS_COMPRA, adivinarCategoria } from './categoriasCompra'
+import { PERFIL_DEFECTO } from './constantes'
+import { registrarPeso } from './peso'
 import { CocinaApp } from './CocinaApp'
+import { tutorialCocina } from './tutorial'
+import { fechaLocalISO } from '../../core/fechaLocal'
 
 async function capturar(texto: string): Promise<boolean> {
   const norm = normalizar(texto)
@@ -19,7 +32,7 @@ async function capturar(texto: string): Promise<boolean> {
     // Detecta vasos (aprox 240ml c/u)
     const vasosMatch = norm.match(/(\d+)\s*vasos?/)
 
-    let ml = mlMatch
+    const ml = mlMatch
       ? parseFloat(mlMatch[1])
       : litrosMatch
       ? parseFloat(litrosMatch[1]) * 1000
@@ -28,7 +41,7 @@ async function capturar(texto: string): Promise<boolean> {
       : 0
 
     if (ml > 0) {
-      await aguaRepo.add({ fecha: new Date().toISOString().slice(0, 10), ml })
+      await aguaRepo.add({ fecha: fechaLocalISO(), ml })
       return true
     }
   }
@@ -49,10 +62,22 @@ async function capturar(texto: string): Promise<boolean> {
     }
   }
 
+  // Pesaje corporal: "peso 78 kg", "me pesé 77.5", "mi peso es 78"
+  if (tokens.has('peso') || tokens.has('pese')) {
+    const kgMatch =
+      norm.match(/pes[oe]\s+(?:es\s+|en\s+|de\s+)?(\d+(?:\.\d+)?)/) ??
+      norm.match(/(\d+(?:\.\d+)?)\s*(?:kg|kilos?)\b/)
+    const kg = kgMatch ? parseFloat(kgMatch[1]) : 0
+    if (kg >= 20 && kg <= 400) {
+      await registrarPeso(fechaLocalISO(), kg)
+      return true
+    }
+  }
+
   const calMatch = norm.match(/(\d+)\s*(?:cal(?:orias?)?|kcal)/)
   if (momento && calMatch) {
     await comidasRepo.add({
-      fecha: new Date().toISOString().slice(0, 10),
+      fecha: fechaLocalISO(),
       momento,
       nombre: texto.slice(0, 80),
       calorias: parseInt(calMatch[1]),
@@ -107,6 +132,157 @@ const esquemas: EsquemaCaptura[] = [
       if (ml > 0) await aguaRepo.add({ fecha: vFecha(v.fecha), ml })
     },
   },
+  {
+    id: 'receta',
+    descripcion:
+      'Guarda una receta completa en el recetario. Úsala cuando el usuario pida una receta, pregunte cómo preparar un platillo o quiera guardar una. Si solo da el nombre del platillo, INVENTA tú la receta completa: ingredientes con cantidades, pasos claros y macros estimados por porción. Si además pide la lista de la compra de esa receta, añade una llamada a lista_compra con sus ingredientes.',
+    campos: [
+      { campo: 'nombre', tipo: 'texto', descripcion: 'Nombre del platillo', requerido: true },
+      { campo: 'emoji', tipo: 'texto', descripcion: 'Un emoji que represente el platillo (ej. 🍗)' },
+      { campo: 'porciones', tipo: 'numero', descripcion: 'Porciones que rinde la receta (defecto 2)' },
+      { campo: 'minutos', tipo: 'numero', descripcion: 'Tiempo total de preparación en minutos' },
+      { campo: 'etiquetas', tipo: 'lista', descripcion: 'Etiquetas cortas: tipo de platillo, dieta, ocasión (ej. "pollo", "rápida", "alta proteína")' },
+      { campo: 'ingredientes', tipo: 'lista', descripcion: 'Un ingrediente por elemento, CON cantidad (ej. "200 g de arroz", "1 cucharada de aceite")', requerido: true },
+      { campo: 'pasos', tipo: 'lista', descripcion: 'Pasos de preparación en orden, uno por elemento, claros y concisos', requerido: true },
+      { campo: 'calorias', tipo: 'numero', descripcion: 'Calorías estimadas POR PORCIÓN (kcal)' },
+      { campo: 'proteinas', tipo: 'numero', descripcion: 'Gramos de proteína por porción' },
+      { campo: 'carbohidratos', tipo: 'numero', descripcion: 'Gramos de carbohidratos por porción' },
+      { campo: 'grasas', tipo: 'numero', descripcion: 'Gramos de grasa por porción' },
+    ],
+    guardar: async (v) => {
+      const ingredientes = vLista(v.ingredientes)
+      const pasos = vLista(v.pasos)
+      const nombre = vTexto(v.nombre)
+      if (!nombre || ingredientes.length === 0) return
+      await recetasRepo.add({
+        nombre,
+        emoji: vTexto(v.emoji, '🍲'),
+        porciones: Math.max(1, Math.round(vNumero(v.porciones, 2))),
+        minutos: Math.max(0, Math.round(vNumero(v.minutos))),
+        etiquetas: vLista(v.etiquetas),
+        ingredientes,
+        pasos,
+        calorias: Math.max(0, Math.round(vNumero(v.calorias))),
+        proteinas: Math.max(0, Math.round(vNumero(v.proteinas))),
+        carbohidratos: Math.max(0, Math.round(vNumero(v.carbohidratos))),
+        grasas: Math.max(0, Math.round(vNumero(v.grasas))),
+        fuente: 'ia',
+        creadaEn: new Date().toISOString(),
+      })
+    },
+  },
+  {
+    id: 'compra',
+    descripcion:
+      'Agrega UN artículo a la lista de compras del súper. Úsala cuando el usuario pida apuntar/agregar algo para comprar (ej. "agrega leche a la lista", "hay que comprar jitomates y pan" → una llamada por artículo).',
+    campos: [
+      { campo: 'nombre', tipo: 'texto', descripcion: 'Nombre del artículo', requerido: true },
+      { campo: 'cantidad', tipo: 'texto', descripcion: 'Cantidad si se menciona (ej. "2 kg", "3 piezas"); omitir si no' },
+      {
+        campo: 'categoria',
+        tipo: 'opcion',
+        opciones: CATEGORIAS_COMPRA.map((c) => c.id),
+        descripcion: 'Pasillo del súper al que pertenece el artículo',
+      },
+    ],
+    guardar: async (v) => {
+      const nombre = vTexto(v.nombre)
+      if (!nombre) return
+      const cat = vTexto(v.categoria)
+      await itemsCompraRepo.add({
+        nombre,
+        cantidad: vTexto(v.cantidad) || undefined,
+        categoria: CATEGORIAS_COMPRA.some((c) => c.id === cat) ? cat : adivinarCategoria(nombre),
+        comprado: false,
+        creadoEn: new Date().toISOString(),
+      })
+    },
+  },
+  {
+    id: 'lista_compra',
+    descripcion:
+      'Guarda una LISTA DE COMPRAS COMPLETA (con nombre y varios artículos de una vez) en la pestaña Compras. Úsala cuando el usuario dicte una lista entera ("apunta la lista del súper: leche, pan, huevos"), pida la lista de los ingredientes de una receta o dieta, o pida armar la despensa de un plan. Para UN solo artículo suelto usa la herramienta compra.',
+    campos: [
+      { campo: 'nombre', tipo: 'texto', descripcion: 'Nombre de la lista (ej. "Súper semanal", "Ingredientes: pasta al pesto")', requerido: true },
+      {
+        campo: 'items',
+        tipo: 'lista',
+        descripcion: 'Un artículo por elemento, CON cantidad cuando se sepa (ej. "2 kg de jitomate", "1 L de leche")',
+        requerido: true,
+      },
+    ],
+    guardar: async (v) => {
+      const items = vLista(v.items)
+      const nombre = vTexto(v.nombre)
+      if (!nombre || items.length === 0) return
+      const creadoEn = new Date().toISOString()
+      const listaId = await listasCompraRepo.add({ nombre, creadoEn })
+      for (const item of items) {
+        await itemsCompraRepo.add({
+          nombre: item,
+          categoria: adivinarCategoria(item),
+          comprado: false,
+          creadoEn,
+          listaId,
+        })
+      }
+    },
+  },
+  {
+    id: 'dieta',
+    descripcion:
+      'Guarda una DIETA o plan de alimentación (con sus metas de macros y las recetas que la componen) en la pestaña Dieta. Úsala cuando el usuario pida una dieta ("hazme una dieta para bajar de peso", "quiero una dieta keto de 1800 kcal"). IMPORTANTE: si la dieta lleva recetas, crea PRIMERO cada receta con la herramienta receta en esta misma respuesta y después nombra esas recetas —con su nombre exacto— en el campo recetas. Si además quiere la lista del súper, añade una llamada a lista_compra con los ingredientes.',
+    campos: [
+      { campo: 'nombre', tipo: 'texto', descripcion: 'Nombre corto de la dieta (ej. "Keto 1800", "Volumen limpio")', requerido: true },
+      { campo: 'descripcion', tipo: 'texto', descripcion: 'En qué consiste y para quién sirve, 1-2 frases', requerido: true },
+      { campo: 'calorias', tipo: 'numero', descripcion: 'Meta diaria de calorías (kcal) de la dieta' },
+      { campo: 'proteinas', tipo: 'numero', descripcion: 'Meta diaria de proteína en gramos' },
+      { campo: 'carbohidratos', tipo: 'numero', descripcion: 'Meta diaria de carbohidratos en gramos' },
+      { campo: 'grasas', tipo: 'numero', descripcion: 'Meta diaria de grasas en gramos' },
+      {
+        campo: 'recetas',
+        tipo: 'lista',
+        descripcion:
+          'Nombres EXACTOS de las recetas que componen la dieta (las que acabas de crear con la herramienta receta, o las que ya existen en el recetario). Una por elemento.',
+      },
+    ],
+    guardar: async (v) => {
+      const nombre = vTexto(v.nombre)
+      if (!nombre) return
+      // Las recetas se nombran, no se anidan: el modelo las creó antes en esta
+      // misma respuesta (las tools se ejecutan en orden), así que ya existen.
+      const pedidas = vLista(v.recetas).map(normalizar)
+      const recetaIds = (await recetasRepo.list())
+        .filter((r) => r.id != null && pedidas.includes(normalizar(r.nombre)))
+        .map((r) => r.id as number)
+      const meta = (x: unknown) => {
+        const n = vNumero(x)
+        return n > 0 ? Math.round(n) : undefined
+      }
+      await dietasGuardadasRepo.add({
+        nombre,
+        descripcion: vTexto(v.descripcion),
+        calorias: meta(v.calorias),
+        proteinas: meta(v.proteinas),
+        carbohidratos: meta(v.carbohidratos),
+        grasas: meta(v.grasas),
+        recetaIds,
+        creadoEn: new Date().toISOString(),
+      })
+    },
+  },
+  {
+    id: 'peso',
+    descripcion: 'Registra el peso corporal del usuario cuando dice cuánto pesa (ej. "peso 78 kg", "me pesé y salí en 77.5").',
+    campos: [
+      { campo: 'kg', tipo: 'numero', descripcion: 'Peso corporal en kilogramos', requerido: true },
+      { campo: 'fecha', tipo: 'fecha', descripcion: 'Fecha yyyy-mm-dd (hoy si no se menciona)' },
+    ],
+    guardar: async (v) => {
+      const kg = vNumero(v.kg)
+      if (kg >= 20 && kg <= 400) await registrarPeso(vFecha(v.fecha), kg)
+    },
+  },
 ]
 
 const cocina: RoomModule = {
@@ -117,8 +293,40 @@ const cocina: RoomModule = {
   posicion: [-9, 0, -6],
   color: '#f59e0b',
   App: CocinaApp,
+  tutorial: tutorialCocina,
   capturar,
   esquemas,
+  // El agua es la única meta de cocina que se cumple llegando: las calorías tienen
+  // techo, no piso, y ponerlas de meta premiaría atiborrarse. Van en el detalle,
+  // que es donde informan sin empujar.
+  metaDiaria: {
+    clave: 'cocina.metaDiaria',
+    etiquetaEs: 'Agua de hoy',
+    unidad: 'ml',
+    seccion: 'diario',
+    del: async (fecha) => {
+      const perfil = (await perfilNutricionRepo.list())[0] ?? PERFIL_DEFECTO
+      const hecho = (await aguaRepo.list())
+        .filter((a) => a.fecha === fecha)
+        .reduce((s, a) => s + a.ml, 0)
+      const kcal = (await comidasRepo.list())
+        .filter((c) => c.fecha === fecha)
+        .reduce((s, c) => s + c.calorias, 0)
+      const litros = (ml: number) => (ml / 1000).toFixed(1)
+      return {
+        hecho,
+        objetivo: perfil.aguaMl,
+        detalle: `${litros(hecho)} / ${litros(perfil.aguaMl)} L · ${Math.round(kcal)} kcal`,
+      }
+    },
+  },
+  comandos: [
+    { seccion: 'metas', etiqueta: 'Metas', nombres: ['metas de nutricion', 'mis macros'] },
+    { seccion: 'diario', etiqueta: 'Comidas', nombres: ['diario de comidas', 'mis comidas'] },
+    { seccion: 'plan', etiqueta: 'Dieta', nombres: ['dieta', 'plan de comidas', 'plan semanal de comidas'] },
+    { seccion: 'recetas', etiqueta: 'Recetario', nombres: ['recetario', 'recetas'] },
+    { seccion: 'compras', etiqueta: 'Compras', nombres: ['compras', 'lista del super', 'lista de compras'] },
+  ],
 }
 
 export default cocina

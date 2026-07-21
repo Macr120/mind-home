@@ -44,14 +44,16 @@ export function centroidePt(pts: Pt[]): Pt {
 /**
  * Techo levantando vértices a alturas dadas: la cara superior pasa por los vértices
  * (cada uno a su altura) y se cierra con faldas hasta el alero (y=0). Un vértice
- * levantado = "un pico"; dos vértices levantados = "dos picos".
+ * levantado = "un pico"; dos vértices levantados = "dos picos". El abanico superior
+ * sale del centroide; `centroY` permite fijar su altura (p. ej. el caballete de un
+ * plegado a dos aguas, donde el promedio de alturas quedaría por debajo).
  */
-export function geoTechoVertices(vertices: Pt[], alturas: number[]): THREE.BufferGeometry {
+export function geoTechoVertices(vertices: Pt[], alturas: number[], centroY?: number): THREE.BufferGeometry {
   const n = vertices.length
   const top = vertices.map((p, i) => ({ x: p.x, y: alturas[i] ?? 0, z: p.z }))
   const cx = top.reduce((s, p) => s + p.x, 0) / n
   const cz = top.reduce((s, p) => s + p.z, 0) / n
-  const cy = top.reduce((s, p) => s + p.y, 0) / n
+  const cy = centroY ?? top.reduce((s, p) => s + p.y, 0) / n
   const pos: number[] = []
   for (let i = 0; i < n; i++) {
     const a = top[i]
@@ -63,6 +65,53 @@ export function geoTechoVertices(vertices: Pt[], alturas: number[]): THREE.Buffe
     pos.push(a.x, a.y, a.z, b.x, 0, b.z, a.x, 0, a.z)
   }
   return geoDeTriangulos(pos)
+}
+
+/** Inserta en el contorno (ciclo) los cruces exactos con el eje del caballete. */
+function insertarCrucesEje(pts: Pt[], ejeX: boolean): Pt[] {
+  const v = (p: Pt) => (ejeX ? p.x : p.z)
+  const out: Pt[] = []
+  for (let i = 0; i < pts.length; i++) {
+    const a = pts[i]
+    const b = pts[(i + 1) % pts.length]
+    out.push(a)
+    const va = v(a)
+    const vb = v(b)
+    if ((va < 0 && vb > 0) || (va > 0 && vb < 0)) {
+      const t = va / (va - vb)
+      out.push({ x: a.x + (b.x - a.x) * t, z: a.z + (b.z - a.z) * t })
+    }
+  }
+  return out
+}
+
+/**
+ * Faldones sobre un contorno arbitrario (silueta de celda con recortes, sector…):
+ * - aguas=1: plano inclinado; dir 0..3 = lado alto −X/+X/−Z/+Z (como el cobertizo).
+ * - aguas=2: plegado al caballete central (dir par = caballete a lo largo de Z).
+ * La cara superior pasa por el contorno a la altura del faldón y se cierra con
+ * faldas verticales al alero; `span` es el lado de la celda. En siluetas asimétricas
+ * el centroide puede caer fuera del caballete y el plegado se abomba ligeramente.
+ */
+export function geoTechoFaldonContorno(
+  outline: Pt[],
+  alt: number,
+  aguas: 1 | 2,
+  dir: number,
+  span: number,
+): THREE.BufferGeometry {
+  const d = ((dir % 4) + 4) % 4
+  const h = span / 2
+  const altura = (p: Pt): number => {
+    if (aguas === 1) {
+      const t = d === 0 ? (h - p.x) / span : d === 1 ? (p.x + h) / span : d === 2 ? (h - p.z) / span : (p.z + h) / span
+      return alt * Math.min(1, Math.max(0, t))
+    }
+    return alt * Math.max(0, 1 - Math.abs(d % 2 === 0 ? p.x : p.z) / h)
+  }
+  const pts = aguas === 2 ? insertarCrucesEje(outline, d % 2 === 0) : outline
+  const c = centroidePt(pts)
+  return geoTechoVertices(pts, pts.map(altura), altura(c))
 }
 
 /** Alturas de los 3 vértices: levanta `cuantos` de ellos (el resto a 0), girando con `dir`. */

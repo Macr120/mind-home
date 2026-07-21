@@ -5,7 +5,12 @@ import type { TechoTipoId } from './techos'
 import { colorTechoLoseta, getTechoTipo } from './techos'
 import { mezclar } from './temas'
 import { SIZE } from './walls'
-import { esFormaCuadrada, geometriaTechoLoseta3D, type CeldaFormaLoseta } from './formasLoseta'
+import {
+  esFormaCuadrada,
+  geometriaTechoLoseta3D,
+  FORMA_LOSETA_DEFAULT,
+  type CeldaFormaLoseta,
+} from './formasLoseta'
 
 const GROSOR = 0.12
 const LADO = SIZE - 0.12
@@ -347,6 +352,7 @@ export function TechoLoseta({
   mE = 0,
   atenuado = false,
   formaLoseta,
+  subformas,
 }: {
   tipo: TechoTipoId | null
   colorCuarto: string
@@ -368,6 +374,8 @@ export function TechoLoseta({
   atenuado?: boolean
   /** Triángulo, cuarto de círculo, etc. Si no es cuadrado, ignora márgenes de caja. */
   formaLoseta?: CeldaFormaLoseta
+  /** Recortes finos por cuadrante (NO,NE,SO,SE): losa con esquinas recortadas. */
+  subformas?: (CeldaFormaLoseta | undefined)[] | null
 }) {
   const conf = getTechoTipo(tipo)
   const mat = colorTechoLoseta(tipo, colorCuarto)
@@ -376,10 +384,11 @@ export function TechoLoseta({
   const esCristal = variante === 'cristal'
   const formaCuadrada = esFormaCuadrada(formaLoseta)
 
-  if (!formaCuadrada && formaLoseta) {
+  if ((!formaCuadrada && formaLoseta) || subformas) {
     return (
       <TechoLosetaForma
-        formaLoseta={formaLoseta}
+        formaLoseta={formaLoseta ?? FORMA_LOSETA_DEFAULT}
+        subformas={subformas}
         lx={lx}
         lz={lz}
         y={y}
@@ -463,6 +472,7 @@ export function TechoLoseta({
 /** Loseta de techo con forma no rectangular (triángulo, cuarto de círculo). */
 function TechoLosetaForma({
   formaLoseta,
+  subformas,
   lx,
   lz,
   y = 0,
@@ -474,6 +484,7 @@ function TechoLosetaForma({
   atenuado,
 }: {
   formaLoseta: CeldaFormaLoseta
+  subformas?: (CeldaFormaLoseta | undefined)[] | null
   lx: number
   lz: number
   y?: number
@@ -485,8 +496,8 @@ function TechoLosetaForma({
   atenuado: boolean
 }) {
   const geometry = useMemo(
-    () => geometriaTechoLoseta3D(formaLoseta, LADO, GROSOR),
-    [formaLoseta],
+    () => geometriaTechoLoseta3D(formaLoseta, LADO, GROSOR, subformas),
+    [formaLoseta, subformas],
   )
 
   useEffect(() => () => geometry.dispose(), [geometry])

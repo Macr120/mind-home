@@ -3,6 +3,8 @@ import { COLOR } from './constantes'
 import { dinero, hoyISO } from './fecha'
 import { alertasMantenimiento, gastoAnio } from './stats'
 import { useT } from '../../core/i18n/useT'
+import { vivo } from '../../core/ui/estilos'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function ResumenTab({
   vehiculos,
@@ -24,19 +26,19 @@ export function ResumenTab({
     <div className="space-y-4">
       <div className="grid grid-cols-3 gap-2">
         <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-          <p className="text-2xl font-black" style={{ color: COLOR }}>
+          <p className="text-2xl font-black texto-vivo" style={vivo(COLOR)}>
             {vehiculos.length}
           </p>
           <p className="text-[10px] text-white/45 uppercase tracking-wide">{t('garage.r.vehiculos', 'Vehículos')}</p>
         </div>
         <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-          <p className="text-2xl font-black" style={{ color: COLOR }}>
+          <p className="text-2xl font-black texto-vivo" style={vivo(COLOR)}>
             {registros.length}
           </p>
           <p className="text-[10px] text-white/45 uppercase tracking-wide">{t('garage.r.servicios', 'Servicios')}</p>
         </div>
         <div className="rounded-xl bg-white/5 border border-white/10 p-3 text-center">
-          <p className="text-lg font-black" style={{ color: COLOR }}>
+          <p className="text-lg font-black texto-vivo" style={vivo(COLOR)}>
             {dinero(gastado)}
           </p>
           <p className="text-[10px] text-white/45 uppercase tracking-wide">
@@ -47,7 +49,7 @@ export function ResumenTab({
 
       {vencidos.length > 0 && (
         <section className="rounded-xl bg-red-500/10 border border-red-500/35 p-4 space-y-2">
-          <p className="text-sm font-bold text-red-300">{t('garage.r.vencido', '⚠️ Mantenimiento vencido')}</p>
+          <p className="text-sm font-bold text-red-400"><Icono nombre="alerta" /> {t('garage.r.vencido', 'Mantenimiento vencido')}</p>
           {vencidos.map((a, i) => (
             <button
               key={`${a.vehiculoId}-${a.titulo}-${i}`}
@@ -66,7 +68,7 @@ export function ResumenTab({
 
       {proximos.length > 0 && (
         <section className="rounded-xl bg-amber-500/10 border border-amber-500/30 p-4 space-y-2">
-          <p className="text-sm font-bold text-amber-200">{t('garage.r.proximo', '📅 Próximamente')}</p>
+          <p className="text-sm font-bold text-amber-400"><Icono nombre="calendario" /> {t('garage.r.proximo', 'Próximamente')}</p>
           {proximos.map((a, i) => (
             <button
               key={`p-${a.vehiculoId}-${i}`}
@@ -85,7 +87,7 @@ export function ResumenTab({
 
       {alertas.length === 0 && vehiculos.length > 0 && (
         <p className="text-sm text-white/50 text-center py-4 rounded-xl bg-white/5 border border-white/10">
-          {t('garage.r.sinAlertas', '✅ Sin alertas. Registra el próximo servicio en cada mantenimiento para recibir avisos.')}
+          <Icono nombre="hecho" /> {t('garage.r.sinAlertas', 'Sin alertas. Registra el próximo servicio en cada mantenimiento para recibir avisos.')}
         </p>
       )}
 

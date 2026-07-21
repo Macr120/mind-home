@@ -4,8 +4,6 @@ import { useEffect, useMemo, useState } from 'react'
 export function useBlobUrlMap(
   items: { key: string; blob?: Blob; activa?: boolean }[],
 ): Map<string, string> {
-  const [urls, setUrls] = useState<Map<string, string>>(new Map())
-
   const firma = useMemo(
     () =>
       items
@@ -15,6 +13,8 @@ export function useBlobUrlMap(
     [items],
   )
 
+  const [urls, setUrls] = useState<Map<string, string>>(new Map())
+
   useEffect(() => {
     const next = new Map<string, string>()
     for (const i of items) {
@@ -22,6 +22,7 @@ export function useBlobUrlMap(
         next.set(i.key, URL.createObjectURL(i.blob))
       }
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- las URLs deben nacer en el efecto: con useMemo el remount de StrictMode las reutilizaría ya revocadas
     setUrls(next)
     return () => {
       next.forEach((u) => URL.revokeObjectURL(u))

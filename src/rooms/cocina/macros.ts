@@ -7,7 +7,7 @@ export interface TotalesMacros {
   grasas: number
 }
 
-export const totalesVacios = (): TotalesMacros => ({
+const totalesVacios = (): TotalesMacros => ({
   calorias: 0,
   proteinas: 0,
   carbohidratos: 0,

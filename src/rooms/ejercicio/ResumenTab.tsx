@@ -1,3 +1,4 @@
+import { Icono } from '../../core/ui/iconos/Icono'
 import { useMemo } from 'react'
 import type { PerfilEjercicio, SesionEjercicio } from '../../core/data/db'
 import { BarraProgreso } from './BarraProgreso'
@@ -46,23 +47,23 @@ export function ResumenTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-4">
-        <p className="text-sm font-semibold">{t('ejercicio.progreso', 'Progreso semanal')}</p>
+        <p className="text-base font-bold">{t('ejercicio.progreso', 'Progreso semanal')}</p>
         <BarraProgreso
-          label={t('ejercicio.ses.fuerza', '🏋️ Sesiones de fuerza')}
+          label={t('ejercicio.ses.fuerza', 'Sesiones de fuerza')}
           actual={res.fuerza}
           objetivo={res.metaFuerza}
           unidad={t('ejercicio.unidad.ses', 'ses.')}
           color="#f97316"
         />
         <BarraProgreso
-          label={t('ejercicio.min.resistencia', '🏃 Minutos resistencia')}
+          label={t('ejercicio.min.resistencia', 'Minutos resistencia')}
           actual={res.minResistencia}
           objetivo={res.metaResistencia}
           unidad="min"
           color="#38bdf8"
         />
         <BarraProgreso
-          label={t('ejercicio.min.flex', '🧘 Minutos flexibilidad')}
+          label={t('ejercicio.min.flex', 'Minutos flexibilidad')}
           actual={res.minFlex}
           objetivo={res.metaFlex}
           unidad="min"
@@ -71,7 +72,7 @@ export function ResumenTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-3">{t('ejercicio.minTotales', 'Minutos totales · 7 días')}</p>
+        <p className="text-base font-bold mb-3">{t('ejercicio.minTotales', 'Minutos totales · 7 días')}</p>
         <div className="flex items-stretch justify-between gap-1.5 h-24">
           {tendencia.map((punto) => {
             const esHoy = punto.fecha === hoyISO()
@@ -95,7 +96,7 @@ export function ResumenTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-sm font-semibold mb-2">{t('ejercicio.ultimas', 'Últimas sesiones')}</p>
+        <p className="text-base font-bold mb-2">{t('ejercicio.ultimas', 'Últimas sesiones')}</p>
         {sesiones.slice(0, 5).length === 0 ? (
           <p className="text-sm text-white/40">{t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}</p>
         ) : (
@@ -107,7 +108,7 @@ export function ResumenTab({
                   key={s.id}
                   className="flex items-center gap-2 text-sm rounded-lg bg-black/20 px-2 py-1.5"
                 >
-                  <span>{tipo.icon}</span>
+                  <span><Icono emoji={tipo.icon} /></span>
                   <span className="flex-1 truncate text-white/85">{s.titulo}</span>
                   <span className="text-white/40">{s.duracionMin} min</span>
                 </li>

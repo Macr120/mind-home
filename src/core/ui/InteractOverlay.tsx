@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Icono } from './iconos/Icono'
 import { getCuarto } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
@@ -89,13 +90,13 @@ function Burbuja({
           onEntrar()
         }}
         title={`${accion} — ${titulo}`}
-        className="pointer-events-auto flex flex-col items-center gap-1 rounded-2xl border-2 bg-[#12151c]/95 px-4 py-2.5 shadow-xl backdrop-blur-md transition hover:scale-[1.04] active:scale-[0.97]"
+        className="ui-panel-glass pointer-events-auto flex flex-col items-center gap-1 rounded-2xl border-2 px-4 py-2.5 shadow-xl backdrop-blur-md transition hover:scale-[1.04] active:scale-[0.97]"
         style={{
           borderColor: color,
           boxShadow: `0 6px 28px ${color}55, 0 0 0 1px rgba(255,255,255,0.06)`,
         }}
       >
-        <span className="text-lg leading-none">{roomIcon}</span>
+        <span className="text-lg leading-none"><Icono emoji={roomIcon} /></span>
         <span
           className="text-sm font-black leading-tight"
           style={{ color }}

@@ -23,10 +23,8 @@ export function FondoImagenCielo() {
   const [textura, setTextura] = useState<THREE.Texture | null>(null)
 
   useEffect(() => {
-    if (!item?.id || !item.imagen) {
-      setTextura(null)
-      return
-    }
+    // Sin imagen no hay nada que cargar: el cleanup previo ya dejó la textura en null.
+    if (!item?.id || !item.imagen) return
     let vivo = true
     const url = URL.createObjectURL(item.imagen)
     new THREE.TextureLoader().load(

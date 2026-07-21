@@ -47,7 +47,7 @@ export function areaPlanoPx(cols: number, rows: number): { ancho: number; alto: 
 }
 
 /** Índice centro máximo de ancla (cuarto 1×1 en el borde E/S). */
-export function maxIndiceAnclaPlano(celdas: number): number {
+function maxIndiceAnclaPlano(celdas: number): number {
   return celdas - 1 + 0.5
 }
 
@@ -86,19 +86,6 @@ export function celdaSnapEnPlano(
   return detalle === 'subcelda'
     ? svgACeldaMedia(svgX, svgY, cols, rows)
     : svgACelda(svgX, svgY, cols, rows)
-}
-
-/** Esquina SVG de un tile (celda entera o media). */
-export function tileASvg(col: number, row: number): { x: number; y: number } {
-  return {
-    x: PLANO_PAD + col * PLANO_CELL_PX,
-    y: PLANO_PAD + row * PLANO_CELL_PX,
-  }
-}
-
-/** Tamaño en px de un tile según detalle. */
-export function tilePxEnPlano(detalle: 'celda' | 'subcelda'): number {
-  return detalle === 'subcelda' ? PLANO_SUB_PX : PLANO_CELL_PX
 }
 
 /** Punto SVG → celda entera (solo lectura gruesa). */
@@ -141,6 +128,81 @@ export function tilesMediaEnEje(celdas: number): number {
   return celdas * 2
 }
 
+/**
+ * Lado (arista) más cercano a un punto SVG continuo, enganchado a ½ celda — equivalente
+ * en coordenadas de croquis de `aristaMasCercana` (mapa 3D, en `house/murosLibre.ts`).
+ * Compara directamente la línea vertical y la línea horizontal más próximas al punto (col,row
+ * en la misma escala de esquina que `celdaASvg`) y devuelve la más cercana, o la forzada por
+ * `orientForzada`.
+ */
+export function aristaMasCercanaEnPlano(
+  svgX: number,
+  svgY: number,
+  orientForzada?: 'h' | 'v',
+): { orient: 'h' | 'v'; col: number; row: number } {
+  const rawCol = (svgX - PLANO_PAD) / PLANO_CELL_PX
+  const rawRow = (svgY - PLANO_PAD) / PLANO_CELL_PX
+  const vCol = Math.round(rawCol * 2) / 2
+  const hRow = Math.round(rawRow * 2) / 2
+  const distV = Math.abs(rawCol - vCol)
+  const distH = Math.abs(rawRow - hRow)
+  const orient = orientForzada ?? (distV <= distH ? 'v' : 'h')
+  if (orient === 'v') return { orient: 'v', col: vCol, row: Math.floor(rawRow) }
+  return { orient: 'h', col: Math.floor(rawCol), row: hRow }
+}
+
+/**
+ * Punto SVG → esquina (coords de dibujo, paso ½) del CUADRANTE de ¼ de celda que lo
+ * contiene. Para el pincel fino del modo Cuartos (recortar esquinas de un cuarto).
+ */
+export function svgACuadrante(
+  svgX: number,
+  svgY: number,
+  cols: number,
+  rows: number,
+): Cell | null {
+  const rawCol = (svgX - PLANO_PAD) / PLANO_CELL_PX
+  const rawRow = (svgY - PLANO_PAD) / PLANO_CELL_PX
+  if (rawCol < 0 || rawRow < 0 || rawCol >= cols || rawRow >= rows) return null
+  return { col: Math.floor(rawCol * 2) / 2, row: Math.floor(rawRow * 2) / 2 }
+}
+
+/** Sub-celdas (½) ocupadas por los cuartos colocados en un nivel. */
+function subCeldasDeNivelPlano(
+  nivel: number,
+  placed: Record<string, boolean>,
+  cells: Record<string, Cell>,
+  footprints: Record<string, Footprint>,
+  niveles: Record<string, number>,
+): Set<string> {
+  const s = new Set<string>()
+  for (const [id, ok] of Object.entries(placed)) {
+    if (!ok || !cells[id] || (niveles[id] ?? 0) !== nivel) continue
+    for (const k of roomSubCells(cells[id], footprints[id] ?? FOOTPRINT_DEFAULT)) s.add(k)
+  }
+  return s
+}
+
+/**
+ * ¿La forma (en `nivel`) se apoya DIRECTAMENTE sobre cuartos del nivel de abajo? Para
+ * crear un cuarto en un piso alto cada una de sus celdas debe tener un cuarto justo
+ * debajo (sin voladizos): solo se construye encima de lo ya existente. Planta baja (0):
+ * siempre permitido.
+ */
+export function footprintConSoporteDirecto(
+  anchor: Cell,
+  fp: Footprint,
+  nivel: number,
+  placed: Record<string, boolean>,
+  cells: Record<string, Cell>,
+  footprints: Record<string, Footprint>,
+  niveles: Record<string, number>,
+): boolean {
+  if (nivel <= 0) return true
+  const lower = subCeldasDeNivelPlano(nivel - 1, placed, cells, footprints, niveles)
+  return roomSubCells(anchor, fp).every((k) => lower.has(k))
+}
+
 /** ¿Se puede colocar un cuarto básico (1×1) en esta posición? */
 export function puedeColocarCuartoBasico(
   anchor: Cell,
@@ -153,6 +215,9 @@ export function puedeColocarCuartoBasico(
 ): boolean {
   const fp = FOOTPRINT_DEFAULT
   if (!esFootprintLibre(placed, cells, footprints, niveles, '__nuevo__', anchor, fp, nivel))
+    return false
+  // Pisos altos: solo encima de un cuarto del nivel de abajo.
+  if (!footprintConSoporteDirecto(anchor, fp, nivel, placed, cells, footprints, niveles))
     return false
   const subs = new Set(roomSubCells(anchor, fp))
   for (const z of zonas) {
@@ -267,74 +332,6 @@ export function coberturaTechoEnNivel(
   return out
 }
 
-/** ¿Conjunto de tiles ½ conexo (vecinos a 0,5)? */
-export function celdasConexasMedia(celdas: Cell[]): boolean {
-  if (celdas.length <= 1) return true
-  const set = new Set(celdas.map((c) => `${c.col},${c.row}`))
-  const deltas: Cell[] = [
-    { col: 0, row: 0.5 },
-    { col: 0, row: -0.5 },
-    { col: 0.5, row: 0 },
-    { col: -0.5, row: 0 },
-  ]
-  const visto = new Set<string>()
-  const cola = [celdas[0]]
-  visto.add(`${celdas[0].col},${celdas[0].row}`)
-  while (cola.length) {
-    const c = cola.pop()!
-    for (const d of deltas) {
-      const k = `${c.col + d.col},${c.row + d.row}`
-      if (set.has(k) && !visto.has(k)) {
-        visto.add(k)
-        cola.push({ col: c.col + d.col, row: c.row + d.row })
-      }
-    }
-  }
-  return visto.size === celdas.length
-}
-
-/** Normaliza a celdas enteras únicas (espacio interior del cuarto). */
-export function normalizarCeldasEnteras(celdas: Cell[]): Cell[] {
-  const map = new Map<string, Cell>()
-  for (const c of celdas) {
-    const col = Math.round(c.col)
-    const row = Math.round(c.row)
-    map.set(cellId(col, row), { col, row })
-  }
-  return [...map.values()]
-}
-
-/** Aristas exteriores del perímetro de un conjunto de celdas enteras (para preview de muros). */
-export function aristasPerimetroCeldas(celdas: Cell[]): { x1: number; y1: number; x2: number; y2: number }[] {
-  const enteras = normalizarCeldasEnteras(celdas)
-  if (enteras.length === 0) return []
-  const set = new Set(enteras.map((c) => cellId(c.col, c.row)))
-  const lineas: { x1: number; y1: number; x2: number; y2: number }[] = []
-  for (const c of enteras) {
-    const { x, y, w, h } = tileRectEnSvg(c.col, c.row)
-    if (!set.has(cellId(c.col, c.row - 1))) lineas.push({ x1: x, y1: y, x2: x + w, y2: y })
-    if (!set.has(cellId(c.col, c.row + 1))) lineas.push({ x1: x, y1: y + h, x2: x + w, y2: y + h })
-    if (!set.has(cellId(c.col - 1, c.row))) lineas.push({ x1: x, y1: y, x2: x, y2: y + h })
-    if (!set.has(cellId(c.col + 1, c.row))) lineas.push({ x1: x + w, y1: y, x2: x + w, y2: y + h })
-  }
-  return lineas
-}
-
-/** ¿Celda entera (col/row enteros) libre para un cuarto básico? */
-export function celdaEnteraEsLibre(
-  c: Cell,
-  nivel: number,
-  placed: Record<string, boolean>,
-  cells: Record<string, Cell>,
-  footprints: Record<string, Footprint>,
-  niveles: Record<string, number>,
-  zonas: ZonaPlano[],
-  cuartoIds: string[],
-  anchorDe: (id: string) => Cell | undefined,
-): boolean {
-  if (!Number.isInteger(c.col) || !Number.isInteger(c.row)) return false
-  return tileEsLibre(c, nivel, placed, cells, footprints, niveles, zonas, cuartoIds, anchorDe)
-}
 
 /** Celdas absolutas de una zona → ancla + footprint relativo. */
 export function zonaAnchorFootprint(celdas: Cell[]): { anchor: Cell; footprint: Footprint } {
@@ -442,7 +439,7 @@ export function puedeMoverZona(
 }
 
 /** Centro SVG de un tile (índice centro, igual que `cellToWorld`). */
-export function centroTileSvg(col: number, row: number): { x: number; y: number } {
+function centroTileSvg(col: number, row: number): { x: number; y: number } {
   const { x, y, w, h } = tileRectEnSvg(col, row)
   return { x: x + w / 2, y: y + h / 2 }
 }
@@ -461,11 +458,6 @@ export function centroSvgZona(celdas: Cell[]): { x: number; y: number } {
   return centroSvgFootprint(anchor, footprint)
 }
 
-/** Esquina SVG de una celda/tile (igual que cuartos del registro en el croquis). */
-export function tileEsquinaSvg(col: number, row: number): { x: number; y: number } {
-  return celdaASvg(col, row)
-}
-
 /**
  * Esquina superior-izquierda del tile cuyo **centro** está en índice centro
  * (mismo que `cellToWorld` / `worldToCell`). Cada +0.5 desplaza media celda en SVG.
@@ -481,23 +473,6 @@ function esquinaSvgDesdeCentro(col: number, row: number): { x: number; y: number
 export function tileRectEnSvg(col: number, row: number): { x: number; y: number; w: number; h: number } {
   const { x, y } = esquinaSvgDesdeCentro(col, row)
   return { x, y, w: PLANO_CELL_PX, h: PLANO_CELL_PX }
-}
-
-/** ¿Tile libre para cuarto básico o marcado en agrupar? */
-export function tileEsLibre(
-  c: Cell,
-  nivel: number,
-  placed: Record<string, boolean>,
-  cells: Record<string, Cell>,
-  footprints: Record<string, Footprint>,
-  niveles: Record<string, number>,
-  zonas: ZonaPlano[],
-  cuartoIds: string[],
-  anchorDe: (id: string) => Cell | undefined,
-): boolean {
-  if (cuartoIdEnTile(c, cuartoIds, cells, footprints, anchorDe)) return false
-  if (zonaEnTile(zonas, nivel, c)) return false
-  return puedeColocarCuartoBasico(c, nivel, placed, cells, footprints, niveles, zonas)
 }
 
 /** ¿La celda pertenece a alguna zona en el nivel? */
@@ -588,4 +563,17 @@ export function nivelMaximo(
   }
   for (const a of accesos) max = Math.max(max, a.nivel)
   return max
+}
+
+/** Nivel mínimo presente en el mapa (0 sin sótanos; -1 si hay cuartos excavados). */
+export function nivelMinimo(
+  placed: Record<string, boolean>,
+  niveles: Record<string, number>,
+): number {
+  let min = 0
+  for (const [id, ok] of Object.entries(placed)) {
+    if (!ok) continue
+    min = Math.min(min, niveles[id] ?? 0)
+  }
+  return min
 }

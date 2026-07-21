@@ -58,6 +58,8 @@ export function PlanoPapelRelleno({
   return (
     <>
       {defs}
+      {/* Con relleno, las propias líneas principales de la rejilla son el borde (sin marco
+          extra). Sin relleno: borde punteado para ubicar el área del papel transparente. */}
       <rect
         x={x}
         y={y}
@@ -65,10 +67,10 @@ export function PlanoPapelRelleno({
         height={h}
         fill={fill}
         fillOpacity={sinRelleno ? 0.22 : 1}
-        stroke={borde}
-        strokeWidth={2}
+        stroke={sinRelleno ? borde : 'none'}
+        strokeWidth={sinRelleno ? 2 : 0}
         strokeDasharray={sinRelleno ? '6 4' : undefined}
-        rx={4}
+        rx={sinRelleno ? 4 : 0}
       />
     </>
   )

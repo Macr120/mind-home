@@ -2,7 +2,7 @@ import { useLayoutEffect, type RefObject } from 'react'
 import { camAnim, CAM_BASE_AZ, useCam } from '../../state/cameraStore'
 
 /** Grados de rotación del croquis para alinearlo con la vista iso 3D (invertida). */
-export function gradosRotacionPlano(az: number): number {
+function gradosRotacionPlano(az: number): number {
   return -((az - CAM_BASE_AZ) * 180) / Math.PI
 }
 

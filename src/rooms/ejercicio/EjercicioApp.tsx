@@ -1,37 +1,48 @@
 import { useEffect, useState } from 'react'
 import {
+  rutinasRepo,
   sesionesEjercicioRepo,
+  seriesFlexRepo,
   seriesFuerzaRepo,
 } from '../../core/data/repository'
+import { agendaDelDia } from './agenda'
 import { FlexibilidadTab } from './FlexibilidadTab'
 import { FuerzaTab } from './FuerzaTab'
 import { MetasTab } from './MetasTab'
 import { ResistenciaTab } from './ResistenciaTab'
-import { ResumenTab } from './ResumenTab'
 import { hoyISO, nombreFecha, sumarDias } from './fecha'
 import { perfilEfectivo, usePerfilEjercicio } from './usePerfil'
 import { sembrarEjercicio } from './seed'
 import { useT } from '../../core/i18n/useT'
+import { tabInicial } from '../../core/state/intencionApp'
+import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
+import { Icono } from '../../core/ui/iconos/Icono'
+import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-type Tab = 'resumen' | 'fuerza' | 'resistencia' | 'flexibilidad' | 'metas'
+type Tab = 'metas' | 'fuerza' | 'resistencia' | 'flexibilidad' | 'cronograma'
 
-const TABS: { id: Tab; labelEs: string }[] = [
-  { id: 'resumen', labelEs: '📊 Resumen' },
-  { id: 'fuerza', labelEs: '🏋️ Fuerza' },
-  { id: 'resistencia', labelEs: '🏃 Resistencia' },
-  { id: 'flexibilidad', labelEs: '🧘 Flexibilidad' },
-  { id: 'metas', labelEs: '⚙️ Metas' },
+const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+  { id: 'metas', icono: 'objetivo', labelEs: 'Metas' },
+  { id: 'fuerza', icono: 'tab-fuerza', labelEs: 'Fuerza' },
+  { id: 'resistencia', icono: 'tab-cardio', labelEs: 'Resistencia' },
+  { id: 'flexibilidad', icono: 'cuarto-jardin', labelEs: 'Flexibilidad' },
+  { id: 'cronograma', icono: 'calendario', labelEs: 'Cronograma' },
 ]
 
 export function EjercicioApp() {
   const t = useT()
-  const [tab, setTab] = useState<Tab>('resumen')
+  const [tab, setTab] = useState<Tab>(() => tabInicial('ejercicio', TABS.map((x) => x.id), 'metas'))
   const [fecha, setFecha] = useState(hoyISO())
 
   const perfilRaw = usePerfilEjercicio()
   const perfil = perfilEfectivo(perfilRaw)
   const sesiones = sesionesEjercicioRepo.useAll() ?? []
   const todasSeries = seriesFuerzaRepo.useAll() ?? []
+  const todasSeriesFlex = seriesFlexRepo.useAll() ?? []
+  // Lo agendado sale del calendario: las rutinas ya son bloques como los demás.
+  const rutinas = rutinasRepo.useAll()
+  const planDia = (tipo: 'fuerza' | 'resistencia' | 'flexibilidad') =>
+    agendaDelDia(rutinas, tipo, fecha)
 
   useEffect(() => {
     void sembrarEjercicio()
@@ -43,18 +54,19 @@ export function EjercicioApp() {
         {TABS.map((tabItem) => (
           <button
             key={tabItem.id}
+            data-tut={`ejercicio.tab.${tabItem.id}`}
             onClick={() => setTab(tabItem.id)}
             className={`shrink-0 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-              tab === tabItem.id ? 'bg-rose-400 text-black' : 'bg-white/5 hover:bg-white/10'
+              tab === tabItem.id ? 'bg-rose-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
-            {t(`ejercicio.tab.${tabItem.id}`, tabItem.labelEs)}
+            <Icono nombre={tabItem.icono} /> {t(`ejercicio.tab.${tabItem.id}`, tabItem.labelEs)}
           </button>
         ))}
       </div>
 
       {tab !== 'metas' && (
-        <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
+        <div data-tut="ejercicio.fecha" className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
           <button
             type="button"
             onClick={() => setFecha((f) => sumarDias(f, -1))}
@@ -84,25 +96,39 @@ export function EjercicioApp() {
         </div>
       )}
 
-      {tab === 'resumen' && <ResumenTab sesiones={sesiones} perfil={perfil} />}
       {tab === 'fuerza' && (
-        <FuerzaTab fecha={fecha} sesiones={sesiones} todasSeries={todasSeries} />
+        <FuerzaTab
+          fecha={fecha}
+          sesiones={sesiones}
+          todasSeries={todasSeries}
+          planDia={planDia('fuerza')}
+          metaMinutos={perfil.sesionesFuerzaSemana * 45}
+          metaSesiones={perfil.sesionesFuerzaSemana}
+        />
       )}
       {tab === 'resistencia' && (
         <ResistenciaTab
           fecha={fecha}
           sesiones={sesiones}
+          planDia={planDia('resistencia')}
           metaMinutos={perfil.minutosResistenciaSemana}
+          metaSesiones={perfil.diasActivosSemana}
         />
       )}
       {tab === 'flexibilidad' && (
         <FlexibilidadTab
           fecha={fecha}
           sesiones={sesiones}
+          planDia={planDia('flexibilidad')}
+          todasSeriesFlex={todasSeriesFlex}
           metaMinutos={perfil.minutosFlexibilidadSemana}
+          metaSesiones={perfil.diasActivosSemana}
         />
       )}
-      {tab === 'metas' && <MetasTab perfil={perfilRaw} />}
+      {tab === 'metas' && (
+        <MetasTab perfil={perfilRaw} perfilEfectivo={perfil} sesiones={sesiones} />
+      )}
+      {tab === 'cronograma' && <CronogramaApp plantillaId="ejercicio" />}
     </div>
   )
 }

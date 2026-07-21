@@ -1,0 +1,243 @@
+/**
+ * Fuente única de verdad de la sincronización: qué tablas viajan, qué campos
+ * son claves foráneas numéricas (se traducen id local ⇄ uid en la frontera),
+ * en qué orden se aplica el pull y qué índices únicos pueden chocar al fusionar.
+ *
+ * OJO: este módulo NO importa `db` (lo importa `db.ts` para la migración v89).
+ */
+
+/** Tablas que NO se sincronizan (además de las internas con prefijo `_`). */
+export const TABLAS_EXCLUIDAS = new Set<string>([
+  // Legadas / muertas (siguen en la BD por los respaldos viejos):
+  'planEjercicio',
+  'categoriasCardio',
+  'registroAnimo',
+  'perfilMindfulness',
+  'perfilUsuario',
+  // Caché regenerable (imágenes de ejercicio generadas por IA, por clave):
+  'imagenesEjercicio',
+  // Efímero del día (se regenera a medianoche y su `&fecha` chocaría):
+  'edicionesDiario',
+  // Audio pesado (decenas de MB): queda local; descarga diferida en el futuro.
+  'pistasMusica',
+])
+
+/** Tablas sincronizables (el esquema vigente v88 menos las excluidas). */
+export const TABLAS_SYNC: string[] = [
+  'transacciones',
+  'sueno',
+  'anecdotas',
+  'metas',
+  'presupuestos',
+  'perfilNutricion',
+  'registrosComida',
+  'planComidas',
+  'registrosAgua',
+  'perfilEjercicio',
+  'sesionesEjercicio',
+  'seriesFuerza',
+  'mediaArchivo',
+  'sesionesMindfulness',
+  'gratitudDiaria',
+  'vehiculos',
+  'registrosMantenimiento',
+  'juegosMesa',
+  'disenoRooms',
+  'disenoAvatar',
+  'objetosCuarto',
+  'layout',
+  'mapaConfig',
+  'bitacora',
+  'accesos',
+  'memorias',
+  'mensajesChat',
+  'asistentes',
+  'rutinas',
+  'ejecucionesRutina',
+  'fondosImagen',
+  'pisosImagenCuarto',
+  'techosImagenCuarto',
+  'murosImagenCuarto',
+  'zonas',
+  'pisosExterior',
+  'cuartos',
+  'murosLibres',
+  'recetas',
+  'itemsCompra',
+  'registrosPeso',
+  'perfilSueno',
+  'listasCompra',
+  'dietasGuardadas',
+  'rutinasFuerza',
+  'actividadesCardio',
+  'rutinasFlex',
+  'seriesFlex',
+  'watchlist',
+  'lugaresViaje',
+  'rutasViaje',
+  'bitacoraViaje',
+  'portadasViaje',
+  'diasItinerario',
+  'portadasLugar',
+  'itinerariosGuardados',
+  'hobbies',
+  'sesionesHobby',
+  'proyectosHobby',
+  'conversacionesBiblio',
+  'mensajesBiblio',
+  'entradasBiblio',
+  'sesionesEstudio',
+  'temasArbol',
+  'lecturasDiario',
+  'plantillasCustom',
+  'itemsPlantilla',
+  'gruposPlantilla',
+  'objetosPlantilla',
+  'idiomas',
+  'tarjetasIdioma',
+  'conversacionesIdioma',
+  'mensajesIdioma',
+  'temasIdioma',
+  'repasosIdioma',
+  'grafitis',
+  'gruposFuerza',
+  'gruposFlex',
+  'gruposCardio',
+  'rutinasCardio',
+  'splitsCardio',
+  'planesMeta',
+  'metasDiariasManual',
+  'objetivosDiarios',
+  'caminos',
+  'cultivos',
+  'animales',
+  'cesta',
+  'marcadores',
+  'carreras',
+  'corrales',
+  'pistasLibres',
+]
+
+const TABLAS_SYNC_SET = new Set(TABLAS_SYNC)
+
+/** ¿Esta tabla viaja al servidor? (excluye internas `_` y la lista de arriba) */
+export function esTablaSync(nombre: string): boolean {
+  return TABLAS_SYNC_SET.has(nombre)
+}
+
+/**
+ * Claves foráneas por id numérico local: `tabla → { campo: tablaDestino }`.
+ * En push se traducen a `uid` del padre; en pull, de vuelta al id local.
+ * Las referencias por string (`roomId`, `plantillaId`, `asistenteId`,
+ * `temaId`/`padreId` de los árboles de biblioteca/idiomas, `canchaId`…) son
+ * estables entre dispositivos y NO se traducen.
+ */
+export const FK: Record<string, Record<string, string>> = {
+  seriesFuerza: { sesionId: 'sesionesEjercicio' },
+  seriesFlex: { sesionId: 'sesionesEjercicio' },
+  splitsCardio: { sesionId: 'sesionesEjercicio' },
+  registrosMantenimiento: { vehiculoId: 'vehiculos' },
+  lugaresViaje: { metaId: 'metas' },
+  bitacoraViaje: { lugarId: 'lugaresViaje' },
+  diasItinerario: { lugarId: 'lugaresViaje' },
+  portadasLugar: { lugarId: 'lugaresViaje' },
+  sesionesHobby: { hobbyId: 'hobbies' },
+  proyectosHobby: { hobbyId: 'hobbies' },
+  mensajesBiblio: { conversacionId: 'conversacionesBiblio' },
+  entradasBiblio: { conversacionId: 'conversacionesBiblio' },
+  tarjetasIdioma: { idiomaId: 'idiomas' },
+  conversacionesIdioma: { idiomaId: 'idiomas' },
+  repasosIdioma: { idiomaId: 'idiomas' },
+  temasIdioma: { idiomaId: 'idiomas' },
+  mensajesIdioma: { conversacionId: 'conversacionesIdioma' },
+  ejecucionesRutina: { rutinaId: 'rutinas' },
+  planesMeta: { metaId: 'rutinas' }, // las metas del árbol viven en `rutinas`
+  rutinas: { padreId: 'rutinas' }, // self-FK del árbol de metas
+  animales: { corralId: 'corrales' },
+  itemsCompra: { listaId: 'listasCompra' },
+}
+
+/**
+ * Orden de aplicación del pull: los padres antes que sus hijos. Las tablas que
+ * no aparecen aquí no tienen padres numéricos y pueden aplicarse primero.
+ * (`rutinas` se auto-referencia: los huérfanos reintentan vía `_pendientes`.)
+ */
+export const ORDEN_TOPO: string[] = [
+  'metas',
+  'sesionesEjercicio',
+  'vehiculos',
+  'hobbies',
+  'conversacionesBiblio',
+  'idiomas',
+  'rutinas',
+  'corrales',
+  'listasCompra',
+  'lugaresViaje',
+  'conversacionesIdioma',
+  'seriesFuerza',
+  'seriesFlex',
+  'splitsCardio',
+  'registrosMantenimiento',
+  'bitacoraViaje',
+  'diasItinerario',
+  'portadasLugar',
+  'sesionesHobby',
+  'proyectosHobby',
+  'mensajesBiblio',
+  'entradasBiblio',
+  'tarjetasIdioma',
+  'repasosIdioma',
+  'temasIdioma',
+  'mensajesIdioma',
+  'ejecucionesRutina',
+  'planesMeta',
+  'animales',
+  'itemsCompra',
+]
+
+/** Tablas de UNA sola fila: si el merge deja más de una, gana la más nueva. */
+export const SINGLETONS = new Set<string>([
+  'perfilNutricion',
+  'perfilEjercicio',
+  'perfilSueno',
+  'mapaConfig',
+  'disenoAvatar',
+])
+
+/**
+ * Índices únicos (aparte de `&uid`) de las tablas sincronizables: al aplicar
+ * un registro remoto que choca con una fila local distinta, gana el
+ * `updatedAt` mayor y la perdedora se tombstonea.
+ */
+/**
+ * Identidad determinista para filas de SIEMBRA: el mismo contenido genera el
+ * mismo uid en todo dispositivo (el servidor deduplica solo) y `updatedAt: 1`
+ * garantiza que cualquier edición real (siempre > 1) gane por LWW. El
+ * middleware respeta ambos valores cuando el uid empieza con `seed-`.
+ */
+export function filaSeed<T>(clave: string, fila: T): T {
+  return { ...fila, uid: `seed-${clave}`, updatedAt: 1 } as T
+}
+
+export function filasSeed<T>(prefijo: string, filas: T[], clave?: (f: T, i: number) => string | number): T[] {
+  return filas.map(
+    (f, i) => ({ ...f, uid: `seed-${prefijo}-${clave ? clave(f, i) : i}`, updatedAt: 1 }) as T,
+  )
+}
+
+export const CLAVES_UNICAS: Record<string, string[]> = {
+  portadasViaje: ['pais'],
+  portadasLugar: ['lugarId'],
+  temasArbol: ['temaId'],
+  lecturasDiario: ['fecha'],
+  idiomas: ['codigo'],
+  temasIdioma: ['temaId'],
+  repasosIdioma: ['idiomaId', 'fecha'],
+  grafitis: ['superficie'],
+  objetivosDiarios: ['plantillaId'],
+  caminos: ['col', 'row'],
+  cultivos: ['col', 'row'],
+  cesta: ['especie'],
+  marcadores: ['canchaId'],
+  carreras: ['metaCol', 'metaRow', 'vehiculo'],
+}

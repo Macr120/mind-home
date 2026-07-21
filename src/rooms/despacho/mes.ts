@@ -1,6 +1,7 @@
+import { fechaLocalISO } from '../../core/fechaLocal'
 /** Utilidades de mes para Finanzas. */
 
-export const hoyISO = () => new Date().toISOString().slice(0, 10)
+export const hoyISO = () => fechaLocalISO()
 
 /** Clave de mes 'YYYY-MM' de hoy. */
 export const mesActual = () => hoyISO().slice(0, 7)

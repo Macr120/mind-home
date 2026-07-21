@@ -23,7 +23,7 @@ export function PlanoTechos3DEditor() {
   const nivel = usePlanos((s) => s.nivel)
   const seleccion = usePlanos((s) => s.seleccion)
   const setSeleccion = usePlanos((s) => s.setSeleccion)
-  const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
   const footprints = useLayout((s) => s.footprints)
@@ -31,7 +31,9 @@ export function PlanoTechos3DEditor() {
   const alturaTechoPorNivel = useLayout((s) => s.alturaTechoPorNivel)
   const cuartos = useCuartos((s) => s.cuartos)
 
-  if (!planosActivo || capa !== 'techos' || !conTecho) return null
+  // Selección de techos en 3D incluso con el techo 🏠 apagado (como el piso): el plano
+  // clicable flota sobre el alto de los muros para poder elegir el techo y editarlo.
+  if (!planosActivo || capa !== 'techos') return null
   const alturas = alturaTechoPorNivel.get(nivel)
 
   return (
@@ -44,7 +46,7 @@ export function PlanoTechos3DEditor() {
           const [x, , z] = centroCuarto3D(anchor, fp)
           const bounds = footprintBounds(fp)
           const altura = alturas?.get(cellId(anchor.col, anchor.row)) || WALL_H
-          const y = nivelBaseY(nivel, conTecho) + altura + 0.6
+          const y = nivelBaseY(nivel, apilado) + altura + 0.6
           const sel = seleccion?.tipo === 'cuarto' && seleccion.roomId === room.id
           return (
             <mesh

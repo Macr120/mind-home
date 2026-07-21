@@ -2,8 +2,8 @@ import { useRef, useState, useEffect } from 'react'
 import { useCiclo } from '../state/cicloStore'
 import { estadoCielo } from '../house/cielo'
 import { useRutinasUI } from '../state/rutinasUiStore'
-import { usePendientesHoy } from '../rutinas'
-import { useT } from '../i18n/useT'
+import { useT, localeActual } from '../i18n/useT'
+import { Icono } from './iconos/Icono'
 
 /** Degradado de las 24 h (horizontal): medianoche → amanecer → mediodía → atardecer → medianoche. */
 const GRADIENTE_24H =
@@ -20,12 +20,12 @@ const clamp01 = (v: number) => Math.max(0, Math.min(1, v))
  * Reloj 24 h + fecha. `compacto` reduce el tamaño y abrevia la fecha
  * (para el widget pequeño). Lee la hora del ciclo (real o simulada).
  */
-export function RelojInfo({ compacto = false }: { compacto?: boolean }) {
+function RelojInfo({ compacto = false }: { compacto?: boolean }) {
   const minutos = useCiclo((s) => s.minutos)
   const hh = Math.floor(minutos / 60)
   const mm = Math.floor(minutos % 60)
   const fecha = new Date().toLocaleDateString(
-    'es',
+    localeActual(),
     compacto
       ? { weekday: 'short', day: 'numeric', month: 'short' }
       : { weekday: 'long', day: 'numeric', month: 'long' },
@@ -62,7 +62,7 @@ function Dimmer({
     <div>
       <div className="flex items-center justify-between text-[10px] font-medium text-white/60">
         <span>
-          {icon} {label}
+          <Icono emoji={icon} /> {label}
         </span>
         <span className="tabular-nums text-white/40">{Math.round(value * 100)}%</span>
       </div>
@@ -109,6 +109,7 @@ function Dimmers() {
 
 /** Barra de 24 h horizontal: arrastra para mover el sol/hora (entra en modo manual). */
 function BarraTiempo() {
+  const t = useT()
   const minutos = useCiclo((s) => s.minutos)
   const setMinutos = useCiclo((s) => s.setMinutos)
   const trackRef = useRef<HTMLDivElement>(null)
@@ -139,13 +140,13 @@ function BarraTiempo() {
         }}
         className="relative h-3 w-full cursor-pointer rounded-full"
         style={{ background: GRADIENTE_24H }}
-        title="Arrastra para mover el sol"
+        title={t('ciclo.arrastraSol', 'Arrastra para mover el sol')}
       >
         <div
-          className="absolute top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white/80 bg-[#12151c] text-xs shadow-lg"
+          className="ui-panel absolute top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white/80 text-xs shadow-lg"
           style={{ left: `${frac * 100}%` }}
         >
-          {cielo.faseIcon}
+          <Icono emoji={cielo.faseIcon} />
         </div>
       </div>
       {/* Etiquetas de horas */}
@@ -187,7 +188,7 @@ function ClimaReal() {
           onClick={() => setClimaActivo(!climaActivo)}
           className={`rounded-full border px-2 py-0.5 text-[10px] font-bold transition ${
             climaActivo
-              ? 'border-sky-400/50 bg-sky-500/15 text-sky-200'
+              ? 'border-sky-400/50 bg-sky-500/15 text-sky-400'
               : 'border-white/15 bg-white/5 text-white/45 hover:text-white/70'
           }`}
         >
@@ -202,17 +203,17 @@ function ClimaReal() {
       )}
 
       {cargando && (
-        <p className="animate-pulse text-[11px] text-sky-200/80">
+        <p className="animate-pulse text-[11px] text-sky-400/80">
           {t('ciclo.cargando', 'Obteniendo clima…')}
           <span className="mt-1 block text-[9px] text-white/30">
-            {t('ciclo.cargandoHint', 'Si tarda, el navegador también debe permitir ubicación (icono 🔒 en la barra).')}
+            {t('ciclo.cargandoHint', 'Si tarda, el navegador también debe permitir ubicación (candado en la barra).')}
           </span>
         </p>
       )}
 
       {climaActivo && climaEstado === 'error' && (
         <div className="space-y-1.5">
-          <p className="text-[11px] leading-snug text-red-300/90">{climaError}</p>
+          <p className="text-[11px] leading-snug text-red-400/90">{climaError}</p>
           <button
             type="button"
             onClick={() => void actualizarClima()}
@@ -226,24 +227,26 @@ function ClimaReal() {
       {climaActivo && clima && climaEstado === 'ok' && (
         <div className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-2">
           <div className="flex items-start gap-2">
-            <span className="text-2xl leading-none">{clima.icono}</span>
+            <span className="text-2xl leading-none">
+              <Icono emoji={clima.icono} />
+            </span>
             <div className="min-w-0 flex-1">
               <p className="text-xl font-black tabular-nums leading-none text-white">
                 {clima.temp}°C
               </p>
               <p className="mt-0.5 truncate text-[11px] text-white/75">{clima.descripcion}</p>
               <p className="truncate text-[10px] text-white/40">
-                📍 {clima.ciudad}
+                <Icono nombre="ubicacion" /> {clima.ciudad}
                 {clima.aproximada && ' · aprox.'}
               </p>
             </div>
           </div>
           <div className="mt-2 grid grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-white/50">
-            <span>🌧️ Lluvia {clima.probLluvia}%</span>
-            <span>💧 Humedad {clima.humedad}%</span>
-            <span>💨 Viento {clima.viento} km/h</span>
+            <span><Icono nombre="lluvia" /> {t('ciclo.lluvia', 'Lluvia')} {clima.probLluvia}%</span>
+            <span><Icono nombre="humedad" /> {t('ciclo.humedad', 'Humedad')} {clima.humedad}%</span>
+            <span><Icono nombre="viento" /> {t('ciclo.viento', 'Viento')} {clima.viento} km/h</span>
             {clima.precipitacion > 0 && (
-              <span>☔ {clima.precipitacion} mm/h</span>
+              <span><Icono nombre="paraguas" /> {clima.precipitacion} mm/h</span>
             )}
           </div>
           <button
@@ -294,10 +297,10 @@ function MenuCiclo() {
         onClick={enVivo}
         className={`flex w-full items-center justify-center gap-1.5 rounded-lg border py-1.5 text-[11px] font-semibold transition ${
           modo === 'vivo'
-            ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+            ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-400'
             : 'border-white/15 bg-white/5 text-white/70 hover:bg-white/10'
         }`}
-        title="Volver a la hora real del sistema"
+        title={t('ciclo.volverHoraReal', 'Volver a la hora real del sistema')}
       >
         <span className={`h-1.5 w-1.5 rounded-full ${modo === 'vivo' ? 'bg-emerald-400' : 'bg-white/40'}`} />
         {modo === 'vivo' ? t('ciclo.enVivo', 'En vivo') : t('ciclo.volverVivo', 'Volver a en vivo')}
@@ -316,11 +319,9 @@ export function RelojWidget() {
   const minutos = useCiclo((s) => s.minutos)
   const cielo = estadoCielo(minutos)
   const abrirCalendario = useRutinasUI((s) => s.abrirCalendario)
-  const togglePanel = useRutinasUI((s) => s.togglePanel)
-  const pendientes = usePendientesHoy()
   return (
-    <div className="pointer-events-auto relative select-none">
-      <div className="flex items-center gap-0.5 rounded-xl border border-white/10 bg-black/55 px-2 py-1 backdrop-blur-sm">
+    <div data-tut="reloj.widget" data-tut-zona="reloj-calendario" className="pointer-events-auto relative select-none">
+      <div className="ui-hud flex items-center gap-0.5 rounded-xl border border-white/10 px-2 py-1">
         <button
           type="button"
           onClick={abrirCalendario}
@@ -332,32 +333,19 @@ export function RelojWidget() {
         <button
           type="button"
           onClick={() => setAbierto((v) => !v)}
-          title={cielo.faseLabel}
+          title={t(`ciclo.fase.${cielo.fase}`, cielo.faseLabel)}
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-lg leading-none transition ${
             abierto ? 'bg-white/15 text-white' : 'text-white/55 hover:bg-white/10 hover:text-white'
           }`}
         >
-          {cielo.faseIcon}
-        </button>
-        <button
-          type="button"
-          onClick={togglePanel}
-          title={t('ciclo.rutinasHoy', 'Rutinas de hoy')}
-          className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-base leading-none transition text-white/55 hover:bg-white/10 hover:text-white"
-        >
-          📒
-          {pendientes > 0 && (
-            <span className="absolute -right-0.5 -top-0.5 grid h-3.5 min-w-3.5 place-items-center rounded-full bg-amber-500 px-0.5 text-[9px] font-bold text-black">
-              {pendientes}
-            </span>
-          )}
+          <Icono emoji={cielo.faseIcon} />
         </button>
       </div>
 
       {abierto && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setAbierto(false)} />
-          <div className="absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 bg-[#12151c]/95 p-3 shadow-xl backdrop-blur-sm">
+          <div className="ui-panel-glass ui-pop absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 p-3 shadow-xl backdrop-blur-md">
             <MenuCiclo />
           </div>
         </>

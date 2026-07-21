@@ -1,1 +1,2 @@
-export const hoyISO = () => new Date().toISOString().slice(0, 10)
+import { fechaLocalISO } from '../../core/fechaLocal'
+export const hoyISO = () => fechaLocalISO()

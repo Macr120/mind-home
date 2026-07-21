@@ -8,6 +8,8 @@ import {
   type MascotaId,
   type Pieza3D,
 } from '../chat/mascotas'
+import type { AnimacionModelo } from '../house/animacion'
+import { parseRopa, serializarRopa } from '../house/apariencia'
 
 /**
  * Asistentes del arquitecto: los 5 integrados (plantillas de `mascotas.ts`)
@@ -38,6 +40,14 @@ function aAsistente(row: AsistenteGuardado): Asistente {
       modelo3d = undefined
     }
   }
+  let animacion: AnimacionModelo | undefined
+  if (row.animacion) {
+    try {
+      animacion = JSON.parse(row.animacion) as AnimacionModelo
+    } catch {
+      animacion = undefined
+    }
+  }
   return {
     id: row.asistenteId,
     nombre: row.nombre,
@@ -48,9 +58,16 @@ function aAsistente(row: AsistenteGuardado): Asistente {
     saludo: row.saludo,
     cuartos: row.cuartos ?? [],
     color: row.color || undefined,
+    escala: row.escala,
+    ropa: parseRopa(row.ropa),
     modelo3d,
     modeloGlb: row.modeloGlb,
+    animacion,
     enMapa: row.enMapa,
+    vozNombre: row.vozNombre || undefined,
+    vozPitch: row.vozPitch,
+    vozRate: row.vozRate,
+    corazon: row.corazon,
   }
 }
 
@@ -83,9 +100,16 @@ async function persistir(a: Asistente, oculto = false) {
     saludo: a.saludo,
     cuartos: a.cuartos,
     color: a.color ?? '',
+    escala: a.escala,
+    ropa: serializarRopa(a.ropa),
     modelo3d: a.modelo3d ? JSON.stringify(a.modelo3d) : '',
     modeloGlb: a.modeloGlb,
+    animacion: a.animacion ? JSON.stringify(a.animacion) : '',
     enMapa: a.enMapa,
+    vozNombre: a.vozNombre ?? '',
+    vozPitch: a.vozPitch,
+    vozRate: a.vozRate,
+    corazon: a.corazon,
     oculto,
   }
   const existente = await db.asistentes.where('asistenteId').equals(a.id).first()

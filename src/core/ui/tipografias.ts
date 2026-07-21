@@ -49,7 +49,7 @@ export const TIPOGRAFIAS: Tipografia[] = [
 
 export const TIPOGRAFIA_DEFAULT: TipografiaId = 'sistema'
 
-export function getTipografia(id: TipografiaId): Tipografia {
+function getTipografia(id: TipografiaId): Tipografia {
   return TIPOGRAFIAS.find((t) => t.id === id) ?? TIPOGRAFIAS[0]
 }
 

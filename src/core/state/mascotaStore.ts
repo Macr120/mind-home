@@ -17,6 +17,8 @@ interface MascotaState {
   setMascota: (id: string) => Promise<void>
   /** Texto que el asistente dice ahora mismo (null = callado). */
   mensaje: string | null
+  /** Quién dice el mensaje actual (null = el activo). Permite hablar a los compañeros. */
+  hablanteId: string | null
   /** true durante el saludo (el personaje levanta la mano). */
   saludando: boolean
   /** Posición de la burbuja en pantalla (proyectada desde la escena 3D). */
@@ -25,18 +27,21 @@ interface MascotaState {
   /** El personaje está dentro del frame de la cámara. */
   visible: boolean
   /**
-   * A dónde se dirige el asistente en el mundo (x,z). Ya no sigue al avatar:
-   * se reubica al último lugar donde le pediste algo. null = aún sin destino
-   * (el componente 3D le asigna uno aleatorio al abrir el mapa).
+   * A dónde se dirige el asistente en el mundo (x,z): el último lugar desde el
+   * que le pediste algo. null = sin encargo, pasea libre por el mapa.
    */
   destino: { x: number; z: number } | null
   /** Lo manda a (x,z): se usa al enviar un mensaje desde el chat. */
   irA: (x: number, z: number) => void
-  /** Hace hablar al asistente y disparar el saludo. */
-  decir: (texto: string) => void
+  /** El asistente llegó al destino pedido: queda libre para pasear. */
+  llegoADestino: () => void
+  /** Hace hablar a un asistente (por defecto el activo) y disparar el saludo. */
+  decir: (texto: string, opts?: { asistenteId?: string; persistir?: boolean }) => void
+  /** Reprograma el ocultado de la burbuja (lo usa la voz para no cortar el habla). */
+  programarOcultar: (ms: number) => void
   /** true mientras la IA prepara la respuesta (burbuja "pensando…"). */
   pensando: boolean
-  setPensando: (v: boolean) => void
+  setPensando: (v: boolean, asistenteId?: string) => void
   setScreen: (x: number, y: number, visible: boolean) => void
   /** Conversación tipo chat abierta (id del asistente, o null = cerrada). */
   conversacion: string | null
@@ -51,6 +56,7 @@ let tMensaje: ReturnType<typeof setTimeout> | null = null
 export const useMascota = create<MascotaState>((set, get) => ({
   mascota: MASCOTA_DEFAULT,
   mensaje: null,
+  hablanteId: null,
   saludando: false,
   screenX: 0,
   screenY: 0,
@@ -58,6 +64,7 @@ export const useMascota = create<MascotaState>((set, get) => ({
   destino: null,
   conversacion: null,
   irA: (x, z) => set({ destino: { x, z } }),
+  llegoADestino: () => set({ destino: null }),
   abrirConversacion: (id) => set({ conversacion: id }),
   cerrarConversacion: () => set({ conversacion: null }),
   setMascota: async (id) => {
@@ -67,17 +74,27 @@ export const useMascota = create<MascotaState>((set, get) => ({
     else await db.disenoRooms.add({ roomId: MASCOTA_ROW, color: '', nombre: id })
   },
   pensando: false,
-  setPensando: (v) => set({ pensando: v }),
-  decir: (texto) => {
-    set({ mensaje: texto, saludando: true, pensando: false })
-    // Todo lo que dice queda en su hilo de conversación persistente.
-    db.mensajesChat
-      .add({ asistenteId: get().mascota, rol: 'asistente', texto, creado: new Date().toISOString() })
-      .catch(() => {})
+  // `asistenteId` ancla la burbuja "pensando…" al asistente que va a responder.
+  setPensando: (v, asistenteId) =>
+    set(asistenteId ? { pensando: v, hablanteId: asistenteId, visible: false } : { pensando: v }),
+  decir: (texto, opts) => {
+    const asistenteId = opts?.asistenteId ?? get().mascota
+    // `visible: false` fuerza a que el NPC correcto recalcule la proyección al frame siguiente.
+    set({ mensaje: texto, saludando: true, pensando: false, hablanteId: asistenteId, visible: false })
+    // Lo que dice queda en su hilo persistente (salvo frases espontáneas con persistir:false).
+    if (opts?.persistir !== false) {
+      db.mensajesChat
+        .add({ asistenteId, rol: 'asistente', texto, creado: new Date().toISOString() })
+        .catch(() => {})
+    }
     if (tSaludo) clearTimeout(tSaludo)
-    if (tMensaje) clearTimeout(tMensaje)
     tSaludo = setTimeout(() => set({ saludando: false }), 1100)
-    tMensaje = setTimeout(() => set({ mensaje: null }), 5200)
+    // Burbuja visible en proporción al largo del texto (leer toma tiempo).
+    get().programarOcultar(Math.min(14000, Math.max(5200, 3000 + texto.length * 45)))
+  },
+  programarOcultar: (ms) => {
+    if (tMensaje) clearTimeout(tMensaje)
+    tMensaje = setTimeout(() => set({ mensaje: null, hablanteId: null }), ms)
   },
   setScreen: (screenX, screenY, visible) => set({ screenX, screenY, visible }),
 }))

@@ -71,7 +71,7 @@ export function EditorZonaPisoSection({ zona }: { zona: ZonaPlano }) {
             className={[
               'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
               colorActivo
-                ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-300'
+                ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
                 : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
             ].join(' ')}
           >
@@ -101,7 +101,7 @@ export function EditorZonaPisoSection({ zona }: { zona: ZonaPlano }) {
             className={[
               'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
               sinPisoActivo
-                ? 'border-rose-400/70 bg-rose-400/15 text-rose-300'
+                ? 'border-rose-400/70 bg-rose-400/15 text-rose-400'
                 : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
             ].join(' ')}
           >
@@ -134,7 +134,7 @@ export function EditorZonaPisoSection({ zona }: { zona: ZonaPlano }) {
                 className={[
                   'flex flex-col items-center gap-1 rounded-lg border px-1 py-2 text-center transition',
                   activo
-                    ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-300'
+                    ? 'border-emerald-400/70 bg-emerald-400/15 text-emerald-400'
                     : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10',
                 ].join(' ')}
               >

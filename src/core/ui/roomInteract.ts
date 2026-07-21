@@ -1,16 +1,17 @@
 /** Verbo de interacción sobre el mueble principal de cada cuarto. */
-export const ACCION_CUARTO: Record<string, string> = {
+const ACCION_CUARTO: Record<string, string> = {
   cocina: 'Cocinar',
   ejercicio: 'Entrenar',
   recamara: 'Descansar',
+  descanso: 'Descansar',
+  anecdotario: 'Escribir',
   despacho: 'Finanzas',
   biblioteca: 'Estudiar',
   entretenimiento: 'Entretenerse',
-  sala: 'Planear viaje',
+  sala: 'Explorar el mundo',
   jardin: 'Meditar',
   garage: 'Mantenimiento',
   diario: 'Leer noticias',
-  bodega: 'Revisar bodega',
   hobbies: 'Practicar',
 }
 

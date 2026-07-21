@@ -3,6 +3,8 @@ import { vTexto, vNumero, vFecha } from '../../core/registry'
 import { finanzasRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
 import { FinanzasApp } from './FinanzasApp'
+import { tutorialDespacho } from './tutorial'
+import { fechaLocalISO } from '../../core/fechaLocal'
 
 /** Mapeo de palabras clave a categoría de gasto. */
 const CATEGORIAS_GASTO: [string[], string][] = [
@@ -29,7 +31,7 @@ async function capturar(texto: string): Promise<boolean> {
   const tokens = new Set(norm.split(/[^a-z0-9]+/).filter(Boolean))
 
   // Detecta monto: número con o sin decimales (ej: 200, 1500.50, 1,500)
-  const montoMatch = norm.match(/(\d[\d,\.]*\d|\d+)/)
+  const montoMatch = norm.match(/(\d[\d,.]*\d|\d+)/)
   if (!montoMatch) return false
   const monto = parseFloat(montoMatch[1].replace(',', ''))
   if (!monto || monto <= 0) return false
@@ -40,7 +42,7 @@ async function capturar(texto: string): Promise<boolean> {
 
   const categoria = detectarCategoria(tokens)
   await finanzasRepo.add({
-    fecha: new Date().toISOString().slice(0, 10),
+    fecha: fechaLocalISO(),
     tipo,
     categoria,
     monto,
@@ -74,14 +76,22 @@ const esquemas: EsquemaCaptura[] = [
 
 const despacho: RoomModule = {
   id: 'despacho',
-  nombre: 'Despacho · Finanzas',
+  nombre: 'Finanzas · Despacho',
   icon: '💰',
   categoria: 'mente',
   posicion: [9, 0, -6],
   color: '#60a5fa',
   App: FinanzasApp,
+  tutorial: tutorialDespacho,
   capturar,
   esquemas,
+  comandos: [
+    { seccion: 'resumen', etiqueta: 'Resumen', nombres: ['presupuesto', 'resumen de finanzas'] },
+    { seccion: 'movimientos', etiqueta: 'Movimientos', nombres: ['movimientos', 'mis gastos'] },
+    { seccion: 'metas', etiqueta: 'Metas', nombres: ['metas de ahorro'] },
+    { seccion: 'simuladores', etiqueta: 'Simuladores', nombres: ['simuladores', 'simulador'] },
+    { seccion: 'mercados', etiqueta: 'Mercados', nombres: ['mercados', 'acciones', 'divisas', 'cripto', 'bolsa'] },
+  ],
 }
 
 export default despacho

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import {
   leerColapso,
   guardarColapso,
@@ -14,21 +14,12 @@ import {
 } from './editorSecciones'
 
 export function useEditorSeccionesMapa() {
-  const [orden, setOrden] = useState(leerOrdenMapa)
+  // localStorage viejo puede traer secciones desconocidas: se sanitiza al leer
+  // (se persiste ya limpio la próxima vez que el usuario reordena o colapsa).
+  const [orden, setOrden] = useState(() => sanitizarOrdenMapa(leerOrdenMapa()))
   const [colapso, setColapso] = useState(leerColapso)
   const [arrastrando, setArrastrando] = useState<SeccionMapaId | null>(null)
   const [objetivo, setObjetivo] = useState<SeccionMapaId | null>(null)
-
-  useEffect(() => {
-    setOrden((prev) => {
-      const next = sanitizarOrdenMapa(prev)
-      if (next.length !== prev.length || next.some((id, i) => id !== prev[i])) {
-        guardarOrdenMapa(next)
-        return next
-      }
-      return prev
-    })
-  }, [])
 
   const abierto = useCallback(
     (id: SeccionMapaId) => colapso[id] !== true,
@@ -86,22 +77,12 @@ export function useEditorSeccionesMapa() {
 }
 
 export function useEditorSeccionesCuarto() {
-  const [orden, setOrden] = useState(leerOrdenCuarto)
+  // Tras HMR o localStorage viejo puede quedar `forma` guardada: se sanitiza al
+  // leer (se persiste ya limpio la próxima vez que el usuario reordena o colapsa).
+  const [orden, setOrden] = useState(() => sanitizarOrdenCuarto(leerOrdenCuarto()))
   const [colapso, setColapso] = useState(leerColapso)
   const [arrastrando, setArrastrando] = useState<SeccionCuartoId | null>(null)
   const [objetivo, setObjetivo] = useState<SeccionCuartoId | null>(null)
-
-  // Tras HMR o localStorage viejo puede quedar `forma` en memoria; limpiar y persistir.
-  useEffect(() => {
-    setOrden((prev) => {
-      const next = sanitizarOrdenCuarto(prev)
-      if (next.length !== prev.length || next.some((id, i) => id !== prev[i])) {
-        guardarOrdenCuarto(next)
-        return next
-      }
-      return prev
-    })
-  }, [])
 
   const abierto = useCallback(
     (id: SeccionCuartoId) => colapso[id] !== true,

@@ -3,6 +3,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useHouse } from '../state/houseStore'
 import { useLayout, SIN_OCUPACION } from '../state/layoutStore'
+import { usePlanos } from '../state/planosStore'
 import { playerPos } from '../state/playerPosition'
 import type { Acceso } from '../data/db'
 import {
@@ -38,6 +39,7 @@ const COLOR: Record<TipoAcceso, { base: string; detalle: string }> = {
   escalera: { base: '#c69a72', detalle: '#7f5539' },
   elevador: { base: '#aab2bd', detalle: '#5c636e' },
   resbaladilla: { base: '#bae6fd', detalle: '#38bdf8' },
+  'escalera-marina': { base: '#e2e8f0', detalle: '#94a3b8' },
 }
 
 /** Medio lado del hueco del elevador / radio del tubo. */
@@ -178,6 +180,35 @@ function Tubo({ altura, base, detalle }: { altura: number; base: string; detalle
   )
 }
 
+/** Escalera marina (alberca/búnker): dos rieles metálicos con peldaños y manijas curvas arriba. */
+function EscaleraMarina({ altura, base, detalle }: { altura: number; base: string; detalle: string }) {
+  const ancho = 0.7
+  const n = Math.max(2, Math.round(altura / 0.5))
+  return (
+    <>
+      {[-ancho / 2, ancho / 2].map((x, i) => (
+        <mesh key={i} position={[x, altura / 2, 0]} castShadow>
+          <cylinderGeometry args={[0.06, 0.06, altura, 10]} />
+          <meshStandardMaterial color={detalle} metalness={0.7} roughness={0.3} />
+        </mesh>
+      ))}
+      {Array.from({ length: n }, (_, i) => (
+        <mesh key={'r' + i} position={[0, (i + 0.5) * (altura / n), 0]} rotation={[0, 0, Math.PI / 2]} castShadow>
+          <cylinderGeometry args={[0.045, 0.045, ancho, 8]} />
+          <meshStandardMaterial color={base} metalness={0.6} roughness={0.35} />
+        </mesh>
+      ))}
+      {/* Manijas curvas que asoman sobre el borde (para tomarse al salir del agua). */}
+      {[-ancho / 2, ancho / 2].map((x, i) => (
+        <mesh key={'h' + i} position={[x, altura, 0.16]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <torusGeometry args={[0.16, 0.05, 8, 12, Math.PI]} />
+          <meshStandardMaterial color={detalle} metalness={0.7} roughness={0.3} />
+        </mesh>
+      ))}
+    </>
+  )
+}
+
 function Estructura({
   tipo,
   altura,
@@ -195,6 +226,7 @@ function Estructura({
   if (tipo === 'elevador')
     return <Elevador altura={altura} baseY={baseY} acceso={acceso} detalle={c.detalle} />
   if (tipo === 'resbaladilla') return <Tubo altura={altura} base={c.base} detalle={c.detalle} />
+  if (tipo === 'escalera-marina') return <EscaleraMarina altura={altura} base={c.base} detalle={c.detalle} />
   return <EscaleraEspiral altura={altura} landing={landing} base={c.base} detalle={c.detalle} />
 }
 
@@ -216,6 +248,8 @@ export function AccesoProximity() {
     const level = useHouse.getState().playerLevel
     let mejor: { a: Acceso; dir: 'subir' | 'bajar'; d: number } | null = null
     for (const a of accesos) {
+      // La escalera marina del sótano es decorativa: se baja/sube caminando (sin prompt).
+      if (a.nivel < 0) continue
       const [cx, , cz] = cellToWorld(a.col, a.row)
       // Posición real de la estructura: misma lógica que el componente Accesos.
       const lado = a.lado ?? ladoDeCelda(a.col, a.row)
@@ -241,7 +275,7 @@ export function AccesoProximity() {
 
 export function Accesos() {
   const accesos = useLayout((s) => s.accesos)
-  const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
   const editMode = useLayout((s) => s.editMode)
   const editingRoomId = useLayout((s) => s.editingRoomId)
   const draggingAcceso = useLayout((s) => s.draggingAcceso)
@@ -249,9 +283,10 @@ export function Accesos() {
   const previewLado = useLayout((s) => s.previewLado)
   const startAccesoDrag = useLayout((s) => s.startAccesoDrag)
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  const modoAscensos = usePlanos((s) => s.modo === 'ascensos')
   if (accesos.length === 0) return null
-  // En edición (sin un cuarto aislado) el acceso se puede arrastrar.
-  const editable = editMode && !editingRoomId
+  // El acceso solo se arrastra en el modo "Ascensos" del editor (sin cuarto aislado).
+  const editable = editMode && !editingRoomId && modoAscensos
   // Nivel del acceso que se arrastra (para resaltar dónde se puede soltar).
   const dragNivel = draggingAcceso != null
     ? accesos.find((a) => a.id === draggingAcceso)?.nivel ?? null
@@ -265,13 +300,16 @@ export function Accesos() {
         const lado = arrastrando && previewLado ? previewLado : a.lado ?? ladoDeCelda(col, row)
         const [cx, , cz] = cellToWorld(col, row)
         const dir = LADO_DIR[lado]
-        const offset = HALF + 1.2
+        // Sótano (alberca/búnker): la escalera marina va DENTRO del pozo, pegada al muro,
+        // del fondo (nivel -1) al ras del suelo (0). Pisos altos: al pie, por fuera del cuarto.
+        const esSotano = a.nivel < 0
+        const offset = esSotano ? HALF - 0.3 : HALF + 1.2
         const bx = cx + dir.dx * offset
         const bz = cz + dir.dz * offset
-        const baseY = nivelBaseY(a.nivel - 1, conTecho)
-        const landing = nivelBaseY(a.nivel, conTecho) - baseY
-        const altura = landing + WALL_H // la infraestructura llega casi al techo del nivel
-        // El frente local (+Z) mira hacia el cuarto, según la pared elegida.
+        const baseY = nivelBaseY(esSotano ? a.nivel : a.nivel - 1, apilado)
+        const landing = nivelBaseY(esSotano ? a.nivel + 1 : a.nivel, apilado) - baseY
+        const altura = esSotano ? landing + 0.5 : landing + WALL_H
+        // El frente local (+Z) mira hacia el cuarto/pozo, según la pared elegida.
         const rotY = dir.rotY
         return (
           <group
@@ -313,7 +351,7 @@ export function Accesos() {
         [...(ocupadoPorNivel.get(dragNivel) ?? [])].map((key) => {
           const [c, r] = key.split(',').map(Number)
           const [hx, , hz] = cellToWorld(c, r)
-          const hy = nivelBaseY(dragNivel, conTecho) + 0.18
+          const hy = nivelBaseY(dragNivel, apilado) + 0.18
           const activo = previewAcceso?.col === c && previewAcceso?.row === r
           return (
             <mesh key={`dz-${key}`} position={[hx, hy, hz]} rotation={[-Math.PI / 2, 0, 0]}>
@@ -350,7 +388,7 @@ export function AccesoDrag() {
     const ac = accesos.find((a) => a.id === draggingAcceso)
     if (!ac) return
     // Plano del nivel superior: ahí se ven (flotando) los cuartos a los que se suelta.
-    _planeA.constant = -nivelBaseY(ac.nivel, useHouse.getState().conTecho)
+    _planeA.constant = -nivelBaseY(ac.nivel, !useHouse.getState().explotado)
     _rayA.setFromCamera(pointer, camera)
     if (_rayA.ray.intersectPlane(_planeA, _hitA)) {
       const cell = worldToCell(_hitA.x, _hitA.z)

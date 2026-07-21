@@ -4,6 +4,8 @@ import { registrosMantenimientoRepo, vehiculosRepo } from '../../core/data/repos
 import { COLOR, getTipoVehiculo } from './constantes'
 import { FormularioVehiculo } from './FormularioVehiculo'
 import { useT } from '../../core/i18n/useT'
+import { vivo } from '../../core/ui/estilos'
+import { Icono } from '../../core/ui/iconos/Icono'
 
 export function VehiculosTab({
   vehiculos,
@@ -33,14 +35,14 @@ export function VehiculosTab({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" data-tut="garage.veh.lista">
       <button
         type="button"
         onClick={() => setCreando(true)}
         className="w-full rounded-xl py-3 text-sm font-bold text-black"
         style={{ background: COLOR }}
       >
-        {t('garage.veh.añadir', '➕ Añadir vehículo')}
+        <Icono nombre="agregar" /> {t('garage.veh.añadir', 'Añadir vehículo')}
       </button>
 
       {vehiculos.length === 0 ? (
@@ -55,7 +57,7 @@ export function VehiculosTab({
               key={v.id}
               className="rounded-xl bg-white/5 border border-white/10 p-4 flex items-start gap-3"
             >
-              <span className="text-3xl">{tipo.icon}</span>
+              <span className="text-3xl"><Icono emoji={tipo.icon} /></span>
               <div className="flex-1 min-w-0">
                 <button
                   type="button"
@@ -70,7 +72,7 @@ export function VehiculosTab({
                     {v.anio ? ` (${v.anio})` : ''}
                   </p>
                   {v.odometroActual != null && (
-                    <p className="text-xs mt-1" style={{ color: COLOR }}>
+                    <p className="text-xs mt-1 texto-vivo" style={vivo(COLOR)}>
                       {v.odometroActual.toLocaleString('es-MX')} {v.unidad}
                     </p>
                   )}
@@ -83,7 +85,7 @@ export function VehiculosTab({
                   className="text-xs text-white/35 hover:text-red-400 shrink-0"
                   title={t('chat.eliminar', 'Eliminar')}
                 >
-                  🗑️
+                  <Icono nombre="basura" />
                 </button>
               )}
             </div>

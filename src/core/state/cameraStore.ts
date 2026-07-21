@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 export const ZOOM_DEFAULT = 17
 const ZOOM_ROOM = 34 // zoom al agregar/enfocar cuarto en el mapa
-export const ZOOM_ROOM_EDIT = 46 // zoom al editar un cuarto (panel derecho abierto)
+const ZOOM_ROOM_EDIT = 46 // zoom al editar un cuarto (panel derecho abierto)
 /** Ancho CSS del panel de edición (Tailwind w-80). CameraRig compensa con viewport.dpr. */
 export const EDIT_PANEL_PX = 320
 /** Fracción del ancho del panel para centrar en el área visible (menor = cuarto más a la derecha). */
@@ -26,7 +26,7 @@ export const CAM_R = Math.hypot(R_H, 22)
 const TOP_EL = Math.PI / 2 - 0.02 // planta: casi cenital (evita degenerar el lookAt)
 const SIDE_EL = 0 // planos laterales: vista horizontal (alzado)
 /** Elevación de las vistas de arista (entre alzado y planta): mirada elevada ~45°. */
-export const EDGE_EL = Math.PI / 4
+const EDGE_EL = Math.PI / 4
 
 /**
  * Vistas seleccionables desde el cubo: 4 esquinas iso + 5 planos + 4 aristas elevadas.
@@ -47,7 +47,7 @@ export type VistaCubo =
   | 'edge-back'
 
 /** Azimut/elevación objetivo de cada vista del cubo. */
-export const VISTAS_CUBO: Record<VistaCubo, { az: number; el: number }> = {
+const VISTAS_CUBO: Record<VistaCubo, { az: number; el: number }> = {
   'iso-0': { az: Math.PI / 4, el: ISO_EL },
   'iso-1': { az: (3 * Math.PI) / 4, el: ISO_EL },
   'iso-2': { az: (5 * Math.PI) / 4, el: ISO_EL },
@@ -72,13 +72,29 @@ export const VISTAS_CUBO: Record<VistaCubo, { az: number; el: number }> = {
 export const camAnim = { az: CAM_BASE_AZ, el: ISO_EL }
 
 /**
- * Vistas de cámara: isométrica (por defecto), tercera/primera persona, e interior
- * (perspectiva DESDE EL CENTRO del cuarto en edición, mirando la pared de enfrente).
+ * Vistas de cámara: isométrica (por defecto), tercera/primera persona, interior
+ * (perspectiva DESDE EL CENTRO del cuarto en edición, mirando la pared de enfrente),
+ * grafiti (cámara fija encuadrando la cara del muro que se está pintando) y
+ * diálogo (sobre el hombro del jugador mirando al asistente, estilo RPG).
  */
-export type Vista = 'iso' | 'tercera' | 'primera' | 'interior'
+export type Vista = 'iso' | 'tercera' | 'primera' | 'interior' | 'grafiti' | 'dialogo'
+
+/** Encuadre del modo grafiti: cara del muro (centro/orientación/tamaño en mundo). */
+export interface GrafitiCam {
+  centro: [number, number, number]
+  /** Rotación Y del plano de la cara (normal = [sin(rotY), 0, cos(rotY)]). */
+  rotY: number
+  ancho: number
+  alto: number
+}
+
+/** Encuadre del modo diálogo: cabeza del NPC con el que se conversa. */
+export interface DialogoCam {
+  npc: [number, number, number]
+}
 
 /** Yaw (orientación en planta) para mirar hacia la pared del azimut `a` del cubo. */
-export const yawHaciaPared = (a: number) => Math.atan2(Math.cos(a), Math.sin(a))
+const yawHaciaPared = (a: number) => Math.atan2(Math.cos(a), Math.sin(a))
 
 /** Sensibilidad del arrastre para girar la cámara (radianes por píxel). */
 const LOOK_SENS = 0.0045
@@ -159,6 +175,10 @@ interface CamState {
   fov1p: number
   /** Centro [x,y,z] del cuarto en la vista interior (null = no estamos en interior). */
   interiorCenter: [number, number, number] | null
+  /** Cara del muro encuadrada en la vista grafiti (null = no estamos pintando). */
+  grafitiCam: GrafitiCam | null
+  /** Cabeza del NPC encuadrada en la vista diálogo (null = sin conversación cara a cara). */
+  dialogoCam: DialogoCam | null
   /** Selecciona una vista del cubo (esquina iso o plano). */
   setVistaIso: (key: VistaCubo) => void
   /**
@@ -166,6 +186,10 @@ interface CamState {
    * azimut de `key` (alzado del cubo). `center` = centro del cuarto en edición.
    */
   verParedInterior: (key: VistaCubo, center: [number, number, number]) => void
+  /** Entra a la vista GRAFITI: cámara fija sobre la normal de la cara, encuadrándola. */
+  enfocarGrafiti: (datos: GrafitiCam) => void
+  /** Entra a la vista DIÁLOGO: cámara sobre el hombro del jugador mirando al NPC. */
+  enfocarDialogo: (datos: DialogoCam) => void
   /** Gira la vista isométrica 90° (⟲ / ⟳ bajo el cubo). */
   rotar: (dir: 1 | -1) => void
   /** Inclina la vista iso arriba/abajo (clic derecho + arrastre vertical). */
@@ -202,11 +226,13 @@ export const useCam = create<CamState>((set, get) => ({
   dist3p: DIST_3P_DEFAULT,
   fov1p: FOV_1P_DEFAULT,
   interiorCenter: null,
+  grafitiCam: null,
+  dialogoCam: null,
   setVistaIso: (key) =>
     set((s) => {
       const v = VISTAS_CUBO[key]
       // Seleccionar una vista del cubo siempre vuelve a la cámara isométrica.
-      const base = { vista: 'iso' as Vista, interiorCenter: null }
+      const base = { vista: 'iso' as Vista, interiorCenter: null, grafitiCam: null, dialogoCam: null }
       if (key === 'top') {
         // Planta: sube la cámara y rota al múltiplo de 90° más cercano para que las
         // paredes queden alineadas horizontal/verticalmente (no en diagonal).
@@ -227,6 +253,8 @@ export const useCam = create<CamState>((set, get) => ({
       fov1p: FOV_INTERIOR,
     })
   },
+  enfocarGrafiti: (datos) => set({ vista: 'grafiti', grafitiCam: datos }),
+  enfocarDialogo: (datos) => set({ vista: 'dialogo', dialogoCam: datos }),
   rotar: (dir) =>
     set((s) =>
       // En interior, rota la mirada a la pared contigua (90°); en iso gira el azimut.
@@ -249,20 +277,24 @@ export const useCam = create<CamState>((set, get) => ({
   focusRoomEdit: (pos) =>
     set({ focus: [pos[0], pos[1], pos[2]], zoom: ZOOM_ROOM_EDIT }),
   centrarIso: (pos) =>
-    set({ focus: [pos[0], pos[1], pos[2]], zoom: ZOOM_DEFAULT, vista: 'iso', interiorCenter: null }),
+    set({ focus: [pos[0], pos[1], pos[2]], zoom: ZOOM_DEFAULT, vista: 'iso', interiorCenter: null, grafitiCam: null, dialogoCam: null }),
   reset: () =>
-    set({ focus: [0, 0, 0], az: CAM_BASE_AZ, el: ISO_EL, zoom: ZOOM_DEFAULT, vista: 'iso', interiorCenter: null }),
+    set({ focus: [0, 0, 0], az: CAM_BASE_AZ, el: ISO_EL, zoom: ZOOM_DEFAULT, vista: 'iso', interiorCenter: null, grafitiCam: null, dialogoCam: null }),
   setVista: (v) =>
     // Cada vista arranca con su inclinación natural (3ª elevada, 1ª horizontal).
     set((s) => ({
       vista: v,
       interiorCenter: v === 'interior' ? s.interiorCenter : null,
+      grafitiCam: v === 'grafiti' ? s.grafitiCam : null,
+      dialogoCam: v === 'dialogo' ? s.dialogoCam : null,
       pitch: v === 'tercera' ? PITCH_3P_INI : v === 'primera' ? 0 : s.pitch,
       dist3p: v === 'tercera' ? DIST_3P_DEFAULT : s.dist3p,
       fov1p: v === 'primera' ? FOV_1P_DEFAULT : s.fov1p,
     })),
   ciclarVista: () => {
     const v = get().vista
+    // Pintando o conversando cara a cara: la cámara está fija en su objetivo.
+    if (v === 'grafiti' || v === 'dialogo') return
     const base = v === 'interior' ? 'iso' : v
     get().setVista(base === 'iso' ? 'tercera' : base === 'tercera' ? 'primera' : 'iso')
   },

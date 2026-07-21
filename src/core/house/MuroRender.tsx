@@ -1,8 +1,10 @@
 import { Suspense, useMemo, type ReactElement, type ReactNode } from 'react'
 import { useLoader } from '@react-three/fiber'
-import { DoubleSide, ExtrudeGeometry, Path, RepeatWrapping, Shape, TextureLoader, type Texture } from 'three'
+import { MeshReflectorMaterial } from '@react-three/drei'
+import { DoubleSide, ExtrudeGeometry, Path, RepeatWrapping, Shape, ShapeGeometry, SRGBColorSpace, TextureLoader, type Texture } from 'three'
 import { WALL_H, FORMA_ALTO_TECHO } from './walls'
-import type { TipoMuroId, FormaMuroId } from './murosPuertas'
+import { puntosRemateVano, VANO_FORMA_ALTO_DEFAULT } from './murosPuertas'
+import type { TipoMuroId, FormaMuroId, FormaVanoId, VentanaFormaId, VentanaContenidoId } from './murosPuertas'
 
 /** Repeticiones de la imagen según el ajuste elegido. */
 const AJUSTE_REPEAT: Record<string, number> = { x1: 1, x2: 2, x4: 4 }
@@ -27,12 +29,107 @@ function MatCristal({ color }: { color: string }) {
   )
 }
 
+/** Lienzo del cuadro sin foto (crema, como papel). */
+const CUADRO_FONDO = '#f2ead9'
+
+/**
+ * Luna plana recortada a la forma del vano (foto del cuadro o espejo),
+ * apoyada sobre la cara del muro (mira a +Z local).
+ */
+function LunaVano({
+  forma,
+  ww,
+  wh,
+  bw,
+  z,
+  children,
+}: {
+  forma: VentanaFormaId
+  ww: number
+  wh: number
+  /** Ancho del borde del marco (la luna lo descuenta). */
+  bw: number
+  z: number
+  children: ReactNode
+}) {
+  const triGeo = useMemo(() => {
+    if (forma !== 'triangulo') return null
+    const iu = ww / 2 - bw
+    const iv = wh / 2 - bw
+    const s = new Shape()
+    s.moveTo(-iu, -iv)
+    s.lineTo(iu, -iv)
+    s.lineTo(0, iv)
+    s.closePath()
+    return new ShapeGeometry(s)
+  }, [forma, ww, wh, bw])
+  if (forma === 'circulo') {
+    return (
+      <mesh position={[0, 0, z]} scale={[ww * 0.92, wh * 0.92, 1]}>
+        <circleGeometry args={[0.5, 40]} />
+        {children}
+      </mesh>
+    )
+  }
+  if (forma === 'triangulo' && triGeo) {
+    return (
+      <mesh position={[0, 0, z]} geometry={triGeo}>
+        {children}
+      </mesh>
+    )
+  }
+  return (
+    <mesh position={[0, 0, z]}>
+      <planeGeometry args={[ww - bw * 2, wh - bw * 2]} />
+      {children}
+    </mesh>
+  )
+}
+
+/** Foto del cuadro empotrado, recortada a la forma del vano (una sola cara). */
+function FotoVano({
+  url,
+  forma,
+  ww,
+  wh,
+  bw,
+  z,
+}: {
+  url: string
+  forma: VentanaFormaId
+  ww: number
+  wh: number
+  bw: number
+  z: number
+}) {
+  const base = useLoader(TextureLoader, url)
+  const map = useMemo(() => {
+    const tex = base.clone()
+    tex.colorSpace = SRGBColorSpace
+    if (forma === 'triangulo') {
+      // ShapeGeometry usa las coords del shape como UV: se normalizan al vano.
+      const iu = ww / 2 - bw
+      const iv = wh / 2 - bw
+      tex.repeat.set(1 / (iu * 2), 1 / (iv * 2))
+      tex.offset.set(0.5, 0.5)
+    }
+    tex.needsUpdate = true
+    return tex
+  }, [base, forma, ww, wh, bw])
+  return (
+    <LunaVano forma={forma} ww={ww} wh={wh} bw={bw} z={z}>
+      <meshStandardMaterial map={map} roughness={0.85} metalness={0} />
+    </LunaVano>
+  )
+}
+
 /**
  * Ventana decorativa centrada en un muro. Forma cuadrada (con rotación → rombo) o
  * circular; cristal de color, con opción de mosaico (vitral) y multicolor.
  * Se construye en un marco local (ancho→X, alto→Y, fondo→Z) y se orienta al muro.
+ * Exportada: los muros curvos montan el APLIQUE (cuadro/espejo) tangente al arco.
  */
-function VentanaEnMuro({
+export function VentanaEnMuro({
   horizontal,
   largo,
   alto,
@@ -47,6 +144,10 @@ function VentanaEnMuro({
   multicolor,
   color,
   marco,
+  contenido = 'ventana',
+  cara = 'interior',
+  fotoUrl,
+  caraInterior = 1,
 }: {
   horizontal: boolean
   largo: number
@@ -62,8 +163,8 @@ function VentanaEnMuro({
   posY: number
   /** Posición horizontal a lo largo del muro (-1 izq … 1 der). */
   posX: number
-  /** Forma del cristal: cuadrado o círculo. */
-  forma: 'cuadrado' | 'circulo'
+  /** Forma del cristal: cuadrado, círculo o triángulo. */
+  forma: 'cuadrado' | 'circulo' | 'triangulo'
   /** Rotación del cristal en grados (cuadrado → rombo a 45°). */
   rot: number
   /** Cristal dividido en piezas (vitral). */
@@ -73,6 +174,14 @@ function VentanaEnMuro({
   /** Color del cristal. */
   color: string
   marco: string
+  /** Qué vive en el vano: ventana (cristal), cuadro con foto o espejo. */
+  contenido?: VentanaContenidoId
+  /** Cara del muro donde vive el cuadro/espejo (la otra queda lisa). */
+  cara?: 'interior' | 'exterior'
+  /** Foto del cuadro (objectURL). */
+  fotoUrl?: string
+  /** Signo de +Z local que apunta al interior del cuarto. */
+  caraInterior?: 1 | -1
 }) {
   const ww = Math.min(largo * 0.98, largo * ancho)
   if (ww < 0.4) return null
@@ -81,11 +190,15 @@ function VentanaEnMuro({
   // Desplazamiento a lo largo del muro, acotado para no salirse de sus extremos.
   const margen = Math.max(0, (largo - ww) / 2)
   const off = posX * margen
-  const prof = grosor + 0.06
+  // Cuadro/espejo: APLIQUE adosado a una sola cara (marco fino); ventana: atraviesa.
+  const esAplique = contenido !== 'ventana'
+  const prof = esAplique ? 0.16 : grosor + 0.06
   const rotRad = (rot * Math.PI) / 180
   // Se subdivide en piezas con mosaico o multicolor (el multicolor necesita varias).
-  const dividir = mosaico || multicolor
+  const dividir = contenido === 'ventana' && (mosaico || multicolor)
   const colorDe = (i: number) => (multicolor ? MOSAICO_COLORES[i % MOSAICO_COLORES.length] : color)
+  // Signo de la cara elegida en el marco local (+Z = interior del cuarto).
+  const signoCara = caraInterior * (cara === 'exterior' ? -1 : 1)
 
   // Ancho del borde del marco (cuadrado).
   const bw = 0.09
@@ -110,10 +223,41 @@ function VentanaEnMuro({
           </mesh>,
         )
       }
-    } else {
+    } else if (contenido === 'ventana') {
       piezas.push(
         <mesh key="glass" rotation={[Math.PI / 2, 0, 0]} scale={[ww * 0.92, 1, wh * 0.92]}>
           <cylinderGeometry args={[0.5, 0.5, prof, 40]} />
+          <MatCristal color={color} />
+        </mesh>,
+      )
+    }
+  } else if (forma === 'triangulo') {
+    // Triángulo: 3 barras de marco (base abajo, vértice arriba) + cristal triangular.
+    const A: [number, number] = [-ww / 2, -wh / 2]
+    const B: [number, number] = [ww / 2, -wh / 2]
+    const C: [number, number] = [0, wh / 2]
+    const bar = (p: [number, number], q: [number, number], key: string) => {
+      const len = Math.hypot(q[0] - p[0], q[1] - p[1])
+      const ang = Math.atan2(q[1] - p[1], q[0] - p[0])
+      return (
+        <mesh key={key} position={[(p[0] + q[0]) / 2, (p[1] + q[1]) / 2, 0]} rotation={[0, 0, ang]} castShadow receiveShadow>
+          <boxGeometry args={[len, bw, prof * 0.8]} />
+          <meshStandardMaterial color={marco} roughness={0.6} metalness={0.1} />
+        </mesh>
+      )
+    }
+    piezas.push(bar(A, B, 'mb'), bar(B, C, 'mr'), bar(C, A, 'ml'))
+    if (contenido === 'ventana') {
+      const iu = ww / 2 - bw
+      const iv = wh / 2 - bw
+      const triShape = new Shape()
+      triShape.moveTo(-iu, -iv)
+      triShape.lineTo(iu, -iv)
+      triShape.lineTo(0, iv)
+      triShape.closePath()
+      piezas.push(
+        <mesh key="glass" position={[0, 0, -prof / 2]}>
+          <extrudeGeometry args={[triShape, { depth: prof, bevelEnabled: false }]} />
           <MatCristal color={color} />
         </mesh>,
       )
@@ -158,7 +302,7 @@ function VentanaEnMuro({
           )
         }
       }
-    } else {
+    } else if (contenido === 'ventana') {
       piezas.push(
         <mesh key="glass">
           <boxGeometry args={[ww - bw * 2, wh - bw * 2, prof]} />
@@ -168,10 +312,54 @@ function VentanaEnMuro({
     }
   }
 
+  // Luna del aplique, delante de la cara del muro y dentro del reborde del marco.
+  const zLuna = 0.05
+  const lienzoVacio = (
+    <LunaVano forma={forma} ww={ww} wh={wh} bw={bw} z={zLuna}>
+      <meshStandardMaterial color={CUADRO_FONDO} roughness={0.9} />
+    </LunaVano>
+  )
+
   return (
     <group position={horizontal ? [off, y, 0] : [0, y, off]}>
       <group rotation={horizontal ? [0, 0, 0] : [0, Math.PI / 2, 0]}>
-        <group rotation={[0, 0, rotRad]}>{piezas}</group>
+        <group rotation={[0, 0, rotRad]}>
+          {esAplique ? (
+            // Cuadro/espejo: todo el conjunto (marco fino + luna) adosado a UNA cara
+            // del muro; la otra cara queda lisa. Girado 180° cuando va del otro lado.
+            <group
+              position={[0, 0, signoCara * (grosor / 2)]}
+              rotation={[0, signoCara === 1 ? 0 : Math.PI, 0]}
+            >
+              {piezas}
+              {contenido === 'cuadro' &&
+                (fotoUrl ? (
+                  <Suspense fallback={lienzoVacio}>
+                    <FotoVano url={fotoUrl} forma={forma} ww={ww} wh={wh} bw={bw} z={zLuna} />
+                  </Suspense>
+                ) : (
+                  lienzoVacio
+                ))}
+              {contenido === 'espejo' && (
+                <LunaVano forma={forma} ww={ww} wh={wh} bw={bw} z={zLuna}>
+                  <MeshReflectorMaterial
+                    resolution={512}
+                    mirror={1}
+                    mixStrength={2.2}
+                    mixBlur={0}
+                    blur={[0, 0]}
+                    depthScale={0}
+                    roughness={0.05}
+                    metalness={0.15}
+                    color="#dbe4ee"
+                  />
+                </LunaVano>
+              )}
+            </group>
+          ) : (
+            piezas
+          )}
+        </group>
       </group>
     </group>
   )
@@ -187,7 +375,7 @@ function ajustarColor(hex: string, amt: number) {
 }
 
 /** Detalle superficial según tipo de muro (en contraste con la base para que se note). */
-function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base }: {
+function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base, hueco }: {
   tipo: TipoMuroId
   horizontal: boolean
   largo: number
@@ -196,9 +384,14 @@ function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base }: {
   /** Grosor real del segmento (m): el detalle se ciñe a él para no sobresalir. */
   grosor: number
   base: string
+  /** Vano de puerta {x0,x1,yTop} (coords locales): juntas y listones lo esquivan. */
+  hueco?: { x0: number; x1: number; yTop: number } | null
 }) {
   // Junta de ladrillo más oscura; listón de madera más oscuro: así el patrón resalta.
   const surco = ajustarColor(base, -55)
+  // ¿El tramo [a,b] (a lo largo del muro) cruza el vano por debajo de su tope?
+  const enHueco = (a: number, b: number, y: number) =>
+    !!hueco && y < hueco.yTop && b > hueco.x0 && a < hueco.x1
   if (tipo === 'ladrillo') {
     const altoHilada = 0.22
     const anchoLadrillo = 0.45
@@ -210,20 +403,30 @@ function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base }: {
     for (let f = 0; f < filas; f++) {
       const yJunta = -alto / 2 + (f + 1) * hilada
       if (f < filas - 1) {
-        piezas.push(
-          <mesh key={`h${f}`} position={[0, yJunta, 0]}>
-            <boxGeometry
-              args={horizontal ? [largo, 0.025, grosor + 0.02] : [grosor + 0.02, 0.025, largo]}
-            />
-            <meshStandardMaterial color={surco} roughness={0.95} />
-          </mesh>,
-        )
+        // La junta horizontal se parte en dos tramos si cruza el vano de la puerta.
+        const tramos: [number, number][] = enHueco(-largo / 2, largo / 2, yJunta)
+          ? [[-largo / 2, hueco!.x0], [hueco!.x1, largo / 2]]
+          : [[-largo / 2, largo / 2]]
+        for (const [a, b] of tramos) {
+          const len = b - a
+          if (len < 0.05) continue
+          const cxT = (a + b) / 2
+          piezas.push(
+            <mesh key={`h${f}-${a.toFixed(2)}`} position={[horizontal ? cxT : 0, yJunta, horizontal ? 0 : cxT]}>
+              <boxGeometry
+                args={horizontal ? [len, 0.025, grosor + 0.02] : [grosor + 0.02, 0.025, len]}
+              />
+              <meshStandardMaterial color={surco} roughness={0.95} />
+            </mesh>,
+          )
+        }
       }
       const offsetFila = f % 2 === 0 ? 0 : pitch / 2
       const yc = -alto / 2 + (f + 0.5) * hilada
       for (let c = 0; c <= cols; c++) {
         const pos = -largo / 2 + offsetFila + c * pitch
         if (pos < -largo / 2 + 0.03 || pos > largo / 2 - 0.03) continue
+        if (enHueco(pos, pos, yc - hilada / 2)) continue // junta vertical dentro del vano
         piezas.push(
           <mesh key={`v${f}-${c}`} position={[horizontal ? pos : 0, yc, horizontal ? 0 : pos]}>
             <boxGeometry
@@ -244,6 +447,23 @@ function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base }: {
       <>
         {Array.from({ length: n - 1 }, (_, i) => {
           const off = -largo / 2 + (i + 1) * pitch
+          // Listón que cruza el vano de la puerta: solo el tramo sobre el hueco.
+          if (hueco && off > hueco.x0 && off < hueco.x1) {
+            const y1 = alto / 2 - 0.03
+            const hL = y1 - hueco.yTop
+            if (hL < 0.05) return null
+            return (
+              <mesh
+                key={i}
+                position={[horizontal ? off : 0, (hueco.yTop + y1) / 2, horizontal ? 0 : off]}
+              >
+                <boxGeometry
+                  args={horizontal ? [0.02, hL, grosor + 0.03] : [grosor + 0.03, hL, 0.02]}
+                />
+                <meshStandardMaterial color={surco} roughness={0.85} metalness={0.02} />
+              </mesh>
+            )
+          }
           return (
             <mesh key={i} position={[horizontal ? off : 0, 0, horizontal ? 0 : off]}>
               <boxGeometry
@@ -476,16 +696,25 @@ export function MuroSegment({
   ventPosY = 0.54,
   ventPosX = 0,
   ventForma = 'cuadrado',
+  ventContenido = 'ventana',
+  ventCara = 'interior',
   ventRot = 0,
   ventColor,
   ventMosaico = false,
   ventMulticolor = false,
+  ventFoto,
+  caraInterior = 1,
+  huecoSinCristal = false,
   forma = 'recta',
   formaAlto,
   formaAncho = 0.32,
   formaPosX = 0,
   formaDividir = false,
   formaColor,
+  vanoForma = 'recta',
+  vanoFormaAlto,
+  vanoFormaAncho = 1,
+  vanoFormaPosX = 0,
   imagen,
   imagenAjuste,
   baseColor,
@@ -517,11 +746,21 @@ export function MuroSegment({
   ventAlto?: number
   ventPosY?: number
   ventPosX?: number
-  ventForma?: 'cuadrado' | 'circulo'
+  ventForma?: VentanaFormaId
+  /** Contenido del vano: ventana (cristal), cuadro con foto o espejo empotrados. */
+  ventContenido?: VentanaContenidoId
+  /** Cara del muro donde vive el cuadro/espejo. */
+  ventCara?: 'interior' | 'exterior'
   ventRot?: number
   ventColor?: string
   ventMosaico?: boolean
   ventMulticolor?: boolean
+  /** Foto del cuadro empotrado (objectURL). */
+  ventFoto?: string
+  /** Signo de +Z local del marco hacia el interior del cuarto (espejo). */
+  caraInterior?: 1 | -1
+  /** Cortar el hueco pero sin cristal (la puerta sólida pone su propia hoja). */
+  huecoSinCristal?: boolean
   /** Silueta superior del muro completo. */
   forma?: FormaMuroId
   formaAlto?: number
@@ -529,6 +768,11 @@ export function MuroSegment({
   formaPosX?: number
   formaDividir?: boolean
   formaColor?: string
+  /** Remate del vano de la puerta: en el dintel (cuartos) o en el hueco (muros libres). */
+  vanoForma?: FormaVanoId
+  vanoFormaAlto?: number
+  vanoFormaAncho?: number
+  vanoFormaPosX?: number
   imagen?: string
   imagenAjuste?: string
   baseColor: string
@@ -554,8 +798,9 @@ export function MuroSegment({
 
   // Hueco en el muro a la medida de la ventana (como la puerta): el resto sigue sólido,
   // de modo que el cristal transparente deja ver el exterior por la abertura.
-  const huecoGeo = useMemo(() => {
-    if (!esVentana || esHeader || imagen) return null
+  // Cuadro y espejo van EMPOTRADOS: el muro no se perfora.
+  const huecoInfo = useMemo(() => {
+    if (!esVentana || esHeader || imagen || ventContenido !== 'ventana') return null
     const ww = Math.min(largo * 0.98, largo * ventAncho)
     if (ww < 0.4) return null
     const wh = Math.min(h * 0.98, h * ventAlto)
@@ -570,19 +815,40 @@ export function MuroSegment({
     shape.lineTo(-largo / 2, h / 2)
     shape.closePath()
     const hole = new Path()
-    if (ventForma === 'circulo') {
+    const cos = Math.cos(rot)
+    const sin = Math.sin(rot)
+    const pt = (px: number, py: number): [number, number] => [
+      offC + px * cos - py * sin,
+      yC + px * sin + py * cos,
+    ]
+    const hu = ww / 2 - 0.03
+    const hv = wh / 2 - 0.03
+    // Vano de puerta con remate (arco/pico): rectángulo al piso + silueta encima.
+    const extraVano =
+      huecoSinCristal && vanoForma !== 'recta'
+        ? Math.min(WALL_H * (vanoFormaAlto ?? VANO_FORMA_ALTO_DEFAULT), h / 2 - 0.02 - (yC + hv))
+        : 0
+    if (extraVano > 0.02) {
+      const yD = yC + hv
+      hole.moveTo(offC - hu, yC - hv)
+      hole.lineTo(offC + hu, yC - hv)
+      hole.lineTo(offC + hu, yD)
+      for (const [un, f] of puntosRemateVano(vanoForma, vanoFormaAncho, vanoFormaPosX))
+        hole.lineTo(offC + hu * un, yD + extraVano * f)
+      hole.lineTo(offC - hu, yD)
+      hole.closePath()
+    } else if (ventForma === 'circulo') {
       // Algo menor que el cristal (0.92) para que éste cubra el borde del hueco.
       hole.absellipse(offC, yC, ww * 0.45, wh * 0.45, 0, Math.PI * 2, true, rot)
+    } else if (ventForma === 'triangulo') {
+      // Triángulo: base abajo, vértice arriba (el marco cubre el reborde).
+      const [a, b, c] = [pt(-hu, -hv), pt(hu, -hv), pt(0, hv)]
+      hole.moveTo(a[0], a[1])
+      hole.lineTo(b[0], b[1])
+      hole.lineTo(c[0], c[1])
+      hole.closePath()
     } else {
       // Rectángulo (rotado → rombo); el marco cubre el reborde del hueco.
-      const hu = ww / 2 - 0.03
-      const hv = wh / 2 - 0.03
-      const cos = Math.cos(rot)
-      const sin = Math.sin(rot)
-      const pt = (px: number, py: number): [number, number] => [
-        offC + px * cos - py * sin,
-        yC + px * sin + py * cos,
-      ]
       const [a, b, c, d] = [pt(-hu, -hv), pt(hu, -hv), pt(hu, hv), pt(-hu, hv)]
       hole.moveTo(a[0], a[1])
       hole.lineTo(b[0], b[1])
@@ -593,8 +859,34 @@ export function MuroSegment({
     shape.holes.push(hole)
     const geo = new ExtrudeGeometry(shape, { depth: grosor, bevelEnabled: false })
     geo.translate(0, 0, -grosor / 2)
+    // Rect del vano de puerta (con su remate): las juntas del detalle lo esquivan.
+    const puertaRect = huecoSinCristal
+      ? { x0: offC - hu, x1: offC + hu, yTop: yC + hv + extraVano }
+      : null
+    return { geo, puertaRect }
+  }, [esVentana, esHeader, imagen, ventContenido, largo, h, grosor, ventAncho, ventAlto, ventPosY, ventPosX, ventRot, ventForma, huecoSinCristal, vanoForma, vanoFormaAlto, vanoFormaAncho, vanoFormaPosX])
+  const huecoGeo = huecoInfo?.geo ?? null
+  const huecoPuerta = huecoInfo?.puertaRect ?? null
+
+  // Dintel de la puerta (cuartos) con remate del vano: placa con el recorte en su base.
+  const headerGeo = useMemo(() => {
+    if (!esHeader || vanoForma === 'recta') return null
+    const extra = Math.min(WALL_H * (vanoFormaAlto ?? VANO_FORMA_ALTO_DEFAULT), h - 0.02)
+    if (extra < 0.03 || largo < 0.2) return null
+    const pts = puntosRemateVano(vanoForma, vanoFormaAncho, vanoFormaPosX)
+    const shape = new Shape()
+    shape.moveTo(-largo / 2, -h / 2)
+    // Borde inferior siguiendo el remate, de izquierda a derecha.
+    for (let i = pts.length - 1; i >= 0; i--)
+      shape.lineTo((pts[i][0] * largo) / 2, -h / 2 + extra * pts[i][1])
+    shape.lineTo(largo / 2, -h / 2)
+    shape.lineTo(largo / 2, h / 2)
+    shape.lineTo(-largo / 2, h / 2)
+    shape.closePath()
+    const geo = new ExtrudeGeometry(shape, { depth: grosor, bevelEnabled: false })
+    geo.translate(0, 0, -grosor / 2)
     return geo
-  }, [esVentana, esHeader, imagen, largo, h, grosor, ventAncho, ventAlto, ventPosY, ventPosX, ventRot, ventForma])
+  }, [esHeader, vanoForma, vanoFormaAlto, vanoFormaAncho, vanoFormaPosX, h, largo, grosor])
   // Arco y triángulo igualan por defecto el alto del techo; las esquinas, más bajas.
   const extraH = WALL_H * (formaAlto ?? (forma === 'esquinas' ? 0.4 : FORMA_ALTO_TECHO))
   // "Dos cuerpos": la forma lleva su propio color (sin la textura del muro).
@@ -628,16 +920,19 @@ export function MuroSegment({
     )
   }
 
+  // Geometría con recorte: hueco de ventana/puerta o dintel con remate del vano.
+  const geoRecorte = huecoGeo ?? headerGeo
+
   // Cuerpo del muro + decoraciones; recibe la textura ya cargada (si hay imagen).
   const cuerpo = (map?: Texture) => (
     <>
       <mesh
         castShadow={!atenuado}
         receiveShadow={!atenuado}
-        rotation={huecoGeo && !horizontal ? [0, -Math.PI / 2, 0] : [0, 0, 0]}
-        geometry={huecoGeo ?? undefined}
+        rotation={geoRecorte && !horizontal ? [0, -Math.PI / 2, 0] : [0, 0, 0]}
+        geometry={geoRecorte ?? undefined}
       >
-        {!huecoGeo && <boxGeometry args={[sx, h, sz]} />}
+        {!geoRecorte && <boxGeometry args={[sx, h, sz]} />}
         <meshStandardMaterial
           color={map ? '#ffffff' : tint}
           map={map}
@@ -650,16 +945,18 @@ export function MuroSegment({
           toneMapped={!map}
         />
       </mesh>
-      {!atenuado && esVentana && !map && (
+      {!atenuado && esVentana && !map && !huecoSinCristal && (
         <VentanaEnMuro
           horizontal={horizontal} largo={largo} alto={h} grosor={grosor} ancho={ventAncho}
           altoVent={ventAlto} posY={ventPosY} posX={ventPosX}
           forma={ventForma} rot={ventRot} mosaico={ventMosaico} multicolor={ventMulticolor}
           color={ventColor ?? cristal} marco={marcoVentana}
+          contenido={ventContenido} cara={ventCara} fotoUrl={ventFoto} caraInterior={caraInterior}
         />
       )}
-      {!atenuado && !map && (
-        <DetalleMuro tipo={tipoMuro} horizontal={horizontal} largo={largo} alto={h} grosor={grosor} base={tint} />
+      {/* En el dintel recortado por el remate, las juntas cruzarían el hueco. */}
+      {!atenuado && !map && !headerGeo && (
+        <DetalleMuro tipo={tipoMuro} horizontal={horizontal} largo={largo} alto={h} grosor={grosor} base={tint} hueco={huecoPuerta} />
       )}
       {formas(map)}
     </>

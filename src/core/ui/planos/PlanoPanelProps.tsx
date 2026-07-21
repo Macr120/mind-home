@@ -7,10 +7,12 @@ import { zonasRepo, pisosExteriorRepo } from '../../data/repository'
 import { WallEditor } from '../WallEditor'
 import { ZonaWallEditor } from './ZonaWallEditor'
 import { EditorPisoCuartoSection } from '../editor/EditorPisoCuartoSection'
+import { EditorTechoCuartoSection } from '../editor/EditorTechoCuartoSection'
 import { EditorZonaPisoSection } from './EditorZonaPisoSection'
 import { EditorPisoExteriorSection } from './EditorPisoExteriorSection'
 import { EditorPisoInterioresSection } from './EditorPisoInterioresSection'
 import { useT } from '../../i18n/useT'
+import { Icono } from '../iconos/Icono'
 import { footprintCells, cellId } from '../../house/walls'
 import type { PisoTipoId } from '../../house/pisos'
 
@@ -20,7 +22,6 @@ export function PlanoPanelProps() {
   const seleccion = usePlanos((s) => s.seleccion)
   const capa = usePlanos((s) => s.capa)
   const nivelPlano = usePlanos((s) => s.nivel)
-  const celdasMarcadas = usePlanos((s) => s.celdasMarcadas)
   const herramienta = usePlanos((s) => s.herramienta)
   const aviso = usePlanos((s) => s.aviso)
   const pendienteNombre = usePlanos((s) => s.pendienteNombre)
@@ -28,6 +29,7 @@ export function PlanoPanelProps() {
   const setAviso = usePlanos((s) => s.setAviso)
   const setPendienteNombre = usePlanos((s) => s.setPendienteNombre)
 
+  const eliminarCuarto = useCuartos((s) => s.eliminar)
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
   const footprints = useLayout((s) => s.footprints)
@@ -71,11 +73,9 @@ export function PlanoPanelProps() {
       // El cuarto adopta la geometría de la zona (forma + paredes + losetas) y su piso; la
       // zona se elimina. El footprint del cuarto es la única fuente de verdad de la forma.
       const { zonaAnchorFootprint } = await import('../../house/planoGeometria')
-      const { murosEfectivosZona } = await import('../../house/murosZona')
       const { formasAbsAOff } = await import('../../house/formasLoseta')
       const { anchor, footprint } = zonaAnchorFootprint(zona.celdas)
-      const occ = useLayout.getState().ocupadoPorNivel.get(zona.nivel) ?? new Set<string>()
-      const muros = murosEfectivosZona(zona, zonas, occ)
+      const muros = zona.muros ?? {}
       if (!placed[roomId]) await toggleRoom(roomId)
       await adoptarFormaCuarto(roomId, anchor, footprint, muros, formasAbsAOff(zona.formasCelda, anchor))
       if (zona.pisoImagen) await subirRoomPisoImagen(roomId, zona.pisoImagen)
@@ -93,7 +93,7 @@ export function PlanoPanelProps() {
     const zona = zonas.find((z) => z.id === pendienteNombre)
     return (
       <div className="space-y-4">
-        <p className="text-sm font-bold text-emerald-300">
+        <p className="text-sm font-bold text-emerald-400">
           {t('planos.nombrarTitulo', 'Nombra tu cuarto')}
         </p>
         <p className="text-[11px] leading-snug text-white/45">
@@ -116,7 +116,7 @@ export function PlanoPanelProps() {
           type="button"
           onClick={() => void guardarNombreCuarto()}
           disabled={!nombreNuevo.trim()}
-          className="w-full rounded-lg bg-emerald-500/25 py-2.5 text-xs font-bold text-emerald-200 disabled:opacity-40"
+          className="w-full rounded-lg bg-emerald-500/25 py-2.5 text-xs font-bold text-emerald-400 disabled:opacity-40"
         >
           {t('planos.confirmarNombre', 'Confirmar nombre')}
         </button>
@@ -127,10 +127,10 @@ export function PlanoPanelProps() {
   if (capa === 'paredes' && seleccion?.tipo === 'arista') {
     return (
       <div className="space-y-3">
+        <WallEditor roomId={seleccion.roomId} sinCroquis />
         <p className="text-[11px] text-white/45">
           {t('planos.props.paredes', 'Edita la arista seleccionada en el croquis.')}
         </p>
-        <WallEditor roomId={seleccion.roomId} />
       </div>
     )
   }
@@ -138,14 +138,14 @@ export function PlanoPanelProps() {
   if (capa === 'paredes' && seleccion?.tipo === 'arista-zona') {
     return (
       <div className="space-y-3">
-        <p className="text-[11px] text-white/45">
-          {t('planos.props.paredesZona', 'Edita la arista del cuarto básico.')}
-        </p>
         <ZonaWallEditor
           zonaId={seleccion.zonaId}
           off={seleccion.off}
           side={seleccion.side}
         />
+        <p className="text-[11px] text-white/45">
+          {t('planos.props.paredesZona', 'Edita la arista del cuarto básico.')}
+        </p>
       </div>
     )
   }
@@ -203,15 +203,7 @@ export function PlanoPanelProps() {
     if (!room) return null
     return (
       <div className="space-y-3">
-        <p className="text-sm font-bold" style={{ color: room.color }}>
-          {room.icon} {room.nombre.split(' · ')[0]}
-        </p>
-        <p className="text-[11px] leading-snug text-white/45">
-          {t(
-            'planos.props.techo',
-            'Usa los botones + y − en el borde de la losa para extender o retraer el techo por líneas completas.',
-          )}
-        </p>
+        <EditorTechoCuartoSection room={room} />
       </div>
     )
   }
@@ -241,7 +233,7 @@ export function PlanoPanelProps() {
                 void zonasRepo.update(zona.id, { nombre: n })
                 setNombreZonaEdit('')
               }}
-              className="rounded-lg bg-emerald-500/20 px-2 text-xs font-bold text-emerald-300"
+              className="rounded-lg bg-emerald-500/20 px-2 text-xs font-bold text-emerald-400"
             >
               ✓
             </button>
@@ -277,7 +269,7 @@ export function PlanoPanelProps() {
     return (
       <div className="space-y-4">
         <p className="text-sm font-black" style={{ color: room.color }}>
-          {room.icon} {nombre}
+          <Icono emoji={room.icon} /> {nombre}
         </p>
 
         <label className="block">
@@ -293,7 +285,7 @@ export function PlanoPanelProps() {
             <button
               type="button"
               onClick={() => void setRoomName(room.id, nombreEdit || nombre)}
-              className="rounded-lg bg-emerald-500/20 px-2 text-xs font-bold text-emerald-300"
+              className="rounded-lg bg-emerald-500/20 px-2 text-xs font-bold text-emerald-400"
             >
               ✓
             </button>
@@ -314,7 +306,7 @@ export function PlanoPanelProps() {
                   key={cellId(c.col, c.row)}
                   type="button"
                   onClick={() => void removeRoomCell(room.id, c)}
-                  className="rounded bg-red-500/20 px-2 py-1 text-[10px] text-red-300"
+                  className="rounded bg-red-500/20 px-2 py-1 text-[10px] text-red-400"
                   title={t('planos.quitarCelda', 'Quitar celda')}
                 >
                   − ({c.col},{c.row})
@@ -326,10 +318,13 @@ export function PlanoPanelProps() {
 
         <button
           type="button"
-          onClick={() => void toggleRoom(room.id)}
+          onClick={() => {
+            void eliminarCuarto(room.id)
+            setSeleccion(null)
+          }}
           className="w-full rounded-lg border border-red-400/30 bg-red-400/10 py-2 text-xs font-semibold text-red-400"
         >
-          {t('mapa.quitar', 'Quitar del mapa')}
+          {t('planos.eliminarCuarto', 'Eliminar cuarto')}
         </button>
       </div>
     )
@@ -354,7 +349,7 @@ export function PlanoPanelProps() {
                   onClick={() => void colocarApp(r.id, seleccion.col, seleccion.row)}
                   className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs text-white/80 hover:bg-white/10"
                 >
-                  {r.icon} {r.nombre.split(' · ')[0]}
+                  <Icono emoji={r.icon} /> {r.nombre.split(' · ')[0]}
                 </button>
               ))}
             </div>
@@ -364,33 +359,10 @@ export function PlanoPanelProps() {
     )
   }
 
-  if (herramienta === 'agregar' && capa === 'cuartos') {
-    return (
-      <div className="space-y-3">
-        {aviso && (
-          <p className="rounded-lg border border-amber-400/35 bg-amber-400/10 px-2.5 py-2 text-[11px] leading-snug text-amber-200">
-            {aviso}
-          </p>
-        )}
-        <p className="text-[11px] leading-snug text-white/45">
-          {t(
-            'planos.agregarHint',
-            'Haz clic en cada cuadrícula del plano para marcar celdas vecinas. El contorno marrón muestra dónde irán los muros. Luego confirma.',
-          )}
-        </p>
-        {celdasMarcadas.length > 0 && (
-          <p className="text-[11px] text-white/50">
-            {celdasMarcadas.length} {t('planos.celdasMarcadas', 'celdas marcadas')}
-          </p>
-        )}
-      </div>
-    )
-  }
-
   return (
     <div className="space-y-3">
       {aviso && (
-        <p className="rounded-lg border border-amber-400/35 bg-amber-400/10 px-2.5 py-2 text-[11px] leading-snug text-amber-200">
+        <p className="rounded-lg border border-amber-400/35 bg-amber-400/10 px-2.5 py-2 text-[11px] leading-snug text-amber-400">
           {aviso}
         </p>
       )}
@@ -400,10 +372,15 @@ export function PlanoPanelProps() {
               'planos.pisosHint',
               'Selecciona cuartos o marca varias celdas exteriores (clic repetido). Elige textura y color en el panel.',
             )
-          : t(
-              'planos.ayuda',
-              'Con Agregar, marca celdas en el plano y pulsa Confirmar en las herramientas.',
-            )}
+          : capa === 'paredes'
+            ? t(
+                'planos.paredesHint',
+                'Toca una pared en el croquis o en el mapa 3D para ponerle muro, puerta o ventana.',
+              )
+            : t(
+                'planos.ayuda',
+                'Elige una forma abajo a la izquierda y toca el plano o el mapa 3D para dibujar cuartos.',
+              )}
       </p>
       {sinColocar.length > 0 && capa === 'cuartos' && (
         <div>
@@ -421,7 +398,7 @@ export function PlanoPanelProps() {
                 }}
                 className="rounded-lg border border-dashed border-white/15 px-2 py-1.5 text-left text-xs text-white/60 hover:border-emerald-400/40 hover:text-white"
               >
-                + {r.icon} {r.nombre.split(' · ')[0]}
+                + <Icono emoji={r.icon} /> {r.nombre.split(' · ')[0]}
               </button>
             ))}
           </div>

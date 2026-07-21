@@ -6,15 +6,18 @@ import type { AjusteFondoImagen } from '../../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, ajusteDesdeDb } from '../../house/fondosImagen'
 import { TEMAS } from '../../house/temas'
 import { useT } from '../../i18n/useT'
+import { Icono } from '../iconos/Icono'
+import { ColorPicker } from './ColorPicker'
 import { EditorFondoImagenPreview } from './EditorFondoImagenPreview'
 
 function MiniaturaFondo({ item }: { item: FondoImagen }) {
   const [url, setUrl] = useState<string | null>(null)
   useEffect(() => {
     const u = URL.createObjectURL(item.imagen)
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- la URL debe nacer en el efecto: con useMemo el remount de StrictMode la reutilizaría ya revocada
     setUrl(u)
     return () => URL.revokeObjectURL(u)
-  }, [item.id, item.imagen])
+  }, [item.imagen])
   if (!url) return <div className="h-full w-full bg-white/5" />
   return (
     <img src={url} alt="" className="h-full w-full object-cover" draggable={false} />
@@ -30,9 +33,11 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
   const inputRef = useRef<HTMLInputElement>(null)
   const {
     fondoId,
+    fondoColorFijo,
     fondoImagenActivo,
     fondosImagen,
     setFondoId,
+    setFondoColorFijo,
     setFondoImagenActivo,
     agregarFondoImagen,
     actualizarFondoImagen,
@@ -41,6 +46,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
     setAnimacionesFondo,
     temaGlobal,
   } = useDiseño()
+  const colorFijoActivo = fondoImagenActivo == null && fondoId === 'color_fijo'
   const temaNombre = TEMAS.find((tema) => tema.id === temaGlobal)?.nombre
 
   const [borrador, setBorrador] = useState<{
@@ -128,7 +134,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
           <button
             type="button"
             onClick={() => inputRef.current?.click()}
-            className="rounded-md bg-emerald-500/90 px-2 py-1 text-[10px] font-bold text-black hover:bg-emerald-400"
+            className="rounded-md bg-emerald-600 px-2 py-1 text-[10px] font-bold texto-cta hover:bg-emerald-600"
           >
             {t('editor.fondo.subir', '+ Subir imagen')}
           </button>
@@ -202,7 +208,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
                     <button
                       type="button"
                       onClick={() => void borrar(item.id!)}
-                      className="flex-1 border-l border-white/10 py-1 text-[9px] text-red-300/70 hover:bg-red-500/10"
+                      className="flex-1 border-l border-white/10 py-1 text-[9px] text-red-400/70 hover:bg-red-500/10"
                     >
                       {t('editor.fondo.borrar', 'Borrar')}
                     </button>
@@ -212,6 +218,23 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
             })}
           </div>
         )}
+      </div>
+
+      <div
+        className="space-y-2 rounded-lg border p-2.5"
+        style={{
+          borderColor: colorFijoActivo ? 'rgba(52,211,153,0.6)' : 'rgba(255,255,255,0.1)',
+          background: colorFijoActivo ? 'rgba(52,211,153,0.1)' : 'rgba(0,0,0,0.15)',
+        }}
+      >
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
+          {colorFijoActivo ? '✓ ' : ''}
+          {t('editor.fondo.colorFijo', 'Color fijo')}
+        </p>
+        <p className="text-[10px] leading-snug text-white/45">
+          {t('editor.fondo.colorFijoDesc', 'Un color sólido para el cielo que no cambia con la hora del día.')}
+        </p>
+        <ColorPicker value={fondoColorFijo} onChange={(c) => void setFondoColorFijo(c)} />
       </div>
 
       <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
@@ -228,16 +251,16 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
               borderColor:
                 fondoImagenActivo == null && fondoId === f.id
                   ? 'rgba(52,211,153,0.6)'
-                  : 'rgba(255,255,255,0.08)',
+                  : 'color-mix(in srgb, var(--ui-ink) 8%, transparent)',
               background:
                 fondoImagenActivo == null && fondoId === f.id
                   ? 'rgba(52,211,153,0.12)'
-                  : 'rgba(255,255,255,0.04)',
+                  : 'color-mix(in srgb, var(--ui-ink) 4%, transparent)',
             }}
             title={f.tema ? `Sugerido para tema ${f.tema}` : undefined}
           >
             <span className="flex items-center gap-1.5 text-sm">
-              <span>{f.icon}</span>
+              <span><Icono emoji={f.icon} /></span>
               <span className="text-white/85 font-medium">{f.nombre}</span>
             </span>
             <span

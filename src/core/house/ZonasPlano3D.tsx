@@ -19,7 +19,6 @@ import {
 import { MuroSegment } from './MuroRender'
 import { PisoCelda } from './PisoCelda'
 import { TechoLoseta } from './TechoLoseta'
-import { murosEfectivosZona } from './murosZona'
 import { zonaAnchorFootprint, ocupadoConZonas } from './planoGeometria'
 import { getPisoTipo, esSinPiso, type PisoTipoId } from './pisos'
 import { PisoCuadrantes3D } from './PisoCuadrantes3D'
@@ -66,6 +65,7 @@ function ZonaCuartoSingle({
 }) {
   const formas = formasCelda ?? z.formasCelda
   const conTecho = useHouse((s) => s.conTecho)
+  const apilado = !useHouse((s) => s.explotado)
   const seleccionPlano = usePlanos((s) => s.seleccion)
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
 
@@ -75,19 +75,16 @@ function ZonaCuartoSingle({
 
   const position = useMemo((): [number, number, number] => {
     const [x, , zW] = centroCuarto3D(anchor, footprint)
-    const y = nivelBaseY(z.nivel, conTecho) + (elevado ? 0.8 : 0)
+    const y = nivelBaseY(z.nivel, apilado) + (elevado ? 0.8 : 0)
     return [x, y, zW]
-  }, [anchor, rect, z.nivel, conTecho, elevado])
+  }, [anchor, rect, z.nivel, apilado, elevado])
 
   const ocupado = useMemo(
     () => ocupadoConZonas(z.nivel, ocupadoPorNivel, todasZonas, z.id),
     [z.nivel, z.id, ocupadoPorNivel, todasZonas],
   )
 
-  const muros = useMemo(() => {
-    const occ = ocupadoPorNivel.get(z.nivel) ?? new Set<string>()
-    return murosEfectivosZona(z, todasZonas, occ)
-  }, [z, todasZonas, ocupadoPorNivel])
+  const muros = useMemo(() => z.muros ?? {}, [z])
 
   const formasPorOff = useMemo(() => {
     const out: Record<string, import('./formasLoseta').CeldaFormaLoseta> = {}
@@ -101,7 +98,7 @@ function ZonaCuartoSingle({
   }, [formas, anchor, footprint])
 
   const segs = useMemo(() => {
-    const raw = roomWallSegments(anchor, footprint, ocupado, muros)
+    const raw = roomWallSegments(anchor, footprint, ocupado, muros, undefined, undefined, formasPorOff)
     return filtrarSegmentosPorForma(raw, formasPorOff)
   }, [anchor, footprint, ocupado, muros, formasPorOff])
 
@@ -382,9 +379,7 @@ export function ZonasPlano3D() {
   const zonas = zonasRepo.useAll() ?? []
 
   const bloquearClics =
-    planosActivo &&
-    planosCapa === 'cuartos' &&
-    (planosHerramienta === 'agregar' || planosHerramienta === 'editar-forma')
+    planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'editar-forma'
   const moverZonas =
     planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'mover'
 

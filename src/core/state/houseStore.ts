@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import * as THREE from 'three'
 import { getCuarto } from './cuartosStore'
+import { setCuartoAbierto } from '../house/movement'
 import { estaEnPuerta } from '../house/navigation'
 import { roomEntrance, nivelBaseY } from '../house/walls'
 import { roomWorldPos } from './layoutStore'
@@ -9,7 +10,7 @@ import { useCam } from './cameraStore'
 import { playerPos } from './playerPosition'
 import type { Acceso } from '../data/db'
 
-export { playerPos } from './playerPosition'
+export { playerPos, playerForward } from './playerPosition'
 
 /**
  * Estado global de la casa: a dónde camina el personaje y qué cuarto está abierto.
@@ -55,9 +56,15 @@ interface HouseState {
   interactRoom: (id: string) => void
   /** Abre el cuarto si el personaje está en la puerta. */
   tryEnterRoom: (id: string) => void
-  /** Vista 3D con techo cerrado en cada cuarto. */
+  /** Vista 3D con techo cerrado en cada cuarto. Independiente de `explotado`. */
   conTecho: boolean
   toggleTecho: () => void
+  /**
+   * Pisos separados en el aire para ver todos a la vez. Solo afecta a los niveles ≥ 1
+   * (los sótanos nunca se explotan): apilado = cada piso se asienta sobre el de abajo.
+   */
+  explotado: boolean
+  toggleExplotado: () => void
   /** Nivel/piso en el que está el personaje (0 = planta baja). */
   playerLevel: number
   /** Acceso al alcance y dirección posible (subir/bajar), o null. */
@@ -87,6 +94,7 @@ export const useHouse = create<HouseState>((set, get) => ({
     const room = getCuarto(id)
     if (!room) return
     const [x, , z] = roomWorldPos(id)
+    setCuartoAbierto(true)
     set((s) => ({
       selectedRoomId: id,
       target: new THREE.Vector3(x, 0, z),
@@ -105,10 +113,12 @@ export const useHouse = create<HouseState>((set, get) => ({
   activeRoom: null,
   openRoom: (id) => {
     useInteractUi.getState().clear()
+    setCuartoAbierto(true)
     set({ activeRoom: id, selectedRoomId: id })
   },
   closeRoom: () => {
     useInteractUi.getState().clear()
+    setCuartoAbierto(false)
     set({ activeRoom: null, selectedRoomId: null })
   },
   goToRoom: (id) => {
@@ -137,12 +147,15 @@ export const useHouse = create<HouseState>((set, get) => ({
     if (room && estaEnPuerta(roomWorldPos(id))) get().openRoom(id)
   },
   conTecho: false,
-  toggleTecho: () => {
-    const conTecho = !get().conTecho
-    set({ conTecho })
+  // Poner/quitar techo no mueve nada: los pisos solo los separa `explotado`.
+  toggleTecho: () => set({ conTecho: !get().conTecho }),
+  explotado: true,
+  toggleExplotado: () => {
+    const explotado = !get().explotado
+    set({ explotado })
     // Al apilar/explotar cambia la altura del nivel: la cámara mantiene al jugador en cuadro.
     const cam = useCam.getState()
-    const baseY = nivelBaseY(get().playerLevel, conTecho)
+    const baseY = nivelBaseY(get().playerLevel, !explotado)
     useCam.setState({ focus: [cam.focus[0], baseY, cam.focus[2]] })
   },
   playerLevel: 0,
@@ -186,9 +199,9 @@ export const useHouse = create<HouseState>((set, get) => ({
   },
   transicion: null,
   terminarTransicion: () => {
-    const { transicion, navTick, conTecho } = get()
+    const { transicion, navTick, explotado } = get()
     if (!transicion) return
-    const yFinal = nivelBaseY(transicion.hacia, conTecho)
+    const yFinal = nivelBaseY(transicion.hacia, !explotado)
     playerPos.y = yFinal
     // El personaje ya quedó en el aterrizaje (lo dejó Character); fija nivel y suéltalo.
     set({
