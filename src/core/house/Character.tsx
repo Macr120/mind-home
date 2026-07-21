@@ -1250,6 +1250,10 @@ export function Character() {
     const hayInput = f !== 0 || s !== 0 || kf !== 0 || ks !== 0
     // Flotando en el agua se avanza más despacio (braceo), como en una alberca real.
     const mult = (accionFrame.correr ? CORRER_MULT : 1) * (flotandoEnAgua ? 0.6 : 1)
+    // SPEED está calibrada por frame a 60 FPS: escalar por el delta real (acotado
+    // contra saltos de pestaña inactiva) para que la velocidad sea la misma sin
+    // importar el FPS del dispositivo (antes se veía lento en móviles con menos FPS).
+    const dtFactor = Math.min(delta, 0.05) * 60
     // Moverse (input directo o click-to-move) corta el baile y la cuerda.
     if (accionFrame.bailando && (hayInput || paso > 0.01)) useHerramienta.getState().setBailando(false)
     if (accionFrame.cuerda && (hayInput || paso > 0.01)) useHerramienta.getState().setCuerda(false)
@@ -1261,7 +1265,7 @@ export function Character() {
         // Iso: teclado + joystick relativos al azimut animado de la cámara.
         // camAnim.az se actualiza cada frame en CameraRig y refleja la vista actual.
         const v = vectorCam(kf, ks, f, s, camAnim.az)
-        _move.set(v.x * SPEED * mult, 0, v.z * SPEED * mult)
+        _move.set(v.x * SPEED * mult * dtFactor, 0, v.z * SPEED * mult * dtFactor)
       } else {
         // 1ª/3ª persona: teclado + joystick relativos a la dirección de la cámara perspectiva.
         camera.getWorldDirection(_fwd)
@@ -1271,7 +1275,7 @@ export function Character() {
         _right.set(-_fwd.z, 0, _fwd.x)
         _move.addScaledVector(_fwd, f + kf).addScaledVector(_right, s + ks)
         const mag = Math.min(1, _move.length())
-        if (mag > 0.001) _move.normalize().multiplyScalar(mag * SPEED * mult)
+        if (mag > 0.001) _move.normalize().multiplyScalar(mag * SPEED * mult * dtFactor)
         else _move.set(0, 0, 0)
       }
 
@@ -1298,8 +1302,9 @@ export function Character() {
     } else {
       // Sin input — clic en la casa o menú lateral: deslizar hacia el destino.
       const { target, freeMove } = useHouse.getState()
-      const nx = THREE.MathUtils.lerp(cur.x, target.x, 0.32)
-      const nz = THREE.MathUtils.lerp(cur.z, target.z, 0.32)
+      const factorDeslizar = Math.min(1, 0.32 * dtFactor)
+      const nx = THREE.MathUtils.lerp(cur.x, target.x, factorDeslizar)
+      const nz = THREE.MathUtils.lerp(cur.z, target.z, factorDeslizar)
 
       let x = cur.x
       let z = cur.z
