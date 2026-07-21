@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { playerPos } from '../state/houseStore'
 import { SIZE, WALL_H, AGUA_BAJO_BORDE } from './walls'
 import {
   esFormaCuadrada,
@@ -42,6 +43,10 @@ function MatAguaAlberca() {
 /** El agua nunca intercepta clics (arrastrar el cuarto, caminar): raycast nulo. */
 const sinRaycast = () => {}
 
+/** Lejos de este radio las olas se congelan (mutar ~64 vértices/celda cada frame suma). */
+const RADIO_OLAS = 26
+const _posOla = new THREE.Vector3()
+
 /** Subformas finas por cuadrante (NO,NE,SO,SE) o null. */
 type Subformas = (CeldaFormaLoseta | undefined)[] | null | undefined
 
@@ -52,9 +57,19 @@ function CeldaAguaOndulada({ lx, lz, y }: { lx: number; lz: number; y: number })
   const geo = useMemo(() => new THREE.PlaneGeometry(SIZE, SIZE, SEGS, SEGS), [])
   useEffect(() => () => geo.dispose(), [geo])
 
-  useFrame(({ clock }) => {
+  // Distancia al jugador re-medida ~2 veces/s (escalonada por celda).
+  const lejos = useRef({ acc: Math.random() * 0.5, si: false })
+  useFrame(({ clock }, delta) => {
     const mesh = ref.current
     if (!mesh) return
+    const l = lejos.current
+    l.acc += delta
+    if (l.acc >= 0.5) {
+      l.acc = 0
+      mesh.getWorldPosition(_posOla)
+      l.si = Math.hypot(playerPos.x - _posOla.x, playerPos.z - _posOla.z) > RADIO_OLAS
+    }
+    if (l.si) return
     const pos = (mesh.geometry as THREE.PlaneGeometry).attributes
       .position as THREE.BufferAttribute
     const t = clock.elapsedTime

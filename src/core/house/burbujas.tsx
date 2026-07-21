@@ -39,9 +39,19 @@ let ultimaEmision = 0
 export function Burbujas() {
   const meshes = useRef<(THREE.Mesh | null)[]>([])
   const escala = useDiseño((s) => s.avatar.escala)
+  const limpio = useRef(true) // los meshes nacen ocultos
 
   useFrame((_, delta) => {
     const ahora = performance.now()
+    // Toggle apagado y sin burbujas vivas (lo normal): cero trabajo por frame.
+    if (!accionFrame.burbujas && !pool.some((b) => b.activa)) {
+      if (!limpio.current) {
+        limpio.current = true
+        for (const m of meshes.current) if (m) m.visible = false
+      }
+      return
+    }
+    limpio.current = false
     if (accionFrame.burbujas && ahora - ultimaEmision > INTERVALO) {
       const b = pool.find((b) => !b.activa)
       if (b) {

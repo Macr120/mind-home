@@ -16,11 +16,18 @@ const RADIO_MONTAR = 4.4
  * Publica la celda de riel/montaña rusa al alcance (para el botón "Montar") y
  * mantiene sincronizada la red de vías con db.caminos.
  */
+let accTren = 0
 export function TrenProximity() {
   const filas = caminosRepo.useAll() ?? []
   useEffect(() => setRedRieles(filas), [filas])
 
-  useFrame(() => {
+  useFrame((_st3f, delta) => {
+    // Sin rieles no hay nada que ofrecer; y el sondeo va a ~4 veces/s
+    // (recorrer los caminos a 60 Hz era caro en móviles).
+    if (filas.length === 0) return
+    accTren += delta
+    if (accTren < 0.25) return
+    accTren = 0
     const st = useTren.getState()
     if (st.montado) return
     const casa = useHouse.getState()

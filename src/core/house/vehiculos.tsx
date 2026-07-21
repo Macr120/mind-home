@@ -386,9 +386,14 @@ const RADIO_MONTAR = 2.2
  * Detecta el vehículo del mapa más cercano al jugador (a pie, en planta baja,
  * sin editor ni transición) y lo publica para el prompt 2D "Subirte".
  */
+let accVehiculo = 0
 export function VehiculoProximity() {
   const setCerca = useMontura((s) => s.setCerca)
-  useFrame(() => {
+  useFrame((_st3f, delta) => {
+    // Sondeo ~4 veces/s: recorrer todos los objetos a 60 Hz era carísimo en móviles.
+    accVehiculo += delta
+    if (accVehiculo < 0.25) return
+    accVehiculo = 0
     if (useMontura.getState().instanciaId != null || monturaFrame.montado) return // conduciendo: no buscar
     if (trenFrame.montado) {
       setCerca(null, null) // arriba del tren no se ofrece otro vehículo

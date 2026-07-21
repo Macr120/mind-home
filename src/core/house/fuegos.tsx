@@ -53,8 +53,19 @@ export function lanzarCohete(x: number, y: number, z: number) {
 export function Fuegos() {
   const bolas = useRef<(THREE.Mesh | null)[]>([])
   const parts = useRef<(THREE.Mesh | null)[]>([])
+  const limpio = useRef(true) // los meshes nacen ocultos
 
   useFrame(() => {
+    // Sin cohetes activos (lo normal): una pasada final que oculta todo y listo.
+    if (!cohetes.some((c) => c.activo)) {
+      if (!limpio.current) {
+        limpio.current = true
+        for (const m of bolas.current) if (m) m.visible = false
+        for (const m of parts.current) if (m) m.visible = false
+      }
+      return
+    }
+    limpio.current = false
     const ahora = performance.now()
     cohetes.forEach((c, ci) => {
       const bola = bolas.current[ci]

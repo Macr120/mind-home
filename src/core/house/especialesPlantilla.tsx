@@ -59,6 +59,7 @@ export function Olla({ color, simple = false, nivel = null }: EspProps) {
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     const t = clock.elapsedTime
     if (tapa.current) {
       tapa.current.position.y = 0.1 + Math.abs(Math.sin(t * 9)) * 0.03 * e
@@ -124,6 +125,7 @@ export function Despertador({ color, simple = false, nivel = null }: EspProps) {
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     const t = clock.elapsedTime
     if (reloj.current) {
       reloj.current.position.x = Math.sin(t * 34) * 0.02 * e
@@ -190,6 +192,7 @@ export function LibreroLibro({ color, simple = false, nivel = null }: EspProps) 
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     const t = clock.elapsedTime
     if (libro.current) {
       libro.current.position.z = -0.02 + e * 0.4
@@ -262,6 +265,7 @@ export function GloboTerraqueo({ color, simple = false, nivel = null }: EspProps
   useFrame((_, dt) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     if (esfera.current) esfera.current.rotation.y += dt * 0.5 * e
   })
   const continentes: [number, number, number][] = [
@@ -314,6 +318,7 @@ export function EstanteriaHerramientas({ color, simple = false, nivel = null }: 
   useFrame(() => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     const ap = e * (Math.PI / 2.1)
     if (puertaIzq.current) puertaIzq.current.rotation.y = ap
     if (puertaDer.current) puertaDer.current.rotation.y = -ap
@@ -404,6 +409,7 @@ export function RepisaJuegos({ color, simple = false, nivel = null }: EspProps) 
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     if (cima.current) cima.current.rotation.z = Math.sin(clock.elapsedTime * 6) * 0.05 * e
   })
   return (
@@ -461,7 +467,12 @@ const _weAcc = new THREE.Euler()
 
 /** Al caminar cerca (a pie, sin editor/montura/otro juego), pide usar la acción. */
 function useAbordarAccion(tipo: TipoAccionCuarto, objetoId: number | undefined, ref: { current: THREE.Group | null }) {
-  useFrame(() => {
+  // Sondeo ~5 veces/s escalonado: un getWorldPosition por usable cada frame sumaba en móviles.
+  const acc = useRef(Math.random() * 0.2)
+  useFrame((_st3f, delta) => {
+    acc.current += delta
+    if (acc.current < 0.2) return
+    acc.current = 0
     if (objetoId == null || !ref.current) return
     if (useAccionCuarto.getState().instanciaId != null) return
     if (useParque.getState().instanciaId != null || useMontura.getState().instanciaId != null) return
@@ -589,6 +600,7 @@ export function EscritorioNoticias({ color, simple = false, nivel = null }: EspP
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     if (cuerpo.current) cuerpo.current.scale.setScalar(1 + Math.sin(clock.elapsedTime * 3) * 0.06 * e)
   })
   return (
@@ -713,6 +725,7 @@ export function PianoObj({ color, simple = false, nivel = null }: EspProps) {
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     if (!piano.current) return
     const t = clock.elapsedTime
     piano.current.position.x = Math.sin(t * 30) * 0.02 * e
@@ -784,6 +797,7 @@ export function Arbol({ color, simple = false, nivel = null }: EspProps) {
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
     const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (e === 0) return // en reposo no hay nada que animar
     if (!planta.current) return
     const t = clock.elapsedTime
     planta.current.rotation.y = Math.sin(t * 28) * 0.06 * e

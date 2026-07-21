@@ -57,7 +57,15 @@ export function MuroLibrePuerta3D({
   // Yaw para alinear las losas (corredera/portón) a lo largo de la pared.
   const yaw = Math.atan2(-ab.dirz, ab.dirx)
 
-  useFrame(() => {
+  // En reposo, sondeo ~6 veces/s (mismo ahorro que VanoFachada); el primer
+  // frame corre siempre para aplicar la pose cerrada.
+  const accPuerta = useRef(1)
+  useFrame((_st3f, delta) => {
+    if (apertura.current === 0) {
+      accPuerta.current += delta
+      if (accPuerta.current < 0.15) return
+      accPuerta.current = 0
+    }
     const lvl = useHouse.getState().playerLevel
     const cerca =
       lvl === nivel &&
@@ -66,6 +74,8 @@ export function MuroLibrePuerta3D({
         playerPos.z - (ab.cz + (mundoOffset?.z ?? 0)),
       ) < 2.4
     apertura.current = THREE.MathUtils.lerp(apertura.current, cerca ? 1 : 0, 0.18)
+    // Corte a 0 exacto: permite saltarse el trabajo con la puerta cerrada.
+    if (!cerca && apertura.current < 0.004) apertura.current = 0
     const a = apertura.current
     if (tipo === 'corredera') {
       const g = correderaRef.current

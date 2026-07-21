@@ -36,6 +36,10 @@ const ALTURA_NOMBRE: Record<TipoAnimal, number> = { gallina: 2.05, cerdo: 2.05, 
 /** Tinte del animal decaído (sin comida ni mimos). */
 const GRIS_DECAIDO = new THREE.Color('#9ca3af')
 
+/** Lejos de este radio el vagabundeo corre a ~4 ticks/s (ahorro con muchos animales). */
+const RADIO_VIVO = 26
+const _posMundo = new THREE.Vector3()
+
 /** Accesorio de un corral en coordenadas locales (relativas al centro del rect). */
 interface AccesorioLocal {
   tipo: TipoAccesorio
@@ -361,6 +365,10 @@ function AnimalVivo({
     /** Accesorio con el que está jugando + segundos que le quedan. */
     jugando: null as TipoAccesorio | null,
     resta: 0,
+    /** Gate de distancia: lejos del jugador el animal solo tickea de a ratos. */
+    accDist: Math.random() * 0.5,
+    lejos: false,
+    accTick: 0,
   })
 
   // Ancla de la etiqueta de nombre (posición mundial actualizada por frame).
@@ -392,6 +400,20 @@ function AnimalVivo({
   useFrame((_, dt) => {
     if (!g.current) return
     const s = st.current
+    // Lejos del jugador el animal no se aprecia: su física corre a ~4 ticks/s
+    // en vez de cada frame (la distancia se re-mide ~2 veces/s, escalonada).
+    s.accDist += dt
+    if (s.accDist >= 0.5) {
+      s.accDist = 0
+      g.current.getWorldPosition(_posMundo)
+      s.lejos = Math.hypot(playerPos.x - _posMundo.x, playerPos.z - _posMundo.z) > RADIO_VIVO
+    }
+    if (s.lejos) {
+      s.accTick += dt
+      if (s.accTick < 0.25) return
+      dt = s.accTick
+      s.accTick = 0
+    }
     const d = Math.min(dt, 0.1)
     if (!hambriento) {
       if (s.jugando) {
@@ -586,9 +608,15 @@ export function Granja3D() {
  * Detecta el corral junto al personaje (a pie, planta baja, sin editores) para
  * la burbuja de cuidar en juego, con histéresis para no parpadear en el borde.
  */
+let accGranja = 0
 export function GranjaProximity() {
   const corrales = corralesRepo.useAll() ?? []
-  useFrame(() => {
+  useFrame((_st3f, delta) => {
+    // Sin corrales no hay nada que detectar; y el sondeo va a ~5 veces/s.
+    if (corrales.length === 0) return
+    accGranja += delta
+    if (accGranja < 0.2) return
+    accGranja = 0
     const st = useGranjaCerca.getState()
     const { transicion, playerLevel } = useHouse.getState()
     const bloqueado =

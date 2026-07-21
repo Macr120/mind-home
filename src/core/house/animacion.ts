@@ -97,11 +97,18 @@ export function actualizarEnergia(
   obj: THREE.Object3D,
   anim: AnimacionModelo,
   nivel: number | null,
-  energia: { current: number },
+  energia: { current: number; acc?: number },
 ): number {
   let objetivo = 0
   if (anim.activacion === 'siempre') objetivo = 1
   else if (anim.activacion === 'proximidad') {
+    // En reposo (energía 0) la cercanía se re-mide solo 1 de cada 12 frames:
+    // un getWorldPosition por objeto animable cada frame sumaba en móviles.
+    if (energia.current === 0) {
+      energia.acc = (energia.acc ?? 0) + 1
+      if (energia.acc < 12) return 0
+      energia.acc = 0
+    }
     const nivelOk = nivel == null || useHouse.getState().playerLevel === nivel
     if (nivelOk) {
       obj.getWorldPosition(_mundo)

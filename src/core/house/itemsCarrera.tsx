@@ -215,8 +215,23 @@ export function ItemsCarrera3D() {
   const refCajas = useRef<(THREE.Mesh | null)[]>([])
   const refBananas = useRef<(THREE.Mesh | null)[]>([])
   const refBombas = useRef<(THREE.Mesh | null)[]>([])
+  const ocultos = useRef(false)
 
   useFrame(() => {
+    // Sin ítems en pista (lo normal fuera de carrera): una sola pasada que
+    // oculta todo y luego cero trabajo por frame.
+    const vacio =
+      cajas.length === 0 && !bananas.some((b) => b.activo) && !bombas.some((b) => b.activo)
+    if (vacio) {
+      if (!ocultos.current) {
+        ocultos.current = true
+        for (const m of refCajas.current) if (m) m.visible = false
+        for (const m of refBananas.current) if (m) m.visible = false
+        for (const m of refBombas.current) if (m) m.visible = false
+      }
+      return
+    }
+    ocultos.current = false
     const ahora = performance.now()
     const esc = carreraFrame.escala
     for (let i = 0; i < MAX_CAJAS; i++) {

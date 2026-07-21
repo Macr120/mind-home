@@ -3,7 +3,6 @@ import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
-import { esAppNativa } from '../plataforma'
 import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
 import { Character } from './Character'
@@ -288,9 +287,7 @@ export function House() {
         orthographic
         camera={{ position: [22, 22, 22], zoom: 17, near: -100, far: 300 }}
         style={{ position: 'absolute', inset: 0 }}
-        // En la app nativa (móvil) fijo en 1x: menos píxeles que sombrear por
-        // frame es la ganancia más barata de FPS en GPUs débiles.
-        dpr={esAppNativa() ? 1 : [1, 1.5]}
+        dpr={[1, 1.5]}
         gl={{ toneMapping: THREE.ACESFilmicToneMapping }}
         onCreated={({ gl }) => {
           // La casa es estática: renderiza la sombra UNA vez y congélala.

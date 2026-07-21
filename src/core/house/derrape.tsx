@@ -54,6 +54,8 @@ export function MarcasDerrape() {
   useFrame(() => {
     const m = ref.current
     if (!m) return
+    // Sin marcas vivas (lo normal fuera del derrape): cero trabajo por frame.
+    if (marcas.length === 0 && m.count === 0) return
     const ahora = performance.now()
     let n = 0
     for (let i = 0; i < Math.min(marcas.length, MAX_MARCAS); i++) {
@@ -67,6 +69,12 @@ export function MarcasDerrape() {
       dummy.updateMatrix()
       m.setMatrixAt(n, dummy.matrix)
       n++
+    }
+    // Todas desvanecidas: vaciar el buffer (con idx a 0 para no dejar huecos)
+    // habilita el early-return de arriba.
+    if (n === 0 && marcas.length > 0) {
+      marcas.length = 0
+      idx = 0
     }
     m.count = n
     m.instanceMatrix.needsUpdate = true

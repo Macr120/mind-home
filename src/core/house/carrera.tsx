@@ -39,12 +39,20 @@ export function CarreraRuntime() {
   }, [filas])
 
   const prev = useRef({ x: 0, z: 0 })
+  const accIdle = useRef(0)
 
   useFrame((_, delta) => {
     const s = useCarrera.getState()
     // Escala de los corredores: encogidos mientras se compite (transición suave).
     const objEsc = s.fase === 'semaforo' || s.fase === 'corriendo' ? ESCALA_CARRERA : 1
     carreraFrame.escala += (objEsc - carreraFrame.escala) * 0.08
+    // Sin carrera activa solo se sondea "¿estás parado en la meta?": ~5 veces/s
+    // basta (worldToCelda + celdaMeta + metaLibre cada frame sumaban en móviles).
+    if (!s.fase) {
+      accIdle.current += delta
+      if (accIdle.current < 0.2) return
+      accIdle.current = 0
+    }
     const { transicion, playerLevel, activeRoom } = useHouse.getState()
     const editMode = useLayout.getState().editMode
     const tipoMontado = monturaFrame.montado ? monturaFrame.tipo : null

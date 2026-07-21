@@ -159,12 +159,23 @@ function VanoFachada({
         }
       : undefined
 
-  useFrame(() => {
+  // Con la hoja en reposo la cercanía se sondea ~6 veces/s (hay un VanoFachada
+  // por puerta de CADA cuarto: el hypot+lerp de todos cada frame sumaba en
+  // móviles). El primer frame corre siempre para aplicar la pose cerrada.
+  const accVano = useRef(1)
+  useFrame((_st3f, delta) => {
+    if (apertura.current === 0) {
+      accVano.current += delta
+      if (accVano.current < 0.15) return
+      accVano.current = 0
+    }
     const wx = roomPos[0] + vano.cx
     const wz = roomPos[2] + vano.cz
     const lvl = useHouse.getState().playerLevel
     const cerca = lvl === nivel && Math.hypot(playerPos.x - wx, playerPos.z - wz) < umbral
     apertura.current = THREE.MathUtils.lerp(apertura.current, cerca ? 1 : 0, 0.18)
+    // Corte a 0 exacto: permite saltarse el trabajo con la puerta cerrada.
+    if (!cerca && apertura.current < 0.004) apertura.current = 0
     const a = apertura.current
 
     if (vano.tipo === 'porton') {

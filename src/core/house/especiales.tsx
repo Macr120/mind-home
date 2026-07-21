@@ -271,6 +271,8 @@ function MatAgua({ opacidad = 0.55 }: { opacidad?: number }) {
   return <meshStandardMaterial color={AGUA} transparent opacity={opacidad} roughness={0.1} metalness={0.1} />
 }
 
+const _posChorro = new THREE.Vector3()
+
 /**
  * Chorro de gotas en un único `instancedMesh` (1 draw call por chorro). Cada
  * gota recorre una parábola de `origen` a `destino` con fase propia; el `% 1`
@@ -357,7 +359,20 @@ function ChorroAgua({
     pintar(0)
   })
 
-  useFrame(({ clock }) => pintar(clock.elapsedTime))
+  // Lejos del jugador las gotas no se aprecian: se congela la reconstrucción
+  // de matrices (la distancia se re-mide ~2 veces/s, escalonada por fuente).
+  const lejos = useRef({ acc: Math.random() * 0.5, si: false })
+  useFrame(({ clock }, delta) => {
+    const l = lejos.current
+    l.acc += delta
+    if (l.acc >= 0.5 && ref.current) {
+      l.acc = 0
+      ref.current.getWorldPosition(_posChorro)
+      l.si = Math.hypot(playerPos.x - _posChorro.x, playerPos.z - _posChorro.z) > 26
+    }
+    if (l.si) return
+    pintar(clock.elapsedTime)
+  })
 
   return (
     // Sin frustumCulled: el boundingSphere no sigue a las matrices mutadas.
@@ -735,8 +750,13 @@ const RADIO_ABORDAR = 2.6
  * sin editor ni transición): no hay botón, se entra "de forma natural". Tras
  * bajarse (`parqueFrame.recienId`) no se re-activa hasta alejarse.
  */
+let accParque = 0
 export function ParqueProximity() {
-  useFrame(() => {
+  useFrame((_st3f, delta) => {
+    // Sondeo ~4 veces/s: recorrer todos los objetos a 60 Hz era carísimo en móviles.
+    accParque += delta
+    if (accParque < 0.25) return
+    accParque = 0
     const parque = useParque.getState()
     if (parque.instanciaId != null) return // ya jugando
     if (useMontura.getState().instanciaId != null) return // en un vehículo

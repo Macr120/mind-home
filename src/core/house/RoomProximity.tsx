@@ -5,11 +5,16 @@ import { useHouse } from '../state/houseStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 
 /** Actualiza qué puerta está al alcance y si el cuarto seleccionado puede abrirse. */
+let accRooms = 0
 export function RoomProximity() {
   const setNearRoomId = useHouse((s) => s.setNearRoomId)
   const setCanEnterSelected = useHouse((s) => s.setCanEnterSelected)
 
-  useFrame(() => {
+  useFrame((_st3f, delta) => {
+    // Sondeo ~5 veces/s: recorrer todos los cuartos a 60 Hz sumaba en móviles.
+    accRooms += delta
+    if (accRooms < 0.2) return
+    accRooms = 0
     const placed = useLayout.getState().placed
     const niveles = useLayout.getState().niveles
     // Solo cuartos del nivel actual del personaje (evita detectar pisos equivocados).

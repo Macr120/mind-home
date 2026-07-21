@@ -74,9 +74,20 @@ export function dispararRafaga(
 export function RafagasLaser() {
   const grupos = useRef<(THREE.Group | null)[]>([])
   const meshChispas = useRef<(THREE.Mesh | null)[]>([])
+  const limpio = useRef(true) // los meshes nacen ocultos
 
   useFrame((_, delta) => {
     const ahora = performance.now()
+    // Sin bolts ni chispas vivos (lo normal): una pasada que oculta todo y listo.
+    if (!bolts.some((b) => b.activo) && !chispas.some((c) => c.hasta > ahora)) {
+      if (!limpio.current) {
+        limpio.current = true
+        for (const g of grupos.current) if (g) g.visible = false
+        for (const m of meshChispas.current) if (m) m.visible = false
+      }
+      return
+    }
+    limpio.current = false
     bolts.forEach((b, i) => {
       const g = grupos.current[i]
       if (!g) return

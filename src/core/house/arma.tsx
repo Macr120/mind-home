@@ -59,8 +59,15 @@ const RADIO_TOMAR = 1.1
  * soltarla se vuelve a colocar desde el inventario. Solo a pie, en planta baja
  * y fuera del editor (mismas guardas que ParqueProximity).
  */
+let accPistola = 0
 export function PistolaProximity() {
-  useFrame(() => {
+  useFrame((_st3f, delta) => {
+    // Sondeo ~4 veces/s (como MinijuegosCanchas): recorrer todos los objetos a
+    // 60 Hz era de lo más caro del frame en móviles, y caminar hasta una
+    // pistola no necesita esa resolución.
+    accPistola += delta
+    if (accPistola < 0.25) return
+    accPistola = 0
     if (useMontura.getState().instanciaId != null) return // en un vehículo
     if (useParque.getState().instanciaId != null) return // usando un juego de parque
     const { transicion, playerLevel } = useHouse.getState()
