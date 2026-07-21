@@ -96,6 +96,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const [texto, setTexto] = useState('')
   const [abierto, setAbierto] = useState(false)
   const plegado = useHud((s) => s.plegado.chat)
+  const movilVertical = useHud((s) => s.movilVertical)
   const [retagId, setRetagId] = useState<number | null>(null)
   const [imagen, setImagen] = useState<ImagenLocal | null>(null)
   const [grabando, setGrabando] = useState(false)
@@ -141,7 +142,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
    * viene abierto); al cerrarlo vuelve a su barra. El plegado vive en el store del HUD.
    */
   useEffect(() => {
-    useHud.getState().setPlegado('chat', menuAbierto)
+    // Abrir el menú lateral pliega el chat. Al cerrarlo, en escritorio vuelve a
+    // su barra; en teléfono vertical se queda plegado (default minimalista).
+    const hud = useHud.getState()
+    if (menuAbierto) hud.setPlegado('chat', true)
+    else if (!hud.movilVertical) hud.setPlegado('chat', false)
   }, [menuAbierto])
 
   // Previsualización en vivo de a dónde irá la entrada.
@@ -456,15 +461,23 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const recientes = entradas?.slice(0, 15) ?? []
   const memoriasVigentes = memorias?.filter((m) => m.vigente) ?? []
   const chatPlegado = plegado && !conversacion
+  // Plegado en teléfono vertical: solo queda la carita, así que el contenedor se
+  // encoge a su contenido (en vez de ancho completo invisible) para no tapar con
+  // su z-20 los tiradores de las esquinas inferiores que quedan por debajo.
+  const angostoMovil = chatPlegado && movilVertical
 
   return (
     // left-44: margen al joystick (izq.); right-48: deja hueco con el cubo/botones de rotación (der.).
     // Con menú lateral: anclado a la derecha del sidebar (w-60 = 15rem).
     <div
-      className={[
-        'absolute bottom-4 z-20 min-w-0 select-none',
-        menuAbierto ? 'left-60 right-4 sm:right-48' : 'left-4 right-4 sm:left-44 sm:right-48',
-      ].join(' ')}
+      className={
+        angostoMovil
+          ? 'absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
+          : [
+              'absolute bottom-4 z-20 min-w-0 select-none',
+              menuAbierto ? 'left-60 right-4 sm:right-48' : 'left-4 right-4 sm:left-44 sm:right-48',
+            ].join(' ')
+      }
     >
       {/* Conversación tipo chat con el asistente (estilo WhatsApp) */}
       {conversacion && <ChatConversacion />}
@@ -714,7 +727,9 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           type="button"
           onClick={() => useHud.getState().setPlegado('chat', false)}
           title={`${nombreAsistente(t, mascota)} · ${t('chat.abrir', 'Abrir chat')}`}
-          className="ui-hud ml-auto flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10"
+          className={`ui-hud flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10 ${
+            angostoMovil ? '' : 'ml-auto'
+          }`}
         >
           <Icono emoji={mascota.emoji} />
         </button>

@@ -35,6 +35,8 @@ export function NavControls() {
   // Jugando en una cancha: el botón de acción ocupa el hueco del cubo/LookPad.
   const jugandoCancha = useJuegoCancha((s) => s.fase === 'jugando')
   const plegado = useHud((s) => s.plegado.infDer)
+  const movilVertical = useHud((s) => s.movilVertical)
+  const chatPlegado = useHud((s) => s.plegado.chat)
 
   // El editor 3D solo vive en perspectiva: al volver a la vista iso se cierra.
   useEffect(() => {
@@ -71,6 +73,10 @@ export function NavControls() {
 
   // En plena carrera el hueco lo ocupa la pila de carrera (derrape + ítem) de CarreraOverlay.
   if (faseCarrera === 'semaforo' || faseCarrera === 'corriendo') return null
+
+  // Teléfono vertical con el chat abierto: los controles de vista ceden el bajo
+  // (chat ⊕ esquinas). El editor sí conserva sus controles.
+  if (movilVertical && !chatPlegado && !editMode) return null
 
   const reiniciarVista = () => centrarIso(mapFocusPos())
   const vistaIso = vista === 'iso'

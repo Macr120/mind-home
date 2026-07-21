@@ -134,6 +134,8 @@ export function MenuHerramientas() {
   const equipar = useHerramienta((s) => s.equipar)
   const soltarTodo = useHerramienta((s) => s.soltarTodo)
   const plegado = useHud((s) => s.plegado.infIzq)
+  const movilVertical = useHud((s) => s.movilVertical)
+  const chatPlegado = useHud((s) => s.plegado.chat)
 
   const cerrar = () => {
     setAbierta(false)
@@ -196,6 +198,9 @@ export function MenuHerramientas() {
   const elegir = (h: Herramienta) => equipar(h)
 
   const categoriaActual = catAbierta ? categorias.find((c) => c.id === catAbierta) : undefined
+
+  // Teléfono vertical con el chat abierto: el abanico cede el bajo (chat ⊕ esquinas).
+  if (movilVertical && !chatPlegado) return null
 
   return (
     <>
