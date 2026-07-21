@@ -51,7 +51,7 @@ import { buscarMuro } from './PlanoMuroSelector3D'
 import { useGrafitis } from '../state/grafitiStore'
 
 const RADIO = 0.4   // radio del personaje para colisiones
-const SPEED = 0.022 // velocidad base — precisa para navegar cuartos
+const SPEED = 0.026 // velocidad base (a pie y vehículos escalan desde aquí)
 /** Al flotar en una alberca, el origen del avatar (sus pies) queda este tanto bajo la lámina. */
 const FLOTA_SUMERGIDO = 1.05
 
