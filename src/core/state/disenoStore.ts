@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto } from '../data/db'
+import { esAppNativa } from '../plataforma'
 import { filaSeed } from '../data/sync/syncables'
 import { esMueblePrincipal } from '../house/muebles'
 import { aplicarOverridesTema, TEMAS, type TemaId, type TemaOverride } from '../house/temas'
@@ -577,10 +578,10 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   temasOverrides: {},
   temaRev: 0,
   estiloVisual: 'normal',
-  efectosVisuales: true,
+  efectosVisuales: !esAppNativa(),
   efectosConfig: configDeEstilo('normal'),
   estiloSinTema: 'normal',
-  efectosSinTema: true,
+  efectosSinTema: !esAppNativa(),
   efectosConfigSinTema: configDeEstilo('normal'),
   techoTipo: null,
   fondoId: 'auto',
@@ -797,7 +798,10 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const temasOverrides: Partial<Record<TemaId, TemaOverride>> = {}
     const temaOvIds: Partial<Record<TemaId, number[]>> = {}
     let estiloSinTema: EstiloVisualId = 'normal'
-    let efectosSinTema = true
+    // En la app nativa (Capacitor) el postprocesado (oclusión + bloom) es demasiado
+    // caro para el GPU del teléfono: arranca apagado por defecto (el usuario lo
+    // puede encender igual desde Configuraciones si su equipo aguanta).
+    let efectosSinTema = !esAppNativa()
     let efectosConfigSinTema: EfectosConfig = configDeEstilo('normal')
     let techoTipo: TechoTipoId | null = null
     let fondoId: FondoId = 'auto'

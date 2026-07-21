@@ -419,7 +419,18 @@ const ALTURA_MAX_OVNI = 35
  * vehículo (el OVNI vuela y las ignora); al bajarse persiste la pose con
  * `setObjetoPose` y deja al personaje a un costado.
  */
-function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, persp: boolean) {
+function conducir(
+  cur: THREE.Vector3,
+  group: THREE.Group,
+  camera: THREE.Camera,
+  persp: boolean,
+  dt: number,
+) {
+  // Igual que a pie: def.velocidad/giro y las constantes SUBIDA_OVNI/boost/drift
+  // están calibradas por frame a 60 FPS — se escalan por el delta real (acotado)
+  // para no ir lento en dispositivos con menos FPS. OJO: no confundir con la
+  // variable local `delta` de abajo (esa es un ángulo, no tiempo).
+  const dtFactor = Math.min(dt, 0.3) * 60
   const montura = useMontura.getState()
   const id = montura.instanciaId
   const prestado = montura.prestado
@@ -445,7 +456,7 @@ function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, 
   if (monturaFrame.desmontarPendiente) {
     if (esOvni && cur.y > targetY + 0.05) {
       monturaFrame.vel = 0
-      cur.y = Math.max(targetY, cur.y - SUBIDA_OVNI * 1.4)
+      cur.y = Math.max(targetY, cur.y - SUBIDA_OVNI * 1.4 * dtFactor)
       playerPos.copy(cur)
       return
     }
@@ -535,8 +546,8 @@ function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, 
   let ux = mx
   let uz = mz
   if (monturaFrame.drift) {
-    const nx = monturaFrame.dirX + (mx - monturaFrame.dirX) * 0.055
-    const nz = monturaFrame.dirZ + (mz - monturaFrame.dirZ) * 0.055
+    const nx = monturaFrame.dirX + (mx - monturaFrame.dirX) * Math.min(1, 0.055 * dtFactor)
+    const nz = monturaFrame.dirZ + (mz - monturaFrame.dirZ) * Math.min(1, 0.055 * dtFactor)
     const len = Math.hypot(nx, nz) || 1
     monturaFrame.dirX = nx / len
     monturaFrame.dirZ = nz / len
@@ -547,9 +558,9 @@ function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, 
       Math.sin(monturaFrame.heading - angDir),
       Math.cos(monturaFrame.heading - angDir),
     )
-    if (Math.abs(deslice) > 0.3) monturaFrame.driftCarga += 1 / 60
+    if (Math.abs(deslice) > 0.3) monturaFrame.driftCarga += dt
   }
-  if (monturaFrame.boost > 0) monturaFrame.boost -= 1 / 60
+  if (monturaFrame.boost > 0) monturaFrame.boost -= dt
   // Turbo: la herramienta "correr" también acelera el vehículo. La superficie
   // premia el asfalto de la pista (y castiga el pasto en plena carrera).
   const vel =
@@ -561,7 +572,8 @@ function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, 
     // En carrera se corre encogido: reducir la velocidad de mundo para que se sienta natural.
     (carreraFrame.corriendo ? VEL_CARRERA : 1) *
     // Trompo por banana/bomba: pierdes el control y casi toda la velocidad.
-    multiplicadorTrompo(performance.now())
+    multiplicadorTrompo(performance.now()) *
+    dtFactor
   const dx = ux * vel
   const dz = uz * vel
 
@@ -601,7 +613,7 @@ function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, 
   let ny: number
   if (esOvni) {
     const vy = Math.max(-1, Math.min(1, kv + pv))
-    ny = Math.max(targetY + 0.15, Math.min(ALTURA_MAX_OVNI, cur.y + vy * SUBIDA_OVNI))
+    ny = Math.max(targetY + 0.15, Math.min(ALTURA_MAX_OVNI, cur.y + vy * SUBIDA_OVNI * dtFactor))
     saltoAplicado = 0
   } else {
     // Brincos (salto/cuerda) también montado: el vehículo salta con el jugador.
@@ -615,9 +627,9 @@ function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, 
   let giroAplicado = 0
   if (mx !== 0 || mz !== 0) {
     const objetivo = Math.atan2(mx, mz)
-    const delta = Math.atan2(Math.sin(objetivo - monturaFrame.heading), Math.cos(objetivo - monturaFrame.heading))
-    const lim = def.giro * (monturaFrame.drift ? 1.8 : 1)
-    giroAplicado = Math.max(-lim, Math.min(lim, delta))
+    const anguloDif = Math.atan2(Math.sin(objetivo - monturaFrame.heading), Math.cos(objetivo - monturaFrame.heading))
+    const lim = def.giro * (monturaFrame.drift ? 1.8 : 1) * dtFactor
+    giroAplicado = Math.max(-lim, Math.min(lim, anguloDif))
     monturaFrame.heading += giroAplicado
   }
 
@@ -633,7 +645,7 @@ function conducir(cur: THREE.Vector3, group: THREE.Group, camera: THREE.Camera, 
   monturaFrame.faseRueda += velReal
   const conLean = monturaFrame.tipo === 'bicicleta' || monturaFrame.tipo === 'motocicleta'
   const leanObjetivo = monturaFrame.drift ? -giroAplicado * 6 : conLean ? -giroAplicado * 3 : 0
-  monturaFrame.lean = THREE.MathUtils.lerp(monturaFrame.lean, leanObjetivo, 0.15)
+  monturaFrame.lean = THREE.MathUtils.lerp(monturaFrame.lean, leanObjetivo, Math.min(1, 0.15 * dtFactor))
   // Huellas de las llantas mientras desliza (apenas sobre el asfalto de la pista).
   if (monturaFrame.drift && velReal > nominal * 0.3)
     registrarMarcasDerrape(x, ny + 0.275, z, monturaFrame.heading, carreraFrame.escala)
@@ -1236,7 +1248,7 @@ export function Character() {
     }
     // Montado en un vehículo: conducirlo (turbo y brincos se aplican dentro).
     if (monturaFrame.montado) {
-      conducir(cur, ref.current, camera, vista !== 'iso')
+      conducir(cur, ref.current, camera, vista !== 'iso', delta)
       return
     }
     // Salto/cuerda: parábolas sobre la Y de piso; se resta el offset del frame
@@ -1252,8 +1264,9 @@ export function Character() {
     const mult = (accionFrame.correr ? CORRER_MULT : 1) * (flotandoEnAgua ? 0.6 : 1)
     // SPEED está calibrada por frame a 60 FPS: escalar por el delta real (acotado
     // contra saltos de pestaña inactiva) para que la velocidad sea la misma sin
-    // importar el FPS del dispositivo (antes se veía lento en móviles con menos FPS).
-    const dtFactor = Math.min(delta, 0.05) * 60
+    // importar el FPS del dispositivo (antes se veía lento en móviles con menos FPS:
+    // medido hasta ~150-300ms/frame en Android, por eso el tope va holgado).
+    const dtFactor = Math.min(delta, 0.3) * 60
     // Moverse (input directo o click-to-move) corta el baile y la cuerda.
     if (accionFrame.bailando && (hayInput || paso > 0.01)) useHerramienta.getState().setBailando(false)
     if (accionFrame.cuerda && (hayInput || paso > 0.01)) useHerramienta.getState().setCuerda(false)
