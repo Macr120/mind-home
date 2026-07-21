@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mind Home</string>
+    <string name="title_activity_main">Mind Home</string>
+    <string name="package_name">com.macr120.mindhome</string>
+    <string name="custom_url_scheme">com.macr120.mindhome</string>
+</resources>

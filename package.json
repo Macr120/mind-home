@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",
+    "@capacitor/android": "^8.4.2",
+    "@capacitor/core": "^8.4.2",
     "@gltf-transform/core": "^4.4.1",
     "@gltf-transform/functions": "^4.4.1",
     "@react-three/drei": "^10.7.7",
@@ -31,6 +33,7 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.4.2",
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.12.3",
     "@types/react": "^19.2.14",

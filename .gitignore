@@ -27,3 +27,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Android (Capacitor) — solo la config del proyecto nativo, no lo generado/local
+android/app/build
+android/build
+android/.gradle
+android/local.properties
+android/.idea
+android/captures
+android/.externalNativeBuild
+android/.cxx
+*.keystore
+!debug.keystore
