@@ -104,7 +104,7 @@ function FormularioAcceso() {
         className={inputCls}
       />
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
-      {aviso && <p className="text-[11px] leading-snug text-emerald-400/90">{aviso}</p>}
+      {aviso && <p className="text-[11px] leading-snug text-accent/90">{aviso}</p>}
       <button
         type="button"
         onClick={() => void enviar()}

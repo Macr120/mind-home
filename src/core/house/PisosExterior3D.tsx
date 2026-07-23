@@ -50,7 +50,9 @@ export function PisosExterior3D() {
         }
         return
       }
-      if (editMode) return
+      // Con un modo de construcción activo (editor o atajo de la rueda) el tap
+      // construye, no mueve al personaje.
+      if (editMode || usePlanos.getState().activo) return
       if (useCam.getState().vista !== 'iso') return
       e.stopPropagation()
       clearInteract()

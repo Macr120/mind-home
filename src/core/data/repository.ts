@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type PisoExteriorCelda, type MuroLibre } from './db'
 import type { Table, UpdateSpec } from 'dexie'
+import { marcarRegistro } from '../state/registroSesion'
 
 /**
  * Fábrica de repositorios reactivos sobre una tabla de Dexie.
@@ -43,9 +44,11 @@ function createRepository<T extends { id?: number }>(
     // cuando haya sincronización multi-dispositivo. Dexie guarda el campo extra
     // aunque el tipo T no lo declare (solo los índices van en el esquema).
     async add(item: Omit<T, 'id'>): Promise<number> {
+      marcarRegistro()
       return table.add({ ...item, updatedAt: Date.now() } as unknown as T)
     },
     async bulkAdd(items: Omit<T, 'id'>[]): Promise<void> {
+      marcarRegistro()
       const ahora = Date.now()
       await table.bulkAdd(items.map((i) => ({ ...i, updatedAt: ahora })) as unknown as T[])
     },
@@ -98,6 +101,11 @@ export const imagenesEjercicioRepo = createRepository(db.imagenesEjercicio, 'id'
 export const mediaArchivoRepo = createRepository(db.mediaArchivo, 'creadoEn')
 export const edicionesDiarioRepo = createRepository(db.edicionesDiario, 'fecha', false)
 export const lecturasDiarioRepo = createRepository(db.lecturasDiario, 'fecha', false)
+
+/** Personalización · guardarropa a medida del personaje (prendas propias). */
+export const prendasCustomRepo = createRepository(db.prendasCustom, 'creadoEn', false)
+/** Personalización · atuendos guardados por el usuario (combinaciones de prendas). */
+export const atuendosGuardadosRepo = createRepository(db.atuendosGuardados, 'creadoEn', false)
 
 // Biblioteca · enciclopedia conversacional
 export const conversacionesBiblioRepo = createRepository(db.conversacionesBiblio, 'actualizadoEn')

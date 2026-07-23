@@ -15,13 +15,16 @@ export function EditorAnchor() {
   const camera = useThree((s) => s.camera)
   const size = useThree((s) => s.size)
   const editingRoomId = useLayout((s) => s.editingRoomId)
+  const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
+  // El botón flotante sirve a ambos modos (editar cuarto / mover objetos): mismo ancla.
+  const focoRoomId = editingRoomId ?? moverObjetosRoomId
   const setScreen = useEditorAnchor((s) => s.setScreen)
 
   useFrame(() => {
-    if (!editingRoomId || !getCuarto(editingRoomId)) return
+    if (!focoRoomId || !getCuarto(focoRoomId)) return
 
-    const [rx, , rz] = roomWorldPos(editingRoomId)
-    const y0 = nivelBaseY(useLayout.getState().niveles[editingRoomId] ?? 0, !useHouse.getState().explotado)
+    const [rx, , rz] = roomWorldPos(focoRoomId)
+    const y0 = nivelBaseY(useLayout.getState().niveles[focoRoomId] ?? 0, !useHouse.getState().explotado)
 
     _world.set(rx, y0 + ALTURA, rz)
     _world.project(camera)

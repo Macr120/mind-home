@@ -1,29 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { pitar } from './pitar'
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
-
-/** Pitido corto al terminar la cuenta (WebAudio, sin archivos). */
-function pitar() {
-  try {
-    const ctx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)()
-    const o = ctx.createOscillator()
-    const g = ctx.createGain()
-    o.frequency.value = 880
-    o.connect(g)
-    g.connect(ctx.destination)
-    o.start()
-    g.gain.setValueAtTime(0.2, ctx.currentTime)
-    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4)
-    setTimeout(() => {
-      o.stop()
-      void ctx.close()
-    }, 450)
-  } catch {
-    // Sin audio disponible: el temporizador sigue funcionando en silencio.
-  }
-}
 
 /**
  * Cronómetro de cuenta regresiva para cronometrar posturas / descansos.

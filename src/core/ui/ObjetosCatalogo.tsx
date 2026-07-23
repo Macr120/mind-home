@@ -83,10 +83,13 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
 
   // Siembra inicial (una sola vez): crea la biblioteca con el catálogo base.
   // El flag se marca ANTES de sembrar para no duplicar con el doble montaje de StrictMode.
+  // Auto-reparación: si el flag quedó puesto pero la biblioteca está vacía (la
+  // siembra se interrumpió a medias, p. ej. por una recarga), se reintenta.
   useEffect(() => {
-    if (localStorage.getItem(SEED_FLAG)) return
+    if (localStorage.getItem(SEED_FLAG) && objetos.some(esObjetoLibreria)) return
     localStorage.setItem(SEED_FLAG, '1')
     void sembrarLibreriaBase()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sembrarLibreriaBase])
 
   const libreria = objetos.filter(esObjetoLibreria).filter((o) => {
@@ -280,12 +283,12 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
             className={`rounded-lg border border-white/[0.06] bg-white/[0.02] transition ${
               // Soltar un objeto dentro de la carpeta: se resalta toda la carpeta.
               arrastre?.tipo === 'objeto' && sobre === `carpeta:${cat}`
-                ? 'ring-2 ring-emerald-400/70 bg-emerald-500/[0.06]'
+                ? 'ring-2 ring-accent/70 bg-accent/[0.06]'
                 : ''
             } ${
               // Reordenar carpetas: línea de inserción sobre la carpeta destino.
               arrastre?.tipo === 'carpeta' && arrastre.cat !== cat && sobre === `carpeta:${cat}`
-                ? 'shadow-[0_-3px_0_0_#34d399]'
+                ? 'shadow-[0_-3px_0_0_var(--ui-accent)]'
                 : ''
             }`}
           >
@@ -394,7 +397,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                           if (o.id != null) abrirEditor(o.id)
                         }}
                         title={t('objetos.editar', 'Editar en el editor')}
-                        className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md bg-black/25 transition hover:ring-2 hover:ring-emerald-400/60"
+                        className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md bg-black/25 transition hover:ring-2 hover:ring-accent/60"
                       >
                         <MiniaturaModelo
                           tipo={o.tipo}
@@ -437,13 +440,13 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                   {(instanciasPorLib.get(o.id!) ?? []).map((inst) => (
                     <div
                       key={inst.id}
-                      className="ml-5 flex items-center gap-2 rounded-md border-l-2 border-emerald-400/25 bg-white/[0.02] p-1.5"
+                      className="ml-5 flex items-center gap-2 rounded-md border-l-2 border-accent/25 bg-white/[0.02] p-1.5"
                     >
                       <span className="relative shrink-0">
                         <span
                           onClick={() => inst.id != null && abrirEditor(inst.id)}
                           title={t('objetos.editarForma', 'Editar su forma')}
-                          className="flex h-8 w-8 cursor-pointer items-center justify-center overflow-hidden rounded-md bg-black/25 transition hover:ring-2 hover:ring-emerald-400/60"
+                          className="flex h-8 w-8 cursor-pointer items-center justify-center overflow-hidden rounded-md bg-black/25 transition hover:ring-2 hover:ring-accent/60"
                         >
                           <MiniaturaModelo
                             tipo={inst.tipo}
@@ -499,7 +502,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                 <button
                   type="button"
                   onClick={() => crearEn(cat)}
-                  className="flex w-full items-center justify-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-1.5 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500/20"
+                  className="flex w-full items-center justify-center gap-1.5 rounded-md border border-accent/30 bg-accent/10 px-2 py-1.5 text-[11px] font-semibold text-accent transition hover:bg-accent/20"
                 >
                   <Icono nombre="agregar" /> {t('objetos.agregar', 'Agregar objeto 3D')}
                 </button>

@@ -104,6 +104,8 @@ export function Prendas({
   // Mismos pivotes que las extremidades del box-man (cadera y hombro).
   const caderaY = a.piernasY + a.piernaH / 2
   const hombroY = a.torsoY + a.torsoH / 2
+  const frenteZ = a.torsoD / 2 // frente del torso (corbata/mochila)
+  const faldaH = a.piernaH * 1.15 // largo de falda/vestido (cae por las piernas)
   const signoPierna = (x: number): 1 | -1 => (x < 0 ? 1 : -1)
   const signoBrazo = (x: number): 1 | -1 => (x < 0 ? -1 : 1)
 
@@ -147,7 +149,9 @@ export function Prendas({
           </mesh>
           {[-a.brazoX, a.brazoX].map((x, i) => (
             <PivoteMarcha key={i} activo={marcha} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
-              <mesh position={[0, a.torsoY + a.torsoH * 0.19 - hombroY, 0]} castShadow>
+              {/* Manga pegada al hombro (pivote): si queda por debajo, asoma un
+                  hueco de piel entre la manga y el torso. */}
+              <mesh position={[0, 0.02 - 0.15, 0]} castShadow>
                 <boxGeometry args={[0.26, 0.3, a.torsoD + 0.02]} />
                 <meshStandardMaterial color={color('playera')} />
               </mesh>
@@ -212,6 +216,176 @@ export function Prendas({
             <cylinderGeometry args={[a.cabezaR - 0.01, a.cabezaR, 0.28, 20]} />
             <meshStandardMaterial color={color('sombrero')} />
           </mesh>
+        </>
+      )}
+
+      {/* Gorro de chef: banda ajustada + copete inflado (sin ala, no confundir con el sombrero) */}
+      {ropa.gorroChef && (
+        <>
+          <mesh position={[0, a.cabezaTop + 0.07, 0]} castShadow>
+            <cylinderGeometry args={[a.cabezaR + 0.02, a.cabezaR + 0.02, 0.1, 20]} />
+            <meshStandardMaterial color={color('gorroChef')} />
+          </mesh>
+          <mesh position={[0, a.cabezaTop + 0.29, 0]} scale={[1.15, 0.8, 1.15]} castShadow>
+            <sphereGeometry args={[a.cabezaR + 0.2, 16, 12]} />
+            <meshStandardMaterial color={color('gorroChef')} />
+          </mesh>
+        </>
+      )}
+
+      {/* Gorra: cúpula sobre la cabeza + visera al frente */}
+      {ropa.gorra && (
+        <>
+          <mesh position={[0, a.cabezaTop - 0.04, 0]} castShadow>
+            <sphereGeometry args={[a.cabezaR + 0.05, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2]} />
+            <meshStandardMaterial color={color('gorra')} />
+          </mesh>
+          <mesh position={[0, a.cabezaTop - 0.03, a.cabezaR + 0.12]} castShadow>
+            <boxGeometry args={[(a.cabezaR + 0.05) * 1.3, 0.05, 0.22]} />
+            <meshStandardMaterial color={color('gorra')} />
+          </mesh>
+        </>
+      )}
+
+      {/* Bufanda: aro en el cuello + una punta colgando al frente */}
+      {ropa.bufanda && (
+        <>
+          <mesh position={[0, hombroY + 0.05, 0]} castShadow>
+            <cylinderGeometry args={[a.torsoW * 0.42, a.torsoW * 0.42, 0.16, 16]} />
+            <meshStandardMaterial color={color('bufanda')} />
+          </mesh>
+          <mesh position={[0.06, hombroY - 0.16, frenteZ + 0.02]} castShadow>
+            <boxGeometry args={[0.13, 0.4, 0.06]} />
+            <meshStandardMaterial color={color('bufanda')} />
+          </mesh>
+        </>
+      )}
+
+      {/* Corbata: nudo en el cuello + tira por el frente del torso */}
+      {ropa.corbata && (
+        <>
+          <mesh position={[0, hombroY - 0.02, frenteZ + 0.02]}>
+            <boxGeometry args={[0.1, 0.1, 0.04]} />
+            <meshStandardMaterial color={color('corbata')} />
+          </mesh>
+          <mesh position={[0, a.torsoY - 0.02, frenteZ + 0.02]}>
+            <boxGeometry args={[0.12, a.torsoH * 0.6, 0.03]} />
+            <meshStandardMaterial color={color('corbata')} />
+          </mesh>
+        </>
+      )}
+
+      {/* Camisa: torso + mangas largas */}
+      {ropa.camisa && (
+        <>
+          <mesh position={[0, a.torsoY, 0]} castShadow>
+            <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
+            <meshStandardMaterial color={color('camisa')} />
+          </mesh>
+          {[-a.brazoX, a.brazoX].map((x, i) => (
+            <PivoteMarcha key={i} activo={marcha} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+              <mesh position={[0, a.torsoY - hombroY, 0]} castShadow>
+                <boxGeometry args={[0.26, a.torsoH + 0.02, a.torsoD + 0.02]} />
+                <meshStandardMaterial color={color('camisa')} />
+              </mesh>
+            </PivoteMarcha>
+          ))}
+        </>
+      )}
+
+      {/* Capa: manto por detrás del torso, de los hombros a las rodillas */}
+      {ropa.capa && (
+        <mesh position={[0, a.torsoY - 0.08, -(a.torsoD / 2 + 0.04)]} castShadow>
+          <boxGeometry args={[a.torsoW + 0.14, a.torsoH + 0.34, 0.04]} />
+          <meshStandardMaterial color={color('capa')} side={THREE.DoubleSide} />
+        </mesh>
+      )}
+
+      {/* Vestido: torso + falda acampanada */}
+      {ropa.vestido && (
+        <>
+          <mesh position={[0, a.torsoY, 0]} castShadow>
+            <boxGeometry args={[a.torsoW + 0.06, a.torsoH + 0.04, a.torsoD + 0.06]} />
+            <meshStandardMaterial color={color('vestido')} />
+          </mesh>
+          <mesh position={[0, caderaY - faldaH / 2 + 0.05, 0]} castShadow>
+            <cylinderGeometry args={[cinturaW * 0.55, cinturaW, faldaH, 20, 1, true]} />
+            <meshStandardMaterial color={color('vestido')} side={THREE.DoubleSide} />
+          </mesh>
+        </>
+      )}
+
+      {/* Falda: cintura + campana acampanada */}
+      {ropa.falda && (
+        <>
+          <mesh position={[0, caderaY, 0]} castShadow>
+            <cylinderGeometry args={[cinturaW * 0.5, cinturaW * 0.5, 0.14, 20]} />
+            <meshStandardMaterial color={color('falda')} />
+          </mesh>
+          <mesh position={[0, caderaY - faldaH / 2 + 0.02, 0]} castShadow>
+            <cylinderGeometry args={[cinturaW * 0.52, cinturaW, faldaH, 20, 1, true]} />
+            <meshStandardMaterial color={color('falda')} side={THREE.DoubleSide} />
+          </mesh>
+        </>
+      )}
+
+      {/* Shorts: pernera corta + cintura */}
+      {ropa.shorts && (
+        <>
+          {a.piernasX.map((x, i) => (
+            <PivoteMarcha key={i} activo={marcha} x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
+              <mesh position={[0, a.piernasY + a.piernaH * 0.25 - caderaY, 0]} castShadow>
+                <boxGeometry args={[a.piernaW + 0.04, a.piernaH * 0.5, a.piernaD + 0.04]} />
+                <meshStandardMaterial color={color('shorts')} />
+              </mesh>
+            </PivoteMarcha>
+          ))}
+          <mesh position={[0, caderaY, 0]} castShadow>
+            <boxGeometry args={[cinturaW, 0.2, a.piernaD + 0.02]} />
+            <meshStandardMaterial color={color('shorts')} />
+          </mesh>
+        </>
+      )}
+
+      {/* Botas: caña sobre la pierna + suela en el pie */}
+      {ropa.botas &&
+        a.piernasX.map((x, i) => (
+          <PivoteMarcha key={i} activo={marcha} x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
+            <mesh position={[0, a.piesY + a.piernaH * 0.22 - caderaY, 0]} castShadow>
+              <boxGeometry args={[a.piernaW + 0.05, a.piernaH * 0.5, a.piernaD + 0.05]} />
+              <meshStandardMaterial color={color('botas')} />
+            </mesh>
+            <mesh position={[0, a.piesY - caderaY, 0.05]} castShadow>
+              <boxGeometry args={[a.piernaW + 0.05, 0.18, a.piernaD * 1.3]} />
+              <meshStandardMaterial color={color('botas')} />
+            </mesh>
+          </PivoteMarcha>
+        ))}
+
+      {/* Guantes: en las manos, al final de cada brazo */}
+      {ropa.guantes &&
+        [-a.brazoX, a.brazoX].map((x, i) => (
+          <PivoteMarcha key={i} activo={marcha} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+            <mesh position={[0, -(a.torsoH * 0.95 + 0.05), 0]} castShadow>
+              <boxGeometry args={[0.16, 0.16, a.torsoD + 0.02]} />
+              <meshStandardMaterial color={color('guantes')} />
+            </mesh>
+          </PivoteMarcha>
+        ))}
+
+      {/* Mochila: bulto por detrás del torso + tirantes al frente */}
+      {ropa.mochila && (
+        <>
+          <mesh position={[0, a.torsoY + 0.02, -(a.torsoD / 2 + 0.12)]} castShadow>
+            <boxGeometry args={[a.torsoW * 0.8, a.torsoH * 0.85, 0.22]} />
+            <meshStandardMaterial color={color('mochila')} />
+          </mesh>
+          {[-a.torsoW * 0.28, a.torsoW * 0.28].map((x, i) => (
+            <mesh key={i} position={[x, a.torsoY + 0.05, frenteZ]} castShadow>
+              <boxGeometry args={[0.07, a.torsoH * 0.8, 0.05]} />
+              <meshStandardMaterial color={color('mochila')} />
+            </mesh>
+          ))}
         </>
       )}
     </group>

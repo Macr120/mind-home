@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { House } from './core/house/House'
 import { InteractOverlay } from './core/ui/InteractOverlay'
 import { EtiquetasMapaOverlay } from './core/ui/EtiquetasMapaOverlay'
@@ -48,9 +48,14 @@ import { useMusicaAmbiental } from './core/audio/useMusicaAmbiental'
 import { useVozAsistente } from './core/audio/voz'
 import { useCorazon } from './core/chat/corazon'
 import { useWrappedUi } from './core/state/wrappedUiStore'
+import { useHud } from './core/state/hudStore'
+import { useSisifoUi } from './core/state/sisifoUiStore'
+import { SisifoFestejo } from './core/gamificacion/SisifoFestejo'
 
 // Wrapped (resumen del periodo): lazy, solo se descarga al abrirlo.
 const WrappedOverlay = lazy(() => import('./core/wrapped/WrappedOverlay'))
+// Montaña de Sísifo (ascenso anual): lazy, solo se descarga al abrirla.
+const MontanaSisifoOverlay = lazy(() => import('./core/gamificacion/MontanaSisifoOverlay'))
 
 export default function App() {
   // Reloj del diario: rollover de medianoche + reparto de noticias por asistentes.
@@ -77,9 +82,13 @@ export default function App() {
   const enGranja = useGranja((s) => s.activo)
   const construyendo = enCaminos || enCanchas || enHuerto || enGranja
   const wrappedAbierto = useWrappedUi((s) => s.abierto)
+  const sisifoAbierto = useSisifoUi((s) => s.abierto)
   // En diálogo cara a cara la caja RPG sustituye a la burbuja flotante.
   const dialogoActivo = useDialogo((s) => !!s.asistenteId)
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  // Vive en hudStore (no como estado local) para que ToolbarPermanente sepa que debe
+  // plegarse en vertical cuando este menú está abierto (ver FloatingMenuButton, espejo).
+  const sidebarOpen = useHud((s) => s.menuAbierto)
+  const setSidebarOpen = useHud((s) => s.setMenuAbierto)
 
   /**
    * Editar un cuarto (⚙️ + zoom) o abrir "Editar mapa" necesita espacio para el
@@ -162,10 +171,19 @@ export default function App() {
       {/* Único canvas oculto que rasteriza las miniaturas del catálogo/inventario: montado
           aquí (fuera de ambos paneles) para no duplicar el generador entre ellos. */}
       <GeneradorMiniaturas />
+      {/* Festejo del personaje: notificación de rango/insignia + festejo silencioso al
+          salir de un cuarto con algo registrado. Siempre montado (no depende de la UI). */}
+      <SisifoFestejo />
       {/* Wrapped: resumen del periodo a pantalla completa. */}
       {wrappedAbierto && (
         <Suspense fallback={null}>
           <WrappedOverlay />
+        </Suspense>
+      )}
+      {/* Montaña de Sísifo: el ascenso anual a pantalla completa. */}
+      {sisifoAbierto && (
+        <Suspense fallback={null}>
+          <MontanaSisifoOverlay />
         </Suspense>
       )}
       {/* Tutorial guiado activo (spotlight + mago): por encima de todos los diálogos. */}

@@ -2,6 +2,7 @@ import type { Table } from 'dexie'
 import { db } from '../data/db'
 import type { TipoMedia } from '../data/db'
 import { FUENTES, XP_POR_REGISTRO } from '../gamificacion/actividad'
+import { estadoSisifoActual } from '../gamificacion/sisifo'
 import { DIA_MS, deIso, fechaLocalISO, isoMasDias } from '../fechaLocal'
 import { periodoDe, type Periodo, type TipoPeriodo } from './periodo'
 
@@ -56,6 +57,8 @@ export interface ResumenWrapped {
     sueno?: { noches: number; horasProm: number; calidadProm: number }
     cocina?: { comidas: number; aguaLitros: number; pesoDelta: number | null }
     finanzas?: { ingresos: number; gastos: number; topCategoriaGasto?: string }
+    /** Estado ACTUAL de la Montaña de Sísifo (no es propio del periodo: es una foto de hoy). */
+    sisifo?: { rango: number; insignias: number; estrellas: number }
   }
   hitos: Hito[]
 }
@@ -231,6 +234,9 @@ export async function resumenPeriodo(tipo: TipoPeriodo, ancla: string): Promise<
       topCategoriaGasto: topDe(sumaPor(gastos, (t) => t.categoria, (t) => t.monto))?.clave,
     }
   }
+
+  const sisifo = await estadoSisifoActual()
+  if (sisifo) dominios.sisifo = { rango: sisifo.rango, insignias: sisifo.insignias, estrellas: sisifo.estrellas }
 
   const nMedia = (t: TipoMedia) =>
     media.filter((m) => m.tipo === t && m.estado === 'completado').length

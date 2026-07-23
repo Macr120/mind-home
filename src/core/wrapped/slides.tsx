@@ -6,6 +6,7 @@ import { Icono } from '../ui/iconos/Icono'
 import { vivo } from '../ui/estilos'
 import { HeatmapWrapped } from './HeatmapWrapped'
 import type { ResumenWrapped, TipoHito } from './resumen'
+import { RANGOS, nombreRango } from '../gamificacion/sisifoData'
 
 /**
  * Slides del Wrapped: deck dinámico armado por `construirSlides` según los
@@ -400,6 +401,31 @@ function SlideHitos({ resumen }: PropsSlide) {
   )
 }
 
+/** Estado actual de la Montaña de Sísifo (foto de hoy, no propia del periodo). */
+function SlideSisifo({ resumen }: PropsSlide) {
+  const t = useT()
+  const d = resumen.dominios.sisifo
+  if (!d) return null
+  const rango = RANGOS[d.rango - 1]
+  return (
+    <Marco>
+      <span className="text-5xl">
+        <Icono nombre="montaña" />
+      </span>
+      <p className="text-lg font-bold text-white/85">{t('wrapped.sisifo.titulo', 'Tu ascenso')}</p>
+      <p className="texto-vivo text-3xl font-black tracking-tight" style={vivo(rango.color)}>
+        {nombreRango(rango)}
+      </p>
+      <div className="mt-2 flex flex-wrap items-start justify-center gap-x-10 gap-y-6">
+        <Dato valor={d.insignias} etiqueta={t('sisifo.insignias', 'insignias')} />
+        {d.estrellas > 0 && (
+          <Dato valor={<>⭐ ×{d.estrellas}</>} etiqueta={t('wrapped.sisifo.estrellas', 'estrellas ganadas')} />
+        )}
+      </div>
+    </Marco>
+  )
+}
+
 function FilaComparativa({
   etiqueta,
   antes,
@@ -532,11 +558,20 @@ const DOMINIOS: [keyof ResumenWrapped['dominios'], string, ComponentType<PropsSl
 ]
 
 export function construirSlides(resumen: ResumenWrapped, previo?: ResumenWrapped): SlideDef[] {
-  if (resumen.registrosTotales === 0)
+  if (resumen.registrosTotales === 0) {
+    // Sin registros ESTE periodo la Montaña de Sísifo sigue siendo relevante:
+    // es una foto del estado actual, no algo propio del periodo.
+    if (resumen.dominios.sisifo)
+      return [
+        { id: 'portada', Comp: SlidePortada },
+        { id: 'sisifo', Comp: SlideSisifo },
+        { id: 'cierre', Comp: SlideCierre },
+      ]
     return [
       { id: 'portada', Comp: SlidePortada },
       { id: 'vacio', Comp: SlideVacio },
     ]
+  }
 
   const defs: SlideDef[] = [
     { id: 'portada', Comp: SlidePortada },
@@ -552,6 +587,7 @@ export function construirSlides(resumen: ResumenWrapped, previo?: ResumenWrapped
 
   if (resumen.diasActivos > 0) defs.push({ id: 'heatmap', Comp: SlideHeatmap })
   if (resumen.hitos.length > 0) defs.push({ id: 'hitos', Comp: SlideHitos })
+  if (resumen.dominios.sisifo) defs.push({ id: 'sisifo', Comp: SlideSisifo })
   if (previo && previo.registrosTotales > 0)
     defs.push({ id: 'comparativa', Comp: SlideComparativa })
   defs.push({ id: 'cierre', Comp: SlideCierre })

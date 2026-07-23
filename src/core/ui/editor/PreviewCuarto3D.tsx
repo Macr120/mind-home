@@ -4,6 +4,7 @@ import { OrbitControls } from '@react-three/drei'
 import { Room3D } from '../../house/Room3D'
 import { useLayout, SIN_OCUPACION } from '../../state/layoutStore'
 import { useDiseño } from '../../state/disenoStore'
+import { useEditorUi } from '../../state/editorUiStore'
 import { getCuarto } from '../../state/cuartosStore'
 import {
   SIZE,
@@ -15,6 +16,7 @@ import {
   type SideKey,
 } from '../../house/walls'
 import { IconoOjo } from './IconoOjo'
+import { BotonPreviewClaro, claseOverlayBtn } from './BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -31,18 +33,27 @@ export function PreviewCuarto3D({
   roomId,
   arista,
   onOcultar,
+  techoInicial = false,
+  interactivo = false,
 }: {
   roomId: string
   arista?: { off: Cell; side: SideKey }
   /** Si se pasa, muestra un botón de ojo para ocultar el previsualizador. */
   onOcultar?: () => void
+  /** Arrancar mostrando el techo (modo Techos: el elemento que se edita es el techo). */
+  techoInicial?: boolean
+  /** Modelo 3D editable: tocar piso/muros/puertas/techo selecciona ese elemento en el editor. */
+  interactivo?: boolean
 }) {
   const t = useT()
-  const [verTecho, setVerTecho] = useState(false)
+  const [verTecho, setVerTecho] = useState(techoInicial)
+  const [sinObjetos, setSinObjetos] = useState(false)
   const footprints = useLayout((s) => s.footprints)
   const cells = useLayout((s) => s.cells)
   const niveles = useLayout((s) => s.niveles)
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  const setMoverObjetos = useLayout((s) => s.setMoverObjetos)
+  const claro = useEditorUi((s) => s.previewClaro)
   const roomColors = useDiseño((s) => s.roomColors)
   const room = getCuarto(roomId)
   if (!room) return null
@@ -72,8 +83,12 @@ export function PreviewCuarto3D({
   const target: [number, number, number] = edge ? [edge.cx, WALL_H / 2, edge.cz] : [0, 1, 0]
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/30">
-      <div className="h-48 w-full">
+    <div
+      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${
+        claro ? 'bg-white' : 'bg-[#0d0f13]'
+      }`}
+    >
+      <div className="relative h-48 w-full">
         <Canvas
           key={arista ? `${roomId}:${arista.off.col},${arista.off.row},${arista.side}` : roomId}
           shadows
@@ -84,7 +99,15 @@ export function PreviewCuarto3D({
           <ambientLight intensity={0.8} />
           <directionalLight position={[6, 10, 6]} intensity={1.1} castShadow />
           <directionalLight position={[-6, 4, -4]} intensity={0.4} />
-          <Room3D id={roomId} position={[0, 0, 0]} color={color} preview forzarTecho={verTecho} />
+          <Room3D
+            id={roomId}
+            position={[0, 0, 0]}
+            color={color}
+            preview
+            interactivo={interactivo}
+            forzarTecho={verTecho}
+            sinObjetos={sinObjetos}
+          />
           <OrbitControls
             enablePan={false}
             enableDamping
@@ -93,36 +116,83 @@ export function PreviewCuarto3D({
             maxDistance={radio * 3 + 8}
           />
         </Canvas>
+
+        <div className="absolute left-2 top-2 flex flex-col gap-1">
+          {onOcultar && (
+            <button
+              type="button"
+              onClick={onOcultar}
+              title={t('planos.preview.ocultar', 'Ocultar previsualización 3D')}
+              className={`rounded-lg border p-1.5 transition ${claseOverlayBtn(claro)}`}
+            >
+              <IconoOjo off />
+            </button>
+          )}
+          <BotonPreviewClaro />
+        </div>
+
+        {/* Toggles de visibilidad (techo y objetos), apilados arriba a la derecha. */}
+        <div className="absolute right-2 top-2 flex flex-col items-end gap-1">
+          <button
+            type="button"
+            onClick={() => setVerTecho((v) => !v)}
+            className={[
+              'rounded-lg border px-2 py-1 text-[11px] font-semibold backdrop-blur-sm transition',
+              verTecho
+                ? claro
+                  ? 'border-amber-500/50 bg-amber-400/20 text-amber-700'
+                  : 'border-amber-400/60 bg-amber-400/20 text-amber-400'
+                : claseOverlayBtn(claro),
+            ].join(' ')}
+            title={t('preview.techo', 'Mostrar/ocultar techo')}
+          >
+            <Icono nombre="casa" /> {verTecho ? t('preview.techoOn', 'Techo') : t('preview.techoOff', 'Sin techo')}
+          </button>
+          <button
+            type="button"
+            onClick={() => setSinObjetos((v) => !v)}
+            className={[
+              'rounded-lg border px-2 py-1 text-[11px] font-semibold backdrop-blur-sm transition',
+              sinObjetos
+                ? claro
+                  ? 'border-sky-500/50 bg-sky-400/20 text-sky-700'
+                  : 'border-sky-400/60 bg-sky-400/20 text-sky-300'
+                : claseOverlayBtn(claro),
+            ].join(' ')}
+            title={t('preview.objetos', 'Mostrar/ocultar objetos')}
+          >
+            <Icono nombre="sofa" /> {sinObjetos ? t('preview.objetosOff', 'Sin objetos') : t('preview.objetosOn', 'Objetos')}
+          </button>
+        </div>
+
+        <span
+          className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+            claro ? 'text-black/45' : 'text-white/35'
+          }`}
+        >
+          {interactivo
+            ? t('preview.tocarEditar', 'Toca una parte para editarla · arrastra para girar')
+            : t('preview.girar', 'Arrastra para girar · rueda para acercar')}
+        </span>
       </div>
 
-      {onOcultar && (
-        <button
-          type="button"
-          onClick={onOcultar}
-          title={t('planos.preview.ocultar', 'Ocultar previsualización 3D')}
-          className="ui-hud absolute left-2 top-2 rounded-lg border border-white/15 p-1.5 text-white/70 transition hover:bg-white/15"
-        >
-          <IconoOjo off />
-        </button>
+      {/* Mover objetos: cierra el editor y deja los objetos de este cuarto arrastrables
+          sueltos en el mapa 3D (se sale con el botón flotante "Listo" sobre el cuarto). */}
+      {!arista && (
+        <div className="border-t border-white/10 p-2">
+          <button
+            type="button"
+            onClick={() => setMoverObjetos(roomId)}
+            className={`flex w-full items-center justify-center gap-1.5 rounded-lg border py-2 text-[11px] font-semibold transition active:scale-95 ${
+              claro
+                ? 'border-black/10 bg-black/5 text-black/70 hover:bg-black/10'
+                : 'border-white/10 bg-white/5 text-white/80 hover:bg-white/12'
+            }`}
+          >
+            <Icono nombre="mover" /> {t('preview.moverObjetos', 'Mover objetos en el mapa')}
+          </button>
+        </div>
       )}
-
-      <button
-        type="button"
-        onClick={() => setVerTecho((v) => !v)}
-        className={[
-          'absolute right-2 top-2 rounded-lg border px-2 py-1 text-[11px] font-semibold backdrop-blur-sm transition',
-          verTecho
-            ? 'border-amber-400/60 bg-amber-400/20 text-amber-400'
-            : 'ui-hud border-white/15 text-white/70 hover:bg-white/15',
-        ].join(' ')}
-        title={t('preview.techo', 'Mostrar/ocultar techo')}
-      >
-        <Icono nombre="casa" /> {verTecho ? t('preview.techoOn', 'Techo') : t('preview.techoOff', 'Sin techo')}
-      </button>
-
-      <span className="pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] text-white/35">
-        {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
-      </span>
     </div>
   )
 }

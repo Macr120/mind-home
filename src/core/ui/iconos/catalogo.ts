@@ -250,6 +250,7 @@ import {
   Save,
   PaintBucket,
   ChevronLeft,
+  ChevronRight,
   // Rueda de herramientas, granja, huerto, canchas, prendas (auditoría jul 2026)
   Cable,
   Accessibility,
@@ -336,6 +337,7 @@ export const CATALOGO = {
   'rotar-izq': { emoji: '⟲', Svg: RotateCcw },
   'rotar-der': { emoji: '⟳', Svg: RotateCw },
   volver: { emoji: '‹', Svg: ChevronLeft },
+  siguiente: { emoji: '›', Svg: ChevronRight },
   centrar: { emoji: '⌂', Svg: House },
   dia: { emoji: '☀️', Svg: Sun },
   noche: { emoji: '🌙', Svg: Moon },
@@ -504,6 +506,8 @@ export const CATALOGO = {
   sincronizar: { emoji: '🔄', Svg: RefreshCw },
   chip: { emoji: '🖥️', Svg: Cpu },
   estrella: { emoji: '⭐', Svg: Star },
+  montaña: { emoji: '⛰️', Svg: Mountain },
+  gema: { emoji: '💎', Svg: Gem },
 
   // — Estilos de render y efectos visuales (Configuraciones › estilo del mapa) —
   'render-comic': { emoji: '💥', Svg: Zap },

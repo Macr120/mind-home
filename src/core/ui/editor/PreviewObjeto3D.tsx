@@ -10,6 +10,7 @@ import { useEditorUi } from '../../state/editorUiStore'
 import { forzarSiempre, type AnimacionModelo } from '../../house/animacion'
 import { GrupoAnimado } from '../../house/Animado'
 import { ControlesPiezasOverlay, EngraneActivarPiezas, BotonOverlay } from './EditorPiezas'
+import { BotonPreviewClaro } from './BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -123,6 +124,7 @@ export function PreviewObjeto3D({
   const controlesAbiertos = useEditorUi((s) => s.piezasControles)
   const play = useEditorUi((s) => s.animPreview)
   const setPlay = useEditorUi((s) => s.setAnimPreview)
+  const claro = useEditorUi((s) => s.previewClaro)
   const D = Math.PI / 180
   const enc = useMemo(() => encuadrar(piezas, escala), [piezas, escala])
   // Reproducción en el visor: fuerza 'siempre' (undefined si no hay nada que reproducir).
@@ -135,7 +137,11 @@ export function PreviewObjeto3D({
     : null
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/30">
+    <div
+      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${
+        claro ? 'bg-white' : 'bg-[#0d0f13]'
+      }`}
+    >
       <div className="h-56 w-full">
         <Canvas
           shadows
@@ -161,7 +167,7 @@ export function PreviewObjeto3D({
           {/* Piso de apoyo para la sombra */}
           <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
             <circleGeometry args={[enc.pisoR, 48]} />
-            <meshStandardMaterial color="#1a1d25" />
+            <meshStandardMaterial color={claro ? '#e5e7eb' : '#1a1d25'} />
           </mesh>
           <OrbitControls
             enablePan={false}
@@ -177,7 +183,14 @@ export function PreviewObjeto3D({
       ) : (
         <>
           {!animPlay && onActivarPiezas && <EngraneActivarPiezas onActivar={onActivarPiezas} />}
-          <span className="pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] text-white/35">
+          <div className="absolute left-1.5 top-1.5">
+            <BotonPreviewClaro />
+          </div>
+          <span
+            className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+              claro ? 'text-black/45' : 'text-white/35'
+            }`}
+          >
             {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
           </span>
         </>

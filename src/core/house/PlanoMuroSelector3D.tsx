@@ -5,6 +5,7 @@ import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { useLayout } from '../state/layoutStore'
 import { setEstiloMuroLibre } from '../data/repository'
+import { TIPOS_PUERTA } from './murosPuertas'
 import type { Cell, SideKey } from './walls'
 
 /** Datos que cada malla de muro de cuarto expone en `userData.muroSel` para el raycast. */
@@ -126,15 +127,27 @@ export function PlanoMuroSelector3D() {
         P.setMuroLibreSel(hit.muroLibre)
         // Igual que en los muros de cuarto: en modo Puertas/Ventanas el clic CREA la abertura
         // en cualquier muro libre (recto, triángulo o círculo), no solo lo selecciona. El
-        // panel queda abierto para ajustarla o quitarla.
-        if (P.herramienta === 'puerta') void setEstiloMuroLibre(hit.muroLibre, { puerta: true, ventana: false })
+        // panel queda abierto para ajustarla o quitarla. (Los muros libres no admiten
+        // cuadro/espejo, solo cristal; el pincel de contenido se ignora ahí.)
+        if (P.herramienta === 'puerta') void setEstiloMuroLibre(hit.muroLibre, { puerta: true, ventana: false, puertaTipo: P.tipoPuerta })
         else if (P.herramienta === 'ventana') void setEstiloMuroLibre(hit.muroLibre, { ventana: true, puerta: false })
         return
       }
       const m = hit.muro!
       P.setSeleccion({ tipo: 'arista', roomId: m.roomId, off: m.off, side: m.side })
-      if (P.herramienta === 'puerta') void L.paintEdge(m.roomId, m.off, m.side, 'puerta')
-      else if (P.herramienta === 'ventana') void L.setEdgeEstilo(m.roomId, m.off, m.side, { muro: { ventana: true } })
+      // Al crear la abertura se aplica la VARIANTE elegida en el pincel (tipo de puerta o
+      // contenido de la ventana), no solo la abertura genérica.
+      if (P.herramienta === 'puerta') {
+        void L.paintEdge(m.roomId, m.off, m.side, 'puerta')
+        void L.setEdgeEstilo(m.roomId, m.off, m.side, {
+          puerta: { tipo: P.tipoPuerta, color: TIPOS_PUERTA.find((x) => x.id === P.tipoPuerta)!.defaultColor },
+        })
+      } else if (P.herramienta === 'ventana') {
+        void L.setEdgeEstilo(m.roomId, m.off, m.side, {
+          // La cara (interior/exterior) solo importa para cuadro/espejo; en ventana normal es inocua.
+          muro: { ventana: true, ventContenido: P.ventContenido, ventCara: P.ventCara },
+        })
+      }
     }
 
     // Hover: resalta el muro bajo el cursor (throttle ~ cada 45 ms, solo si cambia).

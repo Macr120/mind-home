@@ -6,9 +6,38 @@ import {
   formaEnCelda,
   type FormaLoseta,
 } from '../../house/formasLoseta'
-import { FOOTPRINT_DEFAULT, type Cell } from '../../house/walls'
+import { FOOTPRINT_DEFAULT, type Cell, type Footprint } from '../../house/walls'
 import { puedeColocarCuartoBasico, cuartoIdEnTile, footprintConSoporteDirecto } from '../../house/planoGeometria'
 import type { SeleccionPlano } from '../../state/planosStore'
+
+/** Los 8 vecinos a ½ celda alrededor de un punto. */
+const VECINOS_MEDIA_CELDA: [number, number][] = [
+  [-0.5, 0], [0.5, 0], [0, -0.5], [0, 0.5],
+  [-0.5, -0.5], [0.5, -0.5], [-0.5, 0.5], [0.5, 0.5],
+]
+
+/**
+ * En pisos altos, el raycast del toque en el mapa 3D proyecta sobre el plano del NIVEL
+ * en construcción (más alto que el nivel de abajo, donde en realidad se ve el cuarto que
+ * da soporte); esa diferencia de altura puede desviar el cálculo isométrico por ½ celda
+ * aunque el fantasma se vea perfectamente alineado con el cuarto de abajo. Si la celda
+ * exacta del toque no tiene soporte pero UN ÚNICO vecino a ½ celda sí lo tiene (y está
+ * libre), se usa ese en vez de rechazar el toque.
+ */
+function celdaConSoporteCercana(
+  celda: Cell,
+  nivel: number,
+  placed: Record<string, boolean>,
+  cells: Record<string, Cell>,
+  footprints: Record<string, Footprint>,
+  niveles: Record<string, number>,
+  zonas: ZonaPlano[],
+): Cell | null {
+  const candidatos = VECINOS_MEDIA_CELDA.map(([dc, dr]) => ({ col: celda.col + dc, row: celda.row + dr })).filter(
+    (c) => puedeColocarCuartoBasico(c, nivel, placed, cells, footprints, niveles, zonas),
+  )
+  return candidatos.length === 1 ? candidatos[0] : null
+}
 
 // IDs de cuartos creados por este pincel en la sesión actual.
 // Determina si el ciclo de triángulo/círculo debe borrar (creado aquí) o resetear a cuadrado.
@@ -22,14 +51,29 @@ interface ContextoColocar {
   niveles: Record<string, number>
   zonas: ZonaPlano[]
   setAviso: (msg: string | null) => void
+  /** Proyección del mismo clic sobre el plano del suelo (ver planoPincelCuarto). */
+  celdaAlterna?: Cell
 }
 
 /**
  * Crea un cuarto de 1 celda (muros al color del cuarto + ascenso si estrena nivel).
  * Devuelve su id, o null si la celda no es colocable (deja el aviso puesto).
  */
-async function crearCuartoEnCeldaLibre(celda: Cell, ctx: ContextoColocar): Promise<string | null> {
-  const { nivel, placed, cells, footprints, niveles, zonas, setAviso } = ctx
+async function crearCuartoEnCeldaLibre(celdaClic: Cell, ctx: ContextoColocar): Promise<string | null> {
+  const { nivel, placed, cells, footprints, niveles, zonas, setAviso, celdaAlterna } = ctx
+  let celda = celdaClic
+  if (nivel > 0 && !puedeColocarCuartoBasico(celda, nivel, placed, cells, footprints, niveles, zonas)) {
+    // 1) La celda alterna es la proyección del MISMO clic sobre el plano del suelo (ver
+    // proyectarPincelSuelo): suele ser la corrección exacta cuando el desvío isométrico
+    // viene de la diferencia de altura entre el piso en construcción y el de abajo.
+    if (celdaAlterna && puedeColocarCuartoBasico(celdaAlterna, nivel, placed, cells, footprints, niveles, zonas)) {
+      celda = celdaAlterna
+    } else {
+      // 2) Si no, un vecino a ½ celda con soporte (tolerancia fina, p. ej. touch impreciso).
+      const cercana = celdaConSoporteCercana(celda, nivel, placed, cells, footprints, niveles, zonas)
+      if (cercana) celda = cercana
+    }
+  }
   if (!puedeColocarCuartoBasico(celda, nivel, placed, cells, footprints, niveles, zonas)) {
     const sinSoporte =
       nivel > 0 &&
@@ -74,6 +118,8 @@ export async function aplicarPincelCuarto(opts: {
   niveles: Record<string, number>
   zonas: ZonaPlano[]
   idsCuartosNivel: string[]
+  /** Proyección del mismo clic sobre el plano del suelo (ver planoPincelCuarto). */
+  celdaAlterna?: Cell
   setAviso: (msg: string | null) => void
   setSeleccion: (s: SeleccionPlano) => void
   onCuartoCreado?: () => void
@@ -90,6 +136,7 @@ export async function aplicarPincelCuarto(opts: {
     niveles,
     zonas,
     idsCuartosNivel,
+    celdaAlterna,
     setAviso,
     setSeleccion,
     onCuartoCreado,
@@ -146,7 +193,7 @@ export async function aplicarPincelCuarto(opts: {
   }
 
   // Celda libre: crea un cuarto nuevo de una celda con la forma elegida.
-  const id = await crearCuartoEnCeldaLibre(celda, { nivel, placed, cells, footprints, niveles, zonas, setAviso })
+  const id = await crearCuartoEnCeldaLibre(celda, { nivel, placed, cells, footprints, niveles, zonas, setAviso, celdaAlterna })
   if (!id) return
   if (forma !== 'cuadrado') {
     _creadosPorPincel.add(id)

@@ -33,6 +33,7 @@ export function TarjetaRutina({
   acento,
   imgPorClave,
   onUsar,
+  onIniciar,
   onBorrar,
   hechoHoy,
 }: {
@@ -42,6 +43,8 @@ export function TarjetaRutina({
   acento: { boton: string; hoverBorde: string }
   imgPorClave: Map<string, ImagenEjercicio>
   onUsar: () => void
+  /** Solo Flexibilidad: abre el reproductor guiado. Si falta, no hay botón. */
+  onIniciar?: () => void
   onBorrar: () => void
   /** ¿Ya entrenaste esto hoy? Evita que «Registrar» duplique la sesión. */
   hechoHoy?: boolean
@@ -66,10 +69,21 @@ export function TarjetaRutina({
         >
           <Icono nombre="basura" />
         </button>
+        {onIniciar && (
+          <button
+            type="button"
+            onClick={onIniciar}
+            className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold texto-cta ${acento.boton}`}
+          >
+            <Icono nombre="play" /> {t('ejercicio.rutina.iniciar', 'Iniciar')}
+          </button>
+        )}
         <button
           type="button"
           onClick={onUsar}
-          className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold texto-cta ${acento.boton}`}
+          className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold ${
+            onIniciar ? 'bg-white/10 text-white/70 hover:bg-white/15' : `texto-cta ${acento.boton}`
+          }`}
         >
           {t('ejercicio.rutina.usar', 'Usar rutina')}
         </button>

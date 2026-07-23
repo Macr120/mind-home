@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { getCuarto } from '../state/cuartosStore'
 import { useLayout } from '../state/layoutStore'
 import { useDiseño } from '../state/disenoStore'
@@ -56,7 +57,7 @@ export function EditPanel() {
   const tituloHeader = room ? nombre.split(' · ')[0] : t('editor.titulo', 'Editor')
 
   return (
-    <div data-tut-zona="editor-mapa" className="ui-panel-glass absolute right-0 top-0 z-20 flex h-full w-80 flex-col border-l border-white/10 backdrop-blur-md">
+    <div data-tut-zona="editor-mapa" className="ui-panel-glass absolute right-0 top-0 z-[35] flex h-full w-80 flex-col border-l border-white/10 backdrop-blur-md">
       <header className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         {/* Editando un cuarto: botón para SALIR del cuarto y volver al editor de mapa completo. */}
         {room && (
@@ -76,7 +77,7 @@ export function EditPanel() {
         <button
           data-tut="editor.listo"
           onClick={() => setEditMode(false)}
-          className="ml-auto rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
+          className="ml-auto rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-accent-ink transition hover:brightness-110"
         >
           <Icono nombre="confirmar" /> {t('mapa.listo', 'Listo')}
         </button>
@@ -101,41 +102,39 @@ export function EditPanel() {
         </div>
       </div>
 
-      <p className="border-b border-white/10 px-4 py-2 text-[11px] leading-snug text-white/45">
+      {/* Sin padding-top en el contenedor de scroll: el hueco superior lo pone el
+          `pt-3` de adentro (contenido que sí se desplaza). Así el preview `sticky`
+          se ancla a ras del borde superior, sin dejar una franja de contenido
+          asomando por el padding. */}
+      <div data-tut="editor.contenido" className="min-h-0 flex-1 overflow-y-auto px-3 pb-3">
         {tab === 'mapa' ? (
-          <>
-            {t('editor.ayuda.mapa.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.mapa.b', 'modo')}</b>{' '}
-            {t('editor.ayuda.mapa.c', 'arriba y edita en el')}{' '}
-            <b className="text-white/65">{t('editor.ayuda.mapa.d', 'croquis')}</b>{' '}
-            {t('editor.ayuda.mapa.e', 'o en el mapa 3D. Más abajo, personaliza la casa.')}
-          </>
+          <div className="pt-3">
+            <EditorPanelMapa />
+            <AyudaPie>
+              {t('editor.ayuda.mapa.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.mapa.b', 'modo')}</b>{' '}
+              {t('editor.ayuda.mapa.c', 'arriba y edita en el')}{' '}
+              <b className="text-white/65">{t('editor.ayuda.mapa.d', 'croquis')}</b>{' '}
+              {t('editor.ayuda.mapa.e', 'o en el mapa 3D. Más abajo, personaliza la casa.')}
+            </AyudaPie>
+          </div>
         ) : tab === 'personajes' ? (
-          <>
-            {t('editor.ayuda.pers.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.pers.b', 'personaje')}</b>{' '}
-            {t('editor.ayuda.pers.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.pers.d', 'nombre, cuerpo y avatar 3D')}</b>.
-          </>
+          <div className="pt-3">
+            <EditorPersonajesSection />
+            <AyudaPie>
+              {t('editor.ayuda.pers.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.pers.b', 'personaje')}</b>{' '}
+              {t('editor.ayuda.pers.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.pers.d', 'nombre, cuerpo y avatar 3D')}</b>.
+            </AyudaPie>
+          </div>
         ) : tab === 'objetos' ? (
-          <>
-            {t('editor.ayuda.obj.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.obj.b', 'objeto')}</b>{' '}
-            {t('editor.ayuda.obj.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.obj.d', 'color, tamaño y rotación')}</b>.
-          </>
+          <div className="pt-3">
+            <EditorObjetosSection />
+            <AyudaPie>
+              {t('editor.ayuda.obj.a', 'Elige un')} <b className="text-white/65">{t('editor.ayuda.obj.b', 'objeto')}</b>{' '}
+              {t('editor.ayuda.obj.c', 'y edita su')} <b className="text-white/65">{t('editor.ayuda.obj.d', 'color, tamaño y rotación')}</b>.
+            </AyudaPie>
+          </div>
         ) : (
-          <>
-            {t('editor.ayuda.conf.a', 'El')} <b className="text-white/65">{t('editor.ayuda.conf.b', 'estilo visual del mapa')}</b>
-            {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>.
-          </>
-        )}
-      </p>
-
-      <div data-tut="editor.contenido" className="min-h-0 flex-1 overflow-y-auto p-3">
-        {tab === 'mapa' ? (
-          <EditorPanelMapa />
-        ) : tab === 'personajes' ? (
-          <EditorPersonajesSection />
-        ) : tab === 'objetos' ? (
-          <EditorObjetosSection />
-        ) : (
-          <div className="space-y-2">
+          <div className="space-y-2 pt-3">
             <ConfigGrupo id="cuenta" icono="perfil" titulo={t('cuenta.titulo', 'Cuenta')}>
               <EditorCuentaSection embed sinTitulo />
             </ConfigGrupo>
@@ -170,6 +169,10 @@ export function EditPanel() {
             >
               <EditorRespaldoSection embed sinTitulo />
             </ConfigGrupo>
+            <AyudaPie>
+              {t('editor.ayuda.conf.a', 'El')} <b className="text-white/65">{t('editor.ayuda.conf.b', 'estilo visual del mapa')}</b>
+              {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>.
+            </AyudaPie>
           </div>
         )}
       </div>
@@ -186,9 +189,34 @@ export function EditPanel() {
 export function SalirCuartoFlotante() {
   const t = useT()
   const editingRoomId = useLayout((s) => s.editingRoomId)
+  const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
   const editRoom = useLayout((s) => s.editRoom)
+  const setMoverObjetos = useLayout((s) => s.setMoverObjetos)
   const screenX = useEditorAnchor((s) => s.screenX)
   const screenY = useEditorAnchor((s) => s.screenY)
+
+  // Modo "mover objetos": botón verde de confirmación que sale del modo.
+  if (moverObjetosRoomId) {
+    return (
+      <div
+        className="pointer-events-none absolute z-20"
+        style={{ left: screenX, top: screenY, transform: 'translate(-50%, -100%)' }}
+      >
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation()
+            setMoverObjetos(null)
+          }}
+          title={t('editor.moverObjetos.listo', 'Terminar de mover objetos')}
+          className="ui-panel-glass pointer-events-auto flex items-center gap-1.5 rounded-full border-2 border-accent/60 bg-accent px-3.5 py-2 text-xs font-bold text-accent-ink shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
+        >
+          <Icono nombre="confirmar" />
+          {t('mapa.listo', 'Listo')}
+        </button>
+      </div>
+    )
+  }
 
   if (!editingRoomId) return null
 
@@ -213,9 +241,23 @@ export function SalirCuartoFlotante() {
   )
 }
 
+/** Texto de ayuda al final de cada pestaña del editor (antes iba fijo arriba, entre las
+ * pestañas y el contenido; ahora cierra el contenido con scroll de cada una). */
+function AyudaPie({ children }: { children: ReactNode }) {
+  return (
+    <p className="mt-3 border-t border-white/10 pt-3 text-[11px] leading-snug text-white/45">
+      {children}
+    </p>
+  )
+}
+
 function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
   const t = useT()
-  const plegado = useHud((s) => s.plegado.supDer)
+  const menuAbierto = useHud((s) => s.menuAbierto)
+  const movilVertical = useHud((s) => s.movilVertical)
+  // En vertical el side menu (RoomSideMenu) ocupa casi todo el ancho: este disparador se
+  // pliega mientras esté abierto para no traslaparse (espejo en FloatingMenuButton).
+  const plegado = useHud((s) => s.plegado.supDer) || (movilVertical && menuAbierto)
 
   // Plegado: queda solo el engrane, que devuelve música + reloj + Editor.
   if (plegado) {
@@ -230,8 +272,10 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
 
   return (
     <div className="absolute right-4 top-4 z-20 flex items-start gap-2">
-      <BotonPlegarHud zona="supDer" className="mt-1.5" />
-      <ControlMusica botonClase="ui-hud rounded-lg border border-white/10 px-3 py-2 text-sm text-white/85 transition hover:bg-white/15" />
+      <div className="flex flex-col items-center gap-1">
+        <ControlMusica botonClase="ui-hud rounded-lg border border-white/10 px-3 py-2 text-sm text-white/85 transition hover:bg-white/15" />
+        <BotonPlegarHud zona="supDer" />
+      </div>
       <RelojWidget />
       <button
         type="button"

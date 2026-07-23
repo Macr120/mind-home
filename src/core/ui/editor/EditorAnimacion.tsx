@@ -71,7 +71,7 @@ export function EditorAnimacion({
             onClick={() => emitir({ preset: undefined })}
             title={t('editor.anim.ninguno', 'Sin movimiento')}
             className={`h-9 flex-1 text-base transition ${
-              !a.preset ? 'bg-emerald-500/20 ring-1 ring-inset ring-emerald-400/50' : 'bg-white/5 hover:bg-white/10'
+              !a.preset ? 'bg-accent/20 ring-1 ring-inset ring-accent/50' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
             ∅
@@ -83,7 +83,7 @@ export function EditorAnimacion({
               onClick={() => emitir({ preset: p.id })}
               title={nombrePreset(p)}
               className={`h-9 flex-1 text-base transition ${
-                a.preset === p.id ? 'bg-emerald-500/20 ring-1 ring-inset ring-emerald-400/50' : 'bg-white/5 hover:bg-white/10'
+                a.preset === p.id ? 'bg-accent/20 ring-1 ring-inset ring-accent/50' : 'bg-white/5 hover:bg-white/10'
               }`}
             >
               <Icono emoji={p.emoji} />
@@ -134,7 +134,7 @@ export function EditorAnimacion({
                 onClick={() => emitir({ activacion: op.id })}
                 className={`flex-1 px-2 py-1 text-[11px] font-semibold transition ${
                   a.activacion === op.id
-                    ? 'bg-emerald-600 texto-cta'
+                    ? 'bg-accent text-accent-ink'
                     : 'bg-white/5 text-white/55 hover:bg-white/10'
                 }`}
               >
@@ -166,7 +166,7 @@ export function EditorAnimacion({
                   onClick={() => setPoseSel(i)}
                   className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
                     i === iPose
-                      ? 'border-emerald-400/50 bg-emerald-600 texto-cta'
+                      ? 'border-accent/50 bg-accent text-accent-ink'
                       : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
                   }`}
                 >
@@ -181,7 +181,7 @@ export function EditorAnimacion({
               emitir({ poses: [...poses, capturarPose(piezas)] })
               setPoseSel(poses.length)
             }}
-            className="flex h-9 w-full items-center justify-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500/20"
+            className="flex h-9 w-full items-center justify-center gap-1.5 rounded-lg border border-accent/30 bg-accent/10 text-[11px] font-semibold text-accent transition hover:bg-accent/20"
           >
             <Icono nombre="captura" /> {t('editor.anim.capturar', 'Capturar pose actual')}
           </button>

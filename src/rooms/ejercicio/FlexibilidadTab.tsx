@@ -9,11 +9,13 @@ import {
 import type { PlanDelDia } from './agenda'
 import { TarjetaRutina } from './TarjetaRutina'
 import { AutocompleteEjercicio } from './AutocompleteEjercicio'
+import { CheckFila } from './CheckFila'
 import { aGrupoCatalogo } from './catalogo'
 import { CrearRutinaFlex } from './CrearRutinaFlex'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
+import { ReproductorFlex } from './ReproductorFlex'
 import { Timer } from './Timer'
 import { minutosTipo, normalizarEjercicio, sesionesSemana, sesionesTipo } from './stats'
 import { HistorialDia, StatCard } from './ResistenciaTab'
@@ -33,6 +35,8 @@ interface FilaFlex {
   ejercicio: string
   segundos: string
   repeticiones: string
+  /** Marcado como hecho durante la sesión (no se guarda, solo apoyo visual). */
+  hecho?: boolean
 }
 
 const filaVacia = (): FilaFlex => ({ ejercicio: '', segundos: '30', repeticiones: '3' })
@@ -64,6 +68,8 @@ export function FlexibilidadTab({
   const [rutinasAbierto, setRutinasAbierto] = useState(true)
   const [timerSeg, setTimerSeg] = useState(30)
   const [timerNonce, setTimerNonce] = useState(0)
+  // Rutina que se está reproduciendo en el modo guiado (imagen + contador).
+  const [rutinaFlexActiva, setRutinaFlexActiva] = useState<RutinaFlex | null>(null)
 
   const rutinas = rutinasFlexRepo.useAll() ?? []
 
@@ -270,6 +276,7 @@ export function FlexibilidadTab({
                     acento={{ boton: 'bg-violet-600', hoverBorde: 'hover:border-violet-500/50' }}
                     imgPorClave={imgPorClave}
                     onUsar={() => aplicarRutina(r)}
+                    onIniciar={() => setRutinaFlexActiva(r)}
                     onBorrar={() => r.id && rutinasFlexRepo.remove(r.id)}
                     hechoHoy={delDia.length > 0}
                   />
@@ -314,6 +321,11 @@ export function FlexibilidadTab({
               </p>
               {filas.map((f, i) => (
                 <div key={i} className="flex items-center gap-1.5">
+                  <CheckFila
+                    hecho={!!f.hecho}
+                    onToggle={() => actualizarFila(i, { hecho: !f.hecho })}
+                    acento="bg-violet-600"
+                  />
                   <MiniaturaEjercicio
                     nombre={f.ejercicio}
                     registro={imgPorClave.get(normalizarEjercicio(f.ejercicio))}
@@ -420,6 +432,14 @@ export function FlexibilidadTab({
             </div>
           </div>
         </>
+      )}
+
+      {rutinaFlexActiva && (
+        <ReproductorFlex
+          rutina={rutinaFlexActiva}
+          imgPorClave={imgPorClave}
+          onCerrar={() => setRutinaFlexActiva(null)}
+        />
       )}
     </div>
   )

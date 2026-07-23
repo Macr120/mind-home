@@ -9,6 +9,7 @@ import {
 import type { PlanDelDia } from './agenda'
 import { TarjetaRutina } from './TarjetaRutina'
 import { AutocompleteEjercicio } from './AutocompleteEjercicio'
+import { CheckFila } from './CheckFila'
 import { aGrupoCatalogo } from './catalogo'
 import { CrearRutinaFuerza } from './CrearRutinaFuerza'
 import { GraficaProgreso } from './GraficaProgreso'
@@ -35,6 +36,8 @@ interface FilaEjercicio {
   series: string
   repeticiones: string
   pesoKg: string
+  /** Marcado como hecho durante el entreno (no se guarda, solo apoyo visual). */
+  hecho?: boolean
 }
 
 const filaVacia = (): FilaEjercicio => ({
@@ -547,6 +550,11 @@ function SesionForm({
           return (
             <div key={i} className="space-y-0.5">
               <div className="flex items-center gap-1.5">
+                <CheckFila
+                  hecho={!!f.hecho}
+                  onToggle={() => actualizarFila(i, { hecho: !f.hecho })}
+                  acento="bg-orange-600"
+                />
                 <MiniaturaEjercicio
                   nombre={f.ejercicio}
                   registro={imgPorClave.get(normalizarEjercicio(f.ejercicio))}

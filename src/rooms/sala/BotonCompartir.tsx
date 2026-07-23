@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { compartirTexto } from './itinerarioTexto'
+import { compartirTexto } from '../../core/compartir'
 
 /** Botón "Compartir" con feedback (✓ Copiado) y respaldo manual si el portapapeles falla. */
 export function BotonCompartir({ titulo, texto }: { titulo: string; texto: string }) {

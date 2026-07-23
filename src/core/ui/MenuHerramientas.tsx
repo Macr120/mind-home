@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { useHerramienta, type Herramienta } from '../state/herramientaStore'
+import { usePlanos, type ModoConstructor } from '../state/planosStore'
 import { VEHICULOS_JUGABLES } from '../house/vehiculos'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -111,6 +112,8 @@ interface EntradaHerramienta {
   herramienta: Herramienta
   emoji: string
   etiqueta: string
+  /** Atajo de construcción: modo del constructor de mapa que activa en el 3D. */
+  modo?: ModoConstructor
 }
 interface Categoria {
   id: string
@@ -133,6 +136,8 @@ export function MenuHerramientas() {
   const equipadas = useHerramienta((s) => s.equipadas)
   const equipar = useHerramienta((s) => s.equipar)
   const soltarTodo = useHerramienta((s) => s.soltarTodo)
+  const planosModo = usePlanos((s) => s.modo)
+  const planosOn = usePlanos((s) => s.activo)
   const plegado = useHud((s) => s.plegado.infIzq)
   const movilVertical = useHud((s) => s.movilVertical)
   const chatPlegado = useHud((s) => s.plegado.chat)
@@ -190,12 +195,42 @@ export function MenuHerramientas() {
         etiqueta: t(`herr.veh.${v.tipo}`, v.nombre),
       })),
     },
+    {
+      id: 'construccion',
+      emoji: '🏗️',
+      etiqueta: t('herr.cat.construccion', 'Construcción'),
+      entradas: [
+        { herramienta: 'construir', modo: 'cuartos', emoji: '🏠', etiqueta: t('constructor.modo.cuartos', 'Cuartos') },
+        { herramienta: 'construir', modo: 'muros', emoji: '🧱', etiqueta: t('constructor.modo.muros', 'Muros') },
+        { herramienta: 'construir', modo: 'puertas', emoji: '🚪', etiqueta: t('constructor.modo.puertas', 'Puertas') },
+        { herramienta: 'construir', modo: 'ventanas', emoji: '🪟', etiqueta: t('constructor.modo.ventanas', 'Ventanas') },
+        { herramienta: 'construir', modo: 'piso-ext', emoji: '🌿', etiqueta: t('constructor.modo.piso-ext', 'Piso ext.') },
+        { herramienta: 'construir', modo: 'piso-int', emoji: '🟫', etiqueta: t('constructor.modo.piso-int', 'Piso int.') },
+        { herramienta: 'construir', modo: 'techos', emoji: '🔺', etiqueta: t('constructor.modo.techos', 'Techos') },
+      ],
+    },
   ]
 
-  const emojiActivo = categorias.flatMap((c) => c.entradas).find((e) => e.herramienta === equipadas[0])?.emoji
+  const emojiActivo =
+    equipadas[0] === 'construir'
+      ? '🏗️'
+      : categorias.flatMap((c) => c.entradas).find((e) => e.herramienta === equipadas[0])?.emoji
 
   // Equipar/desequipar sin cerrar la rueda: permite armar el set de hasta 3.
   const elegir = (h: Herramienta) => equipar(h)
+
+  // Atajo de construcción: equipa la herramienta (si falta), activa ese modo del
+  // constructor en el 3D y cierra la rueda para dejar toda la pantalla al mapa.
+  const elegirModo = (m: ModoConstructor) => {
+    if (!useHerramienta.getState().equipadas.includes('construir')) equipar('construir')
+    usePlanos.getState().setModo(m)
+    // Modo Cuartos: celda entera + pincel cuadrado listo para dibujar al primer toque.
+    if (m === 'cuartos') {
+      usePlanos.getState().setDetalleRejilla('celda')
+      if (!usePlanos.getState().pincelForma) usePlanos.getState().setPincelForma('cuadrado')
+    }
+    cerrar()
+  }
 
   const categoriaActual = catAbierta ? categorias.find((c) => c.id === catAbierta) : undefined
 
@@ -243,13 +278,17 @@ export function MenuHerramientas() {
               <>
                 {categoriaActual.entradas.map((en, i) => (
                   <Sector
-                    key={en.herramienta}
+                    key={en.modo ?? en.herramienta}
                     i={i}
                     n={categoriaActual.entradas.length}
                     emoji={en.emoji}
                     etiqueta={en.etiqueta}
-                    activo={equipadas.includes(en.herramienta)}
-                    onSelect={() => elegir(en.herramienta)}
+                    activo={
+                      en.modo
+                        ? planosOn && planosModo === en.modo && equipadas.includes('construir')
+                        : equipadas.includes(en.herramienta)
+                    }
+                    onSelect={() => (en.modo ? elegirModo(en.modo) : elegir(en.herramienta))}
                   />
                 ))}
                 <Centro

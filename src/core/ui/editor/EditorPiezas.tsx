@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { COLOR_FORMA, type MascotaId, type Pieza3D } from '../../chat/mascotas'
 import { useEditorUi } from '../../state/editorUiStore'
 import { ColorPicker } from './ColorPicker'
+import { BotonPreviewClaro, claseOverlayBtn } from './BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -217,7 +218,7 @@ export function EditorPiezas({
                 onClick={() => tipo !== pieza.tipo && setPieza({ tipo, tam: piezaNueva(tipo).tam })}
                 title={nombreTipo(tipo)}
                 className={`h-9 flex-1 text-base transition ${
-                  pieza.tipo === tipo ? 'bg-emerald-500/20 ring-1 ring-inset ring-emerald-400/50' : 'bg-white/5 hover:bg-white/10'
+                  pieza.tipo === tipo ? 'bg-accent/20 ring-1 ring-inset ring-accent/50' : 'bg-white/5 hover:bg-white/10'
                 }`}
               >
                 <Icono emoji={emoji} />
@@ -310,14 +311,13 @@ export function BotonOverlay({
   ancho?: string
   activo?: boolean
 }) {
+  const claro = useEditorUi((s) => s.previewClaro)
   return (
     <button
       type="button"
       onClick={onClick}
       title={title}
-      className={`pointer-events-auto grid h-7 ${ancho} place-items-center rounded-md text-xs leading-none backdrop-blur-sm transition hover:bg-emerald-600 hover:texto-cta ${
-        activo ? 'bg-emerald-600 texto-cta ring-1 ring-emerald-400/60' : 'ui-hud text-white/80'
-      }`}
+      className={`pointer-events-auto grid h-7 ${ancho} place-items-center rounded-md border text-xs leading-none backdrop-blur-sm transition hover:bg-accent hover:text-accent-ink ${claseOverlayBtn(claro, activo)}`}
     >
       {children}
     </button>
@@ -326,8 +326,13 @@ export function BotonOverlay({
 
 /** Título pequeño bajo cada grupo de controles del overlay. */
 function TituloOverlay({ children }: { children: React.ReactNode }) {
+  const claro = useEditorUi((s) => s.previewClaro)
   return (
-    <span className="ui-hud rounded px-1 text-[8px] font-semibold uppercase tracking-wider text-white/55">
+    <span
+      className={`rounded px-1 text-[8px] font-semibold uppercase tracking-wider ${
+        claro ? 'bg-white/90 text-black/55' : 'ui-hud text-white/55'
+      }`}
+    >
       {children}
     </span>
   )
@@ -377,6 +382,7 @@ export function ControlesPiezasOverlay({
   const setSel = useEditorUi((s) => s.setPiezaSel)
   const abierto = useEditorUi((s) => s.piezasControles)
   const setAbierto = useEditorUi((s) => s.setPiezasControles)
+  const claro = useEditorUi((s) => s.previewClaro)
   // Los taps rápidos llegan antes del re-render (React los agrupa): se acumula
   // sobre un ref con la lista más reciente para no perder pasos intermedios.
   const ultimas = useRef(piezas)
@@ -446,21 +452,26 @@ export function ControlesPiezasOverlay({
         </BotonOverlay>
       </div>
 
-      {abierto ? (
-        <>
-          {/* Arriba-izq: pieza activa (tocar = siguiente pieza) */}
-          <div className="absolute left-1.5 top-1.5">
-            <button
-              type="button"
-              onClick={() => setSel((iSel + 1) % piezas.length)}
-              title={t('editor.piezas.siguiente', 'Siguiente pieza')}
-              className="ui-hud pointer-events-auto flex h-7 items-center gap-1 rounded-md px-2 text-[11px] font-semibold text-white/85 transition hover:bg-emerald-500/40"
-            >
-              <span className="h-2.5 w-2.5 rounded-sm" style={{ background: pieza.color }} />
-              <Icono emoji={TIPOS.find((x) => x.tipo === pieza.tipo)?.emoji ?? '⬛'} /> {iSel + 1}/{piezas.length}
-            </button>
-          </div>
+      {/* Arriba-izq: toggle de fondo claro/oscuro (siempre) + pieza activa (solo abierto). */}
+      <div className="absolute left-1.5 top-1.5 flex flex-col items-start gap-1">
+        {abierto && (
+          <button
+            type="button"
+            onClick={() => setSel((iSel + 1) % piezas.length)}
+            title={t('editor.piezas.siguiente', 'Siguiente pieza')}
+            className={`pointer-events-auto flex h-7 items-center gap-1 rounded-md border px-2 text-[11px] font-semibold transition hover:bg-accent/40 ${
+              claro ? 'border-black/10 bg-white/90 text-black/75 shadow-sm' : 'ui-hud border-transparent text-white/85'
+            }`}
+          >
+            <span className="h-2.5 w-2.5 rounded-sm" style={{ background: pieza.color }} />
+            <Icono emoji={TIPOS.find((x) => x.tipo === pieza.tipo)?.emoji ?? '⬛'} /> {iSel + 1}/{piezas.length}
+          </button>
+        )}
+        <BotonPreviewClaro />
+      </div>
 
+      {abierto && (
+        <>
           {/* Abajo-izq: posición — diagonales isométricas (X/Z) con subir/bajar (Y) al centro */}
           <div className="absolute bottom-1.5 left-1.5 flex flex-col items-center gap-0.5">
             <div className="grid grid-cols-3 gap-0.5">
@@ -487,8 +498,13 @@ export function ControlesPiezasOverlay({
             <TituloOverlay>{t('editor.piezas.tamano', 'Tamaño')}</TituloOverlay>
           </div>
         </>
-      ) : (
-        <span className="pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] text-white/35">
+      )}
+      {!abierto && (
+        <span
+          className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+            claro ? 'text-black/45' : 'text-white/35'
+          }`}
+        >
           {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
         </span>
       )}

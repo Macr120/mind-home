@@ -8,6 +8,7 @@ import { detenerPista, iniciarPista, reproducirLista } from '../audio/pistas'
 import { db } from '../data/db'
 import { useAjustes } from '../state/ajustesStore'
 import { Icono } from '../ui/iconos/Icono'
+import { compartirTexto } from '../compartir'
 import {
   esEnCurso,
   etiquetaPeriodo,
@@ -49,6 +50,9 @@ export default function WrappedOverlay() {
   const [pausado, setPausado] = useState(false)
   const [silencio, setSilencio] = useState(false)
   const holdRef = useRef<{ inicio: number; timer: number } | null>(null)
+  const slideRef = useRef<HTMLDivElement>(null)
+  const [compartido, setCompartido] = useState(false)
+  const [textoManual, setTextoManual] = useState<string | null>(null)
 
   // Música mientras el wrapped está abierto: festiva generada o la pista del
   // usuario, según el ajuste. El clic de apertura ya desbloqueó el audio; si se
@@ -166,6 +170,26 @@ export default function WrappedOverlay() {
   const haySiguiente = periodoSiguiente(p).desde <= fechaLocalISO()
   const etiqueta = etiquetaPeriodo(p, localeActual())
 
+  // Comparte la lámina actual como texto: toma lo que el slide ya muestra en
+  // pantalla (siempre en sincro con su contenido, sin duplicar el formateo).
+  const compartirLamina = async () => {
+    const crudo = slideRef.current?.innerText ?? ''
+    const texto = crudo
+      .split('\n')
+      .map((l) => l.trim())
+      .filter(Boolean)
+      .join('\n')
+    if (!texto) return
+    const titulo = t('wrapped.compartir.titulo', 'Mi resumen de Mind Home · {periodo}', { periodo: etiqueta })
+    const r = await compartirTexto(titulo, `${titulo}\n\n${texto}`)
+    if (r.tipo === 'copiado') {
+      setCompartido(true)
+      setTimeout(() => setCompartido(false), 2000)
+    } else if (r.tipo === 'manual') {
+      setTextoManual(r.texto)
+    }
+  }
+
   return (
     <div
       className="ui-noche fixed inset-0 z-[55] flex flex-col overflow-hidden bg-black/90 backdrop-blur"
@@ -253,6 +277,16 @@ export default function WrappedOverlay() {
             <Icono nombre="bocina" />
           </button>
         )}
+        {datos && slide && (
+          <button
+            type="button"
+            onClick={() => void compartirLamina()}
+            title={t('wrapped.compartir', 'Compartir esta lámina')}
+            className="rounded-lg px-2 py-1 text-white/70 transition hover:bg-white/10"
+          >
+            {compartido ? <Icono nombre="confirmar" /> : <Icono nombre="compartir" />}
+          </button>
+        )}
         <div className="flex overflow-hidden rounded-lg border border-white/15">
           {(['semana', 'mes', 'anio'] as const).map((tp) => (
             <button
@@ -287,12 +321,36 @@ export default function WrappedOverlay() {
           </div>
         ) : (
           slide && (
-            <div key={`${slide.id}-${indice}`} className="ui-pop h-full">
+            <div key={`${slide.id}-${indice}`} ref={slideRef} className="ui-pop h-full">
               <slide.Comp resumen={datos.resumen} previo={datos.previo} />
             </div>
           )
         )}
       </div>
+
+      {/* Respaldo manual si Web Share y el portapapeles fallan (mismo patrón que BotonCompartir). */}
+      {textoManual && (
+        <div className="absolute inset-x-3 bottom-3 z-10 space-y-1.5 rounded-lg border border-white/10 bg-black/70 p-2.5 backdrop-blur">
+          <p className="text-[11px] text-white/60">
+            {t('wrapped.compartir.copiarManual', 'No se pudo copiar solo. Selecciona el texto y cópialo (Ctrl+C):')}
+          </p>
+          <textarea
+            readOnly
+            value={textoManual}
+            rows={4}
+            onFocus={(e) => e.currentTarget.select()}
+            ref={(el) => el?.focus()}
+            className="w-full resize-none rounded-lg border border-white/10 bg-black/40 p-2 text-[11px] text-white/85 outline-none"
+          />
+          <button
+            type="button"
+            onClick={() => setTextoManual(null)}
+            className="rounded-lg bg-white/10 px-2.5 py-1 text-xs text-white/70 transition hover:bg-white/20"
+          >
+            {t('wrapped.compartir.cerrarManual', 'Cerrar')}
+          </button>
+        </div>
+      )}
     </div>
   )
 }

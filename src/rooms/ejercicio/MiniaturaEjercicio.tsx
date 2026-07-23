@@ -1,5 +1,5 @@
 import { useT } from '../../core/i18n/useT'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import type { ImagenEjercicio } from '../../core/data/db'
 import { Icono } from '../../core/ui/iconos/Icono'
 import {
@@ -7,6 +7,7 @@ import {
   generarImagenEjercicio,
   guardarImagenEjercicio,
   imagenIaActiva,
+  useUrlImagen,
 } from './imagenIA'
 
 /**
@@ -60,19 +61,6 @@ export function MiniaturaEjercicio({
       )}
     </div>
   )
-}
-
-/** URL temporal del Blob guardado (en efecto: con StrictMode un useMemo la revocaría antes de pintar). */
-function useUrlImagen(registro?: ImagenEjercicio): string | null {
-  const [url, setUrl] = useState<string | null>(null)
-  useEffect(() => {
-    if (!registro) return
-    const u = URL.createObjectURL(registro.imagen)
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- la URL debe nacer en el efecto para sobrevivir el remount de StrictMode
-    setUrl(u)
-    return () => URL.revokeObjectURL(u)
-  }, [registro])
-  return registro ? url : null
 }
 
 /**

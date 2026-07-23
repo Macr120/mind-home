@@ -558,7 +558,7 @@ export function extraerJSON(respuesta: string): Record<string, unknown> {
 }
 
 /** Categoría de modelo 3D generable por IA: cada una usa un prompt especializado. */
-export type TipoModelo3D = 'personaje' | 'objeto' | 'arquitectura'
+export type TipoModelo3D = 'personaje' | 'objeto' | 'arquitectura' | 'ropa'
 
 /** Contrato JSON común a las tres categorías (formato de `Pieza3D`). */
 const CONTRATO_PIEZAS = [
@@ -590,6 +590,13 @@ const SYSTEM_MODELO3D: Record<TipoModelo3D, string> = {
     ...CONTRATO_PIEZAS,
     'Reglas: centrada en el origen y apoyada en y=0, a mayor escala (~1.5–4 de alto), usa 6–24 piezas.',
     'Prioriza simetría y repetición (columnas, escalones, almenas); usa cajas/cilindros/planos para muros y soportes, y conos para techos y agujas. Colores de piedra/arena/terracota/madera salvo que se indique otra cosa. SIN cara.',
+  ].join('\n'),
+  ropa: [
+    'Eres un diseñador de ROPA 3D low-poly estilo Roblox/voxel para vestir a un personaje.',
+    'A partir de la descripción, construye SOLO la prenda o el accesorio (sin cuerpo, sin cabeza, sin cara).',
+    ...CONTRATO_PIEZAS,
+    'El personaje que la viste mira a +Z y mide ~1.6 de alto. Referencias de su cuerpo: pies y≈0.1, piernas y≈0.3, cadera y≈0.6, torso y≈0.9, hombros y≈1.2, cuello y≈1.25, cabeza y≈1.5 (medio-ancho ~0.22), brazos en x≈±0.42.',
+    'Coloca la prenda envolviendo la parte del cuerpo que corresponda y un poco más grande que ella para que no se hunda (un torso de ancho ~0.6 → la prenda ~0.66). Usa 4–16 piezas, colores hex coherentes. SIN ojos ni cara.',
   ].join('\n'),
 }
 

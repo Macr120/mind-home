@@ -10,13 +10,20 @@ import { useT } from '../../i18n/useT'
 export function PlanosEditor({ compacto = false }: { compacto?: boolean }) {
   const t = useT()
   const fitRef = useRef<(() => void) | null>(null)
+  const modo = usePlanos((s) => s.modo)
   const muroLibreSel = usePlanos((s) => s.muroLibreSel)
   const seleccion = usePlanos((s) => s.seleccion)
   const previewVisible = usePlanos((s) => s.previewVisible)
   const setPreviewVisible = usePlanos((s) => s.setPreviewVisible)
-  // El ojo solo aplica al previsualizador del editor de mapa (compacto), y solo cuando
-  // hay un muro independiente o una pared de cuarto seleccionada que previsualizar.
-  const conPreview = compacto && (muroLibreSel != null || seleccion?.tipo === 'arista')
+  // El ojo solo aplica al previsualizador del editor de mapa (compacto): muro independiente
+  // o pared de cuarto (arista) en muros/puertas/ventanas, o el cuarto seleccionado en
+  // cuartos/piso interior/techos. El piso exterior no se previsualiza (debe coincidir con
+  // el bloque de preview de ConstructorMapa).
+  const conPreview =
+    compacto &&
+    (muroLibreSel != null ||
+      seleccion?.tipo === 'arista' ||
+      ((modo === 'cuartos' || modo === 'piso-int' || modo === 'techos') && seleccion?.tipo === 'cuarto'))
 
   return (
     <div className={`relative flex h-full min-h-0 w-full flex-1 flex-col ${compacto ? '' : 'pr-80'}`}>

@@ -526,7 +526,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                       : nombreAsistente(t, m)
                   }
                   className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg text-lg transition ${
-                    m.id === mascotaId ? 'bg-emerald-500/20 ring-1 ring-emerald-400/50' : 'hover:bg-white/10'
+                    m.id === mascotaId ? 'bg-accent/20 ring-1 ring-accent/50' : 'hover:bg-white/10'
                   }`}
                 >
                   <Icono emoji={m.emoji} />
@@ -567,7 +567,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                 onClick={() => setPestana(p)}
                 className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold transition ${
                   pestana === p
-                    ? 'bg-emerald-500/15 text-emerald-400'
+                    ? 'bg-accent/15 text-accent'
                     : 'text-white/40 hover:bg-white/10 hover:text-white/70'
                 }`}
               >
@@ -667,7 +667,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                     <p className="break-words text-sm text-white/85">{e.texto}</p>
                     <p className="flex items-center gap-1.5 text-[10px] text-white/35">
                       <span>{room ? nombreCortoT(room.id) : t('chat.sinClasificar', 'Sin clasificar')}</span>
-                      {e.procesado && <span className="text-emerald-400"><Icono nombre="confirmar" /> {t('chat.capturado', 'capturado')}</span>}
+                      {e.procesado && <span className="text-accent"><Icono nombre="confirmar" /> {t('chat.capturado', 'capturado')}</span>}
                       <span>·</span>
                       <span>
                         {new Date(e.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
@@ -779,13 +779,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                     onClick={() => elegirProveedor(p.id)}
                     className={`flex w-full items-center gap-2 rounded-lg border px-2 py-1.5 text-xs font-semibold transition ${
                       activo
-                        ? 'border-emerald-400/40 bg-emerald-600 texto-cta'
+                        ? 'border-accent/40 bg-accent text-accent-ink'
                         : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
                     }`}
                   >
                     <span><Icono emoji={p.emoji} /></span>
                     <span className="flex-1 text-left">{p.nombre}</span>
-                    {listo && <span className="text-[10px] text-emerald-400">●</span>}
+                    {listo && <span className="text-[10px] text-accent">●</span>}
                   </button>
                 )
               })}
@@ -840,7 +840,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           data-tut="chat.asistente"
           title={abierto ? t('chat.ocultar', 'Ocultar bitácora') : `${nombreAsistente(t, mascota)} · ${t('chat.verBitacora', 'ver bitácora')}`}
           className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-2xl transition hover:scale-105 ${
-            abierto || conversacion ? 'bg-emerald-500/20' : 'bg-white/5 hover:bg-white/10'
+            abierto || conversacion ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
           }`}
         >
           <Icono emoji={mascota.emoji} />
@@ -978,7 +978,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             <Icono emoji={proveedor.emoji} />
             <span
               className={`absolute right-1 top-1 h-1.5 w-1.5 rounded-full ${
-                conIA ? 'bg-emerald-400' : 'bg-white/20'
+                conIA ? 'bg-accent' : 'bg-white/20'
               }`}
             />
           </button>
@@ -988,7 +988,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           type="button"
           onClick={enviar}
           disabled={!interp.texto.trim() && !imagen}
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-emerald-600 text-lg texto-cta transition hover:bg-emerald-600 disabled:opacity-30"
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition hover:bg-accent disabled:opacity-30"
           title={t('chat.registrar', 'Registrar')}
         >
           <Icono nombre="enviar" />

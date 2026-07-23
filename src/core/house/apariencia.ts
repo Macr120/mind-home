@@ -8,7 +8,14 @@
 import type { MascotaId } from '../chat/mascotas'
 
 /** Prendas que puede llevar un personaje. */
-export type PrendaId = 'sombrero' | 'lentes' | 'chamarra' | 'playera' | 'pantalon' | 'tenis'
+export type PrendaId =
+  | 'sombrero' | 'gorroChef' | 'gorra' | 'lentes'
+  | 'bufanda' | 'corbata'
+  | 'camisa' | 'playera' | 'chamarra' | 'capa'
+  | 'vestido' | 'falda'
+  | 'pantalon' | 'shorts'
+  | 'botas' | 'tenis'
+  | 'guantes' | 'mochila'
 
 /** Una prenda puesta: por ahora solo guarda su color. */
 interface Prenda {
@@ -23,20 +30,97 @@ export const ESCALA_DEFAULT = 1
 export const ESCALA_MIN = 0.5
 export const ESCALA_MAX = 2
 
+/** Categoría de una prenda (agrupa la lista de la pestaña Ropa del editor). */
+export type PrendaCategoriaId = 'cabeza' | 'cuello' | 'torso' | 'cintura' | 'pies' | 'accesorios'
+
+/** Metadatos de cada categoría, en el orden en que se muestran. */
+export const CATEGORIAS_PRENDA: { id: PrendaCategoriaId; nombre: string; emoji: string }[] = [
+  { id: 'cabeza', nombre: 'Cabeza', emoji: '🎩' },
+  { id: 'cuello', nombre: 'Cuello', emoji: '🧣' },
+  { id: 'torso', nombre: 'Torso', emoji: '👕' },
+  { id: 'cintura', nombre: 'Cintura y piernas', emoji: '👖' },
+  { id: 'pies', nombre: 'Pies', emoji: '👟' },
+  { id: 'accesorios', nombre: 'Accesorios', emoji: '🎒' },
+]
+
 /** Metadatos de cada prenda para la interfaz del editor (orden de arriba a abajo). */
-export const PRENDAS: { id: PrendaId; nombre: string; emoji: string; color: string }[] = [
-  { id: 'sombrero', nombre: 'Sombrero', emoji: '🎩', color: '#3b3b4f' },
-  { id: 'lentes', nombre: 'Lentes', emoji: '🕶️', color: '#1c1c22' },
-  { id: 'chamarra', nombre: 'Chamarra', emoji: '🧥', color: '#7a4a2b' },
-  { id: 'playera', nombre: 'Playera', emoji: '👕', color: '#3b82f6' },
-  { id: 'pantalon', nombre: 'Pantalón', emoji: '👖', color: '#334155' },
-  { id: 'tenis', nombre: 'Tenis', emoji: '👟', color: '#e5e7eb' },
+export const PRENDAS: { id: PrendaId; nombre: string; emoji: string; color: string; categoria: PrendaCategoriaId }[] = [
+  // Cabeza
+  { id: 'sombrero', nombre: 'Sombrero', emoji: '🎩', color: '#3b3b4f', categoria: 'cabeza' },
+  { id: 'gorroChef', nombre: 'Gorro de chef', emoji: '🧑‍🍳', color: '#f5f5f0', categoria: 'cabeza' },
+  { id: 'gorra', nombre: 'Gorra', emoji: '🧢', color: '#2563eb', categoria: 'cabeza' },
+  { id: 'lentes', nombre: 'Lentes', emoji: '🕶️', color: '#1c1c22', categoria: 'cabeza' },
+  // Cuello
+  { id: 'bufanda', nombre: 'Bufanda', emoji: '🧣', color: '#dc2626', categoria: 'cuello' },
+  { id: 'corbata', nombre: 'Corbata', emoji: '👔', color: '#1e3a8a', categoria: 'cuello' },
+  // Torso
+  { id: 'camisa', nombre: 'Camisa', emoji: '🥼', color: '#e5e7eb', categoria: 'torso' },
+  { id: 'playera', nombre: 'Playera', emoji: '👕', color: '#3b82f6', categoria: 'torso' },
+  { id: 'chamarra', nombre: 'Chamarra', emoji: '🧥', color: '#7a4a2b', categoria: 'torso' },
+  { id: 'capa', nombre: 'Capa', emoji: '🦸', color: '#7c3aed', categoria: 'torso' },
+  // Cuerpo entero / cintura
+  { id: 'vestido', nombre: 'Vestido', emoji: '👗', color: '#db2777', categoria: 'cintura' },
+  { id: 'falda', nombre: 'Falda', emoji: '🩱', color: '#be185d', categoria: 'cintura' },
+  { id: 'pantalon', nombre: 'Pantalón', emoji: '👖', color: '#334155', categoria: 'cintura' },
+  { id: 'shorts', nombre: 'Shorts', emoji: '🩳', color: '#0d9488', categoria: 'cintura' },
+  // Pies
+  { id: 'botas', nombre: 'Botas', emoji: '🥾', color: '#5b3a1a', categoria: 'pies' },
+  { id: 'tenis', nombre: 'Tenis', emoji: '👟', color: '#e5e7eb', categoria: 'pies' },
+  // Accesorios
+  { id: 'guantes', nombre: 'Guantes', emoji: '🧤', color: '#374151', categoria: 'accesorios' },
+  { id: 'mochila', nombre: 'Mochila', emoji: '🎒', color: '#166534', categoria: 'accesorios' },
 ]
 
 /** Color por defecto de cada prenda (al ponérsela). */
 export const PRENDA_COLOR_DEFAULT = Object.fromEntries(
   PRENDAS.map((p) => [p.id, p.color]),
 ) as Record<PrendaId, string>
+
+/**
+ * Rostro del personaje principal: una expresión dibujada (ojos + boca) o una
+ * imagen subida por el usuario que tapa el frente de la cabeza. `ninguno` deja
+ * la cabeza lisa como antes.
+ */
+export type ExpresionId =
+  | 'neutral' | 'feliz' | 'sonrisa' | 'sorpresa' | 'guino' | 'serio' | 'ternura' | 'ninguno'
+
+/** Expresión por defecto (cara amable) cuando el avatar no tiene una elegida. */
+export const EXPRESION_DEFAULT: ExpresionId = 'neutral'
+
+/** Metadatos de cada expresión para la interfaz del editor. */
+export const EXPRESIONES: { id: ExpresionId; nombre: string; emoji: string }[] = [
+  { id: 'neutral', nombre: 'Neutral', emoji: '😐' },
+  { id: 'feliz', nombre: 'Feliz', emoji: '😄' },
+  { id: 'sonrisa', nombre: 'Sonrisa', emoji: '🙂' },
+  { id: 'sorpresa', nombre: 'Sorpresa', emoji: '😮' },
+  { id: 'guino', nombre: 'Guiño', emoji: '😉' },
+  { id: 'serio', nombre: 'Serio', emoji: '😠' },
+  { id: 'ternura', nombre: 'Ternura', emoji: '🥰' },
+  { id: 'ninguno', nombre: 'Sin rostro', emoji: '⭕' },
+]
+
+/**
+ * Peinado del personaje principal, dibujado con primitivas sobre la cabeza del
+ * cuerpo base (usa las `anclas`). `ninguno` deja la cabeza sin pelo.
+ */
+export type PeinadoId =
+  | 'ninguno' | 'corto' | 'puntas' | 'coleta' | 'chongo' | 'largo' | 'afro' | 'mohawk' | 'tazon'
+
+/** Color de pelo por defecto (castaño oscuro). */
+export const PELO_COLOR_DEFAULT = '#3a2a1a'
+
+/** Metadatos de cada peinado para la interfaz del editor. */
+export const PEINADOS: { id: PeinadoId; nombre: string; emoji: string }[] = [
+  { id: 'ninguno', nombre: 'Sin pelo', emoji: '🚫' },
+  { id: 'corto', nombre: 'Corto', emoji: '💇' },
+  { id: 'puntas', nombre: 'Puntas', emoji: '🦔' },
+  { id: 'coleta', nombre: 'Coleta', emoji: '🎀' },
+  { id: 'chongo', nombre: 'Chongo', emoji: '🍥' },
+  { id: 'largo', nombre: 'Largo', emoji: '🦱' },
+  { id: 'afro', nombre: 'Afro', emoji: '🌀' },
+  { id: 'mohawk', nombre: 'Mohawk', emoji: '🦅' },
+  { id: 'tazon', nombre: 'Tazón', emoji: '🥣' },
+]
 
 /** Serializa la ropa a JSON para guardar en IndexedDB (vacío = sin ropa). */
 export function serializarRopa(ropa: Ropa | undefined): string {

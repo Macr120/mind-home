@@ -10,6 +10,7 @@ import type { PlanDelDia } from './agenda'
 import { TarjetaRutina } from './TarjetaRutina'
 import { AutocompleteEjercicio } from './AutocompleteEjercicio'
 import { CardioEnVivo, RutaSvg } from './CardioEnVivo'
+import { CheckFila } from './CheckFila'
 import { aGrupoCatalogo } from './catalogo'
 import { CrearRutinaCardio } from './CrearRutinaCardio'
 import { HeatmapMensual } from './HeatmapMensual'
@@ -43,6 +44,8 @@ interface FilaCardio {
   actividad: string
   minutos: string
   km: string
+  /** Marcado como hecho durante el entreno (no se guarda, solo apoyo visual). */
+  hecho?: boolean
 }
 
 const filaVacia = (): FilaCardio => ({ actividad: '', minutos: '30', km: '' })
@@ -336,6 +339,11 @@ export function ResistenciaTab({
               </p>
               {filas.map((f, i) => (
                 <div key={i} className="flex items-center gap-1.5">
+                  <CheckFila
+                    hecho={!!f.hecho}
+                    onToggle={() => actualizarFila(i, { hecho: !f.hecho })}
+                    acento="bg-sky-600"
+                  />
                   <MiniaturaEjercicio
                     nombre={f.actividad}
                     registro={imgPorClave.get(normalizarEjercicio(f.actividad))}

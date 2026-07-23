@@ -325,6 +325,8 @@ export function Room3D({
   color,
   atenuado = false,
   preview = false,
+  interactivo = false,
+  sinObjetos = false,
   forzarTecho,
   resaltadoPlano = false,
 }: {
@@ -334,6 +336,10 @@ export function Room3D({
   atenuado?: boolean
   /** Modo vista previa (editor): render completo pero sin interacción de juego/edición. */
   preview?: boolean
+  /** Preview interactivo (editor de mapa): tocar piso/muros/puertas/techo selecciona ese elemento. */
+  interactivo?: boolean
+  /** Oculta los objetos (mueble + decoración) del cuarto: solo la estructura. */
+  sinObjetos?: boolean
   /** Fuerza el techo visible/oculto en preview (ignora el toggle global 🏠). */
   forzarTecho?: boolean
   /** Resaltado desde el editor de planos (sync plano ↔ 3D). */
@@ -353,6 +359,7 @@ export function Room3D({
   const footprints = useLayout((s) => s.footprints)
   const editMode = useLayout((s) => s.editMode)
   const editingRoomId = useLayout((s) => s.editingRoomId)
+  const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
   const editorTab = useEditorUi((s) => s.tab)
   const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
   const setTab = useEditorUi((s) => s.setTab)
@@ -687,12 +694,14 @@ export function Room3D({
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const objetosCuarto = objetos.filter((o) => o.roomId === id)
   // Objetos arrastrables/seleccionables: al editar este cuarto o en la pestaña Objetos
-  // del editor de mapa, o con el editor 3D activo (en 3ª/1ª persona).
+  // del editor de mapa, con el editor 3D activo (en 3ª/1ª persona), o en el modo "mover
+  // objetos" de este cuarto (editor cerrado, arrastre directo en el mapa).
   const objetosEditables =
     !preview &&
     (editor3d ||
       (editMode && (editingRoomId === id || (!editingRoomId && editorTab === 'objetos'))) ||
-      inventarioObjetosActivo)
+      inventarioObjetosActivo ||
+      moverObjetosRoomId === id)
 
   // Overrides de piso por cuadrante (sub-celdas, coords de ¼) que caen dentro del cuarto.
   const pisosOverride = pisosExteriorRepo.useAll() ?? []
@@ -760,10 +769,12 @@ export function Room3D({
   ]
 
   const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
-    // Editor 3D: tocar el piso abre el editor de MAPA en modo "Piso interior" y
-    // selecciona este cuarto (el panel muestra su editor de piso). Si ya estamos en la
-    // capa Pisos, lo gestiona PlanoPisos3DController (selección a ½ bajo el cursor).
-    if (editor3d && !atenuado && !preview) {
+    // Editor 3D o preview interactivo: tocar el piso abre el editor de MAPA en modo
+    // "Piso interior" y selecciona este cuarto (el panel muestra su editor de piso). Si ya
+    // estamos en la capa Pisos, lo gestiona PlanoPisos3DController (selección a ½ bajo el cursor).
+    if (!atenuado && (interactivo || (editor3d && !preview))) {
+      // Soltar tras arrastrar la cámara (OrbitControls) no cuenta como clic.
+      if (e.delta > 6) return
       // Si el clic fue sobre un muro (lo gestionó PlanoMuroSelector3D), no abrir el piso.
       if (consumirClicMuro()) return
       if (!(planosActivo && planosCapa === 'pisos')) {
@@ -774,7 +785,9 @@ export function Room3D({
       }
       return
     }
-    if (editMode || atenuado || preview) return
+    // Con un modo de construcción activo (editor o atajo de la rueda) o moviendo objetos,
+    // el tap construye/arrastra, no mueve al personaje.
+    if (editMode || planosActivo || atenuado || preview || moverObjetosRoomId != null) return
     // En 1ª/3ª persona el clic en el suelo no mueve (el arrastre gira la cámara).
     if (useCam.getState().vista !== 'iso') return
     e.stopPropagation()
@@ -786,23 +799,30 @@ export function Room3D({
     planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'mover'
   const planosEditarForma =
     planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'editar-forma'
+  // En el editor completo (tab Mapa) se puede mover libremente o con la herramienta Mover
+  // de planos; con el atajo de construcción (sin editMode) solo cuando planosMover está
+  // activo (equipar 'construir' + modo Cuartos + botón Mover del panel).
   const puedeMoverCuarto =
-    editMode && !editor3d && !editingRoomId && editorTab === 'mapa' && !atenuado && !preview && (!planosActivo || planosMover)
+    !editor3d && !editingRoomId && !atenuado && !preview &&
+    (editMode ? editorTab === 'mapa' && (!planosActivo || planosMover) : planosMover)
   const onFloorDown = (e: ThreeEvent<PointerEvent>) => {
     if (!puedeMoverCuarto) return
     e.stopPropagation()
     if (planosMover) setSeleccionPlano({ tipo: 'cuarto', roomId: id })
     startDrag(id)
   }
-  // Editor 3D (perspectiva, fuera de la capa Paredes): tocar un muro abre el editor de
-  // MAPA en el modo del elemento (ventana si el muro tiene ventana, si no muros) y
-  // selecciona esa arista. Dentro de la capa Paredes lo gestiona PlanoMuroSelector3D
-  // (raycast por la malla, válido para muros rectos, circulares y triangulares).
-  const muroClicEditor3d = editor3d && !atenuado && !preview && !(planosActivo && planosCapa === 'paredes')
+  // Editor 3D (perspectiva, fuera de la capa Paredes) o preview interactivo: tocar un
+  // muro abre el editor de MAPA en el modo del elemento (ventana si el muro tiene
+  // ventana, si no muros) y selecciona esa arista. En el editor 3D, dentro de la capa
+  // Paredes lo gestiona PlanoMuroSelector3D (raycast por la malla, válido para muros
+  // rectos, circulares y triangulares); en el preview no existe ese controlador, así que
+  // el clic directo aplica en cualquier capa.
+  const muroClicEditor3d =
+    !atenuado && (interactivo || (editor3d && !preview && !(planosActivo && planosCapa === 'paredes')))
   // Techo clicable solo cuando es visible (toggle 🏠) y no estamos ya editando techos
   // (entonces lo gestiona PlanoTechos3DEditor); evita robar clics al piso con el techo apagado.
   const techoClicEditor3d =
-    editor3d && !atenuado && !preview && conTecho && !(planosActivo && planosCapa === 'techos')
+    !atenuado && conTecho && (interactivo || (editor3d && !preview && !(planosActivo && planosCapa === 'techos')))
   const seleccionarMuro = (clave: string, ventana: boolean) => {
     const [c, r, side] = clave.split(',')
     setTab('mapa')
@@ -1095,6 +1115,7 @@ export function Room3D({
             key={i}
             userData={muroSelData}
             onClick={(e) => {
+              if (e.delta > 6) return
               e.stopPropagation()
               seleccionarMuro(s.clave!, !!s.ventana)
             }}
@@ -1159,6 +1180,7 @@ export function Room3D({
                 key={i}
                 userData={vanoSel}
                 onClick={(e) => {
+                  if (e.delta > 6) return
                   e.stopPropagation()
                   seleccionarPuerta(off, side)
                 }}
@@ -1300,9 +1322,9 @@ export function Room3D({
           )
         })}
 
-      {/* Objetos (mueble + decoración) — ocultos en cuartos atenuados.
-          El tema activo re-viste sus primitivas vía TemaContext. */}
-      {!atenuado && (
+      {/* Objetos (mueble + decoración) — ocultos en cuartos atenuados o con `sinObjetos`
+          (toggle del preview). El tema activo re-viste sus primitivas vía TemaContext. */}
+      {!atenuado && !sinObjetos && (
         <TemaContext.Provider value={tema}>
           {objetosCuarto.map((o) => {
           const ox = o.x ?? slotPos(o.slot)[0]
@@ -1317,7 +1339,9 @@ export function Room3D({
               rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
               scale={o.escala ?? 1}
               onClick={
-                !editMode && !editor3d && !inventarioObjetosActivo && esPrincipal && !preview
+                // Con el atajo de construcción o el modo "mover objetos" activo, el objeto
+                // principal no abre la app (se está arrastrando, no entrando).
+                !editMode && !editor3d && !inventarioObjetosActivo && !planosActivo && esPrincipal && !preview && moverObjetosRoomId == null
                   ? (e) => {
                       e.stopPropagation()
                       selectMueble(id)
@@ -1375,6 +1399,7 @@ export function Room3D({
           position={[0, alturaTecho + 0.3, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
           onClick={(e) => {
+            if (e.delta > 6) return
             e.stopPropagation()
             seleccionarTecho()
           }}

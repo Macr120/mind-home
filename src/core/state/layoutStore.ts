@@ -368,6 +368,8 @@ interface LayoutState {
   gridRows: number
   editMode: boolean
   editingRoomId: string | null
+  /** Cuarto cuyos objetos se mueven sueltos en el mapa 3D (editor cerrado, botón flotante "Listo"). */
+  moverObjetosRoomId: string | null
   /** Ocupación de celdas por nivel (un cuarto se apila sobre otro de distinto nivel). */
   ocupadoPorNivel: Map<number, Set<string>>
   /** Piso caminable por nivel: cuartos del nivel + techos (terraza) del nivel inferior. */
@@ -406,6 +408,9 @@ interface LayoutState {
   /** `mantenerVista`: al cerrar (v=false), no resetea la cámara (p. ej. al abrir el side menu de Mind Home). */
   setEditMode: (v: boolean, opts?: { mantenerVista?: boolean }) => void
   editRoom: (id: string | null) => void
+  /** Activa/desactiva "mover objetos" de un cuarto: cierra el editor, enfoca el cuarto y
+   *  deja sus objetos arrastrables sueltos en el mapa 3D (se sale con el botón "Listo"). */
+  setMoverObjetos: (id: string | null) => void
   toggleRoom: (id: string) => Promise<void>
   /** Coloca un cuarto NUEVO (recién creado) en la primera celda libre de planta baja. */
   colocarCuartoNuevo: (id: string) => Promise<void>
@@ -522,6 +527,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
   gridRows: ROWS,
   editMode: false,
   editingRoomId: null,
+  moverObjetosRoomId: null,
   wallOverrides: {},
   edgeStyles: {},
   pinceles: {},
@@ -761,6 +767,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
       editMode: v,
       draggingId: null,
       previewCell: null,
+      // Abrir/togglear el editor de mapa cancela el modo "mover objetos" (son excluyentes).
+      moverObjetosRoomId: null,
       // `mantenerVista`: al ocultar el panel (p. ej. se abrió el side menu de Mind Home) NO
       // se limpia editingRoomId — seguimos "dentro" del cuarto, solo se ocultó el panel; así
       // el botón flotante sigue visible y `setEditMode(true)` retoma el mismo cuarto.
@@ -783,7 +791,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     // Forzar iso antes de editar (evita que la cámara perspectiva quede activa durante edición iso).
     if (!persp) useCam.getState().setVista('iso')
     const saliaDeCuarto = get().editingRoomId != null && id == null
-    set({ editMode: true, editingRoomId: id, draggingId: null, previewCell: null })
+    set({ editMode: true, editingRoomId: id, moverObjetosRoomId: null, draggingId: null, previewCell: null })
     if (id) {
       // Editar un cuarto = editor de mapa enfocado en él: pestaña Mapa, su nivel y el
       // cuarto seleccionado (el croquis hace zoom sobre él y las props actúan sobre él).
@@ -796,6 +804,20 @@ export const useLayout = create<LayoutState>((set, get) => ({
     if (persp) return
     if (id) useCam.getState().focusRoomEdit(roomFocusPos(id))
     else if (saliaDeCuarto) useCam.getState().reset()
+  },
+
+  setMoverObjetos: (id) => {
+    if (id) {
+      // Cerrar el editor y enfocar el cuarto en iso: sus objetos se arrastran sueltos en el
+      // mapa 3D (ObjetoDragController) y el botón flotante "Listo" (EditorAnchor) sale del modo.
+      useCam.getState().setVista('iso')
+      set({ editMode: false, editingRoomId: null, moverObjetosRoomId: id, draggingId: null, previewCell: null })
+      useEditorUi.getState().setObjetoSel(null)
+      useCam.getState().focusRoomEdit(roomFocusPos(id))
+    } else {
+      set({ moverObjetosRoomId: null })
+      useCam.getState().reset()
+    }
   },
 
   toggleRoom: async (id) => {

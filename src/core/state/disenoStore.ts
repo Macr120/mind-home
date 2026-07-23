@@ -39,12 +39,14 @@ import {
 import type { AjusteFondoImagen } from '../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, medirImagen } from '../house/fondosImagen'
 import { useCuartos } from './cuartosStore'
-import type { Pieza3D } from '../chat/mascotas'
+import type { Pieza3D, MascotaId } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
 import {
   ESCALA_DEFAULT,
   parseRopa,
   serializarRopa,
+  type ExpresionId,
+  type PeinadoId,
   type PrendaId,
   type Ropa,
 } from '../house/apariencia'
@@ -90,6 +92,14 @@ const AVATAR_DEFAULT = {
   piernas: '#2f5fd0',
 }
 
+/** Una prenda a medida puesta: copia de la geometría + `refId` al guardarropa. */
+export interface PrendaCustomPuesta {
+  /** id de la prenda en el guardarropa (para saber si está puesta y refrescarla). */
+  refId: number
+  nombre?: string
+  piezas: Pieza3D[]
+}
+
 /** Apariencia completa del personaje principal (colores + tamaño + ropa + forma 3D). */
 export interface Avatar {
   /** Nombre del personaje principal (vacío = "Tú" por defecto). */
@@ -101,6 +111,18 @@ export interface Avatar {
   escala: number
   /** Prendas que lleva puestas. */
   ropa: Ropa
+  /** Prendas a medida puestas (del guardarropa). */
+  ropaCustom?: PrendaCustomPuesta[]
+  /** Expresión del rostro dibujado (ojos + boca) del cuerpo base. */
+  expresion?: ExpresionId
+  /** Imagen de rostro subida por el usuario (tapa el frente de la cabeza). */
+  rostro?: Blob
+  /** Peinado dibujado sobre la cabeza del cuerpo base. */
+  peinado?: PeinadoId
+  /** Color del pelo. */
+  peloColor?: string
+  /** Forma integrada (mago/gato/perro/búho/robot) como cuerpo del avatar. */
+  forma?: MascotaId
   /** Forma 3D descrita a la IA (gana a los cubos de colores). */
   modelo3d?: Pieza3D[]
   /** Modelo .glb subido por el usuario (gana a modelo3d y a los cubos). */
@@ -386,7 +408,29 @@ interface DisenoState {
   setAvatarPrenda: (prenda: PrendaId, color: string | null) => Promise<void>
   /** Pinta TODAS las prendas puestas del personaje principal de un mismo color. */
   setAvatarRopaColor: (color: string) => Promise<void>
-  /** Fija la forma 3D del avatar generada por IA (limpia el .glb). */
+  /** Reemplaza TODA la ropa puesta (aplicar un atuendo completo de un toque). */
+  setAvatarRopaCompleta: (ropa: Ropa) => Promise<void>
+  /**
+   * Quita TODA la ropa del personaje principal (ropa vacía) y deja el torso y
+   * las piernas del color de la piel (cabeza), como un maniquí en blanco listo
+   * para vestir de nuevo.
+   */
+  desnudarAvatar: () => Promise<void>
+  /** Fija la expresión del rostro dibujado del personaje principal. */
+  setAvatarExpresion: (expresion: ExpresionId) => Promise<void>
+  /** Sube (o quita, con undefined) la imagen de rostro del personaje principal. */
+  setAvatarRostro: (rostro: Blob | undefined) => Promise<void>
+  /** Fija el peinado del personaje principal. */
+  setAvatarPeinado: (peinado: PeinadoId) => Promise<void>
+  /** Fija el color de pelo del personaje principal. */
+  setAvatarPeloColor: (color: string) => Promise<void>
+  /** Pone (o reemplaza) una prenda a medida del guardarropa en el personaje principal. */
+  ponerAvatarPrendaCustom: (refId: number, piezas: Pieza3D[], nombre?: string) => Promise<void>
+  /** Quita una prenda a medida del personaje principal (por su refId). */
+  quitarAvatarPrendaCustom: (refId: number) => Promise<void>
+  /** Usa una forma integrada (mago/gato/…) como cuerpo del avatar (limpia piezas/.glb). */
+  setAvatarForma: (forma: MascotaId) => Promise<void>
+  /** Fija la forma 3D del avatar generada por IA (limpia el .glb y la forma integrada). */
   setAvatarModelo3d: (piezas: Pieza3D[]) => Promise<void>
   /** Fija el modelo .glb del avatar subido por el usuario (limpia las piezas IA). */
   setAvatarGlb: (blob: Blob) => Promise<void>
@@ -524,6 +568,12 @@ async function guardarAvatar(av: DisenoState['avatar']) {
     piernas: av.piernas,
     escala: av.escala,
     ropa: serializarRopa(av.ropa),
+    ropaCustom: av.ropaCustom?.length ? JSON.stringify(av.ropaCustom) : '',
+    expresion: av.expresion ?? '',
+    rostro: av.rostro,
+    peinado: av.peinado ?? '',
+    peloColor: av.peloColor ?? '',
+    forma: av.forma ?? '',
     modelo3d: av.modelo3d ? JSON.stringify(av.modelo3d) : '',
     modeloGlb: av.modeloGlb,
     animacion: av.animacion ? JSON.stringify(av.animacion) : '',
@@ -952,6 +1002,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         avAnimacion = undefined
       }
     }
+    let avRopaCustom: PrendaCustomPuesta[] | undefined
+    if (av?.ropaCustom) {
+      try {
+        avRopaCustom = JSON.parse(av.ropaCustom) as PrendaCustomPuesta[]
+      } catch {
+        avRopaCustom = undefined
+      }
+    }
     set({
       roomColors,
       roomNames,
@@ -998,6 +1056,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
             piernas: av.piernas,
             escala: av.escala ?? ESCALA_DEFAULT,
             ropa: parseRopa(av.ropa),
+            ropaCustom: avRopaCustom,
+            expresion: (av.expresion as ExpresionId) || undefined,
+            rostro: av.rostro,
+            peinado: (av.peinado as PeinadoId) || undefined,
+            peloColor: av.peloColor || undefined,
+            forma: (av.forma as MascotaId) || undefined,
             modelo3d: avModelo3d,
             modeloGlb: av.modeloGlb,
             animacion: avAnimacion,
@@ -2320,18 +2384,68 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     await guardarAvatar(get().avatar)
   },
 
+  setAvatarRopaCompleta: async (ropa) => {
+    set((s) => ({ avatar: { ...s.avatar, ropa } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  desnudarAvatar: async () => {
+    set((s) => ({ avatar: { ...s.avatar, ropa: {}, torso: s.avatar.cabeza, piernas: s.avatar.cabeza } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarExpresion: async (expresion) => {
+    set((s) => ({ avatar: { ...s.avatar, expresion } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarRostro: async (rostro) => {
+    set((s) => ({ avatar: { ...s.avatar, rostro } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarPeinado: async (peinado) => {
+    set((s) => ({ avatar: { ...s.avatar, peinado } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarPeloColor: async (color) => {
+    set((s) => ({ avatar: { ...s.avatar, peloColor: color } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  ponerAvatarPrendaCustom: async (refId, piezas, nombre) => {
+    set((s) => {
+      const otras = (s.avatar.ropaCustom ?? []).filter((g) => g.refId !== refId)
+      return { avatar: { ...s.avatar, ropaCustom: [...otras, { refId, nombre, piezas }] } }
+    })
+    await guardarAvatar(get().avatar)
+  },
+
+  quitarAvatarPrendaCustom: async (refId) => {
+    set((s) => ({
+      avatar: { ...s.avatar, ropaCustom: (s.avatar.ropaCustom ?? []).filter((g) => g.refId !== refId) },
+    }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarForma: async (forma) => {
+    set((s) => ({ avatar: { ...s.avatar, forma, modelo3d: undefined, modeloGlb: undefined } }))
+    await guardarAvatar(get().avatar)
+  },
+
   setAvatarModelo3d: async (piezas) => {
-    set((s) => ({ avatar: { ...s.avatar, modelo3d: piezas, modeloGlb: undefined } }))
+    set((s) => ({ avatar: { ...s.avatar, modelo3d: piezas, modeloGlb: undefined, forma: undefined } }))
     await guardarAvatar(get().avatar)
   },
 
   setAvatarGlb: async (blob) => {
-    set((s) => ({ avatar: { ...s.avatar, modeloGlb: blob, modelo3d: undefined } }))
+    set((s) => ({ avatar: { ...s.avatar, modeloGlb: blob, modelo3d: undefined, forma: undefined } }))
     await guardarAvatar(get().avatar)
   },
 
   quitarAvatarModelo: async () => {
-    set((s) => ({ avatar: { ...s.avatar, modelo3d: undefined, modeloGlb: undefined } }))
+    set((s) => ({ avatar: { ...s.avatar, modelo3d: undefined, modeloGlb: undefined, forma: undefined } }))
     await guardarAvatar(get().avatar)
   },
 

@@ -66,8 +66,13 @@ interface HudState {
   plegado: Plegado
   /** Modo compacto de teléfono en vertical (reglas de default y exclusión). */
   movilVertical: boolean
+  /** Side menu de Mind Home (RoomSideMenu) abierto. Vive aquí (no en estado local de
+   *  App) para que el disparador del lado opuesto (ToolbarPermanente) sepa que debe
+   *  plegarse en vertical, espejo de cómo FloatingMenuButton mira `editMode`. */
+  menuAbierto: boolean
   setPlegado: (zona: ZonaHud, v: boolean) => void
   setMovilVertical: (v: boolean) => void
+  setMenuAbierto: (v: boolean) => void
   /** Despliega todo (lo usan los tutoriales: sus pasos apuntan a botones del HUD). */
   desplegarTodo: () => void
 }
@@ -78,6 +83,7 @@ export const useHud = create<HudState>((set, get) => ({
   // En teléfono vertical el HUD arranca plegado; en el resto, según lo guardado.
   plegado: arranqueMovil ? TODO() : leer(),
   movilVertical: arranqueMovil,
+  menuAbierto: true,
 
   setPlegado: (zona, v) => {
     const { plegado, movilVertical } = get()
@@ -105,6 +111,8 @@ export const useHud = create<HudState>((set, get) => ({
     // Al entrar al modo teléfono: plegar todo (default). Al salir: preferencia guardada.
     set({ movilVertical: v, plegado: v ? TODO() : leer() })
   },
+
+  setMenuAbierto: (v) => set({ menuAbierto: v }),
 
   desplegarTodo: () => {
     if (!ZONAS.some((z) => get().plegado[z])) return

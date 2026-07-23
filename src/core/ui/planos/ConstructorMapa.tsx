@@ -797,6 +797,8 @@ export function ConstructorMapa() {
   const setSeleccion = usePlanos((s) => s.setSeleccion)
   const previewVisible = usePlanos((s) => s.previewVisible)
   const setPreviewVisible = usePlanos((s) => s.setPreviewVisible)
+  const croquisVisible = usePlanos((s) => s.croquisVisible)
+  const setCroquisVisible = usePlanos((s) => s.setCroquisVisible)
 
   const placed = useLayout((s) => s.placed)
   const cells = useLayout((s) => s.cells)
@@ -804,6 +806,11 @@ export function ConstructorMapa() {
   const accesos = useLayout((s) => s.accesos)
   const cuartos = useCuartos((s) => s.cuartos)
   const zonas = zonasRepo.useAll() ?? []
+  // El drag de "mover cuarto" selecciona el cuarto en el mousedown (mismo gesto), lo que
+  // abriría el preview a mitad del arrastre: montar ahí el Canvas del modelo 3D desplaza
+  // el scroll del panel y el croquis pierde la posición en pantalla que el arrastre viene
+  // rastreando (el cuarto se queda "pegado" al cursor). Ocultarlo mientras se arrastra.
+  const arrastrandoCuarto = useLayout((s) => s.draggingId != null)
 
   // Sincroniza el motor 3D con el modo guardado al montar; lo apaga al salir.
   useEffect(() => {
@@ -840,6 +847,25 @@ export function ConstructorMapa() {
   const grupoInteriorActivo = seleccion?.tipo === 'pisos-interiores'
   const grupoExteriorActivo = esGrupoExteriorCompleto(seleccion, nivel, zonas)
 
+  // Modos con modelo 3D editable (todos los elementos menos el piso exterior, que no
+  // pertenece a un cuarto; Grid/Fondo/Ascensos tampoco tienen elemento que aislar).
+  const con3d =
+    modo === 'cuartos' ||
+    modo === 'muros' ||
+    modo === 'puertas' ||
+    modo === 'ventanas' ||
+    modo === 'piso-int' ||
+    modo === 'techos'
+  // Al menos una vista activa: apagar la última enciende la otra (conmuta).
+  const toggleCroquis = () => {
+    if (croquisVisible && !previewVisible) setPreviewVisible(true)
+    setCroquisVisible(!croquisVisible)
+  }
+  const toggle3d = () => {
+    if (previewVisible && !croquisVisible) setCroquisVisible(true)
+    setPreviewVisible(!previewVisible)
+  }
+
   return (
     <div className="space-y-3">
       {/* Barra de modos — 3×3. Fuera de la planta baja (pisos altos y sótano) el espacio
@@ -868,8 +894,22 @@ export function ConstructorMapa() {
         </div>
       ) : (
         <>
+      {/* Selector de vista de trabajo: croquis 2D y/o modelo 3D editable (pueden estar
+          ambos activos a la vez; apagar el último conmuta al otro). */}
+      {con3d && (
+        <div className="flex gap-1.5">
+          <Chip activo={croquisVisible} onClick={toggleCroquis}>
+            <Icono emoji="🗺️" /> {t('constructor.vista.croquis', 'Croquis')}
+          </Chip>
+          <Chip activo={previewVisible} onClick={toggle3d}>
+            <Icono emoji="🧊" /> {t('constructor.vista.modelo3d', 'Modelo 3D')}
+          </Chip>
+        </div>
+      )}
+
       {/* Croquis 2D compartido. En los bordes/esquinas, overlays según el modo:
           Grid → +/- de tamaño; resto → nivel (sup. izq.) y detalle fino/normal (sup. der.). */}
+      {(!con3d || croquisVisible) && (
       <div className="relative h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-stone-200">
         <PlanosEditor compacto />
         {modo === 'grid' && <ResizeBordesCroquis />}
@@ -896,22 +936,41 @@ export function ConstructorMapa() {
           <FormaCuartoOverlay forma={pincelForma} setForma={setPincelForma} />
         )}
       </div>
+      )}
 
-      {/* Previsualización 3D del muro/puerta/ventana seleccionado. Empieza cerrada al
-          seleccionar; el usuario la abre/cierra con el ojo (sobre el croquis y aquí).
-          Muro independiente → preview aislada; pared de cuarto (arista) → cuarto
-          enfocado en esa pared. */}
-      {previewVisible &&
-        (modo === 'muros' || modo === 'puertas' || modo === 'ventanas') &&
+      {/* Modelo 3D editable del elemento seleccionado (se abre solo al seleccionar; se
+          cierra con el ojo o con el chip 3D). Tocar piso/muros/puertas/techo en el mini 3D
+          selecciona ese elemento, igual que en el croquis o en el mapa 3D grande.
+          Muro independiente → preview aislada; pared de cuarto (arista) → cuarto enfocado
+          en esa pared; cuarto → cuarto entero (en Techos arranca con el techo puesto).
+          El piso exterior no pertenece a un cuarto: sin modelo 3D. */}
+      {con3d &&
+        previewVisible &&
+        !arrastrandoCuarto &&
         (muroLibreSel != null ? (
           <PreviewMuroLibre3D muroId={muroLibreSel} onOcultar={() => setPreviewVisible(false)} />
         ) : seleccion?.tipo === 'arista' ? (
           <PreviewCuarto3D
             roomId={seleccion.roomId}
             arista={{ off: seleccion.off, side: seleccion.side }}
+            interactivo
             onOcultar={() => setPreviewVisible(false)}
           />
-        ) : null)}
+        ) : seleccion?.tipo === 'cuarto' ? (
+          <PreviewCuarto3D
+            roomId={seleccion.roomId}
+            techoInicial={modo === 'techos'}
+            interactivo
+            onOcultar={() => setPreviewVisible(false)}
+          />
+        ) : (
+          <p className="rounded-xl border border-dashed border-white/15 px-3 py-5 text-center text-[11px] leading-snug text-white/40">
+            {t(
+              'constructor.vista.hint3d',
+              'Toca un elemento en el croquis o en el mapa 3D para verlo y editarlo aquí.',
+            )}
+          </p>
+        ))}
 
       {/* Menús contextuales por modo */}
       <div className="rounded-xl border border-white/10 bg-white/5 p-3">

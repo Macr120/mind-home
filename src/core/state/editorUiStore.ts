@@ -35,6 +35,13 @@ interface EditorUiState {
   animPreview: boolean
   setAnimPreview: (v: boolean) => void
   /**
+   * Fondo claro (blanco) en los previews 3D del editor (personajes, objetos y
+   * mapa). Es un ajuste global que comparten todos los previews y se recuerda
+   * entre sesiones (útil para ver modelos oscuros sobre fondo claro).
+   */
+  previewClaro: boolean
+  setPreviewClaro: (v: boolean) => void
+  /**
    * Editor 3D en perspectiva: al estar activo (en 3ª/1ª persona) se puede caminar y
    * tocar objetos en el mundo para editarlos con un panel flotante. Independiente del
    * editor de mapa (`editMode`, que usa la cámara isométrica).
@@ -57,6 +64,7 @@ interface EditorUiState {
 }
 
 const LS_CONFIG_ABIERTOS = 'mind-home-config-abiertos'
+const LS_PREVIEW_CLARO = 'mind-home-preview-claro'
 
 function leerConfigAbiertos(): Record<string, boolean> {
   try {
@@ -72,6 +80,14 @@ function guardarConfigAbiertos(v: Record<string, boolean>) {
     localStorage.setItem(LS_CONFIG_ABIERTOS, JSON.stringify(v))
   } catch {
     /* quota / modo privado */
+  }
+}
+
+function leerPreviewClaro(): boolean {
+  try {
+    return localStorage.getItem(LS_PREVIEW_CLARO) === '1'
+  } catch {
+    return false
   }
 }
 
@@ -91,6 +107,15 @@ export const useEditorUi = create<EditorUiState>((set) => ({
   setPiezasControles: (piezasControles) => set({ piezasControles }),
   animPreview: false,
   setAnimPreview: (animPreview) => set({ animPreview }),
+  previewClaro: leerPreviewClaro(),
+  setPreviewClaro: (previewClaro) => {
+    try {
+      localStorage.setItem(LS_PREVIEW_CLARO, previewClaro ? '1' : '0')
+    } catch {
+      /* quota / modo privado */
+    }
+    set({ previewClaro })
+  },
   editor3d: false,
   // Al salir del editor 3D se limpia el objeto seleccionado (cierra el panel flotante).
   setEditor3d: (editor3d) => set(editor3d ? { editor3d } : { editor3d, objetoSel: null }),

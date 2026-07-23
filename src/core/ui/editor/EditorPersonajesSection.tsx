@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
 import { useAsistentes } from '../../state/asistentesStore'
 import { useEditorUi, PERSONAJE_AVATAR } from '../../state/editorUiStore'
@@ -6,12 +6,20 @@ import { MASCOTAS, COLOR_FORMA, nombreAsistente, nombreForma, type Asistente, ty
 import {
   PRENDAS,
   PRENDA_COLOR_DEFAULT,
+  CATEGORIAS_PRENDA,
+  EXPRESIONES,
+  EXPRESION_DEFAULT,
+  PEINADOS,
+  PELO_COLOR_DEFAULT,
   ESCALA_MIN,
   ESCALA_MAX,
   ESCALA_DEFAULT,
   type PrendaId,
   type Ropa,
 } from '../../house/apariencia'
+import { CUERPOS_PRESET } from '../../house/cuerpos'
+import { GuardarropaEditor } from './GuardarropaEditor'
+import { AtuendosEditor } from './AtuendosEditor'
 import { iaActiva, generarModelo3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
 import { ColorPicker } from './ColorPicker'
@@ -21,7 +29,7 @@ import { EditorAnimacion } from './EditorAnimacion'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
-type ToolId = 'cuerpo' | 'color' | 'tamano' | 'ropa' | 'anim'
+type ToolId = 'cuerpo' | 'rostro' | 'color' | 'tamano' | 'ropa' | 'anim'
 /** id del personaje seleccionado; 'avatar' = el personaje principal. */
 const AVATAR = PERSONAJE_AVATAR
 
@@ -91,6 +99,7 @@ export function EditorPersonajesSection() {
 
   const tools: { id: ToolId; label: string; emoji: string }[] = [
     { id: 'cuerpo', label: t('editor.pers.cuerpo', 'Cuerpo'), emoji: '🧍' },
+    { id: 'rostro', label: t('editor.pers.rostro', 'Rostro'), emoji: '🙂' },
     { id: 'color', label: t('editor.pers.color', 'Color'), emoji: '🎨' },
     { id: 'tamano', label: t('editor.pers.tamano', 'Tamaño'), emoji: '📏' },
     { id: 'ropa', label: t('editor.pers.ropa', 'Ropa'), emoji: '👕' },
@@ -100,7 +109,7 @@ export function EditorPersonajesSection() {
   return (
     <div className="space-y-3">
       {/* 1) Botones de todos los personajes */}
-      <div className="flex flex-wrap gap-1.5">
+      <div className="grid grid-cols-3 gap-1.5">
         <BotonPersonaje
           emoji="🧍"
           nombre={avatar.nombre || t('editor.pers.tu', 'Tú')}
@@ -120,9 +129,9 @@ export function EditorPersonajesSection() {
           type="button"
           onClick={crearPersonaje}
           title={t('editor.pers.crearDesc', 'Crear un personaje con piezas 3D (aparece en el mapa)')}
-          className="flex items-center gap-1.5 rounded-lg border border-dashed border-emerald-400/40 bg-emerald-500/10 px-2.5 py-1.5 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20"
+          className="flex items-center justify-center gap-1.5 rounded-lg border border-dashed border-accent/40 bg-accent/10 px-2 py-1.5 text-xs font-semibold text-accent transition hover:bg-accent/20"
         >
-          <Icono nombre="agregar" className="text-base leading-none" />
+          <Icono nombre="agregar" className="shrink-0 text-base leading-none" />
           {t('editor.pers.crear', 'Crear')}
         </button>
       </div>
@@ -166,19 +175,19 @@ export function EditorPersonajesSection() {
       </div>
 
       {/* 3) Herramientas de edición */}
-      <div className="flex overflow-hidden rounded-lg border border-white/10 bg-black/30">
+      <div className="grid grid-cols-3 gap-1 rounded-lg border border-white/10 bg-black/30 p-1">
         {tools.map((tb) => (
           <button
             key={tb.id}
             type="button"
             onClick={() => setTool(tb.id)}
-            className={`h-9 flex-1 whitespace-nowrap px-1 text-[11px] font-semibold transition ${
+            className={`flex h-9 items-center justify-center gap-1 whitespace-nowrap rounded-md px-1 text-[11px] font-semibold transition ${
               tool === tb.id
                 ? 'bg-white/15 text-white'
                 : 'text-white/50 hover:bg-white/8 hover:text-white/75'
             }`}
           >
-            <span className="mr-0.5"><Icono emoji={tb.emoji} /></span>
+            <Icono emoji={tb.emoji} />
             {tb.label}
           </button>
         ))}
@@ -186,6 +195,7 @@ export function EditorPersonajesSection() {
 
       <div className="rounded-xl border border-white/10 bg-white/5 p-3">
         {tool === 'cuerpo' && (esAvatar ? <CuerpoAvatar /> : <CuerpoAsistente a={asis!} />)}
+        {tool === 'rostro' && <RostroEditor esAvatar={esAvatar} />}
         {tool === 'color' && (esAvatar ? <ColorAvatar /> : <ColorAsistente a={asis!} />)}
         {tool === 'tamano' && <Tamano esAvatar={esAvatar} asis={asis} />}
         {tool === 'ropa' && <RopaEditor esAvatar={esAvatar} asis={asis} />}
@@ -210,19 +220,101 @@ function BotonPersonaje({
     <button
       type="button"
       onClick={onClick}
-      className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
+      className={`flex items-center justify-center gap-1.5 rounded-lg border px-2 py-1.5 text-xs font-semibold transition ${
         activo
-          ? 'border-emerald-400/50 bg-emerald-600 texto-cta'
+          ? 'border-accent/50 bg-accent text-accent-ink'
           : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
       }`}
     >
-      <span className="text-base leading-none"><Icono emoji={emoji} /></span>
-      <span className="max-w-[8rem] truncate">{nombre}</span>
+      <span className="shrink-0 text-base leading-none"><Icono emoji={emoji} /></span>
+      <span className="min-w-0 truncate">{nombre}</span>
     </button>
   )
 }
 
 // ---------- Herramienta: Cuerpo ----------
+
+/** Botón de la galería de modelos: emoji grande + nombre debajo. */
+function ModeloBtn({
+  emoji,
+  label,
+  activo = false,
+  onClick,
+}: {
+  emoji: string
+  label: string
+  activo?: boolean
+  onClick: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      title={label}
+      className={`flex h-14 flex-col items-center justify-center gap-0.5 rounded-lg border px-1 text-center transition ${
+        activo ? 'border-accent/50 bg-accent/15' : 'border-white/10 bg-white/5 hover:bg-white/10'
+      }`}
+    >
+      <span className="text-lg leading-none">
+        <Icono emoji={emoji} />
+      </span>
+      <span className="w-full truncate text-[9px] font-medium text-white/60">{label}</span>
+    </button>
+  )
+}
+
+/**
+ * Galería de cuerpos listos para el personaje principal: el cuerpo base, las 5
+ * formas integradas (conservan su cara) y varios cuerpos prediseñados de piezas
+ * (quedan editables abajo). Un toque aplica el modelo.
+ */
+function GaleriaModelos() {
+  const t = useT()
+  const av = useDiseño((s) => s.avatar)
+  const setAvatarForma = useDiseño((s) => s.setAvatarForma)
+  const setAvatarModelo3d = useDiseño((s) => s.setAvatarModelo3d)
+  const quitarAvatarModelo = useDiseño((s) => s.quitarAvatarModelo)
+  const esBase = !av.modeloGlb && !(av.modelo3d?.length ?? 0) && !av.forma
+
+  return (
+    <div className="space-y-1.5">
+      <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+        {t('editor.pers.modelos', 'Modelos')}
+      </p>
+      <div className="grid grid-cols-4 gap-1.5">
+        <ModeloBtn
+          emoji="🧍"
+          label={t('editor.pers.modeloBase', 'Base')}
+          activo={esBase}
+          onClick={() => void quitarAvatarModelo()}
+        />
+        {MASCOTAS.map((f) => (
+          <ModeloBtn
+            key={f.id}
+            emoji={f.emoji}
+            label={nombreForma(t, f)}
+            activo={av.forma === f.id}
+            onClick={() => void setAvatarForma(f.id)}
+          />
+        ))}
+        {CUERPOS_PRESET.map((c) => (
+          <ModeloBtn
+            key={c.id}
+            emoji={c.emoji}
+            label={t(`editor.pers.cuerpo.${c.id}`, c.nombre)}
+            onClick={() => void setAvatarModelo3d(c.piezas())}
+          />
+        ))}
+      </div>
+      <p className="text-[10px] leading-snug text-white/35">
+        {t(
+          'editor.pers.modelosNota',
+          'Elige un cuerpo listo. Los de piezas puedes seguir editándolos abajo; las formas conservan su propia cara.',
+        )}
+      </p>
+    </div>
+  )
+}
 
 function CuerpoAvatar() {
   const t = useT()
@@ -234,6 +326,7 @@ function CuerpoAvatar() {
 
   return (
     <div className="space-y-2">
+      <GaleriaModelos />
       <p className="text-[11px] leading-snug text-white/45">
         {t(
           'editor.pers.cuerpoAvatar',
@@ -276,7 +369,7 @@ function CuerpoAsistente({ a }: { a: Asistente }) {
             title={nombreForma(t, f)}
             className={`grid h-9 flex-1 place-items-center rounded-lg text-lg transition ${
               a.forma === f.id && !tieneModeloPropio
-                ? 'bg-emerald-500/20 ring-1 ring-emerald-400/50'
+                ? 'bg-accent/20 ring-1 ring-accent/50'
                 : 'bg-white/5 hover:bg-white/10'
             }`}
           >
@@ -328,7 +421,7 @@ function PiezasBlock({
       <button
         type="button"
         onClick={() => onChange(plantilla())}
-        className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-2 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20"
+        className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-2 text-xs font-semibold text-accent transition hover:bg-accent/20"
       >
         <Icono nombre="muro" /> {t('editor.pers.construirPiezas', 'Construir con piezas 3D')}
       </button>
@@ -410,7 +503,7 @@ function Forma3DBlock({
           type="button"
           onClick={generarForma}
           disabled={!iaActiva() || generando || !descForma.trim()}
-          className="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20 disabled:opacity-30"
+          className="rounded-md border border-accent/30 bg-accent/10 px-2.5 text-xs font-semibold text-accent transition hover:bg-accent/20 disabled:opacity-30"
           title={t('editor.pers.formaGenerar', 'Crear la forma con IA')}
         >
           {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}
@@ -530,7 +623,7 @@ function ColorAvatar() {
 
   if (avatar.modeloGlb) {
     return (
-      <p className="rounded-lg border border-emerald-400/20 bg-emerald-400/10 px-2.5 py-1.5 text-[11px] text-emerald-400/90">
+      <p className="rounded-lg border border-accent/20 bg-accent/10 px-2.5 py-1.5 text-[11px] text-accent/90">
         {t('editor.pers.colorSinEfecto', 'Este personaje usa un modelo propio; los colores del cuerpo no le aplican.')}
       </p>
     )
@@ -576,7 +669,7 @@ function ColorAsistente({ a }: { a: Asistente }) {
   return (
     <div className="space-y-2">
       {a.modeloGlb && (
-        <p className="rounded-lg border border-emerald-400/20 bg-emerald-400/10 px-2.5 py-1.5 text-[11px] text-emerald-400/90">
+        <p className="rounded-lg border border-accent/20 bg-accent/10 px-2.5 py-1.5 text-[11px] text-accent/90">
           {t('editor.pers.colorSinEfecto', 'Este personaje usa un modelo propio; los colores del cuerpo no le aplican.')}
         </p>
       )}
@@ -619,7 +712,7 @@ function Tamano({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente }) {
         step={0.05}
         value={escala}
         onChange={(e) => setEscala(parseFloat(e.target.value))}
-        className="w-full accent-emerald-400"
+        className="w-full accent-accent"
       />
       <div className="flex justify-between text-[10px] text-white/30">
         <span>{Math.round(ESCALA_MIN * 100)}%</span>
@@ -683,7 +776,222 @@ function AnimacionPersonaje({ esAvatar, asis }: { esAvatar: boolean; asis?: Asis
   )
 }
 
+// ---------- Herramienta: Rostro ----------
+
+/** Object URL de un blob para <img> del DOM (se revoca al cambiar/desmontar). */
+function useObjectUrl(blob: Blob | undefined): string | null {
+  const [url, setUrl] = useState<string | null>(null)
+  useEffect(() => {
+    if (!blob) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- limpia el URL al quitar la foto
+      setUrl(null)
+      return
+    }
+    const u = URL.createObjectURL(blob)
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- el URL debe nacer en un render comprometido (StrictMode revoca en la limpieza)
+    setUrl(u)
+    return () => URL.revokeObjectURL(u)
+  }, [blob])
+  return url
+}
+
+/**
+ * Rostro del personaje principal: subir una foto que tapa el frente de la cabeza
+ * o elegir una expresión dibujada (ojos + boca). La foto manda sobre la expresión.
+ * Los asistentes ya tienen cara según su forma, así que aquí solo se avisa.
+ */
+function RostroEditor({ esAvatar }: { esAvatar: boolean }) {
+  const t = useT()
+  const expresion = useDiseño((s) => s.avatar.expresion)
+  const rostro = useDiseño((s) => s.avatar.rostro)
+  const peinado = useDiseño((s) => s.avatar.peinado)
+  const peloColor = useDiseño((s) => s.avatar.peloColor)
+  const setAvatarExpresion = useDiseño((s) => s.setAvatarExpresion)
+  const setAvatarRostro = useDiseño((s) => s.setAvatarRostro)
+  const setAvatarPeinado = useDiseño((s) => s.setAvatarPeinado)
+  const setAvatarPeloColor = useDiseño((s) => s.setAvatarPeloColor)
+  const [procesando, setProcesando] = useState(false)
+  const rostroUrl = useObjectUrl(rostro)
+
+  if (!esAvatar) {
+    return (
+      <p className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] leading-snug text-white/45">
+        {t(
+          'editor.pers.rostroSoloAvatar',
+          'El rostro (foto y expresiones) es para tu personaje principal. Los asistentes ya tienen cara según su forma.',
+        )}
+      </p>
+    )
+  }
+
+  const expSel = expresion ?? EXPRESION_DEFAULT
+
+  return (
+    <div className="space-y-3">
+      {/* Foto de rostro */}
+      <div className="space-y-1.5">
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+          {t('editor.pers.rostroImagen', 'Foto de rostro')}
+        </p>
+        {rostro && (
+          <div className="flex items-center gap-2 rounded-lg border border-accent/20 bg-accent/10 p-1.5">
+            {rostroUrl && (
+              <img
+                src={rostroUrl}
+                alt=""
+                className="h-12 w-12 shrink-0 rounded-lg border border-white/10 object-cover"
+              />
+            )}
+            <p className="min-w-0 flex-1 text-[11px] leading-snug text-white/55">
+              {t('editor.pers.rostroImagenPuesta', 'La foto tapa el frente de la cabeza (manda sobre la expresión).')}
+            </p>
+            <button
+              type="button"
+              onClick={() => void setAvatarRostro(undefined)}
+              title={t('editor.pers.rostroQuitar', 'Quitar foto')}
+              className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-white/5 text-sm transition hover:bg-red-500/25"
+            >
+              <Icono nombre="basura" />
+            </button>
+          </div>
+        )}
+        <label
+          className={`flex items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-xs font-semibold text-white/70 transition ${
+            procesando ? 'cursor-wait opacity-60' : 'cursor-pointer hover:bg-white/15'
+          }`}
+        >
+          {procesando ? (
+            <span className="animate-pulse">{t('editor.pers.rostroProcesando', 'Procesando foto…')}</span>
+          ) : (
+            <>
+              <Icono nombre="foto" />
+              {rostro
+                ? t('editor.pers.rostroCambiar', 'Cambiar foto')
+                : t('editor.pers.rostroSubir', 'Subir foto de rostro')}
+            </>
+          )}
+          <input
+            type="file"
+            accept="image/*"
+            className="hidden"
+            disabled={procesando}
+            onChange={async (e) => {
+              const f = e.target.files?.[0]
+              e.target.value = ''
+              if (!f) return
+              setProcesando(true)
+              try {
+                // Redimensiona a máx 1280px (mismo helper que los cuadros con foto).
+                const { comprimirFoto } = await import('../../house/especiales')
+                await setAvatarRostro(await comprimirFoto(f))
+              } catch (err) {
+                console.warn('[Mind Home] No se pudo procesar la foto de rostro:', err)
+              } finally {
+                setProcesando(false)
+              }
+            }}
+          />
+        </label>
+      </div>
+
+      {/* Expresión dibujada (se atenúa si hay foto, que manda) */}
+      <div className={`space-y-1.5 ${rostro ? 'pointer-events-none opacity-40' : ''}`}>
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+          {t('editor.pers.rostroExpresion', 'Expresión')}
+        </p>
+        <div className="grid grid-cols-4 gap-1.5">
+          {EXPRESIONES.map((ex) => (
+            <button
+              key={ex.id}
+              type="button"
+              onClick={() => void setAvatarExpresion(ex.id)}
+              title={t(`editor.pers.expresion.${ex.id}`, ex.nombre)}
+              className={`grid h-11 place-items-center rounded-lg text-xl transition ${
+                expSel === ex.id
+                  ? 'bg-accent/20 ring-1 ring-accent/50'
+                  : 'bg-white/5 hover:bg-white/10'
+              }`}
+            >
+              <Icono emoji={ex.emoji} />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Peinado + color de pelo */}
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+            {t('editor.pers.peinado', 'Peinado')}
+          </p>
+          <input
+            type="color"
+            value={peloColor || PELO_COLOR_DEFAULT}
+            onChange={(e) => void setAvatarPeloColor(e.target.value)}
+            className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
+            title={t('editor.pers.peloColor', 'Color de pelo')}
+          />
+        </div>
+        <div className="grid grid-cols-4 gap-1.5">
+          {PEINADOS.map((h) => (
+            <ModeloBtn
+              key={h.id}
+              emoji={h.emoji}
+              label={t(`editor.pers.peinado.${h.id}`, h.nombre)}
+              activo={(peinado ?? 'ninguno') === h.id}
+              onClick={() => void setAvatarPeinado(h.id)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ---------- Herramienta: Ropa ----------
+
+/**
+ * Sección plegable de una categoría de la pestaña Ropa (arranca plegada,
+ * recuerda lo abierto por id — mismo mecanismo que el acordeón de
+ * Configuraciones, `useEditorUi().configAbiertos`).
+ */
+function SeccionRopa({
+  id,
+  titulo,
+  emoji,
+  children,
+}: {
+  id: string
+  titulo: string
+  emoji: string
+  children: React.ReactNode
+}) {
+  const t = useT()
+  const abierto = useEditorUi((s) => s.configAbiertos[id] === true)
+  const toggle = useEditorUi((s) => s.toggleConfigGrupo)
+  return (
+    <div className="overflow-hidden rounded-lg border border-white/10 bg-white/5">
+      <button
+        type="button"
+        onClick={() => toggle(id)}
+        aria-expanded={abierto}
+        title={
+          abierto
+            ? t('editor.sec.contraer', `Contraer ${titulo}`, { titulo })
+            : t('editor.sec.expandir', `Expandir ${titulo}`, { titulo })
+        }
+        className="flex w-full items-center gap-2 px-2.5 py-2 text-left transition hover:bg-white/10"
+      >
+        <span className="text-base leading-none">
+          <Icono emoji={emoji} />
+        </span>
+        <span className="min-w-0 flex-1 truncate text-xs font-semibold text-white/75">{titulo}</span>
+        <span className="shrink-0 text-[10px] text-white/40">{abierto ? '▼' : '▶'}</span>
+      </button>
+      {abierto && <div className="border-t border-white/10 p-2">{children}</div>}
+    </div>
+  )
+}
 
 function RopaEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente }) {
   const t = useT()
@@ -706,50 +1014,67 @@ function RopaEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente })
 
   return (
     <div className="space-y-1.5">
-      {PRENDAS.map((p) => {
-        const puesta = !!ropa[p.id]
-        const color = ropa[p.id]?.color ?? PRENDA_COLOR_DEFAULT[p.id]
-        return (
-          <div
-            key={p.id}
-            className={`flex items-center gap-2 rounded-lg border px-2 py-1.5 transition ${
-              puesta ? 'border-emerald-400/30 bg-emerald-500/10' : 'border-white/10 bg-white/5'
-            }`}
-          >
-            <button
-              type="button"
-              onClick={() => setPrenda(p.id, puesta ? null : color)}
-              className="flex min-w-0 flex-1 items-center gap-2 text-left"
-            >
-              <span className="text-lg leading-none"><Icono emoji={p.emoji} /></span>
-              <span className={`truncate text-xs font-semibold ${puesta ? 'text-white/90' : 'text-white/55'}`}>
-                {t(`editor.pers.prenda.${p.id}`, p.nombre)}
-              </span>
-            </button>
-            {puesta && (
-              <input
-                type="color"
-                value={color}
-                onChange={(e) => setPrenda(p.id, e.target.value)}
-                className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
-                title={t('editor.pers.colorPrenda', 'Color de la prenda')}
-              />
-            )}
-            <button
-              type="button"
-              onClick={() => setPrenda(p.id, puesta ? null : color)}
-              className={`grid h-6 w-6 place-items-center rounded-md text-xs transition ${
-                puesta
-                  ? 'bg-emerald-500/30 text-emerald-400'
-                  : 'bg-white/5 text-white/40 hover:bg-white/15'
-              }`}
-              title={puesta ? t('editor.pers.quitarPrenda', 'Quitar') : t('editor.pers.ponerPrenda', 'Poner')}
-            >
-              {puesta ? '✓' : '+'}
-            </button>
+      {esAvatar && (
+        <SeccionRopa id="ropa-atuendos" titulo={t('editor.pers.atuendos', 'Atuendos')} emoji="🧳">
+          <AtuendosEditor />
+        </SeccionRopa>
+      )}
+      {CATEGORIAS_PRENDA.map((cat) => (
+        <SeccionRopa
+          key={cat.id}
+          id={`ropa-${cat.id}`}
+          titulo={t(`editor.pers.categoria.${cat.id}`, cat.nombre)}
+          emoji={cat.emoji}
+        >
+          <div className="space-y-1.5">
+            {PRENDAS.filter((p) => p.categoria === cat.id).map((p) => {
+              const puesta = !!ropa[p.id]
+              const color = ropa[p.id]?.color ?? PRENDA_COLOR_DEFAULT[p.id]
+              return (
+                <div
+                  key={p.id}
+                  className={`flex items-center gap-2 rounded-lg border px-2 py-1.5 transition ${
+                    puesta ? 'border-accent/30 bg-accent/10' : 'border-white/10 bg-white/5'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setPrenda(p.id, puesta ? null : color)}
+                    className="flex min-w-0 flex-1 items-center gap-2 text-left"
+                  >
+                    <span className="text-lg leading-none">
+                      <Icono emoji={p.emoji} />
+                    </span>
+                    <span className={`truncate text-xs font-semibold ${puesta ? 'text-white/90' : 'text-white/55'}`}>
+                      {t(`editor.pers.prenda.${p.id}`, p.nombre)}
+                    </span>
+                  </button>
+                  {puesta && (
+                    <input
+                      type="color"
+                      value={color}
+                      onChange={(e) => setPrenda(p.id, e.target.value)}
+                      className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
+                      title={t('editor.pers.colorPrenda', 'Color de la prenda')}
+                    />
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setPrenda(p.id, puesta ? null : color)}
+                    className={`grid h-6 w-6 place-items-center rounded-md text-xs transition ${
+                      puesta ? 'bg-accent/30 text-accent' : 'bg-white/5 text-white/40 hover:bg-white/15'
+                    }`}
+                    title={puesta ? t('editor.pers.quitarPrenda', 'Quitar') : t('editor.pers.ponerPrenda', 'Poner')}
+                  >
+                    {puesta ? '✓' : '+'}
+                  </button>
+                </div>
+              )
+            })}
           </div>
-        )
-      })}
+        </SeccionRopa>
+      ))}
+      {esAvatar && <GuardarropaEditor />}
     </div>
   )
 }

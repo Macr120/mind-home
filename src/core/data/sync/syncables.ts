@@ -20,6 +20,10 @@ export const TABLAS_EXCLUIDAS = new Set<string>([
   'edicionesDiario',
   // Audio pesado (decenas de MB): queda local; descarga diferida en el futuro.
   'pistasMusica',
+  // Guardarropa a medida: local; lo puesto viaja inline en disenoAvatar.ropaCustom.
+  'prendasCustom',
+  // Atuendos guardados: local, misma razón que prendasCustom.
+  'atuendosGuardados',
 ])
 
 /** Tablas sincronizables (el esquema vigente v88 menos las excluidas). */
@@ -116,6 +120,7 @@ export const TABLAS_SYNC: string[] = [
   'carreras',
   'corrales',
   'pistasLibres',
+  'estadoSisifo',
 ]
 
 const TABLAS_SYNC_SET = new Set(TABLAS_SYNC)
@@ -202,6 +207,7 @@ export const SINGLETONS = new Set<string>([
   'perfilSueno',
   'mapaConfig',
   'disenoAvatar',
+  'estadoSisifo',
 ])
 
 /**

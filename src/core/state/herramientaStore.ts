@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import type { TipoVehiculo } from '../house/vehiculos'
 import { sonar } from '../audio/sfx'
 import { useGrafitis } from './grafitiStore'
+import { usePlanos } from './planosStore'
 
 /**
  * Herramientas de la rueda (estilo GTA) y acciones del personaje. Se pueden
@@ -14,6 +15,8 @@ import { useGrafitis } from './grafitiStore'
 export type Herramienta =
   | 'saltar' | 'correr' | 'bailar' | 'cuerda' | 'mortal' | 'saludar'
   | 'laser' | 'portales' | 'fuegos' | 'burbujas' | 'grafiti'
+  /** Atajos de construcción: activan el constructor de mapa en 3D sin abrir el editor. */
+  | 'construir'
   | TipoVehiculo
 
 export const MAX_EQUIPADAS = 3
@@ -133,6 +136,8 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
     } else if (h === 'grafiti') {
       accionFrame.grafitiPendiente = false
       useGrafitis.getState().salir()
+    } else if (h === 'construir') {
+      usePlanos.getState().setActivo(false)
     }
   }
   return {

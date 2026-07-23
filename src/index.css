@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+/* Registra el acento del tema como color de Tailwind: genera `bg-accent`,
+   `border-accent`, `ring-accent`, `accent-accent` (inputs range) y sus
+   variantes de opacidad (`bg-accent/10`, etc.) apuntando siempre a
+   `--ui-accent`/`--ui-accent-ink` del tema activo, sin fijar un tono. */
+@theme {
+  --color-accent: var(--ui-accent);
+  --color-accent-ink: var(--ui-accent-ink);
+}
+
 /* Variables del tema de interfaz (se sobreescriben en <html> desde temasUI.ts). */
 :root {
   --ui-bg: #0f1115;

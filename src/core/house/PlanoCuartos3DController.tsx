@@ -234,6 +234,25 @@ export function PlanoCuartos3DController() {
     [gl, camera, nivel, apilado, gridCols, gridRows],
   )
 
+  // Proyección del MISMO clic sobre el plano del SUELO (nivel 0): en pisos altos, la
+  // rejilla visual y los cuartos de abajo (la referencia con la que el usuario alinea a
+  // ojo) se ven a su altura real, no a la altura —vacía, invisible— del piso que se está
+  // construyendo. Al proyectar sobre esa altura superior, la vista isométrica desvía el
+  // resultado (más con la vista "explotada"). Se usa como celda alterna cuando la
+  // proyección al nivel actual no tiene soporte (ver `crearCuartoEnCeldaLibre`).
+  const proyectarPincelSuelo = useCallback(
+    (clientX: number, clientY: number) =>
+      celdaBajoCursor(clientX, clientY, {
+        canvas: gl.domElement,
+        camera,
+        nivel: 0,
+        apilado,
+        gridCols,
+        gridRows,
+      }),
+    [gl, camera, apilado, gridCols, gridRows],
+  )
+
   // Pincel fino: esquina del CUADRANTE bajo el cursor (solo suelo 3D; el croquis tiene
   // su propio hit-test). `cuadranteBajoCursor` da el centro (±¼): +0.25 da la esquina.
   const proyectarCuadrante = useCallback(
@@ -332,6 +351,9 @@ export function PlanoCuartos3DController() {
       }
       const c = proyectarPincel(clientX, clientY)
       if (!c) return
+      // En pisos altos, si la celda del nivel actual no tiene soporte, se reintenta con
+      // la proyección del MISMO clic al suelo (ver proyectarPincelSuelo).
+      const celdaAlterna = nivel > 0 ? (proyectarPincelSuelo(clientX, clientY) ?? undefined) : undefined
       void aplicarPincelCuarto({
         col: c.col,
         row: c.row,
@@ -344,12 +366,13 @@ export function PlanoCuartos3DController() {
         niveles,
         zonas,
         idsCuartosNivel,
+        celdaAlterna,
         setAviso,
         setSeleccion,
         onCuartoCreado: () => usePlanos.getState().setHerramienta('expandir'),
       })
     },
-    [pincelForma, rotForma, detalleRejilla, proyectarCuadrante, proyectarPincel, nivel, placed, cells, footprints, niveles, zonas, idsCuartosNivel, setAviso, setSeleccion],
+    [pincelForma, rotForma, detalleRejilla, proyectarCuadrante, proyectarPincel, proyectarPincelSuelo, nivel, placed, cells, footprints, niveles, zonas, idsCuartosNivel, setAviso, setSeleccion],
   )
 
   useEffect(() => {

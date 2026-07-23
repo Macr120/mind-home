@@ -10,8 +10,12 @@ import {
   type ProgresoPlantilla,
 } from '../gamificacion/actividad'
 import { useWrappedUi } from '../state/wrappedUiStore'
+import { useSisifoUi } from '../state/sisifoUiStore'
+import { useSisifo, marcarSisifoVisto } from '../gamificacion/sisifo'
+import { DIAS_META, RANGOS, colorArcoiris, nombreRango } from '../gamificacion/sisifoData'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import type { NombreIcono } from './iconos/catalogo'
 
 /** Barra de progreso compacta con color propio. */
 function Barra({ valor, color }: { valor: number; color: string }) {
@@ -150,6 +154,61 @@ function CabeceraPlegable({
 }
 
 /**
+ * Insignia circular con anillo de progreso y un símbolo SVG con fondo de color:
+ * botón compacto que abre la Montaña de Sísifo. Flanquea la cabeza del avatar
+ * (rango a la izquierda, insignias a la derecha).
+ */
+function AroSisifo({
+  valor,
+  color,
+  icono,
+  title,
+  onClick,
+  ping,
+}: {
+  valor: number
+  color: string
+  icono: NombreIcono
+  title: string
+  onClick: () => void
+  ping?: boolean
+}) {
+  const r = 17
+  const c = 2 * Math.PI * r
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      title={title}
+      aria-label={title}
+      className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition hover:opacity-90"
+    >
+      <svg viewBox="0 0 40 40" className="absolute inset-0 -rotate-90">
+        <circle cx="20" cy="20" r={r} fill="none" stroke="color-mix(in srgb, var(--ui-ink) 12%, transparent)" strokeWidth="3" />
+        <circle
+          cx="20"
+          cy="20"
+          r={r}
+          fill="none"
+          stroke={color}
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeDasharray={c}
+          strokeDashoffset={c * (1 - Math.min(1, Math.max(0, valor)))}
+        />
+      </svg>
+      <span
+        className="relative flex h-6 w-6 items-center justify-center rounded-full text-[11px] text-white"
+        style={{ background: color }}
+      >
+        <Icono nombre={icono} />
+      </span>
+      {ping && <span className="ui-accent-bg absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full" />}
+    </button>
+  )
+}
+
+/**
  * Resumen del jugador (tamagotchi) que encabeza la pestaña Cuartos: el
  * personaje vive de la actividad real en las apps asignadas (registrar
  * comidas, sesiones, gastos, etc. lo alimenta; abandonarlo lo entristece).
@@ -160,6 +219,11 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
   const nombreAvatar = useDiseño((s) => s.avatar.nombre)
   const [abierto, setAbierto] = useState(true)
   const hayNuevo = useWrappedUi((s) => s.hayNuevo)
+  const sisifo = useSisifo()
+  const abrirMontana = () => {
+    if (sisifo) void marcarSisifoVisto(sisifo.insignias)
+    useSisifoUi.getState().abrir()
+  }
 
   if (!progreso) {
     return (
@@ -200,8 +264,35 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
 
         {abierto && (
           <div className="px-3 pb-3 text-center">
-            <div className="mx-auto h-32 w-full">
+            <div className="relative mx-auto h-32 w-full">
+              {/* Rango actual (Montaña de Sísifo): a la altura de la cabeza, a la izquierda. */}
+              {sisifo && (
+                <div className="absolute left-0 top-1 z-10 flex flex-col items-center gap-1">
+                  <AroSisifo
+                    valor={sisifo.altura / DIAS_META}
+                    color={RANGOS[sisifo.rango - 1].color}
+                    icono="montaña"
+                    onClick={abrirMontana}
+                    title={`${nombreRango(RANGOS[sisifo.rango - 1])} · ${t('sisifo.dia', 'Día')} ${sisifo.altura}/${DIAS_META}`}
+                  />
+                  <span className="text-[10px] font-semibold text-white/60">{sisifo.rango}/12</span>
+                </div>
+              )}
               <AvatarMini />
+              {/* Insignias ganadas (Montaña de Sísifo): a la altura de la cabeza, a la derecha. */}
+              {sisifo && (
+                <div className="absolute right-0 top-1 z-10 flex flex-col items-center gap-1">
+                  <AroSisifo
+                    valor={sisifo.insignias / 52}
+                    color={colorArcoiris(Math.max(1, sisifo.insignias))}
+                    icono="gema"
+                    onClick={abrirMontana}
+                    title={`${sisifo.insignias}/52 ${t('sisifo.insignias', 'insignias')}`}
+                    ping={sisifo.hayNuevo}
+                  />
+                  <span className="text-[10px] font-semibold text-white/60">{sisifo.insignias}/52</span>
+                </div>
+              )}
             </div>
             <p className="text-[11px] leading-snug text-white/50">{FRASES[progreso.humor]}</p>
 

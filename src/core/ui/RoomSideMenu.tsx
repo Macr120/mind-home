@@ -80,7 +80,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           resto del HUD izquierdo que sigue a la vista con el menú abierto.
           Con una app abierta estorbaría sobre su encabezado (ella trae el suyo). */}
       {!activeRoom && (
-        <div className="absolute left-[15.75rem] top-3 z-30">
+        <div className="absolute left-[15.75rem] top-3 z-[35]">
           <BotonTutoriales />
         </div>
       )}
@@ -93,7 +93,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             : 'menu-cuartos'
       }
       className={`ui-panel flex h-full min-h-0 w-60 shrink-0 flex-col border-r border-white/10 ${
-        flotante ? `absolute inset-y-0 left-0 shadow-2xl ${activeRoom ? 'z-10' : 'z-30'}` : ''
+        flotante ? `absolute inset-y-0 left-0 shadow-2xl ${activeRoom ? 'z-10' : 'z-[35]'}` : ''
       }`}
       aria-label={t('nav.ariaMenu', 'Menú de cuartos')}
     >
@@ -366,7 +366,11 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   // Con una app abierta, su overlay tapa la casa: los controles de la vista 3D y el
   // selector de tutoriales estorban sobre su encabezado (la app tiene su propio "?").
   const appAbierta = useHouse((s) => !!s.activeRoom)
-  const plegado = useHud((s) => s.plegado.supIzq)
+  const editMode = useLayout((s) => s.editMode)
+  const movilVertical = useHud((s) => s.movilVertical)
+  // En vertical el Editor (panel derecho) ocupa casi todo el ancho: este disparador se
+  // pliega mientras esté abierto para no traslaparse (espejo en ToolbarPermanente).
+  const plegado = useHud((s) => s.plegado.supIzq) || (movilVertical && editMode)
 
   // Plegado: queda solo la casa (con una app abierta se ignora, es el único acceso al menú).
   if (plegado && !appAbierta) {
@@ -380,7 +384,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   }
 
   return (
-    <div className="absolute left-3 top-3 z-30 flex items-center gap-2">
+    <div className="absolute left-3 top-3 z-30 flex items-start gap-2">
       <button
         type="button"
         data-tut="menu.abrir"
@@ -403,8 +407,10 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
           <ExplotarToggleButton />
           <TechoToggleButton />
           {/* Selector de tutoriales: el ÚNICO "?" de la casa (en las apps va en su header). */}
-          <BotonTutoriales />
-          <BotonPlegarHud zona="supIzq" />
+          <div className="flex flex-col items-center gap-1">
+            <BotonTutoriales />
+            <BotonPlegarHud zona="supIzq" />
+          </div>
         </>
       )}
     </div>

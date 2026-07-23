@@ -82,7 +82,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
                 <p className="truncate text-sm text-white/85">
                   {nombreAsistente(t, a)}
                   {activo && (
-                    <span className="ml-1.5 text-[10px] font-semibold text-emerald-400">
+                    <span className="ml-1.5 text-[10px] font-semibold text-accent">
                       ● {t('chat.config.activo', 'activo')}
                     </span>
                   )}
@@ -139,7 +139,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
         <button
           type="button"
           onClick={crear}
-          className="flex items-center gap-1 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500/20"
+          className="flex items-center gap-1 rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-1 text-[11px] font-semibold text-accent transition hover:bg-accent/20"
         >
           <Icono nombre="agregar" /> {t('chat.config.nuevo', 'Crear asistente')}
         </button>
@@ -272,7 +272,7 @@ function FormAsistente({
                 title={r.nombre}
                 className={`flex items-center gap-1 rounded-lg border px-1.5 py-1 text-[11px] transition ${
                   activo
-                    ? 'border-emerald-400/40 bg-emerald-500/15 text-white/90'
+                    ? 'border-accent/40 bg-accent/15 text-white/90'
                     : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
                 }`}
                 style={activo ? { borderColor: `${r.color}66` } : undefined}
@@ -297,7 +297,7 @@ function FormAsistente({
               title={nombreForma(t, f)}
               className={`grid h-7 w-7 place-items-center rounded-lg text-base transition ${
                 a.forma === f.id && !tieneModeloPropio
-                  ? 'bg-emerald-500/20 ring-1 ring-emerald-400/50'
+                  ? 'bg-accent/20 ring-1 ring-accent/50'
                   : 'hover:bg-white/10'
               }`}
             >
@@ -332,7 +332,7 @@ function FormAsistente({
             type="button"
             onClick={generarForma}
             disabled={!iaActiva() || generando || !descForma.trim()}
-            className="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20 disabled:opacity-30"
+            className="rounded-md border border-accent/30 bg-accent/10 px-2.5 text-xs font-semibold text-accent transition hover:bg-accent/20 disabled:opacity-30"
             title={t('chat.config.formaGenerar', 'Crear la forma con IA')}
           >
             {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}

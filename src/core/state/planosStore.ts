@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import type { Cell, SideKey } from '../house/walls'
 import type { FormaLoseta } from '../house/formasLoseta'
+import type { VentanaContenidoId, TipoPuertaId } from '../house/murosPuertas'
 import { useLayout } from './layoutStore'
 
 type CapaPlano = 'cuartos' | 'paredes' | 'pisos' | 'techos'
@@ -96,10 +97,18 @@ interface PlanosState {
   orientMuro: 'h' | 'v'
   /** Rotación con la que se coloca el muro de forma (triángulo/círculo): 0/90/180/270. */
   rotForma: 0 | 90 | 180 | 270
+  /** Pincel del modo Ventanas: qué se crea al tocar un muro (ventana/cuadro/espejo). */
+  ventContenido: VentanaContenidoId
+  /** Pincel del modo Ventanas: cara del muro donde vive el cuadro/espejo. */
+  ventCara: 'interior' | 'exterior'
+  /** Pincel del modo Puertas: variante de puerta al tocar un muro. */
+  tipoPuerta: TipoPuertaId
   /** Muro libre seleccionado (id) para editar textura/color/altura. */
   muroLibreSel: number | null
   /** Visibilidad del previsualizador 3D del muro/pared seleccionado (toggle del ojo). */
   previewVisible: boolean
+  /** Visibilidad del croquis 2D en el editor de mapa (selector Croquis/3D; ambos pueden estar activos). */
+  croquisVisible: boolean
   /** Previsualización del muro libre bajo el cursor en el mapa 3D (fantasma en tiempo real). */
   muroHover: {
     clase: 'arista' | 'forma'
@@ -138,8 +147,12 @@ interface PlanosState {
   setFormaMuro: (f: FormaLoseta) => void
   setOrientMuro: (o: 'h' | 'v') => void
   setRotForma: (r: 0 | 90 | 180 | 270) => void
+  setVentContenido: (c: VentanaContenidoId) => void
+  setVentCara: (c: 'interior' | 'exterior') => void
+  setTipoPuerta: (t: TipoPuertaId) => void
   setMuroLibreSel: (id: number | null) => void
   setPreviewVisible: (v: boolean) => void
+  setCroquisVisible: (v: boolean) => void
   setMuroHover: (h: PlanosState['muroHover']) => void
   setMuroSelHover: (h: PlanosState['muroSelHover']) => void
   toggleMenuPlano: (id: 'cielo' | 'superficie') => void
@@ -163,8 +176,12 @@ export const usePlanos = create<PlanosState>((set) => ({
   formaMuro: 'cuadrado',
   orientMuro: 'h',
   rotForma: 0,
+  ventContenido: 'ventana',
+  ventCara: 'interior',
+  tipoPuerta: 'recta',
   muroLibreSel: null,
   previewVisible: false,
+  croquisVisible: true,
   muroHover: null,
   muroSelHover: null,
   menuPlano: null,
@@ -188,16 +205,17 @@ export const usePlanos = create<PlanosState>((set) => ({
     set((st) => ({
       modo: m,
       ...MODO_CONFIG[m],
-      seleccion: null,
+      // Re-aplicar el mismo modo (sincronización al montar el editor o al reactivar el
+      // atajo de construcción) conserva pincel, selección y muro elegido.
+      seleccion: st.modo === m ? st.seleccion : null,
       aviso: null,
       pendienteNombre: null,
       draggingZonaId: null,
       previewZonaCeldas: [],
       zonaDragOrigen: [],
       formaLoseta: 'cuadrado',
-      // Re-aplicar el mismo modo (sincronización al montar el editor) conserva el pincel.
       pincelForma: st.modo === m ? st.pincelForma : null,
-      muroLibreSel: null,
+      muroLibreSel: st.modo === m ? st.muroLibreSel : null,
       muroHover: null,
       ...(m === 'grid' || m === 'piso-ext' ? { nivel: 0 } : {}),
       // Ascensos aplica a pisos altos y al sótano; si venías de planta baja, sube al 1.
@@ -239,15 +257,19 @@ export const usePlanos = create<PlanosState>((set) => ({
   setFormaMuro: (f) => set({ formaMuro: f, muroLibreSel: null }),
   setOrientMuro: (o) => set({ orientMuro: o }),
   setRotForma: (r) => set({ rotForma: r }),
-  // Cada nueva selección deja el previsualizador cerrado; el usuario lo abre con el ojo.
-  setMuroLibreSel: (id) => set({ muroLibreSel: id, previewVisible: false }),
+  setVentContenido: (c) => set({ ventContenido: c }),
+  setVentCara: (c) => set({ ventCara: c }),
+  setTipoPuerta: (t) => set({ tipoPuerta: t }),
+  // Cada nueva selección abre el previsualizador en su sitio; el usuario lo cierra con el ojo.
+  setMuroLibreSel: (id) => set({ muroLibreSel: id, previewVisible: true }),
   setPreviewVisible: (v) => set({ previewVisible: v }),
+  setCroquisVisible: (v) => set({ croquisVisible: v }),
   setMuroHover: (h) => set({ muroHover: h }),
   setMuroSelHover: (h) => set({ muroSelHover: h }),
   toggleMenuPlano: (id) =>
     set((st) => ({ menuPlano: st.menuPlano === id ? null : id })),
   setMenuPlano: (m) => set({ menuPlano: m }),
-  setSeleccion: (s) => set({ seleccion: s, previewVisible: false }),
+  setSeleccion: (s) => set({ seleccion: s, previewVisible: true }),
   toggleCeldaExterior: (c) =>
     set((st) => {
       // Detalle fino: se conserva la coordenada de ¼ (cuadrante); cuadro: celda entera.

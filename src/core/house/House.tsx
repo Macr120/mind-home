@@ -251,6 +251,7 @@ export function House() {
   const planosNivel = usePlanos((s) => s.nivel)
   const planosSeleccion = usePlanos((s) => s.seleccion)
   const planosModo = usePlanos((s) => s.modo)
+  const planosCapa = usePlanos((s) => s.capa)
   const planosHerr = usePlanos((s) => s.herramienta)
   const mapaSuperficie = useDiseño((s) => s.mapaSuperficie)
   const editorTab = useEditorUi((s) => s.tab)
@@ -265,18 +266,24 @@ export function House() {
   // En el editor sin cuarto, la interacción 3D depende de la pestaña: solo "Mapa" edita
   // la rejilla y mueve cuartos; "Personajes" arrastra personajes; "Objetos" arrastra objetos.
   const tabMapa = editorTab === 'mapa'
+  // Arrastre de cuartos del registro: en el tab Mapa del editor completo, o con el atajo
+  // de construcción (Cuartos + botón Mover) — misma condición que Room3D.puedeMoverCuarto.
+  const planosMoverCuartos = planosActivo && planosCapa === 'cuartos' && planosHerr === 'mover'
+  const puedeArrastrarCuartos = !editor3d && (editMode ? tabMapa : planosMoverCuartos)
 
+  // El resaltado, los +/− de Expandir y los techos siguen al MOTOR de planos (activo
+  // también con el atajo de construcción de la rueda, sin panel del editor).
   const resaltadoPlanoId =
-    modoPlanos && planosSeleccion?.tipo === 'cuarto' ? planosSeleccion.roomId : null
+    planosActivo && planosSeleccion?.tipo === 'cuarto' ? planosSeleccion.roomId : null
   // Herramienta Expandir: muestra los +/− de TODOS los cuartos del nivel para
   // crecerlos/recortarlos o eliminarlos, sin mover ni cambiar de panel.
-  const editarCeldasPlano = modoPlanos && planosModo === 'cuartos' && planosHerr === 'expandir'
+  const editarCeldasPlano = planosActivo && planosModo === 'cuartos' && planosHerr === 'expandir'
   const cuartosExpandir = editarCeldasPlano
     ? cuartos.filter((r) => placed[r.id] && (niveles[r.id] ?? 0) === planosNivel)
     : []
   // En el editor de mapa el techo sigue al modo: oculto por defecto (para ver el interior)
   // y visible —con la forma real del cuarto— solo en modo Techos. Fuera del editor manda 🏠.
-  const forzarTechoEditor = modoPlanos ? planosModo === 'techos' : undefined
+  const forzarTechoEditor = planosActivo ? planosModo === 'techos' : undefined
 
   return (
     <>
@@ -334,7 +341,7 @@ export function House() {
           const [x, , z] = centroCuarto3D(cell, fp)
           const y = nivelBaseY(niveles[room.id] ?? 0, apilado)
           const roomNivel = niveles[room.id] ?? 0
-          const otroNivel = modoPlanos && roomNivel !== planosNivel
+          const otroNivel = planosActivo && roomNivel !== planosNivel
           // Editando un cuarto: los DEMÁS se ven atenuados (contexto), el editado a tope.
           const atenuadoEdicion =
             Boolean(editingRoomId) && !editor3d && room.id !== editingRoomId
@@ -391,7 +398,7 @@ export function House() {
       {!aislarCuarto && <InteractAnchor />}
       {!aislarCuarto && <EtiquetasMapaProjector />}
       {!aislarCuarto && <EditorAnchor />}
-      {!aislarCuarto && editMode && tabMapa && !editor3d && <RoomDragController />}
+      {!aislarCuarto && puedeArrastrarCuartos && <RoomDragController />}
       {!aislarCuarto && <AccesoDrag />}
       <ObjetoDragController />
       {!aislarCuarto && editMode && editorTab === 'personajes' && !editor3d && <CharacterDragController />}
@@ -400,8 +407,8 @@ export function House() {
       {tabMapa && (editor3d || !modoPlanos) && planosModo !== 'ascensos' && <GridResizer />}
       {!aislarCuarto &&
         cuartosExpandir.map((r) => <RoomCellEditor key={r.id} roomId={r.id} />)}
-      {!aislarCuarto && modoPlanos && <PlanoTechos3DEditor />}
-      {!aislarCuarto && modoPlanos && <TechoCeldaEditor />}
+      {!aislarCuarto && planosActivo && <PlanoTechos3DEditor />}
+      {!aislarCuarto && planosActivo && <TechoCeldaEditor />}
       {!aislarCuarto && <Character />}
       {!aislarCuarto && <Asistente3D />}
 

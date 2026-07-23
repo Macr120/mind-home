@@ -22,7 +22,10 @@ import {
   ANGULO_BRAZO_CUERDA,
 } from '../state/herramientaStore'
 import { Prendas } from './Prendas'
-import { ANCLAS_AVATAR } from './apariencia'
+import { Rostro } from './Rostro'
+import { Peinado } from './Peinado'
+import { ModeloMascota } from './Asistente3D'
+import { ANCLAS_AVATAR, ANCLAS_FORMA } from './apariencia'
 import type { Avatar } from '../state/disenoStore'
 
 /**
@@ -114,17 +117,19 @@ function CuerpoCubos({ av, caminar = false }: { av: Avatar; caminar?: boolean })
         <boxGeometry args={[0.6, 0.62, 0.3]} />
         <meshStandardMaterial color={av.torso} />
       </mesh>
-      {/* brazos: grupo con pivote en el hombro */}
+      {/* brazos: grupo con pivote en el hombro. Color de la cabeza (piel), no del
+          torso: así la piel que asoma bajo mangas cortas o sin camisa combina con
+          la cara en vez de mostrar el color de la playera/torso desnudo. */}
       <group ref={brazoI} position={[-0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
-          <meshStandardMaterial color={av.torso} />
+          <meshStandardMaterial color={av.cabeza} />
         </mesh>
       </group>
       <group ref={brazoD} position={[0.42, 1.22, 0]}>
         <mesh position={[0, -0.3, 0]} castShadow>
           <boxGeometry args={[0.2, 0.6, 0.26]} />
-          <meshStandardMaterial color={av.torso} />
+          <meshStandardMaterial color={av.cabeza} />
         </mesh>
       </group>
       {/* cabeza */}
@@ -220,6 +225,7 @@ export function AvatarModelo({
 }) {
   const anim = animar ? av.animacion : undefined
   const conPoses = !!anim && anim.activacion !== 'apagado' && (anim.poses?.length ?? 0) >= 2
+  const brazoForma = useRef<THREE.Group>(null)
   return (
     <group scale={av.escala}>
       <GrupoAnimado anim={anim}>
@@ -239,12 +245,22 @@ export function AvatarModelo({
             )}
             <Prendas ropa={av.ropa} anclas={ANCLAS_AVATAR} />
           </MarchaBob>
+        ) : av.forma ? (
+          <MarchaBob activo={caminar}>
+            <ModeloMascota forma={av.forma} color={av.torso} brazoRef={brazoForma} />
+            <Prendas ropa={av.ropa} anclas={ANCLAS_FORMA[av.forma]} />
+          </MarchaBob>
         ) : (
           <>
             <CuerpoCubos av={av} caminar={caminar} />
+            <Rostro anclas={ANCLAS_AVATAR} expresion={av.expresion} rostro={av.rostro} />
+            <Peinado anclas={ANCLAS_AVATAR} peinado={av.peinado} color={av.peloColor} />
             <Prendas ropa={av.ropa} anclas={ANCLAS_AVATAR} marcha={caminar} />
           </>
         )}
+        {av.ropaCustom?.map((g, i) => (
+          <ModeloPiezas key={`rc-${g.refId}-${i}`} piezas={g.piezas} />
+        ))}
         {casco && <CascoEditor />}
       </GrupoAnimado>
     </group>

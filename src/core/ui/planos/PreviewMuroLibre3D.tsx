@@ -2,9 +2,11 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Bounds } from '@react-three/drei'
 import { murosLibresRepo } from '../../data/repository'
 import { useLayout } from '../../state/layoutStore'
+import { useEditorUi } from '../../state/editorUiStore'
 import { MuroLibre3DItem } from '../../house/MurosLibres3D'
 import { segmentosMundoMuroLibre } from '../../house/murosLibre'
 import { IconoOjo } from '../editor/IconoOjo'
+import { BotonPreviewClaro, claseOverlayBtn } from '../editor/BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 
 /**
@@ -15,6 +17,7 @@ import { useT } from '../../i18n/useT'
 export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOcultar?: () => void }) {
   const t = useT()
   const muros = murosLibresRepo.useAll() ?? []
+  const claro = useEditorUi((s) => s.previewClaro)
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const m = muros.find((x) => x.id === muroId)
@@ -36,17 +39,24 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
   }
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/30">
-      {onOcultar && (
-        <button
-          type="button"
-          onClick={onOcultar}
-          title={t('planos.preview.ocultar', 'Ocultar previsualización 3D')}
-          className="ui-hud absolute left-2 top-2 z-10 rounded-lg border border-white/15 p-1.5 text-white/70 transition hover:bg-white/15"
-        >
-          <IconoOjo off />
-        </button>
-      )}
+    <div
+      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${
+        claro ? 'bg-white' : 'bg-[#0d0f13]'
+      }`}
+    >
+      <div className="absolute left-2 top-2 z-10 flex flex-col gap-1">
+        {onOcultar && (
+          <button
+            type="button"
+            onClick={onOcultar}
+            title={t('planos.preview.ocultar', 'Ocultar previsualización 3D')}
+            className={`rounded-lg border p-1.5 transition ${claseOverlayBtn(claro)}`}
+          >
+            <IconoOjo off />
+          </button>
+        )}
+        <BotonPreviewClaro />
+      </div>
       <div className="h-56 w-full">
         <Canvas
           key={muroId}
@@ -65,7 +75,7 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
           {/* Piso de apoyo para la sombra */}
           <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
             <circleGeometry args={[5, 48]} />
-            <meshStandardMaterial color="#1a1d25" />
+            <meshStandardMaterial color={claro ? '#e5e7eb' : '#1a1d25'} />
           </mesh>
           <OrbitControls
             makeDefault
@@ -76,7 +86,11 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
           />
         </Canvas>
       </div>
-      <span className="pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] text-white/35">
+      <span
+        className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+          claro ? 'text-black/45' : 'text-white/35'
+        }`}
+      >
         {t('preview.girar', 'Arrastra para girar · rueda para acercar')}
       </span>
     </div>

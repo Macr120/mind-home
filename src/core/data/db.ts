@@ -1014,12 +1014,50 @@ interface DisenoAvatar {
   escala?: number
   /** Ropa puesta: JSON de prendas (Ropa de house/apariencia). */
   ropa?: string
+  /** Expresión del rostro dibujado (ExpresionId de house/apariencia; '' = por defecto). */
+  expresion?: string
+  /** Imagen de rostro subida por el usuario (tapa el frente de la cabeza). */
+  rostro?: Blob
+  /** Peinado dibujado (PeinadoId de house/apariencia; '' = sin pelo). */
+  peinado?: string
+  /** Color del pelo ('' = por defecto). */
+  peloColor?: string
+  /** Forma integrada (MascotaId) usada como cuerpo del avatar ('' = ninguna). */
+  forma?: string
   /** Modelo 3D generado por IA: JSON de piezas primitivas (Pieza3D[]). */
   modelo3d?: string
   /** Modelo .glb subido por el usuario (gana a modelo3d y a los cubos). */
   modeloGlb?: Blob
   /** Animación del personaje: JSON de AnimacionModelo (house/animacion). */
   animacion?: string
+  /** Prendas a medida puestas: JSON de {refId, nombre, piezas} (guardarropa). */
+  ropaCustom?: string
+}
+
+/**
+ * Guardarropa a medida: prendas creadas por el usuario (por IA o a mano) que se
+ * pueden poner al personaje principal. `piezas` es el JSON de las primitivas
+ * (Pieza3D[]). Tabla LOCAL (no sincroniza); lo puesto viaja inline en el avatar.
+ */
+interface PrendaCustom {
+  id?: number
+  nombre: string
+  /** JSON de Pieza3D[] (la geometría de la prenda). */
+  piezas: string
+  creadoEn: number
+}
+
+/**
+ * Atuendo guardado por el usuario: una combinación de prendas (con sus colores)
+ * lista para aplicarse de un toque. Tabla LOCAL (no sincroniza), igual que
+ * `prendasCustom`.
+ */
+interface AtuendoGuardado {
+  id?: number
+  nombre: string
+  /** JSON de Ropa (house/apariencia): qué prendas lleva y de qué color. */
+  ropa: string
+  creadoEn: number
 }
 
 // ----- Bitácora · el arquitecto (orquestador) -----
@@ -1840,6 +1878,33 @@ export interface PistaMusica {
   duracionSeg?: number
 }
 
+// ----- Gamificación · Montaña de Sísifo -----
+
+/**
+ * Estado del ascenso anual (una sola fila, patrón singleton igual que
+ * `disenoAvatar`/`mapaConfig`: `toArray()[0]` + `add`/`update`, sin id fijo).
+ * `altura` (0–365 días subidos) es el único número del que se derivan rango e
+ * insignias; `estrellas` es el trofeo permanente que sobrevive al reinicio de
+ * cada año. Se reconcilia desde la actividad real (ver core/gamificacion/sisifo.ts).
+ */
+export interface EstadoSisifo {
+  id?: number
+  /** Días subidos en el ciclo actual (0–365). */
+  altura: number
+  /** Estrellas ganadas (un año completado = una estrella). Permanente. */
+  estrellas: number
+  /** Última fecha local ya procesada por la reconciliación (yyyy-mm-dd). */
+  ultimaFecha: string
+  /** Días de gracia ya gastados en el mes en curso. */
+  graciasGastadas: number
+  /** Mes en curso `yyyy-mm` (al cambiar se reinician las gracias). */
+  mes: string
+  /** Nº de insignias ya vistas por el usuario (para el badge "nueva insignia"). */
+  insigniasVistas: number
+  /** Hay una estrella recién ganada pendiente de celebrar. */
+  estrellaNueva: boolean
+}
+
 class MindHomeDB extends Dexie {
   transacciones!: Table<Transaccion, number>
   sueno!: Table<RegistroSueno, number>
@@ -1895,6 +1960,8 @@ class MindHomeDB extends Dexie {
   lecturasDiario!: Table<LecturaDiario, number>
   disenoRooms!: Table<DisenoRoom, number>
   disenoAvatar!: Table<DisenoAvatar, number>
+  prendasCustom!: Table<PrendaCustom, number>
+  atuendosGuardados!: Table<AtuendoGuardado, number>
   objetosCuarto!: Table<ObjetoCuarto, number>
   layout!: Table<LayoutCuarto, number>
   mapaConfig!: Table<MapaConfig, number>
@@ -1940,6 +2007,7 @@ class MindHomeDB extends Dexie {
   carreras!: Table<RecordCarrera, number>
   pistasLibres!: Table<PistaLibre, number>
   pistasMusica!: Table<PistaMusica, number>
+  estadoSisifo!: Table<EstadoSisifo, number>
   // Internas de sincronización (prefijo `_`: ni respaldo ni sync ni UI).
   _outbox!: Table<EntradaOutbox, number>
   _syncMeta!: Table<SyncMeta, string>
@@ -2844,6 +2912,34 @@ class MindHomeDB extends Dexie {
             })
         }
       })
+    // v90: guardarropa a medida — prendas creadas por el usuario (IA o a mano)
+    // para vestir al personaje. Tabla LOCAL (fuera del sync): lo que el avatar
+    // trae puesto viaja inline en `disenoAvatar.ropaCustom`.
+    this.version(90).stores({
+      prendasCustom: '++id, creadoEn',
+    })
+    // v91: atuendos guardados por el usuario (combinaciones de prendas listas
+    // para aplicarse). Tabla LOCAL, mismo trato que prendasCustom.
+    this.version(91).stores({
+      atuendosGuardados: '++id, creadoEn',
+    })
+    // v92: gamificación · Montaña de Sísifo. Fila única con el estado del
+    // ascenso anual. Sincroniza para que la estrella permanente no se pierda al
+    // cambiar de dispositivo (singleton: gana la más nueva por LWW).
+    this.version(92).stores({
+      estadoSisifo: '++id, &uid',
+    })
+    // v92 se envió una tarde con `&id` fijo (keyPath 'id' SIN auto-incremento):
+    // cada escritura fallaba. Dexie no soporta cambiar la clave primaria de un
+    // store con `stores()` normal ("UpgradeError: Not yet support for changing
+    // primary key") — hay que borrarlo en una versión y recrearlo en la
+    // siguiente (patrón documentado de Dexie para este caso exacto).
+    this.version(93).stores({
+      estadoSisifo: null,
+    })
+    this.version(94).stores({
+      estadoSisifo: '++id, &uid',
+    })
   }
 }
 

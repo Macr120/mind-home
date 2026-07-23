@@ -22,8 +22,10 @@ export function EditorPanelMapa() {
   return (
     <div className="space-y-3">
       {/* Sección "Mapa": el constructor unificado (barra de modos + croquis + editor de abajo),
-          plegable como las demás secciones. */}
-      <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5">
+          plegable como las demás secciones. `overflow-clip` (no `hidden`) recorta las esquinas
+          redondeadas sin crear un contenedor de scroll, para que el preview 3D de adentro pueda
+          quedar `sticky` respecto al scroll del panel. */}
+      <div className="overflow-clip rounded-xl border border-white/10 bg-white/5">
         <div className="flex min-h-[34px] items-center gap-0.5 bg-black/15 px-1.5 py-1.5">
           <button
             type="button"

@@ -135,7 +135,7 @@ export function EditorObjetosSection() {
     <button
       type="button"
       onClick={crearObjetoPiezas}
-      className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/10 px-2.5 py-2 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20"
+      className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-accent/30 bg-accent/10 px-2.5 py-2 text-xs font-semibold text-accent transition hover:bg-accent/20"
     >
       <Icono nombre="muro" /> {t('editor.obj.crearPiezas', 'Crear objeto con piezas 3D')}
     </button>
@@ -203,7 +203,7 @@ export function EditorObjetosSection() {
               title={u.nombre}
               className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
                 activa
-                  ? 'border-emerald-400/50 bg-emerald-600 texto-cta'
+                  ? 'border-accent/50 bg-accent text-accent-ink'
                   : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
               }`}
             >
@@ -226,7 +226,7 @@ export function EditorObjetosSection() {
               title={nombreObjeto(o)}
               className={`flex items-center justify-center rounded-lg border p-1.5 transition ${
                 sel
-                  ? 'border-emerald-400/60 bg-emerald-500/10'
+                  ? 'border-accent/60 bg-accent/10'
                   : 'border-white/10 bg-white/5 hover:bg-white/10'
               }`}
             >
@@ -352,7 +352,7 @@ export function EditorObjetosSection() {
             {(seleccionado.tipo === TIPO_CUADRO_FOTO || seleccionado.tipo === TIPO_ESPECTACULAR) && (
               <PropiedadGrupo titulo={<><Icono nombre="foto" /> {t('editor.obj.foto', 'Foto')}</>}>
                 <div className="space-y-1.5">
-                  <label className="block cursor-pointer rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-1.5 text-center text-[11px] font-semibold text-emerald-400 transition hover:bg-emerald-500/20">
+                  <label className="block cursor-pointer rounded-md border border-accent/30 bg-accent/10 px-2 py-1.5 text-center text-[11px] font-semibold text-accent transition hover:bg-accent/20">
                     <Icono nombre="foto" />{' '}
                     {seleccionado.foto
                       ? t('editor.obj.cambiarFoto', 'Cambiar la foto')
@@ -609,7 +609,7 @@ function GenerarObjetoIA({
             type="button"
             onClick={() => setTipo(c.id)}
             className={`flex-1 px-2 py-1 text-[11px] font-semibold transition ${
-              tipo === c.id ? 'bg-emerald-600 texto-cta' : 'bg-white/5 text-white/55 hover:bg-white/10'
+              tipo === c.id ? 'bg-accent text-accent-ink' : 'bg-white/5 text-white/55 hover:bg-white/10'
             }`}
           >
             <Icono emoji={c.emoji} /> {c.label}
@@ -652,7 +652,7 @@ function GenerarObjetoIA({
           type="button"
           onClick={generar}
           disabled={!iaActiva() || generando || !desc.trim()}
-          className="rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2.5 text-xs font-semibold text-emerald-400 transition hover:bg-emerald-500/20 disabled:opacity-30"
+          className="rounded-md border border-accent/30 bg-accent/10 px-2.5 text-xs font-semibold text-accent transition hover:bg-accent/20 disabled:opacity-30"
           title={t('editor.obj.formaGenerar', 'Crear con IA')}
         >
           {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}
