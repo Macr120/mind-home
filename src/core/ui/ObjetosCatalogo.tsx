@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react'
 import type { ObjetoCuarto } from '../data/db'
 import { RECURSOS } from '../house/recursos'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
+import { pedirDestinoObjeto } from '../state/destinoObjetoStore'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { getTema } from '../house/temas'
@@ -133,10 +134,12 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
     setEditMode(true)
   }
 
-  /** Coloca una copia del objeto en el mapa: queda lista para arrastrarla ahí mismo. */
+  /** Coloca una copia del objeto donde el usuario elija: queda lista para arrastrarla ahí mismo. */
   const alMapa = async (o: ObjetoCuarto) => {
     if (o.id == null) return
-    await instanciarEnMapa(o.id)
+    const destino = await pedirDestinoObjeto()
+    if (!destino) return
+    await instanciarEnMapa(o.id, undefined, destino)
   }
 
   /** Rota una instancia colocada (grados sumados a su rotación actual). */
@@ -382,7 +385,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                     }}
                     onClick={() => alMapa(o)}
                     onKeyDown={(e) => e.key === 'Enter' && alMapa(o)}
-                    title={t('objetos.alMapa', 'Agregar al mapa')}
+                    title={t('objetos.alMapa', 'Colocar en el mapa o en un cuarto')}
                     className={`flex cursor-pointer items-center gap-2 rounded-md bg-white/[0.03] p-1.5 transition hover:bg-white/[0.07] ${
                       // Línea de inserción (dónde caerá) al reordenar objetos.
                       arrastre?.tipo === 'objeto' && arrastre.id !== o.id && sobre === `objeto:${o.id}`
@@ -416,7 +419,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                           title={t('objetos.animado', 'Objeto animado')}
                           className="pointer-events-none absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
                         >
-                          ✨
+                          <Icono nombre="brillo" />
                         </span>
                       )}
                     </span>

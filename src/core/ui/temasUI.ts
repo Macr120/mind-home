@@ -13,10 +13,11 @@
  * `border-white/X` del chrome pasan a usar la tinta oscura del tema y la
  * interfaz completa se invierte sin reescribir componentes.
  *
- * El modo `transparente` no tiene paleta propia: usa la variante clara (las
- * apps de los cuartos abren normales, en claro) pero vuelve translúcidos los
- * fondos de menús/paneles (`--ui-panel*`), de modo que la escena 3D se ve a
- * través de ellos (index.css añade el desenfoque y el menú lateral flota).
+ * El modo `transparente` no tiene paleta propia: vuelve translúcidos los fondos
+ * de menús/paneles (`--ui-panel*`), de modo que la escena 3D se ve a través de
+ * ellos (index.css añade el desenfoque y el menú lateral flota). Su variante
+ * (clara u oscura) NO es fija: la elige la luz de la casa, porque el vidrio
+ * hereda el color de lo que tiene detrás (ver `baseSegunLuz`).
  */
 
 export type TemaUIId =
@@ -33,6 +34,39 @@ export type ModoVarsUI = 'oscuro' | 'claro'
 /** Variante de paleta que usa cada modo (p. ej. para swatches de los temas). */
 export function modoBase(modo: ModoUI): ModoVarsUI {
   return modo === 'oscuro' ? 'oscuro' : 'claro'
+}
+
+/** Luminancia relativa (WCAG) de un color #rrggbb. 0 = negro, 1 = blanco. */
+export function luminancia(hex: string): number {
+  const p = parseInt(hex.slice(1), 16)
+  const canal = (c: number) => {
+    const v = c / 255
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)
+  }
+  return (
+    0.2126 * canal((p >> 16) & 255) + 0.7152 * canal((p >> 8) & 255) + 0.0722 * canal(p & 255)
+  )
+}
+
+/**
+ * Variante de paleta del modo transparente según la luz de la escena que hay
+ * DETRÁS del vidrio: con la casa de día el panel translúcido queda claro (tinta
+ * oscura) y de noche queda oscuro (tinta clara). Con una sola variante fija, la
+ * mitad del día el texto se leía a ~3:1 o menos.
+ *
+ * Umbrales con histéresis (entra en oscuro por debajo de 0.16, vuelve a claro
+ * por encima de 0.24) para que el amanecer/atardecer conmuten UNA vez y no
+ * parpadeen mientras el sol cruza el horizonte.
+ */
+const LUZ_A_OSCURO = 0.16
+const LUZ_A_CLARO = 0.24
+
+export function baseSegunLuz(fondoEscena: string | null, actual: ModoVarsUI): ModoVarsUI {
+  // Sin color de fondo conocido (imagen personalizada): se queda como está.
+  if (!fondoEscena) return actual
+  const l = luminancia(fondoEscena)
+  if (actual === 'claro') return l < LUZ_A_OSCURO ? 'oscuro' : 'claro'
+  return l > LUZ_A_CLARO ? 'claro' : 'oscuro'
 }
 
 interface VarsTemaUI {
@@ -199,11 +233,15 @@ function getTemaUI(id: TemaUIId): TemaUI {
   return TEMAS_UI.find((t) => t.id === id) ?? TEMAS_UI[0]
 }
 
-/** Aplica las variables CSS del tema y modo al documento. */
-export function aplicarTemaUI(id: TemaUIId, modo: ModoUI): void {
+/**
+ * Aplica las variables CSS del tema y modo al documento. `baseTransparente`
+ * llega desde `useVidrioSegunLuz` para que el modo transparente siga la luz de
+ * la casa; los otros modos la ignoran.
+ */
+export function aplicarTemaUI(id: TemaUIId, modo: ModoUI, baseTransparente?: ModoVarsUI): void {
   const tema = getTemaUI(id)
   const root = document.documentElement
-  const base = modoBase(modo)
+  const base = modo === 'transparente' ? (baseTransparente ?? modoBase(modo)) : modoBase(modo)
   const vars = tema.vars[base] ?? tema.vars.oscuro
   for (const [prop, valor] of Object.entries(vars)) {
     root.style.setProperty(prop, valor)

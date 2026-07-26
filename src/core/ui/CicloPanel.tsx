@@ -17,11 +17,12 @@ const dd = (n: number) => String(n).padStart(2, '0')
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v))
 
 /**
- * Reloj 24 h + fecha. `compacto` reduce el tamaño y abrevia la fecha
- * (para el widget pequeño). Lee la hora del ciclo (real o simulada).
+ * Reloj 24 h + fecha. `compacto` reduce el tamaño y abrevia la fecha (para el widget
+ * pequeño). Muestra siempre la hora real del sistema (`minutosReloj`), aunque el paso
+ * del tiempo de la escena 3D esté pausado en otra hora.
  */
 function RelojInfo({ compacto = false }: { compacto?: boolean }) {
-  const minutos = useCiclo((s) => s.minutos)
+  const minutos = useCiclo((s) => s.minutosReloj)
   const hh = Math.floor(minutos / 60)
   const mm = Math.floor(minutos % 60)
   const fecha = new Date().toLocaleDateString(
@@ -107,11 +108,39 @@ function Dimmers() {
   )
 }
 
+/** Switch para activar/pausar el avance automático de la hora. Al pausar, fija el fondo en el color del cielo actual. */
+function PasoTiempoSwitch() {
+  const t = useT()
+  const modo = useCiclo((s) => s.modo)
+  const enVivo = useCiclo((s) => s.enVivo)
+  const pausarTiempo = useCiclo((s) => s.pausarTiempo)
+  const activo = modo === 'vivo'
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={activo}
+      onClick={() => (activo ? pausarTiempo() : enVivo())}
+      title={t('ciclo.pasoToggle', 'Activar o pausar el paso del tiempo')}
+      className={`relative h-5 w-9 flex-shrink-0 rounded-full transition ${
+        activo ? 'bg-emerald-500' : 'bg-white/15'
+      }`}
+    >
+      <span
+        className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition ${
+          activo ? 'left-[18px]' : 'left-0.5'
+        }`}
+      />
+    </button>
+  )
+}
+
 /** Barra de 24 h horizontal: arrastra para mover el sol/hora (entra en modo manual). */
 function BarraTiempo() {
   const t = useT()
   const minutos = useCiclo((s) => s.minutos)
   const setMinutos = useCiclo((s) => s.setMinutos)
+  const fijarFondoEnHoraActual = useCiclo((s) => s.fijarFondoEnHoraActual)
   const trackRef = useRef<HTMLDivElement>(null)
   const arrastrando = useRef(false)
   const frac = minutos / 1440
@@ -137,6 +166,7 @@ function BarraTiempo() {
         onPointerUp={(e) => {
           arrastrando.current = false
           e.currentTarget.releasePointerCapture?.(e.pointerId)
+          fijarFondoEnHoraActual()
         }}
         className="relative h-3 w-full cursor-pointer rounded-full"
         style={{ background: GRADIENTE_24H }}
@@ -281,13 +311,22 @@ function MenuCiclo() {
     <div className="space-y-2.5">
       <ClimaReal />
       <div className="border-t border-white/10 pt-2">
-        <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide text-white/40">
-          {t('ciclo.paso', 'Paso del tiempo')}
-        </p>
+        <div className="mb-1.5 flex items-center justify-between gap-2">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
+            {t('ciclo.paso', 'Paso del tiempo')}
+          </p>
+          <PasoTiempoSwitch />
+        </div>
         <BarraTiempo />
-        <p className="mt-1.5 text-[9px] uppercase tracking-wide text-white/30">
-          {t('ciclo.sol', 'Sol: Este → Oeste')}
-        </p>
+        {modo !== 'vivo' ? (
+          <p className="mt-1.5 text-[9px] leading-snug text-white/30">
+            {t('ciclo.pasoPausadoDesc', 'En pausa. Elige el color de fondo en Configuraciones → Fondo.')}
+          </p>
+        ) : (
+          <p className="mt-1.5 text-[9px] uppercase tracking-wide text-white/30">
+            {t('ciclo.sol', 'Sol: Este → Oeste')}
+          </p>
+        )}
       </div>
       <div className="border-t border-white/10 pt-2">
         <Dimmers />

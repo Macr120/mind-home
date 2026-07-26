@@ -3,6 +3,7 @@ import { useState } from 'react'
 import type { Efemeride } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { getTipoEfemeride } from './constantes'
+import { ImagenNoticia } from './ImagenNoticia'
 import { ProfundizarModal } from './ProfundizarModal'
 
 /**
@@ -51,11 +52,9 @@ export function TarjetaEfemeride({ efemeride }: { efemeride: Efemeride }) {
           <Icono emoji={tipo.emoji} />
         </div>
       ) : (
-        <img
-          src={efemeride.imagen}
-          alt=""
-          loading="lazy"
-          className="aspect-video w-full object-cover"
+        <ImagenNoticia
+          src={efemeride.imagen!}
+          color={tipo.color}
           onError={() => setSinImagen(true)}
         />
       )}

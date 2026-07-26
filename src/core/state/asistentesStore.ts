@@ -9,7 +9,7 @@ import {
   type Pieza3D,
 } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
-import { parseRopa, serializarRopa } from '../house/apariencia'
+import { parseRopa, serializarRopa, type ExpresionId, type PeinadoId } from '../house/apariencia'
 
 /**
  * Asistentes del arquitecto: los 5 integrados (plantillas de `mascotas.ts`)
@@ -60,6 +60,11 @@ function aAsistente(row: AsistenteGuardado): Asistente {
     color: row.color || undefined,
     escala: row.escala,
     ropa: parseRopa(row.ropa),
+    cuerpoPresetId: row.cuerpoPresetId || undefined,
+    expresion: (row.expresion as ExpresionId) || undefined,
+    rostro: row.rostro,
+    peinado: (row.peinado as PeinadoId) || undefined,
+    peloColor: row.peloColor || undefined,
     modelo3d,
     modeloGlb: row.modeloGlb,
     animacion,
@@ -102,6 +107,11 @@ async function persistir(a: Asistente, oculto = false) {
     color: a.color ?? '',
     escala: a.escala,
     ropa: serializarRopa(a.ropa),
+    cuerpoPresetId: a.cuerpoPresetId ?? '',
+    expresion: a.expresion ?? '',
+    rostro: a.rostro,
+    peinado: a.peinado ?? '',
+    peloColor: a.peloColor ?? '',
     modelo3d: a.modelo3d ? JSON.stringify(a.modelo3d) : '',
     modeloGlb: a.modeloGlb,
     animacion: a.animacion ? JSON.stringify(a.animacion) : '',

@@ -33,7 +33,7 @@ export function JardinApp() {
           <p className="text-xs text-white/45 leading-relaxed">
             {t(
               'jardin.desc',
-              'Tu espacio de calma: meditaciones guiadas, respiración y agradecimientos. Sin puntos ni rachas — el jardín solo crece.',
+              'Tu espacio de calma: meditación con pistas de sonido, respiración y agradecimientos. Sin puntos ni rachas — el jardín solo crece.',
             )}
           </p>
 
@@ -56,7 +56,7 @@ export function JardinApp() {
         </>
       )}
 
-      {tab === 'meditacion' && <MeditacionTab onSesion={onSesion} />}
+      {tab === 'meditacion' && <MeditacionTab onSesion={onSesion} sesiones={sesiones} />}
       {tab === 'respiracion' && <RespiracionTab onSesion={onSesion} />}
       {tab === 'gratitud' && <AgradecimientosTab />}
     </div>

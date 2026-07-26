@@ -1,9 +1,13 @@
-import { useRef, useMemo, createContext, useContext } from 'react'
+import { useMemo, useRef, type ReactElement } from 'react'
 import { useFrame } from '@react-three/fiber'
-import type { Group, Mesh, MeshBasicMaterial } from 'three'
+import { BoxGeometry, ConeGeometry, SphereGeometry } from 'three'
+import type { Group, Mesh, MeshBasicMaterial, Object3D } from 'three'
 import { useDiseño } from '../state/disenoStore'
 import { useLayout } from '../state/layoutStore'
+import { useCiclo } from '../state/cicloStore'
 import type { TemaId } from './temas'
+import { mezclar } from './temas'
+import { getFondo, type FamiliaAnimId } from './fondos'
 import { SIZE } from './walls'
 
 /** Área del cielo donde vuelan / caen las microanimaciones. */
@@ -15,25 +19,10 @@ interface CieloExtent {
   yMax: number
 }
 
-const CieloCtx = createContext<CieloExtent>({
-  x: 28,
-  zMin: -42,
-  zMax: -8,
-  yMin: 8,
-  yMax: 26,
-})
-
-/** Posición pseudo-aleatoria pero estable por `seed`, repartida en el volumen del cielo. */
-function puntoCielo(seed: number, ext: CieloExtent): [number, number, number] {
-  const a = seed * 2.399963
-  const b = seed * 1.618033
-  const fx = 0.35 + ((seed * 13) % 10) / 10 * 0.65
-  const fz = ext.zMin + (((seed * 7) % 100) / 100) * (ext.zMax - ext.zMin)
-  return [
-    Math.sin(a) * ext.x * fx,
-    ext.yMin + ((seed * 11) % 100) / 100 * (ext.yMax - ext.yMin),
-    Math.cos(b) * ext.x * 0.55 + fz,
-  ]
+/** Reparto uniforme y estable por `seed` (fract(sin)); `sal` cambia el eje. */
+function hash01(seed: number, sal: number): number {
+  const v = Math.sin(seed * 127.1 + sal * 311.7) * 43758.5453
+  return v - Math.floor(v)
 }
 
 function useCieloExtent(): CieloExtent {
@@ -51,397 +40,629 @@ function useCieloExtent(): CieloExtent {
   }, [gridCols, gridRows])
 }
 
-// ─── Cometa (espacio) ─────────────────────────────────────────────────────────
+/**
+ * Estado de un elemento del cielo. Cada familia usa los campos libres (`a`, `b`) a su
+ * manera; se mutan en el `useFrame` de la familia (nunca se recrean por fotograma).
+ */
+interface EstadoActor {
+  /** Semilla fija del elemento: decide su aspecto (color, tamaño) y no cambia nunca. */
+  seed: number
+  /** Semilla de posición: cambia en cada reaparición para no repetir el mismo punto. */
+  sem: number
+  x: number
+  y: number
+  z: number
+  fase: number
+  /** 0→1 al aparecer: evita que los elementos salgan de golpe (fundido por escala). */
+  vida: number
+  /** Segundos que quedan invisible antes de volver a entrar (solo algunas familias). */
+  espera: number
+  /** Escala propia, ya con la profundidad y la intensidad aplicadas. */
+  escala: number
+  vel: number
+  a: number
+  b: number
+}
 
-function Cometa({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Group>(null)
-  const inicio = useMemo(() => puntoCielo(seed, ext), [seed, ext])
-  const dir = useMemo(() => {
-    const cuadrante = seed % 4
-    const dirs: [number, number][] = [
-      [5, -3],
-      [-4.5, -3.5],
-      [3, -4],
-      [-5.5, -2.5],
-    ]
-    return dirs[cuadrante]
-  }, [seed])
-  const pos = useRef({ x: inicio[0], y: inicio[1], z: inicio[2] })
+interface FamiliaDef {
+  /** Cantidad al 100 % de intensidad. */
+  base: number
+  /** Malla del elemento (sin `useFrame`: lo mueve la familia). */
+  Actor: (p: { seed: number; tinte: string }) => ReactElement
+  /** Coloca el elemento la primera vez. */
+  init?: (st: EstadoActor, ext: CieloExtent) => void
+  /** Un fotograma del elemento (`dt` ya viene acotado). */
+  mover: (obj: Object3D, st: EstadoActor, dt: number, ext: CieloExtent) => void
+}
 
-  useFrame((_, dt) => {
-    const g = ref.current
-    if (!g) return
-    pos.current.x += dir[0] * dt
-    pos.current.y += dir[1] * dt
-    if (
-      pos.current.x > ext.x ||
-      pos.current.x < -ext.x ||
-      pos.current.y < ext.yMin - 2
-    ) {
-      const p = puntoCielo(seed + Math.floor(pos.current.x), ext)
-      pos.current.x = p[0]
-      pos.current.y = p[1]
-      pos.current.z = p[2]
-    }
-    g.position.set(pos.current.x, pos.current.y, pos.current.z)
-    g.rotation.z = Math.atan2(dir[1], dir[0])
-  })
+/** Fundido de entrada; devuelve el factor de escala a aplicar. */
+function crecer(st: EstadoActor, dt: number): number {
+  if (st.vida < 1) st.vida = Math.min(1, st.vida + dt * 1.4)
+  // Suavizado (smoothstep) para que la aparición no sea lineal.
+  return st.vida * st.vida * (3 - 2 * st.vida)
+}
 
-  return (
-    <group ref={ref} position={inicio}>
-      <mesh>
-        <coneGeometry args={[0.12, 0.75, 6]} />
+/** Reaparece en un punto nuevo del cielo con fundido desde cero. */
+function renacer(st: EstadoActor, ext: CieloExtent, salto = 1) {
+  st.sem += salto
+  colocar(st, ext)
+  st.vida = 0
+}
+
+/** Punto del cielo bien repartido + escala con profundidad (los lejanos, más chicos). */
+function colocar(st: EstadoActor, ext: CieloExtent) {
+  const hx = hash01(st.sem, 1)
+  const hy = hash01(st.sem, 2)
+  const hz = hash01(st.sem, 3)
+  st.x = (hx * 2 - 1) * ext.x
+  st.y = ext.yMin + hy * (ext.yMax - ext.yMin)
+  st.z = ext.zMin + hz * (ext.zMax - ext.zMin)
+  // Profundidad: 1 al frente del volumen, 0.65 al fondo.
+  st.b = 0.65 + 0.35 * hz
+}
+
+// ─── Geometrías compartidas (una sola por forma, no una por elemento) ─────────
+
+const GEO_COMETA = new ConeGeometry(0.12, 0.75, 6)
+const GEO_ESTELA = new ConeGeometry(0.06, 1.1, 6)
+const GEO_DRAGON = new BoxGeometry(1.4, 0.35, 0.5)
+const GEO_HOCICO = new ConeGeometry(0.2, 0.5, 4)
+const GEO_ALA_DRAGON = new BoxGeometry(0.9, 0.05, 0.55)
+const GEO_ALA_MURCI = new BoxGeometry(0.3, 0.02, 0.18)
+const GEO_ALA_AVE = new BoxGeometry(0.5, 0.03, 0.15)
+const GEO_CONO_CORAZON = new ConeGeometry(0.28, 0.35, 4)
+const GEO_BARRA_COPO = new BoxGeometry(0.8, 0.03, 0.03)
+const GEO_RAYA = new BoxGeometry(1, 0.04, 0.04)
+/** Esferas unitarias: cada malla las escala a su tamaño. */
+const GEO_ESFERA_6 = new SphereGeometry(1, 6, 6)
+const GEO_ESFERA_8 = new SphereGeometry(1, 8, 8)
+
+// ─── Cometa (espacio / nebulosa) ──────────────────────────────────────────────
+
+const COMETA: FamiliaDef = {
+  base: 16,
+  Actor: ({ seed }) => (
+    <group>
+      <mesh geometry={GEO_COMETA}>
         <meshBasicMaterial color="#e0f4ff" toneMapped={false} />
       </mesh>
-      <mesh position={[-0.45, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <coneGeometry args={[0.06, 1.1, 6]} />
-        <meshBasicMaterial color="#7dd3fc" transparent opacity={0.4} toneMapped={false} />
+      <mesh geometry={GEO_ESTELA} position={[-0.45, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <meshBasicMaterial
+          color={hash01(seed, 9) > 0.5 ? '#7dd3fc' : '#c4b5fd'}
+          transparent
+          opacity={0.4}
+          toneMapped={false}
+        />
       </mesh>
     </group>
-  )
+  ),
+  init: (st) => {
+    // a/vel: dirección del vuelo (siempre hacia abajo, con inclinación variable).
+    st.a = (hash01(st.seed, 4) * 2 - 1) * 5.5
+    st.vel = -(2.5 + hash01(st.seed, 5) * 1.5)
+    st.escala *= 0.8 + hash01(st.seed, 6) * 0.5
+  },
+  mover: (obj, st, dt, ext) => {
+    st.x += st.a * dt
+    st.y += st.vel * dt
+    if (Math.abs(st.x) > ext.x || st.y < ext.yMin - 2) renacer(st, ext, 7)
+    obj.position.set(st.x, st.y, st.z)
+    obj.rotation.z = Math.atan2(st.vel, st.a)
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
+}
+
+/** Estrella fugaz: el mismo cometa, pero cruza de vez en cuando y se apaga. */
+const FUGAZ: FamiliaDef = {
+  ...COMETA,
+  base: 4,
+  init: (st) => {
+    st.a = (hash01(st.seed, 4) * 2 - 1) * 5.5
+    st.vel = -(2.5 + hash01(st.seed, 5) * 1.5)
+    st.escala *= 1.1 + hash01(st.seed, 6) * 0.5
+    st.espera = hash01(st.seed, 7) * 9
+  },
+  mover: (obj, st, dt, ext) => {
+    if (st.espera > 0) {
+      st.espera -= dt
+      obj.scale.setScalar(0)
+      return
+    }
+    st.x += st.a * 2.2 * dt
+    st.y += st.vel * 2.2 * dt
+    if (Math.abs(st.x) > ext.x || st.y < ext.yMin - 2) {
+      renacer(st, ext, 3)
+      st.espera = 3 + hash01(st.seed, 8) * 9
+    }
+    obj.position.set(st.x, st.y, st.z)
+    obj.rotation.z = Math.atan2(st.vel, st.a)
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
 }
 
 // ─── Dragón (medieval) ────────────────────────────────────────────────────────
 
-function Dragon({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Group>(null)
-  const alas = useRef<Mesh>(null)
-  const fase = useRef(seed * 1.7)
-  const centro = useMemo(() => {
-    const p = puntoCielo(seed, ext)
-    return { x: p[0] * 0.6, z: p[2], y: p[1] }
-  }, [seed, ext])
-  const radio = useMemo(() => 10 + (seed % 4) * 5, [seed])
-  const velocidad = useMemo(() => 0.18 + (seed % 3) * 0.08, [seed])
-
-  useFrame((_, dt) => {
-    const g = ref.current
-    if (!g) return
-    fase.current += dt * velocidad
-    const a = fase.current
-    g.position.set(
-      centro.x + Math.cos(a) * radio,
-      centro.y + Math.sin(a * 2.2) * 2,
-      centro.z + Math.sin(a) * radio * 0.45,
-    )
-    g.rotation.y = -a + Math.PI / 2
-    if (alas.current) alas.current.rotation.z = Math.sin(a * 8) * 0.35
-  })
-
-  return (
-    <group ref={ref} scale={0.75 + (seed % 3) * 0.12}>
-      <mesh>
-        <boxGeometry args={[1.4, 0.35, 0.5]} />
+const DRAGON: FamiliaDef = {
+  base: 8,
+  Actor: () => (
+    <group>
+      <mesh geometry={GEO_DRAGON}>
         <meshBasicMaterial color="#6b4423" toneMapped={false} />
       </mesh>
-      <mesh position={[0.75, 0.1, 0]}>
-        <coneGeometry args={[0.2, 0.5, 4]} />
+      <mesh geometry={GEO_HOCICO} position={[0.75, 0.1, 0]}>
         <meshBasicMaterial color="#4a2f15" toneMapped={false} />
       </mesh>
-      <mesh ref={alas} position={[0, 0.15, 0.35]}>
-        <boxGeometry args={[0.9, 0.05, 0.55]} />
+      {/* Las dos alas (hijos 2 y 3) las bate el `mover` de la familia. */}
+      <mesh geometry={GEO_ALA_DRAGON} position={[0, 0.15, 0.35]}>
         <meshBasicMaterial color="#8b5a2b" transparent opacity={0.85} toneMapped={false} />
       </mesh>
-      <mesh position={[0, 0.15, -0.35]} rotation={[0, Math.PI, 0]}>
-        <boxGeometry args={[0.9, 0.05, 0.55]} />
+      <mesh geometry={GEO_ALA_DRAGON} position={[0, 0.15, -0.35]} rotation={[0, Math.PI, 0]}>
         <meshBasicMaterial color="#8b5a2b" transparent opacity={0.85} toneMapped={false} />
       </mesh>
     </group>
-  )
+  ),
+  init: (st) => {
+    st.a = 10 + hash01(st.seed, 4) * 16 // radio de la órbita
+    st.vel = 0.16 + hash01(st.seed, 5) * 0.16
+    st.escala *= 0.75 + hash01(st.seed, 6) * 0.4
+    st.x *= 0.6
+  },
+  mover: (obj, st, dt) => {
+    st.fase += dt * st.vel
+    const t = st.fase
+    obj.position.set(
+      st.x + Math.cos(t) * st.a,
+      st.y + Math.sin(t * 2.2) * 2,
+      st.z + Math.sin(t) * st.a * 0.45,
+    )
+    obj.rotation.y = -t + Math.PI / 2
+    const bate = Math.sin(t * 8) * 0.35
+    const alaA = obj.children[2]
+    const alaB = obj.children[3]
+    if (alaA) alaA.rotation.z = bate
+    if (alaB) alaB.rotation.z = -bate
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
 }
 
 // ─── Murciélago (terror) ──────────────────────────────────────────────────────
 
-function Murcielago({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Group>(null)
-  const base = useMemo(() => puntoCielo(seed, ext), [seed, ext])
-  const fase = useRef(seed * 2.3)
-  const vel = useMemo(() => 0.35 + (seed % 5) * 0.12, [seed])
-  const amp = useMemo(() => 4 + (seed % 4) * 3, [seed])
-
-  useFrame((_, dt) => {
-    const g = ref.current
-    if (!g) return
-    fase.current += dt * vel
-    const t = fase.current
-    g.position.set(
-      base[0] + Math.sin(t * 1.3 + seed) * amp,
-      base[1] + Math.sin(t * 2 + seed) * 2.5,
-      base[2] + Math.cos(t * 0.9 + seed) * amp * 0.6,
-    )
-    g.rotation.y = Math.sin(t) * 0.5
-    g.scale.setScalar(0.55 + Math.sin(t * 6) * 0.12)
-  })
-
-  return (
-    <group ref={ref}>
-      <mesh>
-        <sphereGeometry args={[0.1, 6, 6]} />
+const MURCIELAGO: FamiliaDef = {
+  base: 13,
+  Actor: () => (
+    <group>
+      <mesh geometry={GEO_ESFERA_6} scale={0.1}>
         <meshBasicMaterial color="#1f2937" toneMapped={false} />
       </mesh>
-      <mesh position={[-0.18, 0, 0]} rotation={[0, 0, 0.6]}>
-        <boxGeometry args={[0.3, 0.02, 0.18]} />
+      <mesh geometry={GEO_ALA_MURCI} position={[-0.18, 0, 0]} rotation={[0, 0, 0.6]}>
         <meshBasicMaterial color="#374151" toneMapped={false} />
       </mesh>
-      <mesh position={[0.18, 0, 0]} rotation={[0, 0, -0.6]}>
-        <boxGeometry args={[0.3, 0.02, 0.18]} />
+      <mesh geometry={GEO_ALA_MURCI} position={[0.18, 0, 0]} rotation={[0, 0, -0.6]}>
         <meshBasicMaterial color="#374151" toneMapped={false} />
       </mesh>
     </group>
-  )
+  ),
+  init: (st) => {
+    st.vel = 0.35 + hash01(st.seed, 4) * 0.55
+    st.a = 4 + hash01(st.seed, 5) * 9 // amplitud del zigzag
+    st.escala *= 0.5 + hash01(st.seed, 6) * 0.25
+  },
+  mover: (obj, st, dt) => {
+    st.fase += dt * st.vel
+    const t = st.fase
+    obj.position.set(
+      st.x + Math.sin(t * 1.3) * st.a,
+      st.y + Math.sin(t * 2) * 2.5,
+      st.z + Math.cos(t * 0.9) * st.a * 0.6,
+    )
+    obj.rotation.y = Math.sin(t) * 0.5
+    obj.scale.setScalar(st.escala * st.b * (1 + Math.sin(t * 6) * 0.18) * crecer(st, dt))
+  },
 }
 
-// ─── Partícula brumosa (terror) — sin planos grandes ───────────────────────────
+// ─── Partícula brumosa (terror) ───────────────────────────────────────────────
 
-function ParticulaBruma({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Mesh>(null)
-  const base = useMemo(() => puntoCielo(seed + 40, ext), [seed, ext])
-  const fase = useRef(seed)
-
-  useFrame((_, dt) => {
-    const m = ref.current
-    if (!m) return
-    fase.current += dt * 0.2
-    const t = fase.current
-    m.position.set(
-      base[0] + Math.sin(t + seed) * 6,
-      base[1] + Math.cos(t * 0.7) * 1.5,
-      base[2] + Math.cos(t * 0.5 + seed) * 4,
+const BRUMA: FamiliaDef = {
+  base: 10,
+  Actor: ({ seed }) => (
+    <group>
+      <mesh geometry={GEO_ESFERA_8} scale={0.35 + hash01(seed, 10) * 0.35}>
+        <meshBasicMaterial
+          color="#94a3b8"
+          transparent
+          opacity={0.1}
+          depthWrite={false}
+          toneMapped={false}
+        />
+      </mesh>
+    </group>
+  ),
+  init: (st) => {
+    st.vel = 0.14 + hash01(st.seed, 4) * 0.14
+    st.escala *= 1.4 + hash01(st.seed, 5)
+  },
+  mover: (obj, st, dt) => {
+    st.fase += dt * st.vel
+    const t = st.fase
+    obj.position.set(
+      st.x + Math.sin(t) * 6,
+      st.y + Math.cos(t * 0.7) * 1.5,
+      st.z + Math.cos(t * 0.5) * 4,
     )
-    ;(m.material as MeshBasicMaterial).opacity = 0.12 + Math.sin(t * 0.9) * 0.06
-  })
-
-  return (
-    <mesh ref={ref} position={base}>
-      <sphereGeometry args={[0.35 + (seed % 3) * 0.15, 8, 8]} />
-      <meshBasicMaterial color="#94a3b8" transparent opacity={0.1} depthWrite={false} toneMapped={false} />
-    </mesh>
-  )
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+    const malla = obj.children[0] as Mesh | undefined
+    if (malla) {
+      ;(malla.material as MeshBasicMaterial).opacity = (0.12 + Math.sin(t * 0.9) * 0.06) * st.vida
+    }
+  },
 }
 
 // ─── Corazón flotante (barbie) ────────────────────────────────────────────────
 
-function CorazonFlotante({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Group>(null)
-  const base = useMemo(() => puntoCielo(seed, ext), [seed, ext])
-  const fase = useRef(seed)
-  const drift = useMemo(() => ({
-    x: ((seed % 5) - 2) * 0.4,
-    z: ((seed % 7) - 3) * 0.25,
-  }), [seed])
-
-  useFrame((_, dt) => {
-    const g = ref.current
-    if (!g) return
-    fase.current += dt
-    const t = fase.current
-    const y = base[1] + ((t * 1.2 + seed) % (ext.yMax - ext.yMin + 6))
-    g.position.set(
-      base[0] + Math.sin(t * 0.6) * 3 + drift.x * t,
-      y,
-      base[2] + Math.cos(t * 0.4) * 2 + drift.z * t,
+const CORAZON: FamiliaDef = {
+  base: 20,
+  Actor: ({ seed }) => {
+    const color = hash01(seed, 11) > 0.5 ? '#ff5fa2' : '#c084fc'
+    return (
+      <group>
+        <mesh geometry={GEO_ESFERA_8} position={[-0.15, 0.1, 0]} scale={0.2}>
+          <meshBasicMaterial color={color} toneMapped={false} />
+        </mesh>
+        <mesh geometry={GEO_ESFERA_8} position={[0.15, 0.1, 0]} scale={0.2}>
+          <meshBasicMaterial color={color} toneMapped={false} />
+        </mesh>
+        <mesh geometry={GEO_CONO_CORAZON} position={[0, -0.12, 0]} rotation={[0, 0, Math.PI]}>
+          <meshBasicMaterial color={color} toneMapped={false} />
+        </mesh>
+      </group>
     )
-    if (y > ext.yMax + 2) fase.current = 0
-    g.rotation.z = Math.sin(t * 2) * 0.2
-  })
-
-  const color = seed % 2 === 0 ? '#ff5fa2' : '#c084fc'
-  return (
-    <group ref={ref} scale={0.3 + (seed % 3) * 0.06}>
-      <mesh position={[-0.15, 0.1, 0]}>
-        <sphereGeometry args={[0.2, 8, 8]} />
-        <meshBasicMaterial color={color} toneMapped={false} />
-      </mesh>
-      <mesh position={[0.15, 0.1, 0]}>
-        <sphereGeometry args={[0.2, 8, 8]} />
-        <meshBasicMaterial color={color} toneMapped={false} />
-      </mesh>
-      <mesh position={[0, -0.12, 0]} rotation={[0, 0, Math.PI]}>
-        <coneGeometry args={[0.28, 0.35, 4]} />
-        <meshBasicMaterial color={color} toneMapped={false} />
-      </mesh>
-    </group>
-  )
+  },
+  init: (st) => {
+    st.vel = 0.9 + hash01(st.seed, 4) * 0.8 // velocidad de ascenso
+    st.a = (hash01(st.seed, 5) * 2 - 1) * 0.4 // deriva lateral
+    st.escala *= 0.3 + hash01(st.seed, 6) * 0.18
+  },
+  mover: (obj, st, dt, ext) => {
+    st.fase += dt
+    st.y += st.vel * dt
+    // Al salir por arriba vuelve abajo con fundido (antes reaparecía de golpe).
+    if (st.y > ext.yMax + 2) {
+      renacer(st, ext, 5)
+      st.y = ext.yMin - 1
+      st.fase = 0
+    }
+    obj.position.set(
+      st.x + Math.sin(st.fase * 0.6) * 3 + st.a * st.fase,
+      st.y,
+      st.z + Math.cos(st.fase * 0.4) * 2,
+    )
+    obj.rotation.z = Math.sin(st.fase * 2) * 0.2
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
 }
 
-// ─── Ave (vaquero) ────────────────────────────────────────────────────────────
+// ─── Ave (vaquero / cielos despejados) ────────────────────────────────────────
 
-function Ave({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Group>(null)
-  const base = useMemo(() => puntoCielo(seed, ext), [seed, ext])
-  const fase = useRef(seed * 1.1)
-  const sentido = useMemo(() => (seed % 2 === 0 ? 1 : -1), [seed])
-
-  useFrame((_, dt) => {
-    const g = ref.current
-    if (!g) return
-    fase.current += dt * (0.3 + (seed % 3) * 0.1)
-    const t = fase.current
-    g.position.set(
-      base[0] + sentido * ((t * 5) % (ext.x * 2) - ext.x),
-      base[1] + Math.sin(t * 4) * 0.6,
-      base[2] + Math.sin(t * 0.5) * 5,
-    )
-    g.rotation.z = Math.sin(t * 8) * 0.25 * sentido
-  })
-
-  return (
-    <group ref={ref} scale={0.45}>
-      <mesh rotation={[0, 0, 0.4]}>
-        <boxGeometry args={[0.5, 0.03, 0.15]} />
+const AVE: FamiliaDef = {
+  base: 10,
+  Actor: () => (
+    <group>
+      <mesh geometry={GEO_ALA_AVE} rotation={[0, 0, 0.4]}>
         <meshBasicMaterial color="#5c4033" toneMapped={false} />
       </mesh>
-      <mesh rotation={[0, 0, -0.4]}>
-        <boxGeometry args={[0.5, 0.03, 0.15]} />
+      <mesh geometry={GEO_ALA_AVE} rotation={[0, 0, -0.4]}>
         <meshBasicMaterial color="#5c4033" toneMapped={false} />
       </mesh>
     </group>
-  )
+  ),
+  init: (st) => {
+    st.a = hash01(st.seed, 4) > 0.5 ? 1 : -1 // sentido
+    st.vel = 3 + hash01(st.seed, 5) * 3
+    st.escala *= 0.36 + hash01(st.seed, 6) * 0.22
+  },
+  mover: (obj, st, dt, ext) => {
+    st.fase += dt
+    st.x += st.vel * st.a * dt
+    if (Math.abs(st.x) > ext.x + 3) {
+      const sentido = st.a
+      renacer(st, ext, 11)
+      st.a = sentido
+      st.x = -sentido * (ext.x + 2)
+    }
+    obj.position.set(st.x, st.y + Math.sin(st.fase * 4) * 0.6, st.z + Math.sin(st.fase * 0.5) * 5)
+    obj.rotation.y = st.a > 0 ? 0 : Math.PI
+    obj.rotation.z = Math.sin(st.fase * 8) * 0.25 * st.a
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
 }
 
 // ─── Raya neón (cyberpunk) ────────────────────────────────────────────────────
 
-function RayaNeon({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Mesh>(null)
-  const base = useMemo(() => puntoCielo(seed, ext), [seed, ext])
-  const vel = useMemo(() => 6 + (seed % 5) * 4, [seed])
-  const color = seed % 2 === 0 ? '#d946ef' : '#22d3ee'
-  const sentido = useMemo(() => (seed % 2 === 0 ? 1 : -1), [seed])
-  const x = useRef(base[0])
-
-  useFrame((_, dt) => {
-    const m = ref.current
-    if (!m) return
-    x.current += vel * dt * sentido
-    if (Math.abs(x.current) > ext.x + 5) x.current = -sentido * ext.x
-    m.position.set(x.current, base[1], base[2])
-  })
-
-  return (
-    <mesh ref={ref} position={base}>
-      <boxGeometry args={[1.8 + (seed % 3) * 0.6, 0.04, 0.04]} />
-      <meshBasicMaterial color={color} toneMapped={false} />
-    </mesh>
-  )
+const RAYA: FamiliaDef = {
+  base: 23,
+  Actor: ({ seed }) => (
+    <group>
+      <mesh geometry={GEO_RAYA} scale={[1.8 + hash01(seed, 12) * 1.4, 1, 1]}>
+        <meshBasicMaterial
+          color={hash01(seed, 13) > 0.5 ? '#d946ef' : '#22d3ee'}
+          toneMapped={false}
+        />
+      </mesh>
+    </group>
+  ),
+  init: (st) => {
+    st.a = hash01(st.seed, 4) > 0.5 ? 1 : -1
+    st.vel = 6 + hash01(st.seed, 5) * 14
+    st.escala *= 0.85 + hash01(st.seed, 6) * 0.4
+  },
+  mover: (obj, st, dt, ext) => {
+    st.x += st.vel * st.a * dt
+    if (Math.abs(st.x) > ext.x + 5) {
+      const sentido = st.a
+      renacer(st, ext, 13)
+      st.a = sentido
+      st.x = -sentido * (ext.x + 4)
+    }
+    obj.position.set(st.x, st.y, st.z)
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
 }
 
 // ─── Copo de nieve (navidad) ──────────────────────────────────────────────────
 
-function CopoNieve({ seed }: { seed: number }) {
-  const ext = useContext(CieloCtx)
-  const ref = useRef<Group>(null)
-  const base = useMemo(() => puntoCielo(seed, ext), [seed, ext])
-  const fase = useRef(seed * 0.5)
+const COPO: FamiliaDef = {
+  base: 46,
+  Actor: () => (
+    <group>
+      {[0, 1, 2].map((i) => (
+        <mesh key={i} geometry={GEO_BARRA_COPO} rotation={[0, 0, (i * Math.PI) / 3]}>
+          <meshBasicMaterial color="#f8fafc" transparent opacity={0.85} toneMapped={false} />
+        </mesh>
+      ))}
+    </group>
+  ),
+  init: (st) => {
+    st.vel = 1.6 + hash01(st.seed, 4) * 1.6
+    st.a = 1.5 + hash01(st.seed, 5) * 2.5 // vaivén lateral
+    st.escala *= 0.16 + hash01(st.seed, 6) * 0.14
+  },
+  mover: (obj, st, dt, ext) => {
+    st.fase += dt
+    st.y -= st.vel * dt
+    if (st.y < ext.yMin - 4) {
+      renacer(st, ext, 17)
+      st.y = ext.yMax + 2
+    }
+    obj.position.set(
+      st.x + Math.sin(st.fase * 0.9) * st.a,
+      st.y,
+      st.z + Math.cos(st.fase * 0.6) * 3,
+    )
+    obj.rotation.y = st.fase * 0.8
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
+}
+
+// ─── Nube (cielos despejados / atardecer) ─────────────────────────────────────
+
+const NUBE: FamiliaDef = {
+  base: 10,
+  Actor: ({ seed, tinte }) => (
+    <group>
+      {[
+        [0, 0, 0, 1] as const,
+        [1.1, -0.15, 0.2, 0.72] as const,
+        [-1.05, -0.2, -0.15, 0.66] as const,
+      ].map(([x, y, z, s], i) => (
+        <mesh
+          key={i}
+          geometry={GEO_ESFERA_8}
+          position={[x, y, z]}
+          scale={[s * (0.9 + hash01(seed, 14 + i) * 0.4), s * 0.55, s]}
+        >
+          <meshBasicMaterial
+            color={tinte}
+            transparent
+            opacity={0.4}
+            depthWrite={false}
+            toneMapped={false}
+          />
+        </mesh>
+      ))}
+    </group>
+  ),
+  init: (st) => {
+    st.a = hash01(st.seed, 4) > 0.5 ? 1 : -1
+    st.vel = 0.35 + hash01(st.seed, 5) * 0.55
+    st.escala *= 1.6 + hash01(st.seed, 6) * 2.2
+    // Las nubes viven en la franja alta del cielo.
+    st.y += 3
+  },
+  mover: (obj, st, dt, ext) => {
+    st.fase += dt
+    st.x += st.vel * st.a * dt
+    if (Math.abs(st.x) > ext.x + 6) {
+      const sentido = st.a
+      renacer(st, ext, 19)
+      st.a = sentido
+      st.x = -sentido * (ext.x + 5)
+      st.y += 3
+    }
+    obj.position.set(st.x, st.y + Math.sin(st.fase * 0.25) * 0.6, st.z)
+    obj.scale.setScalar(st.escala * st.b * crecer(st, dt))
+  },
+}
+
+// ─── Polvo en suspensión (desierto, nebulosa, aurora) ─────────────────────────
+
+const POLVO: FamiliaDef = {
+  base: 24,
+  Actor: ({ tinte }) => (
+    <group>
+      <mesh geometry={GEO_ESFERA_6} scale={0.09}>
+        <meshBasicMaterial
+          color={tinte}
+          transparent
+          opacity={0.55}
+          depthWrite={false}
+          toneMapped={false}
+        />
+      </mesh>
+    </group>
+  ),
+  init: (st) => {
+    st.vel = 0.25 + hash01(st.seed, 4) * 0.5
+    st.a = 2 + hash01(st.seed, 5) * 5
+    st.escala *= 0.7 + hash01(st.seed, 6) * 1.1
+  },
+  mover: (obj, st, dt) => {
+    st.fase += dt * st.vel
+    const t = st.fase
+    obj.position.set(
+      st.x + Math.sin(t * 0.8) * st.a,
+      st.y + Math.sin(t * 0.5) * 1.8,
+      st.z + Math.cos(t * 0.6) * st.a * 0.5,
+    )
+    // Titileo suave, no parpadeo.
+    obj.scale.setScalar(st.escala * st.b * (0.8 + Math.sin(t * 2.2) * 0.2) * crecer(st, dt))
+  },
+}
+
+const FAMILIAS: Record<FamiliaAnimId, FamiliaDef> = {
+  cometas: COMETA,
+  fugaz: FUGAZ,
+  dragones: DRAGON,
+  murcielagos: MURCIELAGO,
+  bruma: BRUMA,
+  corazones: CORAZON,
+  aves: AVE,
+  rayas: RAYA,
+  copos: COPO,
+  nubes: NUBE,
+  polvo: POLVO,
+}
+
+/** Microanimaciones de cada tema global (mandan sobre las del fondo). */
+const FAMILIAS_TEMA: Record<TemaId, FamiliaAnimId[]> = {
+  espacio: ['cometas'],
+  medieval: ['dragones'],
+  terror: ['murcielagos', 'bruma'],
+  barbie: ['corazones'],
+  vaquero: ['aves'],
+  cyberpunk: ['rayas'],
+  navidad: ['copos'],
+}
+
+/**
+ * Una familia completa: un único `useFrame` mueve todos sus elementos (antes había
+ * uno por elemento, hasta 28 en el tema de navidad).
+ */
+function Familia({
+  id,
+  def,
+  cantidad,
+  discrecion,
+  tinte,
+  ext,
+}: {
+  id: FamiliaAnimId
+  def: FamiliaDef
+  cantidad: number
+  discrecion: number
+  tinte: string
+  ext: CieloExtent
+}) {
+  const grupo = useRef<Group>(null)
+  const estados = useMemo(() => {
+    return Array.from({ length: cantidad }, (_, i) => {
+      const st: EstadoActor = {
+        seed: i * 7 + 1,
+        sem: i * 7 + 1,
+        x: 0,
+        y: 0,
+        z: 0,
+        fase: hash01(i * 7 + 1, 20) * 10,
+        vida: 0,
+        espera: 0,
+        escala: discrecion,
+        vel: 1,
+        a: 0,
+        b: 1,
+      }
+      colocar(st, ext)
+      def.init?.(st, ext)
+      return st
+    })
+  }, [def, cantidad, discrecion, ext])
 
   useFrame((_, dt) => {
-    const g = ref.current
+    const g = grupo.current
     if (!g) return
-    fase.current += dt
-    const t = fase.current
-    g.position.set(
-      base[0] + Math.sin(t + seed) * 2,
-      base[1] + 2 - ((t * 2 + seed) % (ext.yMax - ext.yMin + 8)),
-      base[2] + Math.cos(t * 0.6 + seed) * 3,
-    )
-    g.rotation.y = t * 0.8
+    // Acotado: al volver de una pestaña oculta `dt` es enorme y todo se teletransporta.
+    const d = Math.min(dt, 0.05)
+    for (let i = 0; i < estados.length; i++) {
+      const obj = g.children[i]
+      if (obj) def.mover(obj, estados[i], d, ext)
+    }
   })
 
   return (
-    <group ref={ref} scale={0.16 + (seed % 4) * 0.04}>
-      {[0, 1, 2].map((i) => (
-        <mesh key={i} rotation={[0, 0, (i * Math.PI) / 3]}>
-          <boxGeometry args={[0.8, 0.03, 0.03]} />
-          <meshBasicMaterial color="#f8fafc" transparent opacity={0.85} toneMapped={false} />
-        </mesh>
+    <group ref={grupo} name={`anim-${id}`}>
+      {estados.map((st) => (
+        <def.Actor key={st.seed} seed={st.seed} tinte={tinte} />
       ))}
     </group>
   )
 }
 
-function AnimacionesTema({ tema }: { tema: TemaId }) {
-  switch (tema) {
-    case 'espacio':
-      return (
-        <>
-          {Array.from({ length: 10 }, (_, i) => (
-            <Cometa key={i} seed={i} />
-          ))}
-        </>
-      )
-    case 'medieval':
-      return (
-        <>
-          {Array.from({ length: 5 }, (_, i) => (
-            <Dragon key={i} seed={i} />
-          ))}
-        </>
-      )
-    case 'terror':
-      return (
-        <>
-          {Array.from({ length: 8 }, (_, i) => (
-            <Murcielago key={i} seed={i} />
-          ))}
-          {Array.from({ length: 6 }, (_, i) => (
-            <ParticulaBruma key={`b${i}`} seed={i} />
-          ))}
-        </>
-      )
-    case 'barbie':
-      return (
-        <>
-          {Array.from({ length: 12 }, (_, i) => (
-            <CorazonFlotante key={i} seed={i} />
-          ))}
-        </>
-      )
-    case 'vaquero':
-      return (
-        <>
-          {Array.from({ length: 6 }, (_, i) => (
-            <Ave key={i} seed={i} />
-          ))}
-        </>
-      )
-    case 'cyberpunk':
-      return (
-        <>
-          {Array.from({ length: 14 }, (_, i) => (
-            <RayaNeon key={i} seed={i} />
-          ))}
-        </>
-      )
-    case 'navidad':
-      return (
-        <>
-          {Array.from({ length: 28 }, (_, i) => (
-            <CopoNieve key={i} seed={i} />
-          ))}
-        </>
-      )
-    default:
-      return null
-  }
-}
-
 /**
- * Microanimaciones repartidas por todo el cielo según el tema activo.
+ * Microanimaciones repartidas por todo el cielo. Las elige el tema global si lo hay y,
+ * si no, el fondo activo (así el interruptor sirve también sin tema). La intensidad
+ * regula cuántas hay y cuánto se notan.
  */
 export function FondoAnimaciones() {
   const tema = useDiseño((s) => s.temaGlobal)
   const activas = useDiseño((s) => s.animacionesFondo)
+  const intensidad = useDiseño((s) => s.animacionesIntensidad)
+  const fondoId = useDiseño((s) => s.fondoId)
+  const fondoImagenActivo = useDiseño((s) => s.fondoImagenActivo)
+  // Selector booleano: `minutos` cambia cada pocos segundos y aquí solo importa el turno.
+  const deNoche = useCiclo((s) => s.minutos < 6 * 60 || s.minutos >= 19 * 60)
   const ext = useCieloExtent()
-  if (!activas || !tema) return null
+  const reducirMovimiento = useMemo(
+    () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+    [],
+  )
+
+  const fondo = getFondo(fondoId)
+  const familias: FamiliaAnimId[] = tema
+    ? FAMILIAS_TEMA[tema]
+    : fondo.anim ?? (deNoche ? ['fugaz'] : ['nubes', 'aves'])
+  // Las nubes y el polvo se tiñen con el cielo para no desentonar con el fondo.
+  const tinte = mezclar(fondo.gradiente[fondo.id === 'auto' ? 0 : 1], '#ffffff', 0.45)
+
+  if (!activas || reducirMovimiento) return null
+  // Con imagen propia de cielo no se sabe qué pinta: solo se animan si hay tema.
+  if (fondoImagenActivo != null && !tema) return null
+
   return (
-    <CieloCtx.Provider value={ext}>
-      <AnimacionesTema tema={tema} />
-    </CieloCtx.Provider>
+    <>
+      {familias.map((id) => {
+        const def = FAMILIAS[id]
+        return (
+          <Familia
+            key={id}
+            id={id}
+            def={def}
+            cantidad={Math.max(1, Math.round(def.base * intensidad))}
+            // Al bajar la intensidad los elementos también se hacen más discretos
+            // (0.6 = la densidad y el tamaño de siempre).
+            discrecion={0.55 + 0.75 * intensidad}
+            tinte={tinte}
+            ext={ext}
+          />
+        )
+      })}
+    </>
   )
 }

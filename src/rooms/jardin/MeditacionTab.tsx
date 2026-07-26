@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
+import { detenerPaisaje, iniciarPaisaje, type PaisajeId } from '../../core/audio/paisaje'
+import type { SesionMindfulness } from '../../core/data/db'
 import { sesionesMindfulnessRepo } from '../../core/data/repository'
+import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { actividadId } from '../../core/rutinas'
 import { vivo } from '../../core/ui/estilos'
@@ -10,9 +13,9 @@ import { FinSesion } from './FinSesion'
 import { tocarCampana } from './campana'
 import { COLOR } from './constantes'
 import { hoyISO } from './fecha'
-import { DURACIONES_GUIADAS, GUIONES, TEMAS, type TemaMeditacion } from './guiones'
+import { DURACIONES_PISTA, PISTAS } from './pistas'
 
-type TemaId = TemaMeditacion | 'libre'
+type TemaId = PaisajeId | 'libre'
 
 interface Config {
   tema: TemaId
@@ -28,14 +31,20 @@ type Estado =
 
 function tituloSesion(tema: TemaId) {
   if (tema === 'libre') return 'Meditación libre'
-  const nombre = TEMAS.find((t) => t.id === tema)?.nombre ?? tema
+  const nombre = PISTAS.find((p) => p.id === tema)?.nombre ?? tema
   return `Meditación · ${nombre}`
 }
 
-export function MeditacionTab({ onSesion }: { onSesion: (activa: boolean) => void }) {
+export function MeditacionTab({
+  onSesion,
+  sesiones,
+}: {
+  onSesion: (activa: boolean) => void
+  sesiones: SesionMindfulness[]
+}) {
   const t = useT()
   const [estado, setEstado] = useState<Estado>({ fase: 'elegir' })
-  const [temaSel, setTemaSel] = useState<TemaMeditacion>('ansiedad')
+  const [temaSel, setTemaSel] = useState<PaisajeId>('bosque')
   const [durSel, setDurSel] = useState(10)
   const [minLibre, setMinLibre] = useState(10)
 
@@ -100,29 +109,29 @@ export function MeditacionTab({ onSesion }: { onSesion: (activa: boolean) => voi
   return (
     <div className="space-y-4">
       <section className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
-        <p className="text-sm font-semibold">{t('jardin.med.guiadas', 'Meditaciones guiadas')}</p>
+        <p className="text-sm font-semibold">{t('jardin.med.pistas', 'Pistas de sonido')}</p>
         <div className="grid grid-cols-2 gap-2">
-          {TEMAS.map((tema) => (
+          {PISTAS.map((pista) => (
             <button
-              key={tema.id}
+              key={pista.id}
               type="button"
-              onClick={() => setTemaSel(tema.id)}
+              onClick={() => setTemaSel(pista.id)}
               className={`rounded-xl p-3 text-left border transition ${
-                temaSel === tema.id
+                temaSel === pista.id
                   ? 'border-emerald-500/60 bg-emerald-500/15'
                   : 'border-white/10 bg-black/20 hover:bg-white/10'
               }`}
             >
               <p className="text-sm font-bold">
-                <Icono emoji={tema.icono} /> {t(`jardin.tema.${tema.id}`, tema.nombre)}
+                <Icono emoji={pista.icono} /> {t(`jardin.pista.${pista.id}`, pista.nombre)}
               </p>
-              <p className="text-xs text-white/45 mt-0.5">{t(`jardin.tema.${tema.id}.desc`, tema.desc)}</p>
+              <p className="text-xs text-white/45 mt-0.5">{t(`jardin.pista.${pista.id}.desc`, pista.desc)}</p>
             </button>
           ))}
         </div>
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs text-white/50">{t('jardin.med.duracion', 'Duración')}</span>
-          {DURACIONES_GUIADAS.map((d) => (
+          {DURACIONES_PISTA.map((d) => (
             <button
               key={d}
               type="button"
@@ -197,6 +206,33 @@ export function MeditacionTab({ onSesion }: { onSesion: (activa: boolean) => voi
           {t('jardin.med.comenzarLibre', 'Comenzar con campana')}
         </button>
       </section>
+
+      {/* Sin rachas ni puntos: solo el registro de lo que ya hiciste, guardado
+          en carpetas por semana, mes y año. */}
+      <section className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
+        <p className="text-sm font-semibold">{t('jardin.hist', 'Tus sesiones')}</p>
+        <Archivador
+          items={sesiones}
+          fecha={(s) => s.fecha}
+          clave={(s) => s.id ?? `${s.fecha}-${s.titulo}`}
+          vacio={t('jardin.hist.vacio', 'Aquí se guardarán tus sesiones de calma.')}
+          resumen={(ses) =>
+            t('jardin.hist.min', '{n} min', {
+              n: ses.reduce((acc, s) => acc + s.duracionMin, 0),
+            })
+          }
+        >
+          {(s) => (
+            <div className="flex items-center gap-2 rounded-lg bg-black/20 px-2.5 py-1.5 text-xs">
+              <span className="shrink-0 text-white/45">{s.fecha}</span>
+              <span className="min-w-0 flex-1 truncate text-white/80">{s.titulo}</span>
+              <span className="shrink-0 font-semibold texto-vivo" style={vivo(COLOR)}>
+                {s.duracionMin} min
+              </span>
+            </div>
+          )}
+        </Archivador>
+      </section>
     </div>
   )
 }
@@ -229,10 +265,14 @@ function SesionActiva({ config, onFin }: { config: Config; onFin: (minReales: nu
     onFin(minReales)
   }
 
-  const frases = config.tema === 'libre' ? null : GUIONES[config.tema]
-  const idxFrase = frases
-    ? Math.min(frases.length - 1, Math.floor(((totalSeg - segRestante) / totalSeg) * frases.length))
-    : 0
+  // La pista suena mientras dura la sesión; al salir se va con un fundido.
+  useEffect(() => {
+    if (config.tema === 'libre') return
+    iniciarPaisaje(config.tema)
+    return () => detenerPaisaje()
+  }, [config.tema])
+
+  const pista = PISTAS.find((p) => p.id === config.tema)
 
   const R = 88
   const C = 2 * Math.PI * R
@@ -271,9 +311,9 @@ function SesionActiva({ config, onFin }: { config: Config; onFin: (minReales: nu
         </div>
       </div>
 
-      {frases && (
-        <p key={idxFrase} className="min-h-12 max-w-xs text-center text-sm italic text-white/70 leading-relaxed">
-          {frases[idxFrase]}
+      {pista && (
+        <p className="min-h-12 max-w-xs text-center text-sm italic text-white/70 leading-relaxed">
+          {t(`jardin.pista.${pista.id}.desc`, pista.desc)}
         </p>
       )}
 

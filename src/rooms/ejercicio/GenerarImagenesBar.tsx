@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import type { ImagenEjercicio } from '../../core/data/db'
 import { iaHabilitada } from '../../core/edicion'
 import { normalizarEjercicio } from './stats'
+import { urlImagenPreset } from './imagenesPreset'
 import {
   getProveedorImagen,
   imagenIaActiva,
@@ -38,8 +39,12 @@ export function GenerarImagenesBar({
 
   const btnAcc = ACENTOS[accent]
 
+  // Los que ya traen ilustración de fábrica no cuentan como faltantes.
   const faltantes = useMemo(
-    () => ejercicios.filter((e) => !imgPorClave.get(normalizarEjercicio(e.nombre))),
+    () =>
+      ejercicios.filter(
+        (e) => !imgPorClave.get(normalizarEjercicio(e.nombre)) && !urlImagenPreset(e.nombre),
+      ),
     [ejercicios, imgPorClave],
   )
 
@@ -66,7 +71,7 @@ export function GenerarImagenesBar({
         await guardarImagenEjercicio(ej.nombre, imgPorClave.get(normalizarEjercicio(ej.nombre)), blob)
         hechas++
       } catch (e) {
-        console.warn('[Mind Home] Falló generar imagen de', ej.nombre, e)
+        console.warn('[MPH] Falló generar imagen de', ej.nombre, e)
         fallidas++
       }
       setProgreso({ hechas, fallidas, total: faltantes.length })

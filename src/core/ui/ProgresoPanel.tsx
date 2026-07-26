@@ -11,6 +11,8 @@ import {
 } from '../gamificacion/actividad'
 import { useWrappedUi } from '../state/wrappedUiStore'
 import { useSisifoUi } from '../state/sisifoUiStore'
+import { useLayout } from '../state/layoutStore'
+import { useEditorUi, PERSONAJE_AVATAR } from '../state/editorUiStore'
 import { useSisifo, marcarSisifoVisto } from '../gamificacion/sisifo'
 import { DIAS_META, RANGOS, colorArcoiris, nombreRango } from '../gamificacion/sisifoData'
 import { useT } from '../i18n/useT'
@@ -224,6 +226,10 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
     if (sisifo) void marcarSisifoVisto(sisifo.insignias)
     useSisifoUi.getState().abrir()
   }
+  const editarAvatar = () => {
+    useLayout.getState().setEditMode(true)
+    useEditorUi.getState().editarPersonaje(PERSONAJE_AVATAR)
+  }
 
   if (!progreso) {
     return (
@@ -278,7 +284,14 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
                   <span className="text-[10px] font-semibold text-white/60">{sisifo.rango}/12</span>
                 </div>
               )}
-              <AvatarMini />
+              <button
+                type="button"
+                onClick={editarAvatar}
+                title={t('progreso.editarAvatar', 'Editar tu personaje')}
+                className="block h-full w-full"
+              >
+                <AvatarMini />
+              </button>
               {/* Insignias ganadas (Montaña de Sísifo): a la altura de la cabeza, a la derecha. */}
               {sisifo && (
                 <div className="absolute right-0 top-1 z-10 flex flex-col items-center gap-1">

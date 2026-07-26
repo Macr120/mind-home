@@ -5,6 +5,7 @@ import { DoubleSide, ExtrudeGeometry, Path, RepeatWrapping, Shape, ShapeGeometry
 import { WALL_H, FORMA_ALTO_TECHO } from './walls'
 import { puntosRemateVano, VANO_FORMA_ALTO_DEFAULT } from './murosPuertas'
 import type { TipoMuroId, FormaMuroId, FormaVanoId, VentanaFormaId, VentanaContenidoId } from './murosPuertas'
+import { texturaMuro } from './texturasMuro'
 
 /** Repeticiones de la imagen según el ajuste elegido. */
 const AJUSTE_REPEAT: Record<string, number> = { x1: 1, x2: 2, x4: 4 }
@@ -484,20 +485,22 @@ function DetalleMuro({ tipo, horizontal, largo, alto, grosor, base, hueco }: {
 }
 
 /** Material de una forma (silueta): hereda la textura del muro (map) o su color. */
-function MatForma({ color, map, roughness, metalness }: {
+function MatForma({ color, map, patron, roughness, metalness }: {
   color: string
   map?: Texture
+  /** `map` es un patrón genérico (ladrillo/madera) y no una foto: se tiñe con `color`. */
+  patron?: boolean
   roughness: number
   metalness: number
 }) {
   return (
     <meshStandardMaterial
-      color={map ? '#ffffff' : color}
+      color={map && !patron ? '#ffffff' : color}
       map={map}
       roughness={roughness}
       metalness={metalness}
       side={DoubleSide}
-      toneMapped={!map}
+      toneMapped={!map || patron}
     />
   )
 }
@@ -512,6 +515,7 @@ function EsquinasAltas({
   anchoPost,
   color,
   map,
+  patron,
   roughness,
   metalness,
 }: {
@@ -524,6 +528,7 @@ function EsquinasAltas({
   anchoPost: number
   color: string
   map?: Texture
+  patron?: boolean
   roughness: number
   metalness: number
 }) {
@@ -538,11 +543,11 @@ function EsquinasAltas({
     <>
       <mesh position={pos(-1)} castShadow receiveShadow>
         <boxGeometry args={args} />
-        <MatForma color={color} map={map} roughness={roughness} metalness={metalness} />
+        <MatForma color={color} map={map} patron={patron} roughness={roughness} metalness={metalness} />
       </mesh>
       <mesh position={pos(1)} castShadow receiveShadow>
         <boxGeometry args={args} />
-        <MatForma color={color} map={map} roughness={roughness} metalness={metalness} />
+        <MatForma color={color} map={map} patron={patron} roughness={roughness} metalness={metalness} />
       </mesh>
     </>
   )
@@ -557,6 +562,7 @@ function ArcoCircular({
   largo,
   color,
   map,
+  patron,
   roughness,
   metalness,
 }: {
@@ -568,6 +574,7 @@ function ArcoCircular({
   largo: number
   color: string
   map?: Texture
+  patron?: boolean
   roughness: number
   metalness: number
 }) {
@@ -598,7 +605,7 @@ function ArcoCircular({
       castShadow
       receiveShadow
     >
-      <MatForma color={color} map={map} roughness={roughness} metalness={metalness} />
+      <MatForma color={color} map={map} patron={patron} roughness={roughness} metalness={metalness} />
     </mesh>
   )
 }
@@ -613,6 +620,7 @@ function TrianguloPico({
   posX,
   color,
   map,
+  patron,
   roughness,
   metalness,
 }: {
@@ -626,6 +634,7 @@ function TrianguloPico({
   posX: number
   color: string
   map?: Texture
+  patron?: boolean
   roughness: number
   metalness: number
 }) {
@@ -651,7 +660,7 @@ function TrianguloPico({
       castShadow
       receiveShadow
     >
-      <MatForma color={color} map={map} roughness={roughness} metalness={metalness} />
+      <MatForma color={color} map={map} patron={patron} roughness={roughness} metalness={metalness} />
     </mesh>
   )
 }
@@ -891,16 +900,21 @@ export function MuroSegment({
   const extraH = WALL_H * (formaAlto ?? (forma === 'esquinas' ? 0.4 : FORMA_ALTO_TECHO))
   // "Dos cuerpos": la forma lleva su propio color (sin la textura del muro).
   const formColor = formaDividir ? (formaColor ?? ajustarColor(tint, 40)) : tint
+  // Patrón genérico (ladrillo/madera) para la silueta (pico/arco/esquinas): el cuerpo del
+  // muro lo pinta con `DetalleMuro` (mallas), pero esa técnica no sigue un borde inclinado
+  // o curvo, así que la forma usa la misma textura de canvas que ya usan los muros curvos.
+  const patronMap = useMemo(() => texturaMuro(tipoMuro), [tipoMuro])
 
   // La forma comparte la textura del muro salvo que se divida en dos cuerpos.
   const formas = (map?: Texture) => {
     if (atenuado || esHeader || forma === 'recta') return null
-    const formMap = formaDividir ? undefined : map
+    const formMap = formaDividir ? undefined : (map ?? patronMap ?? undefined)
+    const formPatron = !formaDividir && !map && !!patronMap
     if (forma === 'esquinas')
       return (
         <EsquinasAltas
           horizontal={horizontal} largo={largo} grosor={grosor} h={h} extraH={extraH}
-          anchoPost={largo * formaAncho} color={formColor} map={formMap}
+          anchoPost={largo * formaAncho} color={formColor} map={formMap} patron={formPatron}
           roughness={formRough} metalness={metalness}
         />
       )
@@ -908,13 +922,13 @@ export function MuroSegment({
       return (
         <ArcoCircular
           horizontal={horizontal} grosor={grosor} h={h} extraH={extraH} largo={largo}
-          color={formColor} map={formMap} roughness={formRough} metalness={metalness}
+          color={formColor} map={formMap} patron={formPatron} roughness={formRough} metalness={metalness}
         />
       )
     return (
       <TrianguloPico
         horizontal={horizontal} grosor={grosor} h={h} extraH={extraH}
-        anchoBase={largo * formaAncho} posX={formaPosX} color={formColor} map={formMap}
+        anchoBase={largo * formaAncho} posX={formaPosX} color={formColor} map={formMap} patron={formPatron}
         roughness={formRough} metalness={metalness}
       />
     )
@@ -924,7 +938,13 @@ export function MuroSegment({
   const geoRecorte = huecoGeo ?? headerGeo
 
   // Cuerpo del muro + decoraciones; recibe la textura ya cargada (si hay imagen).
-  const cuerpo = (map?: Texture) => (
+  const cuerpo = (map?: Texture) => {
+    // El dintel con remate (arco/pico sobre una puerta) desactiva `DetalleMuro` más abajo
+    // porque sus juntas en malla no pueden rodear un hueco no rectangular: sin esto se
+    // quedaba siempre liso. Mismo patrón de canvas que usa la silueta del muro.
+    const cuerpoPatron = !map && !!headerGeo && !!patronMap
+    const cuerpoMap = map ?? (cuerpoPatron ? patronMap : undefined)
+    return (
     <>
       <mesh
         castShadow={!atenuado}
@@ -934,15 +954,15 @@ export function MuroSegment({
       >
         {!geoRecorte && <boxGeometry args={[sx, h, sz]} />}
         <meshStandardMaterial
-          color={map ? '#ffffff' : tint}
-          map={map}
-          roughness={map ? 0.8 : esCristal ? 0.15 : exterior ? extRough : roughness}
-          metalness={map ? 0 : esCristal ? 0.35 : metalness}
+          color={cuerpoMap && !cuerpoPatron ? '#ffffff' : tint}
+          map={cuerpoMap}
+          roughness={cuerpoMap && !cuerpoPatron ? 0.8 : esCristal ? 0.15 : exterior ? extRough : roughness}
+          metalness={cuerpoMap && !cuerpoPatron ? 0 : esCristal ? 0.35 : metalness}
           emissive={emissive}
-          emissiveIntensity={atenuado ? 0 : map ? 0 : emissiveInt}
-          transparent={atenuado || (!map && esCristal)}
-          opacity={atenuado ? 0.16 : !map && esCristal ? 0.55 : 1}
-          toneMapped={!map}
+          emissiveIntensity={atenuado ? 0 : cuerpoMap && !cuerpoPatron ? 0 : emissiveInt}
+          transparent={atenuado || (!cuerpoMap && esCristal)}
+          opacity={atenuado ? 0.16 : !cuerpoMap && esCristal ? 0.55 : 1}
+          toneMapped={!cuerpoMap || cuerpoPatron}
         />
       </mesh>
       {!atenuado && esVentana && !map && !huecoSinCristal && (
@@ -960,7 +980,8 @@ export function MuroSegment({
       )}
       {formas(map)}
     </>
-  )
+    )
+  }
 
   return (
     <group position={[cx, yBase + h / 2, cz]}>

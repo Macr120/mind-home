@@ -2,20 +2,30 @@ import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 type Fase = 'inicio' | 'muestra' | 'turno' | 'fin'
 
 const COLORES = ['#22c55e', '#ef4444', '#eab308', '#3b82f6']
 
+// Ritmo de la demostración: milisegundos por color, cuánto recorta cada ronda y su tope
+const RITMO: Record<Dificultad, { inicial: number; recorte: number; minimo: number }> = {
+  facil: { inicial: 820, recorte: 20, minimo: 420 },
+  medio: { inicial: 620, recorte: 25, minimo: 260 },
+  dificil: { inicial: 460, recorte: 30, minimo: 165 },
+}
+
 const alAzar = () => Math.floor(Math.random() * 4)
 
-export function SimonDice() {
+export function SimonDice({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const ritmo = RITMO[dificultad]
+  const clave = claveDificultad('simon-record', dificultad)
   const [secuencia, setSecuencia] = useState<number[]>([])
   const [fase, setFase] = useState<Fase>('inicio')
   const [paso, setPaso] = useState(0)
   const [iluminado, setIluminado] = useState<number | null>(null)
-  const [record, setRecord] = useState(() => leerNumero('simon-record', 0))
+  const [record, setRecord] = useState(() => leerNumero(clave, 0))
 
   const empezar = () => {
     setSecuencia([alAzar()])
@@ -26,7 +36,7 @@ export function SimonDice() {
   // Reproduce la secuencia: dos ticks por color (encender/apagar), acelerando con la longitud
   useEffect(() => {
     if (fase !== 'muestra') return
-    const vel = Math.max(260, 620 - secuencia.length * 25)
+    const vel = Math.max(ritmo.minimo, ritmo.inicial - secuencia.length * ritmo.recorte)
     let i = 0
     let id: ReturnType<typeof setInterval>
     const arranque = setTimeout(() => {
@@ -48,7 +58,7 @@ export function SimonDice() {
       clearTimeout(arranque)
       clearInterval(id)
     }
-  }, [fase, secuencia])
+  }, [fase, secuencia, ritmo])
 
   const pulsar = (n: number) => {
     if (fase !== 'turno') return
@@ -56,7 +66,7 @@ export function SimonDice() {
     setTimeout(() => setIluminado(null), 200)
     if (n !== secuencia[paso]) {
       setFase('fin')
-      setRecord(guardarRecord('simon-record', secuencia.length - 1))
+      setRecord(guardarRecord(clave, secuencia.length - 1))
       return
     }
     if (paso + 1 < secuencia.length) {
@@ -96,7 +106,7 @@ export function SimonDice() {
           ))}
         </div>
         {fase !== 'muestra' && fase !== 'turno' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-black/75">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl bg-black/75 ui-noche">
             {fase === 'fin' && (
               <p className="text-center font-black">
                 {t('entre.j.simon.fallaste', 'Fallaste en la ronda {n}', { n: secuencia.length })}

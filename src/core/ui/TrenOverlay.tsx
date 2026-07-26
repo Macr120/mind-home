@@ -8,8 +8,8 @@ import { Icono } from './iconos/Icono'
 
 /**
  * Prompt 2D del tren/carrito: "Montar" al estar junto a una vía y "Bajarte"
- * durante el recorrido. Mismo patrón que `VehiculoOverlay` (botón abajo-centro);
- * se apila un renglón arriba para no chocar con el de los vehículos.
+ * durante el recorrido. Va en `PilaPrompts` (como los demás prompts): ella lo
+ * apila encima de los controles de las esquinas y del chat.
  */
 export function TrenOverlay() {
   const t = useT()
@@ -27,32 +27,28 @@ export function TrenOverlay() {
 
   if (montado && tipo) {
     return (
-      <div className="pointer-events-none absolute inset-x-0 bottom-28 z-30 flex justify-center">
-        <button
-          type="button"
-          onClick={bajar}
-          className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-amber-400/60 px-5 py-2.5 text-sm font-black text-amber-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
-        >
-          <Icono nombre={tipo === 'riel' ? 'riel' : 'montana-rusa'} />
-          {t('tren.bajarte', 'Bajarte')}
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={bajar}
+        className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-amber-400/60 px-5 py-2.5 text-sm font-black text-amber-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
+      >
+        <Icono nombre={tipo === 'riel' ? 'riel' : 'montana-rusa'} />
+        {t('tren.bajarte', 'Bajarte')}
+      </button>
     )
   }
 
   if (!cerca) return null
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-44 z-30 flex justify-center">
-      <button
-        type="button"
-        onClick={montar}
-        className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-amber-400/60 px-5 py-2.5 text-sm font-black text-amber-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
-      >
-        <Icono nombre={cerca.tipo === 'riel' ? 'riel' : 'montana-rusa'} />
-        {cerca.tipo === 'riel'
-          ? t('tren.montarTren', 'Montar el tren')
-          : t('tren.montarCarrito', 'Montar el carrito')}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={montar}
+      className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-amber-400/60 px-5 py-2.5 text-sm font-black text-amber-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
+    >
+      <Icono nombre={cerca.tipo === 'riel' ? 'riel' : 'montana-rusa'} />
+      {cerca.tipo === 'riel'
+        ? t('tren.montarTren', 'Montar el tren')
+        : t('tren.montarCarrito', 'Montar el carrito')}
+    </button>
   )
 }

@@ -5,6 +5,7 @@ import { iaActiva, generarModelo3D, type EstiloModelo3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
 import { useCuartos } from '../../state/cuartosStore'
 import { useDiseño, MAPA_ROOM, esObjetoLibreria } from '../../state/disenoStore'
+import { pedirDestinoObjeto } from '../../state/destinoObjetoStore'
 import { useEditorUi } from '../../state/editorUiStore'
 import { getTema } from '../../house/temas'
 import { MiniaturaModelo } from '../../house/Miniatura'
@@ -24,6 +25,7 @@ import { EditorAnimacion } from './EditorAnimacion'
 import { SliderProp } from './SliderProp'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import type { NombreIcono } from '../iconos/catalogo'
 
 const ESCALA_MIN = 0.3
 const ESCALA_MAX = 3
@@ -68,10 +70,14 @@ interface Ubicacion {
   objetos: ObjetoCuarto[]
 }
 
+/** Submenú activo de la pestaña Objetos: crear, ubicar en el mapa o editar. */
+type ObjTab = 'crear' | 'mapa' | 'editar'
+
 /**
- * Editor de objetos (pestaña Objetos): un selector de todos los objetos colocados
- * (en cada cuarto y libres sobre el mapa), una vista previa 3D del seleccionado y
- * sus propiedades editables — color, tamaño y rotación.
+ * Editor de objetos (pestaña Objetos), en 3 submenús: Crear (con IA/manual/.glb),
+ * Mapa (elegir uno entre los ya colocados, por cuarto o sueltos) y Editar (preview
+ * 3D + propiedades del seleccionado). Crear o tocar una miniatura en Mapa saltan
+ * directo a Editar.
  */
 export function EditorObjetosSection() {
   const t = useT()
@@ -105,12 +111,6 @@ export function EditorObjetosSection() {
   // Editando un objeto de la biblioteca (desde el inventario): se muestra solo su editor, sin la lista.
   const editandoBiblioteca = !!seleccionado && esObjetoLibreria(seleccionado)
 
-  // Crea un objeto de geometría básica sobre el mapa y lo abre para editar.
-  const crearObjetoPiezas = async () => {
-    const id = await addObjetoPiezas(plantillaObjetoPiezas(), '#f59e0b')
-    setObjetoSel(id)
-  }
-
   // Ubicaciones con objetos: cada cuarto que tenga objetos + el mapa.
   const ubicaciones = useMemo<Ubicacion[]>(() => {
     const arr: Ubicacion[] = []
@@ -123,6 +123,18 @@ export function EditorObjetosSection() {
     if (mapa.length) arr.push({ id: MAPA_ROOM, icon: '🗺️', nombre: t('editor.obj.mapa', 'Mapa'), objetos: mapa })
     return arr
   }, [cuartos, objetos, t])
+
+  // Submenú activo: Crear, Mapa (ubicación) o Editar (propiedades del seleccionado).
+  const [tab, setTab] = useState<ObjTab>(() => (ubicaciones.length === 0 ? 'crear' : 'editar'))
+
+  // Crea un objeto de geometría básica en el destino elegido y lo abre para editar.
+  const crearObjetoPiezas = async () => {
+    const destino = await pedirDestinoObjeto()
+    if (!destino) return
+    const id = await addObjetoPiezas(plantillaObjetoPiezas(), '#f59e0b', destino)
+    setObjetoSel(id)
+    setTab('editar')
+  }
 
   // Selecciona el primer objeto al entrar (o si el seleccionado dejó de existir).
   useEffect(() => {
@@ -141,31 +153,26 @@ export function EditorObjetosSection() {
     </button>
   )
 
-  // Generar un objeto o pieza arquitectónica con IA (o subir un .glb) y abrirlo para editar.
+  // Generar un objeto o pieza arquitectónica con IA (o subir un .glb) y abrirlo para
+  // editar, en el destino que elija el usuario (mapa o cuarto).
   const generadorIA = (
     <GenerarObjetoIA
       onCrear={async (piezas) => {
-        const id = await addObjetoPiezas(piezas, piezas[0]?.color ?? '#f59e0b')
+        const destino = await pedirDestinoObjeto()
+        if (!destino) return
+        const id = await addObjetoPiezas(piezas, piezas[0]?.color ?? '#f59e0b', destino)
         setObjetoSel(id)
+        setTab('editar')
       }}
       onCrearGlb={async (glb) => {
-        const id = await addObjetoGlb(glb, '#f59e0b')
+        const destino = await pedirDestinoObjeto()
+        if (!destino) return
+        const id = await addObjetoGlb(glb, '#f59e0b', destino)
         setObjetoSel(id)
+        setTab('editar')
       }}
     />
   )
-
-  if (ubicaciones.length === 0 && !editandoBiblioteca) {
-    return (
-      <div className="space-y-3">
-        <p className="text-xs text-white/40">
-          {t('editor.obj.sinObjetos', 'Aún no hay objetos. Agrégalos al editar un cuarto o el mapa.')}
-        </p>
-        {botonCrear}
-        {generadorIA}
-      </div>
-    )
-  }
 
   const ubicActiva = seleccionado
     ? ubicaciones.find((u) => u.id === seleccionado.roomId) ?? ubicaciones[0]
@@ -174,82 +181,123 @@ export function EditorObjetosSection() {
   // Efecto ajustable del especial seleccionado (agua/luz/juego); null = sin slider.
   const fxGrupo = seleccionado ? grupoFx(seleccionado.tipo) : null
 
+  const tabs: { id: ObjTab; label: string; icono: NombreIcono }[] = [
+    { id: 'crear', label: t('editor.obj.tabCrear', 'Crear'), icono: 'agregar' },
+    { id: 'mapa', label: t('editor.obj.mapa', 'Mapa'), icono: 'mapa' },
+    { id: 'editar', label: t('editor.obj.tabEditar', 'Editar'), icono: 'editar' },
+  ]
+
   return (
     <div className="space-y-3">
       {!editandoBiblioteca && (
       <>
-      <p className="text-[11px] leading-snug text-white/45">
-        {t(
-          'editor.obj.descTab',
-          'Elige un objeto y edítalo: color, tamaño y rotación. Los cambios se ven al instante en la casa.',
-        )}
-      </p>
-
-      {botonCrear}
-      {generadorIA}
-
-      {/* 1) Ubicación: cuartos con objetos + el mapa */}
-      <div className="flex flex-wrap gap-1.5">
-        {ubicaciones.map((u) => {
-          const activa = ubicActiva.id === u.id
-          return (
-            <button
-              key={u.id}
-              type="button"
-              onClick={() => {
-                const p = u.objetos[0]
-                if (p?.id != null) setObjetoSel(p.id)
-              }}
-              title={u.nombre}
-              className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
-                activa
-                  ? 'border-accent/50 bg-accent text-accent-ink'
-                  : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
-              }`}
-            >
-              <span className="text-base leading-none"><Icono emoji={u.icon} /></span>
-              <span className="max-w-[7rem] truncate">{u.nombre}</span>
-            </button>
-          )
-        })}
+      {/* Submenús: crear objetos, verlos por ubicación en el mapa, editar el seleccionado */}
+      <div className="grid grid-cols-3 gap-1 rounded-lg border border-white/10 bg-black/30 p-1">
+        {tabs.map((tb) => (
+          <button
+            key={tb.id}
+            type="button"
+            onClick={() => setTab(tb.id)}
+            className={`flex h-9 items-center justify-center gap-1 whitespace-nowrap rounded-md px-1 text-[11px] font-semibold transition ${
+              tab === tb.id
+                ? 'bg-white/15 text-white'
+                : 'text-white/50 hover:bg-white/8 hover:text-white/75'
+            }`}
+          >
+            <Icono nombre={tb.icono} />
+            {tb.label}
+          </button>
+        ))}
       </div>
 
-      {/* 2) Objetos de la ubicación activa */}
-      <div className="grid grid-cols-4 gap-2">
-        {ubicActiva.objetos.map((o) => {
-          const sel = o.id === objetoSel
-          return (
-            <button
-              key={o.id}
-              type="button"
-              onClick={() => o.id != null && setObjetoSel(o.id)}
-              title={nombreObjeto(o)}
-              className={`flex items-center justify-center rounded-lg border p-1.5 transition ${
-                sel
-                  ? 'border-accent/60 bg-accent/10'
-                  : 'border-white/10 bg-white/5 hover:bg-white/10'
-              }`}
-            >
-              <MiniaturaModelo
-                tipo={o.tipo}
-                color={o.color}
-                tema={tema}
-                piezas={o.piezas}
-                modeloGlb={o.modeloGlb}
-                foto={o.foto}
-                texto={o.texto}
-                idObjeto={o.id}
-                className="h-12 w-full object-contain"
-              />
-            </button>
-          )
-        })}
-      </div>
+      {tab === 'crear' && (
+        <div className="space-y-2">
+          {botonCrear}
+          {generadorIA}
+        </div>
+      )}
+
+      {tab === 'mapa' && (
+        ubicaciones.length === 0 ? (
+          <p className="text-xs text-white/40">
+            {t('editor.obj.sinObjetos', 'Aún no hay objetos. Créalos en la pestaña Crear.')}
+          </p>
+        ) : (
+        <>
+        {/* Ubicación: cuartos con objetos + el mapa */}
+        <div className="flex flex-wrap gap-1.5">
+          {ubicaciones.map((u) => {
+            const activa = ubicActiva.id === u.id
+            return (
+              <button
+                key={u.id}
+                type="button"
+                onClick={() => {
+                  const p = u.objetos[0]
+                  if (p?.id != null) setObjetoSel(p.id)
+                }}
+                title={u.nombre}
+                className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition ${
+                  activa
+                    ? 'border-accent/50 bg-accent text-accent-ink'
+                    : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10'
+                }`}
+              >
+                <span className="text-base leading-none"><Icono emoji={u.icon} /></span>
+                <span className="max-w-[7rem] truncate">{u.nombre}</span>
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Objetos de la ubicación activa: tocar uno lo selecciona y abre Editar */}
+        <div className="grid grid-cols-4 gap-2">
+          {ubicActiva.objetos.map((o) => {
+            const sel = o.id === objetoSel
+            return (
+              <button
+                key={o.id}
+                type="button"
+                onClick={() => {
+                  if (o.id != null) setObjetoSel(o.id)
+                  setTab('editar')
+                }}
+                title={nombreObjeto(o)}
+                className={`flex items-center justify-center rounded-lg border p-1.5 transition ${
+                  sel
+                    ? 'border-accent/60 bg-accent/10'
+                    : 'border-white/10 bg-white/5 hover:bg-white/10'
+                }`}
+              >
+                <MiniaturaModelo
+                  tipo={o.tipo}
+                  color={o.color}
+                  tema={tema}
+                  piezas={o.piezas}
+                  modeloGlb={o.modeloGlb}
+                  foto={o.foto}
+                  texto={o.texto}
+                  idObjeto={o.id}
+                  className="h-12 w-full object-contain"
+                />
+              </button>
+            )
+          })}
+        </div>
+        </>
+        )
+      )}
+
+      {tab === 'editar' && !seleccionado && (
+        <p className="text-xs text-white/40">
+          {t('editor.obj.editarVacio', 'Elige un objeto en la pestaña Mapa, o crea uno nuevo.')}
+        </p>
+      )}
       </>
       )}
 
-      {/* 3) Vista previa 3D + propiedades del objeto seleccionado */}
-      {seleccionado && (
+      {/* Vista previa 3D + propiedades del objeto seleccionado */}
+      {seleccionado && (editandoBiblioteca || tab === 'editar') && (
         <>
           <PreviewObjeto3D
             key={seleccionado.id}
@@ -583,7 +631,7 @@ function GenerarObjetoIA({
       onCrear(piezas)
       setDesc('')
     } catch (err) {
-      console.warn('[Mind Home] No se pudo generar el objeto 3D:', err)
+      console.warn('[MPH] No se pudo generar el objeto 3D:', err)
       setError(t('editor.obj.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.'))
     } finally {
       setGenerando(false)
@@ -690,7 +738,7 @@ function GenerarObjetoIA({
                 const { optimizarGlb } = await import('../../house/optimizarGlb')
                 onCrearGlb(await optimizarGlb(f))
               } catch (err) {
-                console.warn('[Mind Home] No se pudo optimizar el .glb:', err)
+                console.warn('[MPH] No se pudo optimizar el .glb:', err)
                 setError(t('editor.obj.glbError', 'No pude procesar ese modelo .glb. ¿Es un archivo válido?'))
               } finally {
                 setOptimizando(false)

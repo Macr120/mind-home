@@ -274,7 +274,7 @@ async function construirSystem(mascotaId: string, conImagen: boolean): Promise<s
   const memorias = (await memoriasRepo.list()).filter((m) => m.vigente)
   const hoy = fechaLocalISO()
   return [
-    `Eres ${mascota.nombre} ${mascota.emoji}, el asistente-arquitecto de Mind Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
+    `Eres ${mascota.nombre} ${mascota.emoji}, el asistente-arquitecto de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
     mascota.personalidad ? `Personalidad: ${mascota.personalidad}` : '',
     mascota.historia ? `Tu historia/contexto como personaje: ${mascota.historia}` : '',
     mascota.cuartos.length
@@ -762,7 +762,7 @@ export async function interpretarIA(
           .instanciarObjetoEnMapa(libId, { x: playerPos.x + 1.2, z: playerPos.z + 1.2 })
         resultado.creado3d = descripcion
       } catch (err) {
-        console.warn('[Mind Home] No se pudo crear el modelo 3D desde el chat:', err)
+        console.warn('[MPH] No se pudo crear el modelo 3D desde el chat:', err)
       }
       continue
     }

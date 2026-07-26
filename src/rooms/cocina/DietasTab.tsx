@@ -5,19 +5,70 @@ import {
   itemsCompraRepo,
   listasCompraRepo,
   perfilNutricionRepo,
+  recetasRepo,
 } from '../../core/data/repository'
+import { crearDietaIA, crearRecetaIA } from './recetaIA'
+import { iaActiva } from '../../core/chat/ia'
 import { adivinarCategoria } from './categoriasCompra'
 import { PERFIL_DEFECTO } from './constantes'
 import { DetalleReceta } from './RecetasTab'
-import { ImagenCocina, MiniaturaFoto } from './ImagenCocina'
+import { ImagenCocina } from './ImagenCocina'
+import { Portada } from './Portada'
+import { urlImagenDieta } from './imagenesPreset'
 import { promptDieta } from './promptsFoto'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+
+/** Las dietas no tienen emoji propio: usan el de su primera receta. */
+function emojiDieta(dieta: DietaGuardada, recetas: Receta[]): string {
+  const primera = recetas.find((r) => r.id != null && dieta.recetaIds.includes(r.id))
+  return primera?.emoji ?? '🥗'
+}
 
 export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; recetas: Receta[] }) {
   const t = useT()
   const [selId, setSelId] = useState<number | null>(null)
   const [editando, setEditando] = useState<DietaGuardada | 'nueva' | null>(null)
+  const [peticionIA, setPeticionIA] = useState<string | null>(null)
+  const [generando, setGenerando] = useState(false)
+  const [errorIA, setErrorIA] = useState('')
+
+  const generar = async () => {
+    const peticion = (peticionIA ?? '').trim()
+    if (!peticion || generando) return
+    setGenerando(true)
+    setErrorIA('')
+    try {
+      const d = await crearDietaIA(peticion)
+      // Las recetas sí se guardan: van al recetario, que es su sitio. La dieta
+      // se abre en el formulario para que el usuario la revise antes.
+      const creadas = await Promise.all(
+        d.recetas.map(async (nombre) => {
+          try {
+            const r = await crearRecetaIA(nombre)
+            return await recetasRepo.add({ ...r, fuente: 'ia', creadaEn: new Date().toISOString() })
+          } catch {
+            return null
+          }
+        }),
+      )
+      setEditando({
+        nombre: d.nombre,
+        descripcion: d.descripcion,
+        calorias: d.calorias,
+        proteinas: d.proteinas,
+        carbohidratos: d.carbohidratos,
+        grasas: d.grasas,
+        recetaIds: creadas.filter((x): x is number => typeof x === 'number'),
+        creadoEn: new Date().toISOString(),
+      })
+      setPeticionIA(null)
+    } catch {
+      setErrorIA(t('cocina.dieta.errorIA', 'No se pudo crear la dieta. Inténtalo otra vez.'))
+    } finally {
+      setGenerando(false)
+    }
+  }
 
   if (editando) {
     return (
@@ -43,13 +94,47 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
 
   return (
     <div className="space-y-3">
-      <button
-        type="button"
-        onClick={() => setEditando('nueva')}
-        className="w-full rounded-xl bg-amber-600 texto-cta py-2.5 text-sm font-bold hover:brightness-110"
-      >
-        {t('cocina.dieta.nueva', 'Nueva dieta')}
-      </button>
+      <div className="flex gap-2">
+        {iaActiva() && (
+          <button
+            type="button"
+            onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
+            className="flex-1 rounded-xl bg-amber-600 texto-cta py-2.5 text-sm font-bold hover:brightness-110"
+          >
+            <Icono nombre="brillo" /> {t('cocina.dieta.generarIA', 'Dieta con IA')}
+          </button>
+        )}
+        <button
+          type="button"
+          onClick={() => setEditando('nueva')}
+          className="flex-1 rounded-xl bg-white/10 py-2.5 text-sm font-bold hover:bg-white/15"
+        >
+          {t('cocina.dieta.nueva', 'Nueva dieta')}
+        </button>
+      </div>
+
+      {peticionIA !== null && (
+        <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 space-y-2">
+          <input
+            autoFocus
+            value={peticionIA}
+            onChange={(e) => setPeticionIA(e.target.value)}
+            placeholder={t('cocina.dieta.phIA', '¿Qué dieta necesitas? Ej: bajar de peso, 1800 kcal, sin lácteos')}
+            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
+          />
+          <button
+            type="button"
+            onClick={generar}
+            disabled={!peticionIA.trim() || generando}
+            className="w-full rounded-lg bg-amber-600 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
+          >
+            {generando
+              ? t('cocina.dieta.generando', 'Armando tu dieta y sus recetas…')
+              : t('cocina.dieta.generar', 'Crear dieta')}
+          </button>
+          {errorIA && <p className="text-xs text-amber-300">{errorIA}</p>}
+        </div>
+      )}
 
       {dietas.length === 0 && (
         <p className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm text-white/40">
@@ -65,7 +150,13 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
               onClick={() => setSelId(d.id ?? null)}
               className="flex w-full items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-left hover:bg-white/10 transition"
             >
-              {d.foto && <MiniaturaFoto foto={d.foto} className="h-12 w-12 shrink-0 rounded-lg" />}
+              <Portada
+                foto={d.foto}
+                url={urlImagenDieta(d.nombre)}
+                emoji={emojiDieta(d, recetas)}
+                nombre={d.nombre}
+                className="h-12 w-12 shrink-0 rounded-lg"
+              />
               <div className="min-w-0 flex-1">
                 <p className="font-semibold text-white/90 truncate">{d.nombre}</p>
                 {d.descripcion && <p className="text-xs text-white/50 line-clamp-2">{d.descripcion}</p>}
@@ -182,7 +273,14 @@ function DetalleDieta({
         </button>
       </div>
 
-      <ImagenCocina foto={dieta.foto} prompt={promptDieta(dieta)} onCambiar={cambiarFoto} />
+      <ImagenCocina
+        foto={dieta.foto}
+        url={urlImagenDieta(dieta.nombre)}
+        prompt={promptDieta(dieta)}
+        emoji={emojiDieta(dieta, recetas)}
+        nombre={dieta.nombre}
+        onCambiar={cambiarFoto}
+      />
 
       <div className="rounded-xl bg-white/5 border border-white/10 p-4">
         <p className="text-lg font-bold text-white/90">{dieta.nombre}</p>

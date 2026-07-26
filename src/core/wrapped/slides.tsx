@@ -72,10 +72,10 @@ function SlidePortada({ resumen }: PropsSlide) {
   const p = resumen.periodo
   const titulo =
     p.tipo === 'semana'
-      ? t('wrapped.portada.semana', 'Tu semana en Mind Home')
+      ? t('wrapped.portada.semana', 'Tu semana en Mind Planner Home')
       : p.tipo === 'mes'
-        ? t('wrapped.portada.mes', 'Tu mes en Mind Home')
-        : t('wrapped.portada.anio', 'Tu año en Mind Home')
+        ? t('wrapped.portada.mes', 'Tu mes en Mind Planner Home')
+        : t('wrapped.portada.anio', 'Tu año en Mind Planner Home')
   return (
     <Marco>
       {/* Tu personaje presenta su propio resumen (mismo avatar 3D del menú). */}
@@ -419,7 +419,10 @@ function SlideSisifo({ resumen }: PropsSlide) {
       <div className="mt-2 flex flex-wrap items-start justify-center gap-x-10 gap-y-6">
         <Dato valor={d.insignias} etiqueta={t('sisifo.insignias', 'insignias')} />
         {d.estrellas > 0 && (
-          <Dato valor={<>⭐ ×{d.estrellas}</>} etiqueta={t('wrapped.sisifo.estrellas', 'estrellas ganadas')} />
+          <Dato
+            valor={<><Icono nombre="estrella" /> ×{d.estrellas}</>}
+            etiqueta={t('wrapped.sisifo.estrellas', 'estrellas ganadas')}
+          />
         )}
       </div>
     </Marco>

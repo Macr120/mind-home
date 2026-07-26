@@ -3,6 +3,7 @@ import { anecdotasRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { fechaLocalISO } from '../../core/fechaLocal'
+import { Archivador } from '../_shared/Archivador'
 import { comprimirFoto, Foto } from '../_shared/fotos'
 import { CalendarioAnimo } from './CalendarioAnimo'
 import { ANIMOS } from './animos'
@@ -138,46 +139,45 @@ export function AnecdotarioApp() {
       )}
 
       <div className="space-y-3" data-tut="anecdotario.lista">
-        {lista.length === 0 && (
-          <p className="text-center text-white/40 text-sm py-8">
-            {t('anec.vacio', 'Tu anecdotario está vacío. Escribe tu primer recuerdo.')}
-          </p>
-        )}
-        {listaVisible.map((a) => (
-          <article
-            key={a.id}
-            className="rounded-xl bg-white/5 p-4 border border-white/10"
-          >
-            <header className="flex items-center gap-2">
-              <span className="text-xl"><Icono emoji={a.animo} /></span>
-              <h3 className="font-bold">{a.titulo}</h3>
-              <span className="ml-auto text-xs text-white/40">{a.fecha}</span>
-              <button
-                onClick={() => a.id && anecdotasRepo.remove(a.id)}
-                className="text-white/30 hover:text-white/70"
-              >
-                ✕
-              </button>
-            </header>
-            {a.contenido && (
-              <p className="mt-2 text-sm text-white/80 whitespace-pre-wrap">
-                {a.contenido}
-              </p>
-            )}
-            {a.fotos && a.fotos.length > 0 && (
-              <div className="mt-3 grid grid-cols-3 gap-1.5">
-                {a.fotos.map((f, i) => (
-                  <Foto
-                    key={i}
-                    blob={f}
-                    className="h-24 w-full cursor-zoom-in rounded-lg object-cover transition hover:opacity-80"
-                    onClick={() => setVisor({ fotos: a.fotos!, idx: i })}
-                  />
-                ))}
-              </div>
-            )}
-          </article>
-        ))}
+        <Archivador
+          items={listaVisible}
+          fecha={(a) => a.fecha}
+          clave={(a) => a.id ?? a.fecha}
+          vacio={t('anec.vacio', 'Tu anecdotario está vacío. Escribe tu primer recuerdo.')}
+        >
+          {(a) => (
+            <article className="rounded-xl bg-white/5 p-4 border border-white/10">
+              <header className="flex items-center gap-2">
+                <span className="text-xl"><Icono emoji={a.animo} /></span>
+                <h3 className="font-bold">{a.titulo}</h3>
+                <span className="ml-auto text-xs text-white/40">{a.fecha}</span>
+                <button
+                  onClick={() => a.id && anecdotasRepo.remove(a.id)}
+                  className="text-white/30 hover:text-white/70"
+                >
+                  ✕
+                </button>
+              </header>
+              {a.contenido && (
+                <p className="mt-2 text-sm text-white/80 whitespace-pre-wrap">
+                  {a.contenido}
+                </p>
+              )}
+              {a.fotos && a.fotos.length > 0 && (
+                <div className="mt-3 grid grid-cols-3 gap-1.5">
+                  {a.fotos.map((f, i) => (
+                    <Foto
+                      key={i}
+                      blob={f}
+                      className="h-24 w-full cursor-zoom-in rounded-lg object-cover transition hover:opacity-80"
+                      onClick={() => setVisor({ fotos: a.fotos!, idx: i })}
+                    />
+                  ))}
+                </div>
+              )}
+            </article>
+          )}
+        </Archivador>
       </div>
 
       {/* visor de fotos */}

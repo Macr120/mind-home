@@ -3,7 +3,7 @@ import type { PerfilIdioma, TipoTarjeta } from '../../core/data/db'
 import { tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { COLOR, NIVELES, TIPOS_TARJETA } from './constantes'
-import { TEMARIO } from './temario'
+import { OpcionesTemas } from './OpcionesTemas'
 import { hoyISO } from './stats'
 
 export interface TarjetaFormInicial {
@@ -153,24 +153,7 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
           <p className={labelCampo}>{t('idiomas.form.tema', 'Tema del temario')}</p>
           <select value={temaId} onChange={(e) => setTemaId(e.target.value)} className={inputBase}>
             <option value="">{t('idiomas.form.sinTema', '— Ninguno —')}</option>
-            {TEMARIO.map((n) => (
-              <optgroup key={n.nivel} label={`${n.nivel} · ${n.titulo}`}>
-                {n.temas.map((tema) => (
-                  <option key={tema.id} value={tema.id}>
-                    {tema.titulo}
-                  </option>
-                ))}
-              </optgroup>
-            ))}
-            {nodos.length > 0 && (
-              <optgroup label={t('idiomas.form.temasDesbloq', 'Desbloqueados')}>
-                {nodos.map((n) => (
-                  <option key={n.temaId} value={n.temaId}>
-                    {n.titulo}
-                  </option>
-                ))}
-              </optgroup>
-            )}
+            <OpcionesTemas nodos={nodos} />
           </select>
         </div>
 

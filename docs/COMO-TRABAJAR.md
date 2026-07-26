@@ -1,4 +1,4 @@
-# Cómo trabajar Mind Home sin desperdiciar contexto
+# Cómo trabajar Mind Planner Home (MPH) sin desperdiciar contexto
 
 Objetivo: que cada tarea cargue **solo** el código y las reglas relevantes.
 

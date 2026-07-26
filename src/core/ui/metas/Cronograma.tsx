@@ -63,6 +63,7 @@ export function Cronograma({
   metaArmada,
   onArmar,
   ambito,
+  ambitoId,
 }: {
   metas: Rutina[]
   metaArmada: Rutina | null
@@ -77,6 +78,8 @@ export function Cronograma({
    * el árbol entero es trabajo del calendario, que lo ve completo.
    */
   ambito?: string
+  /** Sub-ámbito (`hobby:3`, `proyecto:7`) con el que nacen las nuevas metas. */
+  ambitoId?: string
 }) {
   const t = useT()
   // Índice en NIVELES_ZOOM, no un px/día suelto: los botones −/+ saltan de nivel en
@@ -284,6 +287,7 @@ export function Cronograma({
       undefined,
       COLORES_RUTINA[raices(metas).length % COLORES_RUTINA.length],
       ambito,
+      ambitoId,
     )
     setNombre('')
     return nueva

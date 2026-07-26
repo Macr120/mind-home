@@ -42,6 +42,25 @@ export function BotonPlegarHud({
   )
 }
 
+/**
+ * Pila de prompts contextuales (subir de nivel, montar el tren, bajarte del
+ * coche…): botones de acción SECUNDARIA, centrados y apilados justo encima del
+ * bloque más alto de la banda inferior, para no tapar nunca los controles de las
+ * esquinas ni el chat (crítico en teléfono vertical, donde no sobra ancho).
+ */
+export function PilaPrompts({ children }: { children: ReactNode }) {
+  const topes = useHud((s) => s.topes)
+  const bottom = Math.max(112, ...Object.values(topes).map((p) => p + 12))
+  return (
+    <div
+      className="pointer-events-none absolute inset-x-0 z-30 flex flex-col items-center gap-2 px-3"
+      style={{ bottom }}
+    >
+      {children}
+    </div>
+  )
+}
+
 /** Lo que queda de un cuadrante plegado: su icono lo despliega de un toque. */
 export function TiradorHud({
   zona,

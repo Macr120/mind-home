@@ -1,35 +1,30 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { comprimirImagen, generarImagen, imagenIaActiva } from '../../core/imagenIA'
+import { Portada } from './Portada'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
-/** Imagen desde un Blob. La URL nace y muere en el mismo efecto: así sobrevive
- * al doble montaje de StrictMode (el useMemo la reutilizaría ya revocada). */
-export function MiniaturaFoto({ foto, className = '' }: { foto: Blob; className?: string }) {
-  const [url, setUrl] = useState<string>()
-  useEffect(() => {
-    const u = URL.createObjectURL(foto)
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- la URL debe nacer en el efecto para sobrevivir el remount de StrictMode
-    setUrl(u)
-    return () => URL.revokeObjectURL(u)
-  }, [foto])
-  if (!url) return null
-  return <img src={url} alt="" className={`object-cover ${className}`} />
-}
-
 /**
- * Portada de una receta, dieta o lista: se sube desde el disco o se genera con
- * IA a partir de `prompt`. El Blob se guarda tal cual en su tabla (campo `foto`)
- * vía `onCambiar`, así que el mismo componente sirve para las tres.
+ * Portada de una receta o dieta: se sube desde el disco o se genera con IA a
+ * partir de `prompt`. El Blob se guarda tal cual en su tabla (campo `foto`) vía
+ * `onCambiar`, así que el mismo componente sirve para las dos.
  */
 export function ImagenCocina({
   foto,
+  url,
   prompt,
+  emoji,
+  nombre,
   onCambiar,
 }: {
   foto?: Blob
+  /** Foto preguardada del repo, para los ejemplos que la traen. */
+  url?: string | null
   /** Descripción para la IA; sin ella solo se puede subir a mano. */
   prompt?: string
+  /** Con emoji y nombre, sin foto se pinta la portada de respaldo (la misma que en la lista). */
+  emoji?: string
+  nombre?: string
   onCambiar: (foto: Blob | undefined) => Promise<void>
 }) {
   const t = useT()
@@ -52,7 +47,7 @@ export function ImagenCocina({
     try {
       await onCambiar(await generarImagen(prompt, 1024))
     } catch (e) {
-      console.warn('[Mind Home] No se pudo generar la imagen:', e)
+      console.warn('[MPH] No se pudo generar la imagen:', e)
       setError(e instanceof Error ? e.message : t('cocina.img.error', 'No se pudo generar la imagen.'))
     } finally {
       setGenerando(false)
@@ -70,8 +65,15 @@ export function ImagenCocina({
             <span className="h-6 w-6 animate-spin rounded-full border-2 border-white/25 border-t-white/80" />
             <span className="text-xs">{t('cocina.img.generando', 'Generando imagen…')}</span>
           </div>
-        ) : foto ? (
-          <MiniaturaFoto foto={foto} className="h-full w-full" />
+        ) : foto || url || emoji ? (
+          <Portada
+            foto={foto}
+            url={url}
+            emoji={emoji ?? ''}
+            nombre={nombre ?? ''}
+            className="h-full w-full"
+            tamEmoji="text-6xl"
+          />
         ) : (
           <button
             type="button"

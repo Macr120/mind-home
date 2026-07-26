@@ -53,13 +53,18 @@ function DialogoActivo({ id }: { id: string }) {
 
   // Copia lo que dice el asistente del diálogo (ignora mensajes de otros).
   useEffect(() => {
+    // Espejo filtrado: solo pega el mensaje si habla ESTE asistente, así que el
+    // texto no es derivable del store (debe conservar el último válido).
     if (mensaje && (hablanteId ?? useMascota.getState().mascota) === id) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTexto(limpiarMarkdown(mensaje))
     }
   }, [mensaje, hablanteId, id])
 
   // Máquina de escribir (~35 caracteres/s); click en la caja la completa.
   useEffect(() => {
+    // Cada texto nuevo reinicia la escritura desde el primer carácter.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReveladas(0)
     if (!texto) return
     const timer = window.setInterval(() => {

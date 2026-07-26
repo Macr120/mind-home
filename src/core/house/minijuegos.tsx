@@ -17,7 +17,7 @@ import { useGranja } from '../state/granjaStore'
 import { lanzarCohete } from './fuegos'
 import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
-import { ANCLAS_FORMA } from './apariencia'
+import { anclasDe } from './apariencia'
 import type { ObjetoCuarto } from '../data/db'
 import type { ClaseCancha } from '../state/canchasStore'
 
@@ -938,9 +938,11 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
                   color={asistente.color}
                   modelo3d={asistente.modelo3d}
                   modeloGlb={asistente.modeloGlb}
+                  cuerpoPresetId={asistente.cuerpoPresetId}
                   brazoRef={brazo}
+                  estado={{ velocidad: 0, fase: 0 }}
                 />
-                <Prendas ropa={asistente.ropa} anclas={ANCLAS_FORMA[asistente.forma]} />
+                <Prendas ropa={asistente.ropa} anclas={anclasDe(asistente)} />
               </group>
             ) : (
               <MunecoRival color={rivalColor ?? '#f97316'} piernaI={piernaI} piernaD={piernaD} />

@@ -9,6 +9,7 @@ import { COLOR, getTipoMantenimiento, getTipoVehiculo } from './constantes'
 import { dinero, formatearFecha } from './fecha'
 import { FormularioMantenimiento } from './FormularioMantenimiento'
 import { FormularioVehiculo } from './FormularioVehiculo'
+import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -142,18 +143,20 @@ export function DetalleVehiculo({
 
       <div className="space-y-2">
         <p className="text-sm font-semibold text-white/70">{t('garage.detalle.historial', 'Historial')}</p>
-        {servicios.length === 0 ? (
-          <p className="text-sm text-white/45 py-4 text-center rounded-xl bg-white/5">
-            {t('garage.detalle.sinServicios', 'Aún no hay servicios. Registra el último cambio de aceite, cadena, etc.')}
-          </p>
-        ) : (
-          servicios.map((r) => {
+        <Archivador
+          items={servicios}
+          fecha={(r) => r.fecha}
+          clave={(r) => r.id ?? r.fecha}
+          vacio={t('garage.detalle.sinServicios', 'Aún no hay servicios. Registra el último cambio de aceite, cadena, etc.')}
+          resumen={(regs) => {
+            const gasto = regs.reduce((s, r) => s + (r.costo ?? 0), 0)
+            return gasto > 0 ? dinero(gasto) : null
+          }}
+        >
+          {(r) => {
             const tm = getTipoMantenimiento(r.tipo)
             return (
-              <div
-                key={r.id}
-                className="rounded-xl bg-white/5 border border-white/10 p-3"
-              >
+              <div className="rounded-xl bg-white/5 border border-white/10 p-3">
                 <div className="flex justify-between gap-2">
                   <div>
                     <p className="font-semibold text-sm">{r.titulo}</p>
@@ -198,8 +201,8 @@ export function DetalleVehiculo({
                 </div>
               </div>
             )
-          })
-        )}
+          }}
+        </Archivador>
       </div>
 
       {vehiculo.notas && (

@@ -58,7 +58,7 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
       body: JSON.stringify(cuerpo),
     })
   } catch {
-    throw new ErrorIA('proveedor', 'No hay conexión con el servidor de Mind Home.')
+    throw new ErrorIA('proveedor', 'No hay conexión con el servidor de Mind Planner Home.')
   }
   const json: unknown = await resp.json().catch(() => null)
   if (!resp.ok) {

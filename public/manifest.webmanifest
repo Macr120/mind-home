@@ -1,6 +1,6 @@
 {
-  "name": "Mind Home",
-  "short_name": "Mind Home",
+  "name": "Mind Planner Home",
+  "short_name": "MPH",
   "description": "Tu casa: cada cuarto es una app de tu vida.",
   "start_url": "/",
   "scope": "/",

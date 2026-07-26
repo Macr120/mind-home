@@ -354,7 +354,7 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'hobbies',
         id: 'hobbies',
-        nota: 'En su Cronograma puedes pedir un plan con IA (✨) para avanzar un proyecto.',
+        nota: 'Cada hobby y cada proyecto tienen su propio cronograma de metas, con plan por IA (✨) y fotos de avance.',
         grupos: [
           {
             id: 'registrar',
@@ -367,7 +367,6 @@ const SECCIONES: Seccion[] = [
             id: 'abrir',
             ejemplos: [
               { frase: '[Abre] {mis hobbies}', en: '[Open] {my hobbies}' },
-              { frase: '[Abre] el {cronograma de hobbies}', en: '[Open] the {hobbies timeline}' },
             ],
           },
         ],

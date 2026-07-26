@@ -505,6 +505,13 @@ export async function ejecutarToolEditor(
     case 'editor_animaciones_fondo': {
       const activo = bool(input, 'activo')
       await d.setAnimacionesFondo(activo)
+      const intensidad = num(input, 'intensidad')
+      if (activo && intensidad != null) {
+        // Acepta 0-1 y 0-100 (la IA manda una u otra según cómo lo pida el usuario).
+        await d.setAnimacionesIntensidad(intensidad > 1 ? intensidad / 100 : intensidad)
+        const val = useDiseño.getState().animacionesIntensidad
+        return `Puse las animaciones del fondo al ${Math.round(val * 100)}%.`
+      }
       return activo ? 'Activé las animaciones del fondo.' : 'Apagué las animaciones del fondo.'
     }
 
@@ -1312,10 +1319,12 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
   },
   {
     name: 'editor_animaciones_fondo',
-    description: 'Activa o desactiva las microanimaciones del fondo (cometas, nieve, etc.).',
+    description:
+      'Activa o desactiva las microanimaciones del fondo (cometas, nieve, nubes, etc.). ' +
+      'Opcionalmente ajusta su intensidad de 0 a 100.',
     schema: {
       type: 'object',
-      properties: { activo: { type: 'boolean' } },
+      properties: { activo: { type: 'boolean' }, intensidad: { type: 'number' } },
       required: ['activo'],
     },
   },

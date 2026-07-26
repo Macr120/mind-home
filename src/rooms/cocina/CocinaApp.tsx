@@ -11,37 +11,61 @@ import {
 import { ComprasTab } from './ComprasTab'
 import { DiarioTab } from './DiarioTab'
 import { DietasTab } from './DietasTab'
-import { MetasTab } from './MetasTab'
+import { ProgresoTab } from './ProgresoTab'
 import { RecetasTab } from './RecetasTab'
-import { ResumenTab } from './ResumenTab'
 import { hoyISO, nombreFecha, sumarDias } from './fecha'
 import { perfilEfectivo, usePerfil } from './usePerfil'
 import { sembrarCocina } from './seed'
 import { useT } from '../../core/i18n/useT'
-import { tabInicial } from '../../core/state/intencionApp'
+import { intencionApp } from '../../core/state/intencionApp'
 import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
 // 'plan' ya es la Dieta desde antes: el cronograma no puede llamarse así.
 type Tab = 'metas' | 'diario' | 'plan' | 'cronograma' | 'recetas' | 'compras'
+type Enfoque = 'peso' | 'recetario'
 
-const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
-  { id: 'metas', icono: 'progreso', labelEs: 'Metas' },
-  { id: 'diario', icono: 'tab-diario', labelEs: 'Comidas' },
-  { id: 'plan', icono: 'calendario', labelEs: 'Dieta' },
-  { id: 'cronograma', icono: 'objetivo', labelEs: 'Cronograma' },
-  { id: 'recetas', icono: 'tab-recetas', labelEs: 'Recetas' },
-  { id: 'compras', icono: 'tab-compras', labelEs: 'Compras' },
+const TABS: Record<Tab, { icono: NombreIcono; labelEs: string }> = {
+  metas: { icono: 'progreso', labelEs: 'Progreso' },
+  diario: { icono: 'tab-diario', labelEs: 'Comidas' },
+  cronograma: { icono: 'objetivo', labelEs: 'Cronograma' },
+  recetas: { icono: 'tab-recetas', labelEs: 'Recetas' },
+  plan: { icono: 'calendario', labelEs: 'Dieta' },
+  compras: { icono: 'tab-compras', labelEs: 'Compras' },
+}
+
+/**
+ * Los dos motivos por los que se entra a la cocina. Los ids de pestaña NO
+ * cambian aunque cambie la etiqueta: `rutinas.seccion` los guarda al agendar un
+ * horario de comida y el calendario abre la app con ese string.
+ */
+const ENFOQUES: { id: Enfoque; icono: NombreIcono; labelEs: string; tabs: Tab[] }[] = [
+  { id: 'peso', icono: 'balanza', labelEs: 'Control de peso', tabs: ['metas', 'diario', 'cronograma'] },
+  { id: 'recetario', icono: 'tab-recetas', labelEs: 'Recetario', tabs: ['recetas', 'plan', 'compras'] },
 ]
 
+const TODAS = ENFOQUES.flatMap((e) => e.tabs)
+const CLAVE_ENFOQUE = 'mh.cocina.enfoque'
+
+const enfoqueDe = (tab: Tab): Enfoque => ENFOQUES.find((e) => e.tabs.includes(tab))!.id
+
 /** Pestañas que navegan por fecha (muestran la barra ‹ hoy ›). */
-const TABS_CON_FECHA: Tab[] = ['metas', 'diario']
+const TABS_CON_FECHA: Tab[] = ['diario']
+
+/** Manda la intención del chat; si no la hay, el último enfoque que usaste. */
+function tabDeArranque(): Tab {
+  const seccion = intencionApp('cocina')?.seccion
+  if (seccion && TODAS.includes(seccion as Tab)) return seccion as Tab
+  const guardado = localStorage.getItem(CLAVE_ENFOQUE)
+  return ENFOQUES.find((e) => e.id === guardado)?.tabs[0] ?? 'metas'
+}
 
 export function CocinaApp() {
   const t = useT()
-  const [tab, setTab] = useState<Tab>(() => tabInicial('cocina', TABS.map((x) => x.id), 'metas'))
+  const [tab, setTab] = useState<Tab>(tabDeArranque)
   const [fecha, setFecha] = useState(hoyISO())
+  const enfoque = enfoqueDe(tab)
 
   const perfilRaw = usePerfil()
   const perfil = perfilEfectivo(perfilRaw)
@@ -59,19 +83,39 @@ export function CocinaApp() {
     void sembrarCocina()
   }, [])
 
+  const cambiarEnfoque = (e: (typeof ENFOQUES)[number]) => {
+    localStorage.setItem(CLAVE_ENFOQUE, e.id)
+    setTab(e.tabs[0])
+  }
+
   return (
-    <div className="mx-auto max-w-2xl space-y-4">
-      <div className="flex gap-2 overflow-x-auto pb-0.5">
-        {TABS.map((tabItem) => (
+    <div className="mx-auto max-w-2xl space-y-3">
+      <div className="grid grid-cols-2 gap-2">
+        {ENFOQUES.map((e) => (
           <button
-            key={tabItem.id}
-            data-tut={`cocina.tab.${tabItem.id}`}
-            onClick={() => setTab(tabItem.id)}
-            className={`shrink-0 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-              tab === tabItem.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
+            key={e.id}
+            data-tut={`cocina.enfoque.${e.id}`}
+            onClick={() => cambiarEnfoque(e)}
+            className={`rounded-xl px-3 py-3 text-sm font-bold transition ${
+              enfoque === e.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
-            <Icono nombre={tabItem.icono} /> {t(`cocina.tab.${tabItem.id}`, tabItem.labelEs)}
+            <Icono nombre={e.icono} /> {t(`cocina.enfoque.${e.id}`, e.labelEs)}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex gap-2">
+        {ENFOQUES.find((e) => e.id === enfoque)!.tabs.map((id) => (
+          <button
+            key={id}
+            data-tut={`cocina.tab.${id}`}
+            onClick={() => setTab(id)}
+            className={`flex-1 rounded-xl px-2 py-2.5 text-sm font-semibold transition ${
+              tab === id ? 'bg-white/15' : 'bg-white/5 text-white/60 hover:bg-white/10'
+            }`}
+          >
+            <Icono nombre={TABS[id].icono} /> {t(`cocina.tab.${id}`, TABS[id].labelEs)}
           </button>
         ))}
       </div>
@@ -108,17 +152,22 @@ export function CocinaApp() {
       )}
 
       {tab === 'metas' && (
-        <div className="space-y-6">
-          <ResumenTab fecha={fecha} comidas={comidas} agua={agua} perfil={perfil} pesos={pesos} />
-          <MetasTab perfil={perfilRaw} />
-        </div>
+        <ProgresoTab
+          fecha={fecha}
+          comidas={comidas}
+          aguaMl={aguaDia}
+          perfil={perfil}
+          perfilRaw={perfilRaw}
+          pesos={pesos}
+        />
       )}
       {tab === 'diario' && (
         <DiarioTab
           fecha={fecha}
           comidas={comidas}
+          recetas={recetas}
           aguaMl={aguaDia}
-          aguaObjetivo={perfil.aguaMl}
+          perfil={perfil}
         />
       )}
       {tab === 'plan' && <DietasTab dietas={dietas} recetas={recetas} />}

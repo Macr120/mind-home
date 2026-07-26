@@ -2,8 +2,9 @@ import { useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import type { Pieza3D } from '../chat/mascotas'
-import { ModeloPiezas } from './modeloPersonalizado'
-import { actualizarEnergia, aplicarPreset, type AnimacionModelo } from './animacion'
+import { ModeloPiezas, ModeloPiezasConMarcha } from './modeloPersonalizado'
+import { actualizarEnergia, aplicarPreset, type AnimacionModelo, type EstadoMarcha } from './animacion'
+import { marchaDePersonaje } from './cuerpos'
 
 /**
  * Reproducción de animaciones en la escena (presets de conjunto). Todo muta
@@ -123,4 +124,29 @@ export function ModeloPiezasAnimado({
       <ModeloPiezas piezas={piezas} meshRefs={meshes} />
     </group>
   )
+}
+
+/**
+ * Piezas de un cuerpo (avatar o asistente): poses manuales si las hay (ganan
+ * siempre), si no la marcha real de un preset reconocido (`cuerpos.ts`), o el
+ * dibujo fijo de siempre. Único punto que decide entre los 3 sistemas, para
+ * que `AvatarModelo`/`Asistente3D` no dupliquen la lógica.
+ */
+export function CuerpoDePiezas({
+  piezas,
+  anim,
+  personaje,
+  estado,
+}: {
+  piezas: Pieza3D[]
+  anim?: AnimacionModelo
+  personaje: { cuerpoPresetId?: string }
+  estado: EstadoMarcha
+}) {
+  if (anim && anim.activacion !== 'apagado' && (anim.poses?.length ?? 0) >= 2) {
+    return <ModeloPiezasAnimado piezas={piezas} anim={anim} />
+  }
+  const marcha = marchaDePersonaje(personaje)
+  if (marcha) return <ModeloPiezasConMarcha piezas={piezas} marcha={marcha} estado={estado} />
+  return <ModeloPiezas piezas={piezas} />
 }

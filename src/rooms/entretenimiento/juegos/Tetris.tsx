@@ -3,9 +3,17 @@ import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
 import { barajar } from './cartas'
+import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 type Tipo = 'I' | 'O' | 'T' | 'S' | 'Z' | 'J' | 'L'
 type Fase = 'lista' | 'jugando' | 'pausa' | 'fin'
+
+// Caída: milisegundos del nivel 1 y tope al que se acelera cada 10 líneas
+const RITMO: Record<Dificultad, { inicial: number; minimo: number }> = {
+  facil: { inicial: 880, minimo: 190 },
+  medio: { inicial: 700, minimo: 110 },
+  dificil: { inicial: 500, minimo: 65 },
+}
 
 const COLS = 10
 const FILAS = 20
@@ -137,20 +145,22 @@ function girar(p: Partida): Partida {
   return p
 }
 
-export function Tetris() {
+export function Tetris({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const clave = claveDificultad('tetris-record', dificultad)
   const [p, setP] = useState<Partida>(partidaInicial)
   const [fase, setFase] = useState<Fase>('lista')
-  const [record, setRecord] = useState(() => leerNumero('tetris-record', 0))
+  const [record, setRecord] = useState(() => leerNumero(clave, 0))
 
   const nivel = nivelDe(p.lineas)
-  const velocidad = Math.max(110, 700 - 60 * nivel)
+  const ritmo = RITMO[dificultad]
+  const velocidad = Math.max(ritmo.minimo, ritmo.inicial - 60 * nivel)
 
   const aplicar = (sig: Partida) => {
     setP(sig)
     if (!sig.viva) {
       setFase('fin')
-      setRecord(guardarRecord('tetris-record', sig.puntos))
+      setRecord(guardarRecord(clave, sig.puntos))
     }
   }
 
@@ -223,7 +233,7 @@ export function Tetris() {
             ))}
           </div>
           {fase !== 'jugando' && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-lg bg-black/70 px-2 text-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-lg bg-black/70 ui-noche px-2 text-center">
               {fase === 'fin' && <p className="font-black">{t('entre.j.tetris.fin', 'Tablero lleno. ¡Buena partida!')}</p>}
               {fase === 'pausa' && <p className="font-black">{t('entre.j.pausa', 'Pausa')}</p>}
               <button

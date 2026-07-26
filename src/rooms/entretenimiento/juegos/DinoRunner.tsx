@@ -2,9 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
-import { prepararLienzo, useBucle, useTeclas } from './arcade'
+import { FONDO_LIENZO, prepararLienzo, useBucle, useTeclas } from './arcade'
+import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 type Fase = 'lista' | 'jugando' | 'fin'
+
+// Velocidad de salida del terreno, cuánto acelera por segundo y hueco entre cactus
+const RITMO: Record<Dificultad, { vel: number; acel: number; hueco: number }> = {
+  facil: { vel: 200, acel: 5, hueco: 1.3 },
+  medio: { vel: 260, acel: 8, hueco: 1 },
+  dificil: { vel: 330, acel: 13, hueco: 0.8 },
+}
 
 const ANCHO = 420
 const ALTO = 180
@@ -30,18 +38,20 @@ interface Mundo {
   proxSpawn: number
 }
 
-function mundoInicial(): Mundo {
-  return { alt: 0, vy: 0, obst: [], vel: 260, dist: 0, proxSpawn: 1 }
+function mundoInicial(vel: number): Mundo {
+  return { alt: 0, vy: 0, obst: [], vel, dist: 0, proxSpawn: 1 }
 }
 
-export function DinoRunner() {
+export function DinoRunner({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const ritmo = RITMO[dificultad]
+  const clave = claveDificultad('dino-record', dificultad)
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
-  const mundo = useRef<Mundo>(mundoInicial())
+  const mundo = useRef<Mundo>(mundoInicial(ritmo.vel))
   const [fase, setFase] = useState<Fase>('lista')
   const [final, setFinal] = useState(0)
-  const [record, setRecord] = useState(() => leerNumero('dino-record', 0))
+  const [record, setRecord] = useState(() => leerNumero(clave, 0))
   const teclas = useTeclas(TECLAS_DINO)
 
   useEffect(() => {
@@ -57,7 +67,7 @@ export function DinoRunner() {
   }
 
   const empezar = () => {
-    mundo.current = mundoInicial()
+    mundo.current = mundoInicial(ritmo.vel)
     setFase('jugando')
   }
 
@@ -73,13 +83,13 @@ export function DinoRunner() {
     }
 
     // El mundo corre hacia el dino y acelera con el tiempo
-    m.vel += 8 * dt
+    m.vel += ritmo.acel * dt
     m.dist += m.vel * dt * 0.05
     m.proxSpawn -= dt
     if (m.proxSpawn <= 0) {
       const h = 24 + Math.random() * 18
       m.obst.push({ x: ANCHO + 30, w: 14 + Math.random() * 10, h })
-      m.proxSpawn = (0.9 + Math.random() * 0.8) * (300 / m.vel)
+      m.proxSpawn = (0.9 + Math.random() * 0.8) * (300 / m.vel) * ritmo.hueco
     }
     for (const o of m.obst) o.x -= m.vel * dt
     m.obst = m.obst.filter((o) => o.x > -40)
@@ -90,7 +100,7 @@ export function DinoRunner() {
       if (DINO_X + 18 > o.x + 3 && DINO_X + 4 < o.x + o.w - 3 && dinoY - 4 > SUELO - o.h + 3) {
         setFase('fin')
         setFinal(Math.floor(m.dist))
-        setRecord(guardarRecord('dino-record', Math.floor(m.dist)))
+        setRecord(guardarRecord(clave, Math.floor(m.dist)))
         break
       }
     }
@@ -115,11 +125,11 @@ export function DinoRunner() {
         <canvas
           ref={lienzo}
           onPointerDown={toque}
-          className="w-full rounded-xl bg-white/5"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}` }}
+          className="w-full rounded-xl"
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: FONDO_LIENZO }}
         />
         {fase !== 'jugando' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
             {fase === 'fin' && (
               <p className="font-black">
                 {t('entre.j.puntos', 'Puntos')}: {final} · {t('entre.j.mejor', 'Mejor')}: {record}

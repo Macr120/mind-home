@@ -10,13 +10,24 @@ import { Cronograma } from './Cronograma'
  *
  * Es el mismo componente que la vista Cronograma del calendario — solo cambia lo
  * que se le pasa por `metas`.
+ *
+ * Con `ambitoId` baja un escalón más: el cronograma de UNA cosa de la app (un
+ * hobby, un proyecto). Sin él se ven todas las de la app, como siempre.
  */
-export function CronogramaApp({ plantillaId }: { plantillaId: string }) {
+export function CronogramaApp({
+  plantillaId,
+  ambitoId,
+}: {
+  plantillaId: string
+  ambitoId?: string
+}) {
   const todas = rutinasRepo.useAll()
   const [armada, setArmada] = useState<Rutina | null>(null)
 
   const metas = useMemo(() => {
-    const mias = (todas ?? []).filter((r) => esMeta(r) && r.plantillaId === plantillaId)
+    const mias = (todas ?? []).filter(
+      (r) => esMeta(r) && r.plantillaId === plantillaId && (!ambitoId || r.ambitoId === ambitoId),
+    )
     const ids = new Set(mias.map((m) => m.id))
     // Re-enraiza SOLO para esta vista. `raices` toma las de `padreId === undefined`,
     // así que una meta de esta app colgada de una meta general (que aquí no está)
@@ -26,9 +37,15 @@ export function CronogramaApp({ plantillaId }: { plantillaId: string }) {
     return mias.map((m) =>
       m.padreId != null && !ids.has(m.padreId) ? { ...m, padreId: undefined } : m,
     )
-  }, [todas, plantillaId])
+  }, [todas, plantillaId, ambitoId])
 
   return (
-    <Cronograma metas={metas} metaArmada={armada} onArmar={setArmada} ambito={plantillaId} />
+    <Cronograma
+      metas={metas}
+      metaArmada={armada}
+      onArmar={setArmada}
+      ambito={plantillaId}
+      ambitoId={ambitoId}
+    />
   )
 }

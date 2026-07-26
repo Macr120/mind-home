@@ -110,7 +110,7 @@ export function GuardarropaEditor() {
       await poner(id, piezas, nombre) // se pone al crearla
       setDesc('')
     } catch (err) {
-      console.warn('[Mind Home] No se pudo crear la prenda con IA:', err)
+      console.warn('[MPH] No se pudo crear la prenda con IA:', err)
       setError(t('editor.pers.ropaCustomError', 'No pude crear la prenda. Revisa el modelo de IA e inténtalo de nuevo.'))
     } finally {
       setGenerando(false)

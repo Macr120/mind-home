@@ -20,6 +20,14 @@ export function guardarRecord(clave: string, valor: number, menorEsMejor = false
   return mejor
 }
 
+export function leerTexto(clave: string): string | null {
+  return localStorage.getItem(PREFIJO + clave)
+}
+
+export function guardarTexto(clave: string, valor: string) {
+  localStorage.setItem(PREFIJO + clave, valor)
+}
+
 export const SALDO_INICIAL = 500
 
 /** Saldo de fichas compartido entre blackjack y ruleta. */

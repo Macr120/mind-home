@@ -2,8 +2,6 @@ import { useState } from 'react'
 import type { ItemCompra, ListaCompra } from '../../core/data/db'
 import { itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
 import { CATEGORIAS_COMPRA, adivinarCategoria, getCategoriaCompra } from './categoriasCompra'
-import { ImagenCocina, MiniaturaFoto } from './ImagenCocina'
-import { promptLista } from './promptsFoto'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -316,7 +314,6 @@ function ListasGuardadas({ items, listas }: { items: ItemCompra[]; listas: Lista
               onClick={() => setSelId(l.id ?? null)}
               className="flex w-full items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-left hover:bg-white/10 transition"
             >
-              {l.foto && <MiniaturaFoto foto={l.foto} className="h-12 w-12 shrink-0 rounded-lg" />}
               <div className="min-w-0 flex-1">
                 <p className="font-semibold text-white/90 truncate">{l.nombre}</p>
                 <p className="text-xs text-white/40">
@@ -360,10 +357,6 @@ function DetalleLista({
     onVolver()
   }
 
-  const cambiarFoto = async (foto: Blob | undefined) => {
-    if (lista.id) await listasCompraRepo.update(lista.id, { foto })
-  }
-
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2">
@@ -389,12 +382,6 @@ function DetalleLista({
         onBlur={guardarNombre}
         aria-label={t('cocina.comp.phNombreLista', 'Nombre de la lista')}
         className="w-full rounded-xl bg-white/5 px-4 py-2.5 text-base font-bold border border-white/10 outline-none focus:border-amber-400/50"
-      />
-
-      <ImagenCocina
-        foto={lista.foto}
-        prompt={promptLista(lista.nombre, items.map((i) => i.nombre))}
-        onCambiar={cambiarFoto}
       />
 
       <ProgresoCompras items={items} />

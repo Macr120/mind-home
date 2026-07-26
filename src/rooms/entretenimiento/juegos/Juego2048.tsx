@@ -146,8 +146,8 @@ export function Juego2048() {
       )}
 
       <div
-        className="relative mx-auto max-w-[360px] rounded-xl bg-white/10 p-2"
-        style={{ touchAction: 'none' }}
+        className="relative mx-auto max-w-[360px] rounded-xl p-2 shadow-lg"
+        style={{ touchAction: 'none', background: '#bbada0' }}
         onTouchStart={(e) => {
           toque.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }
         }}
@@ -166,7 +166,7 @@ export function Juego2048() {
               key={i}
               className="flex aspect-square items-center justify-center rounded-lg font-black"
               style={{
-                background: v ? (FONDOS[v] ?? '#3c3a32') : 'rgba(255,255,255,0.07)',
+                background: v ? (FONDOS[v] ?? '#3c3a32') : 'rgba(238,228,218,0.35)',
                 color: v <= 4 ? '#776e65' : '#f9f6f2',
                 fontSize: v >= 1024 ? 18 : v >= 128 ? 22 : 26,
               }}
@@ -176,7 +176,7 @@ export function Juego2048() {
           ))}
         </div>
         {fin && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/75">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/75 ui-noche">
             <p className="text-lg font-black">{t('entre.j.2048.fin', 'Sin movimientos. ¿Otra?')}</p>
             <button
               type="button"

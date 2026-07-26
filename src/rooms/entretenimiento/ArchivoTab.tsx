@@ -4,13 +4,17 @@ import { mediaArchivoRepo } from '../../core/data/repository'
 import { COLOR } from './constantes'
 import { FormularioMedia } from './FormularioMedia'
 import { TarjetaMedia } from './TarjetaMedia'
+import { Archivador, CarpetasPorEtiqueta } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+
+type Agrupacion = 'fecha' | 'genero'
 
 export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
   const t = useT()
   const [mostrarForm, setMostrarForm] = useState(false)
   const [editando, setEditando] = useState<MediaArchivo | null>(null)
+  const [agrupacion, setAgrupacion] = useState<Agrupacion>('fecha')
 
   const lista = useMemo(() => [...items].sort((a, b) => b.fecha.localeCompare(a.fecha)), [items])
 
@@ -50,23 +54,61 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
         />
       )}
 
-      <p className="text-xs text-white/40">{countText}</p>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs text-white/40">{countText}</p>
+        {lista.length > 0 && (
+          <div className="flex gap-1.5">
+            {(
+              [
+                ['fecha', 'entre.arch.porFecha', 'Por fecha'],
+                ['genero', 'entre.arch.porGenero', 'Por género'],
+              ] as const
+            ).map(([id, key, fallback]) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setAgrupacion(id)}
+                className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
+                  agrupacion === id ? 'text-black' : 'bg-white/10 hover:bg-white/20'
+                }`}
+                style={agrupacion === id ? { background: COLOR } : undefined}
+              >
+                {t(key, fallback)}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       {lista.length === 0 ? (
         <div className="rounded-xl border border-dashed border-white/15 p-8 text-center text-white/40 text-sm">
           {t('entre.arch.vacio', 'Tu archivo está vacío. Añade la primera película, serie, libro o videojuego.')}
         </div>
-      ) : (
-        <div className="space-y-3">
-          {lista.map((item) => (
+      ) : agrupacion === 'genero' ? (
+        <CarpetasPorEtiqueta
+          items={lista}
+          etiqueta={(item) => item.genero}
+          clave={(item) => item.id ?? item.titulo}
+          sinEtiqueta={t('entre.arch.sinGenero', 'Sin género')}
+        >
+          {(item) => (
             <TarjetaMedia
-              key={item.id}
               item={item}
               onEditar={() => setEditando(item)}
               onEliminar={() => item.id && mediaArchivoRepo.remove(item.id)}
             />
-          ))}
-        </div>
+          )}
+        </CarpetasPorEtiqueta>
+      ) : (
+        <Archivador items={lista} fecha={(item) => item.fecha} clave={(item) => item.id ?? item.titulo}>
+          {(item) => (
+            <TarjetaMedia
+              item={item}
+              onEditar={() => setEditando(item)}
+              onEliminar={() => item.id && mediaArchivoRepo.remove(item.id)}
+            />
+          )}
+        </Archivador>
       )}
     </div>
   )

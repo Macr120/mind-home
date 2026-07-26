@@ -1024,19 +1024,19 @@ export function ConstructorMapa() {
               </div>
             )}
 
-            {/* Muros: dos botones — Crear (colocar muros) o Seleccionar (editar uno existente). */}
+            {/* Muros: dos botones — Seleccionar (editar uno existente) o Crear (colocar muros). */}
             {modo === 'muros' && (
               <div className="grid grid-cols-2 gap-1.5">
-                <Chip activo={herramienta === 'muro'} onClick={() => setHerramienta('muro')}>
-                  <span className="mr-1"><Icono nombre="editar" /></span>
-                  {t('constructor.muro.crear', 'Crear')}
-                </Chip>
                 <Chip
                   activo={herramienta === 'seleccionar'}
                   onClick={() => setHerramienta('seleccionar')}
                 >
                   <span className="mr-1"><Icono nombre="apunta" /></span>
                   {t('constructor.muro.seleccionar', 'Seleccionar')}
+                </Chip>
+                <Chip activo={herramienta === 'muro'} onClick={() => setHerramienta('muro')}>
+                  <span className="mr-1"><Icono nombre="editar" /></span>
+                  {t('constructor.muro.crear', 'Crear')}
                 </Chip>
               </div>
             )}

@@ -5,7 +5,7 @@
  * los agentes son más bajos y con cuerpo único).
  */
 
-import type { MascotaId } from '../chat/mascotas'
+import type { MascotaId, Pieza3D } from '../chat/mascotas'
 
 /** Prendas que puede llevar un personaje. */
 export type PrendaId =
@@ -217,4 +217,45 @@ export const ANCLAS_FORMA: Record<MascotaId, AnclasRopa> = {
     torsoY: 0.55, torsoW: 0.5, torsoH: 0.6, torsoD: 0.36, brazoX: 0.3,
     piernasX: [0], piernasY: 0.3, piernaW: 0.48, piernaH: 0.36, piernaD: 0.36, piesY: 0.1,
   },
+}
+
+/** Cuerpo actual de un personaje (avatar o asistente): lo mínimo para resolver anclas/soporte de rostro. */
+interface CuerpoActual {
+  forma?: MascotaId
+  cuerpoPresetId?: string
+  modelo3d?: Pieza3D[]
+  modeloGlb?: Blob
+}
+
+/**
+ * Anclas de ropa del cuerpo actual: con modelo propio (piezas o .glb) usa la
+ * huella del avatar (los `CUERPOS_PRESET` calzan con ella vía `torsoBase()`,
+ * igual que el "Base" horneado para un asistente); con una de las 5 formas
+ * integradas, la tabla de esa forma; sin nada, Base.
+ */
+export function anclasDe(p: CuerpoActual): AnclasRopa {
+  if (p.modeloGlb || (p.modelo3d?.length ?? 0) > 0) return ANCLAS_AVATAR
+  return p.forma ? ANCLAS_FORMA[p.forma] : ANCLAS_AVATAR
+}
+
+/**
+ * ¿Este cuerpo admite el editor genérico de Rostro (expresión/foto)? Solo Base
+ * (con o sin preset "Base" de asistente) y Princesa: el resto ya tiene
+ * ojos/pico/visor fijos que son parte de su identidad.
+ */
+export function soportaRostro(p: CuerpoActual): boolean {
+  if (p.modeloGlb) return false
+  if ((p.modelo3d?.length ?? 0) > 0) return p.cuerpoPresetId === 'base' || p.cuerpoPresetId === 'princesa'
+  return !p.forma
+}
+
+/**
+ * ¿Este cuerpo admite Peinado? Solo Base (con o sin preset "Base" de
+ * asistente): el resto trae casco/capucha/pelaje/tiara fijos sin cuero
+ * cabelludo expuesto.
+ */
+export function soportaPeinado(p: CuerpoActual): boolean {
+  if (p.modeloGlb) return false
+  if ((p.modelo3d?.length ?? 0) > 0) return p.cuerpoPresetId === 'base'
+  return !p.forma
 }

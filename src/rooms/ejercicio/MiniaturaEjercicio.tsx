@@ -9,6 +9,7 @@ import {
   imagenIaActiva,
   useUrlImagen,
 } from './imagenIA'
+import { urlImagenPreset } from './imagenesPreset'
 
 /**
  * Miniatura (imagen) de un ejercicio del catálogo. Al tocarla se abre un diálogo
@@ -16,6 +17,9 @@ import {
  * generarla con IA. La imagen se guarda en IndexedDB por nombre normalizado, así
  * que el mismo ejercicio comparte imagen entre fuerza y flex. El `registro` lo
  * provee el catálogo (que se suscribe una sola vez).
+ *
+ * Sin registro propio se cae a la ilustración que la app trae de fábrica
+ * (`imagenesPreset`); la del usuario siempre manda sobre ella.
  */
 export function MiniaturaEjercicio({
   nombre,
@@ -34,7 +38,8 @@ export function MiniaturaEjercicio({
 }) {
   const t = useT()
   const [abierto, setAbierto] = useState(false)
-  const url = useUrlImagen(registro)
+  const urlPropia = useUrlImagen(registro)
+  const url = registro ? urlPropia : urlImagenPreset(nombre)
 
   return (
     <div className="relative shrink-0">
@@ -102,7 +107,7 @@ function DialogoImagen({
     try {
       await guardarImagenEjercicio(nombre, registro, await generarImagenEjercicio(nombre, descripcion))
     } catch (e) {
-      console.warn('[Mind Home] No se pudo generar la imagen:', e)
+      console.warn('[MPH] No se pudo generar la imagen:', e)
       setError(e instanceof Error ? e.message : 'Error al generar')
     } finally {
       setGenerando(false)

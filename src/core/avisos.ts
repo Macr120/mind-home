@@ -208,7 +208,7 @@ export function useAvisos() {
           if (notifMetas && toca(notifHoraMetas)) await avisarMetas(estado, fecha)
           if (notifWrapped) await avisarWrapped()
         } catch (err) {
-          console.warn('[Mind Home] Falló la revisión de avisos:', err)
+          console.warn('[MPH] Falló la revisión de avisos:', err)
         }
       })()
     }

@@ -234,7 +234,7 @@ export const DESCRIPCIONES: Record<string, string> = {
   biblioteca: 'Enciclopedia conversacional: charlas con IA, entradas wiki y sesiones de estudio.',
   entretenimiento: 'Archivo de películas, series, libros y juegos de mesa.',
   sala: 'Viajes: mapamundi con pines, lugares por conocer, rutas y bitácora.',
-  jardin: 'Calma: meditaciones guiadas, respiración y agradecimientos.',
+  jardin: 'Calma: meditación con pistas de sonido, respiración y agradecimientos.',
   garage: 'Mantenimiento de tus vehículos y sus servicios.',
   diario: 'Periódico del día: titulares con imagen y efemérides, con reparto por asistentes.',
   hobbies: 'Pasatiempos: sesiones de práctica, rachas, metas y proyectos.',

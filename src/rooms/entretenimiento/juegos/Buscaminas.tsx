@@ -4,8 +4,9 @@ import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { formatearTiempo, guardarRecord, leerNumero } from './almacen'
 import { barajar } from './cartas'
+import type { Dificultad, PropsDificultad } from './dificultad'
 
-type Nivel = 'facil' | 'medio' | 'dificil'
+type Nivel = Dificultad
 type Fase = 'lista' | 'jugando' | 'ganado' | 'perdido'
 
 interface Celda {
@@ -21,7 +22,19 @@ const NIVELES: Record<Nivel, { lado: number; minas: number }> = {
   dificil: { lado: 16, minas: 40 },
 }
 
-const COLORES_NUM = ['', '#60a5fa', '#4ade80', '#f87171', '#c4b5fd', '#fbbf24', '#22d3ee', '#f9fafb', '#9ca3af']
+// Clases (no hex): los tonos 400 pasan solos a 600 con el tema claro, así los
+// números siguen legibles sobre la celda destapada en cualquier tema.
+const COLORES_NUM = [
+  '',
+  'text-blue-400',
+  'text-green-400',
+  'text-red-400',
+  'text-violet-400',
+  'text-amber-400',
+  'text-cyan-400',
+  'text-fuchsia-400',
+  'text-slate-400',
+]
 
 function tableroVacio(nivel: Nivel): Celda[] {
   return Array.from({ length: NIVELES[nivel].lado ** 2 }, () => ({
@@ -77,15 +90,15 @@ function revelarDesde(celdas: Celda[], inicio: number[], lado: number): { celdas
   return { celdas: cs, exploto }
 }
 
-export function Buscaminas() {
+export function Buscaminas({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
-  const [nivel, setNivel] = useState<Nivel>('facil')
-  const [celdas, setCeldas] = useState<Celda[]>(() => tableroVacio('facil'))
+  const nivel: Nivel = dificultad
+  const [celdas, setCeldas] = useState<Celda[]>(() => tableroVacio(nivel))
   const [fase, setFase] = useState<Fase>('lista')
   const [segundos, setSegundos] = useState(0)
   const [modoBandera, setModoBandera] = useState(false)
   const [explotada, setExplotada] = useState<number | null>(null)
-  const [record, setRecord] = useState(() => leerNumero('buscaminas-facil', 0))
+  const [record, setRecord] = useState(() => leerNumero(`buscaminas-${nivel}`, 0))
 
   const { lado, minas } = NIVELES[nivel]
   const banderas = celdas.filter((c) => c.bandera).length
@@ -97,13 +110,11 @@ export function Buscaminas() {
     return () => clearInterval(id)
   }, [fase])
 
-  const reiniciar = (n: Nivel) => {
-    setNivel(n)
-    setCeldas(tableroVacio(n))
+  const reiniciar = () => {
+    setCeldas(tableroVacio(nivel))
     setFase('lista')
     setSegundos(0)
     setExplotada(null)
-    setRecord(leerNumero(`buscaminas-${n}`, 0))
   }
 
   const terminarJugada = (cs: Celda[], exploto: boolean, origen: number) => {
@@ -162,44 +173,24 @@ export function Buscaminas() {
   const carita = fase === 'perdido' ? '😵' : fase === 'ganado' ? '😎' : '🙂'  // se pinta con <Icono emoji=>
   const tamFuente = lado === 16 ? 'text-[10px]' : lado === 12 ? 'text-xs' : 'text-sm'
 
-  const DIFS: { id: Nivel; label: string }[] = [
-    { id: 'facil', label: t('entre.j.dif.facil', 'Fácil') },
-    { id: 'medio', label: t('entre.j.dif.medio', 'Medio') },
-    { id: 'dificil', label: t('entre.j.dif.dificil', 'Difícil') },
-  ]
-
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex gap-1.5">
-          {DIFS.map((d) => (
-            <button
-              key={d.id}
-              type="button"
-              onClick={() => reiniciar(d.id)}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${nivel === d.id ? 'text-black' : 'bg-white/10'}`}
-              style={nivel === d.id ? { background: COLOR } : undefined}
-            >
-              {d.label}
-            </button>
-          ))}
-        </div>
-        <span className="text-xs text-white/55">
-          {t('entre.j.mejor', 'Mejor')}: {record > 0 ? formatearTiempo(record) : '—'}
-        </span>
-      </div>
-
-      <div className="mx-auto flex max-w-[420px] items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-sm font-bold">
+      <div className="mx-auto flex max-w-[420px] items-center justify-between gap-2 rounded-xl bg-white/5 px-3 py-2 text-sm font-bold">
         <span><Icono nombre="bomba" /> {Math.max(0, minas - banderas)}</span>
-        <button type="button" onClick={() => reiniciar(nivel)} className="rounded-lg bg-white/10 px-3 py-1 text-xl">
+        <button type="button" onClick={reiniciar} className="rounded-lg bg-white/10 px-3 py-1 text-xl hover:bg-white/20">
           <Icono emoji={carita} />
         </button>
-        <span><Icono nombre="cronometro" /> {formatearTiempo(segundos)}</span>
+        <span className="text-right">
+          <Icono nombre="cronometro" /> {formatearTiempo(segundos)}
+          <span className="ml-2 text-xs font-normal text-white/45">
+            {t('entre.j.mejor', 'Mejor')}: {record > 0 ? formatearTiempo(record) : '—'}
+          </span>
+        </span>
         <button
           type="button"
           onClick={() => setModoBandera((v) => !v)}
           title={t('entre.j.buscaminas.modoBandera', 'Modo bandera')}
-          className={`rounded-lg px-3 py-1 text-base ${modoBandera ? 'ring-2' : 'bg-white/10'}`}
+          className={`rounded-lg px-3 py-1 text-base ${modoBandera ? 'ring-2' : 'bg-white/10 hover:bg-white/20'}`}
           style={modoBandera ? { background: `${COLOR}33`, borderColor: COLOR } : undefined}
         >
           <Icono nombre="bandera" />
@@ -207,7 +198,7 @@ export function Buscaminas() {
       </div>
 
       <div
-        className="mx-auto grid max-w-[420px] select-none gap-[2px]"
+        className="mx-auto grid max-w-[420px] select-none gap-[2px] rounded-xl bg-black/20 p-1.5"
         style={{ gridTemplateColumns: `repeat(${lado}, minmax(0, 1fr))` }}
         onContextMenu={(e) => e.preventDefault()}
       >
@@ -233,14 +224,13 @@ export function Buscaminas() {
                 e.preventDefault()
                 alternarBandera(i)
               }}
-              className={`aspect-square rounded-[3px] font-bold leading-none ${tamFuente} ${
+              className={`aspect-square rounded-[3px] font-bold leading-none transition ${tamFuente} ${
                 c.revelada
                   ? i === explotada
                     ? 'bg-red-500/80'
                     : 'bg-white/10'
                   : 'bg-white/25 hover:bg-white/35'
-              }`}
-              style={{ color: c.revelada && !c.mina && c.num > 0 ? COLORES_NUM[c.num] : undefined }}
+              } ${c.revelada && !c.mina && c.num > 0 ? COLORES_NUM[c.num] : ''}`}
             >
               {contenido}
             </button>

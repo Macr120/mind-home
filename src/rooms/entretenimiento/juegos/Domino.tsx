@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { barajar } from './cartas'
+import type { Dificultad, PropsDificultad } from './dificultad'
 
 interface FichaDom {
   a: number
@@ -72,6 +73,39 @@ function colocar(cadena: FichaDom[], f: FichaDom, lado: 'izq' | 'der'): FichaDom
   return [...cadena, f.a === der ? f : { a: f.b, b: f.a }]
 }
 
+interface JugadaDom {
+  ficha: FichaDom
+  lado: 'izq' | 'der'
+}
+
+/**
+ * Jugada de la máquina: fácil suelta cualquier cosa, medio se quita la ficha más
+ * pesada y difícil además cuida quedarse con fichas que sigan casando.
+ */
+function jugadaIA(mano: FichaDom[], cadena: FichaDom[], dif: Dificultad): JugadaDom {
+  const { izq, der } = extremos(cadena)
+  const opciones: JugadaDom[] = []
+  for (const ficha of mano) {
+    if (ficha.a === izq || ficha.b === izq) opciones.push({ ficha, lado: 'izq' })
+    if (ficha.a === der || ficha.b === der) opciones.push({ ficha, lado: 'der' })
+  }
+  const peso = (f: FichaDom) => f.a + f.b
+  if (dif === 'facil') return opciones[Math.floor(Math.random() * opciones.length)]
+  if (dif === 'medio') return opciones.reduce((mejor, j) => (peso(j.ficha) > peso(mejor.ficha) ? j : mejor))
+  let mejor = opciones[0]
+  let mejorPuntaje = -Infinity
+  for (const j of opciones) {
+    const despues = colocar(cadena, j.ficha, j.lado)
+    const salidas = mano.filter((f) => f !== j.ficha && esJugable(f, despues)).length
+    const puntaje = peso(j.ficha) + 3 * salidas + (j.ficha.a === j.ficha.b ? 2 : 0) + Math.random()
+    if (puntaje > mejorPuntaje) {
+      mejorPuntaje = puntaje
+      mejor = j
+    }
+  }
+  return mejor
+}
+
 function Mitad({ n, tam }: { n: number; tam: number }) {
   return (
     <span className="grid shrink-0 grid-cols-3 grid-rows-3 place-items-center" style={{ width: tam, height: tam }}>
@@ -109,7 +143,7 @@ function Dorso({ tam = 16 }: { tam?: number }) {
   )
 }
 
-export function Domino() {
+export function Domino({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
   const [ronda, setRonda] = useState<RondaDom>(repartirRonda)
   const [fin, setFin] = useState<FinRonda | null>(null)
@@ -199,17 +233,14 @@ export function Domino() {
         transicion({ ...ronda, manoIA, pozo, turno: 'tu', pases: ronda.pases + 1 })
         return
       }
-      const elegida = jugables.reduce((mejor, f) => (f.a + f.b > mejor.a + mejor.b ? f : mejor))
-      const puedeIzq = elegida.a === izq || elegida.b === izq
-      const puedeDer = elegida.a === der || elegida.b === der
-      const lado = puedeIzq && puedeDer ? (Math.random() < 0.5 ? 'izq' : 'der') : puedeIzq ? 'izq' : 'der'
-      manoIA.splice(manoIA.indexOf(elegida), 1)
+      const jugada = jugadaIA(manoIA, ronda.cadena, dificultad)
+      manoIA.splice(manoIA.indexOf(jugada.ficha), 1)
       setAviso(robadas > 0 ? t('entre.j.domino.robaIA', `La máquina robó ${robadas}`, { n: String(robadas) }) : null)
       transicion({
         ...ronda,
         manoIA,
         pozo,
-        cadena: colocar(ronda.cadena, elegida, lado),
+        cadena: colocar(ronda.cadena, jugada.ficha, jugada.lado),
         turno: 'tu',
         pases: 0,
       })
@@ -321,7 +352,7 @@ export function Domino() {
               className="rounded-xl px-4 py-2 font-bold text-black"
               style={{ background: COLOR }}
             >
-              🁢 {t('entre.j.domino.robar', 'Robar del pozo')} ({ronda.pozo.length})
+              <Icono nombre="domino" /> {t('entre.j.domino.robar', 'Robar del pozo')} ({ronda.pozo.length})
             </button>
           ) : (
             <button type="button" onClick={pasar} className="rounded-xl bg-white/10 px-4 py-2 font-bold">

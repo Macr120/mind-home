@@ -69,8 +69,9 @@ export function GridResizer() {
           (dir === 'E' || dir === 'O') ? gridCols < MAX_GRID : gridRows < MAX_GRID
         const puedeContr = puedeContraer(dir, gridCols, gridRows, placed, cells, footprints)
 
+        // zIndexRange tope 30 (capa "mapa"): que nunca quede por encima del Editor (z-[35]).
         return (
-          <Html key={dir} position={pos} center zIndexRange={[80, 0]}>
+          <Html key={dir} position={pos} center zIndexRange={[30, 0]}>
             <div className="flex flex-col items-center gap-0.5">
               <button
                 type="button"

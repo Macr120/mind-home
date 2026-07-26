@@ -98,7 +98,7 @@ export const tutorialIdiomas: TutorialDef = {
       titulo: T('tut.app-idiomas.5.titulo', 'Temario'),
       texto: T(
         'tut.app-idiomas.5.texto',
-        'El temario-árbol vivo: temas y subtemas que se desbloquean conforme estudias. Progreso muestra tu avance.',
+        'El temario vivo en tres áreas —temas, pronunciación y gramática—: se desbloquean subtemas conforme estudias y en cada tema puedes guardar tus propios apuntes e imágenes. Progreso muestra tu avance.',
       ),
     },
   ],

@@ -2,6 +2,8 @@ import { Icono } from '../../../core/ui/iconos/Icono'
 import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
+import type { Dificultad, PropsDificultad } from './dificultad'
+import { ElegirModo } from './ElegirModo'
 
 type ColorFicha = 'clara' | 'oscura'
 type Modo = '2j' | 'ia'
@@ -74,7 +76,41 @@ function aplicarMov(t: TableroDamas, m: MovDama): { tablero: TableroDamas; coron
   return { tablero: nuevo, corono }
 }
 
-export function Damas() {
+// Material visto por la máquina (lleva las oscuras): una dama vale por tres fichas
+function ventajaOscuras(t: TableroDamas): number {
+  let v = 0
+  for (const f of t) if (f) v += (f.color === 'oscura' ? 1 : -1) * (f.dama ? 3 : 1)
+  return v
+}
+
+/**
+ * Jugada de la máquina: fácil elige al azar, medio prioriza coronar y difícil
+ * mira la mejor respuesta del rival antes de decidir (minimax de dos jugadas).
+ */
+function movIA(tablero: TableroDamas, opciones: MovDama[], dif: Dificultad): MovDama {
+  const alAzar = (lista: MovDama[]) => lista[Math.floor(Math.random() * lista.length)]
+  if (dif === 'facil') return alAzar(opciones)
+  const coronan = opciones.filter((m) => !tablero[m.de]!.dama && Math.floor(m.a / 8) === 7)
+  if (dif === 'medio') return alAzar(coronan.length ? coronan : opciones)
+  let mejor = -Infinity
+  let elegido = opciones[0]
+  for (const m of opciones) {
+    const { tablero: despues, corono } = aplicarMov(tablero, m)
+    const respuestas = movsLegales(despues, 'clara')
+    // El rival contesta con lo que más le conviene; sin respuestas, queda ahogado
+    const valor = respuestas.length
+      ? Math.min(...respuestas.map((r) => ventajaOscuras(aplicarMov(despues, r).tablero)))
+      : 100
+    const puntaje = valor + (corono ? 0.5 : 0) + Math.random() * 0.1
+    if (puntaje > mejor) {
+      mejor = puntaje
+      elegido = m
+    }
+  }
+  return elegido
+}
+
+export function Damas({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
   const [modo, setModo] = useState<Modo | null>(null)
   const [tablero, setTablero] = useState<TableroDamas>(tableroInicial)
@@ -112,16 +148,14 @@ export function Damas() {
     else setTurno(rival)
   }
 
-  // La máquina lleva las oscuras: prioriza coronar (las capturas ya son obligatorias)
+  // La máquina lleva las oscuras (las capturas ya son obligatorias para ambos)
   useEffect(() => {
     if (modo !== 'ia' || ganador || turno !== 'oscura') return
     const id = setTimeout(() => {
       const opciones =
         cadena != null ? movsFicha(tablero, cadena).filter((m) => m.captura != null) : movsLegales(tablero, 'oscura')
       if (!opciones.length) return
-      const coronan = opciones.filter((m) => !tablero[m.de]!.dama && Math.floor(m.a / 8) === 7)
-      const pool = coronan.length ? coronan : opciones
-      jugar(pool[Math.floor(Math.random() * pool.length)])
+      jugar(movIA(tablero, opciones, dificultad))
     }, 500)
     return () => clearTimeout(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -143,29 +177,24 @@ export function Damas() {
 
   if (modo === null) {
     return (
-      <div className="space-y-3">
-        <p className="text-sm font-semibold">{t('entre.j.modo.titulo', '¿Cómo quieres jugar?')}</p>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => reiniciar('ia')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="mascota-robot" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.ia', 'Contra la máquina')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.damas.iaDesc', 'Tú llevas las claras')}</p>
-          </button>
-          <button
-            type="button"
-            onClick={() => reiniciar('2j')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="companeros" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.2j', '2 jugadores')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.modo.2jDesc', 'En el mismo dispositivo')}</p>
-          </button>
-        </div>
-      </div>
+      <ElegirModo
+        opciones={[
+          {
+            clave: 'ia',
+            icono: <Icono nombre="mascota-robot" />,
+            titulo: t('entre.j.modo.ia', 'Contra la máquina'),
+            desc: t('entre.j.damas.iaDesc', 'Tú llevas las claras'),
+            alElegir: () => reiniciar('ia'),
+          },
+          {
+            clave: '2j',
+            icono: <Icono nombre="companeros" />,
+            titulo: t('entre.j.modo.2j', '2 jugadores'),
+            desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
+            alElegir: () => reiniciar('2j'),
+          },
+        ]}
+      />
     )
   }
 
@@ -183,7 +212,7 @@ export function Damas() {
         {ganador === null ? (
           <span className="text-white/60">
             {t('entre.j.turno', 'Turno')}:{' '}
-            <strong style={{ color: turno === 'clara' ? '#f8fafc' : '#a3a3a3' }}>
+            <strong style={{ color: turno === 'clara' ? 'var(--ui-ink)' : 'color-mix(in srgb, var(--ui-ink) 60%, transparent)' }}>
               {modo === 'ia' ? (turno === 'clara' ? t('entre.j.tu', 'Tú') : t('entre.j.maquina', 'Máquina')) : nombreColor(turno)}
             </strong>
           </span>
@@ -207,7 +236,7 @@ export function Damas() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-[420px] select-none grid-cols-8 overflow-hidden rounded-lg border-2 border-white/25">
+      <div className="mx-auto grid max-w-[420px] select-none grid-cols-8 overflow-hidden rounded-xl border border-white/15 shadow-lg">
         {tablero.map((ficha, i) => {
           const f = Math.floor(i / 8)
           const c = i % 8
@@ -219,7 +248,7 @@ export function Damas() {
               type="button"
               onClick={() => clickCasilla(i)}
               className="relative flex aspect-square items-center justify-center"
-              style={{ background: jugable ? '#7c4a1e' : '#e7d3ae' }}
+              style={{ background: jugable ? '#b58863' : '#f0d9b5' }}
             >
               {ficha && (
                 <span

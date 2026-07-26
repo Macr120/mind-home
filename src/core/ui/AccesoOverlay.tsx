@@ -6,7 +6,8 @@ import { Icono } from './iconos/Icono'
 
 /**
  * Prompt 2D para subir/bajar de nivel cuando el personaje está al alcance de un acceso.
- * Botón fijo abajo-centro (no se proyecta a la estructura, para no estorbar el raycast).
+ * No se proyecta a la estructura (para no estorbar el raycast): lo coloca `PilaPrompts`,
+ * encima de los controles de las esquinas.
  */
 export function AccesoOverlay() {
   const t = useT()
@@ -30,15 +31,13 @@ export function AccesoOverlay() {
       : t('acceso.bajar', 'Bajar al nivel {n}', { n: nivelDestino })
 
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-28 z-30 flex justify-center">
-      <button
-        type="button"
-        onClick={subir ? subirNivel : bajarNivel}
-        className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-amber-400/60 px-5 py-2.5 text-sm font-black text-amber-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
-      >
-        <Icono nombre={subir ? 'subir' : 'bajar'} className="text-lg leading-none" />
-        {texto}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={subir ? subirNivel : bajarNivel}
+      className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-amber-400/60 px-5 py-2.5 text-sm font-black text-amber-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
+    >
+      <Icono nombre={subir ? 'subir' : 'bajar'} className="text-lg leading-none" />
+      {texto}
+    </button>
   )
 }

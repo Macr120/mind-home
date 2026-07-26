@@ -214,7 +214,8 @@ export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
               onClick={() => void guardarComoItinerario()}
               className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/80 transition hover:bg-white/15"
             >
-              {guardado ? `✓ ${t('sala.hoja.guardado', 'Guardado')}` : `💾 ${t('sala.hoja.guardar', 'Guardar')}`}
+              <Icono nombre={guardado ? 'confirmar' : 'guardar'} />{' '}
+              {guardado ? t('sala.hoja.guardado', 'Guardado') : t('sala.hoja.guardar', 'Guardar')}
             </button>
           </>
         )}

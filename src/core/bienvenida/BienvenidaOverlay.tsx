@@ -4,9 +4,11 @@ import { useAjustes, type EstiloIconos, type Idioma } from '../state/ajustesStor
 import { useT } from '../i18n/useT'
 import { TEMAS_UI, modoBase, type ModoUI } from '../ui/temasUI'
 import { Icono } from '../ui/iconos/Icono'
-import { MASCOTAS } from '../chat/mascotas'
+import { MASCOTAS, type MascotaId } from '../chat/mascotas'
 import { useMascota } from '../state/mascotaStore'
 import { useDiseño } from '../state/disenoStore'
+import { CUERPOS_PRESET } from '../house/cuerpos'
+import { CapturaPersonajes, PERSONAJES_ONBOARDING } from './CapturaPersonajes'
 import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
 import { plantillasCuarto, getPlantilla, DESCRIPCIONES } from '../registry'
@@ -204,7 +206,7 @@ function GuiaPasos() {
   )
 }
 
-const TOTAL_PASOS = 5
+const TOTAL_PASOS = 6
 
 function Wizard() {
   const t = useT()
@@ -220,6 +222,8 @@ function Wizard() {
 
   const [paso, setPaso] = useState(0)
   const [seleccion, setSeleccion] = useState<Set<string>>(new Set())
+  const [personajeSel, setPersonajeSel] = useState<string>('base')
+  const [capturas, setCapturas] = useState<Record<string, string> | null>(null)
   const [mascotaSel, setMascotaSel] = useState<string>(useMascota.getState().mascota)
   const [plan, setPlan] = useState<Plan>('pro')
   const [ocupado, setOcupado] = useState(false)
@@ -246,6 +250,16 @@ function Wizard() {
         // Secuencial: cada cuarto espera su colocación antes de crear el siguiente.
         const cuartoId = await useCuartos.getState().crear({ categoria: p.categoria })
         await asignarPlantillaACuarto(cuartoId, pid)
+      }
+      // Aplica el personaje elegido como cuerpo del avatar.
+      const diseno = useDiseño.getState()
+      if (personajeSel === 'base') {
+        await diseno.quitarAvatarModelo()
+      } else if (MASCOTAS.some((m) => m.id === personajeSel)) {
+        await diseno.setAvatarForma(personajeSel as MascotaId)
+      } else {
+        const preset = CUERPOS_PRESET.find((c) => c.id === personajeSel)
+        if (preset) await diseno.setAvatarCuerpoPreset(preset)
       }
       await useMascota.getState().setMascota(mascotaSel)
       elegirPlan(plan)
@@ -293,17 +307,18 @@ function Wizard() {
       titulo: t('bienvenida.plan.pro', 'Pro, con servidores e IA'),
       desc: t(
         'bienvenida.plan.proDesc',
-        'IA incluida desde los servidores de Mind Home y tu casa sincronizada entre dispositivos. Requiere cuenta y suscripción.',
+        'IA incluida desde los servidores de Mind Planner Home y tu casa sincronizada entre dispositivos. Requiere cuenta y suscripción.',
       ),
     },
   ]
 
   const titulos = [
     t('bienvenida.idioma.titulo', '¿En qué idioma quieres la casa?'),
-    t('bienvenida.intereses.titulo', '¿Qué te interesa llevar aquí?'),
     t('bienvenida.apariencia.titulo', '¿Cómo quieres ver la interfaz?'),
+    t('bienvenida.intereses.titulo', '¿Qué te interesa llevar aquí?'),
+    t('bienvenida.personaje.titulo', '¿Qué personaje quieres ser?'),
     t('bienvenida.asistente.titulo', '¿Quién te acompaña?'),
-    t('bienvenida.plan.titulo', '¿Cómo quieres usar Mind Home?'),
+    t('bienvenida.plan.titulo', '¿Cómo quieres usar Mind Planner Home?'),
   ]
 
   return (
@@ -311,7 +326,7 @@ function Wizard() {
       <header className="flex items-start gap-2">
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-            {t('bienvenida.titulo', 'Te damos la bienvenida a Mind Home')} ·{' '}
+            {t('bienvenida.titulo', 'Te damos la bienvenida a Mind Planner Home')} ·{' '}
             {t('bienvenida.paso', 'Paso {n} de {m}', { n: paso + 1, m: TOTAL_PASOS })}
           </p>
           <h2 className="text-lg font-black text-white/90">{titulos[paso]}</h2>
@@ -354,7 +369,7 @@ function Wizard() {
           </div>
         )}
 
-        {paso === 1 && (
+        {paso === 2 && (
           <div className="space-y-3">
             <p className="text-sm text-white/60">
               {t(
@@ -410,7 +425,7 @@ function Wizard() {
           </div>
         )}
 
-        {paso === 2 && (
+        {paso === 1 && (
           <div className="space-y-4">
             <div className="space-y-1.5">
               <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
@@ -500,6 +515,55 @@ function Wizard() {
         {paso === 3 && (
           <div className="space-y-3">
             <p className="text-sm text-white/60">
+              {t(
+                'bienvenida.personaje.desc',
+                'Este será tu cuerpo en la casa. Puedes seguir personalizándolo después en el editor.',
+              )}
+            </p>
+            {!capturas ? (
+              <>
+                <p className="py-6 text-center text-sm text-white/40">
+                  {t('bienvenida.personaje.generando', 'Preparando vistas previas…')}
+                </p>
+                <CapturaPersonajes onListo={setCapturas} />
+              </>
+            ) : (
+              <div className="grid grid-cols-4 gap-2">
+                {PERSONAJES_ONBOARDING.map((p) => {
+                  const activo = personajeSel === p.id
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => setPersonajeSel(p.id)}
+                      className={`flex flex-col items-center gap-1 rounded-xl border p-1.5 transition ${
+                        activo
+                          ? 'border-accent bg-white/10'
+                          : 'border-white/10 bg-white/5 hover:bg-white/10'
+                      }`}
+                    >
+                      <img src={capturas[p.id]} alt="" className="h-14 w-14 object-contain" />
+                      <span className="w-full truncate text-center text-[10px] font-semibold text-white/75">
+                        {t(
+                          p.id === 'base'
+                            ? 'editor.pers.modeloBase'
+                            : MASCOTAS.some((m) => m.id === p.id)
+                              ? `mascota.${p.id}.nombre`
+                              : `editor.pers.cuerpo.${p.id}`,
+                          p.nombre,
+                        )}
+                      </span>
+                    </button>
+                  )
+                })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {paso === 4 && (
+          <div className="space-y-3">
+            <p className="text-sm text-white/60">
               {t('bienvenida.asistente.desc', 'Tu asistente habla contigo en el chat y vive en el mapa.')}
             </p>
             <div className="grid gap-2">
@@ -534,7 +598,7 @@ function Wizard() {
           </div>
         )}
 
-        {paso === 4 && (
+        {paso === 5 && (
           <div className="grid gap-2">
             {planes.map((p) => {
               const activo = plan === p.id

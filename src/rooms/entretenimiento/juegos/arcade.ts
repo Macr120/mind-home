@@ -3,6 +3,14 @@
 import { useEffect, useRef, useState } from 'react'
 
 /**
+ * Fondo de las pantallas arcade. Va en literal (no `bg-white/5`) porque el
+ * lienzo se dibuja siempre con tintas claras: con el tema de interfaz en claro
+ * un fondo que se adapta dejaría blanco sobre blanco. La mesa de billar hace lo
+ * mismo con su verde.
+ */
+export const FONDO_LIENZO = '#0f1626'
+
+/**
  * Bucle de animación: llama `paso(dt)` cada frame con dt en segundos,
  * con tope de 0.05 s para no dar saltos al volver de segundo plano.
  * El callback vive en un ref (patrón useEvent): siempre corre la versión

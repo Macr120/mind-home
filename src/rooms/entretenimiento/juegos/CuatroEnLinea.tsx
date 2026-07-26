@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
+import type { Dificultad, PropsDificultad } from './dificultad'
+import { ElegirModo } from './ElegirModo'
 
 type Modo = '2j' | 'ia'
 type FichaC4 = 'R' | 'A'
@@ -11,6 +13,12 @@ const COLS = 7
 const FILAS = 6
 // Columnas del centro hacia afuera: preferencia de la IA cuando no hay jugada crítica
 const ORDEN_CENTRAL = [3, 2, 4, 1, 5, 0, 6]
+const DIRS_C4 = [
+  [0, 1],
+  [1, 0],
+  [1, 1],
+  [1, -1],
+]
 
 function filaLibre(t: TableroC4, col: number): number | null {
   for (let f = FILAS - 1; f >= 0; f--) if (t[f * COLS + col] === null) return f
@@ -18,16 +26,10 @@ function filaLibre(t: TableroC4, col: number): number | null {
 }
 
 function hayCuatro(t: TableroC4, ficha: FichaC4): boolean {
-  const dirs = [
-    [0, 1],
-    [1, 0],
-    [1, 1],
-    [1, -1],
-  ]
   for (let f = 0; f < FILAS; f++)
     for (let c = 0; c < COLS; c++) {
       if (t[f * COLS + c] !== ficha) continue
-      for (const [df, dc] of dirs) {
+      for (const [df, dc] of DIRS_C4) {
         let n = 1
         while (n < 4) {
           const f1 = f + df * n
@@ -49,17 +51,77 @@ function conFicha(t: TableroC4, col: number, ficha: FichaC4): TableroC4 | null {
   return nuevo
 }
 
-// IA: gana si puede, bloquea si el rival gana, si no juega lo más al centro posible
-function columnaIA(t: TableroC4): number {
-  for (const ficha of ['A', 'R'] as const)
-    for (const col of ORDEN_CENTRAL) {
-      const prueba = conFicha(t, col, ficha)
-      if (prueba && hayCuatro(prueba, ficha)) return col
-    }
-  return ORDEN_CENTRAL.find((col) => filaLibre(t, col) !== null)!
+const columnasLibres = (t: TableroC4) => ORDEN_CENTRAL.filter((col) => filaLibre(t, col) !== null)
+
+// Cuenta amenazas por ventanas de 4 desde el punto de vista de `ficha`
+function evaluar(t: TableroC4, ficha: FichaC4): number {
+  const rival: FichaC4 = ficha === 'A' ? 'R' : 'A'
+  let puntos = 0
+  for (let f = 0; f < FILAS; f++)
+    for (let c = 0; c < COLS; c++)
+      for (const [df, dc] of DIRS_C4) {
+        const f3 = f + df * 3
+        const c3 = c + dc * 3
+        if (f3 < 0 || f3 >= FILAS || c3 < 0 || c3 >= COLS) continue
+        let mias = 0
+        let suyas = 0
+        for (let n = 0; n < 4; n++) {
+          const v = t[(f + df * n) * COLS + c + dc * n]
+          if (v === ficha) mias++
+          else if (v === rival) suyas++
+        }
+        if (mias && suyas) continue
+        if (mias === 3) puntos += 6
+        else if (mias === 2) puntos += 2
+        else if (suyas === 3) puntos -= 5
+        else if (suyas === 2) puntos -= 2
+      }
+  for (let f = 0; f < FILAS; f++) if (t[f * COLS + 3] === ficha) puntos += 3
+  return puntos
 }
 
-export function CuatroEnLinea() {
+// Negamax con poda alfa-beta; el rival acaba de mover, así que si ya hizo 4 perdimos
+function negamax(t: TableroC4, ficha: FichaC4, prof: number, alfa: number, beta: number): number {
+  const rival: FichaC4 = ficha === 'A' ? 'R' : 'A'
+  if (hayCuatro(t, rival)) return -10000 - prof
+  const cols = columnasLibres(t)
+  if (!cols.length) return 0
+  if (prof === 0) return evaluar(t, ficha)
+  let mejor = -Infinity
+  for (const col of cols) {
+    const v = -negamax(conFicha(t, col, ficha)!, rival, prof - 1, -beta, -alfa)
+    mejor = Math.max(mejor, v)
+    alfa = Math.max(alfa, v)
+    if (alfa >= beta) break
+  }
+  return mejor
+}
+
+/**
+ * Columna que juega la máquina (lleva las amarillas):
+ * fácil remata pero no bloquea, medio gana/bloquea/centro y difícil busca a 5 jugadas.
+ */
+function columnaIA(t: TableroC4, dif: Dificultad): number {
+  const cols = columnasLibres(t)
+  const gana = cols.find((col) => hayCuatro(conFicha(t, col, 'A')!, 'A'))
+  if (gana !== undefined) return gana
+  if (dif === 'facil') return cols[Math.floor(Math.random() * cols.length)]
+  const bloqueo = cols.find((col) => hayCuatro(conFicha(t, col, 'R')!, 'R'))
+  if (bloqueo !== undefined) return bloqueo
+  if (dif === 'medio') return cols[0]
+  let mejor = -Infinity
+  let elegida = cols[0]
+  for (const col of cols) {
+    const v = -negamax(conFicha(t, col, 'A')!, 'R', 4, -Infinity, Infinity)
+    if (v > mejor) {
+      mejor = v
+      elegida = col
+    }
+  }
+  return elegida
+}
+
+export function CuatroEnLinea({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
   const [modo, setModo] = useState<Modo | null>(null)
   const [tablero, setTablero] = useState<TableroC4>(() => new Array<FichaC4 | null>(COLS * FILAS).fill(null))
@@ -84,36 +146,31 @@ export function CuatroEnLinea() {
 
   useEffect(() => {
     if (modo !== 'ia' || ganador || turno !== 'A') return
-    const id = setTimeout(() => soltar(columnaIA(tablero), 'A'), 450)
+    const id = setTimeout(() => soltar(columnaIA(tablero, dificultad), 'A'), 450)
     return () => clearTimeout(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modo, ganador, turno, tablero])
 
   if (modo === null) {
     return (
-      <div className="space-y-3">
-        <p className="text-sm font-semibold">{t('entre.j.modo.titulo', '¿Cómo quieres jugar?')}</p>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => reiniciar('ia')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="mascota-robot" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.ia', 'Contra la máquina')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.cuatroenlinea.iaDesc', 'Tú llevas las rojas')}</p>
-          </button>
-          <button
-            type="button"
-            onClick={() => reiniciar('2j')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="companeros" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.2j', '2 jugadores')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.modo.2jDesc', 'En el mismo dispositivo')}</p>
-          </button>
-        </div>
-      </div>
+      <ElegirModo
+        opciones={[
+          {
+            clave: 'ia',
+            icono: <Icono nombre="mascota-robot" />,
+            titulo: t('entre.j.modo.ia', 'Contra la máquina'),
+            desc: t('entre.j.cuatroenlinea.iaDesc', 'Tú llevas las rojas'),
+            alElegir: () => reiniciar('ia'),
+          },
+          {
+            clave: '2j',
+            icono: <Icono nombre="companeros" />,
+            titulo: t('entre.j.modo.2j', '2 jugadores'),
+            desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
+            alElegir: () => reiniciar('2j'),
+          },
+        ]}
+      />
     )
   }
 

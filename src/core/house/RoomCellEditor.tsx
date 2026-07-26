@@ -51,7 +51,7 @@ export function RoomCellEditor({ roomId }: { roomId?: string } = {}) {
         if (!puede) return null
         const [x, , z] = cellToWorld(c.col, c.row)
         return (
-          <Html key={'m' + cellId(c.col, c.row)} position={[x, y0 + 1.1, z]} center zIndexRange={[70, 0]}>
+          <Html key={'m' + cellId(c.col, c.row)} position={[x, y0 + 1.1, z]} center zIndexRange={[30, 0]}>
             <button
               type="button"
               onClick={() => quitarCelda(c)}
@@ -68,7 +68,7 @@ export function RoomCellEditor({ roomId }: { roomId?: string } = {}) {
       {agregar.map((v) => {
         const [x, , z] = cellToWorld(v.col, v.row)
         return (
-          <Html key={'p' + cellId(v.col, v.row)} position={[x, y0 + 0.6, z]} center zIndexRange={[70, 0]}>
+          <Html key={'p' + cellId(v.col, v.row)} position={[x, y0 + 0.6, z]} center zIndexRange={[30, 0]}>
             <button
               type="button"
               onClick={() => expandirCeldaCuarto(id, v)}

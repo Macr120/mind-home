@@ -11,6 +11,7 @@ import { useTren } from '../state/trenStore'
 import { useCuartoPisado } from '../state/useCuartoPisado'
 import { desbloquearAudio } from './motor'
 import { detenerMusica, iniciarMusica } from './musicaGenerada'
+import { usePaisaje } from './paisaje'
 import { detenerPista, iniciarPista, reproducirLista } from './pistas'
 import { temaAutoDeCuarto } from './temas'
 
@@ -32,6 +33,9 @@ export function useMusicaAmbiental(): void {
   const mood = useAjustes((s) => s.musicaMood)
   const pistaId = useAjustes((s) => s.musicaPistaId)
   const wrappedAbierto = useWrappedUi((s) => s.abierto)
+  // Un paisaje sonoro (meditación del jardín) manda: la música se calla y, al
+  // terminar la sesión, este efecto re-corre y la ambiental vuelve sola.
+  const paisajeSonando = usePaisaje((s) => s.activo != null)
   const [desbloqueado, setDesbloqueado] = useState(false)
 
   // ¿Jugando? El tema del juego manda (solo aplica a la música generada).
@@ -87,7 +91,7 @@ export function useMusicaAmbiental(): void {
       detenerPista()
       return
     }
-    if (!ambiental || !desbloqueado) {
+    if (!ambiental || !desbloqueado || paisajeSonando) {
       detenerMusica()
       detenerPista()
       return
@@ -112,5 +116,5 @@ export function useMusicaAmbiental(): void {
       detenerMusica()
       detenerPista()
     }
-  }, [ambiental, desbloqueado, wrappedAbierto, fuente, efectivo, pistaId])
+  }, [ambiental, desbloqueado, wrappedAbierto, paisajeSonando, fuente, efectivo, pistaId])
 }

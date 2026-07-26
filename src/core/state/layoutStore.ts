@@ -54,6 +54,7 @@ import {
   type PincelesCuarto,
 } from '../house/murosPuertas'
 import { puertaInicialCuarto, murosAbiertosExterior } from '../house/murosZona'
+import { perimetroFormaCelda } from '../house/murosPerimetroLoseta'
 import {
   formaEnCelda,
   formasAbsAOff,
@@ -405,7 +406,7 @@ interface LayoutState {
   previewLado: SideKey | null
   cargado: boolean
   cargar: () => Promise<void>
-  /** `mantenerVista`: al cerrar (v=false), no resetea la cámara (p. ej. al abrir el side menu de Mind Home). */
+  /** `mantenerVista`: al cerrar (v=false), no resetea la cámara (p. ej. al abrir el side menu de MPH). */
   setEditMode: (v: boolean, opts?: { mantenerVista?: boolean }) => void
   editRoom: (id: string | null) => void
   /** Activa/desactiva "mover objetos" de un cuarto: cierra el editor, enfoca el cuarto y
@@ -769,7 +770,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
       previewCell: null,
       // Abrir/togglear el editor de mapa cancela el modo "mover objetos" (son excluyentes).
       moverObjetosRoomId: null,
-      // `mantenerVista`: al ocultar el panel (p. ej. se abrió el side menu de Mind Home) NO
+      // `mantenerVista`: al ocultar el panel (p. ej. se abrió el side menu de MPH) NO
       // se limpia editingRoomId — seguimos "dentro" del cuarto, solo se ocultó el panel; así
       // el botón flotante sigue visible y `setEditMode(true)` retoma el mismo cuarto.
       editingRoomId: v || opts?.mantenerVista ? editingAntes : null,
@@ -808,9 +809,11 @@ export const useLayout = create<LayoutState>((set, get) => ({
 
   setMoverObjetos: (id) => {
     if (id) {
-      // Cerrar el editor y enfocar el cuarto en iso: sus objetos se arrastran sueltos en el
-      // mapa 3D (ObjetoDragController) y el botón flotante "Listo" (EditorAnchor) sale del modo.
-      useCam.getState().setVista('iso')
+      // Cerrar el editor y enfocar el cuarto en vista de PLANTA (top-down): en móvil es mucho
+      // más fácil ubicar y arrastrar objetos mirando desde arriba que en isométrico. Sus objetos
+      // quedan sueltos en el mapa 3D (ObjetoDragController) y el botón flotante "Listo"
+      // (EditorAnchor) sale del modo.
+      useCam.getState().setVistaIso('top')
       set({ editMode: false, editingRoomId: null, moverObjetosRoomId: id, draggingId: null, previewCell: null })
       useEditorUi.getState().setObjetoSel(null)
       useCam.getState().focusRoomEdit(roomFocusPos(id))
@@ -1312,21 +1315,77 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const nueva = { col: abs.col - anchor2.col, row: abs.row - anchor2.row }
     const vieja = { col: origen.cell.col - anchor2.col, row: origen.cell.row - anchor2.row }
     const roomFormas = { ...(st.formasCelda[id] ?? {}) }
+    // Aristas virtuales (color/textura/puerta) del recorte fino que se mueve: sin esto
+    // quedan huérfanas en la clave vieja y la esquina nueva nace con el pincel por defecto.
+    const wallOverrides2 = { ...st.wallOverrides }
+    const ov = { ...(wallOverrides2[id] ?? {}) }
+    const edgeStyles2 = { ...st.edgeStyles }
+    const est = { ...(edgeStyles2[id] ?? {}) }
+    let movioAristas = false
+    const migrarAristasSubcelda = (viejaC: Cell, nuevaC: Cell, i: number) => {
+      const baseVieja = claveSubceldaOff(viejaC.col, viejaC.row, i)
+      const baseNueva = claveSubceldaOff(nuevaC.col, nuevaC.row, i)
+      for (const s of SIDE_KEYS) {
+        const kVieja = `${baseVieja},${s}`
+        const kNueva = `${baseNueva},${s}`
+        if (ov[kVieja] !== undefined) {
+          ov[kNueva] = ov[kVieja]
+          delete ov[kVieja]
+          movioAristas = true
+        }
+        if (est[kVieja] !== undefined) {
+          est[kNueva] = est[kVieja]
+          delete est[kVieja]
+          movioAristas = true
+        }
+      }
+    }
     if (origen.forma) {
       // La silueta avanza a la celda nueva; su antiguo lugar queda cuadrado.
       roomFormas[claveCeldaOff(nueva.col, nueva.row)] = origen.forma
       delete roomFormas[claveCeldaOff(vieja.col, vieja.row)]
+      // Forma entera: su estilo vive en UNA arista real representativa (no en claves de
+      // cuadrante), la misma que usa MurosPerimetroFormaCuarto para pintarla y editarla.
+      const per = perimetroFormaCelda(origen.forma, 0, 0)
+      const ladoRep = per ? SIDE_KEYS.find((s) => !per.lados.has(s)) : undefined
+      if (ladoRep) {
+        const kVieja = edgeKey(vieja, ladoRep)
+        const kNueva = edgeKey(nueva, ladoRep)
+        if (ov[kVieja] !== undefined) {
+          ov[kNueva] = ov[kVieja]
+          delete ov[kVieja]
+          movioAristas = true
+        }
+        if (est[kVieja] !== undefined) {
+          est[kNueva] = est[kVieja]
+          delete est[kVieja]
+          movioAristas = true
+        }
+      }
     } else {
       // Cada esquina fina avanza al MISMO cuadrante de la celda nueva (el borde redondeado
       // pasa a ser el exterior) y se borra del suyo, que queda a escuadra.
       for (const { i, f } of origen.subs) {
         roomFormas[claveSubceldaOff(nueva.col, nueva.row, i)] = f
         delete roomFormas[claveSubceldaOff(vieja.col, vieja.row, i)]
+        migrarAristasSubcelda(vieja, nueva, i)
       }
     }
     const formasCelda2 = { ...st.formasCelda, [id]: roomFormas }
-    set({ formasCelda: formasCelda2, ...recompute({ ...st, formasCelda: formasCelda2 }) })
-    await upsert(id, { formasCelda: roomFormas })
+    if (movioAristas) {
+      wallOverrides2[id] = ov
+      edgeStyles2[id] = est
+      set({
+        formasCelda: formasCelda2,
+        wallOverrides: wallOverrides2,
+        edgeStyles: edgeStyles2,
+        ...recompute({ ...st, formasCelda: formasCelda2, wallOverrides: wallOverrides2, edgeStyles: edgeStyles2 }),
+      })
+      await upsert(id, { formasCelda: roomFormas, muros: ov, estilos: est })
+    } else {
+      set({ formasCelda: formasCelda2, ...recompute({ ...st, formasCelda: formasCelda2 }) })
+      await upsert(id, { formasCelda: roomFormas })
+    }
     // El techo fabricado viaja con la silueta que avanza: si no, la figura se quedaría
     // con techo plano y su tienda/cono sobre la celda que acaba de quedar cuadrada.
     const kVieja = claveCeldaOff(vieja.col, vieja.row)
@@ -1339,7 +1398,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
   },
 
   contraerCeldaCuarto: async (id, abs) => {
-    const { cells, footprints, formasCelda } = get()
+    const { cells, footprints, formasCelda, wallOverrides, edgeStyles } = get()
     const anchor = cells[id]
     if (!anchor) return
     const fp = fpDe(footprints, id)
@@ -1362,12 +1421,53 @@ export const useLayout = create<LayoutState>((set, get) => ({
       }
       if (destino) {
         const roomFormas = { ...formas }
+        // Aristas virtuales (color/textura/puerta) del recorte fino que retrocede: sin
+        // esto quedan huérfanas en la clave vieja y la esquina que queda nace sin estilo.
+        const ov = { ...(wallOverrides[id] ?? {}) }
+        const est = { ...(edgeStyles[id] ?? {}) }
+        let movioAristas = false
+        const migrarAristasSubcelda = (viejaC: Cell, nuevaC: Cell, i: number) => {
+          const baseVieja = claveSubceldaOff(viejaC.col, viejaC.row, i)
+          const baseNueva = claveSubceldaOff(nuevaC.col, nuevaC.row, i)
+          for (const s of SIDE_KEYS) {
+            const kVieja = `${baseVieja},${s}`
+            const kNueva = `${baseNueva},${s}`
+            if (ov[kVieja] !== undefined) {
+              ov[kNueva] = ov[kVieja]
+              delete ov[kVieja]
+              movioAristas = true
+            }
+            if (est[kVieja] !== undefined) {
+              est[kNueva] = est[kVieja]
+              delete est[kVieja]
+              movioAristas = true
+            }
+          }
+        }
         let movio = false
         const fEntera = formas[claveCeldaOff(off.col, off.row)]
         if (fEntera && !esFormaCuadrada(fEntera)) {
           // La silueta retrocede entera a la vecina.
           roomFormas[claveCeldaOff(destino.off.col, destino.off.row)] = fEntera
           movio = true
+          // Forma entera: su estilo vive en UNA arista real representativa (no en claves
+          // de cuadrante), la misma que usa MurosPerimetroFormaCuarto.
+          const per = perimetroFormaCelda(fEntera, 0, 0)
+          const ladoRep = per ? SIDE_KEYS.find((s) => !per.lados.has(s)) : undefined
+          if (ladoRep) {
+            const kVieja = edgeKey(off, ladoRep)
+            const kNueva = edgeKey(destino.off, ladoRep)
+            if (ov[kVieja] !== undefined) {
+              ov[kNueva] = ov[kVieja]
+              delete ov[kVieja]
+              movioAristas = true
+            }
+            if (est[kVieja] !== undefined) {
+              est[kNueva] = est[kVieja]
+              delete est[kVieja]
+              movioAristas = true
+            }
+          }
         } else {
           // Solo las esquinas del borde exterior (las que avanzaron al expandir) regresan
           // al mismo cuadrante de la vecina, restaurando la figura original.
@@ -1376,11 +1476,20 @@ export const useLayout = create<LayoutState>((set, get) => ({
             if (!f || esFormaCuadrada(f)) continue
             roomFormas[claveSubceldaOff(destino.off.col, destino.off.row, i)] = f
             movio = true
+            migrarAristasSubcelda(off, destino.off, i)
           }
         }
         // Se aplica antes de quitar: removeRoomCell descarta las claves de la celda que se va.
         if (movio) {
-          set({ formasCelda: { ...formasCelda, [id]: roomFormas } })
+          if (movioAristas) {
+            set({
+              formasCelda: { ...formasCelda, [id]: roomFormas },
+              wallOverrides: { ...wallOverrides, [id]: ov },
+              edgeStyles: { ...edgeStyles, [id]: est },
+            })
+          } else {
+            set({ formasCelda: { ...formasCelda, [id]: roomFormas } })
+          }
           // El techo retrocede con su silueta; el de la celda que se va lo descarta removeRoomCell.
           const { useDiseño } = await import('./disenoStore')
           const cfOff = useDiseño.getState().roomTechoFormasCelda[id]?.[claveCeldaOff(off.col, off.row)]
@@ -1500,17 +1609,20 @@ export const useLayout = create<LayoutState>((set, get) => ({
   },
 
   setEdgeEstilo: async (id, off, side, patch) => {
-    const { edgeStyles } = get()
+    const { edgeStyles, pinceles } = get()
+    // Base = pincel actual del cuarto (no el default genérico): así la primera edición de
+    // una sola propiedad (p.ej. subir el Alto) no resetea color/textura ya pintados.
+    const pin = pinceles[id] ?? PINCELES_DEFAULT
     const key = edgeKey(off, side)
     const estRoom = { ...(edgeStyles[id] ?? {}) }
     const prev = estRoom[key] ?? {}
     estRoom[key] = {
       ...prev,
       ...(patch.muro
-        ? { muro: { ...PINCELES_DEFAULT.muro, ...prev.muro, ...patch.muro } }
+        ? { muro: { ...pin.muro, ...prev.muro, ...patch.muro } }
         : {}),
       ...(patch.puerta
-        ? { puerta: { ...PINCELES_DEFAULT.puerta, ...prev.puerta, ...patch.puerta } }
+        ? { puerta: { ...pin.puerta, ...prev.puerta, ...patch.puerta } }
         : {}),
     }
     const nuevos = { ...edgeStyles, [id]: estRoom }

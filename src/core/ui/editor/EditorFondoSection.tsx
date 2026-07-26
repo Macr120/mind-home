@@ -44,6 +44,8 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
     eliminarFondoImagen,
     animacionesFondo,
     setAnimacionesFondo,
+    animacionesIntensidad,
+    setAnimacionesIntensidad,
     temaGlobal,
   } = useDiseño()
   const colorFijoActivo = fondoImagenActivo == null && fondoId === 'color_fijo'
@@ -273,34 +275,58 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
         ))}
       </div>
 
-      <div className="flex items-center justify-between rounded-lg border border-white/10 bg-black/20 px-3 py-2.5">
-        <div>
-          <p className="text-sm font-semibold">{t('editor.fondo.anim', 'Microanimaciones')}</p>
-          <p className="text-[10px] text-white/45 leading-snug">
-            {temaGlobal
-              ? t('editor.fondo.animActivo', `Activas con tema ${temaNombre ?? temaGlobal} (cometas, dragones, nieve…)`, {
-                  tema: temaNombre ?? temaGlobal ?? '',
-                })
-              : t('editor.fondo.animDesc', 'Elige un tema para ver animaciones en el cielo')}
-          </p>
-        </div>
-        <button
-          type="button"
-          role="switch"
-          aria-checked={animacionesFondo}
-          onClick={() => void setAnimacionesFondo(!animacionesFondo)}
-          className={[
-            'relative h-7 w-12 flex-shrink-0 rounded-full transition',
-            animacionesFondo ? 'bg-emerald-500' : 'bg-white/15',
-          ].join(' ')}
-        >
-          <span
+      <div className="space-y-2 rounded-lg border border-white/10 bg-black/20 px-3 py-2.5">
+        <div className="flex items-center justify-between gap-2">
+          <div>
+            <p className="text-sm font-semibold">{t('editor.fondo.anim', 'Microanimaciones')}</p>
+            <p className="text-[10px] text-white/45 leading-snug">
+              {temaGlobal
+                ? t('editor.fondo.animActivo', `Activas con tema ${temaNombre ?? temaGlobal} (cometas, dragones, nieve…)`, {
+                    tema: temaNombre ?? temaGlobal ?? '',
+                  })
+                : t('editor.fondo.animDesc', 'Nubes, aves, copos o polvo según el fondo elegido')}
+            </p>
+          </div>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={animacionesFondo}
+            onClick={() => void setAnimacionesFondo(!animacionesFondo)}
             className={[
-              'absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition',
-              animacionesFondo ? 'left-[22px]' : 'left-0.5',
+              'relative h-7 w-12 flex-shrink-0 rounded-full transition',
+              animacionesFondo ? 'bg-emerald-500' : 'bg-white/15',
             ].join(' ')}
-          />
-        </button>
+          >
+            <span
+              className={[
+                'absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition',
+                animacionesFondo ? 'left-[22px]' : 'left-0.5',
+              ].join(' ')}
+            />
+          </button>
+        </div>
+
+        {animacionesFondo && (
+          <div>
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] text-white/45">
+                {t('editor.fondo.animIntensidad', 'Intensidad')}
+              </span>
+              <span className="text-[10px] tabular-nums text-white/40">
+                {Math.round(animacionesIntensidad * 100)}%
+              </span>
+            </div>
+            <input
+              type="range"
+              min={0.1}
+              max={1}
+              step={0.05}
+              value={animacionesIntensidad}
+              onChange={(e) => void setAnimacionesIntensidad(parseFloat(e.target.value))}
+              className="mt-1 w-full accent-emerald-400"
+            />
+          </div>
+        )}
       </div>
     </div>
   )

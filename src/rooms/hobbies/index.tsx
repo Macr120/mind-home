@@ -82,9 +82,10 @@ const hobbies: RoomModule = {
   tutorial: tutorialHobbies,
   capturar,
   esquemas,
+  // El cronograma ya no es una pestaña: cada hobby y cada proyecto lleva el suyo,
+  // así que el deep-link solo puede llevar a la lista.
   comandos: [
     { seccion: 'hobbies', etiqueta: 'Hobbies', nombres: ['mis hobbies', 'pasatiempos', 'mis proyectos'] },
-    { seccion: 'cronograma', etiqueta: 'Cronograma', nombres: ['cronograma de hobbies', 'metas de hobbies'] },
   ],
   // `metaDiasSemana` es por hobby y semanal: el x/7 de cada uno se queda en su
   // detalle. Aquí la pregunta es la de la app entera: ¿practicaste algo hoy?

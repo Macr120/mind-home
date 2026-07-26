@@ -71,6 +71,8 @@ export function SelectorTutorialOverlay() {
   // (mismo patrón de intervalo que el spotlight del TutorialOverlay).
   useEffect(() => {
     if (!abierto) {
+      // Al cerrar se sueltan las zonas medidas: la próxima apertura remide.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setZonas([])
       return
     }

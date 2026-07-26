@@ -9,13 +9,14 @@ import { normalizar } from '../../core/chat/dispatcher'
 import { JardinApp } from './JardinApp'
 import { tutorialJardin } from './tutorial'
 import { fechaLocalISO } from '../../core/fechaLocal'
-import { TEMAS, type TemaMeditacion } from './guiones'
+import type { PaisajeId } from '../../core/audio/paisaje'
+import { PISTAS } from './pistas'
 
-const TEMAS_TOKENS: [string[], TemaMeditacion][] = [
-  [['ansiedad', 'ansioso', 'ansiosa', 'estres', 'estresado', 'estresada'], 'ansiedad'],
-  [['foco', 'enfoque', 'concentracion', 'concentrarme'], 'foco'],
-  [['gratitud', 'agradecer'], 'gratitud'],
-  [['dormir', 'sueno', 'noche'], 'dormir'],
+const PISTAS_TOKENS: [string[], PaisajeId][] = [
+  [['bosque', 'arboles', 'pajaros', 'naturaleza'], 'bosque'],
+  [['mar', 'olas', 'oceano', 'playa'], 'mar'],
+  [['lluvia', 'lloviendo', 'lluvioso'], 'lluvia'],
+  [['cuencos', 'cuenco', 'tibetanos', 'tibetano'], 'cuencos'],
 ]
 
 async function capturar(texto: string): Promise<boolean> {
@@ -49,7 +50,7 @@ async function capturar(texto: string): Promise<boolean> {
   if (duracion <= 0) return false
 
   const esRespiracion = ['respire', 'respiracion', 'respirar'].some((k) => tokens.has(k))
-  const tema = TEMAS_TOKENS.find(([claves]) => claves.some((k) => tokens.has(k)))?.[1]
+  const tema = PISTAS_TOKENS.find(([claves]) => claves.some((k) => tokens.has(k)))?.[1]
   await sesionesMindfulnessRepo.add({
     fecha: fechaLocalISO(),
     tipo: esRespiracion ? 'respiracion' : 'meditacion',
@@ -77,8 +78,8 @@ const esquemas: EsquemaCaptura[] = [
       {
         campo: 'tema',
         tipo: 'opcion',
-        opciones: TEMAS.map((t) => t.id),
-        descripcion: 'Tema de la meditación (solo si se menciona)',
+        opciones: PISTAS.map((p) => p.id),
+        descripcion: 'Pista de sonido de la meditación (solo si se menciona)',
       },
       { campo: 'fecha', tipo: 'fecha', descripcion: 'Fecha yyyy-mm-dd (hoy si no se menciona)' },
     ],
@@ -87,11 +88,11 @@ const esquemas: EsquemaCaptura[] = [
       if (duracion <= 0) return
       const esRespiracion = vTexto(v.tipo) === 'respiracion'
       const tema = vTexto(v.tema)
-      const nombreTema = TEMAS.find((t) => t.id === tema)?.nombre
+      const nombrePista = PISTAS.find((p) => p.id === tema)?.nombre
       await sesionesMindfulnessRepo.add({
         fecha: vFecha(v.fecha),
         tipo: esRespiracion ? 'respiracion' : 'meditacion',
-        titulo: esRespiracion ? 'Respiración' : nombreTema ? `Meditación · ${nombreTema}` : 'Meditación',
+        titulo: esRespiracion ? 'Respiración' : nombrePista ? `Meditación · ${nombrePista}` : 'Meditación',
         duracionMin: duracion,
         tema: tema || undefined,
       })

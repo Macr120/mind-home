@@ -10,7 +10,7 @@ import { useEditorUi } from '../../state/editorUiStore'
 import { forzarSiempre, type AnimacionModelo } from '../../house/animacion'
 import { GrupoAnimado } from '../../house/Animado'
 import { ControlesPiezasOverlay, EngraneActivarPiezas, BotonOverlay } from './EditorPiezas'
-import { BotonPreviewClaro } from './BotonPreviewClaro'
+import { BotonPreviewClaro, claseFondoPreview } from './BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -138,9 +138,7 @@ export function PreviewObjeto3D({
 
   return (
     <div
-      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${
-        claro ? 'bg-white' : 'bg-[#0d0f13]'
-      }`}
+      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
     >
       <div className="h-56 w-full">
         <Canvas
@@ -188,7 +186,7 @@ export function PreviewObjeto3D({
           </div>
           <span
             className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
-              claro ? 'text-black/45' : 'text-white/35'
+              claro ? 'text-black/45' : 'text-[#ffffff]/35'
             }`}
           >
             {t('preview.girar', 'Arrastra para girar · rueda para acercar')}

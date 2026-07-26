@@ -46,6 +46,10 @@ export interface PerfilSueno {
   // Recordatorios de la noche (opcionales: las filas viejas no los traen).
   avisoDormir?: boolean    // aviso a la hora de dormir
   avisoPantallas?: boolean // aviso una hora antes, para dejar las pantallas
+  /** Tono del despertador: id del catálogo o `pista:<id>` de `pistasMusica`. */
+  tono?: string
+  /** Volumen del despertador (0–1), independiente del de la música. */
+  volumenAlarma?: number
 }
 
 interface Anecdota {
@@ -126,19 +130,6 @@ export interface RegistroComida {
   nota?: string
 }
 
-/** Comida planificada (semana). */
-export interface PlanComida {
-  id?: number
-  fecha: string
-  momento: MomentoComida
-  nombre: string
-  calorias: number
-  proteinas: number
-  carbohidratos: number
-  grasas: number
-  preparado: boolean
-}
-
 export interface RegistroAgua {
   id?: number
   fecha: string
@@ -150,8 +141,6 @@ export interface ListaCompra {
   id?: number
   nombre: string
   creadoEn: string
-  /** Portada opcional: subida por el usuario o generada con IA (sin índice). */
-  foto?: Blob
 }
 
 /** Artículo de la lista de compras del súper, agrupado por categoría (pasillo). */
@@ -686,7 +675,7 @@ export interface SesionMindfulness {
   titulo: string
   duracionMin: number
   nota?: string
-  /** Tema de la meditación guiada (ansiedad, foco…) o patrón de respiración (caja, 478). */
+  /** Pista de sonido de la meditación (bosque, lluvia…) o patrón de respiración (caja, 478). */
   tema?: string
   /** Check-in emocional 1–5 antes/después de la sesión (opcional). */
   animoAntes?: number
@@ -1024,6 +1013,10 @@ interface DisenoAvatar {
   peloColor?: string
   /** Forma integrada (MascotaId) usada como cuerpo del avatar ('' = ninguna). */
   forma?: string
+  /** Color del cuerpo con `forma` ('' = el propio de la forma, COLOR_FORMA). */
+  formaColor?: string
+  /** Qué preset de CUERPOS_PRESET (o 'base') originó `modelo3d` ('' = ninguno/editado). */
+  cuerpoPresetId?: string
   /** Modelo 3D generado por IA: JSON de piezas primitivas (Pieza3D[]). */
   modelo3d?: string
   /** Modelo .glb subido por el usuario (gana a modelo3d y a los cubos). */
@@ -1127,6 +1120,16 @@ export interface AsistenteGuardado {
   escala?: number
   /** Ropa puesta: JSON de prendas (Ropa de house/apariencia). */
   ropa?: string
+  /** Qué preset de CUERPOS_PRESET (o 'base') originó `modelo3d` ('' = ninguno/editado). */
+  cuerpoPresetId?: string
+  /** Expresión del rostro dibujado (ExpresionId de house/apariencia; '' = por defecto). Solo Base/Princesa. */
+  expresion?: string
+  /** Imagen de rostro subida por el usuario (tapa el frente de la cabeza). Solo Base/Princesa. */
+  rostro?: Blob
+  /** Peinado dibujado (PeinadoId de house/apariencia; '' = sin pelo). Solo Base. */
+  peinado?: string
+  /** Color del pelo ('' = por defecto). */
+  peloColor?: string
   /** Modelo 3D generado por IA: JSON de piezas primitivas (Pieza3D[]). */
   modelo3d?: string
   /** Modelo .glb subido por el usuario. */
@@ -1247,6 +1250,14 @@ export interface Rutina {
   actividadId?: string
   /** Sección de la app a la que lleva su aviso (la pestaña donde se registra). */
   seccion?: string
+  /**
+   * Sub-ámbito DENTRO de la app al que pertenece la meta: `hobby:3`,
+   * `proyecto:7`. Con `plantillaId` la meta sale en el cronograma de la app; con
+   * `ambitoId`, en el de ese hobby o ese proyecto concreto. Las sub-metas lo
+   * heredan de su madre (ver `crearMeta`). Mismo formato `tipo:id` que
+   * `actividadId`, y las hijas lo heredan igual.
+   */
+  ambitoId?: string
   /** Nota libre (sobre todo para metas sueltas, sin checklist de pasos). */
   nota?: string
   /**
@@ -1676,6 +1687,10 @@ export interface ProyectoHobby {
   estado: 'en-curso' | 'terminado'
   creadoEn: string
   terminadoEn?: string // yyyy-mm-dd local al terminar
+  /** Descripción libre del proyecto. */
+  nota?: string
+  /** Fotos del avance (JPEG comprimidos, ver `comprimirFoto`). */
+  imagenes?: Blob[]
 }
 
 /** Tipo de herramienta (bloque) de una plantilla personalizada. */
@@ -1856,6 +1871,22 @@ export interface TemaIdioma {
   conversacionId?: number
 }
 
+/** Material propio que el usuario sube a un tema del temario (apuntes o fotos). */
+export interface MaterialIdioma {
+  id?: number
+  idiomaId: number
+  /** Tema del temario (estático de temario.ts o dinámico) al que se adjuntó. */
+  temaId: string
+  tipo: 'texto' | 'imagen'
+  /** Nombre visible; en las notas es el título que puso el usuario. */
+  titulo: string
+  /** Cuerpo de la nota (solo en `tipo: 'texto'`). */
+  texto?: string
+  /** Imagen comprimida a JPEG (solo en `tipo: 'imagen'`). */
+  blob?: Blob
+  creadoEn: string
+}
+
 /** Actividad de repaso agregada: una fila por idioma y día (heatmap/racha/XP). */
 export interface RepasoIdioma {
   id?: number
@@ -1914,7 +1945,6 @@ class MindHomeDB extends Dexie {
   presupuestos!: Table<Presupuesto, number>
   perfilNutricion!: Table<PerfilNutricion, number>
   registrosComida!: Table<RegistroComida, number>
-  planComidas!: Table<PlanComida, number>
   registrosAgua!: Table<RegistroAgua, number>
   recetas!: Table<Receta, number>
   dietasGuardadas!: Table<DietaGuardada, number>
@@ -1997,6 +2027,7 @@ class MindHomeDB extends Dexie {
   conversacionesIdioma!: Table<ConversacionIdioma, number>
   mensajesIdioma!: Table<MensajeIdioma, number>
   temasIdioma!: Table<TemaIdioma, number>
+  materialesIdioma!: Table<MaterialIdioma, number>
   repasosIdioma!: Table<RepasoIdioma, number>
   caminos!: Table<CaminoCelda, number>
   cultivos!: Table<CultivoCelda, number>
@@ -2940,6 +2971,16 @@ class MindHomeDB extends Dexie {
     this.version(94).stores({
       estadoSisifo: '++id, &uid',
     })
+    // v95: fuera `planComidas`. El "plan semanal de comidas" nunca se construyó
+    // (cero repo, cero consumidores) y la pestaña Dieta usa `dietasGuardadas`.
+    this.version(95).stores({
+      planComidas: null,
+    })
+    // v96: material propio del temario de idiomas (apuntes y fotos que sube el
+    // usuario a un tema). El blob no se indexa.
+    this.version(96).stores({
+      materialesIdioma: '++id, idiomaId, temaId, creadoEn, &uid',
+    })
   }
 }
 
@@ -2992,5 +3033,5 @@ dbConTx._createTransaction = (mode, storeNames, dbschema, parentTransaction) => 
 db.use(syncMiddleware)
 
 db.open().catch((err) => {
-  console.error('[Mind Home] No se pudo abrir IndexedDB:', err)
+  console.error('[MPH] No se pudo abrir IndexedDB:', err)
 })

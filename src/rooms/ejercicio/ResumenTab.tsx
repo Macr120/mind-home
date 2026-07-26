@@ -5,6 +5,7 @@ import { BarraProgreso } from './BarraProgreso'
 import { TIPOS } from './constantes'
 import { hoyISO, sumarDias } from './fecha'
 import { pctObjetivo, rachaDias, resumenSemanal } from './stats'
+import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 
 export function ResumenTab({
@@ -96,26 +97,26 @@ export function ResumenTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-base font-bold mb-2">{t('ejercicio.ultimas', 'Últimas sesiones')}</p>
-        {sesiones.slice(0, 5).length === 0 ? (
-          <p className="text-sm text-white/40">{t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}</p>
-        ) : (
-          <ul className="space-y-2">
-            {sesiones.slice(0, 5).map((s) => {
-              const tipo = TIPOS.find((x) => x.id === s.tipo) ?? TIPOS[0]
-              return (
-                <li
-                  key={s.id}
-                  className="flex items-center gap-2 text-sm rounded-lg bg-black/20 px-2 py-1.5"
-                >
-                  <span><Icono emoji={tipo.icon} /></span>
-                  <span className="flex-1 truncate text-white/85">{s.titulo}</span>
-                  <span className="text-white/40">{s.duracionMin} min</span>
-                </li>
-              )
-            })}
-          </ul>
-        )}
+        <p className="text-base font-bold mb-2">{t('ejercicio.historial', 'Tus sesiones')}</p>
+        <Archivador
+          items={sesiones}
+          fecha={(s) => s.fecha}
+          clave={(s) => s.id ?? s.fecha}
+          vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}
+          resumen={(ses) => `${ses.reduce((acc, s) => acc + s.duracionMin, 0)} min`}
+        >
+          {(s) => {
+            const tipo = TIPOS.find((x) => x.id === s.tipo) ?? TIPOS[0]
+            return (
+              <div className="flex items-center gap-2 text-sm rounded-lg bg-black/20 px-2 py-1.5">
+                <span><Icono emoji={tipo.icon} /></span>
+                <span className="flex-1 truncate text-white/85">{s.titulo}</span>
+                <span className="shrink-0 text-xs text-white/40">{s.fecha.slice(5)}</span>
+                <span className="shrink-0 text-white/40">{s.duracionMin} min</span>
+              </div>
+            )
+          }}
+        </Archivador>
       </div>
     </div>
   )

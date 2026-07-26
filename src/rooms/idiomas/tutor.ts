@@ -2,6 +2,7 @@ import { conversarIA, extraerJSON, type MensajeIA } from '../../core/chat/ia'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { TipoTarjeta } from '../../core/data/db'
 import { NIVELES } from './constantes'
+import type { AreaTemario } from './temario'
 
 /** Datos mínimos del asistente cuya voz usa el chat (Asistente real o semilla). */
 export interface VozTutor {
@@ -20,7 +21,7 @@ export interface PerfilTutor {
 /** System prompt del tutor para la charla de práctica. */
 export function systemTutor(voz: VozTutor, perfil: PerfilTutor, temaTitulo?: string): string {
   return [
-    `Eres ${voz.nombre} ${voz.emoji}, el tutor personal de idiomas del usuario en Mind Home.`,
+    `Eres ${voz.nombre} ${voz.emoji}, el tutor personal de idiomas del usuario en Mind Planner Home.`,
     voz.personalidad ? `Personalidad: ${voz.personalidad}` : '',
     voz.historia ? `Tu historia/contexto como personaje: ${voz.historia}` : '',
     `Le enseñas ${perfil.nombre} a un estudiante de nivel MCER ${perfil.nivel} cuya lengua materna es el español.`,
@@ -68,7 +69,7 @@ export async function clasificarCharla(
     const system = [
       `Clasificas charlas de práctica de ${perfil.nombre} en el temario de un curso por niveles MCER.`,
       'Temas disponibles:',
-      ...temas.slice(0, 60).map((t) => `- ${t.id}: ${t.titulo} (nivel ${t.nivel})`),
+      ...temas.slice(0, 130).map((t) => `- ${t.id}: ${t.titulo} (nivel ${t.nivel})`),
       'Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"titulo":"<máx. 6 palabras, en español>","temaId":"<id de la lista o null si ninguno encaja>","nivel":"A1|A2|B1|B2|C1|C2","descripcion":"<qué se practicó, una frase corta>"}',
     ].join('\n')
     const r = await conversarIA(system, [{ rol: 'usuario', texto: transcript(mensajes, 3000) }], 250)
@@ -154,20 +155,29 @@ export async function extraerTarjetas(
   return propuestas
 }
 
+/** Qué pedirle a la IA según el área del temario (vocabulario, sonidos o reglas). */
+const ENCARGO_AREA: Record<AreaTemario, string> = {
+  temas: 'los términos más útiles y frecuentes del tema a ese nivel, cada uno con un ejemplo natural',
+  pronunciacion:
+    'palabras y frases que ejemplifiquen ese punto de pronunciación; en la traducción añade entre corchetes cómo suena en letras españolas y, si aplica, su transcripción AFI',
+  gramatica:
+    'frases modelo que muestren esa estructura gramatical (el "término" es la frase o el patrón, no una palabra suelta); en la traducción explica en una línea la regla que ilustra',
+}
+
 /**
  * Genera tarjetas nuevas para un tema del temario. Nunca lanza: si la IA
  * falla devuelve [] y la UI avisa.
  */
 export async function generarTarjetasTema(
   perfil: PerfilTutor,
-  tema: { titulo: string; nivel: string },
+  tema: { titulo: string; nivel: string; area?: AreaTemario },
   n: number,
   existentes: string[],
 ): Promise<TarjetaPropuesta[]> {
   try {
     const system = [
-      `Eres un profesor de ${perfil.nombre}: creas vocabulario de estudio para hispanohablantes.`,
-      `Genera ${n} tarjetas del tema «${tema.titulo}» de nivel MCER ${tema.nivel}: los términos más útiles y frecuentes del tema a ese nivel, cada uno con un ejemplo natural.`,
+      `Eres un profesor de ${perfil.nombre}: creas material de estudio para hispanohablantes.`,
+      `Genera ${n} tarjetas del tema «${tema.titulo}» de nivel MCER ${tema.nivel}: ${ENCARGO_AREA[tema.area ?? 'temas']}.`,
       existentes.length
         ? `PROHIBIDO repetir (ni con variantes) estos términos que ya tiene: ${existentes.slice(0, 80).join(' · ')}`
         : '',

@@ -110,8 +110,9 @@ export function MarcadorCancha() {
   // Tenis contra la IA: puntos 0/15/30/40 + juegos + sets.
   const tenisIA = clase === 'tenis' && modo === 'ia'
   const pts = tenisIA ? etiquetaTenis(yo, rival) : null
+  // En vertical el marcador baja bajo la fila de botones de arriba (casa / engrane).
   return (
-    <div className="pointer-events-none absolute left-0 right-0 top-3 z-30 flex flex-col items-center gap-2">
+    <div className="pointer-events-none absolute left-0 right-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
       <div className="ui-hud flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-sm font-black text-white">
         <Icono emoji={CANCHAS[clase].icon} />
         {tenisIA && pts ? (

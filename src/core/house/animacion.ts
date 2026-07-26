@@ -171,6 +171,15 @@ export function aplicarPreset(
   g.scale.setScalar(s)
 }
 
+/** Categoría de animación al caminar/pasear de un cuerpo (ver `cuerpos.ts`). */
+export type CategoriaMarcha = 'caminan' | 'manos' | 'flotan'
+
+/** Velocidad + fase de una marcha (forma de `marchaAvatar`, generalizada para asistentes). */
+export interface EstadoMarcha {
+  velocidad: number
+  fase: number
+}
+
 /**
  * Marcha del jugador (mutable, sin re-render): `Character` la escribe cada
  * frame y `AvatarModelo`/`Prendas` la leen para balancear extremidades y ropa
@@ -188,10 +197,41 @@ export const MARCHA_BRAZOS = 0.44
 /**
  * Ángulo de balanceo de una extremidad en este frame: seno de la fase de
  * marcha escalado por el factor y la velocidad actual (0 en reposo). Cuerpo y
- * ropa lo leen por separado y quedan sincronizados sin compartir refs.
+ * ropa lo leen por separado y quedan sincronizados sin compartir refs. Sin
+ * `m` lee la marcha del jugador (`marchaAvatar`); un asistente pasa su propio
+ * `EstadoMarcha`.
  */
-export function anguloMarcha(factor: number): number {
-  return Math.sin(marchaAvatar.fase) * factor * Math.min(1, marchaAvatar.velocidad)
+export function anguloMarcha(factor: number, m: EstadoMarcha = marchaAvatar): number {
+  return Math.sin(m.fase) * factor * Math.min(1, m.velocidad)
+}
+
+/**
+ * Avanza la marcha de un personaje que no es el jugador (asistente paseando):
+ * mismo espíritu que el cálculo que `Character.tsx` hace inline para
+ * `marchaAvatar`, pero normalizado por `dt` real (el jugador asume ~60fps
+ * implícito; el paseo de un asistente no). `distancia`: cuánto se desplazó
+ * este frame. `velocidadRef`: a qué velocidad de desplazamiento corresponde
+ * velocidad=1 (zancada máxima) — la propia velocidad de paseo del asistente.
+ */
+export function avanzarMarcha(m: EstadoMarcha, distancia: number, dt: number, velocidadRef: number): void {
+  const objetivo = dt > 0 && velocidadRef > 0 ? Math.min(1, distancia / (dt * velocidadRef)) : 0
+  m.velocidad = THREE.MathUtils.lerp(m.velocidad, objetivo, Math.min(1, dt * 12))
+  m.fase += distancia * 9
+}
+
+/**
+ * Altura de flote de un personaje en categoría 'flotan': vaivén ambiental
+ * constante (para que se sienta "vivo" en reposo, igual que hoy) más un extra
+ * al desplazarse (mismo espíritu que el rebote de `MarchaBob`). `faseOffset`
+ * desfasa el vaivén ambiental (p.ej. por posición, para que varios personajes
+ * no floten al unísono).
+ */
+export function alturaFlote(m: EstadoMarcha, base: number, t: number, faseOffset = 0): number {
+  return (
+    base +
+    Math.sin(t * 2 + faseOffset) * 0.12 +
+    Math.abs(Math.sin(m.fase)) * 0.05 * Math.min(1, m.velocidad)
+  )
 }
 
 /** La brazada gira más rápido que la zancada normal (molino continuo, no vaivén). */

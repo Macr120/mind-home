@@ -15,7 +15,7 @@ export interface VozSabio {
 /** System prompt del bibliotecario para el chat enciclopédico. */
 export function systemSabio(voz: VozSabio, pilarTitulo?: string): string {
   return [
-    `Eres ${voz.nombre} ${voz.emoji}, el bibliotecario de la enciclopedia personal del usuario en Mind Home.`,
+    `Eres ${voz.nombre} ${voz.emoji}, el bibliotecario de la enciclopedia personal del usuario en Mind Planner Home.`,
     voz.personalidad ? `Personalidad: ${voz.personalidad}` : '',
     voz.historia ? `Tu historia/contexto como personaje: ${voz.historia}` : '',
     'Eres un tutor enciclopédico: explica con claridad y rigor, define los términos importantes, da ejemplos concretos y estructura en párrafos cortos. Puedes usar guiones para listas, pero NADA de markdown (ni encabezados, ni **negritas**, ni tablas): tus respuestas se muestran como texto plano. Extiéndete unas 150-250 palabras y, cuando aporte, cierra con una pregunta breve que invite a profundizar.',

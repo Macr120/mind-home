@@ -6,7 +6,7 @@ import { hayPagos, obtenerOferta, comprar, urlGestion, type OfertaPro } from '..
 import { sincronizar } from '../../data/sync/motor'
 
 /**
- * Sección del editor (pestaña Configuraciones): cuenta de Mind Home.
+ * Sección del editor (pestaña Configuraciones): cuenta de MPH.
  * Login/registro, plan actual y uso de IA del mes. Con el backend sin
  * configurar solo informa: la app sigue 100% local.
  */

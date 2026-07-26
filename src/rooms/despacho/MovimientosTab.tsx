@@ -2,27 +2,18 @@ import { useState } from 'react'
 import type { Transaccion } from '../../core/data/db'
 import { finanzasRepo } from '../../core/data/repository'
 import { CATEGORIAS_GASTO, CATEGORIAS_INGRESO, getCategoria } from './categorias'
-import { hoyISO, money2, nombreMes } from './mes'
+import { hoyISO, money2 } from './mes'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { Archivador } from '../_shared/Archivador'
 
-export function MovimientosTab({
-  mes,
-  movimientos,
-}: {
-  mes: string
-  movimientos: Transaccion[]
-}) {
+export function MovimientosTab({ movimientos }: { movimientos: Transaccion[] }) {
   const [tipo, setTipo] = useState<'gasto' | 'ingreso'>('gasto')
   const cats = tipo === 'gasto' ? CATEGORIAS_GASTO : CATEGORIAS_INGRESO
   const [categoria, setCategoria] = useState(cats[0].id)
   const [monto, setMonto] = useState('')
   const [nota, setNota] = useState('')
   const [fecha, setFecha] = useState(hoyISO())
-
-  const delMes = movimientos
-    .filter((m) => m.fecha.startsWith(mes))
-    .sort((a, b) => b.fecha.localeCompare(a.fecha))
 
   const cambiarTipo = (t: 'gasto' | 'ingreso') => {
     setTipo(t)
@@ -124,50 +115,58 @@ export function MovimientosTab({
 
       <div className="space-y-2">
         <p className="text-xs uppercase tracking-wide text-white/40">
-          {nombreMes(mes)} · {t('despacho.m.movs', `${delMes.length} movimientos`, { n: String(delMes.length) })}
+          {t('despacho.m.movs', `${movimientos.length} movimientos`, { n: String(movimientos.length) })}
         </p>
-        {delMes.length === 0 && (
-          <p className="text-center text-white/40 text-sm py-6">
-            {t('despacho.m.sinMovs', 'Sin movimientos este mes.')}
-          </p>
-        )}
-        {delMes.map((m) => {
-          const c = getCategoria(m.categoria)
-          return (
-            <div
-              key={m.id}
-              className="flex items-center gap-3 rounded-lg bg-white/5 px-3 py-2 border border-white/10"
-            >
-              <span
-                className="flex h-8 w-8 items-center justify-center rounded-full text-lg"
-                style={{ background: c.color + '33' }}
-              >
-                <Icono emoji={c.icon} />
+        <Archivador
+          items={movimientos}
+          fecha={(m) => m.fecha}
+          clave={(m) => m.id ?? m.fecha}
+          vacio={t('despacho.m.sinRegistros', 'Sin movimientos registrados.')}
+          resumen={(movs) => {
+            const balance = movs.reduce((s, m) => s + (m.tipo === 'ingreso' ? m.monto : -m.monto), 0)
+            return (
+              <span style={{ color: balance >= 0 ? '#34d399' : '#f87171' }}>
+                {balance >= 0 ? '+' : '−'}
+                {money2(Math.abs(balance))}
               </span>
-              <div className="min-w-0">
-                <p className="text-sm font-medium truncate">
-                  {c.nombre}
-                  {m.nota ? <span className="text-white/40"> · {m.nota}</span> : null}
-                </p>
-                <p className="text-xs text-white/40">{m.fecha}</p>
+            )
+          }}
+        >
+          {(m) => {
+            const c = getCategoria(m.categoria)
+            return (
+              <div className="flex items-center gap-3 rounded-lg bg-white/5 px-3 py-2 border border-white/10">
+                <span
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-lg"
+                  style={{ background: c.color + '33' }}
+                >
+                  <Icono emoji={c.icon} />
+                </span>
+                <div className="min-w-0">
+                  <p className="text-sm font-medium truncate">
+                    {c.nombre}
+                    {m.nota ? <span className="text-white/40"> · {m.nota}</span> : null}
+                  </p>
+                  <p className="text-xs text-white/40">{m.fecha}</p>
+                </div>
+                <span
+                  className="ml-auto font-semibold text-sm"
+                  style={{ color: m.tipo === 'ingreso' ? '#34d399' : '#f87171' }}
+                >
+                  {m.tipo === 'ingreso' ? '+' : '−'}
+                  {money2(m.monto)}
+                </span>
+                <button
+                  onClick={() => m.id && finanzasRepo.remove(m.id)}
+                  className="text-white/30 hover:text-white/70 px-1"
+                  title={t('chat.eliminar', 'Eliminar')}
+                >
+                  <Icono nombre="cerrar" />
+                </button>
               </div>
-              <span
-                className="ml-auto font-semibold text-sm"
-                style={{ color: m.tipo === 'ingreso' ? '#34d399' : '#f87171' }}
-              >
-                {m.tipo === 'ingreso' ? '+' : '−'}
-                {money2(m.monto)}
-              </span>
-              <button
-                onClick={() => m.id && finanzasRepo.remove(m.id)}
-                className="text-white/30 hover:text-white/70 px-1"
-                title={t('chat.eliminar', 'Eliminar')}
-              >
-                <Icono nombre="cerrar" />
-              </button>
-            </div>
-          )
-        })}
+            )
+          }}
+        </Archivador>
       </div>
     </div>
   )

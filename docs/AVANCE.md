@@ -1,4 +1,4 @@
-# Mind Home — Estado del avance
+# Mind Planner Home (MPH) — Estado del avance
 
 Última actualización: julio 2026. **Fuente de verdad** para saber qué está hecho en la
 **casa (shell 3D)** vs cada **mini-app (cuarto)**.

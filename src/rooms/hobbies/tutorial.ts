@@ -1,5 +1,4 @@
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
-import { clickTut } from '../../core/tutorial/dom'
 import { hobbiesRepo } from '../../core/data/repository'
 import { abrirApp } from '../../core/abrirApp'
 
@@ -25,7 +24,6 @@ export const tutorialHobbies: TutorialDef = {
     {
       sel: 'hobbies.lista',
       alEntrar: async (ctx) => {
-        clickTut('hobbies.tab.hobbies')
         await ctx.unaVez('hobby-ejemplo', async () => {
           const id = await hobbiesRepo.add({
             nombre: 'Ejemplo (tutorial) 🎓',
@@ -48,7 +46,7 @@ export const tutorialHobbies: TutorialDef = {
       titulo: T('tut.app-hobbies.3.titulo', 'Dentro de un hobby'),
       texto: T(
         'tut.app-hobbies.3.texto',
-        'Al abrir un hobby verás sus sesiones (minutos + nota), el heatmap anual, la meta semanal y sus proyectos.',
+        'Al abrir un hobby verás sus sesiones (minutos + nota), el heatmap anual, la meta semanal, sus proyectos y su cronograma de metas.',
       ),
     },
     {
@@ -60,14 +58,10 @@ export const tutorialHobbies: TutorialDef = {
       ),
     },
     {
-      sel: 'hobbies.tab.cronograma',
-      alEntrar: () => {
-        clickTut('hobbies.tab.cronograma')
-      },
-      titulo: T('tut.app-hobbies.5.titulo', 'Cronograma'),
+      titulo: T('tut.app-hobbies.5.titulo', 'Proyectos y cronograma'),
       texto: T(
         'tut.app-hobbies.5.texto',
-        'El cronograma agenda tus prácticas en el calendario de la casa.',
+        'Cada proyecto se abre por dentro: sus metas y sub-metas en el cronograma, sus fechas y sus fotos de avance. El hobby tiene además su propio cronograma para lo que no es de ningún proyecto.',
       ),
     },
     {

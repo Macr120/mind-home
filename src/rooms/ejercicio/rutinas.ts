@@ -93,7 +93,7 @@ export const RUTINAS: Record<TipoEntrenamiento, RutinaPlantilla[]> = {
       duracionMin: 15,
       descripcion: 'Despertar articulaciones y columna.',
       enfoque: 'Cuerpo completo',
-      ejercicios: ['Gato-vaca', 'Saludo al sol', 'Torsión espinal', 'Movilidad cervical'],
+      ejercicios: ['Postura Gato-Vaca', 'Saludo al sol', 'Torsión espinal', 'Movilidad cervical'],
     },
     {
       nombre: 'Yoga flow',
@@ -121,14 +121,14 @@ export const RUTINAS: Record<TipoEntrenamiento, RutinaPlantilla[]> = {
       duracionMin: 15,
       descripcion: 'Alivio para espalda y hombros.',
       enfoque: 'Espalda y hombros',
-      ejercicios: ['Gato-vaca', 'Hilo y aguja', 'Apertura de pecho', 'Estiramiento de dorsales'],
+      ejercicios: ['Postura Gato-Vaca', 'Hilo y aguja', 'Apertura de pecho', 'Estiramiento de dorsales'],
     },
     {
       nombre: 'Cuello y oficina',
       duracionMin: 8,
       descripcion: 'Pausa activa para cuello y columna.',
       enfoque: 'Cuello y columna',
-      ejercicios: ['Movilidad cervical', 'Inclinación lateral de cuello', 'Retracción de barbilla', 'Rotaciones de columna'],
+      ejercicios: ['Movilidad cervical', 'Inclinación lateral de cuello', 'Retracciones de Barbilla (Chin Tucks)', 'Rotaciones de columna'],
     },
     {
       nombre: 'Antes de dormir',

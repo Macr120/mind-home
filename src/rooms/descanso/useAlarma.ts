@@ -1,35 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-
-/** Tono de alarma con WebAudio (dos bips por segundo); regresa cómo detenerlo. */
-function iniciarTono(): () => void {
-  const Ctor =
-    window.AudioContext ??
-    (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
-  if (!Ctor) return () => {}
-  const ctx = new Ctor()
-  const bip = () => {
-    const t0 = ctx.currentTime
-    for (let i = 0; i < 2; i++) {
-      const osc = ctx.createOscillator()
-      const gain = ctx.createGain()
-      osc.type = 'sine'
-      osc.frequency.value = 880
-      gain.gain.setValueAtTime(0.0001, t0 + i * 0.25)
-      gain.gain.exponentialRampToValueAtTime(0.35, t0 + i * 0.25 + 0.02)
-      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + i * 0.25 + 0.2)
-      osc.connect(gain)
-      gain.connect(ctx.destination)
-      osc.start(t0 + i * 0.25)
-      osc.stop(t0 + i * 0.25 + 0.22)
-    }
-  }
-  bip()
-  const intervalo = window.setInterval(bip, 1000)
-  return () => {
-    window.clearInterval(intervalo)
-    void ctx.close()
-  }
-}
+import type { PistaMusica } from '../../core/data/db'
+import { iniciarTono, TONO_DEFAULT, VOLUMEN_DEFAULT } from './tonos'
 
 /** Dos notas suaves y descendentes, una sola vez: un recordatorio avisa, no despierta. */
 function tonoSuave(): void {
@@ -66,20 +37,34 @@ function msHasta(hhmm: string): number {
 }
 
 /**
- * Despertador en vivo: con la app abierta, al llegar `hora` suena un tono en
- * bucle y (si hay permiso) se muestra una notificación del navegador.
- * `detener` apaga el tono y re-programa para el día siguiente.
+ * Despertador en vivo: con la app abierta, al llegar `hora` suena el tono
+ * elegido en bucle y (si hay permiso) se muestra una notificación del
+ * navegador. `detener` apaga el tono y re-programa para el día siguiente.
+ *
+ * El tono y su volumen viajan en un ref y NO en las dependencias del efecto:
+ * si entraran, cambiar el volumen mientras suena re-programaría la alarma y
+ * cortaría el sonido a media nota.
  */
-export function useAlarma(activa: boolean, hora: string, textoNotif: string) {
+export function useAlarma(
+  activa: boolean,
+  hora: string,
+  textoNotif: string,
+  sonido: { tono?: string; volumen?: number; pista?: PistaMusica } = {},
+) {
   const [sonando, setSonando] = useState(false)
   const [ciclo, setCiclo] = useState(0) // fuerza re-programar tras detener
   const pararTono = useRef<() => void>(() => {})
+  const sonidoRef = useRef(sonido)
+  useEffect(() => {
+    sonidoRef.current = sonido
+  })
 
   useEffect(() => {
     if (!activa || !/^\d{1,2}:\d{2}$/.test(hora)) return
     const timeout = window.setTimeout(() => {
+      const { tono, volumen, pista } = sonidoRef.current
       setSonando(true)
-      pararTono.current = iniciarTono()
+      pararTono.current = iniciarTono(tono ?? TONO_DEFAULT, volumen ?? VOLUMEN_DEFAULT, pista)
       if ('Notification' in window && Notification.permission === 'granted') {
         new Notification(`⏰ ${hora}`, { body: textoNotif })
       }

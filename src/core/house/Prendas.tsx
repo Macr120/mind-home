@@ -3,7 +3,15 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { Ropa, AnclasRopa } from './apariencia'
 import { PRENDA_COLOR_DEFAULT } from './apariencia'
-import { anguloMarcha, anguloBrazoNado, anguloPiernaNado, marchaAvatar, MARCHA_BRAZOS, MARCHA_PIERNAS } from './animacion'
+import {
+  anguloMarcha,
+  anguloBrazoNado,
+  anguloPiernaNado,
+  marchaAvatar,
+  MARCHA_BRAZOS,
+  MARCHA_PIERNAS,
+  type EstadoMarcha,
+} from './animacion'
 import { monturaFrame, anguloPiernaMontada, ANGULO_BRAZO_MONTADO } from '../state/monturaStore'
 import { parqueFrame, anguloPiernaParque, anguloBrazoParque } from '../state/parqueStore'
 import { accionCuartoFrame, anguloPiernaAccion, anguloBrazoAccion } from '../state/accionCuartoStore'
@@ -29,6 +37,8 @@ function PivoteMarcha({
   factor,
   signo,
   extremidad,
+  marchaEstado = marchaAvatar,
+  esJugador = true,
   children,
 }: {
   activo: boolean
@@ -37,42 +47,57 @@ function PivoteMarcha({
   factor: number
   signo: 1 | -1
   extremidad: 'pierna' | 'brazo'
+  marchaEstado?: EstadoMarcha
+  esJugador?: boolean
   children: React.ReactNode
 }) {
   const g = useRef<THREE.Group>(null)
   useFrame(() => {
     if (!activo || !g.current) return
-    if (monturaFrame.montado) {
-      // Piernas sentadas; las mangas bailan si el baile está activo.
-      g.current.rotation.x =
-        extremidad === 'pierna'
-          ? anguloPiernaMontada(signo)
-          : accionFrame.bailando
-            ? anguloBrazoBaile(-signo as 1 | -1)
-            : ANGULO_BRAZO_MONTADO
-    } else if (parqueFrame.usando && parqueFrame.pose !== 'de-pie') {
-      // Sentado/colgado en un juego de parque: misma pose que el cuerpo.
-      g.current.rotation.x = extremidad === 'pierna' ? anguloPiernaParque(signo) : anguloBrazoParque()
-    } else if (accionCuartoFrame.usando && accionCuartoFrame.pose !== 'caminar') {
-      // Usando un objeto del cuarto: misma pose de acción que el cuerpo.
-      g.current.rotation.x =
-        extremidad === 'pierna' ? anguloPiernaAccion() : anguloBrazoAccion(-signo as 1 | -1)
-    } else if (accionFrame.cuerda) {
-      g.current.rotation.x = extremidad === 'brazo' ? ANGULO_BRAZO_CUERDA : 0
-    } else if (accionFrame.bailando) {
-      // El signo de brazo en Prendas es inverso al del cuerpo (ver signoBrazo).
-      g.current.rotation.x =
-        extremidad === 'pierna' ? anguloPiernaBaile(signo) : anguloBrazoBaile(-signo as 1 | -1)
-    } else if (marchaAvatar.nadando) {
-      // Nadando: misma brazada/patada que el cuerpo (x<0 = lado izquierdo, como en CuerpoCubos).
-      g.current.rotation.x =
-        extremidad === 'pierna' ? anguloPiernaNado(x < 0) : anguloBrazoNado(x < 0)
-    } else {
-      g.current.rotation.x = anguloMarcha(factor) * signo
+    if (esJugador) {
+      if (monturaFrame.montado) {
+        // Piernas sentadas; las mangas bailan si el baile está activo.
+        g.current.rotation.x =
+          extremidad === 'pierna'
+            ? anguloPiernaMontada(signo)
+            : accionFrame.bailando
+              ? anguloBrazoBaile(-signo as 1 | -1)
+              : ANGULO_BRAZO_MONTADO
+        return
+      }
+      if (parqueFrame.usando && parqueFrame.pose !== 'de-pie') {
+        // Sentado/colgado en un juego de parque: misma pose que el cuerpo.
+        g.current.rotation.x = extremidad === 'pierna' ? anguloPiernaParque(signo) : anguloBrazoParque()
+        return
+      }
+      if (accionCuartoFrame.usando && accionCuartoFrame.pose !== 'caminar') {
+        // Usando un objeto del cuarto: misma pose de acción que el cuerpo.
+        g.current.rotation.x =
+          extremidad === 'pierna' ? anguloPiernaAccion() : anguloBrazoAccion(-signo as 1 | -1)
+        return
+      }
+      if (accionFrame.cuerda) {
+        g.current.rotation.x = extremidad === 'brazo' ? ANGULO_BRAZO_CUERDA : 0
+        return
+      }
+      if (accionFrame.bailando) {
+        // El signo de brazo en Prendas es inverso al del cuerpo (ver signoBrazo).
+        g.current.rotation.x =
+          extremidad === 'pierna' ? anguloPiernaBaile(signo) : anguloBrazoBaile(-signo as 1 | -1)
+        return
+      }
+      if (marchaAvatar.nadando) {
+        // Nadando: misma brazada/patada que el cuerpo (x<0 = lado izquierdo, como en CuerpoCubos).
+        g.current.rotation.x = extremidad === 'pierna' ? anguloPiernaNado(x < 0) : anguloBrazoNado(x < 0)
+        return
+      }
     }
-    // Saludo: solo la manga derecha (signoBrazo del lado +x es 1).
-    const s = anguloSaludo(performance.now())
-    if (s !== null && extremidad === 'brazo' && signo === 1) g.current.rotation.x = s
+    g.current.rotation.x = anguloMarcha(factor, marchaEstado) * signo
+    // Saludo: solo la manga derecha (signoBrazo del lado +x es 1). Solo el jugador.
+    if (esJugador) {
+      const s = anguloSaludo(performance.now())
+      if (s !== null && extremidad === 'brazo' && signo === 1) g.current.rotation.x = s
+    }
   })
   return (
     <group ref={g} position={[x, pivotY, 0]}>
@@ -91,10 +116,14 @@ export function Prendas({
   ropa,
   anclas,
   marcha = false,
+  marchaEstado = marchaAvatar,
+  esJugador = true,
 }: {
   ropa: Ropa | undefined
   anclas: AnclasRopa
   marcha?: boolean
+  marchaEstado?: EstadoMarcha
+  esJugador?: boolean
 }) {
   if (!ropa || Object.keys(ropa).length === 0) return null
   const color = (id: keyof Ropa) => ropa[id]?.color ?? PRENDA_COLOR_DEFAULT[id]
@@ -114,7 +143,7 @@ export function Prendas({
       {/* Tenis: sobre los pies de cada pierna */}
       {ropa.tenis &&
         a.piernasX.map((x, i) => (
-          <PivoteMarcha key={i} activo={marcha} x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
+          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
             <mesh position={[0, a.piesY - caderaY, 0.04]} castShadow>
               <boxGeometry args={[a.piernaW, 0.2, a.piernaD * 1.25]} />
               <meshStandardMaterial color={color('tenis')} />
@@ -126,7 +155,7 @@ export function Prendas({
       {ropa.pantalon && (
         <>
           {a.piernasX.map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
               <mesh position={[0, a.piernasY - caderaY, 0]} castShadow>
                 <boxGeometry args={[a.piernaW, a.piernaH, a.piernaD]} />
                 <meshStandardMaterial color={color('pantalon')} />
@@ -148,7 +177,7 @@ export function Prendas({
             <meshStandardMaterial color={color('playera')} />
           </mesh>
           {[-a.brazoX, a.brazoX].map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
               {/* Manga pegada al hombro (pivote): si queda por debajo, asoma un
                   hueco de piel entre la manga y el torso. */}
               <mesh position={[0, 0.02 - 0.15, 0]} castShadow>
@@ -175,7 +204,7 @@ export function Prendas({
               <meshStandardMaterial color={color('chamarra')} />
             </mesh>
             {[-a.brazoX, a.brazoX].map((x, i) => (
-              <PivoteMarcha key={i} activo={marcha} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+              <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
                 <mesh position={[0, a.torsoY - hombroY, 0]} castShadow>
                   <boxGeometry args={[0.3, a.torsoH + 0.02, a.torsoD + 0.04]} />
                   <meshStandardMaterial color={color('chamarra')} />
@@ -283,7 +312,7 @@ export function Prendas({
             <meshStandardMaterial color={color('camisa')} />
           </mesh>
           {[-a.brazoX, a.brazoX].map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
               <mesh position={[0, a.torsoY - hombroY, 0]} castShadow>
                 <boxGeometry args={[0.26, a.torsoH + 0.02, a.torsoD + 0.02]} />
                 <meshStandardMaterial color={color('camisa')} />
@@ -333,7 +362,7 @@ export function Prendas({
       {ropa.shorts && (
         <>
           {a.piernasX.map((x, i) => (
-            <PivoteMarcha key={i} activo={marcha} x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
+            <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
               <mesh position={[0, a.piernasY + a.piernaH * 0.25 - caderaY, 0]} castShadow>
                 <boxGeometry args={[a.piernaW + 0.04, a.piernaH * 0.5, a.piernaD + 0.04]} />
                 <meshStandardMaterial color={color('shorts')} />
@@ -350,7 +379,7 @@ export function Prendas({
       {/* Botas: caña sobre la pierna + suela en el pie */}
       {ropa.botas &&
         a.piernasX.map((x, i) => (
-          <PivoteMarcha key={i} activo={marcha} x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
+          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={caderaY} factor={MARCHA_PIERNAS} signo={signoPierna(x)} extremidad="pierna">
             <mesh position={[0, a.piesY + a.piernaH * 0.22 - caderaY, 0]} castShadow>
               <boxGeometry args={[a.piernaW + 0.05, a.piernaH * 0.5, a.piernaD + 0.05]} />
               <meshStandardMaterial color={color('botas')} />
@@ -365,7 +394,7 @@ export function Prendas({
       {/* Guantes: en las manos, al final de cada brazo */}
       {ropa.guantes &&
         [-a.brazoX, a.brazoX].map((x, i) => (
-          <PivoteMarcha key={i} activo={marcha} x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
+          <PivoteMarcha key={i} activo={marcha} marchaEstado={marchaEstado} esJugador={esJugador}x={x} pivotY={hombroY} factor={MARCHA_BRAZOS} signo={signoBrazo(x)} extremidad="brazo">
             <mesh position={[0, -(a.torsoH * 0.95 + 0.05), 0]} castShadow>
               <boxGeometry args={[0.16, 0.16, a.torsoD + 0.02]} />
               <meshStandardMaterial color={color('guantes')} />

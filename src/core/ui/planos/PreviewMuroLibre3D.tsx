@@ -6,7 +6,7 @@ import { useEditorUi } from '../../state/editorUiStore'
 import { MuroLibre3DItem } from '../../house/MurosLibres3D'
 import { segmentosMundoMuroLibre } from '../../house/murosLibre'
 import { IconoOjo } from '../editor/IconoOjo'
-import { BotonPreviewClaro, claseOverlayBtn } from '../editor/BotonPreviewClaro'
+import { BotonPreviewClaro, claseOverlayBtn, claseFondoPreview } from '../editor/BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 
 /**
@@ -40,9 +40,7 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
 
   return (
     <div
-      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${
-        claro ? 'bg-white' : 'bg-[#0d0f13]'
-      }`}
+      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
     >
       <div className="absolute left-2 top-2 z-10 flex flex-col gap-1">
         {onOcultar && (
@@ -88,7 +86,7 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
       </div>
       <span
         className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
-          claro ? 'text-black/45' : 'text-white/35'
+          claro ? 'text-black/45' : 'text-[#ffffff]/35'
         }`}
       >
         {t('preview.girar', 'Arrastra para girar · rueda para acercar')}

@@ -27,15 +27,3 @@ export function promptDieta(d: Pick<DietaGuardada, 'nombre' | 'descripcion'>): s
     .filter(Boolean)
     .join(' ')
 }
-
-/** Prompt de portada de una lista del súper, a partir de sus artículos. */
-export function promptLista(nombre: string, items: string[]): string {
-  return [
-    `Bodegón de una compra de súper llamada "${nombre}": bolsa de papel con víveres sobre una mesa de cocina.`,
-    items.length ? `Se ven, entre otros: ${items.slice(0, 8).join(', ')}.` : '',
-    'Estilo cálido y ordenado,',
-    SIN_TEXTO,
-  ]
-    .filter(Boolean)
-    .join(' ')
-}

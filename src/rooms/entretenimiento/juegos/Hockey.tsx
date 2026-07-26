@@ -2,10 +2,19 @@ import { useEffect, useRef, useState } from 'react'
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
-import { prepararLienzo, puntoLienzo, useBucle } from './arcade'
+import { FONDO_LIENZO, prepararLienzo, puntoLienzo, useBucle } from './arcade'
+import type { Dificultad, PropsDificultad } from './dificultad'
+import { ElegirModo } from './ElegirModo'
 
 type Modo = '2j' | 'ia'
 type Fase = 'lista' | 'jugando' | 'fin'
+
+// Mazo de la máquina: velocidad y hasta dónde baja a buscar el disco
+const RIVAL: Record<Dificultad, { vel: number; alcance: number }> = {
+  facil: { vel: 235, alcance: 0.35 },
+  medio: { vel: 340, alcance: 0.5 },
+  dificil: { vel: 520, alcance: 0.62 },
+}
 
 const ANCHO = 360
 const ALTO = 520
@@ -36,8 +45,9 @@ function mundoInicial(discoAbajo?: boolean): Mundo {
   }
 }
 
-export function Hockey() {
+export function Hockey({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const rival = RIVAL[dificultad]
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
   const mundo = useRef<Mundo>(mundoInicial())
@@ -63,9 +73,9 @@ export function Hockey() {
     const m = mundo.current
     const { disco } = m
 
-    // La máquina persigue el disco en su mitad y luego cubre su portería
+    // La máquina persigue el disco hasta su alcance y luego cubre su portería
     if (modo === 'ia') {
-      if (disco.y < ALTO / 2) {
+      if (disco.y < ALTO * rival.alcance) {
         m.arriba.tx = disco.x
         m.arriba.ty = Math.min(disco.y - 6, ALTO / 2 - R_MAZO)
       } else {
@@ -95,7 +105,7 @@ export function Hockey() {
       return { vx, vy }
     }
     const velAbajo = moverMazo(m.abajo, true, 1500)
-    const velArriba = moverMazo(m.arriba, false, modo === 'ia' ? 340 : 1500)
+    const velArriba = moverMazo(m.arriba, false, modo === 'ia' ? rival.vel : 1500)
 
     // Disco: fricción ligera y avance
     disco.vx *= 1 - 0.35 * dt
@@ -188,29 +198,24 @@ export function Hockey() {
 
   if (modo === null) {
     return (
-      <div className="space-y-3">
-        <p className="text-sm font-semibold">{t('entre.j.modo.titulo', '¿Cómo quieres jugar?')}</p>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => reiniciar('ia')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="mascota-robot" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.ia', 'Contra la máquina')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.hockey.iaDesc', 'Tú defiendes la portería de abajo')}</p>
-          </button>
-          <button
-            type="button"
-            onClick={() => reiniciar('2j')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="companeros" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.2j', '2 jugadores')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.modo.2jDesc', 'En el mismo dispositivo')}</p>
-          </button>
-        </div>
-      </div>
+      <ElegirModo
+        opciones={[
+          {
+            clave: 'ia',
+            icono: <Icono nombre="mascota-robot" />,
+            titulo: t('entre.j.modo.ia', 'Contra la máquina'),
+            desc: t('entre.j.hockey.iaDesc', 'Tú defiendes la portería de abajo'),
+            alElegir: () => reiniciar('ia'),
+          },
+          {
+            clave: '2j',
+            icono: <Icono nombre="companeros" />,
+            titulo: t('entre.j.modo.2j', '2 jugadores'),
+            desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
+            alElegir: () => reiniciar('2j'),
+          },
+        ]}
+      />
     )
   }
 
@@ -240,11 +245,11 @@ export function Hockey() {
           onPointerMove={moverPuntero}
           onPointerUp={soltarPuntero}
           onPointerCancel={soltarPuntero}
-          className="w-full rounded-xl bg-white/5"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}` }}
+          className="w-full rounded-xl"
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: FONDO_LIENZO }}
         />
         {fase !== 'jugando' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
             {fase === 'fin' && (
               <p className="px-4 text-center font-black">
                 {modo === 'ia' && marcador.abajo >= META

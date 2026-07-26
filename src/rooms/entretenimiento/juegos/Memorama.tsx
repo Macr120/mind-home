@@ -4,8 +4,9 @@ import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
 import { barajar } from './cartas'
+import type { Dificultad, PropsDificultad } from './dificultad'
 
-type Nivel = 'facil' | 'dificil'
+type Nivel = Dificultad
 type EstadoCarta = 'oculta' | 'vista' | 'lograda'
 
 interface Carta {
@@ -13,37 +14,38 @@ interface Carta {
   estado: EstadoCarta
 }
 
-const NIVELES: Record<Nivel, { lado: number }> = {
-  facil: { lado: 4 },
-  dificil: { lado: 6 },
+// Columnas × filas: el total siempre es par para que salgan pares completos
+const NIVELES: Record<Nivel, { cols: number; filas: number; espera: number }> = {
+  facil: { cols: 4, filas: 4, espera: 1000 },
+  medio: { cols: 4, filas: 6, espera: 700 },
+  dificil: { cols: 6, filas: 6, espera: 500 },
 }
 
 const EMOJIS = ['🐶', '🐱', '🦊', '🐼', '🐸', '🦁', '🐷', '🐵', '🐰', '🦄', '🐙', '🦋', '🍎', '🍕', '🚀', '🌵', '⚽', '🎈']
 
 function mazoInicial(nivel: Nivel): Carta[] {
-  const pares = NIVELES[nivel].lado ** 2 / 2
+  const { cols, filas } = NIVELES[nivel]
+  const pares = (cols * filas) / 2
   const elegidos = barajar(EMOJIS).slice(0, pares)
   return barajar([...elegidos, ...elegidos]).map((emoji) => ({ emoji, estado: 'oculta' as const }))
 }
 
-export function Memorama() {
+export function Memorama({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
-  const [nivel, setNivel] = useState<Nivel>('facil')
-  const [cartas, setCartas] = useState<Carta[]>(() => mazoInicial('facil'))
+  const nivel: Nivel = dificultad
+  const [cartas, setCartas] = useState<Carta[]>(() => mazoInicial(nivel))
   const [volteadas, setVolteadas] = useState<number[]>([])
   const [intentos, setIntentos] = useState(0)
   const [ganado, setGanado] = useState(false)
-  const [record, setRecord] = useState(() => leerNumero('memorama-facil', 0))
+  const [record, setRecord] = useState(() => leerNumero(`memorama-${nivel}`, 0))
   const tapar = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const reiniciar = (n: Nivel) => {
+  const reiniciar = () => {
     if (tapar.current) clearTimeout(tapar.current)
-    setNivel(n)
-    setCartas(mazoInicial(n))
+    setCartas(mazoInicial(nivel))
     setVolteadas([])
     setIntentos(0)
     setGanado(false)
-    setRecord(leerNumero(`memorama-${n}`, 0))
   }
 
   const voltear = (i: number) => {
@@ -79,10 +81,10 @@ export function Memorama() {
     tapar.current = setTimeout(() => {
       setCartas((cs) => cs.map((c, k) => (k === previa || k === i ? { ...c, estado: 'oculta' } : c)))
       setVolteadas([])
-    }, 700)
+    }, NIVELES[nivel].espera)
   }
 
-  const { lado } = NIVELES[nivel]
+  const { cols } = NIVELES[nivel]
 
   return (
     <div className="space-y-3">
@@ -95,26 +97,13 @@ export function Memorama() {
             </span>
           )}
         </span>
-        <div className="flex gap-1.5">
-          {(['facil', 'dificil'] as const).map((n) => (
-            <button
-              key={n}
-              type="button"
-              onClick={() => reiniciar(n)}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${nivel === n ? 'text-black' : 'bg-white/10 hover:bg-white/20'}`}
-              style={nivel === n ? { background: COLOR } : undefined}
-            >
-              {n === 'facil' ? t('entre.j.dif.facil', 'Fácil') : t('entre.j.dif.dificil', 'Difícil')}
-            </button>
-          ))}
-          <button type="button" onClick={() => reiniciar(nivel)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold hover:bg-white/20">
-            <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
-          </button>
-        </div>
+        <button type="button" onClick={reiniciar} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold hover:bg-white/20">
+          <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}
+        </button>
       </div>
 
       <div className="relative mx-auto max-w-[420px]">
-        <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${lado}, minmax(0, 1fr))` }}>
+        <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
           {cartas.map((c, i) => (
             <button
               key={i}
@@ -122,19 +111,19 @@ export function Memorama() {
               onClick={() => voltear(i)}
               className={`flex aspect-square items-center justify-center rounded-lg transition ${
                 c.estado === 'oculta' ? 'bg-white/10 hover:bg-white/20' : c.estado === 'vista' ? 'bg-white/25' : 'bg-emerald-500/25'
-              } ${lado === 6 ? 'text-xl' : 'text-3xl'}`}
+              } ${cols === 6 ? 'text-xl' : 'text-3xl'}`}
             >
               {c.estado === 'oculta' ? <span className="text-white/30">?</span> : <Icono emoji={c.emoji} />}
             </button>
           ))}
         </div>
         {ganado && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/75">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/75 ui-noche">
             <p className="text-lg font-black">{t('entre.j.ganaste', '¡Ganaste! 🎉')}</p>
             <p className="text-sm text-white/70">
               {t('entre.j.memorama.intentos', 'Intentos')}: {intentos} · {t('entre.j.mejor', 'Mejor')}: {record}
             </p>
-            <button type="button" onClick={() => reiniciar(nivel)} className="rounded-xl px-4 py-2 font-bold text-black" style={{ background: COLOR }}>
+            <button type="button" onClick={reiniciar} className="rounded-xl px-4 py-2 font-bold text-black" style={{ background: COLOR }}>
               {t('entre.j.nueva', 'Nueva partida')}
             </button>
           </div>

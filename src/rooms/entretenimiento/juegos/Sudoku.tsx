@@ -1,11 +1,11 @@
 import { Icono } from '../../../core/ui/iconos/Icono'
 import { useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
+import { vivo } from '../../../core/ui/estilos'
 import { COLOR } from '../constantes'
 import { formatearTiempo, guardarRecord, leerNumero } from './almacen'
 import { barajar } from './cartas'
-
-type Dificultad = 'facil' | 'medio' | 'dificil'
+import type { Dificultad, PropsDificultad } from './dificultad'
 
 const PISTAS: Record<Dificultad, number> = { facil: 40, medio: 32, dificil: 26 }
 const DIGITOS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -61,10 +61,9 @@ function compartenUnidad(a: number, b: number): boolean {
   )
 }
 
-export function Sudoku() {
+export function Sudoku({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
-  const [dif, setDif] = useState<Dificultad>('facil')
-  const [partida, setPartida] = useState<Partida>(() => generarPartida('facil'))
+  const [partida, setPartida] = useState<Partida>(() => generarPartida(dificultad))
   const [tablero, setTablero] = useState<number[]>(() => [...partida.inicial])
   const [notas, setNotas] = useState<number[][]>(() => Array.from({ length: 81 }, () => []))
   const [sel, setSel] = useState<number | null>(null)
@@ -72,7 +71,7 @@ export function Sudoku() {
   const [errores, setErrores] = useState(0)
   const [segundos, setSegundos] = useState(0)
   const [ganado, setGanado] = useState(false)
-  const [record, setRecord] = useState(() => leerNumero('sudoku-facil', 0))
+  const [record, setRecord] = useState(() => leerNumero(`sudoku-${dificultad}`, 0))
 
   useEffect(() => {
     if (ganado) return
@@ -80,9 +79,8 @@ export function Sudoku() {
     return () => clearInterval(id)
   }, [ganado])
 
-  const reiniciar = (d: Dificultad) => {
-    const p = generarPartida(d)
-    setDif(d)
+  const reiniciar = () => {
+    const p = generarPartida(dificultad)
     setPartida(p)
     setTablero([...p.inicial])
     setNotas(Array.from({ length: 81 }, () => []))
@@ -90,7 +88,6 @@ export function Sudoku() {
     setErrores(0)
     setSegundos(0)
     setGanado(false)
-    setRecord(leerNumero(`sudoku-${d}`, 0))
   }
 
   const colocar = (n: number) => {
@@ -116,7 +113,7 @@ export function Sudoku() {
     setNotas((prev) => prev.map((lista, i) => (compartenUnidad(i, celdaSel) ? lista.filter((x) => x !== n) : lista)))
     if (nuevo.every((v, i) => v === partida.solucion[i])) {
       setGanado(true)
-      setRecord(guardarRecord(`sudoku-${dif}`, segundos, true))
+      setRecord(guardarRecord(`sudoku-${dificultad}`, segundos, true))
     }
   }
 
@@ -146,28 +143,9 @@ export function Sudoku() {
   const selCol = sel !== null ? sel % 9 : -1
   const valorSel = sel !== null ? tablero[sel] : 0
 
-  const DIFS: { id: Dificultad; label: string }[] = [
-    { id: 'facil', label: t('entre.j.dif.facil', 'Fácil') },
-    { id: 'medio', label: t('entre.j.dif.medio', 'Medio') },
-    { id: 'dificil', label: t('entre.j.dif.dificil', 'Difícil') },
-  ]
-
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex gap-1.5">
-          {DIFS.map((d) => (
-            <button
-              key={d.id}
-              type="button"
-              onClick={() => reiniciar(d.id)}
-              className={`rounded-lg px-2.5 py-1 text-xs font-semibold ${dif === d.id ? 'text-black' : 'bg-white/10'}`}
-              style={dif === d.id ? { background: COLOR } : undefined}
-            >
-              {d.label}
-            </button>
-          ))}
-        </div>
         <div className="flex gap-3 text-xs text-white/55">
           <span><Icono nombre="cronometro" /> {formatearTiempo(segundos)}</span>
           <span><Icono nombre="cerrar" /> {errores}</span>
@@ -177,7 +155,7 @@ export function Sudoku() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-[400px] select-none grid-cols-9 overflow-hidden rounded-lg border-2 border-white/40 bg-black/30">
+      <div className="mx-auto grid max-w-[400px] select-none grid-cols-9 overflow-hidden rounded-xl border-2 border-white/40 bg-black/30 shadow-lg">
         {tablero.map((v, i) => {
           const f = Math.floor(i / 9)
           const c = i % 9
@@ -189,10 +167,12 @@ export function Sudoku() {
               (Math.floor(f / 3) === Math.floor(selFila / 3) && Math.floor(c / 3) === Math.floor(selCol / 3)))
           const mismoNumero = v !== 0 && v === valorSel && i !== sel
           const incorrecto = v !== 0 && !esInicial && v !== partida.solucion[i]
+          // Los resaltes se mezclan con la tinta del tema (en claro, un blanco
+          // literal sobre papel blanco no se vería).
           let fondo = 'transparent'
           if (i === sel) fondo = `${COLOR}40`
-          else if (mismoNumero) fondo = 'rgba(255,255,255,0.16)'
-          else if (enUnidad) fondo = 'rgba(255,255,255,0.05)'
+          else if (mismoNumero) fondo = 'color-mix(in srgb, var(--ui-ink) 18%, transparent)'
+          else if (enUnidad) fondo = 'color-mix(in srgb, var(--ui-ink) 7%, transparent)'
           return (
             <button
               key={i}
@@ -200,10 +180,12 @@ export function Sudoku() {
               onClick={() => setSel(i)}
               className={`relative aspect-square text-base font-semibold sm:text-lg ${
                 c < 8 ? (c % 3 === 2 ? 'border-r-2 border-r-white/35' : 'border-r border-r-white/10') : ''
-              } ${f < 8 ? (f % 3 === 2 ? 'border-b-2 border-b-white/35' : 'border-b border-b-white/10') : ''}`}
+              } ${f < 8 ? (f % 3 === 2 ? 'border-b-2 border-b-white/35' : 'border-b border-b-white/10') : ''} ${
+                incorrecto ? 'text-red-400' : esInicial ? '' : 'texto-vivo'
+              }`}
               style={{
                 background: fondo,
-                color: incorrecto ? '#f87171' : esInicial ? 'rgba(255,255,255,0.92)' : COLOR,
+                ...(esInicial ? { color: 'var(--ui-ink)' } : incorrecto ? {} : vivo(COLOR)),
               }}
             >
               {v !== 0 ? (
@@ -256,7 +238,7 @@ export function Sudoku() {
         </button>
         <button
           type="button"
-          onClick={() => reiniciar(dif)}
+          onClick={reiniciar}
           className="flex-1 rounded-lg bg-white/10 py-2 text-sm font-semibold"
         >
           <Icono nombre="sincronizar" /> {t('entre.j.nueva', 'Nueva partida')}

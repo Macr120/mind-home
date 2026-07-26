@@ -49,8 +49,8 @@ function BotonDerrape({ title }: { title: string }) {
 
 /**
  * Prompt 2D de los vehículos: "Subirte" al estar cerca de uno y "Bajarte"
- * mientras se conduce (con ↑/↓ para el vuelo del OVNI). Mismo patrón que
- * `AccesoOverlay` (botón fijo abajo-centro).
+ * mientras se conduce (con ↑/↓ para el vuelo del OVNI). Va en `PilaPrompts`,
+ * que lo coloca por encima de los controles de las esquinas y del chat.
  */
 export function VehiculoOverlay() {
   const t = useT()
@@ -60,7 +60,6 @@ export function VehiculoOverlay() {
   const cercaTipo = useMontura((s) => s.cercaTipo)
   const montar = useMontura((s) => s.montar)
   const solicitarDesmontar = useMontura((s) => s.solicitarDesmontar)
-  const nearAcceso = useHouse((s) => s.nearAcceso)
   const activeRoom = useHouse((s) => s.activeRoom)
   const editMode = useLayout((s) => s.editMode)
   const usandoJuego = useParque((s) => s.instanciaId)
@@ -72,7 +71,7 @@ export function VehiculoOverlay() {
   if (instanciaId != null && tipo) {
     const def = vehiculoDe(tipo)
     return (
-      <div className="pointer-events-none absolute inset-x-0 bottom-28 z-30 flex items-center justify-center gap-3">
+      <div className="pointer-events-none flex items-center justify-center gap-3">
         {tipo === 'ovni' && <BotonVertical dir={-1} title={t('veh.bajar', 'Descender (Shift)')} />}
         {tipo !== 'ovni' && <BotonDerrape title={t('veh.derrape', 'Derrape (Espacio)')} />}
         <button
@@ -96,20 +95,13 @@ export function VehiculoOverlay() {
     if (inst) montar(inst)
   }
   return (
-    <div
-      className={`pointer-events-none absolute inset-x-0 ${
-        // Si también está el prompt de subir/bajar de nivel, apilarse encima.
-        nearAcceso ? 'bottom-44' : 'bottom-28'
-      } z-30 flex justify-center`}
+    <button
+      type="button"
+      onClick={subirte}
+      className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-emerald-400/60 px-5 py-2.5 text-sm font-black text-emerald-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
     >
-      <button
-        type="button"
-        onClick={subirte}
-        className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-emerald-400/60 px-5 py-2.5 text-sm font-black text-emerald-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
-      >
-        <Icono emoji={def.icono} className="text-lg leading-none" />
-        {t('veh.subirte', 'Subirte')} · {def.nombre}
-      </button>
-    </div>
+      <Icono emoji={def.icono} className="text-lg leading-none" />
+      {t('veh.subirte', 'Subirte')} · {def.nombre}
+    </button>
   )
 }

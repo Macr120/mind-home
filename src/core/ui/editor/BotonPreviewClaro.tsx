@@ -25,15 +25,26 @@ export function BotonPreviewClaro() {
 }
 
 /**
+ * Fondo del lienzo de un preview 3D según `previewClaro`. Son colores LITERALES a
+ * propósito: en modo claro/transparente `temasUI.ts` reescribe `--color-white` (a
+ * #1c2333), así que `bg-white` saldría azul oscuro y el fondo "claro" del preview
+ * nunca sería blanco. El preview debe verse igual en los tres modos de interfaz.
+ */
+export function claseFondoPreview(claro: boolean) {
+  return claro ? 'bg-[#ffffff]' : 'bg-[#0d0f13]'
+}
+
+/**
  * Clases del botón flotante de un preview 3D (ojo, engrane, techo/objetos…),
  * según el fondo del preview esté en claro u oscuro (`previewClaro`). Los
  * botones flotan directo sobre el canvas (no sobre el panel del editor), por
  * eso no usan las variables `--ui-*` del tema de interfaz: siguen el fondo del
- * preview, no el modo claro/oscuro general de la app.
+ * preview, no el modo claro/oscuro general de la app. Por lo mismo los blancos
+ * son literales (ver `claseFondoPreview`).
  */
 export function claseOverlayBtn(claro: boolean, activo = false) {
   if (activo) return 'border-accent/60 bg-accent text-accent-ink'
   return claro
-    ? 'border-black/10 bg-white/90 text-black/65 shadow-sm hover:bg-white'
-    : 'ui-hud border-white/15 text-white/70 hover:bg-white/15'
+    ? 'border-black/10 bg-[#ffffff]/90 text-black/65 shadow-sm hover:bg-[#ffffff]'
+    : 'ui-hud border-[#ffffff]/15 text-[#ffffff]/70 hover:bg-[#ffffff]/15'
 }

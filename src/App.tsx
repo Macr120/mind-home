@@ -10,9 +10,11 @@ import { GranjaCercaOverlay } from './core/ui/GranjaCercaOverlay'
 import { CarreraOverlay } from './core/ui/CarreraOverlay'
 import { AsignarPlantillaDialog } from './core/ui/AsignarPlantillaDialog'
 import { AmueblarDialog } from './core/ui/AmueblarDialog'
+import { DestinoObjetoDialog } from './core/ui/DestinoObjetoDialog'
 import { AccesoNivelDialog } from './core/ui/AccesoNivelDialog'
 import { RoomOverlay } from './core/ui/RoomOverlay'
 import { RoomSideMenu, FloatingMenuButton } from './core/ui/RoomSideMenu'
+import { PilaPrompts } from './core/ui/HudPlegable'
 import { MoveControls } from './core/ui/MoveControls'
 import { MenuHerramientas } from './core/ui/MenuHerramientas'
 import { EditorGrafiti } from './core/ui/EditorGrafiti'
@@ -41,12 +43,14 @@ import { useHuerto } from './core/state/huertoStore'
 import { useGranja } from './core/state/granjaStore'
 import { useEditorUi } from './core/state/editorUiStore'
 import { useCam } from './core/state/cameraStore'
+import { useCarrera } from './core/state/carreraStore'
 import { useDialogo } from './core/state/dialogoStore'
 import { useDiarioProgramado } from './rooms/diario/reparto'
 import { useAvisos } from './core/avisos'
 import { useMusicaAmbiental } from './core/audio/useMusicaAmbiental'
 import { useVozAsistente } from './core/audio/voz'
 import { useCorazon } from './core/chat/corazon'
+import { useVidrioSegunLuz } from './core/ui/useVidrioSegunLuz'
 import { useWrappedUi } from './core/state/wrappedUiStore'
 import { useHud } from './core/state/hudStore'
 import { useSisifoUi } from './core/state/sisifoUiStore'
@@ -69,6 +73,9 @@ export default function App() {
   useVozAsistente()
   // Corazón: comentarios espontáneos de los asistentes del mapa.
   useCorazon()
+  // Modo transparente: la paleta del chrome sigue la luz de la casa (el vidrio
+  // toma el color de la escena que deja pasar).
+  useVidrioSegunLuz()
   const editMode = useLayout((s) => s.editMode)
   const editor3d = useEditorUi((s) => s.editor3d)
   const activeRoom = useHouse((s) => s.activeRoom)
@@ -81,6 +88,9 @@ export default function App() {
   const enHuerto = useHuerto((s) => s.activo)
   const enGranja = useGranja((s) => s.activo)
   const construyendo = enCaminos || enCanchas || enHuerto || enGranja
+  // En plena carrera el bajo lo ocupan el ítem y el derrape (CarreraOverlay): el
+  // chat estorbaría encima de ellos, así que cede la banda mientras dure.
+  const enCarrera = useCarrera((s) => s.fase === 'semaforo' || s.fase === 'corriendo')
   const wrappedAbierto = useWrappedUi((s) => s.abierto)
   const sisifoAbierto = useSisifoUi((s) => s.abierto)
   // En diálogo cara a cara la caja RPG sustituye a la burbuja flotante.
@@ -102,6 +112,19 @@ export default function App() {
         }
       }),
     [],
+  )
+
+  /**
+   * Abrir la app de un cuarto también cierra el menú lateral: si no, la app se
+   * abre en el hueco que deja el menú (en vertical, casi sin ancho). Al salir de
+   * la app el menú NO se reabre solo; se vuelve con el botón flotante.
+   */
+  useEffect(
+    () =>
+      useHouse.subscribe((s, prev) => {
+        if (s.activeRoom && !prev.activeRoom) setSidebarOpen(false)
+      }),
+    [setSidebarOpen],
   )
 
   /**
@@ -130,7 +153,7 @@ export default function App() {
       <div className="relative min-h-0 min-w-0 flex-1 h-full">
         <House />
         {!sidebarOpen && (
-          // Abrir Mind Home solo OCULTA el editor si estaba abierto (un solo panel a la
+          // Abrir MPH solo OCULTA el editor si estaba abierto (un solo panel a la
           // vez); si se estaba editando un cuarto, se retoma tal cual al cerrar este menú.
           // Para salir de verdad del cuarto, usa el botón flotante sobre él (SalirCuartoFlotante).
           <FloatingMenuButton onToggle={() => setSidebarOpen(true)} />
@@ -141,16 +164,22 @@ export default function App() {
         {!editMode && !sidebarOpen && !pintando && !construyendo && <MenuHerramientas />}
         {!editMode && <InteractOverlay />}
         <EtiquetasMapaOverlay />
-        {!editMode && !activeRoom && <AccesoOverlay />}
-        {!editMode && !activeRoom && <VehiculoOverlay />}
-        {!editMode && !activeRoom && !construyendo && <TrenOverlay />}
+        {/* Prompts contextuales (secundarios): apilados SIEMPRE por encima de los
+            controles de las esquinas y del chat, nunca sobre ellos. */}
+        {!editMode && !activeRoom && (
+          <PilaPrompts>
+            {!construyendo && <TrenOverlay />}
+            <AccesoOverlay />
+            <VehiculoOverlay />
+          </PilaPrompts>
+        )}
         {!editMode && !activeRoom && !construyendo && <MarcadorCancha />}
         {!editMode && !activeRoom && !construyendo && <GranjaCercaOverlay />}
         {!editMode && !activeRoom && !construyendo && !dialogoActivo && <AsistenteCercaOverlay />}
         {!editMode && !activeRoom && !construyendo && <CarreraOverlay />}
         {!editMode && !activeRoom && !construyendo && !dialogoActivo && <AsistenteBurbuja />}
         {!editMode && !activeRoom && !construyendo && <DialogoOverlay />}
-        {!editMode && !activeRoom && !construyendo && <ChatBox menuAbierto={sidebarOpen} />}
+        {!editMode && !activeRoom && !construyendo && !enCarrera && <ChatBox menuAbierto={sidebarOpen} />}
         {!editMode && !activeRoom && !construyendo && <RutinasPanel />}
         {!editMode && !activeRoom && <AvisoRespaldo />}
         <Calendario />
@@ -165,6 +194,7 @@ export default function App() {
       </div>
       <AsignarPlantillaDialog />
       <AmueblarDialog />
+      <DestinoObjetoDialog />
       <AccesoNivelDialog />
       {/* Menú de bienvenida de primera vez (idioma → gustos → plan). */}
       <BienvenidaOverlay />

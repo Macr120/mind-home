@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import {
   aplicarTemaUI,
   aplicarVidrioUI,
+  baseSegunLuz,
   TEMA_UI_DEFAULT,
   MODO_UI_DEFAULT,
   VIDRIO_TRANSPARENCIA_DEFAULT,
@@ -14,6 +15,7 @@ import {
   TIPOGRAFIA_DEFAULT,
   type TipografiaId,
 } from '../ui/tipografias'
+import { colorFondo, estadoCielo } from '../house/cielo'
 
 /**
  * Preferencias de interfaz del usuario: idioma y tema visual del chrome.
@@ -327,7 +329,15 @@ export const avisoActivo = (plantillaId?: string): boolean => {
 }
 
 // Aplica tema, tipografía e idioma guardados de inmediato al cargar el módulo.
-aplicarTemaUI(useAjustes.getState().temaUI, useAjustes.getState().modoUI)
+// En modo transparente la base sale de la hora del sistema (el fondo de la casa
+// aún no se ha leído de IndexedDB): así, abriendo de noche, no hay un fogonazo
+// de paleta clara antes de que `useVidrioSegunLuz` ajuste con el fondo real.
+{
+  const { temaUI, modoUI } = useAjustes.getState()
+  const ahora = new Date()
+  const cielo = estadoCielo(ahora.getHours() * 60 + ahora.getMinutes())
+  aplicarTemaUI(temaUI, modoUI, baseSegunLuz(colorFondo(cielo, null), 'claro'))
+}
 aplicarVidrioUI(useAjustes.getState().vidrioTransparencia, useAjustes.getState().vidrioIntensidad)
 aplicarTipografia(useAjustes.getState().tipografia)
 document.documentElement.lang = useAjustes.getState().idioma

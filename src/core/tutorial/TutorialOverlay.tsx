@@ -44,6 +44,9 @@ export function TutorialOverlay() {
 
   // Localiza el objetivo del paso y lo sigue (scroll, resize, re-renders).
   useEffect(() => {
+    // Cada paso vuelve a medir: se borra el recuadro anterior para no dejar el
+    // spotlight sobre el objetivo del paso que acaba de pasar.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCaja(null)
     if (!def || !p) return
     const ctx = ctxTutorial()

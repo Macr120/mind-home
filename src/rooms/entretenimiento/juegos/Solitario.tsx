@@ -5,6 +5,7 @@ import { COLOR } from '../constantes'
 import type { Carta } from './cartas'
 import { barajar, crearBaraja, esRoja } from './cartas'
 import { CartaView } from './CartaView'
+import type { Dificultad, PropsDificultad } from './dificultad'
 
 interface CartaSol extends Carta {
   boca: boolean
@@ -16,6 +17,15 @@ interface EstadoSol {
   descarte: Carta[]
   fundaciones: Carta[][]
   movimientos: number
+  /** Veces que se ha reciclado el descarte para volver a recorrer el mazo. */
+  reciclados: number
+}
+
+// Cartas que se levantan de golpe y cuántas vueltas se pueden dar al mazo
+const AJUSTE: Record<Dificultad, { roba: number; vueltas: number }> = {
+  facil: { roba: 1, vueltas: Infinity },
+  medio: { roba: 3, vueltas: Infinity },
+  dificil: { roba: 3, vueltas: 3 },
 }
 
 type SelSol = { zona: 'col'; col: number; idx: number } | { zona: 'descarte' } | null
@@ -34,7 +44,7 @@ function repartirSol(): EstadoSol {
     for (let k = 0; k <= n; k++) col.push({ ...baraja[pos++], boca: k === n })
     columnas.push(col)
   }
-  return { columnas, mazo: baraja.slice(pos), descarte: [], fundaciones: [[], [], [], []], movimientos: 0 }
+  return { columnas, mazo: baraja.slice(pos), descarte: [], fundaciones: [[], [], [], []], movimientos: 0, reciclados: 0 }
 }
 
 const clonar = (e: EstadoSol): EstadoSol => JSON.parse(JSON.stringify(e)) as EstadoSol
@@ -60,8 +70,9 @@ function grupoValido(col: CartaSol[], idx: number): boolean {
   return true
 }
 
-export function Solitario() {
+export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const ajuste = AJUSTE[dificultad]
   const [estado, setEstado] = useState<EstadoSol>(repartirSol)
   const [sel, setSel] = useState<SelSol>(null)
   const [historial, setHistorial] = useState<EstadoSol[]>([])
@@ -91,12 +102,16 @@ export function Solitario() {
     setSel(null)
   }
 
+  const sinVueltas = !estado.mazo.length && estado.reciclados >= ajuste.vueltas - 1
+
   const robar = () =>
     ejecutar((e) => {
-      if (e.mazo.length) e.descarte.push(e.mazo.pop()!)
-      else if (e.descarte.length) {
+      if (e.mazo.length) {
+        for (let k = 0; k < ajuste.roba && e.mazo.length; k++) e.descarte.push(e.mazo.pop()!)
+      } else if (e.descarte.length && e.reciclados < ajuste.vueltas - 1) {
         e.mazo = e.descarte.reverse()
         e.descarte = []
+        e.reciclados++
       } else return false
       return true
     })
@@ -204,6 +219,12 @@ export function Solitario() {
       <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
         <span className="text-white/55">
           {t('entre.j.movs', 'Movimientos')}: <strong className="text-white/85">{estado.movimientos}</strong>
+          {Number.isFinite(ajuste.vueltas) && (
+            <span className="ml-3">
+              {t('entre.j.sol.vueltas', 'Vueltas al mazo')}:{' '}
+              <strong className="text-white/85">{ajuste.vueltas - estado.reciclados}</strong>
+            </span>
+          )}
         </span>
         <div className="flex gap-2">
           <button type="button" onClick={subirTodo} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">
@@ -234,7 +255,11 @@ export function Solitario() {
                 </span>
               </>
             ) : (
-              <span className="flex h-full w-full items-center justify-center rounded-md border border-dashed border-white/30 text-xl text-white/50">
+              <span
+                className={`flex h-full w-full items-center justify-center rounded-md border border-dashed text-xl ${
+                  sinVueltas ? 'border-white/10 text-white/15' : 'border-white/30 text-white/50'
+                }`}
+              >
                 ↻
               </span>
             )}

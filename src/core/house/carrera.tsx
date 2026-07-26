@@ -23,7 +23,7 @@ import { metaLibre, hayPistaLibre, versionPistaLibre } from '../state/pistaLibre
 import { vehiculoDe, FORMA_VEHICULO } from './vehiculos'
 import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
-import { ANCLAS_FORMA } from './apariencia'
+import { anclasDe } from './apariencia'
 import { worldToCeldaEntera, cellToWorld, SIZE } from './walls'
 
 /**
@@ -281,10 +281,12 @@ export function RivalCarrera() {
           color={a.color}
           modelo3d={a.modelo3d}
           modeloGlb={a.modeloGlb}
+          cuerpoPresetId={a.cuerpoPresetId}
           brazoRef={brazo}
           anim={a.animacion}
+          estado={{ velocidad: 0, fase: 0 }}
         />
-        <Prendas ropa={a.ropa} anclas={ANCLAS_FORMA[a.forma]} />
+        <Prendas ropa={a.ropa} anclas={anclasDe(a)} />
       </group>
     </group>
   )

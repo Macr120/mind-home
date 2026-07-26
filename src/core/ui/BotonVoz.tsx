@@ -24,7 +24,9 @@ export function BotonVoz({
   const [hablando, setHablando] = useState(false)
   // Solo corta al desmontar si era ESTE botón el que sonaba.
   const hablandoRef = useRef(false)
-  hablandoRef.current = hablando
+  useEffect(() => {
+    hablandoRef.current = hablando
+  }, [hablando])
   useEffect(
     () => () => {
       if (hablandoRef.current) callarVoz()

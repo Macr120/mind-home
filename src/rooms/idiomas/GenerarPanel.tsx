@@ -4,7 +4,8 @@ import { tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR } from './constantes'
-import { TEMARIO, getTema } from './temario'
+import { TEMARIO, getTema, type AreaTemario } from './temario'
+import { OpcionesTemas } from './OpcionesTemas'
 import { generarTarjetasTema, type TarjetaPropuesta } from './tutor'
 import { hoyISO } from './stats'
 
@@ -18,7 +19,7 @@ interface Propuesta extends TarjetaPropuesta {
  */
 export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
   perfil: PerfilIdioma
-  temaFijo?: { id: string; titulo: string; nivel: string } | null
+  temaFijo?: { id: string; titulo: string; nivel: string; area?: AreaTemario } | null
   onCerrar: () => void
 }) {
   const t = useT()
@@ -34,7 +35,7 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
     temaFijo ??
     (() => {
       const est = getTema(temaId)
-      if (est) return { id: est.id, titulo: est.titulo, nivel: est.nivel }
+      if (est) return { id: est.id, titulo: est.titulo, nivel: est.nivel, area: est.area }
       const din = nodos.find((n) => n.temaId === temaId)
       return din ? { id: din.temaId, titulo: din.titulo, nivel: din.nivel } : null
     })()
@@ -118,24 +119,7 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
                   onChange={(e) => setTemaId(e.target.value)}
                   className="w-full rounded-lg border border-white/10 bg-black/30 px-2.5 py-2 text-sm outline-none focus:border-white/30"
                 >
-                  {TEMARIO.map((n) => (
-                    <optgroup key={n.nivel} label={`${n.nivel} · ${n.titulo}`}>
-                      {n.temas.map((tema) => (
-                        <option key={tema.id} value={tema.id}>
-                          {tema.titulo}
-                        </option>
-                      ))}
-                    </optgroup>
-                  ))}
-                  {nodos.length > 0 && (
-                    <optgroup label={t('idiomas.form.temasDesbloq', 'Desbloqueados')}>
-                      {nodos.map((n) => (
-                        <option key={n.temaId} value={n.temaId}>
-                          {n.titulo}
-                        </option>
-                      ))}
-                    </optgroup>
-                  )}
+                  <OpcionesTemas nodos={nodos} />
                 </select>
               </div>
             )}

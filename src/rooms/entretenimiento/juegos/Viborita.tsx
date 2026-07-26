@@ -2,11 +2,19 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 type Dir = 'izq' | 'der' | 'arr' | 'aba'
 type Fase = 'lista' | 'jugando' | 'pausa' | 'fin'
 
 const LADO = 20
+
+// Milisegundos por paso: de arranque y el tope al que se acelera comiendo
+const RITMO: Record<Dificultad, { inicial: number; minimo: number }> = {
+  facil: { inicial: 175, minimo: 110 },
+  medio: { inicial: 130, minimo: 70 },
+  dificil: { inicial: 95, minimo: 45 },
+}
 
 interface Partida {
   serpiente: number[] // índices de celda, la cabeza primero
@@ -51,14 +59,16 @@ function avanzar(p: Partida): Partida {
   return { ...p, serpiente: [cabeza, ...cuerpo], dir, cola: null }
 }
 
-export function Viborita() {
+export function Viborita({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const clave = claveDificultad('viborita-record', dificultad)
   const [p, setP] = useState<Partida>(partidaInicial)
   const [fase, setFase] = useState<Fase>('lista')
-  const [record, setRecord] = useState(() => leerNumero('viborita-record', 0))
+  const [record, setRecord] = useState(() => leerNumero(clave, 0))
   const toque = useRef<{ x: number; y: number } | null>(null)
 
-  const velocidad = Math.max(70, 130 - Math.floor(p.puntos / 5) * 10)
+  const ritmo = RITMO[dificultad]
+  const velocidad = Math.max(ritmo.minimo, ritmo.inicial - Math.floor(p.puntos / 5) * 10)
 
   // Un timeout por tick: el efecto se reprograma con cada avance y siempre ve estado fresco
   useEffect(() => {
@@ -68,11 +78,11 @@ export function Viborita() {
       setP(sig)
       if (!sig.viva) {
         setFase('fin')
-        setRecord(guardarRecord('viborita-record', sig.puntos))
+        setRecord(guardarRecord(clave, sig.puntos))
       }
     }, velocidad)
     return () => clearTimeout(id)
-  }, [p, fase, velocidad])
+  }, [p, fase, velocidad, clave])
 
   // En segundo plano los timers se estrangulan: mejor pausar la partida
   useEffect(() => {
@@ -168,7 +178,7 @@ export function Viborita() {
           ))}
         </div>
         {fase !== 'jugando' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/70">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/70 ui-noche">
             {fase === 'fin' && (
               <p className="text-lg font-black">
                 {p.manzana < 0 ? t('entre.j.ganaste', '¡Ganaste! 🎉') : t('entre.j.viborita.fin', '¡Ay! La viborita chocó.')}

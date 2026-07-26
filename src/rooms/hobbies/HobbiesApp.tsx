@@ -1,14 +1,18 @@
 import { useMemo, useState } from 'react'
 import type { Hobby, SesionHobby } from '../../core/data/db'
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
-import { tabInicial } from '../../core/state/intencionApp'
 import { useT } from '../../core/i18n/useT'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { DetalleHobby } from './DetalleHobby'
+import { DetalleProyecto } from './DetalleProyecto'
 import { FormHobby } from './FormHobby'
 import { fechasSemanaActual, minutosPorDia, rachaActual, rgba } from './stats'
 
+/**
+ * Maestro/detalle en tres escalones: la lista de hobbies, el hobby por dentro y
+ * un proyecto suyo. El cronograma no es una pestaña de la app — cada hobby y
+ * cada proyecto llevan el suyo, con las metas que le tocan.
+ */
 export function HobbiesApp() {
   const t = useT()
   const hobbies = hobbiesRepo.useAll() ?? []
@@ -16,12 +20,9 @@ export function HobbiesApp() {
   const proyectos = proyectosHobbyRepo.useAll() ?? []
 
   const [hobbyId, setHobbyId] = useState<number | null>(null)
+  const [proyectoId, setProyectoId] = useState<number | null>(null)
   const [creando, setCreando] = useState(false)
   const [editando, setEditando] = useState<Hobby | null>(null)
-  // La única de las cuatro apps sin pestañas: era maestro/detalle a secas.
-  const [tab, setTab] = useState<'hobbies' | 'cronograma'>(() =>
-    tabInicial('hobbies', ['hobbies', 'cronograma'] as const, 'hobbies'),
-  )
 
   const porHobby = useMemo(() => {
     const m = new Map<number, SesionHobby[]>()
@@ -49,42 +50,32 @@ export function HobbiesApp() {
 
   const abierto = hobbyId != null ? hobbies.find((h) => h.id === hobbyId) : undefined
   if (abierto) {
+    const proyecto = proyectoId != null ? proyectos.find((p) => p.id === proyectoId) : undefined
     return (
       <div className="mx-auto max-w-2xl">
-        <DetalleHobby
-          hobby={abierto}
-          sesiones={porHobby.get(abierto.id!) ?? []}
-          proyectos={proyectos.filter((p) => p.hobbyId === abierto.id)}
-          onVolver={() => setHobbyId(null)}
-          onEditar={() => setEditando(abierto)}
-        />
+        {proyecto ? (
+          <DetalleProyecto
+            hobby={abierto}
+            proyecto={proyecto}
+            sesiones={porHobby.get(abierto.id!) ?? []}
+            onVolver={() => setProyectoId(null)}
+          />
+        ) : (
+          <DetalleHobby
+            hobby={abierto}
+            sesiones={porHobby.get(abierto.id!) ?? []}
+            proyectos={proyectos.filter((p) => p.hobbyId === abierto.id)}
+            onVolver={() => setHobbyId(null)}
+            onEditar={() => setEditando(abierto)}
+            onAbrirProyecto={(p) => setProyectoId(p.id ?? null)}
+          />
+        )}
       </div>
     )
   }
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <div className="flex gap-2">
-        {(['hobbies', 'cronograma'] as const).map((id) => (
-          <button
-            key={id}
-            type="button"
-            data-tut={`hobbies.tab.${id}`}
-            onClick={() => setTab(id)}
-            className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
-              tab === id ? 'bg-violet-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            <Icono nombre={id === 'hobbies' ? 'rompecabezas' : 'calendario'} />{' '}
-            {t(`hobbies.tab.${id}`, id === 'hobbies' ? 'Hobbies' : 'Cronograma')}
-          </button>
-        ))}
-      </div>
-
-      {tab === 'cronograma' ? (
-        <CronogramaApp plantillaId="hobbies" />
-      ) : (
-        <>
       <p className="text-sm text-white/50 text-center">
         {t('hobbies.desc', 'Dale seguimiento a tus pasatiempos: sesiones, rachas, metas y proyectos.')}
       </p>
@@ -153,8 +144,6 @@ export function HobbiesApp() {
             )
           })}
         </ul>
-      )}
-        </>
       )}
     </div>
   )

@@ -19,7 +19,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('[Mind Home]', error, info.componentStack)
+    console.error('[MPH]', error, info.componentStack)
   }
 
   render() {

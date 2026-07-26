@@ -60,6 +60,7 @@ export function MuroCurvo3D({
   vanoFormaAncho = 1,
   vanoFormaPosX = 0,
   sinPanel = false,
+  resaltado = false,
 }: {
   arcCx: number
   arcCz: number
@@ -95,6 +96,8 @@ export function MuroCurvo3D({
   vanoFormaPosX?: number
   /** No dibujar el panel del hueco (la puerta sólida animada pone su propia hoja). */
   sinPanel?: boolean
+  /** Selección de plano (croquis 2D): mismo brillo ámbar que los muros rectos. */
+  resaltado?: boolean
 }) {
   const h = WALL_H * alto
   const conHueco = (puerta || ventana) && !fantasma
@@ -298,8 +301,8 @@ export function MuroCurvo3D({
           side={THREE.DoubleSide}
           transparent={fantasma}
           opacity={fantasma ? 0.4 : 1}
-          emissive={fantasma ? color : '#000000'}
-          emissiveIntensity={fantasma ? 0.4 : 0}
+          emissive={fantasma ? color : resaltado ? '#f59e0b' : '#000000'}
+          emissiveIntensity={fantasma ? 0.4 : resaltado ? 1.1 : 0}
         />
       </mesh>
       {panelGeo && !sinPanel && (

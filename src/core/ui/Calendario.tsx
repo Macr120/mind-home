@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { Rutina, EjecucionRutina, Alcance } from '../data/db'
+import type { Rutina, Alcance } from '../data/db'
 import { ejecucionesRutinaRepo, rutinasRepo } from '../data/repository'
 import { getPlantilla } from '../registry'
 import { useEventosApps, type EventoResuelto } from '../eventosApps'
@@ -16,14 +16,53 @@ import {
   agendarMetaEnRango,
   extenderRutinaARango,
 } from '../rutinas'
-import { addDias, inicioSemana } from '../fechaLocal'
-import { aHHMM, aMin, alcanceDe, esMeta, progresoPasos, rangoDe, toggleMeta } from '../metas'
+import { addDias, deIso, inicioSemana } from '../fechaLocal'
+import {
+  aHHMM,
+  aMin,
+  alcanceDe,
+  borrarMetaConDescendencia,
+  crearMeta,
+  descendientes,
+  esMeta,
+  profundidadDe,
+  raizDe,
+  rangoDe,
+  toggleMeta,
+  togglePasoMeta,
+} from '../metas'
 import { useRutinasUI } from '../state/rutinasUiStore'
-import { colorDe } from './coloresRutina'
+import { colorDe, colorPorProfundidad } from './coloresRutina'
 import { Cronograma } from './metas/Cronograma'
 import { EditorRutina, rutinaNueva } from './RutinasPanel'
 import { localeActual, useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import {
+  columnasPorDia,
+  columnasPorMes,
+  columnasPorSemana,
+  cumplidaEn,
+  indexarEjecuciones,
+  SEMANA,
+  type ColumnaRango,
+  type IndiceEjecuciones,
+} from './calendario/metricas'
+import { appDeRutina, pasa } from './calendario/apps'
+import { useCalendarioFiltro } from '../state/calendarioFiltroStore'
+import { FiltroApps } from './calendario/FiltroApps'
+import { PanelMetricas } from './calendario/PanelMetricas'
+import {
+  capaTiempoDia,
+  capaTiempoMes,
+  COLOR_TIEMPO,
+  componerFondo,
+  fraccionAnio,
+  fraccionDia,
+  fraccionMes,
+  fraccionSemana,
+  useAhora,
+} from './calendario/tiempoTranscurrido'
+import { BarraTiempo } from './calendario/BarraTiempo'
 
 /**
  * Calendario de rutinas (estilo Google Calendar, tema oscuro): vistas día /
@@ -41,17 +80,6 @@ type Vista = 'dia' | 'semana' | 'mes' | 'anio' | 'cronograma'
  * contra esto y no hay que inventarle un valor.
  */
 type VistaRejilla = Exclude<Vista, 'cronograma'>
-
-/** Unidad en la que Metas agrupa lo agendado. */
-type Agrupacion = 'hora' | 'dia' | 'semana' | 'mes'
-
-/** Agrupaciones que ofrece cada vista (la primera es la de por defecto). */
-const AGRUPACIONES: Record<VistaRejilla, Agrupacion[]> = {
-  dia: ['hora'],
-  semana: ['dia'],
-  mes: ['semana', 'dia'],
-  anio: ['mes', 'semana', 'dia'],
-}
 
 // La rejilla cubre las 24 h: el sueño cruza la madrugada y tiene que verse.
 const HORA_INI = 0
@@ -270,22 +298,13 @@ function bandasCapas(rutinas: Rutina[], d: Date): BandaCapa[] {
  * salir pendiente no querría decir nada. Así, palomearla en la lista de Metas se
  * ve al momento en la rejilla, que es lo que se espera de dos vistas de lo mismo.
  */
-function estadoEnFecha(r: Rutina, fecha: string, ejecuciones: EjecucionRutina[] | undefined) {
-  if (esMeta(r)) {
-    const p = progresoPasos(r)
-    if (r.completada || (p.total > 0 && p.hechos >= p.total)) return 'completa' as const
-    return fecha === hoyISO() ? ('pendiente' as const) : ('normal' as const)
-  }
-  const e = ejecuciones?.find((x) => x.rutinaId === r.id && x.fecha === fecha)
-  // Palomeada entera desde Metas: cuenta como completa aunque no tenga pasos.
-  if (e?.hecho) return 'completa' as const
+function estadoEnFecha(r: Rutina, fecha: string, idx: IndiceEjecuciones) {
+  if (cumplidaEn(r, fecha, idx)) return 'completa' as const
+  if (esMeta(r)) return fecha === hoyISO() ? ('pendiente' as const) : ('normal' as const)
   if (r.pasos.length === 0) return 'normal' as const
-  if (e && e.pasosHechos.length >= r.pasos.length) return 'completa' as const
   if (fecha === hoyISO()) return 'pendiente' as const
   return 'normal' as const
 }
-
-const SEMANA = ['lun', 'mar', 'mié', 'jue', 'vie', 'sáb', 'dom']
 
 /** Con qué precisión se traza el rango en cada vista (lo dice el aviso de la meta armada). */
 const AYUDA_TRAZO: Record<VistaRejilla, string> = {
@@ -324,9 +343,6 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
       : 'semana',
   )
   const [fecha, setFecha] = useState(() => new Date())
-  // Agrupación de Metas elegida en cada vista; sin elección manda la de por defecto
-  // (mes → semanas, año → meses), y cada vista recuerda la suya por separado.
-  const [agrupaciones, setAgrupaciones] = useState<Partial<Record<Vista, Agrupacion>>>({})
   const [editando, setEditando] = useState<Rutina | null>(null)
   const [detalle, setDetalle] = useState<{ rutina: Rutina; fecha: string } | null>(null)
   // Meta armada: la siguiente vez que se trace un rango en el calendario, se le
@@ -337,12 +353,30 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
   const rutinasCargadas = rutinasRepo.useAll()
   const rutinas = useMemo(() => rutinasCargadas ?? [], [rutinasCargadas])
   const ejecuciones = ejecucionesRutinaRepo.useAll()
-  /** La lista de Metas: solo la consume el cronograma. */
-  const metas = useMemo(() => rutinas.filter(esMeta), [rutinas])
+  const idx = useMemo(() => indexarEjecuciones(ejecuciones), [ejecuciones])
+  const ahora = useAhora()
 
   // Lo que aportan las apps con fecha propia (viajes, y cualquiera que declare
   // `eventos`): el calendario ya no sabe de qué app viene cada cosa.
   const eventos = useEventosApps()
+
+  // Filtro por app: se aplica AQUÍ y en ningún otro sitio. Todo lo de abajo
+  // (rejilla, mes, año, cronograma, metas y métricas) recibe ya lo filtrado, así
+  // que ninguna vista puede quedarse sin filtrar por descuido.
+  const apps = useCalendarioFiltro((s) => s.apps)
+  const rutinasVis = useMemo(() => rutinas.filter((r) => pasa(appDeRutina(r), apps)), [rutinas, apps])
+  const eventosVis = useMemo(() => {
+    if (apps.size === 0) return eventos
+    const m = new Map<string, EventoResuelto[]>()
+    for (const [iso, lista] of eventos) {
+      const quedan = lista.filter((e) => pasa(e.plantillaId, apps))
+      if (quedan.length > 0) m.set(iso, quedan)
+    }
+    return m
+  }, [eventos, apps])
+
+  /** La lista de Metas: solo la consume el cronograma. */
+  const metas = useMemo(() => rutinasVis.filter(esMeta), [rutinasVis])
 
   const navegar = (dir: -1 | 1) => {
     if (vista === 'dia') setFecha(addDias(fecha, dir))
@@ -370,6 +404,15 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
     { id: 'anio', label: t('cal.anio', 'Año') },
     { id: 'cronograma', label: t('cal.cronograma', 'Cronograma') },
   ]
+
+  // Columnas del panel de métricas. Día y Semana van día a día (se palomean);
+  // Mes resume por semana y Año por mes, que es como se lee "cómo me fue".
+  const columnasMetricas = useMemo((): ColumnaRango[] => {
+    if (vista === 'dia') return columnasPorDia([fecha])
+    if (vista === 'semana') return columnasPorDia(Array.from({ length: 7 }, (_, i) => addDias(inicioSemana(fecha), i)))
+    if (vista === 'mes') return columnasPorSemana(fecha.getFullYear(), fecha.getMonth(), t)
+    return columnasPorMes(fecha.getFullYear(), localeActual())
+  }, [vista, fecha, t])
 
   const abrirDia = (d: Date) => {
     setFecha(d)
@@ -488,6 +531,16 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
           )}
         </div>
 
+        {/* Filtro por app: fuera del cuerpo, para que valga también en el cronograma. */}
+        <div data-tut="cal.filtro" className="flex flex-wrap items-center gap-2 border-b border-white/10 px-4 py-1.5">
+          {apps.size > 0 && (
+            <p className="text-[10px] font-semibold text-amber-400/80">{t('cal.filtro.activo', 'Filtro activo')}</p>
+          )}
+          <div className="ml-auto">
+            <FiltroApps rutinas={rutinas} eventos={eventos} />
+          </div>
+        </div>
+
         {/* El cronograma se come el cuerpo entero: ni rejilla ni lista de lo agendado. */}
         {vista === 'cronograma' ? (
           <Cronograma
@@ -498,11 +551,24 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
         ) : (
         /* Cuerpo: la rejilla sigue visible debajo (el editor flota como notificación, ver abajo) */
         <div data-scroll-cal className="min-h-0 flex-1 overflow-y-auto p-3">
+          {/* Mes y Año coronan su rejilla con el avance del periodo; en Día y Semana
+              la marca vive dentro de la propia rejilla (barra del margen y línea de hora). */}
+          {(vista === 'mes' || vista === 'anio') && (
+            <BarraTiempo
+              className="mb-2"
+              frac={
+                vista === 'mes'
+                  ? fraccionMes(fecha.getFullYear(), fecha.getMonth(), ahora)
+                  : fraccionAnio(fecha.getFullYear(), ahora)
+              }
+            />
+          )}
           {vista === 'anio' ? (
             <VistaAño
               fecha={fecha}
-              rutinas={rutinas}
-              ejecuciones={ejecuciones}
+              rutinas={rutinasVis}
+              idx={idx}
+              ahora={ahora}
               onDia={abrirDia}
               onMes={abrirMes}
               onTrazar={trazarDias}
@@ -512,9 +578,10 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
           ) : vista === 'mes' ? (
             <VistaMes
               fecha={fecha}
-              rutinas={rutinas}
-              eventos={eventos}
-              ejecuciones={ejecuciones}
+              ahora={ahora}
+              rutinas={rutinasVis}
+              eventos={eventosVis}
+              idx={idx}
               onDia={abrirDia}
               onTrazar={trazarDias}
               onExtender={extender}
@@ -522,22 +589,24 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
           ) : (
             <RejillaTiempo
               dias={vista === 'semana' ? Array.from({ length: 7 }, (_, i) => addDias(inicioSemana(fecha), i)) : [fecha]}
-              rutinas={rutinas}
-              eventos={eventos}
-              ejecuciones={ejecuciones}
+              rutinas={rutinasVis}
+              eventos={eventosVis}
+              idx={idx}
+              ahora={ahora}
               onDia={vista === 'semana' ? abrirDia : undefined}
               onDetalle={(rutina, f) => setDetalle({ rutina, fecha: f })}
               onCrear={crearEn}
             />
           )}
-          <SeccionMetas
-            vista={vista}
-            fecha={fecha}
-            rutinas={rutinas}
-            ejecuciones={ejecuciones}
-            agrupacion={agrupaciones[vista]}
-            onAgrupacion={(a) => setAgrupaciones((s) => ({ ...s, [vista]: a }))}
-            onDetalle={(rutina, f) => setDetalle({ rutina, fecha: f })}
+          <PanelMetricas
+            rutinas={rutinasVis}
+            idx={idx}
+            columnas={columnasMetricas}
+            detalle={vista === 'dia' || vista === 'semana'}
+            onToggle={(r, iso) => (esMeta(r) ? void toggleMeta(r) : void toggleHecho(r, iso))}
+            onEditar={(r) => setEditando({ ...r, pasos: r.pasos.map((p) => ({ ...p })) })}
+            onIrACronograma={() => setVista('cronograma')}
+            onAbrir={(c) => (vista === 'mes' ? abrirDia(deIso(c.isos[0])) : abrirMes(deIso(c.isos[0]).getMonth()))}
           />
         </div>
         )}
@@ -600,7 +669,12 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
         <DetalleRutina
           rutina={rutinas.find((r) => r.id === detalle.rutina.id) ?? detalle.rutina}
           fecha={detalle.fecha}
-          ejecuciones={ejecuciones}
+          idx={idx}
+          metas={rutinas.filter(esMeta)}
+          onIrACronograma={() => {
+            setVista('cronograma')
+            setDetalle(null)
+          }}
           onEditar={() => {
             setEditando({ ...detalle.rutina, pasos: detalle.rutina.pasos.map((p) => ({ ...p })) })
             setDetalle(null)
@@ -634,7 +708,8 @@ function RejillaTiempo({
   dias,
   rutinas,
   eventos,
-  ejecuciones,
+  idx,
+  ahora,
   onDia,
   onDetalle,
   onCrear,
@@ -643,7 +718,9 @@ function RejillaTiempo({
   rutinas: Rutina[]
   /** Lo que aportan las apps por fecha (solo lectura, van en la fila "sin hora"). */
   eventos: Map<string, EventoResuelto[]>
-  ejecuciones: EjecucionRutina[] | undefined
+  idx: IndiceEjecuciones
+  /** Se refresca cada minuto: mueve la sombra del tiempo ya vivido. */
+  ahora: Date
   onDia?: (d: Date) => void
   onDetalle: (r: Rutina, fechaIso: string) => void
   onCrear: (d: Date, ini: number, fin: number) => void
@@ -785,6 +862,10 @@ function RejillaTiempo({
         })}
       </div>
 
+      {/* Semana: barra de avance bajo los días — dice por dónde va la semana sin
+          apagar ninguna columna (en Día ese papel lo hace la barra del margen). */}
+      {nCols > 1 && <BarraTiempo frac={fraccionSemana(dias[0], ahora)} className="ml-12" />}
+
       {/* Fila "sin hora" */}
       <div className="grid border-b border-white/10" style={{ gridTemplateColumns: `${GUTTER} repeat(${nCols}, 1fr)` }}>
         <div className="py-1 pr-2 text-right text-[9px] text-white/30">⋯</div>
@@ -832,7 +913,7 @@ function RejillaTiempo({
       >
         {/* Líneas de hora y etiquetas */}
         {horas.map((h, i) => (
-          <div key={h} className="absolute left-0 right-0 border-t border-white/5" style={{ top: i * ALTO_HORA }}>
+          <div key={h} className="absolute left-0 right-0 border-t border-white/10" style={{ top: i * ALTO_HORA }}>
             <span className="absolute -top-1.5 w-10 pr-2 text-right text-[9px] tabular-nums text-white/30">
               {String(h).padStart(2, '0')}:00
             </span>
@@ -840,7 +921,7 @@ function RejillaTiempo({
         ))}
         {/* Líneas verticales de columnas */}
         {dias.map((_, i) => (
-          <div key={i} className="absolute bottom-0 top-0 border-l border-white/5" style={{ left: izquierda(i) }} />
+          <div key={i} className="absolute bottom-0 top-0 border-l border-white/10" style={{ left: izquierda(i) }} />
         ))}
 
         {/* Capas de color por día: contexto (año/mes/semana) + la franja horaria del día */}
@@ -885,7 +966,7 @@ function RejillaTiempo({
               // Al mover, el bloque se colapsa a una sola columna (ancho completo).
               const subCol = moviendoEste ? 0 : bloque.columna
               const totalSub = moviendoEste ? 1 : bloque.totalColumnas
-              const estado = estadoEnFecha(r, fechaBloque, ejecuciones)
+              const estado = estadoEnFecha(r, fechaBloque, idx)
               const color = colorDe(r)
               return (
                 <div
@@ -990,6 +1071,34 @@ function RejillaTiempo({
             )
           })
         })()}
+
+        {/* Marcas del tiempo vivido. Van al final (encima de los bloques) y sin
+            capturar el puntero: son una referencia, no un elemento con el que se
+            interactúe. En Día, la barra del margen izquierdo; en las dos vistas,
+            la línea de la hora actual sobre la columna de hoy. */}
+        {nCols === 1 && fraccionDia(fechaISO(dias[0]), ahora) > 0 && (
+          <div
+            className="pointer-events-none absolute left-0 top-0 z-30 w-1 rounded-full"
+            style={{
+              height: fraccionDia(fechaISO(dias[0]), ahora) * (TOTAL_MIN / 60) * ALTO_HORA,
+              backgroundColor: COLOR_TIEMPO,
+            }}
+          />
+        )}
+        {(() => {
+          const col = dias.findIndex((d) => fechaISO(d) === hoy)
+          if (col === -1) return null
+          const top = arriba(ahora.getHours() * 60 + ahora.getMinutes())
+          return (
+            <div className="pointer-events-none absolute z-30" style={{ left: izquierda(col), width: ancho, top }}>
+              <div className="h-px w-full" style={{ backgroundColor: COLOR_TIEMPO }} />
+              <div
+                className="absolute -left-0.5 -top-1 h-2 w-2 rounded-full"
+                style={{ backgroundColor: COLOR_TIEMPO }}
+              />
+            </div>
+          )
+        })()}
       </div>
 
       {/* Alcance del cambio: una serie afecta a muchos días, así que se pregunta */}
@@ -1043,21 +1152,52 @@ function RejillaTiempo({
 function DetalleRutina({
   rutina,
   fecha,
-  ejecuciones,
+  idx,
   onEditar,
+  metas,
+  onIrACronograma,
   onCerrar,
 }: {
   rutina: Rutina
   fecha: string
-  ejecuciones: EjecucionRutina[] | undefined
+  idx: IndiceEjecuciones
+  /** Para poder agregarle una sub-meta (necesita el árbol completo). */
+  metas: Rutina[]
+  onIrACronograma: () => void
   onEditar: () => void
   onCerrar: () => void
 }) {
   const t = useT()
   const esHoy = fecha === hoyISO()
-  const ejec = ejecuciones?.find((x) => x.rutinaId === rutina.id && x.fecha === fecha)
-  const hechos = new Set(ejec?.pasosHechos ?? [])
   const color = colorDe(rutina)
+  const meta = esMeta(rutina)
+  const ejec = idx.por.get(`${fecha}|${rutina.id}`)
+  const hechos = new Set(meta ? (rutina.pasosHechos ?? []) : (ejec?.pasosHechos ?? []))
+  const [agregandoHija, setAgregandoHija] = useState(false)
+  const [nombreHija, setNombreHija] = useState('')
+
+  const borrar = async () => {
+    if (rutina.id == null) return
+    if (meta) {
+      const hijas = descendientes(metas, rutina.id)
+      const msg = hijas.length
+        ? t('cal.meta.borrarConHijas', '¿Borrar esta meta y todas sus sub-metas?')
+        : t('cal.meta.borrar', '¿Borrar esta meta?')
+      if (!window.confirm(msg)) return
+      await borrarMetaConDescendencia(metas, rutina.id)
+    } else {
+      await rutinasRepo.remove(rutina.id)
+    }
+    onCerrar()
+  }
+
+  const confirmarHija = () => {
+    if (!nombreHija.trim() || rutina.id == null) return
+    const colorPrincipal = colorDe(raizDe(metas, rutina))
+    void crearMeta(metas, nombreHija, rutina, colorPorProfundidad(colorPrincipal, profundidadDe(metas, rutina) + 1))
+    setNombreHija('')
+    setAgregandoHija(false)
+  }
 
   return (
     // stopPropagation: este fondo vive dentro del fondo del calendario; sin él,
@@ -1079,15 +1219,23 @@ function DetalleRutina({
           <p className="flex-1 truncate text-sm font-bold text-white/90">
             <Icono emoji={rutina.emoji} /> {rutina.nombre}
           </p>
-          <button type="button" onClick={onEditar} className="px-1 text-xs text-white/40 transition hover:text-white/85" title={t('rutinas.editar', 'Editar')}>
-            <Icono nombre="editar" />
-          </button>
+          {meta ? (
+            <button
+              type="button"
+              onClick={onIrACronograma}
+              className="px-1 text-xs text-white/40 transition hover:text-white/85"
+              title={t('cal.meta.verEnCronograma', 'Ver en el Cronograma')}
+            >
+              <Icono nombre="derecha" />
+            </button>
+          ) : (
+            <button type="button" onClick={onEditar} className="px-1 text-xs text-white/40 transition hover:text-white/85" title={t('rutinas.editar', 'Editar')}>
+              <Icono nombre="editar" />
+            </button>
+          )}
           <button
             type="button"
-            onClick={async () => {
-              if (rutina.id != null) await rutinasRepo.remove(rutina.id)
-              onCerrar()
-            }}
+            onClick={borrar}
             className="px-1 text-xs text-white/40 transition hover:text-red-400"
             title={t('rutinas.borrar', 'Borrar')}
           >
@@ -1101,7 +1249,7 @@ function DetalleRutina({
           {new Date(fecha + 'T12:00').toLocaleDateString(localeActual(), { weekday: 'long', day: 'numeric', month: 'long' })}
           {rutina.hora && ` · ${rutina.hora}${rutina.horaFin ? ` – ${rutina.horaFin}` : ''}`}
         </p>
-        <p className="mb-2 text-[10px] text-white/35"><Icono nombre="repetir" /> {textoRepeticion(rutina)}</p>
+        {!meta && <p className="mb-2 text-[10px] text-white/35"><Icono nombre="repetir" /> {textoRepeticion(rutina)}</p>}
         {rutina.nota && (
           <p className="mb-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] text-white/60">
             <Icono nombre="nota" /> {rutina.nota}
@@ -1126,8 +1274,13 @@ function DetalleRutina({
                 <span className="text-xs opacity-60">{room && <Icono emoji={room.icon} />}</span>
               </>
             )
-            return esHoy ? (
-              <button key={i} type="button" onClick={() => togglePaso(rutina, i)} className="flex w-full items-center gap-2 rounded-lg px-1.5 py-1 transition hover:bg-white/10">
+            return meta || esHoy ? (
+              <button
+                key={i}
+                type="button"
+                onClick={() => (meta ? void togglePasoMeta(rutina, i) : togglePaso(rutina, i))}
+                className="flex w-full items-center gap-2 rounded-lg px-1.5 py-1 transition hover:bg-white/10"
+              >
                 {fila}
               </button>
             ) : (
@@ -1138,236 +1291,38 @@ function DetalleRutina({
           })
           )}
         </div>
-        {!esHoy && rutina.pasos.length > 0 && (
+        {!meta && !esHoy && rutina.pasos.length > 0 && (
           <p className="mt-2 text-center text-[10px] text-white/30">
             {t('cal.soloHoy', 'Los pasos solo se palomean el día de hoy.')}
           </p>
         )}
-      </div>
-    </div>
-  )
-}
-
-// ---------- Sección METAS ----------
-
-/** Una cosa agendada en una fecha concreta (una ocurrencia de la rutina). */
-interface Ocurrencia {
-  rutina: Rutina
-  d: Date
-  iso: string
-}
-
-/** Días que abarca la vista: el rango que Metas resume. */
-function rangoVista(vista: Vista, fecha: Date): Date[] {
-  if (vista === 'dia') return [fecha]
-  if (vista === 'semana') return Array.from({ length: 7 }, (_, i) => addDias(inicioSemana(fecha), i))
-  if (vista === 'mes') {
-    const n = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0).getDate()
-    return Array.from({ length: n }, (_, i) => new Date(fecha.getFullYear(), fecha.getMonth(), i + 1))
-  }
-  const dias: Date[] = []
-  for (let m = 0; m < 12; m++) {
-    const n = new Date(fecha.getFullYear(), m + 1, 0).getDate()
-    for (let i = 1; i <= n; i++) dias.push(new Date(fecha.getFullYear(), m, i))
-  }
-  return dias
-}
-
-/** Clave y etiqueta del grupo al que cae una ocurrencia, según la unidad. */
-function grupoDe(o: Ocurrencia, agr: Agrupacion, locale: string, sinHora: string): { clave: string; etiqueta: string } {
-  if (agr === 'hora') {
-    const h = o.rutina.hora ?? ''
-    return { clave: h, etiqueta: h || sinHora }
-  }
-  if (agr === 'dia') {
-    return { clave: o.iso, etiqueta: o.d.toLocaleDateString(locale, { weekday: 'long', day: 'numeric', month: 'short' }) }
-  }
-  if (agr === 'semana') {
-    const ini = inicioSemana(o.d)
-    const fin = addDias(ini, 6)
-    return {
-      clave: fechaISO(ini),
-      etiqueta: `${ini.toLocaleDateString(locale, { day: 'numeric', month: 'short' })} – ${fin.toLocaleDateString(locale, { day: 'numeric', month: 'short' })}`,
-    }
-  }
-  return {
-    clave: `${o.d.getFullYear()}-${o.d.getMonth()}`,
-    etiqueta: o.d.toLocaleDateString(locale, { month: 'long' }),
-  }
-}
-
-/** Cuántas ocurrencias se listan por grupo antes de plegar el resto. */
-const TOPE_GRUPO = 20
-
-/**
- * Metas: todo lo agendado del rango que muestra el calendario, como checklist.
- * La unidad de agrupación depende de la vista (día → horas, semana → días,
- * mes → semanas o días, año → meses, semanas o días). Palomear marca la
- * ocurrencia entera de ese día, y el bloque de la rejilla se tacha con ella.
- * Los eventos de viaje no salen: son de otra app y no se palomean.
- */
-function SeccionMetas({
-  vista,
-  fecha,
-  rutinas,
-  ejecuciones,
-  agrupacion,
-  onAgrupacion,
-  onDetalle,
-}: {
-  vista: VistaRejilla
-  fecha: Date
-  rutinas: Rutina[]
-  ejecuciones: EjecucionRutina[] | undefined
-  /** Sin valor (o si no aplica a la vista) manda la agrupación por defecto de la vista. */
-  agrupacion: Agrupacion | undefined
-  onAgrupacion: (a: Agrupacion) => void
-  onDetalle: (r: Rutina, iso: string) => void
-}) {
-  const t = useT()
-  const locale = localeActual()
-  const [abiertos, setAbiertos] = useState<Set<string>>(new Set())
-  const opciones = AGRUPACIONES[vista]
-  const agr = agrupacion && opciones.includes(agrupacion) ? agrupacion : opciones[0]
-  const sinHora = t('cal.sinHora', 'Sin hora')
-
-  const grupos = useMemo(() => {
-    const ocurrencias: Ocurrencia[] = []
-    for (const d of rangoVista(vista, fecha)) {
-      const iso = fechaISO(d)
-      for (const r of rutinas) if (tocaFecha(r, d)) ocurrencias.push({ rutina: r, d, iso })
-    }
-    const mapa = new Map<string, { etiqueta: string; items: Ocurrencia[] }>()
-    for (const o of ocurrencias) {
-      const { clave, etiqueta } = grupoDe(o, agr, locale, sinHora)
-      const g = mapa.get(clave) ?? { etiqueta, items: [] }
-      g.items.push(o)
-      mapa.set(clave, g)
-    }
-    const lista = [...mapa.entries()].map(([clave, g]) => ({ clave, ...g }))
-    // Por hora los grupos nacen desordenados (se recorre por fecha) y "sin hora" va al final.
-    if (agr === 'hora') {
-      lista.sort((a, b) => (a.clave === '' ? 1 : b.clave === '' ? -1 : a.clave.localeCompare(b.clave)))
-    }
-    for (const g of lista) {
-      g.items.sort((a, b) => a.iso.localeCompare(b.iso) || (a.rutina.hora ?? '').localeCompare(b.rutina.hora ?? ''))
-    }
-    return lista
-  }, [vista, fecha, rutinas, agr, locale, sinHora])
-
-  // Una meta se palomea en sí misma; una rutina, en el día que toca (ver `estadoEnFecha`).
-  const hechoDe = (o: Ocurrencia) =>
-    esMeta(o.rutina)
-      ? !!o.rutina.completada
-      : !!ejecuciones?.find((e) => e.rutinaId === o.rutina.id && e.fecha === o.iso)?.hecho
-  const total = grupos.reduce((n, g) => n + g.items.length, 0)
-  const hechas = grupos.reduce((n, g) => n + g.items.filter(hechoDe).length, 0)
-
-  return (
-    <div className="mt-4 border-t border-white/10 pt-3">
-      <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className="text-sm text-amber-400/80"><Icono nombre="objetivo" /></span>
-        <p className="text-xs font-bold uppercase tracking-wider text-white/70">{t('cal.metas', 'Metas')}</p>
-        <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-bold tabular-nums text-white/60">
-          {hechas}/{total}
-        </span>
-        {opciones.length > 1 && (
-          <div className="ml-auto flex rounded-lg border border-white/10 p-0.5">
-            {opciones.map((o) => (
+        {meta && (
+          <div className="mt-2 border-t border-white/10 pt-2">
+            {agregandoHija ? (
+              <input
+                autoFocus
+                value={nombreHija}
+                onChange={(e) => setNombreHija(e.target.value)}
+                onBlur={confirmarHija}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') confirmarHija()
+                  else if (e.key === 'Escape') setAgregandoHija(false)
+                }}
+                placeholder={t('cal.meta.nuevaHija', 'Sub-meta…')}
+                className="w-full rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-xs text-white/90 placeholder:text-white/25 focus:outline-none"
+              />
+            ) : (
               <button
-                key={o}
                 type="button"
-                onClick={() => onAgrupacion(o)}
-                className={`rounded-md px-2 py-0.5 text-[10px] font-semibold transition ${
-                  agr === o ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/80'
-                }`}
+                onClick={() => setAgregandoHija(true)}
+                className="text-[11px] text-white/40 transition hover:text-white/80"
               >
-                {t(`cal.agr.${o}`, { hora: 'Horas', dia: 'Días', semana: 'Semanas', mes: 'Meses' }[o])}
+                + {t('cal.meta.agregarHija', 'Agregar una sub-meta')}
               </button>
-            ))}
+            )}
           </div>
         )}
       </div>
-
-      {total === 0 ? (
-        <p className="py-4 text-center text-[11px] text-white/35">
-          {t('cal.sinMetas', 'Nada agendado en este periodo.')}
-        </p>
-      ) : (
-        <div className="space-y-2">
-          {grupos.map((g) => {
-            const hechasG = g.items.filter(hechoDe).length
-            const abierto = abiertos.has(g.clave)
-            const visibles = abierto ? g.items : g.items.slice(0, TOPE_GRUPO)
-            return (
-              <div key={g.clave} className="ui-panel-2 rounded-xl border border-white/10 p-2">
-                <div className="mb-1 flex items-center gap-2 px-0.5">
-                  <p className="flex-1 truncate text-[11px] font-bold capitalize text-white/70">{g.etiqueta}</p>
-                  <span className="text-[10px] tabular-nums text-white/40">
-                    {hechasG}/{g.items.length}
-                  </span>
-                </div>
-                <div className="space-y-0.5">
-                  {visibles.map((o) => {
-                    const hecho = hechoDe(o)
-                    return (
-                      <div key={`${o.rutina.id}-${o.iso}`} className="flex items-center gap-2 rounded-lg px-1 py-0.5 hover:bg-white/5">
-                        <button
-                          type="button"
-                          onClick={() => (esMeta(o.rutina) ? void toggleMeta(o.rutina) : void toggleHecho(o.rutina, o.iso))}
-                          title={t('cal.marcarHecho', 'Marcar como hecho')}
-                          className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] transition ${
-                            hecho ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400' : 'border-white/25 hover:border-white/50'
-                          }`}
-                        >
-                          {hecho ? '✓' : ''}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => onDetalle(o.rutina, o.iso)}
-                          className="flex min-w-0 flex-1 items-center gap-2 text-left"
-                        >
-                          <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: colorDe(o.rutina) }} />
-                          {o.rutina.hora && agr !== 'hora' && (
-                            <span className="shrink-0 text-[10px] tabular-nums text-white/40">{o.rutina.hora}</span>
-                          )}
-                          <span className={`min-w-0 flex-1 truncate text-xs text-white/85 ${hecho ? 'line-through opacity-50' : ''}`}>
-                            <Icono emoji={o.rutina.emoji} /> {o.rutina.nombre}
-                          </span>
-                          {/* El grupo abarca varios días: hay que decir cuál. */}
-                          {(agr === 'semana' || agr === 'mes') && (
-                            <span className="shrink-0 text-[10px] text-white/35">
-                              {o.d.toLocaleDateString(locale, { day: 'numeric', month: 'short' })}
-                            </span>
-                          )}
-                        </button>
-                      </div>
-                    )
-                  })}
-                </div>
-                {g.items.length > TOPE_GRUPO && (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setAbiertos((s) => {
-                        const n = new Set(s)
-                        if (abierto) n.delete(g.clave)
-                        else n.add(g.clave)
-                        return n
-                      })
-                    }
-                    className="mt-1 w-full rounded-lg py-0.5 text-[10px] font-semibold text-white/40 transition hover:bg-white/5 hover:text-white/70"
-                  >
-                    {abierto
-                      ? t('cal.verMenos', 'Ver menos')
-                      : t('cal.verMas', '+{n} más', { n: g.items.length - TOPE_GRUPO })}
-                  </button>
-                )}
-              </div>
-            )
-          })}
-        </div>
-      )}
     </div>
   )
 }
@@ -1475,7 +1430,8 @@ function useTrazoDias(onTrazar: (a: string, b: string) => void) {
 function VistaAño({
   fecha,
   rutinas,
-  ejecuciones,
+  idx,
+  ahora,
   onDia,
   onMes,
   onTrazar,
@@ -1484,7 +1440,8 @@ function VistaAño({
 }: {
   fecha: Date
   rutinas: Rutina[]
-  ejecuciones: EjecucionRutina[] | undefined
+  idx: IndiceEjecuciones
+  ahora: Date
   onDia: (d: Date) => void
   onMes: (m: number) => void
   /** Rango trazado sobre los días (meses, semanas y días). */
@@ -1530,8 +1487,14 @@ function VistaAño({
         const inicio = inicioSemana(primero)
         // 6 semanas cubren cualquier mes; las celdas de fuera se dejan vacías.
         const celdas = Array.from({ length: 42 }, (_, i) => addDias(inicio, i))
+        // Un mes cerrado se sombrea entero; el mes en curso lo hacen sus días.
+        const mesVivido = capaTiempoMes(año, m, ahora)
         return (
-          <div key={m} className="ui-panel rounded-xl border border-white/10 p-2">
+          <div
+            key={m}
+            className="ui-panel rounded-xl border border-white/10 p-2"
+            style={{ backgroundImage: componerFondo(mesVivido) }}
+          >
             <button
               type="button"
               onClick={() => onMes(m)}
@@ -1550,8 +1513,9 @@ function VistaAño({
                 const iso = fechaISO(d)
                 const delDia = rutinas.filter((r) => tocaFecha(r, d))
                 const todasHechas =
-                  delDia.length > 0 && delDia.every((r) => estadoEnFecha(r, iso, ejecuciones) === 'completa')
-                const fondo = capasFondo(rutinas, d)
+                  delDia.length > 0 && delDia.every((r) => estadoEnFecha(r, iso, idx) === 'completa')
+                const capas = capasFondo(rutinas, d)
+                const fondo = componerFondo(mesVivido ? null : capaTiempoDia(iso, ahora), capas)
                 const nombres = delDia.map((r) => r.nombre).join(', ')
                 const titulo = !delDia.length
                   ? undefined
@@ -1571,8 +1535,9 @@ function VistaAño({
                       trazo.enTrazo(iso) || enEstiron(iso) ? 'ring-2 ring-emerald-400 ring-inset' : ''
                     } ${delDia.length === 1 ? 'cursor-ew-resize' : ''}`}
                     style={
-                      iso !== hoy && fondo
-                        ? { backgroundImage: fondo, color: '#fff' }
+                      iso !== hoy
+                        ? // El blanco forzado es por las capas de color, no por la sombra del tiempo.
+                          { backgroundImage: fondo, color: capas ? '#fff' : undefined }
                         : undefined
                     }
                   >
@@ -1592,18 +1557,20 @@ function VistaAño({
 
 function VistaMes({
   fecha,
+  ahora,
   rutinas,
   eventos,
-  ejecuciones,
+  idx,
   onDia,
   onTrazar,
   onExtender,
 }: {
   fecha: Date
+  ahora: Date
   rutinas: Rutina[]
   /** Lo que aportan las apps por fecha (solo lectura). */
   eventos: Map<string, EventoResuelto[]>
-  ejecuciones: EjecucionRutina[] | undefined
+  idx: IndiceEjecuciones
   onDia: (d: Date) => void
   /** Rango trazado sobre los días (semanas y días). */
   onTrazar: (isoA: string, isoB: string) => void
@@ -1650,13 +1617,13 @@ function VistaMes({
                 className={`ui-panel flex min-h-0 flex-col items-stretch gap-0.5 overflow-hidden p-1 text-left transition hover:bg-white/5 ${esMes ? '' : 'opacity-40'} ${
                   enTrazo(iso) || enEstiron(iso) ? 'ring-1 ring-emerald-400 ring-inset' : ''
                 }`}
-                style={{ backgroundImage: capasFondo(rutinas, d) }}
+                style={{ backgroundImage: componerFondo(capaTiempoDia(iso, ahora), capasFondo(rutinas, d)) }}
               >
                 <span className={`mb-0.5 grid h-5 w-5 place-items-center self-start rounded-full text-[11px] font-bold ${esHoy ? 'bg-emerald-600 texto-cta' : 'text-white/60'}`}>
                   {d.getDate()}
                 </span>
                 {rutinasVisibles.map((r) => {
-                  const completa = estadoEnFecha(r, iso, ejecuciones) === 'completa'
+                  const completa = estadoEnFecha(r, iso, idx) === 'completa'
                   const tramo = tramoDe(r, iso)
                   return (
                     <span

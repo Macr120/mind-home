@@ -13,11 +13,14 @@ import { useAsistenteCerca } from '../state/asistenteCercaStore'
 import { posAsistentes } from '../state/posAsistentes'
 import { SPACING, subId, worldToSubCell } from './walls'
 import { COLOR_FORMA, type MascotaId, type Asistente, type Pieza3D } from '../chat/mascotas'
-import { ModeloPiezas, ModeloGLB } from './modeloPersonalizado'
-import { GrupoAnimado, ModeloPiezasAnimado } from './Animado'
-import type { AnimacionModelo } from './animacion'
+import { ModeloGLB } from './modeloPersonalizado'
+import { GrupoAnimado, CuerpoDePiezas } from './Animado'
+import { avanzarMarcha, alturaFlote, type AnimacionModelo, type EstadoMarcha } from './animacion'
+import { categoriaMarcha } from './cuerpos'
 import { Prendas } from './Prendas'
-import { ANCLAS_FORMA } from './apariencia'
+import { Rostro } from './Rostro'
+import { Peinado } from './Peinado'
+import { anclasDe, soportaRostro, soportaPeinado } from './apariencia'
 import { dragChar } from './characterDrag'
 
 /**
@@ -225,14 +228,18 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
   const camera = useThree((s) => s.camera)
   const size = useThree((s) => s.size)
   const seleccionar = useSeleccionarEnEditor(asistente.id)
-  // Con un preset activo, el preset manda: se apaga el flote integrado (el saludo sigue).
+  // Con un preset activo, el preset manda: se apaga el flote/marcha integrados (el saludo sigue).
   const presetOn = !!asistente.animacion?.preset && asistente.animacion.activacion !== 'apagado'
+  const categoria = categoriaMarcha(asistente)
 
   // Selectores puntuales: el store cambia mucho al editar (previewCell, drag).
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const colocado = useRef(false)
   const paseo = useRef<Paseo>({ destino: null, descansaHasta: 0 })
+  // Marcha propia del asistente (piernas/manos/flote): se alimenta de su desplazamiento real, no del jugador.
+  const marcha = useRef<EstadoMarcha>({ velocidad: 0, fase: 0 })
+  const prevPos = useRef({ x: 0, z: 0 })
 
   useFrame((state, delta) => {
     const g = group.current
@@ -249,6 +256,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
       const rx = (Math.random() * 2 - 1) * halfW
       const rz = (Math.random() * 2 - 1) * halfH
       g.position.set(rx, ALTURA_FLOTE, rz)
+      prevPos.current = { x: rx, z: rz }
       colocado.current = true
     }
 
@@ -261,8 +269,9 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
     if (dragChar.id === asistente.id) {
       g.position.x = Math.max(-halfW, Math.min(halfW, dragChar.x))
       g.position.z = Math.max(-halfH, Math.min(halfH, dragChar.z))
-      g.position.y = presetOn ? ALTURA_FLOTE : ALTURA_FLOTE + Math.sin(t * 2) * 0.12
+      g.position.y = presetOn ? ALTURA_FLOTE : categoria === 'flotan' ? alturaFlote(marcha.current, ALTURA_FLOTE, t) : ALTURA_FLOTE
       g.rotation.y = Math.atan2(playerPos.x - g.position.x, playerPos.z - g.position.z)
+      prevPos.current = { x: g.position.x, z: g.position.z }
       return
     }
 
@@ -289,7 +298,13 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
         useLayout.getState().editMode || hablando || st.conversacion === asistente.id
       if (!pausado) avance = tickPaseo(paseo.current, g, delta, t, halfW, halfH)
     }
-    g.position.y = presetOn ? ALTURA_FLOTE : ALTURA_FLOTE + Math.sin(t * 2) * 0.12
+
+    // Marcha: avanza según lo que realmente se desplazó este frame (piernas/manos/flote reactivo).
+    const distancia = Math.hypot(g.position.x - prevPos.current.x, g.position.z - prevPos.current.z)
+    avanzarMarcha(marcha.current, distancia, delta, VEL_PASEO)
+    prevPos.current = { x: g.position.x, z: g.position.z }
+
+    g.position.y = presetOn ? ALTURA_FLOTE : categoria === 'flotan' ? alturaFlote(marcha.current, ALTURA_FLOTE, t) : ALTURA_FLOTE
 
     // Mirada: al jugador si conversa contigo, está cerca, habla o va hacia ti.
     const cerca = Math.hypot(playerPos.x - g.position.x, playerPos.z - g.position.z) < 3
@@ -330,10 +345,24 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
             color={asistente.color}
             modelo3d={asistente.modelo3d}
             modeloGlb={asistente.modeloGlb}
+            cuerpoPresetId={asistente.cuerpoPresetId}
             brazoRef={brazo}
             anim={asistente.animacion}
+            estado={marcha.current}
           />
-          <Prendas ropa={asistente.ropa} anclas={ANCLAS_FORMA[asistente.forma]} />
+          <Prendas
+            ropa={asistente.ropa}
+            anclas={anclasDe(asistente)}
+            marcha={categoria !== 'flotan'}
+            marchaEstado={marcha.current}
+            esJugador={false}
+          />
+          {soportaRostro(asistente) && (
+            <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
+          )}
+          {soportaPeinado(asistente) && (
+            <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
+          )}
         </group>
       </GrupoAnimado>
     </group>
@@ -351,8 +380,11 @@ function Companero({ asistente }: { asistente: Asistente }) {
   const seleccionar = useSeleccionarEnEditor(asistente.id)
   const colocado = useRef(false)
   const paseo = useRef<Paseo>({ destino: null, descansaHasta: 0 })
-  // Con un preset activo, el preset manda: se apaga el flote integrado.
+  // Con un preset activo, el preset manda: se apaga el flote/marcha integrados.
   const presetOn = !!asistente.animacion?.preset && asistente.animacion.activacion !== 'apagado'
+  const categoria = categoriaMarcha(asistente)
+  const marcha = useRef<EstadoMarcha>({ velocidad: 0, fase: 0 })
+  const prevPos = useRef({ x: 0, z: 0 })
 
   useFrame((state, delta) => {
     const g = group.current
@@ -361,7 +393,10 @@ function Companero({ asistente }: { asistente: Asistente }) {
     const halfW = (gridCols * SPACING) / 2 - 1.0
     const halfH = (gridRows * SPACING) / 2 - 1.0
     if (!colocado.current) {
-      g.position.set((Math.random() * 2 - 1) * halfW, ALTURA_FLOTE, (Math.random() * 2 - 1) * halfH)
+      const rx = (Math.random() * 2 - 1) * halfW
+      const rz = (Math.random() * 2 - 1) * halfH
+      g.position.set(rx, ALTURA_FLOTE, rz)
+      prevPos.current = { x: rx, z: rz }
       colocado.current = true
     }
 
@@ -392,10 +427,17 @@ function Companero({ asistente }: { asistente: Asistente }) {
       arrastrado || hablando || enDialogo || useLayout.getState().editMode || st.conversacion === asistente.id
     const avance = pausado ? null : tickPaseo(paseo.current, g, delta, t, halfW, halfH)
 
+    // Marcha: avanza según lo que realmente se desplazó este frame (piernas/manos/flote reactivo).
+    const distancia = Math.hypot(g.position.x - prevPos.current.x, g.position.z - prevPos.current.z)
+    avanzarMarcha(marcha.current, distancia, delta, VEL_PASEO)
+    prevPos.current = { x: g.position.x, z: g.position.z }
+
     // Desfase por posición para que no floten todos al unísono.
     g.position.y = presetOn
       ? ALTURA_FLOTE
-      : ALTURA_FLOTE + Math.sin(t * 2 + g.position.x) * 0.12
+      : categoria === 'flotan'
+        ? alturaFlote(marcha.current, ALTURA_FLOTE, t, g.position.x)
+        : ALTURA_FLOTE
 
     // Mirada: al jugador si conversa contigo, está cerca o hablando; si no, adonde camina.
     const cerca = Math.hypot(playerPos.x - g.position.x, playerPos.z - g.position.z) < 3
@@ -425,10 +467,24 @@ function Companero({ asistente }: { asistente: Asistente }) {
             color={asistente.color}
             modelo3d={asistente.modelo3d}
             modeloGlb={asistente.modeloGlb}
+            cuerpoPresetId={asistente.cuerpoPresetId}
             brazoRef={brazo}
             anim={asistente.animacion}
+            estado={marcha.current}
           />
-          <Prendas ropa={asistente.ropa} anclas={ANCLAS_FORMA[asistente.forma]} />
+          <Prendas
+            ropa={asistente.ropa}
+            anclas={anclasDe(asistente)}
+            marcha={categoria !== 'flotan'}
+            marchaEstado={marcha.current}
+            esJugador={false}
+          />
+          {soportaRostro(asistente) && (
+            <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
+          )}
+          {soportaPeinado(asistente) && (
+            <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
+          )}
         </group>
       </GrupoAnimado>
     </group>
@@ -437,23 +493,29 @@ function Companero({ asistente }: { asistente: Asistente }) {
 
 /**
  * Modelo 3D del asistente. Prioridad: .glb subido por el usuario →
- * piezas generadas por IA → forma base integrada (mago/gato/…).
+ * piezas generadas por IA/preset de cuerpo → forma base integrada (mago/gato/…).
  */
 export function ModeloMascota({
   forma,
   color,
   modelo3d,
   modeloGlb,
+  cuerpoPresetId,
   brazoRef,
   anim,
+  estado,
 }: {
   forma: MascotaId
   color?: string
   modelo3d?: Pieza3D[]
   modeloGlb?: Blob
+  /** Qué preset originó `modelo3d` (o 'base'): decide su categoría de marcha. */
+  cuerpoPresetId?: string
   brazoRef: RefObject<THREE.Group | null>
   /** Animación del personaje: activa las poses en cuerpos de piezas. */
   anim?: AnimacionModelo
+  /** Marcha propia de este personaje (piernas/manos si el preset las tiene). */
+  estado: EstadoMarcha
 }) {
   if (modeloGlb) {
     return (
@@ -463,10 +525,7 @@ export function ModeloMascota({
     )
   }
   if (modelo3d && modelo3d.length > 0) {
-    if (anim && anim.activacion !== 'apagado' && (anim.poses?.length ?? 0) >= 2) {
-      return <ModeloPiezasAnimado piezas={modelo3d} anim={anim} />
-    }
-    return <ModeloPiezas piezas={modelo3d} />
+    return <CuerpoDePiezas piezas={modelo3d} anim={anim} personaje={{ cuerpoPresetId }} estado={estado} />
   }
   switch (forma) {
     case 'gato':

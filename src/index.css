@@ -249,6 +249,53 @@ html[data-modo-ui='transparente'] option {
   background-color: var(--ui-bg);
 }
 
+/*
+ * En este modo `--ui-panel` YA viene con el alfa del slider aplicado, así que
+ * .ui-panel-glass/.ui-hud no deben volver a aplicarlo: se multiplicaban (0.38 ×
+ * 0.91) y con el slider al máximo los chips del HUD quedaban al 10% de opacidad
+ * —texto a 1.2:1 sobre la escena—. El desenfoque sí se conserva.
+ * La regla del HUD va en la misma capa `components` que la original, para que
+ * los estados activos y los `hover:bg-*` de utilities sigan ganando encima.
+ */
+html[data-modo-ui='transparente'] .ui-panel-glass {
+  background: var(--ui-panel);
+}
+@layer components {
+  html[data-modo-ui='transparente'] .ui-hud {
+    background-color: var(--ui-panel);
+  }
+}
+
+/*
+ * El vidrio deja pasar la escena, y sobre ella los grises muy tenues del chrome
+ * se perdían (text-white/40 caía a 1.5–2.2:1 según la hora). Suelo de opacidad
+ * SOLO en este modo, escalonado para no aplanar la jerarquía: lo decorativo y
+ * lo deshabilitado siguen por debajo del texto secundario.
+ * `.ui-noche` (lightbox, overlays nocturnos) queda fuera: allí la tinta es
+ * blanca sobre negro y no necesita el rebaje.
+ */
+html[data-modo-ui='transparente']
+  :is(.text-white\/15, .text-white\/20, .text-white\/25, .text-white\/30):where(:not(.ui-noche *)) {
+  color: color-mix(in srgb, var(--ui-ink) 55%, transparent);
+}
+html[data-modo-ui='transparente']
+  :is(.text-white\/35, .text-white\/40, .text-white\/45, .text-white\/50):where(
+    :not(.ui-noche *)
+  ) {
+  color: color-mix(in srgb, var(--ui-ink) 70%, transparent);
+}
+html[data-modo-ui='transparente']
+  :is(.text-white\/55, .text-white\/60, .text-white\/65):where(:not(.ui-noche *)) {
+  color: color-mix(in srgb, var(--ui-ink) 80%, transparent);
+}
+
+/* Y el borde de los paneles: al 10% sobre la escena (1.1:1) el menú y las
+   tarjetas perdían su contorno; sube a 22% para que se distingan del fondo. */
+html[data-modo-ui='transparente']
+  :is(.border-white\/5, .border-white\/10, .border-white\/15):where(:not(.ui-noche *)) {
+  border-color: color-mix(in srgb, var(--ui-ink) 22%, transparent);
+}
+
 /* Mago del tutorial: flote sutil en su esquina. */
 @keyframes tut-flote {
   0%,

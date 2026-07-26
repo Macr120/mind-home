@@ -102,6 +102,9 @@ export default function WrappedOverlay() {
   // Foto del periodo + el anterior (para la comparativa), una vez por apertura/navegación.
   useEffect(() => {
     let vivo = true
+    // Cambiar de periodo vuelve al primer slide y muestra la carga mientras
+    // llegan los resúmenes (si no, se verían los datos del periodo anterior).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDatos(null)
     setIndice(0)
     const p = periodoDe(tipo, ancla)
@@ -180,7 +183,7 @@ export default function WrappedOverlay() {
       .filter(Boolean)
       .join('\n')
     if (!texto) return
-    const titulo = t('wrapped.compartir.titulo', 'Mi resumen de Mind Home · {periodo}', { periodo: etiqueta })
+    const titulo = t('wrapped.compartir.titulo', 'Mi resumen de Mind Planner Home · {periodo}', { periodo: etiqueta })
     const r = await compartirTexto(titulo, `${titulo}\n\n${texto}`)
     if (r.tipo === 'copiado') {
       setCompartido(true)

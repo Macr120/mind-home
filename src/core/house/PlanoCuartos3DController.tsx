@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import * as THREE from 'three'
 import { useThree } from '@react-three/fiber'
 import { useCuartos } from '../state/cuartosStore'
 import { useLayout, SIN_OCUPACION } from '../state/layoutStore'
@@ -19,7 +20,7 @@ import { celdaEnteraBajoCursor, celdaBajoCursor, cuadranteBajoCursor } from './a
 import { finalizarArrastreZona } from '../ui/planos/planoZonaDrag'
 import { aplicarFormaEnPlano } from '../ui/planos/planoEditarForma'
 import { aplicarPincelCuarto, aplicarPincelCuartoFino } from '../ui/planos/planoPincelCuarto'
-import { geometriaLoseta3D, type FormaLoseta } from './formasLoseta'
+import { geometriaLoseta3D, outlineCeldaXZ, type FormaLoseta } from './formasLoseta'
 import { filtrarSegmentosPorForma, perimetroFormaCelda } from './murosPerimetroLoseta'
 import { PINCELES_DEFAULT } from './murosPuertas'
 
@@ -62,12 +63,35 @@ function MatFantasma() {
   )
 }
 
+/** Altura de la silueta de piso del fantasma sobre la rejilla exterior (ver `ContornoPiso3D`). */
+const Y_CONTORNO_FANTASMA = 0.32
+
+/**
+ * Sótano: contorno blanco sobre la rejilla exterior (como el fantasma del piso
+ * exterior) marcando la celda a excavar. Va del tamaño real del muro (centro de la
+ * arista en ±SIZE/2, ver `roomEdges`), no el inset de `HoverCelda3D` (pensado para
+ * resaltar selección de piso, no para calibrar con el borde de un cuarto).
+ */
+function ContornoRejillaFantasma3D({ x, z, forma, rotacion }: { x: number; z: number; forma: FormaLoseta; rotacion: 0 | 90 | 180 | 270 }) {
+  const geo = useMemo(() => {
+    const pts = outlineCeldaXZ({ forma, rotacion }, SIZE)
+    return new THREE.BufferGeometry().setFromPoints(pts.map((p) => new THREE.Vector3(p.x, 0, p.z)))
+  }, [forma, rotacion])
+  return (
+    <lineLoop position={[x, Y_CONTORNO_FANTASMA, z]} geometry={geo}>
+      <lineBasicMaterial color="#ffffff" transparent opacity={0.9} depthTest={false} />
+    </lineLoop>
+  )
+}
+
 /**
  * Preview del pincel: fantasma del cuarto bajo el cursor con sus paredes levantadas
  * (igual que el cuarto real). Solo se muestra sobre celdas libres: al hacer clic el
  * cuarto se materializa y el fantasma desaparece; los siguientes clics rotan la forma
  * real. El arco del círculo se segmenta igual que `MuroArcoPerimetro` para que coincida
- * con el muro curvo del cuarto real.
+ * con el muro curvo del cuarto real. En sótano (nivel < 0) se añade además el contorno
+ * de `ContornoRejillaFantasma3D` sobre la rejilla exterior, para calibrar la celda a
+ * excavar contra el borde real del muro.
  */
 function HoverFormaCelda3D({
   nivel,
@@ -82,6 +106,7 @@ function HoverFormaCelda3D({
 }) {
   const apilado = !useHouse((s) => s.explotado)
   const [x, , z] = cellToWorld(cell.col, cell.row)
+  const esSotano = nivel < 0
   const yBase = nivelBaseY(nivel, apilado)
   const { geoPiso, segs, diagonales, arcos } = useMemo(() => {
     const fc = { forma, rotacion }
@@ -98,6 +123,7 @@ function HoverFormaCelda3D({
 
   return (
     <group>
+      {esSotano && <ContornoRejillaFantasma3D x={x} z={z} forma={forma} rotacion={rotacion} />}
       {/* Silueta del piso */}
       <mesh position={[x, yBase + 0.25, z]} rotation={[-Math.PI / 2, 0, 0]} geometry={geoPiso}>
         <meshStandardMaterial color={COLOR_FANTASMA_CUARTO} transparent opacity={0.5} depthWrite={false} />

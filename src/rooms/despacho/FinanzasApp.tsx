@@ -44,7 +44,8 @@ export function FinanzasApp() {
         ))}
       </div>
 
-      {(tab === 'resumen' || tab === 'movimientos') && (
+      {/* Movimientos ya no navega por mes: su historial son carpetas año › mes › semana. */}
+      {tab === 'resumen' && (
         <div data-tut="despacho.mes" className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
           <button
             onClick={() => setMes((m) => sumarMeses(m, -1))}
@@ -63,9 +64,7 @@ export function FinanzasApp() {
       )}
 
       {tab === 'resumen' && <ResumenTab mes={mes} movimientos={movimientos} />}
-      {tab === 'movimientos' && (
-        <MovimientosTab mes={mes} movimientos={movimientos} />
-      )}
+      {tab === 'movimientos' && <MovimientosTab movimientos={movimientos} />}
       {tab === 'metas' && <MetasTab />}
       {tab === 'simuladores' && <SimuladoresTab />}
       {tab === 'mercados' && <MercadosTab />}

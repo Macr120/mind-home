@@ -3,6 +3,7 @@ import { Icono } from '../../../core/ui/iconos/Icono'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
+import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 const PALABRAS = [
   'ÁRBOL', 'MONTAÑA', 'GUITARRA', 'ELEFANTE', 'MARIPOSA', 'BIBLIOTECA', 'CHOCOLATE', 'VENTANA', 'PIRÁMIDE', 'DINOSAURIO',
@@ -18,28 +19,40 @@ const PALABRAS = [
 ]
 
 const LETRAS = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('')
-const MAX_FALLOS = 6
+
+// Fallos permitidos y longitud de las palabras del sorteo
+const AJUSTE: Record<Dificultad, { fallos: number; max: number; min: number }> = {
+  facil: { fallos: 8, min: 0, max: 7 },
+  medio: { fallos: 6, min: 0, max: 99 },
+  dificil: { fallos: 4, min: 8, max: 99 },
+}
 
 const SIN_TILDE: Record<string, string> = { Á: 'A', É: 'E', Í: 'I', Ó: 'O', Ú: 'U', Ü: 'U' }
 // La Ñ se conserva: solo se pliegan las vocales acentuadas para comparar
 const normalizar = (s: string) => s.toUpperCase().replace(/[ÁÉÍÓÚÜ]/g, (c) => SIN_TILDE[c])
 
-function palabraAleatoria(): string {
-  return PALABRAS[Math.floor(Math.random() * PALABRAS.length)]
+function palabraAleatoria(dif: Dificultad): string {
+  const { min, max } = AJUSTE[dif]
+  const pozo = PALABRAS.filter((p) => p.length >= min && p.length <= max)
+  return pozo[Math.floor(Math.random() * pozo.length)]
 }
 
-export function Ahorcado() {
+export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
-  const [palabra, setPalabra] = useState(palabraAleatoria)
+  const maxFallos = AJUSTE[dificultad].fallos
+  const clave = claveDificultad('ahorcado-racha', dificultad)
+  const [palabra, setPalabra] = useState(() => palabraAleatoria(dificultad))
   const [usadas, setUsadas] = useState<Set<string>>(new Set())
   const [racha, setRacha] = useState(0)
-  const [record, setRecord] = useState(() => leerNumero('ahorcado-racha', 0))
+  const [record, setRecord] = useState(() => leerNumero(clave, 0))
 
   const letrasPalabra = new Set(normalizar(palabra).split('').filter((c) => LETRAS.includes(c)))
   const fallos = [...usadas].filter((l) => !letrasPalabra.has(l)).length
   const ganado = [...letrasPalabra].every((l) => usadas.has(l))
-  const perdido = fallos >= MAX_FALLOS
+  const perdido = fallos >= maxFallos
   const terminado = ganado || perdido
+  // El muñeco se reparte entre los fallos permitidos: siempre se completa al perder
+  const partes = Math.floor((fallos * 6) / maxFallos)
 
   const probar = (letra: string) => {
     if (terminado || usadas.has(letra)) return
@@ -48,14 +61,14 @@ export function Ahorcado() {
     if ([...letrasPalabra].every((l) => nuevas.has(l))) {
       const nueva = racha + 1
       setRacha(nueva)
-      setRecord(guardarRecord('ahorcado-racha', nueva))
-    } else if ([...nuevas].filter((l) => !letrasPalabra.has(l)).length >= MAX_FALLOS) {
+      setRecord(guardarRecord(clave, nueva))
+    } else if ([...nuevas].filter((l) => !letrasPalabra.has(l)).length >= maxFallos) {
       setRacha(0)
     }
   }
 
   const siguiente = () => {
-    setPalabra(palabraAleatoria())
+    setPalabra(palabraAleatoria(dificultad))
     setUsadas(new Set())
   }
 
@@ -87,17 +100,17 @@ export function Ahorcado() {
         <svg viewBox="0 0 120 140" className="h-36 w-28 shrink-0 stroke-white/70" fill="none" strokeWidth="4" strokeLinecap="round">
           {/* Horca */}
           <path d="M10 130 H70 M30 130 V15 M30 15 H85 M85 15 V32" className="stroke-white/35" />
-          {/* Muñeco: una parte por fallo */}
-          {fallos >= 1 && <circle cx="85" cy="45" r="13" />}
-          {fallos >= 2 && <path d="M85 58 V95" />}
-          {fallos >= 3 && <path d="M85 66 L65 82" />}
-          {fallos >= 4 && <path d="M85 66 L105 82" />}
-          {fallos >= 5 && <path d="M85 95 L68 118" />}
-          {fallos >= 6 && <path d="M85 95 L102 118" />}
+          {/* Muñeco: se va dibujando conforme se gastan los fallos */}
+          {partes >= 1 && <circle cx="85" cy="45" r="13" />}
+          {partes >= 2 && <path d="M85 58 V95" />}
+          {partes >= 3 && <path d="M85 66 L65 82" />}
+          {partes >= 4 && <path d="M85 66 L105 82" />}
+          {partes >= 5 && <path d="M85 95 L68 118" />}
+          {partes >= 6 && <path d="M85 95 L102 118" />}
         </svg>
         <div className="min-w-0 flex-1 space-y-2">
           <p className="text-xs text-white/45">
-            {t('entre.j.ahorcado.fallos', 'Fallos')}: {fallos} / {MAX_FALLOS}
+            {t('entre.j.ahorcado.fallos', 'Fallos')}: {fallos} / {maxFallos}
           </p>
           <p className="flex flex-wrap gap-1.5 text-xl font-black tracking-wide">
             {palabra.split('').map((c, i) => {

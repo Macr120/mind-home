@@ -25,11 +25,9 @@ export const ISO_EL = Math.atan2(22, R_H)
 export const CAM_R = Math.hypot(R_H, 22)
 const TOP_EL = Math.PI / 2 - 0.02 // planta: casi cenital (evita degenerar el lookAt)
 const SIDE_EL = 0 // planos laterales: vista horizontal (alzado)
-/** Elevación de las vistas de arista (entre alzado y planta): mirada elevada ~45°. */
-const EDGE_EL = Math.PI / 4
 
 /**
- * Vistas seleccionables desde el cubo: 4 esquinas iso + 5 planos + 4 aristas elevadas.
+ * Vistas seleccionables desde el cubo: 4 esquinas iso + 5 planos.
  */
 export type VistaCubo =
   | 'iso-0'
@@ -41,10 +39,6 @@ export type VistaCubo =
   | 'front'
   | 'left'
   | 'back'
-  | 'edge-right'
-  | 'edge-front'
-  | 'edge-left'
-  | 'edge-back'
 
 /** Azimut/elevación objetivo de cada vista del cubo. */
 const VISTAS_CUBO: Record<VistaCubo, { az: number; el: number }> = {
@@ -57,11 +51,6 @@ const VISTAS_CUBO: Record<VistaCubo, { az: number; el: number }> = {
   front: { az: Math.PI / 2, el: SIDE_EL },
   left: { az: Math.PI, el: SIDE_EL },
   back: { az: (3 * Math.PI) / 2, el: SIDE_EL },
-  // Aristas: mismo azimut que su alzado, pero con la cámara elevada.
-  'edge-right': { az: 0, el: EDGE_EL },
-  'edge-front': { az: Math.PI / 2, el: EDGE_EL },
-  'edge-left': { az: Math.PI, el: EDGE_EL },
-  'edge-back': { az: (3 * Math.PI) / 2, el: EDGE_EL },
 }
 
 /**

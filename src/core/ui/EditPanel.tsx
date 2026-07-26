@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { getCuarto } from '../state/cuartosStore'
 import { useLayout } from '../state/layoutStore'
 import { useDiseño } from '../state/disenoStore'
+import { useCam } from '../state/cameraStore'
 import { useEditorUi, type EditorTab } from '../state/editorUiStore'
 import { useEditorAnchor } from '../state/editorAnchorStore'
 import { EditorPanelMapa } from './editor/EditorPanelMapa'
@@ -189,35 +190,12 @@ export function EditPanel() {
 export function SalirCuartoFlotante() {
   const t = useT()
   const editingRoomId = useLayout((s) => s.editingRoomId)
-  const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
   const editRoom = useLayout((s) => s.editRoom)
-  const setMoverObjetos = useLayout((s) => s.setMoverObjetos)
   const screenX = useEditorAnchor((s) => s.screenX)
   const screenY = useEditorAnchor((s) => s.screenY)
 
-  // Modo "mover objetos": botón verde de confirmación que sale del modo.
-  if (moverObjetosRoomId) {
-    return (
-      <div
-        className="pointer-events-none absolute z-20"
-        style={{ left: screenX, top: screenY, transform: 'translate(-50%, -100%)' }}
-      >
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation()
-            setMoverObjetos(null)
-          }}
-          title={t('editor.moverObjetos.listo', 'Terminar de mover objetos')}
-          className="ui-panel-glass pointer-events-auto flex items-center gap-1.5 rounded-full border-2 border-accent/60 bg-accent px-3.5 py-2 text-xs font-bold text-accent-ink shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
-        >
-          <Icono nombre="confirmar" />
-          {t('mapa.listo', 'Listo')}
-        </button>
-      </div>
-    )
-  }
-
+  // El modo "mover objetos" tiene su propio botón "Listo" fijo junto al cubo de
+  // navegación (NavControls), fuera del cuarto: ver `BotonListoMoverObjetos`.
   if (!editingRoomId) return null
 
   return (
@@ -238,6 +216,95 @@ export function SalirCuartoFlotante() {
         {t('editor.salirCuartoBoton', 'Salir del cuarto')}
       </button>
     </div>
+  )
+}
+
+/** Distancia que avanza el objeto por cada toque de flecha. */
+const PASO_MOVER = 0.3
+
+/**
+ * Botón "Listo" del modo "mover objetos": fijo junto al cubo de navegación (fuera del
+ * cuarto, no proyectado sobre él), para no taparse con el propio objeto ni con las
+ * flechas. Lo monta `NavControls` cuando `moverObjetosRoomId` está activo.
+ */
+export function BotonListoMoverObjetos() {
+  const t = useT()
+  const setMoverObjetos = useLayout((s) => s.setMoverObjetos)
+  return (
+    <button
+      type="button"
+      onClick={() => setMoverObjetos(null)}
+      title={t('editor.moverObjetos.listo', 'Terminar de mover objetos')}
+      className="flex h-8 w-full items-center justify-center gap-1.5 rounded-lg border-2 border-accent/60 bg-accent text-xs font-bold text-accent-ink transition hover:brightness-110 active:scale-95"
+    >
+      <Icono nombre="confirmar" />
+      {t('mapa.listo', 'Listo')}
+    </button>
+  )
+}
+
+/**
+ * Flechas de movimiento fino: en modo "mover objetos" (vista de planta), al seleccionar
+ * un objeto este D-pad ocupa el hueco del cubo de navegación (`NavControls`) para
+ * desplazarlo izquierda/derecha/adelante/atrás sin depender del arrastre táctil
+ * (impreciso en móvil). Las direcciones se calculan a partir del azimut actual de la
+ * cámara para que "arriba" siempre sea arriba en pantalla, sin importar cómo quedó
+ * rotada la vista de planta.
+ */
+export function FlechasMoverObjeto() {
+  const t = useT()
+  const objetoSel = useEditorUi((s) => s.objetoSel)
+  const nudgeObjeto = useDiseño((s) => s.nudgeObjeto)
+
+  if (objetoSel == null) return null
+
+  const mover = (right: number, fwd: number) => {
+    const az = useCam.getState().az
+    // Vectores de pantalla en espacio de mundo, verificados contra la base real de
+    // la cámara (lookAt): a diferencia de `panFocusByPixels` (que desplaza el FOCO, con
+    // signo invertido a propósito para que el contenido seleccione la dirección del
+    // arrastre), aquí movemos el OBJETO en sí, así que "derecha" debe ser la derecha real.
+    const rightX = Math.sin(az)
+    const rightZ = -Math.cos(az)
+    const fwdX = -Math.cos(az)
+    const fwdZ = -Math.sin(az)
+    nudgeObjeto(
+      objetoSel,
+      (rightX * right + fwdX * fwd) * PASO_MOVER,
+      (rightZ * right + fwdZ * fwd) * PASO_MOVER,
+    )
+  }
+
+  return (
+    <div className="ui-hud grid w-full grid-cols-3 grid-rows-3 gap-1 rounded-lg border border-white/10 p-1.5">
+      <div />
+      <BotonFlecha icono="subir" titulo={t('mover.adelante', 'Mover hacia adelante')} onClick={() => mover(0, 1)} />
+      <div />
+      <BotonFlecha icono="izquierda" titulo={t('mover.izquierda', 'Mover a la izquierda')} onClick={() => mover(-1, 0)} />
+      <div className="flex items-center justify-center text-white/25">
+        <Icono nombre="mover" />
+      </div>
+      <BotonFlecha icono="derecha" titulo={t('mover.derecha', 'Mover a la derecha')} onClick={() => mover(1, 0)} />
+      <div />
+      <BotonFlecha icono="bajar" titulo={t('mover.atras', 'Mover hacia atrás')} onClick={() => mover(0, -1)} />
+      <div />
+    </div>
+  )
+}
+
+function BotonFlecha({ icono, titulo, onClick }: { icono: 'subir' | 'bajar' | 'izquierda' | 'derecha'; titulo: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation()
+        onClick()
+      }}
+      title={titulo}
+      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/80 transition hover:bg-white/12 active:scale-90"
+    >
+      <Icono nombre={icono} />
+    </button>
   )
 }
 

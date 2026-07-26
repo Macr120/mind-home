@@ -23,17 +23,17 @@ function aplicarVistaCubo(key: VistaCubo) {
 }
 
 /**
- * Cubo de navegación estilo AutoCAD (esquina inferior derecha).
+ * Cubo de navegación estilo AutoCAD (esquina inferior derecha), simplificado a lo
+ * esencial (sin las vistas elevadas de arista, para no saturar de botones):
  * - Gira en sincronía con la escena (lee la orientación animada `camAnim`).
- * - 5 caras (planta + 4 alzados), 4 esquinas superiores (vistas isométricas) y
- *   4 aristas superiores (vistas elevadas), todas clicables: al pulsarlas la cámara
- *   va a esa vista (`setVistaIso`).
- * - Caras y botones (esquinas/aristas) se dimensionan para NO traslaparse.
+ * - 5 caras (planta + 4 alzados) y 4 esquinas superiores (vistas isométricas),
+ *   todas clicables: al pulsarlas la cámara va a esa vista (`setVistaIso`).
+ * - Caras y esquinas se dimensionan para NO traslaparse.
  */
 
 const LADO = 1 // media arista del cubo (vértices en ±LADO)
-const CARA = 1.3 // lado del plano de cada cara (deja hueco hacia esquinas/aristas)
-const BTN = 0.5 // lado de los cubitos de esquina y arista
+const CARA = 1.3 // lado del plano de cada cara (deja hueco hacia las esquinas)
+const BTN = 0.5 // lado de los cubitos de esquina
 
 /** Genera una textura con la etiqueta de una cara (fondo claro tipo AutoCAD). */
 function texturaEtiqueta(texto: string): THREE.CanvasTexture {
@@ -101,25 +101,19 @@ function CaraCubo({ cara, hover, setHover }: { cara: Cara; hover: string | null;
   )
 }
 
-/**
- * Un cubito clicable (esquina = vista isométrica, arista = vista elevada).
- * `arista` lo dibuja un poco más plano para distinguirlo visualmente de las esquinas.
- */
+/** Un cubito clicable en una esquina superior: vista isométrica. */
 function BotonCubo({
   pos,
   vista,
-  arista,
   hover,
   setHover,
 }: {
   pos: [number, number, number]
   vista: VistaCubo
-  arista?: boolean
   hover: string | null
   setHover: (k: string | null) => void
 }) {
   const activo = hover === vista
-  const size: [number, number, number] = arista ? [BTN, BTN * 0.7, BTN] : [BTN, BTN, BTN]
   return (
     <mesh
       position={pos}
@@ -133,11 +127,8 @@ function BotonCubo({
       }}
       onPointerOut={() => setHover(null)}
     >
-      <boxGeometry args={size} />
-      <meshBasicMaterial
-        color={activo ? '#6ba8ff' : arista ? '#aab0c4' : '#c2c2d0'}
-        toneMapped={false}
-      />
+      <boxGeometry args={[BTN, BTN, BTN]} />
+      <meshBasicMaterial color={activo ? '#6ba8ff' : '#c2c2d0'} toneMapped={false} />
     </mesh>
   )
 }
@@ -169,14 +160,6 @@ function CuboEscena() {
     { pos: [LADO, LADO, -LADO], vista: 'iso-3' },
   ]
 
-  // Aristas superiores → vistas elevadas, en el punto medio de cada borde de la planta.
-  const aristas: { pos: [number, number, number]; vista: VistaCubo }[] = [
-    { pos: [0, LADO, LADO], vista: 'edge-front' },
-    { pos: [LADO, LADO, 0], vista: 'edge-right' },
-    { pos: [0, LADO, -LADO], vista: 'edge-back' },
-    { pos: [-LADO, LADO, 0], vista: 'edge-left' },
-  ]
-
   return (
     <>
       <OrbitRig />
@@ -185,9 +168,6 @@ function CuboEscena() {
       ))}
       {esquinas.map((e) => (
         <BotonCubo key={e.vista} pos={e.pos} vista={e.vista} hover={hover} setHover={setHover} />
-      ))}
-      {aristas.map((a) => (
-        <BotonCubo key={a.vista} pos={a.pos} vista={a.vista} arista hover={hover} setHover={setHover} />
       ))}
     </>
   )
@@ -204,10 +184,7 @@ export function ViewCube() {
     <div
       className="relative cursor-pointer select-none leading-none"
       style={{ width: VIEW_CUBE_PX, height: VIEW_CUBE_H }}
-      title={t(
-        'cubo.titulo',
-        'Cubo de navegación: esquinas = isométrico, aristas = elevado, caras = planos',
-      )}
+      title={t('cubo.titulo', 'Cubo de navegación: esquinas = isométrico, caras = planos')}
     >
       <Canvas
         orthographic

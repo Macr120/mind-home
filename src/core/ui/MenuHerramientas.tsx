@@ -6,6 +6,7 @@ import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { useHud } from '../state/hudStore'
 import { TiradorHud } from './HudPlegable'
+import { useTopeHud } from './hudMedida'
 
 // Geometría de la rueda (SVG 288×288): anillo de sectores + círculo central.
 // El número de sectores es dinámico (360°/n) para que cada categoría pueda
@@ -141,6 +142,7 @@ export function MenuHerramientas() {
   const plegado = useHud((s) => s.plegado.infIzq)
   const movilVertical = useHud((s) => s.movilVertical)
   const chatPlegado = useHud((s) => s.plegado.chat)
+  const refTope = useTopeHud('herramientas')
 
   const cerrar = () => {
     setAbierta(false)
@@ -240,7 +242,7 @@ export function MenuHerramientas() {
   return (
     <>
       {/* Con la esquina plegada el abanico baja al hueco del joystick, con su chevron al lado. */}
-      <div className={`absolute left-4 z-10 flex items-center gap-1 ${plegado ? 'bottom-4' : 'bottom-32'}`}>
+      <div ref={refTope} className={`absolute left-4 z-10 flex items-center gap-1 ${plegado ? 'bottom-4' : 'bottom-32'}`}>
         <button
           type="button"
           data-tut="herr.boton"

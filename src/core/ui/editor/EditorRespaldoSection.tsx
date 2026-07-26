@@ -39,7 +39,7 @@ export function EditorRespaldoSection({
   useEffect(() => {
     const tablas = [
       'transacciones', 'sueno', 'anecdotas', 'metas', 'presupuestos',
-      'registrosComida', 'planComidas', 'registrosAgua',
+      'registrosComida', 'registrosAgua',
       'sesionesEjercicio', 'seriesFuerza', 'mediaArchivo', 'juegosMesa',
       'conversacionesBiblio', 'entradasBiblio', 'sesionesEstudio', 'noticias',
       'sesionesMindfulness', 'registroAnimo', 'gratitudDiaria',
@@ -88,7 +88,7 @@ export function EditorRespaldoSection({
       }
       setPendiente({ nombre: file.name, datos, filas, ignoradas })
     } catch {
-      setAvisoImport(t('respaldo.archivoInvalido', 'El archivo no es un respaldo válido de Mind Home.'))
+      setAvisoImport(t('respaldo.archivoInvalido', 'El archivo no es un respaldo válido de Mind Planner Home.'))
     }
   }
 
@@ -236,7 +236,7 @@ export function EditorRespaldoSection({
       <div className="rounded-lg bg-white/5 p-3 border border-red-500/20 space-y-2">
         <p className="text-sm font-semibold text-red-400">{t('respaldo.danger.titulo', 'Zona de peligro')}</p>
         <p className="text-xs text-white/50">
-          {t('respaldo.danger.desc', 'Esto borrará TODOS tus datos de Mind Home de forma permanente.')}
+          {t('respaldo.danger.desc', 'Esto borrará TODOS tus datos de Mind Planner Home de forma permanente.')}
         </p>
         {!confirmando ? (
           <button

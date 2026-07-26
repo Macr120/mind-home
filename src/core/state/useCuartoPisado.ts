@@ -12,10 +12,7 @@ import { playerPos } from './playerPosition'
 export function useCuartoPisado(activo = true): string | null {
   const [id, setId] = useState<string | null>(null)
   useEffect(() => {
-    if (!activo) {
-      setId(null)
-      return
-    }
+    if (!activo) return
     const leer = () => {
       const h = useHouse.getState()
       setId(h.activeRoom || h.playerLevel !== 0 ? null : cuartoEnMundo(playerPos.x, playerPos.z))
@@ -24,5 +21,6 @@ export function useCuartoPisado(activo = true): string | null {
     const timer = window.setInterval(leer, 1200)
     return () => window.clearInterval(timer)
   }, [activo])
-  return id
+  // Apagado se responde null sin tocar el estado (el intervalo ya no corre).
+  return activo ? id : null
 }

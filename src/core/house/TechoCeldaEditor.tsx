@@ -84,7 +84,7 @@ export function TechoCeldaEditor() {
             key={`tm-${dir}`}
             position={[x, y0 + 1.15, z]}
             center
-            zIndexRange={[86, 0]}
+            zIndexRange={[30, 0]}
             pointerEvents="auto"
           >
             <button
@@ -110,7 +110,7 @@ export function TechoCeldaEditor() {
             key={`tp-${dir}`}
             position={[x, y0 + 0.65, z]}
             center
-            zIndexRange={[86, 0]}
+            zIndexRange={[30, 0]}
             pointerEvents="auto"
           >
             <button

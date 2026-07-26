@@ -193,7 +193,7 @@ function FormAsistente({
       await guardar({ ...a, modelo3d: piezas, modeloGlb: undefined })
       setDescForma('')
     } catch (err) {
-      console.warn('[Mind Home] No se pudo generar la forma 3D:', err)
+      console.warn('[MPH] No se pudo generar la forma 3D:', err)
       setErrorForma(t('chat.config.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.'))
     } finally {
       setGenerando(false)

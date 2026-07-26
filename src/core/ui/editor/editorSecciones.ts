@@ -10,7 +10,7 @@ export type SeccionCuartoId = 'piso' | 'paredes' | 'techo' | 'objetos'
 
 // La pestaña "Mapa" del editor: el resto vive en otras pestañas (perfil → Personajes,
 // ajustes → Configuraciones), en la barra del constructor (fondo de cielo) o en el side
-// menu de Mind Home (inventario y catálogo).
+// menu de MPH (inventario y catálogo).
 const ORDEN_MAPA_DEFAULT: SeccionMapaId[] = ['tema']
 
 const ORDEN_CUARTO_DEFAULT: SeccionCuartoId[] = [

@@ -1,5 +1,5 @@
 /*
- * Service worker de Mind Home.
+ * Service worker de Mind Planner Home (MPH).
  *
  * NO CACHEA NADA, y es deliberado: existe solo para que las notificaciones
  * sobrevivan con la pestaña en segundo plano y para saber a dónde llevar al

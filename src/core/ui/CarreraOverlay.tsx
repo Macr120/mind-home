@@ -7,6 +7,7 @@ import { vehiculoDe, VEHICULOS_JUGABLES, type TipoVehiculo } from '../house/vehi
 import { SliderProp } from './editor/SliderProp'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { useTopeHud } from './hudMedida'
 
 /** Textos por defecto de los mensajes del HUD (los emojis de celebración se quedan). */
 const MENSAJES: Record<string, string> = {
@@ -61,8 +62,9 @@ const ICONO_ITEM: Record<TipoItem, NombreIcono> = {
 /** Pila inferior-derecha durante la carrera: slot de ítem encima del derrape. */
 function PilaCarrera({ t }: { t: (k: string, d: string) => string }) {
   const item = useCarrera((s) => s.item)
+  const refTope = useTopeHud('carrera')
   return (
-    <div className="pointer-events-none absolute bottom-4 right-4 z-30 flex flex-col items-center gap-2">
+    <div ref={refTope} className="pointer-events-none absolute bottom-4 right-4 z-30 flex flex-col items-center gap-2">
       <button
         type="button"
         onClick={() => useCarrera.getState().usarItem()}
@@ -305,7 +307,8 @@ export function CarreraOverlay() {
     const cronoVuelta = Math.max(0, (carreraFrame.reloj - carreraFrame.ultimoCruce) * 1000)
     return (
       <>
-        <div className="pointer-events-none absolute left-0 right-0 top-3 z-30 flex flex-col items-center gap-2">
+        {/* En vertical baja bajo la fila de botones de arriba (casa / engrane). */}
+        <div className="pointer-events-none absolute left-0 right-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
           <div className="ui-hud pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-white/10 px-4 py-1.5 text-sm font-black text-white">
             <Icono nombre="bandera" />
             <span className="tabular-nums text-base">{fmtMs(cronoVuelta)}</span>

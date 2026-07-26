@@ -1649,8 +1649,9 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
             if (!anchor || !fp) return []
             const color = roomColors[room.id] ?? room.color
             const propias = new Set(fp.map((pc) => cellId(pc.col, pc.row)))
-            const puedeClic =
-              capa === 'paredes' && (herramienta === 'puerta' || herramienta === 'ventana')
+            // Igual que la selección 3D (PlanoMuroSelector3D): cualquier herramienta salvo
+            // "muro" (colocar) puede tocar un tramo de esquina fina, incluida "seleccionar".
+            const puedeClic = capa === 'paredes' && herramienta !== 'muro'
             return footprintCells(anchor, fp).flatMap((c) => {
               const { x, y, w, h } = tileRectEnSvg(c.col, c.row)
               const off = { col: c.col - anchor.col, row: c.row - anchor.row }

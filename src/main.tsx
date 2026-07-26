@@ -34,7 +34,7 @@ void navigator.storage?.persist?.()
  */
 if ('serviceWorker' in navigator) {
   void navigator.serviceWorker.register('/sw.js').catch((err) => {
-    console.warn('[Mind Home] No se pudo registrar el service worker:', err)
+    console.warn('[MPH] No se pudo registrar el service worker:', err)
   })
   navigator.serviceWorker.addEventListener('message', (e) => {
     if (e.data?.tipo !== 'abrir-app') return

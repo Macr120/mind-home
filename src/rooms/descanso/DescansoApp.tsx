@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { rutinasRepo, suenoRepo, perfilSuenoRepo } from '../../core/data/repository'
+import { rutinasRepo, suenoRepo, perfilSuenoRepo, pistasMusicaRepo } from '../../core/data/repository'
 import type { PerfilSueno, RegistroSueno } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
@@ -8,8 +8,12 @@ import { FilaAviso } from '../../core/ui/FilaAviso'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { aMin, distanciaMin, duracionHoras, puntuarNoche, type Puntuacion } from './puntuacion'
 import { useAlarma, useRecordatorio } from './useAlarma'
+import { FranjaNoche } from './FranjaNoche'
+import { SelectorTono } from './SelectorTono'
+import { idPistaDeTono, VOLUMEN_DEFAULT } from './tonos'
 import { buscarRutinaSueno, sincronizarRutinaSueno } from './rutinaSueno'
 import { fechaLocalISO } from '../../core/fechaLocal'
+import { Archivador } from '../_shared/Archivador'
 
 const hoy = () => fechaLocalISO()
 
@@ -25,10 +29,11 @@ const PERFIL_DEFAULT: Omit<PerfilSueno, 'id'> = {
   avisoPantallas: false,
 }
 
-/** '7.5' → '7 h 30 min'. */
+/** '7.5' → '7 h 30 min'; menos de una hora se dice solo en minutos. */
 function formatoHoras(horas: number): string {
   const h = Math.floor(horas)
   const m = Math.round((horas - h) * 60)
+  if (!h) return `${m} min`
   return m ? `${h} h ${m} min` : `${h} h`
 }
 
@@ -49,104 +54,6 @@ const colorTotal = (total: number) =>
 
 /** Degradado de las barras de la semana: noche abajo, amanecer arriba. */
 const GRADIENTE_NOCHE = 'linear-gradient(180deg, #38bdf8 0%, #4338ca 100%)'
-
-// ---------------------------------------------------------------------------
-// Franja de la noche: el sueño como un cielo que va del crepúsculo al amanecer
-// ---------------------------------------------------------------------------
-
-const ANCHO = 320
-const ALTO = 96
-
-/**
- * Estrellas del cielo: [x en 0–1, y, radio, opacidad]. Fijas a propósito —
- * `Math.random()` en render rompería la pureza y titilarían en cada repintado.
- * Se concentran en la franja alta y en los costados para no estorbar al texto.
- */
-const ESTRELLAS: [number, number, number, number][] = [
-  [0.13, 30, 0.9, 0.35],
-  [0.19, 14, 1.2, 0.55],
-  [0.25, 26, 0.8, 0.4],
-  [0.28, 10, 1.4, 0.75],
-  [0.34, 20, 1, 0.6],
-  [0.37, 33, 0.9, 0.5],
-  [0.43, 12, 1.5, 0.9],
-  [0.47, 27, 0.9, 0.55],
-  [0.52, 17, 1.1, 0.7],
-  [0.56, 31, 1.3, 0.8],
-  [0.61, 11, 0.9, 0.5],
-  [0.65, 24, 1.2, 0.65],
-  [0.7, 15, 1, 0.5],
-  [0.74, 29, 0.8, 0.4],
-  [0.79, 19, 1.1, 0.35],
-  [0.22, 62, 0.9, 0.3],
-  [0.31, 70, 1.1, 0.45],
-  [0.63, 72, 0.9, 0.3],
-  [0.68, 64, 1, 0.4],
-  [0.75, 71, 0.8, 0.28],
-]
-
-function FranjaNoche({ dormir, despertar, caption }: { dormir: string; despertar: string; caption: string }) {
-  const ini = aMin(dormir)
-  const fin = aMin(despertar)
-  const ok = !Number.isNaN(ini) && !Number.isNaN(fin)
-  const horas = ok ? duracionHoras(dormir, despertar) : 0
-  const totalMin = horas * 60
-
-  // Una marca por hora en punto dentro de la ventana; se etiquetan las pares.
-  const marcas: { x: number; hora: number }[] = []
-  if (ok && totalMin > 0) {
-    for (let m = Math.ceil((ini + 1) / 60) * 60; m < ini + totalMin; m += 60) {
-      marcas.push({ x: ((m - ini) / totalMin) * ANCHO, hora: (m / 60) % 24 })
-    }
-  }
-
-  return (
-    <svg viewBox={`0 0 ${ANCHO} ${ALTO}`} className="w-full">
-      <defs>
-        {/* El crepúsculo y el alba ocupan solo los extremos: en medio es noche cerrada. */}
-        <linearGradient id="cielo-noche" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stopColor="#3b1a78" />
-          <stop offset="0.1" stopColor="#191a44" />
-          <stop offset="0.28" stopColor="#070a18" />
-          <stop offset="0.72" stopColor="#070a18" />
-          <stop offset="0.87" stopColor="#2b1338" />
-          <stop offset="0.96" stopColor="#8a3f22" />
-          <stop offset="1" stopColor="#e08a2e" />
-        </linearGradient>
-      </defs>
-      <rect x="0" y="0" width={ANCHO} height={ALTO} rx="14" fill="url(#cielo-noche)" />
-      {ESTRELLAS.map(([fx, y, r, o], i) => (
-        <circle key={i} cx={fx * ANCHO} cy={y} r={r} fill="#fff" opacity={o} />
-      ))}
-      {ok && (
-        <>
-          <text x="13" y="24" fontSize="13">🌙</text>
-          <text x="30" y="24" fill="#ffffffcc" fontSize="10" fontWeight="700">{dormir}</text>
-          <text x={ANCHO - 13} y="24" textAnchor="end" fontSize="13">☀️</text>
-          <text x={ANCHO - 30} y="24" textAnchor="end" fill="#ffffffcc" fontSize="10" fontWeight="700">
-            {despertar}
-          </text>
-        </>
-      )}
-      <text x={ANCHO / 2} y="52" textAnchor="middle" fill="#fff" fontSize="22" fontWeight="900">
-        {ok ? formatoHoras(horas) : '—'}
-      </text>
-      <text x={ANCHO / 2} y="66" textAnchor="middle" fill="#ffffff70" fontSize="9">
-        {caption}
-      </text>
-      {marcas.map(({ x, hora }) => (
-        <g key={hora}>
-          <line x1={x} y1={78} x2={x} y2={84} stroke="#ffffff33" strokeWidth={1} />
-          {hora % 2 === 0 && (
-            <text x={x} y={93} textAnchor="middle" fill="#ffffff59" fontSize="7.5">
-              {dd(hora)}
-            </text>
-          )}
-        </g>
-      ))}
-    </svg>
-  )
-}
 
 // ---------------------------------------------------------------------------
 // Barra de 24 h: arrastrar la luna (acostarse) y el sol (despertar)
@@ -295,10 +202,19 @@ export function DescansoApp() {
     else await perfilSuenoRepo.add({ ...PERFIL_DEFAULT, ...cambios })
   }
 
+  // Tono del despertador: si es un audio propio hay que llevarle el blob.
+  const pistas = pistasMusicaRepo.useAll()
+  const idPistaTono = idPistaDeTono(perfil.tono)
+  const volumenAlarma = perfil.volumenAlarma ?? VOLUMEN_DEFAULT
   const { sonando, detener } = useAlarma(
     perfil.alarmaActiva,
     perfil.horaDespertar,
     t('descanso.alarma.notif', 'Hora de despertar'),
+    {
+      tono: perfil.tono,
+      volumen: volumenAlarma,
+      pista: idPistaTono == null ? undefined : pistas?.find((p) => p.id === idPistaTono),
+    },
   )
 
   // Los recordatorios se agendan contra la hora GUARDADA, no contra la previa
@@ -493,6 +409,10 @@ export function DescansoApp() {
           dormir={horaDormirVis}
           despertar={horaDespertarVis}
           caption={t('descanso.deSueno', 'de sueño')}
+          horas={formatoHoras(horasHorario)}
+          textoFalta={(min) =>
+            t('descanso.horario.falta', 'Faltan {h} para despertar', { h: formatoHoras(min / 60) })
+          }
         />
         <BarraHorario
           dormir={horaDormirVis}
@@ -558,6 +478,11 @@ export function DescansoApp() {
             onCambio={(v) => void setAviso('alarmaActiva', v)}
             on={etiquetaOn}
             off={etiquetaOff}
+          />
+          <SelectorTono
+            tono={perfil.tono}
+            volumen={volumenAlarma}
+            onCambio={(cambios) => void guardarPerfil(cambios)}
           />
           <FilaAviso
             icono="noche"
@@ -700,47 +625,59 @@ export function DescansoApp() {
         </div>
       </div>
 
-      {/* ---- historial ---- */}
+      {/* ---- historial en carpetas: año › mes › semana ---- */}
       <div className="space-y-2" data-tut="descanso.historial">
-        {lista.length === 0 && (
-          <p className="py-4 text-center text-sm text-white/40">
-            {t('descanso.hist.vacio', 'Aún no hay noches registradas.')}
-          </p>
-        )}
-        {lista.map((r: RegistroSueno) => {
-          const pr = puntuarNoche(r, perfil)
-          return (
-            <div
-              key={r.id}
-              className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2"
-            >
-              <span
-                className="w-9 shrink-0 rounded-md py-0.5 text-center text-sm font-black"
-                style={{ background: `${colorTotal(pr.total)}22`, color: colorTotal(pr.total) }}
-              >
-                {pr.total}
-              </span>
-              <span className="whitespace-nowrap font-bold text-cyan-400">{formatoHoras(r.horas)}</span>
-              {r.horaAcostarse && r.horaDespertar && (
-                <span className="text-xs text-white/50">
-                  {r.horaAcostarse}–{r.horaDespertar}
+        <Archivador
+          items={lista}
+          fecha={(r: RegistroSueno) => r.fecha}
+          clave={(r: RegistroSueno) => r.id ?? r.fecha}
+          vacio={t('descanso.hist.vacio', 'Aún no hay noches registradas.')}
+          resumen={(noches: RegistroSueno[]) =>
+            t('descanso.hist.media', 'media {h}', {
+              h: formatoHoras(
+                Math.round((noches.reduce((s, n) => s + n.horas, 0) / noches.length) * 10) / 10,
+              ),
+            })
+          }
+        >
+          {(r: RegistroSueno) => {
+            const pr = puntuarNoche(r, perfil)
+            return (
+              <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <span
+                  className="w-9 shrink-0 rounded-md py-0.5 text-center text-sm font-black"
+                  style={{ background: `${colorTotal(pr.total)}22`, color: colorTotal(pr.total) }}
+                >
+                  {pr.total}
                 </span>
-              )}
-              <span className="text-sm text-amber-400">{'★'.repeat(r.calidad)}</span>
-              <span className="truncate text-xs text-white/40">
-                {r.fecha}
-                {r.interrupciones ? ` · ${r.interrupciones}⏸` : ''}
-                {r.nota ? ` · ${r.nota}` : ''}
-              </span>
-              <button
-                onClick={() => r.id && suenoRepo.remove(r.id)}
-                className="ml-auto text-white/30 hover:text-white/70"
-              >
-                ✕
-              </button>
-            </div>
-          )
-        })}
+                <span className="whitespace-nowrap font-bold text-cyan-400">{formatoHoras(r.horas)}</span>
+                {r.horaAcostarse && r.horaDespertar && (
+                  <span className="text-xs text-white/50">
+                    {r.horaAcostarse}–{r.horaDespertar}
+                  </span>
+                )}
+                <span className="text-sm text-amber-400">{'★'.repeat(r.calidad)}</span>
+                <span className="truncate text-xs text-white/40">
+                  {r.fecha}
+                  {r.interrupciones ? (
+                    <>
+                      {' · '}
+                      {r.interrupciones}
+                      <Icono nombre="pausa" />
+                    </>
+                  ) : null}
+                  {r.nota ? ` · ${r.nota}` : ''}
+                </span>
+                <button
+                  onClick={() => r.id && suenoRepo.remove(r.id)}
+                  className="ml-auto text-white/30 hover:text-white/70"
+                >
+                  ✕
+                </button>
+              </div>
+            )
+          }}
+        </Archivador>
       </div>
 
       {/* ---- alarma sonando ---- */}

@@ -145,7 +145,7 @@ export default function MontanaSisifoOverlay() {
           <div className="mt-2 flex items-center justify-between text-[11px] text-white/50">
             <span>{vista.insignias}/52 {t('sisifo.insignias', 'insignias')}</span>
             <span>{t('sisifo.gracias', 'Días de gracia')}: {vista.graciasRestantes}</span>
-            <span className="text-white/70">⭐ ×{vista.estrellas}</span>
+            <span className="text-white/70"><Icono nombre="estrella" /> ×{vista.estrellas}</span>
           </div>
         </div>
 

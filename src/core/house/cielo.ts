@@ -1,4 +1,5 @@
 import { mezclar } from './temas'
+import { getFondo, type FondoId } from './fondos'
 
 /**
  * Geometría y colores del ciclo día/noche a partir del minuto del día (0..1439).
@@ -140,4 +141,29 @@ export function estadoCielo(minutos: number, radio: number = RADIO_CIELO): Estad
 export function colorFondo(estado: EstadoCielo, temaFondo: string | null): string {
   const base = temaFondo ?? estado.cieloColor
   return mezclar(base, '#0b0e1a', estado.nocheFactor * 0.35)
+}
+
+/**
+ * Color plano que se ve detrás de la interfaz (misma cascada que CieloDiaNoche:
+ * color fijo → preset de fondo → ciclo automático). Lo usa el chrome para saber
+ * sobre qué está flotando el vidrio del modo transparente; `null` cuando el
+ * fondo es una imagen personalizada, cuyo color no se puede deducir.
+ */
+export function colorFondoVisible(opts: {
+  fondoId: FondoId
+  fondoColorFijo: string
+  fondoImagenActivo: number | null
+  temaFondo: string | null
+  minutos: number
+}): string | null {
+  const { fondoId, fondoColorFijo, fondoImagenActivo, temaFondo, minutos } = opts
+  if (fondoImagenActivo != null) return null
+  if (fondoId === 'color_fijo') return fondoColorFijo
+  const fondoDef = getFondo(fondoId)
+  const cielo = estadoCielo(minutos)
+  if (fondoDef.id === 'auto') return colorFondo(cielo, temaFondo)
+  const arriba = mezclar(fondoDef.gradiente[0], '#0b0e1a', cielo.nocheFactor * 0.4)
+  const abajo = mezclar(fondoDef.gradiente[1], '#050508', cielo.nocheFactor * 0.5)
+  const fondo = mezclar(arriba, abajo, 0.5)
+  return temaFondo ? mezclar(fondo, temaFondo, 0.2) : fondo
 }

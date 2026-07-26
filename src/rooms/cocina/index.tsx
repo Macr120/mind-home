@@ -13,6 +13,7 @@ import {
 import { normalizar } from '../../core/chat/dispatcher'
 import { CATEGORIAS_COMPRA, adivinarCategoria } from './categoriasCompra'
 import { PERFIL_DEFECTO } from './constantes'
+import { CAMPOS_DIETA, CAMPOS_RECETA } from './recetaIA'
 import { registrarPeso } from './peso'
 import { CocinaApp } from './CocinaApp'
 import { tutorialCocina } from './tutorial'
@@ -136,19 +137,7 @@ const esquemas: EsquemaCaptura[] = [
     id: 'receta',
     descripcion:
       'Guarda una receta completa en el recetario. Úsala cuando el usuario pida una receta, pregunte cómo preparar un platillo o quiera guardar una. Si solo da el nombre del platillo, INVENTA tú la receta completa: ingredientes con cantidades, pasos claros y macros estimados por porción. Si además pide la lista de la compra de esa receta, añade una llamada a lista_compra con sus ingredientes.',
-    campos: [
-      { campo: 'nombre', tipo: 'texto', descripcion: 'Nombre del platillo', requerido: true },
-      { campo: 'emoji', tipo: 'texto', descripcion: 'Un emoji que represente el platillo (ej. 🍗)' },
-      { campo: 'porciones', tipo: 'numero', descripcion: 'Porciones que rinde la receta (defecto 2)' },
-      { campo: 'minutos', tipo: 'numero', descripcion: 'Tiempo total de preparación en minutos' },
-      { campo: 'etiquetas', tipo: 'lista', descripcion: 'Etiquetas cortas: tipo de platillo, dieta, ocasión (ej. "pollo", "rápida", "alta proteína")' },
-      { campo: 'ingredientes', tipo: 'lista', descripcion: 'Un ingrediente por elemento, CON cantidad (ej. "200 g de arroz", "1 cucharada de aceite")', requerido: true },
-      { campo: 'pasos', tipo: 'lista', descripcion: 'Pasos de preparación en orden, uno por elemento, claros y concisos', requerido: true },
-      { campo: 'calorias', tipo: 'numero', descripcion: 'Calorías estimadas POR PORCIÓN (kcal)' },
-      { campo: 'proteinas', tipo: 'numero', descripcion: 'Gramos de proteína por porción' },
-      { campo: 'carbohidratos', tipo: 'numero', descripcion: 'Gramos de carbohidratos por porción' },
-      { campo: 'grasas', tipo: 'numero', descripcion: 'Gramos de grasa por porción' },
-    ],
+    campos: CAMPOS_RECETA,
     guardar: async (v) => {
       const ingredientes = vLista(v.ingredientes)
       const pasos = vLista(v.pasos)
@@ -233,12 +222,7 @@ const esquemas: EsquemaCaptura[] = [
     descripcion:
       'Guarda una DIETA o plan de alimentación (con sus metas de macros y las recetas que la componen) en la pestaña Dieta. Úsala cuando el usuario pida una dieta ("hazme una dieta para bajar de peso", "quiero una dieta keto de 1800 kcal"). IMPORTANTE: si la dieta lleva recetas, crea PRIMERO cada receta con la herramienta receta en esta misma respuesta y después nombra esas recetas —con su nombre exacto— en el campo recetas. Si además quiere la lista del súper, añade una llamada a lista_compra con los ingredientes.',
     campos: [
-      { campo: 'nombre', tipo: 'texto', descripcion: 'Nombre corto de la dieta (ej. "Keto 1800", "Volumen limpio")', requerido: true },
-      { campo: 'descripcion', tipo: 'texto', descripcion: 'En qué consiste y para quién sirve, 1-2 frases', requerido: true },
-      { campo: 'calorias', tipo: 'numero', descripcion: 'Meta diaria de calorías (kcal) de la dieta' },
-      { campo: 'proteinas', tipo: 'numero', descripcion: 'Meta diaria de proteína en gramos' },
-      { campo: 'carbohidratos', tipo: 'numero', descripcion: 'Meta diaria de carbohidratos en gramos' },
-      { campo: 'grasas', tipo: 'numero', descripcion: 'Meta diaria de grasas en gramos' },
+      ...CAMPOS_DIETA,
       {
         campo: 'recetas',
         tipo: 'lista',
@@ -320,9 +304,12 @@ const cocina: RoomModule = {
       }
     },
   },
+  // Nada de nombres de UNA palabra como 'peso': se matchean por token y
+  // secuestrarían «peso 78 kg», que debe caer en el registro de pesaje.
   comandos: [
-    { seccion: 'metas', etiqueta: 'Metas', nombres: ['metas de nutricion', 'mis macros'] },
-    { seccion: 'diario', etiqueta: 'Comidas', nombres: ['diario de comidas', 'mis comidas'] },
+    { seccion: 'metas', etiqueta: 'Progreso', nombres: ['mi progreso', 'mi peso', 'metas de nutricion', 'mis macros'] },
+    { seccion: 'diario', etiqueta: 'Comidas', nombres: ['diario de comidas', 'mis comidas', 'registrar comida'] },
+    { seccion: 'cronograma', etiqueta: 'Cronograma', nombres: ['cronograma de nutricion', 'mis metas de peso'] },
     { seccion: 'plan', etiqueta: 'Dieta', nombres: ['dieta', 'plan de comidas', 'plan semanal de comidas'] },
     { seccion: 'recetas', etiqueta: 'Recetario', nombres: ['recetario', 'recetas'] },
     { seccion: 'compras', etiqueta: 'Compras', nombres: ['compras', 'lista del super', 'lista de compras'] },

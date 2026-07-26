@@ -2,9 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
-import { prepararLienzo, puntoLienzo, useBucle, useTeclas } from './arcade'
+import { FONDO_LIENZO, prepararLienzo, puntoLienzo, useBucle, useTeclas } from './arcade'
+import { claveDificultad, type Dificultad, type PropsDificultad } from './dificultad'
 
 type Fase = 'lista' | 'jugando' | 'fin'
+
+// Vidas, avance de la formación (base + por oleada) y presión de las bombas
+const AJUSTE: Record<Dificultad, { vidas: number; vel: number; velOleada: number; bombas: number }> = {
+  facil: { vidas: 5, vel: 26, velOleada: 8, bombas: 0.1 },
+  medio: { vidas: 3, vel: 36, velOleada: 12, bombas: 0.18 },
+  dificil: { vidas: 2, vel: 50, velOleada: 16, bombas: 0.3 },
+}
 
 const ANCHO = 360
 const ALTO = 480
@@ -34,17 +42,17 @@ interface Mundo {
   invul: number
 }
 
-function formacion(m: Mundo, oleada: number) {
+function formacion(m: Mundo, oleada: number, ajuste: (typeof AJUSTE)[Dificultad]) {
   m.vivos = new Array<boolean>(COLS * FILAS).fill(true)
   m.ox = (ANCHO - (COLS - 1) * SEP_X - ENEMIGO) / 2
   m.oy = 46
   m.dir = 1
-  m.vel = 36 + oleada * 12
+  m.vel = ajuste.vel + oleada * ajuste.velOleada
   m.balas = []
   m.bombas = []
 }
 
-function mundoInicial(): Mundo {
+function mundoInicial(ajuste: (typeof AJUSTE)[Dificultad]): Mundo {
   const m = {
     nave: ANCHO / 2,
     balas: [],
@@ -58,21 +66,23 @@ function mundoInicial(): Mundo {
     tBomba: 1.2,
     puntos: 0,
     oleada: 1,
-    vidas: 3,
+    vidas: ajuste.vidas,
     invul: 0,
   }
-  formacion(m, 1)
+  formacion(m, 1, ajuste)
   return m
 }
 
-export function SpaceDefender() {
+export function SpaceDefender({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const ajuste = AJUSTE[dificultad]
+  const clave = claveDificultad('space-record', dificultad)
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
-  const mundo = useRef<Mundo>(mundoInicial())
+  const mundo = useRef<Mundo>(mundoInicial(ajuste))
   const [fase, setFase] = useState<Fase>('lista')
   const [final, setFinal] = useState(0)
-  const [record, setRecord] = useState(() => leerNumero('space-record', 0))
+  const [record, setRecord] = useState(() => leerNumero(clave, 0))
   const teclas = useTeclas(TECLAS_SPACE)
 
   useEffect(() => {
@@ -81,14 +91,14 @@ export function SpaceDefender() {
   }, [])
 
   const empezar = () => {
-    mundo.current = mundoInicial()
+    mundo.current = mundoInicial(ajuste)
     setFase('jugando')
   }
 
   const perder = (m: Mundo) => {
     setFase('fin')
     setFinal(m.puntos)
-    setRecord(guardarRecord('space-record', m.puntos))
+    setRecord(guardarRecord(clave, m.puntos))
   }
 
   useBucle((dt) => {
@@ -137,7 +147,7 @@ export function SpaceDefender() {
         const i = indices[Math.floor(Math.random() * indices.length)]
         m.bombas.push({ x: m.ox + (i % COLS) * SEP_X + ENEMIGO / 2, y: m.oy + Math.floor(i / COLS) * SEP_Y + ENEMIGO })
       }
-      m.tBomba = (0.55 + Math.random() * 0.6) / (1 + m.oleada * 0.18)
+      m.tBomba = (0.55 + Math.random() * 0.6) / (1 + m.oleada * ajuste.bombas)
     }
 
     for (const b of m.balas) b.y -= 430 * dt
@@ -181,7 +191,7 @@ export function SpaceDefender() {
     // Oleada limpiada: llega la siguiente, más rápida
     if (m.vivos.every((v) => !v)) {
       m.oleada++
-      formacion(m, m.oleada)
+      formacion(m, m.oleada, ajuste)
     }
 
     dibujar(ctxRef.current!, m)
@@ -205,11 +215,11 @@ export function SpaceDefender() {
           ref={lienzo}
           onPointerMove={arrastrar}
           onPointerDown={arrastrar}
-          className="w-full rounded-xl bg-white/5"
-          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}` }}
+          className="w-full rounded-xl"
+          style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: FONDO_LIENZO }}
         />
         {fase !== 'jugando' && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/60 ui-noche">
             {fase === 'fin' && (
               <p className="px-4 text-center font-black">
                 {t('entre.j.space.fin', 'La flota te superó.')} {t('entre.j.puntos', 'Puntos')}: {final}

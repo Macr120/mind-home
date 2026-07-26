@@ -1,4 +1,4 @@
-# Mind Home
+# Mind Planner Home (MPH)
 
 App de una **casa isométrica 3D estilo Roblox** donde cada cuarto es una mini-app 2D
 independiente pero interconectada (muchas apps en 1). Web (Vite + React), futuro móvil

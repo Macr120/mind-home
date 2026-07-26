@@ -111,7 +111,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             <span className="h-0.5 w-4 rounded bg-white/70" />
           </button>
           <h1 className="min-w-0 flex-1 truncate text-lg font-black tracking-tight text-white/90">
-            <Icono nombre="casa" /> Mind Home
+            <Icono nombre="casa" /> {t('app.brand', 'Mind Planner Home')}
           </h1>
           <ExplotarToggleButton />
           <TechoToggleButton />
@@ -360,7 +360,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   )
 }
 
-/** Menú retraído: botón flotante (3 líneas + Mind Home) y toggle de techo. */
+/** Menú retraído: botón flotante (3 líneas + MPH) y toggle de techo. */
 export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   const t = useT()
   // Con una app abierta, su overlay tapa la casa: los controles de la vista 3D y el
@@ -399,7 +399,8 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
           <span className="h-0.5 w-4 rounded bg-white/80" />
         </span>
         <span className="text-sm font-black text-white/90">
-          <Icono nombre="casa" /> Mind Home
+          {/* Botón flotante: cabe la sigla, no el nombre entero. */}
+          <Icono nombre="casa" /> {t('app.brandCorto', 'MPH')}
         </span>
       </button>
       {!appAbierta && (

@@ -12,8 +12,8 @@ import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 type Tab = 'archivo' | 'mesa'
 
 const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
-  { id: 'archivo', icono: 'serie', labelEs: 'Archivo' },
   { id: 'mesa', icono: 'dados', labelEs: 'Juegos de mesa' },
+  { id: 'archivo', icono: 'serie', labelEs: 'Archivo' },
 ]
 
 export function EntretenimientoApp() {
@@ -21,7 +21,7 @@ export function EntretenimientoApp() {
   // Intención del chat («quiero jugar la viborita»): pestaña + juego inicial.
   // Se limpia al cambiar de pestaña a mano para no reabrir el juego.
   const [intencion, setIntencion] = useState(() => intencionApp('entretenimiento'))
-  const [tab, setTab] = useState<Tab>(intencion?.seccion === 'mesa' ? 'mesa' : 'archivo')
+  const [tab, setTab] = useState<Tab>(intencion?.seccion === 'archivo' ? 'archivo' : 'mesa')
   const media = mediaArchivoRepo.useAll() ?? []
 
   return (

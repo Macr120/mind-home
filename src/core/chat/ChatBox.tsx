@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
 import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
@@ -34,6 +34,7 @@ import { useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
+import { useTopeHud } from '../ui/hudMedida'
 import { vivo } from '../ui/estilos'
 import { iaHabilitada } from '../edicion'
 import { ErrorIA } from '../cuenta/api'
@@ -105,6 +106,9 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const [claveDraft, setClaveDraft] = useState(() => getIaKey(getProveedor().id))
   const [modeloLocalDraft, setModeloLocalDraft] = useState(() => getModeloLocal())
   const recRef = useRef<ReconocimientoVoz | null>(null)
+  const areaRef = useRef<HTMLTextAreaElement>(null)
+  // Barra del chat: publica su alto para que los prompts se apilen encima de ella.
+  const refTope = useTopeHud('chat')
   const idioma = useAjustes((s) => s.idioma)
   const entradas = bitacoraRepo.useAll()
   const memorias = memoriasRepo.useAll()
@@ -148,6 +152,18 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     if (menuAbierto) hud.setPlegado('chat', true)
     else if (!hud.movilVertical) hud.setPlegado('chat', false)
   }, [menuAbierto])
+
+  /**
+   * La caja está anclada abajo: al ajustar el alto del textarea al contenido, el
+   * texto crece HACIA ARRIBA y se lee completo lo que escribes (antes era un
+   * input de una línea que solo se desplazaba). Tope de 8rem y luego scroll.
+   */
+  useLayoutEffect(() => {
+    const el = areaRef.current
+    if (!el) return
+    el.style.height = 'auto'
+    el.style.height = `${Math.min(el.scrollHeight, 128)}px`
+  }, [texto])
 
   // Previsualización en vivo de a dónde irá la entrada.
   const interp = useMemo(() => interpretar(texto), [texto])
@@ -399,7 +415,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           setImagen(null)
           return
         }
-        console.warn('[Mind Home] IA no disponible, usando dispatcher local:', err)
+        console.warn('[MPH] IA no disponible, usando dispatcher local:', err)
         setPensando(false)
         setImagen(null) // el dispatcher local no puede ver fotos
       }
@@ -441,7 +457,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       e.preventDefault()
       enviar()
     }
-    if (e.key === 'Escape') (e.target as HTMLInputElement).blur()
+    if (e.key === 'Escape') (e.target as HTMLTextAreaElement).blur()
   }
 
   // Retag: asigna una app a una entrada y reintenta quick-capture
@@ -723,18 +739,18 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       )}
 
       {chatPlegado ? (
-        <button
-          type="button"
-          onClick={() => useHud.getState().setPlegado('chat', false)}
-          title={`${nombreAsistente(t, mascota)} · ${t('chat.abrir', 'Abrir chat')}`}
-          className={`ui-hud flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10 ${
-            angostoMovil ? '' : 'ml-auto'
-          }`}
-        >
-          <Icono emoji={mascota.emoji} />
-        </button>
+        <div ref={refTope} className={angostoMovil ? '' : 'flex justify-end'}>
+          <button
+            type="button"
+            onClick={() => useHud.getState().setPlegado('chat', false)}
+            title={`${nombreAsistente(t, mascota)} · ${t('chat.abrir', 'Abrir chat')}`}
+            className="ui-hud flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-2xl shadow-xl transition hover:scale-105 hover:bg-white/10"
+          >
+            <Icono emoji={mascota.emoji} />
+          </button>
+        </div>
       ) : (
-        <>
+        <div ref={refTope}>
       {/* Foto adjunta (la interpreta la IA al enviar) */}
       {imagen && (
         <div className="ui-panel-glass mb-2 inline-flex items-center gap-2 rounded-xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
@@ -752,7 +768,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       )}
 
       {/* Barra de entrada */}
-      <div data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex items-center gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
+      {/* items-end: al crecer el texto hacia arriba, los botones se quedan abajo.
+          flex-wrap: en pantalla angosta el texto se lleva su propio renglón (con los
+          botones al lado quedaba de 3 caracteres de ancho y no se leía nada). */}
+      <div data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex flex-wrap items-end gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
         {/* Plegar el chat: deja solo la carita del asistente (como los cuadrantes del HUD). */}
         <BotonPlegarHud
           zona="chat"
@@ -873,9 +892,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           />
         </label>
 
-        <div className="relative min-w-0 flex-1">
-          <input
+        <div className="relative order-first w-full min-w-0 sm:order-none sm:w-auto sm:flex-1">
+          <textarea
+            ref={areaRef}
             data-tut="chat.input"
+            rows={1}
             value={texto}
             onChange={(ev) => setTexto(ev.target.value)}
             onKeyDown={onKeyDown}
@@ -891,7 +912,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                 ? `${interp.comando === 'agregar' ? t('chat.ph.agregar', '➕ Agregar') : t('chat.ph.quitar', '➖ Quitar')} ${destino ? nombreCortoT(destino.id) : '…'} ${t('chat.ph.delMapa', 'del mapa')}`
                 : t('chat.ph.principal', 'Dile a {pet} qué hiciste…  (usa @cuarto para forzar destino)', { pet: nombreAsistente(t, mascota) })
             }
-            className="w-full bg-transparent py-1.5 text-sm text-white/90 placeholder:text-white/30 focus:outline-none"
+            className="block max-h-32 w-full resize-none overflow-y-auto bg-transparent py-1.5 text-sm leading-snug text-white/90 placeholder:text-white/30 focus:outline-none"
           />
         </div>
 
@@ -994,7 +1015,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           <Icono nombre="enviar" />
         </button>
       </div>
-        </>
+        </div>
       )}
     </div>
   )

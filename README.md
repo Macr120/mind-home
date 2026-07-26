@@ -1,4 +1,4 @@
-# 🏠 Mind Home
+# 🏠 Mind Planner Home (MPH)
 
 Casa isométrica 3D navegable donde cada cuarto es una mini-app 2D independiente
 pero interconectada (organización, hábitos, finanzas, etc.). **12 apps en 1.**
@@ -32,7 +32,7 @@ npm run lint     # ESLint
 | Entrar a un cuarto | Clic en el **mueble principal** → diálogo (p. ej. «Descansar») | Igual |
 | Menú lateral | Botón **Entrar ›** en cada tarjeta | Igual |
 
-- **🏠 Mind Home** (esquina superior izquierda): abre/cierra el menú de cuartos.
+- **🏠 MPH** (esquina superior izquierda): abre/cierra el menú de cuartos.
 - **🏠** (a su derecha): alterna vista **con techo** / **sin techo** en los cuartos.
 - **‹ Volver a la casa**: en la esquina superior derecha al estar dentro de una mini-app.
 

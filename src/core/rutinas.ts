@@ -233,7 +233,7 @@ export async function togglePaso(rutina: Rutina, idx: number) {
       try {
         await esquema.guardar({ ...paso.valores, fecha })
       } catch (err) {
-        console.warn('[Mind Home] No se pudo auto-registrar el paso:', err)
+        console.warn('[MPH] No se pudo auto-registrar el paso:', err)
       }
     }
   }

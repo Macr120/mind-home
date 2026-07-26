@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useCam, type Vista } from '../state/cameraStore'
 import { useLayout, mapFocusPos } from '../state/layoutStore'
 import { usePlanos } from '../state/planosStore'
@@ -8,12 +8,14 @@ import { Icono } from './iconos/Icono'
 import { ViewCube, VIEW_CUBE_PX } from './ViewCube'
 import { LookPad } from './MoveControls'
 import { ControlHerramienta } from './ControlHerramienta'
+import { FlechasMoverObjeto, BotonListoMoverObjetos } from './EditPanel'
 import { BotonAccionCancha } from './BotonAccionCancha'
 import { useHerramienta } from '../state/herramientaStore'
 import { useCarrera } from '../state/carreraStore'
 import { useJuegoCancha } from '../state/juegoCanchaStore'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud, TiradorHud } from './HudPlegable'
+import { useTopeHud } from './hudMedida'
 
 /**
  * Controles de vista 3D: selector iso/3ª/1ª, cubo y rotación debajo (mismo ancho).
@@ -22,6 +24,7 @@ export function NavControls() {
   const t = useT()
   const editMode = useLayout((s) => s.editMode)
   const setEditMode = useLayout((s) => s.setEditMode)
+  const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
   const planosActivo = usePlanos((s) => s.activo)
   const vista = useCam((s) => s.vista)
   const setVista = useCam((s) => s.setVista)
@@ -30,6 +33,7 @@ export function NavControls() {
   const editor3d = useEditorUi((s) => s.editor3d)
   const setEditor3d = useEditorUi((s) => s.setEditor3d)
   const setTab = useEditorUi((s) => s.setTab)
+  const objetoSel = useEditorUi((s) => s.objetoSel)
   const equipadas = useHerramienta((s) => s.equipadas)
   const faseCarrera = useCarrera((s) => s.fase)
   // Jugando en una cancha: el botón de acción ocupa el hueco del cubo/LookPad.
@@ -37,11 +41,23 @@ export function NavControls() {
   const plegado = useHud((s) => s.plegado.infDer)
   const movilVertical = useHud((s) => s.movilVertical)
   const chatPlegado = useHud((s) => s.plegado.chat)
+  // Mover objetos: las flechas ocupan el hueco del cubo, pero se pueden plegar para
+  // recuperar el cubo y cambiar la perspectiva sin salir del modo.
+  const [verCuboMoviendo, setVerCuboMoviendo] = useState(false)
+  const refTope = useTopeHud('navegacion')
 
   // El editor 3D solo vive en perspectiva: al volver a la vista iso se cierra.
   useEffect(() => {
     if (vista === 'iso' && useEditorUi.getState().editor3d) setEditMode(false)
   }, [vista, setEditMode])
+
+  // Al soltar el objeto (o salir del modo) vuelve a arrancar mostrando las flechas.
+  useEffect(() => {
+    // Reset intencional al cambiar la entrada: derivarlo dejaría el cubo puesto
+    // al seleccionar el siguiente objeto.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (objetoSel == null) setVerCuboMoviendo(false)
+  }, [objetoSel])
 
   /** Abre el editor de MAPA en perspectiva (sin cambiar a la cámara iso). */
   const abrirEditor3d = () => {
@@ -85,6 +101,8 @@ export function NavControls() {
   const mostrarCubo = vistaIso || vistaInterior
   // Herramientas equipadas: su pila de controles ocupa el hueco del cubo/LookPad (solo en juego).
   const conHerramienta = equipadas.length > 0 && !editMode
+  // Modo "mover objetos" con un objeto seleccionado: las flechas ocupan el hueco del cubo.
+  const moviendoObjeto = moverObjetosRoomId != null && objetoSel != null
 
   const vistas: { id: Vista; etiqueta: string; title: string }[] = [
     { id: 'iso', etiqueta: t('nav3d.vistaIsoCorta', 'Iso'), title: t('nav3d.vistaIso', 'Vista isométrica') },
@@ -107,9 +125,10 @@ export function NavControls() {
   const mostrarVistas = !editMode || editor3d
 
   // Plegado (solo en juego, el editor necesita sus controles): queda el cubo, que los devuelve.
-  if (plegado && !editMode) {
+  // Mover objetos siempre muestra sus controles (si no, el botón "Listo" quedaría inalcanzable).
+  if (plegado && !editMode && !moverObjetosRoomId) {
     return (
-      <div className={`absolute bottom-4 z-10 ${posControles}`}>
+      <div ref={refTope} className={`absolute bottom-4 z-10 ${posControles}`}>
         <TiradorHud zona="infDer">
           <Icono nombre="cubo-vistas" />
         </TiradorHud>
@@ -119,6 +138,7 @@ export function NavControls() {
 
   return (
     <div
+      ref={refTope}
       data-tut="nav.controles"
       data-tut-zona="navegacion"
       className={`absolute bottom-4 z-10 flex flex-col items-stretch gap-1 ${posControles}`}
@@ -130,6 +150,9 @@ export function NavControls() {
           <BotonPlegarHud zona="infDer" />
         </div>
       )}
+
+      {/* Modo "mover objetos": botón fijo para terminar, fuera del cuarto. */}
+      {moverObjetosRoomId && <BotonListoMoverObjetos />}
 
       {/* Editor 3D: solo en 3ª/1ª persona, encima del selector de vistas. */}
       {mostrarVistas && (vista === 'tercera' || vista === 'primera') && (
@@ -182,7 +205,32 @@ export function NavControls() {
 
       {mostrarCubo && (
         <>
-          {jugandoCancha ? <BotonAccionCancha /> : conHerramienta ? <ControlHerramienta /> : <ViewCube />}
+          {/* Mover objetos: alterna entre las flechas y el cubo, para poder cambiar la
+              perspectiva sin salir del modo ni perder el objeto seleccionado. */}
+          {moviendoObjeto && !jugandoCancha && !conHerramienta && (
+            <button
+              type="button"
+              onClick={() => setVerCuboMoviendo((v) => !v)}
+              title={
+                verCuboMoviendo
+                  ? t('nav3d.verFlechas', 'Volver a las flechas de movimiento')
+                  : t('nav3d.verCubo', 'Plegar las flechas y ver el cubo de vistas')
+              }
+              className="ui-hud flex h-7 w-full items-center justify-center gap-1 rounded-lg border border-white/10 text-[10px] font-semibold text-white/70 transition hover:bg-white/10 active:scale-95"
+            >
+              <Icono nombre={verCuboMoviendo ? 'mover' : 'cubo-vistas'} />
+              {verCuboMoviendo ? t('nav3d.verFlechasBtn', 'Ver flechas') : t('nav3d.verCuboBtn', 'Ver vistas')}
+            </button>
+          )}
+          {jugandoCancha ? (
+            <BotonAccionCancha />
+          ) : conHerramienta ? (
+            <ControlHerramienta />
+          ) : moviendoObjeto && !verCuboMoviendo ? (
+            <FlechasMoverObjeto />
+          ) : (
+            <ViewCube />
+          )}
           <div data-tut="nav.rotar" className="ui-hud flex w-full overflow-hidden rounded-lg border border-white/10">
             <button
               type="button"

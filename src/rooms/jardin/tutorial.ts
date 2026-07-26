@@ -11,7 +11,7 @@ export const tutorialJardin: TutorialDef = {
   titulo: T('tut.app-jardin.titulo', 'Jardín · Mindfulness'),
   resumen: T(
     'tut.app-jardin.resumen',
-    'El jardín es tu espacio de calma: meditaciones guiadas, ejercicios de respiración y agradecimientos diarios. Sin puntos ni rachas a propósito: la calma no compite.',
+    'El jardín es tu espacio de calma: meditación con pistas de sonido, ejercicios de respiración y agradecimientos diarios. Sin puntos ni rachas a propósito: la calma no compite.',
   ),
   preparar: () => {
     abrirApp('jardin')
@@ -31,7 +31,7 @@ export const tutorialJardin: TutorialDef = {
       titulo: T('tut.app-jardin.2.titulo', 'Meditación'),
       texto: T(
         'tut.app-jardin.2.texto',
-        'Meditaciones guiadas de distintas duraciones; elige una y deja que el guion te acompañe.',
+        'Cuatro pistas de sonido —bosque, mar, lluvia y cuencos tibetanos— con distintas duraciones; elige una y deja que te acompañe.',
       ),
     },
     {

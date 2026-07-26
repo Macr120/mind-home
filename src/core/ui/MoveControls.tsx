@@ -4,6 +4,7 @@ import { setLookPad, clearLook } from '../house/lookInput'
 import { useT } from '../i18n/useT'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from './HudPlegable'
+import { useTopeHud } from './hudMedida'
 
 const R = 38 // radio máximo del knob
 
@@ -85,9 +86,10 @@ export function MoveControls() {
   const t = useT()
   // Plegado: el joystick se va y la esquina queda con el abanico de herramientas.
   const plegado = useHud((s) => s.plegado.infIzq)
+  const ref = useTopeHud('joystick')
   if (plegado) return null
   return (
-    <div data-tut="nav.joystick" className="absolute bottom-4 left-4 z-10 flex items-start gap-1 select-none">
+    <div ref={ref} data-tut="nav.joystick" className="absolute bottom-4 left-4 z-10 flex items-start gap-1 select-none">
       <Joystick label={t('ui.mover', 'mover')} onChange={(x, y) => setPad(-y, x)} onEnd={() => setPad(0, 0)} />
       <BotonPlegarHud zona="infIzq" />
     </div>

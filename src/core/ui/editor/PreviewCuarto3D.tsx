@@ -16,7 +16,7 @@ import {
   type SideKey,
 } from '../../house/walls'
 import { IconoOjo } from './IconoOjo'
-import { BotonPreviewClaro, claseOverlayBtn } from './BotonPreviewClaro'
+import { BotonPreviewClaro, claseOverlayBtn, claseFondoPreview } from './BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -84,9 +84,7 @@ export function PreviewCuarto3D({
 
   return (
     <div
-      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${
-        claro ? 'bg-white' : 'bg-[#0d0f13]'
-      }`}
+      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
     >
       <div className="relative h-48 w-full">
         <Canvas
@@ -167,7 +165,7 @@ export function PreviewCuarto3D({
 
         <span
           className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
-            claro ? 'text-black/45' : 'text-white/35'
+            claro ? 'text-black/45' : 'text-[#ffffff]/35'
           }`}
         >
           {interactivo
@@ -186,7 +184,7 @@ export function PreviewCuarto3D({
             className={`flex w-full items-center justify-center gap-1.5 rounded-lg border py-2 text-[11px] font-semibold transition active:scale-95 ${
               claro
                 ? 'border-black/10 bg-black/5 text-black/70 hover:bg-black/10'
-                : 'border-white/10 bg-white/5 text-white/80 hover:bg-white/12'
+                : 'border-[#ffffff]/10 bg-[#ffffff]/5 text-[#ffffff]/80 hover:bg-[#ffffff]/12'
             }`}
           >
             <Icono nombre="mover" /> {t('preview.moverObjetos', 'Mover objetos en el mapa')}

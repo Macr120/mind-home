@@ -28,7 +28,8 @@ import {
   VENTANA_COLOR_DEFAULT,
   VANO_FORMA_ALTO_DEFAULT,
 } from '../house/murosPuertas'
-import { claveCeldaOff, esFormaCuadrada } from '../house/formasLoseta'
+import { claveCeldaOff, esFormaCuadrada, subformasDeCelda, offSubcelda } from '../house/formasLoseta'
+import { itemsPerimetroSubformas } from '../house/murosPerimetroLoseta'
 import { comprimirFoto } from '../house/especiales'
 import { ColorPicker } from './editor/ColorPicker'
 
@@ -365,6 +366,17 @@ export function WallEditor({ roomId, sinCroquis }: { roomId: string; sinCroquis?
                   onChange={(v) => {
                     if (altoTodos) {
                       for (const e of edges) setEdgeEstilo(roomId, e.off, e.side, { muro: { alto: v } })
+                      // Esquinas finas: su arista virtual (offset fraccionario) no está en
+                      // `edges` (solo aristas reales), así que se quedaban sin subir.
+                      for (const c of fp) {
+                        const sub = subformasDeCelda(formasCeldaRoom, c.col, c.row)
+                        if (!sub) continue
+                        for (const item of itemsPerimetroSubformas(sub, 0, 0)) {
+                          if (item.cuadrante == null || !item.ladoRep) continue
+                          const off = offSubcelda(c.col, c.row, item.cuadrante)
+                          setEdgeEstilo(roomId, off, item.ladoRep, { muro: { alto: v } })
+                        }
+                      }
                     } else {
                       setEdgeEstilo(roomId, sel.off, sel.side, { muro: { alto: v } })
                     }

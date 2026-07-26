@@ -15,6 +15,20 @@ export type FondoId =
   | 'nieve'
   | 'atardecer_dorado'
 
+/** Familias de microanimaciones del cielo (`FondoAnimaciones`). */
+export type FamiliaAnimId =
+  | 'cometas'
+  | 'dragones'
+  | 'murcielagos'
+  | 'bruma'
+  | 'corazones'
+  | 'aves'
+  | 'rayas'
+  | 'copos'
+  | 'nubes'
+  | 'polvo'
+  | 'fugaz'
+
 export interface FondoDef {
   id: FondoId
   nombre: string
@@ -25,6 +39,8 @@ export interface FondoDef {
   tema?: TemaId
   /** Campo de estrellas estáticas de fondo. */
   estrellas?: boolean
+  /** Microanimaciones cuando la casa NO tiene tema global (con tema mandan las del tema). */
+  anim?: FamiliaAnimId[]
 }
 
 export const FONDOS: FondoDef[] = [
@@ -39,6 +55,7 @@ export const FONDOS: FondoDef[] = [
     nombre: 'Cielo claro',
     icon: '☀️',
     gradiente: ['#87ceeb', '#e0f4ff'],
+    anim: ['nubes', 'aves'],
   },
   {
     id: 'cielo_oscuro',
@@ -46,6 +63,7 @@ export const FONDOS: FondoDef[] = [
     icon: '🌑',
     gradiente: ['#0f172a', '#1e1b4b'],
     estrellas: true,
+    anim: ['fugaz'],
   },
   {
     id: 'aurora',
@@ -54,6 +72,7 @@ export const FONDOS: FondoDef[] = [
     gradiente: ['#0c1445', '#1a5f4a'],
     tema: 'espacio',
     estrellas: true,
+    anim: ['fugaz', 'polvo'],
   },
   {
     id: 'nebulosa',
@@ -62,6 +81,7 @@ export const FONDOS: FondoDef[] = [
     gradiente: ['#1a0a2e', '#3d1a6e'],
     tema: 'espacio',
     estrellas: true,
+    anim: ['cometas', 'polvo'],
   },
   {
     id: 'medieval_atardecer',
@@ -69,6 +89,7 @@ export const FONDOS: FondoDef[] = [
     icon: '🏰',
     gradiente: ['#4a3728', '#c97b4a'],
     tema: 'medieval',
+    anim: ['dragones', 'aves'],
   },
   {
     id: 'bosque_bruma',
@@ -76,6 +97,7 @@ export const FONDOS: FondoDef[] = [
     icon: '🌲',
     gradiente: ['#1a2e1a', '#3d4a3d'],
     tema: 'terror',
+    anim: ['murcielagos', 'bruma'],
   },
   {
     id: 'desierto',
@@ -83,6 +105,7 @@ export const FONDOS: FondoDef[] = [
     icon: '🏜️',
     gradiente: ['#c9a227', '#e8d4a8'],
     tema: 'vaquero',
+    anim: ['aves', 'polvo'],
   },
   {
     id: 'neon_ciudad',
@@ -91,6 +114,7 @@ export const FONDOS: FondoDef[] = [
     gradiente: ['#0a0015', '#1a0030'],
     tema: 'cyberpunk',
     estrellas: true,
+    anim: ['rayas'],
   },
   {
     id: 'nieve',
@@ -98,6 +122,7 @@ export const FONDOS: FondoDef[] = [
     icon: '❄️',
     gradiente: ['#b8d4e8', '#e8f4fc'],
     tema: 'navidad',
+    anim: ['copos'],
   },
   {
     id: 'atardecer_dorado',
@@ -105,6 +130,7 @@ export const FONDOS: FondoDef[] = [
     icon: '🌇',
     gradiente: ['#ff6b35', '#ffd89b'],
     tema: 'barbie',
+    anim: ['nubes', 'aves'],
   },
 ]
 

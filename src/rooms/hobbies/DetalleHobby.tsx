@@ -2,9 +2,12 @@ import { useMemo, useState } from 'react'
 import type { Hobby, ProyectoHobby, SesionHobby } from '../../core/data/db'
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
+import { borrarMetasDeAmbito } from '../../core/metas'
 import { actividadId } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
+import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { Archivador } from '../_shared/Archivador'
 import { HeatmapAnual } from './HeatmapAnual'
 import { HeatmapMes } from './HeatmapMes'
 import { Proyectos } from './Proyectos'
@@ -30,12 +33,14 @@ export function DetalleHobby({
   proyectos,
   onVolver,
   onEditar,
+  onAbrirProyecto,
 }: {
   hobby: Hobby
   sesiones: SesionHobby[]
   proyectos: ProyectoHobby[]
   onVolver: () => void
   onEditar: () => void
+  onAbrirProyecto: (p: ProyectoHobby) => void
 }) {
   const t = useT()
   const [minutos, setMinutos] = useState(30)
@@ -66,10 +71,16 @@ export function DetalleHobby({
     setNota('')
   }
 
-  // Cascada: primero los registros dependientes, al final el hobby.
+  // Cascada: primero los registros dependientes (con las metas de cada ámbito),
+  // al final el hobby.
   const eliminar = async () => {
     for (const s of sesiones) if (s.id != null) await sesionesHobbyRepo.remove(s.id)
-    for (const p of proyectos) if (p.id != null) await proyectosHobbyRepo.remove(p.id)
+    for (const p of proyectos) {
+      if (p.id == null) continue
+      await borrarMetasDeAmbito(`proyecto:${p.id}`)
+      await proyectosHobbyRepo.remove(p.id)
+    }
+    await borrarMetasDeAmbito(`hobby:${hobby.id}`)
     await hobbiesRepo.remove(hobby.id!)
     onVolver()
   }
@@ -268,14 +279,32 @@ export function DetalleHobby({
       <HeatmapAnual minPorDia={porDia} color={hobby.color} />
       <HeatmapMes minPorDia={porDia} color={hobby.color} />
 
-      <Proyectos hobby={hobby} proyectos={proyectos} sesiones={sesiones} />
+      <Proyectos
+        hobby={hobby}
+        proyectos={proyectos}
+        sesiones={sesiones}
+        onAbrir={onAbrirProyecto}
+      />
+
+      {/* El cronograma de ESTE hobby: las metas generales, las que no son de un
+          proyecto concreto (esas viven dentro de cada proyecto). */}
+      <div className="rounded-xl border border-white/10 bg-white/5">
+        <div className="flex h-96 flex-col">
+          <CronogramaApp plantillaId="hobbies" ambitoId={`hobby:${hobby.id}`} />
+        </div>
+      </div>
 
       {sesiones.length > 0 && (
         <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-          <p className="mb-2 text-xs font-semibold">{t('hobbies.sesion.historial', 'Últimas sesiones')}</p>
-          <ul className="space-y-1.5">
-            {sesiones.slice(0, 8).map((s) => (
-              <li key={s.id} className="flex items-center gap-2 rounded-lg bg-black/20 px-2.5 py-1.5 text-xs">
+          <p className="mb-2 text-xs font-semibold">{t('hobbies.sesion.todas', 'Tus sesiones')}</p>
+          <Archivador
+            items={sesiones}
+            fecha={(s) => s.fecha}
+            clave={(s) => s.id ?? s.fecha}
+            resumen={(ses) => fmtMin(ses.reduce((acc, s) => acc + s.minutos, 0))}
+          >
+            {(s) => (
+              <div className="flex items-center gap-2 rounded-lg bg-black/20 px-2.5 py-1.5 text-xs">
                 <span className="w-14 shrink-0 font-semibold" style={{ color: hobby.color }}>
                   {fmtMin(s.minutos)}
                 </span>
@@ -294,9 +323,9 @@ export function DetalleHobby({
                 >
                   ✕
                 </button>
-              </li>
-            ))}
-          </ul>
+              </div>
+            )}
+          </Archivador>
         </div>
       )}
     </div>

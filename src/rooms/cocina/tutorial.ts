@@ -1,5 +1,5 @@
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
-import { clickTut } from '../../core/tutorial/dom'
+import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { recetasRepo } from '../../core/data/repository'
 import { abrirApp } from '../../core/abrirApp'
 
@@ -10,27 +10,36 @@ export const tutorialCocina: TutorialDef = {
   titulo: T('tut.app-cocina.titulo', 'Cocina · Nutrición'),
   resumen: T(
     'tut.app-cocina.resumen',
-    'Cocina lleva tu nutrición: apunta comidas y agua contra tus metas, arma tu dieta semanal, guarda recetas con macros y genera la lista del súper por categorías.',
+    'Cocina tiene dos caras: «Control de peso» lleva tu progreso, tus comidas y tus metas; «Recetario» guarda recetas, dietas y la lista del súper.',
   ),
   preparar: () => {
     abrirApp('cocina')
   },
   pasos: [
     {
+      sel: 'cocina.enfoque.peso',
+      alEntrar: () => {
+        clickTut('cocina.enfoque.peso')
+      },
+      titulo: T('tut.app-cocina.0.titulo', 'Dos enfoques'),
       texto: T(
-        'tut.app-cocina.1.texto',
-        'Cocina es tu app de nutrición: comidas, agua, dieta, recetario y lista del súper.',
+        'tut.app-cocina.0.texto',
+        'Arriba eliges a qué vienes: «Control de peso» para subir, bajar o mantener, y «Recetario» para cocinar y hacer la compra. Cada uno abre sus tres pestañas.',
       ),
     },
     {
       sel: 'cocina.tab.metas',
-      alEntrar: () => {
+      // Con dos niveles hay que abrir el enfoque y ESPERAR a que React pinte su
+      // fila de pestañas: si no, el segundo click no encuentra nada y no pasa nada.
+      alEntrar: async () => {
+        clickTut('cocina.enfoque.peso')
+        await esperarTut('cocina.tab.metas')
         clickTut('cocina.tab.metas')
       },
-      titulo: T('tut.app-cocina.2.titulo', 'Metas'),
+      titulo: T('tut.app-cocina.2.titulo', 'Progreso'),
       texto: T(
         'tut.app-cocina.2.texto',
-        'En Metas defines calorías, macros y agua objetivo, y llevas tu peso. Todo lo demás se compara contra esto.',
+        'Progreso manda: tu peso, cómo va la semana y cuándo llegas a tu meta. Abajo, en «Ajustar objetivo», defines calorías, macros y a qué peso quieres llegar.',
       ),
     },
     {
@@ -41,23 +50,27 @@ export const tutorialCocina: TutorialDef = {
       titulo: T('tut.app-cocina.3.titulo', 'Comidas'),
       texto: T(
         'tut.app-cocina.3.texto',
-        'Comidas es el diario del día: apunta lo que comiste y tu agua. Esta barra navega entre fechas.',
+        'Escribe lo que comiste y la IA calcula calorías y macros; tú revisas y confirmas. Esta barra navega entre fechas.',
       ),
     },
     {
       sel: 'cocina.tab.plan',
-      alEntrar: () => {
+      alEntrar: async () => {
+        clickTut('cocina.enfoque.recetario')
+        await esperarTut('cocina.tab.plan')
         clickTut('cocina.tab.plan')
       },
       titulo: T('tut.app-cocina.4.titulo', 'Dieta'),
       texto: T(
         'tut.app-cocina.4.texto',
-        'Dieta arma tu plan semanal de comidas; puedes guardar varias dietas y alternarlas.',
+        'Dieta guarda planes de alimentación con sus recetas y metas; puedes pedirle uno a la IA y aplicarlo como tus objetivos.',
       ),
     },
     {
       sel: 'cocina.recetas.lista',
       alEntrar: async (ctx) => {
+        clickTut('cocina.enfoque.recetario')
+        await esperarTut('cocina.tab.recetas')
         clickTut('cocina.tab.recetas')
         await ctx.unaVez('receta-ejemplo', async () => {
           const id = await recetasRepo.add({
@@ -87,7 +100,9 @@ export const tutorialCocina: TutorialDef = {
     },
     {
       sel: 'cocina.tab.compras',
-      alEntrar: () => {
+      alEntrar: async () => {
+        clickTut('cocina.enfoque.recetario')
+        await esperarTut('cocina.tab.compras')
         clickTut('cocina.tab.compras')
       },
       titulo: T('tut.app-cocina.6.titulo', 'Compras'),

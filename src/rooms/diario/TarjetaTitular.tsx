@@ -3,6 +3,7 @@ import { useState } from 'react'
 import type { Titular } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { getCategoria } from './constantes'
+import { ImagenNoticia } from './ImagenNoticia'
 
 /** Tarjeta estilo feed: imagen arriba (con respaldo si falla) y texto abajo. */
 export function TarjetaTitular({ titular }: { titular: Titular }) {
@@ -20,11 +21,9 @@ export function TarjetaTitular({ titular }: { titular: Titular }) {
           <Icono emoji={cat.emoji} />
         </div>
       ) : (
-        <img
-          src={titular.imagen}
-          alt=""
-          loading="lazy"
-          className="aspect-video w-full object-cover"
+        <ImagenNoticia
+          src={titular.imagen!}
+          color={cat.color}
           onError={() => setSinImagen(true)}
         />
       )}

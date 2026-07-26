@@ -138,7 +138,9 @@ function VanoFachada({
   const umbral = vano.tipo === 'porton' ? 3 : 2.4
   // Altura del muro de la arista y de la hoja (factor del muro, hasta su tope).
   const He = WALL_H * (vano.altoMuro ?? 1)
-  const hAlto = vano.alto != null ? Math.min(He, He * vano.alto) : Math.min(He, PUERTA_ALTO)
+  // Relativo al alto del muro (como en MurosLibres3D/MurosPerimetroFormaCuarto): así la
+  // hoja crece con el muro en vez de quedarse fija en PUERTA_ALTO al superar WALL_H.
+  const hAlto = He * (vano.alto ?? 0.97)
   const tipoPuerta: TipoPuertaId = vano.tipoPuerta ?? 'recta'
   const colorPuerta = vano.colorPuerta ?? PUERTA_COLOR
   const ax = vano.horizontal ? 1 : 0
@@ -361,6 +363,7 @@ export function Room3D({
   const editingRoomId = useLayout((s) => s.editingRoomId)
   const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
   const editorTab = useEditorUi((s) => s.tab)
+  const objetoSel = useEditorUi((s) => s.objetoSel)
   const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
   const setTab = useEditorUi((s) => s.setTab)
   const editor3d = useEditorUi((s) => s.editor3d)
@@ -770,24 +773,35 @@ export function Room3D({
 
   const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
     // Editor 3D o preview interactivo: tocar el piso abre el editor de MAPA en modo
-    // "Piso interior" y selecciona este cuarto (el panel muestra su editor de piso). Si ya
-    // estamos en la capa Pisos, lo gestiona PlanoPisos3DController (selección a ½ bajo el cursor).
+    // "Piso interior" y selecciona este cuarto (el panel muestra su editor de piso). Con una
+    // capa YA activa, el clic no puede saltar a otra: en Cuartos solo selecciona (sin
+    // cambiar de capa); en Pisos lo gestiona PlanoPisos3DController; en cualquier otra
+    // (Paredes, Techos) el piso no le pertenece y el clic no hace nada.
     if (!atenuado && (interactivo || (editor3d && !preview))) {
       // Soltar tras arrastrar la cámara (OrbitControls) no cuenta como clic.
       if (e.delta > 6) return
       // Si el clic fue sobre un muro (lo gestionó PlanoMuroSelector3D), no abrir el piso.
       if (consumirClicMuro()) return
-      if (!(planosActivo && planosCapa === 'pisos')) {
+      if (!planosActivo) {
         e.stopPropagation()
         setTab('mapa')
         setModoPlano('piso-int')
         setSeleccionPlano({ tipo: 'cuarto', roomId: id })
+      } else if (planosCapa === 'cuartos') {
+        e.stopPropagation()
+        setSeleccionPlano({ tipo: 'cuarto', roomId: id })
       }
       return
     }
-    // Con un modo de construcción activo (editor o atajo de la rueda) o moviendo objetos,
-    // el tap construye/arrastra, no mueve al personaje.
-    if (editMode || planosActivo || atenuado || preview || moverObjetosRoomId != null) return
+    // Modo "mover objetos": tocar el piso (algo que no es un objeto) deselecciona, lo que
+    // apaga las flechas de movimiento hasta volver a tocar un objeto.
+    if (moverObjetosRoomId != null) {
+      if (e.delta <= 6) setObjetoSel(null)
+      return
+    }
+    // Con un modo de construcción activo (editor o atajo de la rueda), el tap construye,
+    // no mueve al personaje.
+    if (editMode || planosActivo || atenuado || preview) return
     // En 1ª/3ª persona el clic en el suelo no mueve (el arrastre gira la cámara).
     if (useCam.getState().vista !== 'iso') return
     e.stopPropagation()
@@ -811,18 +825,18 @@ export function Room3D({
     if (planosMover) setSeleccionPlano({ tipo: 'cuarto', roomId: id })
     startDrag(id)
   }
-  // Editor 3D (perspectiva, fuera de la capa Paredes) o preview interactivo: tocar un
-  // muro abre el editor de MAPA en el modo del elemento (ventana si el muro tiene
-  // ventana, si no muros) y selecciona esa arista. En el editor 3D, dentro de la capa
-  // Paredes lo gestiona PlanoMuroSelector3D (raycast por la malla, válido para muros
-  // rectos, circulares y triangulares); en el preview no existe ese controlador, así que
-  // el clic directo aplica en cualquier capa.
-  const muroClicEditor3d =
-    !atenuado && (interactivo || (editor3d && !preview && !(planosActivo && planosCapa === 'paredes')))
-  // Techo clicable solo cuando es visible (toggle 🏠) y no estamos ya editando techos
-  // (entonces lo gestiona PlanoTechos3DEditor); evita robar clics al piso con el techo apagado.
+  // Editor 3D (sin capa activa aún) o preview interactivo: tocar un muro abre el editor de
+  // MAPA en el modo del elemento (ventana si el muro tiene ventana, si no muros) y
+  // selecciona esa arista. Con una capa YA activa, cada una es dueña de sus propios clics:
+  // en Paredes lo gestiona PlanoMuroSelector3D (raycast por la malla, válido para muros
+  // rectos, circulares y triangulares); en cualquier otra capa el muro no le pertenece y
+  // el clic no hace nada (no puede saltar de capa).
+  const muroClicEditor3d = !atenuado && (interactivo || (editor3d && !preview && !planosActivo))
+  // Techo clicable solo cuando es visible (toggle 🏠) y sin capa activa aún: con una capa YA
+  // activa, en Techos lo gestiona PlanoTechos3DEditor y en cualquier otra el techo no le
+  // pertenece (el clic no puede saltar de capa).
   const techoClicEditor3d =
-    !atenuado && conTecho && (interactivo || (editor3d && !preview && !(planosActivo && planosCapa === 'techos')))
+    !atenuado && conTecho && (interactivo || (editor3d && !preview && !planosActivo))
   const seleccionarMuro = (clave: string, ventana: boolean) => {
     const [c, r, side] = clave.split(',')
     setTab('mapa')
@@ -1346,7 +1360,12 @@ export function Room3D({
                       e.stopPropagation()
                       selectMueble(id)
                     }
-                  : undefined
+                  : // En "mover objetos" hay que frenar el clic aquí: si no, sigue de largo
+                    // hasta el piso (`onFloorClick`) y su deselección deshace la selección
+                    // que el propio pointerdown de este objeto acaba de hacer.
+                    moverObjetosRoomId === id
+                    ? (e) => e.stopPropagation()
+                    : undefined
               }
               onPointerDown={
                 objetosEditables
@@ -1372,6 +1391,15 @@ export function Room3D({
                   document.body.style.cursor = 'default'
               }}
             >
+              {/* Modo "mover objetos": aro celeste FLOTANDO sobre el objeto seleccionado (no
+                  bajo él: en la vista de planta, el propio mueble taparía un aro a ras de
+                  piso). Misma altura de referencia que `MarcadorEntrada`. */}
+              {moverObjetosRoomId === id && o.id === objetoSel && (
+                <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, altoDeTipo(o.tipo) + 0.35, 0]}>
+                  <ringGeometry args={[0.35, 0.5, 32]} />
+                  <meshBasicMaterial color="#38bdf8" transparent opacity={0.9} depthWrite={false} toneMapped={false} />
+                </mesh>
+              )}
               <GrupoAnimado anim={o.animacion} nivel={nivel}>
                 <ObjetoView
                   tipo={o.tipo}

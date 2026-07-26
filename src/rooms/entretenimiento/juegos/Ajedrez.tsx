@@ -2,6 +2,8 @@ import { Icono } from '../../../core/ui/iconos/Icono'
 import { useEffect, useMemo, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
+import type { Dificultad, PropsDificultad } from './dificultad'
+import { ElegirModo } from './ElegirModo'
 
 type TipoPieza = 'p' | 'c' | 'a' | 't' | 'd' | 'r'
 type Bando = 'b' | 'n'
@@ -214,8 +216,11 @@ function todosLegales(e: EstadoAjedrez): MovAjedrez[] {
   return movs
 }
 
-// IA voraz: captura lo más valioso, corona, evita colgar la pieza y busca mates a una
-function elegirMovIA(e: EstadoAjedrez): MovAjedrez | null {
+/**
+ * IA voraz: captura lo más valioso, corona y busca mates a una. En fácil juega casi
+ * a ciegas, en medio evita colgar la pieza y en difícil además mira qué le pueden comer.
+ */
+function elegirMovIA(e: EstadoAjedrez, dif: Dificultad): MovAjedrez | null {
   const movs = todosLegales(e)
   if (!movs.length) return null
   let mejorPuntaje = -Infinity
@@ -223,11 +228,27 @@ function elegirMovIA(e: EstadoAjedrez): MovAjedrez | null {
   for (const m of movs) {
     const objetivo = e.tab[m.a]
     let puntaje = (objetivo ? VALOR[objetivo.t] * 10 : 0) + (m.alPaso ? 10 : 0) + (m.promocion ? 80 : 0)
+    if (dif === 'facil') {
+      puntaje += Math.random() * 40
+      if (puntaje > mejorPuntaje) {
+        mejorPuntaje = puntaje
+        elegido = m
+      }
+      continue
+    }
     const despues = aplicar(e, m)
     if (atacada(despues.tab, m.a, 'b')) puntaje -= VALOR[despues.tab[m.a]!.t] * 9
     const respuestas = todosLegales(despues)
     if (respuestas.length === 0) puntaje += enJaque(despues.tab, 'b') ? 10000 : -50
-    puntaje += Math.random() * 5
+    if (dif === 'dificil') {
+      // Lo más caro que el rival puede comerse en su respuesta
+      const amenaza = respuestas.reduce((peor, r) => {
+        const pieza = despues.tab[r.a]
+        return pieza && pieza.b === 'n' ? Math.max(peor, VALOR[pieza.t]) : peor
+      }, 0)
+      puntaje -= amenaza * 8
+    }
+    puntaje += Math.random() * (dif === 'dificil' ? 1 : 5)
     if (puntaje > mejorPuntaje) {
       mejorPuntaje = puntaje
       elegido = m
@@ -247,7 +268,7 @@ function capturadas(tab: TableroAjedrez, b: Bando): TipoPieza[] {
   return restantes
 }
 
-export function Ajedrez() {
+export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
   const [modo, setModo] = useState<Modo | null>(null)
   const [estado, setEstado] = useState<EstadoAjedrez>(estadoInicial)
@@ -289,7 +310,7 @@ export function Ajedrez() {
   useEffect(() => {
     if (modo !== 'ia' || estado.turno !== 'n' || legalesTurno.length === 0) return
     const id = setTimeout(() => {
-      const m = elegirMovIA(estado)
+      const m = elegirMovIA(estado, dificultad)
       if (m) jugarMov(m)
     }, 550)
     return () => clearTimeout(id)
@@ -312,29 +333,24 @@ export function Ajedrez() {
 
   if (modo === null) {
     return (
-      <div className="space-y-3">
-        <p className="text-sm font-semibold">{t('entre.j.modo.titulo', '¿Cómo quieres jugar?')}</p>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => reiniciar('ia')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="mascota-robot" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.ia', 'Contra la máquina')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.ajedrez.iaDesc', 'Tú llevas las blancas')}</p>
-          </button>
-          <button
-            type="button"
-            onClick={() => reiniciar('2j')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="companeros" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.2j', '2 jugadores')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.modo.2jDesc', 'En el mismo dispositivo')}</p>
-          </button>
-        </div>
-      </div>
+      <ElegirModo
+        opciones={[
+          {
+            clave: 'ia',
+            icono: <Icono nombre="mascota-robot" />,
+            titulo: t('entre.j.modo.ia', 'Contra la máquina'),
+            desc: t('entre.j.ajedrez.iaDesc', 'Tú llevas las blancas'),
+            alElegir: () => reiniciar('ia'),
+          },
+          {
+            clave: '2j',
+            icono: <Icono nombre="companeros" />,
+            titulo: t('entre.j.modo.2j', '2 jugadores'),
+            desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
+            alElegir: () => reiniciar('2j'),
+          },
+        ]}
+      />
     )
   }
 
@@ -387,7 +403,7 @@ export function Ajedrez() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-[440px] select-none grid-cols-8 overflow-hidden rounded-lg border-2 border-white/25">
+      <div className="mx-auto grid max-w-[440px] select-none grid-cols-8 overflow-hidden rounded-xl border border-white/15 shadow-lg">
         {estado.tab.map((pieza, i) => {
           const f = Math.floor(i / 8)
           const c = i % 8

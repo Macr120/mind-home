@@ -46,13 +46,20 @@ export async function guardarImagenEjercicio(
   else await imagenesEjercicioRepo.add({ clave: normalizarEjercicio(nombre), imagen: blob })
 }
 
-/** Prompt de ilustración a partir del nombre y la técnica del ejercicio. */
+/**
+ * Prompt de ilustración a partir del nombre y la técnica del ejercicio. Es el
+ * mismo que usa `scripts/generar-imagenes-ejercicios.mjs` para las imágenes de
+ * fábrica: si cambia aquí, cámbialo allá para que el catálogo no se vea mezclado.
+ */
 function promptEjercicio(nombre: string, descripcion?: string): string {
   return [
-    `Ilustración plana y minimalista de una persona demostrando el ejercicio "${nombre}".`,
+    `Ilustración vectorial plana y minimalista de una persona demostrando el ejercicio «${nombre}».`,
     descripcion ? `Técnica: ${descripcion}` : '',
-    'Figura completa clara y con la postura correcta, estilo limpio y amigable, colores suaves,',
-    'fondo blanco puro, sin texto, sin números, sin marcas de agua.',
+    'Una sola figura de cuerpo completo, centrada y con la postura anatómicamente correcta,',
+    'trazo limpio y amigable, colores planos y suaves,',
+    'fondo blanco liso sin formas ni círculos decorativos, sin sombras duras.',
+    'IMPORTANTE: es una ilustración suelta, no una lámina didáctica:',
+    'la imagen no debe contener ninguna letra, palabra, título, rótulo, número ni marca de agua.',
   ]
     .filter(Boolean)
     .join(' ')

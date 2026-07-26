@@ -2,7 +2,15 @@ import { useEffect, useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
 import { useAsistentes } from '../../state/asistentesStore'
 import { useEditorUi, PERSONAJE_AVATAR } from '../../state/editorUiStore'
-import { MASCOTAS, COLOR_FORMA, nombreAsistente, nombreForma, type Asistente, type Pieza3D } from '../../chat/mascotas'
+import {
+  MASCOTAS,
+  COLOR_FORMA,
+  nombreAsistente,
+  nombreForma,
+  iconoModelo,
+  type Asistente,
+  type Pieza3D,
+} from '../../chat/mascotas'
 import {
   PRENDAS,
   PRENDA_COLOR_DEFAULT,
@@ -14,10 +22,14 @@ import {
   ESCALA_MIN,
   ESCALA_MAX,
   ESCALA_DEFAULT,
+  soportaRostro,
+  soportaPeinado,
   type PrendaId,
   type Ropa,
+  type ExpresionId,
+  type PeinadoId,
 } from '../../house/apariencia'
-import { CUERPOS_PRESET } from '../../house/cuerpos'
+import { CUERPOS_PRESET, piezasBase, aplicarCuerpoPreset } from '../../house/cuerpos'
 import { GuardarropaEditor } from './GuardarropaEditor'
 import { AtuendosEditor } from './AtuendosEditor'
 import { iaActiva, generarModelo3D } from '../../chat/ia'
@@ -30,6 +42,8 @@ import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
 type ToolId = 'cuerpo' | 'rostro' | 'color' | 'tamano' | 'ropa' | 'anim'
+/** La Princesa se muestra justo después de Humano en la galería de modelos, no al final. */
+const PRINCESA_PRESET = CUERPOS_PRESET.find((c) => c.id === 'princesa')!
 /** id del personaje seleccionado; 'avatar' = el personaje principal. */
 const AVATAR = PERSONAJE_AVATAR
 
@@ -111,7 +125,7 @@ export function EditorPersonajesSection() {
       {/* 1) Botones de todos los personajes */}
       <div className="grid grid-cols-3 gap-1.5">
         <BotonPersonaje
-          emoji="🧍"
+          emoji={iconoModelo(avatar)}
           nombre={avatar.nombre || t('editor.pers.tu', 'Tú')}
           activo={esAvatar}
           onClick={() => setSelId(AVATAR)}
@@ -119,7 +133,7 @@ export function EditorPersonajesSection() {
         {lista.map((a) => (
           <BotonPersonaje
             key={a.id}
-            emoji={a.emoji}
+            emoji={iconoModelo(a)}
             nombre={nombreAsistente(t, a)}
             activo={!esAvatar && selId === a.id}
             onClick={() => setSelId(a.id)}
@@ -195,7 +209,7 @@ export function EditorPersonajesSection() {
 
       <div className="rounded-xl border border-white/10 bg-white/5 p-3">
         {tool === 'cuerpo' && (esAvatar ? <CuerpoAvatar /> : <CuerpoAsistente a={asis!} />)}
-        {tool === 'rostro' && <RostroEditor esAvatar={esAvatar} />}
+        {tool === 'rostro' && <RostroEditor esAvatar={esAvatar} asis={asis} />}
         {tool === 'color' && (esAvatar ? <ColorAvatar /> : <ColorAsistente a={asis!} />)}
         {tool === 'tamano' && <Tamano esAvatar={esAvatar} asis={asis} />}
         {tool === 'ropa' && <RopaEditor esAvatar={esAvatar} asis={asis} />}
@@ -272,7 +286,7 @@ function GaleriaModelos() {
   const t = useT()
   const av = useDiseño((s) => s.avatar)
   const setAvatarForma = useDiseño((s) => s.setAvatarForma)
-  const setAvatarModelo3d = useDiseño((s) => s.setAvatarModelo3d)
+  const setAvatarCuerpoPreset = useDiseño((s) => s.setAvatarCuerpoPreset)
   const quitarAvatarModelo = useDiseño((s) => s.quitarAvatarModelo)
   const esBase = !av.modeloGlb && !(av.modelo3d?.length ?? 0) && !av.forma
 
@@ -284,9 +298,15 @@ function GaleriaModelos() {
       <div className="grid grid-cols-4 gap-1.5">
         <ModeloBtn
           emoji="🧍"
-          label={t('editor.pers.modeloBase', 'Base')}
+          label={t('editor.pers.modeloBase', 'Humano')}
           activo={esBase}
           onClick={() => void quitarAvatarModelo()}
+        />
+        <ModeloBtn
+          emoji={PRINCESA_PRESET.emoji}
+          label={t(`editor.pers.cuerpo.${PRINCESA_PRESET.id}`, PRINCESA_PRESET.nombre)}
+          activo={av.cuerpoPresetId === PRINCESA_PRESET.id}
+          onClick={() => void setAvatarCuerpoPreset(PRINCESA_PRESET)}
         />
         {MASCOTAS.map((f) => (
           <ModeloBtn
@@ -297,12 +317,13 @@ function GaleriaModelos() {
             onClick={() => void setAvatarForma(f.id)}
           />
         ))}
-        {CUERPOS_PRESET.map((c) => (
+        {CUERPOS_PRESET.filter((c) => c.id !== PRINCESA_PRESET.id).map((c) => (
           <ModeloBtn
             key={c.id}
             emoji={c.emoji}
             label={t(`editor.pers.cuerpo.${c.id}`, c.nombre)}
-            onClick={() => void setAvatarModelo3d(c.piezas())}
+            activo={av.cuerpoPresetId === c.id}
+            onClick={() => void setAvatarCuerpoPreset(c)}
           />
         ))}
       </div>
@@ -351,45 +372,93 @@ function CuerpoAvatar() {
 }
 
 function CuerpoAsistente({ a }: { a: Asistente }) {
-  const t = useT()
   const guardar = useAsistentes((s) => s.guardar)
   const tieneModeloPropio = !!a.modeloGlb || (a.modelo3d?.length ?? 0) > 0
 
   return (
     <div className="space-y-2">
-      <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
-        {t('editor.pers.forma', 'Forma 3D')}
-      </p>
-      <div className="flex gap-1.5">
-        {MASCOTAS.map((f) => (
-          <button
-            key={f.id}
-            type="button"
-            onClick={() => guardar({ ...a, forma: f.id, modelo3d: undefined, modeloGlb: undefined })}
-            title={nombreForma(t, f)}
-            className={`grid h-9 flex-1 place-items-center rounded-lg text-lg transition ${
-              a.forma === f.id && !tieneModeloPropio
-                ? 'bg-accent/20 ring-1 ring-accent/50'
-                : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            <Icono emoji={f.emoji} />
-          </button>
-        ))}
-      </div>
+      <GaleriaModelosAsistente a={a} />
       <PiezasBlock
         piezas={a.modeloGlb ? undefined : a.modelo3d}
-        onChange={(p) => guardar({ ...a, modelo3d: p, modeloGlb: undefined })}
-        onRestaurar={() => guardar({ ...a, modelo3d: undefined, modeloGlb: undefined })}
+        onChange={(p) => guardar({ ...a, modelo3d: p, modeloGlb: undefined, cuerpoPresetId: undefined })}
+        onRestaurar={() => guardar({ ...a, modelo3d: undefined, modeloGlb: undefined, cuerpoPresetId: undefined })}
         plantilla={() => piezasDesdeForma(a.forma, a.color)}
       />
       <Forma3DBlock
         tieneModeloPropio={tieneModeloPropio}
         esGlb={!!a.modeloGlb}
-        onModelo3d={(piezas) => guardar({ ...a, modelo3d: piezas, modeloGlb: undefined })}
-        onGlb={(f) => guardar({ ...a, modeloGlb: f, modelo3d: undefined })}
-        onQuitar={() => guardar({ ...a, modelo3d: undefined, modeloGlb: undefined })}
+        onModelo3d={(piezas) => guardar({ ...a, modelo3d: piezas, modeloGlb: undefined, cuerpoPresetId: undefined })}
+        onGlb={(f) => guardar({ ...a, modeloGlb: f, modelo3d: undefined, cuerpoPresetId: undefined })}
+        onQuitar={() => guardar({ ...a, modelo3d: undefined, modeloGlb: undefined, cuerpoPresetId: undefined })}
       />
+    </div>
+  )
+}
+
+/**
+ * Galería de los 12 modelos para un asistente (Base + las 5 formas integradas +
+ * los 6 cuerpos prediseñados), igual que `GaleriaModelos` del personaje
+ * principal. "Base" se hornea en piezas (misma huella que el box-man): un
+ * asistente no tiene cubos propios, así que necesita piezas para caminar/tener
+ * rostro igual que el jugador.
+ */
+function GaleriaModelosAsistente({ a }: { a: Asistente }) {
+  const t = useT()
+  const guardar = useAsistentes((s) => s.guardar)
+  const tieneModeloPropio = !!a.modeloGlb || (a.modelo3d?.length ?? 0) > 0
+
+  return (
+    <div className="space-y-1.5">
+      <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+        {t('editor.pers.modelos', 'Modelos')}
+      </p>
+      <div className="grid grid-cols-4 gap-1.5">
+        <ModeloBtn
+          emoji="🧍"
+          label={t('editor.pers.modeloBase', 'Humano')}
+          activo={a.cuerpoPresetId === 'base'}
+          onClick={() =>
+            guardar({
+              ...a,
+              modelo3d: piezasBase(a.color ?? COLOR_FORMA[a.forma]),
+              modeloGlb: undefined,
+              cuerpoPresetId: 'base',
+            })
+          }
+        />
+        <ModeloBtn
+          emoji={PRINCESA_PRESET.emoji}
+          label={t(`editor.pers.cuerpo.${PRINCESA_PRESET.id}`, PRINCESA_PRESET.nombre)}
+          activo={a.cuerpoPresetId === PRINCESA_PRESET.id}
+          onClick={() => guardar({ ...a, ...aplicarCuerpoPreset(PRINCESA_PRESET) })}
+        />
+        {MASCOTAS.map((f) => (
+          <ModeloBtn
+            key={f.id}
+            emoji={f.emoji}
+            label={nombreForma(t, f)}
+            activo={!tieneModeloPropio && a.forma === f.id}
+            onClick={() =>
+              guardar({ ...a, forma: f.id, modelo3d: undefined, modeloGlb: undefined, cuerpoPresetId: undefined })
+            }
+          />
+        ))}
+        {CUERPOS_PRESET.filter((c) => c.id !== PRINCESA_PRESET.id).map((c) => (
+          <ModeloBtn
+            key={c.id}
+            emoji={c.emoji}
+            label={t(`editor.pers.cuerpo.${c.id}`, c.nombre)}
+            activo={a.cuerpoPresetId === c.id}
+            onClick={() => guardar({ ...a, ...aplicarCuerpoPreset(c) })}
+          />
+        ))}
+      </div>
+      <p className="text-[10px] leading-snug text-white/35">
+        {t(
+          'editor.pers.modelosNota',
+          'Elige un cuerpo listo. Los de piezas puedes seguir editándolos abajo; las formas conservan su propia cara.',
+        )}
+      </p>
     </div>
   )
 }
@@ -473,7 +542,7 @@ function Forma3DBlock({
       onModelo3d(piezas)
       setDescForma('')
     } catch (err) {
-      console.warn('[Mind Home] No se pudo generar la forma 3D:', err)
+      console.warn('[MPH] No se pudo generar la forma 3D:', err)
       setErrorForma(
         t('editor.pers.formaError', 'No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.'),
       )
@@ -541,7 +610,7 @@ function Forma3DBlock({
                 const { optimizarGlb } = await import('../../house/optimizarGlb')
                 onGlb(await optimizarGlb(f))
               } catch (err) {
-                console.warn('[Mind Home] No se pudo optimizar el .glb:', err)
+                console.warn('[MPH] No se pudo optimizar el .glb:', err)
                 setErrorForma(t('editor.pers.glbError', 'No pude procesar ese modelo .glb. ¿Es un archivo válido?'))
               } finally {
                 setOptimizando(false)
@@ -615,6 +684,7 @@ function ColorAvatar() {
   const avatar = useDiseño((s) => s.avatar)
   const setAvatarRopaColor = useDiseño((s) => s.setAvatarRopaColor)
   const setAvatarModelo3d = useDiseño((s) => s.setAvatarModelo3d)
+  const setAvatarFormaColor = useDiseño((s) => s.setAvatarFormaColor)
 
   // Con cuerpo de piezas, el color pinta la pieza seleccionada.
   if (!avatar.modeloGlb && (avatar.modelo3d?.length ?? 0) > 0) {
@@ -626,6 +696,21 @@ function ColorAvatar() {
       <p className="rounded-lg border border-accent/20 bg-accent/10 px-2.5 py-1.5 text-[11px] text-accent/90">
         {t('editor.pers.colorSinEfecto', 'Este personaje usa un modelo propio; los colores del cuerpo no le aplican.')}
       </p>
+    )
+  }
+
+  // Con una forma integrada, el color pinta el cuerpo (mismo color por defecto que un asistente con esa forma).
+  if (avatar.forma) {
+    return (
+      <div className="space-y-2">
+        <p className="text-[11px] leading-snug text-white/45">
+          {t('editor.pers.colorForma', 'Pinta el cuerpo de esta forma.')}
+        </p>
+        <ColorPicker
+          value={avatar.formaColor ?? COLOR_FORMA[avatar.forma]}
+          onChange={(c) => setAvatarFormaColor(c)}
+        />
+      </div>
     )
   }
 
@@ -661,7 +746,7 @@ function ColorAsistente({ a }: { a: Asistente }) {
     return (
       <ColorPiezaSel
         piezas={a.modelo3d!}
-        onChange={(p) => guardar({ ...a, modelo3d: p, modeloGlb: undefined })}
+        onChange={(p) => guardar({ ...a, modelo3d: p, modeloGlb: undefined, cuerpoPresetId: undefined })}
       />
     )
   }
@@ -760,7 +845,7 @@ function AnimacionPersonaje({ esAvatar, asis }: { esAvatar: boolean; asis?: Asis
             ? (p) =>
                 esAvatar
                   ? void setAvatarModelo3d(p)
-                  : asis && void guardar({ ...asis, modelo3d: p, modeloGlb: undefined })
+                  : asis && void guardar({ ...asis, modelo3d: p, modeloGlb: undefined, cuerpoPresetId: undefined })
             : undefined
         }
       />
@@ -787,8 +872,8 @@ function useObjectUrl(blob: Blob | undefined): string | null {
       setUrl(null)
       return
     }
+    // El URL debe nacer en un render comprometido (StrictMode revoca en la limpieza).
     const u = URL.createObjectURL(blob)
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- el URL debe nacer en un render comprometido (StrictMode revoca en la limpieza)
     setUrl(u)
     return () => URL.revokeObjectURL(u)
   }, [blob])
@@ -800,150 +885,172 @@ function useObjectUrl(blob: Blob | undefined): string | null {
  * o elegir una expresión dibujada (ojos + boca). La foto manda sobre la expresión.
  * Los asistentes ya tienen cara según su forma, así que aquí solo se avisa.
  */
-function RostroEditor({ esAvatar }: { esAvatar: boolean }) {
+function RostroEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente }) {
   const t = useT()
-  const expresion = useDiseño((s) => s.avatar.expresion)
-  const rostro = useDiseño((s) => s.avatar.rostro)
-  const peinado = useDiseño((s) => s.avatar.peinado)
-  const peloColor = useDiseño((s) => s.avatar.peloColor)
+  const avatar = useDiseño((s) => s.avatar)
   const setAvatarExpresion = useDiseño((s) => s.setAvatarExpresion)
   const setAvatarRostro = useDiseño((s) => s.setAvatarRostro)
   const setAvatarPeinado = useDiseño((s) => s.setAvatarPeinado)
   const setAvatarPeloColor = useDiseño((s) => s.setAvatarPeloColor)
+  const guardar = useAsistentes((s) => s.guardar)
   const [procesando, setProcesando] = useState(false)
+
+  const personaje = esAvatar ? avatar : asis
+  const conRostro = !!personaje && soportaRostro(personaje)
+  const conPeinado = !!personaje && soportaPeinado(personaje)
+  const rostro = personaje?.rostro
   const rostroUrl = useObjectUrl(rostro)
 
-  if (!esAvatar) {
+  if (!conRostro && !conPeinado) {
     return (
       <p className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] leading-snug text-white/45">
         {t(
-          'editor.pers.rostroSoloAvatar',
-          'El rostro (foto y expresiones) es para tu personaje principal. Los asistentes ya tienen cara según su forma.',
+          'editor.pers.rostroNoAplica',
+          'Este modelo ya tiene su propia cara (casco, careta, pelaje…): el rostro y el peinado del editor no le aplican.',
         )}
       </p>
     )
   }
 
-  const expSel = expresion ?? EXPRESION_DEFAULT
+  const setExpresion = (id: ExpresionId) =>
+    esAvatar ? void setAvatarExpresion(id) : asis && void guardar({ ...asis, expresion: id })
+  const setRostro = async (blob: Blob | undefined) => {
+    if (esAvatar) await setAvatarRostro(blob)
+    else if (asis) await guardar({ ...asis, rostro: blob })
+  }
+  const setPeinado = (id: PeinadoId) =>
+    esAvatar ? void setAvatarPeinado(id) : asis && void guardar({ ...asis, peinado: id })
+  const setPeloColor = (color: string) =>
+    esAvatar ? void setAvatarPeloColor(color) : asis && void guardar({ ...asis, peloColor: color })
+
+  const expSel = personaje?.expresion ?? EXPRESION_DEFAULT
+  const peinado = personaje?.peinado
+  const peloColor = personaje?.peloColor
 
   return (
     <div className="space-y-3">
-      {/* Foto de rostro */}
-      <div className="space-y-1.5">
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
-          {t('editor.pers.rostroImagen', 'Foto de rostro')}
-        </p>
-        {rostro && (
-          <div className="flex items-center gap-2 rounded-lg border border-accent/20 bg-accent/10 p-1.5">
-            {rostroUrl && (
-              <img
-                src={rostroUrl}
-                alt=""
-                className="h-12 w-12 shrink-0 rounded-lg border border-white/10 object-cover"
-              />
-            )}
-            <p className="min-w-0 flex-1 text-[11px] leading-snug text-white/55">
-              {t('editor.pers.rostroImagenPuesta', 'La foto tapa el frente de la cabeza (manda sobre la expresión).')}
+      {conRostro && (
+        <>
+          {/* Foto de rostro */}
+          <div className="space-y-1.5">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+              {t('editor.pers.rostroImagen', 'Foto de rostro')}
             </p>
-            <button
-              type="button"
-              onClick={() => void setAvatarRostro(undefined)}
-              title={t('editor.pers.rostroQuitar', 'Quitar foto')}
-              className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-white/5 text-sm transition hover:bg-red-500/25"
-            >
-              <Icono nombre="basura" />
-            </button>
-          </div>
-        )}
-        <label
-          className={`flex items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-xs font-semibold text-white/70 transition ${
-            procesando ? 'cursor-wait opacity-60' : 'cursor-pointer hover:bg-white/15'
-          }`}
-        >
-          {procesando ? (
-            <span className="animate-pulse">{t('editor.pers.rostroProcesando', 'Procesando foto…')}</span>
-          ) : (
-            <>
-              <Icono nombre="foto" />
-              {rostro
-                ? t('editor.pers.rostroCambiar', 'Cambiar foto')
-                : t('editor.pers.rostroSubir', 'Subir foto de rostro')}
-            </>
-          )}
-          <input
-            type="file"
-            accept="image/*"
-            className="hidden"
-            disabled={procesando}
-            onChange={async (e) => {
-              const f = e.target.files?.[0]
-              e.target.value = ''
-              if (!f) return
-              setProcesando(true)
-              try {
-                // Redimensiona a máx 1280px (mismo helper que los cuadros con foto).
-                const { comprimirFoto } = await import('../../house/especiales')
-                await setAvatarRostro(await comprimirFoto(f))
-              } catch (err) {
-                console.warn('[Mind Home] No se pudo procesar la foto de rostro:', err)
-              } finally {
-                setProcesando(false)
-              }
-            }}
-          />
-        </label>
-      </div>
-
-      {/* Expresión dibujada (se atenúa si hay foto, que manda) */}
-      <div className={`space-y-1.5 ${rostro ? 'pointer-events-none opacity-40' : ''}`}>
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
-          {t('editor.pers.rostroExpresion', 'Expresión')}
-        </p>
-        <div className="grid grid-cols-4 gap-1.5">
-          {EXPRESIONES.map((ex) => (
-            <button
-              key={ex.id}
-              type="button"
-              onClick={() => void setAvatarExpresion(ex.id)}
-              title={t(`editor.pers.expresion.${ex.id}`, ex.nombre)}
-              className={`grid h-11 place-items-center rounded-lg text-xl transition ${
-                expSel === ex.id
-                  ? 'bg-accent/20 ring-1 ring-accent/50'
-                  : 'bg-white/5 hover:bg-white/10'
+            {rostro && (
+              <div className="flex items-center gap-2 rounded-lg border border-accent/20 bg-accent/10 p-1.5">
+                {rostroUrl && (
+                  <img
+                    src={rostroUrl}
+                    alt=""
+                    className="h-12 w-12 shrink-0 rounded-lg border border-white/10 object-cover"
+                  />
+                )}
+                <p className="min-w-0 flex-1 text-[11px] leading-snug text-white/55">
+                  {t('editor.pers.rostroImagenPuesta', 'La foto tapa el frente de la cabeza (manda sobre la expresión).')}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => void setRostro(undefined)}
+                  title={t('editor.pers.rostroQuitar', 'Quitar foto')}
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-white/10 bg-white/5 text-sm transition hover:bg-red-500/25"
+                >
+                  <Icono nombre="basura" />
+                </button>
+              </div>
+            )}
+            <label
+              className={`flex items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2 text-xs font-semibold text-white/70 transition ${
+                procesando ? 'cursor-wait opacity-60' : 'cursor-pointer hover:bg-white/15'
               }`}
             >
-              <Icono emoji={ex.emoji} />
-            </button>
-          ))}
-        </div>
-      </div>
+              {procesando ? (
+                <span className="animate-pulse">{t('editor.pers.rostroProcesando', 'Procesando foto…')}</span>
+              ) : (
+                <>
+                  <Icono nombre="foto" />
+                  {rostro
+                    ? t('editor.pers.rostroCambiar', 'Cambiar foto')
+                    : t('editor.pers.rostroSubir', 'Subir foto de rostro')}
+                </>
+              )}
+              <input
+                type="file"
+                accept="image/*"
+                className="hidden"
+                disabled={procesando}
+                onChange={async (e) => {
+                  const f = e.target.files?.[0]
+                  e.target.value = ''
+                  if (!f) return
+                  setProcesando(true)
+                  try {
+                    // Redimensiona a máx 1280px (mismo helper que los cuadros con foto).
+                    const { comprimirFoto } = await import('../../house/especiales')
+                    await setRostro(await comprimirFoto(f))
+                  } catch (err) {
+                    console.warn('[MPH] No se pudo procesar la foto de rostro:', err)
+                  } finally {
+                    setProcesando(false)
+                  }
+                }}
+              />
+            </label>
+          </div>
+
+          {/* Expresión dibujada (se atenúa si hay foto, que manda) */}
+          <div className={`space-y-1.5 ${rostro ? 'pointer-events-none opacity-40' : ''}`}>
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+              {t('editor.pers.rostroExpresion', 'Expresión')}
+            </p>
+            <div className="grid grid-cols-4 gap-1.5">
+              {EXPRESIONES.map((ex) => (
+                <button
+                  key={ex.id}
+                  type="button"
+                  onClick={() => setExpresion(ex.id)}
+                  title={t(`editor.pers.expresion.${ex.id}`, ex.nombre)}
+                  className={`grid h-11 place-items-center rounded-lg text-xl transition ${
+                    expSel === ex.id
+                      ? 'bg-accent/20 ring-1 ring-accent/50'
+                      : 'bg-white/5 hover:bg-white/10'
+                  }`}
+                >
+                  <Icono emoji={ex.emoji} />
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Peinado + color de pelo */}
-      <div className="space-y-1.5">
-        <div className="flex items-center justify-between">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
-            {t('editor.pers.peinado', 'Peinado')}
-          </p>
-          <input
-            type="color"
-            value={peloColor || PELO_COLOR_DEFAULT}
-            onChange={(e) => void setAvatarPeloColor(e.target.value)}
-            className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
-            title={t('editor.pers.peloColor', 'Color de pelo')}
-          />
-        </div>
-        <div className="grid grid-cols-4 gap-1.5">
-          {PEINADOS.map((h) => (
-            <ModeloBtn
-              key={h.id}
-              emoji={h.emoji}
-              label={t(`editor.pers.peinado.${h.id}`, h.nombre)}
-              activo={(peinado ?? 'ninguno') === h.id}
-              onClick={() => void setAvatarPeinado(h.id)}
+      {conPeinado && (
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between">
+            <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+              {t('editor.pers.peinado', 'Peinado')}
+            </p>
+            <input
+              type="color"
+              value={peloColor || PELO_COLOR_DEFAULT}
+              onChange={(e) => setPeloColor(e.target.value)}
+              className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
+              title={t('editor.pers.peloColor', 'Color de pelo')}
             />
-          ))}
+          </div>
+          <div className="grid grid-cols-4 gap-1.5">
+            {PEINADOS.map((h) => (
+              <ModeloBtn
+                key={h.id}
+                emoji={h.emoji}
+                label={t(`editor.pers.peinado.${h.id}`, h.nombre)}
+                activo={(peinado ?? 'ninguno') === h.id}
+                onClick={() => setPeinado(h.id)}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

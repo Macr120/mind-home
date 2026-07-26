@@ -41,6 +41,7 @@ import { AJUSTE_FONDO_DEFAULT, ajusteADb, medirImagen } from '../house/fondosIma
 import { useCuartos } from './cuartosStore'
 import type { Pieza3D, MascotaId } from '../chat/mascotas'
 import type { AnimacionModelo } from '../house/animacion'
+import { aplicarCuerpoPreset, type CuerpoPreset } from '../house/cuerpos'
 import {
   ESCALA_DEFAULT,
   parseRopa,
@@ -66,8 +67,14 @@ const ESTILO_ROW = '__estilo__'
 /** Prefijo de las filas centinela con la personalización de cada tema (`__tema_ov_<id>__`). */
 const TEMA_OV_PREFIX = '__tema_ov_'
 const temaOvRow = (id: TemaId) => `${TEMA_OV_PREFIX}${id}__`
-/** roomId sentinela del fondo de cielo (`nombre` = id, `color` = '1'|'0' animaciones). */
+/**
+ * roomId sentinela del fondo de cielo (`nombre` = id, `color` = animaciones).
+ * `color`: '0' = apagadas; con decimales ('0.60') = intensidad; '1' a secas = fila
+ * antigua, anterior al slider → se lee como la intensidad por defecto.
+ */
 const FONDO_ROW = '__fondo__'
+/** Intensidad inicial de las microanimaciones (≈ la densidad que había antes del slider). */
+export const ANIM_INTENSIDAD_DEFAULT = 0.6
 /** roomId sentinela donde se persiste el tipo de piso de la casa. */
 const PISO_TIPO_ROW = '__piso_tipo__'
 const TECHO_TIPO_ROW = '__techo_tipo__'
@@ -86,7 +93,7 @@ export const esObjetoLibreria = (o: ObjetoCuarto) => o.roomId === LIBRERIA_ROOM
  * Colores del avatar por defecto (estilo Roblox).
  * Se sobreescriben con los datos guardados en DB.
  */
-const AVATAR_DEFAULT = {
+export const AVATAR_DEFAULT = {
   cabeza: '#ffd23b',
   torso: '#e23b3b',
   piernas: '#2f5fd0',
@@ -123,6 +130,15 @@ export interface Avatar {
   peloColor?: string
   /** Forma integrada (mago/gato/perro/búho/robot) como cuerpo del avatar. */
   forma?: MascotaId
+  /** Color del cuerpo con `forma` (vacío = el propio de la forma, `COLOR_FORMA`). */
+  formaColor?: string
+  /**
+   * Qué preset de `CUERPOS_PRESET` (o `'base'`) originó `modelo3d`, mientras no
+   * se edite (pieza movida/recoloreada, pose aplicada): así el ícono y la
+   * animación de marcha saben qué cuerpo concreto es. Se limpia en cualquier
+   * edición posterior.
+   */
+  cuerpoPresetId?: string
   /** Forma 3D descrita a la IA (gana a los cubos de colores). */
   modelo3d?: Pieza3D[]
   /** Modelo .glb subido por el usuario (gana a modelo3d y a los cubos). */
@@ -222,6 +238,8 @@ interface DisenoState {
   fondosImagen: FondoImagen[]
   /** microanimaciones de fondo (cometas, dragones, nieve, etc.) */
   animacionesFondo: boolean
+  /** Intensidad de las microanimaciones (0.1–1): cantidad y discreción de los elementos. */
+  animacionesIntensidad: number
   /** Papel del croquis, rejilla y base del mapa 3D. */
   mapaSuperficie: MapaSuperficieAjustes
   cargado: boolean
@@ -250,6 +268,7 @@ interface DisenoState {
   ) => Promise<void>
   eliminarFondoImagen: (id: number) => Promise<void>
   setAnimacionesFondo: (activo: boolean) => Promise<void>
+  setAnimacionesIntensidad: (valor: number) => Promise<void>
   setMapaSuperficie: (ajustes: MapaSuperficieAjustes) => Promise<void>
   setTechoTipo: (tipo: TechoTipoId | null) => Promise<void>
   setRoomColor: (roomId: string, color: string) => Promise<void>
@@ -341,10 +360,10 @@ interface DisenoState {
   setObjetoPlantilla: (id: number, plantillaId: string | null) => Promise<void>
   /** Agrega un objeto LIBRE sobre el mapa (editor de mapa, inventario completo). */
   addObjetoMapa: (tipo: string, color: string) => Promise<void>
-  /** Crea un objeto construido con geometría básica sobre el mapa. Devuelve su id. */
-  addObjetoPiezas: (piezas: Pieza3D[], color: string) => Promise<number>
-  /** Crea sobre el mapa un objeto con un modelo .glb subido por el usuario. Devuelve su id. */
-  addObjetoGlb: (glb: Blob, color: string) => Promise<number>
+  /** Crea un objeto construido con geometría básica. `roomId` = destino elegido (mapa o cuarto). Devuelve su id. */
+  addObjetoPiezas: (piezas: Pieza3D[], color: string, roomId?: string) => Promise<number>
+  /** Crea un objeto con un modelo .glb subido por el usuario. `roomId` = destino elegido. Devuelve su id. */
+  addObjetoGlb: (glb: Blob, color: string, roomId?: string) => Promise<number>
   /** Reemplaza el contenido de un objeto por un modelo .glb subido por el usuario. */
   setObjetoModeloGlb: (id: number, glb: Blob) => Promise<void>
   /** Foto de un cuadro especial o espectacular; undefined = quitarla. */
@@ -355,8 +374,12 @@ interface DisenoState {
   sembrarLibreriaBase: () => Promise<number>
   /** Crea un objeto en la BIBLIOTECA dentro de una categoría/carpeta. Devuelve su id. */
   addObjetoLibreria: (tipo: string, color: string, categoria: string, piezas?: Pieza3D[]) => Promise<number>
-  /** Crea en el MAPA una copia (instancia) de un objeto de la biblioteca. `pos` = coords de mundo (omitida = posición por defecto). Devuelve su id. */
-  instanciarObjetoEnMapa: (libId: number, pos?: { x: number; z: number }) => Promise<number | null>
+  /** Coloca en el mundo una copia (instancia) de un objeto de la biblioteca. `pos` = coords de mundo (omitida = posición por defecto); `roomId` = destino elegido. Devuelve su id. */
+  instanciarObjetoEnMapa: (
+    libId: number,
+    pos?: { x: number; z: number },
+    roomId?: string,
+  ) => Promise<number | null>
   /** Renombra una carpeta (categoría) de la biblioteca en todos sus objetos. */
   renombrarCategoriaLibreria: (oldCat: string, newCat: string) => Promise<void>
   /** Aplica categoría+orden a varios objetos de biblioteca de una vez (drag & drop). */
@@ -391,6 +414,8 @@ interface DisenoState {
   setObjetoPos: (id: number, x: number, z: number) => void
   /** Fija y PERSISTE posición+rumbo de un objeto sin reasignarlo de cuarto (estacionar un vehículo). */
   setObjetoPose: (id: number, x: number, z: number, rotY: number) => Promise<void>
+  /** Desplaza (dx,dz) un objeto y su grupo, acotado a su cuarto, y PERSISTE de inmediato (flechas del modo mover-objetos). */
+  nudgeObjeto: (id: number, dx: number, dz: number) => Promise<void>
   startObjetoDrag: (id: number) => void
   endObjetoDrag: () => Promise<void>
   removeObjeto: (id: number) => Promise<void>
@@ -430,8 +455,12 @@ interface DisenoState {
   quitarAvatarPrendaCustom: (refId: number) => Promise<void>
   /** Usa una forma integrada (mago/gato/…) como cuerpo del avatar (limpia piezas/.glb). */
   setAvatarForma: (forma: MascotaId) => Promise<void>
+  /** Color del cuerpo con `forma` (vacío = el propio de la forma, `COLOR_FORMA`). */
+  setAvatarFormaColor: (color: string) => Promise<void>
   /** Fija la forma 3D del avatar generada por IA (limpia el .glb y la forma integrada). */
   setAvatarModelo3d: (piezas: Pieza3D[]) => Promise<void>
+  /** Aplica un preset de `CUERPOS_PRESET` (piezas + su id, para el ícono y la marcha). */
+  setAvatarCuerpoPreset: (preset: CuerpoPreset) => Promise<void>
   /** Fija el modelo .glb del avatar subido por el usuario (limpia las piezas IA). */
   setAvatarGlb: (blob: Blob) => Promise<void>
   /** Quita la forma 3D personalizada y vuelve a los cubos de colores. */
@@ -452,14 +481,18 @@ function posMundoDefault(n: number): { x: number; z: number } {
 }
 
 /**
- * Destino de un objeto NUEVO creado desde el editor. Editando un cuarto (`editingRoomId`)
- * cae dentro de él, cerca de su centro; si no, queda libre sobre el mapa. Así los objetos
- * creados mientras editas un cuarto aparecen en el cuarto y no en el centro del mapa.
+ * Destino de un objeto NUEVO creado desde el editor. Con `destino` explícito (el que
+ * el usuario eligió en `DestinoObjetoDialog`) manda ese; si no, editando un cuarto
+ * (`editingRoomId`) cae dentro de él, cerca de su centro, y en cualquier otro caso
+ * queda libre sobre el mapa.
  */
-function destinoObjetoNuevo(objetos: ObjetoCuarto[]): { roomId: string; x: number; z: number } {
-  const editRoom = useLayout.getState().editingRoomId
-  if (editRoom && useLayout.getState().placed[editRoom]) {
-    return { roomId: editRoom, ...posDefault(objetosDeCuarto(objetos, editRoom).length) }
+function destinoObjetoNuevo(
+  objetos: ObjetoCuarto[],
+  destino?: string,
+): { roomId: string; x: number; z: number } {
+  const room = destino ?? useLayout.getState().editingRoomId
+  if (room && room !== MAPA_ROOM && useLayout.getState().placed[room]) {
+    return { roomId: room, ...posDefault(objetosDeCuarto(objetos, room).length) }
   }
   return { roomId: MAPA_ROOM, ...posMundoDefault(objetosMapa(objetos).length) }
 }
@@ -545,13 +578,15 @@ async function guardarEstiloRow(estilo: EstiloVisualId, efectos: boolean, config
 async function guardarFondoRow(
   fondo: FondoId,
   anim: boolean,
+  intensidad: number,
   imagenId: number | null,
   colorFijo: string,
 ) {
   const existing = await db.disenoRooms.where('roomId').equals(FONDO_ROW).first()
   const row = {
     nombre: fondo,
-    color: anim ? '1' : '0',
+    // Siempre con 2 decimales: así '1.00' (elegido) no se confunde con el '1' antiguo.
+    color: anim ? intensidad.toFixed(2) : '0',
     muebleColor: imagenId != null ? String(imagenId) : '',
     pisoColor: colorFijo, // color sólido cuando fondoId = 'color_fijo'
   }
@@ -574,6 +609,8 @@ async function guardarAvatar(av: DisenoState['avatar']) {
     peinado: av.peinado ?? '',
     peloColor: av.peloColor ?? '',
     forma: av.forma ?? '',
+    formaColor: av.formaColor ?? '',
+    cuerpoPresetId: av.cuerpoPresetId ?? '',
     modelo3d: av.modelo3d ? JSON.stringify(av.modelo3d) : '',
     modeloGlb: av.modeloGlb,
     animacion: av.animacion ? JSON.stringify(av.animacion) : '',
@@ -639,6 +676,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   fondoImagenActivo: null,
   fondosImagen: [],
   animacionesFondo: true,
+  animacionesIntensidad: ANIM_INTENSIDAD_DEFAULT,
   mapaSuperficie: { ...MAPA_SUPERFICIE_DEFAULT },
   cargado: false,
 
@@ -856,6 +894,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     let techoTipo: TechoTipoId | null = null
     let fondoId: FondoId = 'auto'
     let animacionesFondo = true
+    let animacionesIntensidad = ANIM_INTENSIDAD_DEFAULT
     let fondoColorFijo = '#87ceeb'
     let fondoImagenActivo: number | null = null
     let mapaSuperficie: MapaSuperficieAjustes = { ...MAPA_SUPERFICIE_DEFAULT }
@@ -893,6 +932,11 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       if (d.roomId === FONDO_ROW) {
         fondoId = (d.nombre as FondoId) || 'auto'
         animacionesFondo = d.color !== '0'
+        // Solo el valor con decimales lo eligió el usuario; '1' es la fila vieja.
+        if (d.color?.includes('.')) {
+          const n = parseFloat(d.color)
+          if (Number.isFinite(n)) animacionesIntensidad = Math.min(1, Math.max(0.1, n))
+        }
         if (d.pisoColor) fondoColorFijo = d.pisoColor
         const imgId = parseInt(d.muebleColor ?? '', 10)
         if (!Number.isNaN(imgId) && fondosImagen.some((f) => f.id === imgId)) {
@@ -1047,6 +1091,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondoImagenActivo,
       fondosImagen,
       animacionesFondo,
+      animacionesIntensidad,
       mapaSuperficie,
       avatar: av
         ? {
@@ -1062,6 +1107,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
             peinado: (av.peinado as PeinadoId) || undefined,
             peloColor: av.peloColor || undefined,
             forma: (av.forma as MascotaId) || undefined,
+            formaColor: av.formaColor || undefined,
+            cuerpoPresetId: av.cuerpoPresetId || undefined,
             modelo3d: avModelo3d,
             modeloGlb: av.modeloGlb,
             animacion: avAnimacion,
@@ -1105,7 +1152,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     if (et?.id) await db.disenoRooms.update(et.id, { nombre: techoPorTema ?? '' })
     else await db.disenoRooms.add({ roomId: TECHO_TIPO_ROW, color: '', nombre: techoPorTema ?? '' })
     const anim = get().animacionesFondo
-    await guardarFondoRow(fondoPorTema, anim, null, get().fondoColorFijo)
+    await guardarFondoRow(fondoPorTema, anim, get().animacionesIntensidad, null, get().fondoColorFijo)
   },
 
   setTemaOverride: async (tema, patch) => {
@@ -1188,18 +1235,18 @@ export const useDiseño = create<DisenoState>((set, get) => ({
 
   setFondoId: async (fondo) => {
     set({ fondoId: fondo, fondoImagenActivo: null })
-    await guardarFondoRow(fondo, get().animacionesFondo, null, get().fondoColorFijo)
+    await guardarFondoRow(fondo, get().animacionesFondo, get().animacionesIntensidad, null, get().fondoColorFijo)
   },
 
   setFondoColorFijo: async (color) => {
     set({ fondoId: 'color_fijo', fondoColorFijo: color, fondoImagenActivo: null })
-    await guardarFondoRow('color_fijo', get().animacionesFondo, null, color)
+    await guardarFondoRow('color_fijo', get().animacionesFondo, get().animacionesIntensidad, null, color)
   },
 
   setFondoImagenActivo: async (id) => {
     if (id != null && !get().fondosImagen.some((f) => f.id === id)) return
     set({ fondoImagenActivo: id })
-    await guardarFondoRow(get().fondoId, get().animacionesFondo, id, get().fondoColorFijo)
+    await guardarFondoRow(get().fondoId, get().animacionesFondo, get().animacionesIntensidad, id, get().fondoColorFijo)
   },
 
   agregarFondoImagen: async (blob, nombre, ajuste = AJUSTE_FONDO_DEFAULT) => {
@@ -1218,7 +1265,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondosImagen: [nuevo, ...s.fondosImagen],
       fondoImagenActivo: id,
     }))
-    await guardarFondoRow(get().fondoId, get().animacionesFondo, id, get().fondoColorFijo)
+    await guardarFondoRow(get().fondoId, get().animacionesFondo, get().animacionesIntensidad, id, get().fondoColorFijo)
     return id
   },
 
@@ -1236,12 +1283,32 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondosImagen: s.fondosImagen.filter((f) => f.id !== id),
       fondoImagenActivo: eraActivo ? null : s.fondoImagenActivo,
     }))
-    if (eraActivo) await guardarFondoRow(get().fondoId, get().animacionesFondo, null, get().fondoColorFijo)
+    if (eraActivo) {
+      await guardarFondoRow(get().fondoId, get().animacionesFondo, get().animacionesIntensidad, null, get().fondoColorFijo)
+    }
   },
 
   setAnimacionesFondo: async (activo) => {
     set({ animacionesFondo: activo })
-    await guardarFondoRow(get().fondoId, activo, get().fondoImagenActivo, get().fondoColorFijo)
+    await guardarFondoRow(
+      get().fondoId,
+      activo,
+      get().animacionesIntensidad,
+      get().fondoImagenActivo,
+      get().fondoColorFijo,
+    )
+  },
+
+  setAnimacionesIntensidad: async (valor) => {
+    const intensidad = Math.min(1, Math.max(0.1, valor))
+    set({ animacionesIntensidad: intensidad })
+    await guardarFondoRow(
+      get().fondoId,
+      get().animacionesFondo,
+      intensidad,
+      get().fondoImagenActivo,
+      get().fondoColorFijo,
+    )
   },
 
   setMapaSuperficie: async (ajustes) => {
@@ -1859,16 +1926,16 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
   },
 
-  addObjetoPiezas: async (piezas, color) => {
-    const { roomId, x, z } = destinoObjetoNuevo(get().objetos)
+  addObjetoPiezas: async (piezas, color, destino) => {
+    const { roomId, x, z } = destinoObjetoNuevo(get().objetos, destino)
     const item: ObjetoCuarto = { roomId, tipo: 'piezas', color, slot: 0, x, z, rotY: 0, piezas }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
     return id
   },
 
-  addObjetoGlb: async (glb, color) => {
-    const { roomId, x, z } = destinoObjetoNuevo(get().objetos)
+  addObjetoGlb: async (glb, color, destino) => {
+    const { roomId, x, z } = destinoObjetoNuevo(get().objetos, destino)
     const item: ObjetoCuarto = { roomId, tipo: 'glb', color, slot: 0, x, z, rotY: 0, modeloGlb: glb }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
@@ -2050,14 +2117,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     return id
   },
 
-  instanciarObjetoEnMapa: async (libId, pos) => {
+  instanciarObjetoEnMapa: async (libId, pos, roomId) => {
     const lib = get().objetos.find((o) => o.id === libId)
     if (!lib) return null
     // Con `pos` explícita (p. ej. el chat la suelta junto al jugador) va libre al mapa;
-    // sin ella, editando un cuarto cae dentro de él (centro) en vez del centro del mapa.
+    // sin ella manda el destino elegido (mapa o cuarto) y, en su defecto, el contexto.
     const destino = pos
       ? { roomId: MAPA_ROOM, x: pos.x, z: pos.z }
-      : destinoObjetoNuevo(get().objetos)
+      : destinoObjetoNuevo(get().objetos, roomId)
     const item: ObjetoCuarto = {
       roomId: destino.roomId,
       tipo: lib.tipo,
@@ -2205,6 +2272,33 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       objetos: s.objetos.map((o) => (o.id === id ? { ...o, x, z, rotY: grados } : o)),
     }))
     await db.objetosCuarto.update(id, { x, z, rotY: grados })
+  },
+
+  nudgeObjeto: async (id, dx, dz) => {
+    const { objetos } = get()
+    const o = objetos.find((x) => x.id === id)
+    if (!o) return
+    // Mueve también al resto del grupo, cada miembro acotado a su propio cuarto.
+    const miembros = o.grupoId ? objetos.filter((m) => m.grupoId === o.grupoId && m.id != null) : [o]
+    const cambios = miembros.map((m) => {
+      let nx = (m.x ?? 0) + dx
+      let nz = (m.z ?? 0) + dz
+      if (!esObjetoMapa(m)) {
+        const size = useLayout.getState().sizes[m.roomId] ?? SIZE_DEFAULT
+        const halfW = (size.w * SIZE) / 2 - 0.7
+        const halfH = (size.h * SIZE) / 2 - 0.7
+        nx = Math.max(-halfW, Math.min(halfW, nx))
+        nz = Math.max(-halfH, Math.min(halfH, nz))
+      }
+      return { id: m.id as number, x: nx, z: nz }
+    })
+    set((s) => ({
+      objetos: s.objetos.map((x) => {
+        const c = cambios.find((c) => c.id === x.id)
+        return c ? { ...x, x: c.x, z: c.z } : x
+      }),
+    }))
+    await Promise.all(cambios.map((c) => db.objetosCuarto.update(c.id, { x: c.x, z: c.z })))
   },
 
   startObjetoDrag: (id) => {
@@ -2430,22 +2524,46 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   setAvatarForma: async (forma) => {
-    set((s) => ({ avatar: { ...s.avatar, forma, modelo3d: undefined, modeloGlb: undefined } }))
+    set((s) => ({
+      avatar: { ...s.avatar, forma, modelo3d: undefined, modeloGlb: undefined, cuerpoPresetId: undefined },
+    }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarFormaColor: async (color) => {
+    set((s) => ({ avatar: { ...s.avatar, formaColor: color } }))
     await guardarAvatar(get().avatar)
   },
 
   setAvatarModelo3d: async (piezas) => {
-    set((s) => ({ avatar: { ...s.avatar, modelo3d: piezas, modeloGlb: undefined, forma: undefined } }))
+    set((s) => ({
+      avatar: { ...s.avatar, modelo3d: piezas, modeloGlb: undefined, forma: undefined, cuerpoPresetId: undefined },
+    }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarCuerpoPreset: async (preset) => {
+    set((s) => ({ avatar: { ...s.avatar, ...aplicarCuerpoPreset(preset), forma: undefined } }))
     await guardarAvatar(get().avatar)
   },
 
   setAvatarGlb: async (blob) => {
-    set((s) => ({ avatar: { ...s.avatar, modeloGlb: blob, modelo3d: undefined, forma: undefined } }))
+    set((s) => ({
+      avatar: { ...s.avatar, modeloGlb: blob, modelo3d: undefined, forma: undefined, cuerpoPresetId: undefined },
+    }))
     await guardarAvatar(get().avatar)
   },
 
   quitarAvatarModelo: async () => {
-    set((s) => ({ avatar: { ...s.avatar, modelo3d: undefined, modeloGlb: undefined, forma: undefined } }))
+    set((s) => ({
+      avatar: {
+        ...s.avatar,
+        modelo3d: undefined,
+        modeloGlb: undefined,
+        forma: undefined,
+        cuerpoPresetId: undefined,
+      },
+    }))
     await guardarAvatar(get().avatar)
   },
 

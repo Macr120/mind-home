@@ -155,6 +155,8 @@ export const conversacionesIdiomaRepo = createRepository(db.conversacionesIdioma
 export const mensajesIdiomaRepo = createRepository(db.mensajesIdioma, 'creado', false)
 /** Nodos dinámicos del temario; orden cronológico = hermanos estables en el árbol. */
 export const temasIdiomaRepo = createRepository(db.temasIdioma, 'creadoEn', false)
+/** Apuntes y fotos que el usuario sube a un tema del temario. */
+export const materialesIdiomaRepo = createRepository(db.materialesIdioma, 'creadoEn')
 export const repasosIdiomaRepo = createRepository(db.repasosIdioma, 'fecha')
 
 /** Mensajes de una charla de idiomas, del más antiguo al más nuevo. */
@@ -196,11 +198,19 @@ export async function eliminarConversacionIdioma(id: number) {
   })
 }
 
-/** Borra un idioma con TODO lo suyo: tarjetas, charlas y mensajes, temas dinámicos y actividad. */
+/** Borra un idioma con TODO lo suyo: tarjetas, charlas y mensajes, temas dinámicos, material y actividad. */
 export async function eliminarIdiomaCascada(id: number) {
   await db.transaction(
     'rw',
-    [db.idiomas, db.tarjetasIdioma, db.conversacionesIdioma, db.mensajesIdioma, db.temasIdioma, db.repasosIdioma],
+    [
+      db.idiomas,
+      db.tarjetasIdioma,
+      db.conversacionesIdioma,
+      db.mensajesIdioma,
+      db.temasIdioma,
+      db.materialesIdioma,
+      db.repasosIdioma,
+    ],
     async () => {
       const charlas = await db.conversacionesIdioma.where('idiomaId').equals(id).toArray()
       for (const c of charlas) {
@@ -209,6 +219,7 @@ export async function eliminarIdiomaCascada(id: number) {
       await db.conversacionesIdioma.where('idiomaId').equals(id).delete()
       await db.tarjetasIdioma.where('idiomaId').equals(id).delete()
       await db.temasIdioma.where('idiomaId').equals(id).delete()
+      await db.materialesIdioma.where('idiomaId').equals(id).delete()
       await db.repasosIdioma.where('idiomaId').equals(id).delete()
       await db.idiomas.delete(id)
     },

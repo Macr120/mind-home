@@ -245,7 +245,9 @@ export function MurosPerimetroFormaCuarto({
         const resaltado =
           (seleccion?.tipo === 'arista' && coincideArista(seleccion)) ||
           (hover != null && 'roomId' in hover && coincideArista(hover))
-        const color = resaltado ? '#f59e0b' : (muro?.color ?? extColor)
+        // Color real del muro (sin tocar): el resaltado va por `emissive` (brillo ámbar
+        // encima), igual que los muros rectos — así se ve aunque el color ya sea ámbar.
+        const color = muro?.color ?? extColor
         const tipoMuro = (muro?.tipo as TipoMuroId) ?? 'solido'
         const alto = muro?.alto ?? 1
         const silueta = (muro?.forma ?? 'recta') as FormaMuroId
@@ -337,6 +339,7 @@ export function MurosPerimetroFormaCuarto({
                   vanoFormaAncho={puertaEst?.vanoFormaAncho ?? 1}
                   vanoFormaPosX={puertaEst?.vanoFormaPosX ?? 0}
                   sinPanel={esPuerta}
+                  resaltado={resaltado}
                 />
                 {aplique}
               </group>
@@ -397,8 +400,8 @@ export function MurosPerimetroFormaCuarto({
                 roughness={roughness}
                 extRough={extRough}
                 metalness={metalness}
-                emissive="#000000"
-                emissiveInt={0}
+                emissive={resaltado ? '#f59e0b' : '#000000'}
+                emissiveInt={resaltado ? 1.1 : 0}
                 atenuado={atenuado}
                 marcoVentana="#5a5249"
                 cristal={COLOR_VENTANA}

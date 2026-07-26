@@ -6,9 +6,10 @@
  * por una llamada al modelo con el tono de la mascota como system prompt.
  */
 
-import type { Ropa } from '../house/apariencia'
+import type { Ropa, ExpresionId, PeinadoId } from '../house/apariencia'
 import type { AnimacionModelo } from '../house/animacion'
 import type { TFunc } from '../i18n/useT'
+import { CUERPOS_PRESET } from '../house/cuerpos'
 
 export type MascotaId = 'mago' | 'gato' | 'perro' | 'buho' | 'robot'
 
@@ -97,6 +98,21 @@ export interface Asistente {
   modelo3d?: Pieza3D[]
   /** Modelo .glb subido por el usuario (gana a `modelo3d` y `forma`). */
   modeloGlb?: Blob
+  /**
+   * Qué preset de `CUERPOS_PRESET` (o `'base'`) originó `modelo3d`, mientras no
+   * se edite (pieza movida/recoloreada, pose aplicada): así el ícono y la
+   * animación de marcha saben qué cuerpo concreto es. Se limpia en cualquier
+   * edición posterior.
+   */
+  cuerpoPresetId?: string
+  /** Expresión dibujada (ojos + boca) — solo tiene efecto en Base/Princesa. */
+  expresion?: ExpresionId
+  /** Foto que tapa el frente de la cabeza (manda sobre la expresión). */
+  rostro?: Blob
+  /** Peinado dibujado sobre la cabeza — solo tiene efecto en Base. */
+  peinado?: PeinadoId
+  /** Color del peinado. */
+  peloColor?: string
   /** Animación del personaje (preset idle y/o poses de sus piezas). */
   animacion?: AnimacionModelo
   /** Aparece como personaje en el mapa (el activo siempre aparece). */
@@ -133,6 +149,33 @@ export const COLOR_FORMA: Record<MascotaId, string> = {
   perro: '#b07a45',
   buho: '#7c5e42',
   robot: '#9fb3c8',
+}
+
+/** Ícono del cuerpo Base (box-man, sin forma ni modelo propio). */
+const EMOJI_BASE = '🧍'
+/** Ícono de un modelo de piezas propio sin preset reconocible (IA, manual, o un preset ya editado). */
+const EMOJI_MODELO_PROPIO = '🧩'
+/** Ícono de un modelo .glb subido por el usuario. */
+const EMOJI_MODELO_GLB = '📦'
+
+/**
+ * Ícono que refleja el modelo/forma REAL actual de un personaje (avatar o
+ * asistente), para los tiles del selector — nunca un emoji guardado aparte
+ * que pueda desincronizarse del cuerpo real.
+ */
+export function iconoModelo(p: {
+  forma?: MascotaId
+  cuerpoPresetId?: string
+  modelo3d?: Pieza3D[]
+  modeloGlb?: Blob
+}): string {
+  if (p.modeloGlb) return EMOJI_MODELO_GLB
+  if ((p.modelo3d?.length ?? 0) > 0) {
+    if (p.cuerpoPresetId === 'base') return EMOJI_BASE
+    return CUERPOS_PRESET.find((c) => c.id === p.cuerpoPresetId)?.emoji ?? EMOJI_MODELO_PROPIO
+  }
+  if (p.forma) return MASCOTAS.find((m) => m.id === p.forma)!.emoji
+  return EMOJI_BASE
 }
 
 /** Asistente por defecto a partir de una plantilla integrada. */

@@ -10,6 +10,18 @@ export const PERFIL_DEFECTO: Omit<PerfilNutricion, 'id'> = {
   aguaMl: 2500,
 }
 
+/** Preset de dieta: factor sobre la TDEE. Lo comparten Metas y el panel de peso. */
+export const OBJETIVOS: {
+  id: NonNullable<PerfilNutricion['objetivo']>
+  icon: string
+  label: string
+  factor: number
+}[] = [
+  { id: 'deficit', icon: '🔻', label: 'Bajar −15%', factor: 0.85 },
+  { id: 'mantener', icon: '⚖️', label: 'Mantener', factor: 1 },
+  { id: 'superavit', icon: '📈', label: 'Subir +10%', factor: 1.1 },
+]
+
 export const MOMENTOS: {
   id: MomentoComida
   label: string

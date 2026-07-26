@@ -3,6 +3,7 @@ import type { ImagenEjercicio } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { useUrlImagen } from './imagenIA'
+import { urlImagenPreset } from './imagenesPreset'
 import { normalizarEjercicio } from './stats'
 import { pitar } from './pitar'
 
@@ -37,7 +38,10 @@ export function ReproductorFlex({
   // Momento (época ms) en que termina el conteo de la postura en curso.
   const finRef = useRef(0)
 
-  const url = useUrlImagen(imgPorClave.get(normalizarEjercicio(posturas[idx])))
+  // La imagen del usuario manda; si no tiene, la ilustración de fábrica.
+  const registro = imgPorClave.get(normalizarEjercicio(posturas[idx]))
+  const urlPropia = useUrlImagen(registro)
+  const url = registro ? urlPropia : urlImagenPreset(posturas[idx])
 
   const irA = (n: number) => {
     setIdx(Math.max(0, Math.min(posturas.length - 1, n)))
@@ -140,10 +144,10 @@ export function ReproductorFlex({
           ))}
         </div>
 
-        {/* Imagen de la postura actual */}
+        {/* Imagen de la postura actual (contain: las ilustraciones son cuadradas y recortarlas se come la postura) */}
         <div className="mb-3 flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/30">
           {url ? (
-            <img src={url} alt={posturas[idx]} className="h-full w-full object-cover" />
+            <img src={url} alt={posturas[idx]} className="h-full w-full object-contain" />
           ) : (
             <span className="flex flex-col items-center gap-1 py-6 text-white/25">
               <span className="text-3xl">

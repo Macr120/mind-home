@@ -6,14 +6,16 @@ import { AvatarModelo } from '../../house/AvatarModelo'
 import { ModeloMascota } from '../../house/Asistente3D'
 import { Prendas } from '../../house/Prendas'
 import { PiezasSeleccionContext } from '../../house/modeloPersonalizado'
-import { ANCLAS_FORMA } from '../../house/apariencia'
+import { anclasDe, soportaRostro, soportaPeinado } from '../../house/apariencia'
 import { forzarSiempre } from '../../house/animacion'
 import { GrupoAnimado } from '../../house/Animado'
+import { Rostro } from '../../house/Rostro'
+import { Peinado } from '../../house/Peinado'
 import type { Avatar } from '../../state/disenoStore'
 import { useEditorUi } from '../../state/editorUiStore'
 import type { Asistente, Pieza3D } from '../../chat/mascotas'
 import { ControlesPiezasOverlay, EngraneActivarPiezas, BotonOverlay } from './EditorPiezas'
-import { BotonPreviewClaro } from './BotonPreviewClaro'
+import { BotonPreviewClaro, claseFondoPreview } from './BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -56,9 +58,7 @@ export function PreviewPersonaje3D({
 
   return (
     <div
-      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${
-        claro ? 'bg-white' : 'bg-[#0d0f13]'
-      }`}
+      className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
     >
       <div className="h-56 w-full">
         <Canvas
@@ -83,10 +83,18 @@ export function PreviewPersonaje3D({
                     color={asistente.color}
                     modelo3d={asistente.modelo3d}
                     modeloGlb={asistente.modeloGlb}
+                    cuerpoPresetId={asistente.cuerpoPresetId}
                     brazoRef={brazo}
                     anim={animPlay}
+                    estado={{ velocidad: 0, fase: 0 }}
                   />
-                  <Prendas ropa={asistente.ropa} anclas={ANCLAS_FORMA[asistente.forma]} />
+                  <Prendas ropa={asistente.ropa} anclas={anclasDe(asistente)} />
+                  {soportaRostro(asistente) && (
+                    <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
+                  )}
+                  {soportaPeinado(asistente) && (
+                    <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
+                  )}
                 </group>
               </GrupoAnimado>
             ) : null}
@@ -115,7 +123,7 @@ export function PreviewPersonaje3D({
           </div>
           <span
             className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
-              claro ? 'text-black/45' : 'text-white/35'
+              claro ? 'text-black/45' : 'text-[#ffffff]/35'
             }`}
           >
             {t('preview.girar', 'Arrastra para girar · rueda para acercar')}

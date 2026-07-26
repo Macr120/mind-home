@@ -350,6 +350,8 @@ export async function crearMeta(
   color?: string,
   /** App a la que pertenece: la estampa el cronograma embebido en una app. */
   plantillaId?: string,
+  /** Sub-ámbito dentro de esa app (`hobby:3`, `proyecto:7`). */
+  ambitoId?: string,
 ): Promise<Rutina | undefined> {
   const n = nombre.trim()
   if (!n) return
@@ -369,9 +371,25 @@ export async function crearMeta(
     padreId: padre?.id,
     orden: 0,
     plantillaId: plantillaId ?? padre?.plantillaId,
+    ambitoId: ambitoId ?? padre?.ambitoId,
   }
   const id = await rutinasRepo.add(nueva)
   return typeof id === 'number' ? { ...nueva, id } : undefined
+}
+
+/**
+ * Borra las metas de un sub-ámbito y sus planes. Se llama al borrar aquello a lo
+ * que pertenecen (un proyecto, un hobby): las hijas heredan el `ambitoId`, así
+ * que basta con barrer por él para llevarse las ramas completas.
+ */
+export async function borrarMetasDeAmbito(ambitoId: string): Promise<void> {
+  const ids = (await rutinasRepo.list())
+    .filter((r) => esMeta(r) && r.ambitoId === ambitoId)
+    .map((r) => r.id)
+    .filter((i): i is number => i != null)
+  if (ids.length === 0) return
+  await borrarPlanesDeMetas(ids)
+  await Promise.all(ids.map((i) => rutinasRepo.remove(i)))
 }
 
 /** Borra una meta, todo lo que cuelga de ella y los planes que se le propusieron. */

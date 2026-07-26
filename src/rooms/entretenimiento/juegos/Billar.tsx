@@ -4,8 +4,17 @@ import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
 import { prepararLienzo, puntoLienzo, useBucle } from './arcade'
+import type { Dificultad, PropsDificultad } from './dificultad'
+import { ElegirModo } from './ElegirModo'
 
 type Modo = '1j' | '2j'
+
+// Ayuda al apuntar: largo de la guía y si se proyecta hasta el primer choque
+const GUIA: Record<Dificultad, { largo: number; prediccion: boolean }> = {
+  facil: { largo: 1, prediccion: true },
+  medio: { largo: 1, prediccion: false },
+  dificil: { largo: 0.45, prediccion: false },
+}
 
 const ANCHO = 360
 const ALTO = 580
@@ -69,8 +78,9 @@ function reponerBlanca(bolas: Bola[]): Bola {
   return blanca
 }
 
-export function Billar() {
+export function Billar({ dificultad = 'medio' }: PropsDificultad) {
   const t = useT()
+  const guia = GUIA[dificultad]
   const lienzo = useRef<HTMLCanvasElement>(null)
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
   const mundo = useRef<Mundo>(mundoInicial())
@@ -85,8 +95,8 @@ export function Billar() {
   useEffect(() => {
     if (modo === null) return
     ctxRef.current = prepararLienzo(lienzo.current!, ANCHO, ALTO)
-    dibujar(ctxRef.current, mundo.current)
-  }, [modo])
+    dibujar(ctxRef.current, mundo.current, guia)
+  }, [modo, guia])
 
   const reiniciar = (m: Modo | null) => {
     setModo(m)
@@ -128,7 +138,7 @@ export function Billar() {
         }
       }
     }
-    dibujar(ctxRef.current!, m)
+    dibujar(ctxRef.current!, m, guia)
   }, modo !== null && !fin)
 
   const bajar = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -167,29 +177,24 @@ export function Billar() {
 
   if (modo === null) {
     return (
-      <div className="space-y-3">
-        <p className="text-sm font-semibold">{t('entre.j.modo.titulo', '¿Cómo quieres jugar?')}</p>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => reiniciar('1j')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono emoji="🎱" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.billar.solo', 'Solitario')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.billar.soloDesc', 'Limpia la mesa en pocos tiros')}</p>
-          </button>
-          <button
-            type="button"
-            onClick={() => reiniciar('2j')}
-            className="rounded-xl border border-white/10 bg-white/5 p-4 text-left hover:bg-white/10"
-          >
-            <p className="text-2xl"><Icono nombre="companeros" /></p>
-            <p className="mt-1 font-bold">{t('entre.j.modo.2j', '2 jugadores')}</p>
-            <p className="text-xs text-white/50">{t('entre.j.modo.2jDesc', 'En el mismo dispositivo')}</p>
-          </button>
-        </div>
-      </div>
+      <ElegirModo
+        opciones={[
+          {
+            clave: '1j',
+            icono: <Icono emoji="🎱" />,
+            titulo: t('entre.j.billar.solo', 'Solitario'),
+            desc: t('entre.j.billar.soloDesc', 'Limpia la mesa en pocos tiros'),
+            alElegir: () => reiniciar('1j'),
+          },
+          {
+            clave: '2j',
+            icono: <Icono nombre="companeros" />,
+            titulo: t('entre.j.modo.2j', '2 jugadores'),
+            desc: t('entre.j.modo.2jDesc', 'En el mismo dispositivo'),
+            alElegir: () => reiniciar('2j'),
+          },
+        ]}
+      />
     )
   }
 
@@ -237,7 +242,7 @@ export function Billar() {
           style={{ touchAction: 'none', aspectRatio: `${ANCHO} / ${ALTO}`, background: '#14532d' }}
         />
         {fin && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/70">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-xl bg-black/70 ui-noche">
             <p className="px-4 text-center font-black">
               {modo === '1j'
                 ? t('entre.j.billar.fin1j', 'Mesa limpia en {n} tiros', { n: tiros })
@@ -324,7 +329,26 @@ function paso(m: Mundo, h: number) {
     }
 }
 
-function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
+/** Distancia desde la blanca hasta el primer choque (bola o banda) en esa dirección. */
+function alcance(m: Mundo, blanca: Bola, dx: number, dy: number): number {
+  let mejor = dx > 0 ? (ANCHO - R - blanca.x) / dx : dx < 0 ? (R - blanca.x) / dx : Infinity
+  const hastaBanda = dy > 0 ? (ALTO - R - blanca.y) / dy : dy < 0 ? (R - blanca.y) / dy : Infinity
+  mejor = Math.min(mejor, hastaBanda)
+  for (const b of m.bolas) {
+    if (b === blanca) continue
+    const ox = b.x - blanca.x
+    const oy = b.y - blanca.y
+    const proy = ox * dx + oy * dy
+    if (proy <= 0) continue
+    const perp2 = ox * ox + oy * oy - proy * proy
+    const radio2 = (R * 2) ** 2
+    if (perp2 > radio2) continue
+    mejor = Math.min(mejor, proy - Math.sqrt(radio2 - perp2))
+  }
+  return Math.max(0, mejor)
+}
+
+function dibujar(ctx: CanvasRenderingContext2D, m: Mundo, guia: (typeof GUIA)[Dificultad]) {
   ctx.clearRect(0, 0, ANCHO, ALTO)
 
   // Troneras
@@ -343,14 +367,25 @@ function dibujar(ctx: CanvasRenderingContext2D, m: Mundo) {
     const dist = Math.hypot(dx, dy)
     if (dist > 4) {
       const fuerza = Math.min(1150, dist * 4) / 1150
+      const ux = dx / dist
+      const uy = dy / dist
+      const largo = guia.prediccion
+        ? alcance(m, blanca, ux, uy)
+        : (40 + fuerza * 120) * guia.largo
       ctx.strokeStyle = `rgba(255,255,255,${0.35 + fuerza * 0.5})`
       ctx.lineWidth = 2
       ctx.setLineDash([6, 6])
       ctx.beginPath()
       ctx.moveTo(blanca.x, blanca.y)
-      ctx.lineTo(blanca.x + (dx / dist) * (40 + fuerza * 120), blanca.y + (dy / dist) * (40 + fuerza * 120))
+      ctx.lineTo(blanca.x + ux * largo, blanca.y + uy * largo)
       ctx.stroke()
       ctx.setLineDash([])
+      // En fácil, la silueta marca dónde acabaría la blanca al chocar
+      if (guia.prediccion) {
+        ctx.beginPath()
+        ctx.arc(blanca.x + ux * largo, blanca.y + uy * largo, R, 0, Math.PI * 2)
+        ctx.stroke()
+      }
     }
   }
 

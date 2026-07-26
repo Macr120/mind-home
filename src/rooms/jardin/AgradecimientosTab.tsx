@@ -3,6 +3,7 @@ import { gratitudDiariaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { hoyISO, nombreDia } from './fecha'
+import { Archivador } from '../_shared/Archivador'
 
 /** Journaling de agradecimientos: 1–3 cosas de hoy + entradas guardadas por fecha. */
 export function AgradecimientosTab() {
@@ -71,34 +72,36 @@ export function AgradecimientosTab() {
 
       <section className="space-y-2" data-tut="jardin.gratitud.historial">
         <p className="text-sm font-semibold">{t('jardin.gra.historial', 'Entradas anteriores')}</p>
-        {gratitudes.length === 0 && (
-          <p className="text-xs text-white/40">
-            {t('jardin.gra.vacio', 'Tus agradecimientos guardados aparecerán aquí.')}
-          </p>
-        )}
-        {gratitudes.map((g) => (
-          <div key={g.id} className="rounded-xl bg-white/5 border border-white/10 p-3">
-            <div className="flex items-center justify-between">
-              <p className="text-xs text-white/50 capitalize">
-                {g.fecha === hoy ? t('jardin.gra.hoyTag', 'Hoy') : nombreDia(g.fecha)}
-              </p>
-              <button
-                type="button"
-                onClick={() => g.id && void gratitudDiariaRepo.remove(g.id)}
-                className="text-xs text-white/25 hover:text-white/70 transition"
-              >
-                <Icono nombre="basura" />
-              </button>
+        <Archivador
+          items={gratitudes}
+          fecha={(g) => g.fecha}
+          clave={(g) => g.id ?? g.fecha}
+          vacio={t('jardin.gra.vacio', 'Tus agradecimientos guardados aparecerán aquí.')}
+        >
+          {(g) => (
+            <div className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-white/50 capitalize">
+                  {g.fecha === hoy ? t('jardin.gra.hoyTag', 'Hoy') : nombreDia(g.fecha)}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => g.id && void gratitudDiariaRepo.remove(g.id)}
+                  className="text-xs text-white/25 hover:text-white/70 transition"
+                >
+                  <Icono nombre="basura" />
+                </button>
+              </div>
+              <ul className="mt-1 space-y-0.5">
+                {[g.item1, g.item2, g.item3].filter(Boolean).map((item, i) => (
+                  <li key={i} className="text-sm text-white/80">
+                    <Icono nombre="flor" /> {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="mt-1 space-y-0.5">
-              {[g.item1, g.item2, g.item3].filter(Boolean).map((item, i) => (
-                <li key={i} className="text-sm text-white/80">
-                  <Icono nombre="flor" /> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          )}
+        </Archivador>
       </section>
     </div>
   )

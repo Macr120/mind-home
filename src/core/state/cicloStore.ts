@@ -1,11 +1,16 @@
 import { create } from 'zustand'
 import { obtenerClimaReal, type ClimaActual, ClimaError } from '../clima'
+import { estadoCielo } from '../house/cielo'
+import { useDiseño } from './disenoStore'
 
 /**
  * Ciclo día/noche (sistema de 24 h). `minutos` (0..1439) es el minuto del día que
  * posiciona el sol y la luna en la escena 3D. En modo 'vivo' sigue la hora real del
  * sistema; en 'manual' lo fija la barra de 24 h del editor para previsualizar el
- * amanecer/atardecer y la noche.
+ * amanecer/atardecer y la noche (también entra en 'manual' al pausar el paso del
+ * tiempo con `pausarTiempo`, que además congela el fondo en el color fijo actual).
+ * `minutosReloj` es aparte: siempre sigue la hora real del sistema (para el reloj de la
+ * UI), aunque `minutos` esté pausado/fijo en otra hora para la escena 3D.
  */
 
 const CLAVE_CLIMA = 'mh-clima-activo'
@@ -35,8 +40,13 @@ function minutosReales(): number {
   return d.getHours() * 60 + d.getMinutes() + d.getSeconds() / 60
 }
 
+/** Mediodía: mejor iluminación (sol en el cenit), hora por defecto al pausar. */
+const MEDIODIA = 12 * 60
+
 interface CicloState {
   minutos: number
+  /** Hora real del sistema para el reloj de la UI; independiente de `minutos` pausado. */
+  minutosReloj: number
   modo: Modo
   brilloCielo: number
   brilloFocos: number
@@ -46,6 +56,8 @@ interface CicloState {
   climaError: string | null
   setMinutos: (m: number) => void
   enVivo: () => void
+  pausarTiempo: () => void
+  fijarFondoEnHoraActual: () => void
   setBrilloCielo: (v: number) => void
   setBrilloFocos: (v: number) => void
   setClimaActivo: (v: boolean) => void
@@ -56,6 +68,7 @@ let climaFetchId = 0
 
 export const useCiclo = create<CicloState>((set, get) => ({
   minutos: minutosReales(),
+  minutosReloj: minutosReales(),
   modo: 'vivo',
   brilloCielo: 1,
   brilloFocos: 1,
@@ -64,7 +77,20 @@ export const useCiclo = create<CicloState>((set, get) => ({
   climaEstado: 'idle',
   climaError: null,
   setMinutos: (m) => set({ minutos: Math.max(0, Math.min(1439.999, m)), modo: 'manual' }),
-  enVivo: () => set({ minutos: minutosReales(), modo: 'vivo' }),
+  enVivo: () => {
+    set({ minutos: minutosReales(), modo: 'vivo' })
+    // Si el fondo quedó en el color fijo que puso la pausa, retoma el ciclo automático.
+    const diseno = useDiseño.getState()
+    if (diseno.fondoId === 'color_fijo') void diseno.setFondoId('auto')
+  },
+  pausarTiempo: () => {
+    // Por defecto congela al mediodía: es donde mejor se ve la casa (sol en el cenit).
+    set({ minutos: MEDIODIA, modo: 'manual' })
+    get().fijarFondoEnHoraActual()
+  },
+  fijarFondoEnHoraActual: () => {
+    void useDiseño.getState().setFondoColorFijo(estadoCielo(get().minutos).cieloColor)
+  },
   setBrilloCielo: (v) => set({ brilloCielo: Math.max(0, Math.min(1.5, v)) }),
   setBrilloFocos: (v) => set({ brilloFocos: Math.max(0, Math.min(1.5, v)) }),
   setClimaActivo: (v) => {
@@ -106,10 +132,10 @@ export const useCiclo = create<CicloState>((set, get) => ({
 }))
 
 setInterval(() => {
-  const { modo, minutos } = useCiclo.getState()
-  if (modo !== 'vivo') return
+  const { modo, minutos, minutosReloj } = useCiclo.getState()
   const m = minutosReales()
-  if (Math.floor(m) !== Math.floor(minutos)) useCiclo.setState({ minutos: m })
+  if (Math.floor(m) !== Math.floor(minutosReloj)) useCiclo.setState({ minutosReloj: m })
+  if (modo === 'vivo' && Math.floor(m) !== Math.floor(minutos)) useCiclo.setState({ minutos: m })
 }, 1000)
 
 if (import.meta.env.DEV) {
