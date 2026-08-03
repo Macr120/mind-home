@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
 import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
@@ -34,8 +34,13 @@ import {
 import { responder, nombreAsistente, saludoAsistente, type EventoTipo } from './mascotas'
 import { useAsistentes } from '../state/asistentesStore'
 import { ChatConversacion } from './ChatConversacion'
-import { AsistentesConfig } from './AsistentesConfig'
-import { ManualComandos } from './ManualComandos'
+// Paneles que solo existen tras pulsar su botón: fuera del arranque (18 KB gz).
+const AsistentesConfig = lazy(() =>
+  import('./AsistentesConfig').then((m) => ({ default: m.AsistentesConfig })),
+)
+const ManualComandos = lazy(() =>
+  import('./ManualComandos').then((m) => ({ default: m.ManualComandos })),
+)
 import { useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 import { useHud } from '../state/hudStore'
@@ -626,17 +631,23 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       )}
 
       {/* Configuración de asistentes (crear, eliminar, personalizar, mapa) */}
-      {configAbierto && <AsistentesConfig onCerrar={() => setConfigAbierto(false)} />}
+      {configAbierto && (
+        <Suspense fallback={null}>
+          <AsistentesConfig onCerrar={() => setConfigAbierto(false)} />
+        </Suspense>
+      )}
 
       {/* Manual de comandos: qué pedirle al asistente (determinista, por tema) */}
       {manualAbierto && (
-        <ManualComandos
-          onUsar={(frase) => {
-            setTexto(frase)
-            setManualAbierto(false)
-          }}
-          onCerrar={() => setManualAbierto(false)}
-        />
+        <Suspense fallback={null}>
+          <ManualComandos
+            onUsar={(frase) => {
+              setTexto(frase)
+              setManualAbierto(false)
+            }}
+            onCerrar={() => setManualAbierto(false)}
+          />
+        </Suspense>
       )}
 
       {/* Historial reciente + selector de mascota */}

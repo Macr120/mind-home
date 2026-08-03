@@ -33,7 +33,13 @@ export default defineConfig({
             // Un grupo con un único módulo del grafo eager se descarga entero.
             // Comprobar siempre con los `modulepreload` de `dist/index.html`, no
             // con el tamaño del chunk.
-            { name: 'chat', test: /src[\\/]core[\\/]chat[\\/]/ },
+            // Los dos paneles bajo demanda del chat quedan FUERA del grupo: si
+            // entran, el grupo los mete en su chunk y el `lazy()` de ChatBox no
+            // sirve de nada (probado: 0,6 KB de diferencia).
+            {
+              name: 'chat',
+              test: /src[\\/]core[\\/]chat[\\/](?!ManualComandos|AsistentesConfig)/,
+            },
           ],
         },
       },
