@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { esDemo } from '../core/edicion'
+import { esDemo, esDemoAutor } from '../core/edicion'
 import { borrarDemoDb, demoConstruido, demoSucia } from './modo'
 import { ejecutarIntentDemo } from './intent'
 import { PantallaDemo } from './PantallaDemo'
@@ -30,6 +30,20 @@ function GateActivo({ children }: { children: ReactNode }) {
     void demoSucia().then(async (sucia) => {
       if (!viva) return
       if (sucia) {
+        // En modo AUTORÍA la casa demo es trabajo a mano sin respaldo: borrarla
+        // para reconstruirla se lleva por delante lo editado, y basta con subir
+        // `DEMO_VERSION` en el bundle para que este camino se dispare en la
+        // siguiente recarga. Pasó (ago 2026): se perdieron unas ediciones del
+        // mapa. Aquí se detiene y se pide exportar primero; para reconstruir a
+        // propósito está el botón «Reiniciar» de la BarraDemo.
+        if (esDemoAutor()) {
+          console.warn(
+            '[MPH demo] Autoría: la casa demo NO se reconstruyó para no perder lo editado. ' +
+              'Exporta con window.mhExportarCasaDemo() y luego usa «Reiniciar» en la BarraDemo.',
+          )
+          setFase('listo')
+          return
+        }
         await borrarDemoDb()
         location.reload()
         return

@@ -15,7 +15,7 @@
 import { claveLS, LS_DEMO, esDemo } from '../core/edicion'
 
 /** Versión del CONTENIDO demo del bundle; subirla fuerza la reconstrucción. */
-export const DEMO_VERSION = 15
+export const DEMO_VERSION = 16
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

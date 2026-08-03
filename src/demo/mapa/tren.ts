@@ -86,9 +86,13 @@ export async function construirTren(cols: number, rows: number): Promise<void> {
 
   for (const c of anillo) await caminosRepo.add({ col: c.col, row: c.row, tipo: 'riel' })
 
-  for (const a of andenes(cols, rows)) {
-    await aplicarPisoExteriorCeldas(0, [a.via, a.junto], 'adoquin', '#b3aca0')
-  }
+  // Balasto: franja continua de grava bajo toda la vía. Sin ella los durmientes
+  // flotan sobre el césped y el anillo no se lee desde el aire.
+  await aplicarPisoExteriorCeldas(0, anillo, 'arena', '#8a8378')
+
+  // Los andenes NO se pavimentan (decisión de autoría, ago 2026): el adoquín gris
+  // de las 6 paradas cortaba el césped en seco y el anillo se lee igual de bien
+  // sin ellas. `andenes()` se conserva porque sigue dando la posición del farol.
   // Farol solo en la parada de la casa (celda del andador, siempre libre).
   const casa = andenes(cols, rows)[0]
   if (casa) {
