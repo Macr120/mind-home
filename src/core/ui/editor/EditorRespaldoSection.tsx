@@ -37,20 +37,16 @@ export function EditorRespaldoSection({
   }, [])
 
   useEffect(() => {
-    const tablas = [
-      'transacciones', 'sueno', 'anecdotas', 'metas', 'presupuestos',
-      'registrosComida', 'registrosAgua',
-      'sesionesEjercicio', 'seriesFuerza', 'mediaArchivo', 'juegosMesa',
-      'conversacionesBiblio', 'entradasBiblio', 'sesionesEstudio', 'noticias',
-      'sesionesMindfulness', 'registroAnimo', 'gratitudDiaria',
-      'vehiculos', 'registrosMantenimiento',
-    ] as const
-    Promise.all(
-      tablas.map(async (tabla) => ({
-        tabla,
-        filas: await (db as unknown as Record<string, { count(): Promise<number> }>)[tabla].count(),
-      }))
-    ).then((r) => setStats(r.filter((s) => s.filas > 0)))
+    // Mismo criterio que `exportarRespaldo`: todas las tablas menos las internas
+    // de sync (prefijo `_`). Se deriva de `db.tables` en vez de una lista escrita
+    // a mano porque esa lista se quedaba atrás con cada versión del esquema — y al
+    // nombrar una tabla ya retirada (`noticias`, borrada en la v64) el `count()`
+    // reventaba y la sección entera dejaba de pintarse.
+    void Promise.all(
+      db.tables
+        .filter((t) => !t.name.startsWith('_'))
+        .map(async (t) => ({ tabla: t.name, filas: await t.count() })),
+    ).then((r) => setStats(r.filter((s) => s.filas > 0).sort((a, b) => b.filas - a.filas)))
   }, [borrado])
 
   const exportar = async () => {

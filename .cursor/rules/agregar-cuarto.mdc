@@ -1,47 +1,66 @@
 ---
-description: Cómo agregar o construir un cuarto (mini-app) nuevo en Mind Home.
+description: Cómo agregar o construir una plantilla (mini-app) nueva en Mind Planner Home.
 globs: src/rooms/**
 alwaysApply: false
 ---
 
-# Agregar un cuarto a Mind Home
+# Agregar una plantilla (app) a Mind Planner Home
 
-Un cuarto = una carpeta en `src/rooms/<id>/` que exporta un `RoomModule`.
+Una app = una carpeta en `src/rooms/<id>/` que exporta por defecto una `Plantilla`.
+**No ocupa un cuarto ni tiene posición**: el usuario la asigna a un objeto de un cuarto que
+él mismo creó. No existe ninguna cuadrícula fija (eso era el modelo viejo).
 
 ## 1. Crear la mini-app 2D
-`src/rooms/<id>/MiApp.tsx` — componente React normal. Para datos, usa un repo de
-`src/core/data/repository.ts` (no toques `db` directo). Tema oscuro + Tailwind.
+`src/rooms/<id>/MiApp.tsx` — componente React normal. Para datos, un repo de
+`src/core/data/repository.ts` (nunca `db` directo). Tema oscuro + Tailwind. Todo el texto
+visible con `t('clave', 'Español')` y su traducción en `src/core/i18n/dict.en.ts`.
 
-## 2. Exportar el RoomModule
-`src/rooms/<id>/index.tsx`:
+## 2. Exportar la Plantilla
+`src/rooms/<id>/index.tsx` — la `App` va **perezosa** para no engordar el arranque:
+
 ```tsx
-import type { RoomModule } from '../../core/registry'
-import { MiApp } from './MiApp'
+import { lazy } from 'react'
+import type { Plantilla } from '../../core/registry'
 
-const cuarto: RoomModule = {
+const plantilla: Plantilla = {
   id: 'cocina',                 // único, kebab/lowercase
   nombre: 'Cocina · Nutrición',
-  icon: '🍳',                   // emoji que flota sobre el cuarto
+  icon: '🍳',
   categoria: 'cuerpo',          // 'cuerpo' | 'mente' | 'complemento' | 'config'
-  posicion: [-9, 0, -6],        // celda en la cuadrícula 4×3 (ver registry.ts)
   color: '#f59e0b',
-  App: MiApp,
+  App: lazy(() => import('./CocinaApp')),
 }
-export default cuarto
+export default plantilla
 ```
 
-## 3. Registrarlo
-En `src/core/registry.ts`, reemplaza el placeholder `proximo(...)` de ese id por el
-import del módulo real y agrégalo al array `rooms`. La casa dibuja su plataforma, paredes,
-mueble (en `Furniture.tsx`, por `id`) y botón "Entrar" automáticamente.
+Campos opcionales útiles: `esquemas` (contrato de captura para la IA), `comandos` (deep links
+por chat), `metaDiaria` / `sinMetaDiaria`, `eventos` (aporta al calendario), `planMetas` y
+`rutinasPlan` (planificador ✨), `operacionesIA` (precios, en `costosIA.ts`), `flujos`
+(tutoriales), `sinMuros`, y `tipo: 'infraestructura'` + `construir` si se levanta en el mapa
+en vez de asignarse a un objeto.
+
+## 3. Registrarla
+En `src/core/registry.ts`: importar y añadir al array `plantillas[]`, más su texto en
+`DESCRIPCIONES`.
 
 ## 4. Datos nuevos (si aplica)
-En `src/core/data/db.ts`: agrega la interfaz y la tabla, y sube `this.version(n).stores({...})`.
-En `repository.ts`: `export const miRepo = createRepository(db.miTabla)`
-(usa `createRepository(db.tabla, 'id', false)` si la tabla no tiene campo `fecha`).
+Ver `datos.mdc`. Resumen: interfaz + tabla en `db.ts` con `this.version(n)` **incluyendo el
+índice `&uid`**, repo en `repository.ts`, y alta en `src/core/data/sync/syncables.ts`
+(`TABLAS_SYNC`, y `FK` + `ORDEN_TOPO` si tiene claves foráneas numéricas).
 
-## 5. Mueble 3D del cuarto
-Agrega un `case '<id>':` en `src/core/house/Furniture.tsx` con primitivas (B/Cyl/Sphere).
+## 5. Recurso 3D
+Entrada en `SIEMBRA` de `src/core/house/modelosRecursos.tsx`, y si la app lleva objeto
+principal animado, su tipo en `especialesPlantillaMeta.ts` + el componente en
+`especialesPlantilla.tsx`. **`Furniture.tsx` ya no existe.**
 
-## Posiciones de la cuadrícula (cols x: -9 -3 3 9 · filas z: -6 0 6)
-Ver el array `rooms` en `registry.ts` para no chocar posiciones.
+## 6. Engancharla al núcleo
+Lo que se olvida y deja la app a medias (referencia reciente: `src/rooms/ideas/`):
+- **Actividad/gamificación**: entrada en `FUENTES` de `src/core/gamificacion/actividad.ts`,
+  o la app no cuenta para rachas, XP ni la Montaña de Sísifo.
+- **Traducciones**: claves en `src/core/i18n/dict.en.ts`.
+- **Tutorial**: `src/rooms/<id>/tutorial.ts` (y `flujos` si corre sobre la casa demo).
+- **Demo y ejemplos**: `demo.ts` + `demo.data.ts` (`npm run demo:texto`) y `ejemplos.ts`
+  (`npm run ejemplos:texto`) si quieres que nazca con contenido encendible.
+
+## Verificación
+`npx tsc -b` (**no** `--noEmit`: no valida nada aquí), `npm run build`, `npm run lint`.

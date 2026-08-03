@@ -134,8 +134,17 @@ export function esTablaSync(nombre: string): boolean {
  * Claves foráneas por id numérico local: `tabla → { campo: tablaDestino }`.
  * En push se traducen a `uid` del padre; en pull, de vuelta al id local.
  * Las referencias por string (`roomId`, `plantillaId`, `asistenteId`,
- * `temaId`/`padreId` de los árboles de biblioteca/idiomas, `canchaId`…) son
- * estables entre dispositivos y NO se traducen.
+ * `temaId`/`padreId` de los árboles de biblioteca/idiomas…) son estables entre
+ * dispositivos y NO se traducen.
+ *
+ * Toda FK numérica de una tabla sincronizada TIENE que estar aquí: sin traducir,
+ * el id local viaja crudo y en el otro dispositivo apunta a la fila que tenga ese
+ * número, que es cualquiera. Al añadir una, comprueba también `ORDEN_TOPO`.
+ *
+ * Limitación conocida (no soportada por el motor, que solo traduce escalares en
+ * `motor.ts`): los arrays de ids `DietaGuardada.recetaIds` y `RutaViaje.lugarIds`
+ * viajan sin traducir y pueden apuntar a recetas/lugares equivocados en el
+ * segundo dispositivo. Arreglarlo pide soportar arrays en el motor.
  */
 export const FK: Record<string, Record<string, string>> = {
   seriesFuerza: { sesionId: 'sesionesEjercicio' },
@@ -148,14 +157,16 @@ export const FK: Record<string, Record<string, string>> = {
   bitacoraViaje: { lugarId: 'lugaresViaje' },
   diasItinerario: { lugarId: 'lugaresViaje' },
   portadasLugar: { lugarId: 'lugaresViaje' },
-  sesionesHobby: { hobbyId: 'hobbies' },
+  sesionesHobby: { hobbyId: 'hobbies', proyectoId: 'proyectosHobby' },
   proyectosHobby: { hobbyId: 'hobbies' },
   mensajesBiblio: { conversacionId: 'conversacionesBiblio' },
   entradasBiblio: { conversacionId: 'conversacionesBiblio' },
+  sesionesEstudio: { entradaId: 'entradasBiblio' },
+  temasArbol: { conversacionId: 'conversacionesBiblio' },
   tarjetasIdioma: { idiomaId: 'idiomas' },
   conversacionesIdioma: { idiomaId: 'idiomas' },
   repasosIdioma: { idiomaId: 'idiomas' },
-  temasIdioma: { idiomaId: 'idiomas' },
+  temasIdioma: { idiomaId: 'idiomas', conversacionId: 'conversacionesIdioma' },
   materialesIdioma: { idiomaId: 'idiomas' },
   mensajesIdioma: { conversacionId: 'conversacionesIdioma' },
   ejecucionesRutina: { rutinaId: 'rutinas' },
@@ -165,12 +176,20 @@ export const FK: Record<string, Record<string, string>> = {
   itemsCompra: { listaId: 'listasCompra' },
   listasCompra: { gastoId: 'transacciones' },
   nodosMapa: { mapaId: 'mapasIdeas' },
+  mensajesChat: { mapaId: 'mapasIdeas' },
+  // La cancha es un objeto del mapa, así que `canchaId` es el id AUTOINCREMENTAL
+  // de `objetosCuarto` (ver `minijuegos.tsx`), no una referencia estable. Además
+  // es índice único y clave de merge: sin traducir, el marcador de una cancha
+  // podía resolverse contra otra distinta al fusionar dos dispositivos.
+  marcadores: { canchaId: 'objetosCuarto' },
+  objetosCuarto: { libreriaId: 'objetosCuarto' }, // self-FK: instancia → plantilla de la biblioteca
 }
 
 /**
  * Orden de aplicación del pull: los padres antes que sus hijos. Las tablas que
  * no aparecen aquí no tienen padres numéricos y pueden aplicarse primero.
- * (`rutinas` se auto-referencia: los huérfanos reintentan vía `_pendientes`.)
+ * (`rutinas` y `objetosCuarto` se auto-referencian: los huérfanos reintentan
+ * vía `_pendientes`.)
  */
 export const ORDEN_TOPO: string[] = [
   'metas',
@@ -181,9 +200,11 @@ export const ORDEN_TOPO: string[] = [
   'idiomas',
   'rutinas',
   'corrales',
+  'transacciones',
   'listasCompra',
   'lugaresViaje',
   'conversacionesIdioma',
+  'objetosCuarto',
   'seriesFuerza',
   'seriesFlex',
   'splitsCardio',
@@ -193,10 +214,13 @@ export const ORDEN_TOPO: string[] = [
   'bitacoraViaje',
   'diasItinerario',
   'portadasLugar',
-  'sesionesHobby',
+  // `proyectosHobby` antes que `sesionesHobby`: la sesión referencia al proyecto.
   'proyectosHobby',
+  'sesionesHobby',
   'mensajesBiblio',
   'entradasBiblio',
+  'sesionesEstudio',
+  'temasArbol',
   'tarjetasIdioma',
   'repasosIdioma',
   'temasIdioma',
@@ -208,6 +232,8 @@ export const ORDEN_TOPO: string[] = [
   'itemsCompra',
   'mapasIdeas',
   'nodosMapa',
+  'mensajesChat',
+  'marcadores',
 ]
 
 /** Tablas de UNA sola fila: si el merge deja más de una, gana la más nueva. */

@@ -1,5 +1,5 @@
 ---
-description: Capa de datos — Dexie, migraciones y repositorios reactivos.
+description: Capa de datos — Dexie, migraciones, repositorios reactivos y sincronización.
 globs:
   - src/core/data/**
 alwaysApply: false
@@ -7,22 +7,38 @@ alwaysApply: false
 
 # Contexto DATOS
 
-Único punto de acceso a IndexedDB. Las apps en `src/rooms/` **solo** usan repos exportados
-en `repository.ts`.
+Único punto de acceso a IndexedDB (**Dexie v106**). Las apps en `src/rooms/` **solo** usan
+repos exportados en `repository.ts`. La sincronización con Supabase es opcional (plan Pro) y
+vive en `src/core/data/sync/`.
 
 ## Al agregar o cambiar datos
 
-1. Interfaz TypeScript en `db.ts`
-2. Subir `this.version(n).stores({ ... })` (nunca reutilizar número de versión)
-3. `export const xRepo = createRepository(db.tabla)` en `repository.ts`
-4. En el cuarto: `xRepo.useAll()`, `.add()`, `.update()`, `.remove()`
+1. Interfaz TypeScript en `db.ts`.
+2. Subir `this.version(n).stores({ … })` — nunca reutilizar número de versión. **La tabla
+   necesita el índice `&uid`** si va a sincronizarse (lo exige `sync/motor.ts`).
+3. `export const xRepo = createRepository(db.tabla)` en `repository.ts`.
+4. Alta en `src/core/data/sync/syncables.ts`:
+   - `TABLAS_SYNC` — si no está, la tabla no viaja a la nube.
+   - `FK` — **toda clave foránea numérica** (`otraTablaId: number`). Sin traducir, el id local
+     viaja crudo y en el otro dispositivo apunta a la fila que tenga ese número, que es
+     cualquiera. Las referencias por string (`roomId`, `plantillaId`…) sí son estables.
+   - `ORDEN_TOPO` — el padre debe aplicarse antes que el hijo en el pull.
+   - `CLAVES_UNICAS` si la tabla tiene un índice único aparte de `&uid`.
+5. En el cuarto: `xRepo.useAll()`, `.add()`, `.update()`, `.remove()`.
 
 ## Reglas
 
 - Ningún archivo en `src/rooms/` importa `db` ni `dexie`.
 - `createRepository(db.tabla, 'id', false)` si la tabla no tiene campo `fecha`.
-- Migración futura a Supabase: reescribir solo `db.ts` (+ adaptar repos si hace falta).
+- **El campo por el que ordena el repo debe estar indexado.** Si no, `useAll()` cae al
+  fallback (`repository.ts:41-56`): carga la tabla entera en memoria y ordena en JS en cada
+  escritura.
+- Retirar una tabla es `nombreTabla: null` en una versión nueva. Si además la nombra alguna
+  lista escrita a mano, quítala de ahí: `db['tablaBorrada']` es `undefined` y revienta.
+- Middleware de sync (`sync/middleware.ts`): no resolver tablas de forma ansiosa dentro de
+  `table()` — durante un `upgrade` el esquema aún es el VIEJO.
 
 ## Verificación
 
-`npx tsc --noEmit` después de cambiar tipos o versiones.
+`npx tsc -b` después de cambiar tipos o versiones (**`--noEmit` no valida nada aquí**: el
+tsconfig usa `references`).

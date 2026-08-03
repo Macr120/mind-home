@@ -1,176 +1,110 @@
 # Mind Planner Home (MPH) — Estado del avance
 
-Última actualización: agosto 2026. **Fuente de verdad** para saber qué está hecho en la
-**casa (shell 3D)** vs cada **mini-app (cuarto)**. La lista viva de cuartos está en
-`CLAUDE.md`; aquí va el estado por área y la **casa demo** (abajo).
+Última actualización: **agosto 2026**. Estado por área. La lista viva de apps y las reglas
+duras están en [`CLAUDE.md`](../CLAUDE.md); aquí va qué está hecho y qué queda.
 
 ---
 
 ## Arquitectura en una frase
 
-La **casa** (`src/core/`) es el controlador: render 3D, navegación, menú, editor de mapa
-y registro de cuartos. Cada **app** (`src/rooms/<id>/`) es independiente: solo su UI 2D y
-los repos de `repository.ts`. No importan `db` ni Three.js.
+La **casa** (`src/core/`) es el controlador: render 3D, navegación, menú, editor de mapa y
+registro de plantillas. Cada **app** (`src/rooms/<id>/`) es independiente: solo su UI 2D y los
+repos de `repository.ts`. No importan `db` ni Three.js.
+
+Los cuartos son **dinámicos** (los crea el usuario) y una app se **asigna a un objeto** de un
+cuarto. No hay cuadrícula fija ni campo `posicion`: eso era el modelo de 2025.
 
 ---
 
-## Casa (shell 3D + UI global) — ✅ reciente
+## Casa (shell 3D + UI global) — ✅
 
 | Área | Archivos clave | Estado |
 |------|----------------|--------|
-| Escena 3D | `house/House.tsx`, `Room3D.tsx`, `walls.ts`, `especialesPlantilla.tsx` | ✅ |
-| Personaje | `house/Character.tsx`, `movement.ts`, `navigation.ts` | ✅ |
-| Cámara | `house/CameraRig.tsx`, `CameraControls.tsx`, `state/cameraStore.ts` | ✅ |
-| Navegación | Clic suelo (sin colisiones), pan central/dos dedos, zoom, doble clic centrar | ✅ |
-| Menú lateral | `ui/RoomSideMenu.tsx` — tarjetas compactas, Entrar / Editar | ✅ |
-| Entrar a cuarto | Menú «Entrar» o clic mueble principal → diálogo (`roomInteract.ts`) | ✅ |
-| Overlay app | `ui/RoomOverlay.tsx` — Mind Home arriba izq., Volver arriba der. | ✅ |
-| Interacción 3D | `InteractAnchor`, `InteractOverlay`, `interactUiStore` (sin Html drei) | ✅ |
-| Techo | `TechoToggleButton`, `conTecho` en `houseStore` | ✅ |
-| Editor mapa | `layoutStore`, `EditPanel`, `WallEditor`, arrastre cuartos/objetos | ✅ |
-| Editor cuarto | Zoom/offset con panel derecho, sombras off en edición | ✅ |
-| Controles vista | `NavControls` abajo izquierda en edición | ✅ |
-| Personalización casa | `disenoStore` + editor mapa (`EditPanel`, `core/ui/editor/`) | ✅ |
-| Registro | `registry.ts` — 13 `RoomModule` | ✅ |
-
-**No tocar al trabajar solo en un cuarto** salvo que cambies contrato, posición, mueble 3D
-o datos compartidos.
+| Escena 3D | `house/House.tsx`, `Room3D.tsx`, `walls.ts` | ✅ |
+| Objetos y recursos | `catalogo.tsx`, `modelosRecursos.tsx` (`SIEMBRA`), `especialesPlantilla.tsx` | ✅ |
+| Personaje | `Character.tsx`, `movement.ts`, apariencia, guardarropa | ✅ |
+| Cámara | `CameraRig`, `CameraControls`, iso + 3ª + 1ª persona (tecla V) | ✅ |
+| Editor de mapa | 4 pestañas (Mapa/Personajes/Objetos/Configuraciones) + editor 3D | ✅ |
+| Construcción | Pisos, muros, puertas, ventanas, techos, formas por celda, niveles y sótano | ✅ |
+| Infraestructura | Caminos, canchas, huerto, granja, paintball | ✅ |
+| Temas y estilos | 7 temas + 5 estilos de postprocesado, luz/niebla/IBL | ✅ |
+| Asistentes y chat | Asistentes configurables, TTS, manual de comandos, deep links | ✅ |
+| Gamificación | Tamagotchi de actividad real, XP, rachas, Montaña de Sísifo, Wrapped | ✅ |
+| Tutoriales | Tours con mago + spotlight; 39 flujos sobre la casa demo | ✅ |
+| i18n | ES/EN con `useT`; inglés en `dict.en.ts` con carga diferida | ✅ |
+| Rendimiento | Lazy de apps, texturas optimizadas, selectores acotados en la escena | ✅ |
 
 ---
 
-## Datos compartidos — `db.ts` v72 (lista parcial; la fuente real es `db.ts`)
+## Datos — Dexie **v106**
 
-| Repo | Tablas / uso |
-|------|----------------|
-| `finanzasRepo` | transacciones, presupuestos, metas |
-| `comidasRepo`, `planComidasRepo`, `aguaRepo`, `favoritosRepo`, `perfilNutricionRepo` | Cocina |
-| `sesionesEjercicioRepo`, `seriesFuerzaRepo`, `perfilEjercicioRepo` | Ejercicio |
-| `suenoRepo`, `anecdotasRepo` | Recámara |
-| `mediaArchivoRepo`, `juegosMesaRepo` | Entretenimiento |
-| `progresoTemaRepo` | Biblioteca |
-| `viajesRepo`, `actividadesViajeRepo`, `gastosViajeRepo`, `checklistViajeRepo` | Sala (viajes) |
-| `sesionesMindfulnessRepo`, `registroAnimoRepo`, `gratitudDiariaRepo`, `perfilMindfulnessRepo` | Jardín |
-| `vehiculosRepo`, `registrosMantenimientoRepo` | Garage |
-| `noticiasRepo` | Diario |
-| `perfilUsuarioRepo` | Perfil (editor mapa) |
-| `disenoRoomsRepo`, `disenoAvatarRepo` | Colores/nombres/avatar (editor mapa) |
-| `bitacoraRepo` | Chat del arquitecto (texto crudo etiquetado) |
-| `memoriasRepo` | Memorias del arquitecto: hechos sobre el usuario ("recuerda que…") |
-| `rutinasRepo`, `ejecucionesRutinaRepo` | Rutinas orquestadas (pasos multi-cuarto) + qué se completó cada día |
+`db.ts` es el único punto que toca IndexedDB; las apps usan los repos de `repository.ts`.
+118 tablas declaradas, 106 sincronizables.
 
-**Captura**: los cuartos con quick-capture exponen además `esquemas` (`EsquemaCaptura[]`
-en `registry.ts`): descripción declarativa de los campos de cada registro. Es el contrato
-que la capa de IA usa como "herramientas" (el modelo llena campos → `guardar` usa repos).
-El `capturar` por regex queda como fallback sin red.
+**Sincronización opcional** (`src/core/data/sync/`, plan Pro): cada tabla lleva `&uid`, se
+declara en `syncables.ts` (`TABLAS_SYNC`), y sus claves foráneas numéricas en `FK` +
+`ORDEN_TOPO`. El middleware genera tombstones para los borrados.
 
-**Capa de IA** (`src/core/chat/ia.ts`): `interpretarIA(texto, mascota, imagen?)` —
-multi-proveedor: Claude (SDK oficial) o Gemini/ChatGPT/DeepSeek/Ollama local (formato
-compatible-OpenAI, una sola implementación). Los esquemas van como herramientas, las
-`memorias` vigentes como contexto y la `personalidad` de la mascota como voz. Todo se
-configura desde el **ChatBox**: botón 🧠 selector de modelo + clave por proveedor
-(localStorage `mh.iaKey.<prov>`; legado `mh.iaKey` = Claude), 📎 foto (visión: comida,
-tickets…), 🎤 dictado (Web Speech API). Sin clave o con error → fallback automático al
-dispatcher determinista. Siguiente fase: proxy serverless con clave propia (freemium) y
-herramientas de acción por asistente (chef→recetas web; finanzas→proponer con confirmación).
-
-**Rutinas orquestadas** (`src/core/rutinas.ts` + `ui/RutinasPanel.tsx`, db v23): secuencias
-de pasos multi-cuarto con hora y días (botón ⏰ arriba-derecha, badge de pendientes).
-Cada paso puede llevar `esquemaId` + `valores` → al palomearlo se registra solo en su
-cuarto (⚡). Se crean a mano (editor del panel) o por chat: herramienta de IA
-`crear_rutina` (el modelo arma pasos con auto-registro). Recordatorio: el asistente
-anuncia la rutina al llegar su hora (revisión cada 30s con la app abierta).
-
-**Calendario** (`ui/Calendario.tsx`, abre con la hora/fecha del RelojWidget; el 📒 del
-widget abre el panel rápido): vistas día/semana/mes estilo Google Calendar. La rejilla
-es interactiva: clic+arrastre en un hueco crea rutina con ese horario y día; los bloques
-tienen `hora`–`horaFin` y `color` propios (paleta en el editor), se mueven con drag&drop
-(cambia hora y día de la semana) y se estiran desde el borde inferior. Clic en un bloque
-abre el detalle con la checklist (palomeable solo hoy).
-
-**Planes con IA en el Cronograma** (`planIA.ts` + `planMeta.ts`, UI en `ui/metas/`): el ✨
-—junto al alta de metas y en el detalle de cada una— pregunta fecha objetivo, horas por
-semana, días disponibles y nivel de partida, y la IA propone un cronograma de fases con
-sub-metas. Los planes se guardan como PROPUESTA (`planesMeta`, db v80): no crean ninguna
-meta hasta aceptarlos. El selector de la barra ("Real / ✨ Plan A") los superpone sobre el
-mismo eje con barras de trama diagonal para poder compararlos contra lo real; aceptar los
-convierte en sub-metas con sus fechas, y marca el plan (`aceptadoEn`) en vez de borrarlo.
-Los nodos guardan días RELATIVOS a `inicioISO`: la IA cuenta enteros mucho mejor que
-calendarios, y reanclar el plan entero es cambiar un campo (sin otra llamada).
+**Respaldo** (`data/respaldo.ts` + Configuraciones › Respaldo de datos): exporta todas las
+tablas menos las internas `_`. La Bodega, que antes alojaba esto, se eliminó en jul 2026.
 
 ---
 
-## Las mini-apps — 16 de cuarto + 5 de infraestructura
+## Apps — 16 de cuarto + 5 de infraestructura
 
-La tabla viva (nombres, qué guarda cada una y su estado) está en `CLAUDE.md` › Cuartos.
-La de abajo es HISTÓRICA (era de 12 apps con cuadrícula fija; hoy las apps se asignan a
-objetos de cuartos dinámicos y existen además ideas, agenda, idiomas, calendario y el
-anecdotario separado, más la infraestructura del mapa: caminos, canchas, huerto, granja
-y paintball).
+La tabla viva está en [`CLAUDE.md`](../CLAUDE.md) › Cuartos. Todas registradas, abriendo y con
+persistencia real; el grado de pulido «premium» varía por app.
 
-| ID | Nombre | Carpeta | Repos / datos | Estado funcional |
-|----|--------|---------|---------------|------------------|
-| `cocina` | Cocina · Nutrición | `rooms/cocina/` | comidas, plan, agua, favoritos, perfil | ✅ app completa (tabs resumen, diario, plan, metas) |
-| `ejercicio` | Ejercicio | `rooms/ejercicio/` | sesiones, series, perfil | ✅ fuerza, resistencia, flexibilidad, metas |
-| `recamara` | Recámara | `rooms/recamara/` | sueño, anécdotas | ✅ descanso + anecdotario |
-| `despacho` | Despacho · Finanzas | `rooms/despacho/` | transacciones, presupuestos, metas | ✅ movimientos, resumen, metas |
-| `biblioteca` | Biblioteca | `rooms/biblioteca/` | progresoTema | ✅ índice, resumen, pilares |
-| `entretenimiento` | Entretenimiento | `rooms/entretenimiento/` | mediaArchivo, juegosMesa | ✅ archivo media + juegos de mesa |
-| `sala` | Sala · Viajes | `rooms/sala/` | viajes y relacionados | ✅ lista, detalle, formularios |
-| `jardin` | Jardín · Mindfulness | `rooms/jardin/` | mindfulness, ánimo, gratitud | ✅ meditación, respiración, diario |
-| `garage` | Garage | `rooms/garage/` | vehículos, mantenimiento | ✅ vehículos, servicios |
-| `diario` | Diario · Noticias | `rooms/diario/` | noticias (RSS/briefing) | ✅ central, resumen — **no** es el anecdotario |
-| `hobbies` | Hobbies | `rooms/hobbies/` | — (persistencia próxima) | ✅ lista de pasatiempos (básico) |
+De cuarto: Cocina, Ejercicio, Recámara (descanso), Anecdotario, Despacho, Biblioteca,
+Entretenimiento, Sala, Jardín, Garage, Diario (noticias), Hobbies, Idiomas, Calendario, Ideas
+y Agenda.
 
-Todas están **registradas y abren** desde la casa. El grado de pulido «premium» varía por cuarto;
-ver `docs/COMO-TRABAJAR.md` para priorizar mejoras sin mezclar contextos.
-
-> La antigua **Bodega** se eliminó como cuarto (jul 2026): su archivo/respaldo vive ahora en
-> **Editor → Configuraciones → Respaldo de datos** (`EditorRespaldoSection`); el inventario
-> nunca pasó de placeholder.
+De infraestructura (se construyen en el mapa, `tipo: 'infraestructura'`): Caminos, Canchas,
+Huerto, Granja y Paintball.
 
 ---
 
-## Casa demo — un año de Pep@ (ago 2026, COMPLETA)
+## Nube y monetización — ✅
 
-La demo gratuita y el escenario de los tutoriales viven en una **BD paralela**
-(`mind-home-demo`, solo lectura salvo minijuegos) con un año de vida ficticia de Pep@:
-maratón, −7 kg, piano, Japón en el mes 9 y el bache del mes 7.
+Backend Supabase completo: cuenta y sesión, proxy de IA con **créditos por operación** y
+reservas, RevenueCat (suscripción y recargas), sincronización solo-Pro y borrado de cuenta.
+15 migraciones en `supabase/migrations/`, 4 Edge Functions. Detalle y runbook en
+[`BACKEND.md`](BACKEND.md); tarifas y márgenes en [`COSTOS.md`](COSTOS.md).
 
-- **Entrada**: Editor › Configuraciones › Tutoriales, o cualquier flujo de tutorial desde
-  la casa real. (La puerta de suscripción, que era la otra entrada, desapareció al abrir
-  el modo local gratuito: la app ya es su propia vitrina.) Salida/reinicio: píldora
-  «Casa demo». Todo en `src/demo/` (DemoGate + bienvenida propia + orquestador).
-- **Mapa por zonas**: el visitante elige zonas (casa/canchas/santuario/pista/mindfulness/
-  feria) y la rejilla se recorta; la casa se construye por código (`src/demo/mapa/`).
-  El `public/demo/casa.json` congelado (modo autor, `window.mhDemoAutor`) es el override.
-- **Contenido**: 16 builders (`src/rooms/<id>/demo.ts` + `demo.data.ts` bilingüe generado
-  por `npm run demo:texto`); canon en `scripts/demo/especificaciones.mjs::PERSONAJE` y
-  montos compartidos en `src/demo/hitosPep.ts`.
-- **Tutoriales por flujos**: 39 tours en las 16 apps (`Plantilla.flujos`, ids
-  `app-<id>--<flujo>`) que navegan sobre los datos de Pep@ y, desde la casa real, saltan
-  al demo (con modal «¿Volver a tu casa?» al terminar). La infraestructura conserva sus
-  4 tours clásicos.
-- **Conversión**: CTA «Quiero mi propia casa» en píldora/modal/puerta — la URL sale de
-  `src/core/cuenta/urlWeb.ts` (env `VITE_URL_WEB` → constante de lanzamiento → dev).
+**Web pública** (`web/`, segundo build de Vite): landing, `/cuenta`, términos y privacidad.
 
 ---
 
-## Mapa mental
+## Casa demo — un año de Pep@ ✅
 
-```
-Mind Home
-├── CASA (core/)          → 3D, cámara, menú, editor, interacción
-├── DATOS (core/data/)    → db + repos (contrato para apps)
-├── APPS (rooms/<id>/)    → 16 de cuarto + 5 de infraestructura, solo 2D + repos
-└── DEMO (src/demo/)      → BD paralela con el año de Pep@ + tutoriales por flujos
-```
+Demo completa en una **BD paralela** (`mind-home-demo`, solo lectura salvo minijuegos) con un
+año de vida ficticia: maratón, −7 kg, piano, Japón en el mes 9 y el bache del mes 7. Entrada
+desde Configuraciones › Tutoriales; salida con la píldora «Casa demo». Todo en `src/demo/`,
+con contenido bilingüe generado por `npm run demo:texto`.
 
 ---
 
-## Historial reciente de la casa (sesión previa)
+## Deuda conocida (ago 2026)
 
-- Centrado de cámara con panel de edición abierto.
-- Pan/zoom/rotar corregidos; sombras desactivadas en edición.
-- Diálogo de interacción solo al seleccionar mueble principal.
-- Toggle techo; header unificado (Mind Home / Volver).
-- Dependencias actualizadas; README al día.
+Lo que está identificado y sin cerrar, por orden de impacto:
+
+1. **Arranque**: el chunk `editor` (630 KB gz) son imports estáticos y se descarga siempre,
+   aunque no se abra el editor. Diferirlo es la mayor ganancia pendiente.
+2. **49 warnings de lint**, todos `react-hooks/exhaustive-deps` y todos el mismo patrón: un
+   `?? []` en el cuerpo del componente usado como dependencia, que invalida el memo en cada
+   render. Se arregla con una constante vacía a nivel de módulo.
+3. **Migraciones con dos caminos vivos**: tabla `categoriasCardio` obsoleta pero aún leída;
+   alias `RoomModule` (usar `Plantilla`); API `setRoomPisoImagen` deprecada; tabla fantasma
+   `perfilUsuario`; y `actividadesCardio`, `juegosMesa`, `movimientosFijos` y `posiciones`
+   viajando por el sync sin que nadie las lea.
+4. **Duplicación con sitio natural en `src/rooms/_shared/`**: `BarraEjemplo` (agenda y despacho
+   sin migrar al de `_shared/ejemplos/`), `sala/fotos.tsx`, `campana.ts`, `ids.ts`, helpers de
+   fecha (`hoyISO` ×9, `sumarDias` ×7) y el heatmap anual ×3.
+5. **Contenido sin traducir**: la UI está al 99,97 %, pero los catálogos de datos
+   (`biblioteca/pilares.ts`, `entretenimiento/juegos/preguntas.ts`…) se pintan en español
+   crudo, `ComandoApp.etiqueta` no tiene clave i18n, y `web/cuenta` es solo español.
+6. **Geometrías sin `dispose()`** en `MuroRender.tsx` (5 creadas, ninguna liberada).
+7. **Bug conocido**: desactivar un hábito borra su histórico cumplido de las métricas
+   (`ui/calendario/metricas.ts:165`); el arreglo pide migrar la tabla.
+8. **`texto_largo` a 4 créditos** se calculó con 600 créditos/mes cuando ya eran 700: el peor
+   caso ($3,94) supera el techo de $3,50 (ver `COSTOS.md:327`).

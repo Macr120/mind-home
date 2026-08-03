@@ -1,53 +1,72 @@
 ---
-description: Arquitectura y convenciones de Mind Home. Léelo antes de crear o modificar código.
+description: Arquitectura y convenciones de Mind Planner Home. Léelo antes de crear o modificar código.
 globs:
 alwaysApply: true
 ---
 
-# Mind Home — Guía para la IA
+# Mind Planner Home (MPH) — Guía para la IA
 
 App de una **casa isométrica 3D estilo Roblox** donde cada cuarto es una mini-app 2D
-independiente pero interconectada (**12 apps en 1**). Web (Vite + React), futuro móvil
-con Capacitor.
+independiente pero interconectada. Hoy son **21 plantillas**: 16 apps de cuarto + 5 de
+infraestructura que se construyen sobre el mapa. Web (Vite + React) y Android (Capacitor,
+ya empaquetado); iOS pendiente porque requiere Mac.
 
-**Contexto detallado**: `docs/AVANCE.md` (estado) y `docs/COMO-TRABAJAR.md` (cómo acotar tareas).
-Etiquetas: `[CASA]`, `[DATOS]`, `[COCINA]`, etc.
+**Contexto detallado**: `CLAUDE.md` (índice y reglas vivas), `docs/AVANCE.md` (estado) y
+`docs/COMO-TRABAJAR.md` (cómo acotar tareas). Etiquetas: `[CASA]`, `[DATOS]`, `[COCINA]`, etc.
 
 ## Stack
 - **React 19 + TypeScript + Vite**
 - **React Three Fiber + @react-three/drei** (Three.js) para la casa 3D
-- **Zustand** para estado global (`src/core/state/houseStore.ts`)
+- **Zustand** para estado global (`src/core/state/`)
 - **Tailwind CSS v4** (plugin `@tailwindcss/vite`) para las apps 2D
-- **Dexie (IndexedDB)** para datos locales
+- **Dexie (IndexedDB)** para datos locales — **v106**
+- **Supabase** para la capa opcional de nube: cuenta, proxy de IA con créditos, sync y
+  RevenueCat (`src/core/cuenta/`, `src/core/data/sync/`, `supabase/`)
 
 ## Estructura
 ```
 src/
   core/
-    house/      escena 3D (House, Room3D, Character, RoomMarker, walls.ts)
-    data/       db.ts (Dexie) + repository.ts (repos reactivos)
-    state/      houseStore.ts (Zustand)
-    ui/         HUD, RoomOverlay
-    registry.ts contrato RoomModule + lista de los 12 cuartos
+    house/      escena 3D (House, Room3D, Character, walls.ts, catalogo.tsx)
+    data/       db.ts (Dexie) + repository.ts (repos reactivos) + sync/ (Supabase)
+    state/      stores Zustand (houseStore, layoutStore, disenoStore, cuartosStore…)
+    ui/         HUD, RoomOverlay, EditPanel, editor/ y planos/
+    cuenta/     sesión, créditos, paywall
+    i18n/       useT + dict.ts (ES) + dict.en.ts (EN, carga diferida)
+    registry.ts contrato `Plantilla` + array `plantillas[]`
   rooms/<id>/   UNA CARPETA POR CUARTO (la mini-app 2D)
+  demo/         casa demo de Pep@ (BD paralela `mind-home-demo`)
+web/            landing pública y /cuenta — SEGUNDO build de Vite (vite.config.web.ts)
 ```
 
+## Modelo de cuartos (importante: cambió)
+Los cuartos son **dinámicos**: el usuario los crea y los coloca (`cuartosStore` + `layoutStore`).
+Una plantilla (app) no tiene posición propia: se **asigna a un objeto** de un cuarto. Por eso
+`Plantilla` ya NO tiene campo `posicion` y no existe ninguna cuadrícula fija.
+
 ## Reglas duras (no romper)
-1. **Datos**: las apps de los cuartos NUNCA importan `db` directamente. Usan los
-   repositorios de `src/core/data/repository.ts` (`useAll`, `add`, `update`, `remove`).
-   Para datos nuevos: agrega la tabla en `db.ts` (sube `this.version(n)`) y crea un repo.
-   `db.ts` es el único punto que toca IndexedDB (para migrar a Supabase se reescribe solo ese archivo).
-2. **Geometría de paredes**: `src/core/house/walls.ts` es la ÚNICA fuente. La usan
-   tanto el render (`Room3D`) como las colisiones (`Character`). No dupliques esa geometría.
-3. **Contrato de cuarto**: cada `src/rooms/<id>/index.tsx` exporta por defecto un
-   `RoomModule` (ver `agregar-cuarto.mdc`) y se registra en `src/core/registry.ts`.
-4. **Idioma**: todo el texto de UI y los comentarios en **español**.
-5. **Estilo**: tema oscuro (fondo `#0f1115`), Tailwind utility-first, sin librerías de
-   UI externas. Las gráficas se hacen con divs/SVG (sin librería de charts).
+1. **Datos**: las apps de los cuartos NUNCA importan `db` directamente. Usan los repositorios
+   de `src/core/data/repository.ts` (`useAll`, `add`, `update`, `remove`). `db.ts` es el único
+   punto que toca IndexedDB. Para datos nuevos, ver `datos.mdc`.
+2. **Geometría de paredes**: `src/core/house/walls.ts` es la ÚNICA fuente. La usan tanto el
+   render (`Room3D`) como las colisiones (`Character`). No dupliques esa geometría.
+3. **Contrato de cuarto**: cada `src/rooms/<id>/index.tsx` exporta por defecto una `Plantilla`
+   y se registra en `src/core/registry.ts` (ver `agregar-cuarto.mdc`).
+4. **Idioma**: todo el texto de UI y los comentarios en **español**. Texto visible SIEMPRE con
+   `t('clave', 'Español')` de `core/i18n/useT.ts`, y su traducción inglesa en `dict.en.ts` en
+   el MISMO cambio. Nunca literales en JSX, `title`, `placeholder`, `alt` ni `aria-label`.
+5. **Iconos**: siempre `<Icono nombre="…">` de `core/ui/iconos/`; nunca un emoji crudo en JSX
+   (salvo `<option>`, placeholders, mensajes de celebración y datos guardados por el usuario).
+6. **Estilo**: tema oscuro, Tailwind utility-first, sin librerías de UI ni de charts externas.
+   Colores por clases `ui-*` y variables `--ui-*`; nunca fondos hardcodeados.
+7. **Rendimiento en la escena 3D**: no te suscribas a una colección entera de un store
+   (`s.objetos`, `s.cells`…) desde un componente que se repite por cuarto. Deriva un valor
+   estable en el selector (booleano, id, clave string) o agrupa con `useShallow`.
 
 ## Verificación
 - `npm run dev` → http://localhost:5173
-- `npx tsc --noEmit` (tipos) y `npm run build` deben pasar sin errores antes de dar por hecho un cambio.
+- `npx tsc -b` — **OJO: `--noEmit` NO valida nada aquí** (el tsconfig usa `references`)
+- `npm run build` y `npm run lint` deben pasar sin errores
 
 ## Calidad "premium"
 Cada cuarto debe acercarse a apps premium del mercado. Antes de construir/pulir un cuarto,

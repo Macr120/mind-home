@@ -6,15 +6,17 @@ Objetivo: que cada tarea cargue **solo** el código y las reglas relevantes.
 
 ## 1. Etiqueta el alcance al pedir cambios
 
-Empieza el mensaje con una etiqueta. La IA y las reglas de Cursor usarán eso para acotar.
+Empieza el mensaje con una etiqueta. La IA y las reglas de Cursor la usan para acotar.
 
 | Etiqueta | Cuándo | Archivos típicos |
 |----------|--------|------------------|
-| `[CASA]` | 3D, cámara, personaje, menú, editor mapa, interacción | `src/core/house/**`, `src/core/state/**`, `src/core/ui/**` (shell) |
-| `[DATOS]` | Tablas, migraciones, repos | `src/core/data/db.ts`, `repository.ts` |
-| `[REGISTRY]` | Nuevo cuarto, posición, contrato | `registry.ts`, `Furniture.tsx`, `rooms/<id>/index.tsx` |
-| `[COCINA]` … `[HOBBIES]` | Solo esa mini-app | `src/rooms/<id>/**` |
-| `[EDITOR]` | Personalización casa (colores, avatar, objetos) | `src/core/ui/editor/**`, `EditPanel.tsx` |
+| `[CASA]` | 3D, cámara, personaje, menú, editor de mapa, interacción | `src/core/house/**`, `src/core/state/**`, `src/core/ui/**` |
+| `[DATOS]` | Tablas, migraciones, repos, sincronización | `src/core/data/**` |
+| `[REGISTRY]` | Plantilla nueva o cambio de contrato | `registry.ts`, `rooms/<id>/index.tsx`, `modelosRecursos.tsx` |
+| `[COCINA]` … `[AGENDA]` | Solo esa mini-app | `src/rooms/<id>/**` |
+| `[EDITOR]` | Personalización de la casa (colores, avatar, objetos, planos) | `src/core/ui/editor/**`, `src/core/ui/planos/**`, `EditPanel.tsx` |
+| `[NUBE]` | Cuenta, créditos, IA de servidor, sync | `src/core/cuenta/**`, `src/core/data/sync/**`, `supabase/**` |
+| `[WEB]` | Landing pública y /cuenta | `web/**`, `vite.config.web.ts` |
 
 Ejemplos:
 
@@ -24,17 +26,19 @@ Ejemplos:
 
 ---
 
-## 2. Archivos que debes @ mencionar (Cursor)
+## 2. Archivos que conviene mencionar (Cursor)
 
 | Tarea | Menciona |
 |-------|----------|
+| Reglas duras | `@CLAUDE.md` |
 | Estado general | `@docs/AVANCE.md` |
 | Convenciones | `@.cursor/rules/arquitectura.mdc` |
-| Casa 3D / navegación | `@docs/COMO-TRABAJAR.md` + carpeta `@src/core/house` |
-| Un cuarto concreto | `@src/rooms/cocina` (o el id) + `@docs/AVANCE.md` (solo la fila de esa app) |
-| Nuevo cuarto | `@.cursor/rules/agregar-cuarto.mdc` |
+| Casa 3D / navegación | `@src/core/house` |
+| Una app concreta | `@src/rooms/<id>` |
+| App nueva | `@.cursor/rules/agregar-cuarto.mdc` |
+| Nube y créditos | `@docs/BACKEND.md`, `@docs/COSTOS.md` |
 
-**No** abras `@src/core/data/db.ts` entero si solo cambias UI de un cuarto.
+**No** abras `@src/core/data/db.ts` entero (3 600 líneas) si solo cambias UI de una app.
 
 ---
 
@@ -42,52 +46,52 @@ Ejemplos:
 
 | Regla | Se activa cuando editas |
 |-------|-------------------------|
-| `arquitectura.mdc` | Siempre (resumen mínimo) |
-| `casa.mdc` | `src/core/house/**`, `state/**`, shell `ui/**` |
+| `arquitectura.mdc` | Siempre |
+| `casa.mdc` | `src/core/house/**`, `state/**`, `ui/**` |
 | `agregar-cuarto.mdc` | `src/rooms/**` |
 | `datos.mdc` | `src/core/data/**` |
-
-Así, al editar `rooms/cocina/` no se inyecta todo el contexto de la casa 3D.
 
 ---
 
 ## 4. Límites de cada capa
 
-### Casa NO debe
+### La casa NO debe
 
 - Contener lógica de negocio de nutrición, finanzas, etc.
-- Importar componentes de `rooms/<id>/` salvo vía `registry` (lazy: solo `App`).
+- Importar componentes de `rooms/<id>/` salvo vía `registry` (y su `App` va con `lazy()`).
 
-### App NO debe
+### Una app NO debe
 
-- Importar `db` directamente.
+- Importar `db` directamente (solo repos).
 - Importar `@react-three/fiber` ni archivos de `house/`.
-- Asumir posición en el mapa (eso es `registry` + diseño).
+- Importar otra app: lo compartido va en `src/rooms/_shared/`.
+- Asumir una posición en el mapa: las apps se asignan a objetos, no tienen sitio fijo.
 
 ### Datos
 
 - Cambio solo en UI existente → probablemente **ningún** cambio en `db.ts`.
-- Campo nuevo persistido → `[DATOS]`: tabla + versión Dexie + repo; luego la app usa el repo.
+- Campo nuevo persistido → `[DATOS]`: tabla + versión Dexie + repo + alta en `syncables.ts`.
 
 ---
 
 ## 5. Flujos de trabajo recomendados
 
-### Pulir un cuarto existente
+### Pulir una app existente
 
-1. Lee la fila en `docs/AVANCE.md`.
+1. Lee su fila en `docs/AVANCE.md`.
 2. Chat: `[COCINA] …` + `@src/rooms/cocina`.
-3. Si hace falta un campo nuevo: primero `[DATOS]`, después vuelve al cuarto.
+3. Si hace falta un campo nuevo: primero `[DATOS]`, después vuelve a la app.
 
 ### Cambio en navegación o editor
 
 1. `[CASA] …` + `@src/core/house` o `@src/core/state/layoutStore.ts`.
-2. No leas las 12 apps.
+2. No leas las 21 apps.
 
-### Cuarto nuevo
+### App nueva
 
 1. `@.cursor/rules/agregar-cuarto.mdc`
-2. Orden: carpeta app → `index.tsx` → `registry` → `Furniture` → (datos si aplica).
+2. Orden: carpeta → `index.tsx` → `registry` → datos → recurso 3D → enganches
+   (actividad, i18n, tutorial, demo).
 
 ---
 
@@ -95,34 +99,36 @@ Así, al editar `rooms/cocina/` no se inyecta todo el contexto de la casa 3D.
 
 | Archivo | Rol |
 |---------|-----|
-| `docs/AVANCE.md` | Qué está hecho (casa + apps) |
+| `CLAUDE.md` | Reglas duras y lista viva de apps — la fuente principal |
+| `docs/AVANCE.md` | Qué está hecho por área |
 | `docs/COMO-TRABAJAR.md` | Este archivo — workflow |
-| `README.md` | Usuario final: comandos, controles |
-| `CLAUDE.md` | Índice corto para IA → apunta a `docs/` |
+| `docs/BACKEND.md` / `docs/COSTOS.md` | Nube, créditos y runbook |
+| `README.md` | Usuario final: comandos, controles, apps |
 | `.cursor/rules/*.mdc` | Reglas acotadas por glob |
 
-Actualiza **solo** `AVANCE.md` cuando termines un hito grande en un cuarto o en la casa.
+Actualiza `AVANCE.md` cuando termines un hito grande. Si cambias el contrato de `Plantilla`,
+la estructura de carpetas o el modelo de cuartos, **actualiza también las reglas `.mdc`**: son
+lo que lee la IA, y desactualizadas hacen que trabaje sobre archivos que ya no existen.
 
 ---
 
 ## 7. Chats separados por tema
 
-En Cursor, conviene **un chat por contexto**:
-
-- Chat A: Casa / editor / cámara
-- Chat B: Cocina + datos nutrición
-- Chat C: Finanzas
-- …
-
-Así el historial no mezcla 500 líneas de Three.js con tabs de Tailwind.
+Un chat por contexto: casa/editor, una app, datos/nube. Así el historial no mezcla 500 líneas
+de Three.js con tabs de Tailwind.
 
 ---
 
 ## 8. Checklist antes de cerrar una tarea
 
 ```bash
-npx tsc --noEmit
+npx tsc -b
 npm run build
+npm run lint
 ```
 
-Solo `[CASA]` con cambios 3D: probar en `npm run dev` pan, zoom, entrar a cuarto, editor.
+**`npx tsc --noEmit` NO sirve aquí**: el `tsconfig` usa `references` y no valida nada. Tiene
+que ser `tsc -b`.
+
+Solo `[CASA]` con cambios 3D: probar además en `npm run dev` pan, zoom, entrar a una app y el
+editor de mapa.
