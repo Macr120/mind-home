@@ -1,7 +1,9 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { db, type PisoExteriorCelda, type MuroLibre } from './db'
+import { useMemo } from 'react'
+import { db, type EventoAgenda, type Medicamento, type PisoExteriorCelda, type MuroLibre } from './db'
 import type { Table, UpdateSpec } from 'dexie'
 import { marcarRegistro } from '../state/registroSesion'
+import { useClaveEncendidos, visibles } from './ejemplos'
 
 /**
  * Fábrica de repositorios reactivos sobre una tabla de Dexie.
@@ -16,12 +18,26 @@ function createRepository<T extends { id?: number }>(
   reverse = true,
 ) {
   return {
-    /** Hook reactivo: la UI se actualiza sola al cambiar los datos. */
-    useAll(): T[] | undefined {
-      return useLiveQuery(async () => {
+    /**
+     * Hook reactivo: la UI se actualiza sola al cambiar los datos.
+     *
+     * Aquí se esconden las filas de los ejemplos de fábrica apagados: es el
+     * único sitio por el que pasan todas las pantallas, así que basta con
+     * filtrar una vez (ver `ejemplos.ts`).
+     *
+     * `limit` acota la consulta sobre el índice (para historiales que crecen
+     * sin tope: la vista pide N y sube el límite con «Cargar más» en vez de
+     * materializar la tabla entera en cada escritura). Cuenta filas de la BD:
+     * con ejemplos apagados pueden verse unas menos — irrelevante para paginar.
+     */
+    useAll(opts?: { limit?: number }): T[] | undefined {
+      const encendidos = useClaveEncendidos()
+      const limite = opts?.limit
+      const filas = useLiveQuery(async () => {
         try {
-          const q = table.orderBy(orderBy)
-          return await (reverse ? q.reverse() : q).toArray()
+          let q = table.orderBy(orderBy)
+          if (reverse) q = q.reverse()
+          return await (limite ? q.limit(limite) : q).toArray()
         } catch {
           const all = await table.toArray()
           if (orderBy !== 'id') {
@@ -36,9 +52,11 @@ function createRepository<T extends { id?: number }>(
           } else if (reverse) {
             all.reverse()
           }
-          return all
+          return limite ? all.slice(0, limite) : all
         }
-      }, [])
+      }, [limite])
+      // eslint-disable-next-line react-hooks/exhaustive-deps -- `encendidos` es la clave serializada del store
+      return useMemo(() => (filas ? visibles(filas) : filas), [filas, encendidos])
     },
     // Toda escritura sella `updatedAt` (época ms): base para resolver conflictos
     // cuando haya sincronización multi-dispositivo. Dexie guarda el campo extra
@@ -71,6 +89,9 @@ export const anecdotasRepo = createRepository(db.anecdotas)
 export const metasRepo = createRepository(db.metas, 'id', false)
 export const presupuestosRepo = createRepository(db.presupuestos, 'id', false)
 export const watchlistRepo = createRepository(db.watchlist, 'id', false)
+// RETIRADOS: movimientosFijos (v105, lo fijo pasó al `periodo` de cada movimiento)
+// y posiciones (el tercer menú pasó a ser Mercados) ya no tienen repo; las tablas
+// se conservan en db.ts para que los respaldos anteriores sigan restaurando.
 
 export const comidasRepo = createRepository(db.registrosComida)
 export const aguaRepo = createRepository(db.registrosAgua)
@@ -84,7 +105,7 @@ export const pesoRepo = createRepository(db.registrosPeso)
 export const sesionesEjercicioRepo = createRepository(db.sesionesEjercicio)
 export const seriesFuerzaRepo = createRepository(db.seriesFuerza, 'orden', false)
 export const perfilEjercicioRepo = createRepository(db.perfilEjercicio, 'id', false)
-export const planEjercicioRepo = createRepository(db.planEjercicio, 'diaSemana', false)
+// RETIRADO: planEjercicio ya no tiene repo; la tabla se conserva en db.ts para respaldos viejos.
 export const rutinasFuerzaRepo = createRepository(db.rutinasFuerza, 'creadoEn', false)
 export const rutinasFlexRepo = createRepository(db.rutinasFlex, 'creadoEn', false)
 export const seriesFlexRepo = createRepository(db.seriesFlex, 'orden', false)
@@ -239,6 +260,9 @@ export const gratitudDiariaRepo = createRepository(db.gratitudDiaria)
 
 export const vehiculosRepo = createRepository(db.vehiculos, 'creadoEn')
 export const registrosMantenimientoRepo = createRepository(db.registrosMantenimiento)
+/** Trámites (tenencia, verificación, seguro…) del más próximo a vencer al último. */
+export const tramitesVehiculoRepo = createRepository(db.tramitesVehiculo, 'fecha', false)
+export const talleresVehiculoRepo = createRepository(db.talleresVehiculo, 'nombre', false)
 
 export const hobbiesRepo = createRepository(db.hobbies, 'creadoEn', false)
 export const sesionesHobbyRepo = createRepository(db.sesionesHobby)
@@ -349,9 +373,8 @@ export function useMantenimientosVehiculo(vehiculoId: number | null) {
 export const rutinasRepo = createRepository(db.rutinas, 'creadoEn', false)
 export const ejecucionesRutinaRepo = createRepository(db.ejecucionesRutina, 'fecha')
 
-/** Palomitas manuales de la meta diaria y objetivos configurables por app. */
+/** Palomitas manuales de la meta diaria. */
 export const metasDiariasManualRepo = createRepository(db.metasDiariasManual, 'fecha')
-export const objetivosDiariosRepo = createRepository(db.objetivosDiarios, 'id', false)
 
 /**
  * Fija a mano la meta diaria de una app en un día (una fila por app y día).
@@ -410,6 +433,8 @@ export const pisosExteriorRepo = createRepository(db.pisosExterior, 'id', false)
 export const caminosRepo = createRepository(db.caminos, 'id', false)
 /** Pistas de carreras de trazo libre (curvas por puntos de control). */
 export const pistasLibresRepo = createRepository(db.pistasLibres, 'id', false)
+/** Récords del modo carrera (una fila por meta × vehículo). */
+export const carrerasRepo = createRepository(db.carreras, 'id', false)
 
 /** Pistas de música subidas por el usuario (Wrapped y música ambiental). */
 export const pistasMusicaRepo = createRepository(db.pistasMusica, 'creadoEn')
@@ -789,4 +814,102 @@ export function useEjecucionesDeFecha(fecha: string) {
     () => db.ejecucionesRutina.where('fecha').equals(fecha).toArray(),
     [fecha],
   )
+}
+
+// Ideas · diario, mapas conceptuales y diagramas
+export const ideasRepo = createRepository(db.ideas, 'creadoEn')
+export const mapasIdeasRepo = createRepository(db.mapasIdeas, 'creadoEn')
+export const nodosMapaRepo = createRepository(db.nodosMapa, 'creadoEn', false)
+
+/** Nodos de un mapa, del más antiguo al más nuevo (hermanos estables). */
+export function useNodosMapa(mapaId: number | null) {
+  return useLiveQuery(
+    async () =>
+      mapaId == null ? [] : db.nodosMapa.where('mapaId').equals(mapaId).sortBy('creadoEn'),
+    [mapaId],
+  )
+}
+
+/** Borra un mapa con todos sus nodos (fila a fila: cada tombstone viaja). */
+export async function borrarMapaIdeas(mapaId: number): Promise<void> {
+  await db.transaction('rw', db.mapasIdeas, db.nodosMapa, async () => {
+    const ids = await db.nodosMapa.where('mapaId').equals(mapaId).primaryKeys()
+    await db.nodosMapa.bulkDelete(ids)
+    await db.mapasIdeas.delete(mapaId)
+  })
+}
+
+/** Borra un lote de nodos (el subárbol lo calcula el caller). */
+export async function borrarNodosMapa(ids: number[]): Promise<void> {
+  await db.nodosMapa.bulkDelete(ids)
+}
+
+// Agenda · trabajo, salud y personas
+// OJO con el `orderBy`: nunca 'fecha'. `useAll` hace `table.orderBy(campo)` e
+// IndexedDB omite en silencio las filas con ese campo `undefined`; los pendientes
+// sin fecha —media sección Trabajo— desaparecerían de la lista sin dar error.
+export const eventosAgendaRepo = createRepository(db.eventosAgenda, 'creadoEn')
+export const contactosAgendaRepo = createRepository(db.contactosAgenda, 'nombre', false)
+export const proyectosAgendaRepo = createRepository(db.proyectosAgenda, 'creadoEn', false)
+export const medicamentosRepo = createRepository(db.medicamentos, 'creadoEn', false)
+export const mascotasRepo = createRepository(db.mascotas, 'nombre', false)
+export const cuidadosMascotaRepo = createRepository(db.cuidadosMascota, 'creadoEn', false)
+
+/** Eventos ligados a un contacto (su historial dentro de la ficha). */
+export function useEventosDeContacto(contactoId: string | null) {
+  return useLiveQuery(
+    async () =>
+      contactoId == null ? [] : db.eventosAgenda.where('contactoId').equals(contactoId).toArray(),
+    [contactoId],
+  )
+}
+
+/**
+ * Borra un contacto y DESLIGA sus eventos en vez de arrastrarlos: perder la cita
+ * del dentista por borrar la ficha del dentista sería destructivo.
+ */
+export async function borrarContactoAgenda(contactoId: string): Promise<void> {
+  await db.transaction('rw', db.contactosAgenda, db.eventosAgenda, async () => {
+    const ligados = await db.eventosAgenda.where('contactoId').equals(contactoId).toArray()
+    for (const e of ligados) {
+      if (e.id != null)
+        await db.eventosAgenda.update(e.id, { contactoId: undefined, updatedAt: Date.now() } as UpdateSpec<EventoAgenda>)
+    }
+    const fila = await db.contactosAgenda.where('contactoId').equals(contactoId).first()
+    if (fila?.id != null) await db.contactosAgenda.delete(fila.id)
+  })
+}
+
+/**
+ * Borra la ficha de una mascota y DESLIGA sus citas y tratamientos en vez de
+ * arrastrarlos: el historial médico no tiene por qué irse con la ficha. Sus
+ * cuidados sí se van con ella, pero los borra `rooms/agenda/crear.ts` (uno a uno
+ * y con las rutinas que hubieran puesto en el calendario).
+ */
+export async function borrarMascotaAgenda(mascId: string): Promise<void> {
+  await db.transaction('rw', db.mascotas, db.eventosAgenda, db.medicamentos, async () => {
+    for (const e of await db.eventosAgenda.where('area').equals('salud').toArray()) {
+      if (e.mascotaId === mascId && e.id != null)
+        await db.eventosAgenda.update(e.id, { mascotaId: undefined, updatedAt: Date.now() } as UpdateSpec<EventoAgenda>)
+    }
+    for (const m of await db.medicamentos.toArray()) {
+      if (m.mascotaId === mascId && m.id != null)
+        await db.medicamentos.update(m.id, { mascotaId: undefined, updatedAt: Date.now() } as UpdateSpec<Medicamento>)
+    }
+    const fila = await db.mascotas.where('mascId').equals(mascId).first()
+    if (fila?.id != null) await db.mascotas.delete(fila.id)
+  })
+}
+
+/** Borra un proyecto; sus pendientes sobreviven sueltos (no se pierde trabajo). */
+export async function borrarProyectoAgenda(proyId: string): Promise<void> {
+  await db.transaction('rw', db.proyectosAgenda, db.eventosAgenda, async () => {
+    const ligados = await db.eventosAgenda.where('proyectoId').equals(proyId).toArray()
+    for (const e of ligados) {
+      if (e.id != null)
+        await db.eventosAgenda.update(e.id, { proyectoId: undefined, updatedAt: Date.now() } as UpdateSpec<EventoAgenda>)
+    }
+    const fila = await db.proyectosAgenda.where('proyId').equals(proyId).first()
+    if (fila?.id != null) await db.proyectosAgenda.delete(fila.id)
+  })
 }

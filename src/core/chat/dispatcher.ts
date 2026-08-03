@@ -58,10 +58,15 @@ const PALABRAS: Record<string, string[]> = {
   entretenimiento: ['pelicula', 'serie', 'vi', 'jugue', 'videojuego', 'partida'],
   sala: ['viaje', 'viajar', 'vuelo', 'destino', 'ruta', 'bitacora', 'visite', 'visitar'],
   jardin: ['medite', 'meditacion', 'respiracion', 'gratitud', 'animo', 'mindfulness'],
-  garage: ['coche', 'auto', 'moto', 'bici', 'bicicleta', 'mantenimiento', 'aceite', 'servicio', 'taller', 'odometro'],
+  garage: ['coche', 'auto', 'moto', 'bici', 'bicicleta', 'mantenimiento', 'aceite', 'servicio', 'taller', 'odometro', 'tenencia', 'verificacion', 'poliza', 'aseguradora', 'placas'],
   diario: ['noticia', 'noticias', 'briefing'],
   hobbies: ['hobby', 'pasatiempo', 'manualidad', 'proyecto'],
   idiomas: ['idioma', 'idiomas', 'vocabulario', 'ingles', 'frances', 'aleman', 'japones', 'italiano', 'portugues', 'repase', 'repasar', 'practique', 'tarjetas'],
+  // sin 'tema' (choca con biblioteca) ni 'idea' suelta (era de la lluvia, ya retirada).
+  ideas: ['mapa mental', 'mapas mentales', 'mapa conceptual', 'diagrama', 'venn', 'diagrama de flujo'],
+  // sin 'proyecto' (es de hobbies), 'rutina' (ejercicio), 'alarma' (descanso) ni
+  // 'agenda' a secas (el calendario ya responde a "agenda de hoy").
+  agenda: ['pendiente', 'pendientes', 'cita', 'citas', 'junta', 'reunion', 'medicamento', 'medicina', 'pastilla', 'contacto', 'contactos', 'cumpleanos', 'agendame'],
 }
 
 /**

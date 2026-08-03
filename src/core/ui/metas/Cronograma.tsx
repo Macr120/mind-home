@@ -64,6 +64,7 @@ export function Cronograma({
   onArmar,
   ambito,
   ambitoId,
+  ejemplo,
 }: {
   metas: Rutina[]
   metaArmada: Rutina | null
@@ -80,6 +81,9 @@ export function Cronograma({
   ambito?: string
   /** Sub-ámbito (`hobby:3`, `proyecto:7`) con el que nacen las nuevas metas. */
   ambitoId?: string
+  /** Meta de ejemplo del dominio de la app (ya localizada): se ofrece como chip y
+   * placeholder del alta para que el usuario la personalice antes de crearla. */
+  ejemplo?: string
 }) {
   const t = useT()
   // Índice en NIVELES_ZOOM, no un px/día suelto: los botones −/+ saltan de nivel en
@@ -511,7 +515,11 @@ export function Cronograma({
                             if (e.key === 'Enter') void confirmarAlta()
                             else if (e.key === 'Escape') setAgregandoRaiz(false)
                           }}
-                          placeholder={t('cal.metaPlaceholder', 'Agregar una meta…')}
+                          placeholder={
+                            ejemplo
+                              ? t('cal.meta.ejemplo', 'Ej.: {ejemplo}', { ejemplo })
+                              : t('cal.metaPlaceholder', 'Agregar una meta…')
+                          }
                           className="min-w-0 flex-1 rounded border border-white/10 bg-black/30 px-1.5 text-[10px] leading-none text-white/90 placeholder:text-white/25 focus:border-white/25 focus:outline-none"
                         />
                         {conIA && (
@@ -530,13 +538,30 @@ export function Cronograma({
                         )}
                       </div>
                     ) : (
-                      <button
-                        type="button"
-                        onClick={() => setAgregandoRaiz(true)}
-                        className="rounded px-1.5 py-0.5 text-xs font-bold leading-none text-emerald-300/90 transition hover:bg-emerald-500/15 hover:text-emerald-200"
-                      >
-                        + {t('cal.meta.etiquetaMeta', 'meta')}
-                      </button>
+                      <div className="flex min-w-0 items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={() => setAgregandoRaiz(true)}
+                          className="shrink-0 rounded px-1.5 py-0.5 text-xs font-bold leading-none text-emerald-300/90 transition hover:bg-emerald-500/15 hover:text-emerald-200"
+                        >
+                          + {t('cal.meta.etiquetaMeta', 'meta')}
+                        </button>
+                        {/* El apartado de la meta particular de la app: el ejemplo se
+                            toca, cae en el input y se personaliza antes de crearla. */}
+                        {ejemplo && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setNombre(ejemplo)
+                              setAgregandoRaiz(true)
+                            }}
+                            title={t('cal.meta.usarEjemplo', 'Usar el ejemplo y personalizarlo')}
+                            className="min-w-0 truncate rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] leading-none text-white/45 transition hover:bg-white/10 hover:text-white/75"
+                          >
+                            {t('cal.meta.ejemplo', 'Ej.: {ejemplo}', { ejemplo })}
+                          </button>
+                        )}
+                      </div>
                     ))}
                 </div>
                 <div className="ui-panel-2 flex" style={{ width: ancho, height: ALTO_FILA_EJE }}>
@@ -607,7 +632,14 @@ export function Cronograma({
                     />
                   )}
                   {f.tipo === 'plan' && (
-                    <FilaPlanNodo nodo={f.nodo} profundidad={f.profundidad} color={COLOR_PLAN} />
+                    <FilaPlanNodo
+                      nodo={f.nodo}
+                      profundidad={f.profundidad}
+                      color={COLOR_PLAN}
+                      // Personalizable mientras sea propuesta; aceptado, lo editable
+                      // son las sub-metas reales que nacieron de él.
+                      plan={planVisible && !planVisible.aceptadoEn ? planVisible : undefined}
+                    />
                   )}
                 </div>
 

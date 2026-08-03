@@ -9,8 +9,29 @@ import {
   CAM_BASE_AZ,
   ISO_EL,
   CAM_R,
+  setZoomAjuste,
+  zoomParaRect,
+  lienzoCam,
 } from '../state/cameraStore'
 import { useLayout } from '../state/layoutStore'
+import { SPACING } from './walls'
+
+/**
+ * Publica las medidas del encuadre: el frustum útil del lienzo (`lienzoCam`) y el zoom
+ * con el que la rejilla completa cabe en pantalla (`setZoomAjuste`). Con eso la rueda
+ * puede alejarse tanto como haga falta en mapas grandes y los cuadrantes saben
+ * encuadrarse solos.
+ */
+function publicarEncuadre(cam: THREE.OrthographicCamera, anchoCss: number, a: number, e: number) {
+  const { gridCols, gridRows, editMode } = useLayout.getState()
+  let fw = cam.right - cam.left
+  const fh = cam.top - cam.bottom
+  // Con el panel de edición abierto solo se ve el mapa a su izquierda.
+  if (editMode) fw = Math.max(1, fw - EDIT_PANEL_PX * (fw / Math.max(1, anchoCss)))
+  lienzoCam.fw = fw
+  lienzoCam.fh = fh
+  setZoomAjuste(zoomParaRect(gridCols * SPACING, gridRows * SPACING, fw, fh, a, e))
+}
 
 /** Interpola un ángulo tomando siempre el camino corto (maneja el salto en ±π). */
 function lerpAngulo(actual: number, objetivo: number, t: number) {
@@ -56,6 +77,7 @@ export function CameraRig() {
     // Publica la orientación animada para el cubo de navegación.
     camAnim.az = a
     camAnim.el = e
+    publicarEncuadre(cam, size.width, a, e)
 
     tmp.current.set(focus[0], focus[1], focus[2])
     if (editMode) {

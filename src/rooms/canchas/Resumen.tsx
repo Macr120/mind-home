@@ -8,13 +8,13 @@ export function Resumen() {
   const t = useT()
   const objetos = useDiseño((s) => s.objetos)
   const canchas = objetos.filter((o) => esCancha(o.tipo))
-  const clases: ClaseCancha[] = ['futbol', 'tenis', 'basket']
+  const clases: ClaseCancha[] = ['futbol', 'tenis', 'basket', 'beisbol']
   return (
     <div className="mx-auto flex h-full max-w-md flex-col gap-3 p-4">
       <p className="text-sm text-white/60">
-        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Plantillas → Infraestructura → Construir.')}
+        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Plantillas → Complementos → Construir.')}
       </p>
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 gap-2">
         {clases.map((c) => (
           <div key={c} className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
             <div className="text-2xl">

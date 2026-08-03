@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mind Planner Home — Tu vida, en una casa 3D</title>
+    <meta
+      name="description"
+      content="Organiza tus hábitos, metas, finanzas, comidas y más en una casa isométrica 3D donde cada cuarto es una app. Gratis en tu dispositivo; con IA y sincronización desde 4.99 USD al mes."
+    />
+    <meta property="og:title" content="Mind Planner Home" />
+    <meta
+      property="og:description"
+      content="Tu vida, en una casa 3D: hábitos, metas, finanzas, comidas y más. Gratis; con IA desde 4.99 USD/mes."
+    />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/estilos.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <header class="barra">
+        <a class="logo" href="/">
+          <img src="/icon.svg" alt="" />
+          <span>Mind Planner Home</span>
+        </a>
+        <nav>
+          <a class="boton" href="/cuenta">Entrar</a>
+          <a class="boton principal" href="/cuenta">Suscríbete</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>Tu vida entera,<br />en una casa 3D</h1>
+        <p class="sub">
+          Cada cuarto de tu casa es una app: ejercicio, comidas, finanzas, descanso, idiomas,
+          hobbies, metas… Un solo lugar, con un asistente con IA que te acompaña y tu progreso
+          sincronizado en todos tus dispositivos.
+        </p>
+        <div class="acciones">
+          <a class="boton principal grande" href="%VITE_URL_APP%">Empezar gratis</a>
+          <a class="boton grande" href="#precio">Ver los planes</a>
+        </div>
+        <p class="nota">
+          La casa es gratis y funciona sin conexión. La IA y la sincronización son el plan de
+          pago — y puedes cancelarlo cuando quieras sin perder nada.
+        </p>
+        <!-- TODO(usuario): sustituir por el video o capturas reales (web/public/). -->
+        <div class="demo">Aquí va tu video o capturas de la casa</div>
+      </section>
+
+      <section id="caracteristicas">
+        <h2>Una casa, muchas apps</h2>
+        <div class="tarjetas">
+          <div class="tarjeta">
+            <h3>🏠 Cuartos que son apps</h3>
+            <p>
+              Ejercicio, cocina, finanzas, descanso, biblioteca, idiomas, viajes, hobbies,
+              mindfulness y más: cada cuarto guarda una mini-app completa.
+            </p>
+          </div>
+          <div class="tarjeta">
+            <h3>✨ Asistente con IA</h3>
+            <p>
+              Chatea con tu asistente: captura comidas, crea rutinas, planea metas, genera
+              imágenes y modelos 3D. 700 créditos cada mes con el plan, o compra los que
+              necesites sin suscribirte.
+            </p>
+          </div>
+          <div class="tarjeta">
+            <h3>🔄 Sincronización total</h3>
+            <p>
+              Tu casa te sigue al teléfono, la tablet y la computadora. Todo cifrado en
+              tránsito y respaldado en la nube.
+            </p>
+          </div>
+          <div class="tarjeta">
+            <h3>🎮 Se siente como un juego</h3>
+            <p>
+              Tu personaje vive de tu actividad real: rachas, insignias, la Montaña de Sísifo,
+              vehículos, carreras y minijuegos.
+            </p>
+          </div>
+          <div class="tarjeta">
+            <h3>📅 Calendario y metas</h3>
+            <p>
+              Rutinas de 24 horas, metas anidadas, cronogramas con IA y métricas de
+              cumplimiento que sí se entienden.
+            </p>
+          </div>
+          <div class="tarjeta">
+            <h3>🔒 Tus datos, contigo</h3>
+            <p>
+              La app es local-first: todo vive primero en tu dispositivo. Si cancelas, no
+              pierdes tus datos — sigues en modo local.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="precio">
+        <h2>Dos formas de usarla</h2>
+        <div class="planes">
+          <div class="precio-caja">
+            <h3 class="plan-nombre">Local</h3>
+            <div class="cifra">Gratis</div>
+            <ul>
+              <li>La casa entera y todas sus apps, sin cuenta y sin conexión</li>
+              <li>Tus datos viven en tu dispositivo</li>
+              <li>¿Quieres IA? Compra créditos sueltos cuando los necesites — no caducan</li>
+            </ul>
+            <a class="boton grande" href="%VITE_URL_APP%">Abrir la app</a>
+            <p class="letra-chica">Sin cuenta, sin tarjeta, sin prueba que se acaba.</p>
+          </div>
+          <div class="precio-caja destacado">
+            <h3 class="plan-nombre">Pro</h3>
+            <div class="cifra">4.99 USD<small> /mes</small></div>
+            <ul>
+              <li>Todo lo del modo local</li>
+              <li>700 créditos de IA cada mes (chat, planes, imágenes, modelos 3D)</li>
+              <li>Sincronización y respaldo entre todos tus dispositivos</li>
+              <li>¿Te quedaste corto? Recarga créditos cuando tú quieras</li>
+            </ul>
+            <a class="boton principal grande" href="/cuenta">Suscribirme</a>
+            <p class="letra-chica">
+              Precio en tu moneda local. Sin permanencia: si cancelas, la app sigue
+              funcionando con todos tus datos en modo local.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="descargas">
+        <h2>Descargas</h2>
+        <div class="tarjetas">
+          <div class="tarjeta">
+            <h3>🌐 En tu navegador</h3>
+            <p>Sin instalar nada y sin cuenta: abre la app y tu casa te espera.</p>
+            <!-- El valor viene de VITE_URL_APP (.env / Cloudflare Pages). -->
+            <a class="boton" style="margin-top: 10px" href="%VITE_URL_APP%">Abrir la app</a>
+          </div>
+          <div class="tarjeta">
+            <h3>🪟 Windows</h3>
+            <p>Instalador para Windows 10/11.</p>
+            <span class="pronto">Próximamente</span>
+          </div>
+          <div class="tarjeta">
+            <h3>🍎 macOS</h3>
+            <p>Imagen .dmg para Mac.</p>
+            <span class="pronto">Próximamente</span>
+          </div>
+          <div class="tarjeta">
+            <h3>🤖 Android</h3>
+            <p>En Google Play.</p>
+            <span class="pronto">Próximamente</span>
+          </div>
+          <div class="tarjeta">
+            <h3>📱 iPhone y iPad</h3>
+            <p>En el App Store.</p>
+            <span class="pronto">Próximamente</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq">
+          <details>
+            <summary>¿La app es gratis de verdad?</summary>
+            <p>
+              Sí. La casa completa, sus apps y tus datos funcionan en tu dispositivo sin pagar
+              ni crear cuenta. Lo que cuesta dinero es lo que cuesta dinero de verdad: la IA
+              (cada respuesta se le paga al proveedor del modelo) y los servidores de
+              sincronización.
+            </p>
+          </details>
+          <details>
+            <summary>¿Qué son los créditos de IA?</summary>
+            <p>
+              La unidad con la que se cobra cada petición al asistente, según lo que cuesta
+              atenderla: una respuesta normal vale 1 crédito, un plan largo 3, y una imagen o
+              un modelo 3D 10. Con el plan Pro recibes 700 cada mes; también puedes comprar
+              paquetes sueltos sin suscribirte, y esos no caducan. Nunca se cobra automático:
+              solo se gasta cuando tú pides algo.
+            </p>
+          </details>
+          <details>
+            <summary>¿Qué pasa si cancelo?</summary>
+            <p>
+              Conservas la app y todos tus datos en tus dispositivos, en modo local. Pierdes
+              los créditos mensuales y la sincronización, pero los créditos que hayas comprado
+              aparte siguen ahí. Si renuevas, todo se reactiva tal como lo dejaste.
+            </p>
+          </details>
+          <details>
+            <summary>¿Dónde se guardan mis datos?</summary>
+            <p>
+              Primero en tu dispositivo (la app es local-first) y, con el plan Pro, también en
+              la nube para sincronizar entre dispositivos. En modo local no sale nada de tu
+              dispositivo. Los pagos los procesan RevenueCat y Stripe: nunca vemos tu tarjeta.
+              Más detalles en la <a href="/privacidad">política de privacidad</a>.
+            </p>
+          </details>
+          <details>
+            <summary>¿En qué dispositivos funciona?</summary>
+            <p>
+              Hoy: en cualquier navegador moderno. Muy pronto: Windows, macOS, Android (Google
+              Play) y iPhone/iPad (App Store). Una sola suscripción vale para todos — se compra
+              aquí en la web y funciona en cualquier dispositivo donde entres con tu cuenta.
+            </p>
+          </details>
+          <details>
+            <summary>¿Cómo cancelo o borro mi cuenta?</summary>
+            <p>
+              Desde <a href="/cuenta">tu cuenta</a>: «Gestionar suscripción» para cancelar el
+              cobro, o «Eliminar cuenta» para borrar todos tus datos de nuestros servidores.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <footer>
+        <div class="enlaces">
+          <a href="/privacidad">Privacidad</a>
+          <a href="/terminos">Términos</a>
+          <a href="/cuenta">Mi cuenta</a>
+          <a href="mailto:macr120cme@gmail.com">Contacto</a>
+        </div>
+        <p>© 2026 Mind Planner Home</p>
+      </footer>
+    </div>
+  </body>
+</html>

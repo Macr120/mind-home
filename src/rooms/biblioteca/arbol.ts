@@ -2,7 +2,12 @@ import type { MensajeIA } from '../../core/chat/ia'
 import { conversacionesBiblioRepo, temasArbolRepo } from '../../core/data/repository'
 import { PILAR_GENERAL, getPilar } from './constantes'
 import { PILARES, todosLosTemas } from './pilares'
-import { clasificarConversacion, elegirPadre, generarSubtemas } from './sabio'
+import {
+  clasificarConversacion,
+  ubicarConversacion,
+  generarSubtemas,
+  type CandidatoTema,
+} from './sabio'
 
 /** Nodo del índice del que nace una charla (estático de pilares.ts o dinámico). */
 export interface AnclaTema {
@@ -31,6 +36,27 @@ export async function resolverTema(
   if (est) return { temaId: est.id, pilarId: est.pilarId, titulo: est.titulo }
   const din = (await temasArbolRepo.list()).find((n) => n.temaId === temaId)
   return din ? { temaId: din.temaId, pilarId: din.pilarId, titulo: din.titulo } : null
+}
+
+/**
+ * Candidatos a padre de TODOS los pilares, para la llamada única de ubicación.
+ * Los dinámicos van primero (son los que el usuario acaba de crear y donde más
+ * sentido tiene colgar algo nuevo); `ubicarConversacion` recorta por pilar.
+ */
+async function candidatosDeTodos(): Promise<Record<string, CandidatoTema[]>> {
+  const dinamicos = await temasArbolRepo.list()
+  const mapa: Record<string, CandidatoTema[]> = {}
+  for (const p of PILARES) {
+    const propios = dinamicos
+      .filter((n) => n.pilarId === p.id)
+      .sort((a, b) => b.creadoEn.localeCompare(a.creadoEn))
+      .map((n) => ({ id: n.temaId, titulo: n.titulo }))
+    const estaticos = p.ramas.flatMap((rama) =>
+      rama.temas.map((t) => ({ id: t.id, titulo: t.titulo, rama: rama.titulo })),
+    )
+    mapa[p.id] = [...propios, ...estaticos]
+  }
+  return mapa
 }
 
 /** Todos los temas de un pilar (estáticos con su rama + dinámicos). */
@@ -94,7 +120,10 @@ export async function ubicarCharla(conversacionId: number, mensajes: MensajeIA[]
       return
     }
 
-    const r = await clasificarConversacion(mensajes)
+    // Campo, título y nodo padre en UNA llamada: los candidatos de todos los
+    // pilares viajan por adelantado porque el padre se elige en el mismo turno.
+    const candidatosPorPilar = await candidatosDeTodos()
+    const r = await ubicarConversacion(mensajes, candidatosPorPilar)
     await conversacionesBiblioRepo.update(conversacionId, {
       pilarId: r.pilarId,
       titulo: conv.titulo || r.titulo,
@@ -105,11 +134,9 @@ export async function ubicarCharla(conversacionId: number, mensajes: MensajeIA[]
     const fresca = (await conversacionesBiblioRepo.list()).find((c) => c.id === conversacionId)
     if (!fresca || fresca.temaId) return
 
-    const candidatos = (await temasDelPilar(r.pilarId)).slice(0, 40)
-    const padreId = await elegirPadre(mensajes, r.pilarId, candidatos)
     const nodo = await crearNodoCharla({
       pilarId: r.pilarId,
-      padreId,
+      padreId: r.padreId,
       titulo: conv.titulo || r.titulo,
       descripcion: r.descripcion,
       conversacionId,

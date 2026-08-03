@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { claveLS } from '../edicion'
 import type { ClaveApp } from '../ui/calendario/apps'
 
 /**
@@ -8,7 +9,7 @@ import type { ClaveApp } from '../ui/calendario/apps'
  * localStorage por ser una preferencia del dispositivo, como el resto de ajustes.
  */
 
-const LS_FILTRO = 'mh.cal.filtroApps'
+const LS_FILTRO = claveLS('mh.cal.filtroApps')
 
 function leer(): Set<ClaveApp> {
   try {

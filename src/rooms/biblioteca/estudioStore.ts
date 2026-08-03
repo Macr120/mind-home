@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { create } from 'zustand'
+import { claveLS } from '../../core/edicion'
 import { sesionesEstudioRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 
@@ -21,7 +22,7 @@ interface EstudioState {
 }
 
 // Persistida en localStorage para sobrevivir cerrar el cuarto y recargar la página.
-const LS_ESTUDIO = 'mh.estudioBiblio'
+const LS_ESTUDIO = claveLS('mh.estudioBiblio')
 
 function leerSesionGuardada(): SesionActiva | null {
   try {

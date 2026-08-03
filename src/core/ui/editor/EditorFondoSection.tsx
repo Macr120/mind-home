@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
-import { FONDOS } from '../../house/fondos'
+import { useCiclo } from '../../state/cicloStore'
+import { FONDOS, ANIMACIONES, animacionesDeFondo, getFondo } from '../../house/fondos'
 import type { FondoImagen } from '../../data/db'
 import type { AjusteFondoImagen } from '../../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, ajusteDesdeDb } from '../../house/fondosImagen'
-import { TEMAS } from '../../house/temas'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { ColorPicker } from './ColorPicker'
 import { EditorFondoImagenPreview } from './EditorFondoImagenPreview'
+import { GenerarTexturaIA } from './GenerarTexturaIA'
 
 function MiniaturaFondo({ item }: { item: FondoImagen }) {
   const [url, setUrl] = useState<string | null>(null)
@@ -21,6 +22,38 @@ function MiniaturaFondo({ item }: { item: FondoImagen }) {
   if (!url) return <div className="h-full w-full bg-white/5" />
   return (
     <img src={url} alt="" className="h-full w-full object-cover" draggable={false} />
+  )
+}
+
+/** Pastilla de una microanimación (o del modo automático). */
+function BotonAnim({
+  activo,
+  icono,
+  texto,
+  onClick,
+}: {
+  activo: boolean
+  icono: string
+  texto: string
+  onClick: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="flex items-center gap-1 rounded-full border px-2 py-1 text-[11px] transition"
+      style={{
+        borderColor: activo
+          ? 'rgba(52,211,153,0.6)'
+          : 'color-mix(in srgb, var(--ui-ink) 8%, transparent)',
+        background: activo
+          ? 'rgba(52,211,153,0.12)'
+          : 'color-mix(in srgb, var(--ui-ink) 4%, transparent)',
+      }}
+    >
+      <span className="flex-shrink-0"><Icono emoji={icono} /></span>
+      <span className={activo ? 'text-white/85' : 'text-white/55'}>{texto}</span>
+    </button>
   )
 }
 
@@ -46,10 +79,15 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
     setAnimacionesFondo,
     animacionesIntensidad,
     setAnimacionesIntensidad,
-    temaGlobal,
+    animacionesIds,
+    setAnimacionesIds,
   } = useDiseño()
+  const deNoche = useCiclo((s) => s.minutos < 6 * 60 || s.minutos >= 19 * 60)
   const colorFijoActivo = fondoImagenActivo == null && fondoId === 'color_fijo'
-  const temaNombre = TEMAS.find((tema) => tema.id === temaGlobal)?.nombre
+  // En automático se marcan las que sugiere el fondo: al tocar una se parte de ahí.
+  const activas =
+    animacionesIds ??
+    (fondoImagenActivo != null ? [] : animacionesDeFondo(getFondo(fondoId), deNoche))
 
   const [borrador, setBorrador] = useState<{
     blob: Blob
@@ -75,12 +113,20 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
     [borrador],
   )
 
+  /** Abre el borrador de ajuste con una imagen recién llegada (del disco o de la IA). */
+  const abrirBorrador = (blob: Blob, nombre: string) => {
+    cerrarBorrador()
+    setBorrador({
+      blob,
+      url: URL.createObjectURL(blob),
+      nombre,
+      ajuste: { ...AJUSTE_FONDO_DEFAULT },
+    })
+  }
+
   const onArchivo = (file: File | undefined) => {
     if (!file?.type.startsWith('image/')) return
-    cerrarBorrador()
-    const url = URL.createObjectURL(file)
-    const base = file.name.replace(/\.[^.]+$/, '').slice(0, 32) || 'Mi fondo'
-    setBorrador({ blob: file, url, nombre: base, ajuste: { ...AJUSTE_FONDO_DEFAULT } })
+    abrirBorrador(file, file.name.replace(/\.[^.]+$/, '').slice(0, 32) || 'Mi fondo')
   }
 
   const editarExistente = (item: FondoImagen) => {
@@ -165,6 +211,11 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
             guardando={guardando}
           />
         )}
+
+        <GenerarTexturaIA
+          superficie="fondo"
+          onGenerada={(blob) => abrirBorrador(blob, t('editor.fondo.nombreIA', 'Fondo con IA'))}
+        />
 
         {fondosImagen.length === 0 && !borrador && (
           <p className="text-[10px] text-white/35">
@@ -280,11 +331,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
           <div>
             <p className="text-sm font-semibold">{t('editor.fondo.anim', 'Microanimaciones')}</p>
             <p className="text-[10px] text-white/45 leading-snug">
-              {temaGlobal
-                ? t('editor.fondo.animActivo', `Activas con tema ${temaNombre ?? temaGlobal} (cometas, dragones, nieve…)`, {
-                    tema: temaNombre ?? temaGlobal ?? '',
-                  })
-                : t('editor.fondo.animDesc', 'Nubes, aves, copos o polvo según el fondo elegido')}
+              {t('editor.fondo.animDesc', 'Elige cuáles quieres en el cielo o déjalo en automático')}
             </p>
           </div>
           <button
@@ -307,25 +354,56 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
         </div>
 
         {animacionesFondo && (
-          <div>
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] text-white/45">
-                {t('editor.fondo.animIntensidad', 'Intensidad')}
-              </span>
-              <span className="text-[10px] tabular-nums text-white/40">
-                {Math.round(animacionesIntensidad * 100)}%
-              </span>
+          <>
+            <div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] text-white/45">
+                  {t('editor.fondo.animIntensidad', 'Intensidad')}
+                </span>
+                <span className="text-[10px] tabular-nums text-white/40">
+                  {Math.round(animacionesIntensidad * 100)}%
+                </span>
+              </div>
+              <input
+                type="range"
+                min={0.1}
+                max={1}
+                step={0.05}
+                value={animacionesIntensidad}
+                onChange={(e) => void setAnimacionesIntensidad(parseFloat(e.target.value))}
+                className="mt-1 w-full accent-emerald-400"
+              />
             </div>
-            <input
-              type="range"
-              min={0.1}
-              max={1}
-              step={0.05}
-              value={animacionesIntensidad}
-              onChange={(e) => void setAnimacionesIntensidad(parseFloat(e.target.value))}
-              className="mt-1 w-full accent-emerald-400"
-            />
-          </div>
+
+            <div className="space-y-2 rounded-lg border border-white/10 bg-black/15 p-2.5">
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-white/40">
+                {t('editor.fondo.animTipo', 'Tipo de animación')}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                <BotonAnim
+                  activo={animacionesIds == null}
+                  icono="🔄"
+                  texto={t('editor.fondo.animAuto', 'Automático')}
+                  onClick={() => void setAnimacionesIds(null)}
+                />
+                {ANIMACIONES.map((a) => (
+                  <BotonAnim
+                    key={a.id}
+                    activo={activas.includes(a.id)}
+                    icono={a.icon}
+                    texto={t(`anim.${a.id}`, a.nombre)}
+                    onClick={() =>
+                      void setAnimacionesIds(
+                        activas.includes(a.id)
+                          ? activas.filter((id) => id !== a.id)
+                          : [...activas, a.id],
+                      )
+                    }
+                  />
+                ))}
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

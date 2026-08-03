@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { PlanMeta, Rutina } from '../../data/db'
 import { planesMetaRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
@@ -30,9 +31,11 @@ export function CabeceraPlan({
   onBorrado: () => void
 }) {
   const t = useT()
+  const [verMaterial, setVerMaterial] = useState(false)
   const origen = metas.find((m) => m.id === plan.metaId)
   const dias = diasDePlan(plan.nodos)
   const aceptado = !!plan.aceptadoEn
+  const material = plan.material ?? []
 
   const aceptar = async () => {
     if (!origen || aceptado) return
@@ -87,6 +90,30 @@ export function CabeceraPlan({
           className="w-[86px] shrink-0 rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[9px] tabular-nums text-white/60 focus:outline-none"
         />
       </div>
+
+      {/* El material del plan (recetas y su porqué) sigue consultable aquí, incluso
+          después de aceptarlo: el plan no se borra, se marca. */}
+      {material.length > 0 && (
+        <div className="space-y-1">
+          <button
+            type="button"
+            onClick={() => setVerMaterial((v) => !v)}
+            className="w-full text-left text-[9px] text-white/40 transition hover:text-white/70"
+          >
+            {verMaterial ? '▾' : '▸'} {t('cal.plan.material.n', 'Material del plan ({n})', { n: material.length })}
+          </button>
+          {verMaterial &&
+            material.map((m) => (
+              <div key={m.nombre} className="rounded bg-black/20 px-1.5 py-1">
+                <div className="flex items-baseline gap-1">
+                  <span className="min-w-0 flex-1 truncate text-[10px] font-semibold text-white/80">{m.nombre}</span>
+                  {m.rutina && <span className="shrink-0 text-[9px] text-white/35">{m.rutina}</span>}
+                </div>
+                {m.motivo && <p className="text-[9px] leading-snug text-white/40">{m.motivo}</p>}
+              </div>
+            ))}
+        </div>
+      )}
 
       <button
         type="button"

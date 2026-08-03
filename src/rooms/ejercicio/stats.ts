@@ -1,5 +1,6 @@
 import type { PerfilEjercicio, SesionEjercicio, SerieFuerza, TipoEntrenamiento } from '../../core/data/db'
-import { diasSemana, hoyISO, inicioSemana } from './fecha'
+import { hoyISO } from './fecha'
+import { diasTranscurridos, metaDelPeriodo, sesionesPeriodo, type Periodo } from './periodo'
 import { fechaLocalISO } from '../../core/fechaLocal'
 
 export function volumenSerie(s: Pick<SerieFuerza, 'series' | 'repeticiones' | 'pesoKg'>) {
@@ -8,12 +9,6 @@ export function volumenSerie(s: Pick<SerieFuerza, 'series' | 'repeticiones' | 'p
 
 export function volumenSesion(series: SerieFuerza[]) {
   return series.reduce((acc, s) => acc + volumenSerie(s), 0)
-}
-
-export function sesionesSemana(sesiones: SesionEjercicio[], ref = hoyISO()) {
-  const inicio = inicioSemana(ref)
-  const dias = new Set(diasSemana(inicio))
-  return sesiones.filter((s) => dias.has(s.fecha))
 }
 
 export function minutosTipo(semana: SesionEjercicio[], tipo: TipoEntrenamiento) {
@@ -51,15 +46,6 @@ export function pctObjetivo(actual: number, objetivo: number) {
 /** Clave de comparación para agrupar el mismo ejercicio escrito distinto. */
 export const normalizarEjercicio = (nombre: string) => nombre.trim().toLowerCase()
 
-/** Ritmo en formato m:ss por km (ej. "5:30"). */
-export function ritmoMinKm(duracionMin: number, km: number): string {
-  if (km <= 0) return '—'
-  const ritmo = duracionMin / km
-  const min = Math.floor(ritmo)
-  const seg = Math.round((ritmo - min) * 60)
-  return `${min}:${String(seg).padStart(2, '0')}`
-}
-
 /** Totales de resistencia para la vista de progreso. */
 export function statsResistencia(sesiones: SesionEjercicio[]) {
   const cardio = sesiones.filter((s) => s.tipo === 'resistencia')
@@ -85,23 +71,46 @@ function e1rm(pesoKg: number, repeticiones: number) {
   return pesoKg * (1 + repeticiones / 30)
 }
 
-export function recordsFuerza(
-  series: SerieFuerza[],
-): { ejercicio: string; pesoKg: number; repeticiones: number }[] {
-  const mapa = new Map<string, { ejercicio: string; pesoKg: number; repeticiones: number }>()
+export interface RecordFuerza {
+  ejercicio: string
+  /** Récord de carga: el peso más alto y las reps con las que se logró. */
+  pesoKg: number
+  repeticiones: number
+  /** Récord de repeticiones y el peso que se movía en ese momento. */
+  maxReps: number
+  maxRepsPesoKg: number
+  /** Mejor 1RM estimado del historial. */
+  e1rmKg: number
+}
+
+export function recordsFuerza(series: SerieFuerza[]): RecordFuerza[] {
+  const mapa = new Map<string, RecordFuerza>()
   for (const s of series) {
     const clave = normalizarEjercicio(s.ejercicio)
     if (!clave) continue
     const prev = mapa.get(clave)
-    if (
-      !prev ||
-      s.pesoKg > prev.pesoKg ||
-      (s.pesoKg === prev.pesoKg && s.repeticiones > prev.repeticiones)
-    ) {
-      mapa.set(clave, { ejercicio: s.ejercicio, pesoKg: s.pesoKg, repeticiones: s.repeticiones })
+    if (!prev) {
+      mapa.set(clave, {
+        ejercicio: s.ejercicio,
+        pesoKg: s.pesoKg,
+        repeticiones: s.repeticiones,
+        maxReps: s.repeticiones,
+        maxRepsPesoKg: s.pesoKg,
+        e1rmKg: e1rm(s.pesoKg, s.repeticiones),
+      })
+      continue
     }
+    if (s.pesoKg > prev.pesoKg || (s.pesoKg === prev.pesoKg && s.repeticiones > prev.repeticiones)) {
+      prev.pesoKg = s.pesoKg
+      prev.repeticiones = s.repeticiones
+    }
+    if (s.repeticiones > prev.maxReps || (s.repeticiones === prev.maxReps && s.pesoKg > prev.maxRepsPesoKg)) {
+      prev.maxReps = s.repeticiones
+      prev.maxRepsPesoKg = s.pesoKg
+    }
+    prev.e1rmKg = Math.max(prev.e1rmKg, e1rm(s.pesoKg, s.repeticiones))
   }
-  return [...mapa.values()].sort((a, b) => b.pesoKg - a.pesoKg)
+  return [...mapa.values()].sort((a, b) => b.pesoKg - a.pesoKg || b.maxReps - a.maxReps)
 }
 
 /** Mejor 1RM estimado por sesión para un ejercicio, ordenado por fecha. */
@@ -124,20 +133,27 @@ export function progresionEjercicio(
     .sort((a, b) => a.fecha.localeCompare(b.fecha))
 }
 
-export function resumenSemanal(
+/**
+ * Cumplido y objetivo dentro del periodo elegido. Las metas del perfil son
+ * semanales, así que en mes/año se prorratean por los días ya transcurridos.
+ */
+export function resumenPeriodo(
   sesiones: SesionEjercicio[],
   perfil: PerfilEjercicio,
+  periodo: Periodo = 'semana',
   ref = hoyISO(),
 ) {
-  const sem = sesionesSemana(sesiones, ref)
+  const del = sesionesPeriodo(sesiones, periodo, ref)
+  const meta = (semanal: number) => metaDelPeriodo(semanal, periodo, sesiones, ref)
   return {
-    fuerza: sesionesTipo(sem, 'fuerza'),
-    minResistencia: minutosTipo(sem, 'resistencia'),
-    minFlex: minutosTipo(sem, 'flexibilidad'),
-    dias: diasActivos(sem),
-    metaFuerza: perfil.sesionesFuerzaSemana,
-    metaResistencia: perfil.minutosResistenciaSemana,
-    metaFlex: perfil.minutosFlexibilidadSemana,
-    metaDias: perfil.diasActivosSemana,
+    fuerza: sesionesTipo(del, 'fuerza'),
+    minResistencia: minutosTipo(del, 'resistencia'),
+    minFlex: minutosTipo(del, 'flexibilidad'),
+    dias: diasActivos(del),
+    metaFuerza: meta(perfil.sesionesFuerzaSemana),
+    metaResistencia: meta(perfil.minutosResistenciaSemana),
+    metaFlex: meta(perfil.minutosFlexibilidadSemana),
+    // Los días activos no pueden pasar de los días que lleva el periodo.
+    metaDias: Math.min(meta(perfil.diasActivosSemana), diasTranscurridos(periodo, sesiones, ref)),
   }
 }

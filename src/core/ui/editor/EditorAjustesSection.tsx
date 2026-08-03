@@ -5,7 +5,6 @@ import { useT } from '../../i18n/useT'
 import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
-import { useBienvenida } from '../../bienvenida/bienvenidaStore'
 
 /**
  * Sección del editor de mapa: ajustes de la interfaz (idioma, apariencia,
@@ -250,20 +249,6 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
             )
           })}
         </div>
-      </div>
-
-      {/* Bienvenida: relanzar el menú de primera vez (no duplica cuartos). */}
-      <div className="space-y-1.5">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-          {t('ajustes.bienvenida', 'Bienvenida')}
-        </p>
-        <button
-          type="button"
-          onClick={() => useBienvenida.getState().abrir()}
-          className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/70 transition hover:bg-white/10"
-        >
-          {t('ajustes.bienvenida.btn', 'Volver a ver la bienvenida')}
-        </button>
       </div>
     </div>
   )

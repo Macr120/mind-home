@@ -2,7 +2,6 @@ import { create } from 'zustand'
 import { db, type Cuarto } from '../data/db'
 import type { Cell } from '../house/walls'
 import { PINCELES_DEFAULT } from '../house/murosPuertas'
-import { tGlobal } from '../i18n/useT'
 
 /**
  * Cuartos creados por el usuario (instancias genéricas). Sustituye al arreglo
@@ -37,6 +36,8 @@ async function pintarMurosDelColor(cuarto: Cuarto): Promise<void> {
 interface CuartosState {
   cuartos: Cuarto[]
   cargado: boolean
+  /** Cuarto con app asignada a la espera de que el usuario confirme su borrado (ver `EliminarCuartoDialog`). */
+  eliminarPendiente: { id: string; nombre: string } | null
   cargar: () => Promise<void>
   /** Crea un cuarto vacío y lo coloca en una celda libre. Devuelve su id. */
   crear: (parcial?: Partial<Pick<Cuarto, 'nombre' | 'icon' | 'color' | 'categoria'>>) => Promise<string>
@@ -52,13 +53,22 @@ interface CuartosState {
   setCategoria: (id: string, categoria: Cuarto['categoria']) => Promise<void>
   /** Fija el ambiente musical del cuarto (undefined = volver al automático). */
   setTemaMusical: (id: string, tema: Cuarto['temaMusical']) => Promise<void>
-  /** Elimina el cuarto y su rastro (layout/diseño/objetos los limpia el layoutStore). */
+  /**
+   * Elimina el cuarto y su rastro (layout/diseño/objetos los limpia el layoutStore).
+   * Si tiene una app asignada, en vez de borrar de inmediato deja el borrado pendiente
+   * de confirmación en `eliminarPendiente` (lo resuelve `EliminarCuartoDialog`).
+   */
   eliminar: (id: string) => Promise<void>
+  /** Confirma el borrado de `eliminarPendiente` (la plantilla asignada vuelve al catálogo). */
+  confirmarEliminarCuarto: () => Promise<void>
+  /** Cancela el borrado pendiente sin tocar el cuarto. */
+  cancelarEliminarCuarto: () => void
 }
 
 export const useCuartos = create<CuartosState>((set, get) => ({
   cuartos: [],
   cargado: false,
+  eliminarPendiente: null,
 
   cargar: async () => {
     if (get().cargado) return
@@ -136,27 +146,38 @@ export const useCuartos = create<CuartosState>((set, get) => ({
   },
 
   eliminar: async (id) => {
-    // Cuarto con apps asignadas: confirmar antes (las plantillas vuelven al catálogo).
+    // Cuarto con apps asignadas: pedir confirmación en un modal propio antes de borrar
+    // (las plantillas vuelven al catálogo). `window.confirm` no es fiable aquí: en
+    // WebView/Capacitor o en el preview embebido puede no mostrarse y devolver false
+    // sin avisar, dando la impresión de que el cuarto "no se puede borrar".
     // Import dinámico: disenoStore importa este store (evitar el ciclo en la carga).
     const { useDiseño } = await import('./disenoStore')
     const conApp = useDiseño.getState().objetos.some((o) => o.roomId === id && o.plantillaId)
     if (conApp) {
       const cuarto = get().cuartos.find((c) => c.id === id)
-      const ok = window.confirm(
-        tGlobal(
-          'casa.confirmarEliminarCuarto',
-          '«{nombre}» tiene una app asignada. ¿Eliminar el cuarto? La plantilla volverá al catálogo.',
-          { nombre: cuarto?.nombre ?? 'Este cuarto' },
-        ),
-      )
-      if (!ok) return
+      set({ eliminarPendiente: { id, nombre: cuarto?.nombre ?? 'Este cuarto' } })
+      return
     }
-    set((s) => ({ cuartos: s.cuartos.filter((c) => c.id !== id) }))
-    await db.cuartos.delete(id)
-    const { useLayout } = await import('./layoutStore')
-    await useLayout.getState().quitarCuarto(id)
+    await borrarCuartoInterno(id)
   },
+
+  confirmarEliminarCuarto: async () => {
+    const pendiente = get().eliminarPendiente
+    if (!pendiente) return
+    set({ eliminarPendiente: null })
+    await borrarCuartoInterno(pendiente.id)
+  },
+
+  cancelarEliminarCuarto: () => set({ eliminarPendiente: null }),
 }))
+
+/** Borrado efectivo del cuarto: fila en BD + limpieza de layout/diseño/objetos. */
+async function borrarCuartoInterno(id: string): Promise<void> {
+  useCuartos.setState((s) => ({ cuartos: s.cuartos.filter((c) => c.id !== id) }))
+  await db.cuartos.delete(id)
+  const { useLayout } = await import('./layoutStore')
+  await useLayout.getState().quitarCuarto(id)
+}
 
 /** Lookup no-reactivo (equivalente a `getRoom` para instancias de cuarto). */
 export const getCuarto = (id: string): Cuarto | undefined =>

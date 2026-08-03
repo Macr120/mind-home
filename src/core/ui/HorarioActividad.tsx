@@ -64,9 +64,44 @@ export interface Actividad {
 const HORA_DEFECTO = '08:00'
 
 /** 'HH:mm' + minutos → 'HH:mm' (recortado a las 23:59: el bloque no cruza el día). */
-function sumarMin(hora: string, min: number): string {
+export function sumarMin(hora: string, min: number): string {
   const total = Math.min(Number(hora.slice(0, 2)) * 60 + Number(hora.slice(3, 5)) + min, 23 * 60 + 59)
   return `${String(Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`
+}
+
+/**
+ * Escribe el bloque de calendario de una actividad: es lo que hace el botón
+ * «Agendar» de este control, expuesto para que otros caminos (el planificador ✨
+ * del cronograma) agenden exactamente la misma fila. `extra` ajusta campos del
+ * bloque (p. ej. `dias`).
+ */
+export async function agendarActividad(a: Actividad, extra: Partial<Rutina> = {}): Promise<number> {
+  const plantilla = getPlantilla(a.plantillaId)
+  const hora = a.horaSugerida ?? HORA_DEFECTO
+  return rutinasRepo.add(
+    rutinaNueva({
+      nombre: a.nombre,
+      emoji: a.emoji ?? plantilla?.icon ?? '⏰',
+      color: plantilla?.color ?? '#34d399',
+      hora,
+      horaFin: a.duracionMin ? sumarMin(hora, a.duracionMin) : undefined,
+      plantillaId: a.plantillaId,
+      actividadId: a.actividadId,
+      seccion: a.seccion,
+      avisar: !a.sinAviso,
+      pasos: a.registroRapido
+        ? [
+            {
+              titulo: a.registroRapido.etiqueta,
+              roomId: a.plantillaId,
+              esquemaId: a.registroRapido.esquemaId,
+              valores: a.registroRapido.valores,
+            },
+          ]
+        : [],
+      ...extra,
+    }),
+  )
 }
 
 export function HorarioActividad({
@@ -101,30 +136,7 @@ export function HorarioActividad({
   }, [filaId, hechoHoy])
 
   const agendar = async () => {
-    const hora = actividad.horaSugerida ?? HORA_DEFECTO
-    await rutinasRepo.add(
-      rutinaNueva({
-        nombre: actividad.nombre,
-        emoji: actividad.emoji ?? plantilla?.icon ?? '⏰',
-        color,
-        hora,
-        horaFin: actividad.duracionMin ? sumarMin(hora, actividad.duracionMin) : undefined,
-        plantillaId: actividad.plantillaId,
-        actividadId: actividad.actividadId,
-        seccion: actividad.seccion,
-        avisar: !actividad.sinAviso,
-        pasos: actividad.registroRapido
-          ? [
-              {
-                titulo: actividad.registroRapido.etiqueta,
-                roomId: actividad.plantillaId,
-                esquemaId: actividad.registroRapido.esquemaId,
-                valores: actividad.registroRapido.valores,
-              },
-            ]
-          : [],
-      }),
-    )
+    await agendarActividad(actividad)
     setAbierto(true)
   }
 

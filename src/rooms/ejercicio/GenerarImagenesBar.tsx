@@ -5,12 +5,11 @@ import type { ImagenEjercicio } from '../../core/data/db'
 import { iaHabilitada } from '../../core/edicion'
 import { normalizarEjercicio } from './stats'
 import { urlImagenPreset } from './imagenesPreset'
-import {
-  getProveedorImagen,
-  imagenIaActiva,
-  generarImagenEjercicio,
-  guardarImagenEjercicio,
-} from './imagenIA'
+import { imagenIaActiva, generarImagenEjercicio, guardarImagenEjercicio } from './imagenIA'
+import { costoOperacion } from '../../core/cuenta/catalogoIA'
+import { Creditos } from '../../core/ui/Creditos'
+import { useAjustes } from '../../core/state/ajustesStore'
+import { OP_LOTE_IMAGENES } from './costosIA'
 
 interface EjercicioMin {
   nombre: string
@@ -36,6 +35,7 @@ export function GenerarImagenesBar({
   const t = useT()
   const [generando, setGenerando] = useState(false)
   const [progreso, setProgreso] = useState<{ hechas: number; fallidas: number; total: number } | null>(null)
+  const calidadImagen = useAjustes((s) => s.calidadImagen)
 
   const btnAcc = ACENTOS[accent]
 
@@ -50,13 +50,16 @@ export function GenerarImagenesBar({
 
   const generarFaltantes = async () => {
     if (generando || faltantes.length === 0) return
-    const prov = getProveedorImagen()
+    // El total, no un «puede tener costo»: es la operación más cara de la app y
+    // con 40 ejercicios se lleva medio pool del mes.
+    const creditos = costoOperacion(OP_LOTE_IMAGENES, { n: faltantes.length, calidad: calidadImagen })
     if (
       !window.confirm(
-        t('ejercicio.confirmarGenerarImagenes', 'Se generarán {n} imágenes con {proveedor}. Esto puede tener costo. ¿Continuar?', {
-          n: String(faltantes.length),
-          proveedor: prov.nombre,
-        }),
+        t(
+          'ejercicio.confirmarGenerarImagenes',
+          'Se generarán {n} imágenes y costará {c} créditos. ¿Continuar?',
+          { n: String(faltantes.length), c: String(creditos) },
+        ),
       )
     ) {
       return
@@ -95,6 +98,9 @@ export function GenerarImagenesBar({
           ? `Generando ${progreso?.hechas ?? 0}/${progreso?.total ?? faltantes.length}…`
           : <><Icono nombre="brillo" /> {t('ejercicio.img.generar', 'Generar faltantes ({n})', { n: String(faltantes.length) })}</>}
       </button>
+      {faltantes.length > 0 && !generando && (
+        <Creditos op={OP_LOTE_IMAGENES} ctx={{ n: faltantes.length }} />
+      )}
       {progreso && !generando && (
         <span className="text-[11px] text-white/50">
           {t('ejercicio.img.listas', 'Listas:')} {progreso.hechas}

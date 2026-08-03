@@ -1,7 +1,11 @@
 import Dexie, { type Table } from 'dexie'
+import { esDemo, esDemoAutor } from '../edicion'
+import { demoGuard } from './demoGuard'
+import { fechaLocalISO } from '../fechaLocal'
 import { nombreAleatorio } from '../house/nombresAnimales'
 import { syncMiddleware } from './sync/middleware'
 import { TABLAS_SYNC } from './sync/syncables'
+import { haySandboxDemoSucio } from '../../demo/modo'
 
 /**
  * Capa de datos LOCAL (IndexedDB vía Dexie).
@@ -13,13 +17,22 @@ import { TABLAS_SYNC } from './sync/syncables'
 
 // ----- Entidades (modelos de datos compartidos) -----
 
+/** Cada cuánto se repite un movimiento. Sin valor (filas viejas) = 'unico'. */
+export type PeriodoMovimiento = 'unico' | 'dia' | 'semana' | 'mes' | 'anio'
+
 export interface Transaccion {
   id?: number
-  fecha: string // ISO yyyy-mm-dd
+  /** ISO yyyy-mm-dd. Si se repite, es la fecha en que ARRANCA la repetición. */
+  fecha: string
   tipo: 'ingreso' | 'gasto'
+  /** Texto libre: el usuario escribe la suya y la app le sugiere las conocidas. */
   categoria: string
   monto: number
   nota?: string
+  /** Plazo: 'unico' o cada día/semana/mes/año (antes, la tabla `movimientosFijos`). */
+  periodo?: PeriodoMovimiento
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
 }
 
 export interface RegistroSueno {
@@ -34,6 +47,8 @@ export interface RegistroSueno {
   horaDespertar?: string
   /** Veces que se despertó durante la noche. */
   interrupciones?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Horario de sueño y despertador (una fila, estilo Apple Sueño). */
@@ -50,6 +65,10 @@ export interface PerfilSueno {
   tono?: string
   /** Volumen del despertador (0–1), independiente del de la música. */
   volumenAlarma?: number
+  /** El despertador solo se apaga con una foto que la IA apruebe. */
+  evidenciaActiva?: boolean
+  /** Qué debe mostrar esa foto (ej. «mi cama tendida»). */
+  evidenciaTarea?: string
 }
 
 interface Anecdota {
@@ -60,14 +79,60 @@ interface Anecdota {
   animo: string // emoji o palabra
   /** Fotos del recuerdo (redimensionadas al guardar). */
   fotos?: Blob[]
+  /**
+   * Miniaturas ~200px, paralelas a `fotos` (mismo índice). Las rejillas pintan
+   * la mini y el visor la foto completa. Dexie no indexa blobs: agregar el
+   * campo NO requiere subir la versión del esquema. Entradas viejas no la
+   * tienen y caen a la foto completa.
+   */
+  miniaturas?: Blob[]
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
-/** Meta de ahorro (Finanzas). */
-interface Meta {
+/** Meta de ahorro, inversión o deuda (Finanzas). */
+export interface Meta {
   id?: number
   nombre: string
   objetivo: number
+  /** Lo acumulado: ahorrado, invertido o pagado según el tipo. */
   ahorrado: number
+  /** Las filas viejas no lo traen: cuentan como 'ahorro'. */
+  tipo?: 'ahorro' | 'inversion' | 'deuda'
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+}
+
+/**
+ * Movimiento fijo mensual (Finanzas). RETIRADA en v105: lo fijo es ahora el
+ * `periodo` de una `Transaccion`. La tabla se conserva (vacía tras migrar) para
+ * que los respaldos anteriores sigan restaurando sin error.
+ */
+export interface MovimientoFijo {
+  id?: number
+  tipo: 'ingreso' | 'gasto'
+  categoria: string
+  monto: number
+  nota?: string
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+}
+
+/**
+ * Posición del portafolio de inversiones (Finanzas). Los precios son en USD.
+ * RETIRADA: el tercer menú del despacho es ahora Mercados (solo consulta); la
+ * tabla se queda por los respaldos que ya la traigan.
+ */
+export interface Posicion {
+  id?: number
+  tipo: 'accion' | 'cripto'
+  /** Ticker US (AAPL) o id de CoinGecko (bitcoin). */
+  simbolo: string
+  cantidad: number
+  /** Precio de compra por unidad (USD). */
+  costoUnitario: number
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
 }
 
 /** Presupuesto. categoria '__mensual__' = presupuesto total del mes. */
@@ -77,10 +142,22 @@ interface Presupuesto {
   monto: number
 }
 
-/** Acción de la watchlist de Mercados (ticker US, ej. AAPL). */
+/**
+ * Activo que el usuario sigue en Mercados, en cualquiera de los cuatro mercados.
+ * `mercado` y `etiqueta` son opcionales y sin índice nuevo, así que no hacen
+ * falta migración ni versión: las filas anteriores son acciones.
+ */
 export interface AccionWatch {
   id?: number
+  /**
+   * Identificador según el mercado: ticker US (`AAPL`), par de divisas
+   * (`EUR/GBP`), id de CoinGecko (`cardano`) o ETF de materia prima (`PALL`).
+   */
   simbolo: string
+  /** Sin valor = 'acciones' (las filas creadas antes de los cuatro mercados). */
+  mercado?: 'divisas' | 'criptos' | 'acciones' | 'commodities'
+  /** Nombre que le pone el usuario; las materias primas lo necesitan (los ETF no traen nombre). */
+  etiqueta?: string
 }
 
 // ----- Cocina · Nutrición -----
@@ -141,6 +218,12 @@ export interface ListaCompra {
   id?: number
   nombre: string
   creadoEn: string
+  /**
+   * Gasto del despacho (tabla `transacciones`) con la cuenta de esta lista. Se
+   * crea al registrar la cuenta y se actualiza si el total cambia, así que la
+   * compra vive en un único movimiento y no en uno por cada retoque.
+   */
+  gastoId?: number
 }
 
 /** Artículo de la lista de compras del súper, agrupado por categoría (pasillo). */
@@ -155,6 +238,8 @@ export interface ItemCompra {
   creadoEn: string
   /** Lista guardada a la que pertenece; ausente = suelto en el generador ("Crear lista"). */
   listaId?: number
+  /** Lo que costó (la cuenta de la lista es su suma). */
+  precio?: number
 }
 
 /** Receta del recetario (manual o pedida a la IA). Macros POR PORCIÓN. */
@@ -202,6 +287,12 @@ export interface DietaGuardada {
 
 export type TipoEntrenamiento = 'fuerza' | 'resistencia' | 'flexibilidad'
 
+/**
+ * Sistema de medidas con el que se muestran pesos y distancias.
+ * Los datos SIEMPRE se guardan en kg y km; esto solo afecta a la presentación.
+ */
+export type SistemaUnidades = 'internacional' | 'ingles'
+
 /** Objetivos semanales por modalidad. */
 export interface PerfilEjercicio {
   id?: number
@@ -209,6 +300,8 @@ export interface PerfilEjercicio {
   minutosResistenciaSemana: number
   minutosFlexibilidadSemana: number
   diasActivosSemana: number
+  /** Sin índice: no necesita versión nueva de la base. */
+  unidades?: SistemaUnidades
 }
 
 /** Sesión registrada (cualquier modalidad). */
@@ -389,6 +482,20 @@ export type TipoMedia = 'pelicula' | 'serie' | 'libro' | 'videojuego'
 
 export type EstadoMedia = 'pendiente' | 'en_curso' | 'completado'
 
+/** Resumen de la obra generado por IA (no es la reseña del usuario). */
+export interface ResumenMedia {
+  /** Datos en una línea: año, país o estudio, duración/temporadas/páginas. */
+  ficha: string
+  sinopsis: string
+  /** Apuntes cortos: temas, estilo, por qué destaca. */
+  claves: string[]
+  /** La sinopsis evita el desenlace (obra pendiente o en curso). */
+  sinSpoilers: boolean
+  /** Título del artículo en Wikipedia en inglés, si la IA lo reconoció. */
+  wiki?: string
+  creadoEn: string
+}
+
 /** Entrada del archivo personal (películas, series, libros, juegos). */
 export interface MediaArchivo {
   id?: number
@@ -403,7 +510,13 @@ export interface MediaArchivo {
   resena: string
   /** Autor, director, desarrollador, etc. */
   autor?: string
+  /** Resumen pedido a la IA (campo sin índice: no sube versión). */
+  resumen?: ResumenMedia
+  /** URL remota de la carátula (Wikipedia u Open Library). */
+  portada?: string
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 export type CategoriaJuegoMesa =
@@ -433,6 +546,8 @@ export interface JuegoMesa {
   ultimaPartida?: string
   estado: EstadoJuegoMesa
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 // ----- Biblioteca · Enciclopedia conversacional -----
@@ -471,10 +586,14 @@ export interface EntradaBiblio {
   titulo: string
   resumen: string
   puntosClave: string[]
+  /** Ilustración de la entrada (subida o generada con IA); sin índice, no pide migración. */
+  imagen?: Blob
   /** Charla origen (ausente = entrada manual o charla borrada). */
   conversacionId?: number
   creadoEn: string
   actualizadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Sesión de estudio con temporizador (minutos por campo). */
@@ -486,6 +605,8 @@ export interface SesionEstudio {
   /** yyyy-mm-dd local. */
   fecha: string
   nota?: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Nodo dinámico del índice vivo (los temas de pilares.ts son el esqueleto estático). */
@@ -586,6 +707,8 @@ export interface LugarViaje {
   metaId?: number
   nota?: string
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Fila de la hoja de plan día a día de un lugar por conocer. */
@@ -602,6 +725,8 @@ export interface DiaItinerario {
   actividades?: string
   transporte?: string
   presupuesto?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Ruta de viaje: secuencia ordenada de lugares. */
@@ -610,6 +735,8 @@ export interface RutaViaje {
   nombre: string
   lugarIds: number[]
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Foto de portada elegida para la carpeta (país) de la bitácora. */
@@ -655,6 +782,8 @@ export interface RecuerdoViaje {
   texto: string
   fotos?: Blob[]
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 // ----- Jardín · Mindfulness -----
@@ -680,6 +809,8 @@ export interface SesionMindfulness {
   /** Check-in emocional 1–5 antes/después de la sesión (opcional). */
   animoAntes?: number
   animoDespues?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Legado (app vieja del jardín): se conserva por datos históricos. */
@@ -698,6 +829,8 @@ export interface GratitudDiaria {
   item1: string
   item2: string
   item3: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Legado (app vieja del jardín): se conserva por datos históricos. */
@@ -760,6 +893,74 @@ export interface RegistroMantenimiento {
   nota?: string
   proximoOdometro?: number
   proximaFecha?: string
+}
+
+/**
+ * Trámite o documento periódico de un vehículo. Los cuatro primeros solo tienen
+ * sentido con placa (`Vehiculo.matricula`): una bicicleta no paga tenencia.
+ */
+export type TipoTramite =
+  | 'mantenimiento'
+  | 'tenencia'
+  | 'verificacion'
+  | 'circulacion'
+  | 'seguro'
+  | 'otro'
+
+/**
+ * Obligación con fecha de un vehículo (tenencia, verificación, póliza, servicio).
+ * `fecha` es SIEMPRE el próximo vencimiento: al marcarlo hecho se guarda el gasto
+ * en `registrosMantenimiento` y la fecha salta `cadaMeses` hacia adelante, así que
+ * la fila no crece con el historial y el calendario nunca tiene que repetirla.
+ */
+export interface TramiteVehiculo {
+  id?: number
+  /** Id estable ('tv-…'): amarra las rutinas que proyecta en el calendario. */
+  tramiteId: string
+  vehiculoId: number
+  tipo: TipoTramite
+  titulo: string
+  /** Próximo vencimiento (yyyy-mm-dd). */
+  fecha: string
+  /** 'HH:mm' del recordatorio; vacío = HORA_TRAMITE. */
+  hora?: string
+  /** Meses entre repeticiones; 0/ausente = trámite de una sola vez. */
+  cadaMeses?: number
+  /** Días de anticipación del aviso previo; 0/ausente = avisar solo el día. */
+  avisoDias?: number
+  costo?: number
+  /** Póliza, folio o número de referencia. */
+  folio?: string
+  /** Contacto que lo atiende (`TallerVehiculo.tallerId`). */
+  tallerId?: string
+  nota?: string
+  activo: boolean
+  creadoEn: string
+}
+
+/** A qué se dedica el contacto guardado en el garaje. */
+export type TipoTaller =
+  | 'taller'
+  | 'aseguradora'
+  | 'verificentro'
+  | 'refaccionaria'
+  | 'grua'
+  | 'otro'
+
+/** Contacto del garaje: mecánico, aseguradora, verificentro, grúa… */
+export interface TallerVehiculo {
+  id?: number
+  /** Id estable ('tl-…'): es lo que guarda `TramiteVehiculo.tallerId`. */
+  tallerId: string
+  nombre: string
+  tipo: TipoTaller
+  telefono?: string
+  correo?: string
+  direccion?: string
+  /** Vehículo al que atiende; vacío = sirve para todos. */
+  vehiculoId?: number
+  notas?: string
+  creadoEn: string
 }
 
 // ----- Perfil y personalización de la casa (editor de mapa) -----
@@ -880,11 +1081,33 @@ export interface Cuarto {
   temaMusical?: import('../state/ajustesStore').MoodMusica | 'silencio'
 }
 
+/**
+ * Cuadrante del mapa: rectángulo de celdas al que la cámara puede saltar en mapas
+ * grandes. OJO: aquí "cuadrante" es una ZONA DEL MAPA, no el ¼ de celda del pincel
+ * fino (`svgACuadrante`) ni las esquinas del HUD.
+ */
+export interface CuadranteMapa {
+  id: string
+  nombre: string
+  /** Celda superior-izquierda. */
+  col: number
+  row: number
+  /** Tamaño en celdas. */
+  cols: number
+  rows: number
+  /** Color de la zona dibujada (los bloques automáticos no lo usan). */
+  color?: string
+}
+
 /** Configuración global del mapa (tamaño de la rejilla). */
 interface MapaConfig {
   id?: number
   cols: number
   rows: number
+  /** Lado de cada celda en metros (default 6, ver walls.TAM_CELDA_BASE). */
+  celda?: number
+  /** Cuadrantes dibujados por el usuario (los automáticos se calculan, no se guardan). */
+  cuadrantes?: CuadranteMapa[]
 }
 
 /**
@@ -1087,6 +1310,16 @@ interface Memoria {
 }
 
 /**
+ * A dónde lleva el chip de un mensaje del asistente: el menú de la app donde
+ * quedó lo que ese turno guardó o cambió (app de un cuarto, side menu, editor…).
+ */
+export type DestinoChat =
+  | { tipo: 'app'; appId: string; seccion?: string; dato?: string }
+  | { tipo: 'menu'; tab: 'cuartos' | 'plantillas' | 'inventario' }
+  | { tipo: 'editor'; tab: 'mapa' | 'personajes' | 'objetos' | 'config'; grupo?: string }
+  | { tipo: 'rutinas' }
+
+/**
  * Mensaje de la conversación con un asistente (interfaz tipo chat).
  * Cada asistente tiene su propio hilo: lo que el usuario escribió y lo que
  * el asistente respondió quedan aquí para releerlos cuando se quiera.
@@ -1097,6 +1330,12 @@ interface MensajeChat {
   rol: 'usuario' | 'asistente'
   texto: string
   creado: string // ISO timestamp
+  /** Mapa de Ideas dibujado en ese turno: la conversación lo muestra en miniatura. */
+  mapaId?: number
+  /** Chip "abrir X" bajo el mensaje: lleva a donde quedó lo guardado. */
+  destino?: DestinoChat
+  /** Imagen generada con IA en ese turno: se muestra dentro de la burbuja. */
+  imagen?: Blob
 }
 
 /**
@@ -1284,6 +1523,8 @@ export interface Rutina {
   padreId?: number
   /** Posición entre hermanas (arrastrar para reordenar). */
   orden?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /**
@@ -1375,6 +1616,8 @@ export type NivelPartida = 'cero' | 'algo' | 'medio' | 'avanzado'
 
 /** Lo que se le pregunta al usuario antes de pedirle un plan a la IA. */
 export interface EntradaPlan {
+  /** yyyy-mm-dd; el día 0 del plan. Sin valor (planes viejos) = el día que se generó. */
+  fechaInicio?: string
   /** yyyy-mm-dd; sin valor = sin fecha objetivo (la IA decide cuánto debe durar). */
   fechaObjetivo?: string
   horasSemana: number
@@ -1394,6 +1637,15 @@ export interface NodoPlan {
   ini: number
   /** Último día que ocupa, inclusivo. */
   fin: number
+}
+
+/** Material propio de la app elegido para un plan (una receta, un mazo…). */
+export interface MaterialPlan {
+  nombre: string
+  /** Nombre de la actividad agendable donde va («Desayuno»); sin valor = general. */
+  rutina?: string
+  /** Por qué esta pieza sirve a la meta, en una frase. */
+  motivo: string
 }
 
 /**
@@ -1418,6 +1670,8 @@ export interface PlanMeta {
   entrada: EntradaPlan
   /** La frase con la que la IA resume su propuesta. */
   resumen?: string
+  /** Material de la app repartido por el plan (recetas → momentos de comida). */
+  material?: MaterialPlan[]
   creadoEn: string
   /** Cuándo se pasó al cronograma real; sin valor = sigue siendo propuesta. */
   aceptadoEn?: string
@@ -1542,6 +1796,8 @@ export interface CaminoCelda {
   altura?: number
   /** Solo pista: celda con la línea de meta del circuito (una sola en el mapa). */
   meta?: boolean
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Especies sembrables del huerto (catálogo con tiempos en src/core/house/cultivos.ts). */
@@ -1561,10 +1817,12 @@ export interface CultivoCelda {
   cosechas?: number
   /** ms época de instalación del aspersor (riega su celda + 8 vecinas para siempre). */
   aspersorEn?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Tipos de animal de granja (catálogo con tiempos en src/core/state/granjaStore.ts). */
-export type TipoAnimal = 'gallina' | 'cerdo' | 'vaca' | 'cabra' | 'oveja'
+export type TipoAnimal = 'gallina' | 'cerdo' | 'vaca' | 'cabra' | 'oveja' | 'caballo'
 
 /** Accesorio de juego dentro de un corral: ocupa una celda del rect (máx. 1 por celda). */
 export type TipoAccesorio = 'lodo' | 'tina' | 'pelota'
@@ -1586,6 +1844,10 @@ export interface Corral {
   ancho: number
   alto: number
   accesorios?: AccesorioCorral[]
+  /** ms época de la última limpieza; sucio al pasar la semana (el ánimo cae al doble). */
+  limpiadoEn?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Animal de granja: vive dentro de un corral (varios por corral). */
@@ -1597,10 +1859,18 @@ export interface AnimalGranja {
   alimentadoEn: number
   /** ms época del último mimo (caricia, baño o juego); aburrido al vencer la ventana. */
   mimadoEn?: number
+  /**
+   * ms época en que la app DETECTÓ la enfermedad, no en que empezó: el plazo para
+   * curarlo antes de que muera corre desde que pudiste verlo. Sin esto, volver tras
+   * un mes fuera encontraría el corral entero muerto en vez de enfermo.
+   */
+  enfermoDesde?: number
   nombre?: string
   /** Celda legada pre-v86 (solo la lee la reparación de respaldos viejos). */
   col?: number
   row?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Cesta del huerto: cosechas acumuladas por especie (el alimento de la granja). */
@@ -1666,6 +1936,8 @@ export interface Hobby {
   /** Meta: días de práctica por semana (1–7); sin meta si falta. */
   metaDiasSemana?: number
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Sesión de práctica registrada de un hobby. */
@@ -1677,6 +1949,8 @@ export interface SesionHobby {
   nota?: string
   /** Proyecto al que se dedicó la sesión (opcional). */
   proyectoId?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Proyecto dentro de un hobby (ej. "tejer bufanda" en "tejido"). */
@@ -1691,6 +1965,8 @@ export interface ProyectoHobby {
   nota?: string
   /** Fotos del avance (JPEG comprimidos, ver `comprimirFoto`). */
   imagenes?: Blob[]
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Tipo de herramienta (bloque) de una plantilla personalizada. */
@@ -1767,7 +2043,23 @@ export interface GrupoPlantilla {
   miembros: string[]
   /** Carpeta de la semilla inicial: no se puede borrar (las creadas por el usuario sí). */
   esBase?: boolean
+  /** Plegada en el catálogo: solo se ve su encabezado. */
+  plegado?: boolean
 }
+
+/**
+ * Carpetas base del catálogo de plantillas. Es a la vez la semilla de la primera
+ * carga (`gruposPlantillaStore`) y el destino de la migración v101, para que
+ * ambas rutas den exactamente el mismo reparto. Cubren TODAS las apps de cuarto;
+ * las personalizadas caen en la primera por reconciliación (`asegurarMiembros`).
+ */
+export const GRUPOS_PLANTILLA_BASE: { nombre: string; emoji: string; miembros: string[] }[] = [
+  { nombre: 'Cuerpo', emoji: '💪', miembros: ['ejercicio', 'cocina', 'descanso'] },
+  { nombre: 'Estudio', emoji: '📚', miembros: ['biblioteca', 'idiomas', 'ideas'] },
+  { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'calendario', 'agenda'] },
+  { nombre: 'Pasatiempos', emoji: '🎉', miembros: ['entretenimiento', 'diario', 'hobbies'] },
+  { nombre: 'Memorias y salud mental', emoji: '🧠', miembros: ['anecdotario', 'sala', 'jardin'] },
+]
 
 /** Objeto del conjunto de una app: recurso 3D (o `tipo` especial), su posición y si es el principal. */
 export interface SiembraGuardada {
@@ -1804,6 +2096,8 @@ export interface PerfilIdioma {
   /** Nivel MCER del usuario en este idioma: A1…C2. */
   nivel: string
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 export type TipoTarjeta = 'palabra' | 'frase' | 'expresion'
@@ -1818,6 +2112,8 @@ export interface TarjetaIdioma {
   traduccion: string
   /** Frase de ejemplo en el idioma objetivo (alimenta el ejercicio de completar). */
   ejemplo?: string
+  /** Imagen mnemotécnica (subida o generada con IA); sin índice, no pide migración. */
+  imagen?: Blob
   tipo: TipoTarjeta
   /** Tema del temario (estático de temario.ts o dinámico); ausente = suelta. */
   temaId?: string
@@ -1830,6 +2126,8 @@ export interface TarjetaIdioma {
   ultimaISO?: string
   fuente: 'manual' | 'charla' | 'ia'
   creadoEn: string
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Charla de práctica con el tutor, por idioma. */
@@ -1869,6 +2167,8 @@ export interface TemaIdioma {
   creadoEn: string
   /** Charla que lo desbloqueó (se desliga si la charla se borra). */
   conversacionId?: number
+  /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
+  ejemploDe?: string
 }
 
 /** Material propio que el usuario sube a un tema del temario (apuntes o fotos). */
@@ -1896,6 +2196,331 @@ export interface RepasoIdioma {
   /** Respuestas dadas ese día (tarjetas + ejercicios). */
   repasos: number
   aciertos: number
+}
+
+// ----- Ideas · diario, mapas conceptuales y diagramas de decisión -----
+
+/**
+ * Idea del diario. `tema` agrupa las de una misma lluvia (y es su carpeta en la
+ * vista por temas); sin tema es una idea suelta que solo cae en su día.
+ */
+export interface Idea {
+  id?: number
+  texto: string
+  /** Desarrollo opcional de la idea (el «detrás» que no cabe en una línea). */
+  detalle?: string
+  /** Tema de la lluvia a la que pertenece; vacío = idea suelta. */
+  tema?: string
+  /** Destacada. NO se indexa: IndexedDB no acepta booleanos como clave. */
+  favorita?: boolean
+  fecha: string
+  creadoEn: string
+}
+
+/**
+ * Formato del mapa. Decide el layout, el fondo y cómo se dibujan las uniones.
+ *
+ * Mapas conceptuales:
+ * - `mental`   radial clásico (burbujas alrededor de la idea central)
+ * - `arbol`    jerarquía de arriba a abajo (organigrama)
+ * - `llaves`   el todo y sus partes, de izquierda a derecha con llaves
+ * - `circulo`  idea al centro rodeada de su contexto
+ * - `flujo`    secuencia de pasos con flechas (inicio, proceso, decisión, fin)
+ * - `venn`     2 o 3 conjuntos que se solapan; cada elemento cae en una región
+ * - `comparacion` dos temas enfrentados: lo propio de cada uno y lo común
+ *
+ * - `linea`    hitos en orden sobre una recta, alternando arriba y abajo
+ * - `ciclo`    etapas encadenadas en círculo que vuelven a empezar
+ * - `piramide` cuatro niveles apilados: la base sostiene a la cima
+ *
+ * Diagramas de decisión (misma tabla y mismo lienzo, otra geometría):
+ * - `proscontras` ventajas y desventajas de UNA opción, en dos columnas con peso
+ * - `fuerzas`  campo de fuerzas: lo que empuja el cambio contra lo que lo frena
+ * - `foda`     cuatro cuadrantes: fortalezas, oportunidades, debilidades, amenazas
+ * - `eisenhower` urgente contra importante, en los mismos cuatro cuadrantes
+ * - `decision` árbol de decisiones: cada opción y sus consecuencias
+ * - `tier`     filas de la S a la D para ordenar cualquier cosa por nivel
+ * - `matriz`   matriz de decisión ponderada; NO es un lienzo, es una tabla
+ * - `ishikawa` espina de pescado: un problema y las causas que lo empujan
+ */
+export type TipoMapa =
+  | 'mental'
+  | 'arbol'
+  | 'llaves'
+  | 'circulo'
+  | 'flujo'
+  | 'linea'
+  | 'ciclo'
+  | 'piramide'
+  | 'venn'
+  | 'comparacion'
+  | 'proscontras'
+  | 'fuerzas'
+  | 'foda'
+  | 'eisenhower'
+  | 'decision'
+  | 'tier'
+  | 'matriz'
+  | 'ishikawa'
+
+/** Mapa conceptual de lienzo libre; sus nodos viven en `nodosMapa`. */
+export interface MapaIdeas {
+  id?: number
+  nombre: string
+  /** Formato; sin valor = 'mental' (los mapas creados antes de la v98). */
+  tipo?: TipoMapa
+  /** Hex del nodo raíz (sin valor, el color de la app). */
+  color?: string
+  /**
+   * Es el ejemplo de fábrica de su formato (uno por tipo): se crea al pedirlo
+   * desde la app, lleva su guía encima y se puede editar o borrar como
+   * cualquier otro mapa.
+   */
+  ejemplo?: boolean
+  fecha: string
+  creadoEn: string
+}
+
+/** Forma del nodo en un diagrama de flujo (sin valor = proceso). */
+export type FormaNodo = 'inicio' | 'proceso' | 'decision' | 'fin'
+
+/**
+ * Nodo de un mapa, con posición propia en el lienzo.
+ *
+ * Las RAÍCES (`padreId: null`) son los ejes del mapa: una sola en los formatos
+ * jerárquicos, y 2-3 en `venn`/`comparacion` (un nodo por conjunto/tema).
+ */
+export interface NodoMapa {
+  id?: number
+  mapaId: number
+  /** Id único estable ('nod-…'): identidad entre dispositivos (patrón temasArbol). */
+  nodoId: string
+  /** nodoId del padre, o null = nodo raíz del mapa. */
+  padreId: string | null
+  texto: string
+  /** Centro en unidades del mundo (px a zoom 1; la raíz nace en 0,0). */
+  x: number
+  y: number
+  /** Hex heredado de su rama de primer nivel (la raíz usa el del mapa). */
+  color?: string
+  /**
+   * Región a la que pertenece en los mapas por zonas: en `venn` la combinación
+   * de conjuntos ('a', 'b', 'ab', 'abc'…) y en `comparacion` 'izq'|'centro'|'der'.
+   *
+   * La `matriz` no es un lienzo sino una tabla y la reaprovecha: sus filas raíz
+   * llevan 'criterio' u 'opcion', y cada celda cuelga de su criterio (`padreId`)
+   * guardando aquí el `nodoId` de su opción. Así la tabla vive en las mismas dos
+   * tablas que los mapas, sin esquema propio.
+   */
+  zona?: string
+  /** Solo en `flujo`: qué figura se dibuja. */
+  forma?: FormaNodo
+  /**
+   * En `proscontras` y `fuerzas`, cuánto pesa ese punto (1-5): sin valor cuenta
+   * como 1, así la suma de una columna sin tocar es su número de puntos. En
+   * `matriz` es la importancia del criterio y el puntaje de cada celda.
+   */
+  peso?: number
+  fecha: string
+  creadoEn: string
+}
+
+// ----- Agenda · trabajo, salud y personas -----
+
+/** Sección de la agenda: decide pestaña, color del bloque y a dónde salta el aviso. */
+export type AreaAgenda = 'trabajo' | 'salud' | 'personas'
+
+/**
+ * Una cosa que hacer o a la que ir. Es la fila COMÚN de las tres secciones: la
+ * junta del martes, la cita con el dentista y el café con Ana tienen la misma
+ * forma (qué, cuándo, dónde, con quién) y solo cambian de `area`. Una sola tabla
+ * = un CRUD, un formulario, un archivador y un puente al calendario en vez de tres.
+ *
+ * SIN `fecha` es un pendiente de bandeja (solo Trabajo los ofrece) y no proyecta
+ * ninguna rutina. Con `fecha` y sin `hora` cae en la fila "sin hora" del
+ * calendario, y por eso no avisa: `core/avisos.ts` exige hora para notificar.
+ */
+export interface EventoAgenda {
+  id?: number
+  /** Id único estable ('ag-…'): amarra la fila con la rutina que proyecta. */
+  evId: string
+  area: AreaAgenda
+  titulo: string
+  /** yyyy-mm-dd LOCAL (fechaLocalISO, nunca toISOString). */
+  fecha?: string
+  /** 'HH:mm' de inicio. */
+  hora?: string
+  /** 'HH:mm' de fin; vacío = una hora. */
+  horaFin?: string
+  lugar?: string
+  /** Con quién: el médico, el cliente, la persona (texto libre, sin ficha). */
+  con?: string
+  /** `contactoId` de la persona ligada (string estable, no el id numérico). */
+  contactoId?: string
+  /** `proyId` del proyecto que lo agrupa (Trabajo). */
+  proyectoId?: string
+  /** `mascId` de la mascota a la que pertenece la cita (Salud). */
+  mascotaId?: string
+  /** 1 alta · 2 media · 3 baja; sin valor = media. */
+  prioridad?: number
+  notas?: string
+  hecho?: boolean
+  /** yyyy-mm-dd en que se palomeó (es lo que cuenta como actividad del día). */
+  hechoEn?: string
+  /**
+   * Columna del tablero Kanban de Trabajo: sin valor = «Por hacer». `hecho`
+   * MANDA sobre esto (una tarjeta palomeada está en «Hecho» aunque quedara
+   * marcada en curso). No se indexa: IndexedDB no acepta booleanos como clave.
+   */
+  enCurso?: boolean
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
+}
+
+/**
+ * Persona de la libreta. El cumpleaños no es adorno: proyecta una rutina anual
+ * con hora, que es la única forma de que el calendario lo pinte Y avise.
+ */
+export interface ContactoAgenda {
+  id?: number
+  /** Id único estable ('ct-…'). */
+  contactoId: string
+  nombre: string
+  /** Vínculo libre ('familia', 'trabajo', 'amigos'): agrupa la libreta en carpetas. */
+  relacion?: string
+  telefono?: string
+  correo?: string
+  /** yyyy-mm-dd; el año es el de nacimiento (de ahí sale la edad que cumple). */
+  cumple?: string
+  /** 'HH:mm' del recordatorio; vacío = HORA_CUMPLE. */
+  horaCumple?: string
+  /** Retrato ya comprimido (comprimirFoto de rooms/_shared/fotos.tsx). */
+  foto?: Blob
+  direccion?: string
+  notas?: string
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
+}
+
+/** Proyecto de Trabajo: agrupa pendientes y eventos. No agenda nada por sí mismo. */
+export interface ProyectoAgenda {
+  id?: number
+  /** Id único estable ('py-…'). */
+  proyId: string
+  nombre: string
+  /** Hex propio del chip; vacío = el color de Trabajo. */
+  color?: string
+  activo: boolean
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
+}
+
+/**
+ * Medicamento en curso. Cada hora de `horas` se proyecta como UNA rutina
+ * recurrente con aviso; editarlo las regenera todas (ver rooms/agenda/calendario.ts).
+ */
+export interface Medicamento {
+  id?: number
+  /** Id único estable ('md-…'). */
+  medId: string
+  nombre: string
+  /** '500 mg', '1 pastilla', '10 gotas'. */
+  dosis?: string
+  /** `mascId` de la mascota que lo toma; vacío = es tuyo. */
+  mascotaId?: string
+  /** Horas de toma 'HH:mm'; vacío = sin recordatorio (solo queda registrado). */
+  horas: string[]
+  /** Días 0=domingo … 6=sábado; vacío = todos los días. */
+  dias: number[]
+  fechaInicio: string
+  /** yyyy-mm-dd; vacío = tratamiento indefinido. */
+  fechaFin?: string
+  notas?: string
+  activo: boolean
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
+}
+
+/** Especie de la mascota: decide el emoji con el que se pinta su ficha. */
+export type EspecieMascota =
+  | 'perro'
+  | 'gato'
+  | 'ave'
+  | 'pez'
+  | 'roedor'
+  | 'reptil'
+  | 'caballo'
+  | 'otro'
+
+/**
+ * Mascota de la casa. Vive en Salud porque lo que se agenda de ella es de la
+ * misma naturaleza que lo tuyo: citas, tratamientos y cuidados que se repiten.
+ * No agenda nada por sí misma; lo hacen sus cuidados (`CuidadoMascota`) y las
+ * citas y medicamentos que la señalan con `mascotaId`.
+ */
+export interface Mascota {
+  id?: number
+  /** Id único estable ('ms-…'): es lo que guardan cuidados, citas y medicamentos. */
+  mascId: string
+  nombre: string
+  especie: EspecieMascota
+  raza?: string
+  /** yyyy-mm-dd; de aquí sale la edad que se muestra en la ficha. */
+  nacimiento?: string
+  /** Kilos del último pesaje. */
+  peso?: number
+  /** Veterinario de cabecera (texto libre, sin ficha propia). */
+  veterinario?: string
+  telefono?: string
+  /** Retrato ya comprimido (comprimirFoto de rooms/_shared/fotos.tsx). */
+  foto?: Blob
+  notas?: string
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
+}
+
+/** A qué corresponde el cuidado: decide su emoji en el calendario. */
+export type TipoCuidadoMascota =
+  | 'vacuna'
+  | 'desparasitacion'
+  | 'veterinario'
+  | 'bano'
+  | 'peluqueria'
+  | 'alimento'
+  | 'otro'
+
+/**
+ * Cuidado que le toca a una mascota. `fecha` es SIEMPRE la próxima vez, y
+ * `cadaMeses` la empuja al siguiente periodo cuando lo das por hecho (mismo
+ * patrón que los trámites del garaje): así el calendario nunca queda apuntando
+ * a una vacuna que ya se puso.
+ */
+export interface CuidadoMascota {
+  id?: number
+  /** Id único estable ('cu-…'): amarra la rutina que proyecta en el calendario. */
+  cuidadoId: string
+  /** `Mascota.mascId` (string estable, no el id numérico). */
+  mascotaId: string
+  tipo: TipoCuidadoMascota
+  titulo: string
+  /** Próxima vez (yyyy-mm-dd). */
+  fecha: string
+  /** 'HH:mm' del recordatorio; vacío = HORA_CUIDADO. */
+  hora?: string
+  /** Meses entre repeticiones; 0/ausente = cuidado de una sola vez. */
+  cadaMeses?: number
+  /** yyyy-mm-dd de la última vez que se dio por hecho. */
+  ultima?: string
+  nota?: string
+  activo: boolean
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
 }
 
 // ----- Música -----
@@ -1980,6 +2605,8 @@ class MindHomeDB extends Dexie {
   perfilMindfulness!: Table<PerfilMindfulness, number>
   vehiculos!: Table<Vehiculo, number>
   registrosMantenimiento!: Table<RegistroMantenimiento, number>
+  tramitesVehiculo!: Table<TramiteVehiculo, number>
+  talleresVehiculo!: Table<TallerVehiculo, number>
   juegosMesa!: Table<JuegoMesa, number>
   conversacionesBiblio!: Table<ConversacionBiblio, number>
   mensajesBiblio!: Table<MensajeBiblio, number>
@@ -2015,6 +2642,8 @@ class MindHomeDB extends Dexie {
   murosLibres!: Table<MuroLibre, number>
   cuartos!: Table<Cuarto, string>
   watchlist!: Table<AccionWatch, number>
+  movimientosFijos!: Table<MovimientoFijo, number>
+  posiciones!: Table<Posicion, number>
   hobbies!: Table<Hobby, number>
   sesionesHobby!: Table<SesionHobby, number>
   proyectosHobby!: Table<ProyectoHobby, number>
@@ -2039,13 +2668,25 @@ class MindHomeDB extends Dexie {
   pistasLibres!: Table<PistaLibre, number>
   pistasMusica!: Table<PistaMusica, number>
   estadoSisifo!: Table<EstadoSisifo, number>
+  ideas!: Table<Idea, number>
+  mapasIdeas!: Table<MapaIdeas, number>
+  nodosMapa!: Table<NodoMapa, number>
+  eventosAgenda!: Table<EventoAgenda, number>
+  contactosAgenda!: Table<ContactoAgenda, number>
+  proyectosAgenda!: Table<ProyectoAgenda, number>
+  medicamentos!: Table<Medicamento, number>
+  mascotas!: Table<Mascota, number>
+  cuidadosMascota!: Table<CuidadoMascota, number>
   // Internas de sincronización (prefijo `_`: ni respaldo ni sync ni UI).
   _outbox!: Table<EntradaOutbox, number>
   _syncMeta!: Table<SyncMeta, string>
   _pendientes!: Table<PendienteSync, number>
 
   constructor() {
-    super('mind-home')
+    // En modo demo se abre una BD PARALELA: la casa de Pep@ vive ahí completa
+    // (sin marcas de ejemplo) y la BD real del usuario queda intacta. Cambiar
+    // de modo siempre recarga la página (esDemo está congelado a la carga).
+    super(esDemo() ? 'mind-home-demo' : 'mind-home')
     this.version(1).stores({
       transacciones: '++id, fecha, tipo, categoria',
       sueno: '++id, fecha',
@@ -2981,6 +3622,155 @@ class MindHomeDB extends Dexie {
     this.version(96).stores({
       materialesIdioma: '++id, idiomaId, temaId, creadoEn, &uid',
     })
+    // v97: app Ideas — lluvia de ideas, mapas mentales de lienzo libre y tablero
+    // Kanban con sprints y retrospectivas. `nodosMapa.nodoId` es la identidad
+    // estable entre dispositivos (patrón temasArbol); las columnas del tablero y
+    // la retro del sprint viajan embebidas en su fila.
+    this.version(97).stores({
+      ideas: '++id, fecha, creadoEn, &uid',
+      mapasIdeas: '++id, creadoEn, &uid',
+      nodosMapa: '++id, mapaId, &nodoId, creadoEn, &uid',
+      tablerosKanban: '++id, creadoEn, &uid',
+      tarjetasKanban: '++id, orden, sprintId, creadoEn, &uid',
+      sprints: '++id, inicio, creadoEn, &uid',
+    })
+    // v98: Ideas se concentra en los mapas conceptuales (7 formatos). Fuera la
+    // lluvia de ideas y el módulo ágil (tablero Kanban y sprints): se quitaron
+    // por decisión del usuario y con ellos sus tablas.
+    this.version(98).stores({
+      ideas: null,
+      tablerosKanban: null,
+      tarjetasKanban: null,
+      sprints: null,
+    })
+    // v99: app Agenda — trabajo, salud y personas. Una sola tabla de eventos con
+    // `area` (un CRUD y un puente al calendario en vez de tres) más tres tablas de
+    // apoyo. Cada fila lleva un id string estable (`evId`/`contactoId`/`proyId`/
+    // `medId`, patrón `nodosMapa.nodoId`): es lo que la amarra con las rutinas que
+    // proyecta en el calendario, sin clave foránea numérica — un medicamento genera
+    // N rutinas (una por toma) y el motor de sync solo traduce campos escalares.
+    // `hecho`/`activo` NO se indexan: IndexedDB no acepta booleanos como clave y la
+    // fila desaparecería del índice en silencio.
+    this.version(99).stores({
+      eventosAgenda: '++id, area, fecha, contactoId, proyectoId, creadoEn, &evId, &uid',
+      contactosAgenda: '++id, nombre, cumple, creadoEn, &contactoId, &uid',
+      proyectosAgenda: '++id, creadoEn, &proyId, &uid',
+      medicamentos: '++id, creadoEn, &medId, &uid',
+    })
+    // v100: Ideas se ordena en tres secciones (diario, mapas y diagramas).
+    // Vuelve la tabla `ideas` que se fue en la v98, pero ahora es un DIARIO: cada
+    // fila es una idea con su `tema`, y las que comparten tema son una lluvia (no
+    // hace falta una tabla de sesiones para agruparlas). Mismo esquema que en la
+    // v97, así que los respaldos viejos siguen restaurando.
+    // Los diagramas de decisión (pros/contras, FODA e Ishikawa) NO añaden tablas:
+    // son formatos nuevos de `mapasIdeas` y `tipo` no está indexado.
+    this.version(100).stores({
+      ideas: '++id, fecha, creadoEn, &uid',
+    })
+    // v101: el catálogo de plantillas pasa de 4 a 5 carpetas base, con nombres y
+    // reparto nuevos (`GRUPOS_PLANTILLA_BASE`). Las carpetas base se reescriben en
+    // su sitio conservando las plantillas personalizadas que vivieran en ellas; a
+    // las carpetas del usuario solo se les quitan las apps del sistema (que ahora
+    // tienen carpeta fija) y se recolocan detrás de las base.
+    this.version(101).upgrade(async (tx) => {
+      const tabla = tx.table('gruposPlantilla')
+      const filas = (await tabla.toArray()) as GrupoPlantilla[]
+      if (filas.length === 0) return
+      const custom = new Set(
+        (await tx.table('plantillasCustom').toArray()).map((p: { id: string }) => p.id),
+      )
+      const delSistema = new Set(GRUPOS_PLANTILLA_BASE.flatMap((g) => g.miembros))
+      const base = filas.filter((g) => g.esBase).sort((a, b) => a.orden - b.orden)
+      const propias = filas.filter((g) => !g.esBase).sort((a, b) => a.orden - b.orden)
+
+      for (let i = 0; i < GRUPOS_PLANTILLA_BASE.length; i++) {
+        const nueva = GRUPOS_PLANTILLA_BASE[i]
+        const vieja = base[i]
+        const suyas = (vieja?.miembros ?? []).filter((m) => custom.has(m))
+        const fila = {
+          nombre: nueva.nombre,
+          emoji: nueva.emoji,
+          orden: i,
+          miembros: [...nueva.miembros, ...suyas],
+          esBase: true,
+        }
+        if (vieja?.id != null) await tabla.update(vieja.id, fila)
+        else await tabla.add(fila)
+      }
+      for (let i = 0; i < propias.length; i++) {
+        const g = propias[i]
+        if (g.id == null) continue
+        await tabla.update(g.id, {
+          orden: GRUPOS_PLANTILLA_BASE.length + i,
+          miembros: g.miembros.filter((m) => !delSistema.has(m)),
+        })
+      }
+    })
+    // v102: el garaje agenda trámites (tenencia, verificación, tarjeta de
+    // circulación, seguro y servicio periódico) y guarda la libreta de talleres.
+    // Mismo patrón que la agenda: id string estable (`tramiteId`/`tallerId`) para
+    // amarrar las rutinas que se proyectan en el calendario, y `vehiculoId` como
+    // clave foránea numérica (declarada en `FK`, que sí traduce el sync).
+    // `activo` no se indexa: IndexedDB no acepta booleanos como clave.
+    this.version(102).stores({
+      tramitesVehiculo: '++id, vehiculoId, fecha, tipo, creadoEn, &tramiteId, &uid',
+      talleresVehiculo: '++id, vehiculoId, nombre, creadoEn, &tallerId, &uid',
+    })
+    // v103: Salud de la agenda también lleva las mascotas. Mismo patrón que el
+    // resto de la agenda: id string estable (`mascId`/`cuidadoId`) para amarrar
+    // las rutinas del calendario, y `mascotaId` como referencia por string (no es
+    // FK numérica, así que el sync no tiene que traducirla). Las citas y los
+    // medicamentos NO cambian de esquema: su `mascotaId` es un campo suelto sin
+    // índice. `activo` no se indexa: IndexedDB no acepta booleanos como clave.
+    this.version(103).stores({
+      mascotas: '++id, nombre, creadoEn, &mascId, &uid',
+      cuidadosMascota: '++id, mascotaId, fecha, creadoEn, &cuidadoId, &uid',
+    })
+    // v104: el despacho se reorganiza en Balance / Metas / Portafolio. Trae los
+    // movimientos fijos mensuales (gastos e ingresos que se repiten cada mes y
+    // suman al resumen) y las posiciones del portafolio de inversión (acciones
+    // y cripto valuadas con los precios de Mercados). El `tipo` de `metas`
+    // (ahorro/inversión/deuda) no se indexa: las filas viejas son 'ahorro'.
+    this.version(104).stores({
+      movimientosFijos: '++id, tipo, &uid',
+      posiciones: '++id, simbolo, &uid',
+    })
+    // v105: fijo/variable deja de ser una tabla aparte y pasa a ser el `periodo`
+    // de cada movimiento (único, o cada día/semana/mes/año), que se elige al
+    // capturarlo. Los fijos que ya existían se vuelven movimientos mensuales que
+    // arrancan hoy. Conservan su `uid`: así los demás dispositivos reconocen la
+    // fila migrada como la misma (LWW) en vez de duplicarla.
+    this.version(105).upgrade(async (tx) => {
+      const viejos = tx.table('movimientosFijos')
+      const filas = (await viejos.toArray()) as (MovimientoFijo & { uid?: string })[]
+      if (filas.length === 0) return
+      const hoy = fechaLocalISO()
+      for (const f of filas) {
+        await tx.table('transacciones').add({
+          fecha: hoy,
+          tipo: f.tipo,
+          categoria: f.categoria,
+          monto: f.monto,
+          nota: f.nota,
+          periodo: 'mes',
+          ejemplo: f.ejemplo,
+          uid: f.uid,
+        })
+      }
+      await viejos.clear()
+    })
+    // v106: la granja gana enfermedad (el animal que lleva mucho sin comer enferma
+    // y hay que curarlo) y limpieza semanal del corral. Los corrales que ya existen
+    // se sellan como recién limpiados: sin esto amanecerían todos sucios de golpe.
+    this.version(106).upgrade(async (tx) => {
+      const ahora = Date.now()
+      await tx
+        .table('corrales')
+        .toCollection()
+        .modify((c) => {
+          c.limpiadoEn = ahora
+        })
+    })
   }
 }
 
@@ -3031,6 +3821,21 @@ dbConTx._createTransaction = (mode, storeNames, dbschema, parentTransaction) => 
 
 // Sella uid/updatedAt y encola en _outbox en TODA mutación sincronizable.
 db.use(syncMiddleware)
+
+// En la casa demo se puede escribir todo, pero nada persiste: el marcador
+// apunta qué tablas tocó el visitante (level 2, por fuera del sync). En modo
+// AUTOR (solo dev) ni se instala: se edita la casa de Pep@ de verdad.
+if (esDemo() && !esDemoAutor()) {
+  db.use(demoGuard)
+  // El visitante dejó cambios: la casa vuelve a su estado original AQUÍ y no en
+  // otro sitio. `on('ready')` es el único punto seguro — Dexie retiene toda
+  // consulta encolada hasta que su promesa resuelve, y los `cargar()` de los
+  // stores de la casa se autoinvocan al importarse, antes de que corra `main`.
+  // Va obligatoriamente ANTES del `db.open()`.
+  if (haySandboxDemoSucio()) {
+    db.on('ready', (vip) => import('../../demo/sandbox').then((m) => m.restaurarBaseDemo(vip as Dexie)))
+  }
+}
 
 db.open().catch((err) => {
   console.error('[MPH] No se pudo abrir IndexedDB:', err)

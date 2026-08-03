@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { getPlantilla } from '../registry'
+import { costoDieta, costoReceta } from '../../rooms/cocina/costosIA'
+import { costoOp } from '../cuenta/costos'
 import { useAjustes } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
+import { Creditos } from '../ui/Creditos'
 import { Icono } from '../ui/iconos/Icono'
 
 /**
@@ -26,6 +29,11 @@ interface Ejemplo {
   en: string
   /** App/cuarto que registra la frase (su ícono ilustra el ejemplo). */
   roomId?: string
+  /**
+   * Créditos que cuesta pedirlo, para las frases caras (las que encadenan
+   * varias llamadas o generan imágenes). Solo se pinta en el plan por cuenta.
+   */
+  creditos?: number
 }
 
 /** Sub-apartado dentro de una carpeta (rótulos genéricos reutilizables). */
@@ -33,6 +41,16 @@ interface Grupo {
   /** Rótulo: clave chat.manual.grupo.<id>. */
   id: 'registrar' | 'abrir' | 'jugar' | 'acciones' | 'ia'
   ejemplos: Ejemplo[]
+}
+
+/** Atajo de teclado: no se envía al chat, solo se consulta (carpeta «Teclado»). */
+interface Atajo {
+  teclas: string
+  /** Nombre de la tecla en inglés, solo si cambia (Mayús → Shift). */
+  teclasEn?: string
+  accion: string
+  /** La misma acción en inglés. */
+  en: string
 }
 
 interface Carpeta {
@@ -46,6 +64,8 @@ interface Carpeta {
   nota?: string
   /** Requisito importante (ámbar). */
   aviso?: string
+  /** Teclas de PC de la carpeta (se listan antes de los ejemplos, sin ser clicables). */
+  atajos?: Atajo[]
   grupos: Grupo[]
 }
 
@@ -69,7 +89,7 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'cocina',
         id: 'cocina',
-        nota: 'Con IA también entiende la foto de tu platillo (la registra estimando macros) y dentro del recetario puede generar la imagen de cada receta.',
+        nota: 'Con IA también entiende la foto de tu platillo (la registra estimando macros). Las recetas y dietas que pidas por chat llegan con su imagen: tardan un poco más en aparecer y cuestan los créditos marcados.',
         grupos: [
           {
             id: 'registrar',
@@ -92,8 +112,16 @@ const SECCIONES: Seccion[] = [
           {
             id: 'ia',
             ejemplos: [
-              { frase: 'Inventa una [receta] {ligera con atún}', en: 'Make up a [recipe] {light, with tuna}' },
-              { frase: 'Arma una [dieta] {alta en proteína}', en: 'Build a [diet] {high in protein}' },
+              {
+                frase: 'Inventa una [receta] {ligera con atún}',
+                en: 'Make up a [recipe] {light, with tuna}',
+                creditos: costoReceta(true),
+              },
+              {
+                frase: 'Arma una [dieta] {alta en proteína}',
+                en: 'Build a [diet] {high in protein}',
+                creditos: costoDieta(true),
+              },
               { frase: 'Agrega {plátano y avena} a la [lista del súper]', en: 'Add {bananas and oats} to the [shopping list]' },
             ],
           },
@@ -194,11 +222,13 @@ const SECCIONES: Seccion[] = [
           {
             id: 'abrir',
             ejemplos: [
-              { frase: '[Abre] el {presupuesto}', en: '[Open] the {budget}' },
+              { frase: '[Abre] el {balance}', en: '[Open] the {balance}' },
+              { frase: '[Abre] los {gastos fijos}', en: '[Open] the {fixed expenses}' },
               { frase: '[Abre] los {movimientos}', en: '[Open] the {transactions}' },
               { frase: '[Abre] las {metas de ahorro}', en: '[Open] the {savings goals}' },
-              { frase: '[Abre] los {simuladores}', en: '[Open] the {simulators}' },
-              { frase: '[Abre] los {mercados}', en: '[Open] the {markets}' },
+              { frase: '[Abre] las {divisas}', en: '[Open] {forex}' },
+              { frase: '[Abre] las {criptomonedas}', en: '[Open] {cryptocurrencies}' },
+              { frase: '[Abre] las {materias primas}', en: '[Open] {commodities}' },
             ],
           },
           {
@@ -372,6 +402,54 @@ const SECCIONES: Seccion[] = [
         ],
       },
       {
+        appId: 'ideas',
+        id: 'ideas',
+        nota: 'Dentro de la app: 7 formatos (mental, árbol, llaves, círculo, flujo, Venn y comparación). La IA dibuja el mapa entero desde un tema o amplía el nodo o la región que elijas. Sin IA, el chat crea el mapa en blanco con tu tema de raíz.',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] mis {mapas mentales}', en: '[Open] my {mind maps}' },
+              { frase: '[Abre] los {mapas conceptuales}', en: '[Open] the {concept maps}' },
+            ],
+          },
+          {
+            id: 'ia',
+            ejemplos: [
+              { frase: '[Hazme un mapa mental] de {la fotosíntesis}', en: '[Make me a mind map] of {photosynthesis}' },
+              { frase: '[Dibuja un diagrama de flujo] de {cómo hacer pan}', en: '[Draw a flowchart] of {how to bake bread}' },
+              { frase: '[Compara] {café} y {té} en un mapa', en: '[Compare] {coffee} and {tea} in a map' },
+              { frase: '[Haz un esquema] de {lo que me acabas de explicar}', en: '[Make a diagram] of {what you just explained}' },
+            ],
+          },
+        ],
+      },
+      {
+        appId: 'agenda',
+        id: 'agenda',
+        nota: 'Tres secciones: Trabajo (pendientes, eventos y proyectos), Salud (citas médicas y medicamentos) y Personas (tu libreta con cumpleaños). Lo que lleva fecha aparece solo en el calendario; con hora, además te avisa.',
+        grupos: [
+          {
+            id: 'registrar',
+            ejemplos: [
+              { frase: '[Agenda] una {junta con el cliente} el {martes a las 10}', en: '[Schedule] a {meeting with the client} on {Tuesday at 10}' },
+              { frase: '[Apunta el pendiente] {mandar la cotización}', en: '[Add the to-do] {send the quote}' },
+              { frase: '[Tengo cita] con el {dentista} el {14 a las 5}', en: '[I have an appointment] with the {dentist} on the {14th at 5}' },
+              { frase: '[Recuérdame] tomar {ibuprofeno} a las {8 y a las 20}', en: '[Remind me] to take {ibuprofen} at {8 and 20}' },
+              { frase: '[Guarda el contacto] de {Ana}: {5512345678}, cumple el {3 de mayo}', en: "[Save] {Ana}'s {contact}: {5512345678}, birthday {May 3}" },
+            ],
+          },
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] mis {pendientes}', en: '[Open] my {to-dos}' },
+              { frase: '[Abre] mis {citas médicas}', en: '[Open] my {medical appointments}' },
+              { frase: '[Abre] mis {contactos}', en: '[Open] my {contacts}' },
+            ],
+          },
+        ],
+      },
+      {
         appId: 'idiomas',
         id: 'idiomas',
         nota: 'Dentro viven el tutor conversacional por nivel, las tarjetas desde la charla y las tarjetas por tema (IA).',
@@ -459,7 +537,7 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'granja',
         id: 'granja',
-        nota: 'Animales: gallina, cerdo, cabra, oveja y vaca. Se alimentan con lo cosechado en el huerto.',
+        nota: 'Animales: gallina, cerdo, cabra, oveja, vaca y caballo. Se alimentan con lo cosechado en Comida. El que lleva mucho sin comer enferma y hay que curarlo; los corrales se limpian cada semana.',
         aviso: AVISO_INFRA,
         grupos: [
           {
@@ -469,6 +547,8 @@ const SECCIONES: Seccion[] = [
               { frase: '[Pon] {vacas} en la granja', en: '[Put] {cows} on the farm' },
               { frase: '[Alimenta] a los {animales}', en: '[Feed] the {animals}' },
               { frase: '[Mima] a los {animales}', en: '[Pet] the {animals}' },
+              { frase: '[Cura] a los {animales}', en: '[Heal] the {animals}' },
+              { frase: '[Limpia] los {corrales}', en: '[Clean] the {pens}' },
               { frase: '[Llévame] a la {granja}', en: '[Take me] to the {farm}' },
             ],
           },
@@ -504,6 +584,23 @@ const SECCIONES: Seccion[] = [
         ],
       },
       {
+        appId: 'paintball',
+        id: 'paintball',
+        nota: 'Modos: 1 vs 1, 2 vs 2 (necesita 3 asistentes) y batalla campal. Cada quien aguanta 3 bolazos y se juega en la planta baja.',
+        grupos: [
+          {
+            id: 'jugar',
+            ejemplos: [
+              { frase: '[Juguemos] {paintball}', en: "[Let's play] {paintball}" },
+              { frase: '[Juguemos paintball] {2v2}', en: "[Let's play paintball] {2v2}" },
+              { frase: '[Reta] a {Luna} a un paintball {1v1}', en: '[Challenge] {Luna} to a {1v1} paintball match' },
+              { frase: '[Paintball] campal en {difícil}', en: '{Hard} free-for-all [paintball]' },
+              { frase: '[Sal] del {paintball}', en: '[Quit] the {paintball} match' },
+            ],
+          },
+        ],
+      },
+      {
         appId: 'canchas',
         id: 'canchas',
         nota: 'En las canchas se juega caminando dentro; el balón se controla al acercarte.',
@@ -514,6 +611,7 @@ const SECCIONES: Seccion[] = [
               { frase: '[Pon] una {cancha de fútbol}', en: '[Add] a {soccer field}' },
               { frase: '[Pon] una {cancha de tenis} {azul}', en: '[Add] a {blue} {tennis court}' },
               { frase: '[Crea] una {cancha de básquet}', en: '[Create] a {basketball court}' },
+              { frase: '[Pon] un {campo de béisbol}', en: '[Add] a {baseball field}' },
               { frase: '[Llévame] a la {cancha}', en: '[Take me] to the {court}' },
             ],
           },
@@ -590,7 +688,7 @@ const SECCIONES: Seccion[] = [
         icon: '🪑',
         id: 'objetos',
         titulo: 'Objetos',
-        nota: 'Catálogo sin IA: lámpara, silla, mesa, planta, guitarra, alfombra, baúl, cuadro, pelota y libro. Cualquier otra cosa se genera con IA como modelo 3D y va a tu inventario.',
+        nota: 'Catálogo sin IA: lámpara, silla, mesa, planta, guitarra, alfombra, baúl, cuadro, pelota y libro. Cualquier otra cosa se genera con IA como modelo 3D y va a tu inventario. Las imágenes 2D se piden con «crea una imagen de…» y se quedan en el chat.',
         grupos: [
           {
             id: 'acciones',
@@ -606,8 +704,23 @@ const SECCIONES: Seccion[] = [
           {
             id: 'ia',
             ejemplos: [
-              { frase: '[Genera en 3D] {un dragón morado}', en: '[Generate in 3D] {a purple dragon}' },
-              { frase: '[Genera en 3D] {una fuente de piedra} estilo {minimalista}', en: '[Generate in 3D] {a stone fountain}, {minimalist} style' },
+              // Por chat son DOS llamadas: el turno que lo interpreta y la
+              // generación en sí.
+              {
+                frase: '[Genera en 3D] {un dragón morado}',
+                en: '[Generate in 3D] {a purple dragon}',
+                creditos: costoOp('chat') + costoOp('modelo3d'),
+              },
+              {
+                frase: '[Genera en 3D] {una fuente de piedra} estilo {minimalista}',
+                en: '[Generate in 3D] {a stone fountain}, {minimalist} style',
+                creditos: costoOp('chat') + costoOp('modelo3d'),
+              },
+              {
+                frase: '[Crea una imagen] de {un atardecer en la playa}',
+                en: '[Create an image] of {a sunset at the beach}',
+                creditos: costoOp('chat') + costoOp('imagen'),
+              },
             ],
           },
         ],
@@ -633,6 +746,29 @@ const SECCIONES: Seccion[] = [
             ],
           },
         ],
+      },
+      {
+        icon: '⌨️',
+        id: 'teclado',
+        titulo: 'Teclado (PC)',
+        nota: 'Atajos para jugar con teclado. No se escriben en el chat: se usan en la casa. No responden mientras escribes en un campo ni con un cuarto abierto.',
+        atajos: [
+          { teclas: 'W A S D', accion: 'Caminar (también con las flechas)', en: 'Walk (arrow keys too)' },
+          { teclas: 'Mayús', teclasEn: 'Shift', accion: 'Correr (se queda puesto hasta volver a pulsar)', en: 'Run (stays on until you press again)' },
+          { teclas: 'Espacio', teclasEn: 'Space', accion: 'Saltar', en: 'Jump' },
+          { teclas: 'Ctrl', accion: 'Agacharse (mantener pulsado)', en: 'Crouch (hold)' },
+          { teclas: 'E', accion: 'Lo que tengas delante: entrar al cuarto, subirte o bajarte del vehículo, cambiar de nivel', en: 'Whatever is in front of you: enter the room, get on or off the vehicle, change floor' },
+          { teclas: '1 / 2', accion: 'Levantar la mano derecha / izquierda', en: 'Raise your right / left hand' },
+          { teclas: '3', accion: 'Bailar', en: 'Dance' },
+          { teclas: '4', accion: 'Mortal', en: 'Backflip' },
+          { teclas: 'Q', accion: 'Abrir la rueda de herramientas', en: 'Open the tool wheel' },
+          { teclas: 'T', accion: 'Abrir el chat y escribir', en: 'Open the chat and type' },
+          { teclas: 'V', accion: 'Cambiar de vista: isométrica, tercera y primera persona', en: 'Switch view: isometric, third and first person' },
+          { teclas: 'H', accion: 'Esconder o mostrar el HUD', en: 'Hide or show the HUD' },
+          { teclas: 'Esc', accion: 'Cerrar lo que esté abierto', en: 'Close whatever is open' },
+          { teclas: 'Espacio · Mayús', teclasEn: 'Space · Shift', accion: 'Conduciendo el OVNI: subir y bajar. En los demás vehículos, Espacio derrapa', en: 'Flying the UFO: up and down. In other vehicles, Space drifts' },
+        ],
+        grupos: [],
       },
       {
         icon: '🏠',
@@ -835,7 +971,9 @@ export function ManualComandos({
               {sec.carpetas.map((carpeta) => {
                 const abierta = !!abiertas[carpeta.id]
                 const cab = cabecera(carpeta)
-                const numEjemplos = carpeta.grupos.reduce((s, g) => s + g.ejemplos.length, 0)
+                const numEjemplos =
+                  carpeta.grupos.reduce((s, g) => s + g.ejemplos.length, 0) +
+                  (carpeta.atajos?.length ?? 0)
                 return (
                   <div key={carpeta.id} className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
                     <button
@@ -865,6 +1003,20 @@ export function ManualComandos({
                             {t(`chat.manual.aviso.${carpeta.id}`, carpeta.aviso)}
                           </p>
                         )}
+                        {carpeta.atajos && (
+                          <div className="mb-1 space-y-0.5">
+                            {carpeta.atajos.map((a) => (
+                              <div key={a.teclas} className="flex items-baseline gap-2">
+                                <span className="shrink-0 rounded border border-white/15 bg-white/10 px-1.5 py-px font-mono text-[10px] font-semibold text-white/75">
+                                  {idioma === 'en' ? (a.teclasEn ?? a.teclas) : a.teclas}
+                                </span>
+                                <span className="text-[10px] leading-relaxed text-white/55">
+                                  {idioma === 'en' ? a.en : a.accion}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                         <div className="space-y-1.5">
                           {carpeta.grupos.map((grupo) => (
                             <div key={grupo.id}>
@@ -893,6 +1045,11 @@ export function ManualComandos({
                                     {segmentar(fraseDe(ej)).map((seg, i) => (
                                       <span key={i} className={COLOR_SEG[seg.tipo]}>{seg.texto}</span>
                                     ))}
+                                    {ej.creditos != null && (
+                                      <span className="ml-1.5 inline-block align-middle">
+                                        <Creditos n={ej.creditos} aprox />
+                                      </span>
+                                    )}
                                   </button>
                                 ))}
                               </div>

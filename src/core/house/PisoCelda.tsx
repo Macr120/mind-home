@@ -8,8 +8,6 @@ import type { PisoTipo } from './pisos'
 import type { CeldaFormaLoseta } from './formasLoseta'
 import { esFormaCuadrada, geometriaLoseta3D, FORMA_LOSETA_DEFAULT } from './formasLoseta'
 
-const TILE = SIZE - 0.1
-
 /** Sublista de formas finas por cuadrante (NO,NE,SO,SE) o nada. */
 type Subformas = (CeldaFormaLoseta | undefined)[] | null | undefined
 
@@ -35,7 +33,7 @@ function GeometriaLoseta({
   formaLoseta,
   subformas,
   modo,
-  tile = TILE,
+  tile = SIZE - 0.1,
 }: {
   formaLoseta?: CeldaFormaLoseta
   subformas?: Subformas
@@ -107,7 +105,7 @@ function PisoCeldaProcedural({
   tinte,
   lx,
   lz,
-  tile = TILE,
+  tile = SIZE - 0.1,
   atenuado,
   formaLoseta,
   subformas,
@@ -183,7 +181,7 @@ function PisoCeldaTexturado({
   emissiveIntensity,
   lx,
   lz,
-  tile = TILE,
+  tile = SIZE - 0.1,
   atenuado,
   formaLoseta,
   subformas,
@@ -265,7 +263,7 @@ function PisoCeldaImagen({
   ajuste,
   lx,
   lz,
-  tile = TILE,
+  tile = SIZE - 0.1,
   atenuado,
   formaLoseta,
   subformas,
@@ -331,7 +329,7 @@ export function PisoCelda({
   pisoImagen,
   pisoImagenAjuste,
   colorTinte,
-  tile = TILE,
+  tile = SIZE - 0.1,
   atenuado,
   formaLoseta,
   subformas,

@@ -14,6 +14,7 @@ import {
 } from './animacion'
 import { monturaFrame, anguloPiernaMontada, ANGULO_BRAZO_MONTADO } from '../state/monturaStore'
 import { parqueFrame, anguloPiernaParque, anguloBrazoParque } from '../state/parqueStore'
+import { flotadorFrame, ANGULO_PIERNA_FLOTADOR, ANGULO_BRAZO_FLOTADOR } from '../state/flotadorStore'
 import { accionCuartoFrame, anguloPiernaAccion, anguloBrazoAccion } from '../state/accionCuartoStore'
 import {
   accionFrame,
@@ -22,6 +23,7 @@ import {
   anguloSaludo,
   ANGULO_BRAZO_CUERDA,
 } from '../state/herramientaStore'
+import { poseBateo } from '../state/juegoCanchaStore'
 
 /**
  * Pivote de marcha para prendas de extremidades (pantalón/tenis/mangas): gira
@@ -55,6 +57,12 @@ function PivoteMarcha({
   useFrame(() => {
     if (!activo || !g.current) return
     if (esJugador) {
+      const bateo = poseBateo()
+      if (bateo) {
+        // Bateando: las mangas siguen a los brazos (x<0 es el brazo del bate).
+        g.current.rotation.x = extremidad === 'pierna' ? 0 : bateo.brazo * (x < 0 ? 1 : 0.82)
+        return
+      }
       if (monturaFrame.montado) {
         // Piernas sentadas; las mangas bailan si el baile está activo.
         g.current.rotation.x =
@@ -63,6 +71,12 @@ function PivoteMarcha({
             : accionFrame.bailando
               ? anguloBrazoBaile(-signo as 1 | -1)
               : ANGULO_BRAZO_MONTADO
+        return
+      }
+      if (flotadorFrame.sentado) {
+        // Sentado en la dona: misma pose que el cuerpo (piernas al frente, brazos al aro).
+        g.current.rotation.x =
+          extremidad === 'pierna' ? ANGULO_PIERNA_FLOTADOR : ANGULO_BRAZO_FLOTADOR
         return
       }
       if (parqueFrame.usando && parqueFrame.pose !== 'de-pie') {
@@ -93,10 +107,11 @@ function PivoteMarcha({
       }
     }
     g.current.rotation.x = anguloMarcha(factor, marchaEstado) * signo
-    // Saludo: solo la manga derecha (signoBrazo del lado +x es 1). Solo el jugador.
-    if (esJugador) {
-      const s = anguloSaludo(performance.now())
-      if (s !== null && extremidad === 'brazo' && signo === 1) g.current.rotation.x = s
+    // Saludo: la manga sigue al brazo de esa mano. Solo el jugador. La mano
+    // derecha del avatar (mira a +Z) es la del lado x < 0.
+    if (esJugador && extremidad === 'brazo') {
+      const s = anguloSaludo(performance.now(), x < 0)
+      if (s !== null) g.current.rotation.x = s
     }
   })
   return (

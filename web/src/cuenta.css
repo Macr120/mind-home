@@ -1,0 +1,9 @@
+/* Página /cuenta (React + Tailwind v4). El resto de la web usa estilos.css. */
+@import 'tailwindcss';
+
+body {
+  margin: 0;
+  background: #0f1115;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}

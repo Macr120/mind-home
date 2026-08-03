@@ -6,14 +6,30 @@ import type { TipoAccesorio, TipoAnimal } from '../data/db'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
+import { MarcoEditorInfra } from './MarcoEditorInfra'
+import { PestanasCampo } from './PestanasCampo'
 
+// `min-w-0`: sin él, un item de grid no encoge bajo el ancho de su propio
+// contenido y el texto largo ("Alimentar") desborda la columna en vez de
+// achicarse con ella. El label va en su propio span truncado para que, si aun
+// así no cabe, se corte con "…" en lugar de salirse del botón.
 const btn =
-  'flex h-10 items-center gap-1.5 rounded-lg border border-white/10 px-2.5 text-xs font-semibold text-white transition active:scale-95'
+  'flex h-9 min-w-0 items-center justify-center gap-1.5 rounded-lg border border-white/10 px-2 text-xs font-semibold text-white transition active:scale-95'
 
-/** Juguetes colocables en un corral (uno por celda). */
+/** Pastilla horizontal de la lista de juguetes (una sola línea, sin dato extra). */
+const pastilla =
+  'flex h-9 min-w-0 items-center justify-center gap-1.5 rounded-lg border px-2 text-[11px] font-semibold text-white transition active:scale-95'
+
+/** Tarjeta de animal: icono+nombre y las horas de hambre en su propia línea, para
+ * que quepa en columnas angostas (móvil) sin partir palabras a media línea. */
+const tarjetaAnimal =
+  'flex h-12 flex-col items-center justify-center gap-0.5 rounded-lg border px-1 text-[11px] font-semibold text-white transition active:scale-95'
+
+// Nombre corto: en la pastilla del editor no cabe "Charco de lodo" sin
+// truncarse; el nombre completo sigue en el manual del chat.
 const ACCESORIOS: Record<TipoAccesorio, { nombre: string; icon: string }> = {
-  lodo: { nombre: 'Charco de lodo', icon: '🟫' },
-  tina: { nombre: 'Tina de baño', icon: '🛁' },
+  lodo: { nombre: 'Lodo', icon: '🟫' },
+  tina: { nombre: 'Tina', icon: '🛁' },
   pelota: { nombre: 'Pelota', icon: '⚽' },
 }
 
@@ -44,68 +60,51 @@ export function EditorGranja() {
       aria-label={etiqueta}
       className={`${btn} ${herramienta === h ? 'border-emerald-400/60 bg-emerald-600' : 'bg-white/10 hover:bg-white/20'}`}
     >
-      <Icono nombre={icono} /> {etiqueta}
+      <Icono nombre={icono} />
+      <span className="min-w-0 truncate">{etiqueta}</span>
     </button>
   )
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-40">
-      {/* Encabezado. */}
-      <div className="absolute left-0 right-0 top-3 flex items-start justify-center">
-        <div
-          data-tut="granja.header"
-          className="ui-hud ui-pop pointer-events-auto flex items-center gap-2 rounded-lg border border-white/10 px-3 py-1.5 text-sm font-semibold text-white"
-        >
-          <Icono nombre="granja" /> {t('room.granja.nombre', 'Granja')}
-          <button
-            type="button"
-            data-tut="granja.salir"
-            onClick={() => g.salir()}
-            title={t('infra.salirEditor', 'Salir del editor')}
-            aria-label={t('infra.salirEditor', 'Salir del editor')}
-            className="ml-2 rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
-          >
-            <Icono nombre="cerrar" />
-          </button>
-        </div>
-      </div>
-
-      {/* Barra de herramientas, selectores y cesta. */}
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center px-2">
-        <div
-          data-tut="granja.barra"
-          data-tut-zona="app:granja"
-          className="ui-hud ui-pop pointer-events-auto flex max-w-md flex-col gap-2 rounded-xl border border-white/10 p-2"
-        >
-          {herramienta === 'animal' && (
-            <div data-tut="granja.animales" className="flex flex-wrap items-center justify-center gap-1.5">
+    <MarcoEditorInfra
+      icono="granja"
+      titulo={t('room.granja.nombre', 'Granja')}
+      tut="granja"
+      onSalir={() => g.salir()}
+      ancho="max-w-full"
+      pestanas={<PestanasCampo activa="granja" />}
+    >
+      {herramienta === 'animal' && (
+            <div data-tut="granja.animales" className="grid grid-cols-3 gap-1.5 sm:grid-cols-6">
               {(Object.keys(ANIMALES) as TipoAnimal[]).map((a) => (
                 <button
                   key={a}
                   type="button"
                   data-tut={`granja.animal.${a}`}
                   onClick={() => g.setTipo(a)}
-                  title={t(`granja.animal.${a}`, ANIMALES[a].nombre)}
-                  aria-label={t(`granja.animal.${a}`, ANIMALES[a].nombre)}
-                  className={`flex flex-col items-center rounded-lg border px-2 py-1 text-[10px] font-semibold text-white transition active:scale-95 ${
+                  title={`${t(`granja.animal.${a}`, ANIMALES[a].nombre)} · ${t('granja.come', 'come cada')} ${ANIMALES[a].horasHambre} h`}
+                  aria-label={`${t(`granja.animal.${a}`, ANIMALES[a].nombre)} · ${t('granja.come', 'come cada')} ${ANIMALES[a].horasHambre} h`}
+                  className={`${tarjetaAnimal} ${
                     tipo === a
                       ? 'border-emerald-400/60 bg-emerald-600'
                       : 'border-white/10 bg-white/10 hover:bg-white/20'
                   }`}
                 >
-                  <span className="text-base leading-none">
-                    <Icono emoji={ANIMALES[a].icon} />
+                  <span className="flex min-w-0 items-center gap-1 leading-none">
+                    <span className="text-sm leading-none">
+                      <Icono emoji={ANIMALES[a].icon} />
+                    </span>
+                    <span className="truncate">{t(`granja.animal.${a}`, ANIMALES[a].nombre)}</span>
                   </span>
-                  {t(`granja.animal.${a}`, ANIMALES[a].nombre)}
-                  <span className="font-normal text-white/60">
-                    {t('granja.come', 'come cada')} {ANIMALES[a].horasHambre} h
+                  <span className="text-[10px] font-normal leading-none text-white/55">
+                    {ANIMALES[a].horasHambre} h
                   </span>
                 </button>
               ))}
             </div>
           )}
           {herramienta === 'accesorio' && (
-            <div data-tut="granja.accesorios" className="flex flex-wrap items-center justify-center gap-1.5">
+            <div data-tut="granja.accesorios" className="grid grid-cols-3 gap-1.5">
               {(Object.keys(ACCESORIOS) as TipoAccesorio[]).map((a) => (
                 <button
                   key={a}
@@ -114,7 +113,7 @@ export function EditorGranja() {
                   onClick={() => g.setAccesorio(a)}
                   title={t(`granja.accesorio.${a}`, ACCESORIOS[a].nombre)}
                   aria-label={t(`granja.accesorio.${a}`, ACCESORIOS[a].nombre)}
-                  className={`flex flex-col items-center rounded-lg border px-2 py-1 text-[10px] font-semibold text-white transition active:scale-95 ${
+                  className={`${pastilla} ${
                     accesorio === a
                       ? 'border-emerald-400/60 bg-emerald-600'
                       : 'border-white/10 bg-white/10 hover:bg-white/20'
@@ -123,7 +122,7 @@ export function EditorGranja() {
                   <span className="text-base leading-none">
                     <Icono emoji={ACCESORIOS[a].icon} />
                   </span>
-                  {t(`granja.accesorio.${a}`, ACCESORIOS[a].nombre)}
+                  <span className="min-w-0 truncate">{t(`granja.accesorio.${a}`, ACCESORIOS[a].nombre)}</span>
                 </button>
               ))}
             </div>
@@ -136,33 +135,46 @@ export function EditorGranja() {
             ) : (
               <PanelNombrar corralId={corralSel} />
             ))}
-          <div data-tut="granja.herramientas" className="flex flex-wrap items-center justify-center gap-1.5">
+          {/* 3 columnas en móvil (como en Comida): a 4 el texto largo ("Alimentar")
+              no cabía y desbordaba el botón. */}
+          <div data-tut="granja.herramientas" className="grid grid-cols-3 gap-1.5 sm:grid-cols-5">
             {herrBtn('corral', 'granja', t('granja.herr.corral', 'Corral'))}
             {herrBtn('animal', 'animal', t('granja.herr.animal', 'Animal'))}
             {herrBtn('alimentar', 'alimentar', t('granja.herr.alimentar', 'Alimentar'))}
             {herrBtn('mimar', 'mimar', t('granja.herr.mimar', 'Mimar'))}
+            {herrBtn('curar', 'curar', t('granja.herr.curar', 'Curar'))}
+            {herrBtn('limpiar', 'escoba', t('granja.herr.limpiar', 'Limpiar'))}
             {herrBtn('accesorio', 'accesorio', t('granja.herr.accesorio', 'Juguetes'))}
             {herrBtn('nombrar', 'etiqueta', t('granja.herr.nombrar', 'Nombrar'))}
             {herrBtn('quitar', 'basura', t('granja.herr.quitar', 'Quitar'))}
           </div>
-          <div
-            data-tut="granja.cesta"
-            className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] text-white/60"
-          >
-            <Icono nombre="cosechar" /> {t('huerto.cesta', 'Cesta')}:
-            {cesta.length === 0 ? (
-              <span className="text-white/40">{t('granja.cestaVacia', 'vacía — cosecha el huerto')}</span>
-            ) : (
-              cesta.map((c) => (
-                <span key={c.especie} className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 font-semibold">
-                  <Icono emoji={ESPECIES[c.especie].icon} /> {c.cantidad}
-                </span>
-              ))
-            )}
+          {/* Cesta y ayuda comparten renglón: en pantalla ancha ahorran una fila. */}
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <div
+              data-tut="granja.cesta"
+              className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] text-white/60"
+            >
+              <Icono nombre="cosechar" /> {t('huerto.cesta', 'Cesta')}:
+              {cesta.length === 0 ? (
+                <span className="text-white/40">{t('granja.cestaVacia', 'vacía — cosecha en Comida')}</span>
+              ) : (
+                cesta.map((c) => (
+                  <span key={c.especie} className="rounded-md border border-white/10 bg-white/5 px-1.5 py-0.5 font-semibold">
+                    <Icono emoji={ESPECIES[c.especie].icon} /> {c.cantidad}
+                  </span>
+                ))
+              )}
+            </div>
+            <p className="max-w-md text-center text-[10px] leading-tight text-white/50">
+              {t(
+                'granja.ayuda',
+                'Corral crea corrales y los agranda tocando una celda pegada. Añade varios animales, aliméntalos con tus cosechas, mímalos y ponles juguetes. El que lleva mucho sin comer enferma: cúralo antes de una semana. Limpia cada corral una vez por semana o el ánimo caerá al doble.',
+              )}
+            </p>
           </div>
           {aviso === 'sinComida' && (
             <p className="text-center text-[11px] font-semibold text-amber-300">
-              {t('granja.sinComida', 'No hay nada en la cesta: cosecha el huerto para alimentar.')}
+              {t('granja.sinComida', 'No hay nada en la cesta: cosecha en Comida para alimentar.')}
             </p>
           )}
           {aviso === 'corralLleno' && (
@@ -175,15 +187,22 @@ export function EditorGranja() {
               {t('granja.noCabe', 'Ahí no cabe: se sale del mapa o pisa otro corral.')}
             </p>
           )}
-          <p className="max-w-md text-center text-[10px] leading-tight text-white/50">
-            {t(
-              'granja.ayuda',
-              'Corral crea corrales y los agranda tocando una celda pegada. Añade varios animales, aliméntalos con tus cosechas, mímalos y ponles juguetes.',
-            )}
-          </p>
-        </div>
-      </div>
-    </div>
+          {aviso === 'hayEnfermos' && (
+            <p className="text-center text-[11px] font-semibold text-amber-300">
+              {t('granja.hayEnfermos', 'Hay animales enfermos: cúralos para que vuelvan a comer.')}
+            </p>
+          )}
+          {aviso === 'sinEnfermos' && (
+            <p className="text-center text-[11px] font-semibold text-amber-300">
+              {t('granja.sinEnfermos', 'Ninguno está enfermo en ese corral.')}
+            </p>
+          )}
+          {aviso === 'yaLimpio' && (
+            <p className="text-center text-[11px] font-semibold text-amber-300">
+              {t('granja.yaLimpio', 'Ese corral ya estaba limpio; la semana empieza de nuevo.')}
+            </p>
+          )}
+    </MarcoEditorInfra>
   )
 }
 

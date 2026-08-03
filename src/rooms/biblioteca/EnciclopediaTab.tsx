@@ -9,6 +9,13 @@ import { PILARES, todosLosTemas } from './pilares'
 import { hoyISO } from './fecha'
 import type { AnclaTema } from './arbol'
 import { EntradaForm, type EntradaFormInicial } from './EntradaForm'
+import { ImagenIA } from '../_shared/ImagenIA'
+
+/** Prompt de la ilustración de una entrada (título + resumen, estilo editorial). */
+const promptEntrada = (e: EntradaBiblio) =>
+  `Ilustración editorial limpia y conceptual para una entrada de enciclopedia titulada «${e.titulo}». ` +
+  `Representa: ${e.resumen.slice(0, 300)}. ` +
+  'Estilo ilustración digital moderna, colores sobrios, sin texto, sin letras, sin marcas de agua.'
 
 /** Nodo del diagrama (unifica semilla, campos, ramas, temas, dinámicos y hojas 📄). */
 interface NodoDiag {
@@ -400,6 +407,14 @@ export function EnciclopediaTab({
             </div>
           )}
 
+          <ImagenIA
+            imagen={entrada.imagen}
+            prompt={promptEntrada(entrada)}
+            onCambiar={async (imagen) => {
+              if (entrada.id != null) await entradasBiblioRepo.update(entrada.id, { imagen })
+            }}
+          />
+
           <p className="whitespace-pre-wrap text-sm leading-relaxed text-white/80">{entrada.resumen}</p>
 
           {entrada.puntosClave.length > 0 && (
@@ -476,7 +491,7 @@ export function EnciclopediaTab({
         className="w-full rounded-lg border border-white/10 bg-black/30 px-2.5 py-1.5 text-xs outline-none focus:border-white/30"
       />
 
-      <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+      <div className="rounded-xl border border-white/10 bg-white/5 p-3" data-tut="biblioteca.enc.arbol">
         {q && camposVisibles.length === 0 ? (
           <p className="px-2 py-6 text-center text-xs text-white/35">
             {t('biblioteca.enc.sinResultados', 'Nada en el árbol coincide con tu búsqueda.')}

@@ -10,6 +10,8 @@ import {
   useUrlImagen,
 } from './imagenIA'
 import { urlImagenPreset } from './imagenesPreset'
+import { Creditos } from '../../core/ui/Creditos'
+import { OP_IMAGEN_EJERCICIO } from './costosIA'
 
 /**
  * Miniatura (imagen) de un ejercicio del catálogo. Al tocarla se abre un diálogo
@@ -171,6 +173,7 @@ function DialogoImagen({
               ? t('ejercicio.img.generarOtra', 'Generar otra')
               : t('ejercicio.img.generarUna', 'Generar con IA')}
           </button>
+          <Creditos op={OP_IMAGEN_EJERCICIO} />
           <button
             type="button"
             onClick={() => inputRef.current?.click()}

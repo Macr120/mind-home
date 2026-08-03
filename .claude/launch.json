@@ -14,6 +14,13 @@
       "runtimeArgs": ["run", "dev", "--", "--port", "53378"],
       "port": 53378,
       "autoPort": true
+    },
+    {
+      "name": "mind-home-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:web"],
+      "port": 5174,
+      "autoPort": true
     }
   ]
 }

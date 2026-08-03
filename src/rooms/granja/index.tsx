@@ -1,7 +1,7 @@
 import type { RoomModule } from '../../core/registry'
 import { Resumen } from './Resumen'
 import { useGranja } from '../../core/state/granjaStore'
-import { tutorialGranja } from './tutorial'
+import { flujosGranja, tutorialGranja } from './tutorial'
 
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
 const granja: RoomModule = {
@@ -15,6 +15,7 @@ const granja: RoomModule = {
   sinMetaDiaria: true,
   construir: () => useGranja.getState().iniciar(),
   tutorial: tutorialGranja,
+  flujos: flujosGranja,
 }
 
 export default granja

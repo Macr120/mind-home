@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { claveLS } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { idiomasRepo } from '../../core/data/repository'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { COLOR } from './constantes'
+import { ejemploIdiomas } from './ejemplos'
 import { AltaIdioma, SelectorIdiomas } from './SelectorIdiomas'
 import { CharlasTab } from './CharlasTab'
 import { RepasoTab } from './RepasoTab'
@@ -23,7 +26,7 @@ const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
   { id: 'progreso', icono: 'progreso', labelEs: 'Progreso' },
 ]
 
-const LS_IDIOMA = 'mh.idiomaActivo'
+const LS_IDIOMA = claveLS('mh.idiomaActivo')
 
 export function IdiomasApp() {
   const t = useT()
@@ -128,6 +131,10 @@ export function IdiomasApp() {
           )}
         </>
       )}
+
+      {/* Fuera del condicional: sin ningún idioma dado de alta es cuando más
+          falta hace ver la app llena. */}
+      <BarraEjemplo paquete={ejemploIdiomas} />
     </div>
   )
 }

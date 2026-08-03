@@ -7,8 +7,8 @@ import { usePistaLibreEditor } from '../state/pistaLibreStore'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { celdaEnteraBajoCursor } from './arrastreCelda'
-import { cellToWorld, SIZE } from './walls'
-import { esquinaDe, puntoArco, alturaArco, type ArcoEsquina } from './caminosCurvas'
+import { cellToWorld, HALF, SIZE } from './walls'
+import { esquinaDe, puntoArco, alturaArco, H, type ArcoEsquina } from './caminosCurvas'
 import type { CaminoCelda } from '../data/db'
 
 /** Base de los caminos: apenas sobre el tope del piso exterior (~0.19; los objetos de mapa van a 0.2). */
@@ -92,9 +92,12 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
             {brazos.map((v, i) => {
               if (!v) return null
               // El brazo interpola su altura al punto medio con el vecino → rampa.
+              // Va del borde del nudo (1.3) a la ARISTA de la celda: con `HALF`,
+              // no con 3 fijo, o el asfalto no llega con celdas ≠ 6 m.
+              const run = HALF - 1.3
               const rise = (yb + yBase(v.altura)) / 2 - yb
-              const len = Math.hypot(1.7, rise)
-              const pitch = Math.atan2(rise, 1.7)
+              const len = Math.hypot(run, rise)
+              const pitch = Math.atan2(rise, run)
               return (
                 <group key={i} rotation-y={DIRS[i].rotY}>
                   <group position={[1.3, yb + 0.03, 0]} rotation={[0, 0, pitch]}>
@@ -102,9 +105,9 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
                       <boxGeometry args={[len, 0.06, 2.6]} />
                       <meshStandardMaterial color="#3f3f46" roughness={0.9} />
                     </mesh>
-                    {/* Rayas centrales discontinuas. */}
-                    {[0.45, 1.25].map((x) => (
-                      <mesh key={x} position={[x, 0.036, 0]}>
+                    {/* Rayas centrales discontinuas (repartidas a lo largo del brazo). */}
+                    {[0.26, 0.74].map((f) => (
+                      <mesh key={f} position={[f * len, 0.036, 0]}>
                         <boxGeometry args={[0.5, 0.012, 0.14]} />
                         <meshStandardMaterial color="#facc15" roughness={0.6} />
                       </mesh>
@@ -140,17 +143,17 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
       <group>
         {brazos.map((v, i) => {
           if (!v) return null
-          // Del centro a la arista, subiendo al punto medio con el vecino → rampa.
+          // Del centro a la ARISTA (`HALF`, no 3 fijo: con celdas ≠ 6 m la vía
+          // no llegaba y quedaban huecos), subiendo al punto medio → rampa.
           const rise = (yb + yBase(v.altura)) / 2 - yb
-          const len = Math.hypot(3, rise)
-          const pitch = Math.atan2(rise, 3)
-          const k = len / 3
+          const len = Math.hypot(HALF, rise)
+          const pitch = Math.atan2(rise, HALF)
           return (
             <group key={i} rotation-y={DIRS[i].rotY}>
               <group position={[0, yb, 0]} rotation={[0, 0, pitch]}>
-                {/* Durmientes de madera. */}
-                {[0.5, 1.25, 2.0, 2.75].map((x) => (
-                  <mesh key={x} position={[x * k, 0.03, 0]}>
+                {/* Durmientes de madera, repartidos a lo largo del brazo. */}
+                {[0.17, 0.42, 0.67, 0.92].map((f) => (
+                  <mesh key={f} position={[f * len, 0.03, 0]}>
                     <boxGeometry args={[0.3, 0.06, 1.5]} />
                     <meshStandardMaterial color="#7c5a3a" roughness={0.9} />
                   </mesh>
@@ -190,7 +193,8 @@ function TramoCelda({ fila, mapa }: { fila: CaminoCelda; mapa: Map<string, Camin
       {brazos.map((v, i) => {
         if (!v) return null
         const yFin = (y0 + railY(v.altura)) / 2
-        const run = 3 - 0.45
+        // Hasta la arista de la celda (`HALF`), no 3 fijo.
+        const run = HALF - 0.45
         const rise = yFin - y0
         const len = Math.hypot(run, rise)
         const pitch = Math.atan2(rise, run)
@@ -250,13 +254,17 @@ function PistaCurva({
   const yJ = (yb + yBase(brazos[arco.j]?.altura)) / 2
   const yI = (yb + yBase(brazos[arco.i]?.altura)) / 2
   const plano = yJ === yb && yI === yb
+  // Radio del arco = medio lado de celda (el centro está en la esquina): con un
+  // radio fijo el arco no llegaba a los medios de arista donde empatan los
+  // brazos rectos, y la curva quedaba suelta con celdas ≠ 6 m.
+  const R = H
   const geo = useMemo(
-    () => (plano ? sectorAnular(arco, 3 - 1.3, 3 + 1.3, 0.06) : null),
-    [arco, plano],
+    () => (plano ? sectorAnular(arco, R - 1.3, R + 1.3, 0.06) : null),
+    [arco, plano, R],
   )
-  const medio = puntoArco(arco, 3, 0.5)
+  const medio = puntoArco(arco, R, 0.5)
   const SEG = 12
-  const ds = ((Math.PI / 2) * 3) / SEG
+  const ds = ((Math.PI / 2) * R) / SEG
   return (
     <group>
       {plano && geo ? (
@@ -269,7 +277,7 @@ function PistaCurva({
           const t0 = k / SEG
           const t1 = (k + 1) / SEG
           const tm = (t0 + t1) / 2
-          const p = puntoArco(arco, 3, tm)
+          const p = puntoArco(arco, R, tm)
           const y0 = alturaArco(yJ, yb, yI, t0)
           const y1 = alturaArco(yJ, yb, yI, t1)
           const th = arco.a0 + (tm * Math.PI) / 2
@@ -289,7 +297,7 @@ function PistaCurva({
       )}
       {[0.25, 0.75].map((t) => {
         const th = arco.a0 + (t * Math.PI) / 2
-        const p = puntoArco(arco, 3, t)
+        const p = puntoArco(arco, R, t)
         return (
           <mesh
             key={t}
@@ -322,14 +330,16 @@ function RielCurva({
   const yJ = (yb + yBase(brazos[arco.j]?.altura)) / 2
   const yI = (yb + yBase(brazos[arco.i]?.altura)) / 2
   const plano = yJ === yb && yI === yb
+  // Radio del arco = medio lado de celda; los dos rieles van a ±0.5 de él.
+  const R = H
   const rieles = useMemo(() => {
     if (plano)
       return [
-        sectorAnular(arco, 2.5 - 0.06, 2.5 + 0.06, 0.08),
-        sectorAnular(arco, 3.5 - 0.06, 3.5 + 0.06, 0.08),
+        sectorAnular(arco, R - 0.5 - 0.06, R - 0.5 + 0.06, 0.08),
+        sectorAnular(arco, R + 0.5 - 0.06, R + 0.5 + 0.06, 0.08),
       ]
     // Con pendiente: tubos que siguen el arco subiendo (como la montaña rusa).
-    return [2.5, 3.5].map((r) => {
+    return [R - 0.5, R + 0.5].map((r) => {
       const pts: THREE.Vector3[] = []
       for (let k = 0; k <= 12; k++) {
         const t = k / 12
@@ -338,14 +348,14 @@ function RielCurva({
       }
       return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 24, 0.06, 8, false)
     })
-  }, [arco, plano, yb, yJ, yI])
-  const medio = puntoArco(arco, 3, 0.5)
+  }, [arco, plano, yb, yJ, yI, R])
+  const medio = puntoArco(arco, R, 0.5)
   return (
     <group>
       {[0, 1, 2, 3].map((k) => {
         const t = (k + 0.5) / 4
         const th = arco.a0 + (t * Math.PI) / 2
-        const p = puntoArco(arco, 3, t)
+        const p = puntoArco(arco, R, t)
         return (
           <mesh
             key={k}
@@ -382,20 +392,22 @@ function CoasterCurva({
   const y0 = railY(fila.altura)
   const yJ = (y0 + railY(brazos[arco.j]?.altura)) / 2
   const yI = (y0 + railY(brazos[arco.i]?.altura)) / 2
+  // Radio del arco = medio lado de celda; los dos tubos van a ±0.35 de él.
+  const R = H
   const tubos = useMemo(
     () =>
       [-0.35, 0.35].map((dr) => {
         const pts: THREE.Vector3[] = []
         for (let k = 0; k <= 12; k++) {
           const t = k / 12
-          const p = puntoArco(arco, 3 + dr, t)
+          const p = puntoArco(arco, R + dr, t)
           pts.push(new THREE.Vector3(p.x, alturaArco(yJ, y0, yI, t), p.z))
         }
         return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 24, 0.06, 8, false)
       }),
-    [arco, y0, yJ, yI],
+    [arco, y0, yJ, yI, R],
   )
-  const medio = puntoArco(arco, 3, 0.5)
+  const medio = puntoArco(arco, R, 0.5)
   const yMedio = alturaArco(yJ, y0, yI, 0.5)
   return (
     <group>
@@ -405,7 +417,7 @@ function CoasterCurva({
         </mesh>
       ))}
       {[0.2, 0.5, 0.8].map((t) => {
-        const p = puntoArco(arco, 3, t)
+        const p = puntoArco(arco, R, t)
         const th = arco.a0 + (t * Math.PI) / 2
         return (
           <mesh key={t} position={[p.x, alturaArco(yJ, y0, yI, t), p.z]} rotation-y={Math.PI / 2 - th}>
@@ -471,14 +483,16 @@ function DiagonalPista({
   yb: number
 }) {
   const off = impar ? 0 : 0.002
+  // Media diagonal entre los dos centros de celda (proporcional al lado, no fija).
+  const alcance = HALF * Math.SQRT2
   return (
     <group rotation-y={Math.atan2(-dz, dx)}>
-      <mesh position={[2.12, yb + 0.028 + off, 0]}>
-        <boxGeometry args={[4.35, 0.055, 2.2]} />
+      <mesh position={[alcance / 2, yb + 0.028 + off, 0]}>
+        <boxGeometry args={[alcance + 0.11, 0.055, 2.2]} />
         <meshStandardMaterial color="#3f3f46" roughness={0.9} />
       </mesh>
-      {[1.4, 2.8].map((x) => (
-        <mesh key={x} position={[x, yb + 0.0615 + off, 0]}>
+      {[0.33, 0.66].map((f) => (
+        <mesh key={f} position={[f * alcance, yb + 0.0615 + off, 0]}>
           <boxGeometry args={[0.5, 0.012, 0.14]} />
           <meshStandardMaterial color="#facc15" roughness={0.6} />
         </mesh>

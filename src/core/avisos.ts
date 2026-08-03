@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { db } from './data/db'
+import { esDemo } from './edicion'
 import { fechaLocalISO } from './fechaLocal'
 import { metaDiariaDe, sincronizarAgendaDeMeta } from './metaDiaria'
 import { notificar } from './notificaciones'
@@ -193,6 +194,9 @@ async function avisarWrapped() {
 
 export function useAvisos() {
   useEffect(() => {
+    // Casa demo: sin recordatorios (notificarían las rutinas de Pep@ y
+    // `sincronizarAgendaDeMeta` chocaría con el guard de solo lectura).
+    if (esDemo()) return
     const tick = () => {
       void (async () => {
         const fecha = fechaLocalISO()

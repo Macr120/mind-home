@@ -1,121 +1,115 @@
+/**
+ * Flujos de cocina: corren sobre el AÑO de Pep@ en la casa demo (solo navegan
+ * y señalan; no crean datos — el guard lo impediría igual).
+ *
+ * Las pestañas dependen del ENFOQUE activo, así que todo salto va: clic al
+ * enfoque, esperar a que aparezca la pestaña, y clic en la pestaña.
+ */
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
-import { clickTut, esperarTut } from '../../core/tutorial/dom'
-import { recetasRepo } from '../../core/data/repository'
 import { abrirApp } from '../../core/abrirApp'
+import { clickTut, esperarTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-export const tutorialCocina: TutorialDef = {
-  id: 'app-cocina',
-  titulo: T('tut.app-cocina.titulo', 'Cocina · Nutrición'),
+async function irA(enfoque: 'peso' | 'recetario', tab: string): Promise<void> {
+  clickTut(`cocina.enfoque.${enfoque}`)
+  await esperarTut(`cocina.tab.${tab}`, 3000)
+  clickTut(`cocina.tab.${tab}`)
+}
+
+const flujoAlimentacion: TutorialDef = {
+  id: 'app-cocina--alimentacion',
+  titulo: T('tut.app-cocina--alimentacion.titulo', 'Comer con un objetivo'),
   resumen: T(
-    'tut.app-cocina.resumen',
-    'Cocina tiene dos caras: «Control de peso» lleva tu progreso, tus comidas y tus metas; «Recetario» guarda recetas, dietas y la lista del súper.',
+    'tut.app-cocina--alimentacion.resumen',
+    'El control de alimentación son tres pasos: pones tus objetivos, registras lo que comes y bebes, y el progreso te dice si vas por donde querías.',
   ),
   preparar: () => {
     abrirApp('cocina')
   },
   pasos: [
     {
-      sel: 'cocina.enfoque.peso',
-      alEntrar: () => {
-        clickTut('cocina.enfoque.peso')
-      },
-      titulo: T('tut.app-cocina.0.titulo', 'Dos enfoques'),
+      sel: 'cocina.metas.objetivos',
+      titulo: T('tut.app-cocina--alimentacion.1.titulo', 'Paso 1: a dónde vas'),
       texto: T(
-        'tut.app-cocina.0.texto',
-        'Arriba eliges a qué vienes: «Control de peso» para subir, bajar o mantener, y «Recetario» para cocinar y hacer la compra. Cada uno abre sus tres pestañas.',
+        'tut.app-cocina--alimentacion.1.texto',
+        'Con tu peso, tu altura y tu actividad, la app calcula cuánto necesitas al día y reparte los macros. Pep@ se puso 2 400 calorías y un objetivo de peso al que le falta menos de un kilo.',
       ),
+      alEntrar: () => irA('peso', 'metas'),
     },
     {
-      sel: 'cocina.tab.metas',
-      // Con dos niveles hay que abrir el enfoque y ESPERAR a que React pinte su
-      // fila de pestañas: si no, el segundo click no encuentra nada y no pasa nada.
-      alEntrar: async () => {
-        clickTut('cocina.enfoque.peso')
-        await esperarTut('cocina.tab.metas')
-        clickTut('cocina.tab.metas')
-      },
-      titulo: T('tut.app-cocina.2.titulo', 'Progreso'),
+      sel: 'cocina.diario.resumen',
+      titulo: T('tut.app-cocina--alimentacion.2.titulo', 'Paso 2: lo que comiste hoy'),
       texto: T(
-        'tut.app-cocina.2.texto',
-        'Progreso manda: tu peso, cómo va la semana y cuándo llegas a tu meta. Abajo, en «Ajustar objetivo», defines calorías, macros y a qué peso quieres llegar.',
+        'tut.app-cocina--alimentacion.2.texto',
+        'Desayuno, comida, cena y algo suelto: cada registro suma a los anillos del día. El agua tiene su propia meta, y es la que la casa mira para dar por cumplido el día.',
       ),
+      alEntrar: () => irA('peso', 'diario'),
     },
     {
-      sel: 'cocina.fecha',
-      alEntrar: () => {
-        clickTut('cocina.tab.diario')
-      },
-      titulo: T('tut.app-cocina.3.titulo', 'Comidas'),
+      sel: 'cocina.prog.peso',
+      titulo: T('tut.app-cocina--alimentacion.3.titulo', 'Paso 3: 74 kilos, 67 kilos'),
       texto: T(
-        'tut.app-cocina.3.texto',
-        'Escribe lo que comiste y la IA calcula calorías y macros; tú revisas y confirmas. Esta barra navega entre fechas.',
+        'tut.app-cocina--alimentacion.3.texto',
+        'La curva del año entero, con su meseta en el mes de la lesión y el kilo que subió en Japón. Abajo te dice a qué ritmo vas y cuándo llegarías si sigues así.',
       ),
+      alEntrar: () => irA('peso', 'progreso'),
     },
     {
-      sel: 'cocina.tab.plan',
-      alEntrar: async () => {
-        clickTut('cocina.enfoque.recetario')
-        await esperarTut('cocina.tab.plan')
-        clickTut('cocina.tab.plan')
-      },
-      titulo: T('tut.app-cocina.4.titulo', 'Dieta'),
+      sel: 'cocina.prog.calendario',
+      titulo: T('tut.app-cocina--alimentacion.4.titulo', 'Un año en colores'),
       texto: T(
-        'tut.app-cocina.4.texto',
-        'Dieta guarda planes de alimentación con sus recetas y metas; puedes pedirle uno a la IA y aplicarlo como tus objetivos.',
-      ),
-    },
-    {
-      sel: 'cocina.recetas.lista',
-      alEntrar: async (ctx) => {
-        clickTut('cocina.enfoque.recetario')
-        await esperarTut('cocina.tab.recetas')
-        clickTut('cocina.tab.recetas')
-        await ctx.unaVez('receta-ejemplo', async () => {
-          const id = await recetasRepo.add({
-            nombre: 'Ejemplo (tutorial) 🎓',
-            emoji: '🎓',
-            porciones: 1,
-            minutos: 10,
-            etiquetas: ['tutorial'],
-            ingredientes: ['1 ingrediente de ejemplo'],
-            pasos: ['Paso de ejemplo'],
-            calorias: 0,
-            proteinas: 0,
-            carbohidratos: 0,
-            grasas: 0,
-            fuente: 'manual',
-            creadaEn: new Date().toISOString(),
-          })
-          ctx.datos.set('recetaId', id)
-          ctx.alLimpiar(() => recetasRepo.remove(id as number))
-        })
-      },
-      titulo: T('tut.app-cocina.5.titulo', 'Recetario'),
-      texto: T(
-        'tut.app-cocina.5.texto',
-        'Guardé la receta «Ejemplo (tutorial) 🎓» para que veas el recetario con algo dentro. Se borrará al terminar. Cada receta lleva ingredientes, pasos y macros.',
-      ),
-    },
-    {
-      sel: 'cocina.tab.compras',
-      alEntrar: async () => {
-        clickTut('cocina.enfoque.recetario')
-        await esperarTut('cocina.tab.compras')
-        clickTut('cocina.tab.compras')
-      },
-      titulo: T('tut.app-cocina.6.titulo', 'Compras'),
-      texto: T(
-        'tut.app-cocina.6.texto',
-        'Compras genera la lista del súper por categorías; puedes guardar listas y reutilizarlas.',
-      ),
-    },
-    {
-      texto: T(
-        'tut.app-cocina.7.texto',
-        'Listo: la receta de ejemplo se borra ahora. También puedes apuntar comidas por chat («desayuné avena»).',
+        'tut.app-cocina--alimentacion.4.texto',
+        'Verde es un día dentro del objetivo, ámbar uno que se pasó un poco y rojo uno que se fue del todo. El mes del viaje se ve a la primera. Toca cualquier día para abrirlo.',
       ),
     },
   ],
 }
+
+const flujoRecetario: TutorialDef = {
+  id: 'app-cocina--recetario',
+  titulo: T('tut.app-cocina--recetario.titulo', 'Cocinar, planear y comprar'),
+  resumen: T(
+    'tut.app-cocina--recetario.resumen',
+    'El recetario guarda tus recetas con sus macros, las agrupa en dietas y convierte lo que vas a cocinar en la lista del súper.',
+  ),
+  preparar: () => {
+    abrirApp('cocina')
+  },
+  pasos: [
+    {
+      sel: 'cocina.dietas.lista',
+      titulo: T('tut.app-cocina--recetario.1.titulo', 'Dietas, no dietas de revista'),
+      texto: T(
+        'tut.app-cocina--recetario.1.texto',
+        'Una dieta aquí es un plan con sus recetas dentro. Pep@ guardó dos suyas: la semana del maratón y la vuelta de Japón, además de las que trae la app.',
+      ),
+      alEntrar: () => irA('recetario', 'plan'),
+    },
+    {
+      sel: 'cocina.recetas.lista',
+      titulo: T('tut.app-cocina--recetario.2.titulo', 'El recetario'),
+      texto: T(
+        'tut.app-cocina--recetario.2.texto',
+        'Cada receta guarda ingredientes, pasos y sus macros por porción, y se ordena en carpetas. Desde una receta puedes registrar la comida o mandar sus ingredientes al súper.',
+      ),
+      alEntrar: () => irA('recetario', 'recetas'),
+    },
+    {
+      sel: 'cocina.compras.listas',
+      titulo: T('tut.app-cocina--recetario.3.titulo', 'La lista del súper'),
+      texto: T(
+        'tut.app-cocina--recetario.3.texto',
+        'Las listas se guardan con lo que falta por comprar y lo que ya está en la despensa. Si les pones precio, la cuenta se puede mandar a los gastos del Despacho.',
+      ),
+      alEntrar: async () => {
+        await irA('recetario', 'compras')
+        // La pestaña abre en «Crear lista»: hay que pasar a las guardadas.
+        await esperarTut('cocina.compras.sub.listas', 3000)
+        clickTut('cocina.compras.sub.listas')
+      },
+    },
+  ],
+}
+
+export const flujosCocina: TutorialDef[] = [flujoAlimentacion, flujoRecetario]

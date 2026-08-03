@@ -1,4 +1,5 @@
 import { Suspense, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import { useHouse } from '../state/houseStore'
 import { getCuarto } from '../state/cuartosStore'
 import { getPlantilla, type Plantilla } from '../registry'
@@ -22,7 +23,15 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
   const t = useT()
   const activeRoom = useHouse((s) => s.activeRoom)
   const closeRoom = useHouse((s) => s.closeRoom)
-  const objetos = useDiseño((s) => s.objetos)
+  // Solo las apps asignadas al cuarto activo (estables al mover objetos).
+  const appIds = useDiseño(
+    useShallow((s) => {
+      const ids: string[] = []
+      for (const o of s.objetos)
+        if (o.roomId === activeRoom && o.plantillaId && !ids.includes(o.plantillaId)) ids.push(o.plantillaId)
+      return ids
+    }),
+  )
   const cuarto = activeRoom ? getCuarto(activeRoom) : null
   // Color/nombre efectivos (ligados con el menú y la casa). Hooks antes de cualquier return.
   const { color, nombre } = useRoomVisual(
@@ -38,9 +47,8 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
 
   // Plantillas únicas asignadas a los objetos del cuarto.
   const mapa = new Map<string, Plantilla>()
-  for (const o of objetos) {
-    if (o.roomId !== cuarto.id || !o.plantillaId) continue
-    const p = getPlantilla(o.plantillaId)
+  for (const pid of appIds) {
+    const p = getPlantilla(pid)
     if (p) mapa.set(p.id, p)
   }
   const apps = [...mapa.values()]

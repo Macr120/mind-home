@@ -14,13 +14,13 @@
  * debounce tras escrituras (aviso del middleware), intervalo, visibilidad y
  * el botón manual de la sección Cuenta.
  */
-import Dexie from 'dexie'
+import { esDemo } from '../../edicion'
 import { db, type EntradaOutbox } from '../db'
 import { exportarRespaldo } from '../respaldo'
 import { supabase } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 import { tGlobal } from '../../i18n/useT'
-import { conectarAvisoEscritura } from './middleware'
+import { conectarAvisoEscritura, marcarEscrituraSilenciosa } from './middleware'
 import { CLAVES_UNICAS, FK, ORDEN_TOPO, SINGLETONS, TABLAS_SYNC, esTablaSync } from './syncables'
 import { borrarBlobsDeRegistro, extraerBlobs, rehidratarBlobs } from './blobs'
 
@@ -44,10 +44,7 @@ type Fila = Record<string, unknown>
 
 /** Marca la transacción actual: el middleware no debe encolar estos writes. */
 function marcarPull(): void {
-  const t = Dexie.currentTransaction as unknown as {
-    idbtrans?: { __mhAplicandoPull?: boolean }
-  } | null
-  if (t?.idbtrans) t.idbtrans.__mhAplicandoPull = true
+  marcarEscrituraSilenciosa()
 }
 
 function keyPathDe(tabla: string): string {
@@ -386,8 +383,13 @@ let proximoIntento = 0
 
 /** Ciclo completo push+pull. Seguro de llamar en cualquier momento. */
 export async function sincronizar(manual = false): Promise<void> {
-  const usuario = useSesion.getState().usuario
+  // Cinturón además del candado de main.tsx: la BD demo jamás toca la nube.
+  if (esDemo()) return
+  const { usuario, plan } = useSesion.getState()
   if (!supabase || !usuario || sincronizando) return
+  // El sync es parte de Pro: sin plan vigente ni se intenta (el servidor
+  // igual lo rechazaría con 'sin-pro'). El _outbox sigue encolando local.
+  if (plan !== 'pro') return
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return
   if (!manual && Date.now() < proximoIntento) return
 
@@ -406,10 +408,18 @@ export async function sincronizar(manual = false): Promise<void> {
     } catch (e) {
       falloSeguido++
       proximoIntento = Date.now() + Math.min(BACKOFF_BASE_MS * 2 ** (falloSeguido - 1), BACKOFF_MAX_MS)
-      useSesion.setState({
-        estadoSync: 'error',
-        errorSync: e instanceof Error ? e.message : String(e),
-      })
+      const msg = e instanceof Error ? e.message : String(e)
+      if (msg.includes('sin-pro')) {
+        // El plan caducó con el motor andando: resincronizar perfil (detiene
+        // el motor vía conectarMotorSync) y mensaje amable en vez del error crudo.
+        void useSesion.getState().refrescarPerfil()
+        useSesion.setState({
+          estadoSync: 'error',
+          errorSync: tGlobal('cuenta.sync.soloPro', 'La sincronización entre dispositivos es parte de Pro.'),
+        })
+      } else {
+        useSesion.setState({ estadoSync: 'error', errorSync: msg })
+      }
     } finally {
       sincronizando = false
     }
@@ -451,15 +461,18 @@ function detener(): void {
 }
 
 /**
- * Enchufa el motor al ciclo de sesión (llamar UNA vez desde main). Con sesión
- * activa arranca; al cerrar sesión para (conservando `_outbox` y cursor por si
- * vuelve a entrar la misma cuenta).
+ * Enchufa el motor al ciclo de sesión (llamar UNA vez desde main). Arranca con
+ * sesión + plan Pro vigente; para al cerrar sesión O al caducar el plan
+ * (conservando `_outbox` y cursor por si renueva o vuelve a entrar).
+ * El plan se hidrata async tras el login: la transición local→pro dispara
+ * `iniciar()` sola cuando `refrescarPerfil()` aterriza.
  */
 export function conectarMotorSync(): void {
   if (!supabase) return
+  const activo = (s: { usuario: unknown; plan: string }) => !!s.usuario && s.plan === 'pro'
   useSesion.subscribe((s, prev) => {
-    if (s.usuario && !prev.usuario) iniciar()
-    else if (!s.usuario && prev.usuario) detener()
+    if (activo(s) && !activo(prev)) iniciar()
+    else if (!activo(s) && activo(prev)) detener()
   })
-  if (useSesion.getState().usuario) iniciar()
+  if (activo(useSesion.getState())) iniciar()
 }

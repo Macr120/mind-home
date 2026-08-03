@@ -17,7 +17,7 @@ import { dragChar } from './characterDrag'
 import {
   TIPO_OLLA, TIPO_DESPERTADOR, TIPO_LIBRERO_LIBRO, TIPO_GLOBO, TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE, TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_LIBRETA,
-  TIPO_SILLON, TIPO_CALENDARIO,
+  TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA,
 } from './especialesPlantillaMeta'
 
 export { esEspecialPlantilla } from './especialesPlantillaMeta'
@@ -108,6 +108,188 @@ export function Olla({ color, simple = false, nivel = null }: EspProps) {
           </mesh>
         ))}
       </group>
+    </group>
+  )
+}
+
+/** Posición y color de las notas adhesivas fijas de la pizarra de ideas. */
+const NOTAS_PIZARRA: { x: number; y: number; rot: number; c: string }[] = [
+  { x: -0.32, y: 0.18, rot: 0.08, c: '#fda4af' },
+  { x: -0.06, y: 0.21, rot: -0.1, c: '#86efac' },
+  { x: 0.24, y: 0.16, rot: 0.06, c: '#93c5fd' },
+  { x: -0.3, y: -0.16, rot: -0.07, c: '#c4b5fd' },
+]
+
+/** Pizarra de ideas sobre caballete: notas adhesivas y un mini-mapa mental
+ *  dibujado; al acercarse, el foco de arriba se enciende y la nota recién
+ *  pegada oscila como si acabara de caer. */
+export function PizarraIdeas({ color, simple = false, nivel = null }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const foco = useRef<THREE.MeshStandardMaterial>(null!)
+  const nota = useRef<THREE.Group>(null!)
+  const energia = useRef(0)
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (foco.current) foco.current.emissiveIntensity = 1.4 * e
+    if (e === 0) return // en reposo no hay nada más que animar
+    if (nota.current) nota.current.rotation.z = 0.06 + Math.sin(clock.elapsedTime * 10) * 0.12 * e
+  })
+  return (
+    <group ref={raiz}>
+      {/* Patas del caballete */}
+      {[-1, 1].map((s) => (
+        <mesh key={s} position={[s * 0.34, 0.55, 0.06]} rotation={[0.18, 0, s * 0.14]} castShadow>
+          <boxGeometry args={[0.05, 1.15, 0.05]} />
+          <meshStandardMaterial color="#7a5230" roughness={0.9} />
+        </mesh>
+      ))}
+      {/* Tablero inclinado: marco del color del usuario + lienzo claro */}
+      <group position={[0, 0.82, 0]} rotation={[-0.16, 0, 0]}>
+        <mesh castShadow>
+          <boxGeometry args={[1.05, 0.75, 0.04]} />
+          <meshStandardMaterial color={color} roughness={0.7} />
+        </mesh>
+        <mesh position={[0, 0, 0.012]}>
+          <boxGeometry args={[0.95, 0.65, 0.03]} />
+          <meshStandardMaterial color="#f4f1e8" roughness={0.85} />
+        </mesh>
+        {/* Mini-mapa mental dibujado: nodo central y tres ramas */}
+        <mesh position={[0.05, 0.02, 0.03]}>
+          <boxGeometry args={[0.07, 0.07, 0.005]} />
+          <meshStandardMaterial color="#334155" />
+        </mesh>
+        {[0.5, 2.2, 3.9].map((r) => (
+          <mesh
+            key={r}
+            position={[0.05 + Math.cos(r) * 0.11, 0.02 + Math.sin(r) * 0.09, 0.03]}
+            rotation={[0, 0, r]}
+          >
+            <boxGeometry args={[0.15, 0.012, 0.005]} />
+            <meshStandardMaterial color="#64748b" />
+          </mesh>
+        ))}
+        {/* Notas adhesivas fijas */}
+        {NOTAS_PIZARRA.map((n) => (
+          <mesh key={`${n.x}-${n.y}`} position={[n.x, n.y, 0.03]} rotation={[0, 0, n.rot]}>
+            <boxGeometry args={[0.13, 0.13, 0.006]} />
+            <meshStandardMaterial color={n.c} roughness={0.8} />
+          </mesh>
+        ))}
+        {/* Nota recién pegada (la que oscila al acercarse) */}
+        <group ref={nota} position={[0.3, -0.17, 0.03]}>
+          <mesh>
+            <boxGeometry args={[0.13, 0.13, 0.006]} />
+            <meshStandardMaterial color="#fde047" roughness={0.8} />
+          </mesh>
+        </group>
+      </group>
+      {/* Foco sobre la pizarra (se enciende por proximidad) */}
+      <mesh position={[0, 1.28, 0.02]}>
+        <cylinderGeometry args={[0.015, 0.015, 0.14, 8]} />
+        <meshStandardMaterial color="#27272a" />
+      </mesh>
+      <mesh position={[0, 1.38, 0.02]} castShadow>
+        <sphereGeometry args={[0.07, 12, 12]} />
+        <meshStandardMaterial ref={foco} color="#fbbf24" emissive="#fbbf24" emissiveIntensity={0} />
+      </mesh>
+    </group>
+  )
+}
+
+/** Renglones dibujados en las dos páginas de la agenda abierta. */
+const RENGLONES = [0.06, 0.02, -0.02, -0.06]
+
+/** Agenda de escritorio: un planificador abierto sobre una mesita, con el frasco
+ *  de pastillas, el portarretratos y la pluma de las tres secciones. Al acercarse,
+ *  la página derecha se levanta como si alguien pasara la hoja y la lucecita del
+ *  frasco (el recordatorio de la toma) empieza a latir. */
+export function AgendaEscritorio({ color, simple = false, nivel = null }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const hoja = useRef<THREE.Group>(null!)
+  const aviso = useRef<THREE.MeshStandardMaterial>(null!)
+  const energia = useRef(0)
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    if (aviso.current) aviso.current.emissiveIntensity = (0.6 + Math.sin(clock.elapsedTime * 3) * 0.4) * e
+    if (e === 0) return // en reposo la hoja se queda plana
+    if (hoja.current) hoja.current.rotation.y = -Math.abs(Math.sin(clock.elapsedTime * 1.6)) * 1.5 * e
+  })
+  return (
+    <group ref={raiz}>
+      {/* Mesita */}
+      <mesh position={[0, 0.5, 0]} castShadow receiveShadow>
+        <boxGeometry args={[0.95, 0.06, 0.6]} />
+        <meshStandardMaterial color="#7a5230" roughness={0.85} />
+      </mesh>
+      {[-1, 1].map((sx) =>
+        [-1, 1].map((sz) => (
+          <mesh key={`${sx}${sz}`} position={[sx * 0.42, 0.25, sz * 0.25]} castShadow>
+            <boxGeometry args={[0.05, 0.5, 0.05]} />
+            <meshStandardMaterial color="#5c3d24" roughness={0.9} />
+          </mesh>
+        )),
+      )}
+
+      {/* Planificador abierto: tapa del color del usuario y dos páginas claras */}
+      <group position={[0, 0.54, 0.02]} rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh castShadow>
+          <boxGeometry args={[0.62, 0.42, 0.02]} />
+          <meshStandardMaterial color={color} roughness={0.6} />
+        </mesh>
+        <mesh position={[-0.15, 0, 0.015]}>
+          <boxGeometry args={[0.28, 0.37, 0.01]} />
+          <meshStandardMaterial color="#f6f3ea" roughness={0.9} />
+        </mesh>
+        {RENGLONES.map((y) => (
+          <mesh key={y} position={[-0.15, y, 0.021]}>
+            <boxGeometry args={[0.22, 0.008, 0.002]} />
+            <meshStandardMaterial color="#94a3b8" />
+          </mesh>
+        ))}
+        {/* Página derecha: la que se levanta al acercarse (gira desde el lomo) */}
+        <group ref={hoja} position={[0, 0, 0.015]}>
+          <mesh position={[0.15, 0, 0]}>
+            <boxGeometry args={[0.28, 0.37, 0.01]} />
+            <meshStandardMaterial color="#f6f3ea" roughness={0.9} side={THREE.DoubleSide} />
+          </mesh>
+          {RENGLONES.map((y) => (
+            <mesh key={y} position={[0.15, y, 0.006]}>
+              <boxGeometry args={[0.22, 0.008, 0.002]} />
+              <meshStandardMaterial color="#94a3b8" />
+            </mesh>
+          ))}
+        </group>
+      </group>
+
+      {/* Frasco de pastillas con su lucecita de recordatorio (Salud) */}
+      <mesh position={[0.36, 0.61, -0.16]} castShadow>
+        <cylinderGeometry args={[0.05, 0.05, 0.14, 12]} />
+        <meshStandardMaterial color="#f8fafc" roughness={0.4} />
+      </mesh>
+      <mesh position={[0.36, 0.69, -0.16]}>
+        <cylinderGeometry args={[0.052, 0.052, 0.03, 12]} />
+        <meshStandardMaterial ref={aviso} color="#14b8a6" emissive="#14b8a6" emissiveIntensity={0} />
+      </mesh>
+
+      {/* Portarretratos inclinado (Personas) */}
+      <group position={[-0.34, 0.63, -0.15]} rotation={[0, 0.5, 0]}>
+        <mesh castShadow>
+          <boxGeometry args={[0.16, 0.18, 0.015]} />
+          <meshStandardMaterial color="#fb923c" roughness={0.7} />
+        </mesh>
+        <mesh position={[0, 0, 0.01]}>
+          <boxGeometry args={[0.12, 0.14, 0.005]} />
+          <meshStandardMaterial color="#e2e8f0" roughness={0.9} />
+        </mesh>
+      </group>
+
+      {/* Pluma cruzada sobre la mesa (Trabajo) */}
+      <mesh position={[0.06, 0.55, 0.25]} rotation={[0, 0.35, Math.PI / 2]} castShadow>
+        <cylinderGeometry args={[0.011, 0.008, 0.24, 8]} />
+        <meshStandardMaterial color="#6366f1" roughness={0.5} metalness={0.2} />
+      </mesh>
     </group>
   )
 }
@@ -1010,6 +1192,10 @@ export function EspecialPlantilla({
   switch (tipo) {
     case TIPO_OLLA:
       return <Olla color={color} simple={simple} nivel={nivel} />
+    case TIPO_PIZARRA:
+      return <PizarraIdeas color={color} simple={simple} nivel={nivel} />
+    case TIPO_AGENDA:
+      return <AgendaEscritorio color={color} simple={simple} nivel={nivel} />
     case TIPO_DESPERTADOR:
       return <Despertador color={color} simple={simple} nivel={nivel} />
     case TIPO_LIBRERO_LIBRO:

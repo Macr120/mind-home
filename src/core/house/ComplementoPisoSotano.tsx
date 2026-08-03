@@ -6,8 +6,7 @@ import { SIZE } from './walls'
 import { geometriaComplementoLoseta3D, type CeldaFormaLoseta } from './formasLoseta'
 import type { MatPiso } from './pisoSubcelda'
 
-/** Mismo tamaño de loseta que el piso del cuarto: el complemento calza con su silueta. */
-const TILE = SIZE - 0.1
+/** Mismo tamaño de loseta que el piso del cuarto (SIZE - 0.1): el complemento calza con su silueta. */
 /** El relleno nunca intercepta clics (arrastrar el cuarto, caminar). */
 const sinRaycast = () => {}
 
@@ -42,7 +41,7 @@ function CompTexturado({
     roughnessMap: `${base}_roughness.jpg`,
   })
   useMemo(() => {
-    const rep = Math.max(1, TILE / tileSize)
+    const rep = Math.max(1, (SIZE - 0.1) / tileSize)
     for (const t of [maps.map, maps.normalMap, maps.roughnessMap]) {
       if (!t) continue
       t.wrapS = t.wrapT = RepeatWrapping
@@ -79,7 +78,10 @@ export function ComplementoPisoSotano({
   subformas: Subformas
   mat: MatPiso
 }) {
-  const geo = useMemo(() => geometriaComplementoLoseta3D(forma, TILE, subformas), [forma, subformas])
+  const geo = useMemo(
+    () => geometriaComplementoLoseta3D(forma, SIZE - 0.1, subformas),
+    [forma, subformas],
+  )
   useEffect(() => () => geo?.dispose(), [geo])
   if (!geo) return null
   const props: MeshProps = {

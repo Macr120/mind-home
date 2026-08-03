@@ -1,25 +1,37 @@
 import { useState } from 'react'
-import type { PerfilEjercicio, SesionEjercicio } from '../../core/data/db'
+import type { PerfilEjercicio, SesionEjercicio, SistemaUnidades } from '../../core/data/db'
 import { perfilEjercicioRepo } from '../../core/data/repository'
 import { PERFIL_DEFECTO } from './constantes'
 import { ResumenTab } from './ResumenTab'
+import type { Periodo } from './periodo'
 import { useT } from '../../core/i18n/useT'
+import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
+
+const SISTEMAS: { id: SistemaUnidades; labelEs: string; ejemplo: string }[] = [
+  { id: 'internacional', labelEs: 'Internacional', ejemplo: 'kg · km' },
+  { id: 'ingles', labelEs: 'Inglés', ejemplo: 'lb · mi' },
+]
 
 export function MetasTab({
   perfil,
   perfilEfectivo,
   sesiones,
+  periodo,
+  setPeriodo,
 }: {
   perfil: (PerfilEjercicio & { id: number }) | undefined
   perfilEfectivo: PerfilEjercicio
   sesiones: SesionEjercicio[]
+  periodo: Periodo
+  setPeriodo: (p: Periodo) => void
 }) {
   const p = perfil ?? { id: 0, ...PERFIL_DEFECTO }
   const [fuerza, setFuerza] = useState(String(p.sesionesFuerzaSemana))
   const [resistencia, setResistencia] = useState(String(p.minutosResistenciaSemana))
   const [flex, setFlex] = useState(String(p.minutosFlexibilidadSemana))
   const [dias, setDias] = useState(String(p.diasActivosSemana))
+  const [unidades, setUnidades] = useState<SistemaUnidades>(p.unidades ?? 'internacional')
 
   const guardar = async () => {
     const datos = {
@@ -27,6 +39,7 @@ export function MetasTab({
       minutosResistenciaSemana: parseInt(resistencia, 10) || 90,
       minutosFlexibilidadSemana: parseInt(flex, 10) || 60,
       diasActivosSemana: parseInt(dias, 10) || 5,
+      unidades,
     }
     if (p.id) await perfilEjercicioRepo.update(p.id, datos)
     else await perfilEjercicioRepo.add(datos)
@@ -50,7 +63,12 @@ export function MetasTab({
 
   return (
     <div className="space-y-5">
-      <ResumenTab sesiones={sesiones} perfil={perfilEfectivo} />
+      <ResumenTab
+        sesiones={sesiones}
+        perfil={perfilEfectivo}
+        periodo={periodo}
+        setPeriodo={setPeriodo}
+      />
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
         <p className="text-base font-bold mb-2"><Icono nombre="objetivo" /> {t('ejercicio.metas.titulo', 'Objetivos semanales')}</p>
@@ -75,6 +93,36 @@ export function MetasTab({
           <Campo label={t('ejercicio.metas.flex', 'Min flexibilidad / sem')} value={flex} onChange={setFlex} />
           <Campo label={t('ejercicio.metas.dias', 'Días activos / sem')} value={dias} onChange={setDias} />
         </div>
+
+        <div className="mt-4">
+          <p className="text-[10px] text-white/45">
+            {t('ejercicio.metas.sistema', 'Sistema de medidas')}
+          </p>
+          <div className="mt-1 flex gap-2">
+            {SISTEMAS.map((s) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => setUnidades(s.id)}
+                className={`flex-1 rounded-lg px-3 py-1.5 text-xs font-semibold ${
+                  unidades === s.id
+                    ? 'bg-rose-500/20 border border-rose-500/40 text-rose-400'
+                    : 'bg-black/30 border border-white/10 text-white/60 hover:bg-white/10'
+                }`}
+              >
+                {t(`ejercicio.sistema.${s.id}`, s.labelEs)}{' '}
+                <span className="font-normal text-white/40">{s.ejemplo}</span>
+              </button>
+            ))}
+          </div>
+          <p className="mt-1 text-[10px] text-white/35">
+            {t(
+              'ejercicio.metas.sistema.desc',
+              'Cambia cómo se ven los pesos de fuerza (kg o lb) y las distancias y ritmos de resistencia (km o mi). Tus entrenos guardados se convierten solos.',
+            )}
+          </p>
+        </div>
+
         <button
           type="button"
           onClick={guardar}
@@ -98,6 +146,26 @@ export function MetasTab({
           <strong className="text-violet-400"><Icono nombre="cuarto-jardin" /> {t('ejercicio.tab.flexibilidad', 'Flexibilidad')}</strong>{' '}
           — {t('ejercicio.pilar.flex', 'yoga, movilidad y estiramientos por enfoque corporal.')}
         </p>
+      </div>
+
+      {/* El cronograma cierra la pestaña: las metas semanales de arriba son el «cuánto»
+          y esto el «cuándo». Alto fijo porque `Cronograma` es `flex-1 min-h-0` y sin
+          contenedor con altura se colapsaría a cero. */}
+      <div data-tut="ejercicio.cronograma" className="space-y-2">
+        <p className="text-base font-bold">
+          <Icono nombre="calendario" /> {t('ejercicio.tab.cronograma', 'Cronograma')}
+        </p>
+        <p className="text-xs text-white/45">
+          {t(
+            'ejercicio.cronograma.desc',
+            'Tus metas grandes sobre el eje del tiempo. Con ✨ la IA te arma el plan y te sugiere cuáles de tus rutinas agendar.',
+          )}
+        </p>
+        <div className="rounded-xl border border-white/10 bg-white/5">
+          <div className="flex h-96 flex-col">
+            <CronogramaApp plantillaId="ejercicio" />
+          </div>
+        </div>
       </div>
     </div>
   )

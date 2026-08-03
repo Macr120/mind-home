@@ -1,4 +1,4 @@
-import { Suspense, useMemo, type ReactElement, type ReactNode } from 'react'
+import { memo, Suspense, useMemo, type ReactElement, type ReactNode } from 'react'
 import { useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial } from '@react-three/drei'
 import { DoubleSide, ExtrudeGeometry, Path, RepeatWrapping, Shape, ShapeGeometry, SRGBColorSpace, TextureLoader, type Texture } from 'three'
@@ -687,8 +687,9 @@ function MuroTextura({
   return <>{children(map)}</>
 }
 
-/** Segmento de muro con tipo visual, forma paramétrica, color e imagen. */
-export function MuroSegment({
+/** Segmento de muro con tipo visual, forma paramétrica, color e imagen. Memoizado:
+    sus props son escalares/estables, y re-renderizar el cuarto no reconstruye cada muro. */
+export const MuroSegment = memo(function MuroSegment({
   cx,
   cz,
   sx,
@@ -994,4 +995,4 @@ export function MuroSegment({
       )}
     </group>
   )
-}
+})

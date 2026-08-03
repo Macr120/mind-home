@@ -3,8 +3,10 @@ import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { COLOR } from './constantes'
 import { CharlasTab } from './CharlasTab'
+import { ejemploBiblioteca } from './ejemplos'
 import { EnciclopediaTab } from './EnciclopediaTab'
 import { EstudioTab } from './EstudioTab'
 import { ResumenTab } from './ResumenTab'
@@ -86,6 +88,8 @@ export function BibliotecaApp() {
       )}
       {tab === 'estudio' && <EstudioTab />}
       {tab === 'resumen' && <ResumenTab />}
+
+      <BarraEjemplo paquete={ejemploBiblioteca} />
     </div>
   )
 }

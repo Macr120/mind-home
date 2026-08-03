@@ -32,6 +32,7 @@ import { claveCeldaOff, esFormaCuadrada, subformasDeCelda, offSubcelda } from '.
 import { itemsPerimetroSubformas } from '../house/murosPerimetroLoseta'
 import { comprimirFoto } from '../house/especiales'
 import { ColorPicker } from './editor/ColorPicker'
+import { GenerarTexturaIA } from './editor/GenerarTexturaIA'
 
 /** Modo del pincel: el tipo de elemento que se coloca/edita. */
 type Modo = 'pared' | 'puerta' | 'ventana'
@@ -897,6 +898,12 @@ export function WallEditor({ roomId, sinCroquis }: { roomId: string; sinCroquis?
                   <span className="text-base"><Icono nombre="imagen" /></span>
                   {t('paredes.subirImagen', 'Subir imagen')}
                 </button>
+              )}
+              {selKey && (
+                <GenerarTexturaIA
+                  superficie="muro"
+                  onGenerada={(blob) => subirRoomMuroImagen(roomId, selKey, blob)}
+                />
               )}
               <input
                 ref={fileInputRef}

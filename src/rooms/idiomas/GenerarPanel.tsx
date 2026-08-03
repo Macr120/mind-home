@@ -8,6 +8,8 @@ import { TEMARIO, getTema, type AreaTemario } from './temario'
 import { OpcionesTemas } from './OpcionesTemas'
 import { generarTarjetasTema, type TarjetaPropuesta } from './tutor'
 import { hoyISO } from './stats'
+import { Creditos } from '../../core/ui/Creditos'
+import { OP_GENERAR_TARJETAS } from './costosIA'
 
 interface Propuesta extends TarjetaPropuesta {
   sel: boolean
@@ -163,6 +165,7 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
               ) : (
                 <>
                   <Icono nombre="brillo" /> {t('idiomas.gen.generar', 'Generar')}
+                  <Creditos op={OP_GENERAR_TARJETAS} />
                 </>
               )}
             </button>

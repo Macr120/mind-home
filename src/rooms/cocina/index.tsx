@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import type { RoomModule, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha, vLista } from '../../core/registry'
 import type { MomentoComida } from '../../core/data/db'
@@ -11,13 +12,19 @@ import {
   recetasRepo,
 } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
+import { actividadId } from '../../core/rutinas'
+import { tGlobal } from '../../core/i18n/useT'
 import { CATEGORIAS_COMPRA, adivinarCategoria } from './categoriasCompra'
-import { PERFIL_DEFECTO } from './constantes'
+import { HORA_SUGERIDA, MOMENTOS, PERFIL_DEFECTO } from './constantes'
 import { CAMPOS_DIETA, CAMPOS_RECETA } from './recetaIA'
+import { promptDieta, promptReceta } from './promptsFoto'
+import { fotoIA } from './fotoIA'
+import { imagenIaActiva } from '../../core/imagenIA'
 import { registrarPeso } from './peso'
-import { CocinaApp } from './CocinaApp'
-import { tutorialCocina } from './tutorial'
+import { planMetasCocina } from './plan'
+import { flujosCocina } from './tutorial'
 import { fechaLocalISO } from '../../core/fechaLocal'
+import { OPERACIONES_IA } from './costosIA'
 
 async function capturar(texto: string): Promise<boolean> {
   const norm = normalizar(texto)
@@ -95,6 +102,17 @@ async function capturar(texto: string): Promise<boolean> {
 
 const MOMENTOS_VALIDOS = new Set<string>(['desayuno', 'comida', 'cena', 'snack'])
 
+/**
+ * Pinta la portada de lo que el chat acaba de guardar y la escribe cuando
+ * llega, SIN que el chat la espere: una dieta con sus recetas son cinco
+ * imágenes y dejaría al asistente minutos «pensando». Las listas son
+ * reactivas, así que cada foto aparece sola.
+ */
+function pintarPortada(prompt: string, guardar: (foto: Blob) => Promise<unknown>): void {
+  if (!imagenIaActiva()) return
+  void fotoIA(prompt).then((foto) => (foto ? guardar(foto) : undefined))
+}
+
 const esquemas: EsquemaCaptura[] = [
   {
     id: 'comida',
@@ -143,7 +161,7 @@ const esquemas: EsquemaCaptura[] = [
       const pasos = vLista(v.pasos)
       const nombre = vTexto(v.nombre)
       if (!nombre || ingredientes.length === 0) return
-      await recetasRepo.add({
+      const id = await recetasRepo.add({
         nombre,
         emoji: vTexto(v.emoji, '🍲'),
         porciones: Math.max(1, Math.round(vNumero(v.porciones, 2))),
@@ -158,6 +176,7 @@ const esquemas: EsquemaCaptura[] = [
         fuente: 'ia',
         creadaEn: new Date().toISOString(),
       })
+      pintarPortada(promptReceta({ nombre, ingredientes }), (foto) => recetasRepo.update(id, { foto }))
     },
   },
   {
@@ -243,9 +262,10 @@ const esquemas: EsquemaCaptura[] = [
         const n = vNumero(x)
         return n > 0 ? Math.round(n) : undefined
       }
-      await dietasGuardadasRepo.add({
+      const descripcion = vTexto(v.descripcion)
+      const id = await dietasGuardadasRepo.add({
         nombre,
-        descripcion: vTexto(v.descripcion),
+        descripcion,
         calorias: meta(v.calorias),
         proteinas: meta(v.proteinas),
         carbohidratos: meta(v.carbohidratos),
@@ -253,6 +273,8 @@ const esquemas: EsquemaCaptura[] = [
         recetaIds,
         creadoEn: new Date().toISOString(),
       })
+      // Las fotos de sus recetas ya las pidió la tool `receta` una por una.
+      pintarPortada(promptDieta({ nombre, descripcion }), (foto) => dietasGuardadasRepo.update(id, { foto }))
     },
   },
   {
@@ -269,17 +291,22 @@ const esquemas: EsquemaCaptura[] = [
   },
 ]
 
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const CocinaApp = lazy(() => import('./CocinaApp').then((m) => ({ default: m.CocinaApp })))
+
 const cocina: RoomModule = {
   id: 'cocina',
   nombre: 'Cocina · Nutrición',
   icon: '🍳',
   categoria: 'cuerpo',
-  posicion: [-9, 0, -6],
   color: '#f59e0b',
   App: CocinaApp,
-  tutorial: tutorialCocina,
+  flujos: flujosCocina,
   capturar,
   esquemas,
+  operacionesIA: OPERACIONES_IA,
   // El agua es la única meta de cocina que se cumple llegando: las calorías tienen
   // techo, no piso, y ponerlas de meta premiaría atiborrarse. Van en el detalle,
   // que es donde informan sin empujar.
@@ -304,12 +331,35 @@ const cocina: RoomModule = {
       }
     },
   },
+  // El planificador ✨ del cronograma ofrece los momentos de comida: un plan de
+  // nutrición se calendariza poniéndole hora al desayuno, la comida y la cena.
+  // El MISMO bloque que agenda RegistroComida (buscarAgenda lo dedupe al guardar).
+  rutinasPlan: async () =>
+    MOMENTOS.map((m) => ({
+      tipo: 'comida',
+      tipoEtiqueta: tGlobal('cocina.plan.tipoComida', 'Comida'),
+      actividad: {
+        actividadId: actividadId('momento', m.id),
+        plantillaId: 'cocina',
+        nombre: m.label,
+        emoji: m.icon,
+        horaSugerida: HORA_SUGERIDA[m.id],
+        seccion: 'diario',
+        // Sin registro rápido, como en RegistroComida: una comida de un toque
+        // sería 0 kcal envenenando los totales.
+      },
+    })),
+  planMetas: planMetasCocina,
   // Nada de nombres de UNA palabra como 'peso': se matchean por token y
   // secuestrarían «peso 78 kg», que debe caer en el registro de pesaje.
   comandos: [
-    { seccion: 'metas', etiqueta: 'Progreso', nombres: ['mi progreso', 'mi peso', 'metas de nutricion', 'mis macros'] },
-    { seccion: 'diario', etiqueta: 'Comidas', nombres: ['diario de comidas', 'mis comidas', 'registrar comida'] },
-    { seccion: 'cronograma', etiqueta: 'Cronograma', nombres: ['cronograma de nutricion', 'mis metas de peso'] },
+    {
+      seccion: 'metas',
+      etiqueta: 'Metas',
+      nombres: ['metas de nutricion', 'mis macros', 'cronograma de nutricion', 'mis metas de peso', 'plan alimenticio'],
+    },
+    { seccion: 'diario', etiqueta: 'Registro', nombres: ['diario de comidas', 'mis comidas', 'registrar comida'] },
+    { seccion: 'progreso', etiqueta: 'Progreso', nombres: ['mi progreso', 'mi peso', 'estadisticas de nutricion'] },
     { seccion: 'plan', etiqueta: 'Dieta', nombres: ['dieta', 'plan de comidas', 'plan semanal de comidas'] },
     { seccion: 'recetas', etiqueta: 'Recetario', nombres: ['recetario', 'recetas'] },
     { seccion: 'compras', etiqueta: 'Compras', nombres: ['compras', 'lista del super', 'lista de compras'] },

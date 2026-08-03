@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
+import type { SistemaUnidades } from '../../core/data/db'
 import { sesionesEjercicioRepo } from '../../core/data/repository'
 import { hoyISO } from './fecha'
-import { ritmoMinKm } from './stats'
+import { distanciaDesdeKm, fmtDistancia, fmtRitmo, unidadDistancia } from './unidades'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -102,7 +103,13 @@ const fmtTiempo = (seg: number) => {
  * pulsaciones por sensor Bluetooth (ambos opcionales). Al terminar guarda
  * la sesión con distancia, ppm y el trazo de la ruta.
  */
-export function CardioEnVivo({ actividad }: { actividad: string }) {
+export function CardioEnVivo({
+  actividad,
+  unidades,
+}: {
+  actividad: string
+  unidades?: SistemaUnidades
+}) {
   const t = useT()
   const [abierto, setAbierto] = useState(false)
   const [estado, setEstado] = useState<'inactivo' | 'grabando' | 'pausado'>('inactivo')
@@ -295,14 +302,18 @@ export function CardioEnVivo({ actividad }: { actividad: string }) {
       </p>
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-        <Dato label={t('ejercicio.vivo.dist', 'Distancia')} valor={`${km.toFixed(2)} km`} />
+        <Dato label={t('ejercicio.vivo.dist', 'Distancia')} valor={fmtDistancia(km, unidades, 2)} />
         <Dato
           label={t('ejercicio.vivo.ritmo', 'Ritmo')}
-          valor={km > 0 ? `${ritmoMinKm(segundos / 60, km)} /km` : '—'}
+          valor={km > 0 ? fmtRitmo(segundos / 60, km, unidades) : '—'}
         />
         <Dato
           label={t('ejercicio.vivo.vel', 'Velocidad')}
-          valor={km > 0 ? `${velocidad.toFixed(1)} km/h` : '—'}
+          valor={
+            km > 0
+              ? `${distanciaDesdeKm(velocidad, unidades).toFixed(1)} ${unidadDistancia(unidades)}/h`
+              : '—'
+          }
         />
         <Dato
           label={t('ejercicio.vivo.ppm', 'Pulso (ppm)')}

@@ -13,14 +13,17 @@ import {
 } from './animacion'
 import { monturaFrame, anguloPiernaMontada, ANGULO_BRAZO_MONTADO } from '../state/monturaStore'
 import { parqueFrame, anguloPiernaParque, anguloBrazoParque } from '../state/parqueStore'
+import { flotadorFrame, ANGULO_PIERNA_FLOTADOR, ANGULO_BRAZO_FLOTADOR } from '../state/flotadorStore'
 import { accionCuartoFrame, anguloPiernaAccion, anguloBrazoAccion } from '../state/accionCuartoStore'
 import {
   accionFrame,
   anguloBrazoBaile,
   anguloPiernaBaile,
   anguloSaludo,
+  AGACHADO_ALTO,
   ANGULO_BRAZO_CUERDA,
 } from '../state/herramientaStore'
+import { poseBateo } from '../state/juegoCanchaStore'
 
 /**
  * Cuerpo "Base" (box-man estilo Roblox): cubos de colores (cabeza/torso/piernas).
@@ -55,6 +58,16 @@ export function CuerpoBase({
   useFrame(() => {
     if (!caminar) return
     if (esJugador) {
+      const bateo = poseBateo()
+      if (bateo) {
+        // Bateando en el béisbol: las dos manos al bate (el giro del cuerpo lo
+        // pone Character) y piernas firmes en la caja de bateo.
+        if (piernaI.current) piernaI.current.rotation.x = 0
+        if (piernaD.current) piernaD.current.rotation.x = 0
+        if (brazoI.current) brazoI.current.rotation.x = bateo.brazo
+        if (brazoD.current) brazoD.current.rotation.x = bateo.brazo * 0.82
+        return
+      }
       if (monturaFrame.montado) {
         // Piernas sentadas; los brazos sueltan el manubrio si el baile está activo.
         if (piernaI.current) piernaI.current.rotation.x = anguloPiernaMontada(1)
@@ -63,6 +76,14 @@ export function CuerpoBase({
           brazoI.current.rotation.x = accionFrame.bailando ? anguloBrazoBaile(1) : ANGULO_BRAZO_MONTADO
         if (brazoD.current)
           brazoD.current.rotation.x = accionFrame.bailando ? anguloBrazoBaile(-1) : ANGULO_BRAZO_MONTADO
+        return
+      }
+      if (flotadorFrame.sentado) {
+        // Sentado en la dona de la alberca: piernas al frente y brazos en el aro.
+        if (piernaI.current) piernaI.current.rotation.x = ANGULO_PIERNA_FLOTADOR
+        if (piernaD.current) piernaD.current.rotation.x = ANGULO_PIERNA_FLOTADOR
+        if (brazoI.current) brazoI.current.rotation.x = ANGULO_BRAZO_FLOTADOR
+        if (brazoD.current) brazoD.current.rotation.x = ANGULO_BRAZO_FLOTADOR
         return
       }
       if (parqueFrame.usando && parqueFrame.pose !== 'de-pie') {
@@ -113,10 +134,15 @@ export function CuerpoBase({
     if (piernaD.current) piernaD.current.rotation.x = -p
     if (brazoI.current) brazoI.current.rotation.x = -b
     if (brazoD.current) brazoD.current.rotation.x = b
-    // Saludo: pisa solo el brazo derecho (funciona incluso caminando). Solo el jugador.
+    // Saludo: pisa el brazo de esa mano (funciona incluso caminando). Solo el
+    // jugador. El avatar mira a +Z, así que su mano DERECHA es la de X negativa
+    // (`brazoI`, pese al nombre) y la izquierda la de X positiva.
     if (esJugador) {
-      const s = anguloSaludo(performance.now())
-      if (s !== null && brazoD.current) brazoD.current.rotation.x = s
+      const ahora = performance.now()
+      const sd = anguloSaludo(ahora, true)
+      if (sd !== null && brazoI.current) brazoI.current.rotation.x = sd
+      const si = anguloSaludo(ahora, false)
+      if (si !== null && brazoD.current) brazoD.current.rotation.x = si
     }
   })
 
@@ -162,6 +188,31 @@ export function CuerpoBase({
       </mesh>
     </>
   )
+}
+
+/**
+ * Agachado (tecla Ctrl): encoge el cuerpo en vertical con un lerp suave. Va en
+ * un grupo que envuelve al avatar entero, así vale para todos los cuerpos
+ * (cubos, piezas, forma o .glb) en vez de duplicar la pose en cada uno; todos
+ * apoyan en y=0, de modo que al encogerlos bajan la cabeza sin hundir los pies.
+ * Sin `activo` (previews del editor) devuelve los children tal cual.
+ */
+export function Agachado({ activo, children }: { activo: boolean; children: React.ReactNode }) {
+  if (!activo) return <>{children}</>
+  return <AgachadoActivo>{children}</AgachadoActivo>
+}
+
+function AgachadoActivo({ children }: { children: React.ReactNode }) {
+  const g = useRef<THREE.Group>(null)
+  useFrame(() => {
+    if (!g.current) return
+    g.current.scale.y = THREE.MathUtils.lerp(
+      g.current.scale.y,
+      accionFrame.agachado ? AGACHADO_ALTO : 1,
+      0.25,
+    )
+  })
+  return <group ref={g}>{children}</group>
 }
 
 /**

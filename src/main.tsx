@@ -2,8 +2,12 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { DemoGate } from './demo/DemoGate'
+import { aplicarSpawnDemo } from './demo/spawn'
 import { bindKeyboard } from './core/house/movement'
+import { bindAtajosPersonaje } from './core/house/atajosTeclado'
 import { iniciarSesion } from './core/cuenta/sesionStore'
+import { esDemo } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { abrirApp } from './core/abrirApp'
 import { registrarActividad } from './core/rutinas'
@@ -15,12 +19,21 @@ const esTipoWrapped = (v: string | null): v is TipoPeriodo =>
 
 // Una sola vez al cargar (evita desmontajes de StrictMode que sueltan las teclas).
 bindKeyboard()
+// Atajos del personaje: Espacio (saltar), Mayús (correr), 1/2 (manos).
+bindAtajosPersonaje()
 
 // Cuenta (Supabase): hidrata la sesión y el espejo del plan; sin backend no hace nada.
 iniciarSesion()
 
 // Motor de sincronización multi-dispositivo: arranca/para siguiendo la sesión.
-conectarMotorSync()
+// En la casa demo NUNCA: con sesión Pro haría pull de la nube real a la BD
+// demo y push del contenido demo a la nube del usuario.
+if (!esDemo()) conectarMotorSync()
+
+// Casa demo: el mapa se recorta a las zonas elegidas, así que el punto fijo de
+// aparición del motor caería en celdas distintas (incluso dentro de la casa).
+// Se coloca ANTES del render: `Character` toma `playerPos` al montarse.
+if (esDemo()) aplicarSpawnDemo()
 
 // Pide al navegador marcar el almacenamiento como persistente: sin esto puede
 // purgar IndexedDB (todos los datos del usuario) bajo presión de disco.
@@ -67,8 +80,15 @@ if (params.get('accion') === 'registrar' && rutinaPedida) {
   history.replaceState(null, '', location.pathname)
 }
 
+// Autoría del snapshot demo: window.mhExportarCasaDemo() solo en desarrollo.
+if (import.meta.env.DEV) void import('./demo/exportarCasa')
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    {/* Sin puerta: la app es gratis en modo local. Lo que se cobra (créditos de
+        IA y sincronización) lo revalida el servidor, no una pantalla. */}
+    <DemoGate>
+      <App />
+    </DemoGate>
   </StrictMode>,
 )

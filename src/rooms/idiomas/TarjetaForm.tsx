@@ -5,6 +5,7 @@ import { useT } from '../../core/i18n/useT'
 import { COLOR, NIVELES, TIPOS_TARJETA } from './constantes'
 import { OpcionesTemas } from './OpcionesTemas'
 import { hoyISO } from './stats'
+import { ImagenIA } from '../_shared/ImagenIA'
 
 export interface TarjetaFormInicial {
   termino: string
@@ -13,7 +14,13 @@ export interface TarjetaFormInicial {
   tipo: TipoTarjeta
   nivel: string
   temaId?: string
+  imagen?: Blob
 }
+
+/** Prompt de la imagen mnemotécnica: representa el significado, sin texto. */
+const promptTarjeta = (termino: string, traduccion: string) =>
+  `Ilustración sencilla y memorable que represente el significado de "${termino}" (${traduccion}). ` +
+  'Estilo tarjeta educativa, un solo concepto claro, fondo liso, sin texto, sin letras, sin marcas de agua.'
 
 /**
  * Modal de crear/editar una tarjeta de vocabulario. Lo usan la captura manual,
@@ -35,6 +42,7 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
   const [tipo, setTipo] = useState<TipoTarjeta>(inicial.tipo)
   const [nivel, setNivel] = useState(inicial.nivel)
   const [temaId, setTemaId] = useState(inicial.temaId ?? '')
+  const [imagen, setImagen] = useState<Blob | undefined>(inicial.imagen)
 
   const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
   const puedeGuardar = termino.trim() !== '' && traduccion.trim() !== ''
@@ -48,6 +56,7 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
       tipo,
       nivel,
       temaId: temaId || undefined,
+      imagen,
     }
     if (tarjetaId != null) {
       await tarjetasIdiomaRepo.update(tarjetaId, datos)
@@ -123,6 +132,18 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
             rows={2}
             placeholder={t('idiomas.form.ejemploPh', 'Una frase en el idioma que use el término.')}
             className={`${inputBase} resize-y`}
+          />
+        </div>
+
+        <div className="space-y-1">
+          <p className={labelCampo}>{t('idiomas.form.imagen', 'Imagen mnemotécnica (opcional)')}</p>
+          <ImagenIA
+            imagen={imagen}
+            prompt={termino.trim() && traduccion.trim() ? promptTarjeta(termino.trim(), traduccion.trim()) : undefined}
+            aspecto="1:1"
+            max={512}
+            claseMarco="mx-auto aspect-square w-36"
+            onCambiar={setImagen}
           />
         </div>
 

@@ -1,5 +1,5 @@
 import { Suspense, useRef, type RefObject } from 'react'
-import { useFrame, useThree, type ThreeEvent } from '@react-three/fiber'
+import { useFrame, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 import { playerPos, useHouse } from '../state/houseStore'
 import { useMascota } from '../state/mascotaStore'
@@ -10,6 +10,7 @@ import { useDialogo } from '../state/dialogoStore'
 import { useMontura } from '../state/monturaStore'
 import { trenFrame } from '../state/trenStore'
 import { useAsistenteCerca } from '../state/asistenteCercaStore'
+import { usePaintball } from '../state/paintballStore'
 import { posAsistentes } from '../state/posAsistentes'
 import { SPACING, subId, worldToSubCell } from './walls'
 import { COLOR_FORMA, type MascotaId, type Asistente, type Pieza3D } from '../chat/mascotas'
@@ -30,13 +31,12 @@ import { dragChar } from './characterDrag'
  *   mapa y se reubica al último lugar donde le pediste algo (estado `destino`).
  * - Siempre miran al jugador (cara +Z apuntando al player).
  * - No salen de los límites del mapa.
- * - El activo levanta la mano cuando el usuario manda un mensaje (`saludando`)
- *   y proyecta su cabeza a coordenadas de pantalla para anclar la burbuja 2D.
+ * - El activo levanta la mano cuando el usuario manda un mensaje (`saludando`);
+ *   su burbuja 2D (`AsistenteBurbuja`) se ancla encima del chat, no aquí.
  * - Los demás asistentes con `enMapa` aparecen como compañeros que solo flotan.
  */
 
 export const ALTURA_FLOTE = 1.0
-const _screen = new THREE.Vector3()
 
 // ----- Paseo libre: los asistentes deambulan por el exterior del mapa -----
 
@@ -165,6 +165,11 @@ export function Asistente3D() {
   const mascotaId = useMascota((s) => s.mascota)
   const lista = useAsistentes((s) => s.lista)
   const activo = lista.find((a) => a.id === mascotaId) ?? lista[0]
+  // En una batalla de paintball los asistentes salen del paseo: los combatientes
+  // los renderiza el modo (BotsPaintball) y el resto no debe estorbar el campo.
+  const fasePaintball = usePaintball((s) => s.fase)
+  if (fasePaintball === 'cuenta' || fasePaintball === 'jugando' || fasePaintball === 'fin')
+    return null
   return (
     <>
       {activo && <AsistenteActivo asistente={activo} />}
@@ -225,8 +230,6 @@ export function AsistenteProximity() {
 function AsistenteActivo({ asistente }: { asistente: Asistente }) {
   const group = useRef<THREE.Group>(null)
   const brazo = useRef<THREE.Group>(null)
-  const camera = useThree((s) => s.camera)
-  const size = useThree((s) => s.size)
   const seleccionar = useSeleccionarEnEditor(asistente.id)
   // Con un preset activo, el preset manda: se apaga el flote/marcha integrados (el saludo sigue).
   const presetOn = !!asistente.animacion?.preset && asistente.animacion.activacion !== 'apagado'
@@ -324,16 +327,6 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
         0.25,
       )
     }
-
-    // Proyectar la cabeza a pantalla SOLO si este asistente es quien habla o piensa.
-    if ((st.mensaje || st.pensando) && (st.hablanteId ?? st.mascota) === asistente.id) {
-      _screen.set(g.position.x, g.position.y + 1.5, g.position.z)
-      _screen.project(camera)
-      const x = (_screen.x * 0.5 + 0.5) * size.width
-      const y = (-_screen.y * 0.5 + 0.5) * size.height
-      const visible = _screen.z < 1 && Number.isFinite(x) && Number.isFinite(y)
-      st.setScreen(x, y, visible)
-    }
   })
 
   return (
@@ -373,8 +366,6 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
 function Companero({ asistente }: { asistente: Asistente }) {
   const group = useRef<THREE.Group>(null)
   const brazo = useRef<THREE.Group>(null)
-  const camera = useThree((s) => s.camera)
-  const size = useThree((s) => s.size)
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const seleccionar = useSeleccionarEnEditor(asistente.id)
@@ -445,16 +436,6 @@ function Companero({ asistente }: { asistente: Asistente }) {
       girarHacia(g, Math.atan2(playerPos.x - g.position.x, playerPos.z - g.position.z), 0.2)
     } else if (avance) {
       girarHacia(g, Math.atan2(avance.dx, avance.dz), 0.12)
-    }
-
-    // Si este compañero es quien habla o piensa, ancla la burbuja a su cabeza.
-    if ((st.mensaje || st.pensando) && st.hablanteId === asistente.id) {
-      _screen.set(g.position.x, g.position.y + 1.5, g.position.z)
-      _screen.project(camera)
-      const x = (_screen.x * 0.5 + 0.5) * size.width
-      const y = (-_screen.y * 0.5 + 0.5) * size.height
-      const visible = _screen.z < 1 && Number.isFinite(x) && Number.isFinite(y)
-      st.setScreen(x, y, visible)
     }
   })
 

@@ -9,6 +9,7 @@ import {
   EDIT_FOCUS_PANEL_FRAC,
 } from '../state/cameraStore'
 import { playerPos } from '../state/playerPosition'
+import { miraFrame } from '../state/miraFrame'
 import { lookPad } from './lookInput'
 
 /** Velocidad del joystick de vista (px-equivalentes por frame que recibe `orbit`). */
@@ -19,9 +20,18 @@ const _fwd = new THREE.Vector3()
 const _head = new THREE.Vector3()
 const _look = new THREE.Vector3()
 const _pos = new THREE.Vector3()
+const _lado = new THREE.Vector3()
 
 const ALTURA_OJOS = 1.5 // altura de la cabeza del avatar (primera persona)
 const ALTURA_OBJETIVO = 1.2 // punto al que mira la cámara en tercera persona
+// Modo tiro: la cámara se corre al hombro derecho para dejar libre el centro de
+// la pantalla (donde está la mira); apuntando se pega más y cierra el ángulo.
+const DIST_TIRO = 4.2
+const DESPL_TIRO = 0.6
+const DIST_APUNTANDO = 2.6
+const DESPL_HOMBRO = 0.75
+const FOV_APUNTANDO = 45
+const FOV_3P = 70
 const FOV_GRAFITI = 55 // vista grafiti: encuadre del lienzo sin deformar
 const FOV_DIALOGO = 50 // vista diálogo: plano medio sobre el hombro, estilo RPG
 
@@ -274,9 +284,13 @@ export function FollowCamera() {
       return
     }
 
+    // Mira levantada: en 1ª persona cierra el FOV; en 3ª acerca la cámara al
+    // hombro derecho (el centro de la pantalla sigue siendo la dirección de tiro).
+    const apuntando = miraFrame.apuntando
     if (st.vista === 'primera') {
-      if (cam.fov !== fov1p) {
-        cam.fov = fov1p
+      const fovObj = apuntando ? fov1p * 0.62 : fov1p
+      if (Math.abs(cam.fov - fovObj) > 0.5) {
+        cam.fov = THREE.MathUtils.lerp(cam.fov, fovObj, 0.25)
         cam.updateProjectionMatrix()
       }
       // Cámara en la cabeza, mirando hacia adelante (pitch>0 = arriba).
@@ -286,8 +300,9 @@ export function FollowCamera() {
       _look.copy(cam.position).add(_fwd)
       cam.lookAt(_look)
     } else {
-      if (cam.fov !== 70) {
-        cam.fov = 70
+      const fovObj = apuntando ? FOV_APUNTANDO : FOV_3P
+      if (Math.abs(cam.fov - fovObj) > 0.5) {
+        cam.fov = THREE.MathUtils.lerp(cam.fov, fovObj, 0.25)
         cam.updateProjectionMatrix()
       }
       // Tercera persona: cámara orbitando la cabeza, ELEVADA (pitch>0 = por encima),
@@ -296,13 +311,26 @@ export function FollowCamera() {
       const dx = Math.sin(yaw) * ce
       const dy = se
       const dz = Math.cos(yaw) * ce
+      const conArma = miraFrame.conArma
+      const dist = apuntando
+        ? Math.min(dist3p, DIST_APUNTANDO)
+        : conArma
+          ? Math.min(dist3p, DIST_TIRO)
+          : dist3p
+      // Cámara y punto de mira se desplazan LO MISMO al hombro, así el frente de
+      // la cámara no gira y el centro de la pantalla sigue siendo el tiro.
+      _lado
+        .set(dz, 0, -dx)
+        .normalize()
+        .multiplyScalar(apuntando ? DESPL_HOMBRO : conArma ? DESPL_TIRO : 0)
       _pos.set(
-        _head.x + dx * dist3p,
-        _head.y + dy * dist3p,
-        _head.z + dz * dist3p,
+        _head.x + dx * dist + _lado.x,
+        _head.y + dy * dist,
+        _head.z + dz * dist + _lado.z,
       )
       cam.position.lerp(_pos, 0.35)
-      cam.lookAt(_head)
+      _look.set(_head.x + _lado.x, _head.y, _head.z + _lado.z)
+      cam.lookAt(_look)
     }
     cam.updateMatrixWorld()
   })

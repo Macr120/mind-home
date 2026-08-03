@@ -4,8 +4,11 @@ import {
   conversacionesIdiomaRepo,
   eliminarIdiomaCascada,
   idiomasRepo,
+  rutinasRepo,
   tarjetasIdiomaRepo,
 } from '../../core/data/repository'
+import { borrarMetasDeAmbito } from '../../core/metas'
+import { actividadId, buscarAgenda } from '../../core/rutinas'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { CATALOGO_IDIOMAS, COLOR, NIVELES } from './constantes'
@@ -159,6 +162,11 @@ function ConfigIdioma({ idioma, onCerrar }: { idioma: PerfilIdioma; onCerrar: ()
 
   const borrar = async () => {
     if (idioma.id == null) return
+    // Su rastro en el calendario también: metas del plan de estudio (ámbito
+    // `idioma:<id>`) y el bloque de horario que agenda RepasoTab.
+    await borrarMetasDeAmbito(actividadId('idioma', idioma.id))
+    const agenda = buscarAgenda(await rutinasRepo.list(), actividadId('idioma', idioma.id))
+    if (agenda?.id != null) await rutinasRepo.remove(agenda.id)
     await eliminarIdiomaCascada(idioma.id)
     onCerrar()
   }

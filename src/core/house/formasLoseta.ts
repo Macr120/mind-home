@@ -35,12 +35,6 @@ export const SUBQ_OFF: { qc: 0 | 0.5; qr: 0 | 0.5 }[] = [
   { qc: 0.5, qr: 0.5 },
 ]
 
-/** ¿La clave "c,r" es de sub-celda (offset fraccionario)? */
-export function esClaveSubcelda(key: string): boolean {
-  const [c, r] = key.split(',').map(Number)
-  return !Number.isInteger(c) || !Number.isInteger(r)
-}
-
 /** Offset (centro de sub-celda) del cuadrante `i` (0..3 = NO,NE,SO,SE) de la celda (c,r). */
 export function offSubcelda(offCol: number, offRow: number, i: number): { col: number; row: number } {
   const q = SUBQ_OFF[i]

@@ -1,10 +1,11 @@
+import { lazy } from 'react'
 import type { Plantilla, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import { suenoRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
-import { DescansoApp } from './DescansoApp'
-import { tutorialDescanso } from './tutorial'
+import { flujosDescanso } from './tutorial'
 import { fechaLocalISO } from '../../core/fechaLocal'
+import { OPERACIONES_IA } from './costosIA'
 
 async function capturar(texto: string): Promise<boolean> {
   const norm = normalizar(texto)
@@ -62,17 +63,22 @@ const esquemas: EsquemaCaptura[] = [
   },
 ]
 
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const DescansoApp = lazy(() => import('./DescansoApp').then((m) => ({ default: m.DescansoApp })))
+
 const descanso: Plantilla = {
   id: 'descanso',
   nombre: 'Descanso · Cama',
   icon: '🛏️',
   categoria: 'cuerpo',
-  posicion: [3, 0, -6],
   color: '#22d3ee',
   App: DescansoApp,
-  tutorial: tutorialDescanso,
+  flujos: flujosDescanso,
   capturar,
   esquemas,
+  operacionesIA: OPERACIONES_IA,
   // La app es de página única: el deep link solo la abre (la sección se ignora).
   comandos: [
     { seccion: 'sueno', etiqueta: 'Descanso', nombres: ['despertador', 'mi sueno', 'horario de sueno', 'registrar noche'] },

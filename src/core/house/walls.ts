@@ -24,8 +24,13 @@ import {
   itemsPerimetroSubformas,
   type MuroExtraPerimetro,
 } from './murosPerimetroLoseta'
+import { setHCurva } from './caminosCurvas'
 
-export const SIZE = 6 // tamaño del cuarto
+/** Tamaño de celda por defecto y límites del ajuste (Grid → Tamaño de celda). */
+export const TAM_CELDA_BASE = 6
+export const TAM_CELDA_MIN = 4
+export const TAM_CELDA_MAX = 12
+export let SIZE = TAM_CELDA_BASE // tamaño del cuarto (mutable, ver setTamCelda)
 export const WALL_H = 2.4 // alto de pared
 /** Cuánto baja la lámina de agua de una alberca respecto al borde (muro al ras del suelo). */
 export const AGUA_BAJO_BORDE = 0.35
@@ -33,7 +38,7 @@ export const AGUA_BAJO_BORDE = 0.35
 export const AGUA_ALTURA_LOCAL = WALL_H - AGUA_BAJO_BORDE
 export const WALL_T = 0.35 // grosor de pared
 export const DOOR_W = 2.2 // ancho de la puerta
-export const HALF = SIZE / 2
+export let HALF = SIZE / 2
 
 /**
  * Alto por defecto del pico de arco/triángulo, como factor de WALL_H: iguala la
@@ -163,9 +168,28 @@ export function doorFor(position: [number, number, number]) {
 }
 
 /** Tamaño de celda de la rejilla (= tamaño del cuarto). */
-export const SPACING = SIZE
+export let SPACING = SIZE
 
-// ── Rejilla editable (tamaño inicial 6×5, expandible 1×1 – 12×12) ────────────
+/**
+ * Cambia el tamaño de celda activo (lado en metros). Bindings vivos de ESM: todos los
+ * importadores de SIZE/HALF/SPACING ven el valor nuevo; la escena se remonta (key del
+ * Canvas) para regenerar la geometría memoizada. Lo llama layoutStore al cargar y al cambiar.
+ */
+export function setTamCelda(m: number) {
+  SIZE = m
+  HALF = m / 2
+  SPACING = m
+  setHCurva(m / 2)
+}
+
+/**
+ * Cuánto se estira lo que vive SOBRE el mapa respecto a la celda base (1 con 6 m; 0.67–2
+ * en el rango 4–12). Lo usan las canchas y la parcela del huerto, que se dibujan en metros
+ * absolutos en vez de derivarse de la celda. Función, no constante: `SIZE` es mutable.
+ */
+export const factorCelda = () => SIZE / TAM_CELDA_BASE
+
+// ── Rejilla editable (tamaño inicial 6×5, expandible 1×1 – 21×21) ────────────
 export const COLS = 6   // valor inicial / referencia de carga
 export const ROWS = 5
 
@@ -216,13 +240,15 @@ export function worldToCell(x: number, z: number): Cell {
   return { col: snap(x, _cols), row: snap(z, _rows) }
 }
 
-/** Posición del mundo → celda entera de la rejilla (para colocar cuartos básicos). */
+/**
+ * Posición del mundo → celda entera de la rejilla (para colocar cuartos básicos).
+ * Redondea la coordenada continua SIN pasar por el enganche de ½ celda de
+ * `worldToCell`: ese paso intermedio empujaba el último cuarto de cada celda a la
+ * celda siguiente (el vehículo se creía fuera de la pista y caía al suelo).
+ */
 export function worldToCeldaEntera(x: number, z: number): Cell {
-  const half = worldToCell(x, z)
-  return {
-    col: clamp(Math.floor(half.col + 0.5), 0, _cols - 1),
-    row: clamp(Math.floor(half.row + 0.5), 0, _rows - 1),
-  }
+  const idx = (w: number, n: number) => clamp(Math.round(w / SPACING + (n - 1) / 2), 0, n - 1)
+  return { col: idx(x, _cols), row: idx(z, _rows) }
 }
 
 /** Celda por defecto de un cuarto a partir de su posición del registro. */
@@ -237,7 +263,7 @@ export interface Size {
   h: number
 }
 export const SIZE_DEFAULT: Size = { w: 1, h: 1 }
-export const MAX_GRID = 12 // máximo lado de la rejilla (también el del cuarto)
+export const MAX_GRID = 21 // máximo lado de la rejilla (también el del cuarto)
 
 /**
  * Forma del cuarto: lista de celdas como OFFSETS desde el ancla (`cells[id]`),
@@ -510,6 +536,39 @@ function estiloDeArista(
 }
 
 /**
+ * Aristas de puerta AUTOMÁTICA (entre cuartos, sin ancho/posición personalizados por el
+ * usuario) que están "en racha" con la siguiente en el mismo muro: se funden en un solo
+ * vano continuo — sin esto, cuartos multi-celda unidos quedaban con varias puertas
+ * angostas separadas por una columna de muro entre ellas. La usan tanto los segmentos de
+ * pared como las hojas de puerta, para que ambos coincidan.
+ */
+function rachaPuertasAuto(
+  allEdges: EdgeInfo[],
+  overrides?: WallOverrides,
+  estilos?: Record<string, EstiloArista>,
+  pinceles?: PincelesCuarto,
+  formasCelda?: FormasCeldaMap,
+): Set<string> {
+  const set = new Set<string>()
+  for (const e of allEdges) {
+    if (e.auto !== 'puerta' || effectiveEdge(e, overrides) !== 'puerta') continue
+    const sub = subformasDeCelda(formasCelda, e.off.col, e.off.row)
+    const [mn, mp] = sub ? mitadesConsumidasLado(sub, e.side) : [false, false]
+    if (mn || mp) continue
+    const ep = estiloDeArista(e, estilos, pinceles)?.puerta
+    if (ep?.anchoVano != null || ep?.posX != null) continue
+    set.add(edgeKey(e.off, e.side))
+  }
+  return set
+}
+
+/** ¿La arista vecina (en la dirección dada, a lo largo del muro) también está en racha? */
+function vecinoEnRachaPuerta(set: Set<string>, e: EdgeInfo, dir: 1 | -1): boolean {
+  const off = e.horizontal ? { col: e.off.col + dir, row: e.off.row } : { col: e.off.col, row: e.off.row + dir }
+  return set.has(edgeKey(off, e.side))
+}
+
+/**
  * Segmentos de pared (LOCALES al centro) del cuarto, una por arista exterior.
  * Cada arista: 'pared' sólida, 'puerta' con vano centrado, o 'abierto' (sin muro).
  */
@@ -529,7 +588,10 @@ export function roomWallSegments(
   const hayVecino = (base: Cell, dc: number, dr: number): boolean =>
     propias.has(cellId(base.col + dc, base.row + dr)) ||
     tileOcupado(ocupado, anchor.col + base.col + dc, anchor.row + base.row + dr)
-  for (const e of roomEdges(anchor, fp, ocupado)) {
+  const allEdges = roomEdges(anchor, fp, ocupado)
+  const puertaAutoMerge = rachaPuertasAuto(allEdges, overrides, estilos, pinceles, formasCelda)
+  const vecinoEnRacha = (e: EdgeInfo, dir: 1 | -1): boolean => vecinoEnRachaPuerta(puertaAutoMerge, e, dir)
+  for (const e of allEdges) {
     // Celda con forma (triángulo/círculo, entera o fina): el lado que la forma ENTERA
     // consume no genera segmento (silueta Y COLISIÓN las pone el perímetro de forma:
     // MurosPerimetroFormaCuarto + formasColisionRoom). Un lado con recorte FINO en una
@@ -628,20 +690,29 @@ export function roomWallSegments(
     } else {
       // Puerta en la arista (ancho paramétrico hasta abarcar el muro y posición
       // horizontal): el vano se desplaza a lo largo del muro y las dos mitades
-      // a los lados quedan desiguales.
-      const dw = Math.min(SIZE, DOOR_W * (ep?.anchoVano ?? 1))
-      const margen = (SIZE - dw) / 2
+      // a los lados quedan desiguales. Si esta puerta está en racha con la de al
+      // lado (ver `puertaAutoMerge`), el margen de ese lado se anula para fundir
+      // ambos vanos en uno continuo.
+      const dwBase = Math.min(SIZE, DOOR_W * (ep?.anchoVano ?? 1))
+      const margen = (SIZE - dwBase) / 2
+      const enRacha = puertaAutoMerge.has(clave)
+      const flushNeg = enRacha && vecinoEnRacha(e, -1)
+      const flushPos = enRacha && vecinoEnRacha(e, +1)
       const shift = (ep?.posX ?? 0) * margen // centro del vano respecto al centro de la arista
-      const negLen = margen + shift // mitad del lado negativo
-      const posLen = margen - shift // mitad del lado positivo
+      const negLen = flushNeg ? 0 : margen + shift // mitad del lado negativo
+      const posLen = flushPos ? 0 : margen - shift // mitad del lado positivo
+      const dw = SIZE - negLen - posLen // ancho real del vano (mayor si hay lados fundidos)
       const negC = -SIZE / 2 + negLen / 2 // centro de la mitad negativa
       const posC = SIZE / 2 - posLen / 2 // centro de la mitad positiva
+      // Centro real del hueco: coincide con `shift` salvo cuando un solo lado se funde
+      // (el otro lado sigue teniendo margen), caso en el que el hueco queda descentrado.
+      const centro = (negLen - posLen) / 2
       // Muro sobre la puerta: rellena desde el alto de la hoja hasta el alto del muro.
       const He = WALL_H * (em?.alto ?? 1)
       const D = Math.min(He, He * (ep?.alto ?? 0.97))
       const headerH = He - D
-      const hcx = e.cx + (e.horizontal ? shift : 0)
-      const hcz = e.cz + (e.horizontal ? 0 : shift)
+      const hcx = e.cx + (e.horizontal ? centro : 0)
+      const hcz = e.cz + (e.horizontal ? 0 : centro)
       // Remate del vano (arco/pico): lo recorta el dintel en su base.
       const remate = {
         vanoForma: ep?.vanoForma,
@@ -725,7 +796,9 @@ export function roomDoorways(
   formasCelda?: FormasCeldaMap,
 ): Vano[] {
   const out: Vano[] = []
-  for (const e of roomEdges(anchor, fp, ocupado)) {
+  const allEdges = roomEdges(anchor, fp, ocupado)
+  const puertaAutoMerge = rachaPuertasAuto(allEdges, overrides, estilos, pinceles, formasCelda)
+  for (const e of allEdges) {
     // Lado consumido por la diagonal/arco de la forma (entera o fina): sin hoja de puerta
     // aquí (esa silueta la dibuja MurosPerimetroFormaCuarto). El lado completo sí la tiene.
     if (!ladoGrillaActivoEnMapa(formasCelda, e.off.col, e.off.row, e.side)) continue
@@ -734,11 +807,22 @@ export function roomDoorways(
     const [nx, nz] = NORMAL_INT[e.side]
     const ea = estiloDeArista(e, estilos, pinceles)
     const ep = ea?.puerta
-    const dw = est === 'abierto' ? SIZE : Math.min(SIZE, DOOR_W * (ep?.anchoVano ?? 1))
-    const shift = est === 'puerta' ? (ep?.posX ?? 0) * ((SIZE - dw) / 2) : 0
+    const dwBase = est === 'abierto' ? SIZE : Math.min(SIZE, DOOR_W * (ep?.anchoVano ?? 1))
+    // Puerta en racha con la de al lado (ver `rachaPuertasAuto`): el margen de ese lado se
+    // anula para que la hoja llene el mismo vano fundido que dibuja roomWallSegments.
+    const enRacha = est === 'puerta' && puertaAutoMerge.has(edgeKey(e.off, e.side))
+    const flushNeg = enRacha && vecinoEnRachaPuerta(puertaAutoMerge, e, -1)
+    const flushPos = enRacha && vecinoEnRachaPuerta(puertaAutoMerge, e, 1)
+    const margen = (SIZE - dwBase) / 2
+    const shift = est === 'puerta' ? (ep?.posX ?? 0) * margen : 0
+    const negLen = flushNeg ? 0 : margen + shift
+    const posLen = flushPos ? 0 : margen - shift
+    const dw = est === 'abierto' ? dwBase : SIZE - negLen - posLen
+    // Centro real del hueco: coincide con `shift` salvo cuando un solo lado se funde.
+    const centro = est === 'abierto' ? 0 : (negLen - posLen) / 2
     out.push({
-      cx: e.cx + (e.horizontal ? shift : 0),
-      cz: e.cz + (e.horizontal ? 0 : shift),
+      cx: e.cx + (e.horizontal ? centro : 0),
+      cz: e.cz + (e.horizontal ? 0 : centro),
       horizontal: e.horizontal,
       exterior: e.auto === 'pared',
       tipo: est === 'abierto' ? 'porton' : 'puerta',

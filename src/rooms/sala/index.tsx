@@ -1,10 +1,12 @@
+import { lazy } from 'react'
 import type { RoomModule, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vFecha } from '../../core/registry'
 import { lugaresViajeRepo, bitacoraViajeRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
+import { tGlobal } from '../../core/i18n/useT'
+import { CLAUSULA_RECHAZO } from '../../core/planIA'
 import { buscarLugares } from './geocoder'
-import { SalaApp } from './SalaApp'
-import { tutorialSala } from './tutorial'
+import { flujosSala } from './tutorial'
 import { eventosViaje } from './eventos'
 
 const esquemas: EsquemaCaptura[] = [
@@ -61,17 +63,64 @@ const esquemas: EsquemaCaptura[] = [
   },
 ]
 
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const SalaApp = lazy(() => import('./SalaApp').then((m) => ({ default: m.SalaApp })))
+
 const sala: RoomModule = {
   id: 'sala',
   nombre: 'Viajes · Sala',
   icon: '✈️',
   categoria: 'complemento',
-  posicion: [3, 0, 0],
   color: '#2dd4bf',
   App: SalaApp,
-  tutorial: tutorialSala,
+  flujos: flujosSala,
   eventos: eventosViaje,
   esquemas,
+  // Acotamiento del planificador ✨: en viajes el plan es SIEMPRE un itinerario.
+  planMetas: async () => {
+    const lugares = await lugaresViajeRepo.list()
+    const pendientes = lugares.filter((l) => l.visitado === 0)
+    const contexto: string[] = []
+    if (pendientes.length > 0)
+      contexto.push(
+        `Por conocer: ${pendientes
+          .slice(0, 5)
+          .map((l) => l.nombre + (l.fechaPlan ? ` (plan: ${l.fechaPlan})` : ''))
+          .join(', ')}.`,
+      )
+    const visitados = lugares.filter((l) => l.visitado === 1).length
+    if (visitados > 0) contexto.push(`Ya visitados: ${visitados} lugares.`)
+    return {
+      guia: [
+        'La meta es de la app de Viajes: eres un guía de viajes y el plan es SIEMPRE un itinerario — lugares recomendados por visitar en la ciudad, estado o país que nombre la meta, dentro del tiempo del plan.',
+        'Las fases son días o zonas del destino, en un orden geográfico sensato.',
+        'Los hijos son lugares y actividades concretas y REALES del destino («Visitar el Fushimi Inari», «Cenar en el mercado de Nishiki»); nunca inventes sitios.',
+        CLAUSULA_RECHAZO('los viajes o un destino por visitar'),
+      ],
+      contexto,
+      ejemplo: pendientes[0]
+        ? tGlobal('sala.plan.ejLugar', 'Itinerario de viaje a {lugar}', { lugar: pendientes[0].nombre })
+        : tGlobal('sala.plan.ejemplo', 'Itinerario de 5 días en Kioto'),
+      // El material son los lugares que el usuario YA guardó por conocer: si
+      // alguno cae en el destino de la meta, el itinerario lo integra con su porqué.
+      material:
+        pendientes.length > 0
+          ? {
+              titulo: tGlobal('sala.plan.material', 'De tu lista Por conocer'),
+              instruccion:
+                'El material son lugares que el usuario ya guardó Por conocer. Integra al itinerario SOLO los que corresponden al destino de la meta, con su porqué; los de otros destinos no van — si ninguno corresponde, manda "material": []. Deja "rutina" vacía.',
+              items: pendientes.map((l) => ({
+                nombre: l.nombre,
+                detalle:
+                  [l.ciudad, l.estado, l.pais].filter(Boolean).join(', ') +
+                  (l.fechaPlan ? ` · plan: ${l.fechaPlan}` : ''),
+              })),
+            }
+          : undefined,
+    }
+  },
   comandos: [
     { seccion: 'mapa', etiqueta: 'Mapamundi', nombres: ['mapamundi', 'mapa de viajes'] },
     { seccion: 'porConocer', etiqueta: 'Por conocer', nombres: ['por conocer', 'itinerario'] },

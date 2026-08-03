@@ -41,12 +41,14 @@ export function ControlMusica({
   const setMusicaVolumen = useAjustes((s) => s.setMusicaVolumen)
   const sfxVolumen = useAjustes((s) => s.sfxVolumen)
   const setSfxVolumen = useAjustes((s) => s.setSfxVolumen)
+  const hudMusica = useAjustes((s) => s.hudMusica)
+  const setHudMusica = useAjustes((s) => s.setHudMusica)
   const setTemaMusical = useCuartos((s) => s.setTemaMusical)
   const temaGuardado = useCuartos((s) =>
     idCuarto ? s.cuartos.find((c) => c.id === idCuarto)?.temaMusical : undefined,
   )
-  const objetos = useDiseño((s) => s.objetos)
-  const temaAuto = idCuarto ? temaAutoDeCuarto(idCuarto, objetos) : null
+  // Suscripción al tema derivado (escalar): mover objetos no re-renderiza esto.
+  const temaAuto = useDiseño((s) => (idCuarto ? temaAutoDeCuarto(idCuarto, s.objetos) : null))
 
   const etiquetaMood = (id: MoodMusica) =>
     t(`ajustes.musica.mood.${id}`, MOODS_LISTA.find((m) => m.id === id)?.defecto ?? id)
@@ -226,6 +228,33 @@ export function ControlMusica({
                 className="mt-1 w-full"
                 style={{ accentColor: 'var(--ui-accent)' }}
               />
+            </div>
+
+            {/* Quitar el botón del HUD desde el propio control (vuelve en Configuraciones). */}
+            <div className="space-y-1 border-t border-white/10 pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setHudMusica(!hudMusica)
+                  setAbierto(false)
+                }}
+                className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+                  hudMusica
+                    ? 'ui-accent-bg border-transparent'
+                    : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+                }`}
+              >
+                <span className="shrink-0 text-[11px]">{hudMusica ? '✓' : '○'}</span>
+                <span className="min-w-0 flex-1 truncate">
+                  {t('ajustes.musica.hud', 'Mostrar en la pantalla principal')}
+                </span>
+              </button>
+              <p className="text-[10px] leading-snug text-white/40">
+                {t(
+                  'musica.hudNota',
+                  'Apagado, la música se ajusta en Editor › Configuraciones › Música.',
+                )}
+              </p>
             </div>
           </div>
         </>

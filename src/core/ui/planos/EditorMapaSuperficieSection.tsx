@@ -1,5 +1,7 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
+import { useLayout } from '../../state/layoutStore'
+import { TAM_CELDA_MIN, TAM_CELDA_MAX } from '../../house/walls'
 import { ColorPicker, SIN_COLOR } from '../editor/ColorPicker'
 import { useT } from '../../i18n/useT'
 import {
@@ -30,6 +32,17 @@ export function EditorMapaSuperficieSection({ embed }: { embed?: boolean } = {})
   const desactivarRoomPisoImagen = useDiseño((s) => s.desactivarRoomPisoImagen)
   const eliminarRoomPisoImagen = useDiseño((s) => s.eliminarRoomPisoImagen)
 
+  const tamCelda = useLayout((s) => s.tamCelda)
+  const setTamCeldaMapa = useLayout((s) => s.setTamCeldaMapa)
+  // El cambio remonta toda la escena 3D: se aplica al SOLTAR el deslizador, no en vivo.
+  const [celdaLocal, setCeldaLocal] = useState<number | null>(null)
+  const celda = celdaLocal ?? tamCelda
+  const aplicarCelda = () => {
+    if (celdaLocal == null) return
+    void setTamCeldaMapa(celdaLocal)
+    setCeldaLocal(null)
+  }
+
   const imagenUrl = roomPisoImagenes[MAPA_SUPERFICIE_ID]
   const imagenActiva = !!imagenUrl && (roomPisoImagenActiva[MAPA_SUPERFICIE_ID] ?? false)
   const a = mapaSuperficie
@@ -48,6 +61,34 @@ export function EditorMapaSuperficieSection({ embed }: { embed?: boolean } = {})
       {!embed && (
         <p className="text-sm font-semibold">{t('planos.superficie.titulo', 'Superficie del mapa')}</p>
       )}
+
+      {/* 0. Tamaño de celda: lado en metros de cada cuadro de la malla */}
+      <div className="space-y-1.5">
+        <div className="flex justify-between text-[10px]">
+          <p className="font-bold uppercase tracking-wider text-white/40">
+            {t('planos.superficie.tamCelda', 'Tamaño de celda')}
+          </p>
+          <span className="tabular-nums text-white/60">{celda} m</span>
+        </div>
+        <input
+          type="range"
+          min={TAM_CELDA_MIN}
+          max={TAM_CELDA_MAX}
+          step={0.5}
+          value={celda}
+          onChange={(e) => setCeldaLocal(parseFloat(e.target.value))}
+          onPointerUp={aplicarCelda}
+          onKeyUp={aplicarCelda}
+          onBlur={aplicarCelda}
+          className="w-full accent-emerald-400"
+        />
+        <p className="text-[10px] leading-snug text-white/45">
+          {t(
+            'planos.superficie.tamCeldaHint',
+            'Los cuartos, muros, techos y canchas se escalan con la celda; los personajes y demás objetos conservan su tamaño.',
+          )}
+        </p>
+      </div>
 
       {/* 1. Relleno del plano (8º = sin color → plano transparente) */}
       <div className="space-y-1.5">

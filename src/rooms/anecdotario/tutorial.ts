@@ -1,16 +1,18 @@
+/**
+ * Flujos del diario personal: corren sobre el AÑO de Pep@ en la casa demo
+ * (solo navegan y señalan; no crean datos — el guard lo impediría igual).
+ */
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
-import { anecdotasRepo } from '../../core/data/repository'
-import { fechaLocalISO } from '../../core/fechaLocal'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-export const tutorialAnecdotario: TutorialDef = {
-  id: 'app-anecdotario',
-  titulo: T('tut.app-anecdotario.titulo', 'Diario personal'),
+const flujoDiario: TutorialDef = {
+  id: 'app-anecdotario--diario',
+  titulo: T('tut.app-anecdotario--diario.titulo', 'El diario de Pep@'),
   resumen: T(
-    'tut.app-anecdotario.resumen',
-    'El anecdotario es tu diario personal: escribe lo que pasó, con tu ánimo del día y fotos. El calendario integrado filtra tus recuerdos por fecha.',
+    'tut.app-anecdotario--diario.resumen',
+    'El anecdotario es el diario personal: entradas con ánimo, texto y fotos, un calendario que pinta el año según cómo te sentiste, y el historial en carpetas por año, mes y semana.',
   ),
   preparar: () => {
     abrirApp('anecdotario')
@@ -18,36 +20,69 @@ export const tutorialAnecdotario: TutorialDef = {
   pasos: [
     {
       texto: T(
-        'tut.app-anecdotario.1.texto',
-        'Tu diario personal: momentos, ánimo y fotos. Todo se queda en tu dispositivo.',
+        'tut.app-anecdotario--diario.1.texto',
+        'Este es el diario de Pep@: un año entero, dos o tres entradas por semana. Aquí se cuenta TODO el arco — del hartazgo del arranque al maratón de hace dos semanas.',
       ),
     },
     {
       sel: 'anecdotario.form',
-      titulo: T('tut.app-anecdotario.2.titulo', 'Escribir'),
+      titulo: T('tut.app-anecdotario--diario.2.titulo', 'Así se escribe'),
       texto: T(
-        'tut.app-anecdotario.2.texto',
-        'Elige tu ánimo, escribe lo que pasó y adjunta fotos si quieres. Guardar lo agrega a tu historia.',
+        'tut.app-anecdotario--diario.2.texto',
+        'Elige el ánimo del día, pon un título si quieres, escribe y adjunta fotos. Con una foto basta: no hace falta texto.',
+      ),
+    },
+    {
+      sel: 'anecdotario.calendario',
+      titulo: T('tut.app-anecdotario--diario.3.titulo', 'El año en colores'),
+      texto: T(
+        'tut.app-anecdotario--diario.3.texto',
+        'Cada día se pinta con su ánimo. Mira el bache del mes 7 (la lesión) y lo brillante que se ve Japón. Toca un día para filtrar sus entradas.',
       ),
     },
     {
       sel: 'anecdotario.lista',
-      alEntrar: async (ctx) => {
-        await ctx.unaVez('anecdota-ejemplo', async () => {
-          const id = await anecdotasRepo.add({
-            fecha: fechaLocalISO(),
-            titulo: 'Ejemplo (tutorial) 🎓',
-            contenido: 'Así se ve un recuerdo guardado: lo que pasó, con tu ánimo del día.',
-            animo: '🙂',
-          })
-          ctx.alLimpiar(() => anecdotasRepo.remove(id))
-        })
-      },
-      titulo: T('tut.app-anecdotario.3.titulo', 'Tus recuerdos'),
+      titulo: T('tut.app-anecdotario--diario.4.titulo', 'El archivador'),
       texto: T(
-        'tut.app-anecdotario.3.texto',
-        'Guardé el recuerdo «Ejemplo (tutorial) 🎓» para que veas el feed con algo dentro; se borrará al terminar. El calendario filtra por día y las fotos se abren a pantalla completa.',
+        'tut.app-anecdotario--diario.4.texto',
+        'Las entradas se guardan solas en carpetas por año, mes y semana. Abre las semanas de Japón y lee el viaje completo.',
       ),
     },
   ],
 }
+
+const flujoFotos: TutorialDef = {
+  id: 'app-anecdotario--fotos',
+  titulo: T('tut.app-anecdotario--fotos.titulo', 'Los hitos en fotos'),
+  resumen: T(
+    'tut.app-anecdotario--fotos.resumen',
+    'Las entradas importantes llevan foto: se ven en el historial y se abren a pantalla completa.',
+  ),
+  preparar: () => {
+    abrirApp('anecdotario')
+  },
+  pasos: [
+    {
+      texto: T(
+        'tut.app-anecdotario--fotos.1.texto',
+        'Los hitos del año de Pep@ llevan foto: el teclado usado, la llegada de Laika, dos postales de Japón y la medalla del maratón.',
+      ),
+    },
+    {
+      sel: 'anecdotario.lista',
+      titulo: T('tut.app-anecdotario--fotos.2.titulo', 'Búscalas en el historial'),
+      texto: T(
+        'tut.app-anecdotario--fotos.2.texto',
+        'Abre el mes 2 (el teclado), el mes 9 (Japón) o hace dos semanas (la medalla). Toca cualquier foto y se abre a pantalla completa.',
+      ),
+    },
+    {
+      texto: T(
+        'tut.app-anecdotario--fotos.3.texto',
+        'Cada entrada alimenta la racha y despierta al personaje: escribir aquí también es cuidar la casa.',
+      ),
+    },
+  ],
+}
+
+export const flujosAnecdotario: TutorialDef[] = [flujoDiario, flujoFotos]

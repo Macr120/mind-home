@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useDialogo } from '../state/dialogoStore'
 import { useMascota } from '../state/mascotaStore'
 import { useAsistentes } from '../state/asistentesStore'
+import { useHud } from '../state/hudStore'
 import { limpiarMarkdown } from '../chat/texto'
 import { nombreAsistente, saludoAsistente } from '../chat/mascotas'
 import { useT } from '../i18n/useT'
@@ -29,6 +30,12 @@ function DialogoActivo({ id }: { id: string }) {
   const pensando = useMascota((s) => s.pensando)
   const abrirConversacion = useMascota((s) => s.abrirConversacion)
   const conversacion = useMascota((s) => s.conversacion)
+  // El chat de abajo puede crecer (texto largo, botones que envuelven en
+  // móvil): la caja se ancla a su alto REAL, no a un hueco fijo que él mismo
+  // podría rebasar (mismo cálculo que `PilaPrompts`, sin depender del orden
+  // de montaje de los otros bloques del HUD).
+  const topes = useHud((s) => s.topes)
+  const bottomCaja = Math.max(96, ...Object.values(topes).map((p) => p + 12))
 
   const a = lista.find((x) => x.id === id) ?? lista[0]
 
@@ -108,7 +115,8 @@ function DialogoActivo({ id }: { id: string }) {
           type="button"
           onClick={salir}
           aria-label={t('dialogo.salir', 'Terminar la conversación (Esc)')}
-          className="pointer-events-auto absolute inset-x-0 bottom-20 top-0 cursor-default"
+          className="pointer-events-auto absolute inset-x-0 top-0 cursor-default"
+          style={{ bottom: bottomCaja - 16 }}
         />
       )}
 
@@ -139,7 +147,7 @@ function DialogoActivo({ id }: { id: string }) {
       </div>
 
       {/* Caja de diálogo RPG; responder se hace en el chat de abajo */}
-      <div className="absolute inset-x-0 bottom-24 z-10 flex justify-center px-4">
+      <div className="absolute inset-x-0 z-10 flex justify-center px-4" style={{ bottom: bottomCaja }}>
         <div className="relative w-full max-w-2xl">
           {/* Escuchar esta réplica + lectura automática, junto al texto que leen. */}
           <div className="pointer-events-auto absolute right-3 top-3 z-10 flex items-center gap-0.5 text-sm">

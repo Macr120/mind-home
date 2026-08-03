@@ -1,76 +1,102 @@
+/**
+ * Flujos del jardín: corren sobre el año de práctica de Pep@ en la casa demo
+ * (solo navegan y señalan; no crean datos).
+ */
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
-import { clickTut } from '../../core/tutorial/dom'
 import { abrirApp } from '../../core/abrirApp'
-import { gratitudDiariaRepo } from '../../core/data/repository'
-import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
+import { clickTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-export const tutorialJardin: TutorialDef = {
-  id: 'app-jardin',
-  titulo: T('tut.app-jardin.titulo', 'Jardín · Mindfulness'),
+const flujoPracticar: TutorialDef = {
+  id: 'app-jardin--practicar',
+  titulo: T('tut.app-jardin--practicar.titulo', 'Meditar y respirar'),
   resumen: T(
-    'tut.app-jardin.resumen',
-    'El jardín es tu espacio de calma: meditación con pistas de sonido, ejercicios de respiración y agradecimientos diarios. Sin puntos ni rachas a propósito: la calma no compite.',
+    'tut.app-jardin--practicar.resumen',
+    'El jardín guarda tus sesiones de meditación (con pistas de sonido) y respiración guiada. Sin rachas ni puntos: la calma solo crece.',
   ),
   preparar: () => {
-    abrirApp('jardin')
+    abrirApp('jardin', 'meditacion')
   },
   pasos: [
     {
+      sel: 'jardin.calma',
+      titulo: T('tut.app-jardin--practicar.1.titulo', 'La calma acumulada'),
       texto: T(
-        'tut.app-jardin.1.texto',
-        'El jardín es distinto al resto: aquí no hay puntos ni rachas, solo calma acumulada.',
+        'tut.app-jardin--practicar.1.texto',
+        'Cada minuto de práctica riega este jardín. El de Pep@ creció un año entero: de semilla a bosque.',
       ),
     },
     {
-      sel: 'jardin.tab.meditacion',
+      sel: 'jardin.med.pistas',
+      titulo: T('tut.app-jardin--practicar.2.titulo', 'Meditar con sonido'),
+      texto: T(
+        'tut.app-jardin--practicar.2.texto',
+        'Elige una pista (bosque, mar, lluvia, cuencos) y una duración, o medita en silencio con campana. La sesión se guarda sola al terminar.',
+      ),
       alEntrar: () => {
         clickTut('jardin.tab.meditacion')
       },
-      titulo: T('tut.app-jardin.2.titulo', 'Meditación'),
+    },
+    {
+      sel: 'jardin.med.sesiones',
+      titulo: T('tut.app-jardin--practicar.3.titulo', 'Un año de sesiones'),
       texto: T(
-        'tut.app-jardin.2.texto',
-        'Cuatro pistas de sonido —bosque, mar, lluvia y cuencos tibetanos— con distintas duraciones; elige una y deja que te acompañe.',
+        'tut.app-jardin--practicar.3.texto',
+        'Aquí está el año de Pep@: empezó con tres por semana y en el mes 7 —la lesión, el gasto del coche— la práctica se volvió casi diaria. Fue lo que sostuvo el bache.',
       ),
     },
     {
-      sel: 'jardin.tab.respiracion',
+      sel: 'jardin.resp.patron',
+      titulo: T('tut.app-jardin--practicar.4.titulo', 'Respirar'),
+      texto: T(
+        'tut.app-jardin--practicar.4.texto',
+        'Dos patrones guiados: la caja 4-4-4-4 para centrarte y el 4-7-8 para soltar el día. La pantalla respira contigo.',
+      ),
       alEntrar: () => {
         clickTut('jardin.tab.respiracion')
       },
-      titulo: T('tut.app-jardin.3.titulo', 'Respiración'),
+    },
+  ],
+}
+
+const flujoGratitud: TutorialDef = {
+  id: 'app-jardin--gratitud',
+  titulo: T('tut.app-jardin--gratitud.titulo', 'Tres cosas buenas'),
+  resumen: T(
+    'tut.app-jardin--gratitud.resumen',
+    'El ritual de gratitud: tres cosas buenas del día, guardadas en carpetas para releerlas después.',
+  ),
+  preparar: () => {
+    abrirApp('jardin', 'gratitud')
+  },
+  pasos: [
+    {
+      sel: 'jardin.gratitud.alta',
+      titulo: T('tut.app-jardin--gratitud.1.titulo', 'Hoy agradezco…'),
       texto: T(
-        'tut.app-jardin.3.texto',
-        'Ejercicios de respiración con guía visual (inhala, sostén, exhala). Inícialo cuando tengas un minuto.',
+        'tut.app-jardin--gratitud.1.texto',
+        'Tres renglones al día. Con uno basta; tres, mejor. Se guarda una entrada por día y se puede corregir sobre la marcha.',
       ),
+      alEntrar: () => {
+        clickTut('jardin.tab.gratitud')
+      },
     },
     {
       sel: 'jardin.gratitud.historial',
-      alEntrar: async (ctx) => {
-        clickTut('jardin.tab.gratitud')
-        await ctx.unaVez('gratitud-ejemplo', async () => {
-          // Con fecha de AYER: una demo de hoy rellenaría el formulario del día del usuario.
-          const id = await gratitudDiariaRepo.add({
-            fecha: isoMasDias(fechaLocalISO(), -1),
-            item1: 'Ejemplo (tutorial) 🎓',
-            item2: '',
-            item3: '',
-          })
-          ctx.alLimpiar(() => gratitudDiariaRepo.remove(id))
-        })
-      },
-      titulo: T('tut.app-jardin.4.titulo', 'Agradecimientos'),
+      titulo: T('tut.app-jardin--gratitud.2.titulo', 'Las de Pep@'),
       texto: T(
-        'tut.app-jardin.4.texto',
-        'Apunta cosas por las que hoy das gracias; releerlas después es parte del ejercicio. Guardé «Ejemplo (tutorial) 🎓» en «Entradas anteriores»; se borrará al terminar.',
+        'tut.app-jardin--gratitud.2.texto',
+        'Noventa días de agradecimientos reales: el teclado, Laika dormida encima de los apuntes, la rodilla sanando, volver de Japón. Léelos con calma.',
       ),
     },
     {
       texto: T(
-        'tut.app-jardin.5.texto',
-        'Eso es todo: entra cuando lo necesites, sin metas que cumplir.',
+        'tut.app-jardin--gratitud.3.texto',
+        'Este cuarto no lleva rachas ni castiga faltar: es a propósito. La calma no se compite.',
       ),
     },
   ],
 }
+
+export const flujosJardin: TutorialDef[] = [flujoPracticar, flujoGratitud]

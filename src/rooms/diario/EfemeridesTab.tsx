@@ -14,7 +14,7 @@ export function EfemeridesTab({ efemerides }: { efemerides: Efemeride[] }) {
   }
 
   return (
-    <div className="space-y-4">
+    <div data-tut="diario.efemerides.lista" className="space-y-4">
       {efemerides.map((e) => (
         <TarjetaEfemeride key={e.tipo} efemeride={e} />
       ))}

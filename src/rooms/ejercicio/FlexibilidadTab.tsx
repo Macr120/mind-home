@@ -17,8 +17,10 @@ import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { ReproductorFlex } from './ReproductorFlex'
 import { Timer } from './Timer'
-import { minutosTipo, normalizarEjercicio, sesionesSemana, sesionesTipo } from './stats'
-import { HistorialDia, StatCard } from './ResistenciaTab'
+import { minutosTipo, normalizarEjercicio, sesionesTipo } from './stats'
+import { FiltroPeriodo } from './FiltroPeriodo'
+import { metaDelPeriodo, sesionesPeriodo, type Periodo } from './periodo'
+import { HistorialSesiones, StatCard } from './ResistenciaTab'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -48,6 +50,8 @@ export function FlexibilidadTab({
   todasSeriesFlex,
   metaMinutos,
   metaSesiones,
+  periodo,
+  setPeriodo,
 }: {
   fecha: string
   sesiones: SesionEjercicio[]
@@ -55,6 +59,8 @@ export function FlexibilidadTab({
   todasSeriesFlex: SerieFlex[]
   metaMinutos: number
   metaSesiones: number
+  periodo: Periodo
+  setPeriodo: (p: Periodo) => void
 }) {
   const gruposFlex = gruposFlexRepo.useAll() ?? []
   const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposFlex), [gruposFlex])
@@ -80,14 +86,14 @@ export function FlexibilidadTab({
     setEditandoId(null)
   }
 
-  const delDia = sesiones.filter(
-    (s) => s.fecha === fecha && s.tipo === 'flexibilidad',
-  )
-  const flexTotales = sesiones.filter((s) => s.tipo === 'flexibilidad')
-  const totalMin = flexTotales.reduce((a, s) => a + s.duracionMin, 0)
-  const semana = sesionesSemana(sesiones)
-  const semanaMin = minutosTipo(semana, 'flexibilidad')
-  const semanaSes = sesionesTipo(semana, 'flexibilidad')
+  const todasFlex = sesiones.filter((s) => s.tipo === 'flexibilidad')
+  const delDia = todasFlex.filter((s) => s.fecha === fecha)
+  // El filtro Semana/Mes/Año/Todo recorta las estadísticas de Progreso.
+  const flexTotales = sesionesPeriodo(todasFlex, periodo)
+  const totalMin = minutosTipo(flexTotales, 'flexibilidad')
+  const totalSes = sesionesTipo(flexTotales, 'flexibilidad')
+  const metaMinPeriodo = metaDelPeriodo(metaMinutos, periodo, sesiones)
+  const metaSesPeriodo = metaDelPeriodo(metaSesiones, periodo, sesiones)
 
   // "Suma de los ejercicios": tiempo total = Σ(segundos × repeticiones) de las posturas con nombre.
   const sumaSeg = filas.reduce(
@@ -97,6 +103,10 @@ export function FlexibilidadTab({
     0,
   )
   const fmtSuma = `${Math.floor(sumaSeg / 60)}:${String(sumaSeg % 60).padStart(2, '0')}`
+
+  // La sesión solo se guarda cuando todas sus posturas están palomeadas.
+  const conNombre = filas.filter((f) => f.ejercicio.trim())
+  const todoHecho = conNombre.length > 0 && conNombre.every((f) => f.hecho)
 
   const recientes = useMemo(() => {
     const vistos = new Set<string>()
@@ -146,12 +156,14 @@ export function FlexibilidadTab({
     const suyas = todasSeriesFlex
       .filter((x) => x.sesionId === s.id)
       .sort((a, b) => a.orden - b.orden)
+    // Lo ya guardado se da por hecho: si no, no se podría volver a guardar.
     setFilas(
       suyas.length
         ? suyas.map((x) => ({
             ejercicio: x.ejercicio,
             segundos: String(x.segundos),
             repeticiones: String(x.repeticiones),
+            hecho: true,
           }))
         : [filaVacia(), filaVacia()],
     )
@@ -169,7 +181,7 @@ export function FlexibilidadTab({
     e.preventDefault()
     // La duración de la sesión es la suma de tiempo de las posturas.
     const mins = sumaSeg > 0 ? Math.max(1, Math.round(sumaSeg / 60)) : 0
-    if (!mins) return
+    if (!mins || !todoHecho) return
     const datos = {
       titulo: titulo.trim() || 'Flexibilidad',
       duracionMin: mins,
@@ -228,11 +240,12 @@ export function FlexibilidadTab({
         </div>
       )}
 
-      <div className="flex gap-1.5">
+      <div data-tut="ejercicio.flex.subs" className="flex gap-1.5">
         {SUBS_F.map((s) => (
           <button
             key={s.id}
             type="button"
+            data-tut={`ejercicio.sub.${s.id}`}
             onClick={() => setSubF(s.id)}
             className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-semibold ${
               subF === s.id
@@ -386,19 +399,27 @@ export function FlexibilidadTab({
               )}
               <button
                 type="submit"
-                className="flex-1 rounded-xl py-2.5 font-bold bg-violet-600 texto-cta"
+                disabled={!todoHecho}
+                className="flex-1 rounded-xl py-2.5 font-bold bg-violet-600 texto-cta disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {editandoId !== null
                   ? t('ejercicio.actualizar', 'Actualizar sesión')
                   : t('ejercicio.guardar', 'Guardar sesión')}
               </button>
             </div>
+            {!todoHecho && (
+              <p className="text-center text-[10px] text-white/40">
+                {t('ejercicio.checks.faltan', 'Marca todos los ejercicios para guardar el entreno.')}
+              </p>
+            )}
           </form>
 
-          <HistorialDia
+          <HistorialSesiones
             fecha={fecha}
-            sesiones={delDia}
+            sesiones={todasFlex}
+            delDia={delDia}
             color="text-violet-400"
+            resaltado="bg-violet-500/10 border-violet-500/30"
             onEditar={editarSesion}
             onEliminar={async (id) => {
               if (editandoId === id) cancelarEdicion()
@@ -412,21 +433,28 @@ export function FlexibilidadTab({
 
       {subF === 'progreso' && (
         <>
+          <FiltroPeriodo
+            valor={periodo}
+            onChange={setPeriodo}
+            acento="bg-violet-500/25 text-violet-400 border border-violet-500/40"
+          />
           <div className="grid grid-cols-2 gap-3">
             <HeatmapMensual sesiones={sesiones} tipo="flexibilidad" color="#a78bfa" />
             <div className="grid grid-rows-2 gap-3">
               <StatCard
                 label={t('ejercicio.stats.minutos', 'Minutos totales')}
                 valor={String(totalMin)}
-                semana={semanaMin}
-                meta={metaMinutos}
+                semana={totalMin}
+                meta={metaMinPeriodo}
+                rango={periodo}
                 color="#a78bfa"
               />
               <StatCard
                 label={t('ejercicio.stats.sesiones', 'Sesiones')}
-                valor={String(flexTotales.length)}
-                semana={semanaSes}
-                meta={metaSesiones}
+                valor={String(totalSes)}
+                semana={totalSes}
+                meta={metaSesPeriodo}
+                rango={periodo}
                 color="#a78bfa"
               />
             </div>

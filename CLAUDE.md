@@ -59,13 +59,22 @@ src/
 
 ## Agregar un cuarto nuevo
 1. Crear `src/rooms/<id>/MiApp.tsx` — componente React 2D con Tailwind, tema oscuro.
-2. Crear `src/rooms/<id>/index.tsx` exportando un `RoomModule`:
-   - `id`: único, kebab/lowercase
-   - `categoria`: `'cuerpo' | 'mente' | 'complemento' | 'config'`
-   - `posicion`: celda en cuadrícula 4×3 (cols x: -9 -3 3 9 · filas z: -6 0 6)
-3. Registrar en `src/core/registry.ts` (reemplazar placeholder `proximo(...)` si existe).
-4. Datos nuevos: tabla en `db.ts` + repo en `repository.ts`.
-5. Mueble 3D: `case '<id>':` en `src/core/house/Furniture.tsx`.
+2. Crear `src/rooms/<id>/index.tsx` exportando un `RoomModule` (alias de `Plantilla`,
+   contrato en `registry.ts`):
+   - Campos: `id` (único, kebab/lowercase), `nombre`, `icon`, `color`, `categoria`
+     (`'cuerpo' | 'mente' | 'complemento' | 'config'`), `App`.
+   - `posicion` ya NO existe (era del modelo viejo de cuadrícula fija; ahora el usuario
+     ubica la app al asignarla a un objeto de un cuarto).
+3. Registrar en `src/core/registry.ts`: importar y añadir a `plantillas[]` + su
+   descripción en `DESCRIPCIONES`.
+4. Datos nuevos: tabla en `db.ts` (sube `this.version(n)`) + repo en `repository.ts`.
+5. Recurso 3D del cuarto: entrada en `SIEMBRA` de `src/core/house/modelosRecursos.tsx` +
+   tipo/componente en `especialesPlantillaMeta.ts` y `especialesPlantilla.tsx`
+   (`Furniture.tsx` ya no existe).
+6. Enganchar al resto del núcleo (ver `src/rooms/ideas/` como referencia reciente):
+   FUENTES de actividad en `src/core/gamificacion/actividad.ts`, tablas a sincronizar en
+   `src/core/data/sync/syncables.ts`, textos en `src/core/i18n/dict.ts`, y si aplica,
+   tutorial/comandos de chat/asistente propio.
 
 ## Cuartos
 | # | Cuarto | App | Estado |
@@ -82,6 +91,15 @@ src/
 | 10 | Diario | **Noticias (briefing RSS diario)** — NO es el anecdotario | ✅ |
 | B | Hobbies | Pasatiempos y proyectos | ✅ |
 | C | Anecdotario | Fotos y recuerdos (separado de Recámara) | ✅ |
+| D | Idiomas | Tutor IA, vocabulario SRS y temario por niveles | ✅ |
+| E | Calendario | Eventos y rutinas por día/semana/mes | ✅ |
+| F | Ideas | Diario de ideas y lluvias, mapas conceptuales y diagramas para decidir | ✅ |
+| G | Agenda | Trabajo (pendientes, eventos, proyectos), Salud (citas, medicamentos y mascotas con sus cuidados) y Personas (contactos y cumpleaños) | ✅ |
+
+**Infraestructura** (plantillas `tipo: 'infraestructura'`: se construyen directo en el
+mapa 3D, no ocupan un cuarto): Caminos (pistas, rieles, montañas rusas), Canchas (fútbol,
+tenis, básquet), Huerto (parcelas y cultivos), Granja (cría de animales) y Paintball
+(batallas 1v1/2v2/campal vs. asistentes). Todas ✅.
 
 **Personalización de la casa** (colores, avatar, objetos, perfil): modo **✏️ Editar mapa** → panel derecho (`EditPanel`).
 

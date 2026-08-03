@@ -89,6 +89,3 @@ export function detenerPista(): void {
     urlActual = null
   }
 }
-
-/** Id de la pista sonando ahora mismo (null si nada suena). */
-export const pistaSonandoId = (): number | null => (el && !el.paused ? idActual : null)

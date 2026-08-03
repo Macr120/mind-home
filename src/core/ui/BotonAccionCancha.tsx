@@ -4,10 +4,11 @@ import { useT } from '../i18n/useT'
 
 /**
  * Botón de acción del minijuego de cancha: ocupa el hueco del cubo de vistas
- * mientras juegas. Fútbol/básquet = barra de carga (mantener presionado regula la
- * fuerza, soltar ejecuta); tenis = un toque golpea la pelota cuando está en la
- * ventana de rebote. Muta `juegoFrame` directamente (patrón de BotonDerrapeCarrera
- * con monturaFrame): cero re-renders. Atajo con la barra espaciadora en PC.
+ * mientras juegas. Fútbol/básquet/béisbol = barra de carga (mantener presionado
+ * regula la fuerza, soltar ejecuta); tenis = un toque golpea la pelota cuando
+ * está en la ventana. Muta `juegoFrame` directamente (patrón de
+ * BotonDerrapeCarrera con monturaFrame): cero re-renders. Atajo con la barra
+ * espaciadora en PC.
  */
 export function BotonAccionCancha() {
   const t = useT()
@@ -15,23 +16,25 @@ export function BotonAccionCancha() {
   const fase = useJuegoCancha((s) => s.fase)
   const barraRef = useRef<HTMLDivElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
-  const esTenis = clase === 'tenis'
+  const esTap = clase === 'tenis'
+  const esBeisbol = clase === 'beisbol'
 
   // Barra de carga + resaltado (posesión / ventana de golpeo): rAF local, sin re-render.
   useEffect(() => {
     if (fase !== 'jugando') return
     let raf = 0
     const loop = () => {
-      if (barraRef.current && !esTenis) barraRef.current.style.width = `${Math.round(juegoFrame.carga * 100)}%`
+      if (barraRef.current && !esTap) barraRef.current.style.width = `${Math.round(juegoFrame.carga * 100)}%`
       if (btnRef.current) {
-        const activo = esTenis ? juegoFrame.enVentana : juegoFrame.duena === 'yo'
+        // En béisbol el botón se enciende cuando la bola entra en la zona de bateo.
+        const activo = esTap || esBeisbol ? juegoFrame.enVentana : juegoFrame.duena === 'yo'
         btnRef.current.style.opacity = activo ? '1' : '0.55'
       }
       raf = requestAnimationFrame(loop)
     }
     raf = requestAnimationFrame(loop)
     return () => cancelAnimationFrame(raf)
-  }, [fase, esTenis])
+  }, [fase, esTap, esBeisbol])
 
   // Atajo con la barra espaciadora en PC (mantener/soltar; toque en tenis).
   useEffect(() => {
@@ -45,12 +48,12 @@ export function BotonAccionCancha() {
     const down = (e: KeyboardEvent) => {
       if (e.code !== 'Space' || e.repeat || escribiendo()) return
       e.preventDefault()
-      if (esTenis) juegoFrame.golpe = true
+      if (esTap) juegoFrame.golpe = true
       else juegoFrame.cargando = true
     }
     const up = (e: KeyboardEvent) => {
       if (e.code !== 'Space' || escribiendo()) return
-      if (!esTenis && juegoFrame.cargando) {
+      if (!esTap && juegoFrame.cargando) {
         juegoFrame.cargando = false
         juegoFrame.soltar = true
       }
@@ -61,7 +64,7 @@ export function BotonAccionCancha() {
       window.removeEventListener('keydown', down, true)
       window.removeEventListener('keyup', up, true)
     }
-  }, [fase, esTenis])
+  }, [fase, esTap])
 
   if (fase !== 'jugando' || !clase) return null
 
@@ -70,19 +73,23 @@ export function BotonAccionCancha() {
       ? t('juego.patear', 'Patear')
       : clase === 'basket'
         ? t('juego.tirar', 'Tirar')
-        : t('juego.golpear', 'Golpear')
+        : clase === 'beisbol'
+          ? t('juego.batear', 'Batear')
+          : t('juego.golpear', 'Golpear')
   const hint =
     clase === 'futbol'
       ? t('juego.hintFutbol', 'Mantén para cargar, suelta para patear (Espacio)')
       : clase === 'basket'
         ? t('juego.hintBasket', 'Mantén para regular la potencia, suelta para tirar (Espacio)')
-        : t('juego.hintTenis', 'Toca cuando la pelota bote cerca (Espacio)')
+        : clase === 'beisbol'
+          ? t('juego.hintBeisbol', 'Mantén para cargar el swing, suelta cuando la bola te llegue (Espacio)')
+          : t('juego.hintTenis', 'Apunta con tu frente y toca para sacar o golpear (Espacio)')
   const press = () => {
-    if (esTenis) juegoFrame.golpe = true
+    if (esTap) juegoFrame.golpe = true
     else juegoFrame.cargando = true
   }
   const release = () => {
-    if (!esTenis && juegoFrame.cargando) {
+    if (!esTap && juegoFrame.cargando) {
       juegoFrame.cargando = false
       juegoFrame.soltar = true
     }
@@ -102,7 +109,7 @@ export function BotonAccionCancha() {
       >
         {etiqueta}
       </button>
-      {!esTenis && (
+      {!esTap && (
         <div className="h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/10">
           <div ref={barraRef} className="h-full bg-amber-400" style={{ width: '0%' }} />
         </div>

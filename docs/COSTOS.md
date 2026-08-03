@@ -1,0 +1,494 @@
+# Costos de la IA, créditos y precio
+
+Análisis de COGS (costo por usuario/mes) de la capa de IA vía cuenta y su
+relación con el precio. **Revisión: agosto 2026** (la anterior era de julio).
+Complementa a [`BACKEND.md`](BACKEND.md) (arquitectura del proxy y la cuota).
+
+## Qué cambió en esta revisión
+
+1. **La app dejó de ser solo-suscriptores.** El modo local es gratis y sin
+   cuenta; la IA se paga con recargas de créditos que no caducan, y el plan Pro
+   añade créditos mensuales + sincronización. `consumir_cuota_ia` ya no exige
+   plan (migración `20260802000001_creditos_por_operacion.sql`).
+2. **La tabla de créditos dejó de ser plana.** Antes toda llamada de texto valía
+   1 crédito: un latido de 100 tokens y un plan de metas de 3000 pagaban lo
+   mismo. Ahora el precio lo fija la operación.
+3. **El modelo 3D estaba mal calibrado**: cobraba 5 créditos y cuesta ~10. Con
+   600 créditos gastados solo en 3D el COGS real superaba el precio del plan.
+   Esa era la fuga principal y queda cerrada.
+4. **Precio: 4.99 USD/mes** (antes 67 MXN ≈ $3.60), con precio local por región.
+
+## Precios de proveedor (agosto 2026)
+
+| Concepto | Precio |
+|---|---|
+| Claude Haiku 4.5 — entrada / salida | **$1.00 / $5.00** por M tokens |
+| Claude Sonnet 5 — entrada / salida | **$3.00 / $15.00** por M tokens |
+| Caché: escritura | 1.25× entrada (TTL 5 min) · 2× (TTL 1 h) |
+| Caché: lectura | 0.10× entrada |
+| Mínimo cacheable — Haiku 4.5 | 4096 tokens (debajo: el marcador es no-op) |
+| Mínimo cacheable — Sonnet 5 | 1024 tokens |
+| **gpt-image-1-mini** low (imagen PRINCIPAL) | **$0.005** / imagen 1024² ($0.011 en medium) |
+| **Gemini 3.1 Flash Lite Image** (calidad «buena») | **$0.0336 / imagen** (1K, único tamaño) |
+| Gemini 3.1 Flash Lite (texto de respaldo) | $0.25 entrada / $1.50 salida por M tokens |
+
+⚠️ **Sonnet 5 corre con precio introductorio ($2/$10) hasta el 31-ago-2026.** A
+partir del 1 de septiembre el modelo 3D cuesta 50% más. La tabla de abajo ya usa
+el precio pleno: no hay que reajustar nada ese día.
+
+⚠️ Los precios de imagen y de Gemini vienen de la revisión anterior y **no se han
+verificado** contra el proveedor en esta pasada. Confirmarlos antes de tomar
+decisiones de precio basadas en ellos.
+
+Referencias de la familia de imagen, por si hay que subir de escalón:
+Nano Banana 2 `gemini-3.1-flash-image` $0.067 (1K) · Nano Banana Pro $0.134 (2K).
+Cualquier modelo es sobreescribible sin redeploy:
+`npx supabase secrets set GEMINI_IMAGE_MODEL=<modelo-nuevo>`.
+
+El lite **solo genera a 1K y cobra plano**: pedir imágenes chicas no ahorra nada
+ahí. La compresión del cliente (`comprimirImagen`, WebP) no baja el costo de IA —
+baja el egress de Storage ($0.09/GB) y lo que ocupa IndexedDB en el móvil. Por eso
+se pide el `aspectRatio` correcto: los píxeles que el recorte tiraría se pagan igual.
+
+## El ancla: 1 crédito = $0.005 USD de COGS
+
+Todo lo demás se deriva de ahí. En Haiku 4.5 eso equivale a **1000 tokens de
+salida** o **5000 de entrada nueva** (o 50 000 leídos de caché). Es la razón por
+la que la salida manda: cuesta 5× la entrada.
+
+## Tabla de créditos por operación
+
+Fuente de verdad: `costo_op()` en SQL. Espejo del cliente para enseñar el precio
+antes de pedir: `src/core/cuenta/costos.ts`. Topes de `max_tokens`: `TOPES` en
+`supabase/functions/ia-chat/index.ts`.
+
+| `op` | Tope salida | Créditos | Costo real | Dónde se usa |
+|---|---|---|---|---|
+| `chat` | 4096 | **1** | $0.004–0.013 (cacheado: $0.0024) | Chat de la casa, con y sin `TOOLS_EDITOR`; latidos |
+| `texto` | 1500 | **1** | $0.0017–0.006 | Recetas, dietas, macros, sabio, tutor, charlas, resúmenes, expandir nodo |
+| `vision` | 1500 | **1** | ~$0.0026 | `analizarImagenIA` (evidencia de descanso) |
+| `texto_largo` | 4096 | **4** | $0.004–0.023 (medido) | Planes IA de metas, mapas conceptuales, tarjetas SRS, efemérides, programas |
+| `modelo3d` | 8192 | **10** | $0.032–0.049 | `generarModelo3D`: objetos, personajes, ropa, asistentes |
+| `imagen` | — | **3** | ~$0.005 | Calidad rápida (gpt-image-1-mini): la de por defecto |
+| `imagen_alta` | — | **10** | ~$0.034 | Calidad buena (Gemini), a elección del usuario |
+
+Cómo se sostiene cada número (Haiku 4.5, precio pleno):
+
+- **`chat`** — entrada ~4 000 (tools de captura + system + historial), salida ~400.
+  Sin caché $0.006; con el prefijo cacheado $0.0024. Con `TOOLS_EDITOR` la entrada
+  sube a ~10 000, pero ese bloque es estático y **compartido entre todos los
+  usuarios**, así que se lee a 0.10×. Promedio real ≈ 1 crédito.
+- **`texto`** — entrada ~800, salida ~900 → $0.0053. El caso barato (macros, 200
+  tokens de salida) baja a $0.0017. El piso de 1 crédito lo cubre de sobra.
+- **`vision`** — la foto viaja a 768px ≈ 1 600 tokens de ENTRADA ($1/M) y la
+  respuesta es corta (~150). Sale igual de barata que `texto`; existe aparte solo
+  para poder medirla en `uso_ia_ops`.
+- **`texto_largo`** — **medido** (ago 2026, ver «Medición real» abajo): el plan IA
+  agota el tope (3 653 entrada / 3 771 salida → $0.0225 = 4.5 créditos), pero las
+  demás formas piden mucho menos al proxy y salen entre $0.004 y $0.010. Se cobran
+  **4**: cubren la mezcla y dejan el peor caso bajo el techo.
+- **`modelo3d`** — Sonnet 5 con razonamiento adaptativo: entrada ~1 200, salida
+  ~3 000 contando el pensamiento → $0.049 a precio pleno. 9.8 créditos → **10**.
+- **`imagen`** — $0.005 = 1 crédito. Se cobran 3: margen holgado para absorber
+  subidas de precio del modelo y, sobre todo, las caídas al respaldo (ver abajo).
+- **`imagen_alta`** — $0.0336 = 6.7 créditos. Se cobran 10.
+
+### Medición real de `texto_largo` (ago 2026)
+
+El resto de la tabla son estimaciones; esta op se midió contra la API porque era
+la única sospechosa de venderse a pérdida (`node --env-file=.env.local
+scripts/medir-costos.mjs --op texto_largo --reps 6`, más las formas cortas a
+mano). Lo que se ve es que **la op es bimodal**: el proxy recorta la salida con
+`Math.min(tope_de_la_op, maxTokens del cliente)`, así que lo que manda no es el
+tope de 4096 sino lo que pide cada call-site.
+
+| Forma (call-site) | `maxTokens` | Entrada | Salida | Costo | Créditos reales |
+|---|---|---|---|---|---|
+| Plan IA (`core/planIA.ts`) | 3000–4000 | 3 653 | 3 771 | **$0.0225** | 4.5 |
+| Mapa conceptual (`rooms/ideas/ia.ts`) | 2000 | 839 | 1 795 | $0.0098 | 2.0 |
+| Programa (`rooms/entretenimiento/programaIA.ts`) | 1600 | 742 | 1 007 | $0.0058 | 1.2 |
+| Efemérides (`rooms/diario/efemerides.ts`) | 1800 | 644 | 647 | $0.0039 | 0.8 |
+
+El plan IA es el que se pasaba: costaba 4.5 créditos y se cobraban 3. Las otras
+tres formas dejaban margen de sobra. La tarifa única de **4** cubre la mezcla sin
+castigar a las cortas; ver Riesgos para el residuo que queda.
+
+### Las dos calidades de imagen
+
+El usuario elige en Configuraciones › Precios de la IA; la preferencia viaja con
+cada petición (`calidad` en el body de `ia-imagen`) y decide **proveedor y precio**:
+
+| Calidad | Proveedor | Cadena | Costo | Créditos |
+|---|---|---|---|---|
+| **Rápida** (por defecto) | gpt-image-1-mini `low` | `IMG_CADENA_RAPIDA` = `openai,gemini` | $0.005 | 3 |
+| **Buena** | Gemini 3.1 Flash Lite Image | `IMG_CADENA_ALTA` = `gemini,openai` | $0.0336 | 10 |
+
+⚠️ **El respaldo ya NO abarata: encarece.** Antes Gemini era el principal y
+OpenAI el respaldo más barato, así que una caída de Google bajaba la factura.
+Ahora es al revés: si OpenAI falla en calidad rápida, la imagen se sirve con
+Gemini ($0.0336) habiendo cobrado 3 créditos ($0.015) — **por debajo del costo**.
+Es un evento raro y acotado (solo mientras OpenAI esté caído), pero conviene
+vigilarlo en `uso_ia_ops` por proveedor; el `console.warn` de `ia-imagen` lo
+etiqueta con la op para poder contarlo.
+
+En OpenAI el tamaño **sí** cambia el precio: `4:3` y `3:4` se mapean a
+1536×1024 / 1024×1536, más caros que el cuadrado. Pedir el aspecto correcto
+importa más ahora que con Gemini, que cobraba plano.
+
+## Tabla completa: qué cuesta cada cosa, cuarto por cuarto
+
+Fuente de verdad en código: `src/core/cuenta/catalogoNucleo.ts` (chat, editor,
+metas) y `src/rooms/<id>/costosIA.ts` (cada cuarto), agregados por
+`gruposIA()`. La misma tabla se consulta dentro de la app en **Configuraciones ›
+Precios de la IA**, y el badge de cada botón sale de ahí: si un número de aquí no
+coincide con la app, el equivocado es este documento.
+
+Los precios asumen la calidad de imagen **rápida** (3 créditos). En calidad buena
+cada imagen pasa a 10, así que las filas con imágenes se multiplican.
+
+### Chat de la casa
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Mensaje al asistente | 1 × chat | **1** |
+| «Genera en 3D…» por chat | 1 × chat + 1 × modelo3d | **11** |
+| «Crea una imagen de…» por chat | 1 × chat + 1 × imagen | **4** |
+| «Hazme un mapa de ideas» por chat | 1 × chat + 1 × texto_largo | **5** (≈, hasta 9 con reintento) |
+| Frase espontánea del personaje | 1 × texto | **1** (solo Pro, 1 de cada 10 latidos) |
+
+### Editor de la casa
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Modelo 3D de objeto o arquitectura | 1 × modelo3d | **10** |
+| Modelo 3D de personaje | 1 × modelo3d | **10** |
+| Prenda del guardarropa | 1 × modelo3d | **10** |
+| Forma de un asistente | 1 × modelo3d | **10** |
+| Textura de piso, muro o techo | 1 × imagen | **3** |
+| Textura de fondo de cielo | 1 × imagen | **3** |
+
+### Metas y cronograma (el botón ✨ sale en 8 cuartos)
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Plan ✨ con IA: cronograma, itinerario, plan de estudio, plan financiero | 1 × texto_largo | **4** |
+
+### Cocina
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Crear receta con IA | 1 × texto + 1 × imagen | **4** |
+| **Dieta completa o plan alimenticio** | 5 × texto + 5 × imagen | **20** (≈) |
+| Calcular calorías y macros | 1 × texto | **1** |
+| Foto de una receta o dieta | 1 × imagen | **3** |
+
+La dieta es la operación más cara del catálogo: el plan y sus 4 recetas se
+escriben en llamadas aparte y cada plato lleva su foto. Sin proveedor de imagen
+son 5 créditos. En calidad buena, 55.
+
+### Ejercicio
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Ilustrar un ejercicio | 1 × imagen | **3** |
+| **Ilustrar los ejercicios que faltan** (lote) | N × imagen | **3 × N** |
+
+No hay generación de rutinas con IA: se arman a mano desde el catálogo. Lo que
+cuesta es ilustrarlas y el Plan ✨ de la meta. El lote no tiene tope, así que la
+confirmación dice el total exacto antes de empezar.
+
+### Biblioteca
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Turno de charla con el Sabio | 1 × texto | **1** |
+| Primer turno de una charla nueva | 2 × texto | **2** |
+| Clasificar una charla ✨ | 1 × texto | **1** |
+| Ramificar el árbol 🌿 | 1 × texto | **1** |
+| Destilar a entrada de enciclopedia | 1 × texto | **1** |
+| Ilustrar una entrada | 1 × imagen | **3** |
+
+El primer turno cuesta 2 porque además de responder la IA titula la charla y la
+cuelga del nodo que le toca. Antes eran 3: se fusionaron las dos llamadas de
+fondo en una (`ubicarConversacion`).
+
+### Idiomas
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Turno de charla con el tutor | 1 × texto | **1** |
+| Primer turno de una charla nueva | 2 × texto | **2** |
+| Clasificar una charla ✨ | 1 × texto | **1** |
+| Extraer tarjetas de la charla | 1 × texto | **1** |
+| Generar tarjetas de un tema | 1 × texto | **1** |
+| Imagen mnemotécnica de una tarjeta | 1 × imagen | **3** |
+
+### Ideas
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Mapa conceptual con IA | 1 × texto_largo | **4** (≈, 8 si reintenta) |
+| Más ideas (expandir nodo o lluvia) | 1 × texto | **1** |
+
+### Entretenimiento
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Rellenar la ficha con IA | 1 × texto | **1** |
+| Resumen de una obra | 1 × texto | **1** |
+| Programa de series, libros o juegos | 1 × texto_largo | **4** |
+
+Las portadas no gastan créditos: salen de Wikipedia y Open Library.
+
+### Diario (noticias)
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Efemérides culturales del día | 1 × texto_largo | **4** (automática, 1/día, solo Pro) |
+| Reparto del diario por un asistente | 1 × texto | **1** (automática, solo Pro) |
+
+Es el único cuarto con IA que corre sola, y por eso ambas exigen suscripción
+(`iaOperativa()`): unos créditos comprados no deben gastarse sin pedir nada.
+Titulares y fotos vienen de El País y Wikipedia, sin coste.
+
+### Recámara
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Evidencia con foto para apagar la alarma | 1 × vision | **1** |
+
+### Cuartos sin IA propia
+
+Sala (viajes), Hobbies y Despacho solo tienen el **Plan ✨** (3 créditos).
+Agenda, Garage, Jardín, Calendario y Anecdotario no gastan nada: su única IA es
+el chat de la casa capturando datos, que se cobra como un mensaje normal.
+
+### Por qué el cliente declara la `op` y aun así no puede hacer trampa
+
+El cliente manda `op` en el body; el servidor le aplica **su tope de
+`max_tokens`**. Declarar `texto` para pagar 1 en vez de 3 no sirve: la respuesta
+se recorta a 1500 tokens, que es justo lo que hace barata a esa tarifa. El perfil
+`calidad` manda por encima de todo y siempre se cobra como `modelo3d`.
+
+## Anatomía de una solicitud (tokens de entrada)
+
+Chat de la casa (`interpretarIA`):
+
+| Bloque | Tokens | ¿Cuándo viaja? |
+|---|---|---|
+| TOOLS_EDITOR (56 tools) | ~5 500 | Solo con intención de edición; PRIMERO en el arreglo y con breakpoint → prefijo cacheado compartido entre TODOS los usuarios |
+| Tools de captura + recordar + crear_rutina + crear_modelo_3d | ~2 100–3 900 | Siempre (varía por apps asignadas) |
+| System (personalidad + memorias + fecha) | ~1 100 base; +750 con párrafos de editor | Párrafos de editor solo con intención |
+| Historial (12 mensajes × ≤600 chars) | ~0–1 800 | Crece hasta saturar la ventana |
+| Imagen adjunta | ~1 600 (1024px) | Opcional |
+
+Chats de app (`conversarIA`): system de 350–4 500 caracteres — casi siempre bajo
+el mínimo cacheable de Haiku (4096); el costo lo domina el historial en las
+conversaciones largas (sabio/tutor: 20 turnos).
+
+Notas honestas sobre el hit-rate del caché: TTL 5 min (pausas largas re-escriben);
+la ventana rodante de 12 mensajes rompe el prefijo de conversación cuando se llena
+(~turno 7), pero tools+system —el grueso— siguen cacheando. Alternar entre mensajes
+con/sin edición crea dos prefijos que conviven sin invalidarse.
+
+## Palancas de ahorro implementadas
+
+1. **Prompt caching** en `ia-chat` (3 breakpoints; escritura 1.25×, lectura 0.10×).
+2. **Gating de TOOLS_EDITOR**: las 56 herramientas del editor (~5.5k tokens) y sus
+   párrafos del system solo viajan si el mensaje (o los 2 turnos previos) huele a
+   edición (`hayIntencionEditor` en `src/core/chat/editorAcciones.ts`).
+3. **Latidos del corazón**: la frase espontánea por IA baja de 30% → 10% vía cuenta
+   (`src/core/chat/corazon.ts`).
+4. **IA de fondo solo con Pro** (`iaOperativa`): latidos, efemérides y reparto no
+   gastan créditos comprados. Quien recarga 150 no se los encuentra vacíos sin
+   haber pedido nada.
+5. **Créditos por operación**: cada acción paga lo que cuesta y el techo del mes
+   queda sellado (antes se podía superar gastando todo en 3D).
+
+## Escenarios por perfil
+
+Con 700 créditos/mes y el ancla de $0.005:
+
+| Perfil | Uso mensual | Créditos | Costo IA |
+|---|---|---|---|
+| Ligero (60%) | 60 chats casa, 40 de app, 2 modelos 3D, 8 imágenes | ~145 | ~$0.60 |
+| Típico (30%) | 200 / 150 / 5 / 25 chats·apps·3D·imágenes + 10 planes | ~540 | ~$2.40 |
+| Intensivo (10%) | tope de 700 créditos | 700 | ~$3.50 |
+| **Ponderado** | | | **~$1.63** + infra ~$0.15 ≈ **$1.80** |
+
+El techo **duro** por suscriptor es $3.50 (700 × $0.005) mientras cada op cobre lo
+que cuesta. Antes ese techo no existía: 120 modelos 3D cabían en 600 créditos y
+costaban ~$5.90.
+
+Con la imagen a 3 créditos, quien gaste todo en imágenes cuesta $1.17, así que el
+techo real lo marca `modelo3d` (70 × $0.049 = $3.43). `texto_largo` era el único
+que se pasaba (233 planes × $0.0225 = $5.24); con la tarifa a 4 quedó contenido.
+**Decisión ago 2026: `creditos_mes = 700`** (contrapartida del precio a $4.99).
+Con 700, el peor caso teórico de `texto_largo` es 175 × $0.0225 = **$3.94**, por
+encima del techo de $3.50 — riesgo ACEPTADO y vigilado: es un abuso puro (700
+créditos gastados solo en planes IA), se detecta en `uso_ia_ops` el primer mes, y
+la palanca lista es subir `texto_largo` a 5 o partir la op — ver Riesgos.
+
+Infraestructura: Supabase Pro $25/mes fijos (+$0.09/GB egress); repartido desde
+~500 suscriptores es ruido (~$0.10–0.20/usuario). RevenueCat: 1% del bruto sobre
+$2,500 MTR. **Ojo con el modo local gratis**: trae usuarios con ingreso cero que
+igual consumen auth y egress. Medirlo antes de promocionar fuerte.
+
+## Precio vigente (decisión de negocio, ago 2026)
+
+**Pro: 4.99 USD/mes**, precio local por región, solo mensual, vendido únicamente
+en la web (las apps de tienda no venden nada: modelo solo-consumo).
+**Recargas: 150 / 600 / 1500 créditos** ($1.99 / $4.99 / $9.99), con o sin
+suscripción, sin caducidad.
+
+| Concepto (canal web, Stripe 2.9% + $0.30, RC 1%) | Neto | COGS | Margen |
+|---|---|---|---|
+| Suscriptor ponderado | ~$4.50 | ~$1.80 | **~60%** |
+| Peor caso: 700 créditos completos | ~$4.50 | ~$3.50 | **~22%** |
+| Recarga 600 ($4.99) | ~$4.50 | hasta $3.00 | **~33%** |
+| Recarga 150 ($1.99) | ~$1.63 | hasta $0.75 | **~54%** |
+
+El peor caso ya no da pérdida: esa es la diferencia entre esta tabla y la
+anterior. La recarga chica es la que más margen deja en porcentaje, pero es
+también la que más sufre la comisión fija de $0.30 — no bajar de $1.99.
+
+**700 créditos es una propuesta, no un dato.** Sale de subir el precio 39% y
+querer dar algo a cambio. El número final debería cerrarse con la telemetría de
+`uso_ia_ops`; lo que no es negociable es que el techo quede sellado por la tabla
+de operaciones.
+
+## Respaldo entre proveedores
+
+Los dos proxies son una **cadena**: si el principal falla (error, timeout de
+60 s o respuesta sin contenido), entra el siguiente. La cuota se cobra una sola
+vez para toda la cadena y solo se devuelve si fallan todos.
+
+| Proxy | Principal | Respaldo | Orden |
+|---|---|---|---|
+| `ia-imagen` calidad rápida | gpt-image-1-mini | Gemini 3.1 Flash Lite Image | `IMG_CADENA_RAPIDA` |
+| `ia-imagen` calidad buena | Gemini 3.1 Flash Lite Image | gpt-image-1-mini | `IMG_CADENA_ALTA` |
+| `ia-chat` | Claude Haiku 4.5 / Sonnet 5 | Gemini 3.1 Flash Lite / Flash | fijo |
+
+**Corrección respecto a la revisión anterior**: cuando Gemini era el principal, el
+respaldo abarataba la factura. Ya no. Con gpt-image-1-mini de principal, una caída
+de OpenAI en calidad rápida sirve la imagen con Gemini ($0.0336) habiendo cobrado
+3 créditos ($0.015): **por debajo del costo**. En calidad buena pasa lo contrario
+(el respaldo es más barato de lo cobrado). Vigilar el reparto por proveedor en
+`uso_ia_ops`.
+
+El de texto es al revés en la práctica: aunque Gemini Flash Lite tenga tarifa
+menor ($0.25/$1.50 vs $1.00/$5.00), **no replica el prompt caching explícito** que
+sostiene el COGS modelado arriba. Un turno cacheado en Anthropic paga la entrada a
+0.10× ($0.10/M efectivo), por debajo de los $0.25/M de Gemini. Por eso Gemini está
+como respaldo de disponibilidad, no como principal.
+
+### Prueba de costo (muestreo)
+
+`npx supabase secrets set IA_CHAT_GEMINI_PCT=10` manda el 10% del tráfico rápido a
+Gemini de entrada (el perfil `calidad` nunca se muestrea: la geometría 3D depende
+del razonamiento de Anthropic). Sus tokens se registran aparte, así que la mezcla
+no contamina el histórico. Volver a `0` apaga la prueba sin redeploy.
+
+## Telemetría
+
+### `uso_ia_ops` — la tabla que valida la calibración
+
+Una fila por `(usuario, mes, operación, proveedor)`. Es lo que faltaba: hasta
+ahora `uso_ia` sumaba todas las llamadas de texto en un contador y no se podía
+distinguir un latido de un plan IA.
+
+```sql
+-- ¿Cada operación cobra lo que cuesta? (Haiku 4.5 a precio pleno)
+select op,
+       sum(llamadas) as n,
+       sum(creditos) as creditos_cobrados,
+       round(sum(creditos) * 0.005, 2) as usd_cobrado,
+       round((sum( tokens_entrada        * 1.00
+                 + tokens_cache_creacion * 1.25
+                 + tokens_cache_lectura  * 0.10
+                 + tokens_salida         * 5.00) / 1e6)::numeric, 2) as usd_real
+  from uso_ia_ops
+ where proveedor = 'anthropic'
+ group by op order by usd_real desc;
+
+-- Costo medio por llamada de cada operación (para reajustar la tarifa)
+select op, proveedor,
+       round((sum(tokens_salida)::numeric / nullif(sum(llamadas), 0)), 0) as salida_media,
+       round((sum(tokens_entrada + tokens_cache_lectura)::numeric
+              / nullif(sum(llamadas), 0)), 0) as entrada_media
+  from uso_ia_ops group by op, proveedor order by op;
+```
+
+`usd_real` de `imagen` sale en 0: las imágenes no tienen tokens. Su costo es
+`sum(llamadas) × $0.0336` (o × $0.005 si el proveedor fue `openai`).
+
+### `uso_ia` — agregados del mes
+
+Columnas: `creditos`, `solicitudes`, `imagenes` (volumen por tipo),
+`tokens_entrada`, `tokens_salida`, `tokens_cache_creacion`, `tokens_cache_lectura`
+y, para el respaldo de texto, `solicitudes_gemini`, `tokens_entrada_gemini`,
+`tokens_salida_gemini` (los tokens de Gemini NO entran en las columnas de
+Anthropic: cada proveedor se cuesta con su propia tarifa).
+
+```sql
+-- Hit-rate del caché por mes (objetivo: >50% en cuanto haya ráfagas de chat)
+select periodo,
+       round(100.0 * sum(tokens_cache_lectura)
+             / nullif(sum(tokens_entrada + tokens_cache_creacion + tokens_cache_lectura), 0)) as hit_pct
+  from uso_ia group by periodo order by periodo desc;
+
+-- Costo real (USD) por usuario-mes. Las imágenes ya NO se pueden costear desde
+-- aquí (el precio depende de la calidad y del proveedor): van aparte, abajo.
+select user_id, periodo,
+       round((( tokens_entrada        * 1.00
+              + tokens_cache_creacion * 1.25
+              + tokens_cache_lectura  * 0.10) / 1e6
+             + tokens_salida * 5.00 / 1e6
+             + (tokens_entrada_gemini * 0.25 + tokens_salida_gemini * 1.50) / 1e6
+             )::numeric, 4) as usd_texto,
+       imagenes, creditos
+  from uso_ia order by periodo desc, usd_texto desc;
+
+-- Imágenes: costo por calidad Y proveedor. Es lo único que revela cuánto
+-- estamos perdiendo cuando la calidad rápida cae al respaldo (Gemini).
+select op, proveedor, sum(llamadas) as n,
+       round((sum(llamadas) * case proveedor when 'gemini' then 0.0336 else 0.005 end)::numeric, 3) as usd,
+       sum(creditos) as creditos_cobrados
+  from uso_ia_ops
+ where op in ('imagen', 'imagen_alta')
+ group by op, proveedor order by op, proveedor;
+```
+
+⚠️ La primera consulta mezcla Haiku y Sonnet 5 bajo la tarifa de Haiku: el costo
+del `modelo3d` sale subestimado ~3×. Para separarlos hay que ir a `uso_ia_ops`.
+
+## Riesgos de costo
+
+1. **`texto_largo`: medida y corregida a 4 (ago 2026), con residuo ACTIVO.** Se
+   cobraban 3 créditos ($0.015) y el plan IA mide $0.0225 — se vendía a pérdida.
+   A 4 ($0.020) el conjunto de la op deja margen, pero **el plan IA sigue
+   costando $0.0056 por crédito** (12% sobre el ancla) y con los **700**
+   créditos vigentes el peor caso puro es $3.94 > techo $3.50. Vigilar
+   `uso_ia_ops` (consulta 1 de Telemetría) el primer mes; si el abuso aparece:
+   subir a 5 (castiga a las formas cortas, que cuestan $0.004–0.010) o **partir
+   la op por tope** como se hizo con la imagen — `texto_largo` para las formas
+   de ≤2000 tokens y una op propia para el plan. Mitigación ya desplegada: el
+   tope de `chat` bajó a 2048 para que declarar la op de 1 crédito no regale la
+   salida de 4096 de `texto_largo`, y `ia-chat`/`ia-imagen` imponen límites de
+   ENTRADA (system/mensajes/imagen) para que la entrada no cobrada quede acotada.
+2. **Respaldo de imagen invertido**: en calidad rápida, una caída de OpenAI sirve
+   con Gemini por encima de lo cobrado (ver «Respaldo entre proveedores»).
+3. **Fin del precio intro de Sonnet 5 (31-ago-2026)**: el modelo 3D sube 50%.
+   Ya está absorbido en la tarifa de 10 créditos. Palanca alternativa si aprieta:
+   usar Haiku para los estilos simples y reservar Sonnet 5 para `detallado`.
+4. **Deprecación del modelo de imagen de Gemini (oct 2026)**: solo afecta a la
+   calidad buena; `GEMINI_IMAGE_MODEL` la reapunta sin redeploy.
+5. **Modo local gratis**: usuarios sin ingreso que consumen auth y egress. El
+   coste marginal es bajo, pero deja de estar cubierto solo por suscriptores.
+6. **TTL de 5 min**: usuarios que chatean a sorbos no aprovechan el caché de
+   conversación (tools compartidas sí, mientras el proxy tenga tráfico global).
+7. **Palancas futuras**: TTL de 1h para tools — **ya implementada como switch**
+   (`IA_CHAT_TTL_TOOLS=1h`, sin redeploy; escritura 2× vs 1.25×, rentable con ≥3
+   lecturas por entrada: encender solo cuando el hit-rate muestre ráfagas
+   separadas >5 min) —, recortar historial de 12 → 8 mensajes, revisar
+   `maxTokens` por app con los datos de `uso_ia_ops`.

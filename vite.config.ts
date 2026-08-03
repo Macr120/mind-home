@@ -16,6 +16,13 @@ export default defineConfig({
             // Solo fiber/drei: postprocessing debe seguir en su chunk lazy propio.
             { name: 'three', test: /node_modules[\\/](three|@react-three[\\/](fiber|drei))[\\/]/ },
             { name: 'supabase', test: /node_modules[\\/]@supabase[\\/]/ },
+            // Zonas grandes de src/ que la mayoría de las sesiones no abre
+            // (paneles del editor/planos y chat). Son imports estáticos, así
+            // que siguen descargándose al arrancar: el grupo no recorta el
+            // payload inicial, pero aísla sus bytes para que un cambio ahí no
+            // invalide la caché del chunk principal entre versiones.
+            { name: 'editor', test: /src[\\/]core[\\/]ui[\\/](editor|planos)[\\/]/ },
+            { name: 'chat', test: /src[\\/]core[\\/]chat[\\/]/ },
           ],
         },
       },

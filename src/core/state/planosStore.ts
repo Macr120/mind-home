@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import type { Cell, SideKey } from '../house/walls'
 import type { FormaLoseta } from '../house/formasLoseta'
 import type { VentanaContenidoId, TipoPuertaId } from '../house/murosPuertas'
+import type { CuadranteMapa } from '../data/db'
 import { useLayout } from './layoutStore'
 
 type CapaPlano = 'cuartos' | 'paredes' | 'pisos' | 'techos'
@@ -123,6 +124,10 @@ interface PlanosState {
   } | null
   /** Muro bajo el cursor para resaltar en ámbar (hover) en los modos de selección. */
   muroSelHover: { roomId: string; off: Cell; side: SideKey } | { muroLibreId: number } | null
+  /** Cuadrante del mapa enfocado (id; null = mapa completo). Solo resalta, no se guarda. */
+  cuadranteActivo: string | null
+  /** Modo "dibujar cuadrante": el arrastre en el croquis marca el rectángulo a enfocar. */
+  dibujandoCuadrante: boolean
   /** Sección del panel lateral (fondo / superficie). */
   menuPlano: MenuPlanoAccion
   /** Modo activo del constructor unificado (barra superior de Editar mapa). */
@@ -155,6 +160,8 @@ interface PlanosState {
   setCroquisVisible: (v: boolean) => void
   setMuroHover: (h: PlanosState['muroHover']) => void
   setMuroSelHover: (h: PlanosState['muroSelHover']) => void
+  setCuadranteActivo: (id: string | null) => void
+  setDibujandoCuadrante: (v: boolean) => void
   toggleMenuPlano: (id: 'cielo' | 'superficie') => void
   setMenuPlano: (m: MenuPlanoAccion) => void
 }
@@ -184,6 +191,8 @@ export const usePlanos = create<PlanosState>((set) => ({
   croquisVisible: true,
   muroHover: null,
   muroSelHover: null,
+  cuadranteActivo: null,
+  dibujandoCuadrante: false,
   menuPlano: null,
   modo: 'grid',
 
@@ -197,6 +206,7 @@ export const usePlanos = create<PlanosState>((set) => ({
       previewZonaCeldas: [],
       zonaDragOrigen: [],
       menuPlano: null,
+      dibujandoCuadrante: false,
       ...(v
         ? { capa: 'cuartos', herramienta: 'mover' as const, formaLoseta: 'cuadrado' as const }
         : { capa: 'cuartos', herramienta: 'seleccionar' as const }),
@@ -217,6 +227,8 @@ export const usePlanos = create<PlanosState>((set) => ({
       pincelForma: st.modo === m ? st.pincelForma : null,
       muroLibreSel: st.modo === m ? st.muroLibreSel : null,
       muroHover: null,
+      // El dibujo de cuadrantes solo vive en el modo Grid: salir de él lo cancela.
+      dibujandoCuadrante: false,
       ...(m === 'grid' || m === 'piso-ext' ? { nivel: 0 } : {}),
       // Ascensos aplica a pisos altos y al sótano; si venías de planta baja, sube al 1.
       ...(m === 'ascensos' && st.nivel === 0 ? { nivel: 1 } : {}),
@@ -266,6 +278,8 @@ export const usePlanos = create<PlanosState>((set) => ({
   setCroquisVisible: (v) => set({ croquisVisible: v }),
   setMuroHover: (h) => set({ muroHover: h }),
   setMuroSelHover: (h) => set({ muroSelHover: h }),
+  setCuadranteActivo: (id) => set({ cuadranteActivo: id }),
+  setDibujandoCuadrante: (v) => set({ dibujandoCuadrante: v }),
   toggleMenuPlano: (id) =>
     set((st) => ({ menuPlano: st.menuPlano === id ? null : id })),
   setMenuPlano: (m) => set({ menuPlano: m }),
@@ -307,6 +321,21 @@ export const usePlanos = create<PlanosState>((set) => ({
       }
     }),
 }))
+
+/**
+ * Zona de trabajo que ACOTA la edición: fuera de ella las celdas quedan deshabilitadas
+ * (croquis y mapa 3D). Solo las zonas dibujadas por el usuario restringen —los bloques
+ * de referencia A1…D4 son calculados y no están en `cuadrantes`, así que quedan fuera
+ * solos— y solo con el editor de mapa abierto y fuera del modo Grid, que es donde se
+ * gestionan las zonas.
+ */
+export function zonaEdicionActiva(): CuadranteMapa | null {
+  const { modo, cuadranteActivo } = usePlanos.getState()
+  if (modo === 'grid' || !cuadranteActivo) return null
+  const { editMode, cuadrantes } = useLayout.getState()
+  if (!editMode) return null
+  return cuadrantes.find((q) => q.id === cuadranteActivo) ?? null
+}
 
 if (import.meta.env.DEV) {
   ;(window as unknown as { usePlanos: typeof usePlanos }).usePlanos = usePlanos

@@ -49,7 +49,7 @@ export function EditorPisoMaterialForm({
   ajuste: string
   onMaterial: (tipo: string | null, color: string) => void
   onColor: (c: string) => void
-  onSubirImagen: (file: File) => void
+  onSubirImagen: (imagen: Blob) => void
   onActivarImagen: () => void
   onDesactivarImagen: () => void
   onEliminarImagen: () => void

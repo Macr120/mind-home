@@ -77,10 +77,21 @@ export const juegoFrame = {
   strafe: 0,
   /** Fase del botecito del balón mientras lo llevas (fútbol). */
   bote: 0,
-  /** Rebotes de la pelota en tu lado desde el último golpe (tenis). */
+  /** Botes de la pelota desde el último golpe (tenis): al segundo se pierde el punto. */
   botesTenis: 0,
-  /** La pelota es golpeable ahora (tenis): lo lee el botón para resaltar. */
+  /** La pelota es golpeable ahora (tenis/béisbol): lo lee el botón para resaltar. */
   enVentana: false,
+  /** Béisbol en curso: enciende la pose de bateo del avatar (ver `poseBateo`). */
+  bateando: false,
+  /** Carga con la que se soltó el swing en curso: la guardia no salta al ejecutarlo. */
+  cargaSwing: 0,
+  // ── Béisbol: el bateador se queda en la caja de bateo ──
+  /** Ancla activa: Character mantiene ahí al avatar (se suelta si pides movimiento). */
+  anclaActiva: false,
+  anclaX: 0,
+  anclaZ: 0,
+  /** Rumbo mundial al que mira el bateador (hacia el montículo). */
+  anclaHeading: 0,
 }
 
 interface JuegoCanchaState {
@@ -122,6 +133,50 @@ interface JuegoCanchaState {
 }
 
 let avisoTimer = 0
+
+const mez = (a: number, b: number, t: number) => a + (b - a) * t
+
+/** Articulaciones del bateo: giro del cuerpo, brazo que sostiene el bate y muñeca. */
+export interface PoseBateo {
+  /** Giro del cuerpo sobre su rumbo (lo aplica Character). */
+  torso: number
+  /** Rotación X del brazo que lleva el bate (la aplican CuerpoBase y Prendas). */
+  brazo: number
+  /** Avance de la muñeca de la guardia al contacto: `BateJugador` lo pasa a un slerp. */
+  mezcla: number
+  /** Carga efectiva de la guardia (0–1): con el swing en curso, la que se soltó. */
+  carga: number
+}
+
+/**
+ * Pose del bateo de béisbol (o null si no se está bateando). El swing suma tres
+ * articulaciones, como uno real: el cuerpo gira, el brazo se extiende al frente
+ * (así la MANO se mueve y el bate va con ella) y la muñeca voltea el bate, que
+ * por eso recorre mucho más arco que la mano. La leen `CuerpoBase` y `Prendas`
+ * (brazos y mangas), `Character` (giro del cuerpo) y `BateJugador` (la muñeca).
+ *
+ * Mientras mantienes el botón, la guardia se carga hacia atrás; al soltar,
+ * `swing` decae de 1 a 0 y recorre golpe rápido → follow-through → guardia.
+ */
+export function poseBateo(): PoseBateo | null {
+  const f = juegoFrame
+  if (!f.bateando) return null
+  // Con el swing en curso manda la carga con la que se soltó (`carga` ya es 0).
+  const c = f.swing > 0 ? f.cargaSwing : f.carga
+  const torsoGuardia = -0.2 - c * 0.25
+  const brazoGuardia = 0.3 + c * 0.35
+  if (f.swing <= 0) return { torso: torsoGuardia, brazo: brazoGuardia, mezcla: 0, carga: c }
+  const p = 1 - f.swing
+  const ease = 1 - (1 - Math.min(1, p / 0.4)) ** 3 // golpe: rápido y con freno
+  const vuelta = Math.max(0, (p - 0.4) / 0.6) ** 2 // salida: lenta, hacia la guardia
+  const art = (guardia: number, contacto: number) => mez(mez(guardia, contacto, ease), guardia, vuelta)
+  return {
+    torso: art(torsoGuardia, 0.35),
+    brazo: art(brazoGuardia, -1.35),
+    mezcla: art(0, 1),
+    carga: c,
+  }
+}
 
 /** Un juego de tenis se gana con 4 puntos y 2 de diferencia (ventaja incluida). */
 const ganaJuego = (a: number, b: number) => a >= 4 && a - b >= 2
@@ -202,6 +257,8 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
   terminar: () => {
     if (get().canchaId == null) return
     window.clearTimeout(avisoTimer)
+    juegoFrame.anclaActiva = false
+    juegoFrame.bateando = false
     set({
       canchaId: null,
       clase: null,

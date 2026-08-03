@@ -7,11 +7,13 @@
 
 // Fase 1 — ambientales (se animan solos por proximidad)
 export const TIPO_OLLA = 'olla-plantilla'
+export const TIPO_PIZARRA = 'pizarra-ideas'
 export const TIPO_DESPERTADOR = 'despertador-plantilla'
 export const TIPO_LIBRERO_LIBRO = 'librero-libro'
 export const TIPO_GLOBO = 'globo-terraqueo'
 export const TIPO_ESTANTERIA_HERR = 'estanteria-herramientas'
 export const TIPO_REPISA_JUEGOS = 'repisa-juegos'
+export const TIPO_AGENDA = 'agenda-escritorio'
 
 // Fase 2 — usables (el personaje ejecuta una acción; ver accionCuartoStore)
 export const TIPO_CAMINADORA = 'caminadora'
@@ -27,11 +29,13 @@ export const TIPO_CALENDARIO = 'calendario-pared'
 /** Nombre y color por defecto de cada objeto (siembra en biblioteca y color base). */
 export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: string }> = {
   [TIPO_OLLA]: { nombre: 'Olla que hierve', color: '#b91c1c' },
+  [TIPO_PIZARRA]: { nombre: 'Pizarra de ideas', color: '#f59e0b' },
   [TIPO_DESPERTADOR]: { nombre: 'Despertador', color: '#dc2626' },
   [TIPO_LIBRERO_LIBRO]: { nombre: 'Librero con libro', color: '#8b5a2b' },
   [TIPO_GLOBO]: { nombre: 'Globo terráqueo', color: '#1d4ed8' },
   [TIPO_ESTANTERIA_HERR]: { nombre: 'Estantería de herramientas', color: '#6b7280' },
   [TIPO_REPISA_JUEGOS]: { nombre: 'Repisa de juegos', color: '#7c3aed' },
+  [TIPO_AGENDA]: { nombre: 'Agenda de escritorio', color: '#a855f7' },
   [TIPO_CAMINADORA]: { nombre: 'Caminadora', color: '#334155' },
   [TIPO_PERIODICO]: { nombre: 'Escritorio de noticias', color: '#6b4423' },
   [TIPO_LAPTOP]: { nombre: 'Laptop de trabajo', color: '#475569' },

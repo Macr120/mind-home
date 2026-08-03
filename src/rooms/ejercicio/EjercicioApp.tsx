@@ -11,28 +11,31 @@ import { FuerzaTab } from './FuerzaTab'
 import { MetasTab } from './MetasTab'
 import { ResistenciaTab } from './ResistenciaTab'
 import { hoyISO, nombreFecha, sumarDias } from './fecha'
+import type { Periodo } from './periodo'
 import { perfilEfectivo, usePerfilEjercicio } from './usePerfil'
 import { sembrarEjercicio } from './seed'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-type Tab = 'metas' | 'fuerza' | 'resistencia' | 'flexibilidad' | 'cronograma'
+// El cronograma NO es pestaña: vive al final de Metas, que es donde se decide qué
+// entrenar. El deep-link «cronograma» sigue existiendo y cae aquí (ver index.tsx).
+type Tab = 'metas' | 'fuerza' | 'resistencia' | 'flexibilidad'
 
 const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
   { id: 'metas', icono: 'objetivo', labelEs: 'Metas' },
   { id: 'fuerza', icono: 'tab-fuerza', labelEs: 'Fuerza' },
   { id: 'resistencia', icono: 'tab-cardio', labelEs: 'Resistencia' },
   { id: 'flexibilidad', icono: 'cuarto-jardin', labelEs: 'Flexibilidad' },
-  { id: 'cronograma', icono: 'calendario', labelEs: 'Cronograma' },
 ]
 
 export function EjercicioApp() {
   const t = useT()
   const [tab, setTab] = useState<Tab>(() => tabInicial('ejercicio', TABS.map((x) => x.id), 'metas'))
   const [fecha, setFecha] = useState(hoyISO())
+  // Un solo filtro para todo el cuarto: Metas y los tres «Progreso» lo comparten.
+  const [periodo, setPeriodo] = useState<Periodo>('semana')
 
   const perfilRaw = usePerfilEjercicio()
   const perfil = perfilEfectivo(perfilRaw)
@@ -104,6 +107,9 @@ export function EjercicioApp() {
           planDia={planDia('fuerza')}
           metaMinutos={perfil.sesionesFuerzaSemana * 45}
           metaSesiones={perfil.sesionesFuerzaSemana}
+          unidades={perfil.unidades}
+          periodo={periodo}
+          setPeriodo={setPeriodo}
         />
       )}
       {tab === 'resistencia' && (
@@ -113,6 +119,9 @@ export function EjercicioApp() {
           planDia={planDia('resistencia')}
           metaMinutos={perfil.minutosResistenciaSemana}
           metaSesiones={perfil.diasActivosSemana}
+          unidades={perfil.unidades}
+          periodo={periodo}
+          setPeriodo={setPeriodo}
         />
       )}
       {tab === 'flexibilidad' && (
@@ -123,12 +132,19 @@ export function EjercicioApp() {
           todasSeriesFlex={todasSeriesFlex}
           metaMinutos={perfil.minutosFlexibilidadSemana}
           metaSesiones={perfil.diasActivosSemana}
+          periodo={periodo}
+          setPeriodo={setPeriodo}
         />
       )}
       {tab === 'metas' && (
-        <MetasTab perfil={perfilRaw} perfilEfectivo={perfil} sesiones={sesiones} />
+        <MetasTab
+          perfil={perfilRaw}
+          perfilEfectivo={perfil}
+          sesiones={sesiones}
+          periodo={periodo}
+          setPeriodo={setPeriodo}
+        />
       )}
-      {tab === 'cronograma' && <CronogramaApp plantillaId="ejercicio" />}
     </div>
   )
 }

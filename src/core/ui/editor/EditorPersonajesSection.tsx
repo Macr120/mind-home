@@ -34,6 +34,8 @@ import { GuardarropaEditor } from './GuardarropaEditor'
 import { AtuendosEditor } from './AtuendosEditor'
 import { iaActiva, generarModelo3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
+import { Creditos } from '../Creditos'
+import { OP_PERSONAJE_3D } from '../../cuenta/catalogoNucleo'
 import { ColorPicker } from './ColorPicker'
 import { PreviewPersonaje3D } from './PreviewPersonaje3D'
 import { EditorPiezas, plantillaPersonajePiezas, piezasDesdeAvatar, piezasDesdeForma } from './EditorPiezas'
@@ -553,7 +555,7 @@ function Forma3DBlock({
 
   return (
     <div className="space-y-1.5 rounded-lg border border-white/10 bg-white/5 p-2">
-      {/* Describir la forma con IA: solo Pro. Subir un .glb propio sigue en gratis. */}
+      {/* Describir la forma con IA: cuesta créditos. Subir un .glb propio es gratis. */}
       {iaHabilitada() && (
       <div className="flex gap-1.5">
         <input
@@ -577,6 +579,7 @@ function Forma3DBlock({
         >
           {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}
         </button>
+        <Creditos op={OP_PERSONAJE_3D} />
       </div>
       )}
       {errorForma && <p className="px-1 text-[10px] text-red-400/80">{errorForma}</p>}

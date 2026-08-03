@@ -1,12 +1,15 @@
+import { lazy } from 'react'
 import type { RoomModule, EsquemaCaptura, ComandoApp } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import { mediaArchivoRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoMedia, EstadoMedia } from '../../core/data/db'
-import { EntretenimientoApp } from './EntretenimientoApp'
-import { tutorialEntretenimiento } from './tutorial'
+import { tGlobal } from '../../core/i18n/useT'
+import { CLAUSULA_RECHAZO } from '../../core/planIA'
+import { flujosEntretenimiento } from './tutorial'
 import { JUEGOS_REALES, type IdJuegoReal } from './juegos/catalogo'
 import { fechaLocalISO } from '../../core/fechaLocal'
+import { OPERACIONES_IA } from './costosIA'
 
 const TIPOS_MEDIA: [string[], TipoMedia][] = [
   [['pelicula', 'filme', 'film', 'cine'], 'pelicula'],
@@ -114,17 +117,68 @@ const comandosJuegos: ComandoApp[] = JUEGOS_REALES.map((j) => ({
   nombres: [normalizar(j.nombre), ...(SINONIMOS_JUEGO[j.id] ?? [])],
 }))
 
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const EntretenimientoApp = lazy(() =>
+  import('./EntretenimientoApp').then((m) => ({ default: m.EntretenimientoApp })),
+)
+
 const entretenimiento: RoomModule = {
   id: 'entretenimiento',
   nombre: 'Entretenimiento',
   icon: '🎮',
   categoria: 'complemento',
-  posicion: [-3, 0, 0],
   color: '#34d399',
   App: EntretenimientoApp,
-  tutorial: tutorialEntretenimiento,
+  flujos: flujosEntretenimiento,
   capturar,
   esquemas,
+  operacionesIA: OPERACIONES_IA,
+  // Acotamiento del planificador ✨: un programa de obras por ver, leer o jugar.
+  planMetas: async () => {
+    const archivo = await mediaArchivoRepo.list()
+    const pendientes = archivo.filter((m) => m.estado === 'pendiente')
+    const enCurso = archivo.filter((m) => m.estado === 'en_curso')
+    const contexto: string[] = []
+    if (pendientes.length > 0) {
+      const por = (tipo: string) => pendientes.filter((m) => m.tipo === tipo).length
+      contexto.push(
+        `Archivo: ${pendientes.length} pendientes (${por('pelicula')} películas, ${por('serie')} series, ${por('libro')} libros, ${por('videojuego')} videojuegos).`,
+      )
+    }
+    if (enCurso.length > 0)
+      contexto.push(
+        `En curso: ${enCurso
+          .slice(0, 3)
+          .map((m) => `«${m.titulo}»`)
+          .join(', ')}.`,
+      )
+    return {
+      guia: [
+        'La meta es de la app de Entretenimiento: eres un curador cultural y el plan es SIEMPRE un programa para ver, leer o jugar obras en orden.',
+        'Las fases son bloques temáticos del maratón.',
+        'Los hijos son obras o tandas concretas («Ver El Padrino I y II», «Leer los primeros 5 tomos»), SOLO obras que existen de verdad: nunca inventes títulos.',
+        CLAUSULA_RECHAZO('ver, leer o jugar obras (películas, series, libros o videojuegos)'),
+      ],
+      contexto,
+      ejemplo: tGlobal('entret.plan.ejemplo', 'Terminar la saga de El Padrino'),
+      // El material son las obras del archivo del usuario: el programa retoma lo
+      // en curso y prioriza su lista antes de recomendar títulos nuevos.
+      material:
+        pendientes.length + enCurso.length > 0
+          ? {
+              titulo: tGlobal('entret.plan.material', 'De tu archivo'),
+              instruccion:
+                'El material son obras del archivo del usuario (en curso o pendientes). Si encajan con la meta, prográmalas antes que títulos nuevos y en el motivo di por qué van en ese punto del programa; si ninguna encaja, manda "material": []. Deja "rutina" vacía.',
+              items: [...enCurso, ...pendientes].map((m) => ({
+                nombre: m.titulo,
+                detalle: `${m.tipo}${m.genero ? ` · ${m.genero}` : ''} · ${m.estado === 'en_curso' ? 'en curso' : 'pendiente'}`,
+              })),
+            }
+          : undefined,
+    }
+  },
   comandos: [
     { seccion: 'archivo', etiqueta: 'Archivo', nombres: ['archivo', 'mis peliculas', 'mis series'] },
     { seccion: 'mesa', etiqueta: 'Juegos de mesa', nombres: ['juegos', 'juegos de mesa', 'mesa de juegos'] },

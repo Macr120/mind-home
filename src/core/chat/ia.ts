@@ -3,17 +3,28 @@ import type Anthropic from '@anthropic-ai/sdk'
 import { getPlantilla } from '../registry'
 import type { CampoCaptura } from '../registry'
 import { appsAsignadas } from './dispatcher'
-import { TOOLS_EDITOR, ejecutarToolEditor, descripcionCuartos } from './editorAcciones'
+import { TOOLS_EDITOR, ejecutarToolEditor, descripcionCuartos, hayIntencionEditor } from './editorAcciones'
 import { memoriasRepo, rutinasRepo } from '../data/repository'
-import type { PasoRutina } from '../data/db'
+import type { DestinoChat, PasoRutina } from '../data/db'
+import { destinoDeTool } from './destinoChat'
+import { generarImagen, imagenIaActiva, type AspectoImagen } from '../imagenIA'
 import { getAsistente } from '../state/asistentesStore'
 import { useDiseño } from '../state/disenoStore'
 import { TIPO_PIEZAS } from '../house/catalogo'
 import { playerPos } from '../state/houseStore'
 import type { Pieza3D } from './mascotas'
 import { fechaLocalISO } from '../fechaLocal'
-import { iaHabilitada } from '../edicion'
-import { usarViaCuenta, iaChatCuenta } from '../cuenta/api'
+import { devIA, esPro, iaHabilitada } from '../edicion'
+import { usarViaCuenta, iaChatCuenta, ErrorIA } from '../cuenta/api'
+import { hayBackend } from '../cuenta/supabase'
+import { opDeTexto } from '../cuenta/costos'
+import { useCuotaAgotada } from '../state/avisosPlanStore'
+import { tGlobal } from '../i18n/useT'
+import { systemModelo3D, type TipoModelo3D, type EstiloModelo3D } from './prompt3d'
+
+// El prompt 3D vive en `prompt3d.ts` (sin dependencias, medible por el banco de
+// pruebas); se re-exporta para no tocar a quien ya importa los tipos de aquí.
+export type { TipoModelo3D, EstiloModelo3D }
 
 /**
  * Capa de IA del arquitecto (wrap sobre el seam del dispatcher), multi-proveedor.
@@ -57,6 +68,17 @@ export const PROVEEDORES: Proveedor[] = [
   { id: 'local', nombre: 'Local (Ollama)', emoji: '💻', modelo: 'gemma4', base: 'http://localhost:11434/v1', sinClave: true },
 ]
 
+/**
+ * Perfil de la llamada. `rapido` (todo el chat) usa el modelo barato sin
+ * razonamiento; `calidad` sube a un modelo mayor con razonamiento adaptativo y
+ * esfuerzo alto. Se reserva para tareas raras donde la calidad manda y el
+ * modelo pequeño se queda corto: la GEOMETRÍA de los modelos 3D.
+ */
+export type PerfilIA = 'rapido' | 'calidad'
+
+/** Modelo de Claude para el perfil `calidad` (el de `PROVEEDORES[0]` es el rápido). */
+const MODELO_CALIDAD = 'claude-sonnet-5'
+
 const LS_PROVEEDOR = 'mh.iaProveedor'
 const LS_KEY_PREFIX = 'mh.iaKey.'
 const LS_KEY_LEGADO = 'mh.iaKey' // clave de Claude guardada antes del selector
@@ -92,13 +114,42 @@ export function setModeloLocal(modelo: string) {
   localStorage.setItem(LS_MODELO_LOCAL, modelo.trim() || 'gemma4')
 }
 
-/** ¿La capa de IA puede usarse ahora con el proveedor elegido? */
+/**
+ * ¿La superficie de IA está viva? Con transporte (proxy de la cuenta u Ollama/
+ * clave propia) es un sí literal. Sin transporte pero con backend también, a
+ * propósito: en modo local sin créditos el botón sigue pulsable y `exigirTransporte`
+ * lo convierte en el modal de recarga — si se ocultara, nadie descubriría la IA.
+ */
 export function iaActiva(): boolean {
-  if (!iaHabilitada()) return false // Gratis: la IA es exclusiva de Pro
-  if (usarViaCuenta()) return navigator.onLine // Pro: proxy con clave del servidor
+  if (!iaHabilitada()) return false
+  if (usarViaCuenta()) return navigator.onLine
   const prov = getProveedor()
   if (prov.sinClave) return true // Ollama es localhost: ni clave ni internet
-  return getIaKey(prov.id).length > 0 && navigator.onLine
+  if (getIaKey(prov.id).length > 0) return navigator.onLine
+  return hayBackend() && navigator.onLine
+}
+
+/**
+ * Como `iaActiva()`, pero solo si puede EJECUTAR de verdad. Para la IA de FONDO
+ * (latidos, efemérides, reparto): esas llamadas no deben disparar avisos sin
+ * acción del usuario NI gastar créditos de recarga por su cuenta — quien compró
+ * 150 créditos no espera encontrarlos vacíos por los latidos del personaje.
+ */
+export function iaOperativa(): boolean {
+  return (esPro() || devIA()) && iaActiva()
+}
+
+/**
+ * Corta ANTES de salir cuando no hay forma de pagar la llamada: ni cuenta con
+ * créditos ni clave propia. Abre el modal de recarga en vez de morir con un
+ * error de red que el usuario no puede interpretar.
+ */
+function exigirTransporte(): void {
+  if (usarViaCuenta()) return
+  const prov = getProveedor()
+  if (prov.sinClave || getIaKey(prov.id).length > 0) return
+  useCuotaAgotada.getState().abrir()
+  throw new ErrorIA('cuota-agotada', tGlobal('cuenta.creditos.faltan', 'Te quedaste sin créditos de IA.'))
 }
 
 // ----- Esquemas de captura → herramientas (formato neutro) -----
@@ -107,6 +158,8 @@ export interface ToolNeutra {
   name: string
   description: string
   schema: Record<string, unknown>
+  /** Marca un breakpoint de prompt caching al final de esta tool (proxy de la cuenta). */
+  cache?: boolean
 }
 
 function campoASchema(c: CampoCaptura): Record<string, unknown> {
@@ -213,7 +266,7 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
   tools.push({
     name: 'crear_modelo_3d',
     description:
-      'Crea un modelo 3D low-poly (objeto, personaje o pieza arquitectónica) a partir de una descripción y lo guarda en el inventario del usuario. Úsala cuando pida crear/generar/hacer un objeto, mueble, planta, aparato, personaje, animal, columna, arco, muro u otra forma 3D (ej. "crea una silla de madera", "genera un gato robot", "haz una columna griega").',
+      'Crea un modelo 3D low-poly (objeto, personaje o pieza arquitectónica) a partir de una descripción y lo guarda en el inventario del usuario. Úsala cuando pida crear/generar/hacer un objeto, mueble, planta, aparato, personaje, animal, columna, arco, muro u otra forma 3D (ej. "crea una silla de madera", "genera un gato robot", "haz una columna griega"). NO la uses si pide una imagen, foto o dibujo plano: eso es generar_imagen.',
     schema: {
       type: 'object',
       properties: {
@@ -236,6 +289,29 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
       required: ['descripcion'],
     },
   })
+  // Imagen 2D en la conversación (solo si el proveedor de imagen está disponible).
+  if (imagenIaActiva()) {
+    tools.push({
+      name: 'generar_imagen',
+      description:
+        'Genera una IMAGEN 2D real (ilustración, dibujo, foto) y la muestra dentro de la conversación. Úsala cuando el usuario pida una imagen, foto, dibujo, ilustración o póster de algo (ej. "una imagen de un dragón", "dibújame un atardecer en la playa"). NO la uses para crear objetos, muebles o decoración de la casa: eso es crear_modelo_3d.',
+      schema: {
+        type: 'object',
+        properties: {
+          descripcion: {
+            type: 'string',
+            description: 'Qué mostrar, con detalle visual (estilo, colores, ambiente)',
+          },
+          aspecto: {
+            type: 'string',
+            enum: ['1:1', '16:9', '9:16', '4:3', '3:4'],
+            description: 'Proporción de la imagen; 1:1 si el usuario no pide otra',
+          },
+        },
+        required: ['descripcion'],
+      },
+    })
+  }
   return tools
 }
 
@@ -261,6 +337,12 @@ export interface ResultadoIA {
   ediciones: string[]
   /** Comentario del modelo en la voz de la mascota (null = usar plantilla). */
   respuesta: string | null
+  /** Chip de navegación del mensaje: menú donde quedó lo guardado (primera acción gana). */
+  destino?: DestinoChat
+  /** Imagen generada en este turno (tool generar_imagen): se muestra en la burbuja. */
+  imagen?: Blob
+  /** El modelo pidió una imagen pero la generación falló (cuota, red…). */
+  imagenFallo?: boolean
 }
 
 /** Llamada de tool ya normalizada, venga del proveedor que venga. */
@@ -269,7 +351,7 @@ interface LlamadaTool {
   input: Record<string, unknown>
 }
 
-async function construirSystem(mascotaId: string, conImagen: boolean): Promise<string> {
+async function construirSystem(mascotaId: string, conImagen: boolean, conEditor: boolean): Promise<string> {
   const mascota = getAsistente(mascotaId)
   const memorias = (await memoriasRepo.list()).filter((m) => m.vigente)
   const hoy = fechaLocalISO()
@@ -286,9 +368,23 @@ async function construirSystem(mascotaId: string, conImagen: boolean): Promise<s
     'También puede platicar contigo de cualquier tema: preguntas de curiosidad o conocimiento general («¿por qué el cielo es azul?»), opiniones o charla casual. Ahí no uses herramientas ni fuerces ningún registro: contesta de verdad, con una explicación clara y correcta (2–5 frases, admite si no estás seguro de algo) en tu personalidad y en el idioma del usuario. Cuando salga natural, remata con UNA frase que conecte el tema con la vida de la casa (explorarlo a fondo en la biblioteca, la calma del jardín, probar algo en la cocina, registrarlo en un cuarto…); si no hay conexión razonable, omite el guiño en vez de forzarlo.',
     'Si recibes mensajes previos, son el contexto de una conversación continua: retómala con naturalidad, no repitas saludos y no vuelvas a registrar lo que ya quedó registrado en turnos anteriores.',
     'Si el usuario pide crear/generar/hacer un objeto, mueble, planta, aparato, personaje, animal o elemento arquitectónico en 3D (ej. "crea una silla de madera", "genera un gato robot", "haz una columna griega"), usa crear_modelo_3d: se generará y se guardará en su inventario, en la carpeta según el tipo.',
-    `También eres el arquitecto de la casa: cuando el usuario pida MODIFICAR la casa (pintar/crear/renombrar/eliminar cuartos, pisos, techos, objetos, vestir o redimensionar al personaje, tema estacional, fondo de cielo) o controlar la experiencia (música ambiental, vista de cámara, montar un vehículo, abrir su resumen Wrapped) usa las herramientas editor_* (puedes usar varias en un mismo mensaje). Para apuntar a un cuarto, usa su id. ${descripcionCuartos()}`,
-    'Las CONFIGURACIONES de la app también son tuyas: idioma, tema y tipografía de la interfaz, apariencia (claro/oscuro/transparente), estilo de iconos y vidrio de los paneles, estilo visual del mapa y sus efectos, avisos y respaldo. Aplica el cambio con su herramienta en vez de explicar dónde está el menú. Lo que NO puedes hacer por chat —iniciar sesión, restaurar un respaldo, borrar los datos— ábrelo con editor_ajustes_abrir en su grupo para que el usuario lo confirme.',
-    'Fuera de los cuartos, el MAPA exterior se construye con las herramientas editor_infra_*: huerto, granja, caminos (pista de carreras, vías de tren, montaña rusa) y canchas deportivas. Regar, cosechar, alimentar, mimar, colocar una cancha, correr una carrera y montar el tren se hacen al vuelo; en cambio editor_infra_construir abre un editor a pantalla completa que cierra el chat, así que llámala SOLA.',
+    imagenIaActiva()
+      ? 'Si pide una IMAGEN, foto, dibujo o ilustración («una imagen de X», «dibújame X»), usa generar_imagen: la imagen aparecerá dentro de la conversación. Los objetos, muebles y personajes 3D para la casa son de crear_modelo_3d, no de generar_imagen.'
+      : '',
+    // Párrafos de arquitecto: solo cuando el mensaje trae las TOOLS_EDITOR
+    // (gating por intención — ahorra ~5.5k tokens en la plática normal).
+    conEditor
+      ? `También eres el arquitecto de la casa: cuando el usuario pida MODIFICAR la casa (pintar/crear/renombrar/eliminar cuartos, pisos, techos, objetos, vestir o redimensionar al personaje, tema estacional, fondo de cielo) o controlar la experiencia (música ambiental, vista de cámara, montar un vehículo, abrir su resumen Wrapped) usa las herramientas editor_* (puedes usar varias en un mismo mensaje). Para apuntar a un cuarto, usa su id. ${descripcionCuartos()}`
+      : '',
+    conEditor
+      ? 'Las CONFIGURACIONES de la app también son tuyas: idioma, tema y tipografía de la interfaz, apariencia (claro/oscuro/transparente), estilo de iconos y vidrio de los paneles, estilo visual del mapa y sus efectos, avisos y respaldo. Aplica el cambio con su herramienta en vez de explicar dónde está el menú. Lo que NO puedes hacer por chat —iniciar sesión, restaurar un respaldo, borrar los datos— ábrelo con editor_ajustes_abrir en su grupo para que el usuario lo confirme.'
+      : '',
+    conEditor
+      ? 'Fuera de los cuartos, el MAPA exterior se construye con las herramientas editor_infra_*: huerto, granja, caminos (pista de carreras, vías de tren, montaña rusa) y canchas deportivas. Regar, cosechar, alimentar, mimar, colocar una cancha, correr una carrera y montar el tren se hacen al vuelo; en cambio editor_infra_construir abre un editor a pantalla completa que cierra el chat, así que llámala SOLA. Para jugar paintball contra los asistentes (1 vs 1, 2 vs 2 o batalla campal, con la casa de campo de batalla) usa editor_paintball.'
+      : '',
+    conEditor
+      ? 'Cuando un tema se entienda mejor DIBUJADO —una explicación con pasos, tipos, partes o dos cosas comparadas— puedes llevarlo a la app Ideas con editor_mapa_ideas, que dibuja el mapa entero y lo abre. Hazlo cuando el usuario lo pida o acepte tu ofrecimiento; si no, basta con ofrecérselo en una frase al final de la explicación.'
+      : '',
     conImagen
       ? 'El mensaje incluye una imagen: interprétala y registra lo que muestre (ej. foto de un platillo → registra la comida estimando macros; un ticket → registra el gasto).'
       : '',
@@ -308,12 +404,21 @@ async function llamarCuenta(
   imagen: ImagenAdjunta | null,
   tools: ToolNeutra[],
   historial: MensajeIA[] = [],
+  perfil: PerfilIA = 'rapido',
 ): Promise<{ respuesta: string | null; llamadas: LlamadaTool[] }> {
   const r = await iaChatCuenta({
     system,
     mensajes: [...historial, { rol: 'usuario', texto, imagen: imagen ?? undefined }],
     tools: tools.length ? tools : undefined,
-    maxTokens: 4096,
+    // El razonamiento del perfil `calidad` también sale de max_tokens. El 2048
+    // del chat es el espejo del tope del servidor (TOPES.chat en ia-chat):
+    // menor que texto_largo a propósito, para que declarar la op barata no
+    // regale la salida larga.
+    maxTokens: perfil === 'calidad' ? 8192 : 2048,
+    perfil,
+    // El chat de la casa cabe en 1 crédito porque su entrada (tools + system)
+    // va cacheada; el modelo 3D paga aparte.
+    op: perfil === 'calidad' ? 'modelo3d' : 'chat',
   })
   return { respuesta: r.texto?.trim() || null, llamadas: r.llamadas }
 }
@@ -325,8 +430,9 @@ async function llamarClaude(
   imagen: ImagenAdjunta | null,
   tools: ToolNeutra[],
   historial: MensajeIA[] = [],
+  perfil: PerfilIA = 'rapido',
 ): Promise<{ respuesta: string | null; llamadas: LlamadaTool[] }> {
-  if (usarViaCuenta()) return llamarCuenta(system, texto, imagen, tools, historial)
+  if (usarViaCuenta()) return llamarCuenta(system, texto, imagen, tools, historial, perfil)
   // maxRetries bajo: si falla, el dispatcher determinista responde al instante.
   const { default: AnthropicSDK } = await import('@anthropic-ai/sdk')
   const client = new AnthropicSDK({ apiKey: getIaKey('claude'), dangerouslyAllowBrowser: true, maxRetries: 1 })
@@ -343,11 +449,21 @@ async function llamarClaude(
   }
   contenido.push({ type: 'text', text: texto })
 
+  const calidad = perfil === 'calidad'
   const res = await client.messages.create({
-    model: PROVEEDORES[0].modelo,
+    model: calidad ? MODELO_CALIDAD : PROVEEDORES[0].modelo,
     // Holgado: una sola respuesta puede traer varias recetas completas + la
     // dieta que las agrupa + su lista del súper (varios tool_use encadenados).
-    max_tokens: 4096,
+    // En `calidad` el razonamiento también consume de este tope.
+    max_tokens: calidad ? 8192 : 4096,
+    // Razonar antes de responder es lo que endereza la geometría 3D.
+    // `low` medido en scripts/bench3d.mjs: ~10s por objeto contra ~19s de
+    // `high` (hasta 40s en el peor caso), con la misma silueta correcta y sin
+    // piezas bajo el suelo. Para más detalle está el estilo 'detallado', que
+    // sube las piezas sin pagar razonamiento.
+    ...(calidad
+      ? { thinking: { type: 'adaptive' as const }, output_config: { effort: 'low' as const } }
+      : {}),
     system,
     ...(tools.length
       ? {
@@ -379,6 +495,17 @@ async function llamarClaude(
   return { respuesta, llamadas }
 }
 
+/**
+ * Tope de tokens en el formato que espera cada proveedor: el endpoint real de
+ * OpenAI (ChatGPT) ya no acepta `max_tokens` en sus modelos de razonamiento
+ * («Unsupported parameter: 'max_tokens' [...] Use 'max_completion_tokens'»);
+ * los demás (Gemini vía su compat-OpenAI, DeepSeek, Ollama local) siguen
+ * usando el nombre clásico.
+ */
+function paramTokens(prov: Proveedor, n: number): Record<string, number> {
+  return prov.id === 'chatgpt' ? { max_completion_tokens: n } : { max_tokens: n }
+}
+
 /** Transporte compatible-OpenAI: Gemini, ChatGPT, DeepSeek y Ollama local. */
 async function llamarOpenAICompat(
   prov: Proveedor,
@@ -406,7 +533,7 @@ async function llamarOpenAICompat(
     },
     body: JSON.stringify({
       model: modelo,
-      max_tokens: 4096,
+      ...paramTokens(prov, 4096),
       messages: [
         { role: 'system', content: system },
         ...historial.map((m) => ({ role: m.rol === 'usuario' ? 'user' : 'assistant', content: m.texto })),
@@ -487,11 +614,20 @@ export async function conversarIA(
 ): Promise<string> {
   const historial = normalizarHistorial(mensajes)
   if (!historial.length) throw new Error('Conversación vacía')
+  exigirTransporte()
 
-  // Vía cuenta (Pro): proxy del servidor con cuota; los errores tipados
-  // (ErrorIA) llegan al caller con mensaje listo para mostrarse.
+  // Vía cuenta: proxy del servidor con cuota; los errores tipados (ErrorIA)
+  // llegan al caller con mensaje listo para mostrarse. La tarifa la decide lo
+  // que se pida de salida — un plan de metas de 3000 tokens no vale lo mismo
+  // que una receta de 1200 (ver opDeTexto).
+  //
+  // Caching: el proxy ya marca system + último mensaje con cache_control; aquí
+  // no hay más breakpoints que añadir porque estos system van a Haiku, cuyo
+  // mínimo cacheable (4096 tok) los deja como no-op sin costo. El hilo ≥2
+  // mensajes sí se cachea turno a turno. El system 3D (Sonnet, mínimo 1024)
+  // queda cubierto por el mismo marcador de system del proxy.
   if (usarViaCuenta()) {
-    const r = await iaChatCuenta({ system, mensajes: historial, maxTokens })
+    const r = await iaChatCuenta({ system, mensajes: historial, maxTokens, op: opDeTexto(maxTokens) })
     const texto = r.texto?.trim()
     if (!texto) throw new Error('La IA respondió vacío')
     return texto
@@ -529,7 +665,7 @@ export async function conversarIA(
     },
     body: JSON.stringify({
       model: modelo,
-      max_tokens: maxTokens,
+      ...paramTokens(prov, maxTokens),
       messages: [
         { role: 'system', content: system },
         ...historial.map((m) => ({ role: m.rol === 'usuario' ? 'user' : 'assistant', content: m.texto })),
@@ -541,6 +677,40 @@ export async function conversarIA(
   const texto = data.choices?.[0]?.message?.content?.trim()
   if (!texto) throw new Error('La IA respondió vacío')
   return texto
+}
+
+/**
+ * Una sola pregunta al modelo SOBRE una imagen, sin herramientas ni historial
+ * (visión pura, multi-proveedor). Devuelve el texto crudo; lanza si viene vacío.
+ */
+export async function analizarImagenIA(
+  system: string,
+  texto: string,
+  imagen: ImagenAdjunta,
+): Promise<string> {
+  exigirTransporte()
+  // La vía cuenta manda SIEMPRE, igual que en conversarIA: mirar primero el
+  // proveedor dejaba que una clave BYOK guardada en localStorage saltara el
+  // proxy — y con él la cuota.
+  if (usarViaCuenta()) {
+    const r = await iaChatCuenta({
+      system,
+      mensajes: [{ rol: 'usuario', texto, imagen }],
+      maxTokens: 1500,
+      op: 'vision',
+    })
+    const salida = r.texto?.trim()
+    if (!salida) throw new Error('La IA respondió vacío')
+    return salida
+  }
+
+  const prov = getProveedor()
+  const { respuesta } =
+    prov.id === 'claude'
+      ? await llamarClaude(system, texto, imagen, [])
+      : await llamarOpenAICompat(prov, system, texto, imagen, [])
+  if (!respuesta) throw new Error('La IA respondió vacío')
+  return respuesta
 }
 
 /**
@@ -557,65 +727,6 @@ export function extraerJSON(respuesta: string): Record<string, unknown> {
   return obj as Record<string, unknown>
 }
 
-/** Categoría de modelo 3D generable por IA: cada una usa un prompt especializado. */
-export type TipoModelo3D = 'personaje' | 'objeto' | 'arquitectura' | 'ropa'
-
-/** Contrato JSON común a las tres categorías (formato de `Pieza3D`). */
-const CONTRATO_PIEZAS = [
-  'Responde ÚNICAMENTE con un arreglo JSON (sin texto extra ni markdown) de piezas:',
-  '{"tipo":"caja"|"esfera"|"cono"|"cilindro"|"plano","pos":[x,y,z],"tam":[...],"color":"#hex","rot":[x,y,z]?}',
-  'tam según tipo — caja: [ancho,alto,fondo] · esfera: [radio] · cono: [radio,alto] · cilindro: [radioArriba,radioAbajo,alto] · plano: [ancho,alto].',
-  'pos es el CENTRO de cada pieza y y=0 es el suelo (una caja de alto 0.6 apoyada en el suelo va en y=0.3); rot en radianes es opcional.',
-]
-
-/** Prompt de sistema por categoría: mismo contrato, distintas reglas de forma y escala. */
-const SYSTEM_MODELO3D: Record<TipoModelo3D, string> = {
-  personaje: [
-    'Eres un diseñador de personajes 3D low-poly estilo Roblox/voxel.',
-    'A partir de la descripción del usuario, construye un PERSONAJE con piezas primitivas.',
-    ...CONTRATO_PIEZAS,
-    'Reglas: mide ~1.4–1.7 de alto, de pie sobre y=0, mira hacia +Z (ojos/cara en z positiva), usa 8–20 piezas, colores hex vivos y coherentes.',
-    'Incluye detalles que lo hagan reconocible (ojos, orejas, sombrero, cola… según la descripción).',
-  ].join('\n'),
-  objeto: [
-    'Eres un diseñador de props 3D low-poly estilo Roblox/voxel: muebles, herramientas, plantas, decoración y aparatos.',
-    'A partir de la descripción del usuario, construye un OBJETO con piezas primitivas.',
-    ...CONTRATO_PIEZAS,
-    'Reglas: base apoyada en y=0, compacto y con proporciones reales (~0.3–1.3 de alto), frente hacia +Z, usa 5–18 piezas.',
-    'Modela por estructura y simetría (una silla = asiento + respaldo + 4 patas; una lámpara = base + poste + pantalla). Silueta clara, colores hex coherentes y SIN ojos ni cara (salvo que sea un juguete).',
-  ].join('\n'),
-  arquitectura: [
-    'Eres un diseñador de elementos arquitectónicos 3D low-poly: columnas, arcos, escaleras, muros, fuentes, portones, torres y pérgolas.',
-    'A partir de la descripción del usuario, construye una PIEZA ARQUITECTÓNICA con piezas primitivas.',
-    ...CONTRATO_PIEZAS,
-    'Reglas: centrada en el origen y apoyada en y=0, a mayor escala (~1.5–4 de alto), usa 6–24 piezas.',
-    'Prioriza simetría y repetición (columnas, escalones, almenas); usa cajas/cilindros/planos para muros y soportes, y conos para techos y agujas. Colores de piedra/arena/terracota/madera salvo que se indique otra cosa. SIN cara.',
-  ].join('\n'),
-  ropa: [
-    'Eres un diseñador de ROPA 3D low-poly estilo Roblox/voxel para vestir a un personaje.',
-    'A partir de la descripción, construye SOLO la prenda o el accesorio (sin cuerpo, sin cabeza, sin cara).',
-    ...CONTRATO_PIEZAS,
-    'El personaje que la viste mira a +Z y mide ~1.6 de alto. Referencias de su cuerpo: pies y≈0.1, piernas y≈0.3, cadera y≈0.6, torso y≈0.9, hombros y≈1.2, cuello y≈1.25, cabeza y≈1.5 (medio-ancho ~0.22), brazos en x≈±0.42.',
-    'Coloca la prenda envolviendo la parte del cuerpo que corresponda y un poco más grande que ella para que no se hunda (un torso de ancho ~0.6 → la prenda ~0.66). Usa 4–16 piezas, colores hex coherentes. SIN ojos ni cara.',
-  ].join('\n'),
-}
-
-/** Estilo opcional de las piezas: modula el prompt sin cambiar el motor. */
-export type EstiloModelo3D = 'normal' | 'detallado' | 'minimalista' | 'redondeado' | 'bloques'
-
-/** Instrucción extra por estilo (vacía en `normal`, que deja el prompt base). */
-const ESTILO_MODELO3D: Record<EstiloModelo3D, string> = {
-  normal: '',
-  detallado:
-    'Estilo DETALLADO: usa el máximo de piezas del rango, añade remates y detalles reconocibles y varía los colores.',
-  minimalista:
-    'Estilo MINIMALISTA: usa el mínimo de piezas, solo las formas esenciales de la silueta, con 1 o 2 colores.',
-  redondeado:
-    'Estilo REDONDEADO: prioriza esferas y cilindros sobre cajas, evita las aristas duras y busca formas suaves.',
-  bloques:
-    'Estilo BLOQUES tipo voxel: usa SOLO cajas alineadas en cuadrícula (nada de conos ni esferas), como Minecraft/Lego.',
-}
-
 /**
  * Genera un modelo 3D a partir de una descripción en texto, según la categoría
  * (`personaje` por defecto, `objeto` o `arquitectura`) y un `estilo` opcional que
@@ -628,13 +739,17 @@ export async function generarModelo3D(
   tipo: TipoModelo3D = 'personaje',
   estilo: EstiloModelo3D = 'normal',
 ): Promise<Pieza3D[]> {
-  const prov = getProveedor()
-  const extra = ESTILO_MODELO3D[estilo]
-  const system = extra ? `${SYSTEM_MODELO3D[tipo]}\n${extra}` : SYSTEM_MODELO3D[tipo]
+  exigirTransporte()
+  const system = systemModelo3D(tipo, estilo)
 
+  // Perfil `calidad`: la geometría es lo que peor sale con el modelo rápido.
+  // La vía cuenta va primero para que el perfil (y su tarifa) no se pierdan
+  // cuando hay una clave BYOK guardada — antes se colaba por la rama del
+  // proveedor y se cobraba como un chat cualquiera.
+  const prov = getProveedor()
   const { respuesta } =
-    prov.id === 'claude'
-      ? await llamarClaude(system, descripcion, null, [])
+    usarViaCuenta() || prov.id === 'claude'
+      ? await llamarClaude(system, descripcion, null, [], [], 'calidad')
       : await llamarOpenAICompat(prov, system, descripcion, null, [])
   if (!respuesta) throw new Error('La IA no devolvió ninguna forma')
 
@@ -656,15 +771,23 @@ export async function generarModelo3D(
   return validas
 }
 
+/**
+ * TOOLS_EDITOR con la última tool marcada como breakpoint de caché: el bloque
+ * es estático por build y va PRIMERO en el arreglo, así el prefijo cacheado
+ * (~5.5k tokens) se comparte entre TODOS los usuarios del proxy.
+ */
+const TOOLS_EDITOR_CACHE: ToolNeutra[] = TOOLS_EDITOR.map((t, i, a) =>
+  i === a.length - 1 ? { ...t, cache: true } : t,
+)
+
 export async function interpretarIA(
   texto: string,
   mascotaId: string,
   imagen: ImagenAdjunta | null = null,
   historialCrudo: MensajeIA[] = [],
 ): Promise<ResultadoIA> {
+  exigirTransporte()
   const prov = getProveedor()
-  const tools = [...construirTools(getAsistente(mascotaId).cuartos), ...TOOLS_EDITOR]
-  const system = await construirSystem(mascotaId, !!imagen)
 
   // Alternancia estricta: si el hilo quedó en un turno del usuario (la IA no
   // llegó a responder), ese texto se funde con el mensaje actual.
@@ -673,6 +796,14 @@ export async function interpretarIA(
     const previo = historial.pop() as MensajeIA
     texto = `${previo.texto}\n\n${texto}`
   }
+
+  // Gating: las 54 tools del editor (y sus párrafos del system) solo viajan
+  // si el mensaje o los últimos turnos huelen a edición/control de la casa.
+  const conEditor = hayIntencionEditor([...historial.slice(-2).map((m) => m.texto), texto])
+  const tools = conEditor
+    ? [...TOOLS_EDITOR_CACHE, ...construirTools(getAsistente(mascotaId).cuartos)]
+    : construirTools(getAsistente(mascotaId).cuartos)
+  const system = await construirSystem(mascotaId, !!imagen, conEditor)
 
   const { respuesta, llamadas } =
     prov.id === 'claude'
@@ -690,7 +821,10 @@ export async function interpretarIA(
   for (const { name, input } of llamadas) {
     if (name.startsWith('editor_')) {
       const confirm = await ejecutarToolEditor(name, input)
-      if (confirm) resultado.ediciones.push(confirm)
+      if (confirm) {
+        resultado.ediciones.push(confirm)
+        resultado.destino ??= destinoDeTool(name)
+      }
       continue
     }
     if (name === 'recordar') {
@@ -737,6 +871,7 @@ export async function interpretarIA(
         creadoEn: new Date().toISOString(),
       })
       resultado.rutinaCreada = nombre
+      resultado.destino ??= destinoDeTool(name)
       continue
     }
     if (name === 'crear_modelo_3d') {
@@ -761,8 +896,24 @@ export async function interpretarIA(
           .getState()
           .instanciarObjetoEnMapa(libId, { x: playerPos.x + 1.2, z: playerPos.z + 1.2 })
         resultado.creado3d = descripcion
+        resultado.destino ??= destinoDeTool(name)
       } catch (err) {
         console.warn('[MPH] No se pudo crear el modelo 3D desde el chat:', err)
+      }
+      continue
+    }
+    if (name === 'generar_imagen') {
+      const descripcion = typeof input.descripcion === 'string' ? input.descripcion.trim() : ''
+      if (!descripcion) continue
+      const aspectos: AspectoImagen[] = ['1:1', '16:9', '9:16', '4:3', '3:4']
+      const aspecto = aspectos.includes(input.aspecto as AspectoImagen) ? (input.aspecto as AspectoImagen) : '1:1'
+      try {
+        resultado.imagen = await generarImagen(descripcion, 768, undefined, aspecto)
+      } catch (err) {
+        // Sin relanzar: el modal de cuota ya lo abre la capa de cuenta, y así
+        // no se pierden ni la respuesta ni los registros del mismo turno.
+        console.warn('[MPH] No se pudo generar la imagen desde el chat:', err)
+        resultado.imagenFallo = true
       }
       continue
     }
@@ -771,6 +922,7 @@ export async function interpretarIA(
     if (!esquema) continue
     await esquema.guardar(input)
     resultado.capturado = true
+    resultado.destino ??= { tipo: 'app', appId: roomId }
     if (!resultado.roomIds.includes(roomId)) resultado.roomIds.push(roomId)
   }
 

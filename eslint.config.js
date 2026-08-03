@@ -8,7 +8,10 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 export default defineConfig([
   // `android/` es la plataforma nativa generada por Capacitor (incluye el
   // `native-bridge.js` de sus builds): código de terceros, no se lintea.
-  globalIgnores(['dist', 'android']),
+  // `.claude/` puede contener worktrees de sesiones con su propio tsconfig:
+  // si ESLint entra ahí, ve dos tsconfigRootDir candidatos y deja de parsear
+  // TODO el proyecto (1554 errores idénticos, 0 reglas evaluadas).
+  globalIgnores(['dist', 'dist-web', 'android', '.claude']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

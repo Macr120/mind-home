@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useMemo } from 'react'
+import { memo, Suspense, useEffect, useMemo } from 'react'
 import { useLoader } from '@react-three/fiber'
 import { CanvasTexture, RepeatWrapping, TextureLoader, type BufferGeometry, type Texture } from 'three'
 import type { TechoTipoId } from './techos'
@@ -13,7 +13,8 @@ import {
 } from './formasLoseta'
 
 const GROSOR = 0.12
-const LADO = SIZE - 0.12
+/** Lado de la loseta de techo (misma rendija que el piso): SIZE es mutable, calcular al usar. */
+const lado = () => SIZE - 0.12
 
 /** Canvas procedural para patrones de teja (tejas_rojas, tejas_oscuras, teja_castillo). */
 function texturaCanvasTeja(color: string): CanvasTexture {
@@ -224,7 +225,7 @@ function LosetaImagen({
 
 /** Filas de tejas en relieve. */
 function Tejas({ color, filas = 2 }: { color: string; filas?: number }) {
-  const paso = LADO / (filas * 2 + 1)
+  const paso = lado() / (filas * 2 + 1)
   return (
     <>
       {Array.from({ length: filas * 2 }, (_, i) => {
@@ -259,14 +260,14 @@ function LineasPanel({
   inten: number
   count?: number
 }) {
-  const paso = LADO / (count + 1)
+  const paso = lado() / (count + 1)
   return (
     <>
       {Array.from({ length: count }, (_, i) => {
         const z = (i - (count - 1) / 2) * paso
         return (
           <mesh key={i} position={[0, GROSOR * 0.52, z]}>
-            <boxGeometry args={[LADO * 0.92, 0.025, 0.04]} />
+            <boxGeometry args={[lado() * 0.92, 0.025, 0.04]} />
             <meshStandardMaterial
               color={color}
               emissive={emissive}
@@ -286,7 +287,7 @@ function Bultos({ color, n = 6, alto = 0.08 }: { color: string; n?: number; alto
     <>
       {Array.from({ length: n }, (_, i) => {
         const a = (i / n) * Math.PI * 2
-        const r = LADO * 0.22 + ((i * 3) % 4) * 0.08
+        const r = lado() * 0.22 + ((i * 3) % 4) * 0.08
         return (
           <mesh
             key={i}
@@ -335,9 +336,10 @@ function Decoracion({ variante, mat }: { variante: TechoTipoId; mat: ReturnType<
 }
 
 /**
- * Una losa de techo (por celda del cuarto o terraza caminable).
+ * Una losa de techo (por celda del cuarto o terraza caminable). Memoizada: sus props
+ * son escalares/estables, y re-renderizar el cuarto no reconstruye cada losa.
  */
-export function TechoLoseta({
+export const TechoLoseta = memo(function TechoLoseta({
   tipo,
   colorCuarto,
   tinte,
@@ -467,7 +469,7 @@ export function TechoLoseta({
       {!atenuado && tipo && <Decoracion variante={variante} mat={mat} />}
     </group>
   )
-}
+})
 
 /** Loseta de techo con forma no rectangular (triángulo, cuarto de círculo). */
 function TechoLosetaForma({
@@ -496,7 +498,7 @@ function TechoLosetaForma({
   atenuado: boolean
 }) {
   const geometry = useMemo(
-    () => geometriaTechoLoseta3D(formaLoseta, LADO, GROSOR, subformas),
+    () => geometriaTechoLoseta3D(formaLoseta, lado(), GROSOR, subformas),
     [formaLoseta, subformas],
   )
 
@@ -613,7 +615,7 @@ function LosetaTexForma({
     const t = base.clone()
     t.needsUpdate = true
     t.wrapS = t.wrapT = RepeatWrapping
-    t.repeat.set(Math.max(1, LADO / tileSize), Math.max(1, LADO / tileSize))
+    t.repeat.set(Math.max(1, lado() / tileSize), Math.max(1, lado() / tileSize))
     return t
   }, [base, tileSize])
   return (

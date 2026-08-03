@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import type { ItemCompra, ListaCompra } from '../../core/data/db'
-import { itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
+import { finanzasRepo, itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
 import { CATEGORIAS_COMPRA, adivinarCategoria, getCategoriaCompra } from './categoriasCompra'
+import { hoyISO } from './fecha'
+import { money2 } from '../despacho/mes'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
 type Sub = 'crear' | 'listas'
+
+/** Categoría del gasto en el Despacho: la compra del súper es comida. */
+const CATEGORIA_GASTO = 'comida'
 
 export function ComprasTab({ items, listas }: { items: ItemCompra[]; listas: ListaCompra[] }) {
   const t = useT()
@@ -28,6 +33,7 @@ export function ComprasTab({ items, listas }: { items: ItemCompra[]; listas: Lis
         </button>
         <button
           type="button"
+          data-tut="cocina.compras.sub.listas"
           onClick={() => setSub('listas')}
           className={`rounded-xl py-2.5 text-sm font-semibold transition ${
             sub === 'listas' ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
@@ -47,13 +53,12 @@ export function ComprasTab({ items, listas }: { items: ItemCompra[]; listas: Lis
   )
 }
 
-/** Formulario para añadir un artículo (al generador si listaId es undefined, o a una lista). */
-function AgregarItem({ listaId }: { listaId?: number }) {
+/** Renglón para añadir un artículo: nombre, cantidad y listo. La categoría la
+ *  adivina el nombre y se corrige después en el propio artículo. */
+function FilaAgregar({ listaId }: { listaId?: number }) {
   const t = useT()
   const [nombre, setNombre] = useState('')
   const [cantidad, setCantidad] = useState('')
-  const [categoriaSel, setCategoriaSel] = useState<string | null>(null)
-  const categoria = categoriaSel ?? adivinarCategoria(nombre)
 
   const agregar = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -61,102 +66,109 @@ function AgregarItem({ listaId }: { listaId?: number }) {
     await itemsCompraRepo.add({
       nombre: nombre.trim(),
       cantidad: cantidad.trim() || undefined,
-      categoria,
+      categoria: adivinarCategoria(nombre),
       comprado: false,
       creadoEn: new Date().toISOString(),
       listaId,
     })
     setNombre('')
     setCantidad('')
-    setCategoriaSel(null)
   }
 
   return (
-    <form onSubmit={agregar} className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10">
-      <p className="text-sm font-semibold"><Icono nombre="tab-compras" /> {t('cocina.comp.agregar', 'Agregar al súper')}</p>
-      <div className="flex gap-2">
-        <input
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          placeholder={t('cocina.comp.ph.nombre', 'Qué hay que comprar...')}
-          className="flex-1 rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
-        />
-        <input
-          value={cantidad}
-          onChange={(e) => setCantidad(e.target.value)}
-          placeholder={t('cocina.comp.ph.cantidad', 'Cant.')}
-          className="w-20 rounded-lg bg-black/30 px-2 py-2 text-sm border border-white/10 outline-none"
-        />
-      </div>
-      <div className="flex gap-1.5 overflow-x-auto pb-1">
-        {CATEGORIAS_COMPRA.map((c) => (
-          <button
-            key={c.id}
-            type="button"
-            onClick={() => setCategoriaSel(c.id)}
-            title={t(`cocina.cat.${c.id}`, c.label)}
-            className={`shrink-0 rounded-lg px-2.5 py-1.5 text-sm transition ${
-              categoria === c.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            <Icono emoji={c.icon} />
-          </button>
-        ))}
-      </div>
-      <p className="text-[10px] text-white/40">
-        {t('cocina.comp.categoria', `Categoría: ${getCategoriaCompra(categoria).label}`, {
-          c: t(`cocina.cat.${getCategoriaCompra(categoria).id}`, getCategoriaCompra(categoria).label),
-        })}
-        {categoriaSel === null && nombre.trim() !== '' && ` ${t('cocina.comp.auto', '(sugerida)')}`}
-      </p>
+    <form onSubmit={agregar} className="flex gap-2">
+      <input
+        value={nombre}
+        onChange={(e) => setNombre(e.target.value)}
+        placeholder={t('cocina.comp.ph.nombre', 'Qué hay que comprar...')}
+        className="flex-1 min-w-0 rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
+      />
+      <input
+        value={cantidad}
+        onChange={(e) => setCantidad(e.target.value)}
+        placeholder={t('cocina.comp.ph.cantidad', 'Cant.')}
+        className="w-16 shrink-0 rounded-lg bg-black/30 px-2 py-2 text-sm border border-white/10 outline-none"
+      />
       <button
         type="submit"
-        className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
+        aria-label={t('cocina.comp.añadir', 'Añadir a la lista')}
+        className="shrink-0 rounded-lg bg-amber-600 px-3 py-2 text-sm font-bold texto-cta hover:brightness-110"
       >
-        {t('cocina.comp.añadir', 'Añadir a la lista')}
+        <Icono nombre="agregar" />
       </button>
     </form>
   )
 }
 
-/** Barra de progreso de compra + limpiar comprados (para listas guardadas). */
-function ProgresoCompras({ items }: { items: ItemCompra[] }) {
+/** Un artículo: check, nombre, cantidad y precio editables, categoría y borrar. */
+function FilaItem({ item, conCheck, conPrecio }: { item: ItemCompra; conCheck: boolean; conPrecio: boolean }) {
   const t = useT()
-  if (items.length === 0) return null
-  const comprados = items.filter((i) => i.comprado).length
-  const pct = (comprados / items.length) * 100
 
-  const limpiarComprados = async () => {
-    for (const i of items) {
-      if (i.comprado && i.id) await itemsCompraRepo.remove(i.id)
-    }
+  const guardar = (cambios: Partial<ItemCompra>) => {
+    if (item.id) void itemsCompraRepo.update(item.id, cambios)
   }
 
   return (
-    <div className="rounded-xl bg-white/5 px-4 py-3 border border-white/10">
-      <div className="flex items-center justify-between text-sm">
-        <span className="font-semibold">
-          {t('cocina.comp.progreso', `${comprados} de ${items.length} comprados`, { c: String(comprados), n: String(items.length) })}
-        </span>
-        {comprados > 0 && (
-          <button
-            type="button"
-            onClick={limpiarComprados}
-            className="text-xs font-semibold text-amber-400 hover:underline"
-          >
-            {t('cocina.comp.limpiar', 'Limpiar comprados')}
-          </button>
-        )}
-      </div>
-      <div className="mt-2 h-2 w-full rounded-full bg-black/40 overflow-hidden">
-        <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${pct}%` }} />
-      </div>
-    </div>
+    <li className="flex items-center gap-2 px-3 py-2 text-sm">
+      {conCheck && (
+        <button
+          type="button"
+          onClick={() => guardar({ comprado: !item.comprado })}
+          className={`h-5 w-5 shrink-0 rounded border flex items-center justify-center text-xs ${
+            item.comprado ? 'bg-emerald-600 border-emerald-500 texto-cta' : 'border-white/30'
+          }`}
+        >
+          {item.comprado ? <Icono nombre="confirmar" /> : null}
+        </button>
+      )}
+      <span className={`flex-1 min-w-0 truncate ${item.comprado ? 'line-through text-white/40' : 'text-white/90'}`}>
+        {item.nombre}
+      </span>
+      <input
+        value={item.cantidad ?? ''}
+        onChange={(e) => guardar({ cantidad: e.target.value.trim() || undefined })}
+        placeholder={t('cocina.comp.ph.cantidad', 'Cant.')}
+        aria-label={t('cocina.comp.ph.cantidad', 'Cant.')}
+        className="w-14 shrink-0 rounded-lg bg-black/30 border border-white/10 px-1.5 py-1 text-xs text-center outline-none focus:border-amber-400/50"
+      />
+      {conPrecio && (
+        <input
+          type="number"
+          min={0}
+          step="0.01"
+          value={item.precio ?? ''}
+          onChange={(e) => guardar({ precio: parseFloat(e.target.value) || undefined })}
+          placeholder={t('cocina.comp.ph.precio', '$')}
+          aria-label={t('cocina.comp.precio', 'Precio')}
+          className="w-16 shrink-0 rounded-lg bg-black/30 border border-white/10 px-1.5 py-1 text-xs text-right outline-none focus:border-amber-400/50"
+        />
+      )}
+      <select
+        value={getCategoriaCompra(item.categoria).id}
+        onChange={(e) => guardar({ categoria: e.target.value })}
+        aria-label={t('cocina.comp.cambiarCat', 'Cambiar categoría')}
+        className="shrink-0 rounded-lg bg-black/30 border border-white/10 px-1 py-1 text-sm outline-none"
+      >
+        {CATEGORIAS_COMPRA.map((c) => (
+          <option key={c.id} value={c.id}>
+            {c.icon}
+          </option>
+        ))}
+      </select>
+      <button
+        type="button"
+        onClick={() => item.id && itemsCompraRepo.remove(item.id)}
+        className="shrink-0 text-white/30 hover:text-red-400 px-1"
+        aria-label={t('chat.eliminar', 'Eliminar')}
+      >
+        ×
+      </button>
+    </li>
   )
 }
 
-/** Artículos agrupados por categoría. Con checkbox de comprado si `mostrarComprado`. */
-function ListaItems({ items, mostrarComprado }: { items: ItemCompra[]; mostrarComprado: boolean }) {
+/** Artículos agrupados por categoría (pasillo del súper), para ir comprando. */
+function ItemsPorCategoria({ items }: { items: ItemCompra[] }) {
   const t = useT()
   const grupos = CATEGORIAS_COMPRA.map((c) => ({
     ...c,
@@ -170,51 +182,13 @@ function ListaItems({ items, mostrarComprado }: { items: ItemCompra[]; mostrarCo
           <div className="flex items-center gap-2 px-3 py-2 bg-white/5 text-sm font-semibold">
             <span><Icono emoji={g.icon} /></span>
             <span>{t(`cocina.cat.${g.id}`, g.label)}</span>
-            <span className="ml-auto text-xs text-white/40">
-              {mostrarComprado ? g.items.filter((i) => !i.comprado).length : g.items.length}
-            </span>
+            <span className="ml-auto text-xs text-white/40">{g.items.filter((i) => !i.comprado).length}</span>
           </div>
           <ul className="divide-y divide-white/5">
             {[...g.items]
               .sort((a, b) => Number(a.comprado) - Number(b.comprado))
               .map((item) => (
-                <li key={item.id} className="flex items-center gap-2 px-3 py-2.5 text-sm">
-                  {mostrarComprado && (
-                    <button
-                      type="button"
-                      onClick={() => item.id && itemsCompraRepo.update(item.id, { comprado: !item.comprado })}
-                      className={`h-5 w-5 shrink-0 rounded border flex items-center justify-center text-xs ${
-                        item.comprado ? 'bg-emerald-600 border-emerald-500 texto-cta' : 'border-white/30'
-                      }`}
-                    >
-                      {item.comprado ? <Icono nombre="confirmar" /> : null}
-                    </button>
-                  )}
-                  <span className={`flex-1 min-w-0 truncate ${item.comprado ? 'line-through text-white/40' : 'text-white/90'}`}>
-                    {item.nombre}
-                    {item.cantidad && <span className="text-white/40"> · {item.cantidad}</span>}
-                  </span>
-                  <select
-                    value={getCategoriaCompra(item.categoria).id}
-                    onChange={(e) => item.id && itemsCompraRepo.update(item.id, { categoria: e.target.value })}
-                    aria-label={t('cocina.comp.cambiarCat', 'Cambiar categoría')}
-                    className="rounded-lg bg-black/30 border border-white/10 px-1 py-1 text-sm outline-none"
-                  >
-                    {CATEGORIAS_COMPRA.map((c) => (
-                      <option key={c.id} value={c.id}>
-                        {c.icon}
-                      </option>
-                    ))}
-                  </select>
-                  <button
-                    type="button"
-                    onClick={() => item.id && itemsCompraRepo.remove(item.id)}
-                    className="text-white/30 hover:text-red-400 px-1"
-                    aria-label={t('chat.eliminar', 'Eliminar')}
-                  >
-                    ×
-                  </button>
-                </li>
+                <FilaItem key={item.id} item={item} conCheck conPrecio />
               ))}
           </ul>
         </div>
@@ -223,7 +197,7 @@ function ListaItems({ items, mostrarComprado }: { items: ItemCompra[]; mostrarCo
   )
 }
 
-/** "Crear lista": generador de artículos sueltos que luego se guardan en una lista. */
+/** "Crear lista": UNA tarjeta — apuntas, ves lo apuntado y lo guardas. */
 function GeneradorCompras({ items }: { items: ItemCompra[] }) {
   const t = useT()
   const [nombreLista, setNombreLista] = useState('')
@@ -242,36 +216,37 @@ function GeneradorCompras({ items }: { items: ItemCompra[] }) {
   }
 
   return (
-    <div className="space-y-4">
-      <AgregarItem />
+    <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
+      <input
+        value={nombreLista}
+        onChange={(e) => setNombreLista(e.target.value)}
+        placeholder={t('cocina.comp.phLista', 'Nombre de la lista (ej. Súper semanal)')}
+        className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm font-semibold border border-white/10 outline-none focus:border-amber-400/50"
+      />
+
+      <FilaAgregar />
 
       {items.length === 0 ? (
-        <p className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm text-white/40">
+        <p className="text-xs text-white/40">
           {t('cocina.comp.generadorVacio', 'Aún no hay nada. Agrega artículos arriba, o manda los ingredientes de una receta desde la pestaña Recetas.')}
         </p>
       ) : (
         <>
-          <ListaItems items={items} mostrarComprado={false} />
-
-          <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
-            <p className="text-sm font-semibold"><Icono nombre="tab-compras" /> {t('cocina.comp.guardarTitulo', 'Guardar en una lista')}</p>
-            <input
-              value={nombreLista}
-              onChange={(e) => setNombreLista(e.target.value)}
-              placeholder={t('cocina.comp.phLista', 'Nombre de la lista (ej. Súper semanal)')}
-              className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
-            />
-            <button
-              type="button"
-              onClick={guardarEnLista}
-              className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
-            >
-              {t('cocina.comp.guardarBtn', 'Guardar en lista')}
-            </button>
-            <p className="text-[10px] text-white/40">
-              {t('cocina.comp.guardarNota', 'Los artículos pasan a la lista y se vacía este generador.')}
-            </p>
-          </div>
+          <ul className="divide-y divide-white/5 rounded-lg bg-black/20">
+            {items.map((item) => (
+              <FilaItem key={item.id} item={item} conCheck={false} conPrecio={false} />
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={guardarEnLista}
+            className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
+          >
+            {t('cocina.comp.guardarBtn', 'Guardar en lista')}
+            <span className="ml-1.5 font-normal opacity-80">
+              ({t('cocina.comp.nItems', `${items.length} artículos`, { n: String(items.length) })})
+            </span>
+          </button>
         </>
       )}
     </div>
@@ -303,10 +278,11 @@ function ListasGuardadas({ items, listas }: { items: ItemCompra[]; listas: Lista
   }
 
   return (
-    <ul className="space-y-2">
+    <ul data-tut="cocina.compras.listas" className="space-y-2">
       {listas.map((l) => {
         const suyos = items.filter((i) => i.listaId === l.id)
         const pend = suyos.filter((i) => !i.comprado).length
+        const cuenta = suyos.reduce((s, i) => s + (i.precio ?? 0), 0)
         return (
           <li key={l.id}>
             <button
@@ -321,6 +297,7 @@ function ListasGuardadas({ items, listas }: { items: ItemCompra[]; listas: Lista
                   {suyos.length > 0 && ` · ${t('cocina.comp.nPend', `${pend} por comprar`, { n: String(pend) })}`}
                 </p>
               </div>
+              {cuenta > 0 && <span className="shrink-0 text-sm font-bold text-white/70">{money2(cuenta)}</span>}
             </button>
           </li>
         )
@@ -329,7 +306,7 @@ function ListasGuardadas({ items, listas }: { items: ItemCompra[]; listas: Lista
   )
 }
 
-/** Detalle de una lista guardada: editar nombre, artículos y marcar comprados. */
+/** Detalle de una lista guardada: comprar, llevar la cuenta y pasarla al Despacho. */
 function DetalleLista({
   lista,
   items,
@@ -342,6 +319,9 @@ function DetalleLista({
   const t = useT()
   const [nombre, setNombre] = useState(lista.nombre)
 
+  const comprados = items.filter((i) => i.comprado).length
+  const pct = items.length > 0 ? (comprados / items.length) * 100 : 0
+
   const guardarNombre = async () => {
     const limpio = nombre.trim()
     if (limpio && limpio !== lista.nombre && lista.id) {
@@ -351,6 +331,15 @@ function DetalleLista({
     }
   }
 
+  const borrarChecks = async () => {
+    for (const i of items) if (i.comprado && i.id) await itemsCompraRepo.update(i.id, { comprado: false })
+  }
+
+  const limpiarComprados = async () => {
+    for (const i of items) if (i.comprado && i.id) await itemsCompraRepo.remove(i.id)
+  }
+
+  // El gasto del Despacho NO se borra con la lista: el dinero ya se gastó.
   const eliminarLista = async () => {
     for (const i of items) if (i.id) await itemsCompraRepo.remove(i.id)
     if (lista.id) await listasCompraRepo.remove(lista.id)
@@ -376,17 +365,108 @@ function DetalleLista({
         </button>
       </div>
 
-      <input
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-        onBlur={guardarNombre}
-        aria-label={t('cocina.comp.phNombreLista', 'Nombre de la lista')}
-        className="w-full rounded-xl bg-white/5 px-4 py-2.5 text-base font-bold border border-white/10 outline-none focus:border-amber-400/50"
-      />
+      <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
+        <input
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+          onBlur={guardarNombre}
+          aria-label={t('cocina.comp.phNombreLista', 'Nombre de la lista')}
+          className="w-full rounded-lg bg-black/30 px-3 py-2 text-base font-bold border border-white/10 outline-none focus:border-amber-400/50"
+        />
 
-      <ProgresoCompras items={items} />
-      <ListaItems items={items} mostrarComprado={true} />
-      <AgregarItem listaId={lista.id} />
+        {items.length > 0 && (
+          <>
+            <div className="flex items-center justify-between gap-2 text-sm">
+              <span className="font-semibold">
+                {t('cocina.comp.progreso', `${comprados} de ${items.length} comprados`, {
+                  c: String(comprados),
+                  n: String(items.length),
+                })}
+              </span>
+              {comprados > 0 && (
+                <span className="flex gap-3 text-xs font-semibold">
+                  <button type="button" onClick={borrarChecks} className="text-amber-400 hover:underline">
+                    {t('cocina.comp.borrarChecks', 'Borrar checks')}
+                  </button>
+                  <button type="button" onClick={limpiarComprados} className="text-white/50 hover:underline">
+                    {t('cocina.comp.limpiar', 'Limpiar comprados')}
+                  </button>
+                </span>
+              )}
+            </div>
+            <div className="h-2 w-full rounded-full bg-black/40 overflow-hidden">
+              <div className="h-full rounded-full bg-emerald-400 transition-all" style={{ width: `${pct}%` }} />
+            </div>
+          </>
+        )}
+
+        <FilaAgregar listaId={lista.id} />
+      </div>
+
+      <ItemsPorCategoria items={items} />
+
+      <CuentaLista lista={lista} items={items} />
+    </div>
+  )
+}
+
+/**
+ * La cuenta del súper: suma de los precios de la lista y su gasto en el
+ * Despacho. Un movimiento por lista (`ListaCompra.gastoId`), que se actualiza
+ * si la cuenta cambia — así el mes no se llena de compras duplicadas.
+ */
+function CuentaLista({ lista, items }: { lista: ListaCompra; items: ItemCompra[] }) {
+  const t = useT()
+  const transacciones = finanzasRepo.useAll() ?? []
+  const total = items.reduce((s, i) => s + (i.precio ?? 0), 0)
+  const conPrecio = items.filter((i) => i.precio != null && i.precio > 0).length
+  // Si el gasto se borró desde el Despacho, la lista vuelve a estar sin registrar.
+  const gasto = lista.gastoId != null ? transacciones.find((x) => x.id === lista.gastoId) : undefined
+  const alDia = gasto != null && gasto.monto === total
+
+  const registrar = async () => {
+    if (total <= 0 || !lista.id) return
+    const datos = {
+      fecha: hoyISO(),
+      tipo: 'gasto' as const,
+      categoria: CATEGORIA_GASTO,
+      monto: total,
+      nota: `${t('cocina.comp.notaGasto', 'Súper')}: ${lista.nombre}`,
+    }
+    if (gasto?.id) {
+      await finanzasRepo.update(gasto.id, { monto: total })
+    } else {
+      const id = await finanzasRepo.add(datos)
+      await listasCompraRepo.update(lista.id, { gastoId: id })
+    }
+  }
+
+  return (
+    <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
+      <div className="flex items-baseline justify-between">
+        <p className="text-sm font-semibold"><Icono nombre="moneda" /> {t('cocina.comp.cuenta', 'Cuenta del súper')}</p>
+        <p className="text-lg font-black text-white/90">{money2(total)}</p>
+      </div>
+      <p className="text-[10px] text-white/40">
+        {conPrecio === 0
+          ? t('cocina.comp.cuentaAyuda', 'Escribe el precio de cada artículo y la cuenta se va sumando sola.')
+          : t('cocina.comp.cuentaConPrecio', `${conPrecio} de ${items.length} artículos con precio`, {
+              c: String(conPrecio),
+              n: String(items.length),
+            })}
+      </p>
+      <button
+        type="button"
+        onClick={registrar}
+        disabled={total <= 0 || alDia}
+        className="w-full rounded-xl py-2.5 text-sm font-bold bg-amber-600 texto-cta hover:brightness-110 disabled:opacity-40"
+      >
+        {alDia
+          ? t('cocina.comp.gastoAlDia', '✓ Registrado en el Despacho')
+          : gasto
+          ? t('cocina.comp.actualizarGasto', 'Actualizar el gasto del Despacho')
+          : t('cocina.comp.registrarGasto', 'Registrar como gasto en el Despacho')}
+      </button>
     </div>
   )
 }

@@ -10,6 +10,7 @@ import { getTema } from './temario'
 import { TarjetaForm, type TarjetaFormInicial } from './TarjetaForm'
 import { GenerarPanel } from './GenerarPanel'
 import { hablar, hayTTS } from './tts'
+import { VistaBlob } from '../_shared/ImagenIA'
 
 /** Lista del vocabulario del idioma: buscar, filtrar, crear, editar y escuchar. */
 export function VocabularioTab({ perfil, temaInicial, onTemaAplicado }: {
@@ -48,7 +49,7 @@ export function VocabularioTab({ perfil, temaInicial, onTemaAplicado }: {
     'rounded-lg border border-white/10 bg-black/30 px-2.5 py-2 text-sm outline-none focus:border-white/30'
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" data-tut="idiomas.vocabulario.lista">
       <div className="flex gap-2">
         <button
           type="button"
@@ -146,6 +147,7 @@ export function VocabularioTab({ perfil, temaInicial, onTemaAplicado }: {
                   <Icono nombre="bocina" />
                 </button>
               )}
+              {x.imagen && <VistaBlob blob={x.imagen} className="h-9 w-9 shrink-0 rounded-lg" />}
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium text-white/90">{x.termino}</p>
                 <p className="truncate text-xs text-white/45">
@@ -174,6 +176,7 @@ export function VocabularioTab({ perfil, temaInicial, onTemaAplicado }: {
                       tipo: x.tipo,
                       nivel: x.nivel,
                       temaId: x.temaId,
+                      imagen: x.imagen,
                     },
                     tarjetaId: x.id,
                   })

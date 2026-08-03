@@ -11,25 +11,27 @@ import {
 import { ComprasTab } from './ComprasTab'
 import { DiarioTab } from './DiarioTab'
 import { DietasTab } from './DietasTab'
+import { MetasTab } from './MetasTab'
 import { ProgresoTab } from './ProgresoTab'
 import { RecetasTab } from './RecetasTab'
 import { hoyISO, nombreFecha, sumarDias } from './fecha'
 import { perfilEfectivo, usePerfil } from './usePerfil'
 import { sembrarCocina } from './seed'
+import { claveLS } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { intencionApp } from '../../core/state/intencionApp'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-// 'plan' ya es la Dieta desde antes: el cronograma no puede llamarse así.
-type Tab = 'metas' | 'diario' | 'plan' | 'cronograma' | 'recetas' | 'compras'
+// 'plan' ya es la Dieta desde antes; 'diario' es el Registro (ese id lo
+// guardan las rutinas de los horarios de comida y no puede cambiar).
+type Tab = 'metas' | 'diario' | 'progreso' | 'plan' | 'recetas' | 'compras'
 type Enfoque = 'peso' | 'recetario'
 
 const TABS: Record<Tab, { icono: NombreIcono; labelEs: string }> = {
-  metas: { icono: 'progreso', labelEs: 'Progreso' },
-  diario: { icono: 'tab-diario', labelEs: 'Comidas' },
-  cronograma: { icono: 'objetivo', labelEs: 'Cronograma' },
+  metas: { icono: 'objetivo', labelEs: 'Metas' },
+  diario: { icono: 'tab-diario', labelEs: 'Registro' },
+  progreso: { icono: 'progreso', labelEs: 'Progreso' },
   recetas: { icono: 'tab-recetas', labelEs: 'Recetas' },
   plan: { icono: 'calendario', labelEs: 'Dieta' },
   compras: { icono: 'tab-compras', labelEs: 'Compras' },
@@ -38,15 +40,17 @@ const TABS: Record<Tab, { icono: NombreIcono; labelEs: string }> = {
 /**
  * Los dos motivos por los que se entra a la cocina. Los ids de pestaña NO
  * cambian aunque cambie la etiqueta: `rutinas.seccion` los guarda al agendar un
- * horario de comida y el calendario abre la app con ese string.
+ * horario de comida y el calendario abre la app con ese string. El enfoque de
+ * alimentación es un flujo de 3 pasos: metas → registro → progreso.
  */
 const ENFOQUES: { id: Enfoque; icono: NombreIcono; labelEs: string; tabs: Tab[] }[] = [
-  { id: 'peso', icono: 'balanza', labelEs: 'Control de peso', tabs: ['metas', 'diario', 'cronograma'] },
-  { id: 'recetario', icono: 'tab-recetas', labelEs: 'Recetario', tabs: ['recetas', 'plan', 'compras'] },
+  { id: 'peso', icono: 'balanza', labelEs: 'Control de alimentación', tabs: ['metas', 'diario', 'progreso'] },
+  // La dieta va primero: manda el plan y de ahí salen las recetas y la compra.
+  { id: 'recetario', icono: 'tab-recetas', labelEs: 'Recetario', tabs: ['plan', 'recetas', 'compras'] },
 ]
 
 const TODAS = ENFOQUES.flatMap((e) => e.tabs)
-const CLAVE_ENFOQUE = 'mh.cocina.enfoque'
+const CLAVE_ENFOQUE = claveLS('mh.cocina.enfoque')
 
 const enfoqueDe = (tab: Tab): Enfoque => ENFOQUES.find((e) => e.tabs.includes(tab))!.id
 
@@ -56,6 +60,8 @@ const TABS_CON_FECHA: Tab[] = ['diario']
 /** Manda la intención del chat; si no la hay, el último enfoque que usaste. */
 function tabDeArranque(): Tab {
   const seccion = intencionApp('cocina')?.seccion
+  // Compat: la pestaña 'cronograma' vive ahora dentro de Metas.
+  if (seccion === 'cronograma') return 'metas'
   if (seccion && TODAS.includes(seccion as Tab)) return seccion as Tab
   const guardado = localStorage.getItem(CLAVE_ENFOQUE)
   return ENFOQUES.find((e) => e.id === guardado)?.tabs[0] ?? 'metas'
@@ -106,7 +112,7 @@ export function CocinaApp() {
       </div>
 
       <div className="flex gap-2">
-        {ENFOQUES.find((e) => e.id === enfoque)!.tabs.map((id) => (
+        {ENFOQUES.find((e) => e.id === enfoque)!.tabs.map((id, i) => (
           <button
             key={id}
             data-tut={`cocina.tab.${id}`}
@@ -115,6 +121,8 @@ export function CocinaApp() {
               tab === id ? 'bg-white/15' : 'bg-white/5 text-white/60 hover:bg-white/10'
             }`}
           >
+            {/* En el control de alimentación las pestañas son pasos: se numeran. */}
+            {enfoque === 'peso' && <span className="mr-1 text-xs text-white/40">{i + 1} ·</span>}
             <Icono nombre={TABS[id].icono} /> {t(`cocina.tab.${id}`, TABS[id].labelEs)}
           </button>
         ))}
@@ -152,13 +160,14 @@ export function CocinaApp() {
       )}
 
       {tab === 'metas' && (
-        <ProgresoTab
-          fecha={fecha}
-          comidas={comidas}
-          aguaMl={aguaDia}
-          perfil={perfil}
-          perfilRaw={perfilRaw}
-          pesos={pesos}
+        <MetasTab
+          perfil={perfilRaw}
+          dietas={dietas}
+          recetas={recetas}
+          onIrARecetario={() => {
+            localStorage.setItem(CLAVE_ENFOQUE, 'recetario')
+            setTab('plan')
+          }}
         />
       )}
       {tab === 'diario' && (
@@ -167,12 +176,22 @@ export function CocinaApp() {
           comidas={comidas}
           recetas={recetas}
           aguaMl={aguaDia}
+          pesos={pesos}
           perfil={perfil}
         />
       )}
+      {tab === 'progreso' && (
+        <ProgresoTab
+          comidas={comidas}
+          agua={agua}
+          pesos={pesos}
+          perfil={perfil}
+          perfilRaw={perfilRaw}
+          onIrAMetas={() => setTab('metas')}
+        />
+      )}
       {tab === 'plan' && <DietasTab dietas={dietas} recetas={recetas} />}
-      {tab === 'cronograma' && <CronogramaApp plantillaId="cocina" />}
-      {tab === 'recetas' && <RecetasTab recetas={recetas} />}
+      {tab === 'recetas' && <RecetasTab recetas={recetas} dietas={dietas} />}
       {tab === 'compras' && <ComprasTab items={itemsCompra} listas={listasCompra} />}
     </div>
   )

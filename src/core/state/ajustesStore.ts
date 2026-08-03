@@ -16,6 +16,11 @@ import {
   type TipografiaId,
 } from '../ui/tipografias'
 import { colorFondo, estadoCielo } from '../house/cielo'
+import {
+  guardarCalidadImagen,
+  leerCalidadImagen,
+  type CalidadImagen,
+} from '../cuenta/calidadImagen'
 
 /**
  * Preferencias de interfaz del usuario: idioma y tema visual del chrome.
@@ -46,6 +51,8 @@ const LS_MUSICA_FUENTE = 'mh.musica.fuente'
 const LS_MUSICA_MOOD = 'mh.musica.mood'
 const LS_MUSICA_PISTA = 'mh.musica.pista'
 const LS_SFX_VOLUMEN = 'mh.sfx.volumen'
+const LS_HUD_MUSICA = 'mh.hud.musica'
+const LS_HUD_TUTORIALES = 'mh.hud.tutoriales'
 
 /** De dónde sale la música: generada con Web Audio, pistas subidas o el audio del sistema capturado. */
 export type FuenteMusica = 'generada' | 'pistas' | 'sistema'
@@ -136,6 +143,8 @@ interface AjustesState {
   modoUI: ModoUI
   tipografia: TipografiaId
   estiloIconos: EstiloIconos
+  /** Calidad de las imágenes que genera la IA: decide el proveedor y el precio. */
+  calidadImagen: CalidadImagen
   /** Vidrio de la interfaz (0..1): qué tanto se transparentan los paneles flotantes. */
   vidrioTransparencia: number
   /** Vidrio de la interfaz (0..1): fuerza del desenfoque tras el panel. */
@@ -162,12 +171,17 @@ interface AjustesState {
   musicaPistaId: number | null
   /** Volumen de los sonidos de acciones (0..1); 0 los apaga. */
   sfxVolumen: number
+  /** Botón de música en el HUD de la casa; apagado, se maneja en Configuraciones. */
+  hudMusica: boolean
+  /** Botón "?" de tutoriales en el HUD; apagado, se lanzan desde Configuraciones. */
+  hudTutoriales: boolean
   setIdioma: (idioma: Idioma) => void
   toggleIdioma: () => void
   setTemaUI: (tema: TemaUIId) => void
   setModoUI: (modo: ModoUI) => void
   setTipografia: (tipografia: TipografiaId) => void
   setEstiloIconos: (estilo: EstiloIconos) => void
+  setCalidadImagen: (calidad: CalidadImagen) => void
   setVidrioTransparencia: (v: number) => void
   setVidrioIntensidad: (v: number) => void
   setNotif: (v: boolean) => void
@@ -182,6 +196,8 @@ interface AjustesState {
   setMusicaMood: (m: MoodMusica) => void
   setMusicaPistaId: (id: number | null) => void
   setSfxVolumen: (v: number) => void
+  setHudMusica: (v: boolean) => void
+  setHudTutoriales: (v: boolean) => void
 }
 
 export const useAjustes = create<AjustesState>((set, get) => ({
@@ -190,6 +206,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   modoUI: leerModoUI(),
   tipografia: leerTipografia(),
   estiloIconos: leerEstiloIconos(),
+  calidadImagen: leerCalidadImagen(),
   vidrioTransparencia: leer01(LS_VIDRIO_TRANSPARENCIA, VIDRIO_TRANSPARENCIA_DEFAULT),
   vidrioIntensidad: leer01(LS_VIDRIO_INTENSIDAD, VIDRIO_INTENSIDAD_DEFAULT),
   notif: leerSiNo(LS_NOTIF, false),
@@ -212,6 +229,8 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     return Number.isFinite(v) && v > 0 ? v : null
   })(),
   sfxVolumen: leer01(LS_SFX_VOLUMEN, 0.6),
+  hudMusica: leerSiNo(LS_HUD_MUSICA, true),
+  hudTutoriales: leerSiNo(LS_HUD_TUTORIALES, true),
 
   setIdioma: (idioma) => {
     localStorage.setItem(LS_IDIOMA, idioma)
@@ -243,6 +262,13 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     localStorage.setItem(LS_ESTILO_ICONOS, estilo)
     document.documentElement.dataset.estiloIconos = estilo
     set({ estiloIconos: estilo })
+  },
+
+  // El espejo en el store es lo que hace que los precios de la UI se
+  // refresquen solos al cambiar la calidad (el badge se suscribe aquí).
+  setCalidadImagen: (calidad) => {
+    guardarCalidadImagen(calidad)
+    set({ calidadImagen: calidad })
   },
 
   setVidrioTransparencia: (v) => {
@@ -317,6 +343,16 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   setSfxVolumen: (v) => {
     localStorage.setItem(LS_SFX_VOLUMEN, String(v))
     set({ sfxVolumen: v })
+  },
+
+  setHudMusica: (v) => {
+    localStorage.setItem(LS_HUD_MUSICA, v ? 'si' : 'no')
+    set({ hudMusica: v })
+  },
+
+  setHudTutoriales: (v) => {
+    localStorage.setItem(LS_HUD_TUTORIALES, v ? 'si' : 'no')
+    set({ hudTutoriales: v })
   },
 
 }))

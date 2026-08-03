@@ -40,6 +40,8 @@ export function EditorMusicaSection({
   const setMusicaPistaId = useAjustes((s) => s.setMusicaPistaId)
   const sfxVolumen = useAjustes((s) => s.sfxVolumen)
   const setSfxVolumen = useAjustes((s) => s.setSfxVolumen)
+  const hudMusica = useAjustes((s) => s.hudMusica)
+  const setHudMusica = useAjustes((s) => s.setHudMusica)
   const pistas = pistasMusicaRepo.useAll()
   const inputRef = useRef<HTMLInputElement>(null)
   const [sonando, setSonando] = useState<number | null>(null)
@@ -144,6 +146,30 @@ export function EditorMusicaSection({
           {t(
             'ajustes.musica.ambientalDesc',
             'Suena mientras paseas por la casa; por el navegador, arranca con tu primer clic.',
+          )}
+        </p>
+      </div>
+
+      {/* Botón de música del HUD: apagado, la música se maneja solo desde aquí */}
+      <div className="space-y-1.5">
+        <button
+          type="button"
+          onClick={() => setHudMusica(!hudMusica)}
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+            hudMusica
+              ? 'ui-accent-bg border-transparent'
+              : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+          }`}
+        >
+          <span className="shrink-0 text-[11px]">{hudMusica ? '✓' : '○'}</span>
+          <span className="min-w-0 flex-1 truncate">
+            {t('ajustes.musica.hud', 'Mostrar en la pantalla principal')}
+          </span>
+        </button>
+        <p className="text-[11px] leading-snug text-white/45">
+          {t(
+            'ajustes.musica.hudDesc',
+            'Apagado, la casa queda más limpia: la música se ajusta desde aquí.',
           )}
         </p>
       </div>

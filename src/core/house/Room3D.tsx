@@ -1,6 +1,7 @@
-import { useMemo, useRef } from 'react'
+import { memo, useMemo, useRef } from 'react'
 import { useFrame, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
+import { useShallow } from 'zustand/react/shallow'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { useCam } from '../state/cameraStore'
@@ -10,7 +11,7 @@ import { puedeMoverCuartoRegistro } from './planoGeometria'
 import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { zonasRepo, pisosExteriorRepo } from '../data/repository'
-import type { PisoExteriorCelda } from '../data/db'
+import type { ObjetoCuarto, PisoExteriorCelda, ZonaPlano } from '../data/db'
 import { ocupadoConZonas } from './planoGeometria'
 import {
   roomWallSegments,
@@ -78,6 +79,11 @@ import { AguaCuarto } from './AguaCuarto'
 import { ComplementoPisoSotano } from './ComplementoPisoSotano'
 import { consumirClicMuro } from './PlanoMuroSelector3D'
 import { GrafitisMuroCuarto } from './grafiti'
+
+// Listas vacías estables mientras el repo carga: un `?? []` inline crea un array nuevo
+// por render y obliga a recalcular los useMemo que dependen de él (ocupado, overrideMap).
+const SIN_ZONAS: ZonaPlano[] = []
+const SIN_PISOS_EXT: PisoExteriorCelda[] = []
 
 function tint(hex: string, amt: number) {
   const n = parseInt(hex.slice(1), 16)
@@ -316,6 +322,189 @@ function VanoFachada({
   )
 }
 
+/** Un objeto colocado en el cuarto. Memoizado: al arrastrar uno, los demás no se re-renderizan. */
+const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
+  o,
+  roomId,
+  nivel,
+  W,
+  H,
+  drag,
+  editable,
+  puedeAbrirApp,
+  moverObjetosEste,
+  conAnillo,
+}: {
+  o: ObjetoCuarto
+  roomId: string
+  nivel: number
+  W: number
+  H: number
+  /** Este objeto se está arrastrando (flota un poco). */
+  drag: boolean
+  /** Arrastrable/seleccionable (ver `objetosEditables` en ObjetosCuarto). */
+  editable: boolean
+  /** Fuera de todo modo de edición: tocar el objeto principal abre su app. */
+  puedeAbrirApp: boolean
+  /** Modo "mover objetos" de ESTE cuarto. */
+  moverObjetosEste: boolean
+  /** Aro celeste del objeto seleccionado en "mover objetos". */
+  conAnillo: boolean
+}) {
+  const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
+  const setTab = useEditorUi((s) => s.setTab)
+  const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
+  const selectMueble = useInteractUi((s) => s.selectMueble)
+  // Posición por ranura de decoración (esquinas de la caja contenedora) si no tiene x/z.
+  const ox = o.x ?? (o.slot % 2 === 0 ? -1 : 1) * (W / 2 - 1.4)
+  const oz = o.z ?? (o.slot < 2 ? -1 : 1) * (H / 2 - 1.4)
+  const D = Math.PI / 180
+  const esPrincipal = esMueblePrincipal(o)
+  return (
+    <group
+      position={[ox, (drag ? 0.6 : 0.2) + (o.y ?? 0), oz]}
+      rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
+      scale={o.escala ?? 1}
+      onClick={
+        // Con el atajo de construcción o el modo "mover objetos" activo, el objeto
+        // principal no abre la app (se está arrastrando, no entrando).
+        puedeAbrirApp && esPrincipal
+          ? (e) => {
+              e.stopPropagation()
+              selectMueble(roomId)
+            }
+          : // En "mover objetos" hay que frenar el clic aquí: si no, sigue de largo
+            // hasta el piso (`onFloorClick`) y su deselección deshace la selección
+            // que el propio pointerdown de este objeto acaba de hacer.
+            moverObjetosEste
+            ? (e) => e.stopPropagation()
+            : undefined
+      }
+      onPointerDown={
+        editable
+          ? (e) => {
+              e.stopPropagation()
+              if (o.id != null) {
+                // En el editor 3D abre el panel de Objetos con este objeto.
+                if (useEditorUi.getState().editor3d) setTab('objetos')
+                setObjetoSel(o.id)
+                startObjetoDrag(o.id)
+              }
+            }
+          : undefined
+      }
+      onPointerOver={(e) => {
+        e.stopPropagation()
+        if (editable) document.body.style.cursor = 'grab'
+        else if (!useLayout.getState().editMode && esPrincipal)
+          document.body.style.cursor = 'pointer'
+      }}
+      onPointerOut={() => {
+        if (!useDiseño.getState().draggingObjeto && !useLayout.getState().editMode)
+          document.body.style.cursor = 'default'
+      }}
+    >
+      {/* Modo "mover objetos": aro celeste FLOTANDO sobre el objeto seleccionado (no
+          bajo él: en la vista de planta, el propio mueble taparía un aro a ras de
+          piso). Misma altura de referencia que `MarcadorEntrada`. */}
+      {conAnillo && (
+        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, altoDeTipo(o.tipo) + 0.35, 0]}>
+          <ringGeometry args={[0.35, 0.5, 32]} />
+          <meshBasicMaterial color="#38bdf8" transparent opacity={0.9} depthWrite={false} toneMapped={false} />
+        </mesh>
+      )}
+      <GrupoAnimado anim={o.animacion} nivel={nivel}>
+        <ObjetoView
+          tipo={o.tipo}
+          color={o.color}
+          piezas={o.piezas}
+          modeloGlb={o.modeloGlb}
+          foto={o.foto}
+          texto={o.texto}
+          anim={o.animacion}
+          nivelAnim={nivel}
+          objetoId={o.id}
+          fx={o.fx}
+        />
+      </GrupoAnimado>
+      {esPrincipal && <MarcadorEntrada y={altoDeTipo(o.tipo) + 0.45} />}
+    </group>
+  )
+})
+
+/**
+ * Objetos (mueble + decoración) del cuarto, con suscripción propia POR roomId: mover un
+ * objeto re-renderiza solo este componente en su cuarto (y el objeto movido), no la
+ * estructura del cuarto ni el resto de la casa. El tema re-viste sus primitivas vía
+ * TemaContext.
+ */
+const ObjetosCuarto = memo(function ObjetosCuarto({
+  id,
+  nivel,
+  W,
+  H,
+  preview,
+}: {
+  id: string
+  nivel: number
+  W: number
+  H: number
+  preview: boolean
+}) {
+  const objetosCuarto = useDiseño(useShallow((s) => s.objetos.filter((o) => o.roomId === id)))
+  const draggingObjeto = useDiseño((s) => s.draggingObjeto)
+  const tema = useTemaActivo()
+  const { editMode, editingRoomId, moverObjetosEste, moverObjetosActivo } = useLayout(
+    useShallow((s) => ({
+      editMode: s.editMode,
+      editingRoomId: s.editingRoomId,
+      moverObjetosEste: s.moverObjetosRoomId === id,
+      moverObjetosActivo: s.moverObjetosRoomId != null,
+    })),
+  )
+  const { editorTab, editor3d, inventarioObjetosActivo, objetoSel } = useEditorUi(
+    useShallow((s) => ({
+      editorTab: s.tab,
+      editor3d: s.editor3d,
+      inventarioObjetosActivo: s.inventarioObjetosActivo,
+      objetoSel: s.objetoSel,
+    })),
+  )
+  const planosActivo = usePlanos((s) => s.activo)
+  if (objetosCuarto.length === 0) return null
+  // Objetos arrastrables/seleccionables: al editar este cuarto o en la pestaña Objetos
+  // del editor de mapa, con el editor 3D activo (en 3ª/1ª persona), o en el modo "mover
+  // objetos" de este cuarto (editor cerrado, arrastre directo en el mapa).
+  const objetosEditables =
+    !preview &&
+    (editor3d ||
+      (editMode && (editingRoomId === id || (!editingRoomId && editorTab === 'objetos'))) ||
+      inventarioObjetosActivo ||
+      moverObjetosEste)
+  // Fuera de todo modo de edición/construcción, tocar el objeto principal abre su app.
+  const puedeAbrirApp =
+    !editMode && !editor3d && !inventarioObjetosActivo && !planosActivo && !preview && !moverObjetosActivo
+  return (
+    <TemaContext.Provider value={tema}>
+      {objetosCuarto.map((o) => (
+        <ObjetoEnCuarto
+          key={o.id}
+          o={o}
+          roomId={id}
+          nivel={nivel}
+          W={W}
+          H={H}
+          drag={draggingObjeto === o.id}
+          editable={objetosEditables}
+          puedeAbrirApp={puedeAbrirApp}
+          moverObjetosEste={moverObjetosEste}
+          conAnillo={moverObjetosEste && o.id === objetoSel}
+        />
+      ))}
+    </TemaContext.Provider>
+  )
+})
+
 /**
  * Estructura 3D de un cuarto estilo Roblox: piso por celda (forma libre), paredes
  * chunky con puertas (de walls.ts), mueble temático y decoración. Cuando `atenuado`
@@ -347,44 +536,70 @@ export function Room3D({
   /** Resaltado desde el editor de planos (sync plano ↔ 3D). */
   resaltadoPlano?: boolean
 }) {
-  const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
-  const niveles = useLayout((s) => s.niveles)
-  // Espacio abierto (jardín): sin muros, portones ni techo — solo piso y objetos.
-  const sinMuros = useLayout((s) => s.sinMuros[id] ?? false)
-  // Alberca (sótano lleno de agua): lámina animada y nunca lleva techo.
-  const conAgua = useLayout((s) => s.conAgua[id] ?? false)
-  const overrides = useLayout((s) => s.wallOverrides[id])
-  const edgeStyles = useLayout((s) => s.edgeStyles[id])
-  const pinceles = useLayout((s) => s.pinceles[id] ?? PINCELES_DEFAULT)
-  const placed = useLayout((s) => s.placed)
-  const cells = useLayout((s) => s.cells)
-  const footprints = useLayout((s) => s.footprints)
-  const editMode = useLayout((s) => s.editMode)
-  const editingRoomId = useLayout((s) => s.editingRoomId)
-  const moverObjetosRoomId = useLayout((s) => s.moverObjetosRoomId)
-  const editorTab = useEditorUi((s) => s.tab)
-  const objetoSel = useEditorUi((s) => s.objetoSel)
+  // Colecciones de TODOS los cuartos (solo cambian al editar el mapa): una sola suscripción.
+  const { ocupadoPorNivel, niveles, placed, cells, footprints, formasCeldaTodos } = useLayout(
+    useShallow((s) => ({
+      ocupadoPorNivel: s.ocupadoPorNivel,
+      niveles: s.niveles,
+      placed: s.placed,
+      cells: s.cells,
+      footprints: s.footprints,
+      formasCeldaTodos: s.formasCelda,
+    })),
+  )
+  // Datos de ESTE cuarto + banderas de edición: referencias estables si no se toca este cuarto.
+  const {
+    // Espacio abierto (jardín): sin muros, portones ni techo — solo piso y objetos.
+    sinMuros,
+    // Alberca (sótano lleno de agua): lámina animada y nunca lleva techo.
+    conAgua,
+    overrides,
+    edgeStyles,
+    pinceles,
+    formasCeldaLayout,
+    editMode,
+    editingRoomId,
+    moverObjetosRoomId,
+  } = useLayout(
+    useShallow((s) => ({
+      sinMuros: s.sinMuros[id] ?? false,
+      conAgua: s.conAgua[id] ?? false,
+      overrides: s.wallOverrides[id],
+      edgeStyles: s.edgeStyles[id],
+      pinceles: s.pinceles[id] ?? PINCELES_DEFAULT,
+      formasCeldaLayout: s.formasCelda[id],
+      editMode: s.editMode,
+      editingRoomId: s.editingRoomId,
+      moverObjetosRoomId: s.moverObjetosRoomId,
+    })),
+  )
+  // Arrastre de cuartos acotado a ESTE cuarto: mover OTRO cuarto no re-renderiza este.
+  const arrastrando = useLayout((s) => s.draggingId === id)
+  const previewCellEste = useLayout((s) => (s.draggingId === id ? s.previewCell : null))
+  const dragOriginCell = useLayout((s) => (s.draggingId === id ? s.dragOriginCell : null))
+  const startDrag = useLayout((s) => s.startDrag)
+  const { editorTab, editor3d } = useEditorUi(
+    useShallow((s) => ({ editorTab: s.tab, editor3d: s.editor3d })),
+  )
   const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
   const setTab = useEditorUi((s) => s.setTab)
-  const editor3d = useEditorUi((s) => s.editor3d)
-  const inventarioObjetosActivo = useEditorUi((s) => s.inventarioObjetosActivo)
-  const draggingId = useLayout((s) => s.draggingId)
-  const previewCell = useLayout((s) => s.previewCell)
-  const dragOriginCell = useLayout((s) => s.dragOriginCell)
-  const startDrag = useLayout((s) => s.startDrag)
-  const planosActivo = usePlanos((s) => s.activo)
-  const planosCapa = usePlanos((s) => s.capa)
-  const planosHerramienta = usePlanos((s) => s.herramienta)
+  const { planosActivo, planosCapa, planosHerramienta } = usePlanos(
+    useShallow((s) => ({ planosActivo: s.activo, planosCapa: s.capa, planosHerramienta: s.herramienta })),
+  )
   const setSeleccionPlano = usePlanos((s) => s.setSeleccion)
   const setModoPlano = usePlanos((s) => s.setModo)
-  const seleccionPlano = usePlanos((s) => s.seleccion)
-  const muroSelHover = usePlanos((s) => s.muroSelHover)
+  // Selección/hover de aristas acotados: los de OTROS cuartos no re-renderizan este.
+  const seleccionPlano = usePlanos((s) =>
+    s.seleccion && 'roomId' in s.seleccion && s.seleccion.roomId === id ? s.seleccion : null,
+  )
+  const muroSelHover = usePlanos((s) =>
+    s.muroSelHover && 'roomId' in s.muroSelHover && s.muroSelHover.roomId === id ? s.muroSelHover : null,
+  )
 
   const fp = footprints[id] ?? FOOTPRINT_DEFAULT
   const nivel = niveles[id] ?? 0
-  const anchorCell =
-    draggingId === id && previewCell ? previewCell : cells[id]
-  const zonas = zonasRepo.useAll() ?? []
+  const anchorCell = arrastrando && previewCellEste ? previewCellEste : cells[id]
+  const zonas = zonasRepo.useAll() ?? SIN_ZONAS
   const ocupado = useMemo(
     () => ocupadoConZonas(nivel, ocupadoPorNivel, zonas),
     [nivel, ocupadoPorNivel, zonas],
@@ -393,8 +608,6 @@ export function Room3D({
   const boundsFpRect = footprintBoundsRect(fp)
   const W = bounds.w * SIZE
   const H = bounds.h * SIZE
-  const formasCeldaLayout = useLayout((s) => s.formasCelda[id])
-  const formasCeldaTodos = useLayout((s) => s.formasCelda)
   const formasEfectivas = useMemo(() => formasCeldaLayout ?? {}, [formasCeldaLayout])
   // Recortes finos (rejilla fina) por celda: referencia estable para no regenerar geometría.
   const subformasPorCelda = useMemo(() => {
@@ -440,19 +653,39 @@ export function Room3D({
   // su identidad. Sin tema, se usa el color del cuarto con tintes relativos.
   const temaGlobalRaw = useDiseño((s) => s.temaGlobal)
   const tema = useTemaActivo()
-  const techoTipoGlobal = useDiseño((s) => s.techoTipo)
-  const roomTechoTipos = useDiseño((s) => s.roomTechoTipos)
-  const roomTechoFormas = useDiseño((s) => s.roomTechoFormas)
-  const roomTechoParams = useDiseño((s) => s.roomTechoParams)
-  const roomTechoFormasCelda = useDiseño((s) => s.roomTechoFormasCelda)
-  const roomTechoColors = useDiseño((s) => s.roomTechoColors)
-  const roomTechoImagenes = useDiseño((s) => s.roomTechoImagenes)
-  const roomTechoImagenActiva = useDiseño((s) => s.roomTechoImagenActiva)
-  const roomTechoImagenAjuste = useDiseño((s) => s.roomTechoImagenAjuste)
-  const roomMuroImagenes = useDiseño((s) => s.roomMuroImagenes)
-  const roomMuroImagenActiva = useDiseño((s) => s.roomMuroImagenActiva)
-  const roomMuroImagenAjuste = useDiseño((s) => s.roomMuroImagenAjuste)
-  const roomTechoExtraAll = useDiseño((s) => s.roomTechoExtra)
+  // Techos y muros: registros completos (se consultan también por el cuarto de abajo y
+  // vecinos), agrupados en una sola suscripción; solo cambian al editar techos/muros.
+  const {
+    techoTipoGlobal,
+    roomTechoTipos,
+    roomTechoFormas,
+    roomTechoParams,
+    roomTechoFormasCelda,
+    roomTechoColors,
+    roomTechoImagenes,
+    roomTechoImagenActiva,
+    roomTechoImagenAjuste,
+    roomMuroImagenes,
+    roomMuroImagenActiva,
+    roomMuroImagenAjuste,
+    roomTechoExtraAll,
+  } = useDiseño(
+    useShallow((s) => ({
+      techoTipoGlobal: s.techoTipo,
+      roomTechoTipos: s.roomTechoTipos,
+      roomTechoFormas: s.roomTechoFormas,
+      roomTechoParams: s.roomTechoParams,
+      roomTechoFormasCelda: s.roomTechoFormasCelda,
+      roomTechoColors: s.roomTechoColors,
+      roomTechoImagenes: s.roomTechoImagenes,
+      roomTechoImagenActiva: s.roomTechoImagenActiva,
+      roomTechoImagenAjuste: s.roomTechoImagenAjuste,
+      roomMuroImagenes: s.roomMuroImagenes,
+      roomMuroImagenActiva: s.roomMuroImagenActiva,
+      roomMuroImagenAjuste: s.roomMuroImagenAjuste,
+      roomTechoExtraAll: s.roomTechoExtra,
+    })),
+  )
   const roomTechoExtra = roomTechoExtraAll[id] ?? []
   // Material del techo: override del cuarto si existe, si no el global de la casa.
   const techoTipo = id in roomTechoTipos ? roomTechoTipos[id] : techoTipoGlobal
@@ -623,23 +856,26 @@ export function Room3D({
   // El color del cuarto es el color dominante en todas las superficies.
   // Con tema: el tema aporta variación sutil pero el color del cuarto siempre es mayoría.
   const baseColor = shell ? mezclar(color, shell.muroInt, 0.4) : colorConTema(color, tema)
-  const roomPisoTipos = useDiseño((s) => s.roomPisoTipos)
-  const roomPisoColors = useDiseño((s) => s.roomPisoColors)
-  const roomPisoExtTipos = useDiseño((s) => s.roomPisoExtTipos)
-  const roomPisoExtColors = useDiseño((s) => s.roomPisoExtColors)
-  const roomPisoImagenes = useDiseño((s) => s.roomPisoImagenes)
-  const roomPisoImagenActiva = useDiseño((s) => s.roomPisoImagenActiva)
-  const roomPisoImagenAjuste = useDiseño((s) => s.roomPisoImagenAjuste)
-  // La imagen solo se muestra en 3D cuando está explícitamente activa
-  const pisoImagen = roomPisoImagenActiva[id] ? roomPisoImagenes[id] : undefined
-  const pisoImagenAjuste = roomPisoImagenAjuste[id] ?? 'x1'
-  const tienePisoCustom = id in roomPisoTipos
-  const pisoTipoCuarto = roomPisoTipos[id]
+  // Piso: solo los valores de ESTE cuarto (editar el piso de otro no re-renderiza este).
+  const { tienePisoCustom, pisoTipoCuarto, pisoTinte, pisoImagen, pisoImagenAjuste, tienePisoExt, pisoExtTipo, pisoExtColor } =
+    useDiseño(
+      useShallow((s) => ({
+        tienePisoCustom: id in s.roomPisoTipos,
+        pisoTipoCuarto: s.roomPisoTipos[id],
+        pisoTinte: s.roomPisoColors[id],
+        // La imagen solo se muestra en 3D cuando está explícitamente activa
+        pisoImagen: s.roomPisoImagenActiva[id] ? s.roomPisoImagenes[id] : undefined,
+        pisoImagenAjuste: s.roomPisoImagenAjuste[id] ?? 'x1',
+        tienePisoExt: id in s.roomPisoExtTipos,
+        pisoExtTipo: s.roomPisoExtTipos[id],
+        pisoExtColor: s.roomPisoExtColors[id],
+      })),
+    )
   const sinPiso = esSinPiso(pisoTipoCuarto)
   const pisoConfCuarto = pisoTipoCuarto && !sinPiso ? getPisoTipo(pisoTipoCuarto) : null
   let floorColor = shell ? mezclar(color, shell.piso, 0.3) : tint(baseColor, 35)
   if (tienePisoCustom) {
-    const tinte = roomPisoColors[id]
+    const tinte = pisoTinte
     if (pisoConfCuarto?.textura) {
       // Textura siempre nativa (blanco = sin oscurecer). El tinte se aplica como
       // emisivo dentro de PisoCelda para teñir sin perder brillo ni detalle.
@@ -669,21 +905,18 @@ export function Room3D({
   const marcoColor = tint(baseColor, -55)
   const cristalColor = '#bcdcff'
   const setTarget = useHouse((s) => s.setTarget)
-  const selectMueble = useInteractUi((s) => s.selectMueble)
   const clearInteract = useInteractUi((s) => s.clear)
-  const selectedRoomId = useHouse((s) => s.selectedRoomId)
-  const nearRoomId = useHouse((s) => s.nearRoomId)
-  const seleccionado = selectedRoomId === id
-  const cerca = nearRoomId === id
-  const arrastrando = draggingId === id
+  // Booleanos acotados: seleccionar o acercarse a OTRO cuarto no re-renderiza este.
+  const seleccionado = useHouse((s) => s.selectedRoomId === id)
+  const cerca = useHouse((s) => s.nearRoomId === id)
   const celdaValida =
     !arrastrando ||
-    !previewCell ||
+    !previewCellEste ||
     !cells[id] ||
     puedeMoverCuartoRegistro({
       roomId: id,
       origen: dragOriginCell ?? cells[id],
-      preview: previewCell,
+      preview: previewCellEste,
       fp,
       nivel,
       placed,
@@ -692,22 +925,8 @@ export function Room3D({
       niveles,
       zonas: planosActivo ? zonas : [],
     })
-  const objetos = useDiseño((s) => s.objetos)
-  const draggingObjeto = useDiseño((s) => s.draggingObjeto)
-  const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
-  const objetosCuarto = objetos.filter((o) => o.roomId === id)
-  // Objetos arrastrables/seleccionables: al editar este cuarto o en la pestaña Objetos
-  // del editor de mapa, con el editor 3D activo (en 3ª/1ª persona), o en el modo "mover
-  // objetos" de este cuarto (editor cerrado, arrastre directo en el mapa).
-  const objetosEditables =
-    !preview &&
-    (editor3d ||
-      (editMode && (editingRoomId === id || (!editingRoomId && editorTab === 'objetos'))) ||
-      inventarioObjetosActivo ||
-      moverObjetosRoomId === id)
-
   // Overrides de piso por cuadrante (sub-celdas, coords de ¼) que caen dentro del cuarto.
-  const pisosOverride = pisosExteriorRepo.useAll() ?? []
+  const pisosOverride = pisosExteriorRepo.useAll() ?? SIN_PISOS_EXT
   // Overrides del nivel por coord (¼ = cuadrante; entera = relleno de celda con forma).
   const overrideMap = useMemo(() => {
     const m = new Map<string, (typeof pisosOverride)[0]>()
@@ -754,22 +973,16 @@ export function Room3D({
   // Piso EXTERIOR de las celdas con forma (el trozo fuera de la silueta): material propio
   // del cuarto si el usuario lo eligió; si no, jardín por defecto. Se edita aparte del interior.
   const pisoExtMat: MatPiso | null =
-    id in roomPisoExtTipos
+    tienePisoExt
       ? matDeRegistroPiso(
           {
-            pisoTipo: roomPisoExtTipos[id],
-            pisoColor: roomPisoExtColors[id],
+            pisoTipo: pisoExtTipo,
+            pisoColor: pisoExtColor,
           } as PisoExteriorCelda,
           undefined,
           colorJardin,
         )
       : null
-
-  /** Posición de una ranura de decoración (esquinas de la caja contenedora). */
-  const slotPos = (slot: number): [number, number] => [
-    (slot % 2 === 0 ? -1 : 1) * (W / 2 - 1.4),
-    (slot < 2 ? -1 : 1) * (H / 2 - 1.4),
-  ]
 
   const onFloorClick = (e: ThreeEvent<MouseEvent>) => {
     // Editor 3D o preview interactivo: tocar el piso abre el editor de MAPA en modo
@@ -941,7 +1154,7 @@ export function Room3D({
             pisoConf={tienePisoCustom && !pisoImagen ? pisoConfCuarto : null}
             pisoImagen={pisoImagen}
             pisoImagenAjuste={pisoImagenAjuste}
-            colorTinte={roomPisoColors[id]}
+            colorTinte={pisoTinte}
             atenuado={atenuado}
             onClick={atenuado || planosEditarForma ? undefined : onFloorClick}
             onPointerDown={atenuado || planosEditarForma ? undefined : onFloorDown}
@@ -1337,89 +1550,8 @@ export function Room3D({
         })}
 
       {/* Objetos (mueble + decoración) — ocultos en cuartos atenuados o con `sinObjetos`
-          (toggle del preview). El tema activo re-viste sus primitivas vía TemaContext. */}
-      {!atenuado && !sinObjetos && (
-        <TemaContext.Provider value={tema}>
-          {objetosCuarto.map((o) => {
-          const ox = o.x ?? slotPos(o.slot)[0]
-          const oz = o.z ?? slotPos(o.slot)[1]
-          const drag = draggingObjeto === o.id
-          const D = Math.PI / 180
-          const esPrincipal = esMueblePrincipal(o)
-          return (
-            <group
-              key={o.id}
-              position={[ox, (drag ? 0.6 : 0.2) + (o.y ?? 0), oz]}
-              rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
-              scale={o.escala ?? 1}
-              onClick={
-                // Con el atajo de construcción o el modo "mover objetos" activo, el objeto
-                // principal no abre la app (se está arrastrando, no entrando).
-                !editMode && !editor3d && !inventarioObjetosActivo && !planosActivo && esPrincipal && !preview && moverObjetosRoomId == null
-                  ? (e) => {
-                      e.stopPropagation()
-                      selectMueble(id)
-                    }
-                  : // En "mover objetos" hay que frenar el clic aquí: si no, sigue de largo
-                    // hasta el piso (`onFloorClick`) y su deselección deshace la selección
-                    // que el propio pointerdown de este objeto acaba de hacer.
-                    moverObjetosRoomId === id
-                    ? (e) => e.stopPropagation()
-                    : undefined
-              }
-              onPointerDown={
-                objetosEditables
-                  ? (e) => {
-                      e.stopPropagation()
-                      if (o.id != null) {
-                        // En el editor 3D abre el panel de Objetos con este objeto.
-                        if (editor3d) setTab('objetos')
-                        setObjetoSel(o.id)
-                        startObjetoDrag(o.id)
-                      }
-                    }
-                  : undefined
-              }
-              onPointerOver={(e) => {
-                e.stopPropagation()
-                if (objetosEditables) document.body.style.cursor = 'grab'
-                else if (!editMode && esPrincipal)
-                  document.body.style.cursor = 'pointer'
-              }}
-              onPointerOut={() => {
-                if (!useDiseño.getState().draggingObjeto && !editMode)
-                  document.body.style.cursor = 'default'
-              }}
-            >
-              {/* Modo "mover objetos": aro celeste FLOTANDO sobre el objeto seleccionado (no
-                  bajo él: en la vista de planta, el propio mueble taparía un aro a ras de
-                  piso). Misma altura de referencia que `MarcadorEntrada`. */}
-              {moverObjetosRoomId === id && o.id === objetoSel && (
-                <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, altoDeTipo(o.tipo) + 0.35, 0]}>
-                  <ringGeometry args={[0.35, 0.5, 32]} />
-                  <meshBasicMaterial color="#38bdf8" transparent opacity={0.9} depthWrite={false} toneMapped={false} />
-                </mesh>
-              )}
-              <GrupoAnimado anim={o.animacion} nivel={nivel}>
-                <ObjetoView
-                  tipo={o.tipo}
-                  color={o.color}
-                  piezas={o.piezas}
-                  modeloGlb={o.modeloGlb}
-                  foto={o.foto}
-                  texto={o.texto}
-                  anim={o.animacion}
-                  nivelAnim={nivel}
-                  objetoId={o.id}
-                  fx={o.fx}
-                />
-              </GrupoAnimado>
-              {esPrincipal && <MarcadorEntrada y={altoDeTipo(o.tipo) + 0.45} />}
-            </group>
-          )
-          })}
-        </TemaContext.Provider>
-      )}
+          (toggle del preview). Suscripción propia por cuarto: ver ObjetosCuarto. */}
+      {!atenuado && !sinObjetos && <ObjetosCuarto id={id} nivel={nivel} W={W} H={H} preview={preview} />}
 
       {/* Editor 3D: plano invisible sobre el techo para seleccionarlo (modo Techos). */}
       {techoClicEditor3d && (

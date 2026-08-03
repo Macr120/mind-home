@@ -44,7 +44,7 @@ export function PlantillasCatalogo() {
   const eliminarPlantilla = usePlantillasCustom((s) => s.eliminar)
   const tema = getTema(useDiseño((s) => s.temaGlobal))
   const grupos = useGruposPlantilla((s) => s.grupos)
-  const { crear, renombrar, eliminar: eliminarGrupo, reordenar, mover, asegurarMiembros } =
+  const { crear, renombrar, eliminar: eliminarGrupo, reordenar, mover, asegurarMiembros, alternarPlegado } =
     useGruposPlantilla.getState()
   const overrides = useObjetosPlantilla((s) => s.overrides)
   const { agregar: agregarObjeto, eliminar: eliminarObjeto, setPrincipal } =
@@ -359,6 +359,21 @@ export function PlantillasCatalogo() {
                 <span className="cursor-grab select-none text-white/25 active:cursor-grabbing" title={t('plantillaCustom.arrastrarGrupo', 'Arrastrar para reordenar')}>
                   ⠿
                 </span>
+                <button
+                  type="button"
+                  onClick={() => g.id != null && void alternarPlegado(g.id)}
+                  title={
+                    g.plegado
+                      ? t('plantillaCustom.desplegarGrupo', 'Desplegar carpeta')
+                      : t('plantillaCustom.plegarGrupo', 'Plegar carpeta')
+                  }
+                  className="shrink-0 rounded text-white/30 transition hover:text-white/70"
+                >
+                  <Icono
+                    nombre="siguiente"
+                    className={`transition-transform ${g.plegado ? '' : 'rotate-90'}`}
+                  />
+                </button>
                 {renombrando === g.id ? (
                   <input
                     autoFocus
@@ -388,6 +403,12 @@ export function PlantillasCatalogo() {
                     {g.nombre}
                   </button>
                 )}
+                {/* Plegada, el conteo dice qué se está escondiendo. */}
+                {g.plegado && (
+                  <span className="shrink-0 rounded-full bg-white/10 px-1.5 py-0.5 text-[9px] font-bold tabular-nums text-white/45">
+                    {visibles.length}
+                  </span>
+                )}
                 {!g.esBase && (
                   <button
                     type="button"
@@ -400,13 +421,14 @@ export function PlantillasCatalogo() {
                 )}
               </div>
 
-              {visibles.length > 0 ? (
-                <ul className="flex flex-col gap-1.5">{visibles.map(renderTarjeta)}</ul>
-              ) : (
-                <p className="rounded-lg border border-dashed border-white/10 px-3 py-2.5 text-center text-[10px] text-white/30">
-                  {t('plantillaCustom.grupoVacio', 'Carpeta vacía · arrastra plantillas aquí')}
-                </p>
-              )}
+              {!g.plegado &&
+                (visibles.length > 0 ? (
+                  <ul className="flex flex-col gap-1.5">{visibles.map(renderTarjeta)}</ul>
+                ) : (
+                  <p className="rounded-lg border border-dashed border-white/10 px-3 py-2.5 text-center text-[10px] text-white/30">
+                    {t('plantillaCustom.grupoVacio', 'Carpeta vacía · arrastra plantillas aquí')}
+                  </p>
+                ))}
             </section>
           )
         })}

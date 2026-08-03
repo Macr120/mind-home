@@ -1,8 +1,7 @@
 import { Html } from '@react-three/drei'
 import { useLayout } from '../state/layoutStore'
-import { SPACING, footprintCells, FOOTPRINT_DEFAULT, type Cell, type Footprint } from './walls'
+import { SPACING, footprintCells, FOOTPRINT_DEFAULT, MAX_GRID, type Cell, type Footprint } from './walls'
 
-const MAX_GRID = 12
 const MIN_GRID = 1
 
 type Dir = 'N' | 'S' | 'E' | 'O'

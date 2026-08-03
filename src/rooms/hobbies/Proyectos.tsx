@@ -61,7 +61,7 @@ export function Proyectos({
   )
 
   return (
-    <div className="rounded-xl border border-white/10 bg-white/5 p-3 space-y-2">
+    <div data-tut="hobbies.detalle.proyectos" className="rounded-xl border border-white/10 bg-white/5 p-3 space-y-2">
       <p className="text-xs font-semibold">{t('hobbies.proy.titulo', 'Proyectos')}</p>
       <form onSubmit={agregar} className="flex gap-2">
         <input
@@ -101,6 +101,7 @@ export function Proyectos({
                 {/* Abre el proyecto: sus metas, su cronograma y sus fotos. */}
                 <button
                   type="button"
+                  data-tut={`hobbies.proyecto.item.${p.id}`}
                   onClick={() => onAbrir(p)}
                   className="flex min-w-0 flex-1 items-center gap-2 text-left"
                 >

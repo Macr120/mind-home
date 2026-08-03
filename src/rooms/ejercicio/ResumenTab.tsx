@@ -4,36 +4,73 @@ import type { PerfilEjercicio, SesionEjercicio } from '../../core/data/db'
 import { BarraProgreso } from './BarraProgreso'
 import { TIPOS } from './constantes'
 import { hoyISO, sumarDias } from './fecha'
-import { pctObjetivo, rachaDias, resumenSemanal } from './stats'
+import { FiltroPeriodo } from './FiltroPeriodo'
+import { PERIODOS, sesionesPeriodo, type Periodo } from './periodo'
+import { pctObjetivo, rachaDias, resumenPeriodo } from './stats'
 import { Archivador } from '../_shared/Archivador'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
+
+/** Barras de la gráfica: por día en semana/mes, por mes en año/todo. */
+function tendenciaPeriodo(sesiones: SesionEjercicio[], periodo: Periodo) {
+  const hoy = hoyISO()
+  const minutosEn = (prefijo: string) =>
+    sesiones.filter((s) => s.fecha.startsWith(prefijo)).reduce((acc, s) => acc + s.duracionMin, 0)
+
+  if (periodo === 'semana' || periodo === 'mes') {
+    const dias = periodo === 'semana' ? 7 : parseInt(hoy.slice(8), 10)
+    return Array.from({ length: dias }, (_, i) => {
+      const fecha = sumarDias(hoy, -(dias - 1 - i))
+      return { clave: fecha, etiqueta: fecha.slice(8), min: minutosEn(fecha), actual: fecha === hoy }
+    })
+  }
+  // Año y «todo»: los últimos 12 meses, contando el actual.
+  const base = new Date(`${hoy.slice(0, 7)}-01T12:00:00`)
+  return Array.from({ length: 12 }, (_, i) => {
+    const d = new Date(base)
+    d.setMonth(d.getMonth() - (11 - i))
+    const mes = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
+    return {
+      clave: mes,
+      etiqueta: d.toLocaleDateString(localeActual(), { month: 'narrow' }),
+      min: minutosEn(mes),
+      actual: mes === hoy.slice(0, 7),
+    }
+  })
+}
 
 export function ResumenTab({
   sesiones,
   perfil,
+  periodo,
+  setPeriodo,
 }: {
   sesiones: SesionEjercicio[]
   perfil: PerfilEjercicio
+  periodo: Periodo
+  setPeriodo: (p: Periodo) => void
 }) {
-  const res = resumenSemanal(sesiones, perfil)
+  const res = resumenPeriodo(sesiones, perfil, periodo)
   const racha = rachaDias(sesiones)
+  const delPeriodo = useMemo(() => sesionesPeriodo(sesiones, periodo), [sesiones, periodo])
 
-  const tendencia = useMemo(() => {
-    return Array.from({ length: 7 }, (_, i) => {
-      const f = sumarDias(hoyISO(), -(6 - i))
-      const min = sesiones
-        .filter((s) => s.fecha === f)
-        .reduce((acc, s) => acc + s.duracionMin, 0)
-      return { fecha: f, min }
-    })
-  }, [sesiones])
+  const tendencia = useMemo(() => tendenciaPeriodo(sesiones, periodo), [sesiones, periodo])
 
   const maxMin = Math.max(1, ...tendencia.map((punto) => punto.min))
   const t = useT()
+  const etiquetaPeriodo = t(
+    `ejercicio.periodo.${periodo}`,
+    PERIODOS.find((p) => p.id === periodo)?.labelEs ?? '',
+  ).toLowerCase()
 
   return (
     <div className="space-y-5">
-      <div className="grid grid-cols-2 gap-3">
+      <FiltroPeriodo
+        valor={periodo}
+        onChange={setPeriodo}
+        acento="bg-rose-500/25 text-rose-400 border border-rose-500/40"
+      />
+
+      <div data-tut="ejercicio.metas.resumen" className="grid grid-cols-2 gap-3">
         <div className="rounded-xl bg-white/5 p-3 border border-white/10 col-span-2">
           <p className="text-xs text-white/50">{t('ejercicio.racha', 'Racha activa')}</p>
           <p className="text-3xl font-black text-rose-400">
@@ -48,7 +85,12 @@ export function ResumenTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-4">
-        <p className="text-base font-bold">{t('ejercicio.progreso', 'Progreso semanal')}</p>
+        <div>
+          <p className="text-base font-bold">{t('ejercicio.progreso.rango', 'Progreso')}</p>
+          <p className="text-[10px] text-white/40">
+            {t('ejercicio.periodo.objetivo', 'Objetivo ajustado a: {p}', { p: etiquetaPeriodo })}
+          </p>
+        </div>
         <BarraProgreso
           label={t('ejercicio.ses.fuerza', 'Sesiones de fuerza')}
           actual={res.fuerza}
@@ -73,33 +115,32 @@ export function ResumenTab({
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <p className="text-base font-bold mb-3">{t('ejercicio.minTotales', 'Minutos totales · 7 días')}</p>
+        <p className="text-base font-bold mb-3">
+          {t('ejercicio.minTotales.rango', 'Minutos entrenados')}
+        </p>
         <div className="flex items-stretch justify-between gap-1.5 h-24">
-          {tendencia.map((punto) => {
-            const esHoy = punto.fecha === hoyISO()
-            return (
-              <div key={punto.fecha} className="flex-1 flex flex-col items-center gap-1">
-                <div className="flex-1 w-full flex items-end justify-center">
-                  <div
-                    className="w-full max-w-8 rounded-t"
-                    style={{
-                      height: `${Math.max(6, (punto.min / maxMin) * 100)}%`,
-                      background: esHoy ? '#fb7185' : 'rgba(251,113,133,0.45)',
-                    }}
-                    title={`${punto.min} min`}
-                  />
-                </div>
-                <span className="text-[9px] text-white/40">{punto.fecha.slice(8)}</span>
+          {tendencia.map((punto) => (
+            <div key={punto.clave} className="flex-1 flex flex-col items-center gap-1">
+              <div className="flex-1 w-full flex items-end justify-center">
+                <div
+                  className="w-full max-w-8 rounded-t"
+                  style={{
+                    height: `${Math.max(6, (punto.min / maxMin) * 100)}%`,
+                    background: punto.actual ? '#fb7185' : 'rgba(251,113,133,0.45)',
+                  }}
+                  title={`${punto.min} min`}
+                />
               </div>
-            )
-          })}
+              <span className="text-[9px] text-white/40">{punto.etiqueta}</span>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10">
         <p className="text-base font-bold mb-2">{t('ejercicio.historial', 'Tus sesiones')}</p>
         <Archivador
-          items={sesiones}
+          items={delPeriodo}
           fecha={(s) => s.fecha}
           clave={(s) => s.id ?? s.fecha}
           vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}

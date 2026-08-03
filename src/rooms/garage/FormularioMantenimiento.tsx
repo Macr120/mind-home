@@ -3,8 +3,9 @@ import type { RegistroMantenimiento, Vehiculo } from '../../core/data/db'
 import { registrosMantenimientoRepo } from '../../core/data/repository'
 import { COLOR, PLANTILLAS_SERVICIO, TIPOS_MANTENIMIENTO } from './constantes'
 import { hoyISO, sumarDias } from './fecha'
+import { Campo, Formulario, INPUT } from './ui'
 import { useT } from '../../core/i18n/useT'
-import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 
 export function FormularioMantenimiento({
   vehiculo,
@@ -19,9 +20,7 @@ export function FormularioMantenimiento({
 }) {
   const t = useT()
   const [fecha, setFecha] = useState(inicial?.fecha ?? hoyISO())
-  const [tipo, setTipo] = useState<RegistroMantenimiento['tipo']>(
-    inicial?.tipo ?? 'revision',
-  )
+  const [tipo, setTipo] = useState<RegistroMantenimiento['tipo']>(inicial?.tipo ?? 'revision')
   const [titulo, setTitulo] = useState(inicial?.titulo ?? '')
   const [costo, setCosto] = useState(inicial?.costo != null ? String(inicial.costo) : '')
   const [odometro, setOdometro] = useState(
@@ -69,138 +68,128 @@ export function FormularioMantenimiento({
     onGuardado()
   }
 
-  const input =
-    'mt-1 w-full rounded-lg bg-black/30 border border-white/15 px-3 py-2 text-sm'
-
   return (
-    <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
-      <p className="text-sm font-semibold">
-        <Icono nombre={inicial ? 'editar' : 'herramienta'} />{' '}
-        {inicial ? t('garage.mant.editar', 'Editar servicio') : t('garage.mant.nuevo', 'Registrar mantenimiento')}
-      </p>
-
+    <Formulario
+      icono={inicial ? 'editar' : 'herramienta'}
+      titulo={
+        inicial
+          ? t('garage.mant.editar', 'Editar servicio')
+          : t('garage.mant.nuevo', 'Registrar mantenimiento')
+      }
+      onGuardar={() => void guardar()}
+      onCancelar={onCancelar}
+    >
+      {/* Atajos: rellenan tipo, nombre y el próximo servicio de un toque. */}
       <div className="flex flex-wrap gap-1.5">
         {PLANTILLAS_SERVICIO.map((p) => (
           <button
             key={p.titulo}
             type="button"
             onClick={() => aplicarPlantilla(p)}
-            className="rounded-lg bg-amber-500/15 border border-amber-500/30 px-2 py-1 text-xs hover:bg-amber-500/25"
+            className="rounded-full px-2.5 py-1 text-[11px] font-semibold transition hover:brightness-125"
+            style={{ background: `${COLOR}1f`, boxShadow: `inset 0 0 0 1px ${COLOR}3d` }}
           >
-            {p.titulo}
+            <span className="texto-vivo" style={vivo(COLOR)}>
+              {p.titulo}
+            </span>
           </button>
         ))}
       </div>
 
-      <label className="block text-xs text-white/50">
-        {t('garage.mant.fecha', 'Fecha')}
-        <input
-          type="date"
-          className={input}
-          value={fecha}
-          onChange={(e) => setFecha(e.target.value)}
-        />
-      </label>
+      <div className="grid grid-cols-2 gap-2">
+        <Campo etiqueta={t('garage.mant.fecha', 'Fecha')}>
+          <input
+            type="date"
+            className={INPUT}
+            value={fecha}
+            onChange={(e) => setFecha(e.target.value)}
+          />
+        </Campo>
+        <Campo etiqueta={t('garage.mant.tipo', 'Tipo de servicio')}>
+          <select
+            className={INPUT}
+            value={tipo}
+            onChange={(e) => setTipo(e.target.value as RegistroMantenimiento['tipo'])}
+          >
+            {TIPOS_MANTENIMIENTO.map((tm) => (
+              <option key={tm.id} value={tm.id}>
+                {tm.label}
+              </option>
+            ))}
+          </select>
+        </Campo>
+      </div>
 
-      <label className="block text-xs text-white/50">
-        {t('garage.mant.tipo', 'Tipo de servicio')}
-        <select
-          className={input}
-          value={tipo}
-          onChange={(e) => setTipo(e.target.value as RegistroMantenimiento['tipo'])}
-        >
-          {TIPOS_MANTENIMIENTO.map((tm) => (
-            <option key={tm.id} value={tm.id}>
-              {tm.label}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label className="block text-xs text-white/50">
-        {t('garage.mant.titulo', 'Título *')}
-        <input className={input} value={titulo} onChange={(e) => setTitulo(e.target.value)} />
-      </label>
+      <Campo etiqueta={t('garage.mant.titulo', 'Título *')}>
+        <input className={INPUT} value={titulo} onChange={(e) => setTitulo(e.target.value)} />
+      </Campo>
 
       <div className="grid grid-cols-2 gap-2">
-        <label className="block text-xs text-white/50">
-          {t('garage.mant.costo', 'Costo (MXN)')}
+        <Campo etiqueta={t('garage.mant.costo', 'Costo (MXN)')}>
           <input
             type="number"
             min={0}
-            className={input}
+            className={INPUT}
             value={costo}
             onChange={(e) => setCosto(e.target.value)}
           />
-        </label>
-        <label className="block text-xs text-white/50">
-          {t('garage.mant.odo', `Odómetro (${vehiculo.unidad})`, { unit: vehiculo.unidad })}
+        </Campo>
+        <Campo
+          etiqueta={t('garage.mant.odo', `Odómetro (${vehiculo.unidad})`, {
+            unit: vehiculo.unidad,
+          })}
+        >
           <input
             type="number"
             min={0}
-            className={input}
+            className={INPUT}
             value={odometro}
             onChange={(e) => setOdometro(e.target.value)}
           />
-        </label>
+        </Campo>
       </div>
 
-      <label className="block text-xs text-white/50">
-        {t('garage.mant.taller', 'Taller / mecánico')}
-        <input className={input} value={taller} onChange={(e) => setTaller(e.target.value)} />
-      </label>
+      <Campo etiqueta={t('garage.mant.taller', 'Taller / mecánico')}>
+        <input className={INPUT} value={taller} onChange={(e) => setTaller(e.target.value)} />
+      </Campo>
 
-      <p className="text-xs font-semibold text-amber-400/90 pt-1">{t('garage.mant.proximo', 'Próximo servicio (opcional)')}</p>
-
-      <div className="grid grid-cols-2 gap-2">
-        <label className="block text-xs text-white/50">
-          {t('garage.mant.proxOdo', `A los ${vehiculo.unidad}`, { unit: vehiculo.unidad })}
-          <input
-            type="number"
-            min={0}
-            className={input}
-            value={proximoOdometro}
-            onChange={(e) => setProximoOdometro(e.target.value)}
-            placeholder={t('garage.mant.ph.proxOdo', 'Ej. 52000')}
-          />
-        </label>
-        <label className="block text-xs text-white/50">
-          {t('garage.mant.proxFecha', 'Fecha límite')}
-          <input
-            type="date"
-            className={input}
-            value={proximaFecha}
-            onChange={(e) => setProximaFecha(e.target.value)}
-          />
-        </label>
+      <div className="rounded-xl border border-white/10 bg-black/15 p-3">
+        <p className="mb-2 text-xs font-bold texto-vivo" style={vivo(COLOR)}>
+          {t('garage.mant.proximo', 'Próximo servicio (opcional)')}
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          <Campo
+            etiqueta={t('garage.mant.proxOdo', `A los ${vehiculo.unidad}`, {
+              unit: vehiculo.unidad,
+            })}
+          >
+            <input
+              type="number"
+              min={0}
+              className={INPUT}
+              value={proximoOdometro}
+              onChange={(e) => setProximoOdometro(e.target.value)}
+              placeholder={t('garage.mant.ph.proxOdo', 'Ej. 52000')}
+            />
+          </Campo>
+          <Campo etiqueta={t('garage.mant.proxFecha', 'Fecha límite')}>
+            <input
+              type="date"
+              className={INPUT}
+              value={proximaFecha}
+              onChange={(e) => setProximaFecha(e.target.value)}
+            />
+          </Campo>
+        </div>
       </div>
 
-      <label className="block text-xs text-white/50">
-        {t('garage.mant.notas', 'Notas')}
+      <Campo etiqueta={t('garage.mant.notas', 'Notas')}>
         <textarea
-          className={`${input} min-h-[50px]`}
+          className={`${INPUT} min-h-[50px]`}
           value={nota}
           onChange={(e) => setNota(e.target.value)}
         />
-      </label>
-
-      <div className="flex gap-2">
-        <button
-          type="button"
-          onClick={() => void guardar()}
-          className="flex-1 rounded-xl py-2.5 text-sm font-bold text-black"
-          style={{ background: COLOR }}
-        >
-          {t('garage.mant.guardar', 'Guardar')}
-        </button>
-        <button
-          type="button"
-          onClick={onCancelar}
-          className="rounded-xl px-4 py-2.5 text-sm bg-white/10"
-        >
-          {t('garage.mant.cancelar', 'Cancelar')}
-        </button>
-      </div>
-    </div>
+      </Campo>
+    </Formulario>
   )
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { db } from '../data/db'
 import { useAjustes, type MoodMusica } from '../state/ajustesStore'
 import { useWrappedUi } from '../state/wrappedUiStore'
@@ -6,6 +6,7 @@ import { useHouse } from '../state/houseStore'
 import { useCuartos } from '../state/cuartosStore'
 import { useDiseño } from '../state/disenoStore'
 import { useCarrera } from '../state/carreraStore'
+import { usePaintball } from '../state/paintballStore'
 import { useJuegoCancha } from '../state/juegoCanchaStore'
 import { useTren } from '../state/trenStore'
 import { useCuartoPisado } from '../state/useCuartoPisado'
@@ -40,13 +41,14 @@ export function useMusicaAmbiental(): void {
 
   // ¿Jugando? El tema del juego manda (solo aplica a la música generada).
   const carreraFase = useCarrera((s) => s.fase)
+  const paintballJugando = usePaintball((s) => s.fase === 'cuenta' || s.fase === 'jugando')
   const canchaJugando = useJuegoCancha((s) => s.fase === 'jugando')
   const trenMontado = useTren((s) => s.montado)
   const trenTipo = useTren((s) => s.tipo)
   const temaJuego: MoodMusica | null =
     carreraFase === 'semaforo' || carreraFase === 'corriendo'
       ? 'carrera'
-      : canchaJugando
+      : paintballJugando || canchaJugando
         ? 'arcade'
         : trenMontado
           ? trenTipo === 'coaster'
@@ -56,16 +58,14 @@ export function useMusicaAmbiental(): void {
 
   // Tema del cuarto: el abierto (app) o, paseando, el que pisa el personaje.
   const activeRoom = useHouse((s) => s.activeRoom)
-  const objetos = useDiseño((s) => s.objetos)
   const pisado = useCuartoPisado()
   const idCuarto = activeRoom ?? pisado
   const temaGuardado = useCuartos((s) =>
     idCuarto ? s.cuartos.find((c) => c.id === idCuarto)?.temaMusical : undefined,
   )
-  const temaCuarto = useMemo(
-    () => (idCuarto ? (temaGuardado ?? temaAutoDeCuarto(idCuarto, objetos)) : null),
-    [idCuarto, temaGuardado, objetos],
-  )
+  // Suscripción al tema derivado (escalar): mover objetos no re-renderiza esto.
+  const temaAuto = useDiseño((s) => (idCuarto ? temaAutoDeCuarto(idCuarto, s.objetos) : null))
+  const temaCuarto = idCuarto ? (temaGuardado ?? temaAuto) : null
 
   // Solo la fuente generada cambia de tema; con pistas/sistema queda en null
   // para no reiniciar la música del usuario al pasear entre cuartos.

@@ -20,6 +20,7 @@ import { Icono } from '../iconos/Icono'
 import { TechoMaterialSwatch } from './TechoMaterialSwatch'
 import { TechoPresetIcono } from './TechoPresetIcono'
 import { ColorPicker } from './ColorPicker'
+import { GenerarTexturaIA } from './GenerarTexturaIA'
 
 const AJUSTES = [
   { id: 'x1', clave: 'grande', labelEs: 'Grande' },
@@ -518,6 +519,13 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
             {t('editor.techoCuarto.subirImagen', 'Subir imagen')}
           </button>
         )}
+
+        <div className="mt-2">
+          <GenerarTexturaIA
+            superficie="techo"
+            onGenerada={(blob) => subirRoomTechoImagen(room.id, blob)}
+          />
+        </div>
 
         <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={onSubirImagen} />
       </div>

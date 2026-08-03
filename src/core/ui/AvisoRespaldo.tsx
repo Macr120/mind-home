@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { esDemo } from '../edicion'
 import { useT } from '../i18n/useT'
 import {
   avisoRespaldoPendiente,
@@ -11,6 +12,8 @@ import {
 export function AvisoRespaldo() {
   const t = useT()
   const [visible, setVisible] = useState(avisoRespaldoPendiente)
+  // La casa demo no es del usuario: nada que respaldar.
+  if (esDemo()) return null
   if (!visible) return null
   const n = String(diasSinRespaldo() ?? 0)
   return (

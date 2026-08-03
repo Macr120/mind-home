@@ -6,7 +6,10 @@ import {
   useGranja,
   estaHambriento,
   estaAburrido,
+  estaEnfermo,
+  corralSucio,
   mimarAnimal,
+  revisarGranja,
   type HerramientaGranja,
 } from '../state/granjaStore'
 import { useLayout } from '../state/layoutStore'
@@ -28,13 +31,29 @@ const Y = 0.2
 const MARGEN_PASEO = 1.1
 
 /** Velocidad de paseo por especie (unidades/segundo). */
-const VEL: Record<TipoAnimal, number> = { gallina: 1.0, cerdo: 0.7, cabra: 0.9, oveja: 0.6, vaca: 0.45 }
+const VEL: Record<TipoAnimal, number> = {
+  gallina: 1.0,
+  cerdo: 0.7,
+  cabra: 0.9,
+  oveja: 0.6,
+  vaca: 0.45,
+  caballo: 1.3,
+}
 
 /** Altura del ancla de la etiqueta de nombre (sobre el signo de hambre). */
-const ALTURA_NOMBRE: Record<TipoAnimal, number> = { gallina: 2.05, cerdo: 2.05, cabra: 2.15, oveja: 2.05, vaca: 2.45 }
+const ALTURA_NOMBRE: Record<TipoAnimal, number> = {
+  gallina: 2.05,
+  cerdo: 2.05,
+  cabra: 2.15,
+  oveja: 2.05,
+  vaca: 2.45,
+  caballo: 2.6,
+}
 
 /** Tinte del animal decaído (sin comida ni mimos). */
 const GRIS_DECAIDO = new THREE.Color('#9ca3af')
+/** Tinte del animal enfermo: verdoso apagado, distinto del gris del decaído. */
+const VERDE_ENFERMO = new THREE.Color('#7d8f6a')
 
 /** Lejos de este radio el vagabundeo corre a ~4 ticks/s (ahorro con muchos animales). */
 const RADIO_VIVO = 26
@@ -69,17 +88,32 @@ function Cerca({ largo }: { largo: number }) {
   )
 }
 
+/** Manchas del corral sucio, repartidas por la paja (proporción fija al tamaño). */
+const MANCHAS: [number, number, number][] = [
+  [-0.3, -0.25, 0.5],
+  [0.28, 0.12, 0.42],
+  [0.05, -0.38, 0.3],
+  [-0.15, 0.34, 0.36],
+]
+
 /** Cerca de madera y piso de paja del corral (rectángulo de ancho×alto celdas). */
-function Corral({ ancho, alto }: { ancho: number; alto: number }) {
+function Corral({ ancho, alto, sucio }: { ancho: number; alto: number; sucio: boolean }) {
   const hx = (ancho * SIZE) / 2 - 0.2
   const hz = (alto * SIZE) / 2 - 0.2
   return (
     <group>
-      {/* Piso de paja del corral. */}
+      {/* Piso de paja del corral (apagado y manchado cuando toca limpiarlo). */}
       <mesh position={[0, Y + 0.03, 0]}>
         <boxGeometry args={[hx * 2 - 0.1, 0.06, hz * 2 - 0.1]} />
-        <meshStandardMaterial color="#9a8250" roughness={0.95} />
+        <meshStandardMaterial color={sucio ? '#6b5a38' : '#9a8250'} roughness={0.95} />
       </mesh>
+      {sucio &&
+        MANCHAS.map(([fx, fz, r]) => (
+          <mesh key={`${fx},${fz}`} position={[hx * 2 * fx, Y + 0.07, hz * 2 * fz]} rotation-x={-Math.PI / 2}>
+            <circleGeometry args={[r, 10]} />
+            <meshStandardMaterial color="#4a3c22" roughness={1} />
+          </mesh>
+        ))}
       {[-hz, hz].map((z) => (
         <group key={`z${z}`} position={[0, 0, z]}>
           <Cerca largo={hx * 2} />
@@ -259,6 +293,46 @@ function CuerpoAnimal({ tipo, hambriento }: { tipo: TipoAnimal; hambriento: bool
     )
   }
 
+  if (tipo === 'caballo') {
+    return (
+      <group rotation-x={inclinacion}>
+        {patas(0.26, 0.44, 0.66, '#6b4a2f')}
+        <mesh position={[0, 1.05, 0]}>
+          <boxGeometry args={[0.56, 0.58, 1.24]} />
+          <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+        </mesh>
+        {/* Cuello inclinado hacia delante, con la crin encima. */}
+        <mesh position={[0, 1.42, 0.5]} rotation-x={-0.45}>
+          <boxGeometry args={[0.3, 0.62, 0.32]} />
+          <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+        </mesh>
+        <mesh position={[0, 1.62, 0.44]} rotation-x={-0.45}>
+          <boxGeometry args={[0.12, 0.6, 0.1]} />
+          <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+        </mesh>
+        <mesh position={[0, 1.68, 0.78]} rotation-x={0.25}>
+          <boxGeometry args={[0.24, 0.26, 0.5]} />
+          <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+        </mesh>
+        <mesh position={[0, 1.6, 1.0]}>
+          <boxGeometry args={[0.2, 0.18, 0.12]} />
+          <meshStandardMaterial color="#5b3a1c" roughness={0.8} />
+        </mesh>
+        {[-0.09, 0.09].map((x) => (
+          <mesh key={x} position={[x, 1.86, 0.66]} rotation={[0, 0, x > 0 ? -0.2 : 0.2]}>
+            <coneGeometry args={[0.05, 0.16, 5]} />
+            <meshStandardMaterial color="#8b5a2b" roughness={0.85} />
+          </mesh>
+        ))}
+        {/* Cola. */}
+        <mesh position={[0, 1.14, -0.66]} rotation-x={0.5}>
+          <boxGeometry args={[0.12, 0.5, 0.12]} />
+          <meshStandardMaterial color="#3f3f46" roughness={0.9} />
+        </mesh>
+      </group>
+    )
+  }
+
   // Vaca.
   return (
     <group rotation-x={inclinacion}>
@@ -332,11 +406,13 @@ function Corazones() {
 /**
  * Animal que vaga por su corral; hambriento se queda quieto y cabizbajo,
  * aburrido anda lento con un signo «…», y a veces va a jugar a un accesorio.
+ * Enfermo (mucho tiempo sin comer) se agacha verdoso con una cruz encima.
  */
 function AnimalVivo({
   fila,
   hambriento,
   aburrido,
+  enfermo,
   paseoX,
   paseoZ,
   accesorios,
@@ -344,6 +420,7 @@ function AnimalVivo({
   fila: AnimalGranja
   hambriento: boolean
   aburrido: boolean
+  enfermo: boolean
   paseoX: number
   paseoZ: number
   accesorios: AccesorioLocal[]
@@ -379,7 +456,8 @@ function AnimalVivo({
     return () => quitarAncla(id)
   }, [fila.id])
 
-  // Decaído (sin comida NI mimos): más pequeño y con los colores agrisados.
+  // Decaído (sin comida NI mimos): más pequeño y con los colores agrisados. La
+  // enfermedad manda sobre el decaimiento (tinte verdoso y aún más encogido).
   const decaido = hambriento && aburrido
   useEffect(() => {
     const c = cuerpo.current
@@ -388,14 +466,14 @@ function AnimalVivo({
       const m = (o as THREE.Mesh).material as THREE.MeshStandardMaterial | undefined
       if (!m?.color) return
       const data = o.userData as { colorOrig?: THREE.Color }
-      if (decaido) {
+      if (enfermo || decaido) {
         data.colorOrig ??= m.color.clone()
-        m.color.lerpColors(data.colorOrig, GRIS_DECAIDO, 0.55)
+        m.color.lerpColors(data.colorOrig, enfermo ? VERDE_ENFERMO : GRIS_DECAIDO, enfermo ? 0.7 : 0.55)
       } else if (data.colorOrig) {
         m.color.copy(data.colorOrig)
       }
     })
-  }, [decaido])
+  }, [decaido, enfermo])
 
   useFrame((_, dt) => {
     if (!g.current) return
@@ -505,11 +583,24 @@ function AnimalVivo({
         if (fila.id != null) useAnimalSel.getState().seleccionar(fila.id)
       }}
     >
-      <group ref={cuerpo} scale={decaido ? 0.85 : 1}>
+      <group ref={cuerpo} scale={enfermo ? 0.78 : decaido ? 0.85 : 1}>
         <CuerpoAnimal tipo={fila.tipo} hambriento={hambriento} />
       </group>
+      {/* Enfermo: cruz pálida (manda sobre los avisos de hambre y aburrimiento). */}
+      {enfermo && (
+        <group position={[0, 1.75, 0]}>
+          <mesh>
+            <boxGeometry args={[0.3, 0.1, 0.1]} />
+            <meshStandardMaterial color="#fca5a5" emissive="#b91c1c" emissiveIntensity={0.5} />
+          </mesh>
+          <mesh>
+            <boxGeometry args={[0.1, 0.3, 0.1]} />
+            <meshStandardMaterial color="#fca5a5" emissive="#b91c1c" emissiveIntensity={0.5} />
+          </mesh>
+        </group>
+      )}
       {/* Aviso de hambre: signo flotante ámbar. */}
-      {hambriento && (
+      {!enfermo && hambriento && (
         <group position={[0, 1.75, 0]}>
           <mesh position={[0, 0.12, 0]}>
             <boxGeometry args={[0.09, 0.26, 0.09]} />
@@ -522,7 +613,7 @@ function AnimalVivo({
         </group>
       )}
       {/* Aburrido (sin hambre): «…» gris. */}
-      {!hambriento && aburrido && (
+      {!enfermo && !hambriento && aburrido && (
         <group position={[0, 1.75, 0]}>
           {[-0.16, 0, 0.16].map((x) => (
             <mesh key={x} position={[x, 0, 0]}>
@@ -558,9 +649,14 @@ export function Granja3D() {
   const gridRows = useLayout((s) => s.gridRows)
   const activo = useGranja((s) => s.activo)
   // Reloj de render: hambre y aburrimiento se derivan de timestamps al pintar.
+  // El mismo tick vigila la salud del rebaño (sellar enfermedad y plazo de muerte).
   const [ahora, setAhora] = useState(() => Date.now())
   useEffect(() => {
-    const id = window.setInterval(() => setAhora(Date.now()), activo ? 10_000 : 30_000)
+    void revisarGranja()
+    const id = window.setInterval(() => {
+      setAhora(Date.now())
+      void revisarGranja()
+    }, activo ? 10_000 : 30_000)
     return () => window.clearInterval(id)
   }, [activo])
   return (
@@ -576,9 +672,10 @@ export function Granja3D() {
             const [ax, , az] = cellToWorld(a.col, a.row)
             return { tipo: a.tipo, x: ax - cx, z: az - cz }
           })
+          const sucio = corralSucio(c, ahora)
           return (
             <group key={c.id} position={[cx, 0, cz]}>
-              <Corral ancho={c.ancho} alto={c.alto} />
+              <Corral ancho={c.ancho} alto={c.alto} sucio={sucio} />
               {accesorios.map((a) => (
                 <group key={`${a.x},${a.z}`} position={[a.x, 0, a.z]}>
                   <Accesorio3D tipo={a.tipo} />
@@ -591,7 +688,8 @@ export function Granja3D() {
                     key={f.id}
                     fila={f}
                     hambriento={estaHambriento(f, ahora)}
-                    aburrido={estaAburrido(f, ahora)}
+                    aburrido={estaAburrido(f, ahora, sucio)}
+                    enfermo={estaEnfermo(f, ahora)}
                     paseoX={(c.ancho * SIZE) / 2 - MARGEN_PASEO}
                     paseoZ={(c.alto * SIZE) / 2 - MARGEN_PASEO}
                     accesorios={accesorios}
@@ -659,6 +757,8 @@ const COLOR_HERRAMIENTA: Record<HerramientaGranja, string> = {
   animal: '#f59e0b',
   alimentar: '#84cc16',
   mimar: '#f472b6',
+  curar: '#fca5a5',
+  limpiar: '#c4b5fd',
   accesorio: '#22d3ee',
   nombrar: '#38bdf8',
   quitar: '#f87171',

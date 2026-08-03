@@ -17,6 +17,7 @@ export function ColorPicker({
   paleta = PALETA,
   sinColor = false,
   personalizado = true,
+  fila = false,
 }: {
   value: string
   onChange: (c: string) => void
@@ -26,17 +27,19 @@ export function ColorPicker({
   sinColor?: boolean
   /** Muestra el selector de color personalizado. */
   personalizado?: boolean
+  /** Todo en UN renglón (con scroll lateral) para paneles con poco alto. */
+  fila?: boolean
 }) {
   const t = useT()
   return (
-    <div className="space-y-2">
-      <div className="grid grid-cols-8 gap-1.5">
+    <div className={fila ? 'flex items-center gap-1.5 overflow-x-auto py-0.5' : 'space-y-2'}>
+      <div className={fila ? 'flex shrink-0 items-center gap-1.5' : 'grid grid-cols-8 gap-1.5'}>
         {paleta.map((c) => (
           <button
             key={c}
             type="button"
             onClick={() => onChange(c)}
-            className="h-7 w-7 rounded-md transition hover:scale-110"
+            className="h-7 w-7 shrink-0 rounded-md transition hover:scale-110"
             style={{
               background: c,
               boxShadow: value === c ? `0 0 0 2px #fff, 0 0 0 4px ${c}` : 'none',
@@ -58,7 +61,8 @@ export function ColorPicker({
         )}
       </div>
       {personalizado && (
-        <div className="flex items-center gap-2">
+        // En una fila el hexadecimal sobra: manda el propio selector.
+        <div className={fila ? 'flex shrink-0 items-center' : 'flex items-center gap-2'}>
           <input
             type="color"
             value={value}
@@ -66,7 +70,9 @@ export function ColorPicker({
             className="h-7 w-10 cursor-pointer rounded border-0 bg-transparent p-0"
             title={t('color.personalizado', 'Color personalizado')}
           />
-          <span className="text-xs text-white/40">{t('color.personalizado', 'Color personalizado')}: {value}</span>
+          {!fila && (
+            <span className="text-xs text-white/40">{t('color.personalizado', 'Color personalizado')}: {value}</span>
+          )}
         </div>
       )}
     </div>

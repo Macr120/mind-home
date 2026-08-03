@@ -11,15 +11,20 @@ import { EditorObjetosSection } from './editor/EditorObjetosSection'
 import { EditorAjustesSection } from './editor/EditorAjustesSection'
 import { EditorEstiloSection } from './editor/EditorEstiloSection'
 import { EditorMusicaSection } from './editor/EditorMusicaSection'
+import { EditorTutorialesSection } from './editor/EditorTutorialesSection'
 import { EditorNotificacionesSection } from './editor/EditorNotificacionesSection'
 import { EditorCuentaSection } from './editor/EditorCuentaSection'
+import { EditorIASection } from './editor/EditorIASection'
 import { EditorRespaldoSection } from './editor/EditorRespaldoSection'
 import { ConfigGrupo } from './editor/ConfigGrupo'
 import { RelojWidget } from './CicloPanel'
 import { ControlMusica } from './ControlMusica'
 import { useT } from '../i18n/useT'
+import { esDemo, esDemoAutor } from '../edicion'
 import { Icono } from './iconos/Icono'
 import { useHud } from '../state/hudStore'
+import { useAjustes } from '../state/ajustesStore'
+import { useConstruyendo } from '../state/construyendo'
 import { BotonPlegarHud, TiradorHud } from './HudPlegable'
 
 const TABS: { id: EditorTab; labelEs: string }[] = [
@@ -44,6 +49,11 @@ export function EditPanel() {
   const roomNames = useDiseño((s) => s.roomNames)
   const tab = useEditorUi((s) => s.tab)
   const setTab = useEditorUi((s) => s.setTab)
+
+  // Casa demo: Configuraciones se abre entera salvo Cuenta y Respaldo, que son
+  // de la cuenta real y no de esta casa prestada. Idioma, tema de interfaz y
+  // demás preferencias son del dispositivo: se comparten con la casa real.
+  const sinCuenta = esDemo() && !esDemoAutor()
 
   const editar = (id: string | null) => editRoom(id)
 
@@ -136,8 +146,15 @@ export function EditPanel() {
           </div>
         ) : (
           <div className="space-y-2 pt-3">
-            <ConfigGrupo id="cuenta" icono="perfil" titulo={t('cuenta.titulo', 'Cuenta')}>
-              <EditorCuentaSection embed sinTitulo />
+            {!sinCuenta && (
+              <ConfigGrupo id="cuenta" icono="perfil" titulo={t('cuenta.titulo', 'Cuenta')}>
+                <EditorCuentaSection embed sinTitulo />
+              </ConfigGrupo>
+            )}
+            {/* Sin el guard de cuenta: la tabla es informativa y es justo lo
+                que hace falta para decidir si recargar. */}
+            <ConfigGrupo id="ia" icono="brillo" titulo={t('ia.precios.titulo', 'Precios de la IA')}>
+              <EditorIASection embed sinTitulo />
             </ConfigGrupo>
             <ConfigGrupo
               id="estilo"
@@ -157,19 +174,28 @@ export function EditPanel() {
               <EditorMusicaSection embed sinTitulo />
             </ConfigGrupo>
             <ConfigGrupo
+              id="tutoriales"
+              icono="tutorial"
+              titulo={t('ajustes.tutoriales', 'Tutoriales y bienvenida')}
+            >
+              <EditorTutorialesSection embed sinTitulo />
+            </ConfigGrupo>
+            <ConfigGrupo
               id="notificaciones"
               icono="campana"
               titulo={t('notif.titulo', 'Notificaciones')}
             >
               <EditorNotificacionesSection embed sinTitulo />
             </ConfigGrupo>
-            <ConfigGrupo
-              id="respaldo"
-              icono="guardar"
-              titulo={t('respaldo.titulo', 'Respaldo de datos')}
-            >
-              <EditorRespaldoSection embed sinTitulo />
-            </ConfigGrupo>
+            {!sinCuenta && (
+              <ConfigGrupo
+                id="respaldo"
+                icono="guardar"
+                titulo={t('respaldo.titulo', 'Respaldo de datos')}
+              >
+                <EditorRespaldoSection embed sinTitulo />
+              </ConfigGrupo>
+            )}
             <AyudaPie>
               {t('editor.ayuda.conf.a', 'El')} <b className="text-white/65">{t('editor.ayuda.conf.b', 'estilo visual del mapa')}</b>
               {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>.
@@ -322,9 +348,13 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
   const t = useT()
   const menuAbierto = useHud((s) => s.menuAbierto)
   const movilVertical = useHud((s) => s.movilVertical)
+  const hudMusica = useAjustes((s) => s.hudMusica)
+  // Los editores de infraestructura traen su propio encabezado centrado arriba:
+  // esta esquina se pliega para dejarle la franja (espejo en FloatingMenuButton).
+  const construyendo = useConstruyendo()
   // En vertical el side menu (RoomSideMenu) ocupa casi todo el ancho: este disparador se
   // pliega mientras esté abierto para no traslaparse (espejo en FloatingMenuButton).
-  const plegado = useHud((s) => s.plegado.supDer) || (movilVertical && menuAbierto)
+  const plegado = useHud((s) => s.plegado.supDer) || (movilVertical && menuAbierto) || construyendo
 
   // Plegado: queda solo el engrane, que devuelve música + reloj + Editor.
   if (plegado) {
@@ -340,7 +370,10 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
   return (
     <div className="absolute right-4 top-4 z-20 flex items-start gap-2">
       <div className="flex flex-col items-center gap-1">
-        <ControlMusica botonClase="ui-hud rounded-lg border border-white/10 px-3 py-2 text-sm text-white/85 transition hover:bg-white/15" />
+        {/* El botón de música puede apagarse en Configuraciones › Música. */}
+        {hudMusica && (
+          <ControlMusica botonClase="ui-hud rounded-lg border border-white/10 px-3 py-2 text-sm text-white/85 transition hover:bg-white/15" />
+        )}
         <BotonPlegarHud zona="supDer" />
       </div>
       <RelojWidget />

@@ -1,6 +1,8 @@
-import { useEffect, useMemo } from 'react'
+import { memo, useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
+import { useShallow } from 'zustand/react/shallow'
+import type { Cuarto } from '../data/db'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { useLayout } from '../state/layoutStore'
@@ -38,6 +40,7 @@ import { esObjetoMapa } from '../state/disenoStore'
 import { useMontura } from '../state/monturaStore'
 import { VehiculoProximity } from './vehiculos'
 import { ParqueProximity } from './especiales'
+import { FlotadorProximity } from './flotador'
 import { PistolaProximity } from './arma'
 import { RafagasLaser } from './proyectiles'
 import { Portales } from './portales'
@@ -48,17 +51,19 @@ import { Caminos3D, CaminosController } from './caminos'
 import { MarcasDerrape } from './derrape'
 import { CarreraRuntime, RivalCarrera } from './carrera'
 import { ItemsCarreraRuntime, ItemsCarrera3D } from './itemsCarrera'
+import { PaintballController } from './paintball'
 import { PistaLibre3D, TrazoLibreController } from './pistaLibre'
 import { Huerto3D, HuertoController, HuertoProximity } from './huerto'
 import { CanchasController } from './canchas'
 import { Granja3D, GranjaController, GranjaProximity } from './granja'
 import { TrenProximity } from './tren'
 import { MinijuegosCanchas } from './minijuegos'
-import { useCanchas, esCancha } from '../state/canchasStore'
+import { useCanchas, esCancha, escalaCancha } from '../state/canchasStore'
 import { NavControls } from '../ui/NavControls'
 import { EditPanel, SalirCuartoFlotante } from '../ui/EditPanel'
 import { InteractAnchor } from './InteractAnchor'
 import { EtiquetasMapaProjector } from './etiquetasMapa'
+import { ZonaTutProjector } from './ZonaTutProjector'
 import { EditorAnchor } from './EditorAnchor'
 import { TechoCeldaEditor } from './TechoCeldaEditor'
 import { PlanoTechos3DEditor } from './PlanoTechos3DEditor'
@@ -70,6 +75,8 @@ import { ZonasPlano3D } from './ZonasPlano3D'
 import { PisosExterior3D } from './PisosExterior3D'
 import { MurosLibres3D } from './MurosLibres3D'
 import { PlanoPisosSeleccion3D } from './PlanoPisosSeleccion3D'
+import { CuadranteGhost3D } from './CuadranteGhost3D'
+import { DibujoCuadrante3D } from './DibujoCuadrante3D'
 import { PlanoCuartos3DController } from './PlanoCuartos3DController'
 import { PlanoPisos3DController } from './PlanoPisos3DController'
 import { PlanoMuros3DController } from './PlanoMuros3DController'
@@ -160,8 +167,9 @@ function RejillaMapa({
 }
 
 /** Objetos LIBRES sobre el mapa (fuera de cuartos): coordenadas de mundo. */
-function ObjetosMapa() {
-  const objetos = useDiseño((s) => s.objetos)
+const ObjetosMapa = memo(function ObjetosMapa() {
+  // Solo los objetos del mapa: mover objetos DE CUARTO no re-renderiza esta lista.
+  const objetos = useDiseño(useShallow((s) => s.objetos.filter(esObjetoMapa)))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const editMode = useLayout((s) => s.editMode)
@@ -178,7 +186,7 @@ function ObjetosMapa() {
   const canchasEditar = useCanchas((s) => s.activo && s.clase === null)
   const editables =
     editor3d || (editMode && !editingRoomId && tab === 'objetos') || inventarioObjetosActivo
-  const items = objetos.filter(esObjetoMapa).filter((o) => o.id !== montadoId)
+  const items = objetos.filter((o) => o.id !== montadoId)
   if (items.length === 0) return null
   return (
     <TemaContext.Provider value={tema}>
@@ -186,12 +194,14 @@ function ObjetosMapa() {
         const drag = draggingObjeto === o.id
         const D = Math.PI / 180
         const arrastrable = editables || (canchasEditar && esCancha(o.tipo))
+        // Las canchas siguen a la rejilla; el resto de objetos conserva su tamaño.
+        const escala = esCancha(o.tipo) ? escalaCancha(o.escala) : (o.escala ?? 1)
         return (
           <group
             key={o.id}
             position={[o.x ?? 0, (drag ? 0.6 : 0.2) + (o.y ?? 0), o.z ?? 0]}
             rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
-            scale={o.escala ?? 1}
+            scale={escala}
             onPointerDown={
               arrastrable
                 ? (e) => {
@@ -231,28 +241,69 @@ function ObjetosMapa() {
       })}
     </TemaContext.Provider>
   )
-}
+})
+
+/**
+ * Un cuarto colocado en el mapa, con sus suscripciones POR CUARTO (celda, nivel, color,
+ * arrastre, atenuado/resaltado): mover o editar un cuarto no re-renderiza a los demás,
+ * y los re-renders de House no cascan en los cuartos (memo con prop `room` estable).
+ */
+const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
+  const arrastrando = useLayout((s) => s.draggingId === room.id)
+  const cell = useLayout((s) => (s.draggingId === room.id && s.previewCell ? s.previewCell : s.cells[room.id]))
+  const fp = useLayout((s) => s.footprints[room.id] ?? FOOTPRINT_DEFAULT)
+  const nivel = useLayout((s) => s.niveles[room.id] ?? 0)
+  // Editando un cuarto: los DEMÁS se ven atenuados (contexto), el editado a tope.
+  const editandoOtro = useLayout((s) => Boolean(s.editingRoomId) && s.editingRoomId !== room.id)
+  const apilado = !useHouse((s) => s.explotado)
+  const color = useDiseño((s) => s.roomColors[room.id]) ?? room.color
+  const editor3d = useEditorUi((s) => s.editor3d)
+  const { planosActivo, planosNivel } = usePlanos(
+    useShallow((s) => ({ planosActivo: s.activo, planosNivel: s.nivel })),
+  )
+  // El resaltado y el techo forzado siguen al MOTOR de planos (activo también con el
+  // atajo de construcción de la rueda, sin panel del editor).
+  const resaltado = usePlanos((s) => s.activo && s.seleccion?.tipo === 'cuarto' && s.seleccion.roomId === room.id)
+  // En el editor de mapa el techo sigue al modo: oculto por defecto (para ver el interior)
+  // y visible —con la forma real del cuarto— solo en modo Techos. Fuera del editor manda 🏠.
+  const forzarTecho = usePlanos((s) => (s.activo ? s.modo === 'techos' : undefined))
+  const [x, , z] = centroCuarto3D(cell, fp)
+  const y = nivelBaseY(nivel, apilado)
+  const otroNivel = planosActivo && nivel !== planosNivel
+  return (
+    <Room3D
+      id={room.id}
+      position={[x, y + (arrastrando ? 0.8 : 0), z]}
+      color={color}
+      atenuado={otroNivel || (editandoOtro && !editor3d)}
+      resaltadoPlano={resaltado}
+      forzarTecho={forzarTecho}
+    />
+  )
+})
 
 export function House() {
-  const roomColors = useDiseño((s) => s.roomColors)
-  const placed = useLayout((s) => s.placed)
-  const cells = useLayout((s) => s.cells)
-  const footprints = useLayout((s) => s.footprints)
-  const niveles = useLayout((s) => s.niveles)
-  const apilado = !useHouse((s) => s.explotado)
-  const draggingId = useLayout((s) => s.draggingId)
-  const previewCell = useLayout((s) => s.previewCell)
-  const editingRoomId = useLayout((s) => s.editingRoomId)
-  const gridCols = useLayout((s) => s.gridCols)
-  const gridRows = useLayout((s) => s.gridRows)
-  const editMode = useLayout((s) => s.editMode)
+  const { placed, niveles, gridCols, gridRows, tamCelda, editMode } = useLayout(
+    useShallow((s) => ({
+      placed: s.placed,
+      niveles: s.niveles,
+      gridCols: s.gridCols,
+      gridRows: s.gridRows,
+      tamCelda: s.tamCelda,
+      editMode: s.editMode,
+    })),
+  )
   const cuartos = useCuartos((s) => s.cuartos)
-  const planosActivo = usePlanos((s) => s.activo)
-  const planosNivel = usePlanos((s) => s.nivel)
-  const planosSeleccion = usePlanos((s) => s.seleccion)
-  const planosModo = usePlanos((s) => s.modo)
-  const planosCapa = usePlanos((s) => s.capa)
-  const planosHerr = usePlanos((s) => s.herramienta)
+  const { planosActivo, planosNivel, planosModo, planosCapa, planosHerr, dibujandoCuadrante } = usePlanos(
+    useShallow((s) => ({
+      planosActivo: s.activo,
+      planosNivel: s.nivel,
+      planosModo: s.modo,
+      planosCapa: s.capa,
+      planosHerr: s.herramienta,
+      dibujandoCuadrante: s.dibujandoCuadrante,
+    })),
+  )
   const mapaSuperficie = useDiseño((s) => s.mapaSuperficie)
   const editorTab = useEditorUi((s) => s.tab)
   const editor3d = useEditorUi((s) => s.editor3d)
@@ -269,30 +320,31 @@ export function House() {
   // Arrastre de cuartos del registro: en el tab Mapa del editor completo, o con el atajo
   // de construcción (Cuartos + botón Mover) — misma condición que Room3D.puedeMoverCuarto.
   const planosMoverCuartos = planosActivo && planosCapa === 'cuartos' && planosHerr === 'mover'
-  const puedeArrastrarCuartos = !editor3d && (editMode ? tabMapa : planosMoverCuartos)
+  // Dibujando una zona el arrastre es para marcar el rectángulo: no debe mover cuartos.
+  const puedeArrastrarCuartos =
+    !editor3d && !dibujandoCuadrante && (editMode ? tabMapa : planosMoverCuartos)
 
-  // El resaltado, los +/− de Expandir y los techos siguen al MOTOR de planos (activo
-  // también con el atajo de construcción de la rueda, sin panel del editor).
-  const resaltadoPlanoId =
-    planosActivo && planosSeleccion?.tipo === 'cuarto' ? planosSeleccion.roomId : null
   // Herramienta Expandir: muestra los +/− de TODOS los cuartos del nivel para
   // crecerlos/recortarlos o eliminarlos, sin mover ni cambiar de panel.
   const editarCeldasPlano = planosActivo && planosModo === 'cuartos' && planosHerr === 'expandir'
   const cuartosExpandir = editarCeldasPlano
     ? cuartos.filter((r) => placed[r.id] && (niveles[r.id] ?? 0) === planosNivel)
     : []
-  // En el editor de mapa el techo sigue al modo: oculto por defecto (para ver el interior)
-  // y visible —con la forma real del cuarto— solo en modo Techos. Fuera del editor manda 🏠.
-  const forzarTechoEditor = planosActivo ? planosModo === 'techos' : undefined
 
   return (
     <>
       <div className="absolute inset-0 flex flex-col">
         <div className={`relative min-h-0 flex-1 ${modoPlanos ? 'pr-80' : ''}`}>
       <Canvas
+        // Remonta la escena al cambiar el tamaño de celda: TODA la geometría memoizada
+        // (pisos, muros, techos, agua) se regenera con el SIZE nuevo.
+        key={tamCelda}
+        data-lienzo-casa
         shadows
         orthographic
-        camera={{ position: [22, 22, 22], zoom: 17, near: -100, far: 300 }}
+        // near/far holgados: con la rejilla al máximo (20×20 de celdas de 12 m) las
+        // esquinas del mapa quedaban fuera del volumen ortográfico y se recortaban.
+        camera={{ position: [22, 22, 22], zoom: 17, near: -400, far: 800 }}
         style={{ position: 'absolute', inset: 0 }}
         dpr={[1, 1.5]}
         gl={{ toneMapping: THREE.ACESFilmicToneMapping }}
@@ -333,34 +385,14 @@ export function House() {
 
       {cuartos
         .filter((room) => placed[room.id])
-        .map((room) => {
-          const arrastrando = draggingId === room.id
-          const cell =
-            arrastrando && previewCell ? previewCell : cells[room.id]
-          const fp = footprints[room.id] ?? FOOTPRINT_DEFAULT
-          const [x, , z] = centroCuarto3D(cell, fp)
-          const y = nivelBaseY(niveles[room.id] ?? 0, apilado)
-          const roomNivel = niveles[room.id] ?? 0
-          const otroNivel = planosActivo && roomNivel !== planosNivel
-          // Editando un cuarto: los DEMÁS se ven atenuados (contexto), el editado a tope.
-          const atenuadoEdicion =
-            Boolean(editingRoomId) && !editor3d && room.id !== editingRoomId
-          const resaltado = resaltadoPlanoId === room.id
-          return (
-            <Room3D
-              key={room.id}
-              id={room.id}
-              position={[x, y + (arrastrando ? 0.8 : 0), z]}
-              color={roomColors[room.id] ?? room.color}
-              atenuado={otroNivel || atenuadoEdicion}
-              resaltadoPlano={resaltado}
-              forzarTecho={forzarTechoEditor}
-            />
-          )
-        })}
+        .map((room) => (
+          <RoomEnMapa key={room.id} room={room} />
+        ))}
 
       {!aislarCuarto && <ZonasPlano3D />}
       {!aislarCuarto && <PlanoPisosSeleccion3D />}
+      {!aislarCuarto && <CuadranteGhost3D />}
+      {!aislarCuarto && <DibujoCuadrante3D />}
 
       {!aislarCuarto && <PlanoCuartos3DController />}
       {!aislarCuarto && <PlanoPisos3DController />}
@@ -379,12 +411,14 @@ export function House() {
       {!aislarCuarto && <TrenProximity />}
       {!aislarCuarto && <MinijuegosCanchas />}
       {!aislarCuarto && <ParqueProximity />}
+      {!aislarCuarto && <FlotadorProximity />}
       {!aislarCuarto && <PistolaProximity />}
       {!aislarCuarto && <HuertoProximity />}
       {!aislarCuarto && <GranjaProximity />}
       {!aislarCuarto && <AsistenteProximity />}
       {!aislarCuarto && <ObjetosMapa />}
       {!aislarCuarto && <RafagasLaser />}
+      {!aislarCuarto && <PaintballController />}
       {!aislarCuarto && <Portales />}
       {!aislarCuarto && <Fuegos />}
       {!aislarCuarto && <Burbujas />}
@@ -397,6 +431,7 @@ export function House() {
       {!aislarCuarto && <RoomProximity />}
       {!aislarCuarto && <InteractAnchor />}
       {!aislarCuarto && <EtiquetasMapaProjector />}
+      {!aislarCuarto && <ZonaTutProjector />}
       {!aislarCuarto && <EditorAnchor />}
       {!aislarCuarto && puedeArrastrarCuartos && <RoomDragController />}
       {!aislarCuarto && <AccesoDrag />}

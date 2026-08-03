@@ -17,13 +17,6 @@ export type TipoAccionCuarto =
   | 'libreta'
   | 'sillon-lectura'
 
-export const esAccionCuarto = (tipo: string): tipo is TipoAccionCuarto =>
-  tipo === 'caminadora' ||
-  tipo === 'laptop' ||
-  tipo === 'tapete-yoga' ||
-  tipo === 'libreta' ||
-  tipo === 'sillon-lectura'
-
 /** Pose corporal de cada acción (la leen AvatarModelo y Prendas por frame). */
 export type PoseAccion = 'caminar' | 'sentado-escribe' | 'medita' | 'lee'
 

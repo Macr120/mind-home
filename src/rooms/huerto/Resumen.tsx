@@ -3,6 +3,8 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { cultivosRepo } from '../../core/data/repository'
 import { estadoCultivo } from '../../core/house/cultivos'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { ejemploHuerto } from './ejemplos'
 
 /** Resumen 2D del Huerto: parcelas, cultivos por estado y cosechas acumuladas. */
 export function Resumen() {
@@ -29,7 +31,7 @@ export function Resumen() {
   return (
     <div className="mx-auto flex h-full max-w-md flex-col gap-3 p-4">
       <p className="text-sm text-white/60">
-        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Plantillas → Infraestructura → Construir.')}
+        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Plantillas → Complementos → Construir.')}
       </p>
       <div className="grid grid-cols-3 gap-2">
         {stats.map((x) => (
@@ -45,6 +47,8 @@ export function Resumen() {
       <p className="text-xs text-white/40">
         {t('huerto.resumen.nota', 'Los cultivos crecen en tiempo real; riégalos a tiempo o se marchitan.')}
       </p>
+
+      <BarraEjemplo paquete={ejemploHuerto} />
     </div>
   )
 }

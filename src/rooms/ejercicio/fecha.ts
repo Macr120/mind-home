@@ -28,13 +28,3 @@ export function nombreFecha(fecha: string): string {
     month: 'long',
   })
 }
-
-/** Índice de día con semana iniciando en lunes: 0 = lunes … 6 = domingo. */
-export function indiceDiaSemana(fecha: string): number {
-  return (new Date(`${fecha}T12:00:00`).getDay() + 6) % 7
-}
-
-export function nombreDiaCorto(fecha: string): string {
-  const d = new Date(`${fecha}T12:00:00`)
-  return d.toLocaleDateString(localeActual(), { weekday: 'long', day: 'numeric' })
-}

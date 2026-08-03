@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type EstadoSisifo } from '../data/db'
 import { useDiseño } from '../state/disenoStore'
@@ -225,9 +225,11 @@ async function fechasActivas(ids: string[]): Promise<Set<string>> {
  * converge solo: si no hubo cambio no vuelve a escribir.
  */
 export function useSisifo(): VistaSisifo | undefined {
-  const objetos = useDiseño((s) => s.objetos)
-  const ids = [...new Set(objetos.map((o) => o.plantillaId).filter((p): p is string => !!p))]
-  const clave = ids.sort().join(',')
+  // Suscripción SOLO a la clave derivada (string): mover objetos no re-renderiza esto.
+  const clave = useDiseño((s) =>
+    [...new Set(s.objetos.map((o) => o.plantillaId).filter((p): p is string => !!p))].sort().join(','),
+  )
+  const ids = useMemo(() => (clave ? clave.split(',') : []), [clave])
 
   const leido = useLiveQuery(async () => {
     const hoy = fechaLocalISO()

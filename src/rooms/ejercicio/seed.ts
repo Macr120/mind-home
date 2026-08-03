@@ -10,16 +10,17 @@ import {
 import { CATALOGO_CARDIO, CATALOGO_FLEX, CATALOGO_FUERZA, slugGrupo } from './catalogo'
 import { PERFIL_DEFECTO } from './constantes'
 import { RUTINAS } from './rutinas'
+import { claveLS } from '../../core/edicion'
 import { filaSeed, filasSeed } from '../../core/data/sync/syncables'
 
 let sembrado = false
 // Se siembran una sola vez; así el usuario puede borrarlas (o editarlas) sin que reaparezcan.
-const FLAG_RUTINAS = 'mindhome:ejercicio:rutinasFuerzaSembradas'
-const FLAG_FLEX = 'mindhome:ejercicio:rutinasFlexSembradas'
-const FLAG_GRUPOS_FUERZA = 'mindhome:ejercicio:gruposFuerzaSembrados'
-const FLAG_GRUPOS_FLEX = 'mindhome:ejercicio:gruposFlexSembrados'
-const FLAG_GRUPOS_CARDIO = 'mindhome:ejercicio:gruposCardioSembrados'
-const FLAG_RUTINAS_CARDIO = 'mindhome:ejercicio:rutinasCardioSembradas'
+const FLAG_RUTINAS = claveLS('mindhome:ejercicio:rutinasFuerzaSembradas')
+const FLAG_FLEX = claveLS('mindhome:ejercicio:rutinasFlexSembradas')
+const FLAG_GRUPOS_FUERZA = claveLS('mindhome:ejercicio:gruposFuerzaSembrados')
+const FLAG_GRUPOS_FLEX = claveLS('mindhome:ejercicio:gruposFlexSembrados')
+const FLAG_GRUPOS_CARDIO = claveLS('mindhome:ejercicio:gruposCardioSembrados')
+const FLAG_RUTINAS_CARDIO = claveLS('mindhome:ejercicio:rutinasCardioSembradas')
 
 export async function sembrarEjercicio() {
   if (sembrado) return

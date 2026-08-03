@@ -39,17 +39,27 @@ import { useBienvenida } from '../bienvenida/bienvenidaStore'
 import { exportarRespaldo } from '../data/respaldo'
 import { permisoNotificaciones } from '../notificaciones'
 import { useHuerto, regarTodo, cosecharTodo, type HerramientaHuerto } from '../state/huertoStore'
-import { useGranja, alimentarTodos, mimarTodos, ANIMALES, type HerramientaGranja } from '../state/granjaStore'
+import {
+  useGranja,
+  alimentarTodos,
+  mimarTodos,
+  curarTodos,
+  limpiarTodos,
+  ANIMALES,
+  type HerramientaGranja,
+} from '../state/granjaStore'
 import { useCaminos, borrarCaminos, type HerramientaCamino, type TipoCamino } from '../state/caminosStore'
-import { useCanchas, CANCHAS, esCancha, type ClaseCancha } from '../state/canchasStore'
+import { useCanchas, CANCHAS, esCancha, escalaCancha, type ClaseCancha } from '../state/canchasStore'
 import { usePistaLibreEditor } from '../state/pistaLibreStore'
 import { useCarrera } from '../state/carreraStore'
 import { useTren } from '../state/trenStore'
 import { useAsistentes } from '../state/asistentesStore'
+import { usePaintball, MAX_BOTS_ROYALE, VIDAS_PAINTBALL, type ModoPaintball } from '../state/paintballStore'
+import { TIPOS_MAPA } from '../../rooms/ideas/tiposMapa'
 import { ESPECIES } from '../house/cultivos'
 import { posicionInfra, type DestinoInfra } from '../house/infraPosiciones'
 import { infraNota } from '../state/infraNotaStore'
-import type { EspecieCultivo, TipoAnimal } from '../data/db'
+import type { EspecieCultivo, TipoAnimal, TipoMapa } from '../data/db'
 
 /**
  * Acciones de EDICIÓN de la casa pedidas por el chat box ("el arquitecto").
@@ -191,11 +201,13 @@ const SINONIMOS_ANIMAL: Record<string, string[]> = {
   cabra: ['chivo', 'chiva'],
   oveja: ['borrego', 'cordero'],
   vaca: ['toro', 'ternera', 'res'],
+  caballo: ['yegua', 'potro', 'pony'],
 }
 const SINONIMOS_CANCHA: Record<string, string[]> = {
   futbol: ['futbol', 'futbolito', 'soccer', 'futsal', 'balompie'],
   tenis: ['tenis'],
   basket: ['basquet', 'basquetbol', 'baloncesto', 'basketball'],
+  beisbol: ['beisbol', 'baseball', 'beis', 'pelota caliente', 'softbol'],
 }
 
 /** Grupos plegables de la pestaña Configuraciones (para abrirlos desde el chat). */
@@ -204,6 +216,7 @@ const GRUPOS_CONFIG = [
   { id: 'estilo', nombre: 'Estilo visual del mapa' },
   { id: 'interfaz', nombre: 'Interfaz e idioma' },
   { id: 'musica', nombre: 'Música' },
+  { id: 'tutoriales', nombre: 'Tutoriales y bienvenida' },
   { id: 'notificaciones', nombre: 'Notificaciones' },
   { id: 'respaldo', nombre: 'Respaldo de datos' },
 ]
@@ -340,6 +353,20 @@ const str = (i: Record<string, unknown>, k: string): string | undefined =>
 const num = (i: Record<string, unknown>, k: string): number | undefined =>
   typeof i[k] === 'number' ? (i[k] as number) : undefined
 const bool = (i: Record<string, unknown>, k: string): boolean => i[k] === true
+
+/**
+ * Último mapa de Ideas dibujado por `editor_mapa_ideas`. El ejecutor solo puede
+ * devolver texto, así que el id viaja por aquí: quien acaba de llamar a la tool
+ * lo RECOGE (se consume) para colgarlo del mensaje del asistente y enseñar la
+ * miniatura en la conversación.
+ */
+let ultimoMapa: number | null = null
+
+export function tomarUltimoMapa(): number | undefined {
+  const v = ultimoMapa
+  ultimoMapa = null
+  return v ?? undefined
+}
 
 /** Resuelve el cuarto desde el input de una tool (campo `cuarto`). */
 function cuartoDeInput(i: Record<string, unknown>): Cuarto | null {
@@ -862,6 +889,82 @@ export async function ejecutarToolEditor(
         : `Abrí ${nombreApp(app)} en «${nombreCuarto(roomId)}».`
     }
 
+    // ── Ideas: mapas conceptuales ──
+    // El módulo de alta se carga al vuelo: la app Ideas no tiene por qué viajar
+    // en el bundle del chat solo por esta acción.
+    case 'editor_mapa_ideas': {
+      const tema = str(input, 'tema')
+      if (!tema) return null
+      const pedido = str(input, 'tipo')
+      const def = TIPOS_MAPA.find((d) => d.id === pedido) ?? TIPOS_MAPA[0]
+      const { crearMapaIA, crearMapaVacio } = await import('../../rooms/ideas/crear')
+      let id: number
+      let nombre = tema
+      try {
+        if (bool(input, 'vacio')) {
+          id = await crearMapaVacio(tema, def.id as TipoMapa)
+        } else {
+          const r = await crearMapaIA(tema, def.id as TipoMapa)
+          id = r.id
+          nombre = r.nombre
+        }
+      } catch (e) {
+        console.warn('[MPH] no pude dibujar el mapa desde el chat:', e)
+        return 'No pude dibujar el mapa: la IA no devolvió nada usable. Prueba otra vez o con un tema más concreto.'
+      }
+      ultimoMapa = id
+      const roomId = abrirApp('ideas', def.familia, String(id))
+      const etiqueta = def.nombreEs.toLowerCase()
+      return roomId
+        ? `Dibujé «${nombre}» (${etiqueta}) y lo abrí en «${nombreCuarto(roomId)}».`
+        : `Dibujé «${nombre}» (${etiqueta}), pero no tienes la app Ideas en ningún cuarto: asígnala a un objeto para verlo.`
+    }
+
+    // ── Paintball: batalla contra los asistentes por toda la casa ──
+    case 'editor_paintball': {
+      const pb = usePaintball.getState()
+      if (bool(input, 'salir')) {
+        if (!pb.fase) return 'No hay ninguna batalla en marcha.'
+        pb.cancelar()
+        return 'Salimos del paintball. La casa vuelve a la normalidad.'
+      }
+      const dif = num(input, 'dificultad')
+      if (dif != null) pb.setDificultad(Math.max(0, Math.min(1, dif)))
+      const vista = str(input, 'vista')
+      if (vista === 'primera' || vista === 'tercera') pb.setVistaCombate(vista)
+      if (pb.fase === 'cuenta' || pb.fase === 'jugando') return 'Ya estás en plena batalla: ¡a disparar!'
+
+      pb.iniciar() // deja fase='config' (el menú de batalla)
+      if (!usePaintball.getState().fase) return 'No puedo abrir el paintball mientras editas la casa: sal del editor primero.'
+      const modoTxt = str(input, 'modo')
+      if (!modoTxt) return 'Abrí el menú del paintball: elige modo, rival y dificultad.'
+      const modo: ModoPaintball = modoTxt === '1v1' || modoTxt === '2v2' ? modoTxt : 'royale'
+
+      const asistentes = useAsistentes.getState().lista
+      if (!asistentes.length) return 'Necesitas al menos un asistente para jugar: créalo en la configuración del chat.'
+      if (modo === '2v2' && asistentes.length < 3) return 'Para un 2 vs 2 hacen falta al menos 3 asistentes (tu compañero y dos rivales).'
+      // Rival (o compañero en 2v2) pedido por su nombre; los demás salen al azar.
+      const nom = str(input, 'rival')
+      const elegido = nom
+        ? asistentes.find((a) => normalizar(a.nombre).startsWith(normalizar(nom)))
+        : undefined
+      const resto = asistentes.filter((a) => a.id !== elegido?.id).sort(() => Math.random() - 0.5)
+      const orden = elegido ? [elegido, ...resto] : resto
+      // En 2v2 el PRIMERO es el compañero (contrato de `empezar`).
+      const equipo = orden.slice(0, modo === '1v1' ? 1 : modo === '2v2' ? 3 : MAX_BOTS_ROYALE)
+      pb.empezar(modo, equipo.map((a) => a.id))
+      if (usePaintball.getState().fase === 'config') {
+        return 'El paintball se juega en la planta baja: baja por la escalera y te preparo la batalla.'
+      }
+      const comoJuega =
+        modo === '1v1'
+          ? `1 vs 1 contra ${equipo[0].nombre}`
+          : modo === '2v2'
+            ? `2 vs 2 con ${equipo[0].nombre} de compañero`
+            : `batalla campal contra ${equipo.length} asistentes`
+      return `¡Marcadora en mano! ${comoJuega}. Aguantas ${VIDAS_PAINTBALL} bolazos: apunta y dispara.`
+    }
+
     // ── Infraestructura del mapa (huerto, granja, caminos, canchas) ──
     // Abrir un editor DESMONTA el ChatBox (`construyendo` en App.tsx), así que la
     // respuesta se repite con `infraNota` para que se lea dentro del editor.
@@ -931,11 +1034,13 @@ export async function ejecutarToolEditor(
         if (hex) k.setColor(hex)
       }
       const esc = num(input, 'escala')
-      k.setEscala(esc != null ? Math.max(0.5, Math.min(2, esc)) : 1)
+      const escala = esc != null ? Math.max(0.25, Math.min(2, esc)) : 1
+      k.setEscala(escala)
       // Igual que `cuartoDestino`: se resuelve por cercanía al avatar, sin pedir
-      // coordenadas. Delante de él para no dejarlo dentro de la cancha.
+      // coordenadas. Delante de él (con el tamaño ya escalado por la celda del mapa)
+      // para no dejarlo dentro de la cancha.
       const def = CANCHAS[clase as ClaseCancha]
-      await k.colocar(playerPos.x + def.largo / 2 + 2, playerPos.z)
+      await k.colocar(playerPos.x + (def.largo * escalaCancha(escala)) / 2 + 2, playerPos.z)
       return `Puse una ${def.corto.toLowerCase()} junto a ti. Camina dentro para jugar.`
     }
 
@@ -960,13 +1065,22 @@ export async function ejecutarToolEditor(
         const r = await alimentarTodos()
         if (!r.corrales) return 'Aún no tienes corrales en la granja.'
         if (r.ok) return `Alimenté a los animales de ${r.ok} corral${r.ok > 1 ? 'es' : ''}.`
-        return r.sinComida
-          ? 'La cesta está vacía: cosecha algo del huerto y vuelvo a alimentarlos.'
+        if (r.sinComida) return 'La cesta está vacía: cosecha algo del huerto y vuelvo a alimentarlos.'
+        return r.enfermos
+          ? 'Los que quedan están enfermos y no comen: pídeme que los cure.'
           : 'Ninguno tiene hambre todavía.'
       }
       if (accion === 'mimar') {
         const n = await mimarTodos()
         return n ? `Mimé a los animales de ${n} corral${n > 1 ? 'es' : ''}.` : 'Aún no tienes corrales en la granja.'
+      }
+      if (accion === 'curar') {
+        const n = await curarTodos()
+        return n ? `Curé a ${n} animal${n > 1 ? 'es' : ''}.` : 'Ninguno está enfermo ahora mismo.'
+      }
+      if (accion === 'limpiar') {
+        const n = await limpiarTodos()
+        return n ? `Limpié ${n} corral${n > 1 ? 'es' : ''}.` : 'Los corrales ya estaban limpios.'
       }
       return null
     }
@@ -1564,7 +1678,56 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
     },
   },
 
+  // ── Ideas: mapas conceptuales ──
+  {
+    name: 'editor_mapa_ideas',
+    description: `Dibuja un mapa conceptual en la app Ideas a partir de un tema y lo abre en su lienzo. Úsala cuando el usuario pida un mapa mental, un mapa conceptual, un esquema o un diagrama de algo, cuando quiera «organizar» o «dibujar» un tema, o cuando acepte el mapa que le ofreciste al final de una explicación. Elige tú el formato que mejor le vaya al tema: ${TIPOS_MAPA.map((d) => `${d.id} (${d.descripcionEs})`).join(' ')}. El contenido lo redacta la IA, así que tarda unos segundos: llámala SOLA.`,
+    schema: {
+      type: 'object',
+      properties: {
+        tema: {
+          type: 'string',
+          description:
+            'Tema del mapa, concreto y en el idioma del usuario (ej. "la fotosíntesis", "café de olla vs. espresso", "cómo hacer pan"). Si viene de una explicación tuya, resúmela aquí en pocas palabras.',
+        },
+        tipo: {
+          type: 'string',
+          enum: TIPOS_MAPA.map((d) => d.id),
+          description: 'Formato del mapa. Por defecto mental.',
+        },
+        vacio: {
+          type: 'boolean',
+          description: 'true para crear el mapa en blanco (solo la raíz) y que el usuario lo llene a mano.',
+        },
+      },
+      required: ['tema'],
+    },
+  },
+
   // ── Infraestructura del mapa ──
+  {
+    name: 'editor_paintball',
+    description: `Modo paintball: el usuario contra sus asistentes usando la casa como campo de batalla (cada quien aguanta ${VIDAS_PAINTBALL} bolazos). Sin "modo" abre el menú de batalla para que elija; con "modo" arma los equipos y arranca la cuenta atrás. Se juega en la planta baja.`,
+    schema: {
+      type: 'object',
+      properties: {
+        modo: {
+          type: 'string',
+          enum: ['1v1', '2v2', 'royale'],
+          description:
+            '1v1 = contra un asistente; 2v2 = con un asistente de compañero (necesita 3 asistentes); royale = batalla campal, todos contra todos. Omitir para abrir el menú.',
+        },
+        rival: {
+          type: 'string',
+          description:
+            'Nombre del asistente que el usuario quiere de rival (o de compañero en 2v2). Omitir = al azar.',
+        },
+        dificultad: { type: 'number', description: 'Puntería de los bots, de 0 (muy fácil) a 1 (experto).' },
+        vista: { type: 'string', enum: ['primera', 'tercera'], description: 'Vista con la que se combate.' },
+        salir: { type: 'boolean', description: 'true para cerrar el paintball (menú o batalla) y volver a la casa.' },
+      },
+    },
+  },
   {
     name: 'editor_infra_construir',
     description:
@@ -1576,7 +1739,7 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
         herramienta: {
           type: 'string',
           description:
-            'Herramienta a preseleccionar. huerto: parcela|sembrar|regar|cosechar|aspersor|quitar. granja: corral|animal|alimentar|mimar|accesorio|nombrar|quitar. caminos: pintar|borrar|subir|bajar|meta.',
+            'Herramienta a preseleccionar. huerto: parcela|sembrar|regar|cosechar|aspersor|quitar. granja: corral|animal|alimentar|mimar|curar|limpiar|accesorio|nombrar|quitar. caminos: pintar|borrar|subir|bajar|meta.',
         },
         especie: {
           type: 'string',
@@ -1624,10 +1787,10 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
   {
     name: 'editor_infra_granja_accion',
     description:
-      'Cuida a TODOS los animales de la granja sin abrir el editor: alimentarlos (consume cosechas de la cesta) o mimarlos (sube su ánimo).',
+      'Cuida a TODOS los animales de la granja sin abrir el editor: alimentarlos (consume cosechas de la cesta), mimarlos (sube su ánimo), curar a los enfermos (los que llevan mucho sin comer; si no se curan, mueren) o limpiar los corrales (toca una vez por semana o el ánimo cae al doble).',
     schema: {
       type: 'object',
-      properties: { accion: { type: 'string', enum: ['alimentar', 'mimar'] } },
+      properties: { accion: { type: 'string', enum: ['alimentar', 'mimar', 'curar', 'limpiar'] } },
       required: ['accion'],
     },
   },
@@ -1718,17 +1881,42 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
 
 // ───────────────────────── Capa determinista (sin IA) ─────────────────────────
 
+/**
+ * ¿El mensaje huele a edición/control de la casa? Red AMPLIA a propósito
+ * (falso positivo = solo tokens de más; falso negativo = el modelo no podría
+ * editar en ese turno): basta CUALQUIER verbo imperativo o sustantivo del
+ * dominio para enviar las TOOLS_EDITOR. Se evalúa sobre el mensaje actual +
+ * los últimos turnos del hilo (los follow-ups «ahora en azul» conservan tools
+ * porque la confirmación previa del asistente menciona el tema).
+ * Patrones sin tildes: operan sobre texto pasado por `normalizar()`.
+ */
+const RE_EDITOR_VERBOS =
+  /\b(pinta\w*|cambia\w*|pon(le|te|er|me|gan)?|crea\w*|renombra\w*|elimina\w*|borra\w*|quita\w*|mueve|mover|agranda\w*|crece\w*|encoge\w*|achica\w*|apila\w*|coloca\w*|agrega\w*|anade\w*|abre|abrir|abreme|muestra\w*|activa\w*|desactiva\w*|enciende\w*|apaga\w*|sube\w*|baja\w*|reproduce|toca\w*|viste\w*|vestir|monta\w*|conduce|maneja\w*|construye|construir|decora\w*|riega|regar|cosecha\w*|alimenta\w*|redimensiona\w*|rota\w*|gira\w*|agrupa\w*|desagrupa\w*|edita\w*|personaliza\w*|dibuja\w*|jueg\w*|jugar|organiza\w*|resume\w*)\b/
+
+const RE_EDITOR_TEMAS =
+  /\b(cuartos?|habitacion\w*|recamaras?|casa|mapa|muros?|pared\w*|pisos?|suelo|techos?|tejado|objetos?|muebles?|inventario|avatar|personajes?|ropa|prendas?|atuendos?|guardarropa|color\w*|temas?|fondo|cielo|estacion\w*|idiomas?|ingles|espanol|interfaz|iconos?|emojis?|tipografia|fuente|letra|apariencia|claro|oscuro|transparente|vidrio|configuracion\w*|ajustes|preferencias|notificacion\w*|avisos?|respaldo|backup|bienvenida|tutorial\w*|musica|cancion\w*|volumen|camaras?|vistas?|isometric\w*|primera persona|tercera persona|vehiculos?|coche|carro|auto|moto|tren|ovni|nave|bici\w*|wrapped|resumen|huertos?|granjas?|cultivos?|canchas?|futbol|basquet|tenis|pistas?|carreras?|montana rusa|vias?|grafiti|efectos?|animacion\w*|paintball|marcadora|bolazos?|diagrama\w*|esquemas?|venn|organigrama|lluvia de ideas)\b/
+
+export function hayIntencionEditor(textos: string[]): boolean {
+  const n = normalizar(textos.join(' \n '))
+  return RE_EDITOR_VERBOS.test(n) || RE_EDITOR_TEMAS.test(n)
+}
+
 export interface EdicionLocal {
   /** Resumen corto para el chip y el placeholder. */
   resumen: string
+  /** Tool que ejecuta (para derivar el chip de destino del mensaje). */
+  tool: string
   /** Ejecuta la acción (reusa el mismo despacho que la IA). */
   ejecutar: () => Promise<string>
+  /** Atajo de respaldo: con la IA activa el ChatBox lo ignora (ella lo hace mejor). */
+  soloSinIA?: boolean
 }
 
 /** Envuelve un `(name, input)` en una EdicionLocal con su resumen. */
 function edicion(resumen: string, name: string, input: Record<string, unknown>): EdicionLocal {
   return {
     resumen,
+    tool: name,
     ejecutar: async () => (await ejecutarToolEditor(name, input)) ?? 'No pude completar esa edición.',
   }
 }
@@ -1793,13 +1981,15 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
         ? 'estilo'
         : /\b(musica|volumen)\b/.test(n)
           ? 'musica'
-          : /\b(notificacion(es)?|avisos?)\b/.test(n)
-            ? 'notificaciones'
-            : /\b(respaldo|backup|datos)\b/.test(n)
-              ? 'respaldo'
-              : /\b(interfaz|idioma|apariencia|tema|tipografia)\b/.test(n)
-                ? 'interfaz'
-                : undefined
+          : /\b(tutorial(es)?|bienvenida)\b/.test(n)
+            ? 'tutoriales'
+            : /\b(notificacion(es)?|avisos?)\b/.test(n)
+              ? 'notificaciones'
+              : /\b(respaldo|backup|datos)\b/.test(n)
+                ? 'respaldo'
+                : /\b(interfaz|idioma|apariencia|tema|tipografia)\b/.test(n)
+                  ? 'interfaz'
+                  : undefined
     return edicion('⚙️ Abrir Configuraciones', 'editor_ajustes_abrir', grupo ? { grupo } : {})
   }
 
@@ -1954,8 +2144,28 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   // («coseché zanahorias» es bitácora, no una orden).
 
   const nHuerto = /\b(huerto|cultivos?|parcelas?|siembra|sembrado|hortaliza|aspersor(es)?)\b/.test(n)
-  const nGranja = /\b(granja|corral(es)?|animal(es)?|gallinas?|cerdos?|cabras?|ovejas?|vacas?|establo)\b/.test(n)
+  // 'mascotas' es el nombre nuevo de la granja; 'comida' NO entra como sinónimo
+  // del huerto porque se lo robaría a los registros de la cocina.
+  const nGranja =
+    /\b(granja|mascotas?|corral(es)?|animal(es)?|gallinas?|cerdos?|cabras?|ovejas?|vacas?|caballos?|yeguas?|establo)\b/.test(n)
   const nVia = /\b(pista|pistas|caminos?|riel(es)?|vias?|tren|montana rusa|coaster|circuito|carrito)\b/.test(n)
+
+  // I-A. Paintball. Solo la frase pelada («juguemos paintball», con modo opcional):
+  // en cuanto pide rival o dificultad se deja pasar a la IA, que sí sabe elegirlos.
+  if (/\bpaintball\b/.test(n)) {
+    if (/\b(sal|salir|salgamos|termina|terminar|acaba|acabar|cancela|cancelar|deja|dejar|basta)\b/.test(n))
+      return edicion('🥎 Salir del paintball', 'editor_paintball', { salir: true })
+    const pb =
+      /^(?:juguemos|jueguemos|juega|jugar|quiero jugar|vamos a jugar|abre(?:me)?|abrir|inicia|empieza|empecemos)\s+(?:al?\s+|el\s+|la\s+|un[ao]?\s+)?(?:partida\s+de\s+|batalla\s+de\s+)?paintball(?:\s+(1v1|2v2|campal|batalla campal|royale))?$/.exec(n)
+    if (pb) {
+      const modo = pb[1] ? (pb[1] === '1v1' || pb[1] === '2v2' ? pb[1] : 'royale') : undefined
+      return edicion(
+        `🥎 Paintball${modo ? ` ${modo === 'royale' ? 'campal' : modo}` : ''}`,
+        'editor_paintball',
+        modo ? { modo } : {},
+      )
+    }
+  }
 
   // I-0. Llévame: antes que construir («llévame al huerto» ≠ «haz un huerto»).
   if (/^(?:llevame|vamos|vayamos|ve|camina|acompaname|llevate)\b/.test(n)) {
@@ -2028,6 +2238,10 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     return edicion('🌾 Alimentar a los animales', 'editor_infra_granja_accion', { accion: 'alimentar' })
   if (nGranja && /\b(mima|mimar|acaricia|acariciar|consiente|consentir)\b/.test(n))
     return edicion('💛 Mimar a los animales', 'editor_infra_granja_accion', { accion: 'mimar' })
+  if (nGranja && /\b(cura|curar|curalos|curalas|sana|sanar|sanalos|medicina)\b/.test(n))
+    return edicion('💊 Curar a los animales', 'editor_infra_granja_accion', { accion: 'curar' })
+  if (nGranja && /\b(limpia|limpiar|limpialos|limpiemos|asea|asear|barre|barrer)\b/.test(n))
+    return edicion('🧹 Limpiar los corrales', 'editor_infra_granja_accion', { accion: 'limpiar' })
 
   // I-6. Borrar caminos / trazo (no toca muros ni puertas).
   if (
@@ -2322,6 +2536,44 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     const hex = resolverColor(limpio)
     const cu = resolverCuarto(limpio)
     if (hex && cu) return edicion(`✏️ Pintar «${nombreCuarto(cu.id)}» de ${etiquetaColor(hex)}`, 'editor_pintar_cuarto', { cuarto: cu.id, color: hex })
+  }
+
+  // 12b. Mapa conceptual: sin IA solo se puede crear en blanco con el tema de
+  //      raíz (como el botón «Crear» de la app), así que es `soloSinIA`: con IA
+  //      gana el modelo, que además lo dibuja entero.
+  const mapaIdeas =
+    /^(?:h[aá]z(?:me)?|cre[aá](?:me)?|dib[uú]ja(?:me)?|arma(?:me)?|gener[aá](?:me)?|quiero|necesito)\s+(?:un[ao]?\s+)?(mapa\s+mental|mapa\s+conceptual|diagrama\s+de\s+flujo|diagrama\s+de\s+venn|comparaci[oó]n|foda|dafo|ishikawa|espina\s+de\s+pescado|ventajas\s+y\s+desventajas|pros\s+y\s+contras|campo\s+de\s+fuerzas|eisenhower|l[ií]nea\s+(?:del|de)\s+tiempo|ciclo|pir[aá]mide|[aá]rbol\s+de\s+decisi[oó]n(?:es)?|tier\s*list|[aá]rbol|diagrama|esquema)\s+(?:de|sobre|para|acerca\s+de|con)\s+(.+)$/i.exec(
+      limpio,
+    )
+  if (mapaIdeas) {
+    const tema = mapaIdeas[2].replace(/^["']|["']$/g, '').trim()
+    const k = normalizar(mapaIdeas[1])
+    // De la palabra al formato, del más específico al más genérico («árbol de
+    // decisiones» tiene que ganarle a «árbol» a secas).
+    const CLAVES: [string, TipoMapa][] = [
+      ['flujo', 'flujo'],
+      ['venn', 'venn'],
+      ['foda', 'foda'],
+      ['dafo', 'foda'],
+      ['ishikawa', 'ishikawa'],
+      ['espina', 'ishikawa'],
+      ['ventajas', 'proscontras'],
+      ['pros', 'proscontras'],
+      ['fuerzas', 'fuerzas'],
+      ['eisenhower', 'eisenhower'],
+      ['linea', 'linea'],
+      ['ciclo', 'ciclo'],
+      ['piramide', 'piramide'],
+      ['tier', 'tier'],
+      ['arbol de decision', 'decision'],
+      ['compara', 'comparacion'],
+      ['arbol', 'arbol'],
+    ]
+    const tipo: TipoMapa = CLAVES.find(([palabra]) => k.includes(palabra))?.[1] ?? 'mental'
+    return {
+      ...edicion(`💡 Mapa: ${tema}`, 'editor_mapa_ideas', { tema, tipo, vacio: true }),
+      soloSinIA: true,
+    }
   }
 
   // 13. Jugar un juego de la mesa: "quiero jugar la viborita", "juega tetris".

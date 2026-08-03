@@ -3,6 +3,8 @@ import { comprimirImagen, generarImagen, imagenIaActiva } from '../../core/image
 import { Portada } from './Portada'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { Creditos } from '../../core/ui/Creditos'
+import { OP_PORTADA } from './costosIA'
 
 /**
  * Portada de una receta o dieta: se sube desde el disco o se genera con IA a
@@ -100,6 +102,7 @@ export function ImagenCocina({
           <Icono nombre="brillo" />
           {foto ? t('cocina.img.regenerar', 'Generar otra') : t('cocina.img.generar', 'Generar con IA')}
         </button>
+        <Creditos op={OP_PORTADA} />
         <button
           type="button"
           onClick={() => inputRef.current?.click()}

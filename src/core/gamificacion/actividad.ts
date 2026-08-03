@@ -1,5 +1,8 @@
+import { useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
+import type { Table } from 'dexie'
 import { db } from '../data/db'
+import { sinEjemplos } from '../data/ejemplos'
 import { useDiseño } from '../state/disenoStore'
 import { fechaLocalISO } from '../fechaLocal'
 
@@ -12,6 +15,13 @@ import { fechaLocalISO } from '../fechaLocal'
 
 const hoyISO = () => fechaLocalISO()
 
+/**
+ * Las filas de una tabla SIN las de los ejemplos de fábrica (estén visibles o
+ * no): un ejemplo enseña cómo se ve la app, no debe subir XP, racha ni la
+ * Montaña de Sísifo.
+ */
+const filas = async <T>(tabla: Table<T>): Promise<T[]> => sinEjemplos(await tabla.toArray())
+
 const diaMs = 86_400_000
 const restarDias = (n: number) =>
   fechaLocalISO(new Date(Date.now() - n * diaMs))
@@ -21,37 +31,50 @@ const restarDias = (n: number) =>
  * lo mismo en toda la app. */
 export const FUENTES: Record<string, () => Promise<string[]>> = {
   cocina: async () => [
-    ...(await db.registrosComida.toArray()).map((r) => r.fecha),
-    ...(await db.registrosAgua.toArray()).map((r) => r.fecha),
+    ...(await filas(db.registrosComida)).map((r) => r.fecha),
+    ...(await filas(db.registrosAgua)).map((r) => r.fecha),
   ],
-  ejercicio: async () => (await db.sesionesEjercicio.toArray()).map((r) => r.fecha),
-  descanso: async () => (await db.sueno.toArray()).map((r) => r.fecha),
-  anecdotario: async () => (await db.anecdotas.toArray()).map((r) => r.fecha),
-  despacho: async () => (await db.transacciones.toArray()).map((r) => r.fecha),
+  ejercicio: async () => (await filas(db.sesionesEjercicio)).map((r) => r.fecha),
+  descanso: async () => (await filas(db.sueno)).map((r) => r.fecha),
+  anecdotario: async () => (await filas(db.anecdotas)).map((r) => r.fecha),
+  despacho: async () => (await filas(db.transacciones)).map((r) => r.fecha),
   biblioteca: async () => [
-    ...(await db.sesionesEstudio.toArray()).map((r) => r.fecha),
-    ...(await db.entradasBiblio.toArray()).map((r) => r.creadoEn.slice(0, 10)),
+    ...(await filas(db.sesionesEstudio)).map((r) => r.fecha),
+    ...(await filas(db.entradasBiblio)).map((r) => r.creadoEn.slice(0, 10)),
   ],
   entretenimiento: async () => [
-    ...(await db.mediaArchivo.toArray()).map((r) => r.creadoEn.slice(0, 10)),
-    ...(await db.juegosMesa.toArray()).map((r) => r.creadoEn.slice(0, 10)),
+    ...(await filas(db.mediaArchivo)).map((r) => r.creadoEn.slice(0, 10)),
+    ...(await filas(db.juegosMesa)).map((r) => r.creadoEn.slice(0, 10)),
   ],
   sala: async () => [
-    ...(await db.lugaresViaje.toArray()).map((r) => r.creadoEn.slice(0, 10)),
-    ...(await db.bitacoraViaje.toArray()).map((r) => r.fecha),
+    ...(await filas(db.lugaresViaje)).map((r) => r.creadoEn.slice(0, 10)),
+    ...(await filas(db.bitacoraViaje)).map((r) => r.fecha),
   ],
   jardin: async () => [
-    ...(await db.sesionesMindfulness.toArray()).map((r) => r.fecha),
-    ...(await db.registroAnimo.toArray()).map((r) => r.fecha),
-    ...(await db.gratitudDiaria.toArray()).map((r) => r.fecha),
+    ...(await filas(db.sesionesMindfulness)).map((r) => r.fecha),
+    ...(await filas(db.registroAnimo)).map((r) => r.fecha),
+    ...(await filas(db.gratitudDiaria)).map((r) => r.fecha),
   ],
-  garage: async () => (await db.registrosMantenimiento.toArray()).map((r) => r.fecha),
+  garage: async () => (await filas(db.registrosMantenimiento)).map((r) => r.fecha),
   diario: async () =>
-    (await db.lecturasDiario.toArray()).map((l) => l.fecha),
-  hobbies: async () => (await db.sesionesHobby.toArray()).map((r) => r.fecha),
+    (await filas(db.lecturasDiario)).map((l) => l.fecha),
+  hobbies: async () => (await filas(db.sesionesHobby)).map((r) => r.fecha),
   idiomas: async () => [
-    ...(await db.repasosIdioma.toArray()).map((r) => r.fecha),
-    ...(await db.tarjetasIdioma.toArray()).map((r) => r.creadoEn.slice(0, 10)),
+    ...(await filas(db.repasosIdioma)).map((r) => r.fecha),
+    ...(await filas(db.tarjetasIdioma)).map((r) => r.creadoEn.slice(0, 10)),
+  ],
+  ideas: async () => [
+    ...(await filas(db.ideas)).map((r) => r.fecha),
+    ...(await filas(db.nodosMapa)).map((r) => r.fecha),
+  ],
+  // El día que apuntas o palomeas algo, no el día para el que lo agendaste:
+  // reservar el dentista para el mes que viene no es actividad de hoy.
+  agenda: async () => [
+    ...(await filas(db.eventosAgenda)).flatMap((e) => [e.creadoEn.slice(0, 10), ...(e.hechoEn ? [e.hechoEn] : [])]),
+    ...(await filas(db.contactosAgenda)).map((c) => c.creadoEn.slice(0, 10)),
+    ...(await filas(db.mascotas)).map((m) => m.creadoEn.slice(0, 10)),
+    // Del cuidado cuenta el día que lo diste por hecho (`ultima`), no su próxima vez.
+    ...(await filas(db.cuidadosMascota)).flatMap((c) => (c.ultima ? [c.ultima] : [])),
   ],
 }
 
@@ -154,10 +177,12 @@ export const EMOJI_HUMOR: Record<Humor, string> = {
  * de las apps o los enfoques (plantillas asignadas). `undefined` = cargando.
  */
 export function useProgreso(): ProgresoJugador | undefined {
-  // Enfoques = plantillas asignadas a algún objeto de la casa.
-  const objetos = useDiseño((s) => s.objetos)
-  const ids = [...new Set(objetos.map((o) => o.plantillaId).filter((p): p is string => !!p))]
-  const clave = ids.sort().join(',')
+  // Enfoques = plantillas asignadas a algún objeto de la casa. La suscripción es SOLO
+  // a la clave derivada (string): mover objetos no re-renderiza a los consumidores.
+  const clave = useDiseño((s) =>
+    [...new Set(s.objetos.map((o) => o.plantillaId).filter((p): p is string => !!p))].sort().join(','),
+  )
+  const ids = useMemo(() => (clave ? clave.split(',') : []), [clave])
 
   return useLiveQuery(async () => {
     const enfoques = await Promise.all(ids.map(progresoDePlantilla))

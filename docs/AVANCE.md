@@ -1,7 +1,8 @@
 # Mind Planner Home (MPH) — Estado del avance
 
-Última actualización: julio 2026. **Fuente de verdad** para saber qué está hecho en la
-**casa (shell 3D)** vs cada **mini-app (cuarto)**.
+Última actualización: agosto 2026. **Fuente de verdad** para saber qué está hecho en la
+**casa (shell 3D)** vs cada **mini-app (cuarto)**. La lista viva de cuartos está en
+`CLAUDE.md`; aquí va el estado por área y la **casa demo** (abajo).
 
 ---
 
@@ -17,7 +18,7 @@ los repos de `repository.ts`. No importan `db` ni Three.js.
 
 | Área | Archivos clave | Estado |
 |------|----------------|--------|
-| Escena 3D | `house/House.tsx`, `Room3D.tsx`, `Furniture.tsx`, `walls.ts` | ✅ |
+| Escena 3D | `house/House.tsx`, `Room3D.tsx`, `walls.ts`, `especialesPlantilla.tsx` | ✅ |
 | Personaje | `house/Character.tsx`, `movement.ts`, `navigation.ts` | ✅ |
 | Cámara | `house/CameraRig.tsx`, `CameraControls.tsx`, `state/cameraStore.ts` | ✅ |
 | Navegación | Clic suelo (sin colisiones), pan central/dos dedos, zoom, doble clic centrar | ✅ |
@@ -98,9 +99,13 @@ calendarios, y reanclar el plan entero es cambiar un campo (sin otra llamada).
 
 ---
 
-## Las 12 mini-apps (cuadrícula 4×3)
+## Las mini-apps — 16 de cuarto + 5 de infraestructura
 
-Posiciones: cols `x: -9 -3 3 9` · filas `z: -6 0 6`. Ver `registry.ts`.
+La tabla viva (nombres, qué guarda cada una y su estado) está en `CLAUDE.md` › Cuartos.
+La de abajo es HISTÓRICA (era de 12 apps con cuadrícula fija; hoy las apps se asignan a
+objetos de cuartos dinámicos y existen además ideas, agenda, idiomas, calendario y el
+anecdotario separado, más la infraestructura del mapa: caminos, canchas, huerto, granja
+y paintball).
 
 | ID | Nombre | Carpeta | Repos / datos | Estado funcional |
 |----|--------|---------|---------------|------------------|
@@ -125,13 +130,39 @@ ver `docs/COMO-TRABAJAR.md` para priorizar mejoras sin mezclar contextos.
 
 ---
 
+## Casa demo — un año de Pep@ (ago 2026, COMPLETA)
+
+La demo gratuita y el escenario de los tutoriales viven en una **BD paralela**
+(`mind-home-demo`, solo lectura salvo minijuegos) con un año de vida ficticia de Pep@:
+maratón, −7 kg, piano, Japón en el mes 9 y el bache del mes 7.
+
+- **Entrada**: Editor › Configuraciones › Tutoriales, o cualquier flujo de tutorial desde
+  la casa real. (La puerta de suscripción, que era la otra entrada, desapareció al abrir
+  el modo local gratuito: la app ya es su propia vitrina.) Salida/reinicio: píldora
+  «Casa demo». Todo en `src/demo/` (DemoGate + bienvenida propia + orquestador).
+- **Mapa por zonas**: el visitante elige zonas (casa/canchas/santuario/pista/mindfulness/
+  feria) y la rejilla se recorta; la casa se construye por código (`src/demo/mapa/`).
+  El `public/demo/casa.json` congelado (modo autor, `window.mhDemoAutor`) es el override.
+- **Contenido**: 16 builders (`src/rooms/<id>/demo.ts` + `demo.data.ts` bilingüe generado
+  por `npm run demo:texto`); canon en `scripts/demo/especificaciones.mjs::PERSONAJE` y
+  montos compartidos en `src/demo/hitosPep.ts`.
+- **Tutoriales por flujos**: 39 tours en las 16 apps (`Plantilla.flujos`, ids
+  `app-<id>--<flujo>`) que navegan sobre los datos de Pep@ y, desde la casa real, saltan
+  al demo (con modal «¿Volver a tu casa?» al terminar). La infraestructura conserva sus
+  4 tours clásicos.
+- **Conversión**: CTA «Quiero mi propia casa» en píldora/modal/puerta — la URL sale de
+  `src/core/cuenta/urlWeb.ts` (env `VITE_URL_WEB` → constante de lanzamiento → dev).
+
+---
+
 ## Mapa mental
 
 ```
 Mind Home
 ├── CASA (core/)          → 3D, cámara, menú, editor, interacción
 ├── DATOS (core/data/)    → db + repos (contrato para apps)
-└── APPS (rooms/<id>/)    → 12 independientes, solo 2D + repos
+├── APPS (rooms/<id>/)    → 16 de cuarto + 5 de infraestructura, solo 2D + repos
+└── DEMO (src/demo/)      → BD paralela con el año de Pep@ + tutoriales por flujos
 ```
 
 ---

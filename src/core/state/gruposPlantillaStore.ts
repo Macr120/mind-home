@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { db, type GrupoPlantilla } from '../data/db'
+import { db, GRUPOS_PLANTILLA_BASE, type GrupoPlantilla } from '../data/db'
 
 /**
  * Carpetas del catálogo de plantillas: agrupan apps del sistema y plantillas
@@ -10,21 +10,19 @@ import { db, type GrupoPlantilla } from '../data/db'
  * Molde: biblioteca de objetos (carpetas por categoría en `disenoStore`).
  */
 
-// Semilla inicial (solo la primera vez); después el usuario la personaliza.
-const SEED: { nombre: string; emoji: string; miembros: string[] }[] = [
-  { nombre: 'Cuerpo y salud', emoji: '💪', miembros: ['cocina', 'ejercicio', 'descanso'] },
-  { nombre: 'Mente y calma', emoji: '🧠', miembros: ['biblioteca', 'anecdotario', 'jardin'] },
-  { nombre: 'Hogar y día a día', emoji: '🏠', miembros: ['despacho', 'garage', 'diario'] },
-  { nombre: 'Ocio y aficiones', emoji: '🎉', miembros: ['entretenimiento', 'sala', 'hobbies'] },
-]
+// Semilla inicial (solo la primera vez); después el usuario la personaliza. Vive
+// en db.ts porque la migración v101 reparte exactamente igual a quien ya la tenía.
+const SEED = GRUPOS_PLANTILLA_BASE
 
 interface GruposPlantillaState {
   grupos: GrupoPlantilla[]
   /** Crea una carpeta vacía al final. */
   crear: (nombre: string, emoji?: string) => Promise<void>
   renombrar: (id: number, nombre: string, emoji?: string) => Promise<void>
-  /** Borra una carpeta creada por el usuario (las 4 base no se pueden borrar); sus miembros pasan a la primera carpeta. */
+  /** Borra una carpeta creada por el usuario (las base no se pueden borrar); sus miembros pasan a la primera carpeta. */
   eliminar: (id: number) => Promise<void>
+  /** Pliega o despliega una carpeta (se recuerda entre sesiones). */
+  alternarPlegado: (id: number) => Promise<void>
   /** Reordena las carpetas según el arreglo de ids dado. */
   reordenar: (idsEnOrden: number[]) => Promise<void>
   /** Mueve una plantilla a la carpeta destino (la quita de la actual). */
@@ -66,6 +64,13 @@ export const useGruposPlantilla = create<GruposPlantillaState>((set, get) => ({
     }))
     if (destino.id != null) await db.gruposPlantilla.update(destino.id, { miembros })
     await db.gruposPlantilla.delete(id)
+  },
+  alternarPlegado: async (id) => {
+    const actual = get().grupos.find((g) => g.id === id)
+    if (!actual) return
+    const plegado = !actual.plegado
+    set((s) => ({ grupos: s.grupos.map((g) => (g.id === id ? { ...g, plegado } : g)) }))
+    await db.gruposPlantilla.update(id, { plegado })
   },
   reordenar: async (idsEnOrden) => {
     set((s) => ({

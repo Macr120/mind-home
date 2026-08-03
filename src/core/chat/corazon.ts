@@ -7,8 +7,8 @@ import { useWrappedUi } from '../state/wrappedUiStore'
 import { hayCuartoAbierto } from '../house/movement'
 import { rutinasRepo } from '../data/repository'
 import { tGlobal } from '../i18n/useT'
-import { iaHabilitada } from '../edicion'
-import { conversarIA, iaActiva } from './ia'
+import { usarViaCuenta } from '../cuenta/api'
+import { conversarIA, iaOperativa } from './ia'
 import type { Asistente, MascotaId } from './mascotas'
 
 /**
@@ -147,8 +147,9 @@ function promptContexto(ctx: ContextoCorazon): string {
 async function hablarLatido(a: Asistente) {
   const ctx: ContextoCorazon = { hora: new Date().getHours(), rutina: await rutinaProxima() }
   let frase = fraseLocal(a, ctx)
-  // ~30% de los latidos piden una frase fresca a la IA (la local queda de respaldo).
-  if (iaHabilitada() && iaActiva() && Math.random() < 0.3) {
+  // Piden una frase fresca a la IA (la local queda de respaldo): ~30% con clave
+  // propia, solo ~10% vía cuenta — cada latido consume 1 crédito de la cuota Pro.
+  if (iaOperativa() && Math.random() < (usarViaCuenta() ? 0.1 : 0.3)) {
     try {
       frase = await conversarIA(systemBreve(a), [{ rol: 'usuario', texto: promptContexto(ctx) }], 100)
     } catch {

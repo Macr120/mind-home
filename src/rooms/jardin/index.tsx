@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import type { RoomModule, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import {
@@ -6,8 +7,7 @@ import {
   objetivoDiarioDe,
 } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
-import { JardinApp } from './JardinApp'
-import { tutorialJardin } from './tutorial'
+import { flujosJardin } from './tutorial'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { PaisajeId } from '../../core/audio/paisaje'
 import { PISTAS } from './pistas'
@@ -18,6 +18,11 @@ const PISTAS_TOKENS: [string[], PaisajeId][] = [
   [['lluvia', 'lloviendo', 'lluvioso'], 'lluvia'],
   [['cuencos', 'cuenco', 'tibetanos', 'tibetano'], 'cuencos'],
 ]
+
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const JardinApp = lazy(() => import('./JardinApp').then((m) => ({ default: m.JardinApp })))
 
 async function capturar(texto: string): Promise<boolean> {
   // Agradecimientos: "agradezco X, Y y Z"
@@ -125,10 +130,9 @@ const jardin: RoomModule = {
   nombre: 'Mindfulness · Jardín',
   icon: '🧘',
   categoria: 'complemento',
-  posicion: [9, 0, 0],
   color: '#4ade80',
   App: JardinApp,
-  tutorial: tutorialJardin,
+  flujos: flujosJardin,
   capturar,
   esquemas,
   sinMuros: true,

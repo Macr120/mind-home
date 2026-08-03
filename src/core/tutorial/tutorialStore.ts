@@ -4,7 +4,9 @@ import { getPlantilla } from '../registry'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { useMascota } from '../state/mascotaStore'
 import { useHud } from '../state/hudStore'
+import { useZonaTut } from '../state/zonaTutStore'
 import { tGlobal } from '../i18n/useT'
+import { aplicarZonaPaso } from './zonaMapa'
 
 /** Contexto interno de la ejecución: el público + su limpieza. */
 interface CtxInterno extends TutorialCtx {
@@ -62,12 +64,18 @@ interface TutorialState {
 
 /** Corre `alEntrar` sin romper el tour: si falla, el overlay degrada a tarjeta sin spotlight. */
 async function correrPaso(p: PasoTutorial | undefined) {
-  if (!p?.alEntrar || !ctxActual) return
-  try {
-    await p.alEntrar(ctxActual)
-  } catch (e) {
-    console.warn('[tutorial] Falló alEntrar de un paso:', e)
+  if (!p || !ctxActual) return
+  if (p.alEntrar) {
+    try {
+      await p.alEntrar(ctxActual)
+    } catch (e) {
+      console.warn('[tutorial] Falló alEntrar de un paso:', e)
+    }
   }
+  // El vuelo va DESPUÉS de `alEntrar`: los editores de infraestructura hacen
+  // `setVista('iso')` al abrirse, que recoloca el foco sobre el personaje y
+  // desharía el encuadre.
+  await aplicarZonaPaso(p, ctxActual)
 }
 
 export const useTutorial = create<TutorialState>((set, get) => ({
@@ -88,7 +96,9 @@ export const useTutorial = create<TutorialState>((set, get) => ({
     // Tour de una app cuya plantilla no está en ningún cuarto: `preparar` no pudo
     // abrirla, así que el mago lo explica junto a la casa y el asistente avisa cómo usarla.
     // Sin `preparar` no aplica: la app ya está en pantalla (su header o la previa).
-    const plantillaId = def.preparar && def.id.startsWith('app-') ? def.id.slice(4) : null
+    // Los flujos usan ids 'app-<plantillaId>--<flujo>': el sufijo se descarta.
+    const plantillaId =
+      def.preparar && def.id.startsWith('app-') ? def.id.slice(4).split('--')[0] : null
     if (plantillaId && getPlantilla(plantillaId)) {
       const asignada = useDiseño
         .getState()
@@ -127,6 +137,10 @@ export const useTutorial = create<TutorialState>((set, get) => ({
     const ctx = ctxActual
     ctxActual = null
     set({ def: null, paso: 0, ocupado: false })
+    // La cámara se queda donde la dejó el último paso (el visitante sigue
+    // explorando esa zona); solo se apagan los resaltes.
+    useZonaTut.getState().setZona(null)
+    useZonaTut.getState().setFoco(null)
     def?.alTerminar?.(completado)
     // La UI ya se cerró; borrar los datos de ejemplo puede tardar sin estorbar.
     await ctx?.limpiar()

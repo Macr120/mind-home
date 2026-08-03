@@ -5,9 +5,8 @@ import type { Group, Mesh, MeshBasicMaterial, Object3D } from 'three'
 import { useDiseño } from '../state/disenoStore'
 import { useLayout } from '../state/layoutStore'
 import { useCiclo } from '../state/cicloStore'
-import type { TemaId } from './temas'
 import { mezclar } from './temas'
-import { getFondo, type FamiliaAnimId } from './fondos'
+import { getFondo, animacionesDeFondo, type FamiliaAnimId } from './fondos'
 import { SIZE } from './walls'
 
 /** Área del cielo donde vuelan / caen las microanimaciones. */
@@ -542,17 +541,6 @@ const FAMILIAS: Record<FamiliaAnimId, FamiliaDef> = {
   polvo: POLVO,
 }
 
-/** Microanimaciones de cada tema global (mandan sobre las del fondo). */
-const FAMILIAS_TEMA: Record<TemaId, FamiliaAnimId[]> = {
-  espacio: ['cometas'],
-  medieval: ['dragones'],
-  terror: ['murcielagos', 'bruma'],
-  barbie: ['corazones'],
-  vaquero: ['aves'],
-  cyberpunk: ['rayas'],
-  navidad: ['copos'],
-}
-
 /**
  * Una familia completa: un único `useFrame` mueve todos sus elementos (antes había
  * uno por elemento, hasta 28 en el tema de navidad).
@@ -616,14 +604,14 @@ function Familia({
 }
 
 /**
- * Microanimaciones repartidas por todo el cielo. Las elige el tema global si lo hay y,
- * si no, el fondo activo (así el interruptor sirve también sin tema). La intensidad
- * regula cuántas hay y cuánto se notan.
+ * Microanimaciones repartidas por todo el cielo. Se eligen a mano en el editor y, si
+ * están en automático, las sugiere el fondo activo. La intensidad regula cuántas hay
+ * y cuánto se notan.
  */
 export function FondoAnimaciones() {
-  const tema = useDiseño((s) => s.temaGlobal)
   const activas = useDiseño((s) => s.animacionesFondo)
   const intensidad = useDiseño((s) => s.animacionesIntensidad)
+  const elegidas = useDiseño((s) => s.animacionesIds)
   const fondoId = useDiseño((s) => s.fondoId)
   const fondoImagenActivo = useDiseño((s) => s.fondoImagenActivo)
   // Selector booleano: `minutos` cambia cada pocos segundos y aquí solo importa el turno.
@@ -635,15 +623,13 @@ export function FondoAnimaciones() {
   )
 
   const fondo = getFondo(fondoId)
-  const familias: FamiliaAnimId[] = tema
-    ? FAMILIAS_TEMA[tema]
-    : fondo.anim ?? (deNoche ? ['fugaz'] : ['nubes', 'aves'])
+  const familias: FamiliaAnimId[] = elegidas ?? animacionesDeFondo(fondo, deNoche)
   // Las nubes y el polvo se tiñen con el cielo para no desentonar con el fondo.
   const tinte = mezclar(fondo.gradiente[fondo.id === 'auto' ? 0 : 1], '#ffffff', 0.45)
 
   if (!activas || reducirMovimiento) return null
-  // Con imagen propia de cielo no se sabe qué pinta: solo se animan si hay tema.
-  if (fondoImagenActivo != null && !tema) return null
+  // Con imagen propia de cielo no hay sugerencia posible: solo lo que se elija a mano.
+  if (fondoImagenActivo != null && !elegidas) return null
 
   return (
     <>

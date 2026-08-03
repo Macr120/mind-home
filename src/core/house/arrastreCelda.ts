@@ -2,6 +2,19 @@ import * as THREE from 'three'
 import type { Camera } from 'three'
 import { svgACeldaMedia, svgACelda } from './planoGeometria'
 import { worldToCell, worldToCeldaEntera, cellToWorld, nivelBaseY, type Cell } from './walls'
+import { zonaEdicionActiva } from '../state/planosStore'
+import { celdaEnCuadrante } from './cuadrantesMapa'
+
+/**
+ * Con una zona de trabajo activa, las celdas de fuera quedan deshabilitadas: devolver
+ * `null` aquí apaga de golpe la edición, el arrastre y los previews de todos los
+ * controladores 3D, que resuelven la celda bajo el cursor por esta vía.
+ */
+function dentroDeZona<T extends Cell>(c: T | null): T | null {
+  if (!c) return null
+  const z = zonaEdicionActiva()
+  return !z || celdaEnCuadrante(c.col, c.row, z) ? c : null
+}
 
 const _plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0)
 const _ray = new THREE.Raycaster()
@@ -101,18 +114,18 @@ export function celdaEnteraBajoCursor(
     gridRows: number
   },
 ): Cell | null {
-  return (
+  return dentroDeZona(
     celdaEnteraDesdeSvg(clientX, clientY, opts.gridCols, opts.gridRows) ??
-    celdaEnteraDesdeCanvas3D(
-      clientX,
-      clientY,
-      opts.canvas,
-      opts.camera,
-      opts.nivel,
-      opts.apilado,
-      opts.gridCols,
-      opts.gridRows,
-    )
+      celdaEnteraDesdeCanvas3D(
+        clientX,
+        clientY,
+        opts.canvas,
+        opts.camera,
+        opts.nivel,
+        opts.apilado,
+        opts.gridCols,
+        opts.gridRows,
+      ),
   )
 }
 
@@ -157,18 +170,18 @@ export function celdaBajoCursor(
     gridRows: number
   },
 ): Cell | null {
-  return (
+  return dentroDeZona(
     celdaDesdeSvg(clientX, clientY, opts.gridCols, opts.gridRows) ??
-    celdaDesdeCanvas3D(
-      clientX,
-      clientY,
-      opts.canvas,
-      opts.camera,
-      opts.nivel,
-      opts.apilado,
-      opts.gridCols,
-      opts.gridRows,
-    )
+      celdaDesdeCanvas3D(
+        clientX,
+        clientY,
+        opts.canvas,
+        opts.camera,
+        opts.nivel,
+        opts.apilado,
+        opts.gridCols,
+        opts.gridRows,
+      ),
   )
 }
 
@@ -202,6 +215,7 @@ export function puntoSueloBajoCursor(
   if (cell.col < 0 || cell.row < 0 || cell.col > opts.gridCols - 1 || cell.row > opts.gridRows - 1) {
     return null
   }
+  if (!dentroDeZona(cell)) return null
   return { x: _hit.x, z: _hit.z, cell }
 }
 
@@ -228,9 +242,9 @@ export function cuadranteBajoCursor(
   if (!_ray.ray.intersectPlane(_plane, _hit)) return null
   const cell = worldToCeldaEntera(_hit.x, _hit.z)
   const [cx, , cz] = cellToWorld(cell.col, cell.row)
-  return {
+  return dentroDeZona({
     col: cell.col + (_hit.x - cx >= 0 ? 0.25 : -0.25),
     row: cell.row + (_hit.z - cz >= 0 ? 0.25 : -0.25),
-  }
+  })
 }
 

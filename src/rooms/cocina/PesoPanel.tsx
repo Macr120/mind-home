@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import type { PerfilNutricion, RegistroPeso } from '../../core/data/db'
 import { sumarDias } from './fecha'
-import { progresoMeta, registrarPeso } from './peso'
+import { progresoMeta } from './peso'
 import type { ProgresoMeta } from './peso'
 import { COLOR, OBJETIVOS } from './constantes'
 import { localeActual, useT } from '../../core/i18n/useT'
@@ -9,56 +9,46 @@ import { Icono } from '../../core/ui/iconos/Icono'
 
 const VERDE = '#34d399'
 
-const RANGOS = [
-  { dias: 30, labelEs: '30 d' },
-  { dias: 90, labelEs: '90 d' },
-  { dias: 365, labelEs: '1 año' },
-]
-
 /**
- * El peso, al frente: número grande, tendencia y qué falta para la meta.
- * El ritmo y la ETA siempre se miden a 30 días aunque la gráfica muestre más:
- * cambiar el zoom no debe cambiar el diagnóstico.
+ * El peso, al frente: número grande, tendencia y qué falta para la meta. Solo
+ * lectura — pesarse se hace en el paso Registro, junto al agua.
+ *
+ * El rango de la gráfica lo pone el filtro de periodo de Progreso (`dias`;
+ * sin valor = todo el historial), pero el ritmo y la ETA siempre se miden a
+ * 30 días: cambiar el zoom no debe cambiar el diagnóstico.
  */
 export function PesoPanel({
   fecha,
   pesos,
   perfil,
+  dias,
   onAjustar,
 }: {
   fecha: string
   pesos: RegistroPeso[]
   perfil: PerfilNutricion
+  /** Días hacia atrás que muestra la gráfica; undefined = todo. */
+  dias?: number
   onAjustar: () => void
 }) {
   const t = useT()
-  const [kg, setKg] = useState('')
-  const [dias, setDias] = useState(30)
 
   const meta = useMemo(() => progresoMeta(pesos, perfil, fecha), [pesos, perfil, fecha])
 
-  // Último pesaje de cada día dentro del rango elegido.
+  // Último pesaje de cada día dentro del rango pedido.
   const serie = useMemo(() => {
-    const desde = sumarDias(fecha, -(dias - 1))
+    const desde = dias !== undefined ? sumarDias(fecha, -(dias - 1)) : null
     const porDia = new Map<string, number>()
     for (const p of [...pesos].sort(
       (a, b) => a.fecha.localeCompare(b.fecha) || (a.id ?? 0) - (b.id ?? 0),
     )) {
-      if (p.fecha >= desde && p.fecha <= fecha) porDia.set(p.fecha, p.kg)
+      if (p.fecha <= fecha && (desde === null || p.fecha >= desde)) porDia.set(p.fecha, p.kg)
     }
     return [...porDia.entries()].map(([f, k]) => ({ fecha: f, kg: k }))
   }, [pesos, fecha, dias])
 
   const actual = serie.length > 0 ? serie[serie.length - 1].kg : null
   const delta = serie.length > 1 ? serie[serie.length - 1].kg - serie[0].kg : null
-
-  const guardar = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const n = parseFloat(kg)
-    if (!Number.isFinite(n) || n <= 0) return
-    await registrarPeso(fecha, Math.round(n * 10) / 10)
-    setKg('')
-  }
 
   const objetivo = OBJETIVOS.find((o) => o.id === (perfil.objetivo ?? 'mantener'))!
   const un = (n: number) => (Math.round(n * 10) / 10).toFixed(1)
@@ -90,46 +80,12 @@ export function PesoPanel({
         </button>
       </div>
 
-      <form onSubmit={guardar} className="mt-3 flex items-center gap-2">
-        <input
-          type="number"
-          min={0}
-          step="0.1"
-          value={kg}
-          onChange={(e) => setKg(e.target.value)}
-          placeholder={t('cocina.peso.ph', 'Pésate hoy… (kg)')}
-          className="flex-1 rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
-        />
-        <button
-          type="submit"
-          className="rounded-lg bg-amber-600 px-3 py-2 text-xs font-bold texto-cta hover:brightness-110"
-        >
-          {t('cocina.peso.registrar', 'Registrar')}
-        </button>
-      </form>
-
       {serie.length < 2 ? (
         <p className="mt-3 text-xs text-white/40">
-          {t('cocina.peso.sinDatos', 'Registra tu peso para ver la tendencia.')}
+          {t('cocina.peso.sinDatos', 'Apúntate en el paso Registro para ver la tendencia.')}
         </p>
       ) : (
-        <>
-          <div className="mt-3 flex gap-1.5">
-            {RANGOS.map((r) => (
-              <button
-                key={r.dias}
-                type="button"
-                onClick={() => setDias(r.dias)}
-                className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold ${
-                  dias === r.dias ? 'bg-white/15' : 'bg-white/5 text-white/50 hover:bg-white/10'
-                }`}
-              >
-                {t(`cocina.peso.rango${r.dias}`, r.labelEs)}
-              </button>
-            ))}
-          </div>
-          <GraficaPeso serie={serie} objetivoKg={perfil.pesoObjetivoKg} />
-        </>
+        <GraficaPeso serie={serie} objetivoKg={perfil.pesoObjetivoKg} />
       )}
 
       {meta ? (

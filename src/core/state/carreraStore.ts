@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db, type CaminoCelda, type RecordCarrera } from '../data/db'
-import { worldToCeldaEntera, cellToWorld } from '../house/walls'
+import { worldToCeldaEntera, cellToWorld, HALF } from '../house/walls'
 import { esquinaDe, puntoArco, alturaArco, H } from '../house/caminosCurvas'
 import { monturaFrame, useMontura } from './monturaStore'
 import { ALTURA_NIVEL } from './caminosStore'
@@ -39,6 +39,13 @@ export const ESCALA_CARRERA = 0.3
 
 /** Superficie del asfalto sobre el suelo (tope del pad de pista): el vehículo se apoya ahí. */
 export const SUPERFICIE_PISTA = 0.26
+
+/**
+ * Superficie pisable del mapa: la loseta del piso exterior remata en y≈0.19 y
+ * los objetos del mapa (los vehículos estacionados incluidos) se dibujan a 0.2.
+ * Lo que rueda por el suelo tiene que partir de ahí o queda medio enterrado.
+ */
+export const SUPERFICIE_SUELO = 0.2
 
 /** Freno del modo carrera: al ir encogidos, la velocidad de mundo se siente 3× — se reduce. */
 export const VEL_CARRERA = 0.4
@@ -189,21 +196,46 @@ export const esPista = (col: number, row: number) => red.has(`${col},${row}`)
 export function multiplicadorSuperficie(x: number, z: number): number {
   const c = worldToCeldaEntera(x, z)
   if (red.has(`${c.col},${c.row}`)) return 1.15
+  if (pistaDiagonalEn(x, z, c.col, c.row)) return 1.15 // la cinta de 45° también es asfalto
   if (enPistaLibre(x, z)) return 1.15 // la cinta del trazo libre también premia
   return carreraFrame.corriendo ? 0.55 : 1
 }
 
+/** Medio ancho de la cinta diagonal (la caja de `DiagonalPista` mide 2.2). */
+const MEDIO_DIAGONAL = 1.1
+
 /**
- * Altura de la superficie del asfalto bajo el punto (0 fuera de pista): el
- * vehículo se apoya encima del pad, no enterrado en él (clave con la escala de
- * carrera). Incluye la elevación de las rampas de la pista.
+ * Celda de pista dueña de la CINTA DIAGONAL que cruza una celda vacía. Las
+ * conexiones de 45° unen dos celdas de pista pasando por la esquina común, así
+ * que el asfalto invade las dos celdas intermedias: sin esto, el vehículo caía
+ * al ras del suelo justo en el vértice ("pozo" en las diagonales).
  */
-export function alturaPistaEn(x: number, z: number): number {
+function pistaDiagonalEn(x: number, z: number, col: number, row: number): CaminoCelda | null {
+  const [cx, , cz] = cellToWorld(col, row)
+  for (const sx of [-1, 1]) {
+    for (const sz of [-1, 1]) {
+      const a = red.get(`${col + sx},${row}`)
+      // Misma regla que el render: sin pista en las celdas intermedias no hay diagonal.
+      if (!a || !red.has(`${col},${row + sz}`) || red.has(`${col + sx},${row + sz}`)) continue
+      // Distancia a la recta que une los centros de las dos celdas (pasa por la esquina).
+      const d = Math.abs((x - (cx + sx * HALF)) * sz + (z - (cz + sz * HALF)) * sx) / Math.SQRT2
+      if (d <= MEDIO_DIAGONAL) return a
+    }
+  }
+  return null
+}
+
+/**
+ * Altura de la superficie bajo el punto: el asfalto de la pista si la hay, si no
+ * el suelo del mapa. El vehículo se apoya encima, no enterrado en él (clave con
+ * la escala de carrera). Incluye la elevación de las rampas de la pista.
+ */
+export function alturaSueloEn(x: number, z: number): number {
   const c = worldToCeldaEntera(x, z)
-  const f = red.get(`${c.col},${c.row}`)
+  const f = red.get(`${c.col},${c.row}`) ?? pistaDiagonalEn(x, z, c.col, c.row)
   if (f) return SUPERFICIE_PISTA + (f.altura ?? 0) * ALTURA_NIVEL
   if (enPistaLibre(x, z)) return SUPERFICIE_PISTA // el trazo libre es plano (v1)
-  return 0
+  return SUPERFICIE_SUELO
 }
 
 export type FaseCarrera = null | 'previa' | 'semaforo' | 'corriendo' | 'terminada'

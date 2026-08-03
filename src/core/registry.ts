@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react'
+import type { OperacionIA } from './cuenta/catalogoIA'
 import biblioteca from '../rooms/biblioteca'
 import calendario from '../rooms/calendario'
 import hobbies from '../rooms/hobbies'
@@ -17,8 +18,14 @@ import caminos from '../rooms/caminos'
 import canchas from '../rooms/canchas'
 import huerto from '../rooms/huerto'
 import granja from '../rooms/granja'
+import paintball from '../rooms/paintball'
+import ideas from '../rooms/ideas'
+import agenda from '../rooms/agenda'
 import { fechaLocalISO } from './fechaLocal'
 import type { TutorialDef } from './tutorial/tipos'
+// Solo el TIPO (se borra al compilar): no crea ciclo con la UI en tiempo de ejecución.
+import type { Actividad } from './ui/HorarioActividad'
+import type { ContextoPlanApp } from './planIA'
 /**
  * Esquema de captura declarativo: describe QUÉ datos forman un registro del
  * cuarto, sin decir cómo extraerlos del texto. La capa de IA leerá estos
@@ -97,6 +104,21 @@ export interface MetaDiaria {
 }
 
 /**
+ * Una rutina YA creada en la app, ofrecida al planificador ✨ del cronograma: al
+ * pedir un plan para una meta («preparar un maratón»), la IA elige de esta lista y
+ * lo elegido se agenda con el MISMO bloque de calendario que la app escribiría.
+ */
+export interface RutinaSugerible {
+  /** El bloque agendable, tal como lo arma la propia app (ver `agendarActividad`). */
+  actividad: Actividad
+  /** Familia con la que se elige con criterio («fuerza», «resistencia»…). */
+  tipo: string
+  /** La familia ya traducida, para pintarla en la sugerencia. */
+  tipoEtiqueta: string
+  descripcion?: string
+}
+
+/**
  * Evento con fecha que una app aporta al calendario (fila "sin hora"). Solo lectura:
  * el dato sigue siendo suyo y se edita en la app, no en el calendario.
  */
@@ -128,10 +150,13 @@ export interface Plantilla {
   icon: string
   categoria: 'cuerpo' | 'mente' | 'complemento' | 'config'
   color: string
-  /** La mini-app 2D que se abre al usar la plantilla. */
+  /**
+   * La mini-app 2D que se abre al usar la plantilla. Las apps de código la
+   * declaran con `lazy(() => import('./XApp'))`: los puntos de montaje
+   * (RoomOverlay, PlantillasCatalogo) ya envuelven en Suspense+ErrorBoundary,
+   * y así el código de los 21 cuartos no entra al bundle de arranque.
+   */
   App: ComponentType
-  /** Legado: posición en la cuadrícula del modelo viejo (ya no se usa). */
-  posicion?: [number, number, number]
   /**
    * Quick-capture determinista (regex): intenta convertir texto libre en un
    * registro real. Retorna true si guardó algo. Es el fallback sin red/sin IA;
@@ -150,8 +175,22 @@ export interface Plantilla {
   sinMetaDiaria?: boolean
   /** Eventos con fecha que la app aporta al calendario (ver `EventoApp`). */
   eventos?: () => Promise<EventoApp[]>
+  /** Rutinas existentes que el planificador ✨ del cronograma puede sugerir y agendar.
+   * `ambitoId` acota cuando el cronograma es de UNA cosa (un hobby, un proyecto). */
+  rutinasPlan?: (ambitoId?: string) => Promise<RutinaSugerible[]>
+  /** Acota el planificador ✨: qué clase de plan genera la IA en esta app y con qué
+   * datos reales del usuario. `ambitoId` acota igual que en `rutinasPlan`. */
+  planMetas?: (ambitoId?: string) => Promise<ContextoPlanApp>
+  /** Lo que se le puede pedir a la IA en esta app y cuánto cuesta, para el
+   * catálogo de precios (`core/cuenta/catalogoIA.ts`). Se declaran en
+   * `rooms/<id>/costosIA.ts`: así el núcleo arma la tabla sin importar cuartos. */
+  operacionesIA?: OperacionIA[]
   /** Tutorial guiado de la app (botón "?" del header del cuarto). */
   tutorial?: TutorialDef
+  /** Flujos de tutorial (menú del "?": varios tours profundos por app). Corren
+   * sobre el año de datos de la CASA DEMO — ids 'app-<plantillaId>--<flujo>',
+   * sin crear datos de ejemplo. Con `flujos`, `tutorial` queda de legado. */
+  flujos?: TutorialDef[]
   /** Tipo: de cuarto (default, asignable a objetos) o de infraestructura (se construye en el mapa). */
   tipo?: 'cuarto' | 'infraestructura'
   /** Solo infraestructura: entra al editor de construcción en el mapa 3D. */
@@ -197,6 +236,9 @@ export const plantillas: Plantilla[] = [
   canchas,
   huerto,
   granja,
+  paintball,
+  ideas,
+  agenda,
 ]
 
 /** Plantillas personalizadas sintetizadas (las publica plantillasCustomStore al cargar/mutar). */
@@ -230,20 +272,23 @@ export const DESCRIPCIONES: Record<string, string> = {
   ejercicio: 'Rutinas de fuerza, resistencia y flexibilidad con metas.',
   descanso: 'Tu sueño como un cielo nocturno: horario, despertador, puntuación y registro de noches.',
   anecdotario: 'Tu diario personal: anécdotas con fotos y el ánimo de cada día.',
-  despacho: 'Finanzas: presupuesto, gastos por categoría, gráficas y metas.',
+  despacho: 'Finanzas: presupuesto con gastos e ingresos (fijos y variables), metas (calculadoras financieras, ahorro/inversión, deuda) con simuladores y mercados en vivo (divisas, cripto, acciones y materias primas).',
   biblioteca: 'Enciclopedia conversacional: charlas con IA, entradas wiki y sesiones de estudio.',
   entretenimiento: 'Archivo de películas, series, libros y juegos de mesa.',
   sala: 'Viajes: mapamundi con pines, lugares por conocer, rutas y bitácora.',
   jardin: 'Calma: meditación con pistas de sonido, respiración y agradecimientos.',
-  garage: 'Mantenimiento de tus vehículos y sus servicios.',
+  garage: 'Mantenimiento de tus vehículos, sus trámites en el calendario y la libreta de talleres.',
   diario: 'Periódico del día: titulares con imagen y efemérides, con reparto por asistentes.',
   hobbies: 'Pasatiempos: sesiones de práctica, rachas, metas y proyectos.',
   idiomas: 'Aprende idiomas: tutor conversacional con IA, vocabulario con repaso espaciado, temario por niveles y ejercicios.',
   calendario: 'Tu calendario: eventos y rutinas por día, semana y mes.',
   caminos: 'Traza pistas de carreras, rieles de tren y montañas rusas sobre el mapa.',
-  canchas: 'Coloca canchas de fútbol, tenis y básquet en el mapa.',
+  canchas: 'Coloca canchas de fútbol, tenis, básquet y béisbol en el mapa.',
   huerto: 'Prepara parcelas, siembra cultivos, riégalos y cosecha en tiempo real.',
-  granja: 'Cría gallinas, cerdos, cabras, ovejas y vacas; aliméntalos con tus cosechas.',
+  granja: 'Cría gallinas, cerdos, cabras, ovejas, vacas y caballos, y cultiva su comida en el mismo editor.',
+  paintball: 'Batallas de paintball contra tus asistentes (1v1, 2v2 o campal) usando la casa como mapa.',
+  ideas: 'Tu diario de ideas y lluvias, diez formatos de mapa conceptual en lienzo libre (mental, árbol, línea del tiempo, ciclo, pirámide, Venn…) y ocho diagramas para decidir (ventajas y desventajas, campo de fuerzas, FODA, Eisenhower, árbol de decisiones, tier list, matriz de decisión ponderada e Ishikawa), a mano o con IA.',
+  agenda: 'Tu agenda: pendientes, eventos y proyectos de trabajo con tablero Kanban, citas médicas, medicamentos y las mascotas con sus cuidados, y la libreta de contactos con sus cumpleaños.',
 }
 
 /**

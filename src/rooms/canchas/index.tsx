@@ -1,7 +1,7 @@
 import type { RoomModule } from '../../core/registry'
 import { Resumen } from './Resumen'
 import { useCanchas } from '../../core/state/canchasStore'
-import { tutorialCanchas } from './tutorial'
+import { flujosCanchas, tutorialCanchas } from './tutorial'
 
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
 const canchas: RoomModule = {
@@ -15,6 +15,7 @@ const canchas: RoomModule = {
   sinMetaDiaria: true,
   construir: () => useCanchas.getState().iniciar(),
   tutorial: tutorialCanchas,
+  flujos: flujosCanchas,
 }
 
 export default canchas

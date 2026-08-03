@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useTutorial, ctxTutorial } from './tutorialStore'
+import { AMBAR_FOCO, useZonaTut } from '../state/zonaTutStore'
 import { elTut, esperarTut } from './dom'
 import type { TextoTut } from './tipos'
 import { useT } from '../i18n/useT'
@@ -39,6 +40,14 @@ export function TutorialOverlay() {
   const [posTarjeta, setPosTarjeta] = useState<{ left: number; top: number } | null>(null)
   const [magoDer, setMagoDer] = useState(false)
   const tarjetaRef = useRef<HTMLDivElement>(null)
+  // Resalte del MAPA 3D (pasos con `zona`/`foco`), que proyecta ZonaTutProjector.
+  // El objetivo DOM manda: un paso puede volar la cámara y resaltar un botón.
+  const zonaMapa = useZonaTut((s) => s.proyeccion)
+  const colorMapa = useZonaTut((s) => (s.foco ?? s.zona)?.color)
+  // Con objetivo DOM se ignora la silueta: manda el rectángulo del elemento.
+  const siluetaMapa = caja ? null : (zonaMapa?.poligono ?? null)
+  const cajaFinal = caja ?? zonaMapa?.caja ?? null
+  const colorResalte = colorMapa ?? AMBAR_FOCO
 
   const p = def?.pasos[paso]
 
@@ -117,7 +126,8 @@ export function TutorialOverlay() {
 
     let pos: { left: number; top: number }
     let der = false
-    if (caja) {
+    if (cajaFinal) {
+      const caja = cajaFinal
       const centroX = clampX(caja.left + caja.width / 2 - cw / 2)
       const centroY = clampY(caja.top + caja.height / 2 - ch / 2)
       const lados: Record<string, { left: number; top: number; cabe: boolean }> = {
@@ -136,13 +146,16 @@ export function TutorialOverlay() {
       // El mago cede su esquina si el objetivo o la tarjeta la ocupan.
       const chocaIzq = (b: Caja) => b.left < MAGO_ANCHO + 160 && b.top + b.height > vh - MAGO_ALTO - 40
       der = chocaIzq(caja) || chocaIzq({ ...pos, width: cw, height: ch })
+      // Un recuadro del mapa que abarque toda la pantalla dejaría al mago
+      // dentro del hueco: ahí no cede nada, se queda en su esquina.
+      if (caja.width > vw * 0.9 && caja.height > vh * 0.9) der = false
     } else {
       // Sin objetivo: bocadillo junto al mago (en su esquina por defecto).
       pos = { left: clampX(MARGEN + MAGO_ANCHO + 10), top: clampY(vh - ch - 24) }
     }
     setPosTarjeta((prev) => (prev && prev.left === pos.left && prev.top === pos.top ? prev : pos))
     setMagoDer(der)
-  }, [def, paso, caja]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [def, paso, cajaFinal]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!def || !p) return null
 
@@ -152,15 +165,38 @@ export function TutorialOverlay() {
 
   return (
     <div className="fixed inset-0 z-[60] overflow-hidden" role="dialog" aria-modal="true">
-      {/* Velo: recortado alrededor del objetivo (sombra del spotlight) o completo. */}
-      {caja ? (
+      {/* Velo. Con una zona del mapa el hueco lleva SU forma (en isométrica un
+          área del terreno es un rombo, y un rectángulo taparía terreno ajeno);
+          con un objetivo DOM, el recuadro de siempre. */}
+      {siluetaMapa ? (
+        <svg className="pointer-events-none absolute inset-0 h-full w-full">
+          {/* El rectángulo exterior desbordado evita medir el viewport: el SVG
+              y el `overflow-hidden` del contenedor ya recortan. */}
+          <path
+            fillRule="evenodd"
+            fill="rgba(0,0,0,0.62)"
+            d={`M-9999 -9999H9999V9999H-9999Z M${siluetaMapa.map((p) => p.join(' ')).join('L')}Z`}
+          />
+          {/* El aro va del color de lo resaltado (ámbar si es un objeto), y por
+              `style`: en un atributo de presentación SVG `var()` no se resuelve
+              y el trazo se quedaba invisible. */}
+          <polygon
+            points={siluetaMapa.map((p) => p.join(',')).join(' ')}
+            fill="none"
+            style={{ stroke: colorResalte }}
+            strokeWidth={2}
+          />
+
+
+        </svg>
+      ) : cajaFinal ? (
         <div
           className="pointer-events-none absolute rounded-xl transition-all duration-200"
           style={{
-            left: caja.left - HOLGURA,
-            top: caja.top - HOLGURA,
-            width: caja.width + HOLGURA * 2,
-            height: caja.height + HOLGURA * 2,
+            left: cajaFinal.left - HOLGURA,
+            top: cajaFinal.top - HOLGURA,
+            width: cajaFinal.width + HOLGURA * 2,
+            height: cajaFinal.height + HOLGURA * 2,
             boxShadow: '0 0 0 100vmax rgba(0,0,0,0.62), 0 0 0 2px var(--ui-accent)',
           }}
         />
@@ -199,7 +235,7 @@ export function TutorialOverlay() {
         style={posTarjeta ? { left: posTarjeta.left, top: posTarjeta.top } : { left: -9999, top: 0 }}
       >
         {/* Pico del bocadillo cuando la tarjeta habla desde el mago. */}
-        {!caja && !magoDer && (
+        {!cajaFinal && !magoDer && (
           <div
             className="absolute -left-1.5 bottom-6 h-3 w-3 rotate-45"
             style={{ background: 'var(--ui-panel-solido, var(--ui-panel))' }}

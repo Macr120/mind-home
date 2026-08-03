@@ -10,13 +10,35 @@ import { useMontura } from '../state/monturaStore'
 import { useParque } from '../state/parqueStore'
 import { dragChar } from './characterDrag'
 import { ModeloPiezas } from './modeloPersonalizado'
+import { paintballFrame, COLOR_JUGADOR } from '../state/paintballStore'
 
 const DUR_FOGONAZO = 120 // ms
 
-export type TipoPistola = 'laser' | 'portales' | 'burbujas' | 'fuegos' | 'grafiti'
+/**
+ * Instante del último disparo VISIBLE del avatar: el de la rueda
+ * (`accionFrame.disparoT`) o el automático de la batalla de paintball, que
+ * lleva su propia cadencia y no pasa por la herramienta.
+ */
+export const ultimoDisparoVisible = () =>
+  Math.max(accionFrame.disparoT, paintballFrame.ultimoDisparo)
+
+export type TipoPistola = 'laser' | 'pintura' | 'portales' | 'burbujas' | 'fuegos' | 'grafiti'
 
 export const esPistola = (h: Herramienta): h is TipoPistola =>
-  h === 'laser' || h === 'portales' || h === 'burbujas' || h === 'fuegos' || h === 'grafiti'
+  h === 'laser' ||
+  h === 'pintura' ||
+  h === 'portales' ||
+  h === 'burbujas' ||
+  h === 'fuegos' ||
+  h === 'grafiti'
+
+/** Armas que disparan con la mira (las demás pistolas hacen otra cosa al usarlas). */
+export const esArmaDeTiro = (h: Herramienta): h is 'laser' | 'pintura' =>
+  h === 'laser' || h === 'pintura'
+
+/** La pistola que se ve en la mano (la última equipada), o null. */
+export const pistolaEnMano = (equipadas: Herramienta[]): TipoPistola | null =>
+  [...equipadas].reverse().find(esPistola) ?? null
 
 /** baseId del recurso de biblioteca de cada pistola (carpeta "Pistolas" del Inventario). */
 const PISTOLA_BASE_ID: Record<TipoPistola, number> = {
@@ -25,6 +47,7 @@ const PISTOLA_BASE_ID: Record<TipoPistola, number> = {
   burbujas: 202,
   fuegos: 203,
   grafiti: 204,
+  pintura: 205,
 }
 
 /** Inverso: nº de recurso → tipo de pistola. */
@@ -138,9 +161,48 @@ export function LataAerosol({ color }: { color?: string }) {
   )
 }
 
+/**
+ * Marcadora de paintball: cuerpo con cañón largo, tolva de bolas arriba (con el
+ * color de la pintura) y tanque de aire atrás. La comparten el avatar y los
+ * asistentes de la batalla (por eso va exportada), apuntando a +Z como el resto.
+ */
+export function Marcadora({ color, pintura }: { color?: string; pintura?: string }) {
+  const tinta = pintura ?? '#3b82f6'
+  return (
+    <>
+      {/* cuerpo */}
+      <mesh castShadow position={[0, 0.03, 0.08]}>
+        <boxGeometry args={[0.085, 0.11, 0.26]} />
+        <meshStandardMaterial color={color ?? '#1f2937'} metalness={0.45} roughness={0.4} />
+      </mesh>
+      {/* cañón largo */}
+      <mesh castShadow position={[0, 0.05, 0.32]} rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.028, 0.028, 0.34, 10]} />
+        <meshStandardMaterial color="#0f172a" metalness={0.6} roughness={0.3} />
+      </mesh>
+      {/* tolva de bolas (el color de tu pintura) */}
+      <mesh castShadow position={[0, 0.15, 0.06]}>
+        <sphereGeometry args={[0.075, 12, 12]} />
+        <meshStandardMaterial color={tinta} roughness={0.35} />
+      </mesh>
+      {/* tanque de aire */}
+      <mesh castShadow position={[0, -0.01, -0.12]} rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.05, 0.05, 0.2, 10]} />
+        <meshStandardMaterial color="#64748b" metalness={0.7} roughness={0.25} />
+      </mesh>
+      {/* empuñadura */}
+      <mesh castShadow position={[0, -0.07, 0.02]}>
+        <boxGeometry args={[0.07, 0.14, 0.09]} />
+        <meshStandardMaterial color="#111827" roughness={0.6} />
+      </mesh>
+    </>
+  )
+}
+
 /** Forma por defecto de cada pistola (si no se ha editado en la biblioteca). */
 function PistolaPrimitiva({ tipo, color }: { tipo: TipoPistola; color?: string }) {
   if (tipo === 'grafiti') return <LataAerosol color={color} />
+  if (tipo === 'pintura') return <Marcadora color={color} />
   if (tipo === 'laser') return <Pistola colorCuerpo={color ?? '#334155'} colorEmpunadura="#1e293b" colorBoca="#f87171" />
   if (tipo === 'portales')
     return <Pistola colorCuerpo={color ?? '#e2e8f0'} colorEmpunadura="#94a3b8" colorBoca="#38bdf8" />
@@ -186,9 +248,12 @@ const mano = (escala: number): [number, number, number] => [0.42 * escala, 0.68 
 export function ArmaHerramienta({ tipo, escala }: { tipo: TipoPistola; escala: number }) {
   const fogonazo = useRef<THREE.Mesh>(null)
   const obj = useDiseño((s) => s.objetos.find((o) => esObjetoLibreria(o) && o.baseId === PISTOLA_BASE_ID[tipo]))
+  // La marcadora escupe una bolita de pintura en vez del fogonazo del láser.
+  const conFogonazo = tipo === 'laser' || tipo === 'pintura'
   useFrame(() => {
     if (fogonazo.current)
-      fogonazo.current.visible = tipo === 'laser' && performance.now() - accionFrame.disparoT < DUR_FOGONAZO
+      fogonazo.current.visible =
+        conFogonazo && performance.now() - ultimoDisparoVisible() < DUR_FOGONAZO
   })
   return (
     <group position={mano(escala)}>
@@ -200,9 +265,13 @@ export function ArmaHerramienta({ tipo, escala }: { tipo: TipoPistola; escala: n
       ) : (
         <PistolaPrimitiva tipo={tipo} color={obj?.color} />
       )}
-      <mesh ref={fogonazo} visible={false} position={[0, 0.03, 0.34]}>
+      <mesh ref={fogonazo} visible={false} position={[0, tipo === 'pintura' ? 0.05 : 0.03, tipo === 'pintura' ? 0.5 : 0.34]}>
         <sphereGeometry args={[0.06, 8, 8]} />
-        <meshStandardMaterial color="#fff7ed" emissive="#fb923c" emissiveIntensity={3} toneMapped={false} />
+        {tipo === 'pintura' ? (
+          <meshStandardMaterial color={COLOR_JUGADOR} emissive={COLOR_JUGADOR} emissiveIntensity={0.6} />
+        ) : (
+          <meshStandardMaterial color="#fff7ed" emissive="#fb923c" emissiveIntensity={3} toneMapped={false} />
+        )}
       </mesh>
     </group>
   )

@@ -29,6 +29,31 @@ export type FamiliaAnimId =
   | 'polvo'
   | 'fugaz'
 
+export interface AnimacionDef {
+  id: FamiliaAnimId
+  nombre: string
+  icon: string
+}
+
+/** Microanimaciones que se pueden elegir a mano (paso aparte del fondo). */
+export const ANIMACIONES: AnimacionDef[] = [
+  { id: 'nubes', nombre: 'Nubes', icon: '☁️' },
+  { id: 'aves', nombre: 'Aves', icon: '🦅' },
+  { id: 'copos', nombre: 'Nieve', icon: '❄️' },
+  { id: 'cometas', nombre: 'Cometas', icon: '🌌' },
+  { id: 'fugaz', nombre: 'Estrellas fugaces', icon: '⭐' },
+  { id: 'polvo', nombre: 'Polvo brillante', icon: '✨' },
+  { id: 'dragones', nombre: 'Dragones', icon: '🏰' },
+  { id: 'murcielagos', nombre: 'Murciélagos', icon: '🕸️' },
+  { id: 'bruma', nombre: 'Bruma', icon: '🌫️' },
+  { id: 'corazones', nombre: 'Corazones', icon: '💖' },
+  { id: 'rayas', nombre: 'Rayas neón', icon: '🌈' },
+]
+
+/** Ids válidos al leer la selección guardada. */
+export const esFamiliaAnim = (id: string): id is FamiliaAnimId =>
+  ANIMACIONES.some((a) => a.id === id)
+
 export interface FondoDef {
   id: FondoId
   nombre: string
@@ -39,7 +64,7 @@ export interface FondoDef {
   tema?: TemaId
   /** Campo de estrellas estáticas de fondo. */
   estrellas?: boolean
-  /** Microanimaciones cuando la casa NO tiene tema global (con tema mandan las del tema). */
+  /** Microanimaciones sugeridas por este fondo (solo en modo automático). */
   anim?: FamiliaAnimId[]
 }
 
@@ -130,12 +155,17 @@ export const FONDOS: FondoDef[] = [
     icon: '🌇',
     gradiente: ['#ff6b35', '#ffd89b'],
     tema: 'barbie',
-    anim: ['nubes', 'aves'],
+    anim: ['nubes', 'corazones'],
   },
 ]
 
 export function getFondo(id: FondoId | null | undefined): FondoDef {
   return FONDOS.find((f) => f.id === id) ?? FONDOS[0]
+}
+
+/** Microanimaciones que le tocan a un fondo en modo automático. */
+export function animacionesDeFondo(fondo: FondoDef, deNoche: boolean): FamiliaAnimId[] {
+  return fondo.anim ?? (deNoche ? ['fugaz'] : ['nubes', 'aves'])
 }
 
 /** Fondo de cielo que corresponde a cada tema (uno por tema). */

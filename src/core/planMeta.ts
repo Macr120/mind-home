@@ -75,6 +75,76 @@ export async function reanclarPlan(plan: PlanMeta, inicioISO: string): Promise<v
   await planesMetaRepo.update(plan.id, { inicioISO })
 }
 
+/** Ids de toda la descendencia de un nodo dentro del plan. */
+function descendientesPlan(nodos: NodoPlan[], id: number): Set<number> {
+  const salida = new Set<number>()
+  const bajar = (padre: number) => {
+    for (const n of nodos)
+      if (n.padre === padre && !salida.has(n.id)) {
+        salida.add(n.id)
+        bajar(n.id)
+      }
+  }
+  bajar(id)
+  return salida
+}
+
+// Edición de la propuesta: el plan es personalizable mientras no se acepte. Los
+// días son relativos a `inicioISO`, así que tocar un nodo no descuadra a los demás.
+
+export async function renombrarNodoPlan(plan: PlanMeta, nodoId: number, nombre: string): Promise<void> {
+  if (plan.id == null || !nombre.trim()) return
+  const nodos = plan.nodos.map((n) => (n.id === nodoId ? { ...n, nombre: nombre.trim() } : n))
+  await planesMetaRepo.update(plan.id, { nodos })
+}
+
+/**
+ * Mueve un nodo a otro periodo (días relativos al arranque). Una fase arrastra a su
+ * descendencia con el mismo corrimiento de inicio, para que siga dentro de ella.
+ */
+export async function moverNodoPlan(plan: PlanMeta, nodoId: number, ini: number, fin: number): Promise<void> {
+  if (plan.id == null) return
+  const objetivo = plan.nodos.find((n) => n.id === nodoId)
+  if (!objetivo) return
+  const ini2 = Math.max(0, Math.round(ini))
+  const fin2 = Math.max(ini2, Math.round(fin))
+  const delta = ini2 - objetivo.ini
+  const abajo = descendientesPlan(plan.nodos, nodoId)
+  const nodos = plan.nodos.map((n) => {
+    if (n.id === nodoId) return { ...n, ini: ini2, fin: fin2 }
+    if (abajo.has(n.id)) return { ...n, ini: Math.max(0, n.ini + delta), fin: Math.max(0, n.fin + delta) }
+    return n
+  })
+  await planesMetaRepo.update(plan.id, { nodos })
+}
+
+/** Quita un nodo de la propuesta, con toda su descendencia. */
+export async function borrarNodoPlan(plan: PlanMeta, nodoId: number): Promise<void> {
+  if (plan.id == null) return
+  const fuera = descendientesPlan(plan.nodos, nodoId)
+  fuera.add(nodoId)
+  await planesMetaRepo.update(plan.id, { nodos: plan.nodos.filter((n) => !fuera.has(n.id)) })
+}
+
+/** Nodo nuevo colgado de una fase (o fase nueva sin padre), con el periodo heredado. */
+export async function agregarNodoPlan(
+  plan: PlanMeta,
+  padreId: number | undefined,
+  nombre: string,
+): Promise<void> {
+  if (plan.id == null || !nombre.trim()) return
+  const padre = plan.nodos.find((n) => n.id === padreId)
+  const id = Math.max(0, ...plan.nodos.map((n) => n.id)) + 1
+  const nuevo: NodoPlan = {
+    id,
+    padre: padre?.id,
+    nombre: nombre.trim(),
+    ini: padre?.ini ?? 0,
+    fin: padre?.fin ?? Math.max(0, diasDePlan(plan.nodos) - 1),
+  }
+  await planesMetaRepo.update(plan.id, { nodos: [...plan.nodos, nuevo] })
+}
+
 /** Siguiente etiqueta libre de una meta: Plan A, B… y de la Z en adelante, número. */
 export function siguienteNombrePlan(
   planes: PlanMeta[],

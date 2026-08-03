@@ -6,6 +6,7 @@ import { useLayout } from '../../state/layoutStore'
 import { PISOS, type PisoTipo } from '../../house/pisos'
 import { esFormaCuadrada } from '../../house/formasLoseta'
 import { ColorPicker } from './ColorPicker'
+import { GenerarTexturaIA } from './GenerarTexturaIA'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -257,6 +258,13 @@ export function EditorPisoCuartoSection({ room }: { room: Cuarto }) {
             {t('editor.pisoCuarto.subirImagen', 'Subir imagen')}
           </button>
         )}
+
+        <div className="mt-2">
+          <GenerarTexturaIA
+            superficie="piso"
+            onGenerada={(blob) => subirRoomPisoImagen(room.id, blob)}
+          />
+        </div>
 
         <input
           ref={fileInputRef}

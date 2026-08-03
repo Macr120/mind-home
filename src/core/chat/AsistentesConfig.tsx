@@ -13,6 +13,8 @@ import {
 import { hayVoz, hablarVoz, vozDeAsistente, vocesDisponibles, langVoz } from '../audio/voz'
 import { iaActiva, generarModelo3D } from './ia'
 import { iaHabilitada } from '../edicion'
+import { Creditos } from '../ui/Creditos'
+import { OP_ASISTENTE_3D } from '../cuenta/catalogoNucleo'
 import { getPlantilla } from '../registry'
 import { appsAsignadas } from './dispatcher'
 import { useT } from '../i18n/useT'
@@ -313,7 +315,7 @@ function FormAsistente({
           />
         </div>
 
-        {/* Describir la forma con IA: solo Pro. Subir un .glb propio sigue en gratis. */}
+        {/* Describir la forma con IA: cuesta créditos. Subir un .glb propio es gratis. */}
         {iaHabilitada() && (
         <div className="flex gap-1.5">
           <input
@@ -337,6 +339,7 @@ function FormAsistente({
           >
             {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}
           </button>
+          <Creditos op={OP_ASISTENTE_3D} />
         </div>
         )}
         {errorForma && <p className="px-1 text-[10px] text-red-400/80">{errorForma}</p>}

@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { useDiseño, esObjetoMapa } from '../state/disenoStore'
-import { useCanchas, CANCHAS, PORTERIA, esCancha, claseDeCancha } from '../state/canchasStore'
-import { useJuegoCancha, juegoFrame } from '../state/juegoCanchaStore'
+import { useCanchas, CANCHAS, PORTERIA, BEISBOL, radioBeisbol, esCancha, claseDeCancha, escalaCancha } from '../state/canchasStore'
+import { useJuegoCancha, juegoFrame, poseBateo } from '../state/juegoCanchaStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
@@ -14,6 +14,7 @@ import { parqueFrame } from '../state/parqueStore'
 import { useCaminos } from '../state/caminosStore'
 import { useHuerto } from '../state/huertoStore'
 import { useGranja } from '../state/granjaStore'
+import { usePaintball } from '../state/paintballStore'
 import { lanzarCohete } from './fuegos'
 import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
@@ -25,10 +26,14 @@ import type { ClaseCancha } from '../state/canchasStore'
  * Minijuegos de cancha: al caminar dentro de una cancha se elige modo (solo o
  * contra un asistente) y dificultad, y aparece la pelota (y el rival, con el
  * modelo 3D del asistente elegido). Fútbol: patea la pelota y anota. Básquet:
- * toma la pelota y quédate quieto para tirar al aro. Tenis: peloteo con raqueta
- * sobre la red (partido al mejor de 3 sets), o contra el FRONTÓN (la media
- * cancha rival se levanta como muro) al jugar solo. La física corre en
- * coordenadas LOCALES de la cancha.
+ * toma la pelota y quédate quieto para tirar al aro. Tenis: partido al mejor de
+ * 3 sets con saque alternado, red y bola fuera de verdad — apuntas con el frente
+ * del avatar y el timing del golpe decide si sale profunda o se queda corta; o
+ * contra el FRONTÓN (la media cancha rival se levanta como muro) al jugar solo.
+ * Béisbol: SOLO bateo — la máquina (o el asistente pitcher) lanza desde el
+ * montículo y un toque batea; la calidad del contacto decide foul, hit o
+ * cuadrangular sobre la barda. La física corre en coordenadas LOCALES de la
+ * cancha.
  */
 
 /** Dificultad activa (0 = muy fácil, 1 = experto). */
@@ -53,7 +58,7 @@ interface Marco {
 function marcoDe(o: ObjetoCuarto): Marco {
   const clase = claseDeCancha(o.tipo)
   const def = CANCHAS[clase]
-  const esc = o.escala ?? 1
+  const esc = escalaCancha(o.escala)
   const rad = ((o.rotY ?? 0) * Math.PI) / 180
   return {
     o,
@@ -100,6 +105,15 @@ let saquePendiente = false
 let ladoCaida: 1 | -1 = 1
 /** El vuelo de tenis actual va hacia el frontón (rebota al llegar). */
 let haciaMuro = false
+/** Falta del último golpe de tenis; se cobra al aterrizar la pelota. */
+let faltaTenis: null | 'red' | 'fuera' = null
+/** Quién dio el último golpe de tenis (a quién se le cobra la falta). */
+let golpeoTenis: 'yo' | 'rival' = 'rival'
+/** Velocidad horizontal del vuelo de tenis en curso: el bote conserva parte de ella. */
+let velBoteX = 0
+let velBoteZ = 0
+/** Tenis contra la IA: el saque de este juego es tuyo (cambia de mano cada juego). */
+let sacaJugador = true
 let tiroRX = 0
 let tiroRZ = 0
 let tiroElegido = false
@@ -112,6 +126,10 @@ let ultimoRoboFut = 0
 /** Velocidad remanente de un chut elevado al aterrizar (sigue rodando). */
 let vueloFutVX = 0
 let vueloFutVZ = 0
+/** Strikes acumulados del turno de bateo (a los 3 es ponche). */
+let strikesBeis = 0
+/** El vuelo actual de béisbol es un batazo (si no, es el lanzamiento). */
+let bolaBateada = false
 
 // Tiempos de carga (s) y rangos de fuerza; valores arcade, ajustables al probar.
 const T_CARGA = 1.05
@@ -126,8 +144,39 @@ const GOLPE_RADIO = 2.6
 const FACTOR_BOTE = 0.62
 const Y_MIN_GOLPE = 0.15
 const Y_MAX_GOLPE = 1.7
-const K_CHANFLE_TENIS = 0.3
+/** Metros que desvía la pelota de tenis por cada m/s de movimiento lateral al golpear. */
+const K_CHANFLE_TENIS = 0.35
+/** Altura de la red: es parte de la cancha, así que escala con ella. */
+const RED_ALTO = 1.0
+// Punto dulce del golpe de tenis (altura de la pelota y distancia al cuerpo, en
+// metros del avatar: no escalan con la cancha) y su tolerancia. La distancia
+// solo penaliza estirarse: tener la pelota encima es un golpe cómodo.
+const TENIS_Y_DULCE = 0.8
+const TENIS_Y_TOL = 0.95
+const TENIS_D_DULCE = 1.1
+const TENIS_D_TOL = 1.6
+/** Metros que el golpe pasa sobre la red, de un timing pésimo (negativo = red) a uno perfecto. */
+const MARGEN_RED_MIN = -0.3
+const MARGEN_RED_RANGO = 1.25
+/** Hasta dónde alcanza la raqueta del rival, y a qué distancia golpea cómodo. */
+const TENIS_ALCANCE_RIVAL = 2.3
+const TENIS_COMODO_RIVAL = 1.3
+/** Mira del tenis: girando este ángulo desde la red apuntas del centro a la banda. */
+const ANG_MIRA = 0.62
+/** Parte de la velocidad horizontal que conserva la pelota de tenis en cada bote. */
+const K_BOTE = 0.42
 const N_ARCO = 16 // vértices de la línea de trayectoria del básquet
+// Béisbol: radio de la ventana de bateo, distancia dulce del contacto y
+// tolerancia (qué tan lejos del punto dulce aún conecta algo).
+const BATE_RADIO = 2.2
+const BATE_IDEAL = 0.9
+const BATE_TOL = 1.5
+/** Caja de bateo (local, sin escalar): a un costado del plato, dentro de su área. */
+const CAJA_X = BEISBOL.home + 0.5
+const CAJA_Z = -1.1
+/** Fuerza del batazo según la carga del botón: sin carga apenas rueda, full se va a la barda. */
+const BATE_POT_MIN = 0.55
+const BATE_POT_RANGO = 0.85
 
 /** Mide la velocidad lateral del jugador (perpendicular a su frente) para el chanfle. */
 function medirStrafe(fwd: { x: number; z: number }, p: { x: number; z: number }, dt: number) {
@@ -160,8 +209,15 @@ function reiniciarJuego(m: Marco) {
   f.bote = 0
   f.botesTenis = 0
   f.enVentana = false
+  f.anclaActiva = false
+  f.bateando = m.clase === 'beisbol'
   saquePendiente = false
   haciaMuro = false
+  faltaTenis = null
+  golpeoTenis = 'rival'
+  velBoteX = 0
+  velBoteZ = 0
+  sacaJugador = true
   tiroElegido = false
   energiaBote = 1.5
   const pl0 = aLocal(m, playerPos.x, playerPos.z)
@@ -174,6 +230,22 @@ function reiniciarJuego(m: Marco) {
   } else if (m.clase === 'basket') {
     f.rx = m.L * 0.4
     f.rz = m.W * 0.35
+  } else if (m.clase === 'beisbol') {
+    // El pitcher (o la máquina) espera en el montículo con la bola en la mano.
+    const montX = BEISBOL.monticulo * m.esc
+    f.rx = montX
+    f.rz = 0
+    f.bx = montX
+    f.by = 1.2
+    strikesBeis = 0
+    bolaBateada = false
+    f.proximoEvento = performance.now() + (solo ? 1200 : 1800)
+    // El bateador se planta en la caja de bateo, junto al home y mirando al montículo.
+    const caja = aMundo(m, CAJA_X * m.esc, CAJA_Z * m.esc)
+    f.anclaActiva = true
+    f.anclaX = caja.x
+    f.anclaZ = caja.z
+    f.anclaHeading = Math.atan2(montX - CAJA_X * m.esc, -CAJA_Z * m.esc) + m.rad
   } else {
     const p = aLocal(m, playerPos.x, playerPos.z)
     f.ladoJugador = p.x >= 0 ? 1 : -1
@@ -488,33 +560,153 @@ function tickBasket(m: Marco, solo: boolean, dt: number) {
 
 // ─── Tenis ───
 
-/** Golpe hacia el otro lado; `apuntar` = rival a esquivar; `chan` = efecto según tu movimiento. */
-function devolverTenis(m: Marco, hacia: 1 | -1, apuntar?: { z: number }, chan = 0) {
+/**
+ * Altura de parábola que hace pasar la pelota `margen` metros sobre la red. Se
+ * calcula así (y no con una altura fija) para que el golpe se mida siempre por
+ * lo que le sobra a la red, venga de donde venga y sea cual sea el tamaño de la
+ * cancha: con margen negativo el tiro se queda en la red.
+ */
+function altoParaRed(m: Marco, x1: number, margen: number) {
   const f = juegoFrame
-  const x1 = hacia * (0.25 + Math.random() * 0.6) * m.L
-  let z1 = (Math.random() - 0.5) * 1.5 * m.W
-  if (apuntar) {
-    const lejos = (apuntar.z >= 0 ? -1 : 1) * (m.W - 0.8)
-    z1 = THREE.MathUtils.lerp(z1, lejos, dif())
-  }
-  z1 = clamp(z1 + chan * m.W * K_CHANFLE_TENIS, -m.W + 0.5, m.W - 0.5)
-  const dist = Math.hypot(x1 - f.bx, z1 - f.bz)
-  ladoCaida = hacia
-  haciaMuro = false
-  energiaBote = 1.4
-  f.vuelo = { x0: f.bx, y0: Math.max(0.4, f.by), z0: f.bz, x1, y1: 0, z1, t: 0, dur: clamp(dist / 11, 0.5, 1.3), alto: 1.5 }
+  const y0 = Math.max(0.35, f.by)
+  const tau = (0 - f.bx) / (x1 - f.bx || 1e-6)
+  if (tau <= 0 || tau >= 1) return 0.9 * m.esc
+  return clamp((RED_ALTO * m.esc + margen - y0 * (1 - tau)) / Math.sin(Math.PI * tau), 0.25, 3.5 * m.esc)
 }
 
-/** Golpe hacia el frontón: la pelota vuela a un punto del muro (en la red). */
-function golpeAlMuro(m: Marco, chan = 0) {
+/**
+ * Programa el vuelo de un golpe y decide ahí mismo si es falta: la pelota que no
+ * pasa la red muere contra ella, y el destino fuera de la cancha queda marcado
+ * para cobrarlo al aterrizar (así se ve botar fuera). `alto` es la altura de la
+ * parábola en metros (la da `altoParaRed`) y `vel`, metros por segundo.
+ */
+function lanzarTenis(m: Marco, quien: 'yo' | 'rival', x1: number, z1: number, alto: number, vel: number) {
+  const f = juegoFrame
+  const y0 = Math.max(0.35, f.by)
+  const dur = clamp(Math.hypot(x1 - f.bx, z1 - f.bz) / vel, 0.32, 1.5)
+  golpeoTenis = quien
+  haciaMuro = false
+  faltaTenis = null
+  energiaBote = 1.35
+  // ¿Pasa la red? Se mide la altura de la parábola justo en x = 0.
+  const tau = (0 - f.bx) / (x1 - f.bx || 1e-6)
+  if (tau > 0 && tau < 1 && y0 * (1 - tau) + Math.sin(Math.PI * tau) * alto < RED_ALTO * m.esc) {
+    faltaTenis = 'red'
+    ladoCaida = f.bx >= 0 ? 1 : -1
+    velBoteX = 0
+    velBoteZ = 0
+    f.vuelo = {
+      x0: f.bx,
+      y0,
+      z0: f.bz,
+      x1: f.bx * (1 - tau * 0.9),
+      y1: 0,
+      z1: f.bz + (z1 - f.bz) * tau * 0.9,
+      t: 0,
+      dur: dur * tau,
+      alto: alto * 0.6,
+    }
+    return
+  }
+  ladoCaida = x1 >= 0 ? 1 : -1
+  if (Math.abs(x1) > m.L || Math.abs(z1) > m.W) faltaTenis = 'fuera'
+  f.vuelo = { x0: f.bx, y0, z0: f.bz, x1, y1: 0, z1, t: 0, dur, alto }
+  velBoteX = (x1 - f.bx) / dur
+  velBoteZ = (z1 - f.bz) / dur
+}
+
+/**
+ * Calidad del golpe (0–1) en dos partes, que castigan cosas distintas: `cy` es
+ * el TIMING (la pelota a la altura de la raqueta) y decide si el tiro pasa la
+ * red; `cd` es el ESTIRÓN (cuánto tuviste que alargar el brazo) y decide lo
+ * profundo y preciso que sale. Tener la pelota encima no penaliza.
+ */
+function calidadTenis(p: { x: number; z: number }) {
+  const f = juegoFrame
+  const cy = clamp(1 - Math.abs(f.by - TENIS_Y_DULCE) / TENIS_Y_TOL, 0, 1)
+  const cd = clamp(1 - Math.max(0, Math.hypot(f.bx - p.x, f.bz - p.z) - TENIS_D_DULCE) / TENIS_D_TOL, 0, 1)
+  return { cy, cal: Math.min(cy, cd) }
+}
+
+/** Destino y vuelo de una devolución (jugador o rival) a partir de su calidad. */
+function tiroTenis(m: Marco, quien: 'yo' | 'rival', hacia: 1 | -1, z1: number, cy: number, cal: number) {
+  const x1 = hacia * (0.28 + cal * 0.48) * m.L
+  lanzarTenis(
+    m,
+    quien,
+    x1,
+    clamp(z1, -m.W - 2, m.W + 2),
+    altoParaRed(m, x1, MARGEN_RED_MIN + cy * MARGEN_RED_RANGO),
+    8 + cal * 7,
+  )
+}
+
+/**
+ * Devolución del jugador: apuntas con el frente del avatar (de banda a banda) y
+ * el golpe decide el resto — limpio sale profundo, tenso y donde apuntaste;
+ * llegando estirado sale corto, y con mal timing se queda en la red.
+ */
+function golpearTenis(m: Marco, fwd: { x: number; z: number }, q: { cy: number; cal: number }) {
+  const f = juegoFrame
+  const hacia = -f.ladoJugador as 1 | -1
+  const mira = clamp(Math.atan2(fwd.z, fwd.x * hacia) / ANG_MIRA, -1, 1)
+  // A la mira se suman el efecto de moverte de lado y la dispersión del mal golpe.
+  const z1 = mira * (m.W - 0.35) + clamp(f.strafe, -3, 3) * K_CHANFLE_TENIS + (Math.random() - 0.5) * (1 - q.cal) * 2
+  tiroTenis(m, 'yo', hacia, z1, q.cy, q.cal)
+}
+
+/**
+ * Devolución del rival: la calidad sale de lo cómodo que llegó a la pelota, de
+ * la dificultad y de un error no forzado de vez en cuando. De ahí salen sus
+ * fallos (a la red o fuera), en vez de un dado que decida si devuelve o no.
+ */
+function devolverRival(m: Marco, p: { z: number }, alcance: number) {
+  const f = juegoFrame
+  const d = dif()
+  const hacia = f.ladoJugador
+  const comodo = clamp(1 - alcance / TENIS_ALCANCE_RIVAL, 0, 1)
+  const fallo = Math.random() < 0.15 - d * 0.1
+  const cal = clamp((0.42 + d * 0.55) * (0.55 + comodo * 0.6) * (0.8 + Math.random() * 0.4) * (fallo ? 0.4 : 1), 0, 1)
+  // Busca el hueco: apunta a la banda contraria a la tuya, con puntería según dificultad.
+  const lejos = (p.z >= 0 ? -1 : 1) * (m.W - 0.7)
+  const z1 =
+    THREE.MathUtils.lerp((Math.random() - 0.5) * 1.6 * m.W, lejos, d * 0.8) + (Math.random() - 0.5) * (1 - cal) * 2.2
+  tiroTenis(m, 'rival', hacia, z1, cal, cal)
+}
+
+/** Saque al cuadro de servicio contrario; tú apuntas con tu frente (arcade: siempre entra). */
+function saqueTenis(m: Marco, quien: 'yo' | 'rival', fwd: { x: number; z: number }) {
+  const f = juegoFrame
+  const hacia = (quien === 'yo' ? -f.ladoJugador : f.ladoJugador) as 1 | -1
+  const mira = quien === 'yo' ? clamp(Math.atan2(fwd.z, fwd.x * hacia) / ANG_MIRA, -1, 1) : Math.random() * 2 - 1
+  const x1 = hacia * (0.28 + Math.random() * 0.16) * m.L
+  const z1 = clamp(mira * (m.W - 1.2), -m.W + 0.8, m.W - 0.8)
+  lanzarTenis(m, quien, x1, z1, altoParaRed(m, x1, 0.45), 13 + dif() * 4)
+}
+
+/** Golpe hacia el frontón: a más calidad, más alto en el muro y más rápido. */
+function golpeAlMuro(m: Marco, cal: number) {
   const f = juegoFrame
   const lado = f.ladoJugador
   const x1 = -lado * 0.2
-  let z1 = clamp(f.bz + (Math.random() - 0.5) * m.W, -m.W + 1, m.W - 1)
-  z1 = clamp(z1 + chan * m.W * K_CHANFLE_TENIS, -m.W + 1, m.W - 1)
+  const z1 = clamp(f.bz + (Math.random() - 0.5) * m.W + clamp(f.strafe, -3, 3) * K_CHANFLE_TENIS, -m.W + 1, m.W - 1)
   const dist = Math.hypot(x1 - f.bx, z1 - f.bz)
   haciaMuro = true
-  f.vuelo = { x0: f.bx, y0: Math.max(0.4, f.by), z0: f.bz, x1, y1: 1 + Math.random() * 1.2, z1, t: 0, dur: clamp(dist / 13, 0.35, 0.9), alto: 0.6 }
+  faltaTenis = null
+  golpeoTenis = 'yo'
+  velBoteX = 0
+  velBoteZ = 0
+  f.vuelo = {
+    x0: f.bx,
+    y0: Math.max(0.4, f.by),
+    z0: f.bz,
+    x1,
+    y1: (0.7 + cal * 1.4) * m.esc,
+    z1,
+    t: 0,
+    dur: clamp(dist / (9 + cal * 5), 0.3, 0.9),
+    alto: 0.5,
+  }
 }
 
 /** Rebote del frontón: más dificultad = más rápido y más abierto. */
@@ -525,19 +717,61 @@ function reboteDelMuro(m: Marco) {
   const x1 = lado * (0.25 + Math.random() * 0.65) * m.L
   const z1 = (Math.random() - 0.5) * (1.0 + d * 0.9) * m.W
   const dist = Math.hypot(x1 - f.bx, z1 - f.bz)
+  const dur = clamp(dist / (8 + d * 7), 0.32, 1.2)
   ladoCaida = lado
   haciaMuro = false
-  energiaBote = 1.3
-  f.vuelo = { x0: f.bx, y0: f.by, z0: f.bz, x1, y1: 0, z1, t: 0, dur: clamp(dist / (8 + d * 7), 0.32, 1.2), alto: 1.2 }
+  faltaTenis = null
+  energiaBote = 1.35
+  f.vuelo = {
+    x0: f.bx,
+    y0: f.by,
+    z0: f.bz,
+    x1,
+    y1: 0,
+    z1,
+    t: 0,
+    dur,
+    alto: 1.2 * m.esc,
+  }
+  velBoteX = (x1 - f.bx) / dur
+  velBoteZ = (z1 - f.bz) / dur
 }
 
-/** Botecito de la pelota en el sitio (parábola menor); pierde energía en cada rebote. */
+/**
+ * Bote de la pelota: como una de verdad, sigue avanzando en la dirección del
+ * golpe (conserva parte de su velocidad horizontal) y pierde altura en cada uno.
+ */
 function iniciarBote(m: Marco) {
   const f = juegoFrame
-  const x1 = clamp(f.bx, -m.L + 0.3, m.L - 0.3)
-  const z1 = clamp(f.bz, -m.W + 0.3, m.W - 0.3)
-  f.vuelo = { x0: f.bx, y0: 0, z0: f.bz, x1, y1: 0, z1, t: 0, dur: 0.6, alto: energiaBote }
+  const alto = energiaBote
+  const dur = clamp(0.28 + alto * 0.34, 0.3, 0.9)
+  const x1 = clamp(f.bx + velBoteX * K_BOTE * dur, -m.L - 3, m.L + 3)
+  const z1 = clamp(f.bz + velBoteZ * K_BOTE * dur, -m.W - 3, m.W + 3)
+  f.vuelo = { x0: f.bx, y0: 0, z0: f.bz, x1, y1: 0, z1, t: 0, dur, alto }
+  velBoteX *= K_BOTE
+  velBoteZ *= K_BOTE
   energiaBote *= FACTOR_BOTE
+}
+
+/** Cierra el punto: marcador, motivo de la falta y saque del siguiente. */
+function puntoTenisFin(m: Marco, ganador: 'yo' | 'rival', motivo?: 'red' | 'fuera') {
+  const f = juegoFrame
+  f.botesTenis = 0
+  f.enVentana = false
+  faltaTenis = null
+  saquePendiente = true
+  f.proximoEvento = performance.now() + 1600
+  void useJuegoCancha
+    .getState()
+    .puntoTenis(ganador)
+    .then((msg) => {
+      // El saque cambia de mano al cambiar de juego, como en un partido de verdad.
+      if (msg !== 'puntoTenis' && msg !== 'puntoTenisRival') sacaJugador = !sacaJugador
+      if (ganador === 'yo') celebrar(m, msg)
+      // Si el punto lo regalaste tú, el aviso dice por qué (sin tapar juego/set).
+      else if (motivo && msg === 'puntoTenisRival')
+        useJuegoCancha.getState().avisar(motivo === 'red' ? 'aLaRed' : 'fuera')
+    })
 }
 
 /** Celebración según el mensaje del punto (set/partido = más cohetes). */
@@ -547,6 +781,60 @@ function celebrar(m: Marco, mensaje: string) {
   else if (mensaje === 'setTuyo' || mensaje === 'partidoTuyo') {
     lanzarCohete(w.x - 2, 1, w.z)
     lanzarCohete(w.x + 2, 1, w.z)
+  }
+}
+
+/** Saque pendiente: contra el frontón lo tira el muro; contra la IA se alterna cada juego. */
+function tickSaqueTenis(
+  m: Marco,
+  solo: boolean,
+  p: { x: number; z: number },
+  fwd: { x: number; z: number },
+  intento: boolean,
+  dt: number,
+) {
+  const f = juegoFrame
+  const ahora = performance.now()
+  if (solo) {
+    f.enVentana = false
+    f.bx = -f.ladoJugador * 0.2
+    f.bz = 0
+    f.by = 1.2
+    if (ahora >= f.proximoEvento) {
+      saquePendiente = false
+      f.botesTenis = 0
+      reboteDelMuro(m)
+    }
+    return
+  }
+  // Sacas desde donde estés: tu lado se toma de tu posición entre punto y punto.
+  f.ladoJugador = p.x >= 0 ? 1 : -1
+  const lado = f.ladoJugador
+  mueveRival(-lado * m.L * 0.7, 0, 4, dt)
+  if (sacaJugador) {
+    // La pelota espera en tu raqueta hasta que toques el botón.
+    f.bx = p.x - lado * 0.35
+    f.bz = p.z
+    f.by = 1.15
+    f.enVentana = ahora >= f.proximoEvento
+    if (f.enVentana && intento) {
+      saquePendiente = false
+      f.enVentana = false
+      f.swing = 1
+      f.botesTenis = 0
+      saqueTenis(m, 'yo', fwd)
+    }
+    return
+  }
+  f.enVentana = false
+  f.bx = f.rx
+  f.bz = f.rz
+  f.by = 1.1
+  if (ahora >= f.proximoEvento) {
+    saquePendiente = false
+    f.rSwing = 1
+    f.botesTenis = 0
+    saqueTenis(m, 'rival', fwd)
   }
 }
 
@@ -562,98 +850,241 @@ function tickTenis(m: Marco, solo: boolean, dt: number) {
   f.golpe = false
   // El frontón se levanta al empezar (anima la media cancha volviéndose muro).
   if (solo && f.muro < 1) f.muro = Math.min(1, f.muro + dt * 1.6)
-  if (f.vuelo) {
-    if (!solo && ladoCaida !== lado) mueveRival(f.vuelo.x1, f.vuelo.z1, 3.2 + d * 3.6, dt)
-    // Ventana de golpeo: en tu lado, cerca de ti y a altura golpeable (no yendo al muro).
-    f.enVentana =
-      ladoCaida === lado &&
-      !haciaMuro &&
-      Math.hypot(f.bx - p.x, f.bz - p.z) < GOLPE_RADIO &&
-      f.by > Y_MIN_GOLPE &&
-      f.by < Y_MAX_GOLPE
-    if (f.enVentana && intento) {
-      // ¡Le pegas! Swing + devolución (con efecto según tu movimiento lateral).
-      f.swing = 1
+  if (saquePendiente) {
+    tickSaqueTenis(m, solo, p, fwd, intento, dt)
+    return
+  }
+  if (!f.vuelo) {
+    f.enVentana = false
+    return
+  }
+  // El rival persigue el punto de caída, pero solo cuando la pelota ya cruzó la
+  // red (antes no puede adivinar dónde va): mientras, recupera el centro.
+  if (!solo) {
+    const suya = ladoCaida !== lado && !haciaMuro && (f.bx >= 0 ? 1 : -1) !== lado
+    mueveRival(suya ? f.vuelo.x1 : -lado * m.L * 0.7, suya ? f.vuelo.z1 : 0, 3 + d * 4, dt)
+  }
+  // Ventana de golpeo: en tu lado, cerca de ti y a altura de raqueta (no yendo al muro).
+  f.enVentana =
+    ladoCaida === lado &&
+    !haciaMuro &&
+    faltaTenis !== 'red' &&
+    Math.hypot(f.bx - p.x, f.bz - p.z) < GOLPE_RADIO &&
+    f.by > Y_MIN_GOLPE &&
+    f.by < Y_MAX_GOLPE
+  if (f.enVentana && intento) {
+    // ¡Le pegas! El timing decide la calidad; tu frente, la dirección.
+    f.swing = 1
+    f.botesTenis = 0
+    f.enVentana = false
+    const q = calidadTenis(p)
+    if (solo) {
+      void useJuegoCancha.getState().sumarPeloteo()
+      golpeAlMuro(m, q.cal)
+    } else golpearTenis(m, fwd, q)
+    return
+  }
+  // El rival golpea cuando la pelota ya botó en su campo y la tiene encima; si no
+  // llegó, se estira en el último momento (y de ahí le sale un mal golpe).
+  if (!solo && ladoCaida !== lado && f.botesTenis >= 1 && f.by > Y_MIN_GOLPE && f.by < Y_MAX_GOLPE) {
+    const alcance = Math.hypot(f.bx - f.rx, f.bz - f.rz)
+    const ultima = f.vuelo.t / f.vuelo.dur > 0.72
+    if (alcance < TENIS_COMODO_RIVAL || (ultima && alcance < TENIS_ALCANCE_RIVAL)) {
+      f.rSwing = 1
       f.botesTenis = 0
-      f.enVentana = false
-      const chan = clamp(f.strafe, -3, 3)
-      if (solo) {
-        void useJuegoCancha.getState().sumarPeloteo()
-        golpeAlMuro(m, chan)
-      } else {
-        devolverTenis(m, (-lado) as 1 | -1, { z: f.rz }, chan)
-      }
+      devolverRival(m, p, alcance)
       return
     }
+  }
+  if (!avanzarVuelo(dt)) return
+  if (solo && haciaMuro) {
+    // Llegó al frontón: rebota de vuelta a tu media cancha.
+    reboteDelMuro(m)
+    f.botesTenis = 0
+    return
+  }
+  // Falta del último golpe: la red o la bola fuera dan el punto al contrario.
+  if (faltaTenis) {
+    if (solo) {
+      // Contra el frontón no hay faltas: la pelota simplemente se perdió.
+      faltaTenis = null
+      f.botesTenis = 0
+      f.enVentana = false
+      useJuegoCancha.getState().avisar('seEscapo')
+      saquePendiente = true
+      f.proximoEvento = ahora + 1300
+    } else if (golpeoTenis === 'yo') puntoTenisFin(m, 'rival', faltaTenis)
+    else puntoTenisFin(m, 'yo')
+    return
+  }
+  f.botesTenis += 1
+  if (f.botesTenis < 2) {
+    iniciarBote(m)
+    return
+  }
+  // Dos botes sin devolver: el punto es de quien golpeó por última vez.
+  if (solo) {
+    f.botesTenis = 0
+    f.enVentana = false
+    useJuegoCancha.getState().avisar('seEscapo')
+    saquePendiente = true
+    f.proximoEvento = ahora + 1300
+  } else puntoTenisFin(m, ladoCaida === lado ? 'rival' : 'yo')
+}
+
+// ─── Béisbol (solo bateo) ───
+
+/** Lanzamiento desde el montículo: pasa junto al bateador y sigue un poco de largo. */
+function lanzarPitcheo(m: Marco, solo: boolean) {
+  const f = juegoFrame
+  const p = aLocal(m, playerPos.x, playerPos.z)
+  // Puntería con desvío: a más dificultad, más lejos del punto dulce te la pone.
+  const desvio = (Math.random() - 0.5) * (0.5 + dif() * 1.5)
+  const dx = p.x - f.bx
+  const dz = p.z - f.bz + desvio
+  const d = Math.hypot(dx, dz)
+  // Si estás encima del montículo no hay tiro que batear: va hacia el home.
+  const x1 = d < 2 ? BEISBOL.home * m.esc : p.x + (dx / d) * 1.3
+  const z1 = d < 2 ? 0 : p.z + desvio + (dz / d) * 1.3
+  const dist = Math.hypot(x1 - f.bx, z1 - f.bz)
+  bolaBateada = false
+  f.vuelo = {
+    x0: f.bx,
+    y0: 1.4,
+    z0: f.bz,
+    x1,
+    y1: 0.35 + Math.random() * 0.5,
+    z1,
+    t: 0,
+    // El montículo está más cerca que en un campo real: velocidad acorde para
+    // que quede tiempo de reacción incluso en experto.
+    dur: dist / (5.5 + dif() * 6),
+    alto: 0.3,
+  }
+  if (!solo) f.rSwing = 1 // brazada de lanzamiento del pitcher
+}
+
+/**
+ * Batazo: el TIMING (qué tan cerca del punto dulce le pegas) decide la
+ * dirección y qué tan limpio sale; la CARGA del botón, la fuerza con la que se
+ * va. Hace falta contacto limpio Y fuerza para pasar la barda.
+ */
+function batear(m: Marco, p: { x: number; z: number }, carga: number) {
+  const f = juegoFrame
+  f.swing = 1
+  f.enVentana = false
+  const d = Math.hypot(f.bx - p.x, f.bz - p.z)
+  const calidad = clamp(1 - Math.abs(d - BATE_IDEAL) / BATE_TOL, 0, 1)
+  // Dirección: de vuelta hacia el jardín (sobre el montículo), con dispersión
+  // según el contacto y efecto por tu movimiento lateral al batear. Un mal
+  // contacto abre lo bastante como para irse de foul por las líneas.
+  const montX = BEISBOL.monticulo * m.esc
+  let ang = Math.atan2(-f.bz, montX - f.bx)
+  ang += (Math.random() - 0.5) * (0.3 + (1 - calidad) * 3.6) + clamp(f.strafe, -3, 3) * 0.06
+  // Distancia que le falta a la bola para pasar la barda desde el punto de contacto.
+  const aBarda = Math.max(4, BEISBOL.radio * m.esc - Math.hypot(f.bx - BEISBOL.home * m.esc, f.bz))
+  const alcance = (1.5 + calidad * calidad * aBarda * 0.9) * (BATE_POT_MIN + carga * BATE_POT_RANGO)
+  bolaBateada = true
+  f.vuelo = {
+    x0: f.bx,
+    y0: Math.max(0.4, f.by),
+    z0: f.bz,
+    x1: f.bx + Math.cos(ang) * alcance,
+    y1: 0,
+    z1: f.bz + Math.sin(ang) * alcance,
+    t: 0,
+    dur: clamp(alcance / 13, 0.45, 1.5),
+    alto: 1 + calidad * 3 + carga * 1.5,
+  }
+}
+
+/**
+ * Dónde cayó el batazo, medido desde el home como en un campo real: fuera de las
+ * líneas de foul = foul; pasando la barda (que se acerca hacia las líneas) =
+ * cuadrangular; dentro del campo = hit.
+ */
+function resolverBatazo(m: Marco) {
+  const f = juegoFrame
+  const homeX = BEISBOL.home * m.esc
+  const ang = Math.atan2(f.bz, f.bx - homeX) // 0 = jardín central
+  const dist = Math.hypot(f.bx - homeX, f.bz)
+  if (Math.abs(ang) > BEISBOL.apertura) {
+    useJuegoCancha.getState().avisar('foul')
+  } else if (dist > radioBeisbol(ang) * m.esc) {
+    strikesBeis = 0
+    const r = radioBeisbol(ang) * m.esc
+    const w = aMundo(m, homeX + Math.cos(ang) * r, Math.sin(ang) * r)
+    lanzarCohete(w.x, m.sueloY + BEISBOL.cercaAlto, w.z)
+    void useJuegoCancha.getState().anotar('yo', 3, 'homerun')
+  } else {
+    strikesBeis = 0
+    void useJuegoCancha.getState().anotar('yo', 1, 'hit')
+  }
+  f.proximoEvento = performance.now() + 1500
+}
+
+/** Lanzamiento sin contacto: strike; al tercero es ponche (punto del rival contra la IA). */
+function strikeBeis(solo: boolean) {
+  strikesBeis += 1
+  if (strikesBeis >= 3) {
+    strikesBeis = 0
+    if (solo) useJuegoCancha.getState().avisar('ponche')
+    else void useJuegoCancha.getState().anotar('rival', 1, 'ponche')
+  } else {
+    useJuegoCancha.getState().avisar('strike')
+  }
+  juegoFrame.proximoEvento = performance.now() + 1400
+}
+
+function tickBeisbol(m: Marco, solo: boolean, dt: number) {
+  const f = juegoFrame
+  const ahora = performance.now()
+  const p = aLocal(m, playerPos.x, playerPos.z)
+  const fwd = dirLocal(m, playerForward)
+  medirStrafe(fwd, p, dt)
+  // Mantener el botón carga la fuerza del swing; soltarlo lo ejecuta.
+  if (f.cargando) f.carga = Math.min(1, f.carga + dt / T_CARGA)
+  const intento = f.soltar
+  f.soltar = false
+  const montX = BEISBOL.monticulo * m.esc
+
+  if (f.vuelo) {
+    if (!bolaBateada) {
+      // Lanzamiento en camino: la ventana de bateo es cuando la bola pasa junto a ti.
+      f.enVentana = Math.hypot(f.bx - p.x, f.bz - p.z) < BATE_RADIO && f.by > 0.1 && f.by < 2.0
+      if (intento) {
+        const carga = f.carga
+        f.cargaSwing = carga
+        f.carga = 0
+        if (f.enVentana) return batear(m, p, carga)
+        f.swing = 1 // abanicaste lejos de la bola
+      }
+    }
     if (avanzarVuelo(dt)) {
-      if (solo && haciaMuro) {
-        // Llegó al frontón: rebota de vuelta a tu media cancha.
-        reboteDelMuro(m)
-        f.botesTenis = 0
-        return
-      }
-      if (ladoCaida === lado) {
-        // Cayó en tu lado: rebota; si da 2 botes sin golpear, pierdes el punto.
-        f.botesTenis += 1
-        if (f.botesTenis >= 2) {
-          f.botesTenis = 0
-          f.enVentana = false
-          if (solo) {
-            useJuegoCancha.getState().avisar('seEscapo')
-            saquePendiente = true
-            f.proximoEvento = ahora + 1300
-          } else {
-            void useJuegoCancha.getState().puntoTenis('rival')
-            saquePendiente = true
-            f.proximoEvento = ahora + 1500
-          }
-        } else {
-          iniciarBote(m)
-        }
-      } else {
-        // Cayó en el lado del rival: la devuelve si llegó (con errores no forzados).
-        const falla = Math.random() < Math.max(0.02, 0.32 - d * 0.3)
-        if (Math.hypot(f.bx - f.rx, f.bz - f.rz) < 2.4 && !falla) {
-          f.rSwing = 1
-          devolverTenis(m, lado, { z: p.z })
-        } else {
-          void useJuegoCancha
-            .getState()
-            .puntoTenis('yo')
-            .then((msg) => celebrar(m, msg))
-          saquePendiente = true
-          f.proximoEvento = ahora + 1500
-        }
-      }
+      f.enVentana = false
+      if (bolaBateada) resolverBatazo(m)
+      else strikeBeis(solo) // pasó de largo sin contacto
     }
     return
   }
+
   f.enVentana = false
-  if (saquePendiente) {
-    if (solo) {
-      // Saque del frontón: el muro te la lanza de vuelta.
-      f.bx = -lado * 0.2
-      f.bz = 0
-      f.by = 1.2
-      if (ahora >= f.proximoEvento) {
-        saquePendiente = false
-        f.botesTenis = 0
-        reboteDelMuro(m)
-      }
-    } else {
-      // El rival vuelve a su posición y saca hacia tu lado.
-      mueveRival(-lado * m.L * 0.55, 0, 4, dt)
-      f.bx = f.rx
-      f.bz = f.rz
-      f.by = 0.6
-      if (ahora >= f.proximoEvento) {
-        saquePendiente = false
-        f.rSwing = 1
-        f.botesTenis = 0
-        devolverTenis(m, lado, { z: p.z })
-      }
-    }
+  if (intento) {
+    f.swing = 1 // swing de práctica entre lanzamientos
+    f.cargaSwing = f.carga
+    f.carga = 0
   }
+  // Entre lanzamientos la bola espera en la mano del pitcher (o en la máquina).
+  if (!solo) {
+    if (mueveRival(montX, 0, 3.5, dt)) f.rHeading = Math.atan2(p.x - f.rx, p.z - f.rz)
+    f.bx = f.rx
+    f.bz = f.rz
+  } else {
+    f.bx = montX
+    f.bz = 0
+  }
+  f.by = 1.2
+  if (ahora >= f.proximoEvento) lanzarPitcheo(m, solo)
 }
 
 // ─── Componentes ───
@@ -686,7 +1117,8 @@ export function MinijuegosCanchas() {
       useCaminos.getState().activo ||
       useCanchas.getState().activo ||
       useHuerto.getState().activo ||
-      useGranja.getState().activo
+      useGranja.getState().activo ||
+      usePaintball.getState().fase != null
     if (bloqueado) {
       if (st.canchaId != null) st.terminar()
       marcoRef.current = null
@@ -727,6 +1159,66 @@ export function RaquetaModelo({ escala = 1 }: { escala?: number }) {
         <circleGeometry args={[0.15, 16]} />
         <meshStandardMaterial color="#e2e8f0" transparent opacity={0.45} side={THREE.DoubleSide} roughness={0.9} />
       </mesh>
+    </group>
+  )
+}
+
+/** Bate de béisbol procedural (barril de madera + grip + perilla). */
+export function BateModelo({ escala = 1 }: { escala?: number }) {
+  return (
+    <group scale={escala}>
+      <mesh position={[0, 0.42, 0]}>
+        <cylinderGeometry args={[0.055, 0.028, 0.78, 10]} />
+        <meshStandardMaterial color="#b45309" roughness={0.6} />
+      </mesh>
+      <mesh position={[0, 0.12, 0]}>
+        <cylinderGeometry args={[0.03, 0.03, 0.26, 10]} />
+        <meshStandardMaterial color="#1f2937" roughness={0.8} />
+      </mesh>
+      <mesh position={[0, -0.02, 0]}>
+        <cylinderGeometry args={[0.045, 0.045, 0.05, 10]} />
+        <meshStandardMaterial color="#7c2d12" roughness={0.7} />
+      </mesh>
+    </group>
+  )
+}
+
+// Orientaciones del bate EN LA MANO: guardia (suelta y cargada) e instante de
+// contacto. Se pasa de una a otra con slerp: interpolar los ángulos de Euler
+// hacía cabecear el bate (la punta bajaba a ras de suelo a media pasada).
+const Q_GUARDIA = new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.2, -0.85, 0.4))
+const Q_CARGADA = new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.2, -1.15, 0.4))
+const Q_CONTACTO = new THREE.Quaternion().setFromEuler(new THREE.Euler(-1.4, 0.55, -1.9))
+const _qGuardia = new THREE.Quaternion()
+
+/**
+ * Bate EN LA MANO del jugador mientras juega béisbol. Dos grupos encadenados
+ * que reproducen la cadena del cuerpo: el primero replica el pivote del hombro
+ * del box-man (−0.42, 1.22) y copia la rotación del BRAZO, así el bate va
+ * siempre pegado a la mano que se mueve; el segundo, en la mano, es la MUÑECA y
+ * le da al bate su movimiento propio. Sumados al giro del torso (Character), la
+ * punta describe un arco del doble de recorrido que la mano.
+ */
+export function BateJugador({ escala }: { escala: number }) {
+  const conBate = useJuegoCancha((s) => s.fase === 'jugando' && s.clase === 'beisbol')
+  const hombro = useRef<THREE.Group>(null)
+  const muneca = useRef<THREE.Group>(null)
+  useFrame(() => {
+    const pose = poseBateo()
+    if (!pose) return
+    if (hombro.current) hombro.current.rotation.x = pose.brazo
+    if (muneca.current) {
+      _qGuardia.slerpQuaternions(Q_GUARDIA, Q_CARGADA, pose.carga)
+      muneca.current.quaternion.slerpQuaternions(_qGuardia, Q_CONTACTO, pose.mezcla)
+    }
+  })
+  if (!conBate) return null
+  return (
+    <group ref={hombro} position={[-0.42 * escala, 1.22 * escala, 0]}>
+      {/* Empuñadura al final del brazo (la mano), con el bate hacia arriba. */}
+      <group ref={muneca} position={[0, -0.56 * escala, 0.06 * escala]}>
+        <BateModelo escala={escala} />
+      </group>
     </group>
   )
 }
@@ -828,6 +1320,7 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
     const solo = modo === 'solo'
     if (m.clase === 'futbol') tickFutbol(m, solo, dt)
     else if (m.clase === 'basket') tickBasket(m, solo, dt)
+    else if (m.clase === 'beisbol') tickBeisbol(m, solo, dt)
     else tickTenis(m, solo, dt)
     const f = juegoFrame
     // Los raquetazos se desvanecen solos.
@@ -835,7 +1328,7 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
     f.rSwing = Math.max(0, f.rSwing - dt * 3.2)
     if (pelota.current) {
       const bw = aMundo(m, f.bx, f.bz)
-      const r = m.clase === 'tenis' ? 0.16 : 0.33
+      const r = m.clase === 'tenis' ? 0.16 : m.clase === 'beisbol' ? 0.14 : 0.33
       pelota.current.position.set(bw.x, m.sueloY + r + f.by, bw.z)
     }
     if (rival.current) {
@@ -890,9 +1383,9 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
       {/* Pelota. */}
       <group ref={pelota}>
         <mesh>
-          <sphereGeometry args={[clase === 'tenis' ? 0.16 : 0.33, 12, 10]} />
+          <sphereGeometry args={[clase === 'tenis' ? 0.16 : clase === 'beisbol' ? 0.14 : 0.33, 12, 10]} />
           <meshStandardMaterial
-            color={clase === 'futbol' ? '#f8fafc' : clase === 'basket' ? '#f97316' : '#d9f99d'}
+            color={clase === 'basket' ? '#f97316' : clase === 'tenis' ? '#d9f99d' : '#f8fafc'}
             roughness={0.5}
           />
         </mesh>
@@ -924,6 +1417,22 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
           <mesh position={[juegoFrame.ladoJugador * 0.16, 1.0, 0]} rotation={[0, Math.PI / 2, 0]}>
             <planeGeometry args={[m.W * 2 - 0.3, 0.1]} />
             <meshStandardMaterial color="#f8fafc" roughness={0.7} />
+          </mesh>
+        </group>
+      )}
+      {/* Máquina lanzadora del béisbol solo: tripié con cañón hacia el home. */}
+      {clase === 'beisbol' && modo === 'solo' && m && (
+        <group
+          position={[aMundo(m, BEISBOL.monticulo * m.esc, 0).x, m.sueloY, aMundo(m, BEISBOL.monticulo * m.esc, 0).z]}
+          rotation-y={-m.rad}
+        >
+          <mesh position={[0, 0.45, 0]}>
+            <boxGeometry args={[0.5, 0.9, 0.5]} />
+            <meshStandardMaterial color="#334155" roughness={0.7} />
+          </mesh>
+          <mesh position={[-0.32, 1.0, 0]} rotation={[0, 0, 1.2]}>
+            <cylinderGeometry args={[0.09, 0.12, 0.7, 10]} />
+            <meshStandardMaterial color="#64748b" metalness={0.3} roughness={0.5} />
           </mesh>
         </group>
       )}

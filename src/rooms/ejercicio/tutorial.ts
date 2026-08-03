@@ -1,106 +1,142 @@
+/**
+ * Flujos de ejercicio: corren sobre el AÑO de Pep@ en la casa demo (solo
+ * navegan y señalan; no crean datos — el guard lo impediría igual).
+ */
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
-import { clickTut } from '../../core/tutorial/dom'
-import { rutinasFuerzaRepo } from '../../core/data/repository'
 import { abrirApp } from '../../core/abrirApp'
+import { clickTut, esperarTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-export const tutorialEjercicio: TutorialDef = {
-  id: 'app-ejercicio',
-  titulo: T('tut.app-ejercicio.titulo', 'Ejercicio'),
+/** Entra a una modalidad y, si se pide, a una de sus tres sub-pestañas. */
+async function irA(tab: string, sub?: string): Promise<void> {
+  clickTut(`ejercicio.tab.${tab}`)
+  if (!sub) return
+  // Sin esperar al cambio de pestaña, el segundo clic no encuentra nada.
+  await esperarTut(`ejercicio.sub.${sub}`, 3000)
+  clickTut(`ejercicio.sub.${sub}`)
+}
+
+const flujoAnio: TutorialDef = {
+  id: 'app-ejercicio--anio',
+  titulo: T('tut.app-ejercicio--anio.titulo', 'El año que Pep@ aprendió a correr'),
   resumen: T(
-    'tut.app-ejercicio.resumen',
-    'Ejercicio registra fuerza, resistencia y flexibilidad contra tus metas semanales. En Fuerza armas rutinas desde el catálogo y apuntas series; Resistencia lleva el cardio (incluso en vivo); el Cronograma agenda tus rutinas en el calendario.',
+    'tut.app-ejercicio--anio.resumen',
+    'Ejercicio reúne fuerza, resistencia y movilidad en un mismo sitio: cada sesión que registras alimenta tu racha, tus metas semanales y el historial del año.',
   ),
   preparar: () => {
     abrirApp('ejercicio')
   },
   pasos: [
     {
+      sel: 'ejercicio.metas.resumen',
+      titulo: T('tut.app-ejercicio--anio.1.titulo', 'Un año en tres números'),
       texto: T(
-        'tut.app-ejercicio.1.texto',
-        'Ejercicio lleva tu entrenamiento: fuerza, resistencia y flexibilidad, contra metas semanales.',
+        'tut.app-ejercicio--anio.1.texto',
+        'La racha cuenta los días seguidos con algo registrado, y la adherencia compara los días activos con los que te propusiste. Pep@ empezó el año sin poder trotar dos manzanas.',
       ),
-    },
-    {
-      sel: 'ejercicio.tab.metas',
       alEntrar: () => {
         clickTut('ejercicio.tab.metas')
       },
-      titulo: T('tut.app-ejercicio.2.titulo', 'Metas'),
+    },
+    {
+      sel: 'ejercicio.tab.metas',
+      titulo: T('tut.app-ejercicio--anio.2.titulo', 'Las tres modalidades'),
       texto: T(
-        'tut.app-ejercicio.2.texto',
-        'En Metas defines tu perfil semanal (sesiones de fuerza, minutos de cardio…) y ves tu cumplimiento.',
+        'tut.app-ejercicio--anio.2.texto',
+        'Las barras miden lo que llevas contra tus metas: sesiones de fuerza, minutos de carrera y minutos de movilidad. El objetivo se ajusta al periodo que elijas arriba.',
       ),
     },
     {
-      sel: 'ejercicio.fuerza.subs',
-      alEntrar: () => {
-        clickTut('ejercicio.tab.fuerza')
-      },
-      titulo: T('tut.app-ejercicio.3.titulo', 'Fuerza'),
+      sel: 'ejercicio.cronograma',
+      titulo: T('tut.app-ejercicio--anio.3.titulo', 'Las metas del año'),
       texto: T(
-        'tut.app-ejercicio.3.texto',
-        'Fuerza tiene tres zonas: Catálogo (ejercicios y armar rutinas), Rutinas (tu biblioteca) y Progreso (gráficas).',
-      ),
-    },
-    {
-      sel: 'ejercicio.fuerza.rutinas',
-      alEntrar: async (ctx) => {
-        clickTut('ejercicio.tab.fuerza')
-        clickTut('ejercicio.sub.rutinas')
-        await ctx.unaVez('rutina-ejemplo', async () => {
-          const id = await rutinasFuerzaRepo.add({
-            nombre: 'Ejemplo (tutorial) 🎓',
-            duracionMin: 20,
-            ejercicios: ['Sentadillas', 'Lagartijas'],
-            creadoEn: new Date().toISOString(),
-          })
-          ctx.datos.set('rutinaId', id)
-          ctx.alLimpiar(() => rutinasFuerzaRepo.remove(id as number))
-        })
-      },
-      titulo: T('tut.app-ejercicio.4.titulo', 'Tu biblioteca de rutinas'),
-      texto: T(
-        'tut.app-ejercicio.4.texto',
-        'Acabo de crear la rutina «Ejemplo (tutorial) 🎓» para que veas cómo aparece aquí. Se borrará al terminar el tutorial.',
-      ),
-    },
-    {
-      sel: 'ejercicio.fecha',
-      titulo: T('tut.app-ejercicio.5.titulo', 'La fecha'),
-      texto: T(
-        'tut.app-ejercicio.5.texto',
-        'Esta barra navega por días: todo lo que registres cae en la fecha visible.',
-      ),
-    },
-    {
-      sel: 'ejercicio.tab.resistencia',
-      alEntrar: () => {
-        clickTut('ejercicio.tab.resistencia')
-      },
-      titulo: T('tut.app-ejercicio.6.titulo', 'Resistencia y flexibilidad'),
-      texto: T(
-        'tut.app-ejercicio.6.texto',
-        'Resistencia registra el cardio por tramos, incluso en vivo con GPS. Flexibilidad funciona igual, con sus posturas.',
-      ),
-    },
-    {
-      sel: 'ejercicio.tab.cronograma',
-      alEntrar: () => {
-        clickTut('ejercicio.tab.cronograma')
-      },
-      titulo: T('tut.app-ejercicio.7.titulo', 'Cronograma'),
-      texto: T(
-        'tut.app-ejercicio.7.texto',
-        'El cronograma agenda tus rutinas en el calendario de la casa; el día del plan, la app te las propone.',
-      ),
-    },
-    {
-      texto: T(
-        'tut.app-ejercicio.8.texto',
-        'Eso es todo. La rutina de ejemplo se borra ahora; vuelve a este tutorial con el botón ? cuando quieras.',
+        'tut.app-ejercicio--anio.3.texto',
+        'Aquí están sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.',
       ),
     },
   ],
 }
+
+const flujoCarrera: TutorialDef = {
+  id: 'app-ejercicio--carrera',
+  titulo: T('tut.app-ejercicio--carrera.titulo', 'De cero a 42 kilómetros'),
+  resumen: T(
+    'tut.app-ejercicio--carrera.resumen',
+    'La pestaña Resistencia guarda cada salida con su distancia, su ritmo y su recorrido; el progreso resume el mes en un mapa de calor y saca tus mejores marcas.',
+  ),
+  preparar: () => {
+    abrirApp('ejercicio')
+  },
+  pasos: [
+    {
+      sel: 'ejercicio.resistencia.subs',
+      titulo: T('tut.app-ejercicio--carrera.1.titulo', 'Catálogo, rutinas y progreso'),
+      texto: T(
+        'tut.app-ejercicio--carrera.1.texto',
+        'Cada modalidad se organiza igual: el catálogo de ejercicios, tus rutinas con su historial, y el progreso. Empecemos por lo que Pep@ ya corrió.',
+      ),
+      alEntrar: () => irA('resistencia'),
+    },
+    {
+      sel: 'ejercicio.resistencia.rutinas',
+      titulo: T('tut.app-ejercicio--carrera.2.titulo', 'Cada salida queda escrita'),
+      texto: T(
+        'tut.app-ejercicio--carrera.2.texto',
+        'El historial se agrupa por año, mes y semana. Las carreras grandes guardan además el trazo del recorrido y sus tramos: ahí está el maratón, con sus parciales de diez kilómetros.',
+      ),
+      alEntrar: () => irA('resistencia', 'rutinas'),
+    },
+    {
+      sel: 'ejercicio.progreso.panel',
+      titulo: T('tut.app-ejercicio--carrera.3.titulo', 'El mapa de calor no miente'),
+      texto: T(
+        'tut.app-ejercicio--carrera.3.texto',
+        'Los huecos también cuentan la historia: el mes de la lesión de rodilla está vacío y las tres semanas de Japón, casi. Al lado salen los kilómetros totales, la salida más larga y el mejor ritmo.',
+      ),
+      alEntrar: () => irA('resistencia', 'progreso'),
+    },
+  ],
+}
+
+const flujoFuerza: TutorialDef = {
+  id: 'app-ejercicio--fuerza',
+  titulo: T('tut.app-ejercicio--fuerza.titulo', 'La fuerza que la rodilla no se llevó'),
+  resumen: T(
+    'tut.app-ejercicio--fuerza.resumen',
+    'En Fuerza registras series, repeticiones y peso; con eso la app calcula tu volumen, dibuja la progresión de cada ejercicio y guarda tus récords personales.',
+  ),
+  preparar: () => {
+    abrirApp('ejercicio')
+  },
+  pasos: [
+    {
+      sel: 'ejercicio.fuerza.rutinas',
+      titulo: T('tut.app-ejercicio--fuerza.1.titulo', 'Series, repeticiones y peso'),
+      texto: T(
+        'tut.app-ejercicio--fuerza.1.texto',
+        'Cada sesión guarda sus ejercicios con el peso que levantaste. La app recuerda la última vez para no tener que buscarla, y suma el volumen total del día.',
+      ),
+      alEntrar: () => irA('fuerza', 'rutinas'),
+    },
+    {
+      sel: 'ejercicio.fuerza.progresion',
+      titulo: T('tut.app-ejercicio--fuerza.2.titulo', 'La curva de un año'),
+      texto: T(
+        'tut.app-ejercicio--fuerza.2.texto',
+        'Elige un ejercicio y verás cómo subió: la sentadilla de Pep@ pasó de cuarenta kilos a setenta. Durante el mes de la lesión solo entrenó tren superior, y esa curva ni se enteró.',
+      ),
+      alEntrar: () => irA('fuerza', 'progreso'),
+    },
+    {
+      sel: 'ejercicio.fuerza.records',
+      titulo: T('tut.app-ejercicio--fuerza.3.titulo', 'Tus récords, sin pedirlos'),
+      texto: T(
+        'tut.app-ejercicio--fuerza.3.texto',
+        'De cada ejercicio se guarda el mejor peso, las máximas repeticiones y una estimación de tu 1RM. Los de peso corporal, como las dominadas, se marcan aparte.',
+      ),
+    },
+  ],
+}
+
+export const flujosEjercicio: TutorialDef[] = [flujoAnio, flujoCarrera, flujoFuerza]

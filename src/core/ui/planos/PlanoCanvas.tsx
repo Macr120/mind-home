@@ -92,6 +92,15 @@ import { PlanoPapelRelleno } from './PlanoPapelRelleno'
 import { usePlanoViewport } from './usePlanoViewport'
 import { usePlanoRotacionCam } from './usePlanoRotacionCam'
 import { useCam } from '../../state/cameraStore'
+import {
+  colorCuadrante,
+  colorZona,
+  cuadrantePorId,
+  cuadrantesAuto,
+  esBloqueAuto,
+  hayCuadrantes,
+  normalizarRect,
+} from '../../house/cuadrantesMapa'
 
 /** Croquis SVG ortogonal interactivo (vista en planta). */
 export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void } = {}) {
@@ -111,6 +120,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const footprints = useLayout((s) => s.footprints)
   const niveles = useLayout((s) => s.niveles)
   const editingRoomId = useLayout((s) => s.editingRoomId)
+  const editMode = useLayout((s) => s.editMode)
   const cuartos = useCuartos((s) => s.cuartos)
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
   const wallOverrides = useLayout((s) => s.wallOverrides)
@@ -205,13 +215,54 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
     return { x: tl.x, y: tl.y, w: br.x - tl.x, h: br.y - tl.y }
   }, [editingRoomId, cells, footprints, niveles, nivel])
 
+  // ── Cuadrantes del mapa: bloques de referencia (A1…) y zonas dibujadas ────────
+  const cuadrantesPropios = useLayout((s) => s.cuadrantes)
+  const agregarCuadrante = useLayout((s) => s.agregarCuadrante)
+  const cuadranteActivo = usePlanos((s) => s.cuadranteActivo)
+  const dibujandoCuadrante = usePlanos((s) => s.dibujandoCuadrante)
+  const setDibujandoCuadrante = usePlanos((s) => s.setDibujandoCuadrante)
+  const [rectCuadrante, setRectCuadrante] = useState<{ a: Cell; b: Cell } | null>(null)
+
+  /** Contornos a dibujar: en Grid todos, en el resto de modos solo el activo (sin ruido). */
+  const cuadrantesVisibles = useMemo(() => {
+    if (!hayCuadrantes(gridCols, gridRows)) return []
+    if (modo !== 'grid') {
+      const q = cuadrantePorId(cuadranteActivo, gridCols, gridRows, cuadrantesPropios)
+      return q ? [q] : []
+    }
+    return [...cuadrantesAuto(gridCols, gridRows), ...cuadrantesPropios]
+  }, [modo, gridCols, gridRows, cuadrantesPropios, cuadranteActivo])
+
+  /**
+   * Zona de TRABAJO: fuera de ella el croquis queda velado y sordo a los clics. Mismas
+   * condiciones que `zonaEdicionActiva()` (que aplica el bloqueo en 3D), pero reactivas.
+   */
+  const zonaEdicion = useMemo(
+    () =>
+      !editMode || modo === 'grid'
+        ? null
+        : (cuadrantesPropios.find((q) => q.id === cuadranteActivo) ?? null),
+    [editMode, modo, cuadranteActivo, cuadrantesPropios],
+  )
+
+  // El croquis se encaja en el cuadrante elegido para poder editarlo de cerca; editar un
+  // cuarto concreto manda sobre él por ser más específico.
+  const focoCuadrante = useMemo(() => {
+    const q = cuadrantePorId(cuadranteActivo, gridCols, gridRows, cuadrantesPropios)
+    if (!q) return null
+    const tl = celdaASvg(q.col, q.row)
+    const br = celdaASvg(q.col + q.cols, q.row + q.rows)
+    return { x: tl.x, y: tl.y, w: br.x - tl.x, h: br.y - tl.y }
+  }, [cuadranteActivo, gridCols, gridRows, cuadrantesPropios])
+  const foco = focoCuarto ?? focoCuadrante
+
   const {
     containerRef,
     mergeSvgRef,
     fitToContainer,
     cursorPan,
     viewBoxStr,
-  } = usePlanoViewport(vp.ancho, vp.alto, focoCuarto)
+  } = usePlanoViewport(vp.ancho, vp.alto, foco)
 
   const svgRefCombinado = useCallback(
     (node: SVGSVGElement | null) => {
@@ -806,6 +857,44 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
     niveles,
     zonas,
   ])
+
+  const celdaDeCuadrante = (e: React.PointerEvent) => {
+    const p = svgPoint(e.clientX, e.clientY)
+    return p ? celdaSnapEnPlano(p.x, p.y, gridCols, gridRows, 'celda') : null
+  }
+  const dibujoDown = (e: React.PointerEvent) => {
+    const c = celdaDeCuadrante(e)
+    if (!c) return
+    e.stopPropagation()
+    setRectCuadrante({ a: c, b: c })
+    // El capture mantiene el arrastre aunque el puntero salga del croquis; si el
+    // navegador lo rechaza, el trazo sigue funcionando dentro del croquis.
+    try {
+      ;(e.currentTarget as Element).setPointerCapture(e.pointerId)
+    } catch {
+      /* puntero no capturable */
+    }
+  }
+  const dibujoMove = (e: React.PointerEvent) => {
+    if (!rectCuadrante) return
+    const c = celdaDeCuadrante(e)
+    if (c) setRectCuadrante((r) => (r ? { a: r.a, b: c } : r))
+  }
+  const dibujoUp = () => {
+    if (!rectCuadrante) return
+    const nombre = `${t('constructor.cuadrantes.nuevo', 'Zona')} ${cuadrantesPropios.length + 1}`
+    const q = normalizarRect(
+      rectCuadrante.a,
+      rectCuadrante.b,
+      gridCols,
+      gridRows,
+      nombre,
+      colorZona(cuadrantesPropios.length),
+    )
+    setRectCuadrante(null)
+    setDibujandoCuadrante(false)
+    void agregarCuadrante(q)
+  }
 
   const manejarClickPlano = (e: React.PointerEvent) => {
     e.preventDefault()
@@ -1913,6 +2002,105 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
                 </g>
               )
             })}
+          </>
+        )}
+
+        {/* Cuadrantes del mapa. Los bloques de referencia (A1…) son solo BORDE; las zonas
+            dibujadas se pintan como ÁREA de su color, más opaca la que está activa. */}
+        {cuadrantesVisibles.map((q) => {
+          const { x, y } = celdaASvg(q.col, q.row)
+          const sel = cuadranteActivo === q.id
+          const auto = esBloqueAuto(q)
+          const color = colorCuadrante(q, cuadrantesPropios)
+          // Fuera del modo Grid la zona NO se rellena: sus celdas deben verse como
+          // cualquier otra para poder editarlas; el color queda solo en el borde.
+          const relleno = !auto && modo === 'grid'
+          return (
+            <g key={`cuad-${q.id}`} pointerEvents="none">
+              <rect
+                x={x + 3}
+                y={y + 3}
+                width={q.cols * PLANO_CELL_PX - 6}
+                height={q.rows * PLANO_CELL_PX - 6}
+                rx={6}
+                fill={relleno ? color : 'none'}
+                fillOpacity={relleno ? (sel ? 0.34 : 0.14) : 0}
+                stroke={color}
+                strokeWidth={sel ? 3.5 : 1.5}
+                strokeOpacity={auto && !sel ? 0.55 : 1}
+                strokeDasharray={auto ? '8 6' : undefined}
+              />
+              <text x={x + 10} y={y + 18} fill={color} fontSize={13} fontWeight={800}>
+                {q.nombre}
+              </text>
+            </g>
+          )
+        })}
+
+        {/* Velo sobre lo que queda FUERA de la zona de trabajo: además de apagarlo
+            visualmente se come los clics, así que deshabilita de una sola vez todas las
+            herramientas del croquis (celdas, aristas, botones +/− y arrastres). */}
+        {zonaEdicion && (() => {
+          const { x: zx, y: zy } = celdaASvg(zonaEdicion.col, zonaEdicion.row)
+          const zw = zonaEdicion.cols * PLANO_CELL_PX
+          const zh = zonaEdicion.rows * PLANO_CELL_PX
+          const x1 = PLANO_PAD + areaPx.ancho
+          const y1 = PLANO_PAD + areaPx.alto
+          const bandas = [
+            { k: 'n', x: PLANO_PAD, y: PLANO_PAD, w: areaPx.ancho, h: zy - PLANO_PAD },
+            { k: 's', x: PLANO_PAD, y: zy + zh, w: areaPx.ancho, h: y1 - (zy + zh) },
+            { k: 'o', x: PLANO_PAD, y: zy, w: zx - PLANO_PAD, h: zh },
+            { k: 'e', x: zx + zw, y: zy, w: x1 - (zx + zw), h: zh },
+          ]
+          return bandas.map((b) => (
+            <rect
+              key={`velo-${b.k}`}
+              x={b.x}
+              y={b.y}
+              width={Math.max(0, b.w)}
+              height={Math.max(0, b.h)}
+              fill="#0f172a"
+              fillOpacity={0.42}
+              style={{ cursor: 'not-allowed' }}
+              onPointerDown={(e) => e.stopPropagation()}
+              onPointerMove={(e) => e.stopPropagation()}
+            />
+          ))
+        })()}
+        {modo === 'grid' && dibujandoCuadrante && (
+          <>
+            {rectCuadrante && (() => {
+              const c0 = Math.min(rectCuadrante.a.col, rectCuadrante.b.col)
+              const r0 = Math.min(rectCuadrante.a.row, rectCuadrante.b.row)
+              const nc = Math.abs(rectCuadrante.b.col - rectCuadrante.a.col) + 1
+              const nr = Math.abs(rectCuadrante.b.row - rectCuadrante.a.row) + 1
+              const { x, y } = celdaASvg(c0, r0)
+              return (
+                <rect
+                  x={x}
+                  y={y}
+                  width={nc * PLANO_CELL_PX}
+                  height={nr * PLANO_CELL_PX}
+                  fill="#10b98133"
+                  stroke="#059669"
+                  strokeWidth={3}
+                  pointerEvents="none"
+                />
+              )
+            })()}
+            {/* Capa de captura por encima de todo: el arrastre marca el rectángulo. */}
+            <rect
+              x={PLANO_PAD}
+              y={PLANO_PAD}
+              width={areaPx.ancho}
+              height={areaPx.alto}
+              fill="transparent"
+              style={{ cursor: 'crosshair' }}
+              onPointerDown={dibujoDown}
+              onPointerMove={dibujoMove}
+              onPointerUp={dibujoUp}
+              onPointerCancel={() => setRectCuadrante(null)}
+            />
           </>
         )}
       </svg>

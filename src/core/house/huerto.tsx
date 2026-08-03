@@ -10,7 +10,7 @@ import { trenFrame } from '../state/trenStore'
 import { useParque } from '../state/parqueStore'
 import { dragChar } from './characterDrag'
 import { celdaEnteraBajoCursor } from './arrastreCelda'
-import { cellToWorld, SIZE } from './walls'
+import { cellToWorld, factorCelda, SIZE } from './walls'
 import { ESPECIES, estadoCultivo, celdasRegadas, type EtapaCultivo } from './cultivos'
 import { ContornoCelda } from './caminos'
 import { notificar } from '../notificaciones'
@@ -161,7 +161,9 @@ function Parcela({
 }) {
   const estado = estadoCultivo(fila, ahora, regadaDesde)
   return (
-    <group>
+    // La parcela está dibujada en metros para la celda base: se estira con la del mapa
+    // para que la tierra llene siempre su celda.
+    <group scale={factorCelda()}>
       {/* Tierra labrada. */}
       <mesh position={[0, Y + 0.04, 0]}>
         <boxGeometry args={[5.4, 0.08, 5.4]} />

@@ -1,17 +1,14 @@
-import { Icono } from '../../core/ui/iconos/Icono'
 import { useMemo, useState } from 'react'
 import { metasRepo } from '../../core/data/repository'
 import { money, money2 } from './mes'
 import { useT } from '../../core/i18n/useT'
 
-type Sim = 'compuesto' | 'simple' | 'meta' | 'credito'
-
-const SIMS: { id: Sim; labelEs: string }[] = [
-  { id: 'compuesto', labelEs: 'Compuesto' },
-  { id: 'simple', labelEs: 'Simple' },
-  { id: 'meta', labelEs: 'Meta' },
-  { id: 'credito', labelEs: 'Crédito' },
-]
+/**
+ * Simuladores del despacho. Ya no son una pestaña propia: viven dentro de
+ * Metas, cada uno bajo el tipo de meta que le toca (compuesto/simple →
+ * inversión, crédito → deuda). Financieras (antes Ahorro) usa las
+ * calculadoras de `CalculadorasFinancieras.tsx` en vez de un simulador.
+ */
 
 const num = (s: string) => {
   const v = parseFloat(s)
@@ -22,37 +19,9 @@ const num = (s: string) => {
 const tasaMensual = (tasaAnual: number, m: number) =>
   Math.pow(1 + tasaAnual / 100 / m, m / 12) - 1
 
-export function SimuladoresTab() {
-  const t = useT()
-  const [sim, setSim] = useState<Sim>('compuesto')
-
-  return (
-    <div className="space-y-4">
-      <div className="flex gap-2">
-        {SIMS.map((s) => (
-          <button
-            key={s.id}
-            onClick={() => setSim(s.id)}
-            className={`flex-1 rounded-lg py-2 text-sm font-semibold transition ${
-              sim === s.id ? 'bg-indigo-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            {t(`despacho.s.${s.id}`, s.labelEs)}
-          </button>
-        ))}
-      </div>
-
-      {sim === 'compuesto' && <SimCompuesto />}
-      {sim === 'simple' && <SimSimple />}
-      {sim === 'meta' && <SimMeta />}
-      {sim === 'credito' && <SimCredito />}
-    </div>
-  )
-}
-
 // ----- Interés compuesto con aportaciones -----
 
-function SimCompuesto() {
+export function SimCompuesto() {
   const t = useT()
   const [inicial, setInicial] = useState('10000')
   const [aporte, setAporte] = useState('1000')
@@ -197,7 +166,7 @@ function TablaAnual({ columnas, filas }: { columnas: string[]; filas: string[][]
 
 // ----- Interés simple (con comparativa vs compuesto) -----
 
-function SimSimple() {
+export function SimSimple() {
   const t = useT()
   const [capital, setCapital] = useState('10000')
   const [tasa, setTasa] = useState('10')
@@ -277,90 +246,20 @@ function SimSimple() {
   )
 }
 
-// ----- Meta: aportación mensual necesaria -----
-
-function SimMeta() {
-  const t = useT()
-  const metas = metasRepo.useAll() ?? []
-  const [objetivo, setObjetivo] = useState('100000')
-  const [inicial, setInicial] = useState('0')
-  const [tasa, setTasa] = useState('8')
-  const [anos, setAnos] = useState('5')
-
-  const r = useMemo(() => {
-    const M = num(objetivo)
-    const P = num(inicial)
-    const iMes = num(tasa) / 100 / 12
-    const n = Math.min(60, Math.max(1, Math.round(num(anos)))) * 12
-    const factor = Math.pow(1 + iMes, n)
-    const aporte = iMes === 0 ? (M - P) / n : ((M - P * factor) * iMes) / (factor - 1)
-    if (aporte <= 0) return { listo: true as const }
-    const aportado = P + aporte * n
-    return { listo: false as const, aporte, n, aportado, interes: M - aportado }
-  }, [objetivo, inicial, tasa, anos])
-
-  const usarMeta = (id: string) => {
-    const m = metas.find((x) => String(x.id) === id)
-    if (!m) return
-    setObjetivo(String(m.objetivo))
-    setInicial(String(m.ahorrado))
-  }
-
-  return (
-    <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
-        {metas.length > 0 && (
-          <select
-            defaultValue=""
-            onChange={(e) => usarMeta(e.target.value)}
-            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
-          >
-            <option value="">{t('despacho.s.usarMeta', 'Usar una de tus metas…')}</option>
-            {metas.map((m) => (
-              <option key={m.id} value={String(m.id)}>
-                🎯 {m.nombre} · {money(m.objetivo)}
-              </option>
-            ))}
-          </select>
-        )}
-        <div className="grid grid-cols-2 gap-3">
-          <Campo label={t('despacho.s.objetivo', 'Cantidad meta $')} valor={objetivo} setValor={setObjetivo} />
-          <Campo label={t('despacho.s.inicial', 'Capital inicial $')} valor={inicial} setValor={setInicial} />
-          <Campo label={t('despacho.s.tasaAnual', 'Tasa anual %')} valor={tasa} setValor={setTasa} />
-          <Campo label={t('despacho.s.anos', 'Años')} valor={anos} setValor={setAnos} />
-        </div>
-      </div>
-
-      {r.listo ? (
-        <div className="rounded-xl bg-emerald-500/10 border border-emerald-500/30 p-4 text-sm text-emerald-300">
-          <Icono nombre="fiesta" /> {t('despacho.s.metaLista', 'Con tu capital inicial y esa tasa ya alcanzas la meta sin aportar más.')}
-        </div>
-      ) : (
-        <>
-          <div className="rounded-xl bg-white/5 p-4 border border-white/10 text-center">
-            <p className="text-xs text-white/50">{t('despacho.s.aporteNecesario', 'Aportación mensual necesaria')}</p>
-            <p className="text-3xl font-bold text-indigo-400 mt-1">{money2(r.aporte)}</p>
-            <p className="text-xs text-white/40 mt-1">
-              {t('despacho.s.durante', `durante ${r.n} meses`, { n: String(r.n) })}
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <Resultado titulo={t('despacho.s.deTuBolsillo', 'De tu bolsillo')} valor={money(r.aportado)} color="#e5e7eb" />
-            <Resultado titulo={t('despacho.s.generaInteres', 'Lo pone el interés')} valor={money(r.interes)} color="#34d399" />
-          </div>
-        </>
-      )}
-    </div>
-  )
-}
-
 // ----- Crédito: mensualidad y amortización -----
 
-function SimCredito() {
+export function SimCredito() {
   const t = useT()
+  const deudas = (metasRepo.useAll() ?? []).filter((m) => (m.tipo ?? 'ahorro') === 'deuda')
   const [monto, setMonto] = useState('300000')
   const [tasa, setTasa] = useState('12')
   const [plazo, setPlazo] = useState('48')
+
+  const usarDeuda = (id: string) => {
+    const d = deudas.find((x) => String(x.id) === id)
+    if (!d) return
+    setMonto(String(Math.max(0, d.objetivo - d.ahorrado)))
+  }
 
   const r = useMemo(() => {
     const C = num(monto)
@@ -388,10 +287,26 @@ function SimCredito() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 grid grid-cols-3 gap-3">
-        <Campo label={t('despacho.s.montoCredito', 'Monto del crédito $')} valor={monto} setValor={setMonto} />
-        <Campo label={t('despacho.s.tasaAnual', 'Tasa anual %')} valor={tasa} setValor={setTasa} />
-        <Campo label={t('despacho.s.plazoMeses', 'Plazo (meses)')} valor={plazo} setValor={setPlazo} />
+      <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
+        {deudas.length > 0 && (
+          <select
+            defaultValue=""
+            onChange={(e) => usarDeuda(e.target.value)}
+            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
+          >
+            <option value="">{t('despacho.s.usarDeuda', 'Usar una de tus deudas…')}</option>
+            {deudas.map((d) => (
+              <option key={d.id} value={String(d.id)}>
+                💳 {d.nombre} · {money(Math.max(0, d.objetivo - d.ahorrado))}
+              </option>
+            ))}
+          </select>
+        )}
+        <div className="grid grid-cols-3 gap-3">
+          <Campo label={t('despacho.s.montoCredito', 'Monto del crédito $')} valor={monto} setValor={setMonto} />
+          <Campo label={t('despacho.s.tasaAnual', 'Tasa anual %')} valor={tasa} setValor={setTasa} />
+          <Campo label={t('despacho.s.plazoMeses', 'Plazo (meses)')} valor={plazo} setValor={setPlazo} />
+        </div>
       </div>
 
       <div className="rounded-xl bg-white/5 p-4 border border-white/10 text-center">
@@ -419,7 +334,7 @@ function SimCredito() {
 
 // ----- Piezas compartidas -----
 
-function Campo({
+export function Campo({
   label,
   valor,
   setValor,
@@ -442,7 +357,7 @@ function Campo({
   )
 }
 
-function Resultado({ titulo, valor, color }: { titulo: string; valor: string; color: string }) {
+export function Resultado({ titulo, valor, color }: { titulo: string; valor: string; color: string }) {
   return (
     <div className="rounded-xl bg-white/5 p-3 border border-white/10">
       <p className="text-xs text-white/50">{titulo}</p>

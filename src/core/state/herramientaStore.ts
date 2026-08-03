@@ -3,6 +3,8 @@ import type { TipoVehiculo } from '../house/vehiculos'
 import { sonar } from '../audio/sfx'
 import { useGrafitis } from './grafitiStore'
 import { usePlanos } from './planosStore'
+import { miraFrame } from './miraFrame'
+import { useCam } from './cameraStore'
 
 /**
  * Herramientas de la rueda (estilo GTA) y acciones del personaje. Se pueden
@@ -14,7 +16,7 @@ import { usePlanos } from './planosStore'
  */
 export type Herramienta =
   | 'saltar' | 'correr' | 'bailar' | 'cuerda' | 'mortal' | 'saludar'
-  | 'laser' | 'portales' | 'fuegos' | 'burbujas' | 'grafiti'
+  | 'laser' | 'pintura' | 'portales' | 'fuegos' | 'burbujas' | 'grafiti'
   /** Atajos de construcción: activan el constructor de mapa en 3D sin abrir el editor. */
   | 'construir'
   | TipoVehiculo
@@ -25,6 +27,9 @@ export const DUR_SALTO = 600 // ms
 export const ALTURA_SALTO = 1.1
 export const LARGO_RAYO = 14 // alcance máximo del blaster (unidades de mundo)
 export const CORRER_MULT = 1.8
+/** Agachado: alto del cuerpo (escala Y) y freno de la velocidad a pie. */
+export const AGACHADO_ALTO = 0.6
+export const AGACHADO_MULT = 0.45
 export const PERIODO_CUERDA = 550 // ms por vuelta de la cuerda
 export const ALTURA_CUERDA = 0.28
 export const DUR_SALUDO = 1800 // ms
@@ -32,6 +37,8 @@ export const ANGULO_BRAZO_CUERDA = -0.6
 
 export const accionFrame = {
   correr: false,
+  /** Agachado (tecla Ctrl): sostenido mientras se mantiene la tecla. */
+  agachado: false,
   bailando: false,
   cuerda: false,
   burbujas: false,
@@ -39,8 +46,12 @@ export const accionFrame = {
   saltoInicio: 0,
   /** El salto en curso es una voltereta (mortal). */
   mortal: false,
-  /** performance.now() del inicio del saludo; 0 = sin saludo. */
-  saludoInicio: 0,
+  /**
+   * performance.now() del inicio del saludo de cada mano; 0 = sin saludo. Son
+   * dos porque las teclas 1 y 2 pueden levantar las dos manos a la vez.
+   */
+  saludoDer: 0,
+  saludoIzq: 0,
   /** Timestamp del último disparo. */
   disparoT: 0,
   /** Hay un portal por colocar (Character lo resuelve en su frame). */
@@ -71,11 +82,17 @@ export function offsetCuerda(ahora: number): number {
   return ALTURA_CUERDA * 4 * p * (1 - p)
 }
 
-/** Ángulo del brazo saludando, o null si el saludo ya expiró (se limpia solo). */
-export function anguloSaludo(ahora: number): number | null {
-  if (!accionFrame.saludoInicio) return null
-  if (ahora - accionFrame.saludoInicio >= DUR_SALUDO) {
-    accionFrame.saludoInicio = 0
+/**
+ * Ángulo del brazo saludando, o null si ese saludo ya expiró (se limpia solo).
+ * `derecha` es la mano derecha DEL AVATAR: como mira hacia +Z, es el brazo en X
+ * negativa (al que el código llama «brazoI» y las mangas con x < 0).
+ */
+export function anguloSaludo(ahora: number, derecha: boolean): number | null {
+  const inicio = derecha ? accionFrame.saludoDer : accionFrame.saludoIzq
+  if (!inicio) return null
+  if (ahora - inicio >= DUR_SALUDO) {
+    if (derecha) accionFrame.saludoDer = 0
+    else accionFrame.saludoIzq = 0
     return null
   }
   return -2.6 + Math.sin(ahora * 0.01) * 0.3
@@ -102,15 +119,18 @@ interface HerramientaState {
   bailando: boolean
   cuerda: boolean
   burbujas: boolean
+  /** Espejo reactivo de `accionFrame.apuntando` (lo lee la mira del HUD). */
+  apuntando: boolean
   equipar: (h: Herramienta) => void
   soltarTodo: () => void
   setCorrer: (v: boolean) => void
   setBailando: (v: boolean) => void
   setCuerda: (v: boolean) => void
   setBurbujas: (v: boolean) => void
+  setApuntar: (v: boolean) => void
   saltar: () => void
   mortal: () => void
-  saludar: () => void
+  saludar: (mano?: 'der' | 'izq') => void
   disparar: () => void
   colocarPortal: () => void
   pintarGrafiti: () => void
@@ -119,6 +139,12 @@ interface HerramientaState {
 export const useHerramienta = create<HerramientaState>((set, get) => {
   /** Apaga la acción sostenida de una herramienta al desequiparla. */
   const apagar = (h: Herramienta) => {
+    // Soltar un arma baja la mira: si no, la cámara se quedaba pegada al hombro.
+    if (h === 'laser' || h === 'pintura') {
+      miraFrame.apuntando = false
+      useCam.getState().soltarMira()
+      set({ apuntando: false })
+    }
     if (h === 'correr') {
       accionFrame.correr = false
       set({ correr: false })
@@ -146,6 +172,7 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
     bailando: false,
     cuerda: false,
     burbujas: false,
+    apuntando: false,
     // Toggle: equipar/desequipar; con el máximo puesto, la nueva desplaza a la más antigua.
     equipar: (h) => {
       const eq = get().equipadas
@@ -178,6 +205,12 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
       accionFrame.burbujas = v
       set({ burbujas: v })
     },
+    setApuntar: (v) => {
+      if (miraFrame.apuntando === v) return
+      miraFrame.apuntando = v
+      if (!v) useCam.getState().soltarMira()
+      set({ apuntando: v })
+    },
     saltar: () => {
       const ahora = performance.now()
       if (accionFrame.saltoInicio && ahora - accionFrame.saltoInicio < DUR_SALTO) return
@@ -192,9 +225,10 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
       accionFrame.mortal = true
       sonar('mortal')
     },
-    saludar: () => {
-      if (!accionFrame.saludoInicio) {
-        accionFrame.saludoInicio = performance.now()
+    saludar: (mano = 'der') => {
+      const k = mano === 'der' ? 'saludoDer' : 'saludoIzq'
+      if (!accionFrame[k]) {
+        accionFrame[k] = performance.now()
         sonar('saludo')
       }
     },
@@ -210,3 +244,7 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
     },
   }
 })
+
+if (import.meta.env.DEV) {
+  ;(window as unknown as { useHerramienta: typeof useHerramienta }).useHerramienta = useHerramienta
+}

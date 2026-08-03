@@ -1,18 +1,24 @@
+import { lazy } from 'react'
 import type { RoomModule } from '../../core/registry'
 import { lecturasDiarioRepo } from '../../core/data/repository'
-import { DiarioApp } from './DiarioApp'
-import { tutorialDiario } from './tutorial'
+import { flujosDiario } from './tutorial'
 import { COLOR } from './constantes'
+import { OPERACIONES_IA } from './costosIA'
+
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const DiarioApp = lazy(() => import('./DiarioApp').then((m) => ({ default: m.DiarioApp })))
 
 const diario: RoomModule = {
   id: 'diario',
   nombre: 'Noticias · Periódico',
   icon: '📰',
   categoria: 'complemento',
-  posicion: [-3, 0, 6],
   color: COLOR,
   App: DiarioApp,
-  tutorial: tutorialDiario,
+  operacionesIA: OPERACIONES_IA,
+  flujos: flujosDiario,
   metaDiaria: {
     clave: 'diario.metaDiaria',
     etiquetaEs: 'Lee el diario de hoy',

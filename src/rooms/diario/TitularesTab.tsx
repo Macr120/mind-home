@@ -52,7 +52,7 @@ export function TitularesTab({ titulares }: { titulares: Titular[] }) {
   const visibles = filtro ? titulares.filter((n) => n.categoria === filtro) : titulares
 
   return (
-    <div className="space-y-4">
+    <div data-tut="diario.titulares.lista" className="space-y-4">
       <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1.5">
         <ChipCategoria color={COLOR} activo={filtro === null} onClick={() => setFiltro(null)}>
           {t('diario.cat.todo', 'Todo')}

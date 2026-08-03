@@ -208,26 +208,3 @@ export function distanciaAPistaLibre(x: number, z: number): number {
 
 export const enPistaLibre = (x: number, z: number) =>
   habilitada && distanciaAPistaLibre(x, z) <= ANCHO_MEDIO_LIBRE
-
-/** Índice de la muestra más cercana; con `desde`, búsqueda por ventana ±40. */
-export function idxCercanoLibre(x: number, z: number, desde?: number): number {
-  const n = muestras.length
-  if (n === 0) return 0
-  let mejor = 0
-  let d2Min = Infinity
-  const probar = (i: number) => {
-    const dx = x - muestras[i].x
-    const dz = z - muestras[i].z
-    const d2 = dx * dx + dz * dz
-    if (d2 < d2Min) {
-      d2Min = d2
-      mejor = i
-    }
-  }
-  if (desde == null) {
-    for (let i = 0; i < n; i++) probar(i)
-  } else {
-    for (let k = -40; k <= 40; k++) probar((desde + k + n) % n)
-  }
-  return mejor
-}

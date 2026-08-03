@@ -1,6 +1,5 @@
 import type { MoodMusica } from '../state/ajustesStore'
 import { getPlantilla } from '../registry'
-import { getCuarto } from '../state/cuartosStore'
 
 /**
  * Tema musical por cuarto: cada cuarto puede tener su propio ambiente de la
@@ -8,8 +7,6 @@ import { getCuarto } from '../state/cuartosStore'
  * usuario guardó en el cuarto ('silencio' = cuarto callado) → el ambiente
  * sugerido por su primera app asignada → null (sigue el ambiente global).
  */
-
-export type TemaCuarto = MoodMusica | 'silencio'
 
 /** Los 12 ambientes en orden de UI (etiqueta por i18n: `ajustes.musica.mood.<id>`). */
 export const MOODS_LISTA: { id: MoodMusica; emoji: string; defecto: string }[] = [
@@ -77,12 +74,4 @@ export function temaAutoDeCuarto(
     if (m) return m
   }
   return null
-}
-
-/** Tema efectivo de un cuarto: override guardado → automático por su app. */
-export function temaDeCuarto(
-  cuartoId: string,
-  objetos: { roomId: string; plantillaId?: string }[],
-): TemaCuarto | null {
-  return getCuarto(cuartoId)?.temaMusical ?? temaAutoDeCuarto(cuartoId, objetos)
 }

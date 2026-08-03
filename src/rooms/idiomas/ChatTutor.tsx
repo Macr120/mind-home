@@ -19,6 +19,8 @@ import { ubicarCharla, type AnclaTema } from './arbol'
 import { DestilarPanel } from './DestilarPanel'
 import { TarjetaForm, type TarjetaFormInicial } from './TarjetaForm'
 import { hablar, hayTTS } from './tts'
+import { Creditos } from '../../core/ui/Creditos'
+import { OP_CHARLA, OP_CHARLA_NUEVA, OP_EXTRAER_TARJETAS } from './costosIA'
 
 /**
  * Charla de práctica con el tutor: burbujas estilo WhatsApp (patrón de
@@ -210,6 +212,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
           >
             <Icono nombre="registros" /> {t('idiomas.charla.destilar', 'Extraer')}
           </button>
+          <Creditos op={OP_EXTRAER_TARJETAS} />
           <button
             type="button"
             onClick={() => setBorrando(true)}
@@ -339,6 +342,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
           }
           className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-sm outline-none focus:border-white/30 disabled:opacity-40"
         />
+        <Creditos op={conv?.temaId ? OP_CHARLA : OP_CHARLA_NUEVA} />
         <button
           type="submit"
           disabled={!conIA || !input.trim() || pensando}

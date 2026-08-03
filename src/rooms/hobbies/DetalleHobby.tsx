@@ -153,7 +153,7 @@ export function DetalleHobby({
         )}
       </div>
 
-      <div className="grid grid-cols-5 gap-2 text-center">
+      <div data-tut="hobbies.detalle.stats" className="grid grid-cols-5 gap-2 text-center">
         {stats.map((s, i) => (
           <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-2">
             <p className="text-sm font-bold" style={i === 0 && racha > 0 ? { color: hobby.color } : undefined}>
@@ -276,7 +276,9 @@ export function DetalleHobby({
         </button>
       </form>
 
-      <HeatmapAnual minPorDia={porDia} color={hobby.color} />
+      <div data-tut="hobbies.detalle.heatmap">
+        <HeatmapAnual minPorDia={porDia} color={hobby.color} />
+      </div>
       <HeatmapMes minPorDia={porDia} color={hobby.color} />
 
       <Proyectos
@@ -295,7 +297,7 @@ export function DetalleHobby({
       </div>
 
       {sesiones.length > 0 && (
-        <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+        <div data-tut="hobbies.detalle.sesiones" className="rounded-xl border border-white/10 bg-white/5 p-3">
           <p className="mb-2 text-xs font-semibold">{t('hobbies.sesion.todas', 'Tus sesiones')}</p>
           <Archivador
             items={sesiones}

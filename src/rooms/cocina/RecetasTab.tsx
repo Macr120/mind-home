@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { MomentoComida, Receta } from '../../core/data/db'
+import type { DietaGuardada, MomentoComida, Receta } from '../../core/data/db'
 import { comidasRepo, itemsCompraRepo, listasCompraRepo, recetasRepo } from '../../core/data/repository'
 import { adivinarCategoria } from './categoriasCompra'
 import { MOMENTOS } from './constantes'
@@ -11,34 +11,47 @@ import { Portada } from './Portada'
 import { urlImagenReceta } from './imagenesPreset'
 import { promptReceta } from './promptsFoto'
 import { crearRecetaIA } from './recetaIA'
+import { fotoIA } from './fotoIA'
+import { costoReceta } from './costosIA'
 import { iaActiva } from '../../core/chat/ia'
+import { imagenIaActiva } from '../../core/imagenIA'
+import { Creditos } from '../../core/ui/Creditos'
 import { useT } from '../../core/i18n/useT'
 
-export function RecetasTab({ recetas }: { recetas: Receta[] }) {
+export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: DietaGuardada[] }) {
   const t = useT()
   const [busqueda, setBusqueda] = useState('')
   // null = todas · '__sin__' = sin carpeta · otro = nombre de carpeta
   const [carpetaSel, setCarpetaSel] = useState<string | null>(null)
+  /** Id de la dieta por la que se filtra; null = todas las recetas. */
+  const [dietaSel, setDietaSel] = useState<number | null>(null)
   const [seleccionadaId, setSeleccionadaId] = useState<number | null>(null)
   const [editando, setEditando] = useState<Receta | 'nueva' | null>(null)
   const [peticionIA, setPeticionIA] = useState<string | null>(null)
-  const [generando, setGenerando] = useState(false)
+  // '' = quieto · 'receta' = escribiéndola · 'foto' = pintando el platillo.
+  const [fase, setFase] = useState<'' | 'receta' | 'foto'>('')
   const [errorIA, setErrorIA] = useState('')
+  const generando = fase !== ''
 
   const generar = async () => {
     const peticion = (peticionIA ?? '').trim()
     if (!peticion || generando) return
-    setGenerando(true)
+    setFase('receta')
     setErrorIA('')
     try {
       const r = await crearRecetaIA(peticion)
+      let foto: Blob | undefined
+      if (imagenIaActiva()) {
+        setFase('foto')
+        foto = await fotoIA(promptReceta(r))
+      }
       // No se guarda todavía: se abre el formulario para revisar y confirmar.
-      setEditando({ ...r, fuente: 'ia', creadaEn: new Date().toISOString() })
+      setEditando({ ...r, foto, fuente: 'ia', creadaEn: new Date().toISOString() })
       setPeticionIA(null)
     } catch {
       setErrorIA(t('cocina.rec.errorIA', 'No se pudo crear la receta. Inténtalo otra vez.'))
     } finally {
-      setGenerando(false)
+      setFase('')
     }
   }
 
@@ -52,14 +65,17 @@ export function RecetasTab({ recetas }: { recetas: Receta[] }) {
 
   const filtradas = useMemo(() => {
     const q = normalizar(busqueda.trim())
-    if (!q) return recetas
-    return recetas.filter(
+    const dePlan = dietas.find((d) => d.id === dietaSel)?.recetaIds
+    let lista = recetas
+    if (dePlan) lista = lista.filter((r) => r.id != null && dePlan.includes(r.id))
+    if (!q) return lista
+    return lista.filter(
       (r) =>
         normalizar(r.nombre).includes(q) ||
         r.etiquetas.some((e) => normalizar(e).includes(q)) ||
         (r.carpeta ? normalizar(r.carpeta).includes(q) : false),
     )
-  }, [recetas, busqueda])
+  }, [recetas, busqueda, dietas, dietaSel])
 
   const grupos = useMemo(() => {
     const sinCarpeta = (r: Receta) => !r.carpeta?.trim()
@@ -106,15 +122,16 @@ export function RecetasTab({ recetas }: { recetas: Receta[] }) {
           placeholder={t('cocina.rec.buscar', 'Buscar receta o etiqueta...')}
           className="flex-1 rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
         />
-        {iaActiva() && (
-          <button
-            type="button"
-            onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
-            className="shrink-0 rounded-lg bg-amber-600 px-3 py-2 text-sm font-bold texto-cta hover:brightness-110"
-          >
-            <Icono nombre="brillo" /> {t('cocina.rec.crearIA', 'Con IA')}
-          </button>
-        )}
+        {/* Siempre visible aunque no haya IA (deshabilitado): es el camino corto
+            para tener receta y foto de una vez, y oculto nadie lo descubre. */}
+        <button
+          type="button"
+          onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
+          disabled={!iaActiva()}
+          className="shrink-0 rounded-lg bg-amber-600 px-3 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
+        >
+          <Icono nombre="brillo" /> {t('cocina.rec.crearIA', 'Con IA')}
+        </button>
         <button
           type="button"
           onClick={() => setEditando('nueva')}
@@ -123,6 +140,12 @@ export function RecetasTab({ recetas }: { recetas: Receta[] }) {
           <Icono nombre="agregar" /> {t('cocina.rec.nueva', 'Nueva')}
         </button>
       </div>
+
+      {!iaActiva() && (
+        <p className="text-[11px] text-white/40">
+          {t('cocina.ia.sinClave', 'Configura la IA en el chat para crear recetas y dietas con imágenes.')}
+        </p>
+      )}
 
       {peticionIA !== null && (
         <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 space-y-2">
@@ -139,9 +162,37 @@ export function RecetasTab({ recetas }: { recetas: Receta[] }) {
             disabled={!peticionIA.trim() || generando}
             className="w-full rounded-lg bg-amber-600 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
           >
-            {generando ? t('cocina.rec.generando', 'Cocinando…') : t('cocina.rec.generar', 'Crear receta')}
+            {fase === 'receta'
+              ? t('cocina.rec.generando', 'Cocinando…')
+              : fase === 'foto'
+              ? t('cocina.rec.generandoFoto', 'Emplatando la foto…')
+              : t('cocina.rec.generar', 'Crear receta')}
           </button>
+          <div className="flex items-center gap-2">
+            <Creditos n={costoReceta(imagenIaActiva())} />
+            <span className="text-[10px] text-white/40">
+              {imagenIaActiva()
+                ? t('cocina.ia.costoReceta', 'La receta y su foto')
+                : t('cocina.ia.costoRecetaSinFoto', 'Solo la receta: sin proveedor de imágenes')}
+            </span>
+          </div>
           {errorIA && <p className="text-xs text-amber-300">{errorIA}</p>}
+        </div>
+      )}
+
+      {/* Dos filtros que se cruzan: la dieta dice QUÉ recetas, la carpeta cómo se
+          agrupan. Las dietas van primero porque recortan mucho más. */}
+      {dietas.length > 0 && (
+        <div className="flex gap-1.5 overflow-x-auto pb-1">
+          <ChipCarpeta activo={dietaSel === null} onClick={() => setDietaSel(null)} label={t('cocina.rec.todasDietas', 'Todas las dietas')} />
+          {dietas.map((d) => (
+            <ChipCarpeta
+              key={d.id}
+              activo={dietaSel === d.id}
+              onClick={() => setDietaSel(d.id ?? null)}
+              label={d.nombre}
+            />
+          ))}
         </div>
       )}
 
@@ -161,6 +212,8 @@ export function RecetasTab({ recetas }: { recetas: Receta[] }) {
         <p className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm text-white/40">
           {recetas.length === 0
             ? t('cocina.rec.vacio', 'Tu recetario está vacío. Crea una receta o pídesela al asistente.')
+            : dietaSel !== null && !busqueda.trim()
+            ? t('cocina.rec.sinDeDieta', 'Esta dieta todavía no tiene recetas en el recetario.')
             : t('cocina.rec.sinResultados', 'Ninguna receta coincide con la búsqueda.')}
         </p>
       )}
@@ -504,8 +557,15 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
       grasas: Math.max(0, parseInt(grasas, 10) || 0),
     }
     if (receta?.id) await recetasRepo.update(receta.id, datos)
-    // Sin id pero con receta = viene precargada de la IA; conserva su origen.
-    else await recetasRepo.add({ ...datos, fuente: receta?.fuente ?? 'manual', creadaEn: new Date().toISOString() })
+    // Sin id pero con receta = viene precargada de la IA; conserva su origen y la
+    // foto que se generó con ella (al editar no se manda: borraría la que tiene).
+    else
+      await recetasRepo.add({
+        ...datos,
+        foto: receta?.foto,
+        fuente: receta?.fuente ?? 'manual',
+        creadaEn: new Date().toISOString(),
+      })
     onCerrar()
   }
 
@@ -525,6 +585,17 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
       </div>
 
       <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
+        {/* Foto recién generada con la receta (aún sin guardar): que se vea antes
+            de confirmar. La de una receta guardada se cambia en su detalle. */}
+        {!receta?.id && receta?.foto && (
+          <Portada
+            foto={receta.foto}
+            emoji={emoji}
+            nombre={nombre}
+            className="aspect-video w-full rounded-lg border border-white/10"
+            tamEmoji="text-5xl"
+          />
+        )}
         <div className="flex gap-2">
           <input
             value={emoji}

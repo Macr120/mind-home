@@ -13,7 +13,6 @@ import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
 import { plantillasCuarto, getPlantilla, DESCRIPCIONES } from '../registry'
 import { asignarPlantillaACuarto } from '../gamificacion/plantillaBundle'
-import { elegirPlan, type Plan } from '../edicion'
 import { hayBackend } from '../cuenta/supabase'
 import { useEditorUi } from '../state/editorUiStore'
 import { useTutorial } from '../tutorial/tutorialStore'
@@ -29,10 +28,11 @@ import {
 } from './bienvenidaStore'
 
 /**
- * Menú de bienvenida de primera vez: idioma → intereses (crean cuartos con su
- * app) → apariencia de la interfaz → asistente → plan (local sin IA / Pro).
- * Idioma y apariencia se aplican en vivo; el resto, al confirmar. Al terminar
- * toma el relevo la guía de 3 pasos (`GuiaPasos`).
+ * Menú de bienvenida de primera vez: idioma → apariencia de la interfaz →
+ * intereses (crean cuartos con su app) → personaje → asistente. Idioma y
+ * apariencia se aplican en vivo; el resto, al confirmar. Al terminar toma el
+ * relevo la guía de 3 pasos (`GuiaPasos`). (El plan no se elige aquí: se entra
+ * en modo local sin decidir nada, y la cuenta vive en Configuraciones → Cuenta.)
  */
 export function BienvenidaOverlay() {
   const abierto = useBienvenida((s) => s.abierto)
@@ -206,7 +206,7 @@ function GuiaPasos() {
   )
 }
 
-const TOTAL_PASOS = 6
+const TOTAL_PASOS = 5
 
 function Wizard() {
   const t = useT()
@@ -225,7 +225,6 @@ function Wizard() {
   const [personajeSel, setPersonajeSel] = useState<string>('base')
   const [capturas, setCapturas] = useState<Record<string, string> | null>(null)
   const [mascotaSel, setMascotaSel] = useState<string>(useMascota.getState().mascota)
-  const [plan, setPlan] = useState<Plan>('pro')
   const [ocupado, setOcupado] = useState(false)
   // Apps aún sin asignar al abrir: al relanzar no se ofrecen las que ya tienes.
   const disponibles = useMemo(() => {
@@ -262,7 +261,6 @@ function Wizard() {
         if (preset) await diseno.setAvatarCuerpoPreset(preset)
       }
       await useMascota.getState().setMascota(mascotaSel)
-      elegirPlan(plan)
       localStorage.setItem(LS_BIENVENIDA, '1')
       useBienvenida.getState().abrirGuia()
     } finally {
@@ -293,32 +291,12 @@ function Wizard() {
       muestra: <Shapes size="1em" strokeWidth={2} className="inline-block" />,
     },
   ]
-  const planes: { id: Plan; titulo: string; desc: string }[] = [
-    {
-      id: 'local',
-      titulo: t('bienvenida.plan.local', 'Local, sin IA'),
-      desc: t(
-        'bienvenida.plan.localDesc',
-        'Todo se guarda solo en tu dispositivo. Las funciones de IA quedan ocultas.',
-      ),
-    },
-    {
-      id: 'pro',
-      titulo: t('bienvenida.plan.pro', 'Pro, con servidores e IA'),
-      desc: t(
-        'bienvenida.plan.proDesc',
-        'IA incluida desde los servidores de Mind Planner Home y tu casa sincronizada entre dispositivos. Requiere cuenta y suscripción.',
-      ),
-    },
-  ]
-
   const titulos = [
     t('bienvenida.idioma.titulo', '¿En qué idioma quieres la casa?'),
     t('bienvenida.apariencia.titulo', '¿Cómo quieres ver la interfaz?'),
     t('bienvenida.intereses.titulo', '¿Qué te interesa llevar aquí?'),
     t('bienvenida.personaje.titulo', '¿Qué personaje quieres ser?'),
     t('bienvenida.asistente.titulo', '¿Quién te acompaña?'),
-    t('bienvenida.plan.titulo', '¿Cómo quieres usar Mind Planner Home?'),
   ]
 
   return (
@@ -598,28 +576,6 @@ function Wizard() {
           </div>
         )}
 
-        {paso === 5 && (
-          <div className="grid gap-2">
-            {planes.map((p) => {
-              const activo = plan === p.id
-              return (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => setPlan(p.id)}
-                  className={`rounded-xl border p-3 text-left transition ${
-                    activo
-                      ? 'border-accent bg-white/10'
-                      : 'border-white/10 bg-white/5 hover:bg-white/10'
-                  }`}
-                >
-                  <span className="block text-sm font-semibold text-white/90">{p.titulo}</span>
-                  <span className="block text-[11px] leading-snug text-white/50">{p.desc}</span>
-                </button>
-              )
-            })}
-          </div>
-        )}
       </div>
 
       <footer className="flex items-center gap-2">

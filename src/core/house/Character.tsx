@@ -12,7 +12,8 @@ import { useMontura, monturaFrame } from '../state/monturaStore'
 import { useTren, trenFrame, conducirTren } from '../state/trenStore'
 import { dialogoFrame } from '../state/dialogoStore'
 import { TrenMontado } from './tren'
-import { RaquetaJugador } from './minijuegos'
+import { RaquetaJugador, BateJugador } from './minijuegos'
+import { juegoFrame, poseBateo } from '../state/juegoCanchaStore'
 import { useParque, parqueFrame, ESCALA_JUEGO, VEL_CARRUSEL, anguloColumpio } from '../state/parqueStore'
 import { useAccionCuarto, accionCuartoFrame, CFG_ACCION } from '../state/accionCuartoStore'
 import { AccesorioAccion } from './especialesPlantilla'
@@ -24,11 +25,14 @@ import { dragChar } from './characterDrag'
 import { marchaAvatar } from './animacion'
 import { sonar } from '../audio/sfx'
 import { vehiculoDe, VehiculoMontado } from './vehiculos'
+import { FlotadorMontado } from './flotador'
+import { useFlotador, flotadorFrame, COLOR_FLOTADOR } from '../state/flotadorStore'
 import { registrarMarcasDerrape } from './derrape'
 import {
   carreraFrame,
   multiplicadorSuperficie,
-  alturaPistaEn,
+  alturaSueloEn,
+  SUPERFICIE_SUELO,
   VEL_CARRERA,
   multiplicadorTrompo,
   offsetTrompoJugador,
@@ -39,12 +43,16 @@ import {
   offsetSalto,
   offsetCuerda,
   CORRER_MULT,
+  AGACHADO_MULT,
   LARGO_RAYO,
   DUR_SALTO,
   type Herramienta,
 } from '../state/herramientaStore'
-import { ArmaHerramienta, esPistola } from './arma'
+import { ArmaHerramienta, esPistola, pistolaEnMano } from './arma'
 import { dispararRafaga } from './proyectiles'
+import { yawDeCamara } from './punteria'
+import { paintballFrame, dispararPinturaLibre } from '../state/paintballStore'
+import { miraFrame } from '../state/miraFrame'
 import { usePortales, portalFrame } from './portales'
 import { CuerdaSaltar } from './cuerda'
 import { buscarMuro } from './PlanoMuroSelector3D'
@@ -61,6 +69,8 @@ const _right = new THREE.Vector3()
 const _move = new THREE.Vector3()
 // Posición del frame anterior para medir la marcha (misma inicial que playerPos).
 const _prevMarcha = new THREE.Vector3(-3, 0, 0)
+// Giro de torso del bateo aplicado en el frame anterior (para recuperar el rumbo base).
+let _torsoBateo = 0
 // Offset de salto aplicado en el frame anterior y último disparo láser procesado.
 let saltoAplicado = 0
 let disparoProcesado = 0
@@ -72,7 +82,7 @@ const _origenGrafiti = new THREE.Vector3()
 const ALCANCE_GRAFITI = 3.5
 
 /** ¿La posición (x,z) cae dentro de alguna pared (inflada por el radio)? */
-function chocado(x: number, z: number, colliders: AABB[], radio = RADIO) {
+export function chocado(x: number, z: number, colliders: AABB[], radio = RADIO) {
   for (const c of colliders) {
     if (
       x > c.minX - radio &&
@@ -87,7 +97,7 @@ function chocado(x: number, z: number, colliders: AABB[], radio = RADIO) {
 }
 
 /** Collider de objeto: rectángulo (medias extensiones hx,hz) rotado (cos/sin) en el mundo. */
-interface ObjCol {
+export interface ObjCol {
   cx: number
   cz: number
   hx: number
@@ -106,7 +116,7 @@ function solapaPuerta(cx: number, cz: number, ex: number, ez: number, puertas: A
 }
 
 /** Construye los colliders de los objetos rígidos del nivel del jugador. */
-function objColliders(playerLevel: number): ObjCol[] {
+export function objColliders(playerLevel: number): ObjCol[] {
   _objCols.length = 0
   const objetos = useDiseño.getState().objetos
   const layout = useLayout.getState()
@@ -143,7 +153,7 @@ function objColliders(playerLevel: number): ObjCol[] {
 }
 
 /** ¿(x,z) cae dentro de algún objeto rígido (rectángulo rotado inflado por el radio)? */
-function chocadoObjeto(x: number, z: number, cols: ObjCol[], radio = RADIO) {
+export function chocadoObjeto(x: number, z: number, cols: ObjCol[], radio = RADIO) {
   for (const c of cols) {
     const dx = x - c.cx
     const dz = z - c.cz
@@ -454,9 +464,9 @@ function conducir(
 
   // Bajarse: el OVNI desciende primero; ya en el piso se estaciona y se libera.
   if (monturaFrame.desmontarPendiente) {
-    if (esOvni && cur.y > targetY + 0.05) {
+    if (esOvni && cur.y > targetY + SUPERFICIE_SUELO + 0.05) {
       monturaFrame.vel = 0
-      cur.y = Math.max(targetY, cur.y - SUBIDA_OVNI * 1.4 * dtFactor)
+      cur.y = Math.max(targetY + SUPERFICIE_SUELO, cur.y - SUBIDA_OVNI * 1.4 * dtFactor)
       playerPos.copy(cur)
       return
     }
@@ -527,9 +537,13 @@ function conducir(
   // separa del input — persigue lento al stick mientras el rumbo gira más
   // rápido — y al soltar tras ≥0.8 s deslizando hay un mini-turbo.
   const nominal = SPEED * def.velocidad
+  // `nominal` es por frame a 60 Hz, pero `monturaFrame.vel` es el avance REAL del
+  // frame (ya escalado por delta): sin este factor, arriba de 60 fps la velocidad
+  // medida nunca alcanzaba el umbral y el derrape no llegaba a activarse.
+  const umbral = nominal * dtFactor
   const driftKey = !esOvni && (kv > 0 || monturaFrame.driftInput)
   if (!monturaFrame.drift) {
-    if (driftKey && hayInput && Math.abs(monturaFrame.vel) > nominal * 0.4) {
+    if (driftKey && hayInput && Math.abs(monturaFrame.vel) > umbral * 0.4) {
       monturaFrame.drift = true
       monturaFrame.dirX = Math.sin(monturaFrame.heading)
       monturaFrame.dirZ = Math.cos(monturaFrame.heading)
@@ -613,13 +627,16 @@ function conducir(
   let ny: number
   if (esOvni) {
     const vy = Math.max(-1, Math.min(1, kv + pv))
-    ny = Math.max(targetY + 0.15, Math.min(ALTURA_MAX_OVNI, cur.y + vy * SUBIDA_OVNI * dtFactor))
+    ny = Math.max(
+      targetY + SUPERFICIE_SUELO,
+      Math.min(ALTURA_MAX_OVNI, cur.y + vy * SUBIDA_OVNI * dtFactor),
+    )
     saltoAplicado = 0
   } else {
     // Brincos (salto/cuerda) también montado: el vehículo salta con el jugador.
     // Los terrestres además siguen la elevación de la pista (rampas elevadas).
     const salto = offsetSalto(performance.now()) + offsetCuerda(performance.now())
-    ny = THREE.MathUtils.lerp(cur.y - saltoAplicado, targetY + alturaPistaEn(x, z), 0.2) + salto
+    ny = THREE.MathUtils.lerp(cur.y - saltoAplicado, targetY + alturaSueloEn(x, z), 0.2) + salto
     saltoAplicado = salto
   }
 
@@ -647,8 +664,10 @@ function conducir(
   const leanObjetivo = monturaFrame.drift ? -giroAplicado * 6 : conLean ? -giroAplicado * 3 : 0
   monturaFrame.lean = THREE.MathUtils.lerp(monturaFrame.lean, leanObjetivo, Math.min(1, 0.15 * dtFactor))
   // Huellas de las llantas mientras desliza (apenas sobre el asfalto de la pista).
-  if (monturaFrame.drift && velReal > nominal * 0.3)
-    registrarMarcasDerrape(x, ny + 0.275, z, monturaFrame.heading, carreraFrame.escala)
+  if (monturaFrame.drift && velReal > umbral * 0.3)
+    // `ny` ya es la superficie bajo el vehículo; las huellas van encima, con aire
+    // suficiente para no pelearse con el suelo ni quedar tapadas por el chasis.
+    registrarMarcasDerrape(x, ny + 0.06, z, monturaFrame.heading, carreraFrame.escala)
 }
 
 // ---------------------------------------------------------------------------
@@ -679,6 +698,24 @@ function rumboJuego(dlx: number, dlz: number) {
 
 const lin = THREE.MathUtils.lerp
 const suave = (q: number) => q * q * (3 - 2 * q)
+
+/**
+ * Dona flotadora (sin botones): se pide bajarse en cuanto el jugador mueve el
+ * joystick/teclado o marca un destino lejos de la dona. Se arma (`salidaLista`)
+ * la primera vez que, ya sentado, no hay input — así el impulso con el que nadó
+ * hasta ella no lo baja de inmediato.
+ */
+function bajarseDeLaDonaPorMovimiento(): boolean {
+  const { f, s, kf, ks } = moveInput
+  const hayInput = f !== 0 || s !== 0 || kf !== 0 || ks !== 0
+  const { target } = useHouse.getState()
+  const destinoLejos = Math.hypot(target.x - flotadorFrame.x, target.z - flotadorFrame.z) > 0.6
+  if (!hayInput && !destinoLejos) {
+    flotadorFrame.salidaLista = true
+    return false
+  }
+  return flotadorFrame.salidaLista
+}
 
 /** Suelta al personaje en un punto libre y limpia el estado del juego. */
 function terminarJuego(cur: THREE.Vector3, group: THREE.Group, x: number, z: number, heading: number) {
@@ -1038,6 +1075,10 @@ export function Character() {
   const colorVehiculo = useDiseño((s) =>
     montadoId == null ? undefined : s.objetos.find((o) => o.id === montadoId)?.color,
   )
+  const donaId = useFlotador((s) => s.instanciaId)
+  const colorDona = useDiseño((s) =>
+    donaId == null ? undefined : s.objetos.find((o) => o.id === donaId)?.color,
+  )
   const equipadas = useHerramienta((s) => s.equipadas)
 
   // Entrar al editor con montura activa: bajarse (persistiendo la pose actual).
@@ -1059,6 +1100,8 @@ export function Character() {
         useHouse.getState().target.set(libre.x, 0, libre.z)
       }
     }
+    // Sentado en la dona de la alberca: bajarse (la dona se queda donde estaba).
+    if (editMode && useFlotador.getState().instanciaId != null) useFlotador.getState().salirForzado()
     // Con una acción de cuarto en uso: soltar y volver al punto de partida.
     if (editMode && useAccionCuarto.getState().instanciaId != null) {
       const { playerLevel, explotado } = useHouse.getState()
@@ -1116,6 +1159,28 @@ export function Character() {
       playerPos.copy(cur)
       return
     }
+    // Bateando en el béisbol: el avatar se queda en la caja de bateo mirando al
+    // montículo. Pedir movimiento suelta el ancla (si no, no podrías salir de la cancha).
+    if (juegoFrame.anclaActiva) {
+      if (moveInput.kf || moveInput.ks || moveInput.f || moveInput.s) {
+        juegoFrame.anclaActiva = false
+        _torsoBateo = 0
+      } else {
+        marchaAvatar.velocidad = THREE.MathUtils.lerp(marchaAvatar.velocidad, 0, 0.3)
+        cur.x = THREE.MathUtils.lerp(cur.x, juegoFrame.anclaX, 0.18)
+        cur.z = THREE.MathUtils.lerp(cur.z, juegoFrame.anclaZ, 0.18)
+        // El rumbo al montículo se sigue suave, pero el giro del swing va DIRECTO
+        // encima (con lerp se amortiguaría y el batazo no llegaría a girar).
+        const torso = poseBateo()?.torso ?? 0
+        const base = ref.current.rotation.y - _torsoBateo
+        const obj = juegoFrame.anclaHeading
+        ref.current.rotation.y =
+          base + Math.atan2(Math.sin(obj - base), Math.cos(obj - base)) * 0.18 + torso
+        _torsoBateo = torso
+        playerPos.copy(cur)
+        return
+      }
+    }
     // Usando un juego de parque: animación guionizada (ignora el input).
     if (parqueFrame.usando) {
       usarJuego(cur, ref.current, delta)
@@ -1165,29 +1230,57 @@ export function Character() {
     if (playerLevel === -1 && useLayout.getState().subCeldasAgua.has(claveSubActual)) {
       flotandoEnAgua = true
       const bob = Math.sin(performance.now() * 0.0022) * 0.06
-      targetY = nivelBaseY(-1, !explotado) + AGUA_ALTURA_LOCAL - FLOTA_SUMERGIDO + bob
+      // Sentado en la dona el avatar va SOBRE la lámina (el aro lo sostiene);
+      // nadando, con el cuerpo sumergido.
+      const hundido = flotadorFrame.sentado ? 0 : FLOTA_SUMERGIDO
+      targetY = nivelBaseY(-1, !explotado) + AGUA_ALTURA_LOCAL - hundido + bob
+    }
+    // Sentado en la dona: se queda quieto en ella meciéndose (la dona se dibuja
+    // dentro de su grupo) hasta que se mueve; entonces se baja y sigue nadando.
+    if (flotadorFrame.sentado) {
+      if (!flotandoEnAgua || bajarseDeLaDonaPorMovimiento()) {
+        useFlotador.getState().salirForzado()
+      } else {
+        marchaAvatar.velocidad = THREE.MathUtils.lerp(marchaAvatar.velocidad, 0, 0.3)
+        marchaAvatar.nadando = false
+        // Se acomoda en el centro del aro con un tirón suave (no un teletransporte).
+        cur.set(
+          THREE.MathUtils.lerp(cur.x, flotadorFrame.x, 0.25),
+          THREE.MathUtils.lerp(cur.y, targetY, 0.2),
+          THREE.MathUtils.lerp(cur.z, flotadorFrame.z, 0.25),
+        )
+        playerPos.copy(cur)
+        useHouse.getState().target.set(cur.x, 0, cur.z)
+        return
+      }
     }
     // Quieto en el agua: se queda en la pose de reposo (solo el vaivén de flotar).
     // Moviéndose: nada (brazada/patada) en vez de caminar — lo lee AvatarModelo/Prendas.
-    marchaAvatar.nadando = flotandoEnAgua && marchaAvatar.velocidad > 0.05
+    // En la dona no se nada: va sentado, remando con las manos.
+    marchaAvatar.nadando = flotandoEnAgua && !flotadorFrame.sentado && marchaAvatar.velocidad > 0.05
     // Disparo del blaster: marcha 2D hasta la primera pared/objeto (mismo modelo
-    // de colisión que el movimiento) y lanzar la ráfaga de bolts viajeros.
+    // de colisión que el movimiento) y lanzar la ráfaga de bolts viajeros. Con la
+    // marcadora equipada el tiro es una bola de pintura hacia la mira.
     if (accionFrame.disparoT && accionFrame.disparoT !== disparoProcesado) {
       disparoProcesado = accionFrame.disparoT
-      ref.current.getWorldDirection(_dirRayo) // +Z = frente del avatar
-      _ladoRayo.set(1, 0, 0).applyQuaternion(ref.current.quaternion) // lado de la mano derecha
-      const ox = cur.x + _dirRayo.x * 0.5 + _ladoRayo.x * 0.42 * av.escala
-      const oz = cur.z + _dirRayo.z * 0.5 + _ladoRayo.z * 0.42 * av.escala
-      let largo = LARGO_RAYO
-      for (let dist = 0; dist < LARGO_RAYO; dist += 0.1) {
-        const px = ox + _dirRayo.x * dist
-        const pz = oz + _dirRayo.z * dist
-        if (chocado(px, pz, colliders) || chocadoObjeto(px, pz, objCols)) {
-          largo = dist
-          break
+      if (pistolaEnMano(useHerramienta.getState().equipadas) === 'pintura') {
+        dispararPinturaLibre(camera, playerLevel)
+      } else {
+        ref.current.getWorldDirection(_dirRayo) // +Z = frente del avatar
+        _ladoRayo.set(1, 0, 0).applyQuaternion(ref.current.quaternion) // lado de la mano derecha
+        const ox = cur.x + _dirRayo.x * 0.5 + _ladoRayo.x * 0.42 * av.escala
+        const oz = cur.z + _dirRayo.z * 0.5 + _ladoRayo.z * 0.42 * av.escala
+        let largo = LARGO_RAYO
+        for (let dist = 0; dist < LARGO_RAYO; dist += 0.1) {
+          const px = ox + _dirRayo.x * dist
+          const pz = oz + _dirRayo.z * dist
+          if (chocado(px, pz, colliders) || chocadoObjeto(px, pz, objCols)) {
+            largo = dist
+            break
+          }
         }
+        dispararRafaga(ox, cur.y + 0.71 * av.escala, oz, _dirRayo.x, _dirRayo.z, largo, largo < LARGO_RAYO)
       }
-      dispararRafaga(ox, cur.y + 0.71 * av.escala, oz, _dirRayo.x, _dirRayo.z, largo, largo < LARGO_RAYO)
     }
     // Portales: colocar el pendiente y teleportar al cruzar uno (solo planta baja).
     if (accionFrame.portalPendiente) {
@@ -1260,8 +1353,11 @@ export function Character() {
     const persp = vista !== 'iso'
     const { f, s, kf, ks } = moveInput
     const hayInput = f !== 0 || s !== 0 || kf !== 0 || ks !== 0
-    // Flotando en el agua se avanza más despacio (braceo), como en una alberca real.
-    const mult = (accionFrame.correr ? CORRER_MULT : 1) * (flotandoEnAgua ? 0.6 : 1)
+    // Flotando en el agua se avanza más despacio (braceo), como en una alberca real;
+    // agachado, a paso corto (y manda sobre el correr).
+    const mult = accionFrame.agachado
+      ? AGACHADO_MULT
+      : (accionFrame.correr ? CORRER_MULT : 1) * (flotandoEnAgua ? 0.6 : 1)
     // SPEED está calibrada por frame a 60 FPS: escalar por el delta real (acotado
     // contra saltos de pestaña inactiva) para que la velocidad sea la misma sin
     // importar el FPS del dispositivo (antes se veía lento en móviles con menos FPS:
@@ -1337,6 +1433,13 @@ export function Character() {
         ref.current.lookAt(target.x, ny, target.z)
       }
     }
+
+    // Modo shooter (apuntando o en plena batalla de paintball): el avatar encara
+    // SIEMPRE hacia donde mira la cámara, así el cañón apunta a la mira y el
+    // movimiento lateral se siente como un strafe. En iso no aplica: no hay mira.
+    if (persp && (miraFrame.apuntando || paintballFrame.jugando)) {
+      ref.current.rotation.set(0, yawDeCamara(camera), 0)
+    }
   })
 
   // En 1ª persona el avatar no debe verse por la cámara PRINCIPAL (estás dentro de
@@ -1407,6 +1510,13 @@ export function Character() {
             </FlipMortal>
           </VehiculoMontado>
         </EscalaCarrera>
+      ) : donaId != null ? (
+        <FlotadorMontado color={colorDona ?? COLOR_FLOTADOR}>
+          <FlipMortal escala={av.escala}>
+            <AvatarModelo av={av} casco={editor3d} animar caminar />
+            <ExtrasHerramientas equipadas={equipadas} escala={av.escala} />
+          </FlipMortal>
+        </FlotadorMontado>
       ) : trenMontado && trenTipo ? (
         <TrenMontado tipo={trenTipo}>
           <FlipMortal escala={av.escala}>
@@ -1421,6 +1531,7 @@ export function Character() {
             <ExtrasHerramientas equipadas={equipadas} escala={av.escala} />
             <AccesorioAccion escala={av.escala} />
             <RaquetaJugador escala={av.escala} />
+            <BateJugador escala={av.escala} />
           </FlipMortal>
         </NadoTilt>
       )}

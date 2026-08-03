@@ -550,8 +550,6 @@ export function iniciarMusica(m: MoodMusica): void {
   }
 }
 
-export const cambiarMood = (m: MoodMusica): void => iniciarMusica(m)
-
 export function detenerMusica(fadeMs = 400): void {
   if (intervalo != null) {
     window.clearInterval(intervalo)
@@ -583,8 +581,6 @@ export function detenerMusica(fadeMs = 400): void {
     viejoBus.disconnect()
   }, fadeMs + 300)
 }
-
-export const moodActual = (): MoodMusica | null => mood
 
 // Con la pestaña oculta los timers se estrangulan y el audio suele suspenderse:
 // se pausa el scheduler y al volver se re-sincroniza (tick ya re-ancla `proxima`).

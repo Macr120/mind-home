@@ -1,10 +1,9 @@
-import type { PerfilNutricion, Receta, RegistroComida } from '../../core/data/db'
+import type { PerfilNutricion, Receta, RegistroComida, RegistroPeso } from '../../core/data/db'
 import { aguaRepo, comidasRepo } from '../../core/data/repository'
-import { HORA_SUGERIDA, MOMENTOS } from './constantes'
-import { actividadId } from '../../core/rutinas'
-import { HorarioActividad } from '../../core/ui/HorarioActividad'
+import { MOMENTOS } from './constantes'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { getMomento } from './momentos'
+import { Pesaje } from './Pesaje'
 import { RegistroComida as FormRegistro } from './RegistroComida'
 import { ResumenHoy } from './ResumenHoy'
 import { useT } from '../../core/i18n/useT'
@@ -15,12 +14,14 @@ export function DiarioTab({
   comidas,
   recetas,
   aguaMl,
+  pesos,
   perfil,
 }: {
   fecha: string
   comidas: RegistroComida[]
   recetas: Receta[]
   aguaMl: number
+  pesos: RegistroPeso[]
   perfil: PerfilNutricion
 }) {
   const t = useT()
@@ -38,7 +39,9 @@ export function DiarioTab({
 
   return (
     <div className="space-y-5">
-      <ResumenHoy fecha={fecha} comidas={comidas} aguaMl={aguaMl} perfil={perfil} />
+      <div data-tut="cocina.diario.resumen">
+        <ResumenHoy fecha={fecha} comidas={comidas} aguaMl={aguaMl} perfil={perfil} />
+      </div>
 
       <FormRegistro fecha={fecha} comidas={comidas} recetas={recetas} />
 
@@ -69,40 +72,7 @@ export function DiarioTab({
         </div>
       </div>
 
-      {/* Sección propia, y no la cabecera de cada grupo de abajo: esos grupos solo
-          existen si ya registraste algo, así que no podrías ponerle hora a la cena
-          hasta haber cenado — que es justo cuando hace falta. */}
-      <div className="space-y-2 rounded-xl border border-white/10 bg-white/5 p-4">
-        <p className="text-sm font-bold text-amber-400">
-          <Icono nombre="alarma" /> {t('cocina.horarios', 'Horarios de comida')}
-        </p>
-        <p className="text-xs text-white/40">
-          {t('cocina.horarios.ayuda', 'A qué hora comes cada cosa. Aparecen en tu calendario y te avisan si quieres.')}
-        </p>
-        <div className="space-y-1.5">
-          {MOMENTOS.map((m) => (
-            <div key={m.id} className="flex items-center gap-2">
-              <span className="w-24 shrink-0 text-xs font-semibold text-white/70">
-                <Icono emoji={m.icon} /> {m.label}
-              </span>
-              <HorarioActividad
-                actividad={{
-                  actividadId: actividadId('momento', m.id),
-                  plantillaId: 'cocina',
-                  nombre: m.label,
-                  emoji: m.icon,
-                  horaSugerida: HORA_SUGERIDA[m.id],
-                  seccion: 'diario',
-                  // Sin registro rápido a propósito: una comida necesita nombre y
-                  // macros, y una «Cena» de un toque sería 0 kcal envenenando los
-                  // totales. El aviso lleva aquí, que es donde se captura.
-                }}
-                hechoHoy={delDia.some((c) => c.momento === m.id)}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <Pesaje fecha={fecha} pesos={pesos} perfil={perfil} />
 
       <div className="space-y-3">
         <p className="text-sm font-semibold">{t('cocina.registroDia', 'Registro del día')}</p>

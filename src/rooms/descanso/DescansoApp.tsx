@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { rutinasRepo, suenoRepo, perfilSuenoRepo, pistasMusicaRepo } from '../../core/data/repository'
 import type { PerfilSueno, RegistroSueno } from '../../core/data/db'
+import { esDemo } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { BannerAviso } from '../../core/ui/BannerAviso'
@@ -10,10 +11,16 @@ import { aMin, distanciaMin, duracionHoras, puntuarNoche, type Puntuacion } from
 import { useAlarma, useRecordatorio } from './useAlarma'
 import { FranjaNoche } from './FranjaNoche'
 import { SelectorTono } from './SelectorTono'
+import { EvidenciaConfig, RetoEvidencia } from './EvidenciaAlarma'
+import { iaActiva } from '../../core/chat/ia'
 import { idPistaDeTono, VOLUMEN_DEFAULT } from './tonos'
 import { buscarRutinaSueno, sincronizarRutinaSueno } from './rutinaSueno'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { ejemploDescanso } from './ejemplos'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { Archivador } from '../_shared/Archivador'
+import { Creditos } from '../../core/ui/Creditos'
+import { OP_EVIDENCIA } from './costosIA'
 
 const hoy = () => fechaLocalISO()
 
@@ -259,6 +266,11 @@ export function DescansoApp() {
   const sembrando = useRef(false)
 
   useEffect(() => {
+    // Casa demo (solo lectura): su builder ya dejó el perfil y el bloque del
+    // calendario en su sitio. Sin este corte, un visitante que NO eligió este
+    // cuarto (su builder no corrió) se comería el aviso de suscripción solo
+    // por entrar a la recámara.
+    if (esDemo()) return
     // Con las listas aún cargando (undefined) no se puede decidir si falta la
     // fila: escribir ahora duplicaría el perfil y el bloque del calendario.
     if (!rutinas || !filasPerfil || sembrando.current) return
@@ -340,6 +352,10 @@ export function DescansoApp() {
   const etiquetaOn = t('descanso.horario.on', 'Activado')
   const etiquetaOff = t('descanso.horario.off', 'Desactivado')
 
+  // La alarma pide foto solo si el reto está armado Y la IA puede revisarla:
+  // si el usuario perdió la IA, el despertador vuelve al botón de siempre.
+  const conEvidencia = !!perfil.evidenciaActiva && !!perfil.evidenciaTarea?.trim() && iaActiva()
+
   return (
     <div data-tut="descanso.app" className="mx-auto max-w-2xl space-y-5">
       {/* ---- recordatorios que ya sonaron ---- */}
@@ -365,7 +381,7 @@ export function DescansoApp() {
       )}
 
       {/* ---- puntuación de sueño ---- */}
-      <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+      <div data-tut="descanso.puntuacion" className="rounded-xl border border-white/10 bg-white/5 p-4">
         <p className="text-sm font-bold text-cyan-400">{t('descanso.score.titulo', 'Puntuación de sueño')}</p>
         {punt && ultimo ? (
           <div className="mt-3 flex items-center gap-5">
@@ -403,7 +419,7 @@ export function DescansoApp() {
       </div>
 
       {/* ---- horario y despertador ---- */}
-      <div className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
+      <div data-tut="descanso.horario" className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
         <p className="text-sm font-bold text-cyan-400">{t('descanso.horario.titulo', 'Horario y avisos')}</p>
         <FranjaNoche
           dormir={horaDormirVis}
@@ -484,6 +500,22 @@ export function DescansoApp() {
             volumen={volumenAlarma}
             onCambio={(cambios) => void guardarPerfil(cambios)}
           />
+          {/* El reto vive de la IA (revisa la foto): sin ella no se ofrece. */}
+          {iaActiva() && (
+            <div className="space-y-1">
+              <EvidenciaConfig
+                activa={!!perfil.evidenciaActiva}
+                tarea={perfil.evidenciaTarea ?? ''}
+                onCambio={(cambios) => void guardarPerfil(cambios)}
+                on={etiquetaOn}
+                off={etiquetaOff}
+              />
+              {/* Cada foto que se manda a revisar cuesta. */}
+              <div className="flex justify-end">
+                <Creditos op={OP_EVIDENCIA} />
+              </div>
+            </div>
+          )}
           <FilaAviso
             icono="noche"
             texto={t('descanso.aviso.dormir', 'Recordatorio de dormir')}
@@ -510,7 +542,7 @@ export function DescansoApp() {
       </div>
 
       {/* ---- registrar noche ---- */}
-      <form onSubmit={guardar} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
+      <form data-tut="descanso.registrar" onSubmit={guardar} className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-4">
         <p className="text-sm font-bold text-cyan-400">{t('descanso.reg.titulo', 'Registrar noche')}</p>
         <div className="grid grid-cols-3 gap-3">
           <label className="block text-xs text-white/60">
@@ -589,7 +621,7 @@ export function DescansoApp() {
       </form>
 
       {/* ---- últimas 7 noches ---- */}
-      <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+      <div data-tut="descanso.ultimas" className="rounded-xl border border-white/10 bg-white/5 p-4">
         <div className="flex items-baseline justify-between">
           <p className="text-sm font-bold text-cyan-400">{t('descanso.sem.titulo', 'Últimas 7 noches')}</p>
           {promedio > 0 && (
@@ -680,18 +712,24 @@ export function DescansoApp() {
         </Archivador>
       </div>
 
+      <BarraEjemplo paquete={ejemploDescanso} />
+
       {/* ---- alarma sonando ---- */}
       {sonando && (
         <div className="ui-noche fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/90 backdrop-blur">
           <span className="animate-bounce text-7xl"><Icono nombre="alarma" /></span>
           <p className="text-4xl font-black text-white">{perfil.horaDespertar}</p>
           <p className="text-white/60">{t('descanso.alarma.notif', 'Hora de despertar')}</p>
-          <button
-            onClick={detener}
-            className="rounded-full bg-orange-600 px-10 py-3 text-lg font-black texto-cta transition hover:brightness-110"
-          >
-            {t('descanso.alarma.detener', 'Detener')}
-          </button>
+          {conEvidencia ? (
+            <RetoEvidencia tarea={perfil.evidenciaTarea!.trim()} onDetener={detener} />
+          ) : (
+            <button
+              onClick={detener}
+              className="rounded-full bg-orange-600 px-10 py-3 text-lg font-black texto-cta transition hover:brightness-110"
+            >
+              {t('descanso.alarma.detener', 'Detener')}
+            </button>
+          )}
         </div>
       )}
     </div>

@@ -5,7 +5,9 @@ import { tabInicial } from '../../core/state/intencionApp'
 import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { BitacoraTab } from './BitacoraTab'
+import { ejemploSala } from './ejemplos'
 import { MapaTab } from './MapaTab'
 import { PorConocerTab } from './PorConocerTab'
 import { RutasTab } from './RutasTab'
@@ -58,6 +60,9 @@ export function SalaApp() {
       {tab === 'rutas' && <RutasTab lugares={lugares} />}
       {tab === 'bitacora' && <BitacoraTab lugares={lugares} lugarInicial={lugarBitacora} />}
       {tab === 'cronograma' && <CronogramaApp plantillaId="sala" />}
+
+      {/* El ejemplo llena mapa, plan, rutas y bitácora a la vez. */}
+      <BarraEjemplo paquete={ejemploSala} />
     </div>
   )
 }

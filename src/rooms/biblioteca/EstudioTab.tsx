@@ -3,6 +3,7 @@ import { entradasBiblioRepo, sesionesEstudioRepo } from '../../core/data/reposit
 import { useT } from '../../core/i18n/useT'
 import { actividadId } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
+import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR, DURACIONES_ESTUDIO, PILAR_GENERAL, getPilar } from './constantes'
 import { PILARES } from './pilares'
@@ -237,6 +238,19 @@ export function EstudioTab() {
         <p className="text-center text-[10px] text-white/35">
           {t('biblioteca.est.nota', 'El temporizador sigue corriendo aunque cierres el cuarto.')}
         </p>
+      </div>
+
+      {/* Plan de estudio: las metas de la app en el mismo cronograma del calendario.
+          El ✨ de cada meta pide el plan a la IA (fecha objetivo, horas y días
+          disponibles) y agenda plan + rato de estudio. */}
+      <div className="space-y-2" data-tut="biblioteca.estudio.plan">
+        <p className="text-sm font-semibold">
+          <Icono nombre="calendario" /> {t('biblioteca.plan.titulo', 'Plan de estudio')}
+        </p>
+        <p className="text-[11px] leading-relaxed text-white/40">
+          {t('biblioteca.plan.desc', 'Crea una meta (p. ej. «Aprender estadística») y pídele el plan a la IA: te pregunta tu fecha objetivo, horas por semana y días disponibles, y agenda el plan con tu rato de estudio en el calendario.')}
+        </p>
+        <CronogramaApp plantillaId="biblioteca" />
       </div>
 
       {minPorPilar.length > 0 && (

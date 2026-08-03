@@ -1,6 +1,8 @@
 // Récords y saldo del casino de los juegos de la sala.
 // Datos ligeros de minijuego: viven en localStorage, no en la db.
-const PREFIJO = 'mh-juegos-'
+import { claveLS } from '../../../core/edicion'
+
+const PREFIJO = claveLS('mh-juegos-')
 
 export function leerNumero(clave: string, defecto = 0): number {
   const crudo = localStorage.getItem(PREFIJO + clave)

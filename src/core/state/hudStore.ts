@@ -83,6 +83,8 @@ interface HudState {
   setMenuAbierto: (v: boolean) => void
   /** Despliega todo (lo usan los tutoriales: sus pasos apuntan a botones del HUD). */
   desplegarTodo: () => void
+  /** Pliega/despliega el HUD entero de golpe (tecla H). */
+  alternarTodo: () => void
 }
 
 const arranqueMovil = esMovilVertical()
@@ -129,6 +131,14 @@ export const useHud = create<HudState>((set, get) => ({
   desplegarTodo: () => {
     if (!ZONAS.some((z) => get().plegado[z])) return
     const plegado = NINGUNO()
+    if (!get().movilVertical) guardar(plegado)
+    set({ plegado })
+  },
+
+  alternarTodo: () => {
+    // Con cualquier zona a la vista se esconde todo; solo si ya estaba todo
+    // plegado se vuelve a mostrar (así H siempre "limpia" la pantalla primero).
+    const plegado = ZONAS.some((z) => !get().plegado[z]) ? TODO() : NINGUNO()
     if (!get().movilVertical) guardar(plegado)
     set({ plegado })
   },

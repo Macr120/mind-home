@@ -18,13 +18,13 @@ export function InteractAnchor() {
   const setScreen = useInteractUi((s) => s.setScreen)
   const activeRoom = useHouse((s) => s.activeRoom)
   const editMode = useLayout((s) => s.editMode)
-  const objetos = useDiseño((s) => s.objetos)
 
   useFrame(() => {
     if (editMode || activeRoom || !focusRoomId || !getCuarto(focusRoomId)) return
 
     const [rx, , rz] = roomWorldPos(focusRoomId)
-    const mueble = muebleDeCuarto(objetos, focusRoomId)
+    // Lectura en el frame (sin suscripción): mover objetos no re-renderiza este anchor.
+    const mueble = muebleDeCuarto(useDiseño.getState().objetos, focusRoomId)
     const ox = mueble?.x ?? 0
     const oz = mueble?.z ?? 0
     // Altura del nivel del cuarto (la burbuja sigue al cuarto aunque esté elevado).

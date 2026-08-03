@@ -507,6 +507,7 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
               <button
                 key={v.id}
                 type="button"
+                data-tut={`cal.vista.${v.id}`}
                 onClick={() => setVista(v.id)}
                 className={`rounded-md px-2.5 py-1 text-xs font-semibold transition ${
                   vista === v.id ? 'bg-white/15 text-white' : 'text-white/50 hover:text-white/80'

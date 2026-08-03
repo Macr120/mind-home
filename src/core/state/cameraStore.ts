@@ -1,4 +1,7 @@
 import { create } from 'zustand'
+import { miraFrame } from './miraFrame'
+import { playerPos } from './playerPosition'
+import { WALL_H } from '../house/walls'
 
 export const ZOOM_DEFAULT = 17
 const ZOOM_ROOM = 34 // zoom al agregar/enfocar cuarto en el mapa
@@ -7,11 +10,65 @@ const ZOOM_ROOM_EDIT = 46 // zoom al editar un cuarto (panel derecho abierto)
 export const EDIT_PANEL_PX = 320
 /** Fracción del ancho del panel para centrar en el área visible (menor = cuarto más a la derecha). */
 export const EDIT_FOCUS_PANEL_FRAC = 0.34
+/** Tope normal de alejamiento; en mapas grandes se rebaja hasta `zoomAjuste` (ver `zoomMin`). */
 const ZOOM_MIN = 8
 const ZOOM_MAX = 56
+/** Piso absoluto de alejamiento (evita zooms degenerados si el encuadre saliera raro). */
+const ZOOM_PISO = 1
 
 const clamp = (v: number, min: number, max: number) =>
   Math.min(max, Math.max(min, v))
+
+/**
+ * Zoom con el que cabe TODO el mapa en pantalla. Lo recalcula CameraRig con las medidas
+ * reales del lienzo (rejilla, tamaño de celda, giro de la cámara y ventana), así el
+ * alejamiento máximo crece con el mapa en vez de quedarse en un tope fijo.
+ */
+// Arranca en ZOOM_MAX: hasta que CameraRig publique el primer encuadre, los topes se
+// comportan como siempre (mínimo 8, "centrar mapa" a ZOOM_DEFAULT).
+let zoomAjuste = ZOOM_MAX
+export const setZoomAjuste = (z: number) => {
+  zoomAjuste = clamp(z, ZOOM_PISO, ZOOM_MAX)
+}
+/** Zoom mínimo permitido: el de siempre o, si el mapa no cabe, el que lo encuadra entero. */
+export const zoomMin = () => Math.min(ZOOM_MIN, zoomAjuste)
+/** Zoom para "centrar el mapa": encuadra la casa completa sin acercarse más de lo normal. */
+export const zoomEncuadre = () => Math.min(ZOOM_DEFAULT, zoomAjuste)
+
+/** Margen alrededor de lo encuadrado (1 = pegado a los bordes). */
+const MARGEN_ENCUADRE = 0.92
+/**
+ * Alto estimado de la casa para encuadrar: tres niveles de muro. Solo pesa en las
+ * vistas casi cenitales o de alzado, donde la extensión del suelo se aplana.
+ */
+const ALTO_CASA = WALL_H * 3
+
+/**
+ * Frustum ÚTIL del lienzo (el ancho ya sin el panel de edición), publicado por
+ * CameraRig cada frame. Fuera de Zustand, como `camAnim`: se lee al encuadrar, no
+ * debe provocar re-renders.
+ */
+export const lienzoCam = { fw: 0, fh: 0 }
+
+/**
+ * Zoom con el que un rectángulo de suelo de `ancho`×`largo` cabe en el lienzo, según
+ * el giro de la cámara: en isométrica el suelo se proyecta como un rombo y el eje
+ * vertical queda comprimido por la elevación.
+ */
+export function zoomParaRect(
+  ancho: number,
+  largo: number,
+  fw: number,
+  fh: number,
+  az: number,
+  el: number,
+): number {
+  const extX = ancho * Math.abs(Math.sin(az)) + largo * Math.abs(Math.cos(az))
+  const extY =
+    Math.abs(Math.sin(el)) * (ancho * Math.abs(Math.cos(az)) + largo * Math.abs(Math.sin(az))) +
+    Math.abs(Math.cos(el)) * ALTO_CASA
+  return Math.min(fw / Math.max(extX, 0.001), fh / Math.max(extY, 0.001)) * MARGEN_ENCUADRE
+}
 
 /** Azimut base de la cámara isométrica (esquina iso por defecto). */
 export const CAM_BASE_AZ = Math.PI / 4
@@ -91,6 +148,12 @@ const LOOK_SENS = 0.0045
 const PITCH_1P = { min: -1.3, max: 1.3 }
 // En 3ª persona se mantiene elevada (por encima de los muros): no baja del piso ni se va cenital.
 const PITCH_3P = { min: 0.15, max: 1.35 }
+/**
+ * Apuntando en 3ª persona la cámara SÍ puede nivelarse (y mirar un poco hacia
+ * arriba): con el tope normal el tiro siempre convergía en el suelo, unos metros
+ * por delante, y no había forma de apuntarle a nadie.
+ */
+const PITCH_3P_MIRA = { min: -0.35, max: 1.2 }
 /** Inclinación inicial de cada vista: 3ª persona elevada (mira hacia abajo), 1ª horizontal. */
 const PITCH_3P_INI = 0.5
 /** Distancia de la cámara al personaje en tercera persona (sin tope superior). */
@@ -189,6 +252,12 @@ interface CamState {
   focusRoomEdit: (pos: [number, number, number]) => void
   /** Centra el foco isométrico sin cambiar az/el (p. ej. centro del mapa). */
   centrarIso: (pos: [number, number, number]) => void
+  /**
+   * Encuadra un rectángulo del suelo (cuadrante del mapa): centra el foco en él y
+   * ajusta el zoom para que quepa. El tope de alejamiento no cambia, así que desde
+   * un cuadrante siempre se puede volver a alejar hasta ver la casa completa.
+   */
+  enfocarZona: (centro: [number, number, number], ancho: number, largo: number) => void
   reset: () => void
   /** Cambia de vista (iso/tercera/primera). */
   setVista: (v: Vista) => void
@@ -196,6 +265,12 @@ interface CamState {
   ciclarVista: () => void
   /** Arrastre para girar la cámara en perspectiva (acumula yaw/pitch). */
   orbit: (dxPx: number, dyPx: number) => void
+  /**
+   * Al bajar la mira devuelve la inclinación al rango normal de 3ª persona: si
+   * se apuntó nivelado (o hacia arriba), con la cámara otra vez lejos ese mismo
+   * ángulo la metería bajo el suelo.
+   */
+  soltarMira: () => void
   /** Rueda en tercera persona: acerca/aleja la cámara del personaje. */
   zoomDist: (deltaY: number) => void
   zoomDistBy: (ratio: number) => void
@@ -256,23 +331,47 @@ export const useCam = create<CamState>((set, get) => ({
       el: clamp(s.el - dyPx * LOOK_SENS, EL_ISO_MIN, EL_ISO_MAX),
     })),
   zoomBy: (factor) =>
-    set((s) => ({ zoom: clamp(s.zoom * factor, ZOOM_MIN, ZOOM_MAX) })),
+    set((s) => ({ zoom: clamp(s.zoom * factor, zoomMin(), ZOOM_MAX) })),
   /** Rueda del ratón / pinch (deltaY negativo = acercar). */
   zoomWheel: (deltaY: number) =>
     set((s) => ({
-      zoom: clamp(s.zoom * Math.pow(0.998, deltaY), ZOOM_MIN, ZOOM_MAX),
+      zoom: clamp(s.zoom * Math.pow(0.998, deltaY), zoomMin(), ZOOM_MAX),
     })),
   focusRoom: (pos) => set({ focus: [pos[0], pos[1], pos[2]], zoom: ZOOM_ROOM }),
   focusRoomEdit: (pos) =>
     set({ focus: [pos[0], pos[1], pos[2]], zoom: ZOOM_ROOM_EDIT }),
   centrarIso: (pos) =>
-    set({ focus: [pos[0], pos[1], pos[2]], zoom: ZOOM_DEFAULT, vista: 'iso', interiorCenter: null, grafitiCam: null, dialogoCam: null }),
+    set({ focus: [pos[0], pos[1], pos[2]], zoom: zoomEncuadre(), vista: 'iso', interiorCenter: null, grafitiCam: null, dialogoCam: null }),
+  enfocarZona: (centro, ancho, largo) =>
+    set((s) => ({
+      focus: [centro[0], centro[1], centro[2]],
+      vista: 'iso',
+      interiorCenter: null,
+      grafitiCam: null,
+      dialogoCam: null,
+      // Antes del primer frame no hay medidas del lienzo: se conserva el zoom actual.
+      zoom:
+        lienzoCam.fw > 0
+          ? clamp(
+              zoomParaRect(ancho, largo, lienzoCam.fw, lienzoCam.fh, camAnim.az, camAnim.el),
+              ZOOM_PISO,
+              ZOOM_MAX,
+            )
+          : s.zoom,
+    })),
   reset: () =>
-    set({ focus: [0, 0, 0], az: CAM_BASE_AZ, el: ISO_EL, zoom: ZOOM_DEFAULT, vista: 'iso', interiorCenter: null, grafitiCam: null, dialogoCam: null }),
+    set({ focus: [0, 0, 0], az: CAM_BASE_AZ, el: ISO_EL, zoom: zoomEncuadre(), vista: 'iso', interiorCenter: null, grafitiCam: null, dialogoCam: null }),
   setVista: (v) =>
     // Cada vista arranca con su inclinación natural (3ª elevada, 1ª horizontal).
     set((s) => ({
       vista: v,
+      // Volver a iso desde una vista que SÍ seguía al personaje (3ª/1ª): el foco
+      // isométrico se queda donde estaba, así que tras andar lejos el mapa
+      // aparecía fuera de cuadro. Se recoloca sobre el personaje.
+      focus:
+        v === 'iso' && s.vista !== 'iso'
+          ? ([playerPos.x, playerPos.y, playerPos.z] as [number, number, number])
+          : s.focus,
       interiorCenter: v === 'interior' ? s.interiorCenter : null,
       grafitiCam: v === 'grafiti' ? s.grafitiCam : null,
       dialogoCam: v === 'dialogo' ? s.dialogoCam : null,
@@ -289,12 +388,21 @@ export const useCam = create<CamState>((set, get) => ({
   },
   orbit: (dxPx, dyPx) =>
     set((s) => {
-      const lim = s.vista === 'primera' || s.vista === 'interior' ? PITCH_1P : PITCH_3P
+      const lim =
+        s.vista === 'primera' || s.vista === 'interior'
+          ? PITCH_1P
+          : miraFrame.apuntando
+            ? PITCH_3P_MIRA
+            : PITCH_3P
       return {
         yaw: s.yaw - dxPx * LOOK_SENS,
         pitch: clamp(s.pitch - dyPx * LOOK_SENS, lim.min, lim.max),
       }
     }),
+  soltarMira: () =>
+    set((s) =>
+      s.vista === 'tercera' && s.pitch < PITCH_3P.min ? { pitch: PITCH_3P.min } : {},
+    ),
   zoomDist: (deltaY) =>
     set((s) => ({
       dist3p: Math.max(DIST_3P_MIN, s.dist3p * Math.pow(1.0015, deltaY)),

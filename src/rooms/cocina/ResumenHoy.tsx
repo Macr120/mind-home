@@ -1,12 +1,27 @@
+import { useState } from 'react'
 import type { PerfilNutricion, RegistroComida } from '../../core/data/db'
-import { MacroAnillo } from './MacroAnillo'
 import { pctObjetivo, sumarMacros } from './macros'
 import { COLOR } from './constantes'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
 
-/** Lo de hoy vive donde se registra: calorías, macros y agua del día. */
+type Clave = 'calorias' | 'proteinas' | 'carbohidratos' | 'grasas' | 'agua'
+
+/** Las cinco medidas del día, en el mismo orden en que se leen. */
+const METRICAS: { clave: Clave; color: string; unidad: string; cortoEs: string; tituloEs: string }[] = [
+  { clave: 'calorias', color: COLOR, unidad: 'kcal', cortoEs: 'Kcal', tituloEs: 'Calorías hoy' },
+  { clave: 'proteinas', color: '#f472b6', unidad: 'g', cortoEs: 'Prot', tituloEs: 'Proteína' },
+  { clave: 'carbohidratos', color: '#60a5fa', unidad: 'g', cortoEs: 'Carbos', tituloEs: 'Carbos' },
+  { clave: 'grasas', color: '#a78bfa', unidad: 'g', cortoEs: 'Grasas', tituloEs: 'Grasas' },
+  { clave: 'agua', color: '#34d399', unidad: 'L', cortoEs: 'Agua', tituloEs: 'Agua' },
+]
+
+/**
+ * Lo de hoy vive donde se registra: los cinco anillos ocupan lo mismo y el que
+ * tocas se abre arriba en grande con su barra. Un vistazo que no empuja el
+ * registro de comidas fuera de la pantalla.
+ */
 export function ResumenHoy({
   fecha,
   comidas,
@@ -19,99 +34,139 @@ export function ResumenHoy({
   perfil: PerfilNutricion
 }) {
   const t = useT()
+  const [sel, setSel] = useState<Clave>('calorias')
   const tot = sumarMacros(comidas.filter((c) => c.fecha === fecha))
-  const restantes = Math.max(0, perfil.calorias - tot.calorias)
-  const pctCal = pctObjetivo(tot.calorias, perfil.calorias)
+
+  const valores: Record<Clave, { valor: number; objetivo: number }> = {
+    calorias: { valor: tot.calorias, objetivo: perfil.calorias },
+    proteinas: { valor: tot.proteinas, objetivo: perfil.proteinas },
+    carbohidratos: { valor: tot.carbohidratos, objetivo: perfil.carbohidratos },
+    grasas: { valor: tot.grasas, objetivo: perfil.grasas },
+    // El agua se guarda en ml pero se lee en litros: cuatro cifras no caben.
+    agua: { valor: aguaMl / 1000, objetivo: perfil.aguaMl / 1000 },
+  }
+
+  const activa = METRICAS.find((m) => m.clave === sel)!
+  const { valor, objetivo } = valores[sel]
+  const falta = Math.max(0, objetivo - valor)
+  const pasado = sel === 'calorias' && valor > objetivo
+  const cifra = (n: number) => (sel === 'agua' ? n.toFixed(1) : String(Math.round(n)))
 
   return (
-    <div className="space-y-3">
-      <div className="rounded-xl border border-white/10 p-4" style={{ background: `${COLOR}18` }}>
-        <p className="text-xs text-white/50">{t('cocina.calHoy', 'Calorías hoy')}</p>
-        <p className="text-3xl font-black texto-vivo" style={vivo(COLOR)}>
-          {tot.calorias}
-          <span className="text-lg font-semibold text-white/50"> / {perfil.calorias} kcal</span>
-        </p>
-        <div className="mt-2 h-2.5 w-full rounded-full bg-black/40 overflow-hidden">
-          <div
-            className="h-full rounded-full transition-all"
-            style={{
-              width: `${pctCal}%`,
-              background: tot.calorias > perfil.calorias ? '#ef4444' : COLOR,
-            }}
-          />
-        </div>
-        <p className="mt-2 text-xs text-white/50">
-          {restantes > 0 ? (
-            t('cocina.calRestantes', `Te quedan ${restantes} kcal para tu objetivo`, { n: String(restantes) })
+    <div className="rounded-xl border border-white/10 p-4 transition-colors" style={{ background: `${activa.color}18` }}>
+      <p className="text-[10px] text-white/50">{t(`cocina.metrica.${activa.clave}`, activa.tituloEs)}</p>
+      <p className="text-2xl font-black leading-tight texto-vivo" style={vivo(activa.color)}>
+        {cifra(valor)}
+        <span className="text-sm font-semibold text-white/50">
+          {' '}
+          / {cifra(objetivo)} {activa.unidad}
+        </span>
+      </p>
+      <div className="mt-1 h-1.5 w-full rounded-full bg-black/40 overflow-hidden">
+        <div
+          className="h-full rounded-full transition-all"
+          style={{
+            width: `${pctObjetivo(valor, objetivo)}%`,
+            background: pasado ? '#ef4444' : activa.color,
+          }}
+        />
+      </div>
+
+      <p className="mt-2 text-[11px] text-white/50">
+        {sel === 'calorias' ? (
+          falta > 0 ? (
+            t('cocina.calRestantes', `Te quedan ${Math.round(falta)} kcal para tu objetivo`, {
+              n: String(Math.round(falta)),
+            })
           ) : (
             <>
               <Icono nombre="alerta" /> {t('cocina.calSuperado', 'Superaste el objetivo calórico de hoy')}
             </>
-          )}
-        </p>
-      </div>
+          )
+        ) : falta > 0 ? (
+          t('cocina.faltan', `Te faltan ${cifra(falta)} ${activa.unidad} para tu objetivo`, {
+            n: cifra(falta),
+            u: activa.unidad,
+          })
+        ) : (
+          t('cocina.cumplido', 'Objetivo cumplido')
+        )}
+      </p>
 
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 justify-items-center">
-          <MacroAnillo
-            label={t('cocina.proteina', 'Proteína')}
-            consumido={tot.proteinas}
-            objetivo={perfil.proteinas}
-            unidad="g"
-            color="#f472b6"
+      <div className="mt-3 grid grid-cols-5 gap-1">
+        {METRICAS.map((m) => (
+          <Anillo
+            key={m.clave}
+            label={t(`cocina.metricaCorta.${m.clave}`, m.cortoEs)}
+            valor={valores[m.clave].valor}
+            objetivo={valores[m.clave].objetivo}
+            decimales={m.clave === 'agua'}
+            color={m.color}
+            activo={m.clave === sel}
+            onClick={() => setSel(m.clave)}
           />
-          <MacroAnillo
-            label={t('cocina.carbos', 'Carbos')}
-            consumido={tot.carbohidratos}
-            objetivo={perfil.carbohidratos}
-            unidad="g"
-            color="#60a5fa"
-          />
-          <MacroAnillo
-            label={t('cocina.grasas', 'Grasas')}
-            consumido={tot.grasas}
-            objetivo={perfil.grasas}
-            unidad="g"
-            color="#a78bfa"
-          />
-          <MacroAnillo
-            label={t('cocina.aguaMeta', 'Agua')}
-            consumido={aguaMl}
-            objetivo={perfil.aguaMl}
-            unidad="ml"
-            color="#34d399"
-          />
-        </div>
+        ))}
       </div>
     </div>
   )
 }
 
-/** El vistazo de hoy en una línea, para no perderlo en la pantalla de Progreso. */
-export function HoyCompacto({
-  fecha,
-  comidas,
-  aguaMl,
-  perfil,
+const R = 17
+const CIRCUNFERENCIA = 2 * Math.PI * R
+
+/** Anillo de progreso de una medida; al tocarlo se abre en grande arriba. */
+function Anillo({
+  label,
+  valor,
+  objetivo,
+  decimales,
+  color,
+  activo,
+  onClick,
 }: {
-  fecha: string
-  comidas: RegistroComida[]
-  aguaMl: number
-  perfil: PerfilNutricion
+  label: string
+  valor: number
+  objetivo: number
+  decimales: boolean
+  color: string
+  activo: boolean
+  onClick: () => void
 }) {
-  const t = useT()
-  const tot = sumarMacros(comidas.filter((c) => c.fecha === fecha))
+  const pct = pctObjetivo(valor, objetivo)
 
   return (
-    <div className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 border border-white/10 text-sm">
-      <span className="text-xs text-white/45">{t('cocina.hoy', 'Hoy')}</span>
-      <span className="font-bold texto-vivo" style={vivo(COLOR)}>
-        {tot.calorias}
-        <span className="font-normal text-white/40"> / {perfil.calorias} kcal</span>
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={activo}
+      className={`flex flex-col items-center gap-0.5 rounded-lg py-1.5 transition ${
+        activo ? 'bg-white/10' : 'hover:bg-white/5'
+      }`}
+    >
+      <span className="relative block h-11 w-11">
+        <svg viewBox="0 0 44 44" className="h-11 w-11 -rotate-90">
+          <circle cx="22" cy="22" r={R} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="4" />
+          <circle
+            cx="22"
+            cy="22"
+            r={R}
+            fill="none"
+            stroke={color}
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeDasharray={CIRCUNFERENCIA}
+            strokeDashoffset={CIRCUNFERENCIA * (1 - pct / 100)}
+            className="transition-all"
+          />
+        </svg>
+        {/* El texto va fuera del SVG: dentro heredaría el giro de -90°. */}
+        <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white/90">
+          {decimales ? valor.toFixed(1) : Math.round(valor)}
+        </span>
       </span>
-      <span className="ml-auto text-xs text-white/60">
-        <Icono nombre="humedad" /> {(aguaMl / 1000).toFixed(1)} / {(perfil.aguaMl / 1000).toFixed(1)} L
+      <span className={`truncate text-[9px] uppercase tracking-wide ${activo ? 'text-white/70' : 'text-white/40'}`}>
+        {label}
       </span>
-    </div>
+    </button>
   )
 }

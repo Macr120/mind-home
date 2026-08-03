@@ -47,8 +47,6 @@ export function desbloquearAudio(): void {
   if (ctx?.state === 'suspended') void ctx.resume()
 }
 
-export const audioListo = (): boolean => ctx != null && ctx.state === 'running'
-
 // El volumen del ajuste se aplica al maestro con una rampa corta (sin clicks).
 useAjustes.subscribe((s, prev) => {
   if (s.musicaVolumen === prev.musicaVolumen || !ctx || !maestro) return

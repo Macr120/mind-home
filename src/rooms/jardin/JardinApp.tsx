@@ -4,8 +4,10 @@ import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { AgradecimientosTab } from './AgradecimientosTab'
 import { CalmaHeader } from './CalmaHeader'
+import { ejemploJardin } from './ejemplos'
 import { MeditacionTab } from './MeditacionTab'
 import { RespiracionTab } from './RespiracionTab'
 
@@ -37,7 +39,9 @@ export function JardinApp() {
             )}
           </p>
 
-          <CalmaHeader sesiones={sesiones} gratitudes={gratitudes} />
+          <div data-tut="jardin.calma">
+            <CalmaHeader sesiones={sesiones} gratitudes={gratitudes} />
+          </div>
 
           <div className="flex gap-1.5 overflow-x-auto pb-0.5">
             {TABS.map((tabItem) => (
@@ -59,6 +63,9 @@ export function JardinApp() {
       {tab === 'meditacion' && <MeditacionTab onSesion={onSesion} sesiones={sesiones} />}
       {tab === 'respiracion' && <RespiracionTab onSesion={onSesion} />}
       {tab === 'gratitud' && <AgradecimientosTab />}
+
+      {/* El ejemplo trae prácticas Y agradecimientos: la barra vale para las tres pestañas. */}
+      <BarraEjemplo paquete={ejemploJardin} />
     </div>
   )
 }

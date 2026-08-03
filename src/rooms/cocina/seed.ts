@@ -4,6 +4,7 @@ import { DIETAS_EJEMPLO, RECETAS_EJEMPLO } from './ejemplos'
 import { PERFIL_DEFECTO } from './constantes'
 import { adivinarCategoria } from './categoriasCompra'
 import { hoyISO, sumarDias } from './fecha'
+import { claveLS } from '../../core/edicion'
 import { filaSeed, filasSeed } from '../../core/data/sync/syncables'
 
 /** Clave estable para el uid de siembra (misma en todo dispositivo). */
@@ -12,7 +13,7 @@ const slugSeed = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 let sembrado = false
 
 /** Bandera persistente versionada: al subir la versión se añaden los ejemplos nuevos. */
-const LS_EJEMPLOS = 'cocina.ejemplosSembrados'
+const LS_EJEMPLOS = claveLS('cocina.ejemplosSembrados')
 const VERSION_EJEMPLOS = '3'
 
 /** Datos iniciales de cocina (solo la primera vez). */

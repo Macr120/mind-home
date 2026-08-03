@@ -3,6 +3,8 @@ import type { ObjetoCuarto } from '../../data/db'
 import type { Pieza3D } from '../../chat/mascotas'
 import { iaActiva, generarModelo3D, type EstiloModelo3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
+import { Creditos } from '../Creditos'
+import { OP_OBJETO_3D } from '../../cuenta/catalogoNucleo'
 import { useCuartos } from '../../state/cuartosStore'
 import { useDiseño, MAPA_ROOM, esObjetoLibreria } from '../../state/disenoStore'
 import { pedirDestinoObjeto } from '../../state/destinoObjetoStore'
@@ -645,8 +647,8 @@ function GenerarObjetoIA({
 
   return (
     <div className="space-y-1.5 rounded-lg border border-white/10 bg-white/5 p-2">
-      {/* Generar con IA (categoría, estilo, descripción): solo Pro. La subida
-          manual de .glb de abajo sigue disponible en gratis. */}
+      {/* Generar con IA (categoría, estilo, descripción): cuesta créditos. La
+          subida manual de .glb de abajo es gratis. */}
       {iaHabilitada() && (
       <>
       {/* Categoría: afina el prompt (proporciones de mueble vs. escala arquitectónica). */}
@@ -705,6 +707,7 @@ function GenerarObjetoIA({
         >
           {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}
         </button>
+        <Creditos op={OP_OBJETO_3D} />
       </div>
       </>
       )}

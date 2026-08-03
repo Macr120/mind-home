@@ -135,7 +135,7 @@ export function DetalleProyecto({
         className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-sm outline-none focus:border-white/30"
       />
 
-      <div className="rounded-xl border border-white/10 bg-white/5 p-3 space-y-2">
+      <div data-tut="hobbies.proyecto.fotos" className="rounded-xl border border-white/10 bg-white/5 p-3 space-y-2">
         <div className="flex items-center justify-between">
           <p className="text-xs font-semibold">
             <Icono nombre="foto" /> {t('hobbies.proy.avance', 'Avance en fotos')}

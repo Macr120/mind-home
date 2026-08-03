@@ -4,9 +4,10 @@ import { useHouse } from './houseStore'
 import { useCam, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
+import { factorCelda } from '../house/walls'
 import { useDiseño, MAPA_ROOM } from './disenoStore'
 
-export type ClaseCancha = 'futbol' | 'tenis' | 'basket'
+export type ClaseCancha = 'futbol' | 'tenis' | 'basket' | 'beisbol'
 
 /** Prefijo del `tipo` del objeto de mapa que representa una cancha. */
 export const TIPO_CANCHA_PREFIJO = 'cancha:'
@@ -18,8 +19,8 @@ export const claseDeCancha = (tipo: string): ClaseCancha =>
 
 /**
  * Catálogo de canchas: dimensiones en metros de mundo (1 u ≈ 1 m; el avatar mide
- * ~1.72) y color base del piso. Compactas jugables: futsal, tenis completa y
- * media cancha de básquet (un solo aro).
+ * ~1.72) y color base del piso. Compactas jugables: futsal, tenis completa,
+ * media cancha de básquet (un solo aro) y campo corto de béisbol (solo bateo).
  */
 export const CANCHAS: Record<
   ClaseCancha,
@@ -28,6 +29,7 @@ export const CANCHAS: Record<
   futbol: { nombre: 'Cancha de fútbol', corto: 'Fútbol', icon: '⚽', largo: 25, ancho: 15, color: '#16a34a' },
   tenis: { nombre: 'Cancha de tenis', corto: 'Tenis', icon: '🎾', largo: 24, ancho: 11, color: '#2563eb' },
   basket: { nombre: 'Cancha de básquet', corto: 'Básquet', icon: '🏀', largo: 15, ancho: 14, color: '#b45309' },
+  beisbol: { nombre: 'Campo de béisbol', corto: 'Béisbol', icon: '⚾', largo: 24, ancho: 28, color: '#15803d' },
 }
 
 /**
@@ -36,6 +38,57 @@ export const CANCHAS: Record<
  * render (`Porteria` en canchas.tsx) y la física del gol (`tickFutbol` en minijuegos.tsx).
  */
 export const PORTERIA = { ancho: 5.2, alto: 2.4, poste: 0.06, redProf: 0.9 }
+
+/**
+ * Campo de béisbol (coordenadas locales SIN escalar, en metros): un ABANICO con
+ * el vértice en el home (extremo −x), el montículo enfrente y la barda jonronera
+ * en arco. Proporciones de campo compacto (tipo liga infantil): el montículo al
+ * 23 % del radio y las bases al 30 %, para que el diamante se lea sin ocupar
+ * medio mapa. Fuente ÚNICA compartida por el render (canchas.tsx) y la física
+ * del bateo (`tickBeisbol` en minijuegos.tsx).
+ */
+export const BEISBOL = {
+  /** Vértice del abanico (x local): centrado para que el área del plato no se salga. */
+  home: -9.3,
+  /** Placa de pitcheo. */
+  monticulo: -4.5,
+  /** Distancia entre bases (el diamante gira 45° respecto al eje del campo). */
+  base: 6.3,
+  /** Radio del campo por el CENTRO (del home a la barda). */
+  radio: 21,
+  /** Semiapertura de las LÍNEAS de foul (±45°): decide foul contra bola buena. */
+  apertura: Math.PI / 4,
+  /**
+   * Semiapertura del TERRENO: se abre más que las líneas porque un campo real
+   * tiene territorio de foul: sin ese margen, 1ª y 3ª base caen en el filo.
+   */
+  aperturaCampo: Math.PI / 4 + 0.15,
+  /** La barda se acerca hacia las líneas de foul (como los 325' vs 400' reales). */
+  recorteLinea: 0.19,
+  cercaAlto: 1.6,
+  /** Ancho de la franja de tierra pegada a la barda (warning track). */
+  pista: 1.2,
+  /**
+   * Radio del área del plato: redondea el vértice del abanico y da suelo a las
+   * cajas de bateo, que en un campo real quedan por FUERA de las líneas de foul.
+   */
+  plato: 2.2,
+}
+
+/**
+ * Radio del campo para un ángulo medido desde el eje central (0 = jardín
+ * central, ±apertura = línea de foul). Lo usan la forma del piso, la barda y la
+ * resolución del batazo: así el cuadrangular cae justo donde se ve la barda.
+ */
+export const radioBeisbol = (ang: number) =>
+  BEISBOL.radio * (1 - BEISBOL.recorteLinea * Math.min(1, Math.abs(ang) / BEISBOL.apertura))
+
+/**
+ * Escala EFECTIVA de una cancha: la que eligió el usuario × el factor de la celda del mapa,
+ * para que ocupe siempre la misma porción de la rejilla. Fuente ÚNICA del render (el `scale`
+ * del grupo en House.tsx), del hit-test del editor y de la física de los minijuegos.
+ */
+export const escalaCancha = (escala?: number) => (escala ?? 1) * factorCelda()
 
 interface CanchasState {
   /** El editor de canchas está abierto (colocando sobre el mapa). */

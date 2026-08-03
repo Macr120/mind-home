@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import type { SesionEjercicio, SplitCardio } from '../../core/data/db'
+import type { SesionEjercicio, SistemaUnidades, SplitCardio } from '../../core/data/db'
 import {
   gruposCardioRepo,
   rutinasCardioRepo,
@@ -16,15 +16,23 @@ import { CrearRutinaCardio } from './CrearRutinaCardio'
 import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
+import { FiltroPeriodo } from './FiltroPeriodo'
 import { hoyISO, nombreFecha } from './fecha'
+import { metaDelPeriodo, sesionesPeriodo, type Periodo } from './periodo'
 import {
   minutosTipo,
   normalizarEjercicio,
-  ritmoMinKm,
-  sesionesSemana,
   sesionesTipo,
   statsResistencia,
 } from './stats'
+import {
+  distanciaAKm,
+  fmtDistancia,
+  fmtRitmo,
+  numDistancia,
+  unidadDistancia,
+} from './unidades'
+import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -39,16 +47,17 @@ type SubResistencia = (typeof SUBS_R)[number]['id']
 
 const TITULO_DEFECTO = 'Carrera'
 
-/** Un tramo del formulario: actividad + minutos + km (la sesión es la suma). */
+/** Un tramo del formulario: actividad + minutos + distancia (la sesión es la suma). */
 interface FilaCardio {
   actividad: string
   minutos: string
-  km: string
-  /** Marcado como hecho durante el entreno (no se guarda, solo apoyo visual). */
+  /** Distancia en la unidad que ve el usuario (km o mi); a la base va en km. */
+  dist: string
+  /** Marcado como hecho durante el entreno: sin todos los checks no se guarda. */
   hecho?: boolean
 }
 
-const filaVacia = (): FilaCardio => ({ actividad: '', minutos: '30', km: '' })
+const filaVacia = (): FilaCardio => ({ actividad: '', minutos: '30', dist: '' })
 
 export function ResistenciaTab({
   fecha,
@@ -56,12 +65,18 @@ export function ResistenciaTab({
   planDia,
   metaMinutos,
   metaSesiones,
+  unidades,
+  periodo,
+  setPeriodo,
 }: {
   fecha: string
   sesiones: SesionEjercicio[]
   planDia: PlanDelDia[]
   metaMinutos: number
   metaSesiones: number
+  unidades: SistemaUnidades | undefined
+  periodo: Periodo
+  setPeriodo: (p: Periodo) => void
 }) {
   const [subR, setSubR] = useState<SubResistencia>('catalogo')
   const [titulo, setTitulo] = useState(TITULO_DEFECTO)
@@ -85,11 +100,15 @@ export function ResistenciaTab({
     setEditandoId(null)
   }
 
-  const delDia = sesiones.filter((s) => s.fecha === fecha && s.tipo === 'resistencia')
-  const stats = statsResistencia(sesiones)
-  const semana = sesionesSemana(sesiones)
-  const semanaMin = minutosTipo(semana, 'resistencia')
-  const semanaSes = sesionesTipo(semana, 'resistencia')
+  const todasCardio = sesiones.filter((s) => s.tipo === 'resistencia')
+  const delDia = todasCardio.filter((s) => s.fecha === fecha)
+  // El filtro Semana/Mes/Año/Todo recorta las estadísticas de Progreso.
+  const delPeriodo = sesionesPeriodo(todasCardio, periodo)
+  const stats = statsResistencia(delPeriodo)
+  const totalMin = minutosTipo(delPeriodo, 'resistencia')
+  const totalSes = sesionesTipo(delPeriodo, 'resistencia')
+  const metaMinPeriodo = metaDelPeriodo(metaMinutos, periodo, sesiones)
+  const metaSesPeriodo = metaDelPeriodo(metaSesiones, periodo, sesiones)
 
   const splitsPorSesion = useMemo(() => {
     const m = new Map<number, SplitCardio[]>()
@@ -107,10 +126,14 @@ export function ResistenciaTab({
     (a, f) => a + (f.actividad.trim() ? parseInt(f.minutos, 10) || 0 : 0),
     0,
   )
-  const sumaKm = filas.reduce(
-    (a, f) => a + (f.actividad.trim() ? parseFloat(f.km) || 0 : 0),
+  const sumaDist = filas.reduce(
+    (a, f) => a + (f.actividad.trim() ? parseFloat(f.dist) || 0 : 0),
     0,
   )
+
+  // El entreno solo se guarda cuando todos sus tramos están palomeados.
+  const conNombre = filas.filter((f) => f.actividad.trim())
+  const todoHecho = conNombre.length > 0 && conNombre.every((f) => f.hecho)
 
   const recientes = useMemo(() => {
     const vistos = new Set<string>()
@@ -135,9 +158,9 @@ export function ResistenciaTab({
     if (r.ejercicios?.length) {
       // Reparte la duración de la rutina entre sus tramos como punto de partida.
       const porTramo = Math.max(1, Math.round(r.duracionMin / r.ejercicios.length))
-      setFilas(r.ejercicios.map((a) => ({ actividad: a, minutos: String(porTramo), km: '' })))
+      setFilas(r.ejercicios.map((a) => ({ actividad: a, minutos: String(porTramo), dist: '' })))
     } else {
-      setFilas([{ actividad: r.nombre, minutos: String(r.duracionMin), km: '' }])
+      setFilas([{ actividad: r.nombre, minutos: String(r.duracionMin), dist: '' }])
     }
     if (subR !== 'rutinas') setSubR('rutinas')
   }
@@ -155,15 +178,24 @@ export function ResistenciaTab({
     setRpe(s.rpe ? String(s.rpe) : '')
     setNota(s.nota ?? '')
     const suyos = splitsPorSesion.get(s.id) ?? []
+    // Lo ya guardado se da por hecho: si no, no se podría volver a guardar.
     setFilas(
       suyos.length
         ? suyos.map((x) => ({
             actividad: x.actividad,
             minutos: String(x.minutos),
-            km: x.km ? String(x.km) : '',
+            dist: x.km ? String(numDistancia(x.km, unidades)) : '',
+            hecho: true,
           }))
         : // Sesión sin tramos (p. ej. grabada en vivo): se edita como un tramo único.
-          [{ actividad: s.titulo, minutos: String(s.duracionMin), km: s.distanciaKm ? String(s.distanciaKm) : '' }],
+          [
+            {
+              actividad: s.titulo,
+              minutos: String(s.duracionMin),
+              dist: s.distanciaKm ? String(numDistancia(s.distanciaKm, unidades)) : '',
+              hecho: true,
+            },
+          ],
     )
     setSubR('rutinas')
   }
@@ -180,8 +212,9 @@ export function ResistenciaTab({
   const guardar = async (e: React.FormEvent) => {
     e.preventDefault()
     const validas = filas.filter((f) => f.actividad.trim())
-    if (validas.length === 0 || sumaMin <= 0) return
+    if (validas.length === 0 || sumaMin <= 0 || !todoHecho) return
 
+    const sumaKm = distanciaAKm(sumaDist, unidades)
     const datos = {
       titulo: titulo.trim() || 'Cardio',
       duracionMin: sumaMin,
@@ -205,7 +238,7 @@ export function ResistenciaTab({
         sesionId,
         actividad: f.actividad.trim(),
         minutos: parseInt(f.minutos, 10) || 0,
-        km: parseFloat(f.km) || undefined,
+        km: f.dist ? +distanciaAKm(parseFloat(f.dist) || 0, unidades).toFixed(3) : undefined,
         orden: i,
       })),
     )
@@ -242,11 +275,12 @@ export function ResistenciaTab({
         </div>
       )}
 
-      <div className="flex gap-1.5">
+      <div data-tut="ejercicio.resistencia.subs" className="flex gap-1.5">
         {SUBS_R.map((s) => (
           <button
             key={s.id}
             type="button"
+            data-tut={`ejercicio.sub.${s.id}`}
             onClick={() => setSubR(s.id)}
             className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-semibold ${
               subR === s.id
@@ -263,7 +297,7 @@ export function ResistenciaTab({
 
       {subR === 'rutinas' && (
         <>
-          <div className="rounded-xl bg-white/5 border border-white/10">
+          <div data-tut="ejercicio.resistencia.rutinas" className="rounded-xl bg-white/5 border border-white/10">
             <button
               type="button"
               onClick={() => setRutinasAbierto((v) => !v)}
@@ -299,7 +333,7 @@ export function ResistenciaTab({
           </div>
 
           {fecha === hoyISO() ? (
-            <CardioEnVivo actividad={titulo} />
+            <CardioEnVivo actividad={titulo} unidades={unidades} />
           ) : (
             <p className="rounded-xl bg-white/5 border border-white/10 p-3 text-xs text-white/40">
               {t('ejercicio.vivo.soloHoy', 'El entrenamiento en vivo solo está disponible para hoy.')}
@@ -329,13 +363,14 @@ export function ResistenciaTab({
                 {t('ejercicio.cardio.suma', 'Suma de los tramos')}
               </span>
               <span className="text-base font-bold text-sky-400">
-                {sumaMin} min{sumaKm > 0 ? ` · ${sumaKm.toFixed(2)} km` : ''}
+                {sumaMin} min
+                {sumaDist > 0 ? ` · ${sumaDist.toFixed(2)} ${unidadDistancia(unidades)}` : ''}
               </span>
             </div>
 
             <div className="space-y-2">
               <p className="text-xs font-semibold text-white/50">
-                {t('ejercicio.cardio.tramos', 'Tramos · actividad, minutos y km')}
+                {t('ejercicio.cardio.tramos2', 'Tramos · actividad, minutos y distancia')}
               </p>
               {filas.map((f, i) => (
                 <div key={i} className="flex items-center gap-1.5">
@@ -367,9 +402,9 @@ export function ResistenciaTab({
                       className="col-span-3 rounded-lg bg-black/30 px-1 py-1.5 border border-white/10 text-center"
                     />
                     <input
-                      value={f.km}
-                      onChange={(e) => actualizarFila(i, { km: e.target.value })}
-                      placeholder={t('ejercicio.cardio.ph.km', 'km')}
+                      value={f.dist}
+                      onChange={(e) => actualizarFila(i, { dist: e.target.value })}
+                      placeholder={unidadDistancia(unidades)}
                       className="col-span-3 rounded-lg bg-black/30 px-1 py-1.5 border border-white/10 text-center"
                     />
                   </div>
@@ -421,18 +456,30 @@ export function ResistenciaTab({
                   {t('ejercicio.cancelar', 'Cancelar')}
                 </button>
               )}
-              <button type="submit" className="flex-1 rounded-xl py-2.5 font-bold bg-sky-600 texto-cta">
+              <button
+                type="submit"
+                disabled={!todoHecho}
+                className="flex-1 rounded-xl py-2.5 font-bold bg-sky-600 texto-cta disabled:cursor-not-allowed disabled:opacity-40"
+              >
                 {editandoId !== null
                   ? t('ejercicio.actualizar', 'Actualizar sesión')
                   : t('ejercicio.guardar', 'Guardar sesión')}
               </button>
             </div>
+            {!todoHecho && (
+              <p className="text-center text-[10px] text-white/40">
+                {t('ejercicio.checks.faltan', 'Marca todos los ejercicios para guardar el entreno.')}
+              </p>
+            )}
           </form>
 
-          <HistorialDia
+          <HistorialSesiones
             fecha={fecha}
-            sesiones={delDia}
+            sesiones={todasCardio}
+            delDia={delDia}
             color="text-sky-400"
+            resaltado="bg-sky-500/10 border-sky-500/30"
+            unidades={unidades}
             splitsPorSesion={splitsPorSesion}
             onEditar={editarSesion}
             onEliminar={async (id) => {
@@ -447,35 +494,45 @@ export function ResistenciaTab({
 
       {subR === 'progreso' && (
         <>
-          <div className="grid grid-cols-2 gap-3">
+          <FiltroPeriodo
+            valor={periodo}
+            onChange={setPeriodo}
+            acento="bg-sky-500/25 text-sky-400 border border-sky-500/40"
+          />
+          <div data-tut="ejercicio.progreso.panel" className="grid grid-cols-2 gap-3">
             <HeatmapMensual sesiones={sesiones} tipo="resistencia" color="#38bdf8" />
             <div className="grid grid-rows-2 gap-3">
               <StatCard
                 label={t('ejercicio.stats.minutos', 'Minutos totales')}
-                valor={String(stats.totalMin)}
-                semana={semanaMin}
-                meta={metaMinutos}
+                valor={String(totalMin)}
+                semana={totalMin}
+                meta={metaMinPeriodo}
+                rango={periodo}
                 color="#38bdf8"
               />
               <StatCard
                 label={t('ejercicio.stats.sesiones', 'Sesiones')}
-                valor={String(stats.totalSes)}
-                semana={semanaSes}
-                meta={metaSesiones}
+                valor={String(totalSes)}
+                semana={totalSes}
+                meta={metaSesPeriodo}
+                rango={periodo}
                 color="#38bdf8"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-3">
-            <StatCard label={t('ejercicio.stats.km', 'Km totales')} valor={stats.totalKm.toFixed(1)} />
+            <StatCard
+              label={t('ejercicio.stats.distancia', 'Distancia total')}
+              valor={fmtDistancia(stats.totalKm, unidades)}
+            />
             <StatCard
               label={t('ejercicio.stats.masLarga', 'Más larga')}
-              valor={stats.masLarga > 0 ? `${stats.masLarga.toFixed(1)} km` : '—'}
+              valor={stats.masLarga > 0 ? fmtDistancia(stats.masLarga, unidades) : '—'}
             />
             <StatCard
               label={t('ejercicio.stats.mejorRitmo', 'Mejor ritmo')}
-              valor={stats.mejorRitmo > 0 ? `${ritmoMinKm(stats.mejorRitmo, 1)} /km` : '—'}
+              valor={stats.mejorRitmo > 0 ? fmtRitmo(stats.mejorRitmo, 1, unidades) : '—'}
             />
           </div>
         </>
@@ -490,17 +547,24 @@ export function StatCard({
   semana,
   meta,
   color,
+  rango,
 }: {
   label: string
   valor: string
-  /** Valor de esta semana (para la barra de progreso vs meta). */
+  /** Valor del periodo elegido (para la barra de progreso vs meta). */
   semana?: number
   meta?: number
   color?: string
+  /** Periodo al que corresponde la meta; sin él se asume la semana. */
+  rango?: Periodo
 }) {
   const t = useT()
   const conBarra = meta !== undefined && meta > 0
   const pct = conBarra ? Math.min(100, ((semana ?? 0) / meta) * 100) : 0
+  const sufijo =
+    rango && rango !== 'semana'
+      ? `· ${t(`ejercicio.periodo.${rango}`, rango).toLowerCase()}`
+      : t('ejercicio.r.porSemana', '· sem')
   return (
     <div className="flex flex-col justify-center rounded-xl bg-white/5 p-3 border border-white/10">
       <p className="text-xs font-semibold text-white/70">{label}</p>
@@ -508,7 +572,7 @@ export function StatCard({
       {conBarra && (
         <div className="mt-1.5">
           <p className="text-[10px] text-white/45">
-            {semana ?? 0} / {meta} {t('ejercicio.r.porSemana', '· sem')}
+            {semana ?? 0} / {meta} {sufijo}
           </p>
           <div className="mt-0.5 h-1.5 w-full rounded-full bg-black/40 overflow-hidden">
             <div
@@ -522,76 +586,104 @@ export function StatCard({
   )
 }
 
-export function HistorialDia({
+/**
+ * Historial completo de una modalidad en carpetas año › mes › semana.
+ * Lo comparten Resistencia y Flexibilidad; las sesiones del día elegido se
+ * resaltan para no perderlas de vista al cambiar de fecha.
+ */
+export function HistorialSesiones({
   fecha,
   sesiones,
+  delDia,
   color,
+  resaltado,
+  unidades,
   splitsPorSesion,
   onEditar,
   onEliminar,
 }: {
   fecha: string
   sesiones: SesionEjercicio[]
+  delDia: SesionEjercicio[]
   color: string
+  /** Clases de fondo/borde con las que se marcan las del día elegido. */
+  resaltado: string
+  unidades?: SistemaUnidades
   /** Solo resistencia: los tramos de cada sesión, para desglosarla. */
   splitsPorSesion?: Map<number, SplitCardio[]>
   onEditar: (s: SesionEjercicio) => void
   onEliminar: (id: number) => void
 }) {
   const t = useT()
-  if (sesiones.length === 0) return null
+  const idsDelDia = new Set(delDia.map((s) => s.id))
   return (
-    <div className="space-y-2">
-      <p className="text-base font-bold capitalize">
-        {fecha === hoyISO() ? t('ejercicio.hoy', 'Hoy') : nombreFecha(fecha)}
+    <div className="rounded-xl bg-white/5 p-4 border border-white/10">
+      <p className="text-base font-bold mb-2">
+        {t('ejercicio.historial', 'Tus sesiones')}{' '}
+        <span className="text-xs font-normal text-white/40 capitalize">
+          · {fecha === hoyISO() ? t('ejercicio.hoy', 'Hoy') : nombreFecha(fecha)}
+        </span>
       </p>
-      {sesiones.map((s) => {
-        const splits = s.id ? (splitsPorSesion?.get(s.id) ?? []) : []
-        return (
-          <div key={s.id} className="rounded-xl bg-white/5 border border-white/10 px-3 py-2.5 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="flex-1 min-w-0">
-                <p className="font-medium">{s.titulo}</p>
-                <p className="text-xs text-white/40">
-                  {s.duracionMin} min
-                  {s.distanciaKm ? ` · ${s.distanciaKm} km` : ''}
-                  {s.distanciaKm ? ` · ${ritmoMinKm(s.duracionMin, s.distanciaKm)} /km` : ''}
-                  {s.ppmProm ? ` · ⌀${s.ppmProm} ppm` : ''}
-                  {s.rpe ? ` · RPE ${s.rpe}` : ''}
-                </p>
+      <Archivador
+        items={sesiones}
+        fecha={(s) => s.fecha}
+        clave={(s) => s.id ?? s.fecha}
+        vacio={t('ejercicio.sinEntrenos', 'Aún no hay entrenos registrados.')}
+        resumen={(ses) => `${ses.reduce((acc, s) => acc + s.duracionMin, 0)} min`}
+      >
+        {(s) => {
+          const splits = s.id ? (splitsPorSesion?.get(s.id) ?? []) : []
+          return (
+            <div
+              className={`rounded-xl border px-3 py-2.5 text-sm ${
+                idsDelDia.has(s.id) ? resaltado : 'bg-black/20 border-white/10'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <div className="flex-1 min-w-0">
+                  <p className="truncate font-medium">{s.titulo}</p>
+                  <p className="text-xs text-white/40">
+                    {s.fecha.slice(5)} · {s.duracionMin} min
+                    {s.distanciaKm ? ` · ${fmtDistancia(s.distanciaKm, unidades, 2)}` : ''}
+                    {s.distanciaKm ? ` · ${fmtRitmo(s.duracionMin, s.distanciaKm, unidades)}` : ''}
+                    {s.ppmProm ? ` · ⌀${s.ppmProm} ppm` : ''}
+                    {s.rpe ? ` · RPE ${s.rpe}` : ''}
+                  </p>
+                </div>
+                {s.ruta && s.ruta.length > 1 && (
+                  <RutaSvg puntos={s.ruta} color="#38bdf8" className="h-9 w-14 shrink-0" />
+                )}
+                <span className={`font-semibold ${color}`}>{s.duracionMin}′</span>
+                <button
+                  type="button"
+                  onClick={() => onEditar(s)}
+                  title={t('ejercicio.editar', 'Editar')}
+                  className="text-white/30 hover:text-white/80"
+                >
+                  <Icono nombre="editar" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => s.id && onEliminar(s.id)}
+                  className="text-white/30 hover:text-red-400"
+                >
+                  ×
+                </button>
               </div>
-              {s.ruta && s.ruta.length > 1 && (
-                <RutaSvg puntos={s.ruta} color="#38bdf8" className="h-9 w-14 shrink-0" />
+              {splits.length > 1 && (
+                <ul className="mt-1 text-xs text-white/55">
+                  {splits.map((x) => (
+                    <li key={x.id}>
+                      {x.actividad}: {x.minutos} min
+                      {x.km ? ` · ${fmtDistancia(x.km, unidades, 2)}` : ''}
+                    </li>
+                  ))}
+                </ul>
               )}
-              <span className={`font-semibold ${color}`}>{s.duracionMin}′</span>
-              <button
-                type="button"
-                onClick={() => onEditar(s)}
-                title={t('ejercicio.editar', 'Editar')}
-                className="text-white/30 hover:text-white/80"
-              >
-                <Icono nombre="editar" />
-              </button>
-              <button
-                type="button"
-                onClick={() => s.id && onEliminar(s.id)}
-                className="text-white/30 hover:text-red-400"
-              >
-                ×
-              </button>
             </div>
-            {splits.length > 1 && (
-              <ul className="mt-1 text-xs text-white/55">
-                {splits.map((x) => (
-                  <li key={x.id}>
-                    {x.actividad}: {x.minutos} min{x.km ? ` · ${x.km} km` : ''}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        )
-      })}
+          )
+        }}
+      </Archivador>
     </div>
   )
 }

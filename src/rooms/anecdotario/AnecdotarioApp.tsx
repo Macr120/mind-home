@@ -4,14 +4,24 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { Archivador } from '../_shared/Archivador'
-import { comprimirFoto, Foto } from '../_shared/fotos'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { comprimirFoto, miniaturaFoto, Foto } from '../_shared/fotos'
 import { CalendarioAnimo } from './CalendarioAnimo'
 import { ANIMOS } from './animos'
+import { ejemploAnecdotario } from './ejemplos'
 
 const hoy = () => fechaLocalISO()
 
+/** Tamaño de página del historial: ~2 meses de entradas diarias por tanda. */
+const PAGINA = 60
+
 export function AnecdotarioApp() {
-  const entradas = anecdotasRepo.useAll()
+  // Ventana acotada: la tabla crece años y trae BLOBS embebidos — materializarla
+  // entera en cada escritura era el mayor consumo de RAM de la app. «Cargar
+  // más» sube el límite. El calendario de ánimo colorea lo que cae en la
+  // ventana (60 entradas cubren de sobra el mes que enseña).
+  const [limite, setLimite] = useState(PAGINA)
+  const entradas = anecdotasRepo.useAll({ limit: limite })
   const [titulo, setTitulo] = useState('')
   const [contenido, setContenido] = useState('')
   const [animo, setAnimo] = useState('🙂')
@@ -37,12 +47,15 @@ export function AnecdotarioApp() {
   const guardar = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!contenido.trim() && fotos.length === 0) return
+    // Miniaturas paralelas a las fotos: la rejilla pinta ~200px, no 1280px.
+    const miniaturas = fotos.length ? await Promise.all(fotos.map(miniaturaFoto)) : undefined
     await anecdotasRepo.add({
       fecha: hoy(),
       titulo: titulo.trim() || t('anec.sinTitulo', 'Sin título'),
       contenido: contenido.trim(),
       animo,
       fotos: fotos.length ? fotos : undefined,
+      miniaturas,
     })
     setTitulo('')
     setContenido('')
@@ -127,7 +140,9 @@ export function AnecdotarioApp() {
       </form>
 
       {/* calendario de ánimo (heatmap de emociones) */}
-      <CalendarioAnimo anecdotas={lista} seleccionado={diaSel} onSeleccionar={setDiaSel} />
+      <div data-tut="anecdotario.calendario">
+        <CalendarioAnimo anecdotas={lista} seleccionado={diaSel} onSeleccionar={setDiaSel} />
+      </div>
 
       {diaSel && (
         <button
@@ -168,7 +183,8 @@ export function AnecdotarioApp() {
                   {a.fotos.map((f, i) => (
                     <Foto
                       key={i}
-                      blob={f}
+                      // Entradas viejas no tienen miniatura: caen a la foto completa.
+                      blob={a.miniaturas?.[i] ?? f}
                       className="h-24 w-full cursor-zoom-in rounded-lg object-cover transition hover:opacity-80"
                       onClick={() => setVisor({ fotos: a.fotos!, idx: i })}
                     />
@@ -178,7 +194,17 @@ export function AnecdotarioApp() {
             </article>
           )}
         </Archivador>
+        {lista.length >= limite && (
+          <button
+            onClick={() => setLimite((n) => n + PAGINA)}
+            className="w-full rounded-xl border border-white/10 bg-white/5 py-2 text-sm font-semibold text-white/60 transition hover:bg-white/10"
+          >
+            {t('anec.cargarMas', 'Cargar más recuerdos')}
+          </button>
+        )}
       </div>
+
+      <BarraEjemplo paquete={ejemploAnecdotario} />
 
       {/* visor de fotos */}
       {visor && (

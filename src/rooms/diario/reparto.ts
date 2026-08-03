@@ -3,7 +3,8 @@ import type { CategoriaTitular, EdicionDiario } from '../../core/data/db'
 import { mensajesChatRepo } from '../../core/data/repository'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import type { Asistente } from '../../core/chat/mascotas'
-import { conversarIA, iaActiva } from '../../core/chat/ia'
+import { conversarIA, iaOperativa } from '../../core/chat/ia'
+import { claveLS, esDemo } from '../../core/edicion'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { tGlobal } from '../../core/i18n/useT'
@@ -39,8 +40,8 @@ interface EstadoDia {
   entregas: Record<string, EntregaDia>
 }
 
-const LS_PROGRAMACIONES = 'mh-diario-programaciones'
-const LS_ESTADO = 'mh-diario-reparto-estado'
+const LS_PROGRAMACIONES = claveLS('mh-diario-programaciones')
+const LS_ESTADO = claveLS('mh-diario-reparto-estado')
 
 export function getProgramaciones(): Programacion[] {
   try {
@@ -128,7 +129,7 @@ function contenidoSecciones(edicion: EdicionDiario, secciones: SeccionReparto[])
 /** Redacta el mensaje en la voz del asistente (plantilla fija si no hay IA o falla). */
 async function redactarMensaje(asistente: Asistente, contenido: string): Promise<string> {
   const plantilla = `${tGlobal('diario.reparto.plantillaTitulo', '🗞️ ¡Tu diario de hoy!')}\n${contenido}`
-  if (!iaActiva()) return plantilla
+  if (!iaOperativa()) return plantilla
   try {
     // Entrega autónoma (sin mensaje del usuario del que inferir idioma): se indica explícito.
     const idioma = useAjustes.getState().idioma === 'en' ? 'inglés' : 'español'
@@ -196,6 +197,8 @@ async function repartirSiToca(): Promise<void> {
  */
 export function useDiarioProgramado() {
   useEffect(() => {
+    // Casa demo: el rollover escribiría `edicionesDiario` (bloqueado) cada minuto.
+    if (esDemo()) return
     const tick = () => {
       void (async () => {
         if (await edicionDesactualizada()) {

@@ -73,6 +73,7 @@ import {
   CircleCheck,
   ClipboardList,
   Eye,
+  EyeOff,
   TrendingUp,
   Tag,
   // Temas de UI
@@ -151,6 +152,7 @@ import {
   Candy,
   Snowflake,
   SprayCan,
+  Brush,
   Scale,
   Calculator,
   TrendingDown,
@@ -179,6 +181,11 @@ import {
   Ticket,
   Users,
   Car,
+  // Agenda (trabajo, salud y personas)
+  CalendarClock,
+  Phone,
+  Mail,
+  Cake,
   // Entretenimiento
   Film,
   Tv,
@@ -224,6 +231,11 @@ import {
   Folder,
   Sprout,
   GitBranch,
+  Waypoints,
+  Workflow,
+  Blend,
+  GitCompare,
+  Braces,
   Crown,
   Spade,
   FerrisWheel,
@@ -243,6 +255,7 @@ import {
   Droplets,
   Frame,
   CircleDot,
+  CircleDashed,
   TreeDeciduous,
   // Editor de grafiti (juguete)
   Paintbrush,
@@ -284,12 +297,18 @@ import {
   Drumstick,
   Nut,
   Footprints,
+  // Mascotas de la agenda (especies y cuidados)
+  Rat,
+  Syringe,
+  Bug,
   // Auditoría de estilo de iconos (jul 2026): prendas, rostros, peinados,
   // cuerpos, techos/pisos, recetas y juegos que se quedaban en emoji.
   Ribbon,
   HardHat,
   Bookmark,
   Shield,
+  ShieldCheck,
+  IdCard,
   Venus,
   Scissors,
   Ban,
@@ -413,6 +432,7 @@ export const CATALOGO = {
   riel: { emoji: '🚂', Svg: TrainTrack },
   'montana-rusa': { emoji: '🎢', Svg: RollerCoaster },
   cancha: { emoji: '🏟️', Svg: LandPlot },
+  paintball: { emoji: '🥎', Svg: CircleDot },
   parcela: { emoji: '🟫', Svg: Shovel },
   sembrar: { emoji: '🌱', Svg: Sprout },
   regadera: { emoji: '💧', Svg: Droplets },
@@ -421,6 +441,8 @@ export const CATALOGO = {
   animal: { emoji: '🐾', Svg: PawPrint },
   alimentar: { emoji: '🌾', Svg: Wheat },
   mimar: { emoji: '💗', Svg: HandHeart },
+  curar: { emoji: '💊', Svg: Pill },
+  escoba: { emoji: '🧹', Svg: Brush },
   accesorio: { emoji: '🧸', Svg: Volleyball },
   aspersor: { emoji: '💦', Svg: Droplets },
   regla: { emoji: '📐', Svg: Ruler },
@@ -513,6 +535,12 @@ export const CATALOGO = {
   companeros: { emoji: '👥', Svg: Users },
   auto: { emoji: '🚗', Svg: Car },
 
+  // — Agenda (trabajo, salud y personas) —
+  agenda: { emoji: '🗓️', Svg: CalendarClock },
+  telefono: { emoji: '📞', Svg: Phone },
+  correo: { emoji: '✉️', Svg: Mail },
+  pastel: { emoji: '🎂', Svg: Cake },
+
   // — Idiomas —
   bocina: { emoji: '🔊', Svg: Volume2 },
   musica: { emoji: '🎵', Svg: Music },
@@ -585,6 +613,7 @@ export const CATALOGO = {
   lista: { emoji: '📋', Svg: ClipboardList },
   rejilla: { emoji: '▦', Svg: Grid3x3 },
   ver: { emoji: '👀', Svg: Eye },
+  ocultar: { emoji: '🙈', Svg: EyeOff },
   tendencia: { emoji: '📈', Svg: TrendingUp },
   etiqueta: { emoji: '🏷️', Svg: Tag },
 
@@ -627,6 +656,11 @@ export const CATALOGO = {
   flor: { emoji: '🌼', Svg: Flower2 },
   semilla: { emoji: '🌱', Svg: Sprout },
   rama: { emoji: '🌿', Svg: GitBranch },
+  nodos: { emoji: '🕸️', Svg: Waypoints },
+  flujo: { emoji: '🔀', Svg: Workflow },
+  venn: { emoji: '⚭', Svg: Blend },
+  comparar: { emoji: '⚖️', Svg: GitCompare },
+  llaves: { emoji: '❴', Svg: Braces },
   sombrero: { emoji: '🎩', Svg: Crown },
   naipe: { emoji: '🃏', Svg: Spade },
   'rueda-fortuna': { emoji: '🎡', Svg: FerrisWheel },
@@ -694,6 +728,7 @@ export const CATALOGO = {
   cerdo: { emoji: '🐷', Svg: PiggyBank },
   cabra: { emoji: '🐐', Svg: MountainSnow },
   oveja: { emoji: '🐑', Svg: Cloud },
+  caballo: { emoji: '🐴', Svg: Wind },
   dormir: { emoji: '💤', Svg: Moon },
   tina: { emoji: '🛁', Svg: Bath },
   zanahoria: { emoji: '🥕', Svg: Carrot },
@@ -706,6 +741,7 @@ export const CATALOGO = {
   // — Canchas —
   'pelota-tenis': { emoji: '🎾', Svg: CircleDot },
   basquet: { emoji: '🏀', Svg: Circle },
+  beisbol: { emoji: '⚾', Svg: CircleDashed },
 
   // — Prendas del editor de personajes —
   lentes: { emoji: '🕶️', Svg: Glasses },
@@ -725,6 +761,14 @@ export const CATALOGO = {
   ayuda: { emoji: '❓', Svg: CircleHelp },
   tutorial: { emoji: '🎓', Svg: GraduationCap },
   estetoscopio: { emoji: '🩺', Svg: Stethoscope },
+
+  // — Mascotas de la agenda (🐶, 🐱, 🐟, 🐴 y 🐾 ya los resuelven otras entradas) —
+  ave: { emoji: '🐦', Svg: Bird },
+  roedor: { emoji: '🐹', Svg: Rat },
+  reptil: { emoji: '🦎', Svg: Turtle },
+  vacuna: { emoji: '💉', Svg: Syringe },
+  desparasitar: { emoji: '🪱', Svg: Bug },
+  tijeras: { emoji: '✂️', Svg: Scissors },
   hablar: { emoji: '🗣️', Svg: Speech },
   pin: { emoji: '📌', Svg: Pin },
   'tema-oeste': { emoji: '🤠', Svg: Sunset },
@@ -803,6 +847,10 @@ export const CATALOGO = {
   'ficha-amarilla': { emoji: '🟡', Svg: Grid3x3 },
   semaforo: { emoji: '🚦', Svg: TrafficCone },
   domino: { emoji: '🁢', Svg: Rows2 },
+
+  // — Trámites del garaje (seguro y tarjeta de circulación) —
+  escudo: { emoji: '🛡️', Svg: ShieldCheck },
+  tarjeta: { emoji: '🪪', Svg: IdCard },
 
   // — Sueltos que aún caían en emoji —
   hilo: { emoji: '🧵', Svg: Spool },

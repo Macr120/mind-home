@@ -31,6 +31,24 @@ export function caloriasDesdeMacros(p: number, c: number, f: number) {
   return Math.round(p * 4 + c * 4 + f * 9)
 }
 
+/**
+ * Reparto calórico de los macros (4-4-9) en porcentajes. Con `kcalMeta` se mide
+ * sobre las calorías de la dieta (así el 30% que escribes es el 30% que se
+ * muestra); sin ella, sobre lo que aportan los propios gramos. No se fuerza a
+ * sumar 100: si los gramos no cuadran con la meta, se ve.
+ */
+export function repartoMacros(p: number, c: number, g: number, kcalMeta?: number) {
+  const kcal = kcalMeta && kcalMeta > 0 ? kcalMeta : p * 4 + c * 4 + g * 9
+  if (kcal <= 0) return null
+  const pct = (x: number) => Math.round((x * 100) / kcal)
+  return { proteinas: pct(p * 4), carbohidratos: pct(c * 4), grasas: pct(g * 9) }
+}
+
+/** Gramos de un macro para un porcentaje de las calorías (4-4-9). */
+export function gramosDesdePct(kcal: number, pct: number, kcalPorGramo: 4 | 9) {
+  return Math.round((kcal * pct) / 100 / kcalPorGramo)
+}
+
 export function pctObjetivo(consumido: number, objetivo: number) {
   if (objetivo <= 0) return 0
   return Math.min(100, Math.round((consumido / objetivo) * 100))

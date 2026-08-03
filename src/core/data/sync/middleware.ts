@@ -10,12 +10,12 @@
  * El motor de pull marca sus transacciones con `__mhAplicandoPull` para
  * escribir sin eco: sin outbox y conservando uid/updatedAt remotos.
  */
-import type {
-  DBCore,
-  DBCoreMutateRequest,
-  DBCoreMutateResponse,
-  DBCoreTransaction,
-  Middleware,
+import Dexie, {
+  type DBCore,
+  type DBCoreMutateRequest,
+  type DBCoreMutateResponse,
+  type DBCoreTransaction,
+  type Middleware,
 } from 'dexie'
 import { esTablaSync } from './syncables'
 
@@ -40,6 +40,19 @@ export function conectarAvisoEscritura(fn: (() => void) | null): void {
   alEscribirLocal = fn
 }
 
+/**
+ * Marca la transacción Dexie ACTUAL como escritura silenciosa: este middleware
+ * la deja pasar sin sellar uid/updatedAt ni encolar en `_outbox`, y el marcador
+ * del demo tampoco la apunta. La usan el pull del motor y la construcción de la
+ * casa demo (miles de filas que jamás deben sincronizarse).
+ */
+export function marcarEscrituraSilenciosa(): void {
+  const t = Dexie.currentTransaction as unknown as {
+    idbtrans?: { __mhAplicandoPull?: boolean }
+  } | null
+  if (t?.idbtrans) t.idbtrans.__mhAplicandoPull = true
+}
+
 function sellar(v: Fila): void {
   if (typeof v.uid !== 'string' || !v.uid) v.uid = crypto.randomUUID()
   // Los seeds (uid determinista `seed-…`) conservan su updatedAt bajo: la
@@ -58,6 +71,13 @@ export const syncMiddleware: Middleware<DBCore> = {
       table(nombre) {
         const tabla = down.table(nombre)
         if (!esTablaSync(nombre)) return tabla
+        // Upgrade desde una BD anterior a v89: Dexie genera los stacks con el
+        // esquema REAL de la BD, donde `_outbox` aún no existe (la crea el
+        // paso v89). Sin cola no hay nada que registrar: la tabla pasa tal
+        // cual, y al llegar el upgrade a v89 los stacks se regeneran ya con
+        // `_outbox` creada. Resolverla aquí sin este guard rompía la
+        // migración entera ("Table '_outbox' not found").
+        if (!down.schema.tables.some((t) => t.name === '_outbox')) return tabla
         const outbox = down.table('_outbox')
         const kp = tabla.schema.primaryKey.keyPath as string
 

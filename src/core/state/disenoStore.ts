@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto } from '../data/db'
+import { claveLS, esDemo } from '../edicion'
 import { esAppNativa } from '../plataforma'
 import { filaSeed } from '../data/sync/syncables'
 import { esMueblePrincipal } from '../house/muebles'
@@ -15,8 +16,8 @@ import {
 import type { PisoTipoId } from '../house/pisos'
 import type { TechoTipoId, TechoFormaId, TechoParams, TechoCeldaForma } from '../house/techos'
 import { techoSugeridoPorTema, TECHO_PARAMS_DEFAULT } from '../house/techos'
-import type { FondoId } from '../house/fondos'
-import { fondoSugeridoPorTema } from '../house/fondos'
+import type { FondoId, FamiliaAnimId } from '../house/fondos'
+import { fondoSugeridoPorTema, esFamiliaAnim } from '../house/fondos'
 import { RECURSOS } from '../house/recursos'
 import { MODELOS } from '../house/modelosRecursos'
 import {
@@ -36,6 +37,8 @@ import {
   serializarMapaSuperficie,
   type MapaSuperficieAjustes,
 } from '../house/mapaSuperficie'
+import { AGUA_ALTURA_LOCAL } from '../house/walls'
+import { useFlotador, TIPO_FLOTADOR, NOMBRE_FLOTADOR, COLOR_FLOTADOR } from './flotadorStore'
 import type { AjusteFondoImagen } from '../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, medirImagen } from '../house/fondosImagen'
 import { useCuartos } from './cuartosStore'
@@ -240,6 +243,8 @@ interface DisenoState {
   animacionesFondo: boolean
   /** Intensidad de las microanimaciones (0.1–1): cantidad y discreción de los elementos. */
   animacionesIntensidad: number
+  /** Microanimaciones elegidas a mano; null = automáticas (las que sugiere el fondo). */
+  animacionesIds: FamiliaAnimId[] | null
   /** Papel del croquis, rejilla y base del mapa 3D. */
   mapaSuperficie: MapaSuperficieAjustes
   cargado: boolean
@@ -269,6 +274,8 @@ interface DisenoState {
   eliminarFondoImagen: (id: number) => Promise<void>
   setAnimacionesFondo: (activo: boolean) => Promise<void>
   setAnimacionesIntensidad: (valor: number) => Promise<void>
+  /** Fija las microanimaciones a mano (null = volver a las del fondo). */
+  setAnimacionesIds: (ids: FamiliaAnimId[] | null) => Promise<void>
   setMapaSuperficie: (ajustes: MapaSuperficieAjustes) => Promise<void>
   setTechoTipo: (tipo: TechoTipoId | null) => Promise<void>
   setRoomColor: (roomId: string, color: string) => Promise<void>
@@ -360,6 +367,8 @@ interface DisenoState {
   setObjetoPlantilla: (id: number, plantillaId: string | null) => Promise<void>
   /** Agrega un objeto LIBRE sobre el mapa (editor de mapa, inventario completo). */
   addObjetoMapa: (tipo: string, color: string) => Promise<void>
+  /** Alberca: siembra su dona flotadora al llenarla de agua y la retira al vaciarla. */
+  sincronizarFlotadorAlberca: (roomId: string, hayAgua: boolean) => Promise<void>
   /** Crea un objeto construido con geometría básica. `roomId` = destino elegido (mapa o cuarto). Devuelve su id. */
   addObjetoPiezas: (piezas: Pieza3D[], color: string, roomId?: string) => Promise<number>
   /** Crea un objeto con un modelo .glb subido por el usuario. `roomId` = destino elegido. Devuelve su id. */
@@ -416,6 +425,8 @@ interface DisenoState {
   setObjetoPose: (id: number, x: number, z: number, rotY: number) => Promise<void>
   /** Desplaza (dx,dz) un objeto y su grupo, acotado a su cuarto, y PERSISTE de inmediato (flechas del modo mover-objetos). */
   nudgeObjeto: (id: number, dx: number, dz: number) => Promise<void>
+  /** Reescala las posiciones de los objetos libres del mapa al cambiar el tamaño de celda. */
+  reescalarObjetosMapa: (factor: number) => Promise<void>
   startObjetoDrag: (id: number) => void
   endObjetoDrag: () => Promise<void>
   removeObjeto: (id: number) => Promise<void>
@@ -517,7 +528,8 @@ async function asegurarPrincipalPorCuarto(objetos: ObjetoCuarto[]): Promise<Obje
     for (const o of items) {
       const debe = o.id === elegido.id
       if (o.permanente === debe || o.id == null) continue
-      await db.objetosCuarto.update(o.id, { permanente: debe })
+      // Casa demo: se corrige en memoria; escribirlo solo la ensuciaría.
+      if (!esDemo()) await db.objetosCuarto.update(o.id, { permanente: debe })
       const i = lista.findIndex((x) => x.id === o.id)
       if (i >= 0) lista[i] = { ...lista[i], permanente: debe }
     }
@@ -579,6 +591,7 @@ async function guardarFondoRow(
   fondo: FondoId,
   anim: boolean,
   intensidad: number,
+  ids: FamiliaAnimId[] | null,
   imagenId: number | null,
   colorFijo: string,
 ) {
@@ -587,6 +600,8 @@ async function guardarFondoRow(
     nombre: fondo,
     // Siempre con 2 decimales: así '1.00' (elegido) no se confunde con el '1' antiguo.
     color: anim ? intensidad.toFixed(2) : '0',
+    // Microanimaciones elegidas a mano; '' = automáticas (las del fondo).
+    pisoTipo: ids ? ids.join(',') : '',
     muebleColor: imagenId != null ? String(imagenId) : '',
     pisoColor: colorFijo, // color sólido cuando fondoId = 'color_fijo'
   }
@@ -677,6 +692,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   fondosImagen: [],
   animacionesFondo: true,
   animacionesIntensidad: ANIM_INTENSIDAD_DEFAULT,
+  animacionesIds: null,
   mapaSuperficie: { ...MAPA_SUPERFICIE_DEFAULT },
   cargado: false,
 
@@ -690,11 +706,15 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       db.techosImagenCuarto.toArray(),
       db.murosImagenCuarto.toArray(),
     ])
+    // Casa demo: nace bien construida — NINGUNA reparación one-shot aplica, y
+    // sus escrituras la marcarían sucia de arranque (reposición en cada
+    // recarga, sin que el visitante tocara nada). De ahí el `!demo` de cada bloque.
+    const demo = esDemo()
     // Limpieza única (pedido del usuario): quita de los cuartos la TV grande
     // (recurso:58) y la consola+control (recurso:59) de entretenimiento; se
     // conservan en la biblioteca para volver a colocarlas si se quiere.
-    const LIMPIEZA_TV = 'mh_limpieza_tv_entretenimiento_v1'
-    if (!localStorage.getItem(LIMPIEZA_TV)) {
+    const LIMPIEZA_TV = claveLS('mh_limpieza_tv_entretenimiento_v1')
+    if (!demo && !localStorage.getItem(LIMPIEZA_TV)) {
       localStorage.setItem(LIMPIEZA_TV, '1')
       const aBorrar = objetos.filter(
         (o) => o.id != null && o.roomId !== LIBRERIA_ROOM && (o.tipo === 'recurso:58' || o.tipo === 'recurso:59'),
@@ -713,8 +733,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // estantería metálica a la derecha, banco al centro y se borra la puerta de
     // garage. Identifica el cuarto de cada app por el `plantillaId` de su objeto
     // principal (el id del cuarto no es el de la app).
-    const REPOSICION = 'mh_reposicion_v2'
-    if (!localStorage.getItem(REPOSICION)) {
+    const REPOSICION = claveLS('mh_reposicion_v2')
+    if (!demo && !localStorage.getItem(REPOSICION)) {
       localStorage.setItem(REPOSICION, '1')
       const roomDe = (plantillaId: string) => objetos.find((o) => o.plantillaId === plantillaId)?.roomId
       const enCuarto = (room: string | undefined, tipo: string) =>
@@ -750,8 +770,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // Reposición única v3 (pedido del usuario): mesa de diario a la esquina
     // izquierda a 175%; despacho con escritorio+computadora al fondo, silla al
     // frente girada 180° y se quita el monitor suelto duplicado.
-    const REPOSICION3 = 'mh_reposicion_v3'
-    if (!localStorage.getItem(REPOSICION3)) {
+    const REPOSICION3 = claveLS('mh_reposicion_v3')
+    if (!demo && !localStorage.getItem(REPOSICION3)) {
       localStorage.setItem(REPOSICION3, '1')
       const roomDe = (plantillaId: string) => objetos.find((o) => o.plantillaId === plantillaId)?.roomId
       const enCuarto = (room: string | undefined, tipo: string) =>
@@ -778,8 +798,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     }
     // Reposición única v4 (pedido del usuario): escritorio+silla centrados,
     // mesa de diario casi al doble (2x), piano de hobbies a la esquina izquierda.
-    const REPOSICION4 = 'mh_reposicion_v4'
-    if (!localStorage.getItem(REPOSICION4)) {
+    const REPOSICION4 = claveLS('mh_reposicion_v4')
+    if (!demo && !localStorage.getItem(REPOSICION4)) {
       localStorage.setItem(REPOSICION4, '1')
       const roomDe = (plantillaId: string) => objetos.find((o) => o.plantillaId === plantillaId)?.roomId
       const enCuarto = (room: string | undefined, tipo: string) =>
@@ -800,8 +820,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     }
     // Reposición única v5 (pedido del usuario): escritorio de noticias (ahora
     // ambiental, pulsa al acercarse) a la esquina izquierda y más grande.
-    const REPOSICION5 = 'mh_reposicion_v5'
-    if (!localStorage.getItem(REPOSICION5)) {
+    const REPOSICION5 = claveLS('mh_reposicion_v5')
+    if (!demo && !localStorage.getItem(REPOSICION5)) {
       localStorage.setItem(REPOSICION5, '1')
       const roomDiario = objetos.find((o) => o.plantillaId === 'diario')?.roomId
       const escritorio = roomDiario
@@ -817,8 +837,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // especial tienen un principal viejo (silla/mesa genérica), no `periodico`,
     // así que las migraciones previas no los tocaron. Convierte ese principal en
     // el escritorio de noticias y limpia el mobiliario suelto sobrante.
-    const REPARA_DIARIO = 'mh_repara_diario_v1'
-    if (!localStorage.getItem(REPARA_DIARIO)) {
+    const REPARA_DIARIO = claveLS('mh_repara_diario_v1')
+    if (!demo && !localStorage.getItem(REPARA_DIARIO)) {
       localStorage.setItem(REPARA_DIARIO, '1')
       const carrier = objetos.find((o) => o.plantillaId === 'diario')
       if (carrier?.id != null && carrier.tipo !== TIPO_PERIODICO) {
@@ -841,8 +861,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // `diario`) pasa a un sillón de lectura donde el personaje se sienta; el
     // DIARIO PERSONAL (plantilla `anecdotario`) recibe el escritorio, más chico.
     // Convierte el principal de cada cuarto sin importar qué tenga ahora.
-    const SWAP_NOTICIA_DIARIO = 'mh_swap_noticia_diario_v1'
-    if (!localStorage.getItem(SWAP_NOTICIA_DIARIO)) {
+    const SWAP_NOTICIA_DIARIO = claveLS('mh_swap_noticia_diario_v1')
+    if (!demo && !localStorage.getItem(SWAP_NOTICIA_DIARIO)) {
       localStorage.setItem(SWAP_NOTICIA_DIARIO, '1')
       const convertir = async (plantillaId: string, tipo: string, escala: number, color: string) => {
         const carrier = objetos.find((o) => o.plantillaId === plantillaId)
@@ -857,8 +877,8 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     // Limpieza única: la silla ejecutiva (recurso:49) venía en la siembra VIEJA
     // del diario personal (anecdotario) junto con la libreta; ya no se siembra,
     // pero sigue colocada en cuartos creados antes de este cambio.
-    const LIMPIA_SILLA_ANECDOTARIO = 'mh_limpia_silla_anecdotario_v1'
-    if (!localStorage.getItem(LIMPIA_SILLA_ANECDOTARIO)) {
+    const LIMPIA_SILLA_ANECDOTARIO = claveLS('mh_limpia_silla_anecdotario_v1')
+    if (!demo && !localStorage.getItem(LIMPIA_SILLA_ANECDOTARIO)) {
       localStorage.setItem(LIMPIA_SILLA_ANECDOTARIO, '1')
       const roomAnecdotario = objetos.find((o) => o.plantillaId === 'anecdotario')?.roomId
       const silla = roomAnecdotario
@@ -895,6 +915,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     let fondoId: FondoId = 'auto'
     let animacionesFondo = true
     let animacionesIntensidad = ANIM_INTENSIDAD_DEFAULT
+    let animacionesIds: FamiliaAnimId[] | null = null
     let fondoColorFijo = '#87ceeb'
     let fondoImagenActivo: number | null = null
     let mapaSuperficie: MapaSuperficieAjustes = { ...MAPA_SUPERFICIE_DEFAULT }
@@ -936,6 +957,10 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         if (d.color?.includes('.')) {
           const n = parseFloat(d.color)
           if (Number.isFinite(n)) animacionesIntensidad = Math.min(1, Math.max(0.1, n))
+        }
+        if (d.pisoTipo) {
+          const ids = d.pisoTipo.split(',').filter(esFamiliaAnim)
+          if (ids.length) animacionesIds = ids
         }
         if (d.pisoColor) fondoColorFijo = d.pisoColor
         const imgId = parseInt(d.muebleColor ?? '', 10)
@@ -1092,6 +1117,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondosImagen,
       animacionesFondo,
       animacionesIntensidad,
+      animacionesIds,
       mapaSuperficie,
       avatar: av
         ? {
@@ -1152,7 +1178,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     if (et?.id) await db.disenoRooms.update(et.id, { nombre: techoPorTema ?? '' })
     else await db.disenoRooms.add({ roomId: TECHO_TIPO_ROW, color: '', nombre: techoPorTema ?? '' })
     const anim = get().animacionesFondo
-    await guardarFondoRow(fondoPorTema, anim, get().animacionesIntensidad, null, get().fondoColorFijo)
+    await guardarFondoRow(
+      fondoPorTema,
+      anim,
+      get().animacionesIntensidad,
+      get().animacionesIds,
+      null,
+      get().fondoColorFijo,
+    )
   },
 
   setTemaOverride: async (tema, patch) => {
@@ -1235,18 +1268,39 @@ export const useDiseño = create<DisenoState>((set, get) => ({
 
   setFondoId: async (fondo) => {
     set({ fondoId: fondo, fondoImagenActivo: null })
-    await guardarFondoRow(fondo, get().animacionesFondo, get().animacionesIntensidad, null, get().fondoColorFijo)
+    await guardarFondoRow(
+      fondo,
+      get().animacionesFondo,
+      get().animacionesIntensidad,
+      get().animacionesIds,
+      null,
+      get().fondoColorFijo,
+    )
   },
 
   setFondoColorFijo: async (color) => {
     set({ fondoId: 'color_fijo', fondoColorFijo: color, fondoImagenActivo: null })
-    await guardarFondoRow('color_fijo', get().animacionesFondo, get().animacionesIntensidad, null, color)
+    await guardarFondoRow(
+      'color_fijo',
+      get().animacionesFondo,
+      get().animacionesIntensidad,
+      get().animacionesIds,
+      null,
+      color,
+    )
   },
 
   setFondoImagenActivo: async (id) => {
     if (id != null && !get().fondosImagen.some((f) => f.id === id)) return
     set({ fondoImagenActivo: id })
-    await guardarFondoRow(get().fondoId, get().animacionesFondo, get().animacionesIntensidad, id, get().fondoColorFijo)
+    await guardarFondoRow(
+      get().fondoId,
+      get().animacionesFondo,
+      get().animacionesIntensidad,
+      get().animacionesIds,
+      id,
+      get().fondoColorFijo,
+    )
   },
 
   agregarFondoImagen: async (blob, nombre, ajuste = AJUSTE_FONDO_DEFAULT) => {
@@ -1265,7 +1319,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondosImagen: [nuevo, ...s.fondosImagen],
       fondoImagenActivo: id,
     }))
-    await guardarFondoRow(get().fondoId, get().animacionesFondo, get().animacionesIntensidad, id, get().fondoColorFijo)
+    await guardarFondoRow(
+      get().fondoId,
+      get().animacionesFondo,
+      get().animacionesIntensidad,
+      get().animacionesIds,
+      id,
+      get().fondoColorFijo,
+    )
     return id
   },
 
@@ -1284,7 +1345,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondoImagenActivo: eraActivo ? null : s.fondoImagenActivo,
     }))
     if (eraActivo) {
-      await guardarFondoRow(get().fondoId, get().animacionesFondo, get().animacionesIntensidad, null, get().fondoColorFijo)
+      await guardarFondoRow(
+        get().fondoId,
+        get().animacionesFondo,
+        get().animacionesIntensidad,
+        get().animacionesIds,
+        null,
+        get().fondoColorFijo,
+      )
     }
   },
 
@@ -1294,6 +1362,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       get().fondoId,
       activo,
       get().animacionesIntensidad,
+      get().animacionesIds,
       get().fondoImagenActivo,
       get().fondoColorFijo,
     )
@@ -1306,6 +1375,22 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       get().fondoId,
       get().animacionesFondo,
       intensidad,
+      get().animacionesIds,
+      get().fondoImagenActivo,
+      get().fondoColorFijo,
+    )
+  },
+
+  setAnimacionesIds: async (ids) => {
+    // Sin ninguna elegida se vuelve al modo automático (para dejar el cielo quieto
+    // está el interruptor, no una lista vacía).
+    const limpio = ids?.length ? ids : null
+    set({ animacionesIds: limpio })
+    await guardarFondoRow(
+      get().fondoId,
+      get().animacionesFondo,
+      get().animacionesIntensidad,
+      limpio,
       get().fondoImagenActivo,
       get().fondoColorFijo,
     )
@@ -1926,6 +2011,37 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
   },
 
+  sincronizarFlotadorAlberca: async (roomId, hayAgua) => {
+    const donas = get().objetos.filter((o) => o.roomId === roomId && o.tipo === TIPO_FLOTADOR)
+    if (hayAgua) {
+      if (donas.length) return
+      // Los objetos del cuarto se dibujan a 0.2 + y: la dona flota en la lámina.
+      const item: ObjetoCuarto = {
+        roomId,
+        tipo: TIPO_FLOTADOR,
+        color: COLOR_FLOTADOR,
+        slot: 0,
+        x: 0,
+        z: 0,
+        y: AGUA_ALTURA_LOCAL - 0.2,
+        rotY: 0,
+      }
+      const id = await db.objetosCuarto.add(item)
+      set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
+      return
+    }
+    // Sin agua la dona quedaría en el aire: se retira (removeObjeto no borra el
+    // último objeto de un cuarto, y en una alberca suele ser el único).
+    const ids = donas.map((o) => o.id).filter((n): n is number => n != null)
+    if (!ids.length) return
+    if (ids.includes(useFlotador.getState().instanciaId ?? -1)) useFlotador.getState().salirForzado()
+    set((s) => ({
+      objetos: s.objetos.filter((o) => o.id == null || !ids.includes(o.id)),
+      seleccion: s.seleccion.filter((x) => !ids.includes(x)),
+    }))
+    await db.objetosCuarto.bulkDelete(ids)
+  },
+
   addObjetoPiezas: async (piezas, color, destino) => {
     const { roomId, x, z } = destinoObjetoNuevo(get().objetos, destino)
     const item: ObjetoCuarto = { roomId, tipo: 'piezas', color, slot: 0, x, z, rotY: 0, piezas }
@@ -2024,6 +2140,14 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     for (const [tipo, color, nombre] of FUENTES_LIB) {
       if (tiposLib.has(tipo)) continue
       const item: ObjetoCuarto = { roomId: LIBRERIA_ROOM, tipo, color, slot: 0, categoria: 'Fuentes', nombre }
+      const id = await addLib(item)
+      nuevos.push({ id, ...item })
+    }
+    // Dona flotadora: la alberca ya nace con una, pero desde aquí se pueden poner más.
+    if (!tiposLib.has(TIPO_FLOTADOR)) {
+      const item: ObjetoCuarto = {
+        roomId: LIBRERIA_ROOM, tipo: TIPO_FLOTADOR, color: COLOR_FLOTADOR, slot: 0, categoria: 'Alberca', nombre: NOMBRE_FLOTADOR,
+      }
       const id = await addLib(item)
       nuevos.push({ id, ...item })
     }
@@ -2296,6 +2420,24 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       objetos: s.objetos.map((x) => {
         const c = cambios.find((c) => c.id === x.id)
         return c ? { ...x, x: c.x, z: c.z } : x
+      }),
+    }))
+    await Promise.all(cambios.map((c) => db.objetosCuarto.update(c.id, { x: c.x, z: c.z })))
+  },
+
+  reescalarObjetosMapa: async (factor) => {
+    // `cellToWorld` es lineal en SPACING y está centrada en (0,0): multiplicar x/z por
+    // nuevoTam/viejoTam deja cada objeto en SU MISMA celda. La `y` no se toca — las alturas
+    // (WALL_H) no dependen del tamaño de celda. Los objetos DE CUARTO tampoco: sus coords
+    // son locales al cuarto, que ya escala solo.
+    const cambios = get()
+      .objetos.filter((o) => o.id != null && esObjetoMapa(o))
+      .map((o) => ({ id: o.id as number, x: (o.x ?? 0) * factor, z: (o.z ?? 0) * factor }))
+    if (!cambios.length) return
+    set((s) => ({
+      objetos: s.objetos.map((o) => {
+        const c = cambios.find((c) => c.id === o.id)
+        return c ? { ...o, x: c.x, z: c.z } : o
       }),
     }))
     await Promise.all(cambios.map((c) => db.objetosCuarto.update(c.id, { x: c.x, z: c.z })))

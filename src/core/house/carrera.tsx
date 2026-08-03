@@ -20,6 +20,7 @@ import {
   offsetTrompoRival,
 } from '../state/carreraStore'
 import { metaLibre, hayPistaLibre, versionPistaLibre } from '../state/pistaLibreStore'
+import { usePaintball } from '../state/paintballStore'
 import { vehiculoDe, FORMA_VEHICULO } from './vehiculos'
 import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
@@ -78,7 +79,8 @@ export function CarreraRuntime() {
         playerLevel === 0 &&
         !activeRoom &&
         !editMode &&
-        !transicion
+        !transicion &&
+        usePaintball.getState().fase === null
       ) {
         if (sobreMeta) void s.ofrecer(montadoTerrestre ? tipoMontado : null)
         else if (sobreMetaLibre) void s.ofrecer(montadoTerrestre ? tipoMontado : null, 'libre')

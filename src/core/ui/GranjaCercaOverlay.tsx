@@ -1,10 +1,17 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { useGranjaCerca } from '../state/granjaCercaStore'
-import { alimentarCorral, mimarCorral } from '../state/granjaStore'
-import { corralesRepo, cestaRepo } from '../data/repository'
+import {
+  alimentarCorral,
+  mimarCorral,
+  curarCorral,
+  limpiarCorral,
+  corralSucio,
+  estaEnfermo,
+} from '../state/granjaStore'
+import { corralesRepo, cestaRepo, animalesRepo } from '../data/repository'
 import { cellToWorld } from '../house/walls'
 import { registrarAncla, quitarAncla, registrarDom, quitarDom } from '../house/etiquetasMapa'
 import { useT } from '../i18n/useT'
@@ -31,6 +38,17 @@ function Burbuja({ corralId }: { corralId: number }) {
   const corral = (corralesRepo.useAll() ?? []).find((c) => c.id === corralId)
   const cesta = (cestaRepo.useAll() ?? []).reduce((n, c) => n + c.cantidad, 0)
   const ancla = useRef(new THREE.Vector3())
+  // Tick de 30 s: enfermedad y suciedad se derivan de timestamps, así que aparecen
+  // mientras estás parado junto al corral aunque no cambie ningún dato.
+  const [ahora, setAhora] = useState(() => Date.now())
+  useEffect(() => {
+    const id = window.setInterval(() => setAhora(Date.now()), 30_000)
+    return () => window.clearInterval(id)
+  }, [])
+  const enfermos = (animalesRepo.useAll() ?? []).filter(
+    (a) => a.corralId === corralId && estaEnfermo(a, ahora),
+  ).length
+  const sucio = corral != null && corralSucio(corral, ahora)
 
   useEffect(() => {
     if (!corral) return
@@ -70,6 +88,19 @@ function Burbuja({ corralId }: { corralId: number }) {
             <button type="button" onClick={() => void mimarCorral(corralId)} className={btnBurbuja}>
               <Icono nombre="mimar" /> {t('granja.burbuja.acariciar', 'Acariciar')}
             </button>
+            {/* Curar y limpiar solo asoman cuando hacen falta: si no, la burbuja
+                de andar por la casa acabaría con cuatro botones siempre. */}
+            {enfermos > 0 && (
+              <button type="button" onClick={() => void curarCorral(corralId)} className={btnBurbuja}>
+                <Icono nombre="curar" /> {t('granja.burbuja.curar', 'Curar')}
+                <span className="font-normal text-white/60">({enfermos})</span>
+              </button>
+            )}
+            {sucio && (
+              <button type="button" onClick={() => void limpiarCorral(corralId)} className={btnBurbuja}>
+                <Icono nombre="escoba" /> {t('granja.burbuja.limpiar', 'Limpiar')}
+              </button>
+            )}
           </div>
           <span
             className="pointer-events-none -mt-px h-0 w-0 border-x-[8px] border-t-[10px] border-x-transparent"

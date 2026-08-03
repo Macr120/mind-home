@@ -1,9 +1,11 @@
-import { useCanchas, CANCHAS, esCancha, claseDeCancha, type ClaseCancha } from '../state/canchasStore'
+import { useCanchas, CANCHAS, esCancha, claseDeCancha, escalaCancha, type ClaseCancha } from '../state/canchasStore'
 import { useDiseño } from '../state/disenoStore'
+import { useLayout } from '../state/layoutStore'
 import { ColorPicker } from './editor/ColorPicker'
 import { SliderProp } from './editor/SliderProp'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { MarcoEditorInfra } from './MarcoEditorInfra'
 
 const btn =
   'flex h-10 items-center gap-1.5 rounded-lg border border-white/10 px-2.5 text-xs font-semibold text-white transition active:scale-95'
@@ -15,8 +17,12 @@ const PALETA_BASE = [
 ]
 const paletaDe = (base: string) => [base, ...PALETA_BASE.filter((c) => c !== base)]
 
-/** Rango de tamaño de las canchas (uniforme, 1 = tamaño real). */
-const ESCALA_MIN = 0.5
+/**
+ * Rango de tamaño de las canchas (uniforme, 1 = tamaño de catálogo con la celda base).
+ * El mínimo baja de 0.5 porque el tamaño final se multiplica por el factor de la celda:
+ * con celdas grandes, sin este margen no se podrían hacer canchas pequeñas.
+ */
+const ESCALA_MIN = 0.25
 const ESCALA_MAX = 2
 
 /**
@@ -32,10 +38,16 @@ export function EditorCanchas() {
   const escala = useCanchas((s) => s.escala)
   const sel = useCanchas((s) => s.sel)
   const selObj = useDiseño((s) => s.objetos.find((o) => o.id === sel))
+  // La medida en metros depende de la celda del mapa: suscribirse para repintarla.
+  useLayout((s) => s.tamCelda)
   if (!activo) return null
   const c = useCanchas.getState()
   const d = useDiseño.getState()
-  const pct = (v: number) => `${Math.round(v * 100)}%`
+  /** Porcentaje elegido + las medidas reales que tendrá con la celda actual. */
+  const medidas = (def: { largo: number; ancho: number }, v: number) => {
+    const e = escalaCancha(v)
+    return `${Math.round(v * 100)}% · ${Math.round(def.largo * e)}×${Math.round(def.ancho * e)} m`
+  }
   const selCancha = selObj && esCancha(selObj.tipo) ? selObj : undefined
   const selDef = selCancha ? CANCHAS[claseDeCancha(selCancha.tipo)] : undefined
 
@@ -53,38 +65,17 @@ export function EditorCanchas() {
   )
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-40">
-      {/* Encabezado. */}
-      <div className="absolute left-0 right-0 top-3 flex items-start justify-center">
-        <div
-          data-tut="canchas.header"
-          className="ui-hud ui-pop pointer-events-auto flex items-center gap-2 rounded-lg border border-white/10 px-3 py-1.5 text-sm font-semibold text-white"
-        >
-          <Icono nombre="cancha" /> {t('room.canchas.nombre', 'Canchas')}
-          <button
-            type="button"
-            data-tut="canchas.salir"
-            onClick={() => c.salir()}
-            title={t('infra.salirEditor', 'Salir del editor')}
-            aria-label={t('infra.salirEditor', 'Salir del editor')}
-            className="ml-2 rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
-          >
-            ✕
-          </button>
-        </div>
-      </div>
-
-      {/* Barra: clases + herramientas arriba, panel contextual abajo. */}
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center px-2">
-        <div
-          data-tut="canchas.barra"
-          data-tut-zona="app:canchas"
-          className="ui-hud ui-pop pointer-events-auto flex w-full max-w-md flex-col gap-2 rounded-xl border border-white/10 p-2"
-        >
-          <div data-tut="canchas.clases" className="flex flex-wrap items-center justify-center gap-1.5">
+    <MarcoEditorInfra
+      icono="cancha"
+      titulo={t('room.canchas.nombre', 'Canchas')}
+      tut="canchas"
+      onSalir={() => c.salir()}
+    >
+      <div data-tut="canchas.clases" className="flex flex-wrap items-center justify-center gap-1.5">
             {claseBtn('futbol')}
             {claseBtn('tenis')}
             {claseBtn('basket')}
+            {claseBtn('beisbol')}
             <span className="mx-1 h-6 w-px bg-white/15" />
             {clase !== null && (
               <button
@@ -117,6 +108,7 @@ export function EditorCanchas() {
                 value={color ?? CANCHAS[clase].color}
                 onChange={(col) => c.setColor(col)}
                 paleta={paletaDe(CANCHAS[clase].color)}
+                fila
               />
               <SliderProp
                 label={t('canchas.tamano', 'Tamaño')}
@@ -124,7 +116,7 @@ export function EditorCanchas() {
                 min={ESCALA_MIN}
                 max={ESCALA_MAX}
                 step={0.05}
-                fmt={pct}
+                fmt={(v) => medidas(CANCHAS[clase], v)}
                 onChange={(v) => c.setEscala(v)}
                 onReset={() => c.setEscala(1)}
               />
@@ -140,6 +132,7 @@ export function EditorCanchas() {
                 value={selCancha.color}
                 onChange={(col) => void d.setObjetoColor(sel, col)}
                 paleta={paletaDe(selDef!.color)}
+                fila
               />
               <SliderProp
                 label={t('canchas.tamano', 'Tamaño')}
@@ -147,7 +140,7 @@ export function EditorCanchas() {
                 min={ESCALA_MIN}
                 max={ESCALA_MAX}
                 step={0.05}
-                fmt={pct}
+                fmt={(v) => medidas(selDef!, v)}
                 onChange={(v) => void d.setObjetoEscala(sel, v)}
                 onReset={() => void d.setObjetoEscala(sel, 1)}
                 extra={
@@ -182,8 +175,6 @@ export function EditorCanchas() {
           <p className="px-1 text-center text-[10px] leading-tight text-white/50">
             {t('canchas.ayuda', 'Toca el mapa para colocar; con Editar, toca una cancha para cambiar su color, tamaño o rotación.')}
           </p>
-        </div>
-      </div>
-    </div>
+    </MarcoEditorInfra>
   )
 }

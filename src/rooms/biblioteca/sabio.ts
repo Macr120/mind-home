@@ -78,31 +78,78 @@ export async function clasificarConversacion(
   }
 }
 
+/** Nodo del árbol que puede hacer de padre de una charla nueva. */
+export interface CandidatoTema {
+  id: string
+  titulo: string
+  rama?: string
+}
+
+/** Nodos candidatos que se ofrecen POR PILAR en la llamada de ubicación. */
+const CANDIDATOS_POR_PILAR = 8
+
 /**
- * Elige bajo qué nodo del campo debe colgarse una charla nueva (colocación
- * profunda en el índice). Nunca lanza: null = colgar directo del campo.
+ * Clasifica una charla y la coloca en el índice DE UNA SOLA VEZ: campo, título,
+ * descripción y nodo padre.
+ *
+ * Antes esto eran dos llamadas (`clasificarConversacion` + `elegirPadre`) que
+ * mandaban el mismo transcript por separado, así que el primer turno de una
+ * charla nueva costaba 2 créditos en vez de 1. El precio de fusionarlas es que
+ * los candidatos hay que ofrecerlos ANTES de saber el campo: se mandan los de
+ * todos los pilares, acotados a los {@link CANDIDATOS_POR_PILAR} más recientes.
+ * Con un árbol muy grande en un pilar la colocación puede quedar menos profunda
+ * que antes; el botón ✨ Clasificar permite rehacerla.
+ *
+ * Nunca lanza: si la IA falla, cae a General + título derivado y sin padre.
  */
-export async function elegirPadre(
+export async function ubicarConversacion(
   mensajes: MensajeIA[],
-  pilarId: string,
-  candidatos: { id: string; titulo: string; rama?: string }[],
-): Promise<string | null> {
-  if (!candidatos.length) return null
+  candidatosPorPilar: Record<string, CandidatoTema[]>,
+): Promise<{ pilarId: string; titulo: string; descripcion: string; padreId: string | null }> {
+  const fallback = {
+    pilarId: PILAR_GENERAL.id,
+    titulo: tituloDerivado(mensajes),
+    descripcion: '',
+    padreId: null,
+  }
   try {
+    const lineasArbol = PILARES.flatMap((p) => {
+      const nodos = (candidatosPorPilar[p.id] ?? []).slice(0, CANDIDATOS_POR_PILAR)
+      if (!nodos.length) return []
+      return [`  Nodos de ${p.id}:`, ...nodos.map((c) => `   · ${c.id}: ${c.titulo}`)]
+    })
+
     const system = [
-      'Colocas un tema nuevo en el índice de una enciclopedia personal.',
-      `Campo: ${getPilar(pilarId).titulo}. Nodos disponibles como padre:`,
-      ...candidatos.map((c) => `- ${c.id}: ${c.titulo}${c.rama ? ` (rama: ${c.rama})` : ''}`),
-      'Elige el nodo MÁS específico que englobe el tema de la charla; si ninguno encaja bien, usa null.',
-      'Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"padreId":"<id de la lista o null>"}',
-    ].join('\n')
-    const r = await conversarIA(system, [{ rol: 'usuario', texto: transcript(mensajes, 3000) }], 100)
+      'Clasificas charlas de una enciclopedia personal y las colocas en su índice.',
+      'Campos disponibles:',
+      ...PILARES.map((p) => `- ${p.id}: ${p.titulo} — ${p.descripcion}`),
+      lineasArbol.length ? 'Nodos ya existentes donde se puede colgar la charla:' : '',
+      ...lineasArbol,
+      'Elige el campo que le corresponda y, DENTRO DE ESE CAMPO, el nodo más específico que englobe el tema. Si ninguno encaja bien o el campo no tiene nodos, usa null en padreId.',
+      'Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"pilarId":"<id de la lista>","titulo":"<título de máx. 6 palabras, en el idioma del usuario>","descripcion":"<qué trata, una frase corta estilo índice>","padreId":"<id de un nodo del MISMO campo, o null>"}',
+    ]
+      .filter(Boolean)
+      .join('\n')
+
+    const r = await conversarIA(system, [{ rol: 'usuario', texto: transcript(mensajes, 3000) }], 300)
     const obj = extraerJSON(r)
-    return typeof obj.padreId === 'string' && candidatos.some((c) => c.id === obj.padreId)
-      ? obj.padreId
-      : null
+    const pilarId =
+      typeof obj.pilarId === 'string' && PILARES.some((p) => p.id === obj.pilarId)
+        ? obj.pilarId
+        : fallback.pilarId
+    const titulo =
+      typeof obj.titulo === 'string' && obj.titulo.trim()
+        ? obj.titulo.trim().slice(0, 60)
+        : fallback.titulo
+    const descripcion = typeof obj.descripcion === 'string' ? obj.descripcion.trim().slice(0, 120) : ''
+    // El padre tiene que existir Y ser del campo elegido: si la IA cruza campos,
+    // se cuelga del campo (null) en vez de romper el árbol.
+    const delPilar = (candidatosPorPilar[pilarId] ?? []).slice(0, CANDIDATOS_POR_PILAR)
+    const padreId =
+      typeof obj.padreId === 'string' && delPilar.some((c) => c.id === obj.padreId) ? obj.padreId : null
+    return { pilarId, titulo, descripcion, padreId }
   } catch {
-    return null
+    return fallback
   }
 }
 

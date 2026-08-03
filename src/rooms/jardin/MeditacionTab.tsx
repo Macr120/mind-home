@@ -108,7 +108,7 @@ export function MeditacionTab({
 
   return (
     <div className="space-y-4">
-      <section className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
+      <section data-tut="jardin.med.pistas" className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
         <p className="text-sm font-semibold">{t('jardin.med.pistas', 'Pistas de sonido')}</p>
         <div className="grid grid-cols-2 gap-2">
           {PISTAS.map((pista) => (
@@ -209,7 +209,7 @@ export function MeditacionTab({
 
       {/* Sin rachas ni puntos: solo el registro de lo que ya hiciste, guardado
           en carpetas por semana, mes y año. */}
-      <section className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
+      <section data-tut="jardin.med.sesiones" className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
         <p className="text-sm font-semibold">{t('jardin.hist', 'Tus sesiones')}</p>
         <Archivador
           items={sesiones}

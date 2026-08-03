@@ -5,6 +5,9 @@ import { COLOR } from './constantes'
 import { FormularioMedia } from './FormularioMedia'
 import { TarjetaMedia } from './TarjetaMedia'
 import { Archivador, CarpetasPorEtiqueta } from '../_shared/Archivador'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { ejemploEntretenimiento } from './ejemplos'
+import { ProgramasSection } from './ProgramasSection'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -57,7 +60,7 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs text-white/40">{countText}</p>
         {lista.length > 0 && (
-          <div className="flex gap-1.5">
+          <div data-tut="entretenimiento.archivo.agrupar" className="flex gap-1.5">
             {(
               [
                 ['fecha', 'entre.arch.porFecha', 'Por fecha'],
@@ -92,24 +95,32 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
           sinEtiqueta={t('entre.arch.sinGenero', 'Sin género')}
         >
           {(item) => (
-            <TarjetaMedia
-              item={item}
-              onEditar={() => setEditando(item)}
-              onEliminar={() => item.id && mediaArchivoRepo.remove(item.id)}
-            />
+            <div data-tut={`entretenimiento.archivo.item.${item.id}`}>
+              <TarjetaMedia
+                item={item}
+                onEditar={() => setEditando(item)}
+                onEliminar={() => item.id && mediaArchivoRepo.remove(item.id)}
+              />
+            </div>
           )}
         </CarpetasPorEtiqueta>
       ) : (
         <Archivador items={lista} fecha={(item) => item.fecha} clave={(item) => item.id ?? item.titulo}>
           {(item) => (
-            <TarjetaMedia
-              item={item}
-              onEditar={() => setEditando(item)}
-              onEliminar={() => item.id && mediaArchivoRepo.remove(item.id)}
-            />
+            <div data-tut={`entretenimiento.archivo.item.${item.id}`}>
+              <TarjetaMedia
+                item={item}
+                onEditar={() => setEditando(item)}
+                onEliminar={() => item.id && mediaArchivoRepo.remove(item.id)}
+              />
+            </div>
           )}
         </Archivador>
       )}
+
+      <BarraEjemplo paquete={ejemploEntretenimiento} />
+
+      <ProgramasSection />
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { caminosRepo } from '../../core/data/repository'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { ejemploCaminos } from './ejemplos'
 
 /** Resumen 2D de Caminos: conteo de tramos construidos en el mapa por tipo. */
 export function Resumen() {
@@ -14,7 +16,7 @@ export function Resumen() {
   return (
     <div className="mx-auto flex h-full max-w-md flex-col gap-3 p-4">
       <p className="text-sm text-white/60">
-        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Plantillas → Infraestructura → Construir.')}
+        {t('infra.resumen.ayuda', 'Esta plantilla se construye en el mapa 3D: menú → Plantillas → Complementos → Construir.')}
       </p>
       <div className="grid grid-cols-3 gap-2">
         {tipos.map((x) => (
@@ -32,6 +34,8 @@ export function Resumen() {
       <p className="text-xs text-white/40">
         {t('caminos.resumen.unidad', 'Los conteos son tramos (celdas del mapa con camino).')}
       </p>
+
+      <BarraEjemplo paquete={ejemploCaminos} />
     </div>
   )
 }

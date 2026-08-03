@@ -348,3 +348,11 @@ html[data-modo-ui='transparente']
 *::-webkit-scrollbar-corner {
   display: none;
 }
+
+/* Cajas que se desplazan sin enseñar el deslizador (la del chat crece sola). */
+.sin-deslizador {
+  scrollbar-width: none;
+}
+.sin-deslizador::-webkit-scrollbar {
+  display: none;
+}

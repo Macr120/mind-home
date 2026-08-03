@@ -34,6 +34,53 @@ export async function sembrarGarage() {
     creadoEn: hoy,
   }))
 
+  // Los ids estables van escritos a mano (y no con `nuevoId`): la siembra corre
+  // en cada dispositivo y dos UUID distintos serían dos contactos duplicados.
+  await db.talleresVehiculo.bulkAdd(filasSeed('talleresVehiculo-demo', [
+    {
+      tallerId: 'tl-seed-taller',
+      nombre: 'Taller centro',
+      tipo: 'taller' as const,
+      telefono: '55 1234 5678',
+      direccion: 'Av. Ejemplo 120',
+      creadoEn: hoy,
+    },
+    {
+      tallerId: 'tl-seed-seguro',
+      nombre: 'Aseguradora Ejemplo',
+      tipo: 'aseguradora' as const,
+      telefono: '800 000 0000',
+      creadoEn: hoy,
+    },
+  ]))
+
+  await db.tramitesVehiculo.bulkAdd(filasSeed('tramitesVehiculo-demo', [
+    {
+      tramiteId: 'tv-seed-verificacion',
+      vehiculoId: autoId,
+      tipo: 'verificacion' as const,
+      titulo: 'Verificación',
+      fecha: sumarDias(hoy, 40),
+      cadaMeses: 6,
+      avisoDias: 15,
+      costo: 600,
+      activo: true,
+      creadoEn: hoy,
+    },
+    {
+      tramiteId: 'tv-seed-seguro',
+      vehiculoId: autoId,
+      tipo: 'seguro' as const,
+      titulo: 'Renovación de póliza',
+      fecha: sumarDias(hoy, 90),
+      cadaMeses: 12,
+      avisoDias: 30,
+      tallerId: 'tl-seed-seguro',
+      activo: true,
+      creadoEn: hoy,
+    },
+  ]))
+
   await db.registrosMantenimiento.bulkAdd(filasSeed('registrosMantenimiento-demo', [
     {
       vehiculoId: biciId,

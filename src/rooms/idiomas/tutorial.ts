@@ -1,105 +1,136 @@
+/**
+ * Flujos de idiomas: corren sobre el AÑO de Pep@ en la casa demo (solo navegan
+ * y señalan; no crean datos — el guard lo impediría igual).
+ */
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
-import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { abrirApp } from '../../core/abrirApp'
-import { eliminarIdiomaCascada, idiomasRepo, tarjetasIdiomaRepo } from '../../core/data/repository'
-import { fechaLocalISO } from '../../core/fechaLocal'
+import { clickTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-export const tutorialIdiomas: TutorialDef = {
-  id: 'app-idiomas',
-  titulo: T('tut.app-idiomas.titulo', 'Idiomas'),
+const flujoRepaso: TutorialDef = {
+  id: 'app-idiomas--repaso',
+  titulo: T('tut.app-idiomas--repaso.titulo', 'El repaso diario'),
   resumen: T(
-    'tut.app-idiomas.resumen',
-    'Idiomas te ayuda a aprender lenguas: tutor por nivel (A1–C2), tarjetas de repaso con repetición espaciada, vocabulario con pronunciación, un temario-árbol que crece contigo y ejercicios sin IA.',
+    'tut.app-idiomas--repaso.resumen',
+    'Las tarjetas se repasan por cajas: cada acierto aleja la próxima cita y cada fallo la acerca. La app solo te pide las que tocan hoy.',
   ),
   preparar: () => {
-    abrirApp('idiomas')
+    abrirApp('idiomas', 'repaso')
   },
   pasos: [
     {
+      sel: 'idiomas.repaso.panel',
+      titulo: T('tut.app-idiomas--repaso.1.titulo', 'Lo que toca hoy'),
       texto: T(
-        'tut.app-idiomas.1.texto',
-        'Idiomas lleva tu aprendizaje de lenguas; puedes estudiar varias a la vez.',
+        'tut.app-idiomas--repaso.1.texto',
+        'Pep@ lleva un año con esto y aún tiene repasos pendientes: el sistema no te pide todo el vocabulario, solo lo que estás a punto de olvidar.',
       ),
-    },
-    {
-      sel: 'idiomas.tab.charlas',
-      alEntrar: async (ctx) => {
-        await ctx.unaVez('idioma-ejemplo', async () => {
-          // Sin idiomas dados de alta la app solo muestra el formulario inicial
-          // (y las pestañas no existen): creamos «Inglés» para poder recorrerla.
-          let idiomas = await idiomasRepo.list()
-          if (idiomas.length === 0) {
-            const idiomaId = await idiomasRepo.add({
-              codigo: 'en-US',
-              nombre: 'Inglés',
-              bandera: '🇬🇧',
-              nivel: 'A1',
-              creadoEn: new Date().toISOString(),
-            })
-            ctx.alLimpiar(() => eliminarIdiomaCascada(idiomaId))
-            idiomas = await idiomasRepo.list()
-          }
-          // Tarjeta demo en el idioma activo (mismo criterio de la app), vencida hoy.
-          const lsId = Number(localStorage.getItem('mh.idiomaActivo'))
-          const activo = idiomas.find((i) => i.id === lsId) ?? idiomas[0]
-          if (activo?.id != null) {
-            const tarjetaId = await tarjetasIdiomaRepo.add({
-              idiomaId: activo.id,
-              termino: 'Ejemplo (tutorial) 🎓',
-              traduccion: 'ejemplo',
-              tipo: 'palabra',
-              nivel: 'A1',
-              caja: 0,
-              proximaISO: fechaLocalISO(),
-              fuente: 'manual',
-              creadoEn: new Date().toISOString(),
-            })
-            ctx.alLimpiar(() => tarjetasIdiomaRepo.remove(tarjetaId))
-          }
-        })
-        await esperarTut('idiomas.tab.charlas')
-        clickTut('idiomas.tab.charlas')
-      },
-      titulo: T('tut.app-idiomas.2.titulo', 'Charlas'),
-      texto: T(
-        'tut.app-idiomas.2.texto',
-        'El tutor conversa contigo en el idioma, ajustado a tu nivel MCER (A1–C2). (Requiere IA activa.) Dejé una tarjeta «Ejemplo (tutorial) 🎓» para los siguientes pasos; se borrará al terminar.',
-      ),
-    },
-    {
-      sel: 'idiomas.tab.repaso',
       alEntrar: () => {
         clickTut('idiomas.tab.repaso')
       },
-      titulo: T('tut.app-idiomas.3.titulo', 'Repaso'),
+    },
+    {
+      sel: 'idiomas.repaso.panel',
+      titulo: T('tut.app-idiomas--repaso.2.titulo', 'Tarjetas o ejercicios'),
       texto: T(
-        'tut.app-idiomas.3.texto',
-        'Tarjetas con repetición espaciada (cajas de Leitner): lo difícil vuelve pronto, lo aprendido se espacia. La tarjeta de ejemplo ya está vencida: así se ve un repaso pendiente.',
+        'tut.app-idiomas--repaso.2.texto',
+        'El modo tarjetas es el de toda la vida: ves el término, lo intentas y te corriges. Los ejercicios te lo ponen como opción múltiple o con huecos, usando las frases de ejemplo.',
       ),
     },
     {
-      sel: 'idiomas.tab.vocabulario',
+      sel: 'idiomas.progreso.panel',
+      titulo: T('tut.app-idiomas--repaso.3.titulo', 'Un año de constancia'),
+      texto: T(
+        'tut.app-idiomas--repaso.3.texto',
+        'El historial guarda cuántas repasaste cada día y cuántas acertaste. Pep@ empezó fallando bastante y terminó acertando casi todo — y en Japón repasó más que nunca.',
+      ),
+      alEntrar: () => {
+        clickTut('idiomas.tab.progreso')
+      },
+    },
+  ],
+}
+
+const flujoVocabulario: TutorialDef = {
+  id: 'app-idiomas--vocabulario',
+  titulo: T('tut.app-idiomas--vocabulario.titulo', 'El vocabulario'),
+  resumen: T(
+    'tut.app-idiomas--vocabulario.resumen',
+    'Cada tarjeta guarda término, traducción, una frase de ejemplo y su caja. Puedes llevar varios idiomas a la vez, cada uno con su nivel.',
+  ),
+  preparar: () => {
+    abrirApp('idiomas', 'vocabulario')
+  },
+  pasos: [
+    {
+      sel: 'idiomas.vocabulario.lista',
+      titulo: T('tut.app-idiomas--vocabulario.1.titulo', 'Un año de palabras'),
+      texto: T(
+        'tut.app-idiomas--vocabulario.1.texto',
+        'Las primeras tarjetas de Pep@ son de nivel A2 —compras, direcciones— y las últimas ya son B1: opiniones, historias, imprevistos de viaje.',
+      ),
       alEntrar: () => {
         clickTut('idiomas.tab.vocabulario')
       },
-      titulo: T('tut.app-idiomas.4.titulo', 'Vocabulario'),
+    },
+    {
+      sel: 'idiomas.vocabulario.lista',
+      titulo: T('tut.app-idiomas--vocabulario.2.titulo', 'Dos idiomas a la vez'),
       texto: T(
-        'tut.app-idiomas.4.texto',
-        'Tu banco de palabras y frases, con pronunciación por voz (TTS). Ahí está la tarjeta «Ejemplo (tutorial) 🎓» recién guardada.',
+        'tut.app-idiomas--vocabulario.2.texto',
+        'Arriba se cambia de idioma: además del principal, Pep@ montó un japonés de supervivencia entre el mes 4 y el viaje. Al volver casi lo dejó, y se nota en sus cajas.',
       ),
     },
     {
-      sel: 'idiomas.tab.temario',
-      alEntrar: () => {
-        clickTut('idiomas.tab.temario')
-      },
-      titulo: T('tut.app-idiomas.5.titulo', 'Temario'),
       texto: T(
-        'tut.app-idiomas.5.texto',
-        'El temario vivo en tres áreas —temas, pronunciación y gramática—: se desbloquean subtemas conforme estudias y en cada tema puedes guardar tus propios apuntes e imágenes. Progreso muestra tu avance.',
+        'tut.app-idiomas--vocabulario.3.texto',
+        'Las tarjetas se añaden a mano, salen de una charla con el tutor o las propone la IA a partir de un tema. Algunas llevan imagen para acordarte mejor.',
       ),
     },
   ],
 }
+
+const flujoTemario: TutorialDef = {
+  id: 'app-idiomas--temario',
+  titulo: T('tut.app-idiomas--temario.titulo', 'El temario y el plan'),
+  resumen: T(
+    'tut.app-idiomas--temario.resumen',
+    'El temario ordena el idioma en tres áreas —temas, pronunciación y gramática— por nivel MCER, y el progreso resume tu avance.',
+  ),
+  preparar: () => {
+    abrirApp('idiomas', 'temario')
+  },
+  pasos: [
+    {
+      sel: 'idiomas.tab.temario',
+      titulo: T('tut.app-idiomas--temario.1.titulo', 'Tres áreas, seis niveles'),
+      texto: T(
+        'tut.app-idiomas--temario.1.texto',
+        'De A1 a C2, cada nivel con sus temas de vocabulario, sus puntos de pronunciación y su gramática. Sabes qué te falta sin buscar un curso fuera.',
+      ),
+      alEntrar: () => {
+        clickTut('idiomas.tab.temario')
+      },
+    },
+    {
+      sel: 'idiomas.progreso.panel',
+      titulo: T('tut.app-idiomas--temario.2.titulo', 'Dónde vas'),
+      texto: T(
+        'tut.app-idiomas--temario.2.texto',
+        'Tarjetas dominadas, repasos del mes y tu nivel actual. Pep@ arrancó el año en A2 y hoy anda en B1.',
+      ),
+      alEntrar: () => {
+        clickTut('idiomas.tab.progreso')
+      },
+    },
+    {
+      texto: T(
+        'tut.app-idiomas--temario.3.texto',
+        'También puedes guardar material propio en un tema —apuntes, frases del hotel, una foto de tu libreta— y pedir un plan de estudio con fecha objetivo.',
+      ),
+    },
+  ],
+}
+
+export const flujosIdiomas: TutorialDef[] = [flujoRepaso, flujoVocabulario, flujoTemario]

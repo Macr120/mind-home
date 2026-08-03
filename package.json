@@ -6,10 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "dev:web": "vite --config vite.config.web.ts",
+    "build:web": "tsc -b && vite build --config vite.config.web.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "imagenes:ejercicio": "node scripts/generar-imagenes-ejercicios.mjs",
-    "imagenes:cocina": "node scripts/generar-imagenes-cocina.mjs"
+    "imagenes:cocina": "node scripts/generar-imagenes-cocina.mjs",
+    "ejemplos:texto": "node scripts/generar-ejemplos.mjs",
+    "ejemplos:imagenes": "node scripts/generar-ejemplos.mjs --imagenes",
+    "demo:texto": "node scripts/generar-demo.mjs",
+    "demo:imagenes": "node scripts/generar-demo.mjs --imagenes"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",
@@ -27,7 +33,6 @@
     "dexie-react-hooks": "^4.4.0",
     "lucide-react": "^1.23.0",
     "meshoptimizer": "^1.2.0",
-    "n8ao": "^1.10.3",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "tailwindcss": "^4.3.0",

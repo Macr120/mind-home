@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { useShallow } from 'zustand/react/shallow'
 import { AvatarModelo } from '../house/AvatarModelo'
 import { useDiseño } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
@@ -39,7 +40,10 @@ function Barra({ valor, color }: { valor: number; color: string }) {
 function RadarCuartos({ enfoques }: { enfoques: ProgresoPlantilla[] }) {
   const t = useT()
   const cuartos = useCuartos((s) => s.cuartos)
-  const objetos = useDiseño((s) => s.objetos)
+  // Solo pares cuarto::app (estables al mover objetos): el radar no depende de posiciones.
+  const asignaciones = useDiseño(
+    useShallow((s) => s.objetos.filter((o) => !!o.plantillaId).map((o) => `${o.roomId}::${o.plantillaId}`)),
+  )
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
 
@@ -48,10 +52,7 @@ function RadarCuartos({ enfoques }: { enfoques: ProgresoPlantilla[] }) {
     .sort((a, b) => a.orden - b.orden)
     .map((c) => {
       const apps = new Set(
-        objetos
-          .filter((o) => o.roomId === c.id)
-          .map((o) => o.plantillaId)
-          .filter((p): p is string => !!p),
+        asignaciones.filter((a) => a.startsWith(`${c.id}::`)).map((a) => a.slice(c.id.length + 2)),
       )
       return {
         id: c.id,

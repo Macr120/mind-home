@@ -3,6 +3,7 @@ import { usePistaLibreEditor, type HerramientaTrazo } from '../state/pistaLibreS
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
+import { MarcoEditorInfra } from './MarcoEditorInfra'
 
 const btn =
   'flex h-10 items-center gap-1.5 rounded-lg border border-white/10 px-2.5 text-xs font-semibold text-white transition active:scale-95'
@@ -66,35 +67,14 @@ export function EditorCaminos() {
   )
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-40">
-      {/* Encabezado. */}
-      <div className="absolute left-0 right-0 top-3 flex items-start justify-center">
-        <div
-          data-tut="caminos.header"
-          className="ui-hud ui-pop pointer-events-auto flex items-center gap-2 rounded-lg border border-white/10 px-3 py-1.5 text-sm font-semibold text-white"
-        >
-          <Icono nombre="pista" /> {t('room.caminos.nombre', 'Caminos')}
-          <button
-            type="button"
-            data-tut="caminos.salir"
-            onClick={() => c.salir()}
-            title={t('infra.salirEditor', 'Salir del editor')}
-            aria-label={t('infra.salirEditor', 'Salir del editor')}
-            className="ml-2 rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
-          >
-            ✕
-          </button>
-        </div>
-      </div>
-
-      {/* Barra de tipos y herramientas. */}
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center px-2">
-        <div
-          data-tut="caminos.barra"
-          data-tut-zona="app:caminos"
-          className="ui-hud ui-pop pointer-events-auto flex max-w-full flex-col gap-2 rounded-xl border border-white/10 p-2"
-        >
-          <div data-tut="caminos.tipos" className="flex flex-wrap items-center justify-center gap-1.5">
+    <MarcoEditorInfra
+      icono="pista"
+      titulo={t('room.caminos.nombre', 'Circuitos')}
+      tut="caminos"
+      onSalir={() => c.salir()}
+      ancho="max-w-full"
+    >
+      <div data-tut="caminos.tipos" className="flex flex-wrap items-center justify-center gap-1.5">
             {tipoBtn('pista', 'pista', t('caminos.tipo.pista', 'Pista de carreras'))}
             {tipoBtn('riel', 'riel', t('caminos.tipo.riel', 'Riel de tren'))}
             {tipoBtn('coaster', 'montana-rusa', t('caminos.tipo.coaster', 'Montaña rusa'))}
@@ -159,8 +139,6 @@ export function EditorCaminos() {
               </span>
             </div>
           )}
-        </div>
-      </div>
-    </div>
+    </MarcoEditorInfra>
   )
 }

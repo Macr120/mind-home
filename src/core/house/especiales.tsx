@@ -8,6 +8,7 @@ import { useLayout } from '../state/layoutStore'
 import { useMontura } from '../state/monturaStore'
 import { trenFrame } from '../state/trenStore'
 import { useParque, parqueFrame, esJuegoParque, ESCALA_JUEGO, anguloColumpio } from '../state/parqueStore'
+import { TIPO_FLOTADOR } from '../state/flotadorStore'
 import { esEspecialPlantilla } from './especialesPlantillaMeta'
 import { dragChar } from './characterDrag'
 import { useCiclo } from '../state/cicloStore'
@@ -31,6 +32,8 @@ import { estadoCielo } from './cielo'
  *   textura de canvas (`ObjetoCuarto.texto`) — espectacular de carretera (con
  *   foto opcional), letrero tipo Las Vegas con bombillas que se persiguen y
  *   letrero de neón que brilla de noche.
+ * - Dona flotadora (modelo y mecánica en `house/flotador.tsx`): nace con la
+ *   alberca y el personaje se sienta en ella; aquí solo cuenta como especial.
  * No viven en CATALOGO ni RECURSOS: `ObjetoView` los dibuja con estos
  * componentes y la biblioteca los siembra por tipo (ver `sembrarLibreriaBase`).
  * No se convierten a piezas (perderían la foto/el reflejo).
@@ -58,6 +61,7 @@ const TIPOS_ESPECIALES = new Set([
   TIPO_RESBALADILLA, TIPO_PASAMANOS, TIPO_CARRUSEL, TIPO_COLUMPIO,
   TIPO_ANTORCHA, TIPO_FAROL, TIPO_LAMPARA_PIE, TIPO_VELA,
   TIPO_ESPECTACULAR, TIPO_LETRERO_VEGAS, TIPO_LETRERO_NEON,
+  TIPO_FLOTADOR,
 ])
 
 export const esTipoEspecial = (tipo: string) => TIPOS_ESPECIALES.has(tipo) || esEspecialPlantilla(tipo)

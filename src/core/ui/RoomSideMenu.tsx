@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useShallow } from 'zustand/react/shallow'
 import type { Cuarto } from '../data/db'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
@@ -18,6 +19,7 @@ import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { BotonTutoriales } from '../tutorial/SelectorTutorial'
 import { useHud } from '../state/hudStore'
+import { useConstruyendo } from '../state/construyendo'
 import { BotonPlegarHud, TiradorHud } from './HudPlegable'
 import { useAjustes } from '../state/ajustesStore'
 
@@ -35,7 +37,14 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const modoUI = useAjustes((s) => s.modoUI)
   const roomColors = useDiseño((s) => s.roomColors)
   const roomNames = useDiseño((s) => s.roomNames)
-  const objetos = useDiseño((s) => s.objetos)
+  // Primera app por cuarto (estable al mover objetos): el menú no depende de posiciones.
+  const appPorCuarto = useDiseño(
+    useShallow((s) => {
+      const m: Record<string, string> = {}
+      for (const o of s.objetos) if (o.plantillaId && !(o.roomId in m)) m[o.roomId] = o.plantillaId
+      return m
+    }),
+  )
   const editRoom = useLayout((s) => s.editRoom)
   const setEditMode = useLayout((s) => s.setEditMode)
   const cuartos = useCuartos((s) => s.cuartos)
@@ -56,8 +65,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   useEffect(() => () => setInventarioObjetosActivo(false), [setInventarioObjetosActivo])
 
   /** App (plantilla) asignada a algún objeto del cuarto, si la hay. */
-  const appDe = (id: string) =>
-    objetos.find((o) => o.roomId === id && o.plantillaId)?.plantillaId
+  const appDe = (id: string) => appPorCuarto[id]
 
   // En modo transparente el menú flota SOBRE la escena (si no, su vidrio solo
   // dejaría ver el fondo de la app) y deja el ancho completo a lo que abra:
@@ -182,7 +190,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                     : 'text-white/45 hover:bg-white/6 hover:text-white/70'
                 }`}
               >
-                <Icono nombre="construir" /> {t('inv.subPlantInfra', 'Infraestructura')}
+                <Icono nombre="construir" /> {t('inv.subPlantInfra', 'Complementos')}
               </button>
             </div>
             {plantSub === 'infra' ? (
@@ -368,9 +376,12 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   const appAbierta = useHouse((s) => !!s.activeRoom)
   const editMode = useLayout((s) => s.editMode)
   const movilVertical = useHud((s) => s.movilVertical)
+  // Los editores de infraestructura traen su propio encabezado centrado arriba:
+  // esta esquina se pliega para dejarle la franja (espejo en ToolbarPermanente).
+  const construyendo = useConstruyendo()
   // En vertical el Editor (panel derecho) ocupa casi todo el ancho: este disparador se
   // pliega mientras esté abierto para no traslaparse (espejo en ToolbarPermanente).
-  const plegado = useHud((s) => s.plegado.supIzq) || (movilVertical && editMode)
+  const plegado = useHud((s) => s.plegado.supIzq) || (movilVertical && editMode) || construyendo
 
   // Plegado: queda solo la casa (con una app abierta se ignora, es el único acceso al menú).
   if (plegado && !appAbierta) {

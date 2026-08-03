@@ -1,7 +1,9 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { useHerramienta, type Herramienta } from '../state/herramientaStore'
 import { usePlanos, type ModoConstructor } from '../state/planosStore'
-import { VEHICULOS_JUGABLES } from '../house/vehiculos'
+import { esVehiculo, VEHICULOS_JUGABLES, type TipoVehiculo } from '../house/vehiculos'
+import { invocarVehiculo } from './ControlHerramienta'
+import { escribiendoEnCampo, hayCuartoAbierto } from '../house/movement'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { useHud } from '../state/hudStore'
@@ -161,6 +163,22 @@ export function MenuHerramientas() {
     return () => window.removeEventListener('keydown', onKey)
   }, [abierta, catAbierta])
 
+  // Q abre y cierra la rueda (el estado es local, por eso el atajo vive aquí y
+  // no en `atajosTeclado`). Mismas guardas: nada mientras se escribe o con un
+  // cuarto abierto.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.code !== 'KeyQ' || e.repeat || e.ctrlKey || e.altKey || e.metaKey) return
+      if (escribiendoEnCampo() || hayCuartoAbierto()) return
+      e.preventDefault()
+      // Siempre al nivel raíz: al abrir se ven las categorías, al cerrar se limpia.
+      setCatAbierta(null)
+      setAbierta((v) => !v)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
   const categorias: Categoria[] = [
     {
       id: 'movimientos',
@@ -181,6 +199,7 @@ export function MenuHerramientas() {
       etiqueta: t('herr.cat.juguetes', 'Juguetes'),
       entradas: [
         { herramienta: 'laser', emoji: '🔫', etiqueta: t('herr.laser', 'Láser') },
+        { herramienta: 'pintura', emoji: '🥎', etiqueta: t('herr.pintura', 'Pintura') },
         { herramienta: 'portales', emoji: '🌀', etiqueta: t('herr.portales', 'Portales') },
         { herramienta: 'fuegos', emoji: '🎆', etiqueta: t('herr.fuegos', 'Fuegos') },
         { herramienta: 'burbujas', emoji: '🫧', etiqueta: t('herr.burbujas', 'Burbujas') },
@@ -219,7 +238,13 @@ export function MenuHerramientas() {
       : categorias.flatMap((c) => c.entradas).find((e) => e.herramienta === equipadas[0])?.emoji
 
   // Equipar/desequipar sin cerrar la rueda: permite armar el set de hasta 3.
-  const elegir = (h: Herramienta) => equipar(h)
+  const elegir = (h: Herramienta) => {
+    const yaEstaba = useHerramienta.getState().equipadas.includes(h)
+    equipar(h)
+    // Elegir un vehículo ya lo trae al mapa y te sube: el botón de al lado queda
+    // solo para bajarte y volver a subirte.
+    if (!yaEstaba && esVehiculo(h)) void invocarVehiculo(h as TipoVehiculo)
+  }
 
   // Atajo de construcción: equipa la herramienta (si falta), activa ese modo del
   // constructor en el 3D y cierra la rueda para dejar toda la pantalla al mapa.

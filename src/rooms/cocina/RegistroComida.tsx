@@ -1,13 +1,17 @@
 import { useMemo, useState } from 'react'
 import type { MomentoComida, Receta, RegistroComida } from '../../core/data/db'
 import { comidasRepo } from '../../core/data/repository'
-import { MOMENTOS } from './constantes'
+import { HORA_SUGERIDA, MOMENTOS } from './constantes'
 import { getMomento } from './momentos'
 import { caloriasDesdeMacros } from './macros'
 import { estimarMacros } from './estimarMacros'
 import { iaActiva } from '../../core/chat/ia'
+import { actividadId } from '../../core/rutinas'
+import { HorarioActividad } from '../../core/ui/HorarioActividad'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { Creditos } from '../../core/ui/Creditos'
+import { OP_MACROS } from './costosIA'
 
 /** Cuántos platillos repetidos se ofrecen como atajo. */
 const FRECUENTES = 5
@@ -123,6 +127,7 @@ export function RegistroComida({
   }
 
   const mostrarCampos = manual || conValores
+  const momentoActual = getMomento(momento)
 
   return (
     <form onSubmit={agregar} className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10">
@@ -141,6 +146,28 @@ export function RegistroComida({
         ))}
       </div>
 
+      {/* La hora del momento elegido, aquí mismo: se pone la hora de la cena
+          justo donde se apunta la cena, y no en una tarjeta aparte. */}
+      <div className="flex items-center gap-2 rounded-lg bg-black/20 px-2.5 py-2">
+        <span className="w-24 shrink-0 text-xs font-semibold text-white/70">
+          <Icono emoji={momentoActual.icon} /> {momentoActual.label}
+        </span>
+        <HorarioActividad
+          actividad={{
+            actividadId: actividadId('momento', momentoActual.id),
+            plantillaId: 'cocina',
+            nombre: momentoActual.label,
+            emoji: momentoActual.icon,
+            horaSugerida: HORA_SUGERIDA[momentoActual.id],
+            seccion: 'diario',
+            // Sin registro rápido a propósito: una comida necesita nombre y
+            // macros, y una «Cena» de un toque sería 0 kcal envenenando los
+            // totales. El aviso lleva aquí, que es donde se captura.
+          }}
+          hechoHoy={comidas.some((c) => c.fecha === fecha && c.momento === momento)}
+        />
+      </div>
+
       <input
         value={nombre}
         onChange={(e) => setNombre(e.target.value)}
@@ -149,17 +176,20 @@ export function RegistroComida({
       />
 
       {conIA && (
-        <button
-          type="button"
-          onClick={estimar}
-          disabled={!nombre.trim() || estimando}
-          className="w-full rounded-xl bg-amber-600 py-2.5 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
-        >
-          <Icono nombre="brillo" />{' '}
-          {estimando
-            ? t('cocina.estimar.cargando', 'Estimando…')
-            : t('cocina.registro.ia', 'Calcular calorías y macros')}
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={estimar}
+            disabled={!nombre.trim() || estimando}
+            className="flex-1 rounded-xl bg-amber-600 py-2.5 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
+          >
+            <Icono nombre="brillo" />{' '}
+            {estimando
+              ? t('cocina.estimar.cargando', 'Estimando…')
+              : t('cocina.registro.ia', 'Calcular calorías y macros')}
+          </button>
+          <Creditos op={OP_MACROS} />
+        </div>
       )}
 
       {errorIA && <p className="text-xs text-amber-400">{errorIA}</p>}

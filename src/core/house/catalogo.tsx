@@ -14,6 +14,8 @@ import {
   TIPO_ANTORCHA, TIPO_FAROL, TIPO_LAMPARA_PIE, TIPO_VELA,
   TIPO_ESPECTACULAR, TIPO_LETRERO_VEGAS, TIPO_LETRERO_NEON,
 } from './especiales'
+import { FlotadorObjeto } from './flotador'
+import { TIPO_FLOTADOR } from '../state/flotadorStore'
 import { EspecialPlantilla, esEspecialPlantilla } from './especialesPlantilla'
 import { Cancha3D } from './canchas'
 import { esCancha, claseDeCancha } from '../state/canchasStore'
@@ -380,6 +382,7 @@ export function ObjetoView({
   if (tipo === TIPO_PASAMANOS) return <Pasamanos color={color} />
   if (tipo === TIPO_CARRUSEL) return <Carrusel color={color} objetoId={objetoId} />
   if (tipo === TIPO_COLUMPIO) return <Columpio color={color} objetoId={objetoId} />
+  if (tipo === TIPO_FLOTADOR) return <FlotadorObjeto color={color} objetoId={objetoId} />
   if (tipo === TIPO_ANTORCHA) return <Antorcha color={color} simple={sinReflejo} fx={fx} />
   if (esCancha(tipo)) return <Cancha3D clase={claseDeCancha(tipo)} color={color} />
   if (tipo === TIPO_FAROL) return <FarolPoste color={color} simple={sinReflejo} fx={fx} />

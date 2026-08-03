@@ -70,6 +70,12 @@ export function setCuartoAbierto(v: boolean) {
 /** ¿Hay un overlay que captura el teclado (cuarto abierto o editor a pantalla completa)? */
 export const hayCuartoAbierto = () => cuartoAbierto
 
+/** El Espacio ya está tomado por el movimiento (subir en vuelo, derrapar). */
+export const espacioTomado = () => vueloActivo || driftActivo
+
+/** Mayús ya está tomado por el movimiento (bajar en vuelo). */
+export const mayusTomado = () => vueloActivo
+
 /** Botones ↑/↓ del overlay de montura (móvil). */
 export function setPadVertical(v: number) {
   padState.v = v
@@ -178,7 +184,7 @@ export function vectorCam(
   return { x: mx * k, z: mz * k }
 }
 
-function escribiendoEnCampo() {
+export function escribiendoEnCampo() {
   const el = document.activeElement as HTMLElement | null
   return (
     !!el &&

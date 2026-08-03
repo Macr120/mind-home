@@ -10,6 +10,7 @@ import { MiniaturaModelo } from '../house/Miniatura'
 import { TIPO_PIEZAS } from '../house/catalogo'
 import { tieneAnimacion } from '../house/animacion'
 import { plantillaObjetoPiezas } from './editor/EditorPiezas'
+import { claveLS, esDemo, esDemoAutor } from '../edicion'
 import { useT } from '../i18n/useT'
 import { iniciarArrastre } from './arrastre'
 import { Icono } from './iconos/Icono'
@@ -19,7 +20,7 @@ import { Icono } from './iconos/Icono'
  *  v10: separa 'Especiales' en 'Cuadro y espejo' + 'Fuentes'. v11: la carpeta de luces pasa de
  *  'Iluminación' (colisionaba con la categoría de lámparas de RECURSOS) a 'Luces'.
  *  v13: anuncios (espectacular/Las Vegas/neón). La siembra deduplica/migra lo previo. */
-const SEED_FLAG = 'mh_libreria_seeded_v13'
+const SEED_FLAG = claveLS('mh_libreria_seeded_v13')
 /** Estas carpetas viven en la pestaña "Objetos especiales", no aquí. */
 const CATS_ESPECIALES = ['Pistolas', 'Vehículos', 'Cuadro y espejo', 'Fuentes', 'Parque', 'Luces', 'Anuncios', 'Principales']
 /** Orden manual de carpetas (drag & drop), persistido en localStorage. */
@@ -87,6 +88,9 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
   // Auto-reparación: si el flag quedó puesto pero la biblioteca está vacía (la
   // siembra se interrumpió a medias, p. ej. por una recarga), se reintenta.
   useEffect(() => {
+    // Casa demo: su biblioteca se siembra al construirla (demo/sandbox.ts), ya
+    // dentro de la foto del original. Resembrarla aquí solo la ensuciaría.
+    if (esDemo() && !esDemoAutor()) return
     if (localStorage.getItem(SEED_FLAG) && objetos.some(esObjetoLibreria)) return
     localStorage.setItem(SEED_FLAG, '1')
     void sembrarLibreriaBase()

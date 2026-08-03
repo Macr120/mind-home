@@ -6,6 +6,8 @@ import { useEditorUi } from '../../state/editorUiStore'
 import { prendasCustomRepo } from '../../data/repository'
 import { iaActiva, generarModelo3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
+import { Creditos } from '../Creditos'
+import { OP_ROPA_3D } from '../../cuenta/catalogoNucleo'
 import { ModeloPiezas, PiezasSeleccionContext } from '../../house/modeloPersonalizado'
 import { EditorPiezas } from './EditorPiezas'
 import type { Pieza3D } from '../../chat/mascotas'
@@ -204,6 +206,7 @@ export function GuardarropaEditor() {
           >
             {generando ? <span className="animate-pulse">…</span> : <Icono nombre="brillo" />}
           </button>
+          <Creditos op={OP_ROPA_3D} />
         </div>
       )}
       {error && <p className="px-1 text-[10px] text-red-400/80">{error}</p>}

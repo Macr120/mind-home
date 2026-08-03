@@ -9,10 +9,16 @@ import { useDialogo } from '../state/dialogoStore'
 import { useDiseño } from '../state/disenoStore'
 import { playerPos } from '../state/houseStore'
 import { getCatalogoItem } from '../house/catalogo'
+import { escribiendoEnCampo, hayCuartoAbierto } from '../house/movement'
 import { interpretar, appsAsignadas } from './dispatcher'
-import { interpretarEdicionLocal } from './editorAcciones'
+import { interpretarEdicionLocal, tomarUltimoMapa } from './editorAcciones'
+import { destinoDeTool } from './destinoChat'
+import type { DestinoChat } from '../data/db'
 import { interpretarAyuda, type AyudaDetectada } from './ayuda'
+import { useSugerenciaMapa } from './sugerirMapa'
+import { TIPOS_MAPA } from '../../rooms/ideas/tiposMapa'
 import { useTutorial } from '../tutorial/tutorialStore'
+import { lanzarFlujo } from '../tutorial/registro'
 import {
   iaActiva,
   interpretarIA,
@@ -100,6 +106,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const movilVertical = useHud((s) => s.movilVertical)
   const [retagId, setRetagId] = useState<number | null>(null)
   const [imagen, setImagen] = useState<ImagenLocal | null>(null)
+  // Mapa ofrecido tras una explicación: aquí solo se pinta si su conversación
+  // NO está abierta (con el hilo abierto la oferta vive dentro, como un mensaje).
+  const sugerencia = useSugerenciaMapa((s) => s.sugerencia)
+  const dibujando = useSugerenciaMapa((s) => s.dibujando)
   const [grabando, setGrabando] = useState(false)
   const [menuModelo, setMenuModelo] = useState(false)
   const [provId, setProvId] = useState<ProveedorId>(() => getProveedor().id)
@@ -107,6 +117,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const [modeloLocalDraft, setModeloLocalDraft] = useState(() => getModeloLocal())
   const recRef = useRef<ReconocimientoVoz | null>(null)
   const areaRef = useRef<HTMLTextAreaElement>(null)
+  // Medición de la barra para decidir si la caja de texto se lleva un renglón entero.
+  const barraRef = useRef<HTMLDivElement>(null)
+  const cajaRef = useRef<HTMLDivElement>(null)
+  const medidorRef = useRef<HTMLSpanElement>(null)
+  const anchoBarra = useRef(0)
+  const [lineaPropia, setLineaPropia] = useState(false)
+  const [medida, setMedida] = useState(0)
   // Barra del chat: publica su alto para que los prompts se apilen encima de ella.
   const refTope = useTopeHud('chat')
   const idioma = useAjustes((s) => s.idioma)
@@ -125,6 +142,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const asistentes = useAsistentes((s) => s.lista)
   const [configAbierto, setConfigAbierto] = useState(false)
   const [manualAbierto, setManualAbierto] = useState(false)
+  // El hilo nace apartado (nunca se abre solo al arrancar la app) y, una vez
+  // que lo abres, se queda así hasta que lo cierres con la ✕. Vive en el store
+  // (no en useState local) para sobrevivir el desmontaje de este componente al
+  // entrar/salir del editor: ver mascotaStore.ts.
+  const hiloOculto = useMascota((s) => s.hiloOculto)
+  const setHiloOculto = useMascota((s) => s.setHiloOculto)
   // Pestaña del panel: chats (con quién platicaste) o registros de la bitácora.
   const [pestana, setPestana] = useState<'chats' | 'registros'>('chats')
   const ultimos = useUltimosMensajes()
@@ -153,22 +176,63 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     else if (!hud.movilVertical) hud.setPlegado('chat', false)
   }, [menuAbierto])
 
+  // T abre el chat con el cursor puesto (convención de juego). Cierra el menú
+  // lateral porque mientras está abierto el chat se queda plegado.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.code !== 'KeyT' || e.repeat || e.ctrlKey || e.altKey || e.metaKey) return
+      if (escribiendoEnCampo() || hayCuartoAbierto()) return
+      e.preventDefault()
+      useHud.getState().setMenuAbierto(false)
+      useHud.getState().setPlegado('chat', false)
+      // Tras el render que despliega la barra: antes el textarea no existe.
+      requestAnimationFrame(() => areaRef.current?.focus())
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
   /**
    * La caja está anclada abajo: al ajustar el alto del textarea al contenido, el
    * texto crece HACIA ARRIBA y se lee completo lo que escribes (antes era un
    * input de una línea que solo se desplazaba). Tope de 8rem y luego scroll.
+   *
+   * Además, en cuanto el texto deja de caber en la ranura que le dejan los
+   * botones, la caja se pasa al renglón completo de arriba (los botones bajan al
+   * siguiente). La comparación se hace SIEMPRE contra el ancho de esa ranura
+   * angosta (con el medidor invisible), también cuando ya está en su renglón: así
+   * la decisión es estable y no parpadea entre las dos formas.
    */
   useLayoutEffect(() => {
     const el = areaRef.current
     if (!el) return
     el.style.height = 'auto'
     el.style.height = `${Math.min(el.scrollHeight, 128)}px`
-  }, [texto])
+
+    const barra = barraRef.current
+    const medidor = medidorRef.current
+    if (!barra || !medidor) return
+    let ocupado = 0
+    for (const hijo of Array.from(barra.children)) {
+      if (!(hijo instanceof HTMLElement) || hijo === cajaRef.current) continue
+      if (!hijo.offsetWidth || getComputedStyle(hijo).position === 'absolute') continue
+      ocupado += hijo.offsetWidth + 8 // gap-2
+    }
+    const cs = getComputedStyle(barra)
+    const angosto =
+      barra.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - ocupado
+    setLineaPropia(medidor.offsetWidth > angosto)
+  }, [texto, lineaPropia, medida])
 
   // Previsualización en vivo de a dónde irá la entrada.
   const interp = useMemo(() => interpretar(texto), [texto])
   // Orden de edición de la casa detectada sin IA (pintar, tema, avatar, etc.).
-  const edicion = useMemo(() => interpretarEdicionLocal(texto), [texto])
+  // Los atajos `soloSinIA` se dejan pasar al modelo cuando hay IA: él hace más
+  // (p. ej. dibuja el mapa entero en vez de crearlo en blanco).
+  const edicion = useMemo(() => {
+    const e = interpretarEdicionLocal(texto)
+    return e?.soloSinIA && iaActiva() ? null : e
+  }, [texto])
   // Petición de ayuda/tutorial detectada sin IA («¿cómo funciona la cocina?»).
   const ayuda = useMemo(() => interpretarAyuda(texto), [texto])
   // El id detectado puede ser una APP (captura/recordar) o un CUARTO (comando):
@@ -191,17 +255,23 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
               ? destino.color
               : null
 
+  /** Definición del formato de mapa ofrecido (ícono y nombre para el chip). */
+  const defMapa = sugerencia
+    ? (TIPOS_MAPA.find((d) => d.id === sugerencia.tipo) ?? TIPOS_MAPA[0])
+    : null
+
   /** Hace hablar al asistente del hilo abierto (la respuesta sale por la burbuja flotante 3D). */
-  const decir = (tipo: EventoTipo, cuarto?: string, objeto?: string) => {
+  const decir = (tipo: EventoTipo, cuarto?: string, objeto?: string, chip?: DestinoChat) => {
     const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
     const quien = asistentes.find((a) => a.id === destinoId) ?? mascota
-    hablar(responder(quien.forma, { tipo, cuarto, objeto }, t), { asistenteId: quien.id })
+    hablar(responder(quien.forma, { tipo, cuarto, objeto }, t), { asistenteId: quien.id, destino: chip })
   }
 
   /** Abre la conversación tipo chat con un asistente (cierra los otros paneles). */
   const abrirConv = (id: string) => {
     setAbierto(false)
     setConfigAbierto(false)
+    setHiloOculto(false)
     abrirConversacion(id)
   }
 
@@ -280,6 +350,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
   const enviar = async () => {
     if (!interp.texto.trim() && !imagen) return
+    useSugerenciaMapa.getState().descartar() // la oferta anterior caduca con el mensaje nuevo
     // Hilo de destino: el diálogo cara a cara manda; luego la conversación abierta; si no, el activo.
     const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
     // Contexto para la IA: se lee ANTES de guardar el turno actual (evita duplicarlo).
@@ -300,7 +371,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     if (ayuda) {
       if (ayuda.modo === 'tour') {
         hablar(t('tut.chat.abriendo', 'Ahí va: el mago te lo enseña en pantalla.'), { asistenteId: destinoId })
-        void useTutorial.getState().iniciar(ayuda.tutorial)
+        // Tours de app: por lanzarFlujo — los flujos nuevos corren sobre el año
+        // de la casa demo (desde la casa real saltan a ella con intent).
+        if (ayuda.plantillaId) lanzarFlujo(ayuda.plantillaId, ayuda.tutorial)
+        else void useTutorial.getState().iniciar(ayuda.tutorial)
       } else {
         hablar(
           `${t(ayuda.tutorial.resumen.clave, ayuda.tutorial.resumen.es)} ${t(
@@ -367,7 +441,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         creado: new Date().toISOString(),
         procesado: true,
       })
-      hablar(msg, { asistenteId: destinoId })
+      hablar(msg, { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destino: destinoDeTool(edicion.tool) })
       setTexto('')
       return
     }
@@ -390,15 +464,28 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           texto: interp.texto.trim() || '📷 Foto',
           roomId: r.roomIds[0],
           creado: new Date().toISOString(),
-          procesado: r.capturado || r.ediciones.length > 0 || !!r.creado3d,
+          procesado: r.capturado || r.ediciones.length > 0 || !!r.creado3d || !!r.imagen,
         })
-        if (r.creado3d) hablar(r.respuesta ?? t('chat.creado3d', 'Creé «{desc}»: lo puse en el mapa junto a mí y lo guardé en tu inventario 🧊', { desc: r.creado3d }), { asistenteId: destinoId })
-        else if (r.respuesta) hablar(r.respuesta, { asistenteId: destinoId })
-        else if (r.rutinaCreada) hablar(t('chat.rutinaCreada', '⏰ Rutina «{n}» creada. La verás en el panel de rutinas.', { n: r.rutinaCreada }), { asistenteId: destinoId })
-        else if (r.ediciones.length) hablar(r.ediciones.join(' '), { asistenteId: destinoId })
-        else if (r.capturado) decir('capturado', r.roomIds.map(nombreCorto).join(' y '))
+        // El mapa que haya dibujado el modelo cuelga de SU mensaje (miniatura),
+        // igual que el chip de destino y la imagen generada en este turno.
+        const opts = { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destino: r.destino, imagen: r.imagen }
+        if (r.creado3d) hablar(r.respuesta ?? t('chat.creado3d', 'Creé «{desc}»: lo puse en el mapa junto a mí y lo guardé en tu inventario 🧊', { desc: r.creado3d }), opts)
+        // El modelo responde dando la imagen por hecha: si falló, hay que decirlo.
+        else if (r.respuesta && r.imagenFallo) hablar(`${r.respuesta} ${t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.')}`, opts)
+        else if (r.respuesta) hablar(r.respuesta, opts)
+        else if (r.imagen) hablar(t('chat.imagenLista', '¡Listo! Aquí está tu imagen 🎨'), opts)
+        else if (r.imagenFallo) hablar(t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.'), opts)
+        else if (r.rutinaCreada) hablar(t('chat.rutinaCreada', '⏰ Rutina «{n}» creada. La verás en el panel de rutinas.', { n: r.rutinaCreada }), opts)
+        else if (r.ediciones.length) hablar(r.ediciones.join(' '), opts)
+        else if (r.capturado) decir('capturado', r.roomIds.map(nombreCorto).join(' y '), undefined, r.destino)
         else if (r.memoriaGuardada) decir('recordado')
         else decir('sinClasificar')
+        // Charla de explicación con forma de mapa: ofrecerlo en el hilo de ese
+        // asistente (sin dibujarlo aún: solo gasta IA si el usuario acepta).
+        const charla = !r.capturado && !r.ediciones.length && !r.creado3d && !r.rutinaCreada && !r.imagen && !r.imagenFallo
+        if (charla && r.respuesta) {
+          useSugerenciaMapa.getState().ofrecer(textoMsg, r.respuesta, destinoId)
+        }
         setTexto('')
         setImagen(null)
         return
@@ -408,7 +495,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           hablar(
             err.codigo === 'cuota-agotada'
               ? t('chat.cuotaAgotada', 'Agotaste tu cuota de IA de este mes. Revisa tu uso en Editor → Configuraciones → Cuenta.')
-              : t('chat.sinPro', 'La IA es parte del plan Pro. Actívalo en Editor → Configuraciones → Cuenta.'),
+              : t('chat.sinPro', 'Tu cuenta no tiene la suscripción activa.'),
             { asistenteId: destinoId },
           )
           setTexto('')
@@ -433,15 +520,17 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     // Quick-capture: intentar escribir en TODOS los cuartos mencionados (multi-cuarto).
     if (interp.roomIds.length > 0) {
       const capturados: string[] = []
+      let destinoLocal: DestinoChat | undefined
       for (const rid of interp.roomIds) {
         const app = getPlantilla(rid)
         if (app?.capturar && (await app.capturar(interp.texto))) {
           capturados.push(nombreCorto(rid))
+          destinoLocal ??= { tipo: 'app', appId: rid }
         }
       }
       if (capturados.length > 0) {
         await bitacoraRepo.update(id as number, { procesado: true })
-        decir('capturado', capturados.join(' y '))
+        decir('capturado', capturados.join(' y '), undefined, destinoLocal)
       } else {
         decir('clasificado', interp.roomIds.map(nombreCorto).join(' y '))
       }
@@ -476,7 +565,38 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
   const recientes = entradas?.slice(0, 15) ?? []
   const memoriasVigentes = memorias?.filter((m) => m.vigente) ?? []
-  const chatPlegado = plegado && !conversacion
+  // Plegar el chat esconde TODO, también la conversación (es la forma de
+  // recuperar la pantalla ahora que el hilo vive siempre sobre la barra). Se suma
+  // `menuAbierto` sin esperar al efecto que sincroniza el store: si no, al abrir
+  // el menú con el editor abierto (que desmonta y remonta este componente) el
+  // primer render pinta la conversación un instante antes de que el efecto la pliegue.
+  const chatPlegado = plegado || menuAbierto
+  const otroPanel = abierto || configAbierto || manualAbierto
+  /** El hilo con el asistente: visible salvo que se abra otro panel o lo cierres. */
+  const hiloVisible = !otroPanel && !hiloOculto && !chatPlegado
+  // El asistente al que pertenece el hilo mostrado (mismo cálculo que ChatConversacion).
+  const hiloId = conversacion ?? mascotaId
+  // Publicado para que la burbuja flotante (AsistenteBurbuja) no repita el
+  // mismo mensaje cuando el panel de abajo ya lo está mostrando.
+  useEffect(() => {
+    useMascota.getState().setPanelHiloId(hiloVisible ? hiloId : null)
+    // Al desmontar (entras a un cuarto, editas, corres, juegas paintball…) no
+    // debe quedar un id fantasma bloqueando la burbuja de otra pantalla.
+    return () => useMascota.getState().setPanelHiloId(null)
+  }, [hiloVisible, hiloId])
+  // Al cambiar el ANCHO de la barra (abrir el menú lateral, girar el teléfono…)
+  // hay que rehacer la cuenta: la altura cambia sola al crecer el texto.
+  useEffect(() => {
+    const el = barraRef.current
+    if (!el) return
+    const ro = new ResizeObserver(() => {
+      if (el.clientWidth === anchoBarra.current) return
+      anchoBarra.current = el.clientWidth
+      setMedida((n) => n + 1)
+    })
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [chatPlegado])
   // Plegado en teléfono vertical: solo queda la carita, así que el contenedor se
   // encoge a su contenido (en vez de ancho completo invisible) para no tapar con
   // su z-20 los tiradores de las esquinas inferiores que quedan por debajo.
@@ -495,16 +615,21 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             ].join(' ')
       }
     >
-      {/* Conversación tipo chat con el asistente (estilo WhatsApp) */}
-      {conversacion && <ChatConversacion />}
-
-      {/* Configuración de asistentes (crear, eliminar, personalizar, mapa) */}
-      {configAbierto && !conversacion && (
-        <AsistentesConfig onCerrar={() => setConfigAbierto(false)} />
+      {/* Conversación con el asistente (estilo WhatsApp): siempre sobre la barra */}
+      {hiloVisible && (
+        <ChatConversacion
+          onCerrar={() => {
+            cerrarConversacion()
+            setHiloOculto(true)
+          }}
+        />
       )}
 
+      {/* Configuración de asistentes (crear, eliminar, personalizar, mapa) */}
+      {configAbierto && <AsistentesConfig onCerrar={() => setConfigAbierto(false)} />}
+
       {/* Manual de comandos: qué pedirle al asistente (determinista, por tema) */}
-      {manualAbierto && !conversacion && (
+      {manualAbierto && (
         <ManualComandos
           onUsar={(frase) => {
             setTexto(frase)
@@ -515,7 +640,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       )}
 
       {/* Historial reciente + selector de mascota */}
-      {abierto && !conversacion && !configAbierto && !manualAbierto && (
+      {abierto && !configAbierto && !manualAbierto && (
         <div className="ui-panel-glass mb-2 max-h-72 overflow-y-auto rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
           {/* Cabecera: elegir asistente */}
           <div className="mb-2 flex items-center gap-2 border-b border-white/10 px-1 pb-2">
@@ -751,6 +876,46 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         </div>
       ) : (
         <div ref={refTope}>
+      {/* Mapa ofrecido tras una explicación (si el hilo se ve, lo pinta él) */}
+      {sugerencia && defMapa && !dibujando && !hiloVisible && (
+        <div className="ui-panel-glass mb-2 flex items-center gap-2 rounded-xl border border-white/10 py-1.5 pl-2.5 pr-1.5 shadow-xl backdrop-blur-md">
+          <span className="shrink-0 text-base text-accent">
+            <Icono nombre={defMapa.icono} />
+          </span>
+          <span className="min-w-0 flex-1 truncate text-[11px] text-white/60">
+            {t('chat.mapa.ofrecer', '¿Te lo dibujo como {tipo} de «{tema}»?', {
+              tipo: t(`ideas.tipo.${defMapa.id}`, defMapa.nombreEs).toLowerCase(),
+              tema: sugerencia.tema,
+            })}
+          </span>
+          <button
+            type="button"
+            onClick={() => void useSugerenciaMapa.getState().dibujar()}
+            className="shrink-0 rounded-lg bg-accent px-2 py-1 text-[11px] font-semibold text-accent-ink transition hover:brightness-110"
+          >
+            {t('chat.mapa.dibujar', 'Dibujarlo')}
+          </button>
+          <button
+            type="button"
+            onClick={() => useSugerenciaMapa.getState().descartar()}
+            className="shrink-0 px-1.5 text-xs text-white/40 transition hover:text-white/80"
+            title={t('chat.mapa.descartar', 'Ahora no')}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+      {dibujando && !hiloVisible && (
+        <div className="ui-panel-glass mb-2 inline-flex items-center gap-2 rounded-xl border border-white/10 px-2.5 py-1.5 shadow-xl backdrop-blur-md">
+          <span className="animate-pulse text-base text-accent">
+            <Icono nombre="brillo" />
+          </span>
+          <span className="text-[11px] text-white/60">
+            {t('chat.mapa.dibujando', 'Dibujando el mapa…')}
+          </span>
+        </div>
+      )}
+
       {/* Foto adjunta (la interpreta la IA al enviar) */}
       {imagen && (
         <div className="ui-panel-glass mb-2 inline-flex items-center gap-2 rounded-xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
@@ -767,11 +932,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         </div>
       )}
 
-      {/* Barra de entrada */}
-      {/* items-end: al crecer el texto hacia arriba, los botones se quedan abajo.
-          flex-wrap: en pantalla angosta el texto se lleva su propio renglón (con los
-          botones al lado quedaba de 3 caracteres de ancho y no se leía nada). */}
-      <div data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex flex-wrap items-end gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
+      {/* Barra de entrada, con el botón de plegar FUERA del panel (como los demás
+          cuadrantes del HUD): en el extremo izquierdo, que el chat se recoge hacia
+          la derecha. */}
+      <div className="flex items-end gap-1">
         {/* Plegar el chat: deja solo la carita del asistente (como los cuadrantes del HUD). */}
         <BotonPlegarHud
           zona="chat"
@@ -780,7 +944,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             setConfigAbierto(false)
             setManualAbierto(false)
           }}
+          className="mb-3.5"
         />
+      {/* items-end: al crecer el texto hacia arriba, los botones se quedan abajo.
+          flex-wrap: en pantalla angosta —o cuando el texto ya no cabe entre los
+          botones— la caja se lleva su propio renglón completo arriba (con los
+          botones al lado quedaba de 3 caracteres de ancho y no se leía nada). */}
+      <div ref={barraRef} data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex min-w-0 flex-1 flex-wrap items-end gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
         {/* Selector de modelo de IA (solo Pro / pruebas internas) */}
         {iaHabilitada() && menuModelo && (
           <div className="ui-panel-glass absolute bottom-full right-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
@@ -847,19 +1017,21 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         <button
           type="button"
           onClick={() => {
-            // Con la conversación abierta, este botón regresa al historial.
-            if (conversacion) {
-              cerrarConversacion()
-              setAbierto(true)
-            } else {
-              setConfigAbierto(false)
-              setAbierto((v) => !v)
+            // Con el hilo apartado, la carita lo trae de vuelta; si no, alterna
+            // la bitácora (y al volver de ella se ve el hilo del activo).
+            if (hiloOculto && !abierto) {
+              setHiloOculto(false)
+              return
             }
+            setConfigAbierto(false)
+            setManualAbierto(false)
+            if (!abierto) cerrarConversacion()
+            setAbierto((v) => !v)
           }}
           data-tut="chat.asistente"
           title={abierto ? t('chat.ocultar', 'Ocultar bitácora') : `${nombreAsistente(t, mascota)} · ${t('chat.verBitacora', 'ver bitácora')}`}
           className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-2xl transition hover:scale-105 ${
-            abierto || conversacion ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
+            abierto || hiloVisible ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
           }`}
         >
           <Icono emoji={mascota.emoji} />
@@ -892,7 +1064,20 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           />
         </label>
 
-        <div className="relative order-first w-full min-w-0 sm:order-none sm:w-auto sm:flex-1">
+        <div
+          ref={cajaRef}
+          className={`relative order-first w-full min-w-0 overflow-hidden ${
+            lineaPropia ? '' : 'sm:order-none sm:w-auto sm:flex-1'
+          }`}
+        >
+          {/* Medidor invisible: da el ancho real del texto en una sola línea. */}
+          <span
+            ref={medidorRef}
+            aria-hidden
+            className="pointer-events-none invisible absolute left-0 top-0 whitespace-pre text-sm leading-snug"
+          >
+            {texto}
+          </span>
           <textarea
             ref={areaRef}
             data-tut="chat.input"
@@ -900,26 +1085,16 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             value={texto}
             onChange={(ev) => setTexto(ev.target.value)}
             onKeyDown={onKeyDown}
-            placeholder={
-              interp.objeto && objetoCat
-                ? t('chat.ph.crear', '{icon} Crear {obj} en el mapa', {
-                    icon: objetoCat.icon,
-                    obj: objetoCat.nombre.toLowerCase(),
-                  })
-                : interp.comando === 'recordar'
-                ? t('chat.ph.recordar', '🧠 Guardar en la memoria de {pet}', { pet: nombreAsistente(t, mascota) })
-                : interp.comando
-                ? `${interp.comando === 'agregar' ? t('chat.ph.agregar', '➕ Agregar') : t('chat.ph.quitar', '➖ Quitar')} ${destino ? nombreCortoT(destino.id) : '…'} ${t('chat.ph.delMapa', 'del mapa')}`
-                : t('chat.ph.principal', 'Dile a {pet} qué hiciste…  (usa @cuarto para forzar destino)', { pet: nombreAsistente(t, mascota) })
-            }
-            className="block max-h-32 w-full resize-none overflow-y-auto bg-transparent py-1.5 text-sm leading-snug text-white/90 placeholder:text-white/30 focus:outline-none"
+            // Caja limpia: sin frase de ayuda y sin deslizador (crece sola hasta 8rem).
+            className="sin-deslizador block max-h-32 w-full resize-none overflow-y-auto bg-transparent py-1.5 text-sm leading-snug text-white/90 focus:outline-none"
           />
         </div>
 
-        {/* Chip de destino, comando u objeto en vivo */}
+        {/* Chip de destino, comando u objeto en vivo. En teléfono no se pinta: al
+            aparecer al escribir reacomodaba los botones en dos filas. */}
         {texto.trim() && (
           <span
-            className={`flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-semibold${chipColor ? ' texto-vivo' : ''}`}
+            className={`hidden shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-semibold sm:flex ${chipColor ? 'texto-vivo' : ''}`}
             style={
               chipColor
                 ? { ...vivo(chipColor), backgroundColor: `color-mix(in srgb, ${chipColor} 15%, transparent)` }
@@ -970,50 +1145,56 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           </span>
         )}
 
-        {/* Dictado por voz */}
-        {CtorVoz && (
-          <button
-            type="button"
-            onClick={toggleVoz}
-            className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition ${
-              grabando
-                ? 'animate-pulse bg-red-500/20 text-red-400'
-                : 'text-white/45 hover:bg-white/10 hover:text-white/85'
-            }`}
-            title={grabando ? t('chat.vozParar', 'Detener dictado') : t('chat.voz', 'Dictar por voz')}
-          >
-            <Icono nombre="microfono" />
-          </button>
-        )}
-
-        {/* Modelo de IA (solo Pro / pruebas internas) */}
-        {iaHabilitada() && (
-          <button
-            type="button"
-            onClick={() => setMenuModelo((v) => !v)}
-            className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${
-              menuModelo ? 'bg-white/10' : ''
-            }`}
-            title={t('chat.modelo', 'Modelo de IA: {prov}', { prov: proveedor.nombre })}
-          >
-            <Icono emoji={proveedor.emoji} />
-            <span
-              className={`absolute right-1 top-1 h-1.5 w-1.5 rounded-full ${
-                conIA ? 'bg-accent' : 'bg-white/20'
+        {/* Grupo pegado a la derecha (ml-auto): cuando la caja se lleva su renglón,
+            dictado/modelo/enviar quedan en la orilla y plegar y el asistente en la
+            otra. En una sola fila no cambia nada: la caja ya se come el hueco. */}
+        <div className="ml-auto flex shrink-0 items-center gap-2">
+          {/* Dictado por voz */}
+          {CtorVoz && (
+            <button
+              type="button"
+              onClick={toggleVoz}
+              className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition ${
+                grabando
+                  ? 'animate-pulse bg-red-500/20 text-red-400'
+                  : 'text-white/45 hover:bg-white/10 hover:text-white/85'
               }`}
-            />
-          </button>
-        )}
+              title={grabando ? t('chat.vozParar', 'Detener dictado') : t('chat.voz', 'Dictar por voz')}
+            >
+              <Icono nombre="microfono" />
+            </button>
+          )}
 
-        <button
-          type="button"
-          onClick={enviar}
-          disabled={!interp.texto.trim() && !imagen}
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition hover:bg-accent disabled:opacity-30"
-          title={t('chat.registrar', 'Registrar')}
-        >
-          <Icono nombre="enviar" />
-        </button>
+          {/* Modelo de IA (solo Pro / pruebas internas) */}
+          {iaHabilitada() && (
+            <button
+              type="button"
+              onClick={() => setMenuModelo((v) => !v)}
+              className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${
+                menuModelo ? 'bg-white/10' : ''
+              }`}
+              title={t('chat.modelo', 'Modelo de IA: {prov}', { prov: proveedor.nombre })}
+            >
+              <Icono emoji={proveedor.emoji} />
+              <span
+                className={`absolute right-1 top-1 h-1.5 w-1.5 rounded-full ${
+                  conIA ? 'bg-accent' : 'bg-white/20'
+                }`}
+              />
+            </button>
+          )}
+
+          <button
+            type="button"
+            onClick={enviar}
+            disabled={!interp.texto.trim() && !imagen}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition hover:bg-accent disabled:opacity-30"
+            title={t('chat.registrar', 'Registrar')}
+          >
+            <Icono nombre="enviar" />
+          </button>
+        </div>
+      </div>
       </div>
         </div>
       )}

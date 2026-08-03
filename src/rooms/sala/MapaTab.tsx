@@ -57,7 +57,7 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
   return (
     <div className="space-y-3">
       {/* Estadísticas del viajero: oprimir despliega la lista bajo el mapa */}
-      <div className="grid grid-cols-3 gap-2 text-center">
+      <div data-tut="sala.mapa.stats" className="grid grid-cols-3 gap-2 text-center">
         {(
           [
             { id: 'paises', n: paisesVisitados.length, label: t('sala.mapa.paises', 'Países') },
@@ -122,6 +122,7 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
         </p>
       )}
 
+      <div data-tut="sala.mapa.mundi">
       <MapaMundi
         pines={pines}
         seleccionado={selId}
@@ -140,6 +141,7 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
             : undefined
         }
       />
+      </div>
 
       <div className="flex gap-3 text-[11px] text-white/50">
         <span>

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { useLayout } from '../../state/layoutStore'
 import { useCuartos } from '../../state/cuartosStore'
+import { useDiseño } from '../../state/disenoStore'
 import {
   usePlanos,
   type ModoConstructor,
@@ -22,6 +23,7 @@ import { PreviewMuroLibre3D } from './PreviewMuroLibre3D'
 import { PreviewCuarto3D } from '../editor/PreviewCuarto3D'
 import type { FormaLoseta } from '../../house/formasLoseta'
 import { EditorMapaSuperficieSection } from './EditorMapaSuperficieSection'
+import { EditorCuadrantesSection } from './EditorCuadrantesSection'
 import { EditorFondoSection } from '../editor/EditorFondoSection'
 import { footprintCells, FOOTPRINT_DEFAULT, MAX_GRID, type Footprint, type Cell, type SideKey, type TipoAcceso } from '../../house/walls'
 import { PINCELES_DEFAULT } from '../../house/murosPuertas'
@@ -624,6 +626,12 @@ function CuartosPanel() {
     if (roomId && nombre.trim()) void renombrar(roomId, nombre.trim())
   }
 
+  /** Llenar de agua un sótano lo vuelve alberca: nace con su dona flotadora. */
+  const cambiarAgua = async (id: string, v: boolean) => {
+    await setAgua(id, v)
+    await useDiseño.getState().sincronizarFlotadorAlberca(id, v)
+  }
+
   const cambiarColor = (id: string, color: string) => {
     void setColor(id, color)
     const curPin = useLayout.getState().pinceles[id] ?? PINCELES_DEFAULT
@@ -665,7 +673,7 @@ function CuartosPanel() {
       {room && (nivelesLayout[room.id] ?? 0) < 0 && (
         <Chip
           activo={!!conAgua[room.id]}
-          onClick={() => void setAgua(room.id, !conAgua[room.id])}
+          onClick={() => void cambiarAgua(room.id, !conAgua[room.id])}
           accent="#38bdf8"
         >
           <span className="mr-1"><Icono emoji="💧" /></span>
@@ -910,7 +918,14 @@ export function ConstructorMapa() {
       {/* Croquis 2D compartido. En los bordes/esquinas, overlays según el modo:
           Grid → +/- de tamaño; resto → nivel (sup. izq.) y detalle fino/normal (sup. der.). */}
       {(!con3d || croquisVisible) && (
-      <div className="relative h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-stone-200">
+      <div
+        // Modo Grid: el croquis se queda fijo arriba (como los previews 3D del editor)
+        // para no perderlo de vista al usar los controles de abajo. En los demás modos
+        // ese sitio lo ocupa el preview 3D, que ya es `sticky`.
+        className={`relative h-64 w-full overflow-hidden rounded-xl border border-white/10 bg-stone-200 ${
+          modo === 'grid' ? 'sticky top-0 z-10' : ''
+        }`}
+      >
         <PlanosEditor compacto />
         {modo === 'grid' && <ResizeBordesCroquis />}
         {modo !== 'grid' && (
@@ -975,7 +990,11 @@ export function ConstructorMapa() {
       {/* Menús contextuales por modo */}
       <div className="rounded-xl border border-white/10 bg-white/5 p-3">
         {modo === 'grid' ? (
-          <EditorMapaSuperficieSection embed />
+          <div className="space-y-4">
+            {/* Solo aparece en mapas grandes (ver hayCuadrantes). */}
+            <EditorCuadrantesSection />
+            <EditorMapaSuperficieSection embed />
+          </div>
         ) : (
           <div className="space-y-4">
             {modo === 'cuartos' && (

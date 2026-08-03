@@ -9,6 +9,7 @@ interface RutinasUIState {
   panel: boolean
   calendario: boolean
   togglePanel: () => void
+  abrirPanel: () => void
   abrirCalendario: () => void
   cerrarCalendario: () => void
   cerrarPanel: () => void
@@ -18,6 +19,7 @@ export const useRutinasUI = create<RutinasUIState>((set) => ({
   panel: false,
   calendario: false,
   togglePanel: () => set((s) => ({ panel: !s.panel, calendario: false })),
+  abrirPanel: () => set({ panel: true, calendario: false }),
   abrirCalendario: () => set({ calendario: true, panel: false }),
   cerrarCalendario: () => set({ calendario: false }),
   cerrarPanel: () => set({ panel: false }),

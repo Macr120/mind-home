@@ -5,6 +5,8 @@
  * menú/app) o desde el chat («tutorial de cocina»).
  */
 
+import type { RegionMapa } from '../state/zonaTutStore'
+
 /** Contexto vivo de UNA ejecución del tutorial (se crea en `iniciar`). */
 export interface TutorialCtx {
   /** Datos compartidos entre pasos (p. ej. el id del dato de ejemplo creado). */
@@ -39,6 +41,20 @@ export interface PasoTutorial {
   alEntrar?: (ctx: TutorialCtx) => void | Promise<void>
   /** `data-tut` a esperar tras `alEntrar` antes de medir (default: el propio `sel`). */
   esperar?: string
+  /**
+   * El CUADRANTE del mapa donde ocurre el paso: se marca sobre el terreno con
+   * el color de su zona y PERSISTE mientras los pasos siguientes no lo cambien
+   * (así los pasos de un editor heredan el encuadre sin declarar nada).
+   * Función cuando depende del mapa construido (zonas del demo).
+   */
+  zona?: RegionMapa | ((ctx: TutorialCtx) => RegionMapa | null)
+  /**
+   * El OBJETO que se edita en este paso (una cancha, el corral, las parcelas):
+   * se resalta en ÁMBAR sobre el cuadrante, y es a él a quien vuela la cámara
+   * y sobre quien se abre el hueco del velo. A diferencia de `zona`, es de cada
+   * paso: sin `foco` el ámbar se apaga.
+   */
+  foco?: RegionMapa | ((ctx: TutorialCtx) => RegionMapa | null)
 }
 
 export interface TutorialDef {

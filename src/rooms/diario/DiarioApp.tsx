@@ -71,6 +71,7 @@ export function DiarioApp() {
         </div>
         <button
           type="button"
+          data-tut="diario.actualizar"
           disabled={cargando}
           onClick={() => void cargar(true)}
           className="shrink-0 rounded-lg bg-white/5 px-3 py-2 text-xs font-semibold hover:bg-white/10 disabled:opacity-50"
@@ -79,6 +80,7 @@ export function DiarioApp() {
         </button>
         <button
           type="button"
+          data-tut="diario.reparto"
           onClick={() => setConfigAbierta(true)}
           className="shrink-0 rounded-lg bg-white/5 px-3 py-2 text-xs font-semibold hover:bg-white/10"
           title={t('diario.reparto.titulo', 'Reparto por asistentes')}

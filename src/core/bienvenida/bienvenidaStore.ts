@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { esDemo } from '../edicion'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 
 /** '1' = la bienvenida ya se vio (o la casa ya estaba armada al llegar esta versión). */
@@ -61,6 +62,9 @@ export function appsAsignadas(): Set<string> {
  * interrumpirla ni duplicar cuartos. Idempotente (seguro con StrictMode).
  */
 export function evaluarPrimeraVez(): void {
+  // Casa demo: entra a una casa ya hecha, y además NUNCA debe escribir
+  // `mh.bienvenida` — le robaría la primera vez a la casa real.
+  if (esDemo()) return
   if (localStorage.getItem(LS_BIENVENIDA) === '1') return
   if (appsAsignadas().size > 0) {
     localStorage.setItem(LS_BIENVENIDA, '1')

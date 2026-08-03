@@ -20,6 +20,7 @@ import { lanzarCohete } from '../house/fuegos'
 import { useGrafitis } from '../state/grafitiStore'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { ControlesTiro } from './ControlesTiro'
 
 const FICHAS = {
   saltar: { emoji: '🦘', clave: 'herr.saltar', fallback: 'Saltar' },
@@ -29,14 +30,20 @@ const FICHAS = {
   mortal: { emoji: '🤸', clave: 'herr.mortal', fallback: 'Mortal' },
   saludar: { emoji: '👋', clave: 'herr.saludar', fallback: 'Saludar' },
   laser: { emoji: '🔫', clave: 'herr.laser', fallback: 'Láser' },
+  pintura: { emoji: '🥎', clave: 'herr.pintura', fallback: 'Pintura' },
   portales: { emoji: '🌀', clave: 'herr.portales', fallback: 'Portales' },
   fuegos: { emoji: '🎆', clave: 'herr.fuegos', fallback: 'Fuegos' },
   burbujas: { emoji: '🫧', clave: 'herr.burbujas', fallback: 'Burbujas' },
   grafiti: { emoji: '🎨', clave: 'herr.grafiti', fallback: 'Grafiti' },
 } as const
 
-/** Trae la instancia del mapa de ese tipo al jugador (o la crea) y la monta. */
-async function invocar(tipo: TipoVehiculo) {
+/**
+ * Trae la instancia del mapa de ese tipo al jugador (o la crea) y la monta. La
+ * usan el botón del vehículo (junto a la rueda) y la propia rueda al elegirlo.
+ * Solo en planta baja: arriba no hay dónde dejarlo.
+ */
+export async function invocarVehiculo(tipo: TipoVehiculo) {
+  if (useHouse.getState().playerLevel > 0) return
   const d = useDiseño.getState()
   let inst = d.objetos.find((o) => esObjetoMapa(o) && o.tipo === tipo)
   if (!inst) {
@@ -57,7 +64,20 @@ async function invocar(tipo: TipoVehiculo) {
 }
 
 /** Marco de un panel: encabezado con la herramienta y ✕ para desequiparla. */
-function Panel({ h, emoji, etiqueta, children }: { h: Herramienta; emoji: string; etiqueta: string; children: React.ReactNode }) {
+function Panel({
+  h,
+  emoji,
+  etiqueta,
+  sinCerrar,
+  children,
+}: {
+  h: Herramienta
+  emoji: string
+  etiqueta: string
+  /** Panel prestado (vehículo montado sin equipar): no hay nada que desequipar. */
+  sinCerrar?: boolean
+  children: React.ReactNode
+}) {
   const t = useT()
   const equipar = useHerramienta((s) => s.equipar)
   return (
@@ -66,14 +86,16 @@ function Panel({ h, emoji, etiqueta, children }: { h: Herramienta; emoji: string
         <span>
           <Icono emoji={emoji} /> {etiqueta}
         </span>
-        <button
-          type="button"
-          onClick={() => equipar(h)}
-          title={t('herr.quitar', 'Quitar herramienta')}
-          className="rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
-        >
-          <Icono nombre="cerrar" />
-        </button>
+        {!sinCerrar && (
+          <button
+            type="button"
+            onClick={() => equipar(h)}
+            title={t('herr.quitar', 'Quitar herramienta')}
+            className="rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
+          >
+            <Icono nombre="cerrar" />
+          </button>
+        )}
       </div>
       {children}
     </div>
@@ -580,7 +602,7 @@ function PanelConstruir() {
 }
 
 /** Panel de una herramienta equipada (botón one-shot, toggle o vehículo). */
-function PanelHerramienta({ h }: { h: Herramienta }) {
+function PanelHerramienta({ h, montadoSuelto }: { h: Herramienta; montadoSuelto?: boolean }) {
   const t = useT()
   const correr = useHerramienta((s) => s.correr)
   const bailando = useHerramienta((s) => s.bailando)
@@ -589,11 +611,20 @@ function PanelHerramienta({ h }: { h: Herramienta }) {
   const avisoGrafiti = useGrafitis((s) => s.aviso)
   const montadoId = useMontura((s) => s.instanciaId)
   const nivel = useHouse((s) => s.playerLevel)
+  const vista = useCam((s) => s.vista)
+  const conMira = vista === 'tercera' || vista === 'primera'
 
+  // Vehículo: un solo botón dinámico — te sube (trayéndolo a tu lado) y, ya
+  // montado, se convierte en el de bajarte.
   if (esVehiculo(h)) {
     const def = vehiculoDe(h)
     return (
-      <Panel h={h} emoji={def.icono} etiqueta={t(`herr.veh.${def.tipo}`, def.nombre)}>
+      <Panel
+        h={h}
+        emoji={def.icono}
+        etiqueta={t(`herr.veh.${def.tipo}`, def.nombre)}
+        sinCerrar={montadoSuelto}
+      >
         {montadoId != null ? (
           <button type="button" onClick={() => useMontura.getState().solicitarDesmontar()} className={btnVerde}>
             <span className="text-2xl leading-none"><Icono emoji={def.icono} /></span>
@@ -602,13 +633,13 @@ function PanelHerramienta({ h }: { h: Herramienta }) {
         ) : (
           <button
             type="button"
-            onClick={() => void invocar(h)}
+            onClick={() => void invocarVehiculo(h)}
             disabled={nivel > 0}
             title={nivel > 0 ? t('herr.soloPlantaBaja', 'Baja a la planta baja para invocarlo') : undefined}
             className={`${btnClaro} disabled:cursor-not-allowed disabled:opacity-40`}
           >
             <span className="text-2xl leading-none"><Icono emoji={def.icono} /></span>
-            <span className="text-xs font-semibold">{t('herr.invocar', 'Invocar')}</span>
+            <span className="text-xs font-semibold">{t('veh.subirte', 'Subirte')}</span>
           </button>
         )}
       </Panel>
@@ -674,12 +705,24 @@ function PanelHerramienta({ h }: { h: Herramienta }) {
           <span className="text-xs font-semibold">{t('herr.saludarBtn', '¡Hola!')}</span>
         </button>
       )}
-      {h === 'laser' && (
-        <button type="button" onClick={() => useHerramienta.getState().disparar()} className={btnClaro}>
-          <span className="text-2xl leading-none"><Icono emoji={f.emoji} /></span>
-          <span className="text-xs font-semibold">{t('herr.disparar', 'Disparar')}</span>
-        </button>
-      )}
+      {(h === 'laser' || h === 'pintura') &&
+        // Con mira (3ª/1ª persona) se usan los controles de shooter: mantener
+        // para disparar y apuntar. En iso no hay mira: queda el tiro simple.
+        (conMira ? (
+          <div className="flex justify-center py-0.5">
+            <ControlesTiro />
+          </div>
+        ) : (
+          <>
+            <button type="button" onClick={() => useHerramienta.getState().disparar()} className={btnClaro}>
+              <span className="text-2xl leading-none"><Icono emoji={f.emoji} /></span>
+              <span className="text-xs font-semibold">{t('herr.disparar', 'Disparar')}</span>
+            </button>
+            <p className="px-1 text-center text-[10px] leading-tight text-white/45">
+              {t('herr.miraEnPerspectiva', 'Cambia a 3ª o 1ª persona para apuntar con la mira')}
+            </p>
+          </>
+        ))}
       {h === 'portales' && (
         <>
           <button
@@ -750,9 +793,14 @@ function PanelHerramienta({ h }: { h: Herramienta }) {
  */
 export function ControlHerramienta() {
   const equipadas = useHerramienta((s) => s.equipadas)
-  if (equipadas.length === 0) return null
+  // Conduciendo, el panel del vehículo (el "Bajarte") sale aunque no esté en la
+  // hotbar: es el único botón para bajarse, no puede depender de ella.
+  const montadoTipo = useMontura((s) => (s.instanciaId != null ? s.tipo : null))
+  const suelto = montadoTipo && !equipadas.includes(montadoTipo) ? montadoTipo : null
+  if (equipadas.length === 0 && !suelto) return null
   return (
     <div className="flex w-full flex-col gap-1">
+      {suelto && <PanelHerramienta h={suelto} montadoSuelto />}
       {equipadas.map((h) => (
         <PanelHerramienta key={h} h={h} />
       ))}

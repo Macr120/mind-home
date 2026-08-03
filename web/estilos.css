@@ -1,0 +1,337 @@
+/* Estilos de las páginas ESTÁTICAS de la web pública (landing, privacidad,
+   términos). CSS plano a propósito: estas páginas no cargan JavaScript.
+   /cuenta usa React + Tailwind (web/src/cuenta.css). Tema oscuro de la app. */
+
+:root {
+  --fondo: #0f1115;
+  --panel: #171a21;
+  --borde: rgba(255, 255, 255, 0.1);
+  --tinta: rgba(255, 255, 255, 0.92);
+  --tinta-2: rgba(255, 255, 255, 0.6);
+  --tinta-3: rgba(255, 255, 255, 0.4);
+  --acento: #863bff;
+  --acento-claro: #a06bff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--acento-claro);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.contenedor {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─── Barra superior ─── */
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.barra .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  color: var(--tinta);
+}
+
+.barra .logo img {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.barra nav {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ─── Botones ─── */
+.boton {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid var(--borde);
+  color: var(--tinta);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.boton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.boton.principal {
+  background: var(--acento);
+  border-color: transparent;
+  color: #fff;
+}
+
+.boton.principal:hover {
+  background: var(--acento-claro);
+}
+
+.boton.grande {
+  padding: 14px 26px;
+  font-size: 16px;
+}
+
+/* ─── Hero ─── */
+.hero {
+  padding: 56px 0 32px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.hero p.sub {
+  font-size: 17px;
+  color: var(--tinta-2);
+  max-width: 640px;
+  margin: 0 auto 22px;
+}
+
+.hero .acciones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero .nota {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--tinta-3);
+}
+
+/* Marco del video/capturas (asset pendiente del usuario). */
+.demo {
+  margin: 34px auto 0;
+  max-width: 760px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  border: 1px solid var(--borde);
+  background:
+    radial-gradient(60% 80% at 50% 0%, rgba(134, 59, 255, 0.25), transparent),
+    var(--panel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tinta-3);
+  font-size: 14px;
+}
+
+/* ─── Secciones ─── */
+section {
+  padding: 40px 0;
+}
+
+section h2 {
+  font-size: 26px;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.tarjeta {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.tarjeta h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.tarjeta p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+.tarjeta .pronto {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--tinta-3);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+/* ─── Precio ─── */
+/* Dos planes en paralelo (local gratis / Pro). Con una sola caja el `auto-fit`
+   la deja centrada, así que sirve para ambos casos. */
+.planes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.precio-caja {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 18px;
+  padding: 26px;
+  text-align: center;
+}
+
+/* El plan de pago es el que lleva el borde de acento. */
+.precio-caja.destacado {
+  border-color: rgba(134, 59, 255, 0.5);
+}
+
+.precio-caja .plan-nombre {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+}
+
+.precio-caja .cifra {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.precio-caja .cifra small {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--tinta-2);
+}
+
+.precio-caja ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  text-align: left;
+  font-size: 14px;
+  color: var(--tinta-2);
+}
+
+.precio-caja li {
+  padding: 5px 0 5px 24px;
+  position: relative;
+}
+
+.precio-caja li::before {
+  content: '✓';
+  position: absolute;
+  left: 4px;
+  color: var(--acento-claro);
+  font-weight: 800;
+}
+
+.precio-caja .letra-chica {
+  font-size: 12px;
+  color: var(--tinta-3);
+  margin-top: 12px;
+}
+
+/* ─── FAQ ─── */
+.faq {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.faq details {
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 12px 16px;
+  margin-bottom: 8px;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.faq p {
+  font-size: 13px;
+  color: var(--tinta-2);
+  margin: 10px 0 2px;
+}
+
+/* ─── Pie ─── */
+footer {
+  border-top: 1px solid var(--borde);
+  margin-top: 30px;
+  padding: 22px 0 34px;
+  font-size: 13px;
+  color: var(--tinta-3);
+}
+
+footer .enlaces {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+/* ─── Páginas legales ─── */
+.legal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+.legal h1 {
+  font-size: 28px;
+}
+
+.legal h2 {
+  font-size: 18px;
+  margin-top: 28px;
+  text-align: left;
+}
+
+.legal p,
+.legal li {
+  font-size: 14px;
+  color: var(--tinta-2);
+}

@@ -5,7 +5,7 @@ import {
   TIPO_OLLA, TIPO_DESPERTADOR, TIPO_LIBRERO_LIBRO, TIPO_GLOBO,
   TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE,
-  TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_SILLON, TIPO_CALENDARIO,
+  TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA,
 } from './especialesPlantillaMeta'
 
 /**
@@ -1260,6 +1260,31 @@ export const MODELOS: Record<number, ModeloRecurso> = {
       </group>
     ),
   },
+  205: {
+    icon: '🥎',
+    defaultColor: '#1f2937',
+    render: (c) => (
+      <group>
+        {/* cuerpo + cañón largo de la marcadora */}
+        <B p={[0, 0.5, 0.1]} s={[0.24, 0.3, 0.75]} c={c} rough={0.4} metal={0.45} />
+        <mesh position={[0, 0.55, 0.75]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.08, 0.08, 0.95, 12]} />
+          <meshStandardMaterial color="#0f172a" metalness={0.6} roughness={0.3} />
+        </mesh>
+        {/* tolva de bolas */}
+        <mesh position={[0, 0.85, 0.05]} castShadow>
+          <sphereGeometry args={[0.21, 14, 14]} />
+          <meshStandardMaterial color="#3b82f6" roughness={0.35} />
+        </mesh>
+        {/* tanque de aire */}
+        <mesh position={[0, 0.42, -0.5]} rotation={[Math.PI / 2, 0, 0]} castShadow>
+          <cylinderGeometry args={[0.14, 0.14, 0.55, 12]} />
+          <meshStandardMaterial color="#64748b" metalness={0.7} roughness={0.25} />
+        </mesh>
+        <B p={[0, 0.2, -0.05]} s={[0.2, 0.42, 0.26]} c="#111827" />
+      </group>
+    ),
+  },
 }
 
 export const getModelo = (id: number): ModeloRecurso | undefined => MODELOS[id]
@@ -1385,12 +1410,8 @@ export const SIEMBRA: Record<string, Siembra[]> = {
   diario: [{ tipo: TIPO_SILLON, x: -1.4, z: -2.3, principal: true }],
   hobbies: [{ tipo: TIPO_GUITARRA, x: -2.0, z: -2.2, principal: true }],
   idiomas: [{ tipo: TIPO_PLANTA_REGAR, x: -1.6, z: -1.6, principal: true }],
+  ideas: [{ tipo: TIPO_PIZARRA, x: -1.8, z: -2.2, principal: true }],
+  agenda: [{ tipo: TIPO_AGENDA, x: -1.7, z: -2.15, principal: true }],
   // El calendario cuelga del muro del fondo.
   calendario: [{ tipo: TIPO_CALENDARIO, x: 0, z: -2.4, principal: true }],
-}
-
-/** IDs de recurso únicos que un cuarto puede agregar (los que tienen modelo). */
-export function recursosModelables(roomId: string): number[] {
-  const ids = (SIEMBRA[roomId] ?? []).map((s) => s.recurso).filter((n): n is number => n != null)
-  return [...new Set(ids)]
 }

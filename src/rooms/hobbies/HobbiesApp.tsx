@@ -3,8 +3,10 @@ import type { Hobby, SesionHobby } from '../../core/data/db'
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { DetalleHobby } from './DetalleHobby'
 import { DetalleProyecto } from './DetalleProyecto'
+import { ejemploHobbies } from './ejemplos'
 import { FormHobby } from './FormHobby'
 import { fechasSemanaActual, minutosPorDia, rachaActual, rgba } from './stats'
 
@@ -111,6 +113,7 @@ export function HobbiesApp() {
               <li key={h.id}>
                 <button
                   type="button"
+                  data-tut={`hobbies.item.${h.id}`}
                   onClick={() => setHobbyId(h.id!)}
                   className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:bg-white/10 transition"
                 >
@@ -145,6 +148,8 @@ export function HobbiesApp() {
           })}
         </ul>
       )}
+
+      <BarraEjemplo paquete={ejemploHobbies} />
     </div>
   )
 }

@@ -1,21 +1,18 @@
 import { useState } from 'react'
 import type { DietaGuardada, Receta } from '../../core/data/db'
-import {
-  dietasGuardadasRepo,
-  itemsCompraRepo,
-  listasCompraRepo,
-  perfilNutricionRepo,
-  recetasRepo,
-} from '../../core/data/repository'
-import { crearDietaIA, crearRecetaIA } from './recetaIA'
+import { dietasGuardadasRepo, itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { adivinarCategoria } from './categoriasCompra'
-import { PERFIL_DEFECTO } from './constantes'
 import { DetalleReceta } from './RecetasTab'
 import { ImagenCocina } from './ImagenCocina'
 import { Portada } from './Portada'
 import { urlImagenDieta } from './imagenesPreset'
 import { promptDieta } from './promptsFoto'
+import { aplicarObjetivosDieta, generarDietaCompleta } from './generarDieta'
+import { RECETAS_POR_DIETA, costoDieta } from './costosIA'
+import { gramosDesdePct, repartoMacros } from './macros'
+import { imagenIaActiva } from '../../core/imagenIA'
+import { Creditos } from '../../core/ui/Creditos'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -25,48 +22,69 @@ function emojiDieta(dieta: DietaGuardada, recetas: Receta[]): string {
   return primera?.emoji ?? '🥗'
 }
 
+/** El reparto de una dieta guardada, o null si no tiene macros. */
+function repartoDieta(d: DietaGuardada) {
+  return repartoMacros(d.proteinas ?? 0, d.carbohidratos ?? 0, d.grasas ?? 0, d.calorias)
+}
+
+/** Colores del reparto, en el orden P · C · G (los mismos de los macros de hoy). */
+const COLOR_MACRO = { proteinas: '#f472b6', carbohidratos: '#60a5fa', grasas: '#a78bfa' } as const
+
+/** Los tres tramos del reparto, ya traducidos y con su color. */
+function tramosReparto(dieta: DietaGuardada, t: (clave: string, es: string) => string) {
+  const r = repartoDieta(dieta)
+  if (!r) return null
+  return [
+    { clave: 'proteinas', pct: r.proteinas, label: t('cocina.proteina', 'Proteína') },
+    { clave: 'carbohidratos', pct: r.carbohidratos, label: t('cocina.carbos', 'Carbos') },
+    { clave: 'grasas', pct: r.grasas, label: t('cocina.grasas', 'Grasas') },
+  ] as const
+}
+
+/** Píldoras «25% proteína» — el reparto de un vistazo; lo reusa el plan alimenticio de Metas. */
+export function ChipsReparto({ dieta }: { dieta: DietaGuardada }) {
+  const t = useT()
+  const tramos = tramosReparto(dieta, t)
+  if (!tramos) return null
+
+  return (
+    <div className="mt-1.5 flex flex-wrap gap-1.5">
+      {tramos.map((x) => (
+        <span
+          key={x.clave}
+          className="flex items-center gap-1.5 rounded-full bg-white/8 px-2 py-0.5 text-[10px] text-white/50"
+        >
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: COLOR_MACRO[x.clave] }} />
+          <b className="font-bold text-white/85">{x.pct}%</b> {x.label.toLowerCase()}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; recetas: Receta[] }) {
   const t = useT()
   const [selId, setSelId] = useState<number | null>(null)
   const [editando, setEditando] = useState<DietaGuardada | 'nueva' | null>(null)
   const [peticionIA, setPeticionIA] = useState<string | null>(null)
-  const [generando, setGenerando] = useState(false)
+  // '' = quieto · 'plan' = pensando la dieta · 'fotos' = pintando las portadas.
+  const [fase, setFase] = useState<'' | 'plan' | 'fotos'>('')
   const [errorIA, setErrorIA] = useState('')
+  const generando = fase !== ''
 
   const generar = async () => {
     const peticion = (peticionIA ?? '').trim()
     if (!peticion || generando) return
-    setGenerando(true)
     setErrorIA('')
     try {
-      const d = await crearDietaIA(peticion)
-      // Las recetas sí se guardan: van al recetario, que es su sitio. La dieta
+      // Las recetas sí se guardan (el helper las mete al recetario); la dieta
       // se abre en el formulario para que el usuario la revise antes.
-      const creadas = await Promise.all(
-        d.recetas.map(async (nombre) => {
-          try {
-            const r = await crearRecetaIA(nombre)
-            return await recetasRepo.add({ ...r, fuente: 'ia', creadaEn: new Date().toISOString() })
-          } catch {
-            return null
-          }
-        }),
-      )
-      setEditando({
-        nombre: d.nombre,
-        descripcion: d.descripcion,
-        calorias: d.calorias,
-        proteinas: d.proteinas,
-        carbohidratos: d.carbohidratos,
-        grasas: d.grasas,
-        recetaIds: creadas.filter((x): x is number => typeof x === 'number'),
-        creadoEn: new Date().toISOString(),
-      })
+      setEditando(await generarDietaCompleta(peticion, setFase))
       setPeticionIA(null)
     } catch {
       setErrorIA(t('cocina.dieta.errorIA', 'No se pudo crear la dieta. Inténtalo otra vez.'))
     } finally {
-      setGenerando(false)
+      setFase('')
     }
   }
 
@@ -95,15 +113,16 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
   return (
     <div className="space-y-3">
       <div className="flex gap-2">
-        {iaActiva() && (
-          <button
-            type="button"
-            onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
-            className="flex-1 rounded-xl bg-amber-600 texto-cta py-2.5 text-sm font-bold hover:brightness-110"
-          >
-            <Icono nombre="brillo" /> {t('cocina.dieta.generarIA', 'Dieta con IA')}
-          </button>
-        )}
+        {/* Siempre visible aunque no haya IA: si se ocultara, nadie sabría que la
+            dieta se puede pedir hecha (con sus recetas y sus fotos). */}
+        <button
+          type="button"
+          onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
+          disabled={!iaActiva()}
+          className="flex-1 rounded-xl bg-amber-600 texto-cta py-2.5 text-sm font-bold hover:brightness-110 disabled:opacity-40"
+        >
+          <Icono nombre="brillo" /> {t('cocina.dieta.generarIA', 'Dieta con IA')}
+        </button>
         <button
           type="button"
           onClick={() => setEditando('nueva')}
@@ -112,6 +131,12 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
           {t('cocina.dieta.nueva', 'Nueva dieta')}
         </button>
       </div>
+
+      {!iaActiva() && (
+        <p className="text-[11px] text-white/40">
+          {t('cocina.ia.sinClave', 'Configura la IA en el chat para crear recetas y dietas con imágenes.')}
+        </p>
+      )}
 
       {peticionIA !== null && (
         <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 space-y-2">
@@ -128,10 +153,26 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
             disabled={!peticionIA.trim() || generando}
             className="w-full rounded-lg bg-amber-600 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
           >
-            {generando
+            {fase === 'plan'
               ? t('cocina.dieta.generando', 'Armando tu dieta y sus recetas…')
+              : fase === 'fotos'
+              ? t('cocina.dieta.generandoFotos', 'Pintando las fotos…')
               : t('cocina.dieta.generar', 'Crear dieta')}
           </button>
+          {/* La dieta es lo más caro de la app: sus recetas se escriben una a
+              una y cada foto son 10 créditos. El número va antes del gasto. */}
+          <div className="flex items-center gap-2">
+            <Creditos n={costoDieta(imagenIaActiva())} aprox />
+            <span className="text-[10px] text-white/40">
+              {imagenIaActiva()
+                ? t('cocina.ia.costoDieta', `La dieta, hasta ${RECETAS_POR_DIETA} recetas y sus fotos`, {
+                    n: String(RECETAS_POR_DIETA),
+                  })
+                : t('cocina.ia.costoDietaSinFoto', `La dieta y hasta ${RECETAS_POR_DIETA} recetas, sin fotos`, {
+                    n: String(RECETAS_POR_DIETA),
+                  })}
+            </span>
+          </div>
           {errorIA && <p className="text-xs text-amber-300">{errorIA}</p>}
         </div>
       )}
@@ -142,7 +183,7 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
         </p>
       )}
 
-      <ul className="space-y-2">
+      <ul data-tut="cocina.dietas.lista" className="space-y-2">
         {dietas.map((d) => (
           <li key={d.id}>
             <button
@@ -164,6 +205,7 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
                   {t('cocina.dieta.nRecetas', `${d.recetaIds.length} recetas`, { n: String(d.recetaIds.length) })}
                   {d.calorias ? ` · ${d.calorias} kcal` : ''}
                 </p>
+                <ChipsReparto dieta={d} />
               </div>
             </button>
           </li>
@@ -203,15 +245,7 @@ function DetalleDieta({
   }
 
   const aplicarObjetivos = async () => {
-    const datos: Record<string, number> = {}
-    if (dieta.calorias != null) datos.calorias = dieta.calorias
-    if (dieta.proteinas != null) datos.proteinas = dieta.proteinas
-    if (dieta.carbohidratos != null) datos.carbohidratos = dieta.carbohidratos
-    if (dieta.grasas != null) datos.grasas = dieta.grasas
-    if (Object.keys(datos).length === 0) return
-    const perfil = (await perfilNutricionRepo.list())[0]
-    if (perfil?.id) await perfilNutricionRepo.update(perfil.id, datos)
-    else await perfilNutricionRepo.add({ ...PERFIL_DEFECTO, ...datos })
+    await aplicarObjetivosDieta(dieta)
     setAplicado(true)
     setTimeout(() => setAplicado(false), 2500)
   }
@@ -295,6 +329,7 @@ function DetalleDieta({
                 {dieta.grasas != null ? ` · G ${dieta.grasas}g` : ''}
               </span>
             </p>
+            <BarraReparto dieta={dieta} />
             <button
               type="button"
               onClick={aplicarObjetivos}
@@ -348,6 +383,25 @@ function DetalleDieta({
   )
 }
 
+/** El reparto calórico de la dieta: una barra de tres tramos con sus píldoras. */
+function BarraReparto({ dieta }: { dieta: DietaGuardada }) {
+  const t = useT()
+  const tramos = tramosReparto(dieta, t)
+  if (!tramos) return null
+
+  return (
+    <div className="mt-3">
+      <p className="text-[10px] text-white/45">{t('cocina.dieta.reparto', 'Reparto de macros')}</p>
+      <div className="mt-1 flex h-2.5 w-full overflow-hidden rounded-full bg-black/40">
+        {tramos.map((x) => (
+          <div key={x.clave} style={{ width: `${x.pct}%`, background: COLOR_MACRO[x.clave] }} />
+        ))}
+      </div>
+      <ChipsReparto dieta={dieta} />
+    </div>
+  )
+}
+
 function FormDieta({
   dieta,
   recetas,
@@ -375,6 +429,21 @@ function FormDieta({
     return Number.isFinite(n) && n > 0 ? n : undefined
   }
 
+  const num = (v: string) => parseFloat(v) || 0
+  const kcal = num(calorias)
+  const reparto = repartoMacros(num(proteinas), num(carbos), num(grasas), kcal)
+
+  /** Escribir un % manda: recalcula los gramos de ese macro sobre las kcal. */
+  const ponerPct = (setter: (v: string) => void, kcalPorGramo: 4 | 9) => (v: string) => {
+    setter(String(gramosDesdePct(kcal, num(v), kcalPorGramo)))
+  }
+
+  const auto303040 = () => {
+    setProteinas(String(gramosDesdePct(kcal, 30, 4)))
+    setCarbos(String(gramosDesdePct(kcal, 40, 4)))
+    setGrasas(String(gramosDesdePct(kcal, 30, 9)))
+  }
+
   const guardar = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!nombre.trim()) return
@@ -387,8 +456,10 @@ function FormDieta({
       grasas: opcional(grasas),
       recetaIds,
     }
+    // La foto solo viaja al crear: si viene de la IA es su portada recién hecha,
+    // y al editar una dieta guardada mandarla sería borrar la que ya tiene.
     if (dieta?.id) await dietasGuardadasRepo.update(dieta.id, datos)
-    else await dietasGuardadasRepo.add({ ...datos, creadoEn: new Date().toISOString() })
+    else await dietasGuardadasRepo.add({ ...datos, foto: dieta?.foto, creadoEn: new Date().toISOString() })
     onCerrar()
   }
 
@@ -408,6 +479,17 @@ function FormDieta({
       </div>
 
       <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
+        {/* Portada recién generada por la IA (aún sin guardar): que se vea lo que
+            se va a guardar. La de una dieta ya guardada se cambia en su detalle. */}
+        {!dieta?.id && dieta?.foto && (
+          <Portada
+            foto={dieta.foto}
+            emoji="🥗"
+            nombre={nombre}
+            className="aspect-video w-full rounded-lg border border-white/10"
+            tamEmoji="text-5xl"
+          />
+        )}
         <input
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
@@ -421,13 +503,55 @@ function FormDieta({
           placeholder={t('cocina.dieta.phDescripcion', 'Descripción (opcional)')}
           className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none"
         />
-        <p className="text-[10px] text-white/45">{t('cocina.dieta.metasOpc', 'Metas opcionales (se pueden aplicar a tus objetivos)')}</p>
+        <div className="flex items-center justify-between">
+          <p className="text-[10px] text-white/45">{t('cocina.dieta.metasOpc', 'Metas opcionales (se pueden aplicar a tus objetivos)')}</p>
+          <button
+            type="button"
+            onClick={auto303040}
+            disabled={kcal <= 0}
+            className="text-[10px] font-semibold text-amber-400 hover:underline disabled:opacity-40 disabled:no-underline"
+          >
+            {t('cocina.metas.auto', 'Auto 30/40/30')}
+          </button>
+        </div>
         <div className="grid grid-cols-4 gap-2">
           <CampoNum label="kcal" value={calorias} onChange={setCalorias} />
-          <CampoNum label="P" value={proteinas} onChange={setProteinas} />
-          <CampoNum label="C" value={carbos} onChange={setCarbos} />
-          <CampoNum label="G" value={grasas} onChange={setGrasas} />
+          <CampoNum label={t('cocina.dieta.gProt', 'P (g)')} value={proteinas} onChange={setProteinas} />
+          <CampoNum label={t('cocina.dieta.gCarb', 'C (g)')} value={carbos} onChange={setCarbos} />
+          <CampoNum label={t('cocina.dieta.gGras', 'G (g)')} value={grasas} onChange={setGrasas} />
         </div>
+        {/* Los % son la otra cara de los gramos: escribir aquí los recalcula sobre
+            las kcal de la dieta, que es como se piensan los planes (30/40/30). */}
+        <div className="grid grid-cols-4 gap-2">
+          <span className="self-end pb-2 text-[10px] text-white/45">
+            {t('cocina.dieta.reparto', 'Reparto de macros')}
+          </span>
+          <CampoNum
+            label="P %"
+            value={reparto ? String(reparto.proteinas) : ''}
+            onChange={ponerPct(setProteinas, 4)}
+            disabled={kcal <= 0}
+          />
+          <CampoNum
+            label="C %"
+            value={reparto ? String(reparto.carbohidratos) : ''}
+            onChange={ponerPct(setCarbos, 4)}
+            disabled={kcal <= 0}
+          />
+          <CampoNum
+            label="G %"
+            value={reparto ? String(reparto.grasas) : ''}
+            onChange={ponerPct(setGrasas, 9)}
+            disabled={kcal <= 0}
+          />
+        </div>
+        <p className="text-[10px] text-white/40">
+          {kcal <= 0
+            ? t('cocina.dieta.pctSinKcal', 'Pon las calorías para repartirlas en porcentajes.')
+            : t('cocina.dieta.pctSuma', `Los macros suman ${(reparto?.proteinas ?? 0) + (reparto?.carbohidratos ?? 0) + (reparto?.grasas ?? 0)}% de las calorías`, {
+                n: String((reparto?.proteinas ?? 0) + (reparto?.carbohidratos ?? 0) + (reparto?.grasas ?? 0)),
+              })}
+        </p>
       </div>
 
       <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
@@ -476,10 +600,12 @@ function CampoNum({
   label,
   value,
   onChange,
+  disabled,
 }: {
   label: string
   value: string
   onChange: (v: string) => void
+  disabled?: boolean
 }) {
   return (
     <label className="block">
@@ -488,8 +614,9 @@ function CampoNum({
         type="number"
         min={0}
         value={value}
+        disabled={disabled}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10 outline-none"
+        className="mt-0.5 w-full rounded-lg bg-black/30 px-2 py-1.5 text-sm border border-white/10 outline-none disabled:opacity-40"
       />
     </label>
   )

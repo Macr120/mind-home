@@ -7,6 +7,7 @@ import {
 } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
+import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR, NIVELES } from './constantes'
 import { esDominada } from './srs'
@@ -45,7 +46,7 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
   const maxTema = Math.max(1, ...topTemas.map((x) => x.n))
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" data-tut="idiomas.progreso.panel">
       <div className="rounded-xl border border-white/10 p-4" style={{ background: `${COLOR}18` }}>
         <p className="text-xs text-white/50">
           <Icono emoji={perfil.bandera} /> {t('idiomas.pr.titulo', 'Tu {idioma}', { idioma: perfil.nombre })} · {perfil.nivel}
@@ -126,6 +127,21 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
       )}
 
       <HeatmapIdiomas porDia={porDia} color={COLOR} />
+
+      {/* Plan de estudio del idioma: sus metas en el mismo cronograma del
+          calendario. El ✨ de cada meta pide el plan a la IA (fecha objetivo,
+          horas y días disponibles) y agenda plan + rato de repaso. */}
+      {perfil.id != null && (
+        <div className="space-y-2">
+          <p className="text-sm font-semibold">
+            <Icono nombre="calendario" /> {t('idiomas.plan.titulo', 'Plan de estudio')}
+          </p>
+          <p className="text-[11px] leading-relaxed text-white/40">
+            {t('idiomas.plan.desc', 'Crea una meta (p. ej. «Pasar el examen B2») y pídele el plan a la IA: te pregunta tu fecha objetivo, horas por semana y días disponibles, y agenda el plan con tu rato de repaso en el calendario.')}
+          </p>
+          <CronogramaApp plantillaId="idiomas" ambitoId={`idioma:${perfil.id}`} />
+        </div>
+      )}
 
       {tarjetas.length === 0 && repasos.length === 0 && (
         <p className="px-4 text-center text-xs leading-relaxed text-white/35">

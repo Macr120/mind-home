@@ -113,6 +113,7 @@ function TarjetaAlbum({
   onClick,
   onPortada,
   tituloPortada,
+  tut,
 }: {
   portada: Blob | null
   emoji: string
@@ -123,10 +124,13 @@ function TarjetaAlbum({
   /** Si se define, muestra un botoncito 🖼️ para subir la portada sin abrir la carpeta. */
   onPortada?: () => void
   tituloPortada?: string
+  /** Ancla para los tutoriales guiados. */
+  tut?: string
 }) {
   return (
     <div
       onClick={onClick}
+      data-tut={tut}
       className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-white/5 text-left transition hover:border-white/25"
     >
       {portada ? (
@@ -278,7 +282,7 @@ export function BitacoraTab({ lugares, lugarInicial }: Props) {
   if (lugar) {
     const recuerdos = porLugar.get(lugar.id!) ?? []
     return (
-      <div className="space-y-3">
+      <div data-tut="sala.bitacora.recuerdos" className="space-y-3">
         <header className="flex items-center gap-2">
           <button
             onClick={() => {
@@ -404,6 +408,7 @@ export function BitacoraTab({ lugares, lugarInicial }: Props) {
             return (
               <TarjetaAlbum
                 key={l.id}
+                tut={`sala.bitacora.lugar.${l.id}`}
                 portada={portadaLugar.get(l.id!)?.foto ?? portadaDe([l])}
                 emoji="📍"
                 titulo={l.nombre}
@@ -422,7 +427,7 @@ export function BitacoraTab({ lugares, lugarInicial }: Props) {
 
   // ── Nivel 1: carpetas por país ────────────────────────────────────────────
   return (
-    <div className="space-y-3">
+    <div data-tut="sala.bitacora" className="space-y-3">
       {visitados.length === 0 ? (
         <p className="py-8 text-center text-sm text-white/40">
           {t('sala.bit.sinVisitados', 'La bitácora se escribe con lugares visitados. Pon un pin en el mapa o marca con ✓ tu itinerario.')}
@@ -434,6 +439,7 @@ export function BitacoraTab({ lugares, lugarInicial }: Props) {
             return (
               <TarjetaAlbum
                 key={pais}
+                tut={`sala.bitacora.album.${pais}`}
                 portada={portadaPais.get(pais)?.foto ?? portadaDe(ls)}
                 emoji="🌍"
                 titulo={pais}

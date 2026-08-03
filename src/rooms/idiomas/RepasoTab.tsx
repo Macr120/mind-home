@@ -10,6 +10,7 @@ import { programarRepaso, tarjetasVencidas } from './srs'
 import { barajar, generarEjercicios, tarjetasConCloze, type Ejercicio, type ModoEjercicio } from './ejercicios'
 import { hablar, hayTTS } from './tts'
 import { hoyISO } from './stats'
+import { VistaBlob } from '../_shared/ImagenIA'
 
 /** Sesión de repaso de tarjetas: cola local (las falladas vuelven al final). */
 interface Sesion {
@@ -31,7 +32,7 @@ export function RepasoTab({ perfil }: { perfil: PerfilIdioma }) {
     }`
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" data-tut="idiomas.repaso.panel">
       <div className="flex gap-1.5">
         <button
           type="button"
@@ -179,6 +180,9 @@ function RepasoTarjetas({ perfil, tarjetas }: { perfil: PerfilIdioma; tarjetas: 
           {revelado ? (
             <div className="mt-4 space-y-1 border-t border-white/10 pt-4">
               <p className="text-lg text-white/90">{actual.traduccion}</p>
+              {actual.imagen && (
+                <VistaBlob blob={actual.imagen} className="mx-auto mt-2 h-28 w-28 rounded-xl" />
+              )}
               {actual.ejemplo && <p className="text-xs italic text-white/45">{actual.ejemplo}</p>}
             </div>
           ) : (

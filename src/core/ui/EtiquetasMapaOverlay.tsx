@@ -2,16 +2,23 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
-import { cultivosRepo, animalesRepo } from '../data/repository'
+import { cultivosRepo, animalesRepo, corralesRepo } from '../data/repository'
 import { ESPECIES, estadoCultivo, celdasRegadas } from '../house/cultivos'
-import { estaHambriento, barraComida, barraAnimo } from '../state/granjaStore'
+import {
+  estaHambriento,
+  estaEnfermo,
+  corralSucio,
+  diasParaMorir,
+  barraComida,
+  barraAnimo,
+} from '../state/granjaStore'
 import { useAnimalSel } from '../state/animalSelStore'
 import { cellToWorld } from '../house/walls'
 import { registrarAncla, quitarAncla, registrarDom, quitarDom } from '../house/etiquetasMapa'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
-import type { AnimalGranja, CultivoCelda } from '../data/db'
+import type { AnimalGranja, Corral, CultivoCelda } from '../data/db'
 
 /**
  * Etiquetas flotantes del mapa: cada parcela sembrada muestra su siembra,
@@ -28,6 +35,7 @@ export function EtiquetasMapaOverlay() {
 function EtiquetasActivas() {
   const filas = cultivosRepo.useAll() ?? []
   const animales = animalesRepo.useAll() ?? []
+  const corrales = corralesRepo.useAll() ?? []
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const regadas = useMemo(() => celdasRegadas(filas), [filas])
@@ -57,7 +65,7 @@ function EtiquetasActivas() {
           />
         ))}
       {/* Tarjeta del animal seleccionado (nombre + barras); se oculta sola. */}
-      <TarjetaAnimalSel animales={animales} ahora={ahora} />
+      <TarjetaAnimalSel animales={animales} corrales={corrales} ahora={ahora} />
     </div>
   )
 }
@@ -158,7 +166,15 @@ function EtiquetaParcela({
 }
 
 /** Monta la tarjeta solo para el animal seleccionado y gestiona su ocultado. */
-function TarjetaAnimalSel({ animales, ahora }: { animales: AnimalGranja[]; ahora: number }) {
+function TarjetaAnimalSel({
+  animales,
+  corrales,
+  ahora,
+}: {
+  animales: AnimalGranja[]
+  corrales: Corral[]
+  ahora: number
+}) {
   const animalId = useAnimalSel((s) => s.animalId)
   const limpiar = useAnimalSel((s) => s.limpiar)
   const fila = animales.find((a) => a.id === animalId)
@@ -184,12 +200,14 @@ function TarjetaAnimalSel({ animales, ahora }: { animales: AnimalGranja[]; ahora
   }, [animalId, fila, limpiar])
 
   if (!fila || fila.id == null) return null
-  return <EtiquetaAnimal fila={fila} ahora={ahora} />
+  const corral = corrales.find((c) => c.id === fila.corralId)
+  return <EtiquetaAnimal fila={fila} sucio={corral != null && corralSucio(corral, ahora)} ahora={ahora} />
 }
 
-function EtiquetaAnimal({ fila, ahora }: { fila: AnimalGranja; ahora: number }) {
+function EtiquetaAnimal({ fila, sucio, ahora }: { fila: AnimalGranja; sucio: boolean; ahora: number }) {
   const t = useT()
   const hambriento = estaHambriento(fila, ahora)
+  const enfermo = estaEnfermo(fila, ahora)
   const comida = barraComida(fila, ahora)
   return (
     <div
@@ -202,17 +220,26 @@ function EtiquetaAnimal({ fila, ahora }: { fila: AnimalGranja; ahora: number }) 
       style={{ display: 'none' }}
     >
       <div className="ui-hud pointer-events-none flex -translate-x-1/2 -translate-y-full flex-col gap-1 whitespace-nowrap rounded-md border border-white/10 px-2 py-1 text-[10px] font-semibold text-white">
-        <span className={hambriento ? 'text-amber-300' : undefined}>{fila.nombre}</span>
+        <span className={enfermo ? 'text-red-300' : hambriento ? 'text-amber-300' : undefined}>
+          {fila.nombre}
+        </span>
+        {enfermo && fila.enfermoDesde != null && (
+          <span className="flex items-center gap-1 text-red-300">
+            <Icono nombre="curar" />
+            {t('granja.etiqueta.enfermo', 'Enfermo')} ·{' '}
+            {t('granja.etiqueta.dias', '{n} d', { n: diasParaMorir(fila, ahora) })}
+          </span>
+        )}
         <Barra
           icono="alimentar"
           titulo={t('granja.barra.comida', 'Comida')}
           nivel={comida}
-          color={comida <= 0.4 ? '#f59e0b' : '#84cc16'}
+          color={enfermo ? '#ef4444' : comida <= 0.4 ? '#f59e0b' : '#84cc16'}
         />
         <Barra
           icono="mimar"
           titulo={t('granja.barra.animo', 'Ánimo')}
-          nivel={barraAnimo(fila, ahora)}
+          nivel={barraAnimo(fila, ahora, sucio)}
           color="#f472b6"
         />
       </div>

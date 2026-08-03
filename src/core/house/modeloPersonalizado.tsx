@@ -25,6 +25,17 @@ export const PiezasSeleccionContext = createContext<{
 /** Selección de pieza en edición (ver `PiezasSeleccionContext`), o null sin editor. */
 type Edicion = { sel: number; onSel: (i: number) => void } | null
 
+/**
+ * Escala del mesh: una `esfera` con `tam` de 3 valores es un ELIPSOIDE (radios
+ * x/y/z), que se consigue estirando la esfera de radio `tam[0]`. Con 1 valor
+ * (el formato de siempre) no hay estiramiento.
+ */
+function escalaPieza(p: Pieza3D): [number, number, number] | undefined {
+  if (p.tipo !== 'esfera' || p.tam.length < 3) return undefined
+  const r = p.tam[0] || 0.2
+  return [1, (p.tam[1] || r) / r, (p.tam[2] || r) / r]
+}
+
 /** Una pieza como `<mesh>` (geometría según `p.tipo` + resaltado si está seleccionada en el editor). */
 function PiezaMesh({
   p,
@@ -43,6 +54,7 @@ function PiezaMesh({
       ref={meshRefs ? (m) => { meshRefs.current[i] = m } : undefined}
       position={p.pos}
       rotation={p.rot ?? [0, 0, 0]}
+      scale={escalaPieza(p)}
       castShadow
       onPointerDown={
         edicion

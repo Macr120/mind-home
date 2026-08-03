@@ -1,74 +1,120 @@
+/**
+ * Flujos de hobbies: corren sobre el año de Pep@ en la casa demo. Los pasos
+ * localizan el piano y sus proyectos POR LOS REPOS (leer sí se puede en demo)
+ * y navegan con clicks sobre las anclas — no crean datos.
+ */
 import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
-import { hobbiesRepo } from '../../core/data/repository'
 import { abrirApp } from '../../core/abrirApp'
+import { clickTut, esperarTut } from '../../core/tutorial/dom'
+import { hobbiesRepo, proyectosHobbyRepo } from '../../core/data/repository'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-export const tutorialHobbies: TutorialDef = {
-  id: 'app-hobbies',
-  titulo: T('tut.app-hobbies.titulo', 'Hobbies'),
+/** Entra al detalle del piano (idempotente: dentro del detalle el click no-op). */
+async function abrirPiano(): Promise<void> {
+  const hobbies = await hobbiesRepo.list()
+  const piano = hobbies.find((h) => h.emoji === '🎹') ?? hobbies[0]
+  if (piano?.id != null) clickTut(`hobbies.item.${piano.id}`)
+}
+
+const flujoPiano: TutorialDef = {
+  id: 'app-hobbies--piano',
+  titulo: T('tut.app-hobbies--piano.titulo', 'El año de piano'),
   resumen: T(
-    'tut.app-hobbies.resumen',
-    'Hobbies da seguimiento a tus pasatiempos: sesiones con minutos y nota, heatmap anual tipo GitHub, rachas, meta semanal de días y proyectos por hobby. También puedes registrar sesiones por chat.',
+    'tut.app-hobbies--piano.resumen',
+    'Hobbies da seguimiento a cada pasatiempo: sesiones con minutos y nota, heatmap anual, rachas, meta semanal y proyectos.',
   ),
   preparar: () => {
     abrirApp('hobbies')
   },
   pasos: [
     {
-      texto: T(
-        'tut.app-hobbies.1.texto',
-        'Hobbies lleva tus pasatiempos: cuánto practicas, tus rachas y tus proyectos.',
-      ),
-    },
-    {
       sel: 'hobbies.lista',
-      alEntrar: async (ctx) => {
-        await ctx.unaVez('hobby-ejemplo', async () => {
-          const id = await hobbiesRepo.add({
-            nombre: 'Ejemplo (tutorial) 🎓',
-            emoji: '🎓',
-            color: '#8b5cf6',
-            creadoEn: new Date().toISOString(),
-          })
-          ctx.datos.set('hobbyId', id)
-          ctx.alLimpiar(() => hobbiesRepo.remove(id as number))
-        })
-      },
-      titulo: T('tut.app-hobbies.2.titulo', 'Tus hobbies'),
+      titulo: T('tut.app-hobbies--piano.1.titulo', 'Dos hobbies, un año'),
       texto: T(
-        'tut.app-hobbies.2.texto',
-        'Creé el hobby «Ejemplo (tutorial) 🎓» para que veas la lista; se borrará al terminar. Cada tarjeta muestra su racha y su semana.',
+        'tut.app-hobbies--piano.1.texto',
+        'Pep@ registró dos: el piano (su proyecto del año, meta de 4 días por semana) y la astrofotografía. Cada tarjeta muestra la semana en curso y la racha.',
       ),
     },
     {
-      sel: 'hobbies.lista',
-      titulo: T('tut.app-hobbies.3.titulo', 'Dentro de un hobby'),
+      sel: 'hobbies.detalle.stats',
+      titulo: T('tut.app-hobbies--piano.2.titulo', 'Dentro del piano'),
       texto: T(
-        'tut.app-hobbies.3.texto',
-        'Al abrir un hobby verás sus sesiones (minutos + nota), el heatmap anual, la meta semanal, sus proyectos y su cronograma de metas.',
+        'tut.app-hobbies--piano.2.texto',
+        'Racha, mejor racha, total practicado, días activos y promedio. Un año de teclado — con la pausa honesta de Japón.',
+      ),
+      alEntrar: abrirPiano,
+    },
+    {
+      sel: 'hobbies.detalle.heatmap',
+      titulo: T('tut.app-hobbies--piano.3.titulo', 'El heatmap'),
+      texto: T(
+        'tut.app-hobbies--piano.3.texto',
+        'Cada cuadrito es un día. Se ve el arranque del mes 2, cómo el piano SOSTUVO el bache del mes 7 y el hueco de las tres semanas en Japón.',
       ),
     },
     {
-      sel: 'hobbies.agregar',
-      titulo: T('tut.app-hobbies.4.titulo', 'Crear hobbies'),
+      sel: 'hobbies.detalle.sesiones',
+      titulo: T('tut.app-hobbies--piano.4.titulo', 'Las sesiones'),
       texto: T(
-        'tut.app-hobbies.4.texto',
-        'Con este botón agregas los tuyos: nombre, emoji, color y meta de días por semana.',
+        'tut.app-hobbies--piano.4.texto',
+        'Cada práctica con sus minutos y, muchas, con nota: de «me duelen las manos» a sacar «Clair de Lune» completa.',
       ),
     },
     {
-      titulo: T('tut.app-hobbies.5.titulo', 'Proyectos y cronograma'),
+      sel: 'hobbies.detalle.proyectos',
+      titulo: T('tut.app-hobbies--piano.5.titulo', 'Proyectos'),
       texto: T(
-        'tut.app-hobbies.5.texto',
-        'Cada proyecto se abre por dentro: sus metas y sub-metas en el cronograma, sus fechas y sus fotos de avance. El hobby tiene además su propio cronograma para lo que no es de ningún proyecto.',
-      ),
-    },
-    {
-      texto: T(
-        'tut.app-hobbies.6.texto',
-        'Listo: el hobby de ejemplo se borra ahora. También puedes capturar por chat («pinté 40 min»).',
+        'tut.app-hobbies--piano.5.texto',
+        'La práctica con rumbo: la primera pieza (terminada en el mes 5) y «Clair de Lune», tocada para la familia hace una semana.',
       ),
     },
   ],
 }
+
+const flujoProyectos: TutorialDef = {
+  id: 'app-hobbies--proyectos',
+  titulo: T('tut.app-hobbies--proyectos.titulo', 'Proyectos con fotos'),
+  resumen: T(
+    'tut.app-hobbies--proyectos.resumen',
+    'Cada proyecto guarda su nota, sus sesiones vinculadas y su avance en fotos.',
+  ),
+  preparar: () => {
+    abrirApp('hobbies')
+  },
+  pasos: [
+    {
+      sel: 'hobbies.detalle.proyectos',
+      titulo: T('tut.app-hobbies--proyectos.1.titulo', 'Los proyectos del piano'),
+      texto: T(
+        'tut.app-hobbies--proyectos.1.texto',
+        'Un proyecto junta las sesiones que le dedicaste: aquí se ve cuántas y cuántos minutos lleva cada uno.',
+      ),
+      alEntrar: abrirPiano,
+    },
+    {
+      sel: 'hobbies.proyecto.fotos',
+      titulo: T('tut.app-hobbies--proyectos.2.titulo', 'El avance en fotos'),
+      texto: T(
+        'tut.app-hobbies--proyectos.2.texto',
+        '«Clair de Lune» guarda la partitura anotada. En la astrofotografía, el proyecto de las doce lunas llenas junta las mejores tomas del año.',
+      ),
+      alEntrar: async () => {
+        const proyectos = await proyectosHobbyRepo.list()
+        const clair = proyectos.find((p) => p.nombre === 'Clair de Lune') ?? proyectos[0]
+        if (clair?.id != null) {
+          await esperarTut(`hobbies.proyecto.item.${clair.id}`, 3000)
+          clickTut(`hobbies.proyecto.item.${clair.id}`)
+        }
+      },
+    },
+    {
+      texto: T(
+        'tut.app-hobbies--proyectos.3.texto',
+        'También puedes registrar sesiones por chat («practiqué piano 30 min») y planear metas del proyecto con el planificador.',
+      ),
+    },
+  ],
+}
+
+export const flujosHobbies: TutorialDef[] = [flujoPiano, flujoProyectos]

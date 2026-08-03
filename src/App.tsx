@@ -8,10 +8,13 @@ import { TrenOverlay } from './core/ui/TrenOverlay'
 import { MarcadorCancha } from './core/ui/MarcadorCancha'
 import { GranjaCercaOverlay } from './core/ui/GranjaCercaOverlay'
 import { CarreraOverlay } from './core/ui/CarreraOverlay'
+import { PaintballOverlay } from './core/ui/PaintballOverlay'
+import { Mira } from './core/ui/Mira'
 import { AsignarPlantillaDialog } from './core/ui/AsignarPlantillaDialog'
 import { AmueblarDialog } from './core/ui/AmueblarDialog'
 import { DestinoObjetoDialog } from './core/ui/DestinoObjetoDialog'
 import { AccesoNivelDialog } from './core/ui/AccesoNivelDialog'
+import { EliminarCuartoDialog } from './core/ui/EliminarCuartoDialog'
 import { RoomOverlay } from './core/ui/RoomOverlay'
 import { RoomSideMenu, FloatingMenuButton } from './core/ui/RoomSideMenu'
 import { PilaPrompts } from './core/ui/HudPlegable'
@@ -33,17 +36,19 @@ import { DialogoOverlay } from './core/ui/DialogoOverlay'
 import { GeneradorMiniaturas } from './core/house/Miniatura'
 import { TutorialOverlay } from './core/tutorial/TutorialOverlay'
 import { SelectorTutorialOverlay } from './core/tutorial/SelectorTutorial'
+import { AvisosPlan } from './core/ui/AvisosPlan'
+import { BarraDemo } from './demo/BarraDemo'
+import { VolverDemoDialog } from './demo/VolverDemoDialog'
+import { esDemo } from './core/edicion'
 import { BienvenidaOverlay } from './core/bienvenida/BienvenidaOverlay'
 import { useHouse } from './core/state/houseStore'
 import { useLayout } from './core/state/layoutStore'
 import { useGrafitis } from './core/state/grafitiStore'
-import { useCaminos } from './core/state/caminosStore'
-import { useCanchas } from './core/state/canchasStore'
-import { useHuerto } from './core/state/huertoStore'
-import { useGranja } from './core/state/granjaStore'
+import { useConstruyendo } from './core/state/construyendo'
 import { useEditorUi } from './core/state/editorUiStore'
 import { useCam } from './core/state/cameraStore'
 import { useCarrera } from './core/state/carreraStore'
+import { usePaintball } from './core/state/paintballStore'
 import { useDialogo } from './core/state/dialogoStore'
 import { useDiarioProgramado } from './rooms/diario/reparto'
 import { useAvisos } from './core/avisos'
@@ -81,16 +86,18 @@ export default function App() {
   const activeRoom = useHouse((s) => s.activeRoom)
   // Pintando grafiti: el overlay del lienzo sustituye a los controles de juego.
   const pintando = useGrafitis((s) => !!s.modo)
-  // Construyendo infraestructura (caminos/canchas/huerto): su editor sustituye al HUD de juego.
-  // Los tres hooks se llaman SIEMPRE (un `||` directo saltaría hooks al corto-circuitar).
-  const enCaminos = useCaminos((s) => s.activo)
-  const enCanchas = useCanchas((s) => s.activo)
-  const enHuerto = useHuerto((s) => s.activo)
-  const enGranja = useGranja((s) => s.activo)
-  const construyendo = enCaminos || enCanchas || enHuerto || enGranja
+  // Construyendo infraestructura (caminos/canchas/huerto/granja): su editor sustituye
+  // al HUD de juego y pliega las esquinas superiores de la casa.
+  const construyendo = useConstruyendo()
   // En plena carrera el bajo lo ocupan el ítem y el derrape (CarreraOverlay): el
   // chat estorbaría encima de ellos, así que cede la banda mientras dure.
   const enCarrera = useCarrera((s) => s.fase === 'semaforo' || s.fase === 'corriendo')
+  // En batalla de paintball (y en sus resultados) el bajo lo ocupa el botón de
+  // disparo y los asistentes están en el campo (desmontados del paseo): ceden
+  // el chat, la rueda y sus burbujas hasta salir del modo.
+  const enPaintball = usePaintball(
+    (s) => s.fase === 'cuenta' || s.fase === 'jugando' || s.fase === 'fin',
+  )
   const wrappedAbierto = useWrappedUi((s) => s.abierto)
   const sisifoAbierto = useSisifoUi((s) => s.abierto)
   // En diálogo cara a cara la caja RPG sustituye a la burbuja flotante.
@@ -161,7 +168,7 @@ export default function App() {
         {/* El joystick de movimiento sigue activo en el editor 3D (caminar mientras editas). */}
         {(!editMode || editor3d) && !sidebarOpen && !pintando && !construyendo && !dialogoActivo && <MoveControls />}
         {/* Rueda de herramientas: solo en juego (los editores conservan el cubo). */}
-        {!editMode && !sidebarOpen && !pintando && !construyendo && <MenuHerramientas />}
+        {!editMode && !sidebarOpen && !pintando && !construyendo && !enPaintball && <MenuHerramientas />}
         {!editMode && <InteractOverlay />}
         <EtiquetasMapaOverlay />
         {/* Prompts contextuales (secundarios): apilados SIEMPRE por encima de los
@@ -171,15 +178,19 @@ export default function App() {
             {!construyendo && <TrenOverlay />}
             <AccesoOverlay />
             <VehiculoOverlay />
+            {/* Burbuja del asistente: la más cercana al chat, justo encima de él. */}
+            {!construyendo && !dialogoActivo && !enPaintball && <AsistenteBurbuja />}
           </PilaPrompts>
         )}
         {!editMode && !activeRoom && !construyendo && <MarcadorCancha />}
         {!editMode && !activeRoom && !construyendo && <GranjaCercaOverlay />}
-        {!editMode && !activeRoom && !construyendo && !dialogoActivo && <AsistenteCercaOverlay />}
+        {!editMode && !activeRoom && !construyendo && !dialogoActivo && !enPaintball && <AsistenteCercaOverlay />}
         {!editMode && !activeRoom && !construyendo && <CarreraOverlay />}
-        {!editMode && !activeRoom && !construyendo && !dialogoActivo && <AsistenteBurbuja />}
+        {!editMode && !activeRoom && !construyendo && <PaintballOverlay />}
+        {/* Mira central: con un arma equipada o en batalla, en vista de perspectiva. */}
+        {!editMode && !activeRoom && !construyendo && !pintando && <Mira />}
         {!editMode && !activeRoom && !construyendo && <DialogoOverlay />}
-        {!editMode && !activeRoom && !construyendo && !enCarrera && <ChatBox menuAbierto={sidebarOpen} />}
+        {!editMode && !activeRoom && !construyendo && !enCarrera && !enPaintball && <ChatBox menuAbierto={sidebarOpen} />}
         {!editMode && !activeRoom && !construyendo && <RutinasPanel />}
         {!editMode && !activeRoom && <AvisoRespaldo />}
         <Calendario />
@@ -196,7 +207,8 @@ export default function App() {
       <AmueblarDialog />
       <DestinoObjetoDialog />
       <AccesoNivelDialog />
-      {/* Menú de bienvenida de primera vez (idioma → gustos → plan). */}
+      <EliminarCuartoDialog />
+      {/* Menú de bienvenida de primera vez (idioma → apariencia → gustos → personaje → asistente). */}
       <BienvenidaOverlay />
       {/* Único canvas oculto que rasteriza las miniaturas del catálogo/inventario: montado
           aquí (fuera de ambos paneles) para no duplicar el generador entre ellos. */}
@@ -220,6 +232,12 @@ export default function App() {
       <TutorialOverlay />
       {/* Selector de tutoriales (botón "?"): ilumina en amarillo las zonas con tour. */}
       <SelectorTutorialOverlay />
+      {/* Avisos del plan: renovar suscripción (ex-Pro) y cuota de IA agotada. */}
+      <AvisosPlan />
+      {/* Píldora persistente de la casa demo: salir / suscribirse / reiniciar. */}
+      {esDemo() && <BarraDemo />}
+      {/* «¿Volver a tu casa?» al terminar el flujo que trajo al visitante. */}
+      {esDemo() && <VolverDemoDialog />}
     </div>
   )
 }

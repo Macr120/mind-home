@@ -1,5 +1,12 @@
+import { useCallback, useSyncExternalStore } from 'react'
 import { useAjustes, type Idioma } from '../state/ajustesStore'
-import { DICTS } from './dict'
+import { asegurarIdioma, DICTS, dictStore } from './dict'
+
+// El inglés se carga perezoso: al arrancar (si el idioma guardado es 'en') y en
+// cada cambio de idioma. Suscripción a nivel de módulo: sin efectos por
+// componente y sin side effects en render.
+asegurarIdioma(useAjustes.getState().idioma)
+useAjustes.subscribe((s) => asegurarIdioma(s.idioma))
 
 /** Firma de `t()`: la misma tanto si viene de `useT()` como si se pasa como parámetro. */
 export type TFunc = (clave: string, fallback?: string, vars?: Record<string, string | number>) => string
@@ -18,7 +25,8 @@ function traducir(
   let texto = DICTS[idioma][clave] ?? DICTS.es[clave] ?? fallback ?? clave
   if (vars) {
     for (const [k, v] of Object.entries(vars)) {
-      texto = texto.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v))
+      // split/join en vez de RegExp: sin compilar una regex por interpolación.
+      texto = texto.split(`{${k}}`).join(String(v))
     }
   }
   return texto
@@ -27,11 +35,20 @@ function traducir(
 /**
  * Hook de traducción. Devuelve `t(clave, fallbackEnEspañol?, vars?)`.
  * El fallback en español permite migrar la app por zonas sin romper nada.
+ * `t` está memoizada (misma identidad mientras no cambien idioma/diccionario):
+ * puede pasarse como prop o dependencia sin romper memoizaciones.
  */
 export function useT() {
   const idioma = useAjustes((s) => s.idioma)
-  return (clave: string, fallback?: string, vars?: Record<string, string | number>) =>
-    traducir(idioma, clave, fallback, vars)
+  // Re-render cuando termina de cargar el diccionario perezoso del idioma.
+  const version = useSyncExternalStore(dictStore.subscribe, dictStore.getSnapshot)
+  return useCallback(
+    (clave: string, fallback?: string, vars?: Record<string, string | number>) =>
+      traducir(idioma, clave, fallback, vars),
+    // `version` no se lee dentro: solo invalida la memo al llegar el diccionario.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [idioma, version],
+  )
 }
 
 /**
@@ -40,6 +57,14 @@ export function useT() {
  */
 export function localeActual(): string {
   return useAjustes.getState().idioma === 'en' ? 'en-US' : 'es-MX'
+}
+
+/**
+ * Idioma activo, para el CONTENIDO que no cabe en `dict.ts` (catálogos de datos
+ * de ejemplo, textos de siembra): esos se eligen enteros, no clave a clave.
+ */
+export function idiomaActual(): Idioma {
+  return useAjustes.getState().idioma
 }
 
 /**

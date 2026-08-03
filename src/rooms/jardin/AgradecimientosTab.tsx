@@ -47,7 +47,7 @@ export function AgradecimientosTab() {
 
   return (
     <div className="space-y-4">
-      <section className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
+      <section data-tut="jardin.gratitud.alta" className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
         <p className="text-sm font-semibold">
           <Icono nombre="gratitud" /> {t('jardin.gra.hoy', 'Hoy agradezco…')}
         </p>

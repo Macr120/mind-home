@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { create } from 'zustand'
 import { useT } from '../i18n/useT'
 import { useTutorial } from './tutorialStore'
-import { tutorialDeApp, tutorialMenuPorId } from './registro'
+import { flujosDeApp, lanzarFlujo, tutorialDeApp, tutorialMenuPorId } from './registro'
 import { tutorialCasa } from './menus'
-import { tutorialAppGenerica } from './appGenerica'
 import { plantillasCuarto, plantillasInfraestructura } from '../registry'
-import { abrirApp } from '../abrirApp'
+import { esDemo } from '../edicion'
+import { entrarDemo } from '../../demo/modo'
+import { useAjustes } from '../state/ajustesStore'
 import { Icono } from '../ui/iconos/Icono'
 import type { TutorialDef } from './tipos'
 
@@ -29,12 +30,20 @@ export const useSelectorTut = create<SelectorState>((set) => ({
   cerrar: () => set({ abierto: false }),
 }))
 
-/** Botón "?" que abre/cierra el selector; en amarillo mientras está seleccionado. */
+/**
+ * Botón "?" que abre/cierra el selector; en amarillo mientras está seleccionado.
+ * Se puede apagar en Configuraciones › Tutoriales (entonces los tours se lanzan
+ * desde ahí), igual que el botón de música.
+ */
 export function BotonTutoriales({ className = '' }: { className?: string }) {
   const t = useT()
   const abierto = useSelectorTut((s) => s.abierto)
   const tourActivo = useTutorial((s) => !!s.def)
+  const enHud = useAjustes((s) => s.hudTutoriales)
   const marcado = abierto || tourActivo
+
+  if (!enHud) return null
+
   return (
     <button
       type="button"
@@ -65,6 +74,8 @@ interface Zona {
 export function SelectorTutorialOverlay() {
   const t = useT()
   const abierto = useSelectorTut((s) => s.abierto)
+  const enHud = useAjustes((s) => s.hudTutoriales)
+  const setEnHud = useAjustes((s) => s.setHudTutoriales)
   const [zonas, setZonas] = useState<Zona[]>([])
 
   // Mide las zonas visibles y las sigue mientras el selector está abierto
@@ -121,6 +132,9 @@ export function SelectorTutorialOverlay() {
     return () => window.removeEventListener('keydown', onKey, true)
   }, [abierto])
 
+  // App con varios flujos: su icono despliega la lista en vez de lanzar directo.
+  const [appFlujos, setAppFlujos] = useState<string | null>(null)
+
   if (!abierto) return null
 
   const lanzar = (def: TutorialDef) => {
@@ -146,6 +160,13 @@ export function SelectorTutorialOverlay() {
             type="button"
             onClick={(e) => {
               e.stopPropagation()
+              // Zonas de app: por lanzarFlujo — los flujos nuevos corren sobre
+              // los datos de la casa DEMO (desde la casa real, saltan a ella).
+              if (z.id.startsWith('app:')) {
+                useSelectorTut.getState().cerrar()
+                lanzarFlujo(z.id.slice(4), z.def)
+                return
+              }
               lanzar(z.def)
             }}
             className="absolute rounded-xl border-2 border-amber-400 bg-amber-400/15 transition hover:bg-amber-400/30"
@@ -196,29 +217,64 @@ export function SelectorTutorialOverlay() {
           </button>
         </div>
 
-        {/* Tutoriales de las apps: se abren desde aquí aunque su cuarto esté cerrado. */}
+        {/* Tutoriales de las apps: se abren desde aquí aunque su cuarto esté cerrado.
+            Con varios FLUJOS, el icono despliega la lista para elegir uno. */}
         <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
           {t('tut.selector.apps', 'O el tutorial de una app:')}
         </p>
         <div className="mt-1.5 flex flex-wrap justify-center gap-1">
           {plantillasCuarto().map((p) => {
             const nombre = t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]
-            const def =
-              p.tutorial ??
-              {
-                ...tutorialAppGenerica,
-                preparar: () => {
-                  abrirApp(p.id)
-                },
-              }
             return (
               <button
                 key={p.id}
                 type="button"
-                onClick={() => lanzar(def)}
+                onClick={() => {
+                  const flujos = flujosDeApp(p.id)
+                  if (flujos.length > 1) {
+                    setAppFlujos((prev) => (prev === p.id ? null : p.id))
+                    return
+                  }
+                  useSelectorTut.getState().cerrar()
+                  lanzarFlujo(p.id, flujos[0])
+                }}
                 title={nombre}
                 aria-label={nombre}
-                className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
+                className={`grid h-9 w-9 place-items-center rounded-lg border text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15 ${
+                  appFlujos === p.id ? 'border-amber-400/60 bg-amber-400/15' : 'border-white/10 bg-white/5'
+                }`}
+              >
+                <Icono emoji={p.icon} />
+              </button>
+            )
+          })}
+        </div>
+        {/* Infraestructura: no se asigna a cuartos, se construye sobre el mapa.
+            Mismo trato que las apps: menú de flujos y salto a la casa demo. */}
+        <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
+          {t('tut.selector.infra', 'O una construcción del mapa:')}
+        </p>
+        <div className="mt-1.5 flex flex-wrap justify-center gap-1">
+          {plantillasInfraestructura().map((p) => {
+            const nombre = t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]
+            return (
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => {
+                  const flujos = flujosDeApp(p.id)
+                  if (flujos.length > 1) {
+                    setAppFlujos((prev) => (prev === p.id ? null : p.id))
+                    return
+                  }
+                  useSelectorTut.getState().cerrar()
+                  lanzarFlujo(p.id, flujos[0])
+                }}
+                title={nombre}
+                aria-label={nombre}
+                className={`grid h-9 w-9 place-items-center rounded-lg border text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15 ${
+                  appFlujos === p.id ? 'border-amber-400/60 bg-amber-400/15' : 'border-white/10 bg-white/5'
+                }`}
               >
                 <Icono emoji={p.icon} />
               </button>
@@ -226,28 +282,71 @@ export function SelectorTutorialOverlay() {
           })}
         </div>
 
-        {/* Infraestructura: no se asigna a cuartos, se construye sobre el mapa. */}
-        <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
-          {t('tut.selector.infra', 'O una construcción del mapa:')}
-        </p>
-        <div className="mt-1.5 flex flex-wrap justify-center gap-1">
-          {plantillasInfraestructura().map((p) => {
-            const nombre = t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]
-            // Su `preparar` abre el editor; sin tutorial propio no hay nada que enseñar.
-            if (!p.tutorial) return null
-            return (
+        {/* Menú de flujos de la app o infraestructura elegida (bajo ambas rejillas). */}
+        {appFlujos && (
+          <div className="mt-1.5 space-y-1">
+            {flujosDeApp(appFlujos).map((def) => (
               <button
-                key={p.id}
+                key={def.id}
                 type="button"
-                onClick={() => lanzar(p.tutorial!)}
-                title={nombre}
-                aria-label={nombre}
-                className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/5 text-lg transition hover:border-amber-400/60 hover:bg-amber-400/15"
+                onClick={() => {
+                  useSelectorTut.getState().cerrar()
+                  lanzarFlujo(appFlujos, def)
+                }}
+                className="block w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
               >
-                <Icono emoji={p.icon} />
+                {t(def.titulo.clave, def.titulo.es)}
               </button>
-            )
-          })}
+            ))}
+          </div>
+        )}
+
+        {/* La casa demo: el escenario donde corren estos tours. Los flujos ya
+            saltan solos, pero desde aquí se puede entrar a pasearla sin tour.
+            Dentro del demo sobra: ya se está ahí. */}
+        {!esDemo() && (
+          <div className="mt-3 space-y-1 border-t border-white/10 pt-2">
+            <button
+              type="button"
+              onClick={() => entrarDemo()}
+              className="flex w-full items-center justify-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10"
+            >
+              <Icono nombre="casa" /> {t('demo.visitar', 'Visitar la casa demo')}
+            </button>
+            <p className="text-[10px] leading-snug text-white/40">
+              {t(
+                'demo.visitar.desc',
+                'La casa de Pep@ con un año de uso real dentro. Tu casa y tus datos quedan intactos; se vuelve con un botón.',
+              )}
+            </p>
+          </div>
+        )}
+
+        {/* Quitar el "?" del HUD desde el propio selector (vuelve en Configuraciones). */}
+        <div className="mt-3 space-y-1 border-t border-white/10 pt-2">
+          <button
+            type="button"
+            onClick={() => {
+              setEnHud(!enHud)
+              useSelectorTut.getState().cerrar()
+            }}
+            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+              enHud
+                ? 'ui-accent-bg border-transparent'
+                : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+            }`}
+          >
+            <span className="shrink-0 text-[11px]">{enHud ? '✓' : '○'}</span>
+            <span className="min-w-0 flex-1 truncate">
+              {t('ajustes.tutoriales.hud', 'Mostrar en la pantalla principal')}
+            </span>
+          </button>
+          <p className="text-[10px] leading-snug text-white/40">
+            {t(
+              'tut.selector.hudNota',
+              'Apagado, los tutoriales se lanzan en Editor › Configuraciones › Tutoriales.',
+            )}
+          </p>
         </div>
       </div>
     </div>

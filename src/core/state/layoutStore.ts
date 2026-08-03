@@ -1,7 +1,8 @@
 import { create } from 'zustand'
-import { db, type Acceso, type Cuarto } from '../data/db'
+import { db, type Acceso, type Cuarto, type CuadranteMapa } from '../data/db'
+import { claveLS, esDemo } from '../edicion'
 import { useCuartos } from './cuartosStore'
-import { useCam, ZOOM_DEFAULT } from './cameraStore'
+import { useCam, zoomEncuadre } from './cameraStore'
 import { useInteractUi } from './interactUiStore'
 import { useEditorUi } from './editorUiStore'
 import { usePlanos } from './planosStore'
@@ -27,6 +28,7 @@ import {
   doorFor,
   maxIndiceAncla,
   setGridDims,
+  setTamCelda,
   setFlota,
   flotaPara,
   nivelBaseY,
@@ -34,6 +36,9 @@ import {
   COLS,
   ROWS,
   MAX_GRID,
+  TAM_CELDA_BASE,
+  TAM_CELDA_MIN,
+  TAM_CELDA_MAX,
   SPACING,
   SIZE_DEFAULT,
   FOOTPRINT_DEFAULT,
@@ -367,6 +372,10 @@ interface LayoutState {
   accesos: Acceso[]
   gridCols: number
   gridRows: number
+  /** Lado de cada celda de la rejilla en metros (espejo del SIZE activo de walls). */
+  tamCelda: number
+  /** Cuadrantes del mapa dibujados por el usuario (los automáticos se calculan). */
+  cuadrantes: CuadranteMapa[]
   editMode: boolean
   editingRoomId: string | null
   /** Cuarto cuyos objetos se mueven sueltos en el mapa 3D (editor cerrado, botón flotante "Listo"). */
@@ -516,6 +525,12 @@ interface LayoutState {
   endDrag: () => Promise<void>
   expandGrid: (dir: DirGrid) => Promise<void>
   contractGrid: (dir: DirGrid) => Promise<void>
+  /** Cambia el lado de las celdas de la rejilla (metros) y lo persiste en mapaConfig. */
+  setTamCeldaMapa: (m: number) => Promise<void>
+  /** Guarda un cuadrante dibujado en el croquis y devuelve su id. */
+  agregarCuadrante: (q: CuadranteMapa) => Promise<void>
+  renombrarCuadrante: (id: string, nombre: string) => Promise<void>
+  eliminarCuadrante: (id: string) => Promise<void>
 }
 
 export const useLayout = create<LayoutState>((set, get) => ({
@@ -526,6 +541,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
   accesos: [],
   gridCols: COLS,
   gridRows: ROWS,
+  tamCelda: TAM_CELDA_BASE,
+  cuadrantes: [],
   editMode: false,
   editingRoomId: null,
   moverObjetosRoomId: null,
@@ -559,7 +576,11 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const accesos = await db.accesos.toArray()
     const gridCols = configArr[0]?.cols ?? COLS
     const gridRows = configArr[0]?.rows ?? ROWS
+    const tamCelda = configArr[0]?.celda ?? TAM_CELDA_BASE
+    const cuadrantes = configArr[0]?.cuadrantes ?? []
     setGridDims(gridCols, gridRows)
+    // Antes de cualquier recompute: los colliders y la geometría salen del SIZE activo.
+    setTamCelda(tamCelda)
 
     const placed: Record<string, boolean> = {}
     const cells = celdasDefault()
@@ -722,6 +743,8 @@ export const useLayout = create<LayoutState>((set, get) => ({
       accesos,
       gridCols,
       gridRows,
+      tamCelda,
+      cuadrantes,
       wallOverrides,
       edgeStyles,
       pinceles,
@@ -737,8 +760,9 @@ export const useLayout = create<LayoutState>((set, get) => ({
 
     // Migración única: los cuartos que ya hospedan una app "sin muros" (jardín) quedan
     // como espacio abierto. Las apps nuevas lo hacen al asignarse (ver plantillaBundle).
-    if (localStorage.getItem('mh_jardin_sin_muros_v2') !== '1') {
-      localStorage.setItem('mh_jardin_sin_muros_v2', '1')
+    // En demo no aplica: la casa nace bien y la escritura chocaría con el guard.
+    if (!esDemo() && localStorage.getItem(claveLS('mh_jardin_sin_muros_v2')) !== '1') {
+      localStorage.setItem(claveLS('mh_jardin_sin_muros_v2'), '1')
       const { plantillas } = await import('../registry')
       const idsSinMuros = new Set(plantillas.filter((p) => p.sinMuros).map((p) => p.id))
       if (idsSinMuros.size) {
@@ -777,7 +801,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
     })
     if (v && !editingAntes && !persp) {
       // Centrar la cámara en toda la casa (todos los niveles).
-      useCam.setState({ focus: mapFocusPos(), zoom: ZOOM_DEFAULT })
+      useCam.setState({ focus: mapFocusPos(), zoom: zoomEncuadre() })
     } else if (!v) {
       // Al salir, la vista en perspectiva se conserva (solo iso vuelve a su encuadre).
       // `mantenerVista`: cerrar sin mover la cámara ni salir del cuarto.
@@ -1901,6 +1925,38 @@ export const useLayout = create<LayoutState>((set, get) => ({
         losCuartos().map((r) => upsert(r.id, { col: newCells[r.id]?.col, row: newCells[r.id]?.row })),
       )
   },
+
+  setTamCeldaMapa: async (m) => {
+    const celda = Math.min(TAM_CELDA_MAX, Math.max(TAM_CELDA_MIN, m))
+    const anterior = get().tamCelda
+    if (celda === anterior) return
+    setTamCelda(celda)
+    // Colliders, puertas y alturas salen del SIZE activo; la escena se remonta vía
+    // el key del Canvas (House) al cambiar tamCelda.
+    set({ tamCelda: celda, ...recompute({ ...get() }) })
+    // Lo que vive suelto sobre el mapa sigue a la rejilla para conservar su celda.
+    const { useDiseño } = await import('./disenoStore')
+    await useDiseño.getState().reescalarObjetosMapa(celda / anterior)
+    const arr = await db.mapaConfig.toArray()
+    if (arr[0]?.id) await db.mapaConfig.update(arr[0].id, { celda })
+    else await db.mapaConfig.add({ cols: get().gridCols, rows: get().gridRows, celda })
+  },
+
+  agregarCuadrante: async (q) => {
+    const cuadrantes = [...get().cuadrantes, q]
+    set({ cuadrantes })
+    await guardarCuadrantes(cuadrantes, get)
+  },
+  renombrarCuadrante: async (id, nombre) => {
+    const cuadrantes = get().cuadrantes.map((q) => (q.id === id ? { ...q, nombre } : q))
+    set({ cuadrantes })
+    await guardarCuadrantes(cuadrantes, get)
+  },
+  eliminarCuadrante: async (id) => {
+    const cuadrantes = get().cuadrantes.filter((q) => q.id !== id)
+    set({ cuadrantes })
+    await guardarCuadrantes(cuadrantes, get)
+  },
 }))
 
 /**
@@ -1929,6 +1985,12 @@ async function guardarGridConfig(cols: number, rows: number) {
   const arr = await db.mapaConfig.toArray()
   if (arr[0]?.id) await db.mapaConfig.update(arr[0].id, { cols, rows })
   else await db.mapaConfig.add({ cols, rows })
+}
+
+async function guardarCuadrantes(cuadrantes: CuadranteMapa[], get: () => LayoutState) {
+  const arr = await db.mapaConfig.toArray()
+  if (arr[0]?.id) await db.mapaConfig.update(arr[0].id, { cuadrantes })
+  else await db.mapaConfig.add({ cols: get().gridCols, rows: get().gridRows, cuadrantes })
 }
 
 /** Lado (pared) de la celda que mira hacia el centro de la casa (acceso por defecto). */

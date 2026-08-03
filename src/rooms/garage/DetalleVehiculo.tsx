@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Vehiculo } from '../../core/data/db'
+import type { TallerVehiculo, TramiteVehiculo, Vehiculo } from '../../core/data/db'
 import {
   registrosMantenimientoRepo,
   useMantenimientosVehiculo,
@@ -9,6 +9,18 @@ import { COLOR, getTipoMantenimiento, getTipoVehiculo } from './constantes'
 import { dinero, formatearFecha } from './fecha'
 import { FormularioMantenimiento } from './FormularioMantenimiento'
 import { FormularioVehiculo } from './FormularioVehiculo'
+import { TramitesSection } from './TramitesSection'
+import {
+  AccionIcono,
+  BotonBorrar,
+  BotonPrimario,
+  Cabecera,
+  Chip,
+  INPUT,
+  TARJETA,
+  Tile,
+  TINTA_CTA,
+} from './ui'
 import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
@@ -16,9 +28,13 @@ import { Icono } from '../../core/ui/iconos/Icono'
 
 export function DetalleVehiculo({
   vehiculo,
+  tramites,
+  talleres,
   onVolver,
 }: {
   vehiculo: Vehiculo
+  tramites: TramiteVehiculo[]
+  talleres: TallerVehiculo[]
   onVolver: () => void
 }) {
   const t = useT()
@@ -26,6 +42,7 @@ export function DetalleVehiculo({
   const [editandoVehiculo, setEditandoVehiculo] = useState(false)
   const [nuevoServicio, setNuevoServicio] = useState(false)
   const [editServicioId, setEditServicioId] = useState<number | null>(null)
+  const [borrandoId, setBorrandoId] = useState<number | null>(null)
   const [odoEdit, setOdoEdit] = useState(
     vehiculo.odometroActual != null ? String(vehiculo.odometroActual) : '',
   )
@@ -34,6 +51,7 @@ export function DetalleVehiculo({
   const tipo = getTipoVehiculo(vehiculo.tipo)
   const gastoTotal = servicios.reduce((s, r) => s + (r.costo ?? 0), 0)
   const editandoServicio = servicios.find((s) => s.id === editServicioId)
+  const odoCambiado = odoEdit !== (vehiculo.odometroActual != null ? String(vehiculo.odometroActual) : '')
 
   const actualizarOdometro = async () => {
     const val = odoEdit ? parseFloat(odoEdit) : undefined
@@ -71,48 +89,70 @@ export function DetalleVehiculo({
     <div className="space-y-4">
       <button
         type="button"
+        data-tut="garage.detalle.volver"
         onClick={onVolver}
-        className="text-sm font-semibold hover:underline"
-        style={{ color: COLOR }}
+        className="rounded-lg px-1 py-0.5 text-sm font-semibold transition hover:bg-white/10 texto-vivo"
+        style={vivo(COLOR)}
       >
-        {t('garage.detalle.volver', '‹ Volver al garaje')}
+        <Icono nombre="volver" /> {t('garage.detalle.volver', 'Volver al garaje')}
       </button>
 
-      <div
-        className="rounded-xl border p-4"
-        style={{ background: `${COLOR}18`, borderColor: `${COLOR}44` }}
+      {/* Portada del vehículo: identidad arriba, odómetro y cifras abajo. */}
+      <section
+        data-tut="garage.detalle.portada"
+        className="overflow-hidden rounded-2xl border"
+        style={{
+          borderColor: `${COLOR}3d`,
+          background: `linear-gradient(160deg, ${COLOR}22, ${COLOR}0a 60%)`,
+        }}
       >
-        <div className="flex items-start gap-3">
-          <span className="text-4xl"><Icono emoji={tipo.icon} /></span>
-          <div className="flex-1">
-            <h2 className="text-xl font-black">{vehiculo.nombre}</h2>
-            <p className="text-sm text-white/60">
+        <div className="flex items-start gap-3 p-4">
+          <Tile emoji={tipo.icon} grande />
+          <div className="min-w-0 flex-1">
+            <h2 className="truncate text-xl font-black">{vehiculo.nombre}</h2>
+            <p className="truncate text-sm text-white/60">
               {tipo.label}
               {vehiculo.marca && ` · ${vehiculo.marca}`}
               {vehiculo.modelo && ` ${vehiculo.modelo}`}
+              {vehiculo.anio && ` (${vehiculo.anio})`}
             </p>
-            {vehiculo.matricula && (
-              <p className="text-xs text-white/45 mt-1">
-                {t('garage.detalle.placas', `Placas: ${vehiculo.matricula}`, { n: vehiculo.matricula })}
-              </p>
-            )}
+            <div className="mt-1.5 flex flex-wrap gap-1.5">
+              {vehiculo.matricula && (
+                <Chip>
+                  <Icono nombre="tarjeta" /> {vehiculo.matricula}
+                </Chip>
+              )}
+              <Chip>
+                <Icono nombre="herramienta" />{' '}
+                {servicios.length === 1
+                  ? t('garage.veh.servicio', '1 servicio')
+                  : t('garage.veh.servicios', '{n} servicios', { n: String(servicios.length) })}
+              </Chip>
+              {gastoTotal > 0 && (
+                <Chip color={COLOR}>
+                  <span className="texto-vivo" style={vivo(COLOR)}>
+                    {t('garage.detalle.gastoTotal', 'Total {c}', { c: dinero(gastoTotal) })}
+                  </span>
+                </Chip>
+              )}
+            </div>
           </div>
-          <button
-            type="button"
+          <AccionIcono
+            nombre="editar"
+            titulo={t('garage.detalle.editar', 'Editar')}
             onClick={() => setEditandoVehiculo(true)}
-            className="text-xs bg-white/10 rounded-lg px-2 py-1 hover:bg-white/15"
-          >
-            {t('garage.detalle.editar', 'Editar')}
-          </button>
+          />
         </div>
 
-        <div className="mt-4 flex gap-2 items-end">
+        <div className="flex items-end gap-2 border-t border-white/10 bg-black/15 p-3">
           <label className="flex-1 text-xs text-white/50">
-            {t('garage.detalle.odo', `Odómetro actual (${vehiculo.unidad})`, { unit: vehiculo.unidad })}
+            {t('garage.detalle.odo', `Odómetro actual (${vehiculo.unidad})`, {
+              unit: vehiculo.unidad,
+            })}
             <input
               type="number"
               min={0}
-              className="mt-1 w-full rounded-lg bg-black/25 border border-white/15 px-3 py-2 text-sm"
+              className={INPUT}
               value={odoEdit}
               onChange={(e) => setOdoEdit(e.target.value)}
             />
@@ -120,34 +160,32 @@ export function DetalleVehiculo({
           <button
             type="button"
             onClick={() => void actualizarOdometro()}
-            className="rounded-lg px-3 py-2 text-xs font-bold text-black shrink-0"
-            style={{ background: COLOR }}
+            disabled={!odoCambiado}
+            className="shrink-0 rounded-lg px-3 py-2 text-xs font-bold transition hover:brightness-110 disabled:cursor-default disabled:opacity-40"
+            style={{ background: COLOR, color: TINTA_CTA }}
           >
             {t('garage.detalle.actualizar', 'Actualizar')}
           </button>
         </div>
+      </section>
 
-        <p className="text-xs text-white/40 mt-3">
-          {t('garage.detalle.servicios', `${servicios.length} servicios registrados · Gasto total ${dinero(gastoTotal)}`, { n: String(servicios.length), cost: dinero(gastoTotal) })}
-        </p>
-      </div>
+      <TramitesSection vehiculo={vehiculo} tramites={tramites} talleres={talleres} />
 
-      <button
-        type="button"
-        onClick={() => setNuevoServicio(true)}
-        className="w-full rounded-xl py-3 text-sm font-bold text-black"
-        style={{ background: COLOR }}
-      >
-        <Icono nombre="herramienta" /> {t('garage.detalle.registrar', 'Registrar mantenimiento')}
-      </button>
+      <section data-tut="garage.detalle.historial" className="space-y-2">
+        <Cabecera icono="registros" titulo={t('garage.detalle.historial', 'Historial')}>
+          <BotonPrimario onClick={() => setNuevoServicio(true)} pequeno>
+            <Icono nombre="herramienta" /> {t('garage.detalle.registrar', 'Registrar mantenimiento')}
+          </BotonPrimario>
+        </Cabecera>
 
-      <div className="space-y-2">
-        <p className="text-sm font-semibold text-white/70">{t('garage.detalle.historial', 'Historial')}</p>
         <Archivador
           items={servicios}
           fecha={(r) => r.fecha}
           clave={(r) => r.id ?? r.fecha}
-          vacio={t('garage.detalle.sinServicios', 'Aún no hay servicios. Registra el último cambio de aceite, cadena, etc.')}
+          vacio={t(
+            'garage.detalle.sinServicios',
+            'Aún no hay servicios. Registra el último cambio de aceite, cadena, etc.',
+          )}
           resumen={(regs) => {
             const gasto = regs.reduce((s, r) => s + (r.costo ?? 0), 0)
             return gasto > 0 ? dinero(gasto) : null
@@ -156,20 +194,22 @@ export function DetalleVehiculo({
           {(r) => {
             const tm = getTipoMantenimiento(r.tipo)
             return (
-              <div className="rounded-xl bg-white/5 border border-white/10 p-3">
+              <div className={`group ${TARJETA} p-3`}>
                 <div className="flex justify-between gap-2">
-                  <div>
-                    <p className="font-semibold text-sm">{r.titulo}</p>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold">{r.titulo}</p>
                     <p className="text-xs text-white/45">
                       {formatearFecha(r.fecha)} · {tm.label}
                       {r.odometro != null &&
                         ` · ${r.odometro.toLocaleString('es-MX')} ${vehiculo.unidad}`}
                     </p>
                     {r.taller && (
-                      <p className="text-xs text-white/40 mt-0.5"><Icono nombre="ubicacion" /> {r.taller}</p>
+                      <p className="mt-0.5 truncate text-xs text-white/40">
+                        <Icono nombre="ubicacion" /> {r.taller}
+                      </p>
                     )}
                     {(r.proximoOdometro != null || r.proximaFecha) && (
-                      <p className="text-xs mt-1 texto-vivo" style={vivo(COLOR)}>
+                      <p className="mt-1 text-xs texto-vivo" style={vivo(COLOR)}>
                         {t('garage.detalle.proximo', 'Próximo:')}
                         {r.proximoOdometro != null &&
                           ` ${r.proximoOdometro.toLocaleString('es-MX')} ${vehiculo.unidad}`}
@@ -177,38 +217,40 @@ export function DetalleVehiculo({
                         {r.proximaFecha && formatearFecha(r.proximaFecha)}
                       </p>
                     )}
-                    {r.nota && <p className="text-xs text-white/50 mt-1">{r.nota}</p>}
+                    {r.nota && <p className="mt-1 text-xs text-white/50">{r.nota}</p>}
                   </div>
-                  <div className="text-right shrink-0 space-y-1">
+                  <div className="flex shrink-0 flex-col items-end gap-1">
                     {r.costo != null && r.costo > 0 && (
                       <p className="text-sm font-semibold">{dinero(r.costo)}</p>
                     )}
-                    <button
-                      type="button"
-                      onClick={() => r.id && setEditServicioId(r.id)}
-                      className="block text-[10px] text-white/40 hover:text-white/70"
-                    >
-                      {t('garage.detalle.editar', 'Editar')}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => r.id && void registrosMantenimientoRepo.remove(r.id)}
-                      className="block text-[10px] text-white/40 hover:text-red-400"
-                    >
-                      {t('garage.detalle.borrar', 'Borrar')}
-                    </button>
+                    <div className="flex items-center opacity-60 transition group-hover:opacity-100">
+                      {borrandoId !== r.id && (
+                        <AccionIcono
+                          nombre="editar"
+                          titulo={t('garage.detalle.editar', 'Editar')}
+                          onClick={() => r.id && setEditServicioId(r.id)}
+                        />
+                      )}
+                      <BotonBorrar
+                        confirmando={borrandoId === r.id}
+                        onPedir={() => r.id && setBorrandoId(r.id)}
+                        onConfirmar={() => {
+                          if (r.id) void registrosMantenimientoRepo.remove(r.id)
+                          setBorrandoId(null)
+                        }}
+                        onCancelar={() => setBorrandoId(null)}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             )
           }}
         </Archivador>
-      </div>
+      </section>
 
       {vehiculo.notas && (
-        <p className="text-xs text-white/45 rounded-lg bg-white/5 p-3 border border-white/10">
-          {vehiculo.notas}
-        </p>
+        <p className={`${TARJETA} p-3 text-xs text-white/45`}>{vehiculo.notas}</p>
       )}
     </div>
   )

@@ -1,4 +1,10 @@
-/** Categorías predefinidas con icono y color (estilo apps premium de finanzas). */
+/**
+ * Categorías de Finanzas.
+ *
+ * La categoría es TEXTO LIBRE: el usuario escribe la suya. Estas son solo
+ * sugerencias — las conocidas traen icono y color propios, y cualquier otra
+ * recibe un color estable derivado de su nombre (así no cambia entre sesiones).
+ */
 
 export interface Categoria {
   id: string
@@ -26,13 +32,54 @@ export const CATEGORIAS_INGRESO: Categoria[] = [
   { id: 'otros_ingreso', nombre: 'Otros', icon: '📦', color: '#6b7280' },
 ]
 
-const PORID = new Map<string, Categoria>(
-  [...CATEGORIAS_GASTO, ...CATEGORIAS_INGRESO].map((c) => [c.id, c]),
-)
+/** Sin acentos ni mayúsculas: 'Inversión' y 'inversion' son la misma categoría. */
+const clave = (s: string) =>
+  s.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
 
-/** Busca una categoría por id; si no existe (datos viejos) devuelve un genérico. */
+const CONOCIDAS = new Map<string, Categoria>()
+for (const c of [...CATEGORIAS_GASTO, ...CATEGORIAS_INGRESO]) {
+  CONOCIDAS.set(c.id, c)
+  CONOCIDAS.set(clave(c.nombre), c)
+}
+
+/** Paleta para las categorías escritas a mano (se elige por el nombre). */
+const PALETA = ['#f59e0b', '#3b82f6', '#10b981', '#a855f7', '#ef4444', '#ec4899', '#14b8a6', '#84cc16']
+
+function colorDe(nombre: string): string {
+  let h = 0
+  for (const ch of nombre) h = (h * 31 + ch.charCodeAt(0)) % 9973
+  return PALETA[h % PALETA.length]
+}
+
+/** Busca una categoría por id o por nombre; si es del usuario, la fabrica. */
 export function getCategoria(id: string): Categoria {
-  return (
-    PORID.get(id) ?? { id, nombre: id, icon: '🏷️', color: '#6b7280' }
+  const k = clave(id)
+  const conocida = CONOCIDAS.get(id) ?? CONOCIDAS.get(k)
+  if (conocida) return conocida
+  return { id, nombre: id, icon: '🏷️', color: colorDe(k) }
+}
+
+/**
+ * Sugerencias para el campo de categoría: primero las que el usuario ya usó en
+ * ese tipo (las más frecuentes arriba) y luego las de fábrica que le falten.
+ */
+export function sugerenciasCategorias(
+  tipo: 'gasto' | 'ingreso',
+  usadas: { tipo: 'gasto' | 'ingreso'; categoria: string }[],
+): Categoria[] {
+  const veces = new Map<string, number>()
+  for (const m of usadas) {
+    if (m.tipo !== tipo) continue
+    const k = clave(m.categoria)
+    if (k) veces.set(k, (veces.get(k) ?? 0) + 1)
+  }
+  const propias = [...veces.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([k]) => getCategoria(usadas.find((m) => clave(m.categoria) === k)!.categoria))
+
+  const vistas = new Set(propias.map((c) => clave(c.nombre)))
+  const base = (tipo === 'gasto' ? CATEGORIAS_GASTO : CATEGORIAS_INGRESO).filter(
+    (c) => !vistas.has(clave(c.nombre)),
   )
+  return [...propias, ...base]
 }

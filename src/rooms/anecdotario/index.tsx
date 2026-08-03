@@ -1,8 +1,8 @@
+import { lazy } from 'react'
 import type { Plantilla, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vFecha } from '../../core/registry'
 import { anecdotasRepo } from '../../core/data/repository'
-import { AnecdotarioApp } from './AnecdotarioApp'
-import { tutorialAnecdotario } from './tutorial'
+import { flujosAnecdotario } from './tutorial'
 
 const esquemas: EsquemaCaptura[] = [
   {
@@ -25,6 +25,11 @@ const esquemas: EsquemaCaptura[] = [
   },
 ]
 
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const AnecdotarioApp = lazy(() => import('./AnecdotarioApp').then((m) => ({ default: m.AnecdotarioApp })))
+
 const anecdotario: Plantilla = {
   id: 'anecdotario',
   nombre: 'Diario · Escritorio',
@@ -32,7 +37,7 @@ const anecdotario: Plantilla = {
   categoria: 'mente',
   color: '#a78bfa',
   App: AnecdotarioApp,
-  tutorial: tutorialAnecdotario,
+  flujos: flujosAnecdotario,
   esquemas,
   // La app es de página única: el deep link solo la abre (la sección se ignora).
   comandos: [

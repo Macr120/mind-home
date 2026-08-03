@@ -178,7 +178,7 @@ export function RutasTab({ lugares }: Props) {
   }
 
   return (
-    <div className="space-y-3">
+    <div data-tut="sala.rutas" className="space-y-3">
       <button
         onClick={() => setBorrador({ nombre: '', lugarIds: [] })}
         className="w-full rounded-xl bg-teal-600 py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"

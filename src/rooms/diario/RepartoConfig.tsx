@@ -82,7 +82,11 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
         {progs.map((p) => {
           const entrega = estado.entregas[p.id]
           return (
-            <div key={p.id} className="space-y-2.5 rounded-xl border border-white/10 bg-white/5 p-3">
+            <div
+              key={p.id}
+              data-tut="diario.reparto.lista"
+              className="space-y-2.5 rounded-xl border border-white/10 bg-white/5 p-3"
+            >
               <div className="flex items-center gap-2">
                 <select
                   value={p.asistenteId}

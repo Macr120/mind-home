@@ -167,7 +167,7 @@ export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
   ]
 
   return (
-    <div className="space-y-2">
+    <div data-tut="sala.pc.hoja" className="space-y-2">
       <div className="overflow-x-auto rounded-xl border border-white/10">
         <table className="w-full min-w-[860px] border-collapse">
           <thead>

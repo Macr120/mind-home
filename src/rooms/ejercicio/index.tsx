@@ -1,12 +1,22 @@
-import type { RoomModule, EsquemaCaptura } from '../../core/registry'
+import { lazy } from 'react'
+import type { RoomModule, EsquemaCaptura, RutinaSugerible } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
-import { rutinasRepo, sesionesEjercicioRepo } from '../../core/data/repository'
+import {
+  rutinasCardioRepo,
+  rutinasFlexRepo,
+  rutinasFuerzaRepo,
+  rutinasRepo,
+  sesionesEjercicioRepo,
+} from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoEntrenamiento } from '../../core/data/db'
+import { actividadId } from '../../core/rutinas'
+import { tGlobal } from '../../core/i18n/useT'
 import { agendaDelDia } from './agenda'
-import { EjercicioApp } from './EjercicioApp'
+import { planMetasEjercicio } from './plan'
 import { fechaLocalISO } from '../../core/fechaLocal'
-import { tutorialEjercicio } from './tutorial'
+import { flujosEjercicio } from './tutorial'
+import { OPERACIONES_IA } from './costosIA'
 
 /** Los tres tipos, para recorrer lo agendado de todos a la vez. */
 const TIPOS_ENTRENAMIENTO: TipoEntrenamiento[] = ['fuerza', 'resistencia', 'flexibilidad']
@@ -48,6 +58,41 @@ async function capturar(texto: string): Promise<boolean> {
   return true
 }
 
+const ETIQUETA_TIPO: Record<TipoEntrenamiento, [string, string]> = {
+  fuerza: ['ejercicio.tab.fuerza', 'Fuerza'],
+  resistencia: ['ejercicio.tab.resistencia', 'Resistencia'],
+  flexibilidad: ['ejercicio.tab.flexibilidad', 'Flexibilidad'],
+}
+
+/** Rutina del catálogo → bloque agendable, el MISMO que arma TarjetaRutina. */
+function sugerible(
+  tipo: TipoEntrenamiento,
+  r: { id?: number; nombre: string; duracionMin: number; descripcion?: string },
+): RutinaSugerible[] {
+  if (r.id == null) return []
+  return [
+    {
+      tipo,
+      tipoEtiqueta: tGlobal(...ETIQUETA_TIPO[tipo]),
+      descripcion: r.descripcion,
+      actividad: {
+        actividadId: actividadId(tipo, r.id),
+        plantillaId: 'ejercicio',
+        nombre: r.nombre,
+        emoji: '💪',
+        horaSugerida: '07:00',
+        duracionMin: r.duracionMin,
+        seccion: tipo,
+        registroRapido: {
+          esquemaId: 'sesion',
+          valores: { tipo, titulo: r.nombre, duracionMin: r.duracionMin },
+          etiqueta: tGlobal('ejercicio.registrarSesion', 'Registrar {n} min', { n: r.duracionMin }),
+        },
+      },
+    },
+  ]
+}
+
 const esquemas: EsquemaCaptura[] = [
   {
     id: 'sesion',
@@ -80,17 +125,22 @@ const esquemas: EsquemaCaptura[] = [
   },
 ]
 
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const EjercicioApp = lazy(() => import('./EjercicioApp').then((m) => ({ default: m.EjercicioApp })))
+
 const ejercicio: RoomModule = {
   id: 'ejercicio',
   nombre: 'Ejercicio · Rutinas',
   icon: '💪',
   categoria: 'cuerpo',
-  posicion: [-3, 0, -6],
   color: '#fb7185',
   App: EjercicioApp,
   capturar,
   esquemas,
-  tutorial: tutorialEjercicio,
+  operacionesIA: OPERACIONES_IA,
+  flujos: flujosEjercicio,
   // Booleana a propósito: las metas de la app son SEMANALES (3 sesiones/semana) y
   // repartirlas entre 7 días daría objetivos absurdos ("0.43 sesiones hoy"). Aquí
   // solo se pregunta si entrenaste; el contrato semanal sigue en su pestaña.
@@ -113,14 +163,28 @@ const ejercicio: RoomModule = {
       }
     },
   },
+  // El planificador ✨ del cronograma ve las rutinas ya creadas (las de fábrica y
+  // las del usuario) y sugiere cuáles agendar para la meta pedida.
+  rutinasPlan: async () => {
+    const [fuerza, cardio, flex] = await Promise.all([
+      rutinasFuerzaRepo.list(),
+      rutinasCardioRepo.list(),
+      rutinasFlexRepo.list(),
+    ])
+    return [
+      ...fuerza.flatMap((r) => sugerible('fuerza', r)),
+      ...cardio.flatMap((r) => sugerible('resistencia', r)),
+      ...flex.flatMap((r) => sugerible('flexibilidad', r)),
+    ]
+  },
+  planMetas: planMetasEjercicio,
   comandos: [
     { seccion: 'metas', etiqueta: 'Metas', nombres: ['metas de ejercicio'] },
     { seccion: 'fuerza', etiqueta: 'Fuerza', nombres: ['fuerza', 'pesas', 'piramide'] },
     { seccion: 'resistencia', etiqueta: 'Resistencia', nombres: ['resistencia', 'cardio'] },
     { seccion: 'flexibilidad', etiqueta: 'Flexibilidad', nombres: ['flexibilidad', 'estiramientos'] },
-    // Apuntaba a una sección 'plan' que nunca existió (caía en Metas). El
-    // cronograma es la pestaña que responde a lo que se le pedía.
-    { seccion: 'cronograma', etiqueta: 'Cronograma', nombres: ['plan de ejercicio', 'plan de entrenamiento', 'cronograma de ejercicio'] },
+    // El cronograma dejó de ser pestaña: vive al final de Metas, así que ahí lleva.
+    { seccion: 'metas', etiqueta: 'Cronograma', nombres: ['plan de ejercicio', 'plan de entrenamiento', 'cronograma de ejercicio'] },
   ],
 }
 

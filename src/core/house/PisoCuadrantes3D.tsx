@@ -2,8 +2,7 @@ import { SIZE } from './walls'
 import { PisoCelda } from './PisoCelda'
 import { CUADRANTES_OFF, type MatPiso } from './pisoSubcelda'
 
-/** Tamaño de loseta de un cuadrante (½ celda con la misma rendija que la loseta entera). */
-const TILE_CUADRANTE = SIZE / 2 - 0.12
+/** Tamaño de loseta de un cuadrante: ½ celda con la misma rendija que la loseta entera. */
 
 /**
  * Cuatro losetas de ½ celda centradas en (cx,cz): cada cuadrante usa su override pintado
@@ -38,7 +37,7 @@ export function PisoCuadrantes3D({
             key={i}
             lx={cx + o.dc * SIZE}
             lz={cz + o.dr * SIZE}
-            tile={TILE_CUADRANTE}
+            tile={SIZE / 2 - 0.12}
             color={m.color}
             roughness={m.roughness}
             metalness={m.metalness}

@@ -21,9 +21,16 @@ const MENSAJES: Record<string, string> = {
   setRival: 'Set del rival…',
   partidoTuyo: '¡GANASTE EL PARTIDO! 🏆',
   partidoRival: 'El rival ganó el partido…',
+  aLaRed: 'A la red…',
+  fuera: '¡Fuera!',
   peloteo: '¡Buen golpe! +1',
   nuevoRecord: '¡Nuevo récord! 🎉',
   seEscapo: 'Se te escapó…',
+  homerun: '¡HOME RUN! +3 🎉',
+  hit: '¡Hit! +1',
+  foul: 'Foul…',
+  strike: '¡Strike!',
+  ponche: '¡Ponche! Tres strikes…',
 }
 
 /** Tramos de la barra de dificultad. */
@@ -85,7 +92,9 @@ export function MarcadorCancha() {
           >
             {clase === 'tenis'
               ? t('juego.soloFronton', 'Jugar solo (frontón contra el muro)')
-              : t('juego.solo', 'Jugar solo')}
+              : clase === 'beisbol'
+                ? t('juego.soloMaquina', 'Jugar solo (máquina de pitcheo)')
+                : t('juego.solo', 'Jugar solo')}
           </button>
           <p className="text-center text-[11px] font-semibold text-white/50">
             {t('juego.contraIA', 'O contra un asistente:')}

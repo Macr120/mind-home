@@ -6,27 +6,14 @@
  * OJO: este módulo NO importa `db` (lo importa `db.ts` para la migración v89).
  */
 
-/** Tablas que NO se sincronizan (además de las internas con prefijo `_`). */
-export const TABLAS_EXCLUIDAS = new Set<string>([
-  // Legadas / muertas (siguen en la BD por los respaldos viejos):
-  'planEjercicio',
-  'categoriasCardio',
-  'registroAnimo',
-  'perfilMindfulness',
-  'perfilUsuario',
-  // Caché regenerable (imágenes de ejercicio generadas por IA, por clave):
-  'imagenesEjercicio',
-  // Efímero del día (se regenera a medianoche y su `&fecha` chocaría):
-  'edicionesDiario',
-  // Audio pesado (decenas de MB): queda local; descarga diferida en el futuro.
-  'pistasMusica',
-  // Guardarropa a medida: local; lo puesto viaja inline en disenoAvatar.ropaCustom.
-  'prendasCustom',
-  // Atuendos guardados: local, misma razón que prendasCustom.
-  'atuendosGuardados',
-])
-
-/** Tablas sincronizables (el esquema vigente v88 menos las excluidas). */
+/**
+ * Tablas sincronizables. Las que NO aparecen aquí (además de las internas con
+ * prefijo `_`) quedan solo locales: legadas/muertas (planEjercicio,
+ * categoriasCardio, registroAnimo, perfilMindfulness, perfilUsuario), cachés
+ * regenerables (imagenesEjercicio), efímeras del día (edicionesDiario), audio
+ * pesado (pistasMusica) y el guardarropa a medida (prendasCustom,
+ * atuendosGuardados — lo puesto viaja inline en disenoAvatar.ropaCustom).
+ */
 export const TABLAS_SYNC: string[] = [
   'transacciones',
   'sueno',
@@ -121,6 +108,19 @@ export const TABLAS_SYNC: string[] = [
   'corrales',
   'pistasLibres',
   'estadoSisifo',
+  'ideas',
+  'mapasIdeas',
+  'nodosMapa',
+  'eventosAgenda',
+  'contactosAgenda',
+  'proyectosAgenda',
+  'medicamentos',
+  'mascotas',
+  'cuidadosMascota',
+  'tramitesVehiculo',
+  'talleresVehiculo',
+  'movimientosFijos',
+  'posiciones',
 ]
 
 const TABLAS_SYNC_SET = new Set(TABLAS_SYNC)
@@ -142,6 +142,8 @@ export const FK: Record<string, Record<string, string>> = {
   seriesFlex: { sesionId: 'sesionesEjercicio' },
   splitsCardio: { sesionId: 'sesionesEjercicio' },
   registrosMantenimiento: { vehiculoId: 'vehiculos' },
+  tramitesVehiculo: { vehiculoId: 'vehiculos' },
+  talleresVehiculo: { vehiculoId: 'vehiculos' },
   lugaresViaje: { metaId: 'metas' },
   bitacoraViaje: { lugarId: 'lugaresViaje' },
   diasItinerario: { lugarId: 'lugaresViaje' },
@@ -161,6 +163,8 @@ export const FK: Record<string, Record<string, string>> = {
   rutinas: { padreId: 'rutinas' }, // self-FK del árbol de metas
   animales: { corralId: 'corrales' },
   itemsCompra: { listaId: 'listasCompra' },
+  listasCompra: { gastoId: 'transacciones' },
+  nodosMapa: { mapaId: 'mapasIdeas' },
 }
 
 /**
@@ -184,6 +188,8 @@ export const ORDEN_TOPO: string[] = [
   'seriesFlex',
   'splitsCardio',
   'registrosMantenimiento',
+  'tramitesVehiculo',
+  'talleresVehiculo',
   'bitacoraViaje',
   'diasItinerario',
   'portadasLugar',
@@ -200,6 +206,8 @@ export const ORDEN_TOPO: string[] = [
   'planesMeta',
   'animales',
   'itemsCompra',
+  'mapasIdeas',
+  'nodosMapa',
 ]
 
 /** Tablas de UNA sola fila: si el merge deja más de una, gana la más nueva. */
@@ -248,4 +256,16 @@ export const CLAVES_UNICAS: Record<string, string[]> = {
   cesta: ['especie'],
   marcadores: ['canchaId'],
   carreras: ['metaCol', 'metaRow', 'vehiculo'],
+  nodosMapa: ['nodoId'],
+  // La agenda no aparece en FK ni en ORDEN_TOPO a propósito: sus referencias
+  // (`contactoId`, `proyectoId` y el `ambitoId` de las rutinas que proyecta) son
+  // strings estables entre dispositivos, como `roomId` o `plantillaId`.
+  eventosAgenda: ['evId'],
+  contactosAgenda: ['contactoId'],
+  proyectosAgenda: ['proyId'],
+  medicamentos: ['medId'],
+  mascotas: ['mascId'],
+  cuidadosMascota: ['cuidadoId'],
+  tramitesVehiculo: ['tramiteId'],
+  talleresVehiculo: ['tallerId'],
 }

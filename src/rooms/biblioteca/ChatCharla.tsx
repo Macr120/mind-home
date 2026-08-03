@@ -17,6 +17,8 @@ import { systemSabio, destilarConversacion, tituloDerivado } from './sabio'
 import { ubicarCharla, resolverTema, type AnclaTema } from './arbol'
 import { EntradaForm, type EntradaFormInicial } from './EntradaForm'
 import { RamificarPanel } from './RamificarPanel'
+import { Creditos } from '../../core/ui/Creditos'
+import { OP_CHARLA, OP_CHARLA_NUEVA, OP_RAMIFICAR, OP_DESTILAR } from './costosIA'
 
 /**
  * Vista de una charla con el Sabio: burbujas estilo WhatsApp (patrón visual de
@@ -236,6 +238,7 @@ export function ChatCharla({
           >
             <Icono nombre="rama" />
           </button>
+          <Creditos op={OP_RAMIFICAR} />
           <button
             type="button"
             onClick={destilar}
@@ -248,6 +251,7 @@ export function ChatCharla({
               ? t('biblioteca.charla.reDestilar', 'Actualizar entrada')
               : t('biblioteca.charla.destilar', 'Destilar')}
           </button>
+          <Creditos op={OP_DESTILAR} />
           <button
             type="button"
             onClick={() => setBorrando(true)}
@@ -388,6 +392,7 @@ export function ChatCharla({
           }
           className="min-w-0 flex-1 rounded-xl border border-white/10 bg-black/30 px-3 py-2 text-sm outline-none focus:border-white/30 disabled:opacity-40"
         />
+        <Creditos op={conv?.temaId ? OP_CHARLA : OP_CHARLA_NUEVA} />
         <button
           type="submit"
           disabled={!conIA || !input.trim() || pensando}

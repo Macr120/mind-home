@@ -118,7 +118,7 @@ export function RespiracionTab({ onSesion }: { onSesion: (activa: boolean) => vo
 
   return (
     <div className="space-y-4">
-      <section className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
+      <section data-tut="jardin.resp.patron" className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
         <p className="text-sm font-semibold">{t('jardin.resp.patron', 'Elige tu patrón')}</p>
         <div className="grid grid-cols-1 gap-2">
           {(['caja', '478'] as PatronId[]).map((id) => (

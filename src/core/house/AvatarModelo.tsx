@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { ModeloPiezas, ModeloGLB } from './modeloPersonalizado'
 import { GrupoAnimado, CuerpoDePiezas } from './Animado'
 import { marchaAvatar } from './animacion'
-import { CuerpoBase, MarchaBob } from './CuerpoBase'
+import { Agachado, CuerpoBase, MarchaBob } from './CuerpoBase'
 import { Prendas } from './Prendas'
 import { Rostro } from './Rostro'
 import { Peinado } from './Peinado'
@@ -69,60 +69,62 @@ export function AvatarModelo({
   const anclas = anclasDe(av)
   return (
     <group scale={av.escala}>
-      <GrupoAnimado anim={anim}>
-        {av.modeloGlb ? (
-          <MarchaBob activo={caminar}>
-            <Suspense fallback={null}>
-              <ModeloGLB blob={av.modeloGlb} />
-            </Suspense>
-            <Prendas ropa={av.ropa} anclas={anclas} />
-          </MarchaBob>
-        ) : av.modelo3d && av.modelo3d.length > 0 ? (
-          categoria === 'flotan' ? (
+      <Agachado activo={caminar}>
+        <GrupoAnimado anim={anim}>
+          {av.modeloGlb ? (
             <MarchaBob activo={caminar}>
-              <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
+              <Suspense fallback={null}>
+                <ModeloGLB blob={av.modeloGlb} />
+              </Suspense>
+              <Prendas ropa={av.ropa} anclas={anclas} />
+            </MarchaBob>
+          ) : av.modelo3d && av.modelo3d.length > 0 ? (
+            categoria === 'flotan' ? (
+              <MarchaBob activo={caminar}>
+                <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
+                <Prendas ropa={av.ropa} anclas={anclas} />
+              </MarchaBob>
+            ) : (
+              <>
+                <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
+                {soportaRostro(av) && (
+                  <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
+                )}
+                {soportaPeinado(av) && (
+                  <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
+                )}
+                <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaAvatar} />
+              </>
+            )
+          ) : av.forma ? (
+            <MarchaBob activo={caminar}>
+              <ModeloMascota
+                forma={av.forma}
+                color={av.formaColor ?? COLOR_FORMA[av.forma]}
+                brazoRef={brazoForma}
+                estado={marchaAvatar}
+              />
               <Prendas ropa={av.ropa} anclas={anclas} />
             </MarchaBob>
           ) : (
             <>
-              <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
-              {soportaRostro(av) && (
-                <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
-              )}
-              {soportaPeinado(av) && (
-                <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
-              )}
+              <CuerpoBase
+                colorCabeza={av.cabeza}
+                colorTorso={av.torso}
+                colorPiernas={av.piernas}
+                caminar={caminar}
+              />
+              <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
+              <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
               <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaAvatar} />
             </>
-          )
-        ) : av.forma ? (
-          <MarchaBob activo={caminar}>
-            <ModeloMascota
-              forma={av.forma}
-              color={av.formaColor ?? COLOR_FORMA[av.forma]}
-              brazoRef={brazoForma}
-              estado={marchaAvatar}
-            />
-            <Prendas ropa={av.ropa} anclas={anclas} />
-          </MarchaBob>
-        ) : (
-          <>
-            <CuerpoBase
-              colorCabeza={av.cabeza}
-              colorTorso={av.torso}
-              colorPiernas={av.piernas}
-              caminar={caminar}
-            />
-            <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
-            <Peinado anclas={anclas} peinado={av.peinado} color={av.peloColor} />
-            <Prendas ropa={av.ropa} anclas={anclas} marcha={caminar} marchaEstado={marchaAvatar} />
-          </>
-        )}
-        {av.ropaCustom?.map((g, i) => (
-          <ModeloPiezas key={`rc-${g.refId}-${i}`} piezas={g.piezas} />
-        ))}
-        {casco && <CascoEditor />}
-      </GrupoAnimado>
+          )}
+          {av.ropaCustom?.map((g, i) => (
+            <ModeloPiezas key={`rc-${g.refId}-${i}`} piezas={g.piezas} />
+          ))}
+          {casco && <CascoEditor />}
+        </GrupoAnimado>
+      </Agachado>
     </group>
   )
 }

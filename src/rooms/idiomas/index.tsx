@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import type { EsquemaCaptura, RoomModule } from '../../core/registry'
 import { vFecha, vNumero, vTexto } from '../../core/registry'
 import {
@@ -7,11 +8,14 @@ import {
   tarjetasIdiomaRepo,
 } from '../../core/data/repository'
 import type { TipoTarjeta } from '../../core/data/db'
-import { IdiomasApp } from './IdiomasApp'
-import { tutorialIdiomas } from './tutorial'
+import { actividadId } from '../../core/rutinas'
+import { tGlobal } from '../../core/i18n/useT'
+import { planMetasIdiomas } from './plan'
+import { flujosIdiomas } from './tutorial'
 import { COLOR, NIVELES, TIPOS_TARJETA } from './constantes'
 import { tarjetasVencidas } from './srs'
 import { hoyISO } from './stats'
+import { OPERACIONES_IA } from './costosIA'
 
 const DIACRITICOS = new RegExp('[\\u0300-\\u036f]', 'g')
 const normalizar = (s: string) => s.trim().toLowerCase().normalize('NFD').replace(DIACRITICOS, '')
@@ -118,17 +122,45 @@ const esquemas: EsquemaCaptura[] = [
   },
 ]
 
+// La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
+// montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
+// metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
+const IdiomasApp = lazy(() => import('./IdiomasApp').then((m) => ({ default: m.IdiomasApp })))
+
 const idiomas: RoomModule = {
   id: 'idiomas',
   nombre: 'Idiomas',
   icon: '🌐',
   categoria: 'mente',
-  posicion: [3, 0, -6],
   color: COLOR,
   App: IdiomasApp,
-  tutorial: tutorialIdiomas,
+  flujos: flujosIdiomas,
   capturar,
   esquemas,
+  operacionesIA: OPERACIONES_IA,
+  // El planificador ✨ del cronograma (pestaña Progreso, acotado por idioma)
+  // ofrece reservar el rato de repaso: aceptar el plan le pone hora y días en el
+  // calendario. Es el MISMO bloque `idioma:<perfilId>` que agenda RepasoTab
+  // (también sin registro rápido: la meta la pone el SRS).
+  rutinasPlan: async (ambitoId) => {
+    let lista = (await idiomasRepo.list()).filter((i) => i.id != null)
+    if (ambitoId?.startsWith('idioma:')) {
+      lista = lista.filter((i) => actividadId('idioma', i.id!) === ambitoId)
+    }
+    return lista.map((i) => ({
+      tipo: 'idioma',
+      tipoEtiqueta: tGlobal('idiomas.plan.tipo', 'Repaso'),
+      actividad: {
+        actividadId: actividadId('idioma', i.id!),
+        plantillaId: 'idiomas',
+        nombre: tGlobal('idiomas.rep.bloque', 'Repasar {idioma}', { idioma: i.nombre }),
+        emoji: '🌐',
+        horaSugerida: '20:00',
+        seccion: 'repaso',
+      },
+    }))
+  },
+  planMetas: planMetasIdiomas,
   // El único objetivo que no hay que inventar: lo pone el SRS. La meta se cumple
   // cuando no queda ninguna tarjeta vencida.
   metaDiaria: {

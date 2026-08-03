@@ -142,19 +142,5 @@ export const RECURSOS: RecursoCuarto[] = [
   { id: 202, cuarto: "mapa", nombre: "Pistola de burbujas", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Plástico"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
   { id: 203, cuarto: "mapa", nombre: "Lanzador de fuegos", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Metal"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
   { id: 204, cuarto: "mapa", nombre: "Lata de grafiti", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Metal"], temas: "todas", detalle: "bajo", notas: "Su forma editada se ve en la mano del avatar" },
+  { id: 205, cuarto: "mapa", nombre: "Marcadora de pintura", categoria: "Pistolas", prioridad: "opcional", atributos: ["color"], materiales: ["Metal", "plástico"], temas: "todas", detalle: "bajo", notas: "Arma del modo paintball; su forma editada se ve en la mano del avatar" },
 ]
-
-/** ¿El recurso es compatible con el tema dado? ('todas' siempre lo es.) */
-function recursoCompatibleConTema(r: RecursoCuarto, tema: TemaId): boolean {
-  return r.temas === 'todas' || r.temas.includes(tema)
-}
-
-/**
- * ¿El recurso (por id) entra en el inventario del tema activo?
- * Sin tema (null) todo es válido; con tema, solo los compatibles según `temas`.
- */
-export function recursoIdEnTema(id: number, tema: TemaId | null): boolean {
-  if (!tema) return true
-  const r = RECURSOS.find((x) => x.id === id)
-  return r ? recursoCompatibleConTema(r, tema) : true
-}

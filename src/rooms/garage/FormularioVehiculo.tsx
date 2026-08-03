@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import type { Vehiculo } from '../../core/data/db'
 import { vehiculosRepo } from '../../core/data/repository'
-import { COLOR, TIPOS_VEHICULO } from './constantes'
+import { TIPOS_VEHICULO } from './constantes'
 import { hoyISO } from './fecha'
+import { Campo, Formulario, INPUT } from './ui'
 import { useT } from '../../core/i18n/useT'
-import { Icono } from '../../core/ui/iconos/Icono'
 
 export function FormularioVehiculo({
   inicial,
@@ -47,25 +47,24 @@ export function FormularioVehiculo({
     onGuardado()
   }
 
-  const input =
-    'mt-1 w-full rounded-lg bg-black/30 border border-white/15 px-3 py-2 text-sm'
-
   return (
-    <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
-      <p className="text-sm font-semibold">
-        <Icono nombre={inicial ? 'editar' : 'agregar'} />{' '}
-        {inicial ? t('garage.form.editar', 'Editar vehículo') : t('garage.form.nuevo', 'Nuevo vehículo')}
-      </p>
+    <Formulario
+      icono={inicial ? 'editar' : 'agregar'}
+      titulo={
+        inicial
+          ? t('garage.form.editar', 'Editar vehículo')
+          : t('garage.form.nuevo', 'Nuevo vehículo')
+      }
+      onGuardar={() => void guardar()}
+      onCancelar={onCancelar}
+    >
+      <Campo etiqueta={t('garage.form.nombre', 'Nombre *')}>
+        <input className={INPUT} value={nombre} onChange={(e) => setNombre(e.target.value)} />
+      </Campo>
 
-      <label className="block text-xs text-white/50">
-        {t('garage.form.nombre', 'Nombre *')}
-        <input className={input} value={nombre} onChange={(e) => setNombre(e.target.value)} />
-      </label>
-
-      <label className="block text-xs text-white/50">
-        {t('garage.form.tipo', 'Tipo')}
+      <Campo etiqueta={t('garage.form.tipo', 'Tipo')}>
         <select
-          className={input}
+          className={INPUT}
           value={tipo}
           onChange={(e) => setTipo(e.target.value as Vehiculo['tipo'])}
         >
@@ -75,89 +74,71 @@ export function FormularioVehiculo({
             </option>
           ))}
         </select>
-      </label>
+      </Campo>
 
       <div className="grid grid-cols-2 gap-2">
-        <label className="block text-xs text-white/50">
-          {t('garage.form.marca', 'Marca')}
-          <input className={input} value={marca} onChange={(e) => setMarca(e.target.value)} />
-        </label>
-        <label className="block text-xs text-white/50">
-          {t('garage.form.modelo', 'Modelo')}
-          <input className={input} value={modelo} onChange={(e) => setModelo(e.target.value)} />
-        </label>
+        <Campo etiqueta={t('garage.form.marca', 'Marca')}>
+          <input className={INPUT} value={marca} onChange={(e) => setMarca(e.target.value)} />
+        </Campo>
+        <Campo etiqueta={t('garage.form.modelo', 'Modelo')}>
+          <input className={INPUT} value={modelo} onChange={(e) => setModelo(e.target.value)} />
+        </Campo>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <label className="block text-xs text-white/50">
-          {t('garage.form.año', 'Año')}
+        <Campo etiqueta={t('garage.form.año', 'Año')}>
           <input
             type="number"
-            className={input}
+            className={INPUT}
             value={anio}
             onChange={(e) => setAnio(e.target.value)}
           />
-        </label>
-        <label className="block text-xs text-white/50">
-          {t('garage.form.placas', 'Placas / serie')}
+        </Campo>
+        <Campo etiqueta={t('garage.form.placas', 'Placas / serie')}>
           <input
-            className={input}
+            className={INPUT}
             value={matricula}
             onChange={(e) => setMatricula(e.target.value)}
           />
-        </label>
+        </Campo>
       </div>
 
+      <p className="text-[11px] leading-relaxed text-white/40">
+        {t(
+          'garage.form.pistaPlacas',
+          'Con placas se desbloquean los trámites de tenencia, verificación, tarjeta de circulación y seguro.',
+        )}
+      </p>
+
       <div className="grid grid-cols-2 gap-2">
-        <label className="block text-xs text-white/50">
-          {t('garage.form.odo', 'Odómetro actual')}
+        <Campo etiqueta={t('garage.form.odo', 'Odómetro actual')}>
           <input
             type="number"
             min={0}
-            className={input}
+            className={INPUT}
             value={odometro}
             onChange={(e) => setOdometro(e.target.value)}
           />
-        </label>
-        <label className="block text-xs text-white/50">
-          {t('garage.form.unidad', 'Unidad')}
+        </Campo>
+        <Campo etiqueta={t('garage.form.unidad', 'Unidad')}>
           <select
-            className={input}
+            className={INPUT}
             value={unidad}
             onChange={(e) => setUnidad(e.target.value as Vehiculo['unidad'])}
           >
             <option value="km">{t('garage.form.km', 'Kilómetros')}</option>
             <option value="mi">{t('garage.form.mi', 'Millas')}</option>
           </select>
-        </label>
+        </Campo>
       </div>
 
-      <label className="block text-xs text-white/50">
-        {t('garage.form.notas', 'Notas')}
+      <Campo etiqueta={t('garage.form.notas', 'Notas')}>
         <textarea
-          className={`${input} min-h-[60px]`}
+          className={`${INPUT} min-h-[60px]`}
           value={notas}
           onChange={(e) => setNotas(e.target.value)}
         />
-      </label>
-
-      <div className="flex gap-2 pt-1">
-        <button
-          type="button"
-          onClick={() => void guardar()}
-          className="flex-1 rounded-xl py-2.5 text-sm font-bold text-black"
-          style={{ background: COLOR }}
-        >
-          {t('garage.form.guardar', 'Guardar')}
-        </button>
-        <button
-          type="button"
-          onClick={onCancelar}
-          className="rounded-xl px-4 py-2.5 text-sm bg-white/10 hover:bg-white/15"
-        >
-          {t('garage.form.cancelar', 'Cancelar')}
-        </button>
-      </div>
-    </div>
+      </Campo>
+    </Formulario>
   )
 }

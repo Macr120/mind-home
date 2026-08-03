@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
+import { GenerarTexturaIA } from './GenerarTexturaIA'
 
 const AJUSTES = [
   { id: 'x1', clave: 'grande', labelEs: 'Grande' },
@@ -22,7 +23,7 @@ export function EditorPisoImagenBlock({
   previewUrl: string | null
   imagenActiva: boolean
   ajuste: string
-  onSubir: (file: File) => void
+  onSubir: (imagen: Blob) => void
   onActivar: () => void
   onDesactivar: () => void
   onEliminar: () => void
@@ -130,6 +131,10 @@ export function EditorPisoImagenBlock({
           {t('editor.pisoCuarto.subirImagen', 'Subir imagen')}
         </button>
       )}
+
+      <div className="mt-2">
+        <GenerarTexturaIA superficie="piso" onGenerada={onSubir} />
+      </div>
 
       <input
         ref={fileInputRef}

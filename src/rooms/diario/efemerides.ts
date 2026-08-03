@@ -1,6 +1,6 @@
 import type { Efemeride, TipoEfemeride } from '../../core/data/db'
 import type { Idioma } from '../../core/state/ajustesStore'
-import { conversarIA, extraerJSON, iaActiva } from '../../core/chat/ia'
+import { conversarIA, extraerJSON, iaOperativa } from '../../core/chat/ia'
 import { tGlobal } from '../../core/i18n/useT'
 import { fetchJson } from './fuentes'
 import { catalogoDelDia, imagenWikipedia } from './catalogo'
@@ -162,7 +162,7 @@ const ORDEN: TipoEfemeride[] = ['historia', 'arte', 'libro', 'personalidad', 'es
 export async function cargarEfemerides(fecha: string, idioma: Idioma): Promise<Efemeride[]> {
   const [wiki, extras] = await Promise.all([
     cargarWikipedia(fecha, idioma).catch(() => [] as Efemeride[]),
-    (async () => (iaActiva() ? await extrasConIA(fecha, idioma) : null))(),
+    (async () => (iaOperativa() ? await extrasConIA(fecha, idioma) : null))(),
   ])
   const culturales =
     extras ??

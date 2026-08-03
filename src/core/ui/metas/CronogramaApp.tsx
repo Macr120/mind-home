@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { esMeta } from '../../metas'
+import { getPlantilla } from '../../registry'
 import { Cronograma } from './Cronograma'
 
 /**
@@ -23,6 +24,20 @@ export function CronogramaApp({
 }) {
   const todas = rutinasRepo.useAll()
   const [armada, setArmada] = useState<Rutina | null>(null)
+  // Meta de ejemplo del dominio de la app (si la app acota su planificador).
+  const [ejemplo, setEjemplo] = useState<string | undefined>()
+
+  useEffect(() => {
+    let vivo = true
+    void getPlantilla(plantillaId)
+      ?.planMetas?.(ambitoId)
+      .then((c) => {
+        if (vivo) setEjemplo(c.ejemplo)
+      })
+    return () => {
+      vivo = false
+    }
+  }, [plantillaId, ambitoId])
 
   const metas = useMemo(() => {
     const mias = (todas ?? []).filter(
@@ -46,6 +61,7 @@ export function CronogramaApp({
       onArmar={setArmada}
       ambito={plantillaId}
       ambitoId={ambitoId}
+      ejemplo={ejemplo}
     />
   )
 }

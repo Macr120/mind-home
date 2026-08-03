@@ -7,7 +7,12 @@
  */
 
 /** Medio lado de celda (SIZE/2 de walls.ts) = radio del arco de esquina. */
-export const H = 3
+export let H = 3
+
+/** Sincroniza el radio con el tamaño de celda activo (lo llama walls.setTamCelda). */
+export function setHCurva(h: number) {
+  H = h
+}
 
 /**
  * Arco de esquina de una celda en L. El arco cubre θ ∈ [a0, a0+π/2] con

@@ -1,13 +1,24 @@
 import { create } from 'zustand'
 import { db, type AnimalGranja, type Corral, type TipoAccesorio, type TipoAnimal } from '../data/db'
 import { nombreAleatorio } from '../house/nombresAnimales'
+import { notificar } from '../notificaciones'
+import { tGlobal } from '../i18n/useT'
 import { useLayout } from './layoutStore'
 import { useHouse } from './houseStore'
 import { useCam, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
 
-export type HerramientaGranja = 'corral' | 'animal' | 'alimentar' | 'mimar' | 'accesorio' | 'nombrar' | 'quitar'
+export type HerramientaGranja =
+  | 'corral'
+  | 'animal'
+  | 'alimentar'
+  | 'mimar'
+  | 'curar'
+  | 'limpiar'
+  | 'accesorio'
+  | 'nombrar'
+  | 'quitar'
 
 export interface AnimalDef {
   nombre: string
@@ -23,25 +34,58 @@ export const ANIMALES: Record<TipoAnimal, AnimalDef> = {
   cabra: { nombre: 'Cabra', icon: '🐐', horasHambre: 8 },
   oveja: { nombre: 'Oveja', icon: '🐑', horasHambre: 10 },
   vaca: { nombre: 'Vaca', icon: '🐄', horasHambre: 12 },
+  caballo: { nombre: 'Caballo', icon: '🐴', horasHambre: 10 },
 }
 
 /** Un animal está hambriento si venció la ventana de su especie desde la última comida. */
 export const estaHambriento = (a: AnimalGranja, ahora: number): boolean =>
   ahora - a.alimentadoEn > ANIMALES[a.tipo].horasHambre * 3600_000
 
+/**
+ * Ventanas de hambre seguidas sin comer tras las cuales el animal ENFERMA: la
+ * barra de comida se vacía en una, así que enfermar es llevar dos más en cero.
+ */
+export const FACTOR_ENFERMO = 3
+
+export const estaEnfermo = (a: AnimalGranja, ahora: number): boolean =>
+  ahora - a.alimentadoEn > ANIMALES[a.tipo].horasHambre * FACTOR_ENFERMO * 3600_000
+
+/** Días que aguanta un animal enfermo antes de morir (desde que la app lo detecta). */
+export const DIAS_MUERTE = 7
+
+/** Días sin limpiar el corral a partir de los cuales se ensucia. */
+export const DIAS_LIMPIEZA = 7
+
+const DIA_MS = 86_400_000
+
+/** Un corral sin limpiar en una semana: sus animales pierden el ánimo al doble. */
+export const corralSucio = (c: Corral, ahora: number): boolean =>
+  ahora - (c.limpiadoEn ?? 0) > DIAS_LIMPIEZA * DIA_MS
+
 /** Horas sin mimos (caricias, baño o juego) a partir de las cuales se aburre. */
 export const HORAS_ABURRIDO = 6
 
-export const estaAburrido = (a: AnimalGranja, ahora: number): boolean =>
-  ahora - (a.mimadoEn ?? 0) > HORAS_ABURRIDO * 3600_000
+/**
+ * Ventana de aburrimiento; en un corral sucio se parte a la mitad (el ánimo cae
+ * al doble). Se aplica a todo el tiempo transcurrido, no por tramos: el resto
+ * del sistema también deriva sus barras de una sola ventana fija.
+ */
+const ventanaAnimo = (sucio: boolean): number => HORAS_ABURRIDO * (sucio ? 0.5 : 1) * 3600_000
+
+export const estaAburrido = (a: AnimalGranja, ahora: number, sucio = false): boolean =>
+  ahora - (a.mimadoEn ?? 0) > ventanaAnimo(sucio)
 
 /** Barra de comida 0–1 (1 recién comido; 0 justo al volverse hambriento). */
 export const barraComida = (a: AnimalGranja, ahora: number): number =>
   Math.max(0, Math.min(1, 1 - (ahora - a.alimentadoEn) / (ANIMALES[a.tipo].horasHambre * 3600_000)))
 
 /** Barra de ánimo 0–1 (los mimos y el juego la rellenan; 0 al aburrirse). */
-export const barraAnimo = (a: AnimalGranja, ahora: number): number =>
-  Math.max(0, Math.min(1, 1 - (ahora - (a.mimadoEn ?? 0)) / (HORAS_ABURRIDO * 3600_000)))
+export const barraAnimo = (a: AnimalGranja, ahora: number, sucio = false): number =>
+  Math.max(0, Math.min(1, 1 - (ahora - (a.mimadoEn ?? 0)) / ventanaAnimo(sucio)))
+
+/** Días que le quedan al enfermo antes de morir (para la etiqueta del mapa). */
+export const diasParaMorir = (a: AnimalGranja, ahora: number): number =>
+  Math.max(0, Math.ceil((a.enfermoDesde! + DIAS_MUERTE * DIA_MS - ahora) / DIA_MS))
 
 /** Animales que caben por celda de corral. */
 export const CAPACIDAD_POR_CELDA = 3
@@ -86,14 +130,20 @@ const dentroDeGrid = (r: Rect): boolean => {
 
 /**
  * Alimenta a los hambrientos del corral (los de más hambre primero) consumiendo
- * de la cesta la especie más abundante, una unidad por cabeza.
+ * de la cesta la especie más abundante, una unidad por cabeza. Los enfermos no
+ * comen: hay que curarlos primero (si no, curar sería un sinónimo de alimentar).
  */
-export async function alimentarCorral(corralId: number): Promise<'ok' | 'sinComida' | 'sinHambre'> {
+export async function alimentarCorral(
+  corralId: number,
+): Promise<'ok' | 'sinComida' | 'sinHambre' | 'hayEnfermos'> {
   const ahora = Date.now()
-  const hambrientos = (await db.animales.where('corralId').equals(corralId).toArray())
-    .filter((a) => estaHambriento(a, ahora))
+  const habitantes = await db.animales.where('corralId').equals(corralId).toArray()
+  const hambrientos = habitantes
+    .filter((a) => estaHambriento(a, ahora) && !estaEnfermo(a, ahora))
     .sort((a, b) => a.alimentadoEn - b.alimentadoEn)
-  if (hambrientos.length === 0) return 'sinHambre'
+  if (hambrientos.length === 0) {
+    return habitantes.some((a) => estaEnfermo(a, ahora)) ? 'hayEnfermos' : 'sinHambre'
+  }
   let alimentados = 0
   for (const a of hambrientos) {
     const cesta = (await db.cesta.toArray()).filter((c) => c.cantidad > 0)
@@ -117,21 +167,107 @@ export async function mimarAnimal(animalId: number): Promise<void> {
 }
 
 /**
+ * Cura a un animal: se le va la enfermedad y vuelve a comer. `enfermoDesde` en
+ * `undefined` borra la propiedad en Dexie, que es lo que apaga el plazo de muerte.
+ */
+export async function curarAnimal(animalId: number): Promise<void> {
+  await db.animales.update(animalId, { alimentadoEn: Date.now(), enfermoDesde: undefined })
+}
+
+/** Cura a los enfermos del corral. Devuelve cuántos había. */
+export async function curarCorral(corralId: number): Promise<number> {
+  const ahora = Date.now()
+  const enfermos = (await db.animales.where('corralId').equals(corralId).toArray()).filter((a) =>
+    estaEnfermo(a, ahora),
+  )
+  for (const a of enfermos) await curarAnimal(a.id!)
+  return enfermos.length
+}
+
+/** Cura a los enfermos de todos los corrales. Devuelve cuántos animales. */
+export async function curarTodos(): Promise<number> {
+  const corrales = await db.corrales.toArray()
+  let n = 0
+  for (const c of corrales) if (c.id != null) n += await curarCorral(c.id)
+  return n
+}
+
+/** Limpia el corral: reinicia la semana y el ánimo vuelve a caer a ritmo normal. */
+export async function limpiarCorral(corralId: number): Promise<void> {
+  await db.corrales.update(corralId, { limpiadoEn: Date.now() })
+}
+
+/** Limpia los corrales sucios. Devuelve cuántos lo estaban. */
+export async function limpiarTodos(): Promise<number> {
+  const ahora = Date.now()
+  const sucios = (await db.corrales.toArray()).filter((c) => corralSucio(c, ahora))
+  for (const c of sucios) await limpiarCorral(c.id!)
+  return sucios.length
+}
+
+/**
+ * Vigila la salud del rebaño: sella la enfermedad, y al vencer el plazo se lleva
+ * al animal. Corre SOLO con la app abierta y a propósito: el plazo de muerte se
+ * cuenta desde que la app detecta la enfermedad, no desde que empezó, así que
+ * volver tras semanas fuera encuentra el corral enfermo pero vivo, con la semana
+ * completa por delante para curarlo.
+ */
+export async function revisarGranja(): Promise<void> {
+  const ahora = Date.now()
+  for (const a of await db.animales.toArray()) {
+    if (a.id == null) continue
+    const nombre = a.nombre ?? tGlobal(`granja.animal.${a.tipo}`, ANIMALES[a.tipo].nombre)
+    if (!estaEnfermo(a, ahora)) {
+      if (a.enfermoDesde != null) await db.animales.update(a.id, { enfermoDesde: undefined })
+      continue
+    }
+    if (a.enfermoDesde == null) {
+      await db.animales.update(a.id, { enfermoDesde: ahora })
+      await notificar({
+        clave: `granja:enfermo:${a.id}`,
+        titulo: tGlobal('granja.aviso.enfermo.titulo', '🤒 {nombre} enfermó', { nombre }),
+        cuerpo: tGlobal('granja.aviso.enfermo.cuerpo', 'Cúralo en la granja: tienes {dias} días.', {
+          dias: DIAS_MUERTE,
+        }),
+        plantillaId: 'granja',
+      })
+      continue
+    }
+    if (ahora - a.enfermoDesde > DIAS_MUERTE * DIA_MS) {
+      await db.animales.delete(a.id)
+      await notificar({
+        clave: `granja:muerte:${a.id}`,
+        titulo: tGlobal('granja.aviso.muerte.titulo', '💔 {nombre} murió', { nombre }),
+        cuerpo: tGlobal('granja.aviso.muerte.cuerpo', 'Llevaba mucho enfermo sin que lo curaran.'),
+        plantillaId: 'granja',
+      })
+    }
+  }
+}
+
+/**
  * Alimenta a los animales de TODOS los corrales (lo pide el chat: «alimenta a
  * los animales»). Distingue cesta vacía de "nadie tiene hambre" para poder
  * responder con precisión.
  */
-export async function alimentarTodos(): Promise<{ ok: number; sinComida: boolean; corrales: number }> {
+export async function alimentarTodos(): Promise<{
+  ok: number
+  sinComida: boolean
+  enfermos: boolean
+  corrales: number
+}> {
   const corrales = await db.corrales.toArray()
   let ok = 0
   let sinComida = false
+  let enfermos = false
   for (const c of corrales) {
     if (c.id == null) continue
     const r = await alimentarCorral(c.id)
     if (r === 'ok') ok++
     else if (r === 'sinComida') sinComida = true
+    else if (r === 'hayEnfermos') enfermos = true
   }
-  return { ok, sinComida, corrales: corrales.length }
+  return { ok, sinComida, enfermos, corrales: corrales.length }
 }
 
 /** Acaricia a los animales de todos los corrales. Devuelve cuántos corrales. */
@@ -154,7 +290,7 @@ async function repararCorralesHuerfanos(): Promise<void> {
     const row = a.row ?? 0
     let corral = corrales.find((c) => corralContiene(c, col, row))
     if (!corral) {
-      const id = await db.corrales.add({ col, row, ancho: 1, alto: 1 })
+      const id = await db.corrales.add({ col, row, ancho: 1, alto: 1, limpiadoEn: Date.now() })
       corral = { id, col, row, ancho: 1, alto: 1 }
       corrales.push(corral)
       ids.add(id)
@@ -218,6 +354,7 @@ export const useGranja = create<GranjaState>((set, get) => ({
     setCuartoAbierto(true)
     casa.target.set(playerPos.x, 0, playerPos.z)
     void repararCorralesHuerfanos()
+    void revisarGranja()
   },
 
   salir: () => {
@@ -267,7 +404,7 @@ export const useGranja = create<GranjaState>((set, get) => ({
             alto: bbox.alto,
           })
         } else {
-          await db.corrales.add({ col, row, ancho: 1, alto: 1 })
+          await db.corrales.add({ col, row, ancho: 1, alto: 1, limpiadoEn: Date.now() })
         }
         return
       }
@@ -275,7 +412,7 @@ export const useGranja = create<GranjaState>((set, get) => ({
         // Clic fuera de todo corral: se estrena uno 1×1 en esa celda.
         let destino = bajo
         if (!destino) {
-          const id = await db.corrales.add({ col, row, ancho: 1, alto: 1 })
+          const id = await db.corrales.add({ col, row, ancho: 1, alto: 1, limpiadoEn: Date.now() })
           destino = { id, col, row, ancho: 1, alto: 1 }
         }
         const n = await db.animales.where('corralId').equals(destino.id!).count()
@@ -294,12 +431,22 @@ export const useGranja = create<GranjaState>((set, get) => ({
       }
       case 'alimentar': {
         if (bajo?.id == null) return
-        if ((await alimentarCorral(bajo.id)) === 'sinComida') get().avisar('sinComida')
+        const r = await alimentarCorral(bajo.id)
+        if (r === 'sinComida' || r === 'hayEnfermos') get().avisar(r)
         return
       }
       case 'mimar':
         if (bajo?.id != null) await mimarCorral(bajo.id)
         return
+      case 'curar':
+        if (bajo?.id != null && (await curarCorral(bajo.id)) === 0) get().avisar('sinEnfermos')
+        return
+      case 'limpiar': {
+        if (bajo?.id == null) return
+        if (!corralSucio(bajo, Date.now())) get().avisar('yaLimpio')
+        await limpiarCorral(bajo.id)
+        return
+      }
       case 'accesorio': {
         if (bajo?.id == null) return
         const lista = bajo.accesorios ?? []
