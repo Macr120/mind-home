@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import { materialesIdiomaRepo } from '../../core/data/repository'
+import { VACIO, materialesIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Foto, comprimirFoto } from '../_shared/fotos'
@@ -25,7 +25,7 @@ export function MaterialPanel({ perfil, tema, onCerrar }: {
   const [borrandoId, setBorrandoId] = useState<number | null>(null)
 
   const conTTS = hayTTS()
-  const material = (materialesIdiomaRepo.useAll() ?? []).filter(
+  const material = (materialesIdiomaRepo.useAll() ?? VACIO).filter(
     (m) => m.idiomaId === perfil.id && m.temaId === tema.id,
   )
 

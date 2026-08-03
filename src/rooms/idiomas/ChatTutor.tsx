@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import {
+import { VACIO,
   conversacionesIdiomaRepo,
   eliminarConversacionIdioma,
   mensajesIdiomaRepo,
@@ -41,7 +41,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
   const charlas = conversacionesIdiomaRepo.useAll()
   const conv = conversacionId != null ? charlas?.find((c) => c.id === conversacionId) : undefined
   const mensajes = useMensajesConversacionIdioma(conversacionId)
-  const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
+  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
   const lista = useAsistentes((s) => s.lista)
   const voz = asistenteDePlantilla(lista, 'idiomas') ?? semillaAsistente('idiomas')
 

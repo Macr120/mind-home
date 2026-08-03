@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { useThree } from '@react-three/fiber'
-import { pistasLibresRepo } from '../data/repository'
+import { VACIO, pistasLibresRepo } from '../data/repository'
 import { usePistaLibreEditor, curvaDePista, setPistaLibre } from '../state/pistaLibreStore'
 import { SUPERFICIE_PISTA } from '../state/carreraStore'
 import { useHouse } from '../state/houseStore'
@@ -184,7 +184,7 @@ export function PistaLibre3D() {
   const puntosEd = usePistaLibreEditor((s) => s.puntos)
   const cerradaEd = usePistaLibreEditor((s) => s.cerrada)
   const pista: PistaLibre | null = filas?.[0] ?? null
-  const puntos = editor ? puntosEd : (pista?.puntos ?? [])
+  const puntos = editor ? puntosEd : (pista?.puntos ?? VACIO)
   const cerrada = editor ? cerradaEd : (pista?.cerrada ?? false)
 
   // Sincroniza el runtime de carrera con la pista PERSISTIDA (editando se

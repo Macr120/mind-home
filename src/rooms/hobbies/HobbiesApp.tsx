@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { Hobby, SesionHobby } from '../../core/data/db'
-import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
+import { VACIO, hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
@@ -17,9 +17,9 @@ import { fechasSemanaActual, minutosPorDia, rachaActual, rgba } from './stats'
  */
 export function HobbiesApp() {
   const t = useT()
-  const hobbies = hobbiesRepo.useAll() ?? []
-  const sesiones = sesionesHobbyRepo.useAll() ?? []
-  const proyectos = proyectosHobbyRepo.useAll() ?? []
+  const hobbies = hobbiesRepo.useAll() ?? VACIO
+  const sesiones = sesionesHobbyRepo.useAll() ?? VACIO
+  const proyectos = proyectosHobbyRepo.useAll() ?? VACIO
 
   const [hobbyId, setHobbyId] = useState<number | null>(null)
   const [proyectoId, setProyectoId] = useState<number | null>(null)

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { iaActiva } from '../../core/chat/ia'
 import type { Idea } from '../../core/data/db'
-import { ideasRepo } from '../../core/data/repository'
+import { VACIO, ideasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -25,7 +25,7 @@ import { OP_EXPANDIR } from './costosIA'
  */
 export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => void }) {
   const t = useT()
-  const ideas = ideasRepo.useAll() ?? []
+  const ideas = ideasRepo.useAll() ?? VACIO
   const [texto, setTexto] = useState('')
   const [tema, setTema] = useState('')
   const [temaBorrador, setTemaBorrador] = useState<string | null>(null)

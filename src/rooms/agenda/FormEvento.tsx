@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import type { AreaAgenda, ContactoAgenda, EventoAgenda, ProyectoAgenda } from '../../core/data/db'
-import { mascotasRepo } from '../../core/data/repository'
+import { VACIO, mascotasRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { COLOR_AREA, PRIORIDADES } from './constantes'
 import { guardarEvento } from './crear'
@@ -33,7 +33,7 @@ export function FormEvento({
   const t = useT()
   // La lista se lee aquí y no por props: el formulario se abre desde cinco
   // sitios y solo Salud usa este campo.
-  const mascotas = mascotasRepo.useAll() ?? []
+  const mascotas = mascotasRepo.useAll() ?? VACIO
   const [titulo, setTitulo] = useState(inicial?.titulo ?? '')
   const [fecha, setFecha] = useState(inicial?.fecha ?? '')
   const [hora, setHora] = useState(inicial?.hora ?? '')

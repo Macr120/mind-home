@@ -5,7 +5,7 @@ import { useCuartos } from '../state/cuartosStore'
 import { useLayout, SIN_OCUPACION } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { usePlanos } from '../state/planosStore'
-import { zonasRepo } from '../data/repository'
+import { VACIO, zonasRepo } from '../data/repository'
 import {
   SIZE,
   WALL_H,
@@ -108,10 +108,13 @@ function HoverFormaCelda3D({
   const [x, , z] = cellToWorld(cell.col, cell.row)
   const esSotano = nivel < 0
   const yBase = nivelBaseY(nivel, apilado)
+  // `cell` es un prop que el padre puede recrear en cada render: se depende de sus
+  // dos números y la celda se arma dentro (Cell es exactamente {col,row}).
+  const { col: cellCol, row: cellRow } = cell
   const { geoPiso, segs, diagonales, arcos } = useMemo(() => {
     const fc = { forma, rotacion }
     const formas = { '0,0': fc }
-    const raw = roomWallSegments(cell, [{ col: 0, row: 0 }], SIN_OCUPACION, undefined, undefined, PINCELES_DEFAULT, formas)
+    const raw = roomWallSegments({ col: cellCol, row: cellRow }, [{ col: 0, row: 0 }], SIN_OCUPACION, undefined, undefined, PINCELES_DEFAULT, formas)
     const extras = perimetroFormaCelda(fc, 0, 0)?.extras ?? []
     return {
       geoPiso: geometriaLoseta3D(fc, SIZE - 0.2, 'plano'),
@@ -119,7 +122,7 @@ function HoverFormaCelda3D({
       diagonales: extras.filter((e) => e.tipo === 'diagonal'),
       arcos: extras.filter((e) => e.tipo === 'arco'),
     }
-  }, [forma, rotacion, cell.col, cell.row])
+  }, [forma, rotacion, cellCol, cellRow])
 
   return (
     <group>
@@ -208,7 +211,7 @@ export function PlanoCuartos3DController() {
   const apilado = !useHouse((s) => s.explotado)
   const cuartos = useCuartos((s) => s.cuartos)
 
-  const zonas = zonasRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
 
   const formaLoseta = usePlanos((s) => s.formaLoseta)
   const pincelForma = usePlanos((s) => s.pincelForma)

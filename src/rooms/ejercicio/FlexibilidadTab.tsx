@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { RutinaFlex, SerieFlex, SesionEjercicio } from '../../core/data/db'
-import {
+import { VACIO,
   gruposFlexRepo,
   rutinasFlexRepo,
   seriesFlexRepo,
@@ -62,7 +62,7 @@ export function FlexibilidadTab({
   periodo: Periodo
   setPeriodo: (p: Periodo) => void
 }) {
-  const gruposFlex = gruposFlexRepo.useAll() ?? []
+  const gruposFlex = gruposFlexRepo.useAll() ?? VACIO
   const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposFlex), [gruposFlex])
   const imgPorClave = useImagenesPorClave()
 
@@ -77,7 +77,7 @@ export function FlexibilidadTab({
   // Rutina que se está reproduciendo en el modo guiado (imagen + contador).
   const [rutinaFlexActiva, setRutinaFlexActiva] = useState<RutinaFlex | null>(null)
 
-  const rutinas = rutinasFlexRepo.useAll() ?? []
+  const rutinas = rutinasFlexRepo.useAll() ?? VACIO
 
   // Al cambiar de día se descarta la edición en curso (ajuste en render, sin efecto)
   const [prevFecha, setPrevFecha] = useState(fecha)

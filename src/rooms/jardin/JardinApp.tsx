@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/repository'
+import { VACIO, gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -25,8 +25,8 @@ export function JardinApp() {
   // Con una sesión en curso se ocultan cabecera y tabs (modo inmersivo).
   const [enSesion, setEnSesion] = useState(false)
   const onSesion = useCallback((activa: boolean) => setEnSesion(activa), [])
-  const sesiones = sesionesMindfulnessRepo.useAll() ?? []
-  const gratitudes = gratitudDiariaRepo.useAll() ?? []
+  const sesiones = sesionesMindfulnessRepo.useAll() ?? VACIO
+  const gratitudes = gratitudDiariaRepo.useAll() ?? VACIO
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">

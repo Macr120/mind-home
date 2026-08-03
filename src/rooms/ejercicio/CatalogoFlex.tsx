@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { GrupoFlex } from '../../core/data/db'
-import { gruposFlexRepo } from '../../core/data/repository'
+import { VACIO, gruposFlexRepo } from '../../core/data/repository'
 import { slugGrupo } from './catalogo'
 import { GenerarImagenesBar } from './GenerarImagenesBar'
 import { useImagenesPorClave } from './imagenIA'
@@ -24,7 +24,7 @@ export function CatalogoFlex({ onAgregar }: { onAgregar: (nombre: string, grupoL
   const [descNuevoEj, setDescNuevoEj] = useState('')
   const t = useT()
 
-  const grupos = gruposFlexRepo.useAll() ?? []
+  const grupos = gruposFlexRepo.useAll() ?? VACIO
   const grupo = grupos.find((g) => g.grupoId === grupoId)
   const imgPorClave = useImagenesPorClave()
 

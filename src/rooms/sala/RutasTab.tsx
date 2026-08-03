@@ -1,7 +1,7 @@
 import { Icono } from '../../core/ui/iconos/Icono'
 import { useMemo, useState } from 'react'
 import type { LugarViaje, RutaViaje } from '../../core/data/db'
-import { rutasViajeRepo } from '../../core/data/repository'
+import { VACIO, rutasViajeRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { etiquetaLugar } from './datos'
 import { MapaMundi } from './MapaMundi'
@@ -30,7 +30,7 @@ function distKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }
 /** Submenú 3 · Rutas: encadena lugares en un recorrido y míralo sobre el mapa. */
 export function RutasTab({ lugares }: Props) {
   const t = useT()
-  const rutas = rutasViajeRepo.useAll() ?? []
+  const rutas = rutasViajeRepo.useAll() ?? VACIO
   const [selId, setSelId] = useState<number | null>(null)
   const [borrador, setBorrador] = useState<Borrador | null>(null)
 

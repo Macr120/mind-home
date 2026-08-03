@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
-import { cultivosRepo, animalesRepo, corralesRepo } from '../data/repository'
+import { VACIO, cultivosRepo, animalesRepo, corralesRepo } from '../data/repository'
 import { ESPECIES, estadoCultivo, celdasRegadas } from '../house/cultivos'
 import {
   estaHambriento,
@@ -33,9 +33,9 @@ export function EtiquetasMapaOverlay() {
 }
 
 function EtiquetasActivas() {
-  const filas = cultivosRepo.useAll() ?? []
-  const animales = animalesRepo.useAll() ?? []
-  const corrales = corralesRepo.useAll() ?? []
+  const filas = cultivosRepo.useAll() ?? VACIO
+  const animales = animalesRepo.useAll() ?? VACIO
+  const corrales = corralesRepo.useAll() ?? VACIO
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const regadas = useMemo(() => celdasRegadas(filas), [filas])

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useT } from '../../../core/i18n/useT'
 import { COLOR } from '../constantes'
 import { guardarRecord, leerNumero } from './almacen'
@@ -156,13 +156,18 @@ export function Tetris({ dificultad = 'medio' }: PropsDificultad) {
   const ritmo = RITMO[dificultad]
   const velocidad = Math.max(ritmo.minimo, ritmo.inicial - 60 * nivel)
 
-  const aplicar = (sig: Partida) => {
-    setP(sig)
-    if (!sig.viva) {
-      setFase('fin')
-      setRecord(guardarRecord(clave, sig.puntos))
-    }
-  }
+  // Estable: el temporizador de caída la tiene como dependencia, y recrearla en
+  // cada render reiniciaría la cuenta y la pieza no bajaría nunca.
+  const aplicar = useCallback(
+    (sig: Partida) => {
+      setP(sig)
+      if (!sig.viva) {
+        setFase('fin')
+        setRecord(guardarRecord(clave, sig.puntos))
+      }
+    },
+    [clave],
+  )
 
   const accion = (fn: (x: Partida) => Partida) => {
     if (fase !== 'jugando') return
@@ -173,7 +178,7 @@ export function Tetris({ dificultad = 'medio' }: PropsDificultad) {
     if (fase !== 'jugando') return
     const id = setTimeout(() => aplicar(bajar(p)), velocidad)
     return () => clearTimeout(id)
-  }, [p, fase, velocidad])
+  }, [p, fase, velocidad, aplicar])
 
   useEffect(() => {
     const alOcultar = () => {

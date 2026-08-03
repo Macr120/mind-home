@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { ItemCompra, ListaCompra } from '../../core/data/db'
-import { finanzasRepo, itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
+import { VACIO, finanzasRepo, itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
 import { CATEGORIAS_COMPRA, adivinarCategoria, getCategoriaCompra } from './categoriasCompra'
 import { hoyISO } from './fecha'
 import { money2 } from '../despacho/mes'
@@ -417,7 +417,7 @@ function DetalleLista({
  */
 function CuentaLista({ lista, items }: { lista: ListaCompra; items: ItemCompra[] }) {
   const t = useT()
-  const transacciones = finanzasRepo.useAll() ?? []
+  const transacciones = finanzasRepo.useAll() ?? VACIO
   const total = items.reduce((s, i) => s + (i.precio ?? 0), 0)
   const conPrecio = items.filter((i) => i.precio != null && i.precio > 0).length
   // Si el gasto se borró desde el Despacho, la lista vuelve a estar sin registrar.

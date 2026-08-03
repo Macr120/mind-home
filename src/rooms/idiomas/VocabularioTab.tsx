@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import { tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { VACIO, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -21,8 +21,8 @@ export function VocabularioTab({ perfil, temaInicial, onTemaAplicado }: {
   onTemaAplicado: () => void
 }) {
   const t = useT()
-  const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
-  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === perfil.id)
+  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
+  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
 
   const [busqueda, setBusqueda] = useState('')
   const [filtroNivel, setFiltroNivel] = useState('todos')

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { lugaresViajeRepo } from '../../core/data/repository'
+import { VACIO, lugaresViajeRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
@@ -27,7 +27,7 @@ export function SalaApp() {
   const [tab, setTab] = useState<Tab>(() => tabInicial('sala', TABS.map((x) => x.id), 'mapa'))
   const [lugarBitacora, setLugarBitacora] = useState<number | null>(null)
 
-  const lugares = lugaresViajeRepo.useAll() ?? []
+  const lugares = lugaresViajeRepo.useAll() ?? VACIO
 
   const irABitacora = (lugarId: number) => {
     setLugarBitacora(lugarId)

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useGranja, ANIMALES, capacidadCorral, type HerramientaGranja } from '../state/granjaStore'
 import { ESPECIES } from '../house/cultivos'
-import { cestaRepo, animalesRepo, corralesRepo } from '../data/repository'
+import { VACIO, cestaRepo, animalesRepo, corralesRepo } from '../data/repository'
 import type { TipoAccesorio, TipoAnimal } from '../data/db'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -47,7 +47,7 @@ export function EditorGranja() {
   const accesorio = useGranja((s) => s.accesorio)
   const corralSel = useGranja((s) => s.corralSel)
   const aviso = useGranja((s) => s.aviso)
-  const cesta = (cestaRepo.useAll() ?? []).filter((c) => c.cantidad > 0)
+  const cesta = (cestaRepo.useAll() ?? VACIO).filter((c) => c.cantidad > 0)
   if (!activo) return null
   const g = useGranja.getState()
 
@@ -209,8 +209,8 @@ export function EditorGranja() {
 /** Lista de animales del corral elegido: tocar uno permite renombrarlo. */
 function PanelNombrar({ corralId }: { corralId: number }) {
   const t = useT()
-  const animales = (animalesRepo.useAll() ?? []).filter((a) => a.corralId === corralId)
-  const corral = (corralesRepo.useAll() ?? []).find((c) => c.id === corralId)
+  const animales = (animalesRepo.useAll() ?? VACIO).filter((a) => a.corralId === corralId)
+  const corral = (corralesRepo.useAll() ?? VACIO).find((c) => c.id === corralId)
   const renombrar = useGranja((s) => s.renombrar)
   const [editando, setEditando] = useState<number | null>(null)
   const [texto, setTexto] = useState('')

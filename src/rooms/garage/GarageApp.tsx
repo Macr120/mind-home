@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
+import { VACIO,
   registrosMantenimientoRepo,
   talleresVehiculoRepo,
   tramitesVehiculoRepo,
@@ -31,10 +31,10 @@ export function GarageApp() {
   const [tab, setTab] = useState<Tab>(() => tabInicial('garage', TABS.map((x) => x.id), 'resumen'))
   const [vehiculoId, setVehiculoId] = useState<number | null>(null)
 
-  const vehiculos = vehiculosRepo.useAll() ?? []
-  const registros = registrosMantenimientoRepo.useAll() ?? []
-  const tramites = tramitesVehiculoRepo.useAll() ?? []
-  const talleres = talleresVehiculoRepo.useAll() ?? []
+  const vehiculos = vehiculosRepo.useAll() ?? VACIO
+  const registros = registrosMantenimientoRepo.useAll() ?? VACIO
+  const tramites = tramitesVehiculoRepo.useAll() ?? VACIO
+  const talleres = talleresVehiculoRepo.useAll() ?? VACIO
 
   const vehiculoSel = vehiculoId ? vehiculos.find((v) => v.id === vehiculoId) : null
 

@@ -8,7 +8,7 @@ import {
   type HerramientaPlano,
   type DetalleRejillaPlano,
 } from '../../state/planosStore'
-import { zonasRepo } from '../../data/repository'
+import { VACIO, zonasRepo } from '../../data/repository'
 import { nivelMaximo, nivelMinimo } from '../../house/planoGeometria'
 import {
   esGrupoExteriorCompleto,
@@ -813,7 +813,7 @@ export function ConstructorMapa() {
   const niveles = useLayout((s) => s.niveles)
   const accesos = useLayout((s) => s.accesos)
   const cuartos = useCuartos((s) => s.cuartos)
-  const zonas = zonasRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
   // El drag de "mover cuarto" selecciona el cuarto en el mousedown (mismo gesto), lo que
   // abriría el preview a mitad del arrastre: montar ahí el Canvas del modelo 3D desplaza
   // el scroll del panel y el croquis pierde la posición en pantalla que el arrastre viene

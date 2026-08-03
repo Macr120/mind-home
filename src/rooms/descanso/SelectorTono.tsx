@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { pistasMusicaRepo } from '../../core/data/repository'
+import { VACIO, pistasMusicaRepo } from '../../core/data/repository'
 import type { PerfilSueno } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -24,7 +24,7 @@ export function SelectorTono({
   onCambio: (cambios: Partial<PerfilSueno>) => void
 }) {
   const t = useT()
-  const pistas = pistasMusicaRepo.useAll() ?? []
+  const pistas = pistasMusicaRepo.useAll() ?? VACIO
   const inputRef = useRef<HTMLInputElement>(null)
   const parar = useRef<() => void>(() => {})
   const [aviso, setAviso] = useState('')

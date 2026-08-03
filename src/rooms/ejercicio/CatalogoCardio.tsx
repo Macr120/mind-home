@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { GrupoCardio } from '../../core/data/db'
-import { gruposCardioRepo } from '../../core/data/repository'
+import { VACIO, gruposCardioRepo } from '../../core/data/repository'
 import { slugGrupo } from './catalogo'
 import { GenerarImagenesBar } from './GenerarImagenesBar'
 import { useImagenesPorClave } from './imagenIA'
@@ -24,7 +24,7 @@ export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => v
   const [descNuevoEj, setDescNuevoEj] = useState('')
   const t = useT()
 
-  const grupos = gruposCardioRepo.useAll() ?? []
+  const grupos = gruposCardioRepo.useAll() ?? VACIO
   const grupo = grupos.find((g) => g.grupoId === grupoId)
   const imgPorClave = useImagenesPorClave()
 

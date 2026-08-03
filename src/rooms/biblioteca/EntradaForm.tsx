@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { entradasBiblioRepo, temasArbolRepo } from '../../core/data/repository'
+import { VACIO, entradasBiblioRepo, temasArbolRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { COLOR, PILAR_GENERAL } from './constantes'
 import { PILARES } from './pilares'
@@ -38,7 +38,7 @@ export function EntradaForm({
   const [resumen, setResumen] = useState(inicial.resumen)
   const [puntos, setPuntos] = useState(inicial.puntosClave.join('\n'))
 
-  const nodos = temasArbolRepo.useAll() ?? []
+  const nodos = temasArbolRepo.useAll() ?? VACIO
   const temasEstaticos = PILARES.find((p) => p.id === pilarId)?.ramas.flatMap((r) => r.temas) ?? []
   const temasArbolPilar = nodos.filter((n) => n.pilarId === pilarId)
   const puedeGuardar = titulo.trim() !== '' && resumen.trim() !== ''

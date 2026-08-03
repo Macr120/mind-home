@@ -3,7 +3,7 @@ import { useCuartos, getCuarto } from '../../state/cuartosStore'
 import { useLayout } from '../../state/layoutStore'
 import { useDiseño } from '../../state/disenoStore'
 import { usePlanos } from '../../state/planosStore'
-import { zonasRepo, pisosExteriorRepo } from '../../data/repository'
+import { VACIO, zonasRepo, pisosExteriorRepo } from '../../data/repository'
 import { WallEditor } from '../WallEditor'
 import { ZonaWallEditor } from './ZonaWallEditor'
 import { EditorPisoCuartoSection } from '../editor/EditorPisoCuartoSection'
@@ -44,8 +44,8 @@ export function PlanoPanelProps() {
   const setRoomPisoColor = useDiseño((s) => s.setRoomPisoColor)
   const subirRoomPisoImagen = useDiseño((s) => s.subirRoomPisoImagen)
 
-  const zonas = zonasRepo.useAll() ?? []
-  const pisosExterior = pisosExteriorRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
+  const pisosExterior = pisosExteriorRepo.useAll() ?? VACIO
 
   const [nombreNuevo, setNombreNuevo] = useState('')
   const [nombreZonaEdit, setNombreZonaEdit] = useState('')

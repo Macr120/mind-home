@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { animalesRepo, cestaRepo, corralesRepo } from '../../core/data/repository'
+import { VACIO, animalesRepo, cestaRepo, corralesRepo } from '../../core/data/repository'
 import {
   ANIMALES,
   estaHambriento,
@@ -16,9 +16,9 @@ import { ejemploGranja } from './ejemplos'
 /** Resumen 2D de la Granja: animales por especie, hambrientos y cesta disponible. */
 export function Resumen() {
   const t = useT()
-  const filas = animalesRepo.useAll() ?? []
-  const corrales = corralesRepo.useAll() ?? []
-  const cesta = (cestaRepo.useAll() ?? []).reduce((n, c) => n + c.cantidad, 0)
+  const filas = animalesRepo.useAll() ?? VACIO
+  const corrales = corralesRepo.useAll() ?? VACIO
+  const cesta = (cestaRepo.useAll() ?? VACIO).reduce((n, c) => n + c.cantidad, 0)
   // Tick de 30 s: el hambre/aburrimiento avanzan aunque no cambien los datos.
   const [ahora, setAhora] = useState(() => Date.now())
   useEffect(() => {

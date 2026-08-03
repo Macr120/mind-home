@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Bounds } from '@react-three/drei'
-import { murosLibresRepo } from '../../data/repository'
+import { VACIO, murosLibresRepo } from '../../data/repository'
 import { useLayout } from '../../state/layoutStore'
 import { useEditorUi } from '../../state/editorUiStore'
 import { MuroLibre3DItem } from '../../house/MurosLibres3D'
@@ -16,7 +16,7 @@ import { useT } from '../../i18n/useT'
  */
 export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOcultar?: () => void }) {
   const t = useT()
-  const muros = murosLibresRepo.useAll() ?? []
+  const muros = murosLibresRepo.useAll() ?? VACIO
   const claro = useEditorUi((s) => s.previewClaro)
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)

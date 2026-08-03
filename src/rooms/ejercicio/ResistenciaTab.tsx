@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { SesionEjercicio, SistemaUnidades, SplitCardio } from '../../core/data/db'
-import {
+import { VACIO,
   gruposCardioRepo,
   rutinasCardioRepo,
   sesionesEjercicioRepo,
@@ -87,11 +87,11 @@ export function ResistenciaTab({
   const [editandoId, setEditandoId] = useState<number | null>(null)
   const [rutinasAbierto, setRutinasAbierto] = useState(true)
 
-  const rutinas = rutinasCardioRepo.useAll() ?? []
-  const gruposCardio = gruposCardioRepo.useAll() ?? []
+  const rutinas = rutinasCardioRepo.useAll() ?? VACIO
+  const gruposCardio = gruposCardioRepo.useAll() ?? VACIO
   const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposCardio), [gruposCardio])
   const imgPorClave = useImagenesPorClave()
-  const todosSplits = splitsCardioRepo.useAll() ?? []
+  const todosSplits = splitsCardioRepo.useAll() ?? VACIO
 
   // Al cambiar de día se descarta la edición en curso (ajuste en render, sin efecto)
   const [prevFecha, setPrevFecha] = useState(fecha)

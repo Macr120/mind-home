@@ -1,7 +1,7 @@
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { usePlanos } from '../state/planosStore'
-import { murosLibresRepo } from '../data/repository'
+import { VACIO, murosLibresRepo } from '../data/repository'
 import { nivelBaseY, WALL_H, WALL_T } from './walls'
 import {
   segmentosMundoMuroLibre,
@@ -102,7 +102,7 @@ export function MurosLibres3D() {
   const nivelPlano = usePlanos((s) => s.nivel)
   const muroSelHover = usePlanos((s) => s.muroSelHover)
   const muroLibreSel = usePlanos((s) => s.muroLibreSel)
-  const muros = murosLibresRepo.useAll() ?? []
+  const muros = murosLibresRepo.useAll() ?? VACIO
   if (muros.length === 0 && !muroHover) return null
   const hoverLibreId =
     muroSelHover && 'muroLibreId' in muroSelHover ? muroSelHover.muroLibreId : null

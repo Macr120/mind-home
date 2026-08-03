@@ -6,6 +6,18 @@ import { marcarRegistro } from '../state/registroSesion'
 import { useClaveEncendidos, visibles } from './ejemplos'
 
 /**
+ * Lista vacía ESTABLE para el `?? VACIO` de los `useAll()` mientras la consulta
+ * carga (devuelve `undefined`).
+ *
+ * Un `?? []` escrito en el cuerpo del componente crea un array NUEVO en cada
+ * render, así que cualquier `useMemo`/`useEffect` que lo tenga como dependencia
+ * se reejecuta siempre — que es lo que denunciaban los 49 avisos de
+ * `react-hooks/exhaustive-deps`. Con una referencia única el memo vuelve a
+ * memoizar de verdad.
+ */
+export const VACIO: never[] = []
+
+/**
  * Fábrica de repositorios reactivos sobre una tabla de Dexie.
  *
  * Cada cuarto usa un repositorio en vez de tocar la base directamente.

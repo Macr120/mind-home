@@ -1,13 +1,13 @@
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { caminosRepo } from '../../core/data/repository'
+import { VACIO, caminosRepo } from '../../core/data/repository'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { ejemploCaminos } from './ejemplos'
 
 /** Resumen 2D de Caminos: conteo de tramos construidos en el mapa por tipo. */
 export function Resumen() {
   const t = useT()
-  const filas = caminosRepo.useAll() ?? []
+  const filas = caminosRepo.useAll() ?? VACIO
   const tipos = [
     { tipo: 'pista', icon: '🏎️', nombre: t('caminos.tipo.pista', 'Pista de carreras') },
     { tipo: 'riel', icon: '🚂', nombre: t('caminos.tipo.riel', 'Riel de tren') },

@@ -5,7 +5,7 @@ import type {
   SerieFuerza,
   SistemaUnidades,
 } from '../../core/data/db'
-import {
+import { VACIO,
   gruposFuerzaRepo,
   rutinasFuerzaRepo,
   sesionesEjercicioRepo,
@@ -98,8 +98,8 @@ export function FuerzaTab({
   const [editandoId, setEditandoId] = useState<number | null>(null)
   const [ejercicioGrafica, setEjercicioGrafica] = useState('')
 
-  const rutinasLista = rutinasFuerzaRepo.useAll() ?? []
-  const gruposFuerza = gruposFuerzaRepo.useAll() ?? []
+  const rutinasLista = rutinasFuerzaRepo.useAll() ?? VACIO
+  const gruposFuerza = gruposFuerzaRepo.useAll() ?? VACIO
   const catalogoNombres = useMemo(() => aGrupoCatalogo(gruposFuerza), [gruposFuerza])
   const imgPorClave = useImagenesPorClave()
 

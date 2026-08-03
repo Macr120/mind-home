@@ -11,7 +11,7 @@ import {
   corralSucio,
   estaEnfermo,
 } from '../state/granjaStore'
-import { corralesRepo, cestaRepo, animalesRepo } from '../data/repository'
+import { VACIO, corralesRepo, cestaRepo, animalesRepo } from '../data/repository'
 import { cellToWorld } from '../house/walls'
 import { registrarAncla, quitarAncla, registrarDom, quitarDom } from '../house/etiquetasMapa'
 import { useT } from '../i18n/useT'
@@ -35,8 +35,8 @@ export function GranjaCercaOverlay() {
 
 function Burbuja({ corralId }: { corralId: number }) {
   const t = useT()
-  const corral = (corralesRepo.useAll() ?? []).find((c) => c.id === corralId)
-  const cesta = (cestaRepo.useAll() ?? []).reduce((n, c) => n + c.cantidad, 0)
+  const corral = (corralesRepo.useAll() ?? VACIO).find((c) => c.id === corralId)
+  const cesta = (cestaRepo.useAll() ?? VACIO).reduce((n, c) => n + c.cantidad, 0)
   const ancla = useRef(new THREE.Vector3())
   // Tick de 30 s: enfermedad y suciedad se derivan de timestamps, así que aparecen
   // mientras estás parado junto al corral aunque no cambie ningún dato.
@@ -45,7 +45,7 @@ function Burbuja({ corralId }: { corralId: number }) {
     const id = window.setInterval(() => setAhora(Date.now()), 30_000)
     return () => window.clearInterval(id)
   }, [])
-  const enfermos = (animalesRepo.useAll() ?? []).filter(
+  const enfermos = (animalesRepo.useAll() ?? VACIO).filter(
     (a) => a.corralId === corralId && estaEnfermo(a, ahora),
   ).length
   const sucio = corral != null && corralSucio(corral, ahora)

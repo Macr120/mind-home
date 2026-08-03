@@ -1,6 +1,6 @@
 import { useHuerto, type HerramientaHuerto } from '../state/huertoStore'
 import { ESPECIES } from '../house/cultivos'
-import { cestaRepo } from '../data/repository'
+import { VACIO, cestaRepo } from '../data/repository'
 import type { EspecieCultivo } from '../data/db'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -31,7 +31,7 @@ export function EditorHuerto() {
   const activo = useHuerto((s) => s.activo)
   const herramienta = useHuerto((s) => s.herramienta)
   const especie = useHuerto((s) => s.especie)
-  const cesta = (cestaRepo.useAll() ?? []).filter((c) => c.cantidad > 0)
+  const cesta = (cestaRepo.useAll() ?? VACIO).filter((c) => c.cantidad > 0)
   if (!activo) return null
   const h = useHuerto.getState()
 

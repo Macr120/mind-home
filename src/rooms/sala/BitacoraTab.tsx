@@ -1,7 +1,7 @@
 import { Icono } from '../../core/ui/iconos/Icono'
 import { useMemo, useRef, useState } from 'react'
 import type { LugarViaje, RecuerdoViaje } from '../../core/data/db'
-import { bitacoraViajeRepo, portadasLugarRepo, portadasViajeRepo } from '../../core/data/repository'
+import { VACIO, bitacoraViajeRepo, portadasLugarRepo, portadasViajeRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
 import { comprimirFoto, Foto } from './fotos'
@@ -171,13 +171,13 @@ function TarjetaAlbum({
 /** Submenú 4 · Bitácora: álbumes por país → tarjetas de lugares → recuerdos. */
 export function BitacoraTab({ lugares, lugarInicial }: Props) {
   const t = useT()
-  const entradas = bitacoraViajeRepo.useAll() ?? []
-  const portadas = portadasViajeRepo.useAll() ?? []
+  const entradas = bitacoraViajeRepo.useAll() ?? VACIO
+  const portadas = portadasViajeRepo.useAll() ?? VACIO
   const portadaPais = useMemo(
     () => new Map(portadas.map((p) => [p.pais, p])),
     [portadas],
   )
-  const portadasLug = portadasLugarRepo.useAll() ?? []
+  const portadasLug = portadasLugarRepo.useAll() ?? VACIO
   const portadaLugar = useMemo(
     () => new Map(portadasLug.map((p) => [p.lugarId, p])),
     [portadasLug],

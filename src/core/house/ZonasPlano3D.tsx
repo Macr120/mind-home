@@ -3,7 +3,7 @@ import { type ThreeEvent } from '@react-three/fiber'
 import { usePlanos } from '../state/planosStore'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
-import { zonasRepo, pisosExteriorRepo } from '../data/repository'
+import { VACIO, zonasRepo, pisosExteriorRepo } from '../data/repository'
 import type { ZonaPlano } from '../data/db'
 import {
   roomWallSegments,
@@ -77,7 +77,7 @@ function ZonaCuartoSingle({
     const [x, , zW] = centroCuarto3D(anchor, footprint)
     const y = nivelBaseY(z.nivel, apilado) + (elevado ? 0.8 : 0)
     return [x, y, zW]
-  }, [anchor, rect, z.nivel, apilado, elevado])
+  }, [anchor, footprint, z.nivel, apilado, elevado])
 
   const ocupado = useMemo(
     () => ocupadoConZonas(z.nivel, ocupadoPorNivel, todasZonas, z.id),
@@ -117,7 +117,7 @@ function ZonaCuartoSingle({
   const margenFachada = WALL_T / 2
 
   // Overrides del nivel por coord (¼ = cuadrante; entera = relleno de celda con forma).
-  const pisosOverride = pisosExteriorRepo.useAll() ?? []
+  const pisosOverride = pisosExteriorRepo.useAll() ?? VACIO
   const overrideMap = useMemo(() => {
     const m = new Map<string, (typeof pisosOverride)[0]>()
     for (const p of pisosOverride) {
@@ -376,7 +376,7 @@ export function ZonasPlano3D() {
   const draggingZonaId = usePlanos((s) => s.draggingZonaId)
   const previewZonaCeldas = usePlanos((s) => s.previewZonaCeldas)
   const zonaDragOrigen = usePlanos((s) => s.zonaDragOrigen)
-  const zonas = zonasRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
 
   const bloquearClics =
     planosActivo && planosCapa === 'cuartos' && planosHerramienta === 'editar-forma'

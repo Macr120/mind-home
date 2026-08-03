@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { entradasBiblioRepo, sesionesEstudioRepo } from '../../core/data/repository'
+import { VACIO, entradasBiblioRepo, sesionesEstudioRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { actividadId } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
@@ -18,8 +18,8 @@ export function EstudioTab() {
   const iniciar = useEstudio((s) => s.iniciar)
   const cancelar = useEstudio((s) => s.cancelar)
   const completar = useEstudio((s) => s.completar)
-  const sesiones = sesionesEstudioRepo.useAll() ?? []
-  const entradas = entradasBiblioRepo.useAll() ?? []
+  const sesiones = sesionesEstudioRepo.useAll() ?? VACIO
+  const entradas = entradasBiblioRepo.useAll() ?? VACIO
 
   const [duracion, setDuracion] = useState(25)
   const [pilarId, setPilarId] = useState<string>(PILARES[0].id)

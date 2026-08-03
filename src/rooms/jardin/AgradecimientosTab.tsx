@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { gratitudDiariaRepo } from '../../core/data/repository'
+import { VACIO, gratitudDiariaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { hoyISO, nombreDia } from './fecha'
@@ -8,7 +8,7 @@ import { Archivador } from '../_shared/Archivador'
 /** Journaling de agradecimientos: 1–3 cosas de hoy + entradas guardadas por fecha. */
 export function AgradecimientosTab() {
   const t = useT()
-  const gratitudes = gratitudDiariaRepo.useAll() ?? []
+  const gratitudes = gratitudDiariaRepo.useAll() ?? VACIO
   const hoy = hoyISO()
   const deHoy = gratitudes.find((g) => g.fecha === hoy)
 

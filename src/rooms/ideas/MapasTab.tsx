@@ -3,7 +3,7 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
 import { iaActiva } from '../../core/chat/ia'
-import { borrarMapaIdeas, mapasIdeasRepo } from '../../core/data/repository'
+import { VACIO, borrarMapaIdeas, mapasIdeasRepo } from '../../core/data/repository'
 import type { TipoMapa } from '../../core/data/db'
 import { intencionApp } from '../../core/state/intencionApp'
 import { COLOR } from './constantes'
@@ -29,7 +29,7 @@ function mapaDeIntencion(): number | null {
  */
 export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
   const t = useT()
-  const todos = mapasIdeasRepo.useAll() ?? []
+  const todos = mapasIdeasRepo.useAll() ?? VACIO
   const [abierto, setAbierto] = useState<number | null>(mapaDeIntencion)
   const [nombre, setNombre] = useState('')
   const [tipo, setTipo] = useState<TipoMapa>(tiposDe(familia)[0].id)

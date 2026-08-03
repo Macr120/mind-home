@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Meta } from '../../core/data/db'
-import { metasRepo } from '../../core/data/repository'
+import { VACIO, metasRepo } from '../../core/data/repository'
 import { money2 } from './mes'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -75,7 +75,7 @@ function VistaFinancieras() {
  */
 function VistaAhorroInversion() {
   const t = useT()
-  const metas = (metasRepo.useAll() ?? []).filter((m) => {
+  const metas = (metasRepo.useAll() ?? VACIO).filter((m) => {
     const tp = m.tipo ?? 'ahorro'
     return tp === 'ahorro' || tp === 'inversion'
   })
@@ -191,7 +191,7 @@ function VistaAhorroInversion() {
 function VistaDeuda() {
   const t = useT()
   const tipo: TipoMeta = 'deuda'
-  const metas = (metasRepo.useAll() ?? []).filter((m) => (m.tipo ?? 'ahorro') === tipo)
+  const metas = (metasRepo.useAll() ?? VACIO).filter((m) => (m.tipo ?? 'ahorro') === tipo)
   const [nombre, setNombre] = useState('')
   const [objetivo, setObjetivo] = useState('')
   const copy = COPY[tipo]

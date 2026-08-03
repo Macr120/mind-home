@@ -3,7 +3,7 @@ import type { ThreeEvent } from '@react-three/fiber'
 import { usePlanos } from '../state/planosStore'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
-import { zonasRepo } from '../data/repository'
+import { VACIO, zonasRepo } from '../data/repository'
 import { aristasEnNivel } from './planoGeometria'
 import { aristasZonasEnNivel } from './murosZona'
 import { paintZonaMuro } from '../ui/planos/paintZonaMuro'
@@ -31,6 +31,9 @@ const DELTA: Record<SideKey, [number, number]> = {
 
 // Verde: colocar muro en arista vacía. Ámbar: muro existente seleccionable.
 const COLOR_GHOST_VACIO = '#34d399'
+
+/** Nivel sin celdas ocupadas: referencia estable (un `new Set()` por render rompía el memo). */
+const SIN_OCUPADAS: Set<string> = new Set()
 const COLOR_GHOST_MURO = '#fde047'
 
 // Evita que el colocador de muros libres cree un muro duplicado cuando el clic fue
@@ -129,7 +132,7 @@ export function PlanoParedes3DEditor() {
   const edgeStyles = useLayout((s) => s.edgeStyles)
   const paintEdge = useLayout((s) => s.paintEdge)
   const setEdgeEstilo = useLayout((s) => s.setEdgeEstilo)
-  const zonas = zonasRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
 
   // Marcadores por arista solo al CREAR (herramienta 'muro'). En Seleccionar/Puertas/Ventanas
   // la selección la hace PlanoMuroSelector3D por raycast de la malla real (sin ghost de caja).
@@ -144,7 +147,7 @@ export function PlanoParedes3DEditor() {
     [activo, nivel, placed, cells, footprints, niveles, ocupadoPorNivel, wallOverrides],
   )
 
-  const ocupadoLayout = ocupadoPorNivel.get(nivel) ?? new Set<string>()
+  const ocupadoLayout = ocupadoPorNivel.get(nivel) ?? SIN_OCUPADAS
   const aristasZonas = useMemo(
     () => (activo ? aristasZonasEnNivel(nivel, zonas, ocupadoLayout) : []),
     [activo, nivel, zonas, ocupadoLayout],

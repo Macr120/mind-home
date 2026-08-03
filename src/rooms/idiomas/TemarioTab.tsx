@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import { materialesIdiomaRepo, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { VACIO, materialesIdiomaRepo, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -48,9 +48,9 @@ export function TemarioTab({ perfil, onConversar, onVerTarjetas }: {
   const [material, setMaterial] = useState<{ id: string; titulo: string } | null>(null)
 
   const conIA = iaActiva()
-  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === perfil.id)
-  const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
-  const materiales = (materialesIdiomaRepo.useAll() ?? []).filter((m) => m.idiomaId === perfil.id)
+  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
+  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
+  const materiales = (materialesIdiomaRepo.useAll() ?? VACIO).filter((m) => m.idiomaId === perfil.id)
 
   const porTema = new Map<string, number>()
   for (const x of tarjetas) if (x.temaId) porTema.set(x.temaId, (porTema.get(x.temaId) ?? 0) + 1)

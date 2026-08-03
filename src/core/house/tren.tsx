@@ -1,7 +1,7 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
-import { caminosRepo } from '../data/repository'
+import { VACIO, caminosRepo } from '../data/repository'
 import { useTren, trenFrame, setRedRieles, type TipoRiel } from '../state/trenStore'
 import { monturaFrame } from '../state/monturaStore'
 import { useHouse } from '../state/houseStore'
@@ -18,7 +18,7 @@ const RADIO_MONTAR = 4.4
  */
 let accTren = 0
 export function TrenProximity() {
-  const filas = caminosRepo.useAll() ?? []
+  const filas = caminosRepo.useAll() ?? VACIO
   useEffect(() => setRedRieles(filas), [filas])
 
   useFrame((_st3f, delta) => {

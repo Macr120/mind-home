@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { conversacionesBiblioRepo } from '../../core/data/repository'
+import { VACIO, conversacionesBiblioRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -27,7 +27,7 @@ export function CharlasTab({
   onCharlaNueva: (ancla: AnclaTema, borrador: string) => void
 }) {
   const t = useT()
-  const charlas = conversacionesBiblioRepo.useAll() ?? []
+  const charlas = conversacionesBiblioRepo.useAll() ?? VACIO
   const [filtro, setFiltro] = useState('todos')
 
   if (abierta !== null) {

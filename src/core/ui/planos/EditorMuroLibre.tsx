@@ -1,4 +1,4 @@
-import { murosLibresRepo, setEstiloMuroLibre, eliminarMuroLibre } from '../../data/repository'
+import { VACIO, murosLibresRepo, setEstiloMuroLibre, eliminarMuroLibre } from '../../data/repository'
 import { TIPOS_MURO, TIPOS_FORMA_MURO, TIPOS_VENTANA_FORMA, TIPOS_PUERTA, VANO_FORMA_ALTO_DEFAULT } from '../../house/murosPuertas'
 import { FORMA_ALTO_TECHO } from '../../house/walls'
 import { ColorPicker } from '../editor/ColorPicker'
@@ -49,7 +49,7 @@ function Deslizador({
 /** Editor del muro libre seleccionado: textura, color y altura. */
 export function EditorMuroLibre({ muroId }: { muroId: number }) {
   const t = useT()
-  const muros = murosLibresRepo.useAll() ?? []
+  const muros = murosLibresRepo.useAll() ?? VACIO
   const setMuroLibreSel = usePlanos((s) => s.setMuroLibreSel)
   const herramienta = usePlanos((s) => s.herramienta)
   const m = muros.find((x) => x.id === muroId)

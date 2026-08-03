@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
+import { VACIO,
   aguaRepo,
   comidasRepo,
   dietasGuardadasRepo,
@@ -75,13 +75,13 @@ export function CocinaApp() {
 
   const perfilRaw = usePerfil()
   const perfil = perfilEfectivo(perfilRaw)
-  const comidas = comidasRepo.useAll() ?? []
-  const agua = aguaRepo.useAll() ?? []
-  const recetas = recetasRepo.useAll() ?? []
-  const dietas = dietasGuardadasRepo.useAll() ?? []
-  const itemsCompra = itemsCompraRepo.useAll() ?? []
-  const listasCompra = listasCompraRepo.useAll() ?? []
-  const pesos = pesoRepo.useAll() ?? []
+  const comidas = comidasRepo.useAll() ?? VACIO
+  const agua = aguaRepo.useAll() ?? VACIO
+  const recetas = recetasRepo.useAll() ?? VACIO
+  const dietas = dietasGuardadasRepo.useAll() ?? VACIO
+  const itemsCompra = itemsCompraRepo.useAll() ?? VACIO
+  const listasCompra = listasCompraRepo.useAll() ?? VACIO
+  const pesos = pesoRepo.useAll() ?? VACIO
 
   const aguaDia = agua.filter((a) => a.fecha === fecha).reduce((s, a) => s + a.ml, 0)
 

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { conversacionesBiblioRepo, entradasBiblioRepo, sesionesEstudioRepo, temasArbolRepo } from '../../core/data/repository'
+import { VACIO, conversacionesBiblioRepo, entradasBiblioRepo, sesionesEstudioRepo, temasArbolRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -12,10 +12,10 @@ import { fmtMin, inicioSemana, minutosPorDia, rachaActual } from './stats'
 /** Panorama de la enciclopedia (cobertura por campo) y del tiempo de estudio. */
 export function ResumenTab() {
   const t = useT()
-  const entradas = entradasBiblioRepo.useAll() ?? []
-  const sesiones = sesionesEstudioRepo.useAll() ?? []
-  const charlas = conversacionesBiblioRepo.useAll() ?? []
-  const nodos = temasArbolRepo.useAll() ?? []
+  const entradas = entradasBiblioRepo.useAll() ?? VACIO
+  const sesiones = sesionesEstudioRepo.useAll() ?? VACIO
+  const charlas = conversacionesBiblioRepo.useAll() ?? VACIO
+  const nodos = temasArbolRepo.useAll() ?? VACIO
   const indice = contarIndice()
 
   const { porPilar, camposConEntrada, temasCubiertos } = useMemo(() => {

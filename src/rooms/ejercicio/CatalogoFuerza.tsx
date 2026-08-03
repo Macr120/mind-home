@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { GrupoFuerza } from '../../core/data/db'
-import { gruposFuerzaRepo } from '../../core/data/repository'
+import { VACIO, gruposFuerzaRepo } from '../../core/data/repository'
 import { piramideFuerza, slugGrupo, type OpcionSplit } from './catalogo'
 import { GenerarImagenesBar } from './GenerarImagenesBar'
 import { useImagenesPorClave } from './imagenIA'
@@ -32,7 +32,7 @@ export function CatalogoFuerza({
   const [descNuevoEj, setDescNuevoEj] = useState('')
   const t = useT()
 
-  const grupos = gruposFuerzaRepo.useAll() ?? []
+  const grupos = gruposFuerzaRepo.useAll() ?? VACIO
   const imgPorClave = useImagenesPorClave()
   const piramide = useMemo(() => piramideFuerza(grupos), [grupos])
 

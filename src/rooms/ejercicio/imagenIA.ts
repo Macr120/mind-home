@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { ImagenEjercicio } from '../../core/data/db'
-import { imagenesEjercicioRepo } from '../../core/data/repository'
+import { VACIO, imagenesEjercicioRepo } from '../../core/data/repository'
 import { generarImagen } from '../../core/imagenIA'
 import { normalizarEjercicio } from './stats'
 
@@ -15,7 +15,7 @@ export { comprimirImagen, getProveedorImagen, imagenIaActiva } from '../../core/
 
 /** Imágenes guardadas, indexadas por nombre normalizado (para buscar la de cada ejercicio). */
 export function useImagenesPorClave(): Map<string, ImagenEjercicio> {
-  const imagenes = imagenesEjercicioRepo.useAll() ?? []
+  const imagenes = imagenesEjercicioRepo.useAll() ?? VACIO
   return useMemo(() => {
     const m = new Map<string, ImagenEjercicio>()
     for (const it of imagenes) m.set(it.clave, it)

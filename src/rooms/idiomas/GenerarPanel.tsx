@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import { tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { VACIO, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR } from './constantes'
@@ -25,7 +25,7 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
   onCerrar: () => void
 }) {
   const t = useT()
-  const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
+  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
   const [temaId, setTemaId] = useState(temaFijo?.id ?? TEMARIO[0].temas[0].id)
   const [cantidad, setCantidad] = useState(10)
   const [cargando, setCargando] = useState(false)

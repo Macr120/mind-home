@@ -19,7 +19,7 @@ import {
   type MateriaPrima,
   type ResultadoBusquedaCripto,
 } from './mercados'
-import { watchlistRepo } from '../../core/data/repository'
+import { VACIO, watchlistRepo } from '../../core/data/repository'
 import { idiomaActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
@@ -296,7 +296,7 @@ function SeccionDivisas() {
 /** Divisas propias del usuario: dos selects del catálogo, fuera del top 10 fijo. */
 function MisDivisas({ tick }: { tick: number }) {
   const t = useT()
-  const watchlist = (watchlistRepo.useAll() ?? []).filter((w) => w.mercado === 'divisas')
+  const watchlist = (watchlistRepo.useAll() ?? VACIO).filter((w) => w.mercado === 'divisas')
   const [datos, setDatos] = useState<Divisa[]>([])
   const [base, setBase] = useState('EUR')
   const [destino, setDestino] = useState('GBP')
@@ -423,7 +423,7 @@ function SeccionCriptos() {
 /** Criptomonedas propias del usuario: buscador de CoinGecko, fuera del top 10 fijo. */
 function MisCriptos({ tick }: { tick: number }) {
   const t = useT()
-  const watchlist = (watchlistRepo.useAll() ?? []).filter((w) => w.mercado === 'criptos')
+  const watchlist = (watchlistRepo.useAll() ?? VACIO).filter((w) => w.mercado === 'criptos')
   const [datos, setDatos] = useState<Cripto[]>([])
   const [query, setQuery] = useState('')
   const [resultados, setResultados] = useState<ResultadoBusquedaCripto[]>([])
@@ -686,7 +686,7 @@ function ClaveApi({ className, onGuardar }: { className?: string; onGuardar: () 
 function Watchlist({ tick }: { tick: number }) {
   const t = useT()
   // Sin `mercado`: filas de antes de los cuatro mercados, todas eran acciones.
-  const watchlist = (watchlistRepo.useAll() ?? []).filter((w) => (w.mercado ?? 'acciones') === 'acciones')
+  const watchlist = (watchlistRepo.useAll() ?? VACIO).filter((w) => (w.mercado ?? 'acciones') === 'acciones')
   const [cotizaciones, setCotizaciones] = useState<CotizacionesMap>({})
   const [nuevo, setNuevo] = useState('')
 
@@ -870,7 +870,7 @@ function SeccionCommodities() {
 /** Materias primas propias: cualquier ETF, con el nombre que le ponga el usuario. */
 function MisMaterias({ tick }: { tick: number }) {
   const t = useT()
-  const watchlist = (watchlistRepo.useAll() ?? []).filter((w) => w.mercado === 'commodities')
+  const watchlist = (watchlistRepo.useAll() ?? VACIO).filter((w) => w.mercado === 'commodities')
   const [cotizaciones, setCotizaciones] = useState<CotizacionesMap>({})
   const [ticker, setTicker] = useState('')
   const [etiqueta, setEtiqueta] = useState('')

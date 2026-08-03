@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { conversacionesBiblioRepo, entradasBiblioRepo, temasArbolRepo } from '../../core/data/repository'
+import { VACIO, conversacionesBiblioRepo, entradasBiblioRepo, temasArbolRepo } from '../../core/data/repository'
 import type { EntradaBiblio, TemaArbol } from '../../core/data/db'
 import { iaActiva } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
@@ -188,9 +188,9 @@ export function EnciclopediaTab({
   onAbrirCharla: (id: number) => void
 }) {
   const t = useT()
-  const entradas = entradasBiblioRepo.useAll() ?? []
-  const charlas = conversacionesBiblioRepo.useAll() ?? []
-  const nodos = temasArbolRepo.useAll() ?? []
+  const entradas = entradasBiblioRepo.useAll() ?? VACIO
+  const charlas = conversacionesBiblioRepo.useAll() ?? VACIO
+  const nodos = temasArbolRepo.useAll() ?? VACIO
   const [entradaId, setEntradaId] = useState<number | null>(null)
   const [form, setForm] = useState<{ inicial: EntradaFormInicial; entradaId?: number } | null>(null)
   const [busqueda, setBusqueda] = useState('')

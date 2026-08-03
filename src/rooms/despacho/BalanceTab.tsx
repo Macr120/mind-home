@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import type { Transaccion } from '../../core/data/db'
-import { presupuestosRepo } from '../../core/data/repository'
+import { VACIO, presupuestosRepo } from '../../core/data/repository'
 import { getCategoria } from './categorias'
 import {
   etiquetaCorta,
@@ -44,7 +44,7 @@ export function BalanceTab({
   movimientos: Transaccion[]
 }) {
   const t = useT()
-  const ajustes = presupuestosRepo.useAll() ?? []
+  const ajustes = presupuestosRepo.useAll() ?? VACIO
   const presu = ajustes.find((p) => p.categoria === PRESUPUESTO_KEY)
   const patri = ajustes.find((p) => p.categoria === PATRIMONIO_KEY)
 

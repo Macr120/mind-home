@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { metasRepo } from '../../core/data/repository'
+import { VACIO, metasRepo } from '../../core/data/repository'
 import { money, money2 } from './mes'
 import { useT } from '../../core/i18n/useT'
 
@@ -250,7 +250,7 @@ export function SimSimple() {
 
 export function SimCredito() {
   const t = useT()
-  const deudas = (metasRepo.useAll() ?? []).filter((m) => (m.tipo ?? 'ahorro') === 'deuda')
+  const deudas = (metasRepo.useAll() ?? VACIO).filter((m) => (m.tipo ?? 'ahorro') === 'deuda')
   const [monto, setMonto] = useState('300000')
   const [tasa, setTasa] = useState('12')
   const [plazo, setPlazo] = useState('48')

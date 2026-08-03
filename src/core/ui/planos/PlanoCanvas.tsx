@@ -5,7 +5,7 @@ import { useLayout, SIN_OCUPACION } from '../../state/layoutStore'
 import { useDiseño } from '../../state/disenoStore'
 import { useCiclo } from '../../state/cicloStore'
 import { usePlanos } from '../../state/planosStore'
-import { zonasRepo, pisosExteriorRepo, murosLibresRepo, crearMuroAristaLibre, ciclarMuroFormaLibre, primeraRotMuroForma, setEstiloMuroLibre } from '../../data/repository'
+import { VACIO, zonasRepo, pisosExteriorRepo, murosLibresRepo, crearMuroAristaLibre, ciclarMuroFormaLibre, primeraRotMuroForma, setEstiloMuroLibre } from '../../data/repository'
 import type { ZonaPlano } from '../../data/db'
 import {
   cellId,
@@ -175,9 +175,9 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const zonaDragOrigen = usePlanos((s) => s.zonaDragOrigen)
   const setZonaDragPreview = usePlanos((s) => s.setZonaDragPreview)
 
-  const zonas = zonasRepo.useAll() ?? []
-  const pisosExterior = pisosExteriorRepo.useAll() ?? []
-  const murosLibres = murosLibresRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
+  const pisosExterior = pisosExteriorRepo.useAll() ?? VACIO
+  const murosLibres = murosLibresRepo.useAll() ?? VACIO
   const murosLibresNivel = murosLibres.filter((m) => m.nivel === nivel)
 
   // Pincel de forma + rejilla fina: el clic recorta CUADRANTES (esquinas finas) de un

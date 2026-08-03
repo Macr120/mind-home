@@ -3,7 +3,7 @@ import { plantillasInfraestructura, DESCRIPCIONES } from '../registry'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
-import { caminosRepo, cultivosRepo, animalesRepo } from '../data/repository'
+import { VACIO, caminosRepo, cultivosRepo, animalesRepo } from '../data/repository'
 import { useDiseño } from '../state/disenoStore'
 import { useCaminos } from '../state/caminosStore'
 import { useCanchas, esCancha, CANCHAS, type ClaseCancha } from '../state/canchasStore'
@@ -111,9 +111,9 @@ function subOpcionesDe(id: string, t: ReturnType<typeof useT>): SubOpcion[] {
  */
 export function InfraestructuraCatalogo({ alConstruir }: { alConstruir: () => void }) {
   const t = useT()
-  const caminos = caminosRepo.useAll() ?? []
-  const cultivos = cultivosRepo.useAll() ?? []
-  const animales = animalesRepo.useAll() ?? []
+  const caminos = caminosRepo.useAll() ?? VACIO
+  const cultivos = cultivosRepo.useAll() ?? VACIO
+  const animales = animalesRepo.useAll() ?? VACIO
   const objetos = useDiseño((s) => s.objetos)
   // Piezas construidas por plantilla (tramos / canchas / animales + parcelas).
   const conteos: Record<string, number> = {

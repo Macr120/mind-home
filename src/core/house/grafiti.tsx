@@ -164,11 +164,14 @@ function PlanoVivo({ modo }: { modo: ModoGrafiti }) {
   const color = useGrafitis((s) => s.color)
 
   // Textura nueva por sesión de pintura (el canvas cambia de tamaño por muro).
+  // `modo` no se lee dentro: es la CLAVE de invalidación a propósito — al cambiar
+  // de muro el canvas se redimensiona y hace falta una CanvasTexture nueva.
   const tex = useMemo(() => {
     const t = new THREE.CanvasTexture(canvasGrafiti)
     t.colorSpace = THREE.SRGBColorSpace
     t.anisotropy = 4
     return t
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modo])
   useEffect(() => () => tex.dispose(), [tex])
   // Deshacer/limpiar desde la barra: refrescar la textura.
@@ -251,7 +254,7 @@ function PlanoVivo({ modo }: { modo: ModoGrafiti }) {
       window.removeEventListener('pointercancel', up)
       window.removeEventListener('keydown', onKey)
     }
-  }, [gl, camera, tex])
+  }, [gl, camera, tex, modo.alto, modo.ancho])
 
   return (
     <group position={modo.centro} rotation={[0, modo.rotY, 0]}>

@@ -5,7 +5,7 @@ import { useCuartos } from '../state/cuartosStore'
 import { usePlanos } from '../state/planosStore'
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
-import { zonasRepo } from '../data/repository'
+import { VACIO, zonasRepo } from '../data/repository'
 import { cuadranteBajoCursor, celdaEnteraBajoCursor, celdaBajoCursor } from './arrastreCelda'
 import { cuartoIdEnTile, zonaEnTile } from './planoGeometria'
 import { cellToWorld, centroCuarto3D, footprintBounds, nivelBaseY, SIZE, type Cell } from './walls'
@@ -38,7 +38,7 @@ export function PlanoPisos3DController() {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const cuartos = useCuartos((s) => s.cuartos)
-  const zonas = zonasRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
 
   const activo = planosActivo && capa === 'pisos' && herramienta === 'seleccionar'
 

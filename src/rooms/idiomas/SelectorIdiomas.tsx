@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import {
+import { VACIO,
   conversacionesIdiomaRepo,
   eliminarIdiomaCascada,
   idiomasRepo,
@@ -157,8 +157,8 @@ export function AltaIdioma({ existentes, onCreado }: {
 function ConfigIdioma({ idioma, onCerrar }: { idioma: PerfilIdioma; onCerrar: () => void }) {
   const t = useT()
   const [borrando, setBorrando] = useState(false)
-  const nTarjetas = (tarjetasIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === idioma.id).length
-  const nCharlas = (conversacionesIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === idioma.id).length
+  const nTarjetas = (tarjetasIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === idioma.id).length
+  const nCharlas = (conversacionesIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === idioma.id).length
 
   const borrar = async () => {
     if (idioma.id == null) return

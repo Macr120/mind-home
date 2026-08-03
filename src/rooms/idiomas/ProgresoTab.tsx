@@ -1,5 +1,5 @@
 import type { PerfilIdioma } from '../../core/data/db'
-import {
+import { VACIO,
   conversacionesIdiomaRepo,
   repasosIdiomaRepo,
   tarjetasIdiomaRepo,
@@ -18,10 +18,10 @@ import { HeatmapIdiomas } from './HeatmapIdiomas'
 /** Panorama del idioma activo: dominio del vocabulario, constancia y cobertura. */
 export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
   const t = useT()
-  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === perfil.id)
-  const repasos = (repasosIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === perfil.id)
-  const charlas = (conversacionesIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === perfil.id)
-  const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
+  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
+  const repasos = (repasosIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
+  const charlas = (conversacionesIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
+  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
 
   const dominadas = tarjetas.filter((x) => esDominada(x.caja)).length
 

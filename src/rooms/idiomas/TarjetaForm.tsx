@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { PerfilIdioma, TipoTarjeta } from '../../core/data/db'
-import { tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { VACIO, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { COLOR, NIVELES, TIPOS_TARJETA } from './constantes'
 import { OpcionesTemas } from './OpcionesTemas'
@@ -44,7 +44,7 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
   const [temaId, setTemaId] = useState(inicial.temaId ?? '')
   const [imagen, setImagen] = useState<Blob | undefined>(inicial.imagen)
 
-  const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
+  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
   const puedeGuardar = termino.trim() !== '' && traduccion.trim() !== ''
 
   const guardar = async () => {

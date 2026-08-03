@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { AreaAgenda } from '../../core/data/db'
-import {
+import { VACIO,
   contactosAgendaRepo,
   cuidadosMascotaRepo,
   eventosAgendaRepo,
@@ -29,12 +29,12 @@ export function AgendaApp() {
   const [tab, setTab] = useState<AreaAgenda>(() =>
     tabInicial('agenda', TABS.map((x) => x.id), 'trabajo'),
   )
-  const eventos = eventosAgendaRepo.useAll() ?? []
-  const contactos = contactosAgendaRepo.useAll() ?? []
-  const proyectos = proyectosAgendaRepo.useAll() ?? []
-  const medicinas = medicamentosRepo.useAll() ?? []
-  const mascotas = mascotasRepo.useAll() ?? []
-  const cuidados = cuidadosMascotaRepo.useAll() ?? []
+  const eventos = eventosAgendaRepo.useAll() ?? VACIO
+  const contactos = contactosAgendaRepo.useAll() ?? VACIO
+  const proyectos = proyectosAgendaRepo.useAll() ?? VACIO
+  const medicinas = medicamentosRepo.useAll() ?? VACIO
+  const mascotas = mascotasRepo.useAll() ?? VACIO
+  const cuidados = cuidadosMascotaRepo.useAll() ?? VACIO
 
   // El calendario puede mover, borrar o palomear los bloques sin saber que detrás
   // hay una agenda: al entrar se repara lo que se haya editado por fuera.

@@ -1,5 +1,5 @@
 import type { PerfilIdioma } from '../../core/data/db'
-import { conversacionesIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { VACIO, conversacionesIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
@@ -22,8 +22,8 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
   sesion: number
 }) {
   const t = useT()
-  const charlas = (conversacionesIdiomaRepo.useAll() ?? []).filter((c) => c.idiomaId === perfil.id)
-  const nodos = (temasIdiomaRepo.useAll() ?? []).filter((n) => n.idiomaId === perfil.id)
+  const charlas = (conversacionesIdiomaRepo.useAll() ?? VACIO).filter((c) => c.idiomaId === perfil.id)
+  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
   const lista = useAsistentes((s) => s.lista)
   const voz = asistenteDePlantilla(lista, 'idiomas') ?? semillaAsistente('idiomas')
 

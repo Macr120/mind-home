@@ -4,7 +4,7 @@ import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
-import { idiomasRepo } from '../../core/data/repository'
+import { VACIO, idiomasRepo } from '../../core/data/repository'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { COLOR } from './constantes'
 import { ejemploIdiomas } from './ejemplos'
@@ -30,7 +30,7 @@ const LS_IDIOMA = claveLS('mh.idiomaActivo')
 
 export function IdiomasApp() {
   const t = useT()
-  const idiomas = idiomasRepo.useAll() ?? []
+  const idiomas = idiomasRepo.useAll() ?? VACIO
   const [idiomaActivoId, setIdiomaActivoId] = useState<number | null>(() => {
     const v = localStorage.getItem(LS_IDIOMA)
     return v ? Number(v) : null

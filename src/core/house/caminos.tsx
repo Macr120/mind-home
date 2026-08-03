@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useThree } from '@react-three/fiber'
-import { caminosRepo } from '../data/repository'
+import { VACIO, caminosRepo } from '../data/repository'
 import { useCaminos, ALTURA_NIVEL } from '../state/caminosStore'
 import { usePistaLibreEditor } from '../state/pistaLibreStore'
 import { useLayout } from '../state/layoutStore'
@@ -503,7 +503,7 @@ function DiagonalPista({
 
 /** Caminos construidos en el mapa (siempre montado; reacciona a db.caminos). */
 export function Caminos3D() {
-  const filas = caminosRepo.useAll() ?? []
+  const filas = caminosRepo.useAll() ?? VACIO
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const mapa = useMemo(() => {
@@ -552,7 +552,7 @@ function CaminosControllerActivo() {
   const camera = useThree((s) => s.camera)
   const herramienta = useCaminos((s) => s.herramienta)
   const tipoSel = useCaminos((s) => s.tipo)
-  const filas = caminosRepo.useAll() ?? []
+  const filas = caminosRepo.useAll() ?? VACIO
   const mapaReal = useMemo(() => {
     const m = new Map<string, CaminoCelda>()
     for (const f of filas) m.set(`${f.col},${f.row}`, f)

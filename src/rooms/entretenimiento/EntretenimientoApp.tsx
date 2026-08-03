@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { mediaArchivoRepo } from '../../core/data/repository'
+import { VACIO, mediaArchivoRepo } from '../../core/data/repository'
 import { ArchivoTab } from './ArchivoTab'
 import { JuegosMesaTab } from './JuegosMesaTab'
 import { COLOR } from './constantes'
@@ -22,7 +22,7 @@ export function EntretenimientoApp() {
   // Se limpia al cambiar de pestaña a mano para no reabrir el juego.
   const [intencion, setIntencion] = useState(() => intencionApp('entretenimiento'))
   const [tab, setTab] = useState<Tab>(intencion?.seccion === 'archivo' ? 'archivo' : 'mesa')
-  const media = mediaArchivoRepo.useAll() ?? []
+  const media = mediaArchivoRepo.useAll() ?? VACIO
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">

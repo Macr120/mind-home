@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import type { Medicamento } from '../../core/data/db'
-import { mascotasRepo } from '../../core/data/repository'
+import { VACIO, mascotasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -31,7 +31,7 @@ export function FormMedicamento({
   onCerrar: () => void
 }) {
   const t = useT()
-  const mascotas = mascotasRepo.useAll() ?? []
+  const mascotas = mascotasRepo.useAll() ?? VACIO
   const [nombre, setNombre] = useState(inicial?.nombre ?? '')
   const [dosis, setDosis] = useState(inicial?.dosis ?? '')
   const [mascotaId, setMascotaId] = useState(inicial?.mascotaId ?? mascotaInicial ?? '')

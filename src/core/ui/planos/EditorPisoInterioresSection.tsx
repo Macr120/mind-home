@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { zonasRepo } from '../../data/repository'
+import { VACIO, zonasRepo } from '../../data/repository'
 import { PISO_SIN_PISO } from '../../house/pisos'
 import { conteoPisosInteriores } from '../../house/planoPisoSeleccion'
 import { EditorPisoMaterialForm } from '../editor/EditorPisoMaterialForm'
@@ -17,7 +17,7 @@ import {
 /** Personalización masiva de pisos interiores (cuartos del registro + zonas). */
 export function EditorPisoInterioresSection({ nivel }: { nivel: number }) {
   const t = useT()
-  const zonas = zonasRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
   const { nCuartos, nZonas, total } = useMemo(
     () => conteoPisosInteriores(nivel, zonas),
     [nivel, zonas],

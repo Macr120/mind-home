@@ -51,6 +51,11 @@ export function FormularioLugar({ lugar, inicial, onCerrar }: Props) {
     return () => {
       activo = false
     }
+    // Solo al montar, a propósito: es un prellenado inicial. Con `inicial`/`lugar`
+    // como dependencias se relanzaría la geocodificación al reabrir o reeditar y
+    // pisaría lo que el usuario ya hubiera escrito (los `setX((v) => v || …)`
+    // protegen del pisado, pero no de las llamadas de red de más).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const buscar = async () => {

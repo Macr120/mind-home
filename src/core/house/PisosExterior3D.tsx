@@ -7,7 +7,7 @@ import { useInteractUi } from '../state/interactUiStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { usePlanos } from '../state/planosStore'
 import { useDiseño } from '../state/disenoStore'
-import { pisosExteriorRepo } from '../data/repository'
+import { VACIO, pisosExteriorRepo } from '../data/repository'
 import { useCuartos } from '../state/cuartosStore'
 import { cellToWorld, nivelBaseY, subCeldasDeTile } from './walls'
 import { PisoCelda } from './PisoCelda'
@@ -36,7 +36,7 @@ export function PisosExterior3D() {
   useDiseño((s) => s.temaRev) // refresca el color del jardín al editar el tema en vivo
   const clearInteract = useInteractUi((s) => s.clear)
   const cuartos = useCuartos((s) => s.cuartos)
-  const pisos = pisosExteriorRepo.useAll() ?? []
+  const pisos = pisosExteriorRepo.useAll() ?? VACIO
 
   const onClickSuelo = useCallback(
     (e: ThreeEvent<MouseEvent>, col: number, row: number) => {

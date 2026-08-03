@@ -1,7 +1,7 @@
 import { Icono } from '../../core/ui/iconos/Icono'
 import { useState } from 'react'
 import type { ItinerarioGuardado } from '../../core/data/db'
-import { itinerariosGuardadosRepo } from '../../core/data/repository'
+import { VACIO, itinerariosGuardadosRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { BotonCompartir } from './BotonCompartir'
 import { tablaItinerario } from './itinerarioTexto'
@@ -106,7 +106,7 @@ function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
 /** Submenú "Itinerarios guardados": copias que el usuario archivó a mano, independientes del lugar de origen. */
 export function ItinerariosGuardadosTab() {
   const t = useT()
-  const guardados = itinerariosGuardadosRepo.useAll() ?? []
+  const guardados = itinerariosGuardadosRepo.useAll() ?? VACIO
 
   if (guardados.length === 0) {
     return (

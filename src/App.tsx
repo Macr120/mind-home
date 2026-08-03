@@ -118,7 +118,7 @@ export default function App() {
           setSidebarOpen(false)
         }
       }),
-    [],
+    [setSidebarOpen],
   )
 
   /**

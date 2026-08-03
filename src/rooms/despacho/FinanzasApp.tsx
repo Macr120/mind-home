@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { finanzasRepo } from '../../core/data/repository'
+import { VACIO, finanzasRepo } from '../../core/data/repository'
 import { BalanceTab } from './BalanceTab'
 import { MovimientosTab } from './MovimientosTab'
 import { MetasTab, type VistaMeta } from './MetasTab'
@@ -110,7 +110,7 @@ export function FinanzasApp() {
   const [subMercados, setSubMercados] = useState<SeccionMercado>(ini.mercados)
   const [periodo, setPeriodo] = useState<Periodo>('mes')
   const [ancla, setAncla] = useState(hoyISO())
-  const movimientos = finanzasRepo.useAll() ?? []
+  const movimientos = finanzasRepo.useAll() ?? VACIO
   const tipoBalance: 'gasto' | 'ingreso' = subBalance === 'ingresos' ? 'ingreso' : 'gasto'
 
   return (

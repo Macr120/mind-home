@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { cultivosRepo } from '../../core/data/repository'
+import { VACIO, cultivosRepo } from '../../core/data/repository'
 import { estadoCultivo } from '../../core/house/cultivos'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
 import { ejemploHuerto } from './ejemplos'
@@ -9,7 +9,7 @@ import { ejemploHuerto } from './ejemplos'
 /** Resumen 2D del Huerto: parcelas, cultivos por estado y cosechas acumuladas. */
 export function Resumen() {
   const t = useT()
-  const filas = cultivosRepo.useAll() ?? []
+  const filas = cultivosRepo.useAll() ?? VACIO
   // Tick de 30 s: los cultivos avanzan de etapa aunque no cambien los datos.
   const [ahora, setAhora] = useState(() => Date.now())
   useEffect(() => {

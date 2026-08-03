@@ -96,7 +96,7 @@ export function FollowCamera() {
     const cam = persp
     cam.aspect = size.width / Math.max(1, size.height)
     cam.updateProjectionMatrix()
-  }, [size])
+  }, [size, persp])
 
   // Arrastre para girar la cámara (clic derecho/dedo); rueda/pinch = zoom en 1ª y 3ª persona.
   useEffect(() => {

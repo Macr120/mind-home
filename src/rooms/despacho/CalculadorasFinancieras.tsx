@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { finanzasRepo, metasRepo } from '../../core/data/repository'
+import { VACIO, finanzasRepo, metasRepo } from '../../core/data/repository'
 import { hoyISO, money, money2, rangoPeriodo, totalEnRango } from './mes'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -32,7 +32,7 @@ const num = (s: string) => {
  * en vista "Mes"), para sugerir un punto de partida a cada calculadora.
  */
 function useResumenReal() {
-  const movimientos = finanzasRepo.useAll() ?? []
+  const movimientos = finanzasRepo.useAll() ?? VACIO
   const { desde, hasta } = rangoPeriodo(hoyISO(), 'mes')
   const ingresos = totalEnRango(movimientos, 'ingreso', desde, hasta)
   const gastos = totalEnRango(movimientos, 'gasto', desde, hasta)

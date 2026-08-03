@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { cultivosRepo } from '../data/repository'
+import { VACIO, cultivosRepo } from '../data/repository'
 import { useHuerto, cosecharParcela, type HerramientaHuerto } from '../state/huertoStore'
 import { useLayout } from '../state/layoutStore'
 import { useHouse, playerPos } from '../state/houseStore'
@@ -273,7 +273,7 @@ const RADIO_COSECHA = 2.0
  * sin editor ni transición): la cosecha va a la cesta igual que la herramienta.
  */
 export function HuertoProximity() {
-  const filas = cultivosRepo.useAll() ?? []
+  const filas = cultivosRepo.useAll() ?? VACIO
   const regadas = useMemo(() => celdasRegadas(filas), [filas])
   const frame = useRef(0)
   useFrame(() => {

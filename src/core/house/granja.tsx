@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { animalesRepo, corralesRepo } from '../data/repository'
+import { VACIO, animalesRepo, corralesRepo } from '../data/repository'
 import {
   useGranja,
   estaHambriento,
@@ -643,8 +643,8 @@ function AnimalVivo({
 
 /** Granja construida en el mapa (siempre montada; reacciona a db.corrales/animales). */
 export function Granja3D() {
-  const corrales = corralesRepo.useAll() ?? []
-  const filas = animalesRepo.useAll() ?? []
+  const corrales = corralesRepo.useAll() ?? VACIO
+  const filas = animalesRepo.useAll() ?? VACIO
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const activo = useGranja((s) => s.activo)
@@ -708,7 +708,7 @@ export function Granja3D() {
  */
 let accGranja = 0
 export function GranjaProximity() {
-  const corrales = corralesRepo.useAll() ?? []
+  const corrales = corralesRepo.useAll() ?? VACIO
   useFrame((_st3f, delta) => {
     // Sin corrales no hay nada que detectar; y el sondeo va a ~5 veces/s.
     if (corrales.length === 0) return

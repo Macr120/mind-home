@@ -1,7 +1,7 @@
 import { Icono } from '../../core/ui/iconos/Icono'
 import { useState } from 'react'
 import type { Hobby, ProyectoHobby, SesionHobby } from '../../core/data/db'
-import { proyectosHobbyRepo, rutinasRepo, sesionesHobbyRepo } from '../../core/data/repository'
+import { VACIO, proyectosHobbyRepo, rutinasRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { borrarMetasDeAmbito, esMeta } from '../../core/metas'
 import { Foto } from '../_shared/fotos'
@@ -21,7 +21,7 @@ export function Proyectos({
 }) {
   const t = useT()
   const [nombre, setNombre] = useState('')
-  const rutinas = rutinasRepo.useAll() ?? []
+  const rutinas = rutinasRepo.useAll() ?? VACIO
 
   const agregar = async (e: React.FormEvent) => {
     e.preventDefault()

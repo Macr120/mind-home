@@ -2,6 +2,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { useEffect, useMemo, useState } from 'react'
 import type { DiaItinerario, LugarViaje } from '../../core/data/db'
 import {
+  VACIO,
   diasItinerarioRepo,
   itinerariosGuardadosRepo,
   lugaresViajeRepo,
@@ -93,7 +94,7 @@ function FilaDia({ fila, onPresupuesto }: { fila: DiaItinerario; onPresupuesto: 
 export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
   const t = useT()
   const todasRaw = diasItinerarioRepo.useAll()
-  const todas = todasRaw ?? []
+  const todas = todasRaw ?? VACIO
   const filas = useMemo(
     () => todas.filter((f) => f.lugarId === lugar.id).sort((a, b) => a.dia - b.dia),
     [todas, lugar.id],

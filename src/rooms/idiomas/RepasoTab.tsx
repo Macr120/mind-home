@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { PerfilIdioma, TarjetaIdioma } from '../../core/data/db'
-import { registrarRepasoDia, tarjetasIdiomaRepo } from '../../core/data/repository'
+import { VACIO, registrarRepasoDia, tarjetasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { actividadId } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
@@ -23,7 +23,7 @@ interface Sesion {
 
 export function RepasoTab({ perfil }: { perfil: PerfilIdioma }) {
   const t = useT()
-  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? []).filter((x) => x.idiomaId === perfil.id)
+  const tarjetas = (tarjetasIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
   const [modo, setModo] = useState<'tarjetas' | 'ejercicios'>('tarjetas')
 
   const pill = (activo: boolean) =>

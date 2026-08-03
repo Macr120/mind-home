@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
+import { VACIO,
   rutinasRepo,
   sesionesEjercicioRepo,
   seriesFlexRepo,
@@ -39,9 +39,9 @@ export function EjercicioApp() {
 
   const perfilRaw = usePerfilEjercicio()
   const perfil = perfilEfectivo(perfilRaw)
-  const sesiones = sesionesEjercicioRepo.useAll() ?? []
-  const todasSeries = seriesFuerzaRepo.useAll() ?? []
-  const todasSeriesFlex = seriesFlexRepo.useAll() ?? []
+  const sesiones = sesionesEjercicioRepo.useAll() ?? VACIO
+  const todasSeries = seriesFuerzaRepo.useAll() ?? VACIO
+  const todasSeriesFlex = seriesFlexRepo.useAll() ?? VACIO
   // Lo agendado sale del calendario: las rutinas ya son bloques como los demás.
   const rutinas = rutinasRepo.useAll()
   const planDia = (tipo: 'fuerza' | 'resistencia' | 'flexibilidad') =>

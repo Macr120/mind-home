@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useT } from '../../i18n/useT'
-import { zonasRepo } from '../../data/repository'
+import { VACIO, zonasRepo } from '../../data/repository'
 import { useLayout } from '../../state/layoutStore'
 import {
   roomEdges,
@@ -31,7 +31,7 @@ export function ZonaWallEditor({
 }) {
   const t = useT()
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
-  const zonas = zonasRepo.useAll() ?? []
+  const zonas = zonasRepo.useAll() ?? VACIO
 
   const zona = zonas.find((z) => z.id === zonaId)
   const estadoActual = useMemo(() => {
