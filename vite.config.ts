@@ -16,19 +16,23 @@ export default defineConfig({
             // Solo fiber/drei: postprocessing debe seguir en su chunk lazy propio.
             { name: 'three', test: /node_modules[\\/](three|@react-three[\\/](fiber|drei))[\\/]/ },
             { name: 'supabase', test: /node_modules[\\/]@supabase[\\/]/ },
-            // Paneles del editor y de planos. El panel ya se monta con `lazy()`
-            // desde `EditorHud`, pero el chunk SIGUE precargándose al arrancar:
-            // basta un módulo del grupo en el grafo eager para que se descargue
-            // entero, y hay ayudantes hoja en estas carpetas que importa UI
-            // siempre presente — `SliderProp` (CarreraOverlay, EditorCanchas,
-            // MarcadorCancha, PaintballOverlay), `ColorPicker`, `EditorPiezas`
-            // (ObjetosCatalogo → RoomSideMenu), `LosetaFormaSvg`
-            // (ControlHerramienta), `usePreviewBlob` y los cuatro `plano*` de
-            // los controladores 3D.
-            // Excluirlos por regex NO funciona (probado: build byte-idéntico);
-            // para cobrar los ~630 KB gz hay que MOVER esos archivos fuera de
-            // `ui/editor`/`ui/planos`.
-            { name: 'editor', test: /src[\\/]core[\\/]ui[\\/](editor|planos)[\\/]/ },
+            // Aquí NO va un grupo para `ui/editor`/`ui/planos`. Lo tuvo, y era
+            // contraproducente: forzar esas carpetas a un chunk propio arrastraba
+            // dentro módulos COMPARTIDOS que el arranque sí necesita (se veía
+            // `layoutStore` exportándose desde él), así que el chunk entero
+            // acababa siendo import ESTÁTICO del entry y se precargaba siempre.
+            // Sus 609 KB gz parecían "del editor" pero en su mayoría eran código
+            // común. Sin el grupo, rolldown deja el panel en su chunk perezoso
+            // (`EditPanel-*`, por el `lazy()` de EditorHud, ~73 KB gz) y reparte
+            // lo compartido donde toca. Medido: 1 166,8 → 1 097,2 KB gz.
+            //
+            // El grupo `chat` SÍ conviene: quitarlo también sube a 1 105,5 KB y
+            // parte el arranque en 27 archivos.
+            //
+            // Regla al tocar esto: `advancedChunks` NO difiere nada, solo agrupa.
+            // Un grupo con un único módulo del grafo eager se descarga entero.
+            // Comprobar siempre con los `modulepreload` de `dist/index.html`, no
+            // con el tamaño del chunk.
             { name: 'chat', test: /src[\\/]core[\\/]chat[\\/]/ },
           ],
         },

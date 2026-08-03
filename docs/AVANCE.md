@@ -88,23 +88,29 @@ con contenido bilingüe generado por `npm run demo:texto`.
 
 Lo que está identificado y sin cerrar, por orden de impacto:
 
-1. **Arranque**: el chunk `editor` (630 KB gz) son imports estáticos y se descarga siempre,
-   aunque no se abra el editor. Diferirlo es la mayor ganancia pendiente.
-2. **49 warnings de lint**, todos `react-hooks/exhaustive-deps` y todos el mismo patrón: un
-   `?? []` en el cuerpo del componente usado como dependencia, que invalida el memo en cada
-   render. Se arregla con una constante vacía a nivel de módulo.
-3. **Migraciones con dos caminos vivos**: tabla `categoriasCardio` obsoleta pero aún leída;
-   alias `RoomModule` (usar `Plantilla`); API `setRoomPisoImagen` deprecada; tabla fantasma
-   `perfilUsuario`; y `actividadesCardio`, `juegosMesa`, `movimientosFijos` y `posiciones`
-   viajando por el sync sin que nadie las lea.
-4. **Duplicación con sitio natural en `src/rooms/_shared/`**: `BarraEjemplo` (agenda y despacho
+1. **Arranque: 1 097 KB gz** en 7 archivos, repartidos en `index` (415), `three` (333) y
+   `chat` (343). El siguiente candidato es el registro: los 21 `rooms/*/index.tsx` arrastran
+   de forma eager sus `tutorial.ts`, `ejemplos.ts` y `demo.ts` (~156 KB gz medidos aislando
+   el chunk `registry`), cuando solo hacen falta al abrir cada app.
+   **Cuidado con `advancedChunks`**: no difiere nada, solo agrupa. Un grupo con un único
+   módulo del grafo eager se descarga entero — así es como el grupo `editor` metía 609 KB gz
+   de código común en el arranque. Verificar por los `modulepreload` de `dist/index.html`,
+   nunca por el tamaño del chunk.
+2. **Duplicación con sitio natural en `src/rooms/_shared/`**: `BarraEjemplo` (agenda y despacho
    sin migrar al de `_shared/ejemplos/`), `sala/fotos.tsx`, `campana.ts`, `ids.ts`, helpers de
    fecha (`hoyISO` ×9, `sumarDias` ×7) y el heatmap anual ×3.
-5. **Contenido sin traducir**: la UI está al 99,97 %, pero los catálogos de datos
+3. **Contenido sin traducir**: la UI está al 99,97 %, pero los catálogos de datos
    (`biblioteca/pilares.ts`, `entretenimiento/juegos/preguntas.ts`…) se pintan en español
    crudo, `ComandoApp.etiqueta` no tiene clave i18n, y `web/cuenta` es solo español.
-6. **Geometrías sin `dispose()`** en `MuroRender.tsx` (5 creadas, ninguna liberada).
-7. **Bug conocido**: desactivar un hábito borra su histórico cumplido de las métricas
-   (`ui/calendario/metricas.ts:165`); el arreglo pide migrar la tabla.
-8. **`texto_largo` a 4 créditos** se calculó con 600 créditos/mes cuando ya eran 700: el peor
-   caso ($3,94) supera el techo de $3,50 (ver `COSTOS.md:327`).
+4. **`categoriasCardio`** no se puede borrar todavía: su lectura en el seed de Ejercicio es la
+   única migración de esos datos a `gruposCardio` y solo corre al sembrar ese cuarto.
+5. **Créditos**: el peor caso real de COGS es el `chat` con TOOLS_EDITOR (~$14/mes con 700
+   créditos), no `texto_largo`. Ver la corrección en `COSTOS.md`. Aplicados los límites de
+   entrada; pendiente medir el p95 de salida de `modelo3d` antes del 31-ago-2026, cuando
+   acaba el precio introductorio de Sonnet 5.
+
+**Cerrado en ago 2026**: los 49 warnings de lint (0 errores, 0 warnings), el histórico de
+hábitos pausados, el `dispose()` de las geometrías de `MuroRender`, el alias `RoomModule`, la
+tabla fantasma `perfilUsuario` (v107), `setRoomPisoImagen`, las cuatro tablas muertas que
+viajaban por el sync, las 7 claves foráneas que el sync no traducía y el panel de respaldo,
+que llevaba muerto desde la v64.
