@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule, EsquemaCaptura } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import { finanzasRepo } from '../../core/data/repository'
 import type { PeriodoMovimiento } from '../../core/data/db'
@@ -93,7 +93,7 @@ const esquemas: EsquemaCaptura[] = [
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const FinanzasApp = lazy(() => import('./FinanzasApp').then((m) => ({ default: m.FinanzasApp })))
 
-const despacho: RoomModule = {
+const despacho: Plantilla = {
   id: 'despacho',
   nombre: 'Finanzas · Despacho',
   icon: '💰',

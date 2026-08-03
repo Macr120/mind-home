@@ -31,7 +31,6 @@ export const TABLAS_SYNC: string[] = [
   'gratitudDiaria',
   'vehiculos',
   'registrosMantenimiento',
-  'juegosMesa',
   'disenoRooms',
   'disenoAvatar',
   'objetosCuarto',
@@ -59,7 +58,6 @@ export const TABLAS_SYNC: string[] = [
   'listasCompra',
   'dietasGuardadas',
   'rutinasFuerza',
-  'actividadesCardio',
   'rutinasFlex',
   'seriesFlex',
   'watchlist',
@@ -119,9 +117,16 @@ export const TABLAS_SYNC: string[] = [
   'cuidadosMascota',
   'tramitesVehiculo',
   'talleresVehiculo',
-  'movimientosFijos',
-  'posiciones',
 ]
+
+/**
+ * Fuera del sync desde ago 2026 por estar MUERTAS: se subían y bajaban del
+ * servidor sin que nadie las leyera. `actividadesCardio` la sustituyó
+ * `gruposCardio`; `juegosMesa` quedó huérfana al convertirse su pestaña en un
+ * catálogo de minijuegos; `movimientosFijos` y `posiciones` perdieron su repo
+ * (ver `repository.ts`) y sus datos migraron a `transacciones` en la v105.
+ * Las tablas se conservan en `db.ts` para no romper respaldos antiguos.
+ */
 
 const TABLAS_SYNC_SET = new Set(TABLAS_SYNC)
 

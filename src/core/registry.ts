@@ -213,8 +213,6 @@ export interface ComandoApp {
   nombres: string[]
 }
 
-/** @deprecated Usar `Plantilla`. Alias para no romper los módulos de src/rooms/. */
-export type RoomModule = Plantilla
 
 /** Catálogo de plantillas (las apps). Antes eran los "cuartos" cableados. */
 export const plantillas: Plantilla[] = [

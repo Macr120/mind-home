@@ -15,7 +15,7 @@ import { leerCalidadImagen, type CalidadImagen } from './calidadImagen'
  * declarar aquí.
  *
  * Cada cuarto declara las suyas en `src/rooms/<id>/costosIA.ts` y las expone en
- * su `RoomModule` (`operacionesIA`); lo que no vive en un cuarto está en
+ * su `Plantilla` (`operacionesIA`); lo que no vive en un cuarto está en
  * `catalogoNucleo.ts`.
  */
 

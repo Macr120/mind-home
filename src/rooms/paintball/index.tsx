@@ -1,10 +1,10 @@
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { Resumen } from './Resumen'
 import { usePaintball } from '../../core/state/paintballStore'
 import { flujosPaintball } from './tutorial'
 
 /** Plantilla de infraestructura: modo de juego sobre el mapa (no se asigna a cuartos). */
-const paintball: RoomModule = {
+const paintball: Plantilla = {
   id: 'paintball',
   nombre: 'Paintball',
   icon: '🥎',

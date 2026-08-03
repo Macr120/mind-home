@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { flujosGarage } from './tutorial'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
@@ -7,7 +7,7 @@ import { flujosGarage } from './tutorial'
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const GarageApp = lazy(() => import('./GarageApp').then((m) => ({ default: m.GarageApp })))
 
-const garage: RoomModule = {
+const garage: Plantilla = {
   id: 'garage',
   nombre: 'Garage · Mantenimiento',
   icon: '🔧',

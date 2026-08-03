@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule, EsquemaCaptura } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
@@ -79,7 +79,7 @@ const esquemas: EsquemaCaptura[] = [
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const HobbiesApp = lazy(() => import('./HobbiesApp').then((m) => ({ default: m.HobbiesApp })))
 
-const hobbies: RoomModule = {
+const hobbies: Plantilla = {
   id: 'hobbies',
   nombre: 'Hobbies',
   icon: '🎯',

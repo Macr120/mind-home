@@ -1,4 +1,4 @@
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { lazy } from 'react'
 import { esquemas } from './captura'
 import { COLOR } from './constantes'
@@ -19,7 +19,7 @@ import { flujosAgenda } from './tutorial'
 // el núcleo sin abrir el cuarto.
 const AgendaApp = lazy(() => import('./AgendaApp').then((m) => ({ default: m.AgendaApp })))
 
-const agenda: RoomModule = {
+const agenda: Plantilla = {
   id: 'agenda',
   nombre: 'Agenda · Trabajo, salud y personas',
   icon: '🗓️',

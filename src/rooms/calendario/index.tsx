@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { flujosCalendario } from './tutorial'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
@@ -7,7 +7,7 @@ import { flujosCalendario } from './tutorial'
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const CalendarioApp = lazy(() => import('./CalendarioApp').then((m) => ({ default: m.CalendarioApp })))
 
-const calendario: RoomModule = {
+const calendario: Plantilla = {
   id: 'calendario',
   nombre: 'Calendario',
   icon: '📅',

@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { useCaminos } from '../../core/state/caminosStore'
 import { flujosCaminos, tutorialCaminos } from './tutorial'
 
@@ -9,7 +9,7 @@ import { flujosCaminos, tutorialCaminos } from './tutorial'
 const Resumen = lazy(() => import('./Resumen').then((m) => ({ default: m.Resumen })))
 
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
-const caminos: RoomModule = {
+const caminos: Plantilla = {
   id: 'caminos',
   nombre: 'Circuitos',
   icon: '🛤️',

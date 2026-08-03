@@ -1,10 +1,10 @@
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { Resumen } from './Resumen'
 import { useHuerto } from '../../core/state/huertoStore'
 import { flujosHuerto, tutorialHuerto } from './tutorial'
 
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
-const huerto: RoomModule = {
+const huerto: Plantilla = {
   id: 'huerto',
   nombre: 'Comida',
   icon: '🥕',

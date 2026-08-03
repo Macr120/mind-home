@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { EsquemaCaptura, RoomModule } from '../../core/registry'
+import type { EsquemaCaptura, Plantilla } from '../../core/registry'
 import { vFecha, vNumero, vTexto } from '../../core/registry'
 import {
   idiomasRepo,
@@ -127,7 +127,7 @@ const esquemas: EsquemaCaptura[] = [
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const IdiomasApp = lazy(() => import('./IdiomasApp').then((m) => ({ default: m.IdiomasApp })))
 
-const idiomas: RoomModule = {
+const idiomas: Plantilla = {
   id: 'idiomas',
   nombre: 'Idiomas',
   icon: '🌐',

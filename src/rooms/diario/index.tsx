@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { lecturasDiarioRepo } from '../../core/data/repository'
 import { flujosDiario } from './tutorial'
 import { COLOR } from './constantes'
@@ -10,7 +10,7 @@ import { OPERACIONES_IA } from './costosIA'
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const DiarioApp = lazy(() => import('./DiarioApp').then((m) => ({ default: m.DiarioApp })))
 
-const diario: RoomModule = {
+const diario: Plantilla = {
   id: 'diario',
   nombre: 'Noticias · Periódico',
   icon: '📰',

@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule, EsquemaCaptura } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha, vLista } from '../../core/registry'
 import type { MomentoComida } from '../../core/data/db'
 import {
@@ -296,7 +296,7 @@ const esquemas: EsquemaCaptura[] = [
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const CocinaApp = lazy(() => import('./CocinaApp').then((m) => ({ default: m.CocinaApp })))
 
-const cocina: RoomModule = {
+const cocina: Plantilla = {
   id: 'cocina',
   nombre: 'Cocina · Nutrición',
   icon: '🍳',

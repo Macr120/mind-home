@@ -28,6 +28,33 @@ const redondear15 = (hhmm: string) => aHHMM(Math.round(aMin(hhmm) / 15) * 15)
  * desde el botón ⏰ del RelojWidget; el calendario completo es `Calendario`.
  * También dispara los recordatorios (el asistente anuncia a la hora).
  */
+/**
+ * Pausar/reanudar un hábito, sin borrarle el pasado.
+ *
+ * Antes esto solo alternaba `activa`, y `tocaFecha` corta en seco con ella: una
+ * rutina apagada dejaba de "tocar" en TODAS las fechas, así que sus días
+ * cumplidos desaparecían también del histórico de cumplimiento. Ahora la pausa
+ * además cierra la serie con `fechaFin` —campo que ya existía y que el cálculo
+ * respeta—, de modo que el pasado se conserva y solo deja de contar de hoy en
+ * adelante.
+ *
+ * No se tocan los finales que puso el usuario: solo se acota una serie abierta
+ * (o que aún no ha terminado), y al reanudar solo se limpia el `fechaFin` que
+ * ya quedó atrás, que es el que puso la pausa.
+ *
+ * Limitación asumida: los días en pausa cuentan como fallados si luego se
+ * reanuda. Recuperarlos pediría volcarlos en `excepciones`.
+ */
+function cambioPausa(r: Rutina): Partial<Rutina> {
+  const hoy = hoyISO()
+  if (r.activa) {
+    return !r.fechaFin || r.fechaFin > hoy
+      ? { activa: false, fechaFin: hoy }
+      : { activa: false }
+  }
+  return r.fechaFin && r.fechaFin <= hoy ? { activa: true, fechaFin: undefined } : { activa: true }
+}
+
 export function RutinasPanel() {
   const t = useT()
   const abierto = useRutinasUI((s) => s.panel)
@@ -108,7 +135,7 @@ export function RutinasPanel() {
                       </div>
                       <button
                         type="button"
-                        onClick={() => r.id != null && rutinasRepo.update(r.id, { activa: !r.activa })}
+                        onClick={() => r.id != null && rutinasRepo.update(r.id, cambioPausa(r))}
                         className={`rounded px-1.5 py-0.5 text-[10px] font-bold transition ${
                           r.activa ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white/40'
                         }`}

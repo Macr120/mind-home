@@ -1,5 +1,5 @@
 import type { EjecucionRutina, Rutina } from '../../data/db'
-import { fechaISO, tocaFecha } from '../../rutinas'
+import { fechaISO, tocaFechaHistorico } from '../../rutinas'
 import { esMeta, progresoPasos } from '../../metas'
 import { deIso, fechaLocalISO, inicioSemana } from '../../fechaLocal'
 import type { TFunc } from '../../i18n/useT'
@@ -162,9 +162,16 @@ export function colorPct(pct: number): string {
  * Los días que aún no llegan NO cuentan: un diciembre al 0 % en julio no dice que
  * fallaras, dice que no ha pasado. Hoy sí entra — todavía se puede cumplir.
  *
- * Limitación conocida: `tocaFecha` devuelve false para las rutinas desactivadas
- * en TODAS las fechas, así que apagar un hábito también borra su pasado cumplido.
- * Arreglarlo pediría guardar cuándo se desactivó, o sea migrar la tabla.
+ * El histórico usa `tocaFechaHistorico`, no `tocaFecha`: `activa` responde al
+ * presente («¿lo sigo haciendo?») y no debe borrar el pasado. Quien recorta el
+ * pasado es `fechaFin`, que la pausa fija en el día en que se apagó el hábito
+ * (`cambioPausa`, en RutinasPanel). Antes, apagar un hábito hacía desaparecer
+ * también sus días cumplidos de estas gráficas.
+ *
+ * Limitación asumida: los hábitos pausados ANTES de ago 2026 no tienen ese
+ * `fechaFin` —el dato nunca se guardó—, así que su serie sigue contando hasta
+ * hoy. Y si se reanuda una pausa, los días parados cuentan como fallados:
+ * recuperarlos pediría volcarlos en `excepciones`.
  */
 export function metricasRango(
   rutinas: Rutina[],
@@ -185,7 +192,7 @@ export function metricasRango(
       const celda: Celda = { tocan: 0, hechas: 0, futuras: 0 }
       for (const iso of columnas[c].isos) {
         if (iso < nace) continue
-        if (!tocaFecha(r, deIso(iso))) continue
+        if (!tocaFechaHistorico(r, deIso(iso))) continue
         if (iso > hoy) {
           celda.futuras++
           continue

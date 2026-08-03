@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule, EsquemaCaptura } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import {
   sesionesMindfulnessRepo,
@@ -125,7 +125,7 @@ const esquemas: EsquemaCaptura[] = [
   },
 ]
 
-const jardin: RoomModule = {
+const jardin: Plantilla = {
   id: 'jardin',
   nombre: 'Mindfulness · Jardín',
   icon: '🧘',

@@ -116,7 +116,14 @@ export async function sembrarEjercicio() {
  * coincide. Si no hay nada previo, se siembra el catálogo completo.
  */
 async function sembrarGruposCardio() {
-  const previas = await db.categoriasCardio.toArray()
+  // `categoriasCardio` está retirada (fuera del sync desde ago 2026) pero la tabla
+  // NO se puede borrar todavía: esta es la única migración de sus datos a
+  // `gruposCardio` y solo corre al sembrar el cuarto de Ejercicio. Quien nunca lo
+  // haya abierto conserva ahí sus categorías. Se lee de forma defensiva para que
+  // el día que se retire del esquema esto no reviente (Dexie no crea propiedad
+  // para las tablas borradas, y `undefined.toArray()` tumbaría la siembra).
+  const existeTablaVieja = db.tables.some((t) => t.name === 'categoriasCardio')
+  const previas = existeTablaVieja ? await db.categoriasCardio.toArray() : []
   if (previas.length === 0) {
     await gruposCardioRepo.bulkAdd(
       filasSeed(

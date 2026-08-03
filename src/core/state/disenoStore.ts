@@ -292,8 +292,6 @@ interface DisenoState {
   eliminarRoomPisoImagen: (roomId: string) => Promise<void>
   /** Cambia el modo de ajuste/repetición de la imagen de piso. */
   setRoomPisoImagenAjuste: (roomId: string, ajuste: string) => Promise<void>
-  /** @deprecated Usar subirRoomPisoImagen / eliminarRoomPisoImagen */
-  setRoomPisoImagen: (roomId: string, dataUrl: string | null) => void
   resetRoomPiso: (roomId: string) => Promise<void>
   /** Fija el material del piso EXTERIOR de las celdas con forma (null = color sólido). */
   setRoomPisoExtTipo: (roomId: string, tipo: PisoTipoId | null) => Promise<void>
@@ -1590,21 +1588,6 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     set((s) => ({ roomPisoImagenAjuste: { ...s.roomPisoImagenAjuste, [roomId]: ajuste } }))
     const row = await db.pisosImagenCuarto.where('roomId').equals(roomId).first()
     if (row?.id) await db.pisosImagenCuarto.update(row.id, { ajuste })
-  },
-
-  // Mantener compatibilidad con código existente (el editor ya usa subirRoomPisoImagen)
-  setRoomPisoImagen: (roomId, dataUrl) => {
-    set((s) => {
-      const imgs = { ...s.roomPisoImagenes }
-      const activa = { ...s.roomPisoImagenActiva }
-      if (dataUrl) {
-        imgs[roomId] = dataUrl
-        activa[roomId] = true
-        return { roomPisoImagenes: imgs, roomPisoImagenActiva: activa, roomPisoTipos: { ...s.roomPisoTipos, [roomId]: null } }
-      }
-      delete imgs[roomId]; delete activa[roomId]
-      return { roomPisoImagenes: imgs, roomPisoImagenActiva: activa }
-    })
   },
 
   setRoomTechoTipo: async (roomId, tipo) => {

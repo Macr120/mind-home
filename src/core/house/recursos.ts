@@ -13,7 +13,7 @@ type NivelDetalle = 'bajo' | 'medio' | 'alto'
 export interface RecursoCuarto {
   /** ID del catálogo original. */
   id: number
-  /** roomId del proyecto (coincide con RoomModule.id). */
+  /** roomId del proyecto (coincide con Plantilla.id). */
   cuarto: string
   nombre: string
   categoria: string

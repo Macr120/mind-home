@@ -109,7 +109,20 @@ export const actividadId = (tipo: TipoActividad, id: string | number): string =>
 export const buscarAgenda = (rutinas: Rutina[] | undefined, id: string): Rutina | undefined =>
   rutinas?.find((r) => r.actividadId === id)
 
-/** ¿La rutina corresponde a esa fecha? */
+/**
+ * ¿La rutina corresponde a esa fecha, IGNORANDO si está pausada ahora mismo?
+ *
+ * Es la pregunta que necesita el histórico: `activa` es un estado del presente
+ * («¿la sigo haciendo?»), no del pasado. `tocaFecha` corta con ella antes que
+ * nada, así que al pausar un hábito su pasado cumplido desaparecía de las
+ * métricas de cumplimiento. Aquí el recorte del pasado lo hace `fechaFin`, que
+ * la pausa fija en el día en que se apagó (ver `cambioPausa` en RutinasPanel).
+ */
+export function tocaFechaHistorico(r: Rutina, d: Date): boolean {
+  return tocaFecha(r.activa ? r : { ...r, activa: true }, d)
+}
+
+/** ¿La rutina corresponde a esa fecha? (para el presente: las pausadas no tocan) */
 export function tocaFecha(r: Rutina, d: Date): boolean {
   if (!r.activa) return false
   // Rutina suelta: no aparece en ningún día.

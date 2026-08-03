@@ -968,7 +968,7 @@ export interface TallerVehiculo {
 /** Personalización visual de un cuarto. */
 export interface DisenoRoom {
   id?: number
-  roomId: string  // coincide con RoomModule.id
+  roomId: string  // coincide con Plantilla.id
   color: string   // hex
   nombre?: string // nombre personalizado (vacío = usar el default)
   muebleColor?: string // color del mueble principal (vacío = default)
@@ -3771,6 +3771,12 @@ class MindHomeDB extends Dexie {
           c.limpiadoEn = ahora
         })
     })
+
+    // `perfilUsuario` era una tabla fantasma: seguía en el esquema de IndexedDB
+    // pero no estaba declarada en la clase, no tenía repo y nadie la leía ni
+    // escribía desde la v12. Lo único que hacía era colarse vacía en cada
+    // respaldo (`exportarRespaldo` recorre `db.tables`).
+    this.version(107).stores({ perfilUsuario: null })
   }
 }
 

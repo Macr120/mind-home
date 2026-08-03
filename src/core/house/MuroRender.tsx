@@ -1,4 +1,4 @@
-import { memo, Suspense, useMemo, type ReactElement, type ReactNode } from 'react'
+import { memo, Suspense, useEffect, useMemo, type ReactElement, type ReactNode } from 'react'
 import { useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial } from '@react-three/drei'
 import { DoubleSide, ExtrudeGeometry, Path, RepeatWrapping, Shape, ShapeGeometry, SRGBColorSpace, TextureLoader, type Texture } from 'three'
@@ -64,6 +64,9 @@ function LunaVano({
     s.closePath()
     return new ShapeGeometry(s)
   }, [forma, ww, wh, bw])
+  // Las geometrías fabricadas a mano no las libera R3F: al cambiar la forma de
+  // un muro en el editor, la anterior quedaba huérfana en la GPU.
+  useEffect(() => () => triGeo?.dispose(), [triGeo])
   if (forma === 'circulo') {
     return (
       <mesh position={[0, 0, z]} scale={[ww * 0.92, wh * 0.92, 1]}>
@@ -596,6 +599,7 @@ function ArcoCircular({
     g.translate(0, 0, -grosor / 2)
     return g
   }, [largo, extraH, grosor])
+  useEffect(() => () => geo?.dispose(), [geo])
   if (!geo) return null
   return (
     <mesh
@@ -651,6 +655,7 @@ function TrianguloPico({
     g.translate(0, 0, -grosor / 2)
     return g
   }, [anchoBase, extraH, posX, grosor])
+  useEffect(() => () => geo?.dispose(), [geo])
   if (!geo) return null
   return (
     <mesh
@@ -875,6 +880,7 @@ export const MuroSegment = memo(function MuroSegment({
       : null
     return { geo, puertaRect }
   }, [esVentana, esHeader, imagen, ventContenido, largo, h, grosor, ventAncho, ventAlto, ventPosY, ventPosX, ventRot, ventForma, huecoSinCristal, vanoForma, vanoFormaAlto, vanoFormaAncho, vanoFormaPosX])
+  useEffect(() => () => huecoInfo?.geo.dispose(), [huecoInfo])
   const huecoGeo = huecoInfo?.geo ?? null
   const huecoPuerta = huecoInfo?.puertaRect ?? null
 
@@ -897,6 +903,7 @@ export const MuroSegment = memo(function MuroSegment({
     geo.translate(0, 0, -grosor / 2)
     return geo
   }, [esHeader, vanoForma, vanoFormaAlto, vanoFormaAncho, vanoFormaPosX, h, largo, grosor])
+  useEffect(() => () => headerGeo?.dispose(), [headerGeo])
   // Arco y triángulo igualan por defecto el alto del techo; las esquinas, más bajas.
   const extraH = WALL_H * (formaAlto ?? (forma === 'esquinas' ? 0.4 : FORMA_ALTO_TECHO))
   // "Dos cuerpos": la forma lleva su propio color (sin la textura del muro).

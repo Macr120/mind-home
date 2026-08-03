@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule, EsquemaCaptura, ComandoApp } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura, ComandoApp } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import { mediaArchivoRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
@@ -124,7 +124,7 @@ const EntretenimientoApp = lazy(() =>
   import('./EntretenimientoApp').then((m) => ({ default: m.EntretenimientoApp })),
 )
 
-const entretenimiento: RoomModule = {
+const entretenimiento: Plantilla = {
   id: 'entretenimiento',
   nombre: 'Entretenimiento',
   icon: '🎮',

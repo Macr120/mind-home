@@ -1,4 +1,4 @@
-import type { RoomModule } from '../../core/registry'
+import type { Plantilla } from '../../core/registry'
 import { lazy } from 'react'
 import { COLOR } from './constantes'
 import { flujosIdeas } from './tutorial'
@@ -9,7 +9,7 @@ import { OPERACIONES_IA } from './costosIA'
 // el núcleo sin abrir el cuarto.
 const IdeasApp = lazy(() => import('./IdeasApp').then((m) => ({ default: m.IdeasApp })))
 
-const ideas: RoomModule = {
+const ideas: Plantilla = {
   id: 'ideas',
   nombre: 'Ideas · Diario, mapas y diagramas',
   icon: '💡',

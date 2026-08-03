@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import type { RoomModule, EsquemaCaptura, RutinaSugerible } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura, RutinaSugerible } from '../../core/registry'
 import { vTexto, vNumero, vFecha } from '../../core/registry'
 import {
   rutinasCardioRepo,
@@ -130,7 +130,7 @@ const esquemas: EsquemaCaptura[] = [
 // metaDiaria) sí es eager: lo usa el núcleo sin abrir el cuarto.
 const EjercicioApp = lazy(() => import('./EjercicioApp').then((m) => ({ default: m.EjercicioApp })))
 
-const ejercicio: RoomModule = {
+const ejercicio: Plantilla = {
   id: 'ejercicio',
   nombre: 'Ejercicio · Rutinas',
   icon: '💪',
