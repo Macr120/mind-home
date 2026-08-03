@@ -60,7 +60,7 @@ import { TrenProximity } from './tren'
 import { MinijuegosCanchas } from './minijuegos'
 import { useCanchas, esCancha, escalaCancha } from '../state/canchasStore'
 import { NavControls } from '../ui/NavControls'
-import { EditPanel, SalirCuartoFlotante } from '../ui/EditPanel'
+import { EditorMontaje, SalirCuartoFlotante } from '../ui/EditorHud'
 import { InteractAnchor } from './InteractAnchor'
 import { EtiquetasMapaProjector } from './etiquetasMapa'
 import { ZonaTutProjector } from './ZonaTutProjector'
@@ -469,7 +469,7 @@ export function House() {
         </div>
       </div>
       <NavControls />
-      <EditPanel />
+      <EditorMontaje />
       <SalirCuartoFlotante />
     </>
   )

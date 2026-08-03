@@ -16,11 +16,18 @@ export default defineConfig({
             // Solo fiber/drei: postprocessing debe seguir en su chunk lazy propio.
             { name: 'three', test: /node_modules[\\/](three|@react-three[\\/](fiber|drei))[\\/]/ },
             { name: 'supabase', test: /node_modules[\\/]@supabase[\\/]/ },
-            // Zonas grandes de src/ que la mayoría de las sesiones no abre
-            // (paneles del editor/planos y chat). Son imports estáticos, así
-            // que siguen descargándose al arrancar: el grupo no recorta el
-            // payload inicial, pero aísla sus bytes para que un cambio ahí no
-            // invalide la caché del chunk principal entre versiones.
+            // Paneles del editor y de planos. El panel ya se monta con `lazy()`
+            // desde `EditorHud`, pero el chunk SIGUE precargándose al arrancar:
+            // basta un módulo del grupo en el grafo eager para que se descargue
+            // entero, y hay ayudantes hoja en estas carpetas que importa UI
+            // siempre presente — `SliderProp` (CarreraOverlay, EditorCanchas,
+            // MarcadorCancha, PaintballOverlay), `ColorPicker`, `EditorPiezas`
+            // (ObjetosCatalogo → RoomSideMenu), `LosetaFormaSvg`
+            // (ControlHerramienta), `usePreviewBlob` y los cuatro `plano*` de
+            // los controladores 3D.
+            // Excluirlos por regex NO funciona (probado: build byte-idéntico);
+            // para cobrar los ~630 KB gz hay que MOVER esos archivos fuera de
+            // `ui/editor`/`ui/planos`.
             { name: 'editor', test: /src[\\/]core[\\/]ui[\\/](editor|planos)[\\/]/ },
             { name: 'chat', test: /src[\\/]core[\\/]chat[\\/]/ },
           ],
