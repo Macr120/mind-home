@@ -31,9 +31,9 @@ export async function construirPista(cols: number, rows: number): Promise<void> 
     })
   }
 
-  // Infield y paddock de cemento.
+  // Infield de cemento. El paddock se queda en el césped de fondo: una columna
+  // gris más solo apagaba el circuito.
   await aplicarPisoExteriorCeldas(0, celdasRect(u.c0 + 2, u.r0 + 1, u.c1 - 1, u.r1 - 1), 'cemento', '#9aa3ad')
-  await aplicarPisoExteriorCeldas(0, celdasRect(u.c0, u.r0, u.c0, u.r1), 'cemento', '#8b949e')
 
   // Gradas improvisadas: faroles del circuito.
   for (const { col, row } of [

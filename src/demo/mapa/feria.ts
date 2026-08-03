@@ -39,9 +39,8 @@ export async function construirFeria(cols: number, rows: number): Promise<void> 
     await caminosRepo.add({ col: u.c0 + c.dc, row: u.r0 + c.dr, tipo: 'coaster', altura: c.altura })
   }
 
-  // Explanada de la feria: estación al este y paseo de juegos al sur.
-  await aplicarPisoExteriorCeldas(0, celdasRect(u.c0 + 4, u.r0, u.c0 + 4, u.r0 + 2), 'adoquin', '#b3aca0')
-  await aplicarPisoExteriorCeldas(0, celdasRect(u.c0, u.r0 + 4, u.c0 + 4, u.r0 + 4), 'adoquin', '#b3aca0')
+  // La feria es de campo: la estación y el paseo de juegos se quedan sobre el
+  // césped de fondo, y el único piso propio es la tierra de la montaña rusa.
   // Tierra pisada bajo la estructura de la montaña rusa.
   await aplicarPisoExteriorCeldas(0, celdasRect(u.c0 + 1, u.r0 + 1, u.c0 + 2, u.r0 + 2), 'arena', '#c9b489')
 

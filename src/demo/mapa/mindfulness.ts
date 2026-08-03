@@ -12,7 +12,6 @@
  * literalmente sobre el punto de aparición y atrapaba al personaje (bug real,
  * verificado). Por eso el jardín empieza en la fila 7, no en la 6.
  */
-import { aplicarPisoExteriorCeldas } from '../../core/data/repository'
 import { asignarPlantillaACuarto } from '../../core/gamificacion/plantillaBundle'
 import { getPlantilla } from '../../core/registry'
 import { useCuartos } from '../../core/state/cuartosStore'
@@ -73,19 +72,8 @@ export async function construirMindfulness(cols: number, rows: number): Promise<
   await D().setRoomPisoTipo(albercaId, 'mosaico')
   await D().setRoomPisoColor(albercaId, '#7dd3fc')
 
-  // ── Deck a los flancos de la alberca (el jardín, sin muros, ya cubre su
-  // propio piso al norte — no hace falta franja de deck entre ambos) ───────
-  await aplicarPisoExteriorCeldas(
-    0,
-    [
-      { col: jc - 1, row: jr + 2 },
-      { col: jc + 2, row: jr + 2 },
-      { col: jc - 1, row: jr + 3 },
-      { col: jc + 2, row: jr + 3 },
-    ],
-    'adoquin',
-    '#b3aca0',
-  )
+  // Los flancos de la alberca se quedan en césped: el deck de adoquín metía
+  // gris en el único rincón del mapa que se quiere todo verde.
 
   // ── Detalles: fuente, faroles y vegetación ───────────────────────────────
   const fuente = await D().addObjeto(MAPA_ROOM, 'fuente', '#9aa6b2', undefined, mundo(u.c0 + 4, u.r0 + 1))
@@ -123,7 +111,7 @@ export async function construirMindfulness(cols: number, rows: number): Promise<
     await D().setObjetoEscala(id, escala)
     await D().setObjetoRotacion(id, giro)
   }
-  // Flores junto a la fuente y jardineras en el filo del deck (posiciones
+  // Flores junto a la fuente y jardineras al borde de la alberca (posiciones
   // fraccionarias: no ocupan celda propia).
   await D().addObjeto(MAPA_ROOM, 'recurso:99', '#f472b6', undefined, mundo(u.c0 + 3.6, u.r0 + 1))
   await D().addObjeto(MAPA_ROOM, 'recurso:101', '#ec4899', undefined, mundo(u.c0 + 4, u.r0 + 1.5))

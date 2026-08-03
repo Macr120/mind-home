@@ -144,13 +144,10 @@ export async function construirCasa({
   // ── Grafiti del maratón en el muro sur del garage (esquina recta) ────────
   await db.grafitis.add({ superficie: `cuarto:${ids.garage}:0,0,S:S`, imagen: await pngGrafiti() })
 
-  // ── Patio: andador, cochera y jardín delantero ───────────────────────────
-  await aplicarPisoExteriorCeldas(
-    0,
-    [...celdasRect(4, 1, 4, 4), ...celdasRect(1, 4, 3, 4)],
-    'adoquin',
-    '#b3aca0',
-  )
+  // ── Suelo de la casa: entarimado de parquet en TODO el bloque, bajo los
+  // cuartos y el patio. Sin césped a la vista: la casa se apoya en su propia
+  // plataforma de madera y se despega del verde del resto del mapa. ─────────
+  await aplicarPisoExteriorCeldas(0, celdasRect(1, 1, 4, 4), 'parquet', '#9c6030')
   const enCelda = async (col: number, row: number, tipo: string, color: string) => {
     const { x, z } = mundo(col, row)
     return await D().addObjeto(MAPA_ROOM, tipo, color, undefined, { x, z })
