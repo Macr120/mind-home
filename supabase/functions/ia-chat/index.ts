@@ -76,12 +76,23 @@ const OP_POR_DEFECTO = 'chat'
  * Límites de ENTRADA. La tarifa por op solo acota la SALIDA (max_tokens); la
  * entrada la paga la clave del servidor, así que sin estos topes un cliente
  * con 1 crédito podía mandar un contexto gigante y costar mucho más de lo
- * cobrado. Holgados para el uso real (el chat manda ~12 mensajes + system).
+ * cobrado.
+ *
+ * Son la ÚNICA palanca que hace estructural el techo de COGS: la tarifa por
+ * crédito no lo cierra por sí sola. Con los valores anteriores (30 × 20 000 +
+ * system de 40 000) cabían ~160 000 tokens —unos $0.16 en Haiku— en una llamada
+ * que cobra 1 crédito ($0.005). Estos lo dejan en ~60 000 (~$0.06).
+ *
+ * Medido sobre los llamadores reales antes de apretar: el chat de la casa manda
+ * 12 mensajes (`ChatBox.tsx`) y su system ronda los 4 500 chars; las charlas de
+ * Biblioteca e Idiomas mandan `historial.slice(-20)`, así que `mensajes` va a 24
+ * y no a 20 — dejarlo justo en el máximo de un llamador real no deja margen para
+ * que nadie amplíe esa ventana sin romper producción.
  */
 const LIMITES = {
-  system: 40_000, // chars (~10k tokens)
-  mensajes: 30,
-  texto: 20_000, // chars por mensaje
+  system: 24_000, // chars (~6k tokens); el real más gordo son ~4.5k
+  mensajes: 24, // las charlas de biblioteca/idiomas mandan 20
+  texto: 10_000, // chars por mensaje (~2.5k tokens): cabe pegar un texto largo
   tools: 80, // TOOLS_EDITOR son ~56
   imagenB64: 3_000_000, // ~2.2 MB reales; el cliente comprime a 1280px JPEG
 } as const

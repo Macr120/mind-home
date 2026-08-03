@@ -64,7 +64,7 @@ antes de pedir: `src/core/cuenta/costos.ts`. Topes de `max_tokens`: `TOPES` en
 
 | `op` | Tope salida | Créditos | Costo real | Dónde se usa |
 |---|---|---|---|---|
-| `chat` | 4096 | **1** | $0.004–0.013 (cacheado: $0.0024) | Chat de la casa, con y sin `TOOLS_EDITOR`; latidos |
+| `chat` | 2048 | **1** | $0.004–0.020 | Chat de la casa, con y sin `TOOLS_EDITOR`; latidos |
 | `texto` | 1500 | **1** | $0.0017–0.006 | Recetas, dietas, macros, sabio, tutor, charlas, resúmenes, expandir nodo |
 | `vision` | 1500 | **1** | ~$0.0026 | `analizarImagenIA` (evidencia de descanso) |
 | `texto_largo` | 4096 | **4** | $0.004–0.023 (medido) | Planes IA de metas, mapas conceptuales, tarjetas SRS, efemérides, programas |
@@ -259,7 +259,7 @@ Titulares y fotos vienen de El País y Wikipedia, sin coste.
 
 ### Cuartos sin IA propia
 
-Sala (viajes), Hobbies y Despacho solo tienen el **Plan ✨** (3 créditos).
+Sala (viajes), Hobbies y Despacho solo tienen el **Plan ✨** (4 créditos, `texto_largo`).
 Agenda, Garage, Jardín, Calendario y Anecdotario no gastan nada: su única IA es
 el chat de la casa capturando datos, que se cobra como un mensaje normal.
 
@@ -324,10 +324,49 @@ Con la imagen a 3 créditos, quien gaste todo en imágenes cuesta $1.17, así qu
 techo real lo marca `modelo3d` (70 × $0.049 = $3.43). `texto_largo` era el único
 que se pasaba (233 planes × $0.0225 = $5.24); con la tarifa a 4 quedó contenido.
 **Decisión ago 2026: `creditos_mes = 700`** (contrapartida del precio a $4.99).
-Con 700, el peor caso teórico de `texto_largo` es 175 × $0.0225 = **$3.94**, por
-encima del techo de $3.50 — riesgo ACEPTADO y vigilado: es un abuso puro (700
-créditos gastados solo en planes IA), se detecta en `uso_ia_ops` el primer mes, y
-la palanca lista es subir `texto_largo` a 5 o partir la op — ver Riesgos.
+
+> ### ⚠️ Corrección (auditoría ago 2026): el techo nunca estuvo sellado
+>
+> Lo de arriba da por hecho que `texto_largo` marca el peor caso ($3.94 con 700
+> créditos). **Es falso, y también lo era con 600.** Ordenando las ops por
+> $/crédito en su peor caso real, `texto_largo` es de las MENOS expuestas: la
+> migración `20260802000003` parcheó la op equivocada, y además razonó sobre 600
+> créditos cuando `20260802000001` ya los había subido a 700.
+>
+> | Peor caso, 700 créditos en una sola op | $/crédito | COGS |
+> |---|---|---|
+> | `chat` con TOOLS_EDITOR, sin caché, salida al tope | $0.0202 | **$14.17** |
+> | `chat` con las tools cacheadas | $0.0153 | $10.71 |
+> | `modelo3d` al tope de 8 192 | $0.0127 | $8.86 |
+> | `vision` al tope | $0.0113 | $7.91 |
+> | `texto` (charla larga) al tope | $0.0111 | $7.77 |
+> | `texto_largo` al tope | $0.0061 | $4.29 |
+> | `texto_largo` medido (el caso del comentario viejo) | $0.0056 | $3.94 |
+>
+> Ojo también con el «cacheado: $0.0024» que se atribuía al chat: el mínimo
+> cacheable de Haiku 4.5 son 4 096 tokens y el payload típico sin intención de
+> editor se queda por debajo, así que el breakpoint es no-op y **no hay descuento
+> en el caso común**. Solo el prefijo con `TOOLS_EDITOR` (~5 500 tokens) lo supera.
+>
+> **La causa raíz no es la tarifa, es la entrada.** El crédito solo pone precio a
+> la SALIDA; la entrada la acotan los `LIMITES` de `ia-chat/index.ts`, que permitían
+> ~160 000 tokens (~$0.16 en Haiku) en una llamada de 1 crédito. Ninguna tabla de
+> precios cierra el techo mientras eso siga abierto.
+>
+> **Medida aplicada (ago 2026)**: `LIMITES` endurecidos a 24 mensajes × 10 000
+> chars + system de 24 000 → ~60 000 tokens (~$0.06) por llamada, sin tocar
+> precios ni devaluar los créditos ya comprados. Verificado contra los llamadores
+> reales antes de apretar: el chat manda 12 mensajes y ~4 500 chars de system; las
+> charlas de Biblioteca e Idiomas, 20 mensajes.
+>
+> **Pendiente**: medir el p95 de `tokens_salida` de `modelo3d` en `uso_ia_ops`
+> antes de tocar su tope de 8 192 (es 2.7× la salida esperada, la mayor exposición
+> por llamada). Recortarlo a ciegas trunca el JSON del modelo. Y recordar que el
+> precio introductorio de Sonnet 5 **acaba el 31-ago-2026**: a partir de ahí
+> `modelo3d` sube ~50 %.
+>
+> Estrategia acordada: mantener 700 créditos y $4.99, documentar el riesgo y
+> bajar el COSTE (topes y límites de entrada) en vez de subir la tarifa.
 
 Infraestructura: Supabase Pro $25/mes fijos (+$0.09/GB egress); repartido desde
 ~500 suscriptores es ruido (~$0.10–0.20/usuario). RevenueCat: 1% del bruto sobre

@@ -4,8 +4,25 @@
 -- Ritual mensual: correr las 5, comparar `usd_real` vs `usd_cobrado` por op, y
 -- si alguna se desvía >20% del ancla (1 crédito = $0.005), recalibrar la tarifa
 -- con una migración de `costo_op()` (precedente: 20260802000003) apoyándose en
--- `scripts/medir-costos.mjs`. Vigilancia especial el primer mes: `texto_largo`
--- (peor caso $3.94 > techo $3.50 con 700 créditos) y `recarga_1500`.
+-- `scripts/medir-costos.mjs`.
+--
+-- OJO (auditoría ago 2026): la vigilancia NO debe centrarse en `texto_largo`. Su
+-- $3.94 es de las exposiciones MENORES; el peor caso real es el `chat` con
+-- TOOLS_EDITOR sin caché ($0.0202/crédito ≈ $14 con 700 créditos). Ver la
+-- corrección en docs/COSTOS.md. Vigila `chat` y `modelo3d` primero.
+
+-- 0) DECISIÓN PENDIENTE: ¿el tope de 8192 de `modelo3d` está sobredimensionado?
+--    Su tope es 2.7× la salida esperada y es la mayor exposición por llamada
+--    ($0.1265). Si el p95 anda por ~3000, basta recortar el tope a 4096; si se
+--    acerca a 4000, hay que subir la tarifa en vez de recortar (recortar de más
+--    trunca el JSON del modelo, que es el modo de fallo del thinking adaptativo).
+--    Recordatorio: el precio introductorio de Sonnet 5 acaba el 31-ago-2026.
+select percentile_cont(0.50) within group (order by tokens_salida) as p50,
+       percentile_cont(0.95) within group (order by tokens_salida) as p95,
+       max(tokens_salida)                                          as maximo,
+       count(*)                                                    as filas
+  from uso_ia_ops
+ where op = 'modelo3d';
 
 -- 1) ¿Cada operación cobra lo que cuesta? (Haiku 4.5 a precio pleno)
 select op,
