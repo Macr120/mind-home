@@ -29,6 +29,16 @@ const restarDias = (n: number) =>
 /** Fechas (yyyy-mm-dd) con actividad registrada, por plantilla. También la
  * consume el Wrapped (core/wrapped/resumen.ts) para que "día activo" signifique
  * lo mismo en toda la app. */
+/**
+ * Qué cuenta como actividad, por plantilla. Solo están las apps de REGISTRO: el
+ * tamagotchi mide hábitos de vida, no tiempo de juego.
+ *
+ * Decisión explícita (ago 2026): las 5 plantillas de infraestructura (caminos,
+ * canchas, huerto, granja, paintball) NO entran aunque tengan datos — cosechar o
+ * ganar un partido es entretenimiento y no debe subir XP ni sostener una racha.
+ * `calendario` tampoco: ya cuenta a través de las apps cuyas rutinas proyecta.
+ * No es un olvido; si algún día se quiere lo contrario, es añadirlas aquí.
+ */
 export const FUENTES: Record<string, () => Promise<string[]>> = {
   cocina: async () => [
     ...(await filas(db.registrosComida)).map((r) => r.fecha),
