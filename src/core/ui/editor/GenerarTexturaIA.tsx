@@ -5,7 +5,7 @@ import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { Creditos } from '../Creditos'
 import { OP_FONDO, OP_TEXTURA } from '../../cuenta/catalogoNucleo'
-import { usePreviewBlob } from './usePreviewBlob'
+import { usePreviewBlob } from '../comun/usePreviewBlob'
 
 /** Ideas de textura por superficie, para llenar el campo de un toque. */
 const SUGERENCIAS: Record<SuperficieTextura, { clave: string; es: string }[]> = {

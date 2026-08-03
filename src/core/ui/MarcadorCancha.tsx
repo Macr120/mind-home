@@ -1,7 +1,7 @@
 import { useJuegoCancha, etiquetaTenis } from '../state/juegoCanchaStore'
 import { CANCHAS } from '../state/canchasStore'
 import { useAsistentes } from '../state/asistentesStore'
-import { SliderProp } from './editor/SliderProp'
+import { SliderProp } from './comun/SliderProp'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 

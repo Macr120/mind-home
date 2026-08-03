@@ -9,7 +9,7 @@ import {
 import { getPisoTipo, PISO_SIN_PISO, esSinPiso, type PisoTipoId } from '../../house/pisos'
 import type { Cell } from '../../house/walls'
 import { EditorPisoMaterialForm } from '../editor/EditorPisoMaterialForm'
-import { usePreviewBlob } from '../editor/usePreviewBlob'
+import { usePreviewBlob } from '../comun/usePreviewBlob'
 import { useT } from '../../i18n/useT'
 
 /** Selector de piso para celdas exteriores (selección múltiple o grupo completo). */

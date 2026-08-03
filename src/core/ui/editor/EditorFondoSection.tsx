@@ -7,7 +7,7 @@ import type { AjusteFondoImagen } from '../../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, ajusteDesdeDb } from '../../house/fondosImagen'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
-import { ColorPicker } from './ColorPicker'
+import { ColorPicker } from '../comun/ColorPicker'
 import { EditorFondoImagenPreview } from './EditorFondoImagenPreview'
 import { GenerarTexturaIA } from './GenerarTexturaIA'
 

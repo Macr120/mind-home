@@ -1,7 +1,7 @@
 import { VACIO, murosLibresRepo, setEstiloMuroLibre, eliminarMuroLibre } from '../../data/repository'
 import { TIPOS_MURO, TIPOS_FORMA_MURO, TIPOS_VENTANA_FORMA, TIPOS_PUERTA, VANO_FORMA_ALTO_DEFAULT } from '../../house/murosPuertas'
 import { FORMA_ALTO_TECHO } from '../../house/walls'
-import { ColorPicker } from '../editor/ColorPicker'
+import { ColorPicker } from '../comun/ColorPicker'
 import { usePlanos } from '../../state/planosStore'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'

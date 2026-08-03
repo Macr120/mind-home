@@ -17,7 +17,7 @@ import {
 } from '../../house/planoPisoSeleccion'
 import { PlanosEditor } from './PlanosEditor'
 import { PlanoPanelProps } from './PlanoPanelProps'
-import { LosetaFormaSvg } from './LosetaFormaSvg'
+import { LosetaFormaSvg } from '../comun/LosetaFormaSvg'
 import { EditorMuroLibre } from './EditorMuroLibre'
 import { PreviewMuroLibre3D } from './PreviewMuroLibre3D'
 import { PreviewCuarto3D } from '../editor/PreviewCuarto3D'

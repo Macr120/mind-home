@@ -2,9 +2,9 @@ import type { CSSProperties } from 'react'
 import type { ZonaPlano } from '../../data/db'
 import { zonasRepo } from '../../data/repository'
 import { PISOS, PISO_SIN_PISO, esSinPiso, getPisoTipo, type PisoTipo, type PisoTipoId } from '../../house/pisos'
-import { ColorPicker } from '../editor/ColorPicker'
+import { ColorPicker } from '../comun/ColorPicker'
 import { EditorPisoImagenBlock } from '../editor/EditorPisoImagenBlock'
-import { usePreviewBlob } from '../editor/usePreviewBlob'
+import { usePreviewBlob } from '../comun/usePreviewBlob'
 import { useT } from '../../i18n/useT'
 
 function swatchStyle(p: PisoTipo): CSSProperties {

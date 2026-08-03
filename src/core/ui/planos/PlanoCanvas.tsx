@@ -57,8 +57,8 @@ import {
 } from '../../house/mapaSuperficie'
 import { aristasZonasEnNivel } from '../../house/murosZona'
 import { celdasEdicionCuarto } from '../../house/roomCellEdicion'
-import { aplicarPincelCuarto, aplicarPincelCuartoFino } from './planoPincelCuarto'
-import { paintZonaMuro } from './paintZonaMuro'
+import { aplicarPincelCuarto, aplicarPincelCuartoFino } from '../comun/planoPincelCuarto'
+import { paintZonaMuro } from '../comun/paintZonaMuro'
 import { registrarSvgPlano } from '../../house/arrastreCelda'
 import {
   lineasExpandiblesTecho,
@@ -78,9 +78,9 @@ import {
   rotInicialSubforma,
   type FormasCeldaMap,
 } from '../../house/formasLoseta'
-import { aplicarFormaEnPlano } from './planoEditarForma'
+import { aplicarFormaEnPlano } from '../comun/planoEditarForma'
 import { colorExteriorDefecto } from '../../house/PisosExterior3D'
-import { LosetaFormaSvg } from './LosetaFormaSvg'
+import { LosetaFormaSvg } from '../comun/LosetaFormaSvg'
 import { PerimetroFormaPlanoSvg, TrazoPerimetroSvg } from './PerimetroFormaPlanoSvg'
 import {
   ladoGrillaActivo,

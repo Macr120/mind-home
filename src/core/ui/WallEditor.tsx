@@ -31,7 +31,7 @@ import {
 import { claveCeldaOff, esFormaCuadrada, subformasDeCelda, offSubcelda } from '../house/formasLoseta'
 import { itemsPerimetroSubformas } from '../house/murosPerimetroLoseta'
 import { comprimirFoto } from '../house/especiales'
-import { ColorPicker } from './editor/ColorPicker'
+import { ColorPicker } from './comun/ColorPicker'
 import { GenerarTexturaIA } from './editor/GenerarTexturaIA'
 
 /** Modo del pincel: el tipo de elemento que se coloca/edita. */

@@ -8,7 +8,7 @@ import {
   type WallState,
 } from '../../house/walls'
 import { zonaAnchorFootprint, ocupadoConZonas } from '../../house/planoGeometria'
-import { paintZonaMuro } from './paintZonaMuro'
+import { paintZonaMuro } from '../comun/paintZonaMuro'
 import { vivo } from '../estilos'
 
 const INFO: Record<WallState, { labelEs: string; color: string }> = {

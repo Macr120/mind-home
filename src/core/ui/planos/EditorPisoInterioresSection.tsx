@@ -3,7 +3,7 @@ import { VACIO, zonasRepo } from '../../data/repository'
 import { PISO_SIN_PISO } from '../../house/pisos'
 import { conteoPisosInteriores } from '../../house/planoPisoSeleccion'
 import { EditorPisoMaterialForm } from '../editor/EditorPisoMaterialForm'
-import { usePreviewBlob } from '../editor/usePreviewBlob'
+import { usePreviewBlob } from '../comun/usePreviewBlob'
 import { useT } from '../../i18n/useT'
 import {
   activarPisoImagenInterioresNivel,

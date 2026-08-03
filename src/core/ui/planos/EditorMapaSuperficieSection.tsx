@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { useDiseño } from '../../state/disenoStore'
 import { useLayout } from '../../state/layoutStore'
 import { TAM_CELDA_MIN, TAM_CELDA_MAX } from '../../house/walls'
-import { ColorPicker, SIN_COLOR } from '../editor/ColorPicker'
+import { ColorPicker, SIN_COLOR } from '../comun/ColorPicker'
 import { useT } from '../../i18n/useT'
 import {
   MAPA_SUPERFICIE_DEFAULT,

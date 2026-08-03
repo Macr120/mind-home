@@ -16,7 +16,7 @@ import {
   type SideKey,
 } from '../../house/walls'
 import { IconoOjo } from './IconoOjo'
-import { BotonPreviewClaro, claseOverlayBtn, claseFondoPreview } from './BotonPreviewClaro'
+import { BotonPreviewClaro, claseOverlayBtn, claseFondoPreview } from '../comun/BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 

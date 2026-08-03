@@ -6,7 +6,7 @@ import { useHouse } from '../state/houseStore'
 import { VACIO, zonasRepo } from '../data/repository'
 import { aristasEnNivel } from './planoGeometria'
 import { aristasZonasEnNivel } from './murosZona'
-import { paintZonaMuro } from '../ui/planos/paintZonaMuro'
+import { paintZonaMuro } from '../ui/comun/paintZonaMuro'
 import {
   centroCuarto3D,
   tileLocalEnCuarto,

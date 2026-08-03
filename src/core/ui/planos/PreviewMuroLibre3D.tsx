@@ -6,7 +6,7 @@ import { useEditorUi } from '../../state/editorUiStore'
 import { MuroLibre3DItem } from '../../house/MurosLibres3D'
 import { segmentosMundoMuroLibre } from '../../house/murosLibre'
 import { IconoOjo } from '../editor/IconoOjo'
-import { BotonPreviewClaro, claseOverlayBtn, claseFondoPreview } from '../editor/BotonPreviewClaro'
+import { BotonPreviewClaro, claseOverlayBtn, claseFondoPreview } from '../comun/BotonPreviewClaro'
 import { useT } from '../../i18n/useT'
 
 /**

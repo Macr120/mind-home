@@ -1,4 +1,4 @@
-import { usePreviewBlob } from '../../core/ui/editor/usePreviewBlob'
+import { usePreviewBlob } from '../../core/ui/comun/usePreviewBlob'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 

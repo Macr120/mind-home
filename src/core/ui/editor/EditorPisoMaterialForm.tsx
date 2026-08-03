@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { PISOS, esSinPiso, type PisoTipo } from '../../house/pisos'
-import { ColorPicker } from './ColorPicker'
+import { ColorPicker } from '../comun/ColorPicker'
 import { EditorPisoImagenBlock } from './EditorPisoImagenBlock'
 import { useT } from '../../i18n/useT'
 

@@ -9,7 +9,7 @@ import {
   type PresetAnimacionId,
 } from '../../house/animacion'
 import { useEditorUi } from '../../state/editorUiStore'
-import { SliderProp } from './SliderProp'
+import { SliderProp } from '../comun/SliderProp'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 

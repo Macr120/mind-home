@@ -19,12 +19,12 @@ import {
   TIPO_ESPECTACULAR, TIPO_LETRERO_VEGAS, TIPO_LETRERO_NEON,
   esTipoEspecial, esAnuncio, comprimirFoto, grupoFx,
 } from '../../house/especiales'
-import { ColorPicker } from './ColorPicker'
+import { ColorPicker } from '../comun/ColorPicker'
 import { PropiedadGrupo } from './PropiedadGrupo'
 import { PreviewObjeto3D } from './PreviewObjeto3D'
-import { EditorPiezas, plantillaObjetoPiezas } from './EditorPiezas'
+import { EditorPiezas, plantillaObjetoPiezas } from '../comun/EditorPiezas'
 import { EditorAnimacion } from './EditorAnimacion'
-import { SliderProp } from './SliderProp'
+import { SliderProp } from '../comun/SliderProp'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import type { NombreIcono } from '../iconos/catalogo'

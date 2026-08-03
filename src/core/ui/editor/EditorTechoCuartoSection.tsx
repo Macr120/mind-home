@@ -19,7 +19,7 @@ import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { TechoMaterialSwatch } from './TechoMaterialSwatch'
 import { TechoPresetIcono } from './TechoPresetIcono'
-import { ColorPicker } from './ColorPicker'
+import { ColorPicker } from '../comun/ColorPicker'
 import { GenerarTexturaIA } from './GenerarTexturaIA'
 
 const AJUSTES = [
