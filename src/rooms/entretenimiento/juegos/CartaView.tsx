@@ -29,7 +29,7 @@ export function CartaView({
   return (
     <div
       style={{ width: ancho, height: alto }}
-      className={`relative rounded-md bg-white shadow-sm border ${
+      className={`relative rounded-md bg-[#ffffff] shadow-sm border ${
         seleccionada ? 'border-amber-400 ring-2 ring-amber-400/80' : 'border-black/30'
       }`}
     >

@@ -15,6 +15,7 @@ import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { footprintCells, cellId } from '../../house/walls'
 import type { PisoTipoId } from '../../house/pisos'
+import { vivo } from '../estilos'
 
 /** Panel derecho contextual del editor de planos. */
 export function PlanoPanelProps() {
@@ -268,7 +269,7 @@ export function PlanoPanelProps() {
 
     return (
       <div className="space-y-4">
-        <p className="text-sm font-black" style={{ color: room.color }}>
+        <p className="texto-vivo text-sm font-black" style={vivo(room.color)}>
           <Icono emoji={room.icon} /> {nombre}
         </p>
 

@@ -121,7 +121,7 @@ export function TechoCeldaEditor() {
                 void addTechoLinea(roomId, celdas)
               }}
               title={`Extender techo hacia el ${ETIQUETA_DIR[dir]}`}
-              className="ui-panel-glass flex h-8 w-8 items-center justify-center rounded-md border border-amber-400/45 text-lg font-bold text-amber-500 backdrop-blur-sm transition hover:bg-amber-400/20"
+              className="ui-panel-glass flex h-8 w-8 items-center justify-center rounded-md border border-amber-400/45 text-lg font-bold text-amber-400 backdrop-blur-sm transition hover:bg-amber-400/20"
             >
               +
             </button>

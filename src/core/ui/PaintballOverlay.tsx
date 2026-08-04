@@ -17,6 +17,7 @@ import { SliderProp } from './comun/SliderProp'
 import { useT, type TFunc } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { useTopeHud } from './hudMedida'
+import { vivo } from './estilos'
 
 /** Textos por defecto de los mensajes del HUD (emojis de celebración se quedan). */
 const MENSAJES: Record<string, string> = {
@@ -79,7 +80,7 @@ function ChipJugador({ j, t }: { j: JugadorPaintball; t: TFunc }) {
       <span className={`max-w-24 truncate text-[11px] font-bold ${j.fuera ? 'line-through' : ''}`}>
         {j.id === 'yo' ? t('paintball.tu', 'Tú') : j.nombre}
       </span>
-      <span className="text-[9px] leading-none tracking-tight" style={{ color: j.color }}>
+      <span className="texto-vivo text-[9px] leading-none tracking-tight" style={vivo(j.color)}>
         {Array.from({ length: VIDAS_PAINTBALL }).map((_, i) => (
           <span key={i} className={i < j.vidas ? '' : 'opacity-20'}>
             ●
@@ -241,7 +242,7 @@ export function PaintballOverlay() {
               <button
                 type="button"
                 onClick={() => p.empezar('royale', barajar(asistentes).slice(0, MAX_BOTS_ROYALE).map((a) => a.id))}
-                className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold text-white transition hover:brightness-110 active:scale-95"
+                className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
               >
                 {t('paintball.empezar', 'Empezar la batalla')}
               </button>
@@ -357,7 +358,7 @@ export function PaintballOverlay() {
           <button
             type="button"
             onClick={() => cfg && p.empezar(cfg.modo, cfg.rivales)}
-            className="h-10 flex-1 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold text-white transition hover:brightness-110 active:scale-95"
+            className="h-10 flex-1 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
           >
             {t('paintball.otraVez', 'Otra vez')}
           </button>

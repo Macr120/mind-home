@@ -67,6 +67,9 @@ body {
 }
 
 /* Clases semánticas del chrome (cambian de color con el tema activo). */
+/* Superficie de una app a pantalla completa sobre la escena (la app del cuarto
+   abierta, la previsualización de plantillas). En modo transparente se vuelve
+   vidrio, más abajo. El fondo de la ventana lo pinta `#root`, no esta clase. */
 .ui-app {
   background: var(--ui-bg);
 }
@@ -205,25 +208,111 @@ html[data-base-ui='claro']
 }
 
 /* Modo claro: los tonos 400 de acento pasan al 600 de su familia, para que
-   textos, bordes y anillos de color sean legibles sobre fondo claro. */
+   textos, bordes y anillos de color sean legibles sobre fondo claro.
+   Las familias cálidas y verdes son las más luminosas: en el 600 se quedaban en
+   3.0–3.8:1 sobre el panel claro (ámbar y verde, los dos colores más usados de
+   la app, eran los que «no dejaban ver»), así que van al 700 y llegan a ≥4.7. */
 html[data-base-ui='claro'] {
   --color-red-400: var(--color-red-600);
   --color-rose-400: var(--color-rose-600);
-  --color-orange-400: var(--color-orange-600);
-  --color-amber-400: var(--color-amber-600);
-  --color-yellow-400: var(--color-yellow-600);
-  --color-lime-400: var(--color-lime-600);
-  --color-green-400: var(--color-green-600);
-  --color-emerald-400: var(--color-emerald-600);
-  --color-teal-400: var(--color-teal-600);
-  --color-cyan-400: var(--color-cyan-600);
-  --color-sky-400: var(--color-sky-600);
+  --color-orange-400: var(--color-orange-700);
+  --color-amber-400: var(--color-amber-700);
+  --color-yellow-400: var(--color-yellow-700);
+  --color-lime-400: var(--color-lime-700);
+  --color-green-400: var(--color-green-700);
+  --color-emerald-400: var(--color-emerald-700);
+  --color-teal-400: var(--color-teal-700);
+  --color-cyan-400: var(--color-cyan-700);
+  --color-sky-400: var(--color-sky-700);
   --color-blue-400: var(--color-blue-600);
   --color-indigo-400: var(--color-indigo-600);
   --color-violet-400: var(--color-violet-600);
   --color-purple-400: var(--color-purple-600);
   --color-fuchsia-400: var(--color-fuchsia-600);
   --color-pink-400: var(--color-pink-600);
+}
+
+/* Y los tonos claros (100–300): pensados para texto vivo sobre fondo oscuro,
+   sobre fondo claro caen a 1.1–1.8:1 (ilegibles, es el «color brillante que no
+   deja ver»). Pasan al 700 de su familia — ≥4.7:1, AA — conservando el matiz.
+   Los pocos bordes y anillos de esos tonos solo ganan definición.
+   Nota: dentro de `.ui-noche` (overlays que siguen oscuros) el remapeo se hereda;
+   allí esos textos quedan a ~4.8:1 sobre negro: legibles, algo menos vivos. */
+html[data-base-ui='claro'] {
+  --color-red-100: var(--color-red-700);
+  --color-red-200: var(--color-red-700);
+  --color-red-300: var(--color-red-700);
+  --color-rose-100: var(--color-rose-700);
+  --color-rose-200: var(--color-rose-700);
+  --color-rose-300: var(--color-rose-700);
+  --color-orange-100: var(--color-orange-700);
+  --color-orange-200: var(--color-orange-700);
+  --color-orange-300: var(--color-orange-700);
+  --color-amber-100: var(--color-amber-700);
+  --color-amber-200: var(--color-amber-700);
+  --color-amber-300: var(--color-amber-700);
+  --color-yellow-100: var(--color-yellow-700);
+  --color-yellow-200: var(--color-yellow-700);
+  --color-yellow-300: var(--color-yellow-700);
+  --color-lime-100: var(--color-lime-700);
+  --color-lime-200: var(--color-lime-700);
+  --color-lime-300: var(--color-lime-700);
+  --color-green-100: var(--color-green-700);
+  --color-green-200: var(--color-green-700);
+  --color-green-300: var(--color-green-700);
+  --color-emerald-100: var(--color-emerald-700);
+  --color-emerald-200: var(--color-emerald-700);
+  --color-emerald-300: var(--color-emerald-700);
+  --color-teal-100: var(--color-teal-700);
+  --color-teal-200: var(--color-teal-700);
+  --color-teal-300: var(--color-teal-700);
+  --color-cyan-100: var(--color-cyan-700);
+  --color-cyan-200: var(--color-cyan-700);
+  --color-cyan-300: var(--color-cyan-700);
+  --color-sky-100: var(--color-sky-700);
+  --color-sky-200: var(--color-sky-700);
+  --color-sky-300: var(--color-sky-700);
+  --color-blue-100: var(--color-blue-700);
+  --color-blue-200: var(--color-blue-700);
+  --color-blue-300: var(--color-blue-700);
+  --color-indigo-100: var(--color-indigo-700);
+  --color-indigo-200: var(--color-indigo-700);
+  --color-indigo-300: var(--color-indigo-700);
+  --color-violet-100: var(--color-violet-700);
+  --color-violet-200: var(--color-violet-700);
+  --color-violet-300: var(--color-violet-700);
+  --color-purple-100: var(--color-purple-700);
+  --color-purple-200: var(--color-purple-700);
+  --color-purple-300: var(--color-purple-700);
+  --color-fuchsia-100: var(--color-fuchsia-700);
+  --color-fuchsia-200: var(--color-fuchsia-700);
+  --color-fuchsia-300: var(--color-fuchsia-700);
+  --color-pink-100: var(--color-pink-700);
+  --color-pink-200: var(--color-pink-700);
+  --color-pink-300: var(--color-pink-700);
+}
+
+/*
+ * La tinta con alfa rinde MENOS sobre fondo claro que sobre oscuro: el mismo
+ * `text-white/40` da 3.7:1 en oscuro y 2.3:1 en claro (el panel claro está casi
+ * en blanco, así que la mezcla se lava). Suelo escalonado que iguala los dos
+ * modos sin aplanar la jerarquía: lo decorativo sigue por debajo del texto
+ * secundario. `.ui-noche` queda fuera (allí la tinta sigue siendo blanca).
+ * En modo transparente mandan los suelos de más abajo, que son mayores.
+ */
+html[data-base-ui='claro']
+  :is(.text-white\/15, .text-white\/20, .text-white\/25, .text-white\/30):where(:not(.ui-noche *)) {
+  color: color-mix(in srgb, var(--ui-ink) 40%, transparent);
+}
+html[data-base-ui='claro']
+  :is(.text-white\/35, .text-white\/40, .text-white\/45, .text-white\/50):where(
+    :not(.ui-noche *)
+  ) {
+  color: color-mix(in srgb, var(--ui-ink) 55%, transparent);
+}
+html[data-base-ui='claro']
+  :is(.text-white\/55, .text-white\/60, .text-white\/65):where(:not(.ui-noche *)) {
+  color: color-mix(in srgb, var(--ui-ink) 70%, transparent);
 }
 .ui-noche {
   --color-white: #fff;
@@ -259,6 +348,23 @@ html[data-modo-ui='transparente'] option {
  */
 html[data-modo-ui='transparente'] .ui-panel-glass {
   background: var(--ui-panel);
+}
+
+/*
+ * La app de un cuarto abierta también es vidrio: antes su fondo seguía sólido y
+ * entrar a cualquier app se veía idéntico al modo claro. Lleva más cuerpo que
+ * los menús (piso del 58%) porque debajo hay texto largo, y su propio
+ * desenfoque, que aquí sí puede ir en el elemento: en este modo el menú lateral
+ * flota (`absolute`), así que `.ui-app` ocupa la ventana entera y los diálogos
+ * `position: fixed` de las apps siguen midiendo lo mismo al colgar de él.
+ */
+html[data-modo-ui='transparente'] .ui-app {
+  background: color-mix(
+    in srgb,
+    var(--ui-bg) max(58%, calc(var(--ui-vidrio-alfa, 92%) * 0.78)),
+    transparent
+  );
+  backdrop-filter: blur(var(--ui-vidrio-blur, 12px));
 }
 @layer components {
   html[data-modo-ui='transparente'] .ui-hud {

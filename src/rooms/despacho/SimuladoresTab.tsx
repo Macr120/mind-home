@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { VACIO, metasRepo } from '../../core/data/repository'
 import { money, money2 } from './mes'
 import { useT } from '../../core/i18n/useT'
+import { vivo } from '../../core/ui/estilos'
 
 /**
  * Simuladores del despacho. Ya no son una pestaña propia: viven dentro de
@@ -361,7 +362,7 @@ export function Resultado({ titulo, valor, color }: { titulo: string; valor: str
   return (
     <div className="rounded-xl bg-white/5 p-3 border border-white/10">
       <p className="text-xs text-white/50">{titulo}</p>
-      <p className="text-lg font-bold" style={{ color }}>
+      <p className="texto-vivo text-lg font-bold" style={vivo(color)}>
         {valor}
       </p>
     </div>

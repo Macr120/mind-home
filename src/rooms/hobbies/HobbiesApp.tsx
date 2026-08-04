@@ -9,6 +9,7 @@ import { DetalleProyecto } from './DetalleProyecto'
 import { ejemploHobbies } from './ejemplos'
 import { FormHobby } from './FormHobby'
 import { fechasSemanaActual, minutosPorDia, rachaActual, rgba } from './stats'
+import { vivo } from '../../core/ui/estilos'
 
 /**
  * Maestro/detalle en tres escalones: la lista de hobbies, el hobby por dentro y
@@ -136,8 +137,8 @@ export function HobbiesApp() {
                   </div>
                   {racha > 0 && (
                     <span
-                      className="flex shrink-0 items-center gap-1 text-sm font-semibold"
-                      style={{ color: h.color }}
+                      className="texto-vivo flex shrink-0 items-center gap-1 text-sm font-semibold"
+                      style={vivo(h.color)}
                     >
                       <Icono nombre="racha" /> {racha}
                     </span>

@@ -15,6 +15,7 @@ import { useT } from '../i18n/useT'
 import { FilaAviso } from './FilaAviso'
 import { Icono } from './iconos/Icono'
 import { DIAS, EditorRutina, MODOS_REPETICION, rutinaNueva } from './RutinasPanel'
+import { vivo } from './estilos'
 
 /**
  * El control con el que una app le pone hora a UNA de sus actividades: esta rutina
@@ -181,7 +182,7 @@ export function HorarioActividad({
     <>
       <div className="space-y-3 rounded-xl border border-white/10 bg-white/5 p-3">
         <div className="flex items-center gap-2">
-          <p className="flex-1 text-sm font-bold" style={{ color }}>
+          <p className="texto-vivo flex-1 text-sm font-bold" style={vivo(color)}>
             <Icono nombre="calendario" /> {t('horario.titulo', 'Horario')}
           </p>
           <button

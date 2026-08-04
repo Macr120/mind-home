@@ -684,7 +684,7 @@ function AjustesCeldaTecho({
 
   return (
     <div className="space-y-2.5 rounded-lg border border-emerald-400/25 bg-emerald-400/[0.04] p-2.5">
-      <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-400/70">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
         {titulo ?? `${t('editor.techoCelda.celda', 'Celda')} · ${NOMBRE_SILUETA[silueta]}`}
       </p>
 

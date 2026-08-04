@@ -16,6 +16,7 @@ import {
   nombreInsignia,
   nombreRango,
 } from './sisifoData'
+import { vivo } from '../ui/estilos'
 
 /** Vértices de la silueta triangular de la montaña (base ancha, cima a la derecha). */
 const MONTANA_BASE_Y = 192
@@ -118,8 +119,8 @@ export default function MontanaSisifoOverlay() {
               return (
                 <li
                   key={r.n}
-                  className={`flex items-center gap-1.5 rounded px-1.5 py-0.5 ${actual ? 'bg-white/10 font-semibold' : ''}`}
-                  style={{ color: alcanzado ? r.color : 'color-mix(in srgb, var(--ui-ink) 35%, transparent)' }}
+                  className={`texto-vivo flex items-center gap-1.5 rounded px-1.5 py-0.5 ${actual ? 'bg-white/10 font-semibold' : ''}`}
+                  style={vivo(alcanzado ? r.color : 'color-mix(in srgb, var(--ui-ink) 35%, transparent)')}
                 >
                   <span
                     className="inline-block h-2 w-2 shrink-0 rounded-full"
@@ -136,7 +137,7 @@ export default function MontanaSisifoOverlay() {
         {/* Progreso global */}
         <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-3">
           <div className="flex items-center justify-between text-xs text-white/70">
-            <span className="font-semibold" style={{ color: rango.color }}>{nombreRango(rango)}</span>
+            <span className="texto-vivo font-semibold" style={vivo(rango.color)}>{nombreRango(rango)}</span>
             <span>{t('sisifo.dia', 'Día')} {vista.altura}/{DIAS_META}</span>
           </div>
           <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
@@ -153,7 +154,7 @@ export default function MontanaSisifoOverlay() {
         <div className="mt-4 space-y-3">
           {CATEGORIAS.map((cat) => (
             <section key={cat.es}>
-              <h3 className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide" style={{ color: cat.color }}>
+              <h3 className="texto-vivo mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide" style={vivo(cat.color)}>
                 <Icono nombre="gema" /> {nombreCategoria(cat)}
               </h3>
               <div className="grid grid-cols-2 gap-1.5">

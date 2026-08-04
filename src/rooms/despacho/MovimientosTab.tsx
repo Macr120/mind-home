@@ -8,6 +8,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
 import { BarraEjemplo } from './BarraEjemplo'
 import { borrarEjemplo, cargarEjemplo, hayEjemplo } from './ejemplos'
+import { vivo } from '../../core/ui/estilos'
 
 /** Cada cuánto se repite un fijo (un variable siempre es 'unico'). */
 type PlazoFijo = Exclude<PeriodoMovimiento, 'unico'>
@@ -192,7 +193,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
             <span className="text-xs text-white/50">
               {t('despacho.m.acumuladoTotal', 'Acumulado de tus fijos hasta hoy')}
             </span>
-            <span className="text-sm font-bold" style={{ color }}>
+            <span className="texto-vivo text-sm font-bold" style={vivo(color)}>
               {signo}
               {money2(totalAcumulado)}
             </span>
@@ -216,7 +217,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
           resumen={(movs) => {
             const total = movs.reduce((s, m) => s + m.monto, 0)
             return (
-              <span style={{ color }}>
+              <span className="texto-vivo" style={vivo(color)}>
                 {signo}
                 {money2(total)}
               </span>
@@ -295,11 +296,11 @@ function Fila({
             const v = parseFloat(e.target.value)
             if (mov.id && v > 0 && v !== mov.monto) void finanzasRepo.update(mov.id, { monto: v })
           }}
-          className="ml-auto w-24 rounded-lg bg-black/30 px-2 py-1 text-right text-sm outline-none border border-white/10 focus:border-white/30"
-          style={{ color }}
+          className="texto-vivo ml-auto w-24 rounded-lg bg-black/30 px-2 py-1 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+          style={vivo(color)}
         />
       ) : (
-        <span className="ml-auto font-semibold text-sm" style={{ color }}>
+        <span className="texto-vivo ml-auto font-semibold text-sm" style={vivo(color)}>
           {signo}
           {money2(mov.monto)}
         </span>

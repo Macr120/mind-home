@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { pitar } from './pitar'
+import { vivo } from '../../core/ui/estilos'
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
 
@@ -57,7 +58,7 @@ export function Timer({
   return (
     <div className="rounded-xl bg-black/20 border border-white/10 p-3">
       <div className="flex items-center gap-3">
-        <p className="text-3xl font-black tabular-nums" style={{ color }}>
+        <p className="texto-vivo text-3xl font-black tabular-nums" style={vivo(color)}>
           {fmt(restante)}
         </p>
         {!corriendo && (

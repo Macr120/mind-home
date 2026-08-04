@@ -15,6 +15,7 @@ import {
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { SimuladorAnual } from './SimuladorAnual'
+import { vivo } from '../../core/ui/estilos'
 
 /** Filas de `presupuestos` que no son una categoría, sino un ajuste del balance. */
 const PRESUPUESTO_KEY = '__mensual__'
@@ -142,8 +143,7 @@ export function BalanceTab({
             {money2(patrimonio)} {balance >= 0 ? '+' : '−'} {money2(Math.abs(balance))}
           </span>
           <span
-            className="text-lg font-bold"
-            style={{ color: patrimonioFinal >= patrimonio ? '#34d399' : '#f87171' }}
+            className={`text-lg font-bold ${patrimonioFinal >= patrimonio ? 'text-emerald-400' : 'text-red-400'}`}
           >
             {money2(patrimonioFinal)}
           </span>
@@ -258,7 +258,7 @@ function Tarjeta({ titulo, valor, color }: { titulo: string; valor: string; colo
   return (
     <div className="rounded-xl bg-white/5 p-3 border border-white/10">
       <p className="text-xs text-white/50">{titulo}</p>
-      <p className="text-lg font-bold" style={{ color }}>
+      <p className="texto-vivo text-lg font-bold" style={vivo(color)}>
         {valor}
       </p>
     </div>

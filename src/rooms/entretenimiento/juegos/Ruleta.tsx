@@ -140,7 +140,7 @@ export function Ruleta() {
     <button key={clave} type="button" onClick={() => apostar(clave)} className={`relative ${clases}`} style={estilo}>
       {contenido}
       {apuestas[clave] != null && (
-        <span className="absolute -right-1 -top-1 z-10 rounded-full bg-amber-400 px-1 text-[9px] font-black text-black shadow">
+        <span className="absolute -right-1 -top-1 z-10 rounded-full bg-amber-500 px-1 text-[9px] font-black text-black shadow">
           {apuestas[clave]}
         </span>
       )}

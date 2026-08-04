@@ -254,12 +254,13 @@ export function Damas({ dificultad = 'medio' }: PropsDificultad) {
                 <span
                   className={`flex h-[76%] w-[76%] items-center justify-center rounded-full border-2 shadow-md ${
                     ficha.color === 'clara'
-                      ? 'border-slate-400 bg-gradient-to-br from-white to-slate-300'
+                      ? 'border-slate-400 bg-gradient-to-br from-[#ffffff] to-slate-300'
                       : 'border-black bg-gradient-to-br from-slate-600 to-slate-950'
                   } ${sel === i ? 'ring-2 ring-emerald-400' : ''}`}
                 >
+                  {/* Tonos 500/600: no se remapean en claro, y las fichas son de color fijo. */}
                   {ficha.dama && (
-                    <span className={ficha.color === 'clara' ? 'text-amber-500' : 'text-amber-300'}>♛</span>
+                    <span className={ficha.color === 'clara' ? 'text-amber-600' : 'text-amber-500'}>♛</span>
                   )}
                 </span>
               )}

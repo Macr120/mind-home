@@ -999,7 +999,7 @@ export function ManualComandos({
                           </p>
                         )}
                         {carpeta.aviso && (
-                          <p className="mb-1 text-[10px] leading-relaxed text-amber-400/60">
+                          <p className="mb-1 text-[10px] leading-relaxed text-amber-400">
                             {t(`chat.manual.aviso.${carpeta.id}`, carpeta.aviso)}
                           </p>
                         )}

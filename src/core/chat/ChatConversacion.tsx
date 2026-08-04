@@ -140,7 +140,7 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
                   <div className="mt-0.5 flex items-center justify-end gap-1">
                     {/* Escuchar lo que contestó, aunque la lectura automática esté apagada. */}
                     {!esUsuario && <BotonVoz texto={m.texto} asistenteId={hiloId} />}
-                    <p className={`text-[9px] ${esUsuario ? 'text-emerald-400/50' : 'text-white/30'}`}>
+                    <p className={`text-[9px] ${esUsuario ? 'text-emerald-400/80' : 'text-white/30'}`}>
                       {new Date(m.creado).toLocaleTimeString(undefined, {
                         hour: '2-digit',
                         minute: '2-digit',

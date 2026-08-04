@@ -13,6 +13,7 @@ import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
 import { ControlMusica } from './ControlMusica'
+import { vivo } from './estilos'
 
 /**
  * Cuando hay un cuarto activo, dibuja la app de la plantilla asignada a sus objetos.
@@ -82,7 +83,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
             ‹
           </button>
         )}
-        <h1 className="min-w-0 truncate text-lg font-bold" style={{ color }}>
+        <h1 className="texto-vivo min-w-0 truncate text-lg font-bold" style={vivo(color)}>
           {nombre}
           {activa && (
             <span className="text-white/40">

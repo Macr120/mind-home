@@ -222,7 +222,7 @@ export function EditorAnimacion({
             </div>
           )}
           {poses.length === 1 && (
-            <p className="text-[10px] text-amber-300/70">
+            <p className="text-[10px] text-amber-300">
               {t('editor.anim.necesitaDos', 'Se necesitan 2 o más poses para reproducir la animación.')}
             </p>
           )}

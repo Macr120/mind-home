@@ -4,6 +4,7 @@ import type { Titular } from '../../core/data/db'
 import { useT } from '../../core/i18n/useT'
 import { getCategoria } from './constantes'
 import { ImagenNoticia } from './ImagenNoticia'
+import { vivo } from '../../core/ui/estilos'
 
 /** Tarjeta estilo feed: imagen arriba (con respaldo si falla) y texto abajo. */
 export function TarjetaTitular({ titular }: { titular: Titular }) {
@@ -45,8 +46,8 @@ export function TarjetaTitular({ titular }: { titular: Titular }) {
           href={titular.url}
           target="_blank"
           rel="noreferrer"
-          className="inline-block text-xs font-semibold hover:underline"
-          style={{ color: cat.color }}
+          className="texto-vivo inline-block text-xs font-semibold hover:underline"
+          style={vivo(cat.color)}
         >
           {t('diario.tarjeta.leer', 'Leer completa →')}
         </a>

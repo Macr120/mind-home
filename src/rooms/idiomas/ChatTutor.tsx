@@ -282,7 +282,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
                   }`}
                 >
                   <p className="whitespace-pre-wrap break-words">{m.texto}</p>
-                  <div className={`mt-0.5 flex items-center justify-end gap-1.5 text-[9px] ${esUsuario ? 'text-emerald-400/50' : 'text-white/30'}`}>
+                  <div className={`mt-0.5 flex items-center justify-end gap-1.5 text-[9px] ${esUsuario ? 'text-emerald-400/80' : 'text-white/30'}`}>
                     {!esUsuario && conTTS && (
                       <button
                         type="button"

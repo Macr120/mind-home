@@ -22,6 +22,7 @@ import {
   rgba,
   totales,
 } from './stats'
+import { vivo } from '../../core/ui/estilos'
 
 const DIAS_SEMANA = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
 const MINUTOS_RAPIDOS = [15, 30, 45, 60]
@@ -307,7 +308,7 @@ export function DetalleHobby({
           >
             {(s) => (
               <div className="flex items-center gap-2 rounded-lg bg-black/20 px-2.5 py-1.5 text-xs">
-                <span className="w-14 shrink-0 font-semibold" style={{ color: hobby.color }}>
+                <span className="texto-vivo w-14 shrink-0 font-semibold" style={vivo(hobby.color)}>
                   {fmtMin(s.minutos)}
                 </span>
                 <span className="shrink-0 text-white/45">{s.fecha}</span>

@@ -14,6 +14,7 @@ import { AsignarPlantillaDialog } from './core/ui/AsignarPlantillaDialog'
 import { AmueblarDialog } from './core/ui/AmueblarDialog'
 import { DestinoObjetoDialog } from './core/ui/DestinoObjetoDialog'
 import { AccesoNivelDialog } from './core/ui/AccesoNivelDialog'
+import { ConfirmarDialog } from './core/ui/ConfirmarDialog'
 import { EliminarCuartoDialog } from './core/ui/EliminarCuartoDialog'
 import { RoomOverlay } from './core/ui/RoomOverlay'
 import { RoomSideMenu, FloatingMenuButton } from './core/ui/RoomSideMenu'
@@ -52,6 +53,7 @@ import { usePaintball } from './core/state/paintballStore'
 import { useDialogo } from './core/state/dialogoStore'
 import { useDiarioProgramado } from './rooms/diario/reparto'
 import { useAvisos } from './core/avisos'
+import { useWidgets } from './core/widgets/useWidgets'
 import { useMusicaAmbiental } from './core/audio/useMusicaAmbiental'
 import { useVozAsistente } from './core/audio/voz'
 import { useCorazon } from './core/chat/corazon'
@@ -72,6 +74,9 @@ export default function App() {
   // Avisos de lo agendado y de las metas del día. Va aquí, y no en RutinasPanel,
   // porque ese panel se desmonta al entrar a un cuarto (y dejaba de avisar).
   useAvisos()
+  // Widgets nativos de Android: publica el snapshot del día y aplica los taps
+  // hechos desde el launcher. Fuera de la app (Capacitor) no hace nada.
+  useWidgets()
   // Música ambiental de la casa (sigue sonando dentro de los cuartos).
   useMusicaAmbiental()
   // Voz (TTS) de los asistentes cuando hablan por la burbuja.
@@ -154,8 +159,10 @@ export default function App() {
     if (editMode && !editor3d) useCam.getState().setVista('iso')
   }, [editMode, editor3d])
 
+  // El fondo lo pinta `#root`: esta raíz no lleva `ui-app` para que el vidrio del
+  // modo transparente afecte solo a las apps, no al contenedor de todo.
   return (
-    <div className="ui-app relative flex h-full w-full overflow-hidden">
+    <div className="relative flex h-full w-full overflow-hidden">
       {sidebarOpen && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
       <div className="relative min-h-0 min-w-0 flex-1 h-full">
         <House />
@@ -208,6 +215,8 @@ export default function App() {
       <DestinoObjetoDialog />
       <AccesoNivelDialog />
       <EliminarCuartoDialog />
+      {/* Confirmaciones y peticiones de texto de toda la app (`confirmar`/`pedirTexto`). */}
+      <ConfirmarDialog />
       {/* Menú de bienvenida de primera vez (idioma → apariencia → gustos → personaje → asistente). */}
       <BienvenidaOverlay />
       {/* Único canvas oculto que rasteriza las miniaturas del catálogo/inventario: montado

@@ -18,6 +18,7 @@ import { ConfigGrupo } from './editor/ConfigGrupo'
 import { useT } from '../i18n/useT'
 import { esDemo, esDemoAutor } from '../edicion'
 import { Icono } from './iconos/Icono'
+import { vivo } from './estilos'
 
 const TABS: { id: EditorTab; labelEs: string }[] = [
   { id: 'mapa', labelEs: 'Mapa' },
@@ -74,7 +75,7 @@ export function EditPanel() {
             <Icono nombre="volver" />
           </button>
         )}
-        <span className="truncate text-base font-black" style={{ color }}>
+        <span className="texto-vivo truncate text-base font-black" style={vivo(color)}>
           <Icono nombre="editar" /> {tituloHeader}
         </span>
         <button

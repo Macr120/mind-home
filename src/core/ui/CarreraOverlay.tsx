@@ -258,7 +258,7 @@ export function CarreraOverlay() {
           <button
             type="button"
             onClick={() => c.iniciar(vueltas)}
-            className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold text-white transition hover:brightness-110 active:scale-95"
+            className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
           >
             {t('carrera.solo', 'Correr solo (contrarreloj)')}
           </button>
@@ -405,7 +405,7 @@ export function CarreraOverlay() {
                   : undefined,
               )
             }
-            className="h-10 flex-1 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold text-white transition hover:brightness-110 active:scale-95"
+            className="h-10 flex-1 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
           >
             {t('carrera.otraVez', 'Otra vez')}
           </button>

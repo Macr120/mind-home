@@ -11,6 +11,7 @@ import { usePlantillasCustom } from '../../core/state/plantillasCustomStore'
 import { useT } from '../../core/i18n/useT'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { comprimirFoto, Foto } from './fotos'
+import { vivo } from '../../core/ui/estilos'
 
 const EMOJI_BLOQUE: Record<TipoBloque, string> = {
   notas: '📝',
@@ -250,7 +251,7 @@ function BloqueContador({
         >
           −
         </button>
-        <span className="min-w-16 text-center text-3xl font-black tabular-nums" style={{ color }}>
+        <span className="texto-vivo min-w-16 text-center text-3xl font-black tabular-nums" style={vivo(color)}>
           {valor}
         </span>
         <button
@@ -454,8 +455,8 @@ function BloqueValoracion({
           key={n}
           type="button"
           onClick={() => void fijar(n)}
-          className="text-3xl leading-none transition hover:scale-110"
-          style={{ color: n <= valor ? color : 'rgba(255,255,255,0.2)' }}
+          className="texto-vivo text-3xl leading-none transition hover:scale-110"
+          style={vivo(n <= valor ? color : 'color-mix(in srgb, var(--ui-ink) 25%, transparent)')}
         >
           <Icono nombre="estrella" />
         </button>
@@ -586,7 +587,7 @@ function BloqueProgreso({
       ) : (
         <>
           <div className="flex items-baseline gap-1.5">
-            <span className="text-2xl font-black tabular-nums" style={{ color }}>
+            <span className="texto-vivo text-2xl font-black tabular-nums" style={vivo(color)}>
               {ultimo}
             </span>
             {unidad && <span className="text-xs text-white/45">{unidad}</span>}
@@ -711,7 +712,7 @@ function BloqueSesiones({
       </form>
       <div className="flex items-baseline gap-2">
         <span className="text-xs text-white/45">{t('plantillaCustom.sesionTotal', 'Total')}:</span>
-        <span className="text-lg font-black tabular-nums" style={{ color }}>
+        <span className="texto-vivo text-lg font-black tabular-nums" style={vivo(color)}>
           {total}
         </span>
         <span className="text-xs text-white/45">min{bloque.meta ? ` / ${bloque.meta}` : ''}</span>
@@ -725,7 +726,7 @@ function BloqueSesiones({
       <ul className="space-y-1">
         {[...items].reverse().map((i) => (
           <li key={i.id} className="group flex items-center gap-2 rounded-lg px-1 py-0.5 hover:bg-white/5">
-            <span className="shrink-0 text-sm font-semibold tabular-nums" style={{ color }}>
+            <span className="texto-vivo shrink-0 text-sm font-semibold tabular-nums" style={vivo(color)}>
               {i.valor} min
             </span>
             {i.texto && <span className="min-w-0 flex-1 truncate text-sm text-white/70">{i.texto}</span>}
@@ -793,7 +794,7 @@ function BloqueHabito({
         </button>
         <span className="text-sm text-white/70">
           <Icono nombre="racha" />{' '}
-          <span className="font-bold" style={{ color }}>
+          <span className="texto-vivo font-bold" style={vivo(color)}>
             {racha}
           </span>{' '}
           {t('plantillaCustom.habitoRacha', 'racha')}
@@ -841,7 +842,7 @@ function BloqueCuenta({ bloque, color }: { bloque: BloqueDef; color: string }) {
         : t('plantillaCustom.cuentaPaso', 'días atrás')
   return (
     <div className="text-center">
-      <div className="text-4xl font-black tabular-nums" style={{ color }}>
+      <div className="texto-vivo text-4xl font-black tabular-nums" style={vivo(color)}>
         {Math.abs(dias)}
       </div>
       <p className="text-xs text-white/50">{etiqueta}</p>

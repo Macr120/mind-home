@@ -33,7 +33,7 @@ const COLORES_NUM = [
   'text-amber-400',
   'text-cyan-400',
   'text-fuchsia-400',
-  'text-slate-400',
+  'text-white/70',
 ]
 
 function tableroVacio(nivel: Nivel): Celda[] {

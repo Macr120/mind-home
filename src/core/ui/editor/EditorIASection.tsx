@@ -6,6 +6,7 @@ import { CREDITOS, hayCreditos } from '../../cuenta/costos'
 import { CreditosBadge } from '../Creditos'
 import { Icono } from '../iconos/Icono'
 import { useT } from '../../i18n/useT'
+import { vivo } from '../estilos'
 
 /**
  * Precios de la IA: la calidad de imagen (que decide proveedor y tarifa) y la
@@ -81,7 +82,7 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
       {/* La tabla completa, cuarto por cuarto. */}
       {gruposIA().map((g) => (
         <div key={g.id} className="space-y-1">
-          <p className="text-[10px] font-bold uppercase tracking-wider" style={{ color: g.color }}>
+          <p className="texto-vivo text-[10px] font-bold uppercase tracking-wider" style={vivo(g.color ?? 'currentColor')}>
             <Icono emoji={g.emoji} /> {t(g.clave, g.es)}
           </p>
           <div className="divide-y divide-white/5 rounded-md border border-white/10 bg-white/5">

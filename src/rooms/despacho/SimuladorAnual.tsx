@@ -3,6 +3,7 @@ import type { Transaccion } from '../../core/data/db'
 import { esFijo, etiquetaCorta, hoyISO, money, money2, rangoPeriodo, sumarPeriodo, totalEnRango } from './mes'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { vivo } from '../../core/ui/estilos'
 
 /** Horizonte por defecto y límites del campo (1 mes a 10 años). */
 const MESES_DEFECTO = 12
@@ -176,7 +177,7 @@ function Dato({ titulo, valor, color }: { titulo: string; valor: string; color: 
   return (
     <div className="rounded-lg bg-black/20 p-2.5">
       <p className="text-[11px] text-white/50">{titulo}</p>
-      <p className="text-base font-bold" style={{ color }}>
+      <p className="texto-vivo text-base font-bold" style={vivo(color)}>
         {valor}
       </p>
     </div>
@@ -188,7 +189,7 @@ function Escenario({ color, etiqueta, valor }: { color: string; etiqueta: string
     <div className="flex items-center gap-2 rounded-lg bg-black/20 px-3 py-2">
       <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />
       <span className="text-xs text-white/50">{etiqueta}</span>
-      <span className="ml-auto text-sm font-bold" style={{ color }}>
+      <span className="texto-vivo ml-auto text-sm font-bold" style={vivo(color)}>
         {valor}
       </span>
     </div>

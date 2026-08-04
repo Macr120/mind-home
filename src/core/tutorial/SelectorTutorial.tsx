@@ -179,7 +179,9 @@ export function SelectorTutorialOverlay() {
             }}
           >
             <span
-              className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-2 py-0.5 text-[11px] font-bold text-amber-950 shadow-lg ${
+              // Ámbar 500: tono fijo (no se remapea en claro), así la tinta oscura de la
+              // etiqueta contrasta igual en los dos modos.
+              className={`absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-500 px-2 py-0.5 text-[11px] font-bold text-amber-950 shadow-lg ${
                 etiquetaArriba ? 'bottom-full mb-1.5' : 'top-full mt-1.5'
               }`}
             >

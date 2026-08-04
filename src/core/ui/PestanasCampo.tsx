@@ -32,7 +32,7 @@ export function PestanasCampo({ activa }: { activa: CampoId }) {
       aria-current={activa === id}
       className={`flex h-7 min-w-0 flex-1 items-center justify-center gap-1.5 rounded-lg border px-2 text-xs font-semibold transition active:scale-95 ${
         activa === id
-          ? 'border-emerald-400/60 bg-emerald-600 text-white'
+          ? 'border-emerald-400/60 bg-emerald-600 texto-cta'
           : 'border-white/10 bg-white/10 text-white/70 hover:bg-white/20'
       }`}
     >

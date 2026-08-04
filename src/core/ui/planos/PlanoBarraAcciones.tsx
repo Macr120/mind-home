@@ -40,7 +40,7 @@ const btnFlotante = (activo: boolean) =>
   [
     'flex h-9 flex-1 items-center justify-center transition active:scale-95',
     activo
-      ? 'bg-emerald-100 text-emerald-800'
+      ? 'bg-emerald-600 texto-cta'
       : 'text-white/70 hover:bg-white/10',
   ].join(' ')
 

@@ -473,7 +473,7 @@ export function WallEditor({ roomId, sinCroquis }: { roomId: string; sinCroquis?
                       type="button"
                       onClick={() => setEdgeEstilo(roomId, sel.off, sel.side, { muro: { ventana: true, ventContenido: c.id } })}
                       className={`flex-1 rounded-md py-1 text-[10px] font-semibold transition ${
-                        vVentContenido === c.id ? 'bg-emerald-600 text-white' : 'text-white/45 hover:text-white/70'
+                        vVentContenido === c.id ? 'bg-emerald-600 texto-cta' : 'text-white/45 hover:text-white/70'
                       }`}
                     >
                       {t(`paredes.cont.${c.id}` as Parameters<typeof t>[0], c.nombre)}

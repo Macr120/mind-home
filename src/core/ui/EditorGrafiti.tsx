@@ -139,7 +139,7 @@ export function EditorGrafiti() {
               <button
                 type="button"
                 onClick={() => void g.borrarActual()}
-                className="h-10 rounded-lg border border-rose-400/60 bg-rose-700/80 px-3 text-xs font-semibold text-white transition hover:bg-rose-600 active:scale-95"
+                className="h-10 rounded-lg border border-rose-400/60 bg-rose-700/80 px-3 text-xs font-semibold texto-cta transition hover:bg-rose-600 active:scale-95"
               >
                 {t('graf.borrar', 'Borrar grafiti')}
               </button>

@@ -5,6 +5,7 @@ import { useT } from '../../core/i18n/useT'
 import { getTipoEfemeride } from './constantes'
 import { ImagenNoticia } from './ImagenNoticia'
 import { ProfundizarModal } from './ProfundizarModal'
+import { vivo } from '../../core/ui/estilos'
 
 /**
  * Tarjeta de efeméride: imagen arriba y texto abajo. Palabra y frase sin
@@ -37,8 +38,8 @@ export function TarjetaEfemeride({ efemeride }: { efemeride: Efemeride }) {
           style={{ background: `linear-gradient(135deg, ${tipo.color}2e, ${tipo.color}0a)` }}
         >
           <p
-            className={`font-bold ${efemeride.tipo === 'palabra' ? 'text-3xl' : 'text-base leading-snug'}`}
-            style={{ color: tipo.color }}
+            className={`texto-vivo font-bold ${efemeride.tipo === 'palabra' ? 'text-3xl' : 'text-base leading-snug'}`}
+            style={vivo(tipo.color)}
           >
             {efemeride.titulo}
           </p>

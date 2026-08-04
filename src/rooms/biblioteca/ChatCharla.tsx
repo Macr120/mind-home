@@ -342,7 +342,7 @@ export function ChatCharla({
                   }`}
                 >
                   <p className="whitespace-pre-wrap break-words">{m.texto}</p>
-                  <p className={`mt-0.5 text-right text-[9px] ${esUsuario ? 'text-emerald-400/50' : 'text-white/30'}`}>
+                  <p className={`mt-0.5 text-right text-[9px] ${esUsuario ? 'text-emerald-400/80' : 'text-white/30'}`}>
                     {new Date(m.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>

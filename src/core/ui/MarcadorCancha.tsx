@@ -88,7 +88,7 @@ export function MarcadorCancha() {
           <button
             type="button"
             onClick={() => j.elegirModo('solo')}
-            className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold text-white transition hover:brightness-110 active:scale-95"
+            className="h-10 rounded-lg border border-emerald-400/50 bg-emerald-600 text-sm font-bold texto-cta transition hover:brightness-110 active:scale-95"
           >
             {clase === 'tenis'
               ? t('juego.soloFronton', 'Jugar solo (frontón contra el muro)')
