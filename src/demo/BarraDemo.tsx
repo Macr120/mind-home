@@ -42,12 +42,12 @@ export function BarraDemo() {
   }
 
   // Teléfono vertical: los botones de las esquinas superiores ocupan la franja de
-  // arriba (top-3/top-4 + ~36 px de alto), así que la píldora baja por debajo de
-  // ellos en vez de montárseles encima.
+  // arriba — el más alto es el reloj desplegado (top-4 + ~55 px de chip ≈ 71 px) —,
+  // así que la píldora baja por debajo de ellos en vez de montárseles encima.
   return (
     <div
       className={`pointer-events-auto fixed left-1/2 z-[45] -translate-x-1/2 ${
-        movilVertical ? 'top-14' : 'top-2'
+        movilVertical ? 'top-20' : 'top-2'
       }`}
     >
       <div className="ui-panel-glass flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 shadow-lg backdrop-blur-md">
