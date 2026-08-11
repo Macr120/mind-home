@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import { VACIO, finanzasRepo, metasRepo } from '../../core/data/repository'
-import { hoyISO, money, money2, rangoPeriodo, totalEnRango } from './mes'
+import { metasRepo } from '../../core/data/repository'
+import { money, money2 } from './mes'
+import { useResumenReal } from './useResumen'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Campo, Resultado } from './SimuladoresTab'
+import { TARJETA } from './ui'
 
 /**
  * Calculadoras de metas financieras (pestaña Financieras, antes Ahorro):
@@ -25,18 +27,6 @@ const CALCS: { id: Calc; labelEs: string }[] = [
 const num = (s: string) => {
   const v = parseFloat(s)
   return Number.isFinite(v) && v >= 0 ? v : 0
-}
-
-/**
- * Ingreso y gasto real del mes (mismo cálculo que el Balance sin patrimonio,
- * en vista "Mes"), para sugerir un punto de partida a cada calculadora.
- */
-function useResumenReal() {
-  const movimientos = finanzasRepo.useAll() ?? VACIO
-  const { desde, hasta } = rangoPeriodo(hoyISO(), 'mes')
-  const ingresos = totalEnRango(movimientos, 'ingreso', desde, hasta)
-  const gastos = totalEnRango(movimientos, 'gasto', desde, hasta)
-  return { ingresos, gastos }
 }
 
 /**
@@ -66,13 +56,14 @@ export function CalculadorasFinancieras() {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      <div data-tut="despacho.calc.tabs" className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         {CALCS.map((c) => (
           <button
             key={c.id}
+            data-tut={`despacho.calc.${c.id}`}
             onClick={() => setCalc(c.id)}
             className={`rounded-lg py-2 text-xs font-semibold transition ${
-              calc === c.id ? 'bg-indigo-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
+              calc === c.id ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
             {t(`despacho.calc.tab.${c.id}`, c.labelEs)}
@@ -80,10 +71,12 @@ export function CalculadorasFinancieras() {
         ))}
       </div>
 
-      {calc === 'fondoEmergencia' && <CalcFondoEmergencia />}
-      {calc === 'libertadFinanciera' && <CalcLibertadFinanciera />}
-      {calc === 'reglaCincuenta' && <CalcReglaCincuenta />}
-      {calc === 'reglaAuto' && <CalcReglaAuto />}
+      <div data-tut="despacho.calc.panel">
+        {calc === 'fondoEmergencia' && <CalcFondoEmergencia />}
+        {calc === 'libertadFinanciera' && <CalcLibertadFinanciera />}
+        {calc === 'reglaCincuenta' && <CalcReglaCincuenta />}
+        {calc === 'reglaAuto' && <CalcReglaAuto />}
+      </div>
     </div>
   )
 }
@@ -102,10 +95,11 @@ function BotonCrearMeta({ nombre, objetivo }: { nombre: string; objetivo: number
 
   return (
     <button
+      data-tut="despacho.calc.crearMeta"
       onClick={() => void crear()}
       disabled={objetivo <= 0}
-      className={`w-full rounded-xl py-2.5 font-bold texto-cta transition disabled:opacity-40 ${
-        creada ? 'bg-emerald-600' : 'bg-amber-600 hover:brightness-110'
+      className={`w-full rounded-lg py-2.5 font-bold texto-cta transition disabled:opacity-40 ${
+        creada ? 'bg-emerald-600' : 'bg-blue-600 hover:brightness-110'
       }`}
     >
       {creada ? (
@@ -135,10 +129,10 @@ function CalcFondoEmergencia() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
-        <Campo label={t('despacho.calc.gastoEsencial', 'Gasto mensual esencial $')} valor={gastoMensual} setValor={setGastoMensual} />
+      <div className={`${TARJETA} space-y-3`}>
+        <Campo dinero label={t('despacho.calc.gastoEsencial', 'Gasto mensual esencial')} valor={gastoMensual} setValor={setGastoMensual} />
         <div>
-          <span className="text-xs text-white/50">{t('despacho.calc.mesesColchon', 'Meses de colchón')}</span>
+          <span className="text-xs text-white/55">{t('despacho.calc.mesesColchon', 'Meses de colchón')}</span>
           <div className="mt-1 flex gap-2">
             {MESES_COLCHON.map((m) => (
               <button
@@ -146,7 +140,7 @@ function CalcFondoEmergencia() {
                 type="button"
                 onClick={() => setMeses(m)}
                 className={`flex-1 rounded-lg py-1.5 text-sm font-semibold transition ${
-                  meses === m ? 'bg-indigo-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
+                  meses === m ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
                 }`}
               >
                 {m}
@@ -183,8 +177,8 @@ function CalcLibertadFinanciera() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 grid grid-cols-2 gap-3">
-        <Campo label={t('despacho.calc.gastoDeseado', 'Gasto mensual deseado $')} valor={gastoMensual} setValor={setGastoMensual} />
+      <div className={`${TARJETA} grid grid-cols-2 gap-3`}>
+        <Campo dinero label={t('despacho.calc.gastoDeseado', 'Gasto mensual deseado')} valor={gastoMensual} setValor={setGastoMensual} />
         <Campo label={t('despacho.calc.tasaRetiro', 'Tasa de retiro segura %')} valor={tasa} setValor={setTasa} />
       </div>
 
@@ -216,8 +210,8 @@ function CalcReglaCincuenta() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
-        <Campo label={t('despacho.calc.ingresoMensual', 'Ingreso mensual $')} valor={ingresoMensual} setValor={setIngresoMensual} />
+      <div className={`${TARJETA} space-y-3`}>
+        <Campo dinero label={t('despacho.calc.ingresoMensual', 'Ingreso mensual')} valor={ingresoMensual} setValor={setIngresoMensual} />
         <div className="grid grid-cols-3 gap-3">
           <Campo label={t('despacho.calc.pctNecesidades', 'Necesidades %')} valor={necesidades} setValor={setNecesidades} />
           <Campo label={t('despacho.calc.pctCaprichos', 'Caprichos %')} valor={caprichos} setValor={setCaprichos} />
@@ -264,9 +258,9 @@ function CalcReglaAuto() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 grid grid-cols-2 gap-3">
-        <Campo label={t('despacho.calc.precioAuto', 'Precio del auto $')} valor={precio} setValor={setPrecio} />
-        <Campo label={t('despacho.calc.ingresoMensual', 'Ingreso mensual $')} valor={ingresoMensual} setValor={setIngresoMensual} />
+      <div className={`${TARJETA} grid grid-cols-2 gap-3`}>
+        <Campo dinero label={t('despacho.calc.precioAuto', 'Precio del auto')} valor={precio} setValor={setPrecio} />
+        <Campo dinero label={t('despacho.calc.ingresoMensual', 'Ingreso mensual')} valor={ingresoMensual} setValor={setIngresoMensual} />
         <Campo label={t('despacho.calc.pctEnganche', 'Enganche %')} valor={pctEnganche} setValor={setPctEnganche} />
         <Campo label={t('despacho.calc.plazoMax', 'Plazo máx. (meses)')} valor={plazoMeses} setValor={setPlazoMeses} />
         <Campo label={t('despacho.calc.pctIngresoAuto', 'Máx. del ingreso %')} valor={pctIngreso} setValor={setPctIngreso} />

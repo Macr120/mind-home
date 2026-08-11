@@ -49,6 +49,7 @@ function Sector({
   emoji,
   etiqueta,
   activo,
+  tut,
   onSelect,
 }: {
   i: number
@@ -56,11 +57,13 @@ function Sector({
   emoji: string
   etiqueta: string
   activo: boolean
+  /** Anclaje del tutorial (`herr.cat.*` en categorías, `herr.item.*` dentro de una). */
+  tut?: string
   onSelect: () => void
 }) {
   const c = centroSector(i, n)
   return (
-    <g className="cursor-pointer" onClick={onSelect}>
+    <g data-tut={tut} className="cursor-pointer" onClick={onSelect}>
       <path
         d={pathSector(i, n)}
         className={`transition-colors ${activo ? 'fill-white/25' : 'fill-black/55 hover:fill-white/20'}`}
@@ -191,6 +194,7 @@ export function MenuHerramientas() {
         { herramienta: 'cuerda', emoji: '🪢', etiqueta: t('herr.cuerda', 'Saltar la cuerda') },
         { herramienta: 'mortal', emoji: '🤸', etiqueta: t('herr.mortal', 'Mortal') },
         { herramienta: 'saludar', emoji: '👋', etiqueta: t('herr.saludar', 'Saludar') },
+        { herramienta: 'mover', emoji: '✋', etiqueta: t('herr.mover', 'Mover') },
       ],
     },
     {
@@ -315,6 +319,7 @@ export function MenuHerramientas() {
                         ? planosOn && planosModo === en.modo && equipadas.includes('construir')
                         : equipadas.includes(en.herramienta)
                     }
+                    tut={`herr.item.${en.modo ?? en.herramienta}`}
                     onSelect={() => (en.modo ? elegirModo(en.modo) : elegir(en.herramienta))}
                   />
                 ))}
@@ -335,6 +340,7 @@ export function MenuHerramientas() {
                     emoji={cat.emoji}
                     etiqueta={cat.etiqueta}
                     activo={cat.entradas.some((e) => equipadas.includes(e.herramienta))}
+                    tut={`herr.cat.${cat.id}`}
                     onSelect={() => setCatAbierta(cat.id)}
                   />
                 ))}

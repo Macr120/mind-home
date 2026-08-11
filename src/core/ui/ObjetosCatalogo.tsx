@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import type { ObjetoCuarto } from '../data/db'
 import { RECURSOS } from '../house/recursos'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
@@ -7,24 +7,43 @@ import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { getTema } from '../house/temas'
 import { MiniaturaModelo } from '../house/Miniatura'
-import { TIPO_PIEZAS } from '../house/catalogo'
+import { TIPO_PIEZAS, funcionEspecialDe } from '../house/catalogo'
 import { tieneAnimacion } from '../house/animacion'
 import { plantillaObjetoPiezas } from './comun/EditorPiezas'
 import { claveLS, esDemo, esDemoAutor } from '../edicion'
+import { CATEGORIAS_PRENDA, PRENDAS } from '../house/apariencia'
+import { ANIMALES, useGranja } from '../state/granjaStore'
+import type { TipoAnimal } from '../data/db'
+import { murosLibresRepo, pisosExteriorRepo, zonasRepo, VACIO } from '../data/repository'
 import { useT } from '../i18n/useT'
 import { iniciarArrastre } from './arrastre'
+import { catalogoCasa, type CuartoConstruido } from './catalogoCasa'
+import { Carpeta } from './comun/Carpeta'
 import { Icono } from './iconos/Icono'
+import {
+  GRUPOS_ESPECIALES,
+  GRUPOS_OBJETOS,
+  GRUPO_ANIMALES,
+  GRUPO_CASA,
+  GRUPO_ROPA,
+  CATS_ESPECIALES,
+  CATS_RETIRADAS,
+  grupoDeCategoria,
+  grupoDeCategoriaEspecial,
+} from './inventarioGrupos'
 
 /** Marca en localStorage de que la biblioteca ya se sembró una vez.
  *  v6: orquídea. v7: principales ambientales. v8: principales usables. v9: luces (antorcha/farol/etc).
  *  v10: separa 'Especiales' en 'Cuadro y espejo' + 'Fuentes'. v11: la carpeta de luces pasa de
  *  'Iluminación' (colisionaba con la categoría de lámparas de RECURSOS) a 'Luces'.
- *  v13: anuncios (espectacular/Las Vegas/neón). La siembra deduplica/migra lo previo. */
-const SEED_FLAG = claveLS('mh_libreria_seeded_v13')
-/** Estas carpetas viven en la pestaña "Objetos especiales", no aquí. */
-const CATS_ESPECIALES = ['Pistolas', 'Vehículos', 'Cuadro y espejo', 'Fuentes', 'Parque', 'Luces', 'Anuncios', 'Principales']
+ *  v13: anuncios (espectacular/Las Vegas/neón). v14: retira las carpetas anticuadas
+ *  (Estructural, Estructural / Deco, Terreno) — ver `CATS_RETIRADAS`.
+ *  La siembra deduplica/migra lo previo. */
+const SEED_FLAG = claveLS('mh_libreria_seeded_v14')
 /** Orden manual de carpetas (drag & drop), persistido en localStorage. */
 const ORDEN_CATS_KEY = 'mh_libreria_orden_categorias'
+/** Carpetas superiores plegadas (una lista por sub-pestaña). */
+const GRUPOS_PLEGADOS_KEY = 'mh_libreria_grupos_plegados'
 
 /** Orden por defecto de las carpetas: el del catálogo (primera aparición en RECURSOS). */
 const ORDEN_CATALOGO = [...new Set(RECURSOS.map((r) => r.categoria))]
@@ -44,11 +63,23 @@ const leerOrdenCategorias = (): string[] => {
 const guardarOrdenCategorias = (orden: string[]) =>
   localStorage.setItem(ORDEN_CATS_KEY, JSON.stringify(orden))
 
+const leerGruposPlegados = (): string[] => {
+  try {
+    const raw = localStorage.getItem(GRUPOS_PLEGADOS_KEY)
+    return raw ? (JSON.parse(raw) as string[]) : []
+  } catch {
+    return []
+  }
+}
+
 const nombreObjeto = (o: ObjetoCuarto) =>
   o.nombre || (o.tipo === TIPO_PIEZAS ? 'Objeto de piezas' : 'Objeto')
 
 /** Lo que se está arrastrando en el inventario: una carpeta o un objeto (con su carpeta actual). */
 type Arrastre = { tipo: 'carpeta'; cat: string } | { tipo: 'objeto'; id: number; cat: string }
+
+/** Ningún cuarto ocupa nada: para niveles que aún no existen en el mapa. */
+const SIN_OCUPACION: Set<string> = new Set()
 
 /**
  * Inventario de objetos (sub-menú Objetos): la BIBLIOTECA con TODOS los objetos
@@ -82,6 +113,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
   const [ordenCategorias, setOrdenCategorias] = useState<string[]>(leerOrdenCategorias)
   const [arrastre, setArrastre] = useState<Arrastre | null>(null)
   const [sobre, setSobre] = useState<string | null>(null)
+  const [gruposPlegados, setGruposPlegados] = useState<Set<string>>(() => new Set(leerGruposPlegados()))
 
   // Siembra inicial (una sola vez): crea la biblioteca con el catálogo base.
   // El flag se marca ANTES de sembrar para no duplicar con el doble montaje de StrictMode.
@@ -99,6 +131,8 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
 
   const libreria = objetos.filter(esObjetoLibreria).filter((o) => {
     const cat = o.categoria || 'Otros'
+    // La demo no re-siembra, así que ahí las retiradas solo se filtran al pintar.
+    if (CATS_RETIRADAS.has(cat)) return false
     return soloCategorias ? soloCategorias.includes(cat) : !CATS_ESPECIALES.includes(cat)
   })
 
@@ -131,6 +165,38 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
     if (ib !== -1) return 1
     return ordenCat(a) - ordenCat(b) || a.localeCompare(b)
   })
+
+  // Nivel de arriba: cada carpeta cae bajo una carpeta superior, conservando el
+  // orden que acaba de calcularse. Los grupos sin ninguna carpeta no se pintan
+  // (salvo los de enlace, que no tienen carpetas por definición).
+  const esEspeciales = !!soloCategorias
+  const definiciones = esEspeciales ? GRUPOS_ESPECIALES : GRUPOS_OBJETOS
+  const catsPorGrupo = new Map<string, string[]>()
+  for (const cat of categorias) {
+    const g = esEspeciales
+      ? grupoDeCategoriaEspecial(cat, (grupos.get(cat) ?? []).map((o) => o.tipo))
+      : grupoDeCategoria(cat)
+    const a = catsPorGrupo.get(g)
+    if (a) a.push(cat)
+    else catsPorGrupo.set(g, [cat])
+  }
+
+  // Total de piezas construidas (el badge del grupo «Casa»). Sale del mismo
+  // catálogo que pinta la carpeta, así el número y la lista nunca se separan.
+  const seccionesCasa = useCatalogoCasa()
+  const piezasCasa = seccionesCasa.reduce(
+    (n, s) => n + s.piezas.reduce((m, p) => m + p.cuantas, 0),
+    0,
+  )
+
+  const alternarGrupo = (id: string) =>
+    setGruposPlegados((prev) => {
+      const n = new Set(prev)
+      if (n.has(id)) n.delete(id)
+      else n.add(id)
+      localStorage.setItem(GRUPOS_PLEGADOS_KEY, JSON.stringify([...n]))
+      return n
+    })
 
   const abrirEditor = (id: number) => {
     setObjetoSel(id)
@@ -264,13 +330,8 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
     setSobre(null)
   }
 
-  return (
-    <section className="flex flex-col gap-1.5">
-      <p className="mb-1 px-2 text-[11px] leading-snug text-white/45">
-        {t('objetos.ayuda', 'Todos los objetos que existen, por categoría. Crea los tuyos, edítalos o bórralos.')}
-      </p>
-
-      {categorias.map((cat) => {
+  /** Una carpeta (categoría) con sus objetos: lo que va dentro de cada grupo. */
+  const renderCategoria = (cat: string) => {
         const objs = grupos.get(cat)!
         const abierta = !plegadas.has(cat)
         const editando = renombrando === cat
@@ -426,6 +487,19 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                           <Icono nombre="brillo" />
                         </span>
                       )}
+                      {(() => {
+                        const funcion = funcionEspecialDe(o)
+                        return (
+                          funcion && (
+                            <span
+                              title={t(funcion.clave, funcion.texto)}
+                              className="pointer-events-none absolute -left-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
+                            >
+                              <Icono nombre="mano" />
+                            </span>
+                          )
+                        )
+                      })()}
                     </span>
                     <span className="min-w-0 flex-1 truncate text-[11px] text-white/75">
                       {nombreObjeto(o)}
@@ -475,6 +549,19 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                             <Icono nombre="brillo" />
                           </span>
                         )}
+                        {(() => {
+                          const funcion = funcionEspecialDe(inst)
+                          return (
+                            funcion && (
+                              <span
+                                title={t(funcion.clave, funcion.texto)}
+                                className="pointer-events-none absolute -left-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
+                              >
+                                <Icono nombre="mano" />
+                              </span>
+                            )
+                          )
+                        })()}
                       </span>
                       <div className="flex flex-1 items-center justify-center gap-1">
                         <button
@@ -517,6 +604,51 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
             )}
           </div>
         )
+  }
+
+  return (
+    <section className="flex flex-col gap-1.5">
+      <p className="mb-1 px-2 text-[11px] leading-snug text-white/45">
+        {esEspeciales
+          ? t('objetos.ayudaEspeciales', 'Los objetos con efecto, agrupados por lo que hacen. Ábrelos para ver sus carpetas.')
+          : t('objetos.ayuda', 'Todos los objetos que existen, por categoría. Crea los tuyos, edítalos o bórralos.')}
+      </p>
+
+      {definiciones.map((g) => {
+        const cats = catsPorGrupo.get(g.id) ?? []
+        // Los tres grupos que no agrupan categorías: dos enlaces y el recuento
+        // de la construcción. Se pintan aunque no tengan carpetas debajo.
+        const propio = g.id === GRUPO_ROPA || g.id === GRUPO_ANIMALES || g.id === GRUPO_CASA
+        if (cats.length === 0 && !propio) return null
+        const conteo =
+          g.id === GRUPO_ROPA
+            ? PRENDAS.length
+            : g.id === GRUPO_ANIMALES
+              ? Object.keys(ANIMALES).length
+              : g.id === GRUPO_CASA
+                ? piezasCasa
+                : cats.reduce((s, c) => s + (grupos.get(c)?.length ?? 0), 0)
+        return (
+          <Carpeta
+            key={g.id}
+            nivel={0}
+            titulo={t(`inv.grupo.${g.id}`, g.nombre)}
+            icono={g.icono}
+            conteo={conteo}
+            abierta={!gruposPlegados.has(g.id)}
+            onAlternar={() => alternarGrupo(g.id)}
+          >
+            {g.id === GRUPO_ROPA ? (
+              <CarpetaRopa />
+            ) : g.id === GRUPO_ANIMALES ? (
+              <CarpetaAnimales />
+            ) : g.id === GRUPO_CASA ? (
+              <CarpetaCasa />
+            ) : (
+              <div className="flex flex-col gap-1.5">{cats.map(renderCategoria)}</div>
+            )}
+          </Carpeta>
+        )
       })}
 
       {/* Restaurar los objetos base del catálogo que se hayan borrado */}
@@ -528,5 +660,222 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
         <Icono nombre="restaurar" /> {t('objetos.restaurar', 'Restaurar objetos base')}
       </button>
     </section>
+  )
+}
+
+/**
+ * Carpeta «Casa»: de qué está construida la casa y cuántas veces se repite cada
+ * pieza. No son objetos que se arrastren (los muros y los pisos se pintan en el
+ * editor de planos): es el recuento de lo que ya existe en el mapa.
+ */
+/**
+ * Las secciones del catálogo de la casa, ya filtradas.
+ *
+ * Cada campo del layout se suscribe POR SEPARADO y la lista se arma en un
+ * `useMemo`. Un selector que devolviera el array derivado crearía una referencia
+ * nueva en cada lectura y `useSyncExternalStore` entraría en bucle infinito
+ * («getSnapshot should be cached»): es la misma trampa que ya documenta el
+ * módulo de re-renders de la escena 3D.
+ */
+function useCatalogoCasa() {
+  const pisoTipos = useDiseño((s) => s.roomPisoTipos)
+  const pisoExtTipos = useDiseño((s) => s.roomPisoExtTipos)
+  const techoTipos = useDiseño((s) => s.roomTechoTipos)
+  const techoFormas = useDiseño((s) => s.roomTechoFormas)
+  const techoFormasCelda = useDiseño((s) => s.roomTechoFormasCelda)
+  const placed = useLayout((s) => s.placed)
+  const cells = useLayout((s) => s.cells)
+  const footprints = useLayout((s) => s.footprints)
+  const niveles = useLayout((s) => s.niveles)
+  const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
+  const wallOverrides = useLayout((s) => s.wallOverrides)
+  const edgeStyles = useLayout((s) => s.edgeStyles)
+  const pinceles = useLayout((s) => s.pinceles)
+  const formasCelda = useLayout((s) => s.formasCelda)
+  const sinMuros = useLayout((s) => s.sinMuros)
+  const conAgua = useLayout((s) => s.conAgua)
+  const accesos = useLayout((s) => s.accesos)
+  const murosLibres = murosLibresRepo.useAll() ?? VACIO
+  const pisosExt = pisosExteriorRepo.useAll() ?? VACIO
+  const zonas = zonasRepo.useAll() ?? VACIO
+
+  const construidos = useMemo<CuartoConstruido[]>(
+    () =>
+      Object.keys(placed)
+        .filter((id) => placed[id] && cells[id])
+        .map((id) => ({
+          id,
+          anchor: cells[id],
+          footprint: footprints[id] ?? [{ col: 0, row: 0 }],
+          ocupado: ocupadoPorNivel.get(niveles[id] ?? 0) ?? SIN_OCUPACION,
+          nivel: niveles[id] ?? 0,
+          overrides: wallOverrides[id],
+          estilos: edgeStyles[id],
+          pinceles: pinceles[id],
+          formasCelda: formasCelda[id],
+          sinMuros: sinMuros[id],
+          agua: conAgua[id],
+        })),
+    [placed, cells, footprints, niveles, ocupadoPorNivel, wallOverrides, edgeStyles, pinceles, formasCelda, sinMuros, conAgua],
+  )
+
+  const techos = useMemo(
+    () => ({ tipos: techoTipos, formas: techoFormas, formasCelda: techoFormasCelda }),
+    [techoTipos, techoFormas, techoFormasCelda],
+  )
+
+  return useMemo(
+    () =>
+      catalogoCasa(
+        construidos,
+        murosLibres,
+        zonas,
+        accesos,
+        techos,
+        pisoTipos,
+        pisoExtTipos,
+        pisosExt,
+      ).filter((s) => s.piezas.length > 0),
+    [construidos, murosLibres, zonas, accesos, techos, pisoTipos, pisoExtTipos, pisosExt],
+  )
+}
+
+function CarpetaCasa() {
+  const t = useT()
+  const secciones = useCatalogoCasa()
+
+  return (
+    <div className="space-y-1.5">
+      <p className="px-1 text-[11px] leading-snug text-white/45">
+        {t('inv.casa.ayuda', 'De qué está hecha tu casa y cuánto hay de cada cosa. Se pintan en el editor de planos, no se arrastran.')}
+      </p>
+      {secciones.length === 0 ? (
+        <p className="px-1 py-1 text-[11px] text-white/35">
+          {t('inv.casa.vacia', 'Aún no has construido nada. Levanta un cuarto en el mapa.')}
+        </p>
+      ) : (
+        secciones.map((s) => (
+          <div key={s.id}>
+            <p className="mb-0.5 px-1 text-[9px] font-bold uppercase tracking-wider text-white/30">
+              <Icono nombre={s.icono} /> {t(`inv.casa.${s.id}`, s.nombre)}
+              {/* La unidad se dice cuando cambia entre secciones: un piso interior
+                  se cuenta por cuarto y el exterior por celda. */}
+              {s.unidad && (
+                <span className="font-normal normal-case tracking-normal text-white/20">
+                  {' · '}
+                  {t(`inv.casa.unidad.${s.id}`, s.unidad)}
+                </span>
+              )}
+            </p>
+            <div className="space-y-1">
+              {s.piezas.map((p) => (
+                <div
+                  key={p.id}
+                  className="flex items-center gap-2 rounded-md bg-white/[0.03] px-2 py-1.5"
+                >
+                  {/* Muros y puertas traen su gradiente CSS del catálogo; el
+                      resto, un icono sobre el color de la pieza. */}
+                  <span
+                    className="grid h-6 w-6 shrink-0 place-items-center rounded border border-white/10 text-[11px]"
+                    style={p.preview ? { background: p.preview } : { backgroundColor: p.color ?? '#334155' }}
+                  >
+                    {p.icono ? <Icono nombre={p.icono} /> : p.emoji ? <Icono emoji={p.emoji} /> : null}
+                  </span>
+                  <span className="min-w-0 flex-1 truncate text-[11px] text-white/75">
+                    {t(`inv.casa.pieza.${s.id}.${p.id}`, p.nombre)}
+                  </span>
+                  <span className="shrink-0 rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/60">
+                    ×{p.cuantas}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  )
+}
+
+/**
+ * Carpeta «Ropa»: no guarda objetos colocables — la ropa se pone al personaje.
+ * Lista las prendas por su parte del cuerpo y cada una lleva al guardarropa.
+ */
+function CarpetaRopa() {
+  const t = useT()
+  const setTab = useEditorUi((s) => s.setTab)
+  const setEditMode = useLayout((s) => s.setEditMode)
+
+  const alGuardarropa = () => {
+    setTab('personajes')
+    setEditMode(true)
+  }
+
+  return (
+    <div className="space-y-1.5">
+      <p className="px-1 text-[11px] leading-snug text-white/45">
+        {t('inv.ropa.ayuda', 'La ropa se le pone al personaje, no se coloca en el mapa. Toca una prenda para abrir el guardarropa.')}
+      </p>
+      {CATEGORIAS_PRENDA.map((c) => {
+        const prendas = PRENDAS.filter((p) => p.categoria === c.id)
+        if (prendas.length === 0) return null
+        return (
+          <div key={c.id}>
+            <p className="mb-0.5 px-1 text-[9px] font-bold uppercase tracking-wider text-white/30">
+              {t(`editor.pers.categoria.${c.id}`, c.nombre)}
+            </p>
+            <div className="flex flex-wrap gap-1">
+              {prendas.map((p) => (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={alGuardarropa}
+                  className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/70 transition hover:bg-white/15 hover:text-white/90"
+                >
+                  <Icono emoji={p.emoji} />
+                  <span>{t(`editor.pers.prenda.${p.id}`, p.nombre)}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+/**
+ * Carpeta «Animales»: los de granja no son objetos, viven en corrales. Tocar uno
+ * abre el editor de la granja con esa especie ya elegida.
+ */
+function CarpetaAnimales() {
+  const t = useT()
+
+  const alaGranja = (tipo: TipoAnimal) => {
+    useGranja.getState().iniciar()
+    useGranja.setState({ tipo, herramienta: 'animal' })
+  }
+
+  return (
+    <div className="space-y-1.5">
+      <p className="px-1 text-[11px] leading-snug text-white/45">
+        {t('inv.animales.ayuda', 'Los animales viven en los corrales de la granja. Toca uno para ir a construir su corral.')}
+      </p>
+      <div className="flex flex-wrap gap-1">
+        {(Object.entries(ANIMALES) as [TipoAnimal, { nombre: string; icon: string }][]).map(
+          ([tipo, def]) => (
+            <button
+              key={tipo}
+              type="button"
+              onClick={() => alaGranja(tipo)}
+              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/70 transition hover:bg-white/15 hover:text-white/90"
+            >
+              <Icono emoji={def.icon} />
+              <span>{t(`granja.animal.${tipo}`, def.nombre)}</span>
+            </button>
+          ),
+        )}
+      </div>
+    </div>
   )
 }

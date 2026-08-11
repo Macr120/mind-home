@@ -1,6 +1,7 @@
 import { useLayout } from '../state/layoutStore'
 import { useHouse } from '../state/houseStore'
 import { usePlanos } from '../state/planosStore'
+import { useDiseño } from '../state/disenoStore'
 import { VACIO, murosLibresRepo } from '../data/repository'
 import { nivelBaseY, WALL_H, WALL_T } from './walls'
 import {
@@ -8,6 +9,8 @@ import {
   arcoCircularMuroLocal,
   centroCeldaMundo,
   aberturaMuroLibreMundo,
+  MURO_LIBRE_ROOM,
+  claveImagenMuroLibre,
 } from './murosLibre'
 import { MuroSegment } from './MuroRender'
 import { MuroCurvo3D } from './MuroCurvo3D'
@@ -160,6 +163,22 @@ export function MuroLibre3DItem({
   const color = resaltado ? '#f59e0b' : (m.color ?? COLOR_MURO_DEFECTO)
   const silueta = (m.silueta as 'recta' | 'arco' | 'triangulo') ?? 'recta'
 
+  // Contenido del vano: cristal (default), cuadro con foto o espejo. Solo en muros rectos
+  // (aristas y diagonal); el muro curvo sigue admitiendo únicamente cristal.
+  const ventContenido = m.ventContenido ?? 'ventana'
+  // Foto del cuadro: misma tabla de imágenes por muro, con el roomId centinela de los libres.
+  const ventFoto = useDiseño((s) =>
+    ventContenido === 'cuadro' && m.id != null
+      ? s.roomMuroImagenes[`${MURO_LIBRE_ROOM}::${claveImagenMuroLibre(m.id, 'cuadro')}`]
+      : undefined,
+  )
+  // Imagen de la hoja de la puerta (foto subida o generada con IA).
+  const fotoPuerta = useDiseño((s) =>
+    m.puerta && m.id != null
+      ? s.roomMuroImagenes[`${MURO_LIBRE_ROOM}::${claveImagenMuroLibre(m.id, 'puerta')}`]
+      : undefined,
+  )
+
   // Ventana / puerta. La ventana es cristal; la puerta es un hueco rectangular
   // con una hoja sólida animada (la forma cuadrada/círculo/triángulo es solo de ventana).
   const esPuerta = !!m.puerta
@@ -204,6 +223,7 @@ export function MuroLibre3DItem({
         color={ventColorF}
         nivel={nivelPuerta}
         remate={remateHoja}
+        fotoUrl={fotoPuerta}
       />
     ) : null
 
@@ -285,6 +305,9 @@ export function MuroLibre3DItem({
               ventForma={huecoForma}
               ventMosaico={m.ventMosaico}
               ventMulticolor={m.ventMulticolor}
+              ventContenido={esPuerta ? 'ventana' : ventContenido}
+              ventCara={m.ventCara}
+              ventFoto={ventFoto}
               huecoSinCristal={esPuerta}
               vanoForma={vanoFormaF}
               vanoFormaAlto={m.puertaFormaAlto}

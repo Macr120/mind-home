@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura } from '../../core/registry'
-import { vTexto, vFecha } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/appContrato'
+import { vTexto, vFecha } from '../../core/appContrato'
 import { lugaresViajeRepo, bitacoraViajeRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
 import { tGlobal } from '../../core/i18n/useT'

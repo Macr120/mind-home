@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { VACIO, entradasBiblioRepo, temasArbolRepo } from '../../core/data/repository'
+import { entradasBiblioRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { COLOR, PILAR_GENERAL } from './constantes'
-import { PILARES } from './pilares'
+import { campos, temasDelCampo, useIndice } from './semilla'
 
 export interface EntradaFormInicial {
   titulo: string
@@ -38,9 +38,10 @@ export function EntradaForm({
   const [resumen, setResumen] = useState(inicial.resumen)
   const [puntos, setPuntos] = useState(inicial.puntosClave.join('\n'))
 
-  const nodos = temasArbolRepo.useAll() ?? VACIO
-  const temasEstaticos = PILARES.find((p) => p.id === pilarId)?.ramas.flatMap((r) => r.temas) ?? []
-  const temasArbolPilar = nodos.filter((n) => n.pilarId === pilarId)
+  const ix = useIndice()
+  // Una sola lista JERÁRQUICA en vez de los dos grupos «Índice»/«Desbloqueados»:
+  // desde que la semilla se edita, lo de fábrica y lo tuyo son el mismo árbol.
+  const destinos = temasDelCampo(ix, pilarId)
   const puedeGuardar = titulo.trim() !== '' && resumen.trim() !== ''
 
   const guardar = async () => {
@@ -114,9 +115,9 @@ export function EntradaForm({
               <option value={PILAR_GENERAL.id}>
                 {PILAR_GENERAL.icon} {PILAR_GENERAL.titulo}
               </option>
-              {PILARES.map((p) => (
+              {campos(ix).map((p) => (
                 <option key={p.id} value={p.id}>
-                  {p.icon} {p.titulo}
+                  {p.icono} {p.titulo}
                 </option>
               ))}
             </select>
@@ -126,28 +127,17 @@ export function EntradaForm({
             <select
               value={temaId}
               onChange={(e) => setTemaId(e.target.value)}
-              disabled={temasEstaticos.length === 0 && temasArbolPilar.length === 0}
+              disabled={destinos.length === 0}
               className={`${inputBase} disabled:opacity-40`}
             >
               <option value="">{t('biblioteca.ent.sinTema', '— Ninguno —')}</option>
-              {temasEstaticos.length > 0 && (
-                <optgroup label={t('biblioteca.ent.temasIndice', 'Índice')}>
-                  {temasEstaticos.map((tema) => (
-                    <option key={tema.id} value={tema.id}>
-                      {tema.titulo}
-                    </option>
-                  ))}
-                </optgroup>
-              )}
-              {temasArbolPilar.length > 0 && (
-                <optgroup label={t('biblioteca.ent.temasDesbloq', 'Desbloqueados')}>
-                  {temasArbolPilar.map((n) => (
-                    <option key={n.temaId} value={n.temaId}>
-                      {n.titulo}
-                    </option>
-                  ))}
-                </optgroup>
-              )}
+              {/* La sangría va con espacios DUROS: el navegador colapsa los normales. */}
+              {destinos.map(({ nodo, prof }) => (
+                <option key={nodo.id} value={nodo.id}>
+                  {'  '.repeat(prof)}
+                  {nodo.titulo}
+                </option>
+              ))}
             </select>
           </div>
         </div>

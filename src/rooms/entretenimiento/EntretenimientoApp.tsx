@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { VACIO, mediaArchivoRepo } from '../../core/data/repository'
 import { ArchivoTab } from './ArchivoTab'
 import { JuegosMesaTab } from './JuegosMesaTab'
+import { ProgramasSection } from './ProgramasSection'
 import { COLOR } from './constantes'
 import type { IdJuegoReal } from './juegos/catalogo'
 import { useT } from '../../core/i18n/useT'
@@ -9,11 +10,12 @@ import { intencionApp } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-type Tab = 'archivo' | 'mesa'
+type Tab = 'archivo' | 'mesa' | 'programas'
 
 const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
   { id: 'mesa', icono: 'dados', labelEs: 'Juegos de mesa' },
   { id: 'archivo', icono: 'serie', labelEs: 'Archivo' },
+  { id: 'programas', icono: 'calendario', labelEs: 'Programas' },
 ]
 
 export function EntretenimientoApp() {
@@ -21,7 +23,10 @@ export function EntretenimientoApp() {
   // Intención del chat («quiero jugar la viborita»): pestaña + juego inicial.
   // Se limpia al cambiar de pestaña a mano para no reabrir el juego.
   const [intencion, setIntencion] = useState(() => intencionApp('entretenimiento'))
-  const [tab, setTab] = useState<Tab>(intencion?.seccion === 'archivo' ? 'archivo' : 'mesa')
+  const [tab, setTab] = useState<Tab>(() => {
+    const s = intencion?.seccion
+    return s === 'archivo' || s === 'programas' ? s : 'mesa'
+  })
   const media = mediaArchivoRepo.useAll() ?? VACIO
 
   return (
@@ -51,6 +56,7 @@ export function EntretenimientoApp() {
 
       {tab === 'archivo' && <ArchivoTab items={media} />}
       {tab === 'mesa' && <JuegosMesaTab juegoInicial={intencion?.dato as IdJuegoReal | undefined} />}
+      {tab === 'programas' && <ProgramasSection />}
     </div>
   )
 }

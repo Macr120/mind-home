@@ -30,7 +30,7 @@ cuarto. No hay cuadrícula fija ni campo `posicion`: eso era el modelo de 2025.
 | Temas y estilos | 7 temas + 5 estilos de postprocesado, luz/niebla/IBL | ✅ |
 | Asistentes y chat | Asistentes configurables, TTS, manual de comandos, deep links | ✅ |
 | Gamificación | Tamagotchi de actividad real, XP, rachas, Montaña de Sísifo, Wrapped | ✅ |
-| Tutoriales | Tours con mago + spotlight; 39 flujos sobre la casa demo | ✅ |
+| Tutoriales | Tours con mago + spotlight: ~63 flujos (núcleo/menús sobre la casa real; apps, calendario, Hoy y progreso sobre la casa demo) | ✅ |
 | i18n | ES/EN con `useT`; inglés en `dict.en.ts` con carga diferida | ✅ |
 | Rendimiento | Lazy de apps, texturas optimizadas, selectores acotados en la escena | ✅ |
 
@@ -50,14 +50,14 @@ tablas menos las internas `_`. La Bodega, que antes alojaba esto, se eliminó en
 
 ---
 
-## Apps — 16 de cuarto + 5 de infraestructura
+## Apps — 17 de cuarto + 5 de infraestructura
 
 La tabla viva está en [`CLAUDE.md`](../CLAUDE.md) › Cuartos. Todas registradas, abriendo y con
 persistencia real; el grado de pulido «premium» varía por app.
 
 De cuarto: Cocina, Ejercicio, Recámara (descanso), Anecdotario, Despacho, Biblioteca,
-Entretenimiento, Sala, Jardín, Garage, Diario (noticias), Hobbies, Idiomas, Calendario, Ideas
-y Agenda.
+Entretenimiento, Sala, Jardín, Garage, Diario (noticias), Hobbies, Idiomas, Calendario, Ideas,
+Agenda y Sala de cómputo.
 
 De infraestructura (se construyen en el mapa, `tipo: 'infraestructura'`): Caminos, Canchas,
 Huerto, Granja y Paintball.
@@ -108,6 +108,15 @@ Lo que está identificado y sin cerrar, por orden de impacto:
    créditos), no `texto_largo`. Ver la corrección en `COSTOS.md`. Aplicados los límites de
    entrada; pendiente medir el p95 de salida de `modelo3d` antes del 31-ago-2026, cuando
    acaba el precio introductorio de Sonnet 5.
+6. **Auditoría de tutoriales (ago 2026), a medias**: se reescribieron y ampliaron los 18 tours
+   de núcleo/HUD (`core/tutorial/menus.ts`, `calendario.ts`, `nucleo.ts`) — Sísifo, Wrapped,
+   la lista Hoy, IA/cuenta, música, respaldo, plantillas propias, chips de enlace y el hueco
+   contextual del cubo ya tienen tutorial. **Quedan sin tocar los 45 tours de `rooms/*/tutorial.ts`**
+   (los 3 lotes de la auditoría original: cocina/despacho/entretenimiento/hobbies/garage/ideas,
+   las pestañas con 0 pasos de biblioteca/ejercicio/idiomas/sala/agenda, y el resto de apps e
+   infraestructura) — sus datos de ejemplo y su IA siguen sin mención. `tutorial.ts` + `menus.ts`
+   + `calendario.ts` + `nucleo.ts` pesan ~48 KB gz sin comprimir en el bundle (eager, ver #1);
+   seguirá creciendo si se completan los lotes pendientes.
 
 **Cerrado en ago 2026**: los 49 warnings de lint (0 errores, 0 warnings), el histórico de
 hábitos pausados, el `dispose()` de las geometrías de `MuroRender`, el alias `RoomModule`, la

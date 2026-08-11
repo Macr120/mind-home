@@ -23,11 +23,11 @@ import { VACIO, watchlistRepo } from '../../core/data/repository'
 import { idiomaActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { vivo } from '../../core/ui/estilos'
+import { ROJO, VERDE } from './ui'
 
 export type SeccionMercado = 'divisas' | 'criptos' | 'acciones' | 'commodities'
 
-const VERDE = '#34d399'
-const ROJO = '#f87171'
 
 const locale = () => (idiomaActual() === 'en' ? 'en-US' : 'es-MX')
 
@@ -127,13 +127,13 @@ function TablaMercado({
             </span>
             <span className="w-20 shrink-0 text-right text-xs font-semibold tabular-nums">{f.precio}</span>
             <span
-              className="w-14 shrink-0 text-right text-xs font-medium tabular-nums"
-              style={{ color: sube ? VERDE : ROJO }}
+              className="texto-vivo w-14 shrink-0 text-right text-xs font-medium tabular-nums"
+              style={vivo(sube ? VERDE : ROJO)}
             >
               {fmtPct(f.cambioPct)}
             </span>
             {etiquetaExtra && (
-              <span className="w-16 shrink-0 text-right text-[11px] text-white/60 tabular-nums truncate">
+              <span className="w-16 shrink-0 text-right text-[11px] text-white/55 tabular-nums truncate">
                 {f.extra ?? '—'}
               </span>
             )}
@@ -189,7 +189,7 @@ function Pie({
 function Estado({ cargando, onReintentar }: { cargando: boolean; onReintentar: () => void }) {
   const t = useT()
   return (
-    <div className="rounded-xl bg-white/5 border border-white/10 p-6 text-center text-sm text-white/50">
+    <div className="rounded-xl bg-white/5 border border-white/10 p-6 text-center text-sm text-white/55">
       {cargando ? (
         t('despacho.mk.cargando', 'Cargando mercados…')
       ) : (
@@ -345,7 +345,7 @@ function MisDivisas({ tick }: { tick: number }) {
         />
       )}
       {watchlist.length === 0 && (
-        <p className="text-xs text-white/50">{t('despacho.mk.vaciaDivisa', 'Agrega un par de divisas para seguirlo aquí.')}</p>
+        <p className="text-xs text-white/55">{t('despacho.mk.vaciaDivisa', 'Agrega un par de divisas para seguirlo aquí.')}</p>
       )}
 
       <form onSubmit={agregar} className="flex items-center gap-2">
@@ -377,7 +377,7 @@ function MisDivisas({ tick }: { tick: number }) {
           disabled={base === destino}
           className="shrink-0 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/70 hover:bg-white/10 transition disabled:opacity-40"
         >
-          + {t('despacho.mk.agregar', 'Agregar')}
+          <Icono nombre="agregar" /> {t('despacho.mk.agregar', 'Agregar')}
         </button>
       </form>
     </section>
@@ -491,7 +491,7 @@ function MisCriptos({ tick }: { tick: number }) {
         />
       )}
       {watchlist.length === 0 && (
-        <p className="text-xs text-white/50">{t('despacho.mk.vaciaCripto', 'Busca una criptomoneda para seguirla aquí.')}</p>
+        <p className="text-xs text-white/55">{t('despacho.mk.vaciaCripto', 'Busca una criptomoneda para seguirla aquí.')}</p>
       )}
 
       <input
@@ -510,7 +510,7 @@ function MisCriptos({ tick }: { tick: number }) {
               className="flex w-full items-center gap-2 px-3 py-2 text-left text-xs hover:bg-white/10 transition border-b border-white/5 last:border-0"
             >
               <span className="font-bold shrink-0">{r.simbolo}</span>
-              <span className="text-white/50 truncate">{r.nombre}</span>
+              <span className="text-white/55 truncate">{r.nombre}</span>
               {r.rankCap != null && <span className="ml-auto shrink-0 text-white/30">#{r.rankCap}</span>}
             </button>
           ))}
@@ -591,14 +591,14 @@ function SeccionAcciones() {
           const sube = (a?.cambioPct ?? 0) >= 0
           return (
             <div key={idx.simbolo} className="rounded-xl bg-white/5 border border-white/10 p-3">
-              <p className="text-[11px] text-white/50 truncate">
+              <p className="text-[11px] text-white/55 truncate">
                 {idx.nombre} <span className="text-white/30">· {idx.simbolo}</span>
               </p>
               {a ? (
                 <>
                   <p className="font-bold text-sm mt-0.5">{fmtPrecio(a.precio)}</p>
-                  <p className="text-xs font-medium" style={{ color: sube ? VERDE : ROJO }}>
-                    {sube ? '▲' : '▼'} {Math.abs(a.cambioPct).toFixed(2)}%
+                  <p className="texto-vivo text-xs font-medium" style={vivo(sube ? VERDE : ROJO)}>
+                    <Icono nombre={sube ? 'subir' : 'bajar'} /> {Math.abs(a.cambioPct).toFixed(2)}%
                   </p>
                 </>
               ) : (
@@ -735,17 +735,18 @@ function Watchlist({ tick }: { tick: number }) {
               <div key={w.id} className="relative rounded-lg p-2 min-h-[4.25rem]" style={{ background: fondo }}>
                 <button
                   onClick={() => w.id && watchlistRepo.remove(w.id)}
-                  className="absolute top-0.5 right-1.5 text-white/35 hover:text-white text-xs"
+                  className="absolute top-0.5 right-1.5 text-white/40 hover:text-white text-xs"
                   title={t('chat.eliminar', 'Eliminar')}
+                  aria-label={t('chat.eliminar', 'Eliminar')}
                 >
-                  ✕
+                  <Icono nombre="cerrar" />
                 </button>
                 <p className="text-sm font-bold">{w.simbolo}</p>
                 {a === null ? (
-                  <p className="text-[11px] text-white/50">{t('despacho.mk.sinDatos', 'Sin datos')}</p>
+                  <p className="text-[11px] text-white/55">{t('despacho.mk.sinDatos', 'Sin datos')}</p>
                 ) : a ? (
                   <>
-                    <p className="text-[11px] text-white/80">{fmtPrecio(a.precio)}</p>
+                    <p className="text-[11px] text-white/85">{fmtPrecio(a.precio)}</p>
                     <p className="text-xs font-bold">
                       {sube ? '+' : ''}
                       {pct.toFixed(2)}%
@@ -761,7 +762,7 @@ function Watchlist({ tick }: { tick: number }) {
       )}
 
       {watchlist.length === 0 && (
-        <p className="text-xs text-white/50">{t('despacho.mk.vacia', 'Agrega acciones para seguirlas aquí.')}</p>
+        <p className="text-xs text-white/55">{t('despacho.mk.vacia', 'Agrega acciones para seguirlas aquí.')}</p>
       )}
 
       <form
@@ -781,7 +782,7 @@ function Watchlist({ tick }: { tick: number }) {
           type="submit"
           className="shrink-0 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/70 hover:bg-white/10 transition"
         >
-          + {t('despacho.mk.agregar', 'Agregar')}
+          <Icono nombre="agregar" /> {t('despacho.mk.agregar', 'Agregar')}
         </button>
       </form>
     </section>
@@ -922,7 +923,7 @@ function MisMaterias({ tick }: { tick: number }) {
         />
       )}
       {watchlist.length === 0 && (
-        <p className="text-xs text-white/50">
+        <p className="text-xs text-white/55">
           {t('despacho.mk.vaciaMateria', 'Agrega el ETF de una materia prima que quieras seguir.')}
         </p>
       )}
@@ -944,7 +945,7 @@ function MisMaterias({ tick }: { tick: number }) {
           type="submit"
           className="shrink-0 rounded-lg bg-white/5 border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/70 hover:bg-white/10 transition"
         >
-          + {t('despacho.mk.agregar', 'Agregar')}
+          <Icono nombre="agregar" /> {t('despacho.mk.agregar', 'Agregar')}
         </button>
       </form>
     </section>

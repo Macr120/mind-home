@@ -561,8 +561,7 @@ export const ESPECIFICACIONES_DEMO = [
       '12) con el nombre de la persona en `con`. ' +
       '`pendientes`: 5 tareas de trabajo SIN fecha (bandeja de pendientes), texto corto. ' +
       '`contactos`: 8 personas del círculo de Pep@ con nombre completo verosímil y `relacion` (Familia, Amistades, ' +
-      'Trabajo o Universidad). `proyectos`: nombre de los dos proyectos (el semestral de física y la web de la ' +
-      'cafetería, ya terminado).',
+      'Trabajo o Universidad).',
     esquema: {
       type: 'object',
       properties: {
@@ -606,14 +605,8 @@ export const ESPECIFICACIONES_DEMO = [
             additionalProperties: false,
           },
         },
-        proyectos: {
-          type: 'object',
-          properties: { fisica: { type: 'string' }, cafeteria: { type: 'string' } },
-          required: ['fisica', 'cafeteria'],
-          additionalProperties: false,
-        },
       },
-      required: ['trabajo', 'salud', 'personas', 'pendientes', 'contactos', 'proyectos'],
+      required: ['trabajo', 'salud', 'personas', 'pendientes', 'contactos'],
       additionalProperties: false,
     },
   },

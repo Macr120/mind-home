@@ -1,8 +1,12 @@
 import { VACIO, murosLibresRepo, setEstiloMuroLibre, eliminarMuroLibre } from '../../data/repository'
-import { TIPOS_MURO, TIPOS_FORMA_MURO, TIPOS_VENTANA_FORMA, TIPOS_PUERTA, VANO_FORMA_ALTO_DEFAULT } from '../../house/murosPuertas'
+import { TIPOS_MURO, TIPOS_FORMA_MURO, TIPOS_VENTANA_FORMA, TIPOS_VENTANA_CONTENIDO, TIPOS_PUERTA, VANO_FORMA_ALTO_DEFAULT } from '../../house/murosPuertas'
 import { FORMA_ALTO_TECHO } from '../../house/walls'
+import { MURO_LIBRE_ROOM, claveImagenMuroLibre } from '../../house/murosLibre'
+import { comprimirFoto } from '../../house/especiales'
 import { ColorPicker } from '../comun/ColorPicker'
+import { ImagenPuertaBlock } from '../editor/ImagenPuertaBlock'
 import { usePlanos } from '../../state/planosStore'
+import { useDiseño } from '../../state/disenoStore'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 
@@ -52,6 +56,14 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
   const muros = murosLibresRepo.useAll() ?? VACIO
   const setMuroLibreSel = usePlanos((s) => s.setMuroLibreSel)
   const herramienta = usePlanos((s) => s.herramienta)
+  // Imágenes del muro libre (cuadro empotrado): tabla de imágenes por muro con el
+  // roomId centinela, porque un muro independiente no pertenece a ningún cuarto.
+  const claveCuadro = claveImagenMuroLibre(muroId, 'cuadro')
+  const clavePuerta = claveImagenMuroLibre(muroId, 'puerta')
+  const fotoCuadro = useDiseño((s) => s.roomMuroImagenes[`${MURO_LIBRE_ROOM}::${claveCuadro}`])
+  const fotoPuerta = useDiseño((s) => s.roomMuroImagenes[`${MURO_LIBRE_ROOM}::${clavePuerta}`])
+  const subirImagenMuro = useDiseño((s) => s.subirRoomMuroImagen)
+  const eliminarImagenMuro = useDiseño((s) => s.eliminarRoomMuroImagen)
   const m = muros.find((x) => x.id === muroId)
   if (!m) return null
 
@@ -93,6 +105,9 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
     const altoAb = esPuerta ? (m.puertaAlto ?? 0.85) : (m.ventAlto ?? 0.5)
     const colorAb = esPuerta ? (m.puertaColor ?? '#b9824f') : (m.ventColor ?? '#bcdcff')
     const forma = m.ventForma ?? 'cuadrado'
+    // Cristal / cuadro / espejo. En el muro curvo el aplique no se monta: siempre cristal.
+    const contenido = esCurvo ? 'ventana' : (m.ventContenido ?? 'ventana')
+    const cara = m.ventCara ?? 'interior'
     const posX = m.ventPosX ?? 0
     const posY = m.ventPosY ?? 0.54
     const rot = m.ventRot ?? 0
@@ -260,9 +275,56 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
                 </p>
                 <ColorPicker value={colorAb} onChange={(c) => set({ puertaColor: c })} />
               </div>
+              {/* Imagen de la hoja: el tipo "Sin puerta" no tiene hoja que vestir. */}
+              {puertaTipo !== 'sin' && (
+                <ImagenPuertaBlock
+                  url={fotoPuerta}
+                  onImagen={(blob) => subirImagenMuro(MURO_LIBRE_ROOM, clavePuerta, blob)}
+                  onQuitar={() => void eliminarImagenMuro(MURO_LIBRE_ROOM, clavePuerta)}
+                />
+              )}
             </>
           ) : (
             <>
+              {/* Qué vive en el vano: cristal, cuadro con foto o espejo. El muro curvo
+                  solo admite cristal (el aplique se monta sobre una cara plana). */}
+              {!esCurvo && (
+                <div className="flex gap-1 rounded-lg bg-black/20 p-1">
+                  {TIPOS_VENTANA_CONTENIDO.map((c) => (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() => set({ ventContenido: c.id })}
+                      className={`flex-1 rounded-md py-1 text-[10px] font-semibold transition ${
+                        contenido === c.id ? 'bg-emerald-600 texto-cta' : 'text-white/45 hover:text-white/70'
+                      }`}
+                    >
+                      {t(`paredes.cont.${c.id}` as Parameters<typeof t>[0], c.nombre)}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Cara del muro donde vive el cuadro/espejo (la otra queda lisa). */}
+              {contenido !== 'ventana' && (
+                <div className="flex gap-1 rounded-lg bg-black/20 p-1">
+                  {(['interior', 'exterior'] as const).map((c) => (
+                    <button
+                      key={c}
+                      type="button"
+                      onClick={() => set({ ventCara: c })}
+                      className={`flex-1 rounded-md py-1 text-[10px] font-semibold transition ${
+                        cara === c ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/70'
+                      }`}
+                    >
+                      {c === 'interior'
+                        ? t('paredes.caraInterior', 'Cara interior')
+                        : t('paredes.caraExterior', 'Cara exterior')}
+                    </button>
+                  ))}
+                </div>
+              )}
+
               {/* Forma del cristal */}
               <div className="space-y-1.5">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">
@@ -330,7 +392,62 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
                   onChange={(v) => set({ ventRot: v })}
                 />
               )}
+              {/* Foto del cuadro empotrado */}
+              {contenido === 'cuadro' && (
+                <div className="space-y-1.5">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">
+                    {t('paredes.fotoCuadro', 'Foto')}
+                  </p>
+                  {fotoCuadro && (
+                    <div className="overflow-hidden rounded-lg border border-white/10" style={{ height: 64 }}>
+                      <img
+                        src={fotoCuadro}
+                        alt={t('paredes.fotoCuadro', 'Foto')}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  )}
+                  <label className="block cursor-pointer rounded-md border border-emerald-400/30 bg-emerald-500/10 px-2 py-1.5 text-center text-[10px] font-semibold text-emerald-400 transition hover:bg-emerald-500/20">
+                    <Icono nombre="foto" />{' '}
+                    {fotoCuadro
+                      ? t('paredes.cambiarFoto', 'Cambiar la foto')
+                      : t('paredes.subirFoto', 'Subir una foto')}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={async (e) => {
+                        const f = e.target.files?.[0]
+                        e.target.value = ''
+                        if (!f?.type.startsWith('image/')) return
+                        await subirImagenMuro(MURO_LIBRE_ROOM, claveCuadro, await comprimirFoto(f))
+                      }}
+                    />
+                  </label>
+                  {fotoCuadro && (
+                    <button
+                      type="button"
+                      onClick={() => void eliminarImagenMuro(MURO_LIBRE_ROOM, claveCuadro)}
+                      className="w-full rounded-md border border-white/10 bg-white/5 py-1.5 text-[10px] font-semibold text-white/60 transition hover:bg-red-500/25"
+                    >
+                      {t('paredes.quitarFoto', 'Quitar la foto')}
+                    </button>
+                  )}
+                  <p className="text-[10px] leading-snug text-white/35">
+                    {t('paredes.fotoAyuda', 'La foto llena la forma del marco en la cara elegida del muro.')}
+                  </p>
+                </div>
+              )}
+
+              {/* Espejo empotrado: solo la nota (la luna refleja lo que tiene enfrente). */}
+              {contenido === 'espejo' && (
+                <p className="text-[10px] leading-snug text-white/35">
+                  {t('paredes.espejoNota', 'La luna refleja en tiempo real lo que tiene enfrente.')}
+                </p>
+              )}
+
               {/* Cristal: mosaico, multicolor y color */}
+              {contenido === 'ventana' && (
               <div className="space-y-1.5">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-white/40">
                   {t('paredes.cristal', 'Cristal')}
@@ -363,6 +480,7 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
                   <ColorPicker value={colorAb} onChange={(c) => set({ ventColor: c })} />
                 )}
               </div>
+              )}
             </>
           ))}
       </div>
@@ -380,6 +498,9 @@ export function EditorMuroLibre({ muroId }: { muroId: number }) {
           <button
             type="button"
             onClick={() => {
+              // Las imágenes del muro (cuadro y puerta) viven aparte: se van con él.
+              void eliminarImagenMuro(MURO_LIBRE_ROOM, claveCuadro)
+              void eliminarImagenMuro(MURO_LIBRE_ROOM, clavePuerta)
               void eliminarMuroLibre(muroId)
               setMuroLibreSel(null)
             }}

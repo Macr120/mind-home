@@ -8,26 +8,31 @@ import { borrarTaller } from './tramites'
 import { AccionIcono, BotonBorrar, BotonPrimario, Chip, TARJETA, Tile } from './ui'
 
 /**
- * Libreta del garaje: el taller de siempre, la aseguradora, el verificentro y la
- * grúa. Es de la casa, no de un vehículo: un contacto puede atender a todos y por
- * eso vive en su propia pestaña en vez de dentro de cada ficha.
+ * Libreta del vehículo: su taller de siempre, la aseguradora, el verificentro y
+ * la grúa. Los contactos siguen siendo de la casa (uno puede atender a todos),
+ * pero se consultan desde la ficha: aquí solo salen los suyos y los generales.
  */
 export function TalleresTab({
   talleres,
   vehiculos,
+  vehiculo,
 }: {
   talleres: TallerVehiculo[]
   vehiculos: Vehiculo[]
+  vehiculo: Vehiculo
 }) {
   const t = useT()
   const [creando, setCreando] = useState(false)
   const [editando, setEditando] = useState<TallerVehiculo | null>(null)
   const [borrando, setBorrando] = useState<string | null>(null)
 
+  const suyos = talleres.filter((c) => c.vehiculoId == null || c.vehiculoId === vehiculo.id)
+
   if (creando || editando) {
     return (
       <FormularioTaller
         vehiculos={vehiculos}
+        vehiculoPorDefecto={vehiculo.id}
         inicial={editando ?? undefined}
         onGuardado={() => {
           setCreando(false)
@@ -49,7 +54,7 @@ export function TalleresTab({
         <Icono nombre="agregar" /> {t('garage.taller.añadir', 'Añadir contacto')}
       </BotonPrimario>
 
-      {talleres.length === 0 ? (
+      {suyos.length === 0 ? (
         <div className={`${TARJETA} space-y-1 p-6 text-center`}>
           <p className="text-3xl">
             <Icono nombre="telefono" />
@@ -63,7 +68,7 @@ export function TalleresTab({
         </div>
       ) : (
         TIPOS_TALLER.map((grupo) => {
-          const delGrupo = talleres.filter((c) => c.tipo === grupo.id)
+          const delGrupo = suyos.filter((c) => c.tipo === grupo.id)
           if (delGrupo.length === 0) return null
           return (
             <section key={grupo.id} className="space-y-2">

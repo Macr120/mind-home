@@ -5,6 +5,7 @@ import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
 import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
+import { confirmar } from '../state/confirmarStore'
 import { useAsignar } from '../state/asignarStore'
 import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
@@ -14,20 +15,23 @@ import { ResumenJugador, ProgresoApp } from './ProgresoPanel'
 import { PlantillasCatalogo } from './PlantillasCatalogo'
 import { InfraestructuraCatalogo } from './InfraestructuraCatalogo'
 import { ObjetosCatalogo } from './ObjetosCatalogo'
+import { CATS_ESPECIALES } from './inventarioGrupos'
 import { useProgreso } from '../gamificacion/actividad'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import type { NombreIcono } from './iconos/catalogo'
 import { BotonTutoriales } from '../tutorial/SelectorTutorial'
 import { useHud } from '../state/hudStore'
 import { useConstruyendo } from '../state/construyendo'
 import { BotonPlegarHud, TiradorHud } from './HudPlegable'
 import { useAjustes } from '../state/ajustesStore'
 
-const CATEGORIAS: { key: Cuarto['categoria']; label: string }[] = [
-  { key: 'cuerpo', label: 'Cuerpo' },
-  { key: 'mente', label: 'Mente' },
-  { key: 'complemento', label: 'Complemento' },
-  { key: 'config', label: 'Configuración' },
+/** Orden en que se listan los cuartos; el rótulo de cada categoría ya no se pinta. */
+const CATEGORIAS: { key: Cuarto['categoria'] }[] = [
+  { key: 'cuerpo' },
+  { key: 'mente' },
+  { key: 'complemento' },
+  { key: 'config' },
 ]
 
 export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
@@ -48,7 +52,11 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const editRoom = useLayout((s) => s.editRoom)
   const setEditMode = useLayout((s) => s.setEditMode)
   const cuartos = useCuartos((s) => s.cuartos)
+  const intercambiarOrden = useCuartos((s) => s.intercambiarOrden)
+  const eliminarCuarto = useCuartos((s) => s.eliminar)
   const abrirAsignar = useAsignar((s) => s.abrir)
+  // Cuarto con la fila de opciones desplegada (el engrane); solo una a la vez.
+  const [ajustesCuarto, setAjustesCuarto] = useState<string | null>(null)
   const [menu, setMenu] = useState<'cuartos' | 'plantillas' | 'objetos'>('cuartos')
   // Inventario tiene dos sub-pestañas: Objetos (biblioteca) y Objetos especiales (vehículos).
   const [invSub, setInvSub] = useState<'objetos' | 'especiales'>('objetos')
@@ -56,6 +64,25 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const [plantSub, setPlantSub] = useState<'cuartos' | 'infra'>('cuartos')
   const setInventarioObjetosActivo = useEditorUi((s) => s.setInventarioObjetosActivo)
   const progreso = useProgreso()
+
+  /**
+   * Borra un cuarto desde el menú. Con una app asignada la confirmación la lleva
+   * `EliminarCuartoDialog` (explica que la plantilla vuelve al catálogo), así que
+   * aquí solo se pregunta cuando el cuarto está vacío — si no, saldrían dos.
+   */
+  const borrarCuarto = async (id: string, nombre: string, conApp: boolean) => {
+    setAjustesCuarto(null)
+    if (!conApp) {
+      const ok = await confirmar({
+        titulo: t('nav.borrarCuartoTitulo', 'Borrar «{nombre}»', { nombre }),
+        mensaje: t('nav.borrarCuartoMsg', 'Se van también sus muros, su decoración y sus objetos.'),
+        textoOk: t('nav.borrarCuartoOk', 'Borrar'),
+        peligro: true,
+      })
+      if (!ok) return
+    }
+    await eliminarCuarto(id)
+  }
 
   // Con Inventarios abierto, los objetos del mapa/cuartos se pueden arrastrar
   // directo en la escena 3D sin entrar al editor. Se limpia al salir.
@@ -231,7 +258,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             </div>
             <div data-tut="menu.inv.catalogo">
               {invSub === 'especiales' ? (
-                <ObjetosCatalogo soloCategorias={['Pistolas', 'Vehículos', 'Cuadro y espejo', 'Fuentes', 'Parque', 'Luces', 'Anuncios', 'Principales']} />
+                <ObjetosCatalogo soloCategorias={CATS_ESPECIALES} />
               ) : (
                 <ObjetosCatalogo />
               )}
@@ -244,10 +271,10 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           <ResumenJugador progreso={progreso} />
         </div>
         <p className="mb-3 px-2 text-[11px] leading-snug text-white/45">
-          <b className="text-white/70">{t('nav.ayuda.editar', 'Editar')}</b>{' '}
-          {t('nav.ayuda.editarTexto', 'personaliza el cuarto ·')}{' '}
-          <b className="text-white/70">{t('nav.ayuda.entrar', 'Entrar')}</b>{' '}
-          {t('nav.ayuda.entrarTexto', 'abre la app.')}
+          {t(
+            'nav.ayuda.tarjetaTexto',
+            'Toca un cuarto para abrir su app; el engrane abre sus opciones (moverlo, borrarlo, editarlo).',
+          )}
         </p>
         {cuartos.length === 0 && (
           <p className="px-2 py-6 text-center text-xs leading-relaxed text-white/40">
@@ -255,16 +282,21 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
           </p>
         )}
 
-        {CATEGORIAS.map(({ key, label }) => {
-          const grupo = cuartos.filter((c) => c.categoria === key)
+        {CATEGORIAS.map(({ key }) => {
+          // Los cuartos que todavía no tienen app, al final de su grupo: son un
+          // pendiente («+ Asignar»), no un sitio al que entrar, y en medio parten
+          // la lista de las apps que sí se visitan. El orden entre los demás no se
+          // toca — `sort` es estable y `filter` ya devolvió un arreglo propio.
+          const grupo = cuartos
+            .filter((c) => c.categoria === key)
+            .sort((a, b) => Number(!appDe(a.id)) - Number(!appDe(b.id)))
           if (grupo.length === 0) return null
           return (
-            <section key={key} className="mb-4" data-tut="menu.cuartos.lista">
-              <h2 className="mb-1.5 px-2 text-[10px] font-bold uppercase tracking-wider text-white/30">
-                {t(`cat.${key}`, label)}
-              </h2>
+            // Sin encabezado de categoría: los cuartos se siguen agrupando por
+            // ella (y ordenando dentro), pero el rótulo solo gastaba altura.
+            <section key={key} className="mb-1.5" data-tut="menu.cuartos.lista">
               <ul className="flex flex-col gap-1.5">
-                {grupo.map((cuarto) => {
+                {grupo.map((cuarto, i) => {
                   const color = roomColors[cuarto.id] ?? cuarto.color
                   const nombre = roomNames[cuarto.id] || cuarto.nombre
                   const { titulo, subtitulo } = tituloSubtituloCuarto(cuarto, nombre, t)
@@ -272,18 +304,37 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                   const enfoque = appId
                     ? progreso?.enfoques.find((e) => e.plantillaId === appId)
                     : undefined
+                  // Vecinos para ▲/▼: solo dentro del mismo bloque (con app o sin
+                  // app), porque el `sort` de arriba manda los sin app al final y
+                  // un intercambio a través de esa frontera no movería nada.
+                  const mismoBloque = (otro?: Cuarto) => !!otro && !appDe(otro.id) === !appId
+                  const arriba = mismoBloque(grupo[i - 1]) ? grupo[i - 1] : undefined
+                  const abajo = mismoBloque(grupo[i + 1]) ? grupo[i + 1] : undefined
                   return (
                     <li
                       key={cuarto.id}
                       data-tut={`menu.cuartos.card.${cuarto.id}`}
-                      className="rounded-lg border px-2 py-1.5 transition"
+                      className="relative rounded-lg border transition"
                       style={{
                         borderColor: 'color-mix(in srgb, var(--ui-ink) 10%, transparent)',
                         background: 'color-mix(in srgb, var(--ui-ink) 3%, transparent)',
                       }}
                     >
-                      <div className="flex items-center gap-2">
-                        <div className="flex min-w-0 flex-1 items-center gap-2">
+                      {/* La tarjeta ENTERA es el botón de entrar (o de asignar app);
+                          solo el engrane queda fuera, flotando en su esquina. */}
+                      <button
+                        type="button"
+                        data-tut={appId ? 'menu.cuartos.entrar' : 'menu.cuartos.asignar'}
+                        onClick={() => (appId ? openRoom(cuarto.id) : abrirAsignar(cuarto.id))}
+                        title={
+                          appId
+                            ? t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })
+                            : t('nav.asignarApp', 'Asignar una app a este cuarto')
+                        }
+                        className="block w-full rounded-lg px-2 py-1.5 text-left transition hover:bg-white/[0.07]"
+                      >
+                        {/* `pr-9`: el hueco que ocupa el engrane sobre esta fila. */}
+                        <div className="flex items-start gap-2 pr-9">
                           <span
                             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-lg"
                             style={{ background: `${color}33` }}
@@ -291,53 +342,67 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                             <Icono emoji={cuarto.icon} />
                           </span>
                           <span className="min-w-0 flex-1 leading-tight">
-                            <span className="block truncate text-sm font-semibold text-white/90">
-                              {titulo}
-                            </span>
-                            {subtitulo && (
-                              <span className="block truncate text-[11px] text-white/45">
-                                {subtitulo}
+                            <span className="block text-sm font-semibold text-white/90">{titulo}</span>
+                            {appId ? (
+                              subtitulo && (
+                                <span className="block truncate text-[11px] text-white/45">{subtitulo}</span>
+                              )
+                            ) : (
+                              <span className="block text-[11px] font-bold" style={{ color }}>
+                                {t('nav.asignar', '+ Asignar')}
                               </span>
                             )}
                           </span>
                         </div>
+                        {/* Progreso de la app del cuarto, dentro de su card. */}
+                        {enfoque && <ProgresoApp enfoque={enfoque} color={color} />}
+                      </button>
 
-                        <div className="flex shrink-0 flex-col gap-1">
-                          <button
-                            type="button"
-                            data-tut="menu.cuartos.editar"
-                            onClick={() => editRoom(cuarto.id)}
-                            title={t('nav.editarCuarto', 'Editar este cuarto')}
-                            className="flex min-w-[5.25rem] items-center justify-center gap-1 rounded-md border border-white/10 bg-white/5 px-2 py-2 text-xs font-bold text-white/80 transition hover:bg-white/12"
-                          >
-                            <Icono nombre="ajustes" className="text-sm leading-none" />
-                            <span>{t('nav.editar', 'Editar')}</span>
-                          </button>
-                          {appId ? (
-                            <button
-                              type="button"
-                              data-tut="menu.cuartos.entrar"
-                              onClick={() => openRoom(cuarto.id)}
-                              className="min-w-[5.25rem] rounded-md px-2 py-2 text-xs font-bold transition hover:brightness-110"
-                              style={{ background: color, color: 'var(--ui-accent-ink)' }}
-                            >
-                              {t('nav.entrar', 'Entrar ›')}
-                            </button>
-                          ) : (
-                            <button
-                              type="button"
-                              data-tut="menu.cuartos.asignar"
-                              onClick={() => abrirAsignar(cuarto.id)}
-                              title={t('nav.asignarApp', 'Asignar una app a este cuarto')}
-                              className="min-w-[5.25rem] rounded-md border border-dashed border-white/25 px-2 py-2 text-xs font-bold text-white/70 transition hover:border-white/45 hover:text-white/90"
-                            >
-                              {t('nav.asignar', '+ Asignar')}
-                            </button>
-                          )}
+                      <button
+                        type="button"
+                        data-tut="menu.cuartos.editar"
+                        onClick={() => setAjustesCuarto((a) => (a === cuarto.id ? null : cuarto.id))}
+                        aria-expanded={ajustesCuarto === cuarto.id}
+                        title={t('nav.ajustesCuarto', 'Opciones del cuarto')}
+                        className={`absolute right-2 top-1.5 grid h-8 w-8 place-items-center rounded-md border text-sm transition ${
+                          ajustesCuarto === cuarto.id
+                            ? 'border-white/25 bg-white/15 text-white/90'
+                            : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/12'
+                        }`}
+                      >
+                        <Icono nombre="ajustes" />
+                      </button>
+
+                      {ajustesCuarto === cuarto.id && (
+                        <div className="flex gap-1 px-2 pb-1.5">
+                          <BotonAjusteCuarto
+                            icono="subir"
+                            titulo={t('nav.subirCuarto', 'Subir en la lista')}
+                            disabled={!arriba}
+                            onClick={() => arriba && void intercambiarOrden(cuarto.id, arriba.id)}
+                          />
+                          <BotonAjusteCuarto
+                            icono="bajar"
+                            titulo={t('nav.bajarCuarto', 'Bajar en la lista')}
+                            disabled={!abajo}
+                            onClick={() => abajo && void intercambiarOrden(cuarto.id, abajo.id)}
+                          />
+                          <BotonAjusteCuarto
+                            icono="basura"
+                            titulo={t('nav.borrarCuarto', 'Borrar el cuarto')}
+                            peligro
+                            onClick={() => void borrarCuarto(cuarto.id, titulo, !!appId)}
+                          />
+                          <BotonAjusteCuarto
+                            icono="editar"
+                            titulo={t('nav.editarCuarto', 'Editar este cuarto')}
+                            onClick={() => {
+                              setAjustesCuarto(null)
+                              editRoom(cuarto.id)
+                            }}
+                          />
                         </div>
-                      </div>
-                      {/* Progreso de la app del cuarto, directo en su card. */}
-                      {enfoque && <ProgresoApp enfoque={enfoque} color={color} />}
+                      )}
                     </li>
                   )
                 })}
@@ -365,6 +430,36 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
       </div>
       </aside>
     </>
+  )
+}
+
+/** Botón de la fila de opciones del cuarto (subir, bajar, borrar, editar). */
+function BotonAjusteCuarto({
+  icono,
+  titulo,
+  onClick,
+  disabled,
+  peligro,
+}: {
+  icono: NombreIcono
+  titulo: string
+  onClick: () => void
+  disabled?: boolean
+  peligro?: boolean
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      title={titulo}
+      aria-label={titulo}
+      className={`grid h-8 flex-1 place-items-center rounded-md border border-white/10 bg-white/5 text-sm text-white/70 transition disabled:opacity-25 ${
+        peligro ? 'hover:bg-red-500/25' : 'hover:bg-white/15'
+      }`}
+    >
+      <Icono nombre={icono} />
+    </button>
   )
 }
 

@@ -127,9 +127,13 @@ export function PreviewObjeto3D({
   const claro = useEditorUi((s) => s.previewClaro)
   const D = Math.PI / 180
   const enc = useMemo(() => encuadrar(piezas, escala), [piezas, escala])
-  // Reproducción en el visor: fuerza 'siempre' (undefined si no hay nada que reproducir).
+  // Reproducción en el visor: fuerza 'siempre' (undefined si no hay nada que
+  // reproducir). Con «Dale vida», el paseo se encoge para que no se salga del
+  // encuadre de un canvas de doscientos píxeles.
   const animable = forzarSiempre(anim)
-  const animPlay = play ? animable : undefined
+  const animPlay = play
+    ? animable && (animable.preset === 'vida' ? { ...animable, radio: 0.6 } : animable)
+    : undefined
   const edicion = onPiezasChange && piezas && piezas.length > 0 && !animPlay
   // La selección táctil y el resaltado solo con los controles abiertos (engrane ⚙️).
   const seleccion = edicion && controlesAbiertos

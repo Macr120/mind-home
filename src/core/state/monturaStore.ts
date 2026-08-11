@@ -1,8 +1,11 @@
 import { create } from 'zustand'
 import type { ObjetoCuarto } from '../data/db'
-import type { TipoVehiculo } from '../house/vehiculos'
+import type { TipoVehiculo, TipoMontura } from '../house/vehiculos'
 import { setVueloActivo, setDriftActivo } from '../house/movement'
 import { sonar } from '../audio/sfx'
+
+/** Los 4 vehículos reales, como literales (evita importar `vehiculos.tsx` en runtime — mismo patrón que `accionCuartoStore`). */
+const TIPOS_VEHICULO_REALES = ['bicicleta', 'motocicleta', 'automovil', 'ovni'] as const
 
 /**
  * Estado runtime de la montura (NO se persiste): qué vehículo se conduce y
@@ -12,7 +15,7 @@ import { sonar } from '../audio/sfx'
  */
 export const monturaFrame = {
   montado: false,
-  tipo: null as TipoVehiculo | null,
+  tipo: null as TipoMontura | null,
   /** Rumbo del vehículo en radianes (0 = +Z, como el frente del avatar). */
   heading: 0,
   /** Velocidad real del último frame (con signo: negativa en reversa). */
@@ -53,13 +56,13 @@ export const ANGULO_BRAZO_MONTADO = -0.9
 interface MonturaState {
   /** Id del objeto del mapa que se está conduciendo (null = a pie). */
   instanciaId: number | null
-  tipo: TipoVehiculo | null
+  tipo: TipoMontura | null
   /** Vehículo prestado por el modo carrera (sin objeto del mapa; no persiste pose). */
   prestado: boolean
   /** Vehículo al alcance para subirse (lo publica VehiculoProximity). */
   cercaId: number | null
-  cercaTipo: TipoVehiculo | null
-  setCerca: (id: number | null, tipo: TipoVehiculo | null) => void
+  cercaTipo: TipoMontura | null
+  setCerca: (id: number | null, tipo: TipoMontura | null) => void
   montar: (inst: ObjetoCuarto) => void
   /** Monta un vehículo prestado (carrera a pie): aparece en x/z mirando a heading. */
   montarPrestado: (tipo: TipoVehiculo, x: number, z: number, heading: number) => void
@@ -81,7 +84,9 @@ export const useMontura = create<MonturaState>((set, get) => ({
   },
   montar: (inst) => {
     if (inst.id == null || get().instanciaId != null || get().prestado) return
-    const tipo = inst.tipo as TipoVehiculo
+    const tipo: TipoMontura = (TIPOS_VEHICULO_REALES as readonly string[]).includes(inst.tipo)
+      ? (inst.tipo as TipoVehiculo)
+      : 'generico'
     monturaFrame.montado = true
     monturaFrame.tipo = tipo
     monturaFrame.heading = ((inst.rotY ?? 0) * Math.PI) / 180

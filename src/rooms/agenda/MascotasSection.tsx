@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import type { CuidadoMascota, Mascota } from '../../core/data/db'
+import { mascotasRepo } from '../../core/data/repository'
 import { useT, type TFunc } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA } from './constantes'
 import { FormMascota } from './FormMascota'
@@ -23,6 +25,14 @@ export function MascotasSection({
 }) {
   const t = useT()
   const [creando, setCreando] = useState(false)
+
+  const enOrden = porOrden(mascotas)
+  const arrastre = useArrastreFilas(
+    enOrden,
+    (m) => m.mascId,
+    () => 'salud.mascotas',
+    (nuevas) => void guardarOrden(nuevas, (id, orden) => mascotasRepo.update(id, { orden })),
+  )
 
   return (
     <section className="space-y-2">
@@ -47,13 +57,14 @@ export function MascotasSection({
         </p>
       ) : (
         <div className="space-y-2">
-          {mascotas.map((m) => (
-            <FilaMascota
-              key={m.mascId}
-              mascota={m}
-              cuidados={cuidados.filter((c) => c.mascotaId === m.mascId && c.activo)}
-              onAbrir={() => onAbrir(m)}
-            />
+          {enOrden.map((m) => (
+            <Arrastrable key={m.mascId} arrastre={arrastre} item={m}>
+              <FilaMascota
+                mascota={m}
+                cuidados={cuidados.filter((c) => c.mascotaId === m.mascId && c.activo)}
+                onAbrir={() => onAbrir(m)}
+              />
+            </Arrastrable>
           ))}
         </div>
       )}

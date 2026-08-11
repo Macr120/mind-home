@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import type { Transaccion } from '../../core/data/db'
-import { esFijo, etiquetaCorta, hoyISO, money, money2, rangoPeriodo, sumarPeriodo, totalEnRango } from './mes'
+import { etiquetaCorta, hoyISO, money, money2, rangoPeriodo, sumarPeriodo, totalEnRango } from './mes'
+import { promedioMensual } from './useResumen'
+import { AZUL, ROJO, TARJETA, VERDE } from './ui'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
@@ -9,28 +11,6 @@ import { vivo } from '../../core/ui/estilos'
 const MESES_DEFECTO = 12
 const MESES_MIN = 1
 const MESES_MAX = 120
-
-/**
- * Promedio mensual de lo VARIABLE de un tipo, medido sobre lo ya registrado.
- *
- * La ventana va del primer movimiento suelto (o de hace 12 meses, lo que sea
- * más reciente) hasta hoy. Sin historial no hay promedio: devuelve 0 y el
- * simulador queda solo con los fijos.
- */
-function promedioMensual(movs: Transaccion[], tipo: 'ingreso' | 'gasto', hoy: string): number {
-  const sueltos = movs.filter((m) => m.tipo === tipo && !esFijo(m))
-  if (sueltos.length === 0) return 0
-
-  const primera = sueltos.reduce((a, m) => (m.fecha < a ? m.fecha : a), sueltos[0].fecha)
-  const haceUnAnio = sumarPeriodo(hoy, 'anio', -1)
-  const desde = primera > haceUnAnio ? primera : haceUnAnio
-
-  const total = totalEnRango(movs, tipo, desde, hoy, { solo: 'variables' })
-  const [yD, mD] = desde.split('-').map(Number)
-  const [yH, mH] = hoy.split('-').map(Number)
-  const meses = Math.max(1, (yH - yD) * 12 + (mH - mD) + 1)
-  return total / meses
-}
 
 /**
  * Simulador a futuro: proyecta los fijos a su vencimiento real y lo variable
@@ -80,7 +60,7 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
   const paso = Math.max(1, Math.round(horizonte / 6))
 
   return (
-    <div data-tut="despacho.simulador" className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
+    <div data-tut="despacho.simulador" className={`${TARJETA} space-y-3`}>
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-sm font-semibold">
@@ -93,7 +73,7 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
             )}
           </p>
         </div>
-        <label className="flex shrink-0 items-center gap-1.5 text-xs text-white/50">
+        <label className="flex shrink-0 items-center gap-1.5 text-xs text-white/55">
           {t('despacho.sim.meses', 'meses')}
           <input
             type="number"
@@ -108,12 +88,12 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
       </div>
 
       <div className="grid grid-cols-3 gap-3">
-        <Dato titulo={t('despacho.r.ingresos', 'Ingresos')} valor={money(ingresos)} color="#34d399" />
-        <Dato titulo={t('despacho.r.gastos', 'Gastos')} valor={money(gastos)} color="#f87171" />
+        <Dato titulo={t('despacho.r.ingresos', 'Ingresos')} valor={money(ingresos)} color={VERDE} />
+        <Dato titulo={t('despacho.r.gastos', 'Gastos')} valor={money(gastos)} color={ROJO} />
         <Dato
           titulo={t('despacho.r.balance', 'Balance')}
           valor={money(balance)}
-          color={balance >= 0 ? '#60a5fa' : '#f87171'}
+          color={balance >= 0 ? AZUL : ROJO}
         />
       </div>
 
@@ -125,7 +105,7 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
             <polyline
               points={linea((m) => patrimonio + m.acumulado)}
               fill="none"
-              stroke="#34d399"
+              stroke={VERDE}
               strokeWidth="2"
               vectorEffect="non-scaling-stroke"
             />
@@ -133,7 +113,7 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
           <polyline
             points={linea((m) => m.acumulado)}
             fill="none"
-            stroke="#60a5fa"
+            stroke={AZUL}
             strokeWidth="2"
             strokeDasharray={patrimonio > 0 ? '4 3' : undefined}
             vectorEffect="non-scaling-stroke"
@@ -151,13 +131,13 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
 
       <div className="space-y-1.5">
         <Escenario
-          color="#60a5fa"
+          color={AZUL}
           etiqueta={t('despacho.sim.sinPatrimonio', `Sin patrimonio · en ${horizonte} meses`, { n: String(horizonte) })}
           valor={money2(final)}
         />
         {patrimonio > 0 && (
           <Escenario
-            color="#34d399"
+            color={VERDE}
             etiqueta={t('despacho.sim.conPatrimonio', `Con patrimonio · en ${horizonte} meses`, { n: String(horizonte) })}
             valor={money2(patrimonio + final)}
           />
@@ -176,7 +156,7 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
 function Dato({ titulo, valor, color }: { titulo: string; valor: string; color: string }) {
   return (
     <div className="rounded-lg bg-black/20 p-2.5">
-      <p className="text-[11px] text-white/50">{titulo}</p>
+      <p className="text-[11px] text-white/55">{titulo}</p>
       <p className="texto-vivo text-base font-bold" style={vivo(color)}>
         {valor}
       </p>
@@ -188,7 +168,7 @@ function Escenario({ color, etiqueta, valor }: { color: string; etiqueta: string
   return (
     <div className="flex items-center gap-2 rounded-lg bg-black/20 px-3 py-2">
       <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />
-      <span className="text-xs text-white/50">{etiqueta}</span>
+      <span className="text-xs text-white/55">{etiqueta}</span>
       <span className="texto-vivo ml-auto text-sm font-bold" style={vivo(color)}>
         {valor}
       </span>

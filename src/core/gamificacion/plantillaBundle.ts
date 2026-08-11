@@ -5,6 +5,7 @@ import { META_ESPECIAL_PLANTILLA } from '../house/especialesPlantillaMeta'
 import { objetosDe } from '../state/objetosPlantillaStore'
 import { getPlantilla } from '../registry'
 import type { SiembraGuardada } from '../data/db'
+import type { SideKey } from '../house/walls'
 
 /** Tipo 3D y color por defecto de una entrada de siembra (recurso del catálogo o especial). */
 function tipoYColor(s: SiembraGuardada): { tipo: string; color: string } {
@@ -27,6 +28,22 @@ async function adoptarIdentidad(cuartoId: string, plantillaId: string, teniaApps
   if (p.sinMuros) {
     const { useLayout } = await import('../state/layoutStore')
     await useLayout.getState().marcarSinMuros(cuartoId)
+  }
+  // Garage: su puerta exterior nace como portón, a todo el ancho del vano.
+  if (plantillaId === 'garage') {
+    const { useLayout } = await import('../state/layoutStore')
+    const { SIZE, DOOR_W } = await import('../house/walls')
+    const clave = Object.entries(useLayout.getState().wallOverrides[cuartoId] ?? {}).find(
+      ([, v]) => v === 'puerta',
+    )?.[0]
+    if (clave) {
+      const [col, row, side] = clave.split(',')
+      await useLayout
+        .getState()
+        .setEdgeEstilo(cuartoId, { col: Number(col), row: Number(row) }, side as SideKey, {
+          puerta: { tipo: 'porton', anchoVano: SIZE / DOOR_W },
+        })
+    }
   }
 }
 

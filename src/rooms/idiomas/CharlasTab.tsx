@@ -1,17 +1,17 @@
 import type { PerfilIdioma } from '../../core/data/db'
-import { VACIO, conversacionesIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { VACIO, conversacionesIdiomaRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR } from './constantes'
-import { getTema } from './temario'
+import { tituloTema as tituloDeTema, useTemario } from './temarioVivo'
 import { ChatTutor } from './ChatTutor'
 import type { AnclaTema } from './arbol'
 
 /** Lista de charlas de práctica del idioma activo, o la charla abierta. */
-export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial, anclaInicial, sesion }: {
+export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial, anclaInicial, sesion, onIrAlTemario }: {
   perfil: PerfilIdioma
   abierta: number | 'nueva' | null
   onAbrir: (id: number | 'nueva') => void
@@ -20,10 +20,12 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
   anclaInicial: AnclaTema | null
   /** Key de la charla: cambia con cada charla nueva para remontar limpio. */
   sesion: number
+  /** Salta al temario (con un tema abierto, o al temario a secas). */
+  onIrAlTemario: (temaId: string | null) => void
 }) {
   const t = useT()
   const charlas = (conversacionesIdiomaRepo.useAll() ?? VACIO).filter((c) => c.idiomaId === perfil.id)
-  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
+  const tx = useTemario(perfil.id)
   const lista = useAsistentes((s) => s.lista)
   const voz = asistenteDePlantilla(lista, 'idiomas') ?? semillaAsistente('idiomas')
 
@@ -37,13 +39,13 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
         anclaInicial={anclaInicial}
         onCreada={onAbrir}
         onSalir={onCerrar}
+        onIrAlTemario={onIrAlTemario}
       />
     )
   }
 
   const conIA = iaActiva()
-  const tituloTema = (id?: string) =>
-    id ? (getTema(id)?.titulo ?? nodos.find((n) => n.temaId === id)?.titulo ?? null) : null
+  const tituloTema = (id?: string) => tituloDeTema(tx, id)
 
   return (
     <div className="space-y-3">
@@ -55,6 +57,7 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
 
       <button
         type="button"
+        data-tut="idiomas.charlas.nueva"
         onClick={() => onAbrir('nueva')}
         disabled={!conIA}
         className="w-full rounded-xl py-2.5 text-sm font-semibold text-black transition disabled:opacity-40"
@@ -69,13 +72,14 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
         </p>
       )}
 
-      <div className="space-y-2">
+      <div data-tut="idiomas.charlas.lista" className="space-y-2">
         {charlas.map((c) => {
           const tema = tituloTema(c.temaId)
           return (
             <button
               key={c.id}
               type="button"
+              data-tut={`idiomas.charlas.item.${c.id}`}
               onClick={() => c.id != null && onAbrir(c.id)}
               className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-left transition hover:bg-white/10"
             >

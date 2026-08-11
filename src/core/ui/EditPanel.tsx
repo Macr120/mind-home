@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { getCuarto } from '../state/cuartosStore'
+import { useHistorialEditor } from '../state/historialEditorStore'
 import { useLayout } from '../state/layoutStore'
 import { useDiseño } from '../state/disenoStore'
 import { useEditorUi, type EditorTab } from '../state/editorUiStore'
@@ -15,9 +16,12 @@ import { EditorCuentaSection } from './editor/EditorCuentaSection'
 import { EditorIASection } from './editor/EditorIASection'
 import { EditorRespaldoSection } from './editor/EditorRespaldoSection'
 import { ConfigGrupo } from './editor/ConfigGrupo'
+import { useEditorSeccionesConfig } from './editor/useEditorSecciones'
+import type { ConfigGrupoId } from './editor/configSecciones'
 import { useT } from '../i18n/useT'
 import { esDemo, esDemoAutor } from '../edicion'
 import { Icono } from './iconos/Icono'
+import type { NombreIcono } from './iconos/catalogo'
 import { vivo } from './estilos'
 
 const TABS: { id: EditorTab; labelEs: string }[] = [
@@ -26,6 +30,62 @@ const TABS: { id: EditorTab; labelEs: string }[] = [
   { id: 'objetos', labelEs: 'Objetos' },
   { id: 'config', labelEs: 'Configuraciones' },
 ]
+
+/** Traductor del hook `useT` (el registro de grupos pide el título ya traducido). */
+type Traducir = ReturnType<typeof useT>
+
+/**
+ * Los 8 grupos de Configuraciones. El ORDEN no vive aquí: lo pone el usuario
+ * arrastrando (`useEditorSeccionesConfig`).
+ */
+const GRUPOS_CONFIG: Record<
+  ConfigGrupoId,
+  { icono: NombreIcono; titulo: (t: Traducir) => string; Contenido: () => ReactNode }
+> = {
+  cuenta: {
+    icono: 'perfil',
+    titulo: (t) => t('cuenta.titulo', 'Cuenta'),
+    Contenido: () => <EditorCuentaSection embed sinTitulo />,
+  },
+  estilo: {
+    icono: 'paleta',
+    titulo: (t) => t('ajustes.estiloMapa', 'Estilo visual del mapa'),
+    Contenido: () => <EditorEstiloSection embed sinTitulo />,
+  },
+  interfaz: {
+    icono: 'idiomas',
+    titulo: (t) => t('config.grupo.interfaz', 'Interfaz e idioma'),
+    Contenido: () => <EditorAjustesSection embed />,
+  },
+  musica: {
+    icono: 'musica',
+    titulo: (t) => t('ajustes.musica', 'Música'),
+    Contenido: () => <EditorMusicaSection embed sinTitulo />,
+  },
+  tutoriales: {
+    icono: 'tutorial',
+    titulo: (t) => t('ajustes.tutoriales', 'Tutoriales y bienvenida'),
+    Contenido: () => <EditorTutorialesSection embed sinTitulo />,
+  },
+  notificaciones: {
+    icono: 'campana',
+    titulo: (t) => t('notif.titulo', 'Notificaciones'),
+    Contenido: () => <EditorNotificacionesSection embed sinTitulo />,
+  },
+  ia: {
+    icono: 'brillo',
+    titulo: (t) => t('ia.titulo', 'IA: activar y precios'),
+    Contenido: () => <EditorIASection embed sinTitulo />,
+  },
+  respaldo: {
+    icono: 'guardar',
+    titulo: (t) => t('respaldo.titulo', 'Respaldo de datos'),
+    Contenido: () => <EditorRespaldoSection embed sinTitulo />,
+  },
+}
+
+/** Grupos de la cuenta real: no salen en una casa demo prestada. */
+const OCULTOS_SIN_CUENTA = new Set<ConfigGrupoId>(['cuenta', 'respaldo'])
 
 /**
  * Modo edición. Panel "Editor" con pestañas (Mapa / Personajes / Objetos / Configuraciones).
@@ -42,6 +102,19 @@ export function EditPanel() {
   const roomNames = useDiseño((s) => s.roomNames)
   const tab = useEditorUi((s) => s.tab)
   const setTab = useEditorUi((s) => s.setTab)
+  const secConfig = useEditorSeccionesConfig()
+  const pasos = useHistorialEditor((s) => s.pasos.length)
+  const rehechos = useHistorialEditor((s) => s.rehechos.length)
+  const deshacer = useHistorialEditor((s) => s.deshacer)
+  const rehacer = useHistorialEditor((s) => s.rehacer)
+  const vigilar = useHistorialEditor((s) => s.vigilar)
+
+  // El historial es POR PESTAÑA: cambiar de pestaña (o salir del editor) lo
+  // vacía. El componente sigue montado fuera del modo edición (el `return null`
+  // va después de los hooks), así que el efecto también dispara al salir.
+  useEffect(() => {
+    vigilar(editMode ? tab : null)
+  }, [editMode, tab, vigilar])
 
   // Casa demo: Configuraciones se abre entera salvo Cuenta y Respaldo, que son
   // de la cuenta real y no de esta casa prestada. Idioma, tema de interfaz y
@@ -78,13 +151,35 @@ export function EditPanel() {
         <span className="texto-vivo truncate text-base font-black" style={vivo(color)}>
           <Icono nombre="editar" /> {tituloHeader}
         </span>
-        <button
-          data-tut="editor.listo"
-          onClick={() => setEditMode(false)}
-          className="ml-auto rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-accent-ink transition hover:brightness-110"
-        >
-          <Icono nombre="confirmar" /> {t('mapa.listo', 'Listo')}
-        </button>
+        <div className="ml-auto flex items-center gap-1">
+          <button
+            type="button"
+            disabled={pasos === 0}
+            onClick={() => void deshacer()}
+            title={t('editor.hist.deshacer', 'Deshacer')}
+            aria-label={t('editor.hist.deshacer', 'Deshacer')}
+            className="grid h-7 w-7 place-items-center rounded-md text-white/70 transition hover:bg-white/10 disabled:opacity-25"
+          >
+            <Icono nombre="deshacer" />
+          </button>
+          <button
+            type="button"
+            disabled={rehechos === 0}
+            onClick={() => void rehacer()}
+            title={t('editor.hist.rehacer', 'Rehacer')}
+            aria-label={t('editor.hist.rehacer', 'Rehacer')}
+            className="grid h-7 w-7 place-items-center rounded-md text-white/70 transition hover:bg-white/10 disabled:opacity-25"
+          >
+            <Icono nombre="rehacer" />
+          </button>
+          <button
+            data-tut="editor.listo"
+            onClick={() => setEditMode(false)}
+            className="rounded-lg bg-accent px-3 py-1.5 text-xs font-bold text-accent-ink transition hover:brightness-110"
+          >
+            <Icono nombre="confirmar" /> {t('mapa.listo', 'Listo')}
+          </button>
+        </div>
       </header>
 
       <div className="border-b border-white/10 px-3 py-2">
@@ -139,56 +234,29 @@ export function EditPanel() {
           </div>
         ) : (
           <div className="space-y-2 pt-3">
-            {!sinCuenta && (
-              <ConfigGrupo id="cuenta" icono="perfil" titulo={t('cuenta.titulo', 'Cuenta')}>
-                <EditorCuentaSection embed sinTitulo />
-              </ConfigGrupo>
-            )}
-            {/* Sin el guard de cuenta: la tabla es informativa y es justo lo
-                que hace falta para decidir si recargar. */}
-            <ConfigGrupo id="ia" icono="brillo" titulo={t('ia.precios.titulo', 'Precios de la IA')}>
-              <EditorIASection embed sinTitulo />
-            </ConfigGrupo>
-            <ConfigGrupo
-              id="estilo"
-              icono="paleta"
-              titulo={t('ajustes.estiloMapa', 'Estilo visual del mapa')}
-            >
-              <EditorEstiloSection embed sinTitulo />
-            </ConfigGrupo>
-            <ConfigGrupo
-              id="interfaz"
-              icono="idiomas"
-              titulo={t('config.grupo.interfaz', 'Interfaz e idioma')}
-            >
-              <EditorAjustesSection embed />
-            </ConfigGrupo>
-            <ConfigGrupo id="musica" icono="musica" titulo={t('ajustes.musica', 'Música')}>
-              <EditorMusicaSection embed sinTitulo />
-            </ConfigGrupo>
-            <ConfigGrupo
-              id="tutoriales"
-              icono="tutorial"
-              titulo={t('ajustes.tutoriales', 'Tutoriales y bienvenida')}
-            >
-              <EditorTutorialesSection embed sinTitulo />
-            </ConfigGrupo>
-            <ConfigGrupo
-              id="notificaciones"
-              icono="campana"
-              titulo={t('notif.titulo', 'Notificaciones')}
-            >
-              <EditorNotificacionesSection embed sinTitulo />
-            </ConfigGrupo>
-            {!sinCuenta && (
-              <ConfigGrupo
-                id="respaldo"
-                icono="guardar"
-                titulo={t('respaldo.titulo', 'Respaldo de datos')}
-              >
-                <EditorRespaldoSection embed sinTitulo />
-              </ConfigGrupo>
-            )}
+            {/* Los grupos de la cuenta se filtran AL PINTAR, nunca al guardar el
+                orden: así conservan su sitio al volver de la casa demo. */}
+            {secConfig.orden
+              .filter((id) => !(sinCuenta && OCULTOS_SIN_CUENTA.has(id)))
+              .map((id) => {
+                const g = GRUPOS_CONFIG[id]
+                return (
+                  <ConfigGrupo
+                    key={id}
+                    id={id}
+                    icono={g.icono}
+                    titulo={g.titulo(t)}
+                    onDragStart={(x) => secConfig.iniciarArrastre(x as ConfigGrupoId)}
+                    onDragEnter={(x) => secConfig.entrarObjetivo(x as ConfigGrupoId)}
+                    onDragEnd={secConfig.finArrastre}
+                    onDrop={(x) => secConfig.soltar(x as ConfigGrupoId)}
+                    esObjetivo={secConfig.objetivo === id && secConfig.arrastrando !== id}
+                    esArrastrado={secConfig.arrastrando === id}
+                  >
+                    <g.Contenido />
+                  </ConfigGrupo>
+                )
+              })}
             <AyudaPie>
               {t('editor.ayuda.conf.a', 'El')} <b className="text-white/65">{t('editor.ayuda.conf.b', 'estilo visual del mapa')}</b>
               {t('editor.ayuda.conf.c', ', idioma e')} <b className="text-white/65">{t('editor.ayuda.conf.d', 'interfaz')}</b>.

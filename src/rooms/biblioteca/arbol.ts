@@ -1,10 +1,11 @@
 import type { MensajeIA } from '../../core/chat/ia'
-import { conversacionesBiblioRepo, temasArbolRepo } from '../../core/data/repository'
+import { conversacionesBiblioRepo, entradasBiblioRepo, temasArbolRepo } from '../../core/data/repository'
 import { PILAR_GENERAL, getPilar } from './constantes'
-import { PILARES, todosLosTemas } from './pilares'
+import { cargarIndice, campos, temasDelCampo } from './semilla'
 import {
   clasificarConversacion,
   ubicarConversacion,
+  destilarConversacion,
   generarSubtemas,
   type CandidatoTema,
 } from './sabio'
@@ -28,48 +29,45 @@ function normalizarTitulo(s: string): string {
   return s.trim().toLowerCase().normalize('NFD').replace(DIACRITICOS, '')
 }
 
-/** Resuelve un temaId contra el índice estático y luego el dinámico. */
+/** Resuelve un temaId contra el índice vivo (fábrica parcheada + propios). */
 export async function resolverTema(
   temaId: string,
 ): Promise<{ temaId: string; pilarId: string; titulo: string } | null> {
-  const est = todosLosTemas().find((t) => t.id === temaId)
-  if (est) return { temaId: est.id, pilarId: est.pilarId, titulo: est.titulo }
-  const din = (await temasArbolRepo.list()).find((n) => n.temaId === temaId)
-  return din ? { temaId: din.temaId, pilarId: din.pilarId, titulo: din.titulo } : null
+  const n = (await cargarIndice()).porId.get(temaId)
+  return n ? { temaId: n.id, pilarId: n.pilarId, titulo: n.titulo } : null
 }
 
 /**
- * Candidatos a padre de TODOS los pilares, para la llamada única de ubicación.
- * Los dinámicos van primero (son los que el usuario acaba de crear y donde más
- * sentido tiene colgar algo nuevo); `ubicarConversacion` recorta por pilar.
+ * Candidatos a padre de TODOS los campos, para la llamada única de ubicación.
+ * Los propios van primero (son los que el usuario acaba de crear y donde más
+ * sentido tiene colgar algo nuevo); `ubicarConversacion` recorta por campo.
  */
 async function candidatosDeTodos(): Promise<Record<string, CandidatoTema[]>> {
-  const dinamicos = await temasArbolRepo.list()
+  const ix = await cargarIndice()
   const mapa: Record<string, CandidatoTema[]> = {}
-  for (const p of PILARES) {
-    const propios = dinamicos
-      .filter((n) => n.pilarId === p.id)
-      .sort((a, b) => b.creadoEn.localeCompare(a.creadoEn))
-      .map((n) => ({ id: n.temaId, titulo: n.titulo }))
-    const estaticos = p.ramas.flatMap((rama) =>
-      rama.temas.map((t) => ({ id: t.id, titulo: t.titulo, rama: rama.titulo })),
-    )
-    mapa[p.id] = [...propios, ...estaticos]
+  for (const campo of campos(ix)) {
+    const nodos = temasDelCampo(ix, campo.id).map(({ nodo }) => ({
+      id: nodo.id,
+      titulo: nodo.titulo,
+      rama: nodo.padreId && nodo.padreId !== campo.id ? ix.porId.get(nodo.padreId)?.titulo : undefined,
+      fabrica: nodo.fabrica,
+    }))
+    mapa[campo.id] = [
+      ...nodos.filter((n) => !n.fabrica).map(({ fabrica: _f, ...n }) => n),
+      ...nodos.filter((n) => n.fabrica).map(({ fabrica: _f, ...n }) => n),
+    ]
   }
   return mapa
 }
 
-/** Todos los temas de un pilar (estáticos con su rama + dinámicos). */
+/** Todos los temas visibles de un campo, con la rama de la que cuelgan. */
 async function temasDelPilar(pilarId: string): Promise<{ id: string; titulo: string; rama?: string }[]> {
-  const pilar = PILARES.find((p) => p.id === pilarId)
-  const estaticos = (pilar?.ramas ?? []).flatMap((rama) =>
-    rama.temas.map((t) => ({ id: t.id, titulo: t.titulo, rama: rama.titulo })),
-  )
-  const dinamicos = (await temasArbolRepo.list())
-    .filter((n) => n.pilarId === pilarId)
-    .sort((a, b) => b.creadoEn.localeCompare(a.creadoEn))
-    .map((n) => ({ id: n.temaId, titulo: n.titulo }))
-  return [...estaticos, ...dinamicos]
+  const ix = await cargarIndice()
+  return temasDelCampo(ix, pilarId).map(({ nodo }) => ({
+    id: nodo.id,
+    titulo: nodo.titulo,
+    rama: nodo.padreId && nodo.padreId !== pilarId ? ix.porId.get(nodo.padreId)?.titulo : undefined,
+  }))
 }
 
 /**
@@ -96,6 +94,7 @@ async function crearNodoCharla(datos: {
     descripcion: datos.descripcion,
     creadoEn: new Date().toISOString(),
     conversacionId: datos.conversacionId,
+    nivel: 'tema',
   })
   return { temaId, pilarId: datos.pilarId, titulo: datos.titulo }
 }
@@ -145,6 +144,54 @@ export async function ubicarCharla(conversacionId: number, mensajes: MensajeIA[]
   } catch {
     // La charla queda sin ubicar; ✨ Clasificar permite reintentar.
   }
+}
+
+/** Charlas con un destilado en vuelo: evita que dos disparos escriban dos entradas. */
+const destilando = new Set<number>()
+
+/**
+ * Destila la charla y escribe SU entrada de la enciclopedia (una por charla:
+ * si ya existe, se actualiza). Ya no hay botón: destilar es parte de clasificar,
+ * y al salir de la charla se rehace si hubo mensajes nuevos.
+ *
+ * Fire-and-forget: nunca lanza. Si la IA falla, la charla se queda sin entrada
+ * y el ✨ Clasificar permite reintentarlo.
+ */
+export async function destilarCharla(conversacionId: number, mensajes: MensajeIA[]): Promise<void> {
+  if (!mensajes.length || destilando.has(conversacionId)) return
+  destilando.add(conversacionId)
+  try {
+    const conv = (await conversacionesBiblioRepo.list()).find((c) => c.id === conversacionId)
+    if (!conv) return
+    const ancla = conv.temaId ? await resolverTema(conv.temaId) : null
+    const d = await destilarConversacion(mensajes, conv.pilarId, ancla)
+    const ahora = new Date().toISOString()
+    const datos = {
+      titulo: d.titulo,
+      pilarId: d.pilarId,
+      temaId: d.temaId,
+      resumen: d.resumen,
+      puntosClave: d.puntosClave,
+      actualizadoEn: ahora,
+    }
+    const previa = (await entradasBiblioRepo.list()).find((e) => e.conversacionId === conversacionId)
+    if (previa?.id != null) await entradasBiblioRepo.update(previa.id, datos)
+    else await entradasBiblioRepo.add({ ...datos, conversacionId, creadoEn: ahora })
+    await conversacionesBiblioRepo.update(conversacionId, { destiladaEn: ahora })
+  } catch {
+    // Sin entrada esta vez; el ✨ Clasificar la vuelve a intentar.
+  } finally {
+    destilando.delete(conversacionId)
+  }
+}
+
+/**
+ * Lo que pasa tras la primera respuesta (y cada vez que pulsas ✨): la charla se
+ * clasifica, se cuelga del árbol y SALE YA DESTILADA como entrada.
+ */
+export async function clasificarYDestilar(conversacionId: number, mensajes: MensajeIA[]): Promise<void> {
+  await ubicarCharla(conversacionId, mensajes)
+  await destilarCharla(conversacionId, mensajes)
 }
 
 /**
@@ -207,6 +254,7 @@ export async function agregarRamas(
         descripcion: r.descripcion,
         creadoEn: ahora,
         conversacionId,
+        nivel: 'tema',
       })
       porClave.set(clave, { id: temaId, titulo: r.titulo })
       resultado.push({ temaId, titulo: r.titulo })

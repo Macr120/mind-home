@@ -11,6 +11,7 @@ import { crearEjemplo, crearMapaIA, crearMapaVacio } from './crear'
 import { ejemploDe } from './ejemplos'
 import { MatrizDecision } from './MatrizDecision'
 import { defTipo, tiposDe } from './tiposMapa'
+import { EntradasQueUsan } from '../_shared/EntradasQueUsan'
 import { LienzoMapa } from './LienzoMapa'
 import { Creditos } from '../../core/ui/Creditos'
 import { OP_MAPA } from './costosIA'
@@ -109,6 +110,8 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
           </span>
         </div>
 
+        <EntradasQueUsan tipo="mapa" id={mapaAbierto.id} className="shrink-0" />
+
         {/* La guía viaja con el ejemplo: se explica el formato AL LADO del
             dibujo, que es donde de verdad se entiende. */}
         {mapaAbierto.ejemplo && (
@@ -147,8 +150,11 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
     )
   }
 
+  // `w-full` es obligatorio junto a `mx-auto`: sin él los márgenes automáticos
+  // anulan el estirado del flex y el panel se encoge al ancho de su contenido,
+  // así que cada pestaña salía de un ancho distinto.
   return (
-    <div className="mx-auto max-w-2xl space-y-3">
+    <div className="mx-auto w-full max-w-2xl space-y-3">
       <div className="space-y-2.5 rounded-2xl border border-white/10 bg-white/5 p-3" data-tut="ideas.mapas.alta">
         <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3" data-tut="ideas.mapas.tipos">
           {tipos.map((d) => (

@@ -22,7 +22,7 @@ const flujoAlimentacion: TutorialDef = {
   titulo: T('tut.app-cocina--alimentacion.titulo', 'Comer con un objetivo'),
   resumen: T(
     'tut.app-cocina--alimentacion.resumen',
-    'El control de alimentación son tres pasos: pones tus objetivos, registras lo que comes y bebes, y el progreso te dice si vas por donde querías.',
+    'El control de alimentación son cuatro pasos: pones tus objetivos, registras lo que comes y bebes, planeas tu semana, y el progreso te dice si vas por donde querías.',
   ),
   preparar: () => {
     abrirApp('cocina')
@@ -96,15 +96,30 @@ const flujoRecetario: TutorialDef = {
       alEntrar: () => irA('recetario', 'recetas'),
     },
     {
-      sel: 'cocina.compras.listas',
-      titulo: T('tut.app-cocina--recetario.3.titulo', 'La lista del súper'),
+      sel: 'cocina.ia.receta',
+      titulo: T('tut.app-cocina--recetario.3.titulo', 'Pedirle la receta a la IA'),
       texto: T(
         'tut.app-cocina--recetario.3.texto',
-        'Las listas se guardan con lo que falta por comprar y lo que ya está en la despensa. Si les pones precio, la cuenta se puede mandar a los gastos del Despacho.',
+        'Describe qué quieres cocinar y la IA arma la receta completa con foto del platillo. Esto lo hace la IA: se enciende en Editor › Configuraciones › Cuenta.',
+      ),
+    },
+    {
+      sel: 'cocina.compras.sub.crear',
+      titulo: T('tut.app-cocina--recetario.4.titulo', 'De receta a lista de súper'),
+      texto: T(
+        'tut.app-cocina--recetario.4.texto',
+        'Crear lista junta lo que falta de varias recetas en una sola compra: cada ingrediente adivina su categoría (verdura, lácteo…) y se puede editar.',
+      ),
+      alEntrar: () => irA('recetario', 'compras'),
+    },
+    {
+      sel: 'cocina.compras.listas',
+      titulo: T('tut.app-cocina--recetario.5.titulo', 'Las listas guardadas'),
+      texto: T(
+        'tut.app-cocina--recetario.5.texto',
+        'Cada lista se guarda con lo que falta por comprar y lo que ya está en la despensa. Si les pones precio, la cuenta se puede mandar a los gastos del Despacho.',
       ),
       alEntrar: async () => {
-        await irA('recetario', 'compras')
-        // La pestaña abre en «Crear lista»: hay que pasar a las guardadas.
         await esperarTut('cocina.compras.sub.listas', 3000)
         clickTut('cocina.compras.sub.listas')
       },
@@ -112,4 +127,34 @@ const flujoRecetario: TutorialDef = {
   ],
 }
 
-export const flujosCocina: TutorialDef[] = [flujoAlimentacion, flujoRecetario]
+const flujoCronograma: TutorialDef = {
+  id: 'app-cocina--cronograma',
+  titulo: T('tut.app-cocina--cronograma.titulo', 'El plan de alimentación en el calendario'),
+  resumen: T(
+    'tut.app-cocina--cronograma.resumen',
+    'Las metas de peso y dieta de Pep@ tienen su propio eje del tiempo: sub-metas con fecha y un plan que la IA arma en fases.',
+  ),
+  preparar: () => {
+    abrirApp('cocina')
+  },
+  pasos: [
+    {
+      sel: 'cocina.cronograma',
+      titulo: T('tut.app-cocina--cronograma.1.titulo', 'La meta de peso, con fases'),
+      texto: T(
+        'tut.app-cocina--cronograma.1.texto',
+        'El mismo cronograma que usa el calendario de la casa, acotado a las metas de Cocina: crea una meta (p. ej. «Bajar 3 kilos») y pídele el plan a la IA — pregunta tu fecha objetivo y agenda sub-metas con su fecha.',
+      ),
+      alEntrar: () => irA('peso', 'metas'),
+      esperar: 'cocina.cronograma',
+    },
+    {
+      texto: T(
+        'tut.app-cocina--cronograma.2.texto',
+        'Esto lo hace la IA: se enciende en Editor › Configuraciones › Cuenta. Sin ella, las metas se crean y editan igual, solo que a mano.',
+      ),
+    },
+  ],
+}
+
+export const flujosCocina: TutorialDef[] = [flujoAlimentacion, flujoRecetario, flujoCronograma]

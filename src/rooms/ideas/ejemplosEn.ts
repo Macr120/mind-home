@@ -50,6 +50,19 @@ export const EJEMPLOS_EN: Record<TipoMapa, ContenidoEjemplo> = {
     },
   },
 
+  etimologia: {
+    titulo: 'Idea',
+    propuesta: {
+      raiz: 'Idea',
+      ramas: [
+        n('Origin', n('Gr. idéa: ‘form, pattern’'), n('From ideîn: ‘to see’'), n('Into English via Latin')),
+        n('Meanings', n('Mental picture'), n('Plan or intention'), n('Concept or opinion')),
+        n('Usage', n('“Have a bright idea”'), n('“No idea”'), n('“Toy with an idea”')),
+        n('Word family', n('Ideal'), n('Ideate'), n('Ideology')),
+      ],
+    },
+  },
+
   llaves: {
     titulo: 'Parts of a bicycle',
     propuesta: {

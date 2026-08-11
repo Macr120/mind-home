@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   conversacionesBiblioRepo,
   mensajesBiblioRepo,
@@ -11,20 +11,23 @@ import { useAsistentes } from '../../core/state/asistentesStore'
 import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/asistentesPlantilla'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { BotonVoz, ToggleVozAuto } from '../../core/ui/BotonVoz'
 import { COLOR, PILAR_GENERAL, getPilar } from './constantes'
-import { PILARES } from './pilares'
-import { systemSabio, destilarConversacion, tituloDerivado } from './sabio'
-import { ubicarCharla, resolverTema, type AnclaTema } from './arbol'
-import { EntradaForm, type EntradaFormInicial } from './EntradaForm'
-import { RamificarPanel } from './RamificarPanel'
+import { campos, listaNodos, ruta, useIndice } from './semilla'
+import { systemSabio, tituloDerivado } from './sabio'
+import { clasificarYDestilar, destilarCharla, type AnclaTema } from './arbol'
+import { TextoConEnlaces } from '../_shared/TextoConEnlaces'
 import { Creditos } from '../../core/ui/Creditos'
-import { OP_CHARLA, OP_CHARLA_NUEVA, OP_RAMIFICAR, OP_DESTILAR } from './costosIA'
+import { OP_CHARLA, OP_CHARLA_NUEVA } from './costosIA'
 
 /**
  * Vista de una charla con el Sabio: burbujas estilo WhatsApp (patrón visual de
  * ChatConversacion, con datos propios de la biblioteca), cabecera con título
- * editable + campo reclasificable + destilar/borrar, e input propio.
+ * editable + campo reclasificable + borrar, e input propio.
  * `conversacionId === null` = charla nueva: se crea al enviar el primer mensaje.
+ *
+ * La charla ya no tiene botones de destilar ni de ramificar: clasificar deja la
+ * entrada escrita (`clasificarYDestilar`) y las ramas se piden desde ella.
  */
 export function ChatCharla({
   conversacionId,
@@ -32,7 +35,8 @@ export function ChatCharla({
   anclaInicial,
   onCreada,
   onSalir,
-  onCharlaNueva,
+  onIrANodo,
+  onVerEntrada,
 }: {
   conversacionId: number | null
   borradorInicial: string
@@ -40,8 +44,10 @@ export function ChatCharla({
   anclaInicial: AnclaTema | null
   onCreada: (id: number) => void
   onSalir: () => void
-  /** Abre otra charla nueva anclada (💬 de una sugerencia del panel 🌿). */
-  onCharlaNueva: (ancla: AnclaTema, borrador: string) => void
+  /** Salta a la enciclopedia con ese nodo del índice desplegado. */
+  onIrANodo: (nodoId: string) => void
+  /** Abre la entrada destilada de esta charla. */
+  onVerEntrada: (entradaId: number) => void
 }) {
   const t = useT()
   const charlas = conversacionesBiblioRepo.useAll()
@@ -49,39 +55,39 @@ export function ChatCharla({
   const mensajes = useMensajesConversacionBiblio(conversacionId)
   const entradaLigada = useEntradaDeConversacion(conversacionId)
   const lista = useAsistentes((s) => s.lista)
-  const voz = asistenteDePlantilla(lista, 'biblioteca') ?? semillaAsistente('biblioteca')
+  const asistente = asistenteDePlantilla(lista, 'biblioteca')
+  const voz = asistente ?? semillaAsistente('biblioteca')
+  // Con quién lee el TTS: el asistente que atiende la app o, si ninguno la
+  // atiende, el primero de la lista (es lo que resuelve `getAsistente`).
+  const vozId = asistente?.id ?? lista[0]?.id ?? ''
+  const ix = useIndice()
 
   const [input, setInput] = useState(borradorInicial)
   const [pensando, setPensando] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [destilando, setDestilando] = useState(false)
-  const [form, setForm] = useState<{ inicial: EntradaFormInicial; aviso?: string } | null>(null)
   const [borrando, setBorrando] = useState(false)
   const [editandoTitulo, setEditandoTitulo] = useState(false)
   const [tituloTmp, setTituloTmp] = useState('')
-  const [panel, setPanel] = useState<{ alSalir: boolean; ancla: { temaId: string; pilarId: string; titulo: string } } | null>(null)
   const refLista = useRef<HTMLDivElement>(null)
 
   const conIA = iaActiva()
-  const hayRespuesta = !!mensajes?.some((m) => m.rol === 'asistente')
 
-  /** Abre el panel 🌿 (resuelve el ancla primero). */
-  const abrirPanel = async (alSalir: boolean) => {
-    const ancla = conv?.temaId ? await resolverTema(conv.temaId) : null
-    if (!ancla) {
-      if (alSalir) onSalir()
-      return
-    }
-    setPanel({ alSalir, ancla })
-  }
+  // Términos que el texto del Sabio puede enlazar: todo tu índice vivo.
+  const nodosEnlazables = useMemo(() => listaNodos(ix).map((n) => ({ id: n.id, titulo: n.titulo })), [ix])
+  // Nodo de la charla y sus ramas: los enlaces directos a la semilla que
+  // siempre están a mano, aunque el texto no mencione ningún término.
+  const nodoCharla = conv?.temaId ? ix.porId.get(conv.temaId) : undefined
+  const migas = nodoCharla ? ruta(ix, nodoCharla.id) : []
+  const ramas = nodoCharla?.hijos ?? []
 
-  /** ← con recordatorio: ofrece ramificar una vez antes de salir. */
+  const aMensajesIA = (): MensajeIA[] => (mensajes ?? []).map((m) => ({ rol: m.rol, texto: m.texto }))
+
+  /** ← : si la charla creció desde el destilado, la entrada se actualiza sola. */
   const salir = () => {
-    if (conIA && hayRespuesta && conv && conv.temaId && !conv.ramificadaEn && !panel) {
-      void abrirPanel(true)
-    } else {
-      onSalir()
+    if (conIA && conversacionId != null && conv?.destiladaEn && conv.actualizadoEn > conv.destiladaEn) {
+      void destilarCharla(conversacionId, aMensajesIA())
     }
+    onSalir()
   }
 
   // Siempre pegado al último mensaje (como un chat real).
@@ -89,8 +95,6 @@ export function ChatCharla({
     const el = refLista.current
     if (el) el.scrollTop = el.scrollHeight
   }, [mensajes?.length, pensando])
-
-  const aMensajesIA = (): MensajeIA[] => (mensajes ?? []).map((m) => ({ rol: m.rol, texto: m.texto }))
 
   const tituloMostrado =
     conv?.titulo || (mensajes?.length ? tituloDerivado(aMensajesIA()) : t('biblioteca.charla.nueva', 'Nueva charla'))
@@ -105,9 +109,9 @@ export function ChatCharla({
       await mensajesBiblioRepo.add({ conversacionId: id, rol: 'asistente', texto: respuesta, creado: ahora })
       await conversacionesBiblioRepo.update(id, { actualizadoEn: ahora })
       if (clasificar) {
-        // En segundo plano: título+campo y colocación profunda en el índice
-        // (elegirPadre). No bloquea el chat; fallos silenciosos.
-        void ubicarCharla(id, [...historial, { rol: 'asistente', texto: respuesta }])
+        // En segundo plano: título+campo, colocación profunda en el índice y la
+        // entrada ya destilada. No bloquea el chat; fallos silenciosos.
+        void clasificarYDestilar(id, [...historial, { rol: 'asistente', texto: respuesta }])
       }
     } catch {
       setError(t('biblioteca.charla.error', 'El Sabio no pudo responder. Revisa tu IA en Ajustes o reintenta.'))
@@ -149,30 +153,6 @@ export function ChatCharla({
     setEditandoTitulo(false)
     const limpio = tituloTmp.trim()
     if (conversacionId != null && limpio) void conversacionesBiblioRepo.update(conversacionId, { titulo: limpio })
-  }
-
-  const destilar = async () => {
-    if (conversacionId == null || !mensajes?.length || destilando) return
-    setDestilando(true)
-    try {
-      // Charla anclada al árbol: el tema/campo ya se conocen, la IA solo redacta.
-      const ancla = conv?.temaId ? await resolverTema(conv.temaId) : null
-      const d = await destilarConversacion(aMensajesIA(), conv?.pilarId ?? PILAR_GENERAL.id, ancla)
-      setForm({ inicial: d })
-    } catch {
-      setForm({
-        inicial: {
-          titulo: conv?.titulo || tituloDerivado(aMensajesIA()),
-          resumen: '',
-          puntosClave: [],
-          pilarId: conv?.pilarId ?? PILAR_GENERAL.id,
-          temaId: conv?.temaId,
-        },
-        aviso: t('biblioteca.charla.destilarFallo', 'La IA no pudo destilar la charla; completa la entrada a mano.'),
-      })
-    } finally {
-      setDestilando(false)
-    }
   }
 
   const borrar = async () => {
@@ -225,33 +205,17 @@ export function ChatCharla({
               {voz.nombre} · {t('biblioteca.charla.sub', 'Charla de enciclopedia')}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => void abrirPanel(false)}
-            disabled={!conIA || !hayRespuesta || !conv?.temaId}
-            className="rounded-lg bg-white/5 px-2 py-1.5 text-xs transition hover:bg-white/10 disabled:opacity-35"
-            title={
-              conv?.temaId
-                ? t('biblioteca.charla.ramificarTip', 'Ramificar: agrega subtemas de esta charla al árbol')
-                : t('biblioteca.charla.ramificarSinTema', 'La charla aún no tiene lugar en el árbol')
-            }
-          >
-            <Icono nombre="rama" />
-          </button>
-          <Creditos op={OP_RAMIFICAR} />
-          <button
-            type="button"
-            onClick={destilar}
-            disabled={!conIA || !mensajes?.length || destilando}
-            className="rounded-lg bg-white/5 px-2 py-1.5 text-xs transition hover:bg-white/10 disabled:opacity-35"
-            title={t('biblioteca.charla.destilarTip', 'La IA resume la charla en una entrada de la enciclopedia')}
-          >
-            <Icono nombre={destilando ? 'reloj-arena' : 'registros'} />{' '}
-            {entradaLigada
-              ? t('biblioteca.charla.reDestilar', 'Actualizar entrada')
-              : t('biblioteca.charla.destilar', 'Destilar')}
-          </button>
-          <Creditos op={OP_DESTILAR} />
+          <ToggleVozAuto asistenteId={vozId} />
+          {entradaLigada?.id != null && (
+            <button
+              type="button"
+              onClick={() => onVerEntrada(entradaLigada.id!)}
+              className="rounded-lg bg-white/5 px-2 py-1.5 text-xs text-emerald-300 transition hover:bg-white/10"
+              title={t('biblioteca.charla.verEntradaTip', 'Ver la entrada que se destiló de esta charla')}
+            >
+              <Icono nombre="registros" /> {t('biblioteca.charla.verEntrada', 'Entrada')}
+            </button>
+          )}
           <button
             type="button"
             onClick={() => setBorrando(true)}
@@ -276,27 +240,57 @@ export function ChatCharla({
             <option value={PILAR_GENERAL.id}>
               {PILAR_GENERAL.icon} {PILAR_GENERAL.titulo}
             </option>
-            {PILARES.map((p) => (
+            {campos(ix).map((p) => (
               <option key={p.id} value={p.id}>
-                {p.icon} {p.titulo}
+                {p.icono} {p.titulo}
               </option>
             ))}
           </select>
-          {conIA && conv && !conv.temaId && !!mensajes?.length && (
+          {conIA && conv && !!mensajes?.length && (
             <button
               type="button"
               onClick={() => {
                 if (conversacionId == null) return
-                // Clasifica Y ubica la charla en el árbol (habilita 🌿).
-                void ubicarCharla(conversacionId, aMensajesIA())
+                // Clasifica, ubica en el árbol y deja la entrada ya destilada.
+                void clasificarYDestilar(conversacionId, aMensajesIA())
               }}
               className="rounded-lg bg-white/5 px-2 py-1 text-xs transition hover:bg-white/10"
-              title={t('biblioteca.charla.reclasificarTip', 'Pedir a la IA que clasifique y ubique la charla en el árbol')}
+              title={t('biblioteca.charla.reclasificarTip', 'Clasificar la charla en el árbol y destilar su entrada')}
             >
               <Icono nombre="brillo" /> {t('biblioteca.charla.reclasificar', 'Clasificar')}
             </button>
           )}
         </div>
+
+        {/* Enlaces directos a la semilla: dónde está archivada y qué cuelga de ahí. */}
+        {nodoCharla && (
+          <div className="flex flex-wrap items-center gap-1">
+            {migas.map((n, i) => (
+              <button
+                key={n.id}
+                type="button"
+                onClick={() => onIrANodo(n.id)}
+                className={`max-w-[12rem] truncate rounded-full px-2 py-0.5 text-[10px] transition hover:bg-white/15 ${
+                  i === migas.length - 1 ? 'bg-white/10 text-white/75' : 'bg-white/5 text-white/45'
+                }`}
+                title={t('biblioteca.charla.irANodo', 'Ver «{n}» en la enciclopedia', { n: n.titulo })}
+              >
+                {n.icono ? <Icono emoji={n.icono} /> : <Icono nombre="rama" />} {n.titulo}
+              </button>
+            ))}
+            {ramas.slice(0, 4).map((h) => (
+              <button
+                key={h.id}
+                type="button"
+                onClick={() => onIrANodo(h.id)}
+                className="max-w-[12rem] truncate rounded-full border border-white/10 px-2 py-0.5 text-[10px] text-white/45 transition hover:bg-white/10"
+                title={t('biblioteca.charla.irANodo', 'Ver «{n}» en la enciclopedia', { n: h.titulo })}
+              >
+                ↳ {h.titulo}
+              </button>
+            ))}
+          </div>
+        )}
 
         {borrando && (
           <div className="flex items-center justify-between gap-2 rounded-lg border border-rose-400/30 bg-rose-400/10 px-3 py-2 text-xs">
@@ -318,7 +312,7 @@ export function ChatCharla({
       {/* Mensajes */}
       <div ref={refLista} className="min-h-0 flex-1 space-y-1 overflow-y-auto px-3 py-2">
         {(!mensajes || mensajes.length === 0) && (
-          <p className="px-2 py-8 text-center text-xs text-white/35">
+          <p className="px-2 py-8 text-center text-xs leading-relaxed text-white/35">
             {t('biblioteca.charla.vacia', 'Pregúntale lo que quieras a {sabio}: la charla se archivará sola en su campo del conocimiento', { sabio: voz.nombre })}
           </p>
         )}
@@ -341,10 +335,19 @@ export function ChatCharla({
                     esUsuario ? 'rounded-br-sm bg-emerald-500/25 text-white/95' : 'rounded-bl-sm bg-white/10 text-white/85'
                   }`}
                 >
-                  <p className="whitespace-pre-wrap break-words">{m.texto}</p>
-                  <p className={`mt-0.5 text-right text-[9px] ${esUsuario ? 'text-emerald-400/80' : 'text-white/30'}`}>
-                    {new Date(m.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
-                  </p>
+                  {esUsuario ? (
+                    <p className="whitespace-pre-wrap break-words">{m.texto}</p>
+                  ) : (
+                    <TextoConEnlaces texto={m.texto} terminos={nodosEnlazables} color={COLOR} onIr={onIrANodo} />
+                  )}
+                  <div
+                    className={`mt-0.5 flex items-center justify-end gap-1.5 text-[9px] ${
+                      esUsuario ? 'text-emerald-400/80' : 'text-white/30'
+                    }`}
+                  >
+                    {!esUsuario && <BotonVoz texto={m.texto} asistenteId={vozId} />}
+                    <span>{new Date(m.creado).toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -402,30 +405,6 @@ export function ChatCharla({
           <Icono nombre="enviar" />
         </button>
       </form>
-
-      {form && (
-        <EntradaForm
-          inicial={form.inicial}
-          aviso={form.aviso}
-          entradaId={entradaLigada?.id}
-          conversacionId={conversacionId ?? undefined}
-          onCerrar={() => setForm(null)}
-        />
-      )}
-
-      {panel && conversacionId != null && (
-        <RamificarPanel
-          conversacionId={conversacionId}
-          ancla={panel.ancla}
-          mensajes={aMensajesIA()}
-          onCerrar={() => {
-            const alSalir = panel.alSalir
-            setPanel(null)
-            if (alSalir) onSalir()
-          }}
-          onCharlaNueva={onCharlaNueva}
-        />
-      )}
     </div>
   )
 }

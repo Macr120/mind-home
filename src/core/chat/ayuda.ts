@@ -1,6 +1,6 @@
 import { normalizar } from './dispatcher'
 import { plantillasTodas } from '../registry'
-import { tutorialDeApp, tutorialMenuPorId } from '../tutorial/registro'
+import { claveNucleoDe, tutorialDeApp, tutorialMenuPorId } from '../tutorial/registro'
 import { tutorialCasa } from '../tutorial/menus'
 import type { TutorialDef } from '../tutorial/tipos'
 
@@ -17,6 +17,12 @@ export interface AyudaDetectada {
   tutorial: TutorialDef
   /** Id de plantilla si el objetivo es una app (para nombrarla traducida). */
   plantillaId?: string
+  /**
+   * Clave con la que lanzar el tour cuando corre sobre la casa demo pero no es
+   * una app (los del calendario). Aparte de `plantillaId` porque ese id se usa
+   * para nombrar la app, y aquí no hay ninguna que nombrar.
+   */
+  claveFlujo?: string
 }
 
 // Verbos (sobre texto normalizado, sin acentos). ES + EN.
@@ -28,6 +34,11 @@ const RE_EXPLICAR =
 const ALIAS_MENU: [string, string][] = [
   ['rueda de herramientas', 'herramientas'],
   ['menu de cuartos', 'menu-cuartos'],
+  ['plantilla propia', 'plantillas-custom'],
+  ['plantillas propias', 'plantillas-custom'],
+  ['plantillas personalizadas', 'plantillas-custom'],
+  ['editor de personajes', 'editor-personajes'],
+  ['editor de objetos', 'editor-objetos'],
   ['editor de mapa', 'editor-mapa'],
   ['plantillas', 'menu-plantillas'],
   ['inventario', 'menu-inventario'],
@@ -35,19 +46,50 @@ const ALIAS_MENU: [string, string][] = [
   ['rueda', 'herramientas'],
   ['editor', 'editor-mapa'],
   ['mapa', 'editor-mapa'],
-  ['reloj', 'reloj-calendario'],
+  // El calendario del reloj y su recorrido de metas: tours del núcleo, no de una app.
+  ['cronograma', 'metas'],
+  ['planes', 'metas'],
+  ['metas', 'metas'],
+  ['chips', 'enlaces'],
+  ['enlaces', 'enlaces'],
+  ['calendario', 'calendario'],
+  ['reloj', 'calendario'],
   ['rutinas', 'rutinas'],
+  ['montana de sisifo', 'progreso'],
+  ['sisifo', 'progreso'],
+  ['insignias', 'progreso'],
+  ['rangos', 'progreso'],
+  ['mi progreso', 'progreso'],
+  ['mi resumen', 'wrapped'],
+  ['wrapped', 'wrapped'],
+  ['lista de hoy', 'hoy'],
+  ['pasos de hoy', 'hoy'],
+  ['musica', 'musica'],
+  ['respaldo', 'respaldo'],
+  ['copia de seguridad', 'respaldo'],
+  ['exportar mis datos', 'respaldo'],
+  ['inteligencia artificial', 'cuenta-ia'],
+  ['creditos', 'cuenta-ia'],
+  ['mi cuenta', 'cuenta-ia'],
+  ['personajes', 'editor-personajes'],
+  ['avatar', 'editor-personajes'],
+  ['guardarropa', 'editor-personajes'],
+  ['atuendos', 'editor-personajes'],
+  ['ejemplo', 'ejemplos'],
   ['camara', 'navegacion'],
   ['vistas', 'navegacion'],
   ['navegacion', 'navegacion'],
   ['controles', 'navegacion'],
   ['moverme', 'navegacion'],
+  ['registros del chat', 'chat-registros'],
+  ['memorias', 'chat-registros'],
   ['asistentes', 'chat'],
   ['asistente', 'chat'],
   ['arquitecto', 'chat'],
   ['chat', 'chat'],
   ['cuartos', 'menu-cuartos'],
   ['menu', 'menu-cuartos'],
+  ['hoy', 'hoy'],
   ['casa', 'casa'],
   ['juego', 'casa'],
 ]
@@ -84,11 +126,11 @@ export function interpretarAyuda(texto: string): AyudaDetectada | null {
     if (tutorial) return { modo, tutorial, plantillaId }
   }
 
-  // 2. Menús/HUD por alias.
+  // 2. Menús/HUD por alias (incluidos los tours del núcleo).
   for (const [alias, id] of ALIAS_MENU) {
     if (norm.includes(` ${alias} `)) {
       const tutorial = tutorialMenuPorId(id)
-      if (tutorial) return { modo, tutorial }
+      if (tutorial) return { modo, tutorial, claveFlujo: claveNucleoDe(tutorial.id) }
     }
   }
 

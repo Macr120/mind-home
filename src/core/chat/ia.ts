@@ -1,7 +1,7 @@
 // Solo tipos: el SDK (pesado) se importa dinámico al primer uso real de Claude.
 import type Anthropic from '@anthropic-ai/sdk'
-import { getPlantilla } from '../registry'
-import type { CampoCaptura } from '../registry'
+import { getPlantilla } from '../appContrato'
+import type { CampoCaptura } from '../appContrato'
 import { appsAsignadas } from './dispatcher'
 import { TOOLS_EDITOR, ejecutarToolEditor, descripcionCuartos, hayIntencionEditor } from './editorAcciones'
 import { memoriasRepo, rutinasRepo } from '../data/repository'
@@ -18,9 +18,12 @@ import { devIA, esPro, iaHabilitada } from '../edicion'
 import { usarViaCuenta, iaChatCuenta, ErrorIA } from '../cuenta/api'
 import { hayBackend } from '../cuenta/supabase'
 import { opDeTexto } from '../cuenta/costos'
+import { useGastoByok, type CategoriaGastoByok } from '../cuenta/gastoByok'
+import { costoTexto } from '../cuenta/tarifasByok'
 import { useCuotaAgotada } from '../state/avisosPlanStore'
 import { tGlobal } from '../i18n/useT'
 import { systemModelo3D, type TipoModelo3D, type EstiloModelo3D } from './prompt3d'
+import type { GrupoAccion } from '../state/accionCuartoStore'
 
 // El prompt 3D vive en `prompt3d.ts` (sin dependencias, medible por el banco de
 // pruebas); se re-exporta para no tocar a quien ya importa los tipos de aquí.
@@ -64,7 +67,7 @@ export const PROVEEDORES: Proveedor[] = [
   { id: 'claude', nombre: 'Claude', emoji: '✴️', modelo: 'claude-haiku-4-5' },
   { id: 'gemini', nombre: 'Gemini', emoji: '♊', modelo: 'gemini-flash-latest', base: 'https://generativelanguage.googleapis.com/v1beta/openai' },
   { id: 'chatgpt', nombre: 'ChatGPT', emoji: '🟢', modelo: 'gpt-5-mini', base: 'https://api.openai.com/v1' },
-  { id: 'deepseek', nombre: 'DeepSeek', emoji: '🐋', modelo: 'deepseek-chat', base: 'https://api.deepseek.com/v1' },
+  { id: 'deepseek', nombre: 'DeepSeek', emoji: '🐋', modelo: 'deepseek-v4-flash', base: 'https://api.deepseek.com/v1' },
   { id: 'local', nombre: 'Local (Ollama)', emoji: '💻', modelo: 'gemma4', base: 'http://localhost:11434/v1', sinClave: true },
 ]
 
@@ -337,12 +340,20 @@ export interface ResultadoIA {
   ediciones: string[]
   /** Comentario del modelo en la voz de la mascota (null = usar plantilla). */
   respuesta: string | null
-  /** Chip de navegación del mensaje: menú donde quedó lo guardado (primera acción gana). */
-  destino?: DestinoChat
+  /**
+   * Chips de navegación del mensaje: un turno puede tocar varias apps (gasto en
+   * Finanzas + comida en Cocina) y cada una aporta el suyo, en orden de ejecución.
+   */
+  destinos: DestinoChat[]
   /** Imagen generada en este turno (tool generar_imagen): se muestra en la burbuja. */
   imagen?: Blob
   /** El modelo pidió una imagen pero la generación falló (cuota, red…). */
   imagenFallo?: boolean
+}
+
+/** Añade el chip si no estaba ya: varias tools pueden apuntar al mismo sitio. */
+function sumarDestino(lista: DestinoChat[], d?: DestinoChat): void {
+  if (d && !lista.some((x) => JSON.stringify(x) === JSON.stringify(d))) lista.push(d)
 }
 
 /** Llamada de tool ya normalizada, venga del proveedor que venga. */
@@ -431,6 +442,8 @@ async function llamarClaude(
   tools: ToolNeutra[],
   historial: MensajeIA[] = [],
   perfil: PerfilIA = 'rapido',
+  /** Categoría del gasto BYOK ('chat' salvo que el caller pida otra, ej. modelo3d). */
+  categoria: CategoriaGastoByok = 'chat',
 ): Promise<{ respuesta: string | null; llamadas: LlamadaTool[] }> {
   if (usarViaCuenta()) return llamarCuenta(system, texto, imagen, tools, historial, perfil)
   // maxRetries bajo: si falla, el dispatcher determinista responde al instante.
@@ -492,6 +505,15 @@ async function llamarClaude(
       llamadas.push({ name: block.name, input: block.input as Record<string, unknown> })
     }
   }
+  useGastoByok.getState().sumar(
+    categoria,
+    costoTexto(calidad ? MODELO_CALIDAD : PROVEEDORES[0].modelo, {
+      entrada: res.usage.input_tokens,
+      salida: res.usage.output_tokens,
+      cacheCrear: res.usage.cache_creation_input_tokens ?? undefined,
+      cacheLeer: res.usage.cache_read_input_tokens ?? undefined,
+    }),
+  )
   return { respuesta, llamadas }
 }
 
@@ -514,6 +536,8 @@ async function llamarOpenAICompat(
   imagen: ImagenAdjunta | null,
   tools: ToolNeutra[],
   historial: MensajeIA[] = [],
+  /** Categoría del gasto BYOK ('chat' salvo que el caller pida otra, ej. modelo3d). */
+  categoria: CategoriaGastoByok = 'chat',
 ): Promise<{ respuesta: string | null; llamadas: LlamadaTool[] }> {
   if (usarViaCuenta()) return llamarCuenta(system, texto, imagen, tools, historial)
   const key = getIaKey(prov.id)
@@ -560,6 +584,7 @@ async function llamarOpenAICompat(
         tool_calls?: { function?: { name?: string; arguments?: string } }[]
       }
     }[]
+    usage?: { prompt_tokens?: number; completion_tokens?: number }
   }
   const msg = data.choices?.[0]?.message
   const respuesta = msg?.content?.trim() || null
@@ -573,6 +598,11 @@ async function llamarOpenAICompat(
       continue
     }
     llamadas.push({ name: tc.function.name, input })
+  }
+  if (data.usage) {
+    useGastoByok
+      .getState()
+      .sumar(categoria, costoTexto(modelo, { entrada: data.usage.prompt_tokens ?? 0, salida: data.usage.completion_tokens ?? 0 }))
   }
   return { respuesta, llamadas }
 }
@@ -652,6 +682,15 @@ export async function conversarIA(
       .join(' ')
       .trim()
     if (!texto) throw new Error('La IA respondió vacío')
+    useGastoByok.getState().sumar(
+      'chat',
+      costoTexto(prov.modelo, {
+        entrada: res.usage.input_tokens,
+        salida: res.usage.output_tokens,
+        cacheCrear: res.usage.cache_creation_input_tokens ?? undefined,
+        cacheLeer: res.usage.cache_read_input_tokens ?? undefined,
+      }),
+    )
     return texto
   }
 
@@ -673,9 +712,17 @@ export async function conversarIA(
     }),
   })
   if (!res.ok) throw new Error(`${prov.nombre} ${res.status}: ${(await res.text()).slice(0, 200)}`)
-  const data = (await res.json()) as { choices?: { message?: { content?: string | null } }[] }
+  const data = (await res.json()) as {
+    choices?: { message?: { content?: string | null } }[]
+    usage?: { prompt_tokens?: number; completion_tokens?: number }
+  }
   const texto = data.choices?.[0]?.message?.content?.trim()
   if (!texto) throw new Error('La IA respondió vacío')
+  if (data.usage) {
+    useGastoByok
+      .getState()
+      .sumar('chat', costoTexto(modelo, { entrada: data.usage.prompt_tokens ?? 0, salida: data.usage.completion_tokens ?? 0 }))
+  }
   return texto
 }
 
@@ -734,11 +781,17 @@ export function extraerJSON(respuesta: string): Record<string, unknown> {
  * cilindros, planos) que se renderizan tal cual. Lanza error si la IA no está
  * activa o la respuesta no es interpretable.
  */
+/** Extrae la palabra de clasificación de grupo que la IA escribe tras el arreglo de piezas (solo categoría 'objeto'). */
+function extraerGrupoAccion(texto: string): GrupoAccion | 'ninguno' | null {
+  const m = texto.match(/\b(asiento|acostarse|vehiculo|ninguno)\b/)
+  return (m?.[1] as GrupoAccion | 'ninguno' | undefined) ?? null
+}
+
 export async function generarModelo3D(
   descripcion: string,
   tipo: TipoModelo3D = 'personaje',
   estilo: EstiloModelo3D = 'normal',
-): Promise<Pieza3D[]> {
+): Promise<{ piezas: Pieza3D[]; grupo: GrupoAccion | 'ninguno' | null }> {
   exigirTransporte()
   const system = systemModelo3D(tipo, estilo)
 
@@ -749,8 +802,8 @@ export async function generarModelo3D(
   const prov = getProveedor()
   const { respuesta } =
     usarViaCuenta() || prov.id === 'claude'
-      ? await llamarClaude(system, descripcion, null, [], [], 'calidad')
-      : await llamarOpenAICompat(prov, system, descripcion, null, [])
+      ? await llamarClaude(system, descripcion, null, [], [], 'calidad', 'modelo3d')
+      : await llamarOpenAICompat(prov, system, descripcion, null, [], [], 'modelo3d')
   if (!respuesta) throw new Error('La IA no devolvió ninguna forma')
 
   // Tolerar texto/markdown alrededor: extraer el primer arreglo JSON.
@@ -768,7 +821,8 @@ export async function generarModelo3D(
       typeof p.color === 'string',
   )
   if (validas.length === 0) throw new Error('La IA no devolvió piezas válidas')
-  return validas
+  const grupo = tipo === 'objeto' ? extraerGrupoAccion(respuesta.slice(fin + 1)) : null
+  return { piezas: validas, grupo }
 }
 
 /**
@@ -815,6 +869,7 @@ export async function interpretarIA(
     capturado: false,
     memoriaGuardada: false,
     ediciones: [],
+    destinos: [],
     respuesta,
   }
 
@@ -823,7 +878,7 @@ export async function interpretarIA(
       const confirm = await ejecutarToolEditor(name, input)
       if (confirm) {
         resultado.ediciones.push(confirm)
-        resultado.destino ??= destinoDeTool(name)
+        sumarDestino(resultado.destinos, destinoDeTool(name))
       }
       continue
     }
@@ -871,7 +926,7 @@ export async function interpretarIA(
         creadoEn: new Date().toISOString(),
       })
       resultado.rutinaCreada = nombre
-      resultado.destino ??= destinoDeTool(name)
+      sumarDestino(resultado.destinos, destinoDeTool(name))
       continue
     }
     if (name === 'crear_modelo_3d') {
@@ -885,18 +940,24 @@ export async function interpretarIA(
         ? (input.estilo as EstiloModelo3D)
         : 'normal'
       try {
-        const piezas = await generarModelo3D(descripcion, tipo, estilo)
+        const { piezas, grupo } = await generarModelo3D(descripcion, tipo, estilo)
         const categoria =
           tipo === 'personaje' ? 'Personajes' : tipo === 'arquitectura' ? 'Arquitectura' : 'Objetos'
         const libId = await useDiseño
           .getState()
-          .addObjetoLibreria(TIPO_PIEZAS, piezas[0]?.color ?? '#f59e0b', categoria, piezas)
+          .addObjetoLibreria(
+            TIPO_PIEZAS,
+            piezas[0]?.color ?? '#f59e0b',
+            categoria,
+            piezas,
+            grupo && grupo !== 'ninguno' ? grupo : undefined,
+          )
         // Coloca una copia junto al avatar (mismo punto donde se reubica el asistente).
         await useDiseño
           .getState()
           .instanciarObjetoEnMapa(libId, { x: playerPos.x + 1.2, z: playerPos.z + 1.2 })
         resultado.creado3d = descripcion
-        resultado.destino ??= destinoDeTool(name)
+        sumarDestino(resultado.destinos, destinoDeTool(name))
       } catch (err) {
         console.warn('[MPH] No se pudo crear el modelo 3D desde el chat:', err)
       }
@@ -922,7 +983,7 @@ export async function interpretarIA(
     if (!esquema) continue
     await esquema.guardar(input)
     resultado.capturado = true
-    resultado.destino ??= { tipo: 'app', appId: roomId }
+    sumarDestino(resultado.destinos, { tipo: 'app', appId: roomId })
     if (!resultado.roomIds.includes(roomId)) resultado.roomIds.push(roomId)
   }
 

@@ -153,7 +153,7 @@ export function MetasTab({
           contenedor con altura se colapsaría a cero. */}
       <div data-tut="ejercicio.cronograma" className="space-y-2">
         <p className="text-base font-bold">
-          <Icono nombre="calendario" /> {t('ejercicio.tab.cronograma', 'Cronograma')}
+          <Icono nombre="calendario" /> {t('ejercicio.tab.cronograma', 'Metas')}
         </p>
         <p className="text-xs text-white/45">
           {t(

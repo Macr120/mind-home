@@ -100,6 +100,29 @@ const flujoMapas: TutorialDef = {
         'En el lienzo: toca un nodo para elegirlo y otra vez para escribir; arrastra, haz zoom con pellizco y agrega ideas con la barra de abajo.',
       ),
     },
+    {
+      sel: 'ideas.mapas.ia',
+      titulo: T('tut.app-ideas--mapas.4.titulo', 'Un mapa entero, de un tema'),
+      texto: T(
+        'tut.app-ideas--mapas.4.texto',
+        'Dale un tema a la IA y arma el mapa completo, con sus nodos ya organizados: el punto de partida para un tema que no sabes por dónde empezar a ordenar.',
+      ),
+      alEntrar: () => {
+        clickTut('ideas.tab.mapas')
+      },
+    },
+    {
+      sel: 'ideas.mapa.expandir',
+      titulo: T('tut.app-ideas--mapas.5.titulo', 'Ampliar un nodo con IA'),
+      texto: T(
+        'tut.app-ideas--mapas.5.texto',
+        'Ya dentro de un mapa, cualquier nodo se puede ampliar: la IA le propone sub-nodos según lo que ya escribiste alrededor, sin perder tu estructura.',
+      ),
+      alEntrar: async () => {
+        clickTut('ideas.tab.mapas')
+        await abrirMapaDeTipo('mental')
+      },
+    },
   ],
 }
 
@@ -142,6 +165,18 @@ const flujoDecidir: TutorialDef = {
         'tut.app-ideas--decidir.3.texto',
         'En los formatos por regiones cada elemento vive en una zona: elígela abajo antes de agregar, o arrástralo a otra y se cambia solo.',
       ),
+    },
+    {
+      sel: 'ideas.matriz',
+      titulo: T('tut.app-ideas--decidir.4.titulo', 'La matriz ponderada'),
+      texto: T(
+        'tut.app-ideas--decidir.4.texto',
+        'No es un lienzo, es una tabla: cada opción contra cada criterio, con un peso del 1 al 5 por lo importante que te resulte ese criterio. El total ordena las opciones solo.',
+      ),
+      alEntrar: async () => {
+        clickTut('ideas.tab.diagramas')
+        await abrirMapaDeTipo('matriz')
+      },
     },
   ],
 }

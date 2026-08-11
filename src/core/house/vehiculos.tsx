@@ -8,6 +8,8 @@ import { playerPos } from '../state/playerPosition'
 import { useMontura, monturaFrame } from '../state/monturaStore'
 import { trenFrame } from '../state/trenStore'
 import { dragChar } from './characterDrag'
+import { ModeloPiezas } from './modeloPersonalizado'
+import type { Pieza3D } from '../chat/mascotas'
 
 /**
  * Vehículos montables: datos, modelos 3D (primitivas, frente hacia +Z como el
@@ -16,6 +18,13 @@ import { dragChar } from './characterDrag'
  */
 
 export type TipoVehiculo = 'bicicleta' | 'motocicleta' | 'automovil' | 'ovni'
+
+/**
+ * Tipo de montura: los 4 vehículos reales (con modelo y animación de ruedas
+ * propios) o `'generico'` — cualquier objeto marcado con `grupoAccion: 'vehiculo'`
+ * (catálogo o piezas de IA/usuario) que no es ninguno de los 4. Ver `defDeMontura`.
+ */
+export type TipoMontura = TipoVehiculo | 'generico'
 
 export interface VehiculoJugable {
   tipo: TipoVehiculo
@@ -32,6 +41,9 @@ export interface VehiculoJugable {
   radio: number
 }
 
+/** Def de cualquier montura (los 4 reales o el genérico) — ver `defDeMontura`. */
+export type MonturaDef = Omit<VehiculoJugable, 'tipo'> & { tipo: TipoMontura }
+
 export const VEHICULOS_JUGABLES: VehiculoJugable[] = [
   { tipo: 'bicicleta', nombre: 'Bicicleta', icono: '🚲', defaultColor: '#ef4444', velocidad: 1.5, giro: 0.045, asiento: [0, 0.42, -0.38], radio: 0.4 },
   { tipo: 'motocicleta', nombre: 'Motocicleta', icono: '🏍️', defaultColor: '#8b5cf6', velocidad: 2.1, giro: 0.05, asiento: [0, 0.24, -0.26], radio: 0.45 },
@@ -44,6 +56,30 @@ export const esVehiculo = (tipo: string): tipo is TipoVehiculo =>
 
 export const vehiculoDe = (tipo: TipoVehiculo): VehiculoJugable =>
   VEHICULOS_JUGABLES.find((v) => v.tipo === tipo)!
+
+/**
+ * Def de un vehículo GENÉRICO (cualquier objeto con `grupoAccion: 'vehiculo'`
+ * que no es uno de los 4 reales): valores por defecto razonables, intermedios
+ * entre bicicleta y automóvil. Fuera de `VEHICULOS_JUGABLES` a propósito: NO se
+ * itera en el menú de construir ni en el selector de carrera.
+ */
+const VEHICULO_GENERICO_DEF: MonturaDef = {
+  tipo: 'generico',
+  nombre: 'Vehículo',
+  icono: '🚗',
+  defaultColor: '#3b82f6',
+  velocidad: 2.0,
+  giro: 0.04,
+  asiento: [0, 0.35, -0.15],
+  radio: 0.55,
+}
+
+/** Def de cualquier montura: los 4 vehículos reales o el genérico. */
+export const defDeMontura = (tipo: TipoMontura): MonturaDef =>
+  tipo === 'generico' ? VEHICULO_GENERICO_DEF : vehiculoDe(tipo)
+
+/** Radio de colisión del vehículo genérico (ver `catalogo.tsx:footprintDeTipo`): debe coincidir con `defDeMontura('generico').radio`. */
+export const VEHICULO_GENERICO_RADIO = VEHICULO_GENERICO_DEF.radio
 
 // Colores fijos de las partes (el color elegido pinta cuadro/carrocería/platillo).
 const LLANTA = '#1f2937'
@@ -357,23 +393,26 @@ const MODELO_VEHICULO: Record<TipoVehiculo, (p: { color: string; animado?: boole
 export function VehiculoMontado({
   tipo,
   color,
+  piezasGenerico,
   children,
 }: {
-  tipo: TipoVehiculo
+  tipo: TipoMontura
   color: string
+  /** Solo para `tipo === 'generico'`: la geometría propia del objeto (cuerpo rígido, sin ruedas animadas). */
+  piezasGenerico?: Pieza3D[]
   children: React.ReactNode
 }) {
-  const def = vehiculoDe(tipo)
+  const def = defDeMontura(tipo)
   const g = useRef<THREE.Group>(null)
   useFrame(() => {
     if (!g.current) return
     g.current.rotation.z = monturaFrame.lean
     g.current.rotation.x = tipo === 'ovni' ? Math.max(-0.18, Math.min(0.18, monturaFrame.vel * 5)) : 0
   })
-  const Modelo = MODELO_VEHICULO[tipo]
+  const Modelo = tipo === 'generico' ? null : MODELO_VEHICULO[tipo]
   return (
     <group ref={g}>
-      <Modelo color={color} animado />
+      {Modelo ? <Modelo color={color} animado /> : <ModeloPiezas piezas={piezasGenerico ?? []} />}
       <group position={def.asiento}>{children}</group>
     </group>
   )
@@ -404,11 +443,15 @@ export function VehiculoProximity() {
       setCerca(null, null)
       return
     }
-    let mejor: { id: number; tipo: TipoVehiculo; d: number } | null = null
+    let mejor: { id: number; tipo: TipoMontura; d: number } | null = null
     for (const o of useDiseño.getState().objetos) {
-      if (o.id == null || !esObjetoMapa(o) || !esVehiculo(o.tipo)) continue
+      if (o.id == null || !esObjetoMapa(o)) continue
+      const esVeh = esVehiculo(o.tipo)
+      if (!esVeh && o.grupoAccion !== 'vehiculo') continue
       const d = Math.hypot(playerPos.x - (o.x ?? 0), playerPos.z - (o.z ?? 0))
-      if (d <= RADIO_MONTAR && (!mejor || d < mejor.d)) mejor = { id: o.id, tipo: o.tipo, d }
+      if (d <= RADIO_MONTAR && (!mejor || d < mejor.d)) {
+        mejor = { id: o.id, tipo: esVeh ? (o.tipo as TipoVehiculo) : 'generico', d }
+      }
     }
     setCerca(mejor?.id ?? null, mejor?.tipo ?? null)
   })

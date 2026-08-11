@@ -11,6 +11,7 @@ import {
   type Plantilla,
 } from '../registry'
 import { fechaLocalISO } from '../fechaLocal'
+import { normalizar } from '../chat/dispatcher'
 import { useDiseño } from './disenoStore'
 
 /**
@@ -42,7 +43,13 @@ function filaUnica(plantillaId: string, bloqueId: string): Promise<ItemPlantilla
 
 /** Un esquema de captura por bloque: el asistente guarda en la plantilla vía chat. */
 function esquemasDe(def: PlantillaCustom): EsquemaCaptura[] {
-  const lista = def.bloques.map((b): EsquemaCaptura | null => {
+  // Con menús es normal tener dos «Notas» en pestañas distintas: el título que
+  // ve la IA lleva delante el nombre del menú para que no las confunda.
+  const conMenu = def.bloques.map((b) => {
+    const s = def.secciones?.find((x) => x.id === b.seccionId)
+    return s ? { ...b, titulo: `${s.nombre} › ${b.titulo}` } : b
+  })
+  const lista = conMenu.map((b): EsquemaCaptura | null => {
     switch (b.tipo) {
       case 'checklist':
         return {
@@ -276,6 +283,14 @@ function aPlantilla(def: PlantillaCustom): Plantilla {
     color: def.color,
     App: appDe(def.id),
     esquemas: esquemasDe(def),
+    // Cada menú es un destino: chips de plan, calendario y chat pueden abrir la
+    // app en esa pestaña. El nombre va acompañado del de la app a propósito: la
+    // búsqueda es por inclusión y un «notas» suelto secuestraría medio chat.
+    comandos: (def.secciones ?? []).map((s) => ({
+      seccion: s.id,
+      etiqueta: s.nombre,
+      nombres: [normalizar(`${s.nombre} de ${def.nombre}`)],
+    })),
   }
 }
 

@@ -1,6 +1,7 @@
 /**
- * Fotos que la app ya trae de fábrica para las recetas y dietas de ejemplo,
- * por nombre. Los archivos viven en `public/cocina/`.
+ * Fotos que la app ya trae de fábrica para las recetas y dietas de ejemplo, y
+ * para las dos dietas del año demo (con su nombre en ES y en EN), por nombre.
+ * Los archivos viven en `public/cocina/`.
  *
  * GENERADO por `scripts/generar-imagenes-cocina.mjs` — no lo edites a mano.
  */

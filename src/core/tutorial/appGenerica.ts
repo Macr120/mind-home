@@ -12,7 +12,7 @@ export const tutorialAppGenerica: TutorialDef = {
   titulo: T('tut.app-generica.titulo', 'Esta app'),
   resumen: T(
     'tut.app-generica.resumen',
-    'Cada app vive en un cuarto: el encabezado muestra el cuarto y la app, la barra de meta diaria lleva tu avance del día y «Volver a la casa» la cierra. Las plantillas propias se arman con bloques: notas, listas, contadores, hábitos…',
+    'Cada app vive en un cuarto: el encabezado muestra el cuarto y la app, la lista de hoy lleva lo que toca hacer aquí y «Volver a la casa» la cierra. Las plantillas propias se arman con bloques: notas, listas, contadores, hábitos…',
   ),
   pasos: [
     {
@@ -24,10 +24,10 @@ export const tutorialAppGenerica: TutorialDef = {
     },
     {
       sel: 'room.meta',
-      titulo: T('tut.app-generica.2.titulo', 'Meta diaria'),
+      titulo: T('tut.app-generica.2.titulo', 'Lo de hoy'),
       texto: T(
         'tut.app-generica.2.texto',
-        'La barra de meta diaria: tu avance de hoy en esta app. Se llena con tu actividad real.',
+        'Tus pasos de hoy en esta app: tus objetivos, lo que tengas agendado y lo que pidan tus metas. Tócala para desplegarla; cada paso se tacha solo en cuanto registras.',
       ),
     },
     {

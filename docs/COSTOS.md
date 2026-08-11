@@ -71,6 +71,8 @@ antes de pedir: `src/core/cuenta/costos.ts`. Topes de `max_tokens`: `TOPES` en
 | `modelo3d` | 8192 | **10** | $0.032–0.049 | `generarModelo3D`: objetos, personajes, ropa, asistentes |
 | `imagen` | — | **3** | ~$0.005 | Calidad rápida (gpt-image-1-mini): la de por defecto |
 | `imagen_alta` | — | **10** | ~$0.034 | Calidad buena (Gemini), a elección del usuario |
+| `voz` | — | **1** | ~$0.003 (tope 30s) | Dictado del chat de la casa vía Whisper, fallback sin `SpeechRecognition` (WebView de Android) |
+| `tts` | — | **3** | ~$0.015 (tope 1000 car.) | Voz con IA de un asistente (OpenAI tts-1), alternativa a `speechSynthesis` nativo |
 
 Cómo se sostiene cada número (Haiku 4.5, precio pleno):
 
@@ -92,6 +94,10 @@ Cómo se sostiene cada número (Haiku 4.5, precio pleno):
 - **`imagen`** — $0.005 = 1 crédito. Se cobran 3: margen holgado para absorber
   subidas de precio del modelo y, sobre todo, las caídas al respaldo (ver abajo).
 - **`imagen_alta`** — $0.0336 = 6.7 créditos. Se cobran 10.
+- **`voz`** — Whisper $0.006/min; el cliente topa la grabación a 30s ($0.003).
+  Se cobra 1 crédito, igual que las demás ops de 1 latido.
+- **`tts`** — OpenAI tts-1 $15/1M car.; el proxy recorta la entrada a 1000
+  car. ($0.015 = 3 créditos exactos). Se cobran 3, igual que `imagen`.
 
 ### Medición real de `texto_largo` (ago 2026)
 

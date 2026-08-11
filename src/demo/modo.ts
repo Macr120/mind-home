@@ -15,9 +15,36 @@
 import { claveLS, LS_DEMO, esDemo } from '../core/edicion'
 
 /** Versión del CONTENIDO demo del bundle; subirla fuerza la reconstrucción. */
-export const DEMO_VERSION = 17
+// v25: el patrimonio de Pep@ deja de ser el número suelto del modelo viejo y
+// pasa a ser una línea editable, y sus CETES cuelgan de la meta que los abona.
+// Sin subir la versión, quien ya tenga el demo construido vería su patrimonio
+// bajar: aquella fila mágica sigue en su base, pero ya nadie la lee.
+export const DEMO_VERSION = 25
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
+
+/**
+ * Apps cuyo año ya está en la BD. Al entrar desde un tutorial solo se construye
+ * la del tour; las demás se construyen al abrirlas (ver demo/construir.ts). Lleva
+ * prefijo `demo:` a propósito: la limpieza del primer paso de `construir.ts` la
+ * borra al reconstruir, y así nunca sobrevive a una casa que ya no existe.
+ */
+const LS_APPS = 'mh.demo.apps'
+
+export function appsConstruidas(): Set<string> {
+  try {
+    const raw = JSON.parse(localStorage.getItem(claveLS(LS_APPS)) ?? 'null') as unknown
+    return new Set(Array.isArray(raw) ? (raw as string[]) : [])
+  } catch {
+    return new Set()
+  }
+}
+
+export function marcarAppConstruida(app: string): void {
+  const apps = appsConstruidas()
+  apps.add(app)
+  localStorage.setItem(claveLS(LS_APPS), JSON.stringify([...apps]))
+}
 
 /**
  * Marca del sandbox: hay cambios en la BD demo que no son de Pep@. La lee
@@ -102,14 +129,23 @@ export async function reiniciarDemo(): Promise<void> {
   location.reload()
 }
 
-/** Lee y CONSUME el intent de tour (una sola ejecución). */
-export function tomarIntent(): IntentDemo | null {
+/**
+ * Lee el intent SIN consumirlo: la construcción necesita saber a qué app viene
+ * el visitante, y el tour se lanza mucho después (tras la recarga).
+ */
+export function leerIntent(): IntentDemo | null {
   const crudo = localStorage.getItem(LS_INTENT)
   if (!crudo) return null
-  localStorage.removeItem(LS_INTENT)
   try {
     return JSON.parse(crudo) as IntentDemo
   } catch {
     return null
   }
+}
+
+/** Lee y CONSUME el intent de tour (una sola ejecución). */
+export function tomarIntent(): IntentDemo | null {
+  const intent = leerIntent()
+  localStorage.removeItem(LS_INTENT)
+  return intent
 }

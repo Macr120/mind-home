@@ -8,7 +8,16 @@ import { COLOR_AREA, HORA_CUMPLE } from './constantes'
 import { guardarContacto } from './crear'
 import { Campo, INPUT, Modal } from './ui'
 
-export function FormContacto({ inicial, onCerrar }: { inicial?: ContactoAgenda | null; onCerrar: () => void }) {
+export function FormContacto({
+  inicial,
+  alCuidadoInicial,
+  onCerrar,
+}: {
+  inicial?: ContactoAgenda | null
+  /** Precarga «A mi cuidado» en un alta nueva (desde el botón de Prójimos). */
+  alCuidadoInicial?: boolean
+  onCerrar: () => void
+}) {
   const t = useT()
   const archivo = useRef<HTMLInputElement>(null)
   const [nombre, setNombre] = useState(inicial?.nombre ?? '')
@@ -20,6 +29,7 @@ export function FormContacto({ inicial, onCerrar }: { inicial?: ContactoAgenda |
   const [direccion, setDireccion] = useState(inicial?.direccion ?? '')
   const [notas, setNotas] = useState(inicial?.notas ?? '')
   const [foto, setFoto] = useState<Blob | undefined>(inicial?.foto)
+  const [alCuidado, setAlCuidado] = useState(inicial?.alCuidado ?? alCuidadoInicial ?? false)
 
   const elegirFoto = async (files: FileList | null) => {
     const archivo = files?.[0]
@@ -32,6 +42,7 @@ export function FormContacto({ inicial, onCerrar }: { inicial?: ContactoAgenda |
     await guardarContacto(inicial ?? null, {
       nombre: nombre.trim(),
       relacion: relacion.trim() || undefined,
+      alCuidado: alCuidado || undefined,
       telefono: telefono.trim() || undefined,
       correo: correo.trim() || undefined,
       cumple: cumple || undefined,
@@ -45,7 +56,13 @@ export function FormContacto({ inicial, onCerrar }: { inicial?: ContactoAgenda |
 
   return (
     <Modal
-      titulo={inicial ? t('agenda.editarContacto', 'Editar contacto') : t('agenda.personas.nuevoContacto', 'Nuevo contacto')}
+      titulo={
+        inicial
+          ? t('agenda.editarContacto', 'Editar contacto')
+          : alCuidadoInicial
+            ? t('agenda.salud.nuevoProjimo', 'Nuevo prójimo')
+            : t('agenda.personas.nuevoContacto', 'Nuevo contacto')
+      }
       onCerrar={onCerrar}
     >
       <form onSubmit={guardar} className="space-y-3">
@@ -91,6 +108,27 @@ export function FormContacto({ inicial, onCerrar }: { inicial?: ContactoAgenda |
             />
           </Campo>
         </div>
+
+        {/* Es la misma ficha: marcarla la hace aparecer también en Salud. */}
+        <label className="flex items-start gap-2 rounded-lg border border-white/10 bg-white/5 p-2.5">
+          <input
+            type="checkbox"
+            checked={alCuidado}
+            onChange={(e) => setAlCuidado(e.target.checked)}
+            className="mt-0.5 accent-teal-400"
+          />
+          <span className="min-w-0">
+            <span className="block text-sm font-semibold">
+              {t('agenda.persona.alCuidado', 'A mi cuidado')}
+            </span>
+            <span className="block text-[11px] text-white/45">
+              {t(
+                'agenda.persona.alCuidadoAyuda',
+                'Aparece en Salud › Prójimos, con sus citas, sus medicamentos y sus cuidados.',
+              )}
+            </span>
+          </span>
+        </label>
 
         <div className="grid grid-cols-2 gap-2">
           <Campo etiqueta={t('agenda.persona.telefono', 'Teléfono')}>

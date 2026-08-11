@@ -1,10 +1,16 @@
 import { useState, type FormEvent } from 'react'
-import type { AreaAgenda, ContactoAgenda, EventoAgenda, ProyectoAgenda } from '../../core/data/db'
+import type {
+  AreaAgenda,
+  ContactoAgenda,
+  EspecialidadMedica,
+  EventoAgenda,
+} from '../../core/data/db'
 import { VACIO, mascotasRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { COLOR_AREA, PRIORIDADES } from './constantes'
 import { guardarEvento } from './crear'
 import { sumarMin } from './horas'
+import { ESPECIALIDADES, inferirEspecialidad } from './salud'
 import { Campo, INPUT, Modal } from './ui'
 
 /**
@@ -17,7 +23,6 @@ export function FormEvento({
   contactoInicial,
   mascotaInicial,
   contactos,
-  proyectos,
   onCerrar,
 }: {
   area: AreaAgenda
@@ -27,7 +32,6 @@ export function FormEvento({
   /** Mascota ya elegida (alta desde su ficha). */
   mascotaInicial?: string
   contactos: ContactoAgenda[]
-  proyectos: ProyectoAgenda[]
   onCerrar: () => void
 }) {
   const t = useT()
@@ -41,10 +45,26 @@ export function FormEvento({
   const [lugar, setLugar] = useState(inicial?.lugar ?? '')
   const [con, setCon] = useState(inicial?.con ?? '')
   const [contactoId, setContactoId] = useState(inicial?.contactoId ?? contactoInicial ?? '')
-  const [proyectoId, setProyectoId] = useState(inicial?.proyectoId ?? '')
-  const [mascotaId, setMascotaId] = useState(inicial?.mascotaId ?? mascotaInicial ?? '')
   const [prioridad, setPrioridad] = useState(inicial?.prioridad ?? 2)
+  // Al editar una cita anterior al campo, se precarga la misma que se le adivinó
+  // en la lista: así guardar no la reclasifica a espaldas del usuario.
+  const [especialidad, setEspecialidad] = useState<EspecialidadMedica>(
+    inicial?.especialidad ?? inferirEspecialidad(inicial?.titulo, inicial?.con, inicial?.notas) ?? 'general',
+  )
   const [notas, setNotas] = useState(inicial?.notas ?? '')
+
+  // En Salud el destinatario es UNO de tres: tú, un prójimo o una mascota. Va en
+  // un solo select con valor compuesto para que no puedan quedar los dos puestos.
+  const projimos = contactos.filter((c) => c.alCuidado)
+  const [paraQuien, setParaQuien] = useState(() => {
+    const masc = inicial?.mascotaId ?? mascotaInicial
+    if (masc) return `ms:${masc}`
+    const ct = inicial?.contactoId ?? contactoInicial
+    return ct ? `ct:${ct}` : ''
+  })
+  const deSalud = area === 'salud'
+  const contactoSalud = paraQuien.startsWith('ct:') ? paraQuien.slice(3) : undefined
+  const mascotaSalud = paraQuien.startsWith('ms:') ? paraQuien.slice(3) : undefined
 
   const guardar = async (e: FormEvent) => {
     e.preventDefault()
@@ -57,9 +77,9 @@ export function FormEvento({
       horaFin: fecha && hora && horaFin ? horaFin : undefined,
       lugar: lugar.trim() || undefined,
       con: con.trim() || undefined,
-      contactoId: contactoId || undefined,
-      proyectoId: area === 'trabajo' ? proyectoId || undefined : undefined,
-      mascotaId: area === 'salud' ? mascotaId || undefined : undefined,
+      contactoId: (deSalud ? contactoSalud : contactoId) || undefined,
+      mascotaId: deSalud ? mascotaSalud || undefined : undefined,
+      especialidad: deSalud ? especialidad : undefined,
       prioridad: area === 'trabajo' ? prioridad : undefined,
       notas: notas.trim() || undefined,
       hecho: inicial?.hecho,
@@ -141,7 +161,7 @@ export function FormEvento({
           </Campo>
         </div>
 
-        {contactos.length > 0 && (
+        {!deSalud && contactos.length > 0 && (
           <Campo etiqueta={t('agenda.form.contacto', 'Persona de tu libreta')}>
             <select value={contactoId} onChange={(e) => setContactoId(e.target.value)} className={INPUT}>
               <option value="">{t('agenda.form.ninguno', '— Ninguna —')}</option>
@@ -154,45 +174,53 @@ export function FormEvento({
           </Campo>
         )}
 
-        {area === 'salud' && mascotas.length > 0 && (
-          <Campo etiqueta={t('agenda.form.paraQuien', '¿Para quién es?')}>
-            <select value={mascotaId} onChange={(e) => setMascotaId(e.target.value)} className={INPUT}>
-              <option value="">{t('agenda.form.paraMi', '— Para mí —')}</option>
-              {mascotas.map((m) => (
-                <option key={m.mascId} value={m.mascId}>
-                  {m.nombre}
-                </option>
-              ))}
-            </select>
-          </Campo>
-        )}
-
-        {area === 'trabajo' && (
+        {deSalud && (
           <div className="grid grid-cols-2 gap-2">
-            <Campo etiqueta={t('agenda.form.proyecto', 'Proyecto')}>
-              <select value={proyectoId} onChange={(e) => setProyectoId(e.target.value)} className={INPUT}>
-                <option value="">{t('agenda.sinProyecto', 'Sin proyecto')}</option>
-                {proyectos.map((p) => (
-                  <option key={p.proyId} value={p.proyId}>
-                    {p.nombre}
+            <Campo etiqueta={t('agenda.form.especialidad', 'Especialidad')}>
+              <select
+                value={especialidad}
+                onChange={(e) => setEspecialidad(e.target.value as EspecialidadMedica)}
+                className={INPUT}
+              >
+                {ESPECIALIDADES.map((esp) => (
+                  <option key={esp.id} value={esp.id}>
+                    {esp.emoji} {t(esp.clave, esp.es)}
                   </option>
                 ))}
               </select>
             </Campo>
-            <Campo etiqueta={t('agenda.form.prioridad', 'Prioridad')}>
+            <Campo etiqueta={t('agenda.form.paraQuien', '¿Para quién es?')}>
               <select
-                value={prioridad}
-                onChange={(e) => setPrioridad(Number(e.target.value))}
+                value={paraQuien}
+                onChange={(e) => setParaQuien(e.target.value)}
                 className={INPUT}
               >
-                {PRIORIDADES.map((p) => (
-                  <option key={p.valor} value={p.valor}>
-                    {t(p.clave, p.es)}
+                <option value="">{t('agenda.form.paraMi', '— Para mí —')}</option>
+                {projimos.map((c) => (
+                  <option key={c.contactoId} value={`ct:${c.contactoId}`}>
+                    {c.nombre}
+                  </option>
+                ))}
+                {mascotas.map((m) => (
+                  <option key={m.mascId} value={`ms:${m.mascId}`}>
+                    {m.nombre}
                   </option>
                 ))}
               </select>
             </Campo>
           </div>
+        )}
+
+        {area === 'trabajo' && (
+          <Campo etiqueta={t('agenda.form.prioridad', 'Prioridad')}>
+            <select value={prioridad} onChange={(e) => setPrioridad(Number(e.target.value))} className={INPUT}>
+              {PRIORIDADES.map((p) => (
+                <option key={p.valor} value={p.valor}>
+                  {t(p.clave, p.es)}
+                </option>
+              ))}
+            </select>
+          </Campo>
         )}
 
         <Campo etiqueta={t('agenda.form.notas', 'Notas')}>

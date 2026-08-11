@@ -266,6 +266,13 @@ interface CarreraState {
   darItem: (item: TipoItem) => void
   /** Usa el ítem del slot (botón del HUD o tecla E). */
   usarItem: () => void
+  /**
+   * Meta que el jugador está pisando, sin haber abierto la previa (patrón
+   * `useTren.cerca`): la publica `CarreraRuntime` y alimenta el botón «Correr»
+   * del hueco del cubo. Antes la previa se abría sola al pisar la meta.
+   */
+  cerca: { vehiculo: TipoVehiculo | null; modo: 'celdas' | 'libre' } | null
+  setCerca: (c: { vehiculo: TipoVehiculo | null; modo: 'celdas' | 'libre' } | null) => void
   /** Abre el prompt al llegar a la meta (null = a pie: se elige vehículo en el menú). */
   ofrecer: (vehiculo: TipoVehiculo | null, modo?: 'celdas' | 'libre') => Promise<void>
   /** Cambia el vehículo a correr (solo a pie; recarga el récord de ese vehículo). */
@@ -302,6 +309,13 @@ export const useCarrera = create<CarreraState>((set, get) => ({
   mensaje: null,
   item: null,
 
+  cerca: null,
+  setCerca: (c) => {
+    const a = get().cerca
+    if (a?.modo === c?.modo && a?.vehiculo === c?.vehiculo) return
+    set({ cerca: c })
+  },
+
   darItem: (item) => {
     if (get().fase === 'corriendo' && !get().item) {
       sonar('recoger')
@@ -318,6 +332,7 @@ export const useCarrera = create<CarreraState>((set, get) => ({
 
   ofrecer: async (vehiculo, modo = 'celdas') => {
     if (get().fase) return
+    set({ cerca: null })
     if (modo === 'libre') {
       // La meta del trazo usa SU celda como clave de récords (misma tabla).
       const m = metaLibre()

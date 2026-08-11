@@ -62,6 +62,13 @@ export const PLANTILLAS_SERVICIO: {
 export const HORA_TRAMITE = '09:00'
 
 /**
+ * Pestaña de la ficha del vehículo en la que cae cada tipo: los papeles que se
+ * portan y caducan («Documentos») van aparte de lo que se hace y se agenda
+ * («Trámites»).
+ */
+export type GrupoTramite = 'tramite' | 'documento'
+
+/**
  * Catálogo de trámites. `requierePlaca` es la regla del cuarto: un vehículo sin
  * matrícula (una bici, una patineta) no paga tenencia ni verifica, así que solo
  * ve los trámites libres. `emoji` es un DATO de la rutina que se proyecta en el
@@ -73,15 +80,16 @@ export const TIPOS_TRAMITE: {
   emoji: string
   icono: NombreIcono
   requierePlaca: boolean
+  grupo: GrupoTramite
   /** Periodicidad sugerida al elegir el tipo (meses; 0 = una sola vez). */
   cadaMeses: number
 }[] = [
-  { id: 'mantenimiento', label: 'Mantenimiento periódico', emoji: '🔧', icono: 'herramienta', requierePlaca: false, cadaMeses: 6 },
-  { id: 'tenencia', label: 'Pago de tenencia', emoji: '🏛️', icono: 'gobierno', requierePlaca: true, cadaMeses: 12 },
-  { id: 'verificacion', label: 'Verificación', emoji: '✅', icono: 'hecho', requierePlaca: true, cadaMeses: 6 },
-  { id: 'circulacion', label: 'Tarjeta de circulación', emoji: '🪪', icono: 'tarjeta', requierePlaca: true, cadaMeses: 36 },
-  { id: 'seguro', label: 'Seguro', emoji: '🛡️', icono: 'escudo', requierePlaca: true, cadaMeses: 12 },
-  { id: 'otro', label: 'Otro trámite', emoji: '📋', icono: 'lista', requierePlaca: false, cadaMeses: 0 },
+  { id: 'mantenimiento', label: 'Mantenimiento periódico', emoji: '🔧', icono: 'herramienta', requierePlaca: false, grupo: 'tramite', cadaMeses: 6 },
+  { id: 'tenencia', label: 'Pago de tenencia', emoji: '🏛️', icono: 'gobierno', requierePlaca: true, grupo: 'documento', cadaMeses: 12 },
+  { id: 'verificacion', label: 'Verificación', emoji: '✅', icono: 'hecho', requierePlaca: true, grupo: 'tramite', cadaMeses: 6 },
+  { id: 'circulacion', label: 'Tarjeta de circulación', emoji: '🪪', icono: 'tarjeta', requierePlaca: true, grupo: 'documento', cadaMeses: 36 },
+  { id: 'seguro', label: 'Seguro', emoji: '🛡️', icono: 'escudo', requierePlaca: true, grupo: 'documento', cadaMeses: 12 },
+  { id: 'otro', label: 'Otro trámite', emoji: '📋', icono: 'lista', requierePlaca: false, grupo: 'tramite', cadaMeses: 0 },
 ]
 
 export function getTipoTramite(id: TipoTramite) {
@@ -89,8 +97,11 @@ export function getTipoTramite(id: TipoTramite) {
 }
 
 /** Trámites que puede tener el vehículo (los de placa solo si la tiene). */
-export function tramitesDisponibles(matricula?: string) {
-  return matricula?.trim() ? TIPOS_TRAMITE : TIPOS_TRAMITE.filter((t) => !t.requierePlaca)
+export function tramitesDisponibles(matricula?: string, grupo?: GrupoTramite) {
+  const conPlaca = !!matricula?.trim()
+  return TIPOS_TRAMITE.filter(
+    (t) => (conPlaca || !t.requierePlaca) && (!grupo || t.grupo === grupo),
+  )
 }
 
 /** Cada cuánto se repite (meses). El 0 es un trámite de una sola vez. */

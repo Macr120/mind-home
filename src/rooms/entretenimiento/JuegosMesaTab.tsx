@@ -133,7 +133,7 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-1.5">
+      <div data-tut="entretenimiento.juegos.secciones" className="grid grid-cols-2 gap-1.5">
         {(
           [
             ['12', 'entre.j.seccion.12', '1–2 jugadores'],
@@ -158,7 +158,7 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
         const juegos = juegosDigitales.filter((j) => j.familia === familia.id)
         if (!juegos.length) return null
         return (
-          <section key={familia.id} className="space-y-2">
+          <section key={familia.id} data-tut={`entretenimiento.juegos.familia.${familia.id}`} className="space-y-2">
             <p className="flex items-center gap-2 text-sm font-semibold texto-vivo" style={vivo(familia.tono)}>
               <span className="h-2 w-2 rounded-full" style={{ background: familia.tono }} />
               {t(`entre.j.fam.${familia.id}`, familia.labelEs)}
@@ -169,6 +169,7 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
                 <button
                   key={j.id}
                   type="button"
+                  data-tut={`entretenimiento.juegos.item.${j.id}`}
                   onClick={() => setJuegoActivo(j)}
                   className="rounded-xl border border-white/10 bg-white/5 p-3 text-left transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
                 >

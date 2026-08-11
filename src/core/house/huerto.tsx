@@ -1,14 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { VACIO, cultivosRepo } from '../data/repository'
-import { useHuerto, cosecharParcela, type HerramientaHuerto } from '../state/huertoStore'
+import { cultivosRepo } from '../data/repository'
+import { useHuerto, limpiarMarchitos, type HerramientaHuerto } from '../state/huertoStore'
 import { useLayout } from '../state/layoutStore'
-import { useHouse, playerPos } from '../state/houseStore'
-import { useMontura } from '../state/monturaStore'
-import { trenFrame } from '../state/trenStore'
-import { useParque } from '../state/parqueStore'
-import { dragChar } from './characterDrag'
+import { useHouse } from '../state/houseStore'
 import { celdaEnteraBajoCursor } from './arrastreCelda'
 import { cellToWorld, factorCelda, SIZE } from './walls'
 import { ESPECIES, estadoCultivo, celdasRegadas, type EtapaCultivo } from './cultivos'
@@ -221,6 +217,12 @@ export function Huerto3D() {
     return () => window.clearInterval(id)
   }, [activo])
 
+  // Lo marchito se ve un rato y luego la parcela se limpia sola (queda virgen).
+  useEffect(() => {
+    if (filasRaw == null) return
+    void limpiarMarchitos()
+  }, [filasRaw, ahora])
+
   // Aviso al pasar una parcela a "listo": la clave lleva `plantadoEn` (una por
   // siembra). El primer barrido CON DATOS solo REGISTRA lo ya listo, para no
   // re-avisar al abrir la app; luego notifica solo transiciones vivas.
@@ -265,38 +267,9 @@ export function Huerto3D() {
   )
 }
 
-/** Distancia al centro de la parcela para cosecharla al caminar por encima. */
-const RADIO_COSECHA = 2.0
-
-/**
- * Cosecha automática al CAMINAR sobre una parcela lista (a pie, planta baja,
- * sin editor ni transición): la cosecha va a la cesta igual que la herramienta.
- */
-export function HuertoProximity() {
-  const filas = cultivosRepo.useAll() ?? VACIO
-  const regadas = useMemo(() => celdasRegadas(filas), [filas])
-  const frame = useRef(0)
-  useFrame(() => {
-    frame.current = (frame.current + 1) % 10
-    if (frame.current !== 0) return
-    if (useHuerto.getState().activo) return // en el editor mandan las herramientas
-    if (useParque.getState().instanciaId != null) return // jugando en el parque
-    if (useMontura.getState().instanciaId != null) return // en un vehículo
-    if (trenFrame.montado) return // arriba del tren/carrito
-    const { transicion, playerLevel } = useHouse.getState()
-    if (transicion || playerLevel !== 0 || useLayout.getState().editMode || dragChar.id) return
-    const ahora = Date.now()
-    for (const f of filas) {
-      if (!f.especie) continue
-      const [wx, , wz] = cellToWorld(f.col, f.row)
-      if (Math.hypot(playerPos.x - wx, playerPos.z - wz) > RADIO_COSECHA) continue
-      if (estadoCultivo(f, ahora, regadas.get(`${f.col},${f.row}`))?.etapa !== 'listo') continue
-      void cosecharParcela(f)
-      break // una por tick; al vaciarse la fila ya no re-dispara
-    }
-  })
-  return null
-}
+// La cosecha ya NO ocurre sola al caminar sobre una parcela lista: el botón
+// «Cosechar» del hueco del cubo la ofrece al acercarte (ver `ContextoProximity`).
+// El radio vive ahí; la cosecha en sí sigue en `huertoStore`.
 
 /** Color del fantasma según la herramienta activa. */
 const COLOR_HERRAMIENTA: Record<HerramientaHuerto, string> = {

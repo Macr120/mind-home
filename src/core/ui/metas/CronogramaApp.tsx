@@ -39,20 +39,18 @@ export function CronogramaApp({
     }
   }, [plantillaId, ambitoId])
 
-  const metas = useMemo(() => {
-    const mias = (todas ?? []).filter(
-      (r) => esMeta(r) && r.plantillaId === plantillaId && (!ambitoId || r.ambitoId === ambitoId),
-    )
-    const ids = new Set(mias.map((m) => m.id))
-    // Re-enraiza SOLO para esta vista. `raices` toma las de `padreId === undefined`,
-    // así que una meta de esta app colgada de una meta general (que aquí no está)
-    // no saldría ni como raíz ni como hija: desaparecería de su propio cronograma.
-    // Por esto mismo el árbol va sin arrastre (ver la prop `ambito`): mover una fila
-    // re-enraizada escribiría este `padreId` de mentira y la desgajaría de verdad.
-    return mias.map((m) =>
-      m.padreId != null && !ids.has(m.padreId) ? { ...m, padreId: undefined } : m,
-    )
-  }, [todas, plantillaId, ambitoId])
+  // Una meta de esta app colgada de una meta general (que aquí no está) se pinta
+  // igual: `filasVisibles` arranca en las filas cuya madre falta de la lista, no en
+  // `padreId === undefined`. Antes había que re-enraizarlas a mano aquí, y ese
+  // `padreId` de mentira es la razón de que el árbol siga yendo sin arrastre (ver
+  // la prop `ambito`): reordenarlo es trabajo del calendario, que lo ve entero.
+  const metas = useMemo(
+    () =>
+      (todas ?? []).filter(
+        (r) => esMeta(r) && r.plantillaId === plantillaId && (!ambitoId || r.ambitoId === ambitoId),
+      ),
+    [todas, plantillaId, ambitoId],
+  )
 
   return (
     <Cronograma

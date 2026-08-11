@@ -13,6 +13,7 @@ import {
 } from '../../cuenta/paywall'
 import { esAppNativa, esEscritorio } from '../../plataforma'
 import { sincronizar } from '../../data/sync/motor'
+import { GastoByok } from '../GastoByok'
 
 const URL_WEB = import.meta.env.VITE_URL_WEB as string | undefined
 
@@ -50,6 +51,8 @@ export function EditorCuentaSection({
       ) : (
         <FormularioAcceso />
       )}
+      {/* Gasto BYOK: independiente de sesión/backend, es local a este dispositivo. */}
+      <GastoByok />
     </div>
   )
 }
@@ -189,7 +192,7 @@ function CuentaConSesion() {
   }, [])
 
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-1.5" data-tut="cuenta.sesion">
       <div className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
         <span className="min-w-0 flex-1 truncate text-xs text-white/75">{usuario?.email}</span>
         <span

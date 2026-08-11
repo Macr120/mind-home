@@ -7,9 +7,11 @@ import { mezclar } from './temas'
 import { SIZE } from './walls'
 import {
   esFormaCuadrada,
+  geometriaTechoCaja3D,
   geometriaTechoLoseta3D,
   FORMA_LOSETA_DEFAULT,
   type CeldaFormaLoseta,
+  type HuecoLosa,
 } from './formasLoseta'
 
 const GROSOR = 0.12
@@ -64,6 +66,36 @@ function cajaLoseta(mN: number, mS: number, mO: number, mE: number) {
 /** Repeticiones de la imagen por losa según el ajuste elegido. */
 const AJUSTE_REPEAT: Record<string, number> = { x1: 1, x2: 2, x4: 4 }
 
+/**
+ * Geometría de la caja de la losa: caja lisa o, si un ascenso la atraviesa, perforada.
+ * Los huecos vienen en coordenadas de la CELDA; (ox,oz) es lo que los márgenes desplazan
+ * el centro de la caja respecto a ella.
+ */
+function GeoCaja({
+  w,
+  d,
+  ox = 0,
+  oz = 0,
+  huecos,
+}: {
+  w: number
+  d: number
+  ox?: number
+  oz?: number
+  huecos?: HuecoLosa[] | null
+}) {
+  const geo = useMemo(
+    () =>
+      huecos?.length
+        ? geometriaTechoCaja3D(w, d, GROSOR, huecos.map((h) => ({ x: h.x - ox, z: h.z - oz, r: h.r })))
+        : null,
+    [w, d, ox, oz, huecos],
+  )
+  useEffect(() => () => geo?.dispose(), [geo])
+  if (!geo) return <boxGeometry args={[w, GROSOR, d]} />
+  return <primitive object={geo} attach="geometry" />
+}
+
 function Mat({
   color,
   roughness,
@@ -111,7 +143,10 @@ function LosetaTex({
   emissiveIntensity,
   w,
   d,
+  ox,
+  oz,
   atenuado,
+  huecos,
 }: {
   textura: string
   tileSize: number
@@ -122,7 +157,10 @@ function LosetaTex({
   emissiveIntensity: number
   w: number
   d: number
+  ox: number
+  oz: number
   atenuado: boolean
+  huecos?: HuecoLosa[] | null
 }) {
   const base = useLoader(TextureLoader, `/textures/${textura}_color.jpg`)
   const map = useMemo(() => {
@@ -134,7 +172,7 @@ function LosetaTex({
   }, [base, tileSize, w, d])
   return (
     <mesh castShadow={!atenuado} receiveShadow={!atenuado}>
-      <boxGeometry args={[w, GROSOR, d]} />
+      <GeoCaja w={w} d={d} ox={ox} oz={oz} huecos={huecos} />
       <Mat
         color={color}
         map={map}
@@ -154,13 +192,19 @@ function LosetaCanvas({
   roughness,
   w,
   d,
+  ox,
+  oz,
   atenuado,
+  huecos,
 }: {
   color: string
   roughness: number
   w: number
   d: number
+  ox: number
+  oz: number
   atenuado: boolean
+  huecos?: HuecoLosa[] | null
 }) {
   const map = useMemo(() => {
     const t = texturaCanvasTeja(color).clone()
@@ -170,7 +214,7 @@ function LosetaCanvas({
   }, [color, w, d])
   return (
     <mesh castShadow={!atenuado} receiveShadow={!atenuado}>
-      <boxGeometry args={[w, GROSOR, d]} />
+      <GeoCaja w={w} d={d} ox={ox} oz={oz} huecos={huecos} />
       <Mat
         color={color}
         map={map}
@@ -190,13 +234,19 @@ function LosetaImagen({
   ajuste,
   w,
   d,
+  ox,
+  oz,
   atenuado,
+  huecos,
 }: {
   dataUrl: string
   ajuste?: string
   w: number
   d: number
+  ox: number
+  oz: number
   atenuado: boolean
+  huecos?: HuecoLosa[] | null
 }) {
   const base = useLoader(TextureLoader, dataUrl)
   const map = useMemo(() => {
@@ -209,7 +259,7 @@ function LosetaImagen({
   }, [base, ajuste])
   return (
     <mesh castShadow={!atenuado} receiveShadow={!atenuado}>
-      <boxGeometry args={[w, GROSOR, d]} />
+      <GeoCaja w={w} d={d} ox={ox} oz={oz} huecos={huecos} />
       <Mat
         color="#ffffff"
         roughness={0.75}
@@ -355,6 +405,7 @@ export const TechoLoseta = memo(function TechoLoseta({
   atenuado = false,
   formaLoseta,
   subformas,
+  huecos,
 }: {
   tipo: TechoTipoId | null
   colorCuarto: string
@@ -378,6 +429,8 @@ export const TechoLoseta = memo(function TechoLoseta({
   formaLoseta?: CeldaFormaLoseta
   /** Recortes finos por cuadrante (NO,NE,SO,SE): losa con esquinas recortadas. */
   subformas?: (CeldaFormaLoseta | undefined)[] | null
+  /** Huecos que atraviesan la losa (ascensos), en coordenadas locales de la celda. */
+  huecos?: HuecoLosa[] | null
 }) {
   const conf = getTechoTipo(tipo)
   const mat = colorTechoLoseta(tipo, colorCuarto)
@@ -400,6 +453,7 @@ export const TechoLoseta = memo(function TechoLoseta({
         imagen={imagen}
         imagenAjuste={imagenAjuste}
         atenuado={atenuado}
+        huecos={huecos}
       />
     )
   }
@@ -419,7 +473,16 @@ export const TechoLoseta = memo(function TechoLoseta({
     return (
       <group position={pos}>
         <Suspense fallback={fallbackBase}>
-          <LosetaImagen dataUrl={imagen} ajuste={imagenAjuste} w={caja.w} d={caja.d} atenuado={atenuado} />
+          <LosetaImagen
+            dataUrl={imagen}
+            ajuste={imagenAjuste}
+            w={caja.w}
+            d={caja.d}
+            ox={caja.ox}
+            oz={caja.oz}
+            atenuado={atenuado}
+            huecos={huecos}
+          />
         </Suspense>
       </group>
     )
@@ -439,7 +502,10 @@ export const TechoLoseta = memo(function TechoLoseta({
             emissiveIntensity={mat.emissiveIntensity}
             w={caja.w}
             d={caja.d}
+            ox={caja.ox}
+            oz={caja.oz}
             atenuado={atenuado}
+            huecos={huecos}
           />
         </Suspense>
       </group>
@@ -450,7 +516,16 @@ export const TechoLoseta = memo(function TechoLoseta({
   if (esTejaCanvas)
     return (
       <group position={pos}>
-        <LosetaCanvas color={mat.color} roughness={mat.roughness} w={caja.w} d={caja.d} atenuado={atenuado} />
+        <LosetaCanvas
+          color={mat.color}
+          roughness={mat.roughness}
+          w={caja.w}
+          d={caja.d}
+          ox={caja.ox}
+          oz={caja.oz}
+          atenuado={atenuado}
+          huecos={huecos}
+        />
         {!atenuado && <Decoracion variante={variante} mat={mat} />}
       </group>
     )
@@ -458,7 +533,7 @@ export const TechoLoseta = memo(function TechoLoseta({
   return (
     <group position={pos}>
       <mesh castShadow={!atenuado} receiveShadow={!atenuado}>
-        <boxGeometry args={[caja.w, GROSOR, caja.d]} />
+        <GeoCaja w={caja.w} d={caja.d} ox={caja.ox} oz={caja.oz} huecos={huecos} />
         <Mat
           {...mat}
           transparent={esCristal}
@@ -484,6 +559,7 @@ function TechoLosetaForma({
   imagen,
   imagenAjuste,
   atenuado,
+  huecos,
 }: {
   formaLoseta: CeldaFormaLoseta
   subformas?: (CeldaFormaLoseta | undefined)[] | null
@@ -496,10 +572,11 @@ function TechoLosetaForma({
   imagen?: string
   imagenAjuste?: string
   atenuado: boolean
+  huecos?: HuecoLosa[] | null
 }) {
   const geometry = useMemo(
-    () => geometriaTechoLoseta3D(formaLoseta, lado(), GROSOR, subformas),
-    [formaLoseta, subformas],
+    () => geometriaTechoLoseta3D(formaLoseta, lado(), GROSOR, subformas, huecos),
+    [formaLoseta, subformas, huecos],
   )
 
   useEffect(() => () => geometry.dispose(), [geometry])

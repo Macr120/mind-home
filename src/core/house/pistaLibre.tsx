@@ -1,6 +1,6 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
-import { useThree } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import { VACIO, pistasLibresRepo } from '../data/repository'
 import { usePistaLibreEditor, curvaDePista, setPistaLibre } from '../state/pistaLibreStore'
 import { SUPERFICIE_PISTA } from '../state/carreraStore'
@@ -85,11 +85,17 @@ function TrazoLibreActivo() {
       const st = usePistaLibreEditor.getState()
       const p = puntoSueloBajoCursor(ev.clientX, ev.clientY, opts)
       if (!p) return
-      if (st.herramienta === 'punto') {
+      if (st.herramienta !== 'punto') return
+      // Un solo gesto para todo: el suelo pone puntos, la META (el primero)
+      // cierra y abre el circuito, y cualquier otro punto se borra al tocarlo.
+      const i = puntoCerca(p.x, p.z)
+      if (i === 0) {
+        if (st.puntos.length >= 3) st.alternarCerrada()
+        else st.borrarPunto(0)
+      } else if (i > 0) {
+        st.borrarPunto(i)
+      } else {
         st.agregarPunto(p.x, p.z)
-      } else if (st.herramienta === 'borrarPunto') {
-        const i = puntoCerca(p.x, p.z)
-        if (i >= 0) st.borrarPunto(i)
       }
     }
 
@@ -103,19 +109,41 @@ function TrazoLibreActivo() {
     }
   }, [gl, camera, apilado, gridCols, gridRows])
 
-  // Marcadores de los puntos de control (el primero es la meta, en blanco).
+  // Marcadores de los puntos de control. El primero es la META: más gordo y, si
+  // el circuito se puede cerrar, latiendo en ámbar (tocarlo es lo que lo cierra).
+  const cerrada = usePistaLibreEditor((s) => s.cerrada)
+  const cerrable = puntos.length >= 3 && !cerrada
   return (
     <group>
-      {puntos.map((p, i) => (
-        <mesh key={i} position={[p.x, 0.55, p.z]}>
-          <sphereGeometry args={[0.25, 12, 12]} />
-          <meshStandardMaterial
-            color={i === 0 ? '#f8fafc' : '#34d399'}
-            emissive={i === 0 ? '#f8fafc' : '#34d399'}
-            emissiveIntensity={0.35}
-          />
-        </mesh>
-      ))}
+      {puntos.map((p, i) =>
+        i === 0 ? (
+          <Meta key={i} x={p.x} z={p.z} cerrable={cerrable} />
+        ) : (
+          <mesh key={i} position={[p.x, 0.55, p.z]}>
+            <sphereGeometry args={[0.25, 12, 12]} />
+            <meshStandardMaterial color="#34d399" emissive="#34d399" emissiveIntensity={0.35} />
+          </mesh>
+        ),
+      )}
+    </group>
+  )
+}
+
+/** Punto de meta del trazo: late mientras el circuito esté por cerrar. */
+function Meta({ x, z, cerrable }: { x: number; z: number; cerrable: boolean }) {
+  const g = useRef<THREE.Group>(null)
+  useFrame((state) => {
+    if (!g.current) return
+    const s = cerrable ? 1 + Math.sin(state.clock.elapsedTime * 4) * 0.18 : 1
+    g.current.scale.setScalar(s)
+  })
+  const color = cerrable ? '#fbbf24' : '#f8fafc'
+  return (
+    <group ref={g} position={[x, 0.55, z]}>
+      <mesh>
+        <sphereGeometry args={[0.42, 14, 14]} />
+        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.5} />
+      </mesh>
     </group>
   )
 }

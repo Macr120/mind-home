@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import type { Rutina } from '../../data/db'
+import type { PlanMeta, Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
+import { confirmar } from '../../state/confirmarStore'
 import { useT } from '../../i18n/useT'
 import {
   agendada,
@@ -17,6 +18,7 @@ import {
 import { iniciarArrastre } from '../arrastre'
 import { colorDe, colorPorProfundidad } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
+import { PildoraCuenta } from './CuentaRegresiva'
 import { DetalleMeta } from './DetalleMeta'
 
 /** Sangría por nivel: el anidamiento se lee de un vistazo sin ocupar mucho ancho. */
@@ -45,6 +47,8 @@ export function FilaMeta({
   onArrastrar,
   onSoltar,
   onPlanIA,
+  plan,
+  onAbrirPlan,
   sinArrastre,
 }: {
   metas: Rutina[]
@@ -59,6 +63,9 @@ export function FilaMeta({
   onSoltar: (destino: Rutina) => void
   /** Sin valor = la IA está apagada: el ✨ no se dibuja. */
   onPlanIA?: (r: Rutina) => void
+  /** El plan que esta meta YA tiene generado; sin él la fila no ofrece ninguno. */
+  plan?: PlanMeta
+  onAbrirPlan?: (p: PlanMeta) => void
   /** Cronograma embebido en una app: reordenar el árbol se hace en el calendario. */
   sinArrastre?: boolean
 }) {
@@ -74,7 +81,10 @@ export function FilaMeta({
   const pasos = progresoPasos(meta)
   const armada = metaArmada?.id === meta.id
   const resumen = resumenAlcance(metas, meta)
-  const tarde = vencida(meta, new Date().toISOString().slice(0, 10))
+  const tarde = vencida(meta, new Date().toISOString().slice(0, 10), metas)
+  // Terminada por su palomita o porque ya no le queda nada dentro: entonces la
+  // cuenta regresiva sobra. `resumen` ya está contado para el marcador de la fila.
+  const cumplida = !!meta.completada || (resumen.total > 0 && resumen.hechos === resumen.total)
   // "submeta" en el primer nivel, "subsubmeta" en el segundo, y así — un "sub" más
   // por cada nivel de profundidad, para que el botón diga en qué escalón está.
   const etiquetaHija = t('cal.meta.prefijoSub', 'sub').repeat(profundidad + 1) + t('cal.meta.sufijoMeta', 'meta')
@@ -93,13 +103,17 @@ export function FilaMeta({
     onPlegar(true) // la recién nacida no puede quedar escondida
   }
 
-  const borrar = () => {
+  const borrar = async () => {
     if (meta.id == null) return
-    const msg = hijas.length
-      ? t('cal.meta.borrarConHijas', '¿Borrar esta meta y todas sus sub-metas?')
-      : t('cal.meta.borrar', '¿Borrar esta meta?')
-    if (!window.confirm(msg)) return
-    void borrarMetaConDescendencia(metas, meta.id)
+    const ok = await confirmar({
+      titulo: hijas.length
+        ? t('cal.meta.borrarConHijas', '¿Borrar esta meta y todas sus sub-metas?')
+        : t('cal.meta.borrar', '¿Borrar esta meta?'),
+      mensaje: meta.nombre,
+      textoOk: t('ui.borrar', 'Borrar'),
+      peligro: true,
+    })
+    if (ok) await borrarMetaConDescendencia(meta.id)
   }
 
   /**
@@ -211,6 +225,8 @@ export function FilaMeta({
               <span className="shrink-0 text-[9px] text-white/25">{t('cal.meta.sinFecha', 'sin fecha')}</span>
             )}
             {tarde && <span className="shrink-0 text-[9px] text-red-400/80">{t('cal.meta.tarde', 'vencida')}</span>}
+            {/* Mientras quede algo que hacer, lo que falta (o lo que se pasó). */}
+            {!cumplida && <PildoraCuenta meta={meta} />}
           </button>
         )}
 
@@ -222,6 +238,29 @@ export function FilaMeta({
           >
             {resumen.hechos}/{resumen.total}
           </span>
+        )}
+
+        {/* Atajo a lo que la meta ya tiene planeado: aceptado lleva al eje (sus fases
+            ya son sub-metas reales) y propuesto, a la hoja donde se decide. Solo se
+            dibuja si el plan existe: nunca es una invitación a generarlo — ese es el
+            ✨ del detalle. */}
+        {plan && onAbrirPlan && (
+          <button
+            type="button"
+            onClick={() => onAbrirPlan(plan)}
+            title={
+              plan.aceptadoEn
+                ? t('cal.meta.planEnCronograma', 'Ver su plan en el cronograma')
+                : t('cal.meta.planHoja', 'Abrir la hoja de su plan')
+            }
+            className={`flex shrink-0 items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-[10px] font-semibold transition ${
+              plan.aceptadoEn
+                ? 'border-emerald-400/40 bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/30'
+                : 'border-violet-400/50 bg-violet-500/20 text-violet-200 hover:bg-violet-500/35'
+            }`}
+          >
+            <Icono nombre="brillo" /> {t('cal.meta.plan', 'Plan')}
+          </button>
         )}
 
         <button
@@ -246,7 +285,7 @@ export function FilaMeta({
         </button>
         <button
           type="button"
-          onClick={borrar}
+          onClick={() => void borrar()}
           title={t('rutinas.borrar', 'Borrar')}
           className="shrink-0 px-0.5 text-white/30 transition hover:text-red-400"
         >

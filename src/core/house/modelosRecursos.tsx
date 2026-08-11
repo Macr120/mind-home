@@ -6,6 +6,7 @@ import {
   TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE,
   TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA,
+  TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO,
 } from './especialesPlantillaMeta'
 
 /**
@@ -1354,7 +1355,6 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { tipo: TIPO_CAMINADORA, x: -0.7, z: -1.5, principal: true },
     { recurso: 11, x: 1.8, z: -2.2 },
     { recurso: 12, x: 0, z: 0.4 },
-    { recurso: 13, x: 2.7, z: 0.4 },
   ],
   garage: [
     { tipo: TIPO_ESTANTERIA_HERR, x: -2.1, z: -2.5, principal: true },
@@ -1376,9 +1376,22 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { tipo: TIPO_PERIODICO, x: -1.4, z: -2.3, principal: true, escala: 1.2 },
     { recurso: 40, x: 1.6, z: -2.1 },
   ],
+  // La caja fuerte va PRIMERA porque `addObjeto` marca `permanente` al primero
+  // del cuarto, y `asignarPlantillaACuarto` recorre esta lista en orden. La
+  // laptop se queda de mueble: sigue siendo usable aunque ya no sea la principal
+  // (`USABLE_PLANTILLA` se indexa por tipo, no por `principal`).
   despacho: [
-    { tipo: TIPO_LAPTOP, x: 0, z: -1.7, principal: true },
+    { tipo: TIPO_CAJA_FUERTE, x: -1.9, z: -2.2, principal: true },
+    { tipo: TIPO_LAPTOP, x: 0, z: -1.7 },
     { recurso: 49, x: 0, z: -0.8, rotY: 180 },
+  ],
+  // Ojo con la colocación: en el demo la sala de cómputo ocupa la celda por la
+  // que sube la ESCALERA, que se coloca en la esquina NE (x ≈ +2.5, z ≈ −2.5).
+  // Por eso la estación va al lado NO y no en la esquina "natural" del resto.
+  computo: [
+    { tipo: TIPO_ESTACION_COMPUTO, x: -1.5, z: -2.15, principal: true },
+    { recurso: 49, x: -1.5, z: -1.15, rotY: 180 },
+    { recurso: 31, x: -2.3, z: 1.4 },
   ],
   entretenimiento: [
     { tipo: TIPO_REPISA_JUEGOS, x: -2.2, z: -2.2, principal: true },
@@ -1407,11 +1420,14 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { recurso: 90, x: 0, z: 0.2 },
   ],
   // Plantillas usables sin siembra previa (caían al objeto-app genérico 'mesa').
-  diario: [{ tipo: TIPO_SILLON, x: -1.4, z: -2.3, principal: true }],
+  // El calendario de pared cuelga en Noticias desde que dejó de ser una app: no es
+  // el principal (la app se abre por el sillón), decora y sigue pintando el mes real.
+  diario: [
+    { tipo: TIPO_SILLON, x: -1.4, z: -2.3, principal: true },
+    { tipo: TIPO_CALENDARIO, x: -2.1, z: -2.4 },
+  ],
   hobbies: [{ tipo: TIPO_GUITARRA, x: -2.0, z: -2.2, principal: true }],
   idiomas: [{ tipo: TIPO_PLANTA_REGAR, x: -1.6, z: -1.6, principal: true }],
   ideas: [{ tipo: TIPO_PIZARRA, x: -1.8, z: -2.2, principal: true }],
   agenda: [{ tipo: TIPO_AGENDA, x: -1.7, z: -2.15, principal: true }],
-  // El calendario cuelga del muro del fondo.
-  calendario: [{ tipo: TIPO_CALENDARIO, x: 0, z: -2.4, principal: true }],
 }

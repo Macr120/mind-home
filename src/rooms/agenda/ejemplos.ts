@@ -4,7 +4,6 @@ import type {
   EventoAgenda,
   Mascota,
   Medicamento,
-  ProyectoAgenda,
 } from '../../core/data/db'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { idiomaActual } from '../../core/i18n/useT'
@@ -14,13 +13,11 @@ import {
   borrarEvento,
   borrarMascota,
   borrarMedicamento,
-  borrarProyecto,
   guardarContacto,
   guardarCuidado,
   guardarEvento,
   guardarMascota,
   guardarMedicamento,
-  guardarProyecto,
 } from './crear'
 import { nuevoId } from './ids'
 
@@ -38,7 +35,6 @@ import { nuevoId } from './ids'
  */
 
 type Clave =
-  | 'proyecto'
   | 'contrato'
   | 'textos'
   | 'hosting'
@@ -61,7 +57,6 @@ type Clave =
   | 'vacuna'
   | 'desparasitar'
   | 'veterinaria'
-  | 'mudanza'
   | 'cotizacion'
   | 'dominio'
   | 'notaDominio'
@@ -81,7 +76,6 @@ type Clave =
 
 const TEXTOS: Record<Idioma, Record<Clave, string>> = {
   es: {
-    proyecto: 'Página web del cliente',
     contrato: 'Firmar el contrato',
     textos: 'Escribir los textos',
     hosting: 'Cotizar el hosting',
@@ -104,7 +98,6 @@ const TEXTOS: Record<Idioma, Record<Clave, string>> = {
     vacuna: 'Vacuna anual',
     desparasitar: 'Desparasitación',
     veterinaria: 'Veterinaria del parque',
-    mudanza: 'Mudanza de la oficina',
     cotizacion: 'Pedir cotización a la mudanza',
     dominio: 'Renovar el dominio',
     notaDominio: 'Ojo: la renovación automática está apagada.',
@@ -123,7 +116,6 @@ const TEXTOS: Record<Idioma, Record<Clave, string>> = {
     cena: 'Cena de cumpleaños',
   },
   en: {
-    proyecto: "The client's website",
     contrato: 'Sign the contract',
     textos: 'Write the copy',
     hosting: 'Get a hosting quote',
@@ -146,7 +138,6 @@ const TEXTOS: Record<Idioma, Record<Clave, string>> = {
     vacuna: 'Yearly shot',
     desparasitar: 'Deworming',
     veterinaria: 'The vet by the park',
-    mudanza: 'Office move',
     cotizacion: 'Ask the movers for a quote',
     dominio: 'Renew the domain',
     notaDominio: 'Heads up: auto-renewal is off.',
@@ -171,12 +162,10 @@ export const hayEjemplo = (
   area: AreaAgenda,
   eventos: EventoAgenda[],
   contactos: ContactoAgenda[],
-  proyectos: ProyectoAgenda[],
   medicinas: Medicamento[],
   mascotas: Mascota[] = [],
 ): boolean =>
   eventos.some((e) => e.ejemplo && e.area === area) ||
-  (area === 'trabajo' && proyectos.some((p) => p.ejemplo)) ||
   (area === 'salud' && (medicinas.some((m) => m.ejemplo) || mascotas.some((m) => m.ejemplo))) ||
   (area === 'personas' && contactos.some((c) => c.ejemplo))
 
@@ -187,38 +176,14 @@ export async function cargarEjemplo(area: AreaAgenda): Promise<void> {
   const enDias = (n: number) => isoMasDias(hoy, n)
 
   if (area === 'trabajo') {
-    // El id se genera aquí para poder colgarle los pendientes en el mismo paso:
-    // `guardar*` con un «previo» SIN `id` da de alta respetando el id que le pases.
-    const proyectoId = nuevoId('py')
-    await guardarProyecto({ proyId: proyectoId } as ProyectoAgenda, {
-      nombre: T.proyecto,
-      color: '#f472b6',
-      activo: true,
-      ejemplo: true,
-    })
-    // Un segundo proyecto para que las carpetas de la vista Proyectos tengan de
-    // qué separar, y con su propio color en el chip.
-    const mudanzaId = nuevoId('py')
-    await guardarProyecto({ proyId: mudanzaId } as ProyectoAgenda, {
-      nombre: T.mudanza,
-      color: '#38bdf8',
-      activo: true,
-      ejemplo: true,
-    })
-    const base = { area: 'trabajo' as const, ejemplo: true, proyectoId }
+    const base = { area: 'trabajo' as const, ejemplo: true }
     // Uno por columna del tablero: por hacer, en curso y hecho.
     await guardarEvento(null, { ...base, titulo: T.hosting, prioridad: 3 })
     await guardarEvento(null, { ...base, titulo: T.textos, prioridad: 1, enCurso: true })
     await guardarEvento(null, { ...base, titulo: T.contrato, prioridad: 2, hecho: true, hechoEn: hoy })
-    await guardarEvento(null, { area: 'trabajo', ejemplo: true, titulo: T.cotizacion, prioridad: 1, proyectoId: mudanzaId })
-    // Sin proyecto: cae en la carpeta «Sin proyecto» y estrena las notas.
-    await guardarEvento(null, {
-      area: 'trabajo',
-      ejemplo: true,
-      titulo: T.dominio,
-      prioridad: 2,
-      notas: T.notaDominio,
-    })
+    await guardarEvento(null, { ...base, titulo: T.cotizacion, prioridad: 1 })
+    // El que estrena las notas de la tarjeta.
+    await guardarEvento(null, { ...base, titulo: T.dominio, prioridad: 2, notas: T.notaDominio })
     await guardarEvento(null, {
       ...base,
       titulo: T.junta,
@@ -228,8 +193,8 @@ export async function cargarEjemplo(area: AreaAgenda): Promise<void> {
       lugar: T.oficina,
       con: T.cliente,
     })
-    // Uno ya entregado la semana pasada: así el archivador de Agendado tiene
-    // historial y su resumen cuenta 1/2.
+    // Uno ya entregado la semana pasada: estrena la columna «Hecho» con algo
+    // que sí tuvo fecha.
     await guardarEvento(null, {
       ...base,
       titulo: T.maqueta,
@@ -413,12 +378,10 @@ export async function borrarEjemplo(
   area: AreaAgenda,
   eventos: EventoAgenda[],
   contactos: ContactoAgenda[],
-  proyectos: ProyectoAgenda[],
   medicinas: Medicamento[],
   mascotas: Mascota[] = [],
 ): Promise<void> {
   for (const e of eventos.filter((x) => x.ejemplo && x.area === area)) await borrarEvento(e)
-  if (area === 'trabajo') for (const p of proyectos.filter((x) => x.ejemplo)) await borrarProyecto(p)
   if (area === 'salud') {
     for (const m of medicinas.filter((x) => x.ejemplo)) await borrarMedicamento(m)
     // La mascota se lleva sus cuidados (y con ellos sus bloques del calendario).

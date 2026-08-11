@@ -4,8 +4,9 @@
  * mano en demo.mapas.ts), materializados con su fecha real vía
  * `materializarMapa` — cada nodo cuenta en la gamificación el día que se creó.
  */
-import { ideasRepo } from '../../core/data/repository'
+import { carpetasIdeaRepo, ideasRepo } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { materializarMapa } from './crear'
 import { DEMO_IDEAS } from './demo.data'
 import { MAPAS_PEP } from './demo.mapas'
@@ -30,13 +31,25 @@ export async function construirDemoIdeas(ctx: CtxDemo): Promise<void> {
   )
 
   // Lluvias: todas las ideas de una lluvia comparten tema y creadoEn (así la
-  // app las agrupa igual que si hubieran salido de la caja de captura).
-  for (const lluvia of datos.lluvias) {
+  // app las agrupa igual que si hubieran salido de la caja de captura), y cada
+  // una tiene su carpeta — lo mismo que hace la migración a la v113 con las
+  // lluvias que ya existían. Sin esto la vista de Carpetas del demo saldría
+  // vacía, que es justo lo contrario de lo que enseña.
+  for (const [i, lluvia] of datos.lluvias.entries()) {
     const creadoEn = enHora(lluvia.dia)
+    const carpetaId = `cid-demo-lluvia-${i}`
+    await carpetasIdeaRepo.add({
+      carpetaId,
+      padreId: null,
+      nombre: lluvia.tema,
+      orden: i,
+      creadoEn,
+    })
     await ideasRepo.bulkAdd(
       lluvia.textos.map((texto) => ({
         texto,
         tema: lluvia.tema,
+        carpetaId,
         fecha: ctx.fecha(lluvia.dia),
         creadoEn,
       })),
@@ -47,4 +60,7 @@ export async function construirDemoIdeas(ctx: CtxDemo): Promise<void> {
   for (const m of MAPAS_PEP[ctx.idioma]) {
     await materializarMapa(m.nombre, m.tipo, m.propuesta, false, ctx.fecha(m.dia), enHora(m.dia))
   }
+
+  // La decisión que ya tomó con un diagrama y la idea que va a probar.
+  await sembrarMetasApp(ctx, 'ideas')
 }

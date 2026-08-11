@@ -28,6 +28,17 @@ export interface RecursoCuarto {
   notas?: string
 }
 
+/**
+ * Categorías retiradas del inventario (ago 2026): sus objetos eran la versión
+ * suelta y anticuada de lo que ahora vive en el catálogo de la casa — una puerta
+ * de garage y un espejo de pared como muebles, un parche de césped como objeto—
+ * y estorbaban al lado de los muros, puertas y pisos reales del mapa.
+ *
+ * Vive aquí, en la hoja del catálogo, para que la siembra (`disenoStore`) y la
+ * UI del inventario la compartan sin que el store tenga que importar de `ui/`.
+ */
+export const CATS_RETIRADAS = new Set(['Estructural', 'Estructural / Deco', 'Terreno'])
+
 export const RECURSOS: RecursoCuarto[] = [
   { id: 1, cuarto: "cocina", nombre: "Gabinetes (superiores e inferiores)", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "laminado", "mate", "alto brillo"], temas: ["medieval", "vaquero", "barbie", "navidad"], detalle: "medio", notas: "Modulares para adaptarse a cualquier muro" },
   { id: 2, cuarto: "cocina", nombre: "Isla / Barra central", categoria: "Mobiliario", prioridad: "indispensable", atributos: ["color", "material", "escala"], materiales: ["Madera", "mármol", "cuarzo"], temas: "todas", detalle: "medio", notas: "Superficie decorable para adornos temáticos" },

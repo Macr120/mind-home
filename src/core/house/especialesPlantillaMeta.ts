@@ -14,6 +14,7 @@ export const TIPO_GLOBO = 'globo-terraqueo'
 export const TIPO_ESTANTERIA_HERR = 'estanteria-herramientas'
 export const TIPO_REPISA_JUEGOS = 'repisa-juegos'
 export const TIPO_AGENDA = 'agenda-escritorio'
+export const TIPO_CAJA_FUERTE = 'caja-fuerte'
 
 // Fase 2 — usables (el personaje ejecuta una acción; ver accionCuartoStore)
 export const TIPO_CAMINADORA = 'caminadora'
@@ -25,6 +26,7 @@ export const TIPO_PLANTA_REGAR = 'planta-regar'
 export const TIPO_LIBRETA = 'libreta'
 export const TIPO_SILLON = 'sillon-lectura'
 export const TIPO_CALENDARIO = 'calendario-pared'
+export const TIPO_ESTACION_COMPUTO = 'estacion-computo'
 
 /** Nombre y color por defecto de cada objeto (siembra en biblioteca y color base). */
 export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: string }> = {
@@ -36,6 +38,7 @@ export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: st
   [TIPO_ESTANTERIA_HERR]: { nombre: 'Estantería de herramientas', color: '#6b7280' },
   [TIPO_REPISA_JUEGOS]: { nombre: 'Repisa de juegos', color: '#7c3aed' },
   [TIPO_AGENDA]: { nombre: 'Agenda de escritorio', color: '#a855f7' },
+  [TIPO_CAJA_FUERTE]: { nombre: 'Caja fuerte', color: '#3f4b5b' },
   [TIPO_CAMINADORA]: { nombre: 'Caminadora', color: '#334155' },
   [TIPO_PERIODICO]: { nombre: 'Escritorio de noticias', color: '#6b4423' },
   [TIPO_LAPTOP]: { nombre: 'Laptop de trabajo', color: '#475569' },
@@ -45,8 +48,33 @@ export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: st
   [TIPO_LIBRETA]: { nombre: 'Libreta', color: '#7c3aed' },
   [TIPO_SILLON]: { nombre: 'Sillón de lectura', color: '#9ca3af' },
   [TIPO_CALENDARIO]: { nombre: 'Calendario de pared', color: '#dc2626' },
+  [TIPO_ESTACION_COMPUTO]: { nombre: 'Estación de cómputo', color: '#334155' },
 }
 
 export const TIPOS_ESPECIALES_PLANTILLA = new Set(Object.keys(META_ESPECIAL_PLANTILLA))
 
 export const esEspecialPlantilla = (tipo: string) => TIPOS_ESPECIALES_PLANTILLA.has(tipo)
+
+/**
+ * Los que tienen animación propia cableada en su componente (la olla hierve, el
+ * globo gira, el árbol se mece). El resto son usables —el personaje ejecuta la
+ * acción— o decorativos. Lo usa `ContextoProximity` para saber si el botón
+ * «Interactuar» tiene una animación que encender: en estos la animación no vive
+ * en `ObjetoCuarto.animacion`, así que `tieneAnimacion()` no los ve.
+ */
+export const TIPOS_AMBIENTALES_PLANTILLA = new Set([
+  TIPO_OLLA,
+  TIPO_PIZARRA,
+  TIPO_DESPERTADOR,
+  TIPO_LIBRERO_LIBRO,
+  TIPO_GLOBO,
+  TIPO_ESTANTERIA_HERR,
+  TIPO_REPISA_JUEGOS,
+  TIPO_AGENDA,
+  TIPO_CAJA_FUERTE,
+  TIPO_PERIODICO,
+  TIPO_GUITARRA,
+  TIPO_PLANTA_REGAR,
+])
+
+export const esAmbientalPlantilla = (tipo: string) => TIPOS_AMBIENTALES_PLANTILLA.has(tipo)

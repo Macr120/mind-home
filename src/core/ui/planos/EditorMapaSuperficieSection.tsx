@@ -3,6 +3,7 @@ import { useDiseño } from '../../state/disenoStore'
 import { useLayout } from '../../state/layoutStore'
 import { TAM_CELDA_MIN, TAM_CELDA_MAX } from '../../house/walls'
 import { ColorPicker, SIN_COLOR } from '../comun/ColorPicker'
+import { GenerarTexturaIA } from '../editor/GenerarTexturaIA'
 import { useT } from '../../i18n/useT'
 import {
   MAPA_SUPERFICIE_DEFAULT,
@@ -49,11 +50,15 @@ export function EditorMapaSuperficieSection({ embed }: { embed?: boolean } = {})
 
   const patch = (p: Partial<MapaSuperficieAjustes>) => void setMapaSuperficie({ ...a, ...p })
 
+  /** Guarda la imagen (del disco o de la IA) y la deja puesta en el plano. */
+  const guardarImagen = async (blob: Blob) => {
+    await subirRoomPisoImagen(MAPA_SUPERFICIE_ID, blob)
+    patch({ modo: 'imagen' })
+  }
+
   const onSubir = (file: File | undefined) => {
     if (!file?.type.startsWith('image/')) return
-    void subirRoomPisoImagen(MAPA_SUPERFICIE_ID, file).then(() => {
-      patch({ modo: 'imagen' })
-    })
+    void guardarImagen(file)
   }
 
   return (
@@ -160,6 +165,9 @@ export function EditorMapaSuperficieSection({ embed }: { embed?: boolean } = {})
             }}
           />
         </div>
+
+        <GenerarTexturaIA superficie="mapa" onGenerada={guardarImagen} />
+
         {imagenUrl ? (
           <div className="overflow-hidden rounded-lg border border-white/10">
             <img src={imagenUrl} alt="" className="aspect-video w-full object-cover" draggable={false} />

@@ -1,4 +1,21 @@
 import {
+  // Sala de cómputo
+  Sigma,
+  Redo2,
+  ClipboardPaste,
+  Bold,
+  AlignLeft,
+  AlignCenter,
+  AlignRight,
+  ChartSpline,
+  ChartLine,
+  ChartArea,
+  ChartPie,
+  ChartScatter,
+  Radical,
+  Table,
+  Printer,
+  Download,
   // Chrome
   Pencil,
   Check,
@@ -19,6 +36,7 @@ import {
   MessageCircle,
   NotebookText,
   Brain,
+  Bone,
   AlarmClock,
   MonitorOff,
   Camera,
@@ -112,6 +130,7 @@ import {
   BrickWall,
   Grid2x2,
   Grid3x3,
+  Columns3,
   Leaf,
   Square,
   Triangle,
@@ -265,6 +284,7 @@ import {
   PaintBucket,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   // Rueda de herramientas, granja, huerto, canchas, prendas (auditoría jul 2026)
   Cable,
   Accessibility,
@@ -393,6 +413,9 @@ export const CATALOGO = {
   'rotar-der': { emoji: '⟳', Svg: RotateCw },
   volver: { emoji: '‹', Svg: ChevronLeft },
   siguiente: { emoji: '›', Svg: ChevronRight },
+  // Chevrons de plegable (los `▸/▾` que antes iban crudos en los botones).
+  plegado: { emoji: '▸', Svg: ChevronRight },
+  desplegado: { emoji: '▾', Svg: ChevronDown },
   centrar: { emoji: '⌂', Svg: House },
   dia: { emoji: '☀️', Svg: Sun },
   noche: { emoji: '🌙', Svg: Moon },
@@ -612,10 +635,33 @@ export const CATALOGO = {
   hecho: { emoji: '✅', Svg: CircleCheck },
   lista: { emoji: '📋', Svg: ClipboardList },
   rejilla: { emoji: '▦', Svg: Grid3x3 },
+  tablero: { emoji: '🗂️', Svg: Columns3 },
   ver: { emoji: '👀', Svg: Eye },
   ocultar: { emoji: '🙈', Svg: EyeOff },
   tendencia: { emoji: '📈', Svg: TrendingUp },
   etiqueta: { emoji: '🏷️', Svg: Tag },
+
+  // — Sala de cómputo —
+  rehacer: { emoji: '↪️', Svg: Redo2 },
+  cortar: { emoji: '✂️', Svg: Scissors },
+  pegar: { emoji: '📋', Svg: ClipboardPaste },
+  negrita: { emoji: '🅱️', Svg: Bold },
+  alinearIzq: { emoji: '⬅️', Svg: AlignLeft },
+  alinearCentro: { emoji: '↔️', Svg: AlignCenter },
+  alinearDer: { emoji: '➡️', Svg: AlignRight },
+  ordenar: { emoji: '🔀', Svg: ArrowUpDown },
+  sigma: { emoji: '∑', Svg: Sigma },
+  funcion: { emoji: '📉', Svg: ChartSpline },
+  // Gráficas de las hojas de cálculo (una por tipo, para el selector)
+  grafica: { emoji: '📊', Svg: ChartColumn },
+  graficaLineas: { emoji: '📈', Svg: ChartLine },
+  graficaArea: { emoji: '📈', Svg: ChartArea },
+  graficaPastel: { emoji: '🥧', Svg: ChartPie },
+  graficaDispersion: { emoji: '✳️', Svg: ChartScatter },
+  raiz: { emoji: '√', Svg: Radical },
+  hoja: { emoji: '🧾', Svg: Table },
+  imprimir: { emoji: '🖨️', Svg: Printer },
+  descargar: { emoji: '📥', Svg: Download },
 
   // — Temas de UI (selector en Configuraciones) —
   'tema-neon': { emoji: '🟣', Svg: Sparkles },
@@ -761,6 +807,12 @@ export const CATALOGO = {
   ayuda: { emoji: '❓', Svg: CircleHelp },
   tutorial: { emoji: '🎓', Svg: GraduationCap },
   estetoscopio: { emoji: '🩺', Svg: Stethoscope },
+  // Especialidades médicas de la Agenda. Lucide no trae diente: la sonrisa es lo
+  // más cercano y se entiende en la fila de la cita.
+  diente: { emoji: '🦷', Svg: Smile },
+  hueso: { emoji: '🦴', Svg: Bone },
+  chincheta: { emoji: '📌', Svg: Pin },
+  ciclo: { emoji: '🩸', Svg: Droplet },
 
   // — Mascotas de la agenda (🐶, 🐱, 🐟, 🐴 y 🐾 ya los resuelven otras entradas) —
   ave: { emoji: '🐦', Svg: Bird },

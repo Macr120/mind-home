@@ -44,7 +44,8 @@ interface MascotaState {
       asistenteId?: string
       persistir?: boolean
       mapaId?: number
-      destino?: DestinoChat
+      /** Chips "abrir X": uno por cada app donde el turno guardó algo. */
+      destinos?: DestinoChat[]
       imagen?: Blob
     },
   ) => void
@@ -125,7 +126,7 @@ export const useMascota = create<MascotaState>((set, get) => ({
           texto,
           creado: new Date().toISOString(),
           ...(opts?.mapaId != null ? { mapaId: opts.mapaId } : {}),
-          ...(opts?.destino ? { destino: opts.destino } : {}),
+          ...(opts?.destinos?.length ? { destinos: opts.destinos } : {}),
           ...(opts?.imagen ? { imagen: opts.imagen } : {}),
         })
         .catch(() => {})

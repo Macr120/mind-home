@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { CategoriaTitular, EdicionDiario } from '../../core/data/db'
+import type { CategoriaTitular, EdicionDiario, TipoEfemeride } from '../../core/data/db'
 import { mensajesChatRepo } from '../../core/data/repository'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import type { Asistente } from '../../core/chat/mascotas'
@@ -18,7 +18,14 @@ import { CATEGORIAS, TIPOS_EFEMERIDE } from './constantes'
  * recarga la edición al cambiar el día y entrega los mensajes que ya tocan.
  */
 
-export type SeccionReparto = CategoriaTitular | 'efemerides'
+/**
+ * Cada efeméride se reparte por su tipo, no en bloque: así un asistente puede
+ * traer solo la palabra del día y otro solo la especie. El prefijo `ef:` hace
+ * falta porque `salud` y `entretenimiento` ya existen como categorías de titular.
+ */
+export type SeccionReparto = CategoriaTitular | `ef:${TipoEfemeride}`
+
+export const seccionEfemeride = (tipo: TipoEfemeride): SeccionReparto => `ef:${tipo}`
 
 export interface Programacion {
   id: string
@@ -46,7 +53,15 @@ const LS_ESTADO = claveLS('mh-diario-reparto-estado')
 export function getProgramaciones(): Programacion[] {
   try {
     const raw = localStorage.getItem(LS_PROGRAMACIONES)
-    return raw ? (JSON.parse(raw) as Programacion[]) : []
+    const progs = raw ? (JSON.parse(raw) as Programacion[]) : []
+    // Antes las siete efemérides eran un solo chip. Quien lo tuviera configurado
+    // sigue recibiendo lo mismo: se expande al leer, sin versionar este JSON.
+    return progs.map((p) => ({
+      ...p,
+      secciones: p.secciones.flatMap((s) =>
+        (s as string) === 'efemerides' ? TIPOS_EFEMERIDE.map((x) => seccionEfemeride(x.id)) : [s],
+      ),
+    }))
   } catch {
     return []
   }
@@ -110,8 +125,9 @@ function horaAhora(): string {
 function contenidoSecciones(edicion: EdicionDiario, secciones: SeccionReparto[]): string {
   const partes: string[] = []
   for (const s of secciones) {
-    if (s === 'efemerides') {
-      for (const e of edicion.efemerides) {
+    if (s.startsWith('ef:')) {
+      const id = s.slice(3)
+      for (const e of edicion.efemerides.filter((x) => x.tipo === id)) {
         const tipo = TIPOS_EFEMERIDE.find((t) => t.id === e.tipo)
         const extra = [e.subtitulo, e.anio].filter(Boolean).join(', ')
         partes.push(`${tipo?.emoji ?? '📌'} ${tipo?.label ?? e.tipo}: ${e.titulo}${extra ? ` (${extra})` : ''}`)

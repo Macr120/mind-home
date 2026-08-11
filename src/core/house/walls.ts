@@ -393,6 +393,127 @@ export const LADO_DIR: Record<SideKey, { dx: number; dz: number; rotY: number }>
   O: { dx: -1, dz: 0, rotY: Math.PI / 2 },
 }
 
+/** Pared de una celda que mira al centro de la casa (lado por defecto de un ascenso). */
+export function ladoAlCentro(col: number, row: number): SideKey {
+  const [cx, , cz] = cellToWorld(col, row)
+  const { axis, sign } = doorFor([cx, 0, cz])
+  return axis === 'x' ? (sign < 0 ? 'O' : 'E') : sign < 0 ? 'N' : 'S'
+}
+
+/** Esquina de una celda (NO, NE, SO, SE): donde se ancla un ascenso de piso alto. */
+export type EsquinaKey = 'NO' | 'NE' | 'SO' | 'SE'
+export const ESQUINA_KEYS: EsquinaKey[] = ['NO', 'NE', 'SO', 'SE']
+
+/** Signo (x,z) de cada esquina respecto al centro de la celda. */
+export const ESQUINA_DIR: Record<EsquinaKey, { sx: -1 | 1; sz: -1 | 1 }> = {
+  NO: { sx: -1, sz: -1 },
+  NE: { sx: 1, sz: -1 },
+  SO: { sx: -1, sz: 1 },
+  SE: { sx: 1, sz: 1 },
+}
+
+/** Esquina a partir del signo de un desplazamiento dentro de la celda. */
+export function esquinaDeSignos(dx: number, dz: number): EsquinaKey {
+  return dz >= 0 ? (dx >= 0 ? 'SE' : 'SO') : dx >= 0 ? 'NE' : 'NO'
+}
+
+/** Esquina de una celda que mira al centro de la casa (esquina por defecto de un ascenso). */
+export function esquinaAlCentro(col: number, row: number): EsquinaKey {
+  const [cx, , cz] = cellToWorld(col, row)
+  return esquinaDeSignos(-(cx || 1), -(cz || 1))
+}
+
+/** Las dos esquinas que comparten una pared (para migrar un ascenso anclado a un lado). */
+export function esquinasDeLado(lado: SideKey): [EsquinaKey, EsquinaKey] {
+  if (lado === 'N') return ['NO', 'NE']
+  if (lado === 'S') return ['SO', 'SE']
+  if (lado === 'O') return ['NO', 'SO']
+  return ['NE', 'SE']
+}
+
+/** Ancla de un ascenso: esquina interior (pisos altos) o pared del pozo (sótano). */
+export interface AnclaAscenso {
+  nivel: number
+  col: number
+  row: number
+  esquina?: EsquinaKey
+  lado?: SideKey
+}
+
+/** Separación de la columna respecto al eje de la celda (HALF es mutable: calcular al usar). */
+const separacionEsquina = () => Math.max(0, HALF - 1.5)
+
+/**
+ * Centro (mundo XZ) de la estructura de un ascenso. Pisos altos: DENTRO del cuarto, en la
+ * esquina elegida, para no tapar puertas ni vanos. Sótano: la escalera marina va pegada al
+ * muro del pozo. Fuente única: la usan el render (Accesos), la proximidad, el personaje y
+ * el hueco que abre en la losa.
+ */
+export function ascensoXZ(a: AnclaAscenso): [number, number] {
+  const [cx, , cz] = cellToWorld(a.col, a.row)
+  if (a.nivel < 0) {
+    const d = LADO_DIR[a.lado ?? ladoAlCentro(a.col, a.row)]
+    const off = HALF - 0.3
+    return [cx + d.dx * off, cz + d.dz * off]
+  }
+  const e = ESQUINA_DIR[a.esquina ?? esquinaAlCentro(a.col, a.row)]
+  const sep = separacionEsquina()
+  return [cx + e.sx * sep, cz + e.sz * sep]
+}
+
+/** Vector unitario del centro de la celda hacia la columna (diagonal en pisos altos). */
+export function dirAscenso(a: AnclaAscenso): { dx: number; dz: number } {
+  if (a.nivel < 0) {
+    const d = LADO_DIR[a.lado ?? ladoAlCentro(a.col, a.row)]
+    return { dx: d.dx, dz: d.dz }
+  }
+  const e = ESQUINA_DIR[a.esquina ?? esquinaAlCentro(a.col, a.row)]
+  const k = Math.SQRT1_2
+  return { dx: e.sx * k, dz: e.sz * k }
+}
+
+/** Rotación Y de la estructura: su frente local (+Z) mira al centro del cuarto. */
+export function rotAscenso(a: AnclaAscenso): number {
+  if (a.nivel < 0) return LADO_DIR[a.lado ?? ladoAlCentro(a.col, a.row)].rotY
+  const d = dirAscenso(a)
+  return Math.atan2(-d.dx, -d.dz)
+}
+
+/** Medio lado del hueco que cada estructura necesita en la losa que atraviesa al subir. */
+const SEMI_HUECO_ASCENSO: Record<TipoAcceso, number> = {
+  escalera: 1.5,
+  elevador: 1.2,
+  resbaladilla: 1.15,
+  'escalera-marina': 0,
+}
+
+/** Hueco (mundo XZ) que un ascenso abre en la losa de su nivel; `r` = medio lado. */
+export interface HuecoAscenso {
+  /** Nivel de la losa perforada: el techo del nivel de abajo y el piso de este. */
+  nivel: number
+  x: number
+  z: number
+  r: number
+}
+
+/**
+ * Huecos que los ascensos abren en la losa que atraviesan. Un ascenso arranca al pie del
+ * nivel de abajo y remata en el de arriba, así que perfora la losa donde pasa: el techo del
+ * cuarto inferior y el piso del superior (la columna vive en la esquina de ese cuarto).
+ * Los sótanos no atraviesan losa: se bajan por el pozo, con escalera decorativa.
+ */
+export function huecosAscensos(
+  accesos: (AnclaAscenso & { tipo: TipoAcceso })[],
+): HuecoAscenso[] {
+  const out: HuecoAscenso[] = []
+  for (const a of accesos) {
+    if (a.nivel < 1) continue
+    const [x, z] = ascensoXZ(a)
+    out.push({ nivel: a.nivel, x, z, r: SEMI_HUECO_ASCENSO[a.tipo] })
+  }
+  return out
+}
+
 const DELTA: Record<SideKey, Cell> = {
   N: { col: 0, row: -1 },
   S: { col: 0, row: 1 },
@@ -521,7 +642,13 @@ export function effectiveEdge(e: EdgeInfo, overrides?: WallOverrides): WallState
   return overrides?.[edgeKey(e.off, e.side)] ?? e.auto
 }
 
-function estiloDeArista(
+/**
+ * Estilo efectivo de una arista: el guardado, o el del pincel del cuarto. Un muro
+ * sólido recién puesto NO tiene entrada en `estilos` — su tipo es el del pincel—,
+ * así que quien quiera saber de qué está hecho un muro tiene que pasar por aquí
+ * (lo necesita también el catálogo de la casa del inventario).
+ */
+export function estiloDeArista(
   e: EdgeInfo,
   estilos?: Record<string, EstiloArista>,
   pinceles?: PincelesCuarto,

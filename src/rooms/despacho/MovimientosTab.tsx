@@ -8,6 +8,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
 import { BarraEjemplo } from './BarraEjemplo'
 import { borrarEjemplo, cargarEjemplo, hayEjemplo } from './ejemplos'
+import { BotonPrimario, CampoDinero, INPUT, ROJO, TARJETA, VERDE } from './ui'
 import { vivo } from '../../core/ui/estilos'
 
 /** Cada cuánto se repite un fijo (un variable siempre es 'unico'). */
@@ -42,7 +43,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
   const [fecha, setFecha] = useState(hoyISO())
   const [fijo, setFijo] = useState(false)
   const [plazo, setPlazo] = useState<PlazoFijo>('mes')
-  const color = tipo === 'ingreso' ? '#34d399' : '#f87171'
+  const color = tipo === 'ingreso' ? VERDE : ROJO
   const signo = tipo === 'ingreso' ? '+' : '−'
 
   const sugerencias = useMemo(() => sugerenciasCategorias(tipo, movimientos), [tipo, movimientos])
@@ -73,7 +74,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
       <form
         data-tut="despacho.mov.form"
         onSubmit={agregar}
-        className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10"
+        className={`${TARJETA} space-y-3`}
       >
         <p className="text-sm font-semibold">
           {tipo === 'gasto' ? t('despacho.m.nuevoGasto', 'Nuevo gasto') : t('despacho.m.nuevoIngreso', 'Nuevo ingreso')}
@@ -81,19 +82,17 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
 
         <Paso n={1} titulo={t('despacho.m.monto', 'Monto')}>
           <div className="grid grid-cols-2 gap-2">
-            <input
-              value={monto}
-              onChange={(e) => setMonto(e.target.value)}
-              type="number"
-              step="0.01"
+            <CampoDinero
+              valor={monto}
+              onValor={setMonto}
               placeholder={t('despacho.m.monto', 'Monto')}
-              className="rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
+              aria-label={t('despacho.m.monto', 'Monto')}
             />
             <input
               value={fecha}
               onChange={(e) => setFecha(e.target.value)}
               type="date"
-              className="rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
+              className={INPUT}
             />
           </div>
         </Paso>
@@ -127,7 +126,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
             onChange={(e) => setCategoria(e.target.value)}
             list={`despacho-cats-${tipo}`}
             placeholder={t('despacho.m.categoriaPh', 'Escribe la tuya o elige una conocida')}
-            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
+            className={INPUT}
           />
           <datalist id={`despacho-cats-${tipo}`}>
             {sugerencias.map((c) => (
@@ -163,17 +162,15 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
             value={nota}
             onChange={(e) => setNota(e.target.value)}
             placeholder={t('despacho.m.nota', 'Nota (opcional)')}
-            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
+            className={INPUT}
           />
         </Paso>
 
-        <button
-          type="submit"
-          className="w-full rounded-lg py-2 font-bold texto-cta hover:brightness-110 transition"
-          style={{ background: color }}
-        >
+        {/* Verde/rojo según el tipo: es semántica (entra/sale dinero), no una
+            variante más — el resto de la app usa el azul de BotonPrimario. */}
+        <BotonPrimario type="submit" color={color} className="w-full">
           {t('despacho.m.agregar', 'Agregar movimiento')}
-        </button>
+        </BotonPrimario>
       </form>
 
       {fijos.length > 0 && (
@@ -190,7 +187,7 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
             <Fila key={m.id} mov={m} color={color} signo={signo} editable />
           ))}
           <div className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2 border border-white/10">
-            <span className="text-xs text-white/50">
+            <span className="text-xs text-white/55">
               {t('despacho.m.acumuladoTotal', 'Acumulado de tus fijos hasta hoy')}
             </span>
             <span className="texto-vivo text-sm font-bold" style={vivo(color)}>
@@ -242,7 +239,7 @@ function Paso({ n, titulo, children }: { n: number; titulo: string; children: Re
   return (
     <div className="space-y-1.5">
       <p className="flex items-center gap-2 text-xs text-white/40">
-        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-white/60">
+        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-white/55">
           {n}
         </span>
         {titulo}
@@ -288,17 +285,16 @@ function Fila({
         </p>
       </div>
       {editable ? (
-        <input
-          type="number"
-          step="0.01"
-          defaultValue={mov.monto}
-          onBlur={(e) => {
-            const v = parseFloat(e.target.value)
-            if (mov.id && v > 0 && v !== mov.monto) void finanzasRepo.update(mov.id, { monto: v })
-          }}
-          className="texto-vivo ml-auto w-24 rounded-lg bg-black/30 px-2 py-1 text-right text-sm outline-none border border-white/10 focus:border-white/30"
-          style={vivo(color)}
-        />
+        <div className="ml-auto w-28 shrink-0" style={vivo(color)}>
+          <CampoDinero
+            defaultValue={mov.monto}
+            onNumero={(v) => {
+              if (mov.id && v != null && v > 0 && v !== mov.monto) void finanzasRepo.update(mov.id, { monto: v })
+            }}
+            aria-label={t('despacho.m.monto', 'Monto')}
+            className="texto-vivo w-full rounded-lg bg-black/30 py-1 pl-7 pr-2 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+          />
+        </div>
       ) : (
         <span className="texto-vivo ml-auto font-semibold text-sm" style={vivo(color)}>
           {signo}

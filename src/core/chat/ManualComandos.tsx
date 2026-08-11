@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { getPlantilla } from '../registry'
 import { costoDieta, costoReceta } from '../../rooms/cocina/costosIA'
 import { costoOp } from '../cuenta/costos'
@@ -6,6 +6,10 @@ import { useAjustes } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
 import { Creditos } from '../ui/Creditos'
 import { Icono } from '../ui/iconos/Icono'
+// La tabla de precios solo se descarga al desplegar su carpeta.
+const EditorIASection = lazy(() =>
+  import('../ui/editor/EditorIASection').then((m) => ({ default: m.EditorIASection })),
+)
 
 /**
  * Manual de comandos del "arquitecto": referencia ordenada de lo que se le puede
@@ -240,6 +244,34 @@ const SECCIONES: Seccion[] = [
         ],
       },
       {
+        appId: 'computo',
+        id: 'computo',
+        nota: 'El formulario y el graficador cuelgan de la calculadora, y trae Matemáticas, Física y Química de fábrica; cualquiera de esas fórmulas se edita. Dentro de la sala, la IA escribe fórmulas, explica paso a paso, arma hojas y lee los datos que selecciones.',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] el {formulario}', en: '[Open] the {formula book}' },
+              { frase: '[Abre] la {calculadora}', en: '[Open] the {calculator}' },
+              { frase: '[Abre] el {graficador}', en: '[Open] the {plotter}' },
+              { frase: '[Abre] las {hojas de cálculo}', en: '[Open] the {spreadsheets}' },
+              { frase: '[Resolver ecuación]', en: '[Solve equation]' },
+            ],
+          },
+          {
+            id: 'acciones',
+            ejemplos: [
+              { frase: '[Convertir unidades]', en: '[Convert units]' },
+              { frase: '[Abre] las {matrices}', en: '[Open] {matrices}' },
+              { frase: '[Sistema de ecuaciones]', en: '[System of equations]' },
+              { frase: '[Convertir a binario]', en: '[Convert to binary]' },
+              { frase: '[Propina]', en: '[Tip]' },
+              { frase: '[Regla de tres]', en: '[Rule of three]' },
+            ],
+          },
+        ],
+      },
+      {
         appId: 'biblioteca',
         id: 'biblioteca',
         nota: 'Dentro viven el Sabio (charlas con IA), el destilado a entradas wiki y los subtemas del árbol.',
@@ -427,7 +459,7 @@ const SECCIONES: Seccion[] = [
       {
         appId: 'agenda',
         id: 'agenda',
-        nota: 'Tres secciones: Trabajo (pendientes, eventos y proyectos), Salud (citas médicas y medicamentos) y Personas (tu libreta con cumpleaños). Lo que lleva fecha aparece solo en el calendario; con hora, además te avisa.',
+        nota: 'Tres secciones: Trabajo (pendientes y tablero), Salud (citas médicas y medicamentos) y Personas (tu libreta con cumpleaños). Lo que lleva fecha aparece solo en el calendario; con hora, además te avisa.',
         grupos: [
           {
             id: 'registrar',
@@ -466,7 +498,6 @@ const SECCIONES: Seccion[] = [
             ejemplos: [
               { frase: '[Abre] el {tutor}', en: '[Open] the {tutor}' },
               { frase: '[Abre] el {repaso}', en: '[Open] the {review}' },
-              { frase: '[Abre] el {vocabulario}', en: '[Open] the {vocabulary}' },
               { frase: '[Abre] el {temario}', en: '[Open] the {syllabus}' },
               { frase: '[Abre] el {progreso de idiomas}', en: '[Open] the {language progress}' },
             ],
@@ -475,34 +506,6 @@ const SECCIONES: Seccion[] = [
             id: 'ia',
             ejemplos: [
               { frase: 'Aprendí en {alemán}: {Hund} = {perro}', en: 'I learned in {german}: {Hund} = {dog}' },
-            ],
-          },
-        ],
-      },
-      {
-        appId: 'calendario',
-        id: 'calendario',
-        nota: 'Reúne las metas y eventos de todas las apps; en su Cronograma puedes pedir planes con IA (✨).',
-        grupos: [
-          {
-            id: 'abrir',
-            ejemplos: [
-              { frase: '[Abre] la {agenda de hoy}', en: "[Open] {today's agenda}" },
-              { frase: '[Abre] {mi semana}', en: '[Open] {my week}' },
-              { frase: '[Abre] el {cronograma}', en: '[Open] the {timeline}' },
-            ],
-          },
-          {
-            id: 'ia',
-            ejemplos: [
-              { frase: '[Crea una rutina] de mañana: {agua, estiramiento y gratitud} a las {7:00}', en: '[Create a routine] for mornings: {water, stretching and gratitude} at {7:00}' },
-              { frase: '[Crea una rutina] de {lunes y miércoles}: {correr 20 min}', en: '[Create a routine] for {Mondays and Wednesdays}: {a 20 min run}' },
-            ],
-          },
-          {
-            id: 'acciones',
-            ejemplos: [
-              { frase: '[Enséñame] las {rutinas}', en: '[Show me] the {routines}' },
             ],
           },
         ],
@@ -623,6 +626,36 @@ const SECCIONES: Seccion[] = [
     id: 'casa',
     titulo: 'La casa y el editor',
     carpetas: [
+      {
+        // El calendario no es una app: vive en el reloj y reúne lo de todas.
+        icon: '📅',
+        id: 'calendario',
+        titulo: 'Calendario',
+        nota: 'Se abre desde el reloj de la casa. Reúne las metas y eventos de todas las apps; en Metas puedes pedir planes con IA (✨).',
+        grupos: [
+          {
+            id: 'abrir',
+            ejemplos: [
+              { frase: '[Abre] la {agenda de hoy}', en: "[Open] {today's agenda}" },
+              { frase: '[Abre] {mi semana}', en: '[Open] {my week}' },
+              { frase: '[Abre] el {cronograma}', en: '[Open] the {timeline}' },
+            ],
+          },
+          {
+            id: 'ia',
+            ejemplos: [
+              { frase: '[Crea una rutina] de mañana: {agua, estiramiento y gratitud} a las {7:00}', en: '[Create a routine] for mornings: {water, stretching and gratitude} at {7:00}' },
+              { frase: '[Crea una rutina] de {lunes y miércoles}: {correr 20 min}', en: '[Create a routine] for {Mondays and Wednesdays}: {a 20 min run}' },
+            ],
+          },
+          {
+            id: 'acciones',
+            ejemplos: [
+              { frase: '[Enséñame] las {rutinas}', en: '[Show me] the {routines}' },
+            ],
+          },
+        ],
+      },
       {
         icon: '🚪',
         id: 'cuartos',
@@ -1064,6 +1097,44 @@ export function ManualComandos({
             </div>
           </div>
         ))}
+
+        {/* Precios de la IA: la misma tabla de Configuraciones, aquí al lado de
+            los ejemplos que la gastan. La fuente sigue siendo `catalogoIA`. */}
+        <div>
+          <p className="px-1 pb-1 text-[10px] font-bold uppercase tracking-wider text-white/35">
+            {t('chat.manual.seccion.precios', 'Lo que cuesta la IA')}
+          </p>
+          <div className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+            <button
+              type="button"
+              onClick={() => toggle('precios')}
+              className="flex w-full items-center gap-2 px-2 py-1.5 text-left transition hover:bg-white/5"
+            >
+              <span
+                className={`text-[10px] text-white/35 transition-transform ${abiertas.precios ? 'rotate-90' : ''}`}
+              >
+                ▸
+              </span>
+              <span className="text-sm"><Icono nombre="gema" /></span>
+              <span className="flex-1 text-[11px] font-semibold text-white/75">
+                {t('ia.precios.titulo', 'Precios de la IA')}
+              </span>
+            </button>
+            {abiertas.precios && (
+              <div className="border-t border-white/5 px-2 pb-2 pt-2">
+                <Suspense
+                  fallback={
+                    <p className="py-3 text-center text-[10px] text-white/35">
+                      {t('chat.manual.preciosCargando', 'Cargando la tabla…')}
+                    </p>
+                  }
+                >
+                  <EditorIASection embed sinTitulo />
+                </Suspense>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   )

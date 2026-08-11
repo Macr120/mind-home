@@ -3,7 +3,8 @@ import type { TallerVehiculo, TramiteVehiculo, Vehiculo } from '../../core/data/
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR, PERIODICIDADES, getTipoTramite } from './constantes'
+import type { GrupoTramite } from './constantes'
+import { COLOR, PERIODICIDADES, getTipoTramite, tramitesDisponibles } from './constantes'
 import { diasHasta, dinero, formatearFecha, textoRestante } from './fecha'
 import { FormularioTramite } from './FormularioTramite'
 import { borrarTramite, completarTramite } from './tramites'
@@ -16,30 +17,41 @@ function urgencia(dias: number): { color: string; barra: string } {
   return { color: '#94a3b8', barra: 'rgb(148 163 184 / 0.45)' }
 }
 
+/**
+ * Lista de obligaciones del vehículo. La misma sección sirve a las dos pestañas
+ * de la ficha: `grupo` decide si muestra los papeles («Documentos») o lo que se
+ * agenda y se hace («Trámites»).
+ */
 export function TramitesSection({
   vehiculo,
   tramites,
   talleres,
+  grupo,
 }: {
   vehiculo: Vehiculo
   tramites: TramiteVehiculo[]
   talleres: TallerVehiculo[]
+  grupo: GrupoTramite
 }) {
   const t = useT()
   const [creando, setCreando] = useState(false)
   const [editando, setEditando] = useState<TramiteVehiculo | null>(null)
   const [borrando, setBorrando] = useState<string | null>(null)
 
+  const esDoc = grupo === 'documento'
   const mios = tramites
-    .filter((x) => x.vehiculoId === vehiculo.id && x.activo)
+    .filter((x) => x.vehiculoId === vehiculo.id && x.activo && getTipoTramite(x.tipo).grupo === grupo)
     .sort((a, b) => a.fecha.localeCompare(b.fecha))
   const nombreTaller = (id?: string) => talleres.find((c) => c.tallerId === id)?.nombre
+  // Sin placas los tres documentos quedan fuera: no hay nada que dar de alta.
+  const puedeCrear = tramitesDisponibles(vehiculo.matricula, grupo).length > 0
 
   if (creando || editando) {
     return (
       <FormularioTramite
         vehiculo={vehiculo}
         talleres={talleres}
+        grupo={grupo}
         inicial={editando ?? undefined}
         onGuardado={() => {
           setCreando(false)
@@ -54,24 +66,44 @@ export function TramitesSection({
   }
 
   return (
-    <section className="space-y-2" data-tut="garage.tramites">
-      <Cabecera icono="calendario" titulo={t('garage.tram.seccion', 'Trámites y documentos')}>
-        <BotonPrimario onClick={() => setCreando(true)} pequeno>
-          <Icono nombre="agregar" /> {t('garage.tram.programar', 'Programar')}
-        </BotonPrimario>
+    <section className="space-y-2" data-tut={esDoc ? 'garage.documentos' : 'garage.tramites'}>
+      <Cabecera
+        icono={esDoc ? 'tarjeta' : 'calendario'}
+        titulo={
+          esDoc ? t('garage.doc.seccion', 'Documentos') : t('garage.tram.seccion', 'Trámites')
+        }
+      >
+        {puedeCrear && (
+          <BotonPrimario onClick={() => setCreando(true)} pequeno>
+            <Icono nombre="agregar" />{' '}
+            {esDoc
+              ? t('garage.doc.agregar', 'Añadir')
+              : t('garage.tram.programar', 'Programar')}
+          </BotonPrimario>
+        )}
       </Cabecera>
 
       {mios.length === 0 ? (
         <p className={`${TARJETA} p-4 text-center text-xs leading-relaxed text-white/45`}>
-          {vehiculo.matricula?.trim()
-            ? t(
-                'garage.tram.vacio',
-                'Agenda la tenencia, la verificación, la tarjeta de circulación, el seguro o el servicio periódico y te avisamos a tiempo.',
-              )
-            : t(
-                'garage.tram.vacioSinPlaca',
-                'Agenda el servicio periódico y te avisamos a tiempo. Con placas se desbloquean tenencia, verificación, tarjeta de circulación y seguro.',
-              )}
+          {esDoc
+            ? puedeCrear
+              ? t(
+                  'garage.doc.vacio',
+                  'Guarda aquí la tarjeta de circulación, la póliza del seguro y la tenencia con su folio y su vencimiento: te avisamos antes de que caduquen.',
+                )
+              : t(
+                  'garage.doc.vacioSinPlaca',
+                  'Este vehículo no lleva papeles. Añade la matrícula en la ficha y se desbloquean tenencia, tarjeta de circulación y seguro.',
+                )
+            : vehiculo.matricula?.trim()
+              ? t(
+                  'garage.tram.vacio',
+                  'Agenda la verificación o el servicio periódico y te avisamos a tiempo.',
+                )
+              : t(
+                  'garage.tram.vacioSinPlaca',
+                  'Agenda el servicio periódico y te avisamos a tiempo. Con placas se desbloquea también la verificación.',
+                )}
         </p>
       ) : (
         mios.map((x) => {

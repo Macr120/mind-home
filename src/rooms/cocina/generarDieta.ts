@@ -9,10 +9,10 @@ import { promptDieta, promptReceta } from './promptsFoto'
 export type FaseDieta = 'plan' | 'fotos'
 
 /**
- * La cadena completa de «dieta con IA», compartida por la pestaña Dieta y el
- * plan alimenticio de Metas: pide la dieta, escribe y GUARDA cada receta (con
- * su foto) en el recetario, y genera la portada. Devuelve la dieta lista para
- * guardar o revisar — no la guarda: cada caller decide.
+ * La cadena completa de «dieta con IA» de la pestaña Dieta: pide la dieta,
+ * escribe y GUARDA cada receta (con su foto) en el recetario, y genera la
+ * portada. Devuelve la dieta lista para guardar o revisar — no la guarda:
+ * cada caller decide.
  */
 export async function generarDietaCompleta(
   peticion: string,

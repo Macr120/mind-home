@@ -44,6 +44,14 @@ const flujoEnciclopedia: TutorialDef = {
         'Una ficha se escribe a mano o se destila de una conversación. La del agujero negro y la de la física del piano llevan dibujo: la app puede ilustrarlas por ti.',
       ),
     },
+    {
+      sel: 'biblioteca.enc.arbol',
+      titulo: T('tut.app-biblioteca--enciclopedia.4.titulo', 'El índice es tuyo'),
+      texto: T(
+        'tut.app-biblioteca--enciclopedia.4.texto',
+        'El + de cada fila escribe una entrada ahí mismo, con su campo y su tema ya puestos. Y con el botón del lápiz haces crecer el árbol: ese mismo + añade ramas, el de la Semilla crea campos nuevos, y puedes renombrar, reordenar y borrar. El número con la ramita dice cuántos subíndices cuelgan de ahí.',
+      ),
+    },
   ],
 }
 
@@ -51,8 +59,8 @@ const flujoCharlas: TutorialDef = {
   id: 'app-biblioteca--charlas',
   titulo: T('tut.app-biblioteca--charlas.titulo', 'Charlar y destilar'),
   resumen: T(
-    'tut.app-biblioteca--charlas.resumen',
-    'Preguntas al Sabio sobre cualquier tema y de la conversación sacas una ficha para tu enciclopedia y ramas nuevas para tu árbol.',
+    'tut.app-biblioteca--charlas.resumen2',
+    'Preguntas al Sabio sobre cualquier tema y la charla se archiva sola: se clasifica en tu árbol y sale ya destilada como ficha de la enciclopedia.',
   ),
   preparar: () => {
     abrirApp('biblioteca', 'charlas')
@@ -73,8 +81,8 @@ const flujoCharlas: TutorialDef = {
       sel: 'biblioteca.enc.arbol',
       titulo: T('tut.app-biblioteca--charlas.2.titulo', 'De la charla al árbol'),
       texto: T(
-        'tut.app-biblioteca--charlas.2.texto',
-        'Al terminar una charla puedes ramificarla: los subtemas que te dejaron con curiosidad se vuelven ramas nuevas, y lo aprendido, una ficha.',
+        'tut.app-biblioteca--charlas.2.texto2',
+        'La primera respuesta ya deja la charla colocada en su rama y escrita como entrada. Desde esa entrada la ramificas: los subtemas que te dejaron con curiosidad se vuelven ramas nuevas.',
       ),
       alEntrar: () => {
         clickTut('biblioteca.tab.enciclopedia')
@@ -94,18 +102,18 @@ const flujoEstudio: TutorialDef = {
   titulo: T('tut.app-biblioteca--estudio.titulo', 'Estudiar y planear'),
   resumen: T(
     'tut.app-biblioteca--estudio.resumen',
-    'El temporizador registra cuánto estudias, el historial lo acumula por campo y el plan de estudio reparte tus metas en el calendario.',
+    'El temporizador registra cuánto estudias —de corrido o a pomodoros— y el plan de estudio reparte tus metas en el calendario.',
   ),
   preparar: () => {
     abrirApp('biblioteca', 'estudio')
   },
   pasos: [
     {
-      sel: 'biblioteca.estudio.historial',
-      titulo: T('tut.app-biblioteca--estudio.1.titulo', 'Un año de sesiones'),
+      sel: 'biblioteca.estudio.timer',
+      titulo: T('tut.app-biblioteca--estudio.1b.titulo', 'El reloj de estudiar'),
       texto: T(
-        'tut.app-biblioteca--estudio.1.texto',
-        'Cada sesión guarda sus minutos, su campo y a veces una nota. Se ven los atracones de las semanas de parcial y el silencio de las tres semanas en Japón.',
+        'tut.app-biblioteca--estudio.1b.texto',
+        'Eliges campo y arrancas: en Simple corres los minutos de un tirón, y en Pomodoro la app encadena tramos de concentración y descansos. Cada tramo se registra solo, y el reloj sigue aunque cierres el cuarto.',
       ),
       alEntrar: () => {
         clickTut('biblioteca.tab.estudio')
@@ -128,4 +136,68 @@ const flujoEstudio: TutorialDef = {
   ],
 }
 
-export const flujosBiblioteca: TutorialDef[] = [flujoEnciclopedia, flujoCharlas, flujoEstudio]
+const flujoResumen: TutorialDef = {
+  id: 'app-biblioteca--resumen',
+  titulo: T('tut.app-biblioteca--resumen.titulo', 'El panorama del año'),
+  resumen: T(
+    'tut.app-biblioteca--resumen.resumen',
+    'Resumen junta en una pantalla lo que las otras tres pestañas reparten: cuántas entradas tienes por campo, cuánto has estudiado y qué días.',
+  ),
+  preparar: () => {
+    abrirApp('biblioteca', 'resumen')
+  },
+  pasos: [
+    {
+      sel: 'biblioteca.r.cabecera',
+      alEntrar: () => {
+        clickTut('biblioteca.tab.resumen')
+      },
+      texto: T(
+        'tut.app-biblioteca--resumen.1.texto',
+        'Cuántas entradas tiene tu enciclopedia y cuántos de los campos y temas del índice ya cubriste. Los temas que abrió una charla se cuentan aparte.',
+      ),
+    },
+    {
+      sel: 'biblioteca.r.stats',
+      titulo: T('tut.app-biblioteca--resumen.2.titulo', 'Cuatro números'),
+      texto: T(
+        'tut.app-biblioteca--resumen.2.texto',
+        'Charlas con el Sabio, minutos de estudio en total y en la semana, y tu racha de días seguidos estudiando.',
+      ),
+    },
+    {
+      sel: 'biblioteca.r.porCampo',
+      titulo: T('tut.app-biblioteca--resumen.3.titulo', 'Dónde está el desbalance'),
+      texto: T(
+        'tut.app-biblioteca--resumen.3.texto',
+        'La barra más larga es el campo que más atención te llevó — para Pep@, termodinámica en la semana del parcial.',
+      ),
+    },
+    {
+      sel: 'biblioteca.r.tiempoPorCampo',
+      titulo: T('tut.app-biblioteca--resumen.5.titulo', 'En qué se te fueron las horas'),
+      texto: T(
+        'tut.app-biblioteca--resumen.5.texto',
+        'Lo mismo que arriba pero en minutos: una cosa es tener muchas fichas de un campo y otra haberle dedicado tiempo de verdad.',
+      ),
+    },
+    {
+      sel: 'biblioteca.r.heatmap',
+      titulo: T('tut.app-biblioteca--resumen.4.titulo', 'Los días de estudio'),
+      texto: T(
+        'tut.app-biblioteca--resumen.4.texto',
+        'Un cuadrito por día: se nota el atracón antes del parcial y el hueco de las tres semanas en Japón, sin necesidad de abrir el historial completo.',
+      ),
+    },
+    {
+      sel: 'biblioteca.r.historial',
+      titulo: T('tut.app-biblioteca--resumen.6.titulo', 'Un año de sesiones'),
+      texto: T(
+        'tut.app-biblioteca--resumen.6.texto',
+        'Y si quieres el detalle, el historial guarda cada sesión con sus minutos y su campo, archivado por año, mes y semana.',
+      ),
+    },
+  ],
+}
+
+export const flujosBiblioteca: TutorialDef[] = [flujoEnciclopedia, flujoCharlas, flujoEstudio, flujoResumen]

@@ -1,6 +1,14 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useMemo } from 'react'
-import { db, type EventoAgenda, type Medicamento, type PisoExteriorCelda, type MuroLibre } from './db'
+import {
+  db,
+  type CalculoComputo,
+  type EventoAgenda,
+  type Medicamento,
+  type MetaDiariaManual,
+  type PisoExteriorCelda,
+  type MuroLibre,
+} from './db'
 import type { Table, UpdateSpec } from 'dexie'
 import { marcarRegistro } from '../state/registroSesion'
 import { useClaveEncendidos, visibles } from './ejemplos'
@@ -99,6 +107,7 @@ export const suenoRepo = createRepository(db.sueno)
 export const perfilSuenoRepo = createRepository(db.perfilSueno, 'id', false)
 export const anecdotasRepo = createRepository(db.anecdotas)
 export const metasRepo = createRepository(db.metas, 'id', false)
+export const patrimonioRepo = createRepository(db.patrimonio, 'creadoEn', false)
 export const presupuestosRepo = createRepository(db.presupuestos, 'id', false)
 export const watchlistRepo = createRepository(db.watchlist, 'id', false)
 // RETIRADOS: movimientosFijos (v105, lo fijo pasó al `periodo` de cada movimiento)
@@ -106,6 +115,7 @@ export const watchlistRepo = createRepository(db.watchlist, 'id', false)
 // se conservan en db.ts para que los respaldos anteriores sigan restaurando.
 
 export const comidasRepo = createRepository(db.registrosComida)
+export const planComidasRepo = createRepository(db.planComidas, 'fecha', false)
 export const aguaRepo = createRepository(db.registrosAgua)
 export const perfilNutricionRepo = createRepository(db.perfilNutricion, 'id', false)
 export const recetasRepo = createRepository(db.recetas, 'creadaEn')
@@ -137,6 +147,8 @@ export const lecturasDiarioRepo = createRepository(db.lecturasDiario, 'fecha', f
 
 /** Personalización · guardarropa a medida del personaje (prendas propias). */
 export const prendasCustomRepo = createRepository(db.prendasCustom, 'creadoEn', false)
+/** Personalización · carpetas del guardarropa (Categoría › Carpeta › Elementos). */
+export const carpetasRopaRepo = createRepository(db.carpetasRopa, 'orden', false)
 /** Personalización · atuendos guardados por el usuario (combinaciones de prendas). */
 export const atuendosGuardadosRepo = createRepository(db.atuendosGuardados, 'creadoEn', false)
 
@@ -147,6 +159,58 @@ export const entradasBiblioRepo = createRepository(db.entradasBiblio, 'actualiza
 export const sesionesEstudioRepo = createRepository(db.sesionesEstudio)
 /** Nodos dinámicos del índice vivo; orden cronológico = hermanos estables en el árbol. */
 export const temasArbolRepo = createRepository(db.temasArbol, 'creadoEn', false)
+/** Parches del usuario sobre el índice de fábrica (renombrar, ocultar, mover). */
+export const ajustesSemillaRepo = createRepository(db.ajustesSemilla, 'nodoId', false)
+/** Hojas de cálculo, mapas e ideas enlazados a una entrada de la enciclopedia. */
+export const materialEntradaRepo = createRepository(db.materialEntrada, 'creadoEn', false)
+
+/** Material enlazado a una entrada, en el orden que puso el usuario. */
+export function useMaterialDeEntrada(entradaId: number | null) {
+  return useLiveQuery(async () => {
+    if (entradaId == null) return []
+    const filas = await db.materialEntrada.where('entradaId').equals(entradaId).toArray()
+    return filas.sort((a, b) => a.orden - b.orden)
+  }, [entradaId])
+}
+
+/**
+ * Borra del índice una rama con toda su descendencia (el caller la calcula
+ * sobre el árbol ya resuelto).
+ *
+ * Nunca borra una entrada: pierde el tema pero conserva su campo, y el árbol la
+ * pinta como hoja suelta. Si lo que se borra es el CAMPO entero, sus entradas
+ * se mudan a `campoRefugio` (el comodín «General»): sin eso quedarían en un
+ * campo que ya no existe y desaparecerían de la enciclopedia.
+ *
+ * Los nodos de FÁBRICA no tienen fila que borrar —viven en `pilares.ts`—, así
+ * que de tacharlos se encarga aparte `ajustesSemilla`.
+ */
+export async function borrarRamaIndice(opts: {
+  /** Ids del subárbol, de fábrica y propios (para desligar las entradas). */
+  temaIds: string[]
+  /** Solo los propios: las filas que hay que borrar de verdad. */
+  propiosIds: string[]
+  /** Campo que se está borrando, si es un campo. */
+  campoBorrado?: string
+  /** Adónde van las entradas del campo borrado. */
+  campoRefugio?: string
+}): Promise<void> {
+  const dentro = new Set(opts.temaIds)
+  const propios = new Set(opts.propiosIds)
+  await db.transaction('rw', db.temasArbol, db.entradasBiblio, async () => {
+    // El middleware de sync sella `updatedAt` en cada escritura, igual que en
+    // `eliminarConversacionBiblio`: no hace falta pasarlo a mano.
+    for (const e of await db.entradasBiblio.toArray()) {
+      if (e.id == null) continue
+      const suCampo = opts.campoBorrado != null && e.pilarId === opts.campoBorrado
+      if (suCampo) await db.entradasBiblio.update(e.id, { pilarId: opts.campoRefugio, temaId: undefined })
+      else if (e.temaId && dentro.has(e.temaId)) await db.entradasBiblio.update(e.id, { temaId: undefined })
+    }
+    for (const n of await db.temasArbol.toArray()) {
+      if (propios.has(n.temaId) && n.id != null) await db.temasArbol.delete(n.id)
+    }
+  })
+}
 
 /** Mensajes de una charla de la biblioteca, del más antiguo al más nuevo. */
 export function useMensajesConversacionBiblio(conversacionId: number | null) {
@@ -188,9 +252,13 @@ export const conversacionesIdiomaRepo = createRepository(db.conversacionesIdioma
 export const mensajesIdiomaRepo = createRepository(db.mensajesIdioma, 'creado', false)
 /** Nodos dinámicos del temario; orden cronológico = hermanos estables en el árbol. */
 export const temasIdiomaRepo = createRepository(db.temasIdioma, 'creadoEn', false)
+/** Parche de los temas de fábrica (renombrados, reordenados o borrados). */
+export const ajustesTemarioRepo = createRepository(db.ajustesTemario, 'temaId', false)
 /** Apuntes y fotos que el usuario sube a un tema del temario. */
 export const materialesIdiomaRepo = createRepository(db.materialesIdioma, 'creadoEn')
 export const repasosIdiomaRepo = createRepository(db.repasosIdioma, 'fecha')
+/** Partidas de ejercicios terminadas (récords, historial y misiones del día). */
+export const partidasEjercicioRepo = createRepository(db.partidasEjercicio, 'creadoEn')
 
 /** Mensajes de una charla de idiomas, del más antiguo al más nuevo. */
 export function useMensajesConversacionIdioma(conversacionId: number | null) {
@@ -241,6 +309,7 @@ export async function eliminarIdiomaCascada(id: number) {
       db.conversacionesIdioma,
       db.mensajesIdioma,
       db.temasIdioma,
+      db.ajustesTemario,
       db.materialesIdioma,
       db.repasosIdioma,
     ],
@@ -252,6 +321,7 @@ export async function eliminarIdiomaCascada(id: number) {
       await db.conversacionesIdioma.where('idiomaId').equals(id).delete()
       await db.tarjetasIdioma.where('idiomaId').equals(id).delete()
       await db.temasIdioma.where('idiomaId').equals(id).delete()
+      await db.ajustesTemario.where('idiomaId').equals(id).delete()
       await db.materialesIdioma.where('idiomaId').equals(id).delete()
       await db.repasosIdioma.where('idiomaId').equals(id).delete()
       await db.idiomas.delete(id)
@@ -389,23 +459,40 @@ export const ejecucionesRutinaRepo = createRepository(db.ejecucionesRutina, 'fec
 export const metasDiariasManualRepo = createRepository(db.metasDiariasManual, 'fecha')
 
 /**
- * Fija a mano la meta diaria de una app en un día (una fila por app y día).
+ * La fila del objetivo principal se guarda SIN clave (ver `MetaDiariaManual.clave`),
+ * así que ausente y vacía son lo mismo.
+ */
+const mismaClave = (fila: MetaDiariaManual, clave?: string) => (fila.clave ?? '') === (clave ?? '')
+
+/**
+ * Fija a mano un objetivo del día de una app (una fila por app, día y objetivo).
  * Transacción: serializa lectura+escritura para que dos clics rápidos no dupliquen.
  */
-export async function fijarMetaDiariaManual(plantillaId: string, fecha: string, hecha: boolean) {
+export async function fijarMetaDiariaManual(
+  plantillaId: string,
+  fecha: string,
+  hecha: boolean,
+  clave?: string,
+) {
   await db.transaction('rw', db.metasDiariasManual, async () => {
-    const fila = await db.metasDiariasManual
-      .where('[plantillaId+fecha]')
-      .equals([plantillaId, fecha])
-      .first()
+    // Por clave y no con `.first()`: el índice compuesto no es único y desde que
+    // una app tiene varios objetivos hay varias filas por app y día.
+    const fila = (
+      await db.metasDiariasManual.where('[plantillaId+fecha]').equals([plantillaId, fecha]).toArray()
+    ).find((f) => mismaClave(f, clave))
     if (fila?.id != null) await db.metasDiariasManual.update(fila.id, { hecha })
-    else await db.metasDiariasManual.add({ plantillaId, fecha, hecha })
+    else await db.metasDiariasManual.add({ plantillaId, fecha, hecha, clave })
   })
 }
 
 /** Quita la palomita manual: ese día vuelve a mandar la actividad real. */
-export async function borrarMetaDiariaManual(plantillaId: string, fecha: string) {
-  await db.metasDiariasManual.where('[plantillaId+fecha]').equals([plantillaId, fecha]).delete()
+export async function borrarMetaDiariaManual(plantillaId: string, fecha: string, clave?: string) {
+  const filas = await db.metasDiariasManual
+    .where('[plantillaId+fecha]')
+    .equals([plantillaId, fecha])
+    .toArray()
+  const ids = filas.filter((f) => mismaClave(f, clave)).map((f) => f.id)
+  await db.metasDiariasManual.bulkDelete(ids.filter((i): i is number => i != null))
 }
 
 /**
@@ -413,17 +500,29 @@ export async function borrarMetaDiariaManual(plantillaId: string, fecha: string)
  * porque las apps lo llaman desde su `metaDiaria`, y ese módulo importa el
  * registro de plantillas: colgarlo de ahí cerraría un ciclo de imports.
  */
-export async function objetivoDiarioDe(plantillaId: string, porDefecto: number): Promise<number> {
-  const fila = (await db.objetivosDiarios.toArray()).find((o) => o.plantillaId === plantillaId)
+export async function objetivoDiarioDe(
+  plantillaId: string,
+  porDefecto: number,
+  clave = '',
+): Promise<number> {
+  const fila = (await db.objetivosDiarios.toArray()).find(
+    (o) => o.plantillaId === plantillaId && (o.clave ?? '') === clave,
+  )
   return fila?.valor ?? porDefecto
 }
 
-/** Objetivo diario de una app (fila única por app). */
-export async function fijarObjetivoDiario(plantillaId: string, valor: number) {
+/**
+ * Fija el objetivo diario de una app (una fila por app y objetivo; `''` = el
+ * principal). Busca por `plantillaId` y no por el índice compuesto a propósito:
+ * una fila escrita antes de la v108 no lleva `clave`, y el compuesto no la
+ * indexaría — se actualiza y de paso se normaliza.
+ */
+export async function fijarObjetivoDiario(plantillaId: string, valor: number, clave = '') {
   await db.transaction('rw', db.objetivosDiarios, async () => {
-    const fila = await db.objetivosDiarios.where('plantillaId').equals(plantillaId).first()
-    if (fila?.id != null) await db.objetivosDiarios.update(fila.id, { valor })
-    else await db.objetivosDiarios.add({ plantillaId, valor })
+    const filas = await db.objetivosDiarios.where('plantillaId').equals(plantillaId).toArray()
+    const fila = filas.find((o) => (o.clave ?? '') === clave)
+    if (fila?.id != null) await db.objetivosDiarios.update(fila.id, { clave, valor })
+    else await db.objetivosDiarios.add({ plantillaId, clave, valor })
   })
 }
 
@@ -450,6 +549,25 @@ export const carrerasRepo = createRepository(db.carreras, 'id', false)
 
 /** Pistas de música subidas por el usuario (Wrapped y música ambiental). */
 export const pistasMusicaRepo = createRepository(db.pistasMusica, 'creadoEn')
+
+/** Carpetas de «Mis pistas» (un solo nivel; se ordenan en memoria por `orden`). */
+export const carpetasPistaRepo = createRepository(db.carpetasPista, 'creadoEn', false)
+
+/**
+ * Borra una carpeta de pistas SIN borrar su música: las pistas que había dentro
+ * quedan sueltas. Perder canciones por cerrar una carpeta sería inaceptable
+ * (son archivos que el usuario subió a mano).
+ */
+export async function borrarCarpetaPista(carpetaId: string): Promise<void> {
+  await db.transaction('rw', db.carpetasPista, db.pistasMusica, async () => {
+    // `carpetaId` no está indexado (son pocas pistas): se filtra en memoria.
+    for (const p of await db.pistasMusica.filter((x) => x.carpetaId === carpetaId).toArray()) {
+      if (p.id != null) await db.pistasMusica.update(p.id, { carpetaId: undefined })
+    }
+    const carpeta = await db.carpetasPista.filter((c) => c.carpetaId === carpetaId).first()
+    if (carpeta?.id != null) await db.carpetasPista.delete(carpeta.id)
+  })
+}
 
 /** Parcelas y cultivos del huerto por celda del mapa. */
 export const cultivosRepo = createRepository(db.cultivos, 'id', false)
@@ -578,6 +696,7 @@ export async function setEstiloMuroLibre(
       | 'ventana' | 'ventAncho' | 'ventAlto' | 'ventColor' | 'puerta' | 'puertaAncho' | 'puertaColor' | 'puertaAlto'
       | 'puertaTipo' | 'puertaForma' | 'puertaFormaAlto' | 'puertaFormaAncho' | 'puertaFormaPosX'
       | 'ventForma' | 'ventPosX' | 'ventPosY' | 'ventRot' | 'ventMosaico' | 'ventMulticolor' | 'rotacion'
+      | 'ventContenido' | 'ventCara'
     >
   >,
 ): Promise<void> {
@@ -588,7 +707,13 @@ export async function eliminarMuroLibre(id: number): Promise<void> {
   await db.murosLibres.delete(id)
 }
 
-/** Aplica material de piso a varias celdas exteriores del mismo nivel. */
+/**
+ * Aplica material de piso a varias celdas exteriores del mismo nivel.
+ *
+ * En bloque a propósito: la casa demo pinta el mapa entero de una vez (216
+ * celdas) y una consulta + un add/update por celda —más los 4 cuadrantes de
+ * cada una— eran ~1300 operaciones sueltas para dejar 216 filas.
+ */
 export async function aplicarPisoExteriorCeldas(
   nivel: number,
   celdas: { col: number; row: number }[],
@@ -596,23 +721,45 @@ export async function aplicarPisoExteriorCeldas(
   pisoColor: string,
   opts?: { limpiarImagen?: boolean },
 ): Promise<void> {
-  await limpiarCuadrantesDeCeldas(nivel, celdas)
-  for (const c of celdas) {
-    const existente = await db.pisosExterior
-      .where('[nivel+col+row]')
-      .equals([nivel, c.col, c.row])
-      .first()
-    const patch: Partial<PisoExteriorCelda> = { pisoTipo, pisoColor }
-    if (opts?.limpiarImagen) {
-      patch.pisoImagen = undefined
-      patch.pisoImagenActiva = false
+  if (!celdas.length) return
+  await db.transaction('rw', db.pisosExterior, async () => {
+    const filas = await db.pisosExterior.where('nivel').equals(nivel).toArray()
+    const porCelda = new Map(filas.map((f) => [`${f.col},${f.row}`, f]))
+    // Repetir una celda en la selección crearía filas gemelas al insertar en bloque.
+    const objetivo = new Map(celdas.map((c) => [`${c.col},${c.row}`, c]))
+
+    // Pintar la celda entera se lleva por delante sus cuadrantes de ¼.
+    const aBorrar: number[] = []
+    for (const c of objetivo.values()) {
+      if (!Number.isInteger(c.col) || !Number.isInteger(c.row)) continue
+      for (const [dx, dy] of CUADRANTE_OFFS) {
+        const ex = porCelda.get(`${c.col + dx},${c.row + dy}`)
+        if (ex?.id != null) aBorrar.push(ex.id)
+      }
     }
-    if (existente?.id != null) {
-      await db.pisosExterior.update(existente.id, patch)
-    } else {
-      await db.pisosExterior.add({ nivel, col: c.col, row: c.row, ...patch })
+    if (aBorrar.length) await db.pisosExterior.bulkDelete(aBorrar)
+
+    const nuevas: PisoExteriorCelda[] = []
+    const cambios: PisoExteriorCelda[] = []
+    for (const c of objetivo.values()) {
+      const ex = porCelda.get(`${c.col},${c.row}`)
+      // Partir de la fila existente conserva `forma`, el ajuste de imagen y el
+      // `uid` que le selló el middleware de sync.
+      const fila: PisoExteriorCelda = {
+        ...(ex ?? { nivel, col: c.col, row: c.row }),
+        pisoTipo,
+        pisoColor,
+      }
+      if (opts?.limpiarImagen) {
+        delete fila.pisoImagen
+        fila.pisoImagenActiva = false
+      }
+      if (ex?.id != null) cambios.push(fila)
+      else nuevas.push(fila)
     }
-  }
+    if (nuevas.length) await db.pisosExterior.bulkAdd(nuevas)
+    if (cambios.length) await db.pisosExterior.bulkPut(cambios)
+  })
 }
 
 /** Sube imagen de piso a celdas exteriores seleccionadas. */
@@ -830,8 +977,43 @@ export function useEjecucionesDeFecha(fecha: string) {
 
 // Ideas · diario, mapas conceptuales y diagramas
 export const ideasRepo = createRepository(db.ideas, 'creadoEn')
+/** Carpetas del diario; orden cronológico = hermanas estables en el árbol. */
+export const carpetasIdeaRepo = createRepository(db.carpetasIdea, 'creadoEn', false)
 export const mapasIdeasRepo = createRepository(db.mapasIdeas, 'creadoEn')
 export const nodosMapaRepo = createRepository(db.nodosMapa, 'creadoEn', false)
+
+/**
+ * Borra una carpeta del diario con sus descendientes. Por defecto las ideas
+ * SUBEN a la carpeta padre: nunca se pierde una idea por reorganizar carpetas.
+ */
+export async function borrarCarpetaIdea(
+  carpetaId: string,
+  opts: { borrarIdeas: boolean },
+): Promise<void> {
+  await db.transaction('rw', db.carpetasIdea, db.ideas, async () => {
+    const todas = await db.carpetasIdea.toArray()
+    const propia = todas.find((c) => c.carpetaId === carpetaId)
+    const dentro = new Set([carpetaId])
+    // El árbol es pequeño: pasadas sucesivas hasta que no crece, sin recursión.
+    for (let cambio = true; cambio; ) {
+      cambio = false
+      for (const c of todas) {
+        if (c.padreId && dentro.has(c.padreId) && !dentro.has(c.carpetaId)) {
+          dentro.add(c.carpetaId)
+          cambio = true
+        }
+      }
+    }
+    for (const i of await db.ideas.toArray()) {
+      if (!i.carpetaId || !dentro.has(i.carpetaId) || i.id == null) continue
+      if (opts.borrarIdeas) await db.ideas.delete(i.id)
+      else await db.ideas.update(i.id, { carpetaId: propia?.padreId ?? undefined })
+    }
+    for (const c of todas) {
+      if (dentro.has(c.carpetaId) && c.id != null) await db.carpetasIdea.delete(c.id)
+    }
+  })
+}
 
 /** Nodos de un mapa, del más antiguo al más nuevo (hermanos estables). */
 export function useNodosMapa(mapaId: number | null) {
@@ -862,10 +1044,12 @@ export async function borrarNodosMapa(ids: number[]): Promise<void> {
 // sin fecha —media sección Trabajo— desaparecerían de la lista sin dar error.
 export const eventosAgendaRepo = createRepository(db.eventosAgenda, 'creadoEn')
 export const contactosAgendaRepo = createRepository(db.contactosAgenda, 'nombre', false)
-export const proyectosAgendaRepo = createRepository(db.proyectosAgenda, 'creadoEn', false)
 export const medicamentosRepo = createRepository(db.medicamentos, 'creadoEn', false)
 export const mascotasRepo = createRepository(db.mascotas, 'nombre', false)
 export const cuidadosMascotaRepo = createRepository(db.cuidadosMascota, 'creadoEn', false)
+export const cuidadosRepo = createRepository(db.cuidados, 'creadoEn', false)
+export const ajustesCicloRepo = createRepository(db.ajustesCiclo, 'creadoEn', false)
+export const diasCicloRepo = createRepository(db.diasCiclo, 'fecha', false)
 
 /** Eventos ligados a un contacto (su historial dentro de la ficha). */
 export function useEventosDeContacto(contactoId: string | null) {
@@ -913,15 +1097,52 @@ export async function borrarMascotaAgenda(mascId: string): Promise<void> {
   })
 }
 
-/** Borra un proyecto; sus pendientes sobreviven sueltos (no se pierde trabajo). */
-export async function borrarProyectoAgenda(proyId: string): Promise<void> {
-  await db.transaction('rw', db.proyectosAgenda, db.eventosAgenda, async () => {
-    const ligados = await db.eventosAgenda.where('proyectoId').equals(proyId).toArray()
-    for (const e of ligados) {
-      if (e.id != null)
-        await db.eventosAgenda.update(e.id, { proyectoId: undefined, updatedAt: Date.now() } as UpdateSpec<EventoAgenda>)
+// Sala de cómputo · formulario, calculadora y hojas
+export const carpetasFormulaRepo = createRepository(db.carpetasFormula, 'creadoEn', false)
+export const formulasRepo = createRepository(db.formulas, 'creadoEn', false)
+export const hojasRepo = createRepository(db.hojasCalculo, 'actualizadoEn')
+export const calculosComputoRepo = createRepository(db.calculosComputo, 'creadoEn')
+
+/** Una hoja entera (sus celdas viajan embebidas, así que basta con la fila). */
+export function useHoja(id: number | null) {
+  return useLiveQuery(async () => (id == null ? null : ((await db.hojasCalculo.get(id)) ?? null)), [id])
+}
+
+/** Borra una carpeta del formulario con sus descendientes y sus fórmulas. */
+export async function borrarCarpetaFormula(carpetaId: string): Promise<void> {
+  await db.transaction('rw', db.carpetasFormula, db.formulas, async () => {
+    const todas = await db.carpetasFormula.toArray()
+    const dentro = new Set([carpetaId])
+    // El árbol es pequeño: pasadas sucesivas hasta que no crece, sin recursión.
+    for (let cambio = true; cambio; ) {
+      cambio = false
+      for (const c of todas) {
+        if (c.padreId && dentro.has(c.padreId) && !dentro.has(c.carpetaId)) {
+          dentro.add(c.carpetaId)
+          cambio = true
+        }
+      }
     }
-    const fila = await db.proyectosAgenda.where('proyId').equals(proyId).first()
-    if (fila?.id != null) await db.proyectosAgenda.delete(fila.id)
+    for (const f of await db.formulas.toArray()) {
+      if (dentro.has(f.carpetaId) && f.id != null) await db.formulas.delete(f.id)
+    }
+    for (const c of todas) {
+      if (dentro.has(c.carpetaId) && c.id != null) await db.carpetasFormula.delete(c.id)
+    }
   })
+}
+
+/** Guarda el historial acotado: la calculadora no necesita memoria infinita. */
+export const TOPE_HISTORIAL_COMPUTO = 300
+
+/** Añade un cálculo al historial y recorta las filas más viejas. */
+export async function anotarCalculo(fila: Omit<CalculoComputo, 'id'>): Promise<void> {
+  await calculosComputoRepo.add(fila)
+  const total = await db.calculosComputo.count()
+  if (total <= TOPE_HISTORIAL_COMPUTO) return
+  const viejas = await db.calculosComputo
+    .orderBy('creadoEn')
+    .limit(total - TOPE_HISTORIAL_COMPUTO)
+    .primaryKeys()
+  for (const id of viejas) await db.calculosComputo.delete(id)
 }

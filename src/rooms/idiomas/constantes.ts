@@ -17,6 +17,15 @@ export const TIPOS_TARJETA: { id: TipoTarjeta; labelEs: string }[] = [
   { id: 'expresion', labelEs: 'Expresión' },
 ]
 
+/**
+ * Prompt de la imagen mnemotécnica: representa el significado, sin texto. Vive
+ * aquí y no en el formulario porque la tarjeta también se ilustra desde el
+ * repaso, y las dos ilustraciones de la misma tarjeta deben pedir lo mismo.
+ */
+export const promptTarjeta = (termino: string, traduccion: string) =>
+  `Ilustración sencilla y memorable que represente el significado de "${termino}" (${traduccion}). ` +
+  'Estilo tarjeta educativa, un solo concepto claro, fondo liso, sin texto, sin letras, sin marcas de agua.'
+
 /** Idioma del catálogo curado (código BCP-47 correcto para la voz del navegador). */
 export interface IdiomaCatalogo {
   codigo: string

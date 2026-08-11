@@ -15,7 +15,8 @@ export function CharlasTab({
   borradorInicial,
   anclaInicial,
   sesion,
-  onCharlaNueva,
+  onIrANodo,
+  onVerEntrada,
 }: {
   abierta: number | 'nueva' | null
   onAbrir: (id: number | 'nueva') => void
@@ -24,7 +25,8 @@ export function CharlasTab({
   anclaInicial: AnclaTema | null
   /** Key de la charla: cambia con cada charla nueva para remontar limpio. */
   sesion: number
-  onCharlaNueva: (ancla: AnclaTema, borrador: string) => void
+  onIrANodo: (nodoId: string) => void
+  onVerEntrada: (entradaId: number) => void
 }) {
   const t = useT()
   const charlas = conversacionesBiblioRepo.useAll() ?? VACIO
@@ -39,7 +41,8 @@ export function CharlasTab({
         anclaInicial={anclaInicial}
         onCreada={onAbrir}
         onSalir={onCerrar}
-        onCharlaNueva={onCharlaNueva}
+        onIrANodo={onIrANodo}
+        onVerEntrada={onVerEntrada}
       />
     )
   }

@@ -15,13 +15,19 @@
  * releer TODO lo construido.
  */
 import { db } from '../core/data/db'
-import { setConstruyendoDemo } from '../core/data/demoGuard'
-import { marcarEscrituraSilenciosa } from '../core/data/sync/middleware'
-import { claveLS, esDemo } from '../core/edicion'
+import {
+  desapuntarTablas,
+  empezarColectaPerezosa,
+  setConstruyendoDemo,
+  tablasSucias,
+  terminarColectaPerezosa,
+} from '../core/data/demoGuard'
+import { marcarEscrituraSilenciosa, setSinOutbox } from '../core/data/sync/middleware'
+import { claveLS, esDemo, esDemoAutor } from '../core/edicion'
 import { BUILDERS_DEMO, crearCtxDemo } from './builders'
 import { restaurarSnapshot, type SnapshotCasa } from './casaSnapshot'
-import { marcarDemoConstruido } from './modo'
-import { fotografiarDemo } from './sandbox'
+import { appsConstruidas, leerIntent, marcarAppConstruida, marcarDemoConstruido } from './modo'
+import { fotografiarDemo, fotografiarTablasDemo } from './sandbox'
 import { guardarSpawnDemo } from './spawn'
 
 /** `clave` es de i18n (`demo.paso.*`) o `app:<plantillaId>` para los builders. */
@@ -32,14 +38,14 @@ export type ProgresoDemo = (clave: string, paso: number, total: number) => void
 // construcción (resolver de inmediato recargaría la página a medio construir).
 let enMarcha: Promise<void> | null = null
 
-export function construirDemo(onProgreso?: ProgresoDemo): Promise<void> {
+export function construirDemo(onProgreso?: ProgresoDemo, apps?: string[]): Promise<void> {
   if (!esDemo()) return Promise.resolve()
   if (!enMarcha) {
     // Lock multi-pestaña: dos pestañas del demo no deben construir a la vez.
     enMarcha = (
       navigator.locks
-        ? navigator.locks.request('mh-demo-build', () => construir(onProgreso))
-        : construir(onProgreso)
+        ? navigator.locks.request('mh-demo-build', () => construir(onProgreso, apps))
+        : construir(onProgreso, apps)
     ).finally(() => {
       enMarcha = null
     })
@@ -47,13 +53,38 @@ export function construirDemo(onProgreso?: ProgresoDemo): Promise<void> {
   return enMarcha
 }
 
-async function construir(onProgreso?: ProgresoDemo): Promise<void> {
-  const conBuilder = Object.keys(BUILDERS_DEMO)
+/**
+ * Tours del NÚCLEO cuyo intent no es el id de ninguna app (`hoy`, `progreso`):
+ * qué años hace falta tener construidos para que su demo tenga contenido.
+ * `progreso` es el agregado del año entero (Sísifo/Wrapped leen de todas).
+ */
+const APPS_DE_TOUR: Record<string, string[]> = {
+  hoy: ['cocina', 'calendario'],
+  progreso: Object.keys(BUILDERS_DEMO),
+}
+
+/**
+ * Apps cuyo año se construye AL ENTRAR: si el visitante viene a un tutorial,
+ * solo la de ese tour —las demás se construyen al abrirlas (`construirAppDemo`)
+ * y así el tour empieza en segundos—; si viene a explorar, todas.
+ */
+export function appsIniciales(): string[] {
+  const intent = leerIntent()
+  if (!intent) return Object.keys(BUILDERS_DEMO)
+  if (APPS_DE_TOUR[intent.app]) return APPS_DE_TOUR[intent.app]
+  // La infraestructura no tiene builder: su año lo levanta el mapa.
+  return BUILDERS_DEMO[intent.app] ? [intent.app] : []
+}
+
+async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<void> {
+  const conBuilder = apps ?? appsIniciales()
   const total = 4 + conBuilder.length
   let paso = 0
   const empezar = (clave: string) => onProgreso?.(clave, paso++, total)
 
   setConstruyendoDemo(true)
+  // El año entero llenaba `_outbox` para tirarlo al final: en demo no hay sync.
+  setSinOutbox(true)
   try {
     empezar('demo.paso.limpiar')
     // Flags demo de una construcción anterior (seeds, reparaciones, récords)
@@ -95,6 +126,7 @@ async function construir(onProgreso?: ProgresoDemo): Promise<void> {
       empezar(`app:${app}`)
       const builder = await BUILDERS_DEMO[app]()
       await builder(ctx)
+      marcarAppConstruida(app)
     }
 
     empezar('demo.paso.final')
@@ -107,7 +139,60 @@ async function construir(onProgreso?: ProgresoDemo): Promise<void> {
     marcarDemoConstruido()
   } finally {
     setConstruyendoDemo(false)
+    setSinOutbox(false)
   }
+}
+
+// Single-flight por app: el gate de la UI y el intent del tutorial piden la
+// misma construcción a la vez, y StrictMode monta el efecto dos veces.
+const enMarchaApp = new Map<string, Promise<void>>()
+
+/**
+ * Construye el año de UNA app la primera vez que se abre (las que no entraron en
+ * `appsIniciales`). Idempotente.
+ */
+export function construirAppDemo(app: string): Promise<void> {
+  if (!esDemo() || esDemoAutor()) return Promise.resolve()
+  if (!BUILDERS_DEMO[app] || appsConstruidas().has(app)) return Promise.resolve()
+  let p = enMarchaApp.get(app)
+  if (!p) {
+    const trabajo = () => construirApp(app)
+    p = (
+      navigator.locks ? navigator.locks.request('mh-demo-build:' + app, trabajo) : trabajo()
+    ).finally(() => {
+      enMarchaApp.delete(app)
+    })
+    enMarchaApp.set(app, p)
+  }
+  return p
+}
+
+async function construirApp(app: string): Promise<void> {
+  // Dentro del lock: otra pestaña pudo construirla mientras esperábamos.
+  if (appsConstruidas().has(app)) return
+  const antes = new Set(tablasSucias())
+  // Aquí NO va `setConstruyendoDemo`: el marcador tiene que apuntar lo escrito,
+  // tanto para saber qué fotografiar como para limpiarlo si esto se corta.
+  empezarColectaPerezosa()
+  setSinOutbox(true)
+  let fallo: unknown = null
+  try {
+    const builder = await BUILDERS_DEMO[app]()
+    await builder(crearCtxDemo())
+  } catch (e) {
+    // Se cierra la colecta pase lo que pase: abierta, dejaría el aviso del demo
+    // mudo para siempre. El fallo se relanza tras cerrarla.
+    fallo = e
+  }
+  const tocadas = terminarColectaPerezosa()
+  setSinOutbox(false)
+  if (fallo) throw fallo
+  await fotografiarTablasDemo(tocadas)
+  // Lo que el visitante ya había ensuciado sigue siendo suyo (y se repondrá).
+  desapuntarTablas(tocadas.filter((t) => !antes.has(t)))
+  // Lo ÚLTIMO: marcar antes daría por buena una construcción a medias, y al
+  // reabrir la app saldría con la mitad de su año y sin manera de rehacerlo.
+  marcarAppConstruida(app)
 }
 
 async function cargarSnapshot(): Promise<SnapshotCasa | null> {

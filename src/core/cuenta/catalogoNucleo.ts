@@ -94,12 +94,21 @@ export const OP_ASISTENTE_3D: OperacionIA = {
   partes: [{ op: 'modelo3d' }],
 }
 
+export const OP_ASISTENTE_VOZ: OperacionIA = {
+  id: 'editor.asistenteVoz',
+  clave: 'ia.op.editor.asistenteVoz',
+  es: 'Voz con IA de un asistente',
+  dondeClave: 'ia.donde.asistentes',
+  dondeEs: 'Asistentes',
+  partes: [{ op: 'tts' }],
+}
+
 export const OP_TEXTURA: OperacionIA = {
   id: 'editor.textura',
   clave: 'ia.op.editor.textura',
-  es: 'Textura de piso, muro o techo',
+  es: 'Textura de piso, muro, techo, puerta o mapa',
   dondeClave: 'ia.donde.editorCuarto',
-  dondeEs: 'Editor › Piso, Paredes y Techo',
+  dondeEs: 'Editor › Piso, Paredes, Techo, Puertas y Grid',
   partes: [{ op: 'imagen' }],
 }
 
@@ -117,13 +126,14 @@ export const OPS_EDITOR: OperacionIA[] = [
   OP_PERSONAJE_3D,
   OP_ROPA_3D,
   OP_ASISTENTE_3D,
+  OP_ASISTENTE_VOZ,
   OP_TEXTURA,
   OP_FONDO,
 ]
 
 /**
  * El Plan ✨ se declara UNA vez aunque su botón salga en ocho cuartos: vive en
- * `core/ui/metas/PlanIAPanel.tsx`, que es núcleo.
+ * `core/ui/metas/GeneradorPlan.tsx`, que es núcleo.
  */
 export const OP_PLAN_IA: OperacionIA = {
   id: 'metas.plan',

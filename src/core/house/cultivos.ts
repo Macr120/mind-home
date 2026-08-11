@@ -28,12 +28,20 @@ export const ESPECIES: Record<EspecieCultivo, EspecieDef> = {
 
 export type EtapaCultivo = 'semilla' | 'brote' | 'planta' | 'listo' | 'marchito'
 
+/**
+ * Minutos que una parcela se ve marchita antes de limpiarse sola y volver a
+ * tierra virgen (el barrido lo hace `limpiarMarchitos` del huertoStore).
+ */
+export const MARCHITO_VISIBLE_MIN = 10
+
 export interface EstadoCultivo {
   etapa: EtapaCultivo
   /** Avance 0–1 de siembra a listo (1 al estar listo o marchito). */
   progreso: number
   /** Va a marchitarse pronto: conviene regar (solo etapas en crecimiento). */
   sediento: boolean
+  /** Ms en que se marchitó (solo en la etapa 'marchito'). */
+  marchitoEn?: number
 }
 
 /**
@@ -51,7 +59,8 @@ export function estadoCultivo(c: CultivoCelda, ahora: number, regadaDesde?: numb
   const marchitaEn = ultimaAgua + def.riegoCadaMin * 60_000
   const listoEn = c.plantadoEn + def.duracionMin * 60_000
   const cubierto = regadaDesde != null && regadaDesde <= marchitaEn
-  if (!cubierto && marchitaEn < listoEn && ahora >= marchitaEn) return { etapa: 'marchito', progreso: 1, sediento: false }
+  if (!cubierto && marchitaEn < listoEn && ahora >= marchitaEn)
+    return { etapa: 'marchito', progreso: 1, sediento: false, marchitoEn: marchitaEn }
   if (ahora >= listoEn) return { etapa: 'listo', progreso: 1, sediento: false }
   const progreso = Math.max(0, (ahora - c.plantadoEn) / (listoEn - c.plantadoEn))
   const etapa: EtapaCultivo = progreso < 0.25 ? 'semilla' : progreso < 0.6 ? 'brote' : 'planta'

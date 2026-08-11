@@ -2,7 +2,6 @@ import { conversarIA, extraerJSON, type MensajeIA } from '../../core/chat/ia'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { TipoTarjeta } from '../../core/data/db'
 import { NIVELES } from './constantes'
-import type { AreaTemario } from './temario'
 
 /** Datos mínimos del asistente cuya voz usa el chat (Asistente real o semilla). */
 export interface VozTutor {
@@ -155,8 +154,11 @@ export async function extraerTarjetas(
   return propuestas
 }
 
-/** Qué pedirle a la IA según el área del temario (vocabulario, sonidos o reglas). */
-const ENCARGO_AREA: Record<AreaTemario, string> = {
+/**
+ * Qué pedirle a la IA según el área del temario (vocabulario, sonidos o
+ * reglas). Un área propia del usuario no está aquí: se le pide vocabulario.
+ */
+const ENCARGO_AREA: Record<string, string> = {
   temas: 'los términos más útiles y frecuentes del tema a ese nivel, cada uno con un ejemplo natural',
   pronunciacion:
     'palabras y frases que ejemplifiquen ese punto de pronunciación; en la traducción añade entre corchetes cómo suena en letras españolas y, si aplica, su transcripción AFI',
@@ -170,14 +172,14 @@ const ENCARGO_AREA: Record<AreaTemario, string> = {
  */
 export async function generarTarjetasTema(
   perfil: PerfilTutor,
-  tema: { titulo: string; nivel: string; area?: AreaTemario },
+  tema: { titulo: string; nivel: string; area?: string },
   n: number,
   existentes: string[],
 ): Promise<TarjetaPropuesta[]> {
   try {
     const system = [
       `Eres un profesor de ${perfil.nombre}: creas material de estudio para hispanohablantes.`,
-      `Genera ${n} tarjetas del tema «${tema.titulo}» de nivel MCER ${tema.nivel}: ${ENCARGO_AREA[tema.area ?? 'temas']}.`,
+      `Genera ${n} tarjetas del tema «${tema.titulo}» de nivel MCER ${tema.nivel}: ${ENCARGO_AREA[tema.area ?? 'temas'] ?? ENCARGO_AREA.temas}.`,
       existentes.length
         ? `PROHIBIDO repetir (ni con variantes) estos términos que ya tiene: ${existentes.slice(0, 80).join(' · ')}`
         : '',

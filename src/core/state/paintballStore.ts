@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import type * as THREE from 'three'
 import { useLayout } from './layoutStore'
 import { useHouse } from './houseStore'
-import { useCam, type Vista } from './cameraStore'
+import { useCam, setPitchLibre, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
 import { getAsistente } from './asistentesStore'
@@ -300,9 +300,12 @@ export const usePaintball = create<PaintballState>((set, get) => ({
     set({ fase: 'cuenta', modo, jugadores, resultado: null, mensaje: null })
     setCuartoAbierto(false)
     // Cámara del combate: la vista elegida en sus ajustes (1ª o 3ª persona).
-    // También se puede cambiar en marcha desde el HUD o con la tecla V.
+    // También se puede cambiar en marcha desde el HUD o con la tecla V. En 3ª
+    // persona la inclinación va LIBRE mientras dura la batalla: con el tope
+    // normal la cámara se queda siempre por encima y no se puede apuntar arriba.
     const cam = useCam.getState()
     if (vistaPrevia === null) vistaPrevia = cam.vista
+    setPitchLibre(true)
     cam.setVista(get().vistaCombate)
   },
 
@@ -381,6 +384,7 @@ export const usePaintball = create<PaintballState>((set, get) => ({
     useHerramienta.setState({ apuntando: false })
     devolverHerramientas()
     limpiadorMundo?.(true)
+    setPitchLibre(false)
     if (vistaPrevia !== null) {
       useCam.getState().setVista(vistaPrevia)
       vistaPrevia = null

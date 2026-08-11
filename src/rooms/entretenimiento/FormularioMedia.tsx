@@ -6,6 +6,7 @@ import { COLOR, ESTADOS_MEDIA, TIPOS_MEDIA, getTipoMedia } from './constantes'
 import { Estrellas } from './Estrellas'
 import { hoyISO } from './fecha'
 import { buscarPortada, imagenArticulo } from './portadaMedia'
+import { Foto } from '../_shared/fotos'
 import { completarMediaIA } from './resumenIA'
 import { buscarSugerencias, type SugerenciaMedia } from './sugerenciasMedia'
 import { useT } from '../../core/i18n/useT'
@@ -212,17 +213,28 @@ export function FormularioMedia({
         </div>
       )}
 
-      {/* La carátula se ve aunque no haya IA: la traen ya las sugerencias. */}
-      {portada && (
+      {/* La carátula se ve aunque no haya IA: la traen ya las sugerencias.
+          La subida a mano manda sobre la remota (ver MiniPortada). */}
+      {(portada || inicial?.portadaFoto) && (
         <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-black/20 p-3">
-          <img
-            src={portada}
-            alt={titulo}
-            className="h-24 w-16 shrink-0 rounded-md border border-white/10 object-cover"
-          />
+          {inicial?.portadaFoto ? (
+            <Foto
+              blob={inicial.portadaFoto}
+              className="h-24 w-16 shrink-0 rounded-md border border-white/10 object-cover"
+            />
+          ) : (
+            <img
+              src={portada}
+              alt={titulo}
+              className="h-24 w-16 shrink-0 rounded-md border border-white/10 object-cover"
+            />
+          )}
           <button
             type="button"
-            onClick={() => setPortada(undefined)}
+            onClick={() => {
+              setPortada(undefined)
+              if (inicial?.id) void mediaArchivoRepo.update(inicial.id, { portadaFoto: undefined })
+            }}
             className="text-xs text-white/35 hover:text-red-400"
           >
             {t('entre.port.quitar', 'Quitar portada')}

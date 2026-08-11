@@ -13,6 +13,12 @@ import { FlechasMoverObjeto, BotonListoMoverObjetos } from './EditorHud'
 import { BotonAccionCancha } from './BotonAccionCancha'
 import { useHerramienta } from '../state/herramientaStore'
 import { useMontura } from '../state/monturaStore'
+import { useAccionCuarto } from '../state/accionCuartoStore'
+import { useContexto } from '../state/contextoStore'
+import { useCargar } from '../state/cargarStore'
+import { useParque } from '../state/parqueStore'
+import { useFlotador } from '../state/flotadorStore'
+import { useTren } from '../state/trenStore'
 import { playerPos } from '../state/playerPosition'
 import { esArmaDeTiro } from '../house/arma'
 import { useCarrera } from '../state/carreraStore'
@@ -42,6 +48,27 @@ export function NavControls() {
   const objetoSel = useEditorUi((s) => s.objetoSel)
   const equipadas = useHerramienta((s) => s.equipadas)
   const montado = useMontura((s) => s.instanciaId != null)
+  // AL ALCANCE de un vehículo (sin montar): el hueco del cubo ya muestra el
+  // botón dinámico "Subirte" ahí mismo (ver ControlHerramienta), no un aviso aparte.
+  const cercaVehiculo = useMontura((s) => s.cercaId != null)
+  // Sentado/acostado en un objeto genérico, o AL ALCANCE de uno: mismo hueco
+  // que el vehículo (botón dinámico Sentarte/Acostarte → Levantarte). Los 5
+  // usables de plantilla (sillón, laptop…) NO entran aquí — se activan/salen
+  // solos, sin panel, como siempre.
+  const sentadoGenerico = useAccionCuarto(
+    (s) => s.tipo === 'asiento-generico' || s.tipo === 'acostarse-generico',
+  )
+  const cercaAccionGenerica = useAccionCuarto((s) => s.cercaId != null)
+  // Botones de lo que tienes al alcance (ver `contextoStore`) y de lo que estás
+  // usando: comparten el hueco del cubo, pero NO pueden entrar en `conHerramienta`
+  // — esa condición también sustituye al joystick de vista en 3ª/1ª persona, y el
+  // LookPad desaparecería cada vez que pasas junto a una silla.
+  const hayContextual = useContexto((s) => s.acciones.length > 0)
+  const cercaCarga = useCargar((s) => s.cerca != null || s.sujeto != null)
+  const accionActiva = useAccionCuarto((s) => s.instanciaId != null)
+  const enParque = useParque((s) => s.instanciaId != null)
+  const enFlotador = useFlotador((s) => s.instanciaId != null)
+  const enTren = useTren((s) => s.montado)
   const faseCarrera = useCarrera((s) => s.fase)
   const fasePaintball = usePaintball((s) => s.fase)
   // Arma de tiro en la mano y vista con mira: los controles de tiro viven aquí.
@@ -93,6 +120,14 @@ export function NavControls() {
       )
         return
       if (useLayout.getState().editMode) return
+      // En plena batalla, V solo alterna 1ª/3ª (es lo que promete su ayuda). El
+      // ciclo normal pasa por la isométrica, y ahí no hay mira ni forma de
+      // apuntar: el combate se quedaba injugable y sin controles para salir.
+      const pb = usePaintball.getState()
+      if (pb.fase === 'cuenta' || pb.fase === 'jugando') {
+        pb.setVistaCombate(useCam.getState().vista === 'primera' ? 'tercera' : 'primera')
+        return
+      }
       useCam.getState().ciclarVista()
     }
     window.addEventListener('keydown', onKey)
@@ -120,7 +155,11 @@ export function NavControls() {
   const mostrarCubo = vistaIso || vistaInterior
   // Herramientas equipadas: su pila de controles ocupa el hueco del cubo/LookPad (solo en juego).
   // Conduciendo también, aunque el vehículo no esté en la hotbar: ahí vive el "Bajarte".
-  const conHerramienta = (equipadas.length > 0 || montado) && !editMode
+  const conHerramienta =
+    (equipadas.length > 0 || montado || cercaVehiculo || sentadoGenerico || cercaAccionGenerica) && !editMode
+  // Solo suma en la rama del cubo (vista iso/interior), nunca en la del LookPad.
+  const conContextual =
+    (hayContextual || cercaCarga || accionActiva || enParque || enFlotador || enTren) && !editMode
   // Modo "mover objetos" con un objeto seleccionado: las flechas ocupan el hueco del cubo.
   const moviendoObjeto = moverObjetosRoomId != null && objetoSel != null
 
@@ -146,8 +185,9 @@ export function NavControls() {
 
   // Plegado (solo en juego, el editor necesita sus controles): queda el cubo, que los devuelve.
   // Mover objetos siempre muestra sus controles (si no, el botón "Listo" quedaría inalcanzable),
-  // y con un arma en la mano tampoco se pliegan: dejarían el tiro sin botones.
-  if (plegado && !editMode && !moverObjetosRoomId && !conArmaDeTiro) {
+  // y con un arma en la mano tampoco se pliegan: dejarían el tiro sin botones. Por lo mismo, con
+  // algo al alcance: plegado no habría forma de sentarse, subirse ni bajarse.
+  if (plegado && !editMode && !moverObjetosRoomId && !conArmaDeTiro && !conContextual) {
     return (
       <div ref={refTope} className={`absolute bottom-4 z-10 ${posControles}`}>
         <TiradorHud zona="infDer">
@@ -234,7 +274,7 @@ export function NavControls() {
         <>
           {/* Mover objetos: alterna entre las flechas y el cubo, para poder cambiar la
               perspectiva sin salir del modo ni perder el objeto seleccionado. */}
-          {moviendoObjeto && !jugandoCancha && !conHerramienta && (
+          {moviendoObjeto && !jugandoCancha && !conHerramienta && !conContextual && (
             <button
               type="button"
               onClick={() => setVerCuboMoviendo((v) => !v)}
@@ -249,22 +289,27 @@ export function NavControls() {
               {verCuboMoviendo ? t('nav3d.verFlechasBtn', 'Ver flechas') : t('nav3d.verCuboBtn', 'Ver vistas')}
             </button>
           )}
-          {jugandoCancha ? (
-            <BotonAccionCancha />
-          ) : conHerramienta ? (
-            <div className="relative">
-              {/* Conduciendo: el derrape (u ↑/↓ del OVNI) a la IZQUIERDA del panel
-                  del vehículo, sin ensanchar la columna (queda fuera de su flujo). */}
-              <div className="absolute right-full top-0 mr-1">
-                <ControlesConduccion />
+          {/* El hueco lo comparten cuatro cosas (el cubo de vistas, la herramienta
+              equipada, la acción de la cancha, las flechas de mover objeto): solo
+              una a la vez, por eso una sola ancla envuelve las cuatro ramas. */}
+          <div data-tut="nav.hueco">
+            {jugandoCancha ? (
+              <BotonAccionCancha />
+            ) : conHerramienta || conContextual ? (
+              <div className="relative">
+                {/* Conduciendo: el derrape (u ↑/↓ del OVNI) a la IZQUIERDA del panel
+                    del vehículo, sin ensanchar la columna (queda fuera de su flujo). */}
+                <div className="absolute right-full top-0 mr-1">
+                  <ControlesConduccion />
+                </div>
+                <ControlHerramienta />
               </div>
-              <ControlHerramienta />
-            </div>
-          ) : moviendoObjeto && !verCuboMoviendo ? (
-            <FlechasMoverObjeto />
-          ) : (
-            <ViewCube />
-          )}
+            ) : moviendoObjeto && !verCuboMoviendo ? (
+              <FlechasMoverObjeto />
+            ) : (
+              <ViewCube />
+            )}
+          </div>
           <div data-tut="nav.rotar" className="ui-hud flex w-full overflow-hidden rounded-lg border border-white/10">
             <button
               type="button"
@@ -294,27 +339,37 @@ export function NavControls() {
         </>
       )}
 
+      {/* En 3ª/1ª persona el LookPad hace de cubo: es el ocupante por defecto de la
+          esquina y comparte hueco con los mismos paneles que en iso. A diferencia
+          del cubo NO se retira al aparecer un panel — es el único control de
+          cámara que queda en móvil (antes desaparecía con una herramienta en la
+          mano, salvo con arma). */}
       {!vistaIso && (
         <>
-          {!(conHerramienta && !mostrarCubo) && (
+          {!conHerramienta && !conContextual && (
             <p className="text-center text-[10px] leading-tight text-white/45">
               {vista === 'tercera'
                 ? t('nav3d.ayuda3P', 'Clic derecho o joystick; rueda para zoom')
                 : t('nav3d.ayuda1P', 'Clic derecho o joystick; rueda para zoom')}
             </p>
           )}
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex w-full flex-col items-center gap-2">
             {jugandoCancha ? (
               <BotonAccionCancha />
-            ) : conHerramienta && !mostrarCubo ? (
-              <>
-                <ControlHerramienta />
-                {/* Con arma en la mano el joystick de vista ES la mira en móvil:
-                    se queda junto a los botones de tiro, no en su lugar. */}
-                {conArmaDeTiro && <LookPad />}
-              </>
             ) : (
-              <LookPad />
+              <>
+                {(conHerramienta || conContextual) && !mostrarCubo && (
+                  <div className="relative w-full">
+                    {/* Conduciendo: el derrape (u ↑/↓ del OVNI) a la izquierda, fuera
+                        del flujo, igual que en la vista isométrica. */}
+                    <div className="absolute right-full top-0 mr-1">
+                      <ControlesConduccion />
+                    </div>
+                    <ControlHerramienta />
+                  </div>
+                )}
+                <LookPad />
+              </>
             )}
           </div>
         </>

@@ -5,6 +5,7 @@
  */
 import { anecdotasRepo } from '../../core/data/repository'
 import type { CtxDemo } from '../../demo/builders'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_ANECDOTARIO } from './demo.data'
 
 export async function construirDemoAnecdotario(ctx: CtxDemo): Promise<void> {
@@ -27,4 +28,7 @@ export async function construirDemoAnecdotario(ctx: CtxDemo): Promise<void> {
       ...(fotos ? { fotos } : {}),
     })
   }
+
+  // Escribir es el hábito que ya está; lo que queda es cerrar el año contado.
+  await sembrarMetasApp(ctx, 'anecdotario')
 }

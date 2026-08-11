@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useHouse } from '../state/houseStore'
-import { useLayout } from '../state/layoutStore'
-import { useDiseño } from '../state/disenoStore'
 import { useMontura, monturaFrame } from '../state/monturaStore'
 import { useCarrera } from '../state/carreraStore'
-import { useParque } from '../state/parqueStore'
-import { useTren } from '../state/trenStore'
-import { vehiculoDe } from '../house/vehiculos'
 import { setPadVertical } from '../house/movement'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -81,42 +75,4 @@ export function ControlesConduccion() {
     )
   }
   return <BotonDerrape title={t('veh.derrape', 'Derrape (Espacio)')} />
-}
-
-/**
- * Prompt 2D de los vehículos: "Subirte" al estar cerca de uno. Va en
- * `PilaPrompts`, que lo coloca por encima de los controles de las esquinas y del
- * chat. Conduciendo no hay prompt: bajarse vive en el panel del vehículo
- * (`ControlHerramienta`) y el derrape junto al joystick (`ControlesConduccion`).
- */
-export function VehiculoOverlay() {
-  const t = useT()
-  const instanciaId = useMontura((s) => s.instanciaId)
-  const cercaId = useMontura((s) => s.cercaId)
-  const cercaTipo = useMontura((s) => s.cercaTipo)
-  const montar = useMontura((s) => s.montar)
-  const activeRoom = useHouse((s) => s.activeRoom)
-  const editMode = useLayout((s) => s.editMode)
-  const usandoJuego = useParque((s) => s.instanciaId)
-  const enTren = useTren((s) => s.montado)
-
-  if (activeRoom || editMode || usandoJuego != null || enTren) return null
-
-  // A pie con un vehículo al alcance: subirse.
-  if (instanciaId != null || cercaId == null || !cercaTipo) return null
-  const def = vehiculoDe(cercaTipo)
-  const subirte = () => {
-    const inst = useDiseño.getState().objetos.find((o) => o.id === cercaId)
-    if (inst) montar(inst)
-  }
-  return (
-    <button
-      type="button"
-      onClick={subirte}
-      className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border-2 border-emerald-400/60 px-5 py-2.5 text-sm font-black text-emerald-400 shadow-xl backdrop-blur-md transition hover:scale-105 active:scale-95"
-    >
-      <Icono emoji={def.icono} className="text-lg leading-none" />
-      {t('veh.subirte', 'Subirte')} · {def.nombre}
-    </button>
-  )
 }

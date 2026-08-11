@@ -1,42 +1,65 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { iaActiva } from '../../core/chat/ia'
 import type { Idea } from '../../core/data/db'
-import { VACIO, ideasRepo } from '../../core/data/repository'
+import { VACIO, carpetasIdeaRepo, ideasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
-import { Archivador, CarpetasPorEtiqueta } from '../_shared/Archivador'
+import { Archivador } from '../_shared/Archivador'
+import { ArbolCarpetas } from './ArbolCarpetas'
 import { COLOR } from './constantes'
-import { crearMapaDesdeIdeas } from './crear'
+import { crearMapaDesdeIdeas, crearMapaIA } from './crear'
 import { expandirNodo } from './ia'
+import { IdeaDetalle } from './IdeaDetalle'
+import { MoverIdeaDialog } from './MoverIdeaDialog'
 import { PanelSugerencias } from './PanelSugerencias'
 import { Creditos } from '../../core/ui/Creditos'
-import { OP_EXPANDIR } from './costosIA'
+import { OP_EXPANDIR, OP_MAPA } from './costosIA'
 
 /**
  * Diario de ideas: la bandeja donde cae lo que se te ocurre, sin pensar dónde
- * guardarlo. Una idea suelta solo tiene fecha; las que comparten `tema` son una
- * LLUVIA, y por eso no hace falta una tabla de sesiones: el tema las agrupa.
+ * guardarlo. Cada idea es un TÍTULO con su lista de puntos, y vive en una
+ * carpeta (anidable) o suelta en la raíz.
  *
- * Con una lluvia abierta, todo lo que escribes se le pega, la IA propone más
- * sobre ese tema y el botón del mapa se lleva el montón a un mapa mental
- * (pestaña Mapas): capturar aquí, ordenar allá.
+ * La LLUVIA sigue existiendo, al pie de la pestaña: abres un tema, sueltas todo
+ * lo que se te pase por la cabeza y luego lo conviertes en mapa. Arriba queda
+ * solo la captura de una línea, que es el 90 % de las veces.
  */
 export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => void }) {
   const t = useT()
   const ideas = ideasRepo.useAll() ?? VACIO
+  const carpetas = carpetasIdeaRepo.useAll() ?? VACIO
   const [texto, setTexto] = useState('')
   const [tema, setTema] = useState('')
   const [temaBorrador, setTemaBorrador] = useState<string | null>(null)
-  const [vista, setVista] = useState<'dia' | 'tema'>('dia')
+  const [lluviaAbierta, setLluviaAbierta] = useState(false)
+  const [carpeta, setCarpeta] = useState('')
+  const [vista, setVista] = useState<'carpetas' | 'dia'>('carpetas')
   const [soloFav, setSoloFav] = useState(false)
-  const [editando, setEditando] = useState<number | null>(null)
+  const [abierta, setAbierta] = useState<number | null>(null)
   const [borrando, setBorrando] = useState<number | null>(null)
   const [pidiendoIA, setPidiendoIA] = useState(false)
+  const [generandoArbol, setGenerandoArbol] = useState(false)
+  const [errorArbol, setErrorArbol] = useState('')
+  /** Idea que se está encarpetando (diálogo de carpetas). */
+  const [encarpetando, setEncarpetando] = useState<Idea | null>(null)
 
   const deLaLluvia = tema ? ideas.filter((i) => i.tema === tema) : []
-  const visibles = soloFav ? ideas.filter((i) => i.favorita) : ideas
+  const porFav = soloFav ? ideas.filter((i) => i.favorita) : ideas
+  // En la vista de carpetas se ve SOLO la carpeta elegida; en las otras, todo.
+  const visibles = vista === 'carpetas' ? porFav.filter((i) => (i.carpetaId ?? '') === carpeta) : porFav
+
+  const conteos = useMemo(() => {
+    const m = new Map<string, number>()
+    for (const i of ideas) {
+      const c = i.carpetaId ?? ''
+      m.set(c, (m.get(c) ?? 0) + 1)
+    }
+    return m
+  }, [ideas])
+
+  const nombreCarpeta = carpetas.find((c) => c.carpetaId === carpeta)?.nombre
 
   const anotar = async (textos: string[]) => {
     const ahora = new Date().toISOString()
@@ -44,6 +67,7 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
       textos.map((tx) => ({
         texto: tx,
         ...(tema ? { tema } : {}),
+        ...(carpeta ? { carpetaId: carpeta } : {}),
         fecha: fechaLocalISO(),
         creadoEn: ahora,
       })),
@@ -64,67 +88,60 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
     onAbrirMapa(id)
   }
 
-  return (
-    <div className="mx-auto max-w-2xl space-y-3">
-      <div className="space-y-2.5 rounded-2xl border border-white/10 bg-white/5 p-3" data-tut="ideas.diario.alta">
-        {tema ? (
-          <div className="flex items-center gap-2 rounded-xl px-2.5 py-1.5" style={{ background: `${COLOR}22` }}>
-            <span className="texto-vivo" style={vivo(COLOR)}>
-              <Icono nombre="lluvia" />
-            </span>
-            <span className="min-w-0 flex-1 truncate text-xs font-semibold">
-              {t('ideas.diario.enLluvia', 'Lluvia: {tema}', { tema })}
-            </span>
-            <span className="shrink-0 text-[11px] text-white/45">{deLaLluvia.length}</span>
-            <button
-              type="button"
-              onClick={() => setTema('')}
-              className="shrink-0 text-white/40 transition hover:text-white/80"
-              title={t('ideas.diario.cerrarLluvia', 'Cerrar la lluvia')}
-              aria-label={t('ideas.diario.cerrarLluvia', 'Cerrar la lluvia')}
-            >
-              <Icono nombre="cerrar" />
-            </button>
-          </div>
-        ) : temaBorrador !== null ? (
-          <div className="flex gap-2">
-            <input
-              autoFocus
-              value={temaBorrador}
-              onChange={(e) => setTemaBorrador(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && temaBorrador.trim()) {
-                  setTema(temaBorrador.trim())
-                  setTemaBorrador(null)
-                }
-                if (e.key === 'Escape') setTemaBorrador(null)
-              }}
-              placeholder={t('ideas.diario.temaPlaceholder', '¿Sobre qué es la lluvia?')}
-              className="min-w-0 flex-1 rounded-xl border border-white/15 bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
-            />
-            <button
-              type="button"
-              onClick={() => {
-                if (temaBorrador.trim()) setTema(temaBorrador.trim())
-                setTemaBorrador(null)
-              }}
-              disabled={!temaBorrador.trim()}
-              className="ui-accent-bg rounded-xl px-3 py-2 text-sm font-semibold disabled:opacity-40"
-            >
-              {t('ideas.diario.empezar', 'Empezar')}
-            </button>
-          </div>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setTemaBorrador('')}
-            className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5"
-            data-tut="ideas.diario.lluvia"
-          >
-            <Icono nombre="lluvia" /> {t('ideas.diario.nuevaLluvia', 'Hacer una lluvia de ideas')}
-          </button>
-        )}
+  /**
+   * Árbol etimológico de la palabra de la lluvia, dibujado por la IA: origen,
+   * significados, usos y familia léxica. Lanza con el motivo real y aquí se
+   * muestra tal cual (mismo trato que en MapasTab).
+   */
+  const arbolEtimologico = async () => {
+    if (generandoArbol) return
+    setGenerandoArbol(true)
+    setErrorArbol('')
+    try {
+      const { id } = await crearMapaIA(tema, 'etimologia')
+      onAbrirMapa(id)
+    } catch (e) {
+      console.error('[ideas] fallo al generar el árbol etimológico:', e)
+      setErrorArbol(e instanceof Error ? e.message : String(e))
+    } finally {
+      setGenerandoArbol(false)
+    }
+  }
 
+  // ----- Vista: una idea abierta -----
+  const ideaAbierta = abierta != null ? ideas.find((i) => i.id === abierta) : undefined
+  if (ideaAbierta) {
+    return (
+      <IdeaDetalle
+        idea={ideaAbierta}
+        hermanas={ideas.filter(
+          (i) => i.id !== ideaAbierta.id && (i.carpetaId ?? '') === (ideaAbierta.carpetaId ?? ''),
+        )}
+        carpetas={carpetas}
+        onCerrar={() => setAbierta(null)}
+      />
+    )
+  }
+
+  const fila = (idea: Idea) => (
+    <TarjetaIdea
+      idea={idea}
+      borrando={borrando === idea.id}
+      carpeta={carpetas.find((c) => c.carpetaId === idea.carpetaId)?.nombre}
+      onAbrir={() => setAbierta(idea.id ?? null)}
+      onBorrar={() => setBorrando(idea.id ?? null)}
+      onConfirmarBorrar={() => setBorrando(null)}
+      onEncarpetar={() => setEncarpetando(idea)}
+      onTema={(tx) => {
+        setTema(tx)
+        setLluviaAbierta(true)
+      }}
+    />
+  )
+
+  return (
+    <div className="mx-auto w-full max-w-2xl space-y-3">
+      <div className="space-y-2.5 rounded-2xl border border-white/10 bg-white/5 p-3" data-tut="ideas.diario.alta">
         <div className="flex gap-2">
           <input
             value={texto}
@@ -146,33 +163,16 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
             <Icono nombre="agregar" /> {t('ideas.diario.anotar', 'Anotar')}
           </button>
         </div>
-
-        {tema && (
-          <div className="flex flex-wrap gap-2">
-            {iaActiva() && (
-              <button
-                type="button"
-                onClick={() => setPidiendoIA(true)}
-                className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5"
-              >
-                <Icono nombre="brillo" /> {t('ideas.diario.masIdeas', 'Traer más ideas')}
-                <Creditos op={OP_EXPANDIR} />
-              </button>
-            )}
-            <button
-              type="button"
-              onClick={() => void llevarAMapa()}
-              disabled={deLaLluvia.length === 0}
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5 disabled:opacity-40"
-            >
-              <Icono nombre="nodos" /> {t('ideas.diario.aMapa', 'Volverla un mapa')}
-            </button>
-          </div>
-        )}
+        <p className="text-[11px] text-white/35">
+          {carpeta
+            ? t('ideas.diario.caeEn', 'Cae en «{carpeta}»', { carpeta: nombreCarpeta ?? '' })
+            : t('ideas.diario.caeSuelta', 'Cae suelta en el diario; puedes moverla a una carpeta después.')}
+          {tema && ` · ${t('ideas.diario.enLluvia', 'Lluvia: {tema}', { tema })}`}
+        </p>
       </div>
 
       <div className="flex gap-1.5">
-        {(['dia', 'tema'] as const).map((v) => (
+        {(['carpetas', 'dia'] as const).map((v) => (
           <button
             key={v}
             type="button"
@@ -182,65 +182,158 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
             }`}
             style={vista === v ? { background: COLOR } : undefined}
           >
-            <Icono nombre={v === 'dia' ? 'calendario' : 'etiqueta'} />{' '}
-            {v === 'dia' ? t('ideas.diario.porDia', 'Por día') : t('ideas.diario.porTema', 'Por tema')}
+            <Icono nombre={v === 'carpetas' ? 'carpeta' : 'calendario'} />{' '}
+            {v === 'carpetas' ? t('ideas.diario.porCarpeta', 'Carpetas') : t('ideas.diario.porDia', 'Por día')}
           </button>
         ))}
+        {/* Favoritas no es una vista: filtra la que esté puesta. */}
         <button
           type="button"
           onClick={() => setSoloFav((x) => !x)}
-          className={`rounded-xl px-3 py-1.5 text-xs transition ${
+          className={`flex-1 rounded-xl py-1.5 text-xs font-semibold transition ${
             soloFav ? 'text-black' : 'bg-white/5 text-white/60 hover:bg-white/10'
           }`}
           style={soloFav ? { background: COLOR } : undefined}
           title={t('ideas.diario.soloFav', 'Solo las destacadas')}
-          aria-label={t('ideas.diario.soloFav', 'Solo las destacadas')}
         >
-          <Icono nombre="estrella" />
+          <Icono nombre="estrella" /> {t('ideas.diario.favoritas', 'Favoritas')}
         </button>
       </div>
 
-      {vista === 'dia' ? (
+      {vista === 'carpetas' && (
+        <>
+          <ArbolCarpetas carpetas={carpetas} conteos={conteos} actual={carpeta} onElegir={setCarpeta} />
+          {visibles.length === 0 ? (
+            <p className="px-4 py-6 text-center text-xs leading-relaxed text-white/35">
+              {t('ideas.diario.vacio', 'Aquí cae todo lo que se te ocurra; ya lo ordenarás después.')}
+            </p>
+          ) : (
+            <div className="space-y-2">{visibles.map((idea) => <div key={idea.id}>{fila(idea)}</div>)}</div>
+          )}
+        </>
+      )}
+
+      {vista === 'dia' && (
         <Archivador
           items={visibles}
           fecha={(i) => i.fecha}
           clave={(i) => i.id ?? i.creadoEn}
           vacio={t('ideas.diario.vacio', 'Aquí cae todo lo que se te ocurra; ya lo ordenarás después.')}
         >
-          {(idea) => (
-            <TarjetaIdea
-              idea={idea}
-              editando={editando === idea.id}
-              borrando={borrando === idea.id}
-              onEditar={() => setEditando(idea.id ?? null)}
-              onCerrarEdicion={() => setEditando(null)}
-              onBorrar={() => setBorrando(idea.id ?? null)}
-              onConfirmarBorrar={() => setBorrando(null)}
-              onTema={(tx) => setTema(tx)}
-            />
-          )}
+          {fila}
         </Archivador>
-      ) : (
-        <CarpetasPorEtiqueta
-          items={visibles}
-          etiqueta={(i) => i.tema ?? ''}
-          clave={(i) => i.id ?? i.creadoEn}
-          sinEtiqueta={t('ideas.diario.sinTema', 'Ideas sueltas')}
-        >
-          {(idea) => (
-            <TarjetaIdea
-              idea={idea}
-              editando={editando === idea.id}
-              borrando={borrando === idea.id}
-              onEditar={() => setEditando(idea.id ?? null)}
-              onCerrarEdicion={() => setEditando(null)}
-              onBorrar={() => setBorrando(idea.id ?? null)}
-              onConfirmarBorrar={() => setBorrando(null)}
-              onTema={(tx) => setTema(tx)}
-            />
-          )}
-        </CarpetasPorEtiqueta>
       )}
+
+      {/* La lluvia al final: es el modo intensivo, no la captura del día a día. */}
+      <div className="space-y-2.5 rounded-2xl border border-white/10 bg-white/5 p-3" data-tut="ideas.diario.lluvia">
+        <button
+          type="button"
+          onClick={() => setLluviaAbierta((x) => !x)}
+          className="flex w-full items-center gap-2 text-left text-xs font-semibold text-white/70 transition hover:text-white/95"
+        >
+          <span className="texto-vivo" style={vivo(COLOR)}>
+            <Icono nombre="lluvia" />
+          </span>
+          <span className="flex-1">
+            {tema
+              ? t('ideas.diario.enLluvia', 'Lluvia: {tema}', { tema })
+              : t('ideas.diario.nuevaLluvia', 'Hacer una lluvia de ideas')}
+          </span>
+          {tema && <span className="text-white/35">{deLaLluvia.length}</span>}
+          <span className="text-white/40">{lluviaAbierta ? '▾' : '▸'}</span>
+        </button>
+
+        {lluviaAbierta && (
+          <>
+            <p className="text-[11px] leading-relaxed text-white/40">
+              {t('ideas.diario.lluviaDesc', 'Abre un tema y todo lo que anotes arriba se le pega. Cuando tengas el montón, conviértelo en un mapa para ordenarlo.')}
+            </p>
+
+            {tema ? (
+              <div className="flex flex-wrap gap-2">
+                {iaActiva() && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => setPidiendoIA(true)}
+                      className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5"
+                    >
+                      <Icono nombre="brillo" /> {t('ideas.diario.masIdeas', 'Traer más ideas')}
+                      <Creditos op={OP_EXPANDIR} />
+                    </button>
+                    {/* La palabra a fondo: no necesita ideas anotadas, solo el tema. */}
+                    <button
+                      type="button"
+                      onClick={() => void arbolEtimologico()}
+                      disabled={generandoArbol}
+                      className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5 disabled:opacity-40"
+                    >
+                      <Icono nombre="libro" />
+                      {generandoArbol
+                        ? t('ideas.diario.arbolEtimoGenerando', 'Desarmando la palabra…')
+                        : t('ideas.diario.arbolEtimo', 'Árbol etimológico')}
+                      <Creditos op={OP_MAPA} />
+                    </button>
+                  </>
+                )}
+                <button
+                  type="button"
+                  onClick={() => void llevarAMapa()}
+                  disabled={deLaLluvia.length === 0}
+                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5 disabled:opacity-40"
+                >
+                  <Icono nombre="nodos" /> {t('ideas.diario.aMapa', 'Volverla un mapa')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTema('')
+                    setErrorArbol('')
+                  }}
+                  className="rounded-xl border border-white/15 px-3 py-2 text-xs text-white/50 transition hover:bg-white/5"
+                  title={t('ideas.diario.cerrarLluvia', 'Cerrar la lluvia')}
+                  aria-label={t('ideas.diario.cerrarLluvia', 'Cerrar la lluvia')}
+                >
+                  <Icono nombre="cerrar" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex gap-2">
+                <input
+                  value={temaBorrador ?? ''}
+                  onChange={(e) => setTemaBorrador(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && temaBorrador?.trim()) {
+                      setTema(temaBorrador.trim())
+                      setTemaBorrador(null)
+                    }
+                    if (e.key === 'Escape') setTemaBorrador(null)
+                  }}
+                  placeholder={t('ideas.diario.temaPlaceholder', '¿Sobre qué es la lluvia?')}
+                  className="min-w-0 flex-1 rounded-xl border border-white/15 bg-transparent px-3 py-2 text-sm outline-none focus:border-accent"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (temaBorrador?.trim()) setTema(temaBorrador.trim())
+                    setTemaBorrador(null)
+                  }}
+                  disabled={!temaBorrador?.trim()}
+                  className="ui-accent-bg rounded-xl px-3 py-2 text-sm font-semibold disabled:opacity-40"
+                >
+                  {t('ideas.diario.empezar', 'Empezar')}
+                </button>
+              </div>
+            )}
+
+            {errorArbol && (
+              <p className="rounded-lg bg-red-500/10 px-2.5 py-2 text-[11px] leading-relaxed text-red-300">
+                {t('ideas.diario.errorArbol', 'La IA no pudo armar el árbol:')} {errorArbol}
+              </p>
+            )}
+          </>
+        )}
+      </div>
 
       {pidiendoIA && (
         <PanelSugerencias
@@ -256,69 +349,53 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
           onCerrar={() => setPidiendoIA(false)}
         />
       )}
+
+      {encarpetando && (
+        <MoverIdeaDialog
+          carpetas={carpetas}
+          actual={encarpetando.carpetaId ?? ''}
+          titulo={t('ideas.diario.encarpetarTit', 'Guardar «{idea}» en…', { idea: encarpetando.texto })}
+          onElegir={async (carpetaId) => {
+            if (encarpetando.id != null) {
+              await ideasRepo.update(encarpetando.id, { carpetaId: carpetaId || undefined })
+            }
+            setEncarpetando(null)
+          }}
+          onCerrar={() => setEncarpetando(null)}
+        />
+      )}
     </div>
   )
 }
 
-/** Una idea del diario: destacarla, desarrollarla, retomar su lluvia o tirarla. */
+/** Una idea en la lista: destacarla, abrirla para desarrollarla o tirarla. */
 function TarjetaIdea({
   idea,
-  editando,
   borrando,
-  onEditar,
-  onCerrarEdicion,
+  carpeta,
+  onAbrir,
   onBorrar,
   onConfirmarBorrar,
+  onEncarpetar,
   onTema,
 }: {
   idea: Idea
-  editando: boolean
   borrando: boolean
-  onEditar: () => void
-  onCerrarEdicion: () => void
+  /** Nombre de su carpeta; ausente = suelta en el diario. */
+  carpeta?: string
+  onAbrir: () => void
   onBorrar: () => void
   onConfirmarBorrar: () => void
+  onEncarpetar: () => void
   onTema: (tema: string) => void
 }) {
   const t = useT()
   const tema = idea.tema
+  const puntos = idea.puntos ?? []
+  const hechos = puntos.filter((p) => p.hecho).length
 
   const guardar = async (cambios: Partial<Idea>) => {
     if (idea.id != null) await ideasRepo.update(idea.id, cambios)
-  }
-
-  if (editando) {
-    return (
-      <div className="space-y-2 rounded-xl border border-white/15 bg-white/5 px-3 py-2.5">
-        <input
-          autoFocus
-          defaultValue={idea.texto}
-          onBlur={(e) => {
-            const tx = e.target.value.trim()
-            if (tx && tx !== idea.texto) void guardar({ texto: tx })
-          }}
-          onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()}
-          className="w-full rounded-lg border border-white/15 bg-transparent px-2 py-1.5 text-sm outline-none"
-        />
-        <textarea
-          rows={3}
-          defaultValue={idea.detalle ?? ''}
-          onBlur={(e) => {
-            const tx = e.target.value.trim()
-            if (tx !== (idea.detalle ?? '')) void guardar({ detalle: tx || undefined })
-          }}
-          placeholder={t('ideas.diario.detalle', 'Desarrolla la idea…')}
-          className="w-full resize-none rounded-lg border border-white/15 bg-transparent px-2 py-1.5 text-xs outline-none"
-        />
-        <button
-          type="button"
-          onClick={onCerrarEdicion}
-          className="ui-accent-bg w-full rounded-lg py-1.5 text-xs font-semibold"
-        >
-          {t('ideas.diario.listo', 'Listo')}
-        </button>
-      </div>
-    )
   }
 
   return (
@@ -333,28 +410,44 @@ function TarjetaIdea({
       >
         <Icono nombre="estrella" />
       </button>
-      <div className="min-w-0 flex-1">
+      <button type="button" onClick={onAbrir} className="min-w-0 flex-1 text-left">
         <p className="text-sm">{idea.texto}</p>
-        {idea.detalle && <p className="mt-0.5 text-[11px] leading-relaxed text-white/45">{idea.detalle}</p>}
-        {tema && (
-          <button
-            type="button"
-            onClick={() => onTema(tema)}
-            className="mt-1 rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/50 transition hover:bg-white/20"
-            title={t('ideas.diario.retomar', 'Retomar esta lluvia')}
-          >
-            <Icono nombre="lluvia" /> {tema}
-          </button>
+        {puntos.length > 0 ? (
+          <p className="mt-0.5 text-[11px] text-white/45">
+            <Icono nombre="lista" />{' '}
+            {t('ideas.diario.nPuntos', '{hechos}/{total} puntos', {
+              hechos: String(hechos),
+              total: String(puntos.length),
+            })}
+          </p>
+        ) : (
+          idea.detalle && <p className="mt-0.5 truncate text-[11px] leading-relaxed text-white/45">{idea.detalle}</p>
         )}
-      </div>
+      </button>
+      {tema && (
+        <button
+          type="button"
+          onClick={() => onTema(tema)}
+          className="mt-0.5 shrink-0 rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/50 transition hover:bg-white/20"
+          title={t('ideas.diario.retomar', 'Retomar esta lluvia')}
+        >
+          <Icono nombre="lluvia" />
+        </button>
+      )}
+      {/* Encarpetar: una idea suelta se guarda sin pensar dónde, y desde aquí
+          se manda a su carpeta cuando ya sabes de qué va. */}
       <button
         type="button"
-        onClick={onEditar}
-        className="shrink-0 text-white/30 transition hover:text-white/70"
-        title={t('ideas.editar', 'Editar')}
-        aria-label={t('ideas.editar', 'Editar')}
+        onClick={onEncarpetar}
+        className={`mt-0.5 shrink-0 transition hover:text-white/80 ${carpeta ? 'text-white/50' : 'text-white/25'}`}
+        title={
+          carpeta
+            ? t('ideas.diario.enCarpeta', 'En «{carpeta}» · tocar para moverla', { carpeta })
+            : t('ideas.diario.encarpetar', 'Guardarla en una carpeta')
+        }
+        aria-label={t('ideas.diario.encarpetar', 'Guardarla en una carpeta')}
       >
-        <Icono nombre="editar" />
+        <Icono nombre="carpeta" />
       </button>
       {borrando ? (
         <button

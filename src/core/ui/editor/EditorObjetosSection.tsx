@@ -12,13 +12,15 @@ import { useEditorUi } from '../../state/editorUiStore'
 import { getTema } from '../../house/temas'
 import { MiniaturaModelo } from '../../house/Miniatura'
 import { RECURSOS } from '../../house/recursos'
-import { CATALOGO, TIPO_PIEZAS, TIPO_GLB, piezasDesdeObjeto } from '../../house/catalogo'
+import { CATALOGO, TIPO_PIEZAS, TIPO_GLB, piezasDesdeObjeto, grupoAccionDe } from '../../house/catalogo'
 import {
   TIPO_CUADRO_FOTO, TIPO_ESPEJO, TIPO_FUENTE, TIPO_ESTANQUE, TIPO_CASCADA,
   TIPO_RESBALADILLA, TIPO_PASAMANOS, TIPO_CARRUSEL, TIPO_COLUMPIO,
   TIPO_ESPECTACULAR, TIPO_LETRERO_VEGAS, TIPO_LETRERO_NEON,
   esTipoEspecial, esAnuncio, comprimirFoto, grupoFx,
 } from '../../house/especiales'
+import { esVehiculo } from '../../house/vehiculos'
+import type { GrupoAccion } from '../../state/accionCuartoStore'
 import { ColorPicker } from '../comun/ColorPicker'
 import { PropiedadGrupo } from './PropiedadGrupo'
 import { PreviewObjeto3D } from './PreviewObjeto3D'
@@ -100,6 +102,7 @@ export function EditorObjetosSection() {
   const convertirObjetoAPiezas = useDiseño((s) => s.convertirObjetoAPiezas)
   const restaurarObjetoPredeterminado = useDiseño((s) => s.restaurarObjetoPredeterminado)
   const setObjetoNombre = useDiseño((s) => s.setObjetoNombre)
+  const setObjetoGrupoAccion = useDiseño((s) => s.setObjetoGrupoAccion)
   const setObjetoAnimacion = useDiseño((s) => s.setObjetoAnimacion)
   const removeObjeto = useDiseño((s) => s.removeObjeto)
   const objetoSel = useEditorUi((s) => s.objetoSel)
@@ -159,10 +162,15 @@ export function EditorObjetosSection() {
   // editar, en el destino que elija el usuario (mapa o cuarto).
   const generadorIA = (
     <GenerarObjetoIA
-      onCrear={async (piezas) => {
+      onCrear={async (piezas, grupo) => {
         const destino = await pedirDestinoObjeto()
         if (!destino) return
-        const id = await addObjetoPiezas(piezas, piezas[0]?.color ?? '#f59e0b', destino)
+        const id = await addObjetoPiezas(
+          piezas,
+          piezas[0]?.color ?? '#f59e0b',
+          destino,
+          grupo && grupo !== 'ninguno' ? grupo : undefined,
+        )
         setObjetoSel(id)
         setTab('editar')
       }}
@@ -368,8 +376,8 @@ export function EditorObjetosSection() {
           {/* Biblioteca: generar con IA o subir un .glb para ESTE objeto (queda en su carpeta). */}
           {editandoBiblioteca && (seleccionado.tipo === TIPO_PIEZAS || seleccionado.tipo === TIPO_GLB) && (
             <GenerarObjetoIA
-              onCrear={(piezas) =>
-                seleccionado.id != null && setObjetoPiezas(seleccionado.id, piezas)
+              onCrear={(piezas, grupo) =>
+                seleccionado.id != null && setObjetoPiezas(seleccionado.id, piezas, grupo)
               }
               onCrearGlb={(glb) =>
                 seleccionado.id != null && setObjetoModeloGlb(seleccionado.id, glb)
@@ -462,6 +470,7 @@ export function EditorObjetosSection() {
                 />
               </PropiedadGrupo>
             )}
+
 
             {/* Tamaño/posición/rotación del objeto completo: siempre en objetos con forma
                 fija (glb, catálogo, recursos); en piezas, solo con el engrane ⚙️ cerrado
@@ -571,7 +580,37 @@ export function EditorObjetosSection() {
                     ? (p) => setObjetoPiezas(seleccionado.id!, p)
                     : undefined
                 }
+                conVida
               />
+              {/* Función especial (sentarse/acostarse/conducir): la IA lo clasifica al crear
+                  el objeto, aquí se corrige a mano. Oculto en tipos con mecanismo propio
+                  (especiales de plantilla y los 4 vehículos) y en .glb (sin bounding box fiable). */}
+              {seleccionado.tipo !== TIPO_GLB &&
+                !esTipoEspecial(seleccionado.tipo) &&
+                !esVehiculo(seleccionado.tipo) &&
+                seleccionado.id != null && (
+                  <div className="mt-3 space-y-1.5 border-t border-white/10 pt-3">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+                      {t('editor.obj.grupoAccion', 'Función especial')}
+                    </p>
+                    <select
+                      value={grupoAccionDe(seleccionado.tipo, seleccionado.grupoAccion) ?? ''}
+                      onChange={(e) =>
+                        seleccionado.id != null &&
+                        setObjetoGrupoAccion(
+                          seleccionado.id,
+                          e.target.value ? (e.target.value as GrupoAccion) : null,
+                        )
+                      }
+                      className="w-full cursor-pointer rounded-md border border-white/10 bg-white/5 px-1.5 py-1 text-[11px] text-white/85 focus:outline-none [&>option]:bg-[var(--ui-panel)]"
+                    >
+                      <option value="">{t('editor.obj.grupoNinguno', '— (ninguno)')}</option>
+                      <option value="asiento">{t('editor.obj.grupoAsiento', 'Sentarse')}</option>
+                      <option value="acostarse">{t('editor.obj.grupoAcostarse', 'Acostarse')}</option>
+                      <option value="vehiculo">{t('editor.obj.grupoVehiculo', 'Conducir')}</option>
+                    </select>
+                  </div>
+                )}
             </PropiedadGrupo>
           </div>
         </>
@@ -613,7 +652,7 @@ function GenerarObjetoIA({
   onCrear,
   onCrearGlb,
 }: {
-  onCrear: (piezas: Pieza3D[]) => void
+  onCrear: (piezas: Pieza3D[], grupo: GrupoAccion | 'ninguno' | null) => void
   onCrearGlb?: (glb: Blob) => void
 }) {
   const t = useT()
@@ -629,8 +668,8 @@ function GenerarObjetoIA({
     setGenerando(true)
     setError(null)
     try {
-      const piezas = await generarModelo3D(desc.trim(), tipo, estilo)
-      onCrear(piezas)
+      const { piezas, grupo } = await generarModelo3D(desc.trim(), tipo, estilo)
+      onCrear(piezas, grupo)
       setDesc('')
     } catch (err) {
       console.warn('[MPH] No se pudo generar el objeto 3D:', err)

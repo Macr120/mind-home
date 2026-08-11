@@ -2,11 +2,7 @@ import { lazy, Suspense, useEffect } from 'react'
 import { House } from './core/house/House'
 import { InteractOverlay } from './core/ui/InteractOverlay'
 import { EtiquetasMapaOverlay } from './core/ui/EtiquetasMapaOverlay'
-import { AccesoOverlay } from './core/ui/AccesoOverlay'
-import { VehiculoOverlay } from './core/ui/VehiculoOverlay'
-import { TrenOverlay } from './core/ui/TrenOverlay'
 import { MarcadorCancha } from './core/ui/MarcadorCancha'
-import { GranjaCercaOverlay } from './core/ui/GranjaCercaOverlay'
 import { CarreraOverlay } from './core/ui/CarreraOverlay'
 import { PaintballOverlay } from './core/ui/PaintballOverlay'
 import { Mira } from './core/ui/Mira'
@@ -182,15 +178,14 @@ export default function App() {
             controles de las esquinas y del chat, nunca sobre ellos. */}
         {!editMode && !activeRoom && (
           <PilaPrompts>
-            {!construyendo && <TrenOverlay />}
-            <AccesoOverlay />
-            <VehiculoOverlay />
+            {/* El tren y los accesos ya no tienen prompt propio: montar, bajarse y
+                cambiar de piso son botones del hueco del cubo, con el resto de
+                acciones contextuales. */}
             {/* Burbuja del asistente: la más cercana al chat, justo encima de él. */}
             {!construyendo && !dialogoActivo && !enPaintball && <AsistenteBurbuja />}
           </PilaPrompts>
         )}
         {!editMode && !activeRoom && !construyendo && <MarcadorCancha />}
-        {!editMode && !activeRoom && !construyendo && <GranjaCercaOverlay />}
         {!editMode && !activeRoom && !construyendo && !dialogoActivo && !enPaintball && <AsistenteCercaOverlay />}
         {!editMode && !activeRoom && !construyendo && <CarreraOverlay />}
         {!editMode && !activeRoom && !construyendo && <PaintballOverlay />}

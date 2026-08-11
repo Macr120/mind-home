@@ -13,6 +13,7 @@ import { RoomProximity } from './RoomProximity'
 import { Room3D } from './Room3D'
 import { Accesos, AccesoProximity, AccesoDrag } from './Accesos'
 import { CameraRig } from './CameraRig'
+import { CapturaCasa } from '../widgets/CapturaCasa'
 import { FollowCamera } from './FollowCamera'
 import { CameraControls } from './CameraControls'
 import { RoomDragController } from './RoomDragController'
@@ -38,10 +39,10 @@ import { ObjetoView } from './catalogo'
 import { GrupoAnimado } from './Animado'
 import { esObjetoMapa } from '../state/disenoStore'
 import { useMontura } from '../state/monturaStore'
+import { useCargar, ALTURA_CARGA_OBJETO, ALTURA_CARGA_CUARTO } from '../state/cargarStore'
+import { ContextoProximity } from './ContextoProximity'
+import { CargaController } from './CargaController'
 import { VehiculoProximity } from './vehiculos'
-import { ParqueProximity } from './especiales'
-import { FlotadorProximity } from './flotador'
-import { PistolaProximity } from './arma'
 import { RafagasLaser } from './proyectiles'
 import { Portales } from './portales'
 import { Fuegos } from './fuegos'
@@ -53,7 +54,7 @@ import { CarreraRuntime, RivalCarrera } from './carrera'
 import { ItemsCarreraRuntime, ItemsCarrera3D } from './itemsCarrera'
 import { PaintballController } from './paintball'
 import { PistaLibre3D, TrazoLibreController } from './pistaLibre'
-import { Huerto3D, HuertoController, HuertoProximity } from './huerto'
+import { Huerto3D, HuertoController } from './huerto'
 import { CanchasController } from './canchas'
 import { Granja3D, GranjaController, GranjaProximity } from './granja'
 import { TrenProximity } from './tren'
@@ -171,6 +172,7 @@ const ObjetosMapa = memo(function ObjetosMapa() {
   // Solo los objetos del mapa: mover objetos DE CUARTO no re-renderiza esta lista.
   const objetos = useDiseño(useShallow((s) => s.objetos.filter(esObjetoMapa)))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
+  const arrastreElevado = useDiseño((s) => s.arrastreElevado)
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
   const editMode = useLayout((s) => s.editMode)
   const editingRoomId = useLayout((s) => s.editingRoomId)
@@ -196,10 +198,11 @@ const ObjetosMapa = memo(function ObjetosMapa() {
         const arrastrable = editables || (canchasEditar && esCancha(o.tipo))
         // Las canchas siguen a la rejilla; el resto de objetos conserva su tamaño.
         const escala = esCancha(o.tipo) ? escalaCancha(o.escala) : (o.escala ?? 1)
+        const alturaDrag = drag ? (arrastreElevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
         return (
           <group
             key={o.id}
-            position={[o.x ?? 0, (drag ? 0.6 : 0.2) + (o.y ?? 0), o.z ?? 0]}
+            position={[o.x ?? 0, alturaDrag + (o.y ?? 0), o.z ?? 0]}
             rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
             scale={escala}
             onPointerDown={
@@ -222,7 +225,7 @@ const ObjetosMapa = memo(function ObjetosMapa() {
               if (!useDiseño.getState().draggingObjeto) document.body.style.cursor = 'default'
             }}
           >
-            <GrupoAnimado anim={o.animacion} nivel={0}>
+            <GrupoAnimado anim={o.animacion} nivel={0} objetoId={o.id}>
               <ObjetoView
                 tipo={o.tipo}
                 color={o.color}
@@ -234,6 +237,7 @@ const ObjetosMapa = memo(function ObjetosMapa() {
                 nivelAnim={0}
                 objetoId={o.id}
                 fx={o.fx}
+                grupoAccion={o.grupoAccion}
               />
             </GrupoAnimado>
           </group>
@@ -250,6 +254,9 @@ const ObjetosMapa = memo(function ObjetosMapa() {
  */
 const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
   const arrastrando = useLayout((s) => s.draggingId === room.id)
+  // Cargado con la herramienta "mover": se dibuja sobre la cabeza del personaje
+  // (todo el cuarto cuelga del mismo group, así que basta el offset en Y).
+  const cargado = useCargar((s) => s.sujeto?.tipo === 'cuarto' && s.sujeto.id === room.id)
   const cell = useLayout((s) => (s.draggingId === room.id && s.previewCell ? s.previewCell : s.cells[room.id]))
   const fp = useLayout((s) => s.footprints[room.id] ?? FOOTPRINT_DEFAULT)
   const nivel = useLayout((s) => s.niveles[room.id] ?? 0)
@@ -273,7 +280,7 @@ const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
   return (
     <Room3D
       id={room.id}
-      position={[x, y + (arrastrando ? 0.8 : 0), z]}
+      position={[x, y + (cargado ? ALTURA_CARGA_CUARTO : arrastrando ? 0.8 : 0), z]}
       color={color}
       atenuado={otroNivel || (editandoOtro && !editor3d)}
       resaltadoPlano={resaltado}
@@ -360,6 +367,8 @@ export function House() {
         <CameraControls />
         <ShadowMode />
         <ShadowUpdater />
+        {/* Foto de la casa para el widget de Android (solo cuando se le pide). */}
+        <CapturaCasa />
         {import.meta.env.DEV && <ExponerEscenaDev />}
       <CieloDiaNoche />
       <EntornoIBL />
@@ -410,10 +419,6 @@ export function House() {
       {!aislarCuarto && <ItemsCarrera3D />}
       {!aislarCuarto && <TrenProximity />}
       {!aislarCuarto && <MinijuegosCanchas />}
-      {!aislarCuarto && <ParqueProximity />}
-      {!aislarCuarto && <FlotadorProximity />}
-      {!aislarCuarto && <PistolaProximity />}
-      {!aislarCuarto && <HuertoProximity />}
       {!aislarCuarto && <GranjaProximity />}
       {!aislarCuarto && <AsistenteProximity />}
       {!aislarCuarto && <ObjetosMapa />}
@@ -436,6 +441,8 @@ export function House() {
       {!aislarCuarto && puedeArrastrarCuartos && <RoomDragController />}
       {!aislarCuarto && <AccesoDrag />}
       <ObjetoDragController />
+      {!aislarCuarto && <ContextoProximity />}
+      {!aislarCuarto && <CargaController />}
       {!aislarCuarto && editMode && editorTab === 'personajes' && !editor3d && <CharacterDragController />}
       {/* Grid: los botones +/− de tamaño del mapa. En el editor 3D se muestran siempre
           (en perspectiva) para redimensionar; en iso, solo fuera del modo planos. */}

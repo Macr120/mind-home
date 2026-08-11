@@ -135,8 +135,9 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
                       </span>
                     </button>
                   )}
-                  {/* Chip de navegación: lleva al menú donde quedó lo guardado */}
-                  {m.destino && <ChipDestino destino={m.destino} />}
+                  {/* Chips de navegación: uno por cada app donde el turno guardó algo.
+                      `destino` (singular) es el formato viejo de los mensajes ya en el hilo. */}
+                  <ChipsDestino destinos={m.destinos ?? (m.destino ? [m.destino] : [])} />
                   <div className="mt-0.5 flex items-center justify-end gap-1">
                     {/* Escuchar lo que contestó, aunque la lectura automática esté apagada. */}
                     {!esUsuario && <BotonVoz texto={m.texto} asistenteId={hiloId} />}
@@ -207,6 +208,18 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
   )
 }
 
+/** Fila de chips bajo un mensaje: un mismo turno puede haber guardado en varias apps. */
+function ChipsDestino({ destinos }: { destinos: DestinoChat[] }) {
+  if (destinos.length === 0) return null
+  return (
+    <div className="mt-1.5 flex flex-wrap gap-1">
+      {destinos.map((d, i) => (
+        <ChipDestino key={i} destino={d} />
+      ))}
+    </div>
+  )
+}
+
 /** Chip bajo un mensaje del asistente: navega al menú donde quedó lo guardado. */
 function ChipDestino({ destino }: { destino: DestinoChat }) {
   const t = useT()
@@ -264,7 +277,7 @@ function ChipDestino({ destino }: { destino: DestinoChat }) {
     <button
       type="button"
       onClick={() => navegarDestino(destino)}
-      className="mt-1.5 inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/20 px-2.5 py-1 text-[11px] text-white/70 transition hover:border-accent/50 hover:text-white"
+      className="inline-flex items-center gap-1 rounded-full border border-white/15 bg-black/20 px-2.5 py-1 text-[11px] text-white/70 transition hover:border-accent/50 hover:text-white"
     >
       {icono()} {etiqueta()}
     </button>

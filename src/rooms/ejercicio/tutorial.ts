@@ -88,7 +88,7 @@ const flujoCarrera: TutorialDef = {
       alEntrar: () => irA('resistencia', 'rutinas'),
     },
     {
-      sel: 'ejercicio.progreso.panel',
+      sel: 'ejercicio.resistencia.progreso',
       titulo: T('tut.app-ejercicio--carrera.3.titulo', 'El mapa de calor no miente'),
       texto: T(
         'tut.app-ejercicio--carrera.3.texto',
@@ -139,4 +139,51 @@ const flujoFuerza: TutorialDef = {
   ],
 }
 
-export const flujosEjercicio: TutorialDef[] = [flujoAnio, flujoCarrera, flujoFuerza]
+const flujoFlexibilidad: TutorialDef = {
+  id: 'app-ejercicio--flexibilidad',
+  titulo: T('tut.app-ejercicio--flexibilidad.titulo', 'La tercera modalidad'),
+  resumen: T(
+    'tut.app-ejercicio--flexibilidad.resumen',
+    'Flexibilidad se organiza igual que Fuerza y Resistencia —catálogo, rutinas, progreso— pero con series por tiempo en vez de por peso, y un reproductor guiado con temporizador.',
+  ),
+  preparar: () => {
+    abrirApp('ejercicio')
+  },
+  pasos: [
+    {
+      sel: 'ejercicio.flex.subs',
+      alEntrar: () => irA('flexibilidad', 'catalogo'),
+      titulo: T('tut.app-ejercicio--flexibilidad.1.titulo', 'Estiramientos y movilidad'),
+      texto: T(
+        'tut.app-ejercicio--flexibilidad.1.texto',
+        'El catálogo trae los ejercicios de siempre —isquios, cadera, hombros— cada uno con su miniatura ilustrada, generada por IA la primera vez que se necesita.',
+      ),
+    },
+    {
+      sel: 'ejercicio.sub.rutinas',
+      alEntrar: () => irA('flexibilidad', 'rutinas'),
+      titulo: T('tut.app-ejercicio--flexibilidad.2.titulo', 'Series por tiempo, no por peso'),
+      texto: T(
+        'tut.app-ejercicio--flexibilidad.2.texto',
+        'Cada ejercicio lleva segundos y repeticiones en vez de peso. El Reproductor guiado corre la rutina ejercicio por ejercicio con un temporizador que avisa cuándo cambiar.',
+      ),
+    },
+    {
+      sel: 'ejercicio.sub.progreso',
+      alEntrar: () => irA('flexibilidad', 'progreso'),
+      titulo: T('tut.app-ejercicio--flexibilidad.3.titulo', 'El mismo mapa de calor'),
+      texto: T(
+        'tut.app-ejercicio--flexibilidad.3.texto',
+        'Minutos y sesiones del mes, con el mismo heatmap que las otras dos modalidades: la constancia de la movilidad se lee igual de fácil que la de correr.',
+      ),
+    },
+    {
+      texto: T(
+        'tut.app-ejercicio--flexibilidad.4.texto',
+        'Las tres modalidades comparten el Cardio en vivo del reloj: cuando corres o pedaleas con el temporizador puesto, el minuto a minuto se guarda solo al terminar.',
+      ),
+    },
+  ],
+}
+
+export const flujosEjercicio: TutorialDef[] = [flujoAnio, flujoCarrera, flujoFuerza, flujoFlexibilidad]

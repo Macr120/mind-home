@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import type { PasoTutorial, TutorialCtx, TutorialDef } from './tipos'
+import { setTutorialActivo } from '../data/demoGuard'
 import { getPlantilla } from '../registry'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { useMascota } from '../state/mascotaStore'
@@ -84,6 +85,9 @@ export const useTutorial = create<TutorialState>((set, get) => ({
   ocupado: false,
   async iniciar(def) {
     if (get().def) await get().salir()
+    // En la casa demo, lo que el tour escriba no debe leerse como una edición
+    // del visitante (el aviso saldría solo y taparía el spotlight).
+    setTutorialActivo(true)
     // Los pasos apuntan a botones del HUD: con un cuadrante plegado no habría qué iluminar.
     useHud.getState().desplegarTodo()
     ctxActual = crearCtx()
@@ -144,6 +148,8 @@ export const useTutorial = create<TutorialState>((set, get) => ({
     def?.alTerminar?.(completado)
     // La UI ya se cerró; borrar los datos de ejemplo puede tardar sin estorbar.
     await ctx?.limpiar()
+    // Después de la limpieza: borrar el ejemplo también escribe.
+    setTutorialActivo(false)
   },
 }))
 

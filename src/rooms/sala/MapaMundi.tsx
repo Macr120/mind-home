@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useBaseClara } from '../../core/ui/useBaseUI'
+import { colorDe, tierraFill, tierraStroke } from './coloresMapa'
 import type { EstadoMundo } from './estadosMundo'
 import { desproyectar, MUNDO_H, MUNDO_W, PAISES_MUNDO, proyectar } from './mundo'
 
@@ -22,18 +24,6 @@ interface Props {
   /** Dibuja las fronteras de estados/provincias (se cargan bajo demanda). */
   verEstados?: boolean
   className?: string
-}
-
-// Paleta para pintar países y estados visitados; el color se elige por hash
-// estable del nombre, así cada entidad conserva el suyo entre sesiones.
-const PALETA = [
-  '#2dd4bf', '#60a5fa', '#a78bfa', '#f472b6', '#fb923c',
-  '#a3e635', '#34d399', '#38bdf8', '#e879f9', '#f87171',
-]
-function colorDe(clave: string) {
-  let h = 0
-  for (let i = 0; i < clave.length; i++) h = (h * 31 + clave.charCodeAt(i)) | 0
-  return PALETA[Math.abs(h) % PALETA.length]
 }
 
 // Recorte vertical del lienzo: de lat 84 (norte de Groenlandia) a lat -58 (Cabo de Hornos).
@@ -67,6 +57,7 @@ export function MapaMundi({
   className = '',
 }: Props) {
   const [vista, setVista] = useState<Vista>(VISTA0)
+  const claro = useBaseClara()
   const contRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement>(null)
   // Punteros activos (para arrastre y pellizco) y desplazamiento acumulado (click vs. arrastre).
@@ -219,21 +210,21 @@ export function MapaMundi({
       // territorios en disputa), así que la identidad de cada path lleva el índice.
       PAISES_MUNDO.map((p, i) => {
         const pid = `${p.id}:${i}`
-        const color = paisesConPin.has(pid) ? colorDe(p.nombre) : null
+        const color = paisesConPin.has(pid) ? colorDe(p.nombre, claro) : null
         return (
           <path
             key={pid}
             data-pais={pid}
             d={p.d}
-            fill={color ?? 'rgba(255,255,255,0.10)'}
+            fill={color ?? tierraFill(claro)}
             // Con los estados visibles el país baja de tono y deja lucir al estado.
             fillOpacity={color ? (verEstados ? 0.16 : 0.33) : 1}
-            stroke={color ?? 'rgba(255,255,255,0.20)'}
+            stroke={color ?? tierraStroke(claro)}
             strokeOpacity={color ? 0.6 : 1}
           />
         )
       }),
-    [paisesConPin, verEstados],
+    [paisesConPin, verEstados, claro],
   )
 
   // Fronteras de estados visibles. La vista se cuantiza a pasos de 100 unidades
@@ -247,7 +238,7 @@ export function MapaMundi({
     if (!verEstados || !estados) return null
     return estados.map((e, i) => {
       if (!(e.b[2] >= qx0 && e.b[0] <= qx1 && e.b[3] >= qy0 && e.b[1] <= qy1)) return null
-      const color = estadosConPin.has(i) ? colorDe(`${e.pais}:${e.nombre}`) : null
+      const color = estadosConPin.has(i) ? colorDe(`${e.pais}:${e.nombre}`, claro) : null
       return (
         <path
           key={i}
@@ -259,7 +250,7 @@ export function MapaMundi({
         />
       )
     })
-  }, [verEstados, estados, estadosConPin, qx0, qy0, qx1, qy1])
+  }, [verEstados, estados, estadosConPin, qx0, qy0, qx1, qy1, claro])
 
   const puntosRuta = (ruta ?? []).map((p) => proyectar(p.lat, p.lng))
 
@@ -297,7 +288,7 @@ export function MapaMundi({
           <polyline
             points={puntosRuta.map((p) => `${p.x},${p.y}`).join(' ')}
             fill="none"
-            stroke="#2dd4bf"
+            stroke={claro ? '#0d9488' : '#2dd4bf'}
             strokeWidth={vista.w / 350}
             strokeDasharray={`${vista.w / 120} ${vista.w / 240}`}
             strokeLinejoin="round"
@@ -331,7 +322,12 @@ export function MapaMundi({
             }`}
             style={pct(x, y)}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              className={claro ? 'drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]' : 'drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]'}
+            >
               <path
                 d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.3 7.5 13.5 7.5 13.5S19.5 14.3 19.5 9A7.5 7.5 0 0 0 12 1.5Z"
                 className={pin.visitado ? 'fill-teal-400' : 'fill-amber-400/90'}

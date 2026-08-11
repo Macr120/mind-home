@@ -70,8 +70,9 @@ export async function planMetasIdiomas(ambitoId?: string): Promise<ContextoPlanA
         nombre: t.titulo,
         detalle: `${perfil.nivel} · ${area} · ${t.descripcion}`,
       }))
+    // Solo los TEMAS: las áreas y los niveles propios son estructura, no material.
     const dinamicos = (await temasIdiomaRepo.list())
-      .filter((t) => t.idiomaId === perfil.id)
+      .filter((t) => t.idiomaId === perfil.id && (t.tipo ?? 'tema') === 'tema')
       .map((t) => ({ nombre: t.titulo, detalle: `${t.nivel} · ${t.descripcion}` }))
     const items = [
       ...delNivel('temas', TEMARIO),

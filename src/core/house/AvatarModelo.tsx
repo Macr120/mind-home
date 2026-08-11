@@ -8,7 +8,7 @@ import { Prendas } from './Prendas'
 import { Rostro } from './Rostro'
 import { Peinado } from './Peinado'
 import { ModeloMascota } from './Asistente3D'
-import { anclasDe, soportaRostro, soportaPeinado } from './apariencia'
+import { anclasDe, muestraRostro, soportaPeinado } from './apariencia'
 import { categoriaMarcha } from './cuerpos'
 import { COLOR_FORMA } from '../chat/mascotas'
 import type { Avatar } from '../state/disenoStore'
@@ -87,7 +87,7 @@ export function AvatarModelo({
             ) : (
               <>
                 <CuerpoDePiezas piezas={av.modelo3d} anim={anim} personaje={av} estado={marchaAvatar} />
-                {soportaRostro(av) && (
+                {muestraRostro(av) && (
                   <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
                 )}
                 {soportaPeinado(av) && (
@@ -103,7 +103,11 @@ export function AvatarModelo({
                 color={av.formaColor ?? COLOR_FORMA[av.forma]}
                 brazoRef={brazoForma}
                 estado={marchaAvatar}
+                sinOjos={muestraRostro(av)}
               />
+              {muestraRostro(av) && (
+                <Rostro anclas={anclas} expresion={av.expresion} rostro={av.rostro} />
+              )}
               <Prendas ropa={av.ropa} anclas={anclas} />
             </MarchaBob>
           ) : (

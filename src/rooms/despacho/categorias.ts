@@ -21,8 +21,21 @@ export const CATEGORIAS_GASTO: Categoria[] = [
   { id: 'salud', nombre: 'Salud', icon: '💊', color: '#ef4444' },
   { id: 'compras', nombre: 'Compras', icon: '🛍️', color: '#ec4899' },
   { id: 'servicios', nombre: 'Servicios', icon: '💡', color: '#14b8a6' },
+  // Las tres que escriben los abonos a metas. «Aportación a inversión» y no
+  // «Inversión» a propósito: `CONOCIDAS` se indexa también por `clave(nombre)`,
+  // y ese nombre chocaría con la categoría de INGRESO del mismo nombre.
+  { id: 'ahorro', nombre: 'Ahorro', icon: '🐖', color: '#22c55e' },
+  { id: 'aportacion', nombre: 'Aportación a inversión', icon: '📈', color: '#84cc16' },
+  { id: 'pago_deuda', nombre: 'Pago de deuda', icon: '🧾', color: '#f97316' },
   { id: 'otros_gasto', nombre: 'Otros', icon: '📦', color: '#6b7280' },
 ]
+
+/** Qué categoría de gasto escribe un abono según el tipo de meta. */
+export const CATEGORIA_ABONO = {
+  ahorro: 'ahorro',
+  inversion: 'aportacion',
+  deuda: 'pago_deuda',
+} as const
 
 export const CATEGORIAS_INGRESO: Categoria[] = [
   { id: 'salario', nombre: 'Salario', icon: '💼', color: '#22c55e' },

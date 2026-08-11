@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import { VACIO, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { tarjetasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR } from './constantes'
-import { TEMARIO, getTema, type AreaTemario } from './temario'
+import { TEMARIO } from './temario'
 import { OpcionesTemas } from './OpcionesTemas'
+import { useTemario } from './temarioVivo'
 import { generarTarjetasTema, type TarjetaPropuesta } from './tutor'
 import { hoyISO } from './stats'
 import { Creditos } from '../../core/ui/Creditos'
@@ -21,11 +22,11 @@ interface Propuesta extends TarjetaPropuesta {
  */
 export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
   perfil: PerfilIdioma
-  temaFijo?: { id: string; titulo: string; nivel: string; area?: AreaTemario } | null
+  temaFijo?: { id: string; titulo: string; nivel: string; area?: string } | null
   onCerrar: () => void
 }) {
   const t = useT()
-  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
+  const tx = useTemario(perfil.id)
   const [temaId, setTemaId] = useState(temaFijo?.id ?? TEMARIO[0].temas[0].id)
   const [cantidad, setCantidad] = useState(10)
   const [cargando, setCargando] = useState(false)
@@ -36,10 +37,8 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
   const temaActual =
     temaFijo ??
     (() => {
-      const est = getTema(temaId)
-      if (est) return { id: est.id, titulo: est.titulo, nivel: est.nivel, area: est.area }
-      const din = nodos.find((n) => n.temaId === temaId)
-      return din ? { id: din.temaId, titulo: din.titulo, nivel: din.nivel } : null
+      const n = tx.porId.get(temaId)
+      return n ? { id: n.id, titulo: n.titulo, nivel: n.nivel, area: n.areaId } : null
     })()
 
   const generar = async () => {
@@ -121,7 +120,7 @@ export function GenerarPanel({ perfil, temaFijo, onCerrar }: {
                   onChange={(e) => setTemaId(e.target.value)}
                   className="w-full rounded-lg border border-white/10 bg-black/30 px-2.5 py-2 text-sm outline-none focus:border-white/30"
                 >
-                  <OpcionesTemas nodos={nodos} />
+                  <OpcionesTemas tx={tx} />
                 </select>
               </div>
             )}

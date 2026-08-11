@@ -32,10 +32,10 @@ const flujoRepaso: TutorialDef = {
     },
     {
       sel: 'idiomas.repaso.panel',
-      titulo: T('tut.app-idiomas--repaso.2.titulo', 'Tarjetas o ejercicios'),
+      titulo: T('tut.app-idiomas--repaso.2b.titulo', 'Ejercicios, no cartas'),
       texto: T(
-        'tut.app-idiomas--repaso.2.texto',
-        'El modo tarjetas es el de toda la vida: ves el término, lo intentas y te corriges. Los ejercicios te lo ponen como opción múltiple o con huecos, usando las frases de ejemplo.',
+        'tut.app-idiomas--repaso.2b.texto',
+        'Se repasa respondiendo: opción múltiple, al revés o completando la frase de ejemplo. Arriba eliges qué entra a la ronda — lo que toca hoy, todo el vocabulario o un tema del temario.',
       ),
     },
     {
@@ -56,26 +56,26 @@ const flujoVocabulario: TutorialDef = {
   id: 'app-idiomas--vocabulario',
   titulo: T('tut.app-idiomas--vocabulario.titulo', 'El vocabulario'),
   resumen: T(
-    'tut.app-idiomas--vocabulario.resumen',
-    'Cada tarjeta guarda término, traducción, una frase de ejemplo y su caja. Puedes llevar varios idiomas a la vez, cada uno con su nivel.',
+    'tut.app-idiomas--vocabulario.resumen2',
+    'Las tarjetas viven DENTRO del temario: cada tema se despliega y ahí están las suyas, con su sonido, su imagen y su caja de repaso.',
   ),
   preparar: () => {
-    abrirApp('idiomas', 'vocabulario')
+    abrirApp('idiomas', 'temario')
   },
   pasos: [
     {
-      sel: 'idiomas.vocabulario.lista',
-      titulo: T('tut.app-idiomas--vocabulario.1.titulo', 'Un año de palabras'),
+      sel: 'idiomas.tab.temario',
+      titulo: T('tut.app-idiomas--vocabulario.1.titulo2', 'Cada palabra, en su tema'),
       texto: T(
-        'tut.app-idiomas--vocabulario.1.texto',
-        'Las primeras tarjetas de Pep@ son de nivel A2 —compras, direcciones— y las últimas ya son B1: opiniones, historias, imprevistos de viaje.',
+        'tut.app-idiomas--vocabulario.1.texto2',
+        'Despliega un tema y verás sus tarjetas: tocarlas las lee en voz alta, la miniatura abre la ilustración y el lápiz las edita. Las primeras de Pep@ son A2 —compras, direcciones— y las últimas ya son B1.',
       ),
       alEntrar: () => {
-        clickTut('idiomas.tab.vocabulario')
+        clickTut('idiomas.tab.temario')
       },
     },
     {
-      sel: 'idiomas.vocabulario.lista',
+      sel: 'idiomas.tab.temario',
       titulo: T('tut.app-idiomas--vocabulario.2.titulo', 'Dos idiomas a la vez'),
       texto: T(
         'tut.app-idiomas--vocabulario.2.texto',
@@ -84,8 +84,8 @@ const flujoVocabulario: TutorialDef = {
     },
     {
       texto: T(
-        'tut.app-idiomas--vocabulario.3.texto',
-        'Las tarjetas se añaden a mano, salen de una charla con el tutor o las propone la IA a partir de un tema. Algunas llevan imagen para acordarte mejor.',
+        'tut.app-idiomas--vocabulario.3.texto2',
+        'Las tarjetas se añaden a mano en su tema, salen de una charla con el tutor o las propone la IA. Lo que quede suelto cae en «Sin clasificar», y desde ahí lo mandas al tema que le toque.',
       ),
     },
   ],
@@ -126,8 +126,8 @@ const flujoTemario: TutorialDef = {
     },
     {
       texto: T(
-        'tut.app-idiomas--temario.3.texto',
-        'También puedes guardar material propio en un tema —apuntes, frases del hotel, una foto de tu libreta— y pedir un plan de estudio con fecha objetivo.',
+        'tut.app-idiomas--temario.3.texto2',
+        'También puedes guardar material propio en un tema —apuntes, frases del hotel, una foto de tu libreta—, hacerlo tuyo con el ✏️ (añadir temas, renombrarlos, ordenarlos o borrarlos) y pedir un plan de estudio con fecha objetivo.',
       ),
     },
   ],

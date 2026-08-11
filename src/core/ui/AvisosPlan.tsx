@@ -96,7 +96,7 @@ function AvisoDemo() {
       <p className="text-xs leading-snug text-white/60">
         {t(
           'demo.aviso.cuerpo',
-          'Pruébalo todo: puedes editar la casa y usar las apps con el año de vida de Pep@ dentro. Nada se guarda — al recargar, la casa vuelve a como estaba. Con tu suscripción, la casa es tuya.',
+          'Pruébalo todo: puedes editar la casa y usar las apps con el año de vida de Pep@ dentro. Nada se guarda — al recargar, la casa vuelve a como estaba.',
         )}
       </p>
       <div className="space-y-1.5 pt-1">
@@ -107,16 +107,6 @@ function AvisoDemo() {
         >
           {t('demo.aviso.seguir', 'Seguir explorando')}
         </button>
-        {puedeMostrarPagos() && urlWeb && (
-          <a
-            href={urlWeb}
-            target="_blank"
-            rel="noreferrer"
-            className="block w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-center text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
-          >
-            {t('demo.aviso.cta', 'Quiero mi propia casa')}
-          </a>
-        )}
         <button
           type="button"
           onClick={() => salirDemo()}

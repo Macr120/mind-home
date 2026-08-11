@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import { useDiseño, esObjetoMapa } from '../state/disenoStore'
-import { useCanchas, CANCHAS, PORTERIA, BEISBOL, radioBeisbol, esCancha, claseDeCancha, escalaCancha } from '../state/canchasStore'
-import { useJuegoCancha, juegoFrame, poseBateo } from '../state/juegoCanchaStore'
+import { useCanchas, CANCHAS, PORTERIA, CANASTA, BEISBOL, radioBeisbol, esCancha, claseDeCancha, escalaCancha } from '../state/canchasStore'
+import { useJuegoCancha, juegoFrame, poseBateo, orientarBateo } from '../state/juegoCanchaStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
@@ -140,6 +140,10 @@ const K_CHANFLE = 0.55
 const UMBRAL_ELEVADO = 0.55
 const BAS_ALC_MIN = 2
 const BAS_ALC_MAX = 12
+/** Cuánto te puedes pasar de largo y aun así dar en el tablero (m locales). */
+const REBOTE_VENTANA = 1.3
+/** Pasándote menos que esto, el tablero te la mete: tiro de tabla. */
+const REBOTE_DENTRO = 0.65
 const GOLPE_RADIO = 2.6
 const FACTOR_BOTE = 0.62
 const Y_MIN_GOLPE = 0.15
@@ -210,6 +214,10 @@ function reiniciarJuego(m: Marco) {
   f.botesTenis = 0
   f.enVentana = false
   f.anclaActiva = false
+  f.anclaSnap = false
+  f.anclaSoltada = false
+  f.aroPulso = 0
+  f.tableroPulso = 0
   f.bateando = m.clase === 'beisbol'
   saquePendiente = false
   haciaMuro = false
@@ -220,6 +228,8 @@ function reiniciarJuego(m: Marco) {
   sacaJugador = true
   tiroElegido = false
   energiaBote = 1.5
+  pendiente = null
+  rebotePend = null
   const pl0 = aLocal(m, playerPos.x, playerPos.z)
   _prevP.set(pl0.x, 0, pl0.z)
   const solo = useJuegoCancha.getState().modo === 'solo'
@@ -240,12 +250,18 @@ function reiniciarJuego(m: Marco) {
     strikesBeis = 0
     bolaBateada = false
     f.proximoEvento = performance.now() + (solo ? 1200 : 1800)
-    // El bateador se planta en la caja de bateo, junto al home y mirando al montículo.
+    // El bateador se planta en la caja de bateo, junto al home y mirando al
+    // montículo. `anclaSnap` lo coloca de golpe (llegaste caminando y el lerp lo
+    // dejaba a medio camino) y el destino de caminata se cancela: si no, el clic
+    // que te trajo hasta aquí seguiría tirando de él fuera de la caja.
     const caja = aMundo(m, CAJA_X * m.esc, CAJA_Z * m.esc)
-    f.anclaActiva = true
     f.anclaX = caja.x
     f.anclaZ = caja.z
     f.anclaHeading = Math.atan2(montX - CAJA_X * m.esc, -CAJA_Z * m.esc) + m.rad
+    f.anclaSoltada = false
+    anclarBateador(true)
+    useHouse.getState().target.set(caja.x, 0, caja.z)
+    orientarBateo(f.anclaHeading)
   } else {
     const p = aLocal(m, playerPos.x, playerPos.z)
     f.ladoJugador = p.x >= 0 ? 1 : -1
@@ -453,20 +469,76 @@ function gol(m: Marco, quien: 'yo' | 'rival') {
 
 // ─── Básquet ───
 
-/** Lanza al aro: el ALCANCE sale de la carga; encesta si acierta la distancia. */
+/** Margen de acierto del tiro: el aro es generoso, la dificultad lo cierra. */
+const tolTiro = (esc: number) => THREE.MathUtils.lerp(1.6, 0.7, dif()) * esc
+
+interface RebotePend {
+  m: Marco
+  quien: 'yo' | 'rival'
+  puntos: number
+  /** El rebote de tabla cae dentro del aro. */
+  entra: boolean
+  /** Z local del impacto en el tablero. */
+  z: number
+}
+let pendiente: { quien: 'yo' | 'rival'; puntos: number; encesta: boolean; m: Marco } | null = null
+let rebotePend: RebotePend | null = null
+
+/** Punto donde la recta ball→aro corta la cara del tablero (o null si la falla). */
+function puntoTablero(m: Marco, ux: number, uz: number) {
+  const f = juegoFrame
+  const tabX = CANASTA.tableroX * m.esc
+  if (ux > -1e-3) return null // el tiro no va hacia el tablero
+  const s = (tabX - f.bx) / ux
+  const tabZ = f.bz + uz * s
+  if (Math.abs(tabZ) > CANASTA.tableroMedio * m.esc) return null // se va por un lado
+  return { x: tabX, z: tabZ, s }
+}
+
+/**
+ * Lanza al aro: el ALCANCE sale de la carga; encesta si acierta la distancia.
+ * Pasarse un poco de largo ya no es fallar: la pelota pega en el TABLERO y de ahí
+ * cae dentro (tiro de tabla) o sale rebotada al piso.
+ */
 function lanzarTiro(m: Marco, quien: 'yo' | 'rival', carga: number) {
   const f = juegoFrame
-  const aroX = (-CANCHAS.basket.largo / 2 + 0.82) * m.esc
+  const aroX = CANASTA.aroX * m.esc
   const distAro = Math.hypot(f.bx - aroX, f.bz)
   const alcance = (BAS_ALC_MIN + carga * (BAS_ALC_MAX - BAS_ALC_MIN)) * m.esc
-  const tol = THREE.MathUtils.lerp(1.4, 0.5, dif()) * m.esc
-  const encesta = Math.abs(alcance - distAro) < tol
+  const tol = tolTiro(m.esc)
+  const err = alcance - distAro
+  const encesta = Math.abs(err) < tol
   const dx = aroX - f.bx
   const dz = -f.bz
   const n = Math.hypot(dx, dz) || 1
-  const x1 = encesta ? aroX : f.bx + (dx / n) * alcance
-  const z1 = encesta ? 0 : f.bz + (dz / n) * alcance
+  const ux = dx / n
+  const uz = dz / n
   const tres = distAro > 6.75 * m.esc
+  const puntos = tres ? 3 : 2
+  f.duena = 'nadie'
+  tiroElegido = false
+
+  const tab = !encesta && err > 0 && err < tol + REBOTE_VENTANA * m.esc ? puntoTablero(m, ux, uz) : null
+  if (tab) {
+    // Primer vuelo: hasta la cara del tablero. El resto lo decide el rebote.
+    f.vuelo = {
+      x0: f.bx,
+      y0: 1.4 * m.esc,
+      z0: f.bz,
+      x1: tab.x,
+      y1: CANASTA.tableroY * m.esc,
+      z1: tab.z,
+      t: 0,
+      dur: clamp(tab.s / 9, 0.5, 1.2),
+      alto: 0.5 + carga * 0.9,
+    }
+    pendiente = null
+    rebotePend = { m, quien, puntos, entra: err < tol + REBOTE_DENTRO * m.esc, z: tab.z }
+    return
+  }
+
+  const x1 = encesta ? aroX : f.bx + ux * alcance
+  const z1 = encesta ? 0 : f.bz + uz * alcance
   f.vuelo = {
     x0: f.bx,
     y0: 1.4 * m.esc,
@@ -478,35 +550,79 @@ function lanzarTiro(m: Marco, quien: 'yo' | 'rival', carga: number) {
     dur: clamp(alcance / 9, 0.6, 1.4),
     alto: 3.05 * m.esc - 1.4 * m.esc + 1.2 + carga * 1.2,
   }
-  f.duena = 'nadie'
-  tiroElegido = false
   // El resultado se resuelve al aterrizar (tickBasket lee estos pendientes).
-  pendiente = { quien, puntos: tres ? 3 : 2, encesta, m }
+  pendiente = { quien, puntos, encesta, m }
 }
 
-let pendiente: { quien: 'yo' | 'rival'; puntos: number; encesta: boolean; m: Marco } | null = null
+/** Segundo vuelo tras pegar en el tablero: cae por el aro o sale despedido. */
+function rebotarTablero(r: RebotePend) {
+  const f = juegoFrame
+  const m = r.m
+  const aroX = CANASTA.aroX * m.esc
+  f.tableroPulso = 1
+  if (r.entra) {
+    // Cae casi a plomo por el aro y queda bajo la canasta.
+    f.vuelo = {
+      x0: f.bx,
+      y0: f.by,
+      z0: f.bz,
+      x1: aroX + 0.25 * m.esc,
+      y1: 0,
+      z1: r.z * 0.3,
+      t: 0,
+      dur: 0.6,
+      alto: 0.12,
+    }
+  } else {
+    // Sale rebotada hacia la cancha, con algo de dispersión.
+    const ang = (Math.random() - 0.5) * 1.1
+    const dist = (1.8 + Math.random() * 1.8) * m.esc
+    f.vuelo = {
+      x0: f.bx,
+      y0: f.by,
+      z0: f.bz,
+      x1: f.bx + Math.cos(ang) * dist,
+      y1: 0,
+      z1: f.bz + Math.sin(ang) * dist,
+      t: 0,
+      dur: 0.7,
+      alto: 0.5,
+    }
+  }
+  pendiente = { quien: r.quien, puntos: r.puntos, encesta: r.entra, m }
+}
 
 function tickBasket(m: Marco, solo: boolean, dt: number) {
   const f = juegoFrame
   const ahora = performance.now()
   const p = aLocal(m, playerPos.x, playerPos.z)
   if (f.vuelo) {
-    if (avanzarVuelo(dt) && pendiente) {
-      const r = pendiente
-      pendiente = null
-      if (r.encesta) {
-        const aro = aMundo(r.m, (-CANCHAS.basket.largo / 2 + 0.82) * r.m.esc, 0)
-        if (r.quien === 'yo') lanzarCohete(aro.x, r.m.sueloY + 3.05 * r.m.esc, aro.z)
-        void useJuegoCancha
-          .getState()
-          .anotar(r.quien, r.puntos, r.quien === 'yo' ? (r.puntos === 3 ? 'canasta3' : 'canasta2') : 'canastaRival')
-      } else if (r.quien === 'yo') {
-        useJuegoCancha.getState().avisar('fallo')
+    if (avanzarVuelo(dt)) {
+      // Llegó al tablero: encadena el rebote antes de resolver nada.
+      if (rebotePend) {
+        const r = rebotePend
+        rebotePend = null
+        rebotarTablero(r)
+        return
       }
-      // En modo solo el balón vuelve a tus manos para seguir tirando sin ir a buscarlo.
-      if (solo) {
-        f.duena = 'yo'
-        f.carga = 0
+      if (pendiente) {
+        const r = pendiente
+        pendiente = null
+        if (r.encesta) {
+          const aro = aMundo(r.m, CANASTA.aroX * r.m.esc, 0)
+          f.aroPulso = 1
+          if (r.quien === 'yo') lanzarCohete(aro.x, r.m.sueloY + CANASTA.aroY * r.m.esc, aro.z)
+          void useJuegoCancha
+            .getState()
+            .anotar(r.quien, r.puntos, r.quien === 'yo' ? (r.puntos === 3 ? 'canasta3' : 'canasta2') : 'canastaRival')
+        } else if (r.quien === 'yo') {
+          useJuegoCancha.getState().avisar('fallo')
+        }
+        // En modo solo el balón vuelve a tus manos para seguir tirando sin ir a buscarlo.
+        if (solo) {
+          f.duena = 'yo'
+          f.carga = 0
+        }
       }
     }
     return
@@ -540,7 +656,7 @@ function tickBasket(m: Marco, solo: boolean, dt: number) {
     f.bx = f.rx
     f.bz = f.rz
     if (!tiroElegido) {
-      const aroX = (-CANCHAS.basket.largo / 2 + 0.82) * m.esc
+      const aroX = CANASTA.aroX * m.esc
       const ang = (Math.random() - 0.5) * 1.6
       const dist = 3 + Math.random() * 4.5
       tiroRX = clamp(aroX + Math.cos(ang) * dist, -m.L + 1, m.L - 1)
@@ -549,7 +665,7 @@ function tickBasket(m: Marco, solo: boolean, dt: number) {
     }
     const llego = mueveRival(tiroRX, tiroRZ, 2.2 + dif() * 1.8, dt)
     if (llego || ahora >= f.proximoEvento) {
-      const aroX = (-CANCHAS.basket.largo / 2 + 0.82) * m.esc
+      const aroX = CANASTA.aroX * m.esc
       const distR = Math.hypot(f.rx - aroX, f.rz) / m.esc
       const ideal = clamp((distR - BAS_ALC_MIN) / (BAS_ALC_MAX - BAS_ALC_MIN), 0, 1)
       const err = (Math.random() - 0.5) * (1 - dif()) * 0.5
@@ -934,9 +1050,23 @@ function tickTenis(m: Marco, solo: boolean, dt: number) {
 
 // ─── Béisbol (solo bateo) ───
 
+/**
+ * Devuelve al bateador a la caja. Se llama al empezar y ANTES DE CADA
+ * LANZAMIENTO: entre pitcheos puedes moverte, pero al llegar el siguiente te
+ * vuelve a acomodar solo. Si te saliste a propósito (`anclaSoltada`) ya no.
+ */
+function anclarBateador(snap: boolean) {
+  const f = juegoFrame
+  if (f.anclaSoltada) return
+  f.anclaActiva = true
+  f.anclaSnap = snap
+  f.anclaDesde = performance.now()
+}
+
 /** Lanzamiento desde el montículo: pasa junto al bateador y sigue un poco de largo. */
 function lanzarPitcheo(m: Marco, solo: boolean) {
   const f = juegoFrame
+  anclarBateador(false)
   const p = aLocal(m, playerPos.x, playerPos.z)
   // Puntería con desvío: a más dificultad, más lejos del punto dulce te la pone.
   const desvio = (Math.random() - 0.5) * (0.5 + dif() * 1.5)
@@ -1121,6 +1251,7 @@ export function MinijuegosCanchas() {
       usePaintball.getState().fase != null
     if (bloqueado) {
       if (st.canchaId != null) st.terminar()
+      if (st.cerca) st.setCerca(null)
       marcoRef.current = null
       return
     }
@@ -1132,9 +1263,13 @@ export function MinijuegosCanchas() {
     if (cancha?.id != null) {
       const m = marcoDe(cancha)
       marcoRef.current = m
-      if (st.canchaId !== cancha.id) void st.activar(cancha.id, m.clase)
-    } else if (st.canchaId != null) {
-      st.terminar()
+      // Pisar la cancha ya NO empieza el partido: solo ofrece el botón «Jugar»
+      // del hueco del cubo (ver `ContextoProximity`). Entrar sin querer a un
+      // partido por cruzar el campo era el mismo problema que sentarse solo.
+      if (st.canchaId !== cancha.id) st.setCerca({ canchaId: cancha.id, clase: m.clase })
+    } else {
+      if (st.canchaId != null) st.terminar()
+      if (st.cerca) st.setCerca(null)
       marcoRef.current = null
     }
   })
@@ -1323,9 +1458,11 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
     else if (m.clase === 'beisbol') tickBeisbol(m, solo, dt)
     else tickTenis(m, solo, dt)
     const f = juegoFrame
-    // Los raquetazos se desvanecen solos.
+    // Los raquetazos y los pulsos de la canasta se desvanecen solos.
     f.swing = Math.max(0, f.swing - dt * 3.2)
     f.rSwing = Math.max(0, f.rSwing - dt * 3.2)
+    f.aroPulso = Math.max(0, f.aroPulso - dt * 2.2)
+    f.tableroPulso = Math.max(0, f.tableroPulso - dt * 3.5)
     if (pelota.current) {
       const bw = aMundo(m, f.bx, f.bz)
       const r = m.clase === 'tenis' ? 0.16 : m.clase === 'beisbol' ? 0.14 : 0.33
@@ -1354,10 +1491,10 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
     const verMira = f.cargando && f.duena === 'yo' && m.clase === 'basket'
     linea.visible = verMira
     if (verMira) {
-      const aroX = (-CANCHAS.basket.largo / 2 + 0.82) * m.esc
+      const aroX = CANASTA.aroX * m.esc
       const distAro = Math.hypot(f.bx - aroX, f.bz)
       const alcance = (BAS_ALC_MIN + f.carga * (BAS_ALC_MAX - BAS_ALC_MIN)) * m.esc
-      const tol = THREE.MathUtils.lerp(1.4, 0.5, dif()) * m.esc
+      const tol = tolTiro(m.esc)
       const dx = aroX - f.bx
       const dz = -f.bz
       const n = Math.hypot(dx, dz) || 1
@@ -1372,7 +1509,15 @@ function JuegoActivo({ marcoRef }: { marcoRef: React.MutableRefObject<Marco | nu
         pos.setXYZ(i, w.x, m.sueloY + ly, w.z)
       }
       pos.needsUpdate = true
-      ;(linea.material as THREE.LineBasicMaterial).color.set(Math.abs(alcance - distAro) < tol ? '#34d399' : '#fbbf24')
+      // Verde = entra limpio; azul = se pasa, pero la mete de tabla; ámbar = falla.
+      const err = alcance - distAro
+      const color =
+        Math.abs(err) < tol
+          ? '#34d399'
+          : err > 0 && err < tol + REBOTE_DENTRO * m.esc
+            ? '#38bdf8'
+            : '#fbbf24'
+      ;(linea.material as THREE.LineBasicMaterial).color.set(color)
     }
   })
 

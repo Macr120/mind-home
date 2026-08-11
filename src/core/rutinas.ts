@@ -1,9 +1,9 @@
 import { localeActual } from './i18n/useT'
 import { db, type Rutina, type EjecucionRutina, type RepeticionRutina } from './data/db'
 import { perfilSuenoRepo, rutinasRepo } from './data/repository'
-import { getPlantilla } from './registry'
+import { getPlantilla } from './appContrato'
 import { fechaLocalISO } from './fechaLocal'
-import { esMeta } from './metas'
+import { ajustarBloquesDe, esMeta } from './metas'
 
 /** Etiquetas cortas de los días (índice = getDay(): 0=domingo). */
 export const DIAS_SEMANA = ['D', 'L', 'M', 'X', 'J', 'V', 'S'] as const
@@ -241,14 +241,30 @@ export async function togglePaso(rutina: Rutina, idx: number) {
   // Auto-registro: solo al marcar (desmarcar no borra el dato ya escrito).
   const paso = rutina.pasos[idx]
   if (marcar && paso?.esquemaId && paso.valores) {
-    const esquema = getPlantilla(paso.roomId)?.esquemas?.find((e) => e.id === paso.esquemaId)
-    if (esquema) {
-      try {
-        await esquema.guardar({ ...paso.valores, fecha })
-      } catch (err) {
-        console.warn('[MPH] No se pudo auto-registrar el paso:', err)
-      }
-    }
+    await registrarEsquema(paso.roomId, paso.esquemaId, paso.valores, fecha)
+  }
+}
+
+/**
+ * Escribe un registro real en una app usando su esquema de captura: es lo que
+ * convierte marcar un paso en «ya cené». Compartido con los objetivos del día
+ * (`ObjetivoDia.registro`), que registran por el mismo camino.
+ *
+ * No lanza: el estado ya se escribió antes de llegar aquí, y perder el paso
+ * palomeado porque el esquema falló sería peor que quedarse sin el dato.
+ */
+export async function registrarEsquema(
+  plantillaId: string,
+  esquemaId: string,
+  valores: Record<string, unknown>,
+  fecha: string,
+): Promise<void> {
+  const esquema = getPlantilla(plantillaId)?.esquemas?.find((e) => e.id === esquemaId)
+  if (!esquema) return
+  try {
+    await esquema.guardar({ ...valores, fecha })
+  } catch (err) {
+    console.warn('[MPH] No se pudo registrar por esquema:', err)
   }
 }
 
@@ -358,14 +374,17 @@ export interface RangoTrazado {
 export async function agendarMetaEnRango(rutina: Rutina, rango: RangoTrazado) {
   if (rutina.id == null) return
   const unSoloDia = rango.fechaInicio === rango.fechaFin
+  const fechaFin = unSoloDia ? undefined : rango.fechaFin
   await rutinasRepo.update(rutina.id, {
     repeticion: unSoloDia ? 'una_vez' : 'rango',
     fechaInicio: rango.fechaInicio,
-    fechaFin: unSoloDia ? undefined : rango.fechaFin,
+    fechaFin,
     hora: rango.hora,
     horaFin: rango.horaFin,
     dias: [],
   })
+  // Lo que la meta pide cada semana se mueve con ella (igual que en `ponerPeriodo`).
+  await ajustarBloquesDe(rutina.id, rango.fechaInicio, fechaFin)
 }
 
 /**

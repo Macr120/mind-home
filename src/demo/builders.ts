@@ -36,13 +36,17 @@ export const BUILDERS_DEMO: Record<string, () => Promise<BuilderDemo>> = {
   biblioteca: () => import('../rooms/biblioteca/demo').then((m) => m.construirDemoBiblioteca),
   idiomas: () => import('../rooms/idiomas/demo').then((m) => m.construirDemoIdiomas),
   agenda: () => import('../rooms/agenda/demo').then((m) => m.construirDemoAgenda),
-  calendario: () => import('../rooms/calendario/demo').then((m) => m.construirDemoCalendario),
+  // Clave SIN plantilla: el calendario ya no es una app de cuarto, pero su año
+  // (las rutinas de Pep@, su cumplimiento y los tres planes) sigue haciendo falta.
+  // Lo dispara el propio modal del reloj al abrirse dentro del demo.
+  calendario: () => import('./anioCalendario').then((m) => m.construirDemoCalendario),
   diario: () => import('../rooms/diario/demo').then((m) => m.construirDemoDiario),
   entretenimiento: () =>
     import('../rooms/entretenimiento/demo').then((m) => m.construirDemoEntretenimiento),
   garage: () => import('../rooms/garage/demo').then((m) => m.construirDemoGarage),
   sala: () => import('../rooms/sala/demo').then((m) => m.construirDemoSala),
   despacho: () => import('../rooms/despacho/demo').then((m) => m.construirDemoDespacho),
+  computo: () => import('../rooms/computo/demo').then((m) => m.construirDemoComputo),
 }
 
 /**

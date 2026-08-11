@@ -59,6 +59,13 @@ export const TIPOS_MAPA: DefTipoMapa[] = [
     familia: 'mapas',
   },
   {
+    id: 'etimologia',
+    icono: 'libro',
+    nombreEs: 'Árbol etimológico',
+    descripcionEs: 'Una palabra desarmada: su origen, sus significados, sus usos y su familia.',
+    familia: 'mapas',
+  },
+  {
     id: 'llaves',
     icono: 'llaves',
     nombreEs: 'Llaves',

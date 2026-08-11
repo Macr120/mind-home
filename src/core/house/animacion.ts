@@ -9,8 +9,16 @@ import { useHouse } from '../state/houseStore'
  * modelos de piezas). La reproducción vive en `Animado.tsx` (useFrame).
  */
 
-/** Preset de conjunto: anima el grupo contenedor completo (cualquier tipo de objeto). */
-export type PresetAnimacionId = 'girar' | 'flotar' | 'pulsar' | 'mecerse' | 'rebotar' | 'temblar'
+/**
+ * Preset de conjunto: anima el grupo contenedor completo (cualquier tipo de
+ * objeto). `vida` es distinto de los otros seis: en vez de una fórmula en el
+ * sitio, el objeto DEAMBULA por su zona y tiene hambre y ánimo (la mecánica de
+ * los animales de la granja). Por eso lo reproduce `GrupoVida` y no
+ * `aplicarPreset`: aquí son excluyentes por construcción, que es lo correcto —
+ * «girar» escribe la posición absoluta cada frame y pisaría el avance.
+ */
+export type PresetAnimacionId =
+  | 'girar' | 'flotar' | 'pulsar' | 'mecerse' | 'rebotar' | 'temblar' | 'vida'
 
 /** Cuándo se reproduce: apagado | siempre | proximidad (jugador cerca, como las puertas). */
 export type ActivacionAnimacion = 'apagado' | 'siempre' | 'proximidad'
@@ -40,7 +48,12 @@ export interface AnimacionModelo {
   poses?: Pose[]
   /** Segundos por tramo entre poses (0.2–5, default 1). */
   duracionPose?: number
+  /** Solo preset 'vida': radio de paseo alrededor de su sitio (0.5–8, default 2.5). */
+  radio?: number
 }
+
+/** Zona de paseo por defecto del preset 'vida' (unidades del mundo). */
+export const RADIO_VIDA_DEFAULT = 2.5
 
 export const PRESETS_ANIMACION: { id: PresetAnimacionId; emoji: string; nombre: string }[] = [
   { id: 'girar', emoji: '🔄', nombre: 'Girar' },
@@ -49,10 +62,48 @@ export const PRESETS_ANIMACION: { id: PresetAnimacionId; emoji: string; nombre: 
   { id: 'mecerse', emoji: '🌊', nombre: 'Mecerse' },
   { id: 'rebotar', emoji: '⚽', nombre: 'Rebotar' },
   { id: 'temblar', emoji: '⚡', nombre: 'Temblar' },
+  { id: 'vida', emoji: '🐾', nombre: 'Dale vida' },
 ]
 
 /** Distancia al jugador que enciende una animación en modo 'proximidad'. */
 export const UMBRAL_PROXIMIDAD_ANIM = 3.5
+
+/** Duración del refuerzo de «Interactuar» (ms): tiempo que el objeto se anima. */
+const MS_PULSO = 3000
+/** Tramo inicial del pulso en el que además se exagera la amplitud (ms). */
+const MS_PULSO_FUERTE = 700
+
+/** Objeto al que «Interactuar» le encendió la animación, y hasta cuándo. */
+export const pulsoAnim = { id: null as number | null, hasta: 0 }
+
+/**
+ * Enciende la animación de un objeto un rato aunque el jugador esté lejos: es
+ * lo que hace el botón «Interactuar» del hueco del cubo.
+ */
+export function pulsarAnimacion(id: number): void {
+  pulsoAnim.id = id
+  pulsoAnim.hasta = performance.now() + MS_PULSO
+}
+
+/** ¿Este objeto está en pleno pulso? */
+function conPulso(objetoId?: number): boolean {
+  return objetoId != null && pulsoAnim.id === objetoId && performance.now() < pulsoAnim.hasta
+}
+
+/**
+ * Multiplicador de AMPLITUD del pulso: 1.6 al pulsar y de vuelta a 1 en 700 ms
+ * (el "se anima con más fuerza"). Solo lo aplica `aplicarPreset`, que es
+ * matemática de amplitud pura; la energía que consumen los objetos ambientales
+ * se queda acotada a 0..1 a propósito, porque varios de ellos (el librero, la
+ * estantería) la usan como PARÁMETRO DE POSE: con valores > 1 el libro flotaría
+ * sobre la repisa y las tapas se abrirían más de 90°, invertidas.
+ */
+export function factorPulso(objetoId?: number): number {
+  if (!conPulso(objetoId)) return 1
+  const restante = pulsoAnim.hasta - performance.now() - (MS_PULSO - MS_PULSO_FUERTE)
+  if (restante <= 0) return 1
+  return 1 + 0.6 * (restante / MS_PULSO_FUERTE)
+}
 
 /** ¿Hay algo que reproducir en el mapa? (preset o 2+ poses, y no está apagada). */
 export function tieneAnimacion(a?: AnimacionModelo | null): a is AnimacionModelo {
@@ -92,15 +143,20 @@ const _mundo = new THREE.Vector3()
  * Energía 0..1 de la animación (patrón VanoFachada): 1 con 'siempre', lerp
  * hacia 1/0 según cercanía del jugador con 'proximidad'. `nivel` = piso del
  * objeto para comparar con el del jugador (null = ignorar nivel).
+ *
+ * `objetoId` habilita el refuerzo de «Interactuar»: con un pulso vivo la
+ * animación se enciende aunque el jugador esté lejos.
  */
 export function actualizarEnergia(
   obj: THREE.Object3D,
   anim: AnimacionModelo,
   nivel: number | null,
   energia: { current: number; acc?: number },
+  objetoId?: number,
 ): number {
   let objetivo = 0
-  if (anim.activacion === 'siempre') objetivo = 1
+  if (conPulso(objetoId)) objetivo = 1
+  else if (anim.activacion === 'siempre') objetivo = 1
   else if (anim.activacion === 'proximidad') {
     // En reposo (energía 0) la cercanía se re-mide solo 1 de cada 12 frames:
     // un getWorldPosition por objeto animable cada frame sumaba en móviles.
@@ -145,6 +201,9 @@ export function aplicarPreset(
   let rz = 0
   let s = 1
   switch (anim.preset) {
+    // 'vida' lo mueve `GrupoVida`: escribir aquí le borraría el avance.
+    case 'vida':
+      return
     case 'girar':
       acum.ang += dt * 1.6 * vel * e
       ry = acum.ang
@@ -169,6 +228,11 @@ export function aplicarPreset(
   g.position.set(x, y, 0)
   g.rotation.set(0, ry, rz)
   g.scale.setScalar(s)
+}
+
+/** Giro suave hacia un ángulo objetivo, sin saltos al cruzar ±π. */
+export function girarHacia(g: THREE.Object3D, objetivo: number, factor: number): void {
+  g.rotation.y += Math.atan2(Math.sin(objetivo - g.rotation.y), Math.cos(objetivo - g.rotation.y)) * factor
 }
 
 /** Categoría de animación al caminar/pasear de un cuerpo (ver `cuerpos.ts`). */

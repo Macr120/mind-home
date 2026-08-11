@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { Pieza3D } from '../../chat/mascotas'
 import {
   PRESETS_ANIMACION,
+  RADIO_VIDA_DEFAULT,
   capturarPose,
   aplicarPose,
   type ActivacionAnimacion,
@@ -24,6 +25,7 @@ export function EditorAnimacion({
   onChange,
   piezas,
   onAplicarPose,
+  conVida = false,
 }: {
   anim?: AnimacionModelo
   /** Cada cambio entrega la animación completa (undefined = quitarla). */
@@ -32,12 +34,19 @@ export function EditorAnimacion({
   piezas?: Pieza3D[]
   /** Deja las piezas reales en una pose para retocarla con el editor de piezas. */
   onAplicarPose?: (p: Pieza3D[]) => void
+  /**
+   * Ofrece «Dale vida». Solo los objetos: un personaje ya tiene su propio paseo
+   * (`tickPaseo` en los asistentes, `Character` en el avatar) y los dos se
+   * pelearían por escribir la posición.
+   */
+  conVida?: boolean
 }) {
   const t = useT()
   const setPiezasControles = useEditorUi((s) => s.setPiezasControles)
   const [poseSel, setPoseSel] = useState(0)
 
   const a: AnimacionModelo = anim ?? { activacion: 'siempre' }
+  const esVida = a.preset === 'vida'
   const poses = a.poses ?? []
   const iPose = poses.length ? Math.min(poseSel, poses.length - 1) : -1
   const hayAlgo = !!a.preset || poses.length > 0
@@ -76,7 +85,7 @@ export function EditorAnimacion({
           >
             ∅
           </button>
-          {PRESETS_ANIMACION.map((p) => (
+          {PRESETS_ANIMACION.filter((p) => p.id !== 'vida' || conVida).map((p) => (
             <button
               key={p.id}
               type="button"
@@ -105,18 +114,50 @@ export function EditorAnimacion({
             onChange={(v) => emitir({ velocidad: v })}
             onReset={() => emitir({ velocidad: undefined })}
           />
-          {a.preset && (
+          {/* «Dale vida» no tiene amplitud que escalar: en su lugar, la zona por
+              la que deambula. */}
+          {esVida ? (
             <SliderProp
-              label={t('editor.anim.intensidad', 'Intensidad')}
-              value={a.intensidad ?? 1}
-              min={0.25}
-              max={3}
-              step={0.05}
-              fmt={(v) => `${Math.round(v * 100)}%`}
-              onChange={(v) => emitir({ intensidad: v })}
-              onReset={() => emitir({ intensidad: undefined })}
+              label={t('editor.anim.zona', 'Zona de paseo')}
+              value={a.radio ?? RADIO_VIDA_DEFAULT}
+              min={0.5}
+              max={8}
+              step={0.1}
+              fmt={(v) => `${v.toFixed(1)} u`}
+              onChange={(v) => emitir({ radio: v })}
+              onReset={() => emitir({ radio: undefined })}
             />
+          ) : (
+            a.preset && (
+              <SliderProp
+                label={t('editor.anim.intensidad', 'Intensidad')}
+                value={a.intensidad ?? 1}
+                min={0.25}
+                max={3}
+                step={0.05}
+                fmt={(v) => `${Math.round(v * 100)}%`}
+                onChange={(v) => emitir({ intensidad: v })}
+                onReset={() => emitir({ intensidad: undefined })}
+              />
+            )
           )}
+        </div>
+      )}
+
+      {esVida && (
+        <div className="space-y-1 rounded-lg border border-white/10 bg-white/5 px-2.5 py-2">
+          <p className="text-[11px] leading-snug text-white/55">
+            {t(
+              'editor.anim.vidaDesc',
+              'El objeto deambula por su zona, le entra hambre y se aburre. Aliméntalo y acarícialo con los botones que salen al acercarte.',
+            )}
+          </p>
+          <p className="text-[10px] leading-tight text-amber-300/80">
+            {t(
+              'editor.anim.vidaAviso',
+              'Atraviesa muros y muebles: dale una zona pequeña si lo pones dentro de un cuarto.',
+            )}
+          </p>
         </div>
       )}
 

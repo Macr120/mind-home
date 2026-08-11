@@ -140,7 +140,7 @@ export function EditorRespaldoSection({
         {t('respaldo.desc', 'Exporta, restaura o borra los datos guardados en este dispositivo.')}
       </p>
 
-      <div className="space-y-1 text-xs">
+      <div className="space-y-1 text-xs" data-tut="respaldo.estado">
         {persistente !== null && (
           <p className={persistente ? 'text-green-400' : 'text-amber-400'}>
             {persistente
@@ -175,13 +175,14 @@ export function EditorRespaldoSection({
       )}
 
       <button
+        data-tut="respaldo.exportar"
         onClick={exportar}
         className="w-full rounded-lg bg-amber-600 py-2 text-sm font-bold texto-cta hover:brightness-110 transition"
       >
         <Icono nombre="bajar" /> {t('respaldo.exportar', 'Exportar todo como JSON')}
       </button>
 
-      <label className="block w-full cursor-pointer rounded-lg border border-amber-500/40 bg-amber-500/10 py-2 text-center text-sm font-bold text-amber-400 hover:bg-amber-500/20 transition">
+      <label data-tut="respaldo.restaurar" className="block w-full cursor-pointer rounded-lg border border-amber-500/40 bg-amber-500/10 py-2 text-center text-sm font-bold text-amber-400 hover:bg-amber-500/20 transition">
         <Icono nombre="subir" /> {t('respaldo.restaurar', 'Restaurar desde respaldo')}
         <input
           type="file"

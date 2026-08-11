@@ -56,8 +56,8 @@ export const OP_IMAGEN_TARJETA: OperacionIA = {
   id: 'idiomas.imagenTarjeta',
   clave: 'ia.op.idiomas.imagenTarjeta',
   es: 'Imagen mnemotécnica de una tarjeta',
-  dondeClave: 'ia.donde.idiomas.vocabulario',
-  dondeEs: 'Vocabulario',
+  dondeClave: 'ia.donde.idiomas.vocabularioRepaso',
+  dondeEs: 'Vocabulario · Repaso',
   partes: [{ op: 'imagen' }],
 }
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { callarVoz, hablarVoz, hayVoz, vozDeAsistente } from '../audio/voz'
+import { callarComoAsistente, hablarComoAsistente, hayVoz } from '../audio/voz'
 import { getAsistente, useAsistentes } from '../state/asistentesStore'
 import { limpiarMarkdown } from '../chat/texto'
 import { useT } from '../i18n/useT'
@@ -29,28 +29,22 @@ export function BotonVoz({
   }, [hablando])
   useEffect(
     () => () => {
-      if (hablandoRef.current) callarVoz()
+      if (hablandoRef.current) callarComoAsistente()
     },
     [],
   )
 
-  if (!hayVoz() || !texto.trim()) return null
+  const a = getAsistente(asistenteId)
+  if ((!hayVoz() && !a.vozIA) || !texto.trim()) return null
 
-  const leer = () => {
+  const leer = async () => {
     if (hablando) {
-      callarVoz()
+      callarComoAsistente()
       setHablando(false)
       return
     }
-    const v = vozDeAsistente(getAsistente(asistenteId))
-    const ok = hablarVoz(limpiarMarkdown(texto), {
-      vozNombre: v.vozNombre,
-      rate: v.rate,
-      pitch: v.pitch,
-      volumen: v.volumen,
-      // Se llama también si otra lectura cancela esta.
-      onFin: () => setHablando(false),
-    })
+    // Se llama también si otra lectura cancela esta.
+    const ok = await hablarComoAsistente(limpiarMarkdown(texto), a, () => setHablando(false))
     setHablando(ok)
   }
 
@@ -84,12 +78,15 @@ export function ToggleVozAuto({
   const leer = useAsistentes(
     (s) => (s.lista.find((a) => a.id === asistenteId) ?? s.ocultos.find((a) => a.id === asistenteId))?.vozLeer ?? false,
   )
-  if (!hayVoz()) return null
+  const vozIA = useAsistentes(
+    (s) => (s.lista.find((a) => a.id === asistenteId) ?? s.ocultos.find((a) => a.id === asistenteId))?.vozIA ?? false,
+  )
+  if (!hayVoz() && !vozIA) return null
   return (
     <button
       type="button"
       onClick={() => {
-        if (leer) callarVoz()
+        if (leer) callarComoAsistente()
         void guardar({ ...getAsistente(asistenteId), vozLeer: !leer })
       }}
       title={

@@ -19,7 +19,8 @@ const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
   { id: 'porConocer', icono: 'boleto', labelEs: 'Itinerario' },
   { id: 'rutas', icono: 'despegue', labelEs: 'Rutas' },
   { id: 'bitacora', icono: 'foto', labelEs: 'Bitácora' },
-  { id: 'cronograma', icono: 'calendario', labelEs: 'Cronograma' },
+  // El id sigue siendo 'cronograma': lo usan `tabInicial` y los deep-links del chat.
+  { id: 'cronograma', icono: 'calendario', labelEs: 'Metas' },
 ]
 
 export function SalaApp() {
@@ -40,13 +41,14 @@ export function SalaApp() {
         {t('sala.desc', 'Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje y bitácora con fotos y anécdotas.')}
       </p>
 
-      <div className="flex gap-2">
+      {/* Barra desplazable: «Metas y cronograma» no cabe repartida en cinco. */}
+      <div className="flex gap-1.5 overflow-x-auto pb-0.5">
         {TABS.map((tabItem) => (
           <button
             key={tabItem.id}
             data-tut={`sala.tab.${tabItem.id}`}
             onClick={() => setTab(tabItem.id)}
-            className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
+            className={`shrink-0 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
               tab === tabItem.id ? 'bg-teal-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
             }`}
           >
@@ -59,7 +61,11 @@ export function SalaApp() {
       {tab === 'porConocer' && <PorConocerTab lugares={lugares} />}
       {tab === 'rutas' && <RutasTab lugares={lugares} />}
       {tab === 'bitacora' && <BitacoraTab lugares={lugares} lugarInicial={lugarBitacora} />}
-      {tab === 'cronograma' && <CronogramaApp plantillaId="sala" />}
+      {tab === 'cronograma' && (
+        <div data-tut="sala.cronograma">
+          <CronogramaApp plantillaId="sala" />
+        </div>
+      )}
 
       {/* El ejemplo llena mapa, plan, rutas y bitácora a la vez. */}
       <BarraEjemplo paquete={ejemploSala} />

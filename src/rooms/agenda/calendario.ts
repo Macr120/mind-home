@@ -1,6 +1,8 @@
 import type { UpdateSpec } from 'dexie'
 import type {
+  AjustesCiclo,
   ContactoAgenda,
+  Cuidado,
   CuidadoMascota,
   EventoAgenda,
   Medicamento,
@@ -8,15 +10,18 @@ import type {
   Rutina,
 } from '../../core/data/db'
 import {
+  ajustesCicloRepo,
   contactosAgendaRepo,
   cuidadosMascotaRepo,
+  cuidadosRepo,
+  diasCicloRepo,
   ejecucionesRutinaRepo,
   eventosAgendaRepo,
   mascotasRepo,
   medicamentosRepo,
   rutinasRepo,
 } from '../../core/data/repository'
-import { fechaLocalISO } from '../../core/fechaLocal'
+import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
 import { marcarHecho, tocaHoy } from '../../core/rutinas'
 import {
@@ -29,6 +34,8 @@ import {
 } from './constantes'
 import { ordenarHoras, sumarMin } from './horas'
 import { DURACION_CUIDADO_MIN, getCuidado, HORA_CUIDADO } from './mascotas'
+import { predecir } from './ciclo'
+import { getCuidadoPersona } from './salud'
 
 /**
  * Puente agenda → calendario. ÚNICO módulo que escribe en `rutinas`.
@@ -51,6 +58,9 @@ export const ambitoEvento = (evId: string) => `agEv:${evId}`
 export const ambitoMedicamento = (medId: string) => `agMed:${medId}`
 export const ambitoCumple = (contactoId: string) => `agCum:${contactoId}`
 export const ambitoCuidado = (cuidadoId: string) => `agCui:${cuidadoId}`
+export const ambitoCuidadoPersona = (cuidadoId: string) => `agCuiP:${cuidadoId}`
+export const AMBITO_CICLO = 'agCiclo:aviso'
+export const AMBITO_ANTICONCEPTIVO = 'agCiclo:pastilla'
 
 /** Rutinas que mantiene la agenda (nunca toca las que el usuario creó a mano). */
 const esDeAgenda = (r: Rutina) => r.plantillaId === PLANTILLA && !!r.ambitoId?.startsWith('ag')
@@ -228,6 +238,86 @@ export const sincronizarCuidado = (c: CuidadoMascota, mascota: string) =>
 
 export const borrarRutinasDeCuidado = (cuidadoId: string) => proyectar(ambitoCuidado(cuidadoId), [])
 
+// ----- Cuidados tuyos y de los prójimos -----
+
+/** Igual que el de mascota: una sola vez, porque `fecha` es la próxima. */
+function proyeccionCuidadoPersona(c: Cuidado, dueno: string | null): Proyeccion[] {
+  if (!c.activo || !c.fecha) return []
+  const hora = c.hora || HORA_CUIDADO
+  return [
+    {
+      nombre: dueno ? `${c.titulo} · ${dueno}` : c.titulo,
+      emoji: getCuidadoPersona(c.tipo).emoji,
+      color: COLOR_AREA.salud,
+      hora,
+      horaFin: sumarMin(hora, DURACION_CUIDADO_MIN),
+      dias: [],
+      repeticion: 'una_vez',
+      fechaInicio: c.fecha,
+      seccion: 'salud',
+    },
+  ]
+}
+
+export const sincronizarCuidadoPersona = (c: Cuidado, dueno: string | null) =>
+  proyectar(ambitoCuidadoPersona(c.cuidadoId), proyeccionCuidadoPersona(c, dueno))
+
+export const borrarRutinasDeCuidadoPersona = (cuidadoId: string) =>
+  proyectar(ambitoCuidadoPersona(cuidadoId), [])
+
+// ----- Ciclo -----
+
+/**
+ * El aviso del próximo periodo y el recordatorio de anticonceptivo.
+ *
+ * El aviso es una ESTIMACIÓN, y por eso va como bloque de una sola vez que se
+ * reescribe cada vez que se registra un día: una serie recurrente seguiría
+ * marcando fechas viejas que la media ya desmintió. El anticonceptivo sí es
+ * diario de verdad, así que va indefinido, como una toma de medicamento.
+ */
+export async function sincronizarCiclo(
+  ajustes: AjustesCiclo | undefined,
+  proximo: string | null,
+): Promise<void> {
+  const activo = !!ajustes?.activo
+  await proyectar(
+    AMBITO_CICLO,
+    activo && proximo && ajustes.avisarAntes >= 0
+      ? [
+          {
+            nombre: tGlobal('agenda.ciclo.avisoRutina', 'Se estima que empieza tu periodo'),
+            emoji: '🩸',
+            color: COLOR_AREA.salud,
+            hora: HORA_CUIDADO,
+            horaFin: sumarMin(HORA_CUIDADO, DURACION_CUIDADO_MIN),
+            dias: [],
+            repeticion: 'una_vez',
+            fechaInicio: isoMasDias(proximo, -ajustes.avisarAntes),
+            seccion: 'salud',
+          },
+        ]
+      : [],
+  )
+  await proyectar(
+    AMBITO_ANTICONCEPTIVO,
+    activo && ajustes.anticonceptivoHora
+      ? [
+          {
+            nombre: tGlobal('agenda.ciclo.anticonceptivoRutina', 'Anticonceptivo'),
+            emoji: EMOJI_MEDICAMENTO,
+            color: COLOR_AREA.salud,
+            hora: ajustes.anticonceptivoHora,
+            horaFin: sumarMin(ajustes.anticonceptivoHora, DURACION_TOMA_MIN),
+            dias: [],
+            repeticion: 'indefinido',
+            fechaInicio: fechaLocalISO(),
+            seccion: 'salud',
+          },
+        ]
+      : [],
+  )
+}
+
 // ----- Palomita -----
 
 /** Refleja en el bloque del calendario lo que se palomeó en la app. */
@@ -245,23 +335,34 @@ export async function palomearEventoAgenda(ev: EventoAgenda, hecho: boolean): Pr
  * cuatro barridos. Es idempotente: repetirlo no cambia nada.
  */
 async function hacerReconciliacion(): Promise<void> {
-  const [rutinas, eventos, medicinas, contactos, mascotas, cuidados] = await Promise.all([
-    rutinasRepo.list(),
-    eventosAgendaRepo.list(),
-    medicamentosRepo.list(),
-    contactosAgendaRepo.list(),
-    mascotasRepo.list(),
-    cuidadosMascotaRepo.list(),
-  ])
+  const [rutinas, eventos, medicinas, contactos, mascotas, cuidados, cuidadosPersona, ajustes, dias] =
+    await Promise.all([
+      rutinasRepo.list(),
+      eventosAgendaRepo.list(),
+      medicamentosRepo.list(),
+      contactosAgendaRepo.list(),
+      mascotasRepo.list(),
+      cuidadosMascotaRepo.list(),
+      cuidadosRepo.list(),
+      ajustesCicloRepo.list(),
+      diasCicloRepo.list(),
+    ])
   const mias = rutinas.filter(esDeAgenda)
   const porEvento = new Map(eventos.map((e) => [ambitoEvento(e.evId), e]))
   const porCuidado = new Map(cuidados.map((c) => [ambitoCuidado(c.cuidadoId), c]))
+  const porCuidadoPersona = new Map(cuidadosPersona.map((c) => [ambitoCuidadoPersona(c.cuidadoId), c]))
   const nombreMascota = new Map(mascotas.map((m) => [m.mascId, m.nombre]))
+  const nombreContacto = new Map(contactos.map((c) => [c.contactoId, c.nombre]))
   const vivos = new Set([
     ...porEvento.keys(),
     ...porCuidado.keys(),
+    ...porCuidadoPersona.keys(),
     ...medicinas.map((m) => ambitoMedicamento(m.medId)),
     ...contactos.map((c) => ambitoCumple(c.contactoId)),
+    // Los dos del ciclo existen siempre: `sincronizarCiclo` los vacía cuando el
+    // seguimiento está apagado, y sin esto el barrido 1 los daría por huérfanos.
+    AMBITO_CICLO,
+    AMBITO_ANTICONCEPTIVO,
   ])
 
   // 1. Huérfanas: su dueño ya no existe (se borró desde la app en otro dispositivo).
@@ -292,6 +393,16 @@ async function hacerReconciliacion(): Promise<void> {
     Object.assign(cu, cambios)
   }
 
+  // 2 ter. Y para los cuidados de personas, por la misma razón.
+  for (const r of mias) {
+    const cu = r.ambitoId ? porCuidadoPersona.get(r.ambitoId) : undefined
+    if (!cu?.id || !r.fechaInicio) continue
+    if (r.fechaInicio === cu.fecha && (r.hora ?? '') === (cu.hora ?? HORA_CUIDADO)) continue
+    const cambios = { fecha: r.fechaInicio, hora: r.hora || undefined }
+    await cuidadosRepo.update(cu.id, cambios)
+    Object.assign(cu, cambios)
+  }
+
   // 3. Faltantes y desactualizadas (también reescribe los nombres si cambió el idioma).
   const frescas = await rutinasRepo.list()
   for (const ev of eventos) await proyectar(ambitoEvento(ev.evId), proyeccionEvento(ev), frescas)
@@ -301,6 +412,11 @@ async function hacerReconciliacion(): Promise<void> {
     const nombre = nombreMascota.get(cu.mascotaId) ?? tGlobal('agenda.mascota.sinFicha', 'Mascota')
     await proyectar(ambitoCuidado(cu.cuidadoId), proyeccionCuidado(cu, nombre), frescas)
   }
+  for (const cu of cuidadosPersona) {
+    const nombre = cu.contactoId ? (nombreContacto.get(cu.contactoId) ?? null) : null
+    await proyectar(ambitoCuidadoPersona(cu.cuidadoId), proyeccionCuidadoPersona(cu, nombre), frescas)
+  }
+  await sincronizarCiclo(ajustes[0], predecir(dias, ajustes[0]?.duracionCicloMedia ?? 28).proximo)
 
   // 4. Palomitas de hoy hechas desde el calendario (los días pasados no se revisan).
   const hoy = fechaLocalISO()

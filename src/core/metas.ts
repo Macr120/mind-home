@@ -1,6 +1,6 @@
-import type { Alcance, PasoRutina, Rutina } from './data/db'
+import type { Alcance, EnlaceApp, PasoRutina, Rutina } from './data/db'
 import { borrarPlanesDeMetas, rutinasRepo } from './data/repository'
-import { DIA_MS } from './fechaLocal'
+import { DIA_MS, fechaLocalISO } from './fechaLocal'
 
 /**
  * Metas del calendario: UNA lista. Cualquier meta puede contener sub-metas, a la
@@ -147,6 +147,12 @@ function coincide(r: Rutina, filtro: FiltroMetas): boolean {
  * Una meta que no coincide con el filtro se queda si alguna de sus descendientes
  * sí coincide — si no, buscar escondería la rama entera y el resultado no se
  * podría ni ver. Por eso el recorrido devuelve si hubo acierto abajo.
+ *
+ * El recorrido NO arranca en `raices()` sino en las filas cuya madre no está en
+ * `metas`: la lista puede venir filtrada (una app, el filtro del calendario) o
+ * traer huérfanas de verdad (madre borrada). Con `raices()` esas metas no se
+ * pintaban ni como raíz ni como hija — desaparecían de su propio cronograma y se
+ * quedaban sin botón de borrar, o sea indeleteables desde la UI.
  */
 export function filasVisibles(
   metas: Rutina[],
@@ -154,7 +160,13 @@ export function filasVisibles(
   filtro: FiltroMetas = {},
 ): FilaArbol[] {
   const salida: FilaArbol[] = []
+  const ids = new Set(metas.map((m) => m.id))
+  // Un `padreId` en ciclo es imposible por `puedeSoltarEn`, pero un sync corrupto
+  // sí podría traerlo y aquí reventaría la pila.
+  const vistos = new Set<number>()
   const bajar = (meta: Rutina, profundidad: number): boolean => {
+    if (meta.id != null && vistos.has(meta.id)) return false
+    if (meta.id != null) vistos.add(meta.id)
     const marca = salida.length
     salida.push({ meta, profundidad })
     const abierta = meta.id != null && !plegados.has(meta.id)
@@ -170,7 +182,10 @@ export function filasVisibles(
     }
     return true
   }
-  for (const raiz of raices(metas)) bajar(raiz, 0)
+  const primerNivel = metas
+    .filter((m) => m.padreId == null || !ids.has(m.padreId))
+    .sort((a, b) => (a.orden ?? 0) - (b.orden ?? 0) || a.creadoEn.localeCompare(b.creadoEn))
+  for (const raiz of primerNivel) bajar(raiz, 0)
   return salida
 }
 
@@ -205,6 +220,33 @@ export function rangoDe(r: Rutina): { ini: string; fin: string } | null {
 }
 
 /**
+ * Días que faltan para el último día de la meta: 0 = se acaba hoy, negativo = ya
+ * pasó. Sin fechas no hay cuenta regresiva que llevar.
+ *
+ * Compara a mediodía, como `diasDelRango`: así el cambio de horario de verano no
+ * roba ni regala un día a la cuenta.
+ */
+export function diasParaFin(r: Rutina, hoyIso: string = fechaLocalISO()): number | null {
+  const rango = rangoDe(r)
+  if (!rango) return null
+  const fin = new Date(rango.fin + 'T12:00').getTime()
+  return Math.round((fin - new Date(hoyIso + 'T12:00').getTime()) / DIA_MS)
+}
+
+/**
+ * ¿La meta ocupa ese día? Cubre TODO su periodo, no solo su arranque: es lo que la
+ * mantiene sincronizada con el cronograma en los dos sentidos.
+ *
+ * OJO: para esto NO vale `tocaFecha`. `ponerPeriodo` (arrastrar la barra del
+ * cronograma) escribe las fechas pero deja `repeticion: 'una_vez'`, así que allá
+ * una meta de tres semanas "toca" únicamente el día de su `fechaInicio`.
+ */
+export function vigenteEn(r: Rutina, iso: string): boolean {
+  const rango = r.activa ? rangoDe(r) : null
+  return rango != null && iso >= rango.ini && iso <= rango.fin
+}
+
+/**
  * Periodo que abarca una meta con todo lo que cuelga de ella. Sirve para pintar
  * la rama plegada: sin esto, cerrar una meta sin fechas propias haría desaparecer
  * del cronograma el trabajo de sus hijas.
@@ -220,17 +262,37 @@ export function rangoConHijas(metas: Rutina[], r: Rutina): { ini: string; fin: s
   }
 }
 
+/**
+ * Los bloques que nacieron de una meta (`deMetaId`) viven DENTRO de su periodo: si
+ * la meta se mueve o se estira, se mueven con ella. Sin esto seguirían pidiendo
+ * días donde su meta ya no está, y `sincronizarMetasDeApp` —que solo cuenta lo
+ * hecho dentro del rango— no les contaría ninguno.
+ */
+export async function ajustarBloquesDe(metaId: number, fechaInicio?: string, fechaFin?: string): Promise<void> {
+  const bloques = (await rutinasRepo.list()).filter((r) => r.deMetaId === metaId)
+  await Promise.all(
+    bloques.map((b) =>
+      // Sin fechas la meta se fue del calendario, y con ella lo que pedía: los
+      // bloques se apagan en vez de borrarse (volver a fecharla los revive).
+      rutinasRepo.update(b.id!, { fechaInicio, fechaFin, activa: fechaInicio != null }),
+    ),
+  )
+}
+
 /** Asigna el periodo (ordena los extremos si vienen al revés). */
 export async function ponerPeriodo(r: Rutina, ini: string, fin: string): Promise<void> {
   if (r.id == null || !ini) return
   const [a, b] = ini <= fin ? [ini, fin] : [fin, ini]
-  await rutinasRepo.update(r.id, { fechaInicio: a, fechaFin: a === b ? undefined : b })
+  const fechaFin = a === b ? undefined : b
+  await rutinasRepo.update(r.id, { fechaInicio: a, fechaFin })
+  await ajustarBloquesDe(r.id, a, fechaFin)
 }
 
 /** Devuelve la meta a la lista: sin fechas deja de ocupar sitio en el calendario. */
 export async function quitarPeriodo(r: Rutina): Promise<void> {
   if (r.id == null) return
   await rutinasRepo.update(r.id, { fechaInicio: undefined, fechaFin: undefined, hora: undefined, horaFin: undefined })
+  await ajustarBloquesDe(r.id, undefined, undefined)
 }
 
 // ---------- Progreso ----------
@@ -273,16 +335,50 @@ export function resumenAlcance(metas: Rutina[], r: Rutina): { hechos: number; to
   return { hechos: pasos.hechos + hijasHechas, total: pasos.total + hijas.length }
 }
 
+/**
+ * En qué punto está una meta, leído como un tablero: nada empezado, algo en
+ * marcha, o terminada.
+ *
+ * Se DERIVA del progreso y no se guarda: el panel de Metas cambió el check por
+ * este estado, y un campo aparte podría decir "hecho" con la mitad de las
+ * sub-metas en blanco. Cerrar una meta sin nada dentro sigue siendo su palomita
+ * (`completada`), que aquí ya cuenta como progreso 1.
+ */
+export type EstadoMeta = 'porHacer' | 'enCurso' | 'hecho'
+
+export function estadoMeta(metas: Rutina[], r: Rutina): EstadoMeta {
+  const avance = progresoDe(metas, r)
+  if (avance >= 1) return 'hecho'
+  return avance > 0 ? 'enCurso' : 'porHacer'
+}
+
 /** Palomea/despalomea una meta. */
 export async function toggleMeta(r: Rutina): Promise<void> {
   if (r.id == null) return
   await rutinasRepo.update(r.id, { completada: !r.completada })
 }
 
-/** Ya pasó su fecha de fin y sigue sin completarse. */
-export function vencida(r: Rutina, hoyIso: string): boolean {
+/**
+ * Ya pasó su fecha de fin y sigue sin completarse.
+ *
+ * Con `metas` cuenta también el trabajo de abajo: una meta cuyas sub-metas están
+ * todas hechas NO está vencida aunque nadie palomeara la madre — pasa siempre
+ * con las fases que nacen de un plan aceptado, que se cumplen por sus hijas.
+ */
+export function vencida(r: Rutina, hoyIso: string, metas?: Rutina[]): boolean {
   const rango = rangoDe(r)
-  return !!rango && !r.completada && rango.fin < hoyIso
+  if (!rango || rango.fin >= hoyIso) return false
+  return metas ? progresoDe(metas, r) < 1 : !r.completada
+}
+
+/**
+ * Enlaza la meta con la app donde se registra lo que pide (o la desenlaza con
+ * `undefined`). No toca `plantillaId`: de quién ES la meta y dónde se APUNTA son
+ * dos cosas distintas — una meta del jardín puede pedir agua, que vive en cocina.
+ */
+export async function enlazarMeta(r: Rutina, enlace: EnlaceApp | undefined): Promise<void> {
+  if (r.id == null) return
+  await rutinasRepo.update(r.id, { enlaceApp: enlace })
 }
 
 // ---------- Pasos de una meta ----------
@@ -392,11 +488,72 @@ export async function borrarMetasDeAmbito(ambitoId: string): Promise<void> {
   await Promise.all(ids.map((i) => rutinasRepo.remove(i)))
 }
 
-/** Borra una meta, todo lo que cuelga de ella y los planes que se le propusieron. */
-export async function borrarMetaConDescendencia(metas: Rutina[], id: number): Promise<void> {
-  const ids = [id, ...descendientes(metas, id).map((r) => r.id)].filter((i): i is number => i != null)
+/**
+ * Borra una meta, todo lo que cuelga de ella y los planes que se le propusieron.
+ *
+ * La descendencia se calcula sobre la BD, no sobre la lista de quien llama, igual
+ * que `borrarMetasDeAmbito`: desde un cronograma embebido esa lista viene filtrada
+ * a una app, así que las hijas de otra app se salvaban del borrado y se quedaban
+ * con el `padreId` apuntando al vacío — invisibles en el árbol y, por tanto,
+ * imposibles de borrar después.
+ */
+export async function borrarMetaConDescendencia(id: number): Promise<void> {
+  const vivas = (await rutinasRepo.list()).filter(esMeta)
+  const ids = [id, ...descendientes(vivas, id).map((r) => r.id)].filter((i): i is number => i != null)
   await borrarPlanesDeMetas(ids)
   await Promise.all(ids.map((i) => rutinasRepo.remove(i)))
+}
+
+/**
+ * Coloca `mueve` justo antes de `antesDe` (o al final) dentro de `lista`, y deja
+ * esa importancia escrita en toda la lista.
+ *
+ * Se renumera la columna ENTERA a propósito: mientras nadie arrastre, el orden
+ * lo pone el plazo (`prioridad` sin valor) y no hay nada que mantener; en cuanto
+ * se arrastra una, la lista pasa a ser la que el usuario dejó puesta y mezclar
+ * las dos cosas daría un orden que nadie sabría explicar.
+ */
+export async function priorizarMeta(
+  lista: Rutina[],
+  mueve: Rutina,
+  antesDe?: Rutina,
+): Promise<void> {
+  if (mueve.id == null || mueve.id === antesDe?.id) return
+  const resto = lista.filter((m) => m.id !== mueve.id)
+  const i = antesDe ? resto.findIndex((m) => m.id === antesDe.id) : -1
+  const at = i === -1 ? resto.length : i
+  const fila = [...resto.slice(0, at), mueve, ...resto.slice(at)]
+  await Promise.all(fila.map((r, prioridad) => rutinasRepo.update(r.id!, { prioridad })))
+}
+
+/**
+ * Cambia una meta de carpeta (la app o la categoría propia del panel de Metas), y
+ * con ella toda su descendencia.
+ *
+ * Las sub-metas heredan `plantillaId` al nacer (`crearMeta`) pero no después, así
+ * que sin arrastrar la rama entera se quedarían en la carpeta de antes: el árbol
+ * seguiría entero, pero repartido entre dos apps.
+ *
+ * `ambitoId` se borra al cambiar de app: apunta a algo de la app anterior (un
+ * hobby, un proyecto, un idioma) que en la nueva no existe.
+ */
+export async function moverMetaACarpeta(
+  metas: Rutina[],
+  meta: Rutina,
+  destino: { plantillaId?: string; categoriaMeta?: string },
+): Promise<void> {
+  if (meta.id == null) return
+  const cambiaApp = destino.plantillaId !== meta.plantillaId
+  const rama = [meta, ...descendientes(metas, meta.id)]
+  await Promise.all(
+    rama.map((r) =>
+      rutinasRepo.update(r.id!, {
+        plantillaId: destino.plantillaId,
+        categoriaMeta: destino.categoriaMeta,
+        ...(cambiaApp ? { ambitoId: undefined } : {}),
+      }),
+    ),
+  )
 }
 
 /**

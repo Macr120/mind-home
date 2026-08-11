@@ -11,6 +11,10 @@ import { esDemo } from './core/edicion'
 import { conectarMotorSync } from './core/data/sync/motor'
 import { abrirApp } from './core/abrirApp'
 import { registrarActividad } from './core/rutinas'
+// Publica las apps de código en el catálogo (`core/appContrato`) antes de que
+// nada las consulte: quien lee el catálogo ya no importa el registro, así que
+// esta es la importación que garantiza que se evalúe.
+import './core/registry'
 import { useWrappedUi } from './core/state/wrappedUiStore'
 import type { TipoPeriodo } from './core/wrapped/periodo'
 

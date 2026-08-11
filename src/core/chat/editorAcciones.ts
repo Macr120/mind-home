@@ -1,12 +1,13 @@
 import type { Cuarto, ObjetoCuarto } from '../data/db'
 import { normalizar, buscarCuarto, OBJETOS } from './dispatcher'
 import type { ToolNeutra } from './ia'
-import { plantillasCuarto, type Plantilla, type ComandoApp } from '../registry'
+import { plantillasCuarto, type Plantilla, type ComandoApp } from '../appContrato'
 import { useCuartos } from '../state/cuartosStore'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useAjustes, type Idioma, type MoodMusica } from '../state/ajustesStore'
 import { useWrappedUi } from '../state/wrappedUiStore'
+import { useRutinasUI, type VistaCalendario } from '../state/rutinasUiStore'
 import { useCam } from '../state/cameraStore'
 import { useMontura } from '../state/monturaStore'
 import { VEHICULOS_JUGABLES, esVehiculo } from '../house/vehiculos'
@@ -311,6 +312,36 @@ function resolverComandoApp(texto: string): { app: Plantilla; cmd: ComandoApp } 
         if (nombreEnTexto(nombre, n, tokens) && (!mejor || nombre.length > mejor.largo)) {
           mejor = { app, cmd, largo: nombre.length }
         }
+      }
+    }
+  }
+  return mejor
+}
+
+/**
+ * Las vistas del calendario, pedibles por chat. Vive aquí y no en una plantilla
+ * porque el calendario dejó de ser una app: se abre en el reloj del HUD, así que
+ * `resolverComandoApp` (que recorre el catálogo) ya no lo encuentra.
+ */
+const VISTAS_CALENDARIO: { vista: VistaCalendario; etiqueta: string; nombres: string[] }[] = [
+  { vista: 'cronograma', etiqueta: 'Metas', nombres: ['cronograma', 'mis metas', 'mis planes', 'linea de tiempo'] },
+  { vista: 'dia', etiqueta: 'Agenda de hoy', nombres: ['agenda de hoy', 'agenda del dia', 'mi dia'] },
+  { vista: 'semana', etiqueta: 'Semana', nombres: ['agenda de la semana', 'mi semana'] },
+  { vista: 'mes', etiqueta: 'Mes', nombres: ['calendario del mes', 'mi mes'] },
+  { vista: 'anio', etiqueta: 'Año', nombres: ['calendario del ano', 'mi ano'] },
+  // El genérico al final: gana el nombre más largo, así «mi semana» no cae aquí.
+  { vista: 'semana', etiqueta: 'Calendario', nombres: ['calendario'] },
+]
+
+/** ¿El texto pide el calendario (o una de sus vistas)? Gana el nombre más largo. */
+function resolverVistaCalendario(texto: string): { vista: VistaCalendario; etiqueta: string } | null {
+  const n = normalizar(texto)
+  const tokens = new Set(n.split(/[^a-z0-9]+/).filter(Boolean))
+  let mejor: { vista: VistaCalendario; etiqueta: string; largo: number } | null = null
+  for (const v of VISTAS_CALENDARIO) {
+    for (const nombre of v.nombres) {
+      if (nombreEnTexto(nombre, n, tokens) && (!mejor || nombre.length > mejor.largo)) {
+        mejor = { vista: v.vista, etiqueta: v.etiqueta, largo: nombre.length }
       }
     }
   }
@@ -887,6 +918,14 @@ export async function ejecutarToolEditor(
       return cmd
         ? `Abrí ${cmd.etiqueta} (${nombreApp(app)}) en «${nombreCuarto(roomId)}».`
         : `Abrí ${nombreApp(app)} en «${nombreCuarto(roomId)}».`
+    }
+
+    // El calendario no vive en ningún cuarto: se abre sobre la casa, desde el reloj.
+    case 'editor_abrir_calendario': {
+      const pedida = str(input, 'vista')
+      const vista = VISTAS_CALENDARIO.find((v) => v.vista === pedida)
+      useRutinasUI.getState().abrirCalendario(vista?.vista)
+      return vista ? `Abrí el calendario en ${vista.etiqueta}.` : 'Abrí el calendario.'
     }
 
     // ── Ideas: mapas conceptuales ──
@@ -1673,6 +1712,22 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
           type: 'string',
           description:
             'Dato de la sección: para juegos de mesa el id del juego (viborita, tetris, ajedrez, sudoku, damas, pong…). Requiere app=entretenimiento y seccion=mesa.',
+        },
+      },
+    },
+  },
+  {
+    name: 'editor_abrir_calendario',
+    description:
+      'Abre el calendario de la casa (el del reloj: no vive en ningún cuarto). Úsala cuando el usuario pida su calendario, su agenda del día o de la semana, o sus metas, planes y cronograma.',
+    schema: {
+      type: 'object',
+      properties: {
+        vista: {
+          type: 'string',
+          enum: ['dia', 'semana', 'mes', 'anio', 'cronograma'],
+          description:
+            'Con qué vista abrirlo. «cronograma» es la sección de Metas (metas, planes y el eje de tiempo). Por defecto, semana.',
         },
       },
     },
@@ -2594,6 +2649,11 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
   const abrirMatch = /^(?:abre(?:me)?|abrir|entra(?:r)?|entremos|lanza(?:r)?|ll[eé]vame|mu[eé]strame|vamos|vayamos)\b\s*(?:a(?:l)?\s+)?(.+)$/i.exec(limpio)
   if (abrirMatch) {
     const resto = abrirMatch[1]
+    // El calendario primero: no es una app, así que `resolverComandoApp` no lo ve.
+    const cal = resolverVistaCalendario(resto)
+    if (cal) {
+      return edicion(`🗓️ Abrir ${cal.etiqueta}`, 'editor_abrir_calendario', { vista: cal.vista })
+    }
     const res = resolverComandoApp(resto)
     if (res) {
       return edicion(`🚪 Abrir ${res.cmd.etiqueta} · ${nombreApp(res.app)}`, 'editor_abrir_app', {

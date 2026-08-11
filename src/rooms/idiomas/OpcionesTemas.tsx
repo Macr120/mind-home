@@ -1,40 +1,39 @@
-import type { TemaIdioma } from '../../core/data/db'
+import type { ReactNode } from 'react'
 import { useT } from '../../core/i18n/useT'
-import { AREAS } from './temario'
+import { tituloNodo, type NodoTema, type Temario } from './temarioVivo'
+
+/** Un tema y, sangrados con «·», sus subtemas. */
+function opciones(tema: NodoTema, prof: number): ReactNode[] {
+  return [
+    <option key={tema.id} value={tema.id}>
+      {'· '.repeat(prof)}
+      {tema.titulo}
+    </option>,
+    ...tema.hijos.flatMap((h) => opciones(h, prof + 1)),
+  ]
+}
 
 /**
- * Opciones de un `<select>` de tema: las tres áreas del temario agrupadas por
- * nivel más los nodos dinámicos del idioma. La comparten el form de tarjeta y
- * el panel ✨.
+ * Opciones de un `<select>` de tema: el TEMARIO VIVO agrupado por nivel (lo de
+ * fábrica ya renombrado, sin lo borrado, con tus áreas, niveles y temas propios
+ * en su sitio y los subtemas sangrados). La comparten el form de tarjeta, el
+ * panel ✨ y el bloque «Sin clasificar» del temario.
  */
-export function OpcionesTemas({ nodos }: { nodos: TemaIdioma[] }) {
+export function OpcionesTemas({ tx }: { tx: Temario }) {
   const t = useT()
   return (
     <>
-      {AREAS.map((area) =>
-        area.catalogo.map((nivel) => (
-          <optgroup
-            key={`${area.id}-${nivel.nivel}`}
-            label={`${nivel.nivel} · ${
-              area.id === 'temas' ? nivel.titulo : t(`idiomas.area.${area.id}`, area.labelEs)
-            }`}
-          >
-            {nivel.temas.map((tema) => (
-              <option key={tema.id} value={tema.id}>
-                {tema.titulo}
-              </option>
-            ))}
-          </optgroup>
-        )),
-      )}
-      {nodos.length > 0 && (
-        <optgroup label={t('idiomas.form.temasDesbloq', 'Desbloqueados')}>
-          {nodos.map((n) => (
-            <option key={n.temaId} value={n.temaId}>
-              {n.titulo}
-            </option>
-          ))}
-        </optgroup>
+      {tx.areas.map((area) =>
+        area.hijos
+          .filter((nivel) => nivel.hijos.length > 0)
+          .map((nivel) => (
+            <optgroup
+              key={nivel.id}
+              label={`${nivel.nivel} · ${tituloNodo(area.id === 'temas' ? nivel : area, t)}`}
+            >
+              {nivel.hijos.flatMap((tema) => opciones(tema, 0))}
+            </optgroup>
+          )),
       )}
     </>
   )

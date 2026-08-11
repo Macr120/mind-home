@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lanzador puro: no se actualiza solo (updatePeriodMillis 0), sus botones son fijos. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_chat_desc"
+    android:initialLayout="@layout/widget_chat"
+    android:minWidth="150dp"
+    android:minHeight="110dp"
+    android:previewLayout="@layout/widget_chat"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellWidth="2"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen" />

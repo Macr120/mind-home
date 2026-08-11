@@ -195,6 +195,7 @@ export default function WrappedOverlay() {
 
   return (
     <div
+      data-tut="wrapped.overlay"
       className="ui-noche fixed inset-0 z-[55] flex flex-col overflow-hidden bg-black/90 backdrop-blur"
       role="dialog"
       aria-modal="true"
@@ -242,7 +243,7 @@ export default function WrappedOverlay() {
         >
           ✕
         </button>
-        <div className="flex min-w-0 flex-1 items-center justify-center gap-1">
+        <div data-tut="wrapped.periodo" className="flex min-w-0 flex-1 items-center justify-center gap-1">
           <button
             type="button"
             onClick={() => useWrappedUi.getState().irAnterior()}
@@ -283,6 +284,7 @@ export default function WrappedOverlay() {
         {datos && slide && (
           <button
             type="button"
+            data-tut="wrapped.compartir"
             onClick={() => void compartirLamina()}
             title={t('wrapped.compartir', 'Compartir esta lámina')}
             className="rounded-lg px-2 py-1 text-white/70 transition hover:bg-white/10"
@@ -290,7 +292,7 @@ export default function WrappedOverlay() {
             {compartido ? <Icono nombre="confirmar" /> : <Icono nombre="compartir" />}
           </button>
         )}
-        <div className="flex overflow-hidden rounded-lg border border-white/15">
+        <div data-tut="wrapped.tipo" className="flex overflow-hidden rounded-lg border border-white/15">
           {(['semana', 'mes', 'anio'] as const).map((tp) => (
             <button
               key={tp}
@@ -312,6 +314,7 @@ export default function WrappedOverlay() {
 
       {/* Cuerpo: el slide activo, re-montado para re-animar. */}
       <div
+        data-tut="wrapped.laminas"
         className="relative min-h-0 flex-1 select-none"
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}

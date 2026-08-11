@@ -6,7 +6,7 @@ import { AvatarModelo } from '../../house/AvatarModelo'
 import { ModeloMascota } from '../../house/Asistente3D'
 import { Prendas } from '../../house/Prendas'
 import { PiezasSeleccionContext } from '../../house/modeloPersonalizado'
-import { anclasDe, soportaRostro, soportaPeinado } from '../../house/apariencia'
+import { anclasDe, muestraRostro, soportaPeinado } from '../../house/apariencia'
 import { forzarSiempre } from '../../house/animacion'
 import { GrupoAnimado } from '../../house/Animado'
 import { Rostro } from '../../house/Rostro'
@@ -87,9 +87,10 @@ export function PreviewPersonaje3D({
                     brazoRef={brazo}
                     anim={animPlay}
                     estado={{ velocidad: 0, fase: 0 }}
+                    sinOjos={muestraRostro(asistente)}
                   />
                   <Prendas ropa={asistente.ropa} anclas={anclasDe(asistente)} />
-                  {soportaRostro(asistente) && (
+                  {muestraRostro(asistente) && (
                     <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
                   )}
                   {soportaPeinado(asistente) && (

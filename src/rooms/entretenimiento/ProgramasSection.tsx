@@ -97,7 +97,7 @@ export function ProgramasSection() {
   const elegidos = propuesta ? propuesta.items.length - fuera.size : 0
 
   return (
-    <div data-tut="entretenimiento.programas" className="space-y-2 pt-2">
+    <div data-tut="entretenimiento.programas" className="space-y-2">
       <p className="text-sm font-semibold">
         <Icono nombre="calendario" /> {t('entre.prog.titulo', 'Programas')}
       </p>

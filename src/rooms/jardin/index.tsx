@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura } from '../../core/registry'
-import { vTexto, vNumero, vFecha } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/appContrato'
+import { vTexto, vNumero, vFecha } from '../../core/appContrato'
 import {
   sesionesMindfulnessRepo,
   gratitudDiariaRepo,
@@ -11,6 +11,7 @@ import { flujosJardin } from './tutorial'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { PaisajeId } from '../../core/audio/paisaje'
 import { PISTAS } from './pistas'
+import { planMetasJardin } from './plan'
 
 const PISTAS_TOKENS: [string[], PaisajeId][] = [
   [['bosque', 'arboles', 'pajaros', 'naturaleza'], 'bosque'],
@@ -133,6 +134,8 @@ const jardin: Plantilla = {
   color: '#4ade80',
   App: JardinApp,
   flujos: flujosJardin,
+  // Acotamiento del planificador ✨: práctica contemplativa, y sin rachas (ver plan.ts).
+  planMetas: planMetasJardin,
   capturar,
   esquemas,
   sinMuros: true,
@@ -144,6 +147,7 @@ const jardin: Plantilla = {
     unidad: 'min',
     seccion: 'meditacion',
     sinRacha: true,
+    ajustable: true,
     del: async (fecha) => ({
       hecho: (await sesionesMindfulnessRepo.list())
         .filter((s) => s.fecha === fecha)

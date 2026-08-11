@@ -166,6 +166,15 @@ interface PlanosState {
   setMenuPlano: (m: MenuPlanoAccion) => void
 }
 
+/**
+ * Rejilla fina EFECTIVA. `detalleRejilla` es un ajuste global de sesión, pero su
+ * interruptor solo se ofrece en Cuartos y Piso exterior; en los demás modos (muros,
+ * puertas, ventanas, piso interior, techos) se dibuja siempre la rejilla normal,
+ * aunque haya quedado la fina activa en los que sí la ofrecen.
+ */
+export const detalleEfectivo = (s: PlanosState): DetalleRejillaPlano =>
+  s.modo === 'cuartos' || s.modo === 'piso-ext' ? s.detalleRejilla : 'celda'
+
 export const usePlanos = create<PlanosState>((set) => ({
   activo: false,
   nivel: 0,

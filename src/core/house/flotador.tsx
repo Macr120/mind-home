@@ -2,14 +2,9 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { ObjetoCuarto } from '../data/db'
-import { useDiseño, esObjetoMapa } from '../state/disenoStore'
-import { useHouse } from '../state/houseStore'
-import { useLayout, roomWorldPos } from '../state/layoutStore'
-import { playerPos } from '../state/playerPosition'
-import { useMontura } from '../state/monturaStore'
-import { useFlotador, flotadorFrame, TIPO_FLOTADOR } from '../state/flotadorStore'
-import { dragChar } from './characterDrag'
-import { subId, worldToSubCell } from './walls'
+import { esObjetoMapa } from '../state/disenoStore'
+import { roomWorldPos } from '../state/layoutStore'
+import { useFlotador } from '../state/flotadorStore'
 
 /**
  * Dona flotadora de las albercas: aparece sola al llenar de agua un sótano
@@ -32,9 +27,6 @@ const TUBO = 0.15
  * lámina (el aro le rodea la cintura) y las piernas cuelgan en el agua.
  */
 export const ASIENTO_FLOTADOR: [number, number, number] = [0, -0.6, 0]
-
-/** Distancia a la dona (su centro) para subirse al nadar hasta ella. */
-const RADIO_SENTARSE = 1.3
 
 /** Aro salvavidas: tubo de color con cuatro franjas blancas, apoyado en la lámina. */
 function FlotadorForma({ color }: { color: string }) {
@@ -101,38 +93,5 @@ export function posMundoFlotador(o: ObjetoCuarto): [number, number] {
   return [rx + (o.x ?? 0), rz + (o.z ?? 0)]
 }
 
-/**
- * Sienta al personaje en la dona más cercana al NADAR hasta ella (sin botón,
- * como los juegos de parque). Tras bajarse (`flotadorFrame.recienId`) no se
- * vuelve a subir hasta que se aleja.
- */
-let accFlotador = 0
-export function FlotadorProximity() {
-  useFrame((_st3f, delta) => {
-    // Sondeo ~4 veces/s (mismo criterio que VehiculoProximity: recorrer objetos a 60 Hz es caro).
-    accFlotador += delta
-    if (accFlotador < 0.25) return
-    accFlotador = 0
-    const flotador = useFlotador.getState()
-    if (flotador.instanciaId != null) return // ya sentado
-    const { transicion, playerLevel } = useHouse.getState()
-    const layout = useLayout.getState()
-    if (transicion || playerLevel !== -1 || layout.editMode || dragChar.id) return
-    if (useMontura.getState().instanciaId != null) return // en un vehículo
-    // Solo nadando: fuera del agua (búnker) la dona no sirve.
-    const sub = worldToSubCell(playerPos.x, playerPos.z)
-    if (!layout.subCeldasAgua.has(subId(sub.sc, sub.sr))) return
-    let mejor: { o: ObjetoCuarto; x: number; z: number; d: number } | null = null
-    let recienCerca = false
-    for (const o of useDiseño.getState().objetos) {
-      if (o.id == null || o.tipo !== TIPO_FLOTADOR) continue
-      const [ox, oz] = posMundoFlotador(o)
-      const d = Math.hypot(playerPos.x - ox, playerPos.z - oz)
-      if (o.id === flotadorFrame.recienId && d <= RADIO_SENTARSE + 0.7) recienCerca = true
-      if (d <= RADIO_SENTARSE && (!mejor || d < mejor.d)) mejor = { o, x: ox, z: oz, d }
-    }
-    if (!recienCerca) flotadorFrame.recienId = null // se alejó de la última usada
-    if (mejor && mejor.o.id !== flotadorFrame.recienId) flotador.sentarse(mejor.o, mejor.x, mejor.z)
-  })
-  return null
-}
+// La dona ya NO se aborda sola al nadar hasta ella: el botón «Subirte» del hueco
+// del cubo la ofrece al acercarte (ver `ContextoProximity`). El radio vive ahí.

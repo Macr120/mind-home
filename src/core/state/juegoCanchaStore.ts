@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { db } from '../data/db'
 import { sonar } from '../audio/sfx'
+import { useCam, type Vista } from './cameraStore'
 import type { ClaseCancha } from './canchasStore'
 
 /**
@@ -13,6 +14,8 @@ import type { ClaseCancha } from './canchasStore'
  */
 
 export type ModoJuego = 'solo' | 'ia'
+/** Perspectiva con la que se juega el partido (se elige en el prompt de modo). */
+export type VistaJuego = 'iso' | 'tercera'
 
 /** Preferencia de dificultad (0 = muy fácil, 1 = experto). */
 const LS_DIFICULTAD = 'mh.juegoDificultad'
@@ -20,6 +23,11 @@ const leerDificultad = (): number => {
   const v = parseFloat(localStorage.getItem(LS_DIFICULTAD) ?? '')
   return Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : 0.5
 }
+
+/** Preferencia de perspectiva (se recuerda entre partidos, como en paintball). */
+const LS_VISTA = 'mh.juegoVista'
+const leerVistaJuego = (): VistaJuego =>
+  localStorage.getItem(LS_VISTA) === 'tercera' ? 'tercera' : 'iso'
 
 /** Estado por-frame del minijuego activo (coordenadas locales de la cancha). */
 export const juegoFrame = {
@@ -92,6 +100,59 @@ export const juegoFrame = {
   anclaZ: 0,
   /** Rumbo mundial al que mira el bateador (hacia el montículo). */
   anclaHeading: 0,
+  /** ms época en que se puso el ancla: durante la gracia el movimiento no la suelta. */
+  anclaDesde: 0,
+  /** Primer frame del ancla: Character planta al avatar en la caja sin interpolar. */
+  anclaSnap: false,
+  /** El jugador se salió de la caja a propósito: ya no se le vuelve a anclar. */
+  anclaSoltada: false,
+  // ── Básquet: pulsos de animación de la canasta (1 → 0, los baja JuegoActivo) ──
+  /** El balón entró: la red se estira y el aro destella. */
+  aroPulso: 0,
+  /** El balón pegó en el tablero. */
+  tableroPulso: 0,
+}
+
+/**
+ * Gracia del ancla de bateo: llegas a la cancha caminando y el input residual la
+ * soltaba antes de que el avatar llegara siquiera a la caja.
+ */
+export const ANCLA_GRACIA_MS = 700
+
+// Vista a restaurar al terminar el partido, y la que dejó puesta el partido.
+let vistaPrevia: Vista | null = null
+let vistaAplicada: Vista | null = null
+
+/** Aplica la perspectiva elegida al arrancar el partido (y recuerda la anterior). */
+function aplicarVistaJuego(v: VistaJuego): void {
+  const cam = useCam.getState()
+  if (vistaPrevia === null) vistaPrevia = cam.vista
+  vistaAplicada = v
+  cam.setVista(v)
+}
+
+/**
+ * Devuelve la cámara a como estaba. Si desde entonces la movió otro (paintball,
+ * una carrera o la tecla V), NO se toca: pisarla dejaba el paintball en
+ * isométrica, sin mira y sin poder disparar.
+ */
+function restaurarVistaJuego(): void {
+  const cam = useCam.getState()
+  if (vistaPrevia !== null && cam.vista === vistaAplicada) cam.setVista(vistaPrevia)
+  vistaPrevia = null
+  vistaAplicada = null
+}
+
+/**
+ * Béisbol en 3ª persona: coloca la cámara DETRÁS del bateador, mirando al
+ * montículo. Lo llama `reiniciarJuego`, que es donde ya está calculado el rumbo
+ * del ancla.
+ */
+export function orientarBateo(heading: number): void {
+  if (useCam.getState().vista !== 'tercera') return
+  // La cámara se coloca en la dirección (sin yaw, cos yaw) desde el avatar: para
+  // quedar a su espalda hay que apuntar al contrario de su rumbo.
+  useCam.setState({ yaw: heading + Math.PI, pitch: 0.45 })
 }
 
 interface JuegoCanchaState {
@@ -103,6 +164,8 @@ interface JuegoCanchaState {
   modo: ModoJuego | null
   /** Dificultad del rival/frontón (0–1); preferencia persistente. */
   dificultad: number
+  /** Perspectiva del partido (isométrica o 3ª persona); preferencia persistente. */
+  vistaJuego: VistaJuego
   /** Asistente rival elegido (id para su modelo 3D, nombre para el HUD). */
   rivalId: string | null
   rivalNombre: string | null
@@ -119,9 +182,18 @@ interface JuegoCanchaState {
   mejorPeloteo: number
   /** Clave del mensaje transitorio del HUD ('gol', 'canasta3', …). */
   mensaje: string | null
+  /**
+   * Cancha que el jugador está pisando, sin haber empezado (patrón `useTren.cerca`):
+   * la publica `MinijuegosCanchas` y alimenta el botón «Jugar» del hueco del cubo.
+   * Antes se entraba SOLO con pisarla, sin poder decidir.
+   */
+  cerca: { canchaId: number; clase: ClaseCancha } | null
+  setCerca: (c: { canchaId: number; clase: ClaseCancha } | null) => void
   activar: (canchaId: number, clase: ClaseCancha) => Promise<void>
   elegirModo: (modo: ModoJuego, rival?: { id: string; nombre: string; color?: string }) => void
   setDificultad: (d: number) => void
+  /** Cambia la perspectiva; con el partido en marcha se aplica al vuelo. */
+  setVistaJuego: (v: VistaJuego) => void
   terminar: () => void
   /** Suma puntos (fútbol/básquet), persiste el marcador y muestra el mensaje. */
   anotar: (quien: 'yo' | 'rival', puntos: number, mensaje: string) => Promise<void>
@@ -199,6 +271,7 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
   fase: null,
   modo: null,
   dificultad: leerDificultad(),
+  vistaJuego: leerVistaJuego(),
   rivalId: null,
   rivalNombre: null,
   rivalColor: null,
@@ -211,8 +284,16 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
   mejorPeloteo: 0,
   mensaje: null,
 
+  cerca: null,
+  setCerca: (c) => {
+    const a = get().cerca
+    if (a?.canchaId === c?.canchaId) return
+    set({ cerca: c })
+  },
+
   activar: async (canchaId, clase) => {
     if (get().canchaId === canchaId) return
+    set({ cerca: null })
     const f = await db.marcadores.where('canchaId').equals(canchaId).first()
     set({
       canchaId,
@@ -236,6 +317,7 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
   elegirModo: (modo, rival) => {
     if (get().fase !== 'eligiendo') return
     sonar('silbato')
+    aplicarVistaJuego(get().vistaJuego)
     // El tenis arranca cada partido desde 0-0 (en solo, `yo` cuenta el peloteo).
     const reset = get().clase === 'tenis' ? { yo: 0, rival: 0 } : {}
     set({
@@ -254,11 +336,18 @@ export const useJuegoCancha = create<JuegoCanchaState>((set, get) => ({
     set({ dificultad: d })
   },
 
+  setVistaJuego: (vistaJuego) => {
+    localStorage.setItem(LS_VISTA, vistaJuego)
+    set({ vistaJuego })
+    if (get().fase === 'jugando') aplicarVistaJuego(vistaJuego)
+  },
+
   terminar: () => {
     if (get().canchaId == null) return
     window.clearTimeout(avisoTimer)
     juegoFrame.anclaActiva = false
     juegoFrame.bateando = false
+    restaurarVistaJuego()
     set({
       canchaId: null,
       clase: null,

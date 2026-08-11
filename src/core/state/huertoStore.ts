@@ -5,7 +5,7 @@ import { useHouse } from './houseStore'
 import { useCam, type Vista } from './cameraStore'
 import { playerPos } from './playerPosition'
 import { setCuartoAbierto } from '../house/movement'
-import { estadoCultivo, celdasRegadas } from '../house/cultivos'
+import { estadoCultivo, celdasRegadas, MARCHITO_VISIBLE_MIN } from '../house/cultivos'
 
 export type HerramientaHuerto = 'parcela' | 'sembrar' | 'regar' | 'cosechar' | 'aspersor' | 'quitar'
 
@@ -29,6 +29,16 @@ export async function cosecharParcela(previa: CultivoCelda): Promise<void> {
 }
 
 /**
+ * Cosecha por id, releyendo la fila de la BD: la usa el botón «Cosechar» del
+ * hueco del cubo, que solo lleva el id (así el panel no tiene que suscribirse a
+ * la tabla de cultivos entera para pintar un botón).
+ */
+export async function cosecharParcelaPorId(id: number): Promise<void> {
+  const fila = await db.cultivos.get(id)
+  if (fila) await cosecharParcela(fila)
+}
+
+/**
  * Riega de golpe todo el huerto (lo pide el chat: «riega el huerto»). Salta lo
  * listo y lo marchito, que ya no cambian con agua. Devuelve cuántos regó.
  */
@@ -42,6 +52,26 @@ export async function regarTodo(): Promise<number> {
     const e = estadoCultivo(c, ahora, regadas.get(`${c.col},${c.row}`))
     if (!e || e.etapa === 'listo' || e.etapa === 'marchito') continue
     await db.cultivos.update(c.id, { regadoEn: ahora })
+    n++
+  }
+  return n
+}
+
+/**
+ * Barrido de marchitos: pasada su ventana visible, el cultivo perdido se borra
+ * y la parcela queda como nueva (tierra vacía, lista para volver a sembrar; se
+ * conserva su contador de cosechas). Devuelve cuántas limpió.
+ */
+export async function limpiarMarchitos(ahora = Date.now()): Promise<number> {
+  const todas = await db.cultivos.toArray()
+  const regadas = celdasRegadas(todas)
+  let n = 0
+  for (const c of todas) {
+    if (c.id == null || !c.especie) continue
+    const e = estadoCultivo(c, ahora, regadas.get(`${c.col},${c.row}`))
+    if (e?.etapa !== 'marchito' || e.marchitoEn == null) continue
+    if (ahora - e.marchitoEn < MARCHITO_VISIBLE_MIN * 60_000) continue
+    await db.cultivos.update(c.id, { especie: undefined, plantadoEn: undefined, regadoEn: undefined })
     n++
   }
   return n

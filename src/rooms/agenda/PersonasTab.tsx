@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import type { ContactoAgenda, EventoAgenda, ProyectoAgenda } from '../../core/data/db'
+import type { ContactoAgenda, EventoAgenda } from '../../core/data/db'
 import { normalizar } from '../../core/chat/dispatcher'
+import { contactosAgendaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { CarpetasPorEtiqueta } from '../_shared/Archivador'
+import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { AvatarContacto } from './AvatarContacto'
 import { BarraEjemplo } from './BarraEjemplo'
 import { COLOR_AREA } from './constantes'
@@ -15,11 +17,9 @@ import { FormEvento } from './FormEvento'
 export function PersonasTab({
   eventos,
   contactos,
-  proyectos,
 }: {
   eventos: EventoAgenda[]
   contactos: ContactoAgenda[]
-  proyectos: ProyectoAgenda[]
 }) {
   const t = useT()
   const [busqueda, setBusqueda] = useState('')
@@ -28,6 +28,20 @@ export function PersonasTab({
   const [creando, setCreando] = useState(false)
   const [nuevoEvento, setNuevoEvento] = useState<ContactoAgenda | null>(null)
 
+  // La lista visible y su arrastre van antes de la ficha: son hooks y no pueden
+  // quedar detrás de un `return`.
+  const filtrados = porOrden(
+    busqueda ? contactos.filter((c) => normalizar(c.nombre).includes(normalizar(busqueda))) : contactos,
+  )
+  // Cada quien se mueve dentro de SU carpeta de relación, la misma con la que
+  // agrupa el archivador (que no distingue mayúsculas ni espacios de sobra).
+  const arrastre = useArrastreFilas(
+    filtrados,
+    (c) => c.contactoId,
+    (c) => (c.relacion ?? '').trim().toLocaleLowerCase(),
+    (nuevas) => void guardarOrden(nuevas, (id, orden) => contactosAgendaRepo.update(id, { orden })),
+  )
+
   const contacto = contactos.find((c) => c.contactoId === seleccionado)
   if (contacto) {
     return (
@@ -35,7 +49,6 @@ export function PersonasTab({
         <DetalleContacto
           contacto={contacto}
           contactos={contactos}
-          proyectos={proyectos}
           onVolver={() => setSeleccionado(null)}
           onEditar={() => setEditando(contacto)}
           onNuevoEvento={() => setNuevoEvento(contacto)}
@@ -46,17 +59,12 @@ export function PersonasTab({
             area="personas"
             contactoInicial={nuevoEvento.contactoId}
             contactos={contactos}
-            proyectos={proyectos}
             onCerrar={() => setNuevoEvento(null)}
           />
         )}
       </>
     )
   }
-
-  const filtrados = busqueda
-    ? contactos.filter((c) => normalizar(c.nombre).includes(normalizar(busqueda)))
-    : contactos
 
   return (
     <div className="space-y-3">
@@ -94,7 +102,11 @@ export function PersonasTab({
           clave={(c) => c.contactoId}
           sinEtiqueta={t('agenda.sinRelacion', 'Sin relación')}
         >
-          {(c) => <FilaContacto contacto={c} eventos={eventos} onAbrir={() => setSeleccionado(c.contactoId)} />}
+          {(c) => (
+            <Arrastrable arrastre={arrastre} item={c}>
+              <FilaContacto contacto={c} eventos={eventos} onAbrir={() => setSeleccionado(c.contactoId)} />
+            </Arrastrable>
+          )}
         </CarpetasPorEtiqueta>
       )}
 

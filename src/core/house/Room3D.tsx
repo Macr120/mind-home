@@ -25,9 +25,12 @@ import {
   cellId,
   tileOcupado,
   nivelBaseY,
+  centroCuarto3D,
+  huecosAscensos,
   WALL_H,
   WALL_T,
   SIZE,
+  HALF,
   FOOTPRINT_DEFAULT,
   type Vano,
   type SideKey,
@@ -49,6 +52,7 @@ import { CUADRANTES_OFF, cuadrantesDeCelda, matDeRegistroPiso, type MatPiso } fr
 import { useBlobUrlMap } from './useBlobUrlMap'
 import { getPisoTipo, esSinPiso } from './pisos'
 import { PINCELES_DEFAULT, VANO_FORMA_ALTO_DEFAULT } from './murosPuertas'
+import { ALTURA_CARGA_OBJETO } from '../state/cargarStore'
 import type { TipoPuertaId } from './murosPuertas'
 import {
   ABRE_ANG,
@@ -57,6 +61,7 @@ import {
   PUERTA_GROSOR,
   hojasDeAbertura,
   HojaPuertaMesh,
+  MaterialHoja,
   MontanteVanoMesh,
   type Hoja,
   type RemateHoja,
@@ -72,6 +77,7 @@ import {
   esFormaCuadrada,
   subformasDeCelda,
   type CeldaFormaLoseta,
+  type HuecoLosa,
 } from './formasLoseta'
 import { filtrarSegmentosPorForma } from './murosPerimetroLoseta'
 import { MurosPerimetroFormaCuarto } from './MurosPerimetroFormaCuarto'
@@ -122,16 +128,21 @@ function VanoFachada({
   roomPos,
   marco,
   nivel,
+  fotoPuerta,
 }: {
   vano: Vano
   roomPos: [number, number, number]
   marco: string
   /** Nivel del cuarto: la hoja se abre cuando el avatar está en ese piso. */
   nivel: number
+  /** Imagen de la hoja (object-URL): foto subida o generada con IA. */
+  fotoPuerta?: string
 }) {
   const portonRef = useRef<THREE.Mesh | null>(null)
   const correderaRef = useRef<THREE.Group | null>(null)
   const hojasRefs = useRef<(THREE.Group | null)[]>([])
+  /** Grupo de tablones del estilo de puerta "Portón" (distinto de `portonRef`, que es el tipo de MURO abierto). */
+  const portonHojaRef = useRef<THREE.Group | null>(null)
   const hojas = useMemo(() => {
     if (vano.tipo !== 'puerta') return []
     const tp = vano.tipoPuerta ?? 'recta'
@@ -200,6 +211,10 @@ function VanoFachada({
         const slide = Math.min(vano.ancho * 0.55, margenDisp) * a
         g.position.set(vano.cx + ax * slide, 0, vano.cz + az * slide)
       }
+    } else if (tipoPuerta === 'porton') {
+      // Estilo "Portón" de puerta en muro recto: sube como cortina (igual que MuroLibrePuerta3D).
+      const g = portonHojaRef.current
+      if (g) g.position.y = THREE.MathUtils.lerp(0, hAlto * 0.96, a)
     } else {
       for (let i = 0; i < hojas.length; i++) {
         const g = hojasRefs.current[i]
@@ -272,32 +287,35 @@ function VanoFachada({
                   : [PUERTA_GROSOR, hAlto, vano.ancho - 0.1]
               }
             />
-            <meshStandardMaterial color={colorPuerta} roughness={0.35} metalness={0.4} />
+            <MaterialHoja color={colorPuerta} fotoUrl={fotoPuerta} roughness={0.35} metalness={0.4} />
           </mesh>
         </group>
       )}
 
-      {vano.tipo === 'puerta' && tipoPuerta === 'porton' &&
-        Array.from({ length: 5 }, (_, i) => (
-          <mesh
-            key={i}
-            position={[
-              vano.cx,
-              PUERTA_BASE_Y + 0.35 + i * (hAlto / 5),
-              vano.cz,
-            ]}
-            castShadow
-          >
-            <boxGeometry
-              args={
-                vano.horizontal
-                  ? [vano.ancho - 0.08, hAlto / 5 - 0.06, PUERTA_GROSOR]
-                  : [PUERTA_GROSOR, hAlto / 5 - 0.06, vano.ancho - 0.08]
-              }
-            />
-            <meshStandardMaterial color={colorPuerta} roughness={0.3} metalness={0.65} />
-          </mesh>
-        ))}
+      {vano.tipo === 'puerta' && tipoPuerta === 'porton' && (
+        <group ref={portonHojaRef}>
+          {Array.from({ length: 5 }, (_, i) => (
+            <mesh
+              key={i}
+              position={[
+                vano.cx,
+                PUERTA_BASE_Y + 0.35 + i * (hAlto / 5),
+                vano.cz,
+              ]}
+              castShadow
+            >
+              <boxGeometry
+                args={
+                  vano.horizontal
+                    ? [vano.ancho - 0.08, hAlto / 5 - 0.06, PUERTA_GROSOR]
+                    : [PUERTA_GROSOR, hAlto / 5 - 0.06, vano.ancho - 0.08]
+                }
+              />
+              <meshStandardMaterial color={colorPuerta} roughness={0.3} metalness={0.65} />
+            </mesh>
+          ))}
+        </group>
+      )}
 
       {vano.tipo === 'puerta' &&
         (tipoPuerta === 'recta' || tipoPuerta === 'doble') &&
@@ -315,6 +333,7 @@ function VanoFachada({
               remate={remate}
               un0={tipoPuerta === 'doble' ? (i === 0 ? -1 : 1) : -1}
               un1={tipoPuerta === 'doble' ? 0 : 1}
+              fotoUrl={fotoPuerta}
             />
           </group>
         ))}
@@ -354,15 +373,17 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
   const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
   const setTab = useEditorUi((s) => s.setTab)
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
+  const arrastreElevado = useDiseño((s) => s.arrastreElevado)
   const selectMueble = useInteractUi((s) => s.selectMueble)
   // Posición por ranura de decoración (esquinas de la caja contenedora) si no tiene x/z.
   const ox = o.x ?? (o.slot % 2 === 0 ? -1 : 1) * (W / 2 - 1.4)
   const oz = o.z ?? (o.slot < 2 ? -1 : 1) * (H / 2 - 1.4)
   const D = Math.PI / 180
   const esPrincipal = esMueblePrincipal(o)
+  const alturaDrag = drag ? (arrastreElevado ? ALTURA_CARGA_OBJETO : 0.6) : 0.2
   return (
     <group
-      position={[ox, (drag ? 0.6 : 0.2) + (o.y ?? 0), oz]}
+      position={[ox, alturaDrag + (o.y ?? 0), oz]}
       rotation={[(o.rotX ?? 0) * D, (o.rotY ?? 0) * D, (o.rotZ ?? 0) * D]}
       scale={o.escala ?? 1}
       onClick={
@@ -413,7 +434,7 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
           <meshBasicMaterial color="#38bdf8" transparent opacity={0.9} depthWrite={false} toneMapped={false} />
         </mesh>
       )}
-      <GrupoAnimado anim={o.animacion} nivel={nivel}>
+      <GrupoAnimado anim={o.animacion} nivel={nivel} objetoId={o.id}>
         <ObjetoView
           tipo={o.tipo}
           color={o.color}
@@ -425,6 +446,7 @@ const ObjetoEnCuarto = memo(function ObjetoEnCuarto({
           nivelAnim={nivel}
           objetoId={o.id}
           fx={o.fx}
+          grupoAccion={o.grupoAccion}
         />
       </GrupoAnimado>
       {esPrincipal && <MarcadorEntrada y={altoDeTipo(o.tipo) + 0.45} />}
@@ -573,6 +595,8 @@ export function Room3D({
       moverObjetosRoomId: s.moverObjetosRoomId,
     })),
   )
+  // Ascensos: perforan la losa que atraviesan (piso propio o techo del nivel de abajo).
+  const accesos = useLayout((s) => s.accesos)
   // Arrastre de cuartos acotado a ESTE cuarto: mover OTRO cuarto no re-renderiza este.
   const arrastrando = useLayout((s) => s.draggingId === id)
   const previewCellEste = useLayout((s) => (s.draggingId === id ? s.previewCell : null))
@@ -763,6 +787,33 @@ export function Room3D({
     O: ladoCajaFachada(offsetsTechoVisibles.filter((o) => o.col === boundsTechoRect.minCol), -1, 0) ? WALL_T / 2 : 0,
     E: ladoCajaFachada(offsetsTechoVisibles.filter((o) => o.col === maxColTecho), 1, 0) ? WALL_T / 2 : 0,
   }
+
+  // Ascensos que atraviesan una losa de este cuarto: la estructura arranca abajo y remata
+  // arriba, así que si su columna cae dentro del piso (losa del propio nivel) o del techo
+  // (losa del nivel de encima) hay que perforar esa losa para que pase.
+  const huecosAsc = useMemo(() => huecosAscensos(accesos), [accesos])
+  const huecosDeLosa = useMemo(() => {
+    const [gx, , gz] = anchorCell ? centroCuarto3D(anchorCell, fp) : [0, 0, 0]
+    // Cache por losa: mantiene la identidad del array entre renders (los useMemo de la
+    // geometría perforada dependen de ella).
+    const cache = new Map<string, HuecoLosa[] | undefined>()
+    return (lx: number, lz: number, nivelLosa: number): HuecoLosa[] | undefined => {
+      if (!huecosAsc.length) return undefined
+      const clave = `${nivelLosa}:${lx}:${lz}`
+      if (cache.has(clave)) return cache.get(clave)
+      const dentro = huecosAsc
+        .filter(
+          (h) =>
+            h.nivel === nivelLosa &&
+            Math.abs(h.x - gx - lx) < HALF + h.r &&
+            Math.abs(h.z - gz - lz) < HALF + h.r,
+        )
+        .map((h) => ({ x: h.x - gx - lx, z: h.z - gz - lz, r: h.r }))
+      const res = dentro.length ? dentro : undefined
+      cache.set(clave, res)
+      return res
+    }
+  }, [huecosAsc, anchorCell, fp])
 
   /** Cuarto colocado justo encima (+1) o debajo (−1) de este, en la misma ancla. */
   const idEnNivel = (delta: number): string | undefined =>
@@ -1146,6 +1197,7 @@ export function Room3D({
             lz={lz}
             formaLoseta={formaEf}
             subformas={subEf}
+            huecos={huecosDeLosa(lx, lz, nivel)}
             color={floorColor}
             roughness={floorRough}
             metalness={floorMetal}
@@ -1377,6 +1429,7 @@ export function Room3D({
           roomId={id}
           nivel={nivel}
           fotoCuadroDe={(clave) => roomMuroImagenes[`${id}::${clave}#cuadro`]}
+          fotoPuertaDe={(clave) => roomMuroImagenes[`${id}::${clave}#puerta`]}
           seleccion={seleccionPlano}
           hover={muroSelHover}
         />
@@ -1388,12 +1441,15 @@ export function Room3D({
         vanos
           .filter((v) => v.exterior)
           .map((v, i) => {
+            // Imagen de la hoja: misma tabla de imágenes por arista, clave con sufijo.
+            const claveVano = v.off && v.side ? `${v.off.col},${v.off.row},${v.side}` : ''
             const fachada = (
               <VanoFachada
                 vano={v}
                 roomPos={position}
                 marco={marcoColor}
                 nivel={nivel}
+                fotoPuerta={claveVano ? roomMuroImagenes[`${id}::${claveVano}#puerta`] : undefined}
               />
             )
             if (!v.off || !v.side) return <group key={i}>{fachada}</group>
@@ -1446,6 +1502,7 @@ export function Room3D({
               atenuado={atenuado}
               formaLoseta={formaEnCelda(formasEfectivas, claveCeldaOff(off.col, off.row))}
               subformas={subformasPorCelda.get(claveCeldaOff(off.col, off.row)) ?? null}
+              huecos={huecosDeLosa(lx, lz, nivel + 1)}
             />
           )
         })}
@@ -1505,6 +1562,7 @@ export function Room3D({
                 atenuado={atenuado}
                 formaLoseta={formaPiso}
                 subformas={subEfCelda}
+                huecos={huecosDeLosa(lx, lz, nivel + 1)}
               />
             )
           }

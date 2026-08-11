@@ -23,6 +23,7 @@ import { celdaEnteraBajoCursor } from './arrastreCelda'
 import { cellToWorld, SIZE } from './walls'
 import { ContornoCelda } from './caminos'
 import { registrarAncla, quitarAncla } from './etiquetasMapa'
+import { Corazones, SenalAburrido, SenalHambre } from './senalesVida'
 import type { AnimalGranja, TipoAccesorio, TipoAnimal } from '../data/db'
 
 /** Tope de la loseta exterior (~0.19; los objetos de mapa van a 0.2). */
@@ -368,41 +369,6 @@ function CuerpoAnimal({ tipo, hambriento }: { tipo: TipoAnimal; hambriento: bool
   )
 }
 
-/** Corazones que suben y se desvanecen tras un mimo. */
-function Corazones() {
-  const g = useRef<THREE.Group>(null)
-  const t0 = useRef<number | null>(null)
-  useFrame((state) => {
-    if (!g.current) return
-    if (t0.current == null) t0.current = state.clock.elapsedTime
-    const t = state.clock.elapsedTime - t0.current
-    if (t > 1.5) {
-      g.current.visible = false
-      return
-    }
-    g.current.position.y = 1.5 + t * 0.9
-    g.current.scale.setScalar(Math.max(0.01, 1 - t / 1.5))
-  })
-  return (
-    <group ref={g} position={[0, 1.5, 0]}>
-      {[-0.24, 0, 0.24].map((x, i) => (
-        <group key={x} position={[x, i === 1 ? 0.2 : 0, 0]}>
-          {[-0.055, 0.055].map((dx) => (
-            <mesh key={dx} position={[dx, 0.05, 0]}>
-              <sphereGeometry args={[0.07, 8, 6]} />
-              <meshStandardMaterial color="#fb7185" emissive="#e11d48" emissiveIntensity={0.5} />
-            </mesh>
-          ))}
-          <mesh position={[0, -0.04, 0]} rotation-z={Math.PI}>
-            <coneGeometry args={[0.1, 0.18, 4]} />
-            <meshStandardMaterial color="#fb7185" emissive="#e11d48" emissiveIntensity={0.5} />
-          </mesh>
-        </group>
-      ))}
-    </group>
-  )
-}
-
 /**
  * Animal que vaga por su corral; hambriento se queda quieto y cabizbajo,
  * aburrido anda lento con un signo «…», y a veces va a jugar a un accesorio.
@@ -599,30 +565,8 @@ function AnimalVivo({
           </mesh>
         </group>
       )}
-      {/* Aviso de hambre: signo flotante ámbar. */}
-      {!enfermo && hambriento && (
-        <group position={[0, 1.75, 0]}>
-          <mesh position={[0, 0.12, 0]}>
-            <boxGeometry args={[0.09, 0.26, 0.09]} />
-            <meshStandardMaterial color="#fbbf24" emissive="#b45309" emissiveIntensity={0.5} />
-          </mesh>
-          <mesh position={[0, -0.12, 0]}>
-            <boxGeometry args={[0.1, 0.1, 0.1]} />
-            <meshStandardMaterial color="#fbbf24" emissive="#b45309" emissiveIntensity={0.5} />
-          </mesh>
-        </group>
-      )}
-      {/* Aburrido (sin hambre): «…» gris. */}
-      {!enfermo && !hambriento && aburrido && (
-        <group position={[0, 1.75, 0]}>
-          {[-0.16, 0, 0.16].map((x) => (
-            <mesh key={x} position={[x, 0, 0]}>
-              <boxGeometry args={[0.09, 0.09, 0.09]} />
-              <meshStandardMaterial color="#9ca3af" emissive="#4b5563" emissiveIntensity={0.4} />
-            </mesh>
-          ))}
-        </group>
-      )}
+      {!enfermo && hambriento && <SenalHambre />}
+      {!enfermo && !hambriento && aburrido && <SenalAburrido />}
       {/* Gotas de chapoteo (solo visibles jugando en la tina). */}
       <group ref={gotas} visible={false}>
         {[

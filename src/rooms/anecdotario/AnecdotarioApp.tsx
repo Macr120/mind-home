@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
+import type { Anecdota } from '../../core/data/db'
 import { anecdotasRepo } from '../../core/data/repository'
-import { useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { Archivador } from '../_shared/Archivador'
@@ -11,6 +12,14 @@ import { ANIMOS } from './animos'
 import { ejemploAnecdotario } from './ejemplos'
 
 const hoy = () => fechaLocalISO()
+
+/** «lunes, 3 de agosto» — el encabezado del día abierto bajo el calendario. */
+const nombreDia = (iso: string) =>
+  new Date(`${iso}T12:00:00`).toLocaleDateString(localeActual(), {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  })
 
 /** Tamaño de página del historial: ~2 meses de entradas diarias por tanda. */
 const PAGINA = 60
@@ -29,11 +38,15 @@ export function AnecdotarioApp() {
   const inputFotos = useRef<HTMLInputElement>(null)
   /** Visor a pantalla completa: fotos de una anécdota + índice actual. */
   const [visor, setVisor] = useState<{ fotos: Blob[]; idx: number } | null>(null)
-  /** Día elegido en el calendario (filtra la lista); null = todas. */
+  /** Día abierto bajo el calendario; null = ninguno. */
   const [diaSel, setDiaSel] = useState<string | null>(null)
 
   const lista = entradas ?? []
-  const listaVisible = diaSel ? lista.filter((a) => a.fecha === diaSel) : lista
+  // Descendente por id: la primera tarjeta es la misma cuyo ánimo colorea la
+  // celda del calendario (que también toma la más reciente del día).
+  const delDia = diaSel
+    ? lista.filter((a) => a.fecha === diaSel).sort((a, b) => (b.id ?? 0) - (a.id ?? 0))
+    : []
 
   const t = useT()
 
@@ -144,55 +157,38 @@ export function AnecdotarioApp() {
         <CalendarioAnimo anecdotas={lista} seleccionado={diaSel} onSeleccionar={setDiaSel} />
       </div>
 
-      {diaSel && (
-        <button
-          onClick={() => setDiaSel(null)}
-          className="flex items-center gap-2 rounded-full bg-violet-400/15 px-3 py-1 text-xs font-semibold text-violet-300 hover:bg-violet-400/25"
-        >
-          {t('anec.cal.filtro', 'Mostrando {fecha}', { fecha: diaSel })} ✕
-        </button>
+
+      {/* El día que se toca en el calendario se abre aquí mismo, entero. Sin
+          `useEffect`: al borrar su última entrada el panel se va solo y la
+          celda vuelve a estar deshabilitada. */}
+      {diaSel && delDia.length > 0 && (
+        <div data-tut="anecdotario.dia" className="space-y-2">
+          <div className="flex items-center gap-2">
+            <p className="text-sm font-semibold capitalize">
+              {t('anec.dia.titulo', `Recuerdos del ${nombreDia(diaSel)}`, { fecha: nombreDia(diaSel) })}
+            </p>
+            <button
+              onClick={() => setDiaSel(null)}
+              aria-label={t('anec.dia.cerrar', 'Cerrar el día')}
+              className="ml-auto text-white/30 hover:text-white/70"
+            >
+              ✕
+            </button>
+          </div>
+          {delDia.map((a) => (
+            <TarjetaAnecdota key={a.id ?? a.fecha} a={a} onVerFoto={(fotos, idx) => setVisor({ fotos, idx })} />
+          ))}
+        </div>
       )}
 
       <div className="space-y-3" data-tut="anecdotario.lista">
         <Archivador
-          items={listaVisible}
+          items={lista}
           fecha={(a) => a.fecha}
           clave={(a) => a.id ?? a.fecha}
           vacio={t('anec.vacio', 'Tu anecdotario está vacío. Escribe tu primer recuerdo.')}
         >
-          {(a) => (
-            <article className="rounded-xl bg-white/5 p-4 border border-white/10">
-              <header className="flex items-center gap-2">
-                <span className="text-xl"><Icono emoji={a.animo} /></span>
-                <h3 className="font-bold">{a.titulo}</h3>
-                <span className="ml-auto text-xs text-white/40">{a.fecha}</span>
-                <button
-                  onClick={() => a.id && anecdotasRepo.remove(a.id)}
-                  className="text-white/30 hover:text-white/70"
-                >
-                  ✕
-                </button>
-              </header>
-              {a.contenido && (
-                <p className="mt-2 text-sm text-white/80 whitespace-pre-wrap">
-                  {a.contenido}
-                </p>
-              )}
-              {a.fotos && a.fotos.length > 0 && (
-                <div className="mt-3 grid grid-cols-3 gap-1.5">
-                  {a.fotos.map((f, i) => (
-                    <Foto
-                      key={i}
-                      // Entradas viejas no tienen miniatura: caen a la foto completa.
-                      blob={a.miniaturas?.[i] ?? f}
-                      className="h-24 w-full cursor-zoom-in rounded-lg object-cover transition hover:opacity-80"
-                      onClick={() => setVisor({ fotos: a.fotos!, idx: i })}
-                    />
-                  ))}
-                </div>
-              )}
-            </article>
-          )}
+          {(a) => <TarjetaAnecdota a={a} onVerFoto={(fotos, idx) => setVisor({ fotos, idx })} />}
         </Archivador>
         {lista.length >= limite && (
           <button
@@ -247,5 +243,44 @@ export function AnecdotarioApp() {
         </div>
       )}
     </div>
+  )
+}
+
+/** Un recuerdo. Lo pintan igual el día abierto bajo el calendario y el archivador. */
+function TarjetaAnecdota({
+  a,
+  onVerFoto,
+}: {
+  a: Anecdota
+  onVerFoto: (fotos: Blob[], idx: number) => void
+}) {
+  return (
+    <article className="rounded-xl bg-white/5 p-4 border border-white/10">
+      <header className="flex items-center gap-2">
+        <span className="text-xl"><Icono emoji={a.animo} /></span>
+        <h3 className="font-bold">{a.titulo}</h3>
+        <span className="ml-auto text-xs text-white/40">{a.fecha}</span>
+        <button
+          onClick={() => a.id && anecdotasRepo.remove(a.id)}
+          className="text-white/30 hover:text-white/70"
+        >
+          ✕
+        </button>
+      </header>
+      {a.contenido && <p className="mt-2 text-sm text-white/80 whitespace-pre-wrap">{a.contenido}</p>}
+      {a.fotos && a.fotos.length > 0 && (
+        <div className="mt-3 grid grid-cols-3 gap-1.5">
+          {a.fotos.map((f, i) => (
+            <Foto
+              key={i}
+              // Entradas viejas no tienen miniatura: caen a la foto completa.
+              blob={a.miniaturas?.[i] ?? f}
+              className="h-24 w-full cursor-zoom-in rounded-lg object-cover transition hover:opacity-80"
+              onClick={() => onVerFoto(a.fotos!, i)}
+            />
+          ))}
+        </div>
+      )}
+    </article>
   )
 }

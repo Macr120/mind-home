@@ -1,7 +1,7 @@
-import type { Plantilla } from '../../core/registry'
+import type { Plantilla } from '../../core/appContrato'
 import { Resumen } from './Resumen'
 import { useHuerto } from '../../core/state/huertoStore'
-import { flujosHuerto, tutorialHuerto } from './tutorial'
+import { flujosHuerto } from './tutorial'
 
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
 const huerto: Plantilla = {
@@ -14,7 +14,6 @@ const huerto: Plantilla = {
   tipo: 'infraestructura',
   sinMetaDiaria: true,
   construir: () => useHuerto.getState().iniciar(),
-  tutorial: tutorialHuerto,
   flujos: flujosHuerto,
 }
 

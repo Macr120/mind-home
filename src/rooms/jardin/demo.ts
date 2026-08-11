@@ -7,6 +7,7 @@
 import { gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/repository'
 import type { TipoPractica } from '../../core/data/db'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_JARDIN } from './demo.data'
 
 const PISTAS = ['bosque', 'mar', 'lluvia', 'cuencos', 'libre'] as const
@@ -120,4 +121,9 @@ export async function construirDemoJardin(ctx: CtxDemo): Promise<void> {
       item3: g.item3 ?? '',
     })),
   )
+
+  // Las dos metas del jardín. Su plan se queda PROPUESTO a propósito: este es
+  // el cuarto que no empuja (ni rachas ni puntos), así que está por si lo
+  // quiere, no esperándolo.
+  await sembrarMetasApp(ctx, 'jardin')
 }

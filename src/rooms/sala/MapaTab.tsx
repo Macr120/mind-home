@@ -1,5 +1,5 @@
 import { Icono } from '../../core/ui/iconos/Icono'
-import { useMemo, useState } from 'react'
+import { lazy, Suspense, useMemo, useState } from 'react'
 import type { LugarViaje } from '../../core/data/db'
 import { lugaresViajeRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
@@ -7,6 +7,9 @@ import { useT } from '../../core/i18n/useT'
 import { eliminarLugar } from './datos'
 import { FormularioLugar } from './FormularioLugar'
 import { MapaMundi } from './MapaMundi'
+
+// El globo arrastra three.js: solo se descarga cuando lo piden.
+const Globo3D = lazy(() => import('./Globo3D'))
 
 interface Props {
   lugares: LugarViaje[]
@@ -17,6 +20,8 @@ interface Props {
 export function MapaTab({ lugares, onIrABitacora }: Props) {
   const t = useT()
   const [verEstados, setVerEstados] = useState(false)
+  /** Cómo se mira el mundo: extendido o hecho esfera. */
+  const [vista, setVista] = useState<'plano' | 'globo'>('plano')
   /** Tipo de pin por colocar: 1 visitado, 0 por conocer, null sin modo. */
   const [modoPin, setModoPin] = useState<0 | 1 | null>(null)
   const [nuevoPin, setNuevoPin] = useState<{ lat: number; lng: number; visitado: 0 | 1 } | null>(null)
@@ -80,9 +85,31 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
         ))}
       </div>
 
+      {/* Plano o globo: el mismo mundo con los mismos pines */}
+      <div className="flex gap-1.5">
+        {(
+          [
+            ['plano', 'mapa', 'sala.mapa.vistaPlano', 'Plano'],
+            ['globo', 'mundo', 'sala.mapa.vistaGlobo', 'Globo'],
+          ] as const
+        ).map(([id, icono, clave, etiqueta]) => (
+          <button
+            key={id}
+            onClick={() => setVista(id)}
+            className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+              vista === id ? 'bg-teal-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
+            }`}
+          >
+            <Icono nombre={icono} /> {t(clave, etiqueta)}
+          </button>
+        ))}
+      </div>
+
       <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={() => {
+            // Los pines se colocan tocando el mapa extendido; el globo solo mira.
+            setVista('plano')
             setModoPin((m) => (m === 1 ? null : 1))
             setSelId(null)
           }}
@@ -94,6 +121,7 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
         </button>
         <button
           onClick={() => {
+            setVista('plano')
             setModoPin((m) => (m === 0 ? null : 0))
             setSelId(null)
           }}
@@ -103,15 +131,18 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
         >
           <Icono nombre="brujula" /> {t('sala.mapa.pinPendiente', 'Pin por conocer')}
         </button>
-        <label className="ml-auto flex items-center gap-1.5 text-xs text-white/60">
-          <input
-            type="checkbox"
-            checked={verEstados}
-            onChange={(e) => setVerEstados(e.target.checked)}
-            className="accent-teal-400"
-          />
-          {t('sala.mapa.estados', 'Estados')}
-        </label>
+        {/* Las fronteras de estados solo se dibujan en el mapa extendido. */}
+        {vista === 'plano' && (
+          <label className="ml-auto flex items-center gap-1.5 text-xs text-white/60">
+            <input
+              type="checkbox"
+              checked={verEstados}
+              onChange={(e) => setVerEstados(e.target.checked)}
+              className="accent-teal-400"
+            />
+            {t('sala.mapa.estados', 'Estados')}
+          </label>
+        )}
       </div>
 
       {modoPin != null && (
@@ -123,24 +154,40 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
       )}
 
       <div data-tut="sala.mapa.mundi">
-      <MapaMundi
-        pines={pines}
-        seleccionado={selId}
-        resaltarPaises
-        verEstados={verEstados}
-        onClickPin={(id) => {
-          setSelId((s) => (s === id ? null : id))
-          setModoPin(null)
-        }}
-        onClickMapa={
-          modoPin != null
-            ? (lat, lng) => {
-                setNuevoPin({ lat, lng, visitado: modoPin })
-                setModoPin(null)
-              }
-            : undefined
-        }
-      />
+      {vista === 'globo' ? (
+        <Suspense
+          fallback={
+            <div className="flex aspect-square items-center justify-center rounded-xl border border-white/10 bg-black/30 text-sm text-white/40">
+              {t('sala.mapa.cargandoGlobo', 'Armando el globo…')}
+            </div>
+          }
+        >
+          <Globo3D
+            pines={pines}
+            seleccionado={selId}
+            onClickPin={(id) => setSelId((s) => (s === id ? null : id))}
+          />
+        </Suspense>
+      ) : (
+        <MapaMundi
+          pines={pines}
+          seleccionado={selId}
+          resaltarPaises
+          verEstados={verEstados}
+          onClickPin={(id) => {
+            setSelId((s) => (s === id ? null : id))
+            setModoPin(null)
+          }}
+          onClickMapa={
+            modoPin != null
+              ? (lat, lng) => {
+                  setNuevoPin({ lat, lng, visitado: modoPin })
+                  setModoPin(null)
+                }
+              : undefined
+          }
+        />
+      )}
       </div>
 
       <div className="flex gap-3 text-[11px] text-white/50">

@@ -7,10 +7,12 @@ import { CreditosBadge } from '../Creditos'
 import { Icono } from '../iconos/Icono'
 import { useT } from '../../i18n/useT'
 import { vivo } from '../estilos'
+import { ActivarIASection } from './ActivarIASection'
 
 /**
- * Precios de la IA: la calidad de imagen (que decide proveedor y tarifa) y la
- * tabla completa de lo que cuesta cada cosa, cuarto por cuarto.
+ * IA: cómo se activa y lo que cuesta. Lo primero es el interruptor —antes solo
+ * vivía en el panel del chat y nadie lo encontraba—, y debajo la calidad de
+ * imagen (que decide proveedor y tarifa) y la tabla completa cuarto por cuarto.
  *
  * Se ve SIEMPRE, también sin cuenta: es justo lo que hace falta para decidir si
  * recargar. Por eso usa `CreditosBadge` (el chip puro) y no `Creditos`, que se
@@ -36,12 +38,12 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
 
   return (
     <div className={embed ? 'space-y-4' : 'rounded-xl border border-white/10 bg-white/5 p-3 space-y-4'}>
-      {!sinTitulo && !embed && (
-        <p className="text-sm font-semibold">{t('ia.precios.titulo', 'Precios de la IA')}</p>
-      )}
+      {!sinTitulo && !embed && <p className="text-sm font-semibold">{t('ia.titulo', 'IA: activar y precios')}</p>}
+
+      <ActivarIASection />
 
       {/* Calidad de imagen: la única palanca que mueve los precios de la tabla. */}
-      <div className="space-y-1.5">
+      <div data-tut="ia.calidad" className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
           {t('ia.calidad.titulo', 'Calidad de las imágenes')}
         </p>
@@ -80,6 +82,7 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
       </p>
 
       {/* La tabla completa, cuarto por cuarto. */}
+      <div data-tut="ia.tabla" className="space-y-4">
       {gruposIA().map((g) => (
         <div key={g.id} className="space-y-1">
           <p className="texto-vivo text-[10px] font-bold uppercase tracking-wider" style={vivo(g.color ?? 'currentColor')}>
@@ -111,6 +114,7 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
           </div>
         </div>
       ))}
+      </div>
 
       <p className="text-[10px] leading-snug text-white/35">
         {hayCreditos()

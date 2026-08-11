@@ -63,6 +63,8 @@ export function ControlMusica({
     <div className={`relative shrink-0 ${className}`}>
       <button
         type="button"
+        data-tut="musica.boton"
+        data-tut-zona={cuartoId ? undefined : 'musica'}
         onClick={() => {
           // El clic es un gesto: aprovecha para desbloquear el autoplay.
           desbloquearAudio()
@@ -82,10 +84,11 @@ export function ControlMusica({
             onClick={() => setAbierto(false)}
             className="fixed inset-0 z-40 cursor-default"
           />
-          <div className="ui-panel-glass ui-pop absolute right-0 z-50 mt-2 w-72 space-y-3 rounded-xl border border-white/10 p-3 text-left shadow-xl backdrop-blur-md">
+          <div data-tut="musica.panel" className="ui-panel-glass ui-pop absolute right-0 z-50 mt-2 w-72 space-y-3 rounded-xl border border-white/10 p-3 text-left shadow-xl backdrop-blur-md">
             {/* Música ambiental sí/no */}
             <button
               type="button"
+              data-tut="musica.ambiental"
               onClick={() => {
                 desbloquearAudio()
                 setMusicaAmbiental(!musicaAmbiental)
@@ -109,6 +112,7 @@ export function ControlMusica({
                   {t('musica.temaCuarto', 'Tema de este cuarto')}
                 </p>
                 <select
+                  data-tut="musica.tema"
                   value={temaGuardado ?? ''}
                   onChange={(e) => {
                     desbloquearAudio()
@@ -143,7 +147,7 @@ export function ControlMusica({
             )}
 
             {/* Fuente */}
-            <div className="grid grid-cols-3 gap-1.5">
+            <div data-tut="musica.fuente" className="grid grid-cols-3 gap-1.5">
               {fuentes.map((f) => {
                 const activo = musicaFuente === f.id
                 return (
@@ -187,7 +191,7 @@ export function ControlMusica({
             )}
 
             {/* Volúmenes */}
-            <div className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
+            <div data-tut="musica.volumen" className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
               <div className="flex items-center gap-2">
                 <span className="flex-1 truncate text-xs text-white/75">
                   {t('ajustes.musica.volumen', 'Volumen')}

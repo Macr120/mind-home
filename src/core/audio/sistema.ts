@@ -12,7 +12,28 @@ import { contextoAudio } from './motor'
 let stream: MediaStream | null = null
 let fuente: MediaStreamAudioSourceNode | null = null
 let analizador: AnalyserNode | null = null
+let origen: OrigenSistema | null = null
 const oyentes = new Set<() => void>()
+
+/**
+ * Lo poco que el navegador SÍ deja saber de la captura: qué superficie estás
+ * compartiendo y su etiqueta. Al compartir una pestaña, la etiqueta suele ser su
+ * TÍTULO ("Nombre de la canción - YouTube"), que es lo más cerca que se puede
+ * estar de "qué suena" sin salir de la web. Ojo: se fija al compartir y no se
+ * actualiza al saltar de canción — para eso hace falta el plugin nativo
+ * (`mediaSesion.ts`).
+ */
+export interface OrigenSistema {
+  /** 'browser' = pestaña, 'window' = ventana de una app, 'monitor' = pantalla. */
+  superficie: 'browser' | 'window' | 'monitor' | null
+  /** Título de la pestaña/ventana, si el navegador lo expone. */
+  etiqueta: string | null
+}
+
+export const origenSistema = (): OrigenSistema | null => origen
+
+/** Etiquetas internas de Chrome que no dicen nada al usuario. */
+const ETIQUETA_INUTIL = /^(screen|window|web-contents-media-stream):/i
 
 const avisar = () => {
   for (const cb of oyentes) cb()
@@ -50,6 +71,16 @@ export async function conectarSistema(): Promise<'ok' | 'sin-audio' | 'cancelado
     return 'sin-audio'
   }
   stream = s
+  const video = s.getVideoTracks()[0]
+  const superficie = video?.getSettings().displaySurface
+  const etiqueta = video?.label?.trim() ?? ''
+  origen = {
+    superficie:
+      superficie === 'browser' || superficie === 'window' || superficie === 'monitor'
+        ? superficie
+        : null,
+    etiqueta: etiqueta && !ETIQUETA_INUTIL.test(etiqueta) ? etiqueta : null,
+  }
   fuente = ctx.createMediaStreamSource(s)
   analizador = ctx.createAnalyser()
   analizador.fftSize = 128
@@ -72,5 +103,6 @@ export function desconectarSistema(): void {
   stream = null
   fuente = null
   analizador = null
+  origen = null
   avisar()
 }

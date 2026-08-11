@@ -3,6 +3,8 @@ import { iaHabilitada } from './edicion'
 import { usarViaCuenta, iaImagenCuenta, ErrorIA } from './cuenta/api'
 import { hayBackend } from './cuenta/supabase'
 import { leerCalidadImagen, type CalidadImagen } from './cuenta/calidadImagen'
+import { useGastoByok } from './cuenta/gastoByok'
+import { costoImagenByok } from './cuenta/tarifasByok'
 import { useCuotaAgotada } from './state/avisosPlanStore'
 import { tGlobal } from './i18n/useT'
 
@@ -243,5 +245,6 @@ export async function generarImagen(
     prov.id === 'openai'
       ? await generarOpenAI(prompt, prov.modelo, key, aspecto, ref)
       : await generarGemini(prompt, prov.modelo, key, aspecto, ref)
+  useGastoByok.getState().sumar('imagen', costoImagenByok(prov.id))
   return comprimirImagen(blob, max)
 }

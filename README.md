@@ -63,9 +63,9 @@ no ocupa un cuarto — se **asigna a un objeto**, y tocar ese objeto la abre.
 | Diario | Periódico del día (noticias RSS y efemérides) |
 | Hobbies | Pasatiempos, proyectos y rachas |
 | Idiomas | Tutor MCER, vocabulario SRS y temario |
-| Calendario | Eventos y rutinas por día/semana/mes |
 | Ideas | Diario de ideas, mapas conceptuales y diagramas de decisión |
 | Agenda | Trabajo (kanban), Salud (citas, medicamentos, mascotas) y Personas |
+| Sala de cómputo | Formulario de fórmulas, calculadora con graficador y hojas de cálculo |
 
 **Infraestructura** (se construye directo en el mapa, no ocupa cuarto): Caminos (pistas,
 rieles, montañas rusas), Canchas, Huerto, Granja y Paintball.

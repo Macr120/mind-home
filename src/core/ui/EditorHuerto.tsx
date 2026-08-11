@@ -111,7 +111,7 @@ export function EditorHuerto() {
             </div>
           )}
           <p className="max-w-md text-center text-[10px] leading-tight text-white/50">
-            {t('huerto.ayuda', 'Los cultivos crecen en tiempo real y piden riego: la gota azul avisa; si no riegas, se marchitan. Un aspersor riega solo su celda y las 8 vecinas. Las cosechas van a la cesta (también al caminar sobre lo listo): alimentan a los animales.')}
+            {t('huerto.ayuda', 'Los cultivos crecen en tiempo real y piden riego: la gota azul avisa; si no riegas, se marchitan y al rato la parcela se limpia sola. Un aspersor riega solo su celda y las 8 vecinas. Las cosechas van a la cesta (también al caminar sobre lo listo): alimentan a los animales.')}
           </p>
     </MarcoEditorInfra>
   )

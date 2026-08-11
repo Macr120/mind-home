@@ -1,6 +1,6 @@
 import type { MensajeIA } from '../../core/chat/ia'
 import { conversacionesIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
-import { getTema, todosLosTemas } from './temario'
+import { cargarTemario, todosVivos } from './temarioVivo'
 import { clasificarCharla, type PerfilTutor } from './tutor'
 
 /** Tema del temario del que nace una charla (estático de temario.ts o dinámico). */
@@ -22,25 +22,18 @@ function normalizarTitulo(s: string): string {
   return s.trim().toLowerCase().normalize('NFD').replace(DIACRITICOS, '')
 }
 
-/** Resuelve un temaId contra el temario estático y luego los dinámicos del idioma. */
+/** Resuelve un temaId contra el temario VIVO del idioma (fábrica parcheada + propios). */
 export async function resolverTema(
   temaId: string,
   idiomaId: number,
 ): Promise<{ temaId: string; titulo: string; nivel: string } | null> {
-  const est = getTema(temaId)
-  if (est) return { temaId: est.id, titulo: est.titulo, nivel: est.nivel }
-  const din = (await temasIdiomaRepo.list()).find((n) => n.temaId === temaId && n.idiomaId === idiomaId)
-  return din ? { temaId: din.temaId, titulo: din.titulo, nivel: din.nivel } : null
+  const n = (await cargarTemario(idiomaId)).porId.get(temaId)
+  return n ? { temaId: n.id, titulo: n.titulo, nivel: n.nivel } : null
 }
 
-/** Todos los temas del idioma (estáticos + dinámicos), para clasificar y para selects. */
+/** Todos los temas vivos del idioma, para clasificar y para los selects. */
 export async function temasDelIdioma(idiomaId: number): Promise<{ id: string; titulo: string; nivel: string }[]> {
-  const estaticos = todosLosTemas().map((t) => ({ id: t.id, titulo: t.titulo, nivel: t.nivel }))
-  const dinamicos = (await temasIdiomaRepo.list())
-    .filter((n) => n.idiomaId === idiomaId)
-    .sort((a, b) => b.creadoEn.localeCompare(a.creadoEn))
-    .map((n) => ({ id: n.temaId, titulo: n.titulo, nivel: n.nivel }))
-  return [...estaticos, ...dinamicos]
+  return todosVivos(await cargarTemario(idiomaId)).map((t) => ({ id: t.id, titulo: t.titulo, nivel: t.nivel }))
 }
 
 /**

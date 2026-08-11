@@ -52,7 +52,7 @@ export const parqueFrame = {
   vaivenT: 0,
   /** Bajarse solicitado (carrusel/columpio): lo resuelve Character en su frame. */
   salirPendiente: false,
-  /** Juego del que se acaba de bajar: no re-activarlo hasta alejarse (ParqueProximity). */
+  /** Juego del que se acaba de bajar (legado del abordaje automático). */
   recienId: null as number | null,
   /**
    * Carrusel/columpio: armado para bajarse por movimiento. Se activa la primera
@@ -78,7 +78,7 @@ interface ParqueState {
   /** Id del objeto del mapa que se está usando (null = a pie). */
   instanciaId: number | null
   tipo: TipoJuegoParque | null
-  /** Empieza a usar el juego (lo dispara ParqueProximity al acercarse: sin botón). */
+  /** Empieza a usar el juego (lo dispara el botón «Subirte» del hueco del cubo). */
   usar: (inst: ObjetoCuarto) => void
   /** Limpieza inmediata (instancia borrada, entrar al editor, o el jugador se mueve
    *  para bajarse de un carrusel/columpio: ver `salidaLista` en `parqueFrame`). */

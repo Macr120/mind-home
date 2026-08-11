@@ -1,5 +1,6 @@
-import { useMemo } from 'react'
-import { ExtrudeGeometry, Shape } from 'three'
+import { useEffect, useMemo, useState } from 'react'
+import { useThree } from '@react-three/fiber'
+import { ExtrudeGeometry, Shape, SRGBColorSpace, TextureLoader, type Texture } from 'three'
 import { WALL_H } from './walls'
 import { perfilFormaVano, type FormaVanoId } from './murosPuertas'
 
@@ -68,6 +69,97 @@ export function geoPanelRemate(
   const g = new ExtrudeGeometry(s, { depth: grosor, bevelEnabled: false })
   g.translate(0, 0, -grosor / 2)
   return g
+}
+
+/**
+ * Textura de la hoja a partir de la object-URL guardada por el usuario (foto o
+ * imagen de IA). Se carga a mano —sin `useLoader`— para no suspender la escena
+ * entera mientras llega: hasta entonces la hoja se ve con su color liso.
+ */
+function useTexturaHoja(url: string | undefined, geo: ExtrudeGeometry | null): Texture | null {
+  const invalidate = useThree((s) => s.invalidate)
+  const [tex, setTex] = useState<Texture | null>(null)
+
+  useEffect(() => {
+    if (!url) return
+    let vivo = true
+    new TextureLoader().load(
+      url,
+      (t) => {
+        if (!vivo) {
+          t.dispose()
+          return
+        }
+        t.colorSpace = SRGBColorSpace
+        setTex(t)
+        invalidate()
+      },
+      undefined,
+      () => {
+        /* imagen ilegible: la hoja se queda con su color */
+      },
+    )
+    return () => {
+      vivo = false
+      setTex((prev) => {
+        prev?.dispose()
+        return null
+      })
+    }
+  }, [url, invalidate])
+
+  return useMemo(() => {
+    if (!tex) return null
+    // `ExtrudeGeometry` usa las coordenadas del shape (metros) como UV: se normalizan
+    // con su caja envolvente. El `boxGeometry` ya trae UV 0–1 por cara.
+    if (geo) {
+      geo.computeBoundingBox()
+      const bb = geo.boundingBox
+      if (bb) {
+        const w = Math.max(bb.max.x - bb.min.x, 1e-3)
+        const h = Math.max(bb.max.y - bb.min.y, 1e-3)
+        tex.repeat.set(1 / w, 1 / h)
+        tex.offset.set(-bb.min.x / w, -bb.min.y / h)
+      }
+    } else {
+      tex.repeat.set(1, 1)
+      tex.offset.set(0, 0)
+    }
+    tex.needsUpdate = true
+    return tex
+  }, [tex, geo])
+}
+
+/**
+ * Material de una hoja de puerta: color liso o, si el usuario le puso imagen
+ * (foto subida o generada con IA), esa textura. Compartido por las hojas
+ * batientes y por las correderas de cuartos y muros independientes.
+ */
+export function MaterialHoja({
+  color,
+  fotoUrl,
+  geo = null,
+  roughness = 0.8,
+  metalness = 0.05,
+}: {
+  color: string
+  /** object-URL de la imagen de la puerta (si la hay). */
+  fotoUrl?: string
+  /** Panel extruido al que se mapea (para normalizar sus UV); null = caja. */
+  geo?: ExtrudeGeometry | null
+  roughness?: number
+  metalness?: number
+}) {
+  const map = useTexturaHoja(fotoUrl, geo)
+  return (
+    <meshStandardMaterial
+      // Con textura el color base debe ser blanco: si no, la tiñe.
+      color={map ? '#ffffff' : color}
+      map={map ?? undefined}
+      roughness={roughness}
+      metalness={metalness}
+    />
+  )
 }
 
 /**
@@ -150,6 +242,7 @@ export function HojaPuertaMesh({
   remate,
   un0 = -1,
   un1 = 1,
+  fotoUrl,
 }: {
   width: number
   color: string
@@ -158,6 +251,8 @@ export function HojaPuertaMesh({
   /** Fracción del vano que cubre la hoja: un en la bisagra (x=0) y en el extremo (x=width). */
   un0?: number
   un1?: number
+  /** Imagen de la puerta (object-URL): foto subida o generada con IA. */
+  fotoUrl?: string
 }) {
   // Tablero con remate: la parte recta llega al arranque del arco/pico (el alto de la
   // hoja menos su zócalo), y el remate sube encima siguiendo el perfil del vano.
@@ -170,12 +265,12 @@ export function HojaPuertaMesh({
     <group>
       {geo ? (
         <mesh position={[0, PUERTA_BASE_Y, 0]} geometry={geo} castShadow receiveShadow>
-          <meshStandardMaterial color={color} roughness={0.8} metalness={0.05} />
+          <MaterialHoja color={color} fotoUrl={fotoUrl} geo={geo} />
         </mesh>
       ) : (
         <mesh position={[width / 2, y, 0]} castShadow receiveShadow>
           <boxGeometry args={[width - 0.04, alto, PUERTA_GROSOR]} />
-          <meshStandardMaterial color={color} roughness={0.8} metalness={0.05} />
+          <MaterialHoja color={color} fotoUrl={fotoUrl} />
         </mesh>
       )}
       <mesh position={[width - 0.24, PUERTA_BASE_Y + alto * 0.46, PUERTA_GROSOR / 2 + 0.04]}>

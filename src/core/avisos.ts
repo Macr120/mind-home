@@ -1,8 +1,14 @@
 import { useEffect } from 'react'
 import { db } from './data/db'
 import { esDemo } from './edicion'
-import { fechaLocalISO } from './fechaLocal'
-import { metaDiariaDe, sincronizarAgendaDeMeta } from './metaDiaria'
+import { fechaLocalISO, isoMasDias } from './fechaLocal'
+import {
+  estadoMetaDiaria,
+  metaDiariaDe,
+  sellarDia,
+  sincronizarAgendaDeMeta,
+  sincronizarMetasDeApp,
+} from './metaDiaria'
 import { notificar } from './notificaciones'
 import { plantillasAgendables } from './registry'
 import { debeAvisar } from './rutinas'
@@ -22,6 +28,8 @@ import { ultimoCerrado, type TipoPeriodo } from './wrapped/periodo'
  */
 
 const LS_ESTADO = 'mh.avisos.estado'
+/** Cuántos días atrás se congela el cumplimiento (ver `mantenimientoDiario`). */
+const MARGEN_SELLO_DIAS = 2
 /** Un minuto: en segundo plano el navegador no acelera más los timers. */
 const TICK_MS = 60_000
 /**
@@ -107,18 +115,47 @@ async function avisarRutinas(estado: EstadoAvisos, fecha: string) {
   }
 }
 
-/**
- * Las metas del día que siguen sin cumplirse, a la hora elegida. Solo de las apps
- * que el usuario tiene en la casa (las demás no son suyas todavía) y nunca las
- * `sinRacha`: el jardín no presiona.
- */
-async function avisarMetas(estado: EstadoAvisos, fecha: string) {
-  const asignadas = new Set(
+/** Las apps que el usuario tiene puestas en la casa (las demás no son suyas todavía). */
+function appsEnLaCasa(): Set<string> {
+  return new Set(
     useDiseño
       .getState()
       .objetos.map((o) => o.plantillaId)
       .filter((p): p is string => !!p),
   )
+}
+
+/**
+ * Lo que hay que hacer cada día pase lo que pase: cerrar las metas de ritmo que ya
+ * sumaron sus días, reflejar el objetivo cumplido en lo agendado y congelar el día
+ * de ayer para que no lo mueva un cambio de objetivo.
+ *
+ * Fuera de `avisarMetas` a propósito: aquello depende de que el usuario quiera
+ * notificaciones (`mh.notif` nace apagado) y de la hora que eligiera, y el estado
+ * de sus datos no puede depender de un interruptor de avisos.
+ */
+async function mantenimientoDiario(fecha: string) {
+  const asignadas = appsEnLaCasa()
+  // Anteayer y no ayer: un sello es definitivo, así que se le da un día entero de
+  // margen para que lleguen los registros que otro dispositivo hizo tarde. Sellar
+  // en cuanto pasa la medianoche congelaría el cero de un día que aún no acabó de
+  // sincronizarse.
+  const cerrado = isoMasDias(fecha, -MARGEN_SELLO_DIAS)
+  for (const p of plantillasAgendables()) {
+    if (!asignadas.has(p.id)) continue
+    await sincronizarMetasDeApp(p.id, fecha)
+    const estado = await estadoMetaDiaria(p.id, fecha)
+    if (estado) await sincronizarAgendaDeMeta(p.id, fecha, estado.cumplida)
+    await sellarDia(p.id, cerrado)
+  }
+}
+
+/**
+ * Las metas del día que siguen sin cumplirse, a la hora elegida. Solo de las apps
+ * que el usuario tiene en la casa y nunca las `sinRacha`: el jardín no presiona.
+ */
+async function avisarMetas(estado: EstadoAvisos, fecha: string) {
+  const asignadas = appsEnLaCasa()
 
   for (const p of plantillasAgendables()) {
     if (!asignadas.has(p.id) || !avisoActivo(p.id)) continue
@@ -127,16 +164,11 @@ async function avisarMetas(estado: EstadoAvisos, fecha: string) {
     const clave = `meta:${p.id}|${fecha}`
     if (estado.avisados[clave]) continue
 
-    const avance = await meta.del(fecha)
-    if (avance.objetivo <= 0) continue
-    const fila = await db.metasDiariasManual
-      .where('[plantillaId+fecha]')
-      .equals([p.id, fecha])
-      .first()
-    const cumplida = fila ? fila.hecha : avance.hecho >= avance.objetivo
-    // Lo agendado sigue a la meta aunque su app lleve el día entero cerrada.
-    await sincronizarAgendaDeMeta(p.id, fecha, cumplida)
-    if (cumplida) continue
+    // Por `estadoMetaDiaria` y no a mano: el override vive en una fila por app,
+    // día y objetivo, y resolver cuál toca es cosa suya.
+    const estadoMeta = await estadoMetaDiaria(p.id, fecha)
+    if (!estadoMeta || estadoMeta.avance.objetivo <= 0 || estadoMeta.cumplida) continue
+    const { avance } = estadoMeta
 
     marcarAvisado(estado, clave)
     await notificar({
@@ -204,6 +236,12 @@ export function useAvisos() {
         // El badge "resumen nuevo" del personaje se refresca SIEMPRE (no depende
         // del interruptor de notificaciones: es visual, no un aviso).
         useWrappedUi.getState().refrescarNuevo()
+        try {
+          // Antes del interruptor: esto es el estado de sus datos, no un aviso.
+          await mantenimientoDiario(fecha)
+        } catch (err) {
+          console.warn('[MPH] Falló el mantenimiento diario:', err)
+        }
         const { notif, notifRutinas, notifMetas, notifHoraMetas, notifWrapped } =
           useAjustes.getState()
         if (!notif) return

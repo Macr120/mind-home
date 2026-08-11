@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import type { Medicamento } from '../../core/data/db'
-import { VACIO, mascotasRepo } from '../../core/data/repository'
+import { VACIO, contactosAgendaRepo, mascotasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -23,18 +23,28 @@ const DIAS = [
 export function FormMedicamento({
   inicial,
   mascotaInicial,
+  contactoInicial,
   onCerrar,
 }: {
   inicial?: Medicamento | null
   /** Mascota ya elegida (alta desde su ficha). */
   mascotaInicial?: string
+  /** Prójimo ya elegido (alta desde su ficha). */
+  contactoInicial?: string
   onCerrar: () => void
 }) {
   const t = useT()
   const mascotas = mascotasRepo.useAll() ?? VACIO
+  const projimos = (contactosAgendaRepo.useAll() ?? VACIO).filter((c) => c.alCuidado)
   const [nombre, setNombre] = useState(inicial?.nombre ?? '')
   const [dosis, setDosis] = useState(inicial?.dosis ?? '')
-  const [mascotaId, setMascotaId] = useState(inicial?.mascotaId ?? mascotaInicial ?? '')
+  // Mismo select compuesto que en la cita: el tratamiento es de UNO de los tres.
+  const [paraQuien, setParaQuien] = useState(() => {
+    const masc = inicial?.mascotaId ?? mascotaInicial
+    if (masc) return `ms:${masc}`
+    const ct = inicial?.contactoId ?? contactoInicial
+    return ct ? `ct:${ct}` : ''
+  })
   const [horas, setHoras] = useState<string[]>(inicial?.horas ?? ['08:00'])
   const [dias, setDias] = useState<number[]>(inicial?.dias ?? [])
   const [inicio, setInicio] = useState(inicial?.fechaInicio ?? fechaLocalISO())
@@ -47,7 +57,8 @@ export function FormMedicamento({
     await guardarMedicamento(inicial ?? null, {
       nombre: nombre.trim(),
       dosis: dosis.trim() || undefined,
-      mascotaId: mascotaId || undefined,
+      mascotaId: paraQuien.startsWith('ms:') ? paraQuien.slice(3) : undefined,
+      contactoId: paraQuien.startsWith('ct:') ? paraQuien.slice(3) : undefined,
       horas: ordenarHoras(horas.filter(Boolean)),
       dias,
       fechaInicio: inicio,
@@ -78,12 +89,17 @@ export function FormMedicamento({
           </Campo>
         </div>
 
-        {mascotas.length > 0 && (
+        {(mascotas.length > 0 || projimos.length > 0) && (
           <Campo etiqueta={t('agenda.form.paraQuien', '¿Para quién es?')}>
-            <select value={mascotaId} onChange={(e) => setMascotaId(e.target.value)} className={INPUT}>
+            <select value={paraQuien} onChange={(e) => setParaQuien(e.target.value)} className={INPUT}>
               <option value="">{t('agenda.form.paraMi', '— Para mí —')}</option>
+              {projimos.map((c) => (
+                <option key={c.contactoId} value={`ct:${c.contactoId}`}>
+                  {c.nombre}
+                </option>
+              ))}
               {mascotas.map((m) => (
-                <option key={m.mascId} value={m.mascId}>
+                <option key={m.mascId} value={`ms:${m.mascId}`}>
                   {m.nombre}
                 </option>
               ))}

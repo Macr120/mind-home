@@ -1,5 +1,5 @@
 import { conversarIA, extraerJSON } from './chat/ia'
-import type { EntradaPlan, MaterialPlan, NivelPartida } from './data/db'
+import type { EnlaceApp, EntradaPlan, MaterialPlan, NivelPartida } from './data/db'
 import { DIA_MS, deIso } from './fechaLocal'
 import { localeActual } from './i18n/useT'
 
@@ -19,6 +19,20 @@ export interface NodoPropuesto {
   /** Inclusivo: la IA manda duración, aquí ya es el último día ocupado. */
   fin: number
   hijos: NodoPropuesto[]
+  /** App de la casa donde se registra el paso; solo si existe en la oferta. */
+  enlaceApp?: EnlaceApp
+}
+
+/**
+ * Una app de la casa que se le ofrece a la IA para que enlace los pasos: «beber 2 L
+ * de agua» → la cocina. Las secciones son los deep links que la app ya declara
+ * (`Plantilla.comandos`); la IA elige por id y `validarEnlace` no se cree ninguno
+ * que no esté aquí.
+ */
+export interface AppParaPlan {
+  id: string
+  nombre: string
+  secciones: { id: string; etiqueta: string; dato?: string }[]
 }
 
 /** Rutina YA creada en la app que se le enseña a la IA para que elija de ahí. */
@@ -105,6 +119,10 @@ const MAX_LARGO_LINEA = 250
 const MAX_MATERIAL_OFERTA = 30
 const MAX_MATERIAL_ELEGIDO = 12
 const MAX_MOTIVO = 160
+// El catálogo de apps se manda entero en el mensaje: una casa con veinte apps y
+// todas sus secciones ya son varios cientos de tokens.
+const MAX_APPS_OFERTA = 20
+const MAX_SECCIONES_APP = 8
 
 const SYSTEM = [
   'Eres un entrenador que descompone una meta grande en un cronograma de sub-metas realista.',
@@ -125,6 +143,14 @@ const SYSTEM_RUTINAS = [
   'Elige de 2 a 4 que sirvan a la meta y reparte sus días entre los disponibles (0=domingo … 6=sábado), sin pasarte de las horas semanales.',
   'Un hábito diario (una comida, por ejemplo) va todos los días disponibles.',
   'Si ninguna le sirve a la meta, manda "rutinas": [].',
+].join('\n')
+
+/** Se añade SOLO cuando hay apps que ofrecer: sin casa montada, ni mencionarlo. */
+const SYSTEM_APPS = [
+  'El mensaje trae las apps que el usuario tiene en su casa, con sus secciones.',
+  'A cada nodo que se REGISTRE en alguna de ellas añádele "app":"<id EXACTO de la lista>" y, si encaja una sección concreta, "seccion":"<id EXACTO de esa app>".',
+  'Es dónde se apunta lo que pide el paso: «beber 2 L de agua» se registra en la cocina, «correr 5 km» en ejercicio.',
+  'Elige SOLO de la lista y omite la llave en los pasos que no se registran en ninguna app (leer un correo, comprar unos tenis).',
 ].join('\n')
 
 /** Se añade SOLO cuando la app ofrece material propio (recetas, mazos…). */
@@ -215,8 +241,23 @@ function topeDe(entrada: EntradaPlan, hoyIso: string): number {
   return Math.max(1, Math.min(d, MAX_DIAS))
 }
 
+/**
+ * El chip de app de un nodo, solo si la app (y su sección) están en la oferta: el
+ * modelo se inventa ids con soltura, y un enlace a una app que no está en la casa
+ * es un chip que no abre nada.
+ */
+function validarEnlace(o: Record<string, unknown>, apps: AppParaPlan[]): EnlaceApp | undefined {
+  if (apps.length === 0 || typeof o.app !== 'string') return undefined
+  const id = o.app.trim().toLowerCase()
+  const app = apps.find((a) => a.id.toLowerCase() === id)
+  if (!app) return undefined
+  const pedida = typeof o.seccion === 'string' ? o.seccion.trim().toLowerCase() : ''
+  const seccion = app.secciones.find((s) => s.id.toLowerCase() === pedida)
+  return { plantillaId: app.id, seccion: seccion?.id, dato: seccion?.dato }
+}
+
 /** Valida nodo a nodo lo que devolvió la IA: nada de aquí se cree sin comprobar. */
-function validarPlan(json: Record<string, unknown>, tope: number): PlanPropuesto {
+function validarPlan(json: Record<string, unknown>, tope: number, apps: AppParaPlan[]): PlanPropuesto {
   let restantes = MAX_NODOS
   const entero = (v: unknown, min: number, max: number, porDefecto: number) => {
     const n = Math.round(Number(v))
@@ -236,7 +277,7 @@ function validarPlan(json: Record<string, unknown>, tope: number): PlanPropuesto
       .slice(0, MAX_HIJOS)
       .map((h) => nodo(h, profundidad + 1))
       .filter((h): h is NodoPropuesto => h != null)
-    return { nombre, ini, fin: ini + dura - 1, hijos }
+    return { nombre, ini, fin: ini + dura - 1, hijos, enlaceApp: validarEnlace(o, apps) }
   }
 
   const brutas = Array.isArray(json.nodos) ? (json.nodos as unknown[]) : []
@@ -347,6 +388,7 @@ export async function generarPlan(
   hoyIso: string,
   rutinas: RutinaParaPlan[] = [],
   app?: ContextoPlanApp,
+  apps: AppParaPlan[] = [],
 ): Promise<PlanPropuesto> {
   // El día 0 del plan es el inicio elegido, no hoy: el plan puede arrancar a futuro.
   const inicioIso = entrada.fechaInicio ?? hoyIso
@@ -356,6 +398,12 @@ export async function generarPlan(
   const guia = (app?.guia ?? []).slice(0, MAX_LINEAS_GUIA).map(recorta)
   const contexto = (app?.contexto ?? []).slice(0, MAX_LINEAS_CONTEXTO).map(recorta)
   const material = (app?.material?.items ?? []).slice(0, MAX_MATERIAL_OFERTA)
+  // Una sección repetida es el mismo destino con otro dato (los juegos de mesa):
+  // a la IA se le ofrece una sola vez, y `validarEnlace` resuelve el dato.
+  const catalogo = apps.slice(0, MAX_APPS_OFERTA).map((a) => ({
+    ...a,
+    secciones: [...new Map(a.secciones.map((s) => [s.id, s])).values()].slice(0, MAX_SECCIONES_APP),
+  }))
   const usuario = [
     `Meta: ${nombreMeta}`,
     inicioIso === hoyIso
@@ -363,7 +411,9 @@ export async function generarPlan(
       : `Hoy es ${hoyIso} y el día 0 del plan es ${inicioIso}.`,
     entrada.fechaObjetivo
       ? `Fecha objetivo: ${entrada.fechaObjetivo}. El plan dura ${tope} días COMO MÁXIMO: ningún nodo puede pasar del día ${tope - 1}.`
-      : 'Sin fecha objetivo: decide tú cuánto debe durar el plan y sé realista con lo que la meta exige.',
+      : 'SIN fecha objetivo: el plazo lo decides TÚ. Calcula cuánto tiempo exige de verdad esta meta ' +
+        'con esas horas por semana y ese punto de partida, y no lo estires ni lo aprietes para que dé ' +
+        'un número redondo. Empieza el resumen diciendo cuántas semanas necesita y por qué.',
     `Dispone de ${entrada.horasSemana} horas por semana.`,
     entrada.dias.length > 0 && entrada.dias.length < 7
       ? `Solo puede dedicarle estos días: ${entrada.dias.map((d) => NOMBRE_DIA[d]).join(', ')}.`
@@ -389,6 +439,20 @@ export async function generarPlan(
             .join(', ')}.`,
         ]
       : []),
+    ...(catalogo.length > 0
+      ? [
+          `Apps de la casa (para "app", usa el id de la izquierda): ${catalogo
+            .map(
+              (a) =>
+                `${a.id} = ${a.nombre}${
+                  a.secciones.length > 0
+                    ? ` [secciones: ${a.secciones.map((s) => `${s.id} = ${s.etiqueta}`).join('; ')}]`
+                    : ''
+                }`,
+            )
+            .join(' | ')}.`,
+        ]
+      : []),
     `Escribe los nombres, el resumen y los motivos en ${idioma}.`,
   ].join('\n')
 
@@ -401,16 +465,22 @@ export async function generarPlan(
     SYSTEM,
     ...guia,
     ...(rutinas.length > 0 ? [SYSTEM_RUTINAS] : []),
+    ...(catalogo.length > 0 ? [SYSTEM_APPS] : []),
     ...(material.length > 0 && app?.material ? [SYSTEM_MATERIAL, recorta(app.material.instruccion)] : []),
   ].join('\n')
   // Con material, el JSON crece (nombre + motivo por pieza): más margen de salida.
-  const respuesta = await conversarIA(system, [{ rol: 'usuario', texto: usuario }], material.length > 0 ? 4000 : 3000)
+  // Los enlaces de app suman dos llaves cortas por nodo, que en 40 nodos se notan.
+  const respuesta = await conversarIA(
+    system,
+    [{ rol: 'usuario', texto: usuario }],
+    (material.length > 0 ? 4000 : 3000) + (catalogo.length > 0 ? 500 : 0),
+  )
   const json = jsonDePlan(respuesta)
   // La guía de la app permite rechazar metas fuera de su dominio: el motivo viaja
   // como error porque el panel ya enseña motivos literales.
   if (typeof json.rechazo === 'string' && json.rechazo.trim())
     throw new Error(recorta(json.rechazo.trim()))
-  const plan = validarPlan(json, tope)
+  const plan = validarPlan(json, tope, catalogo)
   plan.rutinas = validarRutinas(json, rutinas)
   // La IA no eligió ninguna (o mandó nombres inventados): decide la capa sin IA.
   if (plan.rutinas.length === 0) plan.rutinas = sugerirRutinasPorNombre(nombreMeta, rutinas)

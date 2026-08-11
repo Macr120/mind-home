@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto } from '../data/db'
+import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto, type TemaPropio } from '../data/db'
 import { claveLS, esDemo } from '../edicion'
 import { esAppNativa } from '../plataforma'
 import { filaSeed } from '../data/sync/syncables'
@@ -18,7 +18,7 @@ import type { TechoTipoId, TechoFormaId, TechoParams, TechoCeldaForma } from '..
 import { techoSugeridoPorTema, TECHO_PARAMS_DEFAULT } from '../house/techos'
 import type { FondoId, FamiliaAnimId } from '../house/fondos'
 import { fondoSugeridoPorTema, esFamiliaAnim } from '../house/fondos'
-import { RECURSOS } from '../house/recursos'
+import { CATS_RETIRADAS, RECURSOS } from '../house/recursos'
 import { MODELOS } from '../house/modelosRecursos'
 import {
   META_ESPECIAL_PLANTILLA,
@@ -29,6 +29,7 @@ import {
   TIPO_LAPTOP,
   TIPO_GUITARRA,
   TIPO_SILLON,
+  TIPO_CAJA_FUERTE,
 } from '../house/especialesPlantillaMeta'
 import {
   MAPA_SUPERFICIE_DEFAULT,
@@ -38,6 +39,7 @@ import {
   type MapaSuperficieAjustes,
 } from '../house/mapaSuperficie'
 import { AGUA_ALTURA_LOCAL } from '../house/walls'
+import type { GrupoAccion } from './accionCuartoStore'
 import { useFlotador, TIPO_FLOTADOR, NOMBRE_FLOTADOR, COLOR_FLOTADOR } from './flotadorStore'
 import type { AjusteFondoImagen } from '../house/fondosImagen'
 import { AJUSTE_FONDO_DEFAULT, ajusteADb, medirImagen } from '../house/fondosImagen'
@@ -212,6 +214,9 @@ interface DisenoState {
   seleccion: number[]
   /** Offsets de cada miembro del grupo respecto al objeto arrastrado (se calculan al iniciar el drag). */
   dragGroupOffsets: Record<number, { x: number; z: number }>
+  /** El arrastre en curso es "cargarlo" caminando (herramienta mover): se dibuja
+   * elevado sobre la cabeza en vez del leve levantón del arrastre con mouse. */
+  arrastreElevado: boolean
   avatar: Avatar
   /** tema estacional global de la casa; null = sin tema (se controla en el editor de mapa) */
   temaGlobal: TemaId | null
@@ -239,6 +244,8 @@ interface DisenoState {
   fondoImagenActivo: number | null
   /** Galería de fondos con imagen guardados localmente. */
   fondosImagen: FondoImagen[]
+  /** Temas propios del usuario (tema base + personalización + fondo, con nombre). */
+  temasPropios: TemaPropio[]
   /** microanimaciones de fondo (cometas, dragones, nieve, etc.) */
   animacionesFondo: boolean
   /** Intensidad de las microanimaciones (0.1–1): cantidad y discreción de los elementos. */
@@ -272,6 +279,11 @@ interface DisenoState {
     patch: Partial<Pick<FondoImagen, 'nombre' | 'ajusteX' | 'ajusteY' | 'escala'>>,
   ) => Promise<void>
   eliminarFondoImagen: (id: number) => Promise<void>
+  /** Congela el tema actual (con su personalización y su fondo) con un nombre. */
+  guardarTemaPropio: (nombre: string) => Promise<void>
+  /** Vuelve a poner un tema propio: tema base, personalización y fondo. */
+  aplicarTemaPropio: (id: number) => Promise<void>
+  eliminarTemaPropio: (id: number) => Promise<void>
   setAnimacionesFondo: (activo: boolean) => Promise<void>
   setAnimacionesIntensidad: (valor: number) => Promise<void>
   /** Fija las microanimaciones a mano (null = volver a las del fondo). */
@@ -368,7 +380,12 @@ interface DisenoState {
   /** Alberca: siembra su dona flotadora al llenarla de agua y la retira al vaciarla. */
   sincronizarFlotadorAlberca: (roomId: string, hayAgua: boolean) => Promise<void>
   /** Crea un objeto construido con geometría básica. `roomId` = destino elegido (mapa o cuarto). Devuelve su id. */
-  addObjetoPiezas: (piezas: Pieza3D[], color: string, roomId?: string) => Promise<number>
+  addObjetoPiezas: (
+    piezas: Pieza3D[],
+    color: string,
+    roomId?: string,
+    grupoAccion?: GrupoAccion,
+  ) => Promise<number>
   /** Crea un objeto con un modelo .glb subido por el usuario. `roomId` = destino elegido. Devuelve su id. */
   addObjetoGlb: (glb: Blob, color: string, roomId?: string) => Promise<number>
   /** Reemplaza el contenido de un objeto por un modelo .glb subido por el usuario. */
@@ -380,7 +397,13 @@ interface DisenoState {
   /** Siembra en la BIBLIOTECA los objetos base del catálogo que falten. Devuelve cuántos añadió. */
   sembrarLibreriaBase: () => Promise<number>
   /** Crea un objeto en la BIBLIOTECA dentro de una categoría/carpeta. Devuelve su id. */
-  addObjetoLibreria: (tipo: string, color: string, categoria: string, piezas?: Pieza3D[]) => Promise<number>
+  addObjetoLibreria: (
+    tipo: string,
+    color: string,
+    categoria: string,
+    piezas?: Pieza3D[],
+    grupoAccion?: GrupoAccion,
+  ) => Promise<number>
   /** Coloca en el mundo una copia (instancia) de un objeto de la biblioteca. `pos` = coords de mundo (omitida = posición por defecto); `roomId` = destino elegido. Devuelve su id. */
   instanciarObjetoEnMapa: (
     libId: number,
@@ -391,12 +414,23 @@ interface DisenoState {
   renombrarCategoriaLibreria: (oldCat: string, newCat: string) => Promise<void>
   /** Aplica categoría+orden a varios objetos de biblioteca de una vez (drag & drop). */
   reordenarLibreria: (cambios: { id: number; categoria: string; orden: number }[]) => Promise<void>
-  /** Reemplaza las piezas de un objeto construido con geometría básica. */
-  setObjetoPiezas: (id: number, piezas: Pieza3D[]) => Promise<void>
+  /**
+   * Reemplaza las piezas de un objeto construido con geometría básica.
+   * `grupoAccion`: 'ninguno' limpia la clasificación previa; `undefined`/`null`
+   * la deja intacta (una regeneración sin clasificación no debe pisar una
+   * corrección manual ya hecha en el editor).
+   */
+  setObjetoPiezas: (
+    id: number,
+    piezas: Pieza3D[],
+    grupoAccion?: GrupoAccion | 'ninguno' | null,
+  ) => Promise<void>
   /** Convierte un objeto existente a piezas editables (guarda su tipo para restaurarlo). */
   convertirObjetoAPiezas: (id: number, piezas: Pieza3D[]) => Promise<void>
   /** Devuelve un objeto convertido a su modelo original (predeterminado). */
   restaurarObjetoPredeterminado: (id: number) => Promise<void>
+  /** Corrige a mano el grupo de acción (sentarse/acostarse/conducir) de un objeto; null = quitarlo. */
+  setObjetoGrupoAccion: (id: number, grupo: GrupoAccion | null) => Promise<void>
   /** Pone el nombre personalizado de un objeto (vacío = quitarlo). */
   setObjetoNombre: (id: number, nombre: string) => Promise<void>
   toggleSeleccion: (id: number) => void
@@ -417,6 +451,10 @@ interface DisenoState {
   setObjetoFx: (id: number, fx: number) => Promise<void>
   /** Fija (o quita, con undefined) la animación de un objeto colocado. */
   setObjetoAnimacion: (id: number, anim: AnimacionModelo | undefined) => Promise<void>
+  /** Marca que alimentaron o acariciaron un objeto con el preset «Dale vida». */
+  setObjetoVida: (id: number, patch: { vidaComidaEn?: number; vidaMimoEn?: number }) => Promise<void>
+  /** Devuelve un objeto a un estado anterior completo (lo usa deshacer/rehacer). */
+  restaurarObjeto: (o: ObjetoCuarto) => Promise<void>
   /** Mueve un objeto a (x,z) relativo al centro del cuarto (solo estado). */
   setObjetoPos: (id: number, x: number, z: number) => void
   /** Fija y PERSISTE posición+rumbo de un objeto sin reasignarlo de cuarto (estacionar un vehículo). */
@@ -425,7 +463,8 @@ interface DisenoState {
   nudgeObjeto: (id: number, dx: number, dz: number) => Promise<void>
   /** Reescala las posiciones de los objetos libres del mapa al cambiar el tamaño de celda. */
   reescalarObjetosMapa: (factor: number) => Promise<void>
-  startObjetoDrag: (id: number) => void
+  /** `elevado`: el arrastre es "cargarlo" caminando, no un drag de mouse (ver `arrastreElevado`). */
+  startObjetoDrag: (id: number, elevado?: boolean) => void
   endObjetoDrag: () => Promise<void>
   removeObjeto: (id: number) => Promise<void>
   /** Marca un objeto como punto de entrada del cuarto (solo uno por cuarto). */
@@ -477,7 +516,10 @@ interface DisenoState {
   /** Fija (o quita, con undefined) la animación del personaje principal. */
   setAvatarAnimacion: (anim: AnimacionModelo | undefined) => Promise<void>
   resetRoom: (roomId: string) => Promise<void>
+  /** Devuelve el personaje principal a su apariencia de fábrica (conserva el nombre). */
   resetAvatar: () => Promise<void>
+  /** Reemplaza el avatar entero (lo usa deshacer/rehacer). */
+  setAvatarCompleto: (av: Avatar) => Promise<void>
 }
 
 /** Posición por defecto (local) de un objeto nuevo en un cuarto, según cuántos haya. */
@@ -673,6 +715,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   draggingObjeto: null,
   seleccion: [],
   dragGroupOffsets: {},
+  arrastreElevado: false,
   avatar: { ...AVATAR_INICIAL },
   temaGlobal: null,
   temasOverrides: {},
@@ -688,6 +731,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   fondoColorFijo: '#87ceeb',
   fondoImagenActivo: null,
   fondosImagen: [],
+  temasPropios: [],
   animacionesFondo: true,
   animacionesIntensidad: ANIM_INTENSIDAD_DEFAULT,
   animacionesIds: null,
@@ -695,11 +739,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   cargado: false,
 
   cargar: async () => {
-    const [disenoRooms, disenoAvatars, objetos, fondosImagen, pisosImagen, techosImagen, murosImagen] = await Promise.all([
+    const [disenoRooms, disenoAvatars, objetos, fondosImagen, temasPropios, pisosImagen, techosImagen, murosImagen] = await Promise.all([
       db.disenoRooms.toArray(),
       db.disenoAvatar.toArray(),
       db.objetosCuarto.toArray(),
       db.fondosImagen.orderBy('creado').reverse().toArray(),
+      db.temasPropios.orderBy('creado').reverse().toArray(),
       db.pisosImagenCuarto.toArray(),
       db.techosImagenCuarto.toArray(),
       db.murosImagenCuarto.toArray(),
@@ -886,6 +931,35 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         await db.objetosCuarto.delete(silla.id)
         const i = objetos.findIndex((x) => x.id === silla.id)
         if (i >= 0) objetos.splice(i, 1)
+      }
+    }
+    // Reposición única (pedido del usuario): el objeto principal del despacho
+    // pasa de la computadora a una CAJA FUERTE, y la laptop se queda de mueble
+    // decorativo — así el cuarto no pierde ni su objeto usable ni su historia.
+    //
+    // Se busca por el PORTADOR de la app (`plantillaId === 'despacho'`) y no por
+    // `tipo === laptop`: tras sincronizar, el otro dispositivo ve el portador ya
+    // convertido y no toca nada. Buscar por tipo convertiría la laptop
+    // DECORATIVA que llegó del primer dispositivo en una segunda caja fuerte.
+    const CAJA_FUERTE = claveLS('mh_caja_fuerte_v1')
+    if (!demo && !localStorage.getItem(CAJA_FUERTE)) {
+      localStorage.setItem(CAJA_FUERTE, '1')
+      const carrier = objetos.find((o) => o.plantillaId === 'despacho')
+      // Si el usuario ya había cambiado el principal por otra cosa, se respeta.
+      if (carrier?.id != null && carrier.tipo === TIPO_LAPTOP) {
+        const cambios = { tipo: TIPO_CAJA_FUERTE, x: -1.9, z: -2.2, color: '#3f4b5b' }
+        await db.objetosCuarto.update(carrier.id, cambios)
+        Object.assign(carrier, cambios)
+        // Un nombre guardado a mano («Laptop de trabajo») mentiría sobre el
+        // objeto nuevo; sin nombre hereda el de META_ESPECIAL_PLANTILLA.
+        if (carrier.nombre) {
+          await db.objetosCuarto.update(carrier.id, { nombre: undefined })
+          delete carrier.nombre
+        }
+        const yaHayLaptop = objetos.some((o) => o.roomId === carrier.roomId && o.tipo === TIPO_LAPTOP)
+        if (!yaHayLaptop) {
+          await get().addObjeto(carrier.roomId, TIPO_LAPTOP, '#475569', undefined, { x: 0, z: -1.7 })
+        }
       }
     }
     const roomColors: Record<string, string> = {}
@@ -1113,6 +1187,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       fondoColorFijo,
       fondoImagenActivo,
       fondosImagen,
+      temasPropios,
       animacionesFondo,
       animacionesIntensidad,
       animacionesIds,
@@ -1352,6 +1427,42 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         get().fondoColorFijo,
       )
     }
+  },
+
+  guardarTemaPropio: async (nombre) => {
+    const base = get().temaGlobal
+    // Sin tema activo no hay nada que congelar (la personalización vive por tema base).
+    if (!base) return
+    const item: Omit<TemaPropio, 'id'> = {
+      nombre: nombre.trim().slice(0, 40) || 'Mi tema',
+      base,
+      override: get().temasOverrides[base] ?? {},
+      fondoId: get().fondoId,
+      fondoColorFijo: get().fondoColorFijo,
+      fondoImagenActivo: get().fondoImagenActivo,
+      creado: new Date().toISOString(),
+    }
+    const id = await db.temasPropios.add(item)
+    set((s) => ({ temasPropios: [{ id, ...item }, ...s.temasPropios] }))
+  },
+
+  aplicarTemaPropio: async (id) => {
+    const tp = get().temasPropios.find((t) => t.id === id)
+    if (!tp) return
+    // `setTemaGlobal` reinicia el fondo al sugerido por el tema, así que el fondo
+    // guardado se repone DESPUÉS.
+    await get().setTemaGlobal(tp.base)
+    await get().setTemaOverride(tp.base, tp.override)
+    await get().setFondoId(tp.fondoId as FondoId)
+    if (tp.fondoId === 'color_fijo') await get().setFondoColorFijo(tp.fondoColorFijo)
+    // La imagen pudo borrarse desde que se guardó el tema: `setFondoImagenActivo`
+    // ignora los ids que ya no existen y el fondo se queda en el preset.
+    if (tp.fondoImagenActivo != null) await get().setFondoImagenActivo(tp.fondoImagenActivo)
+  },
+
+  eliminarTemaPropio: async (id) => {
+    await db.temasPropios.delete(id)
+    set((s) => ({ temasPropios: s.temasPropios.filter((t) => t.id !== id) }))
   },
 
   setAnimacionesFondo: async (activo) => {
@@ -2025,9 +2136,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     await db.objetosCuarto.bulkDelete(ids)
   },
 
-  addObjetoPiezas: async (piezas, color, destino) => {
+  addObjetoPiezas: async (piezas, color, destino, grupoAccion) => {
     const { roomId, x, z } = destinoObjetoNuevo(get().objetos, destino)
-    const item: ObjetoCuarto = { roomId, tipo: 'piezas', color, slot: 0, x, z, rotY: 0, piezas }
+    const item: ObjetoCuarto = {
+      roomId, tipo: 'piezas', color, slot: 0, x, z, rotY: 0, piezas,
+      ...(grupoAccion ? { grupoAccion } : {}),
+    }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
     return id
@@ -2074,7 +2188,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const addLib = (item: ObjetoCuarto) =>
       db.objetosCuarto.add(filaSeed(`objetosCuarto-lib-${item.baseId ?? item.tipo}`, item))
     for (const r of RECURSOS) {
-      if (!MODELOS[r.id] || yaBase.has(r.id)) continue
+      if (!MODELOS[r.id] || yaBase.has(r.id) || CATS_RETIRADAS.has(r.categoria)) continue
       const item: ObjetoCuarto = {
         roomId: LIBRERIA_ROOM,
         tipo: `recurso:${r.id}`,
@@ -2213,12 +2327,29 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       const id = await addLib(item)
       nuevos.push({ id, ...item })
     }
+    // Retirada de las carpetas anticuadas (Estructural, Estructural / Deco,
+    // Terreno): su contenido era la versión suelta de lo que ahora es el
+    // catálogo de la casa. Solo se borran las filas de la BIBLIOTECA — lo que ya
+    // esté colocado en el mapa se queda donde está.
+    const retirar = get().objetos.filter(
+      (o) => o.id != null && esObjetoLibreria(o) && CATS_RETIRADAS.has(o.categoria ?? ''),
+    )
+    if (retirar.length) {
+      const ids = retirar.map((o) => o.id as number)
+      await db.objetosCuarto.bulkDelete(ids)
+      const fuera = new Set(ids)
+      set((s) => ({ objetos: s.objetos.filter((o) => o.id == null || !fuera.has(o.id)) }))
+    }
     if (nuevos.length) set((s) => ({ objetos: [...s.objetos, ...nuevos] }))
     return nuevos.length
   },
 
-  addObjetoLibreria: async (tipo, color, categoria, piezas) => {
-    const item: ObjetoCuarto = { roomId: LIBRERIA_ROOM, tipo, color, slot: 0, categoria, ...(piezas ? { piezas } : {}) }
+  addObjetoLibreria: async (tipo, color, categoria, piezas, grupoAccion) => {
+    const item: ObjetoCuarto = {
+      roomId: LIBRERIA_ROOM, tipo, color, slot: 0, categoria,
+      ...(piezas ? { piezas } : {}),
+      ...(grupoAccion ? { grupoAccion } : {}),
+    }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
     return id
@@ -2249,6 +2380,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
       ...(lib.animacion
         ? { animacion: JSON.parse(JSON.stringify(lib.animacion)) as AnimacionModelo }
         : {}),
+      ...(lib.grupoAccion ? { grupoAccion: lib.grupoAccion } : {}),
     }
     const id = await db.objetosCuarto.add(item)
     set((s) => ({ objetos: [...s.objetos, { id, ...item }] }))
@@ -2277,17 +2409,27 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     for (const c of cambios) await db.objetosCuarto.update(c.id, { categoria: c.categoria, orden: c.orden })
   },
 
-  setObjetoPiezas: async (id, piezas) => {
+  setObjetoPiezas: async (id, piezas, grupoAccion) => {
+    // 'ninguno' (la IA lo dijo explícito) limpia; undefined/null (sin clasificar
+    // esta vez) deja intacta una corrección manual previa del editor.
+    const patch: Partial<ObjetoCuarto> = { piezas }
+    if (grupoAccion === 'ninguno') patch.grupoAccion = undefined
+    else if (grupoAccion) patch.grupoAccion = grupoAccion
     set((s) => ({
-      objetos: s.objetos.map((x) => (x.id === id ? { ...x, piezas } : x)),
+      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
     }))
-    await db.objetosCuarto.update(id, { piezas })
+    await db.objetosCuarto.update(id, patch)
   },
 
   convertirObjetoAPiezas: async (id, piezas) => {
     const o = get().objetos.find((x) => x.id === id)
     if (!o || o.tipo === 'piezas') return
-    const patch = { tipo: 'piezas', tipoOriginal: o.tipo, piezas }
+    // Traslada el grupo de acción (explícito, o el default de 'silla' — ver
+    // GRUPO_ACCION_DEFAULT en house/catalogo.tsx) para no perder "sentarse" al convertir.
+    const grupo = o.grupoAccion ?? (o.tipo === 'silla' ? 'asiento' : undefined)
+    const patch: Partial<ObjetoCuarto> = {
+      tipo: 'piezas', tipoOriginal: o.tipo, piezas, ...(grupo ? { grupoAccion: grupo } : {}),
+    }
     set((s) => ({
       objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
     }))
@@ -2297,12 +2439,19 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   restaurarObjetoPredeterminado: async (id) => {
     const o = get().objetos.find((x) => x.id === id)
     if (!o?.tipoOriginal) return
+    const patch = { tipo: o.tipoOriginal, piezas: undefined, tipoOriginal: undefined, grupoAccion: undefined }
     set((s) => ({
-      objetos: s.objetos.map((x) =>
-        x.id === id ? { ...x, tipo: o.tipoOriginal!, piezas: undefined, tipoOriginal: undefined } : x,
-      ),
+      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
     }))
-    await db.objetosCuarto.update(id, { tipo: o.tipoOriginal, piezas: undefined, tipoOriginal: undefined })
+    await db.objetosCuarto.update(id, patch)
+  },
+
+  setObjetoGrupoAccion: async (id, grupo) => {
+    const patch = { grupoAccion: grupo ?? undefined }
+    set((s) => ({
+      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
+    }))
+    await db.objetosCuarto.update(id, patch)
   },
 
   setObjetoNombre: async (id, nombre) => {
@@ -2361,11 +2510,31 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   },
 
   setObjetoAnimacion: async (id, anim) => {
+    // Al darle vida hay que sellar sus marcas: sin ellas, `ahora - undefined`
+    // dejaría al objeto hambriento y aburrido desde el primer frame.
+    const previo = get().objetos.find((x) => x.id === id)
+    const estrena = anim?.preset === 'vida' && previo?.vidaComidaEn == null
+    const patch = estrena
+      ? { animacion: anim, vidaComidaEn: Date.now(), vidaMimoEn: Date.now() }
+      : { animacion: anim }
     set((s) => ({
-      objetos: s.objetos.map((x) => (x.id === id ? { ...x, animacion: anim } : x)),
+      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
     }))
     // Con undefined, Dexie elimina la clave de la fila (quitar animación).
-    await db.objetosCuarto.update(id, { animacion: anim })
+    await db.objetosCuarto.update(id, patch)
+  },
+
+  restaurarObjeto: async (o) => {
+    if (o.id == null) return
+    set((s) => ({ objetos: s.objetos.map((x) => (x.id === o.id ? o : x)) }))
+    await db.objetosCuarto.put(o)
+  },
+
+  setObjetoVida: async (id, patch) => {
+    set((s) => ({
+      objetos: s.objetos.map((x) => (x.id === id ? { ...x, ...patch } : x)),
+    }))
+    await db.objetosCuarto.update(id, patch)
   },
 
   setObjetoPos: (id, x, z) =>
@@ -2426,7 +2595,7 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     await Promise.all(cambios.map((c) => db.objetosCuarto.update(c.id, { x: c.x, z: c.z })))
   },
 
-  startObjetoDrag: (id) => {
+  startObjetoDrag: (id, elevado = false) => {
     const { objetos } = get()
     const o = objetos.find((x) => x.id === id)
     const offsets: Record<number, { x: number; z: number }> = {}
@@ -2437,12 +2606,12 @@ export const useDiseño = create<DisenoState>((set, get) => ({
         }
       }
     }
-    set({ draggingObjeto: id, dragGroupOffsets: offsets })
+    set({ draggingObjeto: id, dragGroupOffsets: offsets, arrastreElevado: elevado })
   },
 
   endObjetoDrag: async () => {
     const id = get().draggingObjeto
-    set({ draggingObjeto: null, dragGroupOffsets: {} })
+    set({ draggingObjeto: null, dragGroupOffsets: {}, arrastreElevado: false })
     if (id == null) return
     const { objetos } = get()
     const o = objetos.find((x) => x.id === id)
@@ -2743,9 +2912,17 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     await db.objetosCuarto.bulkDelete(ids)
   },
 
+  // El NOMBRE no es apariencia: se conserva. `guardarAvatar` escribe `rostro` y
+  // `modeloGlb` como undefined, y el `update` de Dexie borra esas claves, así que
+  // los Blobs se van igual que con un `clear()` pero sin perder la fila.
   resetAvatar: async () => {
-    set({ avatar: { ...AVATAR_INICIAL } })
-    await db.disenoAvatar.clear()
+    set((s) => ({ avatar: { ...AVATAR_INICIAL, nombre: s.avatar.nombre } }))
+    await guardarAvatar(get().avatar)
+  },
+
+  setAvatarCompleto: async (av) => {
+    set({ avatar: av })
+    await guardarAvatar(av)
   },
 }))
 

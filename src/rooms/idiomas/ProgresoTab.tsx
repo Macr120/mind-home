@@ -3,7 +3,6 @@ import { VACIO,
   conversacionesIdiomaRepo,
   repasosIdiomaRepo,
   tarjetasIdiomaRepo,
-  temasIdiomaRepo,
 } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
@@ -11,9 +10,10 @@ import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR, NIVELES } from './constantes'
 import { esDominada } from './srs'
-import { getTema } from './temario'
+import { todosVivos, useTemario } from './temarioVivo'
 import { hoyISO, inicioSemana, rachaActual, repasosPorDia } from './stats'
 import { HeatmapIdiomas } from './HeatmapIdiomas'
+import { RecordsEjercicios } from './RecordsEjercicios'
 
 /** Panorama del idioma activo: dominio del vocabulario, constancia y cobertura. */
 export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
@@ -21,7 +21,7 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
   const tarjetas = (tarjetasIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
   const repasos = (repasosIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
   const charlas = (conversacionesIdiomaRepo.useAll() ?? VACIO).filter((x) => x.idiomaId === perfil.id)
-  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
+  const tx = useTemario(perfil.id)
 
   const dominadas = tarjetas.filter((x) => esDominada(x.caja)).length
 
@@ -38,7 +38,9 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
 
   const conteoTemas = new Map<string, number>()
   for (const x of tarjetas) if (x.temaId) conteoTemas.set(x.temaId, (conteoTemas.get(x.temaId) ?? 0) + 1)
-  const tituloTema = (id: string) => getTema(id)?.titulo ?? nodos.find((n) => n.temaId === id)?.titulo ?? id
+  const tituloTema = (id: string) => tx.porId.get(id)?.titulo ?? id
+  // Los que no vienen del catálogo: los abrió una charla o los creaste tú.
+  const propios = todosVivos(tx).filter((x) => !x.fabrica).length
   const topTemas = [...conteoTemas.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 6)
@@ -60,9 +62,9 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
             p: String(tarjetas.length - dominadas),
           })}
         </p>
-        {nodos.length > 0 && (
+        {propios > 0 && (
           <p className="mt-1 text-xs text-white/45">
-            <Icono nombre="brillo" /> {t('idiomas.pr.desbloqueados', '{n} temas desbloqueados por tus charlas', { n: String(nodos.length) })}
+            <Icono nombre="brillo" /> {t('idiomas.pr.propios', '{n} temas propios en tu temario', { n: String(propios) })}
           </p>
         )}
       </div>
@@ -128,11 +130,13 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
 
       <HeatmapIdiomas porDia={porDia} color={COLOR} />
 
+      {perfil.id != null && <RecordsEjercicios idiomaId={perfil.id} />}
+
       {/* Plan de estudio del idioma: sus metas en el mismo cronograma del
           calendario. El ✨ de cada meta pide el plan a la IA (fecha objetivo,
           horas y días disponibles) y agenda plan + rato de repaso. */}
       {perfil.id != null && (
-        <div className="space-y-2">
+        <div className="space-y-2" data-tut="idiomas.cronograma">
           <p className="text-sm font-semibold">
             <Icono nombre="calendario" /> {t('idiomas.plan.titulo', 'Plan de estudio')}
           </p>

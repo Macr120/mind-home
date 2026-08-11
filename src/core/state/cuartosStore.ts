@@ -54,6 +54,12 @@ interface CuartosState {
   /** Fija el ambiente musical del cuarto (undefined = volver al automático). */
   setTemaMusical: (id: string, tema: Cuarto['temaMusical']) => Promise<void>
   /**
+   * Permuta el `orden` de dos cuartos (los botones ▲/▼ del menú lateral). Quien
+   * llama elige el vecino sobre la lista YA ordenada como se ve, porque el menú
+   * agrupa por categoría y manda al final los cuartos sin app.
+   */
+  intercambiarOrden: (idA: string, idB: string) => Promise<void>
+  /**
    * Elimina el cuarto y su rastro (layout/diseño/objetos los limpia el layoutStore).
    * Si tiene una app asignada, en vez de borrar de inmediato deja el borrado pendiente
    * de confirmación en `eliminarPendiente` (lo resuelve `EliminarCuartoDialog`).
@@ -114,8 +120,10 @@ export const useCuartos = create<CuartosState>((set, get) => ({
     await db.cuartos.add(cuarto)
     set({ cuartos: [...cuartos, cuarto] })
     const { useLayout } = await import('./layoutStore')
-    await useLayout.getState().colocarCuartoEnCeldas(cuarto.id, celdas, nivel)
+    // El pincel va ANTES de colocar: en pisos altos la ventana inicial se sella con el
+    // estilo del muro, y si el color llegara después esa arista se quedaría gris.
     await pintarMurosDelColor(cuarto)
+    await useLayout.getState().colocarCuartoEnCeldas(cuarto.id, celdas, nivel)
     return cuarto.id
   },
 
@@ -143,6 +151,20 @@ export const useCuartos = create<CuartosState>((set, get) => ({
     set((s) => ({ cuartos: s.cuartos.map((c) => (c.id === id ? { ...c, temaMusical: tema } : c)) }))
     // `undefined` borra la propiedad en Dexie (vuelve al tema automático).
     await db.cuartos.update(id, { temaMusical: tema })
+  },
+
+  intercambiarOrden: async (idA, idB) => {
+    const cuartos = get().cuartos
+    const a = cuartos.find((c) => c.id === idA)
+    const b = cuartos.find((c) => c.id === idB)
+    if (!a || !b) return
+    set({
+      cuartos: cuartos
+        .map((c) => (c.id === idA ? { ...c, orden: b.orden } : c.id === idB ? { ...c, orden: a.orden } : c))
+        .sort((x, y) => x.orden - y.orden),
+    })
+    await db.cuartos.update(idA, { orden: b.orden })
+    await db.cuartos.update(idB, { orden: a.orden })
   },
 
   eliminar: async (id) => {

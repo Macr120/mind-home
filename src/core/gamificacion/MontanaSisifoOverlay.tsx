@@ -51,6 +51,7 @@ export default function MontanaSisifoOverlay() {
 
   return (
     <div
+      data-tut="sisifo.overlay"
       className="ui-panel-legible fixed inset-0 z-[70] overflow-y-auto backdrop-blur-sm"
       role="dialog"
       aria-label={t('sisifo.titulo', 'Montaña de Sísifo')}
@@ -73,7 +74,7 @@ export default function MontanaSisifoOverlay() {
 
         {/* Montaña + lista de rangos */}
         <div className="grid grid-cols-2 gap-3">
-          <svg viewBox="0 0 200 210" className="w-full" role="img" aria-label={t('sisifo.titulo', 'Montaña de Sísifo')}>
+          <svg data-tut="sisifo.montana" viewBox="0 0 200 210" className="w-full" role="img" aria-label={t('sisifo.titulo', 'Montaña de Sísifo')}>
             <defs>
               <clipPath id="sisifoTriangulo">
                 <polygon points="20,192 160,20 190,192" />
@@ -112,7 +113,7 @@ export default function MontanaSisifoOverlay() {
             <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-white/50">
               {t('sisifo.rangos', 'Rangos')}
             </h3>
-            <ol className="flex flex-col-reverse gap-0.5 text-[11px]">
+            <ol data-tut="sisifo.rangos" className="flex flex-col-reverse gap-0.5 text-[11px]">
             {RANGOS.map((r) => {
               const actual = r.n === vista.rango
               const alcanzado = r.n <= vista.rango
@@ -135,7 +136,7 @@ export default function MontanaSisifoOverlay() {
         </div>
 
         {/* Progreso global */}
-        <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-3">
+        <div data-tut="sisifo.progreso" className="mt-3 rounded-xl border border-white/10 bg-white/5 p-3">
           <div className="flex items-center justify-between text-xs text-white/70">
             <span className="texto-vivo font-semibold" style={vivo(rango.color)}>{nombreRango(rango)}</span>
             <span>{t('sisifo.dia', 'Día')} {vista.altura}/{DIAS_META}</span>
@@ -151,7 +152,7 @@ export default function MontanaSisifoOverlay() {
         </div>
 
         {/* Rejilla de 52 insignias por familia geológica */}
-        <div className="mt-4 space-y-3">
+        <div data-tut="sisifo.insignias" className="mt-4 space-y-3">
           {CATEGORIAS.map((cat) => (
             <section key={cat.es}>
               <h3 className="texto-vivo mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide" style={vivo(cat.color)}>
@@ -184,7 +185,7 @@ export default function MontanaSisifoOverlay() {
         </div>
 
         {/* Cierre: cómo funciona el ascenso + la frase, en un mismo bloque. */}
-        <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3 text-[11px] leading-relaxed text-white/60">
+        <div data-tut="sisifo.reglas" className="mt-4 rounded-xl border border-white/10 bg-white/5 p-3 text-[11px] leading-relaxed text-white/60">
           <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-white/50">
             {t('sisifo.comoFunciona', 'Cómo funciona')}
           </h3>

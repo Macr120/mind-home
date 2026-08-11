@@ -10,15 +10,24 @@ import {
   entradasBiblioRepo,
   fijarObjetivoDiario,
   mensajesBiblioRepo,
+  planesMetaRepo,
   rutinasRepo,
   sesionesEstudioRepo,
   temasArbolRepo,
 } from '../../core/data/repository'
+import { esMeta } from '../../core/metas'
+import { aceptarPlan } from '../../core/planMeta'
+import { colorPorProfundidad } from '../../core/ui/coloresRutina'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
+import { sembrarMetasApp } from '../../demo/metasPep'
+import { PLANES_DEMO, sembrarPlanDemo } from '../../demo/planesPep'
 import { DEMO_BIBLIOTECA } from './demo.data'
 
 /** El pilar al que pertenece cada tema del temario que usa el contenido. */
 const pilarDe = (tema: string) => (tema.startsWith('mat-') ? 'matematicas' : 'naturales')
+
+/** Color de la meta del posgrado; sus sub-metas degradan a partir de él. */
+const COLOR_POSGRADO = '#3b82f6'
 
 /** Semanas de parcial: los días previos Pep@ estudia casi a diario. */
 const PARCIALES = [-330, -210, -150, -60]
@@ -142,37 +151,69 @@ export async function construirDemoBiblioteca(ctx: CtxDemo): Promise<void> {
   await fijarObjetivoDiario('biblioteca', 25)
 
   // ── Cronograma: la meta que cumplió y la que tiene viva ──────────────────
-  await rutinasRepo.bulkAdd([
-    {
-      nombre: datos.metas.termo,
-      emoji: '🎯',
-      dias: [],
-      pasos: [],
-      activa: true,
-      esMeta: true,
-      completada: true,
-      // Como las metas de la app: una fecha objetivo, no un rango (un rango
-      // pintaría la meta en TODOS los días del calendario).
-      repeticion: 'una_vez',
-      fechaInicio: ctx.fecha(-215),
-      color: '#a78bfa',
-      orden: 1,
-      plantillaId: 'biblioteca',
-      creadoEn: enHora(-272, '09:00'),
+  // Una por una y no `bulkAdd`: la del posgrado necesita su id para el plan.
+  await rutinasRepo.add({
+    nombre: datos.metas.termo,
+    emoji: '🎯',
+    dias: [],
+    pasos: [],
+    activa: true,
+    esMeta: true,
+    completada: true,
+    // Como las metas de la app: una fecha objetivo, no un rango (un rango
+    // pintaría la meta en TODOS los días del calendario).
+    repeticion: 'una_vez',
+    fechaInicio: ctx.fecha(-215),
+    color: '#a78bfa',
+    orden: 1,
+    plantillaId: 'biblioteca',
+    creadoEn: enHora(-272, '09:00'),
+  })
+  const posgradoId = await rutinasRepo.add({
+    nombre: datos.metas.posgrado,
+    emoji: '🎯',
+    dias: [],
+    pasos: [],
+    activa: true,
+    esMeta: true,
+    repeticion: 'una_vez',
+    fechaInicio: ctx.fecha(90),
+    color: COLOR_POSGRADO,
+    orden: 0,
+    plantillaId: 'biblioteca',
+    creadoEn: enHora(-60, '09:00'),
+  })
+
+  // ── El plan que YA está en el cronograma ─────────────────────────────────
+  // No se siembran las sub-metas a mano: se acepta el plan con la misma función
+  // que usa la hoja. `aceptarPlan` es quien sabe crearlas al revés (`crearMeta`
+  // inserta al inicio de sus hermanas), ponerles el periodo, convertir `hechos`
+  // en `completada` y escribir el `metaRealId` de cada nodo. Replicar eso a mano
+  // es justo donde se rompería el orden. Solo la fecha hay que retrofecharla.
+  const planId = await sembrarPlanDemo({
+    metaId: posgradoId,
+    clave: 'posgrado',
+    plan: PLANES_DEMO[ctx.idioma].posgrado,
+    inicioISO: ctx.fecha(-56),
+    entrada: {
+      fechaInicio: ctx.fecha(-56),
+      fechaObjetivo: ctx.fecha(90),
+      horasSemana: 10,
+      dias: [1, 2, 3, 4, 5],
+      nivel: 'medio',
     },
-    {
-      nombre: datos.metas.posgrado,
-      emoji: '🎯',
-      dias: [],
-      pasos: [],
-      activa: true,
-      esMeta: true,
-      repeticion: 'una_vez',
-      fechaInicio: ctx.fecha(90),
-      color: '#3b82f6',
-      orden: 0,
-      plantillaId: 'biblioteca',
-      creadoEn: enHora(-60, '09:00'),
-    },
-  ])
+    creadoEn: enHora(-58, '20:00'),
+    // Lo que ya cayó en el pasado: las dos de la primera fase y el repaso.
+    hechos: [2, 3, 5],
+  })
+  const vivas = (await rutinasRepo.list()).filter(esMeta)
+  const plan = (await planesMetaRepo.list()).find((p) => p.id === planId)
+  const origen = vivas.find((m) => m.id === posgradoId)
+  if (plan && origen)
+    await aceptarPlan(vivas, plan, origen, (p) => colorPorProfundidad(COLOR_POSGRADO, p + 1))
+  await planesMetaRepo.update(planId, { aceptadoEn: enHora(-57, '09:30') })
+
+  // La tercera meta, la del árbol de la enciclopedia: va detrás de estas dos
+  // (`ordenDesde`), o el panel las ordenaría por fecha de creación.
+  await sembrarMetasApp(ctx, 'biblioteca', { ordenDesde: 2 })
 }

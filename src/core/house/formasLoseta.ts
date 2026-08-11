@@ -531,15 +531,92 @@ function shapesLosetaSub3D(
   })
 }
 
+/**
+ * Abertura cuadrada en una losa (piso o techo) por la que pasa un ascenso, en
+ * coordenadas LOCALES de la celda (XZ). `r` es el MEDIO LADO del hueco.
+ */
+export interface HuecoLosa {
+  x: number
+  z: number
+  r: number
+}
+
+/** Labio que se deja entre el hueco y el borde de la losa (ver `perforar`). */
+const MARGEN_HUECO = 0.02
+
+/**
+ * Perfora la losa con las aberturas que la atraviesan. El hueco se RECORTA a la losa: un
+ * ascenso a caballo entre dos losas abre su parte en cada una, dejando un labio de 2 cm
+ * para que siga siendo un agujero INTERIOR (three.js triangula mal un hueco que toca el
+ * contorno). En el plano X/Y del shape, +Y es el norte de la celda (la losa se tumba con
+ * rotateX(-90°) → Y pasa a −Z), así que la Z local entra invertida.
+ */
+function perforar(
+  shape: THREE.Shape,
+  huecos: HuecoLosa[] | null | undefined,
+  halfW: number,
+  halfD: number,
+): void {
+  if (!huecos?.length) return
+  const lim = (v: number, h: number) => Math.max(-h + MARGEN_HUECO, Math.min(h - MARGEN_HUECO, v))
+  for (const h of huecos) {
+    const x0 = lim(h.x - h.r, halfW)
+    const x1 = lim(h.x + h.r, halfW)
+    const y0 = lim(-h.z - h.r, halfD)
+    const y1 = lim(-h.z + h.r, halfD)
+    if (x1 - x0 < 0.05 || y1 - y0 < 0.05) continue // el hueco no llega a esta losa
+    const p = new THREE.Path()
+    p.moveTo(x0, y0)
+    p.lineTo(x1, y0)
+    p.lineTo(x1, y1)
+    p.lineTo(x0, y1)
+    p.closePath()
+    shape.holes.push(p)
+  }
+}
+
+/**
+ * ¿Se puede perforar esta losa? Solo la cuadrada plena: en triángulos/cuartos de círculo
+ * o con recortes finos el hueco podría cruzar la silueta y romper la triangulación.
+ */
+function perforable(
+  formaLoseta: CeldaFormaLoseta,
+  subformas?: (CeldaFormaLoseta | undefined)[] | null,
+): boolean {
+  return !subformas && esFormaCuadrada(formaLoseta)
+}
+
+/** Losa rectangular (caja de techo con sus márgenes ya aplicados) perforada por huecos. */
+export function geometriaTechoCaja3D(
+  w: number,
+  d: number,
+  grosor: number,
+  huecos: HuecoLosa[],
+): THREE.BufferGeometry {
+  const shape = new THREE.Shape()
+  shape.moveTo(-w / 2, -d / 2)
+  shape.lineTo(w / 2, -d / 2)
+  shape.lineTo(w / 2, d / 2)
+  shape.lineTo(-w / 2, d / 2)
+  shape.closePath()
+  perforar(shape, huecos, w / 2, d / 2)
+  const geo = new THREE.ExtrudeGeometry(shape, { depth: grosor, bevelEnabled: false })
+  geo.rotateX(-Math.PI / 2)
+  // Centrada en Y como la caja que sustituye (boxGeometry va de −grosor/2 a +grosor/2).
+  geo.translate(0, -grosor / 2, 0)
+  return geo
+}
+
 export function geometriaLoseta3D(
   formaLoseta: CeldaFormaLoseta,
   tile: number,
   _modo: 'solido' | 'plano',
   subformas?: (CeldaFormaLoseta | undefined)[] | null,
+  huecos?: HuecoLosa[] | null,
 ): THREE.BufferGeometry {
-  const geo = new THREE.ShapeGeometry(
-    subformas ? shapesLosetaSub3D(subformas, tile) : shapeLoseta3D(formaLoseta, tile),
-  )
+  const shapes = subformas ? shapesLosetaSub3D(subformas, tile) : [shapeLoseta3D(formaLoseta, tile)]
+  if (perforable(formaLoseta, subformas)) perforar(shapes[0], huecos, tile / 2, tile / 2)
+  const geo = new THREE.ShapeGeometry(shapes)
   // ShapeGeometry asigna UV = posición del vértice (en unidades de mundo). Se normalizan
   // a 0..1 sobre la celda completa para que las texturas (ajedrez, mosaico, imágenes) se
   // vean a la MISMA escala que en una loseta cuadrada (planeGeometry, UV 0..1).
@@ -559,9 +636,11 @@ export function geometriaTechoLoseta3D(
   tile: number,
   grosor = 0.12,
   subformas?: (CeldaFormaLoseta | undefined)[] | null,
+  huecos?: HuecoLosa[] | null,
 ): THREE.BufferGeometry {
-  const shape = subformas ? shapesLosetaSub3D(subformas, tile) : shapeLoseta3D(formaLoseta, tile)
-  const geo = new THREE.ExtrudeGeometry(shape, { depth: grosor, bevelEnabled: false })
+  const shapes = subformas ? shapesLosetaSub3D(subformas, tile) : [shapeLoseta3D(formaLoseta, tile)]
+  if (perforable(formaLoseta, subformas)) perforar(shapes[0], huecos, tile / 2, tile / 2)
+  const geo = new THREE.ExtrudeGeometry(shapes, { depth: grosor, bevelEnabled: false })
   geo.rotateX(-Math.PI / 2)
   geo.translate(0, grosor / 2, 0)
   return geo

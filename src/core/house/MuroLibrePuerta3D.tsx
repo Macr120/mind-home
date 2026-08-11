@@ -9,6 +9,7 @@ import {
   PUERTA_BASE_Y,
   hojasDeAbertura,
   HojaPuertaMesh,
+  MaterialHoja,
   MontanteVanoMesh,
   type RemateHoja,
 } from './puertaHojas'
@@ -31,6 +32,7 @@ export function MuroLibrePuerta3D({
   nivel,
   mundoOffset,
   remate,
+  fotoUrl,
 }: {
   ab: AberturaMundo
   /** Y de la base del muro. */
@@ -45,6 +47,8 @@ export function MuroLibrePuerta3D({
   mundoOffset?: { x: number; z: number }
   /** Remate del vano (arco/pico) que la puerta debe llenar. */
   remate?: RemateHoja
+  /** Imagen de la hoja (object-URL): foto subida o generada con IA. */
+  fotoUrl?: string
 }) {
   const hojasRefs = useRef<(THREE.Group | null)[]>([])
   const correderaRef = useRef<THREE.Group | null>(null)
@@ -109,7 +113,7 @@ export function MuroLibrePuerta3D({
           <group rotation={[0, yaw, 0]}>
             <mesh position={[0, PUERTA_BASE_Y + alto / 2, 0]} castShadow receiveShadow>
               <boxGeometry args={[ab.ancho - 0.06, alto, PUERTA_GROSOR]} />
-              <meshStandardMaterial color={color} roughness={0.35} metalness={0.4} />
+              <MaterialHoja color={color} fotoUrl={fotoUrl} roughness={0.35} metalness={0.4} />
             </mesh>
           </group>
         </group>
@@ -150,6 +154,7 @@ export function MuroLibrePuerta3D({
             remate={remate}
             un0={tipo === 'doble' ? (i === 0 ? -1 : 1) : -1}
             un1={tipo === 'doble' ? 0 : 1}
+            fotoUrl={fotoUrl}
           />
         </group>
       ))}

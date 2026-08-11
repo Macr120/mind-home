@@ -12,7 +12,12 @@ import { db, type PistaLibre } from '../data/db'
  *   con `setPistaLibre` (espejo del patrón setRedPista).
  */
 
-export type HerramientaTrazo = 'punto' | 'mover' | 'borrarPunto'
+/**
+ * Herramientas del trazo. Borrar no es una herramienta aparte: con `punto`, tocar
+ * un punto existente lo borra y tocar el primero (la meta) cierra o abre el
+ * circuito. Ver el `onUp` de `house/pistaLibre.tsx`.
+ */
+export type HerramientaTrazo = 'punto' | 'mover'
 
 /** Medio ancho de la cinta de asfalto (ancho total 2.6, como la pista de celdas). */
 export const ANCHO_MEDIO_LIBRE = 1.3
@@ -91,7 +96,11 @@ export const usePistaLibreEditor = create<PistaLibreEditorState>((set, get) => {
     persistir: guardar,
 
     borrarPunto: (i) => {
-      set((s) => ({ puntos: s.puntos.filter((_, k) => k !== i) }))
+      // Por debajo de 3 puntos no hay circuito que cerrar: se reabre solo.
+      set((s) => {
+        const puntos = s.puntos.filter((_, k) => k !== i)
+        return { puntos, cerrada: s.cerrada && puntos.length >= 3 }
+      })
       guardar()
     },
 

@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { getPlantilla } from '../registry'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
 import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
@@ -6,7 +6,9 @@ import { useAjustes } from '../state/ajustesStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useMascota } from '../state/mascotaStore'
 import { useDialogo } from '../state/dialogoStore'
+import { useConfirmar } from '../state/confirmarStore'
 import { useDiseño } from '../state/disenoStore'
+import { useAccionGlobal } from '../state/accionGlobal'
 import { playerPos } from '../state/houseStore'
 import { getCatalogoItem } from '../house/catalogo'
 import { escribiendoEnCampo, hayCuartoAbierto } from '../house/movement'
@@ -49,6 +51,8 @@ import { useTopeHud } from '../ui/hudMedida'
 import { vivo } from '../ui/estilos'
 import { iaHabilitada } from '../edicion'
 import { ErrorIA } from '../cuenta/api'
+import { hayDictadoFallback, forzarDictadoIA, transcribir } from '../audio/dictado'
+import { GastoByok } from '../ui/GastoByok'
 
 /** Mínimo de la Web Speech API que usamos (no viene en lib.dom). */
 interface ReconocimientoVoz {
@@ -116,15 +120,22 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const sugerencia = useSugerenciaMapa((s) => s.sugerencia)
   const dibujando = useSugerenciaMapa((s) => s.dibujando)
   const [grabando, setGrabando] = useState(false)
+  const [transcribiendo, setTranscribiendo] = useState(false)
   const [menuModelo, setMenuModelo] = useState(false)
   const [provId, setProvId] = useState<ProveedorId>(() => getProveedor().id)
   const [claveDraft, setClaveDraft] = useState(() => getIaKey(getProveedor().id))
   const [modeloLocalDraft, setModeloLocalDraft] = useState(() => getModeloLocal())
   const recRef = useRef<ReconocimientoVoz | null>(null)
+  const mediaRecRef = useRef<MediaRecorder | null>(null)
   const areaRef = useRef<HTMLTextAreaElement>(null)
+  // Input propio para la cámara del widget: el botón + de la barra elige de la
+  // galería, y `capture` en ese mismo input se saltaría el selector de archivos.
+  const camaraRef = useRef<HTMLInputElement>(null)
   // Medición de la barra para decidir si la caja de texto se lleva un renglón entero.
   const barraRef = useRef<HTMLDivElement>(null)
   const cajaRef = useRef<HTMLDivElement>(null)
+  // Contenedor completo del chat: lo necesita el cierre por clic fuera.
+  const raizRef = useRef<HTMLDivElement>(null)
   const medidorRef = useRef<HTMLSpanElement>(null)
   const anchoBarra = useRef(0)
   const [lineaPropia, setLineaPropia] = useState(false)
@@ -181,6 +192,17 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     else if (!hud.movilVertical) hud.setPlegado('chat', false)
   }, [menuAbierto])
 
+  /** Despliega el chat y pone el cursor en la caja (atajo T y widget del launcher). */
+  const abrirParaEscribir = useCallback((alAbrir?: () => void) => {
+    useHud.getState().setMenuAbierto(false)
+    useHud.getState().setPlegado('chat', false)
+    // Tras el render que despliega la barra: antes el textarea no existe.
+    requestAnimationFrame(() => {
+      areaRef.current?.focus()
+      alAbrir?.()
+    })
+  }, [])
+
   // T abre el chat con el cursor puesto (convención de juego). Cierra el menú
   // lateral porque mientras está abierto el chat se queda plegado.
   useEffect(() => {
@@ -188,14 +210,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       if (e.code !== 'KeyT' || e.repeat || e.ctrlKey || e.altKey || e.metaKey) return
       if (escribiendoEnCampo() || hayCuartoAbierto()) return
       e.preventDefault()
-      useHud.getState().setMenuAbierto(false)
-      useHud.getState().setPlegado('chat', false)
-      // Tras el render que despliega la barra: antes el textarea no existe.
-      requestAnimationFrame(() => areaRef.current?.focus())
+      abrirParaEscribir()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  }, [abrirParaEscribir])
 
   /**
    * La caja está anclada abajo: al ajustar el alto del textarea al contenido, el
@@ -266,10 +285,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     : null
 
   /** Hace hablar al asistente del hilo abierto (la respuesta sale por la burbuja flotante 3D). */
-  const decir = (tipo: EventoTipo, cuarto?: string, objeto?: string, chip?: DestinoChat) => {
+  const decir = (tipo: EventoTipo, cuarto?: string, objeto?: string, chips?: DestinoChat[]) => {
     const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
     const quien = asistentes.find((a) => a.id === destinoId) ?? mascota
-    hablar(responder(quien.forma, { tipo, cuarto, objeto }, t), { asistenteId: quien.id, destino: chip })
+    hablar(responder(quien.forma, { tipo, cuarto, objeto }, t), { asistenteId: quien.id, destinos: chips })
   }
 
   /** Abre la conversación tipo chat con un asistente (cierra los otros paneles). */
@@ -292,44 +311,98 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     reader.readAsDataURL(file)
   }
 
-  /** Dictado por voz (Web Speech API): el resultado va al input. */
-  const toggleVoz = () => {
-    if (grabando) {
-      recRef.current?.stop()
+  /**
+   * Fallback de dictado (MediaRecorder + Whisper) para cuando no hay
+   * `SpeechRecognition` nativo (WebView de Android). Tope de 30s: mismo margen
+   * de costo que asume el proxy `ia-voz`.
+   */
+  const grabarConFallback = async () => {
+    let stream: MediaStream
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+    } catch {
+      hablar(t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'))
       return
     }
-    if (!CtorVoz) return
-    const rec = new CtorVoz()
-    rec.lang = idioma === 'en' ? 'en-US' : 'es-MX'
-    rec.interimResults = true
-    rec.continuous = false
-    rec.onresult = (ev) => {
-      let s = ''
-      for (let i = 0; i < ev.results.length; i++) s += ev.results[i][0].transcript
-      setTexto(s)
+    const rec = new MediaRecorder(stream)
+    const trozos: Blob[] = []
+    const inicio = performance.now()
+    rec.ondataavailable = (ev) => {
+      if (ev.data.size > 0) trozos.push(ev.data)
     }
-    rec.onend = () => setGrabando(false)
-    // El error más común es el permiso del micrófono: dilo claro, no falles en silencio.
-    rec.onerror = (ev) => {
+    rec.onstop = async () => {
+      stream.getTracks().forEach((tr) => tr.stop())
       setGrabando(false)
-      const motivo = ev.error ?? ''
-      if (motivo === 'no-speech') return // terminó sin oír nada, no es un error real
-      const MENSAJES: Record<string, string> = {
-        'not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
-        'service-not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
-        'audio-capture': t('chat.voz.sinMic', 'No encontré ningún micrófono en este equipo.'),
-        network: t('chat.voz.red', 'El dictado del navegador necesita internet.'),
-        'language-not-supported': t('chat.voz.idioma', 'Tu navegador no soporta dictado en este idioma.'),
+      const blob = new Blob(trozos, { type: rec.mimeType || 'audio/webm' })
+      if (!blob.size) return
+      setTranscribiendo(true)
+      try {
+        setTexto(await transcribir(blob, idioma, (performance.now() - inicio) / 1000))
+      } catch (e) {
+        // ErrorIA de cuota-agotada ya abrió su propio modal (exigirTransporteVoz).
+        if (!(e instanceof ErrorIA)) {
+          hablar(t('chat.voz.error', 'No pude usar el dictado ({motivo}).', { motivo: e instanceof Error ? e.message : '' }))
+        }
+      } finally {
+        setTranscribiendo(false)
       }
-      hablar(MENSAJES[motivo] ?? t('chat.voz.error', 'No pude usar el dictado ({motivo}).', { motivo }))
     }
-    recRef.current = rec
+    mediaRecRef.current = rec
     setGrabando(true)
-    try {
-      rec.start()
-    } catch {
-      setGrabando(false)
+    rec.start()
+    setTimeout(() => {
+      if (rec.state !== 'inactive') rec.stop()
+    }, 30_000)
+  }
+
+  /**
+   * Dictado por voz: Web Speech API nativa, o el fallback de Whisper si no
+   * existe (o si se fuerza por pruebas: `window.mhDictadoIA(true)` en consola,
+   * útil en escritorio, donde el nativo siempre existe y el fallback nunca se
+   * ejercitaría de otro modo).
+   */
+  const toggleVoz = () => {
+    const usaNativo = CtorVoz && !forzarDictadoIA()
+    if (grabando) {
+      if (usaNativo) recRef.current?.stop()
+      else mediaRecRef.current?.stop()
+      return
     }
+    if (usaNativo) {
+      const rec = new CtorVoz()
+      rec.lang = idioma === 'en' ? 'en-US' : 'es-MX'
+      rec.interimResults = true
+      rec.continuous = false
+      rec.onresult = (ev) => {
+        let s = ''
+        for (let i = 0; i < ev.results.length; i++) s += ev.results[i][0].transcript
+        setTexto(s)
+      }
+      rec.onend = () => setGrabando(false)
+      // El error más común es el permiso del micrófono: dilo claro, no falles en silencio.
+      rec.onerror = (ev) => {
+        setGrabando(false)
+        const motivo = ev.error ?? ''
+        if (motivo === 'no-speech') return // terminó sin oír nada, no es un error real
+        const MENSAJES: Record<string, string> = {
+          'not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
+          'service-not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
+          'audio-capture': t('chat.voz.sinMic', 'No encontré ningún micrófono en este equipo.'),
+          network: t('chat.voz.red', 'El dictado del navegador necesita internet.'),
+          'language-not-supported': t('chat.voz.idioma', 'Tu navegador no soporta dictado en este idioma.'),
+        }
+        hablar(MENSAJES[motivo] ?? t('chat.voz.error', 'No pude usar el dictado ({motivo}).', { motivo }))
+      }
+      recRef.current = rec
+      setGrabando(true)
+      try {
+        rec.start()
+      } catch {
+        setGrabando(false)
+      }
+      return
+    }
+    if (hayDictadoFallback()) void grabarConFallback()
   }
 
   const elegirProveedor = (id: ProveedorId) => {
@@ -340,6 +413,25 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
   const proveedor = PROVEEDORES.find((p) => p.id === provId) ?? PROVEEDORES[0]
   const conIA = iaActiva()
+
+  // Los tres botones del widget de chat de Android. Reactivo (y no un efecto de
+  // montaje) porque el toque puede llegar con la app viva y el chat ya montado.
+  const accionWidget = useAccionGlobal((s) => s.pendiente)
+  useEffect(() => {
+    if (!accionWidget) return
+    const accion = useAccionGlobal.getState().consumir()
+    if (!accion) return
+    if (accion === 'chat-foto' && !conIA) {
+      abrirParaEscribir()
+      hablar(t('chat.fotoSinIa', 'Las fotos requieren IA: elige un modelo en el botón de la derecha'))
+      return
+    }
+    abrirParaEscribir(() => {
+      if (accion === 'chat-voz') toggleVoz()
+      else if (accion === 'chat-foto') camaraRef.current?.click()
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- solo dispara el cambio de acción
+  }, [accionWidget])
 
   const nombreCorto = (roomId: string) =>
     (getPlantilla(roomId) ?? getCuarto(roomId))?.nombre.split(' · ')[0] ?? roomId
@@ -378,7 +470,8 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         hablar(t('tut.chat.abriendo', 'Ahí va: el mago te lo enseña en pantalla.'), { asistenteId: destinoId })
         // Tours de app: por lanzarFlujo — los flujos nuevos corren sobre el año
         // de la casa demo (desde la casa real saltan a ella con intent).
-        if (ayuda.plantillaId) lanzarFlujo(ayuda.plantillaId, ayuda.tutorial)
+        const clave = ayuda.plantillaId ?? ayuda.claveFlujo
+        if (clave) lanzarFlujo(clave, ayuda.tutorial)
         else void useTutorial.getState().iniciar(ayuda.tutorial)
       } else {
         hablar(
@@ -446,7 +539,8 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         creado: new Date().toISOString(),
         procesado: true,
       })
-      hablar(msg, { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destino: destinoDeTool(edicion.tool) })
+      const chip = destinoDeTool(edicion.tool)
+      hablar(msg, { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destinos: chip ? [chip] : undefined })
       setTexto('')
       return
     }
@@ -473,7 +567,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         })
         // El mapa que haya dibujado el modelo cuelga de SU mensaje (miniatura),
         // igual que el chip de destino y la imagen generada en este turno.
-        const opts = { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destino: r.destino, imagen: r.imagen }
+        const opts = { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destinos: r.destinos, imagen: r.imagen }
         if (r.creado3d) hablar(r.respuesta ?? t('chat.creado3d', 'Creé «{desc}»: lo puse en el mapa junto a mí y lo guardé en tu inventario 🧊', { desc: r.creado3d }), opts)
         // El modelo responde dando la imagen por hecha: si falló, hay que decirlo.
         else if (r.respuesta && r.imagenFallo) hablar(`${r.respuesta} ${t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.')}`, opts)
@@ -482,7 +576,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         else if (r.imagenFallo) hablar(t('chat.imagenFallo', 'No pude generar la imagen, inténtalo de nuevo.'), opts)
         else if (r.rutinaCreada) hablar(t('chat.rutinaCreada', '⏰ Rutina «{n}» creada. La verás en el panel de rutinas.', { n: r.rutinaCreada }), opts)
         else if (r.ediciones.length) hablar(r.ediciones.join(' '), opts)
-        else if (r.capturado) decir('capturado', r.roomIds.map(nombreCorto).join(' y '), undefined, r.destino)
+        else if (r.capturado) decir('capturado', r.roomIds.map(nombreCorto).join(' y '), undefined, r.destinos)
         else if (r.memoriaGuardada) decir('recordado')
         else decir('sinClasificar')
         // Charla de explicación con forma de mapa: ofrecerlo en el hilo de ese
@@ -525,17 +619,25 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     // Quick-capture: intentar escribir en TODOS los cuartos mencionados (multi-cuarto).
     if (interp.roomIds.length > 0) {
       const capturados: string[] = []
-      let destinoLocal: DestinoChat | undefined
+      const destinosLocal: DestinoChat[] = []
       for (const rid of interp.roomIds) {
         const app = getPlantilla(rid)
-        if (app?.capturar && (await app.capturar(interp.texto))) {
-          capturados.push(nombreCorto(rid))
-          destinoLocal ??= { tipo: 'app', appId: rid }
+        if (!app?.capturar) continue
+        // Cada app recibe SOLO sus cláusulas, y una por una: si no, el primer
+        // número del mensaje se lo lleva todo y el resto de entradas se pierde.
+        let n = 0
+        for (const entrada of interp.fragmentos?.[rid] ?? [interp.texto]) {
+          if (await app.capturar(entrada)) n++
+        }
+        if (n > 0) {
+          // El «×n» avisa de que cuajaron varias entradas en la misma app.
+          capturados.push(n > 1 ? `${nombreCorto(rid)} ×${n}` : nombreCorto(rid))
+          destinosLocal.push({ tipo: 'app', appId: rid })
         }
       }
       if (capturados.length > 0) {
         await bitacoraRepo.update(id as number, { procesado: true })
-        decir('capturado', capturados.join(' y '), undefined, destinoLocal)
+        decir('capturado', capturados.join(' y '), undefined, destinosLocal)
       } else {
         decir('clasificado', interp.roomIds.map(nombreCorto).join(' y '))
       }
@@ -565,7 +667,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     if (app.capturar) procesado = await app.capturar(entrada.texto)
     await bitacoraRepo.update(entradaId, { roomId, procesado })
     setRetagId(null)
-    decir(procesado ? 'capturado' : 'clasificado', nombreCorto(roomId))
+    decir(
+      procesado ? 'capturado' : 'clasificado',
+      nombreCorto(roomId),
+      undefined,
+      procesado ? [{ tipo: 'app', appId: roomId }] : undefined,
+    )
   }
 
   const recientes = entradas?.slice(0, 15) ?? []
@@ -577,8 +684,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   // primer render pinta la conversación un instante antes de que el efecto la pliegue.
   const chatPlegado = plegado || menuAbierto
   const otroPanel = abierto || configAbierto || manualAbierto
-  /** El hilo con el asistente: visible salvo que se abra otro panel o lo cierres. */
-  const hiloVisible = !otroPanel && !hiloOculto && !chatPlegado
+  /**
+   * El hilo con el asistente: SOLO si lo abriste tú desde la lista de chats. El
+   * panel por defecto de la carita es el menú (Chats/Registros), no la
+   * conversación: con el hilo siempre puesto, la barra quedaba enterrada bajo un
+   * historial que casi nunca era el que buscabas.
+   */
+  const hiloVisible = conversacion != null && !otroPanel && !hiloOculto && !chatPlegado
   // El asistente al que pertenece el hilo mostrado (mismo cálculo que ChatConversacion).
   const hiloId = conversacion ?? mascotaId
   // Publicado para que la burbuja flotante (AsistenteBurbuja) no repita el
@@ -589,6 +701,45 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     // debe quedar un id fantasma bloqueando la burbuja de otra pantalla.
     return () => useMascota.getState().setPanelHiloId(null)
   }, [hiloVisible, hiloId])
+  /** Cierra todo lo que el chat haya desplegado sobre su barra. */
+  const cerrarPaneles = useCallback(() => {
+    setAbierto(false)
+    setConfigAbierto(false)
+    setManualAbierto(false)
+    setMenuModelo(false)
+    cerrarConversacion()
+    setHiloOculto(true)
+  }, [cerrarConversacion, setHiloOculto])
+
+  /**
+   * Tocar fuera del chat cierra sus paneles (y Escape hace lo mismo). El
+   * listener solo existe mientras hay algo abierto. El registro se difiere un
+   * tick porque el propio clic que abrió el panel sigue propagándose (mismo
+   * motivo que en `InteractOverlay`), y se ignora con un diálogo modal encima:
+   * ese vive fuera del chat y cerrar por detrás dejaría la pregunta huérfana.
+   */
+  useEffect(() => {
+    if (!otroPanel && !hiloVisible) return
+    const fuera = (e: PointerEvent) => {
+      if (useConfirmar.getState().pendiente) return
+      // `contains` LANZA si el target no es un Node (eventos que nacen en
+      // window/document): sin la guarda el error sube al ErrorBoundary y se
+      // lleva el chat por delante. Si no es un Node, desde luego no está dentro.
+      if (e.target instanceof Node && raizRef.current?.contains(e.target)) return
+      cerrarPaneles()
+    }
+    const escape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') cerrarPaneles()
+    }
+    const timer = setTimeout(() => window.addEventListener('pointerdown', fuera), 0)
+    window.addEventListener('keydown', escape)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('pointerdown', fuera)
+      window.removeEventListener('keydown', escape)
+    }
+  }, [otroPanel, hiloVisible, cerrarPaneles])
+
   // Al cambiar el ANCHO de la barra (abrir el menú lateral, girar el teléfono…)
   // hay que rehacer la cuenta: la altura cambia sola al crecer el texto.
   useEffect(() => {
@@ -611,6 +762,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     // left-44: margen al joystick (izq.); right-48: deja hueco con el cubo/botones de rotación (der.).
     // Con menú lateral: anclado a la derecha del sidebar (w-60 = 15rem).
     <div
+      ref={raizRef}
       className={
         angostoMovil
           ? 'absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
@@ -692,10 +844,11 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                 setConfigAbierto(false)
                 setManualAbierto(true)
               }}
-              className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
+              className="flex h-8 shrink-0 items-center gap-1 rounded-lg px-2 text-base text-white/40 transition hover:bg-white/10 hover:text-white/85"
               title={t('chat.manual.abrir', 'Manual: qué puedes pedir')}
             >
               <Icono nombre="registros" />
+              <span className="text-[11px] font-semibold">{t('chat.manual', 'Manual')}</span>
             </button>
             <button
               type="button"
@@ -711,11 +864,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           </div>
 
           {/* Pestañas: conversaciones (con quién platicaste) / registros (lo que pediste) */}
-          <div className="mb-1 flex gap-1 px-1">
+          <div data-tut="chat.tabs" className="mb-1 flex gap-1 px-1">
             {(['chats', 'registros'] as const).map((p) => (
               <button
                 key={p}
                 type="button"
+                data-tut={`chat.tab.${p}`}
                 onClick={() => setPestana(p)}
                 className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold transition ${
                   pestana === p
@@ -774,7 +928,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             <>
           {/* Memorias del arquitecto: lo que sabe de ti entre sesiones */}
           {memoriasVigentes.length > 0 && (
-            <div className="mb-2 border-b border-white/10 px-1 pb-2">
+            <div data-tut="chat.memorias" className="mb-2 border-b border-white/10 px-1 pb-2">
               <p className="mb-1 text-[11px] font-semibold text-violet-400/70">
                 <Icono nombre="memoria" /> {t('chat.memorias', 'Lo que recuerdo de ti')}
               </p>
@@ -964,7 +1118,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       <div ref={barraRef} data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex min-w-0 flex-1 flex-wrap items-end gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
         {/* Selector de modelo de IA (solo Pro / pruebas internas) */}
         {iaHabilitada() && menuModelo && (
-          <div className="ui-panel-glass absolute bottom-full right-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+          <div data-tut="chat.modelo.panel" className="ui-panel-glass absolute bottom-full right-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
             <p className="mb-1.5 px-1 text-[11px] font-semibold text-white/50">
               <Icono nombre="memoria" /> {t('chat.modelo.titulo', 'Modelo de IA de los asistentes')}
             </p>
@@ -1021,6 +1175,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                 <p className="text-[10px] leading-relaxed text-white/35">
                   {t('chat.modelo.priv', 'Se guarda solo en este dispositivo. Sin clave: modo local por palabras clave.')}
                 </p>
+                <GastoByok compacto />
               </div>
             )}
           </div>
@@ -1028,19 +1183,19 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         <button
           type="button"
           onClick={() => {
-            // Con el hilo apartado, la carita lo trae de vuelta; si no, alterna
-            // la bitácora (y al volver de ella se ve el hilo del activo).
-            if (hiloOculto && !abierto) {
-              setHiloOculto(false)
+            // Toggle limpio del menú: el segundo toque lo cierra. Al abrirlo se
+            // apartan la conversación y los otros dos paneles.
+            if (abierto) {
+              setAbierto(false)
               return
             }
             setConfigAbierto(false)
             setManualAbierto(false)
-            if (!abierto) cerrarConversacion()
-            setAbierto((v) => !v)
+            cerrarConversacion()
+            setAbierto(true)
           }}
           data-tut="chat.asistente"
-          title={abierto ? t('chat.ocultar', 'Ocultar bitácora') : `${nombreAsistente(t, mascota)} · ${t('chat.verBitacora', 'ver bitácora')}`}
+          title={abierto ? t('chat.ocultar', 'Cerrar el menú') : `${nombreAsistente(t, mascota)} · ${t('chat.verMenu', 'abrir el menú')}`}
           className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl text-2xl transition hover:scale-105 ${
             abierto || hiloVisible ? 'bg-accent/20' : 'bg-white/5 hover:bg-white/10'
           }`}
@@ -1050,6 +1205,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
         {/* Adjuntar foto/archivo (requiere IA activa para interpretarla) */}
         <label
+          data-tut="chat.foto"
           className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-2xl font-light leading-none transition ${
             conIA
               ? 'cursor-pointer text-white/45 hover:bg-white/10 hover:text-white/85'
@@ -1074,6 +1230,20 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             }}
           />
         </label>
+
+        {/* Cámara directa: no tiene botón en la barra, la dispara el widget de Android. */}
+        <input
+          ref={camaraRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files?.[0]
+            if (f) cargarImagen(f)
+            e.target.value = ''
+          }}
+        />
 
         <div
           ref={cajaRef}
@@ -1160,17 +1330,27 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             dictado/modelo/enviar quedan en la orilla y plegar y el asistente en la
             otra. En una sola fila no cambia nada: la caja ya se come el hueco. */}
         <div className="ml-auto flex shrink-0 items-center gap-2">
-          {/* Dictado por voz */}
-          {CtorVoz && (
+          {/* Dictado por voz: nativo, o fallback de Whisper si no hay SpeechRecognition */}
+          {(CtorVoz || hayDictadoFallback()) && (
             <button
               type="button"
+              data-tut="chat.voz"
               onClick={toggleVoz}
+              disabled={transcribiendo}
               className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition ${
                 grabando
                   ? 'animate-pulse bg-red-500/20 text-red-400'
-                  : 'text-white/45 hover:bg-white/10 hover:text-white/85'
+                  : transcribiendo
+                    ? 'animate-pulse bg-white/10 text-white/45'
+                    : 'text-white/45 hover:bg-white/10 hover:text-white/85'
               }`}
-              title={grabando ? t('chat.vozParar', 'Detener dictado') : t('chat.voz', 'Dictar por voz')}
+              title={
+                grabando
+                  ? t('chat.vozParar', 'Detener dictado')
+                  : transcribiendo
+                    ? t('chat.vozTranscribiendo', 'Transcribiendo…')
+                    : t('chat.voz', 'Dictar por voz')
+              }
             >
               <Icono nombre="microfono" />
             </button>
@@ -1180,6 +1360,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           {iaHabilitada() && (
             <button
               type="button"
+              data-tut="chat.modelo"
               onClick={() => setMenuModelo((v) => !v)}
               className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${
                 menuModelo ? 'bg-white/10' : ''

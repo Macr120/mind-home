@@ -4,7 +4,7 @@ import { demoGuard } from './demoGuard'
 import { fechaLocalISO } from '../fechaLocal'
 import { nombreAleatorio } from '../house/nombresAnimales'
 import { syncMiddleware } from './sync/middleware'
-import { TABLAS_SYNC } from './sync/syncables'
+import { TABLAS_SYNC, filaSeed } from './sync/syncables'
 import { haySandboxDemoSucio } from '../../demo/modo'
 
 /**
@@ -29,10 +29,62 @@ export interface Transaccion {
   categoria: string
   monto: number
   nota?: string
+  /**
+   * Meta a la que abona este movimiento (tabla `metas`). Sin índice: no sube
+   * versión de Dexie, pero SÍ va en el `FK` de syncables — sin traducir
+   * apuntaría a otra meta cualquiera en el segundo dispositivo.
+   */
+  metaId?: number
   /** Plazo: 'unico' o cada día/semana/mes/año (antes, la tabla `movimientosFijos`). */
   periodo?: PeriodoMovimiento
   /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
   ejemplo?: boolean
+}
+
+/**
+ * Una línea del patrimonio escrita a mano: la casa, el coche, la hipoteca.
+ *
+ * Lo que ya vive en otra tabla NO se duplica aquí: el ahorro y la inversión
+ * salen de `metas` y el efectivo de `transacciones`. Esta tabla es solo para
+ * lo que la app no puede saber por su cuenta.
+ */
+export interface Patrimonio {
+  id?: number
+  /** 'fisico' = propiedades y bienes; 'liquido' = dinero disponible. */
+  clase: 'fisico' | 'liquido'
+  naturaleza: 'activo' | 'pasivo'
+  nombre: string
+  monto: number
+  nota?: string
+  creadoEn: string
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  /**
+   * Cómo cambia esta línea con el tiempo. Ninguno se indexa, así que añadirlos
+   * NO subió la versión de Dexie (misma regla que `Transaccion.metaId`); solo
+   * `metaId` va en el `FK` de syncables, que es el único que apunta a otra fila.
+   *
+   * Una línea SIN `tasaAnual` vale siempre lo mismo: se comporta exactamente
+   * como antes de que existieran estos campos.
+   */
+  /** % anual. En un activo, plusvalía (negativa = se deprecia); en un pasivo, la tasa del crédito. */
+  tasaAnual?: number
+  /** Fecha (yyyy-mm-dd) en que `monto` era cierto. Sin ella, la de creación. */
+  fechaValor?: string
+  /** Solo pasivos: la mensualidad con la que se amortiza. */
+  pagoMensual?: number
+  /**
+   * Revalúos anteriores, ascendente por fecha: es lo que dibuja el pasado real
+   * de la gráfica. Uno por día (el último gana) y tope 60 — el sync sube la fila
+   * entera en cada escritura, así que esta bitácora no puede crecer sin freno.
+   */
+  historial?: { fecha: string; monto: number }[]
+  /**
+   * Meta enlazada (tabla `metas`): de ahorro/inversión si la fila es un activo,
+   * de deuda si es un pasivo. Enlazadas son la MISMA cosa contada una vez: la
+   * meta manda el saldo vivo y la fila los términos (tasa, mensualidad).
+   */
+  metaId?: number
 }
 
 export interface RegistroSueno {
@@ -71,7 +123,7 @@ export interface PerfilSueno {
   evidenciaTarea?: string
 }
 
-interface Anecdota {
+export interface Anecdota {
   id?: number
   fecha: string // ISO yyyy-mm-dd
   titulo: string
@@ -183,6 +235,12 @@ export interface PerfilNutricion {
   pesoObjetivoKg?: number
   /** Ritmo pactado en kg por semana (siempre positivo; el signo lo da `objetivo`). */
   ritmoKgSemana?: number
+  /**
+   * Plazo para llegar al peso objetivo (ISO). Sin índice: no sube versión de
+   * Dexie. Va siempre en la misma escritura que `ritmoKgSemana`, que es su otra
+   * cara — uno se calcula del otro.
+   */
+  fechaObjetivo?: string
 }
 
 /** Pesaje corporal (kg) para seguir la tendencia de la dieta. */
@@ -205,6 +263,20 @@ export interface RegistroComida {
   carbohidratos: number
   grasas: number
   nota?: string
+}
+
+/**
+ * Receta planeada para un día y un momento (la rejilla semanal del Registro).
+ * Al «comerla» nace su `RegistroComida` y su id queda en `comidaId`.
+ */
+export interface PlanComida {
+  id?: number
+  fecha: string
+  momento: MomentoComida
+  recetaId: number
+  /** Registro real ya creado; ausente = todavía solo planeada. */
+  comidaId?: number
+  creadoEn: string
 }
 
 export interface RegistroAgua {
@@ -253,6 +325,12 @@ export interface Receta {
   etiquetas: string[]
   /** Carpeta/cocina para agrupar (ej. "Italiana", "Mexicana"). Vacío = sin carpeta. */
   carpeta?: string
+  /**
+   * Momentos del día en los que encaja (el plan de comidas filtra por esto).
+   * Vacío o ausente = sirve para todos: las recetas de antes de catalogarlas no
+   * pueden desaparecer del selector. Sin índice, así que no sube versión.
+   */
+  momentos?: MomentoComida[]
   /** Cada ingrediente incluye su cantidad: "200 g de arroz". */
   ingredientes: string[]
   pasos: string[]
@@ -324,7 +402,25 @@ export interface SesionEjercicio {
   ppmProm?: number
   ppmMax?: number
   /** Resistencia: trazo GPS de la ruta grabada en vivo. */
-  ruta?: { lat: number; lng: number }[]
+  ruta?: PuntoRuta[]
+}
+
+/**
+ * Punto del trazo GPS de un entreno en vivo. Solo `lat`/`lng` son seguros: las
+ * sesiones grabadas antes de las estadísticas de detalle no traen el resto, y
+ * `alt`/`ppm` dependen del dispositivo. `t` es lo que permite reconstruir el
+ * ritmo por tramo y los parciales por kilómetro. Van dentro del array de la
+ * sesión (sin índice), por eso no necesitan versión nueva de la base.
+ */
+export interface PuntoRuta {
+  lat: number
+  lng: number
+  /** Segundos de cronómetro (sin las pausas) en los que se tomó el punto. */
+  t?: number
+  /** Altitud en metros, cuando el GPS la reporta. */
+  alt?: number
+  /** Pulsaciones en ese instante, cuando hay pulsómetro conectado. */
+  ppm?: number
 }
 
 /** Serie de un ejercicio dentro de una sesión de fuerza. */
@@ -514,6 +610,12 @@ export interface MediaArchivo {
   resumen?: ResumenMedia
   /** URL remota de la carátula (Wikipedia u Open Library). */
   portada?: string
+  /**
+   * Carátula puesta a mano cuando la búsqueda no encuentra nada. MANDA sobre
+   * `portada`: si la subiste tú es porque las fuentes fallaron. Campo sin índice,
+   * no sube versión.
+   */
+  portadaFoto?: Blob
   creadoEn: string
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
@@ -563,6 +665,11 @@ export interface ConversacionBiblio {
   temaId?: string
   /** ISO: ya se ofreció/hizo la ramificación (panel 🌿); silencia el panel al salir. */
   ramificadaEn?: string
+  /**
+   * ISO del último destilado a entrada. Al salir de la charla se rehace solo si
+   * `actualizadoEn` es posterior (hubo mensajes nuevos). Sin índice: no migra.
+   */
+  destiladaEn?: string
   creadoEn: string
   actualizadoEn: string
 }
@@ -609,6 +716,9 @@ export interface SesionEstudio {
   ejemploDe?: string
 }
 
+/** Altura de un nodo en el índice de Biblioteca: campo › rama › tema. */
+export type NivelIndice = 'campo' | 'rama' | 'tema'
+
 /** Nodo dinámico del índice vivo (los temas de pilares.ts son el esqueleto estático). */
 export interface TemaArbol {
   id?: number
@@ -622,6 +732,71 @@ export interface TemaArbol {
   creadoEn: string
   /** Charla que lo desbloqueó (se desliga si la charla se borra). */
   conversacionId?: number
+  /** Altura en el índice. Ausente = 'tema' (todo lo que nació de una charla). */
+  nivel?: NivelIndice
+  /** Emoji propio; solo tiene sentido en `nivel: 'campo'` (ahí `pilarId === temaId`). */
+  icono?: string
+  /** Posición entre hermanos. NO se indexa: se ordena en memoria al armar el árbol. */
+  orden?: number
+}
+
+/**
+ * PARCHE sobre el catálogo estático de `rooms/biblioteca/pilares.ts`. Hay una
+ * fila SOLO por nodo de fábrica retocado (renombrado, reordenado o borrado):
+ * `pilares.ts` no se modifica nunca, así la demo y los ejemplos —que cuelgan de
+ * ids fijos como 'fil-libre'— siguen resolviendo siempre.
+ *
+ * Reparto de responsabilidades del índice: `temasArbol` es lo MÍO (esas filas
+ * se borran de verdad) y `ajustesSemilla` es el parche a lo de FÁBRICA, que no
+ * se puede tocar en el código pero sí tachar desde aquí.
+ */
+export interface AjusteSemilla {
+  id?: number
+  /** Id de fábrica: campo ('filosofia'), rama ('fil-metafisica') o tema ('fil-ser'). */
+  nodoId: string
+  /** Título propio; ausente = el de pilares.ts. */
+  titulo?: string
+  descripcion?: string
+  /** Emoji propio (solo nodos de nivel campo). */
+  icono?: string
+  /** Posición entre hermanos (se ordena en memoria; no se indexa). */
+  orden?: number
+  /**
+   * Borrado por el usuario: el nodo desaparece del índice con todo lo que
+   * colgaba. NO se indexa (IndexedDB no acepta booleanos como clave). Es la
+   * única forma de quitar algo de `pilares.ts`, que vive en el código.
+   */
+  borrado?: boolean
+  actualizadoEn: string
+}
+
+/** Qué otra app aporta el material enlazado a una entrada. */
+export type TipoMaterial = 'hoja' | 'mapa' | 'idea'
+
+/**
+ * Material de OTRA app enlazado a una entrada de la enciclopedia. Es SOLO el
+ * enlace: la hoja vive en `hojasCalculo` y el mapa en `mapasIdeas`. Quitar el
+ * enlace no borra el material; borrar el material deja el enlace huérfano (se
+ * pinta apagado y solo deja quitarlo).
+ *
+ * Tres ids separados en vez de uno polimórfico A PROPÓSITO: el motor de sync
+ * traduce las FK numéricas por CAMPO (`sync/syncables.ts`), y un `refId` que
+ * apunta a tres tablas según `tipo` no se puede traducir — en el segundo
+ * dispositivo señalaría a la fila que tuviera ese número.
+ */
+export interface MaterialEntrada {
+  id?: number
+  /** Id estable ('mat-…'): identidad entre dispositivos. */
+  materialId: string
+  entradaId: number
+  tipo: TipoMaterial
+  hojaId?: number
+  mapaId?: number
+  ideaId?: number
+  /** Nombre al enlazar; se refresca al pintar y sirve si el destino ya no está. */
+  titulo: string
+  orden: number
+  creadoEn: string
 }
 
 // ----- Diario · Periódico del día (titulares + efemérides) -----
@@ -1054,10 +1229,26 @@ export interface ObjetoCuarto {
   modeloGlb?: Blob
   /** Animación del objeto (preset de conjunto y/o poses de piezas). */
   animacion?: import('../house/animacion').AnimacionModelo
+  /**
+   * Preset «Dale vida»: cuándo lo alimentaron y lo acariciaron por última vez
+   * (ms). El hambre y el ánimo se DERIVAN de estas marcas al pintar, igual que
+   * en la granja; no hay contadores que mantener. Campos sin índice: no piden
+   * versión nueva de Dexie.
+   */
+  vidaComidaEn?: number
+  vidaMimoEn?: number
   /** Foto del usuario mostrada en el marco (objetos especiales 'cuadro-foto' y 'espectacular'). */
   foto?: Blob
   /** Texto que muestra el letrero (solo anuncios: espectacular/letrero-vegas/letrero-neon). */
   texto?: string
+  /**
+   * Grupo de acción genérico (sentarse/conducir/acostarse) aplicable a CUALQUIER
+   * objeto (silla del catálogo, piezas de IA/usuario): la IA lo clasifica al
+   * generar el objeto y se puede corregir a mano en el editor. Los 5 tipos de
+   * plantilla (`sillon-lectura`, etc.) y los 4 vehículos hardcodeados NO lo usan
+   * — tienen su propio mecanismo dedicado. Ver `grupoAccionDe` en `house/catalogo.tsx`.
+   */
+  grupoAccion?: import('../state/accionCuartoStore').GrupoAccion
 }
 
 /**
@@ -1120,7 +1311,12 @@ export interface Acceso {
   tipo: 'escalera' | 'elevador' | 'resbaladilla' | 'escalera-marina'
   col: number // celda ancla del acceso
   row: number
-  /** Pared del cuarto superior a la que se ancla (N/S/E/O). Vacío = derivar hacia el centro. */
+  /**
+   * Esquina INTERIOR del cuarto donde se planta la estructura (pisos altos, nivel ≥ 1):
+   * así no tapa puertas ni vanos. Vacío = dato viejo anclado a `lado` (se migra al cargar).
+   */
+  esquina?: 'NO' | 'NE' | 'SO' | 'SE'
+  /** Pared del pozo a la que se pega la escalera marina (sótano). Vacío = hacia el centro. */
   lado?: 'N' | 'S' | 'E' | 'O'
 }
 
@@ -1214,6 +1410,27 @@ export interface FondoImagen {
   creado: string
 }
 
+/**
+ * Tema propio del usuario: una foto fija de cómo tenía la casa (tema base + su
+ * personalización + el fondo de cielo) guardada con nombre para volver a ponerla.
+ * Aplicarlo reutiliza la maquinaria de siempre: tema global + override + fondo.
+ */
+export interface TemaPropio {
+  id?: number
+  uid?: string
+  nombre: string
+  /** Tema de fábrica del que parte (los overrides se guardan por tema base). */
+  base: import('../house/temas').TemaId
+  /** Personalización congelada: paleta, cascarón, luz, niebla, estilo y efectos. */
+  override: import('../house/temas').TemaOverride
+  /** Fondo de cielo que acompañaba al tema. */
+  fondoId: string
+  fondoColorFijo: string
+  /** Imagen de fondo propia (id de `fondosImagen`) o null si era un preset/color. */
+  fondoImagenActivo: number | null
+  creado: string
+}
+
 /** Colores del avatar Roblox del usuario. */
 interface DisenoAvatar {
   id?: number
@@ -1255,11 +1472,40 @@ interface DisenoAvatar {
  * pueden poner al personaje principal. `piezas` es el JSON de las primitivas
  * (Pieza3D[]). Tabla LOCAL (no sincroniza); lo puesto viaja inline en el avatar.
  */
-interface PrendaCustom {
+export interface PrendaCustom {
   id?: number
   nombre: string
   /** JSON de Pieza3D[] (la geometría de la prenda). */
   piezas: string
+  /** Carpeta del guardarropa de la que cuelga (ausente = fila anterior a la v119). */
+  carpetaId?: number
+  /** Posición dentro de su carpeta (se reordena arrastrando). */
+  orden?: number
+  /** Prenda de fábrica de la que se horneó, si es una copia editable (PrendaId). */
+  origen?: string
+  creadoEn: number
+}
+
+/**
+ * Carpeta del guardarropa: dentro de una categoría de la pestaña Ropa agrupa la
+ * prenda de fábrica que la originó (`base`) y los elementos que agregue el
+ * usuario. Tabla LOCAL (no sincroniza), igual que `prendasCustom`.
+ *
+ * Las de fábrica no se borran, se ESCONDEN (`oculta`): la ropa ya puesta vive en
+ * `Avatar.ropa` y no consulta esta tabla, así que esconder una carpeta nunca
+ * desviste al personaje.
+ */
+export interface CarpetaRopa {
+  id?: number
+  /** Categoría de la pestaña Ropa donde se lista (PrendaCategoriaId). */
+  categoria: string
+  nombre: string
+  emoji?: string
+  /** Prenda de fábrica que vive dentro (PrendaId); ausente = carpeta del usuario. */
+  base?: string
+  /** Posición dentro de su categoría. */
+  orden: number
+  oculta?: boolean
   creadoEn: number
 }
 
@@ -1332,7 +1578,12 @@ interface MensajeChat {
   creado: string // ISO timestamp
   /** Mapa de Ideas dibujado en ese turno: la conversación lo muestra en miniatura. */
   mapaId?: number
-  /** Chip "abrir X" bajo el mensaje: lleva a donde quedó lo guardado. */
+  /**
+   * Chips "abrir X" bajo el mensaje: un turno puede guardar en varias apps
+   * (gasto en Finanzas + comida en Cocina) y lleva un chip por cada una.
+   */
+  destinos?: DestinoChat[]
+  /** Legado: chip único de los mensajes guardados antes de `destinos`. */
   destino?: DestinoChat
   /** Imagen generada con IA en ese turno: se muestra dentro de la burbuja. */
   imagen?: Blob
@@ -1382,6 +1633,16 @@ export interface AsistenteGuardado {
   vozPitch?: number
   /** Voz TTS: velocidad 0.6–1.4. */
   vozRate?: number
+  /** Voz TTS: volumen 0–1. */
+  vozVolumen?: number
+  /** Voz con IA (OpenAI tts-1) en vez de la del sistema. */
+  vozIA?: boolean
+  /** Voz TTS IA: una de VOCES_IA (vacío = 'alloy'). */
+  vozIaVoz?: string
+  /** Lee en voz alta lo que dice, sin pedírselo. */
+  vozLeer?: boolean
+  /** Comenta cosas por su cuenta mientras pasea (ausente = sí). */
+  espontaneo?: boolean
   /** Corazón 0–1: qué tan seguido comenta por su cuenta (0 = nunca). */
   corazon?: number
   /** Integrado "eliminado" por el usuario (se puede restaurar). */
@@ -1389,6 +1650,24 @@ export interface AsistenteGuardado {
 }
 
 // ----- Rutinas orquestadas (la casa como orquestadora) -----
+
+/**
+ * A qué app de la casa lleva un paso: el chip de «tomar agua» que abre la cocina
+ * donde eso se registra. Es NAVEGACIÓN, no captura — el dato se escribe en la app,
+ * con su propia pantalla (a diferencia de `PasoRutina`, que registra solo por
+ * esquema al palomearse).
+ *
+ * Campo embebido (sin índice): lo llevan los nodos de un plan y las metas, y por
+ * eso ninguno de los dos necesitó migración de Dexie.
+ */
+export interface EnlaceApp {
+  /** `Plantilla.id` de la app a la que lleva. */
+  plantillaId: string
+  /** Sección interna de la app (`Plantilla.comandos[].seccion`); sin valor, su portada. */
+  seccion?: string
+  /** Dato extra de la sección, igual que en `ComandoApp` (el id de un juego). */
+  dato?: string
+}
 
 /**
  * Paso de una rutina: una acción en un cuarto. Si trae `esquemaId` + `valores`,
@@ -1497,8 +1776,51 @@ export interface Rutina {
    * `actividadId`, y las hijas lo heredan igual.
    */
   ambitoId?: string
+  /**
+   * Categoría PROPIA bajo la que el usuario agrupa la meta en el panel de Metas
+   * («Casa», «Familia»). Texto libre, como `Receta.carpeta`: la lista de
+   * categorías se deriva de lo que tengan las metas.
+   *
+   * Manda sobre la app — una meta de ejercicio metida en «Casa» se lista ahí —, y
+   * sin valor la meta se agrupa por su `plantillaId`. Aparte de `ambitoId` a
+   * propósito: aquél decide qué ve el cronograma embebido de una app y es la
+   * llave del borrado en cascada (`borrarMetasDeAmbito`), así que una categoría
+   * que se llamara como un hobby se llevaría sus metas por delante.
+   */
+  categoriaMeta?: string
   /** Nota libre (sobre todo para metas sueltas, sin checklist de pasos). */
   nota?: string
+  /**
+   * App donde se registra lo que pide esta meta («toma agua» → la cocina). Aparte
+   * de `plantillaId`, que dice de QUIÉN es la meta y la mete en el cronograma de
+   * esa app: una meta de mindfulness puede pedir un paso que se apunta en cocina.
+   * Lo heredan las sub-metas que nacen de un plan (ver `aceptarPlan`).
+   */
+  enlaceApp?: EnlaceApp
+  /**
+   * Meta de la que nació este bloque: lo que convierte «correr los L/X/V» en
+   * trabajo de «preparar el maratón». Es lo que deja contar cuántos días de la
+   * meta van cumplidos sin fabricar una tabla nueva — el estado por fecha ya lo
+   * lleva `EjecucionRutina`, que es lo que un paso de meta (único, `pasosHechos`)
+   * nunca podría hacer.
+   *
+   * FK numérica a `rutinas`, declarada en `sync/syncables.ts`: sin eso, en otro
+   * dispositivo apuntaría a la fila que tuviera ese número.
+   */
+  deMetaId?: number
+  /**
+   * Cuántas veces pide la meta este bloque. Con `porPeriodo: 'semana'` son veces
+   * por semana mientras dure; con `'total'`, veces en todo el periodo. Solo lo
+   * leen las filas con `deMetaId` (ver `sincronizarMetasDeApp`).
+   */
+  ritmo?: { veces: number; porPeriodo: 'semana' | 'total' }
+  /**
+   * Solo metas: qué objetivos del día de su app suben mientras esté vigente
+   * («2.5 L de agua durante la fase base»). `clave` es la de `ObjetivoDia`, y el
+   * núcleo lo aplica DESPUÉS de que la app calcule el suyo, así que ninguna app
+   * se entera de que hay una meta empujando.
+   */
+  objetivosDia?: { clave: string; valor: number }[]
   /**
    * Solo rutinas: no aparece en ningún día del calendario. En una meta ya no se
    * usa — ahí lo dice `fechaInicio` (con fecha, va al calendario; sin fecha, vive
@@ -1523,6 +1845,17 @@ export interface Rutina {
   padreId?: number
   /** Posición entre hermanas (arrastrar para reordenar). */
   orden?: number
+  /**
+   * Importancia decidida A MANO en el tablero de Metas: menor es más importante.
+   *
+   * Aparte de `orden`, que es la posición dentro de su carpeta: en el tablero la
+   * columna es una lista sola y se prioriza entre metas de carpetas distintas.
+   * Sin valor, la meta se coloca por su plazo (ver `pesoImportancia`), así que
+   * quien no arrastre nunca no tiene que mantener ningún número.
+   *
+   * Campo sin índice: no necesita subir la versión de Dexie.
+   */
+  prioridad?: number
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
 }
@@ -1538,6 +1871,15 @@ export interface MetaDiariaManual {
   /** yyyy-mm-dd local (nunca toISOString: ver core/fechaLocal.ts). */
   fecha: string
   hecha: boolean
+  /**
+   * Qué objetivo de esa app se palomeó (`ObjetivoDia.clave`). SIN valor = el
+   * principal, que es como se escribían todas antes de que una app pudiera tener
+   * varios objetivos: así las filas viejas siguen valiendo sin migrar nada.
+   *
+   * Va sin índice a propósito (el compuesto `[plantillaId+fecha]` no es único y
+   * sigue sirviendo para traer las del día): mismo patrón que `Rutina.categoriaMeta`.
+   */
+  clave?: string
 }
 
 /**
@@ -1548,8 +1890,34 @@ export interface MetaDiariaManual {
 export interface ObjetivoDiario {
   id?: number
   plantillaId: string
+  /**
+   * Qué objetivo de esa app (`ObjetivoDia.clave`); `''` = el principal, que es
+   * como se escribieron todas las filas antes de la v108.
+   */
+  clave?: string
   /** 0 = meta apagada (no se evalúa ni avisa). */
   valor: number
+}
+
+/**
+ * Lo que dio un día YA CERRADO en un objetivo. Existe porque el avance se calcula
+ * en vivo desde los registros de cada app y el objetivo se lee del ajuste actual:
+ * sin congelarlo, subir el agua de 2 a 2.8 L des-cumpliría todas las semanas
+ * pasadas, y bajarla las regalaría. Es el mismo problema que `naceEn` resolvió en
+ * el calendario, y la misma solución: el pasado no se recalcula.
+ *
+ * Solo del día anterior hacia atrás — el de hoy sigue vivo y se recalcula siempre.
+ */
+export interface CumplimientoDiario {
+  id?: number
+  plantillaId: string
+  /** `ObjetivoDia.clave`; `''` = el principal (ver `ObjetivoDiario.clave`). */
+  clave: string
+  /** yyyy-mm-dd local. */
+  fecha: string
+  hecho: number
+  /** El que estaba puesto ESE día; 0 = el objetivo estaba apagado. */
+  objetivo: number
 }
 
 /**
@@ -1633,10 +2001,29 @@ export interface NodoPlan {
   /** Id local de su padre; sin valor = primer nivel del plan. */
   padre?: number
   nombre: string
-  /** Día en que empieza, contado desde el día 0 del plan (nunca desde su padre). */
-  ini: number
-  /** Último día que ocupa, inclusivo. */
-  fin: number
+  /**
+   * Día en que empieza, contado desde el día 0 del plan (nunca desde su padre). SIN
+   * VALOR mientras el nodo no tenga fechas: nace así y las recibe cuando el usuario
+   * las traza en el eje o las teclea. Un nodo sin fechar no pinta barra.
+   */
+  ini?: number
+  /** Último día que ocupa, inclusivo. Va siempre junto a `ini`: los dos o ninguno. */
+  fin?: number
+  /**
+   * `Rutina.id` de la sub-meta REAL que nació de este nodo al aceptar el plan; sin
+   * valor, el plan sigue siendo propuesta (o el nodo se agregó después).
+   *
+   * Es un id local y el sync solo traduce claves foráneas escalares de primer nivel
+   * (ver `sync/syncables.ts`), así que viaja crudo: en otro dispositivo puede
+   * apuntar a cualquier fila. `espejoDePlan` lo revalida antes de creerle.
+   */
+  metaRealId?: number
+  /**
+   * App donde se registra este paso: el chip que abre la cocina en «tomar agua».
+   * Lo pone el usuario en la hoja o lo propone la IA al generar el plan, y viaja a
+   * la sub-meta real al aceptarlo (`Rutina.enlaceApp`).
+   */
+  enlaceApp?: EnlaceApp
 }
 
 /** Material propio de la app elegido para un plan (una receta, un mazo…). */
@@ -1675,6 +2062,13 @@ export interface PlanMeta {
   creadoEn: string
   /** Cuándo se pasó al cronograma real; sin valor = sigue siendo propuesta. */
   aceptadoEn?: string
+  /**
+   * Nodos palomeados MIENTRAS el plan es propuesta (ids de `NodoPlan`, no
+   * posiciones: los nodos se agregan y se borran). Aceptado el plan, la verdad pasa
+   * a ser `Rutina.completada` de las sub-metas que nacieron de él; esto se queda
+   * como histórico y solo se lee para los nodos que no llegaron a tener espejo.
+   */
+  hechos?: number[]
 }
 
 /** Qué pasos de una rutina se completaron en un día (para rachas y digest). */
@@ -1767,6 +2161,10 @@ export interface MuroLibre {
   ventRot?: number // rotación de la forma en grados (cuadrado → rombo)
   ventMosaico?: boolean // cristal dividido en piezas (vitral)
   ventMulticolor?: boolean // cada pieza del mosaico con un color distinto
+  /** Qué vive en el vano: cristal (default), cuadro con foto o espejo (VentanaContenidoId). */
+  ventContenido?: 'ventana' | 'cuadro' | 'espejo'
+  /** Cara del muro donde se aplica el cuadro/espejo (la otra queda lisa). */
+  ventCara?: 'interior' | 'exterior'
 }
 
 /** Piso personalizado de una celda o sub-celda (¼) del plano. */
@@ -1792,7 +2190,7 @@ export interface CaminoCelda {
   col: number
   row: number
   tipo: 'pista' | 'riel' | 'coaster'
-  /** Solo montaña rusa: nivel de altura del riel (0–6, cada nivel = 0.6 u). */
+  /** Nivel de altura del tramo (cada nivel = 0.6 u). Tope por tipo: pista 1, riel y montaña rusa 6. */
   altura?: number
   /** Solo pista: celda con la línea de meta del circuito (una sola en el mapa). */
   meta?: boolean
@@ -1984,6 +2382,20 @@ export type TipoBloque =
   | 'cuenta'
   | 'galeria'
 
+/**
+ * Menú (pestaña) de una plantilla personalizada. Dos niveles: raíz y submenú.
+ * El orden del array `secciones` es el orden en que se pintan las pestañas.
+ */
+export interface SeccionDef {
+  /** Id estable dentro de la plantilla; es el `seccion` del deep link. No se regenera al editar. */
+  id: string
+  nombre: string
+  /** Emoji opcional del menú. */
+  emoji?: string
+  /** Si está, es un SUBMENÚ que cuelga del menú raíz `padreId`. */
+  padreId?: string
+}
+
 /** Bloque de una plantilla personalizada (estructura, no datos). */
 export interface BloqueDef {
   /** Id estable dentro de la plantilla; forma parte del nombre de la tool de IA. */
@@ -1996,6 +2408,8 @@ export interface BloqueDef {
   unidad?: string
   /** Solo cuenta regresiva: fecha objetivo `yyyy-mm-dd`. */
   fecha?: string
+  /** Menú donde vive el bloque. Vacío o apuntando a un menú borrado ⇒ el primer menú. */
+  seccionId?: string
 }
 
 /** Plantilla (app) creada por el usuario combinando bloques genéricos. */
@@ -2006,6 +2420,8 @@ export interface PlantillaCustom {
   icon: string // emoji
   color: string
   bloques: BloqueDef[]
+  /** Menús/submenús. Sin esto (o vacío) la app es UNA sola pantalla. */
+  secciones?: SeccionDef[]
   creadoEn: string
 }
 
@@ -2055,8 +2471,8 @@ export interface GrupoPlantilla {
  */
 export const GRUPOS_PLANTILLA_BASE: { nombre: string; emoji: string; miembros: string[] }[] = [
   { nombre: 'Cuerpo', emoji: '💪', miembros: ['ejercicio', 'cocina', 'descanso'] },
-  { nombre: 'Estudio', emoji: '📚', miembros: ['biblioteca', 'idiomas', 'ideas'] },
-  { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'calendario', 'agenda'] },
+  { nombre: 'Estudio', emoji: '📚', miembros: ['biblioteca', 'idiomas', 'ideas', 'computo'] },
+  { nombre: 'Administración', emoji: '🗂️', miembros: ['despacho', 'garage', 'agenda'] },
   { nombre: 'Pasatiempos', emoji: '🎉', miembros: ['entretenimiento', 'diario', 'hobbies'] },
   { nombre: 'Memorias y salud mental', emoji: '🧠', miembros: ['anecdotario', 'sala', 'jardin'] },
 ]
@@ -2158,17 +2574,50 @@ export interface TemaIdioma {
   /** Id único estable 'din-…'; comparte espacio con los ids de temario.ts. */
   temaId: string
   idiomaId: number
-  /** Nivel MCER del que cuelga. */
+  /**
+   * Qué es el nodo dentro del temario; ausente = 'tema' (todas las filas
+   * anteriores, que nacieron de una charla o del + de un nivel).
+   */
+  tipo?: 'area' | 'nivel' | 'tema'
+  /** Código corto del nivel del que cuelga ('A1'); en un área, vacío. */
   nivel: string
-  /** Tema estático u otro dinámico; null = raíz del nivel. */
+  /** Área del temario; ausente = 'temas' (todos los nodos previos a la v122). */
+  area?: string
+  /** Emoji de las áreas propias (las de fábrica traen el suyo en el código). */
+  icono?: string
+  /** Nodo del que cuelga (nivel, tema u otro propio); null = raíz de su nivel. */
   padreId: string | null
   titulo: string
   descripcion: string
+  /** Posición entre sus hermanos (se ordena en memoria; no se indexa). */
+  orden?: number
   creadoEn: string
   /** Charla que lo desbloqueó (se desliga si la charla se borra). */
   conversacionId?: number
   /** Sección del ejemplo de fábrica al que pertenece (ver core/data/ejemplos.ts). */
   ejemploDe?: string
+}
+
+/**
+ * Parche de un nodo DE FÁBRICA del temario (`rooms/idiomas/temario.ts`) —área,
+ * nivel o tema—, por idioma: renombrado, reordenado o borrado. Mismo reparto que
+ * `ajustesSemilla` en la biblioteca: el catálogo del código no se toca nunca,
+ * aquí solo vive lo que el usuario cambió, y lo propio son filas de
+ * `temasIdioma`. Borrar un nodo se lleva por delante todo lo que cuelga de él.
+ */
+export interface AjusteTemario {
+  id?: number
+  idiomaId: number
+  /** Id del nodo: 'temas' (área), 'temas:A1' (nivel), 'a1-saludos' (tema)… */
+  temaId: string
+  /** Título propio; ausente = el del catálogo. */
+  titulo?: string
+  descripcion?: string
+  /** Posición entre sus hermanos (se ordena en memoria; no se indexa). */
+  orden?: number
+  /** Borrado por el usuario: NO se indexa (IndexedDB no acepta booleanos). */
+  borrado?: boolean
+  actualizadoEn: string
 }
 
 /** Material propio que el usuario sube a un tema del temario (apuntes o fotos). */
@@ -2198,11 +2647,71 @@ export interface RepasoIdioma {
   aciertos: number
 }
 
+/** Reto elegido para una ronda de ejercicios. */
+export type RetoEjercicio = 'libre' | 'vidas' | 'contrarreloj'
+
+/**
+ * Partida de ejercicios terminada. Alimenta récords, historial y el avance de
+ * las misiones del día (que NO tienen tabla: se derivan de la fecha).
+ *
+ * No entra en `gamificacion/actividad.ts`: `registrarRepasoDia` ya se llama en
+ * cada respuesta, así que contarla otra vez duplicaría el XP del día.
+ */
+export interface PartidaEjercicio {
+  id?: number
+  idiomaId: number
+  /** yyyy-mm-dd local. */
+  fecha: string
+  modo: 'opcion' | 'inverso' | 'cloze'
+  reto: RetoEjercicio
+  preguntas: number
+  aciertos: number
+  /** Racha de aciertos seguidos más larga de la partida. */
+  comboMax: number
+  puntos: number
+  segundos: number
+  /** Ids de las medallas ganadas en ESTA partida (ver rooms/idiomas/juego.ts). */
+  medallas: string[]
+  creadoEn: string
+}
+
 // ----- Ideas · diario, mapas conceptuales y diagramas de decisión -----
+
+/**
+ * Carpeta del diario de ideas. Mismo molde que `CarpetaFormula`: `padreId` NO
+ * se indexa porque IndexedDB omite las filas cuya clave es null y las carpetas
+ * raíz desaparecerían en silencio; el árbol se arma entero en memoria.
+ */
+export interface CarpetaIdea {
+  id?: number
+  /** Id estable ('cid-…'): destino de `padreId` y de `Idea.carpetaId`. */
+  carpetaId: string
+  padreId: string | null
+  nombre: string
+  emoji?: string
+  color?: string
+  orden: number
+  creadoEn: string
+}
+
+/**
+ * Un punto de una idea. `puntoId` estable para reordenar y editar sin
+ * ambigüedad cuando dos puntos tienen el mismo texto.
+ */
+export interface PuntoIdea {
+  puntoId: string
+  texto: string
+  /** Resuelto o descartado (se pinta tachado). */
+  hecho?: boolean
+}
 
 /**
  * Idea del diario. `tema` agrupa las de una misma lluvia (y es su carpeta en la
  * vista por temas); sin tema es una idea suelta que solo cae en su día.
+ *
+ * `puntos` va EMBEBIDO y no en tabla aparte por lo mismo que `HojaCalculo.celdas`:
+ * un punto nunca se consulta suelto, reordenar es UNA escritura, y una fila por
+ * punto costaría una entrada de `_outbox` en cada retoque.
  */
 export interface Idea {
   id?: number
@@ -2211,6 +2720,10 @@ export interface Idea {
   detalle?: string
   /** Tema de la lluvia a la que pertenece; vacío = idea suelta. */
   tema?: string
+  /** Carpeta del diario; ausente = raíz. */
+  carpetaId?: string
+  /** El cuerpo de la idea. Ausente = idea de una línea (las anteriores a la v113). */
+  puntos?: PuntoIdea[]
   /** Destacada. NO se indexa: IndexedDB no acepta booleanos como clave. */
   favorita?: boolean
   fecha: string
@@ -2223,6 +2736,7 @@ export interface Idea {
  * Mapas conceptuales:
  * - `mental`   radial clásico (burbujas alrededor de la idea central)
  * - `arbol`    jerarquía de arriba a abajo (organigrama)
+ * - `etimologia` una palabra desarmada: origen, significados, usos y familia léxica
  * - `llaves`   el todo y sus partes, de izquierda a derecha con llaves
  * - `circulo`  idea al centro rodeada de su contexto
  * - `flujo`    secuencia de pasos con flechas (inicio, proceso, decisión, fin)
@@ -2246,6 +2760,7 @@ export interface Idea {
 export type TipoMapa =
   | 'mental'
   | 'arbol'
+  | 'etimologia'
   | 'llaves'
   | 'circulo'
   | 'flujo'
@@ -2357,10 +2872,13 @@ export interface EventoAgenda {
   con?: string
   /** `contactoId` de la persona ligada (string estable, no el id numérico). */
   contactoId?: string
-  /** `proyId` del proyecto que lo agrupa (Trabajo). */
-  proyectoId?: string
   /** `mascId` de la mascota a la que pertenece la cita (Salud). */
   mascotaId?: string
+  /**
+   * Especialidad de la cita médica (Salud): agrupa las citas en carpetas. Sin
+   * índice, así que las citas anteriores la leen como `undefined` → «Otra».
+   */
+  especialidad?: EspecialidadMedica
   /** 1 alta · 2 media · 3 baja; sin valor = media. */
   prioridad?: number
   notas?: string
@@ -2373,6 +2891,12 @@ export interface EventoAgenda {
    * marcada en curso). No se indexa: IndexedDB no acepta booleanos como clave.
    */
   enCurso?: boolean
+  /**
+   * Puesto manual dentro de su lista, escrito al arrastrar la fila (ver
+   * `rooms/agenda/arrastre.tsx`). Sin índice y sin valor por defecto: lo que
+   * nunca se ha arrastrado se coloca detrás, con el orden de siempre.
+   */
+  orden?: number
   /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
   ejemplo?: boolean
   creadoEn: string
@@ -2389,6 +2913,12 @@ export interface ContactoAgenda {
   nombre: string
   /** Vínculo libre ('familia', 'trabajo', 'amigos'): agrupa la libreta en carpetas. */
   relacion?: string
+  /**
+   * Persona a tu cuidado: aparece en Salud › Prójimos con sus citas, sus
+   * medicamentos y sus cuidados. Es la MISMA fila de la libreta a propósito, para
+   * no tener a mamá duplicada en dos sitios. No se indexa (es booleano).
+   */
+  alCuidado?: boolean
   telefono?: string
   correo?: string
   /** yyyy-mm-dd; el año es el de nacimiento (de ahí sale la edad que cumple). */
@@ -2399,20 +2929,8 @@ export interface ContactoAgenda {
   foto?: Blob
   direccion?: string
   notas?: string
-  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
-  ejemplo?: boolean
-  creadoEn: string
-}
-
-/** Proyecto de Trabajo: agrupa pendientes y eventos. No agenda nada por sí mismo. */
-export interface ProyectoAgenda {
-  id?: number
-  /** Id único estable ('py-…'). */
-  proyId: string
-  nombre: string
-  /** Hex propio del chip; vacío = el color de Trabajo. */
-  color?: string
-  activo: boolean
+  /** Puesto manual en su carpeta de la libreta (lo escribe el arrastre). */
+  orden?: number
   /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
   ejemplo?: boolean
   creadoEn: string
@@ -2429,8 +2947,10 @@ export interface Medicamento {
   nombre: string
   /** '500 mg', '1 pastilla', '10 gotas'. */
   dosis?: string
-  /** `mascId` de la mascota que lo toma; vacío = es tuyo. */
+  /** `mascId` de la mascota que lo toma; vacío = es tuyo o de un prójimo. */
   mascotaId?: string
+  /** `contactoId` del prójimo que lo toma; vacío (y sin mascota) = es tuyo. */
+  contactoId?: string
   /** Horas de toma 'HH:mm'; vacío = sin recordatorio (solo queda registrado). */
   horas: string[]
   /** Días 0=domingo … 6=sábado; vacío = todos los días. */
@@ -2440,6 +2960,8 @@ export interface Medicamento {
   fechaFin?: string
   notas?: string
   activo: boolean
+  /** Puesto manual en la lista de tratamientos (lo escribe el arrastre). */
+  orden?: number
   /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
   ejemplo?: boolean
   creadoEn: string
@@ -2479,6 +3001,8 @@ export interface Mascota {
   /** Retrato ya comprimido (comprimirFoto de rooms/_shared/fotos.tsx). */
   foto?: Blob
   notas?: string
+  /** Puesto manual en la lista de mascotas (lo escribe el arrastre). */
+  orden?: number
   /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
   ejemplo?: boolean
   creadoEn: string
@@ -2518,8 +3042,254 @@ export interface CuidadoMascota {
   ultima?: string
   nota?: string
   activo: boolean
+  /** Puesto manual en la lista de cuidados (lo escribe el arrastre). */
+  orden?: number
   /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
   ejemplo?: boolean
+  creadoEn: string
+}
+
+/** Especialidad de una cita médica: agrupa la lista y le pone color. */
+export type EspecialidadMedica =
+  | 'general'
+  | 'dentista'
+  | 'oftalmologia'
+  | 'dermatologia'
+  | 'ginecologia'
+  | 'cardiologia'
+  | 'traumatologia'
+  | 'psicologia'
+  | 'laboratorio'
+  | 'otra'
+
+/** A qué corresponde el cuidado de una persona. */
+export type TipoCuidadoPersona =
+  | 'chequeo'
+  | 'vacuna'
+  | 'analisis'
+  | 'terapia'
+  | 'dental'
+  | 'visual'
+  | 'otro'
+
+/**
+ * Cuidado que se repite, tuyo o de un prójimo: el chequeo anual, la vacuna de la
+ * gripe, los análisis cada seis meses.
+ *
+ * Es el mismo patrón que `CuidadoMascota` —`fecha` es SIEMPRE la próxima vez y
+ * `cadaMeses` la empuja al darlo por hecho—, pero en tabla aparte: el `mascotaId`
+ * de aquella está indexado, y volverlo opcional dejaría estas filas fuera del
+ * índice.
+ */
+export interface Cuidado {
+  id?: number
+  /** Id único estable ('cp-…'): amarra la rutina que proyecta en el calendario. */
+  cuidadoId: string
+  /** `ContactoAgenda.contactoId` del prójimo; vacío = es tuyo. */
+  contactoId?: string
+  tipo: TipoCuidadoPersona
+  titulo: string
+  /** Próxima vez (yyyy-mm-dd). */
+  fecha: string
+  /** 'HH:mm' del recordatorio; vacío = HORA_CUIDADO. */
+  hora?: string
+  /** Meses entre repeticiones; 0/ausente = cuidado de una sola vez. */
+  cadaMeses?: number
+  /** yyyy-mm-dd de la última vez que se dio por hecho. */
+  ultima?: string
+  nota?: string
+  activo: boolean
+  /** Puesto manual en la lista de cuidados (lo escribe el arrastre). */
+  orden?: number
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
+}
+
+// ----- Salud · seguimiento de ciclo -----
+
+/**
+ * Ajustes del seguimiento de ciclo. UNA sola fila, como `perfilNutricion`.
+ *
+ * `activo` es un interruptor propio de Salud a propósito: no se deduce del `sexo`
+ * de la Cocina. Así no hay que declarar nada para usarlo, y sirve igual si el
+ * seguimiento se lleva para una prójima.
+ */
+export interface AjustesCiclo {
+  id?: number
+  activo: boolean
+  /** Días entre el inicio de un periodo y el siguiente (arranca en 28). */
+  duracionCicloMedia: number
+  /** Días que suele durar el sangrado (arranca en 5). */
+  duracionPeriodoMedia: number
+  /** Días de antelación del aviso; 0 = sin aviso. */
+  avisarAntes: number
+  /** 'HH:mm' del recordatorio diario de anticonceptivo; vacío = sin recordatorio. */
+  anticonceptivoHora?: string
+  creadoEn: string
+}
+
+/** Intensidad del sangrado de un día. 0 = sin sangrado (día solo con síntomas). */
+export type SangradoCiclo = 0 | 1 | 2 | 3
+
+/** Un día registrado del ciclo. La fecha es única: un registro por día. */
+export interface DiaCiclo {
+  id?: number
+  /** yyyy-mm-dd LOCAL. */
+  fecha: string
+  sangrado: SangradoCiclo
+  /** Ids de `SINTOMAS_CICLO` (rooms/agenda/ciclo.ts). */
+  sintomas: string[]
+  /** Ánimo 1–5; sin valor = no se registró. */
+  animo?: number
+  nota?: string
+  /** Fila del ejemplo de fábrica: se puede borrar toda de golpe. */
+  ejemplo?: boolean
+  creadoEn: string
+}
+
+// ----- Sala de cómputo · formulario, calculadora y hojas -----
+
+/**
+ * Una variable de una fórmula. Viaja EMBEBIDA en su fórmula: no se consulta sin
+ * ella, no se comparte entre fórmulas y son ocho como mucho.
+ */
+export interface VariableFormula {
+  /** Símbolo tal cual aparece en la expresión ('r', 'v0', 'dT'). */
+  simbolo: string
+  /** Nombre legible («radio», «velocidad inicial»). */
+  nombre: string
+  /** Unidad como TEXTO, no como unidad de mathjs ('m', 'm/s²', 'mol/L'). */
+  unidad?: string
+  /** Valor con el que se precarga la calculadora de la fórmula. */
+  valor?: number
+  /** Constante: no se le pide al usuario, se inyecta al evaluar (g, NA, R…). */
+  constante?: boolean
+}
+
+/**
+ * Carpeta del formulario. El árbol se arma por `padreId`, un id de texto estable
+ * (mismo criterio que `temasArbol`): las referencias por string no se traducen
+ * entre dispositivos, así que no hay FK numérica que sincronizar.
+ */
+export interface CarpetaFormula {
+  id?: number
+  /** Id único estable ('car-…'): identidad entre dispositivos y destino de `padreId`. */
+  carpetaId: string
+  /** `carpetaId` de la carpeta madre, o null si es raíz. */
+  padreId: string | null
+  nombre: string
+  /** Emoji propio; sin él hereda el de la app. */
+  emoji?: string
+  color?: string
+  /** Posición entre hermanas (se ordena en memoria; no se indexa). */
+  orden: number
+  /** Fila del ejemplo de fábrica: se apaga y enciende entera. */
+  ejemploDe?: string
+  creadoEn: string
+}
+
+/**
+ * Una fórmula del usuario. Las de fábrica NO viven aquí: son un catálogo
+ * estático de solo lectura (`rooms/computo/catalogo.ts`) que se COPIA a esta
+ * tabla en cuanto el usuario la quiere tocar.
+ */
+export interface Formula {
+  id?: number
+  /**
+   * Id único estable. Una copia del catálogo usa 'cat-<area>-<slug>': dos
+   * dispositivos que copian la misma fórmula de fábrica convergen en UNA fila.
+   */
+  formulaId: string
+  /** `carpetaId` de su carpeta. Las fórmulas son SIEMPRE hoja: no se anidan. */
+  carpetaId: string
+  nombre: string
+  /** Expresión mathjs del lado derecho ('pi * r^2'). Es la fuente de verdad. */
+  expresion: string
+  /** Símbolo del resultado ('A', 'Ek', 'pH'). */
+  resultado: string
+  /** LaTeX escrito a mano; sin él se deriva de la expresión. */
+  tex?: string
+  descripcion?: string
+  variables: VariableFormula[]
+  /** Destacada. NO se indexa: IndexedDB no acepta booleanos como clave. */
+  favorita?: boolean
+  orden: number
+  /** Fila del ejemplo de fábrica: se apaga y enciende entera. */
+  ejemploDe?: string
+  fecha: string
+  creadoEn: string
+}
+
+/** Una celda de una hoja. Viaja EMBEBIDA en su hoja. */
+export interface CeldaHoja {
+  /** Lo que el usuario escribió: '12.5', 'Ventas', '=SUMA(A1:A5)'. */
+  crudo: string
+  /** Último valor calculado (caché; se recalcula al abrir la hoja). */
+  valor?: number | string
+  /** '#CICLO' | '#VALOR' | '#REF' — se pinta en rojo. */
+  error?: string
+  /** Formato: decimales, negrita, alineación, moneda. */
+  fmt?: { dec?: number; neg?: boolean; ali?: 'izq' | 'cen' | 'der'; moneda?: string }
+}
+
+export type TipoGraficaHoja = 'barras' | 'lineas' | 'area' | 'pastel' | 'dispersion'
+
+/**
+ * Una gráfica dibujada sobre un rango de la propia hoja. Viaja EMBEBIDA igual
+ * que las celdas: un rango A1 solo significa algo dentro de su hoja, y así la
+ * gráfica se copia, se sincroniza y se borra con ella sin nada que coordinar.
+ *
+ * No guarda los datos, solo el rango: la gráfica se recalcula con la hoja.
+ */
+export interface GraficaHoja {
+  id: string
+  tipo: TipoGraficaHoja
+  titulo: string
+  /** Rango de datos en A1 ('A1:C7'), cabeceras incluidas si se marcan abajo. */
+  rango: string
+  /** La primera fila del rango trae el nombre de cada serie. */
+  encabezadoFila?: boolean
+  /** La primera columna trae las etiquetas del eje (las X en una dispersión). */
+  encabezadoCol?: boolean
+}
+
+/**
+ * Hoja de cálculo. Las celdas van EMBEBIDAS en un mapa disperso por referencia
+ * A1 (solo las NO vacías), como los nodos de `PlanMeta` o las columnas de un
+ * tablero: una hoja es UN documento, y guardarla por celdas costaría una entrada
+ * de `_outbox` por celda en cada pegado.
+ */
+export interface HojaCalculo {
+  id?: number
+  nombre: string
+  /** Solo las celdas no vacías, por referencia A1 ('A1', 'C12'). */
+  celdas: Record<string, CeldaHoja>
+  /** Filas y columnas visibles (el tope duro está en `rooms/computo/constantes.ts`). */
+  filas: number
+  cols: number
+  /** Anchos de columna en px, solo los cambiados ('A': 140). */
+  anchos?: Record<string, number>
+  /** Gráficas sobre los datos de la hoja. Embebidas como las celdas. */
+  graficas?: GraficaHoja[]
+  /** Fila del ejemplo de fábrica: se apaga y enciende entera. */
+  ejemploDe?: string
+  creadoEn: string
+  actualizadoEn: string
+}
+
+/** Una línea del historial de la calculadora y el graficador. */
+export interface CalculoComputo {
+  id?: number
+  /** 'calculo' | 'ecuacion' | 'grafica' | 'formula' */
+  tipo: string
+  /** Lo evaluado ('2*sin(pi/4)', 'x^2-4=0'). */
+  entrada: string
+  /** El resultado ya formateado, tal cual se pintó. */
+  salida: string
+  /** `formulaId` cuando el cálculo salió de una fórmula del formulario. */
+  formulaId?: string
+  fecha: string
   creadoEn: string
 }
 
@@ -2532,6 +3302,24 @@ export interface PistaMusica {
   blob: Blob
   creadoEn: string
   duracionSeg?: number
+  /** `carpetaId` de su carpeta; sin él, la pista queda suelta. */
+  carpetaId?: string
+}
+
+/**
+ * Carpeta de pistas: un solo nivel (sin `padreId`), que es lo que hace falta
+ * para separar la música por gusto o momento. Id de texto estable, mismo
+ * criterio que `CarpetaIdea` y `CarpetaFormula`: las referencias por string no
+ * se traducen entre dispositivos y no hay FK numérica que sincronizar.
+ */
+export interface CarpetaPista {
+  id?: number
+  /** Id único estable ('cpi-…'): identidad entre dispositivos y destino de `PistaMusica.carpetaId`. */
+  carpetaId: string
+  nombre: string
+  /** Posición entre hermanas (se ordena en memoria; no se indexa). */
+  orden: number
+  creadoEn: string
 }
 
 // ----- Gamificación · Montaña de Sísifo -----
@@ -2567,9 +3355,11 @@ class MindHomeDB extends Dexie {
   perfilSueno!: Table<PerfilSueno, number>
   anecdotas!: Table<Anecdota, number>
   metas!: Table<Meta, number>
+  patrimonio!: Table<Patrimonio, number>
   presupuestos!: Table<Presupuesto, number>
   perfilNutricion!: Table<PerfilNutricion, number>
   registrosComida!: Table<RegistroComida, number>
+  planComidas!: Table<PlanComida, number>
   registrosAgua!: Table<RegistroAgua, number>
   recetas!: Table<Receta, number>
   dietasGuardadas!: Table<DietaGuardada, number>
@@ -2613,11 +3403,14 @@ class MindHomeDB extends Dexie {
   entradasBiblio!: Table<EntradaBiblio, number>
   sesionesEstudio!: Table<SesionEstudio, number>
   temasArbol!: Table<TemaArbol, number>
+  ajustesSemilla!: Table<AjusteSemilla, number>
+  materialEntrada!: Table<MaterialEntrada, number>
   edicionesDiario!: Table<EdicionDiario, number>
   lecturasDiario!: Table<LecturaDiario, number>
   disenoRooms!: Table<DisenoRoom, number>
   disenoAvatar!: Table<DisenoAvatar, number>
   prendasCustom!: Table<PrendaCustom, number>
+  carpetasRopa!: Table<CarpetaRopa, number>
   atuendosGuardados!: Table<AtuendoGuardado, number>
   objetosCuarto!: Table<ObjetoCuarto, number>
   layout!: Table<LayoutCuarto, number>
@@ -2630,9 +3423,11 @@ class MindHomeDB extends Dexie {
   ejecucionesRutina!: Table<EjecucionRutina, number>
   metasDiariasManual!: Table<MetaDiariaManual, number>
   objetivosDiarios!: Table<ObjetivoDiario, number>
+  cumplimientosDiarios!: Table<CumplimientoDiario, number>
   mensajesChat!: Table<MensajeChat, number>
   asistentes!: Table<AsistenteGuardado, number>
   fondosImagen!: Table<FondoImagen, number>
+  temasPropios!: Table<TemaPropio, number>
   pisosImagenCuarto!: Table<PisoImagenCuarto, number>
   techosImagenCuarto!: Table<TechoImagenCuarto, number>
   murosImagenCuarto!: Table<MuroImagenCuarto, number>
@@ -2656,8 +3451,10 @@ class MindHomeDB extends Dexie {
   conversacionesIdioma!: Table<ConversacionIdioma, number>
   mensajesIdioma!: Table<MensajeIdioma, number>
   temasIdioma!: Table<TemaIdioma, number>
+  ajustesTemario!: Table<AjusteTemario, number>
   materialesIdioma!: Table<MaterialIdioma, number>
   repasosIdioma!: Table<RepasoIdioma, number>
+  partidasEjercicio!: Table<PartidaEjercicio, number>
   caminos!: Table<CaminoCelda, number>
   cultivos!: Table<CultivoCelda, number>
   animales!: Table<AnimalGranja, number>
@@ -2667,16 +3464,24 @@ class MindHomeDB extends Dexie {
   carreras!: Table<RecordCarrera, number>
   pistasLibres!: Table<PistaLibre, number>
   pistasMusica!: Table<PistaMusica, number>
+  carpetasPista!: Table<CarpetaPista, number>
   estadoSisifo!: Table<EstadoSisifo, number>
   ideas!: Table<Idea, number>
+  carpetasIdea!: Table<CarpetaIdea, number>
   mapasIdeas!: Table<MapaIdeas, number>
   nodosMapa!: Table<NodoMapa, number>
   eventosAgenda!: Table<EventoAgenda, number>
   contactosAgenda!: Table<ContactoAgenda, number>
-  proyectosAgenda!: Table<ProyectoAgenda, number>
   medicamentos!: Table<Medicamento, number>
   mascotas!: Table<Mascota, number>
   cuidadosMascota!: Table<CuidadoMascota, number>
+  cuidados!: Table<Cuidado, number>
+  ajustesCiclo!: Table<AjustesCiclo, number>
+  diasCiclo!: Table<DiaCiclo, number>
+  carpetasFormula!: Table<CarpetaFormula, number>
+  formulas!: Table<Formula, number>
+  hojasCalculo!: Table<HojaCalculo, number>
+  calculosComputo!: Table<CalculoComputo, number>
   // Internas de sincronización (prefijo `_`: ni respaldo ni sync ni UI).
   _outbox!: Table<EntradaOutbox, number>
   _syncMeta!: Table<SyncMeta, string>
@@ -3777,7 +4582,289 @@ class MindHomeDB extends Dexie {
     // escribía desde la v12. Lo único que hacía era colarse vacía en cada
     // respaldo (`exportarRespaldo` recorre `db.tables`).
     this.version(107).stores({ perfilUsuario: null })
+
+    // v108/v109: el objetivo diario pasa a ser POR OBJETIVO y no por app — desde
+    // que una app puede declarar varios (`Plantilla.objetivosDia`), una sola fila
+    // por app no alcanza. El principal se queda con `clave: ''`, así que las filas
+    // que ya existen siguen siendo las suyas sin tocarles el valor.
+    //
+    // Van en DOS versiones a propósito: el índice compuesto no indexa las filas a
+    // las que les falta el campo, así que primero hay que rellenarlo y solo
+    // después declararlo.
+    this.version(108).upgrade(async (tx) => {
+      await tx
+        .table('objetivosDiarios')
+        .toCollection()
+        .modify((o: ObjetivoDiario) => {
+          o.clave = o.clave ?? ''
+        })
+    })
+    // `plantillaId` se queda indexado (no único) además del compuesto: un índice
+    // compuesto NO indexa las filas a las que les falta el campo, y la única forma
+    // de encontrar una fila legado sin `clave` —si el upgrade de arriba no llegó a
+    // correr, p. ej. en una base creada de cero por otra vía— es buscarla por app.
+    this.version(109).stores({ objetivosDiarios: '++id, plantillaId, &[plantillaId+clave], &uid' })
+
+    // v110: el histórico de los objetivos deja de recalcularse (ver `CumplimientoDiario`).
+    this.version(110).stores({ cumplimientosDiarios: '++id, [plantillaId+fecha], fecha, &uid' })
+
+    // v111: el Calendario deja de ser una app (vive en el reloj del HUD, desde
+    // donde se abre sin gastar un cuarto). Su calendario de pared se queda donde
+    // esté como objeto decorativo: sin plantilla —el cuarto pasa a «sin app»— y
+    // sin `permanente`, para que se pueda mover o quitar como cualquier mueble.
+    this.version(111).upgrade(async (tx) => {
+      await tx
+        .table('objetosCuarto')
+        .toCollection()
+        .modify((o: ObjetoCuarto) => {
+          if (o.plantillaId !== 'calendario') return
+          delete o.plantillaId
+          delete o.permanente
+        })
+    })
+
+    // v112: sala de cómputo — formulario de fórmulas en carpetas, calculadora
+    // con graficador y hojas de cálculo.
+    //
+    // `padreId` NO se indexa a propósito: IndexedDB no indexa las filas cuyo
+    // campo clave es null, así que TODAS las carpetas raíz desaparecerían del
+    // índice en silencio. Las carpetas se leen siempre enteras para armar el
+    // árbol en memoria —son decenas, no miles—, igual que `nodosMapa`, que
+    // indexa `mapaId` pero no `padreId`.
+    //
+    // `favorita` tampoco: IndexedDB no acepta booleanos como clave.
+    this.version(112).stores({
+      carpetasFormula: '++id, &carpetaId, creadoEn, &uid',
+      formulas: '++id, carpetaId, &formulaId, fecha, creadoEn, &uid',
+      hojasCalculo: '++id, creadoEn, actualizadoEn, &uid',
+      calculosComputo: '++id, fecha, creadoEn, &uid',
+    })
+
+    // v113: índice de Biblioteca editable, material enlazado a las entradas,
+    // carpetas del diario de ideas y partidas de ejercicios de Idiomas.
+    //
+    // Los campos nuevos de `TemaArbol` (nivel, icono, orden) y de `Idea`
+    // (carpetaId, puntos) no aparecen aquí porque no se indexan: Dexie solo
+    // declara los índices, y las filas viejas los leen como `undefined`.
+    //
+    // `padreId` de `carpetasIdea` sin indexar, por lo mismo que en la v112.
+    this.version(113)
+      .stores({
+        ajustesSemilla: '++id, &nodoId, &uid',
+        materialEntrada: '++id, entradaId, &materialId, &uid',
+        carpetasIdea: '++id, &carpetaId, creadoEn, &uid',
+        partidasEjercicio: '++id, idiomaId, fecha, [idiomaId+fecha], creadoEn, &uid',
+      })
+      .upgrade(async (tx) => {
+        // Cada lluvia del diario pasa a ser una carpeta raíz. El uid es
+        // DETERMINISTA (`filaSeed`) para que dos dispositivos que migran por su
+        // cuenta converjan en UNA carpeta por lluvia en vez de duplicarlas.
+        // Ojo: lo escrito aquí NO pasa por el middleware de sync, así que el
+        // uid y el updatedAt hay que ponerlos a mano.
+        const ideas = (await tx.table('ideas').toArray()) as Idea[]
+        const temas = [...new Set(ideas.map((i) => i.tema).filter((t): t is string => !!t))]
+        if (!temas.length) return
+        const ahora = new Date().toISOString()
+        const porTema = new Map<string, string>()
+        for (const [i, tema] of temas.entries()) {
+          const carpetaId = `cid-lluvia-${claveSeed(tema)}`
+          porTema.set(tema, carpetaId)
+          await tx.table('carpetasIdea').add(
+            filaSeed(`carpeta-lluvia-${claveSeed(tema)}`, {
+              carpetaId,
+              padreId: null,
+              nombre: tema,
+              orden: i,
+              creadoEn: ahora,
+            } satisfies CarpetaIdea),
+          )
+        }
+        // `tema` NO se borra: la vista «por tema» y el botón de retomar la
+        // lluvia siguen colgando de él.
+        await tx
+          .table('ideas')
+          .toCollection()
+          .modify((idea: Idea) => {
+            const carpetaId = idea.tema ? porTema.get(idea.tema) : undefined
+            if (carpetaId) idea.carpetaId = carpetaId
+          })
+      })
+
+    // v114: Salud se parte en tú / prójimos / mascotas. Los cuidados de personas
+    // van en tabla propia (el `mascotaId` de `cuidadosMascota` está indexado y
+    // volverlo opcional dejaría estas filas fuera del índice), y el seguimiento
+    // de ciclo estrena sus dos.
+    //
+    // `ContactoAgenda.alCuidado`, `Medicamento.contactoId` y
+    // `EventoAgenda.especialidad` NO aparecen aquí: no se indexan, y las filas
+    // viejas los leen como `undefined`.
+    // Las citas anteriores se quedan sin `especialidad`: NO se migran aquí. La
+    // adivina `inferirEspecialidad` al agrupar (rooms/agenda/salud.ts), que no
+    // toca la base y deja que el usuario la corrija editando la cita.
+    this.version(114).stores({
+      cuidados: '++id, contactoId, fecha, creadoEn, &cuidadoId, &uid',
+      ajustesCiclo: '++id, &uid',
+      diasCiclo: '++id, &fecha, creadoEn, &uid',
+    })
+
+    // v115: vuelve `planComidas`. En la v95 se borró por no tener consumidores;
+    // ahora la usa la rejilla semanal del Registro de Cocina (7 días × 4
+    // momentos). `recetaId` se indexa para poder limpiar en cascada al borrar
+    // una receta; `comidaId` no, porque está ausente mientras solo se planea.
+    this.version(115).stores({
+      planComidas: '++id, fecha, momento, recetaId, &uid',
+    })
+
+    // v116: ahorro e inversión comparten un solo cronograma en el despacho, así
+    // que sus dos árboles de metas se funden en el ámbito 'ahorroInversion'.
+    //
+    // `ambitoId` no está indexado: hay que recorrer la tabla, pero son cientos
+    // de filas. No se toca `updatedAt`, así que el LWW del sync no se entera y
+    // no hay guerra de versiones. Un dispositivo con build vieja que reciba el
+    // ámbito nuevo no verá esas metas en sus paneles hasta que actualice.
+    this.version(116).upgrade(async (tx) => {
+      await tx
+        .table('rutinas')
+        .toCollection()
+        .modify((r: Rutina) => {
+          if (r.plantillaId !== 'despacho') return
+          if (r.ambitoId === 'ahorro' || r.ambitoId === 'inversion') r.ambitoId = 'ahorroInversion'
+        })
+    })
+    // v117: la sala de cómputo (`computo`) entra a la carpeta ESTUDIO del
+    // catálogo de plantillas, junto a biblioteca, idiomas e ideas, en vez de
+    // caer en la primera carpeta por la reconciliación de plantillas huérfanas
+    // (`gruposPlantillaStore.asegurarMiembros`). La carpeta se identifica por
+    // POSICIÓN (la segunda carpeta base, `orden` 1) y no por `nombre`: el
+    // nombre es editable por el usuario y pudo haber cambiado.
+    //
+    // Instalaciones nuevas (tabla vacía) no necesitan esto: `GRUPOS_PLANTILLA_BASE`
+    // ya trae a `computo` en su semilla.
+    this.version(117).upgrade(async (tx) => {
+      const tabla = tx.table('gruposPlantilla')
+      const filas = (await tabla.toArray()) as GrupoPlantilla[]
+      if (filas.length === 0) return
+      const base = filas.filter((g) => g.esBase).sort((a, b) => a.orden - b.orden)
+      const estudio = base[1]
+      if (estudio?.id == null) return
+      for (const g of filas) {
+        if (g.id == null || g.id === estudio.id || !g.miembros.includes('computo')) continue
+        await tabla.update(g.id, { miembros: g.miembros.filter((m) => m !== 'computo') })
+      }
+      if (!estudio.miembros.includes('computo')) {
+        await tabla.update(estudio.id, { miembros: [...estudio.miembros, 'computo'] })
+      }
+    })
+
+    // v118: patrimonio a mano (activos físicos y líquidos, pasivos). Lo que la
+    // app ya sabe NO se guarda aquí: el ahorro y la deuda salen de `metas` y el
+    // efectivo de `transacciones`; esta tabla solo guarda lo que nadie más sabe
+    // (la casa, el coche, la hipoteca) y la vista suma unos con otros.
+    this.version(118).stores({
+      patrimonio: '++id, naturaleza, clase, creadoEn, &uid',
+    })
+
+    // v119: temas propios del usuario. Guardan el tema base + su personalización +
+    // el fondo de cielo con un nombre, para volver a ponerlos de un toque.
+    this.version(119).stores({
+      temasPropios: '++id, creado, &uid',
+    })
+
+    // v120: carpetas para «Mis pistas». Un solo nivel; la pista guarda el
+    // `carpetaId` (texto), así que no hace falta índice ni migrar nada: las
+    // pistas que ya existen quedan sueltas hasta que las metas en una carpeta.
+    this.version(120).stores({
+      carpetasPista: '++id, orden, &uid',
+    })
+
+    // v121: la ropa pasa a Categoría › Carpeta › Elementos. `carpetasRopa` trae
+    // una carpeta por prenda de fábrica más las que cree el usuario, y
+    // `prendasCustom` gana `carpetaId` para colgar de ellas.
+    //
+    // Sin `.upgrade()` a propósito: la siembra vive en `carpetasRopaStore` y se
+    // dispara con la tabla vacía, que es cierto en los tres casos (BD nueva,
+    // casa demo y BD existente que acaba de subir de versión). Los upgrades no
+    // corren ni en instalaciones nuevas ni en la demo.
+    this.version(121).stores({
+      carpetasRopa: '++id, categoria, orden',
+      prendasCustom: '++id, creadoEn, carpetaId',
+    })
+
+    // v122: el temario de idiomas se edita como la semilla de la enciclopedia.
+    // Una fila por tema DE FÁBRICA que el usuario renombró, reordenó o borró
+    // (los temas propios ya viven en `temasIdioma`, que gana `area` y `orden`
+    // sin índice y por eso no migra nada).
+    this.version(122).stores({
+      ajustesTemario: '++id, idiomaId, &uid',
+    })
+
+    // v123: se retira el patrimonio viejo — aquel número suelto que se tecleaba
+    // en Presupuesto y vivía como una fila mágica de `presupuestos`. Lo que
+    // hubiera apuntado ahí pasa a ser una línea de `patrimonio` normal, que se
+    // puede editar, ponerle una tasa y proyectar como cualquier otra.
+    //
+    // La fila mágica se BORRA, no se pone a cero: mientras exista, la vista
+    // tiene que seguir preguntando por ella y enseñando el aviso de importarla.
+    // El dinero no se pierde en el camino: sale de un sitio y entra en el otro.
+    //
+    // La línea nueva CONSERVA el `uid` de la vieja, igual que la migración de
+    // los fijos en la v105: sin eso, cada dispositivo migraría por su cuenta y
+    // el usuario acabaría con una línea de ahorros por aparato.
+    this.version(123).upgrade(async (tx) => {
+      const viejo = await tx.table('presupuestos').where('categoria').equals('__patrimonio__').first()
+      if (!viejo) return
+      if (viejo.monto > 0) {
+        // Sin i18n: `db.ts` no importa la interfaz. El idioma se lee de donde lo
+        // deja `ajustesStore`, que es localStorage y no la base.
+        const en = localStorage.getItem('mh.idioma') === 'en'
+        await tx.table('patrimonio').add({
+          clase: 'liquido',
+          naturaleza: 'activo',
+          nombre: en ? 'Savings' : 'Mis ahorros',
+          monto: viejo.monto,
+          creadoEn: new Date().toISOString(),
+          fechaValor: fechaLocalISO(),
+          uid: viejo.uid,
+        })
+      }
+      await tx.table('presupuestos').delete(viejo.id)
+    })
+
+    // v124: la Agenda se queda sin proyectos (decisión del usuario). Se va la
+    // tabla entera y el `proyectoId` que los eventos guardaban para agruparse;
+    // los pendientes y las citas NO se tocan: sobreviven sueltos, igual que ya
+    // pasaba al borrar un proyecto a mano.
+    //
+    // El índice también se cae del esquema de `eventosAgenda`: dejarlo obligaría
+    // a Dexie a reindexar un campo que ya nadie escribe.
+    this.version(124)
+      .stores({
+        proyectosAgenda: null,
+        eventosAgenda: '++id, area, fecha, contactoId, creadoEn, &evId, &uid',
+      })
+      .upgrade(async (tx) => {
+        const tabla = tx.table('eventosAgenda')
+        for (const ev of await tabla.toArray()) {
+          if (ev.proyectoId == null) continue
+          await tabla.update(ev.id, { proyectoId: undefined, updatedAt: Date.now() })
+        }
+      })
   }
+}
+
+// Mismo idioma que `rooms/biblioteca/arbol.ts` para quitar acentos tras NFD.
+const DIACRITICOS = new RegExp('[\\u0300-\\u036f]', 'g')
+
+/** Clave estable y legible para un uid de siembra (minúsculas, sin acentos). */
+function claveSeed(texto: string): string {
+  return texto
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(DIACRITICOS, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 40)
 }
 
 /** Cola local de cambios pendientes de push (la escribe el middleware). */

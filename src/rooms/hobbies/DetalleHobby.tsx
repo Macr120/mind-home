@@ -49,6 +49,8 @@ export function DetalleHobby({
   const [nota, setNota] = useState('')
   const [proyectoSel, setProyectoSel] = useState('')
   const [confirmando, setConfirmando] = useState(false)
+  // Día elegido en un calendario: el historial de abajo lo abre y lo destaca.
+  const [diaSel, setDiaSel] = useState<string | undefined>()
 
   const porDia = useMemo(() => minutosPorDia(sesiones), [sesiones])
   const fechas = useMemo(() => new Set(sesiones.map((s) => s.fecha)), [sesiones])
@@ -85,6 +87,9 @@ export function DetalleHobby({
     await hobbiesRepo.remove(hobby.id!)
     onVolver()
   }
+
+  // Volver a tocar el mismo día lo suelta (el historial deja de destacarlo).
+  const elegirDia = (iso: string) => setDiaSel((v) => (v === iso ? undefined : iso))
 
   const enCurso = proyectos.filter((p) => p.estado === 'en-curso')
   const nombreProyecto = (id?: number) => proyectos.find((p) => p.id === id)?.nombre
@@ -166,7 +171,7 @@ export function DetalleHobby({
       </div>
 
       {!!hobby.metaDiasSemana && (
-        <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+        <div data-tut="hobbies.meta.semanal" className="rounded-xl border border-white/10 bg-white/5 p-3">
           <div className="mb-2 flex items-center justify-between">
             <p className="text-xs font-semibold">
               <Icono nombre="objetivo" /> {t('hobbies.meta.titulo', 'Meta semanal')}
@@ -212,7 +217,7 @@ export function DetalleHobby({
         hechoHoy={fechas.has(hoyISO())}
       />
 
-      <form onSubmit={registrar} className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-3">
+      <form data-tut="hobbies.sesion.form" onSubmit={registrar} className="rounded-xl border border-white/10 bg-white/5 p-4 space-y-3">
         <p className="text-sm font-semibold">{t('hobbies.sesion.titulo', 'Registrar práctica')}</p>
         <div className="flex flex-wrap items-center gap-1.5">
           {MINUTOS_RAPIDOS.map((m) => (
@@ -278,9 +283,9 @@ export function DetalleHobby({
       </form>
 
       <div data-tut="hobbies.detalle.heatmap">
-        <HeatmapAnual minPorDia={porDia} color={hobby.color} />
+        <HeatmapAnual minPorDia={porDia} color={hobby.color} sel={diaSel} onDia={elegirDia} />
       </div>
-      <HeatmapMes minPorDia={porDia} color={hobby.color} />
+      <HeatmapMes minPorDia={porDia} color={hobby.color} sel={diaSel} onDia={elegirDia} />
 
       <Proyectos
         hobby={hobby}
@@ -291,7 +296,7 @@ export function DetalleHobby({
 
       {/* El cronograma de ESTE hobby: las metas generales, las que no son de un
           proyecto concreto (esas viven dentro de cada proyecto). */}
-      <div className="rounded-xl border border-white/10 bg-white/5">
+      <div className="rounded-xl border border-white/10 bg-white/5" data-tut="hobbies.cronograma.hobby">
         <div className="flex h-96 flex-col">
           <CronogramaApp plantillaId="hobbies" ambitoId={`hobby:${hobby.id}`} />
         </div>
@@ -304,6 +309,7 @@ export function DetalleHobby({
             items={sesiones}
             fecha={(s) => s.fecha}
             clave={(s) => s.id ?? s.fecha}
+            abrirEn={diaSel}
             resumen={(ses) => fmtMin(ses.reduce((acc, s) => acc + s.minutos, 0))}
           >
             {(s) => (

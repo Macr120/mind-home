@@ -1,4 +1,3 @@
-import { ejemploEncendido, useEjemplos } from '../../../core/data/ejemplos'
 import { idiomaActual } from '../../../core/i18n/useT'
 import type { Idioma } from '../../../core/state/ajustesStore'
 
@@ -20,22 +19,6 @@ export interface PaqueteEjemplo {
    * sin sitio libre en la infraestructura 3D. Sin esto, siempre se puede.
    */
   impedimento?(): Promise<string | null>
-}
-
-/**
- * Enciende el ejemplo para un tutorial: un tour sobre una app vacía explica
- * pantallas en blanco.
- *
- * Devuelve cómo volver a apagarlo, o `null` si el usuario ya lo tenía puesto —
- * en ese caso el tour no lo toca al salir, que sería quitarle algo que él
- * eligió. Apagar nunca borra: las filas se quedan (ver `core/data/ejemplos.ts`).
- */
-export async function encenderParaTutorial(paquete: PaqueteEjemplo): Promise<(() => void) | null> {
-  if (ejemploEncendido(paquete.id)) return null
-  if (await paquete.impedimento?.()) return null
-  await paquete.materializar()
-  useEjemplos.getState().encender(paquete.id)
-  return () => useEjemplos.getState().apagar(paquete.id)
 }
 
 /**

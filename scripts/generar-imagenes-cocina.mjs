@@ -1,11 +1,14 @@
 /**
- * Genera con Gemini las fotos preguardadas de las recetas y dietas de ejemplo.
+ * Genera con Gemini las fotos preguardadas de las recetas y dietas de ejemplo,
+ * y también las portadas de las dos dietas del año demo (Pep@).
  *
- * Lee los ejemplos de `src/rooms/cocina/ejemplos.ts` y los prompts de
+ * Lee los ejemplos de `src/rooms/cocina/ejemplos.ts`, las dietas del demo de
+ * `src/rooms/cocina/demo.recetas.data.ts` y los prompts de
  * `src/rooms/cocina/promptsFoto.ts` (los mismos que usa el botón «Generar con
  * IA» de la app), comprime cada imagen a WebP y la deja en `public/cocina/`. Al
  * terminar reescribe el manifiesto `src/rooms/cocina/imagenesPreset.ts`, que es
- * lo que la app consulta para saber qué ejemplos traen foto de fábrica.
+ * lo que la app consulta para saber qué ejemplos (y qué dietas del demo) traen
+ * foto de fábrica.
  *
  * La clave sale de `GEMINI_API_KEY` (variable de entorno o línea en `.env.local`,
  * que está fuera de git).
@@ -24,6 +27,7 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const DIR_IMG = path.join(RAIZ, 'public', 'cocina')
 const EJEMPLOS_TS = path.join(RAIZ, 'src', 'rooms', 'cocina', 'ejemplos.ts')
 const PROMPTS_TS = path.join(RAIZ, 'src', 'rooms', 'cocina', 'promptsFoto.ts')
+const DEMO_RECETAS_TS = path.join(RAIZ, 'src', 'rooms', 'cocina', 'demo.recetas.data.ts')
 const MANIFIESTO_TS = path.join(RAIZ, 'src', 'rooms', 'cocina', 'imagenesPreset.ts')
 
 const MODELO = 'gemini-2.5-flash-image'
@@ -37,23 +41,43 @@ const valor = (n) => args.find((a) => a.startsWith(`--${n}=`))?.split('=').slice
 
 // --- Ejemplos -------------------------------------------------------------
 
-/** Lee los ejemplos y los prompts del propio .ts (Node ≥22 quita los tipos). */
+/**
+ * Lee los ejemplos, los prompts y las dietas del año demo (Node ≥22 quita los
+ * tipos). Cada item lleva TODOS los nombres bajo los que hay que registrarlo en
+ * el manifiesto: los ejemplos de fábrica solo tienen uno, pero las dietas del
+ * demo tienen dos (una foto sirve para el nombre en español y en inglés).
+ */
 async function leerEjemplos() {
   const datos = await import(pathToFileURL(EJEMPLOS_TS).href)
   const prompts = await import(pathToFileURL(PROMPTS_TS).href)
+  const demo = await import(pathToFileURL(DEMO_RECETAS_TS).href)
+
+  // Las dietas que Pep@ guarda en el año demo (`rooms/cocina/demo.ts`), NO las
+  // de fábrica: se generan por separado porque el ES y el EN traen nombres
+  // distintos para la MISMA foto (mismo índice en los dos arreglos paralelos).
+  const dietasEs = demo.DEMO_COCINA_RECETAS.es.dietas
+  const dietasEn = demo.DEMO_COCINA_RECETAS.en.dietas
+  const dietasDemo = dietasEs.map((d, i) => ({
+    tipo: 'dieta',
+    nombres: [d.nombre, dietasEn[i].nombre],
+    slug: `dieta-${datos.slugCocina(d.nombre)}`,
+    prompt: prompts.promptDieta(d),
+  }))
+
   return [
     ...datos.RECETAS_EJEMPLO.map((r) => ({
       tipo: 'receta',
-      nombre: r.nombre,
+      nombres: [r.nombre],
       slug: datos.slugCocina(r.nombre),
       prompt: prompts.promptReceta(r),
     })),
     ...datos.DIETAS_EJEMPLO.map((d) => ({
       tipo: 'dieta',
-      nombre: d.nombre,
+      nombres: [d.nombre],
       slug: `dieta-${datos.slugCocina(d.nombre)}`,
       prompt: prompts.promptDieta(d),
     })),
+    ...dietasDemo,
   ]
 }
 
@@ -116,14 +140,17 @@ function escribirManifiesto(items) {
   const enDisco = new Set(
     existsSync(DIR_IMG) ? readdirSync(DIR_IMG).filter((f) => f.endsWith('.webp')).map((f) => f.slice(0, -5)) : [],
   )
-  const fila = (i) => `  ${JSON.stringify(i.nombre)}: '${i.slug}',`
-  const recetas = items.filter((i) => i.tipo === 'receta' && enDisco.has(i.slug)).map(fila).join('\n')
-  const dietas = items.filter((i) => i.tipo === 'dieta' && enDisco.has(i.slug)).map(fila).join('\n')
+  // Un item puede registrar más de un nombre (las dietas del demo: ES + EN
+  // apuntando a la misma foto), así que cada uno aporta una o varias filas.
+  const filas = (i) => i.nombres.map((n) => `  ${JSON.stringify(n)}: '${i.slug}',`)
+  const recetas = items.filter((i) => i.tipo === 'receta' && enDisco.has(i.slug)).flatMap(filas).join('\n')
+  const dietas = items.filter((i) => i.tipo === 'dieta' && enDisco.has(i.slug)).flatMap(filas).join('\n')
   writeFileSync(
     MANIFIESTO_TS,
     `/**
- * Fotos que la app ya trae de fábrica para las recetas y dietas de ejemplo,
- * por nombre. Los archivos viven en \`public/cocina/\`.
+ * Fotos que la app ya trae de fábrica para las recetas y dietas de ejemplo, y
+ * para las dos dietas del año demo (con su nombre en ES y en EN), por nombre.
+ * Los archivos viven en \`public/cocina/\`.
  *
  * GENERADO por \`scripts/generar-imagenes-cocina.mjs\` — no lo edites a mano.
  */
@@ -167,7 +194,11 @@ if (flag('manifiesto')) {
 
 const filtros = (valor('solo')?.toLowerCase().split(',') ?? []).map((f) => f.trim()).filter(Boolean)
 let pendientes = items.filter((i) => {
-  if (filtros.length && !filtros.some((f) => i.slug.includes(f) || i.nombre.toLowerCase().includes(f))) return false
+  if (
+    filtros.length &&
+    !filtros.some((f) => i.slug.includes(f) || i.nombres.some((n) => n.toLowerCase().includes(f)))
+  )
+    return false
   return flag('forzar') || !existsSync(path.join(DIR_IMG, `${i.slug}.webp`))
 })
 const limite = Number(valor('limite') || 0)
@@ -191,10 +222,10 @@ await Promise.all(
       try {
         bytes += await generarUna(item, key)
         hechas++
-        console.log(`  [${hechas}/${pendientes.length}] ${item.nombre} → ${item.slug}.webp`)
+        console.log(`  [${hechas}/${pendientes.length}] ${item.nombres.join(' / ')} → ${item.slug}.webp`)
       } catch (e) {
-        fallidos.push(item.nombre)
-        console.warn(`  ✗ ${item.nombre}: ${e.message}`)
+        fallidos.push(item.nombres[0])
+        console.warn(`  ✗ ${item.nombres[0]}: ${e.message}`)
       }
     }
   }),

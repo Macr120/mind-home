@@ -7,9 +7,9 @@ import type { NombreIcono } from './iconos/catalogo'
  * Aviso que ya sonó: se queda arriba de la app hasta que lo cierras.
  *
  * Vivía dentro de `rooms/descanso/DescansoApp.tsx`; se movió aquí al necesitarla
- * también el aviso de las actividades agendadas (ver `AvisoActividadBanner`).
- * `acciones` es lo único que se le añadió: el aviso de una actividad ofrece
- * registrarla de un toque, no solo enterarse.
+ * también el aviso de las actividades agendadas, que desde entonces es una fila
+ * más de la lista de hoy (`ui/hoy/FilaHoy.tsx`). `acciones` se le añadió para
+ * aquello: un aviso puede ofrecer registrar de un toque, no solo enterarse.
  */
 export function BannerAviso({
   icono,

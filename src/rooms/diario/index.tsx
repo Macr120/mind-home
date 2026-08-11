@@ -1,9 +1,10 @@
 import { lazy } from 'react'
-import type { Plantilla } from '../../core/registry'
+import type { Plantilla } from '../../core/appContrato'
 import { lecturasDiarioRepo } from '../../core/data/repository'
 import { flujosDiario } from './tutorial'
 import { COLOR } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
+import { planMetasDiario } from './plan'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
@@ -19,6 +20,8 @@ const diario: Plantilla = {
   App: DiarioApp,
   operacionesIA: OPERACIONES_IA,
   flujos: flujosDiario,
+  // Acotamiento del planificador ✨: en Noticias el plan es de lectura.
+  planMetas: planMetasDiario,
   metaDiaria: {
     clave: 'diario.metaDiaria',
     etiquetaEs: 'Lee el diario de hoy',

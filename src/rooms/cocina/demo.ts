@@ -26,6 +26,7 @@ import {
 } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { enBache, enJapon, JAPON_FIN, JAPON_INICIO, MARATON_DIA } from '../../demo/hitosPep'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { adivinarCategoria } from './categoriasCompra'
 import { DEMO_COCINA } from './demo.data'
 import { DEMO_COCINA_RECETAS } from './demo.recetas.data'
@@ -60,16 +61,23 @@ function etapaDe(off: number): Etapa {
   return 'maraton'
 }
 
-/** Cuántos días de ese tramo quedaron registrados. */
+/**
+ * Cuántos días de ese tramo quedaron registrados.
+ *
+ * La curva sube con el año a propósito (la constancia es la historia), pero los
+ * valores son bajos aposta: un día de cocina son varias filas —comidas y aguas—
+ * y con la densidad de antes este cuarto solo tenía más registros que los otros
+ * quince juntos. Nadie apunta todo lo que come 340 días al año.
+ */
 function densidad(off: number): number {
-  if (off < DIETA_DESDE) return 0.12 // antes de la dieta casi no apuntaba
-  if (enJapon(off)) return 0.2
-  if (enBache(off)) return 0.42
-  if (off < -244) return 0.68
-  if (off < -184) return 0.75
-  if (off < JAPON_INICIO) return 0.72
-  if (off < -40) return 0.85
-  return 0.92
+  if (off < DIETA_DESDE) return 0.08 // antes de la dieta casi no apuntaba
+  if (enJapon(off)) return 0.14
+  if (enBache(off)) return 0.3
+  if (off < -244) return 0.46
+  if (off < -184) return 0.52
+  if (off < JAPON_INICIO) return 0.5
+  if (off < -40) return 0.58
+  return 0.64
 }
 
 /**
@@ -179,9 +187,11 @@ export async function construirDemoCocina(ctx: CtxDemo): Promise<void> {
     if (r() >= densidad(off)) continue
     const etapa = etapaDe(off)
     const pool = porEtapa.get(etapa) ?? platos
-    // 3 o 4 momentos: el snack no todos los días.
+    // Los tres de siempre; el snack, uno de cada tres días. Se apuntan los tres
+    // aunque sea un día flojo: las kcal del día se escalan sobre lo elegido, y
+    // con menos platos el total no llegaría al objetivo y la adherencia mentiría.
     const momentos: RegistroComida['momento'][] =
-      r() < 0.65 ? ['desayuno', 'comida', 'cena', 'snack'] : ['desayuno', 'comida', 'cena']
+      r() < 0.33 ? ['desayuno', 'comida', 'cena', 'snack'] : ['desayuno', 'comida', 'cena']
     const elegidas = momentos.map((m) => {
       const delMomento = pool.filter((c) => c.momento === m)
       return delMomento.length ? uno(delMomento) : uno(pool)
@@ -202,14 +212,13 @@ export async function construirDemoCocina(ctx: CtxDemo): Promise<void> {
         ...(nota && i === 0 ? { nota } : {}),
       })
     })
-    // Agua: dos o tres cargas al día; en el mes 1 se le olvidaba beber.
+    // Agua: DOS cargas al día (la botella de la mañana y la de la tarde), no un
+    // apunte por vaso. Con cargas de medio litro salían cinco o seis filas
+    // diarias, que es de donde venía la mitad del volumen de este cuarto.
     const objetivoMl = off < DIETA_DESDE ? 1400 : enJapon(off) ? 2000 : 2600 + Math.round(r() * 600)
-    let restante = objetivoMl
-    while (restante > 0) {
-      const ml = Math.min(restante, 500 + Math.round(r() * 4) * 125)
-      aguas.push({ fecha: ctx.fecha(off), ml })
-      restante -= ml
-    }
+    const manana = Math.round(objetivoMl * (0.45 + r() * 0.15))
+    aguas.push({ fecha: ctx.fecha(off), ml: manana })
+    aguas.push({ fecha: ctx.fecha(off), ml: objetivoMl - manana })
   }
   await comidasRepo.bulkAdd(comidas)
   await aguaRepo.bulkAdd(aguas)
@@ -272,4 +281,8 @@ export async function construirDemoCocina(ctx: CtxDemo): Promise<void> {
       })),
     )
   }
+
+  // Las metas del cuarto: la dieta que ya cerró y la comida del maratón que
+  // viene (su plan lo entrena el cuarto de ejercicio).
+  await sembrarMetasApp(ctx, 'cocina')
 }

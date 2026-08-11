@@ -2,6 +2,7 @@ import { useHouse } from '../state/houseStore'
 import { useLayout } from '../state/layoutStore'
 import { useCiclo } from '../state/cicloStore'
 import { useCuartos } from '../state/cuartosStore'
+import { useCargar, ALTURA_CARGA_CUARTO } from '../state/cargarStore'
 import { estadoCielo } from './cielo'
 import { useTemaActivo } from './useTema'
 import { roomCenter, nivelBaseY, WALL_H, SIZE_DEFAULT } from './walls'
@@ -23,6 +24,9 @@ export function FocosCasa() {
   const niveles = useLayout((s) => s.niveles)
   const apilado = !useHouse((s) => s.explotado)
   const cuartos = useCuartos((s) => s.cuartos)
+  // El cuarto cargado se dibuja elevado: su foco sube con él (si no, se quedaría
+  // brillando en el suelo, donde ya no hay cuarto).
+  const cargadoId = useCargar((s) => (s.sujeto?.tipo === 'cuarto' ? String(s.sujeto.id) : null))
   const tema = useTemaActivo()
   const focoColor = tema?.luz?.focos ?? FOCO_COLOR
 
@@ -38,7 +42,10 @@ export function FocosCasa() {
         .filter((r) => placed[r.id] && cells[r.id])
         .map((r) => {
           const [x, , z] = roomCenter(cells[r.id], sizes[r.id] ?? SIZE_DEFAULT)
-          const y = nivelBaseY(niveles[r.id] ?? 0, apilado) + WALL_H * 0.78
+          const y =
+            nivelBaseY(niveles[r.id] ?? 0, apilado) +
+            WALL_H * 0.78 +
+            (r.id === cargadoId ? ALTURA_CARGA_CUARTO : 0)
           return (
             <group key={r.id} position={[x, y, z]}>
               {/* Intensidad alta (candelas físicas de Three.js); distance cubre todo el cuarto */}

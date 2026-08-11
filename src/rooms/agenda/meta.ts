@@ -1,5 +1,5 @@
 import { eventosAgendaRepo } from '../../core/data/repository'
-import type { MetaDiaria } from '../../core/registry'
+import type { MetaDiaria } from '../../core/appContrato'
 
 /**
  * Meta del día: lo que tenías agendado hoy contra lo que ya palomeaste.

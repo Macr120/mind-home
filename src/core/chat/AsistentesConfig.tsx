@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useMascota } from '../state/mascotaStore'
 import { useAsistentes } from '../state/asistentesStore'
+import { confirmar } from '../state/confirmarStore'
 import {
   MASCOTAS,
   COLOR_FORMA,
@@ -10,11 +11,12 @@ import {
   saludoAsistente,
   type Asistente,
 } from './mascotas'
-import { hayVoz, hablarVoz, vozDeAsistente, vocesDisponibles, langVoz } from '../audio/voz'
+import { hayVoz, hablarComoAsistente, vocesDisponibles, langVoz } from '../audio/voz'
+import { VOCES_IA } from '../audio/vozIA'
 import { iaActiva, generarModelo3D } from './ia'
 import { iaHabilitada } from '../edicion'
 import { Creditos } from '../ui/Creditos'
-import { OP_ASISTENTE_3D } from '../cuenta/catalogoNucleo'
+import { OP_ASISTENTE_3D, OP_ASISTENTE_VOZ } from '../cuenta/catalogoNucleo'
 import { getPlantilla } from '../registry'
 import { appsAsignadas } from './dispatcher'
 import { useT } from '../i18n/useT'
@@ -76,7 +78,23 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
         const enEdicion = editando === a.id
         return (
           <div key={a.id}>
-            <div className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-white/5">
+            {/* La fila entera abre su editor: el lápiz de antes era un blanco
+                diminuto y el ✕ de borrar vivía justo al lado. */}
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => setEditando(enEdicion ? null : a.id)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setEditando(enEdicion ? null : a.id)
+                }
+              }}
+              title={t('chat.config.editar', 'Personalizar')}
+              className={`flex cursor-pointer items-center gap-2 rounded-xl px-2 py-1.5 transition hover:bg-white/5 ${
+                enEdicion ? 'bg-white/5' : ''
+              }`}
+            >
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/5 text-lg">
                 <Icono emoji={a.emoji} />
               </span>
@@ -98,7 +116,10 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
               </div>
               <button
                 type="button"
-                onClick={() => guardar({ ...a, enMapa: !a.enMapa })}
+                onClick={(e) => {
+                  e.stopPropagation() // acción rápida: no debe abrir el editor
+                  guardar({ ...a, enMapa: !a.enMapa })
+                }}
                 className={`rounded px-1 py-0.5 text-sm transition hover:bg-white/10 ${
                   a.enMapa || activo ? 'opacity-100' : 'opacity-25 grayscale'
                 }`}
@@ -112,27 +133,19 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
               >
                 <Icono nombre="mapa" />
               </button>
-              <button
-                type="button"
-                onClick={() => setEditando(enEdicion ? null : a.id)}
-                className={`rounded px-1 py-0.5 text-[12px] transition hover:bg-white/10 ${
-                  enEdicion ? 'text-white/80' : 'text-white/30 hover:text-white/70'
-                }`}
-                title={t('chat.config.editar', 'Personalizar')}
-              >
-                <Icono nombre="editar" />
-              </button>
-              <button
-                type="button"
-                onClick={() => eliminar(a.id)}
-                disabled={lista.length <= 1}
-                className="rounded px-1 py-0.5 text-[12px] text-white/20 transition hover:bg-white/10 hover:text-white/60 disabled:opacity-20"
-                title={t('chat.config.eliminar', 'Eliminar asistente')}
-              >
-                ✕
-              </button>
+              <span className="shrink-0 px-1 text-xs text-white/30">
+                <Icono nombre={enEdicion ? 'subir' : 'bajar'} />
+              </span>
             </div>
-            {enEdicion && <FormAsistente a={a} guardar={guardar} />}
+            {enEdicion && (
+              <FormAsistente
+                a={a}
+                guardar={guardar}
+                eliminar={eliminar}
+                puedeEliminar={lista.length > 1}
+                onEliminado={() => setEditando(null)}
+              />
+            )}
           </div>
         )
       })}
@@ -172,9 +185,16 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
 function FormAsistente({
   a,
   guardar,
+  eliminar,
+  puedeEliminar,
+  onEliminado,
 }: {
   a: Asistente
   guardar: (a: Asistente) => Promise<void>
+  eliminar: (id: string) => Promise<void>
+  /** Falso con un solo asistente en la lista: siempre debe quedar uno. */
+  puedeEliminar: boolean
+  onEliminado: () => void
 }) {
   const t = useT()
   const [descForma, setDescForma] = useState('')
@@ -191,7 +211,7 @@ function FormAsistente({
     setGenerando(true)
     setErrorForma(null)
     try {
-      const piezas = await generarModelo3D(descForma.trim())
+      const { piezas } = await generarModelo3D(descForma.trim())
       await guardar({ ...a, modelo3d: piezas, modeloGlb: undefined })
       setDescForma('')
     } catch (err) {
@@ -373,12 +393,12 @@ function FormAsistente({
         </div>
       </div>
 
-      {/* Voz TTS: leer o no lo que dice + voz del sistema y tono/velocidad propios */}
+      {/* Voz TTS: leer o no lo que dice + nativa del sistema, o con IA (OpenAI) */}
       <div className="space-y-1.5 rounded-lg border border-white/10 bg-white/5 p-1.5">
         <button
           type="button"
           onClick={() => guardar({ ...a, vozLeer: !a.vozLeer })}
-          disabled={!hayVoz()}
+          disabled={!hayVoz() && !a.vozIA}
           className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-[11px] font-semibold transition disabled:opacity-30 ${
             a.vozLeer
               ? 'ui-accent-bg border-transparent'
@@ -390,77 +410,108 @@ function FormAsistente({
             {t('chat.config.vozLeer', 'Leer en voz alta lo que dice')}
           </span>
         </button>
+
+        {iaHabilitada() && (
+          <button
+            type="button"
+            onClick={() => guardar({ ...a, vozIA: !a.vozIA })}
+            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-[11px] font-semibold transition ${
+              a.vozIA
+                ? 'ui-accent-bg border-transparent'
+                : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+            }`}
+          >
+            <span className="shrink-0 text-[11px]">{a.vozIA ? '✓' : '○'}</span>
+            <span className="min-w-0 flex-1 truncate">
+              {t('chat.config.vozIA', 'Voz con IA (OpenAI, más natural)')}
+            </span>
+            <Creditos op={OP_ASISTENTE_VOZ} />
+          </button>
+        )}
+
         <div className="flex items-center gap-1.5">
           <span className="shrink-0 text-[10px] text-white/35">
             {t('chat.config.voz', 'Voz:')}
           </span>
-          <select
-            value={a.vozNombre ?? ''}
-            onChange={(e) => guardar({ ...a, vozNombre: e.target.value || undefined })}
-            disabled={!hayVoz()}
-            className={`${inputCls} min-w-0 flex-1 disabled:opacity-40`}
-          >
-            <option value="">{t('chat.config.vozAuto', 'Automática (por idioma)')}</option>
-            {vocesDisponibles(langVoz()).map((v) => (
-              <option key={v.name} value={v.name}>
-                {v.name}
-              </option>
-            ))}
-          </select>
+          {a.vozIA ? (
+            <select
+              value={a.vozIaVoz ?? 'alloy'}
+              onChange={(e) => guardar({ ...a, vozIaVoz: e.target.value })}
+              className={`${inputCls} min-w-0 flex-1`}
+            >
+              {VOCES_IA.map((v) => (
+                <option key={v} value={v}>
+                  {v}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <select
+              value={a.vozNombre ?? ''}
+              onChange={(e) => guardar({ ...a, vozNombre: e.target.value || undefined })}
+              disabled={!hayVoz()}
+              className={`${inputCls} min-w-0 flex-1 disabled:opacity-40`}
+            >
+              <option value="">{t('chat.config.vozAuto', 'Automática (por idioma)')}</option>
+              {vocesDisponibles(langVoz()).map((v) => (
+                <option key={v.name} value={v.name}>
+                  {v.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             type="button"
-            onClick={() => {
-              const v = vozDeAsistente(a)
-              hablarVoz(saludoAsistente(t, a), {
-                vozNombre: v.vozNombre,
-                rate: v.rate,
-                pitch: v.pitch,
-                volumen: v.volumen,
-              })
-            }}
-            disabled={!hayVoz()}
+            onClick={() => void hablarComoAsistente(saludoAsistente(t, a), a)}
+            disabled={!hayVoz() && !a.vozIA}
             className="shrink-0 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/60 transition hover:bg-white/15 disabled:opacity-30"
             title={t('chat.config.vozProbar', 'Probar la voz')}
           >
             <Icono nombre="bocina" />
           </button>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="w-16 shrink-0 text-[10px] text-white/40">
-            {t('chat.config.vozTono', 'Tono')}
-          </span>
-          <input
-            type="range"
-            min={0.5}
-            max={1.5}
-            step={0.05}
-            value={a.vozPitch ?? VOZ_FORMA[a.forma].pitch}
-            onChange={(e) => guardar({ ...a, vozPitch: parseFloat(e.target.value) })}
-            className="min-w-0 flex-1"
-            style={{ accentColor: 'var(--ui-accent)' }}
-          />
-          <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
-            ×{(a.vozPitch ?? VOZ_FORMA[a.forma].pitch).toFixed(2)}
-          </span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="w-16 shrink-0 text-[10px] text-white/40">
-            {t('chat.config.vozVelocidad', 'Velocidad')}
-          </span>
-          <input
-            type="range"
-            min={0.6}
-            max={1.4}
-            step={0.05}
-            value={a.vozRate ?? VOZ_FORMA[a.forma].rate}
-            onChange={(e) => guardar({ ...a, vozRate: parseFloat(e.target.value) })}
-            className="min-w-0 flex-1"
-            style={{ accentColor: 'var(--ui-accent)' }}
-          />
-          <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
-            ×{(a.vozRate ?? VOZ_FORMA[a.forma].rate).toFixed(2)}
-          </span>
-        </div>
+
+        {!a.vozIA && (
+          <>
+            <div className="flex items-center gap-2">
+              <span className="w-16 shrink-0 text-[10px] text-white/40">
+                {t('chat.config.vozTono', 'Tono')}
+              </span>
+              <input
+                type="range"
+                min={0.5}
+                max={1.5}
+                step={0.05}
+                value={a.vozPitch ?? VOZ_FORMA[a.forma].pitch}
+                onChange={(e) => guardar({ ...a, vozPitch: parseFloat(e.target.value) })}
+                className="min-w-0 flex-1"
+                style={{ accentColor: 'var(--ui-accent)' }}
+              />
+              <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+                ×{(a.vozPitch ?? VOZ_FORMA[a.forma].pitch).toFixed(2)}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-16 shrink-0 text-[10px] text-white/40">
+                {t('chat.config.vozVelocidad', 'Velocidad')}
+              </span>
+              <input
+                type="range"
+                min={0.6}
+                max={1.4}
+                step={0.05}
+                value={a.vozRate ?? VOZ_FORMA[a.forma].rate}
+                onChange={(e) => guardar({ ...a, vozRate: parseFloat(e.target.value) })}
+                className="min-w-0 flex-1"
+                style={{ accentColor: 'var(--ui-accent)' }}
+              />
+              <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+                ×{(a.vozRate ?? VOZ_FORMA[a.forma].rate).toFixed(2)}
+              </span>
+            </div>
+          </>
+        )}
+
         <div className="flex items-center gap-2">
           <span className="w-16 shrink-0 text-[10px] text-white/40">
             {t('chat.config.vozVolumen', 'Volumen')}
@@ -518,6 +569,36 @@ function FormAsistente({
           className="w-full disabled:opacity-30"
           style={{ accentColor: 'var(--ui-accent)' }}
         />
+      </div>
+
+      {/* Borrar el asistente: al final de SU editor, no en la fila de la lista
+          (ahí era un ✕ pegado al resto de botones y se pulsaba sin querer). */}
+      <div className="border-t border-white/10 pt-2">
+        <button
+          type="button"
+          disabled={!puedeEliminar}
+          onClick={async () => {
+            const ok = await confirmar({
+              titulo: t('chat.config.eliminar', 'Eliminar asistente'),
+              mensaje: t('chat.config.eliminarConfirma', '¿Eliminar a {n}? Sus conversaciones se quedan.', {
+                n: nombreAsistente(t, a),
+              }),
+              textoOk: t('chat.config.eliminarOk', 'Eliminar'),
+              peligro: true,
+            })
+            if (!ok) return
+            await eliminar(a.id)
+            onEliminado()
+          }}
+          className="flex w-full items-center justify-center gap-1.5 rounded-md border border-red-500/30 bg-red-500/10 px-2 py-1.5 text-[11px] font-semibold text-red-300 transition hover:bg-red-500/20 disabled:opacity-30"
+          title={
+            puedeEliminar
+              ? t('chat.config.eliminar', 'Eliminar asistente')
+              : t('chat.config.eliminarUltimo', 'Debe quedar al menos un asistente')
+          }
+        >
+          <Icono nombre="basura" /> {t('chat.config.eliminar', 'Eliminar asistente')}
+        </button>
       </div>
     </div>
   )

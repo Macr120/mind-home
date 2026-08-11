@@ -20,6 +20,7 @@ import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
 import { vivo } from './estilos'
+import { GateAppDemo } from '../../demo/GateAppDemo'
 
 type Modo = 'asistente' | 'cuarto'
 /** Qué se está arrastrando: una carpeta (reordenar) o una plantilla (mover de grupo). */
@@ -508,7 +509,9 @@ export function PlantillasCatalogo() {
                   </div>
                 }
               >
-                <previa.App />
+                <GateAppDemo plantillaId={previa.id}>
+                  <previa.App />
+                </GateAppDemo>
               </Suspense>
             </ErrorBoundary>
           </main>

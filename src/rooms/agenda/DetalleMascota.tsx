@@ -5,12 +5,13 @@ import type {
   EventoAgenda,
   Mascota,
   Medicamento,
-  ProyectoAgenda,
 } from '../../core/data/db'
+import { cuidadosMascotaRepo, medicamentosRepo } from '../../core/data/repository'
 import { deIso } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
+import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA } from './constantes'
 import { borrarCuidado, borrarMascota, completarCuidado, reactivarCuidado } from './crear'
@@ -35,7 +36,6 @@ export function DetalleMascota({
   eventos,
   medicinas,
   contactos,
-  proyectos,
   onVolver,
 }: {
   mascota: Mascota
@@ -44,7 +44,6 @@ export function DetalleMascota({
   eventos: EventoAgenda[]
   medicinas: Medicamento[]
   contactos: ContactoAgenda[]
-  proyectos: ProyectoAgenda[]
   onVolver: () => void
 }) {
   const t = useT()
@@ -58,10 +57,25 @@ export function DetalleMascota({
   const [medicina, setMedicina] = useState<Medicamento | null>(null)
 
   const mios = cuidados.filter((c) => c.mascotaId === mascota.mascId)
-  const activos = mios.filter((c) => c.activo).sort((a, b) => a.fecha.localeCompare(b.fecha))
-  const archivados = mios.filter((c) => !c.activo)
+  // Los archivados van siempre debajo, y el arrastre no cruza de un grupo al
+  // otro: lo que se reordena a mano es el turno dentro de cada uno.
+  const activos = porOrden(mios.filter((c) => c.activo).sort((a, b) => a.fecha.localeCompare(b.fecha)))
+  const archivados = porOrden(mios.filter((c) => !c.activo))
   const citas = eventos.filter((e) => e.mascotaId === mascota.mascId && e.fecha)
-  const tratamientos = medicinas.filter((m) => m.mascotaId === mascota.mascId)
+  const tratamientos = porOrden(medicinas.filter((m) => m.mascotaId === mascota.mascId))
+
+  const arrastreCuidados = useArrastreFilas(
+    [...activos, ...archivados],
+    (c) => c.cuidadoId,
+    (c) => (c.activo ? 'mascota.cuidados' : 'mascota.cuidadosArchivados'),
+    (nuevas) => void guardarOrden(nuevas, (id, orden) => cuidadosMascotaRepo.update(id, { orden })),
+  )
+  const arrastreTratamientos = useArrastreFilas(
+    tratamientos,
+    (m) => String(m.id),
+    () => 'mascota.medicamentos',
+    (nuevas) => void guardarOrden(nuevas, (id, orden) => medicamentosRepo.update(id, { orden })),
+  )
 
   const ficha = [mascota.raza, edadTexto(mascota, t), mascota.peso ? `${mascota.peso} kg` : '']
     .filter(Boolean)
@@ -134,21 +148,10 @@ export function DetalleMascota({
           </p>
         ) : (
           <div className="space-y-2">
-            {activos.map((c) => (
-              <FilaCuidado
-                key={c.cuidadoId}
-                cuidado={c}
-                mascota={mascota}
-                onEditar={() => setCuidado(c)}
-              />
-            ))}
-            {archivados.map((c) => (
-              <FilaCuidado
-                key={c.cuidadoId}
-                cuidado={c}
-                mascota={mascota}
-                onEditar={() => setCuidado(c)}
-              />
+            {[...activos, ...archivados].map((c) => (
+              <Arrastrable key={c.cuidadoId} arrastre={arrastreCuidados} item={c}>
+                <FilaCuidado cuidado={c} mascota={mascota} onEditar={() => setCuidado(c)} />
+              </Arrastrable>
             ))}
           </div>
         )}
@@ -174,9 +177,7 @@ export function DetalleMascota({
           clave={(e) => e.id!}
           vacio={t('agenda.vacio.citasMascota', 'Sin citas para esta mascota.')}
         >
-          {(ev) => (
-            <TarjetaEvento ev={ev} contactos={contactos} proyectos={proyectos} onEditar={() => setCita(ev)} />
-          )}
+          {(ev) => <TarjetaEvento ev={ev} contactos={contactos} onEditar={() => setCita(ev)} />}
         </Archivador>
       </section>
 
@@ -201,7 +202,9 @@ export function DetalleMascota({
         ) : (
           <div className="space-y-2">
             {tratamientos.map((m) => (
-              <FilaMedicamento key={m.medId} medicina={m} onEditar={() => setMedicina(m)} />
+              <Arrastrable key={m.medId} arrastre={arrastreTratamientos} item={m}>
+                <FilaMedicamento medicina={m} onEditar={() => setMedicina(m)} />
+              </Arrastrable>
             ))}
           </div>
         )}
@@ -224,7 +227,6 @@ export function DetalleMascota({
           inicial={cita}
           mascotaInicial={mascota.mascId}
           contactos={contactos}
-          proyectos={proyectos}
           onCerrar={() => {
             setCreandoCita(false)
             setCita(null)

@@ -17,6 +17,8 @@ import {
 } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { AVERIA_COCHE, AVERIA_DIA } from '../../demo/hitosPep'
+import { crearPlanificador } from '../../demo/horarioPep'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { reconciliarGarage } from './calendario'
 import { sumarDias } from './fecha'
 import { DEMO_GARAGE } from './demo.data'
@@ -42,6 +44,9 @@ const COSTO: Partial<Record<TipoMantenimiento, [number, number]>> = {
 export async function construirDemoGarage(ctx: CtxDemo): Promise<void> {
   const datos = DEMO_GARAGE[ctx.idioma]
   const r = rngDemo(20040419)
+  // Los trámites proyectan bloque con hora al calendario: se piden a la semana
+  // fija de Pep@ para que no caigan encima del turno ni de las clases.
+  const horario = crearPlanificador()
 
   // ── Los dos vehículos: se reescriben los del seed ────────────────────────
   // `uid` no está en la interfaz (vive solo en el esquema Dexie), de ahí el cast.
@@ -128,7 +133,16 @@ export async function construirDemoGarage(ctx: CtxDemo): Promise<void> {
       tipo: def.tipo,
       titulo: t.titulo,
       fecha: sumarDias(ctx.hoy, def.dias),
-      hora: '09:00',
+      // Hueco real en vez de las 09:00 de fábrica: media semana Pep@ está en el
+      // turno de la cafetería a esa hora (ver horarioPep.ts). La hora tiene que
+      // caber también el día del AVISO previo, que el garaje pinta a la misma
+      // hora `avisoDias` antes.
+      hora:
+        horario.reservarEnVarios(
+          [sumarDias(ctx.hoy, def.dias), sumarDias(ctx.hoy, def.dias - def.aviso)],
+          30,
+          ['10:00', '15:00', '11:30'],
+        ) ?? '15:00',
       cadaMeses: def.cadaMeses,
       avisoDias: def.aviso,
       costo: def.costo,
@@ -178,6 +192,10 @@ export async function construirDemoGarage(ctx: CtxDemo): Promise<void> {
     ultimoAceite.taller = datos.talleres.find((t) => t.clave === 'taller')?.nombre
   }
   await registrosMantenimientoRepo.bulkAdd(servicios)
+
+  // Poner el coche a punto y la transmisión de la bici: las dos metas del
+  // taller, la primera con el plan que ordena los trámites por urgencia.
+  await sembrarMetasApp(ctx, 'garage')
 
   // Los bloques del calendario los proyecta la app al abrirse; en la casa demo
   // esa escritura estaría bloqueada, así que se hace aquí (guard abierto).

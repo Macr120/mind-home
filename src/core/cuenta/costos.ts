@@ -10,6 +10,8 @@ export type OpIA =
   | 'modelo3d'
   | 'imagen'
   | 'imagen_alta'
+  | 'voz'
+  | 'tts'
 
 /**
  * Lo que cuesta cada operación en créditos. ESPEJO de `costo_op()` (migraciones
@@ -31,6 +33,8 @@ export const CREDITOS: Record<OpIA, number> = {
   modelo3d: 10,
   imagen: 3, // gpt-image-1-mini low (~$0.005) — calidad rápida, la de por defecto
   imagen_alta: 10, // Gemini 3.1 Flash Lite Image (~$0.0336) — calidad buena
+  voz: 1, // Whisper (~$0.006/min, tope 30s de grabación) — dictado sin SpeechRecognition
+  tts: 3, // OpenAI tts-1 (~$15/1M car., tope 1000 car.) — voz con IA del asistente
 }
 
 /** Salida máxima de una op `texto`; pedir más la convierte en `texto_largo`. */

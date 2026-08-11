@@ -10,29 +10,21 @@ import {
   cellToWorld,
   worldToCell,
   cellId,
-  doorFor,
+  ascensoXZ,
+  rotAscenso,
+  esquinaDeSignos,
   nivelBaseY,
-  HALF,
   SIZE,
   WALL_H,
-  LADO_DIR,
   type TipoAcceso,
   type SideKey,
 } from './walls'
 
-/** Pared de la celda que mira al centro de la casa (acceso por defecto, sin lado guardado). */
-function ladoDeCelda(col: number, row: number): SideKey {
-  const [cx, , cz] = cellToWorld(col, row)
-  const { axis, sign } = doorFor([cx, 0, cz])
-  return axis === 'x' ? (sign < 0 ? 'O' : 'E') : sign < 0 ? 'N' : 'S'
-}
-
 /**
  * Estructuras 3D para subir a un nivel: escalera, elevador o resbaladilla (con
- * escalera). Hay UNA por nivel, anclada en la celda del primer cuarto de ese nivel,
- * sobre el lado que mira al centro de la casa. Abarca de la altura del nivel de abajo
- * a la del de arriba: se estira cuando el piso flota (techo OFF) y se compacta al
- * apilarse (techo ON).
+ * escalera). Hay UNA por nivel, anclada en la ESQUINA de una celda del nivel (dentro del
+ * cuarto, para no tapar puertas). Abarca de la altura del nivel de abajo a la del de
+ * arriba: se estira cuando el piso flota (techo OFF) y se compacta al apilarse (techo ON).
  */
 
 const COLOR: Record<TipoAcceso, { base: string; detalle: string }> = {
@@ -250,15 +242,9 @@ export function AccesoProximity() {
     for (const a of accesos) {
       // La escalera marina del sótano es decorativa: se baja/sube caminando (sin prompt).
       if (a.nivel < 0) continue
-      const [cx, , cz] = cellToWorld(a.col, a.row)
-      // Posición real de la estructura: misma lógica que el componente Accesos.
-      const lado = a.lado ?? ladoDeCelda(a.col, a.row)
-      const dir = LADO_DIR[lado]
-      const offset = HALF + 1.2
-      const bx = cx + dir.dx * offset
-      const bz = cz + dir.dz * offset
+      const [bx, bz] = ascensoXZ(a)
       if (a.nivel - 1 === level) {
-        // Subir: al pie del acceso (fuera de la celda, en el lado correcto).
+        // Subir: al pie del acceso (la esquina del cuarto donde se planta la estructura).
         const d = Math.hypot(playerPos.x - bx, playerPos.z - bz)
         if (d <= RADIO_ACCESO && (!mejor || d < mejor.d)) mejor = { a, dir: 'subir', d }
       }
@@ -281,6 +267,7 @@ export function Accesos() {
   const draggingAcceso = useLayout((s) => s.draggingAcceso)
   const previewAcceso = useLayout((s) => s.previewAcceso)
   const previewLado = useLayout((s) => s.previewLado)
+  const previewEsquina = useLayout((s) => s.previewEsquina)
   const startAccesoDrag = useLayout((s) => s.startAccesoDrag)
   const ocupadoPorNivel = useLayout((s) => s.ocupadoPorNivel)
   const modoAscensos = usePlanos((s) => s.modo === 'ascensos')
@@ -297,20 +284,22 @@ export function Accesos() {
         const arrastrando = draggingAcceso === a.id
         const col = arrastrando && previewAcceso ? previewAcceso.col : a.col
         const row = arrastrando && previewAcceso ? previewAcceso.row : a.row
-        const lado = arrastrando && previewLado ? previewLado : a.lado ?? ladoDeCelda(col, row)
-        const [cx, , cz] = cellToWorld(col, row)
-        const dir = LADO_DIR[lado]
         // Sótano (alberca/búnker): la escalera marina va DENTRO del pozo, pegada al muro,
-        // del fondo (nivel -1) al ras del suelo (0). Pisos altos: al pie, por fuera del cuarto.
+        // del fondo (nivel -1) al ras del suelo (0). Pisos altos: en la esquina del cuarto.
         const esSotano = a.nivel < 0
-        const offset = esSotano ? HALF - 0.3 : HALF + 1.2
-        const bx = cx + dir.dx * offset
-        const bz = cz + dir.dz * offset
+        const ancla = {
+          nivel: a.nivel,
+          col,
+          row,
+          lado: (arrastrando && previewLado ? previewLado : a.lado) ?? undefined,
+          esquina: (arrastrando && previewEsquina ? previewEsquina : a.esquina) ?? undefined,
+        }
+        const [bx, bz] = ascensoXZ(ancla)
         const baseY = nivelBaseY(esSotano ? a.nivel : a.nivel - 1, apilado)
         const landing = nivelBaseY(esSotano ? a.nivel + 1 : a.nivel, apilado) - baseY
         const altura = esSotano ? landing + 0.5 : landing + WALL_H
-        // El frente local (+Z) mira hacia el cuarto/pozo, según la pared elegida.
-        const rotY = dir.rotY
+        // El frente local (+Z) mira hacia el centro del cuarto (o del pozo, en el sótano).
+        const rotY = rotAscenso(ancla)
         return (
           <group
             key={a.id ?? `${a.nivel}-${a.col}-${a.row}`}
@@ -394,13 +383,18 @@ export function AccesoDrag() {
       const cell = worldToCell(_hitA.x, _hitA.z)
       const occ = useLayout.getState().ocupadoPorNivel.get(ac.nivel) ?? SIN_OCUPACION
       if (occ.has(cellId(cell.col, cell.row))) {
-        // Pared más cercana al cursor dentro de la celda (borde N/S/E/O).
         const [ccx, , ccz] = cellToWorld(cell.col, cell.row)
         const dx = _hitA.x - ccx
         const dz = _hitA.z - ccz
-        const lado: SideKey =
-          Math.abs(dx) >= Math.abs(dz) ? (dx >= 0 ? 'E' : 'O') : dz >= 0 ? 'S' : 'N'
-        useLayout.getState().setAccesoPreview(cell, lado)
+        // Pisos altos: esquina más cercana al cursor (la estructura va DENTRO del cuarto).
+        // Sótano: la escalera marina sigue eligiendo pared del pozo.
+        if (ac.nivel < 0) {
+          const lado: SideKey =
+            Math.abs(dx) >= Math.abs(dz) ? (dx >= 0 ? 'E' : 'O') : dz >= 0 ? 'S' : 'N'
+          useLayout.getState().setAccesoPreview(cell, { lado })
+        } else {
+          useLayout.getState().setAccesoPreview(cell, { esquina: esquinaDeSignos(dx, dz) })
+        }
       }
     }
   })

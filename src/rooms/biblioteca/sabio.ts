@@ -1,7 +1,6 @@
 import { conversarIA, extraerJSON, type MensajeIA } from '../../core/chat/ia'
 import { fechaLocalISO } from '../../core/fechaLocal'
-import { temasArbolRepo } from '../../core/data/repository'
-import { PILARES } from './pilares'
+import { campos, cargarIndice, temasDelCampo } from './semilla'
 import { PILAR_GENERAL, getPilar } from './constantes'
 
 /** Datos mínimos del asistente cuya voz usa el chat (Asistente real o semilla). */
@@ -55,16 +54,19 @@ export async function clasificarConversacion(
 ): Promise<{ pilarId: string; titulo: string; descripcion: string }> {
   const fallback = { pilarId: PILAR_GENERAL.id, titulo: tituloDerivado(mensajes), descripcion: '' }
   try {
+    // Los campos salen del índice VIVO: si el usuario renombró uno o creó los
+    // suyos, la IA clasifica contra su índice, no contra el de fábrica.
+    const disponibles = campos(await cargarIndice())
     const system = [
       'Clasificas charlas de una enciclopedia personal en campos del conocimiento.',
       'Campos disponibles:',
-      ...PILARES.map((p) => `- ${p.id}: ${p.titulo} — ${p.descripcion}`),
+      ...disponibles.map((p) => `- ${p.id}: ${p.titulo} — ${p.descripcion}`),
       'Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"pilarId":"<id de la lista>","titulo":"<título de máx. 6 palabras, en el idioma del usuario>","descripcion":"<qué trata, una frase corta estilo índice>"}',
     ].join('\n')
     const r = await conversarIA(system, [{ rol: 'usuario', texto: transcript(mensajes, 3000) }], 250)
     const obj = extraerJSON(r)
     const pilarId =
-      typeof obj.pilarId === 'string' && PILARES.some((p) => p.id === obj.pilarId)
+      typeof obj.pilarId === 'string' && disponibles.some((p) => p.id === obj.pilarId)
         ? obj.pilarId
         : fallback.pilarId
     const titulo =
@@ -113,7 +115,8 @@ export async function ubicarConversacion(
     padreId: null,
   }
   try {
-    const lineasArbol = PILARES.flatMap((p) => {
+    const disponibles = campos(await cargarIndice())
+    const lineasArbol = disponibles.flatMap((p) => {
       const nodos = (candidatosPorPilar[p.id] ?? []).slice(0, CANDIDATOS_POR_PILAR)
       if (!nodos.length) return []
       return [`  Nodos de ${p.id}:`, ...nodos.map((c) => `   · ${c.id}: ${c.titulo}`)]
@@ -122,7 +125,7 @@ export async function ubicarConversacion(
     const system = [
       'Clasificas charlas de una enciclopedia personal y las colocas en su índice.',
       'Campos disponibles:',
-      ...PILARES.map((p) => `- ${p.id}: ${p.titulo} — ${p.descripcion}`),
+      ...disponibles.map((p) => `- ${p.id}: ${p.titulo} — ${p.descripcion}`),
       lineasArbol.length ? 'Nodos ya existentes donde se puede colgar la charla:' : '',
       ...lineasArbol,
       'Elige el campo que le corresponda y, DENTRO DE ESE CAMPO, el nodo más específico que englobe el tema. Si ninguno encaja bien o el campo no tiene nodos, usa null en padreId.',
@@ -134,7 +137,7 @@ export async function ubicarConversacion(
     const r = await conversarIA(system, [{ rol: 'usuario', texto: transcript(mensajes, 3000) }], 300)
     const obj = extraerJSON(r)
     const pilarId =
-      typeof obj.pilarId === 'string' && PILARES.some((p) => p.id === obj.pilarId)
+      typeof obj.pilarId === 'string' && disponibles.some((p) => p.id === obj.pilarId)
         ? obj.pilarId
         : fallback.pilarId
     const titulo =
@@ -211,23 +214,21 @@ export async function destilarConversacion(
   pilarActual: string,
   ancla?: { temaId: string; pilarId: string; titulo: string } | null,
 ): Promise<EntradaDestilada> {
-  // Candidatos de temaId solo para charlas libres: estáticos + dinámicos del pilar.
-  const estaticos = PILARES.find((p) => p.id === pilarActual)?.ramas.flatMap((r) => r.temas) ?? []
-  const dinamicos = ancla
+  // Candidatos de temaId solo para charlas libres: todo el subárbol del campo
+  // en el índice vivo (fábrica parcheada + lo que abrieron las charlas).
+  const ix = await cargarIndice()
+  const disponibles = campos(ix)
+  const candidatos = ancla
     ? []
-    : (await temasArbolRepo.list())
-        .filter((n) => n.pilarId === pilarActual)
-        .sort((a, b) => b.creadoEn.localeCompare(a.creadoEn))
-  const candidatos = [
-    ...estaticos.map((t) => ({ id: t.id, titulo: t.titulo })),
-    ...dinamicos.map((n) => ({ id: n.temaId, titulo: n.titulo })),
-  ].slice(0, 30)
+    : temasDelCampo(ix, pilarActual)
+        .map(({ nodo }) => ({ id: nodo.id, titulo: nodo.titulo }))
+        .slice(0, 30)
 
   const system = [
     'Eres un enciclopedista: destilas una charla en una entrada wiki breve y fiel a lo conversado.',
     ancla
       ? `La entrada pertenece al tema «${ancla.titulo}» del campo ${getPilar(ancla.pilarId).titulo}.`
-      : ['Campos del conocimiento disponibles:', ...PILARES.map((p) => `- ${p.id}: ${p.titulo}`)].join('\n'),
+      : ['Campos del conocimiento disponibles:', ...disponibles.map((p) => `- ${p.id}: ${p.titulo}`)].join('\n'),
     !ancla && candidatos.length
       ? `Temas del campo actual (${getPilar(pilarActual).titulo}) para "temaId" (null si ninguno encaja):\n${candidatos
           .map((t) => `- ${t.id}: ${t.titulo}`)
@@ -252,7 +253,7 @@ export async function destilarConversacion(
     .map((x) => x.trim())
   if (ancla) return { titulo, resumen, puntosClave, pilarId: ancla.pilarId, temaId: ancla.temaId }
   const pilarId =
-    typeof obj.pilarId === 'string' && PILARES.some((p) => p.id === obj.pilarId)
+    typeof obj.pilarId === 'string' && disponibles.some((p) => p.id === obj.pilarId)
       ? obj.pilarId
       : pilarActual
   const temaId =

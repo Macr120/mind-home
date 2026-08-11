@@ -33,6 +33,7 @@ export function useMusicaAmbiental(): void {
   const fuente = useAjustes((s) => s.musicaFuente)
   const mood = useAjustes((s) => s.musicaMood)
   const pistaId = useAjustes((s) => s.musicaPistaId)
+  const carpetaId = useAjustes((s) => s.musicaCarpetaId)
   const wrappedAbierto = useWrappedUi((s) => s.abierto)
   // Un paisaje sonoro (meditación del jardín) manda: la música se calla y, al
   // terminar la sesión, este efecto re-corre y la ambiental vuelve sola.
@@ -103,11 +104,17 @@ export function useMusicaAmbiental(): void {
       else iniciarMusica(efectivo)
     } else {
       detenerMusica()
-      void db.pistasMusica.toArray().then((pistas) => {
+      void db.pistasMusica.toArray().then((todas) => {
         if (!vivo) return
-        const elegida = pistaId != null ? pistas.find((p) => p.id === pistaId) : undefined
-        if (elegida) void iniciarPista(elegida, { loop: true })
-        else reproducirLista(pistas, true)
+        // Una pista fija manda; si no, suena la carpeta elegida (o todas).
+        const elegida = pistaId != null ? todas.find((p) => p.id === pistaId) : undefined
+        if (elegida) {
+          void iniciarPista(elegida, { loop: true })
+          return
+        }
+        const pistas = carpetaId ? todas.filter((p) => p.carpetaId === carpetaId) : todas
+        // Carpeta vaciada (o borrada) desde otro sitio: mejor sonar todo que callar.
+        reproducirLista(pistas.length > 0 ? pistas : todas, true)
       })
     }
     // Cleanup idempotente: en StrictMode el efecto corre doble sin duplicar audio.
@@ -116,5 +123,5 @@ export function useMusicaAmbiental(): void {
       detenerMusica()
       detenerPista()
     }
-  }, [ambiental, desbloqueado, wrappedAbierto, paisajeSonando, fuente, efectivo, pistaId])
+  }, [ambiental, desbloqueado, wrappedAbierto, paisajeSonando, fuente, efectivo, pistaId, carpetaId])
 }

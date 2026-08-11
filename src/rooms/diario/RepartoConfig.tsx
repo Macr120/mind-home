@@ -3,14 +3,49 @@ import { useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { nombreAsistente } from '../../core/chat/mascotas'
-import { CATEGORIAS, COLOR } from './constantes'
+import { CATEGORIAS, COLOR, TIPOS_EFEMERIDE } from './constantes'
 import {
   estadoReparto,
   getProgramaciones,
+  seccionEfemeride,
   setProgramaciones,
   type Programacion,
   type SeccionReparto,
 } from './reparto'
+
+interface Chip {
+  id: SeccionReparto
+  label: string
+  emoji: string
+  claveT: string
+}
+
+/**
+ * Trece chips serían una sopa: van en dos grupos, y cada uno se enciende entero
+ * de un toque.
+ */
+const GRUPOS: { claveT: string; etiqueta: string; chips: Chip[] }[] = [
+  {
+    claveT: 'diario.reparto.grupoTitulares',
+    etiqueta: 'Titulares',
+    chips: CATEGORIAS.map((c) => ({
+      id: c.id as SeccionReparto,
+      label: c.label,
+      emoji: c.emoji,
+      claveT: `diario.cat.${c.id}`,
+    })),
+  },
+  {
+    claveT: 'diario.reparto.grupoEfemerides',
+    etiqueta: 'Efemérides',
+    chips: TIPOS_EFEMERIDE.map((x) => ({
+      id: seccionEfemeride(x.id),
+      label: x.label,
+      emoji: x.emoji,
+      claveT: `diario.ef.${x.id}`,
+    })),
+  },
+]
 
 /** Gestor de programaciones: qué feeds entrega cada asistente y a qué hora. */
 export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
@@ -39,11 +74,6 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
         hora: '08:00',
       },
     ])
-
-  const SECCIONES: { id: SeccionReparto; label: string; emoji: string }[] = [
-    ...CATEGORIAS.map((c) => ({ id: c.id as SeccionReparto, label: c.label, emoji: c.emoji })),
-    { id: 'efemerides', label: 'Efemérides', emoji: '📅' },
-  ]
 
   return (
     <div
@@ -109,33 +139,58 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
                 </button>
               </div>
 
-              <div className="flex flex-wrap gap-1.5">
-                {SECCIONES.map((s) => {
-                  const activa = p.secciones.includes(s.id)
-                  return (
-                    <button
-                      key={s.id}
-                      type="button"
-                      onClick={() =>
-                        cambiar(p.id, {
-                          secciones: activa
-                            ? p.secciones.filter((x) => x !== s.id)
-                            : [...p.secciones, s.id],
-                        })
-                      }
-                      className={`rounded-full px-2.5 py-1 text-[11px] font-semibold transition ${
-                        activa ? 'text-black' : 'bg-white/5 text-white/55 hover:bg-white/10'
-                      }`}
-                      style={activa ? { background: COLOR } : undefined}
-                    >
-                      <Icono emoji={s.emoji} />{' '}
-                      {s.id === 'efemerides'
-                        ? t('diario.tab.efemerides', s.label)
-                        : t(`diario.cat.${s.id}`, s.label)}
-                    </button>
-                  )
-                })}
-              </div>
+              {GRUPOS.map((grupo) => {
+                const todas = grupo.chips.every((c) => p.secciones.includes(c.id))
+                return (
+                  <div key={grupo.claveT} className="space-y-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-semibold uppercase tracking-wide text-white/35">
+                        {t(grupo.claveT, grupo.etiqueta)}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const ids = grupo.chips.map((c) => c.id)
+                          cambiar(p.id, {
+                            secciones: todas
+                              ? p.secciones.filter((x) => !ids.includes(x))
+                              : [...p.secciones.filter((x) => !ids.includes(x)), ...ids],
+                          })
+                        }}
+                        className="rounded-md bg-white/5 px-1.5 py-0.5 text-[10px] font-semibold text-white/50 hover:bg-white/10"
+                      >
+                        {todas
+                          ? t('diario.reparto.ninguna', 'Ninguna')
+                          : t('diario.reparto.todas', 'Todas')}
+                      </button>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {grupo.chips.map((s) => {
+                        const activa = p.secciones.includes(s.id)
+                        return (
+                          <button
+                            key={s.id}
+                            type="button"
+                            onClick={() =>
+                              cambiar(p.id, {
+                                secciones: activa
+                                  ? p.secciones.filter((x) => x !== s.id)
+                                  : [...p.secciones, s.id],
+                              })
+                            }
+                            className={`rounded-full px-2.5 py-1 text-[11px] font-semibold transition ${
+                              activa ? 'text-black' : 'bg-white/5 text-white/55 hover:bg-white/10'
+                            }`}
+                            style={activa ? { background: COLOR } : undefined}
+                          >
+                            <Icono emoji={s.emoji} /> {t(s.claveT, s.label)}
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                )
+              })}
 
               <div className="flex flex-wrap items-center gap-2">
                 <button

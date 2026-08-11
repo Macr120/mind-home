@@ -33,6 +33,7 @@ export const TABLAS_CASA = [
   // Personaje y compañía
   'asistentes',
   'prendasCustom',
+  'carpetasRopa',
   'atuendosGuardados',
   // Plantillas custom
   'plantillasCustom',

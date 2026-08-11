@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
+import { confirmar } from '../../state/confirmarStore'
 import {
   borrarMetaConDescendencia,
   crearMeta,
@@ -53,18 +54,21 @@ export function DespliegueFila({
     setNombreHija('')
   }
 
-  const borrar = () => {
+  const borrar = async () => {
     if (rutina.id == null) return
-    if (meta) {
-      const msg = hijas.length
-        ? t('cal.meta.borrarConHijas', '¿Borrar esta meta y todas sus sub-metas?')
-        : t('cal.meta.borrar', '¿Borrar esta meta?')
-      if (!window.confirm(msg)) return
-      void borrarMetaConDescendencia(metas, rutina.id)
-    } else {
-      if (!window.confirm(t('rutinas.confirmarBorrar', '¿Borrar este evento?'))) return
-      void rutinasRepo.remove(rutina.id)
-    }
+    const ok = await confirmar({
+      titulo: meta
+        ? hijas.length
+          ? t('cal.meta.borrarConHijas', '¿Borrar esta meta y todas sus sub-metas?')
+          : t('cal.meta.borrar', '¿Borrar esta meta?')
+        : t('rutinas.confirmarBorrar', '¿Borrar este evento?'),
+      mensaje: rutina.nombre,
+      textoOk: t('ui.borrar', 'Borrar'),
+      peligro: true,
+    })
+    if (!ok) return
+    if (meta) await borrarMetaConDescendencia(rutina.id)
+    else await rutinasRepo.remove(rutina.id)
     onCerrar()
   }
 
@@ -108,7 +112,7 @@ export function DespliegueFila({
         )}
         <button
           type="button"
-          onClick={borrar}
+          onClick={() => void borrar()}
           title={t('rutinas.borrar', 'Borrar')}
           className="ml-auto px-1 text-[10px] text-white/30 transition hover:text-red-400"
         >

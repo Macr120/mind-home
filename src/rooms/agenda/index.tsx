@@ -1,9 +1,10 @@
-import type { Plantilla } from '../../core/registry'
+import type { Plantilla } from '../../core/appContrato'
 import { lazy } from 'react'
 import { esquemas } from './captura'
 import { COLOR } from './constantes'
 import { metaAgenda } from './meta'
 import { flujosAgenda } from './tutorial'
+import { planMetasAgenda } from './plan'
 
 /**
  * Agenda: la libreta que hay detrás del calendario. Sus registros con fecha se
@@ -27,6 +28,8 @@ const agenda: Plantilla = {
   color: COLOR,
   App: AgendaApp,
   flujos: flujosAgenda,
+  // Acotamiento del planificador ✨: llevar un proyecto hasta su entrega.
+  planMetas: planMetasAgenda,
   esquemas,
   metaDiaria: metaAgenda,
   // 'agenda de hoy', 'agenda del dia' y 'mi dia' son del calendario: no los repitas.

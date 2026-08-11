@@ -16,6 +16,7 @@ import type { RegistroSueno } from '../../core/data/db'
 import { perfilSuenoRepo, suenoRepo } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { enBache, enJapon, JAPON_FIN, JAPON_INICIO } from '../../demo/hitosPep'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_DESCANSO } from './demo.data'
 import { duracionHoras } from './puntuacion'
 import { sincronizarRutinaSueno } from './rutinaSueno'
@@ -170,4 +171,7 @@ export async function construirDemoDescanso(ctx: CtxDemo): Promise<void> {
   }
 
   await suenoRepo.bulkAdd([...porDia.values()])
+
+  // El mes que ya cumplió y el plan de higiene del sueño que tiene en marcha.
+  await sembrarMetasApp(ctx, 'descanso')
 }

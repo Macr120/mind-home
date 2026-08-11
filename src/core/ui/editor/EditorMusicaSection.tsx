@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import type { PistaMusica } from '../../data/db'
-import { pistasMusicaRepo } from '../../data/repository'
+import { borrarCarpetaPista, carpetasPistaRepo, pistasMusicaRepo } from '../../data/repository'
 import { useAjustes, type FuenteMusica } from '../../state/ajustesStore'
+import { confirmar, pedirTexto } from '../../state/confirmarStore'
 import { MOODS_LISTA } from '../../audio/temas'
 import { useT } from '../../i18n/useT'
+import { iniciarArrastre } from '../arrastre'
+import { Carpeta } from '../comun/Carpeta'
 import { Icono } from '../iconos/Icono'
 import { VisualizadorMusica } from '../VisualizadorMusica'
 import { desbloquearAudio } from '../../audio/motor'
@@ -13,8 +16,18 @@ import {
   analizadorSistema,
   conectarSistema,
   desconectarSistema,
+  origenSistema,
   sistemaConectado,
+  type OrigenSistema,
 } from '../../audio/sistema'
+import {
+  alCambiarCancion,
+  hayMediaSesion,
+  leerCancionSistema,
+  pedirPermisoMediaSesion,
+  permisoMediaSesion,
+  type CancionSistema,
+} from '../../audio/mediaSesion'
 
 const MAX_MB = 25
 
@@ -38,19 +51,44 @@ export function EditorMusicaSection({
   const setMusicaVolumen = useAjustes((s) => s.setMusicaVolumen)
   const musicaPistaId = useAjustes((s) => s.musicaPistaId)
   const setMusicaPistaId = useAjustes((s) => s.setMusicaPistaId)
+  const musicaCarpetaId = useAjustes((s) => s.musicaCarpetaId)
+  const setMusicaCarpetaId = useAjustes((s) => s.setMusicaCarpetaId)
   const sfxVolumen = useAjustes((s) => s.sfxVolumen)
   const setSfxVolumen = useAjustes((s) => s.setSfxVolumen)
   const hudMusica = useAjustes((s) => s.hudMusica)
   const setHudMusica = useAjustes((s) => s.setHudMusica)
   const pistas = pistasMusicaRepo.useAll()
+  const carpetas = carpetasPistaRepo.useAll()
   const inputRef = useRef<HTMLInputElement>(null)
   const [sonando, setSonando] = useState<number | null>(null)
   const [editando, setEditando] = useState<{ id: number; texto: string } | null>(null)
+  const [renombrando, setRenombrando] = useState<{ carpetaId: string; texto: string } | null>(null)
+  const [plegadas, setPlegadas] = useState<Set<string>>(new Set())
+  const [arrastrada, setArrastrada] = useState<number | null>(null)
   const [aviso, setAviso] = useState('')
   const [avisoSistema, setAvisoSistema] = useState('')
   // Re-render al conectar/desconectar la captura del sistema (estado de módulo).
   const [, setTicSistema] = useState(0)
   useEffect(() => alCambiarSistema(() => setTicSistema((n) => n + 1)), [])
+  const origen = origenSistema()
+
+  // Canción que suena en el teléfono (solo Android, y solo con permiso).
+  const [cancion, setCancion] = useState<CancionSistema | null>(null)
+  const [permisoCancion, setPermisoCancion] = useState(false)
+  useEffect(() => {
+    if (musicaFuente !== 'sistema' || !hayMediaSesion()) return
+    let vivo = true
+    void permisoMediaSesion().then(async (ok) => {
+      if (!vivo) return
+      setPermisoCancion(ok)
+      if (ok) setCancion(await leerCancionSistema())
+    })
+    const baja = alCambiarCancion((c) => vivo && setCancion(c))
+    return () => {
+      vivo = false
+      baja()
+    }
+  }, [musicaFuente])
 
   const moods = MOODS_LISTA.map((m) => ({
     id: m.id,
@@ -61,6 +99,16 @@ export function EditorMusicaSection({
     { id: 'pistas', label: t('ajustes.musica.fuente.pistas', 'Mis pistas') },
     { id: 'sistema', label: t('ajustes.musica.fuente.sistema', 'Sistema') },
   ]
+
+  /** Qué compartió el usuario, en palabras. */
+  const etiquetaSuperficie = (s: OrigenSistema['superficie']) =>
+    s === 'browser'
+      ? t('ajustes.musica.sistema.pestana', 'Pestaña')
+      : s === 'window'
+        ? t('ajustes.musica.sistema.ventana', 'Ventana')
+        : s === 'monitor'
+          ? t('ajustes.musica.sistema.pantalla', 'Pantalla completa')
+          : t('ajustes.musica.sistema.activo', 'Escuchando el audio del sistema.')
 
   const conectar = async () => {
     desbloquearAudio()
@@ -107,7 +155,13 @@ export function EditorMusicaSection({
 
   const borrar = async (p: PistaMusica) => {
     if (p.id == null) return
-    if (!window.confirm(t('ajustes.musica.borrarConfirma', '¿Borrar esta pista?'))) return
+    const ok = await confirmar({
+      titulo: t('ajustes.musica.borrar', 'Borrar'),
+      mensaje: t('ajustes.musica.borrarConfirma', '¿Borrar «{n}»?', { n: p.nombre }),
+      textoOk: t('ajustes.musica.borrar', 'Borrar'),
+      peligro: true,
+    })
+    if (!ok) return
     if (sonando === p.id) {
       detenerPista()
       setSonando(null)
@@ -115,6 +169,139 @@ export function EditorMusicaSection({
     if (musicaPistaId === p.id) setMusicaPistaId(null)
     await pistasMusicaRepo.remove(p.id)
   }
+
+  // ----- Carpetas -----
+
+  /** Carpetas por su `orden`, con la bandeja «Sin carpeta» siempre al final. */
+  const listaCarpetas = [...(carpetas ?? [])].sort((a, b) => a.orden - b.orden)
+  const pistasDe = (carpetaId: string | null) =>
+    (pistas ?? []).filter((p) => (p.carpetaId ?? null) === carpetaId)
+  const sueltas = pistasDe(null)
+
+  const crearCarpeta = async () => {
+    const nombre = await pedirTexto({
+      titulo: t('ajustes.musica.carpetaNueva', 'Carpeta nueva'),
+      mensaje: t('ajustes.musica.carpetaNombre', '¿Cómo se llama?'),
+      valor: '',
+    })
+    if (!nombre?.trim()) return
+    await carpetasPistaRepo.add({
+      carpetaId: `cpi-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 7)}`,
+      nombre: nombre.trim(),
+      orden: listaCarpetas.length,
+      creadoEn: new Date().toISOString(),
+    })
+  }
+
+  const guardarNombreCarpeta = async () => {
+    const r = renombrando
+    setRenombrando(null)
+    if (!r?.texto.trim()) return
+    const fila = listaCarpetas.find((c) => c.carpetaId === r.carpetaId)
+    if (fila?.id != null) await carpetasPistaRepo.update(fila.id, { nombre: r.texto.trim() })
+  }
+
+  const borrarCarpeta = async (carpetaId: string, nombre: string) => {
+    const ok = await confirmar({
+      titulo: t('ajustes.musica.carpetaBorrar', 'Borrar carpeta'),
+      mensaje: t(
+        'ajustes.musica.carpetaBorrarConfirma',
+        '¿Borrar «{n}»? Sus pistas no se borran: quedan sueltas.',
+        { n: nombre },
+      ),
+      textoOk: t('ajustes.musica.borrar', 'Borrar'),
+      peligro: true,
+    })
+    if (!ok) return
+    if (musicaCarpetaId === carpetaId) setMusicaCarpetaId(null)
+    await borrarCarpetaPista(carpetaId)
+  }
+
+  /** Suelta la pista arrastrada dentro de una carpeta (null = sacarla de todas). */
+  const soltarEn = async (carpetaId: string | null) => {
+    const id = arrastrada
+    setArrastrada(null)
+    if (id == null) return
+    await pistasMusicaRepo.update(id, { carpetaId: carpetaId ?? undefined })
+  }
+
+  const alternarPlegada = (k: string) =>
+    setPlegadas((prev) => {
+      const n = new Set(prev)
+      if (n.has(k)) n.delete(k)
+      else n.add(k)
+      return n
+    })
+
+  /** Una pista: reproducir, renombrar, marcarla como la única y borrarla. */
+  const filaPista = (p: PistaMusica) => (
+    <div
+      key={p.id}
+      draggable
+      onDragStart={(e) => {
+        if (p.id == null) return
+        iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
+        setArrastrada(p.id)
+      }}
+      onDragEnd={() => setArrastrada(null)}
+      className={`flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 ${
+        arrastrada === p.id ? 'opacity-30' : ''
+      }`}
+    >
+      <button
+        type="button"
+        onClick={() => preview(p)}
+        title={
+          sonando === p.id
+            ? t('ajustes.musica.parar', 'Parar')
+            : t('ajustes.musica.reproducir', 'Reproducir')
+        }
+        className="shrink-0 rounded px-1 text-sm transition hover:bg-white/10"
+      >
+        <Icono emoji={sonando === p.id ? '⏹️' : '▶️'} />
+      </button>
+      {editando && editando.id === p.id ? (
+        <input
+          autoFocus
+          value={editando.texto}
+          onChange={(e) => setEditando({ id: p.id!, texto: e.target.value })}
+          onBlur={() => void guardarNombre()}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') void guardarNombre()
+            if (e.key === 'Escape') setEditando(null)
+          }}
+          className="min-w-0 flex-1 rounded border border-white/15 bg-black/25 px-1.5 py-0.5 text-xs text-white/90 focus:outline-none"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setEditando({ id: p.id!, texto: p.nombre })}
+          title={t('ajustes.musica.renombrar', 'Renombrar')}
+          className="min-w-0 flex-1 truncate text-left text-xs text-white/85"
+        >
+          {p.nombre}
+        </button>
+      )}
+      <button
+        type="button"
+        onClick={() => setMusicaPistaId(musicaPistaId === p.id ? null : (p.id ?? null))}
+        title={t('ajustes.musica.usar', 'Usar esta pista')}
+        className={`shrink-0 rounded px-1.5 text-sm transition hover:bg-white/10 ${
+          musicaPistaId === p.id ? 'text-accent' : 'text-white/35'
+        }`}
+      >
+        {musicaPistaId === p.id ? '●' : '○'}
+      </button>
+      <button
+        type="button"
+        onClick={() => void borrar(p)}
+        title={t('ajustes.musica.borrar', 'Borrar')}
+        className="shrink-0 rounded px-1 text-xs text-white/40 transition hover:bg-white/10 hover:text-white/80"
+      >
+        ✕
+      </button>
+    </div>
+  )
 
   return (
     <div
@@ -203,15 +390,56 @@ export function EditorMusicaSection({
       {/* Audio del sistema: captura con getDisplayMedia + visualizador en vivo. */}
       {musicaFuente === 'sistema' && (
         <div className="space-y-1.5">
+          {/* Qué suena. En Android lo dice el plugin nativo (artista y canción de
+              verdad, y cambia sola); en el navegador, lo que se pueda sacar de
+              la captura: qué compartiste y su título en ese momento. */}
+          {cancion ? (
+            <div className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
+              <p className="flex items-center gap-1.5 text-xs font-semibold text-white/85">
+                <Icono nombre="musica" />
+                <span className="min-w-0 flex-1 truncate">{cancion.titulo}</span>
+                {!cancion.sonando && (
+                  <span className="shrink-0 text-[10px] font-normal text-white/40">
+                    {t('ajustes.musica.sistema.pausa', 'en pausa')}
+                  </span>
+                )}
+              </p>
+              <p className="truncate text-[11px] text-white/45">
+                {[cancion.artista, cancion.album].filter(Boolean).join(' · ') || cancion.app}
+              </p>
+              <p className="text-[10px] text-white/30">{cancion.app}</p>
+            </div>
+          ) : hayMediaSesion() && !permisoCancion ? (
+            <>
+              <button
+                type="button"
+                onClick={() => void pedirPermisoMediaSesion()}
+                className="ui-accent-bg w-full rounded-md px-2 py-1.5 text-xs font-semibold transition hover:brightness-110"
+              >
+                {t('ajustes.musica.sistema.permiso', 'Permitir leer lo que suena')}
+              </button>
+              <p className="text-[11px] leading-snug text-white/45">
+                {t(
+                  'ajustes.musica.sistema.permisoDesc',
+                  'Se abrirán los ajustes de Android: activa Mind Planner Home en «Acceso a notificaciones» y aquí aparecerá el artista y la canción que estés escuchando. No leemos ninguna notificación: Android exige ese permiso para dejar ver la reproducción.',
+                )}
+              </p>
+            </>
+          ) : null}
+
           {sistemaConectado() ? (
             <>
               <div className="rounded-md border border-white/10 bg-white/5 p-2">
                 <VisualizadorMusica analizador={analizadorSistema()} />
               </div>
               <div className="flex items-center gap-2">
-                <p className="min-w-0 flex-1 text-[11px] leading-snug text-white/60">
+                <p className="min-w-0 flex-1 truncate text-[11px] leading-snug text-white/60">
                   <Icono nombre="musica" />{' '}
-                  {t('ajustes.musica.sistema.activo', 'Escuchando el audio del sistema.')}
+                  {origen?.etiqueta
+                    ? `${etiquetaSuperficie(origen.superficie)} · ${origen.etiqueta}`
+                    : origen?.superficie
+                      ? etiquetaSuperficie(origen.superficie)
+                      : t('ajustes.musica.sistema.activo', 'Escuchando el audio del sistema.')}
                 </p>
                 <button
                   type="button"
@@ -221,6 +449,14 @@ export function EditorMusicaSection({
                   {t('ajustes.musica.sistema.desconectar', 'Dejar de escuchar')}
                 </button>
               </div>
+              {origen?.etiqueta && !cancion && (
+                <p className="text-[11px] leading-snug text-white/35">
+                  {t(
+                    'ajustes.musica.sistema.tituloFijo',
+                    'Es el nombre de lo que compartiste: no cambia al saltar de canción.',
+                  )}
+                </p>
+              )}
             </>
           ) : (
             <>
@@ -234,13 +470,177 @@ export function EditorMusicaSection({
               <p className="text-[11px] leading-snug text-white/45">
                 {t(
                   'ajustes.musica.sistema.desc',
-                  'El navegador pedirá compartir tu pantalla o una pestaña: marca «Compartir audio» y tu música (Spotify, YouTube…) aparecerá aquí en vivo. No puede leer el título de la canción, solo la señal.',
+                  'El navegador pedirá compartir tu pantalla o una pestaña: marca «Compartir audio» y tu música (Spotify, YouTube…) aparecerá aquí en vivo. Del título solo puede leer el nombre de lo que compartas.',
                 )}
               </p>
             </>
           )}
           {avisoSistema && (
             <p className="text-[11px] leading-snug text-amber-300/80">{avisoSistema}</p>
+          )}
+        </div>
+      )}
+
+      {/* Biblioteca de pistas del usuario, en carpetas. Vive aquí —en el hueco
+          contextual de la fuente, como Sistema y Generada— para que elegir
+          «Mis pistas» enseñe justo eso: tus pistas. */}
+      {musicaFuente === 'pistas' && (
+        <div className="space-y-1.5">
+          <div className="flex items-center gap-1.5">
+            <p className="min-w-0 flex-1 text-[10px] font-bold uppercase tracking-wider text-white/35">
+              {t('ajustes.musica.pistas', 'Mis pistas')}
+            </p>
+            <button
+              type="button"
+              onClick={() => void crearCarpeta()}
+              className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+            >
+              <Icono nombre="carpeta" /> {t('ajustes.musica.carpetaNueva', 'Carpeta nueva')}
+            </button>
+            <button
+              type="button"
+              onClick={() => inputRef.current?.click()}
+              className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+            >
+              + {t('ajustes.musica.subir', 'Subir pista')}
+            </button>
+            <input
+              ref={inputRef}
+              type="file"
+              accept="audio/*"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0]
+                if (file) void subir(file)
+                e.target.value = ''
+              }}
+            />
+          </div>
+          {aviso && <p className="text-[11px] leading-snug text-amber-300/80">{aviso}</p>}
+
+          {(pistas ?? []).length === 0 ? (
+            <p className="text-[11px] leading-snug text-white/45">
+              {t('ajustes.musica.sinPistas', 'Aún no hay pistas. Sube tu propia música (mp3, ogg…).')}
+            </p>
+          ) : (
+            <>
+              {listaCarpetas.map((c) => (
+                <div
+                  key={c.carpetaId}
+                  onDragOver={(e) => {
+                    if (arrastrada == null) return
+                    e.preventDefault()
+                    e.dataTransfer.dropEffect = 'move'
+                  }}
+                  onDrop={(e) => {
+                    e.preventDefault()
+                    void soltarEn(c.carpetaId)
+                  }}
+                >
+                  <Carpeta
+                    nivel={0}
+                    titulo={c.nombre}
+                    conteo={pistasDe(c.carpetaId).length}
+                    abierta={!plegadas.has(c.carpetaId)}
+                    onAlternar={() => alternarPlegada(c.carpetaId)}
+                    insignia={
+                      <span className="flex items-center gap-1">
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setMusicaCarpetaId(musicaCarpetaId === c.carpetaId ? null : c.carpetaId)
+                          }}
+                          onKeyDown={(e) => e.key === 'Enter' && setMusicaCarpetaId(c.carpetaId)}
+                          title={t('ajustes.musica.usarCarpeta', 'Sonar solo esta carpeta')}
+                          className={`cursor-pointer rounded px-1 ${
+                            musicaCarpetaId === c.carpetaId ? 'text-accent' : 'text-white/30'
+                          }`}
+                        >
+                          {musicaCarpetaId === c.carpetaId ? '●' : '○'}
+                        </span>
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setRenombrando({ carpetaId: c.carpetaId, texto: c.nombre })
+                          }}
+                          onKeyDown={(e) =>
+                            e.key === 'Enter' && setRenombrando({ carpetaId: c.carpetaId, texto: c.nombre })
+                          }
+                          title={t('ajustes.musica.carpetaRenombrar', 'Renombrar carpeta')}
+                          className="cursor-pointer rounded px-1 text-white/30 hover:text-white/70"
+                        >
+                          <Icono nombre="editar" />
+                        </span>
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            void borrarCarpeta(c.carpetaId, c.nombre)
+                          }}
+                          onKeyDown={(e) => e.key === 'Enter' && void borrarCarpeta(c.carpetaId, c.nombre)}
+                          title={t('ajustes.musica.carpetaBorrar', 'Borrar carpeta')}
+                          className="cursor-pointer rounded px-1 text-white/30 hover:text-red-300"
+                        >
+                          <Icono nombre="basura" />
+                        </span>
+                      </span>
+                    }
+                  >
+                    {renombrando?.carpetaId === c.carpetaId ? (
+                      <input
+                        autoFocus
+                        value={renombrando.texto}
+                        onChange={(e) => setRenombrando({ carpetaId: c.carpetaId, texto: e.target.value })}
+                        onBlur={() => void guardarNombreCarpeta()}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') void guardarNombreCarpeta()
+                          if (e.key === 'Escape') setRenombrando(null)
+                        }}
+                        className="w-full rounded border border-white/15 bg-black/25 px-1.5 py-0.5 text-xs text-white/90 focus:outline-none"
+                      />
+                    ) : pistasDe(c.carpetaId).length === 0 ? (
+                      <p className="px-1 py-1 text-[11px] text-white/35">
+                        {t('ajustes.musica.carpetaVacia', 'Vacía: arrastra pistas aquí.')}
+                      </p>
+                    ) : (
+                      pistasDe(c.carpetaId).map(filaPista)
+                    )}
+                  </Carpeta>
+                </div>
+              ))}
+
+              {/* Pistas sin carpeta: también aceptan que sueltes una encima */}
+              <div
+                onDragOver={(e) => {
+                  if (arrastrada == null) return
+                  e.preventDefault()
+                  e.dataTransfer.dropEffect = 'move'
+                }}
+                onDrop={(e) => {
+                  e.preventDefault()
+                  void soltarEn(null)
+                }}
+                className="space-y-1.5"
+              >
+                {listaCarpetas.length > 0 && sueltas.length > 0 && (
+                  <p className="px-1 pt-1 text-[10px] font-bold uppercase tracking-wider text-white/25">
+                    {t('ajustes.musica.sinCarpeta', 'Sin carpeta')}
+                  </p>
+                )}
+                {sueltas.map(filaPista)}
+              </div>
+
+              <p className="text-[11px] leading-snug text-white/45">
+                {musicaCarpetaId
+                  ? t('ajustes.musica.soloCarpeta', 'Suena solo la carpeta marcada (●), en aleatorio.')
+                  : t('ajustes.musica.todas', 'Sin pista elegida (●), suenan todas en aleatorio.')}
+              </p>
+            </>
           )}
         </div>
       )}
@@ -329,103 +729,6 @@ export function EditorMusicaSection({
         </p>
       </div>
 
-      {/* Biblioteca de pistas del usuario */}
-      <div className="space-y-1.5">
-        <div className="flex items-center gap-2">
-          <p className="min-w-0 flex-1 text-[10px] font-bold uppercase tracking-wider text-white/35">
-            {t('ajustes.musica.pistas', 'Mis pistas')}
-          </p>
-          <button
-            type="button"
-            onClick={() => inputRef.current?.click()}
-            className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
-          >
-            + {t('ajustes.musica.subir', 'Subir pista')}
-          </button>
-          <input
-            ref={inputRef}
-            type="file"
-            accept="audio/*"
-            className="hidden"
-            onChange={(e) => {
-              const file = e.target.files?.[0]
-              if (file) void subir(file)
-              e.target.value = ''
-            }}
-          />
-        </div>
-        {aviso && <p className="text-[11px] leading-snug text-amber-300/80">{aviso}</p>}
-        {(pistas ?? []).length === 0 ? (
-          <p className="text-[11px] leading-snug text-white/45">
-            {t('ajustes.musica.sinPistas', 'Aún no hay pistas. Sube tu propia música (mp3, ogg…).')}
-          </p>
-        ) : (
-          <>
-            {(pistas ?? []).map((p) => (
-              <div
-                key={p.id}
-                className="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1.5"
-              >
-                <button
-                  type="button"
-                  onClick={() => preview(p)}
-                  title={
-                    sonando === p.id
-                      ? t('ajustes.musica.parar', 'Parar')
-                      : t('ajustes.musica.reproducir', 'Reproducir')
-                  }
-                  className="shrink-0 rounded px-1 text-sm transition hover:bg-white/10"
-                >
-                  <Icono emoji={sonando === p.id ? '⏹️' : '▶️'} />
-                </button>
-                {editando && editando.id === p.id ? (
-                  <input
-                    autoFocus
-                    value={editando.texto}
-                    onChange={(e) => setEditando({ id: p.id!, texto: e.target.value })}
-                    onBlur={() => void guardarNombre()}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') void guardarNombre()
-                      if (e.key === 'Escape') setEditando(null)
-                    }}
-                    className="min-w-0 flex-1 rounded border border-white/15 bg-black/25 px-1.5 py-0.5 text-xs text-white/90 focus:outline-none"
-                  />
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setEditando({ id: p.id!, texto: p.nombre })}
-                    title={t('ajustes.musica.renombrar', 'Renombrar')}
-                    className="min-w-0 flex-1 truncate text-left text-xs text-white/85"
-                  >
-                    {p.nombre}
-                  </button>
-                )}
-                <button
-                  type="button"
-                  onClick={() => setMusicaPistaId(musicaPistaId === p.id ? null : (p.id ?? null))}
-                  title={t('ajustes.musica.usar', 'Usar esta pista')}
-                  className={`shrink-0 rounded px-1.5 text-sm transition hover:bg-white/10 ${
-                    musicaPistaId === p.id ? 'text-accent' : 'text-white/35'
-                  }`}
-                >
-                  {musicaPistaId === p.id ? '●' : '○'}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => void borrar(p)}
-                  title={t('ajustes.musica.borrar', 'Borrar')}
-                  className="shrink-0 rounded px-1 text-xs text-white/40 transition hover:bg-white/10 hover:text-white/80"
-                >
-                  ✕
-                </button>
-              </div>
-            ))}
-            <p className="text-[11px] leading-snug text-white/45">
-              {t('ajustes.musica.todas', 'Sin pista elegida (●), suenan todas en aleatorio.')}
-            </p>
-          </>
-        )}
-      </div>
     </div>
   )
 }

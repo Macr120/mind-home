@@ -1,6 +1,6 @@
 import { colorCuadrante, cuadrantePorId, rectMundo } from '../house/cuadrantesMapa'
 import { cellToWorld, SPACING } from '../house/walls'
-import { useCam } from '../state/cameraStore'
+import { lienzoCam, useCam } from '../state/cameraStore'
 import { useLayout } from '../state/layoutStore'
 import { useZonaTut, type RegionMapa } from '../state/zonaTutStore'
 import type { PasoTutorial, TutorialCtx } from './tipos'
@@ -70,6 +70,19 @@ const sigFrame = () =>
   })
 
 /**
+ * Espera a que `CameraRig` haya publicado las medidas del lienzo. Sin ellas
+ * `enfocarZona` conserva el zoom actual: la zona queda centrada pero sin
+ * encuadrar. Pasaba al saltar de la casa real al demo con un tour por intent
+ * (`demo/intent.ts`), que lo lanza con la escena recién montada, cuando dos
+ * frames no bastaban; dentro del demo la escena ya llevaba rato corriendo y por
+ * eso el mismo tour sí encuadraba.
+ */
+const esperarLienzo = async (topeMs = 1500) => {
+  const inicio = performance.now()
+  while (lienzoCam.fw <= 0 && performance.now() - inicio < topeMs) await sigFrame()
+}
+
+/**
  * Vuela la cámara hasta la región. `enfocarZona` ya entra en isométrica dentro
  * de su propio `set`: llamar antes a `setVista('iso')` recolocaría el foco
  * sobre el personaje y desharía el encuadre.
@@ -83,6 +96,8 @@ export async function enfocarRegion(r: RegionMapa): Promise<void> {
   const volar = () =>
     useCam.getState().enfocarZona(r.centro, (r.ancho + m * 2) * AIRE, (r.largo + m * 2) * AIRE)
   volar()
+  // El primer vuelo ya puso la vista isométrica: a partir de aquí el rig publica.
+  await esperarLienzo()
   await sigFrame()
   await sigFrame()
   volar()

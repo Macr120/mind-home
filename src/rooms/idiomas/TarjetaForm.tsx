@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import type { PerfilIdioma, TipoTarjeta } from '../../core/data/db'
-import { VACIO, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
+import { tarjetasIdiomaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
-import { COLOR, NIVELES, TIPOS_TARJETA } from './constantes'
+import { COLOR, NIVELES, TIPOS_TARJETA, promptTarjeta } from './constantes'
 import { OpcionesTemas } from './OpcionesTemas'
+import { useTemario } from './temarioVivo'
 import { hoyISO } from './stats'
 import { ImagenIA } from '../_shared/ImagenIA'
 
@@ -16,11 +17,6 @@ export interface TarjetaFormInicial {
   temaId?: string
   imagen?: Blob
 }
-
-/** Prompt de la imagen mnemotécnica: representa el significado, sin texto. */
-const promptTarjeta = (termino: string, traduccion: string) =>
-  `Ilustración sencilla y memorable que represente el significado de "${termino}" (${traduccion}). ` +
-  'Estilo tarjeta educativa, un solo concepto claro, fondo liso, sin texto, sin letras, sin marcas de agua.'
 
 /**
  * Modal de crear/editar una tarjeta de vocabulario. Lo usan la captura manual,
@@ -44,7 +40,7 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
   const [temaId, setTemaId] = useState(inicial.temaId ?? '')
   const [imagen, setImagen] = useState<Blob | undefined>(inicial.imagen)
 
-  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
+  const tx = useTemario(perfil.id)
   const puedeGuardar = termino.trim() !== '' && traduccion.trim() !== ''
 
   const guardar = async () => {
@@ -160,8 +156,10 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
           </div>
           <div className="space-y-1">
             <p className={labelCampo}>{t('idiomas.form.nivel', 'Nivel')}</p>
+            {/* El nivel de la tarjeta puede venir de un nivel propio del
+                temario ('ALF'): sin esta opción el select lo cambiaría solo. */}
             <select value={nivel} onChange={(e) => setNivel(e.target.value)} className={inputBase}>
-              {NIVELES.map((n) => (
+              {(NIVELES.includes(nivel) ? NIVELES : [nivel, ...NIVELES]).map((n) => (
                 <option key={n} value={n}>
                   {n}
                 </option>
@@ -174,7 +172,7 @@ export function TarjetaForm({ perfil, inicial, tarjetaId, aviso, onCerrar }: {
           <p className={labelCampo}>{t('idiomas.form.tema', 'Tema del temario')}</p>
           <select value={temaId} onChange={(e) => setTemaId(e.target.value)} className={inputBase}>
             <option value="">{t('idiomas.form.sinTema', '— Ninguno —')}</option>
-            <OpcionesTemas nodos={nodos} />
+            <OpcionesTemas tx={tx} />
           </select>
         </div>
 

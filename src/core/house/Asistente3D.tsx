@@ -16,12 +16,12 @@ import { SPACING, subId, worldToSubCell } from './walls'
 import { COLOR_FORMA, type MascotaId, type Asistente, type Pieza3D } from '../chat/mascotas'
 import { ModeloGLB } from './modeloPersonalizado'
 import { GrupoAnimado, CuerpoDePiezas } from './Animado'
-import { avanzarMarcha, alturaFlote, type AnimacionModelo, type EstadoMarcha } from './animacion'
+import { avanzarMarcha, alturaFlote, girarHacia, type AnimacionModelo, type EstadoMarcha } from './animacion'
 import { categoriaMarcha } from './cuerpos'
 import { Prendas } from './Prendas'
 import { Rostro } from './Rostro'
 import { Peinado } from './Peinado'
-import { anclasDe, soportaRostro, soportaPeinado } from './apariencia'
+import { anclasDe, muestraRostro, soportaPeinado } from './apariencia'
 import { dragChar } from './characterDrag'
 
 /**
@@ -101,11 +101,6 @@ function tickPaseo(
   g.position.x += (dx / dist) * paso
   g.position.z += (dz / dist) * paso
   return { dx, dz }
-}
-
-/** Giro suave hacia un ángulo objetivo, sin saltos al cruzar ±π. */
-function girarHacia(g: THREE.Group, objetivo: number, factor: number) {
-  g.rotation.y += Math.atan2(Math.sin(objetivo - g.rotation.y), Math.cos(objetivo - g.rotation.y)) * factor
 }
 
 /**
@@ -342,6 +337,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
             brazoRef={brazo}
             anim={asistente.animacion}
             estado={marcha.current}
+            sinOjos={muestraRostro(asistente)}
           />
           <Prendas
             ropa={asistente.ropa}
@@ -350,7 +346,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
             marchaEstado={marcha.current}
             esJugador={false}
           />
-          {soportaRostro(asistente) && (
+          {muestraRostro(asistente) && (
             <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
           )}
           {soportaPeinado(asistente) && (
@@ -452,6 +448,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
             brazoRef={brazo}
             anim={asistente.animacion}
             estado={marcha.current}
+            sinOjos={muestraRostro(asistente)}
           />
           <Prendas
             ropa={asistente.ropa}
@@ -460,7 +457,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
             marchaEstado={marcha.current}
             esJugador={false}
           />
-          {soportaRostro(asistente) && (
+          {muestraRostro(asistente) && (
             <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
           )}
           {soportaPeinado(asistente) && (
@@ -485,6 +482,7 @@ export function ModeloMascota({
   brazoRef,
   anim,
   estado,
+  sinOjos,
 }: {
   forma: MascotaId
   color?: string
@@ -497,6 +495,8 @@ export function ModeloMascota({
   anim?: AnimacionModelo
   /** Marcha propia de este personaje (piernas/manos si el preset las tiene). */
   estado: EstadoMarcha
+  /** El personaje lleva el rostro del editor: se apagan los ojos de fábrica. */
+  sinOjos?: boolean
 }) {
   if (modeloGlb) {
     return (
@@ -510,7 +510,7 @@ export function ModeloMascota({
   }
   switch (forma) {
     case 'gato':
-      return <Gato color={color} brazoRef={brazoRef} />
+      return <Gato color={color} brazoRef={brazoRef} sinOjos={sinOjos} />
     case 'perro':
       return <Perro color={color} brazoRef={brazoRef} />
     case 'buho':
@@ -604,7 +604,7 @@ function Mago({ brazoRef, color }: PropsModelo) {
   )
 }
 
-function Gato({ brazoRef, color }: PropsModelo) {
+function Gato({ brazoRef, color, sinOjos }: PropsModelo & { sinOjos?: boolean }) {
   const pelaje = color || COLOR_FORMA.gato
   return (
     <group>
@@ -632,7 +632,8 @@ function Gato({ brazoRef, color }: PropsModelo) {
         <boxGeometry args={[0.1, 0.5, 0.1]} />
         <meshStandardMaterial color={pelaje} />
       </mesh>
-      <Ojos y={1.08} z={0.21} />
+      {/* Sus ojos caen justo donde los dibujaría `Rostro`: con rostro propio se apagan. */}
+      {!sinOjos && <Ojos y={1.08} z={0.21} />}
       {/* Pata izquierda fija */}
       <mesh position={[-0.28, 0.36, 0.1]}>
         <boxGeometry args={[0.14, 0.4, 0.14]} />

@@ -1,6 +1,7 @@
 import { lazy } from 'react'
-import type { Plantilla } from '../../core/registry'
+import type { Plantilla } from '../../core/appContrato'
 import { flujosGarage } from './tutorial'
+import { planMetasGarage } from './plan'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,
@@ -15,6 +16,8 @@ const garage: Plantilla = {
   color: '#fbbf24',
   App: GarageApp,
   flujos: flujosGarage,
+  // Acotamiento del planificador ✨: mantenimiento, ordenado por urgencia real.
+  planMetas: planMetasGarage,
   // Un servicio del coche toca cada varios miles de km, no cada día: el garage
   // queda fuera de la meta diaria por decisión del usuario.
   sinMetaDiaria: true,
@@ -22,9 +25,11 @@ const garage: Plantilla = {
     { seccion: 'resumen', etiqueta: 'Resumen', nombres: ['resumen del garage'] },
     { seccion: 'vehiculos', etiqueta: 'Vehículos', nombres: ['vehiculos', 'mis vehiculos'] },
     {
-      seccion: 'talleres',
-      etiqueta: 'Talleres',
-      nombres: ['talleres', 'mi taller', 'aseguradora', 'contactos del taller'],
+      // La libreta ya no es pestaña del garaje: vive dentro de cada ficha, así
+      // que «mi taller» deja al usuario en la lista de vehículos.
+      seccion: 'vehiculos',
+      etiqueta: 'Contactos',
+      nombres: ['contactos', 'talleres', 'mi taller', 'aseguradora', 'contactos del taller'],
     },
   ],
 }

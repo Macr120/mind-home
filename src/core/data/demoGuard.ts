@@ -14,7 +14,7 @@
  */
 import type { DBCore, DBCoreMutateRequest, DBCoreMutateResponse, Middleware } from 'dexie'
 import { claveLS, esDemo } from '../edicion'
-import { marcarSandboxDemoSucio } from '../../demo/modo'
+import { limpiarSandboxDemoSucio, marcarSandboxDemoSucio } from '../../demo/modo'
 import { useAvisoDemo } from '../state/avisosPlanStore'
 
 /** Tablas que el visitante escribió en esta carga (y en las anteriores sin reponer). */
@@ -43,11 +43,36 @@ export function limpiarTablasSucias(): void {
   localStorage.removeItem(claveLS(LS_TABLAS))
 }
 
-// Aviso a la UI de que ya hay cambios que descartar; lo inyecta el sandbox
-// para que este módulo no importe de `demo/` (ciclo con db.ts).
-let alEnsuciar: (() => void) | null = null
-export function registrarAlEnsuciar(fn: () => void): void {
-  alEnsuciar = fn
+/** Deja de considerar sucias esas tablas: ya se fotografiaron como originales. */
+export function desapuntarTablas(nombres: string[]): void {
+  for (const n of nombres) sucias.delete(n)
+  if (sucias.size) {
+    localStorage.setItem(claveLS(LS_TABLAS), JSON.stringify([...sucias]))
+    return
+  }
+  // Sin lista, `reponer()` cree que se perdió el apunte y repone la BD entera:
+  // la marca de sucio tiene que irse con ella.
+  localStorage.removeItem(claveLS(LS_TABLAS))
+  limpiarSandboxDemoSucio()
+}
+
+/**
+ * Construcción PEREZOSA del año de una app (la que se abre tarde). Sus
+ * escrituras se apuntan igual —si la pestaña muere a medias, la recarga limpia
+ * las tablas a medio llenar y la app se reconstruye entera—, pero no son
+ * «cambios del visitante»: ni encienden el aviso ni cuentan como suciedad. La
+ * colecta dice además qué tablas tocó el builder, para fotografiarlas.
+ */
+let colector: Set<string> | null = null
+
+export function empezarColectaPerezosa(): void {
+  colector = new Set()
+}
+
+export function terminarColectaPerezosa(): string[] {
+  const tocadas = [...(colector ?? [])]
+  colector = null
+  return tocadas
 }
 
 // Mientras el orquestador construye el demo —o lo repone— TODO pasa sin
@@ -55,6 +80,17 @@ export function registrarAlEnsuciar(fn: () => void): void {
 let construyendo = false
 export function setConstruyendoDemo(v: boolean): void {
   construyendo = v
+}
+
+// Un tutorial escribe por su cuenta —crea el dato de ejemplo y lo borra al
+// salir— y lo hace justo después del click en «Siguiente», así que el
+// heurístico de abajo lo tomaba por una edición del visitante: el aviso salía
+// solo y encima tapaba el spotlight (velo z-70 sobre overlay z-60). El trato se
+// cuenta cuando el visitante edita POR SU CUENTA. Las tablas se apuntan igual:
+// lo que el tour escribió también hay que reponerlo al recargar.
+let enTutorial = false
+export function setTutorialActivo(v: boolean): void {
+  enTutorial = v
 }
 
 // Los procesos de fondo también escriben: se apuntan igual, pero solo una
@@ -79,12 +115,11 @@ function apuntar(nombre: string): void {
     localStorage.setItem(claveLS(LS_TABLAS), JSON.stringify([...sucias]))
     marcarSandboxDemoSucio()
   }
-  // El botón «Descartar mis cambios» y el aviso del trato solo salen si el
-  // cambio lo hizo el VISITANTE: los procesos de fondo (racha de Sísifo, la
-  // edición del día del diario…) también escriben y también se reponen, pero
-  // no son «sus cambios».
+  // El aviso del trato solo sale si el cambio lo hizo el VISITANTE por su
+  // cuenta: los procesos de fondo (racha de Sísifo, la edición del día del
+  // diario…) también escriben y también se reponen, pero no son «sus cambios».
+  if (enTutorial || colector) return
   if (Date.now() - ultimaInteraccion >= 3000) return
-  alEnsuciar?.()
   if (!avisado) {
     avisado = true
     useAvisoDemo.getState().abrir()
@@ -107,6 +142,7 @@ export const demoGuard: Middleware<DBCore> = {
             // Dentro del `mutate` (no en la fábrica `table`): esta corre una
             // sola vez al montar el stack DBCore y congelaría el estado.
             if (!construyendo && (req.trans as TransMarcada).__mhAplicandoPull !== true) {
+              colector?.add(nombre)
               apuntar(nombre)
             }
             return tabla.mutate(req)

@@ -72,6 +72,11 @@ function aAsistente(row: AsistenteGuardado): Asistente {
     vozNombre: row.vozNombre || undefined,
     vozPitch: row.vozPitch,
     vozRate: row.vozRate,
+    vozVolumen: row.vozVolumen,
+    vozIA: row.vozIA,
+    vozIaVoz: row.vozIaVoz || undefined,
+    vozLeer: row.vozLeer,
+    espontaneo: row.espontaneo,
     corazon: row.corazon,
   }
 }
@@ -119,6 +124,11 @@ async function persistir(a: Asistente, oculto = false) {
     vozNombre: a.vozNombre ?? '',
     vozPitch: a.vozPitch,
     vozRate: a.vozRate,
+    vozVolumen: a.vozVolumen,
+    vozIA: a.vozIA,
+    vozIaVoz: a.vozIaVoz ?? '',
+    vozLeer: a.vozLeer,
+    espontaneo: a.espontaneo,
     corazon: a.corazon,
     oculto,
   }

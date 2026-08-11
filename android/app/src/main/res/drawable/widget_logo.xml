@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- El logo de la app suelto (las tres figuras), para los botones de los widgets. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="107dp"
+    android:height="30dp"
+    android:viewportWidth="357"
+    android:viewportHeight="100">
+    <path
+        android:fillColor="#DA9425"
+        android:pathData="M20,3 H74 A20,20 0 0 1 94,23 V77 A20,20 0 0 1 74,97 H20 A20,20 0 0 1 0,77 V23 A20,20 0 0 1 20,3 Z" />
+    <path
+        android:fillColor="#C23A40"
+        android:pathData="M137,0 V100 H237 Z" />
+    <path
+        android:fillColor="#895AC6"
+        android:pathData="M257,0 H357 V100 A100,100 0 0 1 257,0 Z" />
+</vector>

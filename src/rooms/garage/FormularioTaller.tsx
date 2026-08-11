@@ -10,11 +10,14 @@ import { Campo, Formulario, INPUT, TINTA_CTA } from './ui'
 
 export function FormularioTaller({
   vehiculos,
+  vehiculoPorDefecto,
   inicial,
   onGuardado,
   onCancelar,
 }: {
   vehiculos: Vehiculo[]
+  /** Ficha desde la que se da de alta: llega preseleccionada en «Atiende a». */
+  vehiculoPorDefecto?: number
   inicial?: TallerVehiculo
   onGuardado: () => void
   onCancelar: () => void
@@ -26,7 +29,7 @@ export function FormularioTaller({
   const [correo, setCorreo] = useState(inicial?.correo ?? '')
   const [direccion, setDireccion] = useState(inicial?.direccion ?? '')
   const [vehiculoId, setVehiculoId] = useState(
-    inicial?.vehiculoId != null ? String(inicial.vehiculoId) : '',
+    inicial ? (inicial.vehiculoId != null ? String(inicial.vehiculoId) : '') : String(vehiculoPorDefecto ?? ''),
   )
   const [notas, setNotas] = useState(inicial?.notas ?? '')
 

@@ -24,6 +24,7 @@ export function ComprasTab({ items, listas }: { items: ItemCompra[]; listas: Lis
       <div className="grid grid-cols-2 gap-2">
         <button
           type="button"
+          data-tut="cocina.compras.sub.crear"
           onClick={() => setSub('crear')}
           className={`rounded-xl py-2.5 text-sm font-semibold transition ${
             sub === 'crear' ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'

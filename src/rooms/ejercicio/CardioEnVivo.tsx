@@ -1,15 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
-import type { SistemaUnidades } from '../../core/data/db'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { PuntoRuta, SesionEjercicio, SistemaUnidades } from '../../core/data/db'
 import { sesionesEjercicioRepo } from '../../core/data/repository'
+import { distanciaM, fmtRitmoMin, fmtTiempo, metricasRuta } from './cardioStats'
+import { EstadisticasCardio, RutaSvg } from './EstadisticasCardio'
 import { hoyISO } from './fecha'
 import { distanciaDesdeKm, fmtDistancia, fmtRitmo, unidadDistancia } from './unidades'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-
-export interface PuntoRuta {
-  lat: number
-  lng: number
-}
 
 // Web Bluetooth no está en lib.dom: tipos mínimos para el servicio heart_rate.
 interface CaracteristicaBT {
@@ -27,75 +24,6 @@ interface NavegadorBT extends Navigator {
       }
     }>
   }
-}
-
-/** Distancia en metros entre dos coordenadas (haversine). */
-function distanciaM(a: PuntoRuta, b: PuntoRuta) {
-  const R = 6371000
-  const rad = Math.PI / 180
-  const dLat = (b.lat - a.lat) * rad
-  const dLng = (b.lng - a.lng) * rad
-  const s =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) ** 2
-  return 2 * R * Math.asin(Math.sqrt(s))
-}
-
-/** Croquis SVG de la ruta (sin mapa): trazo normalizado con inicio y fin marcados. */
-export function RutaSvg({
-  puntos,
-  color,
-  className = '',
-}: {
-  puntos: PuntoRuta[]
-  color: string
-  className?: string
-}) {
-  if (puntos.length < 2) return null
-  const W = 100
-  const H = 60
-  const PAD = 5
-  // Corrige la deformación longitud/latitud según la latitud media
-  const k = Math.cos(((puntos[0].lat + puntos[puntos.length - 1].lat) / 2) * (Math.PI / 180))
-  const xs = puntos.map((p) => p.lng * k)
-  const ys = puntos.map((p) => p.lat)
-  const minX = Math.min(...xs)
-  const maxX = Math.max(...xs)
-  const minY = Math.min(...ys)
-  const maxY = Math.max(...ys)
-  const escala = Math.min(
-    (W - PAD * 2) / Math.max(maxX - minX, 1e-6),
-    (H - PAD * 2) / Math.max(maxY - minY, 1e-6),
-  )
-  const ox = (W - escala * (maxX - minX)) / 2
-  const oy = (H - escala * (maxY - minY)) / 2
-  const px = (i: number) => ox + (xs[i] - minX) * escala
-  const py = (i: number) => oy + (maxY - ys[i]) * escala
-  const linea = puntos.map((_, i) => `${px(i)},${py(i)}`).join(' ')
-  const fin = puntos.length - 1
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} className={className}>
-      <polyline
-        points={linea}
-        fill="none"
-        stroke={color}
-        strokeWidth="2"
-        strokeLinejoin="round"
-        strokeLinecap="round"
-        opacity="0.9"
-      />
-      <circle cx={px(0)} cy={py(0)} r="2.5" fill="#4ade80" />
-      <circle cx={px(fin)} cy={py(fin)} r="2.5" fill="#f87171" />
-    </svg>
-  )
-}
-
-const fmtTiempo = (seg: number) => {
-  const h = Math.floor(seg / 3600)
-  const m = Math.floor((seg % 3600) / 60)
-  const s = seg % 60
-  const mmss = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`
-  return h > 0 ? `${h}:${mmss}` : mmss
 }
 
 /**
@@ -118,14 +46,26 @@ export function CardioEnVivo({
   const [puntos, setPuntos] = useState<PuntoRuta[]>([])
   const [gpsEstado, setGpsEstado] = useState<'apagado' | 'activo' | 'error'>('apagado')
   const [ppm, setPpm] = useState<number | null>(null)
+  const [ppmMax, setPpmMax] = useState(0)
   const [btEstado, setBtEstado] = useState<'desconectado' | 'conectado' | 'noDisponible'>(
     'desconectado',
   )
+  // Al terminar se muestra la ficha de estadísticas de lo que se acaba de guardar.
+  const [resumen, setResumen] = useState<SesionEjercicio | null>(null)
 
   const grabandoRef = useRef(false)
   useEffect(() => {
     grabandoRef.current = estado === 'grabando'
   }, [estado])
+  // El GPS llega por callback: sin refs vería el cronómetro y el pulso congelados.
+  const segundosRef = useRef(0)
+  useEffect(() => {
+    segundosRef.current = segundos
+  }, [segundos])
+  const ppmRef = useRef<number | null>(null)
+  useEffect(() => {
+    ppmRef.current = ppm
+  }, [ppm])
   const ultimo = useRef<PuntoRuta | null>(null)
   const watchId = useRef<number | null>(null)
   const ppmStats = useRef({ suma: 0, n: 0, max: 0 })
@@ -179,7 +119,16 @@ export function CardioEnVivo({
           setMetros((m) => m + d)
         }
         ultimo.current = p
-        setPuntos((ps) => [...ps, { lat: +p.lat.toFixed(5), lng: +p.lng.toFixed(5) }])
+        setPuntos((ps) => [
+          ...ps,
+          {
+            lat: +p.lat.toFixed(5),
+            lng: +p.lng.toFixed(5),
+            t: segundosRef.current,
+            alt: pos.coords.altitude != null ? Math.round(pos.coords.altitude) : undefined,
+            ppm: ppmRef.current ?? undefined,
+          },
+        ])
       },
       () => setGpsEstado('error'),
       { enableHighAccuracy: true, maximumAge: 3000, timeout: 15000 },
@@ -208,6 +157,7 @@ export function CardioEnVivo({
           st.suma += valor
           st.n++
           st.max = Math.max(st.max, valor)
+          setPpmMax((m) => Math.max(m, valor))
         }
       })
       btDesconectar.current = () => dispositivo.gatt?.disconnect()
@@ -223,6 +173,7 @@ export function CardioEnVivo({
     setPuntos([])
     ultimo.current = null
     ppmStats.current = { suma: 0, n: 0, max: 0 }
+    setPpmMax(0)
     setEstado('grabando')
     iniciarGps()
     navigator.wakeLock
@@ -249,24 +200,50 @@ export function CardioEnVivo({
   }
 
   const terminar = async () => {
-    const km = metros / 1000
+    const recorrido = metros / 1000
     const st = ppmStats.current
-    await sesionesEjercicioRepo.add({
+    const sesion = {
       fecha: hoyISO(),
-      tipo: 'resistencia',
+      tipo: 'resistencia' as const,
       titulo: actividad,
       duracionMin: Math.max(1, Math.round(segundos / 60)),
-      distanciaKm: km >= 0.05 ? +km.toFixed(2) : undefined,
+      distanciaKm: recorrido >= 0.05 ? +recorrido.toFixed(2) : undefined,
       ppmProm: st.n ? Math.round(st.suma / st.n) : undefined,
       ppmMax: st.max || undefined,
       ruta: puntos.length > 1 ? puntos : undefined,
-    })
+    }
+    const id = await sesionesEjercicioRepo.add(sesion)
     limpiar()
-    setAbierto(false)
+    // La ficha se arma con lo guardado: el cronómetro ya se reinició.
+    setResumen({ ...sesion, id })
   }
 
   const km = metros / 1000
   const velocidad = segundos > 0 ? km / (segundos / 3600) : 0
+  // Ritmo, velocidad máxima, desnivel y parciales del trazo que llevas.
+  const metricas = useMemo(() => metricasRuta(puntos, unidades), [puntos, unidades])
+  const parciales = metricas?.parciales ?? []
+
+  if (resumen) {
+    return (
+      <div className="rounded-xl bg-sky-500/10 border border-sky-500/25 p-4 space-y-3">
+        <p className="text-base font-bold">
+          <Icono nombre="trofeo" /> {t('ejercicio.vivo.guardado', 'Entreno guardado')} · {resumen.titulo}
+        </p>
+        <EstadisticasCardio sesion={resumen} unidades={unidades} />
+        <button
+          type="button"
+          onClick={() => {
+            setResumen(null)
+            setAbierto(false)
+          }}
+          className="w-full rounded-xl bg-sky-600 py-2.5 font-bold texto-cta"
+        >
+          {t('ejercicio.vivo.listo', 'Listo')}
+        </button>
+      </div>
+    )
+  }
 
   if (!abierto) {
     return (
@@ -322,6 +299,52 @@ export function CardioEnVivo({
         />
       </div>
 
+      {metricas?.conTiempo && (
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+          <Dato
+            label={t('ejercicio.det.velMax', 'Velocidad máxima')}
+            valor={
+              metricas.velMax > 0
+                ? `${metricas.velMax.toFixed(1)} ${unidadDistancia(unidades)}/h`
+                : '—'
+            }
+          />
+          <Dato
+            label={t('ejercicio.vivo.ultimoParcial', 'Último parcial')}
+            valor={parciales.length ? fmtTiempo(parciales[parciales.length - 1].segundos) : '—'}
+          />
+          <Dato
+            label={t('ejercicio.det.desnivel', 'Desnivel')}
+            valor={metricas.conAltitud ? `+${metricas.subidaM} · −${metricas.bajadaM} m` : '—'}
+          />
+          <Dato
+            label={t('ejercicio.det.fcMax', 'FC máxima')}
+            valor={ppmMax ? `${ppmMax} ppm` : '—'}
+          />
+        </div>
+      )}
+
+      {parciales.length > 0 && (
+        <div className="rounded-lg bg-black/20 p-2">
+          <p className="mb-1 text-[9px] uppercase tracking-wide text-white/40">
+            {t('ejercicio.det.parciales', 'Parciales')} ({unidadDistancia(unidades)})
+          </p>
+          <div className="flex gap-1.5 overflow-x-auto">
+            {parciales.map((p) => (
+              <div
+                key={p.n}
+                className="shrink-0 rounded-md bg-white/5 px-2 py-1 text-center tabular-nums"
+              >
+                <p className="text-[9px] text-white/40">
+                  {p.dist > 0.95 ? p.n : p.dist.toFixed(2)}
+                </p>
+                <p className="text-xs font-bold text-white/90">{fmtRitmoMin(p.ritmo)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-white/40">
         <span>
           <Icono nombre="ubicacion" />{' '}
@@ -345,7 +368,12 @@ export function CardioEnVivo({
       </div>
 
       {puntos.length > 1 && (
-        <RutaSvg puntos={puntos} color="#38bdf8" className="h-24 w-full rounded-lg bg-black/20" />
+        <RutaSvg
+          puntos={puntos}
+          color="#38bdf8"
+          className="h-24 w-full rounded-lg bg-black/20"
+          marcas={parciales.map((p) => p.indice)}
+        />
       )}
 
       <div className="flex gap-2">

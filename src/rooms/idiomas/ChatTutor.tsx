@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { PerfilIdioma } from '../../core/data/db'
-import { VACIO,
+import {
   conversacionesIdiomaRepo,
   eliminarConversacionIdioma,
   mensajesIdiomaRepo,
-  temasIdiomaRepo,
   useMensajesConversacionIdioma,
 } from '../../core/data/repository'
 import { conversarIA, iaActiva, type MensajeIA } from '../../core/chat/ia'
@@ -13,7 +12,8 @@ import { asistenteDePlantilla, semillaAsistente } from '../../core/gamificacion/
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR } from './constantes'
-import { getTema } from './temario'
+import { todosVivos, useTemario } from './temarioVivo'
+import { TextoConEnlaces } from '../_shared/TextoConEnlaces'
 import { systemTutor, tituloDerivado } from './tutor'
 import { ubicarCharla, type AnclaTema } from './arbol'
 import { DestilarPanel } from './DestilarPanel'
@@ -28,7 +28,7 @@ import { OP_CHARLA, OP_CHARLA_NUEVA, OP_EXTRAER_TARJETAS } from './costosIA'
  * extraer vocabulario (🃏) + borrar, y 🔊 en cada mensaje del tutor.
  * `conversacionId === null` = charla nueva: se crea al enviar el primer mensaje.
  */
-export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicial, onCreada, onSalir }: {
+export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicial, onCreada, onSalir, onIrAlTemario }: {
   perfil: PerfilIdioma
   conversacionId: number | null
   borradorInicial: string
@@ -36,12 +36,14 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
   anclaInicial: AnclaTema | null
   onCreada: (id: number) => void
   onSalir: () => void
+  /** Enlaces al temario desde el chat: con tema abierto, o al temario a secas. */
+  onIrAlTemario: (temaId: string | null) => void
 }) {
   const t = useT()
   const charlas = conversacionesIdiomaRepo.useAll()
   const conv = conversacionId != null ? charlas?.find((c) => c.id === conversacionId) : undefined
   const mensajes = useMensajesConversacionIdioma(conversacionId)
-  const nodos = (temasIdiomaRepo.useAll() ?? VACIO).filter((n) => n.idiomaId === perfil.id)
+  const tx = useTemario(perfil.id)
   const lista = useAsistentes((s) => s.lista)
   const voz = asistenteDePlantilla(lista, 'idiomas') ?? semillaAsistente('idiomas')
 
@@ -60,13 +62,20 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
   const hayRespuesta = !!mensajes?.some((m) => m.rol === 'asistente')
   const perfilTutor = { nombre: perfil.nombre, nivel: perfil.nivel }
 
-  const tituloTema = (id?: string) =>
-    id ? (getTema(id)?.titulo ?? nodos.find((n) => n.temaId === id)?.titulo ?? null) : null
-  const temaTitulo = tituloTema(conv?.temaId) ?? anclaInicial?.titulo ?? null
+  // Lo que el texto del tutor puede enlazar: todos los temas vivos del idioma.
+  const temasEnlazables = useMemo(
+    () => todosVivos(tx).map((x) => ({ id: x.id, titulo: x.titulo })),
+    [tx],
+  )
+  const temaId = conv?.temaId ?? anclaInicial?.temaId
+  const temaTitulo = (temaId ? tx.porId.get(temaId)?.titulo : null) ?? anclaInicial?.titulo ?? null
+  // El vocabulario de una charla se extrae UNA vez: solo se vuelve a ofrecer si
+  // desde entonces se ha seguido conversando (hay material nuevo que sacar).
+  const yaExtraido = !!conv?.destiladaEn && !(conv.actualizadoEn > conv.destiladaEn)
 
   /** ← con recordatorio: ofrece extraer vocabulario una vez antes de salir. */
   const salir = () => {
-    if (conIA && hayRespuesta && conv && !conv.destiladaEn && !panel) {
+    if (conIA && hayRespuesta && conv && !yaExtraido && !panel) {
       setPanel({ alSalir: true })
     } else {
       onSalir()
@@ -159,7 +168,7 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
   }
 
   return (
-    <div className="flex h-[62vh] min-h-[24rem] flex-col rounded-2xl border border-white/10 bg-white/5">
+    <div data-tut="idiomas.tutor" className="flex h-[62vh] min-h-[24rem] flex-col rounded-2xl border border-white/10 bg-white/5">
       {/* Cabecera */}
       <div className="space-y-2 border-b border-white/10 px-3 py-2">
         <div className="flex items-center gap-2">
@@ -206,13 +215,18 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
           <button
             type="button"
             onClick={() => setPanel({ alSalir: false })}
-            disabled={!conIA || !hayRespuesta || conversacionId == null}
+            disabled={!conIA || !hayRespuesta || conversacionId == null || yaExtraido}
             className="rounded-lg bg-white/5 px-2 py-1.5 text-xs transition hover:bg-white/10 disabled:opacity-35"
-            title={t('idiomas.charla.destilarTip', 'La IA extrae el vocabulario de la charla como tarjetas de repaso')}
+            title={
+              yaExtraido
+                ? t('idiomas.charla.yaExtraido', 'Ya extrajiste el vocabulario de esta charla; sigue conversando para que haya más')
+                : t('idiomas.charla.destilarTip', 'La IA extrae el vocabulario de la charla como tarjetas de repaso')
+            }
           >
-            <Icono nombre="registros" /> {t('idiomas.charla.destilar', 'Extraer')}
+            <Icono nombre={yaExtraido ? 'confirmar' : 'registros'} />{' '}
+            {yaExtraido ? t('idiomas.charla.extraido', 'Extraído') : t('idiomas.charla.destilar', 'Extraer')}
           </button>
-          <Creditos op={OP_EXTRAER_TARJETAS} />
+          {!yaExtraido && <Creditos op={OP_EXTRAER_TARJETAS} />}
           <button
             type="button"
             onClick={() => setBorrando(true)}
@@ -224,19 +238,34 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
           </button>
         </div>
 
-        {conIA && conv && !conv.temaId && !!mensajes?.length && (
+        {/* Enlaces al temario: de qué tema es esta charla y dónde vive. */}
+        <div className="flex flex-wrap items-center gap-1.5">
           <button
             type="button"
-            onClick={() => {
-              if (conversacionId == null || perfil.id == null) return
-              void ubicarCharla(conversacionId, perfil.id, perfilTutor, aMensajesIA())
-            }}
-            className="rounded-lg bg-white/5 px-2 py-1 text-xs transition hover:bg-white/10"
-            title={t('idiomas.charla.clasificarTip', 'Pedir a la IA que ponga título y tema a la charla')}
+            onClick={() => onIrAlTemario(temaId ?? null)}
+            className="max-w-[16rem] truncate rounded-full bg-white/10 px-2.5 py-0.5 text-[10px] text-white/70 transition hover:bg-white/20"
+            title={
+              temaTitulo
+                ? t('idiomas.charla.verEnTemario', 'Ver «{tema}» en el temario', { tema: temaTitulo })
+                : t('idiomas.charla.verTemario', 'Abrir el temario')
+            }
           >
-            <Icono nombre="brillo" /> {t('idiomas.charla.clasificar', 'Clasificar')}
+            <Icono nombre="idiomas" /> {temaTitulo ?? t('idiomas.charla.libre', 'Práctica libre')}
           </button>
-        )}
+          {conIA && conv && !conv.temaId && !!mensajes?.length && (
+            <button
+              type="button"
+              onClick={() => {
+                if (conversacionId == null || perfil.id == null) return
+                void ubicarCharla(conversacionId, perfil.id, perfilTutor, aMensajesIA())
+              }}
+              className="rounded-full bg-white/5 px-2.5 py-0.5 text-[10px] transition hover:bg-white/10"
+              title={t('idiomas.charla.clasificarTip', 'Pedir a la IA que ponga título y tema a la charla')}
+            >
+              <Icono nombre="brillo" /> {t('idiomas.charla.clasificar', 'Clasificar')}
+            </button>
+          )}
+        </div>
 
         {borrando && (
           <div className="flex items-center justify-between gap-2 rounded-lg border border-rose-400/30 bg-rose-400/10 px-3 py-2 text-xs">
@@ -281,7 +310,16 @@ export function ChatTutor({ perfil, conversacionId, borradorInicial, anclaInicia
                     esUsuario ? 'rounded-br-sm bg-emerald-500/25 text-white/95' : 'rounded-bl-sm bg-white/10 text-white/85'
                   }`}
                 >
-                  <p className="whitespace-pre-wrap break-words">{m.texto}</p>
+                  {esUsuario ? (
+                    <p className="whitespace-pre-wrap break-words">{m.texto}</p>
+                  ) : (
+                    <TextoConEnlaces
+                      texto={m.texto}
+                      terminos={temasEnlazables}
+                      color={COLOR}
+                      onIr={onIrAlTemario}
+                    />
+                  )}
                   <div className={`mt-0.5 flex items-center justify-end gap-1.5 text-[9px] ${esUsuario ? 'text-emerald-400/80' : 'text-white/30'}`}>
                     {!esUsuario && conTTS && (
                       <button

@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
-import { useThree } from '@react-three/fiber'
+import { useFrame, useThree } from '@react-three/fiber'
 import {
   useCanchas,
   CANCHAS,
   PORTERIA,
+  CANASTA,
   BEISBOL,
   radioBeisbol,
   esCancha,
@@ -12,6 +13,7 @@ import {
   escalaCancha,
   type ClaseCancha,
 } from '../state/canchasStore'
+import { useJuegoCancha, juegoFrame } from '../state/juegoCanchaStore'
 import { useDiseño, esObjetoMapa } from '../state/disenoStore'
 
 /** Nº de tramos del arco del jardín (forma del piso, barda y warning track). */
@@ -230,22 +232,63 @@ function Porteria() {
   )
 }
 
-/** Tablero de básquet a escala real: aro a 3.05 m sobre poste. */
-function Tablero({ mirando }: { mirando: 1 | -1 }) {
+/**
+ * Tablero de básquet: aro a 3.05 m sobre poste, con red. Con la cancha EN JUEGO
+ * (`activa`) la red se estira y el aro destella al encestar, y el tablero
+ * relampaguea cuando la pelota le pega (pulsos de `juegoFrame`, sin re-render).
+ */
+function Tablero({ mirando, activa }: { mirando: 1 | -1; activa: boolean }) {
+  const red = useRef<THREE.Group>(null)
+  const aro = useRef<THREE.Mesh>(null)
+  const tablero = useRef<THREE.Mesh>(null)
+  const previo = useRef({ p: 0, q: 0 })
+  const dx = CANASTA.aroX - CANASTA.posteX
+  const dxTablero = CANASTA.tableroX - CANASTA.posteX
+
+  useFrame(() => {
+    const p = activa ? juegoFrame.aroPulso : 0
+    const q = activa ? juegoFrame.tableroPulso : 0
+    if (p === previo.current.p && q === previo.current.q) return
+    previo.current.p = p
+    previo.current.q = q
+    // La red cuelga del aro: escalar en Y la estira hacia abajo (efecto swish).
+    if (red.current) red.current.scale.y = 1 + p * 0.9
+    if (aro.current) {
+      aro.current.scale.set(1 + p * 0.14, 1 + p * 0.14, 1)
+      ;(aro.current.material as THREE.MeshStandardMaterial).emissiveIntensity = p * 1.5
+    }
+    if (tablero.current) {
+      ;(tablero.current.material as THREE.MeshStandardMaterial).emissiveIntensity = q * 0.9
+    }
+  })
+
   return (
     <group>
       <mesh position={[0, 1.8, 0]}>
         <cylinderGeometry args={[0.07, 0.07, 3.6, 8]} />
         <meshStandardMaterial color="#64748b" roughness={0.6} />
       </mesh>
-      <mesh position={[mirando * 0.35, 3.4, 0]}>
-        <boxGeometry args={[0.06, 1.05, 1.8]} />
-        <meshStandardMaterial color="#e2e8f0" roughness={0.4} />
+      <mesh ref={tablero} position={[mirando * dxTablero, CANASTA.tableroY, 0]}>
+        <boxGeometry args={[0.06, 1.15, 2 * CANASTA.tableroMedio]} />
+        <meshStandardMaterial color="#e2e8f0" roughness={0.4} emissive="#fbbf24" emissiveIntensity={0} />
       </mesh>
-      <mesh position={[mirando * 0.62, 3.05, 0]} rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[0.23, 0.025, 8, 20]} />
-        <meshStandardMaterial color="#f97316" metalness={0.5} roughness={0.4} />
+      <mesh ref={aro} position={[mirando * dx, CANASTA.aroY, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[CANASTA.aroRadio, 0.03, 8, 20]} />
+        <meshStandardMaterial color="#f97316" metalness={0.5} roughness={0.4} emissive="#f97316" emissiveIntensity={0} />
       </mesh>
+      {/* Red: cono abierto colgando del aro. */}
+      <group ref={red} position={[mirando * dx, CANASTA.aroY, 0]}>
+        <mesh position={[0, -0.21, 0]}>
+          <cylinderGeometry args={[CANASTA.aroRadio - 0.02, CANASTA.aroRadio * 0.55, 0.42, 12, 1, true]} />
+          <meshStandardMaterial
+            color="#f8fafc"
+            transparent
+            opacity={0.5}
+            roughness={0.9}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      </group>
     </group>
   )
 }
@@ -338,8 +381,20 @@ function CampoBeisbol() {
  * Cancha completa: piso con líneas pintadas + accesorios por clase (porterías,
  * red o tableros). Es el render del objeto de mapa `cancha:<clase>`.
  */
-export function Cancha3D({ clase, color }: { clase: ClaseCancha; color: string }) {
+export function Cancha3D({
+  clase,
+  color,
+  objetoId,
+}: {
+  clase: ClaseCancha
+  color: string
+  objetoId?: number
+}) {
   const def = CANCHAS[clase]
+  // Solo la cancha del partido en curso anima su canasta.
+  const activa = useJuegoCancha(
+    (s) => s.fase === 'jugando' && s.clase === 'basket' && s.canchaId === objetoId,
+  )
   const tex = useTexturaCancha(clase, color)
   const pisoBeisbol = usePisoBeisbol(def.largo, def.ancho)
   if (clase === 'beisbol')
@@ -390,8 +445,8 @@ export function Cancha3D({ clase, color }: { clase: ClaseCancha; color: string }
       )}
       {clase === 'basket' && (
         // Media cancha: un solo aro, en la línea de fondo del lado de la botella.
-        <group position={[-def.largo / 2 + 0.2, 0.12, 0]}>
-          <Tablero mirando={1} />
+        <group position={[CANASTA.posteX, 0.12, 0]}>
+          <Tablero mirando={1} activa={activa} />
         </group>
       )}
     </group>

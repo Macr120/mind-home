@@ -154,6 +154,17 @@ const PITCH_3P = { min: 0.15, max: 1.35 }
  * por delante, y no había forma de apuntarle a nadie.
  */
 const PITCH_3P_MIRA = { min: -0.35, max: 1.2 }
+/**
+ * Modo de vista LIBRE en 3ª persona (paintball): sin el suelo de PITCH_3P, la
+ * cámara puede nivelarse a la altura de los ojos y mirar al cielo. El mínimo
+ * negativo la acota para que no se meta bajo el piso.
+ */
+const PITCH_3P_LIBRE = { min: -0.9, max: 1.45 }
+let pitchLibre = false
+/** Enciende/apaga la vista vertical libre de 3ª persona (lo usa `paintballStore`). */
+export const setPitchLibre = (v: boolean) => {
+  pitchLibre = v
+}
 /** Inclinación inicial de cada vista: 3ª persona elevada (mira hacia abajo), 1ª horizontal. */
 const PITCH_3P_INI = 0.5
 /** Distancia de la cámara al personaje en tercera persona (sin tope superior). */
@@ -391,17 +402,21 @@ export const useCam = create<CamState>((set, get) => ({
       const lim =
         s.vista === 'primera' || s.vista === 'interior'
           ? PITCH_1P
-          : miraFrame.apuntando
-            ? PITCH_3P_MIRA
-            : PITCH_3P
+          : pitchLibre
+            ? PITCH_3P_LIBRE
+            : miraFrame.apuntando
+              ? PITCH_3P_MIRA
+              : PITCH_3P
       return {
         yaw: s.yaw - dxPx * LOOK_SENS,
         pitch: clamp(s.pitch - dyPx * LOOK_SENS, lim.min, lim.max),
       }
     }),
+  // Con la vista libre (paintball) no se recupera el suelo de PITCH_3P: bajar la
+  // mira volvería a levantar la cámara por encima del avatar.
   soltarMira: () =>
     set((s) =>
-      s.vista === 'tercera' && s.pitch < PITCH_3P.min ? { pitch: PITCH_3P.min } : {},
+      !pitchLibre && s.vista === 'tercera' && s.pitch < PITCH_3P.min ? { pitch: PITCH_3P.min } : {},
     ),
   zoomDist: (deltaY) =>
     set((s) => ({

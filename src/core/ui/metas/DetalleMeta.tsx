@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
 import { agendada, duracionMin, ponerHorario, ponerPeriodo, quitarHorario, quitarPeriodo } from '../../metas'
+import { useCategoriasMeta } from '../../state/categoriasMetaStore'
 import { colorDe, COLORES_RUTINA } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
+import { MientrasDure } from './MientrasDure'
 import { PasosMeta } from './PasosMeta'
+import { categoriasDisponibles } from './VistaMetas'
 
 const CLASE_CAMPO =
   'rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] tabular-nums text-white/70 focus:outline-none'
@@ -30,6 +33,12 @@ export function DetalleMeta({
 }) {
   const t = useT()
   const [notaAbierta, setNotaAbierta] = useState(false)
+  // El detalle solo se monta al desplegar UNA meta, así que leer aquí las
+  // categorías sale más barato que perforar la prop por `FilaMeta` desde los tres
+  // sitios que la montan.
+  const todas = rutinasRepo.useAll()
+  const propias = useCategoriasMeta((s) => s.propias)
+  const categorias = useMemo(() => categoriasDisponibles(todas ?? [], propias), [todas, propias])
 
   const guardarNota = (texto: string) => {
     if (meta.id != null) void rutinasRepo.update(meta.id, { nota: texto.trim() || undefined })
@@ -153,6 +162,29 @@ export function DetalleMeta({
         </div>
       )}
 
+      {/* A qué grupo del panel de Metas pertenece. Solo se ofrece si ya hay
+          alguna categoría: sin ellas, el selector no diría nada. */}
+      {categorias.length > 0 && (
+        <div className="flex items-center gap-1.5">
+          <span className="shrink-0 text-[9px] text-white/30">{t('cal.meta.categoria', 'Categoría')}</span>
+          <select
+            value={meta.categoriaMeta ?? ''}
+            onChange={(e) =>
+              meta.id != null &&
+              void rutinasRepo.update(meta.id, { categoriaMeta: e.target.value || undefined })
+            }
+            className={CLASE_CAMPO}
+          >
+            <option value="">{t('cal.metas.sinCategoria', 'Sin categoría')}</option>
+            {categorias.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <div className="flex items-center gap-1.5">
         {COLORES_RUTINA.map((c) => (
           <button
@@ -169,6 +201,9 @@ export function DetalleMeta({
       </div>
 
       <PasosMeta meta={meta} sangria={0} />
+
+      {/* Lo que la meta le pide a cada día mientras esté viva (ver MientrasDure). */}
+      <MientrasDure meta={meta} />
     </div>
   )
 }

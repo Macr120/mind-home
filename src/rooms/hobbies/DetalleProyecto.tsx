@@ -185,7 +185,7 @@ export function DetalleProyecto({
 
       {/* Las metas del proyecto: mismas funciones que el cronograma del calendario
           (sub-metas, fechas, pasos, plan con IA), acotadas a este proyecto. */}
-      <div className="rounded-xl border border-white/10 bg-white/5">
+      <div className="rounded-xl border border-white/10 bg-white/5" data-tut="hobbies.cronograma.proyecto">
         <div className="flex h-96 flex-col">
           <CronogramaApp plantillaId="hobbies" ambitoId={`proyecto:${proyecto.id}`} />
         </div>

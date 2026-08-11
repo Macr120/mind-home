@@ -1,5 +1,17 @@
 package com.macr120.mindhome;
 
-import com.getcapacitor.BridgeActivity;
+import android.os.Bundle;
 
-public class MainActivity extends BridgeActivity {}
+import com.getcapacitor.BridgeActivity;
+import com.macr120.mindhome.media.MediaSesionPlugin;
+import com.macr120.mindhome.widgets.WidgetsPlugin;
+
+public class MainActivity extends BridgeActivity {
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    // Los plugins locales se registran ANTES de super.onCreate (arranca el bridge).
+    registerPlugin(WidgetsPlugin.class);
+    registerPlugin(MediaSesionPlugin.class);
+    super.onCreate(savedInstanceState);
+  }
+}

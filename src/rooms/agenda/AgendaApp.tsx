@@ -6,7 +6,6 @@ import { VACIO,
   eventosAgendaRepo,
   mascotasRepo,
   medicamentosRepo,
-  proyectosAgendaRepo,
 } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
@@ -31,7 +30,6 @@ export function AgendaApp() {
   )
   const eventos = eventosAgendaRepo.useAll() ?? VACIO
   const contactos = contactosAgendaRepo.useAll() ?? VACIO
-  const proyectos = proyectosAgendaRepo.useAll() ?? VACIO
   const medicinas = medicamentosRepo.useAll() ?? VACIO
   const mascotas = mascotasRepo.useAll() ?? VACIO
   const cuidados = cuidadosMascotaRepo.useAll() ?? VACIO
@@ -63,22 +61,17 @@ export function AgendaApp() {
         ))}
       </div>
 
-      {tab === 'trabajo' && (
-        <TrabajoTab eventos={deArea('trabajo')} contactos={contactos} proyectos={proyectos} />
-      )}
+      {tab === 'trabajo' && <TrabajoTab eventos={deArea('trabajo')} contactos={contactos} />}
       {tab === 'salud' && (
         <SaludTab
           eventos={deArea('salud')}
           medicinas={medicinas}
           contactos={contactos}
-          proyectos={proyectos}
           mascotas={mascotas}
           cuidados={cuidados}
         />
       )}
-      {tab === 'personas' && (
-        <PersonasTab eventos={eventos} contactos={contactos} proyectos={proyectos} />
-      )}
+      {tab === 'personas' && <PersonasTab eventos={eventos} contactos={contactos} />}
     </div>
   )
 }

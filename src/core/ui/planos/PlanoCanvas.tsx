@@ -4,7 +4,7 @@ import { useT } from '../../i18n/useT'
 import { useLayout, SIN_OCUPACION } from '../../state/layoutStore'
 import { useDiseño } from '../../state/disenoStore'
 import { useCiclo } from '../../state/cicloStore'
-import { usePlanos } from '../../state/planosStore'
+import { usePlanos, detalleEfectivo } from '../../state/planosStore'
 import { VACIO, zonasRepo, pisosExteriorRepo, murosLibresRepo, crearMuroAristaLibre, ciclarMuroFormaLibre, primeraRotMuroForma, setEstiloMuroLibre } from '../../data/repository'
 import type { ZonaPlano } from '../../data/db'
 import {
@@ -155,7 +155,8 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const nivel = usePlanos((s) => s.nivel)
   const capa = usePlanos((s) => s.capa)
   const modo = usePlanos((s) => s.modo)
-  const detalleRejilla = usePlanos((s) => s.detalleRejilla)
+  // Efectivo: fuera de Cuartos y Piso exterior el croquis dibuja siempre la rejilla normal.
+  const detalleRejilla = usePlanos(detalleEfectivo)
   const herramienta = usePlanos((s) => s.herramienta)
   const formaLoseta = usePlanos((s) => s.formaLoseta)
   const pincelForma = usePlanos((s) => s.pincelForma)

@@ -1,7 +1,7 @@
-import type { Plantilla } from '../../core/registry'
+import type { Plantilla } from '../../core/appContrato'
 import { Resumen } from './Resumen'
 import { useGranja } from '../../core/state/granjaStore'
-import { flujosGranja, tutorialGranja } from './tutorial'
+import { flujosGranja } from './tutorial'
 
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
 const granja: Plantilla = {
@@ -14,7 +14,6 @@ const granja: Plantilla = {
   tipo: 'infraestructura',
   sinMetaDiaria: true,
   construir: () => useGranja.getState().iniciar(),
-  tutorial: tutorialGranja,
   flujos: flujosGranja,
 }
 

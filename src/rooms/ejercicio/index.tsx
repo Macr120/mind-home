@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura, RutinaSugerible } from '../../core/registry'
-import { vTexto, vNumero, vFecha } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura, RutinaSugerible } from '../../core/appContrato'
+import { vTexto, vNumero, vFecha } from '../../core/appContrato'
 import {
   rutinasCardioRepo,
   rutinasFlexRepo,

@@ -77,6 +77,21 @@ export const EJEMPLOS: Record<TipoMapa, EjemploMapa> = {
     },
   },
 
+  etimologia: {
+    titulo: 'Idea',
+    guiaEs:
+      'El árbol etimológico desarma una palabra: de dónde viene, qué significa, cómo se usa y qué palabras son de su familia. Va bien para entender un concepto a fondo antes de una lluvia o para ponerle nombre a algo.',
+    propuesta: {
+      raiz: 'Idea',
+      ramas: [
+        n('Origen', n('Gr. idéa: ‘forma, aspecto’'), n('De ideîn: ‘ver’'), n('Al español por el latín')),
+        n('Significados', n('Representación mental'), n('Plan o propósito'), n('Concepto u opinión')),
+        n('Usos', n('«Tener una idea»'), n('«Ni idea»'), n('«Hacerse a la idea»')),
+        n('Familia léxica', n('Ideal'), n('Idear'), n('Ideología'), n('Ideario')),
+      ],
+    },
+  },
+
   llaves: {
     titulo: 'Partes de una bicicleta',
     guiaEs:

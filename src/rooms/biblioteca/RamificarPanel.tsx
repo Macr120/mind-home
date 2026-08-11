@@ -13,9 +13,13 @@ interface Sugerencia {
 }
 
 /**
- * Panel 🌿: la IA sugiere ramas nuevas bajo el tema de la charla y el usuario
- * elige cuáles agregar al árbol (o charla una al instante con 💬). TODA salida
- * marca `ramificadaEn` para que el panel-al-salir no vuelva a preguntar.
+ * Panel 🌿: la IA sugiere ramas nuevas bajo el nodo de una ENTRADA y el usuario
+ * elige cuáles agregar al árbol (o charla una al instante con 💬, que nace ya
+ * clasificada y se destila sola).
+ *
+ * Antes vivía en la charla; se movió a la entrada porque ramificar es lo que
+ * haces cuando lo aprendido ya está escrito. Con `conversacionId` (charla
+ * origen) se marca `ramificadaEn` para no volver a ofrecerlo.
  */
 export function RamificarPanel({
   conversacionId,
@@ -24,11 +28,12 @@ export function RamificarPanel({
   onCerrar,
   onCharlaNueva,
 }: {
-  conversacionId: number
-  /** Nodo de la charla, ya resuelto (temaId + pilar + título). */
+  conversacionId?: number
+  /** Nodo del que cuelgan las ramas nuevas (tema o campo de la entrada). */
   ancla: { temaId: string; pilarId: string; titulo: string }
+  /** Contexto para la IA: la charla, o el título+resumen de la entrada. */
   mensajes: MensajeIA[]
-  /** El caller decide si además navega (panel abierto al salir). */
+  /** El caller decide si además navega. */
   onCerrar: () => void
   onCharlaNueva: (ancla: AnclaTema, borrador: string) => void
 }) {
@@ -48,8 +53,10 @@ export function RamificarPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const marcar = () =>
-    conversacionesBiblioRepo.update(conversacionId, { ramificadaEn: new Date().toISOString() })
+  const marcar = async () => {
+    if (conversacionId == null) return
+    await conversacionesBiblioRepo.update(conversacionId, { ramificadaEn: new Date().toISOString() })
+  }
 
   const cerrar = async () => {
     if (ocupado) return

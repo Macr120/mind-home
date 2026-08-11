@@ -12,6 +12,7 @@ import {
   type WallState,
 } from './walls'
 import { ocupadoConZonas, zonaAnchorFootprint } from './planoGeometria'
+import type { EstiloArista, EstiloMuro } from './murosPuertas'
 
 /** Ordena aristas exteriores a lo largo de un lado cardinal (para elegir la del centro). */
 function ordenarPorLado(grupo: EdgeInfo[], side: SideKey): EdgeInfo[] {
@@ -25,6 +26,26 @@ function ordenarPorLado(grupo: EdgeInfo[], side: SideKey): EdgeInfo[] {
 }
 
 /**
+ * Arista del vano inicial de un cuarto: el centro de la fachada que mira hacia AFUERA
+ * del centro de la casa (opuesta a `doorFor`). Null si el cuarto no tiene fachada.
+ */
+function aristaInicialCuarto(
+  anchor: Cell,
+  footprint: Footprint,
+  ocupado: Set<string>,
+): string | null {
+  const exteriores = roomEdges(anchor, footprint, ocupado).filter((e) => e.auto === 'pared')
+  if (exteriores.length === 0) return null
+  const [wx, , wz] = centroCuarto3D(anchor, footprint)
+  const { axis, sign } = doorFor([wx, 0, wz])
+  const lado: SideKey = axis === 'x' ? (sign < 0 ? 'E' : 'O') : sign < 0 ? 'S' : 'N'
+  const grupo = exteriores.filter((e) => e.side === lado)
+  const candidatas = grupo.length ? ordenarPorLado(grupo, lado) : exteriores
+  const medio = candidatas[Math.floor((candidatas.length - 1) / 2)]
+  return edgeKey(medio.off, medio.side)
+}
+
+/**
  * Puerta inicial de un cuarto recién creado: UNA sola, al centro de la fachada que
  * mira hacia afuera del centro de la casa. Solo se aplica al crear; después el
  * usuario agrega/quita puertas a mano (no hay defaults que reaparezcan).
@@ -34,15 +55,23 @@ export function puertaInicialCuarto(
   footprint: Footprint,
   ocupado: Set<string>,
 ): WallOverrides {
-  const exteriores = roomEdges(anchor, footprint, ocupado).filter((e) => e.auto === 'pared')
-  if (exteriores.length === 0) return {}
-  const [wx, , wz] = centroCuarto3D(anchor, footprint)
-  const { axis, sign } = doorFor([wx, 0, wz])
-  const lado: SideKey = axis === 'x' ? (sign < 0 ? 'E' : 'O') : sign < 0 ? 'S' : 'N'
-  const grupo = exteriores.filter((e) => e.side === lado)
-  const candidatas = grupo.length ? ordenarPorLado(grupo, lado) : exteriores
-  const medio = candidatas[Math.floor((candidatas.length - 1) / 2)]
-  return { [edgeKey(medio.off, medio.side)]: 'puerta' }
+  const clave = aristaInicialCuarto(anchor, footprint, ocupado)
+  return clave ? { [clave]: 'puerta' } : {}
+}
+
+/**
+ * Ventana inicial de un cuarto de piso alto: en la fachada donde la planta baja pondría
+ * su puerta. Arriba una puerta exterior no lleva a ningún lado (se saldría al vacío),
+ * así que el muro se queda entero y solo se le abre una ventana.
+ */
+export function ventanaInicialCuarto(
+  anchor: Cell,
+  footprint: Footprint,
+  ocupado: Set<string>,
+  muroBase: EstiloMuro,
+): Record<string, EstiloArista> {
+  const clave = aristaInicialCuarto(anchor, footprint, ocupado)
+  return clave ? { [clave]: { muro: { ...muroBase, ventana: true } } } : {}
 }
 
 /**

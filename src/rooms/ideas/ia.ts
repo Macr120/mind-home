@@ -33,6 +33,10 @@ const CONTRATO: Record<TipoMapa, string[]> = {
     'Jerarquía de categorías, de lo general a lo concreto: de 3 a 5 ramas y cada una con 2 a 4 sub-elementos.',
     '{"raiz":"<tema, máx. 4 palabras>","hijos":[{"texto":"<categoría>","hijos":[{"texto":"<sub-elemento>","hijos":[]}]}]}',
   ],
+  etimologia: [
+    'Árbol etimológico de UNA palabra o concepto. Exactamente 4 ramas, llamadas así en el idioma del usuario: Origen (idioma y raíz de los que viene y su evolución, p. ej. «gr. idéa ‘forma’ → lat. → esp.»), Significados (sus acepciones principales), Usos (expresiones y ejemplos breves) y Familia léxica (palabras derivadas o emparentadas). Cada rama con 2 a 4 hojas.',
+    '{"raiz":"<la palabra>","hijos":[{"texto":"Origen","hijos":[{"texto":"<raíz y evolución>","hijos":[]}]},{"texto":"Significados","hijos":[]},{"texto":"Usos","hijos":[]},{"texto":"Familia léxica","hijos":[]}]}',
+  ],
   llaves: [
     'El TODO y sus PARTES físicas o estructurales: de 3 a 6 partes, cada una con 2 a 4 sub-partes.',
     '{"raiz":"<el todo, máx. 4 palabras>","hijos":[{"texto":"<parte>","hijos":[{"texto":"<sub-parte>","hijos":[]}]}]}',
@@ -393,13 +397,36 @@ function validarHijos(
  * Propone ideas nuevas para colgar de un nodo (o para una región, en los mapas
  * por zonas). Devuelve [] si algo falla: el botón simplemente no trae nada.
  */
-export async function expandirNodo(contexto: string, existentes: string[]): Promise<string[]> {
+/** Voz del prompt según lo que se esté ampliando. */
+const VOZ_EXPANDIR = {
+  nodos: [
+    'Eres un cartógrafo de ideas: amplías un mapa conceptual con elementos nuevos.',
+    'Propón de 3 a 5 elementos específicos y distintos entre sí.',
+  ],
+  puntos: [
+    'Desarrollas una idea suelta: propones los puntos que le faltan para estar completa.',
+    'Propón de 3 a 5 puntos concretos y accionables que DESARROLLEN esa misma idea (no ideas distintas).',
+  ],
+  hermanas: [
+    'Propones ideas COMPLEMENTARIAS a una que ya existe: otras ideas distintas que la acompañan bien.',
+    'Propón de 3 a 5 ideas nuevas y hermanas de la dada, ninguna repetida ni una simple variante.',
+  ],
+} as const
+
+/** Tope de texto: un punto de una idea respira más que la etiqueta de un nodo. */
+const TOPE_TEXTO = { nodos: MAX_TEXTO_NODO, puntos: 120, hermanas: 90 } as const
+
+export async function expandirNodo(
+  contexto: string,
+  existentes: string[],
+  matiz: keyof typeof VOZ_EXPANDIR = 'nodos',
+): Promise<string[]> {
   try {
+    const tope = TOPE_TEXTO[matiz]
     const system = [
-      'Eres un cartógrafo de ideas: amplías un mapa conceptual con elementos nuevos.',
-      'Propón de 3 a 5 elementos específicos y distintos entre sí.',
+      ...VOZ_EXPANDIR[matiz],
       existentes.length ? `PROHIBIDO repetir (ni reformulados): ${existentes.slice(0, 60).join(' · ')}` : '',
-      'Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"ideas":["<máx. 6 palabras>"]}',
+      `Responde ÚNICAMENTE con JSON (sin texto extra ni markdown): {"ideas":["<máx. ${tope} caracteres>"]}`,
       'Escribe en el idioma del usuario.',
     ]
       .filter(Boolean)
@@ -411,7 +438,7 @@ export async function expandirNodo(contexto: string, existentes: string[]): Prom
     const res: string[] = []
     for (const x of lista) {
       if (typeof x !== 'string') continue
-      const tx = x.trim().slice(0, MAX_TEXTO_NODO)
+      const tx = x.trim().slice(0, tope)
       if (!tx || vistas.has(clave(tx))) continue
       vistas.add(clave(tx))
       res.push(tx)
@@ -420,4 +447,21 @@ export async function expandirNodo(contexto: string, existentes: string[]): Prom
   } catch {
     return []
   }
+}
+
+/** Más PUNTOS dentro de la misma idea. Nunca lanza (devuelve []). */
+export async function desarrollarIdea(idea: { texto: string; puntos: string[] }): Promise<string[]> {
+  return expandirNodo(`Idea: ${idea.texto}`, idea.puntos, 'puntos')
+}
+
+/** Ideas HERMANAS nuevas para la misma carpeta. Nunca lanza (devuelve []). */
+export async function ideasComplementarias(ctx: {
+  idea: string
+  carpeta?: string
+  hermanas: string[]
+}): Promise<string[]> {
+  const contexto = ctx.carpeta
+    ? `Idea: ${ctx.idea}\nEstá en la carpeta «${ctx.carpeta}» del diario de ideas.`
+    : `Idea: ${ctx.idea}`
+  return expandirNodo(contexto, [ctx.idea, ...ctx.hermanas], 'hermanas')
 }

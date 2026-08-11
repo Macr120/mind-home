@@ -13,7 +13,7 @@ const flujoTrabajo: TutorialDef = {
   titulo: T('tut.app-agenda--trabajo.titulo', 'Trabajo y estudio'),
   resumen: T(
     'tut.app-agenda--trabajo.resumen',
-    'Pendientes sin fecha, eventos agendados, un tablero Kanban y proyectos que agrupan todo lo anterior.',
+    'La bandeja de pendientes sin fecha y un tablero Kanban donde las tarjetas se arrastran de columna.',
   ),
   preparar: () => {
     abrirApp('agenda', 'trabajo')
@@ -31,36 +31,14 @@ const flujoTrabajo: TutorialDef = {
       },
     },
     {
-      sel: 'agenda.trabajo.agendado',
-      titulo: T('tut.app-agenda--trabajo.2.titulo', 'Un año agendado'),
-      texto: T(
-        'tut.app-agenda--trabajo.2.texto',
-        'Turnos en la cafetería, parciales, entregas de laboratorio. Todo lo que lleva fecha aparece solo en el calendario, con el color de su área.',
-      ),
-      alEntrar: () => {
-        clickTut('agenda.trabajo.agendado')
-      },
-    },
-    {
       sel: 'agenda.trabajo.tablero',
       titulo: T('tut.app-agenda--trabajo.3.titulo', 'El tablero'),
       texto: T(
         'tut.app-agenda--trabajo.3.texto',
-        'Los mismos pendientes, en tres columnas: por hacer, en curso y hecho. Arrastrar una tarjeta a «hecho» la palomea también en el calendario.',
+        'Los mismos pendientes, en tres columnas: por hacer, en curso y hecho. Mantén pulsada una tarjeta para arrastrarla a otra columna —soltarla en «hecho» la palomea también en el calendario—, o muévela con las flechas.',
       ),
       alEntrar: () => {
         clickTut('agenda.trabajo.tablero')
-      },
-    },
-    {
-      sel: 'agenda.trabajo.proyectos',
-      titulo: T('tut.app-agenda--trabajo.4.titulo', 'Proyectos'),
-      texto: T(
-        'tut.app-agenda--trabajo.4.texto',
-        'Un proyecto junta sus pendientes y sus eventos: el semestral de física sigue vivo; la web de la cafetería ya está cerrada.',
-      ),
-      alEntrar: () => {
-        clickTut('agenda.trabajo.proyectos')
       },
     },
   ],
@@ -95,14 +73,29 @@ const flujoSalud: TutorialDef = {
         'tut.app-agenda--salud.2.texto',
         'Cada medicamento genera un bloque por toma en el calendario. El antiinflamatorio de la lesión duró tres semanas y quedó archivado; la vitamina sigue.',
       ),
+      alEntrar: () => {
+        clickTut('agenda.salud.sub.yo')
+      },
     },
     {
+      sel: 'agenda.salud.cuidados',
+      titulo: T('tut.app-agenda--salud.4.titulo', 'Lo que se repite'),
+      texto: T(
+        'tut.app-agenda--salud.4.texto',
+        'El chequeo anual, la revisión dental, los análisis: cuidados con periodo propio. Al darlos por hechos la próxima fecha salta sola, así que el calendario nunca apunta a algo que ya hiciste.',
+      ),
+    },
+    {
+      // Las mascotas viven ahora en su propio submenú de Salud.
       sel: 'agenda.salud.mascotas',
       titulo: T('tut.app-agenda--salud.3.titulo', 'Laika'),
       texto: T(
         'tut.app-agenda--salud.3.texto',
         'La gata tiene su ficha con peso y veterinario, y sus cuidados con periodo: vacuna anual, desparasitación cada tres meses, baño cada mes. Al darlos por hechos, la próxima cita se recalcula sola.',
       ),
+      alEntrar: () => {
+        clickTut('agenda.salud.sub.mascotas')
+      },
     },
   ],
 }

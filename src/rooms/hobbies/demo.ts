@@ -6,6 +6,7 @@
  */
 import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_HOBBIES } from './demo.data'
 
 // Hitos del piano (offsets −364..0), alineados con el canon.
@@ -129,4 +130,16 @@ export async function construirDemoHobbies(ctx: CtxDemo): Promise<void> {
       ...(s.dia >= LUNAS_NACE ? { proyectoId: lunasId } : {}),
     })),
   )
+
+  // ── Las metas, cada una en su ámbito ────────────────────────────────────
+  // Aquí el ámbito importa más que en ninguna otra app: el cronograma de
+  // Hobbies se abre DENTRO de un hobby o de un proyecto, así que una meta sin
+  // `ambitoId` no se vería en ninguno de los dos.
+  await sembrarMetasApp(ctx, 'hobbies', {
+    ambitos: {
+      piano: `hobby:${pianoId}`,
+      clair: `proyecto:${clairId}`,
+      lunas: `proyecto:${lunasId}`,
+    },
+  })
 }

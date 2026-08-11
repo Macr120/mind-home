@@ -4,7 +4,7 @@ import { useBienvenida } from '../../bienvenida/bienvenidaStore'
 import { useTutorial } from '../../tutorial/tutorialStore'
 import { useSelectorTut } from '../../tutorial/SelectorTutorial'
 import { TUTORIALES_MENU } from '../../tutorial/menus'
-import { flujosDeApp, lanzarFlujo } from '../../tutorial/registro'
+import { FLUJOS_NUCLEO, flujosDeApp, lanzarFlujo } from '../../tutorial/registro'
 import { plantillasCuarto, plantillasInfraestructura } from '../../registry'
 import { esDemo } from '../../edicion'
 import { entrarDemo } from '../../../demo/modo'
@@ -97,6 +97,33 @@ export function EditorTutorialesSection({
               <Icono nombre="play" />
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* El calendario del reloj: no es una app, pero sus dos tours corren sobre el
+          año de Pep@ igual que los de las apps (por eso van con `lanzarFlujo`). Van
+          antes que las apps, como en el selector del "?". */}
+      <div className="space-y-1.5">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+          {t('ajustes.tutoriales.nucleo', 'El calendario y las metas')}
+        </p>
+        <div className="grid grid-cols-1 gap-1.5">
+          {Object.entries(FLUJOS_NUCLEO).flatMap(([clave, defs]) =>
+            defs.map((def) => (
+              <button
+                key={def.id}
+                type="button"
+                onClick={() => {
+                  useLayout.getState().setEditMode(false)
+                  lanzarFlujo(clave, def)
+                }}
+                className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
+              >
+                <span className="min-w-0 flex-1 truncate">{t(def.titulo.clave, def.titulo.es)}</span>
+                <Icono nombre="play" />
+              </button>
+            )),
+          )}
         </div>
       </div>
 

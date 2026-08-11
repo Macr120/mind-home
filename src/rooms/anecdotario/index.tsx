@@ -1,8 +1,9 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura } from '../../core/registry'
-import { vTexto, vFecha } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/appContrato'
+import { vTexto, vFecha } from '../../core/appContrato'
 import { anecdotasRepo } from '../../core/data/repository'
 import { flujosAnecdotario } from './tutorial'
+import { planMetasAnecdotario } from './plan'
 
 const esquemas: EsquemaCaptura[] = [
   {
@@ -38,6 +39,8 @@ const anecdotario: Plantilla = {
   color: '#a78bfa',
   App: AnecdotarioApp,
   flujos: flujosAnecdotario,
+  // Acotamiento del planificador ✨: aquí el plan es de escritura.
+  planMetas: planMetasAnecdotario,
   esquemas,
   // La app es de página única: el deep link solo la abre (la sección se ignora).
   comandos: [

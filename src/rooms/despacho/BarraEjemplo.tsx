@@ -50,7 +50,7 @@ export function BarraEjemplo({
           type="button"
           onClick={() => void correr(onCargar)}
           disabled={ocupado}
-          className="shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-40"
+          className="shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/55 transition hover:bg-white/10 disabled:opacity-40"
         >
           <Icono nombre="ayuda" /> {t('despacho.ejemplo.cargar', 'Cargar un ejemplo')}
         </button>
@@ -71,7 +71,7 @@ export function BarraEjemplo({
           <button
             type="button"
             onClick={() => setConfirmando(true)}
-            className="shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 hover:text-red-300"
+            className="shrink-0 rounded-lg bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/55 transition hover:bg-white/10 hover:text-red-300"
           >
             <Icono nombre="basura" /> {t('despacho.ejemplo.borrar', 'Borrar el ejemplo')}
           </button>

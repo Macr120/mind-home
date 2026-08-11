@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="widget_hoy_desc">Your day at a glance: schedule and checkable goals.</string>
+    <string name="widget_casa_desc">Your house and today\'s date.</string>
+    <string name="widget_chat_desc">Talk to your house: chat, camera and dictation.</string>
+    <string name="widget_vacio">Open Mind Planner Home to fill this widget.</string>
+    <string name="widget_palomear">Mark as done</string>
+    <string name="widget_chat_abrir">Chat</string>
+    <string name="widget_chat_camara">Send a photo</string>
+    <string name="widget_chat_voz">Dictate</string>
+</resources>

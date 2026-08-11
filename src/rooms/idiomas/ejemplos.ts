@@ -45,6 +45,34 @@ export const ejemploIdiomas: PaqueteEjemplo = {
 
     const idiomaId = await idiomasRepo.add({ ...lengua, nivel: 'A2', creadoEn: creado, ejemploDe: ID })
 
+    // Dos temas propios colgando del nivel A2 del temario. Van ANTES que las
+    // tarjetas porque cada tarjeta nace ya clasificada en uno de ellos: el
+    // vocabulario vive dentro del temario.
+    const tema1 = `din-ej-${idiomaId}-1`
+    const tema2 = `din-ej-${idiomaId}-2`
+    await temasIdiomaRepo.add({
+      temaId: tema1,
+      idiomaId,
+      nivel: 'A2',
+      area: 'temas',
+      padreId: null,
+      titulo: T.tema1Titulo,
+      descripcion: T.tema1Desc,
+      creadoEn: creado,
+      ejemploDe: ID,
+    })
+    await temasIdiomaRepo.add({
+      temaId: tema2,
+      idiomaId,
+      nivel: 'A2',
+      area: 'temas',
+      padreId: null,
+      titulo: T.tema2Titulo,
+      descripcion: T.tema2Desc,
+      creadoEn: creado,
+      ejemploDe: ID,
+    })
+
     const imagen = await fotoEjemplo('idiomas.tarjeta')
     for (const t of TARJETAS) {
       await tarjetasIdiomaRepo.add({
@@ -55,6 +83,7 @@ export const ejemploIdiomas: PaqueteEjemplo = {
         // La imagen mnemotécnica solo en una: es un extra, no la norma.
         imagen: t.n === 5 ? imagen : undefined,
         tipo: t.tipo,
+        temaId: t.n <= 3 ? tema1 : tema2,
         nivel: 'A2',
         caja: t.caja,
         proximaISO: isoMasDias(hoy, t.proxima),
@@ -65,26 +94,5 @@ export const ejemploIdiomas: PaqueteEjemplo = {
       })
     }
 
-    // Dos temas propios colgando del nivel A2 del temario.
-    await temasIdiomaRepo.add({
-      temaId: `din-ej-${idiomaId}-1`,
-      idiomaId,
-      nivel: 'A2',
-      padreId: null,
-      titulo: T.tema1Titulo,
-      descripcion: T.tema1Desc,
-      creadoEn: creado,
-      ejemploDe: ID,
-    })
-    await temasIdiomaRepo.add({
-      temaId: `din-ej-${idiomaId}-2`,
-      idiomaId,
-      nivel: 'A2',
-      padreId: null,
-      titulo: T.tema2Titulo,
-      descripcion: T.tema2Desc,
-      creadoEn: creado,
-      ejemploDe: ID,
-    })
   },
 }

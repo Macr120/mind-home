@@ -359,11 +359,11 @@ export function RelojWidget() {
   const cielo = estadoCielo(minutos)
   const abrirCalendario = useRutinasUI((s) => s.abrirCalendario)
   return (
-    <div data-tut="reloj.widget" data-tut-zona="reloj-calendario" className="pointer-events-auto relative select-none">
+    <div data-tut="reloj.widget" data-tut-zona="calendario" className="pointer-events-auto relative select-none">
       <div className="ui-hud flex items-center gap-0.5 rounded-xl border border-white/10 px-2 py-1">
         <button
           type="button"
-          onClick={abrirCalendario}
+          onClick={() => abrirCalendario()}
           title={t('ciclo.abrirCal', 'Abrir calendario de rutinas')}
           className="rounded-lg px-1.5 py-0.5 text-left transition hover:bg-white/10"
         >

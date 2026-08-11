@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import { VACIO, metasRepo } from '../../core/data/repository'
 import { money, money2 } from './mes'
+import { pagoFrances, tablaAmortizacion } from './proyeccion'
+import { CampoDinero, INPUT, TARJETA } from './ui'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 
@@ -51,17 +53,17 @@ export function SimCompuesto() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 grid grid-cols-2 gap-3">
-        <Campo label={t('despacho.s.inicial', 'Capital inicial $')} valor={inicial} setValor={setInicial} />
-        <Campo label={t('despacho.s.aporteMes', 'Aportación mensual $')} valor={aporte} setValor={setAporte} />
+      <div className={`${TARJETA} grid grid-cols-2 gap-3`}>
+        <Campo dinero label={t('despacho.s.inicial', 'Capital inicial')} valor={inicial} setValor={setInicial} />
+        <Campo dinero label={t('despacho.s.aporteMes', 'Aportación mensual')} valor={aporte} setValor={setAporte} />
         <Campo label={t('despacho.s.tasaAnual', 'Tasa anual %')} valor={tasa} setValor={setTasa} />
         <Campo label={t('despacho.s.anos', 'Años')} valor={anos} setValor={setAnos} />
         <label className="col-span-2 block">
-          <span className="text-xs text-white/50">{t('despacho.s.capitalizacion', 'Capitalización')}</span>
+          <span className="text-xs text-white/55">{t('despacho.s.capitalizacion', 'Capitalización')}</span>
           <select
             value={capitalizacion}
             onChange={(e) => setCapitalizacion(e.target.value)}
-            className="mt-1 w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
+            className={`mt-1 ${INPUT}`}
           >
             <option value="12">{t('despacho.s.cap.12', 'Mensual')}</option>
             <option value="4">{t('despacho.s.cap.4', 'Trimestral')}</option>
@@ -102,8 +104,8 @@ function GraficaApilada({
   const max = Math.max(1, ...filas.map((f) => f.saldo))
   const paso = Math.ceil(filas.length / 12)
   return (
-    <div className="rounded-xl bg-white/5 p-4 border border-white/10">
-      <div className="flex items-center gap-4 text-xs text-white/60 mb-3">
+    <div className={TARJETA}>
+      <div className="flex items-center gap-4 text-xs text-white/55 mb-3">
         <span className="flex items-center gap-1.5">
           <span className="h-2.5 w-2.5 rounded-sm" style={{ background: '#60a5fa' }} />
           {t('despacho.s.aportado', 'Aportado')}
@@ -136,10 +138,10 @@ function GraficaApilada({
   )
 }
 
-function TablaAnual({ columnas, filas }: { columnas: string[]; filas: string[][] }) {
+export function TablaAnual({ columnas, filas }: { columnas: string[]; filas: string[][] }) {
   const t = useT()
   return (
-    <div className="rounded-xl bg-white/5 p-4 border border-white/10">
+    <div className={TARJETA}>
       <p className="text-sm font-semibold mb-2">{t('despacho.s.porAno', 'Año por año')}</p>
       <div className="max-h-56 overflow-y-auto">
         <table className="w-full text-xs">
@@ -192,8 +194,8 @@ export function SimSimple() {
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 grid grid-cols-3 gap-3">
-        <Campo label={t('despacho.s.inicial', 'Capital inicial $')} valor={capital} setValor={setCapital} />
+      <div className={`${TARJETA} grid grid-cols-3 gap-3`}>
+        <Campo dinero label={t('despacho.s.inicial', 'Capital inicial')} valor={capital} setValor={setCapital} />
         <Campo label={t('despacho.s.tasaAnual', 'Tasa anual %')} valor={tasa} setValor={setTasa} />
         <Campo label={t('despacho.s.anos', 'Años')} valor={anos} setValor={setAnos} />
       </div>
@@ -203,7 +205,7 @@ export function SimSimple() {
         <Resultado titulo={t('despacho.s.total', 'Total final')} valor={money(r.total)} color="#60a5fa" />
       </div>
 
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10">
+      <div className={TARJETA}>
         <p className="text-sm text-white/70">
           {t(
             'despacho.s.vsCompuesto',
@@ -211,7 +213,7 @@ export function SimSimple() {
             { x: money(r.compuesto), d: money(r.compuesto - r.total) },
           )}
         </p>
-        <div className="flex items-center gap-4 text-xs text-white/60 mt-3 mb-2">
+        <div className="flex items-center gap-4 text-xs text-white/55 mt-3 mb-2">
           <span className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded-sm" style={{ background: '#60a5fa' }} />
             {t('despacho.s.simple', 'Simple')}
@@ -266,34 +268,32 @@ export function SimCredito() {
     const C = num(monto)
     const i = num(tasa) / 100 / 12
     const n = Math.min(600, Math.max(1, Math.round(num(plazo))))
-    const pago = i === 0 ? C / n : (C * i) / (1 - Math.pow(1 + i, -n))
-    let saldo = C
+    const pago = pagoFrances(C, i, n)
+    const meses = tablaAmortizacion(C, i, pago, n)
     const filas: { ano: number; interes: number; capital: number; saldo: number }[] = []
     let intAno = 0
     let capAno = 0
-    for (let k = 1; k <= n; k++) {
-      const int = saldo * i
-      const cap = pago - int
-      saldo = Math.max(0, saldo - cap)
-      intAno += int
-      capAno += cap
-      if (k % 12 === 0 || k === n) {
-        filas.push({ ano: Math.ceil(k / 12), interes: intAno, capital: capAno, saldo })
+    meses.forEach((m, idx) => {
+      const k = idx + 1
+      intAno += m.interes
+      capAno += m.capital
+      if (k % 12 === 0 || k === meses.length) {
+        filas.push({ ano: Math.ceil(k / 12), interes: intAno, capital: capAno, saldo: m.saldo })
         intAno = 0
         capAno = 0
       }
-    }
+    })
     return { pago, total: pago * n, intereses: pago * n - C, filas }
   }, [monto, tasa, plazo])
 
   return (
     <div className="space-y-4">
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
+      <div className={`${TARJETA} space-y-3`}>
         {deudas.length > 0 && (
           <select
             defaultValue=""
             onChange={(e) => usarDeuda(e.target.value)}
-            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
+            className={INPUT}
           >
             <option value="">{t('despacho.s.usarDeuda', 'Usar una de tus deudas…')}</option>
             {deudas.map((d) => (
@@ -304,14 +304,14 @@ export function SimCredito() {
           </select>
         )}
         <div className="grid grid-cols-3 gap-3">
-          <Campo label={t('despacho.s.montoCredito', 'Monto del crédito $')} valor={monto} setValor={setMonto} />
+          <Campo dinero label={t('despacho.s.montoCredito', 'Monto del crédito')} valor={monto} setValor={setMonto} />
           <Campo label={t('despacho.s.tasaAnual', 'Tasa anual %')} valor={tasa} setValor={setTasa} />
           <Campo label={t('despacho.s.plazoMeses', 'Plazo (meses)')} valor={plazo} setValor={setPlazo} />
         </div>
       </div>
 
-      <div className="rounded-xl bg-white/5 p-4 border border-white/10 text-center">
-        <p className="text-xs text-white/50">{t('despacho.s.mensualidad', 'Mensualidad')}</p>
+      <div className={`${TARJETA} text-center`}>
+        <p className="text-xs text-white/55">{t('despacho.s.mensualidad', 'Mensualidad')}</p>
         <p className="text-3xl font-bold text-amber-400 mt-1">{money2(r.pago)}</p>
       </div>
 
@@ -339,21 +339,31 @@ export function Campo({
   label,
   valor,
   setValor,
+  dinero,
 }: {
   label: string
   valor: string
   setValor: (v: string) => void
+  /** Monto en $: con el prefijo y las comas de miles de `CampoDinero`. */
+  dinero?: boolean
 }) {
   return (
     <label className="block">
-      <span className="text-xs text-white/50">{label}</span>
-      <input
-        type="number"
-        min="0"
-        value={valor}
-        onChange={(e) => setValor(e.target.value)}
-        className="mt-1 w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30"
-      />
+      <span className="text-xs text-white/55">{label}</span>
+      {dinero ? (
+        <span className="mt-1 block">
+          <CampoDinero valor={valor} onValor={setValor} aria-label={label} />
+        </span>
+      ) : (
+        <input
+          type="number"
+          min="0"
+          inputMode="decimal"
+          value={valor}
+          onChange={(e) => setValor(e.target.value)}
+          className={`mt-1 ${INPUT}`}
+        />
+      )}
     </label>
   )
 }
@@ -361,7 +371,7 @@ export function Campo({
 export function Resultado({ titulo, valor, color }: { titulo: string; valor: string; color: string }) {
   return (
     <div className="rounded-xl bg-white/5 p-3 border border-white/10">
-      <p className="text-xs text-white/50">{titulo}</p>
+      <p className="text-xs text-white/55">{titulo}</p>
       <p className="texto-vivo text-lg font-bold" style={vivo(color)}>
         {valor}
       </p>

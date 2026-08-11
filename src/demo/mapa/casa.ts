@@ -1,7 +1,8 @@
 /**
  * Cuadrante 1 · La casa de Pep@ (cols 0-5, rows 0-5).
  *
- * Los 15 cuartos con app viven en cols 1-3 × rows 1-3 (planta baja 3×3) y
+ * Los 15 cuartos con app viven en cols 1-3 × rows 1-3 (planta baja 3×3, ya sin
+ * hueco: el centro es la sala de cómputo) y
  * cols 1-2 × rows 1-3 (piso 1, 2×3): la columna 3 queda descubierta para que
  * se vean los techos de abajo. El resto del cuadrante es su terreno: andador,
  * cochera y jardín delantero.
@@ -32,7 +33,10 @@ const PLANTA_BAJA: { app: string; col: number; row: number }[] = [
   { app: 'sala', col: 2, row: 1 },
   { app: 'entretenimiento', col: 3, row: 1 },
   { app: 'despacho', col: 1, row: 2 },
-  { app: 'calendario', col: 2, row: 2 },
+  // El centro era el cuarto del Calendario, luego quedó vacío y ahora es la sala
+  // de cómputo. Por aquí sube la ESCALERA (esquina NE), así que su estación va
+  // al lado oeste — ver el comentario de `SIEMBRA.computo`.
+  { app: 'computo', col: 2, row: 2 },
   { app: 'agenda', col: 3, row: 2 },
   { app: 'ejercicio', col: 1, row: 3 },
   { app: 'diario', col: 2, row: 3 },
@@ -69,10 +73,15 @@ export async function construirCasa({
   for (const c of PLANTA_BAJA) ids[c.app] = await crearCuartoApp(c.app, c.col, c.row, 0)
   for (const c of PISO_UNO) ids[c.app] = await crearCuartoApp(c.app, c.col, c.row, 1)
 
-  // Escalera al piso 1 por el centro (calendario ↔ idiomas): abre el muro de
-  // subida y el de bajada — la única vía que hace ambos.
+  // Escalera al piso 1 por el centro (la sala de cómputo ↔ idiomas).
   L().pedirAccesoNivel(1, 2, 2)
   await L().confirmarAccesoNivel('escalera')
+  // La esquina que mira al centro (SE, la que elige confirmarAccesoNivel por defecto)
+  // queda pegada a las DOS ventanas de idiomas (E y S); la de al lado (NE) solo roza una.
+  const escaleraPisoUno = L().accesos.find((a) => a.nivel === 1)
+  if (escaleraPisoUno?.id != null) {
+    await L().moveAcceso(escaleraPisoUno.id, { col: 2, row: 2 }, { esquina: 'NE' })
+  }
 
   // ── Figuras: tres esquinas redondeadas y dos chaflanes rectos ────────────
   await L().pintarSubformaCelda(ids.cocina, 0, 0, 0, 'circular') // NO de la casa
@@ -120,7 +129,7 @@ export async function construirCasa({
   await piso(ids.entretenimiento, 'grid_neon') // arcade
   await piso(ids.garage, 'cemento', '#8b949e')
   await piso(ids.idiomas, 'mosaico')
-  await piso(ids.calendario, 'mosaico')
+  await piso(ids.computo, 'mosaico')
   await piso(ids.hobbies, 'madera')
   await piso(ids.agenda, 'madera')
   await piso(ids.ideas, 'mosaico', '#cdd6e0')

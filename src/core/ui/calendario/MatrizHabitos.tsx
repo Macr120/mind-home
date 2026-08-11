@@ -40,7 +40,9 @@ export function MatrizHabitos({
   const [abierto, setAbierto] = useState(false)
   const { columnas, filas } = metricas
   const visibles = abierto ? filas : filas.slice(0, TOPE_FILAS)
-  const cols = `minmax(6rem, 1fr) repeat(${columnas.length}, 1.75rem)`
+  // La columna del hábito se acota (no se lleva todo el espacio libre como antes):
+  // así las columnas de días se reparten el resto en vez de apretarse a la derecha.
+  const cols = `minmax(6rem, 18rem) repeat(${columnas.length}, minmax(1.75rem, 1fr))`
 
   return (
     <div className="overflow-x-auto">

@@ -25,6 +25,62 @@
 
         </activity>
 
+        <!-- Widgets de pantalla de inicio (ver src/core/widgets/ y widgets/ en java) -->
+        <receiver
+            android:name=".widgets.HoyWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_hoy_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widgets.CasaWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_casa_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widgets.ChatWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_chat_info" />
+        </receiver>
+
+        <service
+            android:name=".widgets.HoyWidgetService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <receiver
+            android:name=".widgets.WidgetAccionReceiver"
+            android:exported="false" />
+
+        <!-- Cascarón vacío: no lee notificaciones. Solo existe porque
+             MediaSessionManager.getActiveSessions() exige un listener habilitado
+             para dejar ver qué canción suena (ver media/MediaSesionPlugin.java). -->
+        <service
+            android:name=".media.MphNotificationListener"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -39,4 +95,6 @@
     <!-- Permissions -->
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Dictado por voz (fallback de Whisper: SpeechRecognition no existe en este WebView) -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 </manifest>

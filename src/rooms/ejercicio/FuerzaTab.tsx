@@ -407,7 +407,7 @@ export function FuerzaTab({
             onChange={setPeriodo}
             acento="bg-orange-500/25 text-orange-400 border border-orange-500/40"
           />
-          <div data-tut="ejercicio.progreso.panel" className="grid grid-cols-2 gap-3">
+          <div data-tut="ejercicio.fuerza.progreso" className="grid grid-cols-2 gap-3">
             <HeatmapMensual sesiones={sesiones} tipo="fuerza" color="#f97316" />
             <div className="grid grid-rows-2 gap-3">
               <StatCard

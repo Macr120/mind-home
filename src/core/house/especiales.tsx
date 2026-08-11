@@ -2,15 +2,10 @@ import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 
 import { useFrame, useLoader } from '@react-three/fiber'
 import { MeshReflectorMaterial } from '@react-three/drei'
 import * as THREE from 'three'
-import { useDiseño, esObjetoMapa } from '../state/disenoStore'
-import { useHouse, playerPos } from '../state/houseStore'
-import { useLayout } from '../state/layoutStore'
-import { useMontura } from '../state/monturaStore'
-import { trenFrame } from '../state/trenStore'
+import { playerPos } from '../state/houseStore'
 import { useParque, parqueFrame, esJuegoParque, ESCALA_JUEGO, anguloColumpio } from '../state/parqueStore'
 import { TIPO_FLOTADOR } from '../state/flotadorStore'
 import { esEspecialPlantilla } from './especialesPlantillaMeta'
-import { dragChar } from './characterDrag'
 import { useCiclo } from '../state/cicloStore'
 import { estadoCielo } from './cielo'
 
@@ -746,40 +741,9 @@ export function Columpio({ color, objetoId }: { color: string; objetoId?: number
   )
 }
 
-/** Distancia al centro de un juego para activarlo al acercarse (sin botón). */
-const RADIO_ABORDAR = 2.6
-
-/**
- * Activa el juego de parque más cercano al CAMINAR hacia él (a pie, planta baja,
- * sin editor ni transición): no hay botón, se entra "de forma natural". Tras
- * bajarse (`parqueFrame.recienId`) no se re-activa hasta alejarse.
- */
-let accParque = 0
-export function ParqueProximity() {
-  useFrame((_st3f, delta) => {
-    // Sondeo ~4 veces/s: recorrer todos los objetos a 60 Hz era carísimo en móviles.
-    accParque += delta
-    if (accParque < 0.25) return
-    accParque = 0
-    const parque = useParque.getState()
-    if (parque.instanciaId != null) return // ya jugando
-    if (useMontura.getState().instanciaId != null) return // en un vehículo
-    if (trenFrame.montado) return // arriba del tren/carrito
-    const { transicion, playerLevel } = useHouse.getState()
-    if (transicion || playerLevel !== 0 || useLayout.getState().editMode || dragChar.id) return
-    let mejor: { o: import('../data/db').ObjetoCuarto; d: number } | null = null
-    let recienCerca = false
-    for (const o of useDiseño.getState().objetos) {
-      if (o.id == null || !esObjetoMapa(o) || !esJuegoParque(o.tipo)) continue
-      const d = Math.hypot(playerPos.x - (o.x ?? 0), playerPos.z - (o.z ?? 0))
-      if (o.id === parqueFrame.recienId && d <= RADIO_ABORDAR + 0.7) recienCerca = true
-      if (d <= RADIO_ABORDAR && (!mejor || d < mejor.d)) mejor = { o, d }
-    }
-    if (!recienCerca) parqueFrame.recienId = null // se alejó del último usado
-    if (mejor && mejor.o.id !== parqueFrame.recienId) parque.usar(mejor.o)
-  })
-  return null
-}
+// Los juegos del parque ya NO se abordan solos al caminar hacia ellos: el botón
+// «Subirte» del hueco del cubo los ofrece al acercarte (ver `ContextoProximity`),
+// igual que el resto de la casa. El radio vive ahí.
 
 /* ─────────────────────────── Iluminación ───────────────────────────
  * Objetos que emiten luz REAL (pointLight propio, sin sombras): antorcha,

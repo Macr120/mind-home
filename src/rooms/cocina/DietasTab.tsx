@@ -41,7 +41,7 @@ function tramosReparto(dieta: DietaGuardada, t: (clave: string, es: string) => s
   ] as const
 }
 
-/** Píldoras «25% proteína» — el reparto de un vistazo; lo reusa el plan alimenticio de Metas. */
+/** Píldoras «25% proteína» — el reparto de un vistazo. */
 export function ChipsReparto({ dieta }: { dieta: DietaGuardada }) {
   const t = useT()
   const tramos = tramosReparto(dieta, t)
@@ -117,6 +117,7 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
             dieta se puede pedir hecha (con sus recetas y sus fotos). */}
         <button
           type="button"
+          data-tut="cocina.ia.dieta"
           onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
           disabled={!iaActiva()}
           className="flex-1 rounded-xl bg-amber-600 texto-cta py-2.5 text-sm font-bold hover:brightness-110 disabled:opacity-40"

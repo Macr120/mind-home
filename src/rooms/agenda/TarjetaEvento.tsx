@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { ContactoAgenda, EventoAgenda, Mascota, ProyectoAgenda } from '../../core/data/db'
+import type { ContactoAgenda, EventoAgenda, Mascota } from '../../core/data/db'
 import { deIso } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -13,13 +13,11 @@ import { BotonBorrar } from './ui'
 export function TarjetaEvento({
   ev,
   contactos,
-  proyectos,
   mascotas = [],
   onEditar,
 }: {
   ev: EventoAgenda
   contactos: ContactoAgenda[]
-  proyectos: ProyectoAgenda[]
   /** Solo lo pasa la lista de Salud: dentro de la ficha de la mascota sobra. */
   mascotas?: Mascota[]
   onEditar: () => void
@@ -27,7 +25,6 @@ export function TarjetaEvento({
   const t = useT()
   const [confirmando, setConfirmando] = useState(false)
   const contacto = contactos.find((c) => c.contactoId === ev.contactoId)
-  const proyecto = proyectos.find((p) => p.proyId === ev.proyectoId)
   const mascota = mascotas.find((m) => m.mascId === ev.mascotaId)
   const prioridad = PRIORIDADES.find((p) => p.valor === (ev.prioridad ?? 2))
 
@@ -81,14 +78,6 @@ export function TarjetaEvento({
               style={{ background: `${COLOR_AREA.salud}33` }}
             >
               <Icono nombre={getEspecie(mascota.especie).icono} /> {mascota.nombre}
-            </span>
-          )}
-          {proyecto && (
-            <span
-              className="rounded-full px-1.5 py-0.5 text-[10px] font-semibold"
-              style={{ background: `${proyecto.color ?? COLOR_AREA.trabajo}33` }}
-            >
-              {proyecto.nombre}
             </span>
           )}
         </div>

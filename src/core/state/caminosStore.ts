@@ -10,8 +10,12 @@ import { usePistaLibreEditor } from './pistaLibreStore'
 export type TipoCamino = CaminoCelda['tipo']
 export type HerramientaCamino = 'pintar' | 'borrar' | 'subir' | 'bajar' | 'meta'
 
-/** Nivel máximo de altura de la montaña rusa (cada nivel = ALTURA_NIVEL unidades). */
-export const ALTURA_MAX_COASTER = 6
+/**
+ * Nivel máximo de altura por tipo de camino (cada nivel = ALTURA_NIVEL unidades).
+ * La pista de carreras se queda en UN escalón: es para correr, no para volar;
+ * las rampas altas la volvían inconducible. Riel y montaña rusa sí trepan.
+ */
+export const ALTURA_MAX: Record<TipoCamino, number> = { pista: 1, riel: 6, coaster: 6 }
 /** Metros de mundo que sube cada nivel de altura del riel. */
 export const ALTURA_NIVEL = 0.6
 
@@ -84,10 +88,10 @@ export const useCaminos = create<CaminosState>((set, get) => ({
       return
     }
     if (herramienta === 'subir' || herramienta === 'bajar') {
-      // La altura aplica a los 3 tipos: coaster, y pista/riel elevados con rampas.
+      // La altura aplica a los 3 tipos, pero cada uno con su tope (ALTURA_MAX).
       if (previa?.id == null) return
       const delta = herramienta === 'subir' ? 1 : -1
-      const altura = Math.min(ALTURA_MAX_COASTER, Math.max(0, (previa.altura ?? 0) + delta))
+      const altura = Math.min(ALTURA_MAX[previa.tipo], Math.max(0, (previa.altura ?? 0) + delta))
       await db.caminos.update(previa.id, { altura })
       return
     }
@@ -110,9 +114,12 @@ export const useCaminos = create<CaminosState>((set, get) => ({
     // Pintar: coloca el tramo, o reemplaza el tipo si la celda ya tenía otro.
     if (previa?.id != null) {
       if (previa.tipo !== tipo) {
-        // La altura se conserva al cambiar de tipo (los 3 la usan).
+        // La altura se conserva al cambiar de tipo (los 3 la usan), recortada al
+        // tope del tipo NUEVO: una montaña rusa a nivel 6 no puede quedar de pista.
+        const altura = Math.min(previa.altura ?? 0, ALTURA_MAX[tipo])
         await db.caminos.update(previa.id, {
           tipo,
+          altura,
           // La línea de meta solo vive sobre pista.
           ...(tipo !== 'pista' && previa.meta ? { meta: undefined } : {}),
         })

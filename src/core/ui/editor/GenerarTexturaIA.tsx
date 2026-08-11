@@ -33,6 +33,18 @@ const SUGERENCIAS: Record<SuperficieTextura, { clave: string; es: string }[]> = 
     { clave: 'ciudad', es: 'ciudad de noche' },
     { clave: 'campo', es: 'campo con nubes' },
   ],
+  mapa: [
+    { clave: 'cesped', es: 'césped recortado' },
+    { clave: 'arena', es: 'arena de playa' },
+    { clave: 'asfalto', es: 'asfalto de ciudad' },
+    { clave: 'isla', es: 'isla vista desde arriba' },
+  ],
+  puerta: [
+    { clave: 'puertaMadera', es: 'madera con cuarterones' },
+    { clave: 'puertaMetal', es: 'metal industrial' },
+    { clave: 'puertaPintada', es: 'pintada de color' },
+    { clave: 'puertaRustica', es: 'rústica de tablones' },
+  ],
 }
 
 /**

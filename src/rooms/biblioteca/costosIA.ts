@@ -1,9 +1,10 @@
 import type { OperacionIA } from '../../core/cuenta/catalogoIA'
 
 /**
- * Lo que cuesta la IA en Biblioteca. El único caso con dos llamadas es el
- * primer turno de una charla nueva: además de responder, la IA la clasifica y la
- * cuelga del nodo que le toca en tu árbol (`arbol.ts::ubicarCharla`).
+ * Lo que cuesta la IA en Biblioteca. El caso más caro es el primer turno de una
+ * charla nueva: además de responder, la IA la clasifica, la cuelga del nodo que
+ * le toca en tu árbol y la deja destilada como entrada
+ * (`arbol.ts::clasificarYDestilar`).
  */
 
 export const OP_CHARLA: OperacionIA = {
@@ -22,34 +23,45 @@ export const OP_CHARLA_NUEVA: OperacionIA = {
   dondeClave: 'ia.donde.biblioteca.charlas',
   dondeEs: 'Charlas',
   notaClave: 'ia.op.biblioteca.charlaNueva.nota',
-  notaEs: 'La respuesta, más la llamada que la titula y la coloca en tu árbol.',
-  partes: [{ op: 'texto', veces: 2 }],
+  notaEs: 'La respuesta, más la llamada que la titula y la coloca en tu árbol, más la que destila su entrada.',
+  partes: [{ op: 'texto', veces: 3 }],
 }
 
 export const OP_CLASIFICAR: OperacionIA = {
   id: 'biblioteca.clasificar',
   clave: 'ia.op.biblioteca.clasificar',
-  es: 'Clasificar una charla ✨',
+  es: 'Clasificar y destilar una charla ✨',
   dondeClave: 'ia.donde.biblioteca.charlas',
   dondeEs: 'Charlas',
-  partes: [{ op: 'texto' }],
+  partes: [{ op: 'texto', veces: 2 }],
 }
 
 export const OP_RAMIFICAR: OperacionIA = {
   id: 'biblioteca.ramificar',
   clave: 'ia.op.biblioteca.ramificar',
   es: 'Ramificar el árbol 🌿',
-  dondeClave: 'ia.donde.biblioteca.charlas',
-  dondeEs: 'Charlas',
+  dondeClave: 'ia.donde.biblioteca.enciclopedia',
+  dondeEs: 'Enciclopedia',
   partes: [{ op: 'texto' }],
 }
 
 export const OP_DESTILAR: OperacionIA = {
   id: 'biblioteca.destilar',
   clave: 'ia.op.biblioteca.destilar',
-  es: 'Destilar a entrada de enciclopedia',
+  es: 'Actualizar la entrada al salir de la charla',
   dondeClave: 'ia.donde.biblioteca.charlas',
   dondeEs: 'Charlas',
+  notaClave: 'ia.op.biblioteca.destilar.nota',
+  notaEs: 'Solo si la charla creció después de destilarse.',
+  partes: [{ op: 'texto' }],
+}
+
+export const OP_MATERIAL: OperacionIA = {
+  id: 'biblioteca.material',
+  clave: 'ia.op.biblioteca.material',
+  es: 'Generar material de estudio de una entrada',
+  dondeClave: 'ia.donde.biblioteca.enciclopedia',
+  dondeEs: 'Enciclopedia',
   partes: [{ op: 'texto' }],
 }
 
@@ -68,5 +80,6 @@ export const OPERACIONES_IA: OperacionIA[] = [
   OP_CLASIFICAR,
   OP_RAMIFICAR,
   OP_DESTILAR,
+  OP_MATERIAL,
   OP_ILUSTRAR,
 ]

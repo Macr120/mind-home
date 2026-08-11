@@ -25,10 +25,16 @@ async function abrirVehiculo(tipo: 'bicicleta' | 'auto'): Promise<void> {
 }
 
 /** Vuelve al garaje y abre una de sus pestañas (sirva o no desde un detalle). */
-async function irAPestana(tab: 'resumen' | 'vehiculos' | 'talleres'): Promise<void> {
+async function irAPestana(tab: 'resumen' | 'vehiculos'): Promise<void> {
   clickTut('garage.detalle.volver')
   await esperarTut(`garage.tab.${tab}`, 3000)
   clickTut(`garage.tab.${tab}`)
+}
+
+/** Abre uno de los tres cuadernos de la ficha (ya estando dentro de un vehículo). */
+async function irACuaderno(tab: 'tramites' | 'documentos' | 'contactos'): Promise<void> {
+  await esperarTut(`garage.detalle.tab.${tab}`, 3000)
+  clickTut(`garage.detalle.tab.${tab}`)
 }
 
 const flujoVehiculos: TutorialDef = {
@@ -60,12 +66,21 @@ const flujoVehiculos: TutorialDef = {
       ),
     },
     {
+      sel: 'garage.veh.alta',
+      titulo: T('tut.app-garage--vehiculos.2b.titulo', 'Dar de alta uno nuevo'),
+      texto: T(
+        'tut.app-garage--vehiculos.2b.texto',
+        'Nombre, tipo, marca, modelo, año, placas y el odómetro de hoy. Con las placas puestas, el garaje sabe qué trámites ofrecerte más adelante.',
+      ),
+      alEntrar: () => irAPestana('vehiculos'),
+    },
+    {
       sel: 'garage.detalle.historial',
       alEntrar: () => abrirVehiculo('bicicleta'),
       titulo: T('tut.app-garage--vehiculos.3.titulo', 'La bici de todos los días'),
       texto: T(
         'tut.app-garage--vehiculos.3.texto',
-        'Su transporte real: cadena, cámaras, frenos. Fíjate cómo los servicios se juntan en los últimos meses — es el entrenamiento del maratón pasándole factura.',
+        'Su transporte real: cadena, cámaras, frenos, uno por uno en su propio renglón — el mismo archivador de carpetas por año y mes que usan otras apps. Fíjate cómo los servicios se juntan en los últimos meses: es el entrenamiento del maratón pasándole factura.',
       ),
     },
     {
@@ -118,8 +133,20 @@ const flujoTramites: TutorialDef = {
       ),
     },
     {
+      sel: 'garage.documentos',
+      alEntrar: async () => {
+        await abrirVehiculo('auto')
+        await irACuaderno('documentos')
+      },
+      titulo: T('tut.app-garage--tramites.2b.titulo', 'Los papeles, aparte'),
+      texto: T(
+        'tut.app-garage--tramites.2b.texto',
+        'La tarjeta de circulación, la póliza y la tenencia no se mezclan con lo que se hace en el taller: tienen su propio cuaderno, con folio, vencimiento y aviso previo.',
+      ),
+    },
+    {
       sel: 'garage.talleres',
-      alEntrar: () => irAPestana('talleres'),
+      alEntrar: () => irACuaderno('contactos'),
       titulo: T('tut.app-garage--tramites.3.titulo', 'La libreta'),
       texto: T(
         'tut.app-garage--tramites.3.texto',

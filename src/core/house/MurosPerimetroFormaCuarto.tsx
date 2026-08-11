@@ -129,6 +129,7 @@ export function MurosPerimetroFormaCuarto({
   roomId,
   nivel,
   fotoCuadroDe,
+  fotoPuertaDe,
   seleccion,
   hover,
 }: {
@@ -153,6 +154,8 @@ export function MurosPerimetroFormaCuarto({
   nivel?: number
   /** Foto del cuadro empotrado por clave de arista (la resuelve Room3D). */
   fotoCuadroDe?: (clave: string) => string | undefined
+  /** Imagen de la hoja de puerta por clave de arista (la resuelve Room3D). */
+  fotoPuertaDe?: (clave: string) => string | undefined
   /** Selección de plano: la curva/diagonal cuya arista representativa esté seleccionada se tiñe de ámbar. */
   seleccion?: { tipo: string; roomId?: string; off?: { col: number; row: number }; side?: string } | null
   /** Muro bajo el cursor (hover): la curva/diagonal correspondiente se tiñe de ámbar. */
@@ -444,6 +447,7 @@ export function MurosPerimetroFormaCuarto({
               nivel={nivel}
               mundoOffset={mundoOffset}
               remate={remateHoja}
+              fotoUrl={key ? fotoPuertaDe?.(key) : undefined}
             />
           ) : null
 

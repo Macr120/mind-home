@@ -44,10 +44,19 @@ function taparTermino(ejemplo: string, termino: string): string {
  * Genera hasta n ejercicios del modo dado. Requiere ≥4 tarjetas en el idioma
  * (3 distractores + la respuesta); las preguntas sin distractores suficientes
  * se descartan. Devuelve [] si no alcanza.
+ *
+ * `foco` acota lo que se PREGUNTA (las tarjetas de un tema del temario o las
+ * vencidas hoy) sin tocar de dónde salen los distractores: si no, un tema con
+ * cinco tarjetas se repetiría como opción en todas sus preguntas.
  */
-export function generarEjercicios(tarjetas: TarjetaIdioma[], modo: ModoEjercicio, n: number): Ejercicio[] {
+export function generarEjercicios(
+  tarjetas: TarjetaIdioma[],
+  modo: ModoEjercicio,
+  n: number,
+  foco: TarjetaIdioma[] = tarjetas,
+): Ejercicio[] {
   if (tarjetas.length < 4) return []
-  const base = modo === 'cloze' ? tarjetasConCloze(tarjetas) : tarjetas
+  const base = modo === 'cloze' ? tarjetasConCloze(foco) : foco
   return barajar(base)
     .slice(0, n)
     .map((t) => {

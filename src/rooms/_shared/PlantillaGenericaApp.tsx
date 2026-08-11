@@ -1,6 +1,6 @@
 import { Icono } from '../../core/ui/iconos/Icono'
-import { useMemo, useState } from 'react'
-import type { BloqueDef, ItemPlantilla, TipoBloque } from '../../core/data/db'
+import { lazy, Suspense, useMemo, useState } from 'react'
+import type { BloqueDef, ItemPlantilla } from '../../core/data/db'
 import {
   alternarHabitoDia,
   itemsPlantillaRepo,
@@ -8,25 +8,26 @@ import {
   useItemsPlantilla,
 } from '../../core/data/repository'
 import { usePlantillasCustom } from '../../core/state/plantillasCustomStore'
+import { tabInicial } from '../../core/state/intencionApp'
+import {
+  bloquesDe,
+  idsSeccion,
+  menusRaiz,
+  pestanasSub,
+  raizDe,
+  seccionActiva,
+} from '../../core/plantillaSecciones'
+import { emojiTipo } from '../../core/ui/paletaBloques'
+import { BarraEdicion, CabeceraBloqueEdicion } from './PlantillaEdicion'
 import { useT } from '../../core/i18n/useT'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { comprimirFoto, Foto } from './fotos'
 import { vivo } from '../../core/ui/estilos'
 
-const EMOJI_BLOQUE: Record<TipoBloque, string> = {
-  notas: '📝',
-  checklist: '✅',
-  contador: '🔢',
-  enlaces: '🔗',
-  lista: '📋',
-  valoracion: '⭐',
-  bitacora: '📔',
-  progreso: '📈',
-  habito: '🔥',
-  sesiones: '⏱️',
-  cuenta: '⏳',
-  galeria: '🖼️',
-}
+// Perezoso: el editor completo solo pesa cuando el usuario lo abre.
+const EditorPlantilla = lazy(() =>
+  import('../../core/ui/PlantillaCustomEditor').then((m) => ({ default: m.PlantillaCustomEditor })),
+)
 
 const inputCls =
   'min-w-0 flex-1 rounded-lg border border-white/10 bg-black/30 px-3 py-1.5 text-sm outline-none focus:border-white/30'
@@ -37,11 +38,18 @@ const btnAgregarCls =
  * App genérica de una plantilla personalizada: renderiza sus bloques (notas,
  * checklist, contador, enlaces). La definición viene del store; los datos se
  * leen/escriben SOLO vía repos (regla dura: aquí no se toca `db`).
+ * Si la plantilla tiene menús, los bloques se reparten en pestañas.
  */
 export default function PlantillaGenericaApp({ plantillaId }: { plantillaId: string }) {
   const t = useT()
   const def = usePlantillasCustom((s) => s.lista.find((p) => p.id === plantillaId))
   const items = useItemsPlantilla(plantillaId) ?? []
+  // Antes del early return: el orden de los hooks no puede variar entre renders.
+  const [deseada, setDeseada] = useState(() =>
+    def ? tabInicial(plantillaId, idsSeccion(def), menusRaiz(def.secciones)[0]?.id ?? '') : '',
+  )
+  const [editando, setEditando] = useState(false)
+  const [editorAbierto, setEditorAbierto] = useState(false)
 
   if (!def) {
     return (
@@ -51,53 +59,154 @@ export default function PlantillaGenericaApp({ plantillaId }: { plantillaId: str
     )
   }
 
+  // Todo derivado: la plantilla puede editarse con la app abierta y borrar el
+  // menú activo no debe dejar la pantalla en blanco.
+  const raiz = menusRaiz(def.secciones)
+  const activa = seccionActiva(def, deseada)
+  const raizActiva = raizDe(def, activa)
+  const subs = pestanasSub(def, raizActiva)
+  const visibles = bloquesDe(def, activa)
+
   return (
-    <div data-tut="plantilla.bloques" className="mx-auto max-w-2xl space-y-4">
-      {def.bloques.map((b) => {
-        const deBloque = items.filter((i) => i.bloqueId === b.id)
-        return (
-          <section key={b.id} className="rounded-xl border border-white/10 bg-white/5 p-4">
-            <h2 className="mb-3 flex items-center gap-2 text-sm font-bold text-white/85">
-              <span><Icono emoji={EMOJI_BLOQUE[b.tipo]} /></span>
-              <span className="min-w-0 truncate">{b.titulo}</span>
-            </h2>
-            {b.tipo === 'notas' && (
-              <BloqueNotas plantillaId={def.id} bloque={b} fila={deBloque[0]} />
-            )}
-            {b.tipo === 'checklist' && (
-              <BloqueChecklist plantillaId={def.id} bloque={b} items={deBloque} />
-            )}
-            {b.tipo === 'contador' && (
-              <BloqueContador plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
-            )}
-            {b.tipo === 'enlaces' && (
-              <BloqueEnlaces plantillaId={def.id} bloque={b} items={deBloque} />
-            )}
-            {b.tipo === 'lista' && (
-              <BloqueLista plantillaId={def.id} bloque={b} items={deBloque} />
-            )}
-            {b.tipo === 'valoracion' && (
-              <BloqueValoracion plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
-            )}
-            {b.tipo === 'bitacora' && (
-              <BloqueBitacora plantillaId={def.id} bloque={b} items={deBloque} />
-            )}
-            {b.tipo === 'progreso' && (
-              <BloqueProgreso plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
-            )}
-            {b.tipo === 'habito' && (
-              <BloqueHabito plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
-            )}
-            {b.tipo === 'sesiones' && (
-              <BloqueSesiones plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
-            )}
-            {b.tipo === 'cuenta' && <BloqueCuenta bloque={b} color={def.color} />}
-            {b.tipo === 'galeria' && (
-              <BloqueGaleria plantillaId={def.id} bloque={b} items={deBloque} />
-            )}
-          </section>
-        )
-      })}
+    <div className="mx-auto max-w-2xl space-y-4">
+      <div className="flex items-center gap-1.5">
+        <button
+          type="button"
+          data-tut="plantilla.editar"
+          onClick={() => setEditando((v) => !v)}
+          className={`ml-auto rounded-lg px-2.5 py-1.5 text-xs font-semibold transition ${
+            editando ? 'texto-cta' : 'bg-white/5 text-white/60 hover:bg-white/10'
+          }`}
+          style={editando ? { background: def.color } : undefined}
+        >
+          <Icono nombre={editando ? 'hecho' : 'editar'} />{' '}
+          {editando ? t('plantillaCustom.listo', 'Listo') : t('plantillaCustom.editarApp', 'Editar app')}
+        </button>
+        {editando && (
+          <button
+            type="button"
+            onClick={() => setEditorAbierto(true)}
+            className="rounded-lg bg-white/5 px-2.5 py-1.5 text-xs font-semibold text-white/60 transition hover:bg-white/10"
+          >
+            {t('plantillaCustom.editorCompleto', 'Editor completo')}
+          </button>
+        )}
+      </div>
+
+      {editando && <BarraEdicion def={def} activa={activa} onIrA={setDeseada} />}
+
+      {raiz.length > 1 && (
+        <div data-tut="plantilla.menus" className="flex gap-1.5 overflow-x-auto pb-0.5">
+          {raiz.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => setDeseada(s.id)}
+              className={`shrink-0 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
+                raizActiva === s.id ? 'texto-cta' : 'bg-white/5 hover:bg-white/10'
+              }`}
+              style={raizActiva === s.id ? { background: def.color } : undefined}
+            >
+              {s.emoji ? (
+                <>
+                  <Icono emoji={s.emoji} />{' '}
+                </>
+              ) : null}
+              {s.nombre}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {subs.length > 0 && (
+        <div className="flex gap-1.5 overflow-x-auto pb-0.5">
+          {subs.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => setDeseada(s.id)}
+              className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
+                activa === s.id ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
+              }`}
+            >
+              {s.emoji ? (
+                <>
+                  <Icono emoji={s.emoji} />{' '}
+                </>
+              ) : null}
+              {s.nombre}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div data-tut="plantilla.bloques" className="space-y-4">
+        {visibles.length === 0 && (
+          <p className="rounded-xl border border-dashed border-white/15 px-3 py-6 text-center text-sm text-white/45">
+            {t('plantillaCustom.menuVacio', 'Este menú aún no tiene bloques.')}
+          </p>
+        )}
+        {visibles.map((b, pos) => {
+          const deBloque = items.filter((i) => i.bloqueId === b.id)
+          return (
+            <section key={b.id} className="rounded-xl border border-white/10 bg-white/5 p-4">
+              {editando ? (
+                <CabeceraBloqueEdicion
+                  def={def}
+                  bloque={b}
+                  primero={pos === 0}
+                  ultimo={pos === visibles.length - 1}
+                />
+              ) : (
+                <h2 className="mb-3 flex items-center gap-2 text-sm font-bold text-white/85">
+                  <span><Icono emoji={emojiTipo(b.tipo)} /></span>
+                  <span className="min-w-0 truncate">{b.titulo}</span>
+                </h2>
+              )}
+              {b.tipo === 'notas' && (
+                <BloqueNotas plantillaId={def.id} bloque={b} fila={deBloque[0]} />
+              )}
+              {b.tipo === 'checklist' && (
+                <BloqueChecklist plantillaId={def.id} bloque={b} items={deBloque} />
+              )}
+              {b.tipo === 'contador' && (
+                <BloqueContador plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
+              )}
+              {b.tipo === 'enlaces' && (
+                <BloqueEnlaces plantillaId={def.id} bloque={b} items={deBloque} />
+              )}
+              {b.tipo === 'lista' && (
+                <BloqueLista plantillaId={def.id} bloque={b} items={deBloque} />
+              )}
+              {b.tipo === 'valoracion' && (
+                <BloqueValoracion plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
+              )}
+              {b.tipo === 'bitacora' && (
+                <BloqueBitacora plantillaId={def.id} bloque={b} items={deBloque} />
+              )}
+              {b.tipo === 'progreso' && (
+                <BloqueProgreso plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
+              )}
+              {b.tipo === 'habito' && (
+                <BloqueHabito plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
+              )}
+              {b.tipo === 'sesiones' && (
+                <BloqueSesiones plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
+              )}
+              {b.tipo === 'cuenta' && <BloqueCuenta bloque={b} color={def.color} />}
+              {b.tipo === 'galeria' && (
+                <BloqueGaleria plantillaId={def.id} bloque={b} items={deBloque} />
+              )}
+            </section>
+          )
+        })}
+      </div>
+
+      {editorAbierto && (
+        <Suspense fallback={null}>
+          <EditorPlantilla inicial={def} onCerrar={() => setEditorAbierto(false)} />
+        </Suspense>
+      )}
     </div>
   )
 }

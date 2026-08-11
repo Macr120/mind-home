@@ -9,7 +9,18 @@ const FILAS = ['L', '', 'X', '', 'V', '', '']
  * Mapa de calor anual tipo GitHub: 53 columnas (semanas L→D) terminando en la
  * semana en curso, con scroll horizontal que abre mostrando hoy.
  */
-export function HeatmapAnual({ minPorDia, color }: { minPorDia: Map<string, number>; color: string }) {
+export function HeatmapAnual({
+  minPorDia,
+  color,
+  sel,
+  onDia,
+}: {
+  minPorDia: Map<string, number>
+  color: string
+  /** Día elegido: se marca aquí y se abre abajo en el historial. */
+  sel?: string
+  onDia: (iso: string) => void
+}) {
   const t = useT()
   const scrollRef = useRef<HTMLDivElement>(null)
   const hoy = hoyISO()
@@ -67,12 +78,17 @@ export function HeatmapAnual({ minPorDia, color }: { minPorDia: Map<string, numb
                 const min = minPorDia.get(f) ?? 0
                 const alpha = min > 0 ? 0.25 + 0.75 * Math.min(1, min / (max || 1)) : 0
                 return (
-                  <div
+                  <button
                     key={f}
-                    title={`${f} · ${min} min`}
-                    className={`h-2.5 w-2.5 rounded-[2px] ${f === hoy ? 'ring-1 ring-white/60' : ''} ${
-                      f > hoy ? 'opacity-0' : ''
+                    type="button"
+                    disabled={min === 0}
+                    onClick={() => onDia(f)}
+                    title={`${f} · ${min} min${
+                      min > 0 ? ` · ${t('hobbies.heatmap.verDia', 'ver en el historial')}` : ''
                     }`}
+                    className={`h-2.5 w-2.5 rounded-[2px] transition ${min > 0 ? 'hover:brightness-125' : ''} ${
+                      f === sel ? 'ring-2 ring-white/80' : f === hoy ? 'ring-1 ring-white/60' : ''
+                    } ${f > hoy ? 'opacity-0' : ''}`}
                     style={{ background: min > 0 ? rgba(color, alpha) : 'rgba(255,255,255,0.04)' }}
                   />
                 )

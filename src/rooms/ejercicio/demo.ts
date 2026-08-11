@@ -23,6 +23,7 @@ import {
 } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { BACHE_FIN, BACHE_INICIO, enBache, enJapon, JAPON_FIN, JAPON_INICIO, MARATON_DIA } from '../../demo/hitosPep'
+import { PLANES_DEMO, sembrarPlanDemo } from '../../demo/planesPep'
 import { DEMO_EJERCICIO } from './demo.data'
 
 type Sesion = Omit<SesionEjercicio, 'id'>
@@ -348,13 +349,26 @@ export async function construirDemoEjercicio(ctx: CtxDemo): Promise<void> {
     plantillaId: 'ejercicio',
     creadoEn: `${ctx.fecha(Math.max(-364, off - 60))}T09:00:00.000Z`,
   })
-  await rutinasRepo.bulkAdd([
-    meta(datos.metas.cinco, DIA_HITO.carrera5k, true, 1),
-    meta(datos.metas.diez, DIA_HITO.carrera10k, true, 2),
-    meta(datos.metas.medio, DIA_HITO.medioMaraton, true, 3),
-    meta(datos.metas.maraton, MARATON_DIA, true, 4),
-    meta(datos.metas.siguiente, 150, false, 5),
-  ])
+  // Una por una y no `bulkAdd`: la última necesita su id para colgarle el plan
+  // (`bulkAdd` no devuelve ids). El orden de inserción es el mismo, así que los
+  // ids resultantes tampoco cambian.
+  await rutinasRepo.add(meta(datos.metas.cinco, DIA_HITO.carrera5k, true, 1))
+  await rutinasRepo.add(meta(datos.metas.diez, DIA_HITO.carrera10k, true, 2))
+  await rutinasRepo.add(meta(datos.metas.medio, DIA_HITO.medioMaraton, true, 3))
+  await rutinasRepo.add(meta(datos.metas.maraton, MARATON_DIA, true, 4))
+  const siguienteId = await rutinasRepo.add(meta(datos.metas.siguiente, 150, false, 5))
+
+  // El plan del maratón que viene: se pidió SIN fecha límite y la IA calculó que
+  // exige 24 semanas — termina cuatro días antes de la carrera de la meta.
+  await sembrarPlanDemo({
+    metaId: siguienteId,
+    clave: 'maraton',
+    plan: PLANES_DEMO[ctx.idioma].maraton,
+    inicioISO: ctx.fecha(-21),
+    entrada: { fechaInicio: ctx.fecha(-21), horasSemana: 10, dias: [1, 2, 3, 4, 5, 6], nivel: 'avanzado' },
+    creadoEn: `${ctx.fecha(-22)}T20:15:00.000Z`,
+    hechos: [2, 3],
+  })
 }
 
 /** Un circuito cerrado alrededor de un punto fijo: lo justo para que la app

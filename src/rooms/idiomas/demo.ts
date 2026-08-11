@@ -20,6 +20,7 @@ import {
 } from '../../core/data/repository'
 import { claveLS } from '../../core/edicion'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { INTERVALOS_DIAS } from './constantes'
 import { DEMO_IDIOMAS } from './demo.data'
 
@@ -219,5 +220,12 @@ export async function construirDemoIdiomas(ctx: CtxDemo): Promise<void> {
     plantillaId: 'idiomas',
     ambitoId: `idioma:${principalId}`,
     creadoEn: enHora(-300, '09:00'),
+  })
+
+  // Las dos que faltan (el B2 que viene y el japonés del viaje), cada una en el
+  // ámbito de SU perfil: es lo que las hace salir dentro de su pestaña.
+  await sembrarMetasApp(ctx, 'idiomas', {
+    ordenDesde: 1,
+    ambitos: { principal: `idioma:${principalId}`, japones: `idioma:${japonesId}` },
   })
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, type ReactNode } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { actualizarEnergia, type AnimacionModelo } from './animacion'
@@ -12,12 +12,15 @@ import { fechaLocalISO } from '../fechaLocal'
 import { useLayout } from '../state/layoutStore'
 import { useParque } from '../state/parqueStore'
 import { useMontura } from '../state/monturaStore'
-import { useAccionCuarto, accionCuartoFrame, RADIO_ACCION, type TipoAccionCuarto } from '../state/accionCuartoStore'
+import { useCargar } from '../state/cargarStore'
+import {
+  useAccionCuarto, accionCuartoFrame, RADIO_ACCION, type GrupoAccion,
+} from '../state/accionCuartoStore'
 import { dragChar } from './characterDrag'
 import {
   TIPO_OLLA, TIPO_DESPERTADOR, TIPO_LIBRERO_LIBRO, TIPO_GLOBO, TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE, TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_LIBRETA,
-  TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA,
+  TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA, TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO,
 } from './especialesPlantillaMeta'
 
 export { esEspecialPlantilla } from './especialesPlantillaMeta'
@@ -35,7 +38,8 @@ export { esEspecialPlantilla } from './especialesPlantillaMeta'
  *   `actualizarEnergia`); el globo gira siempre.
  * - USABLES (caminadora, periódico, laptop, tapete, guitarra, planta, libreta):
  *   el objeto es casi estático y el personaje ejecuta la acción (poses en
- *   `accionCuartoStore`); `useAbordarAccion` lo activa al acercarse (sin botón).
+ *   `accionCuartoStore`); se abordan con el botón «Usar» del hueco del cubo,
+ *   que ofrece `ContextoProximity` al acercarte.
  * Con `simple` (miniaturas: canvas sin frameloop) quedan quietos.
  */
 
@@ -51,14 +55,14 @@ const ALTO_BARRA = 1.0
 
 /** Olla sobre la barra (sin hornilla propia: se coloca en la misma posición que la
  *  barra/isla de la cocina): la tapa tabletea y sale vapor cuando el jugador se acerca. */
-export function Olla({ color, simple = false, nivel = null }: EspProps) {
+export function Olla({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const tapa = useRef<THREE.Group>(null!)
   const vapor = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     const t = clock.elapsedTime
     if (tapa.current) {
@@ -123,14 +127,14 @@ const NOTAS_PIZARRA: { x: number; y: number; rot: number; c: string }[] = [
 /** Pizarra de ideas sobre caballete: notas adhesivas y un mini-mapa mental
  *  dibujado; al acercarse, el foco de arriba se enciende y la nota recién
  *  pegada oscila como si acabara de caer. */
-export function PizarraIdeas({ color, simple = false, nivel = null }: EspProps) {
+export function PizarraIdeas({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const foco = useRef<THREE.MeshStandardMaterial>(null!)
   const nota = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (foco.current) foco.current.emissiveIntensity = 1.4 * e
     if (e === 0) return // en reposo no hay nada más que animar
     if (nota.current) nota.current.rotation.z = 0.06 + Math.sin(clock.elapsedTime * 10) * 0.12 * e
@@ -204,14 +208,14 @@ const RENGLONES = [0.06, 0.02, -0.02, -0.06]
  *  de pastillas, el portarretratos y la pluma de las tres secciones. Al acercarse,
  *  la página derecha se levanta como si alguien pasara la hoja y la lucecita del
  *  frasco (el recordatorio de la toma) empieza a latir. */
-export function AgendaEscritorio({ color, simple = false, nivel = null }: EspProps) {
+export function AgendaEscritorio({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const hoja = useRef<THREE.Group>(null!)
   const aviso = useRef<THREE.MeshStandardMaterial>(null!)
   const energia = useRef(0)
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (aviso.current) aviso.current.emissiveIntensity = (0.6 + Math.sin(clock.elapsedTime * 3) * 0.4) * e
     if (e === 0) return // en reposo la hoja se queda plana
     if (hoja.current) hoja.current.rotation.y = -Math.abs(Math.sin(clock.elapsedTime * 1.6)) * 1.5 * e
@@ -299,14 +303,14 @@ const ALTO_BURO = 0.7
 
 /** Despertador de dos campanas: se coloca en la misma posición que un buró real
  *  (recurso:39) para quedar encima; vibra y golpea las campanas al acercarse. */
-export function Despertador({ color, simple = false, nivel = null }: EspProps) {
+export function Despertador({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const reloj = useRef<THREE.Group>(null!)
   const martillo = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     const t = clock.elapsedTime
     if (reloj.current) {
@@ -364,7 +368,7 @@ export function Despertador({ color, simple = false, nivel = null }: EspProps) {
 }
 
 /** Librero: en el estante, un libro sale y se abre cuando el jugador se acerca. */
-export function LibreroLibro({ color, simple = false, nivel = null }: EspProps) {
+export function LibreroLibro({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const libro = useRef<THREE.Group>(null!)
   const tapaIzq = useRef<THREE.Group>(null!)
@@ -373,7 +377,7 @@ export function LibreroLibro({ color, simple = false, nivel = null }: EspProps) 
   const lomos = ['#b91c1c', '#1d4ed8', '#15803d', '#a16207', '#7c3aed', '#0f766e']
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     const t = clock.elapsedTime
     if (libro.current) {
@@ -440,13 +444,13 @@ export function LibreroLibro({ color, simple = false, nivel = null }: EspProps) 
 const ALTO_MESA_SALA = 0.32
 
 /** Globo terráqueo sobre la mesa de centro: gira solo cuando el personaje está cerca. */
-export function GloboTerraqueo({ color, simple = false, nivel = null }: EspProps) {
+export function GloboTerraqueo({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const esfera = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame((_, dt) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     if (esfera.current) esfera.current.rotation.y += dt * 0.5 * e
   })
@@ -492,14 +496,14 @@ export function GloboTerraqueo({ color, simple = false, nivel = null }: EspProps
 }
 
 /** Estantería de herramientas: dos puertas que se abren y muestran las herramientas al acercarse. */
-export function EstanteriaHerramientas({ color, simple = false, nivel = null }: EspProps) {
+export function EstanteriaHerramientas({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const puertaIzq = useRef<THREE.Group>(null!)
   const puertaDer = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame(() => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     const ap = e * (Math.PI / 2.1)
     if (puertaIzq.current) puertaIzq.current.rotation.y = ap
@@ -583,14 +587,14 @@ export function EstanteriaHerramientas({ color, simple = false, nivel = null }: 
 }
 
 /** Repisa con cajas de juegos: la caja de arriba se menea un poco al acercarse. */
-export function RepisaJuegos({ color, simple = false, nivel = null }: EspProps) {
+export function RepisaJuegos({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cima = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   const cajas = ['#dc2626', '#2563eb', '#16a34a', '#f59e0b', '#7c3aed', '#0ea5e9']
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     if (cima.current) cima.current.rotation.z = Math.sin(clock.elapsedTime * 6) * 0.05 * e
   })
@@ -640,37 +644,90 @@ export function RepisaJuegos({ color, simple = false, nivel = null }: EspProps) 
 
 // ---------------------------------------------------------------------------
 // Objetos usables: casi estáticos; la acción la ejecuta el personaje.
-// `useAbordarAccion` los activa al caminar cerca (sin botón), como el parque.
+// Se abordan con el botón «Usar» del hueco del cubo, igual que las sillas
+// genéricas: los ofrece `ContextoProximity` al acercarte. Antes se activaban
+// SOLOS al pasar cerca, lo que te sentaba sin querer y chocaba con el resto de
+// botones contextuales del mismo radio.
 // ---------------------------------------------------------------------------
 
 const _wpAcc = new THREE.Vector3()
 const _wqAcc = new THREE.Quaternion()
 const _weAcc = new THREE.Euler()
 
-/** Al caminar cerca (a pie, sin editor/montura/otro juego), pide usar la acción. */
-function useAbordarAccion(tipo: TipoAccionCuarto, objetoId: number | undefined, ref: { current: THREE.Group | null }) {
-  // Sondeo ~5 veces/s escalonado: un getWorldPosition por usable cada frame sumaba en móviles.
+const _boxAcc = new THREE.Box3()
+const _rayAcc = new THREE.Raycaster()
+const _rayOrigenAcc = new THREE.Vector3()
+const _RAY_ABAJO = new THREE.Vector3(0, -1, 0)
+
+/**
+ * Objeto GENÉRICO con `grupoAccion` (silla del catálogo, piezas de IA/usuario):
+ * a diferencia de los usables de arriba (que se activan solos), este publica
+ * "cerca" en `useAccionCuarto` — el panel del cubo (`ControlHerramienta`) ofrece
+ * Sentarte/Acostarte y el jugador confirma con el botón. Mide la SUPERFICIE real
+ * del objeto (rayo hacia abajo desde el centro de su caja envolvente, no solo el
+ * punto más alto — un respaldo alto no debe "flotar" al personaje en el aire) en
+ * vez de un número tabulado por tipo, así cualquier geometría (puf bajo, banco
+ * con respaldo) queda razonablemente bien al sentarse.
+ * Ver `grupoAccionDe`/`ObjetoView` en `catalogo.tsx`.
+ */
+export function AccionGenerica({
+  grupo,
+  objetoId,
+  children,
+}: {
+  grupo: GrupoAccion
+  objetoId: number | undefined
+  children: ReactNode
+}) {
+  const raiz = useRef<THREE.Group>(null)
   const acc = useRef(Math.random() * 0.2)
   useFrame((_st3f, delta) => {
     acc.current += delta
     if (acc.current < 0.2) return
     acc.current = 0
-    if (objetoId == null || !ref.current) return
+    if (objetoId == null || !raiz.current) return
     if (useAccionCuarto.getState().instanciaId != null) return
     if (useParque.getState().instanciaId != null || useMontura.getState().instanciaId != null) return
     if (useHouse.getState().transicion || useLayout.getState().editMode || dragChar.id) return
-    ref.current.getWorldPosition(_wpAcc)
+    if (useCargar.getState().sujeto) return // lo que se lleva cargado se dibuja en alto: no se ofrece sentarse en ello
+    raiz.current.getWorldPosition(_wpAcc)
     const d = Math.hypot(playerPos.x - _wpAcc.x, playerPos.z - _wpAcc.z)
     if (objetoId === accionCuartoFrame.recienId) {
-      if (d > RADIO_ACCION + 0.9) accionCuartoFrame.recienId = null // se alejó del último usado
+      if (d > RADIO_ACCION + 0.9) accionCuartoFrame.recienId = null
       return
     }
     if (d <= RADIO_ACCION && Math.abs(playerPos.y - _wpAcc.y) < 1.5) {
-      ref.current.getWorldQuaternion(_wqAcc)
+      raiz.current.getWorldQuaternion(_wqAcc)
       _weAcc.setFromQuaternion(_wqAcc, 'YXZ')
-      useAccionCuarto.getState().usar(objetoId, _wpAcc.x, _wpAcc.z, _weAcc.y, tipo)
+      _boxAcc.setFromObject(raiz.current)
+      // Centro real en XZ de la geometría (no el origen local, que puede no
+      // estar centrado) y altura de la superficie justo AHÍ debajo (rayo desde
+      // arriba de toda la caja): así un respaldo alto a un lado no hace que la
+      // medición tome su punto más alto en vez del asiento real.
+      const cx = (_boxAcc.min.x + _boxAcc.max.x) / 2
+      const cz = (_boxAcc.min.z + _boxAcc.max.z) / 2
+      _rayOrigenAcc.set(cx, _boxAcc.max.y + 0.5, cz)
+      _rayAcc.set(_rayOrigenAcc, _RAY_ABAJO)
+      const hit = _rayAcc.intersectObject(raiz.current, true)[0]
+      // Se publica la Y ABSOLUTA de mundo: así la pose no depende del offset con
+      // que se dibujan los objetos, ni de su `y`, ni de la escala del grupo, ni
+      // del nivel del cuarto. El alto sobre la base solo sirve para ACOTAR (un
+      // puf muy bajo sigue valiendo; una pieza con el origen corrido no dispara
+      // al avatar al cielo): se CLAMPEA en vez de descartar la medición.
+      const alto = (hit?.point.y ?? _boxAcc.max.y) - _wpAcc.y
+      useAccionCuarto.getState().setCerca({
+        id: objetoId,
+        grupo,
+        wx: cx,
+        wz: cz,
+        rotY: _weAcc.y,
+        superficieY: Number.isFinite(alto) ? _wpAcc.y + Math.min(Math.max(alto, 0.05), 2) : undefined,
+      })
+    } else if (useAccionCuarto.getState().cercaId === objetoId) {
+      useAccionCuarto.getState().setCerca(null)
     }
   })
+  return <group ref={raiz}>{children}</group>
 }
 
 /** Patas de una mesa/mueble rectangular (4 cilindros). */
@@ -690,11 +747,9 @@ function Patas({ w, d, h, color }: { w: number; d: number; h: number; color: str
 }
 
 /** Caminadora: el personaje sube a la banda y camina en el sitio (marchaAvatar). */
-export function Caminadora({ color, objetoId }: UsableProps) {
-  const raiz = useRef<THREE.Group>(null)
-  useAbordarAccion(TIPO_CAMINADORA, objetoId, raiz)
+export function Caminadora({ color }: UsableProps) {
   return (
-    <group ref={raiz}>
+    <group>
       {/* Base y banda */}
       <mesh position={[0, 0.07, 0.15]} castShadow>
         <boxGeometry args={[0.72, 0.14, 1.5]} />
@@ -731,11 +786,9 @@ export function Caminadora({ color, objetoId }: UsableProps) {
 }
 
 /** Sillón de lectura gris: el personaje se sienta encima a leer el periódico (accesorio en mano). */
-export function SillonLectura({ color, objetoId }: UsableProps) {
-  const raiz = useRef<THREE.Group>(null)
-  useAbordarAccion(TIPO_SILLON, objetoId, raiz)
+export function SillonLectura({ color }: UsableProps) {
   return (
-    <group ref={raiz}>
+    <group>
       {/* Asiento (el personaje se sienta en el origen) */}
       <mesh position={[0, 0.35, 0.04]} castShadow>
         <boxGeometry args={[0.74, 0.3, 0.66]} />
@@ -775,13 +828,13 @@ export function SillonLectura({ color, objetoId }: UsableProps) {
 }
 
 /** Escritorio de noticias (con periódico): pulsa cuando el personaje pasa cerca (ambiental). */
-export function EscritorioNoticias({ color, simple = false, nivel = null }: EspProps) {
+export function EscritorioNoticias({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const cuerpo = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     if (cuerpo.current) cuerpo.current.scale.setScalar(1 + Math.sin(clock.elapsedTime * 3) * 0.06 * e)
   })
@@ -828,11 +881,9 @@ export function EscritorioNoticias({ color, simple = false, nivel = null }: EspP
 }
 
 /** Escritorio con computadora y teclado: el personaje se sienta en la silla y teclea. */
-export function Laptop({ color, objetoId }: UsableProps) {
-  const raiz = useRef<THREE.Group>(null)
-  useAbordarAccion(TIPO_LAPTOP, objetoId, raiz)
+export function Laptop({ color }: UsableProps) {
   return (
-    <group ref={raiz}>
+    <group>
       {/* Escritorio */}
       <mesh position={[0, 0.75, 0]} castShadow>
         <boxGeometry args={[1.1, 0.05, 0.6]} />
@@ -877,11 +928,9 @@ export function Laptop({ color, objetoId }: UsableProps) {
 }
 
 /** Tapete de yoga: el personaje se sienta encima a meditar. */
-export function TapeteYoga({ color, objetoId }: UsableProps) {
-  const raiz = useRef<THREE.Group>(null)
-  useAbordarAccion(TIPO_TAPETE, objetoId, raiz)
+export function TapeteYoga({ color }: UsableProps) {
   return (
-    <group ref={raiz}>
+    <group>
       <mesh position={[0, 0.02, 0]} castShadow receiveShadow>
         <boxGeometry args={[0.95, 0.04, 1.9]} />
         <meshStandardMaterial color={color} roughness={0.9} />
@@ -900,13 +949,13 @@ export function TapeteYoga({ color, objetoId }: UsableProps) {
 }
 
 /** Piano doméstico (vertical) con banco: tiembla cuando el personaje pasa cerca. */
-export function PianoObj({ color, simple = false, nivel = null }: EspProps) {
+export function PianoObj({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const piano = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     if (!piano.current) return
     const t = clock.elapsedTime
@@ -972,13 +1021,13 @@ export function PianoObj({ color, simple = false, nivel = null }: EspProps) {
 }
 
 /** Árbol en maceta: tiembla cuando el personaje pasa cerca (sin acción, solo ambiental). */
-export function Arbol({ color, simple = false, nivel = null }: EspProps) {
+export function Arbol({ color, simple = false, nivel = null, objetoId }: EspProps) {
   const raiz = useRef<THREE.Group>(null!)
   const planta = useRef<THREE.Group>(null!)
   const energia = useRef(0)
   useFrame(({ clock }) => {
     if (simple || !raiz.current) return
-    const e = actualizarEnergia(raiz.current, PROX, nivel, energia)
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
     if (e === 0) return // en reposo no hay nada que animar
     if (!planta.current) return
     const t = clock.elapsedTime
@@ -1016,11 +1065,9 @@ export function Arbol({ color, simple = false, nivel = null }: EspProps) {
 }
 
 /** Libreta abierta en una mesa baja: el personaje se sienta y escribe. */
-export function Libreta({ color, objetoId }: UsableProps) {
-  const raiz = useRef<THREE.Group>(null)
-  useAbordarAccion(TIPO_LIBRETA, objetoId, raiz)
+export function Libreta({ color }: UsableProps) {
   return (
-    <group ref={raiz}>
+    <group>
       {/* Mesa baja */}
       <mesh position={[0, 0.32, 0]} castShadow>
         <boxGeometry args={[0.8, 0.05, 0.48]} />
@@ -1172,14 +1219,231 @@ export function AccesorioAccion({ escala }: { escala: number }) {
   return null
 }
 
+/**
+ * Caja fuerte del despacho: al acercarse, el dial gira y la puerta se entreabre
+ * dejando ver lo que guarda. Es AMBIENTAL y no usable a propósito: el despacho
+ * conserva la laptop, que ya es usable, y dos «Usar» dentro del mismo radio se
+ * pisan; además no hay pose de avatar que le pegue a abrir una caja fuerte.
+ */
+export function CajaFuerte({ color, simple = false, nivel = null, objetoId }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const puerta = useRef<THREE.Group>(null!)
+  const dial = useRef<THREE.Group>(null!)
+  const tesoro = useRef<THREE.Group>(null!)
+  const energia = useRef(0)
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
+    if (dial.current) dial.current.rotation.y = clock.elapsedTime * 2.2 * e
+    // Suavizado: la puerta arranca y frena despacio en vez de dar un tirón.
+    if (puerta.current) puerta.current.rotation.y = -1.05 * (e * e * (3 - 2 * e))
+    if (tesoro.current) tesoro.current.visible = e > 0.12
+  })
+  return (
+    <group ref={raiz}>
+      {/* Zócalo y cuerpo */}
+      <mesh position={[0, 0.05, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.18, 0.1, 0.98]} />
+        <meshStandardMaterial color="#1f2937" roughness={0.8} />
+      </mesh>
+      <mesh position={[0, 0.62, -0.02]} castShadow receiveShadow>
+        <boxGeometry args={[1.1, 1.05, 0.9]} />
+        <meshStandardMaterial color={color} metalness={0.55} roughness={0.35} />
+      </mesh>
+      {/* Remaches del frente */}
+      {[
+        [-0.46, 0.28],
+        [0.46, 0.28],
+        [-0.46, 0.96],
+        [0.46, 0.96],
+      ].map(([x, y]) => (
+        <mesh key={`${x}-${y}`} position={[x, y, 0.44]}>
+          <sphereGeometry args={[0.035, 8, 8]} />
+          <meshStandardMaterial color="#9ca3af" metalness={0.85} roughness={0.25} />
+        </mesh>
+      ))}
+      {/* Hueco interior: se ve al abrirse */}
+      <mesh position={[0, 0.62, -0.06]}>
+        <boxGeometry args={[0.94, 0.9, 0.78]} />
+        <meshStandardMaterial color="#0b1020" roughness={1} />
+      </mesh>
+      <group ref={tesoro} visible={false}>
+        <mesh position={[0, 0.58, -0.05]}>
+          <boxGeometry args={[0.9, 0.03, 0.6]} />
+          <meshStandardMaterial color="#374151" />
+        </mesh>
+        {[-0.24, 0, 0.24].map((x) => (
+          <mesh key={x} position={[x, 0.66, -0.05]} rotation={[0, 0.12, 0]} castShadow>
+            <boxGeometry args={[0.2, 0.09, 0.13]} />
+            <meshStandardMaterial color="#fbbf24" metalness={0.8} roughness={0.25} />
+          </mesh>
+        ))}
+        {[-0.18, 0.18].map((x) => (
+          <mesh key={x} position={[x, 0.3, -0.05]}>
+            <boxGeometry args={[0.24, 0.07, 0.12]} />
+            <meshStandardMaterial color="#22c55e" roughness={0.85} />
+          </mesh>
+        ))}
+      </group>
+      {/* PUERTA: el grupo tiene la bisagra en su borde izquierdo */}
+      <group ref={puerta} position={[-0.5, 0.62, 0.43]}>
+        <mesh position={[0.5, 0, 0]} castShadow>
+          <boxGeometry args={[1.0, 1.0, 0.09]} />
+          <meshStandardMaterial color={color} metalness={0.6} roughness={0.3} />
+        </mesh>
+        {/* Dial de combinación */}
+        <group ref={dial} position={[0.66, 0.02, 0.08]}>
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <cylinderGeometry args={[0.17, 0.17, 0.05, 20]} />
+            <meshStandardMaterial color="#e5e7eb" metalness={0.8} roughness={0.2} />
+          </mesh>
+          {[0, 1, 2, 3].map((i) => (
+            <mesh key={i} position={[0, 0, 0.03]} rotation={[0, 0, (i * Math.PI) / 4]}>
+              <boxGeometry args={[0.32, 0.02, 0.02]} />
+              <meshStandardMaterial color="#6b7280" metalness={0.7} />
+            </mesh>
+          ))}
+          <mesh position={[0, 0, 0.05]}>
+            <sphereGeometry args={[0.05, 10, 10]} />
+            <meshStandardMaterial color="#9ca3af" metalness={0.9} />
+          </mesh>
+        </group>
+        {/* Manija */}
+        <mesh position={[0.28, -0.06, 0.08]} castShadow>
+          <boxGeometry args={[0.05, 0.3, 0.05]} />
+          <meshStandardMaterial color="#9ca3af" metalness={0.8} />
+        </mesh>
+        {/* Bisagras */}
+        {[-0.36, 0.36].map((y) => (
+          <mesh key={y} position={[0.02, y, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[0.045, 0.045, 0.14, 8]} />
+            <meshStandardMaterial color="#4b5563" metalness={0.7} />
+          </mesh>
+        ))}
+      </group>
+    </group>
+  )
+}
+
+/**
+ * Estación de cómputo de la sala de cómputo: torre, dos monitores y teclado. El
+ * personaje se sienta enfrente y teclea — misma pose que la laptop, así que no
+ * hace falta ninguna nueva.
+ */
+export function EstacionComputo({ color }: UsableProps) {
+  const PANTALLA = '#22d3ee'
+  return (
+    <group>
+      {/* Escritorio ancho */}
+      <mesh position={[0, 0.75, 0]} castShadow receiveShadow>
+        <boxGeometry args={[1.6, 0.06, 0.72]} />
+        <meshStandardMaterial color="#4b5563" roughness={0.7} />
+      </mesh>
+      <Patas w={1.48} d={0.6} h={0.75} color="#374151" />
+      {/* Torre en el suelo, a la derecha */}
+      <mesh position={[0.95, 0.36, -0.1]} castShadow>
+        <boxGeometry args={[0.34, 0.72, 0.62]} />
+        <meshStandardMaterial color="#1f2937" metalness={0.45} roughness={0.35} />
+      </mesh>
+      {[-0.18, -0.06, 0.06, 0.18].map((y) => (
+        <mesh key={y} position={[0.95, 0.5 + y, 0.215]}>
+          <boxGeometry args={[0.24, 0.02, 0.01]} />
+          <meshStandardMaterial color="#111827" />
+        </mesh>
+      ))}
+      <mesh position={[0.95, 0.66, 0.215]}>
+        <sphereGeometry args={[0.022, 8, 8]} />
+        <meshStandardMaterial color={PANTALLA} emissive={PANTALLA} emissiveIntensity={1.4} />
+      </mesh>
+      {/* Base y brazo compartido de los monitores */}
+      <mesh position={[0, 0.79, -0.22]} castShadow>
+        <boxGeometry args={[0.4, 0.03, 0.2]} />
+        <meshStandardMaterial color="#1f2937" metalness={0.5} />
+      </mesh>
+      <mesh position={[0, 0.98, -0.24]} castShadow>
+        <cylinderGeometry args={[0.035, 0.035, 0.4, 10]} />
+        <meshStandardMaterial color="#1f2937" metalness={0.5} />
+      </mesh>
+      <mesh position={[0, 1.19, -0.24]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.03, 0.03, 1.24, 10]} />
+        <meshStandardMaterial color="#1f2937" metalness={0.5} />
+      </mesh>
+      {/* Dos monitores, girados hacia el asiento (+z) */}
+      {[-1, 1].map((s) => (
+        <group key={s} position={[s * 0.44, 1.34, -0.2]} rotation={[0, -s * 0.28, 0]}>
+          <mesh castShadow>
+            <boxGeometry args={[0.82, 0.5, 0.045]} />
+            <meshStandardMaterial color={color} metalness={0.4} roughness={0.4} />
+          </mesh>
+          <mesh position={[0, 0, 0.026]}>
+            <boxGeometry args={[0.76, 0.44, 0.004]} />
+            <meshStandardMaterial color={PANTALLA} emissive={PANTALLA} emissiveIntensity={0.55} />
+          </mesh>
+          {/* Izquierdo: el trazo de una gráfica. Derecho: una rejilla de hoja. */}
+          {s < 0
+            ? [
+                [-0.26, -0.12],
+                [-0.08, 0.02],
+                [0.1, -0.04],
+                [0.28, 0.14],
+              ].map(([x, y], i) => (
+                <mesh key={`${x}`} position={[x, y, 0.03]} rotation={[0, 0, 0.5 - i * 0.28]}>
+                  <boxGeometry args={[0.2, 0.014, 0.002]} />
+                  <meshStandardMaterial color="#0b1020" />
+                </mesh>
+              ))
+            : [-0.12, 0, 0.12].map((y) => (
+                <mesh key={y} position={[0, y, 0.03]}>
+                  <boxGeometry args={[0.68, 0.01, 0.002]} />
+                  <meshStandardMaterial color="#0b1020" />
+                </mesh>
+              ))}
+        </group>
+      ))}
+      {/* Teclado, mousepad y ratón */}
+      <mesh position={[-0.06, 0.79, 0.18]} castShadow>
+        <boxGeometry args={[0.56, 0.035, 0.18]} />
+        <meshStandardMaterial color="#e5e7eb" roughness={0.6} />
+      </mesh>
+      {[-0.05, 0, 0.05].map((z) => (
+        <mesh key={z} position={[-0.06, 0.808, 0.18 + z]}>
+          <boxGeometry args={[0.5, 0.004, 0.014]} />
+          <meshStandardMaterial color="#9ca3af" />
+        </mesh>
+      ))}
+      <mesh position={[0.4, 0.782, 0.2]}>
+        <boxGeometry args={[0.26, 0.006, 0.2]} />
+        <meshStandardMaterial color="#1f2937" roughness={0.9} />
+      </mesh>
+      <mesh position={[0.4, 0.795, 0.2]} castShadow>
+        <boxGeometry args={[0.07, 0.026, 0.11]} />
+        <meshStandardMaterial color="#e5e7eb" roughness={0.6} />
+      </mesh>
+      {/* Cuadernos apilados: le dan vida al escritorio */}
+      {[0, 1].map((i) => (
+        <mesh key={i} position={[-0.62, 0.795 + i * 0.03, 0.1]} rotation={[0, 0.18 * i, 0]} castShadow>
+          <boxGeometry args={[0.26, 0.028, 0.19]} />
+          <meshStandardMaterial color={i ? '#a78bfa' : '#34d399'} roughness={0.85} />
+        </mesh>
+      ))}
+    </group>
+  )
+}
+
 interface EspProps {
   color: string
   simple?: boolean
   /** Piso del objeto para la activación por proximidad (null = ignorar nivel). */
   nivel?: number | null
+  /**
+   * Instancia: la necesitan los AMBIENTALES para que el botón «Interactuar» les
+   * encienda la animación (`pulsarAnimacion`) aunque el jugador esté lejos, sin
+   * esperar a que la cercanía los despierte.
+   */
+  objetoId?: number
 }
 
-type UsableProps = { color: string; objetoId?: number }
+type UsableProps = { color: string }
 
 /** Despacha el componente del objeto principal según su `tipo` (o null si no es especial). */
 export function EspecialPlantilla({
@@ -1188,42 +1452,46 @@ export function EspecialPlantilla({
   simple = false,
   nivel = null,
   objetoId,
-}: EspProps & { tipo: string; objetoId?: number }) {
+}: EspProps & { tipo: string }) {
   switch (tipo) {
     case TIPO_OLLA:
-      return <Olla color={color} simple={simple} nivel={nivel} />
+      return <Olla color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_PIZARRA:
-      return <PizarraIdeas color={color} simple={simple} nivel={nivel} />
+      return <PizarraIdeas color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_AGENDA:
-      return <AgendaEscritorio color={color} simple={simple} nivel={nivel} />
+      return <AgendaEscritorio color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_DESPERTADOR:
-      return <Despertador color={color} simple={simple} nivel={nivel} />
+      return <Despertador color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_LIBRERO_LIBRO:
-      return <LibreroLibro color={color} simple={simple} nivel={nivel} />
+      return <LibreroLibro color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_GLOBO:
-      return <GloboTerraqueo color={color} simple={simple} nivel={nivel} />
+      return <GloboTerraqueo color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_ESTANTERIA_HERR:
-      return <EstanteriaHerramientas color={color} simple={simple} nivel={nivel} />
+      return <EstanteriaHerramientas color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_REPISA_JUEGOS:
-      return <RepisaJuegos color={color} simple={simple} nivel={nivel} />
+      return <RepisaJuegos color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_CAMINADORA:
-      return <Caminadora color={color} objetoId={objetoId} />
+      return <Caminadora color={color} />
     case TIPO_PERIODICO:
-      return <EscritorioNoticias color={color} simple={simple} nivel={nivel} />
+      return <EscritorioNoticias color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_SILLON:
-      return <SillonLectura color={color} objetoId={objetoId} />
+      return <SillonLectura color={color} />
     case TIPO_LAPTOP:
-      return <Laptop color={color} objetoId={objetoId} />
+      return <Laptop color={color} />
     case TIPO_TAPETE:
-      return <TapeteYoga color={color} objetoId={objetoId} />
+      return <TapeteYoga color={color} />
     case TIPO_GUITARRA:
-      return <PianoObj color={color} simple={simple} nivel={nivel} />
+      return <PianoObj color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_PLANTA_REGAR:
-      return <Arbol color={color} simple={simple} nivel={nivel} />
+      return <Arbol color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_LIBRETA:
-      return <Libreta color={color} objetoId={objetoId} />
+      return <Libreta color={color} />
     case TIPO_CALENDARIO:
       return <CalendarioPared color={color} />
+    case TIPO_CAJA_FUERTE:
+      return <CajaFuerte color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+    case TIPO_ESTACION_COMPUTO:
+      return <EstacionComputo color={color} />
     default:
       return null
   }

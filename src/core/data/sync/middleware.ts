@@ -17,6 +17,7 @@ import Dexie, {
   type DBCoreTransaction,
   type Middleware,
 } from 'dexie'
+import { esDemo } from '../../edicion'
 import { esTablaSync } from './syncables'
 
 export type OpOutbox = 'upsert' | 'delete'
@@ -53,6 +54,19 @@ export function marcarEscrituraSilenciosa(): void {
   if (t?.idbtrans) t.idbtrans.__mhAplicandoPull = true
 }
 
+/**
+ * Construcción de la casa demo: sus miles de filas llenaban `_outbox` con el año
+ * entero de Pep@ para tirarlo al final (en demo el motor de sync ni arranca).
+ * `marcarEscrituraSilenciosa` no sirve aquí —marca la transacción actual y cada
+ * `repo.add` es la suya— y además saltaría el sellado de `uid`, que algún
+ * builder necesita para reescribir filas del seed. Esto salta SOLO el encolado.
+ */
+let sinOutbox = false
+export function setSinOutbox(v: boolean): void {
+  // Cinturón: fuera del demo la cola es el sustento del sync.
+  if (esDemo()) sinOutbox = v
+}
+
 function sellar(v: Fila): void {
   if (typeof v.uid !== 'string' || !v.uid) v.uid = crypto.randomUUID()
   // Los seeds (uid determinista `seed-…`) conservan su updatedAt bajo: la
@@ -82,7 +96,7 @@ export const syncMiddleware: Middleware<DBCore> = {
         const kp = tabla.schema.primaryKey.keyPath as string
 
         const encolar = async (trans: DBCoreTransaction, entradas: EntradaOutbox[]) => {
-          if (!entradas.length) return
+          if (sinOutbox || !entradas.length) return
           await outbox.mutate({ type: 'add', trans, values: entradas })
           alEscribirLocal?.()
         }

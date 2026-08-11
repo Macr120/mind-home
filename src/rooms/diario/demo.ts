@@ -9,6 +9,7 @@
 import { lecturasDiarioRepo } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { enJapon } from '../../demo/hitosPep'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { setProgramaciones } from './reparto'
 
 /** Constancia del hábito según el mes del año. */
@@ -49,8 +50,12 @@ export async function construirDemoDiario(ctx: CtxDemo): Promise<void> {
     {
       id: 'demo-tarde',
       asistenteId: 'custom-laika',
-      secciones: ['entretenimiento', 'efemerides'],
+      // Lo ligero: espectáculos, más la palabra, la frase y la especie del día.
+      secciones: ['entretenimiento', 'ef:palabra', 'ef:frase', 'ef:especie'],
       modo: 'aleatoria',
     },
   ])
+
+  // La racha viva de las últimas semanas, convertida en meta con su plan.
+  await sembrarMetasApp(ctx, 'diario')
 }

@@ -9,7 +9,18 @@ const DIAS = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
  * Mapa de calor mensual: cuadrícula tipo calendario donde cada día se colorea
  * según los minutos practicados del hobby.
  */
-export function HeatmapMes({ minPorDia, color }: { minPorDia: Map<string, number>; color: string }) {
+export function HeatmapMes({
+  minPorDia,
+  color,
+  sel,
+  onDia,
+}: {
+  minPorDia: Map<string, number>
+  color: string
+  /** Día elegido: se marca aquí y se abre abajo en el historial. */
+  sel?: string
+  onDia: (iso: string) => void
+}) {
   const t = useT()
   const ahora = new Date()
   const [ref, setRef] = useState({ anio: ahora.getFullYear(), mes: ahora.getMonth() })
@@ -89,19 +100,26 @@ export function HeatmapMes({ minPorDia, color }: { minPorDia: Map<string, number
           semana.map((c) => {
             const alpha = c.min > 0 ? 0.25 + 0.75 * Math.min(1, c.min / (maxDia || 1)) : 0
             return (
-              <div
+              <button
                 key={`${wi}-${c.iso}`}
-                title={`${c.iso} · ${c.min} min`}
-                className={`aspect-square rounded-sm flex items-center justify-center text-[7px] ${
+                type="button"
+                disabled={c.min === 0}
+                onClick={() => onDia(c.iso)}
+                title={`${c.iso} · ${c.min} min${
+                  c.min > 0 ? ` · ${t('hobbies.heatmap.verDia', 'ver en el historial')}` : ''
+                }`}
+                className={`aspect-square rounded-sm flex items-center justify-center text-[7px] transition ${
                   c.enMes ? 'text-white/50' : 'text-white/15'
-                } ${c.iso === hoy ? 'ring-1 ring-white/60' : ''}`}
+                } ${c.min > 0 ? 'hover:brightness-125' : ''} ${
+                  c.iso === sel ? 'ring-2 ring-white/80' : c.iso === hoy ? 'ring-1 ring-white/60' : ''
+                }`}
                 style={{
                   background: c.min > 0 ? rgba(color, alpha) : 'rgba(255,255,255,0.04)',
                   opacity: c.enMes ? 1 : 0.35,
                 }}
               >
                 {c.dia}
-              </div>
+              </button>
             )
           }),
         )}

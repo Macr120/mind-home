@@ -1,6 +1,7 @@
 import { Icono } from '../../core/ui/iconos/Icono'
 import { useState } from 'react'
 import type { Efemeride } from '../../core/data/db'
+import { abrirApp } from '../../core/abrirApp'
 import { useT } from '../../core/i18n/useT'
 // Se reutiliza la charla del Sabio de la biblioteca: la conversación queda
 // guardada ahí y el usuario puede seguir profundizando desde ese cuarto.
@@ -71,9 +72,16 @@ export function ProfundizarModal({
           anclaInicial={estado.ancla}
           onCreada={(id) => setEstado((s) => ({ ...s, id }))}
           onSalir={onCerrar}
-          onCharlaNueva={(ancla, borrador) =>
-            setEstado((s) => ({ id: null, borrador, ancla, key: s.key + 1 }))
-          }
+          // El árbol y las entradas viven en la biblioteca: el enlace se sigue
+          // allá, que es donde están la enciclopedia y sus herramientas.
+          onIrANodo={(nodoId) => {
+            onCerrar()
+            abrirApp('biblioteca', 'enciclopedia', `nodo:${nodoId}`)
+          }}
+          onVerEntrada={(entradaId) => {
+            onCerrar()
+            abrirApp('biblioteca', 'enciclopedia', `entrada:${entradaId}`)
+          }}
         />
       </div>
     </div>

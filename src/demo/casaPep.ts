@@ -100,10 +100,17 @@ export async function construirCasaPep(): Promise<void> {
  * cuarto en el mapa queda INALCANZABLE en silencio — `abrirApp` devuelve null
  * y el tour se aborta sin aviso. Si algún reparto futuro deja una app fuera,
  * que se vea aquí.
+ *
+ * El calendario no cuenta: su builder existe, pero se abre desde el reloj del
+ * HUD y a propósito no tiene cuarto.
  */
+const SIN_CUARTO_A_PROPOSITO = new Set(['calendario'])
+
 function avisarAppsSinCuarto(ids: Record<string, string>): void {
   if (!import.meta.env.DEV) return
-  const huerfanas = Object.keys(BUILDERS_DEMO).filter((app) => !ids[app])
+  const huerfanas = Object.keys(BUILDERS_DEMO).filter(
+    (app) => !ids[app] && !SIN_CUARTO_A_PROPOSITO.has(app),
+  )
   if (huerfanas.length) {
     console.warn('[MPH demo] Apps con builder pero sin cuarto en el mapa:', huerfanas)
   }

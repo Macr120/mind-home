@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura, ComandoApp } from '../../core/registry'
-import { vTexto, vNumero, vFecha } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura, ComandoApp } from '../../core/appContrato'
+import { vTexto, vNumero, vFecha } from '../../core/appContrato'
 import { mediaArchivoRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
 import type { TipoMedia, EstadoMedia } from '../../core/data/db'
@@ -182,6 +182,7 @@ const entretenimiento: Plantilla = {
   comandos: [
     { seccion: 'archivo', etiqueta: 'Archivo', nombres: ['archivo', 'mis peliculas', 'mis series'] },
     { seccion: 'mesa', etiqueta: 'Juegos de mesa', nombres: ['juegos', 'juegos de mesa', 'mesa de juegos'] },
+    { seccion: 'programas', etiqueta: 'Programas', nombres: ['programas', 'programa', 'maraton'] },
     ...comandosJuegos,
   ],
 }

@@ -225,7 +225,16 @@ interface CuerpoActual {
   cuerpoPresetId?: string
   modelo3d?: Pieza3D[]
   modeloGlb?: Blob
+  rostro?: Blob
+  expresion?: ExpresionId
 }
+
+/**
+ * Formas integradas cuya "cara" son solo un par de ojos y por tanto admiten el
+ * rostro del editor: el gato. Las demás traen pico, visor o hocico modelados,
+ * que son parte de su identidad y no se pueden tapar sin romperlas.
+ */
+const FORMAS_CON_ROSTRO = new Set<MascotaId>(['gato'])
 
 /**
  * Anclas de ropa del cuerpo actual: con modelo propio (piezas o .glb) usa la
@@ -239,14 +248,28 @@ export function anclasDe(p: CuerpoActual): AnclasRopa {
 }
 
 /**
- * ¿Este cuerpo admite el editor genérico de Rostro (expresión/foto)? Solo Base
- * (con o sin preset "Base" de asistente) y Princesa: el resto ya tiene
- * ojos/pico/visor fijos que son parte de su identidad.
+ * ¿Este cuerpo admite el editor genérico de Rostro (expresión/foto)? Base (con
+ * o sin preset "Base" de asistente), Princesa y el gato: el resto ya tiene
+ * pico/visor/hocico fijos que son parte de su identidad.
  */
 export function soportaRostro(p: CuerpoActual): boolean {
   if (p.modeloGlb) return false
   if ((p.modelo3d?.length ?? 0) > 0) return p.cuerpoPresetId === 'base' || p.cuerpoPresetId === 'princesa'
-  return !p.forma
+  return !p.forma || FORMAS_CON_ROSTRO.has(p.forma)
+}
+
+/** ¿El usuario le eligió cara (foto o expresión)? Distinto de «admite rostro». */
+export function rostroElegido(p: CuerpoActual): boolean {
+  return !!p.rostro || p.expresion != null
+}
+
+/**
+ * ¿Hay que DIBUJAR el rostro del editor? En las formas con ojos de fábrica (el
+ * gato) solo cuando el usuario eligió cara; si no, se queda con la suya. En los
+ * cuerpos sin cara propia se dibuja siempre que la admitan.
+ */
+export function muestraRostro(p: CuerpoActual): boolean {
+  return soportaRostro(p) && (!p.forma || rostroElegido(p))
 }
 
 /**

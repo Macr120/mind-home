@@ -1,9 +1,11 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { PlanMeta, Rutina } from '../../data/db'
 import { planesMetaRepo } from '../../data/repository'
-import { iaHabilitada } from '../../edicion'
+import { claveLS, iaHabilitada } from '../../edicion'
+import { useCategoriasMeta } from '../../state/categoriasMetaStore'
+import { pedirTexto } from '../../state/confirmarStore'
 import { fechaLocalISO } from '../../fechaLocal'
-import { localeActual, useT } from '../../i18n/useT'
+import { localeActual, useT, type TFunc } from '../../i18n/useT'
 import {
   crearMeta,
   filasVisibles,
@@ -15,14 +17,19 @@ import {
 } from '../../metas'
 import { COLORES_RUTINA } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
+import type { NombreIcono } from '../iconos/catalogo'
 import { filasPlan, rangoDePlan, type FilaPlan } from '../../planMeta'
 import { CabeceraPlan } from './CabeceraPlan'
+import { etiquetasDePlanes, textoEtiquetaPlan } from './carpetas'
 import { anchoTotal, columnasDe, isoMasDias, NIVELES_ZOOM, nivelQueEncuadra, ventana, xDeIso } from './escala'
 import { FilaMeta } from './FilaMeta'
 import { FilaPlanNodo } from './FilaPlanNodo'
+import { HojaMeta } from './HojaMeta'
+import { TableroMetas } from './TableroMetas'
 import { PistaMeta } from './PistaMeta'
 import { PistaPlan } from './PistaPlan'
-import { PlanIAPanel } from './PlanIAPanel'
+import { VistaMetas } from './VistaMetas'
+import { VistaPlanes, type DestinoPlanes } from './VistaPlanes'
 
 /** Color de lo propuesto: fijo y fuera de la paleta de metas, para que "esto todavía
  *  no es tuyo" se lea sin pensar. */
@@ -46,6 +53,32 @@ const ANCHO_ARBOL_MAX = 32 * 16
 
 /** Alto de cada fila de la cabecera (contexto y detalle). */
 const ALTO_FILA_EJE = 16
+
+/** Las tres pantallas, en el orden en que se recorren. */
+type Modo = 'metas' | 'planes' | 'cronograma'
+const MODOS: Modo[] = ['metas', 'planes', 'cronograma']
+const ETIQUETA_MODO: Record<Modo, [string, string]> = {
+  metas: ['cal.metas', 'Metas'],
+  planes: ['cal.plan.menu', 'Planes'],
+  cronograma: ['cal.cronograma', 'Cronograma'],
+}
+
+/** Cómo se disponen las metas en el panel. */
+type Disposicion = 'lista' | 'rejilla' | 'tablero'
+const DISPOSICIONES: Disposicion[] = ['lista', 'rejilla', 'tablero']
+const LS_COLUMNAS = claveLS('mh.metas.columnas')
+
+const ICONO_DISPOSICION: Record<Disposicion, NombreIcono> = {
+  lista: 'lista',
+  rejilla: 'rejilla',
+  tablero: 'tablero',
+}
+
+const TITULO_DISPOSICION: Record<Disposicion, (t: TFunc) => string> = {
+  lista: (t) => t('cal.metas.enLista', 'Ver en una lista'),
+  rejilla: (t) => t('cal.metas.enColumnas', 'Ver en dos columnas'),
+  tablero: (t) => t('cal.metas.enTablero', 'Ver como tablero'),
+}
 
 /**
  * Vista Cronograma: la lista de Metas a la izquierda y sus periodos como barras a
@@ -99,21 +132,105 @@ export function Cronograma({
   const [arrastrada, setArrastrada] = useState<Rutina | null>(null)
   const [enRaiz, setEnRaiz] = useState(false)
   const [anchoArbol, setAnchoArbol] = useState(ANCHO_ARBOL_DEFECTO)
-  const [planPara, setPlanPara] = useState<Rutina | null>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
+  // Plan por encuadrar en cuanto el eje exista: quien entra desde el botón «Plan» de
+  // una meta lo hace con la lista en pantalla, y encuadrar mide el área visible del eje.
+  const encuadrePendiente = useRef<PlanMeta | null>(null)
+  // El recorrido se lee en este orden: primero las metas, luego los planes que las
+  // desarrollan y al final el eje donde caen. Se abre en Metas, que es la pantalla
+  // que nunca está vacía.
+  const [modo, setModo] = useState<Modo>('metas')
+  // En qué pantalla está la vista Planes. Vive aquí porque el ✨ de una meta y el
+  // «Abrir la hoja» del eje entran ya apuntando a una en concreto.
+  const [destinoPlanes, setDestinoPlanes] = useState<DestinoPlanes>({ tipo: 'lista' })
+  // Meta abierta en su hoja (las que no tienen plan). Se guarda el id y no la fila:
+  // así lo que se pinta sale siempre de la lista viva, y borrarla o palomearla se
+  // ve al momento sin un efecto que lo vigile.
+  const [hojaMetaId, setHojaMetaId] = useState<number | null>(null)
+
+  const irAPlanes = (destino: DestinoPlanes) => {
+    setDestinoPlanes(destino)
+    setModo('planes')
+  }
+
+  // Disposición del panel de Metas. Es preferencia del dispositivo, como el zoom:
+  // se recuerda sin pasar por la BD.
+  const [disposicion, setDisposicion] = useState<Disposicion>(() => {
+    const guardado = localStorage.getItem(LS_COLUMNAS)
+    // '2' y '1' son de cuando esto era un interruptor de una o dos columnas.
+    if (guardado === '2') return 'rejilla'
+    return DISPOSICIONES.includes(guardado as Disposicion) ? (guardado as Disposicion) : 'lista'
+  })
+  const cambiarDisposicion = (v: Disposicion) => {
+    setDisposicion(v)
+    localStorage.setItem(LS_COLUMNAS, v)
+  }
+
+  const nuevaCategoria = async () => {
+    const nom = await pedirTexto({ titulo: t('cal.metas.categoria.nueva', 'Nueva categoría') })
+    if (nom) useCategoriasMeta.getState().agregar(nom)
+  }
 
   // Los planes son cosa del cronograma: `Calendario` no tiene por qué enterarse
   // (`FilaMeta` ya lee su repo directo por lo mismo). La lista se estabiliza aquí
   // para que el `?? []` de la carga inicial no invalide lo que cuelga de ella.
   const planesVivos = planesMetaRepo.useAll()
   const planes = useMemo(() => planesVivos ?? [], [planesVivos])
+  // Solo los planes de las metas que ESTA vista sostiene. Sin este filtro, dentro de
+  // una app (o con el filtro del calendario puesto) se ofrecían planes cuya meta
+  // origen no está en la lista, y su bloque salía sin nombre y sin poder aceptarse.
+  const planesMios = useMemo(() => {
+    const ids = new Set(metas.map((m) => m.id))
+    return planes.filter((p) => ids.has(p.metaId))
+  }, [planes, metas])
+  // Cómo se llama cada plan aquí: la misma etiqueta que en la vista Planes, sacada
+  // de la misma lista, así que un plan lleva el mismo número en las dos.
+  const etiquetasPlan = useMemo(() => etiquetasDePlanes(planesMios, metas, t), [planesMios, metas, t])
   const conIA = iaHabilitada()
   const [planVisibleId, setPlanVisibleId] = useState<number | null>(null)
   // Se resuelve contra la lista viva: si el plan se borra, la vista vuelve sola a
   // "Real" sin un efecto que lo vigile.
+  //
+  // Cualquier plan entra aquí, tenga fechas o no: es sobre el eje donde se las das,
+  // arrastrando en la franja de cada fase que todavía no las tiene.
   const planVisible = useMemo(
-    () => planes.find((p) => p.id === planVisibleId) ?? null,
-    [planes, planVisibleId],
+    () => planesMios.find((p) => p.id === planVisibleId) ?? null,
+    [planesMios, planVisibleId],
+  )
+
+  /**
+   * El plan que ofrece la fila de cada meta en el panel de Metas. Una meta puede
+   * tener varios (Plan A, B…): manda el aceptado — es el que ya se volvió cronograma
+   * real — y, entre propuestas, la más reciente.
+   */
+  const planPorMeta = useMemo(() => {
+    const orden = [...planesMios].sort(
+      (a, b) => Number(!!b.aceptadoEn) - Number(!!a.aceptadoEn) || b.creadoEn.localeCompare(a.creadoEn),
+    )
+    const m = new Map<number, PlanMeta>()
+    for (const p of orden) if (!m.has(p.metaId)) m.set(p.metaId, p)
+    return m
+  }, [planesMios])
+
+  /**
+   * Un clic en una meta del panel abre SU HOJA: la del plan si lo tiene (ahí están
+   * las fases y las sub-metas, propuesta o ya aceptada) y, si no, la de la meta.
+   *
+   * El plan aceptado ya no salta al eje: desde su hoja se llega con «Ver en el
+   * cronograma», y aterrizar de golpe en el eje se llevaba por delante lo que se
+   * venía a mirar — el desglose.
+   */
+  const abrirMeta = (r: Rutina) => {
+    const plan = r.id != null ? planPorMeta.get(r.id) : undefined
+    if (plan?.id != null) irAPlanes({ tipo: 'hoja', id: plan.id })
+    else if (r.id != null) setHojaMetaId(r.id)
+  }
+
+  // Se resuelve contra la lista viva: borrar la meta desde su hoja devuelve solo a
+  // la lista, sin dejar una hoja huérfana en pantalla.
+  const hojaMeta = useMemo(
+    () => (hojaMetaId == null ? null : (metas.find((m) => m.id === hojaMetaId) ?? null)),
+    [metas, hojaMetaId],
   )
 
   // `rangoConHijas` recorre la descendencia de cada meta: llamarlo por fila y por
@@ -244,6 +361,29 @@ export function Cronograma({
     zoomObjetivo.current = { iso: rangos.map((r) => r.ini).reduce((a, b) => (a < b ? a : b)), offset: 24 }
   }
 
+  /**
+   * El encuadre que dejó pedido `abrirPlanDeMeta`, ya con el eje montado y medible.
+   * Se encuadra el periodo DEL PLAN, no todos los rangos como hace «Ajustar»: quien
+   * llega desde una meta viene a ver ese plan, y las metas de la casa abarcan años
+   * — el eje se abriría en trimestres y el plan sería una raya.
+   */
+  useLayoutEffect(() => {
+    const plan = encuadrePendiente.current
+    const el = scrollRef.current
+    if (!plan || modo !== 'cronograma' || !el) return
+    encuadrePendiente.current = null
+    // Un plan sin fases no tiene periodo que encuadrar: el eje se queda donde está.
+    const r = rangoDePlan(plan)
+    if (!r) return
+    const destino = nivelQueEncuadra([r], el.clientWidth - anchoArbol)
+    // Al mismo zoom no hay repintado que esperar: el scroll se pone ya.
+    if (destino === nivel) el.scrollLeft = Math.max(0, xDeIso(desde, r.ini, pxPerDia) - 24)
+    else {
+      zoomObjetivo.current = { iso: r.ini, offset: 24 }
+      setNivel(destino)
+    }
+  }, [modo, anchoArbol, nivel, desde, pxPerDia])
+
   const onWheel = (e: React.WheelEvent) => {
     if (!e.ctrlKey && !e.metaKey) return
     e.preventDefault()
@@ -311,7 +451,7 @@ export function Cronograma({
   const abrirPlanIA = async () => {
     const nueva = await confirmarAlta()
     setAgregandoRaiz(false)
-    if (nueva) setPlanPara(nueva)
+    if (nueva) irAPlanes({ tipo: 'generar', meta: nueva })
   }
 
   /** Arrastra la manija de la cabecera para ensanchar o angostar la lista. */
@@ -362,12 +502,65 @@ export function Cronograma({
         </span>
         <p className="text-xs font-bold uppercase tracking-wider text-white/70">{t('cal.metas', 'Metas')}</p>
 
-        <input
-          value={busca}
-          onChange={(e) => setBusca(e.target.value)}
-          placeholder={t('cal.cron.buscar', 'Buscar…')}
-          className="w-28 rounded-lg border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] text-white/85 placeholder:text-white/25 focus:outline-none"
-        />
+        {/* Metas → Planes → Cronograma: el borrador va antes que el eje, no al revés. */}
+        <div className="flex rounded-lg border border-white/10 p-0.5">
+          {MODOS.map((m) => (
+            <button
+              key={m}
+              type="button"
+              data-tut={`cal.cron.modo.${m}`}
+              onClick={() => setModo(m)}
+              className={`rounded-md px-2 py-0.5 text-[10px] font-semibold transition ${
+                modo === m ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/80'
+              }`}
+            >
+              {t(...ETIQUETA_MODO[m])}
+            </button>
+          ))}
+        </div>
+
+        {/* El buscador es de los dos modos con lista; el resto de controles solo
+            tienen sentido sobre el eje. */}
+        {modo !== 'planes' && (
+          <input
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+            placeholder={t('cal.cron.buscar', 'Buscar…')}
+            className="w-28 rounded-lg border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] text-white/85 placeholder:text-white/25 focus:outline-none"
+          />
+        )}
+
+        {modo === 'metas' && !ambito && (
+          <>
+            <button
+              type="button"
+              onClick={() => void nuevaCategoria()}
+              className="rounded-lg border border-white/15 px-2 py-0.5 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+            >
+              + {t('cal.metas.categoria', 'categoría')}
+            </button>
+            {/* Las tres disposiciones, cada una con su botón: un solo icono que
+                iba ciclando no dejaba ver que el tablero existía. */}
+            <div className="flex items-center rounded-lg border border-white/10 p-0.5">
+              {DISPOSICIONES.map((d) => (
+                <button
+                  key={d}
+                  type="button"
+                  onClick={() => cambiarDisposicion(d)}
+                  title={TITULO_DISPOSICION[d](t)}
+                  className={`rounded-md px-1.5 py-0.5 text-[11px] transition ${
+                    disposicion === d ? 'bg-white/15 text-white' : 'text-white/40 hover:text-white/80'
+                  }`}
+                >
+                  <Icono nombre={ICONO_DISPOSICION[d]} />
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+
+        {modo === 'cronograma' && (
+        <>
         <button
           type="button"
           onClick={() => setOcultarHechas((v) => !v)}
@@ -390,7 +583,7 @@ export function Cronograma({
 
         {/* Qué se ve sobre el eje: tu cronograma, o uno de los planes propuestos
             encima de él. Uno a la vez: comparar tres a la vez no se lee. */}
-        {planes.length > 0 && (
+        {planesMios.length > 0 && (
           <select
             value={planVisibleId ?? ''}
             onChange={(e) => setPlanVisibleId(e.target.value ? Number(e.target.value) : null)}
@@ -400,10 +593,12 @@ export function Cronograma({
             }`}
           >
             <option value="">{t('cal.plan.real', 'Real')}</option>
-            {planes.map((p) => (
+            {planesMios.map((p) => (
               <option key={p.id} value={p.id}>
-                ✨ {p.nombre}
-                {p.aceptadoEn ? ' ✓' : ''} · {metas.find((m) => m.id === p.metaId)?.nombre ?? '—'}
+                {/* El mismo nombre que en Planes («Jardín · Plan 1»): «Plan A» se
+                    repetía en todas las opciones y no decía de quién era cada una. */}
+                ✨ {textoEtiquetaPlan(etiquetasPlan.get(p.id ?? -1), p.nombre, t)}
+                {p.aceptadoEn ? ' ✓' : ''} · {metas.find((m) => m.id === p.metaId)?.nombre}
               </option>
             ))}
           </select>
@@ -460,10 +655,62 @@ export function Cronograma({
             </button>
           </div>
         </div>
+        </>
+        )}
       </div>
 
+      {modo === 'metas' ? (
+        hojaMeta ? (
+          <HojaMeta
+            meta={hojaMeta}
+            metas={metas}
+            onVolver={() => setHojaMetaId(null)}
+            onPlanIA={conIA ? (r) => irAPlanes({ tipo: 'generar', meta: r }) : undefined}
+          />
+        ) : disposicion === 'tablero' && !ambito ? (
+          <TableroMetas
+            metas={metas}
+            busca={busca}
+            planPorMeta={planPorMeta}
+            onAbrirMeta={abrirMeta}
+          />
+        ) : (
+          <VistaMetas
+            metas={metas}
+            busca={busca}
+            dosColumnas={disposicion === 'rejilla'}
+            planPorMeta={planPorMeta}
+            onAbrirMeta={abrirMeta}
+            ambito={ambito}
+            ambitoId={ambitoId}
+            ejemplo={ejemplo}
+          />
+        )
+      ) : modo === 'planes' ? (
+        <VistaPlanes
+          metas={metas}
+          // `planesMios`, no `planes`: con el filtro del calendario puesto (o dentro
+          // de una app) la lista enseñaba planes de metas que ya no se ven, y su
+          // tarjeta salía sin meta a la que volver.
+          planes={planesMios}
+          metaArmada={metaArmada}
+          destino={destinoPlanes}
+          onDestino={setDestinoPlanes}
+          onVerEnCronograma={(id) => {
+            setPlanVisibleId(id)
+            setModo('cronograma')
+          }}
+          onIrACronograma={() => setModo('cronograma')}
+          onVerMeta={(r) => {
+            if (r.id == null) return
+            setHojaMetaId(r.id)
+            setModo('metas')
+          }}
+        />
+      ) : (
       <div
         ref={scrollRef}
+        data-tut="cal.cron.eje"
         onWheel={onWheel}
         onPointerDown={iniciarPan}
         onPointerMove={moverPan}
@@ -619,16 +866,17 @@ export function Cronograma({
                       arrastrada={arrastrada}
                       onArrastrar={setArrastrada}
                       onSoltar={soltarEnFila}
-                      onPlanIA={conIA ? setPlanPara : undefined}
+                      onPlanIA={conIA ? (r) => irAPlanes({ tipo: 'generar', meta: r }) : undefined}
                       sinArrastre={!!ambito}
                     />
                   )}
                   {f.tipo === 'planCabecera' && (
                     <CabeceraPlan
                       plan={f.plan}
-                      metas={metas}
+                      etiqueta={textoEtiquetaPlan(etiquetasPlan.get(f.plan.id ?? -1), f.plan.nombre, t)}
                       onAceptado={() => setPlanVisibleId(null)}
                       onBorrado={() => setPlanVisibleId(null)}
+                      onAbrirHoja={() => f.plan.id != null && irAPlanes({ tipo: 'hoja', id: f.plan.id })}
                     />
                   )}
                   {f.tipo === 'plan' && (
@@ -654,14 +902,15 @@ export function Cronograma({
                     hoyIso={hoyIso}
                     onArmar={onArmar}
                   />
-                ) : f.tipo === 'plan' ? (
+                ) : f.tipo === 'plan' && planVisible ? (
                   <PistaPlan
-                    rango={f.rango}
-                    nombre={f.nodo.nombre}
+                    plan={planVisible}
+                    nodo={f.nodo}
                     color={COLOR_PLAN}
                     ancho={ancho}
                     desde={desde}
                     pxPerDia={pxPerDia}
+                    editable={!planVisible.aceptadoEn}
                   />
                 ) : (
                   <div style={{ width: ancho }} />
@@ -701,8 +950,7 @@ export function Cronograma({
           />
         </div>
       </div>
-
-      {planPara && <PlanIAPanel meta={planPara} planes={planes} onCerrar={() => setPlanPara(null)} />}
+      )}
     </div>
   )
 }

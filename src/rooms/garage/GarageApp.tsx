@@ -7,7 +7,6 @@ import { VACIO,
 } from '../../core/data/repository'
 import { DetalleVehiculo } from './DetalleVehiculo'
 import { ResumenTab } from './ResumenTab'
-import { TalleresTab } from './TalleresTab'
 import { VehiculosTab } from './VehiculosTab'
 import { reconciliarGarage } from './calendario'
 import { COLOR } from './constantes'
@@ -18,12 +17,11 @@ import { tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-type Tab = 'resumen' | 'vehiculos' | 'talleres'
+type Tab = 'resumen' | 'vehiculos'
 
 const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
   { id: 'resumen', icono: 'progreso', labelEs: 'Resumen' },
   { id: 'vehiculos', icono: 'herramienta', labelEs: 'Vehículos' },
-  { id: 'talleres', icono: 'telefono', labelEs: 'Talleres' },
 ]
 
 export function GarageApp() {
@@ -47,6 +45,7 @@ export function GarageApp() {
       <div className="mx-auto max-w-2xl">
         <DetalleVehiculo
           vehiculo={vehiculoSel}
+          vehiculos={vehiculos}
           tramites={tramites}
           talleres={talleres}
           onVolver={() => setVehiculoId(null)}
@@ -58,11 +57,12 @@ export function GarageApp() {
   return (
     <div className="mx-auto max-w-2xl space-y-4">
       <p className="text-xs leading-relaxed text-white/45">
-        {t('garage.desc', 'Tus vehículos: servicios y costos, trámites agendados en el calendario y la libreta de talleres.')}
+        {t('garage.desc', 'Tus vehículos: servicios y costos, trámites agendados en el calendario y la libreta de contactos.')}
       </p>
 
       {/* Riel de pestañas: la píldora activa se desliza dentro de un solo carril
-          en vez de tres botones sueltos (con tres ya se veían apretados). */}
+          en vez de botones sueltos. Los talleres se movieron a la ficha de cada
+          vehículo, junto a sus trámites y sus documentos. */}
       <div className="flex gap-1 rounded-2xl border border-white/10 bg-white/5 p-1">
         {TABS.map((tabItem) => {
           const activa = tab === tabItem.id
@@ -105,7 +105,6 @@ export function GarageApp() {
           onAbrir={setVehiculoId}
         />
       )}
-      {tab === 'talleres' && <TalleresTab talleres={talleres} vehiculos={vehiculos} />}
     </div>
   )
 }

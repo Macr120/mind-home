@@ -1,7 +1,7 @@
-import { Fragment, useMemo, useState, type Key, type ReactNode } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState, type Key, type ReactNode } from 'react'
 import { deIso, fechaLocalISO, inicioSemana, isoMasDias } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
-import { Icono } from '../../core/ui/iconos/Icono'
+import { Carpeta } from '../../core/ui/comun/Carpeta'
 
 /** Lunes de la semana de una fecha ISO: es la clave de la carpeta semanal. */
 const claveSemana = (fecha: string) => fechaLocalISO(inicioSemana(deIso(fecha)))
@@ -43,6 +43,7 @@ export function Archivador<T>({
   clave,
   resumen,
   vacio,
+  abrirEn,
   children,
 }: {
   items: T[]
@@ -52,10 +53,15 @@ export function Archivador<T>({
   /** Insignia opcional de cada carpeta: total de kcal, minutos, gasto… */
   resumen?: (items: T[]) => ReactNode
   vacio?: string
+  /** Día `yyyy-mm-dd` elegido fuera (un calendario): abre sus carpetas, lo
+   *  destaca y lo trae a la vista. */
+  abrirEn?: string
   children: (item: T) => ReactNode
 }) {
   const t = useT()
   const [tocadas, setTocadas] = useState<ReadonlySet<string>>(new Set())
+  const [ultimoSalto, setUltimoSalto] = useState(abrirEn)
+  const refSalto = useRef<HTMLDivElement>(null)
 
   const arbol = useMemo(() => {
     const orden = [...items].sort((a, b) => fecha(b).localeCompare(fecha(a)))
@@ -80,9 +86,30 @@ export function Archivador<T>({
     return new Set([anio.anio, mes.mes, mes.semanas[0].lunes])
   }, [arbol])
 
+  /** Las tres carpetas (año, mes y semana) donde cae el día elegido fuera. */
+  const delSalto = useMemo(
+    () => (abrirEn ? new Set([abrirEn.slice(0, 4), abrirEn.slice(0, 7), claveSemana(abrirEn)]) : new Set<string>()),
+    [abrirEn],
+  )
+
+  // Un día recién elegido manda: se olvidan los toques previos de sus carpetas
+  // para que ninguna quede cerrada por un clic viejo.
+  if (abrirEn !== ultimoSalto) {
+    setUltimoSalto(abrirEn)
+    if (abrirEn) setTocadas((prev) => new Set([...prev].filter((k) => !delSalto.has(k))))
+  }
+
+  // El primer registro del día elegido: es el que se trae a la vista.
+  const itemSalto = abrirEn ? items.find((x) => fecha(x) === abrirEn) : undefined
+  const claveSalto = itemSalto === undefined ? undefined : clave(itemSalto)
+
+  useEffect(() => {
+    if (abrirEn) refSalto.current?.scrollIntoView({ block: 'center', behavior: 'smooth' })
+  }, [abrirEn])
+
   // Sin efectos: la carpeta reciente empieza abierta y cada clic invierte su
   // estado. Así los datos que llegan tarde de la base no dejan todo cerrado.
-  const abierta = (k: string) => abiertasPorDefecto.has(k) !== tocadas.has(k)
+  const abierta = (k: string) => (abiertasPorDefecto.has(k) || delSalto.has(k)) !== tocadas.has(k)
   const alternar = (k: string) =>
     setTocadas((prev) => {
       const copia = new Set(prev)
@@ -138,9 +165,21 @@ export function Archivador<T>({
                   onAlternar={() => alternar(semana.lunes)}
                 >
                   <div className="space-y-2">
-                    {semana.items.map((item) => (
-                      <Fragment key={clave(item)}>{children(item)}</Fragment>
-                    ))}
+                    {semana.items.map((item) =>
+                      abrirEn ? (
+                        <div
+                          key={clave(item)}
+                          ref={clave(item) === claveSalto ? refSalto : undefined}
+                          className={
+                            fecha(item) === abrirEn ? 'rounded-xl ring-2 ring-white/40 transition' : undefined
+                          }
+                        >
+                          {children(item)}
+                        </div>
+                      ) : (
+                        <Fragment key={clave(item)}>{children(item)}</Fragment>
+                      ),
+                    )}
                   </div>
                 </Carpeta>
               ))}
@@ -155,12 +194,18 @@ export function Archivador<T>({
 /**
  * Mismas carpetas, pero agrupadas por una etiqueta de texto (género, categoría…)
  * en vez de por fecha. Un solo nivel: la carpeta con más registros abre sola.
+ *
+ * Con `orden` las carpetas listadas ahí van primero y en ese orden; las demás caen
+ * detrás por cantidad, como siempre. Y con `onReordenar` las cabeceras se pueden
+ * arrastrar para cambiarlo.
  */
 export function CarpetasPorEtiqueta<T>({
   items,
   etiqueta,
   clave,
   sinEtiqueta,
+  orden,
+  onReordenar,
   children,
 }: {
   items: T[]
@@ -168,10 +213,16 @@ export function CarpetasPorEtiqueta<T>({
   etiqueta: (item: T) => string
   clave: (item: T) => Key
   sinEtiqueta: string
+  /** Títulos en el orden manual guardado; los que falten van detrás. */
+  orden?: string[]
+  /** Si se define, las carpetas se arrastran y esto recibe el orden completo. */
+  onReordenar?: (titulos: string[]) => void
   children: (item: T) => ReactNode
 }) {
   const t = useT()
   const [tocadas, setTocadas] = useState<ReadonlySet<string>>(new Set())
+  const [arrastrada, setArrastrada] = useState<string | null>(null)
+  const [encima, setEncima] = useState<string | null>(null)
 
   // Se agrupa sin distinguir mayúsculas ni acentos sueltos («Terror» = «terror»)
   // y se muestra la primera forma que escribió el usuario.
@@ -184,10 +235,31 @@ export function CarpetasPorEtiqueta<T>({
       if (grupo) grupo.items.push(item)
       else mapa.set(k, { titulo: texto || sinEtiqueta, items: [item] })
     }
-    return [...mapa.values()].sort((a, b) => b.items.length - a.items.length || a.titulo.localeCompare(b.titulo))
-  }, [items, etiqueta, sinEtiqueta])
+    const lista = [...mapa.values()].sort(
+      (a, b) => b.items.length - a.items.length || a.titulo.localeCompare(b.titulo),
+    )
+    if (!orden?.length) return lista
+    // El orden guardado manda; lo que no esté en él va detrás, conservando el
+    // orden por cantidad. Los ausentes se numeran a partir de `orden.length` en
+    // vez de mandarlos al infinito: con dos infinitos la resta da NaN y un
+    // comparador que devuelve NaN deja el `sort` en manos del azar.
+    const puesto = new Map(orden.map((titulo, i) => [titulo.toLocaleLowerCase(), i]))
+    return lista
+      .map((g, i) => ({ g, k: puesto.get(g.titulo.toLocaleLowerCase()) ?? orden.length + i }))
+      .sort((a, b) => a.k - b.k)
+      .map((x) => x.g)
+  }, [items, etiqueta, sinEtiqueta, orden])
 
   const abierta = (k: string) => (grupos[0]?.titulo === k) !== tocadas.has(k)
+
+  /** Suelta la carpeta arrastrada justo antes de `destino`. */
+  const soltar = (destino: string) => {
+    if (!onReordenar || !arrastrada || arrastrada === destino) return
+    const titulos = grupos.map((g) => g.titulo).filter((x) => x !== arrastrada)
+    const at = titulos.indexOf(destino)
+    titulos.splice(at < 0 ? titulos.length : at, 0, arrastrada)
+    onReordenar(titulos)
+  }
 
   if (items.length === 0) {
     return <p className="py-4 text-center text-sm text-white/40">{t('carpetas.vacio', 'Aún no hay registros.')}</p>
@@ -202,6 +274,16 @@ export function CarpetasPorEtiqueta<T>({
           titulo={grupo.titulo}
           conteo={grupo.items.length}
           abierta={abierta(grupo.titulo)}
+          arrastrable={!!onReordenar}
+          marcada={encima === grupo.titulo && arrastrada !== grupo.titulo}
+          onArrastrar={() => setArrastrada(grupo.titulo)}
+          onEntrar={() => setEncima(grupo.titulo)}
+          onSalir={() => setEncima((v) => (v === grupo.titulo ? null : v))}
+          onSoltar={() => {
+            soltar(grupo.titulo)
+            setArrastrada(null)
+            setEncima(null)
+          }}
           onAlternar={() =>
             setTocadas((prev) => {
               const copia = new Set(prev)
@@ -222,55 +304,3 @@ export function CarpetasPorEtiqueta<T>({
   )
 }
 
-const ESTILO_TITULO = [
-  'text-sm font-bold',
-  'text-sm font-semibold text-white/80',
-  'text-xs font-semibold text-white/60',
-]
-
-function Carpeta({
-  nivel,
-  titulo,
-  conteo,
-  insignia,
-  abierta,
-  onAlternar,
-  children,
-}: {
-  nivel: 0 | 1 | 2
-  titulo: string
-  conteo: number
-  insignia?: ReactNode
-  abierta: boolean
-  onAlternar: () => void
-  children: ReactNode
-}) {
-  const t = useT()
-  return (
-    <div className={nivel === 0 ? 'rounded-xl border border-white/10 bg-white/5' : ''}>
-      <button
-        type="button"
-        onClick={onAlternar}
-        aria-expanded={abierta}
-        className="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left transition hover:bg-white/5"
-      >
-        <span className="text-xs text-white/40">
-          <Icono nombre={abierta ? 'subir' : 'bajar'} />
-        </span>
-        <span className={ESTILO_TITULO[nivel]}>{titulo}</span>
-        {insignia != null && <span className="text-xs text-white/45">{insignia}</span>}
-        <span
-          className="ml-auto rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/50"
-          title={
-            conteo === 1
-              ? t('carpetas.nRegistro', '1 registro')
-              : t('carpetas.nRegistros', '{n} registros', { n: conteo })
-          }
-        >
-          {conteo}
-        </span>
-      </button>
-      {abierta && <div className="space-y-1.5 pb-2 pl-3 pr-1.5">{children}</div>}
-    </div>
-  )
-}

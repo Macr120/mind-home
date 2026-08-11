@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { EsquemaCaptura, Plantilla } from '../../core/registry'
-import { vFecha, vNumero, vTexto } from '../../core/registry'
+import type { EsquemaCaptura, Plantilla } from '../../core/appContrato'
+import { vFecha, vNumero, vTexto } from '../../core/appContrato'
 import {
   idiomasRepo,
   registrarRepasoDia,
@@ -182,9 +182,10 @@ const idiomas: Plantilla = {
   },
   comandos: [
     { seccion: 'charlas', etiqueta: 'Tutor', nombres: ['tutor', 'tutor de idiomas'] },
-    { seccion: 'repaso', etiqueta: 'Repaso', nombres: ['repaso', 'tarjetas', 'repasar tarjetas'] },
-    { seccion: 'vocabulario', etiqueta: 'Vocabulario', nombres: ['vocabulario'] },
-    { seccion: 'temario', etiqueta: 'Temario', nombres: ['temario'] },
+    { seccion: 'repaso', etiqueta: 'Repaso', nombres: ['repaso', 'ejercicios', 'repasar'] },
+    // El vocabulario vive DENTRO del temario desde que las tarjetas cuelgan de
+    // sus temas: la palabra sigue llevando ahí.
+    { seccion: 'temario', etiqueta: 'Temario', nombres: ['temario', 'vocabulario', 'tarjetas'] },
     { seccion: 'progreso', etiqueta: 'Progreso', nombres: ['progreso de idiomas'] },
   ],
 }

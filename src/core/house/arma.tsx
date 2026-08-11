@@ -3,12 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { ObjetoCuarto } from '../data/db'
 import { accionFrame, useHerramienta, type Herramienta } from '../state/herramientaStore'
-import { useDiseño, esObjetoLibreria, esObjetoMapa } from '../state/disenoStore'
-import { useHouse, playerPos } from '../state/houseStore'
-import { useLayout } from '../state/layoutStore'
-import { useMontura } from '../state/monturaStore'
-import { useParque } from '../state/parqueStore'
-import { dragChar } from './characterDrag'
+import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { ModeloPiezas } from './modeloPersonalizado'
 import { paintballFrame, COLOR_JUGADOR } from '../state/paintballStore'
 
@@ -73,41 +68,16 @@ export function tipoPistolaDeObjeto(o: ObjetoCuarto, objetos: ObjetoCuarto[]): T
   return base != null ? PISTOLA_POR_BASE.get(base) ?? null : null
 }
 
-/** Distancia al centro de una pistola del mapa para tomarla al caminar hasta ella. */
-const RADIO_TOMAR = 1.1
-
 /**
- * Toma una pistola COLOCADA en el mapa al caminar hasta ella (sin botón): se
- * equipa en la mano (hotbar de la rueda) y la instancia sale del mapa; para
- * soltarla se vuelve a colocar desde el inventario. Solo a pie, en planta baja
- * y fuera del editor (mismas guardas que ParqueProximity).
+ * Recoge una pistola COLOCADA en el mapa: se equipa en la mano (hotbar de la
+ * rueda) y la instancia sale del mapa; para soltarla se vuelve a colocar desde
+ * el inventario. Lo dispara el botón «Recoger» del hueco del cubo — antes se
+ * equipaba SOLA al pasar cerca, borrando el objeto sin que nadie lo pidiera.
  */
-let accPistola = 0
-export function PistolaProximity() {
-  useFrame((_st3f, delta) => {
-    // Sondeo ~4 veces/s (como MinijuegosCanchas): recorrer todos los objetos a
-    // 60 Hz era de lo más caro del frame en móviles, y caminar hasta una
-    // pistola no necesita esa resolución.
-    accPistola += delta
-    if (accPistola < 0.25) return
-    accPistola = 0
-    if (useMontura.getState().instanciaId != null) return // en un vehículo
-    if (useParque.getState().instanciaId != null) return // usando un juego de parque
-    const { transicion, playerLevel } = useHouse.getState()
-    if (transicion || playerLevel !== 0 || useLayout.getState().editMode || dragChar.id) return
-    const st = useDiseño.getState()
-    for (const o of st.objetos) {
-      if (o.id == null || !esObjetoMapa(o)) continue
-      const tipo = tipoPistolaDeObjeto(o, st.objetos)
-      if (!tipo) continue
-      if (Math.hypot(playerPos.x - (o.x ?? 0), playerPos.z - (o.z ?? 0)) > RADIO_TOMAR) continue
-      const her = useHerramienta.getState()
-      if (!her.equipadas.includes(tipo)) her.equipar(tipo) // equipar es toggle: no des-equipar
-      void st.removeObjeto(o.id)
-      break // una por frame
-    }
-  })
-  return null
+export async function recogerPistola(objetoId: number, tipo: Herramienta): Promise<void> {
+  const her = useHerramienta.getState()
+  if (!her.equipadas.includes(tipo)) her.equipar(tipo) // equipar es toggle: no des-equipar
+  await useDiseño.getState().removeObjeto(objetoId)
 }
 
 /** Pistola de primitivas (cuerpo + empuñadura + boca emisiva que brilla con el Bloom). */

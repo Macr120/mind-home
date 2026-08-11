@@ -4,7 +4,8 @@ import * as THREE from 'three'
 import { AvatarModelo } from './AvatarModelo'
 import { useHouse, playerPos, playerForward, type Transicion } from '../state/houseStore'
 import { useDiseño, esObjetoMapa, esObjetoLibreria } from '../state/disenoStore'
-import { useLayout, roomWorldPos } from '../state/layoutStore'
+import { useLayout, roomWorldPos, esFootprintLibre } from '../state/layoutStore'
+import { useCargar, cargaFrame } from '../state/cargarStore'
 import { useCuartos } from '../state/cuartosStore'
 import { useEditorUi, PERSONAJE_AVATAR } from '../state/editorUiStore'
 import { useCam, camAnim } from '../state/cameraStore'
@@ -13,18 +14,18 @@ import { useTren, trenFrame, conducirTren } from '../state/trenStore'
 import { dialogoFrame } from '../state/dialogoStore'
 import { TrenMontado } from './tren'
 import { RaquetaJugador, BateJugador } from './minijuegos'
-import { juegoFrame, poseBateo } from '../state/juegoCanchaStore'
+import { juegoFrame, poseBateo, ANCLA_GRACIA_MS } from '../state/juegoCanchaStore'
 import { useParque, parqueFrame, ESCALA_JUEGO, VEL_CARRUSEL, anguloColumpio } from '../state/parqueStore'
 import { useAccionCuarto, accionCuartoFrame, CFG_ACCION } from '../state/accionCuartoStore'
 import { AccesorioAccion } from './especialesPlantilla'
-import { nivelBaseY, worldToSubCell, subId, cellToWorld, doorFor, HALF, SIZE, LADO_DIR, AGUA_ALTURA_LOCAL, type AABB, type SideKey } from './walls'
+import { nivelBaseY, worldToSubCell, subId, cellToWorld, HALF, SIZE, ascensoXZ, dirAscenso, AGUA_ALTURA_LOCAL, worldToCell, FOOTPRINT_DEFAULT, type AABB, type AnclaAscenso } from './walls'
 import { claveCeldaOff, formaEnCelda, subformasDeCelda, puntoDentroSilueta } from './formasLoseta'
-import { footprintDeTipo } from './catalogo'
+import { footprintDeTipo, piezasDesdeObjeto, TIPO_PIEZAS } from './catalogo'
 import { moveInput, vectorCam } from './movement'
 import { dragChar } from './characterDrag'
 import { marchaAvatar } from './animacion'
 import { sonar } from '../audio/sfx'
-import { vehiculoDe, VehiculoMontado } from './vehiculos'
+import { defDeMontura, VehiculoMontado } from './vehiculos'
 import { FlotadorMontado } from './flotador'
 import { useFlotador, flotadorFrame, COLOR_FLOTADOR } from '../state/flotadorStore'
 import { registrarMarcasDerrape } from './derrape'
@@ -123,10 +124,17 @@ export function objColliders(playerLevel: number): ObjCol[] {
   const niveles = layout.niveles
   const puertas = layout.puertasPorNivel.get(playerLevel) ?? []
   const montadoId = useMontura.getState().instanciaId
+  // Objeto que el personaje está cargando (y su grupo): CargaController lo pone
+  // exactamente en la posición del jugador cada frame, así que si no se excluye
+  // aquí el personaje choca contra lo que él mismo carga y queda atascado.
+  const cargando = useCargar.getState().sujeto
+  const cargandoId = cargando?.tipo === 'objeto' ? (cargando.id as number) : null
+  const cargandoGrupo = cargandoId != null ? objetos.find((x) => x.id === cargandoId)?.grupoId : undefined
   for (const o of objetos) {
     if (esObjetoLibreria(o)) continue // los objetos de la biblioteca no están en la casa
     if (o.id != null && o.id === montadoId) continue // el vehículo montado viaja con el jugador
-    const fp = footprintDeTipo(o.tipo)
+    if (cargandoId != null && (o.id === cargandoId || (cargandoGrupo != null && o.grupoId === cargandoGrupo))) continue
+    const fp = footprintDeTipo(o.tipo, o.grupoAccion)
     if (!fp) continue
     let cx: number
     let cz: number
@@ -150,6 +158,53 @@ export function objColliders(playerLevel: number): ObjCol[] {
     _objCols.push({ cx, cz, hx: fp[0], hz: fp[1], cos, sin })
   }
   return _objCols
+}
+
+/**
+ * Colliders de pared del nivel, SIN los del cuarto que el personaje carga: ese
+ * cuarto se dibuja elevado sobre su cabeza y lo sigue paso a paso, así que sus
+ * muros a ras de suelo lo dejarían atrapado (mismo criterio que `objColliders`
+ * con el objeto cargado). Sin carga devuelve el arreglo precomputado tal cual.
+ */
+export function muroColliders(nivel: number): AABB[] {
+  const L = useLayout.getState()
+  const todos = L.wallCollidersByLevel[nivel] ?? []
+  const sujeto = useCargar.getState().sujeto
+  if (sujeto?.tipo !== 'cuarto') return todos
+  const propios = L.collidersPorCuarto[sujeto.id as string]
+  if (!propios?.length) return todos
+  const fuera = new Set(propios)
+  return todos.filter((c) => !fuera.has(c))
+}
+
+/**
+ * Mientras se carga un CUARTO completo (herramienta "mover"), lo sigue por
+ * celdas de rejilla: si el personaje cruza a otra celda, el cuarto avanza el
+ * mismo delta. Sin validación propia (`esFootprintLibre`) el cuarto "pesa" y no
+ * se puede empujar contra otro cuarto/el borde del mapa — en ese caso se
+ * cancela el avance del personaje en esta dirección (como un choque de pared).
+ */
+function resolverAvanceConCarga(x: number, z: number, curX: number, curZ: number): { x: number; z: number } {
+  const sujeto = useCargar.getState().sujeto
+  if (sujeto?.tipo !== 'cuarto') return { x, z }
+  const id = sujeto.id as string
+  const prevCelda = useCargar.getState().ultimaCeldaCuarto
+  const celdaNueva = worldToCell(x, z)
+  if (!prevCelda || (celdaNueva.col === prevCelda.col && celdaNueva.row === prevCelda.row)) {
+    return { x, z }
+  }
+  const L = useLayout.getState()
+  const anchor = L.cells[id]
+  if (!anchor) return { x, z }
+  const target = { col: anchor.col + (celdaNueva.col - prevCelda.col), row: anchor.row + (celdaNueva.row - prevCelda.row) }
+  const fp = L.footprints[id] ?? FOOTPRINT_DEFAULT
+  const nivel = L.niveles[id] ?? 0
+  if (!esFootprintLibre(L.placed, L.cells, L.footprints, L.niveles, id, target, fp, nivel)) {
+    return { x: curX, z: curZ }
+  }
+  useCargar.setState({ ultimaCeldaCuarto: celdaNueva })
+  void L.moveRoom(id, target)
+  return { x, z }
 }
 
 /** ¿(x,z) cae dentro de algún objeto rígido (rectángulo rotado inflado por el radio)? */
@@ -258,20 +313,12 @@ function NadoTilt({ escala, children }: { escala: number; children: React.ReactN
   )
 }
 
-/** Deriva el lado (N/S/E/O) de un acceso: usa el campo guardado o lo infiere por posición. */
-function ladoDelAcceso(a: { col: number; row: number; lado?: SideKey }): SideKey {
-  if (a.lado) return a.lado
+/** Pie del acceso (su esquina del cuarto) y dirección desde el centro de la celda hacia él. */
+function posAcceso(a: AnclaAscenso) {
   const [cx, , cz] = cellToWorld(a.col, a.row)
-  const { axis, sign } = doorFor([cx, 0, cz])
-  return axis === 'x' ? (sign < 0 ? 'O' : 'E') : sign < 0 ? 'N' : 'S'
-}
-
-/** Pie del acceso (exterior) y dirección hacia el interior del cuarto. */
-function posAcceso(a: { col: number; row: number; lado?: SideKey }) {
-  const [cx, , cz] = cellToWorld(a.col, a.row)
-  const dir = LADO_DIR[ladoDelAcceso(a)]
-  const off = HALF + 1.2
-  return { cx, cz, dir, colX: cx + dir.dx * off, colZ: cz + dir.dz * off }
+  const dir = dirAscenso(a)
+  const [colX, colZ] = ascensoXZ(a)
+  return { cx, cz, dir, colX, colZ }
 }
 
 /** Boca del acceso: un paso dentro del hueco (desde el pie exterior). */
@@ -292,7 +339,7 @@ function buscarAterrizajeLibre(
   level: number,
   dir: { dx: number; dz: number },
 ): { x: number; z: number } {
-  const colliders = useLayout.getState().wallCollidersByLevel[level] ?? []
+  const colliders = muroColliders(level)
   const objCols = objColliders(level)
   const piso = level !== 0 ? useLayout.getState().pisoPorNivel.get(level) : undefined
   const ok = (px: number, pz: number) =>
@@ -311,7 +358,7 @@ function buscarAterrizajeLibre(
 
 /** Punto libre más cercano a (x,z) para un cuerpo de `radio` (anillos crecientes). */
 export function puntoLibreCerca(x: number, z: number, nivel: number, radio: number): { x: number; z: number } {
-  const colliders = useLayout.getState().wallCollidersByLevel[nivel] ?? []
+  const colliders = muroColliders(nivel)
   const objCols = objColliders(nivel)
   const piso = nivel !== 0 ? useLayout.getState().pisoPorNivel.get(nivel) : undefined
   const ok = (px: number, pz: number) =>
@@ -451,7 +498,7 @@ function conducir(
     montura.desmontarForzado()
     return
   }
-  const def = vehiculoDe(monturaFrame.tipo)
+  const def = defDeMontura(monturaFrame.tipo)
   const esOvni = monturaFrame.tipo === 'ovni'
   const { playerLevel, explotado } = useHouse.getState()
   const targetY = nivelBaseY(playerLevel, !explotado)
@@ -988,11 +1035,18 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
   let spotZ = oz + dz * cfg.frente
   let heading: number
   let yPose: number
+  // Acostarse: el cuerpo ENTERO se tumba (gira 90° en X), no solo las piernas.
+  const acostado = tipo === 'acostarse-generico'
   if (cfg.asiento != null) {
     const c = Math.cos(accionCuartoFrame.rotYRad)
     const s = Math.sin(accionCuartoFrame.rotYRad)
     if (cfg.sobreObjeto) {
-      // Sentado ENCIMA del mueble (sillón): en su centro, mirando su frente (+z local).
+      // Sentado/acostado ENCIMA del mueble: en su CENTRO medido, mirando su
+      // frente (+z local). Sin desplazamiento extra al acostarse: un objeto
+      // genérico puede ser diminuto (un cubo de prueba) o grande (una cama de
+      // verdad) — anclar el pivote exactamente en el centro es lo único que
+      // no falla para cualquier tamaño (desplazar un largo fijo de avatar
+      // sacaba el pivote por completo de objetos pequeños).
       spotX = ox
       spotZ = oz
       heading = accionCuartoFrame.rotYRad
@@ -1002,7 +1056,12 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
       spotZ = oz + cfg.frente * c
       heading = accionCuartoFrame.rotYRad + Math.PI
     }
-    yPose = floorY + cfg.asiento - 0.6 * avEsc
+    // La superficie MEDIDA ya viene en Y de mundo. El fallback tabulado se mide
+    // desde el plano donde se DIBUJAN los objetos (piso + SUPERFICIE_SUELO), no
+    // desde el piso: ese desfase era el que hundía al avatar en todo lo que se
+    // sentaba. Los offsets de cadera (-0.6/+0.15) sí son correctos.
+    const superficie = accionCuartoFrame.superficieY ?? floorY + SUPERFICIE_SUELO + cfg.asiento
+    yPose = acostado ? superficie + 0.15 * avEsc : superficie - 0.6 * avEsc
   } else {
     // Encara el objeto; parado justo encima (frente 0) mira hacia donde llegó.
     heading =
@@ -1025,7 +1084,7 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
   // En posición: mantener la pose, encarando el objeto.
   cur.set(spotX, lin(cur.y, yPose, 0.25), spotZ)
   playerPos.copy(cur)
-  group.rotation.set(0, heading, 0)
+  group.rotation.set(acostado ? -Math.PI / 2 : 0, heading, 0)
   if (tipo === 'caminadora') {
     marchaAvatar.velocidad = 1
     marchaAvatar.fase += dt * 9 // camina en el sitio sobre la banda
@@ -1075,6 +1134,14 @@ export function Character() {
   const colorVehiculo = useDiseño((s) =>
     montadoId == null ? undefined : s.objetos.find((o) => o.id === montadoId)?.color,
   )
+  // Vehículo GENÉRICO montado (piezas de IA/usuario o silla del catálogo marcada
+  // `grupoAccion: 'vehiculo'`): su propia geometría, cuerpo rígido sin ruedas animadas.
+  const piezasGenerico = useDiseño((s) => {
+    if (montadoTipo !== 'generico' || montadoId == null) return undefined
+    const o = s.objetos.find((x) => x.id === montadoId)
+    if (!o) return undefined
+    return (o.tipo === TIPO_PIEZAS ? o.piezas : piezasDesdeObjeto(o.tipo, o.color, s.temaGlobal)) ?? undefined
+  })
   const donaId = useFlotador((s) => s.instanciaId)
   const colorDona = useDiseño((s) =>
     donaId == null ? undefined : s.objetos.find((o) => o.id === donaId)?.color,
@@ -1160,22 +1227,29 @@ export function Character() {
       return
     }
     // Bateando en el béisbol: el avatar se queda en la caja de bateo mirando al
-    // montículo. Pedir movimiento suelta el ancla (si no, no podrías salir de la cancha).
+    // montículo. Pedir movimiento suelta el ancla (si no, no podrías salir de la
+    // cancha), pero no durante la gracia inicial: llegas caminando y el input
+    // residual la tiraba antes de que el bateador se hubiera plantado.
     if (juegoFrame.anclaActiva) {
-      if (moveInput.kf || moveInput.ks || moveInput.f || moveInput.s) {
+      const gracia = performance.now() - juegoFrame.anclaDesde < ANCLA_GRACIA_MS
+      if (!gracia && (moveInput.kf || moveInput.ks || moveInput.f || moveInput.s)) {
         juegoFrame.anclaActiva = false
+        juegoFrame.anclaSoltada = true // te fuiste a propósito: no te vuelve a acomodar
         _torsoBateo = 0
       } else {
+        // El primer frame planta al avatar de golpe (k = 1); después, suave.
+        const k = juegoFrame.anclaSnap ? 1 : 0.18
+        juegoFrame.anclaSnap = false
         marchaAvatar.velocidad = THREE.MathUtils.lerp(marchaAvatar.velocidad, 0, 0.3)
-        cur.x = THREE.MathUtils.lerp(cur.x, juegoFrame.anclaX, 0.18)
-        cur.z = THREE.MathUtils.lerp(cur.z, juegoFrame.anclaZ, 0.18)
+        cur.x = THREE.MathUtils.lerp(cur.x, juegoFrame.anclaX, k)
+        cur.z = THREE.MathUtils.lerp(cur.z, juegoFrame.anclaZ, k)
         // El rumbo al montículo se sigue suave, pero el giro del swing va DIRECTO
         // encima (con lerp se amortiguaría y el batazo no llegaría a girar).
         const torso = poseBateo()?.torso ?? 0
         const base = ref.current.rotation.y - _torsoBateo
         const obj = juegoFrame.anclaHeading
         ref.current.rotation.y =
-          base + Math.atan2(Math.sin(obj - base), Math.cos(obj - base)) * 0.18 + torso
+          base + Math.atan2(Math.sin(obj - base), Math.cos(obj - base)) * k + torso
         _torsoBateo = torso
         playerPos.copy(cur)
         return
@@ -1217,12 +1291,41 @@ export function Character() {
     }
     // Colisiones de pared: la planta baja y el sótano comparten las paredes de nivel 0
     // (los muros del pozo no bloquean: se entra y sale caminando).
-    const colliders = useLayout.getState().wallCollidersByLevel[Math.max(0, playerLevel)] ?? []
+    const colliders = muroColliders(Math.max(0, playerLevel))
     const objCols = objColliders(playerLevel)
     // Piso caminable: en pisos altos, cuartos del nivel + terraza de abajo. En planta baja
     // y sótano no se restringe (el suelo continuo lo permite todo; la Y marca el desnivel).
     const piso =
       playerLevel > 0 ? useLayout.getState().pisoPorNivel.get(playerLevel) : undefined
+    // Se acaba de soltar lo cargado: el objeto estaba EXACTAMENTE en la posición del
+    // jugador, así que al reactivarse su collider lo deja dentro de la caja — y el
+    // movimiento es por rechazo por eje (nunca resuelve penetraciones), así que
+    // quedaría atrapado para siempre. Un paso ATRÁS libera; misma receta que
+    // bajarse de un vehículo. Con objetos sin colisión no hace nada.
+    if (cargaFrame.retrocesoPendiente) {
+      cargaFrame.retrocesoPendiente = false
+      const libre = (px: number, pz: number) =>
+        !chocado(px, pz, colliders) && !chocadoObjeto(px, pz, objCols) && !sinPiso(px, pz, piso)
+      if (!libre(cur.x, cur.z)) {
+        const atras = Math.atan2(playerForward.x, playerForward.z) + Math.PI
+        let px = cur.x
+        let pz = cur.z
+        buscar: for (const off of [0, Math.PI / 4, -Math.PI / 4, Math.PI / 2, -Math.PI / 2, Math.PI]) {
+          for (const dist of [RADIO + 0.9, RADIO + 1.7, RADIO + 2.5]) {
+            const cx = cur.x + Math.sin(atras + off) * dist
+            const cz = cur.z + Math.cos(atras + off) * dist
+            if (libre(cx, cz)) {
+              px = cx
+              pz = cz
+              break buscar
+            }
+          }
+        }
+        cur.set(px, cur.y, pz)
+        playerPos.copy(cur)
+        useHouse.getState().target.set(px, 0, pz)
+      }
+    }
     // Altura destino: piso del nivel. En una alberca el personaje FLOTA en la lámina de
     // agua (con un leve vaivén); en un búnker (sin agua) pisa el fondo, normal.
     let targetY = nivelBaseY(playerLevel, !explotado)
@@ -1402,6 +1505,7 @@ export function Character() {
         !sinPiso(x, cur.z + _move.z, piso)
       )
         z = cur.z + _move.z
+      ;({ x, z } = resolverAvanceConCarga(x, z, cur.x, cur.z))
 
       cur.set(x, ny, z)
       playerPos.copy(cur)
@@ -1426,6 +1530,7 @@ export function Character() {
         if (!chocado(nx, z, colliders) && !chocadoObjeto(nx, z, objCols) && !sinPiso(nx, z, piso)) x = nx
         if (!chocado(x, nz, colliders) && !chocadoObjeto(x, nz, objCols) && !sinPiso(x, nz, piso)) z = nz
       }
+      ;({ x, z } = resolverAvanceConCarga(x, z, cur.x, cur.z))
 
       cur.set(x, ny, z)
       playerPos.copy(cur)
@@ -1502,7 +1607,8 @@ export function Character() {
         <EscalaCarrera>
           <VehiculoMontado
             tipo={montadoTipo}
-            color={colorVehiculo ?? vehiculoDe(montadoTipo).defaultColor}
+            color={colorVehiculo ?? defDeMontura(montadoTipo).defaultColor}
+            piezasGenerico={piezasGenerico}
           >
             <FlipMortal escala={av.escala}>
               <AvatarModelo av={av} casco={editor3d} animar caminar />

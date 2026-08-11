@@ -11,18 +11,18 @@ import { ejemploIdiomas } from './ejemplos'
 import { AltaIdioma, SelectorIdiomas } from './SelectorIdiomas'
 import { CharlasTab } from './CharlasTab'
 import { RepasoTab } from './RepasoTab'
-import { VocabularioTab } from './VocabularioTab'
 import { TemarioTab } from './TemarioTab'
 import { ProgresoTab } from './ProgresoTab'
 import type { AnclaTema } from './arbol'
 
-type Tab = 'charlas' | 'repaso' | 'vocabulario' | 'temario' | 'progreso'
+// Cuatro menús: se charla, se estudia el temario (donde vive el vocabulario),
+// se repasa con ejercicios y se mira el avance.
+type Tab = 'charlas' | 'temario' | 'repaso' | 'progreso'
 
 const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
   { id: 'charlas', icono: 'chat', labelEs: 'Charlas' },
-  { id: 'repaso', icono: 'repetir', labelEs: 'Repaso' },
-  { id: 'vocabulario', icono: 'registros', labelEs: 'Vocabulario' },
   { id: 'temario', icono: 'idiomas', labelEs: 'Temario' },
+  { id: 'repaso', icono: 'repetir', labelEs: 'Repaso' },
   { id: 'progreso', icono: 'progreso', labelEs: 'Progreso' },
 ]
 
@@ -41,8 +41,10 @@ export function IdiomasApp() {
   const [temaAncla, setTemaAncla] = useState<AnclaTema | null>(null)
   // Cambia con cada charla NUEVA: es la key de ChatTutor, para remontarla limpia.
   const [sesionCharla, setSesionCharla] = useState(0)
-  // Filtro de tema al saltar del temario al vocabulario (🃏 de un tema).
-  const [temaVocab, setTemaVocab] = useState<string | null>(null)
+  // Tema con el que se salta del temario al repaso (▶ practicar).
+  const [temaRepaso, setTemaRepaso] = useState<string | null>(null)
+  // Tema que el temario debe enseñar al llegar desde el chat del tutor.
+  const [temaEnfocado, setTemaEnfocado] = useState<string | null>(null)
 
   const perfil = idiomas.find((i) => i.id === idiomaActivoId) ?? idiomas[0]
 
@@ -50,7 +52,14 @@ export function IdiomasApp() {
     setIdiomaActivoId(id)
     localStorage.setItem(LS_IDIOMA, String(id))
     setCharlaAbierta(null)
-    setTemaVocab(null)
+    setTemaRepaso(null)
+    setTemaEnfocado(null)
+  }
+
+  /** Abre el temario en un tema concreto (enlaces del chat). */
+  const irAlTemario = (temaId: string | null) => {
+    setTemaEnfocado(temaId)
+    setTab('temario')
   }
 
   /** Abre una charla (o una nueva, prellenada y/o anclada a un tema del temario). */
@@ -106,24 +115,26 @@ export function IdiomasApp() {
                   borradorInicial={borradorInicial}
                   anclaInicial={temaAncla}
                   sesion={sesionCharla}
-                />
-              )}
-              {tab === 'repaso' && <RepasoTab perfil={perfil} />}
-              {tab === 'vocabulario' && (
-                <VocabularioTab
-                  perfil={perfil}
-                  temaInicial={temaVocab}
-                  onTemaAplicado={() => setTemaVocab(null)}
+                  onIrAlTemario={irAlTemario}
                 />
               )}
               {tab === 'temario' && (
                 <TemarioTab
                   perfil={perfil}
                   onConversar={(ancla, borrador) => abrirCharla('nueva', borrador, ancla)}
-                  onVerTarjetas={(temaId) => {
-                    setTemaVocab(temaId)
-                    setTab('vocabulario')
+                  onPracticar={(temaId) => {
+                    setTemaRepaso(temaId)
+                    setTab('repaso')
                   }}
+                  enfocado={temaEnfocado}
+                  onEnfocadoUsado={() => setTemaEnfocado(null)}
+                />
+              )}
+              {tab === 'repaso' && (
+                <RepasoTab
+                  perfil={perfil}
+                  temaInicial={temaRepaso}
+                  onTemaAplicado={() => setTemaRepaso(null)}
                 />
               )}
               {tab === 'progreso' && <ProgresoTab perfil={perfil} />}

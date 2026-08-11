@@ -620,7 +620,7 @@ export function LienzoMapa({ mapa }: { mapa: MapaIdeas }) {
       const a = pos(padre)
       const b = pos(n)
       let d: string
-      if (tipo === 'arbol' || tipo === 'flujo') {
+      if (tipo === 'arbol' || tipo === 'etimologia' || tipo === 'flujo') {
         // Codo ortogonal: baja, cruza y vuelve a bajar (aire de organigrama).
         const my = (a.y + b.y) / 2
         d = `M ${a.x} ${a.y} L ${a.x} ${my} L ${b.x} ${my} L ${b.x} ${b.y}`

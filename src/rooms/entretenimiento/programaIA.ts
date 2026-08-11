@@ -1,7 +1,7 @@
 import type { TipoMedia } from '../../core/data/db'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import { idiomaActual, tGlobal } from '../../core/i18n/useT'
-import { vTexto } from '../../core/registry'
+import { vTexto } from '../../core/appContrato'
 
 /**
  * La IA armando un programa de obras: un maratón para ver, leer o jugar en

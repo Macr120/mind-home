@@ -14,8 +14,8 @@ function rgba(hex: string, alpha: number) {
 
 /**
  * Calendario de ánimo: cada día del mes se pinta con el color de la emoción
- * de la anécdota de ese día (la más reciente si hay varias). Tocar un día
- * con recuerdo filtra la lista a esa fecha.
+ * de la anécdota de ese día (la más reciente si hay varias). Tocar un día con
+ * recuerdo abre su registro justo debajo; los días vacíos no son clicables.
  */
 export function CalendarioAnimo({
   anecdotas,

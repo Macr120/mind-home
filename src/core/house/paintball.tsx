@@ -34,7 +34,7 @@ import { ModeloMascota, ALTURA_FLOTE } from './Asistente3D'
 import { Prendas } from './Prendas'
 import { Rostro } from './Rostro'
 import { Peinado } from './Peinado'
-import { anclasDe, soportaRostro, soportaPeinado } from './apariencia'
+import { anclasDe, muestraRostro, soportaPeinado } from './apariencia'
 import { categoriaMarcha } from './cuerpos'
 import { avanzarMarcha, alturaFlote, type EstadoMarcha } from './animacion'
 import { sonar } from '../audio/sfx'
@@ -175,6 +175,15 @@ function dispararBola(
 
 /** Altura del cañón del avatar (a la altura del pecho, de donde sale la bola). */
 const ALTURA_CANON = 1.15
+/**
+ * Boca del cañón de la marcadora de 1ª persona, en ejes de CÁMARA (x derecha,
+ * y arriba, z hacia atrás). Sale de los offsets de `ArmaPrimeraPersona`
+ * (0.26, −0.2, −0.5) más la punta del cañón del modelo (z 0.49 × escala 0.9,
+ * y 0.05 × 0.9). Sin esto la bola nacía en el pecho del avatar: medio metro por
+ * debajo y a la izquierda del arma que se ve en pantalla.
+ */
+const BOCA_1P = new THREE.Vector3(0.26, -0.155, -0.941)
+const _boca = new THREE.Vector3()
 
 /**
  * Dispara una bola del jugador hacia la mira (centro de la pantalla en 1ª/3ª
@@ -182,18 +191,28 @@ const ALTURA_CANON = 1.15
  * suelta de la rueda de herramientas, con el mismo tacto.
  */
 function dispararJugador(camera: THREE.Camera, color: string, equipo: number, suelo: number) {
-  const ox = playerPos.x
-  const oy = playerPos.y + ALTURA_CANON
-  const oz = playerPos.z
+  let ox = playerPos.x
+  let oy = playerPos.y + ALTURA_CANON
+  let oz = playerPos.z
+  // En 1ª persona la bola sale de la boca del arma que se está viendo; la
+  // dirección se calcula desde ahí para que siga convergiendo con la mira.
+  let avance = 0.55
+  if (useCam.getState().vista === 'primera') {
+    _boca.copy(BOCA_1P).applyQuaternion(camera.quaternion).add(camera.position)
+    ox = _boca.x
+    oy = _boca.y
+    oz = _boca.z
+    avance = 0.05
+  }
   // Sin apuntar el tiro se abre un poco: apuntar es lo que da precisión.
   dirDisparoDesde(camera, ox, oy, oz, _dir, miraFrame.apuntando ? 0 : 0.035)
   dispararBola(
     'yo',
     equipo,
     color,
-    ox + _dir.x * 0.55,
-    oy + _dir.y * 0.55,
-    oz + _dir.z * 0.55,
+    ox + _dir.x * avance,
+    oy + _dir.y * avance,
+    oz + _dir.z * avance,
     _dir.x,
     _dir.y,
     _dir.z,
@@ -564,6 +583,7 @@ function BotPaintball3D({ jugadorId }: { jugadorId: string }) {
           brazoRef={brazo}
           anim={a.animacion}
           estado={marcha.current}
+          sinOjos={muestraRostro(a)}
         />
         <Prendas
           ropa={a.ropa}
@@ -572,7 +592,7 @@ function BotPaintball3D({ jugadorId }: { jugadorId: string }) {
           marchaEstado={marcha.current}
           esJugador={false}
         />
-        {soportaRostro(a) && (
+        {muestraRostro(a) && (
           <Rostro anclas={anclasDe(a)} expresion={a.expresion} rostro={a.rostro} />
         )}
         {soportaPeinado(a) && (

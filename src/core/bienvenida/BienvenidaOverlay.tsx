@@ -16,7 +16,7 @@ import { asignarPlantillaACuarto } from '../gamificacion/plantillaBundle'
 import { hayBackend } from '../cuenta/supabase'
 import { useEditorUi } from '../state/editorUiStore'
 import { useTutorial } from '../tutorial/tutorialStore'
-import { tutorialPrimerosPasos } from '../tutorial/primerosPasos'
+import { defPrimerosPasos } from '../tutorial/primerosPasos'
 import { tutorialCasa } from '../tutorial/menus'
 import type { TutorialDef } from '../tutorial/tipos'
 import {
@@ -102,7 +102,7 @@ function GuiaPasos() {
       titulo: t('bienvenida.guia.cuarto.titulo', 'Crea un cuarto'),
       desc: t('bienvenida.guia.cuarto.desc', 'Te enseño a crear un cuarto y darle su app.'),
       cta: t('bienvenida.guia.empezar', 'Empezar'),
-      accion: () => lanzar(tutorialPrimerosPasos, 'cuarto'),
+      accion: () => lanzar(defPrimerosPasos(), 'cuarto'),
     },
     {
       id: 'tour',

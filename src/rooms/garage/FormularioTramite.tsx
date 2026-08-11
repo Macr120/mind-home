@@ -3,6 +3,7 @@ import type { TallerVehiculo, TipoTramite, TramiteVehiculo, Vehiculo } from '../
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
+import type { GrupoTramite } from './constantes'
 import {
   ANTICIPACIONES,
   COLOR,
@@ -19,18 +20,22 @@ import { Campo, Formulario, INPUT, TINTA_CTA } from './ui'
 export function FormularioTramite({
   vehiculo,
   talleres,
+  grupo,
   inicial,
   onGuardado,
   onCancelar,
 }: {
   vehiculo: Vehiculo
   talleres: TallerVehiculo[]
+  /** Pestaña desde la que se abre: acota los tipos que se ofrecen. */
+  grupo: GrupoTramite
   inicial?: TramiteVehiculo
   onGuardado: () => void
   onCancelar: () => void
 }) {
   const t = useT()
-  const disponibles = tramitesDisponibles(vehiculo.matricula)
+  const esDoc = grupo === 'documento'
+  const disponibles = tramitesDisponibles(vehiculo.matricula, grupo)
   const [tipo, setTipo] = useState<TipoTramite>(inicial?.tipo ?? disponibles[0].id)
   const [titulo, setTitulo] = useState(
     inicial?.titulo ?? t(`garage.tramTipo.${disponibles[0].id}`, disponibles[0].label),
@@ -82,16 +87,20 @@ export function FormularioTramite({
 
   return (
     <Formulario
-      icono={inicial ? 'editar' : 'calendario'}
+      icono={inicial ? 'editar' : esDoc ? 'tarjeta' : 'calendario'}
       titulo={
         inicial
-          ? t('garage.tram.editar', 'Editar trámite')
-          : t('garage.tram.nuevo', 'Programar trámite')
+          ? esDoc
+            ? t('garage.doc.editar', 'Editar documento')
+            : t('garage.tram.editar', 'Editar trámite')
+          : esDoc
+            ? t('garage.doc.nuevo', 'Nuevo documento')
+            : t('garage.tram.nuevo', 'Programar trámite')
       }
       onGuardar={() => void guardar()}
       onCancelar={onCancelar}
     >
-      {/* El tipo se elige tocando, no desplegando: son seis y cada uno cambia el
+      {/* El tipo se elige tocando, no desplegando: son pocos y cada uno cambia el
           nombre y la periodicidad por defecto. */}
       <div className="flex flex-wrap gap-1.5">
         {disponibles.map((x) => {
@@ -213,7 +222,9 @@ export function FormularioTramite({
 
       <p className="text-[11px] text-white/40">
         <Icono nombre="calendario" />{' '}
-        {t('garage.tram.pista', 'El trámite aparece en el calendario y te avisa a su hora.')}
+        {esDoc
+          ? t('garage.doc.pista', 'El documento aparece en el calendario y te avisa antes de vencer.')
+          : t('garage.tram.pista', 'El trámite aparece en el calendario y te avisa a su hora.')}
       </p>
     </Formulario>
   )

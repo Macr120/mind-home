@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useT } from '../../core/i18n/useT'
-import { tabInicial } from '../../core/state/intencionApp'
+import { intencionApp, tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
@@ -33,6 +33,15 @@ export function BibliotecaApp() {
   // limpia al encadenar charlas desde el panel 🌿 (la transición nueva→creada
   // no la toca, así el "pensando…" de la 1ª respuesta sobrevive).
   const [sesionCharla, setSesionCharla] = useState(0)
+  // Qué debe enseñar la enciclopedia al entrar desde una charla: un nodo del
+  // índice (enlaces a la semilla) o una entrada concreta. También llega de
+  // fuera del cuarto («nodo:<id>» / «entrada:<id>» en la intención de la app).
+  const [foco, setFoco] = useState<{ nodoId?: string; entradaId?: number } | null>(() => {
+    const dato = intencionApp('biblioteca')?.dato ?? ''
+    if (dato.startsWith('nodo:')) return { nodoId: dato.slice(5) }
+    if (dato.startsWith('entrada:')) return { entradaId: Number(dato.slice(8)) }
+    return null
+  })
   const estudioActivo = useEstudio((s) => s.activa)
 
   /** Abre una charla (o una nueva, prellenada y/o anclada a un tema del árbol). */
@@ -42,6 +51,12 @@ export function BibliotecaApp() {
     if (id === 'nueva') setSesionCharla((s) => s + 1)
     setCharlaAbierta(id)
     setTab('charlas')
+  }
+
+  /** Salta a la enciclopedia enseñando ese nodo del árbol o esa entrada. */
+  const irAEnciclopedia = (f: { nodoId?: string; entradaId?: number }) => {
+    setFoco(f)
+    setTab('enciclopedia')
   }
 
   return (
@@ -77,13 +92,16 @@ export function BibliotecaApp() {
           borradorInicial={borradorInicial}
           anclaInicial={temaAncla}
           sesion={sesionCharla}
-          onCharlaNueva={(ancla, borrador) => abrirCharla('nueva', borrador, ancla)}
+          onIrANodo={(nodoId) => irAEnciclopedia({ nodoId })}
+          onVerEntrada={(entradaId) => irAEnciclopedia({ entradaId })}
         />
       )}
       {tab === 'enciclopedia' && (
         <EnciclopediaTab
           onConversar={(texto, ancla) => abrirCharla('nueva', texto, ancla ?? null)}
           onAbrirCharla={(id) => abrirCharla(id)}
+          foco={foco}
+          onFocoUsado={() => setFoco(null)}
         />
       )}
       {tab === 'estudio' && <EstudioTab />}

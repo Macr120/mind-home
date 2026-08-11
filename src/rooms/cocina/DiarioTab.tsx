@@ -9,6 +9,11 @@ import { ResumenHoy } from './ResumenHoy'
 import { useT } from '../../core/i18n/useT'
 import { Archivador } from '../_shared/Archivador'
 
+/**
+ * Lo que ya pasó: comidas registradas, hidratación y peso. El plan (rejilla
+ * semanal + recomendación de dieta) vive en su propia pestaña — «Registro» es
+ * el pasado, «Plan de comidas» es el futuro.
+ */
 export function DiarioTab({
   fecha,
   comidas,
@@ -87,7 +92,7 @@ export function DiarioTab({
             <div key={m.id} className="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
               <div className="flex items-center gap-2 px-3 py-2 bg-white/5 text-sm font-semibold">
                 <span><Icono emoji={m.icon} /></span>
-                <span>{m.label}</span>
+                <span>{t(`cocina.momento.${m.id}`, m.label)}</span>
                 <span className="ml-auto text-amber-400">{kcal} kcal</span>
               </div>
               <ul className="divide-y divide-white/5">

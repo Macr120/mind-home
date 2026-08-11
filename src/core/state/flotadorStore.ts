@@ -40,7 +40,7 @@ export const ANGULO_BRAZO_FLOTADOR = -0.9
 interface FlotadorState {
   /** Id del objeto en el que se está sentado (null = nadando o fuera del agua). */
   instanciaId: number | null
-  /** Sienta al personaje en la dona (lo dispara FlotadorProximity al acercarse). */
+  /** Sienta al personaje en la dona (lo dispara el botón del hueco del cubo). */
   sentarse: (inst: ObjetoCuarto, x: number, z: number) => void
   /** Baja de la dona (moverse, salir del agua, entrar al editor). */
   salirForzado: () => void

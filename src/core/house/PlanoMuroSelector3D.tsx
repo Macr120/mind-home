@@ -127,10 +127,17 @@ export function PlanoMuroSelector3D() {
         P.setMuroLibreSel(hit.muroLibre)
         // Igual que en los muros de cuarto: en modo Puertas/Ventanas el clic CREA la abertura
         // en cualquier muro libre (recto, triángulo o círculo), no solo lo selecciona. El
-        // panel queda abierto para ajustarla o quitarla. (Los muros libres no admiten
-        // cuadro/espejo, solo cristal; el pincel de contenido se ignora ahí.)
+        // panel queda abierto para ajustarla o quitarla. El pincel de contenido
+        // (ventana/cuadro/espejo) también se aplica; el muro CIRCULAR lo ignora al pintarse
+        // (su pared curva solo admite cristal) y el editor lo muestra como ventana.
         if (P.herramienta === 'puerta') void setEstiloMuroLibre(hit.muroLibre, { puerta: true, ventana: false, puertaTipo: P.tipoPuerta })
-        else if (P.herramienta === 'ventana') void setEstiloMuroLibre(hit.muroLibre, { ventana: true, puerta: false })
+        else if (P.herramienta === 'ventana')
+          void setEstiloMuroLibre(hit.muroLibre, {
+            ventana: true,
+            puerta: false,
+            ventContenido: P.ventContenido,
+            ventCara: P.ventCara,
+          })
         return
       }
       const m = hit.muro!

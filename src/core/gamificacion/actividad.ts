@@ -3,6 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks'
 import type { Table } from 'dexie'
 import { db } from '../data/db'
 import { sinEjemplos } from '../data/ejemplos'
+import { esSeedIntacta } from '../data/sync/syncables'
 import { useDiseño } from '../state/disenoStore'
 import { fechaLocalISO } from '../fechaLocal'
 
@@ -38,16 +39,28 @@ const restarDias = (n: number) =>
  * ganar un partido es entretenimiento y no debe subir XP ni sostener una racha.
  * `calendario` tampoco: ya cuenta a través de las apps cuyas rutinas proyecta.
  * No es un olvido; si algún día se quiere lo contrario, es añadirlas aquí.
+ *
+ * Y el XP se cuenta por REGISTRO, así que una app que apunta ocho filas al día
+ * vale ocho veces más que una que apunta una — sin que el usuario haya hecho
+ * ocho veces más. Donde eso desequilibraba de verdad era en la cocina (ver
+ * abajo): las apps que reparten un mismo hecho en varias filas cuentan por DÍA.
  */
 export const FUENTES: Record<string, () => Promise<string[]>> = {
+  // Un día de cocina son 3-4 comidas y 2-3 cargas de agua: contadas una a una,
+  // la cocina sola se llevaba tanto XP como el resto de la casa junta y la rueda
+  // de enfoques salía con un solo pico. Comer y beber cuentan UNA VEZ POR DÍA
+  // cada uno — dos actividades, como en cualquier otro cuarto.
   cocina: async () => [
-    ...(await filas(db.registrosComida)).map((r) => r.fecha),
-    ...(await filas(db.registrosAgua)).map((r) => r.fecha),
+    ...new Set((await filas(db.registrosComida)).map((r) => r.fecha)),
+    ...new Set((await filas(db.registrosAgua)).map((r) => r.fecha)),
   ],
   ejercicio: async () => (await filas(db.sesionesEjercicio)).map((r) => r.fecha),
   descanso: async () => (await filas(db.sueno)).map((r) => r.fecha),
   anecdotario: async () => (await filas(db.anecdotas)).map((r) => r.fecha),
   despacho: async () => (await filas(db.transacciones)).map((r) => r.fecha),
+  // `materialEntrada` NO entra: es un enlace, y crear la hoja o el mapa ya cuenta
+  // como actividad en su propia app. `ajustesSemilla` tampoco: renombrar una rama
+  // es ordenar el índice, no estudiar.
   biblioteca: async () => [
     ...(await filas(db.sesionesEstudio)).map((r) => r.fecha),
     ...(await filas(db.entradasBiblio)).map((r) => r.creadoEn.slice(0, 10)),
@@ -69,13 +82,30 @@ export const FUENTES: Record<string, () => Promise<string[]>> = {
   diario: async () =>
     (await filas(db.lecturasDiario)).map((l) => l.fecha),
   hobbies: async () => (await filas(db.sesionesHobby)).map((r) => r.fecha),
+  // `partidasEjercicio` NO entra aquí a propósito: cada respuesta de una partida
+  // ya llama a `registrarRepasoDia`, así que sumarla otra vez duplicaría el XP.
   idiomas: async () => [
     ...(await filas(db.repasosIdioma)).map((r) => r.fecha),
     ...(await filas(db.tarjetasIdioma)).map((r) => r.creadoEn.slice(0, 10)),
   ],
+  // `carpetasIdea` tampoco: ordenar el diario no es tener una idea.
   ideas: async () => [
     ...(await filas(db.ideas)).map((r) => r.fecha),
     ...(await filas(db.nodosMapa)).map((r) => r.fecha),
+  ],
+  // Cuenta el día que resolviste algo o guardaste una fórmula. Las hojas cuentan
+  // por DÍA de edición, no por celda: teclear una tabla no son cien actividades.
+  //
+  // `esSeedIntacta` deja fuera lo que la app trae puesto (las fórmulas y hojas
+  // de `rooms/computo/siembra.ts`): sin ese filtro, entrar al cuarto por primera
+  // vez regalaría 570 XP y un día de racha. En cuanto el usuario toca una, deja
+  // de ser seed intacta y sí cuenta.
+  computo: async () => [
+    ...(await filas(db.calculosComputo)).map((r) => r.fecha),
+    ...(await filas(db.formulas)).filter((f) => !esSeedIntacta(f)).map((r) => r.fecha),
+    ...new Set(
+      (await filas(db.hojasCalculo)).filter((h) => !esSeedIntacta(h)).map((r) => r.actualizadoEn.slice(0, 10)),
+    ),
   ],
   // El día que apuntas o palomeas algo, no el día para el que lo agendaste:
   // reservar el dentista para el mes que viene no es actividad de hoy.
@@ -183,6 +213,40 @@ export const EMOJI_HUMOR: Record<Humor, string> = {
 }
 
 /**
+ * Progreso del jugador para una lista de enfoques: la consulta de `useProgreso`
+ * sin hook, para leerla fuera de React (snapshot de los widgets nativos). Solo
+ * lee Dexie, así que dentro de un `useLiveQuery` sigue siendo reactiva.
+ */
+export async function progresoDeEnfoques(ids: string[]): Promise<ProgresoJugador> {
+  const enfoques = await Promise.all(ids.map(progresoDePlantilla))
+  enfoques.sort((a, b) => b.xp - a.xp)
+
+  const xp = enfoques.reduce((acc, e) => acc + e.xp, 0)
+  const { nivel, avance } = nivelDeXp(xp)
+
+  // Fechas unificadas para la racha global.
+  const todas = new Set<string>()
+  for (const id of ids) for (const f of await (FUENTES[id] ?? (async () => []))()) todas.add(f)
+
+  const n = enfoques.length
+  const salud = n === 0 ? 0 : enfoques.filter((e) => e.dias3 > 0).length / n
+  const energia = n === 0 ? 0 : enfoques.filter((e) => e.hoy > 0).length / n
+  const rachaGlobal = racha(todas)
+  const activos = n > 0 && enfoques.some((e) => e.dias7 > 0)
+
+  return {
+    xp,
+    nivel,
+    avanceNivel: avance,
+    racha: rachaGlobal,
+    salud,
+    energia,
+    humor: humorDe(salud, energia, rachaGlobal, activos),
+    enfoques,
+  }
+}
+
+/**
  * Progreso del jugador (reactivo): se recalcula cuando cambian los registros
  * de las apps o los enfoques (plantillas asignadas). `undefined` = cargando.
  */
@@ -194,32 +258,5 @@ export function useProgreso(): ProgresoJugador | undefined {
   )
   const ids = useMemo(() => (clave ? clave.split(',') : []), [clave])
 
-  return useLiveQuery(async () => {
-    const enfoques = await Promise.all(ids.map(progresoDePlantilla))
-    enfoques.sort((a, b) => b.xp - a.xp)
-
-    const xp = enfoques.reduce((acc, e) => acc + e.xp, 0)
-    const { nivel, avance } = nivelDeXp(xp)
-
-    // Fechas unificadas para la racha global.
-    const todas = new Set<string>()
-    for (const id of ids) for (const f of await (FUENTES[id] ?? (async () => []))()) todas.add(f)
-
-    const n = enfoques.length
-    const salud = n === 0 ? 0 : enfoques.filter((e) => e.dias3 > 0).length / n
-    const energia = n === 0 ? 0 : enfoques.filter((e) => e.hoy > 0).length / n
-    const rachaGlobal = racha(todas)
-    const activos = n > 0 && enfoques.some((e) => e.dias7 > 0)
-
-    return {
-      xp,
-      nivel,
-      avanceNivel: avance,
-      racha: rachaGlobal,
-      salud,
-      energia,
-      humor: humorDe(salud, energia, rachaGlobal, activos),
-      enfoques,
-    }
-  }, [clave])
+  return useLiveQuery(() => progresoDeEnfoques(ids), [clave])
 }

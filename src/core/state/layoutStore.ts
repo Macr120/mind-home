@@ -32,7 +32,10 @@ import {
   setFlota,
   flotaPara,
   nivelBaseY,
+  esquinaAlCentro,
+  esquinasDeLado,
   type TipoAcceso,
+  type EsquinaKey,
   COLS,
   ROWS,
   MAX_GRID,
@@ -58,7 +61,7 @@ import {
   type EstiloPuerta,
   type PincelesCuarto,
 } from '../house/murosPuertas'
-import { puertaInicialCuarto, murosAbiertosExterior } from '../house/murosZona'
+import { puertaInicialCuarto, ventanaInicialCuarto, murosAbiertosExterior } from '../house/murosZona'
 import { perimetroFormaCelda } from '../house/murosPerimetroLoseta'
 import {
   formaEnCelda,
@@ -92,6 +95,8 @@ type EdgeStyles = Record<string, Record<string, EstiloArista>>
 type PincelesPorCuarto = Record<string, PincelesCuarto>
 type Niveles = Record<string, number>
 type FormasCeldaPorCuarto = Record<string, FormasCeldaMap>
+/** Dónde se planta un acceso dentro de su celda: esquina (piso alto) o pared (sótano). */
+type AnclaLocal = { esquina?: EsquinaKey; lado?: SideKey }
 
 const sizeDe = (sizes: Sizes, id: string): Size => sizes[id] ?? SIZE_DEFAULT
 const fpDe = (fps: Footprints, id: string): Footprint => fps[id] ?? FOOTPRINT_DEFAULT
@@ -155,6 +160,9 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
   }
   setFlota(flotaPara(nBase))
   const wallCollidersByLevel: Record<number, AABB[]> = {}
+  // Los mismos colliders, indexados por cuarto: permiten excluir de la colisión el
+  // cuarto que el personaje carga sobre la cabeza (ver `muroColliders` en Character).
+  const collidersPorCuarto: Record<string, AABB[]> = {}
   const puertasPorNivel = new Map<number, AABB[]>()
   // Altura de techo (la del muro más alto) por celda absoluta, para no permitir
   // extender el techo de un cuarto sobre el de otro con distinta altura.
@@ -164,11 +172,15 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
     const occ = ocupadoPorNivel.get(lvl) ?? SIN_OCUPACION
     const fp = fpDe(footprints, r.id)
     const arr = wallCollidersByLevel[lvl] ?? (wallCollidersByLevel[lvl] = [])
-    arr.push(...collidersForRoom(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id], formasCelda[r.id]))
     // Curvas/diagonales de formas (enteras y finas): colisión muestreada con el vano
     // abierto donde hay puerta (se puede entrar y salir por ellas).
     const fcol = formasColisionRoom(cells[r.id], fp, formasCelda[r.id], wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id])
-    arr.push(...fcol.muros)
+    const propios = [
+      ...collidersForRoom(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id], formasCelda[r.id]),
+      ...fcol.muros,
+    ]
+    collidersPorCuarto[r.id] = propios
+    arr.push(...propios)
     const altura = alturaTechoRoom(cells[r.id], fp, occ, wallOverrides[r.id], edgeStyles[r.id], pinceles[r.id])
     let aMap = alturaTechoPorNivel.get(lvl)
     if (!aMap) alturaTechoPorNivel.set(lvl, (aMap = new Map()))
@@ -204,6 +216,7 @@ function recompute({ placed, cells, footprints, niveles, wallOverrides = {}, edg
     ocupadoPorNivel,
     pisoPorNivel,
     wallCollidersByLevel,
+    collidersPorCuarto,
     wallColliders: wallCollidersByLevel[0] ?? [],
     puertasPorNivel,
     alturaTechoPorNivel,
@@ -386,6 +399,8 @@ interface LayoutState {
   pisoPorNivel: Map<number, Set<string>>
   /** Colliders de pared por nivel (el personaje usa los de su nivel actual). */
   wallCollidersByLevel: Record<number, AABB[]>
+  /** Los mismos colliders indexados por cuarto (para excluir el cuarto cargado). */
+  collidersPorCuarto: Record<string, AABB[]>
   /** Alias de los colliders del nivel 0 (planta baja). */
   wallColliders: AABB[]
   /** Zonas de puerta (huecos) por nivel: los objetos que caen aquí NO estorban el paso. */
@@ -411,8 +426,10 @@ interface LayoutState {
   draggingAcceso: number | null
   /** Celda destino del acceso arrastrado, o null. */
   previewAcceso: Cell | null
-  /** Pared (lado) destino del acceso arrastrado, o null. */
+  /** Pared (lado) destino de la escalera marina arrastrada (sótano), o null. */
   previewLado: SideKey | null
+  /** Esquina destino del ascenso arrastrado (pisos altos), o null. */
+  previewEsquina: EsquinaKey | null
   cargado: boolean
   cargar: () => Promise<void>
   /** `mantenerVista`: al cerrar (v=false), no resetea la cámara (p. ej. al abrir el side menu de MPH). */
@@ -436,15 +453,16 @@ interface LayoutState {
   addRoomGround: (id: string) => Promise<void>
   /** Coloca un cuarto ENCIMA de otro (apila 1:1). Si crea un nivel nuevo, define su acceso. */
   addRoomOnTop: (id: string, baseRoomId: string, tipoAcceso?: TipoAcceso) => Promise<void>
-  /** Crea el acceso de un nivel (uno por nivel). */
-  addAcceso: (nivel: number, tipo: TipoAcceso, col: number, row: number, lado: SideKey) => Promise<void>
+  /** Crea el acceso de un nivel (uno por nivel). El ancla es la esquina del cuarto
+   *  (pisos altos) o la pared del pozo (escalera marina del sótano). */
+  addAcceso: (nivel: number, tipo: TipoAcceso, col: number, row: number, ancla: AnclaLocal) => Promise<void>
   /** Cambia el tipo (escalera/elevador/resbaladilla) de un acceso existente. */
   setAccesoTipo: (id: number, tipo: TipoAcceso) => Promise<void>
   /** Cuarto recién creado que estrena un nivel sin acceso: pide elegir el tipo de ascenso. */
   accesoPendiente: { nivel: number; col: number; row: number } | null
   /** Si el nivel (≥1) aún no tiene acceso, abre la petición para elegir el tipo de ascenso. */
   pedirAccesoNivel: (nivel: number, col: number, row: number) => void
-  /** Crea el acceso del nivel pendiente con el tipo elegido y abre sus muros. */
+  /** Crea el acceso del nivel pendiente con el tipo elegido, en la esquina del cuarto. */
   confirmarAccesoNivel: (tipo: TipoAcceso) => Promise<void>
   /** Descarta la petición de acceso (el nivel queda sin acceso por ahora). */
   cancelarAccesoNivel: () => void
@@ -456,13 +474,13 @@ interface LayoutState {
   nivelTieneAcceso: (nivel: number) => boolean
   /** Inicia el arrastre de un acceso (en edición). */
   startAccesoDrag: (id: number) => void
-  /** Fija la celda y la pared destino del acceso arrastrado. */
-  setAccesoPreview: (cell: Cell | null, lado: SideKey | null) => void
-  /** Suelta el acceso: lo reubica si hay celda/pared válida. */
+  /** Fija la celda y el ancla (esquina o pared) destino del acceso arrastrado. */
+  setAccesoPreview: (cell: Cell | null, ancla: AnclaLocal | null) => void
+  /** Suelta el acceso: lo reubica si hay celda y ancla válidas. */
   endAccesoDrag: () => Promise<void>
-  /** Reubica un acceso a una pared (lado) de una celda de un cuarto de su nivel:
-   *  abre ese muro y cierra el anterior. */
-  moveAcceso: (id: number, cell: Cell, lado: SideKey) => Promise<void>
+  /** Reubica un ascenso a la esquina de una celda de un cuarto de su nivel (la escalera
+   *  marina del sótano se reubica por pared). No toca ningún muro. */
+  moveAcceso: (id: number, cell: Cell, ancla: AnclaLocal) => Promise<void>
   setAll: (v: boolean) => Promise<void>
   moveRoom: (id: string, cell: Cell) => Promise<void>
   /** Fija forma+paredes+losetas del cuarto de una vez (al adoptar la geometría de una zona). */
@@ -558,6 +576,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
   draggingAcceso: null,
   previewAcceso: null,
   previewLado: null,
+  previewEsquina: null,
   accesoPendiente: null,
   cargado: false,
   ...recompute({
@@ -621,15 +640,15 @@ export const useLayout = create<LayoutState>((set, get) => ({
     for (const rid of sanados) {
       await upsert(rid, { placed: true, col: cells[rid].col, row: cells[rid].row })
     }
-    // Reparación: cada acceso debe tener ABIERTO el muro de su lado tanto en el cuarto
-    // superior como en el inferior (accesos viejos no abrían el de abajo → bloqueaban
-    // al bajar). Idempotente: solo persiste los cuartos que realmente cambian.
-    const reparados = new Set<string>()
+    // Migración: los ascensos viejos se anclaban a una PARED y se plantaban por fuera del
+    // cuarto, tapando la puerta del vecino; además abrían ese muro para poder salir a ellos.
+    // Ahora viven DENTRO del cuarto, en una esquina, y no tocan muros: se recolocan en la
+    // esquina más cercana a su pared vieja y se cierra el vano que habían dejado. Corre una
+    // sola vez por acceso (al guardar `esquina` deja de cumplirse la condición).
+    const migrados = new Set<string>()
     for (const a of accesos) {
-      // Escalera marina (sótano, nivel < 0): decorativa, sin vano — el pozo se accede
-      // caminando por encima (suelo continuo), nunca por un hueco en el muro.
-      if (a.nivel < 0) continue
-      const lado: SideKey = a.lado ?? ladoDesdeDoor(a.col, a.row)
+      if (a.nivel < 1 || a.esquina || a.id == null) continue
+      const ladoViejo: SideKey = a.lado ?? ladoDesdeDoor(a.col, a.row)
       for (const nivel of [a.nivel, a.nivel - 1]) {
         const r = losCuartos().find(
           (rm) =>
@@ -643,13 +662,20 @@ export const useLayout = create<LayoutState>((set, get) => ({
         if (!r) continue
         const anchor = cells[r.id]
         const off = { col: a.col - anchor.col, row: a.row - anchor.row }
-        const key = edgeKey(off, lado)
-        if (wallOverrides[r.id]?.[key] === 'abierto') continue
-        wallOverrides[r.id] = { ...(wallOverrides[r.id] ?? {}), [key]: 'abierto' }
-        reparados.add(r.id)
+        const key = edgeKey(off, ladoViejo)
+        if (wallOverrides[r.id]?.[key] !== 'abierto') continue
+        const m = { ...wallOverrides[r.id] }
+        delete m[key]
+        wallOverrides[r.id] = m
+        migrados.add(r.id)
       }
+      // De las dos esquinas de esa pared, la que mira al centro de la casa.
+      const [e1, e2] = esquinasDeLado(ladoViejo)
+      const alCentro = esquinaAlCentro(a.col, a.row)
+      a.esquina = e1 === alCentro || e2 === alCentro ? alCentro : e1
+      await db.accesos.update(a.id, { esquina: a.esquina })
     }
-    for (const rid of reparados) await upsert(rid, { muros: wallOverrides[rid] })
+    for (const rid of migrados) await upsert(rid, { muros: wallOverrides[rid] })
 
     // Sótanos: la escalera marina NUNCA lleva vano (se accede caminando por encima). Si
     // una versión anterior dejó un muro abierto por error (p. ej. al arrastrarla), se
@@ -937,29 +963,37 @@ export const useLayout = create<LayoutState>((set, get) => ({
     if (!celdas.length) return get().colocarCuartoNuevo(id)
     const { zonaAnchorFootprint } = await import('../house/planoGeometria')
     const { anchor, footprint } = zonaAnchorFootprint(celdas)
+    const ocupadoNivel = get().ocupadoPorNivel.get(nivel) ?? SIN_OCUPACION
     // Cuarto nuevo: nace con UNA puerta exterior (después el usuario la mueve o agrega más).
     // Sótanos: sin puerta inicial — el otro lado del muro es tierra (se vería el vacío).
+    // Pisos altos: tampoco (la puerta daría al vacío); en su lugar, una VENTANA.
     const muros =
-      nivel < 0
-        ? {}
-        : puertaInicialCuarto(anchor, footprint, get().ocupadoPorNivel.get(nivel) ?? SIN_OCUPACION)
+      nivel === 0 ? puertaInicialCuarto(anchor, footprint, ocupadoNivel) : {}
+    const estilos =
+      nivel >= 1
+        ? ventanaInicialCuarto(anchor, footprint, ocupadoNivel, (get().pinceles[id] ?? PINCELES_DEFAULT).muro)
+        : {}
     const placed = { ...get().placed, [id]: true }
     const cells = { ...get().cells, [id]: anchor }
     const footprints = { ...get().footprints, [id]: footprint }
     const niveles = { ...get().niveles, [id]: nivel }
     const wallOverrides = { ...get().wallOverrides, [id]: muros }
+    const edgeStyles = { ...get().edgeStyles, [id]: estilos }
     set({
       placed,
       cells,
       footprints,
       niveles,
       wallOverrides,
-      ...recompute({ ...get(), placed, cells, footprints, niveles, wallOverrides }),
+      edgeStyles,
+      ...recompute({ ...get(), placed, cells, footprints, niveles, wallOverrides, edgeStyles }),
     })
-    await upsert(id, { placed: true, col: anchor.col, row: anchor.row, footprint, nivel, muros })
+    await upsert(id, { placed: true, col: anchor.col, row: anchor.row, footprint, nivel, muros, estilos })
     // Sótano: la escalera marina (una por nivel -1) nace con el primer cuarto excavado.
     if (nivel < 0 && !get().nivelTieneAcceso(nivel)) {
-      await get().addAcceso(nivel, 'escalera-marina', anchor.col, anchor.row, ladoDesdeDoor(anchor.col, anchor.row))
+      await get().addAcceso(nivel, 'escalera-marina', anchor.col, anchor.row, {
+        lado: ladoDesdeDoor(anchor.col, anchor.row),
+      })
     }
   },
 
@@ -1052,19 +1086,9 @@ export const useLayout = create<LayoutState>((set, get) => ({
     const cells = { ...get().cells, [id]: { col: base.col, row: base.row } }
     const footprints = { ...get().footprints, [id]: fp }
     const niveles = { ...get().niveles, [id]: nivel }
-    // Deriva el lado del acceso (pared de ambos cuartos que da al exterior).
-    const [cx, , cz] = cellToWorld(base.col, base.row)
-    const { axis, sign } = doorFor([cx, 0, cz])
-    const ladoAcceso: SideKey = axis === 'x' ? (sign < 0 ? 'O' : 'E') : sign < 0 ? 'N' : 'S'
-    // Abre el muro del cuarto NUEVO (superior): el personaje llega por aquí al subir.
-    const muros: WallOverrides = { [edgeKey({ col: 0, row: 0 }, ladoAcceso)]: 'abierto' }
-    // Abre también el muro del cuarto BASE (inferior): sin esto el personaje queda
-    // bloqueado contra la pared cuando intenta salir por el acceso para bajar.
-    const murosBase: WallOverrides = {
-      ...(get().wallOverrides[baseRoomId] ?? {}),
-      [edgeKey({ col: 0, row: 0 }, ladoAcceso)]: 'abierto',
-    }
-    const wallOverrides = { ...get().wallOverrides, [baseRoomId]: murosBase, [id]: muros }
+    // El ascenso vive DENTRO del cuarto (en su esquina), así que ningún muro se abre.
+    const muros: WallOverrides = {}
+    const wallOverrides = { ...get().wallOverrides, [id]: muros }
     set({
       placed,
       cells,
@@ -1074,15 +1098,16 @@ export const useLayout = create<LayoutState>((set, get) => ({
       ...recompute({ ...get(), placed, cells, footprints, niveles, wallOverrides }),
     })
     await upsert(id, { placed: true, col: base.col, row: base.row, footprint: fp, nivel, muros })
-    await upsert(baseRoomId, { muros: murosBase })
     if (tipoAcceso && !get().nivelTieneAcceso(nivel)) {
-      await get().addAcceso(nivel, tipoAcceso, base.col, base.row, ladoAcceso)
+      await get().addAcceso(nivel, tipoAcceso, base.col, base.row, {
+        esquina: esquinaAlCentro(base.col, base.row),
+      })
     }
   },
 
-  addAcceso: async (nivel, tipo, col, row, lado) => {
+  addAcceso: async (nivel, tipo, col, row, ancla) => {
     if (get().nivelTieneAcceso(nivel)) return
-    const acceso: Acceso = { nivel, tipo, col, row, lado }
+    const acceso: Acceso = { nivel, tipo, col, row, ...ancla }
     acceso.id = await db.accesos.add(acceso)
     set({ accesos: [...get().accesos, acceso] })
   },
@@ -1099,60 +1124,41 @@ export const useLayout = create<LayoutState>((set, get) => ({
   confirmarAccesoNivel: async (tipo) => {
     const p = get().accesoPendiente
     if (!p) return
-    const lado = ladoDesdeDoor(p.col, p.row)
-    await get().addAcceso(p.nivel, tipo, p.col, p.row, lado)
-    // Abre el muro del acceso en el cuarto de este nivel y en el de abajo (subir y bajar).
-    const wallOverrides = { ...get().wallOverrides }
-    const afectados = new Set<string>()
-    setMuro(get, wallOverrides, afectados, p.nivel, { col: p.col, row: p.row }, lado, 'abierto')
-    setMuro(get, wallOverrides, afectados, p.nivel - 1, { col: p.col, row: p.row }, lado, 'abierto')
-    set({ wallOverrides, accesoPendiente: null, ...recompute({ ...get(), wallOverrides }) })
-    for (const rid of afectados) await upsert(rid, { muros: wallOverrides[rid] ?? {} })
+    // El ascenso se planta DENTRO del cuarto, en la esquina que mira al centro de la casa:
+    // así no tapa puertas ni vanos y no hay que abrir ningún muro.
+    await get().addAcceso(p.nivel, tipo, p.col, p.row, { esquina: esquinaAlCentro(p.col, p.row) })
+    set({ accesoPendiente: null })
   },
   cancelarAccesoNivel: () => set({ accesoPendiente: null }),
 
-  startAccesoDrag: (id) => set({ draggingAcceso: id, previewAcceso: null, previewLado: null }),
-  setAccesoPreview: (cell, lado) =>
+  startAccesoDrag: (id) =>
+    set({ draggingAcceso: id, previewAcceso: null, previewLado: null, previewEsquina: null }),
+  setAccesoPreview: (cell, ancla) =>
     set((s) =>
-      s.previewAcceso?.col === cell?.col && s.previewAcceso?.row === cell?.row && s.previewLado === lado
+      s.previewAcceso?.col === cell?.col &&
+      s.previewAcceso?.row === cell?.row &&
+      s.previewLado === (ancla?.lado ?? null) &&
+      s.previewEsquina === (ancla?.esquina ?? null)
         ? s
-        : { previewAcceso: cell, previewLado: lado },
+        : { previewAcceso: cell, previewLado: ancla?.lado ?? null, previewEsquina: ancla?.esquina ?? null },
     ),
   endAccesoDrag: async () => {
-    const { draggingAcceso, previewAcceso, previewLado } = get()
-    if (draggingAcceso != null && previewAcceso && previewLado)
-      await get().moveAcceso(draggingAcceso, previewAcceso, previewLado)
-    set({ draggingAcceso: null, previewAcceso: null, previewLado: null })
+    const { draggingAcceso, previewAcceso, previewLado, previewEsquina } = get()
+    if (draggingAcceso != null && previewAcceso && (previewLado || previewEsquina))
+      await get().moveAcceso(draggingAcceso, previewAcceso, {
+        lado: previewLado ?? undefined,
+        esquina: previewEsquina ?? undefined,
+      })
+    set({ draggingAcceso: null, previewAcceso: null, previewLado: null, previewEsquina: null })
   },
-  moveAcceso: async (id, cell, lado) => {
+  moveAcceso: async (id, cell, ancla) => {
     const ac = get().accesos.find((a) => a.id === id)
     if (!ac) return
-    const nivel = ac.nivel
-    // Escalera marina (sótano): decorativa, sin vano — el pozo se accede caminando por
-    // encima (suelo continuo), nunca por un hueco en el muro. Solo reposiciona.
-    if (nivel < 0) {
-      const accesos = get().accesos.map((a) =>
-        a.id === id ? { ...a, col: cell.col, row: cell.row, lado } : a,
-      )
-      set({ accesos })
-      await db.accesos.update(id, { col: cell.col, row: cell.row, lado })
-      return
-    }
-    const wallOverrides = { ...get().wallOverrides }
-    const afectados = new Set<string>()
-    // Cierra los muros anteriores en el cuarto SUPERIOR e INFERIOR.
-    const ladoViejo = ac.lado ?? ladoDesdeDoor(ac.col, ac.row)
-    setMuro(get, wallOverrides, afectados, nivel, { col: ac.col, row: ac.row }, ladoViejo, null)
-    setMuro(get, wallOverrides, afectados, nivel - 1, { col: ac.col, row: ac.row }, ladoViejo, null)
-    // Abre los muros nuevos en el cuarto SUPERIOR e INFERIOR.
-    setMuro(get, wallOverrides, afectados, nivel, cell, lado, 'abierto')
-    setMuro(get, wallOverrides, afectados, nivel - 1, cell, lado, 'abierto')
-    const accesos = get().accesos.map((a) =>
-      a.id === id ? { ...a, col: cell.col, row: cell.row, lado } : a,
-    )
-    set({ accesos, wallOverrides, ...recompute({ ...get(), wallOverrides }) })
-    await db.accesos.update(id, { col: cell.col, row: cell.row, lado })
-    for (const rid of afectados) await upsert(rid, { muros: wallOverrides[rid] ?? {} })
+    // Ningún ascenso toca muros: el de piso alto vive DENTRO del cuarto (atraviesa la losa
+    // por su hueco) y la escalera marina del sótano es decorativa (se baja caminando).
+    const patch = { col: cell.col, row: cell.row, ...ancla }
+    set({ accesos: get().accesos.map((a) => (a.id === id ? { ...a, ...patch } : a)) })
+    await db.accesos.update(id, patch)
   },
 
   hayPlantaBaja: () =>
@@ -1196,18 +1202,16 @@ export const useLayout = create<LayoutState>((set, get) => ({
       const dr = cell.row - prev.row
       const { trasladarPisosInteriores } = await import('../data/repository')
       await trasladarPisosInteriores(nivel, footprintCells(prev, fp), dc, dr)
-      // Sótano: la escalera marina vive DENTRO del pozo — se traslada con el cuarto (a
-      // diferencia de los ascensos de pisos altos, que quedan fijos entre plantas).
-      if (nivel < 0) {
-        const celdasViejas = footprintCells(prev, fp)
-        const ac = get().accesos.find(
-          (a) => a.nivel === nivel && celdasViejas.some((c) => c.col === a.col && c.row === a.row),
-        )
-        if (ac?.id != null) {
-          const movido = { col: ac.col + dc, row: ac.row + dr }
-          set({ accesos: get().accesos.map((a) => (a.id === ac.id ? { ...a, ...movido } : a)) })
-          await db.accesos.update(ac.id, movido)
-        }
+      // El acceso vive DENTRO del cuarto (esquina en pisos altos, pozo en el sótano), así
+      // que se traslada con él: si se quedara fijo acabaría flotando sobre el vacío.
+      const celdasViejas = footprintCells(prev, fp)
+      const ac = get().accesos.find(
+        (a) => a.nivel === nivel && celdasViejas.some((c) => c.col === a.col && c.row === a.row),
+      )
+      if (ac?.id != null) {
+        const movido = { col: ac.col + dc, row: ac.row + dr }
+        set({ accesos: get().accesos.map((a) => (a.id === ac.id ? { ...a, ...movido } : a)) })
+        await db.accesos.update(ac.id, movido)
       }
     }
   },
@@ -1998,41 +2002,6 @@ function ladoDesdeDoor(col: number, row: number): SideKey {
   const [cx, , cz] = cellToWorld(col, row)
   const { axis, sign } = doorFor([cx, 0, cz])
   return axis === 'x' ? (sign < 0 ? 'O' : 'E') : sign < 0 ? 'N' : 'S'
-}
-
-/**
- * Abre/cierra el muro de un cuarto (del `nivel` dado) en la celda y lado indicados.
- * `estado=null` quita el override (restaura la pared). Acumula el cuarto afectado y
- * muta `wallOverrides` (clonando por cuarto) para persistir después.
- */
-function setMuro(
-  get: () => LayoutState,
-  wallOverrides: Overrides,
-  afectados: Set<string>,
-  nivel: number,
-  cell: Cell,
-  lado: SideKey,
-  estado: WallState | null,
-) {
-  const { placed, cells, footprints, niveles } = get()
-  const r = losCuartos().find(
-    (rm) =>
-      placed[rm.id] &&
-      cells[rm.id] &&
-      nivelDe(niveles, rm.id) === nivel &&
-      footprintCells(cells[rm.id], fpDe(footprints, rm.id)).some(
-        (fc) => fc.col === cell.col && fc.row === cell.row,
-      ),
-  )
-  if (!r) return
-  const anchor = cells[r.id]
-  const off = { col: cell.col - anchor.col, row: cell.row - anchor.row }
-  const m = { ...(wallOverrides[r.id] ?? {}) }
-  const key = edgeKey(off, lado)
-  if (estado == null) delete m[key]
-  else m[key] = estado
-  wallOverrides[r.id] = m
-  afectados.add(r.id)
 }
 
 /** Sub-celdas (½) ocupadas por los cuartos colocados de un nivel dado. */

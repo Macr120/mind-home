@@ -93,18 +93,19 @@ export function EditorCaminos() {
             <div data-tut="caminos.barra.trazo" className="flex flex-wrap items-center justify-center gap-1.5">
               {trazoBtn('punto', 'pincel', t('trazo.herr.punto', 'Poner puntos'))}
               {trazoBtn('mover', 'mover', t('trazo.herr.mover', 'Mover puntos'))}
-              {trazoBtn('borrarPunto', 'borrador', t('trazo.herr.borrar', 'Borrar puntos'))}
               <span className="mx-1 h-6 w-px bg-white/15" />
-              <button
-                type="button"
+              {/* Estado del circuito: se cierra tocando la meta en el mapa, no aquí. */}
+              <span
                 data-tut="caminos.trazo.cerrar"
-                onClick={() => tz.alternarCerrada()}
-                title={t('trazo.cerrar', 'Cerrar circuito')}
-                aria-label={t('trazo.cerrar', 'Cerrar circuito')}
-                className={`${btn} ${trazoCerrada ? 'border-emerald-400/60 bg-emerald-600' : 'bg-white/10 hover:bg-white/20'}`}
+                className={`flex h-10 items-center gap-1.5 rounded-lg border px-2.5 text-xs font-semibold ${
+                  trazoCerrada
+                    ? 'border-emerald-400/60 bg-emerald-600/30 text-emerald-200'
+                    : 'border-white/10 bg-white/5 text-white/60'
+                }`}
               >
                 <Icono nombre="bandera" />
-              </button>
+                {trazoCerrada ? t('trazo.cerrado', 'Circuito cerrado') : t('trazo.abierto', 'Circuito abierto')}
+              </span>
               <button
                 type="button"
                 data-tut="caminos.trazo.borrarTodo"
@@ -117,7 +118,10 @@ export function EditorCaminos() {
               </button>
               <span className="mx-1 h-6 w-px bg-white/15" />
               <span className="max-w-52 text-[10px] leading-tight text-white/50">
-                {t('trazo.ayuda', 'Toca el mapa para poner puntos; la meta es el primero. Cierra el circuito para correr.')}
+                {t(
+                  'trazo.ayuda',
+                  'Toca el mapa para poner puntos y toca un punto para borrarlo. El primero es la meta: tócalo para cerrar el circuito y poder correr.',
+                )}
               </span>
             </div>
           ) : (

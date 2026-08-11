@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { create } from 'zustand'
 import { useT } from '../i18n/useT'
 import { useTutorial } from './tutorialStore'
-import { flujosDeApp, lanzarFlujo, tutorialDeApp, tutorialMenuPorId } from './registro'
+import { FLUJOS_NUCLEO, flujosDeApp, lanzarFlujo, tutorialDeApp, tutorialMenuPorId } from './registro'
 import { tutorialCasa } from './menus'
 import { plantillasCuarto, plantillasInfraestructura } from '../registry'
 import { esDemo } from '../edicion'
@@ -167,6 +167,12 @@ export function SelectorTutorialOverlay() {
                 lanzarFlujo(z.id.slice(4), z.def)
                 return
               }
+              // Zona del núcleo (el reloj): tiene dos tours, así que despliega la
+              // lista en la tarjeta en vez de lanzar el primero.
+              if (FLUJOS_NUCLEO[z.id]) {
+                setAppFlujos((prev) => (prev === z.id ? null : z.id))
+                return
+              }
               lanzar(z.def)
             }}
             className="absolute rounded-xl border-2 border-amber-400 bg-amber-400/15 transition hover:bg-amber-400/30"
@@ -219,6 +225,32 @@ export function SelectorTutorialOverlay() {
           </button>
         </div>
 
+        {/* El calendario del reloj: no es una app ni se construye en el mapa, pero
+            tiene sus dos tours (la rejilla y el recorrido meta → plan → cronograma).
+            Va justo tras el general porque es lo que atraviesa toda la casa; también
+            se despliegan tocando el reloj en la escena. */}
+        <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
+          {t('tut.selector.nucleo', 'O el calendario y las metas:')}
+        </p>
+        <div className="mt-1.5 flex flex-wrap justify-center gap-1">
+          {Object.entries(FLUJOS_NUCLEO).flatMap(([clave, defs]) =>
+            defs.map((def) => (
+              <button
+                key={def.id}
+                type="button"
+                data-tut={`tut.nucleo.${def.id}`}
+                onClick={() => {
+                  useSelectorTut.getState().cerrar()
+                  lanzarFlujo(clave, def)
+                }}
+                className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:border-amber-400/60 hover:bg-amber-400/15"
+              >
+                {t(def.titulo.clave, def.titulo.es)}
+              </button>
+            )),
+          )}
+        </div>
+
         {/* Tutoriales de las apps: se abren desde aquí aunque su cuarto esté cerrado.
             Con varios FLUJOS, el icono despliega la lista para elegir uno. */}
         <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
@@ -254,7 +286,7 @@ export function SelectorTutorialOverlay() {
         {/* Infraestructura: no se asigna a cuartos, se construye sobre el mapa.
             Mismo trato que las apps: menú de flujos y salto a la casa demo. */}
         <p className="mt-3 border-t border-white/10 pt-2 text-[11px] font-semibold text-white/45">
-          {t('tut.selector.infra', 'O una construcción del mapa:')}
+          {t('tut.selector.infra', 'O construir complementos en el mapa:')}
         </p>
         <div className="mt-1.5 flex flex-wrap justify-center gap-1">
           {plantillasInfraestructura().map((p) => {

@@ -10,8 +10,9 @@
  * Las notas vienen escritas; los montos y las fechas se calculan aquí.
  */
 import type { Transaccion } from '../../core/data/db'
-import { finanzasRepo, metasRepo, presupuestosRepo, watchlistRepo } from '../../core/data/repository'
+import { finanzasRepo, metasRepo, patrimonioRepo, presupuestosRepo, watchlistRepo } from '../../core/data/repository'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
+import { hoyISO } from './mes'
 import {
   AGUINALDO,
   AVERIA_COCHE,
@@ -31,10 +32,17 @@ import {
   SUELDO_QUINCENA,
   VUELO_JAPON,
 } from '../../demo/hitosPep'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_DESPACHO } from './demo.data'
 
 /** El mes 2: cuando Pep@ se sentó a ordenar sus cuentas. */
 const ORDEN = -334
+
+/**
+ * Su línea de patrimonio. Va aquí y no en `demo.data.ts` porque ese archivo lo
+ * genera la IA (`npm run demo:texto`) y esto es una etiqueta, no contenido.
+ */
+const AHORROS: Record<'es' | 'en', string> = { es: 'Mis ahorros', en: 'Savings' }
 
 type Fila = Omit<Transaccion, 'id'>
 
@@ -165,17 +173,48 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
 
   await finanzasRepo.bulkAdd(filas)
 
-  // ── Presupuesto y patrimonio (filas con clave mágica de `presupuestos`) ──
+  // ── El presupuesto del mes (fila con clave mágica de `presupuestos`) ──────
   await presupuestosRepo.add({ categoria: '__mensual__', monto: PRESUPUESTO_MES })
-  await presupuestosRepo.add({ categoria: '__patrimonio__', monto: PATRIMONIO_HOY })
+
+  // Lo que Pep@ tiene guardado, como una línea de patrimonio de verdad. La casa
+  // demo se CONSTRUYE, no se migra: la fila mágica `__patrimonio__` del modelo
+  // viejo se retiró en la v123 y aquí ya no se siembra.
+  await patrimonioRepo.add({
+    clase: 'liquido',
+    naturaleza: 'activo',
+    nombre: AHORROS[ctx.idioma],
+    monto: PATRIMONIO_HOY,
+    creadoEn: new Date().toISOString(),
+    fechaValor: hoyISO(),
+  })
 
   // ── Las metas: una cumplida, dos vivas y la deuda saldada ────────────────
   await metasRepo.bulkAdd([
     { nombre: datos.metas.japon, objetivo: META_JAPON, ahorrado: META_JAPON, tipo: 'ahorro' },
     { nombre: datos.metas.emergencia, objetivo: 20000, ahorrado: 9600, tipo: 'ahorro' },
-    { nombre: datos.metas.inversion, objetivo: 10000, ahorrado: 4200, tipo: 'inversion' },
     { nombre: datos.metas.deuda, objetivo: AVERIA_COCHE, ahorrado: AVERIA_COCHE, tipo: 'deuda' },
   ])
+
+  // Los CETES van aparte porque necesitan su id: la fila de patrimonio cuelga de
+  // ellos y así la pestaña Simulación tiene algo que proyectar (lo demás de
+  // Pep@ es dinero quieto). Enlazadas son UNA sola cosa: el saldo lo manda la
+  // meta y la tasa la fila, así que el patrimonio no cambia ni un peso.
+  const cetes = (await metasRepo.add({
+    nombre: datos.metas.inversion,
+    objetivo: 10000,
+    ahorrado: 4200,
+    tipo: 'inversion',
+  })) as number
+  await patrimonioRepo.add({
+    clase: 'liquido',
+    naturaleza: 'activo',
+    nombre: datos.metas.inversion,
+    monto: 4200,
+    tasaAnual: 9,
+    fechaValor: hoyISO(),
+    metaId: cetes,
+    creadoEn: new Date().toISOString(),
+  })
 
   // Lo que mira de reojo: el yen del viaje que fue y el won del que viene.
   await watchlistRepo.bulkAdd([
@@ -184,4 +223,10 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
     { simbolo: 'USD/MXN', mercado: 'divisas' },
     { simbolo: 'VOO', mercado: 'acciones' },
   ])
+
+  // Las metas del CRONOGRAMA (las de arriba son las huchas de la app). Van al
+  // ámbito de su pestaña: el fondo y Japón en Ahorro, la reparación en Deudas.
+  // La casa demo se CONSTRUYE, no se migra: aquí el ámbito ya tiene que ser el
+  // fusionado o las metas de ahorro no saldrían en su panel.
+  await sembrarMetasApp(ctx, 'despacho', { ambitos: { ahorro: 'ahorroInversion', deuda: 'deuda' } })
 }

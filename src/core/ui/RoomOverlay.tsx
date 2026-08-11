@@ -6,14 +6,13 @@ import { getPlantilla, type Plantilla } from '../registry'
 import { intencionAppActiva } from '../state/intencionApp'
 import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
-import { metaDiariaDe } from '../metaDiaria'
-import { AvisoActividadBanner } from './AvisoActividadBanner'
-import { MetaDiariaBarra } from './MetaDiariaBarra'
+import { ListaHoy } from './hoy/ListaHoy'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
 import { ControlMusica } from './ControlMusica'
 import { vivo } from './estilos'
+import { GateAppDemo } from '../../demo/GateAppDemo'
 
 /**
  * Cuando hay un cuarto activo, dibuja la app de la plantilla asignada a sus objetos.
@@ -105,14 +104,13 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
           {t('ui.volverCasa', '‹ Volver a la casa')}
         </button>
       </header>
-      {/* La meta diaria de la app abierta: montada aquí una vez, y no en cada app. */}
-      {activa && metaDiariaDe(activa.id) && (
-        <div data-tut="room.meta">
-          <MetaDiariaBarra plantillaId={activa.id} color={activa.color} />
+      {/* Los pasos de hoy de la app abierta (objetivos, lo agendado y sus metas):
+          montados aquí una vez, y no en cada app. */}
+      {activa && (
+        <div data-tut="room.meta" data-tut-zona="hoy">
+          <ListaHoy plantillaId={activa.id} color={activa.color} />
         </div>
       )}
-      {/* El aviso de sus actividades agendadas (la burbuja no se ve desde aquí). */}
-      {activa && <AvisoActividadBanner plantillaId={activa.id} />}
       <main
         data-tut-zona={activa ? `app:${activa.id}` : undefined}
         className="min-h-0 flex-1 overflow-auto p-4 md:p-6"
@@ -136,7 +134,9 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
                 </div>
               }
             >
-              <App />
+              <GateAppDemo plantillaId={activa.id}>
+                <App />
+              </GateAppDemo>
             </Suspense>
           </ErrorBoundary>
         ) : (

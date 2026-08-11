@@ -295,11 +295,7 @@ export const DEMO_AGENDA = {
         "nombre": "Elena Puig",
         "relacion": "Universidad"
       }
-    ],
-    "proyectos": {
-      "fisica": "Espectrómetro casero: líneas de emisión",
-      "cafeteria": "Web de Café Mirasol: menú y pedidos (terminada)"
-    }
+    ]
   },
   "en": {
     "trabajo": [
@@ -593,10 +589,6 @@ export const DEMO_AGENDA = {
         "nombre": "Elena Puig",
         "relacion": "Universidad"
       }
-    ],
-    "proyectos": {
-      "fisica": "DIY spectrometer: stellar emission lines",
-      "cafeteria": "Mirasol Coffee website: menu and orders (done)"
-    }
+    ]
   }
 } as const

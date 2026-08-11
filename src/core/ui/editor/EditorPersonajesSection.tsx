@@ -5,15 +5,15 @@ import { useEditorUi, PERSONAJE_AVATAR } from '../../state/editorUiStore'
 import {
   MASCOTAS,
   COLOR_FORMA,
+  asistenteDesdePlantilla,
   nombreAsistente,
   nombreForma,
   iconoModelo,
   type Asistente,
   type Pieza3D,
 } from '../../chat/mascotas'
+import { confirmar } from '../../state/confirmarStore'
 import {
-  PRENDAS,
-  PRENDA_COLOR_DEFAULT,
   CATEGORIAS_PRENDA,
   EXPRESIONES,
   EXPRESION_DEFAULT,
@@ -30,7 +30,7 @@ import {
   type PeinadoId,
 } from '../../house/apariencia'
 import { CUERPOS_PRESET, piezasBase, aplicarCuerpoPreset } from '../../house/cuerpos'
-import { GuardarropaEditor } from './GuardarropaEditor'
+import { CarpetasDeCategoria } from './RopaCarpetas'
 import { AtuendosEditor } from './AtuendosEditor'
 import { iaActiva, generarModelo3D } from '../../chat/ia'
 import { iaHabilitada } from '../../edicion'
@@ -62,6 +62,7 @@ export function EditorPersonajesSection() {
   const avatar = useDiseño((s) => s.avatar)
   const setAvatarModelo3d = useDiseño((s) => s.setAvatarModelo3d)
   const setAvatarNombre = useDiseño((s) => s.setAvatarNombre)
+  const resetAvatar = useDiseño((s) => s.resetAvatar)
   const lista = useAsistentes((s) => s.lista)
   const guardar = useAsistentes((s) => s.guardar)
   const eliminarAsistente = useAsistentes((s) => s.eliminar)
@@ -111,6 +112,58 @@ export function EditorPersonajesSection() {
     })
     setSelId(id)
     setTool('cuerpo')
+  }
+
+  // Devuelve el personaje seleccionado a su apariencia de origen. Un personaje
+  // creado por el usuario no tiene fábrica: lo más cercano es «como recién
+  // creado», pero se le conservan nombre, historia y personalidad (eso lo
+  // escribió el usuario y no es apariencia).
+  const esCustom = !esAvatar && asis!.id.startsWith('custom-')
+  const restablecer = async () => {
+    const nombre = esAvatar ? avatar.nombre || t('editor.pers.tu', 'Tú') : asis!.nombre
+    const ok = await confirmar({
+      titulo: t('editor.pers.reset', 'Restablecer de fábrica'),
+      mensaje: esCustom
+        ? t(
+            'editor.pers.resetMsgCustom',
+            'Se pierden cuerpo, color, tamaño, ropa, rostro y animación de {nombre}. Su nombre, historia y personalidad se conservan.',
+            { nombre },
+          )
+        : t(
+            'editor.pers.resetMsg',
+            'Se pierden cuerpo, color, tamaño, ropa, rostro, peinado y animación de {nombre}. El nombre se conserva.',
+            { nombre },
+          ),
+      textoOk: t('editor.pers.resetOk', 'Restablecer'),
+      peligro: true,
+    })
+    if (!ok) return
+    if (esAvatar) {
+      await resetAvatar()
+      return
+    }
+    const plantilla = MASCOTAS.find((m) => m.id === asis!.id)
+    if (plantilla) {
+      // `enMapa` se preserva: la plantilla solo lo enciende para el asistente por
+      // defecto, y restablecer a otro lo sacaría del mapa sin avisar.
+      await guardar({ ...asistenteDesdePlantilla(plantilla), enMapa: asis!.enMapa })
+      return
+    }
+    await guardar({
+      ...asis!,
+      forma: 'robot',
+      color: undefined,
+      escala: undefined,
+      ropa: {},
+      modelo3d: plantillaPersonajePiezas(),
+      modeloGlb: undefined,
+      cuerpoPresetId: undefined,
+      expresion: undefined,
+      rostro: undefined,
+      peinado: undefined,
+      peloColor: undefined,
+      animacion: undefined,
+    })
   }
 
   const tools: { id: ToolId; label: string; emoji: string }[] = [
@@ -175,6 +228,14 @@ export function EditorPersonajesSection() {
           autoComplete="off"
           className={`${inputCls} min-w-0 flex-1`}
         />
+        <button
+          type="button"
+          onClick={() => void restablecer()}
+          title={t('editor.pers.reset', 'Restablecer de fábrica')}
+          className="grid w-9 place-items-center rounded-md border border-white/10 bg-white/5 text-sm transition hover:bg-white/15"
+        >
+          <Icono nombre="restaurar" />
+        </button>
         {!esAvatar && asis!.id.startsWith('custom-') && (
           <button
             type="button"
@@ -196,6 +257,7 @@ export function EditorPersonajesSection() {
           <button
             key={tb.id}
             type="button"
+            data-tut={`editor.pers.tool.${tb.id}`}
             onClick={() => setTool(tb.id)}
             className={`flex h-9 items-center justify-center gap-1 whitespace-nowrap rounded-md px-1 text-[11px] font-semibold transition ${
               tool === tb.id
@@ -525,7 +587,7 @@ function Forma3DBlock({
 }: {
   tieneModeloPropio: boolean
   esGlb: boolean
-  onModelo3d: (piezas: Awaited<ReturnType<typeof generarModelo3D>>) => void
+  onModelo3d: (piezas: Pieza3D[]) => void
   onGlb: (glb: Blob) => void
   onQuitar: () => void
 }) {
@@ -540,7 +602,7 @@ function Forma3DBlock({
     setGenerando(true)
     setErrorForma(null)
     try {
-      const piezas = await generarModelo3D(descForma.trim())
+      const { piezas } = await generarModelo3D(descForma.trim())
       onModelo3d(piezas)
       setDescForma('')
     } catch (err) {
@@ -926,7 +988,9 @@ function RostroEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente 
   const setPeloColor = (color: string) =>
     esAvatar ? void setAvatarPeloColor(color) : asis && void guardar({ ...asis, peloColor: color })
 
-  const expSel = personaje?.expresion ?? EXPRESION_DEFAULT
+  // Las formas con ojos de fábrica (el gato) conservan su cara hasta que eliges
+  // una: sin elección no se marca ninguna, para no aparentar que ya está puesta.
+  const expSel = personaje?.expresion ?? (personaje?.forma ? undefined : EXPRESION_DEFAULT)
   const peinado = personaje?.peinado
   const peloColor = personaje?.peloColor
 
@@ -1005,6 +1069,14 @@ function RostroEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente 
             <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
               {t('editor.pers.rostroExpresion', 'Expresión')}
             </p>
+            {personaje?.forma && (
+              <p className="text-[11px] leading-snug text-white/45">
+                {t(
+                  'editor.pers.rostroSustituye',
+                  'Elegir una expresión o subir una foto sustituye los ojos que trae de fábrica.',
+                )}
+              </p>
+            )}
             <div className="grid grid-cols-4 gap-1.5">
               {EXPRESIONES.map((ex) => (
                 <button
@@ -1125,9 +1197,11 @@ function RopaEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente })
   return (
     <div className="space-y-1.5">
       {esAvatar && (
-        <SeccionRopa id="ropa-atuendos" titulo={t('editor.pers.atuendos', 'Atuendos')} emoji="🧳">
-          <AtuendosEditor />
-        </SeccionRopa>
+        <div data-tut="editor.pers.atuendos">
+          <SeccionRopa id="ropa-atuendos" titulo={t('editor.pers.atuendos', 'Atuendos')} emoji="🧳">
+            <AtuendosEditor />
+          </SeccionRopa>
+        </div>
       )}
       {CATEGORIAS_PRENDA.map((cat) => (
         <SeccionRopa
@@ -1136,55 +1210,16 @@ function RopaEditor({ esAvatar, asis }: { esAvatar: boolean; asis?: Asistente })
           titulo={t(`editor.pers.categoria.${cat.id}`, cat.nombre)}
           emoji={cat.emoji}
         >
-          <div className="space-y-1.5">
-            {PRENDAS.filter((p) => p.categoria === cat.id).map((p) => {
-              const puesta = !!ropa[p.id]
-              const color = ropa[p.id]?.color ?? PRENDA_COLOR_DEFAULT[p.id]
-              return (
-                <div
-                  key={p.id}
-                  className={`flex items-center gap-2 rounded-lg border px-2 py-1.5 transition ${
-                    puesta ? 'border-accent/30 bg-accent/10' : 'border-white/10 bg-white/5'
-                  }`}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setPrenda(p.id, puesta ? null : color)}
-                    className="flex min-w-0 flex-1 items-center gap-2 text-left"
-                  >
-                    <span className="text-lg leading-none">
-                      <Icono emoji={p.emoji} />
-                    </span>
-                    <span className={`truncate text-xs font-semibold ${puesta ? 'text-white/90' : 'text-white/55'}`}>
-                      {t(`editor.pers.prenda.${p.id}`, p.nombre)}
-                    </span>
-                  </button>
-                  {puesta && (
-                    <input
-                      type="color"
-                      value={color}
-                      onChange={(e) => setPrenda(p.id, e.target.value)}
-                      className="h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
-                      title={t('editor.pers.colorPrenda', 'Color de la prenda')}
-                    />
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => setPrenda(p.id, puesta ? null : color)}
-                    className={`grid h-6 w-6 place-items-center rounded-md text-xs transition ${
-                      puesta ? 'bg-accent/30 text-accent' : 'bg-white/5 text-white/40 hover:bg-white/15'
-                    }`}
-                    title={puesta ? t('editor.pers.quitarPrenda', 'Quitar') : t('editor.pers.ponerPrenda', 'Poner')}
-                  >
-                    {puesta ? '✓' : '+'}
-                  </button>
-                </div>
-              )
-            })}
+          <div data-tut={cat.id === 'cabeza' ? 'editor.pers.guardarropa' : undefined}>
+            <CarpetasDeCategoria
+              categoria={cat.id}
+              ropa={ropa}
+              setPrenda={setPrenda}
+              esAvatar={esAvatar}
+            />
           </div>
         </SeccionRopa>
       ))}
-      {esAvatar && <GuardarropaEditor />}
     </div>
   )
 }

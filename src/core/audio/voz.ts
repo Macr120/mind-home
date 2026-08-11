@@ -2,9 +2,10 @@ import { useEffect } from 'react'
 import { useAjustes } from '../state/ajustesStore'
 import { useMascota } from '../state/mascotaStore'
 import { getAsistente } from '../state/asistentesStore'
-import { VOZ_FORMA, type MascotaId } from '../chat/mascotas'
+import { VOZ_FORMA, type MascotaId, type Asistente } from '../chat/mascotas'
 import { limpiarMarkdown, quitarEmojis } from '../chat/texto'
 import { contextoAudio, gainMaestro } from './motor'
+import { hablarVozIA, callarVozIA } from './vozIA'
 
 /**
  * Voz de los asistentes (speechSynthesis del navegador). Independiente del TTS
@@ -148,25 +149,38 @@ export function useVozAsistente(): void {
   useEffect(() => {
     const unsub = useMascota.subscribe((s, prev) => {
       if (!s.mensaje || s.mensaje === prev.mensaje) return
-      if (!hayVoz()) return
       const a = getAsistente(s.hablanteId ?? s.mascota)
       if (!a.vozLeer) return
-      const v = vozDeAsistente(a)
-      const ok = hablarVoz(limpiarMarkdown(s.mensaje), {
-        vozNombre: v.vozNombre,
-        rate: v.rate,
-        pitch: v.pitch,
-        volumen: v.volumen,
-        // La burbuja se despide 0.9 s después de que la voz termina.
-        onFin: () => useMascota.getState().programarOcultar(900),
-      })
+      if (!a.vozIA && !hayVoz()) return
       // decir() reprograma el ocultado justo después de este suscriptor: la red
-      // de seguridad (por si onend nunca llega) se aplica en un microtask.
-      if (ok) queueMicrotask(() => useMascota.getState().programarOcultar(30000))
+      // de seguridad (por si onend nunca llega) se aplica cuando resuelve la promesa.
+      void hablarComoAsistente(limpiarMarkdown(s.mensaje), a, () =>
+        // La burbuja se despide 0.9 s después de que la voz termina.
+        useMascota.getState().programarOcultar(900),
+      ).then((ok) => {
+        if (ok) useMascota.getState().programarOcultar(30000)
+      })
     })
     return () => {
       unsub()
-      callarVoz()
+      callarComoAsistente()
     }
   }, [])
+}
+
+/**
+ * Lee un texto con la voz del asistente: nativa (`speechSynthesis`) o con IA
+ * (OpenAI), según su `vozIA`. Envuelve `hablarVoz`/`hablarVozIA` sin tocarlas,
+ * para no romper a quien ya las llama directo.
+ */
+export async function hablarComoAsistente(texto: string, a: Asistente, onFin?: () => void): Promise<boolean> {
+  const v = vozDeAsistente(a)
+  if (a.vozIA) return hablarVozIA(texto, { voz: a.vozIaVoz, volumen: v.volumen, onFin })
+  return hablarVoz(texto, { vozNombre: v.vozNombre, rate: v.rate, pitch: v.pitch, volumen: v.volumen, onFin })
+}
+
+/** Corta cualquier lectura en curso, nativa o IA. */
+export function callarComoAsistente(): void {
+  callarVoz()
+  callarVozIA()
 }

@@ -9,6 +9,7 @@ import { COLOR, getTipoMantenimiento, getTipoVehiculo } from './constantes'
 import { dinero, formatearFecha } from './fecha'
 import { FormularioMantenimiento } from './FormularioMantenimiento'
 import { FormularioVehiculo } from './FormularioVehiculo'
+import { TalleresTab } from './TalleresTab'
 import { TramitesSection } from './TramitesSection'
 import {
   AccionIcono,
@@ -25,20 +26,33 @@ import { Archivador } from '../_shared/Archivador'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
+import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+
+/** Los tres cuadernos de la ficha; el historial de servicios queda siempre debajo. */
+type TabFicha = 'tramites' | 'documentos' | 'contactos'
+
+const TABS_FICHA: { id: TabFicha; icono: NombreIcono; labelEs: string }[] = [
+  { id: 'tramites', icono: 'calendario', labelEs: 'Trámites' },
+  { id: 'documentos', icono: 'tarjeta', labelEs: 'Documentos' },
+  { id: 'contactos', icono: 'telefono', labelEs: 'Contactos' },
+]
 
 export function DetalleVehiculo({
   vehiculo,
+  vehiculos,
   tramites,
   talleres,
   onVolver,
 }: {
   vehiculo: Vehiculo
+  vehiculos: Vehiculo[]
   tramites: TramiteVehiculo[]
   talleres: TallerVehiculo[]
   onVolver: () => void
 }) {
   const t = useT()
   const id = vehiculo.id!
+  const [tab, setTab] = useState<TabFicha>('tramites')
   const [editandoVehiculo, setEditandoVehiculo] = useState(false)
   const [nuevoServicio, setNuevoServicio] = useState(false)
   const [editServicioId, setEditServicioId] = useState<number | null>(null)
@@ -169,7 +183,44 @@ export function DetalleVehiculo({
         </div>
       </section>
 
-      <TramitesSection vehiculo={vehiculo} tramites={tramites} talleres={talleres} />
+      {/* Mismo riel de píldoras que el garaje, ahora dentro de la ficha. */}
+      <div className="flex gap-1 rounded-2xl border border-white/10 bg-white/5 p-1">
+        {TABS_FICHA.map((tabItem) => {
+          const activa = tab === tabItem.id
+          return (
+            <button
+              key={tabItem.id}
+              type="button"
+              data-tut={`garage.detalle.tab.${tabItem.id}`}
+              onClick={() => setTab(tabItem.id)}
+              className={`flex-1 rounded-xl py-2 text-sm font-semibold transition ${
+                activa ? 'shadow-sm' : 'text-white/60 hover:bg-white/8 hover:text-white/90'
+              }`}
+              style={activa ? { background: COLOR, color: TINTA_CTA } : undefined}
+            >
+              <Icono nombre={tabItem.icono} />{' '}
+              <span className="align-middle">
+                {t(`garage.detalle.tab.${tabItem.id}`, tabItem.labelEs)}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+
+      {tab !== 'contactos' && (
+        <TramitesSection
+          // Cambiar de pestaña cierra el formulario a medio llenar en vez de
+          // heredarlo con el otro grupo.
+          key={tab}
+          vehiculo={vehiculo}
+          tramites={tramites}
+          talleres={talleres}
+          grupo={tab === 'documentos' ? 'documento' : 'tramite'}
+        />
+      )}
+      {tab === 'contactos' && (
+        <TalleresTab talleres={talleres} vehiculos={vehiculos} vehiculo={vehiculo} />
+      )}
 
       <section data-tut="garage.detalle.historial" className="space-y-2">
         <Cabecera icono="registros" titulo={t('garage.detalle.historial', 'Historial')}>

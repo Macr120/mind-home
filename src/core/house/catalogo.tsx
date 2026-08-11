@@ -13,15 +13,22 @@ import {
   TIPO_RESBALADILLA, TIPO_PASAMANOS, TIPO_CARRUSEL, TIPO_COLUMPIO,
   TIPO_ANTORCHA, TIPO_FAROL, TIPO_LAMPARA_PIE, TIPO_VELA,
   TIPO_ESPECTACULAR, TIPO_LETRERO_VEGAS, TIPO_LETRERO_NEON,
+  esAnuncio,
 } from './especiales'
 import { FlotadorObjeto } from './flotador'
 import { TIPO_FLOTADOR } from '../state/flotadorStore'
-import { EspecialPlantilla, esEspecialPlantilla } from './especialesPlantilla'
+import { EspecialPlantilla, esEspecialPlantilla, AccionGenerica } from './especialesPlantilla'
+import {
+  TIPO_LAPTOP, TIPO_TAPETE, TIPO_LIBRETA, TIPO_CAMINADORA, TIPO_SILLON,
+  TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO,
+} from './especialesPlantillaMeta'
+import type { GrupoAccion } from '../state/accionCuartoStore'
+import { esJuegoParque } from '../state/parqueStore'
 import { Cancha3D } from './canchas'
 import { esCancha, claseDeCancha } from '../state/canchasStore'
 import type { AnimacionModelo } from './animacion'
 import { piezasDesdeElemento, type Extractor } from './piezasDesdeModelo'
-import { FORMA_VEHICULO } from './vehiculos'
+import { FORMA_VEHICULO, VEHICULO_GENERICO_RADIO, esVehiculo } from './vehiculos'
 import type { TemaId } from './temas'
 import type { Pieza3D } from '../chat/mascotas'
 
@@ -223,6 +230,57 @@ export const CATALOGO: CatalogoItem[] = [
 
 export const getCatalogoItem = (id: string) => CATALOGO.find((i) => i.id === id)
 
+/**
+ * Grupo de acción por default de items decorativos del catálogo que hoy NO
+ * tienen ningún mecanismo propio (a diferencia de `sillon-lectura` o los 4
+ * vehículos, que ya se sientan/conducen por su propio tipo hardcodeado).
+ */
+const GRUPO_ACCION_DEFAULT: Partial<Record<string, GrupoAccion>> = {
+  silla: 'asiento',
+}
+
+/**
+ * Grupo de acción de un objeto: el explícito guardado en `ObjetoCuarto.grupoAccion`
+ * (asignado por la IA al crearlo o corregido a mano en el editor) tiene
+ * prioridad; si no hay ninguno, cae al default del catálogo; si tampoco, `null`.
+ */
+export function grupoAccionDe(tipo: string, explicito?: GrupoAccion): GrupoAccion | null {
+  return explicito ?? GRUPO_ACCION_DEFAULT[tipo] ?? null
+}
+
+/**
+ * Función especial de un objeto, para el badge del Inventario (`ObjetosCatalogo.tsx`):
+ * qué lo distingue de la decoración normal (sentarse, conducir, anuncio editable…).
+ * `null` = objeto puramente decorativo, sin badge.
+ */
+export function funcionEspecialDe(o: {
+  tipo: string
+  grupoAccion?: GrupoAccion
+}): { clave: string; texto: string } | null {
+  const { tipo } = o
+  const grupo = grupoAccionDe(tipo, o.grupoAccion)
+  if (esVehiculo(tipo) || grupo === 'vehiculo') {
+    return { clave: 'objetos.funcion.vehiculo', texto: 'Se puede conducir' }
+  }
+  if (tipo === TIPO_SILLON || grupo === 'asiento') {
+    return { clave: 'objetos.funcion.asiento', texto: 'Te puedes sentar' }
+  }
+  if (grupo === 'acostarse') {
+    return { clave: 'objetos.funcion.acostarse', texto: 'Te puedes acostar' }
+  }
+  if (tipo === TIPO_LAPTOP) return { clave: 'objetos.funcion.laptop', texto: 'Se usa para trabajar' }
+  if (tipo === TIPO_CAJA_FUERTE) return { clave: 'objetos.funcion.cajaFuerte', texto: 'Guarda lo que vale' }
+  if (tipo === TIPO_ESTACION_COMPUTO) return { clave: 'objetos.funcion.computo', texto: 'Se usa para calcular' }
+  if (tipo === TIPO_TAPETE) return { clave: 'objetos.funcion.tapete', texto: 'Se usa para meditar' }
+  if (tipo === TIPO_LIBRETA) return { clave: 'objetos.funcion.libreta', texto: 'Se usa para escribir' }
+  if (tipo === TIPO_CAMINADORA) return { clave: 'objetos.funcion.caminadora', texto: 'Se usa para caminar' }
+  if (esAnuncio(tipo)) {
+    return { clave: 'objetos.funcion.anuncio', texto: 'Anuncio: puedes escribir tu propio texto' }
+  }
+  if (esJuegoParque(tipo)) return { clave: 'objetos.funcion.parque', texto: 'Interactivo: súbete a jugar' }
+  return null
+}
+
 /** Primitivas temáticas del catálogo (usan hooks: se leen por referencia, no se ejecutan). */
 const PRIMS_CATALOGO = new Map<unknown, Extractor>([
   [B, (p) => ({ tipo: 'caja', pos: p.p as [number, number, number], tam: p.s as number[], color: p.c as string })],
@@ -287,6 +345,7 @@ const COLISION_CAT: Record<string, [number, number]> = {
   'globo-terraqueo': [0.3, 0.3],
   'estanteria-herramientas': [0.48, 0.22],
   'repisa-juegos': [0.55, 0.22],
+  'caja-fuerte': [0.6, 0.5],
   // Usables (caminadora y tapete son pisables: se sube/sienta encima).
   periodico: [0.62, 0.32],
   'sillon-lectura': [0.42, 0.38],
@@ -295,6 +354,7 @@ const COLISION_CAT: Record<string, [number, number]> = {
   'planta-regar': [0.35, 0.35],
   libreta: [0.45, 0.28],
   'calendario-pared': [0.4, 0.1],
+  'estacion-computo': [0.82, 0.4],
   // alfombra y libro: planos / menudos → se pueden pisar.
 }
 
@@ -315,15 +375,24 @@ const ALTO_ESPECIAL: Record<string, number> = {
   'planta-regar': 1.3,
   libreta: 0.6,
   'calendario-pared': 2.15,
+  'caja-fuerte': 1.3,
+  'estacion-computo': 1.65,
 }
 
 /**
  * Footprint de colisión [hx, hz] de cualquier objeto colocado según su `tipo`.
  * `null` = no estorba (el personaje pasa por encima).
  */
-export function footprintDeTipo(tipo: string): [number, number] | null {
+export function footprintDeTipo(tipo: string, grupoAccion?: GrupoAccion): [number, number] | null {
   if (tipo.startsWith('recurso:')) return COLISION[Number(tipo.slice('recurso:'.length))] ?? null
-  return COLISION_CAT[tipo] ?? null
+  if (COLISION_CAT[tipo]) return COLISION_CAT[tipo]
+  // Vehículo genérico (piezas de IA/usuario sin footprint tabulado): mismo radio
+  // que usa `conducir()` vía `defDeMontura('generico')`, para que el collider
+  // estacionado y el radio de manejo no diverjan.
+  if (grupoAccionDe(tipo, grupoAccion) === 'vehiculo') {
+    return [VEHICULO_GENERICO_RADIO, VEHICULO_GENERICO_RADIO]
+  }
+  return null
 }
 
 /** Alto aproximado del objeto (para el marcador del objeto principal). */
@@ -351,6 +420,7 @@ export function ObjetoView({
   sinReflejo = false,
   objetoId,
   fx,
+  grupoAccion,
 }: {
   tipo: string
   color: string
@@ -371,6 +441,8 @@ export function ObjetoView({
   objetoId?: number
   /** Intensidad de los efectos del objeto especial (agua/luz); 1 = normal. */
   fx?: number
+  /** Grupo de acción explícito (`ObjetoCuarto.grupoAccion`): sentarse/acostarse/conducir genérico. */
+  grupoAccion?: GrupoAccion
 }) {
   const tema = useContext(TemaContext)
   if (tipo === TIPO_CUADRO_FOTO) return <CuadroFoto color={color} foto={foto} />
@@ -384,7 +456,7 @@ export function ObjetoView({
   if (tipo === TIPO_COLUMPIO) return <Columpio color={color} objetoId={objetoId} />
   if (tipo === TIPO_FLOTADOR) return <FlotadorObjeto color={color} objetoId={objetoId} />
   if (tipo === TIPO_ANTORCHA) return <Antorcha color={color} simple={sinReflejo} fx={fx} />
-  if (esCancha(tipo)) return <Cancha3D clase={claseDeCancha(tipo)} color={color} />
+  if (esCancha(tipo)) return <Cancha3D clase={claseDeCancha(tipo)} color={color} objetoId={objetoId} />
   if (tipo === TIPO_FAROL) return <FarolPoste color={color} simple={sinReflejo} fx={fx} />
   if (tipo === TIPO_LAMPARA_PIE) return <LamparaPie color={color} simple={sinReflejo} fx={fx} />
   if (tipo === TIPO_VELA) return <VelaCandelabro color={color} simple={sinReflejo} fx={fx} />
@@ -396,10 +468,21 @@ export function ObjetoView({
   }
   if (tipo === TIPO_PIEZAS) {
     if (!piezas || piezas.length === 0) return null
-    if (anim && anim.activacion !== 'apagado' && (anim.poses?.length ?? 0) >= 2) {
-      return <ModeloPiezasAnimado piezas={piezas} anim={anim} nivel={nivelAnim} />
+    const contenido =
+      anim && anim.activacion !== 'apagado' && (anim.poses?.length ?? 0) >= 2 ? (
+        <ModeloPiezasAnimado piezas={piezas} anim={anim} nivel={nivelAnim} objetoId={objetoId} />
+      ) : (
+        <ModeloPiezas piezas={piezas} />
+      )
+    const grupo = grupoAccionDe(tipo, grupoAccion)
+    if ((grupo === 'asiento' || grupo === 'acostarse') && objetoId != null) {
+      return (
+        <AccionGenerica grupo={grupo} objetoId={objetoId}>
+          {contenido}
+        </AccionGenerica>
+      )
     }
-    return <ModeloPiezas piezas={piezas} />
+    return contenido
   }
   if (tipo === TIPO_GLB) {
     return modeloGlb ? (
@@ -421,5 +504,14 @@ export function ObjetoView({
       </Suspense>
     )
   }
-  return item.render ? item.render(color) : null
+  const contenido = item.render ? item.render(color) : null
+  const grupo = grupoAccionDe(tipo, grupoAccion)
+  if (contenido && (grupo === 'asiento' || grupo === 'acostarse') && objetoId != null) {
+    return (
+      <AccionGenerica grupo={grupo} objetoId={objetoId}>
+        {contenido}
+      </AccionGenerica>
+    )
+  }
+  return contenido
 }

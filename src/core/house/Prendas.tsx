@@ -22,6 +22,7 @@ import {
   anguloPiernaBaile,
   anguloSaludo,
   ANGULO_BRAZO_CUERDA,
+  ANGULO_BRAZO_CARGAR,
 } from '../state/herramientaStore'
 import { poseBateo } from '../state/juegoCanchaStore'
 
@@ -112,6 +113,8 @@ function PivoteMarcha({
     if (esJugador && extremidad === 'brazo') {
       const s = anguloSaludo(performance.now(), x < 0)
       if (s !== null) g.current.rotation.x = s
+      // Cargando algo con las dos manos: pisa el saludo, igual que en CuerpoBase.
+      if (accionFrame.cargando) g.current.rotation.x = ANGULO_BRAZO_CARGAR
     }
   })
   return (

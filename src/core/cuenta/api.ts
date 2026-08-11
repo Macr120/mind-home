@@ -132,6 +132,20 @@ export async function iaChatCuenta(cuerpo: {
   return r
 }
 
+/** Dictado vía `ia-voz` (Whisper). Fallback cuando no hay `SpeechRecognition` nativo. */
+export async function iaVozCuenta(audioBase64: string, mime: string, idioma?: string): Promise<string> {
+  const r = await llamarFuncion<{ texto: string; uso: UsoCuenta }>('ia-voz', { audioBase64, mime, idioma })
+  refrescarMedidor(r.uso)
+  return r.texto
+}
+
+/** Voz con IA vía `ia-tts` (OpenAI). Alternativa a `speechSynthesis` nativo. */
+export async function iaTtsCuenta(texto: string, voz?: string): Promise<{ base64: string; mime: string }> {
+  const r = await llamarFuncion<{ base64: string; mime: string; uso: UsoCuenta }>('ia-tts', { texto, voz })
+  refrescarMedidor(r.uso)
+  return { base64: r.base64, mime: r.mime }
+}
+
 /** Imagen vía `ia-imagen` (base64 + mime). Con `imagen` se manda una foto de referencia. */
 export async function iaImagenCuenta(
   prompt: string,

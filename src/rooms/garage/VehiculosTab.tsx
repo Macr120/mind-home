@@ -32,7 +32,7 @@ export function VehiculosTab({
 
   return (
     <div className="space-y-3" data-tut="garage.veh.lista">
-      <BotonPrimario onClick={() => setCreando(true)} className="w-full">
+      <BotonPrimario onClick={() => setCreando(true)} className="w-full" tut="garage.veh.alta">
         <Icono nombre="agregar" /> {t('garage.veh.añadir', 'Añadir vehículo')}
       </BotonPrimario>
 

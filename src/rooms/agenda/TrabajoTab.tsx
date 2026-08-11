@@ -1,48 +1,47 @@
 import { useState } from 'react'
-import type { ContactoAgenda, EventoAgenda, ProyectoAgenda } from '../../core/data/db'
+import type { ContactoAgenda, EventoAgenda } from '../../core/data/db'
+import { eventosAgendaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { Archivador, CarpetasPorEtiqueta } from '../_shared/Archivador'
+import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { BarraEjemplo } from './BarraEjemplo'
 import { COLOR_AREA } from './constantes'
-import { borrarProyecto } from './crear'
 import { FormEvento } from './FormEvento'
-import { FormProyecto } from './FormProyecto'
 import { Tablero } from './Tablero'
 import { TarjetaEvento } from './TarjetaEvento'
-import { BotonBorrar, BTN_SEC } from './ui'
 
-type Vista = 'pendientes' | 'agendado' | 'tablero' | 'proyectos'
+type Vista = 'pendientes' | 'tablero'
 
 const VISTAS: { id: Vista; es: string }[] = [
   { id: 'pendientes', es: 'Pendientes' },
-  { id: 'agendado', es: 'Agendado' },
   { id: 'tablero', es: 'Tablero' },
-  { id: 'proyectos', es: 'Proyectos' },
 ]
 
 export function TrabajoTab({
   eventos,
   contactos,
-  proyectos,
 }: {
   eventos: EventoAgenda[]
   contactos: ContactoAgenda[]
-  proyectos: ProyectoAgenda[]
 }) {
   const t = useT()
   const [vista, setVista] = useState<Vista>('pendientes')
   const [editando, setEditando] = useState<EventoAgenda | null>(null)
   const [creando, setCreando] = useState(false)
-  const [proyecto, setProyecto] = useState<ProyectoAgenda | null>(null)
-  const [creandoProyecto, setCreandoProyecto] = useState(false)
 
-  // Sin fecha primero por prioridad (1 alta … 3 baja) y lo hecho al final.
-  const pendientes = eventos
-    .filter((e) => !e.fecha)
-    .sort((a, b) => Number(a.hecho ?? false) - Number(b.hecho ?? false) || (a.prioridad ?? 2) - (b.prioridad ?? 2))
-  const agendados = eventos.filter((e) => e.fecha)
-  const nombreProyecto = (id?: string) => proyectos.find((p) => p.proyId === id)?.nombre ?? ''
+  // Sin fecha, con lo hecho al final. Dentro manda el puesto que dejó el
+  // arrastre; lo que nunca se ha arrastrado sigue yendo por prioridad (1 alta …
+  // 3 baja), que es como se ordenaba antes de poder moverlas a mano.
+  const pendientes = porOrden(
+    eventos.filter((e) => !e.fecha).sort((a, b) => (a.prioridad ?? 2) - (b.prioridad ?? 2)),
+  ).sort((a, b) => Number(a.hecho ?? false) - Number(b.hecho ?? false))
+
+  const arrastre = useArrastreFilas(
+    pendientes,
+    (e) => String(e.id),
+    () => 'trabajo.pendientes',
+    (nuevas) => void guardarOrden(nuevas, (id, orden) => eventosAgendaRepo.update(id, { orden })),
+  )
 
   return (
     <div className="space-y-3">
@@ -65,7 +64,7 @@ export function TrabajoTab({
         <button
           type="button"
           data-tut="agenda.trabajo.alta"
-          onClick={() => (vista === 'proyectos' ? setCreandoProyecto(true) : setCreando(true))}
+          onClick={() => setCreando(true)}
           className="rounded-xl px-3 py-2 text-sm font-bold texto-cta transition hover:brightness-110"
           style={{ background: COLOR_AREA.trabajo }}
         >
@@ -81,98 +80,28 @@ export function TrabajoTab({
         ) : (
           <div className="space-y-2">
             {pendientes.map((ev) => (
-              <TarjetaEvento
-                key={ev.id}
-                ev={ev}
-                contactos={contactos}
-                proyectos={proyectos}
-                onEditar={() => setEditando(ev)}
-              />
+              <Arrastrable key={ev.id} arrastre={arrastre} item={ev}>
+                <TarjetaEvento ev={ev} contactos={contactos} onEditar={() => setEditando(ev)} />
+              </Arrastrable>
             ))}
           </div>
         ))}
 
-      {vista === 'agendado' && (
-        <Archivador
-          items={agendados}
-          fecha={(e) => e.fecha!}
-          clave={(e) => e.id!}
-          resumen={(is) => `${is.filter((x) => x.hecho).length}/${is.length}`}
-          vacio={t('agenda.vacio.agendado', 'Nada agendado todavía.')}
-        >
-          {(ev) => (
-            <TarjetaEvento ev={ev} contactos={contactos} proyectos={proyectos} onEditar={() => setEditando(ev)} />
-          )}
-        </Archivador>
-      )}
+      {vista === 'tablero' && <Tablero eventos={eventos} onEditar={(ev) => setEditando(ev)} />}
 
-      {vista === 'tablero' && (
-        <Tablero eventos={eventos} proyectos={proyectos} onEditar={(ev) => setEditando(ev)} />
-      )}
-
-      {vista === 'proyectos' && (
-        <div className="space-y-3">
-          {proyectos.map((p) => (
-            <FilaProyecto key={p.proyId} proyecto={p} onEditar={() => setProyecto(p)} />
-          ))}
-          <CarpetasPorEtiqueta
-            items={eventos.filter((e) => !e.hecho)}
-            etiqueta={(e) => nombreProyecto(e.proyectoId)}
-            clave={(e) => e.id!}
-            sinEtiqueta={t('agenda.sinProyecto', 'Sin proyecto')}
-          >
-            {(ev) => (
-              <TarjetaEvento ev={ev} contactos={contactos} proyectos={proyectos} onEditar={() => setEditando(ev)} />
-            )}
-          </CarpetasPorEtiqueta>
-        </div>
-      )}
-
-      <BarraEjemplo area="trabajo" eventos={eventos} proyectos={proyectos} />
+      <BarraEjemplo area="trabajo" eventos={eventos} />
 
       {(creando || editando) && (
         <FormEvento
           area="trabajo"
           inicial={editando}
           contactos={contactos}
-          proyectos={proyectos}
           onCerrar={() => {
             setCreando(false)
             setEditando(null)
           }}
         />
       )}
-      {(creandoProyecto || proyecto) && (
-        <FormProyecto
-          inicial={proyecto}
-          onCerrar={() => {
-            setCreandoProyecto(false)
-            setProyecto(null)
-          }}
-        />
-      )}
-    </div>
-  )
-}
-
-function FilaProyecto({ proyecto, onEditar }: { proyecto: ProyectoAgenda; onEditar: () => void }) {
-  const t = useT()
-  const [confirmando, setConfirmando] = useState(false)
-  return (
-    <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-      <span className="h-3 w-3 rounded-full" style={{ background: proyecto.color ?? COLOR_AREA.trabajo }} />
-      <span className="flex-1 truncate text-sm font-semibold">{proyecto.nombre}</span>
-      {!confirmando && (
-        <button type="button" onClick={onEditar} className={BTN_SEC} title={t('agenda.editar', 'Editar')}>
-          <Icono nombre="editar" />
-        </button>
-      )}
-      <BotonBorrar
-        confirmando={confirmando}
-        onPedir={() => setConfirmando(true)}
-        onConfirmar={() => void borrarProyecto(proyecto)}
-        onCancelar={() => setConfirmando(false)}
-      />
     </div>
   )
 }

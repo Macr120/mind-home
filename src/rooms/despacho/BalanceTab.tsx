@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { Transaccion } from '../../core/data/db'
 import { VACIO, presupuestosRepo } from '../../core/data/repository'
 import { getCategoria } from './categorias'
+import { usePatrimonio } from './patrimonio'
 import {
   etiquetaCorta,
   money,
@@ -15,11 +16,11 @@ import {
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { SimuladorAnual } from './SimuladorAnual'
+import { CampoDinero, ROJO, TARJETA, VERDE } from './ui'
 import { vivo } from '../../core/ui/estilos'
 
-/** Filas de `presupuestos` que no son una categoría, sino un ajuste del balance. */
+/** Fila de `presupuestos` que no es una categoría, sino un ajuste del balance. */
 const PRESUPUESTO_KEY = '__mensual__'
-const PATRIMONIO_KEY = '__patrimonio__'
 
 const SOLO_FIJOS = { solo: 'fijos' as const }
 
@@ -47,7 +48,7 @@ export function BalanceTab({
   const t = useT()
   const ajustes = presupuestosRepo.useAll() ?? VACIO
   const presu = ajustes.find((p) => p.categoria === PRESUPUESTO_KEY)
-  const patri = ajustes.find((p) => p.categoria === PATRIMONIO_KEY)
+  const { neto: patrimonio } = usePatrimonio()
 
   const { desde, hasta } = useMemo(() => rangoPeriodo(ancla, periodo), [ancla, periodo])
   const ingresos = useMemo(() => totalEnRango(movimientos, 'ingreso', desde, hasta), [movimientos, desde, hasta])
@@ -90,7 +91,6 @@ export function BalanceTab({
   const pct = presupuesto > 0 ? Math.min(100, (gastos / presupuesto) * 100) : 0
   const excedido = presupuesto > 0 && gastos > presupuesto
 
-  const patrimonio = patri?.monto ?? 0
   const patrimonioFinal = patrimonio + balance
 
   const guardarAjuste = async (clave: string, fila: { id?: number } | undefined, valor: number) => {
@@ -111,7 +111,7 @@ export function BalanceTab({
       </div>
 
       {(ingFijos > 0 || gasFijos > 0) && (
-        <p className="-mt-3 px-1 text-xs text-white/50">
+        <p className="-mt-3 px-1 text-xs text-white/55">
           <Icono nombre="repetir" />{' '}
           {t('despacho.r.deLosFijos', `De tus fijos: +${money2(ingFijos)} · −${money2(gasFijos)}`, {
             i: money2(ingFijos),
@@ -120,47 +120,40 @@ export function BalanceTab({
         </p>
       )}
 
-      <div data-tut="despacho.patrimonio" className="rounded-xl bg-white/5 p-4 border border-white/10 space-y-3">
+      {/* Solo lectura: el patrimonio se edita en su pestaña. Lo que se enseña
+          aquí es la proyección — el balance del periodo NO forma parte del neto,
+          es lo que le va a pasar. */}
+      <div data-tut="despacho.patrimonio" className={`${TARJETA} space-y-3`}>
         <div className="flex items-center justify-between">
           <span className="text-sm font-semibold">{t('despacho.patrimonio', 'Patrimonio total')}</span>
-          <div className="flex items-center gap-1 text-sm">
-            <span className="text-white/40">$</span>
-            <input
-              type="number"
-              step="0.01"
-              defaultValue={patrimonio || ''}
-              placeholder="0"
-              onBlur={(e) => guardarAjuste(PATRIMONIO_KEY, patri, parseFloat(e.target.value) || 0)}
-              className="w-28 rounded-lg bg-black/30 px-2 py-1 text-right outline-none border border-white/10 focus:border-white/30"
-            />
-          </div>
+          <span className="text-sm font-bold text-white/70">{money2(patrimonio)}</span>
         </div>
         <p className="text-[11px] leading-relaxed text-white/40">
-          {t('despacho.patrimonio.ayuda', 'Lo que tienes hoy (ahorros, cuentas, bienes). El balance del periodo se le suma o se le resta.')}
+          {t('despacho.patrimonio.ayuda', 'Tus activos menos tus pasivos, en la pestaña Patrimonio. Aquí solo se ve cómo queda si el periodo cierra así.')}
         </p>
         <div className="flex items-center justify-between rounded-lg bg-black/20 px-3 py-2">
-          <span className="text-xs text-white/50">
+          <span className="text-xs text-white/55">
             {money2(patrimonio)} {balance >= 0 ? '+' : '−'} {money2(Math.abs(balance))}
           </span>
           <span
-            className={`text-lg font-bold ${patrimonioFinal >= patrimonio ? 'text-emerald-400' : 'text-red-400'}`}
+            className="texto-vivo text-lg font-bold"
+            style={vivo(patrimonioFinal >= patrimonio ? VERDE : ROJO)}
           >
             {money2(patrimonioFinal)}
           </span>
         </div>
       </div>
 
-      <div data-tut="despacho.presupuesto" className="rounded-xl bg-white/5 p-4 border border-white/10">
+      <div data-tut="despacho.presupuesto" className={TARJETA}>
         <div className="flex items-center justify-between">
           <span className="text-sm font-semibold">{t('despacho.presupuesto', 'Presupuesto mensual')}</span>
-          <div className="flex items-center gap-1 text-sm">
-            <span className="text-white/40">$</span>
-            <input
-              type="number"
-              defaultValue={presupuestoMes || ''}
+          <div className="w-32">
+            <CampoDinero
+              defaultValue={presupuestoMes || undefined}
               placeholder="0"
-              onBlur={(e) => guardarAjuste(PRESUPUESTO_KEY, presu, parseFloat(e.target.value) || 0)}
-              className="w-24 rounded-lg bg-black/30 px-2 py-1 text-right outline-none border border-white/10 focus:border-white/30"
+              onNumero={(v) => guardarAjuste(PRESUPUESTO_KEY, presu, v ?? 0)}
+              aria-label={t('despacho.presupuesto', 'Presupuesto mensual')}
+              className="w-full rounded-lg bg-black/30 py-1 pl-7 pr-2 text-right text-sm outline-none border border-white/10 focus:border-white/30"
             />
           </div>
         </div>
@@ -176,10 +169,10 @@ export function BalanceTab({
             <div className="mt-3 h-3 w-full rounded-full bg-black/40 overflow-hidden">
               <div
                 className="h-full rounded-full transition-all"
-                style={{ width: `${pct}%`, background: excedido ? '#ef4444' : '#34d399' }}
+                style={{ width: `${pct}%`, background: excedido ? ROJO : VERDE }}
               />
             </div>
-            <p className={`mt-2 text-xs ${excedido ? 'text-red-400 font-semibold' : 'text-white/50'}`}>
+            <p className={`mt-2 text-xs ${excedido ? 'text-red-400 font-semibold' : 'text-white/55'}`}>
               {excedido
                 ? <><Icono nombre="alerta" /> {t('despacho.excedido', `Excediste el presupuesto por ${money2(gastos - presupuesto)}`, { n: money2(gastos - presupuesto) })}</>
                 : t('despacho.progreso', `Llevas ${money2(gastos)} de ${money2(presupuesto)} (${Math.round(pct)}%)`, { used: money2(gastos), total: money2(presupuesto), pct: String(Math.round(pct)) })}
@@ -188,7 +181,7 @@ export function BalanceTab({
         )}
       </div>
 
-      <div data-tut="despacho.categorias" className="rounded-xl bg-white/5 p-4 border border-white/10">
+      <div data-tut="despacho.categorias" className={TARJETA}>
         <p className="text-sm font-semibold mb-3">{t('despacho.catGastos', 'Gastos por categoría')}</p>
         {porCategoria.length === 0 && (
           <p className="text-white/40 text-sm">{t('despacho.sinGastos', 'Sin gastos en este periodo.')}</p>
@@ -198,8 +191,8 @@ export function BalanceTab({
             <div key={cat.id}>
               <div className="flex items-center gap-2 text-sm">
                 <span><Icono emoji={cat.icon} /></span>
-                <span className="text-white/80">{cat.nombre}</span>
-                <span className="ml-auto text-white/60">{money2(monto)}</span>
+                <span className="text-white/85">{cat.nombre}</span>
+                <span className="ml-auto text-white/55">{money2(monto)}</span>
                 <span className="w-10 text-right text-white/40 text-xs">
                   {Math.round((monto / gastos) * 100)}%
                 </span>
@@ -215,7 +208,7 @@ export function BalanceTab({
         </div>
       </div>
 
-      <div data-tut="despacho.tendencia" className="rounded-xl bg-white/5 p-4 border border-white/10">
+      <div data-tut="despacho.tendencia" className={TARJETA}>
         <p className="text-sm font-semibold mb-3">
           {t(`despacho.tendencia.${periodo}`, TENDENCIA_ES[periodo])}
         </p>
@@ -257,7 +250,7 @@ const TENDENCIA_ES: Record<Periodo, string> = {
 function Tarjeta({ titulo, valor, color }: { titulo: string; valor: string; color: string }) {
   return (
     <div className="rounded-xl bg-white/5 p-3 border border-white/10">
-      <p className="text-xs text-white/50">{titulo}</p>
+      <p className="text-xs text-white/55">{titulo}</p>
       <p className="texto-vivo text-lg font-bold" style={vivo(color)}>
         {valor}
       </p>

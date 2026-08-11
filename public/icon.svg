@@ -1,18 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <!-- Icono de la app (manifest). Maskable: el dibujo cabe dentro de la zona
-       segura (círculo centrado de radio 40% = 205px), así ningún recorte de
-       Android se lleva un trozo de la casa. Fondo opaco a propósito: iOS y
-       Android rellenan la transparencia con un color que no elegimos. -->
-  <rect width="512" height="512" fill="#863bff"/>
-  <!-- La casa isométrica, centrada en (256, 235) y de 180×180. -->
-  <g>
-    <!-- Techo -->
-    <path d="M256 145 346 190 256 235 166 190Z" fill="#ede6ff"/>
-    <!-- Cara izquierda (en sombra) -->
-    <path d="M166 190 256 235 256 325 166 280Z" fill="#5b21b6"/>
-    <!-- Cara derecha -->
-    <path d="M256 235 346 190 346 280 256 325Z" fill="#7e14ff"/>
-    <!-- Puerta -->
-    <path d="M283 268 311 254 311 292 283 306Z" fill="#ede6ff" opacity="0.85"/>
+  <!-- Icono de la app (manifest). Maskable: las figuras caben en la zona segura
+       (círculo centrado de radio 40% = 205px), así ningún recorte de Android se
+       lleva un trozo del logo. Fondo opaco a propósito: iOS y Android rellenan
+       la transparencia con un color que no elegimos. -->
+  <rect width="512" height="512" fill="#576748"/>
+  <!-- Las tres figuras (favicon.svg es el mismo dibujo sin fondo), centradas. -->
+  <g transform="translate(77.5 206)">
+    <rect x="0" y="3" width="94" height="94" rx="20" fill="#DA9425"/>
+    <path d="M137 0V100H237Z" fill="#C23A40"/>
+    <path d="M257 0H357V100A100 100 0 0 1 257 0Z" fill="#895AC6"/>
   </g>
 </svg>

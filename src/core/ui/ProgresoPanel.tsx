@@ -76,7 +76,7 @@ function RadarCuartos({ enfoques }: { enfoques: ProgresoPlantilla[] }) {
   const poligono = datos.map((d, i) => punto(i, R * (d.xp / maxXp)).join(',')).join(' ')
 
   return (
-    <div className="mt-3">
+    <div data-tut="progreso.radar" className="mt-3">
       <svg viewBox="0 0 200 192" className="mx-auto block w-full max-w-[220px]" role="img">
         {[1 / 3, 2 / 3, 1].map((f) => (
           <polygon key={f} points={anillo(f)} fill="none" stroke="color-mix(in srgb, var(--ui-ink) 12%, transparent)" />
@@ -249,7 +249,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
 
   return (
     <div className="mb-4 px-2">
-      <section className="rounded-xl border border-white/10 bg-white/5">
+      <section data-tut="progreso.resumen" data-tut-zona="progreso" className="rounded-xl border border-white/10 bg-white/5">
         <CabeceraPlegable abierto={abierto} onToggle={() => setAbierto(!abierto)}>
           <span className="text-base leading-none">
             <Icono emoji={EMOJI_HUMOR[progreso.humor]} />
@@ -274,7 +274,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
             <div className="relative mx-auto h-32 w-full">
               {/* Rango actual (Montaña de Sísifo): a la altura de la cabeza, a la izquierda. */}
               {sisifo && (
-                <div className="absolute left-0 top-1 z-10 flex flex-col items-center gap-1">
+                <div data-tut="progreso.sisifo.rango" className="absolute left-0 top-1 z-10 flex flex-col items-center gap-1">
                   <AroSisifo
                     valor={sisifo.altura / DIAS_META}
                     color={RANGOS[sisifo.rango - 1].color}
@@ -287,6 +287,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
               )}
               <button
                 type="button"
+                data-tut="progreso.avatar"
                 onClick={editarAvatar}
                 title={t('progreso.editarAvatar', 'Editar tu personaje')}
                 className="block h-full w-full"
@@ -295,7 +296,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
               </button>
               {/* Insignias ganadas (Montaña de Sísifo): a la altura de la cabeza, a la derecha. */}
               {sisifo && (
-                <div className="absolute right-0 top-1 z-10 flex flex-col items-center gap-1">
+                <div data-tut="progreso.sisifo.insignias" className="absolute right-0 top-1 z-10 flex flex-col items-center gap-1">
                   <AroSisifo
                     valor={sisifo.insignias / 52}
                     color={colorArcoiris(Math.max(1, sisifo.insignias))}
@@ -313,6 +314,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
             {/* El Wrapped del personaje: su resumen semanal/mensual/anual. */}
             <button
               type="button"
+              data-tut="progreso.wrapped"
               onClick={() => useWrappedUi.getState().abrir()}
               className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white/85 transition hover:bg-white/10"
             >

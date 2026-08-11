@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura } from '../../core/registry'
-import { vTexto, vNumero, vFecha } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/appContrato'
+import { vTexto, vNumero, vFecha } from '../../core/appContrato'
 import { finanzasRepo } from '../../core/data/repository'
 import type { PeriodoMovimiento } from '../../core/data/db'
 import { normalizar } from '../../core/chat/dispatcher'
@@ -105,13 +105,17 @@ const despacho: Plantilla = {
   capturar,
   esquemas,
   comandos: [
-    { seccion: 'balance', etiqueta: 'Balance', nombres: ['balance', 'presupuesto', 'resumen de finanzas', 'patrimonio'] },
+    { seccion: 'balance', etiqueta: 'Balance', nombres: ['balance', 'flujo', 'presupuesto', 'resumen de finanzas'] },
+    { seccion: 'patrimonio', etiqueta: 'Patrimonio', nombres: ['patrimonio', 'activos', 'pasivos', 'bienes', 'deudas'] },
     { seccion: 'gastos', etiqueta: 'Gastos', nombres: ['gastos', 'mis gastos', 'gastos fijos'] },
     { seccion: 'ingresos', etiqueta: 'Ingresos', nombres: ['ingresos', 'mis ingresos', 'ingresos fijos'] },
     { seccion: 'metas', etiqueta: 'Ahorro e inversión', nombres: ['metas de ahorro', 'metas de inversion', 'ahorro e inversion', 'metas'] },
     { seccion: 'financieras', etiqueta: 'Calculadoras financieras', nombres: ['calculadoras financieras', 'financieras', 'fondo de emergencia', 'libertad financiera'] },
     { seccion: 'deuda', etiqueta: 'Metas de deuda', nombres: ['deudas', 'metas de deuda'] },
     { seccion: 'simuladores', etiqueta: 'Simuladores', nombres: ['simuladores', 'simulador'] },
+    // Sin 'simulador' a secas: ya lo reclama el de arriba y el chat se quedaría
+    // con dos candidatos empatados.
+    { seccion: 'simulacion', etiqueta: 'Simulación de patrimonio', nombres: ['simulacion de patrimonio', 'proyeccion de patrimonio', 'simular mi patrimonio', 'proyectar mi patrimonio'] },
     { seccion: 'divisas', etiqueta: 'Divisas', nombres: ['divisas', 'tipo de cambio', 'dolar', 'mercados'] },
     { seccion: 'criptos', etiqueta: 'Criptomonedas', nombres: ['criptomonedas', 'cripto', 'bitcoin'] },
     { seccion: 'acciones', etiqueta: 'Acciones', nombres: ['acciones', 'bolsa', 'wall street'] },

@@ -288,11 +288,11 @@ const posDetalle = (hito: { x: number; y: number }, k: number) => ({
 
 /**
  * Formato del que un tipo toma prestada la geometría: el ciclo se coloca como
- * el círculo y el árbol de decisiones como las llaves. Lo único suyo son las
- * uniones, y de eso se encarga el lienzo.
+ * el círculo, el árbol de decisiones como las llaves y el etimológico como el
+ * árbol. Lo único suyo son las uniones, y de eso se encarga el lienzo.
  */
 const geometriaDe = (tipo: TipoMapa): TipoMapa =>
-  tipo === 'ciclo' ? 'circulo' : tipo === 'decision' ? 'llaves' : tipo
+  tipo === 'ciclo' ? 'circulo' : tipo === 'decision' ? 'llaves' : tipo === 'etimologia' ? 'arbol' : tipo
 
 // ---------------------------------------------------------------------------
 // Nodos nuevos creados a mano

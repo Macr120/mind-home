@@ -117,4 +117,49 @@ const flujoProyectos: TutorialDef = {
   ],
 }
 
-export const flujosHobbies: TutorialDef[] = [flujoPiano, flujoProyectos]
+const flujoGestion: TutorialDef = {
+  id: 'app-hobbies--gestion',
+  titulo: T('tut.app-hobbies--gestion.titulo', 'Registrar y planear'),
+  resumen: T(
+    'tut.app-hobbies--gestion.resumen',
+    'Un hobby nuevo se da de alta en un formulario corto; cada práctica se registra en segundos, y una meta semanal —o el cronograma completo— le pone estructura al tiempo que le dedicas.',
+  ),
+  preparar: () => {
+    abrirApp('hobbies')
+  },
+  pasos: [
+    {
+      sel: 'hobbies.agregar',
+      titulo: T('tut.app-hobbies--gestion.1.titulo', 'Dar de alta un hobby'),
+      texto: T(
+        'tut.app-hobbies--gestion.1.texto',
+        'Nombre, emoji, color y —opcional— una meta semanal en días. Ese formulario es todo lo que hace falta para empezar a llevar el seguimiento.',
+      ),
+    },
+    {
+      sel: 'hobbies.meta.semanal',
+      titulo: T('tut.app-hobbies--gestion.2.titulo', 'La meta semanal'),
+      texto: T(
+        'tut.app-hobbies--gestion.2.texto',
+        'Piano se propuso 4 días por semana: la fila de la semana se pinta con cada día practicado, y arriba dice cuántos llevas contra la meta.',
+      ),
+      alEntrar: abrirPiano,
+    },
+    {
+      sel: 'hobbies.sesion.form',
+      titulo: T('tut.app-hobbies--gestion.3.titulo', 'Registrar una práctica'),
+      texto: T(
+        'tut.app-hobbies--gestion.3.texto',
+        'Minutos rápidos con un toque, o el número exacto; el proyecto es opcional y la nota es para lo que quieras recordar de esa sesión.',
+      ),
+    },
+    {
+      texto: T(
+        'tut.app-hobbies--gestion.4.texto',
+        'El cronograma del hobby (o el de un proyecto) es el mismo planificador Metas · Planes · Cronograma del calendario, acotado a ese hobby: pídele a la IA un plan con fases y fechas.',
+      ),
+    },
+  ],
+}
+
+export const flujosHobbies: TutorialDef[] = [flujoPiano, flujoProyectos, flujoGestion]

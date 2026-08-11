@@ -67,7 +67,7 @@ export function RutinasPanel() {
   return (
     <>
       {abierto && (
-        <div data-tut="rutinas.panel" data-tut-zona="rutinas" className="ui-panel-glass absolute right-3 top-24 z-20 flex max-h-[70vh] w-80 max-w-[calc(100vw-1.5rem)] flex-col rounded-2xl border border-white/10 shadow-xl backdrop-blur-md">
+        <div data-tut="rutinas.panel" data-tut-zona="calendario" className="ui-panel-glass absolute right-3 top-24 z-20 flex max-h-[70vh] w-80 max-w-[calc(100vw-1.5rem)] flex-col rounded-2xl border border-white/10 shadow-xl backdrop-blur-md">
           <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
             <p className="flex-1 text-sm font-semibold"><Icono nombre="alarma" /> {t('rutinas.titulo', 'Rutinas')}</p>
             <button
@@ -98,7 +98,7 @@ export function RutinasPanel() {
               <>
                 {/* Hoy: checklist */}
                 {deHoy.length > 0 && (
-                  <div className="space-y-2">
+                  <div data-tut="rutinas.hoy" className="space-y-2">
                     <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
                       {t('rutinas.hoy', 'Hoy')}
                     </p>
@@ -109,7 +109,7 @@ export function RutinasPanel() {
                 )}
 
                 {/* Todas: gestionar */}
-                <div className="space-y-1.5">
+                <div data-tut="rutinas.todas" className="space-y-1.5">
                   <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
                     {t('rutinas.todas', 'Todas las rutinas')}
                   </p>
@@ -122,7 +122,7 @@ export function RutinasPanel() {
                     </p>
                   )}
                   {(rutinas ?? []).map((r) => (
-                    <div key={r.id} className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5">
+                    <div key={r.id} data-tut={`rutinas.fila.${r.id}`} className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5">
                       <span><Icono emoji={r.emoji} /></span>
                       <div className="min-w-0 flex-1">
                         <p className={`truncate text-xs font-semibold ${r.activa ? 'text-white/85' : 'text-white/35 line-through'}`}>
@@ -389,7 +389,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
 
       {/* Aviso a su hora: va aquí porque es la hora lo que gobierna (sin hora no
           hay a qué avisar). `avisar` sin valor = avisa, como lee `debeAvisar`. */}
-      <div className={r.hora ? '' : 'pointer-events-none opacity-30'}>
+      <div data-tut="rutinas.avisar" className={r.hora ? '' : 'pointer-events-none opacity-30'}>
         <FilaAviso
           icono="alarma"
           texto={t('rutinas.avisar', 'Avisarme a su hora')}
@@ -428,7 +428,7 @@ export function EditorRutina({ rutina, onCerrar }: { rutina: Rutina; onCerrar: (
       </div>
 
       {/* Repetición */}
-      <div className="space-y-1.5">
+      <div data-tut="rutinas.repeticion" className="space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
           {t('rutinas.rep.titulo', 'Repetición')}
         </p>

@@ -92,14 +92,19 @@ src/
 | B | Hobbies | Pasatiempos y proyectos | ✅ |
 | C | Anecdotario | Fotos y recuerdos (separado de Recámara) | ✅ |
 | D | Idiomas | Tutor IA, vocabulario SRS y temario por niveles | ✅ |
-| E | Calendario | Eventos y rutinas por día/semana/mes | ✅ |
 | F | Ideas | Diario de ideas y lluvias, mapas conceptuales y diagramas para decidir | ✅ |
-| G | Agenda | Trabajo (pendientes, eventos, proyectos), Salud (citas, medicamentos y mascotas con sus cuidados) y Personas (contactos y cumpleaños) | ✅ |
+| G | Agenda | Trabajo (bandeja de pendientes y tablero Kanban), Salud en tres submenús (tú: citas por especialidad, medicamentos, cuidados y ciclo · prójimos · mascotas) y Personas (contactos y cumpleaños) | ✅ |
+| H | Sala de cómputo | Dos pestañas: **Calculadora** —con el formulario de fórmulas en carpetas (Matemáticas, Física y Química de fábrica) colgando como menú plegable, notaciones en vez de teclado científico, y ocho modos que le cambian la vista entera (normal · **gráfica**, con sus cuatro tipos 2D/polar/paramétrica/superficie 3D · bases 2-16 · matrices · sistemas de ecuaciones · unidades · propina · regla de tres)— y **Hojas de cálculo** con exportación a Excel y PDF | ✅ |
 
 **Infraestructura** (plantillas `tipo: 'infraestructura'`: se construyen directo en el
 mapa 3D, no ocupan un cuarto): Caminos (pistas, rieles, montañas rusas), Canchas (fútbol,
 tenis, básquet), Huerto (parcelas y cultivos), Granja (cría de animales) y Paintball
 (batallas 1v1/2v2/campal vs. asistentes). Todas ✅.
+
+**El calendario NO es un cuarto**: vive en el reloj del HUD (`core/ui/Calendario.tsx`, a pantalla
+completa) y reúne las metas, planes y eventos de todas las apps. Sus dos tutoriales
+(«Calendario» y «Metas») viven en `core/tutorial/calendario.ts` y su año demo en
+`src/demo/anioCalendario.ts`.
 
 **Personalización de la casa** (colores, avatar, objetos, perfil): modo **✏️ Editar mapa** → panel derecho (`EditPanel`).
 

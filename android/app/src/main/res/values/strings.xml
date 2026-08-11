@@ -4,4 +4,14 @@
     <string name="title_activity_main">Mind Planner Home</string>
     <string name="package_name">com.macr120.mindhome</string>
     <string name="custom_url_scheme">com.macr120.mindhome</string>
+    <!-- Widgets: lo único que Android localiza por su cuenta (el resto de textos
+         llega ya localizado en el snapshot que publica la app). -->
+    <string name="widget_hoy_desc">Tu día de un vistazo: agenda y metas palomeables.</string>
+    <string name="widget_casa_desc">Tu casa y la fecha del día.</string>
+    <string name="widget_chat_desc">Habla con la casa: chat, cámara y dictado.</string>
+    <string name="widget_vacio">Abre Mind Planner Home para llenar este widget.</string>
+    <string name="widget_palomear">Marcar como hecho</string>
+    <string name="widget_chat_abrir">Chat</string>
+    <string name="widget_chat_camara">Mandar una foto</string>
+    <string name="widget_chat_voz">Dictar</string>
 </resources>

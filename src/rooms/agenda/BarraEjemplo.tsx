@@ -5,7 +5,6 @@ import type {
   EventoAgenda,
   Mascota,
   Medicamento,
-  ProyectoAgenda,
 } from '../../core/data/db'
 import { esDemo } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
@@ -25,14 +24,12 @@ export function BarraEjemplo({
   eventos,
   // Cada sección pasa solo lo suyo: el ejemplo de Trabajo no toca medicamentos.
   contactos = [],
-  proyectos = [],
   medicinas = [],
   mascotas = [],
 }: {
   area: AreaAgenda
   eventos: EventoAgenda[]
   contactos?: ContactoAgenda[]
-  proyectos?: ProyectoAgenda[]
   medicinas?: Medicamento[]
   mascotas?: Mascota[]
 }) {
@@ -42,7 +39,7 @@ export function BarraEjemplo({
 
   // Casa demo: el año de Pep@ YA es el ejemplo (y cargar/borrar está bloqueado).
   if (esDemo()) return null
-  const cargado = hayEjemplo(area, eventos, contactos, proyectos, medicinas, mascotas)
+  const cargado = hayEjemplo(area, eventos, contactos, medicinas, mascotas)
 
   const correr = async (fn: () => Promise<void>) => {
     if (ocupado) return
@@ -82,7 +79,7 @@ export function BarraEjemplo({
           <button
             type="button"
             onClick={() =>
-              void correr(() => borrarEjemplo(area, eventos, contactos, proyectos, medicinas, mascotas))
+              void correr(() => borrarEjemplo(area, eventos, contactos, medicinas, mascotas))
             }
             onBlur={() => setConfirmando(false)}
             disabled={ocupado}

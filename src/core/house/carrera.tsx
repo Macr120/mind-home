@@ -21,7 +21,7 @@ import {
 } from '../state/carreraStore'
 import { metaLibre, hayPistaLibre, versionPistaLibre } from '../state/pistaLibreStore'
 import { usePaintball } from '../state/paintballStore'
-import { vehiculoDe, FORMA_VEHICULO } from './vehiculos'
+import { vehiculoDe, FORMA_VEHICULO, type TipoVehiculo } from './vehiculos'
 import { ModeloMascota } from './Asistente3D'
 import { Prendas } from './Prendas'
 import { anclasDe } from './apariencia'
@@ -57,7 +57,9 @@ export function CarreraRuntime() {
     const { transicion, playerLevel, activeRoom } = useHouse.getState()
     const editMode = useLayout.getState().editMode
     const tipoMontado = monturaFrame.montado ? monturaFrame.tipo : null
-    const montadoTerrestre = tipoMontado != null && tipoMontado !== 'ovni'
+    // La carrera solo admite los 3 vehículos terrestres reales (ver carreraStore):
+    // el vehículo GENÉRICO (piezas de IA/usuario) no participa, como el OVNI.
+    const montadoTerrestre = tipoMontado != null && tipoMontado !== 'ovni' && tipoMontado !== 'generico'
     const aPie = !monturaFrame.montado && !trenFrame.montado
     const celda = worldToCeldaEntera(playerPos.x, playerPos.z)
     const kCelda = `${celda.col},${celda.row}`
@@ -73,6 +75,8 @@ export function CarreraRuntime() {
       const sobreMeta = m != null && celda.col === m.col && celda.row === m.row
       if (carreraFrame.recienMeta && !sobreMeta && !sobreMetaLibre)
         carreraFrame.recienMeta = false
+      // Pisar la meta ya NO abre la previa sola: publica el candidato y el botón
+      // «Correr» del hueco del cubo la abre (ver `ContextoProximity`).
       if (
         !carreraFrame.recienMeta &&
         (montadoTerrestre || aPie) &&
@@ -80,10 +84,15 @@ export function CarreraRuntime() {
         !activeRoom &&
         !editMode &&
         !transicion &&
-        usePaintball.getState().fase === null
+        usePaintball.getState().fase === null &&
+        (sobreMeta || sobreMetaLibre)
       ) {
-        if (sobreMeta) void s.ofrecer(montadoTerrestre ? tipoMontado : null)
-        else if (sobreMetaLibre) void s.ofrecer(montadoTerrestre ? tipoMontado : null, 'libre')
+        s.setCerca({
+          vehiculo: montadoTerrestre ? (tipoMontado as TipoVehiculo) : null,
+          modo: sobreMeta ? 'celdas' : 'libre',
+        })
+      } else if (s.cerca) {
+        s.setCerca(null)
       }
     } else if (s.fase === 'previa') {
       // El prompt se cierra al alejarse de la meta, subirse al tren o abrir algo encima.

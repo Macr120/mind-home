@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDiseño, esObjetoMapa } from '../state/disenoStore'
 import { useHouse } from '../state/houseStore'
 import { useMontura } from '../state/monturaStore'
+import { useAccionCuarto } from '../state/accionCuartoStore'
 import { playerPos } from '../state/playerPosition'
 import { useHerramienta, type Herramienta } from '../state/herramientaStore'
 import { usePlanos, type ModoConstructor } from '../state/planosStore'
@@ -13,11 +14,25 @@ import { nivelMaximo, nivelMinimo } from '../house/planoGeometria'
 import { TIPOS_PUERTA, TIPOS_VENTANA_CONTENIDO } from '../house/murosPuertas'
 import type { FormaLoseta } from '../house/formasLoseta'
 import { LosetaFormaSvg } from './comun/LosetaFormaSvg'
-import { esVehiculo, vehiculoDe, type TipoVehiculo } from '../house/vehiculos'
+import { esVehiculo, vehiculoDe, defDeMontura, type TipoVehiculo } from '../house/vehiculos'
 import { puntoLibreCerca } from '../house/Character'
 import { usePortales } from '../house/portales'
 import { lanzarCohete } from '../house/fuegos'
 import { useGrafitis } from '../state/grafitiStore'
+import { useCargar } from '../state/cargarStore'
+import { useContexto, type AccionContextual } from '../state/contextoStore'
+import { useParque, parqueFrame } from '../state/parqueStore'
+import { useFlotador } from '../state/flotadorStore'
+import { useTren } from '../state/trenStore'
+import { useJuegoCancha } from '../state/juegoCanchaStore'
+import { useCarrera } from '../state/carreraStore'
+import { type ClaseCancha } from '../state/canchasStore'
+import { alimentarCorral, mimarCorral, curarCorral, limpiarCorral } from '../state/granjaStore'
+import { alimentarObjeto, mimarObjeto } from '../state/vidaObjetoStore'
+import { cosecharParcelaPorId } from '../state/huertoStore'
+import { pulsarAnimacion } from '../house/animacion'
+import { recogerPistola } from '../house/arma'
+import { abrirAppDeObjeto } from '../abrirApp'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { ControlesTiro } from './ControlesTiro'
@@ -63,40 +78,50 @@ export async function invocarVehiculo(tipo: TipoVehiculo) {
   useMontura.getState().montar({ ...inst, x: libre.x, z: libre.z, rotY })
 }
 
-/** Marco de un panel: encabezado con la herramienta y ✕ para desequiparla. */
+/**
+ * Marco de un panel: encabezado con la herramienta y ✕ para desequiparla.
+ * `compacto` quita el encabezado y usa botones más bajos: es el modo de los
+ * paneles que aparecen SOLOS por proximidad, que pueden llegar a apilarse tres
+ * y con la altura normal no caben en un teléfono en horizontal.
+ */
 function Panel({
   h,
   emoji,
   etiqueta,
   sinCerrar,
+  compacto,
   children,
 }: {
-  h: Herramienta
+  /** Herramienta de la hotbar a la que pertenece; sin ella no hay ✕ que mostrar. */
+  h?: Herramienta
   emoji: string
   etiqueta: string
   /** Panel prestado (vehículo montado sin equipar): no hay nada que desequipar. */
   sinCerrar?: boolean
+  compacto?: boolean
   children: React.ReactNode
 }) {
   const t = useT()
   const equipar = useHerramienta((s) => s.equipar)
   return (
     <div className="ui-hud ui-pop flex w-full flex-col gap-1 rounded-lg border border-white/10 p-2">
-      <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-white/50">
-        <span>
-          <Icono emoji={emoji} /> {etiqueta}
-        </span>
-        {!sinCerrar && (
-          <button
-            type="button"
-            onClick={() => equipar(h)}
-            title={t('herr.quitar', 'Quitar herramienta')}
-            className="rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
-          >
-            <Icono nombre="cerrar" />
-          </button>
-        )}
-      </div>
+      {!compacto && (
+        <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-wide text-white/50">
+          <span>
+            <Icono emoji={emoji} /> {etiqueta}
+          </span>
+          {h && !sinCerrar && (
+            <button
+              type="button"
+              onClick={() => equipar(h)}
+              title={t('herr.quitar', 'Quitar herramienta')}
+              className="rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
+            >
+              <Icono nombre="cerrar" />
+            </button>
+          )}
+        </div>
+      )}
       {children}
     </div>
   )
@@ -105,6 +130,12 @@ function Panel({
 const btn = 'flex h-14 w-full flex-col items-center justify-center gap-0.5 rounded-lg border transition active:scale-90'
 const btnClaro = `${btn} border-white/10 bg-white/10 text-white hover:bg-white/20`
 const btnVerde = `${btn} border-accent/60 bg-accent text-accent-ink`
+
+/** Botón de un panel compacto: icono y texto en fila, para apilar varios sin desbordar. */
+const btnCorto =
+  'flex h-11 w-full items-center justify-center gap-1.5 rounded-lg border transition active:scale-90'
+const btnCortoClaro = `${btnCorto} border-white/10 bg-white/10 text-white hover:bg-white/20`
+const btnCortoVerde = `${btnCorto} border-accent/60 bg-accent text-accent-ink`
 
 const MODOS_CONSTRUIR: { id: ModoConstructor; emoji: string; labelEs: string }[] = [
   { id: 'cuartos', emoji: '🏠', labelEs: 'Cuartos' },
@@ -602,7 +633,69 @@ function PanelConstruir() {
 }
 
 /** Panel de una herramienta equipada (botón one-shot, toggle o vehículo). */
-function PanelHerramienta({ h, montadoSuelto }: { h: Herramienta; montadoSuelto?: boolean }) {
+/**
+ * Panel de la herramienta "mover": agarrar/soltar un objeto o un cuarto
+ * completo (ver `cargarStore`). Botón dinámico en el hueco del Cubo, mismo
+ * patrón que vehículos/asiento genérico.
+ */
+function PanelMover({ suelto }: { suelto?: boolean }) {
+  const t = useT()
+  const cerca = useCargar((s) => s.cerca)
+  const sujeto = useCargar((s) => s.sujeto)
+  return (
+    <Panel h="mover" emoji="✋" etiqueta={t('herr.mover', 'Mover')} sinCerrar={suelto} compacto={suelto}>
+      {sujeto ? (
+        <>
+          {!suelto && (
+            <p className="px-1 text-center text-xs text-white/70">
+              {sujeto.tipo === 'cuarto'
+                ? t('herr.moverCargandoCuarto', 'Cargando el cuarto')
+                : t('herr.moverCargandoObjeto', 'Cargando el objeto')}
+            </p>
+          )}
+          <button
+            type="button"
+            onClick={() => useCargar.getState().soltar()}
+            className={suelto ? btnCortoVerde : btnVerde}
+          >
+            <span className={suelto ? 'text-lg leading-none' : 'text-2xl leading-none'}>
+              <Icono emoji="✋" />
+            </span>
+            <span className="text-xs font-semibold">{t('herr.soltar', 'Soltar')}</span>
+          </button>
+        </>
+      ) : cerca ? (
+        <button
+          type="button"
+          onClick={() => useCargar.getState().agarrar()}
+          className={suelto ? btnCortoClaro : btnClaro}
+        >
+          <span className={suelto ? 'text-lg leading-none' : 'text-2xl leading-none'}>
+            <Icono emoji="✋" />
+          </span>
+          <span className="text-xs font-semibold">
+            {cerca.tipo === 'cuarto' ? t('herr.agarrarCuarto', 'Agarrar cuarto') : t('herr.agarrar', 'Agarrar')}
+          </span>
+        </button>
+      ) : (
+        <p className="px-1 text-center text-[10px] leading-tight text-white/45">
+          {t('herr.moverAcercate', 'Acércate a un objeto o cuarto')}
+        </p>
+      )}
+    </Panel>
+  )
+}
+
+function PanelHerramienta({
+  h,
+  montadoSuelto,
+  cercaId,
+}: {
+  h: Herramienta
+  montadoSuelto?: boolean
+  /** Vehículo AL ALCANCE (sin montar): id de la instancia a subir con el botón dinámico. */
+  cercaId?: number
+}) {
   const t = useT()
   const correr = useHerramienta((s) => s.correr)
   const bailando = useHerramienta((s) => s.bailando)
@@ -610,14 +703,27 @@ function PanelHerramienta({ h, montadoSuelto }: { h: Herramienta; montadoSuelto?
   const burbujas = useHerramienta((s) => s.burbujas)
   const avisoGrafiti = useGrafitis((s) => s.aviso)
   const montadoId = useMontura((s) => s.instanciaId)
+  const accionInstanciaId = useAccionCuarto((s) => s.instanciaId)
   const nivel = useHouse((s) => s.playerLevel)
   const vista = useCam((s) => s.vista)
   const conMira = vista === 'tercera' || vista === 'primera'
 
-  // Vehículo: un solo botón dinámico — te sube (trayéndolo a tu lado) y, ya
-  // montado, se convierte en el de bajarte.
-  if (esVehiculo(h)) {
-    const def = vehiculoDe(h)
+  // Vehículo: un solo botón DINÁMICO en el hueco del cubo — "Subirte" mientras
+  // está al alcance (sin montar) y, en cuanto lo montas, el mismo botón se
+  // convierte en "Bajarte". Al alcance sin equipar, `cercaId` trae la instancia
+  // exacta a montar (no "invocar" una nueva); equipado en la rueda, sí se
+  // invoca por tipo (puede no haber ninguno cerca). El genérico no se invoca:
+  // solo llega aquí ya montado (no vive en ningún catálogo fijo).
+  if (esVehiculo(h) || h === 'generico') {
+    const def = defDeMontura(h)
+    const subirte = () => {
+      if (cercaId != null) {
+        const inst = useDiseño.getState().objetos.find((o) => o.id === cercaId)
+        if (inst) useMontura.getState().montar(inst)
+      } else if (h !== 'generico') {
+        void invocarVehiculo(h)
+      }
+    }
     return (
       <Panel
         h={h}
@@ -633,9 +739,13 @@ function PanelHerramienta({ h, montadoSuelto }: { h: Herramienta; montadoSuelto?
         ) : (
           <button
             type="button"
-            onClick={() => void invocarVehiculo(h)}
-            disabled={nivel > 0}
-            title={nivel > 0 ? t('herr.soloPlantaBaja', 'Baja a la planta baja para invocarlo') : undefined}
+            onClick={subirte}
+            disabled={cercaId == null && nivel > 0}
+            title={
+              cercaId == null && nivel > 0
+                ? t('herr.soloPlantaBaja', 'Baja a la planta baja para invocarlo')
+                : undefined
+            }
             className={`${btnClaro} disabled:cursor-not-allowed disabled:opacity-40`}
           >
             <span className="text-2xl leading-none"><Icono emoji={def.icono} /></span>
@@ -646,7 +756,41 @@ function PanelHerramienta({ h, montadoSuelto }: { h: Herramienta; montadoSuelto?
     )
   }
 
+  // Sentado/acostado en un objeto genérico: mismo botón dinámico — "Sentarte"/
+  // "Acostarte" al alcance, "Levantarte" en cuanto se activa.
+  if (h === 'asiento-generico' || h === 'acostarse-generico') {
+    const esAcostado = h === 'acostarse-generico'
+    const activo = accionInstanciaId != null
+    return (
+      <Panel
+        h={h}
+        emoji={esAcostado ? '🛏️' : '🪑'}
+        etiqueta={esAcostado ? t('accion.acostarse', 'Acostarse') : t('accion.sentarse', 'Sentarse')}
+        sinCerrar={montadoSuelto}
+      >
+        {activo ? (
+          <button type="button" onClick={() => useAccionCuarto.getState().salirForzado()} className={btnVerde}>
+            <span className="text-2xl leading-none"><Icono emoji="🧍" /></span>
+            <span className="text-xs font-semibold">{t('accion.levantarte', 'Levantarte')}</span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => useAccionCuarto.getState().activarCercano()}
+            className={btnClaro}
+          >
+            <span className="text-2xl leading-none"><Icono emoji={esAcostado ? '🛏️' : '🪑'} /></span>
+            <span className="text-xs font-semibold">
+              {esAcostado ? t('accion.acostarte', 'Acostarte') : t('accion.sentarte', 'Sentarte')}
+            </span>
+          </button>
+        )}
+      </Panel>
+    )
+  }
+
   if (h === 'construir') return <PanelConstruir />
+  if (h === 'mover') return <PanelMover />
 
   const f = FICHAS[h]
   return (
@@ -787,23 +931,305 @@ function PanelHerramienta({ h, montadoSuelto }: { h: Herramienta; montadoSuelto?
   )
 }
 
+/** Deporte de cada cancha para el botón «Jugar …» (el nombre de `CANCHAS` ya dice "Cancha de…"). */
+const DEPORTE: Record<string, string> = {
+  futbol: 'fútbol',
+  tenis: 'tenis',
+  basket: 'básquet',
+  beisbol: 'béisbol',
+}
+
+/** Abre el editor con ESE objeto seleccionado (mismo combo que `ObjetosCatalogo`). */
+function abrirEditorObjeto(id: number) {
+  // En perspectiva el editor de mapa no existe: hay que pasar por el editor 3D
+  // (mismo apaño que el panel de construir) o el panel saldría vacío.
+  if (useCam.getState().vista !== 'iso') useEditorUi.getState().setEditor3d(true)
+  useEditorUi.getState().setObjetoSel(id)
+  useEditorUi.getState().setTab('objetos')
+  useLayout.getState().setEditMode(true)
+}
+
+/** Ejecuta la acción contextual (lo que ofrece el objeto que tienes enfrente). */
+function ejecutar(a: AccionContextual) {
+  switch (a.tipo) {
+    case 'interactuar':
+      // Las dos cosas: se anima con más fuerza Y entra a su app, si tiene ambas.
+      if (a.animado) pulsarAnimacion(a.id)
+      if (a.plantillaId) abrirAppDeObjeto(a.id)
+      break
+    case 'letrero':
+      abrirEditorObjeto(a.id)
+      break
+    case 'usable':
+      if (a.usable) useAccionCuarto.getState().usar(a.id, a.wx ?? 0, a.wz ?? 0, a.rotY ?? 0, a.usable)
+      break
+    case 'juego': {
+      const inst = useDiseño.getState().objetos.find((o) => o.id === a.id)
+      if (inst) useParque.getState().usar(inst)
+      break
+    }
+    case 'flotador': {
+      const inst = useDiseño.getState().objetos.find((o) => o.id === a.id)
+      if (inst) useFlotador.getState().sentarse(inst, a.wx ?? 0, a.wz ?? 0)
+      break
+    }
+    case 'cosechar':
+      void cosecharParcelaPorId(a.id)
+      break
+    case 'recoger':
+      if (a.pistola) void recogerPistola(a.id, a.pistola)
+      break
+    case 'tren':
+      useTren.getState().montar()
+      break
+    case 'cancha':
+      // Abre la elección de modo (`MarcadorCancha`); el partido arranca ahí.
+      if (a.clase) void useJuegoCancha.getState().activar(a.id, a.clase as ClaseCancha)
+      break
+    case 'carrera': {
+      const c = useCarrera.getState().cerca
+      if (c) void useCarrera.getState().ofrecer(c.vehiculo, c.modo)
+      break
+    }
+    case 'alimentar':
+      void alimentarCorral(a.id)
+      break
+    case 'acariciar':
+      void mimarCorral(a.id)
+      break
+    case 'curar':
+      void curarCorral(a.id)
+      break
+    case 'limpiar':
+      void limpiarCorral(a.id)
+      break
+    case 'alimentarObjeto':
+      void alimentarObjeto(a.id)
+      break
+    case 'acariciarObjeto':
+      void mimarObjeto(a.id)
+      break
+    case 'nivel':
+      if (a.subir) useHouse.getState().subirNivel()
+      else useHouse.getState().bajarNivel()
+      break
+  }
+}
+
 /**
- * Pila de controles de las herramientas equipadas (máx 3): ocupa el hueco del
- * cubo de vistas en `NavControls`. Cada panel tiene su ✕ para desequipar.
+ * Botones de lo que el personaje tiene AL ALCANCE (`contextoStore`): reemplazan
+ * a la vieja activación automática, que sentaba/subía/cosechaba con solo pasar
+ * cerca. Van todos en un mismo marco para no gastar altura de más.
+ */
+function PanelContextual() {
+  const t = useT()
+  const acciones = useContexto((s) => s.acciones)
+  const cuartos = useCuartos((s) => s.cuartos)
+  if (acciones.length === 0) return null
+  const texto = (
+    a: AccionContextual,
+  ): {
+    etiqueta: string
+    /** Línea chica encima de la etiqueta (el verbo, cuando la etiqueta es un nombre). */
+    sub?: string
+    icono:
+      | 'apunta' | 'brillo' | 'cuartos' | 'editar' | 'mano' | 'riel' | 'montana-rusa'
+      | 'alimentar' | 'mimar' | 'curar' | 'escoba' | 'subir' | 'bajar'
+  } => {
+    switch (a.tipo) {
+      case 'interactuar': {
+        if (!a.plantillaId) return { etiqueta: t('ctx.interactuar', 'Interactuar'), icono: 'brillo' }
+        // Con el nombre del cuarto se distingue de un vistazo a qué app entras,
+        // que es justo lo que un «Entrar a la app» no dice. Va en dos líneas: en
+        // una sola, «Revisar tu Cocina» no cabe en los 128 px de la columna y se
+        // cortaba precisamente por el nombre, que es lo que hay que leer.
+        const nombre = cuartos.find((c) => c.id === a.roomId)?.nombre
+        return nombre
+          ? { etiqueta: nombre, sub: t('ctx.revisarTu', 'Revisar tu'), icono: 'cuartos' }
+          : { etiqueta: t('ctx.entrarApp', 'Entrar a la app'), icono: 'cuartos' }
+      }
+      case 'letrero':
+        return { etiqueta: t('ctx.cambiarLetrero', 'Cambiar letrero'), icono: 'editar' }
+      case 'usable':
+        return { etiqueta: t('ctx.usar', 'Usar'), icono: 'apunta' }
+      case 'juego':
+        return { etiqueta: t('ctx.subirte', 'Subirte'), icono: 'apunta' }
+      case 'flotador':
+        return { etiqueta: t('ctx.subirteDona', 'Subirte a la dona'), icono: 'apunta' }
+      case 'cosechar':
+        return { etiqueta: t('ctx.cosechar', 'Cosechar'), icono: 'mano' }
+      case 'recoger':
+        return { etiqueta: t('ctx.recoger', 'Recoger'), icono: 'mano' }
+      case 'tren':
+        return a.riel === 'coaster'
+          ? { etiqueta: t('tren.montarCarrito', 'Montar el carrito'), icono: 'montana-rusa' }
+          : { etiqueta: t('tren.montarTren', 'Montar el tren'), icono: 'riel' }
+      case 'cancha':
+        // El nombre de `CANCHAS` ya dice "Cancha de tenis": aquí solo el deporte.
+        return { etiqueta: t(`ctx.jugar.${a.clase}`, `Jugar ${DEPORTE[a.clase ?? ''] ?? ''}`.trim()), icono: 'apunta' }
+      case 'carrera':
+        return { etiqueta: t('ctx.correr', 'Correr'), icono: 'apunta' }
+      case 'alimentar':
+        return { etiqueta: t('granja.burbuja.alimentar', 'Alimentar'), icono: 'alimentar' }
+      case 'acariciar':
+        return { etiqueta: t('granja.burbuja.acariciar', 'Acariciar'), icono: 'mimar' }
+      case 'curar':
+        return { etiqueta: t('granja.burbuja.curar', 'Curar'), icono: 'curar' }
+      case 'limpiar':
+        return { etiqueta: t('granja.burbuja.limpiar', 'Limpiar'), icono: 'escoba' }
+      case 'alimentarObjeto':
+        return { etiqueta: t('granja.burbuja.alimentar', 'Alimentar'), icono: 'alimentar' }
+      case 'acariciarObjeto':
+        return { etiqueta: t('granja.burbuja.acariciar', 'Acariciar'), icono: 'mimar' }
+      case 'nivel':
+        // En dos líneas por lo mismo que «Revisar tu …»: "Subir al nivel 1" entero
+        // no cabe en la columna y se cortaría por el número, que es el dato.
+        return {
+          sub: a.subir ? t('ctx.subirA', 'Subir a') : t('ctx.bajarA', 'Bajar a'),
+          etiqueta:
+            a.nivelDestino === 0
+              ? t('ctx.plantaBaja', 'Planta baja')
+              : t('ctx.nivelN', 'Nivel {n}', { n: a.nivelDestino ?? 0 }),
+          icono: a.subir ? 'subir' : 'bajar',
+        }
+    }
+  }
+  return (
+    <div className="ui-hud ui-pop flex w-full flex-col gap-1 rounded-lg border border-white/10 p-2">
+      {acciones.map((a) => {
+        const { etiqueta, sub, icono } = texto(a)
+        // Sin nada en la cesta no se puede alimentar: el botón se queda a la vista
+        // (si no, no se entendería por qué falta) pero apagado y con el motivo.
+        const sinComida = a.tipo === 'alimentar' && a.cantidad === 0
+        return (
+          <button
+            key={a.tipo}
+            type="button"
+            disabled={sinComida}
+            // Con la cesta vacía manda el motivo; si no, el texto completo (se trunca).
+            title={
+              sinComida
+                ? t('granja.sinComida', 'No hay nada en la cesta: cosecha el huerto para alimentar.')
+                : sub
+                  ? `${sub} ${etiqueta}`
+                  : etiqueta
+            }
+            onClick={() => ejecutar(a)}
+            className={`${btnCortoClaro} px-1.5 disabled:cursor-not-allowed disabled:opacity-40`}
+          >
+            <span className="shrink-0 text-lg leading-none">
+              <Icono nombre={icono} />
+            </span>
+            {/* El nombre del cuarto puede ser largo y la columna mide 128 px fijos. */}
+            <span className="flex min-w-0 flex-col items-start leading-tight">
+              {sub && <span className="text-[9px] font-medium text-white/55">{sub}</span>}
+              <span className="w-full truncate text-xs font-semibold">{etiqueta}</span>
+            </span>
+            {a.cantidad != null && a.tipo !== 'acariciar' && (
+              <span className="shrink-0 text-xs font-normal text-white/60">({a.cantidad})</span>
+            )}
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
+/**
+ * Botón para dejar lo que se está usando cuando no hay panel propio que lo haga:
+ * los 5 usables de plantilla, los juegos del parque y la dona. Antes solo se
+ * salía caminando, que sigue funcionando pero no se ve por ningún lado.
+ */
+function PanelSalida() {
+  const t = useT()
+  const accionTipo = useAccionCuarto((s) => s.tipo)
+  const accionId = useAccionCuarto((s) => s.instanciaId)
+  const parqueTipo = useParque((s) => s.tipo)
+  const flotadorId = useFlotador((s) => s.instanciaId)
+  const trenMontado = useTren((s) => s.montado)
+  // Los genéricos ya tienen su propio "Levantarte" en `PanelHerramienta`.
+  const enUsable =
+    accionId != null && accionTipo !== 'asiento-generico' && accionTipo !== 'acostarse-generico'
+  // Resbaladilla y pasamanos son de una pasada y terminan solas: no hay de qué bajarse.
+  const enJuego = parqueTipo === 'carrusel' || parqueTipo === 'columpio'
+  if (!enUsable && !enJuego && !trenMontado && flotadorId == null) return null
+  const salir = () => {
+    if (enUsable) useAccionCuarto.getState().salirForzado()
+    // El carrusel/columpio se baja por `Character`, que reposiciona al personaje
+    // en un punto libre: forzar el store aquí lo dejaría dentro del juego.
+    else if (enJuego) parqueFrame.salirPendiente = true
+    else if (trenMontado) useTren.getState().bajar()
+    else useFlotador.getState().salirForzado()
+  }
+  return (
+    <div className="ui-hud ui-pop flex w-full flex-col gap-1 rounded-lg border border-white/10 p-2">
+      <button type="button" onClick={salir} className={btnCortoVerde}>
+        <span className="text-lg leading-none">
+          <Icono emoji="🧍" />
+        </span>
+        <span className="text-xs font-semibold">
+          {enUsable ? t('accion.levantarte', 'Levantarte') : t('ctx.bajarte', 'Bajarte')}
+        </span>
+      </button>
+    </div>
+  )
+}
+
+/**
+ * Pila de controles del hueco del cubo de vistas (ver `NavControls`): las
+ * herramientas equipadas (máx 3, cada una con su ✕) más los botones que aparecen
+ * solos por proximidad — lo que tienes al alcance, mover, y subirse/bajarse.
  */
 export function ControlHerramienta() {
   const equipadas = useHerramienta((s) => s.equipadas)
-  // Conduciendo, el panel del vehículo (el "Bajarte") sale aunque no esté en la
-  // hotbar: es el único botón para bajarse, no puede depender de ella.
-  const montadoTipo = useMontura((s) => (s.instanciaId != null ? s.tipo : null))
-  const suelto = montadoTipo && !equipadas.includes(montadoTipo) ? montadoTipo : null
-  if (equipadas.length === 0 && !suelto) return null
+  // Vehículo: el hueco del cubo lo ocupa tanto MONTADO (botón "Bajarte") como
+  // simplemente AL ALCANCE sin montar (botón "Subirte" de la instancia exacta)
+  // — ninguno de los 2 depende de la hotbar, es la única forma de subir/bajar.
+  const montadoId = useMontura((s) => s.instanciaId)
+  const montadoTipo = useMontura((s) => s.tipo)
+  const cercaVehId = useMontura((s) => s.cercaId)
+  const cercaVehTipo = useMontura((s) => s.cercaTipo)
+  const vehSuelto = montadoId != null ? montadoTipo : cercaVehTipo
+  const vehSueltoEnHotbar = vehSuelto != null && equipadas.includes(vehSuelto)
+  // Sentado/acostado (grupo genérico): mismo patrón — AL ALCANCE (botón
+  // "Sentarte/Acostarte") o ya ACTIVO (botón "Levantarte"), sin depender de la hotbar.
+  const accionTipo = useAccionCuarto((s) => s.tipo)
+  const accionCercaGrupo = useAccionCuarto((s) => s.cercaGrupo)
+  const accionActivoTipo =
+    accionTipo === 'asiento-generico' || accionTipo === 'acostarse-generico' ? accionTipo : null
+  const accionSuelto =
+    accionActivoTipo ?? (accionCercaGrupo === 'acostarse' ? 'acostarse-generico' : accionCercaGrupo === 'asiento' ? 'asiento-generico' : null)
+  const accionSueltoEnHotbar = accionSuelto != null && equipadas.includes(accionSuelto)
+  // Yendo montado, sentado o jugando solo debe quedar el botón para bajarse: ni
+  // "Mover" ni las acciones de lo que tengas al lado (el detector ya las apaga,
+  // pero el panel de la hotbar seguiría diciendo "acércate a un objeto").
+  const accionId = useAccionCuarto((s) => s.instanciaId)
+  const parqueId = useParque((s) => s.instanciaId)
+  const flotadorId = useFlotador((s) => s.instanciaId)
+  const trenMontado = useTren((s) => s.montado)
+  const ocupado =
+    montadoId != null || accionId != null || parqueId != null || flotadorId != null || trenMontado
+  const hayContextual = useContexto((s) => s.acciones.length > 0)
+  const cargando = useCargar((s) => s.sujeto != null)
+  const cercaCarga = useCargar((s) => s.cerca != null)
+  const moverSuelto = !ocupado && (cercaCarga || cargando) && !equipadas.includes('mover')
+  if (equipadas.length === 0 && !vehSuelto && !accionSuelto && !hayContextual && !moverSuelto && !ocupado)
+    return null
   return (
-    <div className="flex w-full flex-col gap-1">
-      {suelto && <PanelHerramienta h={suelto} montadoSuelto />}
-      {equipadas.map((h) => (
-        <PanelHerramienta key={h} h={h} />
-      ))}
+    // Tope de altura por si se juntan varios: la columna del cubo crece hacia
+    // arriba y en un teléfono en horizontal se saldría de la pantalla.
+    <div
+      className="flex w-full flex-col gap-1 overflow-y-auto"
+      style={{ maxHeight: 'min(52vh, 26rem)' }}
+    >
+      {!ocupado && <PanelContextual />}
+      {moverSuelto && <PanelMover suelto />}
+      <PanelSalida />
+      {vehSuelto && !vehSueltoEnHotbar && (
+        <PanelHerramienta h={vehSuelto} montadoSuelto cercaId={montadoId == null ? (cercaVehId ?? undefined) : undefined} />
+      )}
+      {accionSuelto && !accionSueltoEnHotbar && <PanelHerramienta h={accionSuelto} montadoSuelto />}
+      {equipadas.map((h) => (h === 'mover' && ocupado ? null : <PanelHerramienta key={h} h={h} />))}
     </div>
   )
 }

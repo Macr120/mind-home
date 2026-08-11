@@ -58,6 +58,7 @@ const SYSTEM_MODELO3D: Record<TipoModelo3D, string> = {
     'Reglas: base apoyada en y=0, proporciones reales (~0.3–1.6 de alto; un vehículo puede llegar a 2–4 de largo), frente hacia +Z, usa 6–30 piezas.',
     'Modela por estructura y simetría (una silla = asiento + respaldo + 4 patas; una lámpara = base + poste + pantalla). Silueta clara, colores hex coherentes y SIN ojos ni cara (salvo que sea un juguete).',
     'Vehículos: chasis alargado sobre +Z/-Z + cabina más estrecha encima + 4 ruedas cilíndricas oscuras con rot [0,0,1.5708] en pares x=±(ancho/2), medio hundidas respecto al chasis; añade parabrisas, faros y parrilla como piezas finas al frente.',
+    'Después del arreglo JSON de piezas, en una línea aparte, escribe UNA sola palabra clasificando el objeto: "asiento" (alguien se sentaría: silla, sillón, banco, taburete, puf), "acostarse" (cama, colchoneta, camastro), "vehiculo" (se conduce o monta: auto, moto, bici, carreta, patineta) o "ninguno" (ningún caso anterior). No añadas nada más en esa línea.',
   ].join('\n'),
   arquitectura: [
     'Eres un diseñador de elementos arquitectónicos 3D low-poly: columnas, arcos, escaleras, muros, fuentes, portones, torres y pérgolas.',

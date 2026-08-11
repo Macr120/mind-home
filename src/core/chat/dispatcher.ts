@@ -1,4 +1,4 @@
-import { plantillasTodas, type Plantilla } from '../registry'
+import { plantillasTodas, type Plantilla } from '../appContrato'
 import { useDiseño } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
 
@@ -40,6 +40,12 @@ export interface Interpretacion {
   texto: string
   /** Cómo se decidió (para mostrar feedback en la UI). */
   motivo: 'prefijo' | 'palabra' | 'ninguno'
+  /**
+   * Entradas que le tocan a cada app detectada: un mensaje puede traer varias
+   * de la misma («gaste 500 en el cine y 300 en ropa» son dos gastos). Sin
+   * esto, cada `capturar` recibe la frase entera y solo cuaja la primera.
+   */
+  fragmentos?: Record<string, string[]>
   /** Comando del arquitecto si lo hay (no se guarda en bitácora). */
   comando?: Comando
   /** Objeto del catálogo a crear, si el usuario lo pidió. */
@@ -49,7 +55,9 @@ export interface Interpretacion {
 /** Palabras clave por cuarto (capa sin IA). Acentos ignorados al comparar. */
 const PALABRAS: Record<string, string[]> = {
   // 'pese' (me pesé) y no 'peso': chocaría con ejercicio ("peso muerto").
-  cocina: ['comi', 'comer', 'comida', 'desayuno', 'almuerzo', 'cena', 'nutricion', 'agua', 'calorias', 'receta', 'macros', 'pese'],
+  // Los verbos conjugados van junto al sustantivo: sin ellos «cené sopa» no
+  // llegaba a la cocina, y son justo los que dan por hecha la comida al capturar.
+  cocina: ['comi', 'comer', 'comida', 'desayune', 'desayuno', 'almorce', 'almuerzo', 'cene', 'cena', 'merende', 'merienda', 'nutricion', 'agua', 'calorias', 'receta', 'macros', 'pese'],
   ejercicio: ['entrene', 'gym', 'gimnasio', 'pesas', 'corri', 'correr', 'rutina', 'fuerza', 'cardio', 'flexibilidad'],
   descanso: ['dormi', 'sueno', 'descanse', 'descanso', 'siesta', 'alarma', 'despertador'],
   anecdotario: ['anecdota', 'anecdotario', 'recuerdo'],
@@ -67,6 +75,9 @@ const PALABRAS: Record<string, string[]> = {
   // sin 'proyecto' (es de hobbies), 'rutina' (ejercicio), 'alarma' (descanso) ni
   // 'agenda' a secas (el calendario ya responde a "agenda de hoy").
   agenda: ['pendiente', 'pendientes', 'cita', 'citas', 'junta', 'reunion', 'medicamento', 'medicina', 'pastilla', 'contacto', 'contactos', 'cumpleanos', 'agendame'],
+  // sin 'tabla' (la agenda tiene su tablero) ni 'calcular' a secas (aparece en
+  // medio de frases de otras apps: «calcular cuánto gasté»).
+  computo: ['formula', 'formulas', 'formulario', 'calculadora', 'grafica', 'graficar', 'graficador', 'ecuacion', 'ecuaciones', 'derivada', 'integral', 'despeja', 'despejar', 'hoja de calculo', 'hojas de calculo', 'binario', 'hexadecimal', 'matriz', 'matrices', 'determinante', 'convertir unidades', 'conversor', 'propina', 'regla de tres'],
 }
 
 /**
@@ -156,6 +167,69 @@ function buscarApp(fragmento: string) {
   return undefined
 }
 
+/**
+ * Conectores que separan dos hechos dentro de un mismo mensaje («comí X y gasté
+ * Y»). La coma seguida de dígito NO corta: ahí es separador de miles («1,500»).
+ * Se parte con captura para poder rearmar cada trozo con su conector original.
+ */
+const CONECTORES = /(\s+(?:y|e|adem[áa]s|tambi[ée]n|luego|despu[ée]s)\s+|\s*;\s*|,(?!\d)\s*|\.\s+)/i
+
+/**
+ * Reparte el mensaje entre las apps detectadas: cada una recibe SOLO sus
+ * cláusulas, para que los números no se crucen (si no, «comí algo de 100 y
+ * gasté 500» anota 100 de gasto). Una cláusula sin palabra clave propia («500»)
+ * hereda las apps de la anterior, y las que abren el mensaje («fui al super»)
+ * esperan a la primera que sí tenga.
+ *
+ * Dentro de cada app, las cláusulas se agrupan en ENTRADAS: una cláusula abre
+ * otra entrada si trae su propia palabra clave («…y pagué 300 de ropa») o si
+ * trae un número y la entrada en curso ya tenía el suyo («…y 300 en ropa»). Con
+ * eso «gasté 500 en el cine y 300 en ropa» son dos gastos, mientras que «comí
+ * pizza, 800 cal» sigue siendo una sola comida.
+ */
+function repartirClausulas(texto: string, appIds: string[]): Record<string, string[]> {
+  const trozos = texto.split(CONECTORES) // pares = cláusulas, impares = conectores
+  const conNumero = (s: string) => /\d/.test(s)
+  const partes: Record<string, number[][]> = {}
+  let ultimas: string[] = []
+  const huerfanas: number[] = []
+  for (let i = 0; i < trozos.length; i += 2) {
+    if (!trozos[i].trim()) continue
+    const tokens = new Set(normalizar(trozos[i]).split(/[^a-z0-9]+/).filter(Boolean))
+    const suyas = appIds.filter((id) => PALABRAS[id]?.some((k) => tokens.has(k)))
+    const destinatarias = suyas.length > 0 ? suyas : ultimas
+    if (destinatarias.length === 0) {
+      huerfanas.push(i)
+      continue
+    }
+    for (const id of destinatarias) {
+      const entradas = (partes[id] ??= [])
+      const actual = entradas[entradas.length - 1]
+      const nueva =
+        !actual ||
+        suyas.includes(id) ||
+        (conNumero(trozos[i]) && actual.some((j) => conNumero(trozos[j])))
+      if (nueva) entradas.push([...huerfanas, i])
+      else actual.push(...huerfanas, i)
+    }
+    huerfanas.length = 0
+    ultimas = destinatarias
+  }
+
+  // Dos cláusulas seguidas se reúnen con su conector real («ensalada y pollo»);
+  // si hubo un salto, con un espacio.
+  const armar = (idx: number[]) =>
+    idx
+      .map((j, n) => (n === 0 ? '' : j === idx[n - 1] + 2 ? trozos[j - 1] : ' ') + trozos[j])
+      .join('')
+      .trim()
+
+  const fragmentos: Record<string, string[]> = {}
+  // Sin cláusula propia (la palabra clave salió de un token suelto): todo el mensaje.
+  for (const id of appIds) fragmentos[id] = partes[id]?.map(armar) ?? [texto]
+  return fragmentos
+}
+
 export function interpretar(texto: string): Interpretacion {
   const limpio = texto.trim()
   const norm = normalizar(limpio)
@@ -225,7 +299,13 @@ export function interpretar(texto: string): Interpretacion {
     if (claves && claves.some((k) => tokens.has(k))) detectados.push(app.id)
   }
   if (detectados.length > 0) {
-    return { roomId: detectados[0], roomIds: detectados, texto: limpio, motivo: 'palabra' }
+    return {
+      roomId: detectados[0],
+      roomIds: detectados,
+      texto: limpio,
+      motivo: 'palabra',
+      fragmentos: repartirClausulas(limpio, detectados),
+    }
   }
 
   // 4. Sin clasificar

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { ContactoAgenda, EventoAgenda, ProyectoAgenda } from '../../core/data/db'
+import type { ContactoAgenda, EventoAgenda } from '../../core/data/db'
 import { useEventosDeContacto } from '../../core/data/repository'
 import { deIso } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
@@ -16,14 +16,12 @@ import { BotonBorrar, TARJETA } from './ui'
 export function DetalleContacto({
   contacto,
   contactos,
-  proyectos,
   onVolver,
   onEditar,
   onNuevoEvento,
 }: {
   contacto: ContactoAgenda
   contactos: ContactoAgenda[]
-  proyectos: ProyectoAgenda[]
   onVolver: () => void
   onEditar: () => void
   onNuevoEvento: () => void
@@ -124,13 +122,7 @@ export function DetalleContacto({
           [...eventos]
             .sort((a, b) => (b.fecha ?? '').localeCompare(a.fecha ?? ''))
             .map((ev) => (
-              <TarjetaEvento
-                key={ev.id}
-                ev={ev}
-                contactos={contactos}
-                proyectos={proyectos}
-                onEditar={() => setEditandoEvento(ev)}
-              />
+              <TarjetaEvento key={ev.id} ev={ev} contactos={contactos} onEditar={() => setEditandoEvento(ev)} />
             ))
         )}
       </section>
@@ -141,7 +133,6 @@ export function DetalleContacto({
           area={editandoEvento.area}
           inicial={editandoEvento}
           contactos={contactos}
-          proyectos={proyectos}
           onCerrar={() => setEditandoEvento(null)}
         />
       )}

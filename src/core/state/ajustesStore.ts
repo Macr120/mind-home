@@ -50,6 +50,7 @@ const LS_MUSICA_AMBIENTAL = 'mh.musica.ambiental'
 const LS_MUSICA_FUENTE = 'mh.musica.fuente'
 const LS_MUSICA_MOOD = 'mh.musica.mood'
 const LS_MUSICA_PISTA = 'mh.musica.pista'
+const LS_MUSICA_CARPETA = 'mh.musica.carpeta'
 const LS_SFX_VOLUMEN = 'mh.sfx.volumen'
 const LS_HUD_MUSICA = 'mh.hud.musica'
 const LS_HUD_TUTORIALES = 'mh.hud.tutoriales'
@@ -70,6 +71,17 @@ export type MoodMusica =
   | 'viaje'
   | 'carrera'
   | 'cajita'
+  // Añadidos para que cada app tenga ambiente propio (antes 4 no tenían ninguno
+  // y otras 9 compartían el mismo). Ver MOOD_PLANTILLA en core/audio/temas.ts.
+  | 'lectura'
+  | 'oficina'
+  | 'taller'
+  | 'digital'
+  | 'noticias'
+  | 'campo'
+  | 'deporte'
+  | 'ruta'
+  | 'tactico'
 
 const MOODS: MoodMusica[] = [
   'calma',
@@ -84,6 +96,15 @@ const MOODS: MoodMusica[] = [
   'viaje',
   'carrera',
   'cajita',
+  'lectura',
+  'oficina',
+  'taller',
+  'digital',
+  'noticias',
+  'campo',
+  'deporte',
+  'ruta',
+  'tactico',
 ]
 
 const ESTILO_ICONOS_DEFAULT: EstiloIconos = 'profesional'
@@ -169,6 +190,8 @@ interface AjustesState {
   musicaMood: MoodMusica
   /** Pista elegida (id de pistasMusica); null = todas en aleatorio. */
   musicaPistaId: number | null
+  /** Carpeta elegida (carpetaId); null = todas las pistas. La pista concreta manda sobre ella. */
+  musicaCarpetaId: string | null
   /** Volumen de los sonidos de acciones (0..1); 0 los apaga. */
   sfxVolumen: number
   /** Botón de música en el HUD de la casa; apagado, se maneja en Configuraciones. */
@@ -195,6 +218,7 @@ interface AjustesState {
   setMusicaFuente: (f: FuenteMusica) => void
   setMusicaMood: (m: MoodMusica) => void
   setMusicaPistaId: (id: number | null) => void
+  setMusicaCarpetaId: (id: string | null) => void
   setSfxVolumen: (v: number) => void
   setHudMusica: (v: boolean) => void
   setHudTutoriales: (v: boolean) => void
@@ -228,6 +252,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     const v = Number(localStorage.getItem(LS_MUSICA_PISTA))
     return Number.isFinite(v) && v > 0 ? v : null
   })(),
+  musicaCarpetaId: localStorage.getItem(LS_MUSICA_CARPETA) || null,
   sfxVolumen: leer01(LS_SFX_VOLUMEN, 0.6),
   hudMusica: leerSiNo(LS_HUD_MUSICA, true),
   hudTutoriales: leerSiNo(LS_HUD_TUTORIALES, true),
@@ -338,6 +363,16 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     if (id == null) localStorage.removeItem(LS_MUSICA_PISTA)
     else localStorage.setItem(LS_MUSICA_PISTA, String(id))
     set({ musicaPistaId: id })
+  },
+
+  setMusicaCarpetaId: (id) => {
+    if (id == null) localStorage.removeItem(LS_MUSICA_CARPETA)
+    else localStorage.setItem(LS_MUSICA_CARPETA, id)
+    // Elegir carpeta suelta la pista fija: si no, seguiría sonando esa sola.
+    if (id != null) {
+      localStorage.removeItem(LS_MUSICA_PISTA)
+      set({ musicaCarpetaId: id, musicaPistaId: null })
+    } else set({ musicaCarpetaId: null })
   },
 
   setSfxVolumen: (v) => {

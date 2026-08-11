@@ -2,23 +2,22 @@ import { useState } from 'react'
 import type { Rutina } from '../../data/db'
 import type { EventoResuelto } from '../../eventosApps'
 import { useCalendarioFiltro } from '../../state/calendarioFiltroStore'
+import { useGruposPlantilla } from '../../state/gruposPlantillaStore'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
-import { CASA, gruposDeApps, type CategoriaCal } from './apps'
-
-/** Etiqueta de cada grupo; las de categoría ya existen para el menú de cuartos. */
-const CLAVE_CATEGORIA: Record<CategoriaCal, [string, string]> = {
-  cuerpo: ['cat.cuerpo', 'Cuerpo'],
-  mente: ['cat.mente', 'Mente'],
-  complemento: ['cat.complemento', 'Complemento'],
-  [CASA]: ['cal.filtro.casa', 'De la casa'],
-}
+import { gruposDeApps } from './apps'
 
 /**
- * Filtro del calendario por app. Recibe las rutinas y eventos SIN filtrar: si le
- * llegaran ya filtrados, apagar una app la borraría de su propia lista y no
- * habría manera de volver a encenderla.
+ * Filtro del calendario por app, agrupado en las MISMAS carpetas que el catálogo
+ * de plantillas: la organización de las apps se decide en un solo sitio (el menú
+ * Funciones) y aquí solo se lee.
+ *
+ * Una carpeta entera se enciende de un toque, y con varias encendidas el
+ * calendario, las metas, los planes y el cronograma solo enseñan lo suyo.
+ *
+ * Recibe las rutinas y eventos SIN filtrar: si le llegaran ya filtrados, apagar
+ * una app la borraría de su propia lista y no habría manera de volver a encenderla.
  */
 export function FiltroApps({
   rutinas,
@@ -34,7 +33,11 @@ export function FiltroApps({
   const alternarCategoria = useCalendarioFiltro((s) => s.alternarCategoria)
   const limpiar = useCalendarioFiltro((s) => s.limpiar)
 
-  const grupos = gruposDeApps(rutinas, eventos, t('cal.filtro.casa', 'De la casa'))
+  const carpetas = useGruposPlantilla((s) => s.grupos)
+  const grupos = gruposDeApps(rutinas, eventos, carpetas, {
+    casa: t('cal.filtro.casa', 'De la casa'),
+    otras: t('cal.filtro.otras', 'Otras'),
+  })
 
   return (
     <div className="relative">
@@ -68,14 +71,42 @@ export function FiltroApps({
             </button>
             {grupos.map((g) => {
               const ids = g.apps.map((a) => a.id)
+              // La carpeta se pinta encendida solo con TODAS sus apps dentro del
+              // filtro: a medias, lo que manda es cada app y decir «carpeta activa»
+              // sería mentira. Un toque completa la carpeta; otro la vacía.
+              const todas = ids.every((id) => apps.has(id))
+              const algunas = !todas && ids.some((id) => apps.has(id))
               return (
-                <div key={g.categoria} className="mb-1.5">
+                <div key={g.id} className="mb-1.5">
                   <button
                     type="button"
                     onClick={() => alternarCategoria(ids)}
-                    className="w-full px-1 py-0.5 text-left text-[10px] font-bold uppercase tracking-wider text-white/40 transition hover:text-white/70"
+                    title={
+                      todas
+                        ? t('cal.filtro.carpetaQuitar', 'Quitar esta carpeta del filtro')
+                        : t('cal.filtro.carpetaSolo', 'Ver solo lo de esta carpeta')
+                    }
+                    className={`flex w-full items-center gap-1.5 rounded px-1 py-0.5 text-left text-[10px] font-bold uppercase tracking-wider transition ${
+                      todas
+                        ? 'bg-amber-500/15 text-amber-300'
+                        : algunas
+                          ? 'text-white/70 hover:text-white/90'
+                          : 'text-white/40 hover:text-white/70'
+                    }`}
                   >
-                    {t(...CLAVE_CATEGORIA[g.categoria])}
+                    {g.emoji && <Icono emoji={g.emoji} />}
+                    <span className="min-w-0 flex-1 truncate">{g.nombre}</span>
+                    {/* A medias, el conteo dice cuánto de la carpeta está encendido. */}
+                    {algunas && (
+                      <span className="shrink-0 tabular-nums text-white/35">
+                        {ids.filter((id) => apps.has(id)).length}/{ids.length}
+                      </span>
+                    )}
+                    {todas && (
+                      <span className="shrink-0">
+                        <Icono nombre="confirmar" />
+                      </span>
+                    )}
                   </button>
                   <div className="space-y-0.5">
                     {g.apps.map((a) => {

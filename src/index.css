@@ -18,6 +18,10 @@
   --ui-accent-ink: #0b1020;
   --ui-ink: #e7e9ee;
   --ui-font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Segundo nivel de vidrio (un panel abierto SOBRE otro): a mitad de camino
+     hacia opaco. Con el mismo alfa las dos capas se suman y el de encima no se
+     distingue del de abajo. Ver la regla de anidamiento más abajo. */
+  --ui-vidrio-alfa-2: calc(var(--ui-vidrio-alfa, 92%) + (100% - var(--ui-vidrio-alfa, 92%)) / 2);
 }
 
 /* Controles nativos (checkbox, date picker, scrollbars) acordes al modo. */
@@ -99,6 +103,44 @@ body {
   .ui-hud {
     background-color: color-mix(in srgb, var(--ui-panel) var(--ui-vidrio-alfa, 92%), transparent);
     backdrop-filter: blur(var(--ui-vidrio-blur, 12px));
+  }
+}
+
+/*
+ * VIDRIO SOBRE VIDRIO. Un panel que se abre encima de otro (el detalle de una
+ * rutina sobre el calendario, el selector de modelo sobre la barra del chat, el
+ * popover del reloj sobre su chip) compartía fondo EXACTO con el de debajo: dos
+ * capas del mismo alfa se suman y el borde entre ambas desaparece. El de encima
+ * sube al segundo nivel de opacidad; se aplica solo por anidamiento, así que un
+ * panel suelto sobre la escena no cambia.
+ *
+ * Solo se toca el fondo: añadir aquí un `backdrop-filter` convertiría al panel
+ * en contenedor de los `position: fixed` que cuelgan de él (ver el aviso del
+ * modo transparente, más abajo). El desenfoque ya lo trae cada clase.
+ *
+ * El segundo selector duplica al primero bajo `html[data-modo-ui]` a propósito:
+ * el modo transparente redefine estas clases con más especificidad y, sin él,
+ * ganaría el nivel 1 justo en el modo donde peor se nota.
+ *
+ * El escalón NO se acumula: del tercer nivel en adelante se queda en el segundo,
+ * para que un anidamiento profundo no acabe en un panel opaco.
+ */
+:is(.ui-app, .ui-panel, .ui-panel-glass) .ui-panel-glass,
+html[data-modo-ui] :is(.ui-app, .ui-panel, .ui-panel-glass) .ui-panel-glass {
+  background: color-mix(
+    in srgb,
+    var(--ui-panel-solido, var(--ui-panel)) var(--ui-vidrio-alfa-2),
+    transparent
+  );
+}
+@layer components {
+  :is(.ui-app, .ui-panel, .ui-panel-glass) .ui-hud,
+  html[data-modo-ui] :is(.ui-app, .ui-panel, .ui-panel-glass) .ui-hud {
+    background-color: color-mix(
+      in srgb,
+      var(--ui-panel-solido, var(--ui-panel)) var(--ui-vidrio-alfa-2),
+      transparent
+    );
   }
 }
 .ui-accent-bg {
@@ -370,6 +412,24 @@ html[data-modo-ui='transparente'] .ui-app {
   html[data-modo-ui='transparente'] .ui-hud {
     background-color: var(--ui-panel);
   }
+}
+
+/*
+ * Segundo nivel de vidrio en este modo: aquí el nivel 1 baja al 26-39%, así que
+ * el escalón proporcional de los modos sólidos se quedaría corto. Piso del 60%
+ * para que el panel de encima se despegue del de abajo sin dejar de ser vidrio.
+ * Los modales de las apps (`.ui-panel`) suben igual: en este modo también son
+ * translúcidos, y muchos se abren dentro de la app (`.ui-app`) que los invoca.
+ */
+html[data-modo-ui='transparente'] {
+  --ui-vidrio-alfa-2: max(60%, calc(var(--ui-vidrio-alfa, 92%) * 0.72));
+}
+html[data-modo-ui='transparente'] :is(.ui-app, .ui-panel-glass) .ui-panel {
+  background: color-mix(
+    in srgb,
+    var(--ui-panel-solido, var(--ui-panel)) var(--ui-vidrio-alfa-2),
+    transparent
+  );
 }
 
 /*

@@ -1,4 +1,4 @@
-import type { EventoApp } from '../../core/registry'
+import type { EventoApp } from '../../core/appContrato'
 import { diasItinerarioRepo, lugaresViajeRepo } from '../../core/data/repository'
 import { tGlobal } from '../../core/i18n/useT'
 

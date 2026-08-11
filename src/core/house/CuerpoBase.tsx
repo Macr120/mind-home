@@ -22,6 +22,7 @@ import {
   anguloSaludo,
   AGACHADO_ALTO,
   ANGULO_BRAZO_CUERDA,
+  ANGULO_BRAZO_CARGAR,
 } from '../state/herramientaStore'
 import { poseBateo } from '../state/juegoCanchaStore'
 
@@ -143,6 +144,13 @@ export function CuerpoBase({
       if (sd !== null && brazoI.current) brazoI.current.rotation.x = sd
       const si = anguloSaludo(ahora, false)
       if (si !== null && brazoD.current) brazoD.current.rotation.x = si
+      // Cargando algo con las dos manos (herramienta "mover"): pisa el saludo,
+      // no se puede saludar mientras se carga. Solo brazos: las piernas siguen
+      // caminando con normalidad.
+      if (accionFrame.cargando) {
+        if (brazoI.current) brazoI.current.rotation.x = ANGULO_BRAZO_CARGAR
+        if (brazoD.current) brazoD.current.rotation.x = ANGULO_BRAZO_CARGAR
+      }
     }
   })
 

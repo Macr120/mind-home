@@ -40,6 +40,26 @@ export const CANCHAS: Record<
 export const PORTERIA = { ancho: 5.2, alto: 2.4, poste: 0.06, redProf: 0.9 }
 
 /**
+ * Canasta de básquet (coordenadas locales de la cancha, SIN escalar). Fuente
+ * ÚNICA compartida por el render (`Tablero` en canchas.tsx) y la física del tiro
+ * (`lanzarTiro` en minijuegos.tsx), que antes repetía el 0.82 a mano en cinco
+ * sitios. El aro es más generoso que el real (0.23) para que se vea desde la
+ * cámara isométrica y perdone algo de puntería.
+ */
+export const CANASTA = {
+  /** Poste, en la línea de fondo del lado de la botella. */
+  posteX: -CANCHAS.basket.largo / 2 + 0.2,
+  /** Centro del aro: es a donde apunta el tiro. */
+  aroX: -CANCHAS.basket.largo / 2 + 0.82,
+  aroY: 3.05,
+  aroRadio: 0.34,
+  /** Cara del tablero contra la que rebota la pelota, y su medio ancho. */
+  tableroX: -CANCHAS.basket.largo / 2 + 0.55,
+  tableroY: 3.4,
+  tableroMedio: 1.0,
+}
+
+/**
  * Campo de béisbol (coordenadas locales SIN escalar, en metros): un ABANICO con
  * el vértice en el home (extremo −x), el montículo enfrente y la barda jonronera
  * en arco. Proporciones de campo compacto (tipo liga infantil): el montículo al
@@ -50,10 +70,14 @@ export const PORTERIA = { ancho: 5.2, alto: 2.4, poste: 0.06, redProf: 0.9 }
 export const BEISBOL = {
   /** Vértice del abanico (x local): centrado para que el área del plato no se salga. */
   home: -9.3,
-  /** Placa de pitcheo. */
-  monticulo: -4.5,
+  /**
+   * Placa de pitcheo: SIEMPRE en el centro del diamante, o sea a `base / √2` del
+   * home. El diamante se agrandó (6.3 → 9.5) justo para alejar al lanzador del
+   * bateador: de 4.5 a 6.7 m, con lo que el pitcheo tarda más en llegar.
+   */
+  monticulo: -2.58,
   /** Distancia entre bases (el diamante gira 45° respecto al eje del campo). */
-  base: 6.3,
+  base: 9.5,
   /** Radio del campo por el CENTRO (del home a la barda). */
   radio: 21,
   /** Semiapertura de las LÍNEAS de foul (±45°): decide foul contra bola buena. */

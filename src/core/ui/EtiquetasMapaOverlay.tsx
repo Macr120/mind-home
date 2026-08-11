@@ -13,12 +13,15 @@ import {
   barraAnimo,
 } from '../state/granjaStore'
 import { useAnimalSel } from '../state/animalSelStore'
+import { useContexto } from '../state/contextoStore'
+import { useDiseño } from '../state/disenoStore'
+import { barraComidaVida, barraAnimoVida } from '../state/vidaObjetoStore'
 import { cellToWorld } from '../house/walls'
 import { registrarAncla, quitarAncla, registrarDom, quitarDom } from '../house/etiquetasMapa'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
-import type { AnimalGranja, Corral, CultivoCelda } from '../data/db'
+import type { AnimalGranja, Corral, CultivoCelda, ObjetoCuarto } from '../data/db'
 
 /**
  * Etiquetas flotantes del mapa: cada parcela sembrada muestra su siembra,
@@ -66,9 +69,73 @@ function EtiquetasActivas() {
         ))}
       {/* Tarjeta del animal seleccionado (nombre + barras); se oculta sola. */}
       <TarjetaAnimalSel animales={animales} corrales={corrales} ahora={ahora} />
+      {/* Barras del objeto «con vida» que tienes al lado (mientras estés cerca). */}
+      <TarjetaObjetoVivo />
     </div>
   )
 }
+
+/**
+ * Objeto con el preset «Dale vida» al alcance: sus barras de comida y ánimo. No
+ * necesita store de selección — se monta para el que ofrece «Acariciar» en
+ * `contextoStore`, que es exactamente el que tienes delante.
+ */
+function TarjetaObjetoVivo() {
+  const objetoId = useContexto((s) => s.acciones.find((a) => a.tipo === 'acariciarObjeto')?.id)
+  if (objetoId == null) return null
+  return <EtiquetaObjetoVivo key={objetoId} objetoId={objetoId} />
+}
+
+function EtiquetaObjetoVivo({ objetoId }: { objetoId: number }) {
+  const t = useT()
+  const nombre = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.nombre)
+  const comidaEn = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.vidaComidaEn)
+  const mimoEn = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.vidaMimoEn)
+
+  // Hambre y ánimo decaen en horas: medio minuto de resolución sobra.
+  const [ahora, setAhora] = useState(() => Date.now())
+  useEffect(() => {
+    const id = window.setInterval(() => setAhora(Date.now()), 30_000)
+    return () => window.clearInterval(id)
+  }, [])
+
+  const fila = { vidaComidaEn: comidaEn, vidaMimoEn: mimoEn } as ObjetoCuarto
+  const comida = barraComidaVida(fila, ahora)
+  return (
+    <div
+      ref={(el) => {
+        const id = `vida:${objetoId}`
+        if (el) registrarDom(id, el)
+        else quitarDom(id)
+      }}
+      className="absolute left-0 top-0"
+      style={{ display: 'none' }}
+    >
+      <div className="ui-hud pointer-events-none flex -translate-x-1/2 -translate-y-full flex-col gap-1 whitespace-nowrap rounded-md border border-white/10 px-2 py-1 text-[10px] font-semibold text-white">
+        {nombre && <span className={comida <= 0 ? 'text-amber-300' : undefined}>{nombre}</span>}
+        <Barra
+          icono="alimentar"
+          titulo={t('granja.barra.comida', 'Comida')}
+          nivel={comida}
+          color={comida <= 0.4 ? '#f59e0b' : '#84cc16'}
+        />
+        <Barra
+          icono="mimar"
+          titulo={t('granja.barra.animo', 'Ánimo')}
+          nivel={barraAnimoVida(fila, ahora)}
+          color="#f472b6"
+        />
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Avisos que el usuario guardó al oprimirlos: "col,row" → clave del aviso
+ * oculto (siembra + etapa). Vive fuera del componente para que sobrevivan a
+ * entrar y salir de un cuarto; una siembra o etapa nueva vuelve a mostrarlos.
+ */
+const avisosGuardados = new Map<string, string>()
 
 const cuentaRegresiva = (restanteMs: number): string => {
   const s = Math.max(0, Math.ceil(restanteMs / 1000))
@@ -88,6 +155,8 @@ function EtiquetaParcela({
   const t = useT()
   // El detalle (contador + cosechas) se despliega con un clic y se repliega solo.
   const [expandida, setExpandida] = useState(false)
+  // Repinta al guardar un aviso: sin nada creciendo el mapa no tiene tick.
+  const [, repintar] = useState(0)
   const ancla = useRef<THREE.Vector3 | null>(null)
   if (ancla.current == null) {
     // El chip se posa sobre la tablita de la estaca (mitad del borde de arriba).
@@ -111,9 +180,13 @@ function EtiquetaParcela({
   if (!est) return null
   const cubierta = regadaDesde != null && regadaDesde <= ahora
   const restante = (fila.plantadoEn ?? 0) + def.duracionMin * 60_000 - ahora
-  // Las alertas (listo/marchito) se muestran completas siempre: no se ocultan.
+  // Las alertas (listo/marchito) salen completas hasta que el usuario las
+  // guarda oprimiéndolas: entonces queda solo el icono, como las que crecen.
   const alerta = est.etapa === 'listo' || est.etapa === 'marchito'
-  const abierto = expandida || alerta
+  const celda = `${fila.col},${fila.row}`
+  const claveAviso = `${fila.plantadoEn ?? 0}|${est.etapa}`
+  const guardado = avisosGuardados.get(celda) === claveAviso
+  const abierto = expandida || (alerta && !guardado)
 
   return (
     <div
@@ -129,10 +202,20 @@ function EtiquetaParcela({
         type="button"
         onClick={(e) => {
           e.stopPropagation()
-          if (!alerta) setExpandida((v) => !v)
+          // Aviso a la vista: se guarda. Lo demás (o un aviso ya guardado)
+          // despliega el detalle, que se repliega solo a los 6 s.
+          if (alerta && !guardado) {
+            avisosGuardados.set(celda, claveAviso)
+            setExpandida(false)
+            repintar((n) => n + 1)
+          } else setExpandida((v) => !v)
         }}
         aria-label={t(`huerto.especie.${fila.especie}`, def.nombre)}
-        title={t('huerto.etiqueta.ver', 'Ver detalle')}
+        title={
+          alerta && !guardado
+            ? t('huerto.etiqueta.guardar', 'Guardar aviso')
+            : t('huerto.etiqueta.ver', 'Ver detalle')
+        }
         className="ui-hud pointer-events-auto flex -translate-x-1/2 -translate-y-full items-center gap-1 whitespace-nowrap rounded-full border border-white/10 px-1.5 py-0.5 text-[10px] font-semibold text-white transition active:scale-95"
       >
         <Icono emoji={def.icon} />

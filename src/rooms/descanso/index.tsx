@@ -1,11 +1,12 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura } from '../../core/registry'
-import { vTexto, vNumero, vFecha } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/appContrato'
+import { vTexto, vNumero, vFecha } from '../../core/appContrato'
 import { suenoRepo } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
 import { flujosDescanso } from './tutorial'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
+import { planMetasDescanso } from './plan'
 
 async function capturar(texto: string): Promise<boolean> {
   const norm = normalizar(texto)
@@ -76,6 +77,8 @@ const descanso: Plantilla = {
   color: '#22d3ee',
   App: DescansoApp,
   flujos: flujosDescanso,
+  // Acotamiento del planificador ✨: en Descanso el plan es de higiene del sueño.
+  planMetas: planMetasDescanso,
   capturar,
   esquemas,
   operacionesIA: OPERACIONES_IA,

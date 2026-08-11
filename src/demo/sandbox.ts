@@ -25,9 +25,8 @@
  * original»; los locks solo evitan que foto y reposición se solapen.
  */
 import type Dexie from 'dexie'
-import { create } from 'zustand'
 import { db, type SyncMeta } from '../core/data/db'
-import { setConstruyendoDemo, registrarAlEnsuciar, tablasSucias, limpiarTablasSucias } from '../core/data/demoGuard'
+import { setConstruyendoDemo, tablasSucias, limpiarTablasSucias } from '../core/data/demoGuard'
 import { marcarEscrituraSilenciosa } from '../core/data/sync/middleware'
 import { esDemo, esDemoAutor } from '../core/edicion'
 import { haySandboxDemoSucio, limpiarSandboxDemoSucio } from './modo'
@@ -65,6 +64,27 @@ export async function fotografiarDemo(): Promise<void> {
   // Los builders escribieron por los repos y llenaron la cola de sync con el
   // año entero de Pep@. En demo nadie la vacía (`sync/motor.ts`): peso muerto.
   await db._outbox.clear()
+}
+
+/**
+ * Fotografía las tablas que escribió un builder TARDÍO (la app se abrió después
+ * del arranque, ver demo/construir.ts). Se re-fotografían ENTERAS, tuvieran foto
+ * o no: su contenido de ahora —el original más el año de esta app— es el nuevo
+ * original. Dejar la foto vieja de una tabla compartida (`metas`, `rutinas`)
+ * borraría el año recién construido en la primera recarga que la ensucie.
+ */
+export async function fotografiarTablasDemo(nombres: string[]): Promise<void> {
+  if (!esDemo() || esDemoAutor()) return
+  const conocidas = new Set(tablasDeDatos(db))
+  const tablas = [...new Set(nombres)].filter((n) => conocidas.has(n))
+  if (!tablas.length) return
+  await db.transaction('rw', [...tablas.map((n) => db.table(n)), db._syncMeta], async () => {
+    marcarEscrituraSilenciosa()
+    for (const nombre of tablas) {
+      const filas = await db.table(nombre).toArray()
+      if (filas.length) await db._syncMeta.put({ clave: PREFIJO_BASE + nombre, valor: filas })
+    }
+  })
 }
 
 /**
@@ -115,25 +135,4 @@ async function reponer(vip: Dexie): Promise<void> {
   // sobreviven y se reintenta en la siguiente carga.
   limpiarSandboxDemoSucio()
   limpiarTablasSucias()
-  // El store nació con la marca todavía puesta (esto corre en `on('ready')`,
-  // después): sin esto la BarraDemo ofrecería descartar una casa ya repuesta.
-  useSandboxDemo.setState({ sucio: false })
 }
-
-/** Tira los cambios: las marcas ya están puestas, la recarga hace el trabajo. */
-export function descartarSandbox(): void {
-  location.reload()
-}
-
-interface SandboxUiState {
-  /** ¿Hay cambios que descartar? (pinta el botón de la BarraDemo) */
-  sucio: boolean
-}
-
-export const useSandboxDemo = create<SandboxUiState>(() => ({
-  sucio: esDemo() && haySandboxDemoSucio(),
-}))
-
-// El guard vive en `core/data` y no puede importar de `demo/` (ciclo con db):
-// se le inyecta el aviso, igual que se le inyectaba la lista de tablas.
-registrarAlEnsuciar(() => useSandboxDemo.setState({ sucio: true }))

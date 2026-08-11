@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { EsquemaCaptura, Plantilla } from '../../core/registry'
-import { vFecha, vLista, vNumero, vTexto } from '../../core/registry'
+import type { EsquemaCaptura, Plantilla } from '../../core/appContrato'
+import { vFecha, vLista, vNumero, vTexto } from '../../core/appContrato'
 import {
   entradasBiblioRepo,
   objetivoDiarioDe,
@@ -166,6 +166,7 @@ const biblioteca: Plantilla = {
     etiquetaEs: 'Estudio de hoy',
     unidad: 'min',
     seccion: 'estudio',
+    ajustable: true,
     del: async (fecha) => ({
       hecho: (await sesionesEstudioRepo.list())
         .filter((s) => s.fecha === fecha)

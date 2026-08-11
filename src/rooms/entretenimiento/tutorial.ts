@@ -49,10 +49,10 @@ const flujoArchivo: TutorialDef = {
     },
     {
       sel: 'entretenimiento.archivo.agrupar',
-      titulo: T('tut.app-entretenimiento--archivo.3.titulo', 'Por fecha o por género'),
+      titulo: T('tut.app-entretenimiento--archivo.3.titulo', 'Cuatro formas de ordenarlo'),
       texto: T(
         'tut.app-entretenimiento--archivo.3.texto',
-        'Cambia la vista: por fecha las agrupa en carpetas de año y mes; por género, en carpetas temáticas. Lo pendiente se queda arriba, esperando turno.',
+        'Por género, por categoría (película, serie, libro, videojuego), por autor o por fecha. En la vista por género las carpetas se arrastran: pon primero lo que más ves.',
       ),
     },
   ],
@@ -66,13 +66,13 @@ const flujoProgramas: TutorialDef = {
     'Un programa es una lista de títulos por tema o género convertida en metas: palomeas lo que completas y, si quieres, les pones fecha para verlas en el calendario.',
   ),
   preparar: () => {
-    abrirApp('entretenimiento', 'archivo')
+    abrirApp('entretenimiento', 'programas')
   },
   pasos: [
     {
       sel: 'entretenimiento.programas',
       alEntrar: () => {
-        clickTut('entretenimiento.tab.archivo')
+        clickTut('entretenimiento.tab.programas')
       },
       titulo: T('tut.app-entretenimiento--programas.1.titulo', 'La lista de pendientes'),
       texto: T(
@@ -97,4 +97,46 @@ const flujoProgramas: TutorialDef = {
   ],
 }
 
-export const flujosEntretenimiento: TutorialDef[] = [flujoArchivo, flujoProgramas]
+const flujoJuegos: TutorialDef = {
+  id: 'app-entretenimiento--juegos',
+  titulo: T('tut.app-entretenimiento--juegos.titulo', 'La mesa digital'),
+  resumen: T(
+    'tut.app-entretenimiento--juegos.resumen',
+    'Más de veinte juegos de mesa y arcade, agrupados por familia y filtrados por número de jugadores: se juegan ahí mismo, sin salir de la casa.',
+  ),
+  preparar: () => {
+    abrirApp('entretenimiento', 'mesa')
+  },
+  pasos: [
+    {
+      sel: 'entretenimiento.juegos.secciones',
+      alEntrar: () => {
+        clickTut('entretenimiento.tab.mesa')
+      },
+      texto: T(
+        'tut.app-entretenimiento--juegos.1.texto',
+        '1–2 jugadores o 3+: el filtro esconde lo que no sirve para el grupo que tienes enfrente. Los juegos marcados «2+» sirven en las dos secciones.',
+      ),
+    },
+    {
+      sel: 'entretenimiento.juegos.familia.tablero',
+      titulo: T('tut.app-entretenimiento--juegos.2.titulo', 'Por familia'),
+      texto: T(
+        'tut.app-entretenimiento--juegos.2.texto',
+        'Tablero, Ingenio, Arcade, Cartas y casino, Para el grupo: cada familia con su color propio. Ajedrez, damas, dominó, blackjack, tetris, buscaminas y más de una docena más.',
+      ),
+    },
+    {
+      sel: () =>
+        document.querySelector('[data-tut^="entretenimiento.juegos.item."]')?.getAttribute('data-tut') ??
+        'entretenimiento.juegos.secciones',
+      titulo: T('tut.app-entretenimiento--juegos.3.titulo', 'Un toque y a jugar'),
+      texto: T(
+        'tut.app-entretenimiento--juegos.3.texto',
+        'Cada tarjeta abre el juego en pantalla completa; los que lo admiten traen su propio selector de dificultad arriba. Volver regresa aquí mismo, sin perder tu lugar.',
+      ),
+    },
+  ],
+}
+
+export const flujosEntretenimiento: TutorialDef[] = [flujoArchivo, flujoProgramas, flujoJuegos]

@@ -1,7 +1,7 @@
-import type { Plantilla } from '../../core/registry'
+import type { Plantilla } from '../../core/appContrato'
 import { Resumen } from './Resumen'
 import { useCanchas } from '../../core/state/canchasStore'
-import { flujosCanchas, tutorialCanchas } from './tutorial'
+import { flujosCanchas } from './tutorial'
 
 /** Plantilla de infraestructura: se construye en el mapa 3D, no se asigna a cuartos. */
 const canchas: Plantilla = {
@@ -14,7 +14,6 @@ const canchas: Plantilla = {
   tipo: 'infraestructura',
   sinMetaDiaria: true,
   construir: () => useCanchas.getState().iniciar(),
-  tutorial: tutorialCanchas,
   flujos: flujosCanchas,
 }
 

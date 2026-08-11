@@ -1,6 +1,8 @@
-import type { CampoCaptura } from '../../core/registry'
+import type { MomentoComida } from '../../core/data/db'
+import type { CampoCaptura } from '../../core/appContrato'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
-import { vLista, vNumero, vTexto } from '../../core/registry'
+import { vLista, vNumero, vTexto } from '../../core/appContrato'
+import { vMomentos } from './momentos'
 
 /**
  * Los campos de una receta, tal y como se le explican al modelo. Viven aquí
@@ -13,6 +15,12 @@ export const CAMPOS_RECETA: CampoCaptura[] = [
   { campo: 'emoji', tipo: 'texto', descripcion: 'Un emoji que represente el platillo (ej. 🍗)' },
   { campo: 'porciones', tipo: 'numero', descripcion: 'Porciones que rinde la receta (defecto 2)' },
   { campo: 'minutos', tipo: 'numero', descripcion: 'Tiempo total de preparación en minutos' },
+  {
+    campo: 'momentos',
+    tipo: 'lista',
+    descripcion:
+      'Para qué momentos del día encaja, SOLO de esta lista: "desayuno", "comida", "cena", "snack". Puede llevar varios (ej. un batido: ["desayuno","snack"]). Si sirve para cualquier momento o no está claro, manda una lista vacía.',
+  },
   { campo: 'etiquetas', tipo: 'lista', descripcion: 'Etiquetas cortas: tipo de platillo, dieta, ocasión (ej. "pollo", "rápida", "alta proteína")' },
   { campo: 'ingredientes', tipo: 'lista', descripcion: 'Un ingrediente por elemento, CON cantidad (ej. "200 g de arroz", "1 cucharada de aceite")', requerido: true },
   { campo: 'pasos', tipo: 'lista', descripcion: 'Pasos de preparación en orden, uno por elemento, claros y concisos', requerido: true },
@@ -58,6 +66,7 @@ export interface RecetaIA {
   emoji: string
   porciones: number
   minutos: number
+  momentos: MomentoComida[]
   etiquetas: string[]
   ingredientes: string[]
   pasos: string[]
@@ -82,6 +91,7 @@ export async function crearRecetaIA(peticion: string): Promise<RecetaIA> {
     emoji: vTexto(json.emoji, '🍲'),
     porciones: Math.max(1, Math.round(vNumero(json.porciones, 2))),
     minutos: Math.max(0, Math.round(vNumero(json.minutos))),
+    momentos: vMomentos(json.momentos),
     etiquetas: vLista(json.etiquetas),
     ingredientes,
     pasos,

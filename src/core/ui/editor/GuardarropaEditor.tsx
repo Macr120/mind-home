@@ -74,14 +74,39 @@ interface Editando {
   piezas: Pieza3D[]
 }
 
+function parsePiezas(raw: string): Pieza3D[] {
+  try {
+    return JSON.parse(raw) as Pieza3D[]
+  } catch {
+    return []
+  }
+}
+
 /**
  * Guardarropa a medida del personaje principal: crea prendas por IA o a mano
  * (constructor por piezas con preview), guárdalas y póntelas/quítatelas. Lo
  * puesto vive en el avatar; el guardarropa es una tabla local.
+ *
+ * Con `carpetaId` se comporta como el contenido de UNA carpeta de la pestaña
+ * Ropa: solo lista y crea prendas de esa carpeta. Sin él, muestra el
+ * guardarropa entero (como antes de las carpetas).
  */
-export function GuardarropaEditor() {
+export function GuardarropaEditor({
+  carpetaId,
+  abrirPrendaId,
+}: {
+  carpetaId?: number
+  /** Abre directo el editor de esta prenda (tras hornear una copia de fábrica). */
+  abrirPrendaId?: number
+} = {}) {
   const t = useT()
-  const guardadas = prendasCustomRepo.useAll()
+  const todas = prendasCustomRepo.useAll()
+  const guardadas =
+    carpetaId == null
+      ? todas
+      : todas
+          ?.filter((p) => p.carpetaId === carpetaId)
+          .sort((a, b) => (a.orden ?? 0) - (b.orden ?? 0))
   const ropaCustom = useDiseño((s) => s.avatar.ropaCustom)
   const poner = useDiseño((s) => s.ponerAvatarPrendaCustom)
   const quitar = useDiseño((s) => s.quitarAvatarPrendaCustom)
@@ -91,24 +116,36 @@ export function GuardarropaEditor() {
   const [generando, setGenerando] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const estaPuesta = (id?: number) => id != null && (ropaCustom ?? []).some((g) => g.refId === id)
-
-  const parsePiezas = (raw: string): Pieza3D[] => {
-    try {
-      return JSON.parse(raw) as Pieza3D[]
-    } catch {
-      return []
+  // La copia horneada de una prenda de fábrica se abre a editar en cuanto la
+  // lista la trae (el repo es reactivo: llega un render después de crearla). Se
+  // ajusta durante el render, no en un efecto, para no encadenar un repintado.
+  const [abierta, setAbierta] = useState<number | undefined>()
+  if (abrirPrendaId != null && abrirPrendaId !== abierta) {
+    const p = todas?.find((x) => x.id === abrirPrendaId)
+    if (p) {
+      setAbierta(abrirPrendaId)
+      setEditando({ id: p.id, nombre: p.nombre, piezas: parsePiezas(p.piezas) })
     }
   }
+
+  const estaPuesta = (id?: number) => id != null && (ropaCustom ?? []).some((g) => g.refId === id)
+
+  /** Campos de carpeta de una prenda nueva: al final de la carpeta actual. */
+  const enCarpeta = () => ({ carpetaId, orden: (guardadas ?? []).length })
 
   const generarIA = async () => {
     if (!desc.trim() || generando) return
     setGenerando(true)
     setError(null)
     try {
-      const piezas = await generarModelo3D(desc.trim(), 'ropa')
+      const { piezas } = await generarModelo3D(desc.trim(), 'ropa')
       const nombre = desc.trim()
-      const id = await prendasCustomRepo.add({ nombre, piezas: JSON.stringify(piezas), creadoEn: Date.now() })
+      const id = await prendasCustomRepo.add({
+        nombre,
+        piezas: JSON.stringify(piezas),
+        ...enCarpeta(),
+        creadoEn: Date.now(),
+      })
       await poner(id, piezas, nombre) // se pone al crearla
       setDesc('')
     } catch (err) {
@@ -128,7 +165,7 @@ export function GuardarropaEditor() {
       await prendasCustomRepo.update(id, { nombre, piezas: piezasJson })
       if (estaPuesta(id)) await poner(id, editando.piezas, nombre) // refresca lo puesto
     } else {
-      id = await prendasCustomRepo.add({ nombre, piezas: piezasJson, creadoEn: Date.now() })
+      id = await prendasCustomRepo.add({ nombre, piezas: piezasJson, ...enCarpeta(), creadoEn: Date.now() })
       await poner(id, editando.piezas, nombre) // se pone al crearla
     }
     setEditando(null)
@@ -178,9 +215,11 @@ export function GuardarropaEditor() {
   // ── Lista + acciones ──
   return (
     <div className="space-y-2">
-      <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
-        {t('editor.pers.guardarropa', 'Guardarropa a medida')}
-      </p>
+      {carpetaId == null && (
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/40">
+          {t('editor.pers.guardarropa', 'Guardarropa a medida')}
+        </p>
+      )}
 
       {/* Crear por IA */}
       {iaHabilitada() && (
@@ -222,9 +261,11 @@ export function GuardarropaEditor() {
 
       {/* Prendas guardadas */}
       {(guardadas ?? []).length === 0 ? (
-        <p className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] leading-snug text-white/40">
-          {t('editor.pers.ropaCustomVacio', 'Aún no tienes prendas a medida. Crea una con IA o constrúyela a mano.')}
-        </p>
+        carpetaId == null ? (
+          <p className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-[11px] leading-snug text-white/40">
+            {t('editor.pers.ropaCustomVacio', 'Aún no tienes prendas a medida. Crea una con IA o constrúyela a mano.')}
+          </p>
+        ) : null
       ) : (
         <div className="space-y-1.5">
           {(guardadas ?? []).map((p) => {

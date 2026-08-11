@@ -9,7 +9,8 @@ import { VACIO,
 import type { PlanDelDia } from './agenda'
 import { TarjetaRutina } from './TarjetaRutina'
 import { AutocompleteEjercicio } from './AutocompleteEjercicio'
-import { CardioEnVivo, RutaSvg } from './CardioEnVivo'
+import { CardioEnVivo } from './CardioEnVivo'
+import { DialogoEstadisticas, RutaSvg } from './EstadisticasCardio'
 import { CheckFila } from './CheckFila'
 import { aGrupoCatalogo } from './catalogo'
 import { CrearRutinaCardio } from './CrearRutinaCardio'
@@ -481,6 +482,7 @@ export function ResistenciaTab({
             resaltado="bg-sky-500/10 border-sky-500/30"
             unidades={unidades}
             splitsPorSesion={splitsPorSesion}
+            conEstadisticas
             onEditar={editarSesion}
             onEliminar={async (id) => {
               if (editandoId === id) cancelarEdicion()
@@ -499,7 +501,7 @@ export function ResistenciaTab({
             onChange={setPeriodo}
             acento="bg-sky-500/25 text-sky-400 border border-sky-500/40"
           />
-          <div data-tut="ejercicio.progreso.panel" className="grid grid-cols-2 gap-3">
+          <div data-tut="ejercicio.resistencia.progreso" className="grid grid-cols-2 gap-3">
             <HeatmapMensual sesiones={sesiones} tipo="resistencia" color="#38bdf8" />
             <div className="grid grid-rows-2 gap-3">
               <StatCard
@@ -599,6 +601,7 @@ export function HistorialSesiones({
   resaltado,
   unidades,
   splitsPorSesion,
+  conEstadisticas,
   onEditar,
   onEliminar,
 }: {
@@ -611,10 +614,13 @@ export function HistorialSesiones({
   unidades?: SistemaUnidades
   /** Solo resistencia: los tramos de cada sesión, para desglosarla. */
   splitsPorSesion?: Map<number, SplitCardio[]>
+  /** Solo resistencia: botón para abrir la ficha de estadísticas de la sesión. */
+  conEstadisticas?: boolean
   onEditar: (s: SesionEjercicio) => void
   onEliminar: (id: number) => void
 }) {
   const t = useT()
+  const [verStats, setVerStats] = useState<SesionEjercicio | null>(null)
   const idsDelDia = new Set(delDia.map((s) => s.id))
   return (
     <div className="rounded-xl bg-white/5 p-4 border border-white/10">
@@ -654,6 +660,16 @@ export function HistorialSesiones({
                   <RutaSvg puntos={s.ruta} color="#38bdf8" className="h-9 w-14 shrink-0" />
                 )}
                 <span className={`font-semibold ${color}`}>{s.duracionMin}′</span>
+                {conEstadisticas && (
+                  <button
+                    type="button"
+                    onClick={() => setVerStats(s)}
+                    title={t('ejercicio.det.ver', 'Ver estadísticas')}
+                    className="text-white/30 hover:text-sky-400"
+                  >
+                    <Icono nombre="tendencia" />
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={() => onEditar(s)}
@@ -684,6 +700,13 @@ export function HistorialSesiones({
           )
         }}
       </Archivador>
+      {verStats && (
+        <DialogoEstadisticas
+          sesion={verStats}
+          unidades={unidades}
+          onCerrar={() => setVerStats(null)}
+        />
+      )}
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { useJuegoCancha, juegoFrame } from '../state/juegoCanchaStore'
+import { useHerramienta } from '../state/herramientaStore'
 import { useT } from '../i18n/useT'
+import { Icono } from './iconos/Icono'
 
 /**
  * Botón de acción del minijuego de cancha: ocupa el hueco del cubo de vistas
@@ -9,15 +11,22 @@ import { useT } from '../i18n/useT'
  * está en la ventana. Muta `juegoFrame` directamente (patrón de
  * BotonDerrapeCarrera con monturaFrame): cero re-renders. Atajo con la barra
  * espaciadora en PC.
+ *
+ * Lleva además el interruptor de CORRER (fútbol, tenis y básquet): al ocupar este
+ * botón el hueco del cubo desaparece la pila de herramientas, y sin él solo se
+ * podía correr con Mayús (o sea, nunca en móvil).
  */
 export function BotonAccionCancha() {
   const t = useT()
   const clase = useJuegoCancha((s) => s.clase)
   const fase = useJuegoCancha((s) => s.fase)
+  const correr = useHerramienta((s) => s.correr)
   const barraRef = useRef<HTMLDivElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
   const esTap = clase === 'tenis'
   const esBeisbol = clase === 'beisbol'
+  // Correr: en todos menos béisbol, donde el bateador está anclado a su caja.
+  const conCorrer = clase !== 'beisbol'
 
   // Barra de carga + resaltado (posesión / ventana de golpeo): rAF local, sin re-render.
   useEffect(() => {
@@ -97,6 +106,19 @@ export function BotonAccionCancha() {
 
   return (
     <div className="pointer-events-auto flex w-full flex-col items-center gap-1" style={{ touchAction: 'none' }}>
+      {conCorrer && (
+        <button
+          type="button"
+          onClick={() => useHerramienta.getState().setCorrer(!correr)}
+          title={t('herr.correr', 'Correr')}
+          className={`ui-hud flex h-9 w-full items-center justify-center gap-1.5 rounded-xl border-2 text-xs font-black text-white shadow-lg transition active:scale-95 ${
+            correr ? 'border-emerald-400/70 bg-emerald-600/70' : 'border-white/15'
+          }`}
+        >
+          <Icono emoji="🏃" />
+          {correr ? t('herr.corriendo', 'Corriendo') : t('herr.correr', 'Correr')}
+        </button>
+      )}
       <button
         ref={btnRef}
         type="button"

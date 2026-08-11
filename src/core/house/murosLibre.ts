@@ -11,6 +11,18 @@ interface SegLocal {
   bz: number
 }
 
+/**
+ * roomId centinela para las imágenes de los muros INDEPENDIENTES (no pertenecen a
+ * ningún cuarto). Reutiliza la tabla `murosImagenCuarto` igual que
+ * `MAPA_SUPERFICIE_ID` reutiliza la de imágenes de piso. La clave lleva el id del
+ * muro y el sufijo del elemento: `12#cuadro`, `12#puerta`.
+ */
+export const MURO_LIBRE_ROOM = '__muro_libre__'
+
+/** Clave de imagen de un muro libre dentro de `murosImagenCuarto`. */
+export const claveImagenMuroLibre = (muroId: number, que: 'cuadro' | 'puerta') =>
+  `${muroId}#${que}`
+
 /** Segmento de muro en coordenadas de mundo (X/Z). */
 export interface SegMundo {
   x1: number

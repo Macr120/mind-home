@@ -1,5 +1,5 @@
 import { useHouse } from './state/houseStore'
-import { useDiseño, esObjetoLibreria } from './state/disenoStore'
+import { useDiseño, esObjetoLibreria, esObjetoMapa } from './state/disenoStore'
 import { lanzarIntencionApp } from './state/intencionApp'
 
 /**
@@ -19,4 +19,20 @@ export function abrirApp(plantillaId: string, seccion?: string, dato?: string): 
   lanzarIntencionApp({ appId: plantillaId, seccion, dato })
   useHouse.getState().openRoom(obj.roomId)
   return obj.roomId
+}
+
+/**
+ * Abre la app de UN objeto concreto (botón "Interactuar" del hueco del cubo).
+ * A diferencia de `abrirApp`, que busca la primera instancia con esa plantilla
+ * en toda la casa, aquí el objeto ya está elegido: si la misma app está en dos
+ * cuartos, entra al que el jugador tiene enfrente. Devuelve false si el objeto
+ * no tiene app o vive en el mapa (`openRoom` no valida el id, y con el mapa
+ * dejaría la casa tapada por un overlay vacío).
+ */
+export function abrirAppDeObjeto(objetoId: number): boolean {
+  const obj = useDiseño.getState().objetos.find((o) => o.id === objetoId)
+  if (!obj?.plantillaId || esObjetoMapa(obj) || esObjetoLibreria(obj)) return false
+  lanzarIntencionApp({ appId: obj.plantillaId })
+  useHouse.getState().openRoom(obj.roomId)
+  return true
 }

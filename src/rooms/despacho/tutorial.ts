@@ -22,7 +22,7 @@ const flujoAnio: TutorialDef = {
   titulo: T('tut.app-despacho--anio.titulo', 'El año en que Pep@ ordenó su dinero'),
   resumen: T(
     'tut.app-despacho--anio.resumen',
-    'El Presupuesto resume lo que entró, lo que salió y el neto del periodo que elijas: día, semana, mes o año. Debajo, tu patrimonio, el presupuesto mensual, en qué se te va el dinero y la tendencia de los últimos periodos.',
+    'El Flujo resume lo que entró, lo que salió y el neto del periodo que elijas: día, semana, mes o año. Debajo, tu patrimonio, el presupuesto mensual, en qué se te va el dinero y la tendencia de los últimos periodos.',
   ),
   preparar: () => {
     abrirApp('despacho')
@@ -68,7 +68,7 @@ const flujoAnio: TutorialDef = {
       titulo: T('tut.app-despacho--anio.5.titulo', 'Lo que tienes hoy'),
       texto: T(
         'tut.app-despacho--anio.5.texto',
-        'Apuntas tu patrimonio una vez y el balance del periodo se le suma o se le resta: así ves cómo terminarías.',
+        'Tu patrimonio sale solo de la pestaña Patrimonio: activos menos pasivos. Aquí se le suma o resta el balance del periodo, para ver cómo terminarías.',
       ),
     },
     {
@@ -163,7 +163,7 @@ const flujoMetas: TutorialDef = {
       ),
     },
     {
-      sel: 'despacho.cronograma.ahorro',
+      sel: 'despacho.cronograma.metas',
       titulo: T('tut.app-despacho--metas.2.titulo', 'La meta en el tiempo'),
       texto: T(
         'tut.app-despacho--metas.2.texto',
@@ -195,4 +195,110 @@ const flujoMetas: TutorialDef = {
   ],
 }
 
-export const flujosDespacho: TutorialDef[] = [flujoAnio, flujoCaptura, flujoMetas]
+const flujoCalculadoras: TutorialDef = {
+  id: 'app-despacho--calculadoras',
+  titulo: T('tut.app-despacho--calculadoras.titulo', 'Cuatro reglas para poner una cifra'),
+  resumen: T(
+    'tut.app-despacho--calculadoras.resumen',
+    'Cuatro calculadoras de finanzas personales proponen un monto objetivo a partir de tu balance real, y lo convierten en meta con un toque. Los parámetros de cada regla se pueden ajustar: nadie tiene que aceptar el 50/30/20 tal cual.',
+  ),
+  preparar: () => {
+    abrirApp('despacho')
+  },
+  pasos: [
+    {
+      sel: 'despacho.calc.tabs',
+      alEntrar: async () => {
+        await irA('metas', 'financieras')
+      },
+      texto: T(
+        'tut.app-despacho--calculadoras.1.texto',
+        'Cuatro reglas de finanzas personales, cada una en su pestaña: fondo de emergencia, libertad financiera, 50/30/20 y el enganche del auto (20/4/10).',
+      ),
+    },
+    {
+      sel: 'despacho.calc.panel',
+      titulo: T('tut.app-despacho--calculadoras.2.titulo', 'Ya parte de tu balance'),
+      texto: T(
+        'tut.app-despacho--calculadoras.2.texto',
+        'Los campos llegan precargados con tu ingreso o gasto real del mes — tócalos para simular otra cifra sin perder de vista la real.',
+      ),
+    },
+    {
+      sel: 'despacho.calc.crearMeta',
+      titulo: T('tut.app-despacho--calculadoras.3.titulo', 'De cálculo a meta'),
+      texto: T(
+        'tut.app-despacho--calculadoras.3.texto',
+        'Con un toque, el resultado se convierte en una meta de ahorro real, lista para bajar al cronograma y ponerle fecha. (No lo pulses en la demo: crearía una meta de verdad.)',
+      ),
+    },
+  ],
+}
+
+const flujoPatrimonio: TutorialDef = {
+  id: 'app-despacho--patrimonio',
+  titulo: T('tut.app-despacho--patrimonio.titulo', 'Lo que tienes, lo que debes y a dónde va'),
+  resumen: T(
+    'tut.app-despacho--patrimonio.resumen',
+    'Patrimonio no es una foto: cada cosa que tienes sube o baja de precio, y cada deuda cobra intereses. Ponles su tasa y la tercera pestaña te enseña la película entera, del año pasado a donde acabes.',
+  ),
+  preparar: () => {
+    abrirApp('despacho')
+  },
+  pasos: [
+    {
+      sel: 'despacho.patr.neto',
+      alEntrar: async () => {
+        await irA('patrimonio', 'activos')
+      },
+      titulo: T('tut.app-despacho--patrimonio.1.titulo', 'Lo que vale hoy'),
+      texto: T(
+        'tut.app-despacho--patrimonio.1.texto',
+        'Activos menos pasivos. Cuando una línea lleva tasa, este número es lo que vale HOY, no lo que valía el día que lo apuntaste — y debajo puedes ver el desglose, o volver a lo que escribiste tú.',
+      ),
+    },
+    {
+      sel: 'despacho.patr.grafica',
+      titulo: T('tut.app-despacho--patrimonio.2.titulo', 'De dónde viene'),
+      texto: T(
+        'tut.app-despacho--patrimonio.2.texto',
+        'Los últimos dos años de este grupo. Abre cualquier línea y verás de qué depende: cuánto vale, desde cuándo, y cuánto sube o baja al año. Lo que escribes no se reescribe nunca solo.',
+      ),
+    },
+    {
+      sel: 'despacho.sub.simulacion',
+      titulo: T('tut.app-despacho--patrimonio.3.titulo', 'Y a dónde va'),
+      texto: T(
+        'tut.app-despacho--patrimonio.3.texto',
+        'La tercera pestaña sigue esa misma línea hacia adelante: sólida lo que pasó, punteada lo que darían tus tasas.',
+      ),
+    },
+    {
+      sel: 'despacho.sim.grafica',
+      alEntrar: async () => {
+        await irA('patrimonio', 'simulacion')
+      },
+      titulo: T('tut.app-despacho--patrimonio.4.titulo', 'Tres líneas'),
+      texto: T(
+        'tut.app-despacho--patrimonio.4.texto',
+        'Lo que tienes en verde, lo que debes en rojo y el neto en azul. La raya vertical es hoy: a su izquierda está lo que pasó de verdad.',
+      ),
+    },
+    {
+      sel: 'despacho.sim.controles',
+      titulo: T('tut.app-despacho--patrimonio.5.titulo', 'Muévelo todo'),
+      texto: T(
+        'tut.app-despacho--patrimonio.5.texto',
+        'Cuántos meses, cuánta inflación supones, y si sumar lo que ahorras cada mes con su propio ritmo de subida. Nada de esto toca tus datos: puedes probar sin miedo.',
+      ),
+    },
+  ],
+}
+
+export const flujosDespacho: TutorialDef[] = [
+  flujoAnio,
+  flujoCaptura,
+  flujoPatrimonio,
+  flujoMetas,
+  flujoCalculadoras,
+]

@@ -286,6 +286,198 @@ const MOODS: Record<MoodMusica, ParamsMood> = {
     bajo: 'nada',
     cola: 3,
   },
+  // Biblioteca: más íntimo que `estudio` — sin batería, notas largas y eco amplio.
+  lectura: {
+    tempo: 64,
+    base: 53, // Fa3
+    acordes: [
+      [0, 4, 7, 11],
+      [5, 9, 12, 16],
+      [2, 5, 9, 12],
+      [7, 11, 14, 17],
+    ], // Imaj7 · IVmaj7 · ii7 · V7
+    densidad: 0.32,
+    onda: 'triangle',
+    pad: true,
+    filtroHz: 950,
+    volumen: 0.5,
+    eco: 0.32,
+    brillo: 0.04,
+    bajo: 'redonda',
+    cola: 1.6,
+  },
+  // Agenda: metódico. Pulso constante sin swing, como un reloj que no se detiene.
+  oficina: {
+    tempo: 100,
+    base: 60, // Do4
+    acordes: [
+      [2, 5, 9],
+      [7, 11, 14],
+      [0, 4, 7, 11],
+      [0, 4, 7, 11],
+    ], // ii · V · Imaj7 · Imaj7
+    densidad: 0.45,
+    onda: 'triangle',
+    pad: false,
+    filtroHz: 1800,
+    volumen: 0.44,
+    bombos: [0, 4],
+    hatProb: 0.55,
+    eco: 0.12,
+    bajo: 'pulso',
+  },
+  // Ideas: curioso y saltarín. Notas cortas y agudas, acordes sus que no cierran.
+  taller: {
+    tempo: 112,
+    base: 67, // Sol4
+    acordes: [
+      [0, 2, 7],
+      [4, 9, 11],
+      [5, 7, 12],
+      [2, 7, 9],
+    ],
+    densidad: 0.65,
+    onda: 'triangle',
+    pad: false,
+    filtroHz: 3000,
+    volumen: 0.42,
+    hatProb: 0.5,
+    swing: 0.12,
+    eco: 0.2,
+    brillo: 0.16,
+    bajo: 'pulso',
+    cola: 0.8,
+  },
+  // Sala de cómputo: electrónico limpio, arpegio denso y bajo en octavas.
+  digital: {
+    tempo: 118,
+    base: 62, // Re4 menor
+    acordes: [
+      [0, 3, 7, 14],
+      [10, 14, 17, 24],
+      [5, 8, 12, 19],
+      [7, 10, 14, 21],
+    ], // i9 · VII · iv · v
+    densidad: 0.75,
+    onda: 'square',
+    pad: true,
+    filtroHz: 2400,
+    volumen: 0.4,
+    bombos: [0, 4],
+    hatProb: 0.8,
+    eco: 0.16,
+    bajo: 'octavas',
+  },
+  // Noticias: marcha ligera de cabecera informativa, caja marcada y mayor decidido.
+  noticias: {
+    tempo: 108,
+    base: 60, // Do4
+    acordes: [
+      [0, 4, 7],
+      [5, 9, 12],
+      [7, 11, 14],
+      [0, 4, 7],
+    ], // I · IV · V · I
+    densidad: 0.5,
+    onda: 'triangle',
+    pad: false,
+    filtroHz: 2100,
+    volumen: 0.45,
+    bombos: [0, 4],
+    cajas: [2, 6],
+    hatProb: 0.4,
+    eco: 0.1,
+    bajo: 'pulso',
+  },
+  // Huerto y granja: folk alegre con shuffle y notas cortas, tipo cuerda pulsada.
+  campo: {
+    tempo: 96,
+    base: 62, // Re4
+    acordes: [
+      [0, 4, 7],
+      [7, 11, 14],
+      [5, 9, 12],
+      [0, 4, 7],
+    ], // I · V · IV · I
+    densidad: 0.7,
+    onda: 'triangle',
+    pad: false,
+    filtroHz: 2600,
+    volumen: 0.46,
+    bombos: [0, 4],
+    cajas: [4],
+    hatProb: 0.35,
+    swing: 0.22,
+    eco: 0.14,
+    bajo: 'pulso',
+    cola: 0.7,
+  },
+  // Canchas: percusión de gradería (bombo doble y palmas) con un riff que corea.
+  deporte: {
+    tempo: 128,
+    base: 57, // La3
+    acordes: [
+      [0, 4, 7],
+      [9, 12, 16],
+      [5, 9, 12],
+      [7, 11, 14],
+    ], // I · vi · IV · V
+    densidad: 0.55,
+    onda: 'sawtooth',
+    pad: true,
+    filtroHz: 2800,
+    volumen: 0.44,
+    bombos: [0, 3, 4, 6],
+    cajas: [2, 6],
+    hatProb: 0.5,
+    eco: 0.14,
+    bajo: 'octavas',
+    riff: [0, null, 7, null, 5, null, 4, null],
+  },
+  // Caminos: rodar sin prisa. Más ancho y con más eco que `viaje`.
+  ruta: {
+    tempo: 88,
+    base: 55, // Sol3
+    acordes: [
+      [0, 4, 7],
+      [9, 12, 16],
+      [5, 9, 12],
+      [7, 11, 14],
+    ], // I · vi · IV · V
+    densidad: 0.5,
+    onda: 'triangle',
+    pad: true,
+    filtroHz: 1600,
+    volumen: 0.5,
+    bombos: [0, 4],
+    cajas: [6],
+    hatProb: 0.6,
+    swing: 0.1,
+    eco: 0.28,
+    bajo: 'pulso',
+  },
+  // Paintball: tensión. Poca melodía, percusión seca y un riff grave que insiste.
+  tactico: {
+    tempo: 140,
+    base: 50, // Re3 menor
+    acordes: [
+      [0, 3, 7],
+      [1, 5, 8],
+      [0, 3, 7],
+      [10, 14, 17],
+    ], // i · bII · i · VII
+    densidad: 0.35,
+    onda: 'sawtooth',
+    pad: true,
+    filtroHz: 1500,
+    volumen: 0.44,
+    bombos: [0, 3, 4, 6],
+    cajas: [4],
+    hatProb: 0.95,
+    eco: 0.08,
+    bajo: 'octavas',
+    riff: [0, null, 0, 1, 0, null, -2, null],
+  },
 }
 
 const CORCHEAS_COMPAS = 8

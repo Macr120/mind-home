@@ -1,5 +1,6 @@
 import type { PerfilNutricion, RegistroPeso } from '../../core/data/db'
 import { perfilNutricionRepo, pesoRepo } from '../../core/data/repository'
+import { SIGNO_OBJETIVO, TOLERANCIA_PESO_KG } from './constantes'
 import { sumarDias } from './fecha'
 
 /** Guarda un pesaje y sincroniza el peso del perfil (lo usa la TDEE). */
@@ -7,13 +8,6 @@ export async function registrarPeso(fecha: string, kg: number) {
   await pesoRepo.add({ fecha, kg })
   const perfil = (await perfilNutricionRepo.list())[0]
   if (perfil?.id) await perfilNutricionRepo.update(perfil.id, { pesoKg: kg })
-}
-
-/** Signo que la meta de peso espera del avance semanal según el preset de dieta. */
-const SIGNO: Record<NonNullable<PerfilNutricion['objetivo']>, number> = {
-  deficit: -1,
-  mantener: 0,
-  superavit: 1,
 }
 
 export interface ProgresoMeta {
@@ -57,7 +51,7 @@ export function progresoMeta(
   const actual = serie.length ? serie[serie.length - 1].kg : perfil.pesoKg
   if (!actual) return null
 
-  const signoMeta = SIGNO[perfil.objetivo ?? 'mantener']
+  const signoMeta = SIGNO_OBJETIVO[perfil.objetivo ?? 'mantener']
   const ritmoMetaSemana = (perfil.ritmoKgSemana ?? 0) * signoMeta
 
   let ritmoRealSemana: number | null = null
@@ -71,7 +65,7 @@ export function progresoMeta(
 
   const faltan = objetivo - actual
   const restanteKg = Math.abs(faltan)
-  const logrado = restanteKg <= 0.3
+  const logrado = restanteKg <= TOLERANCIA_PESO_KG
 
   // Solo proyecta si el ritmo real empuja hacia el objetivo (mismo signo que lo que falta).
   let fechaEstimada: string | null = null

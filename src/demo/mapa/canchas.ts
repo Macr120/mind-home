@@ -18,8 +18,13 @@ import { MAPA_ROOM, useDiseño } from '../../core/state/disenoStore'
 import { TAM_CELDA_BASE } from '../../core/house/walls'
 import { areaUtilZona, celdasRect, mundo, TAM_CELDA } from './cuadrantes'
 
-/** Escala EFECTIVA: con celda de 8 m, el área útil de la zona es de 40 × 32 m. */
-const ESCALA = 0.65
+/**
+ * Escala EFECTIVA: con celda de 8 m, el área útil de la zona es de 40 × 32 m.
+ * Es el máximo que admite ese rectángulo con las cuatro canchas: manda el FONDO
+ * (fútbol 15 + béisbol girado 24 = 39 × escala) más el pasillo entre bandas.
+ * Subirla más dispara `avisarTraslapes`.
+ */
+const ESCALA = 0.74
 /**
  * Lo que se GUARDA en el objeto: las canchas escalan con la celda del mapa (`escalaCancha`),
  * así que se compensa el 8/6 del demo para que el tamaño en pantalla sea exactamente ESCALA.
@@ -38,20 +43,39 @@ interface Colocacion {
   marcador: Omit<MarcadorCancha, 'id' | 'canchaId'>
 }
 
-// La fila de arriba va pegada al norte para dejar ≥2 m con el béisbol, que es
-// la cancha más profunda (28 m de fondo antes de escalar).
+// Dos bandas: arriba las someras (fútbol y básquet), abajo las profundas
+// (béisbol y tenis, ambos girados 90°). Girar el béisbol es lo que permite la
+// escala actual: de pie ocupa 28 m de fondo y no cabían las dos bandas. Entre
+// bandas quedan ~2.1 m de pasillo para cruzar sin disparar el minijuego vecino,
+// y todas se apartan ≥1 m de los faroles de las esquinas.
 const CANCHAS_DEMO: Colocacion[] = [
-  { clase: 'futbol', dc: 1.1, dr: 0.3, rot: 0, marcador: { yo: 3, rival: 2 } },
-  { clase: 'basket', dc: 3.6, dr: 0.3, rot: 0, marcador: { yo: 21, rival: 15 } },
-  { clase: 'beisbol', dc: 1.1, dr: 2.35, rot: 0, marcador: { yo: 5, rival: 4 } },
+  { clase: 'futbol', dc: 1.03, dr: 0.244, rot: 0, marcador: { yo: 3, rival: 2 } },
+  { clase: 'basket', dc: 3.26, dr: 0.244, rot: 0, marcador: { yo: 21, rival: 15 } },
+  { clase: 'beisbol', dc: 1.17, dr: 2.31, rot: 90, marcador: { yo: 5, rival: 4 } },
   {
     clase: 'tenis',
-    dc: 3.7,
-    dr: 2.4,
+    dc: 3.35,
+    dr: 2.31,
     rot: 90,
     marcador: { yo: 0, rival: 0, juegosYo: 4, juegosRival: 3, setsYo: 2, setsRival: 1, mejorPeloteo: 18 },
   },
 ]
+
+/**
+ * Las cuatro esquinas de la EXPLANADA (no el centro de la celda esquina): a ~1 m
+ * del borde los faroles dejan de comerse los 3 m de duela que necesitan las
+ * canchas para crecer.
+ */
+const RETRANQUEO_FAROL = 0.375
+const esquinasFarol = (u: Rect) => {
+  const r = RETRANQUEO_FAROL
+  return [
+    { col: u.c0 - r, row: u.r0 - r },
+    { col: u.c1 + r, row: u.r0 - r },
+    { col: u.c0 - r, row: u.r1 + r },
+    { col: u.c1 + r, row: u.r1 + r },
+  ]
+}
 
 export async function construirCanchas(cols: number, rows: number): Promise<void> {
   const D = useDiseño.getState
@@ -61,6 +85,7 @@ export async function construirCanchas(cols: number, rows: number): Promise<void
   await aplicarPisoExteriorCeldas(0, celdasRect(u.c0, u.r0, u.c1, u.r1), 'cemento', '#8b949e')
 
   avisarTraslapes(u)
+  avisarFarolesEncimados(u)
 
   for (const c of CANCHAS_DEMO) {
     const meta = CANCHAS[c.clase]
@@ -73,12 +98,7 @@ export async function construirCanchas(cols: number, rows: number): Promise<void
   }
 
   // Faroles de las esquinas del complejo.
-  for (const { col, row } of [
-    { col: u.c0, row: u.r0 },
-    { col: u.c1, row: u.r0 },
-    { col: u.c0, row: u.r1 },
-    { col: u.c1, row: u.r1 },
-  ]) {
+  for (const { col, row } of esquinasFarol(u)) {
     const { x, z } = mundo(col, row)
     await D().addObjeto(MAPA_ROOM, 'farol', '#cbd5e1', undefined, { x, z })
   }
@@ -122,6 +142,29 @@ function avisarTraslapes(u: Rect): void {
     const r = rectDe(u, c)
     if (r.x0 < limite.x0 || r.x1 > limite.x1 || r.z0 < limite.z0 || r.z1 > limite.z1) {
       console.warn(`[MPH demo] La cancha ${c.clase} se sale de su cuadrante (celda ${TAM_CELDA} m)`)
+    }
+  }
+}
+
+/**
+ * En desarrollo: un farol de esquina dentro del rectángulo de una cancha se ve
+ * clavado en la duela, y de noche la ilumina desde dentro. Las canchas crecen
+ * con `ESCALA`, así que este aviso avisa antes de que vuelva a pasar.
+ */
+function avisarFarolesEncimados(u: Rect): void {
+  if (!import.meta.env.DEV) return
+  const MARGEN = 1 // metros libres alrededor del poste
+  for (const e of esquinasFarol(u)) {
+    const { x, z } = mundo(e.col, e.row)
+    for (const c of CANCHAS_DEMO) {
+      const r = rectDe(u, c)
+      const dentro =
+        x >= r.x0 - MARGEN && x <= r.x1 + MARGEN && z >= r.z0 - MARGEN && z <= r.z1 + MARGEN
+      if (dentro) {
+        console.warn(
+          `[MPH demo] El farol de la celda (${e.col},${e.row}) cae sobre la cancha de ${c.clase}`,
+        )
+      }
     }
   }
 }

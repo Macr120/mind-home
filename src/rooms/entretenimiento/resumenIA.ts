@@ -1,7 +1,7 @@
 import type { EstadoMedia, MediaArchivo, ResumenMedia, TipoMedia } from '../../core/data/db'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import { idiomaActual, tGlobal } from '../../core/i18n/useT'
-import { vLista, vTexto } from '../../core/registry'
+import { vLista, vTexto } from '../../core/appContrato'
 import { hoyISO } from './fecha'
 
 /**

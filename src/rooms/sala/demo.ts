@@ -25,6 +25,7 @@ import {
   JAPON_INICIO,
   META_COREA,
 } from '../../demo/hitosPep'
+import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_SALA } from './demo.data'
 
 type ClaveLugar =
@@ -213,4 +214,8 @@ export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
       creadoEn: `${ctx.fecha(-12)}T12:00:00.000Z`,
     },
   ])
+
+  // El viaje que fue (cumplido) y el que viene, con el itinerario de doce días
+  // todavía como propuesta: en Viajes, un plan ES el itinerario.
+  await sembrarMetasApp(ctx, 'sala')
 }

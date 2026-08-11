@@ -1,4 +1,4 @@
-import type { Plantilla } from '../../core/registry'
+import type { Plantilla } from '../../core/appContrato'
 import { Resumen } from './Resumen'
 import { usePaintball } from '../../core/state/paintballStore'
 import { flujosPaintball } from './tutorial'

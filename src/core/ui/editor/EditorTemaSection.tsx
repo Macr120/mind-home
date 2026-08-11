@@ -3,6 +3,7 @@ import { TEMAS } from '../../house/temas'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { EditorTemaDetalle } from './EditorTemaDetalle'
+import { MisTemas } from './MisTemas'
 
 /**
  * Selector de tema estacional global de la casa (editor de mapa).
@@ -56,6 +57,7 @@ export function EditorTemaSection({ embed }: { embed?: boolean } = {}) {
           </button>
         ))}
       </div>
+      <MisTemas />
       {temaGlobal != null && <EditorTemaDetalle />}
     </div>
   )

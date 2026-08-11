@@ -102,7 +102,7 @@ export function BarraMeta({
   }
 
   const progreso = progresoDe(metas, meta)
-  const tarde = vencida(meta, hoyIso)
+  const tarde = vencida(meta, hoyIso, metas)
   const color = meta.completada ? '#10b981' : tarde ? '#ef4444' : colorDe(meta)
 
   const izquierda = xDeIso(desde, previo.ini, pxPerDia)

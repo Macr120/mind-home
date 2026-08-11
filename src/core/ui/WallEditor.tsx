@@ -33,6 +33,7 @@ import { itemsPerimetroSubformas } from '../house/murosPerimetroLoseta'
 import { comprimirFoto } from '../house/especiales'
 import { ColorPicker } from './comun/ColorPicker'
 import { GenerarTexturaIA } from './editor/GenerarTexturaIA'
+import { ImagenPuertaBlock } from './editor/ImagenPuertaBlock'
 
 /** Modo del pincel: el tipo de elemento que se coloca/edita. */
 type Modo = 'pared' | 'puerta' | 'ventana'
@@ -244,6 +245,9 @@ export function WallEditor({ roomId, sinCroquis }: { roomId: string; sinCroquis?
   // Foto del cuadro empotrado (misma tabla de imágenes por arista, clave con sufijo).
   const fotoCuadroClave = selKey ? `${selKey}#cuadro` : ''
   const fotoCuadro = imgK ? roomMuroImagenes[`${imgK}#cuadro`] : undefined
+  // Imagen de la hoja de la puerta: misma tabla, otro sufijo.
+  const fotoPuertaClave = selKey ? `${selKey}#puerta` : ''
+  const fotoPuerta = imgK ? roomMuroImagenes[`${imgK}#puerta`] : undefined
   const nombreContenido = t(
     `paredes.cont.${vVentContenido}` as Parameters<typeof t>[0],
     TIPOS_VENTANA_CONTENIDO.find((c) => c.id === vVentContenido)!.nombre,
@@ -785,6 +789,15 @@ export function WallEditor({ roomId, sinCroquis }: { roomId: string; sinCroquis?
                 />
               )}
             </div>
+          )}
+
+          {/* 5b · Imagen de la hoja (el tipo "Sin puerta" no tiene hoja que vestir) */}
+          {modo === 'puerta' && tipoPuertaSel !== 'sin' && fotoPuertaClave && (
+            <ImagenPuertaBlock
+              url={fotoPuerta}
+              onImagen={(blob) => subirRoomMuroImagen(roomId, fotoPuertaClave, blob)}
+              onQuitar={() => void eliminarRoomMuroImagen(roomId, fotoPuertaClave)}
+            />
           )}
 
           {/* Quitar la capa activa */}

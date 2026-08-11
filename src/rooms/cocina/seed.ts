@@ -14,7 +14,7 @@ let sembrado = false
 
 /** Bandera persistente versionada: al subir la versión se añaden los ejemplos nuevos. */
 const LS_EJEMPLOS = claveLS('cocina.ejemplosSembrados')
-const VERSION_EJEMPLOS = '3'
+const VERSION_EJEMPLOS = '4'
 
 /** Datos iniciales de cocina (solo la primera vez). */
 export async function sembrarCocina() {
@@ -26,9 +26,26 @@ export async function sembrarCocina() {
 
   if (localStorage.getItem(LS_EJEMPLOS) !== VERSION_EJEMPLOS) {
     await sembrarEjemplos()
+    await catalogarMomentos()
     await sembrarDiaEjemplo()
     await sembrarListaEjemplo()
     localStorage.setItem(LS_EJEMPLOS, VERSION_EJEMPLOS)
+  }
+}
+
+/**
+ * Pone los momentos del día a las recetas de fábrica que se sembraron antes de
+ * que existiera el campo (v4). Sin esto el filtro del plan de comidas nacería
+ * inerte para quien ya tenía la app: todo valdría para todo.
+ *
+ * Solo toca las que siguen sin catalogar: lo que el usuario haya puesto manda.
+ */
+async function catalogarMomentos() {
+  const porNombre = new Map(RECETAS_EJEMPLO.map((r) => [r.nombre, r.momentos]))
+  for (const r of await db.recetas.toArray()) {
+    const momentos = porNombre.get(r.nombre)
+    if (r.id == null || !momentos?.length || r.momentos?.length) continue
+    await db.recetas.update(r.id, { momentos })
   }
 }
 

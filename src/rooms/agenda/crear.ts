@@ -1,34 +1,41 @@
 import type {
+  AjustesCiclo,
   ContactoAgenda,
+  Cuidado,
   CuidadoMascota,
+  DiaCiclo,
   EventoAgenda,
   Mascota,
   Medicamento,
-  ProyectoAgenda,
 } from '../../core/data/db'
 import {
+  ajustesCicloRepo,
   borrarContactoAgenda,
   borrarMascotaAgenda,
-  borrarProyectoAgenda,
   contactosAgendaRepo,
   cuidadosMascotaRepo,
+  cuidadosRepo,
+  diasCicloRepo,
   eventosAgendaRepo,
   mascotasRepo,
   medicamentosRepo,
-  proyectosAgendaRepo,
 } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import {
   borrarRutinasDeCuidado,
+  borrarRutinasDeCuidadoPersona,
   borrarRutinasDeCumple,
   borrarRutinasDeEvento,
   borrarRutinasDeMedicamento,
   palomearEventoAgenda,
+  sincronizarCiclo,
   sincronizarCuidado,
+  sincronizarCuidadoPersona,
   sincronizarCumple,
   sincronizarEventoAgenda,
   sincronizarMedicamento,
 } from './calendario'
+import { predecir } from './ciclo'
 import { nuevoId } from './ids'
 import { sumarMeses } from './mascotas'
 
@@ -40,7 +47,6 @@ import { sumarMeses } from './mascotas'
 type DatosEvento = Omit<EventoAgenda, 'id' | 'evId' | 'creadoEn'>
 type DatosContacto = Omit<ContactoAgenda, 'id' | 'contactoId' | 'creadoEn'>
 type DatosMedicamento = Omit<Medicamento, 'id' | 'medId' | 'creadoEn'>
-type DatosProyecto = Omit<ProyectoAgenda, 'id' | 'proyId' | 'creadoEn'>
 type DatosMascota = Omit<Mascota, 'id' | 'mascId' | 'creadoEn'>
 type DatosCuidado = Omit<CuidadoMascota, 'id' | 'cuidadoId' | 'creadoEn'>
 
@@ -126,18 +132,6 @@ export async function alternarMedicamento(m: Medicamento): Promise<void> {
   await sincronizarMedicamento({ ...m, activo })
 }
 
-export async function guardarProyecto(previo: ProyectoAgenda | null, datos: DatosProyecto): Promise<void> {
-  const fila: Omit<ProyectoAgenda, 'id'> = {
-    ...datos,
-    proyId: previo?.proyId ?? nuevoId('py'),
-    creadoEn: previo?.creadoEn ?? new Date().toISOString(),
-  }
-  if (previo?.id != null) await proyectosAgendaRepo.update(previo.id, fila)
-  else await proyectosAgendaRepo.add(fila)
-}
-
-export const borrarProyecto = (p: ProyectoAgenda) => borrarProyectoAgenda(p.proyId)
-
 // ----- Mascotas -----
 
 export async function guardarMascota(previo: Mascota | null, datos: DatosMascota): Promise<void> {
@@ -211,4 +205,104 @@ export async function reactivarCuidado(c: CuidadoMascota, nombreMascota: string)
   if (c.id == null) return
   await cuidadosMascotaRepo.update(c.id, { activo: true })
   await sincronizarCuidado({ ...c, activo: true }, nombreMascota)
+}
+
+// ----- Cuidados tuyos y de los prójimos -----
+
+type DatosCuidadoPersona = Omit<Cuidado, 'id' | 'cuidadoId' | 'creadoEn'>
+
+export async function guardarCuidadoPersona(
+  previo: Cuidado | null,
+  datos: DatosCuidadoPersona,
+  nombreDueno: string | null,
+): Promise<void> {
+  const fila: Omit<Cuidado, 'id'> = {
+    ...datos,
+    cuidadoId: previo?.cuidadoId ?? nuevoId('cp'),
+    creadoEn: previo?.creadoEn ?? new Date().toISOString(),
+  }
+  if (previo?.id != null) await cuidadosRepo.update(previo.id, fila)
+  else await cuidadosRepo.add(fila)
+  await sincronizarCuidadoPersona(fila as Cuidado, nombreDueno)
+}
+
+export async function borrarCuidadoPersona(c: Cuidado): Promise<void> {
+  if (c.id != null) await cuidadosRepo.remove(c.id)
+  await borrarRutinasDeCuidadoPersona(c.cuidadoId)
+}
+
+/** Mismo empujón que el de mascota: la próxima vez se va al siguiente periodo. */
+export async function completarCuidadoPersona(c: Cuidado, nombreDueno: string | null): Promise<void> {
+  if (c.id == null) return
+  const hoy = fechaLocalISO()
+  const cambios: Partial<Cuidado> = { ultima: hoy }
+  if (c.cadaMeses && c.cadaMeses > 0) {
+    let proxima = sumarMeses(c.fecha, c.cadaMeses)
+    while (proxima <= hoy) proxima = sumarMeses(proxima, c.cadaMeses)
+    cambios.fecha = proxima
+  } else {
+    cambios.activo = false
+  }
+  await cuidadosRepo.update(c.id, cambios)
+  await sincronizarCuidadoPersona({ ...c, ...cambios }, nombreDueno)
+}
+
+export async function reactivarCuidadoPersona(c: Cuidado, nombreDueno: string | null): Promise<void> {
+  if (c.id == null) return
+  await cuidadosRepo.update(c.id, { activo: true })
+  await sincronizarCuidadoPersona({ ...c, activo: true }, nombreDueno)
+}
+
+// ----- Ciclo -----
+
+export const AJUSTES_CICLO_INICIALES: Omit<AjustesCiclo, 'id'> = {
+  activo: false,
+  duracionCicloMedia: 28,
+  duracionPeriodoMedia: 5,
+  avisarAntes: 2,
+  creadoEn: new Date().toISOString(),
+}
+
+/** Lee la única fila de ajustes, creándola la primera vez. */
+export async function obtenerAjustesCiclo(): Promise<AjustesCiclo> {
+  const filas = await ajustesCicloRepo.list()
+  if (filas[0]) return filas[0]
+  const id = await ajustesCicloRepo.add({ ...AJUSTES_CICLO_INICIALES })
+  return { ...AJUSTES_CICLO_INICIALES, id: id as number }
+}
+
+/**
+ * Reescribe el aviso del calendario con la predicción de AHORA. Se llama tras
+ * cada cambio (día registrado o ajuste tocado) porque la estimación se mueve con
+ * cada dato nuevo.
+ */
+async function refrescarAvisoCiclo(ajustes: AjustesCiclo): Promise<void> {
+  const dias = await diasCicloRepo.list()
+  await sincronizarCiclo(ajustes, predecir(dias, ajustes.duracionCicloMedia).proximo)
+}
+
+export async function guardarAjustesCiclo(cambios: Partial<AjustesCiclo>): Promise<void> {
+  const previo = await obtenerAjustesCiclo()
+  if (previo.id != null) await ajustesCicloRepo.update(previo.id, cambios)
+  await refrescarAvisoCiclo({ ...previo, ...cambios })
+}
+
+/**
+ * Registra (o corrige) un día. Un día sin sangrado, sin síntomas y sin nota se
+ * borra en vez de guardarse vacío: así desmarcar deshace de verdad.
+ */
+export async function guardarDiaCiclo(
+  fecha: string,
+  datos: Pick<DiaCiclo, 'sangrado' | 'sintomas' | 'animo' | 'nota'>,
+): Promise<void> {
+  const previo = (await diasCicloRepo.list()).find((d) => d.fecha === fecha)
+  const vacio = !datos.sangrado && !datos.sintomas.length && datos.animo == null && !datos.nota
+  if (vacio) {
+    if (previo?.id != null) await diasCicloRepo.remove(previo.id)
+  } else if (previo?.id != null) {
+    await diasCicloRepo.update(previo.id, datos)
+  } else {
+    await diasCicloRepo.add({ fecha, ...datos, creadoEn: new Date().toISOString() })
+  }
+  await refrescarAvisoCiclo(await obtenerAjustesCiclo())
 }

@@ -1,6 +1,6 @@
 import { lazy } from 'react'
-import type { Plantilla, EsquemaCaptura } from '../../core/registry'
-import { vTexto, vNumero, vFecha, vLista } from '../../core/registry'
+import type { Plantilla, EsquemaCaptura } from '../../core/appContrato'
+import { vTexto, vNumero, vFecha, vLista } from '../../core/appContrato'
 import type { MomentoComida } from '../../core/data/db'
 import {
   aguaRepo,
@@ -10,13 +10,15 @@ import {
   listasCompraRepo,
   perfilNutricionRepo,
   recetasRepo,
+  rutinasRepo,
 } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
-import { actividadId } from '../../core/rutinas'
+import { actividadId, buscarAgenda, tocaFecha } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { CATEGORIAS_COMPRA, adivinarCategoria } from './categoriasCompra'
-import { HORA_SUGERIDA, MOMENTOS, PERFIL_DEFECTO } from './constantes'
+import { HORA_SUGERIDA, ML_VASO, MOMENTOS, PERFIL_DEFECTO } from './constantes'
 import { CAMPOS_DIETA, CAMPOS_RECETA } from './recetaIA'
+import { vMomentos } from './momentos'
 import { promptDieta, promptReceta } from './promptsFoto'
 import { fotoIA } from './fotoIA'
 import { imagenIaActiva } from '../../core/imagenIA'
@@ -25,6 +27,17 @@ import { planMetasCocina } from './plan'
 import { flujosCocina } from './tutorial'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
+
+/** Nombre del registro sin el verbo de entrada: «comí una ensalada» → «ensalada». */
+function nombreComida(texto: string): string {
+  const limpio = texto
+    .replace(
+      /^\s*(?:hoy\s+)?(?:me\s+)?(?:desayun[ée]|almorc[ée]|com[íi]|cen[ée]|merend[ée])\s+(?:un[ao]s?|el|la|los|las)?\s*/i,
+      '',
+    )
+    .trim()
+  return (limpio || texto).slice(0, 80)
+}
 
 async function capturar(texto: string): Promise<boolean> {
   const norm = normalizar(texto)
@@ -59,7 +72,7 @@ async function capturar(texto: string): Promise<boolean> {
     [['desayuno', 'desayune', 'desayunar'], 'desayuno'],
     [['comida', 'almuerzo', 'almorce', 'comi', 'comer'], 'comida'],
     [['cena', 'cene', 'cenar'], 'cena'],
-    [['snack', 'colacion', 'merienda', 'botana'], 'snack'],
+    [['snack', 'colacion', 'merende', 'merienda', 'botana'], 'snack'],
   ]
 
   let momento: 'desayuno' | 'comida' | 'cena' | 'snack' | null = null
@@ -83,12 +96,16 @@ async function capturar(texto: string): Promise<boolean> {
   }
 
   const calMatch = norm.match(/(\d+)\s*(?:cal(?:orias?)?|kcal)/)
-  if (momento && calMatch) {
+  // Sin calorías solo cuenta el verbo CONJUGADO («comí una ensalada»): el
+  // sustantivo suelto («gasté 300 en comida») y los infinitivos («quiero comer
+  // pizza») no afirman que se haya comido, y crearían registros fantasma.
+  const conVerbo = ['desayune', 'almorce', 'comi', 'cene', 'merende'].some((k) => tokens.has(k))
+  if (momento && (calMatch || conVerbo)) {
     await comidasRepo.add({
       fecha: fechaLocalISO(),
       momento,
-      nombre: texto.slice(0, 80),
-      calorias: parseInt(calMatch[1]),
+      nombre: nombreComida(texto),
+      calorias: calMatch ? parseInt(calMatch[1]) : 0,
       proteinas: 0,
       carbohidratos: 0,
       grasas: 0,
@@ -166,6 +183,7 @@ const esquemas: EsquemaCaptura[] = [
         emoji: vTexto(v.emoji, '🍲'),
         porciones: Math.max(1, Math.round(vNumero(v.porciones, 2))),
         minutos: Math.max(0, Math.round(vNumero(v.minutos))),
+        momentos: vMomentos(v.momentos),
         etiquetas: vLista(v.etiquetas),
         ingredientes,
         pasos,
@@ -307,30 +325,59 @@ const cocina: Plantilla = {
   capturar,
   esquemas,
   operacionesIA: OPERACIONES_IA,
-  // El agua es la única meta de cocina que se cumple llegando: las calorías tienen
-  // techo, no piso, y ponerlas de meta premiaría atiborrarse. Van en el detalle,
-  // que es donde informan sin empujar.
-  metaDiaria: {
-    clave: 'cocina.metaDiaria',
-    etiquetaEs: 'Agua de hoy',
-    unidad: 'ml',
-    seccion: 'diario',
-    del: async (fecha) => {
-      const perfil = (await perfilNutricionRepo.list())[0] ?? PERFIL_DEFECTO
-      const hecho = (await aguaRepo.list())
-        .filter((a) => a.fecha === fecha)
-        .reduce((s, a) => s + a.ml, 0)
-      const kcal = (await comidasRepo.list())
-        .filter((c) => c.fecha === fecha)
-        .reduce((s, c) => s + c.calorias, 0)
-      const litros = (ml: number) => (ml / 1000).toFixed(1)
-      return {
-        hecho,
-        objetivo: perfil.aguaMl,
-        detalle: `${litros(hecho)} / ${litros(perfil.aguaMl)} L · ${Math.round(kcal)} kcal`,
-      }
+  // Dos objetivos y no uno: el agua se cumple llegando y las comidas se cumplen
+  // haciéndolas. Cuando eran la misma barra bastaba con beber para dar por buena
+  // la nutrición del día. Las calorías siguen sin ser objetivo — tienen techo, no
+  // piso, y ponerlas de meta premiaría atiborrarse —, así que viajan en el detalle
+  // de las comidas, que es donde informan sin empujar.
+  objetivosDia: [
+    {
+      clave: 'cocina.metaDiaria',
+      etiquetaEs: 'Agua de hoy',
+      unidad: 'ml',
+      seccion: 'diario',
+      registro: {
+        esquemaId: 'agua',
+        valores: { ml: ML_VASO },
+        clave: 'cocina.objetivo.vaso',
+        etiquetaEs: 'Un vaso',
+      },
+      del: async (fecha) => {
+        const perfil = (await perfilNutricionRepo.list())[0] ?? PERFIL_DEFECTO
+        const hecho = (await aguaRepo.list())
+          .filter((a) => a.fecha === fecha)
+          .reduce((s, a) => s + a.ml, 0)
+        const litros = (ml: number) => (ml / 1000).toFixed(1)
+        return { hecho, objetivo: perfil.aguaMl, detalle: `${litros(hecho)} / ${litros(perfil.aguaMl)} L` }
+      },
     },
-  },
+    {
+      clave: 'cocina.objetivo.comidas',
+      etiquetaEs: 'Comidas de hoy',
+      seccion: 'diario',
+      del: async (fecha) => {
+        // El objetivo es lo que el usuario planeó: los momentos con bloque en el
+        // calendario ese día. Sin ninguno agendado da 0, y el núcleo lo trata como
+        // apagado — no todo el mundo quiere que le pidan cuentas de sus comidas.
+        const dia = new Date(`${fecha}T12:00`)
+        const rutinas = await rutinasRepo.list()
+        const agendados = MOMENTOS.filter((m) => {
+          const fila = buscarAgenda(rutinas, actividadId('momento', m.id))
+          return fila != null && tocaFecha(fila, dia)
+        })
+        const comidas = (await comidasRepo.list()).filter((c) => c.fecha === fecha)
+        const registrados = new Set(comidas.map((c) => c.momento))
+        const hecho = agendados.filter((m) => registrados.has(m.id)).length
+        const kcal = comidas.reduce((s, c) => s + c.calorias, 0)
+        return {
+          hecho,
+          objetivo: agendados.length,
+          detalle:
+            kcal > 0 ? `${hecho} / ${agendados.length} · ${Math.round(kcal)} kcal` : undefined,
+        }
+      },
+    },
+  ],
   // El planificador ✨ del cronograma ofrece los momentos de comida: un plan de
   // nutrición se calendariza poniéndole hora al desayuno, la comida y la cena.
   // El MISMO bloque que agenda RegistroComida (buscarAgenda lo dedupe al guardar).
@@ -356,7 +403,7 @@ const cocina: Plantilla = {
     {
       seccion: 'metas',
       etiqueta: 'Metas',
-      nombres: ['metas de nutricion', 'mis macros', 'cronograma de nutricion', 'mis metas de peso', 'plan alimenticio'],
+      nombres: ['metas de nutricion', 'mis macros', 'cronograma de nutricion', 'mis metas de peso'],
     },
     { seccion: 'diario', etiqueta: 'Registro', nombres: ['diario de comidas', 'mis comidas', 'registrar comida'] },
     { seccion: 'progreso', etiqueta: 'Progreso', nombres: ['mi progreso', 'mi peso', 'estadisticas de nutricion'] },
@@ -367,3 +414,4 @@ const cocina: Plantilla = {
 }
 
 export default cocina
+

@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import type { DietaGuardada, MomentoComida, Receta } from '../../core/data/db'
-import { comidasRepo, itemsCompraRepo, listasCompraRepo, recetasRepo } from '../../core/data/repository'
+import { itemsCompraRepo, listasCompraRepo, planComidasRepo, recetasRepo } from '../../core/data/repository'
 import { adivinarCategoria } from './categoriasCompra'
+import { registrarRecetaEnDiario } from './registrar'
 import { MOMENTOS } from './constantes'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { hoyISO } from './fecha'
@@ -126,6 +127,7 @@ export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: Die
             para tener receta y foto de una vez, y oculto nadie lo descubre. */}
         <button
           type="button"
+          data-tut="cocina.ia.receta"
           onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
           disabled={!iaActiva()}
           className="shrink-0 rounded-lg bg-amber-600 px-3 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
@@ -337,21 +339,16 @@ export function DetalleReceta({
   }
 
   const registrarAlDiario = async () => {
-    await comidasRepo.add({
-      fecha: hoyISO(),
-      momento,
-      nombre: receta.nombre,
-      calorias: receta.calorias,
-      proteinas: receta.proteinas,
-      carbohidratos: receta.carbohidratos,
-      grasas: receta.grasas,
-    })
+    await registrarRecetaEnDiario(receta, hoyISO(), momento)
     setRegistrado(true)
     setTimeout(() => setRegistrado(false), 2500)
   }
 
   const eliminar = async () => {
     if (!receta.id) return
+    // Sin esto, la rejilla semanal se queda con celdas que apuntan a la nada.
+    const planeadas = (await planComidasRepo.list()).filter((p) => p.recetaId === receta.id)
+    for (const p of planeadas) if (p.id) await planComidasRepo.remove(p.id)
     await recetasRepo.remove(receta.id)
     onVolver()
   }
@@ -530,6 +527,7 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
   const [carpeta, setCarpeta] = useState(receta?.carpeta ?? '')
   const [porciones, setPorciones] = useState(String(receta?.porciones ?? 2))
   const [minutos, setMinutos] = useState(String(receta?.minutos ?? ''))
+  const [momentos, setMomentos] = useState<MomentoComida[]>(receta?.momentos ?? [])
   const [etiquetas, setEtiquetas] = useState(receta?.etiquetas.join(', ') ?? '')
   const [ingredientes, setIngredientes] = useState(receta?.ingredientes.join('\n') ?? '')
   const [pasos, setPasos] = useState(receta?.pasos.join('\n') ?? '')
@@ -548,6 +546,8 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
       carpeta: carpeta.trim() || undefined,
       porciones: Math.max(1, parseInt(porciones, 10) || 2),
       minutos: Math.max(0, parseInt(minutos, 10) || 0),
+      // Sin ninguno marcado se guarda vacío, que significa «vale para todos».
+      momentos,
       etiquetas: etiquetas.split(',').map((x) => x.trim()).filter(Boolean),
       ingredientes: listaIngredientes,
       pasos: pasos.split('\n').map((x) => x.trim()).filter(Boolean),
@@ -614,6 +614,39 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
           <CampoNum label={t('cocina.rec.campoPorciones', 'Porciones')} value={porciones} onChange={setPorciones} />
           <CampoNum label={t('cocina.rec.campoMinutos', 'Minutos')} value={minutos} onChange={setMinutos} />
         </div>
+
+        {/* Para cuándo sirve: es lo que filtra el plan de comidas. */}
+        <div>
+          <span className="text-[10px] text-white/45">
+            {t('cocina.rec.campoMomentos', '¿Para cuándo es?')}
+          </span>
+          <div className="mt-1 grid grid-cols-4 gap-1.5">
+            {MOMENTOS.map((m) => {
+              const puesto = momentos.includes(m.id)
+              return (
+                <button
+                  key={m.id}
+                  type="button"
+                  aria-pressed={puesto}
+                  onClick={() =>
+                    setMomentos((prev) =>
+                      prev.includes(m.id) ? prev.filter((x) => x !== m.id) : [...prev, m.id],
+                    )
+                  }
+                  className={`rounded-lg py-1.5 text-[10px] font-semibold transition ${
+                    puesto ? 'bg-amber-600 texto-cta' : 'bg-white/5 text-white/50 hover:bg-white/10'
+                  }`}
+                >
+                  <Icono emoji={m.icon} /> {t(`cocina.momento.${m.id}`, m.label)}
+                </button>
+              )
+            })}
+          </div>
+          <p className="mt-1 text-[10px] text-white/35">
+            {t('cocina.rec.momentosAyuda', 'Sin marcar ninguno, sirve para cualquier momento del día.')}
+          </p>
+        </div>
+
         <input
           value={etiquetas}
           onChange={(e) => setEtiquetas(e.target.value)}

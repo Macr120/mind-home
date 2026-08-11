@@ -5,6 +5,7 @@ import { useGrafitis } from './grafitiStore'
 import { usePlanos } from './planosStore'
 import { miraFrame } from './miraFrame'
 import { useCam } from './cameraStore'
+import { useCargar } from './cargarStore'
 
 /**
  * Herramientas de la rueda (estilo GTA) y acciones del personaje. Se pueden
@@ -19,7 +20,14 @@ export type Herramienta =
   | 'laser' | 'pintura' | 'portales' | 'fuegos' | 'burbujas' | 'grafiti'
   /** Atajos de construcción: activan el constructor de mapa en 3D sin abrir el editor. */
   | 'construir'
+  /** Agarrar/cargar y soltar un objeto o un cuarto completo caminando (ver `cargarStore`). */
+  | 'mover'
   | TipoVehiculo
+  /** Vehículo GENÉRICO montado (no está en la rueda/hotbar: solo aparece "suelto" al conducirlo, ver ControlHerramienta). */
+  | 'generico'
+  /** Sentado/acostado en un objeto con `grupoAccion` (tampoco está en la rueda: solo "suelto", ver ControlHerramienta). */
+  | 'asiento-generico'
+  | 'acostarse-generico'
 
 export const MAX_EQUIPADAS = 3
 
@@ -34,6 +42,8 @@ export const PERIODO_CUERDA = 550 // ms por vuelta de la cuerda
 export const ALTURA_CUERDA = 0.28
 export const DUR_SALUDO = 1800 // ms
 export const ANGULO_BRAZO_CUERDA = -0.6
+/** Brazos arriba, fijos (sin oscilar), cargando algo con las dos manos. */
+export const ANGULO_BRAZO_CARGAR = -2.8
 
 export const accionFrame = {
   correr: false,
@@ -42,6 +52,8 @@ export const accionFrame = {
   bailando: false,
   cuerda: false,
   burbujas: false,
+  /** Cargando un objeto/cuarto con la herramienta "mover" (no se cancela al caminar). */
+  cargando: false,
   /** performance.now() del inicio del salto; 0 = sin salto. */
   saltoInicio: 0,
   /** El salto en curso es una voltereta (mortal). */
@@ -127,6 +139,7 @@ interface HerramientaState {
   setBailando: (v: boolean) => void
   setCuerda: (v: boolean) => void
   setBurbujas: (v: boolean) => void
+  setCargando: (v: boolean) => void
   setApuntar: (v: boolean) => void
   saltar: () => void
   mortal: () => void
@@ -164,6 +177,8 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
       useGrafitis.getState().salir()
     } else if (h === 'construir') {
       usePlanos.getState().setActivo(false)
+    } else if (h === 'mover') {
+      useCargar.getState().soltar()
     }
   }
   return {
@@ -204,6 +219,9 @@ export const useHerramienta = create<HerramientaState>((set, get) => {
     setBurbujas: (v) => {
       accionFrame.burbujas = v
       set({ burbujas: v })
+    },
+    setCargando: (v) => {
+      accionFrame.cargando = v
     },
     setApuntar: (v) => {
       if (miraFrame.apuntando === v) return

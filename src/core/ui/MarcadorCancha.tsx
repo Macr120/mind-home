@@ -53,6 +53,7 @@ export function MarcadorCancha() {
   const fase = useJuegoCancha((s) => s.fase)
   const modo = useJuegoCancha((s) => s.modo)
   const dificultad = useJuegoCancha((s) => s.dificultad)
+  const vistaJuego = useJuegoCancha((s) => s.vistaJuego)
   const rivalNombre = useJuegoCancha((s) => s.rivalNombre)
   const yo = useJuegoCancha((s) => s.yo)
   const rival = useJuegoCancha((s) => s.rival)
@@ -85,6 +86,31 @@ export function MarcadorCancha() {
             onChange={(v) => j.setDificultad(v)}
             onReset={() => j.setDificultad(0.5)}
           />
+          {/* Perspectiva del partido: se recuerda para el siguiente. */}
+          <div className="flex items-center justify-center gap-1.5">
+            <span className="text-[11px] font-semibold text-white/60">
+              {t('juego.perspectiva', 'Perspectiva')}:
+            </span>
+            {(
+              [
+                { id: 'iso' as const, etiqueta: t('juego.vistaIso', 'Isométrica') },
+                { id: 'tercera' as const, etiqueta: t('juego.vista3', '3ª persona') },
+              ]
+            ).map((v) => (
+              <button
+                key={v.id}
+                type="button"
+                onClick={() => j.setVistaJuego(v.id)}
+                className={`h-8 flex-1 rounded-lg border text-xs font-bold text-white transition active:scale-95 ${
+                  vistaJuego === v.id
+                    ? 'border-sky-400/60 bg-sky-600'
+                    : 'border-white/10 bg-white/10 hover:bg-white/20'
+                }`}
+              >
+                {v.etiqueta}
+              </button>
+            ))}
+          </div>
           <button
             type="button"
             onClick={() => j.elegirModo('solo')}
