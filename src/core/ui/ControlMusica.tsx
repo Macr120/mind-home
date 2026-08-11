@@ -84,7 +84,10 @@ export function ControlMusica({
             onClick={() => setAbierto(false)}
             className="fixed inset-0 z-40 cursor-default"
           />
-          <div data-tut="musica.panel" className="ui-panel-glass ui-pop absolute right-0 z-50 mt-2 w-72 space-y-3 rounded-xl border border-white/10 p-3 text-left shadow-xl backdrop-blur-md">
+          {/* En pantalla estrecha se ancla al borde de la VENTANA, no al botón: en
+              el HUD este botón lleva el reloj y «Editor» a su derecha, así que un
+              panel de 18 rem colgado de él se salía por la izquierda. */}
+          <div data-tut="musica.panel" className="ui-panel-glass ui-pop fixed right-2 top-16 z-50 w-72 space-y-3 rounded-xl border border-white/10 p-3 text-left shadow-xl backdrop-blur-md sm:absolute sm:right-0 sm:top-auto sm:mt-2">
             {/* Música ambiental sí/no */}
             <button
               type="button"
