@@ -60,6 +60,7 @@ function expandir(poli: Punto[], px: number): Punto[] {
 export function ZonaTutProjector() {
   const camera = useThree((s) => s.camera)
   const size = useThree((s) => s.size)
+  const gl = useThree((s) => s.gl)
   // Suscripción (no `getState`): los contornos se redibujan al cambiar de paso.
   const zona = useZonaTut((s) => s.zona)
   const foco = useZonaTut((s) => s.foco)
@@ -119,17 +120,25 @@ export function ZonaTutProjector() {
       return
     }
 
+    // El velo del tutorial es `fixed` a la VENTANA, pero `project` da píxeles
+    // del CANVAS — que no arranca en el borde cuando el menú lateral (flex) está
+    // abierto. Sin este corrimiento, al aterrizar en el demo con un tour por
+    // intent (menú abierto) el hueco caía 240 px a la izquierda de la zona.
+    const lienzo = gl.domElement.getBoundingClientRect()
+    const dx = Math.round(lienzo.left)
+    const dy = Math.round(lienzo.top)
+
     // La caja envolvente la usa la colocación de la tarjeta y del mago; el
     // polígono, el recorte del velo. El polígono NO se recorta al viewport: el
     // rectángulo exterior del velo ya limita lo que se pinta.
     setProyeccion({
       caja: {
-        left: Math.round(minX),
-        top: Math.round(minY),
+        left: Math.round(minX) + dx,
+        top: Math.round(minY) + dy,
         width: Math.round(maxX - minX),
         height: Math.round(maxY - minY),
       },
-      poligono,
+      poligono: dx || dy ? poligono.map(([x, y]): Punto => [x + dx, y + dy]) : poligono,
     })
   })
 
