@@ -93,7 +93,10 @@ export function crearCtxDemo(): CtxDemo {
     },
     foto: async (clave) => {
       try {
-        const resp = await fetch(`/demo/${clave}.webp`)
+        // Con tope: un fetch colgado (server zombi, red móvil) no rechaza nunca
+        // y dejaba la construcción del año — y el tour que la esperaba — parada
+        // para siempre. La foto es decorativa: mejor sin ella que sin tour.
+        const resp = await fetch(`/demo/${clave}.webp`, { signal: AbortSignal.timeout(10_000) })
         // El dev server responde index.html (200) para rutas inexistentes:
         // sin el chequeo de content-type se guardaría HTML como "foto".
         if (!resp.ok || !resp.headers.get('content-type')?.startsWith('image/')) return null

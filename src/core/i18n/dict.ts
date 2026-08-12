@@ -75,11 +75,20 @@ const enMarcha = new Map<string, Promise<void>>()
 function cargarCapa(clave: string, idioma: string, cargar: () => Promise<Dict>): Promise<void> {
   let p = enMarcha.get(clave)
   if (!p) {
-    p = cargar().then((d) => {
-      DICTS[idioma] = { ...DICTS[idioma], ...d }
-      version++
-      oyentes.forEach((fn) => fn())
-    })
+    p = cargar().then(
+      (d) => {
+        DICTS[idioma] = { ...DICTS[idioma], ...d }
+        version++
+        oyentes.forEach((fn) => fn())
+      },
+      (e) => {
+        // Un fallo puntual del chunk (dev server recargando, red caída) no debe
+        // quedarse cacheado: sin esto, TODOS los tutoriales del idioma seguían
+        // fallando al instante hasta recargar la página.
+        enMarcha.delete(clave)
+        throw e
+      },
+    )
     enMarcha.set(clave, p)
   }
   return p

@@ -197,7 +197,8 @@ async function construirApp(app: string): Promise<void> {
 
 async function cargarSnapshot(): Promise<SnapshotCasa | null> {
   try {
-    const resp = await fetch('/demo/casa.json')
+    // Tope: un fetch colgado dejaría la construcción entera esperando sin error.
+    const resp = await fetch('/demo/casa.json', { signal: AbortSignal.timeout(10_000) })
     // El dev server responde index.html con 200 a rutas inexistentes: sin la
     // guarda de content-type, la ausencia del snapshot parecería JSON corrupto.
     if (!resp.ok || !resp.headers.get('content-type')?.includes('json')) {

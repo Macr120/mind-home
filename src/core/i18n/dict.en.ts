@@ -5322,6 +5322,7 @@ export const EN: Dict = {
   // Tutoriales — aviso de app sin cuarto
   'tut.appSinCuarto': 'This app isn\'t in any room yet, so I\'ll explain it from here. To use it, assign it in Menu › Templates.',
   'tut.errorCarga': 'I couldn\'t load that tutorial. Check your connection and try again.',
+  'tut.preparandoDemo': 'I\'m setting up that app\'s year in the demo house; the tour starts in a few seconds…',
 
   // Tutoriales — selector (botón "?" único con zonas amarillas)
   'tut.selector.titulo': 'Which tutorial do you want to see?',

@@ -97,7 +97,10 @@ export function TutorialOverlay() {
       window.removeEventListener('resize', medir)
       window.removeEventListener('scroll', medir, true)
     }
-  }, [def, paso]) // eslint-disable-line react-hooks/exhaustive-deps -- p deriva de def+paso
+    // `cuerpo` en las deps: `def` y `cuerpo` llegan en DOS commits (el chunk
+    // baja después), y este efecto disparaba solo en el primero, con `p` aún
+    // vacío — el spotlight del paso 0 no se medía nunca.
+  }, [def, cuerpo, paso]) // eslint-disable-line react-hooks/exhaustive-deps -- p deriva de def+cuerpo+paso
 
   // Teclado: Escape sale; ←/→ navegan.
   useEffect(() => {
@@ -180,7 +183,11 @@ export function TutorialOverlay() {
     }
     setPosTarjeta((prev) => (prev && prev.left === pos.left && prev.top === pos.top ? prev : pos))
     setMagoDer(der)
-  }, [def, paso, cajaFinal]) // eslint-disable-line react-hooks/exhaustive-deps
+    // `cuerpo` en las deps: sin él, este efecto corría con el overlay todavía
+    // en null (la tarjeta sin montar → abortaba) y no volvía a correr al llegar
+    // el cuerpo — la tarjeta se quedaba en su left:-9999 de arranque, y el tour
+    // se veía como un velo oscuro sin tarjeta.
+  }, [def, cuerpo, paso, cajaFinal]) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!def || !cuerpo || !p) return null
 

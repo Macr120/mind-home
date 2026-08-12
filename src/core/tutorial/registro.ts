@@ -5,7 +5,7 @@ import { FLUJOS_NUCLEO_NUEVOS } from './nucleo.meta'
 import { tutorialAppGenerica } from './appGenerica'
 import { esInfraestructura, getPlantilla } from '../registry'
 import { esDemo } from '../edicion'
-import { entrarDemo } from '../../demo/modo'
+import { appsConstruidas, entrarDemo } from '../../demo/modo'
 import { useMascota } from '../state/mascotaStore'
 import { tGlobal } from '../i18n/useT'
 import { useTutorial } from './tutorialStore'
@@ -71,6 +71,15 @@ export async function lanzarFlujo(
   // todavía vacías. Import dinámico: src/demo no entra a este árbol.
   if (esDemo()) {
     try {
+      // Construir puede tardar varios segundos y aquí no hay gate que lo tape
+      // (el selector ya se cerró): sin el aviso parece que el botón no hizo nada.
+      if (!appsConstruidas().has(plantillaId)) {
+        useMascota
+          .getState()
+          .decir(
+            tGlobal('tut.preparandoDemo', 'Estoy preparando el año de esa app en la casa demo; el tour empieza en unos segundos…'),
+          )
+      }
       const { construirAppDemo } = await import('../../demo/construir')
       await construirAppDemo(plantillaId)
     } catch (e) {
