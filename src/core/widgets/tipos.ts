@@ -7,6 +7,7 @@
  * negocio. Los mismos esquemas los parsea el lado Java (widgets/ del proyecto
  * Android), así que cualquier cambio aquí debe reflejarse allá.
  */
+import type { Idioma } from '../i18n/idiomas'
 
 /** Un renglón del widget «Hoy»: rutina/evento del calendario o meta diaria de una app. */
 export interface ItemHoy {
@@ -39,7 +40,7 @@ export interface SnapshotWidgets {
   version: 1
   /** hoyISO() al generarlo: el widget marca «desactualizado» si cambió el día. */
   fecha: string
-  idioma: 'es' | 'en'
+  idioma: Idioma
   /**
    * Todo texto que el widget pinta tal cual, YA localizado y compuesto aquí
    * («🔥 5», «Nivel 3»…): Java no traduce ni concatena — y así ningún emoji

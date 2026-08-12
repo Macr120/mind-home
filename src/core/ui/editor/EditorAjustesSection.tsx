@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
-import { useAjustes, type EstiloIconos, type Idioma } from '../../state/ajustesStore'
+import { useAjustes, type EstiloIconos } from '../../state/ajustesStore'
 import { useT } from '../../i18n/useT'
+import { IDIOMAS } from '../../i18n/idiomas'
 import { TEMAS_UI, modoBase, type ModoUI } from '../temasUI'
 import { TIPOGRAFIAS } from '../tipografias'
 import { Icono } from '../iconos/Icono'
@@ -29,10 +30,7 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
   const setVidrioIntensidad = useAjustes((s) => s.setVidrioIntensidad)
 
   // Banderas: excepción deliberada, se muestran igual en ambos estilos de iconos.
-  const idiomas: { id: Idioma; label: string; flag: string }[] = [
-    { id: 'es', label: t('ajustes.idioma.es', 'Español'), flag: '🇪🇸' },
-    { id: 'en', label: t('ajustes.idioma.en', 'Inglés'), flag: '🇬🇧' },
-  ]
+  const idiomas = IDIOMAS.map((i) => ({ ...i, label: t(i.clave, i.label) }))
 
   const modos: { id: ModoUI; label: string; icono: 'dia' | 'noche' | 'burbujas' }[] = [
     { id: 'claro', label: t('ajustes.modo.claro', 'Claro'), icono: 'dia' },

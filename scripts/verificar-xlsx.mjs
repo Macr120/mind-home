@@ -276,7 +276,6 @@ function motorFalso() {
   return {
     evaluar: (expr) => {
       try {
-        // eslint-disable-next-line no-new-func
         return Function(`"use strict";const SI=(c,a,b)=>c?a:b;return (${expr})`)()
       } catch {
         return 0

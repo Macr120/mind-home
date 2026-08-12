@@ -35,8 +35,10 @@ const NACIMIENTOS = [1968, 1971, 1998, 1999, 2000, 1996, 1994, 2001]
 const DIAS_CUMPLE = [12, -80, 45, -140, 3, 200, -210, 120]
 
 export async function construirDemoAgenda(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_AGENDA[ctx.idioma]
-  const es = ctx.idioma === 'es'
+  const datos = await ctx.textos(DEMO_AGENDA, () => import('./demo.data.i18n'))
+  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
+  // su variante inline leen el español, que es el respaldo de todo.
+  const es = ctx.idioma !== 'en'
   const r = rngDemo(31081934)
   const enHora = (off: number, hora = '09:00') => `${ctx.fecha(off)}T${hora}:00.000Z`
   // Todo lo que la agenda proyecta al calendario lleva hora, así que pide su

@@ -5,7 +5,8 @@ import { plantillasCuarto, type Plantilla, type ComandoApp } from '../appContrat
 import { useCuartos } from '../state/cuartosStore'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
-import { useAjustes, type Idioma, type MoodMusica } from '../state/ajustesStore'
+import { useAjustes, type MoodMusica } from '../state/ajustesStore'
+import { IDIOMAS } from '../i18n/idiomas'
 import { useWrappedUi } from '../state/wrappedUiStore'
 import { useRutinasUI, type VistaCalendario } from '../state/rutinasUiStore'
 import { useCam } from '../state/cameraStore'
@@ -575,10 +576,11 @@ export async function ejecutarToolEditor(
 
     // ── Ajustes de interfaz ──
     case 'editor_idioma': {
-      const idioma = str(input, 'idioma')
-      if (idioma !== 'es' && idioma !== 'en') return null
-      useAjustes.getState().setIdioma(idioma as Idioma)
-      return idioma === 'en' ? 'Switched the app language to English.' : 'Cambié el idioma de la app a español.'
+      const pedido = str(input, 'idioma')
+      const datos = IDIOMAS.find((i) => i.id === pedido)
+      if (!datos) return null
+      useAjustes.getState().setIdioma(datos.id)
+      return `Cambié el idioma de la app a ${datos.nombreIA}.`
     }
     case 'editor_tema_interfaz': {
       const tema = resolverPorNombre(TEMAS_UI, str(input, 'tema') ?? '')
@@ -1483,10 +1485,11 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
   },
   {
     name: 'editor_idioma',
-    description: 'Cambia el idioma de la app (es = español, en = inglés).',
+    // El enum sale del catálogo: añadir un idioma no obliga a tocar la tool.
+    description: `Cambia el idioma de la app (${IDIOMAS.map((i) => `${i.id} = ${i.nombreIA}`).join(', ')}).`,
     schema: {
       type: 'object',
-      properties: { idioma: { type: 'string', enum: ['es', 'en'] } },
+      properties: { idioma: { type: 'string', enum: IDIOMAS.map((i) => i.id) } },
       required: ['idioma'],
     },
   },

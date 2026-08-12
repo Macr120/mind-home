@@ -34,6 +34,7 @@ import {
 } from '../../demo/hitosPep'
 import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_DESPACHO } from './demo.data'
+import { enIdioma, type PorIdioma } from '../../core/i18n/porIdioma'
 
 /** El mes 2: cuando Pep@ se sentó a ordenar sus cuentas. */
 const ORDEN = -334
@@ -42,7 +43,7 @@ const ORDEN = -334
  * Su línea de patrimonio. Va aquí y no en `demo.data.ts` porque ese archivo lo
  * genera la IA (`npm run demo:texto`) y esto es una etiqueta, no contenido.
  */
-const AHORROS: Record<'es' | 'en', string> = { es: 'Mis ahorros', en: 'Savings' }
+const AHORROS: PorIdioma<string> = { es: 'Mis ahorros', en: 'Savings' }
 
 type Fila = Omit<Transaccion, 'id'>
 
@@ -56,9 +57,11 @@ const VARIABLES = [
 ] as const
 
 export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_DESPACHO[ctx.idioma]
+  const datos = await ctx.textos(DEMO_DESPACHO, () => import('./demo.data.i18n'))
   const r = rngDemo(20261102)
-  const es = ctx.idioma === 'es'
+  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
+  // su variante inline leen el español, que es el respaldo de todo.
+  const es = ctx.idioma !== 'en'
 
   const notaHito = new Map<string, string>(datos.hitos.map((h) => [h.clave, h.nota]))
   const plantillas = new Map<string, readonly string[]>(datos.plantillas.map((p) => [p.categoria, p.notas]))
@@ -182,7 +185,7 @@ export async function construirDemoDespacho(ctx: CtxDemo): Promise<void> {
   await patrimonioRepo.add({
     clase: 'liquido',
     naturaleza: 'activo',
-    nombre: AHORROS[ctx.idioma],
+    nombre: enIdioma(AHORROS, ctx.idioma),
     monto: PATRIMONIO_HOY,
     creadoEn: new Date().toISOString(),
     fechaValor: hoyISO(),

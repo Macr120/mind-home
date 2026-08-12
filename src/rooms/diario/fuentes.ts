@@ -1,6 +1,7 @@
 import type { CategoriaTitular, Titular } from '../../core/data/db'
 import type { Idioma } from '../../core/state/ajustesStore'
 import { diaDelAnio } from '../../core/fechaLocal'
+import { enIdioma, type PorIdioma } from '../../core/i18n/porIdioma'
 import { CATEGORIAS } from './constantes'
 
 /**
@@ -116,6 +117,16 @@ const MEDIOS_EN: Medio[] = [
   { nombre: 'The Guardian', categoria: 'entretenimiento', url: GUARDIAN('culture'), proxy: true },
   { nombre: 'Variety', categoria: 'entretenimiento', url: 'https://variety.com/feed/', proxy: true },
 ]
+
+/**
+ * Las cabeceras por idioma. Traducir aquí no serviría de nada: un lector en
+ * francés quiere prensa francesa, no El País en francés, así que cada idioma
+ * trae sus propios medios. El que no tenga lista lee el periódico español.
+ */
+const MEDIOS: PorIdioma<Medio[]> = {
+  es: MEDIOS_ES,
+  en: MEDIOS_EN,
+}
 
 /** Titulares que se toman de cada medio. */
 const POR_MEDIO = 3
@@ -271,7 +282,7 @@ function rotar<T>(lista: T[], dia: number, n: number): T[] {
  */
 export async function cargarTitulares(fecha: string, idioma: Idioma): Promise<Titular[]> {
   const dia = diaDelAnio(fecha)
-  const medios = idioma === 'en' ? MEDIOS_EN : MEDIOS_ES
+  const medios = enIdioma(MEDIOS, idioma)
 
   // El desfase por categoría evita que todas caigan en el mismo índice y la
   // edición salga entera de la misma cabecera.

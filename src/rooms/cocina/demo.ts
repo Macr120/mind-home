@@ -126,8 +126,8 @@ function pesoDelDia(off: number, r: () => number): number {
 }
 
 export async function construirDemoCocina(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_COCINA[ctx.idioma]
-  const recetario = DEMO_COCINA_RECETAS[ctx.idioma]
+  const datos = await ctx.textos(DEMO_COCINA, () => import('./demo.data.i18n'))
+  const recetario = await ctx.textos(DEMO_COCINA_RECETAS, () => import('./demo.recetas.data.i18n'))
   const r = rngDemo(20260801)
   const uno = <T,>(xs: readonly T[]): T => xs[Math.floor(r() * xs.length)]
 

@@ -25,6 +25,7 @@ import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { BACHE_FIN, BACHE_INICIO, enBache, enJapon, JAPON_FIN, JAPON_INICIO, MARATON_DIA } from '../../demo/hitosPep'
 import { PLANES_DEMO, sembrarPlanDemo } from '../../demo/planesPep'
 import { DEMO_EJERCICIO } from './demo.data'
+import { enIdioma } from '../../core/i18n/porIdioma'
 
 type Sesion = Omit<SesionEjercicio, 'id'>
 type Serie = Omit<SerieFuerza, 'id' | 'sesionId'>
@@ -130,7 +131,7 @@ function cargaFuerza(off: number): number {
 const redondear2 = (kg: number) => Math.round(kg / 2.5) * 2.5
 
 export async function construirDemoEjercicio(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_EJERCICIO[ctx.idioma]
+  const datos = await ctx.textos(DEMO_EJERCICIO, () => import('./demo.data.i18n'))
   const r = rngDemo(19470923)
   const uno = <T,>(xs: readonly T[]): T => xs[Math.floor(r() * xs.length)]
 
@@ -363,7 +364,7 @@ export async function construirDemoEjercicio(ctx: CtxDemo): Promise<void> {
   await sembrarPlanDemo({
     metaId: siguienteId,
     clave: 'maraton',
-    plan: PLANES_DEMO[ctx.idioma].maraton,
+    plan: enIdioma(PLANES_DEMO, ctx.idioma).maraton,
     inicioISO: ctx.fecha(-21),
     entrada: { fechaInicio: ctx.fecha(-21), horasSemana: 10, dias: [1, 2, 3, 4, 5, 6], nivel: 'avanzado' },
     creadoEn: `${ctx.fecha(-22)}T20:15:00.000Z`,

@@ -10,9 +10,10 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { materializarMapa } from './crear'
 import { DEMO_IDEAS } from './demo.data'
 import { MAPAS_PEP } from './demo.mapas'
+import { enIdioma } from '../../core/i18n/porIdioma'
 
 export async function construirDemoIdeas(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_IDEAS[ctx.idioma]
+  const datos = await ctx.textos(DEMO_IDEAS, () => import('./demo.data.i18n'))
   const r = rngDemo(29061912)
   const enHora = (off: number) => {
     const h = 8 + Math.floor(r() * 12) // entre 8:00 y 19:xx
@@ -57,7 +58,7 @@ export async function construirDemoIdeas(ctx: CtxDemo): Promise<void> {
   }
 
   // Los mapas del año, fechados el día que Pep@ los dibujó.
-  for (const m of MAPAS_PEP[ctx.idioma]) {
+  for (const m of enIdioma(MAPAS_PEP, ctx.idioma)) {
     await materializarMapa(m.nombre, m.tipo, m.propuesta, false, ctx.fecha(m.dia), enHora(m.dia))
   }
 

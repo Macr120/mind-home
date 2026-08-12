@@ -42,7 +42,7 @@ const COSTO: Partial<Record<TipoMantenimiento, [number, number]>> = {
 }
 
 export async function construirDemoGarage(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_GARAGE[ctx.idioma]
+  const datos = await ctx.textos(DEMO_GARAGE, () => import('./demo.data.i18n'))
   const r = rngDemo(20040419)
   // Los trámites proyectan bloque con hora al calendario: se piden a la semana
   // fija de Pep@ para que no caigan encima del turno ni de las clases.

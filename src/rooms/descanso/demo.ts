@@ -74,7 +74,7 @@ const POR_TONO: Record<Tono, { horas: number; interrupciones: number; retraso: n
 }
 
 export async function construirDemoDescanso(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_DESCANSO[ctx.idioma]
+  const datos = await ctx.textos(DEMO_DESCANSO, () => import('./demo.data.i18n'))
   const r = rngDemo(19891109)
 
   // ── Perfil: la app lo crearía sola al abrirse (y en demo eso está vetado) ─
@@ -89,7 +89,7 @@ export async function construirDemoDescanso(ctx: CtxDemo): Promise<void> {
     undefined,
     PERFIL.horaDormir,
     PERFIL.horaDespertar,
-    ctx.idioma === 'es' ? 'Dormir' : 'Sleep',
+    ctx.idioma === 'en' ? 'Sleep' : 'Dormir',
   )
 
   /** Una noche cualquiera del año, según su tramo. */

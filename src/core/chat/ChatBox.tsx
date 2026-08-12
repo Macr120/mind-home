@@ -44,6 +44,7 @@ const ManualComandos = lazy(() =>
   import('./ManualComandos').then((m) => ({ default: m.ManualComandos })),
 )
 import { useT } from '../i18n/useT'
+import { datosIdioma } from '../i18n/idiomas'
 import { Icono } from '../ui/iconos/Icono'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
@@ -370,7 +371,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     }
     if (usaNativo) {
       const rec = new CtorVoz()
-      rec.lang = idioma === 'en' ? 'en-US' : 'es-MX'
+      rec.lang = datosIdioma(idioma).locale
       rec.interimResults = true
       rec.continuous = false
       rec.onresult = (ev) => {
@@ -471,7 +472,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         // Tours de app: por lanzarFlujo — los flujos nuevos corren sobre el año
         // de la casa demo (desde la casa real saltan a ella con intent).
         const clave = ayuda.plantillaId ?? ayuda.claveFlujo
-        if (clave) lanzarFlujo(clave, ayuda.tutorial)
+        if (clave) void lanzarFlujo(clave, ayuda.tutorial)
         else void useTutorial.getState().iniciar(ayuda.tutorial)
       } else {
         hablar(

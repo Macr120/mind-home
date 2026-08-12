@@ -1,4 +1,5 @@
 import type { TipoMapa } from '../../core/data/db'
+import type { Idioma } from '../../core/i18n/idiomas'
 import { idiomaActual } from '../../core/i18n/useT'
 import { EJEMPLOS_EN } from './ejemplosEn'
 import type { MapaPropuesto } from './ia'
@@ -41,10 +42,19 @@ function cadena(pasos: NodoPropuesto[]): NodoPropuesto[] {
 
 const paso = (texto: string, forma?: NodoPropuesto['forma']): NodoPropuesto => ({ texto, hijos: [], forma })
 
+/**
+ * El contenido traducido, por idioma. Un idioma que falte aquí se queda con el
+ * español, que es el catálogo base (`EJEMPLOS`).
+ */
+const TRADUCIDOS: Partial<Record<Idioma, Record<TipoMapa, ContenidoEjemplo>>> = {
+  en: EJEMPLOS_EN,
+}
+
 /** El ejemplo en el idioma activo; la guía siempre lleva su respaldo español. */
 export function ejemploDe(tipo: TipoMapa): EjemploMapa {
   const es = EJEMPLOS[tipo]
-  return idiomaActual() === 'en' ? { ...EJEMPLOS_EN[tipo], guiaEs: es.guiaEs } : es
+  const traducido = TRADUCIDOS[idiomaActual()]?.[tipo]
+  return traducido ? { ...traducido, guiaEs: es.guiaEs } : es
 }
 
 export const EJEMPLOS: Record<TipoMapa, EjemploMapa> = {

@@ -7,6 +7,7 @@ import { useWrappedUi } from '../state/wrappedUiStore'
 import { hayCuartoAbierto } from '../house/movement'
 import { rutinasRepo } from '../data/repository'
 import { tGlobal } from '../i18n/useT'
+import { datosIdioma } from '../i18n/idiomas'
 import { usarViaCuenta } from '../cuenta/api'
 import { conversarIA, iaOperativa } from './ia'
 import type { Asistente, MascotaId } from './mascotas'
@@ -122,7 +123,7 @@ async function rutinaProxima(): Promise<ContextoCorazon['rutina']> {
 }
 
 function systemBreve(a: Asistente): string {
-  const idioma = useAjustes.getState().idioma === 'en' ? 'inglés' : 'español'
+  const idioma = datosIdioma(useAjustes.getState().idioma).nombreIA
   return [
     `Eres ${a.nombre}, un personaje que pasea por la casa virtual del usuario.`,
     a.personalidad ? `Personalidad: ${a.personalidad}` : '',

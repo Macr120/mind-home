@@ -1,8 +1,12 @@
 import { idiomasRepo, tarjetasIdiomaRepo, temasIdiomaRepo } from '../../core/data/repository'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
-import { idiomaActual } from '../../core/i18n/useT'
 import { fotoEjemplo } from '../_shared/ejemplos/fotos'
-import { porIdioma, yaMaterializado, type PaqueteEjemplo } from '../_shared/ejemplos/tipos'
+import {
+  porIdioma,
+  yaMaterializado,
+  type PaqueteEjemplo,
+  type PorIdioma,
+} from '../_shared/ejemplos/tipos'
 import { TEXTOS_IDIOMAS } from './ejemplos.data'
 
 /**
@@ -17,8 +21,11 @@ import { TEXTOS_IDIOMAS } from './ejemplos.data'
 
 const ID = 'idiomas.vocabulario'
 
-/** El idioma del ejemplo es siempre «el otro»: el que no habla la interfaz. */
-const OBJETIVO = {
+/**
+ * El idioma del ejemplo es siempre «el otro»: el que no habla la interfaz. Sin
+ * entrada propia se aprende inglés, que es el respaldo del español.
+ */
+const OBJETIVO: PorIdioma<{ codigo: string; nombre: string; bandera: string }> = {
   es: { codigo: 'en-US', nombre: 'Inglés', bandera: '🇬🇧' },
   en: { codigo: 'es-ES', nombre: 'Spanish', bandera: '🇪🇸' },
 }
@@ -39,7 +46,7 @@ export const ejemploIdiomas: PaqueteEjemplo = {
   async materializar() {
     if (await yaMaterializado(ID, () => idiomasRepo.list())) return
     const T = porIdioma(TEXTOS_IDIOMAS)
-    const lengua = OBJETIVO[idiomaActual()]
+    const lengua = porIdioma(OBJETIVO)
     const hoy = fechaLocalISO()
     const creado = `${isoMasDias(hoy, -21)}T10:00:00.000Z`
 

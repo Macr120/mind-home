@@ -1,7 +1,6 @@
 import type { Meta, Patrimonio, Transaccion } from '../../core/data/db'
 import { finanzasRepo, metasRepo, patrimonioRepo } from '../../core/data/repository'
-import { idiomaActual } from '../../core/i18n/useT'
-import type { Idioma } from '../../core/state/ajustesStore'
+import { porIdioma, type PorIdioma } from '../_shared/ejemplos/tipos'
 import { hoyISO, sumarPeriodo } from './mes'
 import type { TipoMeta } from './MetasTab'
 
@@ -12,20 +11,17 @@ import type { TipoMeta } from './MetasTab'
  * interfaz, así que no vive en `dict.ts`.
  */
 
-const NOMBRES: Record<
-  Idioma,
-  {
-    fondoEmergencia: string
-    fondoIndexado: string
-    tarjeta: string
-    sueldo: string
-    renta: string
-    internet: string
-    casa: string
-    coche: string
-    hipoteca: string
-  }
-> = {
+const NOMBRES: PorIdioma<{
+  fondoEmergencia: string
+  fondoIndexado: string
+  tarjeta: string
+  sueldo: string
+  renta: string
+  internet: string
+  casa: string
+  coche: string
+  hipoteca: string
+}> = {
   es: {
     fondoEmergencia: 'Fondo de emergencia',
     fondoIndexado: 'Fondo indexado',
@@ -56,7 +52,7 @@ export const hayEjemplo = (movs: Transaccion[], tipo: Transaccion['tipo']): bool
   movs.some((m) => m.ejemplo && m.tipo === tipo)
 
 export async function cargarEjemplo(tipo: Transaccion['tipo']): Promise<void> {
-  const N = NOMBRES[idiomaActual()]
+  const N = porIdioma(NOMBRES)
   const fecha = hoyISO()
   if (tipo === 'ingreso') {
     await finanzasRepo.add({ fecha, tipo: 'ingreso', categoria: 'salario', monto: 15000, nota: N.sueldo, periodo: 'mes', ejemplo: true })
@@ -82,7 +78,7 @@ export const hayEjemploMeta = (metas: Meta[], tipo: TipoMeta): boolean =>
   metas.some((m) => m.ejemplo && (m.tipo ?? 'ahorro') === tipo)
 
 export async function cargarEjemploMeta(tipo: TipoMeta): Promise<void> {
-  const N = NOMBRES[idiomaActual()]
+  const N = porIdioma(NOMBRES)
   const e = EJEMPLO_META[tipo]
   await metasRepo.add({ nombre: N[e.nombre], objetivo: e.objetivo, ahorrado: e.ahorrado, tipo, ejemplo: true })
 }
@@ -102,7 +98,7 @@ export const hayEjemploPatrimonio = (filas: Patrimonio[], naturaleza: Patrimonio
   filas.some((f) => f.ejemplo && f.naturaleza === naturaleza)
 
 export async function cargarEjemploPatrimonio(naturaleza: Patrimonio['naturaleza']): Promise<void> {
-  const N = NOMBRES[idiomaActual()]
+  const N = porIdioma(NOMBRES)
   const creadoEn = new Date().toISOString()
   const hace = (meses: number) => sumarPeriodo(hoyISO(), 'mes', -meses)
 

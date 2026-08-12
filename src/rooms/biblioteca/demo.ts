@@ -22,6 +22,7 @@ import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { sembrarMetasApp } from '../../demo/metasPep'
 import { PLANES_DEMO, sembrarPlanDemo } from '../../demo/planesPep'
 import { DEMO_BIBLIOTECA } from './demo.data'
+import { enIdioma } from '../../core/i18n/porIdioma'
 
 /** El pilar al que pertenece cada tema del temario que usa el contenido. */
 const pilarDe = (tema: string) => (tema.startsWith('mat-') ? 'matematicas' : 'naturales')
@@ -44,8 +45,10 @@ function probabilidad(off: number): number {
 }
 
 export async function construirDemoBiblioteca(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_BIBLIOTECA[ctx.idioma]
-  const es = ctx.idioma === 'es'
+  const datos = await ctx.textos(DEMO_BIBLIOTECA, () => import('./demo.data.i18n'))
+  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
+  // su variante inline leen el español, que es el respaldo de todo.
+  const es = ctx.idioma !== 'en'
   const r = rngDemo(14031879)
   const enHora = (off: number, hora: string) => `${ctx.fecha(off)}T${hora}:00.000Z`
 
@@ -193,7 +196,7 @@ export async function construirDemoBiblioteca(ctx: CtxDemo): Promise<void> {
   const planId = await sembrarPlanDemo({
     metaId: posgradoId,
     clave: 'posgrado',
-    plan: PLANES_DEMO[ctx.idioma].posgrado,
+    plan: enIdioma(PLANES_DEMO, ctx.idioma).posgrado,
     inicioISO: ctx.fecha(-56),
     entrada: {
       fechaInicio: ctx.fecha(-56),

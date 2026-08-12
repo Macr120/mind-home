@@ -25,6 +25,7 @@ import { planesMetaRepo } from '../core/data/repository'
 import { tGlobal } from '../core/i18n/useT'
 import type { NodoPropuesto } from '../core/planIA'
 import { aplanar } from '../core/planMeta'
+import type { PorIdioma } from '../core/i18n/porIdioma'
 
 export interface PlanDemo {
   /** Solo el de la cocina: su meta no existe todavía y la crea el builder. */
@@ -240,7 +241,7 @@ const ENLACES_DEMO: Record<ClavePlan, Record<number, EnlaceApp>> = {
   },
 }
 
-export const PLANES_DEMO: Record<'es' | 'en', Record<ClavePlan, PlanDemo>> = {
+export const PLANES_DEMO: PorIdioma<Record<ClavePlan, PlanDemo>> = {
   es: {
     // ── Sin plazo: 24 semanas, termina 4 días antes del maratón de la meta ──
     maraton: {

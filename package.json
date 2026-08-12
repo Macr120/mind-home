@@ -14,6 +14,9 @@
     "imagenes:cocina": "node scripts/generar-imagenes-cocina.mjs",
     "ejemplos:texto": "node scripts/generar-ejemplos.mjs",
     "ejemplos:imagenes": "node scripts/generar-ejemplos.mjs --imagenes",
+    "traducir:i18n": "node scripts/traducir-i18n.mjs",
+    "traducir:contenido": "node scripts/traducir-contenido.mjs",
+    "traducir:verificar": "node scripts/verificar-i18n.mjs",
     "demo:texto": "node scripts/generar-demo.mjs",
     "demo:imagenes": "node scripts/generar-demo.mjs --imagenes"
   },

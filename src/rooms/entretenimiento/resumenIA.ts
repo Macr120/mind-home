@@ -1,6 +1,7 @@
 import type { EstadoMedia, MediaArchivo, ResumenMedia, TipoMedia } from '../../core/data/db'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import { idiomaActual, tGlobal } from '../../core/i18n/useT'
+import { datosIdioma } from '../../core/i18n/idiomas'
 import { vLista, vTexto } from '../../core/appContrato'
 import { hoyISO } from './fecha'
 
@@ -30,7 +31,7 @@ const FIRMA: Record<TipoMedia, string> = {
 }
 
 function system(tipo: TipoMedia, sinSpoilers: boolean): string {
-  const lengua = idiomaActual() === 'en' ? 'inglés' : 'español'
+  const lengua = datosIdioma(idiomaActual()).nombreIA
   return [
     `Eres un crítico cultural que resume obras con precisión. Escribe TODO en ${lengua}.`,
     'Responde ÚNICAMENTE con un objeto JSON plano, sin markdown ni texto alrededor, con estas claves:',

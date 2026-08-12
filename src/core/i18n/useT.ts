@@ -1,6 +1,7 @@
 import { useCallback, useSyncExternalStore } from 'react'
-import { useAjustes, type Idioma } from '../state/ajustesStore'
+import { useAjustes } from '../state/ajustesStore'
 import { asegurarIdioma, DICTS, dictStore } from './dict'
+import { datosIdioma, type Idioma } from './idiomas'
 
 // El inglés se carga perezoso: al arrancar (si el idioma guardado es 'en') y en
 // cada cambio de idioma. Suscripción a nivel de módulo: sin efectos por
@@ -22,7 +23,8 @@ function traducir(
   fallback?: string,
   vars?: Record<string, string | number>,
 ): string {
-  let texto = DICTS[idioma][clave] ?? DICTS.es[clave] ?? fallback ?? clave
+  // `?.`: el diccionario del idioma puede no haber llegado todavía (o no existir).
+  let texto = DICTS[idioma]?.[clave] ?? DICTS.es[clave] ?? fallback ?? clave
   if (vars) {
     for (const [k, v] of Object.entries(vars)) {
       // split/join en vez de RegExp: sin compilar una regex por interpolación.
@@ -56,7 +58,7 @@ export function useT() {
  * Se lee en cada render, así las fechas siguen al conmutador de idioma.
  */
 export function localeActual(): string {
-  return useAjustes.getState().idioma === 'en' ? 'en-US' : 'es-MX'
+  return datosIdioma(useAjustes.getState().idioma).locale
 }
 
 /**

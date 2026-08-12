@@ -20,7 +20,7 @@ import {
   type ResultadoBusquedaCripto,
 } from './mercados'
 import { VACIO, watchlistRepo } from '../../core/data/repository'
-import { idiomaActual, useT } from '../../core/i18n/useT'
+import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { vivo } from '../../core/ui/estilos'
@@ -28,8 +28,7 @@ import { ROJO, VERDE } from './ui'
 
 export type SeccionMercado = 'divisas' | 'criptos' | 'acciones' | 'commodities'
 
-
-const locale = () => (idiomaActual() === 'en' ? 'en-US' : 'es-MX')
+const locale = localeActual
 
 /** Tasa de cambio: 2–4 decimales según haga falta. */
 const fmtTasa = (n: number) =>

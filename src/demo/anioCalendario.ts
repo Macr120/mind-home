@@ -21,6 +21,7 @@ import { deIso } from '../core/fechaLocal'
 import { rngDemo, type CtxDemo } from './builders'
 import { bloqueFijo } from './horarioPep'
 import { PLANES_DEMO, sembrarPlanDemo } from './planesPep'
+import { enIdioma } from '../core/i18n/porIdioma'
 
 /**
  * Los hábitos del año, con el mes en que Pep@ los adoptó. La HORA y los DÍAS no
@@ -145,7 +146,7 @@ export async function construirDemoCalendario(ctx: CtxDemo): Promise<void> {
   for (const h of HABITOS) {
     const fijo = bloqueFijo(h.clave)
     const rutinaId = await rutinasRepo.add({
-      nombre: h.nombre[idioma],
+      nombre: enIdioma(h.nombre, idioma),
       emoji: h.emoji,
       hora: fijo.hora,
       horaFin: fijo.horaFin,
@@ -198,7 +199,7 @@ export async function construirDemoCalendario(ctx: CtxDemo): Promise<void> {
   // la puso en una categoría suya. Es lo que enseña en el panel de Metas que los
   // grupos no son solo las apps. Color explícito: `colorDe` no lo deriva de la
   // plantilla, así que sin él saldría con el primero de la paleta.
-  const cocina = PLANES_DEMO[idioma].cocina
+  const cocina = enIdioma(PLANES_DEMO, idioma).cocina
   const cocinaId = await rutinasRepo.add({
     nombre: cocina.meta!,
     emoji: '🎯',

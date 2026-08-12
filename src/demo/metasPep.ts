@@ -27,12 +27,11 @@ import { aceptarPlan } from '../core/planMeta'
 import { colorPorProfundidad } from '../core/ui/coloresRutina'
 import type { CtxDemo } from './builders'
 import { PLANES_DEMO, sembrarPlanDemo, type ClavePlan } from './planesPep'
+import { enIdioma, type PorIdioma } from '../core/i18n/porIdioma'
 
 /** Un texto de la casa demo: se escribe en los dos idiomas o no se escribe. */
-interface Texto {
-  es: string
-  en: string
-}
+/** Un texto del catálogo: español obligatorio, el resto según se vaya traduciendo. */
+type Texto = PorIdioma<string>
 
 /** El plan que cuelga de una meta, con el estado en que lo encuentra el visitante. */
 interface PlanDeMeta {
@@ -615,10 +614,10 @@ async function sembrarMeta(ctx: CtxDemo, app: string, meta: MetaDemo, sitio: Sit
   // tiene): `creadoEn` es lo que ordena la lista cuando el `orden` empata.
   const nace = meta.nace ?? (meta.dia != null ? Math.max(-364, meta.dia - 60) : -30)
   const ambitoId = sitio.ambitoId ?? (meta.ambito ? sitio.ambitos[meta.ambito] : undefined)
-  const pasos: PasoRutina[] = (meta.pasos ?? []).map((p) => ({ titulo: p[idioma], roomId: '' }))
+  const pasos: PasoRutina[] = (meta.pasos ?? []).map((p) => ({ titulo: enIdioma(p, idioma), roomId: '' }))
 
   const id = await rutinasRepo.add({
-    nombre: meta.nombre[idioma],
+    nombre: enIdioma(meta.nombre, idioma),
     emoji: '🎯',
     dias: [],
     pasos,
@@ -630,7 +629,7 @@ async function sembrarMeta(ctx: CtxDemo, app: string, meta: MetaDemo, sitio: Sit
     // Fecha objetivo suelta, nunca un rango: un rango pintaría la meta en todos
     // los días que abarca.
     ...(meta.dia != null ? { fechaInicio: ctx.fecha(meta.dia) } : {}),
-    ...(meta.nota ? { nota: meta.nota[idioma] } : {}),
+    ...(meta.nota ? { nota: enIdioma(meta.nota, idioma) } : {}),
     color: sitio.profundidad === 0 ? sitio.color : colorPorProfundidad(sitio.color, sitio.profundidad),
     orden: sitio.orden,
     ...(sitio.padreId != null ? { padreId: sitio.padreId } : {}),
@@ -664,7 +663,7 @@ async function sembrarPlan(
   const planId = await sembrarPlanDemo({
     metaId,
     clave: def.clave,
-    plan: PLANES_DEMO[ctx.idioma][def.clave],
+    plan: enIdioma(PLANES_DEMO, ctx.idioma)[def.clave],
     inicioISO: ctx.fecha(def.inicio),
     entrada: {
       fechaInicio: ctx.fecha(def.inicio),

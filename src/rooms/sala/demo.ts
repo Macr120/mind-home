@@ -99,8 +99,10 @@ function unicos<T extends object>(filas: readonly T[], clave: (f: T) => string |
 }
 
 export async function construirDemoSala(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_SALA[ctx.idioma]
-  const es = ctx.idioma === 'es'
+  const datos = await ctx.textos(DEMO_SALA, () => import('./demo.data.i18n'))
+  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
+  // su variante inline leen el español, que es el respaldo de todo.
+  const es = ctx.idioma !== 'en'
   // El `as const` del contenido genera tuplas literales distintas por idioma:
   // se copian a un tipo propio para poder trabajarlas.
   const lugaresTxt = unicos<{ clave: string; nota: string }>([...datos.lugares], (l) => l.clave)

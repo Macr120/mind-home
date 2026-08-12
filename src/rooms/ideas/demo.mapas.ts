@@ -8,6 +8,7 @@
 import type { TipoMapa } from '../../core/data/db'
 import type { MapaPropuesto } from './ia'
 import type { NodoPropuesto } from './layouts'
+import type { PorIdioma } from '../../core/i18n/porIdioma'
 
 export interface MapaDemo {
   dia: number
@@ -320,4 +321,4 @@ const EN: MapaDemo[] = [
   },
 ]
 
-export const MAPAS_PEP = { es: ES, en: EN }
+export const MAPAS_PEP: PorIdioma<MapaDemo[]> = { es: ES, en: EN }

@@ -8,6 +8,7 @@ import { hobbiesRepo, proyectosHobbyRepo, sesionesHobbyRepo } from '../../core/d
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_HOBBIES } from './demo.data'
+import { enIdioma, type PorIdioma } from '../../core/i18n/porIdioma'
 
 // Hitos del piano (offsets −364..0), alineados con el canon.
 const PIANO_NACE = -334 // llega el teclado (mes 2)
@@ -18,7 +19,7 @@ const CLAIR_FIN = -8 // tocada para la familia (mes 12)
 const ASTRO_NACE = -302 // el hobby menor arranca en el mes 3
 const LUNAS_NACE = -296
 
-const NOMBRES = {
+const NOMBRES: PorIdioma<Record<'piano' | 'astro' | 'primera' | 'clair' | 'lunas', string>> = {
   es: {
     piano: 'Piano',
     astro: 'Astrofotografía',
@@ -46,8 +47,8 @@ function probabilidadPiano(off: number): number {
 }
 
 export async function construirDemoHobbies(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_HOBBIES[ctx.idioma]
-  const nombres = NOMBRES[ctx.idioma]
+  const datos = await ctx.textos(DEMO_HOBBIES, () => import('./demo.data.i18n'))
+  const nombres = enIdioma(NOMBRES, ctx.idioma)
   const r = rngDemo(19181107)
   const enFecha = (off: number) => `${ctx.fecha(off)}T10:00:00.000Z`
 

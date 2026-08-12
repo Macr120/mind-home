@@ -1,6 +1,7 @@
 import type { TipoMedia } from '../../core/data/db'
 import { conversarIA, extraerJSON } from '../../core/chat/ia'
 import { idiomaActual, tGlobal } from '../../core/i18n/useT'
+import { datosIdioma } from '../../core/i18n/idiomas'
 import { vTexto } from '../../core/appContrato'
 
 /**
@@ -30,7 +31,7 @@ export interface ProgramaPropuesto {
 }
 
 function system(tipo: TipoMedia, cantidad: number): string {
-  const lengua = idiomaActual() === 'en' ? 'inglés' : 'español'
+  const lengua = datosIdioma(idiomaActual()).nombreIA
   return [
     `Eres un curador cultural que arma programas de ${OBRAS[tipo]}: listas para consumir en un orden recomendado. Escribe TODO en ${lengua}.`,
     'Responde ÚNICAMENTE con un objeto JSON plano, sin markdown ni texto alrededor, con estas claves:',

@@ -8,24 +8,38 @@ import { gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/rep
 import type { TipoPractica } from '../../core/data/db'
 import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { sembrarMetasApp } from '../../demo/metasPep'
+import type { Idioma } from '../../core/i18n/idiomas'
+import { enIdioma, type PorIdioma } from '../../core/i18n/porIdioma'
 import { DEMO_JARDIN } from './demo.data'
 
 const PISTAS = ['bosque', 'mar', 'lluvia', 'cuencos', 'libre'] as const
 
-const NOMBRE_PISTA = {
+type Pista = (typeof PISTAS)[number]
+
+const NOMBRE_PISTA: PorIdioma<Record<Exclude<Pista, 'libre'>, string>> = {
   es: { bosque: 'Bosque', mar: 'Mar', lluvia: 'Lluvia', cuencos: 'Cuencos' },
   en: { bosque: 'Forest', mar: 'Sea', lluvia: 'Rain', cuencos: 'Singing bowls' },
-} as const
-
-function tituloMeditacion(idioma: 'es' | 'en', pista: (typeof PISTAS)[number]): string {
-  if (pista === 'libre') return idioma === 'es' ? 'Meditación libre' : 'Free meditation'
-  const nombre = NOMBRE_PISTA[idioma][pista]
-  return idioma === 'es' ? `Meditación · ${nombre}` : `Meditation · ${nombre}`
 }
 
-function tituloRespiracion(idioma: 'es' | 'en', tema: 'caja' | '478'): string {
-  if (tema === 'caja') return idioma === 'es' ? 'Respiración en caja 4-4-4-4' : 'Box breathing 4-4-4-4'
-  return idioma === 'es' ? 'Respiración 4-7-8' : '4-7-8 breathing'
+/** El título de la sesión, con la etiqueta delante del nombre de la pista. */
+const ETIQUETA_MEDITACION: PorIdioma<{ libre: string; con: string }> = {
+  es: { libre: 'Meditación libre', con: 'Meditación' },
+  en: { libre: 'Free meditation', con: 'Meditation' },
+}
+
+const TITULO_RESPIRACION: PorIdioma<{ caja: string; '478': string }> = {
+  es: { caja: 'Respiración en caja 4-4-4-4', '478': 'Respiración 4-7-8' },
+  en: { caja: 'Box breathing 4-4-4-4', '478': '4-7-8 breathing' },
+}
+
+function tituloMeditacion(idioma: Idioma, pista: Pista): string {
+  const etiqueta = enIdioma(ETIQUETA_MEDITACION, idioma)
+  if (pista === 'libre') return etiqueta.libre
+  return `${etiqueta.con} · ${enIdioma(NOMBRE_PISTA, idioma)[pista]}`
+}
+
+function tituloRespiracion(idioma: Idioma, tema: 'caja' | '478'): string {
+  return enIdioma(TITULO_RESPIRACION, idioma)[tema]
 }
 
 /** Probabilidad de practicar según el arco del año (M3 arranque, M7 bache…). */
@@ -40,7 +54,7 @@ function probabilidad(off: number): number {
 }
 
 export async function construirDemoJardin(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_JARDIN[ctx.idioma]
+  const datos = await ctx.textos(DEMO_JARDIN, () => import('./demo.data.i18n'))
   const r = rngDemo(20260731)
 
   type Fila = {

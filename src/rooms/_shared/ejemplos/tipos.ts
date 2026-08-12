@@ -1,5 +1,6 @@
-import { idiomaActual } from '../../../core/i18n/useT'
-import type { Idioma } from '../../../core/state/ajustesStore'
+// El catálogo por idioma vive en `core/i18n` (lo comparten el demo, Sísifo y el
+// diario); se re-exporta aquí porque los ejemplos fueron su primer usuario.
+export { porIdioma, enIdioma, type PorIdioma } from '../../../core/i18n/porIdioma'
 
 /**
  * Contrato de un ejemplo de fábrica.
@@ -37,12 +38,3 @@ export async function yaMaterializado(
   }
   return false
 }
-
-/**
- * El contenido del ejemplo en el idioma activo.
- *
- * El contenido NO pasa por `dict.ts`: en cuanto se crea es dato del usuario, no
- * interfaz, y no debe cambiar si luego cambia el idioma. Por eso el catálogo
- * está entero en los dos idiomas y se elige completo al materializar.
- */
-export const porIdioma = <T>(catalogo: Record<Idioma, T>): T => catalogo[idiomaActual()]

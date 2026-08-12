@@ -8,6 +8,7 @@ import { claveLS, esDemo } from '../../core/edicion'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { tGlobal } from '../../core/i18n/useT'
+import { datosIdioma } from '../../core/i18n/idiomas'
 import { edicionDesactualizada, obtenerEdicion } from './edicion'
 import { CATEGORIAS, TIPOS_EFEMERIDE } from './constantes'
 
@@ -148,7 +149,7 @@ async function redactarMensaje(asistente: Asistente, contenido: string): Promise
   if (!iaOperativa()) return plantilla
   try {
     // Entrega autónoma (sin mensaje del usuario del que inferir idioma): se indica explícito.
-    const idioma = useAjustes.getState().idioma === 'en' ? 'inglés' : 'español'
+    const idioma = datosIdioma(useAjustes.getState().idioma).nombreIA
     const system = `Eres ${asistente.nombre}. ${asistente.personalidad} Entregas al usuario su diario de hoy en UN solo mensaje de chat breve (máximo 120 palabras) y en ${idioma}: saluda en tu estilo y presenta cada punto en su propia línea conservando su emoji. No inventes datos ni agregues noticias que no estén en la lista.`
     const r = await conversarIA(
       system,

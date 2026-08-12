@@ -23,16 +23,24 @@ import { rngDemo, type CtxDemo } from '../../demo/builders'
 import { sembrarMetasApp } from '../../demo/metasPep'
 import { INTERVALOS_DIAS } from './constantes'
 import { DEMO_IDIOMAS } from './demo.data'
+import { enIdioma, type PorIdioma } from '../../core/i18n/porIdioma'
 
-const PERFIL_PRINCIPAL = {
+/** El idioma que Pep@ estudia: el suyo no, claro, así que depende de la interfaz. */
+interface PerfilDemo {
+  codigo: string
+  nombre: string
+  bandera: string
+}
+
+const PERFIL_PRINCIPAL: PorIdioma<PerfilDemo> = {
   es: { codigo: 'en-US', nombre: 'Inglés', bandera: '🇺🇸' },
   en: { codigo: 'es-ES', nombre: 'Spanish', bandera: '🇪🇸' },
-} as const
+}
 
-const PERFIL_JAPONES = {
+const PERFIL_JAPONES: PorIdioma<PerfilDemo> = {
   es: { codigo: 'ja-JP', nombre: 'Japonés', bandera: '🇯🇵' },
   en: { codigo: 'ja-JP', nombre: 'Japanese', bandera: '🇯🇵' },
-} as const
+}
 
 /** Un día del año en el que Pep@ se sentó a repasar ese idioma. */
 function repasaEse(idioma: 'principal' | 'japones', off: number, r: () => number): boolean {
@@ -54,13 +62,15 @@ function pAcierto(idioma: 'principal' | 'japones', off: number): number {
 }
 
 export async function construirDemoIdiomas(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_IDIOMAS[ctx.idioma]
-  const es = ctx.idioma === 'es'
+  const datos = await ctx.textos(DEMO_IDIOMAS, () => import('./demo.data.i18n'))
+  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
+  // su variante inline leen el español, que es el respaldo de todo.
+  const es = ctx.idioma !== 'en'
   const r = rngDemo(26011936)
   const enHora = (off: number, hora: string) => `${ctx.fecha(off)}T${hora}:00.000Z`
 
   // ── Los dos perfiles (el principal primero: es el que abre la app) ───────
-  const principal = PERFIL_PRINCIPAL[ctx.idioma]
+  const principal = enIdioma(PERFIL_PRINCIPAL, ctx.idioma)
   const principalId = await idiomasRepo.add({
     codigo: principal.codigo,
     nombre: principal.nombre,
@@ -68,7 +78,7 @@ export async function construirDemoIdiomas(ctx: CtxDemo): Promise<void> {
     nivel: 'B1',
     creadoEn: enHora(-340, '09:00'),
   })
-  const japones = PERFIL_JAPONES[ctx.idioma]
+  const japones = enIdioma(PERFIL_JAPONES, ctx.idioma)
   const japonesId = await idiomasRepo.add({
     codigo: japones.codigo,
     nombre: japones.nombre,

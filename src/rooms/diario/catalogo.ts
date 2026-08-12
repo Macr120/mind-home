@@ -393,6 +393,24 @@ const FRASES_EN: { cita: string; wiki?: string; autor?: string }[] = [
   { cita: 'Until one is committed, there is hesitancy, the chance to draw back.' },
 ]
 
+/**
+ * La capa traducida del catálogo, por idioma. No es una traducción literal del
+ * español: de la obra y del libro solo cambia el ARTÍCULO de Wikipedia (el
+ * párrafo lo pone la Wikipedia local), y la palabra del día es un catálogo
+ * propio, porque «petricor» no tiene gracia traducida. Un idioma que falte aquí
+ * lee el periódico en español, con su glosa curada.
+ */
+interface CatalogoTraducido {
+  obras: { wiki: string; artista?: string }[]
+  libros: { wiki: string; autor?: string }[]
+  palabras: Palabra[]
+  frases: { cita: string; wiki?: string; autor?: string }[]
+}
+
+const TRADUCIDOS: Partial<Record<Idioma, CatalogoTraducido>> = {
+  en: { obras: OBRAS_EN, libros: LIBROS_EN, palabras: PALABRAS_EN, frases: FRASES_EN },
+}
+
 /** Quita el desambiguador de un título de Wikipedia: "Guernica (Picasso)" → "Guernica". */
 const sinParentesis = (titulo: string) => titulo.replace(/\s*\([^)]*\)$/, '')
 
@@ -404,20 +422,20 @@ const sinParentesis = (titulo: string) => titulo.replace(/\s*\([^)]*\)$/, '')
 export async function catalogoDelDia(fecha: string, idioma: Idioma = 'es'): Promise<Efemeride[]> {
   const n = diaDelAnio(fecha)
   const i = { obra: n % OBRAS.length, libro: n % LIBROS.length, palabra: n % PALABRAS.length, frase: n % FRASES.length }
-  const en = idioma === 'en'
+  const tr = TRADUCIDOS[idioma]
   const obra = OBRAS[i.obra]
   const libro = LIBROS[i.libro]
-  const palabra = (en ? PALABRAS_EN[i.palabra] : null) ?? PALABRAS[i.palabra]
+  const palabra = tr?.palabras[i.palabra] ?? PALABRAS[i.palabra]
   const frase = FRASES[i.frase]
-  const obraEn = OBRAS_EN[i.obra]
-  const libroEn = LIBROS_EN[i.libro]
-  const fraseEn = FRASES_EN[i.frase]
+  const obraTr = tr?.obras[i.obra]
+  const libroTr = tr?.libros[i.libro]
+  const fraseTr = tr?.frases[i.frase]
 
-  const wikiObra = en ? (obraEn?.wiki ?? obra.wiki) : obra.wiki
-  const wikiLibro = en ? (libroEn?.wiki ?? libro.wiki) : libro.wiki
-  const autorLibro = (en ? libroEn?.autor : undefined) ?? libro.autor
-  const autorFrase = (en ? fraseEn?.autor : undefined) ?? frase.autor
-  const wikiFrase = en ? (fraseEn?.wiki ?? frase.wiki) : frase.wiki
+  const wikiObra = obraTr?.wiki ?? obra.wiki
+  const wikiLibro = libroTr?.wiki ?? libro.wiki
+  const autorLibro = libroTr?.autor ?? libro.autor
+  const autorFrase = fraseTr?.autor ?? frase.autor
+  const wikiFrase = fraseTr?.wiki ?? frase.wiki
 
   // Wikipedia aporta un párrafo extra (y la imagen). Las portadas de libros casi
   // no existen en Wikipedia (sin fair use): se respaldan con el artículo del autor.
@@ -429,9 +447,9 @@ export async function catalogoDelDia(fecha: string, idioma: Idioma = 'es'): Prom
   ])
 
   return [
-    { tipo: 'arte', titulo: en ? sinParentesis(wikiObra) : obra.titulo, subtitulo: (en ? obraEn?.artista : undefined) ?? obra.artista, texto: en ? (rObra.extract ?? '') : unirParrafos(obra.texto, rObra.extract), imagen: rObra.imagen, anio: obra.anio },
-    { tipo: 'libro', titulo: en ? sinParentesis(wikiLibro) : libro.titulo, subtitulo: autorLibro, texto: en ? (rLibro.extract ?? rLibroAutor.extract ?? '') : unirParrafos(libro.texto, rLibro.extract ?? rLibroAutor.extract), imagen: rLibro.imagen ?? rLibroAutor.imagen, anio: libro.anio },
+    { tipo: 'arte', titulo: tr ? sinParentesis(wikiObra) : obra.titulo, subtitulo: obraTr?.artista ?? obra.artista, texto: tr ? (rObra.extract ?? '') : unirParrafos(obra.texto, rObra.extract), imagen: rObra.imagen, anio: obra.anio },
+    { tipo: 'libro', titulo: tr ? sinParentesis(wikiLibro) : libro.titulo, subtitulo: autorLibro, texto: tr ? (rLibro.extract ?? rLibroAutor.extract ?? '') : unirParrafos(libro.texto, rLibro.extract ?? rLibroAutor.extract), imagen: rLibro.imagen ?? rLibroAutor.imagen, anio: libro.anio },
     { tipo: 'palabra', titulo: palabra.palabra, subtitulo: palabra.clase, texto: `${palabra.definicion}\n\n${palabra.origen}\n\n«${palabra.ejemplo}»` },
-    { tipo: 'frase', titulo: `«${(en ? fraseEn?.cita : undefined) ?? frase.cita}»`, subtitulo: autorFrase, texto: rFrase.extract ?? '', imagen: rFrase.imagen },
+    { tipo: 'frase', titulo: `«${fraseTr?.cita ?? frase.cita}»`, subtitulo: autorFrase, texto: rFrase.extract ?? '', imagen: rFrase.imagen },
   ]
 }

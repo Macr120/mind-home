@@ -4,6 +4,7 @@ import { costoDieta, costoReceta } from '../../rooms/cocina/costosIA'
 import { costoOp } from '../cuenta/costos'
 import { useAjustes } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
+import { useManualTraducido } from './manualI18n'
 import { Creditos } from '../ui/Creditos'
 import { Icono } from '../ui/iconos/Icono'
 // La tabla de precios solo se descarga al desplegar su carpeta.
@@ -948,8 +949,12 @@ export function ManualComandos({
   const [abiertas, setAbiertas] = useState<Record<string, boolean>>({ cocina: true })
   const toggle = (id: string) => setAbiertas((s) => ({ ...s, [id]: !s[id] }))
 
+  // El español y el inglés van en línea; los demás idiomas se descargan al
+  // abrir el manual y, mientras llegan (o si falta la frase), se ve el español.
+  const manual = useManualTraducido(idioma)
+
   /** Frase a mostrar/enviar según el idioma de la app. */
-  const fraseDe = (ej: Ejemplo) => (idioma === 'en' ? ej.en : ej.frase)
+  const fraseDe = (ej: Ejemplo) => manual?.frases[ej.frase] ?? (idioma === 'en' ? ej.en : ej.frase)
 
   /** Ícono y título de una carpeta (del registry si es una app). */
   const cabecera = (c: Carpeta): { icon: string; titulo: string } => {
@@ -1041,10 +1046,11 @@ export function ManualComandos({
                             {carpeta.atajos.map((a) => (
                               <div key={a.teclas} className="flex items-baseline gap-2">
                                 <span className="shrink-0 rounded border border-white/15 bg-white/10 px-1.5 py-px font-mono text-[10px] font-semibold text-white/75">
-                                  {idioma === 'en' ? (a.teclasEn ?? a.teclas) : a.teclas}
+                                  {manual?.teclas?.[a.teclas] ??
+                                    (idioma === 'en' ? (a.teclasEn ?? a.teclas) : a.teclas)}
                                 </span>
                                 <span className="text-[10px] leading-relaxed text-white/55">
-                                  {idioma === 'en' ? a.en : a.accion}
+                                  {manual?.atajos[a.accion] ?? (idioma === 'en' ? a.en : a.accion)}
                                 </span>
                               </div>
                             ))}

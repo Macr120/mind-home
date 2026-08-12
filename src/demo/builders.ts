@@ -10,16 +10,32 @@
  * contarlas) y sin depender de otros builders (activación por partes).
  */
 import { fechaLocalISO, isoMasDias } from '../core/fechaLocal'
+import type { Idioma } from '../core/i18n/idiomas'
 import { idiomaActual } from '../core/i18n/useT'
+
+/** Los idiomas que un `demo.data.i18n.ts` puede traer (el español es la base). */
+export type ExtraIdiomas<T> = Partial<Record<Idioma, T>>
 
 export interface CtxDemo {
   /** Fecha local de hoy (yyyy-mm-dd): el día 0 del año demo. */
   hoy: string
   /** Fecha ISO del día `off` (−364..0) relativo a hoy. */
   fecha: (off: number) => string
-  idioma: 'es' | 'en'
+  idioma: Idioma
   /** Foto del contenido demo (public/demo/<clave>.webp); null si no existe. */
   foto: (clave: string) => Promise<Blob | null>
+  /**
+   * El contenido del año demo en el idioma del ctx.
+   *
+   * El español y el inglés viajan en `demo.data.ts`, que es lo que ya baja hoy
+   * todo el mundo; los demás idiomas viven en `demo.data.i18n.ts` y solo se
+   * descargan si el usuario está en uno de ellos. Lo que no esté traducido cae
+   * al español, nunca al inglés: un idioma a medias se ve a medias.
+   */
+  textos: <B extends { es: unknown }>(
+    base: B,
+    extra?: () => Promise<{ default: ExtraIdiomas<B['es']> }>,
+  ) => Promise<B['es']>
 }
 
 export type BuilderDemo = (ctx: CtxDemo) => Promise<void>
@@ -64,10 +80,17 @@ export function rngDemo(semilla: number): () => number {
 
 export function crearCtxDemo(): CtxDemo {
   const hoy = fechaLocalISO()
+  const idioma = idiomaActual()
   return {
     hoy,
     fecha: (off) => isoMasDias(hoy, off),
-    idioma: idiomaActual() === 'en' ? 'en' : 'es',
+    idioma,
+    async textos(base, extra) {
+      const propio = (base as ExtraIdiomas<unknown>)[idioma]
+      if (propio !== undefined) return propio as never
+      const traducido = extra && (await extra()).default[idioma]
+      return (traducido ?? base.es) as never
+    },
     foto: async (clave) => {
       try {
         const resp = await fetch(`/demo/${clave}.webp`)

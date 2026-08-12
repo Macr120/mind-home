@@ -1,3 +1,4 @@
+import type { PorIdioma } from '../../core/i18n/porIdioma'
 /**
  * El programa «clásicos de ciencia ficción por ver» de Pep@, escrito a mano.
  *
@@ -11,7 +12,7 @@ export interface ItemPrograma {
   detalle: string
 }
 
-export const PROGRAMA_DEMO: Record<'es' | 'en', { nombre: string; items: ItemPrograma[] }> = {
+export const PROGRAMA_DEMO: PorIdioma<{ nombre: string; items: ItemPrograma[] }> = {
   es: {
     nombre: 'Clásicos de ciencia ficción pendientes',
     items: [

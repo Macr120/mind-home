@@ -16,6 +16,7 @@ import {
   type TipografiaId,
 } from '../ui/tipografias'
 import { colorFondo, estadoCielo } from '../house/cielo'
+import { IDIOMAS, idiomaValido, type Idioma } from '../i18n/idiomas'
 import {
   guardarCalidadImagen,
   leerCalidadImagen,
@@ -28,7 +29,9 @@ import {
  * porque son ajustes del dispositivo, no de la casa.
  */
 
-export type Idioma = 'es' | 'en'
+// El catálogo de idiomas vive en `core/i18n/idiomas.ts` (módulo hoja); se
+// reexporta el tipo porque media app lo importa desde aquí.
+export type { Idioma }
 /** Iconografía de la interfaz: emojis (clásica) o SVG de lucide (profesional). */
 export type EstiloIconos = 'emoji' | 'profesional'
 
@@ -54,6 +57,7 @@ const LS_MUSICA_CARPETA = 'mh.musica.carpeta'
 const LS_SFX_VOLUMEN = 'mh.sfx.volumen'
 const LS_HUD_MUSICA = 'mh.hud.musica'
 const LS_HUD_TUTORIALES = 'mh.hud.tutoriales'
+const LS_VOZ_TUTORIALES = 'mh.voz.tutoriales'
 
 /** De dónde sale la música: generada con Web Audio, pistas subidas o el audio del sistema capturado. */
 export type FuenteMusica = 'generada' | 'pistas' | 'sistema'
@@ -112,8 +116,7 @@ const ESTILO_ICONOS_DEFAULT: EstiloIconos = 'profesional'
 const HORA_METAS_DEFAULT = '20:00'
 
 function leerIdioma(): Idioma {
-  const v = localStorage.getItem(LS_IDIOMA)
-  return v === 'en' ? 'en' : 'es'
+  return idiomaValido(localStorage.getItem(LS_IDIOMA))
 }
 
 function leerTemaUI(): TemaUIId {
@@ -198,6 +201,8 @@ interface AjustesState {
   hudMusica: boolean
   /** Botón "?" de tutoriales en el HUD; apagado, se lanzan desde Configuraciones. */
   hudTutoriales: boolean
+  /** El mago lee cada paso del tutorial en voz alta. Nace apagado: no todos lo quieren. */
+  vozTutoriales: boolean
   setIdioma: (idioma: Idioma) => void
   toggleIdioma: () => void
   setTemaUI: (tema: TemaUIId) => void
@@ -222,6 +227,7 @@ interface AjustesState {
   setSfxVolumen: (v: number) => void
   setHudMusica: (v: boolean) => void
   setHudTutoriales: (v: boolean) => void
+  setVozTutoriales: (v: boolean) => void
 }
 
 export const useAjustes = create<AjustesState>((set, get) => ({
@@ -256,6 +262,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   sfxVolumen: leer01(LS_SFX_VOLUMEN, 0.6),
   hudMusica: leerSiNo(LS_HUD_MUSICA, true),
   hudTutoriales: leerSiNo(LS_HUD_TUTORIALES, true),
+  vozTutoriales: leerSiNo(LS_VOZ_TUTORIALES, false),
 
   setIdioma: (idioma) => {
     localStorage.setItem(LS_IDIOMA, idioma)
@@ -263,7 +270,11 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     set({ idioma })
   },
 
-  toggleIdioma: () => get().setIdioma(get().idioma === 'es' ? 'en' : 'es'),
+  // Pasa al siguiente del catálogo: con más de dos idiomas ya no es un conmutador.
+  toggleIdioma: () => {
+    const i = IDIOMAS.findIndex((x) => x.id === get().idioma)
+    get().setIdioma(IDIOMAS[(i + 1) % IDIOMAS.length].id)
+  },
 
   setTemaUI: (tema) => {
     localStorage.setItem(LS_TEMA_UI, tema)
@@ -388,6 +399,11 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   setHudTutoriales: (v) => {
     localStorage.setItem(LS_HUD_TUTORIALES, v ? 'si' : 'no')
     set({ hudTutoriales: v })
+  },
+
+  setVozTutoriales: (v) => {
+    localStorage.setItem(LS_VOZ_TUTORIALES, v ? 'si' : 'no')
+    set({ vozTutoriales: v })
   },
 
 }))

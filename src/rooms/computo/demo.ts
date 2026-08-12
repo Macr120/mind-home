@@ -12,7 +12,7 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_COMPUTO } from './demo.data'
 
 export async function construirDemoComputo(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_COMPUTO[ctx.idioma]
+  const datos = await ctx.textos(DEMO_COMPUTO, () => import('./demo.data.i18n'))
   const r = rngDemo(31415926)
   const enHora = (off: number) => {
     // 19:30–20:29, la franja de estudio de Pep@.

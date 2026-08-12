@@ -9,7 +9,7 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_ANECDOTARIO } from './demo.data'
 
 export async function construirDemoAnecdotario(ctx: CtxDemo): Promise<void> {
-  const { entradas } = DEMO_ANECDOTARIO[ctx.idioma]
+  const { entradas } = await ctx.textos(DEMO_ANECDOTARIO, () => import('./demo.data.i18n'))
   // Cada clave de foto se usa UNA vez aunque el generador la repitiera.
   const usadas = new Set<string>()
   for (const e of entradas) {

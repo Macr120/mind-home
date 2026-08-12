@@ -6,8 +6,7 @@ import type {
   Medicamento,
 } from '../../core/data/db'
 import { fechaLocalISO, isoMasDias } from '../../core/fechaLocal'
-import { idiomaActual } from '../../core/i18n/useT'
-import type { Idioma } from '../../core/state/ajustesStore'
+import { porIdioma, type PorIdioma } from '../_shared/ejemplos/tipos'
 import {
   borrarContacto,
   borrarEvento,
@@ -74,7 +73,7 @@ type Clave =
   | 'notasCarmen'
   | 'cena'
 
-const TEXTOS: Record<Idioma, Record<Clave, string>> = {
+const TEXTOS: PorIdioma<Record<Clave, string>> = {
   es: {
     contrato: 'Firmar el contrato',
     textos: 'Escribir los textos',
@@ -171,7 +170,7 @@ export const hayEjemplo = (
 
 /** Carga el ejemplo de una sección. Las fechas cuelgan de hoy. */
 export async function cargarEjemplo(area: AreaAgenda): Promise<void> {
-  const T = TEXTOS[idiomaActual()]
+  const T = porIdioma(TEXTOS)
   const hoy = fechaLocalISO()
   const enDias = (n: number) => isoMasDias(hoy, n)
 

@@ -22,7 +22,7 @@
  */
 import type { VariableFormula } from '../../core/data/db'
 import { idiomaActual } from '../../core/i18n/useT'
-import { AREAS_EN, FORMULAS_EN, GRUPOS_EN, UNIDADES_EN, VARIABLES_EN } from './catalogoEn'
+import { TRADUCCIONES, type TraduccionCatalogo } from './catalogoI18n'
 import type { AreaFabrica } from './constantes'
 
 export interface FormulaCatalogo {
@@ -565,24 +565,32 @@ export const CATALOGO: AreaCatalogo[] = [
   { id: 'quimica', nombre: 'Química', emoji: '🧪', color: '#4ade80', formulas: QUIMICA },
 ]
 
-/** El mismo catálogo con los nombres en inglés (la notación no cambia). */
-const CATALOGO_EN: AreaCatalogo[] = CATALOGO.map((area) => ({
-  ...area,
-  nombre: AREAS_EN[area.id] ?? area.nombre,
-  formulas: area.formulas.map((f) => ({
-    ...f,
-    nombre: FORMULAS_EN[f.slug] ?? f.nombre,
-    grupo: GRUPOS_EN[f.grupo] ?? f.grupo,
-    variables: f.variables.map((x) => ({
-      ...x,
-      nombre: VARIABLES_EN[x.nombre] ?? x.nombre,
-      unidad: x.unidad ? (UNIDADES_EN[x.unidad] ?? x.unidad) : x.unidad,
+/** El mismo catálogo con los nombres traducidos (la notación no cambia). */
+const traducir = (t: TraduccionCatalogo): AreaCatalogo[] =>
+  CATALOGO.map((area) => ({
+    ...area,
+    nombre: t.areas[area.id] ?? area.nombre,
+    formulas: area.formulas.map((f) => ({
+      ...f,
+      nombre: t.formulas[f.slug] ?? f.nombre,
+      grupo: t.grupos[f.grupo] ?? f.grupo,
+      variables: f.variables.map((x) => ({
+        ...x,
+        nombre: t.variables[x.nombre] ?? x.nombre,
+        unidad: x.unidad ? (t.unidades[x.unidad] ?? x.unidad) : x.unidad,
+      })),
     })),
-  })),
-}))
+  }))
 
-/** La semilla en el idioma activo. La lee `siembra.ts`, una sola vez. */
-export const catalogoActual = (): AreaCatalogo[] => (idiomaActual() === 'en' ? CATALOGO_EN : CATALOGO)
+/**
+ * La semilla en el idioma activo. La lee `siembra.ts` dos veces, una sola vez
+ * por instalación, así que se arma al vuelo en vez de precalcular un catálogo
+ * por idioma que casi nadie usaría.
+ */
+export const catalogoActual = (): AreaCatalogo[] => {
+  const t = TRADUCCIONES[idiomaActual()]
+  return t ? traducir(t) : CATALOGO
+}
 
 /** `formulaId` de una fórmula sembrada: determinista entre dispositivos. */
 export const idCatalogo = (area: string, slug: string) => `cat-${area}-${slug}`

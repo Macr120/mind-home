@@ -6,6 +6,7 @@ import { nombreAleatorio } from '../house/nombresAnimales'
 import { syncMiddleware } from './sync/middleware'
 import { TABLAS_SYNC, filaSeed } from './sync/syncables'
 import { haySandboxDemoSucio } from '../../demo/modo'
+import type { Idioma } from '../i18n/idiomas'
 
 /**
  * Capa de datos LOCAL (IndexedDB vía Dexie).
@@ -853,7 +854,7 @@ export interface EdicionDiario {
   titulares: Titular[]
   efemerides: Efemeride[]
   /** Idioma con el que se armó; si cambia, la edición se rehace. */
-  idioma?: 'es' | 'en'
+  idioma?: Idioma
 }
 
 /** Día en que se abrió el diario (histórico ligero para el progreso). */

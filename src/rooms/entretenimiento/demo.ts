@@ -12,12 +12,13 @@ import { sembrarMetasApp } from '../../demo/metasPep'
 import { DEMO_ENTRETENIMIENTO } from './demo.data'
 import { PROGRAMA_DEMO } from './demo.programa'
 import { PORTADAS_DEMO } from './portadasDemo'
+import { enIdioma } from '../../core/i18n/porIdioma'
 
 const COLOR_PROGRAMA = '#34d399'
 
 export async function construirDemoEntretenimiento(ctx: CtxDemo): Promise<void> {
-  const datos = DEMO_ENTRETENIMIENTO[ctx.idioma]
-  const programa = PROGRAMA_DEMO[ctx.idioma]
+  const datos = await ctx.textos(DEMO_ENTRETENIMIENTO, () => import('./demo.data.i18n'))
+  const programa = enIdioma(PROGRAMA_DEMO, ctx.idioma)
 
   // ── El archivo del año ───────────────────────────────────────────────────
   // `creadoEn` es lo que ordena la lista Y lo que cuenta la gamificación: sin

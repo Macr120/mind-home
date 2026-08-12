@@ -1,5 +1,5 @@
 import type { Efemeride, TipoEfemeride } from '../../core/data/db'
-import type { Idioma } from '../../core/state/ajustesStore'
+import { datosIdioma, type Idioma } from '../../core/i18n/idiomas'
 import { conversarIA, extraerJSON, iaOperativa } from '../../core/chat/ia'
 import { tGlobal } from '../../core/i18n/useT'
 import { fetchJson } from './fuentes'
@@ -76,14 +76,14 @@ async function cargarWikipedia(fecha: string, idioma: Idioma): Promise<Efemeride
       subtitulo: pag?.description,
       texto: pag?.extract ?? persona.text,
       imagen: imagenDe(persona),
-      anio: persona.year ? `${idioma === 'en' ? 'b.' : 'n.'} ${persona.year}` : undefined,
+      anio: persona.year ? `${tGlobal('diario.nacidoAbrev', 'n.')} ${persona.year}` : undefined,
     })
   }
   return out
 }
 
 const systemExtras = (idioma: Idioma) => {
-  const lengua = idioma === 'en' ? 'inglés' : 'español'
+  const lengua = datosIdioma(idioma).nombreIA
   return `Eres el editor cultural de un periódico en ${lengua}. Devuelve SOLO un JSON con las secciones del día, sin texto extra:
 {
  "arte": { "titulo": "", "artista": "", "anio": "", "texto": "un párrafo de 4 a 6 frases: qué representa la obra, su técnica o estilo, el contexto en que se creó y por qué es importante", "wiki": "título exacto del artículo de la obra en Wikipedia en ${lengua}" },
