@@ -1,10 +1,9 @@
 import type { TutorialDef } from './tipos'
-import { TUTORIALES_MENU } from './menus'
-import { FLUJOS_CALENDARIO } from './calendario'
-import { FLUJOS_NUCLEO_NUEVOS } from './nucleo'
+import { TUTORIALES_MENU } from './menus.meta'
+import { FLUJOS_CALENDARIO } from './calendario.meta'
+import { FLUJOS_NUCLEO_NUEVOS } from './nucleo.meta'
 import { tutorialAppGenerica } from './appGenerica'
 import { esInfraestructura, getPlantilla } from '../registry'
-import { abrirApp } from '../abrirApp'
 import { esDemo } from '../edicion'
 import { entrarDemo } from '../../demo/modo'
 import { useTutorial } from './tutorialStore'
@@ -43,14 +42,7 @@ export function flujosDeApp(plantillaId: string): TutorialDef[] {
   const p = getPlantilla(plantillaId)
   if (!p) return FLUJOS_NUCLEO[plantillaId] ?? []
   if (p.flujos) return p.flujos
-  return [
-    {
-      ...tutorialAppGenerica,
-      preparar: () => {
-        abrirApp(plantillaId)
-      },
-    },
-  ]
+  return [tutorialAppGenerica(plantillaId)]
 }
 
 /**
@@ -59,11 +51,11 @@ export function flujosDeApp(plantillaId: string): TutorialDef[] {
  * tutorial genérico sigue corriendo donde estás.
  * `montada`: la app ya está en pantalla — el tour no vuelve a abrir su cuarto.
  */
-export function lanzarFlujo(
+export async function lanzarFlujo(
   plantillaId: string,
   def: TutorialDef,
   opts?: { montada?: boolean },
-): void {
+): Promise<void> {
   const esFlujoNuevo =
     !!getPlantilla(plantillaId)?.flujos?.some((f) => f.id === def.id) ||
     !!FLUJOS_NUCLEO[plantillaId]?.some((f) => f.id === def.id)
@@ -71,19 +63,26 @@ export function lanzarFlujo(
     entrarDemo({ app: plantillaId, tour: def.id })
     return
   }
-  void useTutorial.getState().iniciar(opts?.montada ? { ...def, preparar: undefined } : def)
+  // Ya dentro del demo el año de ESTA app puede no estar construido: al entrar
+  // por el tour de otra solo se construyó aquella. Es la misma promesa que el
+  // gate de la app (idempotente), y sin esperarla el tour buscaría anclas
+  // todavía vacías. Import dinámico: src/demo no entra a este árbol.
+  if (esDemo()) {
+    const { construirAppDemo } = await import('../../demo/construir')
+    await construirAppDemo(plantillaId)
+  }
+  await useTutorial.getState().iniciar(def, { sinPreparar: opts?.montada })
 }
 
 /** Corre el flujo del intent al aterrizar en el demo (la app ya está abierta). */
 export async function lanzarFlujoEnDemo(plantillaId: string, tourId: string): Promise<void> {
   const def = flujosDeApp(plantillaId).find((f) => f.id === tourId)
   if (!def) return
-  await useTutorial.getState().iniciar({
-    ...def,
+  await useTutorial.getState().iniciar(def, {
     // Las apps de cuarto ya están abiertas por el intent; la INFRA conserva su
     // `preparar` (no abre cuartos: navega el mapa o abre su editor jugable), y
     // los del núcleo también (nadie abre el calendario del reloj por ellos).
-    ...(esAppInfra(plantillaId) || !getPlantilla(plantillaId) ? {} : { preparar: undefined }),
+    sinPreparar: !esAppInfra(plantillaId) && !!getPlantilla(plantillaId),
     // El visitante vino desde su casa SOLO a este tour: al salir (complete o
     // no) se le ofrece volver. Import dinámico: src/demo no entra a este árbol.
     alTerminar: () => {

@@ -4,7 +4,7 @@ import { ideasRepo, mapasIdeasRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
 import { COLOR } from './constantes'
-import { flujosIdeas } from './tutorial'
+import { flujosIdeas } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasIdeas } from './plan'
 

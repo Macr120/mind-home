@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
-import { useAjustes, type EstiloIconos, type Idioma } from '../state/ajustesStore'
+import { useAjustes, type EstiloIconos } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
+import { IDIOMAS } from '../i18n/idiomas'
 import { TEMAS_UI, modoBase, type ModoUI } from '../ui/temasUI'
 import { Icono } from '../ui/iconos/Icono'
 import { MASCOTAS, type MascotaId } from '../chat/mascotas'
@@ -16,8 +17,8 @@ import { asignarPlantillaACuarto } from '../gamificacion/plantillaBundle'
 import { hayBackend } from '../cuenta/supabase'
 import { useEditorUi } from '../state/editorUiStore'
 import { useTutorial } from '../tutorial/tutorialStore'
-import { defPrimerosPasos } from '../tutorial/primerosPasos'
-import { tutorialCasa } from '../tutorial/menus'
+import { tutorialPrimerosPasos } from '../tutorial/primerosPasos.meta'
+import { tutorialCasa } from '../tutorial/menus.meta'
 import type { TutorialDef } from '../tutorial/tipos'
 import {
   useBienvenida,
@@ -75,8 +76,7 @@ function GuiaPasos() {
   // Al salir del tour se vuelve a la guía; solo cuenta como hecho si llegó al final.
   const lanzar = (def: TutorialDef, paso: PasoGuia) => {
     cerrar()
-    void useTutorial.getState().iniciar({
-      ...def,
+    void useTutorial.getState().iniciar(def, {
       alTerminar: (completado) => {
         if (completado) useBienvenida.getState().completar(paso)
         useBienvenida.getState().abrirGuia()
@@ -102,7 +102,7 @@ function GuiaPasos() {
       titulo: t('bienvenida.guia.cuarto.titulo', 'Crea un cuarto'),
       desc: t('bienvenida.guia.cuarto.desc', 'Te enseño a crear un cuarto y darle su app.'),
       cta: t('bienvenida.guia.empezar', 'Empezar'),
-      accion: () => lanzar(defPrimerosPasos(), 'cuarto'),
+      accion: () => lanzar(tutorialPrimerosPasos, 'cuarto'),
     },
     {
       id: 'tour',
@@ -269,10 +269,7 @@ function Wizard() {
   }
 
   // Banderas: excepción deliberada, se muestran igual en ambos estilos de iconos.
-  const idiomas: { id: Idioma; label: string; flag: string }[] = [
-    { id: 'es', label: t('ajustes.idioma.es', 'Español'), flag: '🇪🇸' },
-    { id: 'en', label: t('ajustes.idioma.en', 'Inglés'), flag: '🇬🇧' },
-  ]
+  const idiomas = IDIOMAS.map((i) => ({ ...i, label: t(i.clave, i.label) }))
   const modos: { id: ModoUI; label: string; icono: 'dia' | 'noche' | 'burbujas' }[] = [
     { id: 'claro', label: t('ajustes.modo.claro', 'Claro'), icono: 'dia' },
     { id: 'oscuro', label: t('ajustes.modo.oscuro', 'Oscuro'), icono: 'noche' },

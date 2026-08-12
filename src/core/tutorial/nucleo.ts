@@ -7,22 +7,16 @@
  * 'hoy' y 'progreso', que `demo/construir.ts` sabe qué años construir para
  * cada una (`APPS_DE_TOUR`).
  */
-import type { TextoTut, TutorialDef } from './tipos'
+import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, esperarTut } from './dom'
 import { abrirApp } from '../abrirApp'
-import { irAPestanaMenu } from './menus'
+import { irAPestanaMenu } from './dom'
 import { useSisifoUi } from '../state/sisifoUiStore'
 import { useWrappedUi } from '../state/wrappedUiStore'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-export const tutorialHoy: TutorialDef = {
-  id: 'hoy',
-  titulo: T('tut.hoy.titulo', 'Lo de hoy'),
-  resumen: T(
-    'tut.hoy.resumen',
-    'La lista Hoy de cada app junta tres cosas en un solo lugar: los objetivos del día de esa app, lo que agendaste para hoy y los pasos de tus metas vigentes. Un paso se cumple porque el registro ya existe en la app, no porque nadie lo palomeó a mano.',
-  ),
+export const cuerpoHoy: CuerpoTutorial = {
   preparar: () => {
     abrirApp('cocina')
   },
@@ -89,13 +83,7 @@ export const tutorialHoy: TutorialDef = {
   ],
 }
 
-export const tutorialProgreso: TutorialDef = {
-  id: 'progreso',
-  titulo: T('tut.progreso.titulo', 'Tu progreso'),
-  resumen: T(
-    'tut.progreso.resumen',
-    'Tu personaje vive de tu actividad real: su humor, su nivel, la Montaña de Sísifo (rango e insignias) y el radar de XP por cuarto. Todo se calcula de lo que ya registraste, nada se declara a mano.',
-  ),
+export const cuerpoProgreso: CuerpoTutorial = {
   preparar: async () => {
     clickTut('menu.abrir')
     await irAPestanaMenu('menu.tab.cuartos')
@@ -167,13 +155,7 @@ export const tutorialProgreso: TutorialDef = {
   ],
 }
 
-export const tutorialWrapped: TutorialDef = {
-  id: 'wrapped',
-  titulo: T('tut.wrapped.titulo', 'Wrapped: tu resumen'),
-  resumen: T(
-    'tut.wrapped.resumen',
-    'El resumen del periodo —semana, mes o año— contado en láminas, con música de fondo y comparativa contra el periodo anterior. Se comparte como texto desde la propia lámina.',
-  ),
+export const cuerpoWrapped: CuerpoTutorial = {
   preparar: () => {
     useWrappedUi.getState().abrir()
   },
@@ -219,7 +201,3 @@ export const tutorialWrapped: TutorialDef = {
   ],
 }
 
-export const FLUJOS_NUCLEO_NUEVOS = {
-  hoy: [tutorialHoy],
-  progreso: [tutorialProgreso, tutorialWrapped],
-}

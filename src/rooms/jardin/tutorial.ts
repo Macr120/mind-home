@@ -2,19 +2,13 @@
  * Flujos del jardín: corren sobre el año de práctica de Pep@ en la casa demo
  * (solo navegan y señalan; no crean datos).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoPracticar: TutorialDef = {
-  id: 'app-jardin--practicar',
-  titulo: T('tut.app-jardin--practicar.titulo', 'Meditar y respirar'),
-  resumen: T(
-    'tut.app-jardin--practicar.resumen',
-    'El jardín guarda tus sesiones de meditación (con pistas de sonido) y respiración guiada. Sin rachas ni puntos: la calma solo crece.',
-  ),
+export const cuerpoPracticar: CuerpoTutorial = {
   preparar: () => {
     abrirApp('jardin', 'meditacion')
   },
@@ -60,13 +54,7 @@ const flujoPracticar: TutorialDef = {
   ],
 }
 
-const flujoGratitud: TutorialDef = {
-  id: 'app-jardin--gratitud',
-  titulo: T('tut.app-jardin--gratitud.titulo', 'Tres cosas buenas'),
-  resumen: T(
-    'tut.app-jardin--gratitud.resumen',
-    'El ritual de gratitud: tres cosas buenas del día, guardadas en carpetas para releerlas después.',
-  ),
+export const cuerpoGratitud: CuerpoTutorial = {
   preparar: () => {
     abrirApp('jardin', 'gratitud')
   },
@@ -99,4 +87,3 @@ const flujoGratitud: TutorialDef = {
   ],
 }
 
-export const flujosJardin: TutorialDef[] = [flujoPracticar, flujoGratitud]

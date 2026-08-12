@@ -1,3 +1,4 @@
+import { abrirApp } from '../abrirApp'
 import type { TextoTut, TutorialDef } from './tipos'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
@@ -6,45 +7,22 @@ const T = (clave: string, es: string): TextoTut => ({ clave, es })
  * Tutorial genérico de app: cubre las plantillas custom (armadas con bloques)
  * y cualquier app que aún no tenga tutorial propio. Solo usa anclajes del
  * wrapper del cuarto (`room.*`) y de la app genérica (`plantilla.bloques`).
+ *
+ * Los pasos viven en `appGenerica.pasos.ts` (chunk aparte): esta ficha sí es
+ * eager, la pide `flujosDeApp` para toda plantilla sin tours propios.
  */
-export const tutorialAppGenerica: TutorialDef = {
+export const tutorialAppGenerica = (plantillaId: string): TutorialDef => ({
   id: 'app-generica',
   titulo: T('tut.app-generica.titulo', 'Esta app'),
   resumen: T(
     'tut.app-generica.resumen',
     'Cada app vive en un cuarto: el encabezado muestra el cuarto y la app, la lista de hoy lleva lo que toca hacer aquí y «Volver a la casa» la cierra. Las plantillas propias se arman con bloques: notas, listas, contadores, hábitos…',
   ),
-  pasos: [
-    {
-      sel: 'room.header',
-      texto: T(
-        'tut.app-generica.1.texto',
-        'El encabezado muestra el cuarto y la app abierta. Si el cuarto tiene varias apps, la flecha ‹ vuelve al lanzador.',
-      ),
-    },
-    {
-      sel: 'room.meta',
-      titulo: T('tut.app-generica.2.titulo', 'Lo de hoy'),
-      texto: T(
-        'tut.app-generica.2.texto',
-        'Tus pasos de hoy en esta app: tus objetivos, lo que tengas agendado y lo que pidan tus metas. Tócala para desplegarla; cada paso se tacha solo en cuanto registras.',
-      ),
-    },
-    {
-      sel: 'plantilla.bloques',
-      titulo: T('tut.app-generica.3.titulo', 'Los bloques'),
-      texto: T(
-        'tut.app-generica.3.texto',
-        'Esta plantilla está armada con bloques (notas, listas, contadores, hábitos…). Puedes cambiarlos en Menú › Plantillas › editar.',
-      ),
-    },
-    {
-      sel: 'room.volver',
-      titulo: T('tut.app-generica.4.titulo', 'Salir'),
-      texto: T(
-        'tut.app-generica.4.texto',
-        '«Volver a la casa» cierra la app y te deja de nuevo en el 3D. Lo que registres aquí ya quedó guardado.',
-      ),
-    },
-  ],
-}
+  cargar: () =>
+    import('./appGenerica.pasos').then((m) => ({
+      preparar: () => {
+        abrirApp(plantillaId)
+      },
+      pasos: m.PASOS_APP_GENERICA,
+    })),
+})

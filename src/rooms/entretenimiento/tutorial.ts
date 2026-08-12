@@ -3,19 +3,13 @@
  * Los pasos localizan sus fichas POR LOS REPOS y navegan con clicks — no crean
  * datos (en la casa demo cualquier escritura está bloqueada).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { abrirApp } from '../../core/abrirApp'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoArchivo: TutorialDef = {
-  id: 'app-entretenimiento--archivo',
-  titulo: T('tut.app-entretenimiento--archivo.titulo', 'Un año de ciencia ficción'),
-  resumen: T(
-    'tut.app-entretenimiento--archivo.resumen',
-    'El archivo guarda lo que ves, lees y juegas: cada ficha con su estado, sus estrellas y tu reseña. Se agrupa por fecha en carpetas de año y mes, o por género.',
-  ),
+export const cuerpoArchivo: CuerpoTutorial = {
   preparar: () => {
     abrirApp('entretenimiento', 'archivo')
   },
@@ -58,13 +52,7 @@ const flujoArchivo: TutorialDef = {
   ],
 }
 
-const flujoProgramas: TutorialDef = {
-  id: 'app-entretenimiento--programas',
-  titulo: T('tut.app-entretenimiento--programas.titulo', 'Programas para ver'),
-  resumen: T(
-    'tut.app-entretenimiento--programas.resumen',
-    'Un programa es una lista de títulos por tema o género convertida en metas: palomeas lo que completas y, si quieres, les pones fecha para verlas en el calendario.',
-  ),
+export const cuerpoProgramas: CuerpoTutorial = {
   preparar: () => {
     abrirApp('entretenimiento', 'programas')
   },
@@ -97,13 +85,7 @@ const flujoProgramas: TutorialDef = {
   ],
 }
 
-const flujoJuegos: TutorialDef = {
-  id: 'app-entretenimiento--juegos',
-  titulo: T('tut.app-entretenimiento--juegos.titulo', 'La mesa digital'),
-  resumen: T(
-    'tut.app-entretenimiento--juegos.resumen',
-    'Más de veinte juegos de mesa y arcade, agrupados por familia y filtrados por número de jugadores: se juegan ahí mismo, sin salir de la casa.',
-  ),
+export const cuerpoJuegos: CuerpoTutorial = {
   preparar: () => {
     abrirApp('entretenimiento', 'mesa')
   },
@@ -139,4 +121,3 @@ const flujoJuegos: TutorialDef = {
   ],
 }
 
-export const flujosEntretenimiento: TutorialDef[] = [flujoArchivo, flujoProgramas, flujoJuegos]

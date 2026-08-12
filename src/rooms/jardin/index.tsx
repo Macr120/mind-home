@@ -7,7 +7,7 @@ import {
   objetivoDiarioDe,
 } from '../../core/data/repository'
 import { normalizar } from '../../core/chat/dispatcher'
-import { flujosJardin } from './tutorial'
+import { flujosJardin } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import type { PaisajeId } from '../../core/audio/paisaje'
 import { PISTAS } from './pistas'

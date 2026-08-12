@@ -6,7 +6,7 @@ import { normalizar } from '../../core/chat/dispatcher'
 import { tGlobal } from '../../core/i18n/useT'
 import { CLAUSULA_RECHAZO } from '../../core/planIA'
 import { buscarLugares } from './geocoder'
-import { flujosSala } from './tutorial'
+import { flujosSala } from './tutorial.meta'
 import { eventosViaje } from './eventos'
 
 const esquemas: EsquemaCaptura[] = [

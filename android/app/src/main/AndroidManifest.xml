@@ -97,4 +97,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Dictado por voz (fallback de Whisper: SpeechRecognition no existe en este WebView) -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!--
+      Visibilidad de paquetes (Android 11+): sin esto el motor de texto a voz del
+      sistema queda invisible y `speechSynthesis.getVoices()` devuelve una lista
+      vacía, así que la app creería que hay voz y no sonaría nada. Lo necesitan
+      la lectura de los asistentes y la narración de los tutoriales.
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
 </manifest>

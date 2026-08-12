@@ -2,19 +2,13 @@
  * Flujos de la agenda: corren sobre el AÑO de Pep@ en la casa demo (solo
  * navegan y señalan; no crean datos — el guard lo impediría igual).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoTrabajo: TutorialDef = {
-  id: 'app-agenda--trabajo',
-  titulo: T('tut.app-agenda--trabajo.titulo', 'Trabajo y estudio'),
-  resumen: T(
-    'tut.app-agenda--trabajo.resumen',
-    'La bandeja de pendientes sin fecha y un tablero Kanban donde las tarjetas se arrastran de columna.',
-  ),
+export const cuerpoTrabajo: CuerpoTutorial = {
   preparar: () => {
     abrirApp('agenda', 'trabajo')
   },
@@ -44,13 +38,7 @@ const flujoTrabajo: TutorialDef = {
   ],
 }
 
-const flujoSalud: TutorialDef = {
-  id: 'app-agenda--salud',
-  titulo: T('tut.app-agenda--salud.titulo', 'Salud y mascotas'),
-  resumen: T(
-    'tut.app-agenda--salud.resumen',
-    'Citas médicas, medicamentos con sus horarios y las mascotas con sus cuidados: todo se agenda solo en el calendario.',
-  ),
+export const cuerpoSalud: CuerpoTutorial = {
   preparar: () => {
     abrirApp('agenda', 'salud')
   },
@@ -100,13 +88,7 @@ const flujoSalud: TutorialDef = {
   ],
 }
 
-const flujoPersonas: TutorialDef = {
-  id: 'app-agenda--personas',
-  titulo: T('tut.app-agenda--personas.titulo', 'Personas'),
-  resumen: T(
-    'tut.app-agenda--personas.resumen',
-    'Tu libreta de contactos por relación, con cumpleaños que se repiten solos cada año en el calendario.',
-  ),
+export const cuerpoPersonas: CuerpoTutorial = {
   preparar: () => {
     abrirApp('agenda', 'personas')
   },
@@ -139,4 +121,3 @@ const flujoPersonas: TutorialDef = {
   ],
 }
 
-export const flujosAgenda: TutorialDef[] = [flujoTrabajo, flujoSalud, flujoPersonas]

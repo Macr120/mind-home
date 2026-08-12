@@ -1,4 +1,4 @@
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirEditorInfra } from '../../core/tutorial/infraEditor'
 import { useGranja } from '../../core/state/granjaStore'
 import { focoCorral, focoZona } from '../../demo/mapa/focos'
@@ -11,15 +11,7 @@ const g = () => useGranja.getState()
 // reales con hambre, ánimo y hasta un enfermo), sin crear ni borrar datos.
 // El editor de la granja es jugable en demo: cuidar es parte del paseo.
 
-const flujoCuidar: TutorialDef = {
-  id: 'infra-granja--cuidar',
-  titulo: T('tut.infra-granja--cuidar.titulo', 'Cuidar el santuario'),
-  resumen: T(
-    'tut.infra-granja--cuidar.resumen',
-    'Alimentar, mimar, limpiar y curar a los rescatados del santuario — con un corral sucio y un cerdo enfermo esperándote de verdad.',
-  ),
-  // Sin `preparar`: el editor se abre en el paso 2, para que la panorámica del
-  // paso 1 se vea con el mapa limpio (su barra ocupa todo el bajo de pantalla).
+export const cuerpoCuidar: CuerpoTutorial = {
   pasos: [
     {
       zona: () => focoZona('zona-santuario'),
@@ -92,13 +84,7 @@ const flujoCuidar: TutorialDef = {
   ],
 }
 
-const flujoCorrales: TutorialDef = {
-  id: 'infra-granja--corrales',
-  titulo: T('tut.infra-granja--corrales.titulo', 'Corrales y cupo'),
-  resumen: T(
-    'tut.infra-granja--corrales.resumen',
-    'Cómo se levanta un corral, se puebla con sus especies, se le ponen juguetes y nombres.',
-  ),
+export const cuerpoCorrales: CuerpoTutorial = {
   preparar: () => abrirEditorInfra(() => g().iniciar(), 'granja.header'),
   pasos: [
     {
@@ -150,4 +136,3 @@ const flujoCorrales: TutorialDef = {
   ],
 }
 
-export const flujosGranja: TutorialDef[] = [flujoCuidar, flujoCorrales]

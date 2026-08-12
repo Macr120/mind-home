@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useAjustes } from '../state/ajustesStore'
+import { datosIdioma } from '../i18n/idiomas'
 import { useMascota } from '../state/mascotaStore'
 import { getAsistente } from '../state/asistentesStore'
 import { VOZ_FORMA, type MascotaId, type Asistente } from '../chat/mascotas'
@@ -42,8 +43,20 @@ export function vocesDisponibles(lang: string): SpeechSynthesisVoice[] {
 
 /** Idioma BCP-47 de la voz según el ajuste de idioma de la app. */
 export function langVoz(): string {
-  return useAjustes.getState().idioma === 'en' ? 'en-US' : 'es-MX'
+  return datosIdioma(useAjustes.getState().idioma).locale
 }
+
+/**
+ * Quién manda sobre la voz ahora mismo. `speechSynthesis` es un recurso ÚNICO y
+ * sin cola (cada `speak` cancela el anterior), así que mientras el tutorial
+ * narra un paso el habla espontánea de los asistentes se calla en vez de
+ * pisarla. Se libera al terminar la lectura o con `callarVoz()`.
+ */
+export type DuenioVoz = 'asistente' | 'tutorial'
+let duenioVoz: DuenioVoz = 'asistente'
+
+/** ¿Hay otro dueño leyendo? (lo consulta el suscriptor de la burbuja). */
+export const vozTomadaPor = (): DuenioVoz => duenioVoz
 
 export interface OpcionesHabla {
   lang?: string
@@ -52,6 +65,8 @@ export interface OpcionesHabla {
   volumen?: number
   /** Nombre exacto de una voz del sistema (gana a la elección por idioma). */
   vozNombre?: string
+  /** Quién habla; por defecto un asistente. Ver `DuenioVoz`. */
+  duenio?: DuenioVoz
   /** Se llama SIEMPRE una sola vez al terminar (fin, error o cancelación). */
   onFin?: () => void
 }
@@ -94,11 +109,15 @@ export function hablarVoz(texto: string, opts: OpcionesHabla = {}): boolean {
     // El fin de un utterance viejo (cancelado) no debe restaurar la música
     // por encima del que sigue hablando: solo el más reciente hace duck(false).
     const id = ++hablaActual
+    duenioVoz = opts.duenio ?? 'asistente'
     let terminado = false
     const fin = () => {
       if (terminado) return
       terminado = true
-      if (id === hablaActual) duck(false)
+      if (id === hablaActual) {
+        duck(false)
+        duenioVoz = 'asistente'
+      }
       opts.onFin?.()
     }
     u.onend = fin
@@ -112,8 +131,9 @@ export function hablarVoz(texto: string, opts: OpcionesHabla = {}): boolean {
   }
 }
 
-/** Corta cualquier lectura en curso. */
+/** Corta cualquier lectura en curso y suelta la voz. */
 export function callarVoz(): void {
+  duenioVoz = 'asistente'
   if (!hayVoz()) return
   try {
     window.speechSynthesis.cancel()
@@ -149,6 +169,9 @@ export function useVozAsistente(): void {
   useEffect(() => {
     const unsub = useMascota.subscribe((s, prev) => {
       if (!s.mensaje || s.mensaje === prev.mensaje) return
+      // El tutorial está narrando: la burbuja aparece igual, pero no se lee (si
+      // no, este `speak` cancelaría al mago a media frase).
+      if (duenioVoz === 'tutorial') return
       const a = getAsistente(s.hablanteId ?? s.mascota)
       if (!a.vozLeer) return
       if (!a.vozIA && !hayVoz()) return

@@ -9,7 +9,7 @@
  *
  * Reusan los anclajes `cal.*` de `CalendarioVista`.
  */
-import type { TextoTut, TutorialDef } from './tipos'
+import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, esperarTut } from './dom'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { claveLS } from '../edicion'
@@ -27,13 +27,7 @@ const abrirEn = (vista: 'semana' | 'cronograma') => () => {
  * antiguo tutorial de menú del reloj (arranca señalándolo) y sigue con la
  * semana de Pep@ y su panel de cumplimiento.
  */
-export const tutorialCalendario: TutorialDef = {
-  id: 'calendario',
-  titulo: T('tut.calendario.titulo', 'Calendario'),
-  resumen: T(
-    'tut.calendario.resumen',
-    'El reloj de la casa abre el calendario: todo lo agendado —turnos, clases, hábitos y lo que aportan las demás apps— en vistas Día, Semana, Mes, Año y Metas. El panel de abajo mide qué tanto cumples lo que agendaste.',
-  ),
+export const cuerpoCalendario: CuerpoTutorial = {
   preparar: abrirEn('semana'),
   pasos: [
     {
@@ -131,13 +125,7 @@ export const tutorialCalendario: TutorialDef = {
  * Nunca pulsa «Generar plan»: en la demo eso gastaría créditos y el guard del
  * sandbox tiraría el resultado.
  */
-export const tutorialMetas: TutorialDef = {
-  id: 'metas',
-  titulo: T('tut.metas.titulo', 'Metas'),
-  resumen: T(
-    'tut.metas.resumen',
-    'Las tres pantallas de una meta: la lista donde nace, el plan que la desarrolla (la IA lo propone y tú lo palomeas) y el cronograma donde sus fases ocupan su periodo, ya como sub-metas reales.',
-  ),
+export const cuerpoMetas: CuerpoTutorial = {
   preparar: () => {
     // El primer paso señala una CARPETA: si quien abre el tour dejó el panel en
     // modo tablero, ese ancla no existiría y el tour se quedaría esperando. La
@@ -254,13 +242,7 @@ export const tutorialMetas: TutorialDef = {
  * la del reloj (`data-tut-zona="calendario"` en `RutinasPanel`), así que
  * comparte menú con Calendario y Metas.
  */
-export const tutorialRutinas: TutorialDef = {
-  id: 'rutinas',
-  titulo: T('tut.rutinas.titulo', 'Rutinas'),
-  resumen: T(
-    'tut.rutinas.resumen',
-    'El panel de rutinas lleva tu checklist del día arriba y el catálogo completo abajo: cada rutina tiene hora, repetición y pasos, y cada paso puede registrar solo en su app. A su hora el asistente avisa, y todo lo agendado se ve también en el calendario.',
-  ),
+export const cuerpoRutinas: CuerpoTutorial = {
   preparar: () => {
     const ui = useRutinasUI.getState()
     if (!ui.panel) ui.togglePanel()
@@ -340,13 +322,7 @@ export const tutorialRutinas: TutorialDef = {
  * misma entrada que `tutorialMetas` (el plan del posgrado, ya aceptado) para
  * no depender de datos nuevos.
  */
-export const tutorialEnlaces: TutorialDef = {
-  id: 'enlaces',
-  titulo: T('tut.enlaces.titulo', 'Los chips de cada paso'),
-  resumen: T(
-    'tut.enlaces.resumen',
-    'Un chip de app junto a una meta o un paso de plan dice dónde se registra eso, y un toque te lleva ahí. Es solo navegación: el registro siempre lo hace la app, nunca el chip.',
-  ),
+export const cuerpoEnlaces: CuerpoTutorial = {
   preparar: () => {
     useRutinasUI.getState().abrirCalendario('cronograma')
   },
@@ -393,9 +369,3 @@ export const tutorialEnlaces: TutorialDef = {
   ],
 }
 
-export const FLUJOS_CALENDARIO: TutorialDef[] = [
-  tutorialCalendario,
-  tutorialMetas,
-  tutorialRutinas,
-  tutorialEnlaces,
-]

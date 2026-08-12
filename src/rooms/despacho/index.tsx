@@ -4,7 +4,7 @@ import { vTexto, vNumero, vFecha } from '../../core/appContrato'
 import { finanzasRepo } from '../../core/data/repository'
 import type { PeriodoMovimiento } from '../../core/data/db'
 import { normalizar } from '../../core/chat/dispatcher'
-import { flujosDespacho } from './tutorial'
+import { flujosDespacho } from './tutorial.meta'
 import { planMetasDespacho } from './plan'
 import { fechaLocalISO } from '../../core/fechaLocal'
 

@@ -2,19 +2,13 @@
  * Flujos de idiomas: corren sobre el AÑO de Pep@ en la casa demo (solo navegan
  * y señalan; no crean datos — el guard lo impediría igual).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoRepaso: TutorialDef = {
-  id: 'app-idiomas--repaso',
-  titulo: T('tut.app-idiomas--repaso.titulo', 'El repaso diario'),
-  resumen: T(
-    'tut.app-idiomas--repaso.resumen',
-    'Las tarjetas se repasan por cajas: cada acierto aleja la próxima cita y cada fallo la acerca. La app solo te pide las que tocan hoy.',
-  ),
+export const cuerpoRepaso: CuerpoTutorial = {
   preparar: () => {
     abrirApp('idiomas', 'repaso')
   },
@@ -52,13 +46,7 @@ const flujoRepaso: TutorialDef = {
   ],
 }
 
-const flujoVocabulario: TutorialDef = {
-  id: 'app-idiomas--vocabulario',
-  titulo: T('tut.app-idiomas--vocabulario.titulo', 'El vocabulario'),
-  resumen: T(
-    'tut.app-idiomas--vocabulario.resumen2',
-    'Las tarjetas viven DENTRO del temario: cada tema se despliega y ahí están las suyas, con su sonido, su imagen y su caja de repaso.',
-  ),
+export const cuerpoVocabulario: CuerpoTutorial = {
   preparar: () => {
     abrirApp('idiomas', 'temario')
   },
@@ -91,13 +79,7 @@ const flujoVocabulario: TutorialDef = {
   ],
 }
 
-const flujoTemario: TutorialDef = {
-  id: 'app-idiomas--temario',
-  titulo: T('tut.app-idiomas--temario.titulo', 'El temario y el plan'),
-  resumen: T(
-    'tut.app-idiomas--temario.resumen',
-    'El temario ordena el idioma en tres áreas —temas, pronunciación y gramática— por nivel MCER, y el progreso resume tu avance.',
-  ),
+export const cuerpoTemario: CuerpoTutorial = {
   preparar: () => {
     abrirApp('idiomas', 'temario')
   },
@@ -133,4 +115,3 @@ const flujoTemario: TutorialDef = {
   ],
 }
 
-export const flujosIdiomas: TutorialDef[] = [flujoRepaso, flujoVocabulario, flujoTemario]

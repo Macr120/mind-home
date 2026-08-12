@@ -32,6 +32,16 @@ export function esperarTut(sel: string, timeoutMs = 3000): Promise<Element | nul
 }
 
 /**
+ * Cambia a una pestaña del menú lateral esperando a que exista su botón. Vive
+ * aquí y no en `menus.ts` porque la usan el chat y varios tours: desde allá
+ * arrastraría los 40 KB de pasos de los tutoriales de menú al arranque.
+ */
+export const irAPestanaMenu = async (tab: string) => {
+  await esperarTut(tab, 2000)
+  clickTut(tab)
+}
+
+/**
  * Abre la primera ficha VISIBLE de una lista (`<prefijo>.item.<id>` o
  * `<prefijo>.<id>`) y devuelve el id abierto, para que un `sel` funcional
  * pueda anclarse a ella. Generaliza el patrón que ya usaban `entretenimiento`

@@ -2,7 +2,7 @@
  * Flujos de la sala de cómputo: corren sobre el año de Pep@ en la casa demo.
  * Los pasos navegan con clicks sobre las anclas `data-tut` y no crean datos.
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut, elTut } from '../../core/tutorial/dom'
 
@@ -26,13 +26,7 @@ const menuFormulario = (abrir: boolean) => {
   if (!!elTut('computo.form.arbol') !== abrir) clickTut('computo.menu.formulario')
 }
 
-const flujoFormulario: TutorialDef = {
-  id: 'app-computo--formulario',
-  titulo: T('tut.app-computo--formulario.titulo', 'El formulario'),
-  resumen: T(
-    'tut.app-computo--formulario.resumen',
-    'El formulario es tu libro de fórmulas. Trae Matemáticas, Física y Química ya puestas, pero no son un catálogo aparte: son fórmulas tuyas, y las editas, las mueves o las borras como las que escribas.',
-  ),
+export const cuerpoFormulario: CuerpoTutorial = {
   preparar: () => {
     abrirApp('computo', 'formulario')
   },
@@ -74,13 +68,7 @@ const flujoFormulario: TutorialDef = {
   ],
 }
 
-const flujoCalculadora: TutorialDef = {
-  id: 'app-computo--calculadora',
-  titulo: T('tut.app-computo--calculadora.titulo', 'Calcular y graficar'),
-  resumen: T(
-    'tut.app-computo--calculadora.resumen',
-    'Una calculadora científica con historial, nueve modos para lo que no es una cuenta suelta —entre ellos la gráfica, con sus cuatro tipos— y un resolvedor de ecuaciones que da las raíces exactas cuando puede.',
-  ),
+export const cuerpoCalculadora: CuerpoTutorial = {
   preparar: () => {
     abrirApp('computo', 'calculadora')
   },
@@ -168,13 +156,7 @@ const flujoCalculadora: TutorialDef = {
   ],
 }
 
-const flujoHojas: TutorialDef = {
-  id: 'app-computo--hojas',
-  titulo: T('tut.app-computo--hojas.titulo', 'Hojas de cálculo'),
-  resumen: T(
-    'tut.app-computo--hojas.resumen',
-    'Hojas con referencias A1 y fórmulas en español (=SUMA(B2:B15)). Se exportan a Excel conservando las fórmulas, o a PDF por impresión.',
-  ),
+export const cuerpoHojas: CuerpoTutorial = {
   preparar: () => {
     abrirApp('computo', 'hojas')
   },
@@ -225,4 +207,3 @@ const flujoHojas: TutorialDef = {
   ],
 }
 
-export const flujosComputo: TutorialDef[] = [flujoFormulario, flujoCalculadora, flujoHojas]

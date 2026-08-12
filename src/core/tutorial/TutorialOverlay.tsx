@@ -6,6 +6,8 @@ import type { TextoTut } from './tipos'
 import { useT } from '../i18n/useT'
 import { Icono } from '../ui/iconos/Icono'
 import { MASCOTAS, COLOR_FORMA } from '../chat/mascotas'
+import { useAjustes } from '../state/ajustesStore'
+import { callarNarracion, hayNarracion, narrarPaso } from './narracion'
 
 /** Rect medido del objetivo, en coordenadas de viewport. */
 interface Caja {
@@ -34,6 +36,7 @@ const igual = (a: Caja, b: Caja) =>
 export function TutorialOverlay() {
   const t = useT()
   const def = useTutorial((s) => s.def)
+  const cuerpo = useTutorial((s) => s.cuerpo)
   const paso = useTutorial((s) => s.paso)
   const ocupado = useTutorial((s) => s.ocupado)
   const [caja, setCaja] = useState<Caja | null>(null)
@@ -49,7 +52,7 @@ export function TutorialOverlay() {
   const cajaFinal = caja ?? zonaMapa?.caja ?? null
   const colorResalte = colorMapa ?? AMBAR_FOCO
 
-  const p = def?.pasos[paso]
+  const p = cuerpo?.pasos[paso]
 
   // Localiza el objetivo del paso y lo sigue (scroll, resize, re-renders).
   useEffect(() => {
@@ -113,6 +116,28 @@ export function TutorialOverlay() {
   // Seguro: si el overlay se desmonta con un tour activo (HMR), la limpieza corre.
   useEffect(() => () => void useTutorial.getState().salir(), [])
 
+  // Narración: lee el paso cuando su tarjeta YA está en pantalla (con `ocupado`
+  // hablaría mientras la cámara todavía vuela y la app se abre). Una vez por
+  // paso: `ocupado` puede volver a false sin que el paso cambie.
+  const vozTutoriales = useAjustes((s) => s.vozTutoriales)
+  const narrado = useRef('')
+  useEffect(() => {
+    // El overlay no se desmonta al salir (App lo monta siempre): sin `def` es
+    // que el tour terminó, y ahí es donde toca callar.
+    if (!def) {
+      callarNarracion()
+      narrado.current = ''
+      return
+    }
+    const pas = cuerpo?.pasos[paso]
+    if (!pas || ocupado) return
+    const clave = `${def.id}-${paso}`
+    if (narrado.current === clave) return
+    narrado.current = clave
+    const cabecera = pas.titulo ?? def.titulo
+    narrarPaso(t(cabecera.clave, cabecera.es), t(pas.texto.clave, pas.texto.es))
+  }, [def, cuerpo, paso, ocupado, vozTutoriales, t])
+
   // Coloca la tarjeta (junto al objetivo o junto al mago) y decide la esquina del mago.
   useLayoutEffect(() => {
     const el = tarjetaRef.current
@@ -157,11 +182,11 @@ export function TutorialOverlay() {
     setMagoDer(der)
   }, [def, paso, cajaFinal]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!def || !p) return null
+  if (!def || !cuerpo || !p) return null
 
   const tt = (x: TextoTut) => t(x.clave, x.es)
   const titulo = p.titulo ? tt(p.titulo) : tt(def.titulo)
-  const ultimo = paso >= def.pasos.length - 1
+  const ultimo = paso >= cuerpo.pasos.length - 1
 
   return (
     <div className="fixed inset-0 z-[60] overflow-hidden" role="dialog" aria-modal="true">
@@ -245,8 +270,30 @@ export function TutorialOverlay() {
         <p className="text-sm leading-relaxed text-white/85">{tt(p.texto)}</p>
         <div className="mt-3 flex items-center gap-1.5">
           <span className="text-[11px] text-white/40">
-            {t('tut.paso', 'Paso {i} de {n}', { i: paso + 1, n: def.pasos.length })}
+            {t('tut.paso', 'Paso {i} de {n}', { i: paso + 1, n: cuerpo.pasos.length })}
           </span>
+          {/* Altavoz: enciende la narración aquí mismo (también en Configuraciones ›
+              Tutoriales). Al encenderla lee el paso actual sin esperar al siguiente.
+              Sin voces del sistema no se ofrece: no sonaría nada. */}
+          {hayNarracion() && (
+            <button
+              type="button"
+              onClick={() => {
+                const nuevo = !vozTutoriales
+                useAjustes.getState().setVozTutoriales(nuevo)
+                if (nuevo) narrarPaso(titulo, tt(p.texto))
+                else callarNarracion()
+              }}
+              title={t('tut.voz', 'Leer los pasos en voz alta')}
+              aria-label={t('tut.voz', 'Leer los pasos en voz alta')}
+              aria-pressed={vozTutoriales}
+              className={`rounded-lg px-1.5 py-1 text-xs transition hover:bg-white/10 ${
+                vozTutoriales ? 'text-amber-300' : 'text-white/40 hover:text-white/80'
+              }`}
+            >
+              <Icono nombre={vozTutoriales ? 'bocina' : 'silencio'} />
+            </button>
+          )}
           <button
             type="button"
             onClick={() => void useTutorial.getState().salir()}

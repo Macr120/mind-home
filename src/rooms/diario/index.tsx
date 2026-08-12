@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
 import { lecturasDiarioRepo } from '../../core/data/repository'
-import { flujosDiario } from './tutorial'
+import { flujosDiario } from './tutorial.meta'
 import { COLOR } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasDiario } from './plan'

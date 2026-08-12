@@ -1,7 +1,7 @@
 import type { Plantilla } from '../../core/appContrato'
 import { Resumen } from './Resumen'
 import { usePaintball } from '../../core/state/paintballStore'
-import { flujosPaintball } from './tutorial'
+import { flujosPaintball } from './tutorial.meta'
 
 /** Plantilla de infraestructura: modo de juego sobre el mapa (no se asigna a cuartos). */
 const paintball: Plantilla = {

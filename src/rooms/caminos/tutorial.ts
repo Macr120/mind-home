@@ -1,4 +1,4 @@
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { AMBAR_FOCO } from '../../core/state/zonaTutStore'
 import { focoMapa, focoMeta, focoZona, focoZonaOffset } from '../../demo/mapa/focos'
 
@@ -8,13 +8,7 @@ const T = (clave: string, es: string): TextoTut => ({ clave, es })
 // cuentan la pista de Pep@ tal como está en el mapa y mandan al visitante a
 // correrla (el editor se puede abrir aparte; en demo nada de eso se guarda).
 
-const flujoCarrera: TutorialDef = {
-  id: 'infra-caminos--carrera',
-  titulo: T('tut.infra-caminos--carrera.titulo', 'Correr en la pista'),
-  resumen: T(
-    'tut.infra-caminos--carrera.resumen',
-    'La pista del demo, la meta, cómo arrancar una carrera montado y la tabla de récords de Pep@ que puedes batir.',
-  ),
+export const cuerpoCarrera: CuerpoTutorial = {
   pasos: [
     {
       zona: () => focoZona('zona-pista'),
@@ -54,13 +48,7 @@ const flujoCarrera: TutorialDef = {
   ],
 }
 
-const flujoTrazos: TutorialDef = {
-  id: 'infra-caminos--trazos',
-  titulo: T('tut.infra-caminos--trazos.titulo', 'Pista, riel y coaster'),
-  resumen: T(
-    'tut.infra-caminos--trazos.resumen',
-    'Los tres tipos de trazo del mapa y cómo se dibujan en tu propia casa.',
-  ),
+export const cuerpoTrazos: CuerpoTutorial = {
   pasos: [
     {
       zona: () => focoMapa(),
@@ -85,4 +73,3 @@ const flujoTrazos: TutorialDef = {
   ],
 }
 
-export const flujosCaminos: TutorialDef[] = [flujoCarrera, flujoTrazos]

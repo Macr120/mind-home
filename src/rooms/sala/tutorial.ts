@@ -3,7 +3,7 @@
  * pasos localizan sus lugares POR LOS REPOS y navegan con clicks — no crean
  * datos (en la casa demo cualquier escritura está bloqueada).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { abrirApp } from '../../core/abrirApp'
 import { lugaresViajeRepo } from '../../core/data/repository'
@@ -26,13 +26,7 @@ async function abrirRecuerdosJapon(): Promise<void> {
   clickTut(`sala.bitacora.lugar.${lugar.id}`)
 }
 
-const flujoMapa: TutorialDef = {
-  id: 'app-sala--mapa',
-  titulo: T('tut.app-sala--mapa.titulo', 'El mapa de un viajero'),
-  resumen: T(
-    'tut.app-sala--mapa.resumen',
-    'Cada lugar es un pin en el mapamundi: verde si ya fuiste, ámbar si es un sueño pendiente. Arriba, cuántos países, ciudades y pendientes llevas.',
-  ),
+export const cuerpoMapa: CuerpoTutorial = {
   preparar: () => {
     abrirApp('sala', 'mapa')
   },
@@ -59,13 +53,7 @@ const flujoMapa: TutorialDef = {
   ],
 }
 
-const flujoJapon: TutorialDef = {
-  id: 'app-sala--japon',
-  titulo: T('tut.app-sala--japon.titulo', 'Tres semanas en Japón'),
-  resumen: T(
-    'tut.app-sala--japon.resumen',
-    'La bitácora guarda los recuerdos por país y por lugar, con sus fotos; y cada viaje conserva su hoja de plan día a día, con hospedaje, transporte y presupuesto.',
-  ),
+export const cuerpoJapon: CuerpoTutorial = {
   preparar: () => {
     abrirApp('sala', 'bitacora')
   },
@@ -99,13 +87,7 @@ const flujoJapon: TutorialDef = {
   ],
 }
 
-const flujoProximo: TutorialDef = {
-  id: 'app-sala--proximo',
-  titulo: T('tut.app-sala--proximo.titulo', 'El viaje que viene'),
-  resumen: T(
-    'tut.app-sala--proximo.resumen',
-    'Los lugares por conocer tienen su propia hoja de plan día a día, y la suma de sus presupuestos se convierte en una meta de ahorro en el despacho.',
-  ),
+export const cuerpoProximo: CuerpoTutorial = {
   preparar: () => {
     abrirApp('sala', 'porConocer')
   },
@@ -143,4 +125,3 @@ const flujoProximo: TutorialDef = {
   ],
 }
 
-export const flujosSala: TutorialDef[] = [flujoMapa, flujoJapon, flujoProximo]

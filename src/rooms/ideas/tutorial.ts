@@ -4,7 +4,7 @@
  * sobre las anclas — no crean datos.
  */
 import type { TipoMapa } from '../../core/data/db'
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { mapasIdeasRepo } from '../../core/data/repository'
@@ -21,13 +21,7 @@ async function abrirMapaDeTipo(tipo: TipoMapa): Promise<void> {
   }
 }
 
-const flujoDiario: TutorialDef = {
-  id: 'app-ideas--diario',
-  titulo: T('tut.app-ideas--diario.titulo', 'Capturar ideas'),
-  resumen: T(
-    'tut.app-ideas--diario.resumen',
-    'El diario de ideas captura ocurrencias sueltas o lluvias por tema; las destacas con estrella y las conviertes en mapas.',
-  ),
+export const cuerpoDiario: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ideas', 'diario')
   },
@@ -60,13 +54,7 @@ const flujoDiario: TutorialDef = {
   ],
 }
 
-const flujoMapas: TutorialDef = {
-  id: 'app-ideas--mapas',
-  titulo: T('tut.app-ideas--mapas.titulo', 'Los mapas de Pep@'),
-  resumen: T(
-    'tut.app-ideas--mapas.resumen',
-    'Los mapas ordenan un tema en un lienzo libre: mental, árbol, flujo, línea del tiempo, ciclo, pirámide, Venn y más.',
-  ),
+export const cuerpoMapas: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ideas', 'mapas')
   },
@@ -126,13 +114,7 @@ const flujoMapas: TutorialDef = {
   ],
 }
 
-const flujoDecidir: TutorialDef = {
-  id: 'app-ideas--decidir',
-  titulo: T('tut.app-ideas--decidir.titulo', 'Decidir con diagramas'),
-  resumen: T(
-    'tut.app-ideas--decidir.resumen',
-    'Los diagramas ayudan a decidir: ventajas y desventajas con peso, FODA, Eisenhower, matriz ponderada y más.',
-  ),
+export const cuerpoDecidir: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ideas', 'diagramas')
   },
@@ -181,4 +163,3 @@ const flujoDecidir: TutorialDef = {
   ],
 }
 
-export const flujosIdeas: TutorialDef[] = [flujoDiario, flujoMapas, flujoDecidir]

@@ -1,12 +1,13 @@
 import { create } from 'zustand'
-import type { PasoTutorial, TutorialCtx, TutorialDef } from './tipos'
+import type { CuerpoTutorial, PasoTutorial, TutorialCtx, TutorialDef } from './tipos'
 import { setTutorialActivo } from '../data/demoGuard'
 import { getPlantilla } from '../registry'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { useMascota } from '../state/mascotaStore'
 import { useHud } from '../state/hudStore'
 import { useZonaTut } from '../state/zonaTutStore'
-import { tGlobal } from '../i18n/useT'
+import { idiomaActual, tGlobal } from '../i18n/useT'
+import { asegurarDictTut } from '../i18n/dict'
 import { aplicarZonaPaso } from './zonaMapa'
 
 /** Contexto interno de la ejecución: el público + su limpieza. */
@@ -51,17 +52,31 @@ export function ctxTutorial(): TutorialCtx | null {
   return ctxActual
 }
 
+/** Ajustes de UNA ejecución; los pone quien lanza el tour, no su definición. */
+export interface OpcionesTour {
+  /** La pantalla ya está montada: no vuelvas a abrirla (previa del catálogo, demo). */
+  sinPreparar?: boolean
+  /** Al cerrarse el tour, con `true` si se llegó al final. */
+  alTerminar?: (completado: boolean) => void
+}
+
 interface TutorialState {
   def: TutorialDef | null
+  /** Pasos y ganchos del tour en curso: llegan del chunk que baja `def.cargar()`. */
+  cuerpo: CuerpoTutorial | null
   paso: number
-  /** Corriendo `preparar`/`alEntrar`: deshabilita los botones de la tarjeta. */
+  /** Bajando el cuerpo o corriendo `preparar`/`alEntrar`: botones deshabilitados. */
   ocupado: boolean
-  iniciar(def: TutorialDef): Promise<void>
+  iniciar(def: TutorialDef, opts?: OpcionesTour): Promise<void>
   siguiente(): Promise<void>
   atras(): Promise<void>
   /** Cierra la UI de inmediato y ejecuta SIEMPRE la limpieza. Idempotente. */
   salir(completado?: boolean): Promise<void>
 }
+
+// El gancho de cierre es de la EJECUCIÓN, no del tour: fuera del store, que no
+// necesita re-renderizar por él.
+let alTerminarActual: ((completado: boolean) => void) | undefined
 
 /** Corre `alEntrar` sin romper el tour: si falla, el overlay degrada a tarjeta sin spotlight. */
 async function correrPaso(p: PasoTutorial | undefined) {
@@ -81,9 +96,10 @@ async function correrPaso(p: PasoTutorial | undefined) {
 
 export const useTutorial = create<TutorialState>((set, get) => ({
   def: null,
+  cuerpo: null,
   paso: 0,
   ocupado: false,
-  async iniciar(def) {
+  async iniciar(def, opts) {
     if (get().def) await get().salir()
     // En la casa demo, lo que el tour escriba no debe leerse como una edición
     // del visitante (el aviso saldría solo y taparía el spotlight).
@@ -91,18 +107,46 @@ export const useTutorial = create<TutorialState>((set, get) => ({
     // Los pasos apuntan a botones del HUD: con un cuadrante plegado no habría qué iluminar.
     useHud.getState().desplegarTodo()
     ctxActual = crearCtx()
-    set({ def, paso: 0, ocupado: true })
+    alTerminarActual = opts?.alTerminar
+    // `cuerpo` va aparte del `set` inicial: el overlay no debe pintar tarjeta
+    // hasta tener pasos, y bajar el chunk puede tardar un parpadeo.
+    set({ def, cuerpo: null, paso: 0, ocupado: true })
+    let cuerpo: CuerpoTutorial
     try {
-      await def.preparar?.()
+      // El diccionario de los pasos viaja EN PARALELO con el chunk del cuerpo:
+      // la tarjeta no se pinta hasta tener los dos, así que nunca se ve un tour
+      // a medio traducir.
+      ;[cuerpo] = await Promise.all([def.cargar(), asegurarDictTut(idiomaActual())])
     } catch (e) {
-      console.warn('[tutorial] Falló preparar():', e)
+      console.warn('[tutorial] No se pudo cargar el tour:', e)
+      // Sin aviso parecería que el botón no hizo nada (pasa con el dev server a
+      // medio recargar o sin red en el primer uso de un tour).
+      useMascota
+        .getState()
+        .decir(
+          tGlobal('tut.errorCarga', 'No pude cargar ese tutorial. Revisa tu conexión e inténtalo de nuevo.'),
+        )
+      await get().salir()
+      return
+    }
+    // Otro tour arrancó mientras bajaba el chunk: este ya no manda.
+    if (get().def !== def) return
+    set({ cuerpo })
+    if (!opts?.sinPreparar) {
+      try {
+        await cuerpo.preparar?.()
+      } catch (e) {
+        console.warn('[tutorial] Falló preparar():', e)
+      }
     }
     // Tour de una app cuya plantilla no está en ningún cuarto: `preparar` no pudo
     // abrirla, así que el mago lo explica junto a la casa y el asistente avisa cómo usarla.
     // Sin `preparar` no aplica: la app ya está en pantalla (su header o la previa).
     // Los flujos usan ids 'app-<plantillaId>--<flujo>': el sufijo se descarta.
     const plantillaId =
-      def.preparar && def.id.startsWith('app-') ? def.id.slice(4).split('--')[0] : null
+      !opts?.sinPreparar && cuerpo.preparar && def.id.startsWith('app-')
+        ? def.id.slice(4).split('--')[0]
+        : null
     if (plantillaId && getPlantilla(plantillaId)) {
       const asignada = useDiseño
         .getState()
@@ -118,34 +162,35 @@ export const useTutorial = create<TutorialState>((set, get) => ({
           )
       }
     }
-    await correrPaso(def.pasos[0])
+    await correrPaso(cuerpo.pasos[0])
     set({ ocupado: false })
   },
   async siguiente() {
-    const { def, paso, ocupado } = get()
-    if (!def || ocupado) return
-    if (paso >= def.pasos.length - 1) return get().salir(true) // Terminar
+    const { cuerpo, paso, ocupado } = get()
+    if (!cuerpo || ocupado) return
+    if (paso >= cuerpo.pasos.length - 1) return get().salir(true) // Terminar
     set({ ocupado: true })
-    await correrPaso(def.pasos[paso + 1])
+    await correrPaso(cuerpo.pasos[paso + 1])
     set({ paso: paso + 1, ocupado: false })
   },
   async atras() {
-    const { def, paso, ocupado } = get()
-    if (!def || ocupado || paso === 0) return
+    const { cuerpo, paso, ocupado } = get()
+    if (!cuerpo || ocupado || paso === 0) return
     set({ ocupado: true })
-    await correrPaso(def.pasos[paso - 1])
+    await correrPaso(cuerpo.pasos[paso - 1])
     set({ paso: paso - 1, ocupado: false })
   },
   async salir(completado = false) {
-    const def = get().def
     const ctx = ctxActual
+    const alTerminar = alTerminarActual
     ctxActual = null
-    set({ def: null, paso: 0, ocupado: false })
+    alTerminarActual = undefined
+    set({ def: null, cuerpo: null, paso: 0, ocupado: false })
     // La cámara se queda donde la dejó el último paso (el visitante sigue
     // explorando esa zona); solo se apagan los resaltes.
     useZonaTut.getState().setZona(null)
     useZonaTut.getState().setFoco(null)
-    def?.alTerminar?.(completado)
+    alTerminar?.(completado)
     // La UI ya se cerró; borrar los datos de ejemplo puede tardar sin estorbar.
     await ctx?.limpiar()
     // Después de la limpieza: borrar el ejemplo también escribe.

@@ -2,19 +2,13 @@
  * Flujos de la biblioteca: corren sobre el AÑO de Pep@ en la casa demo (solo
  * navegan y señalan; no crean datos — el guard lo impediría igual).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut } from '../../core/tutorial/dom'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoEnciclopedia: TutorialDef = {
-  id: 'app-biblioteca--enciclopedia',
-  titulo: T('tut.app-biblioteca--enciclopedia.titulo', 'La enciclopedia propia'),
-  resumen: T(
-    'tut.app-biblioteca--enciclopedia.resumen',
-    'Todo lo que aprendes se archiva en un árbol por campo del conocimiento: fichas con resumen y puntos clave que puedes ilustrar.',
-  ),
+export const cuerpoEnciclopedia: CuerpoTutorial = {
   preparar: () => {
     abrirApp('biblioteca', 'enciclopedia')
   },
@@ -55,13 +49,7 @@ const flujoEnciclopedia: TutorialDef = {
   ],
 }
 
-const flujoCharlas: TutorialDef = {
-  id: 'app-biblioteca--charlas',
-  titulo: T('tut.app-biblioteca--charlas.titulo', 'Charlar y destilar'),
-  resumen: T(
-    'tut.app-biblioteca--charlas.resumen2',
-    'Preguntas al Sabio sobre cualquier tema y la charla se archiva sola: se clasifica en tu árbol y sale ya destilada como ficha de la enciclopedia.',
-  ),
+export const cuerpoCharlas: CuerpoTutorial = {
   preparar: () => {
     abrirApp('biblioteca', 'charlas')
   },
@@ -97,13 +85,7 @@ const flujoCharlas: TutorialDef = {
   ],
 }
 
-const flujoEstudio: TutorialDef = {
-  id: 'app-biblioteca--estudio',
-  titulo: T('tut.app-biblioteca--estudio.titulo', 'Estudiar y planear'),
-  resumen: T(
-    'tut.app-biblioteca--estudio.resumen',
-    'El temporizador registra cuánto estudias —de corrido o a pomodoros— y el plan de estudio reparte tus metas en el calendario.',
-  ),
+export const cuerpoEstudio: CuerpoTutorial = {
   preparar: () => {
     abrirApp('biblioteca', 'estudio')
   },
@@ -136,13 +118,7 @@ const flujoEstudio: TutorialDef = {
   ],
 }
 
-const flujoResumen: TutorialDef = {
-  id: 'app-biblioteca--resumen',
-  titulo: T('tut.app-biblioteca--resumen.titulo', 'El panorama del año'),
-  resumen: T(
-    'tut.app-biblioteca--resumen.resumen',
-    'Resumen junta en una pantalla lo que las otras tres pestañas reparten: cuántas entradas tienes por campo, cuánto has estudiado y qué días.',
-  ),
+export const cuerpoResumen: CuerpoTutorial = {
   preparar: () => {
     abrirApp('biblioteca', 'resumen')
   },
@@ -200,4 +176,3 @@ const flujoResumen: TutorialDef = {
   ],
 }
 
-export const flujosBiblioteca: TutorialDef[] = [flujoEnciclopedia, flujoCharlas, flujoEstudio, flujoResumen]

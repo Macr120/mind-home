@@ -3,7 +3,7 @@
  * Los pasos solo navegan y señalan lo que YA está sembrado — no crean datos
  * (en la casa demo cualquier escritura está bloqueada).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { abrirApp } from '../../core/abrirApp'
 
@@ -17,13 +17,7 @@ async function irA(tab: string, sub?: string) {
   clickTut(`despacho.sub.${sub}`)
 }
 
-const flujoAnio: TutorialDef = {
-  id: 'app-despacho--anio',
-  titulo: T('tut.app-despacho--anio.titulo', 'El año en que Pep@ ordenó su dinero'),
-  resumen: T(
-    'tut.app-despacho--anio.resumen',
-    'El Flujo resume lo que entró, lo que salió y el neto del periodo que elijas: día, semana, mes o año. Debajo, tu patrimonio, el presupuesto mensual, en qué se te va el dinero y la tendencia de los últimos periodos.',
-  ),
+export const cuerpoAnio: CuerpoTutorial = {
   preparar: () => {
     abrirApp('despacho')
   },
@@ -82,13 +76,7 @@ const flujoAnio: TutorialDef = {
   ],
 }
 
-const flujoCaptura: TutorialDef = {
-  id: 'app-despacho--captura',
-  titulo: T('tut.app-despacho--captura.titulo', 'Fijos y variables'),
-  resumen: T(
-    'tut.app-despacho--captura.resumen',
-    'Un gasto fijo se captura UNA vez y la app lo cuenta sola cada mes; lo variable se apunta cuando pasa. Los dos viven en la misma lista, ordenada por fecha en carpetas de año y mes.',
-  ),
+export const cuerpoCaptura: CuerpoTutorial = {
   preparar: () => {
     abrirApp('despacho')
   },
@@ -140,13 +128,7 @@ const flujoCaptura: TutorialDef = {
   ],
 }
 
-const flujoMetas: TutorialDef = {
-  id: 'app-despacho--metas',
-  titulo: T('tut.app-despacho--metas.titulo', 'Japón, la emergencia y la deuda'),
-  resumen: T(
-    'tut.app-despacho--metas.resumen',
-    'Metas junta tus objetivos de ahorro e inversión en una lista con su barra, y deja las deudas aparte con su propio simulador. Cada una tiene un cronograma donde ponerles fecha.',
-  ),
+export const cuerpoMetas: CuerpoTutorial = {
   preparar: () => {
     abrirApp('despacho')
   },
@@ -195,13 +177,7 @@ const flujoMetas: TutorialDef = {
   ],
 }
 
-const flujoCalculadoras: TutorialDef = {
-  id: 'app-despacho--calculadoras',
-  titulo: T('tut.app-despacho--calculadoras.titulo', 'Cuatro reglas para poner una cifra'),
-  resumen: T(
-    'tut.app-despacho--calculadoras.resumen',
-    'Cuatro calculadoras de finanzas personales proponen un monto objetivo a partir de tu balance real, y lo convierten en meta con un toque. Los parámetros de cada regla se pueden ajustar: nadie tiene que aceptar el 50/30/20 tal cual.',
-  ),
+export const cuerpoCalculadoras: CuerpoTutorial = {
   preparar: () => {
     abrirApp('despacho')
   },
@@ -235,13 +211,7 @@ const flujoCalculadoras: TutorialDef = {
   ],
 }
 
-const flujoPatrimonio: TutorialDef = {
-  id: 'app-despacho--patrimonio',
-  titulo: T('tut.app-despacho--patrimonio.titulo', 'Lo que tienes, lo que debes y a dónde va'),
-  resumen: T(
-    'tut.app-despacho--patrimonio.resumen',
-    'Patrimonio no es una foto: cada cosa que tienes sube o baja de precio, y cada deuda cobra intereses. Ponles su tasa y la tercera pestaña te enseña la película entera, del año pasado a donde acabes.',
-  ),
+export const cuerpoPatrimonio: CuerpoTutorial = {
   preparar: () => {
     abrirApp('despacho')
   },
@@ -295,10 +265,3 @@ const flujoPatrimonio: TutorialDef = {
   ],
 }
 
-export const flujosDespacho: TutorialDef[] = [
-  flujoAnio,
-  flujoCaptura,
-  flujoPatrimonio,
-  flujoMetas,
-  flujoCalculadoras,
-]

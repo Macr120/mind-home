@@ -24,7 +24,7 @@ import { fotoIA } from './fotoIA'
 import { imagenIaActiva } from '../../core/imagenIA'
 import { registrarPeso } from './peso'
 import { planMetasCocina } from './plan'
-import { flujosCocina } from './tutorial'
+import { flujosCocina } from './tutorial.meta'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { OPERACIONES_IA } from './costosIA'
 

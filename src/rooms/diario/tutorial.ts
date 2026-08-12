@@ -3,19 +3,13 @@
  * pasos solo navegan y señalan — no crean datos (en la casa demo cualquier
  * escritura está bloqueada, salvo la lectura del día, que es consumo).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { abrirApp } from '../../core/abrirApp'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoHabito: TutorialDef = {
-  id: 'app-diario--habito',
-  titulo: T('tut.app-diario--habito.titulo', 'El hábito de leer el diario'),
-  resumen: T(
-    'tut.app-diario--habito.resumen',
-    'El periódico es efímero: cada día trae titulares por categoría y efemérides, y a medianoche se renueva. Lo que se guarda es tu constancia — leerlo cuenta como el registro del día.',
-  ),
+export const cuerpoHabito: CuerpoTutorial = {
   preparar: () => {
     abrirApp('diario', 'titulares')
   },
@@ -59,13 +53,7 @@ const flujoHabito: TutorialDef = {
   ],
 }
 
-const flujoReparto: TutorialDef = {
-  id: 'app-diario--reparto',
-  titulo: T('tut.app-diario--reparto.titulo', 'Que te lo traigan a ti'),
-  resumen: T(
-    'tut.app-diario--reparto.resumen',
-    'Puedes programar qué secciones te entrega cada asistente en su chat: a una hora fija o en un momento sorpresa del día.',
-  ),
+export const cuerpoReparto: CuerpoTutorial = {
   preparar: () => {
     abrirApp('diario', 'titulares')
   },
@@ -93,4 +81,3 @@ const flujoReparto: TutorialDef = {
   ],
 }
 
-export const flujosDiario: TutorialDef[] = [flujoHabito, flujoReparto]

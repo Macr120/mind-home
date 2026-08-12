@@ -3,7 +3,7 @@ import { lazy } from 'react'
 import { esquemas } from './captura'
 import { COLOR } from './constantes'
 import { metaAgenda } from './meta'
-import { flujosAgenda } from './tutorial'
+import { flujosAgenda } from './tutorial.meta'
 import { planMetasAgenda } from './plan'
 
 /**

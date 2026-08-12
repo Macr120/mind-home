@@ -57,17 +57,30 @@ export interface PasoTutorial {
   foco?: RegionMapa | ((ctx: TutorialCtx) => RegionMapa | null)
 }
 
+/**
+ * Lo PESADO de un tour: sus pasos y el gancho que abre la pantalla. Vive en un
+ * módulo aparte del que lo declara, y solo se descarga al lanzarlo.
+ *
+ * El porqué: los textos de los 82 tours son ~200 KB de español EN LÍNEA (el
+ * respaldo de `t()`), y hasta ahora entraban enteros al bundle de arranque
+ * porque `Plantilla.flujos` los necesitaba al evaluar cada `rooms/*\/index.tsx`.
+ * Partiendo ficha y cuerpo, el arranque solo paga los títulos.
+ */
+export interface CuerpoTutorial {
+  /** Abre la superficie donde vive el tutorial (lo usa `iniciar`, p. ej. desde el chat). */
+  preparar?: () => void | Promise<void>
+  pasos: PasoTutorial[]
+}
+
+/**
+ * Ficha LIGERA de un tour: lo que el selector, el chat y el medidor de zonas
+ * amarillas necesitan (cada 200 ms) sin bajar un solo paso.
+ */
 export interface TutorialDef {
   id: string
   titulo: TextoTut
   /** Respuesta del chat a «¿cómo funciona X?» (2-4 frases). */
   resumen: TextoTut
-  /** Abre la superficie donde vive el tutorial (lo usa `iniciar`, p. ej. desde el chat). */
-  preparar?: () => void | Promise<void>
-  pasos: PasoTutorial[]
-  /**
-   * Se llama al cerrarse el tour, con `true` si el usuario llegó al final. Lo inyecta
-   * quien lanza el tour (p. ej. la guía de bienvenida marca su paso como hecho).
-   */
-  alTerminar?: (completado: boolean) => void
+  /** Baja el cuerpo del tour: `() => import('./tutorial').then(m => m.cuerpoX)`. */
+  cargar: () => Promise<CuerpoTutorial>
 }

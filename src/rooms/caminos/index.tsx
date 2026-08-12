@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
 import { useCaminos } from '../../core/state/caminosStore'
-import { flujosCaminos } from './tutorial'
+import { flujosCaminos } from './tutorial.meta'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de
 // montaje ya envuelven en Suspense). El resto del módulo (capturar, esquemas,

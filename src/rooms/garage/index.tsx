@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
-import { flujosGarage } from './tutorial'
+import { flujosGarage } from './tutorial.meta'
 import { planMetasGarage } from './plan'
 
 // La app 2D se descarga al entrar al cuarto, no en el arranque (los puntos de

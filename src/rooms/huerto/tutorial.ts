@@ -1,4 +1,4 @@
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirEditorInfra } from '../../core/tutorial/infraEditor'
 import { useHuerto } from '../../core/state/huertoStore'
 import { focoParcelas, focoZona } from '../../demo/mapa/focos'
@@ -11,15 +11,7 @@ const h = () => useHuerto.getState()
 // huerto ya VIVO), sin crear ni borrar datos. El editor del huerto es jugable
 // en demo (sus tablas están permitidas), así que se abre de verdad.
 
-const flujoCiclo: TutorialDef = {
-  id: 'infra-huerto--ciclo',
-  titulo: T('tut.infra-huerto--ciclo.titulo', 'El ciclo del huerto'),
-  resumen: T(
-    'tut.infra-huerto--ciclo.resumen',
-    'Un paseo por el huerto vivo del santuario: las etapas de cada cultivo, el riego, la cosecha y la cesta con un año de trabajo.',
-  ),
-  // Sin `preparar`: el editor se abre en el paso 2, para que la panorámica del
-  // paso 1 se vea con el mapa limpio (su barra ocupa todo el bajo de pantalla).
+export const cuerpoCiclo: CuerpoTutorial = {
   pasos: [
     {
       zona: () => focoZona('zona-santuario'),
@@ -88,13 +80,7 @@ const flujoCiclo: TutorialDef = {
   ],
 }
 
-const flujoParcelas: TutorialDef = {
-  id: 'infra-huerto--parcelas',
-  titulo: T('tut.infra-huerto--parcelas.titulo', 'Sembrar de cero'),
-  resumen: T(
-    'tut.infra-huerto--parcelas.resumen',
-    'Cómo se prepara la tierra, se elige la especie y se deshace un error — probándolo de verdad en el santuario.',
-  ),
+export const cuerpoParcelas: CuerpoTutorial = {
   preparar: () => abrirEditorInfra(() => h().iniciar(), 'huerto.header'),
   pasos: [
     {
@@ -145,4 +131,3 @@ const flujoParcelas: TutorialDef = {
   ],
 }
 
-export const flujosHuerto: TutorialDef[] = [flujoCiclo, flujoParcelas]

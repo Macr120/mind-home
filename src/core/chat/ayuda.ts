@@ -1,7 +1,7 @@
 import { normalizar } from './dispatcher'
 import { plantillasTodas } from '../registry'
 import { claveNucleoDe, tutorialDeApp, tutorialMenuPorId } from '../tutorial/registro'
-import { tutorialCasa } from '../tutorial/menus'
+import { tutorialCasa } from '../tutorial/menus.meta'
 import type { TutorialDef } from '../tutorial/tipos'
 
 /**

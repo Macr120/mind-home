@@ -4,7 +4,7 @@ import { useHud } from '../state/hudStore'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { useRutinasUI } from '../state/rutinasUiStore'
-import { irAPestanaMenu } from '../tutorial/menus'
+import { irAPestanaMenu } from '../tutorial/dom'
 import { clickTut, esperarTut } from '../tutorial/dom'
 
 /**

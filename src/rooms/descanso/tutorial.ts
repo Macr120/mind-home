@@ -2,18 +2,12 @@
  * Flujos de descanso: corren sobre el AÑO de Pep@ en la casa demo (solo
  * navegan y señalan; no crean datos — el guard lo impediría igual).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoNoche: TutorialDef = {
-  id: 'app-descanso--noche',
-  titulo: T('tut.app-descanso--noche.titulo', 'Cómo se puntúa una noche'),
-  resumen: T(
-    'tut.app-descanso--noche.resumen',
-    'Descanso puntúa cada noche sobre cien: cuánto dormiste, a qué hora te acostaste y cuántas veces te despertaste. Con eso construye el historial del año.',
-  ),
+export const cuerpoNoche: CuerpoTutorial = {
   preparar: () => {
     abrirApp('descanso')
   },
@@ -45,13 +39,7 @@ const flujoNoche: TutorialDef = {
   ],
 }
 
-const flujoHorario: TutorialDef = {
-  id: 'app-descanso--horario',
-  titulo: T('tut.app-descanso--horario.titulo', 'Tu horario de sueño'),
-  resumen: T(
-    'tut.app-descanso--horario.resumen',
-    'El horario se dibuja en una barra de veinticuatro horas, se refleja como bloque en el calendario de la casa y puede avisarte antes de dormir.',
-  ),
+export const cuerpoHorario: CuerpoTutorial = {
   preparar: () => {
     abrirApp('descanso')
   },
@@ -83,4 +71,3 @@ const flujoHorario: TutorialDef = {
   ],
 }
 
-export const flujosDescanso: TutorialDef[] = [flujoNoche, flujoHorario]

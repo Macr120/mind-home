@@ -1,4 +1,4 @@
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { focoCanchas, focoZona } from '../../demo/mapa/focos'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
@@ -7,13 +7,7 @@ const T = (clave: string, es: string): TextoTut => ({ clave, es })
 // (colocar canchas edita el mapa), así que el tour no lo abre — manda al
 // visitante a JUGAR el complejo que ya está construido.
 
-const flujoJugar: TutorialDef = {
-  id: 'infra-canchas--jugar',
-  titulo: T('tut.infra-canchas--jugar.titulo', 'Jugar en las canchas'),
-  resumen: T(
-    'tut.infra-canchas--jugar.resumen',
-    'El complejo deportivo del demo: cómo arranca cada juego al entrar a la cancha y los marcadores de Pep@ que puedes mejorar.',
-  ),
+export const cuerpoJugar: CuerpoTutorial = {
   pasos: [
     {
       zona: () => focoZona('zona-canchas'),
@@ -52,4 +46,3 @@ const flujoJugar: TutorialDef = {
   ],
 }
 
-export const flujosCanchas: TutorialDef[] = [flujoJugar]

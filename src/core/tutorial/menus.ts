@@ -1,5 +1,5 @@
-import type { TextoTut, TutorialDef } from './tipos'
-import { clickTut, elTut, esperarTut } from './dom'
+import type { CuerpoTutorial, TextoTut } from './tipos'
+import { clickTut, elTut, esperarTut, irAPestanaMenu } from './dom'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
 import { abrirApp } from '../abrirApp'
@@ -30,25 +30,13 @@ const abrirSiFalta = (sel: string, boton: string) => {
   if (!elTut(sel)) clickTut(boton)
 }
 
-/** Cambia a una pestaña del menú lateral esperando a que exista su botón. */
-export const irAPestanaMenu = async (tab: string) => {
-  await esperarTut(tab, 2000)
-  clickTut(tab)
-}
-
 /** Abre el editor en una pestaña concreta (preparar de los tours del editor). */
 const abrirEditorEn = (tab: 'mapa' | 'personajes' | 'objetos' | 'config') => () => {
   useEditorUi.getState().setTab(tab)
   useLayout.getState().setEditMode(true)
 }
 
-export const tutorialCasa: TutorialDef = {
-  id: 'casa',
-  titulo: T('tut.casa.titulo', 'Tu casa'),
-  resumen: T(
-    'tut.casa.resumen',
-    'La casa es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario, las rutinas y la música.',
-  ),
+export const cuerpoCasa: CuerpoTutorial = {
   preparar: () => {
     clickTut('menu.retraer')
   },
@@ -132,13 +120,7 @@ export const tutorialCasa: TutorialDef = {
   ],
 }
 
-export const tutorialMenuCuartos: TutorialDef = {
-  id: 'menu-cuartos',
-  titulo: T('tut.menu-cuartos.titulo', 'Menú · Cuartos'),
-  resumen: T(
-    'tut.menu-cuartos.resumen',
-    'La pestaña Cuartos lista los cuartos de tu casa por categoría, con su progreso. Cada tarjeta tiene Editar (personalizar el cuarto) y Entrar (abrir su app) o + Asignar si aún no tiene app. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.',
-  ),
+export const cuerpoMenuCuartos: CuerpoTutorial = {
   preparar: () => {
     clickTut('menu.abrir')
   },
@@ -208,13 +190,7 @@ export const tutorialMenuCuartos: TutorialDef = {
   ],
 }
 
-export const tutorialMenuPlantillas: TutorialDef = {
-  id: 'menu-plantillas',
-  titulo: T('tut.menu-plantillas.titulo', 'Menú · Plantillas'),
-  resumen: T(
-    'tut.menu-plantillas.resumen',
-    'Las plantillas son las apps de la casa: se asignan a un objeto de un cuarto. Esta pestaña tiene dos vistas —Cuartos (las apps de siempre) e Infraestructura (lo que se construye directo en el mapa)— y el catálogo incluye las plantillas que tú mismo armas con bloques.',
-  ),
+export const cuerpoMenuPlantillas: CuerpoTutorial = {
   preparar: () => {
     clickTut('menu.abrir')
   },
@@ -260,13 +236,7 @@ export const tutorialMenuPlantillas: TutorialDef = {
   ],
 }
 
-export const tutorialPlantillasCustom: TutorialDef = {
-  id: 'plantillas-custom',
-  titulo: T('tut.plantillas-custom.titulo', 'Tus propias plantillas'),
-  resumen: T(
-    'tut.plantillas-custom.resumen',
-    'El editor de plantillas propias arma una app entera con bloques: notas, checklist, contador, enlaces, hábito, galería y más. Le pones nombre, emoji y color, eliges sus bloques y queda lista para asignar como cualquier otra app.',
-  ),
+export const cuerpoPlantillasCustom: CuerpoTutorial = {
   preparar: async () => {
     clickTut('menu.abrir')
     await irAPestanaMenu('menu.tab.plantillas')
@@ -331,13 +301,7 @@ export const tutorialPlantillasCustom: TutorialDef = {
   ],
 }
 
-export const tutorialMenuInventario: TutorialDef = {
-  id: 'menu-inventario',
-  titulo: T('tut.menu-inventario.titulo', 'Menú · Inventario'),
-  resumen: T(
-    'tut.menu-inventario.resumen',
-    'El inventario guarda los objetos para decorar la casa: la biblioteca por categorías y los objetos especiales (vehículos, fuentes, juegos de parque, luces). Con el menú abierto puedes arrastrarlos directo a la escena.',
-  ),
+export const cuerpoMenuInventario: CuerpoTutorial = {
   preparar: () => {
     clickTut('menu.abrir')
   },
@@ -390,13 +354,7 @@ export const tutorialMenuInventario: TutorialDef = {
   ],
 }
 
-export const tutorialEditorMapa: TutorialDef = {
-  id: 'editor-mapa',
-  titulo: T('tut.editor-mapa.titulo', 'El editor · Mapa'),
-  resumen: T(
-    'tut.editor-mapa.resumen',
-    'El editor personaliza toda la casa en 4 pestañas: Mapa, Personajes, Objetos y Configuraciones — cada una con su propio tutorial. La de Mapa dibuja cuartos, muros, puertas, ventanas, pisos y techos en un croquis que se ve en 3D al instante, y también da niveles: pisos apilables y un sótano.',
-  ),
+export const cuerpoEditorMapa: CuerpoTutorial = {
   preparar: abrirEditorEn('mapa'),
   pasos: [
     {
@@ -437,13 +395,7 @@ export const tutorialEditorMapa: TutorialDef = {
   ],
 }
 
-export const tutorialEditorPersonajes: TutorialDef = {
-  id: 'editor-personajes',
-  titulo: T('tut.editor-personajes.titulo', 'El editor · Personajes'),
-  resumen: T(
-    'tut.editor-personajes.resumen',
-    'Tu avatar y tus asistentes comparten editor: cuerpo, rostro (con foto), color, tamaño, ropa y animaciones, con vista previa 3D. El avatar además tiene guardarropa a medida y puede vestir distinto en cada cuarto.',
-  ),
+export const cuerpoEditorPersonajes: CuerpoTutorial = {
   preparar: abrirEditorEn('personajes'),
   pasos: [
     {
@@ -494,13 +446,7 @@ export const tutorialEditorPersonajes: TutorialDef = {
   ],
 }
 
-export const tutorialEditorObjetos: TutorialDef = {
-  id: 'editor-objetos',
-  titulo: T('tut.editor-objetos.titulo', 'El editor · Objetos'),
-  resumen: T(
-    'tut.editor-objetos.resumen',
-    'Cada objeto colocado se edita en color, tamaño y rotación desde aquí, y también se pueden crear objetos propios armándolos por piezas.',
-  ),
+export const cuerpoEditorObjetos: CuerpoTutorial = {
   preparar: abrirEditorEn('objetos'),
   pasos: [
     {
@@ -525,13 +471,7 @@ export const tutorialEditorObjetos: TutorialDef = {
   ],
 }
 
-export const tutorialEditorConfig: TutorialDef = {
-  id: 'editor-config',
-  titulo: T('tut.editor-config.titulo', 'El editor · Configuraciones'),
-  resumen: T(
-    'tut.editor-config.resumen',
-    'Ocho secciones plegables: Cuenta, Precios de la IA, Estilo visual del mapa, Interfaz e idioma, Música, Tutoriales, Notificaciones y Respaldo de datos. Cada una se abre por separado y recuerda si la dejaste abierta.',
-  ),
+export const cuerpoEditorConfig: CuerpoTutorial = {
   preparar: abrirEditorEn('config'),
   pasos: [
     {
@@ -586,13 +526,7 @@ export const tutorialEditorConfig: TutorialDef = {
   ],
 }
 
-export const tutorialRespaldo: TutorialDef = {
-  id: 'respaldo',
-  titulo: T('tut.respaldo.titulo', 'Respaldo de datos'),
-  resumen: T(
-    'tut.respaldo.resumen',
-    'Todo lo que guardas vive en este dispositivo. Respaldo de datos exporta todo a un archivo, restaura desde uno y avisa si el navegador podría liberar espacio borrándolo sin avisar.',
-  ),
+export const cuerpoRespaldo: CuerpoTutorial = {
   preparar: () => {
     useEditorUi.getState().setTab('config')
     useLayout.getState().setEditMode(true)
@@ -633,13 +567,7 @@ export const tutorialRespaldo: TutorialDef = {
   ],
 }
 
-export const tutorialEditorCuarto: TutorialDef = {
-  id: 'editor-cuarto',
-  titulo: T('tut.editor-cuarto.titulo', 'Editar un cuarto'),
-  resumen: T(
-    'tut.editor-cuarto.resumen',
-    'Al editar un cuarto concreto, el croquis se enfoca en él: forma, piso, muros, color, nombre y —lo que más se usa aquí— qué app tiene asignada o si conviene cambiarla. La flecha del panel vuelve al mapa completo, y el botón flotante sobre el cuarto sale de él.',
-  ),
+export const cuerpoEditorCuarto: CuerpoTutorial = {
   pasos: [
     {
       texto: T(
@@ -672,13 +600,7 @@ export const tutorialEditorCuarto: TutorialDef = {
   ],
 }
 
-export const tutorialHerramientas: TutorialDef = {
-  id: 'herramientas',
-  titulo: T('tut.herramientas.titulo', 'Rueda de herramientas'),
-  resumen: T(
-    'tut.herramientas.resumen',
-    'La rueda equipa a tu personaje en cuatro categorías: movimientos (correr, bailar, saltar…), juguetes (láser, portales, grafiti…), vehículos montables y construcción (un atajo a los modos del editor de mapa). Dos niveles —categoría → herramienta— y hasta 3 equipadas a la vez.',
-  ),
+export const cuerpoHerramientas: CuerpoTutorial = {
   preparar: () => {
     clickTut('menu.retraer')
   },
@@ -730,13 +652,7 @@ export const tutorialHerramientas: TutorialDef = {
   ],
 }
 
-export const tutorialNavegacion: TutorialDef = {
-  id: 'navegacion',
-  titulo: T('tut.navegacion.titulo', 'Cámara y movimiento'),
-  resumen: T(
-    'tut.navegacion.resumen',
-    'Hay tres vistas: isométrica, tercera y primera persona (tecla V). Te mueves con el joystick, WASD o flechas; el hueco de la esquina orienta la cámara salvo que tengas algo cerca, en cuyo caso ofrece esa acción en su lugar. En 3ª/1ª persona existe además el Editor 3D para tocar el mundo directamente.',
-  ),
+export const cuerpoNavegacion: CuerpoTutorial = {
   pasos: [
     {
       sel: 'nav.vistas',
@@ -786,13 +702,7 @@ export const tutorialNavegacion: TutorialDef = {
   ],
 }
 
-export const tutorialChat: TutorialDef = {
-  id: 'chat',
-  titulo: T('tut.chat.titulo', 'El chat del arquitecto'),
-  resumen: T(
-    'tut.chat.resumen',
-    'El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la casa por texto, dicta por voz y lee una foto. Cada asistente tiene su cara y su voz; el manual lista todo lo que puedes pedir, y lo que ya quedó registrado vive en su pestaña Registros.',
-  ),
+export const cuerpoChat: CuerpoTutorial = {
   pasos: [
     {
       sel: 'chat.caja',
@@ -859,13 +769,7 @@ export const tutorialChat: TutorialDef = {
   ],
 }
 
-export const tutorialChatRegistros: TutorialDef = {
-  id: 'chat-registros',
-  titulo: T('tut.chat-registros.titulo', 'Chat · Registros y memorias'),
-  resumen: T(
-    'tut.chat-registros.resumen',
-    'La pestaña Registros del chat guarda tus conversaciones anteriores y lo que el asistente recuerda de ti entre sesiones, para no repetírselo cada vez.',
-  ),
+export const cuerpoChatRegistros: CuerpoTutorial = {
   preparar: () => {
     clickTut('chat.asistente')
   },
@@ -899,13 +803,7 @@ export const tutorialChatRegistros: TutorialDef = {
   ],
 }
 
-export const tutorialMusica: TutorialDef = {
-  id: 'musica',
-  titulo: T('tut.musica.titulo', 'La música de la casa'),
-  resumen: T(
-    'tut.musica.resumen',
-    'Música ambiental general o un tema por cuarto, con tres fuentes posibles: generada, tus propias pistas o el audio del sistema. Se apaga entera si prefieres jugar en silencio.',
-  ),
+export const cuerpoMusica: CuerpoTutorial = {
   preparar: () => {
     clickTut('menu.retraer')
   },
@@ -960,13 +858,7 @@ export const tutorialMusica: TutorialDef = {
   ],
 }
 
-export const tutorialCuentaIA: TutorialDef = {
-  id: 'cuenta-ia',
-  titulo: T('tut.cuenta-ia.titulo', 'La IA y tu cuenta'),
-  resumen: T(
-    'tut.cuenta-ia.resumen',
-    'La IA se activa en Editor › Configuraciones. Cada operación —una respuesta, un plan, una imagen, un modelo 3D— tiene su tarifa en créditos, visible antes de pedirla. Con tu propia clave de proveedor no se gastan créditos: pagas directo a él.',
-  ),
+export const cuerpoCuentaIA: CuerpoTutorial = {
   preparar: () => {
     useEditorUi.getState().setTab('config')
     useLayout.getState().setEditMode(true)
@@ -1018,13 +910,7 @@ export const tutorialCuentaIA: TutorialDef = {
   ],
 }
 
-export const tutorialEjemplos: TutorialDef = {
-  id: 'ejemplos',
-  titulo: T('tut.ejemplos.titulo', 'Empezar con un ejemplo'),
-  resumen: T(
-    'tut.ejemplos.resumen',
-    'Casi cada app trae una barra para ver un ejemplo de fábrica con datos ya puestos, y ocultarlo después sin perder nada propio. No aparece dentro de la casa demo: ahí el año entero YA es el ejemplo.',
-  ),
+export const cuerpoEjemplos: CuerpoTutorial = {
   preparar: () => {
     abrirApp('anecdotario')
   },
@@ -1051,24 +937,3 @@ export const tutorialEjemplos: TutorialDef = {
   ],
 }
 
-/** Los tutoriales de menús/HUD por id (el chat los busca aquí). */
-export const TUTORIALES_MENU: TutorialDef[] = [
-  tutorialCasa,
-  tutorialMenuCuartos,
-  tutorialMenuPlantillas,
-  tutorialPlantillasCustom,
-  tutorialMenuInventario,
-  tutorialEditorMapa,
-  tutorialEditorPersonajes,
-  tutorialEditorObjetos,
-  tutorialEditorConfig,
-  tutorialRespaldo,
-  tutorialEditorCuarto,
-  tutorialHerramientas,
-  tutorialNavegacion,
-  tutorialChat,
-  tutorialChatRegistros,
-  tutorialMusica,
-  tutorialCuentaIA,
-  tutorialEjemplos,
-]

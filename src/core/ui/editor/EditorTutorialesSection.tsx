@@ -3,8 +3,9 @@ import { useAjustes } from '../../state/ajustesStore'
 import { useBienvenida } from '../../bienvenida/bienvenidaStore'
 import { useTutorial } from '../../tutorial/tutorialStore'
 import { useSelectorTut } from '../../tutorial/SelectorTutorial'
-import { TUTORIALES_MENU } from '../../tutorial/menus'
+import { TUTORIALES_MENU } from '../../tutorial/menus.meta'
 import { FLUJOS_NUCLEO, flujosDeApp, lanzarFlujo } from '../../tutorial/registro'
+import { hayNarracion } from '../../tutorial/narracion'
 import { plantillasCuarto, plantillasInfraestructura } from '../../registry'
 import { esDemo } from '../../edicion'
 import { entrarDemo } from '../../../demo/modo'
@@ -24,6 +25,8 @@ export function EditorTutorialesSection({
   const t = useT()
   const hudTutoriales = useAjustes((s) => s.hudTutoriales)
   const setHudTutoriales = useAjustes((s) => s.setHudTutoriales)
+  const vozTutoriales = useAjustes((s) => s.vozTutoriales)
+  const setVozTutoriales = useAjustes((s) => s.setVozTutoriales)
 
   // Los tours apuntan al HUD y a los menús: el editor tapa media pantalla, así
   // que se cierra antes. El que necesita el editor lo reabre en su `preparar`.
@@ -71,6 +74,32 @@ export function EditorTutorialesSection({
         </p>
       </div>
 
+      {/* Narración por voz. Sin voces del sistema no se ofrece: no sonaría nada. */}
+      {hayNarracion() && (
+        <div className="space-y-1.5">
+          <button
+            type="button"
+            onClick={() => setVozTutoriales(!vozTutoriales)}
+            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+              vozTutoriales
+                ? 'ui-accent-bg border-transparent'
+                : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+            }`}
+          >
+            <span className="shrink-0 text-[11px]">{vozTutoriales ? '✓' : '○'}</span>
+            <span className="min-w-0 flex-1 truncate">
+              {t('ajustes.tutoriales.voz', 'Leer los pasos en voz alta')}
+            </span>
+          </button>
+          <p className="text-[11px] leading-snug text-white/45">
+            {t(
+              'ajustes.tutoriales.vozDesc',
+              'El mago narra cada paso con la voz de su ficha. También se enciende con el altavoz de la tarjeta.',
+            )}
+          </p>
+        </div>
+      )}
+
       {/* Mismo flujo del "?": ilumina en amarillo las zonas con tutorial */}
       <button
         type="button"
@@ -115,7 +144,7 @@ export function EditorTutorialesSection({
                 type="button"
                 onClick={() => {
                   useLayout.getState().setEditMode(false)
-                  lanzarFlujo(clave, def)
+                  void lanzarFlujo(clave, def)
                 }}
                 className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
               >
@@ -142,7 +171,7 @@ export function EditorTutorialesSection({
                 onClick={() => {
                   // Con flujos, el primero es la introducción de la app.
                   useLayout.getState().setEditMode(false)
-                  lanzarFlujo(p.id, flujosDeApp(p.id)[0])
+                  void lanzarFlujo(p.id, flujosDeApp(p.id)[0])
                 }}
                 title={nombre}
                 aria-label={nombre}
@@ -170,7 +199,7 @@ export function EditorTutorialesSection({
                 onClick={() => {
                   // Con flujos, el primero es la introducción (igual que las apps).
                   useLayout.getState().setEditMode(false)
-                  lanzarFlujo(p.id, flujosDeApp(p.id)[0])
+                  void lanzarFlujo(p.id, flujosDeApp(p.id)[0])
                 }}
                 title={nombre}
                 aria-label={nombre}

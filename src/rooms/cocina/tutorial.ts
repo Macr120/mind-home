@@ -5,7 +5,7 @@
  * Las pestañas dependen del ENFOQUE activo, así que todo salto va: clic al
  * enfoque, esperar a que aparezca la pestaña, y clic en la pestaña.
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 
@@ -17,13 +17,7 @@ async function irA(enfoque: 'peso' | 'recetario', tab: string): Promise<void> {
   clickTut(`cocina.tab.${tab}`)
 }
 
-const flujoAlimentacion: TutorialDef = {
-  id: 'app-cocina--alimentacion',
-  titulo: T('tut.app-cocina--alimentacion.titulo', 'Comer con un objetivo'),
-  resumen: T(
-    'tut.app-cocina--alimentacion.resumen',
-    'El control de alimentación son cuatro pasos: pones tus objetivos, registras lo que comes y bebes, planeas tu semana, y el progreso te dice si vas por donde querías.',
-  ),
+export const cuerpoAlimentacion: CuerpoTutorial = {
   preparar: () => {
     abrirApp('cocina')
   },
@@ -66,13 +60,7 @@ const flujoAlimentacion: TutorialDef = {
   ],
 }
 
-const flujoRecetario: TutorialDef = {
-  id: 'app-cocina--recetario',
-  titulo: T('tut.app-cocina--recetario.titulo', 'Cocinar, planear y comprar'),
-  resumen: T(
-    'tut.app-cocina--recetario.resumen',
-    'El recetario guarda tus recetas con sus macros, las agrupa en dietas y convierte lo que vas a cocinar en la lista del súper.',
-  ),
+export const cuerpoRecetario: CuerpoTutorial = {
   preparar: () => {
     abrirApp('cocina')
   },
@@ -127,13 +115,7 @@ const flujoRecetario: TutorialDef = {
   ],
 }
 
-const flujoCronograma: TutorialDef = {
-  id: 'app-cocina--cronograma',
-  titulo: T('tut.app-cocina--cronograma.titulo', 'El plan de alimentación en el calendario'),
-  resumen: T(
-    'tut.app-cocina--cronograma.resumen',
-    'Las metas de peso y dieta de Pep@ tienen su propio eje del tiempo: sub-metas con fecha y un plan que la IA arma en fases.',
-  ),
+export const cuerpoCronograma: CuerpoTutorial = {
   preparar: () => {
     abrirApp('cocina')
   },
@@ -157,4 +139,3 @@ const flujoCronograma: TutorialDef = {
   ],
 }
 
-export const flujosCocina: TutorialDef[] = [flujoAlimentacion, flujoRecetario, flujoCronograma]

@@ -29,7 +29,7 @@ export function BotonTutorialApp({
 
   const elegir = (def: TutorialDef) => {
     setAbierto(false)
-    lanzarFlujo(plantilla.id, def, { montada })
+    void lanzarFlujo(plantilla.id, def, { montada })
   }
 
   return (

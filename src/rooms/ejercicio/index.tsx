@@ -15,7 +15,7 @@ import { tGlobal } from '../../core/i18n/useT'
 import { agendaDelDia } from './agenda'
 import { planMetasEjercicio } from './plan'
 import { fechaLocalISO } from '../../core/fechaLocal'
-import { flujosEjercicio } from './tutorial'
+import { flujosEjercicio } from './tutorial.meta'
 import { OPERACIONES_IA } from './costosIA'
 
 /** Los tres tipos, para recorrer lo agendado de todos a la vez. */

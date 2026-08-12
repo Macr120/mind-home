@@ -3,7 +3,7 @@
  * localizan sus dos vehículos POR LOS REPOS y navegan con clicks — no crean
  * datos (en la casa demo cualquier escritura está bloqueada).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { abrirApp } from '../../core/abrirApp'
 import { vehiculosRepo } from '../../core/data/repository'
@@ -37,13 +37,7 @@ async function irACuaderno(tab: 'tramites' | 'documentos' | 'contactos'): Promis
   clickTut(`garage.detalle.tab.${tab}`)
 }
 
-const flujoVehiculos: TutorialDef = {
-  id: 'app-garage--vehiculos',
-  titulo: T('tut.app-garage--vehiculos.titulo', 'Una bici y un coche viejo'),
-  resumen: T(
-    'tut.app-garage--vehiculos.resumen',
-    'El garaje lleva el mantenimiento de tus vehículos reales: cada uno con su ficha, su kilometraje y su historial de servicios. Arriba, un semáforo te dice si algo urge.',
-  ),
+export const cuerpoVehiculos: CuerpoTutorial = {
   preparar: () => {
     abrirApp('garage')
   },
@@ -103,13 +97,7 @@ const flujoVehiculos: TutorialDef = {
   ],
 }
 
-const flujoTramites: TutorialDef = {
-  id: 'app-garage--tramites',
-  titulo: T('tut.app-garage--tramites.titulo', 'Trámites que se agendan solos'),
-  resumen: T(
-    'tut.app-garage--tramites.resumen',
-    'Programa la verificación, la tenencia, el seguro o el servicio periódico y el garaje pone su bloque en el calendario, más un aviso con la anticipación que le pidas.',
-  ),
+export const cuerpoTramites: CuerpoTutorial = {
   preparar: () => {
     abrirApp('garage')
   },
@@ -162,4 +150,3 @@ const flujoTramites: TutorialDef = {
   ],
 }
 
-export const flujosGarage: TutorialDef[] = [flujoVehiculos, flujoTramites]

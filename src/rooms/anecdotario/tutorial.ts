@@ -2,18 +2,12 @@
  * Flujos del diario personal: corren sobre el AÑO de Pep@ en la casa demo
  * (solo navegan y señalan; no crean datos — el guard lo impediría igual).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-const flujoDiario: TutorialDef = {
-  id: 'app-anecdotario--diario',
-  titulo: T('tut.app-anecdotario--diario.titulo', 'El diario de Pep@'),
-  resumen: T(
-    'tut.app-anecdotario--diario.resumen',
-    'El anecdotario es el diario personal: entradas con ánimo, texto y fotos, un calendario que pinta el año según cómo te sentiste, y el historial en carpetas por año, mes y semana.',
-  ),
+export const cuerpoDiario: CuerpoTutorial = {
   preparar: () => {
     abrirApp('anecdotario')
   },
@@ -51,13 +45,7 @@ const flujoDiario: TutorialDef = {
   ],
 }
 
-const flujoFotos: TutorialDef = {
-  id: 'app-anecdotario--fotos',
-  titulo: T('tut.app-anecdotario--fotos.titulo', 'Los hitos en fotos'),
-  resumen: T(
-    'tut.app-anecdotario--fotos.resumen',
-    'Las entradas importantes llevan foto: se ven en el historial y se abren a pantalla completa.',
-  ),
+export const cuerpoFotos: CuerpoTutorial = {
   preparar: () => {
     abrirApp('anecdotario')
   },
@@ -85,4 +73,3 @@ const flujoFotos: TutorialDef = {
   ],
 }
 
-export const flujosAnecdotario: TutorialDef[] = [flujoDiario, flujoFotos]

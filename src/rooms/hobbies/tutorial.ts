@@ -3,7 +3,7 @@
  * localizan el piano y sus proyectos POR LOS REPOS (leer sí se puede en demo)
  * y navegan con clicks sobre las anclas — no crean datos.
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 import { hobbiesRepo, proyectosHobbyRepo } from '../../core/data/repository'
@@ -17,13 +17,7 @@ async function abrirPiano(): Promise<void> {
   if (piano?.id != null) clickTut(`hobbies.item.${piano.id}`)
 }
 
-const flujoPiano: TutorialDef = {
-  id: 'app-hobbies--piano',
-  titulo: T('tut.app-hobbies--piano.titulo', 'El año de piano'),
-  resumen: T(
-    'tut.app-hobbies--piano.resumen',
-    'Hobbies da seguimiento a cada pasatiempo: sesiones con minutos y nota, heatmap anual, rachas, meta semanal y proyectos.',
-  ),
+export const cuerpoPiano: CuerpoTutorial = {
   preparar: () => {
     abrirApp('hobbies')
   },
@@ -72,13 +66,7 @@ const flujoPiano: TutorialDef = {
   ],
 }
 
-const flujoProyectos: TutorialDef = {
-  id: 'app-hobbies--proyectos',
-  titulo: T('tut.app-hobbies--proyectos.titulo', 'Proyectos con fotos'),
-  resumen: T(
-    'tut.app-hobbies--proyectos.resumen',
-    'Cada proyecto guarda su nota, sus sesiones vinculadas y su avance en fotos.',
-  ),
+export const cuerpoProyectos: CuerpoTutorial = {
   preparar: () => {
     abrirApp('hobbies')
   },
@@ -117,13 +105,7 @@ const flujoProyectos: TutorialDef = {
   ],
 }
 
-const flujoGestion: TutorialDef = {
-  id: 'app-hobbies--gestion',
-  titulo: T('tut.app-hobbies--gestion.titulo', 'Registrar y planear'),
-  resumen: T(
-    'tut.app-hobbies--gestion.resumen',
-    'Un hobby nuevo se da de alta en un formulario corto; cada práctica se registra en segundos, y una meta semanal —o el cronograma completo— le pone estructura al tiempo que le dedicas.',
-  ),
+export const cuerpoGestion: CuerpoTutorial = {
   preparar: () => {
     abrirApp('hobbies')
   },
@@ -162,4 +144,3 @@ const flujoGestion: TutorialDef = {
   ],
 }
 
-export const flujosHobbies: TutorialDef[] = [flujoPiano, flujoProyectos, flujoGestion]

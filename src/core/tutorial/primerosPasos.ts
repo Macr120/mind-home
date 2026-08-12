@@ -1,6 +1,6 @@
-import type { PasoTutorial, TextoTut, TutorialDef } from './tipos'
+import type { CuerpoTutorial, PasoTutorial, TextoTut } from './tipos'
 import { clickTut, elTut, esperarTut } from './dom'
-import { irAPestanaMenu } from './menus'
+import { irAPestanaMenu } from './dom'
 import { useCuartos } from '../state/cuartosStore'
 import { useHouse } from '../state/houseStore'
 import { useHud } from '../state/hudStore'
@@ -171,22 +171,16 @@ const PASOS_APP: PasoTutorial[] = [
 ]
 
 /**
- * Paso 1 de la guía de bienvenida: demuestra el ciclo completo de la casa
- * creando un cuarto REAL (que se queda), asignándole su app y entrando a
+ * Cuerpo del paso 1 de la guía de bienvenida: demuestra el ciclo completo de la
+ * casa creando un cuarto REAL (que se queda), asignándole su app y entrando a
  * verla. El paseo por la casa es el paso 2 (`tutorialCasa`).
  *
  * Se arma AL LANZARLO, no al importar el módulo, para leer `movilVertical` en
  * ese momento: el paso de crear cambia de vía según el dispositivo.
  */
-export function defPrimerosPasos(): TutorialDef {
+export function cuerpoPrimerosPasos(): CuerpoTutorial {
   const movil = useHud.getState().movilVertical
   return {
-    id: 'primeros-pasos',
-    titulo: T('tut.primeros.titulo', 'Primeros pasos'),
-    resumen: T(
-      'tut.primeros.resumen',
-      'Crea un cuarto desde el menú, asígnale su app y entra a verla.',
-    ),
     preparar: () => {
       clickTut('menu.abrir')
     },

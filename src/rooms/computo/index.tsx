@@ -6,7 +6,7 @@ import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
 import { COLOR, COLS_INICIO, FILAS_INICIO } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
-import { flujosComputo } from './tutorial'
+import { flujosComputo } from './tutorial.meta'
 import { planMetasComputo } from './plan'
 
 // Las hojas se pueden enlazar desde otras apps (la enciclopedia de Biblioteca

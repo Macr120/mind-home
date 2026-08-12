@@ -2,7 +2,7 @@
  * Flujos de ejercicio: corren sobre el AÑO de Pep@ en la casa demo (solo
  * navegan y señalan; no crean datos — el guard lo impediría igual).
  */
-import type { TextoTut, TutorialDef } from '../../core/tutorial/tipos'
+import type { CuerpoTutorial, TextoTut } from '../../core/tutorial/tipos'
 import { abrirApp } from '../../core/abrirApp'
 import { clickTut, esperarTut } from '../../core/tutorial/dom'
 
@@ -17,13 +17,7 @@ async function irA(tab: string, sub?: string): Promise<void> {
   clickTut(`ejercicio.sub.${sub}`)
 }
 
-const flujoAnio: TutorialDef = {
-  id: 'app-ejercicio--anio',
-  titulo: T('tut.app-ejercicio--anio.titulo', 'El año que Pep@ aprendió a correr'),
-  resumen: T(
-    'tut.app-ejercicio--anio.resumen',
-    'Ejercicio reúne fuerza, resistencia y movilidad en un mismo sitio: cada sesión que registras alimenta tu racha, tus metas semanales y el historial del año.',
-  ),
+export const cuerpoAnio: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ejercicio')
   },
@@ -58,13 +52,7 @@ const flujoAnio: TutorialDef = {
   ],
 }
 
-const flujoCarrera: TutorialDef = {
-  id: 'app-ejercicio--carrera',
-  titulo: T('tut.app-ejercicio--carrera.titulo', 'De cero a 42 kilómetros'),
-  resumen: T(
-    'tut.app-ejercicio--carrera.resumen',
-    'La pestaña Resistencia guarda cada salida con su distancia, su ritmo y su recorrido; el progreso resume el mes en un mapa de calor y saca tus mejores marcas.',
-  ),
+export const cuerpoCarrera: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ejercicio')
   },
@@ -99,13 +87,7 @@ const flujoCarrera: TutorialDef = {
   ],
 }
 
-const flujoFuerza: TutorialDef = {
-  id: 'app-ejercicio--fuerza',
-  titulo: T('tut.app-ejercicio--fuerza.titulo', 'La fuerza que la rodilla no se llevó'),
-  resumen: T(
-    'tut.app-ejercicio--fuerza.resumen',
-    'En Fuerza registras series, repeticiones y peso; con eso la app calcula tu volumen, dibuja la progresión de cada ejercicio y guarda tus récords personales.',
-  ),
+export const cuerpoFuerza: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ejercicio')
   },
@@ -139,13 +121,7 @@ const flujoFuerza: TutorialDef = {
   ],
 }
 
-const flujoFlexibilidad: TutorialDef = {
-  id: 'app-ejercicio--flexibilidad',
-  titulo: T('tut.app-ejercicio--flexibilidad.titulo', 'La tercera modalidad'),
-  resumen: T(
-    'tut.app-ejercicio--flexibilidad.resumen',
-    'Flexibilidad se organiza igual que Fuerza y Resistencia —catálogo, rutinas, progreso— pero con series por tiempo en vez de por peso, y un reproductor guiado con temporizador.',
-  ),
+export const cuerpoFlexibilidad: CuerpoTutorial = {
   preparar: () => {
     abrirApp('ejercicio')
   },
@@ -186,4 +162,3 @@ const flujoFlexibilidad: TutorialDef = {
   ],
 }
 
-export const flujosEjercicio: TutorialDef[] = [flujoAnio, flujoCarrera, flujoFuerza, flujoFlexibilidad]
