@@ -3,15 +3,15 @@ import { useFrame, type ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useShallow } from 'zustand/react/shallow'
 import { useHouse } from '../state/houseStore'
-import { useDiseño } from '../state/disenoStore'
+import { useDiseño, objetosDeCuartoIdx } from '../state/disenoStore'
 import { useCam } from '../state/cameraStore'
 import { playerPos } from '../state/playerPosition'
 import { useLayout } from '../state/layoutStore'
 import { puedeMoverCuartoRegistro } from './planoGeometria'
 import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
-import { zonasRepo, pisosExteriorRepo } from '../data/repository'
-import type { ObjetoCuarto, PisoExteriorCelda, ZonaPlano } from '../data/db'
+import { useMapaTablas } from '../state/mapaTablasStore'
+import type { ObjetoCuarto, PisoExteriorCelda } from '../data/db'
 import { ocupadoConZonas } from './planoGeometria'
 import {
   roomWallSegments,
@@ -85,11 +85,6 @@ import { AguaCuarto } from './AguaCuarto'
 import { ComplementoPisoSotano } from './ComplementoPisoSotano'
 import { consumirClicMuro } from './PlanoMuroSelector3D'
 import { GrafitisMuroCuarto } from './grafiti'
-
-// Listas vacías estables mientras el repo carga: un `?? []` inline crea un array nuevo
-// por render y obliga a recalcular los useMemo que dependen de él (ocupado, overrideMap).
-const SIN_ZONAS: ZonaPlano[] = []
-const SIN_PISOS_EXT: PisoExteriorCelda[] = []
 
 function tint(hex: string, amt: number) {
   const n = parseInt(hex.slice(1), 16)
@@ -473,7 +468,7 @@ const ObjetosCuarto = memo(function ObjetosCuarto({
   H: number
   preview: boolean
 }) {
-  const objetosCuarto = useDiseño(useShallow((s) => s.objetos.filter((o) => o.roomId === id)))
+  const objetosCuarto = useDiseño((s) => objetosDeCuartoIdx(s.objetos, id))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
   const tema = useTemaActivo()
   const { editMode, editingRoomId, moverObjetosEste, moverObjetosActivo } = useLayout(
@@ -623,7 +618,7 @@ export function Room3D({
   const fp = footprints[id] ?? FOOTPRINT_DEFAULT
   const nivel = niveles[id] ?? 0
   const anchorCell = arrastrando && previewCellEste ? previewCellEste : cells[id]
-  const zonas = zonasRepo.useAll() ?? SIN_ZONAS
+  const zonas = useMapaTablas((s) => s.zonas)
   const ocupado = useMemo(
     () => ocupadoConZonas(nivel, ocupadoPorNivel, zonas),
     [nivel, ocupadoPorNivel, zonas],
@@ -977,7 +972,7 @@ export function Room3D({
       zonas: planosActivo ? zonas : [],
     })
   // Overrides de piso por cuadrante (sub-celdas, coords de ¼) que caen dentro del cuarto.
-  const pisosOverride = pisosExteriorRepo.useAll() ?? SIN_PISOS_EXT
+  const pisosOverride = useMapaTablas((s) => s.pisosExterior)
   // Overrides del nivel por coord (¼ = cuadrante; entera = relleno de celda con forma).
   const overrideMap = useMemo(() => {
     const m = new Map<string, (typeof pisosOverride)[0]>()

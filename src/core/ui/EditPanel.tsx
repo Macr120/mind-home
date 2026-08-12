@@ -19,6 +19,7 @@ import { ConfigGrupo } from './editor/ConfigGrupo'
 import { useEditorSeccionesConfig } from './editor/useEditorSecciones'
 import type { ConfigGrupoId } from './editor/configSecciones'
 import { useT } from '../i18n/useT'
+import { useNombreCuarto } from './roomDisplay'
 import { esDemo, esDemoAutor } from '../edicion'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
@@ -99,7 +100,7 @@ export function EditPanel() {
   const editRoom = useLayout((s) => s.editRoom)
   const setEditMode = useLayout((s) => s.setEditMode)
   const roomColors = useDiseño((s) => s.roomColors)
-  const roomNames = useDiseño((s) => s.roomNames)
+  const nombreCuarto = useNombreCuarto()
   const tab = useEditorUi((s) => s.tab)
   const setTab = useEditorUi((s) => s.setTab)
   const secConfig = useEditorSeccionesConfig()
@@ -129,9 +130,7 @@ export function EditPanel() {
 
   const room = editingRoomId ? getCuarto(editingRoomId) : null
   const color = room ? roomColors[room.id] ?? room.color : '#94a3b8'
-  const nombre = room ? roomNames[room.id] || room.nombre : ''
-
-  const tituloHeader = room ? nombre.split(' · ')[0] : t('editor.titulo', 'Editor')
+  const tituloHeader = room ? nombreCuarto(room) : t('editor.titulo', 'Editor')
 
   return (
     <div data-tut-zona="editor-mapa" className="ui-panel-glass absolute right-0 top-0 z-[35] flex h-full w-80 flex-col border-l border-white/10 backdrop-blur-md">

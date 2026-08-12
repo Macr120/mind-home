@@ -58,6 +58,7 @@ import {
 import { aristasZonasEnNivel } from '../../house/murosZona'
 import { celdasEdicionCuarto } from '../../house/roomCellEdicion'
 import { aplicarPincelCuarto, aplicarPincelCuartoFino } from '../comun/planoPincelCuarto'
+import { useNombreCuarto } from '../roomDisplay'
 import { paintZonaMuro } from '../comun/paintZonaMuro'
 import { registrarSvgPlano } from '../../house/arrastreCelda'
 import {
@@ -137,7 +138,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
   const contraerCeldaCuarto = useLayout((s) => s.contraerCeldaCuarto)
 
   const roomColors = useDiseño((s) => s.roomColors)
-  const roomNames = useDiseño((s) => s.roomNames)
+  const nombreCuarto = useNombreCuarto()
   const roomPisoTipos = useDiseño((s) => s.roomPisoTipos)
   const roomPisoColors = useDiseño((s) => s.roomPisoColors)
   const roomTechoExtra = useDiseño((s) => s.roomTechoExtra)
@@ -1446,7 +1447,7 @@ export function PlanoCanvas({ onFitRef }: { onFitRef?: (fit: () => void) => void
           const hov = enPisoInt && hoverPisoIntRoom === room.id
           const grupoInt = enPisoInt && seleccion?.tipo === 'pisos-interiores'
           const resaltado = enPisoInt && (sel || hov || grupoInt)
-          const nombre = roomNames[room.id] || room.nombre.split(' · ')[0]
+          const nombre = nombreCuarto(room)
           const arrastrando = draggingId === room.id
           const invalido = arrastrando && !cuartoArrastrandoValido
 

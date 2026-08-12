@@ -17,6 +17,7 @@ import { useEditorUi, PERSONAJE_AVATAR } from '../state/editorUiStore'
 import { useSisifo, marcarSisifoVisto } from '../gamificacion/sisifo'
 import { DIAS_META, RANGOS, colorArcoiris, nombreRango } from '../gamificacion/sisifoData'
 import { useT } from '../i18n/useT'
+import { useNombreCuarto } from './roomDisplay'
 import { Icono } from './iconos/Icono'
 import type { NombreIcono } from './iconos/catalogo'
 
@@ -39,13 +40,13 @@ function Barra({ valor, color }: { valor: number; color: string }) {
  */
 function RadarCuartos({ enfoques }: { enfoques: ProgresoPlantilla[] }) {
   const t = useT()
+  const nombreCuarto = useNombreCuarto()
   const cuartos = useCuartos((s) => s.cuartos)
   // Solo pares cuarto::app (estables al mover objetos): el radar no depende de posiciones.
   const asignaciones = useDiseño(
     useShallow((s) => s.objetos.filter((o) => !!o.plantillaId).map((o) => `${o.roomId}::${o.plantillaId}`)),
   )
   const roomColors = useDiseño((s) => s.roomColors)
-  const roomNames = useDiseño((s) => s.roomNames)
 
   const xpDe = new Map(enfoques.map((e) => [e.plantillaId, e.xp]))
   const datos = [...cuartos]
@@ -57,7 +58,7 @@ function RadarCuartos({ enfoques }: { enfoques: ProgresoPlantilla[] }) {
       return {
         id: c.id,
         icon: c.icon,
-        nombre: roomNames[c.id] || c.nombre,
+        nombre: nombreCuarto(c),
         color: roomColors[c.id] ?? c.color,
         xp: [...apps].reduce((acc, p) => acc + (xpDe.get(p) ?? 0), 0),
       }

@@ -240,12 +240,39 @@ const GRUPO_ACCION_DEFAULT: Partial<Record<string, GrupoAccion>> = {
 }
 
 /**
+ * Lo mismo para los recursos 3D (`recurso:N`): muebles donde cualquiera espera
+ * poder sentarse o acostarse. `giro` = radianes que hay que sumar a la rotación
+ * del mueble para que el avatar mire a su FRENTE (el modelo del sofá tiene el
+ * respaldo en +z, al revés que el sillón o la silla).
+ */
+const GRUPO_ACCION_RECURSO: Record<number, { grupo: GrupoAccion; giro?: number }> = {
+  12: { grupo: 'asiento' }, // GIM-BAN Banco de pesas
+  30: { grupo: 'asiento' }, // BIB-SIL Sillón de lectura
+  38: { grupo: 'acostarse' }, // REC-CAM Cama con cabecera
+  49: { grupo: 'asiento' }, // DES-SIL Silla ejecutiva
+  66: { grupo: 'asiento', giro: Math.PI }, // SAL-SOF Sofá (respaldo en +z)
+}
+
+const idRecurso = (tipo: string) =>
+  tipo.startsWith('recurso:') ? Number(tipo.slice('recurso:'.length)) : null
+
+/**
  * Grupo de acción de un objeto: el explícito guardado en `ObjetoCuarto.grupoAccion`
  * (asignado por la IA al crearlo o corregido a mano en el editor) tiene
- * prioridad; si no hay ninguno, cae al default del catálogo; si tampoco, `null`.
+ * prioridad; si no hay ninguno, cae al default del catálogo o del recurso 3D;
+ * si tampoco, `null`.
  */
 export function grupoAccionDe(tipo: string, explicito?: GrupoAccion): GrupoAccion | null {
-  return explicito ?? GRUPO_ACCION_DEFAULT[tipo] ?? null
+  if (explicito) return explicito
+  const rec = idRecurso(tipo)
+  if (rec != null) return GRUPO_ACCION_RECURSO[rec]?.grupo ?? null
+  return GRUPO_ACCION_DEFAULT[tipo] ?? null
+}
+
+/** Giro extra (radianes) para que el avatar se siente mirando al frente del mueble. */
+export function giroAccionDe(tipo: string): number {
+  const rec = idRecurso(tipo)
+  return (rec != null && GRUPO_ACCION_RECURSO[rec]?.giro) || 0
 }
 
 /**
@@ -493,7 +520,17 @@ export function ObjetoView({
   }
   if (tipo.startsWith('recurso:')) {
     const modelo = getModelo(Number(tipo.slice('recurso:'.length)))
-    return modelo ? modelo.render(color, tema?.id ?? null) : null
+    if (!modelo) return null
+    const contenido = modelo.render(color, tema?.id ?? null)
+    const grupo = grupoAccionDe(tipo, grupoAccion)
+    if ((grupo === 'asiento' || grupo === 'acostarse') && objetoId != null) {
+      return (
+        <AccionGenerica grupo={grupo} objetoId={objetoId} giro={giroAccionDe(tipo)}>
+          {contenido}
+        </AccionGenerica>
+      )
+    }
+    return contenido
   }
   const item = getCatalogoItem(tipo)
   if (!item) return null

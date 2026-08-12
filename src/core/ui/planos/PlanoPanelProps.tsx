@@ -12,6 +12,7 @@ import { EditorZonaPisoSection } from './EditorZonaPisoSection'
 import { EditorPisoExteriorSection } from './EditorPisoExteriorSection'
 import { EditorPisoInterioresSection } from './EditorPisoInterioresSection'
 import { useT } from '../../i18n/useT'
+import { useNombreCuarto } from '../roomDisplay'
 import { Icono } from '../iconos/Icono'
 import { footprintCells, cellId } from '../../house/walls'
 import type { PisoTipoId } from '../../house/pisos'
@@ -39,7 +40,7 @@ export function PlanoPanelProps() {
   const removeRoomCell = useLayout((s) => s.removeRoomCell)
   const adoptarFormaCuarto = useLayout((s) => s.adoptarFormaCuarto)
 
-  const roomNames = useDiseño((s) => s.roomNames)
+  const nombreCuarto = useNombreCuarto()
   const setRoomName = useDiseño((s) => s.setRoomName)
   const setRoomPisoTipo = useDiseño((s) => s.setRoomPisoTipo)
   const setRoomPisoColor = useDiseño((s) => s.setRoomPisoColor)
@@ -265,7 +266,7 @@ export function PlanoPanelProps() {
     if (!room) return null
     const anchor = cells[room.id]
     const fp = footprints[room.id]
-    const nombre = roomNames[room.id] || room.nombre.split(' · ')[0]
+    const nombre = nombreCuarto(room)
 
     return (
       <div className="space-y-4">

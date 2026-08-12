@@ -150,6 +150,12 @@ interface AccionState {
   /** Limpieza inmediata (instancia borrada, entrar al editor, o salir por movimiento). */
   salirForzado: () => void
   /**
+   * Salida ORDENADA (botón «Levantarte»): la ejecuta `usarAccion` en Character,
+   * que además devuelve al personaje a un punto libre y le quita la pose. Forzar
+   * el store aquí lo dejaría de pie DENTRO del mueble, encerrado por su collider.
+   */
+  pedirSalir: () => void
+  /**
    * Objeto GENÉRICO (asiento/acostarse) al alcance, publicado por `AccionGenerica`
    * cada ~5 veces/s: alimenta el botón dinámico "Sentarte/Acostarte" del hueco
    * del cubo (`ControlHerramienta`), igual que `monturaStore.cercaId/cercaTipo`
@@ -194,6 +200,10 @@ export const useAccionCuarto = create<AccionState>((set, get) => ({
     accionCuartoFrame.pose = 'caminar'
     accionCuartoFrame.superficieY = null
     set({ instanciaId: null, tipo: null })
+  },
+  pedirSalir: () => {
+    if (get().instanciaId == null) return
+    accionCuartoFrame.salirPendiente = true
   },
   setCerca: (pend) => {
     // Los datos por-frame se refrescan SIEMPRE: el objeto se pudo mover mientras

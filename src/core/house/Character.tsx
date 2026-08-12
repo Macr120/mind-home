@@ -116,19 +116,34 @@ function solapaPuerta(cx: number, cz: number, ex: number, ez: number, puertas: A
   return false
 }
 
+/**
+ * Memo de `objColliders`: la lista solo cambia si cambia alguna de sus entradas.
+ * Se llama desde el bucle por frame, y recorrer los ~200 objetos de la casa 60
+ * veces por segundo para obtener SIEMPRE lo mismo era puro trabajo tirado.
+ */
+let memoCols: { claves: unknown[]; cols: ObjCol[] } | null = null
+const SIN_PUERTAS: AABB[] = []
+const mismasClaves = (a: unknown[], b: unknown[]) => a.length === b.length && a.every((v, i) => v === b[i])
+
 /** Construye los colliders de los objetos rígidos del nivel del jugador. */
 export function objColliders(playerLevel: number): ObjCol[] {
-  _objCols.length = 0
   const objetos = useDiseño.getState().objetos
   const layout = useLayout.getState()
   const niveles = layout.niveles
-  const puertas = layout.puertasPorNivel.get(playerLevel) ?? []
+  // Constante estable: un `?? []` inline haría fallar el memo en cada llamada.
+  const puertas = layout.puertasPorNivel.get(playerLevel) ?? SIN_PUERTAS
   const montadoId = useMontura.getState().instanciaId
+  const sujetoCarga = useCargar.getState().sujeto
+  // `cells` entra porque las posiciones salen de `roomWorldPos`: mover un cuarto
+  // cambia dónde están sus objetos sin tocar el array `objetos`.
+  const claves = [objetos, niveles, layout.cells, puertas, playerLevel, montadoId, sujetoCarga]
+  if (memoCols && mismasClaves(memoCols.claves, claves)) return memoCols.cols
+
+  _objCols.length = 0
   // Objeto que el personaje está cargando (y su grupo): CargaController lo pone
   // exactamente en la posición del jugador cada frame, así que si no se excluye
   // aquí el personaje choca contra lo que él mismo carga y queda atascado.
-  const cargando = useCargar.getState().sujeto
-  const cargandoId = cargando?.tipo === 'objeto' ? (cargando.id as number) : null
+  const cargandoId = sujetoCarga?.tipo === 'objeto' ? (sujetoCarga.id as number) : null
   const cargandoGrupo = cargandoId != null ? objetos.find((x) => x.id === cargandoId)?.grupoId : undefined
   for (const o of objetos) {
     if (esObjetoLibreria(o)) continue // los objetos de la biblioteca no están en la casa
@@ -157,6 +172,9 @@ export function objColliders(playerLevel: number): ObjCol[] {
     if (solapaPuerta(cx, cz, ex, ez, puertas)) continue
     _objCols.push({ cx, cz, hx: fp[0], hz: fp[1], cos, sin })
   }
+  // `_objCols` se reutiliza (mismo array), así que el memo guarda la referencia:
+  // quien la reciba debe leerla en el acto, como ya hacía antes de memoizar.
+  memoCols = { claves, cols: _objCols }
   return _objCols
 }
 
@@ -1002,6 +1020,9 @@ function usarJuego(cur: THREE.Vector3, group: THREE.Group, delta: number) {
 // el componente del objeto (`useAbordarAccion`); aquí va la parte guionizada.
 // ---------------------------------------------------------------------------
 
+/** Mitad del alto del avatar (pies a coronilla, ver `CuerpoBase`): 0 a 1.72. */
+const MEDIO_CUERPO_ACOSTADO = 0.86
+
 /** Salir de la acción al mover (armado tras soltar las teclas al llegar, como el parque). */
 function revisarSalidaAccion() {
   const { f, s, kf, ks } = moveInput
@@ -1041,14 +1062,16 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     const c = Math.cos(accionCuartoFrame.rotYRad)
     const s = Math.sin(accionCuartoFrame.rotYRad)
     if (cfg.sobreObjeto) {
-      // Sentado/acostado ENCIMA del mueble: en su CENTRO medido, mirando su
-      // frente (+z local). Sin desplazamiento extra al acostarse: un objeto
-      // genérico puede ser diminuto (un cubo de prueba) o grande (una cama de
-      // verdad) — anclar el pivote exactamente en el centro es lo único que
-      // no falla para cualquier tamaño (desplazar un largo fijo de avatar
-      // sacaba el pivote por completo de objetos pequeños).
-      spotX = ox
-      spotZ = oz
+      // Sentado ENCIMA del mueble: pivote (cadera) en su CENTRO medido, mirando
+      // su frente (+z local) — la silueta sentada no se alarga, así que el centro
+      // siempre queda bien sin importar el tamaño del mueble.
+      // Acostado: el pivote son los PIES, y el cuerpo entero (~1.7 unidades) se
+      // tumba hacia -z local desde ahí — dejarlo en el centro metía la cabeza
+      // dentro de la cabecera. Se adelanta medio cuerpo hacia +z (el pie de la
+      // cama) para que, ya tumbado, quede centrado en el mueble.
+      const medioCuerpo = acostado ? MEDIO_CUERPO_ACOSTADO * avEsc : 0
+      spotX = ox + medioCuerpo * s
+      spotZ = oz + medioCuerpo * c
       heading = accionCuartoFrame.rotYRad
     } else {
       // Sentado en una silla FRENTE al objeto (escritorio): en su +z local, mirándolo.
@@ -1071,6 +1094,18 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     yPose = cfg.sentado ? floorY - 0.35 * avEsc : floorY + cfg.alza
   }
   group.rotation.order = 'XYZ'
+  // Salida (botón «Levantarte» o al moverse): de pie y en un punto LIBRE junto al
+  // mueble — quedándose en el sitio de la pose, el collider del propio mueble lo
+  // dejaría encerrado. La rotación X vuelve a 0 o seguiría caminando acostado.
+  if (accionCuartoFrame.salirPendiente) {
+    st.salirForzado()
+    const libre = puntoLibreCerca(accionCuartoFrame.startX, accionCuartoFrame.startZ, playerLevel, RADIO)
+    cur.set(libre.x, floorY, libre.z)
+    playerPos.copy(cur)
+    group.rotation.set(0, group.rotation.y, 0)
+    useHouse.getState().target.set(libre.x, 0, libre.z)
+    return
+  }
   // Aproximación: caminar del punto de partida al punto de uso.
   if (e < 500) {
     const q = e / 500
@@ -1090,13 +1125,6 @@ function usarAccion(cur: THREE.Vector3, group: THREE.Group, delta: number) {
     marchaAvatar.fase += dt * 9 // camina en el sitio sobre la banda
   }
   revisarSalidaAccion()
-  if (accionCuartoFrame.salirPendiente) {
-    st.salirForzado()
-    const libre = puntoLibreCerca(accionCuartoFrame.startX, accionCuartoFrame.startZ, playerLevel, RADIO)
-    cur.set(libre.x, floorY, libre.z)
-    playerPos.copy(cur)
-    useHouse.getState().target.set(libre.x, 0, libre.z)
-  }
 }
 
 /**

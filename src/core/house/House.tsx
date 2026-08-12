@@ -37,7 +37,7 @@ import { FocosCasa } from './FocosCasa'
 import { TemaContext } from './primitivas'
 import { ObjetoView } from './catalogo'
 import { GrupoAnimado } from './Animado'
-import { esObjetoMapa } from '../state/disenoStore'
+import { objetosMapaIdx } from '../state/disenoStore'
 import { useMontura } from '../state/monturaStore'
 import { useCargar, ALTURA_CARGA_OBJETO, ALTURA_CARGA_CUARTO } from '../state/cargarStore'
 import { ContextoProximity } from './ContextoProximity'
@@ -72,6 +72,8 @@ import { GridResizer } from './GridResizer'
 import { RoomCellEditor } from './RoomCellEditor'
 import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
+import { HidratarMapaTablas } from '../state/mapaTablasStore'
+import { SeguirFoco, cercaDelFoco, cercaDelFocoMundo, useCercania } from './cercaniaFoco'
 import { ZonasPlano3D } from './ZonasPlano3D'
 import { PisosExterior3D } from './PisosExterior3D'
 import { MurosLibres3D } from './MurosLibres3D'
@@ -170,7 +172,7 @@ function RejillaMapa({
 /** Objetos LIBRES sobre el mapa (fuera de cuartos): coordenadas de mundo. */
 const ObjetosMapa = memo(function ObjetosMapa() {
   // Solo los objetos del mapa: mover objetos DE CUARTO no re-renderiza esta lista.
-  const objetos = useDiseño(useShallow((s) => s.objetos.filter(esObjetoMapa)))
+  const objetos = useDiseño((s) => objetosMapaIdx(s.objetos))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
   const arrastreElevado = useDiseño((s) => s.arrastreElevado)
   const startObjetoDrag = useDiseño((s) => s.startObjetoDrag)
@@ -183,12 +185,19 @@ const ObjetosMapa = memo(function ObjetosMapa() {
   const inventarioObjetosActivo = useEditorUi((s) => s.inventarioObjetosActivo)
   // El vehículo que se está conduciendo se dibuja dentro del Character, no aquí.
   const montadoId = useMontura((s) => s.instanciaId)
+  const centro = useCercania((s) => s.centro)
   const tema = useTemaActivo()
   // En el editor de canchas (modo Editar) las canchas también se pueden ARRASTRAR.
   const canchasEditar = useCanchas((s) => s.activo && s.clase === null)
   const editables =
     editor3d || (editMode && !editingRoomId && tab === 'objetos') || inventarioObjetosActivo
-  const items = objetos.filter((o) => o.id !== montadoId)
+  // Fuera del radio del foco no se montan: son los árboles, la fuente, el
+  // espectacular… de la otra punta del mapa. Editando sí, que ahí se colocan.
+  const items = objetos.filter(
+    (o) =>
+      o.id !== montadoId &&
+      (editables || cercaDelFocoMundo(o.x ?? 0, o.z ?? 0, centro)),
+  )
   if (items.length === 0) return null
   return (
     <TemaContext.Provider value={tema}>
@@ -254,6 +263,7 @@ const ObjetosMapa = memo(function ObjetosMapa() {
  */
 const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
   const arrastrando = useLayout((s) => s.draggingId === room.id)
+  const editMode = useLayout((s) => s.editMode)
   // Cargado con la herramienta "mover": se dibuja sobre la cabeza del personaje
   // (todo el cuarto cuelga del mismo group, así que basta el offset en Y).
   const cargado = useCargar((s) => s.sujeto?.tipo === 'cuarto' && s.sujeto.id === room.id)
@@ -274,6 +284,12 @@ const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
   // En el editor de mapa el techo sigue al modo: oculto por defecto (para ver el interior)
   // y visible —con la forma real del cuarto— solo en modo Techos. Fuera del editor manda 🏠.
   const forzarTecho = usePlanos((s) => (s.activo ? s.modo === 'techos' : undefined))
+  // Lejos del foco de cámara el cuarto conserva su casco (la silueta del mapa no
+  // debe parpadear) pero se queda sin objetos, que es la masa de mallas y de
+  // lejos casi no se distinguen. Editando o arrastrando NO se recorta: ahí el
+  // usuario está mirando ese cuarto en concreto.
+  const centro = useCercania((s) => s.centro)
+  const lejos = !editMode && !arrastrando && !cargado && !cercaDelFoco(cell, centro)
   const [x, , z] = centroCuarto3D(cell, fp)
   const y = nivelBaseY(nivel, apilado)
   const otroNivel = planosActivo && nivel !== planosNivel
@@ -283,6 +299,7 @@ const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
       position={[x, y + (cargado ? ALTURA_CARGA_CUARTO : arrastrando ? 0.8 : 0), z]}
       color={color}
       atenuado={otroNivel || (editandoOtro && !editor3d)}
+      sinObjetos={lejos}
       resaltadoPlano={resaltado}
       forzarTecho={forzarTecho}
     />
@@ -475,6 +492,12 @@ export function House() {
       </Canvas>
         </div>
       </div>
+      {/* Único suscriptor de `zonas` y `pisosExterior`: antes cada cuarto abría
+          las suyas y una casa de 17 mantenía 34 consultas vivas sobre las
+          MISMAS dos tablas. No pinta nada. */}
+      <HidratarMapaTablas />
+      {/* Publica la celda del foco de cámara; de ahí sale el recorte de objetos. */}
+      <SeguirFoco cols={gridCols} rows={gridRows} />
       <NavControls />
       <EditorMontaje />
       <SalirCuartoFlotante />

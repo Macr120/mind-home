@@ -9,7 +9,7 @@ import { confirmar } from '../state/confirmarStore'
 import { useAsignar } from '../state/asignarStore'
 import { usePlanos } from '../state/planosStore'
 import { useEditorUi } from '../state/editorUiStore'
-import { tituloSubtituloCuarto } from './roomDisplay'
+import { tituloSubtituloCuarto, useNombreCuarto } from './roomDisplay'
 import { TechoToggleButton, ExplotarToggleButton } from './TechoToggleButton'
 import { ResumenJugador, ProgresoApp } from './ProgresoPanel'
 import { PlantillasCatalogo } from './PlantillasCatalogo'
@@ -40,7 +40,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const activeRoom = useHouse((s) => s.activeRoom)
   const modoUI = useAjustes((s) => s.modoUI)
   const roomColors = useDiseño((s) => s.roomColors)
-  const roomNames = useDiseño((s) => s.roomNames)
+  const nombreCuarto = useNombreCuarto()
   // Primera app por cuarto (estable al mover objetos): el menú no depende de posiciones.
   const appPorCuarto = useDiseño(
     useShallow((s) => {
@@ -298,8 +298,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
               <ul className="flex flex-col gap-1.5">
                 {grupo.map((cuarto, i) => {
                   const color = roomColors[cuarto.id] ?? cuarto.color
-                  const nombre = roomNames[cuarto.id] || cuarto.nombre
-                  const { titulo, subtitulo } = tituloSubtituloCuarto(cuarto, nombre, t)
+                  const { titulo, subtitulo } = tituloSubtituloCuarto(cuarto, nombreCuarto(cuarto), t)
                   const appId = appDe(cuarto.id)
                   const enfoque = appId
                     ? progreso?.enfoques.find((e) => e.plantillaId === appId)

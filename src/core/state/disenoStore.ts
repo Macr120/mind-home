@@ -679,6 +679,42 @@ export function objetosDeCuarto(objetos: ObjetoCuarto[], roomId: string) {
   return objetos.filter((o) => o.roomId === roomId)
 }
 
+/**
+ * Índice `roomId -> objetos`, recalculado solo cuando cambia el array.
+ *
+ * `objetos` es UN array plano con los objetos de todos los cuartos, del mapa y
+ * de la librería, y cada `Room3D` lo filtraba entero en cada render: con 17
+ * cuartos eso son 17 barridos por cambio de cualquier cosa del store. Aquí el
+ * barrido se hace UNA vez por versión del array, y cada cuarto saca su lista en
+ * O(1) — con referencia estable, así que el selector de zustand ya no necesita
+ * `useShallow` ni provoca re-render cuando cambia algo ajeno.
+ */
+let idxObjetos: ObjetoCuarto[] | null = null
+let idxPorRoom = new Map<string, ObjetoCuarto[]>()
+const SIN_OBJETOS: ObjetoCuarto[] = []
+
+function reindexar(objetos: ObjetoCuarto[]) {
+  if (objetos === idxObjetos) return
+  idxObjetos = objetos
+  idxPorRoom = new Map()
+  for (const o of objetos) {
+    const lista = idxPorRoom.get(o.roomId)
+    if (lista) lista.push(o)
+    else idxPorRoom.set(o.roomId, [o])
+  }
+}
+
+/** Los objetos de un cuarto, con referencia estable mientras `objetos` no cambie. */
+export function objetosDeCuartoIdx(objetos: ObjetoCuarto[], roomId: string): ObjetoCuarto[] {
+  reindexar(objetos)
+  return idxPorRoom.get(roomId) ?? SIN_OBJETOS
+}
+
+/** Los objetos LIBRES del mapa, con la misma referencia estable. */
+export function objetosMapaIdx(objetos: ObjetoCuarto[]): ObjetoCuarto[] {
+  return objetosDeCuartoIdx(objetos, MAPA_ROOM)
+}
+
 /** Objetos libres colocados sobre el mapa (fuera de los cuartos). */
 function objetosMapa(objetos: ObjetoCuarto[]) {
   return objetos.filter(esObjetoMapa)

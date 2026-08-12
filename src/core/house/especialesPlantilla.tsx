@@ -141,9 +141,10 @@ export function PizarraIdeas({ color, simple = false, nivel = null, objetoId }: 
   })
   return (
     <group ref={raiz}>
-      {/* Patas del caballete */}
+      {/* Patas del caballete: DETRÁS del tablero (que se recuesta hacia -z),
+          abriéndose hacia atrás para que no crucen por delante del lienzo. */}
       {[-1, 1].map((s) => (
-        <mesh key={s} position={[s * 0.34, 0.55, 0.06]} rotation={[0.18, 0, s * 0.14]} castShadow>
+        <mesh key={s} position={[s * 0.34, 0.55, -0.17]} rotation={[0.15, 0, s * 0.14]} castShadow>
           <boxGeometry args={[0.05, 1.15, 0.05]} />
           <meshStandardMaterial color="#7a5230" roughness={0.9} />
         </mesh>
@@ -673,10 +674,13 @@ const _RAY_ABAJO = new THREE.Vector3(0, -1, 0)
 export function AccionGenerica({
   grupo,
   objetoId,
+  giro = 0,
   children,
 }: {
   grupo: GrupoAccion
   objetoId: number | undefined
+  /** Radianes extra sobre la rotación del mueble para encarar su frente (ver `giroAccionDe`). */
+  giro?: number
   children: ReactNode
 }) {
   const raiz = useRef<THREE.Group>(null)
@@ -720,7 +724,7 @@ export function AccionGenerica({
         grupo,
         wx: cx,
         wz: cz,
-        rotY: _weAcc.y,
+        rotY: _weAcc.y + giro,
         superficieY: Number.isFinite(alto) ? _wpAcc.y + Math.min(Math.max(alto, 0.05), 2) : undefined,
       })
     } else if (useAccionCuarto.getState().cercaId === objetoId) {

@@ -769,7 +769,7 @@ function PanelHerramienta({
         sinCerrar={montadoSuelto}
       >
         {activo ? (
-          <button type="button" onClick={() => useAccionCuarto.getState().salirForzado()} className={btnVerde}>
+          <button type="button" onClick={() => useAccionCuarto.getState().pedirSalir()} className={btnVerde}>
             <span className="text-2xl leading-none"><Icono emoji="🧍" /></span>
             <span className="text-xs font-semibold">{t('accion.levantarte', 'Levantarte')}</span>
           </button>
@@ -1154,9 +1154,9 @@ function PanelSalida() {
   const enJuego = parqueTipo === 'carrusel' || parqueTipo === 'columpio'
   if (!enUsable && !enJuego && !trenMontado && flotadorId == null) return null
   const salir = () => {
-    if (enUsable) useAccionCuarto.getState().salirForzado()
-    // El carrusel/columpio se baja por `Character`, que reposiciona al personaje
-    // en un punto libre: forzar el store aquí lo dejaría dentro del juego.
+    // Usables y carrusel/columpio los baja `Character`, que reposiciona al
+    // personaje en un punto libre: forzar el store aquí lo dejaría dentro.
+    if (enUsable) useAccionCuarto.getState().pedirSalir()
     else if (enJuego) parqueFrame.salirPendiente = true
     else if (trenMontado) useTren.getState().bajar()
     else useFlotador.getState().salirForzado()
