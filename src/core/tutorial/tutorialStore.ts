@@ -115,8 +115,15 @@ export const useTutorial = create<TutorialState>((set, get) => ({
     try {
       // El diccionario de los pasos viaja EN PARALELO con el chunk del cuerpo:
       // la tarjeta no se pinta hasta tener los dos, así que nunca se ve un tour
-      // a medio traducir.
-      ;[cuerpo] = await Promise.all([def.cargar(), asegurarDictTut(idiomaActual())])
+      // a medio traducir. Con tope: una petición que se queda COLGADA (server
+      // zombi, red móvil caída) no rechaza nunca, y sin él la pantalla quedaba
+      // con el velo puesto y sin tarjeta para siempre.
+      ;[cuerpo] = (await Promise.race([
+        Promise.all([def.cargar(), asegurarDictTut(idiomaActual())]),
+        new Promise<never>((_, rej) =>
+          setTimeout(() => rej(new Error('tiempo de espera agotado')), 20000),
+        ),
+      ])) as [CuerpoTutorial, void]
     } catch (e) {
       console.warn('[tutorial] No se pudo cargar el tour:', e)
       // Sin aviso parecería que el botón no hizo nada (pasa con el dev server a

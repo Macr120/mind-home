@@ -6,6 +6,8 @@ import { tutorialAppGenerica } from './appGenerica'
 import { esInfraestructura, getPlantilla } from '../registry'
 import { esDemo } from '../edicion'
 import { entrarDemo } from '../../demo/modo'
+import { useMascota } from '../state/mascotaStore'
+import { tGlobal } from '../i18n/useT'
 import { useTutorial } from './tutorialStore'
 
 /**
@@ -68,8 +70,20 @@ export async function lanzarFlujo(
   // gate de la app (idempotente), y sin esperarla el tour buscaría anclas
   // todavía vacías. Import dinámico: src/demo no entra a este árbol.
   if (esDemo()) {
-    const { construirAppDemo } = await import('../../demo/construir')
-    await construirAppDemo(plantillaId)
+    try {
+      const { construirAppDemo } = await import('../../demo/construir')
+      await construirAppDemo(plantillaId)
+    } catch (e) {
+      // Todos los llamadores hacen `void lanzarFlujo(...)`: sin este aviso el
+      // fallo se traga la promesa y parece que el botón no hizo nada.
+      console.warn('[tutorial] No se pudo construir el año demo de la app:', e)
+      useMascota
+        .getState()
+        .decir(
+          tGlobal('tut.errorCarga', 'No pude cargar ese tutorial. Revisa tu conexión e inténtalo de nuevo.'),
+        )
+      return
+    }
   }
   await useTutorial.getState().iniciar(def, { sinPreparar: opts?.montada })
 }
