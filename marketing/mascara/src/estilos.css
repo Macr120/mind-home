@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+  background: #0f1115;
+}
+
+/* Los estilos de los controles viven en `mascara.css` (los importa el propio
+   componente y van acotados a `.mascara-ui`, para no pisar la app anfitriona). */

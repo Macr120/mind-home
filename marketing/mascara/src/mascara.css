@@ -1,0 +1,43 @@
+/*
+ * Estilos propios del componente de la máscara. Van ACOTADOS a `.mascara-ui`
+ * (el contenedor raíz de MascaraApp) porque este archivo lo importa el propio
+ * componente y por tanto viaja también a la app anfitriona, donde unas reglas
+ * globales pisarían los controles del resto de MPH. El reset global de
+ * html/body vive aparte en `estilos.css`, que solo carga el build standalone.
+ */
+
+/* Sliders grandes, cómodos para el dedo en el teléfono. */
+.mascara-ui input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 36px;
+  width: 100%;
+  background: transparent;
+}
+.mascara-ui input[type='range']::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.25);
+}
+.mascara-ui input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  margin-top: -10px;
+  border: none;
+  border-radius: 9999px;
+  background: #34d399;
+}
+.mascara-ui input[type='range']::-moz-range-track {
+  height: 10px;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.25);
+}
+.mascara-ui input[type='range']::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 9999px;
+  background: #34d399;
+}
