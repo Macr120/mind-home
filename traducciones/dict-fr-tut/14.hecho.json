@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "Les sujets du catalogue sont déjà là ; ceux qui pendent tout seuls, c’est une discussion qui les a ouverts. Touche une fiche pour lire son résumé, ses points clés et son illustration."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "Une fiche s’écrit à la main ou se distille d’une conversation. Celle du trou noir et celle de la physique du piano ont un dessin : l’app peut les illustrer pour toi."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "Les questions de l’année"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Voici les conversations que Pep a eues en étudiant : l’entropie, la dilatation du temps, pourquoi un piano sonne comme un piano. Chacune est restée enregistrée."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "De la discussion à l’arbre"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "Comme ça, l’encyclopédie ne se remplit pas de théorie copiée, mais de ce que tu as vraiment demandé."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "L’index est à toi"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "Le + de chaque ligne écrit une entrée sur place, avec son domaine et son sujet déjà posés. Et le bouton crayon fait grandir l’arbre : ce même + ajoute des branches, celui de la Graine crée de nouveaux domaines, et tu peux renommer, réordonner et supprimer. Le nombre avec la petite branche dit combien de sous-index pendent de là."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "Le plan d’étude"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "À chaque objectif tu peux demander un plan : l’IA te demande ta date cible et tes heures disponibles, puis programme les moments d’étude dans ton calendrier."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "Combien d’entrées compte ton encyclopédie, et combien de domaines et de sujets de l’index tu couvres déjà. Les sujets ouverts par une discussion se comptent à part."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "Quatre chiffres"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "Les discussions avec le Sage, les minutes d’étude au total et sur la semaine, et ta série de jours d’étude d’affilée."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "Où est le déséquilibre"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "La barre la plus longue est le domaine qui t’a pris le plus d’attention — pour Pep, la thermodynamique la semaine du partiel."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "Les jours d’étude"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "Un petit carré par jour : le bachotage avant le partiel et le trou des trois semaines au Japon sautent aux yeux, sans ouvrir tout l’historique."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "Où sont passées les heures"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "La même chose qu’au-dessus mais en minutes : avoir beaucoup de fiches dans un domaine est une chose, y avoir vraiment passé du temps en est une autre."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "Une année de sessions"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "Et si tu veux le détail, l’historique garde chaque session avec ses minutes et son domaine, classée par année, mois et semaine."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "Ce qui tombe aujourd’hui"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep fait ça depuis un an et il reste encore des révisions en attente : le système ne te demande pas tout le vocabulaire, seulement ce que tu es sur le point d’oublier."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "Une année de régularité"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "L’historique garde combien de cartes tu as révisées chaque jour et combien tu as réussies. Pep a commencé par se tromper souvent et a fini par presque tout réussir — et au Japon, les révisions n’ont jamais été aussi nombreuses."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "Deux langues à la fois"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "En haut, tu changes de langue : en plus de la principale, Pep a monté un japonais de survie entre le mois 4 et le voyage. Au retour, il a été presque abandonné, et ça se voit dans ses boîtes."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "Trois domaines, six niveaux"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "De A1 à C2, chaque niveau avec ses sujets de vocabulaire, ses points de prononciation et sa grammaire. Tu sais ce qui te manque sans aller chercher un cours ailleurs."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "Où tu en es"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "Cartes maîtrisées, révisions du mois et ton niveau actuel. Pep a commencé l’année en A2 et tourne aujourd’hui autour du B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "La liste À faire"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "Ce qu’il faut faire mais qui n’a pas encore de jour vit ici, avec sa priorité. Rien ne t’oblige à lui mettre une date pour le noter."
+  }
+]

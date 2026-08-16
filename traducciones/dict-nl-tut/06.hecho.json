@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.chat.6.texto",
+    "texto": "De handleiding somt de opdrachten op: kamers toevoegen of weghalen, objecten maken, dingen onthouden…"
+  },
+  {
+    "clave": "tut.chat.7.titulo",
+    "texto": "Het AI-model"
+  },
+  {
+    "clave": "tut.chat.7.texto",
+    "texto": "Dit icoon kiest welke AI antwoordt en bewaart je sleutel als je je eigen gebruikt. Staat er geen enkele ingesteld, dan blijft de chat werken op trefwoorden, zonder vrije taal te begrijpen."
+  },
+  {
+    "clave": "tut.chat.8.texto",
+    "texto": "Je kunt hier ook «hoe werkt de keuken?» vragen of om «tutorial van de Gym» vragen, en wat er is opgeslagen bekijk je in de tour van Registraties."
+  },
+  {
+    "clave": "tut.chat-registros.1.texto",
+    "texto": "Chats laat zien met wie je hebt gepraat; Registraties laat zien wat er van die gesprekken is opgeslagen."
+  },
+  {
+    "clave": "tut.chat-registros.2.titulo",
+    "texto": "Wat ik over je onthoud"
+  },
+  {
+    "clave": "tut.chat-registros.2.texto",
+    "texto": "Feitjes die de assistent de moeite waard vond om tussen sessies te onthouden —een allergie, een doel, een voorkeur— zodat hij het je niet opnieuw vraagt. Vergeten doe je met de ✕ ernaast."
+  },
+  {
+    "clave": "tut.chat-registros.3.texto",
+    "texto": "Wat je in je apps vastlegt (maaltijden, uitgaven, sessies) leeft in elke app zelf, niet hier: dit tabblad is alleen het geheugen van het gesprek."
+  },
+  {
+    "clave": "tut.app-generica.1.texto",
+    "texto": "De kop toont de kamer en de geopende app. Heeft de kamer meerdere apps, dan brengt de pijl ‹ je terug naar Apps van de kamer."
+  },
+  {
+    "clave": "tut.app-generica.2.titulo",
+    "texto": "Vandaag"
+  },
+  {
+    "clave": "tut.app-generica.2.texto",
+    "texto": "Je stappen van vandaag in deze app: je eigen dagdoelen, wat je hebt ingepland en wat je doelen vragen. Tik erop om de lijst uit te klappen; elke stap streept zichzelf door zodra je iets vastlegt."
+  },
+  {
+    "clave": "tut.app-generica.3.titulo",
+    "texto": "De blokken"
+  },
+  {
+    "clave": "tut.app-generica.3.texto",
+    "texto": "Dit sjabloon is opgebouwd uit blokken (notities, lijsten, tellers, gewoontes…). Je wijzigt ze via Menu › Sjablonen › bewerken."
+  },
+  {
+    "clave": "tut.app-generica.4.titulo",
+    "texto": "Weggaan"
+  },
+  {
+    "clave": "tut.app-generica.4.texto",
+    "texto": "«Terug naar huis» sluit de app en zet je weer in 3D. Wat je hier hebt vastgelegd, is al opgeslagen."
+  },
+  {
+    "clave": "tut.rutinas.1.texto",
+    "texto": "Het routinepaneel van Pep: bovenaan wat er vandaag speelt, daaronder de hele catalogus om te pauzeren, bewerken of verwijderen."
+  },
+  {
+    "clave": "tut.rutinas.2.titulo",
+    "texto": "Wat vandaag aan de beurt is"
+  },
+  {
+    "clave": "tut.rutinas.2.texto",
+    "texto": "De dienst in de koffiebar, de natuurkundeles, hardlopen bij zonsopgang, piano 's avonds: elke kaart is een routine met haar stappen. Die er amberkleurig uitspringt, had allang moeten lopen en staat nog open."
+  },
+  {
+    "clave": "tut.rutinas.3.titulo",
+    "texto": "Afvinken hoeft niet altijd"
+  },
+  {
+    "clave": "tut.rutinas.3.texto",
+    "texto": "De stap met de bliksem ⚡ legt zichzelf vast: hardlopen bij zonsopgang wordt doorgestreept omdat die ronde al in Gym staat, niet omdat iemand hem met de hand aanvinkte. De andere stappen vink je wel af door erop te tikken."
+  },
+  {
+    "clave": "tut.rutinas.4.titulo",
+    "texto": "De hele catalogus"
+  },
+  {
+    "clave": "tut.rutinas.4.texto",
+    "texto": "Hier staan ze allemaal, of ze vandaag aan de beurt zijn of niet. ON/OFF pauzeert een routine zonder haar geschiedenis te wissen: wat tot vandaag gedaan is blijft staan, en vanaf morgen wordt er niet meer om gevraagd. Bewerken en ✕ wijzigen of verwijderen de hele routine."
+  },
+  {
+    "clave": "tut.rutinas.5.titulo",
+    "texto": "Een routine maken"
+  },
+  {
+    "clave": "tut.rutinas.5.texto",
+    "texto": "Naam, de app waar ze bij hoort (of geen, als het een losse huisgebeurtenis is), tijd en kleur. Stappen zijn optioneel: zonder stappen is het gewoon een gebeurtenis in de kalender."
+  },
+  {
+    "clave": "tut.rutinas.6.titulo",
+    "texto": "Eén keer, elke week of altijd"
+  },
+  {
+    "clave": "tut.rutinas.6.texto",
+    "texto": "Piano loopt onbepaald door zonder aangevinkte dagen (dus elke dag); hardlopen herhaalt alleen op de dagen die Pep aanvinkte. Maandelijks, jaarlijks of over een periode kies je hier niet: dat ontstaat door het doel rechtstreeks op het raster van de kalender te tekenen."
+  },
+  {
+    "clave": "tut.rutinas.7.titulo",
+    "texto": "De herinnering op zijn tijd"
+  },
+  {
+    "clave": "tut.rutinas.7.texto",
+    "texto": "Met toestemming komt hij binnen als systeemmelding; zo niet, dan zegt de assistent het in de app zodra je die weer opent."
+  },
+  {
+    "clave": "tut.rutinas.8.texto",
+    "texto": "Alles wat je hier inplant verschijnt ook op het raster van de kalender en, in de app van elke stap, in haar Vandaag-lijst."
+  },
+  {
+    "clave": "tut.enlaces.1.titulo",
+    "texto": "Van het doel naar zijn app"
+  },
+  {
+    "clave": "tut.enlaces.1.texto",
+    "texto": "Elk doel of elke planstap kan een chipje met het icoon van een app dragen: dat is het antwoord op «en waar leg ik dit vast?»."
+  },
+  {
+    "clave": "tut.enlaces.2.titulo",
+    "texto": "Instellen of wijzigen"
+  }
+]

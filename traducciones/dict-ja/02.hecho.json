@@ -1,0 +1,698 @@
+[
+ {
+  "clave": "canchas.tocaParaEditar",
+  "texto": "マップのコートをタップすると編集できます。"
+ },
+ {
+  "clave": "canchas.ayuda",
+  "texto": "マップをタップして設置します。編集モードでコートをタップすると、色・サイズ・向きを変えられます。"
+ },
+ {
+  "clave": "canchas.resumen.nota",
+  "texto": "一度置いたコートは、ほかのマップのオブジェクトと同じように移動・削除できます。"
+ },
+ {
+  "clave": "huerto.herr.parcela",
+  "texto": "区画"
+ },
+ {
+  "clave": "huerto.herr.sembrar",
+  "texto": "種をまく"
+ },
+ {
+  "clave": "huerto.herr.regar",
+  "texto": "水やり"
+ },
+ {
+  "clave": "huerto.herr.cosechar",
+  "texto": "収穫"
+ },
+ {
+  "clave": "huerto.herr.aspersor",
+  "texto": "スプリンクラー"
+ },
+ {
+  "clave": "huerto.herr.quitar",
+  "texto": "削除"
+ },
+ {
+  "clave": "huerto.etiqueta.listo",
+  "texto": "準備完了"
+ },
+ {
+  "clave": "huerto.etiqueta.marchito",
+  "texto": "枯れた"
+ },
+ {
+  "clave": "huerto.etiqueta.ver",
+  "texto": "詳細を見る"
+ },
+ {
+  "clave": "huerto.etiqueta.guardar",
+  "texto": "通知を閉じる"
+ },
+ {
+  "clave": "huerto.aviso.listo",
+  "texto": "収穫の準備ができました！"
+ },
+ {
+  "clave": "huerto.aspersor.auto",
+  "texto": "自動散水"
+ },
+ {
+  "clave": "huerto.especie.zanahoria",
+  "texto": "にんじん"
+ },
+ {
+  "clave": "huerto.especie.lechuga",
+  "texto": "レタス"
+ },
+ {
+  "clave": "huerto.especie.girasol",
+  "texto": "ひまわり"
+ },
+ {
+  "clave": "huerto.especie.tomate",
+  "texto": "トマト"
+ },
+ {
+  "clave": "huerto.especie.maiz",
+  "texto": "とうもろこし"
+ },
+ {
+  "clave": "huerto.especie.calabaza",
+  "texto": "かぼちゃ"
+ },
+ {
+  "clave": "huerto.ayuda",
+  "texto": "作物はリアルタイムで育ち、水やりが必要です。青い水滴が知らせてくれます。水をやらないと枯れてしまい、しばらくすると区画は自然に片付きます。スプリンクラーは自分のマスと周囲8マスに自動で水をやります。収穫したものはカゴに入り（準備完了のマスを歩いて通っても入ります）、動物たちのエサになります。"
+ },
+ {
+  "clave": "huerto.stat.parcelas",
+  "texto": "区画"
+ },
+ {
+  "clave": "huerto.stat.creciendo",
+  "texto": "成長中"
+ },
+ {
+  "clave": "huerto.stat.listos",
+  "texto": "収穫可能"
+ },
+ {
+  "clave": "huerto.stat.marchitos",
+  "texto": "枯れた"
+ },
+ {
+  "clave": "huerto.stat.cosechas",
+  "texto": "収穫数"
+ },
+ {
+  "clave": "huerto.resumen.nota",
+  "texto": "作物はリアルタイムで育ちます。時間内に水をやらないと枯れてしまいます。"
+ },
+ {
+  "clave": "huerto.cesta",
+  "texto": "カゴ"
+ },
+ {
+  "clave": "granja.animal.gallina",
+  "texto": "ニワトリ"
+ },
+ {
+  "clave": "granja.animal.cerdo",
+  "texto": "ブタ"
+ },
+ {
+  "clave": "granja.animal.cabra",
+  "texto": "ヤギ"
+ },
+ {
+  "clave": "granja.animal.oveja",
+  "texto": "ヒツジ"
+ },
+ {
+  "clave": "granja.animal.vaca",
+  "texto": "ウシ"
+ },
+ {
+  "clave": "granja.animal.caballo",
+  "texto": "ウマ"
+ },
+ {
+  "clave": "granja.come",
+  "texto": "食べる間隔"
+ },
+ {
+  "clave": "granja.herr.corral",
+  "texto": "囲い"
+ },
+ {
+  "clave": "granja.herr.animal",
+  "texto": "動物"
+ },
+ {
+  "clave": "granja.herr.alimentar",
+  "texto": "エサやり"
+ },
+ {
+  "clave": "granja.herr.mimar",
+  "texto": "なでる"
+ },
+ {
+  "clave": "granja.herr.curar",
+  "texto": "治療"
+ },
+ {
+  "clave": "granja.herr.limpiar",
+  "texto": "掃除"
+ },
+ {
+  "clave": "granja.herr.accesorio",
+  "texto": "おもちゃ"
+ },
+ {
+  "clave": "granja.herr.nombrar",
+  "texto": "名前を付ける"
+ },
+ {
+  "clave": "granja.herr.quitar",
+  "texto": "削除"
+ },
+ {
+  "clave": "granja.accesorio.lodo",
+  "texto": "泥だまり"
+ },
+ {
+  "clave": "granja.accesorio.tina",
+  "texto": "水浴び桶"
+ },
+ {
+  "clave": "granja.accesorio.pelota",
+  "texto": "ボール"
+ },
+ {
+  "clave": "granja.cestaVacia",
+  "texto": "空 —「食」で収穫"
+ },
+ {
+  "clave": "granja.sinComida",
+  "texto": "カゴが空です。「食」で収穫して食べさせましょう。"
+ },
+ {
+  "clave": "granja.corralLleno",
+  "texto": "囲いがいっぱいです。広げるか、新しく作ってください。"
+ },
+ {
+  "clave": "granja.noCabe",
+  "texto": "そこには置けません。マップからはみ出すか、ほかの囲いと重なります。"
+ },
+ {
+  "clave": "granja.nombrar.elegir",
+  "texto": "囲いをタップすると動物が見られます。"
+ },
+ {
+  "clave": "granja.nombrar.titulo",
+  "texto": "動物をタップすると名前を変えられます"
+ },
+ {
+  "clave": "granja.nombrar.placeholder",
+  "texto": "名前"
+ },
+ {
+  "clave": "granja.nombrar.guardar",
+  "texto": "保存"
+ },
+ {
+  "clave": "granja.nombrar.vacio",
+  "texto": "この囲いには動物がいません。"
+ },
+ {
+  "clave": "granja.capacidad",
+  "texto": "収容数"
+ },
+ {
+  "clave": "granja.burbuja.alimentar",
+  "texto": "エサやり"
+ },
+ {
+  "clave": "granja.burbuja.acariciar",
+  "texto": "なでる"
+ },
+ {
+  "clave": "granja.burbuja.curar",
+  "texto": "治療"
+ },
+ {
+  "clave": "granja.burbuja.limpiar",
+  "texto": "掃除"
+ },
+ {
+  "clave": "granja.barra.comida",
+  "texto": "食料"
+ },
+ {
+  "clave": "granja.barra.animo",
+  "texto": "機嫌"
+ },
+ {
+  "clave": "granja.hayEnfermos",
+  "texto": "病気の動物がいます。治療すればまた食べられるようになります。"
+ },
+ {
+  "clave": "granja.sinEnfermos",
+  "texto": "その囲いに病気の動物はいません。"
+ },
+ {
+  "clave": "granja.yaLimpio",
+  "texto": "その囲いはすでにきれいでした。今週はもう掃除済みです。"
+ },
+ {
+  "clave": "granja.etiqueta.enfermo",
+  "texto": "病気"
+ },
+ {
+  "clave": "granja.etiqueta.dias",
+  "texto": "{n}日"
+ },
+ {
+  "clave": "granja.aviso.enfermo.titulo",
+  "texto": "🤒 {nombre}が病気になりました"
+ },
+ {
+  "clave": "granja.aviso.enfermo.cuerpo",
+  "texto": "牧場で治療してください。あと{dias}日あります。"
+ },
+ {
+  "clave": "granja.aviso.muerte.titulo",
+  "texto": "💔 {nombre}が亡くなりました"
+ },
+ {
+  "clave": "granja.aviso.muerte.cuerpo",
+  "texto": "長い間治療されずに病気のままでした。"
+ },
+ {
+  "clave": "granja.ayuda",
+  "texto": "「囲い」で囲いを作ったり、隣のマスをタップして広げたりできます。動物を何匹も入れて、収穫物でエサをやり、なでたりおもちゃを与えたりしましょう。長く食べずにいると病気になるので、1週間以内に治療してください。囲いは週に1回掃除しないと、機嫌の低下が2倍になります。"
+ },
+ {
+  "clave": "granja.stat.hambrientos",
+  "texto": "空腹"
+ },
+ {
+  "clave": "granja.stat.aburridos",
+  "texto": "退屈"
+ },
+ {
+  "clave": "granja.stat.enfermos",
+  "texto": "病気"
+ },
+ {
+  "clave": "granja.stat.sucios",
+  "texto": "汚れた囲い"
+ },
+ {
+  "clave": "granja.resumen.nota",
+  "texto": "「食」のカゴでエサをやります。"
+ },
+ {
+  "clave": "tren.bajarte",
+  "texto": "降りる"
+ },
+ {
+  "clave": "tren.montarTren",
+  "texto": "電車に乗る"
+ },
+ {
+  "clave": "tren.montarCarrito",
+  "texto": "カートに乗る"
+ },
+ {
+  "clave": "juego.tu",
+  "texto": "自分"
+ },
+ {
+  "clave": "juego.rival",
+  "texto": "ライバル"
+ },
+ {
+  "clave": "juego.gol",
+  "texto": "ゴーーール！🎉"
+ },
+ {
+  "clave": "juego.golRival",
+  "texto": "ライバルが得点…"
+ },
+ {
+  "clave": "juego.canasta2",
+  "texto": "ゴール！+2 🎉"
+ },
+ {
+  "clave": "juego.canasta3",
+  "texto": "スリーポイント！+3 🎉"
+ },
+ {
+  "clave": "juego.canastaRival",
+  "texto": "ライバルが得点…"
+ },
+ {
+  "clave": "juego.fallo",
+  "texto": "シュート失敗…"
+ },
+ {
+  "clave": "juego.puntoTenis",
+  "texto": "ポイント獲得！🎉"
+ },
+ {
+  "clave": "juego.puntoTenisRival",
+  "texto": "ライバルのポイント…"
+ },
+ {
+  "clave": "juego.comoJugar",
+  "texto": "どうやってプレイしますか？"
+ },
+ {
+  "clave": "juego.solo",
+  "texto": "一人でプレイ"
+ },
+ {
+  "clave": "juego.soloFronton",
+  "texto": "一人でプレイ（壁打ち）"
+ },
+ {
+  "clave": "juego.soloMaquina",
+  "texto": "一人でプレイ（ピッチングマシン）"
+ },
+ {
+  "clave": "juego.contraIA",
+  "texto": "またはアシスタントと対戦："
+ },
+ {
+  "clave": "juego.peloteo",
+  "texto": "ナイスヒット！+1"
+ },
+ {
+  "clave": "juego.seEscapo",
+  "texto": "逃げられた…"
+ },
+ {
+  "clave": "juego.aLaRed",
+  "texto": "ネットに引っかかった…"
+ },
+ {
+  "clave": "juego.fuera",
+  "texto": "アウト！"
+ },
+ {
+  "clave": "juego.dificultad",
+  "texto": "難易度"
+ },
+ {
+  "clave": "juego.perspectiva",
+  "texto": "視点"
+ },
+ {
+  "clave": "juego.vistaIso",
+  "texto": "アイソメトリック"
+ },
+ {
+  "clave": "juego.vista3",
+  "texto": "3人称"
+ },
+ {
+  "clave": "juego.patear",
+  "texto": "キック"
+ },
+ {
+  "clave": "juego.tirar",
+  "texto": "シュート"
+ },
+ {
+  "clave": "juego.golpear",
+  "texto": "打つ"
+ },
+ {
+  "clave": "juego.hintFutbol",
+  "texto": "長押しでためて、離すとキック（スペース）"
+ },
+ {
+  "clave": "juego.hintBasket",
+  "texto": "長押しでパワーを調整し、離すとシュート（スペース）"
+ },
+ {
+  "clave": "juego.hintTenis",
+  "texto": "体の向きで狙いを定め、タップでサーブまたは打球（スペース）"
+ },
+ {
+  "clave": "juego.batear",
+  "texto": "スイング"
+ },
+ {
+  "clave": "juego.hintBeisbol",
+  "texto": "長押しでスイングをためて、ボールが来たら離す（スペース）"
+ },
+ {
+  "clave": "juego.homerun",
+  "texto": "ホームラン！+3 🎉"
+ },
+ {
+  "clave": "juego.hit",
+  "texto": "ヒット！+1"
+ },
+ {
+  "clave": "juego.foul",
+  "texto": "ファウルボール…"
+ },
+ {
+  "clave": "juego.strike",
+  "texto": "ストライク！"
+ },
+ {
+  "clave": "juego.ponche",
+  "texto": "三振！ストライク3つ…"
+ },
+ {
+  "clave": "dif.muyFacil",
+  "texto": "とても簡単"
+ },
+ {
+  "clave": "dif.facil",
+  "texto": "簡単"
+ },
+ {
+  "clave": "dif.normal",
+  "texto": "普通"
+ },
+ {
+  "clave": "dif.dificil",
+  "texto": "難しい"
+ },
+ {
+  "clave": "dif.experto",
+  "texto": "エキスパート"
+ },
+ {
+  "clave": "juego.juegos",
+  "texto": "ゲーム"
+ },
+ {
+  "clave": "juego.sets",
+  "texto": "セット"
+ },
+ {
+  "clave": "juego.peloteoActual",
+  "texto": "ラリー"
+ },
+ {
+  "clave": "juego.record",
+  "texto": "記録"
+ },
+ {
+  "clave": "juego.juegoTuyo",
+  "texto": "ゲームを取った！🎉"
+ },
+ {
+  "clave": "juego.juegoRival",
+  "texto": "ライバルがゲームを取った…"
+ },
+ {
+  "clave": "juego.setTuyo",
+  "texto": "セットを取った！🎉"
+ },
+ {
+  "clave": "juego.setRival",
+  "texto": "ライバルがセットを取った…"
+ },
+ {
+  "clave": "juego.partidoTuyo",
+  "texto": "試合に勝った！🏆"
+ },
+ {
+  "clave": "juego.partidoRival",
+  "texto": "ライバルが試合に勝ちました…"
+ },
+ {
+  "clave": "juego.nuevoRecord",
+  "texto": "新記録！🎉"
+ },
+ {
+  "clave": "progreso.cargando",
+  "texto": "進捗を計算中…"
+ },
+ {
+  "clave": "progreso.jugador",
+  "texto": "自分のキャラクター"
+ },
+ {
+  "clave": "progreso.editarAvatar",
+  "texto": "キャラクターを編集"
+ },
+ {
+  "clave": "progreso.humor.feliz",
+  "texto": "嬉しそうです！この調子で連続記録を続けましょう。"
+ },
+ {
+  "clave": "progreso.humor.contento",
+  "texto": "満足しています。今日もう一つ記録すると元気になります。"
+ },
+ {
+  "clave": "progreso.humor.triste",
+  "texto": "悲しそうです…アプリで何か記録して元気づけてあげましょう。"
+ },
+ {
+  "clave": "progreso.humor.dormido",
+  "texto": "眠っています。アプリを使って起こしてあげましょう。"
+ },
+ {
+  "clave": "progreso.radarCuartos",
+  "texto": "部屋ごとのXP"
+ },
+ {
+  "clave": "meta.generica",
+  "texto": "今日何か記録しましょう"
+ },
+ {
+  "clave": "meta.cumplida",
+  "texto": "完了！"
+ },
+ {
+  "clave": "meta.pendiente",
+  "texto": "未完了"
+ },
+ {
+  "clave": "meta.apagada",
+  "texto": "目標なし"
+ },
+ {
+  "clave": "meta.aMano",
+  "texto": "手動"
+ },
+ {
+  "clave": "meta.auto",
+  "texto": "自動に戻す"
+ },
+ {
+  "clave": "meta.marcar",
+  "texto": "完了にする"
+ },
+ {
+  "clave": "meta.desmarcar",
+  "texto": "未完了に戻す"
+ },
+ {
+  "clave": "meta.agendar",
+  "texto": "カレンダーに予定を入れる"
+ },
+ {
+  "clave": "hoy.titulo",
+  "texto": "今日"
+ },
+ {
+  "clave": "hoy.alDia",
+  "texto": "今日の分はすべて完了"
+ },
+ {
+  "clave": "hoy.hechos",
+  "texto": "完了（{n}）"
+ },
+ {
+  "clave": "hoy.registrar",
+  "texto": "記録する"
+ },
+ {
+  "clave": "hoy.objetivo",
+  "texto": "毎日の目標（0でオフ）"
+ },
+ {
+  "clave": "cal.meta.mientrasDure",
+  "texto": "続いている間は、私に"
+ },
+ {
+  "clave": "cal.meta.unObjetivo",
+  "texto": "一日の目標を"
+ },
+ {
+  "clave": "cal.meta.unaActividad",
+  "texto": "週に一つの活動を"
+ },
+ {
+  "clave": "cal.meta.diasRitmo",
+  "texto": "{hechos}/{pedidos}日"
+ },
+ {
+  "clave": "rutinas.sinApp",
+  "texto": "アプリなし（家のイベント）"
+ },
+ {
+  "clave": "cocina.metaDiaria",
+  "texto": "今日の水分"
+ },
+ {
+  "clave": "cocina.objetivo.comidas",
+  "texto": "今日の食事"
+ },
+ {
+  "clave": "cocina.objetivo.vaso",
+  "texto": "コップ1杯"
+ },
+ {
+  "clave": "ejercicio.metaDiaria",
+  "texto": "今日運動する"
+ },
+ {
+  "clave": "hobbies.metaDiaria",
+  "texto": "今日練習する"
+ },
+ {
+  "clave": "jardin.metaDiaria",
+  "texto": "今日の癒やし"
+ },
+ {
+  "clave": "idiomas.metaDiaria",
+  "texto": "今日の復習"
+ },
+ {
+  "clave": "biblioteca.metaDiaria",
+  "texto": "今日の学び"
+ },
+ {
+  "clave": "diario.metaDiaria",
+  "texto": "今日のニュースを読む"
+ },
+ {
+  "clave": "descanso.metaDiaria",
+  "texto": "今夜の睡眠を記録"
+ },
+ {
+  "clave": "sala.evento.viaje",
+  "texto": "旅行"
+ },
+ {
+  "clave": "sala.evento.dia",
+  "texto": "{n}日目"
+ },
+ {
+  "clave": "ejercicio.tab.cronograma",
+  "texto": "目標"
+ }
+]

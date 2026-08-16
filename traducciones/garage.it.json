@@ -1,0 +1,234 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "texto": "Bici d'acciaio di seconda mano, grigia e un po' rumorosa, con cui vado a lavoro, in laboratorio e ad allenarmi ogni giorno. In un anno non mi ha mai lasciato a piedi."
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "texto": "Berlina ereditata da mio zio, più vecchia di me, con il cruscotto scolorito dal sole. La accendo una volta ogni quindici giorni e mi fa pagare con gli interessi ogni volta che la trascuro."
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "texto": "Salvataggio dallo scantinato"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "texto": "L'ho tirata fuori dallo scantinato con le gomme a terra e la catena incrostata; mezzo pomeriggio di straccio, aria e olio per farla tornare a girare."
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "texto": "Cambio olio molto in ritardo"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "texto": "È uscito nero come un caffè freddo e il meccanico si è limitato ad alzare le sopracciglia, che è il suo modo di rimproverarmi."
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "texto": "Camera d'aria nuova e prima toppa"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "texto": "Foratura su Doctor Vértiz mentre andavo al bar; ho imparato a cambiare la camera d'aria sul marciapiede, tardi ma l'ho imparato."
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "texto": "Batteria nuova"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "texto": "A forza di non usarla si è scaricata da sola; ho chiesto il collegamento a un vicino e da lì sono andato dritto a comprare una batteria."
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "texto": "Catena finalmente pulita"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "texto": "L'ho sgrassata e lubrificata con calma una domenica: ha smesso di scricchiolare come un cardine vecchio e pedalo persino più leggero."
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "texto": "Pastiglie dei freni anteriori"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "texto": "Frenavano stridendo a ogni fermata e non potevo più far finta di niente; mi sono costate la paga della quindicina, ma quella notte ho dormito serenamente."
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "texto": "Pattini dei freni nuovi"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "texto": "Con la pioggia frenavo due metri più tardi di quanto volessi, così ho cambiato i pattini e regolato i cavi."
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "texto": "Foratura sulla strada per il laboratorio"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "texto": "Un vetro su Eje 8 e sono arrivato spingendo la bici, venti minuti in ritardo al laboratorio."
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "texto": "In panne su Calzada de Tlalpan"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "texto": "L'auto si è spenta in pieno viale un martedì sera: un'ora e mezza sul marciapiede ad aspettare il carro attrezzi, a fare i conti con dei soldi che non avevo; è stato lì che mi è crollato addosso tutto il mese."
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "texto": "Messa a punto completa"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "texto": "Con il ginocchio in fisioterapia non potevo correre, così ho dedicato il tempo alla bici: ruote centrate, cavi e tutto ben serrato."
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "texto": "Filtri dopo lo spavento"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "texto": "Ho cambiato il filtro dell'aria e della benzina per pura paranoia; preferisco pagare questo che aspettare di nuovo un carro attrezzi."
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "texto": "Catena allungata, sostituita"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "texto": "Con il piano per la mezza maratona la uso tutti i giorni e la catena ormai slittava in partenza."
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "texto": "Cassetta e cavi nuovi"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "texto": "I cambi saltavano in salita; con la cassetta nuova finalmente posso fidarmi del rapporto corto."
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "texto": "Olio e controllo generale"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "texto": "Tagliando normale e senza sorprese, che con questa macchina conta già come buona notizia."
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "texto": "Freni prima della maratona"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "texto": "Regolazione veloce perché in quelle settimane la bici era il mio unico mezzo e non volevo scuse."
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "texto": "Lavaggio prima dell'arrivo della famiglia"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "texto": "L'ho lavata e passata con l'aspirapolvere per andare a prendere la famiglia alla stazione dei bus: non risolve niente a livello meccanico, ma si sente diverso."
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "texto": "Taller Mecánico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "texto": "Don Rivas mi spiega cosa è urgente e cosa può aspettare, e non mi ha mai gonfiato una fattura; è l'unico di cui mi fido con questa macchina."
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "texto": "Seguros Meridiano - agente Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "texto": "Av. Insurgentes Sur 1234, piano 3, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "texto": "Nadia risponde su WhatsApp anche di domenica e mi ha organizzato dei pagamenti mensili quando sono passato alla copertura completa."
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "texto": "Verificentro 09-118 Iztaccíhuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "texto": "Appuntamento alle sette del mattino e esco in quaranta minuti; quello di Coyoacán mi è costato mezza mattinata di fila."
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "texto": "Lì ho comprato la bici e lì la metto a punto; mi prestano gli attrezzi e mi insegnano a farlo io, invece di farmi pagare tutto."
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "texto": "Grúas Tepeyac 24 horas"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "texto": "Sede in Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "texto": "È il numero che ho chiamato la notte del guasto in mezzo alla strada; sono arrivati in un'ora e mezza e non hanno cercato di fregarmi sul prezzo."
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "texto": "Verifica semestrale"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "texto": "Mi tocca in base al bollino e prenoto sempre nella prima settimana: se mi scappa, la multa fa più male della pratica in sé."
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "texto": "Rinnovo della polizza"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "texto": "Quest'anno sono passato alla copertura completa con Nadia dopo lo spavento del guasto; pago a rate mensili e lo metto nel budget della quindicina."
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "texto": "Bollo e rinnovo annuale dell'auto"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "texto": "Lo pago nei primi mesi dell'anno per rientrare nello sconto e togliermelo dalla lista delle cose in sospeso."
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "texto": "Cambio di proprietà e libretto"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "texto": "Il libretto è ancora intestato a mio zio ed è ora di sistemarlo prima che mi crei un problema a un posto di blocco."
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "texto": "Messa a punto della bici"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "texto": "Ogni sei mesi da Ciclos Malinche: centraggio ruote, cavi e freni, che costa molto meno che aggiustare una ruota storta."
+  }
+]

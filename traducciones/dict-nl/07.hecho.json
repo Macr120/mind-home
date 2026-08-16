@@ -1,0 +1,550 @@
+[
+  {
+    "clave": "despacho.patr.efectivoOjo",
+    "texto": "Klopt alleen als je je transacties vanaf het begin hebt bijgehouden. Heb je je rekeningen hierboven al ingevuld? Laat dit dan uit: dat zou hetzelfde geld dubbel tellen."
+  },
+  {
+    "clave": "despacho.patr.nueva",
+    "texto": "Toevoegen"
+  },
+  {
+    "clave": "despacho.patr.vacio",
+    "texto": "Hier staat nog niets. Noteer wat je hebt — of wat je schuldig bent."
+  },
+  {
+    "clave": "despacho.patr.phFisico",
+    "texto": "Bijv. appartement, auto"
+  },
+  {
+    "clave": "despacho.patr.phLiquido",
+    "texto": "Bijv. betaalrekening"
+  },
+  {
+    "clave": "despacho.patr.phPasivo",
+    "texto": "Bijv. hypotheek"
+  },
+  {
+    "clave": "despacho.patr.phMonto",
+    "texto": "Bedrag"
+  },
+  {
+    "clave": "despacho.patr.escrito",
+    "texto": "wat je invoerde"
+  },
+  {
+    "clave": "despacho.patr.porTasas",
+    "texto": "op basis van je rente"
+  },
+  {
+    "clave": "despacho.patr.verEscrito",
+    "texto": "alleen ingevoerd tonen"
+  },
+  {
+    "clave": "despacho.patr.verEstimado",
+    "texto": "met rente tonen"
+  },
+  {
+    "clave": "despacho.patr.detalles",
+    "texto": "Hoe het in de tijd verandert"
+  },
+  {
+    "clave": "despacho.patr.phTasaActivo",
+    "texto": "Stijgt of daalt per jaar %"
+  },
+  {
+    "clave": "despacho.patr.phTasaPasivo",
+    "texto": "Rente van de lening %"
+  },
+  {
+    "clave": "despacho.patr.phPago",
+    "texto": "Maandbedrag"
+  },
+  {
+    "clave": "despacho.patr.ayudaTasaActivo",
+    "texto": "Negatief als het waarde verliest, zoals een auto."
+  },
+  {
+    "clave": "despacho.patr.tasaBanco",
+    "texto": "De jaarlijkse rente die je bank hanteert, en wat je elke maand betaalt."
+  },
+  {
+    "clave": "despacho.patr.alAno",
+    "texto": "%/jaar"
+  },
+  {
+    "clave": "despacho.patr.cuota",
+    "texto": "{n}/maand"
+  },
+  {
+    "clave": "despacho.patr.eran",
+    "texto": "was {n}"
+  },
+  {
+    "clave": "despacho.patr.editar",
+    "texto": "Deze regel bewerken"
+  },
+  {
+    "clave": "despacho.patr.monto",
+    "texto": "Waard"
+  },
+  {
+    "clave": "despacho.patr.fechaValor",
+    "texto": "Sinds"
+  },
+  {
+    "clave": "despacho.patr.tasaActivo",
+    "texto": "Stijgt per jaar %"
+  },
+  {
+    "clave": "despacho.patr.tasaPasivo",
+    "texto": "Jaarlijkse rente %"
+  },
+  {
+    "clave": "despacho.patr.pagoMensual",
+    "texto": "Maandelijkse betaling"
+  },
+  {
+    "clave": "despacho.patr.borrar",
+    "texto": "Verwijderen"
+  },
+  {
+    "clave": "despacho.patr.borrarTitulo",
+    "texto": "Deze regel verwijderen?"
+  },
+  {
+    "clave": "despacho.patr.borrarMsg",
+    "texto": "“{n}” telt niet meer mee voor je vermogen."
+  },
+  {
+    "clave": "despacho.patr.borrarOk",
+    "texto": "Verwijderen"
+  },
+  {
+    "clave": "despacho.patr.hoy",
+    "texto": "vandaag"
+  },
+  {
+    "clave": "despacho.patr.deMeta",
+    "texto": "gekoppeld aan “{n}”"
+  },
+  {
+    "clave": "despacho.patr.metaIda",
+    "texto": "het gekoppelde doel bestaat niet meer"
+  },
+  {
+    "clave": "despacho.patr.metaIdaSoltar",
+    "texto": "Het gekoppelde doel bestaat niet meer. Tik om deze regel te ontkoppelen."
+  },
+  {
+    "clave": "despacho.patr.montoOriginal",
+    "texto": "Oorspronkelijke lening"
+  },
+  {
+    "clave": "despacho.patr.valorAparte",
+    "texto": "Aparte waarde"
+  },
+  {
+    "clave": "despacho.patr.abonarEnMetas",
+    "texto": "Betalen in Doelen › Schuld"
+  },
+  {
+    "clave": "despacho.patr.aportarEnMetas",
+    "texto": "Toevoegen in Doelen"
+  },
+  {
+    "clave": "despacho.patr.desenlazar",
+    "texto": "Ontkoppelen van het doel?"
+  },
+  {
+    "clave": "despacho.patr.desenlazarMsg",
+    "texto": "Ze worden weer twee aparte dingen: deze regel behoudt {n} en het doel gaat zelfstandig verder."
+  },
+  {
+    "clave": "despacho.patr.desenlazarOk",
+    "texto": "Ontkoppelen"
+  },
+  {
+    "clave": "despacho.patr.soltar",
+    "texto": "ontkoppelen"
+  },
+  {
+    "clave": "despacho.patr.crearMetaDeuda",
+    "texto": "Volgen als schulddoel"
+  },
+  {
+    "clave": "despacho.patr.crearMetaAhorro",
+    "texto": "Volgen als spaardoel"
+  },
+  {
+    "clave": "despacho.patr.enlazarMeta",
+    "texto": "Koppelen aan een doel dat ik al heb…"
+  },
+  {
+    "clave": "despacho.patr.objetivoTitulo",
+    "texto": "Hoever wil je komen?"
+  },
+  {
+    "clave": "despacho.patr.objetivoMsg",
+    "texto": "Je hebt hier al {n}."
+  },
+  {
+    "clave": "despacho.meta.verEnPasivos",
+    "texto": "Bekijken in Vermogen › Schulden"
+  },
+  {
+    "clave": "despacho.meta.verEnActivos",
+    "texto": "Bekijken in Vermogen › Bezittingen"
+  },
+  {
+    "clave": "despacho.meta.anadirAPasivos",
+    "texto": "Toevoegen aan Schulden (met rente en looptijd)"
+  },
+  {
+    "clave": "despacho.meta.anadirAActivos",
+    "texto": "Toevoegen aan Bezittingen (met rendement)"
+  },
+  {
+    "clave": "despacho.tab.simulacion",
+    "texto": "Prognose"
+  },
+  {
+    "clave": "despacho.sim.sinDatos",
+    "texto": "Nog niets om te voorspellen. Noteer wat je bezit onder Bezittingen en wat je schuldig bent onder Schulden, geef ze een rente, en hier zie je waar het naartoe gaat."
+  },
+  {
+    "clave": "despacho.sim.netoHoy",
+    "texto": "Vermogen vandaag"
+  },
+  {
+    "clave": "despacho.sim.netoFinal",
+    "texto": "Over {n} maanden"
+  },
+  {
+    "clave": "despacho.sim.interesesFuturos",
+    "texto": "Nog te betalen rente"
+  },
+  {
+    "clave": "despacho.sim.aportado",
+    "texto": "Wat je zult inleggen"
+  },
+  {
+    "clave": "despacho.sim.horizonte",
+    "texto": "Voorspellen (maanden)"
+  },
+  {
+    "clave": "despacho.sim.inflacion",
+    "texto": "Jaarlijkse inflatie %"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoy",
+    "texto": "Bekijken in geld van vandaag"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoyAyuda",
+    "texto": "Rekent de inflatie eruit: wat dat geld écht waard zal zijn, niet hoeveel briefjes het zijn."
+  },
+  {
+    "clave": "despacho.sim.flujoMensual",
+    "texto": "Optellen wat ik elke maand spaar"
+  },
+  {
+    "clave": "despacho.sim.flujoAyuda",
+    "texto": "Op basis van je transacties: {i} komt binnen en {g} gaat eruit per maand."
+  },
+  {
+    "clave": "despacho.sim.crecIngreso",
+    "texto": "Mijn inkomen stijgt %/jaar"
+  },
+  {
+    "clave": "despacho.sim.crecGasto",
+    "texto": "Mijn uitgaven stijgen %/jaar"
+  },
+  {
+    "clave": "despacho.sim.pagosYaEnGastos",
+    "texto": "Mijn schuldaflossingen zitten al bij die uitgaven"
+  },
+  {
+    "clave": "despacho.sim.pagosDeudaMes",
+    "texto": "Je schulden vragen {n} per maand. Heb je ze niet als uitgave geregistreerd? Zet dit dan uit: ze worden apart afgetrokken."
+  },
+  {
+    "clave": "despacho.sim.activos",
+    "texto": "Bezittingen"
+  },
+  {
+    "clave": "despacho.sim.pasivos",
+    "texto": "Schulden"
+  },
+  {
+    "clave": "despacho.sim.neto",
+    "texto": "Netto"
+  },
+  {
+    "clave": "despacho.sim.hoy",
+    "texto": "vandaag"
+  },
+  {
+    "clave": "despacho.sim.hitoLiquidas",
+    "texto": "Je lost “{n}” af in {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoPositivo",
+    "texto": "Je vermogen wordt niet langer negatief in {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoDoble",
+    "texto": "Je vermogen verdubbelt in {f}"
+  },
+  {
+    "clave": "despacho.sim.noBaja",
+    "texto": "“{n}” daalt niet met {p} per maand: alleen al de rente is {i}."
+  },
+  {
+    "clave": "despacho.sim.creceSinPago",
+    "texto": "“{n}” heeft een rente maar geen maandelijkse betaling: het groeit alleen maar."
+  },
+  {
+    "clave": "despacho.sim.avisoCorta",
+    "texto": "Een prognose, geen belofte."
+  },
+  {
+    "clave": "despacho.sim.controles",
+    "texto": "Pas het scenario aan"
+  },
+  {
+    "clave": "despacho.periodo.anterior",
+    "texto": "Vorige periode"
+  },
+  {
+    "clave": "despacho.periodo.siguiente",
+    "texto": "Volgende periode"
+  },
+  {
+    "clave": "despacho.sim.aviso",
+    "texto": "Komt voort uit de rentes die je hebt ingevoerd: gebruik het om scenario's te vergelijken, niet om te weten wat er gaat gebeuren."
+  },
+  {
+    "clave": "despacho.meta.hasPuesto",
+    "texto": "je hebt {n} ingelegd"
+  },
+  {
+    "clave": "despacho.meta.pediste",
+    "texto": "je leende {n}"
+  },
+  {
+    "clave": "despacho.meta.valenHoy",
+    "texto": "vandaag {n} waard"
+  },
+  {
+    "clave": "despacho.meta.debesHoy",
+    "texto": "je bent vandaag {n} schuldig"
+  },
+  {
+    "clave": "despacho.meta.deRendimiento",
+    "texto": "aan rendement"
+  },
+  {
+    "clave": "despacho.meta.deIntereses",
+    "texto": "aan rente"
+  },
+  {
+    "clave": "despacho.meta.tasaPuesta",
+    "texto": "{n} %/jaar"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaDeuda",
+    "texto": "Rente instellen"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaAhorro",
+    "texto": "Instellen wat het oplevert"
+  },
+  {
+    "clave": "despacho.meta.tasaDeuda",
+    "texto": "Jaarlijkse rente %"
+  },
+  {
+    "clave": "despacho.meta.tasaAhorro",
+    "texto": "Levert per jaar op %"
+  },
+  {
+    "clave": "despacho.meta.desde",
+    "texto": "Sinds"
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaDeuda",
+    "texto": "Die van de bank. Elke betaling die je registreert, genereert vanaf die datum geen rente meer."
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaAhorro",
+    "texto": "Elke inleg levert rendement op vanaf de dag dat je hem deed, niet vanaf het begin."
+  },
+  {
+    "clave": "despacho.meta.movs",
+    "texto": "Transacties ({n})"
+  },
+  {
+    "clave": "despacho.meta.borrarTitulo",
+    "texto": "Dit doel verwijderen?"
+  },
+  {
+    "clave": "despacho.meta.borrarMsg",
+    "texto": "“{n}” verdwijnt; de transacties blijven in je geschiedenis staan, maar losgekoppeld."
+  },
+  {
+    "clave": "despacho.meta.borrarOk",
+    "texto": "Verwijderen"
+  },
+  {
+    "clave": "despacho.meta.deshacer",
+    "texto": "Deze betaling ongedaan maken"
+  },
+  {
+    "clave": "despacho.metas.disponible",
+    "texto": "Beschikbaar deze maand"
+  },
+  {
+    "clave": "despacho.metas.disponibleDetalle",
+    "texto": "inkomen {i} − uitgaven {g}"
+  },
+  {
+    "clave": "despacho.plan.titulo",
+    "texto": "Doelen"
+  },
+  {
+    "clave": "despacho.plan.desc",
+    "texto": "Je grote doel op de tijdlijn. Met ✨ stelt de AI een inlegplan voor je op."
+  },
+  {
+    "clave": "despacho.plan.ejAhorro",
+    "texto": "Noodfonds"
+  },
+  {
+    "clave": "despacho.plan.material",
+    "texto": "Waar het geld vandaan komt"
+  },
+  {
+    "clave": "despacho.plan.ejDeuda",
+    "texto": "Creditcard aflossen"
+  },
+  {
+    "clave": "despacho.calc.titulo",
+    "texto": "Financiële rekenhulpen"
+  },
+  {
+    "clave": "despacho.calc.tab.fondoEmergencia",
+    "texto": "Noodfonds"
+  },
+  {
+    "clave": "despacho.calc.tab.libertadFinanciera",
+    "texto": "Financiële onafhankelijkheid"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaCincuenta",
+    "texto": "50/30/20"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaAuto",
+    "texto": "Auto 20/4/10"
+  },
+  {
+    "clave": "despacho.calc.crearMeta",
+    "texto": "Doel aanmaken met dit bedrag"
+  },
+  {
+    "clave": "despacho.calc.metaCreada",
+    "texto": "Doel aangemaakt — bekijk het hierboven"
+  },
+  {
+    "clave": "despacho.calc.gastoEsencial",
+    "texto": "Essentiële maandelijkse uitgaven"
+  },
+  {
+    "clave": "despacho.calc.mesesColchon",
+    "texto": "Maanden buffer"
+  },
+  {
+    "clave": "despacho.calc.fondoObjetivo",
+    "texto": "Doelfonds"
+  },
+  {
+    "clave": "despacho.calc.fondoNota",
+    "texto": "{g} × {n} maanden"
+  },
+  {
+    "clave": "despacho.calc.nombreFondo",
+    "texto": "Noodfonds"
+  },
+  {
+    "clave": "despacho.calc.gastoDeseado",
+    "texto": "Gewenste maandelijkse uitgaven"
+  },
+  {
+    "clave": "despacho.calc.tasaRetiro",
+    "texto": "Veilig opnamepercentage %"
+  },
+  {
+    "clave": "despacho.calc.libertadObjetivo",
+    "texto": "Benodigd belegd"
+  },
+  {
+    "clave": "despacho.calc.libertadNota",
+    "texto": "Je jaarlijkse uitgaven × {n}"
+  },
+  {
+    "clave": "despacho.calc.nombreLibertad",
+    "texto": "Financiële onafhankelijkheid"
+  },
+  {
+    "clave": "despacho.calc.ingresoMensual",
+    "texto": "Maandelijks inkomen"
+  },
+  {
+    "clave": "despacho.calc.pctNecesidades",
+    "texto": "Behoeften %"
+  },
+  {
+    "clave": "despacho.calc.pctCaprichos",
+    "texto": "Wensen %"
+  },
+  {
+    "clave": "despacho.calc.pctAhorro",
+    "texto": "Sparen %"
+  },
+  {
+    "clave": "despacho.calc.noSuman100",
+    "texto": "De percentages tellen op tot {n}%, niet tot 100%."
+  },
+  {
+    "clave": "despacho.calc.necesidades",
+    "texto": "Behoeften"
+  },
+  {
+    "clave": "despacho.calc.caprichos",
+    "texto": "Wensen"
+  },
+  {
+    "clave": "despacho.calc.ahorroTxt",
+    "texto": "Sparen"
+  },
+  {
+    "clave": "despacho.calc.nombreCaprichos",
+    "texto": "Vrij besteedbaar budget"
+  },
+  {
+    "clave": "despacho.calc.precioAuto",
+    "texto": "Prijs van de auto"
+  },
+  {
+    "clave": "despacho.calc.pctEnganche",
+    "texto": "Aanbetaling %"
+  },
+  {
+    "clave": "despacho.calc.plazoMax",
+    "texto": "Max. looptijd (maanden)"
+  },
+  {
+    "clave": "despacho.calc.pctIngresoAuto",
+    "texto": "Max. van inkomen %"
+  }
+]

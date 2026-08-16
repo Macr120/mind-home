@@ -1,0 +1,998 @@
+[
+  {
+    "ruta": "entradas.0.titulo",
+    "texto": "Pierwszy wpis, prawie druga w nocy"
+  },
+  {
+    "ruta": "entradas.0.texto",
+    "texto": "Aplikację zainstalowało się trzy godziny temu, a dwie z tych godzin minęły na otwieraniu jej bez napisania ani słowa. Jest 1:40, a jutro trzeba otworzyć kawiarnię o siódmej. W środku nie ma dokładnie smutku, jest raczej zmęczenie życiem na autopilocie. Ten wpis powstaje tylko po to, żeby zostać dowodem, że dziś coś się wydarzyło, nawet jeśli tylko to."
+  },
+  {
+    "ruta": "entradas.1.titulo",
+    "texto": "Podwójna zmiana i 34 złote"
+  },
+  {
+    "ruta": "entradas.1.texto",
+    "texto": "Zastępstwo za Nadię i wyjście z pracy o dziewiątej, z plecami w strzępach. 34 złote napiwku i jedna klientka, która mówiła tak, jakby za ladą stał automat do kawy na nogach, a nie człowiek. Kolacja z płatków na stojąco, z telefonem w ręce, aż do pierwszej. Jutro laboratorium o ósmej i z góry wiadomo, jak to się skończy."
+  },
+  {
+    "ruta": "entradas.2.titulo",
+    "texto": "Gdzie podziała się wypłata"
+  },
+  {
+    "ruta": "entradas.2.texto",
+    "texto": "Wypłata w piątek, a dziś, w środę, na koncie zostały 174 złote. Próba odtworzenia wydatków z pamięci pokazała brak prawie trzystu złotych, których nigdzie nie da się przypisać. Nieużywane subskrypcje, piwo, jedzenie na wynos w dni bez gotowania. Najbardziej denerwuje nie sam brak pieniędzy, tylko to, że nawet tyle nie wiadomo o własnym życiu."
+  },
+  {
+    "ruta": "entradas.3.titulo",
+    "texto": "Znowu cztery godziny snu"
+  },
+  {
+    "ruta": "entradas.3.texto",
+    "texto": "Zasypianie o drugiej, budzik o 6:15. Przy trzeciej kawie zmiany ręka trzęsła się przy spienianiu mleka. Rozbita szklanka i patrzenie na odłamki dłużej, niż było trzeba. Problem jest znany co do joty, a mimo to wczoraj wieczorem znowu poszły w ruch filmiki na telefonie, aż do drugiej w nocy."
+  },
+  {
+    "ruta": "entradas.4.titulo",
+    "texto": "Źle zmierzona połowa ćwiczeń"
+  },
+  {
+    "ruta": "entradas.4.texto",
+    "texto": "W laboratorium zapisanie oporów bez sprawdzenia zakresu multimetru sprawiło, że cała tabela wyszła z błędem razy dziesięć. Elías zauważył to dopiero po półtorej godziny, kiedy nie było już czasu na powtórkę. Nie chodzi o to, że fizyka jest niezrozumiała, chodzi o to, że do laboratorium przychodzi się bez głowy na karku. Oddanie tego, co było, i wyjście bez słowa."
+  },
+  {
+    "ruta": "entradas.5.titulo",
+    "texto": "Znowu Solaris"
+  },
+  {
+    "ruta": "entradas.5.texto",
+    "texto": "Niedziela bez zmiany, opuszczone rolety, herbata i znowu Solaris. W scenie, gdy stacja pogrąża się w ciszy, pojawiło się coś dziwnego: zazdrość o tyle spokoju. Zazdroszczenie filmowi o ludziach, którzy tracą rozum, jest przecież absurdalne. Mimo to wstanie z kanapy przyniosło wrażenie, że od miesięcy nie ma bycia sam na sam ze sobą, tylko samo rozproszenie uwagi."
+  },
+  {
+    "ruta": "entradas.6.titulo",
+    "texto": "Piszę, mimo że nie ma nic do napisania"
+  },
+  {
+    "ruta": "entradas.6.texto",
+    "texto": "Dziś nic się nie wydarzyło: zmiana, zajęcia, dom. Zapis mimo to, bo z lektury wynika, że liczy się nie dobry wpis, tylko brak przerwy. Otwieranie tego trzy razy w tygodniu to już więcej systematyczności, niż jest przy czymkolwiek innym. Laika jeszcze nie istnieje w tym życiu, a mieszkanie jest bardzo ciche."
+  },
+  {
+    "ruta": "entradas.7.titulo",
+    "texto": "Trzy piętra i brak tchu"
+  },
+  {
+    "ruta": "entradas.7.texto",
+    "texto": "Zepsuta winda i wejście po trzech piętrach z zakupami. Na górze trzeba było usiąść na podłodze klatki schodowej, żeby złapać oddech, dwie długie minuty. Wiek: 25 lat. Ważenie zaraz po wejściu: 74 kilogramy i kondycja fizyczna mebla."
+  },
+  {
+    "ruta": "entradas.8.titulo",
+    "texto": "Rower wciąż z luźnym łańcuchem"
+  },
+  {
+    "ruta": "entradas.8.texto",
+    "texto": "Pięć tygodni obietnicy, że łańcuch zostanie w końcu naciągnięty, i pięć tygodni jazdy autobusem zamiast tego. Samochód też nie jest w lepszym stanie: przy zimnym rozruchu wydaje dźwięk, którego lepiej nie sprawdzać. Ten sam schemat wszędzie: rzeczy niszczeją, aż się psują, zamiast żeby ktoś się nimi zajął na czas. Dziś przynajmniej to zapisane."
+  },
+  {
+    "ruta": "entradas.9.titulo",
+    "texto": "Postanowienie: zapisywać wszystko"
+  },
+  {
+    "ruta": "entradas.9.texto",
+    "texto": "Lektura wpisów z tego miesiąca jest przygnębiająca, ale też pełna informacji. Chodzenie spać późno, wydawanie pieniędzy bez liczenia, zero ruchu — to wszystko było wiadome, choć bez prawdziwej świadomości. Decyzja: przez cały rok zapisywanie tego, co się robi. Sen, pieniądze, ruch, to, czego się uczy. Nie ma tu obietnicy nagłej zmiany, jest tylko obietnica patrzenia."
+  },
+  {
+    "ruta": "entradas.10.titulo",
+    "texto": "Arkusz kalkulacyjny, pierwsza próba"
+  },
+  {
+    "ruta": "entradas.10.texto",
+    "texto": "Dwie godziny budowania budżetu z prawdziwymi kategoriami tego życia: czynsz, jedzenie, transport, studia, głupoty. Wychodzi 5015 złotych wydatków wobec 5270 z pensji co dwa tygodnie i napiwków. Margines jest śmiechu wart, ale istnieje, a jego zobaczenie na papierze uspokaja bardziej, niż było oczekiwane. Nowa zasada: napiwki nie idą na wydatki tego samego dnia."
+  },
+  {
+    "ruta": "entradas.11.titulo",
+    "texto": "Budzik na pójście spać"
+  },
+  {
+    "ruta": "entradas.11.texto",
+    "texto": "Nowy budzik o 23:15, ale nie na wstawanie, tylko na wyłączenie ekranu. Pierwsze dwie noce zignorowane; dziś posłuszeństwo wobec niego i zaśnięcie blisko północy. Przebudzenie przed budzikiem i, patrząc w lustro, żadnej nienawiści do siebie. Cel miesiąca: siedem godzin snu przez pięć nocy na siedem."
+  },
+  {
+    "ruta": "entradas.12.titulo",
+    "texto": "Jedenaście minut truchtu, siedem marszu"
+  },
+  {
+    "ruta": "entradas.12.texto",
+    "texto": "Wyjście na bieganie bez planu, w płóciennych trampkach i bez pojęcia o tempie. Jedenaście minut bardzo powolnego truchtu podzielonych na trzy kawałki, plus siedem minut marszu w drodze powrotnej. Na koniec czerwona twarz i dziwny kaszel, który trwał chwilę. Mimo to coś zaskoczyło: przez tych jedenaście minut głowa była zupełnie pusta."
+  },
+  {
+    "ruta": "entradas.13.titulo",
+    "texto": "Słoik na napiwki"
+  },
+  {
+    "ruta": "entradas.13.texto",
+    "texto": "Opróżniony słoik po dżemie, a do niego trafiają teraz napiwki po każdej zmianie. W tym tygodniu: 98 złotych, które wcześniej zamieniłyby się w kolacje na mieście. Wciąż nie wiadomo, na co jest ten słoik, i to chyba pomaga: to pieniądze, którym nigdzie się nie spieszy. Liczenie ich w niedzielę zamieniło się w mały rytuał."
+  },
+  {
+    "ruta": "entradas.14.titulo",
+    "texto": "Kolokwium z mechaniki: trójka"
+  },
+  {
+    "ruta": "entradas.14.texto",
+    "texto": "Zaliczenie na styk, ale to pierwszy w tym roku egzamin poprzedzony porządnym snem. Błąd w zadaniu z wahadłem wziął się z pośpiechu, nie z niewiedzy. Wiadomo dokładnie, co powtórzyć, i to jest nowość. Wcześniej wyjście z egzaminu oznaczało niepamiętanie nawet, co zostało napisane."
+  },
+  {
+    "ruta": "entradas.15.titulo",
+    "texto": "Przyjechał keyboard"
+  },
+  {
+    "ruta": "entradas.15.texto",
+    "texto": "88 klawiszy z drugiej ręki, 385 złotych, kupione od pana, który przestał grać, gdy urodziła się jego córka. Przewiezienie w bagażniku, owinięte w dwa koce, i ustawienie w kącie salonu. Przy włączeniu lekkie buczenie i brak pedału, ale gra. Dwadzieścia minut przypadkowych dźwięków i uśmiech jak u dzieciaka. Cel roku ogłoszony: nauczyć się całego „Clair de Lune”."
+  },
+  {
+    "ruta": "entradas.16.titulo",
+    "texto": "Pięć dźwięków i dwa palce"
+  },
+  {
+    "ruta": "entradas.16.texto",
+    "texto": "Pierwsze lekcje z filmików: ułożenie ręki, środkowe C, gama C prawą ręką. Palce robią, co chcą, a czwarty w ogóle nie reaguje. Dwadzieścia minut dziennie, z minutnikiem, zaraz po zmianie. Sąsiad się nie skarży, co liczy się jako aprobata."
+  },
+  {
+    "ruta": "entradas.17.titulo",
+    "texto": "Dwadzieścia minut bez przerwy"
+  },
+  {
+    "ruta": "entradas.17.texto",
+    "texto": "Dziś dwadzieścia minut biegu bez przerwy na marsz, bardzo wolno, przez park nad rzeką. Odkrycie dnia: oddychanie przez nos i skrócenie kroku pozwala jeszcze rozmawiać. Trzy tygodnie tego nawyku i przekonywanie samego siebie przed wyjściem jest już niepotrzebne; potrzebne jest tylko wyjście. Nowe buty do biegania będą pierwszym wydatkiem ze słoika."
+  },
+  {
+    "ruta": "entradas.18.titulo",
+    "texto": "Rachunki miesiąca się zgadzają"
+  },
+  {
+    "ruta": "entradas.18.texto",
+    "texto": "Pierwszy raz od lat koniec miesiąca z wiedzą, gdzie podział się każdy złoty. Zostaje 264 złote, liczba śmiesznie mała, a jednocześnie ogromna w porównaniu z debetem z zeszłego miesiąca. Dwie subskrypcje anulowane, a wydatki na jedzenie na wynos spadły o połowę. Nic z tego nie jest zasługą charakteru: to po prostu teraz widać."
+  },
+  {
+    "ruta": "entradas.19.titulo",
+    "texto": "Miesiąc danych, bez cudów"
+  },
+  {
+    "ruta": "entradas.19.texto",
+    "texto": "Przegląd miesiąca: średni sen 6 godz. 50 min, jedenaście wyjść na bieganie, 340 minut gry na keyboardzie, zero tych złych nocy bez snu. Wtorki nadal zmęczone, i nadal żadnego pomysłu, co robić po skończeniu studiów. Ale otwarcie aplikacji pokazuje linię, nie dziurę. Wystarcza to, żeby iść dalej kolejny miesiąc."
+  },
+  {
+    "ruta": "entradas.20.titulo",
+    "texto": "Waga pokazuje 74"
+  },
+  {
+    "ruta": "entradas.20.texto",
+    "texto": "Ważenie na poważnie, na czczo i z zapisem: 74,2 kg. Nie chodzi o liczbę, chodzi o to, żeby nie brakowało tchu na schodach. Konkretne zmiany: prawdziwe śniadanie, mniej ciastek z pracy, woda zamiast napoju gazowanego na zmianie. Żadnych dziwnych diet, bo na to nie starcza ani pieniędzy, ani energii."
+  },
+  {
+    "ruta": "entradas.21.titulo",
+    "texto": "Plan na 5 km na lodówce"
+  },
+  {
+    "ruta": "entradas.21.texto",
+    "texto": "Wydrukowany plan na dziewięć tygodni, żeby przebiec 5 kilometrów bez przerwy, przyklejony do lodówki magnesem. Trzy wyjścia w tygodniu: wtorek, czwartek i niedziela, dni bez zmiany popołudniowej. Za dwa miesiące jest bieg uliczny w okolicy; sama myśl o zapisaniu się przyprawia o zawrót głowy. Zapis tutaj, żeby trudniej było o tym zapomnieć."
+  },
+  {
+    "ruta": "entradas.22.titulo",
+    "texto": "Dziesięć minut nicnierobienia"
+  },
+  {
+    "ruta": "entradas.22.texto",
+    "texto": "Pierwsza medytacja z nagraniem: dziesięć minut na podłodze, plecami oparte o ścianę. Pierwsze pięć minut to mentalna lista zakupów i wyimaginowana kłótnia z klientem. W ostatnich dwóch coś puściło w barkach. Trzy razy w tygodniu, poniedziałek, środa i sobota — zobaczymy, co z tego wyjdzie."
+  },
+  {
+    "ruta": "entradas.23.texto",
+    "texto": "W schronisku było mnóstwo pięknych kotów i jedna dwuletnia szara kotka, która spojrzała, jakby mówiła „no dalej, decyduj”. Laika — tak ma na imię od samej jazdy samochodem, bo całą drogę spędziła przyklejona do szyby, patrząc w niebo. Trzy godziny pod kanapą, a potem wyjście na inspekcję keyboardu. Śpi w zgięciu kolan i mieszkanie nie wydaje się już tak puste."
+  },
+  {
+    "ruta": "entradas.24.titulo",
+    "texto": "Fiszki z angielskiego między kawami"
+  },
+  {
+    "ruta": "entradas.24.texto",
+    "texto": "Start: dwadzieścia fiszek z angielskiego dziennie w telefonie, prawie zawsze w wolnych chwilach przy ladzie. Prawdziwy poziom: teksty piosenek zrozumiałe, nikt mówiący szybko — już nie bardzo. Dziś tłumaczenie turyście, gdzie jest dworzec, wyszło niezdarnie, ale wyszło. Więcej radości z tego niż z zaliczonego kolokwium."
+  },
+  {
+    "ruta": "entradas.25.titulo",
+    "texto": "Niedziela pudełek na tydzień"
+  },
+  {
+    "ruta": "entradas.25.texto",
+    "texto": "Dwie godziny gotowania w niedzielę: soczewica, ryż, kurczak z piekarnika i warzywa na pięć dni. Koszt: 77 złotych, a w zamian oszczędność na kebabach po nocnej zmianie. Laika siadała na blacie, żeby nadzorować, i zdejmowanie jej stamtąd powtórzyło się jedenaście razy. Pełna lodówka daje spokój, jakiego nie było powodu oczekiwać po czymś tak głupim."
+  },
+  {
+    "ruta": "entradas.26.titulo",
+    "texto": "Trzy kilometry bez przerwy"
+  },
+  {
+    "ruta": "entradas.26.texto",
+    "texto": "Piąty tydzień planu i dziś 3 km bez przerwy w 21 minut. Dwa miesiące temu granica wytrzymałości była na trzeciej minucie, więc dobra herbata jako świętowanie w sam raz. Kolana w porządku, prawa łydka lekko napięta. Pierwszy raz naprawdę wierzy się, że da się dobiec do pięciu kilometrów."
+  },
+  {
+    "ruta": "entradas.27.titulo",
+    "texto": "Laika śpi na keyboardzie"
+  },
+  {
+    "ruta": "entradas.27.texto",
+    "texto": "Leży na klawiszach za każdym razem, gdy pokrywa zostaje otwarta, z ogonem wystawionym w słońce. Dziś negocjacje: koc obok dla niej, keyboard dla reszty. Gama C obiema rękami i łatwy czterotaktowy utwór, który już wychodzi z pamięci. Trzydzieści minut dzisiaj; lewy mały palec wciąż jest problemem."
+  },
+  {
+    "ruta": "entradas.28.titulo",
+    "texto": "Medytacja w złym humorze"
+  },
+  {
+    "ruta": "entradas.28.texto",
+    "texto": "Fatalna zmiana, zepsuta maszyna i klient, który narzekał na ceny, jakby ustalał je personel za ladą. Usiąść do medytacji bez ochoty, a wyszły z tego najgorsze dziesięć minut miesiąca. Ale po wstaniu nikomu nie powiedziało się nic złego, ani nie zniknęła połowa tacy croissantów. Zaczyna się podejrzewać, że to ćwiczenie nie jest stworzone na dobre dni."
+  },
+  {
+    "ruta": "entradas.29.titulo",
+    "texto": "Poruszone zdjęcie Księżyca"
+  },
+  {
+    "ruta": "entradas.29.texto",
+    "texto": "Wejście na dach z telefonem, starą lornetką i sporą dozą wiary. Księżyc wyszedł jako drżąca plama, a Jowisz jako niewiele mówiący punkt, ale czterdzieści minut tam na górze minęło bez zerkania na wiadomości. Było zimno i słychać było miasto w dole. W planach lektura o tanich statywach; to może być oficjalny pretekst do wychodzenia z domu wieczorami."
+  },
+  {
+    "ruta": "entradas.30.titulo",
+    "texto": "Próba generalna na pięć kilometrów"
+  },
+  {
+    "ruta": "entradas.30.texto",
+    "texto": "Całe 5 km przez park bez ani jednego postoju: 32:40 na zegarku. Pod koniec nogi trzęsły się, ale trucht do fontanny trwał dalej z czystego uporu. Trzy miesiące temu róg ulicy bez zadyszki był nieosiągalny, a teraz ten dystans przestał straszyć. W niedzielę prawdziwy bieg."
+  },
+  {
+    "ruta": "entradas.31.titulo",
+    "texto": "Numer startowy odebrany, nerwy na miejscu"
+  },
+  {
+    "ruta": "entradas.31.texto",
+    "texto": "Odbiór numeru startowego po zmianie: 1148 i koszulka o dwa rozmiary za duża. Buty, dobre skarpetki i agrafka przygotowane na krześle, jak przed egzaminem. Nuri radziła nie ruszać na pełnym gazie w pierwszym kilometrze, a ta rada trafiła do głowy tylko w połowie. Wcześniejsze spanie w planach, choć gapienie się w sufit też wydaje się pewne."
+  },
+  {
+    "ruta": "entradas.32.titulo",
+    "texto": "Pierwsze 5 km: 31:12"
+  },
+  {
+    "ruta": "entradas.32.texto",
+    "texto": "Start zbyt szybki, trzeci kilometr cały poświęcony nienawiści do całego pomysłu, a na ostatnim odcinku ktoś krzyknął słowa otuchy do nikogo konkretnego — i zostały przyjęte jako własne. Na mecie rzut oka na zegarek: 31:12. Usiąść na krawężniku z bananem i kubkiem wody, i śmiech sam do siebie. Cztery miesiące temu ta osoba jeszcze nie istniała."
+  },
+  {
+    "ruta": "entradas.33.titulo",
+    "texto": "Drewniane nogi"
+  },
+  {
+    "ruta": "entradas.33.texto",
+    "texto": "Schodzenie po schodach w domu to była istna komedia, a w kawiarni ruchy przypominały zmęczonego dziadka. Laika wskoczyła na drzemkę i zabrakło sił nawet na protest. Dziesięć minut rozciągania, lód na kolanach na wszelki wypadek i zero biegania dzisiaj. Boli dobrze, jeśli coś takiego w ogóle istnieje."
+  },
+  {
+    "ruta": "entradas.34.titulo",
+    "texto": "Japonia zagnieździła się w głowie"
+  },
+  {
+    "ruta": "entradas.34.texto",
+    "texto": "Dokument o japońskich pociągach o jedenastej wieczorem, i wytrwanie do końca ze stygnącą herbatą w ręku. Potem Nuri opowiedziała o swojej podróży: świątynie Kioto, jedzenie na stojąco na targu, kobieta, która mówiła dziesięć minut bez cienia wzajemnego zrozumienia. Na lodówce mapa przyklejona magnesem z warzywniaka. Jeśli oszczędzanie zacznie się teraz, za pięć miesięcy mogłyby to być trzy tygodnie wyjazdu."
+  },
+  {
+    "ruta": "entradas.35.titulo",
+    "texto": "Liczby dla Japonii"
+  },
+  {
+    "ruta": "entradas.35.texto",
+    "texto": "Arkusz rachunków i liczby nadane fantazji: 10 200 złotych w sumie, około 3400 na loty, reszta na tanie noclegi, pociągi i jedzenie. Odłożone już 2550 złotych z miesięcy, w których budżet dał radę, więc brakuje jeszcze około 1530 miesięcznie. Wychodzi, jeśli w grę wejdą dwie dodatkowe zmiany miesięcznie i napiwki z weekendu prosto do koperty. Nowa linia w aplikacji, nazwana po prostu Japonia."
+  },
+  {
+    "ruta": "entradas.36.titulo",
+    "texto": "Hiragana między zamówieniami"
+  },
+  {
+    "ruta": "entradas.36.texto",
+    "texto": "Start z sylabariuszem w martwych chwilach przy ladzie, pisanie あ い う え お na odwrocie paragonów. Piętnaście znaków już znanych, trzy wciąż się mylą. Do tego sumimasen i arigatou gozaimasu, które według internetu stanowią dziewięćdziesiąt procent przetrwania. Nie chodzi o mówienie po japońsku, chodzi o to, żeby na ulicy nie być meblem."
+  },
+  {
+    "ruta": "entradas.37.titulo",
+    "texto": "Angielski wprawia w zakłopotanie"
+  },
+  {
+    "ruta": "entradas.37.texto",
+    "texto": "Dziś para pytała o mleko owsiane, a zdanie urwało się w połowie, z czasami pomieszanymi. Potem w domu czterdzieści fiszek dnia i podcast na średnim poziomie w tempie żółwia. Present perfect trzyma w pułapce: zasada jest znana, ale nie chce wyjść z ust. Dziesięć minut czytania na głos każdego wieczoru w planach, choć to zabrzmi śmiesznie z kotem patrzącym spod oka."
+  },
+  {
+    "ruta": "entradas.38.titulo",
+    "texto": "72,6 na wadze"
+  },
+  {
+    "ruta": "entradas.38.texto",
+    "texto": "Trzeci miesiąc zaczęty od 74 kilogramów, dziś waga pokazuje 72,6. Nic dziwnego w tle: prawdziwe śniadanie, mniej chleba na popołudniowej zmianie, kolacja przed dziesiątą. Zwykłe dżinsy luźniejsze w pasie, i to przekonuje bardziej niż sama liczba. Zapis i dalej, bez wielkiego świętowania."
+  },
+  {
+    "ruta": "entradas.39.titulo",
+    "texto": "Samochód prosi o wizytę w warsztacie"
+  },
+  {
+    "ruta": "entradas.39.texto",
+    "texto": "Przy hamowaniu na podjeździe pod domem nowy zgrzyt, zupełnie nie w guście. Telefon do warsztatu w okolicy i termin za dwa tygodnie; chłopak przez telefon powiedział, że pewnie klocki i żeby się nie martwić. Samochód ma siedemnaście lat, a koperta na Japonię woli zostać nietknięta. Rower wszędzie tam, gdzie to możliwe, jak zawsze."
+  },
+  {
+    "ruta": "entradas.40.titulo",
+    "texto": "Nowy plan: dziesięć kilometrów"
+  },
+  {
+    "ruta": "entradas.40.texto",
+    "texto": "Plan na pięć tygodni spisany: dwa spokojne wybiegania, jeden dzień krótkich interwałów i długi bieg rosnący o kilometr co niedzielę. Cel: dotrzeć do 10 km bez cierpienia jak przy 5 km. Dziś 6 km w tempie rozmowy, z prawdziwym zmuszaniem się do wolnego biegu i okiem na zegarku. Trudniej wyhamować, niż przyspieszyć."
+  },
+  {
+    "ruta": "entradas.41.titulo",
+    "texto": "Ręce osobno, głowa też"
+  },
+  {
+    "ruta": "entradas.41.texto",
+    "texto": "Prawa ręka zna melodię, lewa radzi sobie z akompaniamentem, ale razem kłócą się w dziewiątym takcie. Podział na dwa takty i trzydzieści powtórzeń z metronomem na 60. Na koniec trzy razy z rzędu bez zająknięcia, i koniec ćwiczenia w tym miejscu, żeby nie zepsuć efektu. Czterdzieści minut dzisiaj; lewy mały palec zaczyna istnieć."
+  },
+  {
+    "ruta": "entradas.42.titulo",
+    "texto": "Osiem kilometrów i podjazd"
+  },
+  {
+    "ruta": "entradas.42.texto",
+    "texto": "Niedzielny długi bieg: 8 km z podjazdem przy cmentarzu w szóstym kilometrze, miejscem stałych rozważań o sensie życia. Cały podjazd pokonany truchtem, krótko i brzydko, a na górze wiatr i głupiutki widok na dachy. Powrót cieniem, pół litra wody i prysznic bez pośpiechu. Dodawanie kilometra co tydzień wygląda na głupotę, dopóki nie spojrzy się na cały miesiąc."
+  },
+  {
+    "ruta": "entradas.43.titulo",
+    "texto": "Napiwki trafiają do koperty"
+  },
+  {
+    "ruta": "entradas.43.texto",
+    "texto": "Sobota z pełnym tarasem: 162 złote napiwku w słoiku i klientka, która za jedno espresso z mlekiem zostawiła 21 złotych. Wcześniej takie pieniądze znikały w piwie i jedzeniu w środku tygodnia bez śladu. Dziś liczenie monet na kuchennym stole i przelanie ich w całości na linię Japonia. 4290 złotych uzbieranych. Banknoty mają teraz cel, i to zmienia sposób pracy."
+  },
+  {
+    "ruta": "entradas.44.titulo",
+    "texto": "Sencha, zeszyt i niedziela"
+  },
+  {
+    "ruta": "entradas.44.texto",
+    "texto": "Powolny poranek: sencha w małym czajniczku, otwarte okno i zeszyt do przeglądu tygodnia. Nic dramatycznego do zapisania, co samo w sobie jest nowością w porównaniu z zimą. Przegląd planu biegowego, fiszek z angielskiego i koperty na podróż pokazał, że wszystko idzie tylko naprzód. Laika przespała całą tę rewizję na oparciu krzesła."
+  },
+  {
+    "ruta": "entradas.45.titulo",
+    "texto": "Pierwszy cały utwór"
+  },
+  {
+    "ruta": "entradas.45.texto",
+    "texto": "Melodia Schumanna zagrana od początku do końca, bez przerwy i bez bolesnych pomyłek. To utwór dla początkujących i nieważne: dwa miesiące wcześniej nawet środkowe C było niewiadomą. Trzy powtórzenia z rzędu, a przy trzecim udało się słuchać zamiast pilnować palców. Laika nie klaskała, ale została w pokoju, co jest jej formą braw."
+  },
+  {
+    "ruta": "entradas.46.titulo",
+    "texto": "Dziewięć i pół kilometra, powoli"
+  },
+  {
+    "ruta": "entradas.46.texto",
+    "texto": "Start o ósmej, żeby ominąć upał, i celowe spowolnienie, z zegarkiem zasłoniętym rękawem. 9,5 km w nieco ponad godzinę, bez bohaterstwa. Sztuczka tego miesiąca: zanudzić się bieganiem, myśląc o liście zakupów, o dziewiątym takcie, o niczym. W następną niedzielę dziesięć kilometrów, i to już nie wygląda na granicę nie do przejścia."
+  },
+  {
+    "ruta": "entradas.47.titulo",
+    "texto": "Kolokwium z mechaniki"
+  },
+  {
+    "ruta": "entradas.47.texto",
+    "texto": "Dwie i pół godziny egzaminu, zadanie z bryły sztywnej, które pochłonęło cały czas, i pytanie zostawione w połowie. Po wyjściu dziwne uczucie niepewności: trójka czy czwórka. Dobra strona: trzy tygodnie prawdziwej nauki, w blokach, bez zwyczajowej nieprzespanej nocy. Siedem godzin snu przed egzaminem, i to chyba było warte więcej niż kolejne powtórki."
+  },
+  {
+    "ruta": "entradas.48.titulo",
+    "texto": "Dziesięć kilometrów w 58:40"
+  },
+  {
+    "ruta": "entradas.48.texto",
+    "texto": "Bieg uliczny wzdłuż rzeki, więcej ludzi, niż było oczekiwać, i tempo utrzymane do ósmego kilometra. Ostatnie dwa kilometry to negocjacje z własną głową co sto metrów. 58:40, a zejście poniżej godziny było jedynym celem. Pomarańcza zjedzona na ziemi, z plastikowym medalem na szyi, i myśl, że w pierwszym miesiącu wejście na dach bez zasapania było nie do pomyślenia."
+  },
+  {
+    "ruta": "entradas.49.titulo",
+    "texto": "Osiem godzin bez przerwy"
+  },
+  {
+    "ruta": "entradas.49.texto",
+    "texto": "Przebudzenie przed budzikiem trzy razy w tym tygodniu, coś, co w styczniu wyglądałoby na czary. Żadnego telefonu w łóżku, przyćmione światło od jedenastej i keyboard w słuchawkach, jeśli ochota nie mija. Waga pokazuje 72, dwa kilogramy mniej niż na starcie diety. Sen okazuje się elementem, który zmienił najwięcej z reszty, a jednocześnie najmniej widać go na zdjęciach."
+  },
+  {
+    "ruta": "entradas.50.titulo",
+    "texto": "Termin na paszport"
+  },
+  {
+    "ruta": "entradas.50.texto",
+    "texto": "Odkrycie, że paszport traci ważność w październiku, czyli przy wyjeździe we wrześniu termin był na styk, a żadna linia lotnicza nie lubi na styk. Zapis przez internet o siódmej rano i termin za dziesięć dni. Zdjęcie w kabinie w centrum handlowym, a na nim mina jak u podejrzanego. Wydatek dopisany też do linii Japonia, żeby rachunki się zgadzały."
+  },
+  {
+    "ruta": "entradas.51.titulo",
+    "texto": "Plan rośnie do piętnastu"
+  },
+  {
+    "ruta": "entradas.51.texto",
+    "texto": "Nowy blok spisany: dotrzeć do długiego biegu na 15 km w trzy tygodnie, przy zachowaniu dwóch spokojnych wybiegań i jednego dnia podbiegów. Dziś 12 km, zniesione lepiej, niż było oczekiwać, choć ostatni odcinek z otwartymi ustami. Zakup prawdziwych skarpet technicznych, najnudniejszy luksus w tym życiu. Głowa zaczyna myśleć o dłuższych dystansach bez pytania o zgodę."
+  },
+  {
+    "ruta": "entradas.52.titulo",
+    "texto": "Statyw z drugiej ręki"
+  },
+  {
+    "ruta": "entradas.52.texto",
+    "texto": "Znalezisko: stary statyw za 51 złotych na pchlim targu, telefon przypięty plastikowym uchwytem. Wejście na dach o jedenastej, i pierwszy raz gwiazdy wyszły jako punkty, nie robaki. Widać Plejady i fragment Pasa Oriona, rozmyty, ale rozpoznawalny. Godzina tam na górze, z kocem i herbatą; nazwa astrofotografia może na wyrost, ale działa."
+  },
+  {
+    "ruta": "entradas.53.titulo",
+    "texto": "Nowy paszport w ręku"
+  },
+  {
+    "ruta": "entradas.53.texto",
+    "texto": "Pół godziny kolejki, odciski palców, podpis i urzędnik pytający, czy podróż będzie gdzieś ładnie. Słowo Japonia powiedziane głośno obcej osobie zabrzmiało dziwacznie i prawdziwie zarazem. Paszport pachnie nowym plastikiem, zdjęcie to katastrofa. Odłożony do pudełka z dokumentami razem z kopertą na bilety; podróż przestała być pomysłem z lodówki."
+  },
+  {
+    "ruta": "entradas.54.titulo",
+    "texto": "Spojrzenie na „Clair de Lune”"
+  },
+  {
+    "ruta": "entradas.54.texto",
+    "texto": "Pobrane nuty w całości, a odwagi starczyło na cztery takty. Tercje przeciwko dwójkom, zmiany tonacji i cała strona wciąż nieczytelna. Zamiast zamknięcia pliku, zapisanie tego jako projekt roku: zagranie całości w grudniu, przed rodziną. W międzyczasie gamy, Schumann i etiuda Burgmüllera, przynajmniej na obecnym poziomie."
+  },
+  {
+    "ruta": "entradas.55.titulo",
+    "texto": "Połowa słoika"
+  },
+  {
+    "ruta": "entradas.55.texto",
+    "texto": "5140 z 10 200 złotych. Dokładnie połowa kwoty na podróż na koncie, a zostają jeszcze trzy miesiące napiwków i dodatkowych zmian. Podwójne przeliczenie z niedowierzania, a potem opowiedzenie tego Laice, emocjonalnej księgowej tego domu. Najbardziej zaskakuje nie kwota, tylko to, że pięć miesięcy z rzędu każdy wydatek jest zapisywany bez przerwy."
+  },
+  {
+    "ruta": "entradas.56.titulo",
+    "texto": "Piętnaście kilometrów w niedzielę"
+  },
+  {
+    "ruta": "entradas.56.texto",
+    "texto": "Start o wpół do ósmej z dwoma żelami i małą butelką, powrót o wpół do dziesiątej z przemoczoną koszulką. 15 km, najdłuższy dystans do tej pory, z trzydziestosekundowym postojem przy fontannie na jedenastym kilometrze. Dziwne jest to, że na 12 km samopoczucie było lepsze niż na 8 km. Jedzenie jak za trzech i drzemka półtoragodzinna, bez cienia wyrzutów sumienia."
+  },
+  {
+    "ruta": "entradas.57.titulo",
+    "texto": "Projekt semestralny: widma"
+  },
+  {
+    "ruta": "entradas.57.texto",
+    "texto": "Temat już ustalony: pomiar widm domowych lamp za pomocą siatki dyfrakcyjnej zrobionej z płyty CD i telefonu. Profesor Iriarte ocenił to jako skromne, ale wystarczające przy dobrej kalibracji, i poprosił o plan na piśmie. Popołudnie w bibliotece nad lekturą o kalibracji lampą sodową. Pierwszy raz w toku studiów projekt budzi ochotę zamiast lenistwa."
+  },
+  {
+    "ruta": "entradas.58.titulo",
+    "texto": "Siedemdziesiąt jeden"
+  },
+  {
+    "ruta": "entradas.58.texto",
+    "texto": "71 kilogramów: trzy mniej niż na starcie zapisywania posiłków. Żadnej cudownej diety, jest za to prawdziwe śniadanie, mniej ciastek z pracy i bieganie cztery razy w tygodniu. Dziś podjazd na rowerze pod górkę zakończony rozmową na górze, coś nie do pomyślenia w marcu. Zmieniła się nie liczba, tylko to, że ważenie przestało być czymś strasznym."
+  },
+  {
+    "ruta": "entradas.59.titulo",
+    "texto": "Plan podróży na brudno"
+  },
+  {
+    "ruta": "entradas.59.texto",
+    "texto": "Trzy tygodnie rozpisane w tabeli: pięć dni w Tokio, dwa w Hakone na widok Fudżi, jeśli pogoda pozwoli, cztery w Kioto, jeden w Narze, trzy w Osace i dwa w Hiroszimie. Do ustalenia zostaje bilet na pociąg i decyzja, czy ostatni odcinek pojechać nocnym autobusem dla oszczędności. Pierwsza lista zwrotów też gotowa: gdzie jest dworzec, ile to kosztuje, bez mięsa proszę. Do września zostało dwa i pół miesiąca, i pierwszy raz ta podróż wygląda na plan, nie na marzenie."
+  },
+  {
+    "ruta": "entradas.60.titulo",
+    "texto": "Prawe kolano daje sygnał"
+  },
+  {
+    "ruta": "entradas.60.texto",
+    "texto": "Na zejściu asfaltowym pod koniec długiego biegu ukłucie po zewnętrznej stronie prawego kolana, jak napięty kabel. Ostatnie pięćset metrów pokonane marszem, najbardziej rozsądna decyzja od miesięcy. Lód, noga w górze i zero biegania dzisiaj. Prawdopodobnie zbyt szybki wzrost kilometrów; jutro zobaczy się, jak kolano się obudzi."
+  },
+  {
+    "ruta": "entradas.61.titulo",
+    "texto": "Schodzenie po schodach niemożliwe"
+  },
+  {
+    "ruta": "entradas.61.texto",
+    "texto": "Zejście po dwóch piętrach w domu dziś rano było najwolniejszą czynnością od tygodni: zewnętrzna strona kolana protestuje dokładnie przy obciążeniu. Chodzenie po płaskim jest w porządku, schodzenie w dół już nie. Dwadzieścia minut lodu, noga w górze i znowu zero biegania. Mniej przeszkadza sam ból niż wrażenie, że cały plan kilometrów się rozsypuje."
+  },
+  {
+    "ruta": "entradas.62.titulo",
+    "texto": "Trzy tygodnie bez biegania"
+  },
+  {
+    "ruta": "entradas.62.texto",
+    "texto": "Wizyta u lekarza i diagnoza z nazwą: zespół pasma biodrowo-piszczelowego, klasyk u osób zbyt szybko zwiększających kilometraż. Trzy tygodnie bez biegania, fizjoterapia i praca nad pośladkiem, który najwyraźniej nie wykonuje swojej roboty. Wyjście z gabinetu z kartką ćwiczeń w ręku i ochotą, żeby ją wyrzucić. Trzy tygodnie to dwanaście nieodbytych biegów i plan na 15 km przerwany w połowie."
+  },
+  {
+    "ruta": "entradas.63.titulo",
+    "texto": "Samochód też, a jakże"
+  },
+  {
+    "ruta": "entradas.63.texto",
+    "texto": "Próba uruchomienia samochodu przed wyjazdem do laboratorium zabrzmiała jak puszka pełna śrub. Warsztat przy ulicy Robles: pompa wody i pasek, 1615 złotych i dwa dni bez samochodu. Akurat w tym tygodniu, z unieruchomionym kolanem i podwójną zmianą w piątek. Śmiech sam do siebie na chodniku, bo płacz na chodniku byłby jeszcze bardziej wstydliwy."
+  },
+  {
+    "ruta": "entradas.64.titulo",
+    "texto": "Skąd wziąć te pieniądze"
+  },
+  {
+    "ruta": "entradas.64.texto",
+    "texto": "Decyzja: 1615 złotych z poduszki na nieprzewidziane wydatki, nie z koperty na Japonię, nawet jeśli poduszka spadnie do zera. Dwa cięcia w tym miesiącu: zero kawy na mieście, zero zamawiania jedzenia. Napiwki z dwóch tygodni słabe, 195 złotych, więc naprawdę trzeba zacisnąć pasa. Przynajmniej teraz wiadomo dokładnie, ile jest na koncie, czego w październiku nie było wiadomo nawet w żartach."
+  },
+  {
+    "ruta": "entradas.65.titulo",
+    "texto": "Keyboard trzyma na powierzchni"
+  },
+  {
+    "ruta": "entradas.65.texto",
+    "texto": "Bez biegania fortepian przejął tę lukę w kalendarzu. Dobre pół godziny każdego popołudnia nad pierwszą częścią „Clair de Lune” na 60 w metronomie, najpierw lewa ręka, potem obie. Dziś pierwsze dziewięć taktów bez przerwy, i spojrzenie na własne ręce jak na cudze. To wolne i niewidoczne, ale posuwa się naprzód."
+  },
+  {
+    "ruta": "entradas.66.titulo",
+    "texto": "Brzydki wpis, bez filtra"
+  },
+  {
+    "ruta": "entradas.66.texto",
+    "texto": "Dość tego, że wszystko spada naraz: kolokwium z elektromagnetyzmu w czwartek, podwójna zmiana w sobotę, napięte kolano i 807 złotych na koncie. Ten wpis powstaje z lodem na kolanie i ochotą, żeby posłać cały rok w diabły. Nie będzie udawania, że z dzisiaj wynika jakaś ładna lekcja. Jedyne, co się robi, to zapisanie tego, żeby zostało w pamięci, że to też się wydarzyło."
+  },
+  {
+    "ruta": "entradas.67.titulo",
+    "texto": "Dwadzieścia dwa dni z rzędu"
+  },
+  {
+    "ruta": "entradas.67.texto",
+    "texto": "Dwadzieścia dwa dni z rzędu z dziesięcioma minutami medytacji, jedyna seria, której kontuzja nie przerwała. Nie poprawia to humoru, ale ścisza szum w głowie: dziś zauważenie, że myśli krążą wokół pieniędzy, pozwoliło je na chwilę puścić. Laika siada obok niemal zawsze, jakby pilnowała porządku. To najtańsza rzecz w ciągu dnia i ta, która najbardziej pomaga w tym miesiącu."
+  },
+  {
+    "ruta": "entradas.68.titulo",
+    "texto": "Rower stacjonarny i basen"
+  },
+  {
+    "ruta": "entradas.68.texto",
+    "texto": "Skoro biegania nie ma, przynajmniej ruch bez obciążenia: czterdzieści minut na rowerze stacjonarnym na siłowni kampusu i dwa dni basenu, tysiąc metrów bardzo kiepsko przepłynięte. Kolano milczy przy obu aktywnościach, co jest cenną informacją. Woda nudzi potężnie, ale wyjście z basenu zostawia głowę bardziej poukładaną. Ćwiczenia od fizjoterapeutki, trzy razy w tygodniu, bez wyjątku."
+  },
+  {
+    "ruta": "entradas.69.titulo",
+    "texto": "Waga stoi w miejscu"
+  },
+  {
+    "ruta": "entradas.69.texto",
+    "texto": "71,8 kg, praktycznie tyle samo co miesiąc temu, i to ma sens: mniej ruchu, więcej podjadania przy ladzie kawiarni. Croissanty pod koniec zmiany to słaby punkt w złym humorze. Bez karania się, ale z powrotem do zapisywania posiłków, zaniedbanego od dwóch tygodni. Mniej dramatu, więcej rejestru."
+  },
+  {
+    "ruta": "entradas.70.titulo",
+    "texto": "Termin u fizjoterapeutki"
+  },
+  {
+    "ruta": "entradas.70.texto",
+    "texto": "Czwartek o jedenastej, pierwsza sesja, 149 złotych za wizytę i potrzeba czterech albo pięciu takich sesji. Wpisane w budżet jako wydatek zdrowotny, nie zachcianka, jak zostałoby to nazwane w styczniu. Kolano pozwala już schodzić po schodach niemal normalnie. Zaczyna się wierzyć, że to się naprawi i że we wrześniu chodzenie po Japonii pójdzie bez problemu."
+  },
+  {
+    "ruta": "entradas.71.titulo",
+    "texto": "Pierwsza sesja fizjoterapii"
+  },
+  {
+    "ruta": "entradas.71.texto",
+    "texto": "Polecenie oparcia się na jednej nodze i powolnego zginania: prawe kolano uciekało do środka jak galaretka. Diagnoza praktyczna: uśpiony pośladek średni i biodro bez kontroli. Wyjście z czterema ćwiczeniami o śmiesznym wyglądzie (most, taśma oporowa, przysiad na jednej nodze, deska boczna) i poleceniem robienia ich codziennie. Padło też zezwolenie na chodzenie, ile dusza zapragnie. Ta ostatnia wiadomość ucieszyła resztę dnia."
+  },
+  {
+    "ruta": "entradas.72.titulo",
+    "texto": "Czterdzieści pięć minut marszu"
+  },
+  {
+    "ruta": "entradas.72.texto",
+    "texto": "Czterdzieści pięć minut szybkiego marszu wzdłuż rzeki i ani jednego ukłucia. Powrót do domu z rachunkiem w głowie, ile czasu zajmie dojście do pół godziny biegania. Taśma oporowa przestała wyglądać jak zabawka: bok biodra pali podczas serii. Fortepian zaraz po ćwiczeniach, żeby oba nawyki trzymały się tej samej pory dnia."
+  },
+  {
+    "ruta": "entradas.73.titulo",
+    "texto": "Powrót do biegania, po kawałku"
+  },
+  {
+    "ruta": "entradas.73.texto",
+    "texto": "Cztery serie po cztery minuty truchtu i dwie marszu, tempo żółwia, na ziemi, nie na asfalcie. Kolano milczało przez cały czas, a na twarzy uśmiech, jakby coś zostało właśnie wygrane. Na koniec lód na wszelki wypadek i ćwiczenia. Dwadzieścia trzy dni bez biegania, a dziś powrót do bycia kimś, kto biega."
+  },
+  {
+    "ruta": "entradas.74.titulo",
+    "texto": "Dwadzieścia minut bez przerwy"
+  },
+  {
+    "ruta": "entradas.74.texto",
+    "texto": "Dwadzieścia minut bez przerwy, bardzo wolno, a kolano nawet nie drgnęło. Górny limit: dziesięć procent tygodniowo, mimo ochoty na godzinę biegu już jutro. Lekcja wyszła droga: 1615 złotych i trzy tygodnie. Plan do wyjazdu jest prosty: czterdzieści komfortowych minut i zero długich tras."
+  },
+  {
+    "ruta": "entradas.75.titulo",
+    "texto": "Rachunki oddychają"
+  },
+  {
+    "ruta": "entradas.75.texto",
+    "texto": "Koperta na Japonię na 85 procentach celu: 9350 z 11 000 złotych. Poduszka na nieprzewidziane wydatki wraca do 850 złotych po ciosie z warsztatu. Jeszcze dwie wypłaty i cel zostanie osiągnięty w samą porę, licząc na dobre napiwki sierpnia, jak zwykle. Zapis tutaj, bo w październiku nawet wysokość wydatków na kawę była niewiadomą."
+  },
+  {
+    "ruta": "entradas.76.titulo",
+    "texto": "Japoński na przetrwanie"
+  },
+  {
+    "ruta": "entradas.76.texto",
+    "texto": "Hiragana czytana już w całości, katakana z wysiłkiem, sylabizowanie jak u dziecka: ko-o-hi-i, ko-ro-k-ke. Piętnaście zdań naprawdę zapamiętanych, nie z fiszki: ile to kosztuje, bez mięsa proszę, gdzie jest dworzec, rachunek proszę. Liczby sprawiają trudność, zwłaszcza od tysiąca w górę. Angielski trwa równolegle, a próbny test dał ledwo poziom B1."
+  },
+  {
+    "ruta": "entradas.77.titulo",
+    "texto": "Trasa podróży zamknięta całkowicie"
+  },
+  {
+    "ruta": "entradas.77.texto",
+    "texto": "Kupione: lot, czternastodniowy bilet na pociąg, sześć noclegów i nocny autobus z Hiroszimy do Osaki. Pięć dni w Tokio, dwa w Hakone, cztery w Kioto, jeden w Narze, trzy w Osace, dwa w Hiroszimie, reszta jako zapas. Wydrukowane i przyklejone do ściany kuchni jak mapa bitwy. Wyjazd za dwadzieścia cztery dni, i wciąż trudno w to uwierzyć."
+  },
+  {
+    "ruta": "entradas.78.titulo",
+    "texto": "Trzydzieści pięć minut"
+  },
+  {
+    "ruta": "entradas.78.texto",
+    "texto": "Trzydzieści pięć minut spokojnego biegu, bez dolegliwości, i 70,4 kg na wadze. Wypis od fizjoterapeutki z warunkami: ćwiczenia biodra na zawsze i koniec z długimi zejściami po asfalcie. Powrót do ciała sprzed kontuzji, ale z mniejszą ochotą na głupoty. W Japonii czeka dwadzieścia kilometrów marszu dziennie, i przygotowanie jest kompletne."
+  },
+  {
+    "ruta": "entradas.79.titulo",
+    "texto": "Walizka, Laika i przerwy"
+  },
+  {
+    "ruta": "entradas.79.texto",
+    "texto": "Walizka na dziewięć kilogramów, dwie pary butów i nowy notes na dziennik podróży. Laika zostaje z Samem, sąsiadem, który przychodził już dwa razy, żeby się z nim oswoiła. Świadoma decyzja o zawieszeniu domowych serii: przez trzy tygodnie nie będzie fortepianu ani ciężarów, i w aplikacji nie będzie udawania czegoś innego. To, co jedzie w bagażu, to fiszki japońskie i buty do biegania."
+  },
+  {
+    "ruta": "entradas.80.titulo",
+    "texto": "Czternaście godzin w powietrzu"
+  },
+  {
+    "ruta": "entradas.80.texto",
+    "texto": "Przesiadka w Helsinkach, czternaście godzin w sumie i miejsce przy przejściu, cenne przy każdym wstawaniu na rozciągnięcie kolana. Zabrana powieść science fiction nie doczekała się więcej niż czterdziestu stron, bo mapa lotu na ekranie wygrywała za każdym razem. Sen w kawałkach, kiepski. Gdy kapitan wypowiedział słowo Tokio na głos, na twarzy pojawił się głupi uśmiech, który trzymał się aż do kolejki imigracyjnej."
+  },
+  {
+    "ruta": "entradas.81.titulo",
+    "texto": "Pierwszy dzień w Japonii"
+  },
+  {
+    "ruta": "entradas.81.texto",
+    "texto": "Przylot z jet lagiem i bez śladu senności, więc o siódmej rano już spacer pod ogromnym drewnianym torii, chrzęszczący żwir i leśne powietrze w środku milionowego miasta. Pierwsze pełne zdanie po japońsku wypowiedziane do automatu z napojami, który nie odpowiedział, co i tak liczy się jako sukces. Zimna herbata o smaku mokrej trawy okazała się idealna. Rok oszczędzania i już jest się w środku tego wszystkiego."
+  },
+  {
+    "ruta": "entradas.82.titulo",
+    "texto": "Tokio pieszo, 21 km"
+  },
+  {
+    "ruta": "entradas.82.texto",
+    "texto": "Dwadzieścia jeden kilometrów pieszo między Shinjuku, Yanaką i księgarnią, gdzie godzina minęła bez zrozumienia niemal niczego. Pociągi przyjeżdżają co do sekundy, a spóźnianie się na zmiany w domu sprawia, że cały system zdaje się patrzeć spod oka. Kolacja w konbini: onigiri, jajko na twardo i zupa, 21 złotych i lepsze niż niejedna droga potrawa. Kolano milczy."
+  },
+  {
+    "ruta": "entradas.83.titulo",
+    "texto": "Targ i takoyaki"
+  },
+  {
+    "ruta": "entradas.83.texto",
+    "texto": "Wąska uliczka, czerwone markizy, spiętrzone skrzynki owoców i dym z grilla wszędzie. Zamówienie takoyaki na migi i liczenie po japońsku, a sprzedawczyni poprawiała liczebnik z nieskończoną cierpliwością, aż wyszło poprawnie. Poparzone usta, rzecz jasna. Do tego herbata na wagę u sprzedawcy, który kazał powąchać trzy torebki, zanim pozwolił wybrać."
+  },
+  {
+    "ruta": "entradas.84.titulo",
+    "texto": "Muzeum nauki, miejsce jak dla mnie"
+  },
+  {
+    "ruta": "entradas.84.texto",
+    "texto": "Cztery godziny w muzeum nauki na Odaibie, a spokojnie starczyłoby na cały dzień. Kula Ziemi zawieszona w holu, panel o neutrinach i wyjaśnienie detektorów, zrozumiane w połowie po angielsku, w połowie z rysunków. Zdjęcie wysłane do promotorki z laboratorium z podpisem: patrz, gdzie jestem. Studiowanie fizyki na pół etatu, między zmianami, nabiera sensu w takie dni."
+  },
+  {
+    "ruta": "entradas.85.titulo",
+    "texto": "Fudżi pokazał się o 6:40"
+  },
+  {
+    "ruta": "entradas.85.texto",
+    "texto": "Wczoraj w Hakone same chmury, i pójście spać z rezygnacją wypisaną na twarzy. Dziś rano przebudzenie przed budzikiem, otwarcie okna, a tam cała góra, ze śniegiem na szczycie i nieruchomym jeziorem z przodu. Dwadzieścia minut bez robienia czegokolwiek, żadnego zdjęcia, nic, a potem owszem, czternaście zdjęć. Zejście na śniadanie z ryżem i rybą, z wrażeniem wygranej na loterii pogodowej."
+  },
+  {
+    "ruta": "entradas.86.titulo",
+    "texto": "Kioto o szóstej rano"
+  },
+  {
+    "ruta": "entradas.86.texto",
+    "texto": "Wejście na Fushimi Inari o szóstej, żeby zobaczyć je bez tłumu, i to zadziałało: czterdzieści minut niemal samotnie wśród pomarańczowych torii, ze śpiewem ptaków i odgłosem własnych butów. Dziewiętnaście kilometrów w ciągu dnia, między świątyniami, ogrodem mchu i mostem pełnym rowerów. Po południu ławka i całkowity brak sił, a potem dziesięć minut drzemki. Kioto pachnie drewnem i kadzidłem, i tego nie widać na zdjęciach."
+  },
+  {
+    "ruta": "entradas.87.titulo",
+    "texto": "Kawiarnia z syfonem, bez pośpiechu"
+  },
+  {
+    "ruta": "entradas.87.texto",
+    "texto": "Znaleziona stara kawiarnia z aksamitnymi fotelami, gdzie kawę parzy się w syfonie, filiżankę po filiżance, bez muzyki i bez niczyjej rozmowy. Czterdzieści minut, jedna filiżanka i notes: trzy strony dziennika podróży zapisane. Po południu ubijana matcha na straganie przy ulicy Nishiki i ciastko zdecydowanie za słodkie. To dokładnie ten rodzaj chwili, dla której oszczędzało się cały rok."
+  },
+  {
+    "ruta": "entradas.88.titulo",
+    "texto": "Nara i jelenie złodzieje"
+  },
+  {
+    "ruta": "entradas.88.texto",
+    "texto": "Kupione ciastka dla jeleni, a po dziesięciu sekundach cztery sztuki popychały biodrem, jedna wyjątkowo źle wychowana. Ukłon w wykonaniu jelenia, rzecz uważana wcześniej za bajkę przewodników, a potem kradzież mapy. Todai-ji jest ogromna w sposób, którego zdjęcia nie oddają: drewniana belka sprawia wrażenie rozmiaru śrubki. Powrót do Kioto pociągiem, ze zmęczonymi nogami i bez bólu w kolanie."
+  },
+  {
+    "ruta": "entradas.89.titulo",
+    "texto": "Osaka i ulubiona pomyłka"
+  },
+  {
+    "ruta": "entradas.89.texto",
+    "texto": "Przy okonomiyaki próba powiedzenia, że jedzenie jest gorące, wyszła, według kucharza, jako coś w stylu, że w mieście jest gorąco; śmiech, poprawka i dokładka. Dotonbori nocą to nadmiar świateł, który gdziekolwiek indziej wyglądałby okropnie, a tutaj zachwyca. Jedzenie na stojąco, trzy razy, taniej niż jeden dzień w Tokio. Siedemnaście dni z dala od domu, i myślenie o rachunku już samo z siebie po japońsku."
+  },
+  {
+    "ruta": "entradas.90.titulo",
+    "texto": "Sześć kilometrów wzdłuż rzeki"
+  },
+  {
+    "ruta": "entradas.90.texto",
+    "texto": "Pobudka o szóstej i sześć kilometrów wzdłuż rzeki Yodo, między starszymi osobami ćwiczącymi w grupie a mężczyzną łowiącym ryby. Pierwszy bieg tej podróży, i kolano ani słowem się nie odezwało. Powrót, prysznic w hostelu i śniadanie o ósmej z energią jakby o dwadzieścia lat młodszą. Bieganie w nieznanym mieście to najlepszy sposób, żeby je zrozumieć."
+  },
+  {
+    "ruta": "entradas.91.titulo",
+    "texto": "Hiroszima w ciszy"
+  },
+  {
+    "ruta": "entradas.91.texto",
+    "texto": "Muzeum odebrało słowa i ochotę na zdjęcia; potem ławka naprzeciwko kopuły i długi czas bez zerkania na telefon. Jest część wystawy, ta z rzeczami dzieci, której opis nie znajdzie się tutaj. Po południu prom na Miyajimę przy odpływie i spacer aż do torii stojącego w wodzie. Jeden z tych dni, których nie da się streścić w ładnym zdaniu."
+  },
+  {
+    "ruta": "entradas.92.titulo",
+    "texto": "Rozliczenie podróży"
+  },
+  {
+    "ruta": "entradas.92.texto",
+    "texto": "Ostatnia noc w Osace i podsumowanie: 10 490 z 11 000 złotych odłożonych, licząc lot, pociąg, noclegi i jedzenie. Wynik zgodny niemal co do grosza, co budzi dziwną, bardzo księgową dumę. W bagażu herbata z trzech miejsc, notes, drobiazg na pamiątkę dla keyboardu i sześćdziesiąt jeden zapisanych stron. Jutro długi lot, a w czwartek zmiana o siódmej w kawiarni."
+  },
+  {
+    "ruta": "entradas.93.titulo",
+    "texto": "W domu, a Laika obrażona"
+  },
+  {
+    "ruta": "entradas.93.texto",
+    "texto": "Laika ignorowała przez pełne dwanaście godzin, a potem zasnęła na klatce piersiowej, więc jest remis. Jet lag trzyma na nogach o czwartej rano i kładzie spać o szóstej wieczorem. Walizka wciąż w korytarzu, a waga pokazuje 70,1 kg po trzech tygodniach ryżu i dwudziestu kilometrach marszu dziennie. Głowa uporządkowana w sposób niepamiętany od miesięcy."
+  },
+  {
+    "ruta": "entradas.94.titulo",
+    "texto": "Powrót bez dramatyzowania"
+  },
+  {
+    "ruta": "entradas.94.texto",
+    "texto": "Pierwszy pełny tydzień rutyny z powrotem: czterdzieści minut biegania trzy razy, ćwiczenia biodra, pół godziny fortepianu i medytacja. W aplikacji trzy tygodnie luk, i to w porządku; to była Japonia, nie porażka. Ponowne otwarcie nut „Clair de Lune”, a druga część budzi strach, co jest dobrym znakiem. I pierwszy raz w planie wielkie słowo: półmaraton."
+  },
+  {
+    "ruta": "entradas.95.titulo",
+    "texto": "Plan na lodówce"
+  },
+  {
+    "ruta": "entradas.95.texto",
+    "texto": "Wydrukowany plan półmaratonu przyklejony do lodówki magnesem przywiezionym z Kioto. Sześć tygodni: trzy wyjścia w tygodniu i długi bieg w niedzielę, rosnący od dwunastu do osiemnastu kilometrów. Nadia, fizjoterapeutka, sprawdziła plan i postawiła jeden warunek: żadnego opuszczonego dnia ćwiczeń biodra. Kolano milczy od dwóch miesięcy, i takie ma zostać."
+  },
+  {
+    "ruta": "entradas.96.titulo",
+    "texto": "Druga część, takt po takcie"
+  },
+  {
+    "ruta": "entradas.96.texto",
+    "texto": "Pół godziny fortepianu dziennie, metronom na 60, tylko druga część „Clair de Lune”. Arpeggia lewej ręki wymuszają patrzenie na klawisze, co psuje humor. Mimo to dziś osiem taktów z rzędu bez przerwy. Brzmi jak ktoś sylabizujący, ale to własne sylabizowanie."
+  },
+  {
+    "ruta": "entradas.97.titulo",
+    "texto": "Dwanaście kilometrów bez myślenia o kolanie"
+  },
+  {
+    "ruta": "entradas.97.texto",
+    "texto": "Dwanaście kilometrów wzdłuż rzeki w komfortowym tempie. Dopiero na mecie uświadomienie sobie, że o nodze nie było ani jednej myśli, co nie zdarzało się od lipca. Lód z przyzwyczajenia bardziej niż z konieczności. Laika usiadła na macie w trakcie ćwiczeń biodra."
+  },
+  {
+    "ruta": "entradas.98.titulo",
+    "texto": "Budżet po podróży"
+  },
+  {
+    "ruta": "entradas.98.texto",
+    "texto": "Ponowne złożenie budżetu w kopertach po trzech tygodniach bez zaglądania. Konto podróży skończyło na 502 złotych, i to nie porażka: taki był dokładnie plan. Nowa linia od tej wypłaty: fundusz awaryjny, 170 złotych z każdej pensji. Napiwki z tygodnia: 115 złotych, w całości tam."
+  },
+  {
+    "ruta": "entradas.99.titulo",
+    "texto": "69,4 na wadze"
+  },
+  {
+    "ruta": "entradas.99.texto",
+    "texto": "69,4 kg dziś rano. Rok zaczęty od 74, a pomiędzy było trzy tygodnie japońskiego ryżu, więc ta liczba wydaje się niemal komiczna. Nic dziwnego w tle: prawdziwe śniadanie, mniej białego chleba wieczorem, bieganie cztery razy w tygodniu. Najbardziej widać to nie w ubraniach, tylko przy wnoszeniu roweru po schodach bez zadyszki."
+  },
+  {
+    "ruta": "entradas.100.titulo",
+    "texto": "Dziesięć minut rozmowy po angielsku"
+  },
+  {
+    "ruta": "entradas.100.texto",
+    "texto": "Australijski turysta zatrzymał się dziesięć minut przy ladzie, a rozmowa cała po angielsku. Dwukrotna pomyłka między czasem przeszłym prostym a ciągłym, i bez znaczenia: zrozumienie zaszło w obie strony. Wieczorem test poziomujący i wynik: niskie B1, podczas gdy w styczniu było to A2. Codzienne fiszki są potwornie nudne i działają, co jest niewygodną prawdą."
+  },
+  {
+    "ruta": "entradas.101.titulo",
+    "texto": "Szesnaście kilometrów w deszczu"
+  },
+  {
+    "ruta": "entradas.101.texto",
+    "texto": "Szesnaście kilometrów z drobnym deszczem od początku do końca. Buty ważyły dwa razy więcej na dwunastym kilometrze, a mimo to na mecie ochota na kolejne dwa. Długi prysznic, tost z jajkiem i godzina snu na kanapie. Jest coś absurdalnie dobrego w bieganiu na mokro, kiedy to własny wybór."
+  },
+  {
+    "ruta": "entradas.102.titulo",
+    "texto": "Akumulator samochodu"
+  },
+  {
+    "ruta": "entradas.102.texto",
+    "texto": "Samochód nie odpalił o wpół do siódmej, więc pędem na rowerze do kawiarni. Nowy akumulator: 306 złotych ze świeżo otwartego funduszu awaryjnego, który spadł teraz do 34 złotych. Samochód ma dziewiętnaście lat i co kwartał przypomina o swoim istnieniu. Tym razem przynajmniej nie zatopił całego miesiąca, tylko zirytował."
+  },
+  {
+    "ruta": "entradas.103.titulo",
+    "texto": "Andromeda z nieużytku"
+  },
+  {
+    "ruta": "entradas.103.texto",
+    "texto": "Bezchmurna noc bez księżyca, więc statyw na rower i jazda na nieużytek za halą sportową. Trzydzieści dwudziestosekundowych ujęć złożonych razem, i tak pojawiła się Andromeda, owalna plama z widoczną strukturą. Dziesięć minut patrzenia na ekran laptopa, w zimnie i z głupim uśmiechem. Dwa i pół miliona lat świetlnych, a naprzeciw aparat z drugiej ręki."
+  },
+  {
+    "ruta": "entradas.104.titulo",
+    "texto": "Osiemnaście, a ciało mówi tak"
+  },
+  {
+    "ruta": "entradas.104.texto",
+    "texto": "Osiemnaście kilometrów, najdłuższy dystans w życiu, a ostatnie trzy były najlepsze. Żel na dziesiątym kilometrze, bo w zeszłą niedzielę siły skończyły się w połowie trasy. Tempo 5:58, stabilne, bez bohaterstwa. Teraz tydzień redukcji i to wszystko: w niedzielę 21 numer startowy czeka z imieniem na koszulce."
+  },
+  {
+    "ruta": "entradas.105.titulo",
+    "texto": "Połowa utworu bez przerwy"
+  },
+  {
+    "ruta": "entradas.105.texto",
+    "texto": "„Clair de Lune” od początku do połowy, bez przerwy. Wolno, z dwoma potknięciami, ale bez odrywania rąk i bez cofania się. Dziesięć miesięcy z tym używanym keyboardem, i dziś pierwszy raz zabrzmiało jak utwór ze słuchawek. Trzecia część, ta z szybkimi arpeggiami, wciąż pozostaje zupełnie innym krajem."
+  },
+  {
+    "ruta": "entradas.106.titulo",
+    "texto": "Lekki tydzień, głośna głowa"
+  },
+  {
+    "ruta": "entradas.106.texto",
+    "texto": "Tydzień redukcji: bieganie mało, gdy ciało domaga się więcej, to coś bardzo dziwnego. Cały dzień na przeżuwaniu spraw niezależnych od nikogo, jakby niedzielny czas na mecie miał zadecydować o czymś ważnym. Dziesięć minut medytacji rano i drugie dziesięć wieczorem, jedyny sposób na wyciszenie szumu. Ubranie przygotowane dwa dni wcześniej, jak przed egzaminem."
+  },
+  {
+    "ruta": "entradas.107.titulo",
+    "texto": "Półmaraton: 2:04"
+  },
+  {
+    "ruta": "entradas.107.texto",
+    "texto": "Dwadzieścia jeden kilometrów z numerem startowym, 2 godz. 04 min. Start celowo wolny, wyprzedzanie innych zaczęło się na piętnastym kilometrze, a na ostatnim popłynęły łzy bez jasnego powodu. Rok temu dwa piętra schodów kończyły się brakiem tchu. Piwo bezalkoholowe, chipsy i medal zawieszony na klamce drzwi."
+  },
+  {
+    "ruta": "entradas.108.titulo",
+    "texto": "Schody bokiem"
+  },
+  {
+    "ruta": "entradas.108.texto",
+    "texto": "Schodzenie po schodach bokiem jak u dziewięćdziesięciolatka, i to bawi. Sześć godzin na nogach w pracy, a nogi protestowały przez całą zmianę. Ciekawe jest to, że od trzech dni krąży ta sama myśl: skoro da się dwadzieścia jeden, da się i czterdzieści dwa. Na głos jeszcze to nie padło."
+  },
+  {
+    "ruta": "entradas.109.titulo",
+    "texto": "Studia magisterskie czy praca?"
+  },
+  {
+    "ruta": "entradas.109.texto",
+    "texto": "Na dwóch kartkach narysowany słynny diagram: studia magisterskie czy praca. W jednej kolumnie magisterka z aparatury pomiarowej, dwa kolejne lata stypendiów i spania u rodziny. W drugiej: szukanie czegoś technicznego już teraz, zarabianie i nauka na wolnym ogniu. Bez decyzji na razie, ale pierwszy raz widok tego na papierze nie wywołuje zawrotu głowy."
+  },
+  {
+    "ruta": "entradas.110.titulo",
+    "texto": "Zapis gotowy: maraton"
+  },
+  {
+    "ruta": "entradas.110.texto",
+    "texto": "Zapis gotowy: maraton, 162 złote, pięć tygodni planu. Zgoda Nadii pod dwoma warunkami: fizjoterapia co dwa tygodnie i natychmiastowe zatrzymanie przy pierwszym sygnale z kolana. Ambitne, wiadomo; wiadomo też, że sześć miesięcy kilometrów zbierało się niemal bez wyjątku. Napis 42,195 na tablicy w kuchni i długie wpatrywanie się w niego."
+  },
+  {
+    "ruta": "entradas.111.titulo",
+    "texto": "Dwadzieścia cztery kilometry i dwa banany"
+  },
+  {
+    "ruta": "entradas.111.texto",
+    "texto": "Dwadzieścia cztery kilometry z dwoma bananami i butelką schowaną za ławką. Od dwudziestego kilometra wszystko rozgrywa się w głowie: liczenie latarni, myślenie o śniadaniu, unikanie liczenia tego, ile zostało. Ostatnie dwieście metrów do drzwi pokonane marszem. Potem czterdzieści minut snu w ubraniu, z Laiką na plecach."
+  },
+  {
+    "ruta": "entradas.112.titulo",
+    "texto": "Optyka do dziewiątej"
+  },
+  {
+    "ruta": "entradas.112.texto",
+    "texto": "Laboratorium optyki do dziewiątej: interferometr rozstrajał się za każdym razem, gdy ktoś mocniej stąpnął. Wraz z Bruno pięciokrotne powtórzenie pomiaru, żeby uzyskać przyzwoite prążki. Termin projektu semestralnego za trzy tygodnie, a cała analiza błędów jeszcze do zrobienia. Wyjście głodne, zmarznięte, z dziwnym wrażeniem, że to wciąż sprawia przyjemność."
+  },
+  {
+    "ruta": "entradas.113.titulo",
+    "texto": "Ściana na dwudziestym ósmym kilometrze"
+  },
+  {
+    "ruta": "entradas.113.texto",
+    "texto": "Trzydzieści dwa kilometry. Na dwudziestym ósmym zgasło światło: nogi z betonu i ochota, żeby usiąść na ławce i do kogoś zadzwonić. Ostatni żel zjedzony, tempo zwolnione o minutę, powrót do domu na przemian truchtem i marszem. Nie było ładnie, ale teraz wiadomo, gdzie jest ta ściana i jak to jest ją poczuć."
+  },
+  {
+    "ruta": "entradas.114.titulo",
+    "texto": "Kawa z Iris i strach"
+  },
+  {
+    "ruta": "entradas.114.texto",
+    "texto": "Kawa z Iris po zmianie i wyznanie, że niedziela maratonu budzi strach. Ona biegła w maratonie trzy lata temu i rzuciła jedyne przydatne zdanie tego tygodnia: maraton biegnie się tym, co już zrobione, nie tym, co robi się tego poranka. Zdanie zapisane w telefonie. Powiedziała też, żeby nic nowego, nawet skarpetek."
+  },
+  {
+    "ruta": "entradas.115.titulo",
+    "texto": "„Clair de Lune” cała, w końcu"
+  },
+  {
+    "ruta": "entradas.115.texto",
+    "texto": "„Clair de Lune” od początku do końca, bez przerwy. Niemal w tempie, z pedałem tam, gdzie trzeba, i dwiema brudnymi nutami w kodzie. Ten utwór zaczęty w marcu, wtedy jako fantazja kogoś z sześcioma tygodniami używanego keyboardu za sobą. Zagranie dla rodziny zaplanowane na czas po maratonie."
+  },
+  {
+    "ruta": "entradas.116.titulo",
+    "texto": "Redukcja i długie drzemki"
+  },
+  {
+    "ruta": "entradas.116.texto",
+    "texto": "Prawdziwa redukcja: czterdzieści spokojnych minut i półtoragodzinna drzemka. Więcej ryżu i makaronu niż zwykle, i osiem godzin snu pierwszy raz od miesięcy. Aplikacja pokazuje dwanaście tygodni z rzędu bez opuszczonej medytacji. To dziwny stan zmagazynowanej energii, której nie da się jeszcze wydać."
+  },
+  {
+    "ruta": "entradas.117.titulo",
+    "texto": "Numer startowy 4412"
+  },
+  {
+    "ruta": "entradas.117.texto",
+    "texto": "Odbiór numeru startowego w hali: 4412. W torbie żel, brzydka koszulka i o jedną agrafkę za mało, więc dokupione szpilki. Ubranie na krześle od wczoraj, żele policzone (pięć) i śniadanie ustalone: tost, banan i kawa o szóstej. Przegląd planu tempa i powtarzanie sobie, że wolny start to nie tchórzostwo."
+  },
+  {
+    "ruta": "entradas.118.titulo",
+    "texto": "42,195"
+  },
+  {
+    "ruta": "entradas.118.texto",
+    "texto": "42,195 km w 4 godz. 19 min. Start na 6:05 i wytrwanie do trzydziestego drugiego kilometra, gdzie ściana była już pewna; tym razem sto metrów marszem i powrót do truchtu. Na trzydziestym ósmym kilometrze widok rodziny z okropnym transparentem i płacz w biegu, coś, czego nie da się zrobić ładnie. Meta, a wolontariuszka zawiesiła medal, nie wiedząc, że dwanaście miesięcy wcześniej dziesięć minut truchtu było nie do udźwignięcia."
+  },
+  {
+    "ruta": "entradas.119.titulo",
+    "texto": "Dwa dni później"
+  },
+  {
+    "ruta": "entradas.119.texto",
+    "texto": "Schodzenie po schodach tyłem, obiema rękami na poręczy. Jeden paznokieć u nogi gotowy odpaść i osiem godzin zmiany na nogach przed sobą. Jasne słowa Nadii: dwa tygodnie bez biegania, tylko marsz i zero bohaterstwa. Posłuszeństwo bez dyskusji, coś, co w marcu byłoby nie do pomyślenia."
+  },
+  {
+    "ruta": "entradas.120.titulo",
+    "texto": "Pustka po mecie"
+  },
+  {
+    "ruta": "entradas.120.texto",
+    "texto": "Kilka dni z pustką, jakiej nie było oczekiwać. Jedenaście miesięcy ze strzałką z przodu, i nagle niedzielny poranek traci kształt. Zapis tutaj, bo czytanie odbiera temu dramatyzm: to nie dołek, to brak celu, co jest czym innym i da się naprawić. Trzej kandydaci na liście: Korea za rok, fundusz awaryjny na trzy miesiące wydatków i nowy utwór."
+  },
+  {
+    "ruta": "entradas.121.titulo",
+    "texto": "Spacer, herbata i Laika"
+  },
+  {
+    "ruta": "entradas.121.texto",
+    "texto": "Godzinne spacery zamiast biegania, herbata zamiast popołudniowej kawy i Laika nieznośnie przyklejona do boku. Sprawdzone loty do Seulu za rok, bez kupowania niczego, tylko żeby policzyć kwotę na dwa tygodnie: około 234 złotych. Wyciągnięte też nuty Arabeski nr 1 i śmiech sam do siebie. Jutro trzy przebiegi „Clair de Lune” z rzędu, bo w niedzielę zagranie dla rodziny."
+  },
+  {
+    "ruta": "entradas.122.titulo",
+    "texto": "„Clair de Lune” dla rodziny"
+  },
+  {
+    "ruta": "entradas.122.texto",
+    "texto": "Cały utwór zagrany w salonie rodziców, na rozstrojonym pianinie po babci. Ręce trzęsły się w pierwszych taktach, a w arpeggiach zgubiona jedna nuta, niezauważona przez nikogo innego. Matka zaczęła płakać przed połową utworu, a brat nagrał wszystko pionowo, a jakże. Dziesięć miesięcy wcześniej środkowe C było zupełną niewiadomą."
+  },
+  {
+    "ruta": "entradas.123.titulo",
+    "texto": "Rachunek roku"
+  },
+  {
+    "ruta": "entradas.123.texto",
+    "texto": "Pół godziny przeglądania roku w aplikacji. 74 kg wtedy, 67,0 dziś rano; 1214 przebieganych kilometrów; 5K, 10K, półmaraton i maraton. 11 000 złotych zaoszczędzonych i wydanych podczas trzech tygodni w Japonii, 61 stron dziennika podróży i 118 wpisów tutaj. To, czego nie widać w liczbach: rok temu sen przychodził o drugiej w nocy z telefonem przy twarzy."
+  },
+  {
+    "ruta": "entradas.124.titulo",
+    "texto": "Dwanaście miesięcy później"
+  },
+  {
+    "ruta": "entradas.124.texto",
+    "texto": "Dokładnie dwanaście miesięcy temu zaczęło się zapisywanie tego wszystkiego, w ogromnej złości i bez jasnego pomysłu. Życie nie zostało naprawione: ta sama kawiarnia, ten sam dziewiętnastoletni samochód i ta sama niepewność między studiami magisterskimi a pracą, do rozstrzygnięcia wiosną. To, co się zmieniło, to wiedza o własnych możliwościach przy trzystu dniach powtarzania czegoś z rzędu. Nowe cele spisane dzisiaj: fundusz awaryjny na trzy miesiące, Arabeska nr 1 przed czerwcem i Korea za rok. A jutro pół godziny spokojnego truchtu, bo już pora."
+  }
+]

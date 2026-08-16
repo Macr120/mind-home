@@ -1,0 +1,746 @@
+[
+  {
+    "clave": "despacho.m.categoriaPh",
+    "es": "Escribe la tuya o elige una conocida",
+    "en": "Write your own or pick a known one"
+  },
+  {
+    "clave": "despacho.m.tipoMov",
+    "es": "¿Variable o fijo?",
+    "en": "Variable or fixed?"
+  },
+  {
+    "clave": "despacho.m.variable",
+    "en": "Variable"
+  },
+  {
+    "clave": "despacho.m.fijo",
+    "en": "Fixed"
+  },
+  {
+    "clave": "despacho.m.plazo",
+    "es": "¿Cada cuánto?",
+    "en": "How often?"
+  },
+  {
+    "clave": "despacho.m.plazoAyuda",
+    "es": "Se repite solo desde la fecha que pusiste, sin volver a capturarlo.",
+    "en": "It repeats on its own from the date you set — no need to log it again."
+  },
+  {
+    "clave": "despacho.m.repetidos",
+    "es": "Fijos",
+    "en": "Fixed"
+  },
+  {
+    "clave": "despacho.m.alMes",
+    "en": "≈ {n} per month"
+  },
+  {
+    "clave": "despacho.m.desde",
+    "en": "since {f}"
+  },
+  {
+    "clave": "despacho.m.llevas",
+    "en": "{n} so far"
+  },
+  {
+    "clave": "despacho.m.acumuladoTotal",
+    "es": "Acumulado de tus fijos hasta hoy",
+    "en": "Your fixed items so far"
+  },
+  {
+    "clave": "despacho.r.deLosFijos",
+    "en": "From your fixed items: +{i} · −{g}"
+  },
+  {
+    "clave": "despacho.sim.titulo",
+    "en": "Simulator · next {n} months"
+  },
+  {
+    "clave": "despacho.sim.meses",
+    "es": "meses",
+    "en": "months"
+  },
+  {
+    "clave": "despacho.sim.base",
+    "es": "Proyecta tus fijos a su vencimiento y lo variable con el promedio mensual de lo que llevas registrado.",
+    "en": "It projects your fixed items to their due dates and the variable ones with the monthly average of what you have logged."
+  },
+  {
+    "clave": "despacho.sim.sinPatrimonio",
+    "en": "Without net worth · in {n} months"
+  },
+  {
+    "clave": "despacho.sim.conPatrimonio",
+    "en": "With net worth · in {n} months"
+  },
+  {
+    "clave": "despacho.sim.faltaPatrimonio",
+    "es": "Apunta tu patrimonio arriba para ver también el escenario con él.",
+    "en": "Log your net worth above to also see the scenario with it."
+  },
+  {
+    "clave": "despacho.m.agregar",
+    "es": "Agregar movimiento",
+    "en": "Add transaction"
+  },
+  {
+    "clave": "despacho.m.movs",
+    "en": "{n} transactions"
+  },
+  {
+    "clave": "despacho.m.nuevoGasto",
+    "es": "Nuevo gasto",
+    "en": "New expense"
+  },
+  {
+    "clave": "despacho.m.nuevoIngreso",
+    "es": "Nuevo ingreso",
+    "en": "New income"
+  },
+  {
+    "clave": "despacho.m.sinGastos",
+    "es": "Sin gastos registrados.",
+    "en": "No expenses logged."
+  },
+  {
+    "clave": "despacho.m.sinIngresos",
+    "es": "Sin ingresos registrados.",
+    "en": "No income logged."
+  },
+  {
+    "clave": "despacho.meta.nueva",
+    "en": "New savings goal"
+  },
+  {
+    "clave": "despacho.meta.ph.nombre",
+    "en": "E.g. Trip to Japan"
+  },
+  {
+    "clave": "despacho.meta.ph.objetivo",
+    "en": "Goal"
+  },
+  {
+    "clave": "despacho.meta.crear",
+    "es": "Crear meta",
+    "en": "Create goal"
+  },
+  {
+    "clave": "despacho.meta.vacio",
+    "en": "No goals yet. Create your first savings goal!"
+  },
+  {
+    "clave": "despacho.meta.ph.abono",
+    "en": "Add"
+  },
+  {
+    "clave": "despacho.meta.abonar",
+    "en": "Add"
+  },
+  {
+    "clave": "despacho.meta.nuevaInv",
+    "en": "New investment goal"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreInv",
+    "en": "E.g. Index fund"
+  },
+  {
+    "clave": "despacho.meta.vacioInv",
+    "en": "No investment goals yet. Set how much you want to invest and contribute as you go."
+  },
+  {
+    "clave": "despacho.meta.aportar",
+    "en": "Contribute"
+  },
+  {
+    "clave": "despacho.meta.ph.aporte",
+    "en": "Contribute"
+  },
+  {
+    "clave": "despacho.meta.nuevaDeuda",
+    "en": "New debt to pay off"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreDeuda",
+    "en": "E.g. Credit card"
+  },
+  {
+    "clave": "despacho.meta.ph.deuda",
+    "en": "Debt"
+  },
+  {
+    "clave": "despacho.meta.vacioDeuda",
+    "en": "No debts logged. Write down what you owe and log each payment."
+  },
+  {
+    "clave": "despacho.meta.pagar",
+    "en": "Pay"
+  },
+  {
+    "clave": "despacho.meta.ph.pago",
+    "en": "Pay"
+  },
+  {
+    "clave": "despacho.tab.simuladores",
+    "en": "Simulate"
+  },
+  {
+    "clave": "despacho.s.simulador",
+    "es": "Simulador",
+    "en": "Simulator"
+  },
+  {
+    "clave": "despacho.s.usarDeuda",
+    "es": "Usar una de tus deudas…",
+    "en": "Use one of your debts…"
+  },
+  {
+    "clave": "despacho.s.compuesto",
+    "es": "Compuesto",
+    "en": "Compound"
+  },
+  {
+    "clave": "despacho.s.simple",
+    "es": "Simple",
+    "en": "Simple"
+  },
+  {
+    "clave": "despacho.s.meta",
+    "en": "Goal"
+  },
+  {
+    "clave": "despacho.s.credito",
+    "en": "Loan"
+  },
+  {
+    "clave": "despacho.s.inicial",
+    "es": "Capital inicial",
+    "en": "Initial capital"
+  },
+  {
+    "clave": "despacho.s.aporteMes",
+    "es": "Aportación mensual",
+    "en": "Monthly deposit"
+  },
+  {
+    "clave": "despacho.s.tasaAnual",
+    "es": "Tasa anual %",
+    "en": "Annual rate %"
+  },
+  {
+    "clave": "despacho.s.anos",
+    "es": "Años",
+    "en": "Years"
+  },
+  {
+    "clave": "despacho.s.capitalizacion",
+    "es": "Capitalización",
+    "en": "Compounding"
+  },
+  {
+    "clave": "despacho.s.cap.12",
+    "es": "Mensual",
+    "en": "Monthly"
+  },
+  {
+    "clave": "despacho.s.cap.4",
+    "es": "Trimestral",
+    "en": "Quarterly"
+  },
+  {
+    "clave": "despacho.s.cap.2",
+    "es": "Semestral",
+    "en": "Semiannual"
+  },
+  {
+    "clave": "despacho.s.cap.1",
+    "es": "Anual",
+    "en": "Yearly"
+  },
+  {
+    "clave": "despacho.s.saldoFinal",
+    "es": "Saldo final",
+    "en": "Final balance"
+  },
+  {
+    "clave": "despacho.s.aportado",
+    "es": "Aportado",
+    "en": "Deposited"
+  },
+  {
+    "clave": "despacho.s.interesGanado",
+    "es": "Interés ganado",
+    "en": "Interest earned"
+  },
+  {
+    "clave": "despacho.s.porAno",
+    "es": "Año por año",
+    "en": "Year by year"
+  },
+  {
+    "clave": "despacho.s.col.ano",
+    "es": "Año",
+    "en": "Year"
+  },
+  {
+    "clave": "despacho.s.col.aportado",
+    "es": "Aportado",
+    "en": "Deposited"
+  },
+  {
+    "clave": "despacho.s.col.interes",
+    "es": "Interés",
+    "en": "Interest"
+  },
+  {
+    "clave": "despacho.s.col.saldo",
+    "es": "Saldo",
+    "en": "Balance"
+  },
+  {
+    "clave": "despacho.s.interesGenerado",
+    "es": "Interés generado",
+    "en": "Interest generated"
+  },
+  {
+    "clave": "despacho.s.total",
+    "es": "Total final",
+    "en": "Final total"
+  },
+  {
+    "clave": "despacho.s.vsCompuesto",
+    "en": "With compound interest (yearly compounding) you would have {x} — {d} more."
+  },
+  {
+    "clave": "despacho.s.usarMeta",
+    "en": "Use one of your goals…"
+  },
+  {
+    "clave": "despacho.s.objetivo",
+    "en": "Target amount $"
+  },
+  {
+    "clave": "despacho.s.metaLista",
+    "en": "With your initial capital and that rate you already reach the goal without extra deposits."
+  },
+  {
+    "clave": "despacho.s.aporteNecesario",
+    "en": "Required monthly deposit"
+  },
+  {
+    "clave": "despacho.s.durante",
+    "en": "for {n} months"
+  },
+  {
+    "clave": "despacho.s.deTuBolsillo",
+    "en": "Out of your pocket"
+  },
+  {
+    "clave": "despacho.s.generaInteres",
+    "en": "Interest covers"
+  },
+  {
+    "clave": "despacho.s.montoCredito",
+    "es": "Monto del crédito",
+    "en": "Loan amount"
+  },
+  {
+    "clave": "despacho.s.plazoMeses",
+    "es": "Plazo (meses)",
+    "en": "Term (months)"
+  },
+  {
+    "clave": "despacho.s.mensualidad",
+    "es": "Mensualidad",
+    "en": "Monthly payment"
+  },
+  {
+    "clave": "despacho.s.totalPagado",
+    "es": "Total pagado",
+    "en": "Total paid"
+  },
+  {
+    "clave": "despacho.s.intereses",
+    "es": "Intereses totales",
+    "en": "Total interest"
+  },
+  {
+    "clave": "despacho.s.col.capital",
+    "es": "Capital",
+    "en": "Principal"
+  },
+  {
+    "clave": "despacho.s.col.restante",
+    "es": "Saldo restante",
+    "en": "Remaining"
+  },
+  {
+    "clave": "despacho.ejemplo.vacio",
+    "es": "¿No sabes por dónde empezar? Carga un ejemplo y míralo por dentro.",
+    "en": "Not sure where to start? Load an example and poke around inside it."
+  },
+  {
+    "clave": "despacho.ejemplo.cargado",
+    "es": "Lo que ves de ejemplo se puede borrar de golpe.",
+    "en": "Everything you see as an example can be wiped in one go."
+  },
+  {
+    "clave": "despacho.ejemplo.cargar",
+    "es": "Cargar un ejemplo",
+    "en": "Load an example"
+  },
+  {
+    "clave": "despacho.ejemplo.borrar",
+    "es": "Borrar el ejemplo",
+    "en": "Delete the example"
+  },
+  {
+    "clave": "despacho.ejemplo.confirmar",
+    "es": "Sí, borrar el ejemplo",
+    "en": "Yes, delete the example"
+  },
+  {
+    "clave": "despacho.mk.divisas",
+    "es": "Divisas",
+    "en": "Forex"
+  },
+  {
+    "clave": "despacho.mk.criptos",
+    "es": "Criptomonedas",
+    "en": "Cryptocurrencies"
+  },
+  {
+    "clave": "despacho.mk.acciones",
+    "es": "Acciones",
+    "en": "Stocks"
+  },
+  {
+    "clave": "despacho.mk.commodities",
+    "es": "Materias primas",
+    "en": "Commodities"
+  },
+  {
+    "clave": "despacho.mk.dias30",
+    "es": "30 días",
+    "en": "30 days"
+  },
+  {
+    "clave": "despacho.mk.dias7",
+    "es": "7 días",
+    "en": "7 days"
+  },
+  {
+    "clave": "despacho.mk.top10cap",
+    "es": "top 10 por capitalización · USD",
+    "en": "top 10 by market cap · USD"
+  },
+  {
+    "clave": "despacho.mk.top10capNyse",
+    "es": "top 10 por capitalización · NYSE/Nasdaq",
+    "en": "top 10 by market cap · USD · NYSE/Nasdaq"
+  },
+  {
+    "clave": "despacho.mk.top10pares",
+    "es": "los 10 pares más operados",
+    "en": "the 10 most traded pairs"
+  },
+  {
+    "clave": "despacho.mk.col.activo",
+    "es": "Activo",
+    "en": "Asset"
+  },
+  {
+    "clave": "despacho.mk.col.precio",
+    "es": "Precio",
+    "en": "Price"
+  },
+  {
+    "clave": "despacho.mk.col.dia",
+    "es": "Día",
+    "en": "Day"
+  },
+  {
+    "clave": "despacho.mk.col.cap",
+    "es": "Cap.",
+    "en": "Cap."
+  },
+  {
+    "clave": "despacho.mk.col.30d",
+    "es": "30 d",
+    "en": "30 d"
+  },
+  {
+    "clave": "despacho.mk.col.etf",
+    "es": "ETF",
+    "en": "ETF"
+  },
+  {
+    "clave": "despacho.mk.viaEtf",
+    "es": "vía ETF · USD",
+    "en": "via ETF · USD"
+  },
+  {
+    "clave": "despacho.mk.sinCapDivisas",
+    "es": "Un par de divisas no tiene capitalización: en su lugar va la variación de 30 días.",
+    "en": "A currency pair has no market cap: the 30-day change is shown instead."
+  },
+  {
+    "clave": "despacho.mk.notaEtf",
+    "es": "El precio es el del ETF que replica cada materia prima, no su precio spot; tampoco tienen capitalización de mercado.",
+    "en": "The price is that of the ETF tracking each commodity, not its spot price; they have no market cap either."
+  },
+  {
+    "clave": "despacho.mk.fuenteDivisas",
+    "es": "Fuente: BCE (Frankfurter)",
+    "en": "Source: ECB (Frankfurter)"
+  },
+  {
+    "clave": "despacho.mk.fuenteCripto",
+    "es": "Fuente: CoinGecko · 7 días",
+    "en": "Source: CoinGecko · 7 days"
+  },
+  {
+    "clave": "despacho.mk.fuenteAcciones",
+    "es": "Fuente: Finnhub",
+    "en": "Source: Finnhub"
+  },
+  {
+    "clave": "despacho.mk.miLista",
+    "es": "Mi lista de seguimiento",
+    "en": "My watchlist"
+  },
+  {
+    "clave": "despacho.mk.cargando",
+    "es": "Cargando mercados…",
+    "en": "Loading markets…"
+  },
+  {
+    "clave": "despacho.mk.cargandoBtn",
+    "es": "Cargando…",
+    "en": "Loading…"
+  },
+  {
+    "clave": "despacho.mk.error",
+    "es": "No se pudo conectar a las fuentes de mercados. Revisa tu internet.",
+    "en": "Could not reach market sources. Check your internet."
+  },
+  {
+    "clave": "despacho.mk.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "despacho.mk.cacheAviso",
+    "es": "Sin conexión con alguna fuente — mostrando últimos datos guardados.",
+    "en": "A source is unreachable — showing last saved data."
+  },
+  {
+    "clave": "despacho.mk.clave",
+    "es": "Clave API de Finnhub",
+    "en": "Finnhub API key"
+  },
+  {
+    "clave": "despacho.mk.clave.ph",
+    "es": "Clave de finnhub.io",
+    "en": "finnhub.io key"
+  },
+  {
+    "clave": "despacho.mk.clave.guardada",
+    "es": "Clave guardada — pega una nueva para sustituirla",
+    "en": "Key saved — paste a new one to replace it"
+  },
+  {
+    "clave": "despacho.mk.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "despacho.mk.claveInvalida",
+    "es": "Clave de Finnhub inválida. Cámbiala en el botón API (gratis en finnhub.io).",
+    "en": "Invalid Finnhub key. Change it in API (free at finnhub.io)."
+  },
+  {
+    "clave": "despacho.mk.sinDatos",
+    "es": "Sin datos",
+    "en": "No data"
+  },
+  {
+    "clave": "despacho.mk.vacia",
+    "es": "Agrega acciones para seguirlas aquí.",
+    "en": "Add stocks to track them here."
+  },
+  {
+    "clave": "despacho.mk.misDivisas",
+    "es": "Mis divisas",
+    "en": "My currency pairs"
+  },
+  {
+    "clave": "despacho.mk.vaciaDivisa",
+    "es": "Agrega un par de divisas para seguirlo aquí.",
+    "en": "Add a currency pair to track it here."
+  },
+  {
+    "clave": "despacho.mk.misCriptos",
+    "es": "Mis criptomonedas",
+    "en": "My cryptocurrencies"
+  },
+  {
+    "clave": "despacho.mk.vaciaCripto",
+    "es": "Busca una criptomoneda para seguirla aquí.",
+    "en": "Search a cryptocurrency to track it here."
+  },
+  {
+    "clave": "despacho.mk.buscarCripto.ph",
+    "es": "Buscar (ej. cardano)",
+    "en": "Search (e.g. cardano)"
+  },
+  {
+    "clave": "despacho.mk.misMaterias",
+    "es": "Mis materias primas",
+    "en": "My commodities"
+  },
+  {
+    "clave": "despacho.mk.vaciaMateria",
+    "es": "Agrega el ETF de una materia prima que quieras seguir.",
+    "en": "Add the ETF of a commodity you want to track."
+  },
+  {
+    "clave": "despacho.mk.nombreMateria.ph",
+    "es": "Nombre (ej. Paladio)",
+    "en": "Name (e.g. Palladium)"
+  },
+  {
+    "clave": "despacho.mk.etf.ph",
+    "es": "ETF (ej. PALL)",
+    "en": "ETF (e.g. PALL)"
+  },
+  {
+    "clave": "despacho.mk.ticker.ph",
+    "es": "Ticker (ej. AAPL)",
+    "en": "Ticker (e.g. AAPL)"
+  },
+  {
+    "clave": "despacho.mk.agregar",
+    "es": "Agregar",
+    "en": "Add"
+  },
+  {
+    "clave": "despacho.mk.actualizar",
+    "es": "Actualizar",
+    "en": "Refresh"
+  },
+  {
+    "clave": "despacho.mk.com.oro",
+    "en": "Gold"
+  },
+  {
+    "clave": "despacho.mk.com.plata",
+    "en": "Silver"
+  },
+  {
+    "clave": "despacho.mk.com.platino",
+    "en": "Platinum"
+  },
+  {
+    "clave": "despacho.mk.com.petroleo",
+    "en": "Oil (WTI)"
+  },
+  {
+    "clave": "despacho.mk.com.gas",
+    "en": "Natural gas"
+  },
+  {
+    "clave": "despacho.mk.com.cobre",
+    "en": "Copper"
+  },
+  {
+    "clave": "despacho.mk.com.maiz",
+    "en": "Corn"
+  },
+  {
+    "clave": "despacho.mk.com.trigo",
+    "en": "Wheat"
+  },
+  {
+    "clave": "despacho.mk.com.soya",
+    "en": "Soybeans"
+  },
+  {
+    "clave": "despacho.mk.com.agricolas",
+    "en": "Agricultural basket"
+  },
+  {
+    "clave": "despacho.tab.patrimonio",
+    "en": "Net worth"
+  },
+  {
+    "clave": "despacho.tab.activos",
+    "en": "Assets"
+  },
+  {
+    "clave": "despacho.tab.pasivos",
+    "en": "Liabilities"
+  },
+  {
+    "clave": "despacho.patr.neto",
+    "es": "Patrimonio neto",
+    "en": "Net worth"
+  },
+  {
+    "clave": "despacho.patr.ayudaCorta",
+    "es": "Lo que tienes menos lo que debes.",
+    "en": "What you own minus what you owe."
+  },
+  {
+    "clave": "despacho.patr.ayuda",
+    "es": "El ahorro, la inversión y las deudas entran solos desde tus metas; el balance del mes NO se suma aquí: es lo que le va a pasar a este número, no dinero aparte.",
+    "en": "Savings, investments and debts come in on their own from your goals; the period balance is NOT added here — it is what will happen to this number, not money on the side."
+  },
+  {
+    "clave": "despacho.patr.efectivoOjoCorta",
+    "es": "¿Cuándo conviene?",
+    "en": "When does it make sense?"
+  },
+  {
+    "clave": "despacho.ui.masAyuda",
+    "es": "Más detalles",
+    "en": "More details"
+  },
+  {
+    "clave": "despacho.patr.fisicos",
+    "es": "Bienes y propiedades",
+    "en": "Property and belongings"
+  },
+  {
+    "clave": "despacho.patr.liquidos",
+    "es": "Dinero e inversiones",
+    "en": "Cash and investments"
+  },
+  {
+    "clave": "despacho.patr.deudas",
+    "es": "Deudas, créditos e hipotecas",
+    "en": "Debts, loans and mortgages"
+  },
+  {
+    "clave": "despacho.patr.deMetas",
+    "es": "de tus metas",
+    "en": "from your goals"
+  },
+  {
+    "clave": "despacho.patr.efectivo",
+    "es": "Efectivo · de tus movimientos",
+    "en": "Cash · from your movements"
+  },
+  {
+    "clave": "despacho.patr.deMovs",
+    "es": "ingresos − gastos de siempre",
+    "en": "all-time income − expenses"
+  },
+  {
+    "clave": "despacho.patr.efectivoAuto",
+    "es": "Sumar aquí lo que sobra de mis movimientos (todos mis ingresos menos todos mis gastos)",
+    "en": "Add what my movements leave over (all my income minus all my expenses)"
+  }
+]

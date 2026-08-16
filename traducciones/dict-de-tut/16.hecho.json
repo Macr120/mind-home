@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "Aus deinem Gewicht, deiner Größe und deiner Aktivität rechnet die App aus, wie viel du am Tag brauchst, und verteilt die Makros. Pep hat sich 2.400 Kalorien gesetzt und ein Zielgewicht, bis zu dem weniger als ein Kilo fehlt."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "Schritt 2: Was du heute gegessen hast"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "Frühstück, Mittagessen, Abendessen und eine Kleinigkeit zwischendurch: Jeder Eintrag füllt die Ringe des Tages. Das Wasser hat sein eigenes Ziel – und genau darauf schaut das Haus, um den Tag als erledigt zu zählen."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "Schritt 3: 74 Kilo, 67 Kilo"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "Die Kurve des ganzen Jahres, mit ihrem Plateau im Monat der Verletzung und dem Kilo, das in Japan dazukam. Unten steht, in welchem Tempo es vorangeht und wann du ankämst, wenn es so weiterläuft."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "Ein Jahr in Farben"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "Grün ist ein Tag im Ziel, Bernstein einer, der etwas darüber lag, und Rot einer, der ganz daneben ging. Den Reisemonat siehst du sofort. Tipp auf einen beliebigen Tag, um ihn zu öffnen."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "Diäten, keine Zeitschriften-Diäten"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "Eine Diät ist hier ein Plan mit seinen Rezepten darin. Pep hat zwei eigene gespeichert: die Marathonwoche und die leichte nach Japan, dazu die, die die App mitbringt."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "Das Rezeptbuch"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "Jedes Rezept speichert Zutaten, Schritte und seine Makros pro Portion und liegt in Ordnern. Aus einem Rezept heraus kannst du die Mahlzeit eintragen oder seine Zutaten auf die Einkaufsliste schicken."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "Die KI nach dem Rezept fragen"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "Beschreib, was du kochen willst, und die KI baut das ganze Rezept samt Foto des Gerichts. Das macht die KI: Du schaltest sie in Editor › Einstellungen › Konto ein."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "Vom Rezept zur Einkaufsliste"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "„Liste erstellen“ sammelt, was aus mehreren Rezepten fehlt, in einem einzigen Einkauf: Jede Zutat errät ihre Kategorie (Gemüse, Milchprodukte …) und lässt sich ändern."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "Die gespeicherten Listen"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "Jede Liste hält fest, was noch zu kaufen ist und was schon im Vorrat steht. Trägst du Preise ein, lässt sich die Rechnung an die Ausgaben im Arbeitszimmer schicken."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "Das Gewichtsziel, in Phasen"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "Das macht die KI: Du schaltest sie in Editor › Einstellungen › Konto ein. Ohne sie legst du die Ziele genauso an und bearbeitest sie, nur eben von Hand."
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "Hundert Punkte, drei Teile"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "Die Dauer zählt fünfzig, die Beständigkeit deiner Schlafenszeit dreißig und die Unterbrechungen zwanzig. An einem Tag viel zu schlafen macht nicht wett, an allen anderen zu unmöglichen Zeiten ins Bett zu gehen."
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "Die letzte Woche"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "Sieben Balken gegen die Linie deines Ziels. Das ist die Ansicht, die dir auf einen Blick sagt, ob du diese Woche so viel schläfst, wie du wolltest."
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "Das ganze Jahr"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "Der Verlauf wird nach Jahr, Monat und Woche abgelegt. Scroll zurück zu Peps ersten Monaten und vergleich sie mit den letzten: Bett nach eins und fünf Stunden Schlaf."
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "Von halb zwölf bis sieben"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "Zieh die Enden des Balkens, um deine Schlafenszeit und dein Aufwachen zu verschieben; der Himmel darüber ändert sich mit. Dieser Block erscheint auch im Kalender – quer über Mitternacht."
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "Wecker und Erinnerungen"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "Du kannst den Weckton wählen, dich erinnern lassen, wenn es Zeit fürs Bett ist, und die Bildschirme eine Stunde vorher weglegen. Die Erinnerungen sind freiwillig: Hier kommen sie ausgeschaltet."
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "Die Nacht eintragen"
+  }
+]

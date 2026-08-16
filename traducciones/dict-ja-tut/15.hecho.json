@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "ボード"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "同じタスクを三つの列に並べたものです：未着手、進行中、完了。カードを長押しすると別の列へドラッグできます。「完了」に置くと、カレンダーでもチェックが付きます。矢印で動かしてもかまいません。"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "膝のケガの一年"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "数か月おきの栄養相談、歯科、そして7か月目の理学療法6回。Pepを止めたケガは、ここに記録されています。"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "薬"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "薬ごとに、服用のたびにカレンダーへブロックが入ります。ケガのときの消炎剤は三週間で終わってアーカイブに入り、ビタミンは今も続いています。"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "ライカ"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "猫にもカードがあって、体重や獣医、それに周期つきのケアが並びます。ワクチンは年に一度、駆虫は三か月ごと、シャンプーは毎月。済ませたことにすると、次の予定は自動で計算し直されます。"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "Pepの人の輪"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "家族、友人、仕事や大学の知り合い。それぞれのフォルダに分かれています。電話番号や住所、そして忘れたくないことも一緒に。"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "忘れない誕生日"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "生年月日を保存すると、誕生日が毎年カレンダーに出て、知らせてくれます。年齢はアプリが自動で計算します。"
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "人との予定は連絡先にひもづきます。誰と最後に会ったのがいつか、そこで分かります。"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "三つの数字で見る一年"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "連続記録は、何かを記録した日が何日続いているかを数えます。達成率は、活動日数を自分で決めた日数と比べたものです。Pepは年の初めには二ブロックも走れませんでした。"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "三つの種目"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "バーは、目標に対して今どこまで来ているかを示します：筋力トレーニングの回数、持久力トレーニングの分数、柔軟トレーニングの分数。目標は、上で選んだ期間に合わせて調整されます。"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "今年の目標"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "カタログ・ルーティン・進捗"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "どの種目も同じつくりです：種目のカタログ、履歴つきのルーティン、そして進捗。まずはPepが走ってきた分から見てみましょう。"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "一回一回が書き残されます"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "履歴は年・月・週でまとまります。大きなレースはコースの軌跡と区間の記録も残ります。フルマラソンもそこにあり、10キロごとのラップが並んでいます。"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "ヒートマップは正直です"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "空白もまた物語です。膝をケガした月は真っ白で、日本での三週間もほとんど空いています。横には合計km、最長の一回、ベストペースが出ます。"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "セット・回数・重量"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "セッションごとに、持ち上げた重量と一緒に種目が残ります。前回の記録はアプリが覚えているので探さずに済み、その日の合計ボリュームも出してくれます。"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "一年ぶんの曲線"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "種目をひとつ選ぶと、伸びが見えます。Pepのスクワットは40キロから70キロになりました。ケガの月は上半身だけ鍛えていたので、その曲線は何も気づかないままでした。"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "頼まなくても残る自己ベスト"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "種目ごとに、最高重量、最大回数、そして推定1RMが残ります。懸垂のような体重で行う種目は、別に印がつきます。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "ステップ1：どこへ向かうか"
+  }
+]

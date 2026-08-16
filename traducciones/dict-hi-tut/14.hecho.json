@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "कैटलॉग के विषय पहले से आते हैं; जो अलग लटके हैं वे किसी चैट से खुले। किसी एंट्री पर टैप करके उसका सारांश, मुख्य बातें और चित्र देखें।"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "एंट्री हाथ से लिखी जाती है या किसी बातचीत से निचोड़ी जाती है। ब्लैक होल वाली और पियानो की फ़िज़िक्स वाली एंट्री में चित्र है: ऐप आपके लिए चित्र बना सकता है।"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "साल के सवाल"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "पढ़ाई के दौरान Pep की जो बातचीत हुई, वह यहां है: एंट्रॉपी, समय का फैलाव, पियानो पियानो जैसा क्यों सुनाई देता है। हर एक सहेजी गई।"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "चैट से पेड़ तक"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "इससे विश्वकोश नकल की थ्योरी से नहीं, बल्कि आपके असली सवालों से भरता है।"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "इंडेक्स आपका है"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "हर पंक्ति का + वहीं एक एंट्री लिख देता है, उसका क्षेत्र और विषय पहले से भरे हुए। और पेंसिल वाले बटन से पेड़ बढ़ता है: वही + शाखाएं जोड़ता है, बीज वाला + नए क्षेत्र बनाता है, और नाम बदलना, क्रम बदलना और मिटाना सब हो सकता है। टहनी वाला नंबर बताता है कि उसके नीचे कितने उप-सूचकांक हैं।"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "पढ़ाई की योजना"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "किसी भी लक्ष्य के लिए योजना मांगी जा सकती है: एआई आपकी लक्ष्य तारीख़ और खाली घंटे पूछता है, और पढ़ाई के समय आपके कैलेंडर में रख देता है।"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "आपके विश्वकोश में कितनी एंट्री हैं और इंडेक्स के कितने क्षेत्र और विषय अब तक कवर हुए। चैट से खुले विषय अलग गिने जाते हैं।"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "चार आंकड़े"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "गुरु से बातचीत, कुल और इस हफ़्ते की पढ़ाई के मिनट, और लगातार पढ़ाई के दिनों का सिलसिला।"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "असंतुलन कहां है"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "सबसे लंबी पट्टी वह क्षेत्र है जिसने सबसे ज़्यादा ध्यान लिया — Pep के लिए, परीक्षा वाले हफ़्ते में थर्मोडायनामिक्स।"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "पढ़ाई के दिन"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "हर दिन का एक खाना: परीक्षा से पहले की रटाई और जापान के तीन हफ़्तों का खालीपन साफ़ दिखता है, पूरा इतिहास खोले बिना।"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "घंटे कहां गए"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "वही ऊपर वाला, पर मिनटों में: किसी क्षेत्र में बहुत सारी एंट्री होना एक बात है, और उसे सचमुच समय देना दूसरी।"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "एक साल के सेशन"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "और अगर पूरा ब्योरा चाहिए, तो इतिहास हर सेशन को उसके मिनटों और क्षेत्र के साथ रखता है — साल, महीने और हफ़्ते के हिसाब से।"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "आज क्या करना है"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep को इसमें एक साल हो गया, फिर भी रिवीज़न बाकी हैं: सिस्टम पूरी शब्दावली नहीं पूछता, सिर्फ़ वही जो भूलने को है।"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "एक साल की निरंतरता"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "इतिहास रखता है कि हर दिन कितने कार्ड दोहराए गए और कितने सही हुए। Pep से शुरू में काफ़ी गलतियां हुईं और अंत तक लगभग सब सही — और जापान में सबसे ज़्यादा रिवीज़न हुआ।"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "एक साथ दो भाषाएं"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "ऊपर से भाषा बदलती है: मुख्य भाषा के अलावा, Pep ने 4थे महीने से यात्रा तक काम चलाऊ जापानी तैयार की। लौटने पर वह लगभग छूट गई, और यह उसके बॉक्स में दिखता है।"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "तीन श्रेणियां, छह स्तर"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "A1 से C2 तक, हर स्तर के अपने शब्दावली विषय, उच्चारण के बिंदु और व्याकरण। बाहर कोई कोर्स ढूंढे बिना पता रहता है कि क्या बाकी है।"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "अभी कहां तक"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "महारत वाले कार्ड, इस महीने के रिवीज़न और आपका मौजूदा स्तर। Pep का साल A2 से शुरू हुआ और अभी B1 चल रहा है।"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "बिना तारीख़ के काम"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "जो करना है पर अभी कोई दिन तय नहीं, वह यहां रहता है, अपनी प्राथमिकता के साथ। लिखने के लिए तारीख़ डालना ज़रूरी नहीं।"
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.menu-cuartos.6.texto",
+    "texto": "Créer une pièce ouvre l’éditeur de plan, le pinceau déjà prêt à dessiner la nouvelle pièce : forme, taille et emplacement, c’est toi qui décides. Sur le téléphone, le raccourci de la roue d’outils › Construction › Pièces est plus commode : il dessine directement sur le plan, sans ouvrir le panneau."
+  },
+  {
+    "clave": "tut.menu-cuartos.7.texto",
+    "texto": "En résumé : Modifier pour personnaliser, Entrer pour utiliser l’app. Les autres onglets de ce menu ont leur propre tutoriel."
+  },
+  {
+    "clave": "tut.menu-plantillas.1.texto",
+    "texto": "Un modèle, c’est une app (Cuisine, Gym, Finances…). Tu l’affectes à un objet d’une pièce et elle s’ouvre quand tu entres."
+  },
+  {
+    "clave": "tut.menu-plantillas.2.titulo",
+    "texto": "Deux vues"
+  },
+  {
+    "clave": "tut.menu-plantillas.2.texto",
+    "texto": "Pièces, ce sont les apps habituelles, chacune dans son objet. Extras, c’est autre chose : circuits, terrains, potager, ferme ou paintball se construisent directement sur le terrain, sans occuper de pièce."
+  },
+  {
+    "clave": "tut.menu-plantillas.3.titulo",
+    "texto": "Le catalogue"
+  },
+  {
+    "clave": "tut.menu-plantillas.3.texto",
+    "texto": "Les apps d’origine et les tiennes, rangées par groupes. Touche-en une pour l’affecter à une pièce ou, dans Extras, pour la construire sur le plan."
+  },
+  {
+    "clave": "tut.menu-plantillas.4.titulo",
+    "texto": "Tes propres modèles"
+  },
+  {
+    "clave": "tut.menu-plantillas.4.texto",
+    "texto": "Crée tes propres modèles en les montant avec des blocs : notes, listes à cocher, compteurs, habitudes, galeries… Ce bouton ouvre son éditeur, avec son propre tutoriel."
+  },
+  {
+    "clave": "tut.menu-plantillas.5.texto",
+    "texto": "Une même pièce peut accueillir plusieurs apps : en entrant, un lanceur s’affiche pour choisir laquelle ouvrir."
+  },
+  {
+    "clave": "tut.plantillas-custom.1.texto",
+    "texto": "Cet éditeur monte une app à toi en partant de zéro : tu lui donnes un nom, un emoji et des blocs, et elle rejoint le catalogue à côté de celles d’origine."
+  },
+  {
+    "clave": "tut.plantillas-custom.2.titulo",
+    "texto": "Nom, emoji et couleur"
+  },
+  {
+    "clave": "tut.plantillas-custom.2.texto",
+    "texto": "Comment elle va s’appeler et de quelle couleur elle se peint dans le menu, le catalogue et le calendrier si tu y programmes quelque chose à elle."
+  },
+  {
+    "clave": "tut.plantillas-custom.3.titulo",
+    "texto": "Les outils"
+  },
+  {
+    "clave": "tut.plantillas-custom.3.texto",
+    "texto": "Douze types de bloc : notes, liste à cocher, compteur, habitude, séances, compte à rebours, galerie, journal, note, progression, liste et liens. Chacun que tu ajoutes devient une section de ton app."
+  },
+  {
+    "clave": "tut.plantillas-custom.4.titulo",
+    "texto": "L’ordre compte"
+  },
+  {
+    "clave": "tut.plantillas-custom.4.texto",
+    "texto": "Les blocs ajoutés se réordonnent avec les flèches et se retirent avec la ✕ — en retirer un efface ses données à l’enregistrement, alors vérifie avant de confirmer. Avec la liste déroulante « Menu », ils passent d’un onglet à l’autre sans rien perdre."
+  },
+  {
+    "clave": "tut.plantillas-custom.5.titulo",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "tut.plantillas-custom.5.texto",
+    "texto": "Avec un nom et au moins un bloc, Enregistrer la dépose fin prête dans le catalogue. De là, elle s’affecte à un objet comme n’importe quel modèle d’origine."
+  },
+  {
+    "clave": "tut.plantillas-custom.6.texto",
+    "texto": "Tu peux la modifier à nouveau quand tu veux : ses blocs et ses données restent en place, seul ce que tu changes change."
+  },
+  {
+    "clave": "tut.menu-inventario.1.texto",
+    "texto": "L’inventaire : tous les objets que tu peux poser dans ta maison, prêts à être glissés."
+  },
+  {
+    "clave": "tut.menu-inventario.2.titulo",
+    "texto": "Objets"
+  },
+  {
+    "clave": "tut.menu-inventario.2.texto",
+    "texto": "Ta bibliothèque d’objets, par catégories et dossiers. Tu peux les renommer et les ranger pour les retrouver vite la prochaine fois."
+  },
+  {
+    "clave": "tut.menu-inventario.3.titulo",
+    "texto": "Objets spéciaux"
+  },
+  {
+    "clave": "tut.menu-inventario.3.texto",
+    "texto": "Ceux qui font quelque chose, pas seulement de la décoration : véhicules à monter, pistolets jouets, fontaines, jeux de parc et lumières."
+  },
+  {
+    "clave": "tut.menu-inventario.4.titulo",
+    "texto": "Poser"
+  },
+  {
+    "clave": "tut.menu-inventario.4.texto",
+    "texto": "Ce menu ouvert, fais glisser une vignette directement dans la scène 3D pour la poser où tu veux."
+  },
+  {
+    "clave": "tut.menu-inventario.5.texto",
+    "texto": "Pour déplacer, peindre ou supprimer ce qui est déjà posé, passe par l’Éditeur (onglet Objets) — ce menu ne sert qu’à faire entrer du neuf en scène."
+  },
+  {
+    "clave": "tut.editor-mapa.1.texto",
+    "texto": "L’éditeur de la maison a 4 onglets : Plan, Personnages, Objets et Paramètres. Ce tour est celui de Plan ; les trois autres ont le leur."
+  },
+  {
+    "clave": "tut.editor-mapa.2.titulo",
+    "texto": "Le croquis"
+  },
+  {
+    "clave": "tut.editor-mapa.2.texto",
+    "texto": "Tu dessines sur une grille vue d’en haut : pièces, murs, portes, fenêtres et sols, avec les modes et les pinceaux de la barre du haut. Ce que tu traces apparaît aussitôt en 3D, sans rien recharger."
+  }
+]

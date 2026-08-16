@@ -1,0 +1,1046 @@
+[
+  {
+    "ruta": "notasSesion.0.nota",
+    "texto": "Dziesięć minut i głowa ani przez chwilę nie zwolniła. Niepokój został taki sam jak na początku, ale przynajmniej udało się usiąść."
+  },
+  {
+    "ruta": "notasSesion.1.nota",
+    "texto": "Cztery-siedem-osiem przed otwarciem kawiarni. Kawa wychodzi lepiej, kiedy nie zaczynam dnia z pulsem na sto dwadzieścia."
+  },
+  {
+    "ruta": "notasSesion.2.nota",
+    "texto": "Trzeci tydzień z rzędu wszystkie trzy sesje odbyte. Dziś dało się złapać dokładny moment rozproszenia i wrócić do oddechu bez robienia sobie wyrzutów."
+  },
+  {
+    "ruta": "notasSesion.3.nota",
+    "texto": "Noc przed pięciokilometrówką. Nie uspokoiło całkiem, ale sen przyszedł o jedenastej zamiast o pierwszej."
+  },
+  {
+    "ruta": "notasSesion.4.nota",
+    "texto": "Oddech przy przystanku, z hałasem ruchu w tle. Zadziałało mimo to, a właśnie to budziło wątpliwości."
+  },
+  {
+    "ruta": "notasSesion.5.nota",
+    "texto": "Dwadzieścia minut po raz pierwszy. Ostatnie pięć to była czysta niecierpliwość, a mimo to udało się wytrzymać."
+  },
+  {
+    "ruta": "notasSesion.6.nota",
+    "texto": "Krótka sesja po zajęciach w laboratorium. Przydała się, żeby przypomnieć, że zmęczenie i niepokój to nie to samo."
+  },
+  {
+    "ruta": "notasSesion.7.nota",
+    "texto": "Pierwsza sesja odkąd kolano powiedziało dość. Cały czas myśli krążyły wokół planu biegowego, który się sypie."
+  },
+  {
+    "ruta": "notasSesion.8.nota",
+    "texto": "Dziś dało się tylko patrzeć na złość. Nie zniknęła, ale zrobiła się mniejsza niż wczoraj."
+  },
+  {
+    "ruta": "notasSesion.9.nota",
+    "texto": "Po telefonie z warsztatu. Dziesięć powolnych oddechów, zanim kosztorys otworzył się jeszcze raz."
+  },
+  {
+    "ruta": "notasSesion.10.nota",
+    "texto": "Usiąść z płaczem i skończyć bez łez — jeśli to jest medytacja, to dziś zdała egzamin."
+  },
+  {
+    "ruta": "notasSesion.11.nota",
+    "texto": "Dwa tygodnie bez jednego opuszczonego dnia. To jedyna część rutyny, która w tym miesiącu się nie posypała."
+  },
+  {
+    "ruta": "notasSesion.12.nota",
+    "texto": "Dziesięć minut zaraz po fizjoterapii. Kolano nie zajmuje już całej głowy."
+  },
+  {
+    "ruta": "notasSesion.13.nota",
+    "texto": "Cztery-siedem-osiem na zapleczu przed otwarciem. Wyjście za bar bez pośpiechu, pierwszy raz od tygodni."
+  },
+  {
+    "ruta": "notasSesion.14.nota",
+    "texto": "Ostatni tydzień przed lotem. Czas usiąść i popatrzeć na przedwyjazdowe nerwy, bez prób ich porządkowania."
+  },
+  {
+    "ruta": "notasSesion.15.nota",
+    "texto": "Na ławce w Ueno, z hałasem pociągów w tle. Trzy minuty i ramiona same opadły."
+  },
+  {
+    "ruta": "notasSesion.16.nota",
+    "texto": "Dwadzieścia minut na tatami w Kioto, bez minutnika. Nie chciało się, żeby to się skończyło."
+  },
+  {
+    "ruta": "notasSesion.17.nota",
+    "texto": "Pierwsza sesja na własnej macie po miesiącu nieobecności. Poduszka pachniała Laiką."
+  },
+  {
+    "ruta": "notasSesion.18.nota",
+    "texto": "Pięć minut przed kolokwium z mechaniki. Daje więcej niż kolejne czytanie notatek."
+  },
+  {
+    "ruta": "notasSesion.19.nota",
+    "texto": "Długa niedzielna sesja. Pojawił się półmaraton — spojrzenie na niego i pozwolenie, żeby poszedł dalej."
+  },
+  {
+    "ruta": "notasSesion.20.nota",
+    "texto": "Dwie minuty w boksie startowym, oddech przez nos. Puls opadł, zanim padł strzał."
+  },
+  {
+    "ruta": "notasSesion.21.nota",
+    "texto": "Tydzień dużego kilometrażu: sen przyszedł już w ósmej minucie. I tak się liczy."
+  },
+  {
+    "ruta": "notasSesion.22.nota",
+    "texto": "Siedzenie na podłodze łazienki w termicznej folii, oddech powoli. Ciało zniszczone, głowa w pełni jasna."
+  },
+  {
+    "ruta": "notasSesion.23.nota",
+    "texto": "Rok robienia tego. Dwadzieścia minut i nic szczególnego się nie wydarzyło, co na tym etapie wydaje się całkiem sporo."
+  },
+  {
+    "ruta": "gratitudes.0.item1",
+    "texto": "Używany keyboard prawie już nie fałszuje"
+  },
+  {
+    "ruta": "gratitudes.0.item2",
+    "texto": "Laika przyzwyczaiła się do dźwięku metronomu"
+  },
+  {
+    "ruta": "gratitudes.0.item3",
+    "texto": "Soczewica ugotowana na trzy dni"
+  },
+  {
+    "ruta": "gratitudes.1.item1",
+    "texto": "Dwadzieścia minut biegu bez przerwy"
+  },
+  {
+    "ruta": "gratitudes.1.item2",
+    "texto": "Sobotnie napiwki starczyły na dobrą herbatę"
+  },
+  {
+    "ruta": "gratitudes.2.item1",
+    "texto": "74 kg na wadze i patrzenie na to już nie przeraża"
+  },
+  {
+    "ruta": "gratitudes.2.item2",
+    "texto": "Trzydzieści fiszek z angielskiego powtórzonych przed snem"
+  },
+  {
+    "ruta": "gratitudes.2.item3",
+    "texto": "Gorący prysznic zaraz po zmianie"
+  },
+  {
+    "ruta": "gratitudes.3.item1",
+    "texto": "Pół godziny zastępstwa od Nuri, żeby dało się dotrzeć do laboratorium"
+  },
+  {
+    "ruta": "gratitudes.3.item2",
+    "texto": "Buty do biegania w końcu nie obcierają"
+  },
+  {
+    "ruta": "gratitudes.3.item3",
+    "texto": "Czyste niebo o szóstej rano"
+  },
+  {
+    "ruta": "gratitudes.4.item1",
+    "texto": "Dziesięć minut medytacji przed otwarciem kawiarni"
+  },
+  {
+    "ruta": "gratitudes.4.item2",
+    "texto": "Mama zapytała o pianino bez cienia ironii"
+  },
+  {
+    "ruta": "gratitudes.5.item1",
+    "texto": "Kolokwium z mechaniki zaliczone"
+  },
+  {
+    "ruta": "gratitudes.5.item2",
+    "texto": "Laika śpiąca na moich notatkach"
+  },
+  {
+    "ruta": "gratitudes.5.item3",
+    "texto": "Wczorajszy chleb za darmo ze zmiany"
+  },
+  {
+    "ruta": "gratitudes.6.item1",
+    "texto": "Bieganie w drobnym deszczu okazało się przyjemne"
+  },
+  {
+    "ruta": "gratitudes.6.item2",
+    "texto": "Budżet się zgodził w tę wypłatę"
+  },
+  {
+    "ruta": "gratitudes.6.item3",
+    "texto": "Gama C-dur bez patrzenia na klawisze"
+  },
+  {
+    "ruta": "gratitudes.7.item1",
+    "texto": "Bez podjadania między zmianami dzisiaj"
+  },
+  {
+    "ruta": "gratitudes.7.item2",
+    "texto": "Podcast po angielsku, rozumiany niemal w całości"
+  },
+  {
+    "ruta": "gratitudes.8.item1",
+    "texto": "Rower wytrzymał czterdzieści kilometrów w tym tygodniu"
+  },
+  {
+    "ruta": "gratitudes.8.item2",
+    "texto": "Kolacja z Alex bez patrzenia w telefon"
+  },
+  {
+    "ruta": "gratitudes.8.item3",
+    "texto": "Oolong ze sklepu na rogu"
+  },
+  {
+    "ruta": "gratitudes.9.item1",
+    "texto": "Siedem godzin snu bez przerwy"
+  },
+  {
+    "ruta": "gratitudes.9.item2",
+    "texto": "Pierwszy utwór na dwie ręce, wolny, ale cały"
+  },
+  {
+    "ruta": "gratitudes.9.item3",
+    "texto": "Laika czekająca przy drzwiach"
+  },
+  {
+    "ruta": "gratitudes.10.item1",
+    "texto": "Trzy tygodnie realizowania planu biegowego"
+  },
+  {
+    "ruta": "gratitudes.10.item2",
+    "texto": "Loty do Tokio są tańsze, niż się wydawało"
+  },
+  {
+    "ruta": "gratitudes.11.item1",
+    "texto": "Rita zamieniła się ze mną na zmianę w niedzielę wyścigu"
+  },
+  {
+    "ruta": "gratitudes.11.item2",
+    "texto": "Świeże nogi po dwóch łagodnych dniach"
+  },
+  {
+    "ruta": "gratitudes.11.item3",
+    "texto": "Gorąca zupa o jedenastej w nocy"
+  },
+  {
+    "ruta": "gratitudes.12.item1",
+    "texto": "Piątka ukończona w 29:40"
+  },
+  {
+    "ruta": "gratitudes.12.item2",
+    "texto": "Alex na mecie z absurdalnym transparentem"
+  },
+  {
+    "ruta": "gratitudes.12.item3",
+    "texto": "Tania medalka, którą i tak zatrzymam"
+  },
+  {
+    "ruta": "gratitudes.13.item1",
+    "texto": "Plan Japonii spisany na papierze — bez odwrotu"
+  },
+  {
+    "ruta": "gratitudes.13.item2",
+    "texto": "Osobne konto oszczędnościowe na podróż otwarte"
+  },
+  {
+    "ruta": "gratitudes.13.item3",
+    "texto": "Rozpoznaję dziesięć znaków hiragany"
+  },
+  {
+    "ruta": "gratitudes.14.item1",
+    "texto": "Spokojna zmiana i przyzwoite napiwki"
+  },
+  {
+    "ruta": "gratitudes.14.item2",
+    "texto": "Raport z laboratorium wrócił z dobrymi komentarzami"
+  },
+  {
+    "ruta": "gratitudes.15.item1",
+    "texto": "Bieganie po pracy już mnie nie wykańcza"
+  },
+  {
+    "ruta": "gratitudes.15.item2",
+    "texto": "Przejrzysty przewodnik po transporcie w Kioto znaleziony"
+  },
+  {
+    "ruta": "gratitudes.15.item3",
+    "texto": "Laika i popołudniowe słońce w tym samym kącie"
+  },
+  {
+    "ruta": "gratitudes.16.item1",
+    "texto": "255 zł więcej do funduszu na Japonię"
+  },
+  {
+    "ruta": "gratitudes.16.item2",
+    "texto": "Mówię już sumimasen bez zacinania się"
+  },
+  {
+    "ruta": "gratitudes.16.item3",
+    "texto": "Darmowa degustacja kawy z Etiopii"
+  },
+  {
+    "ruta": "gratitudes.17.item1",
+    "texto": "Kilogram mniej i bez dramatów"
+  },
+  {
+    "ruta": "gratitudes.17.item2",
+    "texto": "Obie ręce i pedał naraz"
+  },
+  {
+    "ruta": "gratitudes.18.item1",
+    "texto": "Dziewięć kilometrów i oddechu starczyło do końca"
+  },
+  {
+    "ruta": "gratitudes.18.item2",
+    "texto": "Słodki napój zamieniony na wodę gazowaną i jak widać nadal żyję"
+  },
+  {
+    "ruta": "gratitudes.18.item3",
+    "texto": "Rower naprawiony za 51 zł"
+  },
+  {
+    "ruta": "gratitudes.19.item1",
+    "texto": "Pierwszy cały utwór na pianinie ukończony"
+  },
+  {
+    "ruta": "gratitudes.19.item2",
+    "texto": "Zagrany dla Laiki, jedynej dostępnej publiczności"
+  },
+  {
+    "ruta": "gratitudes.20.item1",
+    "texto": "10 km pokonane, wolno, ale w całości"
+  },
+  {
+    "ruta": "gratitudes.20.item2",
+    "texto": "Kolana wytrzymały sześćdziesiąt minut"
+  },
+  {
+    "ruta": "gratitudes.20.item3",
+    "texto": "Ogromne śniadanie bez wyrzutów sumienia"
+  },
+  {
+    "ruta": "gratitudes.21.item2",
+    "texto": "Grupa naukowa zorganizowała się bez kłótni"
+  },
+  {
+    "ruta": "gratitudes.21.item3",
+    "texto": "Bezchmurna noc, w sam raz żeby wypróbować statyw"
+  },
+  {
+    "ruta": "gratitudes.22.item1",
+    "texto": "Pierwsze przyzwoite zdjęcie księżyca"
+  },
+  {
+    "ruta": "gratitudes.22.item2",
+    "texto": "Herbata z imbirem o drugiej w nocy"
+  },
+  {
+    "ruta": "gratitudes.23.item1",
+    "texto": "Piątkowa zmiana z muzyką, która się podobała"
+  },
+  {
+    "ruta": "gratitudes.23.item2",
+    "texto": "Oszczędności na Japonię sięgają trzydziestu procent"
+  },
+  {
+    "ruta": "gratitudes.23.item3",
+    "texto": "Klient pokazał mi swój trik na spienianie mleka"
+  },
+  {
+    "ruta": "gratitudes.24.item1",
+    "texto": "Cały odcinek po angielsku zrozumiany bez napisów"
+  },
+  {
+    "ruta": "gratitudes.24.item2",
+    "texto": "Niedzielne bieganie z Alex"
+  },
+  {
+    "ruta": "gratitudes.24.item3",
+    "texto": "Laika znowu śpi u moich stóp"
+  },
+  {
+    "ruta": "gratitudes.25.item1",
+    "texto": "Dzień odpoczynku bez poczucia winy"
+  },
+  {
+    "ruta": "gratitudes.25.item2",
+    "texto": "Science fiction na tanim wtorkowym seansie"
+  },
+  {
+    "ruta": "gratitudes.25.item3",
+    "texto": "Ubrania do biegania wyschły na czas"
+  },
+  {
+    "ruta": "gratitudes.26.item1",
+    "texto": "Dwanaście nowych kilometrów w planie"
+  },
+  {
+    "ruta": "gratitudes.26.item2",
+    "texto": "Paszport odnowiony bez wiecznych kolejek"
+  },
+  {
+    "ruta": "gratitudes.27.item1",
+    "texto": "Oszczędności na poziomie pięćdziesięciu procent"
+  },
+  {
+    "ruta": "gratitudes.27.item2",
+    "texto": "Podejrzanie dobre napiwki w tym tygodniu"
+  },
+  {
+    "ruta": "gratitudes.27.item3",
+    "texto": "Trzy minuty oddychania przed kolokwium"
+  },
+  {
+    "ruta": "gratitudes.28.item1",
+    "texto": "71 kg i dżinsy są teraz luźne"
+  },
+  {
+    "ruta": "gratitudes.28.item2",
+    "texto": "Nowy, znacznie trudniejszy utwór rozpoczęty"
+  },
+  {
+    "ruta": "gratitudes.28.item3",
+    "texto": "Kolacja z siostrą"
+  },
+  {
+    "ruta": "gratitudes.29.item1",
+    "texto": "Raport z laboratorium oddany na czas"
+  },
+  {
+    "ruta": "gratitudes.29.item2",
+    "texto": "15 km w kalendarzu i już nie budzą strachu"
+  },
+  {
+    "ruta": "gratitudes.30.item1",
+    "texto": "Samochód zapalił za pierwszym razem"
+  },
+  {
+    "ruta": "gratitudes.30.item2",
+    "texto": "Bieganie o świcie przed zmianą"
+  },
+  {
+    "ruta": "gratitudes.30.item3",
+    "texto": "Świeżo upieczony chleb z sąsiedniej piekarni"
+  },
+  {
+    "ruta": "gratitudes.31.item1",
+    "texto": "Nocleg w Hakone zarezerwowany"
+  },
+  {
+    "ruta": "gratitudes.31.item2",
+    "texto": "Umiem już zamówić jedzenie w podstawowym japońskim"
+  },
+  {
+    "ruta": "gratitudes.31.item3",
+    "texto": "Laika złapała ćmę i była z siebie bardzo dumna"
+  },
+  {
+    "ruta": "gratitudes.32.item1",
+    "texto": "Czternaście kilometrów wytrzymane"
+  },
+  {
+    "ruta": "gratitudes.32.item2",
+    "texto": "Rodzice zaproponowali, że zaopiekują się Laiką podczas podróży"
+  },
+  {
+    "ruta": "gratitudes.33.item1",
+    "texto": "Cała dwutygodniowa wypłata do funduszu podróży"
+  },
+  {
+    "ruta": "gratitudes.33.item2",
+    "texto": "Dziesięć minut medytacji bez patrzenia na zegar"
+  },
+  {
+    "ruta": "gratitudes.33.item3",
+    "texto": "Nowa zielona herbata, ta pachnąca trawą"
+  },
+  {
+    "ruta": "gratitudes.34.item1",
+    "texto": "Lekarz powiedział, że to nic poważnego, tylko wolne gojenie"
+  },
+  {
+    "ruta": "gratitudes.34.item2",
+    "texto": "Mogę grać na pianinie bez obciążania kolana"
+  },
+  {
+    "ruta": "gratitudes.34.item3",
+    "texto": "Laika ani na chwilę nie odeszła od mojego boku"
+  },
+  {
+    "ruta": "gratitudes.35.item1",
+    "texto": "Lód i kanapa też się liczą jako plan"
+  },
+  {
+    "ruta": "gratitudes.35.item2",
+    "texto": "Książka otwarta od miesięcy w końcu skończona"
+  },
+  {
+    "ruta": "gratitudes.36.item1",
+    "texto": "Zamiana zmian z Nuri, żeby mniej stać"
+  },
+  {
+    "ruta": "gratitudes.36.item2",
+    "texto": "Pół godziny gry na pianinie wyrwało z zapętlonych myśli"
+  },
+  {
+    "ruta": "gratitudes.36.item3",
+    "texto": "Zupa, którą przyniosła sąsiadka"
+  },
+  {
+    "ruta": "gratitudes.37.item1",
+    "texto": "Warsztat pozwolił zapłacić za naprawę na raty"
+  },
+  {
+    "ruta": "gratitudes.37.item2",
+    "texto": "Dwadzieścia oddechów przed odpowiedzią na tego maila"
+  },
+  {
+    "ruta": "gratitudes.37.item3",
+    "texto": "Pieniądze na Japonię nadal nietknięte"
+  },
+  {
+    "ruta": "gratitudes.38.item1",
+    "texto": "Pływanie już nie boli"
+  },
+  {
+    "ruta": "gratitudes.38.item2",
+    "texto": "Umiem już mówić daty po japońsku"
+  },
+  {
+    "ruta": "gratitudes.39.item1",
+    "texto": "Schody pokonane bez kulenia"
+  },
+  {
+    "ruta": "gratitudes.39.item2",
+    "texto": "Mama zadzwoniła dokładnie wtedy, kiedy było trzeba"
+  },
+  {
+    "ruta": "gratitudes.39.item3",
+    "texto": "Darmowa kawa w połowie zmiany"
+  },
+  {
+    "ruta": "gratitudes.40.item1",
+    "texto": "Samochód znowu jeździ i kosztowało to mniej, niż się obawiano"
+  },
+  {
+    "ruta": "gratitudes.40.item2",
+    "texto": "Dwa tygodnie medytacji każdego dnia"
+  },
+  {
+    "ruta": "gratitudes.40.item3",
+    "texto": "Deszcz zmusił do zostania w domu i nauki"
+  },
+  {
+    "ruta": "gratitudes.41.item1",
+    "texto": "Elektromagnetyzm zaliczony na styk, ale zaliczony"
+  },
+  {
+    "ruta": "gratitudes.41.item2",
+    "texto": "Czterdzieści minut spaceru bez żadnych dolegliwości"
+  },
+  {
+    "ruta": "gratitudes.42.item1",
+    "texto": "Stały klient zapytał o moje kolano"
+  },
+  {
+    "ruta": "gratitudes.42.item2",
+    "texto": "Nowy utwór brzmi już jak muzyka, a nie jak ćwiczenie"
+  },
+  {
+    "ruta": "gratitudes.42.item3",
+    "texto": "Laika śpi w pudełku od keyboardu"
+  },
+  {
+    "ruta": "gratitudes.43.item1",
+    "texto": "Pierwszy próbny trucht: pięć minut, zero bólu"
+  },
+  {
+    "ruta": "gratitudes.43.item2",
+    "texto": "Fizjoterapeuta ma wolny termin w przyszłym tygodniu"
+  },
+  {
+    "ruta": "gratitudes.43.item3",
+    "texto": "Herbata z miodem o północy"
+  },
+  {
+    "ruta": "gratitudes.44.item1",
+    "texto": "Cały plan podróży po Japonii spisany"
+  },
+  {
+    "ruta": "gratitudes.44.item2",
+    "texto": "Osiem godzin snu bez przerwy"
+  },
+  {
+    "ruta": "gratitudes.45.item1",
+    "texto": "Pierwsza sesja fizjoterapii: nudne ćwiczenia, ale jasny plan"
+  },
+  {
+    "ruta": "gratitudes.45.item2",
+    "texto": "Spokojna zmiana i przyzwoite napiwki"
+  },
+  {
+    "ruta": "gratitudes.45.item3",
+    "texto": "Laika czekająca w oknie"
+  },
+  {
+    "ruta": "gratitudes.46.item1",
+    "texto": "Dziesięć minut truchtu bez najmniejszej dolegliwości"
+  },
+  {
+    "ruta": "gratitudes.46.item2",
+    "texto": "Sąsiadka pożyczyła walizkę na podróż"
+  },
+  {
+    "ruta": "gratitudes.47.item1",
+    "texto": "Bilet na pociąg do Hakone kupiony"
+  },
+  {
+    "ruta": "gratitudes.47.item2",
+    "texto": "Nowa kawa z Etiopii w karcie"
+  },
+  {
+    "ruta": "gratitudes.47.item3",
+    "texto": "Sen bez przerwy całą noc"
+  },
+  {
+    "ruta": "gratitudes.48.item1",
+    "texto": "Ćwiczenia z fizjoterapii wychodzą już bez patrzenia na kartkę"
+  },
+  {
+    "ruta": "gratitudes.48.item2",
+    "texto": "Oszczędności na Japonię w komplecie"
+  },
+  {
+    "ruta": "gratitudes.48.item3",
+    "texto": "Zamawianie w restauracji po japońsku opanowane"
+  },
+  {
+    "ruta": "gratitudes.49.item1",
+    "texto": "Dwadzieścia minut biegu bez przerwy"
+  },
+  {
+    "ruta": "gratitudes.49.item2",
+    "texto": "Dobra ocena za raport z laboratorium"
+  },
+  {
+    "ruta": "gratitudes.49.item3",
+    "texto": "Siostra przysłała mi przejściówki do gniazdek"
+  },
+  {
+    "ruta": "gratitudes.50.item1",
+    "texto": "Fizjoterapeuta mówi, że kolano da radę na wyjeździe"
+  },
+  {
+    "ruta": "gratitudes.50.item2",
+    "texto": "Umiem już powiedzieć bez mięsa, proszę"
+  },
+  {
+    "ruta": "gratitudes.51.item1",
+    "texto": "Podwójna zmiana z dobrymi napiwkami"
+  },
+  {
+    "ruta": "gratitudes.51.item2",
+    "texto": "Mapy offline pobrane, plan podróży sprawdzony dwa razy"
+  },
+  {
+    "ruta": "gratitudes.51.item3",
+    "texto": "Laika w środku otwartej walizki"
+  },
+  {
+    "ruta": "gratitudes.52.item1",
+    "texto": "Projekt semestralny oddany przed wyjazdem"
+  },
+  {
+    "ruta": "gratitudes.52.item2",
+    "texto": "Cały podcast po angielsku zrozumiany"
+  },
+  {
+    "ruta": "gratitudes.52.item3",
+    "texto": "Zielona herbata z Nico po zmianie"
+  },
+  {
+    "ruta": "gratitudes.53.item1",
+    "texto": "Wszystko mieści się w jednym plecaku"
+  },
+  {
+    "ruta": "gratitudes.53.item2",
+    "texto": "Nico zostaje z Laiką na trzy tygodnie"
+  },
+  {
+    "ruta": "gratitudes.53.item3",
+    "texto": "Dobry rodzaj tremy"
+  },
+  {
+    "ruta": "gratitudes.54.item1",
+    "texto": "Powrót z notesem pełnym dni"
+  },
+  {
+    "ruta": "gratitudes.54.item2",
+    "texto": "Laika gderała na mnie pół godziny, a potem zasnęła na mnie"
+  },
+  {
+    "ruta": "gratitudes.54.item3",
+    "texto": "Moje łóżko"
+  },
+  {
+    "ruta": "gratitudes.55.item1",
+    "texto": "Walizka rozpakowana bez pośpiechu"
+  },
+  {
+    "ruta": "gratitudes.55.item2",
+    "texto": "Kawa z mojej kawiarni smakuje inaczej i podoba mi się to"
+  },
+  {
+    "ruta": "gratitudes.55.item3",
+    "texto": "Zdjęcia Fudżi wyszły ostre"
+  },
+  {
+    "ruta": "gratitudes.56.item1",
+    "texto": "Pierwszy dzień planu na półmaraton"
+  },
+  {
+    "ruta": "gratitudes.56.item2",
+    "texto": "Powrót na matę, jakby miesiąc wcale nie minął"
+  },
+  {
+    "ruta": "gratitudes.56.item3",
+    "texto": "Domowy makaron na bazie tego, czego nauczono się tam"
+  },
+  {
+    "ruta": "gratitudes.57.item1",
+    "texto": "Zeszyt wydatków znowu na bieżąco"
+  },
+  {
+    "ruta": "gratitudes.57.item2",
+    "texto": "Osiem godzin snu"
+  },
+  {
+    "ruta": "gratitudes.57.item3",
+    "texto": "Roślina przeżyła dzięki Nico"
+  },
+  {
+    "ruta": "gratitudes.58.item1",
+    "texto": "Pierwsza część Clair de Lune opanowana"
+  },
+  {
+    "ruta": "gratitudes.58.item2",
+    "texto": "Zmiana z dobrą muzyką i miłymi klientami"
+  },
+  {
+    "ruta": "gratitudes.59.item1",
+    "texto": "12 km bez zatrzymywania się"
+  },
+  {
+    "ruta": "gratitudes.59.item2",
+    "texto": "Kolano wytrzymuje i nie protestuje następnego dnia"
+  },
+  {
+    "ruta": "gratitudes.59.item3",
+    "texto": "Domowa zupa miso"
+  },
+  {
+    "ruta": "gratitudes.60.item1",
+    "texto": "Waga pokazała 69"
+  },
+  {
+    "ruta": "gratitudes.60.item2",
+    "texto": "Klient poprosił o polecenie herbaty — trafione"
+  },
+  {
+    "ruta": "gratitudes.60.item3",
+    "texto": "Bezchmurne niebo w sam raz do fotografowania księżyca"
+  },
+  {
+    "ruta": "gratitudes.61.item1",
+    "texto": "Pierwsza wpłata do funduszu awaryjnego"
+  },
+  {
+    "ruta": "gratitudes.61.item2",
+    "texto": "Powrót do fiszek z angielskiego po przerwie"
+  },
+  {
+    "ruta": "gratitudes.61.item3",
+    "texto": "Nowy koc ze sklepu z rzeczami używanymi"
+  },
+  {
+    "ruta": "gratitudes.62.item1",
+    "texto": "Egzamin z laboratorium zaliczony"
+  },
+  {
+    "ruta": "gratitudes.62.item2",
+    "texto": "Długa wideorozmowa z mamą"
+  },
+  {
+    "ruta": "gratitudes.62.item3",
+    "texto": "Laika znowu siedzi na keyboardzie"
+  },
+  {
+    "ruta": "gratitudes.63.item1",
+    "texto": "Bieg w deszczu — i wcale nie było tak strasznie"
+  },
+  {
+    "ruta": "gratitudes.63.item2",
+    "texto": "Ciepły chleb z piekarni na rogu"
+  },
+  {
+    "ruta": "gratitudes.64.item1",
+    "texto": "Druga część utworu Clair de Lune"
+  },
+  {
+    "ruta": "gratitudes.64.item2",
+    "texto": "Osiem miesięcy z rzędu nauki językowych fiszek"
+  },
+  {
+    "ruta": "gratitudes.64.item3",
+    "texto": "Nowy oolong w rozsądnej cenie"
+  },
+  {
+    "ruta": "gratitudes.65.item1",
+    "texto": "18 km, najdłuższy dystans w planie"
+  },
+  {
+    "ruta": "gratitudes.65.item2",
+    "texto": "Napiwki z tego miesiąca pokryją buty do biegania"
+  },
+  {
+    "ruta": "gratitudes.65.item3",
+    "texto": "Gorący prysznic i cisza"
+  },
+  {
+    "ruta": "gratitudes.66.item1",
+    "texto": "Nowe buty rozchodzone"
+  },
+  {
+    "ruta": "gratitudes.66.item2",
+    "texto": "Kolokwium poszło lepiej, niż się spodziewano"
+  },
+  {
+    "ruta": "gratitudes.66.item3",
+    "texto": "Laika śpiąca u moich stóp"
+  },
+  {
+    "ruta": "gratitudes.67.item1",
+    "texto": "Diagram: studia podyplomowe czy praca — w końcu na papierze"
+  },
+  {
+    "ruta": "gratitudes.67.item2",
+    "texto": "Pewna wykładowczyni opowiedziała, jak wyglądały jej lata w laboratorium"
+  },
+  {
+    "ruta": "gratitudes.68.item1",
+    "texto": "Dzień odpoczynku bez poczucia winy"
+  },
+  {
+    "ruta": "gratitudes.68.item2",
+    "texto": "Science fiction w tanim kinie we wtorek"
+  },
+  {
+    "ruta": "gratitudes.68.item3",
+    "texto": "Kawa z Nico bez patrzenia na zegarek"
+  },
+  {
+    "ruta": "gratitudes.69.item1",
+    "texto": "Tydzień redukcji obciążenia: nogi czują się świeże"
+  },
+  {
+    "ruta": "gratitudes.69.item2",
+    "texto": "Trzy dobre noce z rzędu"
+  },
+  {
+    "ruta": "gratitudes.69.item3",
+    "texto": "Numer startowy odebrany bez kolejek"
+  },
+  {
+    "ruta": "gratitudes.70.item1",
+    "texto": "Numer startowy, żele i budzik gotowe na jutro"
+  },
+  {
+    "ruta": "gratitudes.70.item2",
+    "texto": "Nico mówi, że będzie na mecie"
+  },
+  {
+    "ruta": "gratitudes.71.item1",
+    "texto": "21 km ukończone w 2:04"
+  },
+  {
+    "ruta": "gratitudes.71.item2",
+    "texto": "Dziś chodzę bez kulenia"
+  },
+  {
+    "ruta": "gratitudes.71.item3",
+    "texto": "Ogromne i zasłużone śniadanie"
+  },
+  {
+    "ruta": "gratitudes.72.item2",
+    "texto": "Powrót do pianina ze zmęczonymi rękami, a brzmi tak samo"
+  },
+  {
+    "ruta": "gratitudes.72.item3",
+    "texto": "Kolega zastąpił mnie w niedzielną zmianę"
+  },
+  {
+    "ruta": "gratitudes.73.item1",
+    "texto": "Decyzja o aplikowaniu na studia podyplomowe, bez zamykania drzwi do pracy"
+  },
+  {
+    "ruta": "gratitudes.73.item2",
+    "texto": "List motywacyjny rozpoczęty"
+  },
+  {
+    "ruta": "gratitudes.73.item3",
+    "texto": "Patrzenie na deszcz z ciepłego wnętrza"
+  },
+  {
+    "ruta": "gratitudes.74.item1",
+    "texto": "Pierwszy trening z maratonem już w głowie"
+  },
+  {
+    "ruta": "gratitudes.74.item2",
+    "texto": "Pięć minut rozmowy po angielsku bez zacinania się"
+  },
+  {
+    "ruta": "gratitudes.75.item1",
+    "texto": "Samochód przeszedł przegląd"
+  },
+  {
+    "ruta": "gratitudes.75.item2",
+    "texto": "Zdjęcie Oriona, którym nie wstyd się pochwalić"
+  },
+  {
+    "ruta": "gratitudes.75.item3",
+    "texto": "Laika mrucząca na laptopie"
+  },
+  {
+    "ruta": "gratitudes.76.item1",
+    "texto": "Spokojna zmiana i dwadzieścia stron przeczytanych za barem"
+  },
+  {
+    "ruta": "gratitudes.76.item2",
+    "texto": "Clair de Lune z pamięci do 40 taktu"
+  },
+  {
+    "ruta": "gratitudes.76.item3",
+    "texto": "Gulasz, który starczył na trzy dni"
+  },
+  {
+    "ruta": "gratitudes.77.item1",
+    "texto": "32 km: najdłuższy trening w życiu"
+  },
+  {
+    "ruta": "gratitudes.77.item2",
+    "texto": "Zjedzone jak za trzech, bez wyrzutów sumienia"
+  },
+  {
+    "ruta": "gratitudes.77.item3",
+    "texto": "Nogi w zimnej wodzie, w tle czyjeś pianino"
+  },
+  {
+    "ruta": "gratitudes.78.item1",
+    "texto": "Dziś nic nie boli"
+  },
+  {
+    "ruta": "gratitudes.78.item2",
+    "texto": "Oszczędności z tego miesiąca nietknięte"
+  },
+  {
+    "ruta": "gratitudes.78.item3",
+    "texto": "Tata napisał, żeby zapytać o wyścig"
+  },
+  {
+    "ruta": "gratitudes.79.item1",
+    "texto": "Clair de Lune zagrane w całości, z błędami, ale w całości"
+  },
+  {
+    "ruta": "gratitudes.79.item2",
+    "texto": "Herbata z imbirem w szary dzień"
+  },
+  {
+    "ruta": "gratitudes.80.item1",
+    "texto": "Tydzień redukcji: więcej spać, mniej biegać"
+  },
+  {
+    "ruta": "gratitudes.80.item2",
+    "texto": "Rodzina kupiła bilety, żeby przyjechać"
+  },
+  {
+    "ruta": "gratitudes.80.item3",
+    "texto": "Notatki z semestru w końcu na bieżąco"
+  },
+  {
+    "ruta": "gratitudes.81.item1",
+    "texto": "Strój na maraton przygotowany na krześle"
+  },
+  {
+    "ruta": "gratitudes.81.item2",
+    "texto": "Nerwy, które już umiem oddychaniem uspokoić"
+  },
+  {
+    "ruta": "gratitudes.81.item3",
+    "texto": "Makaron z za dużą ilością sera"
+  },
+  {
+    "ruta": "gratitudes.82.item1",
+    "texto": "Maraton ukończony w 4:12"
+  },
+  {
+    "ruta": "gratitudes.82.item2",
+    "texto": "Rodzina krzycząca na 35 kilometrze"
+  },
+  {
+    "ruta": "gratitudes.82.item3",
+    "texto": "Medal na kuchennym stole"
+  },
+  {
+    "ruta": "gratitudes.83.item1",
+    "texto": "Odkrycie, że schodzenie tyłem po schodach też się liczy"
+  },
+  {
+    "ruta": "gratitudes.83.item2",
+    "texto": "Powrót za bar, i wszyscy pytali o wyścig"
+  },
+  {
+    "ruta": "gratitudes.83.item3",
+    "texto": "Dwanaście godzin snu"
+  },
+  {
+    "ruta": "gratitudes.84.item1",
+    "texto": "Długi spacer bez bólu"
+  },
+  {
+    "ruta": "gratitudes.84.item2",
+    "texto": "Powrót do pianina z myślą o rodzinie"
+  },
+  {
+    "ruta": "gratitudes.85.item1",
+    "texto": "Clair de Lune zagrane w całości dla rodziny"
+  },
+  {
+    "ruta": "gratitudes.85.item2",
+    "texto": "Babcia się rozpłakała, a mnie niewiele brakowało"
+  },
+  {
+    "ruta": "gratitudes.85.item3",
+    "texto": "Siostra nagrała wszystko"
+  },
+  {
+    "ruta": "gratitudes.86.item1",
+    "texto": "67 kg, rok po tych 74"
+  },
+  {
+    "ruta": "gratitudes.86.item2",
+    "texto": "Fundusz awaryjny pokrywa już trzy tygodnie"
+  },
+  {
+    "ruta": "gratitudes.86.item3",
+    "texto": "Loty do Korei już przeglądane"
+  },
+  {
+    "ruta": "gratitudes.87.item1",
+    "texto": "Rok zapisywania bez porzucania"
+  },
+  {
+    "ruta": "gratitudes.87.item2",
+    "texto": "Notes pełen małych rzeczy, które naprawdę się wydarzyły"
+  }
+]

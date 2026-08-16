@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "Nom, émoji, couleur et — facultatif — un objectif hebdomadaire en jours. Ce formulaire suffit pour commencer à le suivre."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "L’objectif hebdomadaire"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "Le piano s’est fixé 4 jours par semaine : la ligne de la semaine se remplit à chaque jour pratiqué, et en haut c’est écrit où tu en es par rapport à l’objectif."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "Enregistrer une séance"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "Des minutes rapides d’un seul toucher, ou le nombre exact ; le projet est facultatif et la note sert à tout ce que tu veux retenir de cette séance."
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "La boîte à idées"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "Écris ce qui te passe par la tête et voilà. Pep a lâché ici ~90 idées dans l’année : de la physique, du café, de l’entraînement. L’étoile marque les favoris."
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "Des remue-méninges par thème"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "Un remue-méninges regroupe tout sous un thème. Cherche ceux de Pep : les noms pour la chatte (Laika a gagné), comment payer le Japon et quoi emporter en voyage."
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "Quand un remue-méninges est mûr, un bouton le transforme en carte mentale et tu continues à le ranger sur la toile."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "Dix formats"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "Chaque format dessine autrement. En bas se trouvent les cartes que Pep a faites dans l’année : sa routine du matin en logigramme, la thermodynamique en arbre, physique et musique en Venn."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "« Ma vie idéale »"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "La PREMIÈRE carte de l’année, du mois 1 : la vie que Pep voulait. Regarde-la tranquillement — presque tout ce qui s’y trouve a fini par arriver."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "Sur la toile : touche un nœud pour le choisir et une deuxième fois pour écrire ; fais-le glisser, pince pour zoomer et ajoute des idées avec la barre du bas."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "Une carte entière, à partir d’un thème"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "Donne un thème à l’IA et elle monte la carte complète, ses nœuds déjà organisés : le point de départ pour un sujet dont tu ne sais pas par où commencer."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "Développer un nœud avec l’IA"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "Une fois dans une carte, n’importe quel nœud se développe : l’IA lui propose des sous-nœuds à partir de ce que tu as déjà écrit autour, sans casser ta structure."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "Huit façons de décider"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "Pep s’en est vraiment servi : un Eisenhower en semaine de partiels, un SWOT au milieu de l’année et une matrice pour choisir un appareil photo."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "Master ou travail ?"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "LA décision restée ouverte à la fin de l’année : chaque côté avec son poids de 1 à 5 et le total en bas. Elle n’est toujours pas tranchée — c’est à ça que ressemble réfléchir pour de vrai."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "Dans les formats par zones, chaque élément vit dans une zone : choisis-la en bas avant d’ajouter, ou fais glisser l’élément vers une autre et il change tout seul."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "La matrice pondérée"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "Ce n’est pas une toile, c’est un tableau : chaque option face à chaque critère, avec un poids de 1 à 5 selon l’importance que ce critère a pour toi. Le total classe les options tout seul."
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "L’horloge"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "Le calendrier n’est pas une pièce : il vit dans l’horloge de la maison, donc il s’ouvre d’où que tu sois."
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "Une semaine réelle"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "Des services au café, des cours de physique, courir au lever du jour, du piano le soir. Chaque bloc est une routine avec son heure et sa couleur ; fais-les glisser pour les déplacer et étire-les pour changer leur durée."
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "Quatre façons de regarder"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "Jour et Semaine montrent la grille par heures ; Mois et Année donnent la vue de l’année entière. Le premier bouton fait double emploi : il dit « Aujourd’hui » et te ramène au présent, ou « Jour » si tu regardes déjà une autre date."
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "D’où sort chaque bloc"
+  }
+]

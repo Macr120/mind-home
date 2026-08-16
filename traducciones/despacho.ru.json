@@ -1,0 +1,386 @@
+[
+  {
+    "ruta": "plantillas.0.notas.0",
+    "texto": "продукты на неделю"
+  },
+  {
+    "ruta": "plantillas.0.notas.1",
+    "texto": "кофе в зёрнах"
+  },
+  {
+    "ruta": "plantillas.0.notas.2",
+    "texto": "тортильи и яйца"
+  },
+  {
+    "ruta": "plantillas.0.notas.3",
+    "texto": "фрукты с рынка"
+  },
+  {
+    "ruta": "plantillas.0.notas.4",
+    "texto": "тако после смены"
+  },
+  {
+    "ruta": "plantillas.0.notas.5",
+    "texto": "рассыпной чай на развес"
+  },
+  {
+    "ruta": "plantillas.0.notas.6",
+    "texto": "овсянка и бананы"
+  },
+  {
+    "ruta": "plantillas.0.notas.7",
+    "texto": "комплексный обед"
+  },
+  {
+    "ruta": "plantillas.0.notas.8",
+    "texto": "хлеб из булочной на углу"
+  },
+  {
+    "ruta": "plantillas.0.notas.9",
+    "texto": "тунец и рис"
+  },
+  {
+    "ruta": "plantillas.1.notas.0",
+    "texto": "пополнение проездного на метро"
+  },
+  {
+    "ruta": "plantillas.1.notas.1",
+    "texto": "бензин для машины"
+  },
+  {
+    "ruta": "plantillas.1.notas.2",
+    "texto": "камера для велосипеда"
+  },
+  {
+    "ruta": "plantillas.1.notas.3",
+    "texto": "цепь и фонари"
+  },
+  {
+    "ruta": "plantillas.1.notas.4",
+    "texto": "парковка в кампусе"
+  },
+  {
+    "ruta": "plantillas.1.notas.5",
+    "texto": "проезд до лаборатории"
+  },
+  {
+    "ruta": "plantillas.1.notas.6",
+    "texto": "смазка для цепи"
+  },
+  {
+    "ruta": "plantillas.1.notas.7",
+    "texto": "платная дорога домой"
+  },
+  {
+    "ruta": "plantillas.2.notas.0",
+    "texto": "мыло и стиральный порошок"
+  },
+  {
+    "ruta": "plantillas.2.notas.1",
+    "texto": "наполнитель для лотка Лайки"
+  },
+  {
+    "ruta": "plantillas.2.notas.2",
+    "texto": "корм для Лайки"
+  },
+  {
+    "ruta": "plantillas.2.notas.3",
+    "texto": "лампочка в гостиную"
+  },
+  {
+    "ruta": "plantillas.2.notas.4",
+    "texto": "ведро и швабра"
+  },
+  {
+    "ruta": "plantillas.2.notas.5",
+    "texto": "газ для дома"
+  },
+  {
+    "ruta": "plantillas.2.notas.6",
+    "texto": "ремонт крана"
+  },
+  {
+    "ruta": "plantillas.2.notas.7",
+    "texto": "новая капельная кофеварка"
+  },
+  {
+    "ruta": "plantillas.3.notas.0",
+    "texto": "билет в кино"
+  },
+  {
+    "ruta": "plantillas.3.notas.1",
+    "texto": "фантастика на большом экране"
+  },
+  {
+    "ruta": "plantillas.3.notas.2",
+    "texto": "кофе с Нурией"
+  },
+  {
+    "ruta": "plantillas.3.notas.3",
+    "texto": "струны для клавиш — нет, ноты"
+  },
+  {
+    "ruta": "plantillas.3.notas.4",
+    "texto": "билет в планетарий"
+  },
+  {
+    "ruta": "plantillas.3.notas.5",
+    "texto": "букинистическая книга"
+  },
+  {
+    "ruta": "plantillas.3.notas.6",
+    "texto": "пиво после экзамена"
+  },
+  {
+    "ruta": "plantillas.3.notas.7",
+    "texto": "поездка в обсерваторию"
+  },
+  {
+    "ruta": "plantillas.4.notas.0",
+    "texto": "приём терапевта"
+  },
+  {
+    "ruta": "plantillas.4.notas.1",
+    "texto": "бинты для колена"
+  },
+  {
+    "ruta": "plantillas.4.notas.2",
+    "texto": "электролиты для забега"
+  },
+  {
+    "ruta": "plantillas.4.notas.3",
+    "texto": "протеин в порошке"
+  },
+  {
+    "ruta": "plantillas.4.notas.4",
+    "texto": "противовоспалительный гель"
+  },
+  {
+    "ruta": "plantillas.4.notas.5",
+    "texto": "компрессионные носки"
+  },
+  {
+    "ruta": "plantillas.4.notas.6",
+    "texto": "анализ крови"
+  },
+  {
+    "ruta": "plantillas.4.notas.7",
+    "texto": "стельки для кроссовок"
+  },
+  {
+    "ruta": "plantillas.5.notas.0",
+    "texto": "тетрадь для лабораторных"
+  },
+  {
+    "ruta": "plantillas.5.notas.1",
+    "texto": "новый калькулятор"
+  },
+  {
+    "ruta": "plantillas.5.notas.2",
+    "texto": "футболка с забега"
+  },
+  {
+    "ruta": "plantillas.5.notas.3",
+    "texto": "дешёвые наушники"
+  },
+  {
+    "ruta": "plantillas.5.notas.4",
+    "texto": "тёплая толстовка"
+  },
+  {
+    "ruta": "plantillas.5.notas.5",
+    "texto": "запасное зарядное устройство"
+  },
+  {
+    "ruta": "plantillas.5.notas.6",
+    "texto": "кабель для камеры"
+  },
+  {
+    "ruta": "plantillas.5.notas.7",
+    "texto": "полотенце для спортзала"
+  },
+  {
+    "ruta": "plantillas.6.notas.0",
+    "texto": "копии для курсовой"
+  },
+  {
+    "ruta": "plantillas.6.notas.1",
+    "texto": "стрижка"
+  },
+  {
+    "ruta": "plantillas.6.notas.2",
+    "texto": "прачечная"
+  },
+  {
+    "ruta": "plantillas.6.notas.3",
+    "texto": "печать постера"
+  },
+  {
+    "ruta": "plantillas.6.notas.4",
+    "texto": "подписка на музыку"
+  },
+  {
+    "ruta": "plantillas.6.notas.5",
+    "texto": "ремонт экрана телефона"
+  },
+  {
+    "ruta": "plantillas.6.notas.6",
+    "texto": "оплата за онлайн-оформление"
+  },
+  {
+    "ruta": "plantillas.6.notas.7",
+    "texto": "чернила для принтера"
+  },
+  {
+    "ruta": "plantillas.7.notas.0",
+    "texto": "чаевые за смену"
+  },
+  {
+    "ruta": "plantillas.7.notas.1",
+    "texto": "пятничная смена"
+  },
+  {
+    "ruta": "plantillas.7.notas.2",
+    "texto": "загруженные выходные"
+  },
+  {
+    "ruta": "plantillas.7.notas.3",
+    "texto": "общая банка для чаевых"
+  },
+  {
+    "ruta": "plantillas.7.notas.4",
+    "texto": "спокойная смена"
+  },
+  {
+    "ruta": "plantillas.7.notas.5",
+    "texto": "утренние постоянные клиенты"
+  },
+  {
+    "ruta": "plantillas.7.notas.6",
+    "texto": "частное мероприятие в кофейне"
+  },
+  {
+    "ruta": "plantillas.7.notas.7",
+    "texto": "вялый понедельник"
+  },
+  {
+    "ruta": "hitos.0.nota",
+    "texto": "Зарплата из кофейни за две недели — основа всего месяца."
+  },
+  {
+    "ruta": "hitos.1.nota",
+    "texto": "Оплата за курс физики — учёба неполный день, а ощущается как полный."
+  },
+  {
+    "ruta": "hitos.2.nota",
+    "texto": "Аренда комнаты — всегда то, что откладываю в первую очередь."
+  },
+  {
+    "ruta": "hitos.3.nota",
+    "texto": "Интернет и свет — без них не сделать ни одного задания."
+  },
+  {
+    "ruta": "hitos.4.nota",
+    "texto": "Тариф на телефон — минимум, которого хватает на карты."
+  },
+  {
+    "ruta": "hitos.5.nota",
+    "texto": "Стриминг: мой кинотеатр научной фантастики прямо дома."
+  },
+  {
+    "ruta": "hitos.6.nota",
+    "texto": "Страховка на машину — скучный платёж, за который однажды скажу себе спасибо."
+  },
+  {
+    "ruta": "hitos.7.nota",
+    "texto": "Первые настоящие кроссовки для бега — больше никаких отговорок."
+  },
+  {
+    "ruta": "hitos.8.nota",
+    "texto": "Регистрация на 5K — первый номер участника в жизни."
+  },
+  {
+    "ruta": "hitos.9.nota",
+    "texto": "Регистрация на 10K — на этот раз без долгих раздумий."
+  },
+  {
+    "ruta": "hitos.10.nota",
+    "texto": "Полумарафон оплачен — колено наконец не подвело."
+  },
+  {
+    "ruta": "hitos.11.nota",
+    "texto": "Оплачены все сорок два километра. Пути назад нет."
+  },
+  {
+    "ruta": "hitos.12.nota",
+    "texto": "Продление паспорта сделало Японию не мечтой, а планом."
+  },
+  {
+    "ruta": "hitos.13.nota",
+    "texto": "Рюкзак для поездки — испытан с полной загрузкой по всей квартире."
+  },
+  {
+    "ruta": "hitos.14.nota",
+    "texto": "Билет куплен — и руки задрожали: это по-настоящему происходит."
+  },
+  {
+    "ruta": "hitos.15.nota",
+    "texto": "JR Pass готов — три недели поездов на моё имя."
+  },
+  {
+    "ruta": "hitos.16.nota",
+    "texto": "Жильё оплачено: Токио, Хаконэ, Киото, Осака, Хиросима."
+  },
+  {
+    "ruta": "hitos.17.nota",
+    "texto": "Трачу накопленное за целый год — рубль за рублём заработанным."
+  },
+  {
+    "ruta": "hitos.18.nota",
+    "texto": "Машина умерла, а с ней — вся моя финансовая подушка."
+  },
+  {
+    "ruta": "hitos.19.nota",
+    "texto": "Физиотерапия для колена — дорого, но альтернативой было сдаться."
+  },
+  {
+    "ruta": "hitos.20.nota",
+    "texto": "Новые шины — старые уже пугали."
+  },
+  {
+    "ruta": "hitos.21.nota",
+    "texto": "Большое ТО машины — обслуживание, выбранное осознанно, а не вынужденно."
+  },
+  {
+    "ruta": "hitos.22.nota",
+    "texto": "Оформление документов на машину — цена любви к старой рухляди."
+  },
+  {
+    "ruta": "hitos.23.nota",
+    "texto": "Годовая премия из кофейни — прямиком в финансовую подушку."
+  },
+  {
+    "ruta": "hitos.24.nota",
+    "texto": "Подарки для семьи — после игры для них на пианино."
+  },
+  {
+    "ruta": "hitos.25.nota",
+    "texto": "Прививки для Лайки — она ничего не смыслит в бюджетах."
+  },
+  {
+    "ruta": "metas.japon",
+    "texto": "Япония, три недели (выполнено)"
+  },
+  {
+    "ruta": "metas.emergencia",
+    "texto": "Финансовая подушка: три месяца"
+  },
+  {
+    "ruta": "metas.inversion",
+    "texto": "CETES: мои первые накопления, которые наконец приносят доход"
+  },
+  {
+    "ruta": "metas.deuda",
+    "texto": "Долг за поломку машины (погашен)"
+  }
+]

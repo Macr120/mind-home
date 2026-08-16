@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "根据体重、身高和活动量，应用会算出你每天需要多少，并把营养素分配好。Pep定的是2400千卡，还有不到一公斤就能到的目标体重。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "第2步：你今天吃了什么"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "早餐、午餐、晚餐，还有随手的加餐：每一条记录都会填满当天的圆环。水分有自己的目标，家判断这一天算不算完成，看的就是它。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "第3步：74公斤，67公斤"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "整整一年的曲线，受伤那个月是一段平台期，日本那趟又长回一公斤。下面写着你现在的速度，以及照这样下去什么时候能到。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "一年的颜色"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "绿色是达标的一天，琥珀色是稍微超了一点，红色是完全超了出去。旅行那个月一眼就能看出来。点任意一天都能打开。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "饮食方案，不是杂志上的减肥法"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "这里说的饮食方案，是一份装着食谱的计划。Pep自己存了两份：马拉松那一周，还有从日本回来之后清淡的那份，此外还有应用自带的。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "食谱"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "每份食谱都保存着食材、步骤和每份的营养素，还能按文件夹整理。在一份食谱里可以直接记录这顿饭，或者把食材送到购物清单。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "让AI给你食谱"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "写下你想做什么，AI就会连菜品照片一起把整份食谱写好。这是AI功能：在编辑器 › 设置 › 账户中开启。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "从食谱到购物清单"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "“创建清单”会把好几份食谱里缺的东西凑成一次采购：每样食材都会自己猜出分类（果蔬、乳制品……），也可以改。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "保存的清单"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "每份清单都会记下还要买的和家里已经有的。填上价格之后，这笔账单就能送到书房的支出里。"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "分阶段的体重目标"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "这是AI功能：在编辑器 › 设置 › 账户中开启。不开也一样能建立和编辑目标，只是要手动来。"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "一百分，三个部分"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "时长占五十分，就寝时间的规律占三十分，中断次数占二十分。某一天睡得多，补不回其他日子乱糟糟的就寝时间。"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "最近一周"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "七根条形对着你的睡眠目标线。这一周有没有睡够，看一眼就知道。"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "一整年"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "历史记录按年、月、周保存。往下翻到Pep最初的几个月，和最后几个月比一比：那时候要过了凌晨一点才躺下，只睡五个小时。"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "从十一点半到七点"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "拖动条形的两端，就能挪动就寝时间和起床时间；上方的天空也会跟着变。这个时间块也会出现在日历里，跨过午夜。"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "闹钟与提醒"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "你可以挑闹钟铃声，让它在该睡觉时提醒你，也可以提前一小时提醒你放下屏幕。这些提醒都是可选的：这里默认关着。"
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "记录一晚"
+  }
+]

@@ -1,0 +1,896 @@
+[
+  {
+    "clave": "ascensos.sinAccesoSotano",
+    "es": "Excava un cuarto de sótano para colocar la escalera marina.",
+    "en": "Dig a basement room to place the pool ladder."
+  },
+  {
+    "clave": "ascensos.escaleraMarina",
+    "es": "Escalera marina",
+    "en": "Pool ladder"
+  },
+  {
+    "clave": "ascensos.hintSotano",
+    "es": "Arrástrala en el mapa 3D para moverla a otra pared del pozo. El personaje baja y sube caminando sobre la alberca.",
+    "en": "Drag it in the 3D map to move it to another wall of the pit. The character walks down into and up out of the pool."
+  },
+  {
+    "clave": "planos.cerrar",
+    "en": "Exit floor plans"
+  },
+  {
+    "clave": "planos.capa.titulo",
+    "en": "Layer"
+  },
+  {
+    "clave": "planos.capa.cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "planos.capa.paredes",
+    "en": "Walls"
+  },
+  {
+    "clave": "planos.capa.pisos",
+    "en": "Floors"
+  },
+  {
+    "clave": "planos.capa.techos",
+    "en": "Roofs"
+  },
+  {
+    "clave": "planos.herr.seleccionar",
+    "en": "Select"
+  },
+  {
+    "clave": "planos.herr.muro",
+    "en": "Walls"
+  },
+  {
+    "clave": "planos.herr.puerta",
+    "en": "Doors"
+  },
+  {
+    "clave": "planos.herr.ventana",
+    "en": "Windows"
+  },
+  {
+    "clave": "planos.herr.mover",
+    "es": "Mover",
+    "en": "Move"
+  },
+  {
+    "clave": "planos.herr.agrupar",
+    "en": "Group"
+  },
+  {
+    "clave": "planos.herr.borrar",
+    "en": "Erase"
+  },
+  {
+    "clave": "planos.herr.expandir",
+    "es": "Expandir",
+    "en": "Expand"
+  },
+  {
+    "clave": "planos.muro.pared",
+    "en": "Wall"
+  },
+  {
+    "clave": "planos.muro.puerta",
+    "en": "Door"
+  },
+  {
+    "clave": "planos.muro.abierto",
+    "en": "Open"
+  },
+  {
+    "clave": "planos.accion.regresar",
+    "en": "Back"
+  },
+  {
+    "clave": "planos.accion.cambios",
+    "en": "Clear"
+  },
+  {
+    "clave": "planos.accion.confirmar",
+    "en": "Confirm"
+  },
+  {
+    "clave": "planos.volverSecciones",
+    "en": "Editor sections"
+  },
+  {
+    "clave": "planos.ayuda",
+    "es": "Elige una forma abajo a la izquierda y toca el plano o el mapa 3D para dibujar cuartos.",
+    "en": "Select a room, edge or cell on the sketch. Switch layers above to edit walls, floors or roofs."
+  },
+  {
+    "clave": "planos.props.paredes",
+    "es": "Edita la arista seleccionada en el croquis.",
+    "en": "Edit the selected edge on the sketch."
+  },
+  {
+    "clave": "planos.props.techo",
+    "en": "Use + and − on the roof edge to extend or retract full lines."
+  },
+  {
+    "clave": "planos.props.zonaPiso",
+    "en": "Zone floor material: per-cell coming soon."
+  },
+  {
+    "clave": "planos.nombre",
+    "es": "Nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "planos.forma",
+    "es": "Forma",
+    "en": "Shape"
+  },
+  {
+    "clave": "planos.formaHint",
+    "es": "Usa − en celdas del borde para quitar parte del footprint:",
+    "en": "Use − on edge cells to remove part of the footprint:"
+  },
+  {
+    "clave": "planos.quitarCelda",
+    "es": "Quitar celda",
+    "en": "Remove cell"
+  },
+  {
+    "clave": "planos.celdaVacia",
+    "es": "Celda",
+    "en": "Cell"
+  },
+  {
+    "clave": "planos.colocarApp",
+    "es": "Colocar app",
+    "en": "Place app"
+  },
+  {
+    "clave": "planos.nuevaZona",
+    "en": "New basic room"
+  },
+  {
+    "clave": "planos.nombreZona",
+    "es": "Nombre del cuarto",
+    "en": "Room name"
+  },
+  {
+    "clave": "planos.extenderCuarto",
+    "en": "Extend existing room"
+  },
+  {
+    "clave": "planos.limpiar",
+    "en": "Clear selection"
+  },
+  {
+    "clave": "planos.appsFuera",
+    "es": "Apps fuera del mapa",
+    "en": "Apps off the map"
+  },
+  {
+    "clave": "planos.eliminarZona",
+    "es": "Eliminar cuarto básico",
+    "en": "Delete basic room"
+  },
+  {
+    "clave": "planos.celdas",
+    "es": "celdas",
+    "en": "cells"
+  },
+  {
+    "clave": "planos.menu.cielo",
+    "es": "Fondo de cielo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "planos.menu.cieloTitulo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "planos.menu.cieloDesc",
+    "en": "Changes the 3D sky and the plan margin."
+  },
+  {
+    "clave": "planos.menu.cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "planos.menu.superficie",
+    "es": "Superficie del mapa",
+    "en": "Map surface"
+  },
+  {
+    "clave": "planos.superficie.titulo",
+    "es": "Superficie del mapa",
+    "en": "Map surface"
+  },
+  {
+    "clave": "planos.superficie.desc",
+    "en": "Affects the plan paper, grid lines and 3D map base."
+  },
+  {
+    "clave": "planos.superficie.relleno",
+    "es": "Relleno del plano",
+    "en": "Plan fill"
+  },
+  {
+    "clave": "planos.superficie.color",
+    "en": "Color"
+  },
+  {
+    "clave": "planos.superficie.foto",
+    "es": "Foto de fondo",
+    "en": "Background photo"
+  },
+  {
+    "clave": "planos.superficie.subir",
+    "es": "+ Subir",
+    "en": "+ Upload"
+  },
+  {
+    "clave": "planos.superficie.usar",
+    "es": "Usar en plano",
+    "en": "Use on plan"
+  },
+  {
+    "clave": "planos.superficie.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "planos.superficie.sinFoto",
+    "es": "Sube una imagen para el papel del croquis y la base 3D.",
+    "en": "Upload an image for the plan paper and 3D base."
+  },
+  {
+    "clave": "planos.superficie.rejilla",
+    "en": "Grid"
+  },
+  {
+    "clave": "planos.superficie.tamCelda",
+    "es": "Tamaño de celda",
+    "en": "Cell size"
+  },
+  {
+    "clave": "planos.superficie.tamCeldaHint",
+    "es": "Los cuartos, muros, techos y canchas se escalan con la celda; los personajes y demás objetos conservan su tamaño.",
+    "en": "Rooms, walls, roofs and courts scale with the cell; characters and other objects keep their size."
+  },
+  {
+    "clave": "planos.superficie.rejillaFuerte",
+    "es": "Líneas principales",
+    "en": "Main lines"
+  },
+  {
+    "clave": "planos.superficie.rejillaSuave",
+    "es": "Líneas secundarias",
+    "en": "Fine lines"
+  },
+  {
+    "clave": "planos.superficie.borde",
+    "en": "Paper border"
+  },
+  {
+    "clave": "planos.superficie.restaurar",
+    "es": "Restaurar valores por defecto",
+    "en": "Restore defaults"
+  },
+  {
+    "clave": "planos.zoom.encajar",
+    "es": "Encajar plano en pantalla",
+    "en": "Fit plan to screen"
+  },
+  {
+    "clave": "planos.zoom.ayuda",
+    "en": "Wheel: zoom · Shift/Alt + drag: pan · Double-click margin: fit"
+  },
+  {
+    "clave": "editor.cuarto.apariencia",
+    "en": "Room appearance"
+  },
+  {
+    "clave": "editor.cuarto.piso",
+    "en": "Room floor"
+  },
+  {
+    "clave": "editor.cuarto.forma",
+    "en": "Room shape"
+  },
+  {
+    "clave": "editor.cuarto.paredes",
+    "en": "Walls and doors"
+  },
+  {
+    "clave": "editor.cuarto.objetos",
+    "en": "Room objects"
+  },
+  {
+    "clave": "editor.avatar.titulo",
+    "en": "Character avatar"
+  },
+  {
+    "clave": "editor.avatar.cabeza",
+    "en": "🟡 Head"
+  },
+  {
+    "clave": "editor.avatar.torso",
+    "en": "🔴 Torso"
+  },
+  {
+    "clave": "editor.avatar.piernas",
+    "en": "🔵 Legs"
+  },
+  {
+    "clave": "editor.avatar.reset",
+    "en": "↺ Restore original avatar"
+  },
+  {
+    "clave": "editor.avatar.forma3d",
+    "en": "Custom 3D shape"
+  },
+  {
+    "clave": "editor.avatar.formaPh",
+    "en": "Describe it: \"blue robot with red cape\""
+  },
+  {
+    "clave": "editor.avatar.formaSinIa",
+    "en": "Describing the shape requires AI (pick a model in the bar)"
+  },
+  {
+    "clave": "editor.avatar.formaGenerar",
+    "en": "Create the shape with AI"
+  },
+  {
+    "clave": "editor.avatar.formaError",
+    "en": "I couldn't create the shape. Check the AI model and try again."
+  },
+  {
+    "clave": "editor.avatar.subirGlb",
+    "en": "Upload .glb model"
+  },
+  {
+    "clave": "editor.avatar.quitarGlb",
+    "en": "Remove uploaded model"
+  },
+  {
+    "clave": "editor.avatar.quitarFormaIa",
+    "en": "Remove AI-created shape"
+  },
+  {
+    "clave": "editor.avatar.usandoGlb",
+    "en": "Using your own .glb model. Colors do not apply to this model."
+  },
+  {
+    "clave": "editor.avatar.usandoIa",
+    "en": "Using an AI-created shape. Colors do not apply to this shape."
+  },
+  {
+    "clave": "editor.tema.titulo",
+    "es": "Tema de la casa",
+    "en": "House theme"
+  },
+  {
+    "clave": "editor.tema.desc",
+    "es": "Aplica estilo a cuartos, fondo, piso y techo. Activa microanimaciones en el cielo.",
+    "en": "Applies style to rooms, background, floor and roof. Activates microanimations in the sky."
+  },
+  {
+    "clave": "editor.tema.sin",
+    "es": "Sin tema",
+    "en": "No theme"
+  },
+  {
+    "clave": "editor.tema.misTemas",
+    "es": "Mis temas",
+    "en": "My themes"
+  },
+  {
+    "clave": "editor.tema.guardar",
+    "es": "+ Guardar el actual",
+    "en": "+ Save the current one"
+  },
+  {
+    "clave": "editor.tema.guardarTitulo",
+    "es": "Guardar este tema",
+    "en": "Save this theme"
+  },
+  {
+    "clave": "editor.tema.guardarMensaje",
+    "es": "Se guarda el tema tal como lo tienes ahora: colores, cascarón, luz, niebla, estilo y fondo de cielo.",
+    "en": "It saves the theme exactly as you have it now: colours, shell, light, fog, style and sky background."
+  },
+  {
+    "clave": "editor.tema.guardarOk",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "editor.tema.sinTemasPropios",
+    "es": "Guarda el tema que tienes puesto para volver a ponerlo cuando quieras.",
+    "en": "Save the theme you have on to put it back whenever you want."
+  },
+  {
+    "clave": "editor.tema.sinTemaParaGuardar",
+    "es": "Elige un tema y personalízalo: después podrás guardarlo aquí con nombre.",
+    "en": "Pick a theme and customise it: you will then be able to save it here with a name."
+  },
+  {
+    "clave": "editor.tema.usar",
+    "es": "Usar",
+    "en": "Use"
+  },
+  {
+    "clave": "editor.tema.borrarPropio",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "editor.tema.borrarTitulo",
+    "es": "Eliminar el tema",
+    "en": "Delete the theme"
+  },
+  {
+    "clave": "editor.tema.borrarOk",
+    "es": "Eliminar",
+    "en": "Delete"
+  },
+  {
+    "clave": "editor.cuartos.titulo",
+    "en": "House rooms"
+  },
+  {
+    "clave": "editor.cuartos.desc",
+    "en": "Custom colors and names. Changes appear in the 3D house instantly."
+  },
+  {
+    "clave": "editor.cuartos.editado",
+    "en": "edited"
+  },
+  {
+    "clave": "editor.cuartos.color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.cuartos.nombre",
+    "en": "Custom name"
+  },
+  {
+    "clave": "editor.cuartos.reset",
+    "en": "↺ Reset"
+  },
+  {
+    "clave": "editor.fondo.titulo",
+    "es": "Fondo de cielo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "editor.fondo.desc",
+    "es": "Se elige automáticamente al cambiar el tema. También puedes cambiarlo a mano.",
+    "en": "Automatically chosen when changing theme. You can also change it manually."
+  },
+  {
+    "clave": "editor.fondo.anim",
+    "es": "Microanimaciones",
+    "en": "Microanimations"
+  },
+  {
+    "clave": "editor.fondo.animDesc",
+    "es": "Elige cuáles quieres en el cielo o déjalo en automático",
+    "en": "Pick which ones you want in the sky, or leave it automatic"
+  },
+  {
+    "clave": "editor.fondo.animIntensidad",
+    "es": "Intensidad",
+    "en": "Intensity"
+  },
+  {
+    "clave": "editor.fondo.animAuto",
+    "es": "Automático",
+    "en": "Automatic"
+  },
+  {
+    "clave": "editor.fondo.animTipo",
+    "es": "Tipo de animación",
+    "en": "Animation type"
+  },
+  {
+    "clave": "anim.nubes",
+    "en": "Clouds"
+  },
+  {
+    "clave": "anim.aves",
+    "en": "Birds"
+  },
+  {
+    "clave": "anim.copos",
+    "en": "Snow"
+  },
+  {
+    "clave": "anim.cometas",
+    "en": "Comets"
+  },
+  {
+    "clave": "anim.fugaz",
+    "en": "Shooting stars"
+  },
+  {
+    "clave": "anim.polvo",
+    "en": "Glowing dust"
+  },
+  {
+    "clave": "anim.dragones",
+    "en": "Dragons"
+  },
+  {
+    "clave": "anim.murcielagos",
+    "en": "Bats"
+  },
+  {
+    "clave": "anim.bruma",
+    "en": "Mist"
+  },
+  {
+    "clave": "anim.corazones",
+    "en": "Hearts"
+  },
+  {
+    "clave": "anim.rayas",
+    "en": "Neon streaks"
+  },
+  {
+    "clave": "editor.fondo.misImagenes",
+    "es": "Mis imágenes",
+    "en": "My images"
+  },
+  {
+    "clave": "editor.fondo.subir",
+    "es": "+ Subir imagen",
+    "en": "+ Upload image"
+  },
+  {
+    "clave": "editor.fondo.sinImagenes",
+    "es": "Sube una imagen para usarla como fondo del cielo.",
+    "en": "Upload an image to use as the sky background."
+  },
+  {
+    "clave": "editor.fondo.presets",
+    "es": "Fondos predefinidos",
+    "en": "Preset backgrounds"
+  },
+  {
+    "clave": "editor.fondo.previewTitulo",
+    "es": "Ajusta el fondo — arrastra la imagen; el marco es tu pantalla",
+    "en": "Preview — drag to frame"
+  },
+  {
+    "clave": "editor.fondo.previewAria",
+    "en": "Background preview"
+  },
+  {
+    "clave": "editor.fondo.previewMapa",
+    "en": "Map over sky"
+  },
+  {
+    "clave": "editor.fondo.nombre",
+    "es": "Nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "editor.fondo.zoom",
+    "es": "Zoom",
+    "en": "Zoom"
+  },
+  {
+    "clave": "editor.fondo.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "editor.fondo.guardar",
+    "es": "Guardar fondo",
+    "en": "Save background"
+  },
+  {
+    "clave": "editor.fondo.guardando",
+    "es": "Guardando…",
+    "en": "Saving…"
+  },
+  {
+    "clave": "editor.fondo.ajustar",
+    "es": "Ajustar",
+    "en": "Adjust"
+  },
+  {
+    "clave": "editor.fondo.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "editor.fondo.confirmBorrar",
+    "es": "¿Eliminar este fondo guardado?",
+    "en": "Delete this saved background?"
+  },
+  {
+    "clave": "editor.piso.desc",
+    "en": "Choose a material or leave «Custom» to use just a color."
+  },
+  {
+    "clave": "editor.piso.personalizado",
+    "en": "Custom"
+  },
+  {
+    "clave": "editor.pisoCuarto.desc",
+    "en": "Floor material inside the room. «Default» follows the room color."
+  },
+  {
+    "clave": "editor.pisoCuarto.defecto",
+    "en": "Default"
+  },
+  {
+    "clave": "editor.techo.titulo",
+    "en": "House roofs"
+  },
+  {
+    "clave": "editor.techo.desc",
+    "en": "Enable the 🏠 view to see them. Choosing a theme applies its corresponding roof."
+  },
+  {
+    "clave": "editor.techo.genericos",
+    "en": "Generic"
+  },
+  {
+    "clave": "editor.techo.porTema",
+    "en": "By theme"
+  },
+  {
+    "clave": "editor.techo.porCuarto",
+    "en": "By room"
+  },
+  {
+    "clave": "editor.perfil.titulo",
+    "en": "👤 Your profile"
+  },
+  {
+    "clave": "editor.perfil.emoji",
+    "en": "Emoji"
+  },
+  {
+    "clave": "editor.perfil.nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "editor.perfil.tuNombre",
+    "en": "Your name"
+  },
+  {
+    "clave": "editor.perfil.ph.nombre",
+    "en": "What is your name?"
+  },
+  {
+    "clave": "editor.perfil.nacimiento",
+    "en": "Birthday"
+  },
+  {
+    "clave": "editor.perfil.bio",
+    "en": "Bio"
+  },
+  {
+    "clave": "editor.perfil.ph.bio",
+    "en": "A sentence about you..."
+  },
+  {
+    "clave": "editor.perfil.guardar",
+    "en": "Save profile"
+  },
+  {
+    "clave": "editor.perfil.guardado",
+    "en": "✓ Saved"
+  },
+  {
+    "clave": "editor.perfil.edad",
+    "en": "{n} years old"
+  },
+  {
+    "clave": "editor.room.color",
+    "en": "Floor color"
+  },
+  {
+    "clave": "editor.room.nombre",
+    "en": "Custom name"
+  },
+  {
+    "clave": "editor.room.aplicar",
+    "en": "Apply"
+  },
+  {
+    "clave": "editor.room.reset",
+    "en": "↺ Restore original appearance"
+  },
+  {
+    "clave": "editor.inv.titulo",
+    "en": "Full inventory"
+  },
+  {
+    "clave": "editor.inv.desc",
+    "en": "Choose an object: it appears on the map and you drag it wherever you want."
+  },
+  {
+    "clave": "editor.inv.deco",
+    "en": "🎨 Generic decoration"
+  },
+  {
+    "clave": "editor.inv.mapa",
+    "en": "On the map ({n})"
+  },
+  {
+    "clave": "editor.inv.quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "editor.inv.desagrupar",
+    "en": "Ungroup"
+  },
+  {
+    "clave": "editor.inv.agrupar",
+    "en": "🔗 Group selected ({n})"
+  },
+  {
+    "clave": "editor.obj.desc",
+    "en": "Drag objects in the 3D scene. Mark ★ for the room entry point."
+  },
+  {
+    "clave": "editor.obj.cuarto",
+    "en": "Room"
+  },
+  {
+    "clave": "editor.obj.marcarPrincipal",
+    "en": "Set as main object"
+  },
+  {
+    "clave": "editor.obj.esPrincipal",
+    "en": "Main object (room entry point)"
+  },
+  {
+    "clave": "editor.obj.ultimoObjeto",
+    "en": "At least one object must remain in the room"
+  },
+  {
+    "clave": "editor.obj.vacio",
+    "en": "No objects yet. Add one above."
+  },
+  {
+    "clave": "editor.obj.cargando",
+    "en": "Loading…"
+  },
+  {
+    "clave": "editor.obj.agregar",
+    "en": "Add to {room}"
+  },
+  {
+    "clave": "editor.obj.deco",
+    "en": "Generic decoration"
+  },
+  {
+    "clave": "editor.obj.colocados",
+    "en": "Room objects ({n})"
+  },
+  {
+    "clave": "editor.obj.agrupar",
+    "en": "Group selected ({n})"
+  },
+  {
+    "clave": "editor.obj.quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "editor.obj.objeto",
+    "en": "Object"
+  },
+  {
+    "clave": "editor.sec.reordenar",
+    "es": "Arrastrar para reordenar",
+    "en": "Drag to reorder"
+  },
+  {
+    "clave": "editor.sec.reordenarSec",
+    "en": "Reorder {titulo}"
+  },
+  {
+    "clave": "editor.sec.contraer",
+    "en": "Collapse {titulo}"
+  },
+  {
+    "clave": "editor.sec.expandir",
+    "en": "Expand {titulo}"
+  },
+  {
+    "clave": "editor.sec.contraerMapa",
+    "es": "Contraer Mapa",
+    "en": "Collapse Map"
+  },
+  {
+    "clave": "editor.sec.expandirMapa",
+    "es": "Expandir Mapa",
+    "en": "Expand Map"
+  },
+  {
+    "clave": "config.grupo.interfaz",
+    "es": "Interfaz e idioma",
+    "en": "Interface and language"
+  },
+  {
+    "clave": "editor.forma.desc",
+    "en": "Use the + and − buttons on the room in the scene to extend or trim it cell by cell (it can grow to cover the map or take L shapes)."
+  },
+  {
+    "clave": "editor.anim.titulo",
+    "es": "Animación",
+    "en": "Animation"
+  },
+  {
+    "clave": "editor.anim.preset",
+    "es": "Movimiento",
+    "en": "Motion"
+  },
+  {
+    "clave": "editor.anim.ninguno",
+    "es": "Sin movimiento",
+    "en": "No motion"
+  },
+  {
+    "clave": "editor.anim.p.girar",
+    "en": "Spin"
+  },
+  {
+    "clave": "editor.anim.p.flotar",
+    "en": "Float"
+  },
+  {
+    "clave": "editor.anim.p.pulsar",
+    "en": "Pulse"
+  },
+  {
+    "clave": "editor.anim.p.mecerse",
+    "en": "Sway"
+  },
+  {
+    "clave": "editor.anim.p.rebotar",
+    "en": "Bounce"
+  },
+  {
+    "clave": "editor.anim.p.temblar",
+    "en": "Shake"
+  },
+  {
+    "clave": "editor.anim.p.vida",
+    "en": "Bring to life"
+  },
+  {
+    "clave": "editor.hist.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
+  },
+  {
+    "clave": "editor.hist.rehacer",
+    "es": "Rehacer",
+    "en": "Redo"
+  },
+  {
+    "clave": "editor.anim.velocidad",
+    "es": "Velocidad",
+    "en": "Speed"
+  },
+  {
+    "clave": "editor.anim.intensidad",
+    "es": "Intensidad",
+    "en": "Intensity"
+  },
+  {
+    "clave": "editor.anim.zona",
+    "es": "Zona de paseo",
+    "en": "Roaming area"
+  }
+]

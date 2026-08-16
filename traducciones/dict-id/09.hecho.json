@@ -1,0 +1,522 @@
+[
+  {
+    "clave": "biblioteca.enc.borrarMsg",
+    "texto": "Entrimu TIDAK terhapus: tetap lepas di bidangnya."
+  },
+  {
+    "clave": "biblioteca.enc.borrarMsgHijos",
+    "texto": "Semua yang ada di bawahnya ikut hilang. Entrimu TIDAK terhapus: tetap lepas di bidangnya."
+  },
+  {
+    "clave": "biblioteca.enc.subir",
+    "texto": "Pindah ke atas"
+  },
+  {
+    "clave": "biblioteca.enc.bajar",
+    "texto": "Pindah ke bawah"
+  },
+  {
+    "clave": "biblioteca.enc.nuevaRama",
+    "texto": "Cabang baru"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoTema",
+    "texto": "Topik baru"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoCampo",
+    "texto": "Bidang baru"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoCampoMsg",
+    "texto": "Bidang pengetahuan milikmu sendiri, di samping yang sudah ada dari awal."
+  },
+  {
+    "clave": "biblioteca.enc.dentroDe",
+    "texto": "Di dalam “{padre}”"
+  },
+  {
+    "clave": "biblioteca.enc.crear",
+    "texto": "Buat"
+  },
+  {
+    "clave": "biblioteca.ent.mover",
+    "texto": "Pindahkan ke topik lain"
+  },
+  {
+    "clave": "biblioteca.ent.ramificar",
+    "texto": "Buat cabang"
+  },
+  {
+    "clave": "biblioteca.ent.ramificarTip",
+    "texto": "Buat cabang: subtopik baru di bawah “{n}”"
+  },
+  {
+    "clave": "biblioteca.ent.ramificarSinNodo",
+    "texto": "Entri ini belum punya tempat di pohon"
+  },
+  {
+    "clave": "biblioteca.mover.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "biblioteca.mover.notaEntrada",
+    "texto": "Kalau kamu pilih bidang, entrinya tetap lepas di situ, tanpa topik."
+  },
+  {
+    "clave": "biblioteca.r.arbol",
+    "texto": "{n} topik yang terbuka lewat obrolanmu"
+  },
+  {
+    "clave": "biblioteca.est.titulo",
+    "texto": "Sesi belajar"
+  },
+  {
+    "clave": "biblioteca.est.personalizada",
+    "texto": "Durasi khusus (menit)"
+  },
+  {
+    "clave": "biblioteca.est.entrada",
+    "texto": "Entri (opsional)"
+  },
+  {
+    "clave": "biblioteca.est.libre",
+    "texto": "— Belajar bebas —"
+  },
+  {
+    "clave": "biblioteca.est.iniciar",
+    "texto": "Mulai {n} mnt"
+  },
+  {
+    "clave": "biblioteca.est.nota",
+    "texto": "Timer tetap berjalan meski kamu menutup ruangan."
+  },
+  {
+    "clave": "biblioteca.est.sesionDe",
+    "texto": "Sesi {n} mnt — otomatis tercatat saat selesai"
+  },
+  {
+    "clave": "biblioteca.est.cancelar",
+    "texto": "Akhiri lebih awal"
+  },
+  {
+    "clave": "biblioteca.est.cancelarTip",
+    "texto": "Menit penuh yang sudah berlalu tetap dihitung"
+  },
+  {
+    "clave": "biblioteca.est.fin",
+    "texto": "Sesi selesai! +{n} mnt di {campo}"
+  },
+  {
+    "clave": "biblioteca.est.porCampo",
+    "texto": "Waktu per bidang"
+  },
+  {
+    "clave": "biblioteca.est.historial",
+    "texto": "Sesi terbaru"
+  },
+  {
+    "clave": "biblioteca.est.sinSesiones",
+    "texto": "Kamu belum pernah belajar pakai timer."
+  },
+  {
+    "clave": "biblioteca.est.modoSimple",
+    "texto": "Sederhana"
+  },
+  {
+    "clave": "biblioteca.est.modoPomodoro",
+    "texto": "Pomodoro"
+  },
+  {
+    "clave": "biblioteca.est.pomodoroDesc",
+    "texto": "Kamu bekerja dalam beberapa tahap dan istirahat di antaranya; setelah beberapa tahap, ada istirahat panjang. Setiap tahap fokus tercatat sendiri."
+  },
+  {
+    "clave": "biblioteca.est.faseTrabajo",
+    "texto": "Fokus"
+  },
+  {
+    "clave": "biblioteca.est.faseCorta",
+    "texto": "Istirahat"
+  },
+  {
+    "clave": "biblioteca.est.faseLarga",
+    "texto": "Istirahat panjang"
+  },
+  {
+    "clave": "biblioteca.est.pomodoroNota",
+    "texto": "Setiap tahap fokus tercatat saat berakhir; istirahat tidak dihitung."
+  },
+  {
+    "clave": "biblioteca.est.tandaTip",
+    "texto": "{n} tahap fokus selesai"
+  },
+  {
+    "clave": "biblioteca.est.pausar",
+    "texto": "Jeda"
+  },
+  {
+    "clave": "biblioteca.est.reanudar",
+    "texto": "Lanjutkan"
+  },
+  {
+    "clave": "biblioteca.est.saltar",
+    "texto": "Lewati istirahat"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.clasico",
+    "texto": "Klasik"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.profundo",
+    "texto": "Mendalam"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.corto",
+    "texto": "Singkat"
+  },
+  {
+    "clave": "biblioteca.est.trabajoMin",
+    "texto": "Fokus"
+  },
+  {
+    "clave": "biblioteca.est.cortoMin",
+    "texto": "Istirahat"
+  },
+  {
+    "clave": "biblioteca.est.largoMin",
+    "texto": "Istirahat panjang"
+  },
+  {
+    "clave": "biblioteca.est.tandas",
+    "texto": "Tahap"
+  },
+  {
+    "clave": "biblioteca.est.largoCada",
+    "texto": "Istirahat panjang setiap {n} tahap · 0 tahap = tanpa batas, sampai kamu berhenti"
+  },
+  {
+    "clave": "biblioteca.heatmap.anual",
+    "texto": "Setahun terakhir belajar"
+  },
+  {
+    "clave": "biblioteca.heatmap.dias",
+    "texto": "hari aktif"
+  },
+  {
+    "clave": "biblioteca.heatmap.menos",
+    "texto": "sedikit"
+  },
+  {
+    "clave": "biblioteca.heatmap.mas",
+    "texto": "banyak"
+  },
+  {
+    "clave": "biblioteca.r.titulo",
+    "texto": "Ensiklopedia pribadimu"
+  },
+  {
+    "clave": "biblioteca.r.entradas",
+    "texto": "{n} entri"
+  },
+  {
+    "clave": "biblioteca.r.cobertura",
+    "texto": "{c}/{total} bidang punya entri · {t}/{temas} topik indeks"
+  },
+  {
+    "clave": "biblioteca.r.charlas",
+    "texto": "Obrolan dengan Sang Bijak"
+  },
+  {
+    "clave": "biblioteca.r.estudioTotal",
+    "texto": "Total belajar"
+  },
+  {
+    "clave": "biblioteca.r.semana",
+    "texto": "Minggu ini"
+  },
+  {
+    "clave": "biblioteca.r.racha",
+    "texto": "Runtunan belajar"
+  },
+  {
+    "clave": "biblioteca.r.rachaDias",
+    "texto": "{n} hari"
+  },
+  {
+    "clave": "biblioteca.r.porCampo",
+    "texto": "Entri per bidang"
+  },
+  {
+    "clave": "biblioteca.r.vacio",
+    "texto": "Perpustakaanmu menunggu: mengobrollah dengan Sang Bijak, sarikan entri, dan belajar pakai timer supaya grafik ini makin tumbuh."
+  },
+  {
+    "clave": "idiomas.desc",
+    "texto": "Sekolah bahasamu: mengobrollah dengan tutormu, kumpulkan kosakata dan kuasai dengan repetisi berjarak, latihan, dan silabus berjenjang."
+  },
+  {
+    "clave": "idiomas.onboarding",
+    "texto": "Kamu mau belajar bahasa apa?"
+  },
+  {
+    "clave": "idiomas.tab.charlas",
+    "texto": "Obrolan"
+  },
+  {
+    "clave": "idiomas.tab.repaso",
+    "texto": "Tinjauan"
+  },
+  {
+    "clave": "idiomas.tab.temario",
+    "texto": "Silabus"
+  },
+  {
+    "clave": "idiomas.tab.progreso",
+    "texto": "Progres"
+  },
+  {
+    "clave": "idiomas.sinIA",
+    "texto": "Atur AI kamu (Pengaturan → Kecerdasan buatan) untuk mengobrol dengan tutormu. Sementara itu, kosakata, tinjauan, dan latihan tetap berjalan tanpanya."
+  },
+  {
+    "clave": "idiomas.sinIA.corto",
+    "texto": "Atur AI kamu di Pengaturan"
+  },
+  {
+    "clave": "idiomas.sel.otro",
+    "texto": "Lainnya…"
+  },
+  {
+    "clave": "idiomas.sel.nombreOtro",
+    "texto": "Nama bahasa"
+  },
+  {
+    "clave": "idiomas.sel.codigoOtro",
+    "texto": "Kode suara (opsional)"
+  },
+  {
+    "clave": "idiomas.sel.nivel",
+    "texto": "Level kamu saat ini"
+  },
+  {
+    "clave": "idiomas.sel.nivelTip",
+    "texto": "Tutor dan kartu yang dibuat menyesuaikan dengan level ini."
+  },
+  {
+    "clave": "idiomas.sel.duplicado",
+    "texto": "Kamu sudah punya bahasa dengan kode itu."
+  },
+  {
+    "clave": "idiomas.sel.empezar",
+    "texto": "Mulai belajar"
+  },
+  {
+    "clave": "idiomas.sel.confirmarBorrar",
+    "texto": "{tarjetas} kartu dan {charlas} obrolan {idioma} akan terhapus. Tidak bisa dikembalikan."
+  },
+  {
+    "clave": "idiomas.sel.siBorrar",
+    "texto": "Hapus semua"
+  },
+  {
+    "clave": "idiomas.sel.borrar",
+    "texto": "Tinggalkan bahasa ini"
+  },
+  {
+    "clave": "idiomas.sel.configTip",
+    "texto": "Level {nivel} · ketuk untuk mengatur"
+  },
+  {
+    "clave": "idiomas.sel.cambiarTip",
+    "texto": "Beralih ke {idioma}"
+  },
+  {
+    "clave": "idiomas.sel.agregarTip",
+    "texto": "Pelajari bahasa lain"
+  },
+  {
+    "clave": "idiomas.sel.agregar",
+    "texto": "Bahasa"
+  },
+  {
+    "clave": "idiomas.sel.nuevoTitulo",
+    "texto": "Bahasa baru"
+  },
+  {
+    "clave": "idiomas.form.nueva",
+    "texto": "Kartu baru"
+  },
+  {
+    "clave": "idiomas.form.editar",
+    "texto": "Edit kartu"
+  },
+  {
+    "clave": "idiomas.form.termino",
+    "texto": "Istilah (dalam {idioma})"
+  },
+  {
+    "clave": "idiomas.form.traduccion",
+    "texto": "Terjemahan"
+  },
+  {
+    "clave": "idiomas.form.traduccionPh",
+    "texto": "kebetulan yang beruntung, penemuan tak terduga"
+  },
+  {
+    "clave": "idiomas.form.ejemplo",
+    "texto": "Contoh kalimat (untuk latihan melengkapi)"
+  },
+  {
+    "clave": "idiomas.form.ejemploPh",
+    "texto": "Kalimat dalam bahasa itu yang memakai istilahnya."
+  },
+  {
+    "clave": "idiomas.form.tipo",
+    "texto": "Jenis"
+  },
+  {
+    "clave": "idiomas.form.nivel",
+    "texto": "Level"
+  },
+  {
+    "clave": "idiomas.form.tema",
+    "texto": "Topik silabus"
+  },
+  {
+    "clave": "idiomas.form.sinTema",
+    "texto": "— Tidak ada —"
+  },
+  {
+    "clave": "idiomas.form.temasDesbloq",
+    "texto": "Terbuka"
+  },
+  {
+    "clave": "idiomas.form.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "idiomas.form.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "idiomas.tipo.palabra",
+    "texto": "Kata"
+  },
+  {
+    "clave": "idiomas.tipo.frase",
+    "texto": "Kalimat"
+  },
+  {
+    "clave": "idiomas.tipo.expresion",
+    "texto": "Ungkapan"
+  },
+  {
+    "clave": "idiomas.voc.nueva",
+    "texto": "Kartu baru"
+  },
+  {
+    "clave": "idiomas.voc.generar",
+    "texto": "Buat"
+  },
+  {
+    "clave": "idiomas.voc.generarTip",
+    "texto": "AI membuat kartu untuk sebuah topik silabus"
+  },
+  {
+    "clave": "idiomas.voc.buscar",
+    "texto": "Cari istilah atau terjemahan…"
+  },
+  {
+    "clave": "idiomas.voc.nivelTodos",
+    "texto": "Level"
+  },
+  {
+    "clave": "idiomas.voc.temaTodos",
+    "texto": "Topik"
+  },
+  {
+    "clave": "idiomas.voc.conteo",
+    "texto": "{n} kartu · {d} dikuasai"
+  },
+  {
+    "clave": "idiomas.voc.vacio",
+    "texto": "Belum ada kartu {idioma}. Buat yang pertama, mengobrollah dengan tutormu, atau buat topik dengan AI."
+  },
+  {
+    "clave": "idiomas.voc.sinResultados",
+    "texto": "Tidak ada kartu yang cocok dengan filter."
+  },
+  {
+    "clave": "idiomas.voc.escuchar",
+    "texto": "Dengarkan"
+  },
+  {
+    "clave": "idiomas.voc.cajaTip",
+    "texto": "Kotak tinjauan: makin tinggi, makin jarang muncul"
+  },
+  {
+    "clave": "idiomas.voc.editar",
+    "texto": "Edit kartu"
+  },
+  {
+    "clave": "idiomas.voc.borrar",
+    "texto": "Hapus kartu"
+  },
+  {
+    "clave": "idiomas.voc.confirmarBorrar",
+    "texto": "Hapus kartu ini?"
+  },
+  {
+    "clave": "idiomas.voc.siBorrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "idiomas.gen.titulo",
+    "texto": "Buat kosakata"
+  },
+  {
+    "clave": "idiomas.gen.temaFijo",
+    "texto": "Kartu untuk “{tema}” (level {nivel}) dalam {idioma}."
+  },
+  {
+    "clave": "idiomas.gen.tema",
+    "texto": "Topik"
+  },
+  {
+    "clave": "idiomas.gen.cantidad",
+    "texto": "Jumlah"
+  },
+  {
+    "clave": "idiomas.gen.fallo",
+    "texto": "AI tidak berhasil membuat kartu. Coba lagi atau buat sendiri secara manual."
+  },
+  {
+    "clave": "idiomas.gen.cargando",
+    "texto": "Membuat…"
+  },
+  {
+    "clave": "idiomas.gen.generar",
+    "texto": "Buat"
+  },
+  {
+    "clave": "idiomas.gen.revisar",
+    "texto": "Hilangkan centang pada yang tidak ingin kamu simpan:"
+  },
+  {
+    "clave": "idiomas.gen.otraVez",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "idiomas.gen.guardar",
+    "texto": "Simpan {n} kartu"
+  },
+  {
+    "clave": "idiomas.rep.modoTarjetas",
+    "texto": "Kartu"
+  },
+  {
+    "clave": "idiomas.rep.modoEjercicios",
+    "texto": "Latihan"
+  }
+]

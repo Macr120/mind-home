@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.editor-objetos.resumen",
+    "es": "Cada objeto colocado se edita en color, tamaño y rotación desde aquí, y también se pueden crear objetos propios armándolos por piezas.",
+    "en": "Every placed object is edited in color, size and rotation from here, and you can also build your own objects piece by piece."
+  },
+  {
+    "clave": "tut.editor-config.titulo",
+    "es": "El editor · Configuraciones",
+    "en": "The editor · Settings"
+  },
+  {
+    "clave": "tut.editor-config.resumen",
+    "es": "Ocho secciones plegables: Cuenta, Precios de la IA, Estilo visual del mapa, Interfaz e idioma, Música, Tutoriales, Notificaciones y Respaldo de datos. Cada una se abre por separado y recuerda si la dejaste abierta.",
+    "en": "Eight collapsible sections: Account, AI pricing, Map visual style, Interface and language, Music, Tutorials, Notifications and Data backup. Each opens on its own and remembers whether you left it open."
+  },
+  {
+    "clave": "tut.respaldo.titulo",
+    "es": "Respaldo de datos",
+    "en": "Data backup"
+  },
+  {
+    "clave": "tut.respaldo.resumen",
+    "es": "Todo lo que guardas vive en este dispositivo. Respaldo de datos exporta todo a un archivo, restaura desde uno y avisa si el navegador podría liberar espacio borrándolo sin avisar.",
+    "en": "Everything you save lives on this device. Data backup exports it all to a file, restores from one, and warns if the browser might free up space by clearing it without notice."
+  },
+  {
+    "clave": "tut.editor-cuarto.titulo",
+    "es": "Editar un cuarto",
+    "en": "Editing a room"
+  },
+  {
+    "clave": "tut.editor-cuarto.resumen",
+    "es": "Al editar un cuarto concreto, el croquis se enfoca en él: forma, piso, muros, color, nombre y —lo que más se usa aquí— qué app tiene asignada o si conviene cambiarla. La flecha del panel vuelve al mapa completo, y el botón flotante sobre el cuarto sale de él.",
+    "en": "When editing a specific room, the blueprint focuses on it: shape, floor, walls, color, name and —what brings people here the most— which app it has assigned, or whether to switch it. The panel's arrow returns to the full map, and the floating button over the room exits it."
+  },
+  {
+    "clave": "tut.herramientas.titulo",
+    "es": "Rueda de herramientas",
+    "en": "Tool wheel"
+  },
+  {
+    "clave": "tut.herramientas.resumen",
+    "es": "La rueda equipa a tu personaje en cuatro categorías: movimientos (correr, bailar, saltar…), juguetes (láser, portales, grafiti…), vehículos montables y construcción (un atajo a los modos del editor de mapa). Dos niveles —categoría → herramienta— y hasta 3 equipadas a la vez.",
+    "en": "The wheel equips your character across four categories: moves (run, dance, jump…), toys (laser, portals, graffiti…), rideable vehicles and construction (a shortcut into the map editor's modes). Two levels —category → tool— and up to 3 equipped at once."
+  },
+  {
+    "clave": "tut.navegacion.titulo",
+    "es": "Cámara y movimiento",
+    "en": "Camera and movement"
+  },
+  {
+    "clave": "tut.navegacion.resumen",
+    "es": "Hay tres vistas: isométrica, tercera y primera persona (tecla V). Te mueves con el joystick, WASD o flechas; el hueco de la esquina orienta la cámara salvo que tengas algo cerca, en cuyo caso ofrece esa acción en su lugar. En 3ª/1ª persona existe además el Editor 3D para tocar el mundo directamente.",
+    "en": "There are three views: isometric, third and first person (V key). You move with the joystick, WASD or arrows; the corner control orients the camera unless something's nearby, in which case it offers that action instead. In 3rd/1st person there's also the 3D Editor to touch the world directly."
+  },
+  {
+    "clave": "tut.chat.titulo",
+    "es": "El chat del arquitecto",
+    "en": "The architect's chat"
+  },
+  {
+    "clave": "tut.chat.resumen",
+    "es": "El chat registra lo que le cuentes en la app correcta («corrí 20 min» va a Ejercicio), edita la casa por texto, dicta por voz y lee una foto. Cada asistente tiene su cara y su voz; el manual lista todo lo que puedes pedir, y lo que ya quedó registrado vive en su pestaña Registros.",
+    "en": "The chat logs whatever you tell it into the right app (\"ran 20 min\" goes to Exercise), edits the home by text, dictates by voice and reads a photo. Each assistant has its face and voice; the manual lists everything you can ask, and whatever's already logged lives in its Records tab."
+  },
+  {
+    "clave": "tut.chat-registros.titulo",
+    "es": "Chat · Registros y memorias",
+    "en": "Chat · Records and memories"
+  },
+  {
+    "clave": "tut.chat-registros.resumen",
+    "es": "La pestaña Registros del chat guarda tus conversaciones anteriores y lo que el asistente recuerda de ti entre sesiones, para no repetírselo cada vez.",
+    "en": "The chat's Records tab holds your past conversations and what the assistant remembers about you between sessions, so you don't have to repeat it every time."
+  },
+  {
+    "clave": "tut.app-generica.titulo",
+    "es": "Esta app",
+    "en": "This app"
+  },
+  {
+    "clave": "tut.app-generica.resumen",
+    "es": "Cada app vive en un cuarto: el encabezado muestra el cuarto y la app, la lista de hoy lleva lo que toca hacer aquí y «Volver a la casa» la cierra. Las plantillas propias se arman con bloques: notas, listas, contadores, hábitos…",
+    "en": "Every app lives in a room: the header shows the room and the app, the today list holds what to do here and \"Back to the house\" closes it. Your own templates are built from blocks: notes, lists, counters, habits…"
+  },
+  {
+    "clave": "tut.rutinas.titulo",
+    "es": "Rutinas",
+    "en": "Routines"
+  },
+  {
+    "clave": "tut.rutinas.resumen",
+    "es": "El panel de rutinas lleva tu checklist del día arriba y el catálogo completo abajo: cada rutina tiene hora, repetición y pasos, y cada paso puede registrar solo en su app. A su hora el asistente avisa, y todo lo agendado se ve también en el calendario.",
+    "en": "The routines panel carries your day's checklist up top and the full catalog below: every routine has a time, a repeat and steps, and every step can log on its own into its app. At its time the assistant reminds you, and everything scheduled also shows in the calendar."
+  },
+  {
+    "clave": "tut.enlaces.titulo",
+    "es": "Los chips de cada paso",
+    "en": "The chip on every step"
+  },
+  {
+    "clave": "tut.enlaces.resumen",
+    "es": "Un chip de app junto a una meta o un paso de plan dice dónde se registra eso, y un toque te lleva ahí. Es solo navegación: el registro siempre lo hace la app, nunca el chip.",
+    "en": "An app chip next to a goal or a plan step says where it gets logged, and tapping it takes you there. It's navigation only: logging is always done by the app, never by the chip."
+  },
+  {
+    "clave": "tut.musica.titulo",
+    "es": "La música de la casa",
+    "en": "The home's music"
+  },
+  {
+    "clave": "tut.musica.resumen",
+    "es": "Música ambiental general o un tema por cuarto, con tres fuentes posibles: generada, tus propias pistas o el audio del sistema. Se apaga entera si prefieres jugar en silencio.",
+    "en": "General ambient music or a theme per room, with three possible sources: generated, your own tracks, or the system's audio. Turn it off entirely if you'd rather play in silence."
+  },
+  {
+    "clave": "tut.cuenta-ia.titulo",
+    "es": "La IA y tu cuenta",
+    "en": "AI and your account"
+  }
+]

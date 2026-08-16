@@ -1,0 +1,842 @@
+[
+  {
+    "clave": "computo.matriz.noCuadrada",
+    "es": "Esa operación pide una matriz cuadrada: cambia las medidas.",
+    "en": "That operation needs a square matrix: change the size."
+  },
+  {
+    "clave": "computo.matriz.singular",
+    "es": "No se puede: la matriz no tiene inversa (su determinante es cero).",
+    "en": "Not possible: the matrix has no inverse (its determinant is zero)."
+  },
+  {
+    "clave": "computo.sistema.placeholder",
+    "es": "2x + 3y = 12",
+    "en": "2x + 3y = 12"
+  },
+  {
+    "clave": "computo.sistema.ecuacion",
+    "es": "Ecuación {n}",
+    "en": "Equation {n}"
+  },
+  {
+    "clave": "computo.sistema.quitar",
+    "es": "Quitar esta ecuación",
+    "en": "Remove this equation"
+  },
+  {
+    "clave": "computo.sistema.otra",
+    "es": "Otra ecuación",
+    "en": "Another equation"
+  },
+  {
+    "clave": "computo.sistema.incognitas",
+    "es": "Incógnitas",
+    "en": "Unknowns"
+  },
+  {
+    "clave": "computo.sistema.ninguna",
+    "es": "ninguna todavía",
+    "en": "none yet"
+  },
+  {
+    "clave": "computo.sistema.resolver",
+    "es": "Resolver",
+    "en": "Solve"
+  },
+  {
+    "clave": "computo.sistema.descuadra",
+    "es": "Hacen falta tantas ecuaciones como incógnitas: {e} y {i} ahora mismo.",
+    "en": "You need as many equations as unknowns: {e} and {i} right now."
+  },
+  {
+    "clave": "computo.sistema.sinSolucion",
+    "es": "No tiene una solución única: o las ecuaciones se repiten, o se contradicen, o alguna no es lineal.",
+    "en": "There is no single solution: either the equations repeat, or they contradict each other, or one of them is not linear."
+  },
+  {
+    "clave": "computo.unid.longitud",
+    "en": "Length"
+  },
+  {
+    "clave": "computo.unid.masa",
+    "en": "Mass"
+  },
+  {
+    "clave": "computo.unid.temperatura",
+    "en": "Temperature"
+  },
+  {
+    "clave": "computo.unid.volumen",
+    "en": "Volume"
+  },
+  {
+    "clave": "computo.unid.area",
+    "en": "Area"
+  },
+  {
+    "clave": "computo.unid.tiempo",
+    "en": "Time"
+  },
+  {
+    "clave": "computo.unid.velocidad",
+    "en": "Speed"
+  },
+  {
+    "clave": "computo.unid.datos",
+    "en": "Data"
+  },
+  {
+    "clave": "computo.unid.valor",
+    "es": "Cuánto",
+    "en": "How much"
+  },
+  {
+    "clave": "computo.unid.de",
+    "es": "De",
+    "en": "From"
+  },
+  {
+    "clave": "computo.unid.a",
+    "es": "A",
+    "en": "To"
+  },
+  {
+    "clave": "computo.unid.invertir",
+    "es": "Al revés",
+    "en": "Swap"
+  },
+  {
+    "clave": "computo.unid.faltan",
+    "es": "Escribe un número y la conversión sale sola.",
+    "en": "Type a number and the conversion appears on its own."
+  },
+  {
+    "clave": "computo.unid.imposible",
+    "es": "Esas dos unidades no se pueden convertir entre sí.",
+    "en": "Those two units cannot be converted into each other."
+  },
+  {
+    "clave": "computo.unid.u.km",
+    "en": "kilometres"
+  },
+  {
+    "clave": "computo.unid.u.m",
+    "en": "metres"
+  },
+  {
+    "clave": "computo.unid.u.cm",
+    "en": "centimetres"
+  },
+  {
+    "clave": "computo.unid.u.mm",
+    "en": "millimetres"
+  },
+  {
+    "clave": "computo.unid.u.mile",
+    "en": "miles"
+  },
+  {
+    "clave": "computo.unid.u.yd",
+    "en": "yards"
+  },
+  {
+    "clave": "computo.unid.u.ft",
+    "en": "feet"
+  },
+  {
+    "clave": "computo.unid.u.inch",
+    "en": "inches"
+  },
+  {
+    "clave": "computo.unid.u.tonne",
+    "en": "tonnes"
+  },
+  {
+    "clave": "computo.unid.u.kg",
+    "en": "kilograms"
+  },
+  {
+    "clave": "computo.unid.u.g",
+    "en": "grams"
+  },
+  {
+    "clave": "computo.unid.u.mg",
+    "en": "milligrams"
+  },
+  {
+    "clave": "computo.unid.u.lb",
+    "en": "pounds"
+  },
+  {
+    "clave": "computo.unid.u.oz",
+    "en": "ounces"
+  },
+  {
+    "clave": "computo.unid.u.degC",
+    "en": "degrees Celsius"
+  },
+  {
+    "clave": "computo.unid.u.degF",
+    "en": "degrees Fahrenheit"
+  },
+  {
+    "clave": "computo.unid.u.K",
+    "en": "kelvin"
+  },
+  {
+    "clave": "computo.unid.u.m3",
+    "en": "cubic metres"
+  },
+  {
+    "clave": "computo.unid.u.L",
+    "en": "litres"
+  },
+  {
+    "clave": "computo.unid.u.mL",
+    "en": "millilitres"
+  },
+  {
+    "clave": "computo.unid.u.gal",
+    "en": "gallons"
+  },
+  {
+    "clave": "computo.unid.u.qt",
+    "en": "quarts"
+  },
+  {
+    "clave": "computo.unid.u.pt",
+    "en": "pints"
+  },
+  {
+    "clave": "computo.unid.u.cup",
+    "en": "cups"
+  },
+  {
+    "clave": "computo.unid.u.floz",
+    "en": "fluid ounces"
+  },
+  {
+    "clave": "computo.unid.u.km2",
+    "en": "square kilometres"
+  },
+  {
+    "clave": "computo.unid.u.m2",
+    "en": "square metres"
+  },
+  {
+    "clave": "computo.unid.u.cm2",
+    "en": "square centimetres"
+  },
+  {
+    "clave": "computo.unid.u.hectare",
+    "en": "hectares"
+  },
+  {
+    "clave": "computo.unid.u.acre",
+    "en": "acres"
+  },
+  {
+    "clave": "computo.unid.u.sqft",
+    "en": "square feet"
+  },
+  {
+    "clave": "computo.unid.u.sqmi",
+    "en": "square miles"
+  },
+  {
+    "clave": "computo.unid.u.year",
+    "en": "years"
+  },
+  {
+    "clave": "computo.unid.u.month",
+    "en": "months"
+  },
+  {
+    "clave": "computo.unid.u.week",
+    "en": "weeks"
+  },
+  {
+    "clave": "computo.unid.u.day",
+    "en": "days"
+  },
+  {
+    "clave": "computo.unid.u.hour",
+    "en": "hours"
+  },
+  {
+    "clave": "computo.unid.u.minute",
+    "en": "minutes"
+  },
+  {
+    "clave": "computo.unid.u.s",
+    "en": "seconds"
+  },
+  {
+    "clave": "computo.unid.u.ms",
+    "en": "milliseconds"
+  },
+  {
+    "clave": "computo.unid.u.kmh",
+    "en": "kilometres per hour"
+  },
+  {
+    "clave": "computo.unid.u.mih",
+    "en": "miles per hour"
+  },
+  {
+    "clave": "computo.unid.u.ms1",
+    "en": "metres per second"
+  },
+  {
+    "clave": "computo.unid.u.fts",
+    "en": "feet per second"
+  },
+  {
+    "clave": "computo.unid.u.TB",
+    "en": "terabytes"
+  },
+  {
+    "clave": "computo.unid.u.GB",
+    "en": "gigabytes"
+  },
+  {
+    "clave": "computo.unid.u.MB",
+    "en": "megabytes"
+  },
+  {
+    "clave": "computo.unid.u.kB",
+    "en": "kilobytes"
+  },
+  {
+    "clave": "computo.unid.u.B",
+    "en": "bytes"
+  },
+  {
+    "clave": "computo.unid.u.b",
+    "en": "bits"
+  },
+  {
+    "clave": "computo.unid.u.GiB",
+    "en": "gibibytes"
+  },
+  {
+    "clave": "computo.unid.u.MiB",
+    "en": "mebibytes"
+  },
+  {
+    "clave": "computo.unid.u.KiB",
+    "en": "kibibytes"
+  },
+  {
+    "clave": "computo.propina.cuenta",
+    "es": "La cuenta",
+    "en": "The bill"
+  },
+  {
+    "clave": "computo.propina.personas",
+    "es": "Entre cuántos",
+    "en": "Split between"
+  },
+  {
+    "clave": "computo.propina.pct",
+    "es": "Propina",
+    "en": "Tip"
+  },
+  {
+    "clave": "computo.propina.faltan",
+    "es": "Escribe la cuenta y el porcentaje.",
+    "en": "Type the bill and the percentage."
+  },
+  {
+    "clave": "computo.propina.laPropina",
+    "es": "Propina",
+    "en": "Tip"
+  },
+  {
+    "clave": "computo.propina.total",
+    "es": "Total",
+    "en": "Total"
+  },
+  {
+    "clave": "computo.propina.cadaUno",
+    "es": "Cada uno pone",
+    "en": "Each one pays"
+  },
+  {
+    "clave": "computo.regla3.directa",
+    "es": "Directa",
+    "en": "Direct"
+  },
+  {
+    "clave": "computo.regla3.inversa",
+    "es": "Inversa",
+    "en": "Inverse"
+  },
+  {
+    "clave": "computo.regla3.ayudaDirecta",
+    "es": "Cuando más de lo uno es más de lo otro: kilos y precio, horas y sueldo.",
+    "en": "When more of one means more of the other: kilos and price, hours and wages."
+  },
+  {
+    "clave": "computo.regla3.ayudaInversa",
+    "es": "Cuando más de lo uno es menos de lo otro: obreros y días, velocidad y tiempo.",
+    "en": "When more of one means less of the other: workers and days, speed and time."
+  },
+  {
+    "clave": "computo.regla3.a",
+    "es": "Si esto…",
+    "en": "If this…"
+  },
+  {
+    "clave": "computo.regla3.b",
+    "es": "…es esto",
+    "en": "…is this"
+  },
+  {
+    "clave": "computo.regla3.c",
+    "es": "Entonces esto…",
+    "en": "Then this…"
+  },
+  {
+    "clave": "computo.regla3.x",
+    "es": "…es x",
+    "en": "…is x"
+  },
+  {
+    "clave": "computo.regla3.faltan",
+    "es": "Rellena los tres números y x sale sola.",
+    "en": "Fill in the three numbers and x appears on its own."
+  },
+  {
+    "clave": "computo.regla3.cero",
+    "es": "No se puede dividir entre cero: cambia ese número.",
+    "en": "You cannot divide by zero: change that number."
+  },
+  {
+    "clave": "computo.hojas.mias",
+    "es": "Mis hojas",
+    "en": "My spreadsheets"
+  },
+  {
+    "clave": "computo.hojas.vacio",
+    "es": "Todavía no hay hojas. Crea una con el botón de arriba.",
+    "en": "No spreadsheets yet. Create one with the button above."
+  },
+  {
+    "clave": "computo.hojas.nueva",
+    "es": "Hoja nueva",
+    "en": "New spreadsheet"
+  },
+  {
+    "clave": "computo.hojas.sinNombre",
+    "es": "Hoja nueva",
+    "en": "New spreadsheet"
+  },
+  {
+    "clave": "computo.hojas.nuevaMsg",
+    "es": "¿Cómo se llama?",
+    "en": "What is it called?"
+  },
+  {
+    "clave": "computo.hojas.renombrar",
+    "es": "Renombrar la hoja",
+    "en": "Rename the spreadsheet"
+  },
+  {
+    "clave": "computo.hojas.duplicar",
+    "es": "Duplicar",
+    "en": "Duplicate"
+  },
+  {
+    "clave": "computo.hojas.copiaDe",
+    "es": "Copia de {nombre}",
+    "en": "Copy of {nombre}"
+  },
+  {
+    "clave": "computo.hojas.borrar",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete “{nombre}”"
+  },
+  {
+    "clave": "computo.hojas.borrarCorto",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "computo.hojas.borrarMsg",
+    "es": "La hoja y todo lo que tenga dentro.",
+    "en": "The sheet and everything in it."
+  },
+  {
+    "clave": "computo.hojas.celdas",
+    "es": "{n} celdas",
+    "en": "{n} cells"
+  },
+  {
+    "clave": "computo.hojas.volver",
+    "es": "Volver a la lista",
+    "en": "Back to the list"
+  },
+  {
+    "clave": "computo.hojas.aExcel",
+    "es": "Exportar a Excel",
+    "en": "Export to Excel"
+  },
+  {
+    "clave": "computo.hojas.aPdf",
+    "es": "Imprimir o guardar en PDF",
+    "en": "Print or save as PDF"
+  },
+  {
+    "clave": "computo.hojas.formulaPlaceholder",
+    "es": "Un valor, un texto o =SUMA(A1:A5)",
+    "en": "A value, a text or =SUM(A1:A5)"
+  },
+  {
+    "clave": "computo.form.ampliar",
+    "es": "Ampliar el tramo",
+    "en": "Widen the range"
+  },
+  {
+    "clave": "computo.form.ampliarTramo",
+    "es": "Ampliar el tramo de la barra ({min} a {max})",
+    "en": "Widen the slider range ({min} to {max})"
+  },
+  {
+    "clave": "computo.form.verEnGrande",
+    "es": "Ver en grande",
+    "en": "Open full size"
+  },
+  {
+    "clave": "computo.form.eje",
+    "es": "Eje",
+    "en": "Axis"
+  },
+  {
+    "clave": "computo.sup.imposible",
+    "es": "Con estos valores la fórmula no da una superficie que se pueda dibujar.",
+    "en": "With these values the formula does not give a surface that can be drawn."
+  },
+  {
+    "clave": "computo.sup.huecos",
+    "es": "hay zonas sin definir",
+    "en": "some areas are undefined"
+  },
+  {
+    "clave": "computo.sup.cargando",
+    "es": "Preparando la superficie…",
+    "en": "Preparing the surface…"
+  },
+  {
+    "clave": "computo.not.titulo",
+    "es": "Notaciones",
+    "en": "Notation"
+  },
+  {
+    "clave": "computo.not.basicas",
+    "en": "Basics"
+  },
+  {
+    "clave": "computo.not.calculo",
+    "en": "Calculus"
+  },
+  {
+    "clave": "computo.not.matrices",
+    "en": "Matrices"
+  },
+  {
+    "clave": "computo.not.trigonometria",
+    "en": "Trigonometry"
+  },
+  {
+    "clave": "computo.not.simbolos",
+    "en": "Symbols"
+  },
+  {
+    "clave": "computo.not.ayuda",
+    "es": "Se escriben donde tengas el cursor y el hueco queda listo para teclear. La vista bonita sale sola de lo que escribas.",
+    "en": "They are typed wherever your cursor is and the blank is left ready to fill in. The pretty view comes out of what you write."
+  },
+  {
+    "clave": "computo.hojas.resumen",
+    "es": "Suma {suma} · Promedio {prom} · Cuenta {n}",
+    "en": "Sum {suma} · Average {prom} · Count {n}"
+  },
+  {
+    "clave": "computo.hojas.masFilas",
+    "es": "Filas",
+    "en": "Rows"
+  },
+  {
+    "clave": "computo.hojas.masCols",
+    "es": "Columnas",
+    "en": "Columns"
+  },
+  {
+    "clave": "computo.hojas.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
+  },
+  {
+    "clave": "computo.hojas.rehacer",
+    "es": "Rehacer",
+    "en": "Redo"
+  },
+  {
+    "clave": "computo.hojas.copiar",
+    "es": "Copiar",
+    "en": "Copy"
+  },
+  {
+    "clave": "computo.hojas.cortar",
+    "es": "Cortar",
+    "en": "Cut"
+  },
+  {
+    "clave": "computo.hojas.pegar",
+    "es": "Pegar",
+    "en": "Paste"
+  },
+  {
+    "clave": "computo.hojas.mover",
+    "es": "Mover",
+    "en": "Move"
+  },
+  {
+    "clave": "computo.hojas.moverDestino",
+    "es": "Toca el destino",
+    "en": "Tap the destination"
+  },
+  {
+    "clave": "computo.hojas.borrarCeldas",
+    "es": "Borrar",
+    "en": "Clear"
+  },
+  {
+    "clave": "computo.hojas.rellenar",
+    "es": "Arrastra para rellenar",
+    "en": "Drag to fill"
+  },
+  {
+    "clave": "computo.hojas.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "computo.hojas.pegarManual",
+    "es": "Este navegador no deja leer el portapapeles. Pega aquí lo que copiaste y se colocará desde {ref}.",
+    "en": "This browser will not let us read the clipboard. Paste what you copied here and it will land starting at {ref}."
+  },
+  {
+    "clave": "computo.hojas.plantilla.blanco",
+    "en": "Blank"
+  },
+  {
+    "clave": "computo.hojas.plantilla.presupuesto",
+    "en": "Budget"
+  },
+  {
+    "clave": "computo.hojas.plantilla.notas",
+    "en": "Weighted average"
+  },
+  {
+    "clave": "computo.hojas.plantilla.mediciones",
+    "en": "Measurement log"
+  },
+  {
+    "clave": "computo.hojas.graficar",
+    "es": "Graficar la selección",
+    "en": "Chart the selection"
+  },
+  {
+    "clave": "computo.hojas.rangoTactil",
+    "es": "Toca la última celda",
+    "en": "Tap the last cell"
+  },
+  {
+    "clave": "computo.hojas.selTodo",
+    "es": "Seleccionar toda la hoja",
+    "en": "Select the whole sheet"
+  },
+  {
+    "clave": "computo.hojas.selCol",
+    "es": "Seleccionar la columna {col}",
+    "en": "Select column {col}"
+  },
+  {
+    "clave": "computo.hojas.selFila",
+    "es": "Seleccionar la fila {n}",
+    "en": "Select row {n}"
+  },
+  {
+    "clave": "computo.hojas.asaMover",
+    "es": "Arrastra para mover la selección",
+    "en": "Drag to move the selection"
+  },
+  {
+    "clave": "computo.grafica.sinTitulo",
+    "es": "Gráfica de {rango}",
+    "en": "Chart of {rango}"
+  },
+  {
+    "clave": "computo.grafica.sinDatos",
+    "es": "El rango no tiene números que graficar.",
+    "en": "There are no numbers to chart in that range."
+  },
+  {
+    "clave": "computo.grafica.rangoMalo",
+    "es": "El rango «{rango}» no es válido.",
+    "en": "The range “{rango}” is not valid."
+  },
+  {
+    "clave": "computo.grafica.ajustes",
+    "es": "Ajustes de la gráfica",
+    "en": "Chart settings"
+  },
+  {
+    "clave": "computo.grafica.borrar",
+    "es": "Borrar la gráfica",
+    "en": "Delete the chart"
+  },
+  {
+    "clave": "computo.grafica.borrarMsg",
+    "es": "Los datos de la hoja se quedan como están.",
+    "en": "The data in the sheet stays as it is."
+  },
+  {
+    "clave": "computo.grafica.tipo.barras",
+    "en": "Bars"
+  },
+  {
+    "clave": "computo.grafica.tipo.lineas",
+    "en": "Lines"
+  },
+  {
+    "clave": "computo.grafica.tipo.area",
+    "en": "Area"
+  },
+  {
+    "clave": "computo.grafica.tipo.pastel",
+    "en": "Pie"
+  },
+  {
+    "clave": "computo.grafica.tipo.dispersion",
+    "en": "Scatter"
+  },
+  {
+    "clave": "computo.grafica.tituloPlaceholder",
+    "es": "Título de la gráfica",
+    "en": "Chart title"
+  },
+  {
+    "clave": "computo.grafica.rango",
+    "es": "Rango de datos",
+    "en": "Data range"
+  },
+  {
+    "clave": "computo.grafica.encFila",
+    "es": "La primera fila son los nombres",
+    "en": "The first row holds the names"
+  },
+  {
+    "clave": "computo.grafica.encCol",
+    "es": "La primera columna son las etiquetas",
+    "en": "The first column holds the labels"
+  },
+  {
+    "clave": "computo.grafica.encColX",
+    "es": "La primera columna son las X",
+    "en": "The first column holds the X values"
+  },
+  {
+    "clave": "computo.grafica.listo",
+    "es": "Listo",
+    "en": "Done"
+  },
+  {
+    "clave": "computo.ia.pensando",
+    "es": "Pensando…",
+    "en": "Thinking…"
+  },
+  {
+    "clave": "computo.ia.sinIa",
+    "es": "Para usar la IA, actívala en Configuraciones › IA: activar y precios.",
+    "en": "To use AI, turn it on in Settings › AI: turn on and pricing."
+  },
+  {
+    "clave": "computo.ia.formulaPlaceholder",
+    "es": "Descríbela: «área de un cono truncado»",
+    "en": "Describe it: “area of a truncated cone”"
+  },
+  {
+    "clave": "computo.ia.escribirFormula",
+    "es": "Escribirla con IA",
+    "en": "Write it with AI"
+  },
+  {
+    "clave": "computo.ia.falloFormula",
+    "es": "No se pudo escribir la fórmula.",
+    "en": "The formula could not be written."
+  },
+  {
+    "clave": "computo.ia.explicar",
+    "es": "Explicar paso a paso",
+    "en": "Explain step by step"
+  },
+  {
+    "clave": "computo.ia.falloExplicar",
+    "es": "No se pudo explicar.",
+    "en": "It could not be explained."
+  },
+  {
+    "clave": "computo.ia.cerrarPasos",
+    "es": "Cerrar la explicación",
+    "en": "Close the explanation"
+  },
+  {
+    "clave": "computo.ia.hojaPlaceholder",
+    "es": "Descríbela: «control de gastos del mes»",
+    "en": "Describe it: “this month’s expense tracker”"
+  },
+  {
+    "clave": "computo.ia.armarHoja",
+    "es": "Armarla con IA",
+    "en": "Build it with AI"
+  },
+  {
+    "clave": "computo.ia.falloHoja",
+    "es": "No se pudo armar la hoja.",
+    "en": "The spreadsheet could not be built."
+  },
+  {
+    "clave": "computo.ia.analizar",
+    "es": "Leer los datos seleccionados",
+    "en": "Read the selected data"
+  },
+  {
+    "clave": "computo.ia.falloAnalizar",
+    "es": "No se pudieron leer los datos.",
+    "en": "The data could not be read."
+  },
+  {
+    "clave": "computo.ia.cerrarAnalisis",
+    "es": "Cerrar la lectura",
+    "en": "Close the reading"
+  },
+  {
+    "clave": "computo.ia.insertarSugerida",
+    "es": "Insertar esa gráfica",
+    "en": "Insert that chart"
+  },
+  {
+    "clave": "computo.export.pie",
+    "es": "Mind Planner Home · Sala de cómputo",
+    "en": "Mind Planner Home · Computing room"
+  },
+  {
+    "clave": "computo.export.sinImprimir",
+    "es": "Imprimir solo funciona en la web",
+    "en": "Printing only works on the web"
+  }
+]

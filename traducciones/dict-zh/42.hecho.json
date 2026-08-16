@@ -1,0 +1,502 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.resumen",
+    "texto": "档案保存你看过、读过、玩过的内容：每条记录都有状态、星级评分和你的评价。可按年、月文件夹或按类型分组。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.titulo",
+    "texto": "待看清单"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.resumen",
+    "texto": "待看清单是按主题或类型整理的作品列表，转化成目标：完成的打勾，还能设置日期，在日历中显示。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.titulo",
+    "texto": "数字桌游台"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.resumen",
+    "texto": "二十多款桌游和街机游戏，按类别分组，可按玩家人数筛选：不用离开家，当场就能玩。"
+  },
+  {
+    "clave": "tut.app-diario--habito.titulo",
+    "texto": "读报的习惯"
+  },
+  {
+    "clave": "tut.app-diario--habito.resumen",
+    "texto": "报纸是转瞬即逝的：每天带来分类头条和“历史上的今天”，到午夜就会更新。留下来的是你的坚持——读报本身就算作当天的记录。"
+  },
+  {
+    "clave": "tut.app-diario--reparto.titulo",
+    "texto": "让它主动送达"
+  },
+  {
+    "clave": "tut.app-diario--reparto.resumen",
+    "texto": "你可以设置每位助手在聊天中推送哪些板块：固定时间，或是一天中的随机惊喜时刻。"
+  },
+  {
+    "clave": "demo.paso.limpiar",
+    "texto": "平整地基"
+  },
+  {
+    "clave": "demo.paso.casa",
+    "texto": "建造房屋"
+  },
+  {
+    "clave": "demo.paso.catalogos",
+    "texto": "准备目录"
+  },
+  {
+    "clave": "demo.paso.final",
+    "texto": "最后润色"
+  },
+  {
+    "clave": "cuenta.sync.activo",
+    "texto": "同步中…"
+  },
+  {
+    "clave": "cuenta.sync.ultima",
+    "texto": "已同步：{f}"
+  },
+  {
+    "clave": "cuenta.sync.nunca",
+    "texto": "尚未同步"
+  },
+  {
+    "clave": "cuenta.sync.ahora",
+    "texto": "立即同步"
+  },
+  {
+    "clave": "cuenta.sync.otraCuenta",
+    "texto": "这个家之前关联着另一个账号。要保留本地数据并合并到新账号吗？（取消=清空这个家，只下载账号中的数据）"
+  },
+  {
+    "clave": "cuenta.sync.respaldoPrevio",
+    "texto": "你即将首次同步这个家。要先下载本地备份吗？（推荐）"
+  },
+  {
+    "clave": "carpetas.vacio",
+    "texto": "还没有记录。"
+  },
+  {
+    "clave": "carpetas.estaSemana",
+    "texto": "本周"
+  },
+  {
+    "clave": "carpetas.nRegistro",
+    "texto": "1条记录"
+  },
+  {
+    "clave": "carpetas.nRegistros",
+    "texto": "{n}条记录"
+  },
+  {
+    "clave": "cocina.historial",
+    "texto": "饮食历史"
+  },
+  {
+    "clave": "ejercicio.historial",
+    "texto": "你的记录"
+  },
+  {
+    "clave": "descanso.hist.media",
+    "texto": "平均{h}"
+  },
+  {
+    "clave": "jardin.hist",
+    "texto": "你的记录"
+  },
+  {
+    "clave": "jardin.hist.vacio",
+    "texto": "你的静心记录会保存在这里。"
+  },
+  {
+    "clave": "jardin.hist.min",
+    "texto": "{n}分钟"
+  },
+  {
+    "clave": "hobbies.sesion.todas",
+    "texto": "你的记录"
+  },
+  {
+    "clave": "despacho.m.sinRegistros",
+    "texto": "还没有交易记录。"
+  },
+  {
+    "clave": "room.agenda.desc",
+    "texto": "你的日程：工作待办、活动与项目、就医预约、用药，还有宠物和它们的照护，以及带生日的联系人簿。"
+  },
+  {
+    "clave": "agenda.tab.trabajo",
+    "texto": "工作"
+  },
+  {
+    "clave": "agenda.tab.salud",
+    "texto": "健康"
+  },
+  {
+    "clave": "agenda.tab.personas",
+    "texto": "联系人"
+  },
+  {
+    "clave": "agenda.metaDiaria",
+    "texto": "今日日程"
+  },
+  {
+    "clave": "agenda.guardar",
+    "texto": "保存"
+  },
+  {
+    "clave": "agenda.editar",
+    "texto": "编辑"
+  },
+  {
+    "clave": "agenda.borrar",
+    "texto": "删除"
+  },
+  {
+    "clave": "agenda.confirmarBorrado",
+    "texto": "删除吗？"
+  },
+  {
+    "clave": "agenda.si",
+    "texto": "是"
+  },
+  {
+    "clave": "agenda.no",
+    "texto": "否"
+  },
+  {
+    "clave": "agenda.volver",
+    "texto": "返回"
+  },
+  {
+    "clave": "agenda.buscar",
+    "texto": "搜索"
+  },
+  {
+    "clave": "agenda.palomear",
+    "texto": "标记为完成"
+  },
+  {
+    "clave": "agenda.nuevoEvento",
+    "texto": "新建"
+  },
+  {
+    "clave": "agenda.editarEvento",
+    "texto": "编辑"
+  },
+  {
+    "clave": "agenda.sinRelacion",
+    "texto": "无关联"
+  },
+  {
+    "clave": "agenda.eventosDe",
+    "texto": "与{n}相关"
+  },
+  {
+    "clave": "agenda.cumpleDe",
+    "texto": "{n}的生日"
+  },
+  {
+    "clave": "agenda.form.asunto",
+    "texto": "主题"
+  },
+  {
+    "clave": "agenda.form.motivo",
+    "texto": "就诊原因"
+  },
+  {
+    "clave": "agenda.form.plan",
+    "texto": "计划或提醒"
+  },
+  {
+    "clave": "agenda.form.nombre",
+    "texto": "姓名"
+  },
+  {
+    "clave": "agenda.form.color",
+    "texto": "颜色"
+  },
+  {
+    "clave": "agenda.form.fecha",
+    "texto": "日期"
+  },
+  {
+    "clave": "agenda.form.hora",
+    "texto": "时间"
+  },
+  {
+    "clave": "agenda.form.horaFin",
+    "texto": "结束"
+  },
+  {
+    "clave": "agenda.form.lugar",
+    "texto": "地点"
+  },
+  {
+    "clave": "agenda.form.con",
+    "texto": "与谁"
+  },
+  {
+    "clave": "agenda.form.medico",
+    "texto": "医生"
+  },
+  {
+    "clave": "agenda.form.contacto",
+    "texto": "你通讯录中的联系人"
+  },
+  {
+    "clave": "agenda.form.ninguno",
+    "texto": "——无——"
+  },
+  {
+    "clave": "agenda.form.prioridad",
+    "texto": "优先级"
+  },
+  {
+    "clave": "agenda.form.notas",
+    "texto": "备注"
+  },
+  {
+    "clave": "agenda.form.notaSinFecha",
+    "texto": "不设日期的话，会留在待办事项里，不出现在日历中。"
+  },
+  {
+    "clave": "agenda.form.notaSinHora",
+    "texto": "不设时间的话，会显示在那一天，但无法提醒你。"
+  },
+  {
+    "clave": "agenda.prioridad.alta",
+    "texto": "高"
+  },
+  {
+    "clave": "agenda.prioridad.media",
+    "texto": "中"
+  },
+  {
+    "clave": "agenda.prioridad.baja",
+    "texto": "低"
+  },
+  {
+    "clave": "agenda.trabajo.pendientes",
+    "texto": "待办"
+  },
+  {
+    "clave": "agenda.trabajo.tablero",
+    "texto": "看板"
+  },
+  {
+    "clave": "ejemplo.vacio",
+    "texto": "不知道从哪里开始？看看放入示例后的样子。"
+  },
+  {
+    "clave": "ejemplo.puesto",
+    "texto": "这是一个示例：随时可以隐藏，你自己的数据不会受影响。"
+  },
+  {
+    "clave": "ejemplo.mostrar",
+    "texto": "查看示例"
+  },
+  {
+    "clave": "ejemplo.ocultar",
+    "texto": "隐藏示例"
+  },
+  {
+    "clave": "ejemplo.sinSitio",
+    "texto": "地图上暂时没有空位来放置示例。"
+  },
+  {
+    "clave": "agenda.ejemplo.vacio",
+    "texto": "不知道从哪里开始？加载一个示例，进去看看。"
+  },
+  {
+    "clave": "agenda.ejemplo.cargado",
+    "texto": "你看到的示例内容可以一次性清除，连日历中的时段也会一起删掉。"
+  },
+  {
+    "clave": "agenda.ejemplo.cargar",
+    "texto": "加载示例"
+  },
+  {
+    "clave": "agenda.ejemplo.borrar",
+    "texto": "删除示例"
+  },
+  {
+    "clave": "agenda.ejemplo.confirmar",
+    "texto": "是，删除示例"
+  },
+  {
+    "clave": "agenda.tablero.porhacer",
+    "texto": "待处理"
+  },
+  {
+    "clave": "agenda.tablero.encurso",
+    "texto": "进行中"
+  },
+  {
+    "clave": "agenda.tablero.hecho",
+    "texto": "已完成"
+  },
+  {
+    "clave": "agenda.tablero.columnaVacia",
+    "texto": "这里空空如也"
+  },
+  {
+    "clave": "agenda.tablero.atras",
+    "texto": "移到上一列"
+  },
+  {
+    "clave": "agenda.tablero.adelante",
+    "texto": "移到下一列"
+  },
+  {
+    "clave": "agenda.vacio.pendientes",
+    "texto": "没有待办事项。把你脑子里想的写下来吧。"
+  },
+  {
+    "clave": "agenda.salud.citas",
+    "texto": "就医预约"
+  },
+  {
+    "clave": "agenda.salud.sub.yo",
+    "texto": "我"
+  },
+  {
+    "clave": "agenda.salud.sub.projimos",
+    "texto": "亲友"
+  },
+  {
+    "clave": "agenda.salud.sub.mascotas",
+    "texto": "宠物"
+  },
+  {
+    "clave": "agenda.salud.cuidados",
+    "texto": "持续护理"
+  },
+  {
+    "clave": "agenda.salud.nuevoCuidado",
+    "texto": "新建护理项目"
+  },
+  {
+    "clave": "agenda.vacio.cuidadosPersona",
+    "texto": "还没有护理项目。会重复的体检和疫苗接种记在这里。"
+  },
+  {
+    "clave": "agenda.vacio.projimos",
+    "texto": "还没有你在照顾的人。新增一位，或者在“联系人”标签页的某个联系人上勾选“由我照顾”：对方会带着预约、用药和护理信息出现在这里。"
+  },
+  {
+    "clave": "agenda.persona.alCuidado",
+    "texto": "由我照顾"
+  },
+  {
+    "clave": "agenda.persona.alCuidadoAyuda",
+    "texto": "会出现在“健康 › 亲友”中，带着预约、用药和护理信息。"
+  },
+  {
+    "clave": "agenda.projimo.aMiCuidado",
+    "texto": "由我照顾"
+  },
+  {
+    "clave": "agenda.cuidadop.nuevo",
+    "texto": "新建护理项目"
+  },
+  {
+    "clave": "agenda.cuidado.archivado",
+    "texto": "已完成，不再重复"
+  },
+  {
+    "clave": "agenda.cuidado.reactivar",
+    "texto": "重新安排"
+  },
+  {
+    "clave": "agenda.form.especialidad",
+    "texto": "科室"
+  },
+  {
+    "clave": "agenda.esp.general",
+    "texto": "全科"
+  },
+  {
+    "clave": "agenda.esp.dentista",
+    "texto": "牙科"
+  },
+  {
+    "clave": "agenda.esp.oftalmologia",
+    "texto": "眼科"
+  },
+  {
+    "clave": "agenda.esp.dermatologia",
+    "texto": "皮肤科"
+  },
+  {
+    "clave": "agenda.esp.ginecologia",
+    "texto": "妇科"
+  },
+  {
+    "clave": "agenda.esp.cardiologia",
+    "texto": "心内科"
+  },
+  {
+    "clave": "agenda.esp.traumatologia",
+    "texto": "骨科"
+  },
+  {
+    "clave": "agenda.esp.psicologia",
+    "texto": "心理科"
+  },
+  {
+    "clave": "agenda.esp.laboratorio",
+    "texto": "化验"
+  },
+  {
+    "clave": "agenda.esp.otra",
+    "texto": "其他"
+  },
+  {
+    "clave": "agenda.cuidadop.chequeo",
+    "texto": "常规体检"
+  },
+  {
+    "clave": "agenda.cuidadop.vacuna",
+    "texto": "疫苗接种"
+  },
+  {
+    "clave": "agenda.cuidadop.analisis",
+    "texto": "化验检查"
+  },
+  {
+    "clave": "agenda.cuidadop.terapia",
+    "texto": "治疗"
+  },
+  {
+    "clave": "agenda.cuidadop.dental",
+    "texto": "牙科检查"
+  },
+  {
+    "clave": "agenda.cuidadop.visual",
+    "texto": "眼科检查"
+  },
+  {
+    "clave": "agenda.cuidadop.otro",
+    "texto": "其他"
+  },
+  {
+    "clave": "agenda.ciclo.titulo",
+    "texto": "周期"
+  },
+  {
+    "clave": "agenda.ciclo.apagado",
+    "texto": "记录你的生理期，包含下次预测、症状和提醒。"
+  },
+  {
+    "clave": "agenda.ciclo.activar",
+    "texto": "开启周期追踪"
+  },
+  {
+    "clave": "agenda.ciclo.desactivar",
+    "texto": "关闭追踪（记录会保留）"
+  }
+]

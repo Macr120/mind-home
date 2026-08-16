@@ -1,0 +1,482 @@
+[
+  {
+    "ruta": "plantillas.0.notas.0",
+    "es": "despensa de la semana",
+    "en": "weekly groceries"
+  },
+  {
+    "ruta": "plantillas.0.notas.1",
+    "es": "café de grano",
+    "en": "whole bean coffee"
+  },
+  {
+    "ruta": "plantillas.0.notas.2",
+    "es": "tortillas y huevo",
+    "en": "eggs and tortillas"
+  },
+  {
+    "ruta": "plantillas.0.notas.3",
+    "es": "fruta del mercado",
+    "en": "fruit at the market"
+  },
+  {
+    "ruta": "plantillas.0.notas.4",
+    "es": "tacos después del turno",
+    "en": "tacos after my shift"
+  },
+  {
+    "ruta": "plantillas.0.notas.5",
+    "es": "té suelto a granel",
+    "en": "loose leaf tea"
+  },
+  {
+    "ruta": "plantillas.0.notas.6",
+    "es": "avena y plátanos",
+    "en": "oats and bananas"
+  },
+  {
+    "ruta": "plantillas.0.notas.7",
+    "es": "comida corrida",
+    "en": "set lunch menu"
+  },
+  {
+    "ruta": "plantillas.0.notas.8",
+    "es": "pan de la esquina",
+    "en": "bread from the corner"
+  },
+  {
+    "ruta": "plantillas.0.notas.9",
+    "es": "atún y arroz",
+    "en": "rice and canned tuna"
+  },
+  {
+    "ruta": "plantillas.1.notas.0",
+    "es": "recarga del metro",
+    "en": "metro card top up"
+  },
+  {
+    "ruta": "plantillas.1.notas.1",
+    "es": "gasolina del coche",
+    "en": "gas for the car"
+  },
+  {
+    "ruta": "plantillas.1.notas.2",
+    "es": "cámara para la bici",
+    "en": "bike inner tube"
+  },
+  {
+    "ruta": "plantillas.1.notas.3",
+    "es": "cadena y luces",
+    "en": "chain and lights"
+  },
+  {
+    "ruta": "plantillas.1.notas.4",
+    "es": "estacionamiento del campus",
+    "en": "campus parking"
+  },
+  {
+    "ruta": "plantillas.1.notas.5",
+    "es": "pasaje al laboratorio",
+    "en": "bus to the lab"
+  },
+  {
+    "ruta": "plantillas.1.notas.6",
+    "es": "aceite de cadena",
+    "en": "chain lube"
+  },
+  {
+    "ruta": "plantillas.1.notas.7",
+    "es": "caseta a casa",
+    "en": "toll on the way home"
+  },
+  {
+    "ruta": "plantillas.2.notas.0",
+    "es": "jabón y detergente",
+    "en": "soap and detergent"
+  },
+  {
+    "ruta": "plantillas.2.notas.1",
+    "es": "arena para Laika",
+    "en": "litter for Laika"
+  },
+  {
+    "ruta": "plantillas.2.notas.2",
+    "es": "croquetas de Laika",
+    "en": "Laika's kibble"
+  },
+  {
+    "ruta": "plantillas.2.notas.3",
+    "es": "foco de la sala",
+    "en": "new bulb, living room"
+  },
+  {
+    "ruta": "plantillas.2.notas.4",
+    "es": "cubeta y trapeador",
+    "en": "mop and bucket"
+  },
+  {
+    "ruta": "plantillas.2.notas.5",
+    "es": "gas de la casa",
+    "en": "cooking gas"
+  },
+  {
+    "ruta": "plantillas.2.notas.6",
+    "es": "reparación del grifo",
+    "en": "fixed the kitchen tap"
+  },
+  {
+    "ruta": "plantillas.2.notas.7",
+    "es": "cafetera nueva de filtro",
+    "en": "new filter coffee maker"
+  },
+  {
+    "ruta": "plantillas.3.notas.0",
+    "es": "boleto de cine",
+    "en": "movie ticket"
+  },
+  {
+    "ruta": "plantillas.3.notas.1",
+    "es": "ciencia ficción en pantalla grande",
+    "en": "sci-fi on a big screen"
+  },
+  {
+    "ruta": "plantillas.3.notas.2",
+    "es": "café con Nuria",
+    "en": "coffee with Nuria"
+  },
+  {
+    "ruta": "plantillas.3.notas.3",
+    "es": "cuerdas del teclado no, partitura",
+    "en": "sheet music"
+  },
+  {
+    "ruta": "plantillas.3.notas.4",
+    "es": "entrada al planetario",
+    "en": "planetarium entry"
+  },
+  {
+    "ruta": "plantillas.3.notas.5",
+    "es": "libro usado",
+    "en": "used book"
+  },
+  {
+    "ruta": "plantillas.3.notas.6",
+    "es": "cerveza después del examen",
+    "en": "beer after the midterm"
+  },
+  {
+    "ruta": "plantillas.3.notas.7",
+    "es": "salida al observatorio",
+    "en": "night trip to the observatory"
+  },
+  {
+    "ruta": "plantillas.4.notas.0",
+    "es": "consulta general",
+    "en": "clinic visit"
+  },
+  {
+    "ruta": "plantillas.4.notas.1",
+    "es": "vendas para la rodilla",
+    "en": "knee wraps"
+  },
+  {
+    "ruta": "plantillas.4.notas.2",
+    "es": "electrolitos de carrera",
+    "en": "race electrolytes"
+  },
+  {
+    "ruta": "plantillas.4.notas.3",
+    "es": "proteína en polvo",
+    "en": "protein powder"
+  },
+  {
+    "ruta": "plantillas.4.notas.4",
+    "es": "gel antiinflamatorio",
+    "en": "anti-inflammatory gel"
+  },
+  {
+    "ruta": "plantillas.4.notas.5",
+    "es": "calcetines de compresión",
+    "en": "compression socks"
+  },
+  {
+    "ruta": "plantillas.4.notas.6",
+    "es": "análisis de sangre",
+    "en": "blood work"
+  },
+  {
+    "ruta": "plantillas.4.notas.7",
+    "es": "plantillas para tenis",
+    "en": "insoles for my shoes"
+  },
+  {
+    "ruta": "plantillas.5.notas.0",
+    "es": "cuaderno para el lab",
+    "en": "lab notebook"
+  },
+  {
+    "ruta": "plantillas.5.notas.1",
+    "es": "calculadora nueva",
+    "en": "new calculator"
+  },
+  {
+    "ruta": "plantillas.5.notas.2",
+    "es": "playera de la carrera",
+    "en": "race shirt"
+  },
+  {
+    "ruta": "plantillas.5.notas.3",
+    "es": "audífonos baratos",
+    "en": "cheap earbuds"
+  },
+  {
+    "ruta": "plantillas.5.notas.4",
+    "es": "sudadera de invierno",
+    "en": "winter hoodie"
+  },
+  {
+    "ruta": "plantillas.5.notas.5",
+    "es": "cargador de repuesto",
+    "en": "spare charger"
+  },
+  {
+    "ruta": "plantillas.5.notas.6",
+    "es": "cable para la cámara",
+    "en": "camera cable"
+  },
+  {
+    "ruta": "plantillas.5.notas.7",
+    "es": "toalla de gimnasio",
+    "en": "gym towel"
+  },
+  {
+    "ruta": "plantillas.6.notas.0",
+    "es": "copias de la tesina",
+    "en": "photocopies for class"
+  },
+  {
+    "ruta": "plantillas.6.notas.1",
+    "es": "corte de pelo",
+    "en": "haircut"
+  },
+  {
+    "ruta": "plantillas.6.notas.2",
+    "es": "lavandería",
+    "en": "laundromat"
+  },
+  {
+    "ruta": "plantillas.6.notas.3",
+    "es": "impresión del póster",
+    "en": "poster printing"
+  },
+  {
+    "ruta": "plantillas.6.notas.4",
+    "es": "suscripción de música",
+    "en": "music subscription"
+  },
+  {
+    "ruta": "plantillas.6.notas.5",
+    "es": "reparación del celular",
+    "en": "phone screen repair"
+  },
+  {
+    "ruta": "plantillas.6.notas.6",
+    "es": "trámite en línea",
+    "en": "online paperwork fee"
+  },
+  {
+    "ruta": "plantillas.6.notas.7",
+    "es": "tinta de impresora",
+    "en": "printer ink"
+  },
+  {
+    "ruta": "plantillas.7.notas.0",
+    "es": "propinas del turno",
+    "en": "tips from my shift"
+  },
+  {
+    "ruta": "plantillas.7.notas.1",
+    "es": "turno del viernes",
+    "en": "busy Friday"
+  },
+  {
+    "ruta": "plantillas.7.notas.2",
+    "es": "fin de semana lleno",
+    "en": "full weekend"
+  },
+  {
+    "ruta": "plantillas.7.notas.3",
+    "es": "bote compartido",
+    "en": "shared tip jar"
+  },
+  {
+    "ruta": "plantillas.7.notas.4",
+    "es": "turno tranquilo",
+    "en": "quiet shift"
+  },
+  {
+    "ruta": "plantillas.7.notas.5",
+    "es": "clientes de la mañana",
+    "en": "morning regulars"
+  },
+  {
+    "ruta": "plantillas.7.notas.6",
+    "es": "evento privado en la cafetería",
+    "en": "private event at the cafe"
+  },
+  {
+    "ruta": "plantillas.7.notas.7",
+    "es": "lunes flojo",
+    "en": "slow Monday"
+  },
+  {
+    "ruta": "hitos.0.nota",
+    "es": "Quincena de la cafetería, la base de todo el mes.",
+    "en": "Cafe paycheck, every two weeks, the floor of my month."
+  },
+  {
+    "ruta": "hitos.1.nota",
+    "es": "Colegiatura de Física, medio tiempo pero se siente completo.",
+    "en": "Physics tuition, part time degree that feels full time."
+  },
+  {
+    "ruta": "hitos.2.nota",
+    "es": "Renta del cuarto, siempre lo primero que aparto.",
+    "en": "Rent for my room, the first thing I set aside."
+  },
+  {
+    "ruta": "hitos.3.nota",
+    "es": "Internet y luz, sin eso no hay tareas.",
+    "en": "Internet and power, no homework happens without them."
+  },
+  {
+    "ruta": "hitos.4.nota",
+    "es": "Plan del celular, el mínimo que aguanta mapas.",
+    "en": "Phone plan, bare minimum that still loads maps."
+  },
+  {
+    "ruta": "hitos.5.nota",
+    "es": "Streaming: mi cine de ciencia ficción a domicilio.",
+    "en": "Streaming, my sci-fi cinema without leaving the couch."
+  },
+  {
+    "ruta": "hitos.6.nota",
+    "es": "Seguro del coche, pago aburrido que algún día agradeceré.",
+    "en": "Car insurance, boring payment I'll thank myself for someday."
+  },
+  {
+    "ruta": "hitos.7.nota",
+    "es": "Mis primeros tenis de verdad; ya no hay excusa.",
+    "en": "First real running shoes; no more excuses left."
+  },
+  {
+    "ruta": "hitos.8.nota",
+    "es": "Inscripción al 5K: mi primer dorsal en la vida.",
+    "en": "Signed up for the 5K, my first race number ever."
+  },
+  {
+    "ruta": "hitos.9.nota",
+    "es": "Inscripción al 10K, esta vez sin dudar tanto.",
+    "en": "10K entry paid, this time without overthinking it."
+  },
+  {
+    "ruta": "hitos.10.nota",
+    "es": "Medio maratón pagado; la rodilla ya respondió bien.",
+    "en": "Half marathon entry; the knee finally held up."
+  },
+  {
+    "ruta": "hitos.11.nota",
+    "es": "Cuarenta y dos kilómetros pagados. No hay vuelta atrás.",
+    "en": "Forty two kilometers paid for. No backing out now."
+  },
+  {
+    "ruta": "hitos.12.nota",
+    "es": "Renovar el pasaporte hizo que Japón dejara de ser fantasía.",
+    "en": "Renewing my passport turned Japan from daydream into plan."
+  },
+  {
+    "ruta": "hitos.13.nota",
+    "es": "Mochila de viaje, la probé cargada por toda la casa.",
+    "en": "Travel backpack; I walked around the apartment fully loaded."
+  },
+  {
+    "ruta": "hitos.14.nota",
+    "es": "Compré el vuelo y me temblaron las manos: es real.",
+    "en": "Booked the flight and my hands shook. It's real."
+  },
+  {
+    "ruta": "hitos.15.nota",
+    "es": "JR Pass listo, tres semanas de trenes en mi nombre.",
+    "en": "JR Pass bought, three weeks of trains with my name."
+  },
+  {
+    "ruta": "hitos.16.nota",
+    "es": "Hospedaje pagado: Tokio, Hakone, Kioto, Osaka, Hiroshima.",
+    "en": "Lodging paid: Tokyo, Hakone, Kyoto, Osaka, Hiroshima."
+  },
+  {
+    "ruta": "hitos.17.nota",
+    "es": "Gastando el ahorro de un año, peso por peso ganado.",
+    "en": "Spending a whole year of saving, peso by earned peso."
+  },
+  {
+    "ruta": "hitos.18.nota",
+    "es": "Se murió el coche y con él mi colchón entero.",
+    "en": "The car died and took my entire cushion with it."
+  },
+  {
+    "ruta": "hitos.19.nota",
+    "es": "Fisioterapia para la rodilla: caro, pero era eso o rendirme.",
+    "en": "Physio for my knee: expensive, but the alternative was quitting."
+  },
+  {
+    "ruta": "hitos.20.nota",
+    "es": "Llantas nuevas porque las viejas ya daban miedo.",
+    "en": "New tires, the old ones had started scaring me."
+  },
+  {
+    "ruta": "hitos.21.nota",
+    "es": "Servicio mayor del coche, el mantenimiento que sí elegí.",
+    "en": "Major service on the car, maintenance I actually chose."
+  },
+  {
+    "ruta": "hitos.22.nota",
+    "es": "Trámites del coche, el impuesto de tener chatarra querida.",
+    "en": "Car paperwork and tax, the price of loving old junk."
+  },
+  {
+    "ruta": "hitos.23.nota",
+    "es": "Aguinaldo de la cafetería: directo al fondo de emergencia.",
+    "en": "Year end bonus from the cafe, straight to the emergency fund."
+  },
+  {
+    "ruta": "hitos.24.nota",
+    "es": "Regalos para mi familia, después de tocarles el piano.",
+    "en": "Gifts for my family, after playing piano for them."
+  },
+  {
+    "ruta": "hitos.25.nota",
+    "es": "Vacunas de Laika; ella no entiende de presupuestos.",
+    "en": "Laika's shots; she doesn't care about my budget."
+  },
+  {
+    "ruta": "metas.japon",
+    "es": "Japón, tres semanas (cumplida)",
+    "en": "Japan, three weeks (done)"
+  },
+  {
+    "ruta": "metas.emergencia",
+    "es": "Fondo de emergencia: tres meses",
+    "en": "Emergency fund: three months"
+  },
+  {
+    "ruta": "metas.inversion",
+    "es": "CETES: mi primer ahorro que rinde",
+    "en": "CETES: my first savings that earn something"
+  },
+  {
+    "ruta": "metas.deuda",
+    "es": "Deuda de la avería del coche (saldada)",
+    "en": "Car breakdown debt (paid off)"
+  }
+]

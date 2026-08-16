@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "es": "El tablero",
+    "en": "The board"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "es": "Los mismos pendientes, en tres columnas: por hacer, en curso y hecho. Mantén pulsada una tarjeta para arrastrarla a otra columna —soltarla en «hecho» la palomea también en el calendario—, o muévela con las flechas.",
+    "en": "The same to-dos in three columns: to do, in progress and done. Press and hold a card to drag it to another column —dropping it on «done» also ticks it in the calendar— or move it with the arrows."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "es": "El año de la rodilla",
+    "en": "The year of the knee"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "es": "Nutrición cada pocos meses, dentista, y las seis sesiones de fisioterapia del mes 7: la lesión que frenó a Pep@ está registrada aquí.",
+    "en": "Nutrition every few months, the dentist, and the six physiotherapy sessions of month 7: the injury that stopped Pep@ is recorded here."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "es": "Medicamentos",
+    "en": "Medication"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "es": "Cada medicamento genera un bloque por toma en el calendario. El antiinflamatorio de la lesión duró tres semanas y quedó archivado; la vitamina sigue.",
+    "en": "Each medication creates one calendar block per dose. The anti-inflammatory from the injury lasted three weeks and was archived; the vitamin is still going."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "es": "Laika",
+    "en": "Laika"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "es": "La gata tiene su ficha con peso y veterinario, y sus cuidados con periodo: vacuna anual, desparasitación cada tres meses, baño cada mes. Al darlos por hechos, la próxima cita se recalcula sola.",
+    "en": "The cat has her own file with weight and vet, and her recurring care: a yearly shot, deworming every three months, a bath every month. Ticking one off recalculates the next date by itself."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "es": "El círculo de Pep@",
+    "en": "Pep@'s circle"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "es": "Familia, amistades, gente del trabajo y de la universidad, cada quien en su carpeta. Con su teléfono, su dirección y lo que no quieres olvidar.",
+    "en": "Family, friends, people from work and from university, each in their folder. With their phone, their address and whatever you do not want to forget."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "es": "Cumpleaños que no se olvidan",
+    "en": "Birthdays you never miss"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "es": "Al guardar una fecha de nacimiento, el cumpleaños se repite cada año en el calendario y te avisa. La app calcula la edad sola.",
+    "en": "Save a date of birth and the birthday repeats every year in the calendar and reminds you. The app works out the age on its own."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "es": "Los planes con gente se ligan a su contacto: así ves cuándo fue la última vez que viste a alguien.",
+    "en": "Plans with people are linked to their contact: that way you can see when you last saw someone."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "es": "Un año en tres números",
+    "en": "A year in three numbers"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "es": "La racha cuenta los días seguidos con algo registrado, y la adherencia compara los días activos con los que te propusiste. Pep@ empezó el año sin poder trotar dos manzanas.",
+    "en": "The streak counts days in a row with something logged, and adherence compares your active days with the ones you aimed for. Pep@ started the year unable to jog two blocks."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "es": "Las tres modalidades",
+    "en": "The three disciplines"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "es": "Las barras miden lo que llevas contra tus metas: sesiones de fuerza, minutos de carrera y minutos de movilidad. El objetivo se ajusta al periodo que elijas arriba.",
+    "en": "The bars measure what you have done against your targets: strength sessions, running minutes and mobility minutes. The goal adjusts to the period you pick above."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "es": "Las metas del año",
+    "en": "The goals of the year"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "es": "Aquí están sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.",
+    "en": "Here are the four goals Pep@ ticked off — the 5K, the 10K, the half marathon and the marathon — plus the one still open. Goals with a date also show up in the house calendar."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "es": "Catálogo, rutinas y progreso",
+    "en": "Catalogue, routines and progress"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "es": "Cada modalidad se organiza igual: el catálogo de ejercicios, tus rutinas con su historial, y el progreso. Empecemos por lo que Pep@ ya corrió.",
+    "en": "Every discipline works the same way: the exercise catalogue, your routines with their history, and progress. Let us start with what Pep@ already ran."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "es": "Cada salida queda escrita",
+    "en": "Every run is written down"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "es": "El historial se agrupa por año, mes y semana. Las carreras grandes guardan además el trazo del recorrido y sus tramos: ahí está el maratón, con sus parciales de diez kilómetros.",
+    "en": "The history is grouped by year, month and week. Big races also keep the shape of the route and its splits: there is the marathon, with its ten-kilometre splits."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "es": "El mapa de calor no miente",
+    "en": "The heatmap does not lie"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "es": "Los huecos también cuentan la historia: el mes de la lesión de rodilla está vacío y las tres semanas de Japón, casi. Al lado salen los kilómetros totales, la salida más larga y el mejor ritmo.",
+    "en": "The gaps tell the story too: the month of the knee injury is empty and the three weeks in Japan nearly so. Next to it: total distance, longest run and best pace."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "es": "Series, repeticiones y peso",
+    "en": "Sets, reps and weight"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "es": "Cada sesión guarda sus ejercicios con el peso que levantaste. La app recuerda la última vez para no tener que buscarla, y suma el volumen total del día.",
+    "en": "Each session keeps its exercises with the weight you lifted. The app remembers last time so you do not have to look it up, and adds up the day’s total volume."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "es": "La curva de un año",
+    "en": "A year-long curve"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "es": "Elige un ejercicio y verás cómo subió: la sentadilla de Pep@ pasó de cuarenta kilos a setenta. Durante el mes de la lesión solo entrenó tren superior, y esa curva ni se enteró.",
+    "en": "Pick an exercise and watch it climb: Pep@’s squat went from forty kilos to seventy. During the injury month only upper body was trained, and that curve never noticed."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "es": "Tus récords, sin pedirlos",
+    "en": "Your records, unasked"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "es": "De cada ejercicio se guarda el mejor peso, las máximas repeticiones y una estimación de tu 1RM. Los de peso corporal, como las dominadas, se marcan aparte.",
+    "en": "For each exercise it keeps your best weight, your top reps and an estimated 1RM. Bodyweight moves, like pull-ups, are marked separately."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "es": "Paso 1: a dónde vas",
+    "en": "Step 1: where you are heading"
+  }
+]

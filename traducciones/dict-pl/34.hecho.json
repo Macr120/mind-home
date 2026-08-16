@@ -1,0 +1,62 @@
+[
+  {
+    "clave": "tut.editor-objetos.resumen",
+    "texto": "Każdy umieszczony obiekt edytujesz tutaj w kolorze, rozmiarze i obrocie, a także możesz tworzyć własne obiekty, składając je z części."
+  },
+  { "clave": "tut.editor-config.titulo", "texto": "Edytor · Ustawienia" },
+  {
+    "clave": "tut.editor-config.resumen",
+    "texto": "Osiem rozwijanych sekcji: Konto, Ceny AI, Styl wizualny mapy, Interfejs i język, Muzyka, Samouczki, Powiadomienia i Kopia zapasowa danych. Każda otwiera się osobno i pamięta, czy zostawiono ją otwartą."
+  },
+  { "clave": "tut.respaldo.titulo", "texto": "Kopia zapasowa danych" },
+  {
+    "clave": "tut.respaldo.resumen",
+    "texto": "Wszystko, co zapisujesz, żyje na tym urządzeniu. Kopia zapasowa danych eksportuje wszystko do pliku, przywraca z pliku i ostrzega, jeśli przeglądarka mogłaby zwolnić miejsce, kasując dane bez ostrzeżenia."
+  },
+  { "clave": "tut.editor-cuarto.titulo", "texto": "Edytowanie pokoju" },
+  {
+    "clave": "tut.editor-cuarto.resumen",
+    "texto": "Podczas edytowania konkretnego pokoju szkic skupia się na nim: kształt, podłoga, ściany, kolor, nazwa i —co używane jest tu najczęściej— jaka aplikacja jest przypisana albo czy warto ją zmienić. Strzałka panelu wraca do pełnej mapy, a pływający przycisk nad pokojem go zamyka."
+  },
+  { "clave": "tut.herramientas.titulo", "texto": "Koło narzędzi" },
+  {
+    "clave": "tut.herramientas.resumen",
+    "texto": "Koło wyposaża twoją postać w cztery kategorie: ruchy (biegać, tańczyć, skakać…), zabawki (laser, portale, graffiti…), pojazdy do jazdy i budowę (skrót do trybów edytora mapy). Dwa poziomy —kategoria → narzędzie— i do 3 wyposażonych naraz."
+  },
+  { "clave": "tut.navegacion.titulo", "texto": "Kamera i ruch" },
+  {
+    "clave": "tut.navegacion.resumen",
+    "texto": "Są trzy widoki: izometryczny, 3. osoba i 1. osoba (klawisz V). Poruszasz się joystickiem, WASD lub strzałkami; kostka w rogu ustawia kamerę, chyba że masz coś w pobliżu — wtedy oferuje zamiast tego tę czynność. W 3./1. osobie jest też Edytor 3D, żeby dotykać świata bezpośrednio."
+  },
+  { "clave": "tut.chat.titulo", "texto": "Czat architekta" },
+  {
+    "clave": "tut.chat.resumen",
+    "texto": "Czat zapisuje to, co mu opowiesz, we właściwej aplikacji („biegam 20 min” trafia do Ćwiczeń), edytuje dom przez tekst, przyjmuje dyktowanie głosowe i czyta zdjęcie. Każdy asystent ma swoją twarz i głos; instrukcja wymienia wszystko, o co możesz poprosić, a to, co już zapisano, znajduje się w jego zakładce Wpisy."
+  },
+  { "clave": "tut.chat-registros.titulo", "texto": "Czat · Wpisy i wspomnienia" },
+  {
+    "clave": "tut.chat-registros.resumen",
+    "texto": "Zakładka Wpisy w czacie przechowuje twoje wcześniejsze rozmowy i to, co asystent pamięta o tobie między sesjami, żebyś nie musiał powtarzać mu tego za każdym razem."
+  },
+  { "clave": "tut.app-generica.titulo", "texto": "Ta aplikacja" },
+  {
+    "clave": "tut.app-generica.resumen",
+    "texto": "Każda aplikacja mieszka w pokoju: nagłówek pokazuje pokój i aplikację, lista na dziś zawiera to, co należy tu zrobić, a „‹ Wróć do domu” ją zamyka. Własne szablony buduje się z narzędzi: notatki, listy, liczniki, nawyki…"
+  },
+  { "clave": "tut.rutinas.titulo", "texto": "Rutyny" },
+  {
+    "clave": "tut.rutinas.resumen",
+    "texto": "Panel rutyn ma na górze twoją listę kontrolną na dziś, a na dole pełny katalog: każda rutyna ma godzinę, powtarzanie i kroki, a każdy krok może zapisać się sam w swojej aplikacji. O swojej porze przypomina asystent, a wszystko, co zaplanowane, widać też w kalendarzu."
+  },
+  { "clave": "tut.enlaces.titulo", "texto": "Chip przy każdym kroku" },
+  {
+    "clave": "tut.enlaces.resumen",
+    "texto": "Chip aplikacji obok celu albo kroku planu mówi, gdzie to się zapisuje, a dotknięcie go tam zabiera. To tylko nawigacja: zapis zawsze robi aplikacja, nigdy chip."
+  },
+  { "clave": "tut.musica.titulo", "texto": "Muzyka domu" },
+  {
+    "clave": "tut.musica.resumen",
+    "texto": "Ogólna muzyka otoczenia albo motyw dla każdego pokoju, z trzema możliwymi źródłami: generowana, twoje własne utwory albo dźwięk systemu. Można ją całkiem wyłączyć, jeśli wolisz grać w ciszy."
+  },
+  { "clave": "tut.cuenta-ia.titulo", "texto": "AI i twoje konto" }
+]

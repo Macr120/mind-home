@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "ここはPepのサンクチュアリの菜園です。1年分の手入れが積み重なった本物の区画ばかり。サンプルではありません。生きていて、リアルタイムで育ち、実際に触れます。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "「食」と「牧場」はエディタを共有します。ここで収穫したものが、隣の動物たちの食料になります。ひとつながりです。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "水やりがすべて"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "区画を見てください。まいたばかりの種、育ちかけの株、収穫できるひまわり…そしてPepがわざと水を切らしたにんじん。青い水滴が渇きを知らせます。枯れたものはもう戻せません。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "自動散水"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "トマトにはスプリンクラーがあります。自分のマスと隣の8マスを永久に潤します。これで菜園を放っておいても、何も枯れません。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "収穫"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "ひまわりが収穫できます。タップすればカゴへ。このエディタを開かなくても、実った作物の上を歩くだけで収穫できます。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "カゴに詰まった1年"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "区画ごとに収穫数が記録され、カゴには1年分がたまります。400個以上。サンクチュアリの動物たちはここから食べます。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "出ても時間は進み続けます。デモでも水やり・収穫・種まきが本当にできます。帰る前に試してみてください。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "まずは土から"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "「区画」でマップのマスをタップすると、土が整います。サンクチュアリには空の区画が2つ待っています。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "何をまくか選ぶ"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "6種類あり、それぞれの下に生育時間と水やりの間隔が出ます。にんじんは3分、かぼちゃは2時間。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "一番早い作物"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "今日のうちに一周見たいなら、空いた区画ににんじんをまいてください。散歩を終える前に収穫できます。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "元に戻す"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "「削除」は同じマスを一段ずつ外します。まず植物、次にスプリンクラー、最後に区画。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "これで全部です。土と品種と、あとは待つだけ。デモでまいたものは、ほかを見て回っている間も本当に育ちます。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "ここがPepのサンクチュアリです。保護された動物たちの囲いと、南側には彼らの食べる菜園。一緒に降りてみましょう。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Pepのサンクチュアリで保護された動物たちです。それぞれに名前があり、空腹も機嫌もリアルタイムで動いています。サンプルではありません。本当に世話ができます。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "1年分の食料庫"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "「エサやり」はカゴから減らします。カゴは隣の菜園を収穫すると増えます。Pepが1年分の蓄えを残してくれました。使ってください。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "エサやり"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "囲いをタップすると、お腹をすかせた動物全員に、空腹な順からエサをやります。ニワトリは4時間ごと、ウシは12時間もちます。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "なでる"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "6時間かまってあげないと退屈します（囲いが汚れていると2倍の速さで）。タップすれば囲い全体をなでられます。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "汚れた囲い"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "小さい囲いは8日間掃除していません。藁を見れば分かります。「掃除」でタップして新品同様に。デモでもできます。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "新入りの子"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "ブタは今朝、具合が悪いままサンクチュアリに来ました。病気の動物はエサを食べなくなり、「治療」でしか元気になりません。手遅れになるまで1週間です。治してあげてください。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "普段はこれを開かなくて大丈夫です。囲いのそばを歩くと「エサやり」と「なでる」のふきだしが出ますし、チャットで私に頼むこともできます。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "囲い"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "空いたマスをタップすると1×1の囲いができ、隣のマスをタップすると広がります。1マスに動物3頭まで。サンクチュアリの2つを見てください。放牧用の大きいものと、鳥用の小さいものです。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "動物の種類"
+  }
+]

@@ -1,0 +1,430 @@
+[
+  {
+    "ruta": "carpetas.0.nombre",
+    "texto": "Natuurkunde II"
+  },
+  {
+    "ruta": "carpetas.1.nombre",
+    "texto": "Tussentoetsen"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.nombre",
+    "texto": "Positie bij constante versnelling"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.0.nombre",
+    "texto": "beginpositie"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.1.nombre",
+    "texto": "beginsnelheid"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.2.nombre",
+    "texto": "versnelling"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.3.nombre",
+    "texto": "tijd"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.nombre",
+    "texto": "Torricelli (snelheid zonder tijd)"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.0.nombre",
+    "texto": "beginsnelheid"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.1.nombre",
+    "texto": "versnelling"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.2.nombre",
+    "texto": "verplaatsing"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.nombre",
+    "texto": "Kinetische energie"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.descripcion",
+    "texto": "Met mijn eigen massa vast: ik bereken de energie bijna altijd voor mezelf tijdens het hardlopen."
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.0.nombre",
+    "texto": "massa"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.1.nombre",
+    "texto": "snelheid"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.nombre",
+    "texto": "Wet van Hooke"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.0.nombre",
+    "texto": "veerconstante"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.1.nombre",
+    "texto": "vervorming"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.nombre",
+    "texto": "Periode van de enkelvoudige slinger"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.0.nombre",
+    "texto": "lengte"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.1.nombre",
+    "texto": "zwaartekracht"
+  },
+  {
+    "ruta": "carpetas.2.nombre",
+    "texto": "De koffiebar"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.nombre",
+    "texto": "Kosten per kopje"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.descripcion",
+    "texto": "Wat het kost om een kopje te serveren, zonder de tijd mee te rekenen."
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.0.nombre",
+    "texto": "prijs per kilo koffie"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.1.nombre",
+    "texto": "gram per kopje"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.2.nombre",
+    "texto": "kosten van de melk"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.3.nombre",
+    "texto": "beker en deksel"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.nombre",
+    "texto": "Marge op de prijs"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.tex",
+    "texto": "marge = \\dfrac{prijs - kosten}{prijs} \\times 100"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.0.nombre",
+    "texto": "verkoopprijs"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.1.nombre",
+    "texto": "kosten per kopje"
+  },
+  {
+    "ruta": "carpetas.3.nombre",
+    "texto": "Hardlopen"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.nombre",
+    "texto": "Tempo per kilometer"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.tex",
+    "texto": "tempo = \\dfrac{minuten}{km}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.0.nombre",
+    "texto": "totale minuten"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.1.nombre",
+    "texto": "kilometers"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.nombre",
+    "texto": "Tempo voor het marathondoel"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.variables.0.nombre",
+    "texto": "doel in minuten"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.nombre",
+    "texto": "Geschatte VO₂ max"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.tex",
+    "texto": "VO_{2}\\,max \\approx 15.3\\,\\dfrac{HS_{max}}{HS_{rust}}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.descripcion",
+    "texto": "De formule van Uth: bij benadering, maar goed genoeg om te zien of ik vooruitga."
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.nombre",
+    "texto": "maximale hartslag"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.unidad",
+    "texto": "bpm"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.nombre",
+    "texto": "hartslag in rust"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.unidad",
+    "texto": "bpm"
+  },
+  {
+    "ruta": "hojas.0.nombre",
+    "texto": "Budget Japan"
+  },
+  {
+    "ruta": "hojas.0.celdas.A1.crudo",
+    "texto": "Dag"
+  },
+  {
+    "ruta": "hojas.0.celdas.B1.crudo",
+    "texto": "Eten"
+  },
+  {
+    "ruta": "hojas.0.celdas.C1.crudo",
+    "texto": "Vervoer"
+  },
+  {
+    "ruta": "hojas.0.celdas.D1.crudo",
+    "texto": "Tickets"
+  },
+  {
+    "ruta": "hojas.0.celdas.E1.crudo",
+    "texto": "Aankopen"
+  },
+  {
+    "ruta": "hojas.0.celdas.A2.crudo",
+    "texto": "Dag 1"
+  },
+  {
+    "ruta": "hojas.0.celdas.A3.crudo",
+    "texto": "Dag 2"
+  },
+  {
+    "ruta": "hojas.0.celdas.A4.crudo",
+    "texto": "Dag 3"
+  },
+  {
+    "ruta": "hojas.0.celdas.A5.crudo",
+    "texto": "Dag 4"
+  },
+  {
+    "ruta": "hojas.0.celdas.A6.crudo",
+    "texto": "Dag 5"
+  },
+  {
+    "ruta": "hojas.0.celdas.A7.crudo",
+    "texto": "Dag 6"
+  },
+  {
+    "ruta": "hojas.0.celdas.A8.crudo",
+    "texto": "Dag 7"
+  },
+  {
+    "ruta": "hojas.0.celdas.A9.crudo",
+    "texto": "Dag 8"
+  },
+  {
+    "ruta": "hojas.0.celdas.A10.crudo",
+    "texto": "Dag 9"
+  },
+  {
+    "ruta": "hojas.0.celdas.A11.crudo",
+    "texto": "Dag 10"
+  },
+  {
+    "ruta": "hojas.0.celdas.A12.crudo",
+    "texto": "Dag 11"
+  },
+  {
+    "ruta": "hojas.0.celdas.A13.crudo",
+    "texto": "Dag 12"
+  },
+  {
+    "ruta": "hojas.0.celdas.A14.crudo",
+    "texto": "Dag 13"
+  },
+  {
+    "ruta": "hojas.0.celdas.A15.crudo",
+    "texto": "Dag 14"
+  },
+  {
+    "ruta": "hojas.0.celdas.A18.crudo",
+    "texto": "Dagelijks gemiddelde"
+  },
+  {
+    "ruta": "hojas.0.celdas.A20.crudo",
+    "texto": "Reistotaal ¥"
+  },
+  {
+    "ruta": "hojas.0.celdas.A21.crudo",
+    "texto": "Wisselkoers (MXN/¥)"
+  },
+  {
+    "ruta": "hojas.0.celdas.A22.crudo",
+    "texto": "Totaal in peso's"
+  },
+  {
+    "ruta": "hojas.1.nombre",
+    "texto": "Plan van 18 weken"
+  },
+  {
+    "ruta": "hojas.1.celdas.A1.crudo",
+    "texto": "Week"
+  },
+  {
+    "ruta": "hojas.1.celdas.B1.crudo",
+    "texto": "Kilometers"
+  },
+  {
+    "ruta": "hojas.1.celdas.C1.crudo",
+    "texto": "Verandering %"
+  },
+  {
+    "ruta": "hojas.1.celdas.D1.crudo",
+    "texto": "Lange duurloop"
+  },
+  {
+    "ruta": "hojas.1.celdas.A2.crudo",
+    "texto": "Week 1"
+  },
+  {
+    "ruta": "hojas.1.celdas.A3.crudo",
+    "texto": "Week 2"
+  },
+  {
+    "ruta": "hojas.1.celdas.A4.crudo",
+    "texto": "Week 3"
+  },
+  {
+    "ruta": "hojas.1.celdas.A5.crudo",
+    "texto": "Week 4"
+  },
+  {
+    "ruta": "hojas.1.celdas.A6.crudo",
+    "texto": "Week 5"
+  },
+  {
+    "ruta": "hojas.1.celdas.A7.crudo",
+    "texto": "Week 6"
+  },
+  {
+    "ruta": "hojas.1.celdas.A8.crudo",
+    "texto": "Week 7"
+  },
+  {
+    "ruta": "hojas.1.celdas.A9.crudo",
+    "texto": "Week 8"
+  },
+  {
+    "ruta": "hojas.1.celdas.A10.crudo",
+    "texto": "Week 9"
+  },
+  {
+    "ruta": "hojas.1.celdas.A11.crudo",
+    "texto": "Week 10"
+  },
+  {
+    "ruta": "hojas.1.celdas.A12.crudo",
+    "texto": "Week 11"
+  },
+  {
+    "ruta": "hojas.1.celdas.A13.crudo",
+    "texto": "Week 12"
+  },
+  {
+    "ruta": "hojas.1.celdas.A14.crudo",
+    "texto": "Week 13"
+  },
+  {
+    "ruta": "hojas.1.celdas.A15.crudo",
+    "texto": "Week 14"
+  },
+  {
+    "ruta": "hojas.1.celdas.A16.crudo",
+    "texto": "Week 15"
+  },
+  {
+    "ruta": "hojas.1.celdas.A17.crudo",
+    "texto": "Week 16"
+  },
+  {
+    "ruta": "hojas.1.celdas.A18.crudo",
+    "texto": "Week 17"
+  },
+  {
+    "ruta": "hojas.1.celdas.A19.crudo",
+    "texto": "Week 18"
+  },
+  {
+    "ruta": "hojas.1.celdas.A22.crudo",
+    "texto": "Piekweek"
+  },
+  {
+    "ruta": "hojas.1.celdas.A23.crudo",
+    "texto": "Gemiddelde"
+  },
+  {
+    "ruta": "hojas.2.nombre",
+    "texto": "Cijfers Natuurkunde II"
+  },
+  {
+    "ruta": "hojas.2.celdas.A1.crudo",
+    "texto": "Onderdeel"
+  },
+  {
+    "ruta": "hojas.2.celdas.B1.crudo",
+    "texto": "Weging"
+  },
+  {
+    "ruta": "hojas.2.celdas.C1.crudo",
+    "texto": "Cijfer"
+  },
+  {
+    "ruta": "hojas.2.celdas.D1.crudo",
+    "texto": "Bijdrage"
+  },
+  {
+    "ruta": "hojas.2.celdas.A2.crudo",
+    "texto": "Tussentoets 1"
+  },
+  {
+    "ruta": "hojas.2.celdas.A3.crudo",
+    "texto": "Tussentoets 2"
+  },
+  {
+    "ruta": "hojas.2.celdas.A4.crudo",
+    "texto": "Huiswerk"
+  },
+  {
+    "ruta": "hojas.2.celdas.A5.crudo",
+    "texto": "Practicum"
+  },
+  {
+    "ruta": "hojas.2.celdas.A8.crudo",
+    "texto": "Weging tot nu toe"
+  },
+  {
+    "ruta": "hojas.2.celdas.A9.crudo",
+    "texto": "Stand tot nu toe"
+  },
+  {
+    "ruta": "hojas.2.celdas.A10.crudo",
+    "texto": "Nodig in het eindexamen"
+  }
+]

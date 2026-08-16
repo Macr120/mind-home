@@ -1,0 +1,22 @@
+[
+  {
+    "clave": "ajustes.idioma.ja",
+    "en": "Japanese"
+  },
+  {
+    "clave": "ajustes.idioma.zh",
+    "en": "Chinese"
+  },
+  {
+    "clave": "ajustes.idioma.ko",
+    "en": "Korean"
+  },
+  {
+    "clave": "ajustes.idioma.ru",
+    "en": "Russian"
+  },
+  {
+    "clave": "ajustes.idioma.hi",
+    "en": "Hindi"
+  }
+]

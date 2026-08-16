@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "名前、絵文字、色、そして——任意で——週の目標日数。記録を始めるのに必要なのは、このフォームだけです。"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "週の目標"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "ピアノは週4日と決めました。練習した日の分だけ今週の行が塗られ、上には目標に対していくつ達成したかが出ます。"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "練習を記録"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "ワンタップで手早く分数を入れるか、正確な数字を入力します。プロジェクトは任意、メモはそのセッションで覚えておきたいことのためのものです。"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "アイデアの受け皿"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "思いついたことを書くだけ。Pepさんはこの1年で90件ほど放り込みました。物理のこと、カフェのこと、トレーニングのこと。星印はお気に入りです。"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "テーマ別のブレインストーミング"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "ブレインストーミングは、ひとつのテーマの下に全部をまとめます。Pepさんのものを探してみてください。猫の名前（Laikaに決まりました）、日本の費用をどう払うか、旅に何を持っていくか。"
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "ブレインストーミングが熟したら、ボタンひとつでマインドマップに変わり、キャンバスの上で整理を続けられます。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "10の形式"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "形式ごとに描き方が変わります。下にあるのは、Pepさんがこの1年で作ったマップです。朝のルーティンはフローチャート、熱力学はツリー、物理と音楽はベン図で。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "「理想の暮らし」"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "その年の最初のマップ、1か月目のものです。Pepさんが望んだ暮らしが描かれています。ゆっくり見てください——ここにあることは、ほとんど本当に起きました。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "キャンバスでは、ノードをタップして選び、もう一度タップで文字を書けます。ドラッグで動かし、ピンチでズーム、下部バーからアイデアを追加します。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "テーマひとつでマップ全体"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "テーマをAIに渡すと、ノードまで整理された状態でマップを丸ごと作ってくれます。どこから手をつけるか分からないテーマの、出発点になります。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "AIでノードを広げる"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "マップの中に入れば、どのノードも広げられます。まわりに書いた内容をふまえてAIが子ノードを提案するので、組み立てた構造は崩れません。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "決め方は8通り"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "Pepさんは本当に使いました。試験週間にはアイゼンハワーマトリクス、年の半ばにはSWOT分析、カメラ選びには決定マトリクス。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "大学院か、就職か"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "年の終わりに残った大きな決断です。それぞれの側に1〜5の重み、下に合計。まだ決まっていません——真剣に考えるとは、こういう姿です。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "領域で分ける形式では、どの項目もいずれかのゾーンに入ります。追加する前に下部バーで選ぶか、別のゾーンへドラッグすると自動で移ります。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "重みつきの決定マトリクス"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "これはキャンバスではなく表です。選択肢ごとに各基準を採点し、基準には自分にとっての重要度で1〜5の重みをつけます。合計が選択肢を自動で並べ替えます。"
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "時計"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "カレンダーは部屋ではありません。家の時計の中にあるので、どこにいても開けます。"
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "本物の1週間"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "カフェのシフト、物理の授業、夜明けのランニング、夜のピアノ。どのブロックも時刻と色を持つルーティンです。ドラッグで動かし、伸ばせば長さを変えられます。"
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "4つの見方"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "「日」と「週」は時間ごとのマス目、「月」と「年」は1年全体の眺めです。最初のボタンは二役で、「今日」と出ているときは現在に戻し、別の日付を見ているときは「日」になります。"
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "ブロックはどこから来るのか"
+  }
+]

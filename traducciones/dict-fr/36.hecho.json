@@ -1,0 +1,150 @@
+[
+  {
+    "clave": "tut.app-jardin--practicar.resumen",
+    "texto": "Le jardin garde tes séances de méditation (avec des pistes sonores) et de respiration guidée. Sans séries ni points : le calme ne fait que grandir."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.titulo",
+    "texto": "Trois bonnes choses"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.resumen",
+    "texto": "Le rituel de gratitude : trois bonnes choses de la journée, gardées dans des dossiers pour les relire plus tard."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.titulo",
+    "texto": "L’année de piano"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.resumen",
+    "texto": "Loisirs suit chaque passe-temps : des séances avec des minutes et une note, une carte de chaleur annuelle, des séries, un objectif hebdomadaire et des projets."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.titulo",
+    "texto": "Projets avec photos"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.resumen",
+    "texto": "Chaque projet garde sa note, ses séances liées et son avancement en photos."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.titulo",
+    "texto": "Enregistrer et planifier"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.resumen",
+    "texto": "Un nouveau passe-temps s’ajoute avec un formulaire court ; chaque séance s’enregistre en quelques secondes, et un objectif hebdomadaire — ou le planning complet — donne une structure au temps que tu y consacres."
+  },
+  {
+    "clave": "tut.app-ideas--diario.titulo",
+    "texto": "Capturer des idées"
+  },
+  {
+    "clave": "tut.app-ideas--diario.resumen",
+    "texto": "Le journal d’idées capture des pensées éparses ou des remue-méninges par thème ; tu mets une étoile sur les meilleures et tu les transformes en cartes."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.titulo",
+    "texto": "Les cartes de Pep"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.resumen",
+    "texto": "Les cartes organisent un thème sur une toile libre : carte mentale, arbre, flux, ligne du temps, cycle, pyramide, Venn et plus encore."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.titulo",
+    "texto": "Décider avec des diagrammes"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.resumen",
+    "texto": "Les diagrammes aident à décider : Pour et contre pondérés, SWOT, Eisenhower, matrice pondérée et plus encore."
+  },
+  {
+    "clave": "tut.calendario.titulo",
+    "texto": "Calendrier"
+  },
+  {
+    "clave": "tut.calendario.resumen",
+    "texto": "L’horloge de la maison ouvre le calendrier : tout ce qui est planifié —horaires, cours, habitudes et ce qu’apportent les autres apps— dans les vues Jour, Semaine, Mois, Année et Objectifs. Le panneau du bas mesure à quel point tu respectes ce que tu as planifié."
+  },
+  {
+    "clave": "tut.calendario.3b.titulo",
+    "texto": "Et Objectifs, à part"
+  },
+  {
+    "clave": "tut.calendario.3b.texto",
+    "texto": "En rouge, pour ne pas la confondre avec les quatre du dessus : Objectifs ouvre tes objectifs, leurs plans et le planning."
+  },
+  {
+    "clave": "tut.metas.titulo",
+    "texto": "Objectifs"
+  },
+  {
+    "clave": "tut.metas.resumen",
+    "texto": "Les trois écrans d’un objectif : la liste où il naît, le plan qui le développe (l’IA le propose et tu le coches) et le planning où ses phases occupent leur période, déjà comme de vrais sous-objectifs."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.titulo",
+    "texto": "Ta propre encyclopédie"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.resumen",
+    "texto": "Tout ce que tu apprends s’archive dans un arbre par domaine de connaissance : des fiches avec un résumé et des points clés que tu peux illustrer."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.titulo",
+    "texto": "Discuter et distiller"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.resumen2",
+    "texto": "Tu poses tes questions au Sage sur n’importe quel thème et la conversation s’archive toute seule : elle se classe dans ton arbre et ressort déjà distillée comme fiche d’encyclopédie."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.texto2",
+    "texto": "La première réponse place déjà la conversation dans sa branche et l’écrit comme une entrée. À partir de cette entrée, tu la ramifies : les sous-thèmes qui ont éveillé ta curiosité deviennent de nouvelles branches."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.titulo",
+    "texto": "Étudier et planifier"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.resumen",
+    "texto": "Le minuteur enregistre combien de temps tu étudies —d’un trait ou en pomodoros— et le plan d’étude répartit tes objectifs dans le calendrier."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.titulo",
+    "texto": "L’horloge d’étude"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.texto",
+    "texto": "Tu choisis un domaine et tu démarres : en mode Simple, les minutes défilent d’un trait, et en mode Pomodoro, l’app enchaîne des périodes de concentration et des pauses. Chaque période s’enregistre toute seule, et l’horloge continue même si tu quittes la pièce."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.titulo",
+    "texto": "Le panorama de l’année"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.resumen",
+    "texto": "Résumé rassemble sur un seul écran ce que les trois autres onglets répartissent : combien d’entrées tu as par domaine, combien de temps tu as étudié et quels jours."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.titulo",
+    "texto": "La révision quotidienne"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.resumen",
+    "texto": "Les cartes se révisent par boîtes : chaque bonne réponse éloigne la prochaine échéance et chaque erreur la rapproche. L’app ne te demande que ce qui est prévu pour aujourd’hui."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.titulo",
+    "texto": "Des exercices, pas des cartes"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.texto",
+    "texto": "Tu révises en répondant : choix multiple, à l’envers ou en complétant la phrase d’exemple. En haut, tu choisis ce qui entre dans la manche — ce qui est prévu pour aujourd’hui, tout le vocabulaire ou un thème du programme."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.titulo",
+    "texto": "Le vocabulaire"
+  }
+]

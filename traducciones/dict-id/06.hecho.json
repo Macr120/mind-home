@@ -1,0 +1,638 @@
+[
+  {
+    "clave": "despacho.m.categoriaPh",
+    "texto": "Tulis kategorimu sendiri atau pilih yang sudah ada"
+  },
+  {
+    "clave": "despacho.m.tipoMov",
+    "texto": "Variabel atau tetap?"
+  },
+  {
+    "clave": "despacho.m.variable",
+    "texto": "Variabel"
+  },
+  {
+    "clave": "despacho.m.fijo",
+    "texto": "Tetap"
+  },
+  {
+    "clave": "despacho.m.plazo",
+    "texto": "Seberapa sering?"
+  },
+  {
+    "clave": "despacho.m.plazoAyuda",
+    "texto": "Berulang sendiri sejak tanggal yang kamu tetapkan — tidak perlu mencatatnya lagi."
+  },
+  {
+    "clave": "despacho.m.repetidos",
+    "texto": "Tetap"
+  },
+  {
+    "clave": "despacho.m.alMes",
+    "texto": "≈ {n} per bulan"
+  },
+  {
+    "clave": "despacho.m.desde",
+    "texto": "sejak {f}"
+  },
+  {
+    "clave": "despacho.m.llevas",
+    "texto": "{n} sejauh ini"
+  },
+  {
+    "clave": "despacho.m.acumuladoTotal",
+    "texto": "Item tetapmu sejauh ini"
+  },
+  {
+    "clave": "despacho.r.deLosFijos",
+    "texto": "Dari item tetapmu: +{i} · −{g}"
+  },
+  {
+    "clave": "despacho.sim.titulo",
+    "texto": "Simulator · {n} bulan ke depan"
+  },
+  {
+    "clave": "despacho.sim.meses",
+    "texto": "bulan"
+  },
+  {
+    "clave": "despacho.sim.base",
+    "texto": "Ini memproyeksikan item tetapmu hingga jatuh temponya dan item variabel dengan rata-rata bulanan dari yang sudah kamu catat."
+  },
+  {
+    "clave": "despacho.sim.sinPatrimonio",
+    "texto": "Tanpa kekayaan bersih · dalam {n} bulan"
+  },
+  {
+    "clave": "despacho.sim.conPatrimonio",
+    "texto": "Dengan kekayaan bersih · dalam {n} bulan"
+  },
+  {
+    "clave": "despacho.sim.faltaPatrimonio",
+    "texto": "Catat kekayaan bersihmu di atas untuk juga melihat skenario dengannya."
+  },
+  {
+    "clave": "despacho.m.agregar",
+    "texto": "Tambah transaksi"
+  },
+  {
+    "clave": "despacho.m.movs",
+    "texto": "{n} transaksi"
+  },
+  {
+    "clave": "despacho.m.nuevoGasto",
+    "texto": "Pengeluaran baru"
+  },
+  {
+    "clave": "despacho.m.nuevoIngreso",
+    "texto": "Pemasukan baru"
+  },
+  {
+    "clave": "despacho.m.sinGastos",
+    "texto": "Belum ada pengeluaran tercatat."
+  },
+  {
+    "clave": "despacho.m.sinIngresos",
+    "texto": "Belum ada pemasukan tercatat."
+  },
+  {
+    "clave": "despacho.meta.nueva",
+    "texto": "Target tabungan baru"
+  },
+  {
+    "clave": "despacho.meta.ph.nombre",
+    "texto": "Cth. Liburan ke Jepang"
+  },
+  {
+    "clave": "despacho.meta.ph.objetivo",
+    "texto": "Target"
+  },
+  {
+    "clave": "despacho.meta.crear",
+    "texto": "Buat target"
+  },
+  {
+    "clave": "despacho.meta.vacio",
+    "texto": "Belum ada target. Buat target tabungan pertamamu!"
+  },
+  {
+    "clave": "despacho.meta.ph.abono",
+    "texto": "Tambah"
+  },
+  {
+    "clave": "despacho.meta.abonar",
+    "texto": "Tambah"
+  },
+  {
+    "clave": "despacho.meta.nuevaInv",
+    "texto": "Target investasi baru"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreInv",
+    "texto": "Cth. Reksa dana indeks"
+  },
+  {
+    "clave": "despacho.meta.vacioInv",
+    "texto": "Belum ada target investasi. Tentukan berapa yang ingin kamu investasikan dan tambahkan seiring waktu."
+  },
+  {
+    "clave": "despacho.meta.aportar",
+    "texto": "Kontribusi"
+  },
+  {
+    "clave": "despacho.meta.ph.aporte",
+    "texto": "Kontribusi"
+  },
+  {
+    "clave": "despacho.meta.nuevaDeuda",
+    "texto": "Utang baru untuk dilunasi"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreDeuda",
+    "texto": "Cth. Kartu kredit"
+  },
+  {
+    "clave": "despacho.meta.ph.deuda",
+    "texto": "Utang"
+  },
+  {
+    "clave": "despacho.meta.vacioDeuda",
+    "texto": "Belum ada utang tercatat. Catat apa yang kamu utang dan catat tiap pembayaran."
+  },
+  {
+    "clave": "despacho.meta.pagar",
+    "texto": "Bayar"
+  },
+  {
+    "clave": "despacho.meta.ph.pago",
+    "texto": "Bayar"
+  },
+  {
+    "clave": "despacho.tab.simuladores",
+    "texto": "Simulasi"
+  },
+  {
+    "clave": "despacho.s.simulador",
+    "texto": "Simulator"
+  },
+  {
+    "clave": "despacho.s.usarDeuda",
+    "texto": "Gunakan salah satu utangmu…"
+  },
+  {
+    "clave": "despacho.s.compuesto",
+    "texto": "Majemuk"
+  },
+  {
+    "clave": "despacho.s.simple",
+    "texto": "Sederhana"
+  },
+  {
+    "clave": "despacho.s.meta",
+    "texto": "Target"
+  },
+  {
+    "clave": "despacho.s.credito",
+    "texto": "Pinjaman"
+  },
+  {
+    "clave": "despacho.s.inicial",
+    "texto": "Modal awal"
+  },
+  {
+    "clave": "despacho.s.aporteMes",
+    "texto": "Setoran bulanan"
+  },
+  {
+    "clave": "despacho.s.tasaAnual",
+    "texto": "Suku bunga tahunan %"
+  },
+  {
+    "clave": "despacho.s.anos",
+    "texto": "Tahun"
+  },
+  {
+    "clave": "despacho.s.capitalizacion",
+    "texto": "Pemajemukan"
+  },
+  {
+    "clave": "despacho.s.cap.12",
+    "texto": "Bulanan"
+  },
+  {
+    "clave": "despacho.s.cap.4",
+    "texto": "Triwulan"
+  },
+  {
+    "clave": "despacho.s.cap.2",
+    "texto": "Semester"
+  },
+  {
+    "clave": "despacho.s.cap.1",
+    "texto": "Tahunan"
+  },
+  {
+    "clave": "despacho.s.saldoFinal",
+    "texto": "Saldo akhir"
+  },
+  {
+    "clave": "despacho.s.aportado",
+    "texto": "Disetorkan"
+  },
+  {
+    "clave": "despacho.s.interesGanado",
+    "texto": "Bunga yang diperoleh"
+  },
+  {
+    "clave": "despacho.s.porAno",
+    "texto": "Tahun demi tahun"
+  },
+  {
+    "clave": "despacho.s.col.ano",
+    "texto": "Tahun"
+  },
+  {
+    "clave": "despacho.s.col.aportado",
+    "texto": "Disetorkan"
+  },
+  {
+    "clave": "despacho.s.col.interes",
+    "texto": "Bunga"
+  },
+  {
+    "clave": "despacho.s.col.saldo",
+    "texto": "Saldo"
+  },
+  {
+    "clave": "despacho.s.interesGenerado",
+    "texto": "Bunga yang dihasilkan"
+  },
+  {
+    "clave": "despacho.s.total",
+    "texto": "Total akhir"
+  },
+  {
+    "clave": "despacho.s.vsCompuesto",
+    "texto": "Dengan bunga majemuk (pemajemukan tahunan) kamu akan punya {x} — {d} lebih banyak."
+  },
+  {
+    "clave": "despacho.s.usarMeta",
+    "texto": "Gunakan salah satu targetmu…"
+  },
+  {
+    "clave": "despacho.s.objetivo",
+    "texto": "Jumlah target $"
+  },
+  {
+    "clave": "despacho.s.metaLista",
+    "texto": "Dengan modal awal dan suku bunga itu, kamu sudah mencapai target tanpa setoran tambahan."
+  },
+  {
+    "clave": "despacho.s.aporteNecesario",
+    "texto": "Setoran bulanan yang diperlukan"
+  },
+  {
+    "clave": "despacho.s.durante",
+    "texto": "selama {n} bulan"
+  },
+  {
+    "clave": "despacho.s.deTuBolsillo",
+    "texto": "Dari kantongmu sendiri"
+  },
+  {
+    "clave": "despacho.s.generaInteres",
+    "texto": "Ditanggung bunga"
+  },
+  {
+    "clave": "despacho.s.montoCredito",
+    "texto": "Jumlah pinjaman"
+  },
+  {
+    "clave": "despacho.s.plazoMeses",
+    "texto": "Tenor (bulan)"
+  },
+  {
+    "clave": "despacho.s.mensualidad",
+    "texto": "Cicilan bulanan"
+  },
+  {
+    "clave": "despacho.s.totalPagado",
+    "texto": "Total dibayar"
+  },
+  {
+    "clave": "despacho.s.intereses",
+    "texto": "Total bunga"
+  },
+  {
+    "clave": "despacho.s.col.capital",
+    "texto": "Pokok"
+  },
+  {
+    "clave": "despacho.s.col.restante",
+    "texto": "Sisa"
+  },
+  {
+    "clave": "despacho.ejemplo.vacio",
+    "texto": "Belum tahu mulai dari mana? Muat contoh siap pakai dan lihat-lihat isinya."
+  },
+  {
+    "clave": "despacho.ejemplo.cargado",
+    "texto": "Semua yang kamu lihat sebagai contoh bisa dihapus sekaligus."
+  },
+  {
+    "clave": "despacho.ejemplo.cargar",
+    "texto": "Muat contoh"
+  },
+  {
+    "clave": "despacho.ejemplo.borrar",
+    "texto": "Hapus contoh"
+  },
+  {
+    "clave": "despacho.ejemplo.confirmar",
+    "texto": "Ya, hapus contoh"
+  },
+  {
+    "clave": "despacho.mk.divisas",
+    "texto": "Forex"
+  },
+  {
+    "clave": "despacho.mk.criptos",
+    "texto": "Mata uang kripto"
+  },
+  {
+    "clave": "despacho.mk.acciones",
+    "texto": "Saham"
+  },
+  {
+    "clave": "despacho.mk.commodities",
+    "texto": "Komoditas"
+  },
+  {
+    "clave": "despacho.mk.dias30",
+    "texto": "30 hari"
+  },
+  {
+    "clave": "despacho.mk.dias7",
+    "texto": "7 hari"
+  },
+  {
+    "clave": "despacho.mk.top10cap",
+    "texto": "10 teratas berdasarkan kapitalisasi pasar · USD"
+  },
+  {
+    "clave": "despacho.mk.top10capNyse",
+    "texto": "10 teratas berdasarkan kapitalisasi pasar · USD · NYSE/Nasdaq"
+  },
+  {
+    "clave": "despacho.mk.top10pares",
+    "texto": "10 pasangan yang paling banyak diperdagangkan"
+  },
+  {
+    "clave": "despacho.mk.col.activo",
+    "texto": "Aset"
+  },
+  {
+    "clave": "despacho.mk.col.precio",
+    "texto": "Harga"
+  },
+  {
+    "clave": "despacho.mk.col.dia",
+    "texto": "Hari"
+  },
+  {
+    "clave": "despacho.mk.col.cap",
+    "texto": "Kap."
+  },
+  {
+    "clave": "despacho.mk.col.30d",
+    "texto": "30 h"
+  },
+  {
+    "clave": "despacho.mk.col.etf",
+    "texto": "ETF"
+  },
+  {
+    "clave": "despacho.mk.viaEtf",
+    "texto": "via ETF · USD"
+  },
+  {
+    "clave": "despacho.mk.sinCapDivisas",
+    "texto": "Pasangan mata uang tidak punya kapitalisasi pasar: sebagai gantinya ditampilkan perubahan 30 hari."
+  },
+  {
+    "clave": "despacho.mk.notaEtf",
+    "texto": "Harga yang ditampilkan adalah harga ETF yang melacak tiap komoditas, bukan harga spot-nya; komoditas juga tidak punya kapitalisasi pasar."
+  },
+  {
+    "clave": "despacho.mk.fuenteDivisas",
+    "texto": "Sumber: ECB (Frankfurter)"
+  },
+  {
+    "clave": "despacho.mk.fuenteCripto",
+    "texto": "Sumber: CoinGecko · 7 hari"
+  },
+  {
+    "clave": "despacho.mk.fuenteAcciones",
+    "texto": "Sumber: Finnhub"
+  },
+  {
+    "clave": "despacho.mk.miLista",
+    "texto": "Daftar pantauanku"
+  },
+  {
+    "clave": "despacho.mk.cargando",
+    "texto": "Memuat pasar…"
+  },
+  {
+    "clave": "despacho.mk.cargandoBtn",
+    "texto": "Memuat…"
+  },
+  {
+    "clave": "despacho.mk.error",
+    "texto": "Tidak bisa terhubung ke sumber pasar. Periksa koneksi internetmu."
+  },
+  {
+    "clave": "despacho.mk.reintentar",
+    "texto": "Coba lagi"
+  },
+  {
+    "clave": "despacho.mk.cacheAviso",
+    "texto": "Salah satu sumber tidak terjangkau — menampilkan data terakhir yang tersimpan."
+  },
+  {
+    "clave": "despacho.mk.clave",
+    "texto": "Kunci API Finnhub"
+  },
+  {
+    "clave": "despacho.mk.clave.ph",
+    "texto": "Kunci finnhub.io"
+  },
+  {
+    "clave": "despacho.mk.clave.guardada",
+    "texto": "Kunci tersimpan — tempel yang baru untuk menggantinya"
+  },
+  {
+    "clave": "despacho.mk.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "despacho.mk.claveInvalida",
+    "texto": "Kunci Finnhub tidak valid. Ubah di tombol API (gratis di finnhub.io)."
+  },
+  {
+    "clave": "despacho.mk.sinDatos",
+    "texto": "Tidak ada data"
+  },
+  {
+    "clave": "despacho.mk.vacia",
+    "texto": "Tambahkan saham untuk memantaunya di sini."
+  },
+  {
+    "clave": "despacho.mk.misDivisas",
+    "texto": "Pasangan mata uangku"
+  },
+  {
+    "clave": "despacho.mk.vaciaDivisa",
+    "texto": "Tambahkan pasangan mata uang untuk memantaunya di sini."
+  },
+  {
+    "clave": "despacho.mk.misCriptos",
+    "texto": "Mata uang kriptoku"
+  },
+  {
+    "clave": "despacho.mk.vaciaCripto",
+    "texto": "Cari mata uang kripto untuk memantaunya di sini."
+  },
+  {
+    "clave": "despacho.mk.buscarCripto.ph",
+    "texto": "Cari (cth. cardano)"
+  },
+  {
+    "clave": "despacho.mk.misMaterias",
+    "texto": "Komoditasku"
+  },
+  {
+    "clave": "despacho.mk.vaciaMateria",
+    "texto": "Tambahkan ETF komoditas yang ingin kamu pantau."
+  },
+  {
+    "clave": "despacho.mk.nombreMateria.ph",
+    "texto": "Nama (cth. Paladium)"
+  },
+  {
+    "clave": "despacho.mk.etf.ph",
+    "texto": "ETF (cth. PALL)"
+  },
+  {
+    "clave": "despacho.mk.ticker.ph",
+    "texto": "Ticker (cth. AAPL)"
+  },
+  {
+    "clave": "despacho.mk.agregar",
+    "texto": "Tambah"
+  },
+  {
+    "clave": "despacho.mk.actualizar",
+    "texto": "Perbarui"
+  },
+  {
+    "clave": "despacho.mk.com.oro",
+    "texto": "Emas"
+  },
+  {
+    "clave": "despacho.mk.com.plata",
+    "texto": "Perak"
+  },
+  {
+    "clave": "despacho.mk.com.platino",
+    "texto": "Platina"
+  },
+  {
+    "clave": "despacho.mk.com.petroleo",
+    "texto": "Minyak (WTI)"
+  },
+  {
+    "clave": "despacho.mk.com.gas",
+    "texto": "Gas alam"
+  },
+  {
+    "clave": "despacho.mk.com.cobre",
+    "texto": "Tembaga"
+  },
+  {
+    "clave": "despacho.mk.com.maiz",
+    "texto": "Jagung"
+  },
+  {
+    "clave": "despacho.mk.com.trigo",
+    "texto": "Gandum"
+  },
+  {
+    "clave": "despacho.mk.com.soya",
+    "texto": "Kedelai"
+  },
+  {
+    "clave": "despacho.mk.com.agricolas",
+    "texto": "Keranjang pertanian"
+  },
+  {
+    "clave": "despacho.tab.patrimonio",
+    "texto": "Kekayaan bersih"
+  },
+  {
+    "clave": "despacho.tab.activos",
+    "texto": "Aset"
+  },
+  {
+    "clave": "despacho.tab.pasivos",
+    "texto": "Kewajiban"
+  },
+  {
+    "clave": "despacho.patr.neto",
+    "texto": "Kekayaan bersih"
+  },
+  {
+    "clave": "despacho.patr.ayudaCorta",
+    "texto": "Yang kamu miliki dikurangi yang kamu utang."
+  },
+  {
+    "clave": "despacho.patr.ayuda",
+    "texto": "Tabungan, investasi, dan utang masuk sendiri dari targetmu; saldo periode ini TIDAK ditambahkan di sini — ini menunjukkan apa yang akan terjadi pada angka ini, bukan uang terpisah."
+  },
+  {
+    "clave": "despacho.patr.efectivoOjoCorta",
+    "texto": "Kapan ini masuk akal?"
+  },
+  {
+    "clave": "despacho.ui.masAyuda",
+    "texto": "Detail lainnya"
+  },
+  {
+    "clave": "despacho.patr.fisicos",
+    "texto": "Properti dan barang"
+  },
+  {
+    "clave": "despacho.patr.liquidos",
+    "texto": "Uang tunai dan investasi"
+  },
+  {
+    "clave": "despacho.patr.deudas",
+    "texto": "Utang, pinjaman, dan hipotek"
+  },
+  {
+    "clave": "despacho.patr.deMetas",
+    "texto": "dari targetmu"
+  },
+  {
+    "clave": "despacho.patr.efectivo",
+    "texto": "Tunai · dari transaksimu"
+  },
+  {
+    "clave": "despacho.patr.deMovs",
+    "texto": "pemasukan − pengeluaran sepanjang waktu"
+  },
+  {
+    "clave": "despacho.patr.efectivoAuto",
+    "texto": "Tambahkan sisa dari transaksiku di sini (semua pemasukanku dikurangi semua pengeluaranku)"
+  }
+]

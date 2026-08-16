@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "Sześć gatunków, każdy z własnym oknem głodu. Dotknij wnętrza zagrody, w której jest jeszcze miejsce, a zwierzę pojawi się od razu z imieniem."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "Zabawki"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "Kałuża błota, wanna i piłka, po jednej na pole: zwierzęta idą do nich same, a zabawa poprawia im nastrój. W sanktuarium są już wszystkie trzy."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "Imiona"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "Narzędziem „Nazwij” dotykasz zagrody i widzisz jej listę wraz z zajętą pojemnością; dotknij zwierzęcia, żeby zmienić mu imię."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "To całe rzemiosło: zagroda, miejsca, zabawki i czułość. W demo możesz nawet rozbudować sanktuarium, jeśli masz ochotę."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "To tor wyścigowy Pepa: asfaltowy owal z kraciastą linią mety. To jedyna meta na mapie — cały tryb wyścigu kręci się wokół niej."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "Tam jest meta. Podejdź do roweru albo samochodu na podwórku i wsiądź jego przyciskiem; już na pojeździe przejedź po tej linii, a pojawi się sygnalizacja startowa."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "Trzymaj się owalu i wchodź w zakręty poślizgiem, żeby nie tracić prędkości. Możesz się też ścigać z asystentem, i to z przedmiotami w grze: banan, turbo i bomba."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "Przy mecie stoi tabela najlepszych czasów: rower Pepa ma na koncie 38 zwycięstw i najlepsze okrążenie 41,8 s. Pobij je — rekordy ustanowione w demo zapisują się."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "Tor kolejowy okrążający mapę i kolejka górska na wesołym miasteczku też są trasami: wejdź na tory, a pojawi się „Wsiądź”. Każda trasa to osobna sieć."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "Są trzy rodzaje tras i stąd widać wszystkie: tor wyścigowy (do wyścigów), tor kolejowy (pociąg okrążający mapę) i kolejka górska (z własną wysokością na każdym polu). Nie mieszają się, nawet gdy się stykają: każda szuka sąsiadów własnego typu."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "Kolejka górska na wesołym miasteczku wznosi się na sześć poziomów, a podjazdy między polami wyliczają się same. Wsiądź: wagonik pokonuje zamknięty obwód."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "We własnym domu rysujesz je pole po polu w edytorze Tras albo odręcznie, sektor po sektorze, torem odręcznym. Tu w demo mapa jest już wytyczona."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "To kompleks sportowy Pepa: piłka nożna, koszykówka, tenis i baseball, jedno obok drugiego. Każde boisko to prostokąt na mapie — wejście na nie uruchamia jego grę."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "Przycisk ładowania pojawia się w miejscu kostki nawigacyjnej i posyła piłkę tam, gdzie patrzy twoja postać: najpierw celuj, potem ładuj."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "Niżej boisko do baseballu i kort tenisowy: w tenisie jest odbijanie od ściany i wymiana, a baseball to czyste odbijanie, przeciwko maszynie albo miotaczowi."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "Wyżej boisko do piłki nożnej i do koszykówki. W piłce gra się dryblingiem i strzałem, a w koszykówce mierzy się moc rzutu."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "Wynik zapisuje się osobno dla każdego boiska: Pep ma 21-15 w koszykówce i serię 18 wymian w tenisie. W demo mecze się liczą — popraw je."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "Otwórz koło narzędzi: tam mieszka Paintball, w kategorii budowy i zabawek, tuż obok pojazdów."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "Wybierz tryb: 1 na 1, 2 na 2 albo każdy na każdego. Twoimi rywalami są asystenci z mapy — Laika też się liczy — a gra toczy się na parterze."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "Polem bitwy jest cały dom: kryj się za murami, wychylaj się do strzału i pilnuj pleców. Plamy farby zostają na ścianach do końca bitwy."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "Wynik Pepa to 47 zwycięstw i 23 porażki. W demo bitwy naprawdę się liczą: podbij go, zanim stąd pójdziesz."
+  }
+]

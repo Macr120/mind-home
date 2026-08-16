@@ -1,0 +1,578 @@
+[
+  {
+    "clave": "chat.voz.permiso",
+    "es": "El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.",
+    "en": "The browser blocked the microphone. Enable it via the padlock next to the address bar."
+  },
+  {
+    "clave": "chat.voz.red",
+    "es": "El dictado del navegador necesita internet.",
+    "en": "Browser dictation needs internet."
+  },
+  {
+    "clave": "chat.voz.sinMic",
+    "es": "No encontré ningún micrófono en este equipo.",
+    "en": "I couldn't find a microphone on this device."
+  },
+  {
+    "clave": "chat.vozParar",
+    "es": "Detener dictado",
+    "en": "Stop dictation"
+  },
+  {
+    "clave": "chat.vozTranscribiendo",
+    "es": "Transcribiendo…",
+    "en": "Transcribing…"
+  },
+  {
+    "clave": "ciclo.arrastraSol",
+    "es": "Arrastra para mover el sol",
+    "en": "Drag to move the sun"
+  },
+  {
+    "clave": "ciclo.fase.dia",
+    "en": "Day"
+  },
+  {
+    "clave": "ciclo.fase.noche",
+    "en": "Night"
+  },
+  {
+    "clave": "ciclo.fase.amanecer",
+    "en": "Sunrise"
+  },
+  {
+    "clave": "ciclo.fase.atardecer",
+    "en": "Sunset"
+  },
+  {
+    "clave": "ciclo.humedad",
+    "es": "Humedad",
+    "en": "Humidity"
+  },
+  {
+    "clave": "ciclo.lluvia",
+    "es": "Lluvia",
+    "en": "Rain"
+  },
+  {
+    "clave": "ciclo.viento",
+    "es": "Viento",
+    "en": "Wind"
+  },
+  {
+    "clave": "ciclo.volverHoraReal",
+    "es": "Volver a la hora real del sistema",
+    "en": "Back to real system time"
+  },
+  {
+    "clave": "color.personalizado",
+    "es": "Color personalizado",
+    "en": "Custom color"
+  },
+  {
+    "clave": "color.sin",
+    "es": "Sin color",
+    "en": "No color"
+  },
+  {
+    "clave": "constructor.cuarto.agua",
+    "es": "Llenar de agua (alberca)",
+    "en": "Fill with water (pool)"
+  },
+  {
+    "clave": "constructor.cuarto.color",
+    "es": "Color del cuarto",
+    "en": "Room color"
+  },
+  {
+    "clave": "constructor.cuarto.hintExpandir",
+    "es": "Toca + para crecer un cuarto y − para recortarlo. En un cuarto de una sola celda, − lo elimina.",
+    "en": "Tap + to grow a room and − to trim it. On a single-cell room, − deletes it."
+  },
+  {
+    "clave": "constructor.cuarto.hintMover",
+    "es": "Arrastra para mover un cuarto, o elige una forma abajo a la izquierda para dibujar. Usa Expandir para crecer, recortar o eliminar cuartos.",
+    "en": "Drag to move a room, or pick a shape at the bottom left to draw. Use Expand to grow, trim or delete rooms."
+  },
+  {
+    "clave": "constructor.cuarto.hintSotano",
+    "es": "Sótano: los cuartos se excavan bajo el suelo con la profundidad de un muro (albercas o búnkers). Selecciona uno para llenarlo de agua.",
+    "en": "Basement: rooms are dug one wall deep below the ground (pools or bunkers). Select one to fill it with water."
+  },
+  {
+    "clave": "constructor.cuarto.hintPincel",
+    "es": "Toca una celda libre para crear un cuarto con esa forma. Vuelve a tocar la misma celda para rotar y, al final, borrarla. Toca una celda de un cuarto para cambiarle la forma. Con la rejilla fina (arriba a la derecha) recortas esquinas de ¼ de celda.",
+    "en": "Tap a free cell to create a room with that shape. Tap the same cell again to rotate and, at the end, erase it. Tap a room cell to change its shape. With the fine grid (top right) you carve ¼-cell corners."
+  },
+  {
+    "clave": "constructor.cuarto.hintPincelFino",
+    "es": "Rejilla fina: toca un cuadrante de un cuarto para recortar esa esquina (triángulo o círculo); vuelve a tocar para rotar y, al final, quitar el recorte. En una celda libre crea un cuarto con esa esquina fina.",
+    "en": "Fine grid: tap a quadrant of a room to carve that corner (triangle or circle); tap again to rotate and, at the end, remove the cut. On a free cell it creates a room with that fine corner."
+  },
+  {
+    "clave": "constructor.cuarto.nombre",
+    "es": "Nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "constructor.cuarto.vacio",
+    "es": "Dibuja cuartos con las formas de abajo.",
+    "en": "Draw rooms with the shapes below."
+  },
+  {
+    "clave": "constructor.esquinas",
+    "es": "Esquinas",
+    "en": "Corners"
+  },
+  {
+    "clave": "constructor.plegarModos",
+    "es": "Ocultar los elementos",
+    "en": "Hide elements"
+  },
+  {
+    "clave": "constructor.verModos",
+    "es": "Ver todos los elementos",
+    "en": "Show all elements"
+  },
+  {
+    "clave": "constructor.vista.croquis",
+    "es": "Croquis",
+    "en": "Sketch"
+  },
+  {
+    "clave": "constructor.vista.modelo3d",
+    "es": "Modelo 3D",
+    "en": "3D model"
+  },
+  {
+    "clave": "constructor.vista.hint3d",
+    "es": "Toca un elemento en el croquis o en el mapa 3D para verlo y editarlo aquí.",
+    "en": "Tap an element in the sketch or the 3D map to view and edit it here."
+  },
+  {
+    "clave": "constructor.forma.circulo",
+    "es": "Círculo",
+    "en": "Circle"
+  },
+  {
+    "clave": "constructor.forma.cuadrado",
+    "es": "Cuadrado",
+    "en": "Square"
+  },
+  {
+    "clave": "constructor.forma.posicion",
+    "es": "Posición",
+    "en": "Position"
+  },
+  {
+    "clave": "constructor.forma.triangulo",
+    "es": "Triángulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "constructor.grid.ampliar",
+    "es": "Ampliar",
+    "en": "Enlarge"
+  },
+  {
+    "clave": "constructor.grid.reducir",
+    "es": "Reducir",
+    "en": "Shrink"
+  },
+  {
+    "clave": "constructor.cuadrantes.titulo",
+    "es": "Cuadrantes",
+    "en": "Quadrants"
+  },
+  {
+    "clave": "constructor.cuadrantes.todo",
+    "es": "Mapa completo",
+    "en": "Whole map"
+  },
+  {
+    "clave": "constructor.cuadrantes.enfocar",
+    "es": "Enfocar este cuadrante",
+    "en": "Focus this quadrant"
+  },
+  {
+    "clave": "constructor.cuadrantes.enfocarRenombrar",
+    "es": "Enfocar (doble clic para renombrar)",
+    "en": "Focus (double click to rename)"
+  },
+  {
+    "clave": "constructor.cuadrantes.eliminar",
+    "es": "Eliminar cuadrante",
+    "en": "Delete quadrant"
+  },
+  {
+    "clave": "constructor.cuadrantes.referencias",
+    "es": "Referencias",
+    "en": "References"
+  },
+  {
+    "clave": "constructor.cuadrantes.referenciasHint",
+    "es": "Solo mueven la vista; puedes editar donde quieras.",
+    "en": "They only move the view; you can edit anywhere."
+  },
+  {
+    "clave": "constructor.cuadrantes.tuyas",
+    "es": "Tus zonas",
+    "en": "Your areas"
+  },
+  {
+    "clave": "constructor.cuadrantes.tuyasHint",
+    "es": "Al elegir una, en los demás menús solo se pueden editar sus celdas.",
+    "en": "Pick one and the other menus will only let you edit its cells."
+  },
+  {
+    "clave": "constructor.cuadrantes.renombrar",
+    "es": "Cambiar el nombre",
+    "en": "Rename"
+  },
+  {
+    "clave": "constructor.cuadrantes.dibujar",
+    "es": "Dibujar cuadrante",
+    "en": "Draw quadrant"
+  },
+  {
+    "clave": "constructor.cuadrantes.cancelar",
+    "es": "Cancelar dibujo",
+    "en": "Cancel drawing"
+  },
+  {
+    "clave": "constructor.cuadrantes.ayuda",
+    "es": "Arrastra sobre el croquis o sobre el mapa 3D el área que quieres poder enfocar.",
+    "en": "Drag over the sketch or the 3D map to mark the area you want to focus on."
+  },
+  {
+    "clave": "constructor.cuadrantes.nuevo",
+    "es": "Zona",
+    "en": "Area"
+  },
+  {
+    "clave": "constructor.muro.circulo",
+    "es": "Círculo",
+    "en": "Circle"
+  },
+  {
+    "clave": "constructor.muro.crear",
+    "es": "Crear",
+    "en": "Create"
+  },
+  {
+    "clave": "constructor.muro.curvaInfDer",
+    "es": "Curva inf. derecha",
+    "en": "Bottom-right curve"
+  },
+  {
+    "clave": "constructor.muro.curvaInfIzq",
+    "es": "Curva inf. izquierda",
+    "en": "Bottom-left curve"
+  },
+  {
+    "clave": "constructor.muro.curvaSupDer",
+    "es": "Curva sup. derecha",
+    "en": "Top-right curve"
+  },
+  {
+    "clave": "constructor.muro.curvaSupIzq",
+    "es": "Curva sup. izquierda",
+    "en": "Top-left curve"
+  },
+  {
+    "clave": "constructor.muro.diagonal1",
+    "es": "Diagonal",
+    "en": "Diagonal"
+  },
+  {
+    "clave": "constructor.muro.diagonal2",
+    "es": "Diagonal opuesta",
+    "en": "Opposite diagonal"
+  },
+  {
+    "clave": "constructor.muro.editar",
+    "es": "Muro seleccionado",
+    "en": "Selected wall"
+  },
+  {
+    "clave": "constructor.muro.eliminar",
+    "es": "Eliminar muro",
+    "en": "Delete wall"
+  },
+  {
+    "clave": "constructor.muro.eliminarCorto",
+    "es": "Eliminar",
+    "en": "Delete"
+  },
+  {
+    "clave": "constructor.muro.hint",
+    "es": "Elige la forma abajo a la izquierda. En Lados elige Horizontal o Vertical y toca la rejilla para colocar o quitar el muro recto. En Triángulo/Círculo elige la variante inicial y toca la celda; toca de nuevo el mismo punto para ir pasando por las demás variantes y, tras la última, borrarlo.",
+    "en": "Pick the shape at the bottom left. With Sides pick Horizontal or Vertical and tap the grid to place or remove the straight wall. With Triangle/Circle pick the starting variant and tap the cell; tap the same spot again to cycle through the remaining variants and, after the last one, erase it."
+  },
+  {
+    "clave": "constructor.muro.hintSeleccionar",
+    "es": "Toca un muro en el mapa 3D —recto, rectangular o circular— para seleccionarlo y editar su textura, color, altura y forma.",
+    "en": "Tap a wall on the 3D map — straight, rectangular or circular — to select it and edit its texture, color, height and shape."
+  },
+  {
+    "clave": "constructor.muro.horizontal",
+    "es": "Horizontal",
+    "en": "Horizontal"
+  },
+  {
+    "clave": "constructor.muro.lado",
+    "es": "lado",
+    "en": "side"
+  },
+  {
+    "clave": "constructor.muro.lados",
+    "es": "Lados (aristas)",
+    "en": "Sides (edges)"
+  },
+  {
+    "clave": "constructor.muro.orientacion",
+    "es": "Orientación",
+    "en": "Orientation"
+  },
+  {
+    "clave": "constructor.muro.ponerPuerta",
+    "es": "+ Poner puerta",
+    "en": "+ Add door"
+  },
+  {
+    "clave": "constructor.muro.ponerVentana",
+    "es": "+ Poner ventana",
+    "en": "+ Add window"
+  },
+  {
+    "clave": "constructor.muro.quitarPuerta",
+    "es": "✓ Con puerta (quitar)",
+    "en": "✓ Has door (remove)"
+  },
+  {
+    "clave": "constructor.muro.quitarVentana",
+    "es": "✓ Con ventana (quitar)",
+    "en": "✓ Has window (remove)"
+  },
+  {
+    "clave": "constructor.muro.rotar",
+    "es": "Rotar 90°",
+    "en": "Rotate 90°"
+  },
+  {
+    "clave": "constructor.muro.seleccionar",
+    "es": "Seleccionar",
+    "en": "Select"
+  },
+  {
+    "clave": "constructor.muro.triangulo",
+    "es": "Triángulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "constructor.muro.vertical",
+    "es": "Vertical",
+    "en": "Vertical"
+  },
+  {
+    "clave": "constructor.piso.cambiarTodas",
+    "es": "Cambiar todas de golpe",
+    "en": "Change all at once"
+  },
+  {
+    "clave": "constructor.piso.hint",
+    "es": "O toca celdas en el croquis o en el mapa 3D para elegir una o varias.",
+    "en": "Or tap cells on the sketch or the 3D map to pick one or several."
+  },
+  {
+    "clave": "constructor.piso.todasExt",
+    "es": "Seleccionar todas las exteriores",
+    "en": "Select all exterior cells"
+  },
+  {
+    "clave": "constructor.piso.todasInt",
+    "es": "Seleccionar todos los interiores",
+    "en": "Select all interiors"
+  },
+  {
+    "clave": "cubo.atras",
+    "es": "ATRÁS",
+    "en": "BACK"
+  },
+  {
+    "clave": "cubo.der",
+    "es": "DER.",
+    "en": "RIGHT"
+  },
+  {
+    "clave": "cubo.frente",
+    "es": "FRENTE",
+    "en": "FRONT"
+  },
+  {
+    "clave": "cubo.izq",
+    "es": "IZQ.",
+    "en": "LEFT"
+  },
+  {
+    "clave": "cubo.planta",
+    "es": "PLANTA",
+    "en": "TOP"
+  },
+  {
+    "clave": "cubo.titulo",
+    "es": "Cubo de navegación: esquinas = isométrico, caras = planos",
+    "en": "Navigation cube: corners = isometric, faces = flat views"
+  },
+  {
+    "clave": "editor.abrir",
+    "es": "Abrir el editor de la casa",
+    "en": "Open the house editor"
+  },
+  {
+    "clave": "editor.ayuda.conf.a",
+    "es": "El",
+    "en": "The map's"
+  },
+  {
+    "clave": "editor.ayuda.conf.b",
+    "es": "estilo visual del mapa",
+    "en": "visual style"
+  },
+  {
+    "clave": "editor.ayuda.conf.c",
+    "es": ", idioma e",
+    "en": ", language and"
+  },
+  {
+    "clave": "editor.ayuda.conf.d",
+    "es": "interfaz",
+    "en": "interface"
+  },
+  {
+    "clave": "editor.ayuda.cuarto.a",
+    "en": "Customize appearance, walls and size."
+  },
+  {
+    "clave": "editor.ayuda.cuarto.b",
+    "en": "Drag the furniture and decor"
+  },
+  {
+    "clave": "editor.ayuda.cuarto.c",
+    "en": "inside the room."
+  },
+  {
+    "clave": "editor.ayuda.mapa.a",
+    "es": "Elige un",
+    "en": "Pick a"
+  },
+  {
+    "clave": "editor.ayuda.mapa.b",
+    "es": "modo",
+    "en": "mode"
+  },
+  {
+    "clave": "editor.ayuda.mapa.c",
+    "es": "arriba y edita en el",
+    "en": "above and edit in the"
+  },
+  {
+    "clave": "editor.ayuda.mapa.d",
+    "es": "croquis",
+    "en": "sketch"
+  },
+  {
+    "clave": "editor.ayuda.mapa.e",
+    "es": "o en el mapa 3D. Más abajo, personaliza la casa.",
+    "en": "or on the 3D map. Below, customize the house."
+  },
+  {
+    "clave": "editor.ayuda.obj.a",
+    "es": "Elige un",
+    "en": "Pick an"
+  },
+  {
+    "clave": "editor.ayuda.obj.b",
+    "es": "objeto",
+    "en": "object"
+  },
+  {
+    "clave": "editor.ayuda.obj.c",
+    "es": "y edita su",
+    "en": "and edit its"
+  },
+  {
+    "clave": "editor.ayuda.obj.d",
+    "es": "color, tamaño y rotación",
+    "en": "color, size and rotation"
+  },
+  {
+    "clave": "editor.ayuda.pers.a",
+    "es": "Elige un",
+    "en": "Pick a"
+  },
+  {
+    "clave": "editor.ayuda.pers.b",
+    "es": "personaje",
+    "en": "character"
+  },
+  {
+    "clave": "editor.ayuda.pers.c",
+    "es": "y edita su",
+    "en": "and edit their"
+  },
+  {
+    "clave": "editor.ayuda.pers.d",
+    "es": "nombre, cuerpo y avatar 3D",
+    "en": "name, body and 3D avatar"
+  },
+  {
+    "clave": "editor.fondo.colorFijo",
+    "es": "Color fijo",
+    "en": "Solid color"
+  },
+  {
+    "clave": "editor.fondo.colorFijoDesc",
+    "es": "Un color sólido para el cielo que no cambia con la hora del día.",
+    "en": "A solid sky color that doesn't change with the time of day."
+  },
+  {
+    "clave": "editor.imgActiva",
+    "es": "ACTIVA",
+    "en": "ACTIVE"
+  },
+  {
+    "clave": "editor.mapa.mapa",
+    "es": "Mapa",
+    "en": "Map"
+  },
+  {
+    "clave": "editor.muro.alt",
+    "es": "Muro",
+    "en": "Wall"
+  },
+  {
+    "clave": "editor.obj.altura",
+    "es": "Altura",
+    "en": "Height"
+  },
+  {
+    "clave": "editor.obj.asignarApp",
+    "en": "+ Assign app to this object"
+  },
+  {
+    "clave": "editor.obj.cambiarApp",
+    "en": "Change"
+  },
+  {
+    "clave": "editor.obj.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.obj.crearPiezas",
+    "es": "Crear objeto con piezas 3D",
+    "en": "Create object with 3D pieces"
+  }
+]

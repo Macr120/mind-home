@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "줄에 있는 버튼은 실제 데이터를 앱에 기록해요. 물 한 잔, 한 끼 식사처럼요. 단계에 줄이 그어지는 건 그 기록이 이미 있기 때문이지, 누가 체크해서가 아니에요. 이미 끝난 단계를 다시 눌러도 중복되지 않아요. 버튼이 사라지거든요."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "하루하루의 숫자"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "숫자를 조절할 수 있는 단계는 바로 여기서 바꿔요. 0으로 두면 그날의 목표가 꺼지고, 지난 날들의 기록은 그대로 남아요."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "목표에서 루틴으로"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "캘린더는 같은 목표를 정해진 시간에 잡아줘요. 시계의 루틴과 같은 편집기가 열려서 두 곳에 한 번에 등록돼요."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "끝낸 것도 사라지지 않아요"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "접혀 있는 '완료'로 내려가요. 기록이 반영되는 걸 보는 것도 보상의 일부고, 하나 더 들어갔다면 거기서 되돌릴 수 있어요."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "내 캐릭터 카드예요. Pep에게는 1년치 실제 활동이 쌓여 있어서, 여기 있는 숫자마다 진짜 이야기가 있어요."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "캐릭터"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "탭하면 캐릭터 편집기가 열려요. 기분은 기쁨·만족·슬픔·잠듦으로 나뉘는데, 새로 기록할 때마다 올라가고 며칠 동안 아무 기록이 없을 때만 내려가요. 한 번에 초기화되는 일은 없어요."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "시시포스 등급"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "등반 등급은 열두 단계예요. 활동한 날마다 365칸 중 한 칸씩 올라가요. Pep은 벌써 여러 등급을 얻었어요. 탭하면 산 전체를 볼 수 있어요."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "칸과 유예일"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "7칸마다 배지를 하나 얻고, 몇 주마다 등급이 올라가요. 하루 놓쳐도 무너지지 않아요. 한 달에 유예일이 2일 있고, 다 써야 지금 등급의 시작점으로 돌아가요."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "계열별 배지 52개"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "지질 계열별로 묶여 있고, 얻기 전까지는 비밀이에요. 잠금이 풀릴 때까지 이름도 설명도 보이지 않아요."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "나의 요약"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped은 한 주, 한 달, 한 해의 요약을 슬라이드로 만들어요. 자체 튜토리얼도 있고, Pep처럼 1년이 쌓이면 보여줄 게 넘쳐요."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "방별 레이더"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "꼭짓점 하나하나가 집의 방이고, 크기는 그 방에 배정된 앱들의 XP 합계예요. 활동이 없는 방은 금방 눈에 띄어요. 꼭짓점이 중심 쪽으로 꺼지거든요."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "스토리처럼 넘겨봐요. 오른쪽을 탭하면 다음으로, 왼쪽을 탭하면 이전으로 가고, 길게 누르면 그 슬라이드에서 멈춰요."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "주, 월 또는 년"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "종류마다 자기 데이터로 슬라이드를 따로 만들어요. Pep의 연간 요약이 가장 길고, 한 해에서 가장 높았던 순간과 가장 낮았던 순간이 함께 담겨요."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "기간 사이를 오가기"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "‹ › 화살표로 이미 끝난 기간을 넘겨봐요. 오늘보다 앞으로는 갈 수 없어서, 늘 실제로 있었던 것과 비교하게 돼요."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "슬라이드 공유하기"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "지금 보고 있는 슬라이드의 텍스트를 복사해요. 어디든 붙여넣기만 하면 돼요. 화면을 캡처할 필요가 없어요."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "여는 버튼 옆의 점이 아직 보지 않은 새 요약이 있다고 알려줘요. 열면 점이 사라져요."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "여기가 Pep의 보호소예요. 한쪽에는 우리가, 다른 쪽에는 그들을 먹여 살리는 텃밭이 있어요. 구획으로 가볼까요?"
+  }
+]

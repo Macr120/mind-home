@@ -1,0 +1,522 @@
+[
+  {
+    "clave": "biblioteca.enc.borrarMsg",
+    "texto": "Le tue voci NON vengono eliminate: restano libere nel loro campo."
+  },
+  {
+    "clave": "biblioteca.enc.borrarMsgHijos",
+    "texto": "Se ne va con tutto quello che ha sotto. Le tue voci NON vengono eliminate: restano libere nel loro campo."
+  },
+  {
+    "clave": "biblioteca.enc.subir",
+    "texto": "Sposta su"
+  },
+  {
+    "clave": "biblioteca.enc.bajar",
+    "texto": "Sposta giù"
+  },
+  {
+    "clave": "biblioteca.enc.nuevaRama",
+    "texto": "Nuovo ramo"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoTema",
+    "texto": "Nuovo argomento"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoCampo",
+    "texto": "Nuovo campo"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoCampoMsg",
+    "texto": "Un campo di conoscenza tutto tuo, accanto a quelli di fabbrica."
+  },
+  {
+    "clave": "biblioteca.enc.dentroDe",
+    "texto": "Dentro «{padre}»"
+  },
+  {
+    "clave": "biblioteca.enc.crear",
+    "texto": "Crea"
+  },
+  {
+    "clave": "biblioteca.ent.mover",
+    "texto": "Sposta in un altro argomento"
+  },
+  {
+    "clave": "biblioteca.ent.ramificar",
+    "texto": "Ramifica"
+  },
+  {
+    "clave": "biblioteca.ent.ramificarTip",
+    "texto": "Ramifica: nuovi sottoargomenti sotto «{n}»"
+  },
+  {
+    "clave": "biblioteca.ent.ramificarSinNodo",
+    "texto": "La voce non ha ancora un posto nell'albero"
+  },
+  {
+    "clave": "biblioteca.mover.cerrar",
+    "texto": "Chiudi"
+  },
+  {
+    "clave": "biblioteca.mover.notaEntrada",
+    "texto": "Se scegli un campo, la voce resta libera al suo interno, senza argomento."
+  },
+  {
+    "clave": "biblioteca.r.arbol",
+    "texto": "{n} argomenti sbloccati dalle tue chat"
+  },
+  {
+    "clave": "biblioteca.est.titulo",
+    "texto": "Sessione di studio"
+  },
+  {
+    "clave": "biblioteca.est.personalizada",
+    "texto": "Durata personalizzata (minuti)"
+  },
+  {
+    "clave": "biblioteca.est.entrada",
+    "texto": "Voce (opzionale)"
+  },
+  {
+    "clave": "biblioteca.est.libre",
+    "texto": "— Studio libero —"
+  },
+  {
+    "clave": "biblioteca.est.iniciar",
+    "texto": "Inizia {n} min"
+  },
+  {
+    "clave": "biblioteca.est.nota",
+    "texto": "Il timer continua a scorrere anche se chiudi la stanza."
+  },
+  {
+    "clave": "biblioteca.est.sesionDe",
+    "texto": "Sessione di {n} min — si registra da sola al termine"
+  },
+  {
+    "clave": "biblioteca.est.cancelar",
+    "texto": "Termina prima"
+  },
+  {
+    "clave": "biblioteca.est.cancelarTip",
+    "texto": "I minuti interi già trascorsi vengono accreditati"
+  },
+  {
+    "clave": "biblioteca.est.fin",
+    "texto": "Sessione completata! +{n} min in {campo}"
+  },
+  {
+    "clave": "biblioteca.est.porCampo",
+    "texto": "Tempo per campo"
+  },
+  {
+    "clave": "biblioteca.est.historial",
+    "texto": "Sessioni recenti"
+  },
+  {
+    "clave": "biblioteca.est.sinSesiones",
+    "texto": "Non hai ancora studiato con il timer."
+  },
+  {
+    "clave": "biblioteca.est.modoSimple",
+    "texto": "Semplice"
+  },
+  {
+    "clave": "biblioteca.est.modoPomodoro",
+    "texto": "Pomodoro"
+  },
+  {
+    "clave": "biblioteca.est.pomodoroDesc",
+    "texto": "Lavori a intervalli e riposi tra uno e l'altro; dopo alcuni intervalli, una pausa lunga. Ogni intervallo di concentrazione si registra da solo."
+  },
+  {
+    "clave": "biblioteca.est.faseTrabajo",
+    "texto": "Concentrazione"
+  },
+  {
+    "clave": "biblioteca.est.faseCorta",
+    "texto": "Pausa"
+  },
+  {
+    "clave": "biblioteca.est.faseLarga",
+    "texto": "Pausa lunga"
+  },
+  {
+    "clave": "biblioteca.est.pomodoroNota",
+    "texto": "Ogni intervallo di concentrazione si registra al termine; le pause non contano."
+  },
+  {
+    "clave": "biblioteca.est.tandaTip",
+    "texto": "{n} intervalli di concentrazione completati"
+  },
+  {
+    "clave": "biblioteca.est.pausar",
+    "texto": "Pausa"
+  },
+  {
+    "clave": "biblioteca.est.reanudar",
+    "texto": "Riprendi"
+  },
+  {
+    "clave": "biblioteca.est.saltar",
+    "texto": "Salta pausa"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.clasico",
+    "texto": "Classico"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.profundo",
+    "texto": "Profondo"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.corto",
+    "texto": "Breve"
+  },
+  {
+    "clave": "biblioteca.est.trabajoMin",
+    "texto": "Concentrazione"
+  },
+  {
+    "clave": "biblioteca.est.cortoMin",
+    "texto": "Pausa"
+  },
+  {
+    "clave": "biblioteca.est.largoMin",
+    "texto": "Pausa lunga"
+  },
+  {
+    "clave": "biblioteca.est.tandas",
+    "texto": "Intervalli"
+  },
+  {
+    "clave": "biblioteca.est.largoCada",
+    "texto": "Pausa lunga ogni {n} intervalli · 0 intervalli = senza fine, finché non ti fermi"
+  },
+  {
+    "clave": "biblioteca.heatmap.anual",
+    "texto": "Ultimo anno di studio"
+  },
+  {
+    "clave": "biblioteca.heatmap.dias",
+    "texto": "giorni attivi"
+  },
+  {
+    "clave": "biblioteca.heatmap.menos",
+    "texto": "meno"
+  },
+  {
+    "clave": "biblioteca.heatmap.mas",
+    "texto": "più"
+  },
+  {
+    "clave": "biblioteca.r.titulo",
+    "texto": "La tua enciclopedia personale"
+  },
+  {
+    "clave": "biblioteca.r.entradas",
+    "texto": "{n} voci"
+  },
+  {
+    "clave": "biblioteca.r.cobertura",
+    "texto": "{c}/{total} campi con voci · {t}/{temas} argomenti dell'indice"
+  },
+  {
+    "clave": "biblioteca.r.charlas",
+    "texto": "Chat con il Saggio"
+  },
+  {
+    "clave": "biblioteca.r.estudioTotal",
+    "texto": "Studio totale"
+  },
+  {
+    "clave": "biblioteca.r.semana",
+    "texto": "Questa settimana"
+  },
+  {
+    "clave": "biblioteca.r.racha",
+    "texto": "Serie di studio"
+  },
+  {
+    "clave": "biblioteca.r.rachaDias",
+    "texto": "{n} giorni"
+  },
+  {
+    "clave": "biblioteca.r.porCampo",
+    "texto": "Voci per campo"
+  },
+  {
+    "clave": "biblioteca.r.vacio",
+    "texto": "La tua biblioteca ti aspetta: chatta con il Saggio, distilla voci e studia con il timer per vedere crescere questi grafici."
+  },
+  {
+    "clave": "idiomas.desc",
+    "texto": "La tua scuola di lingue: chatta con il tuo tutor, raccogli vocabolario e padroneggialo con la ripetizione dilazionata, esercizi e un programma per livelli."
+  },
+  {
+    "clave": "idiomas.onboarding",
+    "texto": "Quale lingua vuoi imparare?"
+  },
+  {
+    "clave": "idiomas.tab.charlas",
+    "texto": "Chat"
+  },
+  {
+    "clave": "idiomas.tab.repaso",
+    "texto": "Ripasso"
+  },
+  {
+    "clave": "idiomas.tab.temario",
+    "texto": "Programma"
+  },
+  {
+    "clave": "idiomas.tab.progreso",
+    "texto": "Progressi"
+  },
+  {
+    "clave": "idiomas.sinIA",
+    "texto": "Configura la tua IA (Impostazioni → Intelligenza artificiale) per chattare con il tuo tutor. Nel frattempo, il vocabolario, il ripasso e gli esercizi funzionano senza di essa."
+  },
+  {
+    "clave": "idiomas.sinIA.corto",
+    "texto": "Configura la tua IA in Impostazioni"
+  },
+  {
+    "clave": "idiomas.sel.otro",
+    "texto": "Altro…"
+  },
+  {
+    "clave": "idiomas.sel.nombreOtro",
+    "texto": "Nome della lingua"
+  },
+  {
+    "clave": "idiomas.sel.codigoOtro",
+    "texto": "Codice voce (opzionale)"
+  },
+  {
+    "clave": "idiomas.sel.nivel",
+    "texto": "Il tuo livello attuale"
+  },
+  {
+    "clave": "idiomas.sel.nivelTip",
+    "texto": "Il tutor e le carte generate si adattano a questo livello."
+  },
+  {
+    "clave": "idiomas.sel.duplicado",
+    "texto": "Hai già una lingua con questo codice."
+  },
+  {
+    "clave": "idiomas.sel.empezar",
+    "texto": "Inizia a imparare"
+  },
+  {
+    "clave": "idiomas.sel.confirmarBorrar",
+    "texto": "Verranno eliminate {tarjetas} carte e {charlas} chat di {idioma}. Non si torna indietro."
+  },
+  {
+    "clave": "idiomas.sel.siBorrar",
+    "texto": "Elimina tutto"
+  },
+  {
+    "clave": "idiomas.sel.borrar",
+    "texto": "Abbandona questa lingua"
+  },
+  {
+    "clave": "idiomas.sel.configTip",
+    "texto": "Livello {nivel} · tocca per configurare"
+  },
+  {
+    "clave": "idiomas.sel.cambiarTip",
+    "texto": "Passa a {idioma}"
+  },
+  {
+    "clave": "idiomas.sel.agregarTip",
+    "texto": "Impara un'altra lingua"
+  },
+  {
+    "clave": "idiomas.sel.agregar",
+    "texto": "Lingua"
+  },
+  {
+    "clave": "idiomas.sel.nuevoTitulo",
+    "texto": "Nuova lingua"
+  },
+  {
+    "clave": "idiomas.form.nueva",
+    "texto": "Nuova carta"
+  },
+  {
+    "clave": "idiomas.form.editar",
+    "texto": "Modifica carta"
+  },
+  {
+    "clave": "idiomas.form.termino",
+    "texto": "Termine (in {idioma})"
+  },
+  {
+    "clave": "idiomas.form.traduccion",
+    "texto": "Traduzione"
+  },
+  {
+    "clave": "idiomas.form.traduccionPh",
+    "texto": "serendipità, scoperta fortunata"
+  },
+  {
+    "clave": "idiomas.form.ejemplo",
+    "texto": "Frase di esempio (per l'esercizio da completare)"
+  },
+  {
+    "clave": "idiomas.form.ejemploPh",
+    "texto": "Una frase in quella lingua che contenga il termine."
+  },
+  {
+    "clave": "idiomas.form.tipo",
+    "texto": "Tipo"
+  },
+  {
+    "clave": "idiomas.form.nivel",
+    "texto": "Livello"
+  },
+  {
+    "clave": "idiomas.form.tema",
+    "texto": "Argomento del programma"
+  },
+  {
+    "clave": "idiomas.form.sinTema",
+    "texto": "— Nessuno —"
+  },
+  {
+    "clave": "idiomas.form.temasDesbloq",
+    "texto": "Sbloccati"
+  },
+  {
+    "clave": "idiomas.form.cancelar",
+    "texto": "Annulla"
+  },
+  {
+    "clave": "idiomas.form.guardar",
+    "texto": "Salva"
+  },
+  {
+    "clave": "idiomas.tipo.palabra",
+    "texto": "Parola"
+  },
+  {
+    "clave": "idiomas.tipo.frase",
+    "texto": "Frase"
+  },
+  {
+    "clave": "idiomas.tipo.expresion",
+    "texto": "Espressione"
+  },
+  {
+    "clave": "idiomas.voc.nueva",
+    "texto": "Nuova carta"
+  },
+  {
+    "clave": "idiomas.voc.generar",
+    "texto": "Genera"
+  },
+  {
+    "clave": "idiomas.voc.generarTip",
+    "texto": "L'IA genera carte per un argomento del programma"
+  },
+  {
+    "clave": "idiomas.voc.buscar",
+    "texto": "Cerca termine o traduzione…"
+  },
+  {
+    "clave": "idiomas.voc.nivelTodos",
+    "texto": "Livello"
+  },
+  {
+    "clave": "idiomas.voc.temaTodos",
+    "texto": "Argomento"
+  },
+  {
+    "clave": "idiomas.voc.conteo",
+    "texto": "{n} carte · {d} padroneggiate"
+  },
+  {
+    "clave": "idiomas.voc.vacio",
+    "texto": "Ancora nessuna carta di {idioma}. Creane una, chatta con il tuo tutor o genera un argomento con l'IA."
+  },
+  {
+    "clave": "idiomas.voc.sinResultados",
+    "texto": "Nessuna carta corrisponde al filtro."
+  },
+  {
+    "clave": "idiomas.voc.escuchar",
+    "texto": "Ascolta"
+  },
+  {
+    "clave": "idiomas.voc.cajaTip",
+    "texto": "Scatola di ripasso: più è alta, più si dilaziona"
+  },
+  {
+    "clave": "idiomas.voc.editar",
+    "texto": "Modifica carta"
+  },
+  {
+    "clave": "idiomas.voc.borrar",
+    "texto": "Elimina carta"
+  },
+  {
+    "clave": "idiomas.voc.confirmarBorrar",
+    "texto": "Eliminare questa carta?"
+  },
+  {
+    "clave": "idiomas.voc.siBorrar",
+    "texto": "Elimina"
+  },
+  {
+    "clave": "idiomas.gen.titulo",
+    "texto": "Genera vocabolario"
+  },
+  {
+    "clave": "idiomas.gen.temaFijo",
+    "texto": "Carte di «{tema}» (livello {nivel}) in {idioma}."
+  },
+  {
+    "clave": "idiomas.gen.tema",
+    "texto": "Argomento"
+  },
+  {
+    "clave": "idiomas.gen.cantidad",
+    "texto": "Quantità"
+  },
+  {
+    "clave": "idiomas.gen.fallo",
+    "texto": "L'IA non è riuscita a generare carte. Riprova o creane una a mano."
+  },
+  {
+    "clave": "idiomas.gen.cargando",
+    "texto": "Generando…"
+  },
+  {
+    "clave": "idiomas.gen.generar",
+    "texto": "Genera"
+  },
+  {
+    "clave": "idiomas.gen.revisar",
+    "texto": "Deseleziona quelle che non vuoi salvare:"
+  },
+  {
+    "clave": "idiomas.gen.otraVez",
+    "texto": "Indietro"
+  },
+  {
+    "clave": "idiomas.gen.guardar",
+    "texto": "Salva {n} carte"
+  },
+  {
+    "clave": "idiomas.rep.modoTarjetas",
+    "texto": "Carte"
+  },
+  {
+    "clave": "idiomas.rep.modoEjercicios",
+    "texto": "Esercizi"
+  }
+]

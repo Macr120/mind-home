@@ -1,0 +1,928 @@
+[
+  {
+    "clave": "editor.pers.resetMsg",
+    "es": "Se pierden cuerpo, color, tamaño, ropa, rostro, peinado y animación de {nombre}. El nombre se conserva.",
+    "en": "You'll lose {nombre}'s body, colour, size, clothes, face, hairstyle and animation. The name is kept."
+  },
+  {
+    "clave": "editor.pers.resetMsgCustom",
+    "es": "Se pierden cuerpo, color, tamaño, ropa, rostro y animación de {nombre}. Su nombre, historia y personalidad se conservan.",
+    "en": "You'll lose {nombre}'s body, colour, size, clothes, face and animation. Their name, story and personality are kept."
+  },
+  {
+    "clave": "editor.pers.resetOk",
+    "es": "Restablecer",
+    "en": "Reset"
+  },
+  {
+    "clave": "editor.pers.nuevoNombre",
+    "es": "Personaje",
+    "en": "Character"
+  },
+  {
+    "clave": "editor.pers.optimizando",
+    "es": "Optimizando modelo…",
+    "en": "Optimizing model…"
+  },
+  {
+    "clave": "editor.pers.ponerPrenda",
+    "es": "Poner",
+    "en": "Put on"
+  },
+  {
+    "clave": "editor.pers.quitarFormaIa",
+    "es": "Quitar la forma de piezas",
+    "en": "Remove the pieces shape"
+  },
+  {
+    "clave": "editor.pers.quitarGlb",
+    "es": "Quitar modelo subido",
+    "en": "Remove uploaded model"
+  },
+  {
+    "clave": "editor.pers.quitarPrenda",
+    "es": "Quitar",
+    "en": "Take off"
+  },
+  {
+    "clave": "editor.pers.ropa",
+    "es": "Ropa",
+    "en": "Clothes"
+  },
+  {
+    "clave": "editor.pers.subirGlb",
+    "es": "Subir modelo .glb",
+    "en": "Upload .glb model"
+  },
+  {
+    "clave": "editor.pers.tamano",
+    "es": "Tamaño",
+    "en": "Size"
+  },
+  {
+    "clave": "editor.pers.tu",
+    "es": "Tú",
+    "en": "You"
+  },
+  {
+    "clave": "editor.piezas.abrirControles",
+    "es": "Editar las piezas (abrir controles)",
+    "en": "Edit the pieces (open controls)"
+  },
+  {
+    "clave": "editor.piezas.activar",
+    "es": "Editar con piezas 3D",
+    "en": "Edit with 3D pieces"
+  },
+  {
+    "clave": "editor.piezas.agrandar",
+    "es": "Agrandar tamaño",
+    "en": "Increase size"
+  },
+  {
+    "clave": "editor.piezas.agregar",
+    "es": "Añadir pieza",
+    "en": "Add piece"
+  },
+  {
+    "clave": "editor.piezas.atras",
+    "es": "Atrás (Z−)",
+    "en": "Back (Z−)"
+  },
+  {
+    "clave": "editor.piezas.bajar",
+    "es": "Bajar (Y−)",
+    "en": "Down (Y−)"
+  },
+  {
+    "clave": "editor.piezas.borrar",
+    "es": "Borrar pieza",
+    "en": "Delete piece"
+  },
+  {
+    "clave": "editor.piezas.cerrarControles",
+    "es": "Cerrar los controles de edición",
+    "en": "Close editing controls"
+  },
+  {
+    "clave": "editor.piezas.color",
+    "es": "Color de la pieza",
+    "en": "Piece color"
+  },
+  {
+    "clave": "editor.piezas.der",
+    "es": "Derecha (X+)",
+    "en": "Right (X+)"
+  },
+  {
+    "clave": "editor.piezas.duplicar",
+    "es": "Duplicar pieza",
+    "en": "Duplicate piece"
+  },
+  {
+    "clave": "editor.piezas.forma",
+    "es": "Forma 3D",
+    "en": "3D shape"
+  },
+  {
+    "clave": "editor.piezas.tipo.caja",
+    "en": "Box"
+  },
+  {
+    "clave": "editor.piezas.tipo.esfera",
+    "en": "Sphere"
+  },
+  {
+    "clave": "editor.piezas.tipo.cono",
+    "en": "Cone"
+  },
+  {
+    "clave": "editor.piezas.tipo.cilindro",
+    "en": "Cylinder"
+  },
+  {
+    "clave": "editor.piezas.tipo.plano",
+    "en": "Plane"
+  },
+  {
+    "clave": "editor.piezas.frente",
+    "es": "Al frente (Z+)",
+    "en": "Front (Z+)"
+  },
+  {
+    "clave": "editor.piezas.izq",
+    "es": "Izquierda (X−)",
+    "en": "Left (X−)"
+  },
+  {
+    "clave": "editor.piezas.posicion",
+    "es": "Posición",
+    "en": "Position"
+  },
+  {
+    "clave": "editor.piezas.reducir",
+    "es": "Reducir tamaño",
+    "en": "Decrease size"
+  },
+  {
+    "clave": "editor.piezas.restaurar",
+    "es": "Regresar a los ajustes predeterminados",
+    "en": "Restore default settings"
+  },
+  {
+    "clave": "editor.piezas.rotDer",
+    "es": "Girar a la derecha",
+    "en": "Rotate right"
+  },
+  {
+    "clave": "editor.piezas.rotIzq",
+    "es": "Girar a la izquierda",
+    "en": "Rotate left"
+  },
+  {
+    "clave": "editor.piezas.rotacion",
+    "es": "Rotación",
+    "en": "Rotation"
+  },
+  {
+    "clave": "editor.piezas.siguiente",
+    "es": "Siguiente pieza",
+    "en": "Next piece"
+  },
+  {
+    "clave": "editor.piezas.subir",
+    "es": "Subir (Y+)",
+    "en": "Up (Y+)"
+  },
+  {
+    "clave": "editor.piezas.tamano",
+    "es": "Tamaño",
+    "en": "Size"
+  },
+  {
+    "clave": "editor.piso.alt",
+    "es": "Piso personalizado",
+    "en": "Custom floor"
+  },
+  {
+    "clave": "editor.piso.colorSolido",
+    "es": "Color sólido",
+    "en": "Solid color"
+  },
+  {
+    "clave": "editor.piso.sinPiso",
+    "es": "Sin piso",
+    "en": "No floor"
+  },
+  {
+    "clave": "editor.piso.sinPisoHint",
+    "es": "Sin loseta en estas celdas. Elige una textura o color para restaurar el piso.",
+    "en": "No tile on these cells. Pick a texture or color to restore the floor."
+  },
+  {
+    "clave": "editor.pisoCuarto.ajuste",
+    "es": "Tamaño del mosaico",
+    "en": "Tile size"
+  },
+  {
+    "clave": "editor.pisoCuarto.borrar",
+    "es": "Borrar imagen",
+    "en": "Delete image"
+  },
+  {
+    "clave": "editor.pisoCuarto.cambiar",
+    "es": "Cambiar",
+    "en": "Change"
+  },
+  {
+    "clave": "editor.pisoCuarto.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.pisoCuarto.colorHint",
+    "es": "Al elegir un color se usa piso sólido (desactiva la textura activa).",
+    "en": "Picking a color switches to a solid floor (disables the active texture)."
+  },
+  {
+    "clave": "editor.pisoCuarto.desactivar",
+    "es": "Desactivar",
+    "en": "Disable"
+  },
+  {
+    "clave": "editor.pisoCuarto.exterior",
+    "es": "Piso exterior",
+    "en": "Exterior floor"
+  },
+  {
+    "clave": "editor.pisoCuarto.exteriorDesc",
+    "es": "Material del trozo de celda fuera de la silueta en esquinas con forma (triángulo/círculo).",
+    "en": "Material for the sliver of cell outside the silhouette on shaped corners (triangle/circle)."
+  },
+  {
+    "clave": "editor.pisoCuarto.exteriorJardin",
+    "es": "Jardín",
+    "en": "Garden"
+  },
+  {
+    "clave": "editor.pisoCuarto.imagen",
+    "es": "Imagen de fondo",
+    "en": "Background image"
+  },
+  {
+    "clave": "editor.pisoCuarto.subirImagen",
+    "es": "Subir imagen",
+    "en": "Upload image"
+  },
+  {
+    "clave": "editor.pisoCuarto.textura",
+    "es": "Textura",
+    "en": "Texture"
+  },
+  {
+    "clave": "editor.pisoCuarto.usarImagen",
+    "es": "Usar imagen",
+    "en": "Use image"
+  },
+  {
+    "clave": "editor.prop.color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.prop.rotacion",
+    "en": "Rotation"
+  },
+  {
+    "clave": "editor.tab.config",
+    "en": "Settings"
+  },
+  {
+    "clave": "editor.tab.mapa",
+    "en": "Map"
+  },
+  {
+    "clave": "editor.tab.objetos",
+    "en": "Objects"
+  },
+  {
+    "clave": "editor.tab.personajes",
+    "en": "Characters"
+  },
+  {
+    "clave": "editor.tamano.grande",
+    "en": "Large"
+  },
+  {
+    "clave": "editor.tamano.medio",
+    "en": "Medium"
+  },
+  {
+    "clave": "editor.tamano.mosaico",
+    "en": "Mosaic"
+  },
+  {
+    "clave": "editor.techo.alt",
+    "es": "Techo personalizado",
+    "en": "Custom ceiling"
+  },
+  {
+    "clave": "editor.techoCelda.aplanar",
+    "es": "Aplanar todo",
+    "en": "Flatten all"
+  },
+  {
+    "clave": "editor.techoCelda.celda",
+    "es": "Celda",
+    "en": "Cell"
+  },
+  {
+    "clave": "editor.techoCelda.desc",
+    "es": "Selecciona una celda y ajusta su techo abajo. Cada silueta —cuadrado, triángulo, círculo— tiene sus propias opciones.",
+    "en": "Select a cell and adjust its roof below. Each silhouette — square, triangle, circle — has its own options."
+  },
+  {
+    "clave": "editor.techoCelda.titulo",
+    "es": "Techo por celda",
+    "en": "Roof per cell"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas",
+    "es": "N° de aguas",
+    "en": "Slopes"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas1",
+    "es": "1 · inclinado",
+    "en": "1 · shed"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas2",
+    "es": "2 · dos aguas",
+    "en": "2 · gable"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas4",
+    "es": "4 · pabellón",
+    "en": "4 · hip"
+  },
+  {
+    "clave": "editor.techoCuarto.ajuste",
+    "es": "Tamaño del mosaico",
+    "en": "Tile size"
+  },
+  {
+    "clave": "editor.techoCuarto.ajustes",
+    "es": "Ajustes de la forma",
+    "en": "Shape settings"
+  },
+  {
+    "clave": "editor.techoCuarto.altura",
+    "es": "Altura",
+    "en": "Height"
+  },
+  {
+    "clave": "editor.techoCuarto.borrar",
+    "es": "Borrar imagen",
+    "en": "Delete image"
+  },
+  {
+    "clave": "editor.techoCuarto.cambiar",
+    "es": "Cambiar",
+    "en": "Change"
+  },
+  {
+    "clave": "editor.techoCuarto.color",
+    "es": "Color del cuarto",
+    "en": "Room color"
+  },
+  {
+    "clave": "editor.techoCuarto.colorTinte",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.techoCuarto.curvatura",
+    "es": "Curvatura",
+    "en": "Curvature"
+  },
+  {
+    "clave": "editor.techoCuarto.desactivar",
+    "es": "Desactivar",
+    "en": "Disable"
+  },
+  {
+    "clave": "editor.techoCuarto.desc",
+    "es": "Activa el techo en el preview para verlo. Sin elegir nada, hereda el techo de la casa.",
+    "en": "Turn the roof on in the preview to see it. If nothing is chosen, it inherits the house roof."
+  },
+  {
+    "clave": "editor.techoCuarto.dir",
+    "es": "Girar orientación",
+    "en": "Rotate orientation"
+  },
+  {
+    "clave": "editor.techoCuarto.forma",
+    "es": "Forma (todo el cuarto)",
+    "en": "Shape (whole room)"
+  },
+  {
+    "clave": "editor.techoForma.plano",
+    "en": "Flat"
+  },
+  {
+    "clave": "editor.techoForma.dos_aguas",
+    "en": "Pitched"
+  },
+  {
+    "clave": "editor.techoForma.abovedado",
+    "en": "Barrel"
+  },
+  {
+    "clave": "editor.techoForma.cupula",
+    "en": "Dome"
+  },
+  {
+    "clave": "editor.techoCuarto.formaCuarto",
+    "es": "Forma del cuarto",
+    "en": "Room shape"
+  },
+  {
+    "clave": "editor.techoCuarto.heredar",
+    "es": "De la casa",
+    "en": "From the house"
+  },
+  {
+    "clave": "editor.techoCuarto.imagen",
+    "es": "Imagen de fondo",
+    "en": "Background image"
+  },
+  {
+    "clave": "editor.texturaIA.titulo",
+    "es": "Crear con IA",
+    "en": "Create with AI"
+  },
+  {
+    "clave": "editor.texturaIA.placeholder",
+    "es": "Describe la textura…",
+    "en": "Describe the texture…"
+  },
+  {
+    "clave": "editor.texturaIA.subirFoto",
+    "es": "Usar una foto como base",
+    "en": "Use a photo as a base"
+  },
+  {
+    "clave": "editor.texturaIA.conFoto",
+    "es": "La textura se creará a partir de esta foto.",
+    "en": "The texture will be created from this photo."
+  },
+  {
+    "clave": "editor.texturaIA.quitarFoto",
+    "es": "Quitar la foto",
+    "en": "Remove the photo"
+  },
+  {
+    "clave": "editor.texturaIA.generar",
+    "es": "Generar textura",
+    "en": "Generate texture"
+  },
+  {
+    "clave": "editor.texturaIA.generando",
+    "es": "Generando…",
+    "en": "Generating…"
+  },
+  {
+    "clave": "editor.texturaIA.sinIa",
+    "es": "Configura la IA en el chat para generar texturas.",
+    "en": "Set up AI in the chat to generate textures."
+  },
+  {
+    "clave": "editor.texturaIA.error",
+    "es": "No se pudo generar la textura.",
+    "en": "Could not generate the texture."
+  },
+  {
+    "clave": "editor.texturaIA.sug.maderaClara",
+    "en": "light wood"
+  },
+  {
+    "clave": "editor.texturaIA.sug.marmol",
+    "en": "white marble"
+  },
+  {
+    "clave": "editor.texturaIA.sug.azulejo",
+    "en": "patterned floor tile"
+  },
+  {
+    "clave": "editor.texturaIA.sug.pastoSeco",
+    "en": "dry grass"
+  },
+  {
+    "clave": "editor.texturaIA.sug.ladrillo",
+    "en": "red brick"
+  },
+  {
+    "clave": "editor.texturaIA.sug.concreto",
+    "en": "polished concrete"
+  },
+  {
+    "clave": "editor.texturaIA.sug.tapiz",
+    "en": "floral wallpaper"
+  },
+  {
+    "clave": "editor.texturaIA.sug.piedra",
+    "en": "stone wall"
+  },
+  {
+    "clave": "editor.texturaIA.sug.teja",
+    "en": "clay roof tiles"
+  },
+  {
+    "clave": "editor.texturaIA.sug.lamina",
+    "en": "metal sheet"
+  },
+  {
+    "clave": "editor.texturaIA.sug.paja",
+    "en": "thatched roof"
+  },
+  {
+    "clave": "editor.texturaIA.sug.tablones",
+    "en": "wooden planks"
+  },
+  {
+    "clave": "editor.texturaIA.sug.atardecer",
+    "en": "sunset at the beach"
+  },
+  {
+    "clave": "editor.texturaIA.sug.montanas",
+    "en": "snowy mountains"
+  },
+  {
+    "clave": "editor.texturaIA.sug.ciudad",
+    "en": "city at night"
+  },
+  {
+    "clave": "editor.texturaIA.sug.campo",
+    "en": "countryside with clouds"
+  },
+  {
+    "clave": "editor.texturaIA.sug.cesped",
+    "en": "mown grass"
+  },
+  {
+    "clave": "editor.texturaIA.sug.arena",
+    "en": "beach sand"
+  },
+  {
+    "clave": "editor.texturaIA.sug.asfalto",
+    "en": "city asphalt"
+  },
+  {
+    "clave": "editor.texturaIA.sug.isla",
+    "en": "island seen from above"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaMadera",
+    "en": "panelled wood"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaMetal",
+    "en": "industrial metal"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaPintada",
+    "en": "painted in colour"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaRustica",
+    "en": "rustic planks"
+  },
+  {
+    "clave": "editor.fondo.nombreIA",
+    "es": "Fondo con IA",
+    "en": "AI background"
+  },
+  {
+    "clave": "editor.techoCuarto.inclinacion",
+    "es": "Inclinación",
+    "en": "Pitch"
+  },
+  {
+    "clave": "editor.techoCuarto.material",
+    "es": "Material",
+    "en": "Material"
+  },
+  {
+    "clave": "editor.techoCuarto.propagarMapa",
+    "es": "Con el techo activo, el techo es una sola losa: usa el + de cada dirección para extenderlo de forma uniforme sobre cuartos vecinos, y − para retraer ese borde.",
+    "en": "With the roof on, the roof is a single slab: use each direction’s + to extend it uniformly over neighboring rooms, and − to retract that edge."
+  },
+  {
+    "clave": "editor.techoCuarto.quitarColor",
+    "es": "↺ Nativo",
+    "en": "↺ Native"
+  },
+  {
+    "clave": "editor.techoCuarto.reset",
+    "es": "↺ Volver al techo de la casa",
+    "en": "↺ Back to the house roof"
+  },
+  {
+    "clave": "editor.techoCuarto.subirImagen",
+    "es": "Subir imagen",
+    "en": "Upload image"
+  },
+  {
+    "clave": "editor.techoCuarto.usarImagen",
+    "es": "Usar imagen",
+    "en": "Use image"
+  },
+  {
+    "clave": "editor.tema.ajustesDe",
+    "es": "Ajustes de",
+    "en": "Settings for"
+  },
+  {
+    "clave": "editor.tema.ambiente",
+    "es": "Luz ambiental",
+    "en": "Ambient light"
+  },
+  {
+    "clave": "editor.tema.cascaron",
+    "es": "Colores del cascarón",
+    "en": "Shell colors"
+  },
+  {
+    "clave": "editor.tema.emissive",
+    "es": "Brillo (color)",
+    "en": "Glow (color)"
+  },
+  {
+    "clave": "editor.tema.emissiveInt",
+    "es": "Brillo (fuerza)",
+    "en": "Glow (strength)"
+  },
+  {
+    "clave": "editor.tema.exposicion",
+    "es": "Exposición",
+    "en": "Exposure"
+  },
+  {
+    "clave": "editor.tema.focos",
+    "es": "Focos nocturnos",
+    "en": "Night lights"
+  },
+  {
+    "clave": "editor.tema.fondo",
+    "es": "Fondo del cielo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "editor.tema.fondoTinte",
+    "es": "Fondo y tinte",
+    "en": "Background and tint"
+  },
+  {
+    "clave": "editor.tema.fuerza",
+    "es": "Fuerza del tinte",
+    "en": "Tint strength"
+  },
+  {
+    "clave": "editor.tema.ibl",
+    "es": "Reflejos",
+    "en": "Reflections"
+  },
+  {
+    "clave": "editor.tema.intSol",
+    "es": "Intensidad del sol",
+    "en": "Sun intensity"
+  },
+  {
+    "clave": "editor.tema.luzNiebla",
+    "es": "Luz y niebla",
+    "en": "Light and fog"
+  },
+  {
+    "clave": "editor.tema.materiales",
+    "es": "Materiales",
+    "en": "Materials"
+  },
+  {
+    "clave": "editor.tema.metalness",
+    "es": "Metalidad",
+    "en": "Metalness"
+  },
+  {
+    "clave": "editor.tema.muroExt",
+    "es": "Fachada",
+    "en": "Facade"
+  },
+  {
+    "clave": "editor.tema.muroInt",
+    "es": "Muro interior",
+    "en": "Interior wall"
+  },
+  {
+    "clave": "editor.tema.niebla",
+    "es": "Niebla (color)",
+    "en": "Fog (color)"
+  },
+  {
+    "clave": "editor.tema.nieblaCerca",
+    "es": "Niebla cerca",
+    "en": "Fog near"
+  },
+  {
+    "clave": "editor.tema.nieblaLejos",
+    "es": "Niebla lejos",
+    "en": "Fog far"
+  },
+  {
+    "clave": "editor.tema.piso",
+    "es": "Piso",
+    "en": "Floor"
+  },
+  {
+    "clave": "editor.tema.restaurar",
+    "es": "Restaurar",
+    "en": "Restore"
+  },
+  {
+    "clave": "editor.tema.roughness",
+    "es": "Rugosidad",
+    "en": "Roughness"
+  },
+  {
+    "clave": "editor.tema.sol",
+    "es": "Sol (tinte)",
+    "en": "Sun (tint)"
+  },
+  {
+    "clave": "editor.tema.techo",
+    "es": "Techo",
+    "en": "Roof"
+  },
+  {
+    "clave": "editor.tema.tinte",
+    "es": "Tinte de objetos",
+    "en": "Object tint"
+  },
+  {
+    "clave": "editor.titulo",
+    "es": "Editor",
+    "en": "Editor"
+  },
+  {
+    "clave": "ejercicio.confirmarGenerarImagenes",
+    "es": "Se generarán {n} imágenes y costará {c} créditos. ¿Continuar?",
+    "en": "{n} images will be generated with {proveedor}. This may have a cost. Continue?"
+  },
+  {
+    "clave": "ejercicio.f.volumen",
+    "es": "Volumen",
+    "en": "Volume"
+  },
+  {
+    "clave": "ejercicio.graf.max",
+    "es": "máx",
+    "en": "max"
+  },
+  {
+    "clave": "ejercicio.graf.min",
+    "es": "mín",
+    "en": "min"
+  },
+  {
+    "clave": "ejercicio.img.generar",
+    "es": "Generar faltantes ({n})",
+    "en": "Generate missing ({n})"
+  },
+  {
+    "clave": "ejercicio.img.generarUna",
+    "es": "Generar con IA",
+    "en": "Generate with AI"
+  },
+  {
+    "clave": "ejercicio.img.generarOtra",
+    "es": "Generar otra",
+    "en": "Generate another"
+  },
+  {
+    "clave": "ejercicio.img.generando",
+    "es": "Generando…",
+    "en": "Generating…"
+  },
+  {
+    "clave": "ejercicio.img.subir",
+    "es": "Subir foto",
+    "en": "Upload photo"
+  },
+  {
+    "clave": "ejercicio.img.ver",
+    "es": "Ver imagen",
+    "en": "View image"
+  },
+  {
+    "clave": "ejercicio.img.anadir",
+    "es": "Añadir imagen",
+    "en": "Add image"
+  },
+  {
+    "clave": "ejercicio.img.sinIa",
+    "es": "Configura la IA en el chat para generar imágenes.",
+    "en": "Set up AI in the chat to generate images."
+  },
+  {
+    "clave": "ejercicio.img.listas",
+    "es": "Listas:",
+    "en": "Done:"
+  },
+  {
+    "clave": "ejercicio.ph.reps",
+    "en": "reps"
+  },
+  {
+    "clave": "ejercicio.ph.seg",
+    "en": "sec"
+  },
+  {
+    "clave": "ejercicio.r.porSemana",
+    "es": "· sem",
+    "en": "· wk"
+  },
+  {
+    "clave": "ejercicio.vivo.ppm",
+    "es": "Pulso (ppm)",
+    "en": "Heart rate (bpm)"
+  },
+  {
+    "clave": "mapa.listo",
+    "es": "Listo",
+    "en": "Done"
+  },
+  {
+    "clave": "editor.salirCuarto",
+    "es": "Salir del cuarto (volver al mapa)",
+    "en": "Exit room (back to map)"
+  },
+  {
+    "clave": "editor.salirCuartoBoton",
+    "es": "Salir del cuarto",
+    "en": "Exit room"
+  },
+  {
+    "clave": "editor.moverObjetos.listo",
+    "es": "Terminar de mover objetos",
+    "en": "Finish moving objects"
+  },
+  {
+    "clave": "nav.asignar",
+    "es": "+ Asignar",
+    "en": "+ Assign"
+  },
+  {
+    "clave": "nav.asignarApp",
+    "es": "Asignar una app a este cuarto",
+    "en": "Assign an app to this room"
+  },
+  {
+    "clave": "nav.crearCuarto",
+    "es": "Crear cuarto",
+    "en": "Create room"
+  },
+  {
+    "clave": "nav.sinCuartos",
+    "es": "Aún no hay cuartos. Crea el primero abajo.",
+    "en": "No rooms yet. Create the first one below."
+  },
+  {
+    "clave": "nav3d.ayuda1P",
+    "es": "Clic derecho o joystick; rueda para zoom",
+    "en": "Right-click or joystick; wheel to zoom"
+  },
+  {
+    "clave": "nav3d.ayuda3P",
+    "es": "Clic derecho o joystick; rueda para zoom",
+    "en": "Right-click or joystick; wheel to zoom"
+  },
+  {
+    "clave": "nav3d.cambiarVista",
+    "es": "Cambiar vista (tecla V)",
+    "en": "Switch view (V key)"
+  },
+  {
+    "clave": "nav3d.centrarMapa",
+    "es": "Centrar en el mapa",
+    "en": "Center on the map"
+  },
+  {
+    "clave": "nav3d.vista1Corta",
+    "es": "1ª",
+    "en": "1st"
+  },
+  {
+    "clave": "nav3d.vista3Corta",
+    "es": "3ª",
+    "en": "3rd"
+  }
+]

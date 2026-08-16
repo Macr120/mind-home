@@ -1,0 +1,172 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "es": "Nombre, emoji, color y —opcional— una meta semanal en días. Ese formulario es todo lo que hace falta para empezar a llevar el seguimiento.",
+    "en": "Name, emoji, color and —optional— a weekly target in days. That form is all it takes to start tracking it."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "es": "La meta semanal",
+    "en": "The weekly target"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "es": "Piano se propuso 4 días por semana: la fila de la semana se pinta con cada día practicado, y arriba dice cuántos llevas contra la meta.",
+    "en": "Piano was set to 4 days a week: the week's row fills in with every day practiced, and up top it says how many you've got against the target."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "es": "Registrar una práctica",
+    "en": "Logging a session"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "es": "Minutos rápidos con un toque, o el número exacto; el proyecto es opcional y la nota es para lo que quieras recordar de esa sesión.",
+    "en": "Quick minutes with one tap, or the exact number; the project is optional and the note is for whatever you want to remember about that session."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "es": "El cronograma del hobby (o el de un proyecto) es el mismo planificador Metas · Planes · Cronograma del calendario, acotado a ese hobby: pídele a la IA un plan con fases y fechas.",
+    "en": "A hobby's (or a project's) timeline is the same Goals · Plans · Timeline planner from the calendar, scoped to that hobby: ask the AI for a plan with phases and dates."
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "es": "La bandeja",
+    "en": "The inbox"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "es": "Escribe la ocurrencia y ya. Pep@ soltó aquí ~90 ideas en el año: de física, de la cafetería, del entrenamiento. La estrella marca las favoritas.",
+    "en": "Write the thought and done. Pep@ dropped ~90 ideas here over the year: physics, the coffee shop, training. The star marks favorites."
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "es": "Lluvias por tema",
+    "en": "Themed brainstorms"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "es": "Una lluvia agrupa todo bajo un tema. Busca las de Pep@: los nombres para la gata (ganó Laika), cómo pagar Japón y qué llevar al viaje.",
+    "en": "A brainstorm groups everything under a theme. Find Pep@'s: names for the cat (Laika won), how to pay for Japan, what to pack."
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "es": "Cuando una lluvia madura, un botón la convierte en mapa mental y sigues ordenándola en el lienzo.",
+    "en": "When a brainstorm ripens, one button turns it into a mind map and you keep sorting it on the canvas."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "es": "Diez formatos",
+    "en": "Ten formats"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "es": "Cada formato dibuja distinto. Abajo están los mapas que Pep@ hizo durante el año: su rutina de mañana en flujo, la termodinámica en árbol, física y música en Venn.",
+    "en": "Each format draws differently. Below are the maps Pep@ made during the year: the morning routine as a flow, thermodynamics as a tree, physics and music as a Venn."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "es": "«Mi vida ideal»",
+    "en": "\"My ideal life\""
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "es": "El PRIMER mapa del año, del mes 1: la vida que Pep@ quería. Míralo con calma — casi todo lo que hay aquí acabó pasando.",
+    "en": "The FIRST map of the year, from month 1: the life Pep@ wanted. Look closely — almost everything on it ended up happening."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "es": "En el lienzo: toca un nodo para elegirlo y otra vez para escribir; arrastra, haz zoom con pellizco y agrega ideas con la barra de abajo.",
+    "en": "On the canvas: tap a node to select it, tap again to type; drag it, pinch to zoom, and add ideas with the bottom bar."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "es": "Un mapa entero, de un tema",
+    "en": "A whole map, from one topic"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "es": "Dale un tema a la IA y arma el mapa completo, con sus nodos ya organizados: el punto de partida para un tema que no sabes por dónde empezar a ordenar.",
+    "en": "Give the AI a topic and it builds the full map, nodes already organized: a starting point for a topic you don't know how to sort out."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "es": "Ampliar un nodo con IA",
+    "en": "Expanding a node with AI"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "es": "Ya dentro de un mapa, cualquier nodo se puede ampliar: la IA le propone sub-nodos según lo que ya escribiste alrededor, sin perder tu estructura.",
+    "en": "Once inside a map, any node can be expanded: the AI proposes sub-nodes based on what you already wrote around it, without breaking your structure."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "es": "Ocho formas de decidir",
+    "en": "Eight ways to decide"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "es": "Pep@ los usó de verdad: un Eisenhower en semana de parciales, un FODA a mitad de año y una matriz para elegir cámara.",
+    "en": "Pep@ used them for real: an Eisenhower during midterms, a SWOT at mid-year and a matrix to choose a camera."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "es": "¿Posgrado o trabajo?",
+    "en": "Grad school or a job?"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "es": "LA decisión abierta del cierre del año: cada lado con su peso del 1 al 5 y el total abajo. Todavía no está decidida — así se ve pensar en serio.",
+    "en": "THE open decision of the year's end: each side weighted 1 to 5 with the total below. Still undecided — this is what thinking seriously looks like."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "es": "En los formatos por regiones cada elemento vive en una zona: elígela abajo antes de agregar, o arrástralo a otra y se cambia solo.",
+    "en": "In region-based formats each element lives in a zone: pick it below before adding, or drag the element to another and it moves itself."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "es": "La matriz ponderada",
+    "en": "The weighted matrix"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "es": "No es un lienzo, es una tabla: cada opción contra cada criterio, con un peso del 1 al 5 por lo importante que te resulte ese criterio. El total ordena las opciones solo.",
+    "en": "Not a canvas, a table: every option against every criterion, weighted 1 to 5 by how much that criterion matters to you. The total ranks the options on its own."
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "es": "El reloj",
+    "en": "The clock"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "es": "El calendario no es un cuarto: vive en el reloj de la casa, así que se abre desde donde estés.",
+    "en": "The calendar is not a room: it lives in the home’s clock, so it opens from wherever you are."
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "es": "Una semana real",
+    "en": "A real week"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "es": "Turnos en la cafetería, clases de física, correr al amanecer, piano por la noche. Cada bloque es una rutina con su hora y su color; se arrastran para moverlas y se estiran para cambiar su duración.",
+    "en": "Coffee shop shifts, physics classes, running at dawn, piano at night. Each block is a routine with its time and colour; drag them to move, stretch them to change how long they last."
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "es": "Cuatro maneras de mirar",
+    "en": "Four ways to look"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "es": "Día y Semana muestran la rejilla por horas; Mes y Año dan el panorama del año entero. El primer botón hace doble función: dice «Hoy» y te trae al presente, o «Día» si ya estás viendo otra fecha.",
+    "en": "Day and Week show the hourly grid; Month and Year give the whole picture. The first button does double duty: it says \"Today\" and brings you to the present, or \"Day\" once you are already looking at another date."
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "es": "De dónde sale cada bloque",
+    "en": "Where each block comes from"
+  }
+]

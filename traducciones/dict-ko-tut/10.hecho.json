@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "여섯 종류가 있고, 저마다 배고픔 주기가 달라요. 자리가 남은 우리 안을 탭하면 이름까지 붙어서 나타나요."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "장난감"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "진흙 웅덩이, 목욕통, 공을 한 칸에 하나씩 놓아요. 동물들이 알아서 찾아가고, 놀면 기분이 좋아져요. 보호소에는 세 가지가 이미 놓여 있어요."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "이름"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "'이름 짓기'로 우리를 탭하면 쓰고 있는 수용량과 함께 목록이 보여요. 동물을 탭하면 이름을 바꿀 수 있어요."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "이게 전부예요. 우리, 수용량, 장난감, 그리고 애정이면 돼요. 데모에서도 마음만 먹으면 보호소를 넓힐 수 있어요."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "여기는 Pep의 경주 트랙이에요. 체커 무늬 결승선이 있는 아스팔트 타원 트랙이죠. 지도에서 유일한 결승선이라, 레이스 모드는 전부 이곳을 중심으로 돌아가요."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "저기가 결승선이에요. 마당의 자전거나 자동차로 다가가 '타기' 버튼으로 올라타세요. 탈것을 탄 채 이 선을 밟으면 신호등이 나와요."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "타원에 바짝 붙어 달리고, 코너에서는 드리프트해서 속도를 잃지 마세요. 어시스턴트와 겨룰 수도 있고, 아이템도 등장해요. 바나나, 터보, 폭탄이에요."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "결승선 옆에는 베스트 기록표가 있어요. Pep의 자전거는 38승에 베스트 랩 41.8초예요. 깨보세요. 데모에서 세운 기록도 저장돼요."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "지도를 감싸는 기차 선로와 놀이공원의 롤러코스터도 길이에요. 선로 위를 걸으면 '타기'가 나타나요. 그린 선마다 각자의 네트워크예요."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "선은 세 가지이고, 여기서 세 가지 모두 보여요. 경주 트랙(레이스용), 기차 선로(지도를 도는 기차), 롤러코스터(칸마다 높이가 있어요). 서로 닿아도 섞이지 않아요. 각자 같은 종류의 이웃만 찾거든요."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "놀이공원 롤러코스터는 최대 6층까지 올라가고, 칸과 칸 사이의 경사는 알아서 이어져요. 올라타 보세요. 카트가 닫힌 코스를 한 바퀴 돌아요."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "내 집에서는 '서킷' 편집기로 칸 하나씩 그리거나, '자유 트랙'으로 구역별로 자유롭게 그릴 수 있어요. 데모의 지도는 이미 그려져 있어요."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "여기는 Pep의 스포츠 단지예요. 축구, 농구, 테니스, 야구가 나란히 있어요. 코트는 지도 위의 사각형이라, 걸어 들어가면 그 경기가 시작돼요."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "차지 버튼은 시점 큐브 자리에 나타나고, 캐릭터가 바라보는 쪽으로 날아가요. 먼저 조준하고, 그다음에 힘을 모으세요."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "아래쪽에는 야구장과 테니스 코트가 있어요. 테니스는 리턴과 랠리가 있고, 야구는 순수한 타격이에요. 피칭 머신이든 투수든 상대할 수 있어요."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "위쪽에는 축구 코트와 농구 코트가 있어요. 축구는 드리블과 슛으로 하고, 농구는 슛의 힘을 조절해서 넣어요."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "점수는 코트마다 저장돼요. Pep은 농구에서 21-15, 테니스에서 랠리 18회 연속 기록을 남겼어요. 데모에서도 경기가 진짜로 집계돼요. 기록을 넘어 보세요."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "도구 휠을 열어 보세요. Paintball은 거기 '건축' 카테고리에, 탈것 옆에 있어요."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "모드를 골라요. 1 vs 1, 2 vs 2, 배틀로얄이 있어요. 상대는 지도에 있는 어시스턴트예요. Laika도 포함이고, 플레이는 1층에서 해요."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "집 전체가 전장이에요. 벽 뒤에 숨고, 고개를 내밀어 쏘고, 등 뒤를 조심하세요. 튄 페인트는 대결이 끝날 때까지 남아 있어요."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "Pep의 전적은 47승 23패예요. 데모에서도 대결이 진짜로 집계돼요. 떠나기 전에 기록을 올려 보세요."
+  }
+]

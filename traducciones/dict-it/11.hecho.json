@@ -1,0 +1,478 @@
+[
+  {
+    "clave": "idiomas.area.gramatica.desc",
+    "texto": "Le regole della lingua: strutture e tempi verbali per livello."
+  },
+  {
+    "clave": "idiomas.mat.titulo",
+    "texto": "Il mio materiale"
+  },
+  {
+    "clave": "idiomas.mat.desc",
+    "texto": "Salva qui i tuoi appunti e foto per questo argomento: la lavagna della lezione, una tabella di coniugazione, uno screenshot o i tuoi appunti personali."
+  },
+  {
+    "clave": "idiomas.mat.tituloPh",
+    "texto": "Titolo della nota (facoltativo)"
+  },
+  {
+    "clave": "idiomas.mat.textoPh",
+    "texto": "Incolla o scrivi i tuoi appunti…"
+  },
+  {
+    "clave": "idiomas.mat.guardarNota",
+    "texto": "Salva nota"
+  },
+  {
+    "clave": "idiomas.mat.subirImagen",
+    "texto": "Carica immagine"
+  },
+  {
+    "clave": "idiomas.mat.subiendo",
+    "texto": "Caricamento…"
+  },
+  {
+    "clave": "idiomas.mat.vacio",
+    "texto": "Non hai ancora caricato nulla per questo argomento."
+  },
+  {
+    "clave": "idiomas.mat.sinTitulo",
+    "texto": "Nota"
+  },
+  {
+    "clave": "idiomas.mat.borrar",
+    "texto": "Elimina materiale"
+  },
+  {
+    "clave": "idiomas.mat.confirmarBorrar",
+    "texto": "Eliminare questo materiale?"
+  },
+  {
+    "clave": "idiomas.charla.nuevaBtn",
+    "texto": "Nuova chat con {tutor}"
+  },
+  {
+    "clave": "idiomas.charla.vacio",
+    "texto": "Non ci sono ancora chat di {idioma}. Il tuo tutor conversa al tuo livello, ti corregge con delicatezza e dalla chat escono schede di vocabolario."
+  },
+  {
+    "clave": "idiomas.charla.sinTitulo",
+    "texto": "Chat senza titolo"
+  },
+  {
+    "clave": "idiomas.charla.libre",
+    "texto": "Pratica libera"
+  },
+  {
+    "clave": "idiomas.charla.conVocab",
+    "texto": "vocabolario estratto"
+  },
+  {
+    "clave": "idiomas.charla.nueva",
+    "texto": "Nuova chat"
+  },
+  {
+    "clave": "idiomas.charla.volver",
+    "texto": "Torna alle chat"
+  },
+  {
+    "clave": "idiomas.charla.renombrar",
+    "texto": "Tocca per rinominare"
+  },
+  {
+    "clave": "idiomas.charla.sub",
+    "texto": "Tutor di {idioma} · livello {nivel}"
+  },
+  {
+    "clave": "idiomas.charla.destilar",
+    "texto": "Estrai"
+  },
+  {
+    "clave": "idiomas.charla.destilarTip",
+    "texto": "L'IA estrae il vocabolario della chat come schede di ripasso"
+  },
+  {
+    "clave": "idiomas.charla.destilarFallo",
+    "texto": "L'IA non è riuscita a estrarre vocabolario dalla chat; crea la scheda a mano."
+  },
+  {
+    "clave": "idiomas.charla.borrar",
+    "texto": "Elimina chat"
+  },
+  {
+    "clave": "idiomas.charla.confirmarBorrar",
+    "texto": "Eliminare la chat? Le schede estratte vengono conservate."
+  },
+  {
+    "clave": "idiomas.charla.siBorrar",
+    "texto": "Elimina"
+  },
+  {
+    "clave": "idiomas.charla.clasificar",
+    "texto": "Classifica"
+  },
+  {
+    "clave": "idiomas.charla.extraido",
+    "texto": "Estratto"
+  },
+  {
+    "clave": "idiomas.charla.yaExtraido",
+    "texto": "Hai già estratto il vocabolario di questa chat; continua a conversare per averne altro"
+  },
+  {
+    "clave": "idiomas.charla.verEnTemario",
+    "texto": "Vedi «{tema}» nel programma"
+  },
+  {
+    "clave": "idiomas.charla.verTemario",
+    "texto": "Apri il programma"
+  },
+  {
+    "clave": "idiomas.charla.clasificarTip",
+    "texto": "Chiedi all'IA di dare un titolo e un argomento alla chat"
+  },
+  {
+    "clave": "idiomas.charla.vacia",
+    "texto": "Salutalo in {idioma} o in spagnolo: {tutor} conversa al tuo livello, ti corregge con delicatezza e alla fine puoi estrarre il vocabolario nuovo."
+  },
+  {
+    "clave": "idiomas.charla.error",
+    "texto": "Il tuo tutor non è riuscito a rispondere. Controlla la tua IA in Impostazioni o riprova."
+  },
+  {
+    "clave": "idiomas.charla.reintentar",
+    "texto": "Riprova"
+  },
+  {
+    "clave": "idiomas.charla.placeholder",
+    "texto": "Scrivi in {idioma} o in spagnolo…"
+  },
+  {
+    "clave": "idiomas.charla.sinIAInput",
+    "texto": "Configura la tua IA in Impostazioni per chattare"
+  },
+  {
+    "clave": "idiomas.dest.titulo",
+    "texto": "Vocabolario della chat"
+  },
+  {
+    "clave": "idiomas.dest.cargando",
+    "texto": "Ricerca di vocabolario nuovo nella chat…"
+  },
+  {
+    "clave": "idiomas.dest.fallo",
+    "texto": "L'IA non è riuscita a estrarre vocabolario (o non ha trovato nulla di nuovo)."
+  },
+  {
+    "clave": "idiomas.dest.aMano",
+    "texto": "Crea una scheda a mano"
+  },
+  {
+    "clave": "idiomas.dest.desc",
+    "texto": "Questo è comparso nella chat e non è ancora nel tuo vocabolario:"
+  },
+  {
+    "clave": "idiomas.dest.ahoraNo",
+    "texto": "Non ora"
+  },
+  {
+    "clave": "idiomas.dest.guardar",
+    "texto": "Salva {n} schede"
+  },
+  {
+    "clave": "idiomas.pr.titulo",
+    "texto": "Il tuo {idioma}"
+  },
+  {
+    "clave": "idiomas.pr.tarjetas",
+    "texto": "{n} carte"
+  },
+  {
+    "clave": "idiomas.pr.dominadas",
+    "texto": "{d} padroneggiate · {p} in corso"
+  },
+  {
+    "clave": "idiomas.pr.desbloqueados",
+    "texto": "{n} argomenti sbloccati dalle tue chat"
+  },
+  {
+    "clave": "idiomas.pr.propios",
+    "texto": "{n} argomenti tuoi nel programma"
+  },
+  {
+    "clave": "idiomas.pr.racha",
+    "texto": "Serie di pratica"
+  },
+  {
+    "clave": "idiomas.pr.rachaDias",
+    "texto": "{n} giorni"
+  },
+  {
+    "clave": "idiomas.pr.semana",
+    "texto": "Ripassi questa settimana"
+  },
+  {
+    "clave": "idiomas.pr.acierto",
+    "texto": "Precisione storica"
+  },
+  {
+    "clave": "idiomas.pr.charlas",
+    "texto": "Chat con il tuo tutor"
+  },
+  {
+    "clave": "idiomas.pr.porNivel",
+    "texto": "Vocabolario per livello"
+  },
+  {
+    "clave": "idiomas.pr.porTema",
+    "texto": "Argomenti con più vocabolario"
+  },
+  {
+    "clave": "idiomas.pr.vacio",
+    "texto": "I tuoi progressi ti aspettano: raccogli vocabolario, ripassalo ogni giorno e questi grafici prenderanno vita."
+  },
+  {
+    "clave": "idiomas.heatmap.anual",
+    "texto": "Ultimo anno di pratica"
+  },
+  {
+    "clave": "idiomas.heatmap.resumen",
+    "texto": "{n} ripassi · {d} giorni attivi"
+  },
+  {
+    "clave": "idiomas.heatmap.menos",
+    "texto": "meno"
+  },
+  {
+    "clave": "idiomas.heatmap.mas",
+    "texto": "più"
+  },
+  {
+    "clave": "entre.tab.archivo",
+    "texto": "Archivio"
+  },
+  {
+    "clave": "entre.tab.mesa",
+    "texto": "Giochi da tavolo"
+  },
+  {
+    "clave": "entre.tab.programas",
+    "texto": "Programmi"
+  },
+  {
+    "clave": "entre.desc",
+    "texto": "Film, serie, libri, videogiochi e giochi da tavolo da giocare — tutto nella sala d'intrattenimento. I tuoi dati dell'archivio precedente sono conservati qui."
+  },
+  {
+    "clave": "entre.arch.ocultar",
+    "texto": "Nascondi modulo"
+  },
+  {
+    "clave": "entre.arch.añadir",
+    "texto": "Aggiungi titolo"
+  },
+  {
+    "clave": "entre.arch.entrada",
+    "texto": "voce"
+  },
+  {
+    "clave": "entre.arch.entradas",
+    "texto": "voci"
+  },
+  {
+    "clave": "entre.arch.vacio",
+    "texto": "Il tuo archivio è vuoto. Aggiungi il primo film, serie, libro o videogioco."
+  },
+  {
+    "clave": "entre.arch.porFecha",
+    "texto": "Per data"
+  },
+  {
+    "clave": "entre.arch.porGenero",
+    "texto": "Per genere"
+  },
+  {
+    "clave": "entre.arch.porTipo",
+    "texto": "Per categoria"
+  },
+  {
+    "clave": "entre.arch.porAutor",
+    "texto": "Per autore"
+  },
+  {
+    "clave": "entre.arch.sinGenero",
+    "texto": "Senza genere"
+  },
+  {
+    "clave": "entre.arch.sinTipo",
+    "texto": "Senza categoria"
+  },
+  {
+    "clave": "entre.arch.sinAutor",
+    "texto": "Senza autore"
+  },
+  {
+    "clave": "entre.arch.arrastraGeneros",
+    "texto": "Trascina le cartelle per mettere i tuoi generi nell'ordine che preferisci."
+  },
+  {
+    "clave": "entre.tipo.pelicula",
+    "texto": "Film"
+  },
+  {
+    "clave": "entre.tipo.serie",
+    "texto": "Serie"
+  },
+  {
+    "clave": "entre.tipo.libro",
+    "texto": "Libro"
+  },
+  {
+    "clave": "entre.tipo.videojuego",
+    "texto": "Videogioco"
+  },
+  {
+    "clave": "entre.port.lote.buscar",
+    "texto": "Cerca le {n} copertine mancanti"
+  },
+  {
+    "clave": "entre.port.lote.progreso",
+    "texto": "Ricerca copertine… {n}/{total}"
+  },
+  {
+    "clave": "entre.port.lote.cancelar",
+    "texto": "Ferma"
+  },
+  {
+    "clave": "entre.port.lote.listo",
+    "texto": "{n} trovate"
+  },
+  {
+    "clave": "entre.port.subir",
+    "texto": "Carica copertina"
+  },
+  {
+    "clave": "entre.port.falta.una",
+    "texto": "Un'opera è rimasta senza copertina"
+  },
+  {
+    "clave": "entre.port.falta.varias",
+    "texto": "{n} opere sono rimaste senza copertina"
+  },
+  {
+    "clave": "entre.port.falta.desc",
+    "texto": "Non compaiono su Wikipedia né su Open Library con questo titolo. Puoi riprovare oppure caricare tu la copertina corretta."
+  },
+  {
+    "clave": "entre.port.falta.reintentar",
+    "texto": "Continua a cercare"
+  },
+  {
+    "clave": "entre.port.falta.dejarlo",
+    "texto": "Lascia così"
+  },
+  {
+    "clave": "entre.form.editarTitulo",
+    "texto": "Modifica voce"
+  },
+  {
+    "clave": "entre.form.añadirTitulo",
+    "texto": "Aggiungi all'archivio"
+  },
+  {
+    "clave": "entre.form.titulo",
+    "texto": "Titolo"
+  },
+  {
+    "clave": "entre.form.autor",
+    "texto": "Autore / regista / sviluppatore (facoltativo)"
+  },
+  {
+    "clave": "entre.form.genero",
+    "texto": "Genere"
+  },
+  {
+    "clave": "entre.form.fecha",
+    "texto": "Data (consumo o uscita)"
+  },
+  {
+    "clave": "entre.form.estado",
+    "texto": "Stato"
+  },
+  {
+    "clave": "entre.form.calificacion",
+    "texto": "La tua valutazione"
+  },
+  {
+    "clave": "entre.form.ph.resena",
+    "texto": "La tua recensione…"
+  },
+  {
+    "clave": "entre.form.cancelar",
+    "texto": "Annulla"
+  },
+  {
+    "clave": "entre.form.guardar",
+    "texto": "Salva modifiche"
+  },
+  {
+    "clave": "entre.form.guardarNuevo",
+    "texto": "Aggiungi all'archivio"
+  },
+  {
+    "clave": "entre.form.sugerencias",
+    "texto": "Qual è?"
+  },
+  {
+    "clave": "entre.form.completarIA",
+    "texto": "Completa con IA"
+  },
+  {
+    "clave": "entre.form.completarAyuda",
+    "texto": "Compila autore e genere, e recupera sinossi e copertina."
+  },
+  {
+    "clave": "entre.form.consultando",
+    "texto": "Ricerca dell'opera…"
+  },
+  {
+    "clave": "entre.res.titulo",
+    "texto": "Riassunto IA"
+  },
+  {
+    "clave": "entre.res.generar",
+    "texto": "Riassunto con IA"
+  },
+  {
+    "clave": "entre.res.generando",
+    "texto": "Riassumendo l'opera…"
+  },
+  {
+    "clave": "entre.res.sinSpoilers",
+    "texto": "senza spoiler"
+  },
+  {
+    "clave": "entre.res.verMas",
+    "texto": "Mostra di più"
+  },
+  {
+    "clave": "entre.res.verMenos",
+    "texto": "Mostra meno"
+  },
+  {
+    "clave": "entre.res.rehacer",
+    "texto": "Rifai"
+  },
+  {
+    "clave": "entre.res.quitar",
+    "texto": "Rimuovi"
+  },
+  {
+    "clave": "entre.res.error",
+    "texto": "Non è stato possibile generare il riassunto."
+  },
+  {
+    "clave": "entre.res.desconocida",
+    "texto": "L'IA non ha riconosciuto quest'opera."
+  }
+]

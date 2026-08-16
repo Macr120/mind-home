@@ -1,0 +1,522 @@
+[
+  {
+    "clave": "idiomas.rep.paraHoy",
+    "texto": "carte da ripassare oggi in {idioma}"
+  },
+  {
+    "clave": "idiomas.rep.empezar",
+    "texto": "Inizia ripasso"
+  },
+  {
+    "clave": "idiomas.rep.sinTarjetas",
+    "texto": "Niente da ripassare ancora: crea vocabolario nella sezione Vocabolario o chattando con il tuo tutor."
+  },
+  {
+    "clave": "idiomas.rep.alDia",
+    "texto": "Sei in pari: nessuna carta da ripassare. Torna domani o fai un ripasso libero."
+  },
+  {
+    "clave": "idiomas.rep.libre",
+    "texto": "Ripasso libero"
+  },
+  {
+    "clave": "idiomas.rep.libreTag",
+    "texto": "Ripasso libero"
+  },
+  {
+    "clave": "idiomas.rep.quedan",
+    "texto": "{n} rimaste"
+  },
+  {
+    "clave": "idiomas.rep.marcador",
+    "texto": "{aciertos}/{hecho} corrette"
+  },
+  {
+    "clave": "idiomas.rep.mostrar",
+    "texto": "Mostra risposta"
+  },
+  {
+    "clave": "idiomas.rep.noSabia",
+    "texto": "Non la sapevo"
+  },
+  {
+    "clave": "idiomas.rep.siSabia",
+    "texto": "La sapevo"
+  },
+  {
+    "clave": "idiomas.rep.salir",
+    "texto": "Finito per oggi"
+  },
+  {
+    "clave": "idiomas.rep.ilustrar",
+    "texto": "Illustra questa carta"
+  },
+  {
+    "clave": "idiomas.rep.cambiarIlustracion",
+    "texto": "Cambia l'illustrazione"
+  },
+  {
+    "clave": "idiomas.rep.verMazo",
+    "texto": "Vedi il mazzo"
+  },
+  {
+    "clave": "idiomas.rep.verMazoHoy",
+    "texto": "Vedi le carte di oggi"
+  },
+  {
+    "clave": "idiomas.ilustrar.cerrar",
+    "texto": "Chiudi"
+  },
+  {
+    "clave": "idiomas.ilustrar.nota",
+    "texto": "L'immagine appare quando riveli la risposta: è l'indizio che fissa il significato."
+  },
+  {
+    "clave": "idiomas.ilustrar.nota2",
+    "texto": "Immagine e suono insieme: l'indizio che fissa il significato quando la carta compare negli esercizi."
+  },
+  {
+    "clave": "idiomas.rep.fin",
+    "texto": "Sessione terminata!"
+  },
+  {
+    "clave": "idiomas.rep.finDetalle",
+    "texto": "{aciertos} corrette su {total} risposte"
+  },
+  {
+    "clave": "idiomas.rep.listo",
+    "texto": "Fatto"
+  },
+  {
+    "clave": "idiomas.ej.modo.opcion",
+    "texto": "Cosa significa?"
+  },
+  {
+    "clave": "idiomas.ej.modo.inverso",
+    "texto": "Inverso"
+  },
+  {
+    "clave": "idiomas.ej.modo.cloze",
+    "texto": "Completa"
+  },
+  {
+    "clave": "idiomas.ej.descOpcion",
+    "texto": "Vedi un termine in {idioma} e scegli la sua traduzione."
+  },
+  {
+    "clave": "idiomas.ej.descInverso",
+    "texto": "Vedi la traduzione e scegli il termine giusto in {idioma}."
+  },
+  {
+    "clave": "idiomas.ej.descCloze",
+    "texto": "Completa la frase di esempio con il termine mancante."
+  },
+  {
+    "clave": "idiomas.ej.pocas",
+    "texto": "Ti servono almeno 4 carte di {idioma} per generare esercizi."
+  },
+  {
+    "clave": "idiomas.ej.pocas2",
+    "texto": "Ti servono almeno 4 carte di {idioma} per generare esercizi: creale nel programma, chattando con il tuo tutor o chiedendole all'IA."
+  },
+  {
+    "clave": "idiomas.ej.fuente",
+    "texto": "Cosa ripassi"
+  },
+  {
+    "clave": "idiomas.ej.fuenteTip",
+    "texto": "Le carte che entrano nel round"
+  },
+  {
+    "clave": "idiomas.ej.fuenteHoy",
+    "texto": "Quello che tocca oggi ({n})"
+  },
+  {
+    "clave": "idiomas.ej.fuenteTodo",
+    "texto": "Tutto il vocabolario ({n})"
+  },
+  {
+    "clave": "idiomas.ej.temaVacio",
+    "texto": "Quell'argomento non ha ancora carte. Scegline un altro o generale dal programma."
+  },
+  {
+    "clave": "idiomas.ej.sinCloze",
+    "texto": "Nessuna carta ha una frase di esempio con il suo termine: aggiungi degli esempi per esercitarti a completare."
+  },
+  {
+    "clave": "idiomas.ej.empezar",
+    "texto": "Inizia esercizi"
+  },
+  {
+    "clave": "idiomas.ej.siguiente",
+    "texto": "Avanti"
+  },
+  {
+    "clave": "idiomas.ej.verResumen",
+    "texto": "Vedi riepilogo"
+  },
+  {
+    "clave": "idiomas.ej.fin",
+    "texto": "{aciertos} su {total} corrette"
+  },
+  {
+    "clave": "idiomas.ej.cambiarModo",
+    "texto": "Cambia modalità"
+  },
+  {
+    "clave": "idiomas.ej.otraRonda",
+    "texto": "Un altro round"
+  },
+  {
+    "clave": "idiomas.ej.reto.libre",
+    "texto": "Con calma"
+  },
+  {
+    "clave": "idiomas.ej.reto.vidas",
+    "texto": "Tre vite"
+  },
+  {
+    "clave": "idiomas.ej.reto.contrarreloj",
+    "texto": "Contro il tempo"
+  },
+  {
+    "clave": "idiomas.ej.descLibre",
+    "texto": "Round di {n} domande, senza fretta."
+  },
+  {
+    "clave": "idiomas.ej.descVidas",
+    "texto": "Continui finché ti restano vite: ogni errore ne costa una."
+  },
+  {
+    "clave": "idiomas.ej.descReloj",
+    "texto": "Tutte quelle che riesci in {n} secondi; rispondere in fretta dà punti extra."
+  },
+  {
+    "clave": "idiomas.ej.mult",
+    "texto": "{n}×"
+  },
+  {
+    "clave": "idiomas.ej.vidas",
+    "texto": "{n} vite"
+  },
+  {
+    "clave": "idiomas.ej.terminar",
+    "texto": "Termina il round"
+  },
+  {
+    "clave": "idiomas.ej.mejorCombo",
+    "texto": "miglior serie {n}"
+  },
+  {
+    "clave": "idiomas.medalla.perfecta",
+    "texto": "Round perfetto"
+  },
+  {
+    "clave": "idiomas.medalla.combo10",
+    "texto": "Dieci di fila"
+  },
+  {
+    "clave": "idiomas.medalla.relampago",
+    "texto": "Fulmine"
+  },
+  {
+    "clave": "idiomas.medalla.superviviente",
+    "texto": "Sopravvissuto"
+  },
+  {
+    "clave": "idiomas.medalla.maraton",
+    "texto": "Maratona"
+  },
+  {
+    "clave": "idiomas.mis.titulo",
+    "texto": "Sfide di oggi"
+  },
+  {
+    "clave": "idiomas.mis.resp20",
+    "texto": "Rispondi a 20 esercizi"
+  },
+  {
+    "clave": "idiomas.mis.resp40",
+    "texto": "Rispondi a 40 esercizi"
+  },
+  {
+    "clave": "idiomas.mis.acierta15",
+    "texto": "Indovinane 15"
+  },
+  {
+    "clave": "idiomas.mis.acierta30",
+    "texto": "Indovinane 30"
+  },
+  {
+    "clave": "idiomas.mis.combo8",
+    "texto": "Incatena 8 risposte corrette"
+  },
+  {
+    "clave": "idiomas.mis.combo12",
+    "texto": "Incatena 12 risposte corrette"
+  },
+  {
+    "clave": "idiomas.mis.partidas2",
+    "texto": "Gioca 2 round"
+  },
+  {
+    "clave": "idiomas.mis.partidas4",
+    "texto": "Gioca 4 round"
+  },
+  {
+    "clave": "idiomas.mis.perfecta1",
+    "texto": "Chiudi un round perfetto"
+  },
+  {
+    "clave": "idiomas.mis.modos3",
+    "texto": "Prova tutte e 3 le modalità"
+  },
+  {
+    "clave": "idiomas.rec.titulo",
+    "texto": "Record degli esercizi"
+  },
+  {
+    "clave": "idiomas.rec.mejorCombo",
+    "texto": "Miglior serie"
+  },
+  {
+    "clave": "idiomas.rec.vacio",
+    "texto": "Non hai ancora giocato nessun round."
+  },
+  {
+    "clave": "idiomas.nivel.A1",
+    "texto": "Principiante"
+  },
+  {
+    "clave": "idiomas.nivel.A2",
+    "texto": "Elementare"
+  },
+  {
+    "clave": "idiomas.nivel.B1",
+    "texto": "Intermedio"
+  },
+  {
+    "clave": "idiomas.nivel.B2",
+    "texto": "Intermedio superiore"
+  },
+  {
+    "clave": "idiomas.nivel.C1",
+    "texto": "Avanzato"
+  },
+  {
+    "clave": "idiomas.nivel.C2",
+    "texto": "Padronanza"
+  },
+  {
+    "clave": "idiomas.tem.tuNivel",
+    "texto": "il tuo livello"
+  },
+  {
+    "clave": "idiomas.tem.cobertura",
+    "texto": "{c}/{total} argomenti con vocabolario"
+  },
+  {
+    "clave": "idiomas.tem.nTarjetas",
+    "texto": "{n} carte di questo argomento"
+  },
+  {
+    "clave": "idiomas.tem.prompt.temas",
+    "texto": "Voglio esercitarmi su «{tema}». Iniziamo."
+  },
+  {
+    "clave": "idiomas.tem.prompt.pronunciacion",
+    "texto": "Voglio lavorare sulla mia pronuncia: «{tema}». Spiegamela e dammi degli esempi da ripetere."
+  },
+  {
+    "clave": "idiomas.tem.prompt.gramatica",
+    "texto": "Spiegami la grammatica di «{tema}» con esempi e poi dammi degli esercizi."
+  },
+  {
+    "clave": "idiomas.tem.charlarTip",
+    "texto": "Esercitati su questo argomento con il tuo tutor"
+  },
+  {
+    "clave": "idiomas.tem.verTarjetasTip",
+    "texto": "Vedi le carte di questo argomento"
+  },
+  {
+    "clave": "idiomas.tem.generarTip",
+    "texto": "Genera vocabolario di questo argomento con l'IA"
+  },
+  {
+    "clave": "idiomas.tem.materialTip",
+    "texto": "I tuoi appunti e immagini di questo argomento"
+  },
+  {
+    "clave": "idiomas.tem.practicarTip",
+    "texto": "Esercizi con le carte di questo argomento"
+  },
+  {
+    "clave": "idiomas.tem.sinTarjetas",
+    "texto": "Questo argomento non ha ancora carte."
+  },
+  {
+    "clave": "idiomas.tem.edicionDesc",
+    "texto": "Rendi tuo l'intero programma: aree, livelli, argomenti e sottoargomenti si aggiungono, si rinominano, si ordinano e si eliminano."
+  },
+  {
+    "clave": "idiomas.tem.modoEdicion",
+    "texto": "Modifica il programma"
+  },
+  {
+    "clave": "idiomas.tem.subir",
+    "texto": "Sposta su"
+  },
+  {
+    "clave": "idiomas.tem.bajar",
+    "texto": "Sposta giù"
+  },
+  {
+    "clave": "idiomas.tem.izquierda",
+    "texto": "Sposta a sinistra"
+  },
+  {
+    "clave": "idiomas.tem.derecha",
+    "texto": "Sposta a destra"
+  },
+  {
+    "clave": "idiomas.tem.renombrar",
+    "texto": "Rinomina"
+  },
+  {
+    "clave": "idiomas.tem.borrar",
+    "texto": "Elimina argomento"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTema",
+    "texto": "Nuovo argomento in {nivel}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaTit",
+    "texto": "Nuovo argomento"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaMsg",
+    "texto": "In {nivel} · {area}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoSubtema",
+    "texto": "Nuovo sottoargomento"
+  },
+  {
+    "clave": "idiomas.tem.subtemaTip",
+    "texto": "Aggiungi un sottoargomento dentro"
+  },
+  {
+    "clave": "idiomas.tem.nSubtemas",
+    "texto": "{n} sottoargomenti qui dentro"
+  },
+  {
+    "clave": "idiomas.tem.dentroDe",
+    "texto": "Dentro «{padre}»"
+  },
+  {
+    "clave": "idiomas.tem.verNivel",
+    "texto": "Vedi gli argomenti del livello"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivel",
+    "texto": "Nuovo livello in {area}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelTit",
+    "texto": "Nuovo livello"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelMsg",
+    "texto": "Un livello tutto tuo dentro «{area}»; il suo distintivo saranno le prime tre lettere."
+  },
+  {
+    "clave": "idiomas.tem.borrarNivel",
+    "texto": "Elimina il livello"
+  },
+  {
+    "clave": "idiomas.tem.areaActiva",
+    "texto": "Area «{n}»"
+  },
+  {
+    "clave": "idiomas.tem.nuevaArea",
+    "texto": "Nuova area"
+  },
+  {
+    "clave": "idiomas.tem.nuevaAreaMsg",
+    "texto": "Un'area tutta tua per questa lingua, accanto a quelle di fabbrica. Inizia vuota: al suo interno crei i livelli."
+  },
+  {
+    "clave": "idiomas.tem.borrarArea",
+    "texto": "Elimina l'area"
+  },
+  {
+    "clave": "idiomas.tem.sinAreas",
+    "texto": "Il tuo programma è vuoto. Attiva ✏️ e crea la prima area."
+  },
+  {
+    "clave": "idiomas.tem.sinNiveles",
+    "texto": "Quest'area non ha ancora livelli. Attiva ✏️ e crea il primo."
+  },
+  {
+    "clave": "idiomas.tem.prompt.propia",
+    "texto": "Voglio esercitarmi su «{tema}». Iniziamo."
+  },
+  {
+    "clave": "idiomas.tem.crear",
+    "texto": "Crea"
+  },
+  {
+    "clave": "idiomas.tem.borrarTit",
+    "texto": "Eliminare «{n}»?"
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgHijos",
+    "texto": "Se ne va con tutto quello che ha dentro."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgTarjetas",
+    "texto": "Le sue {n} carte NON vengono eliminate: passano a «Non classificate»."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsg",
+    "texto": "Scompare dal programma di questa lingua."
+  },
+  {
+    "clave": "idiomas.tem.sinClasificar",
+    "texto": "Non classificate"
+  },
+  {
+    "clave": "idiomas.tem.sinClasificarDesc",
+    "texto": "{n} carte che non sono ancora in nessun argomento"
+  },
+  {
+    "clave": "idiomas.tem.clasificar",
+    "texto": "— Argomento —"
+  },
+  {
+    "clave": "idiomas.tem.clasificarTip",
+    "texto": "Mandala a un argomento del programma"
+  },
+  {
+    "clave": "idiomas.area.temas",
+    "texto": "Argomenti"
+  },
+  {
+    "clave": "idiomas.area.pronunciacion",
+    "texto": "Pronuncia"
+  },
+  {
+    "clave": "idiomas.area.gramatica",
+    "texto": "Grammatica"
+  },
+  {
+    "clave": "idiomas.area.temas.desc",
+    "texto": "Di cosa parlare: il vocabolario e le situazioni di ogni livello."
+  },
+  {
+    "clave": "idiomas.area.pronunciacion.desc",
+    "texto": "Come suona la lingua: suoni, accento, ritmo e intonazione."
+  }
+]

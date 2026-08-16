@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "Aplikacje planują się same: wizyty z Terminarza, sen z Odpoczynku, chwile nauki z Biblioteki. Filtrem pokazujesz tylko jedną z nich."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "Poruszanie się po roku"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "Strzałki ‹ › przesuwają okres, a Dziś wraca do teraźniejszości. Cały rok Pepa jest tutaj, tydzień po tygodniu. Przyciskiem + Nowa tworzysz wydarzenie albo rysujesz je wprost na siatce."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "Nawyk po nawyku"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "Każdy wiersz to rutyna, a każda kolumna to dzień: zielony znaczy wykonane. Odhaczasz od razu tutaj, a procent u góry podsumowuje oglądany okres."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "Łuk roku"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "W widoku Rok wykres opowiada całą historię: na starcie Pepowi wychodziła jedna trzecia tego, co zaplanowane, a na koniec ponad 85%. Systematyczność została zbudowana, nie pojawiła się sama."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "Spadki też się liczą"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "Obie dziury są prawdziwe: kontuzja kolana w siódmym miesiącu i trzy tygodnie w Japonii. Potknięcie nie kasuje postępu — panel pokazuje rok takim, jaki był, a nie takim, jaki miał być. A rutyna liczy się dopiero od dnia, w którym powstała."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "Najpierw cele"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "Widok otwiera się na Celach, pogrupowanych według aplikacji, która je prowadzi: bieganie w Siłowni, studia z fizyki w Bibliotece. „Dom” nie jest żadną aplikacją — to kategoria wymyślona przez Pepa na remont kuchni."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "Od celu do jego planu"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "Każdy wiersz czyta się jak tablicę: numer w folderze, termin, postęp i stan — Do zrobienia, W trakcie albo Zrobione, zależnie od tego, ile jest już odhaczone. Kliknięcie otwiera cel: jego plan, jeśli go ma (zapowiada to ✨), a jeśli nie — jego arkusz z podcelami, datami i krokami."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "Trzy plany, trzy stany"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "Kuchnia i kolejny maraton to wciąż propozycje; wniosek na studia podyplomowe jest już w Harmonogramie. Plan maratonu powstał bez terminu: AI wyliczyła, że potrzeba na niego 24 tygodni, i mówi o tym w swoim podsumowaniu."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "Arkusz planu"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "Sześć etapów i ich podcele, każdy ze swoim okresem. Dopóki to propozycja, można go edytować w całości: zmieniać nazwy, przesuwać daty, dodawać i usuwać węzły, nie rozsypując reszty."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "Odhaczaj bez zobowiązań"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "Odhaczenia propozycji żyją w arkuszu, nie w twoich celach: możesz zaznaczać, co zrobione, nie ruszając swojego Harmonogramu. Paski wypełniają się same od dołu do góry — planowanie kuchni jest już zamknięte."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "Przenieś do rzeczywistego harmonogramu"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "Ten przycisk zamienia każdy etap i każdy podcel w prawdziwe cele, z ustawionymi datami i podpięte pod pierwotny cel. To, co cel już miał, zostaje zachowane."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "Zaakceptowany: jedna prawda"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "Plan studiów podyplomowych już się przeniósł. Teraz jego odhaczenia to odhaczenia prawdziwych podcelów, a pasek jest paskiem twojego Harmonogramu: arkusz przestaje liczyć osobno."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "I są, na osi"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "Podcele zrodzone z planu zajmują swój okres w Harmonogramie, a plan kładzie się na nich na fioletowo: propozycja i rzeczywistość na tej samej osi."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "Rok studiów w jednym drzewie"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep studiuje fizykę: mechanika na początku roku, termodynamika w okolicach kolokwium w szóstym miesiącu, względność i astrofizyka na koniec. Każda gałąź otwiera się, żeby pokazać swoje wpisy."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "Drzewo rośnie razem z tobą"
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-biblioteca--charlas.2.texto2",
+    "texto": "Pierwsza odpowiedź od razu umieszcza rozmowę w jej gałęzi i zapisuje ją jako wpis. Z tego wpisu rozgałęziasz dalej: podtematy, które wzbudziły twoją ciekawość, stają się nowymi gałęziami."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.titulo",
+    "texto": "Ucz się i planuj"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.resumen",
+    "texto": "Minutnik zapisuje, ile się uczysz — jednym ciągiem albo w pomodorach — a plan nauki rozkłada twoje cele w kalendarzu."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.titulo",
+    "texto": "Zegar nauki"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.texto",
+    "texto": "Wybierasz dziedzinę i zaczynasz: w trybie Prostym liczysz minuty jednym ciągiem, a w Pomodoro aplikacja łączy odcinki koncentracji i przerwy. Każdy odcinek zapisuje się sam, a zegar działa dalej, nawet gdy zamkniesz pokój."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.titulo",
+    "texto": "Rok w skrócie"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.resumen",
+    "texto": "Przegląd zbiera na jednym ekranie to, co rozkładają pozostałe trzy zakładki: liczbę wpisów w każdej dziedzinie, łączny czas nauki i dni nauki."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.titulo",
+    "texto": "Codzienna powtórka"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.resumen",
+    "texto": "Fiszki powtarza się według skrzynek: każda poprawna odpowiedź oddala następny termin, a każda pomyłka go przybliża. Aplikacja prosi tylko o te na dziś."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.titulo",
+    "texto": "Ćwiczenia, nie fiszki"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.texto",
+    "texto": "Powtarza się, odpowiadając: wielokrotny wybór, tryb odwrócony albo uzupełnianie zdania przykładowego. Na górze wybierasz, co wchodzi do rundy — to, co wypada dziś, całe słownictwo albo temat z programu nauki."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.titulo",
+    "texto": "Słownictwo"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.resumen2",
+    "texto": "Fiszki mieszkają W ŚRODKU programu nauki: każdy temat się rozwija i tam są jego fiszki, z dźwiękiem, obrazkiem i skrzynką powtórek."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.titulo2",
+    "texto": "Każde słowo w swoim temacie"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.texto2",
+    "texto": "Rozwiń temat, a zobaczysz jego fiszki: dotknięcie czyta je na głos, miniatura otwiera ilustrację, a ołówek je edytuje. Pierwsze fiszki Pepa są na poziomie A2 — zakupy, wskazywanie drogi — a ostatnie są już na poziomie B1."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.3.texto2",
+    "texto": "Fiszki dodaje się ręcznie w danym temacie, powstają z rozmowy z nauczycielem albo proponuje je AI. To, co zostaje luźne, trafia do „Bez kategorii”, skąd wysyłasz je do właściwego tematu."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.titulo",
+    "texto": "Program nauki i plan"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.resumen",
+    "texto": "Program nauki porządkuje język w trzech obszarach — tematy, wymowa i gramatyka — według poziomu CEFR, a Postępy podsumowują twoje wyniki."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.3.texto2",
+    "texto": "Możesz też zapisać własne materiały w temacie — notatki, zwroty hotelowe, zdjęcie swojego zeszytu — i uczynić go swoim za pomocą ✏️ (dodawanie tematów, zmiana nazw, porządkowanie albo usuwanie) oraz poprosić o plan nauki z datą docelową."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.titulo",
+    "texto": "Praca i nauka"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.resumen",
+    "texto": "Skrzynka zadań bez terminu i tablica Kanban, na której karty przeciąga się między kolumnami."
+  },
+  {
+    "clave": "tut.app-agenda--salud.titulo",
+    "texto": "Zdrowie i pupile"
+  },
+  {
+    "clave": "tut.app-agenda--salud.resumen",
+    "texto": "Wizyty lekarskie, leki z harmonogramem dawek i zwierzęta domowe z ich opieką: wszystko trafia do kalendarza samo."
+  },
+  {
+    "clave": "tut.app-agenda--personas.titulo",
+    "texto": "Osoby"
+  },
+  {
+    "clave": "tut.app-agenda--personas.resumen",
+    "texto": "Twoja książka kontaktów według relacji, z urodzinami, które same powtarzają się co roku w kalendarzu."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.titulo",
+    "texto": "Rok, w którym Pepowi udało się nauczyć biegać"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.resumen",
+    "texto": "Ćwiczenia łączą siłę, kardio i mobilność w jednym miejscu: każda sesja, którą rejestrujesz, zasila twoją serię, twoje cele tygodniowe i historię roku."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.titulo",
+    "texto": "Od zera do 42 kilometrów"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.resumen",
+    "texto": "Zakładka Wytrzymałość zapisuje każde wyjście z jego dystansem, tempem i trasą; Postęp podsumowuje miesiąc na mapie aktywności i wyciąga twoje najlepsze rekordy."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.titulo",
+    "texto": "Siła, której kolano nie odebrało"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.resumen",
+    "texto": "W Sile rejestrujesz serie, powtórzenia i ciężar; na tej podstawie aplikacja liczy twoją objętość, rysuje postęp każdego ćwiczenia i zapisuje twoje rekordy osobiste."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.titulo",
+    "texto": "Jedzenie z celem"
+  }
+]

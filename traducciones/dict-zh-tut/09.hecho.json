@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "这是Pep在庇护所的菜园：真实的地块，上面压着一整年的心血。这里没有一样是示例——它是活的，实时生长，你可以动手。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "“食物”和“农场”共用一个编辑器：这里收获的东西，会装满隔壁动物的粮仓。它们是同一条链条。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "浇水说了算"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "看看这些地块：刚播下的种子、长到一半的作物、可以收获的向日葵……还有一根Pep故意不浇水的胡萝卜。蓝色水滴会提醒口渴；枯萎的就救不回来了。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "自动浇水"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "番茄那格有喷灌器：它会永久浇灌自己和周围8格。这样把菜园放着不管，也不会枯掉任何一株。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "收获"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "向日葵熟了：点一下就进篮子。也可以直接走过成熟的作物来收获，不用打开这个编辑器。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "篮子里的一年"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "每个地块都记着自己的收获次数，篮子里攒着一整年的成果——超过400份。庇护所的动物就吃这些。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "离开后一切照常运转。在演示里你可以真的浇水、收获和播种：走之前试试看。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "先整地"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "用“地块”点击地图上的一格，土就整好了。庇护所里有两块空地块在等你。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "选择种什么"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "六个品种，每个下面都写着要多久成熟、多久要浇一次水：胡萝卜3分钟，南瓜2小时。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "最快的那种"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "想今天就看完整个循环，就在空地块里种胡萝卜：你还没逛完，它就熟了。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "撤销"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "“移除”在同一格上一层一层来：先是植物，然后是喷灌器，最后是地块。"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "就这么简单：土、品种和耐心。你在演示里种下的东西，会在你四处逛的时候真的长大。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "这就是Pep的庇护所：获救动物的围栏，南边是它们吃饭的菜园。我们下去看看吧。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "这些是Pep庇护所里获救的动物：每只都有名字，饥饿和心情都在实时变化。没有一只是示例——你可以真的照顾它们。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "一年的粮仓"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "“喂食”会消耗篮子里的存货，而篮子靠收获隔壁的菜园来填满。Pep留下了一年的储备：尽管用。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "喂食"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "点一下围栏，就会给所有饿着的动物喂食，从最饿的那只开始。鸡每4小时要吃一次，奶牛能撑12小时。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "抚摸"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "六小时没人疼就会无聊（围栏脏的话，速度翻倍）。点一下就能抚摸整个围栏的动物。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "脏了的围栏"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "小围栏已经八天没打扫了——看稻草就知道。用“清洁”点它，让它焕然一新：演示里也可以做。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "新来的"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "这头猪今天早上生着病来到庇护所。生病的动物会停止进食，只有“治疗”能让它重新站起来——一周之内还来得及。你来治好它吧。"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "日常照料不用打开这个编辑器：走到围栏旁边就会冒出“喂食”和“抚摸”的气泡，你也可以在聊天里让我来做。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "围栏"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "点一格空地就会出现1×1的围栏；点相邻的一格，它就会变大。每格能容纳三只动物：看看庇护所里的两个，一个是放牧用的大围栏，一个是养鸟的小围栏。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "物种"
+  }
+]

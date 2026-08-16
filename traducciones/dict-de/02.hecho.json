@@ -1,0 +1,698 @@
+[
+  {
+    "clave": "canchas.tocaParaEditar",
+    "texto": "Tippe auf eine Karte des Platzes, um ihn zu bearbeiten."
+  },
+  {
+    "clave": "canchas.ayuda",
+    "texto": "Tippe auf die Karte, um zu platzieren; im Bearbeitungsmodus tippe auf einen Platz, um Farbe, Größe oder Drehung zu ändern."
+  },
+  {
+    "clave": "canchas.resumen.nota",
+    "texto": "Einmal platziert, bewegst und löschst du einen Platz wie jedes andere Kartenobjekt."
+  },
+  {
+    "clave": "huerto.herr.parcela",
+    "texto": "Beet"
+  },
+  {
+    "clave": "huerto.herr.sembrar",
+    "texto": "Säen"
+  },
+  {
+    "clave": "huerto.herr.regar",
+    "texto": "Gießen"
+  },
+  {
+    "clave": "huerto.herr.cosechar",
+    "texto": "Ernten"
+  },
+  {
+    "clave": "huerto.herr.aspersor",
+    "texto": "Sprinkler"
+  },
+  {
+    "clave": "huerto.herr.quitar",
+    "texto": "Entfernen"
+  },
+  {
+    "clave": "huerto.etiqueta.listo",
+    "texto": "Bereit"
+  },
+  {
+    "clave": "huerto.etiqueta.marchito",
+    "texto": "Verwelkt"
+  },
+  {
+    "clave": "huerto.etiqueta.ver",
+    "texto": "Details ansehen"
+  },
+  {
+    "clave": "huerto.etiqueta.guardar",
+    "texto": "Hinweis speichern"
+  },
+  {
+    "clave": "huerto.aviso.listo",
+    "texto": "Bereit zur Ernte!"
+  },
+  {
+    "clave": "huerto.aspersor.auto",
+    "texto": "Automatische Bewässerung"
+  },
+  {
+    "clave": "huerto.especie.zanahoria",
+    "texto": "Karotte"
+  },
+  {
+    "clave": "huerto.especie.lechuga",
+    "texto": "Kopfsalat"
+  },
+  {
+    "clave": "huerto.especie.girasol",
+    "texto": "Sonnenblume"
+  },
+  {
+    "clave": "huerto.especie.tomate",
+    "texto": "Tomate"
+  },
+  {
+    "clave": "huerto.especie.maiz",
+    "texto": "Mais"
+  },
+  {
+    "clave": "huerto.especie.calabaza",
+    "texto": "Kürbis"
+  },
+  {
+    "clave": "huerto.ayuda",
+    "texto": "Die Pflanzen wachsen in Echtzeit und brauchen Wasser: der blaue Tropfen warnt dich; ohne Wasser verwelken sie, und das Beet räumt sich nach einer Weile von selbst. Ein Sprinkler bewässert automatisch seine Zelle und die 8 Nachbarzellen. Die Ernte landet im Korb (auch wenn du über fertige Pflanzen läufst): sie füttert die Tiere."
+  },
+  {
+    "clave": "huerto.stat.parcelas",
+    "texto": "Beete"
+  },
+  {
+    "clave": "huerto.stat.creciendo",
+    "texto": "Wachsend"
+  },
+  {
+    "clave": "huerto.stat.listos",
+    "texto": "Bereit"
+  },
+  {
+    "clave": "huerto.stat.marchitos",
+    "texto": "Verwelkt"
+  },
+  {
+    "clave": "huerto.stat.cosechas",
+    "texto": "Ernten"
+  },
+  {
+    "clave": "huerto.resumen.nota",
+    "texto": "Die Pflanzen wachsen in Echtzeit; gieße sie rechtzeitig, sonst verwelken sie."
+  },
+  {
+    "clave": "huerto.cesta",
+    "texto": "Korb"
+  },
+  {
+    "clave": "granja.animal.gallina",
+    "texto": "Huhn"
+  },
+  {
+    "clave": "granja.animal.cerdo",
+    "texto": "Schwein"
+  },
+  {
+    "clave": "granja.animal.cabra",
+    "texto": "Ziege"
+  },
+  {
+    "clave": "granja.animal.oveja",
+    "texto": "Schaf"
+  },
+  {
+    "clave": "granja.animal.vaca",
+    "texto": "Kuh"
+  },
+  {
+    "clave": "granja.animal.caballo",
+    "texto": "Pferd"
+  },
+  {
+    "clave": "granja.come",
+    "texto": "frisst alle"
+  },
+  {
+    "clave": "granja.herr.corral",
+    "texto": "Gehege"
+  },
+  {
+    "clave": "granja.herr.animal",
+    "texto": "Tier"
+  },
+  {
+    "clave": "granja.herr.alimentar",
+    "texto": "Füttern"
+  },
+  {
+    "clave": "granja.herr.mimar",
+    "texto": "Streicheln"
+  },
+  {
+    "clave": "granja.herr.curar",
+    "texto": "Heilen"
+  },
+  {
+    "clave": "granja.herr.limpiar",
+    "texto": "Reinigen"
+  },
+  {
+    "clave": "granja.herr.accesorio",
+    "texto": "Spielzeug"
+  },
+  {
+    "clave": "granja.herr.nombrar",
+    "texto": "Benennen"
+  },
+  {
+    "clave": "granja.herr.quitar",
+    "texto": "Entfernen"
+  },
+  {
+    "clave": "granja.accesorio.lodo",
+    "texto": "Schlammpfütze"
+  },
+  {
+    "clave": "granja.accesorio.tina",
+    "texto": "Badewanne"
+  },
+  {
+    "clave": "granja.accesorio.pelota",
+    "texto": "Ball"
+  },
+  {
+    "clave": "granja.cestaVacia",
+    "texto": "leer — ernte in Essen"
+  },
+  {
+    "clave": "granja.sinComida",
+    "texto": "Nichts im Korb: ernte in Essen, um zu füttern."
+  },
+  {
+    "clave": "granja.corralLleno",
+    "texto": "Das Gehege ist voll: vergrößere es oder bau ein weiteres."
+  },
+  {
+    "clave": "granja.noCabe",
+    "texto": "Da passt es nicht: es reicht über die Karte hinaus oder überschneidet ein anderes Gehege."
+  },
+  {
+    "clave": "granja.nombrar.elegir",
+    "texto": "Tippe auf ein Gehege, um seine Tiere zu sehen."
+  },
+  {
+    "clave": "granja.nombrar.titulo",
+    "texto": "Tippe auf ein Tier, um seinen Namen zu ändern"
+  },
+  {
+    "clave": "granja.nombrar.placeholder",
+    "texto": "Name"
+  },
+  {
+    "clave": "granja.nombrar.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "granja.nombrar.vacio",
+    "texto": "Dieses Gehege hat keine Tiere."
+  },
+  {
+    "clave": "granja.capacidad",
+    "texto": "Kapazität"
+  },
+  {
+    "clave": "granja.burbuja.alimentar",
+    "texto": "Füttern"
+  },
+  {
+    "clave": "granja.burbuja.acariciar",
+    "texto": "Streicheln"
+  },
+  {
+    "clave": "granja.burbuja.curar",
+    "texto": "Heilen"
+  },
+  {
+    "clave": "granja.burbuja.limpiar",
+    "texto": "Reinigen"
+  },
+  {
+    "clave": "granja.barra.comida",
+    "texto": "Essen"
+  },
+  {
+    "clave": "granja.barra.animo",
+    "texto": "Laune"
+  },
+  {
+    "clave": "granja.hayEnfermos",
+    "texto": "Es gibt kranke Tiere: heile sie, damit sie wieder fressen."
+  },
+  {
+    "clave": "granja.sinEnfermos",
+    "texto": "In diesem Gehege ist niemand krank."
+  },
+  {
+    "clave": "granja.yaLimpio",
+    "texto": "Dieses Gehege war schon sauber; die Woche beginnt von vorn."
+  },
+  {
+    "clave": "granja.etiqueta.enfermo",
+    "texto": "Krank"
+  },
+  {
+    "clave": "granja.etiqueta.dias",
+    "texto": "{n} T"
+  },
+  {
+    "clave": "granja.aviso.enfermo.titulo",
+    "texto": "🤒 {nombre} wurde krank"
+  },
+  {
+    "clave": "granja.aviso.enfermo.cuerpo",
+    "texto": "Heile es auf dem Bauernhof: du hast {dias} Tage."
+  },
+  {
+    "clave": "granja.aviso.muerte.titulo",
+    "texto": "💔 {nombre} ist gestorben"
+  },
+  {
+    "clave": "granja.aviso.muerte.cuerpo",
+    "texto": "Es war zu lange krank, ohne geheilt zu werden."
+  },
+  {
+    "clave": "granja.ayuda",
+    "texto": "Gehege erstellt Gehege und vergrößert sie, wenn du auf eine angrenzende Zelle tippst. Füge mehrere Tiere hinzu, füttere sie mit deiner Ernte, streichle sie und gib ihnen Spielzeug. Wer zu lange nicht frisst, wird krank: heile es innerhalb einer Woche. Reinige jedes Gehege einmal pro Woche, sonst sinkt die Laune doppelt so schnell."
+  },
+  {
+    "clave": "granja.stat.hambrientos",
+    "texto": "Hungrig"
+  },
+  {
+    "clave": "granja.stat.aburridos",
+    "texto": "Gelangweilt"
+  },
+  {
+    "clave": "granja.stat.enfermos",
+    "texto": "Krank"
+  },
+  {
+    "clave": "granja.stat.sucios",
+    "texto": "Schmutzige Gehege"
+  },
+  {
+    "clave": "granja.resumen.nota",
+    "texto": "Sie werden mit dem Essenkorb gefüttert."
+  },
+  {
+    "clave": "tren.bajarte",
+    "texto": "Aussteigen"
+  },
+  {
+    "clave": "tren.montarTren",
+    "texto": "In den Zug steigen"
+  },
+  {
+    "clave": "tren.montarCarrito",
+    "texto": "In den Wagen steigen"
+  },
+  {
+    "clave": "juego.tu",
+    "texto": "Du"
+  },
+  {
+    "clave": "juego.rival",
+    "texto": "Gegner"
+  },
+  {
+    "clave": "juego.gol",
+    "texto": "TOOOR! 🎉"
+  },
+  {
+    "clave": "juego.golRival",
+    "texto": "Der Gegner trifft…"
+  },
+  {
+    "clave": "juego.canasta2",
+    "texto": "Korb! +2 🎉"
+  },
+  {
+    "clave": "juego.canasta3",
+    "texto": "Dreier! +3 🎉"
+  },
+  {
+    "clave": "juego.canastaRival",
+    "texto": "Der Gegner trifft…"
+  },
+  {
+    "clave": "juego.fallo",
+    "texto": "Wurf daneben…"
+  },
+  {
+    "clave": "juego.puntoTenis",
+    "texto": "Dein Punkt! 🎉"
+  },
+  {
+    "clave": "juego.puntoTenisRival",
+    "texto": "Punkt für den Gegner…"
+  },
+  {
+    "clave": "juego.comoJugar",
+    "texto": "Wie möchtest du spielen?"
+  },
+  {
+    "clave": "juego.solo",
+    "texto": "Allein spielen"
+  },
+  {
+    "clave": "juego.soloFronton",
+    "texto": "Allein spielen (gegen die Wand)"
+  },
+  {
+    "clave": "juego.soloMaquina",
+    "texto": "Allein spielen (Wurfmaschine)"
+  },
+  {
+    "clave": "juego.contraIA",
+    "texto": "Oder gegen einen Assistenten:"
+  },
+  {
+    "clave": "juego.peloteo",
+    "texto": "Guter Schlag! +1"
+  },
+  {
+    "clave": "juego.seEscapo",
+    "texto": "Er ist entwischt…"
+  },
+  {
+    "clave": "juego.aLaRed",
+    "texto": "Ins Netz…"
+  },
+  {
+    "clave": "juego.fuera",
+    "texto": "Aus!"
+  },
+  {
+    "clave": "juego.dificultad",
+    "texto": "Schwierigkeit"
+  },
+  {
+    "clave": "juego.perspectiva",
+    "texto": "Ansicht"
+  },
+  {
+    "clave": "juego.vistaIso",
+    "texto": "Isometrisch"
+  },
+  {
+    "clave": "juego.vista3",
+    "texto": "3. Person"
+  },
+  {
+    "clave": "juego.patear",
+    "texto": "Schießen"
+  },
+  {
+    "clave": "juego.tirar",
+    "texto": "Werfen"
+  },
+  {
+    "clave": "juego.golpear",
+    "texto": "Schlagen"
+  },
+  {
+    "clave": "juego.hintFutbol",
+    "texto": "Gedrückt halten zum Laden, loslassen zum Schießen (Leertaste)"
+  },
+  {
+    "clave": "juego.hintBasket",
+    "texto": "Gedrückt halten zum Dosieren der Kraft, loslassen zum Werfen (Leertaste)"
+  },
+  {
+    "clave": "juego.hintTenis",
+    "texto": "Ziele mit deiner Blickrichtung und tippe zum Aufschlagen oder Schlagen (Leertaste)"
+  },
+  {
+    "clave": "juego.batear",
+    "texto": "Schlagen"
+  },
+  {
+    "clave": "juego.hintBeisbol",
+    "texto": "Gedrückt halten zum Ausholen, loslassen wenn der Ball dich erreicht (Leertaste)"
+  },
+  {
+    "clave": "juego.homerun",
+    "texto": "HOME RUN! +3 🎉"
+  },
+  {
+    "clave": "juego.hit",
+    "texto": "Treffer! +1"
+  },
+  {
+    "clave": "juego.foul",
+    "texto": "Foulball…"
+  },
+  {
+    "clave": "juego.strike",
+    "texto": "Strike!"
+  },
+  {
+    "clave": "juego.ponche",
+    "texto": "Strikeout! Drei Strikes…"
+  },
+  {
+    "clave": "dif.muyFacil",
+    "texto": "Sehr leicht"
+  },
+  {
+    "clave": "dif.facil",
+    "texto": "Leicht"
+  },
+  {
+    "clave": "dif.normal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "dif.dificil",
+    "texto": "Schwer"
+  },
+  {
+    "clave": "dif.experto",
+    "texto": "Experte"
+  },
+  {
+    "clave": "juego.juegos",
+    "texto": "Spiele"
+  },
+  {
+    "clave": "juego.sets",
+    "texto": "Sätze"
+  },
+  {
+    "clave": "juego.peloteoActual",
+    "texto": "Ballwechsel"
+  },
+  {
+    "clave": "juego.record",
+    "texto": "Rekord"
+  },
+  {
+    "clave": "juego.juegoTuyo",
+    "texto": "Dein Spiel! 🎉"
+  },
+  {
+    "clave": "juego.juegoRival",
+    "texto": "Spiel für den Gegner…"
+  },
+  {
+    "clave": "juego.setTuyo",
+    "texto": "Dein SATZ! 🎉"
+  },
+  {
+    "clave": "juego.setRival",
+    "texto": "Satz für den Gegner…"
+  },
+  {
+    "clave": "juego.partidoTuyo",
+    "texto": "DU HAST DAS SPIEL GEWONNEN! 🏆"
+  },
+  {
+    "clave": "juego.partidoRival",
+    "texto": "Der Gegner hat das Spiel gewonnen…"
+  },
+  {
+    "clave": "juego.nuevoRecord",
+    "texto": "Neuer Rekord! 🎉"
+  },
+  {
+    "clave": "progreso.cargando",
+    "texto": "Berechne deinen Fortschritt…"
+  },
+  {
+    "clave": "progreso.jugador",
+    "texto": "Deine Figur"
+  },
+  {
+    "clave": "progreso.editarAvatar",
+    "texto": "Deine Figur bearbeiten"
+  },
+  {
+    "clave": "progreso.humor.feliz",
+    "texto": "Sie ist glücklich! Halte deine Serie am Laufen."
+  },
+  {
+    "clave": "progreso.humor.contento",
+    "texto": "Sie ist zufrieden. Ein weiterer Eintrag heute wird sie aufmuntern."
+  },
+  {
+    "clave": "progreso.humor.triste",
+    "texto": "Sie ist traurig… trag etwas in deinen Apps ein, um sie aufzumuntern."
+  },
+  {
+    "clave": "progreso.humor.dormido",
+    "texto": "Sie schläft. Nutze deine Apps, um sie zu wecken."
+  },
+  {
+    "clave": "progreso.radarCuartos",
+    "texto": "XP pro Raum"
+  },
+  {
+    "clave": "meta.generica",
+    "texto": "Trag heute etwas ein"
+  },
+  {
+    "clave": "meta.cumplida",
+    "texto": "Erledigt!"
+  },
+  {
+    "clave": "meta.pendiente",
+    "texto": "Ausstehend"
+  },
+  {
+    "clave": "meta.apagada",
+    "texto": "Kein Ziel"
+  },
+  {
+    "clave": "meta.aMano",
+    "texto": "manuell"
+  },
+  {
+    "clave": "meta.auto",
+    "texto": "Zurück zu automatisch"
+  },
+  {
+    "clave": "meta.marcar",
+    "texto": "Als erledigt markieren"
+  },
+  {
+    "clave": "meta.desmarcar",
+    "texto": "Als nicht erledigt markieren"
+  },
+  {
+    "clave": "meta.agendar",
+    "texto": "Im Kalender eintragen"
+  },
+  {
+    "clave": "hoy.titulo",
+    "texto": "Heute"
+  },
+  {
+    "clave": "hoy.alDia",
+    "texto": "Für heute alles erledigt"
+  },
+  {
+    "clave": "hoy.hechos",
+    "texto": "Erledigt ({n})"
+  },
+  {
+    "clave": "hoy.registrar",
+    "texto": "Eintragen"
+  },
+  {
+    "clave": "hoy.objetivo",
+    "texto": "Dein tägliches Ziel (0 schaltet es aus)"
+  },
+  {
+    "clave": "cal.meta.mientrasDure",
+    "texto": "Solange es dauert, bitte mich um"
+  },
+  {
+    "clave": "cal.meta.unObjetivo",
+    "texto": "ein Tagesziel"
+  },
+  {
+    "clave": "cal.meta.unaActividad",
+    "texto": "eine Aktivität pro Woche"
+  },
+  {
+    "clave": "cal.meta.diasRitmo",
+    "texto": "{hechos}/{pedidos} Tage"
+  },
+  {
+    "clave": "rutinas.sinApp",
+    "texto": "Keine App (Haus-Ereignis)"
+  },
+  {
+    "clave": "cocina.metaDiaria",
+    "texto": "Wasser heute"
+  },
+  {
+    "clave": "cocina.objetivo.comidas",
+    "texto": "Mahlzeiten heute"
+  },
+  {
+    "clave": "cocina.objetivo.vaso",
+    "texto": "Ein Glas"
+  },
+  {
+    "clave": "ejercicio.metaDiaria",
+    "texto": "Heute trainieren"
+  },
+  {
+    "clave": "hobbies.metaDiaria",
+    "texto": "Heute üben"
+  },
+  {
+    "clave": "jardin.metaDiaria",
+    "texto": "Ruhe heute"
+  },
+  {
+    "clave": "idiomas.metaDiaria",
+    "texto": "Wiederholung heute"
+  },
+  {
+    "clave": "biblioteca.metaDiaria",
+    "texto": "Lernen heute"
+  },
+  {
+    "clave": "diario.metaDiaria",
+    "texto": "Heutige Zeitung lesen"
+  },
+  {
+    "clave": "descanso.metaDiaria",
+    "texto": "Deine Nacht eintragen"
+  },
+  {
+    "clave": "sala.evento.viaje",
+    "texto": "Reise"
+  },
+  {
+    "clave": "sala.evento.dia",
+    "texto": "Tag {n}"
+  },
+  {
+    "clave": "ejercicio.tab.cronograma",
+    "texto": "Ziele"
+  }
+]

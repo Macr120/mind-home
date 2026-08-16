@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "Questa è la tua casa: ogni stanza contiene un'app. Ti mostro i comandi di base."
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "Il menu principale"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "Questo pulsante apre il menu: le tue stanze, il catalogo dei modelli (le app) e l'inventario degli oggetti."
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "Muoversi"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "Cammina con il joystick, con WASD o con le frecce della tastiera. Attraversa la porta di una stanza ed entri: la sua app si apre da sola."
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "Tre modi di guardare"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "Isometrica, terza e prima persona (o il tasto V). In 3ª/1ª persona compare anche un pulsante per modificare il mondo mentre lo attraversi."
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "Un angolo, tanti padroni"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "Quell'angolo non è solo il cubo delle viste: quando ti avvicini a qualcosa con cui si può interagire —una sedia, un veicolo, un campo— cambia da solo in base a ciò che hai vicino. Niente si attiva se non ti avvicini."
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "La ruota degli strumenti"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "Movimenti, giocattoli, veicoli e costruzione, fino a 3 equipaggiati alla volta. Si apre da qui o dallo stesso angolo quando hai le mani libere."
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "L'orologio"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "L'ora della casa. Da qui si aprono il calendario completo e il pannello delle routine con quello che ti manca oggi."
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "La musica della casa"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "Ogni stanza può avere il suo tema, oppure lasciar suonare l'atmosfera generale della casa. Si spegne del tutto se preferisci il silenzio."
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "La chat"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "La chat dell'architetto: raccontagli cosa hai fatto e lo registra nell'app giusta, oppure chiedigli modifiche alla casa."
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "Questo è l'essenziale. Il pulsante Editor in alto apre la personalizzazione completa, e ogni menu e ogni app hanno il loro pulsante ? con il loro tutorial."
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "Prima di tutto: come si costruisce la casa. Tutto parte dalla scheda Stanze."
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "Crea stanza"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "Con questo pulsante disegni nuove stanze sulla mappa. Per mostrarti il resto del percorso, ora te ne creo una…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "La tua nuova stanza"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "Eccola! Una stanza appena creata, ancora senza app: per questo il suo pulsante dice + Assegna."
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "Assegnare un'app"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "Con + Assegna le ho dato la sua app: guarda come la stanza ha preso il suo nome, la sua icona e i suoi mobili, e ora il suo pulsante dice Entra."
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "Entra"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "Siamo dentro: questa è l'app della stanza. Passeggiando entri anche attraversando la sua porta, ed esci con ‹ Torna a casa."
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "La stanza resta nella tua casa, con la sua app pronta. Il resto si costruisce così: una stanza per ogni cosa che vuoi tenere qui."
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "La scheda Stanze elenca tutte le stanze della tua casa, raggruppate per categoria."
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "Il tuo riepilogo"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "Il tuo personaggio vive della tua attività reale: qui vedi il suo umore, il suo livello e la sua serie. Registra qualcosa in una qualsiasi app e lo vedrai contento; qualche giorno senza niente e diventa triste — non riparte mai da zero e non ti punisce."
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "Le schede"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "Ogni scheda è una stanza: la sua icona, il suo nome e i progressi della sua app, e si raggruppano in Corpo, Mente, Extra e Impostazioni. Le stanze senza app assegnata restano proprio in fondo."
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "Modifica"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "Modifica apre l'editor della stanza: forma, colori, muri e oggetti. (Non premerlo adesso: chiuderebbe questo menu.)"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "Entra e Assegna"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "Entra apre l'app della stanza. Se una stanza non ha ancora un'app, al suo posto vedrai + Assegna per sceglierne una dal catalogo."
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "Crea stanza"
+  }
+]

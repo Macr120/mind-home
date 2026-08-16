@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.respaldo.3.texto",
+    "texto": "Ripristinare SOSTITUISCE tutti i dati attuali con quelli del file: prima chiede conferma e mostra quanti record contiene, quindi niente sorprese."
+  },
+  {
+    "clave": "tut.respaldo.4.texto",
+    "texto": "Conviene fare un backup prima di cambiare dispositivo o browser, o anche solo ogni tanto: senza account è l'unica copia che hai."
+  },
+  {
+    "clave": "tut.editor-cuarto.1.texto",
+    "texto": "Stai modificando una stanza precisa: lo schizzo e la telecamera si concentrano su di essa, non su tutta la casa."
+  },
+  {
+    "clave": "tut.editor-cuarto.2.titulo",
+    "texto": "Cosa puoi modificare"
+  },
+  {
+    "clave": "tut.editor-cuarto.2.texto",
+    "texto": "Forma, pavimento, muri, porte, colore e nome della stanza, e i suoi oggetti. Anche l'app assegnata si cambia da qui: è ciò che porta più gente in questo pannello."
+  },
+  {
+    "clave": "tut.editor-cuarto.3.titulo",
+    "texto": "Torna alla mappa"
+  },
+  {
+    "clave": "tut.editor-cuarto.3.texto",
+    "texto": "Questa freccia torna alla mappa completa senza chiudere l'editor, così puoi continuare a lavorare su un'altra stanza."
+  },
+  {
+    "clave": "tut.editor-cuarto.4.texto",
+    "texto": "C'è anche un pulsante flottante «Esci dalla stanza» sopra la stanza stessa nel 3D, se preferisci toccarlo lì."
+  },
+  {
+    "clave": "tut.herramientas.1.texto",
+    "texto": "Questo pulsante apre la ruota degli strumenti del tuo personaggio."
+  },
+  {
+    "clave": "tut.herramientas.2.titulo",
+    "texto": "Due livelli"
+  },
+  {
+    "clave": "tut.herramientas.2.texto",
+    "texto": "Prima scegli la categoria, poi lo strumento preciso al suo interno. Puoi equipaggiare fino a 3 strumenti alla volta, della stessa categoria o di categorie diverse."
+  },
+  {
+    "clave": "tut.herramientas.3.titulo",
+    "texto": "La quarta categoria"
+  },
+  {
+    "clave": "tut.herramientas.3.texto",
+    "texto": "Costruzione non equipaggia un giocattolo: attiva la modalità di disegno della mappa (stanze, muri, porte, finestre, pavimenti, tetti) senza passare dall'editor completo. È lo stesso schizzo, solo che ci arrivi prima."
+  },
+  {
+    "clave": "tut.herramientas.4.titulo",
+    "texto": "Il centro"
+  },
+  {
+    "clave": "tut.herramientas.4.texto",
+    "texto": "Il centro lascia tutto ciò che hai equipaggiato e riporta l'angolo al suo stato normale (il cubo delle viste o un altro comando contestuale, secondo quello che hai vicino)."
+  },
+  {
+    "clave": "tut.herramientas.5.texto",
+    "texto": "Si chiude toccando fuori dalla ruota. Provala quando vuoi: niente di tutto questo si salva come permanente, dura solo finché lo porti addosso."
+  },
+  {
+    "clave": "tut.navegacion.1.texto",
+    "texto": "Tre telecamere: Iso (vista da casa delle bambole), terza e prima persona. Cambia qui o con il tasto V."
+  },
+  {
+    "clave": "tut.navegacion.2.titulo",
+    "texto": "Orientarsi"
+  },
+  {
+    "clave": "tut.navegacion.2.texto",
+    "texto": "In iso il cubo gira la telecamera faccia per faccia; in 3ª/1ª trascina il pad per guardarti intorno."
+  },
+  {
+    "clave": "tut.navegacion.3.titulo",
+    "texto": "Quando hai qualcosa vicino"
+  },
+  {
+    "clave": "tut.navegacion.3.texto",
+    "texto": "Quello stesso angolo smette di essere telecamera appena ti avvicini a qualcosa di interattivo: un campo offre il suo pulsante per giocare, un veicolo quello per salirci, una sedia quello per sederti. Una cosa sola alla volta, e sempre per vicinanza: mai in automatico."
+  },
+  {
+    "clave": "tut.navegacion.4.titulo",
+    "texto": "Ruotare e centrare"
+  },
+  {
+    "clave": "tut.navegacion.4.texto",
+    "texto": "Ruota la vista di lato o torna a centrarla sulla mappa se esplorando hai perso l'orientamento."
+  },
+  {
+    "clave": "tut.navegacion.5.titulo",
+    "texto": "Muoversi"
+  },
+  {
+    "clave": "tut.navegacion.5.texto",
+    "texto": "Cammina con il joystick, WASD o le frecce. Nell'acqua nuoti; in sella a un veicolo guidi con gli stessi comandi."
+  },
+  {
+    "clave": "tut.navegacion.6.texto",
+    "texto": "In 3ª/1ª persona compare il pulsante Editor 3D: tocca oggetti, muri o personaggi per modificarli lì dove sono, senza tornare alla vista isometrica."
+  },
+  {
+    "clave": "tut.chat.1.texto",
+    "texto": "La chat dell'architetto: registra la tua giornata, modifica la casa e risponde ai tuoi dubbi, tutto dalla stessa casella."
+  },
+  {
+    "clave": "tut.chat.2.titulo",
+    "texto": "Scrivere"
+  },
+  {
+    "clave": "tut.chat.2.texto",
+    "texto": "Scrivi liberamente: «ho corso 20 min», «ho speso 250 al supermercato»… Il chip di fianco mostra a quale app andrà. Usa @stanza per forzare la destinazione se indovina male."
+  },
+  {
+    "clave": "tut.chat.3.titulo",
+    "texto": "Dettare a voce"
+  },
+  {
+    "clave": "tut.chat.3.texto",
+    "texto": "Il microfono trascrive quello che dici nella casella di testo: comodo per registrare senza mollare quello che hai in mano."
+  },
+  {
+    "clave": "tut.chat.4.titulo",
+    "texto": "Inviare una foto"
+  },
+  {
+    "clave": "tut.chat.4.texto",
+    "texto": "Con l'IA attiva, una foto dello scontrino, del piatto o della bilancia si interpreta da sola. Senza IA questo pulsante resta disattivato."
+  },
+  {
+    "clave": "tut.chat.5.titulo",
+    "texto": "Assistenti"
+  },
+  {
+    "clave": "tut.chat.5.texto",
+    "texto": "Il tuo assistente dà un volto e una voce alle risposte. Toccalo per vedere la conversazione, cambiare assistente o crearne altri."
+  },
+  {
+    "clave": "tut.chat.6.titulo",
+    "texto": "Il manuale"
+  }
+]

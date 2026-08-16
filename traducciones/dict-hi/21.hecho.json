@@ -1,0 +1,450 @@
+[
+ {
+  "clave": "editor.anim.vidaDesc",
+  "texto": "यह वस्तु अपने क्षेत्र में घूमती है, उसे भूख लगती है और ऊब होती है। पास जाने पर दिखने वाले बटनों से उसे खिलाएं और सहलाएं।"
+ },
+ {
+  "clave": "editor.anim.vidaAviso",
+  "texto": "यह दीवारों और फ़र्नीचर के आर-पार चली जाती है: कमरे के अंदर रखने पर इसे छोटा क्षेत्र दें।"
+ },
+ {
+  "clave": "editor.anim.activacion",
+  "texto": "चलता है"
+ },
+ {
+  "clave": "editor.anim.apagado",
+  "texto": "बंद"
+ },
+ {
+  "clave": "editor.anim.siempre",
+  "texto": "हमेशा"
+ },
+ {
+  "clave": "editor.anim.cerca",
+  "texto": "आपके पास"
+ },
+ {
+  "clave": "editor.anim.poses",
+  "texto": "पोज़ (अपना एनिमेशन)"
+ },
+ {
+  "clave": "editor.anim.posesDesc",
+  "texto": "एडिटर (गियर) से पुर्ज़े सजाएं और हर पोज़ को कैप्चर करें। 2 या ज़्यादा पोज़ होने पर मॉडल उनके बीच लूप में बदलता रहता है।"
+ },
+ {
+  "clave": "editor.anim.pose",
+  "texto": "पोज़"
+ },
+ {
+  "clave": "editor.anim.capturar",
+  "texto": "मौजूदा पोज़ कैप्चर करें"
+ },
+ {
+  "clave": "editor.anim.cargar",
+  "texto": "बदलें"
+ },
+ {
+  "clave": "editor.anim.cargarTip",
+  "texto": "पुर्ज़ों को इस पोज़ में सेट करता है ताकि आप इसे ठीक कर सकें"
+ },
+ {
+  "clave": "editor.anim.actualizar",
+  "texto": "अपडेट करें"
+ },
+ {
+  "clave": "editor.anim.actualizarTip",
+  "texto": "इस पोज़ को मौजूदा आकार से बदल देता है"
+ },
+ {
+  "clave": "editor.anim.quitar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "editor.anim.quitarPose",
+  "texto": "इस पोज़ को निकालें"
+ },
+ {
+  "clave": "editor.anim.necesitaDos",
+  "texto": "एनिमेशन चलाने के लिए 2 या उससे ज़्यादा पोज़ चाहिए।"
+ },
+ {
+  "clave": "editor.anim.duracion",
+  "texto": "हर पोज़ की अवधि"
+ },
+ {
+  "clave": "editor.anim.reproducir",
+  "texto": "एनिमेशन चलाएं"
+ },
+ {
+  "clave": "editor.anim.pausar",
+  "texto": "एनिमेशन रोकें"
+ },
+ {
+  "clave": "editor.pers.anim",
+  "texto": "एनिमेशन"
+ },
+ {
+  "clave": "editor.pers.animFlote",
+  "texto": "मूवमेंट किरदार की सामान्य ऊपर-नीचे वाली हरकत की जगह लेता है; हाथ हिलाने वाला अभिवादन बना रहता है।"
+ },
+ {
+  "clave": "editor.pers.animSinPiezas",
+  "texto": "पोज़ वाले एनिमेशन बनाने के लिए, «शरीर» टैब में 3D पुर्ज़ों से शरीर बनाएं।"
+ },
+ {
+  "clave": "room.cocina.desc",
+  "texto": "पोषण: भोजन, मैक्रोज़, पानी और अपनी साप्ताहिक योजना दर्ज करें।"
+ },
+ {
+  "clave": "room.ejercicio.desc",
+  "texto": "ताकत, सहनशक्ति और लचीलेपन की दिनचर्याएं, लक्ष्यों के साथ।"
+ },
+ {
+  "clave": "room.recamara.desc",
+  "texto": "अपने आराम को ट्रैक करें और अपनी निजी यादों की डायरी लिखें।"
+ },
+ {
+  "clave": "room.descanso.desc",
+  "texto": "आपकी नींद, रात के आसमान जैसी: समय-सारणी, अलार्म, स्कोर और रात की डायरी।"
+ },
+ {
+  "clave": "room.anecdotario.desc",
+  "texto": "आपकी निजी डायरी: फ़ोटो के साथ यादें और रोज़ का मूड।"
+ },
+ {
+  "clave": "room.despacho.desc",
+  "texto": "फ़ाइनेंस: खर्च और आय (स्थायी और परिवर्तनशील) वाला बजट, लक्ष्य (वित्तीय कैलकुलेटर, बचत/निवेश, कर्ज़) सिमुलेटर के साथ, और लाइव मार्केट।"
+ },
+ {
+  "clave": "room.biblioteca.desc",
+  "texto": "बातचीत वाला विश्वकोश: AI चैट, विकी एंट्री और स्टडी सेशन।"
+ },
+ {
+  "clave": "room.entretenimiento.desc",
+  "texto": "फ़िल्मों, सीरीज़, किताबों और बोर्ड गेम्स का संग्रह।"
+ },
+ {
+  "clave": "room.sala.desc",
+  "texto": "यात्राओं की योजना बनाएं: यात्रा-कार्यक्रम, खर्च, चेकलिस्ट और विशलिस्ट।"
+ },
+ {
+  "clave": "room.jardin.desc",
+  "texto": "शांति: निर्देशित ध्यान, सांस लेने का अभ्यास और आभार डायरी।"
+ },
+ {
+  "clave": "room.garage.desc",
+  "texto": "आपके वाहनों का रखरखाव और उनकी सर्विस।"
+ },
+ {
+  "clave": "room.diario.desc",
+  "texto": "श्रेणियों के हिसाब से रोज़ की खबरों का हब।"
+ },
+ {
+  "clave": "room.hobbies.desc",
+  "texto": "आपके शौक और क्रिएटिव प्रोजेक्ट्स।"
+ },
+ {
+  "clave": "room.idiomas.desc",
+  "texto": "भाषाएं सीखें: AI ट्यूटर, स्पेस्ड-रिपिटिशन शब्दावली, स्तर के अनुसार पाठ्यक्रम और अभ्यास।"
+ },
+ {
+  "clave": "room.calendario.desc",
+  "texto": "आपका कैलेंडर: दिन, हफ़्ते और महीने के हिसाब से इवेंट और दिनचर्याएं।"
+ },
+ {
+  "clave": "room.caminos.desc",
+  "texto": "नक्शे पर रेस ट्रैक, रेलवे पटरियां और रोलर कोस्टर बनाएं।"
+ },
+ {
+  "clave": "room.canchas.desc",
+  "texto": "नक्शे पर फ़ुटबॉल, टेनिस, बास्केटबॉल और बेसबॉल के मैदान रखें।"
+ },
+ {
+  "clave": "room.huerto.desc",
+  "texto": "क्यारियां तैयार करें, फ़सलें बोएं, उन्हें पानी दें और असली समय में फ़सल काटें।"
+ },
+ {
+  "clave": "room.granja.desc",
+  "texto": "मुर्गियां, सूअर, बकरियां, भेड़ें, गायें और घोड़े पालें, और उसी एडिटर में उनका चारा उगाएं।"
+ },
+ {
+  "clave": "room.ideas.desc",
+  "texto": "आपकी आइडिया डायरी और ब्रेनस्टॉर्मिंग, फ़्री कैनवस पर दस कॉन्सेप्ट-मैप फ़ॉर्मैट (माइंड मैप, ट्री, टाइमलाइन, साइकल, पिरामिड, वेन…) और फ़ैसला लेने के लिए आठ डायग्राम (पक्ष-विपक्ष, फ़ोर्स फ़ील्ड, SWOT, आइज़नहावर, डिसीज़न ट्री, टियर लिस्ट, वेटेड डिसीज़न मैट्रिक्स और इशिकावा), हाथ से या AI के साथ।"
+ },
+ {
+  "clave": "room.computo.desc",
+  "texto": "कंप्यूटिंग कक्ष: फ़ॉर्मूला बुक के साथ साइंटिफ़िक कैलकुलेटर (गणित, भौतिकी और रसायन शामिल और संपादन-योग्य) और आठ मोड — चार तरह का प्लॉटर (2D, ध्रुवीय, पैरामेट्रिक और 3D सतह), बाइनरी और हेक्साडेसिमल, मैट्रिक्स, समीकरण-तंत्र, इकाई बदलाव, टिप और त्रैराशिक; और Excel व PDF में एक्सपोर्ट होने वाली स्प्रेडशीट।"
+ },
+ {
+  "clave": "computo.tab.calculadora",
+  "texto": "कैलकुलेटर"
+ },
+ {
+  "clave": "computo.tab.hojas",
+  "texto": "स्प्रेडशीट"
+ },
+ {
+  "clave": "computo.menu.formulario",
+  "texto": "फ़ॉर्मूला बुक"
+ },
+ {
+  "clave": "computo.meta.calculos",
+  "texto": "कुछ हल करें"
+ },
+ {
+  "clave": "computo.motor.error",
+  "texto": "कैलकुलेशन इंजन लोड नहीं हो पाया। अपना कनेक्शन जांचें।"
+ },
+ {
+  "clave": "computo.motor.reintentar",
+  "texto": "फिर से कोशिश करें"
+ },
+ {
+  "clave": "computo.error.sintaxis",
+  "texto": "यह एक्सप्रेशन समझ में नहीं आया"
+ },
+ {
+  "clave": "computo.error.simbolo",
+  "texto": "अनजान सिंबल"
+ },
+ {
+  "clave": "computo.error.dominio",
+  "texto": "इन मानों के साथ यह काम नहीं करता"
+ },
+ {
+  "clave": "computo.plan.ejemplo",
+  "texto": "किसी विषय के फ़ॉर्मूले सीखना और उन्हें लागू करना"
+ },
+ {
+  "clave": "computo.plan.material",
+  "texto": "योजना के फ़ॉर्मूले"
+ },
+ {
+  "clave": "computo.form.buscar",
+  "texto": "फ़ॉर्मूला खोजें…"
+ },
+ {
+  "clave": "computo.form.sinResultados",
+  "texto": "इस नाम से कुछ नहीं मिला।"
+ },
+ {
+  "clave": "computo.form.editar",
+  "texto": "बदलें"
+ },
+ {
+  "clave": "computo.form.borrar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "computo.form.cerrarFicha",
+  "texto": "बंद करें"
+ },
+ {
+  "clave": "computo.form.imprimir",
+  "texto": "प्रिंट करें या PDF में सेव करें"
+ },
+ {
+  "clave": "computo.form.imprimirCarpeta",
+  "texto": "फ़ोल्डर प्रिंट करें"
+ },
+ {
+  "clave": "computo.form.carpetaNueva",
+  "texto": "फ़ोल्डर"
+ },
+ {
+  "clave": "computo.form.nuevaCarpeta",
+  "texto": "नया फ़ोल्डर"
+ },
+ {
+  "clave": "computo.form.nuevaCarpetaMsg",
+  "texto": "इसका नाम क्या रखें?"
+ },
+ {
+  "clave": "computo.form.subcarpeta",
+  "texto": "सब-फ़ोल्डर"
+ },
+ {
+  "clave": "computo.form.formulaNueva",
+  "texto": "फ़ॉर्मूला"
+ },
+ {
+  "clave": "computo.form.borrarCarpeta",
+  "texto": "“{nombre}” को हटाएं"
+ },
+ {
+  "clave": "computo.form.borrarCarpetaMsg",
+  "texto": "इसके साथ इसके {n} फ़ॉर्मूले और सब-फ़ोल्डर भी चले जाएंगे।"
+ },
+ {
+  "clave": "computo.form.borrarCarpetaVacia",
+  "texto": "फ़ोल्डर अपने सब-फ़ोल्डरों के साथ चला जाएगा।"
+ },
+ {
+  "clave": "computo.form.borrarFormula",
+  "texto": "“{nombre}” को हटाएं"
+ },
+ {
+  "clave": "computo.form.constantes",
+  "texto": "स्थिरांक: {lista}"
+ },
+ {
+  "clave": "computo.form.vacio",
+  "texto": "अभी कोई फ़ॉर्मूला नहीं है। एक फ़ोल्डर बनाएं और अपना फ़ॉर्मूला लिखें।"
+ },
+ {
+  "clave": "computo.form.masAcciones",
+  "texto": "अधिक विकल्प"
+ },
+ {
+  "clave": "computo.form.editarCarpeta",
+  "texto": "फ़ोल्डर बदलें"
+ },
+ {
+  "clave": "computo.form.arrastrar",
+  "texto": "खींचकर ले जाएं"
+ },
+ {
+  "clave": "computo.carpeta.titulo",
+  "texto": "फ़ोल्डर बदलें"
+ },
+ {
+  "clave": "computo.carpeta.cerrar",
+  "texto": "बंद करें"
+ },
+ {
+  "clave": "computo.carpeta.nombre",
+  "texto": "फ़ोल्डर का नाम"
+ },
+ {
+  "clave": "computo.carpeta.emoji",
+  "texto": "आइकन"
+ },
+ {
+  "clave": "computo.carpeta.emojiLibre",
+  "texto": "कोई और इमोजी"
+ },
+ {
+  "clave": "computo.carpeta.color",
+  "texto": "रंग"
+ },
+ {
+  "clave": "computo.carpeta.colorPista",
+  "texto": "जिन सब-फ़ोल्डरों का अपना रंग नहीं है, उन्हें यही रंग मिलेगा।"
+ },
+ {
+  "clave": "computo.carpeta.guardar",
+  "texto": "सहेजें"
+ },
+ {
+  "clave": "computo.carpeta.borrar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "computo.editor.titulo.nueva",
+  "texto": "नया फ़ॉर्मूला"
+ },
+ {
+  "clave": "computo.editor.titulo.editar",
+  "texto": "फ़ॉर्मूला बदलें"
+ },
+ {
+  "clave": "computo.editor.cerrar",
+  "texto": "बंद करें"
+ },
+ {
+  "clave": "computo.editor.carpeta",
+  "texto": "यहां सेव करें"
+ },
+ {
+  "clave": "computo.editor.nombre",
+  "texto": "नाम (“गतिज ऊर्जा”)"
+ },
+ {
+  "clave": "computo.editor.resultado",
+  "texto": "रिज़ल्ट का सिंबल"
+ },
+ {
+  "clave": "computo.editor.descripcion",
+  "texto": "नोट (कब इस्तेमाल करें, कहां से आया)"
+ },
+ {
+  "clave": "computo.editor.variables",
+  "texto": "वेरिएबल"
+ },
+ {
+  "clave": "computo.editor.varNombre",
+  "texto": "नाम"
+ },
+ {
+  "clave": "computo.editor.varUnidad",
+  "texto": "इकाई"
+ },
+ {
+  "clave": "computo.editor.varValor",
+  "texto": "मान"
+ },
+ {
+  "clave": "computo.editor.constante",
+  "texto": "स्थिरांक: पूछा नहीं जाता, इसका मान अपने आप इस्तेमाल होता है"
+ },
+ {
+  "clave": "computo.editor.guardar",
+  "texto": "सहेजें"
+ },
+ {
+  "clave": "computo.editor.faltaNombre",
+  "texto": "इसे एक नाम दें"
+ },
+ {
+  "clave": "computo.editor.faltaExpresion",
+  "texto": "एक्सप्रेशन लिखें"
+ },
+ {
+  "clave": "computo.editor.resultadoReservado",
+  "texto": "यह सिंबल mathjs का है; कोई और चुनें"
+ },
+ {
+  "clave": "computo.editor.resultadoInvalido",
+  "texto": "यह रिज़ल्ट सिंबल मान्य नहीं है"
+ },
+ {
+  "clave": "computo.editor.noSeEntiende",
+  "texto": "कुछ बंद होना बाकी है या कोई सिंबल गलत जगह पर है।"
+ },
+ {
+  "clave": "computo.editor.implicita",
+  "texto": "“{simbolos}” को एक वेरिएबल की तरह पढ़ा जाता है। अगर गुणा करना था, तो बीच में तारे का निशान लगाएं: m * g * h."
+ },
+ {
+  "clave": "computo.calc.placeholder",
+  "texto": "2*sin(pi/4) + log(100, 10)"
+ },
+ {
+  "clave": "computo.calc.borrar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "computo.calc.grados",
+  "texto": "डिग्री"
+ },
+ {
+  "clave": "computo.calc.radianes",
+  "texto": "रेडियन"
+ },
+ {
+  "clave": "computo.calc.resolver",
+  "texto": "हल करें"
+ },
+ {
+  "clave": "computo.calc.pulsaResolver",
+  "texto": "“हल करें” दबाएं"
+ },
+ {
+  "clave": "computo.calc.soluciones",
+  "texto": "समाधान"
+ },
+ {
+  "clave": "computo.calc.exactas",
+  "texto": "बहुपद के सटीक मूल।"
+ }
+]

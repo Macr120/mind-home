@@ -1,0 +1,98 @@
+[
+  {
+    "clave": "tut.editor-objetos.resumen",
+    "texto": "Setiap objek yang ditempatkan bisa diedit warna, ukuran, dan rotasinya dari sini, dan kamu juga bisa membuat objek sendiri dengan menyusunnya dari potongan-potongan."
+  },
+  {
+    "clave": "tut.editor-config.titulo",
+    "texto": "Editor · Pengaturan"
+  },
+  {
+    "clave": "tut.editor-config.resumen",
+    "texto": "Delapan bagian yang bisa dilipat: Akun, Harga AI, Gaya visual peta, Antarmuka dan bahasa, Musik, Tutorial, Notifikasi, dan Cadangan data. Masing-masing dibuka terpisah dan diingat kalau kamu membiarkannya terbuka."
+  },
+  {
+    "clave": "tut.respaldo.titulo",
+    "texto": "Cadangan data"
+  },
+  {
+    "clave": "tut.respaldo.resumen",
+    "texto": "Semua yang kamu simpan tinggal di perangkat ini. Cadangan data mengekspor semuanya ke sebuah file, memulihkan dari file, dan memperingatkan jika browser bisa menghapusnya tanpa pemberitahuan untuk membebaskan ruang."
+  },
+  {
+    "clave": "tut.editor-cuarto.titulo",
+    "texto": "Mengedit ruangan"
+  },
+  {
+    "clave": "tut.editor-cuarto.resumen",
+    "texto": "Saat mengedit ruangan tertentu, denah berfokus padanya: bentuk, lantai, dinding, warna, nama, dan —yang paling sering dipakai di sini— aplikasi apa yang ditetapkan atau apakah sebaiknya diganti. Panah panel kembali ke seluruh peta, dan tombol mengambang di atas ruangan keluar darinya."
+  },
+  {
+    "clave": "tut.herramientas.titulo",
+    "texto": "Roda alat"
+  },
+  {
+    "clave": "tut.herramientas.resumen",
+    "texto": "Roda ini melengkapi karaktermu dalam empat kategori: gerakan (lari, menari, lompat…), mainan (laser, portal, grafiti…), kendaraan yang bisa dinaiki, dan konstruksi (jalan pintas ke mode editor peta). Dua level —kategori → alat— dan hingga 3 alat terpasang sekaligus."
+  },
+  {
+    "clave": "tut.navegacion.titulo",
+    "texto": "Kamera dan gerakan"
+  },
+  {
+    "clave": "tut.navegacion.resumen",
+    "texto": "Ada tiga tampilan: isometrik, orang ketiga, dan orang pertama (tombol V). Kamu bergerak dengan joystick, WASD, atau tanda panah; kubus di pojok mengarahkan kamera kecuali ada sesuatu di dekatmu, dan dalam hal itu ia menawarkan aksi tersebut sebagai gantinya. Di orang ketiga/pertama juga ada Editor 3D untuk menyentuh dunia secara langsung."
+  },
+  {
+    "clave": "tut.chat.titulo",
+    "texto": "Chat Sang Arsitek"
+  },
+  {
+    "clave": "tut.chat.resumen",
+    "texto": "Chat mencatat apa pun yang kamu ceritakan ke aplikasi yang tepat (“lari 20 menit” masuk ke Gym), mengedit rumah lewat teks, mendiktekan lewat suara, dan membaca foto. Setiap asisten punya wajah dan suaranya sendiri; manualnya mencantumkan semua yang bisa kamu minta, dan apa yang sudah tercatat ada di tab Entri-nya."
+  },
+  {
+    "clave": "tut.chat-registros.titulo",
+    "texto": "Chat · Entri dan memori"
+  },
+  {
+    "clave": "tut.chat-registros.resumen",
+    "texto": "Tab Entri pada chat menyimpan percakapan sebelumnya dan apa yang diingat asisten tentangmu antar sesi, supaya kamu tidak perlu mengulanginya setiap kali."
+  },
+  {
+    "clave": "tut.app-generica.titulo",
+    "texto": "Aplikasi ini"
+  },
+  {
+    "clave": "tut.app-generica.resumen",
+    "texto": "Setiap aplikasi tinggal di sebuah ruangan: header menampilkan ruangan dan aplikasinya, daftar hari ini memuat apa yang perlu dilakukan di sini, dan “Kembali ke rumah” menutupnya. Templat buatanmu sendiri disusun dari blok: catatan, daftar, penghitung, kebiasaan…"
+  },
+  {
+    "clave": "tut.rutinas.titulo",
+    "texto": "Rutinitas"
+  },
+  {
+    "clave": "tut.rutinas.resumen",
+    "texto": "Panel rutinitas membawa checklist harianmu di atas dan katalog lengkap di bawah: setiap rutinitas punya waktu, pengulangan, dan langkah, dan setiap langkah bisa mencatat sendiri ke aplikasinya. Pada waktunya asisten akan mengingatkan, dan semua yang terjadwal juga terlihat di kalender."
+  },
+  {
+    "clave": "tut.enlaces.titulo",
+    "texto": "Chip di setiap langkah"
+  },
+  {
+    "clave": "tut.enlaces.resumen",
+    "texto": "Chip aplikasi di samping target atau langkah rencana menunjukkan di mana itu dicatat, dan satu ketukan membawamu ke sana. Ini hanya navigasi: pencatatan selalu dilakukan oleh aplikasi, bukan oleh chip."
+  },
+  {
+    "clave": "tut.musica.titulo",
+    "texto": "Musik rumah"
+  },
+  {
+    "clave": "tut.musica.resumen",
+    "texto": "Musik ambien umum atau tema per ruangan, dengan tiga sumber yang mungkin: dibuat otomatis, trek buatanmu sendiri, atau audio sistem. Bisa dimatikan sepenuhnya kalau kamu lebih suka bermain dalam diam."
+  },
+  {
+    "clave": "tut.cuenta-ia.titulo",
+    "texto": "AI dan akunmu"
+  }
+]

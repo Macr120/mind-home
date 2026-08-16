@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "每天早上记下几点上床、几点起床、醒了几次、睡得怎么样。应用需要的就这些，其余的它自己会算。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "一年，四种视角"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "选择日、周、月或年，用箭头前后移动。往回翻几个月：汽车抛锚的那个月和飞往日本的那个月，两个都是红色。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "一年的形状"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "最近六个周期，用柱子呈现。蓝色是有结余的月份，红色是吃紧的月份。低谷和反弹，都在那儿。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "钱都去哪儿了？"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "你正在看的那个周期，按类别拆开来看。Pep的类别都是自己手写的：常见的应用认得出来，其余的会各自配一个颜色。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "这个月的上限"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "一个每月预算，超支时进度条会变红。如果你按周或按年看，应用会自己换算。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "你今天有多少"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "净资产直接来自“净资产”标签页：资产减去负债。这里再加上或减去本期的净额，看看你会落在哪里。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "那一年之后呢"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "固定支出按到期日、变动支出按你的平均值，往后推演十二个月，给出两种情形：算上净资产和不算净资产。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Pep的固定支出"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "房租、宽带、手机、流媒体和车险：第2个月的五笔登记，那时Pep决定把钱理一理。从那以后，每一笔都自己计入。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "怎么记一笔"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "表单一步一步来：金额，是变动还是固定，类别（自己写，它会提示常见的），多久重复一次，还有备注。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "一年的流水"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "几百笔支出，按年、月文件夹归好。找一下第7个月：那次抛锚一下子花掉了近一万比索。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "钱从哪里来"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "咖啡馆的两笔半月薪、决定去旅行后开始教的物理课，还有每周的小费，从来没有一样过。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "在你自己的家里，也可以用聊天来记：“超市花了250”，就记下来了。"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "已经达成的目标"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "日本之行，100%：十一个月的储蓄、家教收入、年终奖，还有生日收到的钱。下面是回来后才开始的应急基金，和一笔小小的投资。"
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "时间轴上的目标"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "当时欠下的"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "汽车抛锚那笔用信用卡付的，还了好几个月。债务单独放，因为它要反着读：在这里，往下走才是赢。"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "市场"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pep从决定去旅行起就盯着日元，现在为下一趟盯着韩元。外汇、加密货币、股票和大宗商品都是实时的（需要联网）。"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "四条个人理财法则，各占一个标签页：应急基金、财务自由、50/30/20，还有购车 20/4/10 法则。"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "已经带上你的真实数字"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "输入框里已经预填了你这个月真实的收入或支出——点一下就能换个数字来模拟，同时不丢开真实的那个。"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "从计算到目标"
+  }
+]

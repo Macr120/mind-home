@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "Topik dari katalog sudah tersedia; yang menggantung lepas dibuka oleh sebuah obrolan. Sentuh sebuah entri untuk membaca ringkasannya, poin pentingnya, dan ilustrasinya."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "Sebuah entri kamu tulis manual atau kamu sarikan dari sebuah percakapan. Entri lubang hitam dan entri fisika piano punya gambar: aplikasinya bisa membuatkan ilustrasinya untukmu."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "Pertanyaan sepanjang tahun"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Inilah percakapan yang dilakukan Pep sambil belajar: entropi, dilatasi waktu, kenapa piano terdengar seperti piano. Semuanya tersimpan."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "Dari obrolan ke pohon"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "Dengan begitu ensiklopediamu tidak terisi teori salinan, melainkan hal-hal yang benar-benar kamu tanyakan."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "Indeksnya milikmu"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "Tanda + di tiap baris menulis entri persis di situ, dengan bidang dan topiknya sudah terpasang. Dan lewat tombol pensil kamu menumbuhkan pohonnya: tanda + yang sama menambahkan cabang, yang ada di Benih membuat bidang baru, dan kamu bisa mengganti nama, mengurutkan ulang, dan menghapus. Angka bercabang itu memberitahu berapa sub-indeks yang menggantung di bawahnya."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "Rencana belajar"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "Setiap target bisa kamu mintakan rencana: AI menanyakan tanggal targetmu dan jam luangmu, lalu menjadwalkan waktu belajarnya di kalendermu."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "Berapa entri yang dimiliki ensiklopediamu dan berapa bidang serta topik indeks yang sudah kamu cakup. Topik yang dibuka oleh sebuah obrolan dihitung terpisah."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "Empat angka"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "Obrolan dengan Sang Bijak, menit belajar total dan minggu ini, serta runtunan hari belajarmu berturut-turut."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "Di mana timpangnya"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "Batang terpanjang adalah bidang yang paling menyita perhatianmu — bagi Pep, termodinamika di minggu ujian tengah semester."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "Hari-hari belajar"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "Satu kotak untuk satu hari: kebut-kebutan sebelum ujian tengah semester dan lubang tiga minggu di Jepang langsung terlihat, tanpa perlu membuka seluruh riwayat."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "Ke mana jam-jammu pergi"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "Sama seperti di atas tapi dalam menit: punya banyak entri di satu bidang itu satu hal, benar-benar meluangkan waktu untuknya itu hal lain."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "Setahun penuh sesi"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "Dan kalau kamu mau rinciannya, riwayat menyimpan setiap sesi beserta menit dan bidangnya, terarsip per tahun, bulan, dan minggu."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "Yang jatuh tempo hari ini"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep sudah setahun menjalani ini dan masih punya tinjauan yang menunggu: sistemnya tidak meminta seluruh kosakatamu, hanya yang hampir kamu lupakan."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "Setahun konsisten"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "Riwayatnya menyimpan berapa kartu yang kamu tinjau tiap hari dan berapa yang kamu jawab benar. Pep memulai dengan cukup banyak salah dan menutupnya dengan hampir semuanya benar — dan di Jepang dia meninjau lebih banyak dari kapan pun."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "Dua bahasa sekaligus"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "Bahasanya diganti dari atas: selain bahasa utamanya, Pep menyusun bahasa Jepang bertahan hidup antara bulan ke-4 dan perjalanannya. Sepulang dari sana dia hampir meninggalkannya, dan itu terlihat di kotak-kotaknya."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "Tiga bidang, enam level"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "Dari A1 sampai C2, setiap level dengan topik kosakatanya, poin pelafalannya, dan tata bahasanya. Kamu tahu apa yang masih kurang tanpa mencari kursus di luar."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "Sampai di mana kamu"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "Kartu yang dikuasai, tinjauan bulan ini, dan levelmu sekarang. Pep memulai tahun di A2 dan sekarang ada di sekitar B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "Kotak masuk"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "Yang harus dikerjakan tapi belum punya hari tinggal di sini, lengkap dengan prioritasnya. Tidak ada yang memaksamu memberi tanggal hanya untuk mencatatnya."
+  }
+]

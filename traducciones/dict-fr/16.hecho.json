@@ -1,0 +1,850 @@
+[
+  {
+    "clave": "ui.errorFallo",
+    "texto": "Le chargement a échoué"
+  },
+  {
+    "clave": "ui.reintentar",
+    "texto": "Réessayer"
+  },
+  {
+    "clave": "ui.mover",
+    "texto": "déplacer"
+  },
+  {
+    "clave": "ui.mirar",
+    "texto": "regarder"
+  },
+  {
+    "clave": "ui.techo.quitar",
+    "texto": "Retirer le toit"
+  },
+  {
+    "clave": "ui.techo.ver",
+    "texto": "Ajouter un toit"
+  },
+  {
+    "clave": "ui.explotar.juntar",
+    "texto": "Empiler les étages"
+  },
+  {
+    "clave": "ui.explotar.separar",
+    "texto": "Séparer les étages"
+  },
+  {
+    "clave": "editor.techoCuarto.soloPlano",
+    "texto": "Cette pièce a un étage au-dessus, donc son toit apparaît plat (un étage ne peut pas reposer sur une voûte). Supprime l’étage du dessus pour retrouver sa forme."
+  },
+  {
+    "clave": "ui.estrellas",
+    "texto": "{n} étoiles"
+  },
+  {
+    "clave": "ui.pronto",
+    "texto": "Bientôt"
+  },
+  {
+    "clave": "ui.prontoDesc",
+    "texto": "Cette pièce est en construction."
+  },
+  {
+    "clave": "ui.editar",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "ui.eliminar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "ui.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "ui.confirmar",
+    "texto": "Confirmer"
+  },
+  {
+    "clave": "ui.borrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "ui.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "paredes.titulo",
+    "texto": "Murs et ouvertures"
+  },
+  {
+    "clave": "paredes.pared",
+    "texto": "Mur"
+  },
+  {
+    "clave": "paredes.puerta",
+    "texto": "Porte"
+  },
+  {
+    "clave": "paredes.abierto",
+    "texto": "Ouvert"
+  },
+  {
+    "clave": "paredes.toca",
+    "texto": "Touche une bordure pour la modifier."
+  },
+  {
+    "clave": "paredes.tipoMuro",
+    "texto": "Type de mur"
+  },
+  {
+    "clave": "paredes.tipoPuerta",
+    "texto": "Type de porte"
+  },
+  {
+    "clave": "paredes.colorPuerta",
+    "texto": "Couleur de la porte"
+  },
+  {
+    "clave": "paredes.colorMarco",
+    "texto": "Couleur du cadre"
+  },
+  {
+    "clave": "paredes.pintar",
+    "texto": "Peindre en {modo}"
+  },
+  {
+    "clave": "paredes.ayudaMuro",
+    "texto": "Choisis un type de mur ci-dessus et touche les bordures sur le croquis."
+  },
+  {
+    "clave": "paredes.ayudaPuerta",
+    "texto": "Choisis un type de porte et touche les bordures pour les ouvertures."
+  },
+  {
+    "clave": "paredes.ayudaAbierto",
+    "texto": "Touche une bordure pour la laisser ouverte (sans mur)."
+  },
+  {
+    "clave": "paredes.muro.solido",
+    "texto": "Plein"
+  },
+  {
+    "clave": "paredes.muro.ventana",
+    "texto": "Avec fenêtre"
+  },
+  {
+    "clave": "paredes.muro.ladrillo",
+    "texto": "Brique"
+  },
+  {
+    "clave": "paredes.muro.madera",
+    "texto": "Bois"
+  },
+  {
+    "clave": "paredes.muro.vitraje",
+    "texto": "Verre"
+  },
+  {
+    "clave": "paredes.puerta.recta",
+    "texto": "Standard"
+  },
+  {
+    "clave": "paredes.puerta.sin",
+    "texto": "Sans porte"
+  },
+  {
+    "clave": "paredes.puerta.doble",
+    "texto": "Double"
+  },
+  {
+    "clave": "paredes.puerta.porton",
+    "texto": "Enroulable"
+  },
+  {
+    "clave": "paredes.puerta.corredera",
+    "texto": "Coulissante"
+  },
+  {
+    "clave": "ciclo.clima",
+    "texto": "Météo réelle"
+  },
+  {
+    "clave": "ciclo.climaDesc",
+    "texto": "Utilise la position du système pour la température, la pluie et les conditions actuelles."
+  },
+  {
+    "clave": "ciclo.cargando",
+    "texto": "Récupération de la météo…"
+  },
+  {
+    "clave": "ciclo.cargandoHint",
+    "texto": "Si ça prend du temps, le navigateur doit aussi autoriser la position (icône dans la barre)."
+  },
+  {
+    "clave": "ciclo.reintentar",
+    "texto": "Réessayer"
+  },
+  {
+    "clave": "ciclo.actualizar",
+    "texto": "Actualiser"
+  },
+  {
+    "clave": "ciclo.paso",
+    "texto": "Écoulement du temps"
+  },
+  {
+    "clave": "ciclo.pasoToggle",
+    "texto": "Activer ou mettre en pause l’écoulement du temps"
+  },
+  {
+    "clave": "ciclo.pasoPausadoDesc",
+    "texto": "En pause. Choisis la couleur de fond dans Paramètres → Fond."
+  },
+  {
+    "clave": "ciclo.sol",
+    "texto": "Soleil : Est → Ouest"
+  },
+  {
+    "clave": "ciclo.solLuna",
+    "texto": "Soleil et lune"
+  },
+  {
+    "clave": "ciclo.focos",
+    "texto": "Lumières des pièces"
+  },
+  {
+    "clave": "ciclo.enVivo",
+    "texto": "En direct"
+  },
+  {
+    "clave": "ciclo.volverVivo",
+    "texto": "Revenir en direct"
+  },
+  {
+    "clave": "ciclo.abrirCal",
+    "texto": "Ouvrir le calendrier des routines"
+  },
+  {
+    "clave": "ciclo.rutinasHoy",
+    "texto": "Routines du jour"
+  },
+  {
+    "clave": "construir.donde",
+    "texto": "Où veux-tu construire ?"
+  },
+  {
+    "clave": "construir.plantaBaja",
+    "texto": "Rez-de-chaussée"
+  },
+  {
+    "clave": "construir.plantaDesc",
+    "texto": "Au rez-de-chaussée, à côté des autres."
+  },
+  {
+    "clave": "construir.encima",
+    "texto": "Au-dessus d’une pièce"
+  },
+  {
+    "clave": "construir.sinBase",
+    "texto": "Tu as d’abord besoin d’une pièce au rez-de-chaussée."
+  },
+  {
+    "clave": "construir.sinLibres",
+    "texto": "Aucune pièce libre pour empiler dessus."
+  },
+  {
+    "clave": "construir.apilar",
+    "texto": "S’empile sur une autre et flotte jusqu’à ce que tu mettes un toit à la maison."
+  },
+  {
+    "clave": "construir.eligeBase",
+    "texto": "Choisis sur quelle pièce empiler :"
+  },
+  {
+    "clave": "construir.enNivel",
+    "texto": "Sera au niveau {n}"
+  },
+  {
+    "clave": "construir.elegirAcceso",
+    "texto": "Comment monte-t-on à ce nouveau niveau ? (choisi une fois par niveau)"
+  },
+  {
+    "clave": "construir.volver",
+    "texto": "← Retour"
+  },
+  {
+    "clave": "construir.escalera.label",
+    "texto": "Escalier en colimaçon"
+  },
+  {
+    "clave": "construir.escalera.desc",
+    "texto": "Des marches qui s’enroulent autour d’un poteau central."
+  },
+  {
+    "clave": "construir.elevador.label",
+    "texto": "Ascenseur"
+  },
+  {
+    "clave": "construir.elevador.desc",
+    "texto": "Cabine vitrée qui monte et descend automatiquement."
+  },
+  {
+    "clave": "construir.resbaladilla.label",
+    "texto": "Tube d’aspiration"
+  },
+  {
+    "clave": "construir.resbaladilla.desc",
+    "texto": "Cylindre translucide avec des anneaux pour monter et descendre."
+  },
+  {
+    "clave": "diario.tarjeta.leer",
+    "texto": "Lire l’article complet →"
+  },
+  {
+    "clave": "diario.imagen.ampliar",
+    "texto": "Voir l’image en grand"
+  },
+  {
+    "clave": "diario.imagen.cerrar",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "entre.tarjeta.editar",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "entre.tarjeta.eliminar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "garage.mant.editar",
+    "texto": "Modifier l’entretien"
+  },
+  {
+    "clave": "garage.mant.nuevo",
+    "texto": "Enregistrer un entretien"
+  },
+  {
+    "clave": "garage.mant.fecha",
+    "texto": "Date"
+  },
+  {
+    "clave": "garage.mant.tipo",
+    "texto": "Type d’entretien"
+  },
+  {
+    "clave": "garage.mant.titulo",
+    "texto": "Titre *"
+  },
+  {
+    "clave": "garage.mant.costo",
+    "texto": "Coût (MXN)"
+  },
+  {
+    "clave": "garage.mant.odo",
+    "texto": "Kilométrage ({unit})"
+  },
+  {
+    "clave": "garage.mant.taller",
+    "texto": "Garage / mécanicien"
+  },
+  {
+    "clave": "garage.mant.proximo",
+    "texto": "Prochain entretien (facultatif)"
+  },
+  {
+    "clave": "garage.mant.proxOdo",
+    "texto": "À {unit}"
+  },
+  {
+    "clave": "garage.mant.ph.proxOdo",
+    "texto": "Ex. 52000"
+  },
+  {
+    "clave": "garage.mant.proxFecha",
+    "texto": "Date limite"
+  },
+  {
+    "clave": "garage.mant.notas",
+    "texto": "Notes"
+  },
+  {
+    "clave": "garage.mant.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "garage.mant.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "jardin.resp.inhala",
+    "texto": "Inspire"
+  },
+  {
+    "clave": "jardin.resp.sosten",
+    "texto": "Retiens"
+  },
+  {
+    "clave": "jardin.resp.exhala",
+    "texto": "Expire"
+  },
+  {
+    "clave": "jardin.resp.478",
+    "texto": "Technique 4-7-8"
+  },
+  {
+    "clave": "jardin.resp.caja",
+    "texto": "Respiration carrée 4-4-4-4"
+  },
+  {
+    "clave": "jardin.resp.patron",
+    "texto": "Choisis ton rythme"
+  },
+  {
+    "clave": "jardin.resp.duracion",
+    "texto": "Durée"
+  },
+  {
+    "clave": "jardin.resp.comenzar",
+    "texto": "Commencer la respiration"
+  },
+  {
+    "clave": "jardin.resp.caja.titulo",
+    "texto": "Respiration carrée 4-4-4-4"
+  },
+  {
+    "clave": "jardin.resp.caja.desc",
+    "texto": "Inspire, retiens, expire, retiens : 4 s chaque phase. Équilibre et concentration."
+  },
+  {
+    "clave": "jardin.resp.478.titulo",
+    "texto": "Respiration 4-7-8"
+  },
+  {
+    "clave": "jardin.resp.478.desc",
+    "texto": "Inspire 4 s, retiens 7 s, expire 8 s. Détend le système nerveux."
+  },
+  {
+    "clave": "editor.mapa.ajustes",
+    "texto": "Interface et langue"
+  },
+  {
+    "clave": "editor.mapa.tema",
+    "texto": "Thème de la maison"
+  },
+  {
+    "clave": "editor.mapa.fondo",
+    "texto": "Fond du ciel"
+  },
+  {
+    "clave": "editor.mapa.techo",
+    "texto": "Toits de la maison"
+  },
+  {
+    "clave": "editor.mapa.inventario",
+    "texto": "Inventaire du plan"
+  },
+  {
+    "clave": "editor.mapa.piso",
+    "texto": "Sol de la maison"
+  },
+  {
+    "clave": "editor.mapa.cuartos",
+    "texto": "Pièces de la maison"
+  },
+  {
+    "clave": "editor.mapa.avatar",
+    "texto": "Avatar du personnage"
+  },
+  {
+    "clave": "editor.mapa.perfil",
+    "texto": "Ton profil"
+  },
+  {
+    "clave": "planos.titulo",
+    "texto": "Plans"
+  },
+  {
+    "clave": "planos.tab.casa",
+    "texto": "Maison"
+  },
+  {
+    "clave": "planos.tab.planos",
+    "texto": "Plans"
+  },
+  {
+    "clave": "planos.bloque.herramientas",
+    "texto": "Outils du croquis"
+  },
+  {
+    "clave": "planos.bloque.seleccion",
+    "texto": "Sélection"
+  },
+  {
+    "clave": "planos.nivel",
+    "texto": "Niveau"
+  },
+  {
+    "clave": "planos.nivelNuevo",
+    "texto": "Construire un nouvel étage au-dessus"
+  },
+  {
+    "clave": "planos.nivelSotano",
+    "texto": "Creuser un sous-sol (piscine ou bunker)"
+  },
+  {
+    "clave": "acceso.nuevoNivel",
+    "texto": "Nouveau niveau {n}"
+  },
+  {
+    "clave": "constructor.modo.ascensos",
+    "texto": "Accès"
+  },
+  {
+    "clave": "constructor.modo.grid",
+    "texto": "Grille"
+  },
+  {
+    "clave": "constructor.modo.fondo",
+    "texto": "Arrière-plan"
+  },
+  {
+    "clave": "constructor.modo.cuartos",
+    "texto": "Pièces"
+  },
+  {
+    "clave": "constructor.modo.muros",
+    "texto": "Murs"
+  },
+  {
+    "clave": "constructor.modo.puertas",
+    "texto": "Portes"
+  },
+  {
+    "clave": "constructor.modo.ventanas",
+    "texto": "Fenêtres"
+  },
+  {
+    "clave": "constructor.modo.piso-ext",
+    "texto": "Sol ext."
+  },
+  {
+    "clave": "constructor.modo.piso-int",
+    "texto": "Sol int."
+  },
+  {
+    "clave": "constructor.modo.techos",
+    "texto": "Toits"
+  },
+  {
+    "clave": "ascensos.tipo",
+    "texto": "Type d’accès"
+  },
+  {
+    "clave": "ascensos.hint",
+    "texto": "Fais glisser l’accès sur le plan 3D pour le déplacer vers un autre coin d’une pièce de ce niveau. Il se place toujours dans un coin pour ne jamais bloquer les portes."
+  },
+  {
+    "clave": "ascensos.sinAcceso",
+    "texto": "Ce niveau n’a pas encore d’accès."
+  },
+  {
+    "clave": "ascensos.sinAccesoSotano",
+    "texto": "Creuse une pièce de sous-sol pour installer l’échelle de piscine."
+  },
+  {
+    "clave": "ascensos.escaleraMarina",
+    "texto": "Échelle de piscine"
+  },
+  {
+    "clave": "ascensos.hintSotano",
+    "texto": "Fais-la glisser sur le plan 3D pour la déplacer vers un autre mur de la fosse. Le personnage descend et remonte en marchant dans la piscine."
+  },
+  {
+    "clave": "planos.cerrar",
+    "texto": "Quitter les plans"
+  },
+  {
+    "clave": "planos.capa.titulo",
+    "texto": "Calque"
+  },
+  {
+    "clave": "planos.capa.cuartos",
+    "texto": "Pièces"
+  },
+  {
+    "clave": "planos.capa.paredes",
+    "texto": "Murs"
+  },
+  {
+    "clave": "planos.capa.pisos",
+    "texto": "Sols"
+  },
+  {
+    "clave": "planos.capa.techos",
+    "texto": "Toits"
+  },
+  {
+    "clave": "planos.herr.seleccionar",
+    "texto": "Sélectionner"
+  },
+  {
+    "clave": "planos.herr.muro",
+    "texto": "Murs"
+  },
+  {
+    "clave": "planos.herr.puerta",
+    "texto": "Portes"
+  },
+  {
+    "clave": "planos.herr.ventana",
+    "texto": "Fenêtres"
+  },
+  {
+    "clave": "planos.herr.mover",
+    "texto": "Déplacer"
+  },
+  {
+    "clave": "planos.herr.agrupar",
+    "texto": "Grouper"
+  },
+  {
+    "clave": "planos.herr.borrar",
+    "texto": "Effacer"
+  },
+  {
+    "clave": "planos.herr.expandir",
+    "texto": "Étendre"
+  },
+  {
+    "clave": "planos.muro.pared",
+    "texto": "Mur"
+  },
+  {
+    "clave": "planos.muro.puerta",
+    "texto": "Porte"
+  },
+  {
+    "clave": "planos.muro.abierto",
+    "texto": "Ouvert"
+  },
+  {
+    "clave": "planos.accion.regresar",
+    "texto": "Retour"
+  },
+  {
+    "clave": "planos.accion.cambios",
+    "texto": "Effacer"
+  },
+  {
+    "clave": "planos.accion.confirmar",
+    "texto": "Confirmer"
+  },
+  {
+    "clave": "planos.volverSecciones",
+    "texto": "Sections de l’éditeur"
+  },
+  {
+    "clave": "planos.ayuda",
+    "texto": "Choisis une forme en bas à gauche et touche le croquis ou le plan 3D pour dessiner des pièces."
+  },
+  {
+    "clave": "planos.props.paredes",
+    "texto": "Modifie l’arête sélectionnée sur le croquis."
+  },
+  {
+    "clave": "planos.props.techo",
+    "texto": "Utilise + et − sur le bord du toit pour étendre ou rétracter des lignes complètes."
+  },
+  {
+    "clave": "planos.props.zonaPiso",
+    "texto": "Matériau de sol de la zone : par cellule bientôt disponible."
+  },
+  {
+    "clave": "planos.nombre",
+    "texto": "Nom"
+  },
+  {
+    "clave": "planos.forma",
+    "texto": "Forme"
+  },
+  {
+    "clave": "planos.formaHint",
+    "texto": "Utilise − sur les cellules du bord pour retirer une partie de l’empreinte :"
+  },
+  {
+    "clave": "planos.quitarCelda",
+    "texto": "Retirer la cellule"
+  },
+  {
+    "clave": "planos.celdaVacia",
+    "texto": "Cellule"
+  },
+  {
+    "clave": "planos.colocarApp",
+    "texto": "Placer l’app"
+  },
+  {
+    "clave": "planos.nuevaZona",
+    "texto": "Nouvelle pièce basique"
+  },
+  {
+    "clave": "planos.nombreZona",
+    "texto": "Nom de la pièce"
+  },
+  {
+    "clave": "planos.extenderCuarto",
+    "texto": "Étendre une pièce existante"
+  },
+  {
+    "clave": "planos.limpiar",
+    "texto": "Effacer la sélection"
+  },
+  {
+    "clave": "planos.appsFuera",
+    "texto": "Apps hors du plan"
+  },
+  {
+    "clave": "planos.eliminarZona",
+    "texto": "Supprimer la pièce basique"
+  },
+  {
+    "clave": "planos.celdas",
+    "texto": "cellules"
+  },
+  {
+    "clave": "planos.menu.cielo",
+    "texto": "Fond du ciel"
+  },
+  {
+    "clave": "planos.menu.cieloTitulo",
+    "texto": "Fond du ciel"
+  },
+  {
+    "clave": "planos.menu.cieloDesc",
+    "texto": "Change le ciel 3D et la marge du croquis."
+  },
+  {
+    "clave": "planos.menu.cerrar",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "planos.menu.superficie",
+    "texto": "Surface du plan"
+  },
+  {
+    "clave": "planos.superficie.titulo",
+    "texto": "Surface du plan"
+  },
+  {
+    "clave": "planos.superficie.desc",
+    "texto": "Affecte le papier du croquis, les lignes de la grille et la base du plan 3D."
+  },
+  {
+    "clave": "planos.superficie.relleno",
+    "texto": "Remplissage du croquis"
+  },
+  {
+    "clave": "planos.superficie.color",
+    "texto": "Couleur"
+  },
+  {
+    "clave": "planos.superficie.foto",
+    "texto": "Photo de fond"
+  },
+  {
+    "clave": "planos.superficie.subir",
+    "texto": "+ Importer"
+  },
+  {
+    "clave": "planos.superficie.usar",
+    "texto": "Utiliser sur le croquis"
+  },
+  {
+    "clave": "planos.superficie.borrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "planos.superficie.sinFoto",
+    "texto": "Importe une image pour le papier du croquis et la base 3D."
+  },
+  {
+    "clave": "planos.superficie.rejilla",
+    "texto": "Grille"
+  },
+  {
+    "clave": "planos.superficie.tamCelda",
+    "texto": "Taille de la cellule"
+  },
+  {
+    "clave": "planos.superficie.tamCeldaHint",
+    "texto": "Les pièces, murs, toits et terrains s’adaptent à la taille de la cellule ; les personnages et autres objets gardent leur taille."
+  },
+  {
+    "clave": "planos.superficie.rejillaFuerte",
+    "texto": "Lignes principales"
+  },
+  {
+    "clave": "planos.superficie.rejillaSuave",
+    "texto": "Lignes secondaires"
+  },
+  {
+    "clave": "planos.superficie.borde",
+    "texto": "Bordure du papier"
+  },
+  {
+    "clave": "planos.superficie.restaurar",
+    "texto": "Restaurer les valeurs par défaut"
+  },
+  {
+    "clave": "planos.zoom.encajar",
+    "texto": "Ajuster le croquis à l’écran"
+  },
+  {
+    "clave": "planos.zoom.ayuda",
+    "texto": "Molette : zoom · Maj/Alt + glisser : déplacer · Double-clic sur la marge : ajuster"
+  },
+  {
+    "clave": "editor.cuarto.apariencia",
+    "texto": "Apparence de la pièce"
+  },
+  {
+    "clave": "editor.cuarto.piso",
+    "texto": "Sol de la pièce"
+  },
+  {
+    "clave": "editor.cuarto.forma",
+    "texto": "Forme de la pièce"
+  },
+  {
+    "clave": "editor.cuarto.paredes",
+    "texto": "Murs et portes"
+  },
+  {
+    "clave": "editor.cuarto.objetos",
+    "texto": "Objets de la pièce"
+  },
+  {
+    "clave": "editor.avatar.titulo",
+    "texto": "Avatar du personnage"
+  },
+  {
+    "clave": "editor.avatar.cabeza",
+    "texto": "🟡 Tête"
+  },
+  {
+    "clave": "editor.avatar.torso",
+    "texto": "🔴 Torse"
+  },
+  {
+    "clave": "editor.avatar.piernas",
+    "texto": "🔵 Jambes"
+  },
+  {
+    "clave": "editor.avatar.reset",
+    "texto": "↺ Restaurer l’avatar original"
+  },
+  {
+    "clave": "editor.avatar.forma3d",
+    "texto": "Forme 3D personnalisée"
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "Het bord"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "Dezelfde taken, in drie kolommen: Te doen, Bezig en Klaar. Houd een kaart ingedrukt om hem naar een andere kolom te slepen —loslaten op “Klaar” vinkt hem ook af in de kalender—, of verplaats hem met de pijlen."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "Het jaar van de knie"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "Voeding om de paar maanden, de tandarts, en de zes fysiosessies van maand 7: de blessure die Pep stillegde staat hier vastgelegd."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "Medicatie"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "Elk medicijn maakt per innametijd een blok in de kalender. De ontstekingsremmer van de blessure duurde drie weken en is gearchiveerd; de vitamine loopt door."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "Laika"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "De kat heeft haar eigen kaart met gewicht en dierenarts, en haar terugkerende zorg: elk jaar een prik, ontworming om de drie maanden, elke maand in bad. Vink je er een af, dan rekent de app de volgende datum zelf uit."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "De kring van Pep"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "Familie, vrienden, mensen van het werk en van de universiteit, ieder in zijn eigen map. Met telefoon, adres en alles wat je niet wilt vergeten."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "Verjaardagen die je niet vergeet"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "Sla je een geboortedatum op, dan komt de verjaardag elk jaar terug in de kalender en krijg je een seintje. De leeftijd rekent de app zelf uit."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "Plannen met mensen koppel je aan hun contact: zo zie je wanneer je iemand voor het laatst hebt gezien."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "Een jaar in drie getallen"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "De reeks telt de dagen achter elkaar waarop je iets vastlegde, en de naleving zet je actieve dagen naast de dagen die je jezelf had voorgenomen. Pep begon het jaar zonder twee straten ver te kunnen joggen."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "De drie pijlers"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "De balken zetten wat je gedaan hebt naast je doelen: krachtsessies, hardloopminuten en mobiliteitsminuten. Het doel past zich aan de periode aan die je bovenaan kiest."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "De doelen van het jaar"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "Catalogus, routines en voortgang"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "Elke pijler is hetzelfde opgebouwd: de catalogus met oefeningen, je routines met hun geschiedenis, en de voortgang. Laten we beginnen met wat Pep al gelopen heeft."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "Elke run wordt opgeschreven"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "De geschiedenis is gegroepeerd per jaar, maand en week. Grote wedstrijden bewaren bovendien de route en de trajecten: daar staat de marathon, met zijn tussentijden per tien kilometer."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "De heatmap liegt niet"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "De gaten vertellen het verhaal ook: de maand van de knieblessure is leeg en de drie weken Japan bijna. Ernaast staan de totale kilometers, de langste run en het beste tempo."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "Sets, herhalingen en gewicht"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "Elke sessie bewaart zijn oefeningen met het gewicht dat je tilde. De app onthoudt de vorige keer zodat je niet hoeft te zoeken, en telt het totale volume van de dag op."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "De curve van een jaar"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "Kies een oefening en je ziet hem klimmen: Peps squat ging van veertig kilo naar zeventig. In de maand van de blessure werd alleen het bovenlichaam getraind, en die curve merkte er niets van."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "Je records, zonder erom te vragen"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "Van elke oefening worden je beste gewicht, je max. reps en een schatting van je 1RM bewaard. Oefeningen op lichaamsgewicht, zoals pull-ups, staan apart gemarkeerd."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "Stap 1: waar je heen wilt"
+  }
+]

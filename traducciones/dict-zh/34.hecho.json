@@ -1,0 +1,98 @@
+[
+ {
+  "clave": "tut.editor-objetos.resumen",
+  "texto": "放置好的每个物件都可以在这里编辑颜色、大小和旋转，还能用零件自己搭建专属物件。"
+ },
+ {
+  "clave": "tut.editor-config.titulo",
+  "texto": "编辑器·设置"
+ },
+ {
+  "clave": "tut.editor-config.resumen",
+  "texto": "8个可折叠的区块：账户、AI价格、地图视觉风格、界面与语言、音乐、教程、通知和数据备份。每个都能单独展开，还会记住你上次是否展开过。"
+ },
+ {
+  "clave": "tut.respaldo.titulo",
+  "texto": "数据备份"
+ },
+ {
+  "clave": "tut.respaldo.resumen",
+  "texto": "你保存的一切都存在这台设备上。“数据备份”可以把所有内容导出为文件、从文件恢复，并在浏览器可能为了腾出空间而不打招呼清除数据时提醒你。"
+ },
+ {
+  "clave": "tut.editor-cuarto.titulo",
+  "texto": "编辑房间"
+ },
+ {
+  "clave": "tut.editor-cuarto.resumen",
+  "texto": "编辑某个具体房间时，平面图会聚焦到它上面：形状、地板、墙、颜色、名字，还有——这里用得最多的——它分配了哪个应用，或者要不要换一个。面板上的箭头可以回到完整地图，房间上方的悬浮按钮可以退出这个房间。"
+ },
+ {
+  "clave": "tut.herramientas.titulo",
+  "texto": "工具轮盘"
+ },
+ {
+  "clave": "tut.herramientas.resumen",
+  "texto": "轮盘可以给角色装备四种分类：动作（跑步、跳舞、跳跃……）、玩具（激光、传送门、涂鸦……）、可骑乘载具和建造（直达地图编辑器模式的快捷方式）。共两级：分类→工具，最多同时装备3个。"
+ },
+ {
+  "clave": "tut.navegacion.titulo",
+  "texto": "相机与移动"
+ },
+ {
+  "clave": "tut.navegacion.resumen",
+  "texto": "有三种视角：等距、第三人称和第一人称（V键）。用摇杆、WASD或方向键移动；角落按钮通常用来调整相机方向，但附近有东西时会改成提供那个操作。在第三/第一人称下，还有可以直接触碰世界的3D编辑器。"
+ },
+ {
+  "clave": "tut.chat.titulo",
+  "texto": "建筑师聊天"
+ },
+ {
+  "clave": "tut.chat.resumen",
+  "texto": "聊天会把你说的内容记录到正确的应用里（比如“跑了20分钟”会记到健身房）。还能用文字编辑家、用语音输入、识别照片。每个助手都有自己的脸和声音；手册里列出了你能问的一切，已经记录的内容都在“记录”标签页里。"
+ },
+ {
+  "clave": "tut.chat-registros.titulo",
+  "texto": "聊天·记录与记忆"
+ },
+ {
+  "clave": "tut.chat-registros.resumen",
+  "texto": "聊天的“记录”标签页保存着你之前的对话，还有助手在不同会话之间记住的关于你的信息，这样就不用每次都重复说了。"
+ },
+ {
+  "clave": "tut.app-generica.titulo",
+  "texto": "这个应用"
+ },
+ {
+  "clave": "tut.app-generica.resumen",
+  "texto": "每个应用都在一个房间里：顶部显示房间和应用的名字，“今日”列表里是这里要做的事，“返回家里”可以关闭它。自定义模板是用模块搭建的：笔记、列表、计数器、习惯……"
+ },
+ {
+  "clave": "tut.rutinas.titulo",
+  "texto": "日常安排"
+ },
+ {
+  "clave": "tut.rutinas.resumen",
+  "texto": "“日常安排”面板上方是今天的清单，下方是完整目录：每个日常安排都有时间、重复方式和步骤，每个步骤都能自动记录到对应的应用里。到时间助手会提醒你，所有安排也会显示在日历上。"
+ },
+ {
+  "clave": "tut.enlaces.titulo",
+  "texto": "每个步骤上的标签"
+ },
+ {
+  "clave": "tut.enlaces.resumen",
+  "texto": "目标或计划步骤旁边的应用标签会告诉你这条记录去哪个应用，点一下就能跳过去。它只负责导航：记录始终由应用完成，标签本身不记录。"
+ },
+ {
+  "clave": "tut.musica.titulo",
+  "texto": "家里的音乐"
+ },
+ {
+  "clave": "tut.musica.resumen",
+  "texto": "可以用整体的环境音乐，也可以给每个房间设一个主题曲，音源有三种：自动生成、你自己的曲目或系统音频。想安静地玩的话可以整个关掉。"
+ },
+ {
+  "clave": "tut.cuenta-ia.titulo",
+  "texto": "AI与账户"
+ }
+]

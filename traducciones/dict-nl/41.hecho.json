@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.resumen",
+    "texto": "Voedingscontrole bestaat uit vier stappen: je stelt je doelen in, je legt vast wat je eet en drinkt, je plant je week, en de voortgang vertelt je of je op koers ligt."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.titulo",
+    "texto": "Koken, plannen en boodschappen doen"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.resumen",
+    "texto": "Het receptenboek bewaart je recepten met hun macro's, groepeert ze in diëten en zet wat je gaat koken om in de boodschappenlijst."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.titulo",
+    "texto": "Het voedingsplan op de kalender"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.resumen",
+    "texto": "Peps gewichts- en dieetdoelen krijgen hun eigen tijdlijn: subdoelen met een datum en een plan dat de AI in fasen opbouwt."
+  },
+  {
+    "clave": "tut.app-descanso--noche.titulo",
+    "texto": "Hoe een nacht scoort"
+  },
+  {
+    "clave": "tut.app-descanso--noche.resumen",
+    "texto": "Slaap geeft elke nacht een score op honderd: hoelang je sliep, hoe laat je naar bed ging en hoe vaak je wakker werd. Daarmee wordt de geschiedenis van het jaar opgebouwd."
+  },
+  {
+    "clave": "tut.app-descanso--horario.titulo",
+    "texto": "Jouw slaapschema"
+  },
+  {
+    "clave": "tut.app-descanso--horario.resumen",
+    "texto": "Het schema wordt getekend op een balk van vierentwintig uur, verschijnt als blok in de kalender van het huis en kan je een seintje geven voor het slapengaan."
+  },
+  {
+    "clave": "tut.app-despacho--anio.titulo",
+    "texto": "Het jaar waarin Pep het geld op orde bracht"
+  },
+  {
+    "clave": "tut.app-despacho--anio.resumen",
+    "texto": "Cashflow vat samen wat er binnenkwam, wat er uitging en het netto van de periode die je kiest: dag, week, maand of jaar. Daaronder: je vermogen, het maandbudget, waar je geld naartoe gaat en de trend van de laatste periodes."
+  },
+  {
+    "clave": "tut.app-despacho--captura.titulo",
+    "texto": "Vast en variabel"
+  },
+  {
+    "clave": "tut.app-despacho--captura.resumen",
+    "texto": "Een vaste uitgave leg je ÉÉN keer vast en de app telt hem vanzelf elke maand mee; variabele uitgaven noteer je zodra ze gebeuren. Allebei staan ze in dezelfde lijst, gerangschikt op datum in mappen per jaar en maand."
+  },
+  {
+    "clave": "tut.app-despacho--metas.titulo",
+    "texto": "Japan, het noodfonds en de schuld"
+  },
+  {
+    "clave": "tut.app-despacho--metas.resumen",
+    "texto": "Doelen bundelt je spaar- en beleggingsdoelen in één lijst met voortgangsbalk, en houdt schulden apart met hun eigen simulator. Elk doel heeft een planning waarin je er datums aan geeft."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.titulo",
+    "texto": "Vier regels om tot een bedrag te komen"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.resumen",
+    "texto": "Vier rekenhulpen voor persoonlijke financiën stellen een streefbedrag voor op basis van je werkelijke saldo, en zetten dat met één tik om in een doel. De parameters van elke regel zijn aan te passen: niemand hoeft de 50/30/20-regel klakkeloos over te nemen."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.titulo",
+    "texto": "Een fiets en een oude auto"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.resumen",
+    "texto": "De garage houdt het onderhoud van je echte voertuigen bij: elk met zijn eigen kaart, tellerstand en onderhoudsgeschiedenis. Bovenaan zegt een stoplicht je of er iets dringend is."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.titulo",
+    "texto": "Een nieuwe toevoegen"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.texto",
+    "texto": "Naam, type, merk, model, bouwjaar, kenteken en de tellerstand van vandaag. Met het kenteken erbij weet de garage welke administratie hij je later kan aanbieden."
+  },
+  {
+    "clave": "tut.app-garage--tramites.titulo",
+    "texto": "Administratie die zichzelf inplant"
+  },
+  {
+    "clave": "tut.app-garage--tramites.resumen",
+    "texto": "Plan de APK-keuring, de wegenbelasting, de verzekering of een periodieke beurt en de garage zet zijn blok in de kalender, plus een melding zo ver van tevoren als jij aangeeft."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.titulo",
+    "texto": "De papieren, apart"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.texto",
+    "texto": "Het kentekenbewijs, de polis en de wegenbelasting worden niet vermengd met wat er in de werkplaats gebeurt: ze hebben hun eigen schrift, met referentienummer, vervaldatum en waarschuwing vooraf."
+  },
+  {
+    "clave": "tut.app-sala--mapa.titulo",
+    "texto": "De kaart van een reiziger"
+  },
+  {
+    "clave": "tut.app-sala--mapa.resumen",
+    "texto": "Elke plek is een speldje op de wereldkaart: groen als je er al bent geweest, amber als het nog een droom is. Bovenaan zie je hoeveel landen, steden en openstaande reizen je hebt."
+  },
+  {
+    "clave": "tut.app-sala--japon.titulo",
+    "texto": "Drie weken in Japan"
+  },
+  {
+    "clave": "tut.app-sala--japon.resumen",
+    "texto": "Het logboek bewaart je herinneringen per land en per plek, met foto's erbij; en elke reis heeft zijn eigen reisplan, dag voor dag, met verblijf, vervoer en budget."
+  },
+  {
+    "clave": "tut.app-sala--proximo.titulo",
+    "texto": "De volgende reis"
+  },
+  {
+    "clave": "tut.app-sala--proximo.resumen",
+    "texto": "Plekken die je nog wilt bezoeken krijgen hun eigen reisplan, dag voor dag, en de som van hun budgetten wordt een spaardoel in de werkkamer."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.titulo",
+    "texto": "Een jaar sciencefiction"
+  }
+]

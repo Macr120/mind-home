@@ -1,0 +1,118 @@
+[
+ {
+  "clave": "chat.manual.cat.ayuda",
+  "texto": "帮助与教程"
+ },
+ {
+  "clave": "chat.manual.nota.ayuda",
+  "texto": "可以问任何应用或菜单怎么用，也可以请求它的教程：向导会在屏幕上逐步演示。英语版中，编辑器、聊天和菜单已有屏幕导览；其余的由助手（AI）解答。"
+ },
+ {
+  "clave": "tut.casa.titulo",
+  "texto": "你的家"
+ },
+ {
+  "clave": "tut.casa.resumen",
+  "texto": "家是你所有应用的地图：每个房间放一个。用摇杆或WASD移动，按V切换视角，点左上角按钮打开菜单。角落按钮会根据你附近的东西自动变化；时钟里有日历、日常安排和音乐。"
+ },
+ {
+  "clave": "tut.primeros.titulo",
+  "texto": "入门步骤"
+ },
+ {
+  "clave": "tut.primeros.resumen",
+  "texto": "在菜单里新建一个房间，给它分配应用，然后进去看看。"
+ },
+ {
+  "clave": "tut.primeros.2a.titulo",
+  "texto": "工具轮盘"
+ },
+ {
+  "clave": "tut.primeros.2a.texto",
+  "texto": "在手机上，房间可以直接画在地图上，不用打开面板。一切都从摇杆旁边的这个按钮开始：工具轮盘。"
+ },
+ {
+  "clave": "tut.primeros.2b.titulo",
+  "texto": "建造"
+ },
+ {
+  "clave": "tut.primeros.2b.texto",
+  "texto": "轮盘分两级。第四个分类是用来盖房子的：房间、墙、门、窗、地板和屋顶。"
+ },
+ {
+  "clave": "tut.primeros.2c.titulo",
+  "texto": "房间模式"
+ },
+ {
+  "clave": "tut.primeros.2c.texto",
+  "texto": "选择“房间”会准备好画笔：轮盘关闭后，每点一下地面就会建一个新房间。为了带你看看接下来的步骤，现在就给你建一个吧……"
+ },
+ {
+  "clave": "tut.menu-cuartos.titulo",
+  "texto": "菜单·房间"
+ },
+ {
+  "clave": "tut.menu-cuartos.resumen",
+  "texto": "“房间”标签页按分类列出你家里的房间及其进度。每张卡片都有“编辑”（自定义房间）和“进入”（打开应用），如果还没分配应用则显示“+分配”。上方是你的概览：心情、段位和连续天数；下方可以新建房间。"
+ },
+ {
+  "clave": "tut.menu-cuartos.2b.titulo",
+  "texto": "段位、徽章与概览"
+ },
+ {
+  "clave": "tut.menu-cuartos.2b.texto",
+  "texto": "角色旁边的两个圆环是“西西弗斯之山”（1到12级段位和徽章），下面是你的“Wrapped”，也就是本周、本月或本年的总结。两者都有各自的教程。"
+ },
+ {
+  "clave": "tut.menu-plantillas.titulo",
+  "texto": "菜单·模板"
+ },
+ {
+  "clave": "tut.menu-plantillas.resumen",
+  "texto": "模板就是家里的应用：分配给房间里的某个物件来使用。这个标签页有两种视图——“房间”（常见应用）和“扩展”（直接建在地图上的东西）——目录里还包含你自己用模块搭建的模板。"
+ },
+ {
+  "clave": "tut.plantillas-custom.titulo",
+  "texto": "你自己的模板"
+ },
+ {
+  "clave": "tut.plantillas-custom.resumen",
+  "texto": "自定义模板编辑器用模块搭建一整个应用：笔记、清单、计数器、链接、习惯、图库等等。设置名称、表情符号和颜色，选好模块，就能像其他应用一样分配使用了。"
+ },
+ {
+  "clave": "tut.plantillas-custom.menus.titulo",
+  "texto": "菜单与子菜单"
+ },
+ {
+  "clave": "tut.plantillas-custom.menus.texto",
+  "texto": "应用变大后，可以分到上方的标签页里：每个菜单都有自己的名称和表情符号，还能有子菜单，你可以把工具加到任意一个菜单里。不设菜单的话，所有内容都在同一个屏幕上。"
+ },
+ {
+  "clave": "tut.menu-inventario.titulo",
+  "texto": "菜单·物品栏"
+ },
+ {
+  "clave": "tut.menu-inventario.resumen",
+  "texto": "物品栏里存放着用来装饰家的物件：按分类整理的素材库，还有特殊物件（载具、喷泉、游乐设施、灯光）。打开菜单后可以直接把它们拖进场景里。"
+ },
+ {
+  "clave": "tut.editor-mapa.titulo",
+  "texto": "编辑器·地图"
+ },
+ {
+  "clave": "tut.editor-mapa.resumen",
+  "texto": "编辑器可以在4个标签页里自定义整个家：地图、角色、物件和设置——每个都有自己的教程。“地图”标签页可以在平面图上画房间、墙、门、窗、地板和屋顶，并即时呈现为3D效果，还能设置层数：可叠加的楼层和地下室。"
+ },
+ {
+  "clave": "tut.editor-personajes.titulo",
+  "texto": "编辑器·角色"
+ },
+ {
+  "clave": "tut.editor-personajes.resumen",
+  "texto": "你的虚拟形象和助手共用一个编辑器：身体、脸（可用照片）、颜色、大小、衣服和动画，配有3D预览。虚拟形象还有专属衣柜，可以在每个房间穿不同的衣服。"
+ },
+ {
+  "clave": "tut.editor-objetos.titulo",
+  "texto": "编辑器·物件"
+ }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "texto": "„Połącz aplikację” otwiera selektor: najpierw wybierasz aplikację, potem jej część, jeśli ma kilka sekcji do zapisu."
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "texto": "Chip już na miejscu"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "texto": "Gdy chip jest na miejscu, dotknięcie go otwiera tę aplikację prosto w tej sekcji. Usunięcie go nie kasuje celu ani jego dat: znika samo połączenie."
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "texto": "Na liście pojawiają się tylko aplikacje przypisane do obiektu w jakimś pokoju: chip do aplikacji bez pokoju nie prowadziłby donikąd."
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "texto": "Ten przycisk otwiera sterowanie muzyką domu."
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "texto": "Włącz lub wyłącz"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "texto": "Jeden przełącznik na całą muzykę otoczenia w domu. Po wyłączeniu dom milknie, zostają tylko dźwięki konkretnych akcji."
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "texto": "Motyw pokoju"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "texto": "Każdy pokój może brzmieć inaczej: automatycznie według swojej aplikacji, ręcznie wybranym motywem albo pełną ciszą w tym jednym pokoju, bez ruszania reszty domu."
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "texto": "Skąd bierze się dźwięk"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "texto": "„Generowana” (komponuje sama pod nastrój), „Moje utwory” (to, co wgrano) albo „System” (to, co już gra poza aplikacją — nic tego nie zagłusza)."
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "texto": "Osobne głośności"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "texto": "Muzyka i dźwięki akcji (kroki, kliknięcia, osiągnięcia) mają osobne suwaki — możesz ściszyć muzykę i zostawić efekty albo odwrotnie."
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "texto": "Ten przycisk można usunąć z głównego ekranu; nadal jest dostępny w Edytorze › Ustawienia › Muzyka."
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "texto": "Tutaj włącza się AI domu: bez tego czat nadal działa na słowa kluczowe, ale funkcje takie jak generowanie przepisu, planu czy obrazu pozostają wyłączone."
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "texto": "Z kontem albo bez"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "texto": "Możesz używać AI z własnym kluczem dostawcy (bez konta, bez kredytów) albo z kontem, które daje kredyty i synchronizuje dane między urządzeniami."
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "texto": "Ceny AI"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "texto": "Ta tabela jest informacyjna nawet bez konta: to dokładnie to, czego trzeba, żeby zdecydować, czy warto. Widać ją pokój po pokoju, operacja po operacji."
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "texto": "Jedyna dźwignia"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "texto": "Jakość obrazu to jedyne, co zmienia ceny w całej tabeli: „Szybka” jest dobra i tania (używana domyślnie), a „Najlepsza” daje więcej szczegółów i lepszy tekst wewnątrz obrazu."
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "texto": "Jedna jednostka, wiele operacji"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "texto": "Odpowiedź kosztuje 1 kredyt, długi plan 4, obraz albo model 3D 10 — zasada jest ta sama we wszystkich pokojach, a ta tabela tylko rozpisuje ją jedna po drugiej."
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "texto": "Ten pasek pojawia się w prawie każdej aplikacji, dopóki nie ma w niej twoich danych: jeden przycisk pokazuje ją pełną gotowego przykładu, zamiast zaczynać przed pustym ekranem."
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "texto": "Podgląd przykładu niczego twojego nie kasuje ani nie miesza: to osobne wpisy, oznaczone jako przykład, które po wyłączeniu się ukrywają, a nie znikają. Ponowne włączenie przywraca je dokładnie takie, jakie były."
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "texto": "W domu demo tego paska nie ma: cały rok Pepa już pełni tę rolę, więc osobny przykład jest zbędny."
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "texto": "Trzy źródła, jedna lista"
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "texto": "Skreśla się, bo wpis istnieje"
+  }
+]

@@ -1,0 +1,386 @@
+[
+  {
+    "ruta": "plantillas.0.notas.0",
+    "texto": "boodschappen van de week"
+  },
+  {
+    "ruta": "plantillas.0.notas.1",
+    "texto": "koffiebonen"
+  },
+  {
+    "ruta": "plantillas.0.notas.2",
+    "texto": "tortilla's en eieren"
+  },
+  {
+    "ruta": "plantillas.0.notas.3",
+    "texto": "fruit van de markt"
+  },
+  {
+    "ruta": "plantillas.0.notas.4",
+    "texto": "taco's na mijn dienst"
+  },
+  {
+    "ruta": "plantillas.0.notas.5",
+    "texto": "losse thee"
+  },
+  {
+    "ruta": "plantillas.0.notas.6",
+    "texto": "havermout en bananen"
+  },
+  {
+    "ruta": "plantillas.0.notas.7",
+    "texto": "dagmenu"
+  },
+  {
+    "ruta": "plantillas.0.notas.8",
+    "texto": "brood van de hoek"
+  },
+  {
+    "ruta": "plantillas.0.notas.9",
+    "texto": "tonijn en rijst"
+  },
+  {
+    "ruta": "plantillas.1.notas.0",
+    "texto": "metrokaart opladen"
+  },
+  {
+    "ruta": "plantillas.1.notas.1",
+    "texto": "benzine voor de auto"
+  },
+  {
+    "ruta": "plantillas.1.notas.2",
+    "texto": "binnenband voor de fiets"
+  },
+  {
+    "ruta": "plantillas.1.notas.3",
+    "texto": "ketting en lampjes"
+  },
+  {
+    "ruta": "plantillas.1.notas.4",
+    "texto": "parkeerplek op de campus"
+  },
+  {
+    "ruta": "plantillas.1.notas.5",
+    "texto": "busrit naar het lab"
+  },
+  {
+    "ruta": "plantillas.1.notas.6",
+    "texto": "kettingolie"
+  },
+  {
+    "ruta": "plantillas.1.notas.7",
+    "texto": "tol op de terugweg"
+  },
+  {
+    "ruta": "plantillas.2.notas.0",
+    "texto": "zeep en wasmiddel"
+  },
+  {
+    "ruta": "plantillas.2.notas.1",
+    "texto": "kattenbakvulling voor Laika"
+  },
+  {
+    "ruta": "plantillas.2.notas.2",
+    "texto": "brokjes voor Laika"
+  },
+  {
+    "ruta": "plantillas.2.notas.3",
+    "texto": "lamp voor de woonkamer"
+  },
+  {
+    "ruta": "plantillas.2.notas.4",
+    "texto": "emmer en dweil"
+  },
+  {
+    "ruta": "plantillas.2.notas.5",
+    "texto": "gas voor thuis"
+  },
+  {
+    "ruta": "plantillas.2.notas.6",
+    "texto": "reparatie van de kraan"
+  },
+  {
+    "ruta": "plantillas.2.notas.7",
+    "texto": "nieuw filterkoffiezetapparaat"
+  },
+  {
+    "ruta": "plantillas.3.notas.0",
+    "texto": "bioscoopkaartje"
+  },
+  {
+    "ruta": "plantillas.3.notas.1",
+    "texto": "sciencefiction op het grote scherm"
+  },
+  {
+    "ruta": "plantillas.3.notas.2",
+    "texto": "koffie met Nuria"
+  },
+  {
+    "ruta": "plantillas.3.notas.3",
+    "texto": "geen keyboardsnaren, bladmuziek"
+  },
+  {
+    "ruta": "plantillas.3.notas.4",
+    "texto": "toegang tot het planetarium"
+  },
+  {
+    "ruta": "plantillas.3.notas.5",
+    "texto": "tweedehands boek"
+  },
+  {
+    "ruta": "plantillas.3.notas.6",
+    "texto": "biertje na het tentamen"
+  },
+  {
+    "ruta": "plantillas.3.notas.7",
+    "texto": "nachtelijk uitje naar het observatorium"
+  },
+  {
+    "ruta": "plantillas.4.notas.0",
+    "texto": "doktersbezoek"
+  },
+  {
+    "ruta": "plantillas.4.notas.1",
+    "texto": "bandages voor de knie"
+  },
+  {
+    "ruta": "plantillas.4.notas.2",
+    "texto": "elektrolyten voor de wedstrijd"
+  },
+  {
+    "ruta": "plantillas.4.notas.3",
+    "texto": "eiwitpoeder"
+  },
+  {
+    "ruta": "plantillas.4.notas.4",
+    "texto": "ontstekingsremmende gel"
+  },
+  {
+    "ruta": "plantillas.4.notas.5",
+    "texto": "compressiesokken"
+  },
+  {
+    "ruta": "plantillas.4.notas.6",
+    "texto": "bloedonderzoek"
+  },
+  {
+    "ruta": "plantillas.4.notas.7",
+    "texto": "inlegzolen voor mijn sneakers"
+  },
+  {
+    "ruta": "plantillas.5.notas.0",
+    "texto": "schrift voor het lab"
+  },
+  {
+    "ruta": "plantillas.5.notas.1",
+    "texto": "nieuwe rekenmachine"
+  },
+  {
+    "ruta": "plantillas.5.notas.2",
+    "texto": "shirt van de wedstrijd"
+  },
+  {
+    "ruta": "plantillas.5.notas.3",
+    "texto": "goedkope oordopjes"
+  },
+  {
+    "ruta": "plantillas.5.notas.4",
+    "texto": "winterhoodie"
+  },
+  {
+    "ruta": "plantillas.5.notas.5",
+    "texto": "reserveoplader"
+  },
+  {
+    "ruta": "plantillas.5.notas.6",
+    "texto": "kabel voor de camera"
+  },
+  {
+    "ruta": "plantillas.5.notas.7",
+    "texto": "sporthanddoek"
+  },
+  {
+    "ruta": "plantillas.6.notas.0",
+    "texto": "kopieën voor de scriptie"
+  },
+  {
+    "ruta": "plantillas.6.notas.1",
+    "texto": "knipbeurt"
+  },
+  {
+    "ruta": "plantillas.6.notas.2",
+    "texto": "wasserette"
+  },
+  {
+    "ruta": "plantillas.6.notas.3",
+    "texto": "printen van de poster"
+  },
+  {
+    "ruta": "plantillas.6.notas.4",
+    "texto": "muziekabonnement"
+  },
+  {
+    "ruta": "plantillas.6.notas.5",
+    "texto": "reparatie van mijn telefoon"
+  },
+  {
+    "ruta": "plantillas.6.notas.6",
+    "texto": "online aanvraag"
+  },
+  {
+    "ruta": "plantillas.6.notas.7",
+    "texto": "printerinkt"
+  },
+  {
+    "ruta": "plantillas.7.notas.0",
+    "texto": "fooien van mijn dienst"
+  },
+  {
+    "ruta": "plantillas.7.notas.1",
+    "texto": "vrijdagdienst"
+  },
+  {
+    "ruta": "plantillas.7.notas.2",
+    "texto": "druk weekend"
+  },
+  {
+    "ruta": "plantillas.7.notas.3",
+    "texto": "gedeelde fooienpot"
+  },
+  {
+    "ruta": "plantillas.7.notas.4",
+    "texto": "rustige dienst"
+  },
+  {
+    "ruta": "plantillas.7.notas.5",
+    "texto": "ochtendstamgasten"
+  },
+  {
+    "ruta": "plantillas.7.notas.6",
+    "texto": "privé-evenement in de koffiebar"
+  },
+  {
+    "ruta": "plantillas.7.notas.7",
+    "texto": "slappe maandag"
+  },
+  {
+    "ruta": "hitos.0.nota",
+    "texto": "Salaris uit de koffiebar, om de twee weken, de basis van mijn hele maand."
+  },
+  {
+    "ruta": "hitos.1.nota",
+    "texto": "Collegegeld voor Natuurkunde, deeltijd maar het voelt voltijds."
+  },
+  {
+    "ruta": "hitos.2.nota",
+    "texto": "Huur voor mijn kamer, altijd het eerste wat ik opzijzet."
+  },
+  {
+    "ruta": "hitos.3.nota",
+    "texto": "Internet en stroom, zonder dat lukt geen huiswerk."
+  },
+  {
+    "ruta": "hitos.4.nota",
+    "texto": "Telefoonabonnement, het absolute minimum, net genoeg om kaarten te laden."
+  },
+  {
+    "ruta": "hitos.5.nota",
+    "texto": "Streaming: mijn eigen sciencefictionbioscoop, thuis op de bank."
+  },
+  {
+    "ruta": "hitos.6.nota",
+    "texto": "Autoverzekering, saaie betaling waar ik mezelf ooit dankbaar voor zal zijn."
+  },
+  {
+    "ruta": "hitos.7.nota",
+    "texto": "Mijn eerste echte hardloopschoenen; geen excuus meer."
+  },
+  {
+    "ruta": "hitos.8.nota",
+    "texto": "Inschrijving voor de 5 km: mijn allereerste startnummer."
+  },
+  {
+    "ruta": "hitos.9.nota",
+    "texto": "Inschrijving voor de 10 km, deze keer zonder lang te twijfelen."
+  },
+  {
+    "ruta": "hitos.10.nota",
+    "texto": "Halve marathon betaald; mijn knie hield het eindelijk vol."
+  },
+  {
+    "ruta": "hitos.11.nota",
+    "texto": "Tweeënveertig kilometer betaald. Geen weg meer terug."
+  },
+  {
+    "ruta": "hitos.12.nota",
+    "texto": "Mijn paspoort vernieuwen maakte van Japan geen droom meer, maar een plan."
+  },
+  {
+    "ruta": "hitos.13.nota",
+    "texto": "Reisrugzak, ik liep er volgepakt mee door het hele huis."
+  },
+  {
+    "ruta": "hitos.14.nota",
+    "texto": "Ik boekte de vlucht en mijn handen trilden: het is echt."
+  },
+  {
+    "ruta": "hitos.15.nota",
+    "texto": "JR Pass geregeld, drie weken treinen op mijn naam."
+  },
+  {
+    "ruta": "hitos.16.nota",
+    "texto": "Overnachtingen betaald: Tokio, Hakone, Kyoto, Osaka, Hiroshima."
+  },
+  {
+    "ruta": "hitos.17.nota",
+    "texto": "Ik geef het spaargeld van een heel jaar uit, cent voor cent verdiend."
+  },
+  {
+    "ruta": "hitos.18.nota",
+    "texto": "De auto ging kapot en nam mijn hele buffer mee."
+  },
+  {
+    "ruta": "hitos.19.nota",
+    "texto": "Fysiotherapie voor mijn knie: duur, maar het was dat of opgeven."
+  },
+  {
+    "ruta": "hitos.20.nota",
+    "texto": "Nieuwe banden, want de oude begonnen me angst aan te jagen."
+  },
+  {
+    "ruta": "hitos.21.nota",
+    "texto": "Grote beurt voor de auto, het onderhoud dat ik zelf koos."
+  },
+  {
+    "ruta": "hitos.22.nota",
+    "texto": "Papierwerk voor de auto, de prijs van het houden van een geliefde roestbak."
+  },
+  {
+    "ruta": "hitos.23.nota",
+    "texto": "Eindejaarsuitkering van de koffiebar: direct naar het noodfonds."
+  },
+  {
+    "ruta": "hitos.24.nota",
+    "texto": "Cadeaus voor mijn familie, nadat ik voor ze piano speelde."
+  },
+  {
+    "ruta": "hitos.25.nota",
+    "texto": "Vaccinaties voor Laika; zij snapt niets van budgetten."
+  },
+  {
+    "ruta": "metas.japon",
+    "texto": "De reis naar Japan, drie weken (voltooid)"
+  },
+  {
+    "ruta": "metas.emergencia",
+    "texto": "Noodfonds: drie maanden"
+  },
+  {
+    "ruta": "metas.inversion",
+    "texto": "CETES: mijn eerste spaargeld dat iets oplevert"
+  },
+  {
+    "ruta": "metas.deuda",
+    "texto": "Schuld van de autopech (afbetaald)"
+  }
+]

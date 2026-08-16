@@ -1,0 +1,542 @@
+[
+  {
+    "clave": "computo.hojas.deshacer",
+    "texto": "Annulla"
+  },
+  {
+    "clave": "computo.hojas.rehacer",
+    "texto": "Ripeti"
+  },
+  {
+    "clave": "computo.hojas.copiar",
+    "texto": "Copia"
+  },
+  {
+    "clave": "computo.hojas.cortar",
+    "texto": "Taglia"
+  },
+  {
+    "clave": "computo.hojas.pegar",
+    "texto": "Incolla"
+  },
+  {
+    "clave": "computo.hojas.mover",
+    "texto": "Sposta"
+  },
+  {
+    "clave": "computo.hojas.moverDestino",
+    "texto": "Tocca la destinazione"
+  },
+  {
+    "clave": "computo.hojas.borrarCeldas",
+    "texto": "Cancella"
+  },
+  {
+    "clave": "computo.hojas.rellenar",
+    "texto": "Trascina per riempire"
+  },
+  {
+    "clave": "computo.hojas.cancelar",
+    "texto": "Annulla"
+  },
+  {
+    "clave": "computo.hojas.pegarManual",
+    "texto": "Questo browser non permette di leggere gli appunti. Incolla qui quello che hai copiato: verrà inserito a partire da {ref}."
+  },
+  {
+    "clave": "computo.hojas.plantilla.blanco",
+    "texto": "Vuoto"
+  },
+  {
+    "clave": "computo.hojas.plantilla.presupuesto",
+    "texto": "Budget"
+  },
+  {
+    "clave": "computo.hojas.plantilla.notas",
+    "texto": "Media ponderata"
+  },
+  {
+    "clave": "computo.hojas.plantilla.mediciones",
+    "texto": "Registro misurazioni"
+  },
+  {
+    "clave": "computo.hojas.graficar",
+    "texto": "Crea grafico dalla selezione"
+  },
+  {
+    "clave": "computo.hojas.rangoTactil",
+    "texto": "Tocca l'ultima cella"
+  },
+  {
+    "clave": "computo.hojas.selTodo",
+    "texto": "Seleziona tutto il foglio"
+  },
+  {
+    "clave": "computo.hojas.selCol",
+    "texto": "Seleziona la colonna {col}"
+  },
+  {
+    "clave": "computo.hojas.selFila",
+    "texto": "Seleziona la riga {n}"
+  },
+  {
+    "clave": "computo.hojas.asaMover",
+    "texto": "Trascina per spostare la selezione"
+  },
+  {
+    "clave": "computo.grafica.sinTitulo",
+    "texto": "Grafico di {rango}"
+  },
+  {
+    "clave": "computo.grafica.sinDatos",
+    "texto": "In quell'intervallo non ci sono numeri da mettere in un grafico."
+  },
+  {
+    "clave": "computo.grafica.rangoMalo",
+    "texto": "L'intervallo «{rango}» non è valido."
+  },
+  {
+    "clave": "computo.grafica.ajustes",
+    "texto": "Impostazioni del grafico"
+  },
+  {
+    "clave": "computo.grafica.borrar",
+    "texto": "Elimina il grafico"
+  },
+  {
+    "clave": "computo.grafica.borrarMsg",
+    "texto": "I dati del foglio restano come sono."
+  },
+  {
+    "clave": "computo.grafica.tipo.barras",
+    "texto": "Barre"
+  },
+  {
+    "clave": "computo.grafica.tipo.lineas",
+    "texto": "Linee"
+  },
+  {
+    "clave": "computo.grafica.tipo.area",
+    "texto": "Area"
+  },
+  {
+    "clave": "computo.grafica.tipo.pastel",
+    "texto": "Torta"
+  },
+  {
+    "clave": "computo.grafica.tipo.dispersion",
+    "texto": "Dispersione"
+  },
+  {
+    "clave": "computo.grafica.tituloPlaceholder",
+    "texto": "Titolo del grafico"
+  },
+  {
+    "clave": "computo.grafica.rango",
+    "texto": "Intervallo di dati"
+  },
+  {
+    "clave": "computo.grafica.encFila",
+    "texto": "La prima riga contiene i nomi"
+  },
+  {
+    "clave": "computo.grafica.encCol",
+    "texto": "La prima colonna contiene le etichette"
+  },
+  {
+    "clave": "computo.grafica.encColX",
+    "texto": "La prima colonna contiene i valori X"
+  },
+  {
+    "clave": "computo.grafica.listo",
+    "texto": "Fatto"
+  },
+  {
+    "clave": "computo.ia.pensando",
+    "texto": "Sto pensando…"
+  },
+  {
+    "clave": "computo.ia.sinIa",
+    "texto": "Per usare l'IA, attivala in Impostazioni › IA: attivazione e prezzi."
+  },
+  {
+    "clave": "computo.ia.formulaPlaceholder",
+    "texto": "Descrivila: «area di un cono troncato»"
+  },
+  {
+    "clave": "computo.ia.escribirFormula",
+    "texto": "Scrivila con l'IA"
+  },
+  {
+    "clave": "computo.ia.falloFormula",
+    "texto": "Non è stato possibile scrivere la formula."
+  },
+  {
+    "clave": "computo.ia.explicar",
+    "texto": "Spiega passo per passo"
+  },
+  {
+    "clave": "computo.ia.falloExplicar",
+    "texto": "Non è stato possibile spiegarlo."
+  },
+  {
+    "clave": "computo.ia.cerrarPasos",
+    "texto": "Chiudi la spiegazione"
+  },
+  {
+    "clave": "computo.ia.hojaPlaceholder",
+    "texto": "Descrivila: «registro delle spese del mese»"
+  },
+  {
+    "clave": "computo.ia.armarHoja",
+    "texto": "Creala con l'IA"
+  },
+  {
+    "clave": "computo.ia.falloHoja",
+    "texto": "Non è stato possibile creare il foglio."
+  },
+  {
+    "clave": "computo.ia.analizar",
+    "texto": "Leggi i dati selezionati"
+  },
+  {
+    "clave": "computo.ia.falloAnalizar",
+    "texto": "Non è stato possibile leggere i dati."
+  },
+  {
+    "clave": "computo.ia.cerrarAnalisis",
+    "texto": "Chiudi la lettura"
+  },
+  {
+    "clave": "computo.ia.insertarSugerida",
+    "texto": "Inserisci questo grafico"
+  },
+  {
+    "clave": "computo.export.pie",
+    "texto": "Mind Planner Home · Sala di calcolo"
+  },
+  {
+    "clave": "computo.export.sinImprimir",
+    "texto": "La stampa funziona solo sul web"
+  },
+  {
+    "clave": "computo.export.sinImprimirMsg",
+    "texto": "L'app Android non ha la finestra di stampa. Aprila dal browser per salvarla in PDF."
+  },
+  {
+    "clave": "tut.app-computo--formulario.titulo",
+    "texto": "Il formulario"
+  },
+  {
+    "clave": "tut.app-computo--formulario.resumen",
+    "texto": "Il formulario è il tuo libro di formule. Include già Matematica, Fisica e Chimica, ma non sono un catalogo a parte: sono formule tue, e le modifichi, le sposti o le elimini come quelle che scrivi tu."
+  },
+  {
+    "clave": "tut.app-computo--calculadora.titulo",
+    "texto": "Calcola e crea grafici"
+  },
+  {
+    "clave": "tut.app-computo--calculadora.resumen",
+    "texto": "Una calcolatrice scientifica con cronologia, otto modalità per tutto ciò che non è un semplice calcolo occasionale — tra queste il grafico, con i suoi quattro tipi — e un risolutore di equazioni che dà le radici esatte quando può."
+  },
+  {
+    "clave": "tut.app-computo--hojas.titulo",
+    "texto": "Fogli di calcolo"
+  },
+  {
+    "clave": "tut.app-computo--hojas.resumen",
+    "texto": "Fogli con riferimenti A1 e formule (=SUMA(B2:B15)). Si esportano in Excel mantenendo le formule, o in PDF tramite la stampa."
+  },
+  {
+    "clave": "ideas.editar",
+    "texto": "Modifica"
+  },
+  {
+    "clave": "ideas.borrar",
+    "texto": "Elimina"
+  },
+  {
+    "clave": "ideas.cerrar",
+    "texto": "Chiudi"
+  },
+  {
+    "clave": "ideas.tipo.mental",
+    "texto": "Mappa mentale"
+  },
+  {
+    "clave": "ideas.tipo.arbol",
+    "texto": "Albero"
+  },
+  {
+    "clave": "ideas.tipo.llaves",
+    "texto": "Graffe"
+  },
+  {
+    "clave": "ideas.tipo.circulo",
+    "texto": "Cerchio"
+  },
+  {
+    "clave": "ideas.tipo.flujo",
+    "texto": "Diagramma di flusso"
+  },
+  {
+    "clave": "ideas.tipo.venn",
+    "texto": "Diagramma di Venn"
+  },
+  {
+    "clave": "ideas.tipo.comparacion",
+    "texto": "Confronto"
+  },
+  {
+    "clave": "ideas.tipoDesc.mental",
+    "texto": "Un'idea centrale con rami che si estendono in ogni direzione."
+  },
+  {
+    "clave": "ideas.tipoDesc.arbol",
+    "texto": "Gerarchia dall'alto verso il basso, come un organigramma."
+  },
+  {
+    "clave": "ideas.tipoDesc.llaves",
+    "texto": "L'insieme e le sue parti, da sinistra a destra."
+  },
+  {
+    "clave": "ideas.tipoDesc.circulo",
+    "texto": "Un argomento al centro, circondato da tutto quello che sai su di esso."
+  },
+  {
+    "clave": "ideas.tipoDesc.flujo",
+    "texto": "Passi in ordine con frecce, con un inizio, decisioni e una fine."
+  },
+  {
+    "clave": "ideas.tipoDesc.venn",
+    "texto": "Due o tre insiemi che si sovrappongono e ciò che hanno in comune."
+  },
+  {
+    "clave": "ideas.tipoDesc.comparacion",
+    "texto": "Due argomenti a confronto: cosa è unico di ciascuno e cosa hanno in comune."
+  },
+  {
+    "clave": "ideas.mapas.volver",
+    "texto": "Torna alle mappe"
+  },
+  {
+    "clave": "ideas.mapas.placeholder",
+    "texto": "Argomento della nuova mappa…"
+  },
+  {
+    "clave": "ideas.mapas.crear",
+    "texto": "Crea"
+  },
+  {
+    "clave": "ideas.mapas.generar",
+    "texto": "Genera la mappa con l'IA"
+  },
+  {
+    "clave": "ideas.mapas.generando",
+    "texto": "Sto disegnando la mappa…"
+  },
+  {
+    "clave": "ideas.mapas.errorIA",
+    "texto": "L'IA non è riuscita a generare la mappa:"
+  },
+  {
+    "clave": "ideas.mapas.vacio",
+    "texto": "Scegli un formato e crea la tua prima mappa con qualsiasi argomento tu abbia in mente."
+  },
+  {
+    "clave": "ideas.mapas.confirmarBorrar",
+    "texto": "Eliminare?"
+  },
+  {
+    "clave": "ideas.mapa.nuevaIdea",
+    "texto": "Nuova idea"
+  },
+  {
+    "clave": "ideas.mapa.acercar",
+    "texto": "Ingrandisci"
+  },
+  {
+    "clave": "ideas.mapa.alejar",
+    "texto": "Rimpicciolisci"
+  },
+  {
+    "clave": "ideas.mapa.encajar",
+    "texto": "Adatta la mappa"
+  },
+  {
+    "clave": "ideas.mapa.idea",
+    "texto": "Idea"
+  },
+  {
+    "clave": "ideas.mapa.hijo",
+    "texto": "Idea figlia"
+  },
+  {
+    "clave": "ideas.mapa.elemento",
+    "texto": "Elemento"
+  },
+  {
+    "clave": "ideas.mapa.forma",
+    "texto": "Cambia la forma del passo"
+  },
+  {
+    "clave": "ideas.mapa.expandir",
+    "texto": "Espandi con l'IA"
+  },
+  {
+    "clave": "ideas.mapa.confirmarBorrar",
+    "texto": "Elimina {n}"
+  },
+  {
+    "clave": "ideas.mapa.iaTitulo",
+    "texto": "Espandi la mappa"
+  },
+  {
+    "clave": "ideas.mapa.iaDescZona",
+    "texto": "Elementi proposti per «{zona}»:"
+  },
+  {
+    "clave": "ideas.mapa.iaDescNodo",
+    "texto": "Idee proposte da collegare a «{nodo}»:"
+  },
+  {
+    "clave": "ideas.mapa.ayuda",
+    "texto": "Tocca un nodo per selezionarlo, toccalo di nuovo per modificarlo e trascinalo per sistemarlo. Pizzica per lo zoom."
+  },
+  {
+    "clave": "ideas.mapa.temaA",
+    "texto": "Argomento A"
+  },
+  {
+    "clave": "ideas.mapa.temaB",
+    "texto": "Argomento B"
+  },
+  {
+    "clave": "ideas.mapa.conjuntoA",
+    "texto": "Insieme A"
+  },
+  {
+    "clave": "ideas.mapa.conjuntoB",
+    "texto": "Insieme B"
+  },
+  {
+    "clave": "ideas.mapa.enComun",
+    "texto": "In comune"
+  },
+  {
+    "clave": "ideas.mapa.soloX",
+    "texto": "Solo {x}"
+  },
+  {
+    "clave": "ideas.ia.cargando",
+    "texto": "Sto pensando idee…"
+  },
+  {
+    "clave": "ideas.ia.vacio",
+    "texto": "Questa volta l'IA non ha portato niente di nuovo; riprova tra poco."
+  },
+  {
+    "clave": "ideas.ia.ahoraNo",
+    "texto": "Non ora"
+  },
+  {
+    "clave": "ideas.ia.agregar",
+    "texto": "Aggiungi"
+  },
+  {
+    "clave": "ideas.tab.diario",
+    "texto": "Diario delle idee"
+  },
+  {
+    "clave": "ideas.tab.mapas",
+    "texto": "Mappe concettuali"
+  },
+  {
+    "clave": "ideas.tab.diagramas",
+    "texto": "Diagrammi decisionali"
+  },
+  {
+    "clave": "ideas.tipo.linea",
+    "texto": "Linea del tempo"
+  },
+  {
+    "clave": "ideas.tipo.ciclo",
+    "texto": "Ciclo"
+  },
+  {
+    "clave": "ideas.tipo.piramide",
+    "texto": "Piramide"
+  },
+  {
+    "clave": "ideas.tipo.fuerzas",
+    "texto": "Campo di forze"
+  },
+  {
+    "clave": "ideas.tipo.eisenhower",
+    "texto": "Eisenhower"
+  },
+  {
+    "clave": "ideas.tipo.decision",
+    "texto": "Albero decisionale"
+  },
+  {
+    "clave": "ideas.tipo.tier",
+    "texto": "Tier list"
+  },
+  {
+    "clave": "ideas.tipoDesc.linea",
+    "texto": "Tappe in ordine lungo una linea, dalla prima all'ultima."
+  },
+  {
+    "clave": "ideas.tipoDesc.ciclo",
+    "texto": "Fasi che si ripetono in cerchio e ricominciano."
+  },
+  {
+    "clave": "ideas.tipoDesc.piramide",
+    "texto": "Livelli impilati: alla base ciò che regge tutto, in cima il vertice."
+  },
+  {
+    "clave": "ideas.tipoDesc.fuerzas",
+    "texto": "Ciò che spinge il cambiamento contro ciò che lo frena, con la loro forza."
+  },
+  {
+    "clave": "ideas.tipoDesc.eisenhower",
+    "texto": "Urgente contro importante: cosa fai subito, cosa programmi, cosa lasci perdere."
+  },
+  {
+    "clave": "ideas.tipoDesc.decision",
+    "texto": "Ogni opzione e dove ti porta, ramo per ramo."
+  },
+  {
+    "clave": "ideas.tipoDesc.tier",
+    "texto": "Righe da S a D per classificare qualsiasi cosa per livello."
+  },
+  {
+    "clave": "ideas.tipo.matriz",
+    "texto": "Matrice decisionale"
+  },
+  {
+    "clave": "ideas.tipoDesc.matriz",
+    "texto": "Diverse opzioni valutate secondo i criteri che ti stanno davvero a cuore."
+  },
+  {
+    "clave": "ideas.guia.matriz",
+    "texto": "Ogni criterio pesa quanto ti importa (da 1 a 5) e ogni opzione riceve un punteggio da 1 a 5 su di esso. Il totale moltiplica il punteggio per il peso, così niente vince solo per essere ottimo in ciò che non ti interessa."
+  },
+  {
+    "clave": "ideas.matriz.criterio",
+    "texto": "Criterio"
+  },
+  {
+    "clave": "ideas.matriz.opcion",
+    "texto": "Opzione"
+  },
+  {
+    "clave": "ideas.matriz.peso",
+    "texto": "Peso"
+  },
+  {
+    "clave": "ideas.matriz.pesoAyuda",
+    "texto": "Quanto ti importa questo criterio (1-5)"
+  }
+]

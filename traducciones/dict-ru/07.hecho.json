@@ -1,0 +1,550 @@
+[
+  {
+    "clave": "despacho.patr.efectivoOjo",
+    "texto": "Сходится, только если операции ведутся с самого начала. Если счета уже внесены выше, оставь это выключенным — иначе одни и те же деньги посчитаются дважды."
+  },
+  {
+    "clave": "despacho.patr.nueva",
+    "texto": "Добавить"
+  },
+  {
+    "clave": "despacho.patr.vacio",
+    "texto": "Здесь пока пусто. Запиши, что у тебя есть — или какие у тебя долги."
+  },
+  {
+    "clave": "despacho.patr.phFisico",
+    "texto": "Например, квартира, машина"
+  },
+  {
+    "clave": "despacho.patr.phLiquido",
+    "texto": "Например, зарплатный счёт"
+  },
+  {
+    "clave": "despacho.patr.phPasivo",
+    "texto": "Например, ипотека"
+  },
+  {
+    "clave": "despacho.patr.phMonto",
+    "texto": "Сумма"
+  },
+  {
+    "clave": "despacho.patr.escrito",
+    "texto": "как указано"
+  },
+  {
+    "clave": "despacho.patr.porTasas",
+    "texto": "по твоим ставкам"
+  },
+  {
+    "clave": "despacho.patr.verEscrito",
+    "texto": "показать только введённое"
+  },
+  {
+    "clave": "despacho.patr.verEstimado",
+    "texto": "показать со ставками"
+  },
+  {
+    "clave": "despacho.patr.detalles",
+    "texto": "Как это меняется со временем"
+  },
+  {
+    "clave": "despacho.patr.phTasaActivo",
+    "texto": "Рост или падение в год, %"
+  },
+  {
+    "clave": "despacho.patr.phTasaPasivo",
+    "texto": "Ставка по кредиту, %"
+  },
+  {
+    "clave": "despacho.patr.phPago",
+    "texto": "Ежемесячный платёж"
+  },
+  {
+    "clave": "despacho.patr.ayudaTasaActivo",
+    "texto": "Отрицательное число, если стоимость падает, как у машины."
+  },
+  {
+    "clave": "despacho.patr.tasaBanco",
+    "texto": "Годовая ставка от банка и сумма, которую платишь каждый месяц."
+  },
+  {
+    "clave": "despacho.patr.alAno",
+    "texto": "%/год"
+  },
+  {
+    "clave": "despacho.patr.cuota",
+    "texto": "{n}/мес."
+  },
+  {
+    "clave": "despacho.patr.eran",
+    "texto": "было {n}"
+  },
+  {
+    "clave": "despacho.patr.editar",
+    "texto": "Изменить запись"
+  },
+  {
+    "clave": "despacho.patr.monto",
+    "texto": "Стоимость"
+  },
+  {
+    "clave": "despacho.patr.fechaValor",
+    "texto": "С"
+  },
+  {
+    "clave": "despacho.patr.tasaActivo",
+    "texto": "Рост в год, %"
+  },
+  {
+    "clave": "despacho.patr.tasaPasivo",
+    "texto": "Годовая ставка, %"
+  },
+  {
+    "clave": "despacho.patr.pagoMensual",
+    "texto": "Платёж в месяц"
+  },
+  {
+    "clave": "despacho.patr.borrar",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "despacho.patr.borrarTitulo",
+    "texto": "Удалить эту запись?"
+  },
+  {
+    "clave": "despacho.patr.borrarMsg",
+    "texto": "«{n}» больше не будет учитываться в капитале."
+  },
+  {
+    "clave": "despacho.patr.borrarOk",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "despacho.patr.hoy",
+    "texto": "сегодня"
+  },
+  {
+    "clave": "despacho.patr.deMeta",
+    "texto": "связано с «{n}»"
+  },
+  {
+    "clave": "despacho.patr.metaIda",
+    "texto": "связанная цель больше не существует"
+  },
+  {
+    "clave": "despacho.patr.metaIdaSoltar",
+    "texto": "Связанная цель больше не существует. Нажми, чтобы отвязать эту запись."
+  },
+  {
+    "clave": "despacho.patr.montoOriginal",
+    "texto": "Первоначальный кредит"
+  },
+  {
+    "clave": "despacho.patr.valorAparte",
+    "texto": "Стоимость отдельно"
+  },
+  {
+    "clave": "despacho.patr.abonarEnMetas",
+    "texto": "Платить в разделе «Цели › Долг»"
+  },
+  {
+    "clave": "despacho.patr.aportarEnMetas",
+    "texto": "Пополнить в «Целях»"
+  },
+  {
+    "clave": "despacho.patr.desenlazar",
+    "texto": "Отвязать от цели?"
+  },
+  {
+    "clave": "despacho.patr.desenlazarMsg",
+    "texto": "Снова станут двумя разными вещами: за этой записью останется {n}, а цель будет жить своей жизнью."
+  },
+  {
+    "clave": "despacho.patr.desenlazarOk",
+    "texto": "Отвязать"
+  },
+  {
+    "clave": "despacho.patr.soltar",
+    "texto": "отвязать"
+  },
+  {
+    "clave": "despacho.patr.crearMetaDeuda",
+    "texto": "Отслеживать как цель по долгу"
+  },
+  {
+    "clave": "despacho.patr.crearMetaAhorro",
+    "texto": "Отслеживать как цель накопления"
+  },
+  {
+    "clave": "despacho.patr.enlazarMeta",
+    "texto": "Связать с уже существующей целью…"
+  },
+  {
+    "clave": "despacho.patr.objetivoTitulo",
+    "texto": "До какой суммы хочешь дойти?"
+  },
+  {
+    "clave": "despacho.patr.objetivoMsg",
+    "texto": "У тебя здесь уже есть {n}."
+  },
+  {
+    "clave": "despacho.meta.verEnPasivos",
+    "texto": "Смотреть в «Капитал › Пассивы»"
+  },
+  {
+    "clave": "despacho.meta.verEnActivos",
+    "texto": "Смотреть в «Капитал › Активы»"
+  },
+  {
+    "clave": "despacho.meta.anadirAPasivos",
+    "texto": "Добавить в «Пассивы» (со ставкой и сроком)"
+  },
+  {
+    "clave": "despacho.meta.anadirAActivos",
+    "texto": "Добавить в «Активы» (с доходностью)"
+  },
+  {
+    "clave": "despacho.tab.simulacion",
+    "texto": "Прогноз"
+  },
+  {
+    "clave": "despacho.sim.sinDatos",
+    "texto": "Пока нечего прогнозировать. Занеси то, что у тебя есть, в «Активы», а долги — в «Пассивы», укажи ставку — и здесь будет видно, куда всё идёт."
+  },
+  {
+    "clave": "despacho.sim.netoHoy",
+    "texto": "Капитал сегодня"
+  },
+  {
+    "clave": "despacho.sim.netoFinal",
+    "texto": "Через {n} мес."
+  },
+  {
+    "clave": "despacho.sim.interesesFuturos",
+    "texto": "Проценты к уплате"
+  },
+  {
+    "clave": "despacho.sim.aportado",
+    "texto": "Сколько ты внесёшь"
+  },
+  {
+    "clave": "despacho.sim.horizonte",
+    "texto": "Прогноз (месяцев)"
+  },
+  {
+    "clave": "despacho.sim.inflacion",
+    "texto": "Годовая инфляция, %"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoy",
+    "texto": "Смотреть в сегодняшних деньгах"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoyAyuda",
+    "texto": "Учитывает инфляцию: показывает, сколько эти деньги будут стоить на самом деле, а не сколько купюр наберётся."
+  },
+  {
+    "clave": "despacho.sim.flujoMensual",
+    "texto": "Прибавлять то, что я коплю каждый месяц"
+  },
+  {
+    "clave": "despacho.sim.flujoAyuda",
+    "texto": "По твоим операциям: {i} приходит и {g} уходит каждый месяц."
+  },
+  {
+    "clave": "despacho.sim.crecIngreso",
+    "texto": "Мои доходы растут, %/год"
+  },
+  {
+    "clave": "despacho.sim.crecGasto",
+    "texto": "Мои расходы растут, %/год"
+  },
+  {
+    "clave": "despacho.sim.pagosYaEnGastos",
+    "texto": "Платежи по долгам уже учтены в расходах"
+  },
+  {
+    "clave": "despacho.sim.pagosDeudaMes",
+    "texto": "По долгам нужно платить {n} в месяц. Если это ещё не внесено как расход, выключи этот пункт — тогда сумма вычтется отдельно."
+  },
+  {
+    "clave": "despacho.sim.activos",
+    "texto": "Активы"
+  },
+  {
+    "clave": "despacho.sim.pasivos",
+    "texto": "Пассивы"
+  },
+  {
+    "clave": "despacho.sim.neto",
+    "texto": "Капитал"
+  },
+  {
+    "clave": "despacho.sim.hoy",
+    "texto": "сегодня"
+  },
+  {
+    "clave": "despacho.sim.hitoLiquidas",
+    "texto": "Ты выплатишь «{n}» полностью через {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoPositivo",
+    "texto": "Капитал перестанет быть отрицательным через {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoDoble",
+    "texto": "Капитал удвоится через {f}"
+  },
+  {
+    "clave": "despacho.sim.noBaja",
+    "texto": "«{n}» не уменьшается при {p} в месяц: одни только проценты составляют {i}."
+  },
+  {
+    "clave": "despacho.sim.creceSinPago",
+    "texto": "У «{n}» есть ставка, но нет ежемесячного платежа: сумма только растёт."
+  },
+  {
+    "clave": "despacho.sim.avisoCorta",
+    "texto": "Это прогноз, а не обещание."
+  },
+  {
+    "clave": "despacho.sim.controles",
+    "texto": "Настрой сценарий"
+  },
+  {
+    "clave": "despacho.periodo.anterior",
+    "texto": "Предыдущий период"
+  },
+  {
+    "clave": "despacho.periodo.siguiente",
+    "texto": "Следующий период"
+  },
+  {
+    "clave": "despacho.sim.aviso",
+    "texto": "Это основано на введённых тобой ставках: пригодится, чтобы сравнить сценарии, а не чтобы узнать, что будет на самом деле."
+  },
+  {
+    "clave": "despacho.meta.hasPuesto",
+    "texto": "внесено {n}"
+  },
+  {
+    "clave": "despacho.meta.pediste",
+    "texto": "взято в долг {n}"
+  },
+  {
+    "clave": "despacho.meta.valenHoy",
+    "texto": "сегодня стоит {n}"
+  },
+  {
+    "clave": "despacho.meta.debesHoy",
+    "texto": "сегодня долг — {n}"
+  },
+  {
+    "clave": "despacho.meta.deRendimiento",
+    "texto": "доходности"
+  },
+  {
+    "clave": "despacho.meta.deIntereses",
+    "texto": "процентов"
+  },
+  {
+    "clave": "despacho.meta.tasaPuesta",
+    "texto": "{n} %/год"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaDeuda",
+    "texto": "Указать процентную ставку"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaAhorro",
+    "texto": "Указать доходность"
+  },
+  {
+    "clave": "despacho.meta.tasaDeuda",
+    "texto": "Годовая ставка, %"
+  },
+  {
+    "clave": "despacho.meta.tasaAhorro",
+    "texto": "Доходность в год, %"
+  },
+  {
+    "clave": "despacho.meta.desde",
+    "texto": "С"
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaDeuda",
+    "texto": "Та, что даёт банк. Каждый внесённый платёж перестаёт начислять проценты с даты записи."
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaAhorro",
+    "texto": "Каждый взнос начинает приносить доход со дня внесения, а не с самого начала."
+  },
+  {
+    "clave": "despacho.meta.movs",
+    "texto": "Операции ({n})"
+  },
+  {
+    "clave": "despacho.meta.borrarTitulo",
+    "texto": "Удалить эту цель?"
+  },
+  {
+    "clave": "despacho.meta.borrarMsg",
+    "texto": "«{n}» исчезнет; операции останутся в истории, но без привязки."
+  },
+  {
+    "clave": "despacho.meta.borrarOk",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "despacho.meta.deshacer",
+    "texto": "Отменить этот платёж"
+  },
+  {
+    "clave": "despacho.metas.disponible",
+    "texto": "Доступно в этом месяце"
+  },
+  {
+    "clave": "despacho.metas.disponibleDetalle",
+    "texto": "доход {i} − расходы {g}"
+  },
+  {
+    "clave": "despacho.plan.titulo",
+    "texto": "Цели"
+  },
+  {
+    "clave": "despacho.plan.desc",
+    "texto": "Твоя большая цель на временной шкале. Значок ✨ — и ИИ составит план взносов."
+  },
+  {
+    "clave": "despacho.plan.ejAhorro",
+    "texto": "Финансовая подушка"
+  },
+  {
+    "clave": "despacho.plan.material",
+    "texto": "Откуда возьмутся деньги"
+  },
+  {
+    "clave": "despacho.plan.ejDeuda",
+    "texto": "Погасить кредитную карту"
+  },
+  {
+    "clave": "despacho.calc.titulo",
+    "texto": "Финансовые калькуляторы"
+  },
+  {
+    "clave": "despacho.calc.tab.fondoEmergencia",
+    "texto": "Финансовая подушка"
+  },
+  {
+    "clave": "despacho.calc.tab.libertadFinanciera",
+    "texto": "Финансовая независимость"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaCincuenta",
+    "texto": "50/30/20"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaAuto",
+    "texto": "Авто 20/4/10"
+  },
+  {
+    "clave": "despacho.calc.crearMeta",
+    "texto": "Создать цель с этой суммой"
+  },
+  {
+    "clave": "despacho.calc.metaCreada",
+    "texto": "Цель создана — посмотри выше"
+  },
+  {
+    "clave": "despacho.calc.gastoEsencial",
+    "texto": "Обязательные расходы в месяц"
+  },
+  {
+    "clave": "despacho.calc.mesesColchon",
+    "texto": "Месяцев запаса"
+  },
+  {
+    "clave": "despacho.calc.fondoObjetivo",
+    "texto": "Целевой фонд"
+  },
+  {
+    "clave": "despacho.calc.fondoNota",
+    "texto": "{g} × {n} мес."
+  },
+  {
+    "clave": "despacho.calc.nombreFondo",
+    "texto": "Финансовая подушка"
+  },
+  {
+    "clave": "despacho.calc.gastoDeseado",
+    "texto": "Желаемые расходы в месяц"
+  },
+  {
+    "clave": "despacho.calc.tasaRetiro",
+    "texto": "Безопасная ставка изъятия, %"
+  },
+  {
+    "clave": "despacho.calc.libertadObjetivo",
+    "texto": "Тебе нужно инвестировать"
+  },
+  {
+    "clave": "despacho.calc.libertadNota",
+    "texto": "Твои годовые расходы × {n}"
+  },
+  {
+    "clave": "despacho.calc.nombreLibertad",
+    "texto": "Финансовая независимость"
+  },
+  {
+    "clave": "despacho.calc.ingresoMensual",
+    "texto": "Месячный доход"
+  },
+  {
+    "clave": "despacho.calc.pctNecesidades",
+    "texto": "Нужды, %"
+  },
+  {
+    "clave": "despacho.calc.pctCaprichos",
+    "texto": "Желания, %"
+  },
+  {
+    "clave": "despacho.calc.pctAhorro",
+    "texto": "Накопления, %"
+  },
+  {
+    "clave": "despacho.calc.noSuman100",
+    "texto": "Проценты в сумме дают {n}%, а не 100%."
+  },
+  {
+    "clave": "despacho.calc.necesidades",
+    "texto": "Нужды"
+  },
+  {
+    "clave": "despacho.calc.caprichos",
+    "texto": "Желания"
+  },
+  {
+    "clave": "despacho.calc.ahorroTxt",
+    "texto": "Накопления"
+  },
+  {
+    "clave": "despacho.calc.nombreCaprichos",
+    "texto": "Бюджет на желания"
+  },
+  {
+    "clave": "despacho.calc.precioAuto",
+    "texto": "Цена автомобиля"
+  },
+  {
+    "clave": "despacho.calc.pctEnganche",
+    "texto": "Первоначальный взнос, %"
+  },
+  {
+    "clave": "despacho.calc.plazoMax",
+    "texto": "Макс. срок (мес.)"
+  },
+  {
+    "clave": "despacho.calc.pctIngresoAuto",
+    "texto": "Макс. от дохода, %"
+  }
+]

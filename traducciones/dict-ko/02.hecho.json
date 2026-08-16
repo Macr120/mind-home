@@ -1,0 +1,698 @@
+[
+ {
+  "clave": "canchas.tocaParaEditar",
+  "texto": "지도의 코트를 탭하면 편집할 수 있어요."
+ },
+ {
+  "clave": "canchas.ayuda",
+  "texto": "지도를 탭해서 배치해요. 편집 모드에서 코트를 탭하면 색상, 크기, 방향을 바꿀 수 있어요."
+ },
+ {
+  "clave": "canchas.resumen.nota",
+  "texto": "한번 배치한 코트는 다른 지도 오브젝트처럼 이동하고 삭제할 수 있어요."
+ },
+ {
+  "clave": "huerto.herr.parcela",
+  "texto": "구획"
+ },
+ {
+  "clave": "huerto.herr.sembrar",
+  "texto": "씨앗 심기"
+ },
+ {
+  "clave": "huerto.herr.regar",
+  "texto": "물 주기"
+ },
+ {
+  "clave": "huerto.herr.cosechar",
+  "texto": "수확"
+ },
+ {
+  "clave": "huerto.herr.aspersor",
+  "texto": "스프링클러"
+ },
+ {
+  "clave": "huerto.herr.quitar",
+  "texto": "제거"
+ },
+ {
+  "clave": "huerto.etiqueta.listo",
+  "texto": "준비 완료"
+ },
+ {
+  "clave": "huerto.etiqueta.marchito",
+  "texto": "시듦"
+ },
+ {
+  "clave": "huerto.etiqueta.ver",
+  "texto": "자세히 보기"
+ },
+ {
+  "clave": "huerto.etiqueta.guardar",
+  "texto": "알림 닫기"
+ },
+ {
+  "clave": "huerto.aviso.listo",
+  "texto": "수확할 준비가 됐어요!"
+ },
+ {
+  "clave": "huerto.aspersor.auto",
+  "texto": "자동 급수"
+ },
+ {
+  "clave": "huerto.especie.zanahoria",
+  "texto": "당근"
+ },
+ {
+  "clave": "huerto.especie.lechuga",
+  "texto": "상추"
+ },
+ {
+  "clave": "huerto.especie.girasol",
+  "texto": "해바라기"
+ },
+ {
+  "clave": "huerto.especie.tomate",
+  "texto": "토마토"
+ },
+ {
+  "clave": "huerto.especie.maiz",
+  "texto": "옥수수"
+ },
+ {
+  "clave": "huerto.especie.calabaza",
+  "texto": "호박"
+ },
+ {
+  "clave": "huerto.ayuda",
+  "texto": "작물은 실시간으로 자라고 물이 필요해요. 파란 물방울이 알려줘요. 물을 안 주면 시들고, 시간이 지나면 구획이 저절로 정리돼요. 스프링클러는 자기 칸과 주변 8칸에 자동으로 물을 줘요. 수확물은 바구니로 들어가요(다 자란 작물 위를 걸어도 수확돼요). 동물들의 먹이가 돼요."
+ },
+ {
+  "clave": "huerto.stat.parcelas",
+  "texto": "구획"
+ },
+ {
+  "clave": "huerto.stat.creciendo",
+  "texto": "자라는 중"
+ },
+ {
+  "clave": "huerto.stat.listos",
+  "texto": "준비됨"
+ },
+ {
+  "clave": "huerto.stat.marchitos",
+  "texto": "시듦"
+ },
+ {
+  "clave": "huerto.stat.cosechas",
+  "texto": "수확 횟수"
+ },
+ {
+  "clave": "huerto.resumen.nota",
+  "texto": "작물은 실시간으로 자라요. 제때 물을 주지 않으면 시들어요."
+ },
+ {
+  "clave": "huerto.cesta",
+  "texto": "바구니"
+ },
+ {
+  "clave": "granja.animal.gallina",
+  "texto": "닭"
+ },
+ {
+  "clave": "granja.animal.cerdo",
+  "texto": "돼지"
+ },
+ {
+  "clave": "granja.animal.cabra",
+  "texto": "염소"
+ },
+ {
+  "clave": "granja.animal.oveja",
+  "texto": "양"
+ },
+ {
+  "clave": "granja.animal.vaca",
+  "texto": "소"
+ },
+ {
+  "clave": "granja.animal.caballo",
+  "texto": "말"
+ },
+ {
+  "clave": "granja.come",
+  "texto": "먹는 주기"
+ },
+ {
+  "clave": "granja.herr.corral",
+  "texto": "우리"
+ },
+ {
+  "clave": "granja.herr.animal",
+  "texto": "동물"
+ },
+ {
+  "clave": "granja.herr.alimentar",
+  "texto": "먹이 주기"
+ },
+ {
+  "clave": "granja.herr.mimar",
+  "texto": "쓰다듬기"
+ },
+ {
+  "clave": "granja.herr.curar",
+  "texto": "치료"
+ },
+ {
+  "clave": "granja.herr.limpiar",
+  "texto": "청소"
+ },
+ {
+  "clave": "granja.herr.accesorio",
+  "texto": "장난감"
+ },
+ {
+  "clave": "granja.herr.nombrar",
+  "texto": "이름 짓기"
+ },
+ {
+  "clave": "granja.herr.quitar",
+  "texto": "제거"
+ },
+ {
+  "clave": "granja.accesorio.lodo",
+  "texto": "진흙 웅덩이"
+ },
+ {
+  "clave": "granja.accesorio.tina",
+  "texto": "목욕통"
+ },
+ {
+  "clave": "granja.accesorio.pelota",
+  "texto": "공"
+ },
+ {
+  "clave": "granja.cestaVacia",
+  "texto": "비어 있음 — '음식'에서 수확"
+ },
+ {
+  "clave": "granja.sinComida",
+  "texto": "바구니가 비어 있어요. '음식'에서 수확해서 먹이를 주세요."
+ },
+ {
+  "clave": "granja.corralLleno",
+  "texto": "우리가 가득 찼어요. 넓히거나 새로 지어보세요."
+ },
+ {
+  "clave": "granja.noCabe",
+  "texto": "거기엔 놓을 수 없어요. 지도를 벗어나거나 다른 우리와 겹쳐요."
+ },
+ {
+  "clave": "granja.nombrar.elegir",
+  "texto": "우리를 탭하면 동물을 볼 수 있어요."
+ },
+ {
+  "clave": "granja.nombrar.titulo",
+  "texto": "동물을 탭하면 이름을 바꿀 수 있어요"
+ },
+ {
+  "clave": "granja.nombrar.placeholder",
+  "texto": "이름"
+ },
+ {
+  "clave": "granja.nombrar.guardar",
+  "texto": "저장"
+ },
+ {
+  "clave": "granja.nombrar.vacio",
+  "texto": "이 우리에는 동물이 없어요."
+ },
+ {
+  "clave": "granja.capacidad",
+  "texto": "수용량"
+ },
+ {
+  "clave": "granja.burbuja.alimentar",
+  "texto": "먹이 주기"
+ },
+ {
+  "clave": "granja.burbuja.acariciar",
+  "texto": "쓰다듬기"
+ },
+ {
+  "clave": "granja.burbuja.curar",
+  "texto": "치료"
+ },
+ {
+  "clave": "granja.burbuja.limpiar",
+  "texto": "청소"
+ },
+ {
+  "clave": "granja.barra.comida",
+  "texto": "식량"
+ },
+ {
+  "clave": "granja.barra.animo",
+  "texto": "기분"
+ },
+ {
+  "clave": "granja.hayEnfermos",
+  "texto": "아픈 동물이 있어요. 치료하면 다시 먹을 수 있어요."
+ },
+ {
+  "clave": "granja.sinEnfermos",
+  "texto": "그 우리에는 아픈 동물이 없어요."
+ },
+ {
+  "clave": "granja.yaLimpio",
+  "texto": "그 우리는 이미 깨끗했어요. 이번 주는 다시 시작돼요."
+ },
+ {
+  "clave": "granja.etiqueta.enfermo",
+  "texto": "아픔"
+ },
+ {
+  "clave": "granja.etiqueta.dias",
+  "texto": "{n}일"
+ },
+ {
+  "clave": "granja.aviso.enfermo.titulo",
+  "texto": "🤒 {nombre}님이 병에 걸렸어요"
+ },
+ {
+  "clave": "granja.aviso.enfermo.cuerpo",
+  "texto": "농장에서 치료해주세요. {dias}일 남았어요."
+ },
+ {
+  "clave": "granja.aviso.muerte.titulo",
+  "texto": "💔 {nombre}님이 세상을 떠났어요"
+ },
+ {
+  "clave": "granja.aviso.muerte.cuerpo",
+  "texto": "오랫동안 아팠는데 치료를 받지 못했어요."
+ },
+ {
+  "clave": "granja.ayuda",
+  "texto": "'우리' 도구로 우리를 만들고, 인접한 칸을 탭해서 넓힐 수 있어요. 동물을 여러 마리 넣고, 수확물로 먹이를 주고, 쓰다듬고 장난감도 줘보세요. 오래 굶으면 병에 걸려요: 일주일 안에 치료해주세요. 우리는 일주일에 한 번 청소하지 않으면 기분 저하 속도가 두 배가 돼요."
+ },
+ {
+  "clave": "granja.stat.hambrientos",
+  "texto": "배고픔"
+ },
+ {
+  "clave": "granja.stat.aburridos",
+  "texto": "지루함"
+ },
+ {
+  "clave": "granja.stat.enfermos",
+  "texto": "아픔"
+ },
+ {
+  "clave": "granja.stat.sucios",
+  "texto": "더러운 우리"
+ },
+ {
+  "clave": "granja.resumen.nota",
+  "texto": "'음식' 바구니로 먹이를 줘요."
+ },
+ {
+  "clave": "tren.bajarte",
+  "texto": "내리기"
+ },
+ {
+  "clave": "tren.montarTren",
+  "texto": "기차 타기"
+ },
+ {
+  "clave": "tren.montarCarrito",
+  "texto": "카트 타기"
+ },
+ {
+  "clave": "juego.tu",
+  "texto": "나"
+ },
+ {
+  "clave": "juego.rival",
+  "texto": "상대"
+ },
+ {
+  "clave": "juego.gol",
+  "texto": "고오오올! 🎉"
+ },
+ {
+  "clave": "juego.golRival",
+  "texto": "상대가 득점했어요…"
+ },
+ {
+  "clave": "juego.canasta2",
+  "texto": "골! +2 🎉"
+ },
+ {
+  "clave": "juego.canasta3",
+  "texto": "3점 슛! +3 🎉"
+ },
+ {
+  "clave": "juego.canastaRival",
+  "texto": "상대가 득점했어요…"
+ },
+ {
+  "clave": "juego.fallo",
+  "texto": "슛 실패…"
+ },
+ {
+  "clave": "juego.puntoTenis",
+  "texto": "득점! 🎉"
+ },
+ {
+  "clave": "juego.puntoTenisRival",
+  "texto": "상대 득점…"
+ },
+ {
+  "clave": "juego.comoJugar",
+  "texto": "어떻게 플레이할까요?"
+ },
+ {
+  "clave": "juego.solo",
+  "texto": "혼자 플레이"
+ },
+ {
+  "clave": "juego.soloFronton",
+  "texto": "혼자 플레이(벽치기)"
+ },
+ {
+  "clave": "juego.soloMaquina",
+  "texto": "혼자 플레이(피칭 머신)"
+ },
+ {
+  "clave": "juego.contraIA",
+  "texto": "아니면 어시스턴트와 대결:"
+ },
+ {
+  "clave": "juego.peloteo",
+  "texto": "나이스 샷! +1"
+ },
+ {
+  "clave": "juego.seEscapo",
+  "texto": "놓쳤어요…"
+ },
+ {
+  "clave": "juego.aLaRed",
+  "texto": "네트에 걸렸어요…"
+ },
+ {
+  "clave": "juego.fuera",
+  "texto": "아웃!"
+ },
+ {
+  "clave": "juego.dificultad",
+  "texto": "난이도"
+ },
+ {
+  "clave": "juego.perspectiva",
+  "texto": "시점"
+ },
+ {
+  "clave": "juego.vistaIso",
+  "texto": "아이소메트릭"
+ },
+ {
+  "clave": "juego.vista3",
+  "texto": "3인칭"
+ },
+ {
+  "clave": "juego.patear",
+  "texto": "차기"
+ },
+ {
+  "clave": "juego.tirar",
+  "texto": "슛"
+ },
+ {
+  "clave": "juego.golpear",
+  "texto": "치기"
+ },
+ {
+  "clave": "juego.hintFutbol",
+  "texto": "길게 눌러 힘을 모으고, 떼면 차기(스페이스)"
+ },
+ {
+  "clave": "juego.hintBasket",
+  "texto": "길게 눌러 파워를 조절하고, 떼면 슛(스페이스)"
+ },
+ {
+  "clave": "juego.hintTenis",
+  "texto": "바라보는 방향으로 조준하고, 탭해서 서브하거나 치기(스페이스)"
+ },
+ {
+  "clave": "juego.batear",
+  "texto": "스윙"
+ },
+ {
+  "clave": "juego.hintBeisbol",
+  "texto": "길게 눌러 스윙을 모으고, 공이 오면 떼기(스페이스)"
+ },
+ {
+  "clave": "juego.homerun",
+  "texto": "홈런! +3 🎉"
+ },
+ {
+  "clave": "juego.hit",
+  "texto": "안타! +1"
+ },
+ {
+  "clave": "juego.foul",
+  "texto": "파울…"
+ },
+ {
+  "clave": "juego.strike",
+  "texto": "스트라이크!"
+ },
+ {
+  "clave": "juego.ponche",
+  "texto": "삼진 아웃! 스트라이크 3개…"
+ },
+ {
+  "clave": "dif.muyFacil",
+  "texto": "매우 쉬움"
+ },
+ {
+  "clave": "dif.facil",
+  "texto": "쉬움"
+ },
+ {
+  "clave": "dif.normal",
+  "texto": "보통"
+ },
+ {
+  "clave": "dif.dificil",
+  "texto": "어려움"
+ },
+ {
+  "clave": "dif.experto",
+  "texto": "전문가"
+ },
+ {
+  "clave": "juego.juegos",
+  "texto": "게임"
+ },
+ {
+  "clave": "juego.sets",
+  "texto": "세트"
+ },
+ {
+  "clave": "juego.peloteoActual",
+  "texto": "랠리"
+ },
+ {
+  "clave": "juego.record",
+  "texto": "기록"
+ },
+ {
+  "clave": "juego.juegoTuyo",
+  "texto": "게임 승리! 🎉"
+ },
+ {
+  "clave": "juego.juegoRival",
+  "texto": "상대가 게임을 이겼어요…"
+ },
+ {
+  "clave": "juego.setTuyo",
+  "texto": "세트 승리! 🎉"
+ },
+ {
+  "clave": "juego.setRival",
+  "texto": "상대가 세트를 이겼어요…"
+ },
+ {
+  "clave": "juego.partidoTuyo",
+  "texto": "경기에서 승리했어요! 🏆"
+ },
+ {
+  "clave": "juego.partidoRival",
+  "texto": "상대가 경기에서 승리했어요…"
+ },
+ {
+  "clave": "juego.nuevoRecord",
+  "texto": "신기록! 🎉"
+ },
+ {
+  "clave": "progreso.cargando",
+  "texto": "진행 상황을 계산하는 중…"
+ },
+ {
+  "clave": "progreso.jugador",
+  "texto": "내 캐릭터"
+ },
+ {
+  "clave": "progreso.editarAvatar",
+  "texto": "내 캐릭터 편집"
+ },
+ {
+  "clave": "progreso.humor.feliz",
+  "texto": "기분이 좋아요! 연속 기록을 이어가 보세요."
+ },
+ {
+  "clave": "progreso.humor.contento",
+  "texto": "만족스러워해요. 오늘 한 번 더 기록하면 기운이 날 거예요."
+ },
+ {
+  "clave": "progreso.humor.triste",
+  "texto": "슬퍼해요… 앱에 뭔가 기록해서 기운을 북돋아 주세요."
+ },
+ {
+  "clave": "progreso.humor.dormido",
+  "texto": "자고 있어요. 앱을 사용해서 깨워주세요."
+ },
+ {
+  "clave": "progreso.radarCuartos",
+  "texto": "방별 XP"
+ },
+ {
+  "clave": "meta.generica",
+  "texto": "오늘 뭔가 기록해보세요"
+ },
+ {
+  "clave": "meta.cumplida",
+  "texto": "완료!"
+ },
+ {
+  "clave": "meta.pendiente",
+  "texto": "대기 중"
+ },
+ {
+  "clave": "meta.apagada",
+  "texto": "목표 없음"
+ },
+ {
+  "clave": "meta.aMano",
+  "texto": "수동"
+ },
+ {
+  "clave": "meta.auto",
+  "texto": "자동으로 되돌리기"
+ },
+ {
+  "clave": "meta.marcar",
+  "texto": "완료로 표시"
+ },
+ {
+  "clave": "meta.desmarcar",
+  "texto": "미완료로 표시"
+ },
+ {
+  "clave": "meta.agendar",
+  "texto": "캘린더에 일정 추가"
+ },
+ {
+  "clave": "hoy.titulo",
+  "texto": "오늘"
+ },
+ {
+  "clave": "hoy.alDia",
+  "texto": "오늘 할 일을 모두 마쳤어요"
+ },
+ {
+  "clave": "hoy.hechos",
+  "texto": "완료({n})"
+ },
+ {
+  "clave": "hoy.registrar",
+  "texto": "기록하기"
+ },
+ {
+  "clave": "hoy.objetivo",
+  "texto": "매일의 목표(0으로 설정하면 꺼져요)"
+ },
+ {
+  "clave": "cal.meta.mientrasDure",
+  "texto": "지속되는 동안에는 저에게"
+ },
+ {
+  "clave": "cal.meta.unObjetivo",
+  "texto": "하루 목표를"
+ },
+ {
+  "clave": "cal.meta.unaActividad",
+  "texto": "매주 활동을"
+ },
+ {
+  "clave": "cal.meta.diasRitmo",
+  "texto": "{hechos}/{pedidos}일"
+ },
+ {
+  "clave": "rutinas.sinApp",
+  "texto": "앱 없음(집 이벤트)"
+ },
+ {
+  "clave": "cocina.metaDiaria",
+  "texto": "오늘의 물"
+ },
+ {
+  "clave": "cocina.objetivo.comidas",
+  "texto": "오늘의 식사"
+ },
+ {
+  "clave": "cocina.objetivo.vaso",
+  "texto": "한 잔"
+ },
+ {
+  "clave": "ejercicio.metaDiaria",
+  "texto": "오늘 운동하기"
+ },
+ {
+  "clave": "hobbies.metaDiaria",
+  "texto": "오늘 연습하기"
+ },
+ {
+  "clave": "jardin.metaDiaria",
+  "texto": "오늘의 평온"
+ },
+ {
+  "clave": "idiomas.metaDiaria",
+  "texto": "오늘의 복습"
+ },
+ {
+  "clave": "biblioteca.metaDiaria",
+  "texto": "오늘의 학습"
+ },
+ {
+  "clave": "diario.metaDiaria",
+  "texto": "오늘의 신문 읽기"
+ },
+ {
+  "clave": "descanso.metaDiaria",
+  "texto": "오늘 밤 기록하기"
+ },
+ {
+  "clave": "sala.evento.viaje",
+  "texto": "여행"
+ },
+ {
+  "clave": "sala.evento.dia",
+  "texto": "{n}일차"
+ },
+ {
+  "clave": "ejercicio.tab.cronograma",
+  "texto": "목표"
+ }
+]

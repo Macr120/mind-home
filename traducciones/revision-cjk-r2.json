@@ -1,0 +1,3092 @@
+[
+  {
+    "idioma": "ja",
+    "clave": "nav.ayuda.tarjetaTexto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "部屋をタップするとアプリが開きます。歯車アイコンでオプション（移動・削除・編集）を開けます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "infra.resumen.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "このテンプレートは3Dマップ上に建てます：メニュー→テンプレート→エクストラ→建てる。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.solo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一人で走る（タイムトライアル）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.contraIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "またはアシスタントと対戦："
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.ya",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "スタート！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.ganaste",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "レースに勝った！🏆"
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.fin",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "レース終了！🏁"
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.msg.record",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "新記録ラップ！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.msg.vuelta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ラップ完了！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "carrera.usarItem",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "アイテムを使う（E）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.paintball.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "家をマップにして、アシスタントとペイントボールで対戦（1対1、2対2、バトルロイヤル）。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.eligeRival",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ライバルを選んでください："
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.eligeCompanero",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "チームメイトを選んでください（ライバルはランダムです）："
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.royaleDesc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "総当たり戦：家じゅうでアシスタント全員と対決します。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.posicionate",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "物陰に隠れて！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.ya",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "スタート！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.hintDisparar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "長押しで発射（スペース）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.hintApuntar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "長押しで狙う（PCは右クリック）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.cambiarVista",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "1人称と3人称を切り替え（Vキー）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "tiro.hintDisparar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "長押しで発射（左クリックまたはスペース）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "tiro.hintApuntar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "狙う（PCは右クリック、タッチはタップで固定）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.ganaste",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "バトルに勝った！🏆"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.msg.fuera",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "{nombre}が脱落しました！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.msg.teDieron",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "被弾した！ライフが1つ減った"
+  },
+  {
+    "idioma": "ja",
+    "clave": "paintball.resumen.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "このモードは3Dマップでプレイします：メニュー→テンプレート→エクストラ→プレイ。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "caminos.resumen.unidad",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "カウントは区間（道のあるマスの数）です。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "canchas.rotar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "回転（R）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "huerto.aviso.listo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "収穫の準備ができました！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "huerto.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "作物はリアルタイムで育ち、水やりが必要です。青い水滴が知らせてくれます。水をやらないと枯れてしまい、しばらくすると区画は自然に片付きます。スプリンクラーは自分のマスと周囲8マスに自動で水をやります。収穫したものはカゴに入り（準備完了のマスを歩いて通っても入ります）、動物たちのエサになります。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.gol",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ゴーーール！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.canasta2",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ゴール！+2 🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.canasta3",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "スリーポイント！+3 🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.puntoTenis",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ポイント獲得！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.comoJugar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "どうやってプレイしますか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.soloFronton",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一人でプレイ（壁打ち）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.soloMaquina",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一人でプレイ（ピッチングマシン）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.contraIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "またはアシスタントと対戦："
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.peloteo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ナイスヒット！+1"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.fuera",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "アウト！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.hintFutbol",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "長押しでためて、離すとキック（スペース）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.hintBasket",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "長押しでパワーを調整し、離すとシュート（スペース）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.hintTenis",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "体の向きで狙いを定め、タップでサーブまたは打球（スペース）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.hintBeisbol",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "長押しでスイングをためて、ボールが来たら離す（スペース）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.homerun",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ホームラン！+3 🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.hit",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ヒット！+1"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.strike",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ストライク！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.ponche",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "三振！ストライク3つ…"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.juegoTuyo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ゲームを取った！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.setTuyo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "セットを取った！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.partidoTuyo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "試合に勝った！🏆"
+  },
+  {
+    "idioma": "ja",
+    "clave": "juego.nuevoRecord",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "新記録！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "progreso.humor.feliz",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "嬉しそうです！この調子で連続記録を続けましょう。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "meta.cumplida",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "完了！"
+  },
+  {
+    "idioma": "ja",
+    "clave": "hoy.hechos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "完了（{n}）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "hoy.objetivo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "毎日の目標（0でオフ）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "rutinas.sinApp",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "アプリなし（家のイベント）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "despacho.sim.flujoAyuda",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "記録から：毎月{i}が入り、{g}が出ています。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "despacho.sim.pagosDeudaMes",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "借金は毎月{n}かかります。支出として記録していない場合は、これをオフにすると別枠で差し引かれます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "despacho.sim.aviso",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "入力した利率から算出しています。シナリオを比較するためのもので、実際に何が起こるかを示すものではありません。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.desc",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "自分だけの百科事典。賢者とどんな話題でも語り合い、学んだことを分野ごとに残し、タイマーで勉強できます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.enc.arbolDesc",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "知識をひとつの索引に。チャットはそれぞれの場所に自動で整理され、分岐させるたびに育っていきます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.enc.nuevoCampoMsg",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "標準の分野と並ぶ、自分だけの知識分野です。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.ent.ramificarTip",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "枝分かれ：「{n}」の下に新しいサブトピックを作成"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.r.arbol",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "会話で解放されたトピック{n}件"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.r.titulo",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "自分だけの百科事典"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.r.vacio",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "図書館はまだ空です。賢者と話し、項目を抽出し、タイマーで学習すれば、このグラフが育っていきます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.desc",
+    "problema": "Usa «あなた», que el glosario prohíbe: en japonés el sujeto se omite y la frase queda más natural sin él.",
+    "sugerencia": "自分だけの語学スクールです。チューターと話し、語彙を集め、間隔反復・練習問題・レベル別シラバスでマスターしましょう。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.onboarding",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "どの言語を学びたいですか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.voc.cajaTip",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "復習ボックス：段階が上がるほど間隔が広がります"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.voc.confirmarBorrar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "このカードを削除しますか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.gen.revisar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "保存したくないものはチェックを外してください："
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.ej.modo.opcion",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "どういう意味？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.tem.borrarTit",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "「{n}」を削除しますか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.ia.costoRecetaSinFoto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "レシピのみ（画像プロバイダーなし）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.ia.costoDietaSinFoto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "食事プランと最大{n}件のレシピ（写真なし）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.prog.pesajeDia",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "この日の体重：{n} kg"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.cal.leyOk",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "目標内（±10%）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.cal.leyCerca",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "近い（±25%）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.ph.comiste",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "何を食べましたか？例：タコス2個"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.ph.nota",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "メモ（任意）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.pesoObjetivo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "目標体重（kg）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.pesoMantener",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "維持したい体重（kg）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.ritmo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ペース（kg/週）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.sugerido",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "おすすめ：{cal} kcal・P {p}・C {c}・F {g}"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.cal",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "カロリー（kcal）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.aguaMl",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "水分（ml）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.prot",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "たんぱく質（g）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.carb",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "炭水化物（g）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.gras",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "脂質（g）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.metas.suma",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "マクロ合計 ≈ {n} kcal（4-4-9計算式）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.meta.logrado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "目標達成！目標体重の{n} kgになりました🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "biblioteca.plan.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "目標（例：「統計学を学ぶ」）を作り、AIにプランを頼みましょう。目標日、週の学習時間、空いている曜日を聞いたうえで、プランと学習時間をカレンダーに登録します。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.plan.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "目標（例：「B2試験に合格する」）を作り、AIにプランを頼みましょう。目標日、週の学習時間、空いている曜日を聞いたうえで、プランと復習時間をカレンダーに登録します。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "idiomas.form.imagen",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "記憶用の画像（任意）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.rec.phIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "何を作りたいですか？例：野菜添えローストチキン"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.rec.registrado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "✓ 記録済み（1人前）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.rec.campoMomentos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "いつの食事用ですか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.rec.ph.etiquetas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "カンマ区切りのタグ（鶏肉、時短など）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.rec.campoIngredientes",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "材料（1行に1つ、分量付き）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.rec.campoPasos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "手順（1行に1つ）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.rec.ph.carpeta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "フォルダ（例：イタリアン、メキシカンなど）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.dieta.phIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "どんな食事プランが必要ですか？例：減量、1800 kcal、乳製品なし"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.dieta.phDescripcion",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "説明（任意）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.dieta.metasOpc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "目標（任意、自分の目標に適用できます）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cocina.comp.phLista",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "リスト名（例：週の買い物）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "respaldo.danger.confirmar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "よろしいですか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "hobbies.det.confirmar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "すべて削除しますか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "hobbies.meta.lograda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "達成！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "hobbies.sesion.nota",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "メモ（任意）：何を練習しましたか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "hobbies.proy.stats",
+    "problema": "Usa el punto medio latino · (U+00B7); en japonés el separador es ・ (U+30FB), como en las otras 132 claves del archivo.",
+    "sugerencia": "{n}回の記録・{m}"
+  },
+  {
+    "idioma": "ja",
+    "clave": "hobbies.proy.notaPh",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "どんなプロジェクトですか？材料、アイデア、参考など…"
+  },
+  {
+    "idioma": "ja",
+    "clave": "construir.donde",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "どこに建てますか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "construir.elegirAcceso",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "この新しい階にはどうやって上りますか？（階ごとに1度だけ選択）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "editor.fondo.confirmBorrar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "保存したこの背景を削除しますか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "editor.anim.poses",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ポーズ（オリジナルアニメーション）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "editor.anim.posesDesc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "エディター（歯車）でパーツを配置し、各ポーズを記録します。2つ以上あれば、モデルがループで切り替わります。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.cocina.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "栄養：食事・栄養素・水分・週間プランの記録。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.descanso.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "夜空で見る睡眠：スケジュール、アラーム、スコア、夜の記録。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.anecdotario.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "思い出ノート：写真付きの記憶と毎日の気分。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.despacho.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "家計：固定・変動の支出と収入による予算、シミュレーター付きの目標（資金計算、貯蓄・投資、負債）、リアルタイム市場。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.biblioteca.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "会話型百科事典：AIチャット、ウィキ項目、学習セッション。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.sala.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "旅行の計画：旅程、費用、チェックリスト、行きたいリスト。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.jardin.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "心の休息：ガイド付き瞑想、呼吸法、感謝日記。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.idiomas.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "語学学習：AI先生、間隔反復の単語学習、レベル別シラバス、練習問題。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.calendario.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "カレンダー：日・週・月ごとの予定とルーティン。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.ideas.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "アイデア日記とブレインストーミング、自由なキャンバス上の10種類のマインドマップ形式（マインドマップ、ツリー、タイムライン、サイクル、ピラミッド、ベン図など）、決断のための8種類の図（メリット・デメリット、フォースフィールド分析、SWOT分析、アイゼンハワーマトリクス、意思決定木、ティアリスト、重み付け意思決定マトリクス、特性要因図）を、手書きでもAIでも。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "room.computo.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "計算室：数式帳（数学・物理・化学を収録、編集可能）がついた関数電卓と、8つのモード――4種類（2D・極座標・パラメトリック・3D曲面）のグラフ、2進数・16進数、行列、連立方程式、単位変換、チップ計算、比例式――そしてExcelやPDFに出力できる表計算。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.form.nuevaCarpetaMsg",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "名前は？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.form.constantes",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "定数：{lista}"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.editor.nombre",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "名前（「運動エネルギー」）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.editor.descripcion",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "メモ（使う場面や出典）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.editor.constante",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "定数：入力を求めず、その値をそのまま使います"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.editor.implicita",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "「{simbolos}」は1つの変数として読み取られます。掛け算のつもりなら、アスタリスクを書いてください：m * g * h"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.graf.placeholderPolar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "θの関数としてのr、例：2*cos(3*theta)"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.graf.placeholderX",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "x(t)、例：cos(t)"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.graf.placeholderY",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "y(t)、例：sin(2*t)"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.graf.placeholder3d",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "xとyの関数としてのz、例：sin(x)*cos(y)"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.graf.placeholder",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "xの関数、例：sin(x)"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.graf.alto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "グラフの高さ：{nivel}"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.graf.pistaLeer",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "読み取りモード：グラフの上を指でなぞると値が読み取れます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.matriz.singular",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "できません：この行列には逆行列がありません（行列式が0です）。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.sistema.sinSolucion",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "唯一の解がありません：方程式が重複しているか、矛盾しているか、線形でないものが含まれています。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.regla3.ayudaDirecta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一方が増えるともう一方も増える場合：キロ数と価格、時間と給料など。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.regla3.ayudaInversa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一方が増えるともう一方が減る場合：作業員の数と日数、速さと時間など。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.regla3.x",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "…はいくつ？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.hojas.nuevaMsg",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "名前は？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.form.ampliarTramo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "スライダーの範囲を広げる（{min}〜{max}）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.ia.formulaPlaceholder",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "説明してください：「円錐台の面積」"
+  },
+  {
+    "idioma": "ja",
+    "clave": "computo.ia.hojaPlaceholder",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "説明してください：「今月の支出管理」"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.foto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "写真を添付（料理、レシートなど）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.imagenLista",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "できました！画像はこちらです🎨"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.abrir",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "マニュアル：頼めること"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.cat.teclado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "キーボード（PC）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.leyenda.comando",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "青：コマンド"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.leyenda.ia",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "紫：AI利用1回分を消費"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.leyenda.variable",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "黄：好きに変えられます"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.biblioteca",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "中には賢者（AIチャット）がいて、内容をウィキの項目とテーマツリーに抽出してくれます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.calendario",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "全アプリの目標と予定を集約します。スケジュールではAIプラン（✨）も使えます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.ejercicio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "AIを使うと、スケジュールでトレーニングプラン（✨ボタン）を作成でき、アプリ内でエクササイズの説明画像も見られます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.entretenimiento",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "テーブルゲーム：スネーク、テトリス、チェス、チェッカー、数独、神経衰弱、ポン、ホッケー、サイモン、コネクトフォー、スペース、恐竜など"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.garage",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "乗り物（自転車、バイク、車、UFO）は「キャラクターと乗り物」にあります。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.granja",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "動物：ニワトリ、ブタ、ヤギ、ヒツジ、ウシ、ウマ。エサは「食」で収穫したものです。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.hobbies",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "スケジュールでAIプラン（✨）を頼むと、プロジェクトを前に進められます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.huerto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "作物：ニンジン、レタス、ヒマワリ、トマト、トウモロコシ、カボチャ"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.idiomas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "中にはレベル別の会話先生、チャットからのカード、テーマ別カード（AI）があります。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.configuraciones",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "エディタの設定タブにあるすべて：言語、外観（ライト、ダーク、透明）、アイコンスタイル、インターフェースのテーマとフォント、パネルのガラス、マップの見た目のスタイル（通常、コミック、ミニチュア、レトロ、ネオン）とそのエフェクト、通知、バックアップ。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.interfaz",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "家のテーマ、空の背景、環境音楽、Wrappedの振り返り。音楽のムード：calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.mapa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "方角：北、南、東、西（上、下、左、右も可）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.objetos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "AIなしのカタログ：ランプ、椅子、テーブル、植物、ギター、ラグ、収納箱、絵、ボール、本。それ以外はAIが3Dモデルとして生成し、持ち物に保存します。2D画像は「〜の画像を作って」と頼むと、チャットに残ります。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.personaje",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "服：帽子、メガネなど。パーツ：頭、胴体、脚。乗り物：自転車、バイク、車、UFO（Space/Shiftで飛行）。視点：アイソメトリック、三人称、一人称（Vキー）。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.nota.superficies",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "色：赤、青、緑など、または#の16進コード。床の素材と屋根の形はエディタのカタログから選べます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.notaSeccion.apps",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "各アプリは、話したとおりの言葉でそれぞれのデータを記録し（@appで記録先を指定可能）、名前を言えばメニューが開きます。「AIを使う」の例は必ずAI利用1回分を消費します（Proプランまたは自分のキー）。カスタムテンプレートもチャットから記録・名前で起動できます。注：オフライン解析はスペイン語専用のため、日本語ではほとんどのコマンドがAI経由になります。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.manual.titulo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "マニュアル：頼めること"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.modelo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "AIモデル：{prov}"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.mapa.ofrecer",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "「{tema}」の{tipo}として描きましょうか？"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.modelo.local",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "お使いの端末でOllamaが動いている必要があります（ポート11434）。無料でプライベートです。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "chat.voz.error",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "音声入力を使用できませんでした（{motivo}）。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.cuarto.agua",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "水を張る（プール）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.cuarto.hintSotano",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "地下：部屋は壁1枚分の深さで地面の下に掘られます（プールやシェルターに）。選んで水を張れます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.cuarto.hintPincel",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "空いているマスをタップすると、その形の部屋ができます。同じマスをもう一度タップすると回転し、最後には削除されます。部屋のマスをタップすると形を変えられます。ファイングリッド（右上）を使うと、マスの¼の角を切り取れます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.cuarto.hintPincelFino",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ファイングリッド：部屋の四分割の一つをタップすると、その角を切り取れます（三角形または円形）。もう一度タップすると回転し、最後には切り取りが解除されます。空いているマスでは、その細かい角を持つ部屋を作れます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.cuadrantes.enfocarRenombrar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "フォーカス（ダブルクリックで名前変更）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.muro.hintSeleccionar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "3Dマップ上の壁（直線・長方形・円形）をタップして選択すると、テクスチャ・色・高さ・形を編集できます。"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.muro.lados",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "辺（エッジ）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.muro.quitarPuerta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "✓ ドアあり（削除）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "constructor.muro.quitarVentana",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "✓ 窓あり（削除）"
+  },
+  {
+    "idioma": "ja",
+    "clave": "cubo.titulo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ナビゲーションキューブ：角=アイソメトリック、面=平面図"
+  },
+  {
+    "idioma": "ja",
+    "clave": "planos.grupo.interiorDesc",
+    "problema": "El nivel de PISO se traduce 階/层/층 (así lo hacen ctx.nivelN, acceso.subir y planos.nivel); aquí se usó el término de nivel de juego (レベル/级/레벨). En interiorVacio, además, «interior floors» son los pisos interiores (室内の床/室内地板/실내 바닥), no un entrepiso.",
+    "sugerencia": "{cuartos}部屋・ベーシック{zonas}・{n}階"
+  },
+  {
+    "idioma": "ja",
+    "clave": "planos.grupo.interiorVacio",
+    "problema": "El nivel de PISO se traduce 階/层/층 (así lo hacen ctx.nivelN, acceso.subir y planos.nivel); aquí se usó el término de nivel de juego (レベル/级/레벨). En interiorVacio, además, «interior floors» son los pisos interiores (室内の床/室内地板/실내 바닥), no un entrepiso.",
+    "sugerencia": "この階には室内の床がありません"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.saludo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ワン！やったことを教えてください！すぐに保存します！🦴"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.mago.sinClasificar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "保存しましたが、どの部屋に属するか分かりません…導いてくれますか？🔮"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.capturado.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ワン！{c}に記録しました！🐶"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.capturado.1",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "完了です！{c}に保存しました！🦴"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.clasificado.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "{c}の記録に保存しました！🐶"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.sinClasificar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "保存しました！でもどの部屋か分かりません…助けてもらえますか？🐶"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.agregar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ワン！{c}をマップに追加しました！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.agregar.1",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "{c}はもう家にありますよ！🐶"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.quitar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "{c}をマップから削除しました。完了です！🐾"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.objeto.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ワン！{c}に{o}を作りました！🎉"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.recordado.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一生忘れません！🐶"
+  },
+  {
+    "idioma": "ja",
+    "clave": "mascota.perro.recordado.1",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "ワン！記憶しました、忘れません！🦴"
+  },
+  {
+    "idioma": "zh",
+    "clave": "nav.ayuda.tarjetaTexto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击房间即可打开对应应用；点击齿轮图标可查看选项（移动、删除、编辑）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "inv.ropa.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "衣服要穿在角色身上，不能放到地图上。点击衣物即可打开衣柜。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "inv.casa.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你的家由什么材料构成，每种各有多少。这些在户型编辑器里涂画，不能拖动。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "infra.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这些模板不属于某个房间：你要用它们各自的编辑器，直接建在3D地图上。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "infra.resumen.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这个模板要建在3D地图上：菜单→模板→扩展→建造。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "trazo.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击地图放置点，点击某个点即可删除。第一个点是终点：点击它可以闭合赛道并开始比赛。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.solo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "单人比赛（计时赛）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.contraIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "或者对战助手："
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.ya",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "出发！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.ganaste",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你赢得了比赛！🏆"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.fin",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "比赛结束！🏁"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.msg.record",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "圈速新纪录！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.msg.vuelta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "完成一圈！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.msg.corta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "赛道太短，无法比赛…"
+  },
+  {
+    "idioma": "zh",
+    "clave": "carrera.usarItem",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "使用道具（E）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.paintball.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "用家作为地图，与助手进行彩弹对战（1v1、2v2或大乱斗）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.eligeRival",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "选择你的对手："
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.eligeCompanero",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "选择你的队友（对手随机选出）："
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.royaleDesc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "大乱斗：你在整个家里对战所有助手。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.posicionate",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "快找掩护！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.ya",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "出发！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.hintDisparar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按住发射（空格）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.hintApuntar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按住瞄准（电脑端右键）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.cambiarVista",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "切换第一/第三人称（V键）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "tiro.hintDisparar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按住发射（左键或空格）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "tiro.hintApuntar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "瞄准（电脑端右键；触屏点按锁定）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.ganaste",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你赢得了战斗！🏆"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.msg.fuera",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "{nombre}出局了！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.msg.teDieron",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你被击中了！失去一条生命"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.resumen.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这个模式在3D地图上进行：菜单→模板→扩展→开始游戏。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "paintball.resumen.nota",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "选择1v1、2v2或大乱斗对战你的助手：每人可承受3次命中，整个家就是战场。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "caminos.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击地图格子即可应用；拖动可以移动镜头。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "caminos.resumen.unidad",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "统计的是路段数（有路径的地图格子）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "canchas.rotar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "旋转（R）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "canchas.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击地图放置；开启编辑后点击球场可更改颜色、尺寸或朝向。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "huerto.aviso.listo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "可以收获了！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "huerto.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "作物实时生长，需要浇水：蓝色水滴会提醒你；不浇水就会枯萎，过一阵子地块会自动清空。喷灌器会自动浇灌自己所在的格子和周围8个格子。收获会进入篮子（走过成熟的作物上方也会自动收获）：用来喂动物。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "huerto.resumen.nota",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "作物实时生长；不及时浇水就会枯萎。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "granja.sinComida",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "篮子里什么都没有：去“食物”收获后即可喂食。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "granja.corralLleno",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "围栏已满：扩大它或再建一个。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "granja.noCabe",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这里放不下：会超出地图或与其他围栏重叠。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "granja.hayEnfermos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "有动物生病了：治疗后才能重新进食。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "granja.yaLimpio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "那个围栏已经是干净的了；新的一周重新开始。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "granja.aviso.enfermo.cuerpo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "在农场治疗它：你还有{dias}天。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "granja.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "“围栏”用来建造围栏，点击相邻格子可以扩大它。加入多只动物，用收获物喂养它们，抚摸它们并给它们玩具。太久不进食会生病：请在一周内治疗。每周清洁一次围栏，否则心情下降速度会翻倍。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.gol",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "进球啦！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.canasta2",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "进球！+2 🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.canasta3",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "三分球！+3 🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.puntoTenis",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你得分了！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.comoJugar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你想怎么玩？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.soloFronton",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "单人游玩（对墙练习）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.soloMaquina",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "单人游玩（发球机）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.contraIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "或者对战助手："
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.peloteo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "好球！+1"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.fuera",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "出界！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.hintFutbol",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按住蓄力，松开射门（空格）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.hintBasket",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按住调整力度，松开投篮（空格）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.hintTenis",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "用面朝方向瞄准，点按发球或击球（空格）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.hintBeisbol",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按住蓄力挥棒，球到你面前时松开（空格）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.homerun",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "本垒打！+3 🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.hit",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "安打！+1"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.strike",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "好球！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.ponche",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "三振出局！三个好球…"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.juegoTuyo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你赢得一局！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.setTuyo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你赢得一盘！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.partidoTuyo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你赢得了比赛！🏆"
+  },
+  {
+    "idioma": "zh",
+    "clave": "juego.nuevoRecord",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "新纪录！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "progreso.humor.feliz",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "它很开心！继续保持连续天数吧。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "meta.cumplida",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "已完成！"
+  },
+  {
+    "idioma": "zh",
+    "clave": "hoy.hechos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "已完成（{n}）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "hoy.objetivo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "每日目标（设为0可关闭）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cal.meta.mientrasDure",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "只要它还在，就可以向我要"
+  },
+  {
+    "idioma": "zh",
+    "clave": "rutinas.sinApp",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无应用（家庭事件）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "despacho.patrimonio",
+    "problema": "El glosario fija patrimonio → 净资产 (así está en despacho.patr.neto); «总资产净值» mezcla 总资产 (activos brutos) con 净值 y se lee contradictorio.",
+    "sugerencia": "总净资产"
+  },
+  {
+    "idioma": "zh",
+    "clave": "entre.j.simon.regla",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "重复颜色顺序，每轮增加一个。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.ia.sinClave",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "在聊天中设置AI，即可创建带图片的食谱和饮食方案。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.ia.costoRecetaSinFoto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "仅食谱：未设置图片服务"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.ia.costoDieta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "饮食方案，以及最多{n}份食谱及其照片"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.ia.costoDietaSinFoto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "饮食方案和最多{n}份食谱，不含照片"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.prog.pesajeDia",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "当天体重：{n} kg"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.cal.leyOk",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "达标（±10%）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.cal.leyCerca",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "接近（±25%）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.semana.pocosDatos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这只是粗略估算，记录至少{n}天才更准确。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.ajuste.aplicado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "已完成，你的目标现在是每天{n} kcal。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.registro.confirmar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "请核对数值并确认；之后可以修改。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.ph.comiste",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你吃了什么？例如：2个塔可"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.ph.nota",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "备注（可选）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.plan.elegirAyuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击想要填充的空位，然后点“生成”。不选任何一个则全部填满。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.plan.sinRecetas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你还没有食谱：先在食谱库中创建，才能安排计划。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.plan.generarAyuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "只填充当前显示天数中的空位，并按各食谱适合的时段匹配。已选好的内容不会变。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.pesoObjetivo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "目标体重（kg）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.pesoMantener",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "想维持的体重（kg）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.ritmo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "速度（kg/周）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.plazoAyuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "设置截止日期或速度，另一个会自动计算。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.estadoCambio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo. Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "{obj}：每日消耗的{pct}%·{ritmo} kg/周"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.ritmoPeligroso",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "每周超过1kg难以持续，给自己多一些时间吧。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.kcalBajas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按这个速度，你每天摄入会低于{n} kcal，请延长截止日期。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.sugerido",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo. Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "建议：{cal} kcal·P {p}·C {c}·F {g}"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.cal",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "热量（kcal）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.aguaMl",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "水分（ml）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.prot",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "蛋白质（g）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.carb",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "碳水化合物（g）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.gras",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "脂肪（g）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.metas.suma",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "营养素合计 ≈ {n} kcal（4-4-9公式）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.peso.sinDatos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "在“记录”中称重，即可查看趋势。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.meta.logrado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "达成目标！你已经达到{n} kg的目标体重🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.meta.restante",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "目标 {o} kg·还差 {n} kg"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.meta.ritmo",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "当前 {r} kg/周·目标 {m} kg/周"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.meta.sinRitmo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "再记录几天体重，即可估算你的速度。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.meta.eta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "按这个速度，你将在{f}达成目标"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.meta.sinRumbo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你的体重没有朝目标靠近，请在下方调整热量。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.img.sinIa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "在聊天中设置AI，即可生成图片。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "imagenIA.sinIa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "在聊天中设置AI，即可生成图片。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "biblioteca.plan.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "创建一个目标（例如“学习统计学”），然后让AI帮你制定计划：它会询问目标日期、每周学习时长和可用的天数，再把计划和学习时间安排进日历。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "idiomas.plan.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "创建一个目标（例如“通过B2考试”），然后让AI帮你制定计划：它会询问目标日期、每周学习时长和可用的天数，再把计划和复习时间安排进日历。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "idiomas.form.imagen",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "助记图片（可选）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.estimar.error",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无法估算，请手动输入数值。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.phIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你想做什么菜？例如：烤鸡配蔬菜"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.errorIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无法创建食谱，请重试。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.vacio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你的食谱库还是空的。创建一份食谱，或者请助手帮你生成。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.registrado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "✓ 已记录（1份）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.campoMomentos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "适合什么时候吃？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.momentosAyuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "不勾选任何选项，则适用于任何时段。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.ph.etiquetas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "用逗号分隔的标签（鸡肉、快手菜等）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.campoIngredientes",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "食材（每行一项，注明用量）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.campoPasos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "步骤（每行一项）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.rec.ph.carpeta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "文件夹（例如：意大利菜、墨西哥菜等）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.dieta.vacio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "还没有饮食方案。创建一个，或使用示例。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.dieta.phIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你需要什么样的饮食方案？例如：减重、1800 kcal、不含乳制品"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.dieta.errorIA",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无法创建饮食方案，请重试。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.dieta.phDescripcion",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "描述（可选）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.dieta.metasOpc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "可选目标（可应用到你的目标中）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.comp.generadorVacio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这里还什么都没有。请在上方添加物品，或从“食谱”标签发送某道菜的食材。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.comp.phLista",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "清单名称（例如：每周采购）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.comp.cuentaAyuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "输入每件物品的价格，账单会自动累加。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cocina.comp.listasVacio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "没有已保存的清单。可以在“创建清单”中新建，或从食谱生成。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "ejercicio.minTotales",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "总分钟数·7天"
+  },
+  {
+    "idioma": "zh",
+    "clave": "respaldo.danger.confirmar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你确定吗？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "hobbies.det.confirmar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "删除全部内容吗？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "hobbies.meta.lograda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "完成啦！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "hobbies.sesion.nota",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "备注（可选）：你练习了什么？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "construir.donde",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你要建在哪里？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.fondo.confirmBorrar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "删除这个已保存的背景吗？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.perfil.ph.nombre",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你叫什么名字？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.anim.vidaDesc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "物件会在区域内四处走动，会饿也会无聊。靠近时出现的按钮可以喂食和抚摸它。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.anim.vidaAviso",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "它会穿过墙壁和家具：如果放在房间里，请设置一个较小的区域。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.anim.poses",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "姿势（自定义动画）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.anim.posesDesc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "用编辑器（齿轮）摆放部件，并记录每个姿势。达到2个以上时，模型会循环切换。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.anim.cargarTip",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "将部件摆放到这个姿势，方便调整"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.pers.animFlote",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "该动作会替换角色的自然漂浮，但挥手动作会保留。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.pers.animSinPiezas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "要制作姿势动画，请在“身体”标签页中用3D部件搭建身体。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.cocina.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "营养：记录饮食、营养素、饮水和每周计划。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.recamara.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "记录休息状况，写下你的回忆本。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.descanso.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "用夜空呈现你的睡眠：日程、闹钟、评分和夜间日志。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.anecdotario.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你的回忆本：带照片的回忆和每日心情。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.despacho.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "财务：含固定和变动支出与收入的预算、带模拟器的目标（理财计算器、储蓄投资、债务）和实时行情。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.biblioteca.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "对话式百科全书：AI聊天、百科条目和学习环节。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.sala.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "规划旅行：行程、花费、清单和心愿单。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.jardin.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "平静：引导冥想、呼吸练习和感恩日记。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.idiomas.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "学语言：AI老师、间隔重复单词、分级教学大纲和练习。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.calendario.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "日历：按日、周、月查看的事件和日常安排。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.huerto.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "整理地块、播种、浇水，实时收获。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.granja.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "饲养鸡、猪、山羊、绵羊、牛和马，并在同一个编辑器里种植它们的饲料。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.ideas.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "想法日记和头脑风暴，自由画布上的10种概念图格式（思维导图、树状图、时间线、循环图、金字塔图、韦恩图等），以及8种决策图（利弊分析、力场分析、SWOT分析、艾森豪威尔矩阵、决策树、分级列表、加权决策矩阵和鱼骨图），手绘或用AI都行。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "room.computo.desc",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "电脑室：带公式手册（收录数学、物理和化学，可编辑）的科学计算器，以及八种模式——四种类型（2D、极坐标、参数方程和3D曲面）的绘图、二进制和十六进制、矩阵、方程组、单位换算、小费和三率法；还有可导出为Excel和PDF的电子表格。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.motor.error",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无法加载计算引擎，请检查网络连接。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.form.nuevaCarpetaMsg",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "叫什么名字？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.form.constantes",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "常数：{lista}"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.form.vacio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "还没有公式。创建一个文件夹，写下你自己的公式吧。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.editor.nombre",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "名称（“动能”）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.editor.descripcion",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "备注（使用场景、出处）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.editor.constante",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "常数：不需要输入，直接使用其数值"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.editor.resultadoReservado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这个符号已被mathjs占用，请换一个"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.editor.noSeEntiende",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "有内容没有闭合，或多了一个符号。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.editor.implicita",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "“{simbolos}”会被当作一个变量读取。如果是想做乘法，请写上星号：m * g * h"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.congeladas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "其余数值保持不变；改变一个，图形就会随之变化。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.placeholderPolar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "r关于θ的函数，例如2*cos(3*theta)"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.placeholderX",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "x(t)，例如cos(t)"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.placeholderY",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "y(t)，例如sin(2*t)"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.placeholder3d",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "z关于x和y的函数，例如sin(x)*cos(y)"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.placeholder",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "x的函数，例如sin(x)"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.alto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "图形高度：{nivel}"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.pista",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "拖动可移动平面，双指捏合可缩放。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.graf.pistaLeer",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "读数模式：手指在图形上滑动即可读取数值。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.bases.placeholder",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "FF，或0xFF + 0b1010"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.bases.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "单独输入的数字会按你选择的进制读取。涉及运算时以引擎为准：混用进制请用0b、0o或0x前缀。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.matriz.noCuadrada",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "该运算需要方阵，请调整尺寸。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.matriz.singular",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无法计算：该矩阵没有逆矩阵（行列式为0）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.sistema.descuadra",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "方程数量需要和未知数数量一致：目前是{e}和{i}。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.sistema.sinSolucion",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "没有唯一解：方程式重复、相互矛盾，或其中有非线性方程。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.regla3.ayudaDirecta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一个变多，另一个也变多：比如重量和价格、工时和工资。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.regla3.ayudaInversa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "一个变多，另一个反而变少：比如工人数和天数、速度和时间。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.regla3.faltan",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "填好三个数字，x就会自动算出来。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.regla3.cero",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "不能除以0，请更改这个数字。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.hojas.nuevaMsg",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "叫什么名字？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.hojas.formulaPlaceholder",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "数值、文本，或 =SUMA(A1:A5)"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.form.ampliarTramo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "扩大滑块范围（{min}到{max}）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.sup.imposible",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "这些数值下，该公式无法生成可绘制的曲面。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.not.ayuda",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "会插入到光标所在位置，并留出可直接填写的空白。美观的显示效果由你输入的内容自动生成。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.hojas.resumen",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "求和 {suma}·平均值 {prom}·计数 {n}"
+  },
+  {
+    "idioma": "zh",
+    "clave": "computo.export.pie",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "Mind Planner Home·电脑室"
+  },
+  {
+    "idioma": "zh",
+    "clave": "ideas.diario.enCarpeta",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "位于“{carpeta}”·点击可移动"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.foto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "添加照片（食物、小票等）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.fotoSinIa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "照片需要用到AI：点击右侧按钮选择模型"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.imagenFallo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "图片生成失败，请重试。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.imagenLista",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "做好了！这是你的图片🎨"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.abrir",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "使用手册：你可以说什么"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.aviso.caminos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "建造类指令会打开全屏编辑器，聊天会关闭，直到你点击✕退出；养护类操作无需离开聊天即可完成。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.aviso.granja",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "建造类指令会打开全屏编辑器，聊天会关闭，直到你点击✕退出；养护类操作无需离开聊天即可完成。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.aviso.huerto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "建造类指令会打开全屏编辑器，聊天会关闭，直到你点击✕退出；养护类操作无需离开聊天即可完成。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.cat.teclado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "键盘（电脑）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.intro",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "打开一个文件夹，点击示例就会输入到聊天框。大多数功能无需AI即可使用。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.leyenda.comando",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "蓝色：指令"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.leyenda.ia",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "紫色：消耗一次AI调用"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.leyenda.variable",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "黄色：可自由修改"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.biblioteca",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "里面住着智者（AI聊天），会把内容提炼成百科条目和主题树。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.calendario",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "汇总所有应用的目标和事件；它的日程还能生成AI计划（✨）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.caminos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "画好赛道和终点线后，可以和时间或助手比赛；从铁轨上车即可乘火车。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.canchas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "走进球场即可开始比赛，靠近球即可操控它。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.cocina",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "使用AI还能识别你菜品的照片（自动估算营养并记录）。在聊天中要的食谱和饮食方案会附带图片，出现得稍慢，并按显示的点数扣费。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.despacho",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "使用AI还能附上小票照片，自动记录这笔支出。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.ejercicio",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "使用AI：在日程里生成训练计划（✨按钮），应用内还有配图讲解动作。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.entretenimiento",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "桌游：贪吃蛇、俄罗斯方块、国际象棋、跳棋、数独、记忆翻牌、乒乓、冰球、西蒙、四子棋、太空、恐龙……"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.garage",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "你骑的载具（自行车、摩托车、汽车、UFO）在“角色与载具”里。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.granja",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "动物：母鸡、猪、山羊、绵羊、牛和马。它们吃你在“食”里收获的东西。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.hobbies",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "在它的日程里可以要一份AI计划（✨）来推进项目。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.huerto",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "作物：胡萝卜、生菜、向日葵、番茄、玉米和南瓜。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.idiomas",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "里面有分级会话老师、来自聊天的卡片和按主题生成的卡片（AI）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.configuraciones",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "编辑器“设置”标签页里的一切：语言、外观（浅色、深色、透明）、图标风格、界面主题和字体、面板玻璃质感、地图的视觉风格（普通、漫画、微缩、复古、霓虹）及其特效、通知和备份。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.aviso.configuraciones",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "登录、恢复备份和删除数据都不能在聊天里完成：助手会打开对应界面，由你自己确认。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.interfaz",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "房子主题、天空背景、环境音乐和你的Wrapped年度回顾。音乐氛围：calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.mapa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "方向：北、南、东、西（也可以说上、下、左、右）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.memoria",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "助手会记住跨会话的信息。用回形针添加照片，或用麦克风口述；用@应用可以强制指定记录位置。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.objetos",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无AI目录：台灯、椅子、桌子、植物、吉他、地毯、箱子、画、球和书。其他物件都会由AI生成3D模型并存入物品栏。2D图片用“帮我画一张……的图片”来获取，会留在聊天里。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.personaje",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "服装：帽子、眼镜……部位：头、躯干和腿。载具：自行车、摩托车、汽车和UFO（用Space/Shift飞行）。视角：等距、第三人称和第一人称（V键）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.sala",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "使用AI时，新地点会自动定位，并以图钉显示在世界地图上。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.superficies",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "颜色：红、蓝、绿……或输入#开头的十六进制代码。地板材质和屋顶形状来自编辑器目录。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.nota.teclado",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "用键盘玩耍的快捷键。它们不是在聊天里输入的，而是在房子里直接使用。在输入框打字或打开房间时不会生效。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.notaSeccion.apps",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "每个应用都会用你的话记录自己的数据（用@应用可强制指定去向），说出名字就能打开对应菜单。“使用AI”的示例总会消耗一次AI调用（Pro方案或你自己的密钥）；你的自定义模板也能通过聊天记录，并按名字打开。注意：离线解析只懂西班牙语，所以中文下大多数指令都要经过AI。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.notaSeccion.mapa",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "花园、农场、赛道和球场在房间之外，在3D地图上。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.manual.titulo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "使用手册：你可以说什么"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.modelo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "AI模型：{prov}"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.mapa.ofrecer",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "要把它画成“{tema}”的{tipo}吗？"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.modelo.local",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "需要在你的设备上运行Ollama（11434端口）。免费且私密。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.modelo.priv",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "仅保存在本设备上。没有密钥时：使用关键词本地模式。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.rutinaCreada",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "⏰日常安排“{n}”已创建，可以在日常安排面板中查看。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "chat.voz.error",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "无法使用语音输入（{motivo}）。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuarto.agua",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "注满水（泳池）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuarto.hintExpandir",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击“+”扩大房间，点击“−”缩小。如果房间只有一格，“−”会将它删除。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuarto.hintMover",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "拖动可以移动房间，或在左下方选择一个形状来绘制。用“扩展”来扩大、缩小或删除房间。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuarto.hintSotano",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "地下室：房间会在地面以下挖出一面墙的深度（用作泳池或掩体）。选中一个即可注满水。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuarto.hintPincel",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击空格创建对应形状的房间。再次点击同一格可以旋转，最后会将其删除。点击房间里的一格可以改变它的形状。使用细网格（右上方）可以裁出四分之一格的角。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuarto.hintPincelFino",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "细网格：点击房间的一个象限可以裁出那个角（三角形或圆形）；再次点击可以旋转，最后会取消裁切。在空格上则会创建带有这种细角的房间。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.vista.hint3d",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击草图或3D地图中的元素，即可在这里查看和编辑。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuadrantes.enfocarRenombrar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "聚焦（双击可重命名）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuadrantes.referenciasHint",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "只会移动视角，你可以在任何地方编辑。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.cuadrantes.tuyasHint",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "选中一个后，其他菜单只能编辑它的格子。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.muro.hint",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "在左下方选择形状。在“边”里选择水平或垂直，点击网格来放置或移除直墙。在“三角形/圆形”里选择初始样式并点击格子；再次点击同一位置会依次切换其他样式，到最后一个之后会删除它。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.muro.hintSeleccionar",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "点击3D地图上的墙——直墙、矩形墙或圆形墙——即可选中，并编辑它的材质、颜色、高度和形状。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.muro.lados",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "边（棱）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.muro.quitarPuerta",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "✓ 已有门（移除）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.muro.quitarVentana",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "✓ 已有窗（移除）"
+  },
+  {
+    "idioma": "zh",
+    "clave": "constructor.piso.hint",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "或者点击草图或3D地图上的格子，选择一个或多个。"
+  },
+  {
+    "idioma": "zh",
+    "clave": "cubo.titulo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "导航方块：角=等距视角，面=平面视图"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.ayuda.mapa.c",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "，然后在"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.techoCuarto.aguas1",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "1·单坡"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.techoCuarto.aguas2",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "2·双坡"
+  },
+  {
+    "idioma": "zh",
+    "clave": "editor.techoCuarto.aguas4",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "4·四坡"
+  },
+  {
+    "idioma": "zh",
+    "clave": "plano.controles",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en chino corresponde · (U+00B7), que es lo que usan las otras 47 claves del archivo.",
+    "sugerencia": "滚轮：缩放·Shift/Alt+拖动：平移·双击边距：适应画面"
+  },
+  {
+    "idioma": "zh",
+    "clave": "planos.grupo.interiorDesc",
+    "problema": "El nivel de PISO se traduce 階/层/층 (así lo hacen ctx.nivelN, acceso.subir y planos.nivel); aquí se usó el término de nivel de juego (レベル/级/레벨). En interiorVacio, además, «interior floors» son los pisos interiores (室内の床/室内地板/실내 바닥), no un entrepiso.",
+    "sugerencia": "{cuartos}个房间·{zonas}个基础区·{n}层"
+  },
+  {
+    "idioma": "zh",
+    "clave": "planos.grupo.interiorVacio",
+    "problema": "El nivel de PISO se traduce 階/层/층 (así lo hacen ctx.nivelN, acceso.subir y planos.nivel); aquí se usó el término de nivel de juego (レベル/级/레벨). En interiorVacio, además, «interior floors» son los pisos interiores (室内の床/室内地板/실내 바닥), no un entrepiso.",
+    "sugerencia": "该层没有室内地板"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.saludo",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "汪！告诉我你做了什么，我马上帮你记下来！🦴"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.mago.sinClasificar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "已经保存了，但我不知道它属于哪个房间…能指引我吗？🔮"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.capturado.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "汪！已经记在{c}里了！🐶"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.capturado.1",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "全部搞定！保存在{c}了！🦴"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.clasificado.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "保存到{c}日志里了！🐶"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.sinClasificar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "保存好了！但我不知道该放哪个房间…能帮帮我吗？🐶"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.agregar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "汪！{c}已添加到地图上啦！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.agregar.1",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "{c}已经在你家里啦！🐶"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.quitar.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "已经把{c}从地图上移除了，搞定！🐾"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.objeto.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "汪！在{c}给你做好{o}啦！🎉"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.recordado.0",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "我会永远记住的！🐶"
+  },
+  {
+    "idioma": "zh",
+    "clave": "mascota.perro.recordado.1",
+    "problema": "Puntuación ASCII dentro de texto CJK; el resto del propio diccionario usa la de ancho completo.",
+    "sugerencia": "汪！记住了，不会忘的！🦴"
+  },
+  {
+    "idioma": "ko",
+    "clave": "nav.ayuda.tarjetaTexto",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo.",
+    "sugerencia": "방을 탭하면 앱이 열려요. 톱니바퀴 아이콘을 누르면 옵션(이동·삭제·편집)을 볼 수 있어요."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.cocina.desc",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "영양: 식사, 영양소, 수분, 주간 계획 기록."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.ejercicio.desc",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo.",
+    "sugerencia": "목표가 있는 근력·지구력·유연성 루틴."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.descanso.desc",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "밤하늘로 보는 수면: 일정, 알람, 점수와 밤 기록."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.anecdotario.desc",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "나만의 추억 노트: 사진이 담긴 기억과 하루의 기분."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.despacho.desc",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo. Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "재정: 고정·변동 지출과 수입으로 짜는 예산, 시뮬레이터가 있는 목표(재정 계산기, 저축·투자, 부채), 실시간 시세."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.biblioteca.desc",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "대화형 백과사전: AI 채팅, 위키 항목과 학습 세션."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.entretenimiento.desc",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo.",
+    "sugerencia": "영화·드라마·책·보드게임 아카이브."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.sala.desc",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "여행 계획: 일정, 비용, 체크리스트와 위시리스트."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.jardin.desc",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "마음의 안정: 가이드 명상, 호흡과 감사 일기."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.idiomas.desc",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "어학 학습: AI 선생님, 간격 반복 단어, 레벨별 커리큘럼과 연습문제."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.calendario.desc",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo. Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "캘린더: 하루·주·월별 일정과 루틴."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.canchas.desc",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo.",
+    "sugerencia": "지도에 축구·테니스·농구·야구 코트 배치."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.granja.desc",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo.",
+    "sugerencia": "닭·돼지·염소·양·소·말을 기르고, 같은 에디터에서 사료도 재배."
+  },
+  {
+    "idioma": "ko",
+    "clave": "room.computo.desc",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo. Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "전산실: 공식집(수학·물리·화학 수록, 편집 가능)이 딸린 공학용 계산기와 8가지 모드――4가지 유형(2D·극좌표·매개변수·3D 곡면)의 그래프, 이진수와 16진수, 행렬, 연립방정식, 단위 변환, 팁 계산과 비례식――그리고 엑셀과 PDF로 내보낼 수 있는 스프레드시트."
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.form.constantes",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "상수: {lista}"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.editor.constante",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "상수: 입력받지 않고 그 값을 그대로 사용해요"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.editor.implicita",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "\\'{simbolos}\\'는 하나의 변수로 읽혀요. 곱셈을 하려던 거라면 별표를 써주세요: m * g * h"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.placeholderPolar",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "θ에 대한 r 함수, 예: 2*cos(3*theta)"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.placeholderX",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "x(t), 예: cos(t)"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.placeholderY",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "y(t), 예: sin(2*t)"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.placeholder3d",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "x와 y에 대한 z 함수, 예: sin(x)*cos(y)"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.placeholder",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "x의 함수, 예: sin(x)"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.alto",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "그래프 높이: {nivel}"
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.pista",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo.",
+    "sugerencia": "드래그로 평면을 움직이고, 두 손가락으로 확대·축소할 수 있어요."
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.graf.pistaLeer",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "읽기 모드: 그래프 위로 손가락을 움직이면 값을 읽을 수 있어요."
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.regla3.ayudaDirecta",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "하나가 늘면 다른 하나도 느는 경우: 무게와 가격, 시간과 급여처럼요."
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.regla3.ayudaInversa",
+    "problema": "Dos puntos sin espacio detrás: la norma coreana (문장부호 규정, 쌍점) pega el signo a la palabra anterior y lo separa de la siguiente.",
+    "sugerencia": "하나가 늘면 다른 하나가 주는 경우: 인부 수와 날짜, 속도와 시간처럼요."
+  },
+  {
+    "idioma": "ko",
+    "clave": "computo.hojas.resumen",
+    "problema": "Usa el punto medio katakana ・ (U+30FB), un signo japonés; en coreano corresponde · (U+00B7), que es lo que usan las otras 76 claves del archivo.",
+    "sugerencia": "합계 {suma}·평균 {prom}·개수 {n}"
+  },
+  {
+    "idioma": "ko",
+    "clave": "planos.grupo.interiorDesc",
+    "problema": "El nivel de PISO se traduce 階/层/층 (así lo hacen ctx.nivelN, acceso.subir y planos.nivel); aquí se usó el término de nivel de juego (レベル/级/레벨). En interiorVacio, además, «interior floors» son los pisos interiores (室内の床/室内地板/실내 바닥), no un entrepiso.",
+    "sugerencia": "방 {cuartos}개 · 기본 {zonas}개 · {n}층"
+  },
+  {
+    "idioma": "ko",
+    "clave": "planos.grupo.interiorVacio",
+    "problema": "El nivel de PISO se traduce 階/层/층 (así lo hacen ctx.nivelN, acceso.subir y planos.nivel); aquí se usó el término de nivel de juego (レベル/级/레벨). En interiorVacio, además, «interior floors» son los pisos interiores (室内の床/室内地板/실내 바닥), no un entrepiso.",
+    "sugerencia": "이 층에는 실내 바닥이 없어요"
+  }
+]

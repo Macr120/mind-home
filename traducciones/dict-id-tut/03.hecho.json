@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.menu-cuartos.6.texto",
+    "texto": "Buat ruangan membuka editor peta dengan kuas siap menggambar ruangan barunya: bentuk, ukuran, dan letaknya ada di tanganmu. Di ponsel, jalan pintas roda alat › Bangunan › Ruangan lebih enak dipakai: ia menggambar langsung di atas peta tanpa membuka panel."
+  },
+  {
+    "clave": "tut.menu-cuartos.7.texto",
+    "texto": "Singkatnya: Edit untuk menyesuaikan, Masuk untuk memakai aplikasinya. Tab lain di menu ini punya tutorialnya sendiri."
+  },
+  {
+    "clave": "tut.menu-plantillas.1.texto",
+    "texto": "Templat itu sebuah aplikasi (Dapur, Gym, Keuangan…). Templat ditetapkan ke sebuah objek di dalam ruangan dan terbuka saat kamu masuk."
+  },
+  {
+    "clave": "tut.menu-plantillas.2.titulo",
+    "texto": "Dua tampilan"
+  },
+  {
+    "clave": "tut.menu-plantillas.2.texto",
+    "texto": "Ruangan berisi aplikasi seperti biasa, masing-masing di objeknya sendiri. Ekstra beda lagi: sirkuit, lapangan, kebun sayur, peternakan, atau paintball dibangun langsung di atas lahan, tanpa memakai satu ruangan pun."
+  },
+  {
+    "clave": "tut.menu-plantillas.3.titulo",
+    "texto": "Katalog"
+  },
+  {
+    "clave": "tut.menu-plantillas.3.texto",
+    "texto": "Aplikasi bawaan dan aplikasi buatanmu, tersusun dalam grup. Ketuk salah satu untuk menetapkannya ke sebuah ruangan atau, di Ekstra, untuk membangunnya di peta."
+  },
+  {
+    "clave": "tut.menu-plantillas.4.titulo",
+    "texto": "Templat buatanmu"
+  },
+  {
+    "clave": "tut.menu-plantillas.4.texto",
+    "texto": "Buat templatmu sendiri dengan menyusunnya dari blok: catatan, daftar periksa, penghitung, kebiasaan, galeri… Tombol ini membuka editornya sendiri, lengkap dengan tutorialnya sendiri."
+  },
+  {
+    "clave": "tut.menu-plantillas.5.texto",
+    "texto": "Satu ruangan bisa punya beberapa aplikasi: begitu masuk, muncul peluncur untuk memilih mana yang mau dibuka."
+  },
+  {
+    "clave": "tut.plantillas-custom.1.texto",
+    "texto": "Editor ini merakit aplikasi milikmu dari nol: kamu beri bentuk dengan nama, emoji, dan blok, lalu ia masuk ke katalog berdampingan dengan yang bawaan."
+  },
+  {
+    "clave": "tut.plantillas-custom.2.titulo",
+    "texto": "Nama, emoji, dan warna"
+  },
+  {
+    "clave": "tut.plantillas-custom.2.texto",
+    "texto": "Namanya nanti apa dan warnanya apa di menu, katalog, dan kalender kalau kamu menjadwalkan sesuatu miliknya."
+  },
+  {
+    "clave": "tut.plantillas-custom.3.titulo",
+    "texto": "Alat-alatnya"
+  },
+  {
+    "clave": "tut.plantillas-custom.3.texto",
+    "texto": "Dua belas jenis blok: catatan, daftar periksa, penghitung, kebiasaan, sesi, hitung mundur, galeri, log, penilaian, progres, daftar, dan tautan. Tiap blok yang kamu tambahkan jadi satu bagian di aplikasimu."
+  },
+  {
+    "clave": "tut.plantillas-custom.4.titulo",
+    "texto": "Urutan itu penting"
+  },
+  {
+    "clave": "tut.plantillas-custom.4.texto",
+    "texto": "Blok yang sudah ditambahkan diurutkan ulang dengan panah dan dihapus dengan ✕ — menghapus satu blok ikut menghapus datanya saat disimpan, jadi periksa dulu sebelum mengonfirmasi. Lewat dropdown “Menu”, blok pindah dari satu tab ke tab lain tanpa kehilangan apa pun."
+  },
+  {
+    "clave": "tut.plantillas-custom.5.titulo",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "tut.plantillas-custom.5.texto",
+    "texto": "Dengan nama dan minimal satu blok, Simpan menaruhnya di katalog dalam keadaan siap pakai. Dari sana templat ditetapkan ke sebuah objek, sama seperti templat bawaan mana pun."
+  },
+  {
+    "clave": "tut.plantillas-custom.6.texto",
+    "texto": "Kamu bisa mengeditnya lagi kapan saja: blok dan datanya tetap utuh, yang berubah hanya yang kamu ubah."
+  },
+  {
+    "clave": "tut.menu-inventario.1.texto",
+    "texto": "Inventaris: semua objek yang bisa kamu taruh di rumahmu, siap diseret."
+  },
+  {
+    "clave": "tut.menu-inventario.2.titulo",
+    "texto": "Objek"
+  },
+  {
+    "clave": "tut.menu-inventario.2.texto",
+    "texto": "Pustaka objekmu, tersusun dalam kategori dan folder. Kamu bisa mengganti namanya dan merapikannya supaya cepat ketemu lain kali."
+  },
+  {
+    "clave": "tut.menu-inventario.3.titulo",
+    "texto": "Objek spesial"
+  },
+  {
+    "clave": "tut.menu-inventario.3.texto",
+    "texto": "Yang benar-benar melakukan sesuatu, bukan cuma hiasan: kendaraan yang bisa dinaiki, pistol mainan, air mancur, wahana taman, dan lampu."
+  },
+  {
+    "clave": "tut.menu-inventario.4.titulo",
+    "texto": "Menempatkan"
+  },
+  {
+    "clave": "tut.menu-inventario.4.texto",
+    "texto": "Selagi menu ini terbuka, seret sebuah gambar kecil langsung ke adegan 3D untuk menaruhnya di mana pun kamu mau."
+  },
+  {
+    "clave": "tut.menu-inventario.5.texto",
+    "texto": "Untuk memindahkan, mewarnai, atau menghapus yang sudah ditaruh, pakai Editor (tab Objek) — menu ini hanya untuk membawa barang baru ke dalam adegan."
+  },
+  {
+    "clave": "tut.editor-mapa.1.texto",
+    "texto": "Editor rumah punya 4 tab: Peta, Karakter, Objek, dan Pengaturan. Tur ini tur Peta; tiga tab lainnya punya turnya sendiri."
+  },
+  {
+    "clave": "tut.editor-mapa.2.titulo",
+    "texto": "Sketsa"
+  },
+  {
+    "clave": "tut.editor-mapa.2.texto",
+    "texto": "Kamu menggambar di atas kisi-kisi dari pandangan atas: ruangan, dinding, pintu, jendela, dan lantai, dengan mode dan kuas di bilah atas. Yang kamu gambar langsung muncul di 3D, tanpa perlu memuat ulang apa pun."
+  }
+]

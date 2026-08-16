@@ -1,0 +1,470 @@
+[
+ {
+  "clave": "chat.voz.permiso",
+  "texto": "Браузер заблокировал микрофон. Включи его через значок замка рядом с адресной строкой."
+ },
+ {
+  "clave": "chat.voz.red",
+  "texto": "Диктовке браузера нужен интернет."
+ },
+ {
+  "clave": "chat.voz.sinMic",
+  "texto": "На этом устройстве не нашлось микрофона."
+ },
+ {
+  "clave": "chat.vozParar",
+  "texto": "Остановить диктовку"
+ },
+ {
+  "clave": "chat.vozTranscribiendo",
+  "texto": "Расшифровка…"
+ },
+ {
+  "clave": "ciclo.arrastraSol",
+  "texto": "Перетащи, чтобы передвинуть солнце"
+ },
+ {
+  "clave": "ciclo.fase.dia",
+  "texto": "День"
+ },
+ {
+  "clave": "ciclo.fase.noche",
+  "texto": "Ночь"
+ },
+ {
+  "clave": "ciclo.fase.amanecer",
+  "texto": "Рассвет"
+ },
+ {
+  "clave": "ciclo.fase.atardecer",
+  "texto": "Закат"
+ },
+ {
+  "clave": "ciclo.humedad",
+  "texto": "Влажность"
+ },
+ {
+  "clave": "ciclo.lluvia",
+  "texto": "Дождь"
+ },
+ {
+  "clave": "ciclo.viento",
+  "texto": "Ветер"
+ },
+ {
+  "clave": "ciclo.volverHoraReal",
+  "texto": "Вернуться к реальному системному времени"
+ },
+ {
+  "clave": "color.personalizado",
+  "texto": "Свой цвет"
+ },
+ {
+  "clave": "color.sin",
+  "texto": "Без цвета"
+ },
+ {
+  "clave": "constructor.cuarto.agua",
+  "texto": "Наполнить водой (бассейн)"
+ },
+ {
+  "clave": "constructor.cuarto.color",
+  "texto": "Цвет комнаты"
+ },
+ {
+  "clave": "constructor.cuarto.hintExpandir",
+  "texto": "Нажми +, чтобы увеличить комнату, и −, чтобы обрезать её. В комнате из одной клетки − удаляет её."
+ },
+ {
+  "clave": "constructor.cuarto.hintMover",
+  "texto": "Перетаскивай, чтобы передвинуть комнату, или выбери форму внизу слева, чтобы нарисовать новую. Используй «Расширить», чтобы увеличивать, обрезать или удалять комнаты."
+ },
+ {
+  "clave": "constructor.cuarto.hintSotano",
+  "texto": "Подвал: комнаты выкапываются под землёй на глубину одной стены (бассейны или бункеры). Выбери комнату, чтобы наполнить её водой."
+ },
+ {
+  "clave": "constructor.cuarto.hintPincel",
+  "texto": "Нажми на свободную клетку, чтобы создать комнату такой формы. Нажми на ту же клетку ещё раз, чтобы повернуть, а в конце — стереть. Нажми на клетку комнаты, чтобы изменить её форму. С мелкой сеткой (вверху справа) вырезаешь углы в ¼ клетки."
+ },
+ {
+  "clave": "constructor.cuarto.hintPincelFino",
+  "texto": "Мелкая сетка: нажми на четверть клетки комнаты, чтобы вырезать этот угол (треугольник или круг); нажми ещё раз, чтобы повернуть, а в конце — убрать вырез. На свободной клетке так создаётся комната с этим тонким углом."
+ },
+ {
+  "clave": "constructor.cuarto.nombre",
+  "texto": "Название"
+ },
+ {
+  "clave": "constructor.cuarto.vacio",
+  "texto": "Рисуй комнаты формами снизу."
+ },
+ {
+  "clave": "constructor.esquinas",
+  "texto": "Углы"
+ },
+ {
+  "clave": "constructor.plegarModos",
+  "texto": "Скрыть элементы"
+ },
+ {
+  "clave": "constructor.verModos",
+  "texto": "Показать все элементы"
+ },
+ {
+  "clave": "constructor.vista.croquis",
+  "texto": "Эскиз"
+ },
+ {
+  "clave": "constructor.vista.modelo3d",
+  "texto": "3D-модель"
+ },
+ {
+  "clave": "constructor.vista.hint3d",
+  "texto": "Нажми на элемент в эскизе или на 3D-карте, чтобы посмотреть и отредактировать его здесь."
+ },
+ {
+  "clave": "constructor.forma.circulo",
+  "texto": "Круг"
+ },
+ {
+  "clave": "constructor.forma.cuadrado",
+  "texto": "Квадрат"
+ },
+ {
+  "clave": "constructor.forma.posicion",
+  "texto": "Положение"
+ },
+ {
+  "clave": "constructor.forma.triangulo",
+  "texto": "Треугольник"
+ },
+ {
+  "clave": "constructor.grid.ampliar",
+  "texto": "Увеличить"
+ },
+ {
+  "clave": "constructor.grid.reducir",
+  "texto": "Уменьшить"
+ },
+ {
+  "clave": "constructor.cuadrantes.titulo",
+  "texto": "Квадранты"
+ },
+ {
+  "clave": "constructor.cuadrantes.todo",
+  "texto": "Вся карта"
+ },
+ {
+  "clave": "constructor.cuadrantes.enfocar",
+  "texto": "Сфокусироваться на этом квадранте"
+ },
+ {
+  "clave": "constructor.cuadrantes.enfocarRenombrar",
+  "texto": "Сфокусироваться (двойной клик — переименовать)"
+ },
+ {
+  "clave": "constructor.cuadrantes.eliminar",
+  "texto": "Удалить квадрант"
+ },
+ {
+  "clave": "constructor.cuadrantes.referencias",
+  "texto": "Ориентиры"
+ },
+ {
+  "clave": "constructor.cuadrantes.referenciasHint",
+  "texto": "Они только двигают вид; редактировать можно где угодно."
+ },
+ {
+  "clave": "constructor.cuadrantes.tuyas",
+  "texto": "Твои зоны"
+ },
+ {
+  "clave": "constructor.cuadrantes.tuyasHint",
+  "texto": "Выбери одну — в остальных меню можно будет редактировать только её клетки."
+ },
+ {
+  "clave": "constructor.cuadrantes.renombrar",
+  "texto": "Переименовать"
+ },
+ {
+  "clave": "constructor.cuadrantes.dibujar",
+  "texto": "Нарисовать квадрант"
+ },
+ {
+  "clave": "constructor.cuadrantes.cancelar",
+  "texto": "Отменить рисование"
+ },
+ {
+  "clave": "constructor.cuadrantes.ayuda",
+  "texto": "Выдели перетаскиванием на эскизе или на 3D-карте область, на которой хочешь фокусироваться."
+ },
+ {
+  "clave": "constructor.cuadrantes.nuevo",
+  "texto": "Зона"
+ },
+ {
+  "clave": "constructor.muro.circulo",
+  "texto": "Круг"
+ },
+ {
+  "clave": "constructor.muro.crear",
+  "texto": "Создать"
+ },
+ {
+  "clave": "constructor.muro.curvaInfDer",
+  "texto": "Дуга снизу справа"
+ },
+ {
+  "clave": "constructor.muro.curvaInfIzq",
+  "texto": "Дуга снизу слева"
+ },
+ {
+  "clave": "constructor.muro.curvaSupDer",
+  "texto": "Дуга сверху справа"
+ },
+ {
+  "clave": "constructor.muro.curvaSupIzq",
+  "texto": "Дуга сверху слева"
+ },
+ {
+  "clave": "constructor.muro.diagonal1",
+  "texto": "Диагональ"
+ },
+ {
+  "clave": "constructor.muro.diagonal2",
+  "texto": "Обратная диагональ"
+ },
+ {
+  "clave": "constructor.muro.editar",
+  "texto": "Выбранная стена"
+ },
+ {
+  "clave": "constructor.muro.eliminar",
+  "texto": "Удалить стену"
+ },
+ {
+  "clave": "constructor.muro.eliminarCorto",
+  "texto": "Удалить"
+ },
+ {
+  "clave": "constructor.muro.hint",
+  "texto": "Выбери форму внизу слева. В «Сторонах» выбери «Горизонтально» или «Вертикально» и нажми на сетку, чтобы поставить или убрать прямую стену. В «Треугольнике»/«Круге» выбери начальный вариант и нажми на клетку; нажми на ту же точку ещё раз, чтобы перебрать остальные варианты, а после последнего — стереть."
+ },
+ {
+  "clave": "constructor.muro.hintSeleccionar",
+  "texto": "Нажми на стену на 3D-карте — прямую, прямоугольную или круглую — чтобы выбрать её и изменить текстуру, цвет, высоту и форму."
+ },
+ {
+  "clave": "constructor.muro.horizontal",
+  "texto": "Горизонтально"
+ },
+ {
+  "clave": "constructor.muro.lado",
+  "texto": "сторона"
+ },
+ {
+  "clave": "constructor.muro.lados",
+  "texto": "Стороны (рёбра)"
+ },
+ {
+  "clave": "constructor.muro.orientacion",
+  "texto": "Ориентация"
+ },
+ {
+  "clave": "constructor.muro.ponerPuerta",
+  "texto": "+ Добавить дверь"
+ },
+ {
+  "clave": "constructor.muro.ponerVentana",
+  "texto": "+ Добавить окно"
+ },
+ {
+  "clave": "constructor.muro.quitarPuerta",
+  "texto": "✓ С дверью (убрать)"
+ },
+ {
+  "clave": "constructor.muro.quitarVentana",
+  "texto": "✓ С окном (убрать)"
+ },
+ {
+  "clave": "constructor.muro.rotar",
+  "texto": "Повернуть на 90°"
+ },
+ {
+  "clave": "constructor.muro.seleccionar",
+  "texto": "Выбрать"
+ },
+ {
+  "clave": "constructor.muro.triangulo",
+  "texto": "Треугольник"
+ },
+ {
+  "clave": "constructor.muro.vertical",
+  "texto": "Вертикально"
+ },
+ {
+  "clave": "constructor.piso.cambiarTodas",
+  "texto": "Изменить все сразу"
+ },
+ {
+  "clave": "constructor.piso.hint",
+  "texto": "Или нажимай на клетки в эскизе или на 3D-карте, чтобы выбрать одну или несколько."
+ },
+ {
+  "clave": "constructor.piso.todasExt",
+  "texto": "Выбрать все внешние"
+ },
+ {
+  "clave": "constructor.piso.todasInt",
+  "texto": "Выбрать все внутренние"
+ },
+ {
+  "clave": "cubo.atras",
+  "texto": "СЗАДИ"
+ },
+ {
+  "clave": "cubo.der",
+  "texto": "СПРАВА"
+ },
+ {
+  "clave": "cubo.frente",
+  "texto": "СПЕРЕДИ"
+ },
+ {
+  "clave": "cubo.izq",
+  "texto": "СЛЕВА"
+ },
+ {
+  "clave": "cubo.planta",
+  "texto": "СВЕРХУ"
+ },
+ {
+  "clave": "cubo.titulo",
+  "texto": "Навигационный куб: углы — изометрия, грани — плоские виды"
+ },
+ {
+  "clave": "editor.abrir",
+  "texto": "Открыть редактор дома"
+ },
+ {
+  "clave": "editor.ayuda.conf.a",
+  "texto": "Визуальный"
+ },
+ {
+  "clave": "editor.ayuda.conf.b",
+  "texto": "стиль карты"
+ },
+ {
+  "clave": "editor.ayuda.conf.c",
+  "texto": ", язык и"
+ },
+ {
+  "clave": "editor.ayuda.conf.d",
+  "texto": "интерфейс"
+ },
+ {
+  "clave": "editor.ayuda.cuarto.a",
+  "texto": "Настрой внешний вид, стены и размер."
+ },
+ {
+  "clave": "editor.ayuda.cuarto.b",
+  "texto": "Перетаскивай мебель и декор"
+ },
+ {
+  "clave": "editor.ayuda.cuarto.c",
+  "texto": "внутри комнаты."
+ },
+ {
+  "clave": "editor.ayuda.mapa.a",
+  "texto": "Выбери"
+ },
+ {
+  "clave": "editor.ayuda.mapa.b",
+  "texto": "режим"
+ },
+ {
+  "clave": "editor.ayuda.mapa.c",
+  "texto": "сверху и редактируй в"
+ },
+ {
+  "clave": "editor.ayuda.mapa.d",
+  "texto": "эскизе"
+ },
+ {
+  "clave": "editor.ayuda.mapa.e",
+  "texto": "или на 3D-карте. Ниже настрой дом."
+ },
+ {
+  "clave": "editor.ayuda.obj.a",
+  "texto": "Выбери"
+ },
+ {
+  "clave": "editor.ayuda.obj.b",
+  "texto": "объект"
+ },
+ {
+  "clave": "editor.ayuda.obj.c",
+  "texto": "и меняй его"
+ },
+ {
+  "clave": "editor.ayuda.obj.d",
+  "texto": "цвет, размер и поворот"
+ },
+ {
+  "clave": "editor.ayuda.pers.a",
+  "texto": "Выбери"
+ },
+ {
+  "clave": "editor.ayuda.pers.b",
+  "texto": "персонажа"
+ },
+ {
+  "clave": "editor.ayuda.pers.c",
+  "texto": "и меняй его"
+ },
+ {
+  "clave": "editor.ayuda.pers.d",
+  "texto": "имя, тело и 3D-аватар"
+ },
+ {
+  "clave": "editor.fondo.colorFijo",
+  "texto": "Сплошной цвет"
+ },
+ {
+  "clave": "editor.fondo.colorFijoDesc",
+  "texto": "Сплошной цвет неба, который не меняется в течение дня."
+ },
+ {
+  "clave": "editor.imgActiva",
+  "texto": "АКТИВНО"
+ },
+ {
+  "clave": "editor.mapa.mapa",
+  "texto": "Карта"
+ },
+ {
+  "clave": "editor.muro.alt",
+  "texto": "Стена"
+ },
+ {
+  "clave": "editor.obj.altura",
+  "texto": "Высота"
+ },
+ {
+  "clave": "editor.obj.asignarApp",
+  "texto": "+ Назначить приложение этому объекту"
+ },
+ {
+  "clave": "editor.obj.cambiarApp",
+  "texto": "Изменить"
+ },
+ {
+  "clave": "editor.obj.color",
+  "texto": "Цвет"
+ },
+ {
+  "clave": "editor.obj.crearPiezas",
+  "texto": "Создать объект из 3D-деталей"
+ }
+]

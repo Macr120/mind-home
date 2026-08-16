@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.editor-mapa.3.texto",
+    "texto": "Les toits se posent case par case : chacune peut avoir sa propre forme ou son propre matériau, si bien qu’une même pièce peut mélanger plusieurs pentes au lieu d’un seul toit plat."
+  },
+  {
+    "clave": "tut.editor-mapa.4.texto",
+    "texto": "La maison a aussi des niveaux : des étages qui s’empilent vers le haut et un sous-sol vers le bas. Chaque nouveau niveau naît avec sa propre façon de monter — un escalier ou une ouverture dans la dalle — qui perce le sol du dessus."
+  },
+  {
+    "clave": "tut.editor-mapa.5.titulo",
+    "texto": "Terminé"
+  },
+  {
+    "clave": "tut.editor-mapa.5.texto",
+    "texto": "Tout s’enregistre tout seul pendant que tu modifies. Terminé ferme l’éditeur et te ramène au jeu, la maison telle que tu l’as laissée."
+  },
+  {
+    "clave": "tut.editor-personajes.1.texto",
+    "texto": "Ton personnage principal et tes assistants vivent dans le même éditeur : choisis en haut qui tu modifies, et les outils s’adaptent à ce qui a du sens pour chacun."
+  },
+  {
+    "clave": "tut.editor-personajes.2.titulo",
+    "texto": "Visage et photo"
+  },
+  {
+    "clave": "tut.editor-personajes.2.texto",
+    "texto": "Expression, coiffure et couleur de cheveux, ou carrément une photo de toi pour que le personnage te ressemble. Tous les corps n’acceptent pas un visage personnalisé."
+  },
+  {
+    "clave": "tut.editor-personajes.3.titulo",
+    "texto": "Vêtements par catégorie"
+  },
+  {
+    "clave": "tut.editor-personajes.3.texto",
+    "texto": "Chaque vêtement se met, s’enlève et change de couleur séparément : chemise, pantalon, chaussures, accessoires. Ils se combinent librement."
+  },
+  {
+    "clave": "tut.editor-personajes.4.titulo",
+    "texto": "Tenues enregistrées"
+  },
+  {
+    "clave": "tut.editor-personajes.4.texto",
+    "texto": "Enregistre une combinaison complète comme une tenue et change de look en un geste, sans tout remonter vêtement par vêtement à chaque fois."
+  },
+  {
+    "clave": "tut.editor-personajes.5.titulo",
+    "texto": "Garde-robe par pièce"
+  },
+  {
+    "clave": "tut.editor-personajes.5.texto",
+    "texto": "Affecte une tenue différente à chaque pièce : ton avatar entre en tenue de course dans Gym et se change tout seul en passant à la Cuisine."
+  },
+  {
+    "clave": "tut.editor-personajes.6.texto",
+    "texto": "Corps, couleur et taille se modifient comme toujours ; avec l’IA activée, tu peux aussi générer ton propre modèle 3D au lieu d’en choisir un tout fait."
+  },
+  {
+    "clave": "tut.editor-objetos.1.texto",
+    "texto": "Touche un objet de la scène (ou de la liste) pour le modifier : couleur, taille et rotation sont les trois réglages que tous partagent."
+  },
+  {
+    "clave": "tut.editor-objetos.2.texto",
+    "texto": "Les objets qui ont une app affectée ouvrent leur modèle quand tu entres dans la pièce ; les autres ne sont que de la décoration — les deux se modifient pareil."
+  },
+  {
+    "clave": "tut.editor-objetos.3.texto",
+    "texto": "L’engrenage ⚙️ d’un objet le rend modifiable en pièces 3D : monte tes propres modèles en combinant des formes de base, ou demandes-en un à l’IA en le décrivant."
+  },
+  {
+    "clave": "tut.editor-config.1.texto",
+    "texto": "Huit sections repliables, pas une longue liste : touche un titre pour n’ouvrir que celle qui t’intéresse."
+  },
+  {
+    "clave": "tut.editor-config.2.titulo",
+    "texto": "Compte et IA"
+  },
+  {
+    "clave": "tut.editor-config.2.texto",
+    "texto": "Te connecter, ton plan et ce que tu as dépensé en IA ce mois-ci ; juste à côté, la grille tarifaire de chaque opération. Les deux ont leur propre tutoriel détaillé."
+  },
+  {
+    "clave": "tut.editor-config.3.titulo",
+    "texto": "Style visuel"
+  },
+  {
+    "clave": "tut.editor-config.3.texto",
+    "texto": "Le thème du plan (lumière, brouillard, éclairage) et les styles de post-traitement, tout chargé à la demande pour ne pas alourdir l’app."
+  },
+  {
+    "clave": "tut.editor-config.4.titulo",
+    "texto": "Interface et langue"
+  },
+  {
+    "clave": "tut.editor-config.4.texto",
+    "texto": "Langue, thème de l’interface (clair/sombre/automatique), style d’icônes et densité — tout ce qui change COMMENT la maison se voit, pas ce qu’elle contient."
+  },
+  {
+    "clave": "tut.editor-config.5.titulo",
+    "texto": "Notifications"
+  },
+  {
+    "clave": "tut.editor-config.5.texto",
+    "texto": "Quelles alertes arrivent et lesquelles se taisent : routines, rappels de plan et avis se coupent séparément."
+  },
+  {
+    "clave": "tut.editor-config.6.texto",
+    "texto": "Musique et Tutoriels ont leur propre parcours ; Sauvegarde des données aussi, et c’est celui qu’il vaut le mieux revoir avant de changer d’appareil."
+  },
+  {
+    "clave": "tut.respaldo.1.titulo",
+    "texto": "Où vit ta maison"
+  },
+  {
+    "clave": "tut.respaldo.1.texto",
+    "texto": "Sans compte ni synchronisation, tes données ne vivent que sur cet appareil. L’avis du haut dit si le navigateur a la permission de les protéger d’un nettoyage automatique."
+  },
+  {
+    "clave": "tut.respaldo.2.titulo",
+    "texto": "Exporter"
+  },
+  {
+    "clave": "tut.respaldo.2.texto",
+    "texto": "Télécharge un seul fichier JSON avec toutes tes tables : pièces, objectifs, enregistrements, tout. C’est ta copie de sauvegarde manuelle."
+  },
+  {
+    "clave": "tut.respaldo.3.titulo",
+    "texto": "Restaurer"
+  }
+]

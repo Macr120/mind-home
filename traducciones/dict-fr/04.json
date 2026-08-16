@@ -1,0 +1,593 @@
+[
+  {
+    "clave": "despacho.sim.sinDatos",
+    "es": "Aún no hay nada que proyectar. Anota lo que tienes en Activos y lo que debes en Pasivos, ponles su tasa, y aquí verás a dónde va.",
+    "en": "Nothing to project yet. Add what you own under Assets and what you owe under Liabilities, give them a rate, and you will see where it goes."
+  },
+  {
+    "clave": "despacho.sim.netoHoy",
+    "es": "Neto hoy",
+    "en": "Net worth today"
+  },
+  {
+    "clave": "despacho.sim.netoFinal",
+    "en": "In {n} months"
+  },
+  {
+    "clave": "despacho.sim.interesesFuturos",
+    "es": "Intereses por pagar",
+    "en": "Interest still to pay"
+  },
+  {
+    "clave": "despacho.sim.aportado",
+    "es": "Lo que aportarás",
+    "en": "What you will put in"
+  },
+  {
+    "clave": "despacho.sim.horizonte",
+    "es": "Proyectar (meses)",
+    "en": "Project (months)"
+  },
+  {
+    "clave": "despacho.sim.inflacion",
+    "es": "Inflación anual %",
+    "en": "Yearly inflation %"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoy",
+    "es": "Verlo en dinero de hoy",
+    "en": "See it in today's money"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoyAyuda",
+    "es": "Descuenta la inflación: cuánto valdrá de verdad ese dinero, no cuántos billetes serán.",
+    "en": "Strips out inflation: what that money will really be worth, not how many notes it is."
+  },
+  {
+    "clave": "despacho.sim.flujoMensual",
+    "es": "Sumar lo que ahorro cada mes",
+    "en": "Add what I save each month"
+  },
+  {
+    "clave": "despacho.sim.flujoAyuda",
+    "en": "From your movements: {i} comes in and {g} goes out each month."
+  },
+  {
+    "clave": "despacho.sim.crecIngreso",
+    "es": "Mis ingresos suben %/año",
+    "en": "My income rises %/year"
+  },
+  {
+    "clave": "despacho.sim.crecGasto",
+    "es": "Mis gastos suben %/año",
+    "en": "My expenses rise %/year"
+  },
+  {
+    "clave": "despacho.sim.pagosYaEnGastos",
+    "es": "Mis pagos de deuda ya están entre esos gastos",
+    "en": "My debt payments are already among those expenses"
+  },
+  {
+    "clave": "despacho.sim.pagosDeudaMes",
+    "en": "Your debts ask for {n} a month. If you have not logged them as an expense, turn this off and they will be subtracted separately."
+  },
+  {
+    "clave": "despacho.sim.activos",
+    "es": "Activos",
+    "en": "Assets"
+  },
+  {
+    "clave": "despacho.sim.pasivos",
+    "es": "Pasivos",
+    "en": "Liabilities"
+  },
+  {
+    "clave": "despacho.sim.neto",
+    "es": "Neto",
+    "en": "Net"
+  },
+  {
+    "clave": "despacho.sim.hoy",
+    "es": "hoy",
+    "en": "today"
+  },
+  {
+    "clave": "despacho.sim.hitoLiquidas",
+    "en": "You pay off “{n}” in {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoPositivo",
+    "en": "Your net worth stops being negative in {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoDoble",
+    "en": "Your net worth doubles in {f}"
+  },
+  {
+    "clave": "despacho.sim.noBaja",
+    "en": "“{n}” does not go down on {p} a month: interest alone is {i}."
+  },
+  {
+    "clave": "despacho.sim.creceSinPago",
+    "en": "“{n}” has a rate but no monthly payment: it only grows."
+  },
+  {
+    "clave": "despacho.sim.avisoCorta",
+    "es": "Es una proyección, no una promesa.",
+    "en": "A projection, not a promise."
+  },
+  {
+    "clave": "despacho.sim.controles",
+    "es": "Ajusta el escenario",
+    "en": "Tune the scenario"
+  },
+  {
+    "clave": "despacho.periodo.anterior",
+    "es": "Periodo anterior",
+    "en": "Previous period"
+  },
+  {
+    "clave": "despacho.periodo.siguiente",
+    "es": "Periodo siguiente",
+    "en": "Next period"
+  },
+  {
+    "clave": "despacho.sim.aviso",
+    "es": "Sale de las tasas que tú escribiste: sirve para comparar escenarios, no para saber lo que va a pasar.",
+    "en": "It comes from the rates you entered: use it to compare scenarios, not to know what will happen."
+  },
+  {
+    "clave": "despacho.meta.hasPuesto",
+    "en": "you have put in {n}"
+  },
+  {
+    "clave": "despacho.meta.pediste",
+    "en": "you borrowed {n}"
+  },
+  {
+    "clave": "despacho.meta.valenHoy",
+    "en": "worth {n} today"
+  },
+  {
+    "clave": "despacho.meta.debesHoy",
+    "en": "you owe {n} today"
+  },
+  {
+    "clave": "despacho.meta.deRendimiento",
+    "es": "de rendimiento",
+    "en": "in returns"
+  },
+  {
+    "clave": "despacho.meta.deIntereses",
+    "es": "de intereses",
+    "en": "in interest"
+  },
+  {
+    "clave": "despacho.meta.tasaPuesta",
+    "en": "{n} %/year"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaDeuda",
+    "es": "Ponerle su tasa de interés",
+    "en": "Set its interest rate"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaAhorro",
+    "es": "Ponerle cuánto rinde",
+    "en": "Set what it earns"
+  },
+  {
+    "clave": "despacho.meta.tasaDeuda",
+    "es": "Tasa anual %",
+    "en": "Yearly rate %"
+  },
+  {
+    "clave": "despacho.meta.tasaAhorro",
+    "es": "Rinde al año %",
+    "en": "Earns per year %"
+  },
+  {
+    "clave": "despacho.meta.desde",
+    "es": "Desde",
+    "en": "Since"
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaDeuda",
+    "es": "La del banco. Cada pago que registres deja de generar intereses desde su fecha.",
+    "en": "The one your bank quotes. Every payment you log stops earning interest from its own date."
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaAhorro",
+    "es": "Cada aportación rinde desde el día que la hiciste, no desde el principio.",
+    "en": "Each contribution earns from the day you made it, not from the start."
+  },
+  {
+    "clave": "despacho.meta.movs",
+    "en": "Movements ({n})"
+  },
+  {
+    "clave": "despacho.meta.borrarTitulo",
+    "es": "¿Borrar esta meta?",
+    "en": "Delete this goal?"
+  },
+  {
+    "clave": "despacho.meta.borrarMsg",
+    "en": "“{n}” goes away; its movements stay in your history, but unlinked."
+  },
+  {
+    "clave": "despacho.meta.borrarOk",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "despacho.meta.deshacer",
+    "es": "Deshacer este abono",
+    "en": "Undo this payment"
+  },
+  {
+    "clave": "despacho.metas.disponible",
+    "es": "Disponible este mes",
+    "en": "Available this month"
+  },
+  {
+    "clave": "despacho.metas.disponibleDetalle",
+    "en": "income {i} − expenses {g}"
+  },
+  {
+    "clave": "despacho.plan.titulo",
+    "es": "Metas",
+    "en": "Goals"
+  },
+  {
+    "clave": "despacho.plan.desc",
+    "es": "Tu meta grande sobre el eje del tiempo. Con ✨ la IA te arma un plan de aportaciones.",
+    "en": "Your big goal on the timeline. With ✨ the AI builds you a contribution plan."
+  },
+  {
+    "clave": "despacho.plan.ejAhorro",
+    "es": "Fondo de emergencia",
+    "en": "Emergency fund"
+  },
+  {
+    "clave": "despacho.plan.material",
+    "es": "De dónde saldrá el dinero",
+    "en": "Where the money will come from"
+  },
+  {
+    "clave": "despacho.plan.ejDeuda",
+    "es": "Pagar la tarjeta de crédito",
+    "en": "Pay off the credit card"
+  },
+  {
+    "clave": "despacho.calc.titulo",
+    "es": "Calculadoras financieras",
+    "en": "Financial calculators"
+  },
+  {
+    "clave": "despacho.calc.tab.fondoEmergencia",
+    "en": "Emergency fund"
+  },
+  {
+    "clave": "despacho.calc.tab.libertadFinanciera",
+    "en": "Financial independence"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaCincuenta",
+    "en": "50/30/20"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaAuto",
+    "en": "Car 20/4/10"
+  },
+  {
+    "clave": "despacho.calc.crearMeta",
+    "es": "Crear meta con este monto",
+    "en": "Create goal with this amount"
+  },
+  {
+    "clave": "despacho.calc.metaCreada",
+    "es": "Meta creada — revísala arriba",
+    "en": "Goal created — check it above"
+  },
+  {
+    "clave": "despacho.calc.gastoEsencial",
+    "es": "Gasto mensual esencial",
+    "en": "Essential monthly expenses"
+  },
+  {
+    "clave": "despacho.calc.mesesColchon",
+    "es": "Meses de colchón",
+    "en": "Months of cushion"
+  },
+  {
+    "clave": "despacho.calc.fondoObjetivo",
+    "es": "Fondo objetivo",
+    "en": "Target fund"
+  },
+  {
+    "clave": "despacho.calc.fondoNota",
+    "en": "{g} × {n} months"
+  },
+  {
+    "clave": "despacho.calc.nombreFondo",
+    "es": "Fondo de emergencia",
+    "en": "Emergency fund"
+  },
+  {
+    "clave": "despacho.calc.gastoDeseado",
+    "es": "Gasto mensual deseado",
+    "en": "Desired monthly expenses"
+  },
+  {
+    "clave": "despacho.calc.tasaRetiro",
+    "es": "Tasa de retiro segura %",
+    "en": "Safe withdrawal rate %"
+  },
+  {
+    "clave": "despacho.calc.libertadObjetivo",
+    "es": "Necesitas invertido",
+    "en": "You need invested"
+  },
+  {
+    "clave": "despacho.calc.libertadNota",
+    "en": "Your annual expenses × {n}"
+  },
+  {
+    "clave": "despacho.calc.nombreLibertad",
+    "es": "Libertad financiera",
+    "en": "Financial independence"
+  },
+  {
+    "clave": "despacho.calc.ingresoMensual",
+    "es": "Ingreso mensual",
+    "en": "Monthly income"
+  },
+  {
+    "clave": "despacho.calc.pctNecesidades",
+    "es": "Necesidades %",
+    "en": "Needs %"
+  },
+  {
+    "clave": "despacho.calc.pctCaprichos",
+    "es": "Caprichos %",
+    "en": "Wants %"
+  },
+  {
+    "clave": "despacho.calc.pctAhorro",
+    "es": "Ahorro %",
+    "en": "Savings %"
+  },
+  {
+    "clave": "despacho.calc.noSuman100",
+    "en": "The percentages add up to {n}%, not 100%."
+  },
+  {
+    "clave": "despacho.calc.necesidades",
+    "es": "Necesidades",
+    "en": "Needs"
+  },
+  {
+    "clave": "despacho.calc.caprichos",
+    "es": "Caprichos",
+    "en": "Wants"
+  },
+  {
+    "clave": "despacho.calc.ahorroTxt",
+    "es": "Ahorro",
+    "en": "Savings"
+  },
+  {
+    "clave": "despacho.calc.nombreCaprichos",
+    "es": "Presupuesto de caprichos",
+    "en": "Discretionary budget"
+  },
+  {
+    "clave": "despacho.calc.precioAuto",
+    "es": "Precio del auto",
+    "en": "Car price"
+  },
+  {
+    "clave": "despacho.calc.pctEnganche",
+    "es": "Enganche %",
+    "en": "Down payment %"
+  },
+  {
+    "clave": "despacho.calc.plazoMax",
+    "es": "Plazo máx. (meses)",
+    "en": "Max. term (months)"
+  },
+  {
+    "clave": "despacho.calc.pctIngresoAuto",
+    "es": "Máx. del ingreso %",
+    "en": "Max. of income %"
+  },
+  {
+    "clave": "despacho.calc.tasaAuto",
+    "es": "Tasa anual %",
+    "en": "Annual rate %"
+  },
+  {
+    "clave": "despacho.calc.enganche",
+    "es": "Enganche requerido",
+    "en": "Down payment needed"
+  },
+  {
+    "clave": "despacho.calc.mensualidadMax",
+    "es": "Mensualidad máxima",
+    "en": "Maximum payment"
+  },
+  {
+    "clave": "despacho.calc.autoCabe",
+    "en": "It fits: the estimated payment is {m}."
+  },
+  {
+    "clave": "despacho.calc.autoNoCabe",
+    "en": "It doesn't fit these terms: the estimated payment ({m}) is over your maximum."
+  },
+  {
+    "clave": "despacho.calc.nombreEnganche",
+    "es": "Enganche del auto",
+    "en": "Car down payment"
+  },
+  {
+    "clave": "biblioteca.desc",
+    "es": "Tu enciclopedia personal: charla con el Sabio sobre cualquier tema, guarda lo aprendido por campo del conocimiento y estudia con temporizador.",
+    "en": "Your personal encyclopedia: chat with the Sage about any topic, keep what you learn by field of knowledge and study with a timer."
+  },
+  {
+    "clave": "biblioteca.tab.charlas",
+    "en": "Chats"
+  },
+  {
+    "clave": "biblioteca.tab.enciclopedia",
+    "es": "Enciclopedia",
+    "en": "Encyclopedia"
+  },
+  {
+    "clave": "biblioteca.tab.estudio",
+    "en": "Study"
+  },
+  {
+    "clave": "biblioteca.tab.resumen",
+    "en": "Overview"
+  },
+  {
+    "clave": "biblioteca.sinIA",
+    "es": "Configura tu IA (Ajustes → Inteligencia artificial) para charlar con el Sabio. Mientras, puedes crear entradas a mano en la Enciclopedia.",
+    "en": "Set up your AI (Settings → Artificial intelligence) to chat with the Sage. Meanwhile, you can create entries by hand in the Encyclopedia."
+  },
+  {
+    "clave": "biblioteca.charla.nuevaBtn",
+    "es": "Nueva charla con el Sabio",
+    "en": "New chat with the Sage"
+  },
+  {
+    "clave": "biblioteca.charla.todas",
+    "es": "Todas",
+    "en": "All"
+  },
+  {
+    "clave": "biblioteca.charla.vacio",
+    "es": "Aún no hay charlas. Pregunta lo que sea — «¿por qué el cielo es azul?» — y la biblioteca la archivará en su campo del conocimiento.",
+    "en": "No chats yet. Ask anything — \"why is the sky blue?\" — and the library will file it under its field of knowledge."
+  },
+  {
+    "clave": "biblioteca.charla.sinTitulo",
+    "es": "Charla sin título",
+    "en": "Untitled chat"
+  },
+  {
+    "clave": "biblioteca.charla.porClasificar",
+    "es": "por clasificar",
+    "en": "to classify"
+  },
+  {
+    "clave": "biblioteca.charla.nueva",
+    "es": "Nueva charla",
+    "en": "New chat"
+  },
+  {
+    "clave": "biblioteca.charla.sub",
+    "es": "Charla de enciclopedia",
+    "en": "Encyclopedia chat"
+  },
+  {
+    "clave": "biblioteca.charla.volver",
+    "es": "Volver a las charlas",
+    "en": "Back to chats"
+  },
+  {
+    "clave": "biblioteca.charla.renombrar",
+    "es": "Tocar para renombrar",
+    "en": "Tap to rename"
+  },
+  {
+    "clave": "biblioteca.charla.destilar",
+    "en": "Distill"
+  },
+  {
+    "clave": "biblioteca.charla.reDestilar",
+    "en": "Update entry"
+  },
+  {
+    "clave": "biblioteca.charla.destilarTip",
+    "en": "The AI summarizes the chat into an encyclopedia entry"
+  },
+  {
+    "clave": "biblioteca.charla.destilarFallo",
+    "en": "The AI could not distill the chat; fill in the entry by hand."
+  },
+  {
+    "clave": "biblioteca.charla.borrar",
+    "es": "Borrar charla",
+    "en": "Delete chat"
+  },
+  {
+    "clave": "biblioteca.charla.campoTip",
+    "es": "Campo del conocimiento donde se archiva la charla",
+    "en": "Field of knowledge where the chat is filed"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificar",
+    "es": "Clasificar",
+    "en": "Classify"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificarTip",
+    "es": "Clasificar la charla en el árbol y destilar su entrada",
+    "en": "Classify the chat in the tree and distil its entry"
+  },
+  {
+    "clave": "biblioteca.charla.verEntrada",
+    "es": "Entrada",
+    "en": "Entry"
+  },
+  {
+    "clave": "biblioteca.charla.verEntradaTip",
+    "es": "Ver la entrada que se destiló de esta charla",
+    "en": "See the entry distilled from this chat"
+  },
+  {
+    "clave": "biblioteca.charla.irANodo",
+    "es": "Ver «{n}» en la enciclopedia",
+    "en": "See «{n}» in the encyclopedia"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarTip",
+    "en": "Branch: add subtopics from this chat to the tree"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarSinTema",
+    "en": "This chat has no place in the tree yet"
+  },
+  {
+    "clave": "biblioteca.ramas.titulo",
+    "es": "Ramificar el árbol",
+    "en": "Branch the tree"
+  },
+  {
+    "clave": "biblioteca.ramas.desc",
+    "es": "Ramas nuevas bajo «{tema}» a partir de esta charla:",
+    "en": "New branches under \"{tema}\" from this chat:"
+  },
+  {
+    "clave": "biblioteca.ramas.cargando",
+    "es": "El Sabio busca ramas nuevas…",
+    "en": "The Sage is looking for new branches…"
+  },
+  {
+    "clave": "biblioteca.ramas.vacio",
+    "es": "No hay ramas nuevas que sugerir para este tema.",
+    "en": "No new branches to suggest for this topic."
+  },
+  {
+    "clave": "biblioteca.ramas.agregar",
+    "es": "Agregar seleccionadas",
+    "en": "Add selected"
+  },
+  {
+    "clave": "biblioteca.ramas.ahoraNo",
+    "es": "Ahora no",
+    "en": "Not now"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "Her uygulamanın başlığında Hedefler düğmesi var, takvimdekiyle aynı ama sadece bu uygulamaya özel. Açtığında iki katlı bir panel çıkar: üstte bugünün kontrol listesi, altta hedefleri ve planları."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "Uygulamanın kendi hedefleri (su, kalori), bugün için takvime eklediklerin ve devam eden hedeflerinin adımları — hepsi bir arada, her adımın geldiği plan veya hedefe göre gruplanmış."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "Bir şey eksikse, «Yeni kontrol listesi» kendininkini oluşturur: her gün tekrarlanan, bu uygulamaya özel bir liste. Bugün bölümünün altında Hedefler, Planlar ve Zaman Çizelgesi'ni bir arada tutan tam planlayıcı var, uygulamanın tüm hedefleriyle birlikte."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "Hobilerinin ve projelerinin hedefleri başlıktaki Hedefler düğmesinde yaşar: takvimdeki aynı Hedefler · Planlar · Zaman Çizelgesi planlayıcısı, sadece bu uygulamaya özel. Yapay zekadan aşamalı ve tarihli bir plan iste."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "Hedefler başlıktaki Hedefler düğmesinde yaşar, takvimin kendi zaman çizelgesinde: «sınavdan önce termodinamiği bitirmek» zaten tamamlandı; yüksek lisansa hazırlık hâlâ devam ediyor."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "Başlıktaki Hedefler düğmesi tamamladığı dört hedefi — 5K, 10K, yarı maraton ve maraton — ve hâlâ açık olanı saklar. Tarihli hedefler ev takviminde de görünür."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "Başlıktaki Hedefler düğmesi, ev takviminin kullandığı aynı zaman çizelgesini Mutfağın hedefleriyle sınırlı olarak açar: bir hedef oluştur (örneğin «3 kilo vermek») ve yapay zekadan plan iste — hedef tarihini sorar ve her alt hedefi kendi tarihiyle takvime ekler."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "Başlıktaki Hedefler düğmesi bu hedefleri zaman ekseninde tutar: birine tarih ver, takvimindeki günler arasında görünsün. ✨ ile yapay zeka birikim planı önerir."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "Kaydedilen program başlıktaki Hedefler düğmesinde yaşar: her başlık listede olma sebebini not olarak tutar, tarih verirsen diğer hedefler gibi takvime iner."
+  }
+]

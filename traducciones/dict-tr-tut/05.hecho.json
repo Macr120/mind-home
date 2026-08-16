@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.respaldo.3.texto",
+    "texto": "Geri yükleme, mevcut bütün verilerin yerine dosyadakileri KOYAR — önce onay ister ve kaç kayıt getirdiğini gösterir, yani sürpriz olmaz."
+  },
+  {
+    "clave": "tut.respaldo.4.texto",
+    "texto": "Cihaz ya da tarayıcı değiştirmeden önce, hatta arada bir öylesine yedek almakta fayda var: hesabın yokken elindeki tek kopya bu."
+  },
+  {
+    "clave": "tut.editor-cuarto.1.texto",
+    "texto": "Belirli bir odayı düzenliyorsun: plan da kamera da bütün eve değil, ona odaklanır."
+  },
+  {
+    "clave": "tut.editor-cuarto.2.titulo",
+    "texto": "Neler düzenlenir"
+  },
+  {
+    "clave": "tut.editor-cuarto.2.texto",
+    "texto": "Odanın şekli, zemini, duvarları, kapıları, rengi ve adı, bir de nesneleri. Atanan uygulama da buradan değişir: bu panele en çok onun için gelinir."
+  },
+  {
+    "clave": "tut.editor-cuarto.3.titulo",
+    "texto": "Haritaya dön"
+  },
+  {
+    "clave": "tut.editor-cuarto.3.texto",
+    "texto": "Bu ok, düzenleyiciyi kapatmadan bütün haritaya döner; başka bir odada çalışmayı sürdürebilirsin."
+  },
+  {
+    "clave": "tut.editor-cuarto.4.texto",
+    "texto": "3D görünümde odanın üzerinde yüzen bir «Odadan çık» düğmesi de var; oradan dokunmayı tercih edersen diye."
+  },
+  {
+    "clave": "tut.herramientas.1.texto",
+    "texto": "Bu düğme karakterinin araç çarkını açar."
+  },
+  {
+    "clave": "tut.herramientas.2.titulo",
+    "texto": "İki seviye"
+  },
+  {
+    "clave": "tut.herramientas.2.texto",
+    "texto": "Önce kategoriyi, sonra içindeki aracı seçersin. Aynı anda en fazla 3 araç kuşanabilirsin; kategorileri farklı da olabilir, aynı da."
+  },
+  {
+    "clave": "tut.herramientas.3.titulo",
+    "texto": "Dördüncü kategori"
+  },
+  {
+    "clave": "tut.herramientas.3.texto",
+    "texto": "İnşaat bir oyuncak kuşandırmaz: haritanın çizim modunu açar (Odalar, Duvarlar, Kapılar, Pencereler, zeminler, Çatılar) ve tam düzenleyiciye uğramana gerek kalmaz. Plan aynı plan, sadece daha kısa yoldan geliniyor."
+  },
+  {
+    "clave": "tut.herramientas.4.titulo",
+    "texto": "Merkez"
+  },
+  {
+    "clave": "tut.herramientas.4.texto",
+    "texto": "Merkez, kuşandığın her şeyi bırakır ve köşedeki yuvayı normale döndürür (yakınında ne varsa ona göre: görünüm küpü ya da başka bir bağlamsal düğme)."
+  },
+  {
+    "clave": "tut.herramientas.5.texto",
+    "texto": "Çarkın dışına dokununca kapanır. Canın istediğinde dene: bunların hiçbiri kalıcı olarak kaydedilmez, yalnızca üzerinde taşıdığın sürece geçerli."
+  },
+  {
+    "clave": "tut.navegacion.1.texto",
+    "texto": "Üç kamera: İzo (oyuncak ev görünümü), 3. ve 1. şahıs. Buradan ya da V tuşuyla değiştir."
+  },
+  {
+    "clave": "tut.navegacion.2.titulo",
+    "texto": "Yönünü bulmak"
+  },
+  {
+    "clave": "tut.navegacion.2.texto",
+    "texto": "İzo’da küp kamerayı yüzden yüze çevirir; 3. ve 1. şahısta etrafa bakmak için pad’i sürükle."
+  },
+  {
+    "clave": "tut.navegacion.3.titulo",
+    "texto": "Yakında bir şey olduğunda"
+  },
+  {
+    "clave": "tut.navegacion.3.texto",
+    "texto": "Etkileşimli bir şeye yaklaştığında aynı yuva kamera olmaktan çıkar: saha oyna düğmesini, araç bin düğmesini, sandalye otur düğmesini sunar. Aynı anda tek bir şey, hep de yakınlıkla — asla kendiliğinden değil."
+  },
+  {
+    "clave": "tut.navegacion.4.titulo",
+    "texto": "Döndür ve ortala"
+  },
+  {
+    "clave": "tut.navegacion.4.texto",
+    "texto": "Görünümü yanlara döndür ya da keşfe dalıp kaybolduysan haritada yeniden ortala."
+  },
+  {
+    "clave": "tut.navegacion.5.titulo",
+    "texto": "Hareket etmek"
+  },
+  {
+    "clave": "tut.navegacion.5.texto",
+    "texto": "Joystick, WASD ya da oklarla yürü. Suda yüzersin; bir araca bindiğinde aynı kontrollerle sürersin."
+  },
+  {
+    "clave": "tut.navegacion.6.texto",
+    "texto": "3. ve 1. şahısta 3D Düzenleyici düğmesi belirir: nesnelere, duvarlara ya da karakterlere dokun ve onları tam durdukları yerde, İzometrik görünüme dönmeden düzenle."
+  },
+  {
+    "clave": "tut.chat.1.texto",
+    "texto": "Mimarın sohbeti: gününü kaydeder, evi düzenler ve aklına takılanları yanıtlar; hepsi aynı kutudan."
+  },
+  {
+    "clave": "tut.chat.2.titulo",
+    "texto": "Yazmak"
+  },
+  {
+    "clave": "tut.chat.2.texto",
+    "texto": "Serbestçe yaz: «20 dk koştum», «markette 250 harcadım»… Yanındaki chip hangi uygulamaya gideceğini gösterir. Yanlış tahmin ederse hedefi @oda ile sen belirle."
+  },
+  {
+    "clave": "tut.chat.3.titulo",
+    "texto": "Sesle yazdırmak"
+  },
+  {
+    "clave": "tut.chat.3.texto",
+    "texto": "Mikrofon söylediklerini metin kutusuna yazar — elin doluyken kayıt tutmak için birebir."
+  },
+  {
+    "clave": "tut.chat.4.titulo",
+    "texto": "Fotoğraf göndermek"
+  },
+  {
+    "clave": "tut.chat.4.texto",
+    "texto": "Yapay Zeka açıkken fişin, tabağın ya da tartının fotoğrafı kendi kendine okunur. Yapay Zeka yoksa bu düğme devre dışı kalır."
+  },
+  {
+    "clave": "tut.chat.5.titulo",
+    "texto": "Asistanlar"
+  },
+  {
+    "clave": "tut.chat.5.texto",
+    "texto": "Asistanın yanıtlara bir yüz ve bir ses verir. Konuşmayı görmek, asistan değiştirmek ya da yenilerini oluşturmak için ona dokun."
+  },
+  {
+    "clave": "tut.chat.6.titulo",
+    "texto": "Kılavuz"
+  }
+]

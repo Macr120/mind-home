@@ -1,0 +1,518 @@
+[
+  {
+    "clave": "bienvenida.guia.explorar.desc",
+    "texto": "Klaar. Elk menu en elke app heeft zijn eigen tutorial achter de ?-knop."
+  },
+  {
+    "clave": "ajustes.bienvenida",
+    "texto": "Welkom"
+  },
+  {
+    "clave": "ajustes.bienvenida.btn",
+    "texto": "Welkom opnieuw bekijken"
+  },
+  {
+    "clave": "ajustes.bienvenida.desc",
+    "texto": "Het menu voor de eerste keer: kies apps, avatar en thema. Het verdubbelt nooit wat je al hebt."
+  },
+  {
+    "clave": "ajustes.tutoriales",
+    "texto": "Tutorials en welkom"
+  },
+  {
+    "clave": "ajustes.tutoriales.hud",
+    "texto": "Weergeven op het hoofdscherm"
+  },
+  {
+    "clave": "ajustes.tutoriales.hudDesc",
+    "texto": "Uitgeschakeld oogt het huis rustiger: tutorials start je dan vanaf hier."
+  },
+  {
+    "clave": "ajustes.tutoriales.voz",
+    "texto": "Stappen hardop voorlezen"
+  },
+  {
+    "clave": "ajustes.tutoriales.vozDesc",
+    "texto": "De tovenaar vertelt elke stap met de stem van zijn profiel. Je kunt dit ook aanzetten met de luidspreker op de kaart."
+  },
+  {
+    "clave": "ajustes.tutoriales.enPantalla",
+    "texto": "Kies een tutorial op het scherm"
+  },
+  {
+    "clave": "ajustes.tutoriales.casa",
+    "texto": "Het huis en zijn menu's"
+  },
+  {
+    "clave": "ajustes.tutoriales.apps",
+    "texto": "De apps"
+  },
+  {
+    "clave": "ajustes.tutoriales.infra",
+    "texto": "De bouwwerken op de kaart"
+  },
+  {
+    "clave": "ajustes.tutoriales.nucleo",
+    "texto": "De kalender en de doelen"
+  },
+  {
+    "clave": "wrapped.menu",
+    "texto": "Jouw samenvatting"
+  },
+  {
+    "clave": "wrapped.titulo",
+    "texto": "Jouw samenvatting"
+  },
+  {
+    "clave": "wrapped.cargando",
+    "texto": "Je samenvatting wordt gemaakt…"
+  },
+  {
+    "clave": "wrapped.cerrar",
+    "texto": "Sluiten"
+  },
+  {
+    "clave": "wrapped.anterior",
+    "texto": "Vorige periode"
+  },
+  {
+    "clave": "wrapped.siguiente",
+    "texto": "Volgende periode"
+  },
+  {
+    "clave": "wrapped.enCurso",
+    "texto": "(bezig)"
+  },
+  {
+    "clave": "wrapped.tipo.semana",
+    "texto": "Week"
+  },
+  {
+    "clave": "wrapped.tipo.mes",
+    "texto": "Maand"
+  },
+  {
+    "clave": "wrapped.tipo.anio",
+    "texto": "Jaar"
+  },
+  {
+    "clave": "wrapped.portada.semana",
+    "texto": "Jouw week in Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.mes",
+    "texto": "Jouw maand in Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.anio",
+    "texto": "Jouw jaar in Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.sub",
+    "texto": "Een overzicht van alles wat je hebt geregistreerd."
+  },
+  {
+    "clave": "wrapped.actividad.titulo",
+    "texto": "Je was er"
+  },
+  {
+    "clave": "wrapped.diasActivos",
+    "texto": "van {total} dagen met activiteit"
+  },
+  {
+    "clave": "wrapped.registros",
+    "texto": "registraties"
+  },
+  {
+    "clave": "wrapped.registros.mayus",
+    "texto": "Registraties"
+  },
+  {
+    "clave": "wrapped.mejorRacha",
+    "texto": "dagen op rij (beste reeks)"
+  },
+  {
+    "clave": "wrapped.topApp.titulo",
+    "texto": "Jouw topkamer"
+  },
+  {
+    "clave": "wrapped.topApp.n",
+    "texto": "{n} registraties"
+  },
+  {
+    "clave": "wrapped.ej.titulo",
+    "texto": "Je bewoog je lichaam"
+  },
+  {
+    "clave": "wrapped.ej.min",
+    "texto": "aan beweging"
+  },
+  {
+    "clave": "wrapped.ej.sesiones",
+    "texto": "sessies"
+  },
+  {
+    "clave": "wrapped.ej.km",
+    "texto": "afgelegd"
+  },
+  {
+    "clave": "wrapped.ej.kg",
+    "texto": "kg getild"
+  },
+  {
+    "clave": "wrapped.calma.titulo",
+    "texto": "Je vond rust"
+  },
+  {
+    "clave": "wrapped.calma.min",
+    "texto": "aan rust"
+  },
+  {
+    "clave": "wrapped.calma.sesiones",
+    "texto": "sessies"
+  },
+  {
+    "clave": "wrapped.calma.gratitud",
+    "texto": "dankbaarheidsdagen"
+  },
+  {
+    "clave": "wrapped.calma.animo",
+    "texto": "stemming na elke sessie"
+  },
+  {
+    "clave": "wrapped.estudio.titulo",
+    "texto": "Je voedde je geest"
+  },
+  {
+    "clave": "wrapped.estudio.min",
+    "texto": "aan studie"
+  },
+  {
+    "clave": "wrapped.estudio.sesiones",
+    "texto": "sessies"
+  },
+  {
+    "clave": "wrapped.idiomas.titulo",
+    "texto": "Je oefende talen"
+  },
+  {
+    "clave": "wrapped.idiomas.repasos",
+    "texto": "herhalingen"
+  },
+  {
+    "clave": "wrapped.idiomas.aciertos",
+    "texto": "nauwkeurigheid"
+  },
+  {
+    "clave": "wrapped.hobbies.titulo",
+    "texto": "Je werkte aan je hobby's"
+  },
+  {
+    "clave": "wrapped.hobbies.min",
+    "texto": "aan oefening"
+  },
+  {
+    "clave": "wrapped.hobbies.sesiones",
+    "texto": "sessies"
+  },
+  {
+    "clave": "wrapped.hobbies.top",
+    "texto": "je tophobby ({min})"
+  },
+  {
+    "clave": "wrapped.sueno.titulo",
+    "texto": "Zo rustte je uit"
+  },
+  {
+    "clave": "wrapped.sueno.horas",
+    "texto": "gemiddelde slaap"
+  },
+  {
+    "clave": "wrapped.sueno.noches",
+    "texto": "geregistreerde nachten"
+  },
+  {
+    "clave": "wrapped.sueno.calidad",
+    "texto": "gemiddelde kwaliteit"
+  },
+  {
+    "clave": "wrapped.cocina.titulo",
+    "texto": "In de keuken"
+  },
+  {
+    "clave": "wrapped.cocina.comidas",
+    "texto": "geregistreerde maaltijden"
+  },
+  {
+    "clave": "wrapped.cocina.agua",
+    "texto": "aan water"
+  },
+  {
+    "clave": "wrapped.cocina.peso",
+    "texto": "gewichtsverandering"
+  },
+  {
+    "clave": "wrapped.fin.titulo",
+    "texto": "Jouw geld"
+  },
+  {
+    "clave": "wrapped.fin.ingresos",
+    "texto": "aan inkomsten"
+  },
+  {
+    "clave": "wrapped.fin.gastos",
+    "texto": "aan uitgaven"
+  },
+  {
+    "clave": "wrapped.fin.topCategoria",
+    "texto": "waar je het meest aan uitgaf"
+  },
+  {
+    "clave": "wrapped.heatmap.titulo",
+    "texto": "Jouw consistentiekaart"
+  },
+  {
+    "clave": "wrapped.heatmap.pie",
+    "texto": "Elk vakje is een dag; hoe meer kleur, hoe meer registraties."
+  },
+  {
+    "clave": "wrapped.hitos.titulo",
+    "texto": "Jouw mijlpalen"
+  },
+  {
+    "clave": "wrapped.hito.lugares",
+    "texto": "{n} bezochte plaatsen"
+  },
+  {
+    "clave": "wrapped.hito.recuerdos",
+    "texto": "{n} reisherinneringen"
+  },
+  {
+    "clave": "wrapped.hito.peliculas",
+    "texto": "{n} films"
+  },
+  {
+    "clave": "wrapped.hito.series",
+    "texto": "{n} series"
+  },
+  {
+    "clave": "wrapped.hito.libros",
+    "texto": "{n} boeken"
+  },
+  {
+    "clave": "wrapped.hito.videojuegos",
+    "texto": "{n} videogames"
+  },
+  {
+    "clave": "wrapped.hito.anecdotas",
+    "texto": "{n} opgeslagen herinneringen"
+  },
+  {
+    "clave": "wrapped.hito.proyectos",
+    "texto": "{n} afgeronde projecten"
+  },
+  {
+    "clave": "wrapped.hito.mantenimientos",
+    "texto": "{n} onderhoudsbeurten"
+  },
+  {
+    "clave": "wrapped.hito.rutinas",
+    "texto": "{n} voltooide routinedagen"
+  },
+  {
+    "clave": "wrapped.comparativa.titulo",
+    "texto": "Tegenover de vorige periode"
+  },
+  {
+    "clave": "wrapped.comparativa.dias",
+    "texto": "Actieve dagen"
+  },
+  {
+    "clave": "wrapped.comparativa.ejercicio",
+    "texto": "Beweging"
+  },
+  {
+    "clave": "wrapped.comparativa.calma",
+    "texto": "Rust"
+  },
+  {
+    "clave": "wrapped.cierre.top",
+    "texto": "Niet te stoppen! Je was er bijna elke dag."
+  },
+  {
+    "clave": "wrapped.cierre.bien",
+    "texto": "Goed tempo: meer dan de helft van de dagen."
+  },
+  {
+    "clave": "wrapped.cierre.animo",
+    "texto": "Elke geregistreerde dag telt. Ga zo door."
+  },
+  {
+    "clave": "wrapped.cierre.nav",
+    "texto": "Gebruik ‹ › en de kiezer hierboven om andere periodes te bekijken."
+  },
+  {
+    "clave": "wrapped.vacio",
+    "texto": "Geen registraties in deze periode. Samenvattingen bouwen zichzelf op uit wat je in je apps registreert."
+  },
+  {
+    "clave": "wrapped.aviso.titulo.semana",
+    "texto": "✨ Jouw wekelijkse samenvatting is klaar"
+  },
+  {
+    "clave": "wrapped.aviso.titulo.mes",
+    "texto": "✨ Jouw maandelijkse samenvatting is klaar"
+  },
+  {
+    "clave": "wrapped.aviso.titulo.anio",
+    "texto": "✨ Jouw jaarlijkse samenvatting is klaar"
+  },
+  {
+    "clave": "wrapped.aviso.cuerpo",
+    "texto": "Bekijk je voortgang van de periode."
+  },
+  {
+    "clave": "wrapped.aviso.abrir",
+    "texto": "Bekijken"
+  },
+  {
+    "clave": "wrapped.mute",
+    "texto": "Muziek dempen"
+  },
+  {
+    "clave": "wrapped.compartir",
+    "texto": "Deze dia delen"
+  },
+  {
+    "clave": "wrapped.compartir.titulo",
+    "texto": "Mijn Mind Planner Home-samenvatting · {periodo}"
+  },
+  {
+    "clave": "wrapped.compartir.copiarManual",
+    "texto": "Kon het niet automatisch kopiëren. Selecteer de tekst en kopieer hem (Ctrl+C):"
+  },
+  {
+    "clave": "wrapped.compartir.cerrarManual",
+    "texto": "Sluiten"
+  },
+  {
+    "clave": "wrapped.nuevo",
+    "texto": "Nieuw"
+  },
+  {
+    "clave": "wrapped.nuevoTitulo",
+    "texto": "Je hebt een nieuwe samenvatting"
+  },
+  {
+    "clave": "notif.wrapped",
+    "texto": "Samenvatting van de periode (Wrapped)"
+  },
+  {
+    "clave": "sisifo.titulo",
+    "texto": "Sisyphusberg"
+  },
+  {
+    "clave": "sisifo.menu",
+    "texto": "Berg"
+  },
+  {
+    "clave": "sisifo.dia",
+    "texto": "Dag"
+  },
+  {
+    "clave": "sisifo.insignias",
+    "texto": "badges"
+  },
+  {
+    "clave": "sisifo.gracias",
+    "texto": "Genadedagen"
+  },
+  {
+    "clave": "sisifo.cerrar",
+    "texto": "Sluiten"
+  },
+  {
+    "clave": "sisifo.rangos",
+    "texto": "Rangen"
+  },
+  {
+    "clave": "sisifo.bloqueada",
+    "texto": "Vergrendelde badge"
+  },
+  {
+    "clave": "sisifo.comoFunciona",
+    "texto": "Hoe het werkt"
+  },
+  {
+    "clave": "sisifo.ayuda1",
+    "texto": "Elke dag met activiteit in je apps stijg je een trede. De top ligt op 365 dagen."
+  },
+  {
+    "clave": "sisifo.ayuda2",
+    "texto": "Elke 7 treden verdien je een badge (52 in totaal), en elk segment van weken verhoogt je rang (12 in totaal)."
+  },
+  {
+    "clave": "sisifo.ayuda3",
+    "texto": "Mis je een dag, dan heb je 2 genadedagen per maand: geen probleem. Zijn die op, dan rolt de steen terug naar het begin van je huidige rang."
+  },
+  {
+    "clave": "sisifo.ayuda4",
+    "texto": "Bij het bereiken van de top verdien je een permanente ster, en begin je weer helemaal onderaan."
+  },
+  {
+    "clave": "sisifo.frase",
+    "texto": "Men moet zich Sisyphus gelukkig voorstellen."
+  },
+  {
+    "clave": "sisifo.aviso.genial",
+    "texto": "Top!"
+  },
+  {
+    "clave": "sisifo.aviso.estrella.titulo",
+    "texto": "Je hebt de berg bedwongen!"
+  },
+  {
+    "clave": "sisifo.aviso.estrella.cuerpo",
+    "texto": "Je hebt een permanente ster verdiend. De klim begint opnieuw."
+  },
+  {
+    "clave": "sisifo.aviso.rango.titulo",
+    "texto": "Je bent in rang gestegen!"
+  },
+  {
+    "clave": "sisifo.aviso.rango.cuerpo",
+    "texto": "Je bent nu {nombre}."
+  },
+  {
+    "clave": "sisifo.aviso.insignia.titulo",
+    "texto": "Nieuwe badge!"
+  },
+  {
+    "clave": "wrapped.sisifo.titulo",
+    "texto": "Jouw klim"
+  },
+  {
+    "clave": "wrapped.sisifo.estrellas",
+    "texto": "verdiende sterren"
+  },
+  {
+    "clave": "ajustes.musica",
+    "texto": "Muziek"
+  },
+  {
+    "clave": "ajustes.musica.ambiental",
+    "texto": "Ambientmuziek in huis"
+  },
+  {
+    "clave": "ajustes.musica.ambientalDesc",
+    "texto": "Speelt terwijl je door het huis loopt; door de browser start het pas na je eerste klik."
+  },
+  {
+    "clave": "ajustes.musica.hud",
+    "texto": "Weergeven op het hoofdscherm"
+  },
+  {
+    "clave": "musica.hudNota",
+    "texto": "Uitgeschakeld, dan stel je de muziek in via Editor › Instellingen › Muziek."
+  }
+]

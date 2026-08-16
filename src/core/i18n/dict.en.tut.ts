@@ -248,13 +248,13 @@ export const EN_TUT: Dict = {
   'tut.cuenta-ia.4.titulo': 'The one lever',
   'tut.cuenta-ia.4.texto': 'Image quality is the only thing that changes the whole table\'s pricing: Fast is good and cheap (the default); Good gives more detail and better text inside the image.',
   'tut.cuenta-ia.5.titulo': 'One unit, many operations',
-  'tut.cuenta-ia.5.texto': 'A reply costs 1 credit, a long plan 3, an image or a 3D model 10 — the rule is the same across every room, this table just unpacks it one by one.',
+  'tut.cuenta-ia.5.texto': 'A reply costs 1 credit, a long plan 4, an image or a 3D model 10 — the rule is the same across every room, this table just unpacks it one by one.',
   'tut.ejemplos.1.texto': 'This bar shows up in almost every app while it still has none of your own data: a button to see it full of example content instead of starting on an empty screen.',
   'tut.ejemplos.2.texto': 'Viewing an example doesn\'t delete or mix in anything of yours: it\'s its own rows, marked as example, hidden (not deleted) when you turn it off. Turning it back on brings them back exactly as they were.',
   'tut.ejemplos.3.texto': 'Inside the demo home this bar doesn\'t appear: Pep@\'s whole year already plays that role, so there\'s no need for a separate example.',
-  'tut.hoy.1.texto': 'Under every app\'s header lives its Today list: it\'s born collapsed, with the day\'s summary in a single line so it doesn\'t eat up the screen.',
+  'tut.hoy.1.texto': 'In every app\'s header, next to the music button, lives its daily checklist chip: it only carries the day\'s count and it\'s born closed, so it doesn\'t eat up the screen.',
   'tut.hoy.2.titulo': 'Three sources, one list',
-  'tut.hoy.2.texto': 'The app\'s own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: it all shows up together, sorted by time.',
+  'tut.hoy.2.texto': 'The app\'s own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: all together, grouped under the plan or the goal each step comes from.',
   'tut.hoy.3.titulo': 'It crosses off because the data exists',
   'tut.hoy.3.texto': 'The row\'s button logs the REAL data in the app — a glass of water, a meal — and the step crosses itself off simply because that record now exists, not because anyone marked it. Tapping it again once done doesn\'t duplicate anything: the button disappears.',
   'tut.hoy.4.titulo': 'Your number for each day',
@@ -263,7 +263,7 @@ export const EN_TUT: Dict = {
   'tut.hoy.5.texto': 'The calendar schedules that same target with a fixed time: it opens the same editor as the clock\'s routines, so it ends up logged in both places at once.',
   'tut.hoy.6.titulo': 'Done doesn\'t disappear',
   'tut.hoy.6.texto': 'It drops down to "Done", collapsed: seeing the log take effect is part of the reward, and you can undo it from there if one slipped in by mistake.',
-  'tut.hoy.7.texto': 'This list replaced the old single-target bar per app — now it brings together the calendar, your goals and the app\'s own targets in the same place, app by app.',
+  'tut.hoy.7.texto': 'And if something\'s missing, «New checklist» creates your own: a list of this app\'s that repeats every day. At the foot of the panel you hide what\'s finished or turn the whole checklist off in the apps where you don\'t want it.',
   'tut.progreso.1.texto': 'Your character\'s card: Pep@ has a whole year of real activity behind them, so every number here has a real story explaining it.',
   'tut.progreso.2.titulo': 'The character',
   'tut.progreso.2.texto': 'Tapping it opens the character editor. Its mood —happy, content, sad or asleep— rises with every new log and only drops if days pass with none; it never resets all at once.',
@@ -459,7 +459,7 @@ export const EN_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Quick minutes with one tap, or the exact number; the project is optional and the note is for whatever you want to remember about that session.',
   'tut.app-hobbies--gestion.4.texto':
-    'A hobby\'s (or a project\'s) timeline is the same Goals · Plans · Timeline planner from the calendar, scoped to that hobby: ask the AI for a plan with phases and dates.',
+    'The goals of your hobbies and projects live in the Goals button of the header: the same Goals · Plans · Timeline planner from the calendar, scoped to this app. Ask the AI for a plan with phases and dates.',
   'tut.app-ideas--diario.1.titulo': 'The inbox',
   'tut.app-ideas--diario.1.texto':
     "Write the thought and done. Pep@ dropped ~90 ideas here over the year: physics, the coffee shop, training. The star marks favorites.",
@@ -560,7 +560,7 @@ export const EN_TUT: Dict = {
     'The + on each row writes an entry right there, with its field and topic already set. And the pencil button grows the tree: that same + adds branches, the one on the Seed creates new fields, and you can rename, reorder and delete. The number with the little branch tells you how many sub-indexes hang below.',
   'tut.app-biblioteca--estudio.2.titulo': 'The study plan',
   'tut.app-biblioteca--estudio.2.texto':
-    "Goals live in the calendar's own timeline: «finish thermodynamics before the midterm» is already done; preparing for grad school is still going.",
+    "Goals live in the Goals button of the header, the calendar's own timeline: «finish thermodynamics before the midterm» is already done; preparing for grad school is still going.",
   'tut.app-biblioteca--estudio.3.texto':
     'You can ask any goal for a plan: the AI asks for your target date and your available hours, and schedules the study slots in your calendar.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -610,6 +610,9 @@ export const EN_TUT: Dict = {
   'tut.app-agenda--salud.3.titulo': 'Laika',
   'tut.app-agenda--salud.3.texto':
     'The cat has her own file with weight and vet, and her recurring care: a yearly shot, deworming every three months, a bath every month. Ticking one off recalculates the next date by itself.',
+  'tut.app-agenda--salud.4.titulo': 'What repeats',
+  'tut.app-agenda--salud.4.texto':
+    'The yearly checkup, the dental visit, the blood tests: care with its own cycle. Mark them done and the next date jumps ahead by itself, so the calendar never points at something you already did.',
   'tut.app-agenda--personas.1.titulo': "Pep@'s circle",
   'tut.app-agenda--personas.1.texto':
     'Family, friends, people from work and from university, each in their folder. With their phone, their address and whatever you do not want to forget.',
@@ -626,7 +629,7 @@ export const EN_TUT: Dict = {
     'The bars measure what you have done against your targets: strength sessions, running minutes and mobility minutes. The goal adjusts to the period you pick above.',
   'tut.app-ejercicio--anio.3.titulo': 'The goals of the year',
   'tut.app-ejercicio--anio.3.texto':
-    'Here are the four goals Pep@ ticked off — the 5K, the 10K, the half marathon and the marathon — plus the one still open. Goals with a date also show up in the house calendar.',
+    'The Goals button in the header keeps the four goals Pep@ ticked off — the 5K, the 10K, the half marathon and the marathon — plus the one still open. Goals with a date also show up in the house calendar.',
   'tut.app-ejercicio--carrera.1.titulo': 'Catalogue, routines and progress',
   'tut.app-ejercicio--carrera.1.texto':
     'Every discipline works the same way: the exercise catalogue, your routines with their history, and progress. Let us start with what Pep@ already ran.',
@@ -645,6 +648,17 @@ export const EN_TUT: Dict = {
   'tut.app-ejercicio--fuerza.3.titulo': 'Your records, unasked',
   'tut.app-ejercicio--fuerza.3.texto':
     'For each exercise it keeps your best weight, your top reps and an estimated 1RM. Bodyweight moves, like pull-ups, are marked separately.',
+  'tut.app-ejercicio--flexibilidad.1.titulo': 'Stretching and mobility',
+  'tut.app-ejercicio--flexibilidad.1.texto':
+    'The catalog comes with the usual exercises —hamstrings, hips, shoulders— each with its illustrated thumbnail, generated by AI the first time it is needed.',
+  'tut.app-ejercicio--flexibilidad.2.titulo': 'Sets by time, not by weight',
+  'tut.app-ejercicio--flexibilidad.2.texto':
+    'Each exercise takes seconds and reps instead of weight. The guided Player runs the routine exercise by exercise with a timer that tells you when to switch.',
+  'tut.app-ejercicio--flexibilidad.3.titulo': 'The same heat map',
+  'tut.app-ejercicio--flexibilidad.3.texto':
+    'The month\'s minutes and sessions, with the same heatmap as the other two modalities: mobility consistency reads as easily as running.',
+  'tut.app-ejercicio--flexibilidad.4.texto':
+    'All three modalities share the watch\'s live Cardio: when you run or pedal with the timer on, the minute-by-minute saves itself when you finish.',
   'tut.app-cocina--alimentacion.1.titulo': 'Step 1: where you are heading',
   'tut.app-cocina--alimentacion.1.texto':
     'From your weight, height and activity the app works out your daily needs and splits the macros. Pep@ settled on 2,400 calories and a weight goal that is less than a kilo away.',
@@ -674,7 +688,7 @@ export const EN_TUT: Dict = {
     'Each list keeps what is still missing and what is already in the cupboard. Add prices and the total can be sent to your expenses in Study.',
   'tut.app-cocina--cronograma.1.titulo': 'The weight goal, in phases',
   'tut.app-cocina--cronograma.1.texto':
-    'The same timeline the home calendar uses, scoped to Kitchen\'s goals: create a goal (e.g. "Lose 3 kilos") and ask the AI for the plan — it asks your target date and schedules sub-goals with their own date.',
+    'The Goals button in the header opens the same timeline the home calendar uses, scoped to Kitchen\'s goals: create a goal (e.g. "Lose 3 kilos") and ask the AI for the plan — it asks your target date and schedules sub-goals with their own date.',
   'tut.app-cocina--cronograma.2.texto':
     'This is done by AI: turn it on in Editor › Settings › Account. Without it, goals are still created and edited the same way, just by hand.',
   'tut.app-descanso--noche.1.titulo': 'A hundred points, three parts',
@@ -732,13 +746,28 @@ export const EN_TUT: Dict = {
     'The trip to Japan, at 100%: eleven months of saving, the private lessons, the Christmas bonus and their birthday money. Below, the emergency fund started on their return and a small investment.',
   'tut.app-despacho--metas.2.titulo': 'The goal over time',
   'tut.app-despacho--metas.2.texto':
-    'Any goal can drop into the calendar: give it dates and it shows up among your days. With ✨ the AI suggests the payment plan.',
+    'The Goals button in the header keeps these goals on the timeline: give one dates and it shows up among your calendar days. With ✨ the AI suggests the payment plan.',
   'tut.app-despacho--metas.3.titulo': 'What they owed',
   'tut.app-despacho--metas.3.texto':
     'The car breakdown went on the credit card and took months to clear. Debts sit apart because you read them backwards: here, going down is winning.',
   'tut.app-despacho--metas.4.titulo': 'Markets',
   'tut.app-despacho--metas.4.texto':
     'Pep@ has watched the yen since deciding on the trip, and now the won, for the next one. Currencies, crypto, stocks and commodities live (needs internet).',
+  'tut.app-despacho--patrimonio.1.titulo': 'What it\'s worth today',
+  'tut.app-despacho--patrimonio.1.texto':
+    'Assets minus liabilities. When a line has a rate, this number is what it\'s worth TODAY, not what it was worth the day you wrote it down — and below you can see the breakdown, or go back to what you typed.',
+  'tut.app-despacho--patrimonio.2.titulo': 'Where it comes from',
+  'tut.app-despacho--patrimonio.2.texto':
+    'The last two years of this group. Open any line and you\'ll see what it depends on: how much it\'s worth, since when, and how much it rises or falls per year. What you write is never rewritten on its own.',
+  'tut.app-despacho--patrimonio.3.titulo': 'And where it goes',
+  'tut.app-despacho--patrimonio.3.texto':
+    'The third tab follows that same line forward: solid for what happened, dotted for what your rates would give.',
+  'tut.app-despacho--patrimonio.4.titulo': 'Three lines',
+  'tut.app-despacho--patrimonio.4.texto':
+    'What you own in green, what you owe in red and the net in blue. The vertical line is today: to its left is what really happened.',
+  'tut.app-despacho--patrimonio.5.titulo': 'Move it all',
+  'tut.app-despacho--patrimonio.5.texto':
+    'How many months, how much inflation you assume, and whether to add what you save each month with its own growth rate. None of this touches your data: try things without fear.',
   'tut.app-despacho--calculadoras.1.texto':
     'Four personal-finance rules, each in its own tab: emergency fund, financial freedom, 50/30/20 and the car down payment (20/4/10).',
   'tut.app-despacho--calculadoras.2.titulo': 'Already primed with your balance',
@@ -805,14 +834,6 @@ export const EN_TUT: Dict = {
   'tut.app-entretenimiento--archivo.3.titulo': 'By date or by genre',
   'tut.app-entretenimiento--archivo.3.texto':
     'Switch the view: by date it files them into year and month folders; by genre, into themed ones. Anything pending stays up top, waiting its turn.',
-  'tut.app-entretenimiento--programas.1.titulo': 'The to-watch list',
-  'tut.app-entretenimiento--programas.1.texto':
-    'Pep@ put together their list of science fiction classics to watch. With AI it is generated by theme («80s horror»), but you can also write it by hand.',
-  'tut.app-entretenimiento--programas.2.titulo': 'Every title, a goal',
-  'tut.app-entretenimiento--programas.2.texto':
-    'The first three are already ticked. Each title keeps its note about why it is on the list, and if you give it dates it drops into the calendar like any other goal.',
-  'tut.app-entretenimiento--programas.3.texto':
-    'And the other tab is the digital table: more than twenty board and arcade games to play right there.',
   'tut.app-entretenimiento--juegos.1.texto':
     '1–2 players or 3+: the filter hides whatever won\'t work for the group in front of you. Games marked "2+" work in both sections.',
   'tut.app-entretenimiento--juegos.2.titulo': 'By family',

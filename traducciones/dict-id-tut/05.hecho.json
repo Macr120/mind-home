@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.respaldo.3.texto",
+    "texto": "Memulihkan akan MENGGANTI semua data saat ini dengan isi file — sebelumnya ia minta konfirmasi dan menampilkan berapa catatan yang dibawa, jadi tidak ada kejutan."
+  },
+  {
+    "clave": "tut.respaldo.4.texto",
+    "texto": "Sebaiknya buat cadangan sebelum ganti perangkat, ganti browser, atau sesekali saja: tanpa akun, ini satu-satunya salinan yang kamu punya."
+  },
+  {
+    "clave": "tut.editor-cuarto.1.texto",
+    "texto": "Kamu sedang mengedit satu ruangan tertentu: denah dan kameranya fokus ke situ, bukan ke seluruh rumah."
+  },
+  {
+    "clave": "tut.editor-cuarto.2.titulo",
+    "texto": "Apa yang bisa diedit"
+  },
+  {
+    "clave": "tut.editor-cuarto.2.texto",
+    "texto": "Bentuk, lantai, dinding, pintu, warna dan nama ruangan, plus objek-objeknya. Aplikasi yang ditetapkan juga diganti dari sini: itulah yang paling sering membawa orang ke panel ini."
+  },
+  {
+    "clave": "tut.editor-cuarto.3.titulo",
+    "texto": "Kembali ke peta"
+  },
+  {
+    "clave": "tut.editor-cuarto.3.texto",
+    "texto": "Panah ini kembali ke seluruh peta tanpa menutup editor, supaya kamu bisa lanjut menggarap ruangan lain."
+  },
+  {
+    "clave": "tut.editor-cuarto.4.texto",
+    "texto": "Ada juga tombol mengambang “Keluar ruangan” di atas ruangannya sendiri dalam 3D, kalau kamu lebih suka menyentuhnya di sana."
+  },
+  {
+    "clave": "tut.herramientas.1.texto",
+    "texto": "Tombol ini membuka roda alat karaktermu."
+  },
+  {
+    "clave": "tut.herramientas.2.titulo",
+    "texto": "Dua level"
+  },
+  {
+    "clave": "tut.herramientas.2.texto",
+    "texto": "Pilih kategorinya dulu, lalu alat spesifik di dalamnya. Kamu bisa memasang hingga 3 alat sekaligus, dari kategori berbeda atau dari kategori yang sama."
+  },
+  {
+    "clave": "tut.herramientas.3.titulo",
+    "texto": "Kategori keempat"
+  },
+  {
+    "clave": "tut.herramientas.3.texto",
+    "texto": "Bangunan tidak memasang mainan: ia menyalakan mode menggambar peta (Ruangan, Dinding, Pintu, Jendela, lantai, Atap) tanpa lewat editor lengkap. Denahnya sama, cuma jalan masuknya lebih cepat."
+  },
+  {
+    "clave": "tut.herramientas.4.titulo",
+    "texto": "Bagian tengah"
+  },
+  {
+    "clave": "tut.herramientas.4.texto",
+    "texto": "Bagian tengah melepas semua yang terpasang dan mengembalikan sudut itu ke keadaan normal (kubus tampilan atau kontrol kontekstual lain, tergantung apa yang ada di dekatmu)."
+  },
+  {
+    "clave": "tut.herramientas.5.texto",
+    "texto": "Rodanya tertutup begitu kamu menyentuh di luarnya. Coba kapan saja: tidak ada yang disimpan permanen, semuanya cuma berlaku selama alatnya masih kamu bawa."
+  },
+  {
+    "clave": "tut.navegacion.1.texto",
+    "texto": "Tiga kamera: Iso (tampilan rumah boneka), orang ketiga dan orang pertama. Ganti di sini atau dengan tombol V."
+  },
+  {
+    "clave": "tut.navegacion.2.titulo",
+    "texto": "Menentukan arah"
+  },
+  {
+    "clave": "tut.navegacion.2.texto",
+    "texto": "Di Iso, kubusnya memutar kamera sisi demi sisi; di orang ketiga/pertama, geser pad untuk melihat sekeliling."
+  },
+  {
+    "clave": "tut.navegacion.3.titulo",
+    "texto": "Saat ada sesuatu di dekatmu"
+  },
+  {
+    "clave": "tut.navegacion.3.texto",
+    "texto": "Sudut yang sama berhenti jadi kamera begitu kamu mendekati sesuatu yang bisa dipakai: lapangan menawarkan tombol mainnya, kendaraan tombol naiknya, kursi tombol duduknya. Cuma satu hal dalam satu waktu, dan selalu karena kedekatan — tidak pernah otomatis."
+  },
+  {
+    "clave": "tut.navegacion.4.titulo",
+    "texto": "Putar dan pusatkan"
+  },
+  {
+    "clave": "tut.navegacion.4.texto",
+    "texto": "Putar tampilan ke samping atau pusatkan lagi ke peta kalau kamu tersesat waktu menjelajah."
+  },
+  {
+    "clave": "tut.navegacion.5.titulo",
+    "texto": "Bergerak"
+  },
+  {
+    "clave": "tut.navegacion.5.texto",
+    "texto": "Berjalan dengan joystick, WASD atau tanda panah. Di air kamu berenang; kalau sedang menaiki kendaraan, kamu mengemudi dengan kontrol yang sama."
+  },
+  {
+    "clave": "tut.navegacion.6.texto",
+    "texto": "Di orang ketiga/pertama muncul tombol Editor 3D: sentuh objek, dinding atau karakter untuk mengeditnya persis di tempatnya, tanpa balik ke tampilan isometrik."
+  },
+  {
+    "clave": "tut.chat.1.texto",
+    "texto": "Chat Sang Arsitek: mencatat harimu, mengedit rumah dan menjawab pertanyaanmu, semuanya dari kotak yang sama."
+  },
+  {
+    "clave": "tut.chat.2.titulo",
+    "texto": "Menulis"
+  },
+  {
+    "clave": "tut.chat.2.texto",
+    "texto": "Tulis bebas: “lari 20 menit”, “belanja 250 di supermarket”… Chip di sebelahnya menunjukkan ke aplikasi mana ini akan masuk. Pakai @ruangan untuk menentukan tujuannya sendiri kalau tebakannya meleset."
+  },
+  {
+    "clave": "tut.chat.3.titulo",
+    "texto": "Mendikte lewat suara"
+  },
+  {
+    "clave": "tut.chat.3.texto",
+    "texto": "Mikrofon menyalin apa yang kamu ucapkan ke kotak teks — praktis untuk mencatat tanpa melepas barang yang sedang kamu pegang."
+  },
+  {
+    "clave": "tut.chat.4.titulo",
+    "texto": "Mengirim foto"
+  },
+  {
+    "clave": "tut.chat.4.texto",
+    "texto": "Dengan AI aktif, foto struk, piring makan atau timbangan dibaca dengan sendirinya. Tanpa AI, tombol ini nonaktif."
+  },
+  {
+    "clave": "tut.chat.5.titulo",
+    "texto": "Asisten"
+  },
+  {
+    "clave": "tut.chat.5.texto",
+    "texto": "Asistenmu memberi wajah dan suara pada jawabannya. Sentuh dia untuk melihat percakapannya, ganti asisten atau membuat yang baru."
+  },
+  {
+    "clave": "tut.chat.6.titulo",
+    "texto": "Manualnya"
+  }
+]

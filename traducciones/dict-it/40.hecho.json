@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-biblioteca--charlas.2.texto2",
+    "texto": "La prima risposta colloca già la chat nel suo ramo e la scrive come voce. Da quella voce la rami: i sottotemi che ti hanno lasciato curiosità diventano nuovi rami."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.titulo",
+    "texto": "Studiare e pianificare"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.resumen",
+    "texto": "Il timer registra quanto studi —tutto d'un fiato o a pomodori— e il piano di studio distribuisce i tuoi obiettivi nel calendario."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.titulo",
+    "texto": "L'orologio dello studio"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.texto",
+    "texto": "Scegli un campo e parti: in Semplice fai scorrere i minuti tutti insieme, e in Pomodoro l'app concatena tratti di concentrazione e pause. Ogni tratto si registra da solo, e l'orologio continua anche se lasci la stanza."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.titulo",
+    "texto": "L'anno a colpo d'occhio"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.resumen",
+    "texto": "Riepilogo raccoglie in una schermata quello che le altre tre schede distribuiscono: quante voci hai per campo, quanto hai studiato e in quali giorni."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.titulo",
+    "texto": "Il ripasso quotidiano"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.resumen",
+    "texto": "Le carte si ripassano per caselle: ogni risposta corretta allontana la prossima scadenza e ogni errore la avvicina. L'app ti chiede solo quelle in scadenza oggi."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.titulo",
+    "texto": "Esercizi, non carte"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.texto",
+    "texto": "Si ripassa rispondendo: scelta multipla, al contrario o completando la frase di esempio. In alto scegli cosa entra nel turno — quello in scadenza oggi, tutto il vocabolario o un argomento del programma."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.titulo",
+    "texto": "Il vocabolario"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.resumen2",
+    "texto": "Le carte vivono DENTRO il programma: ogni argomento si apre e lì ci sono le sue, con il loro suono, la loro immagine e la loro casella di ripasso."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.titulo2",
+    "texto": "Ogni parola, nel suo argomento"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.texto2",
+    "texto": "Apri un argomento e vedrai le sue carte: toccarle le legge ad alta voce, la miniatura apre l'illustrazione e la matita le modifica. Le prime di Pep sono A2 —spesa, indicazioni stradali— e le ultime sono già B1."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.3.texto2",
+    "texto": "Le carte si aggiungono a mano nel loro argomento, escono da una chat con il tutor o le propone l'IA. Quello che resta sciolto finisce in «Da classificare», e da lì lo mandi all'argomento giusto."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.titulo",
+    "texto": "Il programma e il piano"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.resumen",
+    "texto": "Il programma organizza la lingua in tre aree —argomenti, pronuncia e grammatica— per livello QCER, e Progressi riassume il tuo avanzamento."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.3.texto2",
+    "texto": "Puoi anche conservare materiale tuo in un argomento —appunti, frasi per l'hotel, una foto del tuo quaderno—, renderlo tuo con la ✏️ (aggiungere argomenti, rinominarli, ordinarli o eliminarli) e chiedere un piano di studio con data obiettivo."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.titulo",
+    "texto": "Lavoro e studio"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.resumen",
+    "texto": "La casella dei promemoria senza data e una bacheca Kanban dove le carte si trascinano da una colonna all'altra."
+  },
+  {
+    "clave": "tut.app-agenda--salud.titulo",
+    "texto": "Salute e animali domestici"
+  },
+  {
+    "clave": "tut.app-agenda--salud.resumen",
+    "texto": "Appuntamenti medici, farmaci con i loro orari e gli animali domestici con le loro cure: tutto finisce da solo nel calendario."
+  },
+  {
+    "clave": "tut.app-agenda--personas.titulo",
+    "texto": "Persone"
+  },
+  {
+    "clave": "tut.app-agenda--personas.resumen",
+    "texto": "La tua rubrica dei contatti per relazione, con i compleanni che si ripetono da soli ogni anno nel calendario."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.titulo",
+    "texto": "L'anno in cui Pep ha imparato a correre"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.resumen",
+    "texto": "Esercizio riunisce forza, cardio e mobilità in un unico posto: ogni sessione che registri alimenta la tua serie, i tuoi obiettivi settimanali e la cronologia dell'anno."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.titulo",
+    "texto": "Da zero a 42 chilometri"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.resumen",
+    "texto": "La scheda Cardio conserva ogni uscita con la sua distanza, il suo ritmo e il suo percorso; il progresso riassume il mese in una mappa di calore ed estrae i tuoi record migliori."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.titulo",
+    "texto": "La forza che il ginocchio non si è portato via"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.resumen",
+    "texto": "In Forza registri serie, ripetizioni e peso; con questo l'app calcola il tuo volume, disegna la progressione di ogni esercizio e conserva i tuoi record personali."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.titulo",
+    "texto": "Mangiare con un obiettivo"
+  }
+]

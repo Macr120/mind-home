@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "texto": "«Collega app» apre il selettore: prima scegli l'app, poi a quale sua parte, se ha più di un posto dove registrare."
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "texto": "Il chip una volta messo"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "texto": "Con il chip al suo posto, toccarlo apre quell'app dritto in quella sezione. Rimuoverlo non cancella l'obiettivo né le sue date: stacca solo il collegamento."
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "texto": "Come destinazione compaiono solo le app assegnate a un oggetto di una stanza: collegarne una senza stanza sarebbe un chip che non porta da nessuna parte."
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "texto": "Questo pulsante apre il controllo della musica della casa."
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "texto": "Accesa o spenta"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "texto": "Un interruttore per tutta la musica ambientale della casa. Spenta, la casa resta in silenzio, tranne i suoni delle singole azioni."
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "texto": "Tema per stanza"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "texto": "Ogni stanza può suonare diversa: automatico secondo la sua app, uno scelto a mano, o silenzio totale in quella stanza senza toccare il resto della casa."
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "texto": "Da dove arriva il suono"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "texto": "Generata (compone da sola in base all'atmosfera), Le mie tracce (quello che hai caricato) o Sistema (quello che stai già ascoltando fuori dall'app, senza che venga coperto)."
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "texto": "Volumi separati"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "texto": "La musica e i suoni delle azioni (passi, clic, traguardi) si regolano separatamente — puoi abbassare la musica e lasciare gli effetti, o il contrario."
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "texto": "Il pulsante dell'HUD si può togliere dalla schermata principale; resta comunque disponibile in Editor › Impostazioni › Musica."
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "texto": "Qui si accende l'IA della casa: senza, la chat continua a funzionare per parole chiave, e funzioni come generare una ricetta, un piano o un'immagine restano spente."
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "texto": "Con o senza account"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "texto": "Puoi usare l'IA con la tua chiave del fornitore (senza account, senza crediti) o con un account che porta crediti e sincronizza tra dispositivi."
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "texto": "Prezzi dell'IA"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "texto": "Questa tabella è informativa anche senza account: è esattamente quello che serve per decidere se ne vale la pena. Si vede stanza per stanza, operazione per operazione."
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "texto": "L'unica leva"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "texto": "La qualità delle immagini è l'unica cosa che cambia i prezzi di tutta la tabella: Veloce è buona ed economica (quella predefinita); Buona dà più dettaglio e testo migliore dentro l'immagine."
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "texto": "Un'unità, tante operazioni"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "texto": "Una risposta costa 1 credito, un piano lungo 3, un'immagine o un modello 3D 10 — la regola è la stessa per tutte le stanze, questa tabella la dispiega solo una per una."
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "texto": "Questa barra compare in quasi ogni app finché non ha ancora dati tuoi: un pulsante per vederla piena di esempio, invece di iniziare davanti a una schermata vuota."
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "texto": "Vedere un esempio non cancella né mescola niente di tuo: sono righe a sé, marcate come esempio, che si nascondono (non si cancellano) quando lo spegni. Riaccenderlo le riporta esattamente com'erano."
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "texto": "Nella casa demo questa barra non compare: l'anno intero di Pep svolge già quel ruolo, quindi non serve un esempio a parte."
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "texto": "Tre fonti, una lista"
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "texto": "Si spunta perché il dato esiste"
+  }
+]

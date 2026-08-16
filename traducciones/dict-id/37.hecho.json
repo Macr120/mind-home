@@ -1,0 +1,494 @@
+[
+  {
+    "clave": "ajustes.musica.hudDesc",
+    "texto": "Saat dimatikan, rumah terlihat lebih rapi: musik diatur dari sini."
+  },
+  {
+    "clave": "ajustes.musica.fuente",
+    "texto": "Sumber"
+  },
+  {
+    "clave": "ajustes.musica.fuente.generada",
+    "texto": "Dihasilkan"
+  },
+  {
+    "clave": "ajustes.musica.fuente.pistas",
+    "texto": "Trek saya"
+  },
+  {
+    "clave": "ajustes.musica.fuente.sistema",
+    "texto": "Sistem"
+  },
+  {
+    "clave": "ajustes.musica.sistema.conectar",
+    "texto": "Deteksi audio sistem"
+  },
+  {
+    "clave": "ajustes.musica.sistema.desconectar",
+    "texto": "Berhenti mendengarkan"
+  },
+  {
+    "clave": "ajustes.musica.sistema.activo",
+    "texto": "Sedang mendengarkan audio sistem."
+  },
+  {
+    "clave": "ajustes.musica.sistema.desc",
+    "texto": "Browser akan meminta kamu membagikan layar atau tab: centang “Bagikan audio” dan musikmu (Spotify, YouTube…) akan muncul di sini secara langsung. Dari judulnya hanya bisa membaca nama dari apa yang kamu bagikan."
+  },
+  {
+    "clave": "ajustes.musica.sistema.sinAudio",
+    "texto": "Dibagikan tanpa audio: centang kotak “Bagikan audio” saat memilih layar atau tab."
+  },
+  {
+    "clave": "ajustes.musica.sistema.pestana",
+    "texto": "Tab"
+  },
+  {
+    "clave": "ajustes.musica.sistema.ventana",
+    "texto": "Jendela"
+  },
+  {
+    "clave": "ajustes.musica.sistema.pantalla",
+    "texto": "Seluruh layar"
+  },
+  {
+    "clave": "ajustes.musica.sistema.pausa",
+    "texto": "dijeda"
+  },
+  {
+    "clave": "ajustes.musica.sistema.tituloFijo",
+    "texto": "Ini nama dari apa yang kamu bagikan: tidak berubah saat lagu berganti."
+  },
+  {
+    "clave": "ajustes.musica.sistema.permiso",
+    "texto": "Izinkan membaca yang sedang diputar"
+  },
+  {
+    "clave": "ajustes.musica.sistema.permisoDesc",
+    "texto": "Pengaturan Android akan terbuka: aktifkan Mind Planner Home di “Akses notifikasi” dan di sini akan muncul artis serta lagu yang sedang kamu dengarkan. Kami tidak membaca notifikasi apa pun: Android mewajibkan izin ini agar aplikasi bisa melihat pemutaran musik."
+  },
+  {
+    "clave": "ajustes.musica.mood",
+    "texto": "Suasana"
+  },
+  {
+    "clave": "ajustes.musica.mood.calma",
+    "texto": "Tenang"
+  },
+  {
+    "clave": "ajustes.musica.mood.festivo",
+    "texto": "Meriah"
+  },
+  {
+    "clave": "ajustes.musica.mood.nocturno",
+    "texto": "Malam"
+  },
+  {
+    "clave": "ajustes.musica.mood.chiptune",
+    "texto": "Chiptune"
+  },
+  {
+    "clave": "ajustes.musica.mood.acogedor",
+    "texto": "Nyaman"
+  },
+  {
+    "clave": "ajustes.musica.mood.energia",
+    "texto": "Energi"
+  },
+  {
+    "clave": "ajustes.musica.mood.estudio",
+    "texto": "Belajar"
+  },
+  {
+    "clave": "ajustes.musica.mood.arcade",
+    "texto": "Arcade"
+  },
+  {
+    "clave": "ajustes.musica.mood.bosque",
+    "texto": "Hutan"
+  },
+  {
+    "clave": "ajustes.musica.mood.viaje",
+    "texto": "Perjalanan"
+  },
+  {
+    "clave": "ajustes.musica.mood.carrera",
+    "texto": "Balapan"
+  },
+  {
+    "clave": "ajustes.musica.mood.cajita",
+    "texto": "Kotak musik"
+  },
+  {
+    "clave": "ajustes.musica.mood.lectura",
+    "texto": "Membaca"
+  },
+  {
+    "clave": "ajustes.musica.mood.oficina",
+    "texto": "Kantor"
+  },
+  {
+    "clave": "ajustes.musica.mood.taller",
+    "texto": "Bengkel"
+  },
+  {
+    "clave": "ajustes.musica.mood.digital",
+    "texto": "Digital"
+  },
+  {
+    "clave": "ajustes.musica.mood.noticias",
+    "texto": "Ruang berita"
+  },
+  {
+    "clave": "ajustes.musica.mood.campo",
+    "texto": "Pedesaan"
+  },
+  {
+    "clave": "ajustes.musica.mood.deporte",
+    "texto": "Stadion"
+  },
+  {
+    "clave": "ajustes.musica.mood.ruta",
+    "texto": "Jalan terbuka"
+  },
+  {
+    "clave": "ajustes.musica.mood.tactico",
+    "texto": "Taktis"
+  },
+  {
+    "clave": "ajustes.musica.moodCuartos",
+    "texto": "Ini suasana keseluruhan. Setiap ruangan bisa punya tema sendiri: ubah dengan tombol musik di dalam ruangan."
+  },
+  {
+    "clave": "ajustes.musica.sfx",
+    "texto": "Suara aksi"
+  },
+  {
+    "clave": "ajustes.musica.sfxOff",
+    "texto": "Mati"
+  },
+  {
+    "clave": "ajustes.musica.sfxDesc",
+    "texto": "Blaster, portal, kembang api, permainan, dan kendaraan. Terpisah dari volume musik."
+  },
+  {
+    "clave": "musica.control",
+    "texto": "Musik"
+  },
+  {
+    "clave": "musica.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "voz.escuchar",
+    "texto": "Dengarkan"
+  },
+  {
+    "clave": "voz.callar",
+    "texto": "Berhenti membaca"
+  },
+  {
+    "clave": "voz.autoOn",
+    "texto": "Membacakan balasannya dengan suara keras"
+  },
+  {
+    "clave": "voz.autoOff",
+    "texto": "Bacakan balasannya dengan suara keras"
+  },
+  {
+    "clave": "musica.temaCuarto",
+    "texto": "Tema ruangan ini"
+  },
+  {
+    "clave": "musica.temaCuarto.auto",
+    "texto": "Otomatis (suasana rumah)"
+  },
+  {
+    "clave": "musica.temaCuarto.autoCon",
+    "texto": "Otomatis · {tema}"
+  },
+  {
+    "clave": "musica.temaCuarto.silencio",
+    "texto": "Senyap"
+  },
+  {
+    "clave": "musica.temaCuartoDesc",
+    "texto": "Diputar saat kamu membuka ruangan atau berjalan di dalamnya."
+  },
+  {
+    "clave": "musica.ambienteGlobal",
+    "texto": "Suasana rumah"
+  },
+  {
+    "clave": "ajustes.musica.volumen",
+    "texto": "Volume"
+  },
+  {
+    "clave": "ajustes.musica.pistas",
+    "texto": "Trek saya"
+  },
+  {
+    "clave": "ajustes.musica.subir",
+    "texto": "Unggah trek"
+  },
+  {
+    "clave": "ajustes.musica.grande",
+    "texto": "File terlalu besar (maks. {n} MB)."
+  },
+  {
+    "clave": "ajustes.musica.sinPistas",
+    "texto": "Belum ada trek. Unggah musikmu sendiri (mp3, ogg…)."
+  },
+  {
+    "clave": "ajustes.musica.todas",
+    "texto": "Jika tidak ada trek yang dipilih (●), semuanya diputar acak."
+  },
+  {
+    "clave": "ajustes.musica.reproducir",
+    "texto": "Putar"
+  },
+  {
+    "clave": "ajustes.musica.parar",
+    "texto": "Hentikan"
+  },
+  {
+    "clave": "ajustes.musica.usar",
+    "texto": "Gunakan trek ini"
+  },
+  {
+    "clave": "ajustes.musica.renombrar",
+    "texto": "Ganti nama"
+  },
+  {
+    "clave": "ajustes.musica.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "ajustes.musica.borrarConfirma",
+    "texto": "Hapus “{n}”?"
+  },
+  {
+    "clave": "ajustes.musica.carpetaNueva",
+    "texto": "Folder baru"
+  },
+  {
+    "clave": "ajustes.musica.carpetaNombre",
+    "texto": "Namanya apa?"
+  },
+  {
+    "clave": "ajustes.musica.carpetaRenombrar",
+    "texto": "Ganti nama folder"
+  },
+  {
+    "clave": "ajustes.musica.carpetaBorrar",
+    "texto": "Hapus folder"
+  },
+  {
+    "clave": "ajustes.musica.carpetaBorrarConfirma",
+    "texto": "Hapus “{n}”? Treknya tidak terhapus, hanya jadi tidak berfolder."
+  },
+  {
+    "clave": "ajustes.musica.carpetaVacia",
+    "texto": "Kosong: seret trek ke sini."
+  },
+  {
+    "clave": "ajustes.musica.sinCarpeta",
+    "texto": "Tanpa folder"
+  },
+  {
+    "clave": "ajustes.musica.usarCarpeta",
+    "texto": "Putar hanya folder ini"
+  },
+  {
+    "clave": "ajustes.musica.soloCarpeta",
+    "texto": "Hanya folder yang ditandai (●) yang diputar, secara acak."
+  },
+  {
+    "clave": "musica.toggle",
+    "texto": "Musik ambient"
+  },
+  {
+    "clave": "cuenta.titulo",
+    "texto": "Akun"
+  },
+  {
+    "clave": "cuenta.sinBackend",
+    "texto": "Instalasi ini belum memiliki backend yang dikonfigurasi: semuanya disimpan hanya di perangkat ini."
+  },
+  {
+    "clave": "cuenta.cargando",
+    "texto": "Memuat…"
+  },
+  {
+    "clave": "cuenta.intro",
+    "texto": "Dengan akun, rencana dan rumahmu mengikutimu ke perangkat mana pun."
+  },
+  {
+    "clave": "cuenta.email",
+    "texto": "Email"
+  },
+  {
+    "clave": "cuenta.contrasena",
+    "texto": "Kata sandi"
+  },
+  {
+    "clave": "cuenta.entrar",
+    "texto": "Masuk"
+  },
+  {
+    "clave": "cuenta.registrar",
+    "texto": "Buat akun"
+  },
+  {
+    "clave": "cuenta.cambioRegistrar",
+    "texto": "Saya belum punya akun: buat satu"
+  },
+  {
+    "clave": "cuenta.cambioEntrar",
+    "texto": "Saya sudah punya akun: masuk"
+  },
+  {
+    "clave": "cuenta.confirmaCorreo",
+    "texto": "Akun dibuat: periksa emailmu dan konfirmasi sebelum masuk."
+  },
+  {
+    "clave": "cuenta.salir",
+    "texto": "Keluar"
+  },
+  {
+    "clave": "cuenta.plan.pro",
+    "texto": "Pro"
+  },
+  {
+    "clave": "cuenta.plan.local",
+    "texto": "Lokal"
+  },
+  {
+    "clave": "cuenta.plan.expira",
+    "texto": "Diperbarui atau berakhir: {f}"
+  },
+  {
+    "clave": "cuenta.uso.titulo",
+    "texto": "Penggunaan AI bulan ini"
+  },
+  {
+    "clave": "cuenta.uso.tituloLocal",
+    "texto": "Kredit AI kamu"
+  },
+  {
+    "clave": "cuenta.uso.creditos",
+    "texto": "Kredit"
+  },
+  {
+    "clave": "cuenta.uso.extra",
+    "texto": "Kredit ekstra (isi ulang): {n}"
+  },
+  {
+    "clave": "cuenta.uso.notaImagen",
+    "texto": "1 balasan = 1 kredit · rencana panjang = 4 · gambar atau model 3D = 10"
+  },
+  {
+    "clave": "creditos.n",
+    "texto": "{n} kredit"
+  },
+  {
+    "clave": "creditos.ayuda",
+    "texto": "1 balasan = 1 kredit · rencana panjang = 4 · gambar 3 atau 10 · model 3D = 10"
+  },
+  {
+    "clave": "creditos.porCada",
+    "texto": "{n} per buah"
+  },
+  {
+    "clave": "creditos.uno",
+    "texto": "1 kredit"
+  },
+  {
+    "clave": "gastoByok.total",
+    "texto": "Terpakai dengan kunci milikmu: {monto}"
+  },
+  {
+    "clave": "gastoByok.ayuda",
+    "texto": "Biaya panggilan yang kamu buat dengan kunci sendiri, berdasarkan jenis."
+  },
+  {
+    "clave": "gastoByok.titulo",
+    "texto": "Pengeluaran dengan kunci sendiri"
+  },
+  {
+    "clave": "gastoByok.reiniciar",
+    "texto": "Atur ulang"
+  },
+  {
+    "clave": "gastoByok.totalLabel",
+    "texto": "Total"
+  },
+  {
+    "clave": "gastoByok.nota",
+    "texto": "Perkiraan, bukan angka pasti — periksa akun penyedia layananmu untuk jumlah sebenarnya."
+  },
+  {
+    "clave": "gastoByok.chat",
+    "texto": "Chat"
+  },
+  {
+    "clave": "gastoByok.imagen",
+    "texto": "Gambar"
+  },
+  {
+    "clave": "gastoByok.modelo3d",
+    "texto": "Model 3D"
+  },
+  {
+    "clave": "gastoByok.voz",
+    "texto": "Dikte"
+  },
+  {
+    "clave": "gastoByok.tts",
+    "texto": "Suara AI"
+  },
+  {
+    "clave": "ia.titulo",
+    "texto": "AI: aktifkan dan harga"
+  },
+  {
+    "clave": "ia.precios.titulo",
+    "texto": "Harga AI"
+  },
+  {
+    "clave": "ia.activar.titulo",
+    "texto": "Aktifkan AI"
+  },
+  {
+    "clave": "ia.activar.porCuenta",
+    "texto": "Aktif, menggunakan akunmu: setiap permintaan menghabiskan kredit."
+  },
+  {
+    "clave": "ia.activar.porClave",
+    "texto": "Aktif, menggunakan kunci {prov} milikmu. Tidak menghabiskan kredit: {prov} menagihmu langsung."
+  },
+  {
+    "clave": "ia.activar.sinActivar",
+    "texto": "AI sedang mati. Masuk untuk menggunakan kredit, atau tempel kunci penyedia di bawah."
+  },
+  {
+    "clave": "ia.activar.priv",
+    "texto": "Hanya disimpan di perangkat ini dan tidak pernah keluar darinya kecuali ke {prov}."
+  },
+  {
+    "clave": "ia.calidad.titulo",
+    "texto": "Kualitas gambar"
+  },
+  {
+    "clave": "ia.calidad.rapida",
+    "texto": "Cepat"
+  },
+  {
+    "clave": "ia.calidad.rapida.desc",
+    "texto": "Bagus dan murah. Ini yang saya pakai kecuali kamu bilang lain."
+  },
+  {
+    "clave": "ia.calidad.buena",
+    "texto": "Terbaik"
+  }
+]

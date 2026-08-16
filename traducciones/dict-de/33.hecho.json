@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "chat.manual.cat.ayuda",
+    "texto": "Hilfe und Tutorials"
+  },
+  {
+    "clave": "chat.manual.nota.ayuda",
+    "texto": "Frag, wie eine App oder ein Menü funktioniert, oder fordere ihr Tutorial an: Der Assistent zeigt es Schritt für Schritt auf dem Bildschirm. Auf Englisch lösen die Bildschirmtouren für Editor, Chat und Menü direkt auf; für den Rest antwortet der Assistent (KI)."
+  },
+  {
+    "clave": "tut.casa.titulo",
+    "texto": "Dein Haus"
+  },
+  {
+    "clave": "tut.casa.resumen",
+    "texto": "Das Haus ist die Karte deiner Apps: Jeder Raum enthält eine. Du bewegst dich mit dem Joystick oder WASD, wechselst die Ansicht mit V und öffnest das Menü über den Button oben links. Das Eckfeld ändert sich von selbst je nachdem, was in der Nähe ist; die Uhr zeigt den Kalender, die Routinen und die Musik."
+  },
+  {
+    "clave": "tut.primeros.titulo",
+    "texto": "Erste Schritte"
+  },
+  {
+    "clave": "tut.primeros.resumen",
+    "texto": "Erstelle einen Raum über das Menü, weise ihm seine App zu und betritt ihn."
+  },
+  {
+    "clave": "tut.primeros.2a.titulo",
+    "texto": "Das Werkzeugrad"
+  },
+  {
+    "clave": "tut.primeros.2a.texto",
+    "texto": "Auf dem Handy zeichnest du Räume direkt auf der Karte, ohne Panels zu öffnen. Alles beginnt bei diesem Button neben dem Joystick: dem Werkzeugrad."
+  },
+  {
+    "clave": "tut.primeros.2b.titulo",
+    "texto": "Bauen"
+  },
+  {
+    "clave": "tut.primeros.2b.texto",
+    "texto": "Das Rad hat zwei Ebenen. Seine vierte Kategorie ist die, die das Haus errichtet: Räume, Wände, Türen, Fenster, Böden und Dächer."
+  },
+  {
+    "clave": "tut.primeros.2c.titulo",
+    "texto": "Modus Räume"
+  },
+  {
+    "clave": "tut.primeros.2c.texto",
+    "texto": "Räume macht den Pinsel bereit: Das Rad schließt sich, und jede Berührung des Bodens errichtet einen neuen Raum. Um dir den Rest zu zeigen, erstelle ich jetzt einen für dich…"
+  },
+  {
+    "clave": "tut.menu-cuartos.titulo",
+    "texto": "Menü · Räume"
+  },
+  {
+    "clave": "tut.menu-cuartos.resumen",
+    "texto": "Der Tab Räume listet die Räume deines Hauses nach Kategorie mit ihrem Fortschritt auf. Jede Karte hat Bearbeiten (Raum anpassen) und Betreten (App öffnen), oder + Zuweisen, wenn noch keine App zugewiesen ist. Oben findest du deine Übersicht: Stimmung, Rang und Serie; unten kannst du neue Räume erstellen."
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.titulo",
+    "texto": "Rang, Abzeichen und Rückblick"
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.texto",
+    "texto": "Die beiden Ringe neben deiner Figur sind der Sisyphos-Berg (Rang 1 bis 12 und Abzeichen), und darunter liegt dein Wrapped, der Rückblick der Woche, des Monats oder des Jahres. Beide haben ihr eigenes Tutorial."
+  },
+  {
+    "clave": "tut.menu-plantillas.titulo",
+    "texto": "Menü · Vorlagen"
+  },
+  {
+    "clave": "tut.menu-plantillas.resumen",
+    "texto": "Vorlagen sind die Apps des Hauses: Sie werden einem Objekt in einem Raum zugewiesen. Dieser Tab hat zwei Ansichten – Räume (die gewohnten Apps) und Extras (was direkt auf der Karte gebaut wird) – und der Katalog enthält auch die Vorlagen, die du selbst aus Bausteinen zusammenstellst."
+  },
+  {
+    "clave": "tut.plantillas-custom.titulo",
+    "texto": "Deine eigenen Vorlagen"
+  },
+  {
+    "clave": "tut.plantillas-custom.resumen",
+    "texto": "Der Editor für eigene Vorlagen baut eine ganze App aus Bausteinen: Notizen, Checkliste, Zähler, Links, Gewohnheit, Galerie und mehr. Du gibst ihr Namen, Emoji und Farbe, wählst ihre Bausteine, und sie ist bereit, wie jede andere App zugewiesen zu werden."
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.titulo",
+    "texto": "Menüs und Untermenüs"
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.texto",
+    "texto": "Wenn deine App wächst, teile sie in obere Tabs auf: Jedes Menü hat seinen Namen und sein Emoji, kann Untermenüs haben, und du fügst die Werkzeuge in das ein, das du möchtest. Ohne Menüs lebt alles auf einem einzigen Bildschirm."
+  },
+  {
+    "clave": "tut.menu-inventario.titulo",
+    "texto": "Menü · Inventar"
+  },
+  {
+    "clave": "tut.menu-inventario.resumen",
+    "texto": "Das Inventar bewahrt die Objekte zum Dekorieren des Hauses: die Bibliothek nach Kategorien und die Spezialobjekte (Fahrzeuge, Brunnen, Spielplatzgeräte, Lichter). Bei geöffnetem Menü kannst du sie direkt in die Szene ziehen."
+  },
+  {
+    "clave": "tut.editor-mapa.titulo",
+    "texto": "Der Editor · Karte"
+  },
+  {
+    "clave": "tut.editor-mapa.resumen",
+    "texto": "Der Editor passt das ganze Haus in 4 Tabs an: Karte, Figuren, Objekte und Einstellungen — jeder mit eigenem Tutorial. Der Tab Karte zeichnet Räume, Wände, Türen, Fenster, Böden und Dächer auf einem Grundriss, der sofort in 3D zu sehen ist, und bietet außerdem Ebenen: stapelbare Stockwerke und einen Keller."
+  },
+  {
+    "clave": "tut.editor-personajes.titulo",
+    "texto": "Der Editor · Figuren"
+  },
+  {
+    "clave": "tut.editor-personajes.resumen",
+    "texto": "Dein Avatar und deine Assistenten teilen sich einen Editor: Körper, Gesicht (mit Foto), Farbe, Größe, Kleidung und Animationen, mit 3D-Vorschau. Der Avatar hat außerdem eine maßgeschneiderte Garderobe und kann sich in jedem Raum anders kleiden."
+  },
+  {
+    "clave": "tut.editor-objetos.titulo",
+    "texto": "Der Editor · Objekte"
+  }
+]

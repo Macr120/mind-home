@@ -1,0 +1,47 @@
+[
+  {
+    "clave": "chat.adjuntar",
+    "es": "Adjuntar imagen o PDF, tomar foto o abrir la máscara AR",
+    "en": "Attach an image or PDF, take a photo, or open the AR mask"
+  },
+  {
+    "clave": "chat.menu.foto",
+    "es": "Tomar foto",
+    "en": "Take a photo"
+  },
+  {
+    "clave": "chat.menu.imagen",
+    "es": "Subir imagen",
+    "en": "Upload image"
+  },
+  {
+    "clave": "chat.menu.mascara",
+    "es": "Máscara AR",
+    "en": "AR mask"
+  },
+  {
+    "clave": "chat.menu.pdf",
+    "es": "Subir PDF",
+    "en": "Upload PDF"
+  },
+  {
+    "clave": "chat.pdfGrande",
+    "es": "El PDF pesa más de {mb} MB, usa uno más ligero.",
+    "en": "That PDF is over {mb} MB, use a lighter one."
+  },
+  {
+    "clave": "chat.pdfSinTexto",
+    "es": "No pude leer texto en ese PDF (¿es escaneado?). Con Claude sí puedo verlo completo.",
+    "en": "I couldn't read text in that PDF (scanned?). With Claude I can see it in full."
+  },
+  {
+    "clave": "chat.quitarAdjunto",
+    "es": "Quitar adjunto",
+    "en": "Remove attachment"
+  },
+  {
+    "clave": "mascara.salir",
+    "es": "Salir",
+    "en": "Exit"
+  }
+]

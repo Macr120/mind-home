@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "Burası Pep’in sığınağının sebze bahçesi: üzerinde bir yıllık emek olan gerçek parseller. Hiçbiri örnek değil — burası canlı, gerçek zamanlı büyüyor ve dokunabilirsin."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "Yemek ve Çiftlik aynı düzenleyiciyi paylaşır: burada hasat edilen, yandaki hayvanların kilerini doldurur. Hepsi tek bir zincir."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "Sulama her şeyi belirler"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "Parsellere bak: yeni ekilmiş bir tohum, yarı büyümüş bitkiler, hazır bir ayçiçeği… ve Pep’in bile bile susuz bıraktığı solmuş bir havuç. Mavi damla susuzluğu haber verir; solan artık kurtarılamaz."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "Otomatik sulama"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "Domatesin fıskiyesi var: kendi hücresini ve sekiz komşusunu sonsuza dek sular. Sebze bahçesini böyle kendi haline bırakırsın, hiçbir şey solmadan."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "Hasat et"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "Ayçiçeği hazır: bir dokunuş, doğru sepete. Hazır olanın üzerinden yürüyerek de hasat edebilirsin, bu düzenleyiciyi hiç açmadan."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "Sepette bir yıl"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "Her parsel kendi hasatlarını sayar, sepet de bütün yılınkini biriktirir — 400’ün üzerinde parça. Sığınaktaki hayvanlar buradan yer."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "Sen çıkınca da her şey işlemeye devam eder. Demoda gerçekten sulayabilir, hasat edebilir ve ekebilirsin: gitmeden dene."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "Önce toprak"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "Parsel ile haritada bir hücreye dokunursun ve toprak hazır olur. Sığınakta seni bekleyen iki boş parsel var."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "Ne ekeceğini seç"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "Altı tür; her birinin altında ne kadar sürdüğü ve ne sıklıkla su istediği yazar: havuç 3 dakikada, bal kabağı 2 saatte."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "Hızlı olanı"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "Bütün döngüyü bugün görmek istiyorsan boş bir parsele havuç ek: sen gezmeyi bitirmeden hazır olur."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "Geri al"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "Kaldır aynı hücrede tek tek ilerler: önce bitki, sonra fıskiye, en son parsel."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "Hepsi bu: toprak, tür ve sabır. Demoda ektiğin şey, sen gerisini keşfederken gerçekten büyür."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "Burası Pep’in sığınağı: kurtarılmış hayvanların ağılları ve güneyde, karınlarını doyuran sebze bahçesi. Hadi yanlarına inelim."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Bunlar Pep’in sığınağındaki kurtarılmış hayvanlar: her birinin adı, açlığı ve ruh hali gerçek zamanlı ilerliyor. Hiçbiri örnek değil — onlara gerçekten bakabilirsin."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "Yılın kileri"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "«Besle» sepetten harcar, sepet de yandaki sebze bahçesini hasat ettikçe dolar. Pep bir yıllık stok bıraktı: kullan."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "Besle"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "Ağıla bir dokunuş, aç olan herkesi doyurur; en açtan başlar. Tavuk her 4 saatte bir ister; inek 12 saat dayanır."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "Okşa"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "Altı saat sevgisiz kalınca sıkılırlar (ağıl kirliyse iki kat hızlı). Bir dokunuş bütün ağılı okşar."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "Kirli ağıl"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "Küçük ağıl sekiz gündür temizlenmedi — samanından belli oluyor. Temizle ile üstüne dokun, yeni gibi olsun: demoda buna izin var."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "Yeni gelen"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "Domuz bu sabah sığınağa hasta geldi. Hasta bir hayvan yemeyi bırakır ve onu ancak İyileştir ayağa kaldırır — geç olmadan bir haftası var. Onu sen iyileştir."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "Günlük iş için bunu açmana gerek yok: bir ağılın yanından geçerken Besle ve Okşa balonu çıkar, üstelik bana sohbetten de söyleyebilirsin."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "Ağıl"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "Boş bir hücreye dokun, 1×1’lik bir ağıl doğsun; bitişiğine dokun, uzasın. Hücre başına üç hayvan sığar: sığınaktaki ikisine bak, biri otlatma için büyük, biri kümes hayvanları için küçük."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "Türler"
+  }
+]

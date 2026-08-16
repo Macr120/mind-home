@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "Przycisk w wierszu zapisuje PRAWDZIWE dane w aplikacji — szklankę wody, posiłek — a krok skreśla się sam, bo ten wpis już tam jest, a nie dlatego, że ktoś go odhaczył. Ponowne naciśnięcie przy wykonanym kroku niczego nie zdubluje: przycisk po prostu znika."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "Twoja liczba na każdy dzień"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "Kroki z regulowaną liczbą zmieniają ją właśnie tutaj. Ustawienie 0 wyłącza ten cel na dany dzień, nie kasując historii poprzednich dni."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "Z celu w rutynę"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "Kalendarz planuje ten sam cel o stałej godzinie: otwiera ten sam edytor co rutyny z zegara, więc zapis trafia w dwa miejsca naraz."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "Zrobione nie znika"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "Ląduje w zwiniętej sekcji „Zrobione”: widok wpisu, który zadziałał, to część nagrody, a stamtąd można go cofnąć, jeśli wkradł się jeden za dużo."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "Karta twojej postaci: za Pepem stoi cały rok prawdziwej aktywności, więc każda liczba ma tu prawdziwą historię, która ją tłumaczy."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "Postać"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "Dotknięcie otwiera edytor postaci. Jej nastrój — szczęśliwa, zadowolona, smutna albo śpiąca — rośnie z każdym nowym wpisem i spada tylko wtedy, gdy mijają dni bez żadnego; nigdy nie zeruje się z dnia na dzień."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "Ranga Syzyfa"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "Dwanaście rang wspinaczki: każdy dzień z aktywnością to jeden stopień z 365. Pep ma już kilka zdobytych rang; dotknij, żeby zobaczyć całą górę."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "Stopnie i dni ochronne"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "Co 7 stopni przychodzi odznaka, a każdy odcinek tygodni podnosi rangę. Opuszczony dzień niczego nie psuje: masz 2 dni ochronne w miesiącu, zanim głaz cofnie się do początku obecnej rangi."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "52 odznaki w rodzinach"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "Pogrupowane w rodziny geologiczne i owiane tajemnicą, dopóki się ich nie zdobędzie: ani nazwy, ani opisu nie widać przed odblokowaniem."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "Twoje podsumowanie"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped układa podsumowanie twojego tygodnia, miesiąca albo roku w slajdy — ma własny samouczek, a w roku takim jak rok Pepa danych jest aż nadto."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "Radar według pokoi"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "Każdy wierzchołek to jeden pokój domu, a jego wielkość to suma XP z przypisanych mu aplikacji. Pokój bez aktywności widać od razu: jego wierzchołek zapada się ku środkowi."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "Jak w relacjach: dotknij prawej strony, żeby przejść dalej, lewej, żeby się cofnąć, a przytrzymaj, żeby zatrzymać się na slajdzie."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "Tydzień, miesiąc albo rok"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "Każdy rodzaj układa własne slajdy z własnych danych — roczne podsumowanie Pepa jest najdłuższe, z najwyższymi i najniższymi momentami całego roku."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "Wędrówka po okresach"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "Strzałki ‹ › przechodzą po już zamkniętych okresach: dalej niż dziś nie da się przewinąć, więc porównanie zawsze dotyczy czegoś prawdziwego."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "Udostępnianie slajdu"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "Kopiuje tekst oglądanego slajdu, gotowy do wklejenia gdziekolwiek zechcesz — bez zrzutów ekranu."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "Kropka przy przycisku, który je otwiera, sygnalizuje nowe, nieobejrzane podsumowanie; otwarcie ją gasi."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "Oto sanktuarium Pepa: z jednej strony zagrody, z drugiej warzywnik, który je karmi. Idziemy na działki."
+  }
+]

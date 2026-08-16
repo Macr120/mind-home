@@ -1,0 +1,550 @@
+[
+  {
+    "clave": "despacho.patr.efectivoOjo",
+    "texto": "Ini hanya cocok kalau kamu sudah mencatat semua transaksimu sejak awal. Kalau rekeningmu sudah kamu tulis di atas, biarkan ini nonaktif: uangnya akan terhitung dua kali."
+  },
+  {
+    "clave": "despacho.patr.nueva",
+    "texto": "Tambah"
+  },
+  {
+    "clave": "despacho.patr.vacio",
+    "texto": "Belum ada apa-apa di sini. Catat apa yang kamu punya — atau yang kamu utang."
+  },
+  {
+    "clave": "despacho.patr.phFisico",
+    "texto": "Cth. Apartemen, mobil"
+  },
+  {
+    "clave": "despacho.patr.phLiquido",
+    "texto": "Cth. Rekening gaji"
+  },
+  {
+    "clave": "despacho.patr.phPasivo",
+    "texto": "Cth. KPR rumah"
+  },
+  {
+    "clave": "despacho.patr.phMonto",
+    "texto": "Jumlah"
+  },
+  {
+    "clave": "despacho.patr.escrito",
+    "texto": "yang kamu catat"
+  },
+  {
+    "clave": "despacho.patr.porTasas",
+    "texto": "berdasarkan suku bungamu"
+  },
+  {
+    "clave": "despacho.patr.verEscrito",
+    "texto": "tampilkan yang dicatat saja"
+  },
+  {
+    "clave": "despacho.patr.verEstimado",
+    "texto": "tampilkan dengan suku bunga"
+  },
+  {
+    "clave": "despacho.patr.detalles",
+    "texto": "Bagaimana ini berubah seiring waktu"
+  },
+  {
+    "clave": "despacho.patr.phTasaActivo",
+    "texto": "Naik atau turun %/tahun"
+  },
+  {
+    "clave": "despacho.patr.phTasaPasivo",
+    "texto": "Suku bunga pinjaman %"
+  },
+  {
+    "clave": "despacho.patr.phPago",
+    "texto": "Cicilan bulanan"
+  },
+  {
+    "clave": "despacho.patr.ayudaTasaActivo",
+    "texto": "Isi negatif kalau nilainya turun, seperti mobil."
+  },
+  {
+    "clave": "despacho.patr.tasaBanco",
+    "texto": "Suku bunga tahunan dari bankmu, dan berapa yang kamu bayar tiap bulan."
+  },
+  {
+    "clave": "despacho.patr.alAno",
+    "texto": "%/tahun"
+  },
+  {
+    "clave": "despacho.patr.cuota",
+    "texto": "{n}/bulan"
+  },
+  {
+    "clave": "despacho.patr.eran",
+    "texto": "dulu {n}"
+  },
+  {
+    "clave": "despacho.patr.editar",
+    "texto": "Edit baris ini"
+  },
+  {
+    "clave": "despacho.patr.monto",
+    "texto": "Nilai"
+  },
+  {
+    "clave": "despacho.patr.fechaValor",
+    "texto": "Sejak"
+  },
+  {
+    "clave": "despacho.patr.tasaActivo",
+    "texto": "Naik %/tahun"
+  },
+  {
+    "clave": "despacho.patr.tasaPasivo",
+    "texto": "Suku bunga tahunan %"
+  },
+  {
+    "clave": "despacho.patr.pagoMensual",
+    "texto": "Cicilan bulanan"
+  },
+  {
+    "clave": "despacho.patr.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "despacho.patr.borrarTitulo",
+    "texto": "Hapus baris ini?"
+  },
+  {
+    "clave": "despacho.patr.borrarMsg",
+    "texto": "“{n}” tidak akan lagi dihitung dalam kekayaan bersihmu."
+  },
+  {
+    "clave": "despacho.patr.borrarOk",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "despacho.patr.hoy",
+    "texto": "hari ini"
+  },
+  {
+    "clave": "despacho.patr.deMeta",
+    "texto": "tertaut ke “{n}”"
+  },
+  {
+    "clave": "despacho.patr.metaIda",
+    "texto": "target yang tertaut sudah tidak ada"
+  },
+  {
+    "clave": "despacho.patr.metaIdaSoltar",
+    "texto": "Target yang tertaut sudah tidak ada. Ketuk untuk melepas tautan baris ini."
+  },
+  {
+    "clave": "despacho.patr.montoOriginal",
+    "texto": "Pinjaman awal"
+  },
+  {
+    "clave": "despacho.patr.valorAparte",
+    "texto": "Nilai terpisah"
+  },
+  {
+    "clave": "despacho.patr.abonarEnMetas",
+    "texto": "Bayar di Target › Utang"
+  },
+  {
+    "clave": "despacho.patr.aportarEnMetas",
+    "texto": "Tambahkan di Target"
+  },
+  {
+    "clave": "despacho.patr.desenlazar",
+    "texto": "Lepas tautan dari target?"
+  },
+  {
+    "clave": "despacho.patr.desenlazarMsg",
+    "texto": "Keduanya akan menjadi dua hal terpisah lagi: baris ini menyimpan {n} dan targetnya berjalan sendiri."
+  },
+  {
+    "clave": "despacho.patr.desenlazarOk",
+    "texto": "Lepaskan"
+  },
+  {
+    "clave": "despacho.patr.soltar",
+    "texto": "lepaskan"
+  },
+  {
+    "clave": "despacho.patr.crearMetaDeuda",
+    "texto": "Lacak sebagai target utang"
+  },
+  {
+    "clave": "despacho.patr.crearMetaAhorro",
+    "texto": "Lacak sebagai target tabungan"
+  },
+  {
+    "clave": "despacho.patr.enlazarMeta",
+    "texto": "Tautkan ke target yang sudah kupunya…"
+  },
+  {
+    "clave": "despacho.patr.objetivoTitulo",
+    "texto": "Sampai berapa kamu ingin mencapainya?"
+  },
+  {
+    "clave": "despacho.patr.objetivoMsg",
+    "texto": "Di sini kamu sudah punya {n}."
+  },
+  {
+    "clave": "despacho.meta.verEnPasivos",
+    "texto": "Lihat di Kekayaan Bersih › Utang"
+  },
+  {
+    "clave": "despacho.meta.verEnActivos",
+    "texto": "Lihat di Kekayaan Bersih › Aset"
+  },
+  {
+    "clave": "despacho.meta.anadirAPasivos",
+    "texto": "Tambahkan ke Utang (dengan suku bunga dan tenor)"
+  },
+  {
+    "clave": "despacho.meta.anadirAActivos",
+    "texto": "Tambahkan ke Aset (dengan imbal hasil)"
+  },
+  {
+    "clave": "despacho.tab.simulacion",
+    "texto": "Perkiraan"
+  },
+  {
+    "clave": "despacho.sim.sinDatos",
+    "texto": "Belum ada yang bisa diproyeksikan. Catat yang kamu punya di Aset dan yang kamu utang di Utang, beri suku bunganya, lalu di sini kamu akan lihat ke mana arahnya."
+  },
+  {
+    "clave": "despacho.sim.netoHoy",
+    "texto": "Kekayaan bersih hari ini"
+  },
+  {
+    "clave": "despacho.sim.netoFinal",
+    "texto": "Dalam {n} bulan"
+  },
+  {
+    "clave": "despacho.sim.interesesFuturos",
+    "texto": "Bunga yang masih harus dibayar"
+  },
+  {
+    "clave": "despacho.sim.aportado",
+    "texto": "Yang akan kamu tambahkan"
+  },
+  {
+    "clave": "despacho.sim.horizonte",
+    "texto": "Proyeksi (bulan)"
+  },
+  {
+    "clave": "despacho.sim.inflacion",
+    "texto": "Inflasi tahunan %"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoy",
+    "texto": "Lihat dalam nilai uang hari ini"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoyAyuda",
+    "texto": "Menghilangkan efek inflasi: menunjukkan nilai sebenarnya dari uang itu, bukan berapa lembar uangnya."
+  },
+  {
+    "clave": "despacho.sim.flujoMensual",
+    "texto": "Tambahkan yang kutabung tiap bulan"
+  },
+  {
+    "clave": "despacho.sim.flujoAyuda",
+    "texto": "Dari transaksimu: {i} masuk dan {g} keluar tiap bulan."
+  },
+  {
+    "clave": "despacho.sim.crecIngreso",
+    "texto": "Pendapatanku naik %/tahun"
+  },
+  {
+    "clave": "despacho.sim.crecGasto",
+    "texto": "Pengeluaranku naik %/tahun"
+  },
+  {
+    "clave": "despacho.sim.pagosYaEnGastos",
+    "texto": "Pembayaran utangku sudah termasuk dalam pengeluaran itu"
+  },
+  {
+    "clave": "despacho.sim.pagosDeudaMes",
+    "texto": "Utangmu meminta {n} per bulan. Kalau belum kamu catat sebagai pengeluaran, matikan ini dan akan dikurangi secara terpisah."
+  },
+  {
+    "clave": "despacho.sim.activos",
+    "texto": "Aset"
+  },
+  {
+    "clave": "despacho.sim.pasivos",
+    "texto": "Utang"
+  },
+  {
+    "clave": "despacho.sim.neto",
+    "texto": "Bersih"
+  },
+  {
+    "clave": "despacho.sim.hoy",
+    "texto": "hari ini"
+  },
+  {
+    "clave": "despacho.sim.hitoLiquidas",
+    "texto": "Kamu melunasi “{n}” dalam {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoPositivo",
+    "texto": "Kekayaan bersihmu berhenti negatif dalam {f}"
+  },
+  {
+    "clave": "despacho.sim.hitoDoble",
+    "texto": "Kekayaan bersihmu berlipat dua dalam {f}"
+  },
+  {
+    "clave": "despacho.sim.noBaja",
+    "texto": "“{n}” tidak berkurang dengan {p} per bulan: bunganya saja sudah {i}."
+  },
+  {
+    "clave": "despacho.sim.creceSinPago",
+    "texto": "“{n}” punya suku bunga tapi tidak ada cicilan bulanan: itu cuma akan terus bertambah."
+  },
+  {
+    "clave": "despacho.sim.avisoCorta",
+    "texto": "Ini proyeksi, bukan janji."
+  },
+  {
+    "clave": "despacho.sim.controles",
+    "texto": "Sesuaikan skenario"
+  },
+  {
+    "clave": "despacho.periodo.anterior",
+    "texto": "Periode sebelumnya"
+  },
+  {
+    "clave": "despacho.periodo.siguiente",
+    "texto": "Periode berikutnya"
+  },
+  {
+    "clave": "despacho.sim.aviso",
+    "texto": "Ini dihitung dari suku bunga yang kamu masukkan: gunakan untuk membandingkan skenario, bukan untuk memastikan apa yang akan terjadi."
+  },
+  {
+    "clave": "despacho.meta.hasPuesto",
+    "texto": "kamu sudah menaruh {n}"
+  },
+  {
+    "clave": "despacho.meta.pediste",
+    "texto": "kamu meminjam {n}"
+  },
+  {
+    "clave": "despacho.meta.valenHoy",
+    "texto": "senilai {n} hari ini"
+  },
+  {
+    "clave": "despacho.meta.debesHoy",
+    "texto": "kamu berutang {n} hari ini"
+  },
+  {
+    "clave": "despacho.meta.deRendimiento",
+    "texto": "sebagai imbal hasil"
+  },
+  {
+    "clave": "despacho.meta.deIntereses",
+    "texto": "sebagai bunga"
+  },
+  {
+    "clave": "despacho.meta.tasaPuesta",
+    "texto": "{n} %/tahun"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaDeuda",
+    "texto": "Atur suku bunganya"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaAhorro",
+    "texto": "Atur imbal hasilnya"
+  },
+  {
+    "clave": "despacho.meta.tasaDeuda",
+    "texto": "Suku bunga tahunan %"
+  },
+  {
+    "clave": "despacho.meta.tasaAhorro",
+    "texto": "Menghasilkan %/tahun"
+  },
+  {
+    "clave": "despacho.meta.desde",
+    "texto": "Sejak"
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaDeuda",
+    "texto": "Suku bunga dari bankmu. Setiap pembayaran yang kamu catat berhenti menghasilkan bunga sejak tanggalnya sendiri."
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaAhorro",
+    "texto": "Setiap setoran menghasilkan sejak hari kamu melakukannya, bukan sejak awal."
+  },
+  {
+    "clave": "despacho.meta.movs",
+    "texto": "Transaksi ({n})"
+  },
+  {
+    "clave": "despacho.meta.borrarTitulo",
+    "texto": "Hapus target ini?"
+  },
+  {
+    "clave": "despacho.meta.borrarMsg",
+    "texto": "“{n}” akan hilang; transaksinya tetap ada di riwayatmu, tapi tanpa tautan."
+  },
+  {
+    "clave": "despacho.meta.borrarOk",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "despacho.meta.deshacer",
+    "texto": "Batalkan pembayaran ini"
+  },
+  {
+    "clave": "despacho.metas.disponible",
+    "texto": "Tersedia bulan ini"
+  },
+  {
+    "clave": "despacho.metas.disponibleDetalle",
+    "texto": "pemasukan {i} − pengeluaran {g}"
+  },
+  {
+    "clave": "despacho.plan.titulo",
+    "texto": "Target"
+  },
+  {
+    "clave": "despacho.plan.desc",
+    "texto": "Target besarmu di atas linimasa. Dengan ✨ AI menyusunkan rencana setoran untukmu."
+  },
+  {
+    "clave": "despacho.plan.ejAhorro",
+    "texto": "Dana darurat"
+  },
+  {
+    "clave": "despacho.plan.material",
+    "texto": "Uangnya akan berasal dari mana"
+  },
+  {
+    "clave": "despacho.plan.ejDeuda",
+    "texto": "Melunasi kartu kredit"
+  },
+  {
+    "clave": "despacho.calc.titulo",
+    "texto": "Kalkulator keuangan"
+  },
+  {
+    "clave": "despacho.calc.tab.fondoEmergencia",
+    "texto": "Dana darurat"
+  },
+  {
+    "clave": "despacho.calc.tab.libertadFinanciera",
+    "texto": "Kebebasan finansial"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaCincuenta",
+    "texto": "50/30/20"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaAuto",
+    "texto": "Mobil 20/4/10"
+  },
+  {
+    "clave": "despacho.calc.crearMeta",
+    "texto": "Buat target dengan jumlah ini"
+  },
+  {
+    "clave": "despacho.calc.metaCreada",
+    "texto": "Target dibuat — cek di atas"
+  },
+  {
+    "clave": "despacho.calc.gastoEsencial",
+    "texto": "Pengeluaran bulanan penting"
+  },
+  {
+    "clave": "despacho.calc.mesesColchon",
+    "texto": "Jumlah bulan cadangan"
+  },
+  {
+    "clave": "despacho.calc.fondoObjetivo",
+    "texto": "Dana target"
+  },
+  {
+    "clave": "despacho.calc.fondoNota",
+    "texto": "{g} × {n} bulan"
+  },
+  {
+    "clave": "despacho.calc.nombreFondo",
+    "texto": "Dana darurat"
+  },
+  {
+    "clave": "despacho.calc.gastoDeseado",
+    "texto": "Pengeluaran bulanan yang diinginkan"
+  },
+  {
+    "clave": "despacho.calc.tasaRetiro",
+    "texto": "Tingkat penarikan aman %"
+  },
+  {
+    "clave": "despacho.calc.libertadObjetivo",
+    "texto": "Yang perlu kamu investasikan"
+  },
+  {
+    "clave": "despacho.calc.libertadNota",
+    "texto": "Pengeluaran tahunanmu × {n}"
+  },
+  {
+    "clave": "despacho.calc.nombreLibertad",
+    "texto": "Kebebasan finansial"
+  },
+  {
+    "clave": "despacho.calc.ingresoMensual",
+    "texto": "Pendapatan bulanan"
+  },
+  {
+    "clave": "despacho.calc.pctNecesidades",
+    "texto": "Kebutuhan %"
+  },
+  {
+    "clave": "despacho.calc.pctCaprichos",
+    "texto": "Keinginan %"
+  },
+  {
+    "clave": "despacho.calc.pctAhorro",
+    "texto": "Tabungan %"
+  },
+  {
+    "clave": "despacho.calc.noSuman100",
+    "texto": "Persentasenya berjumlah {n}%, bukan 100%."
+  },
+  {
+    "clave": "despacho.calc.necesidades",
+    "texto": "Kebutuhan"
+  },
+  {
+    "clave": "despacho.calc.caprichos",
+    "texto": "Keinginan"
+  },
+  {
+    "clave": "despacho.calc.ahorroTxt",
+    "texto": "Tabungan"
+  },
+  {
+    "clave": "despacho.calc.nombreCaprichos",
+    "texto": "Anggaran keinginan"
+  },
+  {
+    "clave": "despacho.calc.precioAuto",
+    "texto": "Harga mobil"
+  },
+  {
+    "clave": "despacho.calc.pctEnganche",
+    "texto": "Uang muka %"
+  },
+  {
+    "clave": "despacho.calc.plazoMax",
+    "texto": "Tenor maks. (bulan)"
+  },
+  {
+    "clave": "despacho.calc.pctIngresoAuto",
+    "texto": "Maks. dari pendapatan %"
+  }
+]

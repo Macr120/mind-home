@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "Tematy z katalogu są już na miejscu; te wiszące luzem otworzyła rozmowa. Dotknij wpisu, żeby przeczytać jego podsumowanie, kluczowe punkty i zobaczyć ilustrację."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "Wpis piszesz ręcznie albo destyluje się sam z rozmowy. Ten o czarnej dziurze i ten o fizyce fortepianu mają rysunek: aplikacja może je zilustrować za ciebie."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "Pytania z całego roku"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Tu są rozmowy Pepa z czasu nauki: entropia, dylatacja czasu, dlaczego fortepian brzmi jak fortepian. Każda została zapisana."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "Z rozmowy do drzewa"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "Dzięki temu encyklopedia nie zapełnia się przepisaną teorią, tylko twoimi prawdziwymi pytaniami."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "Indeks należy do ciebie"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "Znak + przy każdym wierszu pisze wpis od razu tutaj, z gotową dziedziną i tematem. A przyciskiem ołówka rozbudowujesz drzewo: ten sam + dodaje gałęzie, ten przy Ziarnie tworzy nowe dziedziny, a poza tym zmieniasz nazwy, kolejność i usuwasz. Liczba z gałązką mówi, ile podindeksów wisi poniżej."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "Plan nauki"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "Do każdego celu możesz poprosić o plan: AI pyta o datę docelową i o twoje wolne godziny, a potem wpisuje chwile nauki do twojego kalendarza."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "Ile wpisów ma twoja encyklopedia i ile dziedzin oraz tematów z indeksu jest już pokrytych. Tematy otwarte przez rozmowę liczą się osobno."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "Cztery liczby"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "Rozmowy z Mędrcem, minuty nauki łącznie i w tym tygodniu oraz twoja seria dni nauki z rzędu."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "Gdzie jest nierównowaga"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "Najdłuższy pasek to dziedzina, która zabrała ci najwięcej uwagi — u Pepa termodynamika w tygodniu kolokwium."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "Dni nauki"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "Jeden kwadracik na dzień: widać zryw przed kolokwium i dziurę po trzech tygodniach w Japonii, bez otwierania całej historii."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "Na co poszły godziny"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "To samo co wyżej, ale w minutach: co innego mieć dużo wpisów z jakiejś dziedziny, a co innego naprawdę poświęcić jej czas."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "Rok sesji"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "A jeśli chcesz szczegółów, historia trzyma każdą sesję z jej minutami i dziedziną, uporządkowaną po latach, miesiącach i tygodniach."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "Co wypada dziś"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep robi to od roku i wciąż ma zaległe powtórki: system nie prosi o całe słownictwo, tylko o to, co zaraz wypadnie z głowy."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "Rok systematyczności"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "Historia trzyma, ile fiszek powtórzono każdego dnia i ile z nich poszło dobrze. Na początku Pepowi wychodziło sporo pomyłek, a na końcu prawie same trafienia — a w Japonii powtórek było więcej niż kiedykolwiek."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "Dwa języki naraz"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "Na górze zmienia się język: poza głównym u Pepa doszedł japoński na przetrwanie, między czwartym miesiącem a wyjazdem. Po powrocie prawie zniknął i widać to po jego skrzynkach."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "Trzy obszary, sześć poziomów"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "Od A1 do C2, każdy poziom ze swoimi tematami słownictwa, punktami wymowy i gramatyką. Wiesz, czego ci brakuje, bez szukania kursu na zewnątrz."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "Jak ci idzie"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "Opanowane fiszki, powtórki z miesiąca i twój aktualny poziom. U Pepa rok zaczął się na A2, a dziś jest B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "Skrzynka zadań"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "To, co trzeba zrobić, ale nie ma jeszcze dnia, mieszka tutaj, ze swoim priorytetem. Nic nie zmusza cię do ustawiania daty, żeby to zapisać."
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "De onderwerpen uit de catalogus zitten er al in; de losse eronder zijn door een chat geopend. Tik op een item en je leest zijn samenvatting, zijn kernpunten en zijn illustratie."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "Een item schrijf je met de hand of destilleer je uit een gesprek. Dat over het zwarte gat en dat over de natuurkunde van de piano hebben een tekening: de app kan ze voor je illustreren."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "De vragen van het jaar"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Hier staan de gesprekken die Pep tijdens het studeren voerde: entropie, tijddilatatie, waarom een piano naar piano klinkt. Elk ervan is bewaard gebleven."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "Van chat naar boom"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "Zo vult je encyclopedie zich niet met overgeschreven theorie, maar met wat je echt hebt gevraagd."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "De index is van jou"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "De + op elke regel schrijft daar meteen een item, met zijn gebied en zijn onderwerp al ingevuld. En met de potloodknop laat je de boom groeien: diezelfde + voegt takken toe, die bij de Kiem maakt nieuwe gebieden, en je kunt hernoemen, herordenen en verwijderen. Het getal met het takje zegt hoeveel subindexen er onder hangen."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "Het studieplan"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "Voor elk doel kun je een plan vragen: de AI vraagt je streefdatum en je beschikbare uren, en zet de studiemomenten in je kalender."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "Hoeveel items je encyclopedie telt en hoeveel van de gebieden en onderwerpen uit de index je al hebt afgedekt. Onderwerpen die door een chat zijn geopend, worden apart geteld."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "Vier getallen"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "Chats met de Wijze, studieminuten in totaal en deze week, en je reeks dagen achter elkaar studeren."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "Waar het scheef zit"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "De langste balk is het gebied dat de meeste aandacht opslokte — bij Pep was dat thermodynamica in de week van het tentamen."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "De studiedagen"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "Eén vierkantje per dag: je ziet het stampen vlak voor het tentamen en het gat van de drie weken in Japan, zonder de hele geschiedenis te openen."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "Waar je uren heen gingen"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "Hetzelfde als hierboven, maar in minuten: veel items in een gebied hebben is één ding, er echt tijd in steken is iets anders."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "Een jaar aan sessies"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "En wil je de details, dan bewaart de geschiedenis elke sessie met zijn minuten en zijn gebied, gearchiveerd per jaar, maand en week."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "Wat vandaag aan de beurt is"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep is hier al een jaar mee bezig en heeft nog steeds herhalingen openstaan: het systeem vraagt je niet de hele woordenschat, alleen wat je bijna vergeet."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "Een jaar volhouden"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "De geschiedenis bewaart hoeveel kaarten je elke dag herhaalde en hoeveel je er goed had. Pep zat er in het begin vaak naast en had op het eind bijna alles goed — en in Japan werd er meer herhaald dan ooit."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "Twee talen tegelijk"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "Bovenaan wissel je van taal: naast de hoofdtaal bouwde Pep tussen maand 4 en de reis een portie overlevings-Japans op. Na terugkomst bleef het bijna liggen, en dat zie je aan de vakjes."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "Drie gebieden, zes niveaus"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "Van A1 tot C2, elk niveau met zijn woordenschatonderwerpen, zijn uitspraakpunten en zijn grammatica. Je weet wat je nog mist zonder ergens een cursus te zoeken."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "Hoe ver je bent"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "Beheerste kaarten, herhalingen van deze maand en je huidige niveau. Pep begon het jaar op A2 en zit nu rond B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "De inbox"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "Wat gedaan moet worden maar nog geen dag heeft, staat hier, met zijn prioriteit. Niets dwingt je een datum te kiezen om het op te schrijven."
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "Le bouton de la ligne enregistre la donnée RÉELLE dans l’app — un verre d’eau, un repas — et l’étape se barre toute seule parce que cet enregistrement existe, pas parce que quelqu’un l’a cochée. Le presser à nouveau une fois l’étape faite ne duplique rien : le bouton disparaît."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "Ton chiffre de chaque jour"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "Les étapes avec un chiffre réglable le changent ici même. Le mettre à 0 désactive cet objectif du jour sans effacer l’historique des jours précédents."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "D’un objectif à une routine"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "Le calendrier programme ce même objectif à heure fixe : il ouvre le même éditeur que les routines de l’horloge, donc c’est enregistré aux deux endroits à la fois."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "Ce qui est fait ne disparaît pas"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "Ça descend dans « Faits », replié : voir l’enregistrement faire son effet fait partie de la récompense, et de là tu peux annuler s’il s’en est glissé un de trop."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "La fiche de ton personnage : derrière Pep, il y a une année entière d’activité réelle, donc chaque chiffre ici a une vraie histoire qui l’explique."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "Le personnage"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "Un toucher ouvre l’éditeur de personnages. Son humeur — heureux, content, triste ou endormi — monte à chaque nouvel enregistrement et ne baisse que si des jours passent sans aucun ; elle ne repart jamais de zéro d’un coup."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "Le rang de Sisyphe"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "Douze rangs d’ascension : chaque jour avec de l’activité fait monter une marche sur 365. Pep en a déjà gagné plusieurs ; touche-le pour voir la montagne entière."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "Marches et jours de grâce"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "Toutes les 7 marches arrive un badge, et chaque série de semaines fait monter le rang. Rater un jour ne casse rien : tu as 2 jours de grâce par mois avant de reculer au début du rang actuel."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "52 badges par famille"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "Regroupés par famille géologique, gardés mystérieux jusqu’à ce que tu les gagnes : ni nom ni description visibles avant le déblocage."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "Ton résumé"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped monte le résumé de ta semaine, de ton mois ou de ton année en diapositives — il a son propre tutoriel, avec des données à revendre dans une année comme celle de Pep."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "Le radar par pièce"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "Chaque sommet est une pièce de la maison, et sa taille est la somme des XP des apps qui lui sont assignées. Une pièce vide d’activité se repère au premier coup d’œil : son sommet s’enfonce vers le centre."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "Façon stories : touche le côté droit pour avancer, le gauche pour reculer, et reste appuyé pour faire une pause sur une diapositive."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "Semaine, mois ou année"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "Chaque type monte ses propres diapositives avec ses propres données — le résumé annuel de Pep est le plus long, avec les moments les plus hauts et les plus bas de toute l’année."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "Se déplacer entre les périodes"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "Les flèches ‹ › parcourent les périodes déjà closes : impossible d’aller au-delà d’aujourd’hui, donc la comparaison porte toujours sur du réel."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "Partager une diapositive"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "Copie le texte de la diapositive que tu regardes, prêt à coller où tu veux — sans capture d’écran."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "Un point à côté du bouton qui l’ouvre prévient quand un nouveau résumé attend d’être vu ; l’ouvrir éteint le point."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "Voici le sanctuaire de Pep : d’un côté les enclos, de l’autre le potager qui les nourrit. Direction les parcelles."
+  }
+]

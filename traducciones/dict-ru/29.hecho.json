@@ -1,0 +1,610 @@
+[
+  {
+    "clave": "editor.obj.editarVacio",
+    "texto": "Выбери объект на вкладке «Карта» или создай новый."
+  },
+  {
+    "clave": "editor.obj.eliminar",
+    "texto": "Удалить объект"
+  },
+  {
+    "clave": "editor.obj.estilo",
+    "texto": "Стиль"
+  },
+  {
+    "clave": "editor.obj.estiloBloques",
+    "texto": "Блоки (воксели)"
+  },
+  {
+    "clave": "editor.obj.estiloDetallado",
+    "texto": "Детальный"
+  },
+  {
+    "clave": "editor.obj.estiloMinimalista",
+    "texto": "Минимализм"
+  },
+  {
+    "clave": "editor.obj.estiloNormal",
+    "texto": "Обычный"
+  },
+  {
+    "clave": "editor.obj.estiloRedondeado",
+    "texto": "Скруглённый"
+  },
+  {
+    "clave": "editor.obj.forma",
+    "texto": "Форма"
+  },
+  {
+    "clave": "editor.obj.formaError",
+    "texto": "Не удалось создать форму. Проверь модель ИИ и попробуй снова."
+  },
+  {
+    "clave": "editor.obj.cambiarFoto",
+    "texto": "Изменить фото"
+  },
+  {
+    "clave": "editor.obj.foto",
+    "texto": "Фото"
+  },
+  {
+    "clave": "editor.obj.fotoAyuda",
+    "texto": "Рамка подстраивается под пропорции твоего фото."
+  },
+  {
+    "clave": "editor.obj.fotoAyudaPanel",
+    "texto": "Фото заполняет панель, а текст размещается на полосе поверх него."
+  },
+  {
+    "clave": "editor.obj.formaGenerar",
+    "texto": "Создать с ИИ"
+  },
+  {
+    "clave": "editor.obj.formaPhArq",
+    "texto": "Опиши: \"греческая колонна с основанием\""
+  },
+  {
+    "clave": "editor.obj.formaPhObj",
+    "texto": "Опиши: \"деревянный стул с красной подушкой\""
+  },
+  {
+    "clave": "editor.obj.formaSinIa",
+    "texto": "Чтобы описать форму, нужен ИИ (выбери модель на панели)"
+  },
+  {
+    "clave": "editor.obj.fxAgua",
+    "texto": "Интенсивность воды"
+  },
+  {
+    "clave": "editor.obj.fxJuego",
+    "texto": "Скорость аттракциона"
+  },
+  {
+    "clave": "editor.obj.fxLuz",
+    "texto": "Интенсивность света"
+  },
+  {
+    "clave": "editor.obj.grupoAccion",
+    "texto": "Особая функция"
+  },
+  {
+    "clave": "editor.obj.grupoNinguno",
+    "texto": "— (нет)"
+  },
+  {
+    "clave": "editor.obj.grupoAsiento",
+    "texto": "Сесть"
+  },
+  {
+    "clave": "editor.obj.grupoAcostarse",
+    "texto": "Лечь"
+  },
+  {
+    "clave": "editor.obj.grupoVehiculo",
+    "texto": "Управлять"
+  },
+  {
+    "clave": "editor.obj.girDer",
+    "texto": "Повернуть на 90° вправо"
+  },
+  {
+    "clave": "editor.obj.girIzq",
+    "texto": "Повернуть на 90° влево"
+  },
+  {
+    "clave": "editor.obj.girar",
+    "texto": "Поворот (Y)"
+  },
+  {
+    "clave": "editor.obj.glbError",
+    "texto": "Не удалось обработать эту модель .glb. Это точно рабочий файл?"
+  },
+  {
+    "clave": "editor.obj.inclinarX",
+    "texto": "Наклон (X)"
+  },
+  {
+    "clave": "editor.obj.inclinarZ",
+    "texto": "Наклон (Z)"
+  },
+  {
+    "clave": "editor.obj.mapa",
+    "texto": "Карта"
+  },
+  {
+    "clave": "editor.obj.nombrePh",
+    "texto": "Название объекта"
+  },
+  {
+    "clave": "editor.obj.optimizando",
+    "texto": "Оптимизация модели…"
+  },
+  {
+    "clave": "editor.obj.quitarApp",
+    "texto": "Убрать приложение"
+  },
+  {
+    "clave": "editor.obj.quitarFoto",
+    "texto": "Убрать фото"
+  },
+  {
+    "clave": "editor.obj.sinObjetos",
+    "texto": "Пока нет объектов. Создай их на вкладке «Создать»."
+  },
+  {
+    "clave": "editor.obj.subirFoto",
+    "texto": "Загрузить фото"
+  },
+  {
+    "clave": "editor.obj.subirGlb",
+    "texto": "Загрузить модель .glb"
+  },
+  {
+    "clave": "editor.obj.tabCrear",
+    "texto": "Создать"
+  },
+  {
+    "clave": "editor.obj.tabEditar",
+    "texto": "Правка"
+  },
+  {
+    "clave": "editor.obj.tamano",
+    "texto": "Размер"
+  },
+  {
+    "clave": "editor.obj.texto",
+    "texto": "Текст"
+  },
+  {
+    "clave": "editor.obj.textoAyuda",
+    "texto": "Enter добавляет новую строку. Пусто = образец текста."
+  },
+  {
+    "clave": "editor.obj.textoPh",
+    "texto": "Название твоего дома или фраза…"
+  },
+  {
+    "clave": "editor.obj.tipoArq",
+    "texto": "Архитектура"
+  },
+  {
+    "clave": "editor.obj.tipoObjeto",
+    "texto": "Объект"
+  },
+  {
+    "clave": "editor.pers.color",
+    "texto": "Цвет"
+  },
+  {
+    "clave": "editor.pers.colorGrupo",
+    "texto": "Покрасить в этот цвет {n} дет."
+  },
+  {
+    "clave": "editor.pers.colorPieza",
+    "texto": "Красит выбранную деталь и все детали того же цвета (всю одежду или всё тело). Коснись детали в окне просмотра при открытой шестерёнке, чтобы выбрать другой набор."
+  },
+  {
+    "clave": "editor.pers.colorPrenda",
+    "texto": "Цвет вещи"
+  },
+  {
+    "clave": "editor.pers.prenda.sombrero",
+    "texto": "Шляпа"
+  },
+  {
+    "clave": "editor.pers.prenda.gorroChef",
+    "texto": "Колпак повара"
+  },
+  {
+    "clave": "editor.pers.prenda.gorra",
+    "texto": "Кепка"
+  },
+  {
+    "clave": "editor.pers.prenda.lentes",
+    "texto": "Очки"
+  },
+  {
+    "clave": "editor.pers.prenda.bufanda",
+    "texto": "Шарф"
+  },
+  {
+    "clave": "editor.pers.prenda.corbata",
+    "texto": "Галстук"
+  },
+  {
+    "clave": "editor.pers.prenda.camisa",
+    "texto": "Рубашка"
+  },
+  {
+    "clave": "editor.pers.prenda.chamarra",
+    "texto": "Куртка"
+  },
+  {
+    "clave": "editor.pers.prenda.playera",
+    "texto": "Футболка"
+  },
+  {
+    "clave": "editor.pers.prenda.capa",
+    "texto": "Накидка"
+  },
+  {
+    "clave": "editor.pers.prenda.vestido",
+    "texto": "Платье"
+  },
+  {
+    "clave": "editor.pers.prenda.falda",
+    "texto": "Юбка"
+  },
+  {
+    "clave": "editor.pers.prenda.pantalon",
+    "texto": "Брюки"
+  },
+  {
+    "clave": "editor.pers.prenda.shorts",
+    "texto": "Шорты"
+  },
+  {
+    "clave": "editor.pers.prenda.botas",
+    "texto": "Ботинки"
+  },
+  {
+    "clave": "editor.pers.prenda.tenis",
+    "texto": "Кроссовки"
+  },
+  {
+    "clave": "editor.pers.prenda.guantes",
+    "texto": "Перчатки"
+  },
+  {
+    "clave": "editor.pers.prenda.mochila",
+    "texto": "Рюкзак"
+  },
+  {
+    "clave": "editor.pers.rostro",
+    "texto": "Лицо"
+  },
+  {
+    "clave": "editor.pers.rostroImagen",
+    "texto": "Фото лица"
+  },
+  {
+    "clave": "editor.pers.rostroImagenPuesta",
+    "texto": "Фото закрывает переднюю часть головы (имеет приоритет над выражением лица)."
+  },
+  {
+    "clave": "editor.pers.rostroQuitar",
+    "texto": "Убрать фото"
+  },
+  {
+    "clave": "editor.pers.rostroProcesando",
+    "texto": "Обработка фото…"
+  },
+  {
+    "clave": "editor.pers.rostroCambiar",
+    "texto": "Изменить фото"
+  },
+  {
+    "clave": "editor.pers.rostroSubir",
+    "texto": "Загрузить фото лица"
+  },
+  {
+    "clave": "editor.pers.rostroExpresion",
+    "texto": "Выражение лица"
+  },
+  {
+    "clave": "editor.pers.rostroSustituye",
+    "texto": "Выбор выражения лица или загрузка фото заменяет глаза, которые были по умолчанию."
+  },
+  {
+    "clave": "editor.pers.rostroSoloAvatar",
+    "texto": "Лицо (фото и выражения) — только для главного персонажа. У помощников уже есть лицо, основанное на их форме."
+  },
+  {
+    "clave": "editor.pers.rostroNoAplica",
+    "texto": "У этой модели уже есть своё лицо (шлем, маска, шерсть…): лицо и причёска редактора к ней не применяются."
+  },
+  {
+    "clave": "editor.pers.expresion.neutral",
+    "texto": "Нейтральное"
+  },
+  {
+    "clave": "editor.pers.expresion.feliz",
+    "texto": "Радостное"
+  },
+  {
+    "clave": "editor.pers.expresion.sonrisa",
+    "texto": "Улыбка"
+  },
+  {
+    "clave": "editor.pers.expresion.sorpresa",
+    "texto": "Удивление"
+  },
+  {
+    "clave": "editor.pers.expresion.guino",
+    "texto": "Подмигивание"
+  },
+  {
+    "clave": "editor.pers.expresion.serio",
+    "texto": "Серьёзное"
+  },
+  {
+    "clave": "editor.pers.expresion.ternura",
+    "texto": "Нежное"
+  },
+  {
+    "clave": "editor.pers.expresion.ninguno",
+    "texto": "Без лица"
+  },
+  {
+    "clave": "editor.pers.modelos",
+    "texto": "Модели"
+  },
+  {
+    "clave": "editor.pers.modeloBase",
+    "texto": "Человек"
+  },
+  {
+    "clave": "editor.pers.modelosNota",
+    "texto": "Выбери готовое тело. Те, что из деталей, можно продолжать редактировать ниже; у форм остаётся своё лицо."
+  },
+  {
+    "clave": "editor.pers.cuerpo.astronauta",
+    "texto": "Космонавт"
+  },
+  {
+    "clave": "editor.pers.cuerpo.androide",
+    "texto": "Андроид"
+  },
+  {
+    "clave": "editor.pers.cuerpo.ninja",
+    "texto": "Ниндзя"
+  },
+  {
+    "clave": "editor.pers.cuerpo.alien",
+    "texto": "Пришелец"
+  },
+  {
+    "clave": "editor.pers.cuerpo.osito",
+    "texto": "Мишка"
+  },
+  {
+    "clave": "editor.pers.cuerpo.princesa",
+    "texto": "Принцесса"
+  },
+  {
+    "clave": "editor.pers.peinado",
+    "texto": "Причёска"
+  },
+  {
+    "clave": "editor.pers.peloColor",
+    "texto": "Цвет волос"
+  },
+  {
+    "clave": "editor.pers.peinado.ninguno",
+    "texto": "Без волос"
+  },
+  {
+    "clave": "editor.pers.peinado.corto",
+    "texto": "Короткая"
+  },
+  {
+    "clave": "editor.pers.peinado.puntas",
+    "texto": "Ёжиком"
+  },
+  {
+    "clave": "editor.pers.peinado.coleta",
+    "texto": "Хвост"
+  },
+  {
+    "clave": "editor.pers.peinado.chongo",
+    "texto": "Пучок"
+  },
+  {
+    "clave": "editor.pers.peinado.largo",
+    "texto": "Длинная"
+  },
+  {
+    "clave": "editor.pers.peinado.afro",
+    "texto": "Афро"
+  },
+  {
+    "clave": "editor.pers.peinado.mohawk",
+    "texto": "Ирокез"
+  },
+  {
+    "clave": "editor.pers.peinado.tazon",
+    "texto": "Под горшок"
+  },
+  {
+    "clave": "editor.pers.guardarropa",
+    "texto": "Персональный гардероб"
+  },
+  {
+    "clave": "editor.pers.ropaCustomPh",
+    "texto": "Опиши её: \"золотистый пуховый жилет\""
+  },
+  {
+    "clave": "editor.pers.ropaCustomSinIa",
+    "texto": "Чтобы создать одежду с ИИ, выбери модель на панели"
+  },
+  {
+    "clave": "editor.pers.ropaCustomGenerar",
+    "texto": "Создать вещь с ИИ"
+  },
+  {
+    "clave": "editor.pers.ropaCustomError",
+    "texto": "Не удалось создать вещь. Проверь модель ИИ и попробуй снова."
+  },
+  {
+    "clave": "editor.pers.ropaCustomManual",
+    "texto": "Собрать вручную"
+  },
+  {
+    "clave": "editor.pers.ropaCustomVacio",
+    "texto": "У тебя пока нет вещей на заказ. Создай одну с ИИ или собери вручную."
+  },
+  {
+    "clave": "editor.pers.ropaCustomNombre",
+    "texto": "Название вещи"
+  },
+  {
+    "clave": "editor.pers.ropaCustomSinNombre",
+    "texto": "Вещь"
+  },
+  {
+    "clave": "editor.pers.cancelar",
+    "texto": "Отмена"
+  },
+  {
+    "clave": "editor.pers.guardar",
+    "texto": "Сохранить"
+  },
+  {
+    "clave": "editor.pers.editar",
+    "texto": "Изменить"
+  },
+  {
+    "clave": "editor.pers.borrar",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "editor.pers.categoria.cabeza",
+    "texto": "Голова"
+  },
+  {
+    "clave": "editor.pers.categoria.cuello",
+    "texto": "Шея"
+  },
+  {
+    "clave": "editor.pers.categoria.torso",
+    "texto": "Торс"
+  },
+  {
+    "clave": "editor.pers.categoria.cintura",
+    "texto": "Талия и ноги"
+  },
+  {
+    "clave": "editor.pers.categoria.pies",
+    "texto": "Ступни"
+  },
+  {
+    "clave": "editor.pers.categoria.accesorios",
+    "texto": "Аксессуары"
+  },
+  {
+    "clave": "editor.ropa.carpetaNueva",
+    "texto": "Новая папка"
+  },
+  {
+    "clave": "editor.ropa.carpetaNombre",
+    "texto": "Как назовём?"
+  },
+  {
+    "clave": "editor.ropa.renombrar",
+    "texto": "Переименовать"
+  },
+  {
+    "clave": "editor.ropa.ocultar",
+    "texto": "Скрыть «{nombre}»"
+  },
+  {
+    "clave": "editor.ropa.ocultarMsg",
+    "texto": "Папка перестаёт отображаться в списке, но ничего не теряется: одежда, которая уже надета, остаётся надетой, и её можно вернуть в любой момент."
+  },
+  {
+    "clave": "editor.ropa.ocultarOk",
+    "texto": "Скрыть"
+  },
+  {
+    "clave": "editor.ropa.ocultarTip",
+    "texto": "Скрыть папку"
+  },
+  {
+    "clave": "editor.ropa.borrar",
+    "texto": "Удалить «{nombre}»"
+  },
+  {
+    "clave": "editor.ropa.borrarMsg",
+    "texto": "Её содержимое переходит в другую папку той же категории; ни одна вещь не удаляется."
+  },
+  {
+    "clave": "editor.ropa.borrarOk",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "editor.ropa.borrarTip",
+    "texto": "Удалить папку"
+  },
+  {
+    "clave": "editor.ropa.ocultas",
+    "texto": "Скрытые папки"
+  },
+  {
+    "clave": "editor.ropa.hornear",
+    "texto": "Изменить «{nombre}»"
+  },
+  {
+    "clave": "editor.ropa.hornearMsg",
+    "texto": "Создаётся редактируемая копия из {n} деталей. Копия перестаёт подстраиваться под другие тела; оригинал остаётся в папке."
+  },
+  {
+    "clave": "editor.ropa.hornearMsgMarcha",
+    "texto": "Создаётся редактируемая копия из {n} деталей. Копия больше не двигается в такт твоим шагам и не подстраивается под другие тела; оригинал остаётся в папке."
+  },
+  {
+    "clave": "editor.ropa.hornearOk",
+    "texto": "Создать редактируемую копию"
+  },
+  {
+    "clave": "editor.ropa.hornearTip",
+    "texto": "Создать копию, редактируемую по деталям"
+  },
+  {
+    "clave": "editor.ropa.copiaDe",
+    "texto": "Моё: {nombre}"
+  },
+  {
+    "clave": "editor.ropa.soloAvatar",
+    "texto": "Вещи на заказ — только для главного персонажа: помощники носят только вещи по умолчанию."
+  },
+  {
+    "clave": "editor.pers.atuendos",
+    "texto": "Наряды"
+  },
+  {
+    "clave": "editor.pers.atuendosSugeridos",
+    "texto": "Рекомендуемые"
+  },
+  {
+    "clave": "editor.pers.atuendosTuyos",
+    "texto": "Твои наряды"
+  },
+  {
+    "clave": "editor.pers.atuendoCrear",
+    "texto": "Создать наряд"
+  },
+  {
+    "clave": "editor.pers.atuendoNombrePh",
+    "texto": "Название наряда"
+  }
+]

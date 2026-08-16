@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "看板"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "同样的待办，分成三列：待处理、进行中、已完成。长按一张卡片就能把它拖到另一列——放进“已完成”，日历里也会跟着打勾——也可以用箭头移动。"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "膝盖的一年"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "每隔几个月的营养门诊、牙科，还有第7个月的六次理疗：让Pep停下来的那次受伤，都记在这里。"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "药物"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "每种药物都会按每次服用在日历里生成一个时间块。受伤时的消炎药吃了三周就归档了，维生素还在继续。"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "莱卡"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "这只猫有自己的档案，记着体重和兽医，还有带周期的护理：疫苗一年一次，驱虫每三个月一次，洗澡每月一次。打上勾之后，下一次的日期会自己重新算好。"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "Pep的圈子"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "家人、朋友、工作上和大学里的人，各自放在自己的文件夹里。连同电话、地址，还有你不想忘记的事。"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "不会忘的生日"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "保存出生日期后，生日会每年在日历里重复出现，并且提醒你。年龄由应用自己算出来。"
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "和人有关的安排会关联到对应的联系人：这样就能看到上一次见某个人是什么时候。"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "用三个数字看一年"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "连续天数数的是接连有记录的日子，达标率则把活跃天数和你给自己定下的天数放在一起比。Pep年初的时候，连慢跑两个街区都做不到。"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "三个项目"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "这些条形显示你离目标还差多少：力量训练次数、耐力训练分钟数、柔韧训练分钟数。目标会跟着你在上方选的时间段调整。"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "这一年的目标"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "目录、日常安排与进度"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "每个项目的结构都一样：动作目录、带历史记录的日常安排，还有进度。先从Pep已经跑过的开始吧。"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "每一次都被写下来"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "历史记录按年、月、周分组。大型比赛还会保存路线轨迹和分段：马拉松就在那里，带着每十公里的成绩。"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "热力图不会说谎"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "空白同样在讲故事：膝伤那个月是空的，日本的三周也几乎是空的。旁边写着总千米数、最长的一次和最佳配速。"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "组数、次数和重量"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "每次训练都会连同你举起的重量一起保存动作。上一次的数据应用替你记着，不用再翻，还会把当天的总训练量加起来。"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "一整年的曲线"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "选一个动作，就能看到它怎么涨上去：Pep的深蹲从四十公斤练到了七十公斤。受伤那个月只练上半身，这条曲线一点都没察觉。"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "不用开口的个人最佳"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "每个动作都会保存最佳重量、最多次数，还有你的1RM估算值。像引体向上这样用体重做的动作，会单独标出来。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "第1步：你要去哪里"
+  }
+]

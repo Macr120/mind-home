@@ -1,0 +1,102 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.texto",
+    "texto": "Films, séries, livres et jeux vidéo, classés par date de fin. Il y a une indigestion d’écrans au mois 7 (genou blessé, canapé à volonté) et un trou de trois semaines : le Japon."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.titulo",
+    "texto": "La fiche"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.texto",
+    "texto": "Titre, auteur ou réalisateur, genre, statut et étoiles. La critique, c’est ce que Pep en a pensé, pas un résumé de l’intrigue : dans un an, c’est la seule chose qui servira."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.titulo",
+    "texto": "Quatre façons de le classer"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.texto",
+    "texto": "Par genre, par catégorie (film, série, livre, jeu vidéo), par auteur ou par date. Dans la vue par genre, les dossiers se font glisser : mets en premier ce que tu regardes le plus."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.titulo",
+    "texto": "La liste à voir"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.texto",
+    "texto": "Pep a monté son programme de classiques de science-fiction à voir. Avec l’IA, il se génère par thème (« horreur des années 80 »), mais il s’écrit aussi à la main."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.titulo",
+    "texto": "Chaque titre, un objectif"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.3.texto",
+    "texto": "Et dans l’autre onglet, la table numérique : plus de vingt jeux de société et d’arcade, à jouer sur place."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.1.texto",
+    "texto": "1–2 joueurs ou 3+ : le filtre cache ce qui ne marche pas pour le groupe que tu as en face. Les jeux marqués « 2+ » servent dans les deux sections."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.titulo",
+    "texto": "Par famille"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.texto",
+    "texto": "Plateau, Casse-têtes, Arcade, Cartes et casino, En groupe : chaque famille a sa propre couleur. Échecs, dames, dominos, blackjack, tetris, démineur et plus d’une douzaine d’autres."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.titulo",
+    "texto": "Une touche et c’est parti"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.texto",
+    "texto": "Chaque carte ouvre le jeu en plein écran ; ceux qui le permettent ont leur propre sélecteur de difficulté en haut. Retour te ramène exactement ici, sans perdre ta place."
+  },
+  {
+    "clave": "tut.app-diario--habito.1.titulo",
+    "texto": "Les titres du jour"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.texto",
+    "texto": "Monde, Économie, Tech, Santé, Sport et Divertissement, depuis de vraies sources. Les puces du haut filtrent par section."
+  },
+  {
+    "clave": "tut.app-diario--habito.2.titulo",
+    "texto": "Il se renouvelle tout seul"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.texto",
+    "texto": "L’édition du jour se télécharge toute seule et, à minuit, elle est remplacée en entier : ici rien ne s’accumule, comme un vrai journal."
+  },
+  {
+    "clave": "tut.app-diario--habito.3.titulo",
+    "texto": "Un jour dans l’histoire"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.texto",
+    "texto": "L’autre moitié : ce qui s’est passé un jour comme aujourd’hui, une œuvre, un livre, une espèce, un mot. Une bonne excuse pour l’ouvrir même quand l’actualité ne donne pas envie."
+  },
+  {
+    "clave": "tut.app-diario--habito.4.texto",
+    "texto": "Pep l’a lu environ deux cents jours cette année : beaucoup au début, presque jamais pendant le mois difficile, et tous les jours des trois dernières semaines. Sa série vit de ça."
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.titulo",
+    "texto": "La livraison"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.texto",
+    "texto": "C’est ici que tu règles qui t’apporte quoi. Ce n’est pas une notification de plus : ça arrive comme un message de l’assistant, avec sa voix."
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.titulo",
+    "texto": "Deux livreurs"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.texto",
+    "texto": "Le Mage lui apporte Monde, Tech et Économie à 7 h 30. Laika lui livre le léger quand ça lui chante. Chaque assistant choisit ses sections et son mode."
+  }
+]

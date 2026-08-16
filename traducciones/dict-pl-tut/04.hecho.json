@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.editor-mapa.3.texto",
+    "texto": "Dachy liczą się na pole: każde może mieć własny kształt albo materiał, więc jeden pokój może łączyć różne spadki zamiast jednego płaskiego dachu."
+  },
+  {
+    "clave": "tut.editor-mapa.4.texto",
+    "texto": "Dom ma też poziomy: piętra układane w górę i piwnicę w dół. Każdy nowy poziom rodzi się z własnym sposobem wejścia — schodami albo otworem w stropie — który przebija podłogę powyżej."
+  },
+  {
+    "clave": "tut.editor-mapa.5.titulo",
+    "texto": "Gotowe"
+  },
+  {
+    "clave": "tut.editor-mapa.5.texto",
+    "texto": "Wszystko zapisuje się samo w trakcie edycji. Gotowe zamyka edytor i wraca do gry z domem dokładnie takim, jakim go zostawisz."
+  },
+  {
+    "clave": "tut.editor-personajes.1.texto",
+    "texto": "Twoja główna postać i twoi asystenci mieszkają w tym samym edytorze: wybierz u góry, kogo edytujesz, a narzędzia zmienią się na te, które mają sens dla każdego z nich."
+  },
+  {
+    "clave": "tut.editor-personajes.2.titulo",
+    "texto": "Twarz i zdjęcie"
+  },
+  {
+    "clave": "tut.editor-personajes.2.texto",
+    "texto": "Wyraz twarzy, fryzura i kolor włosów albo od razu twoje zdjęcie, żeby postać była podobna do ciebie. Nie każde ciało przyjmuje własną twarz."
+  },
+  {
+    "clave": "tut.editor-personajes.3.titulo",
+    "texto": "Ubrania według kategorii"
+  },
+  {
+    "clave": "tut.editor-personajes.3.texto",
+    "texto": "Każdą część zakładasz, zdejmujesz i przemalowujesz osobno: koszulę, spodnie, buty, dodatki. Łączą się dowolnie."
+  },
+  {
+    "clave": "tut.editor-personajes.4.titulo",
+    "texto": "Zapisane stroje"
+  },
+  {
+    "clave": "tut.editor-personajes.4.texto",
+    "texto": "Zapisz całe zestawienie ubrań jako strój i przebierz się w całości jednym dotknięciem, bez składania go za każdym razem część po części."
+  },
+  {
+    "clave": "tut.editor-personajes.5.titulo",
+    "texto": "Strój do każdego pokoju"
+  },
+  {
+    "clave": "tut.editor-personajes.5.texto",
+    "texto": "Przypisz inny strój do każdego pokoju: twój awatar wchodzi do Siłowni ubrany do biegania i przebiera się sam, kiedy przechodzi do Kuchni."
+  },
+  {
+    "clave": "tut.editor-personajes.6.texto",
+    "texto": "Ciało, kolor i rozmiar edytujesz jak zawsze; z włączonym AI możesz też wygenerować własny model 3D zamiast wybierać jeden z gotowych."
+  },
+  {
+    "clave": "tut.editor-objetos.1.texto",
+    "texto": "Dotknij obiektu na scenie (albo na liście), żeby go edytować: kolor, rozmiar i obrót to trzy ustawienia wspólne dla wszystkich."
+  },
+  {
+    "clave": "tut.editor-objetos.2.texto",
+    "texto": "Obiekty z przypisaną aplikacją otwierają swój szablon po wejściu do pokoju; pozostałe są tylko dekoracją — jedne i drugie edytuje się tak samo."
+  },
+  {
+    "clave": "tut.editor-objetos.3.texto",
+    "texto": "Zębatka ⚙️ przy obiekcie zmienia go w model edytowalny po kawałku: składaj własne modele z podstawowych brył albo poproś o jeden AI, opisując go."
+  },
+  {
+    "clave": "tut.editor-config.1.texto",
+    "texto": "Osiem zwijanych sekcji zamiast jednej długiej listy: dotknij tytułu, żeby otworzyć tylko tę, która cię interesuje."
+  },
+  {
+    "clave": "tut.editor-config.2.titulo",
+    "texto": "Konto i AI"
+  },
+  {
+    "clave": "tut.editor-config.2.texto",
+    "texto": "Logowanie, twój plan i ile AI zużyto w tym miesiącu; tuż obok tabela cen każdej operacji. Oba mają własny, szczegółowy samouczek."
+  },
+  {
+    "clave": "tut.editor-config.3.titulo",
+    "texto": "Styl wizualny"
+  },
+  {
+    "clave": "tut.editor-config.3.texto",
+    "texto": "Motyw mapy (światło, mgła, oświetlenie) i style renderowania, wszystko ładowane na żądanie, żeby nic nie ważyło więcej, niż trzeba."
+  },
+  {
+    "clave": "tut.editor-config.4.titulo",
+    "texto": "Interfejs i język"
+  },
+  {
+    "clave": "tut.editor-config.4.texto",
+    "texto": "Język, motyw interfejsu (jasny/ciemny/automatyczny), styl ikon i gęstość — wszystko, co zmienia TO, JAK dom wygląda, a nie to, co zawiera."
+  },
+  {
+    "clave": "tut.editor-config.5.titulo",
+    "texto": "Powiadomienia"
+  },
+  {
+    "clave": "tut.editor-config.5.texto",
+    "texto": "Które powiadomienia przychodzą, a które milczą: rutyny, powiadomienia o planie i przypomnienia można wyłączać osobno."
+  },
+  {
+    "clave": "tut.editor-config.6.texto",
+    "texto": "Muzyka i Samouczki mają własny przewodnik; Kopia zapasowa danych też, a to ją najbardziej warto sprawdzić przed zmianą urządzenia."
+  },
+  {
+    "clave": "tut.respaldo.1.titulo",
+    "texto": "Gdzie mieszka twój dom"
+  },
+  {
+    "clave": "tut.respaldo.1.texto",
+    "texto": "Bez konta i bez synchronizacji twoje dane są tylko na tym urządzeniu. Komunikat u góry mówi, czy przeglądarka ma zgodę, żeby chronić je przed automatycznym czyszczeniem."
+  },
+  {
+    "clave": "tut.respaldo.2.titulo",
+    "texto": "Eksportuj"
+  },
+  {
+    "clave": "tut.respaldo.2.texto",
+    "texto": "Pobiera jeden plik JSON ze wszystkimi twoimi tabelami: pokoje, cele, wpisy, wszystko. To twoja ręczna kopia zapasowa."
+  },
+  {
+    "clave": "tut.respaldo.3.titulo",
+    "texto": "Przywróć"
+  }
+]

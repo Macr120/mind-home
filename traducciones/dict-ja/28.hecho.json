@@ -1,0 +1,470 @@
+[
+ {
+  "clave": "chat.voz.permiso",
+  "texto": "ブラウザがマイクをブロックしました。アドレスバー横の錠前アイコンから有効にしてください。"
+ },
+ {
+  "clave": "chat.voz.red",
+  "texto": "ブラウザの音声入力にはインターネット接続が必要です。"
+ },
+ {
+  "clave": "chat.voz.sinMic",
+  "texto": "この端末にマイクが見つかりませんでした。"
+ },
+ {
+  "clave": "chat.vozParar",
+  "texto": "音声入力を止める"
+ },
+ {
+  "clave": "chat.vozTranscribiendo",
+  "texto": "文字起こし中…"
+ },
+ {
+  "clave": "ciclo.arrastraSol",
+  "texto": "ドラッグして太陽を動かす"
+ },
+ {
+  "clave": "ciclo.fase.dia",
+  "texto": "昼"
+ },
+ {
+  "clave": "ciclo.fase.noche",
+  "texto": "夜"
+ },
+ {
+  "clave": "ciclo.fase.amanecer",
+  "texto": "日の出"
+ },
+ {
+  "clave": "ciclo.fase.atardecer",
+  "texto": "日の入り"
+ },
+ {
+  "clave": "ciclo.humedad",
+  "texto": "湿度"
+ },
+ {
+  "clave": "ciclo.lluvia",
+  "texto": "雨"
+ },
+ {
+  "clave": "ciclo.viento",
+  "texto": "風"
+ },
+ {
+  "clave": "ciclo.volverHoraReal",
+  "texto": "システムの現在時刻に戻す"
+ },
+ {
+  "clave": "color.personalizado",
+  "texto": "カスタムカラー"
+ },
+ {
+  "clave": "color.sin",
+  "texto": "色なし"
+ },
+ {
+  "clave": "constructor.cuarto.agua",
+  "texto": "水を張る（プール）"
+ },
+ {
+  "clave": "constructor.cuarto.color",
+  "texto": "部屋の色"
+ },
+ {
+  "clave": "constructor.cuarto.hintExpandir",
+  "texto": "「+」で部屋を広げ、「−」で縮めます。1マスだけの部屋では「−」で削除されます。"
+ },
+ {
+  "clave": "constructor.cuarto.hintMover",
+  "texto": "ドラッグで部屋を移動、または左下の形を選んで描画します。部屋を広げる・縮める・削除するには「拡張」を使います。"
+ },
+ {
+  "clave": "constructor.cuarto.hintSotano",
+  "texto": "地下：部屋は壁1枚分の深さで地面の下に掘られます（プールやシェルターに）。選んで水を張れます。"
+ },
+ {
+  "clave": "constructor.cuarto.hintPincel",
+  "texto": "空いているマスをタップすると、その形の部屋ができます。同じマスをもう一度タップすると回転し、最後には削除されます。部屋のマスをタップすると形を変えられます。ファイングリッド（右上）を使うと、マスの¼の角を切り取れます。"
+ },
+ {
+  "clave": "constructor.cuarto.hintPincelFino",
+  "texto": "ファイングリッド：部屋の四分割の一つをタップすると、その角を切り取れます（三角形または円形）。もう一度タップすると回転し、最後には切り取りが解除されます。空いているマスでは、その細かい角を持つ部屋を作れます。"
+ },
+ {
+  "clave": "constructor.cuarto.nombre",
+  "texto": "名前"
+ },
+ {
+  "clave": "constructor.cuarto.vacio",
+  "texto": "下の形で部屋を描いてください。"
+ },
+ {
+  "clave": "constructor.esquinas",
+  "texto": "角"
+ },
+ {
+  "clave": "constructor.plegarModos",
+  "texto": "要素を隠す"
+ },
+ {
+  "clave": "constructor.verModos",
+  "texto": "すべての要素を表示"
+ },
+ {
+  "clave": "constructor.vista.croquis",
+  "texto": "スケッチ"
+ },
+ {
+  "clave": "constructor.vista.modelo3d",
+  "texto": "3Dモデル"
+ },
+ {
+  "clave": "constructor.vista.hint3d",
+  "texto": "スケッチや3Dマップの要素をタップすると、ここで確認・編集できます。"
+ },
+ {
+  "clave": "constructor.forma.circulo",
+  "texto": "円"
+ },
+ {
+  "clave": "constructor.forma.cuadrado",
+  "texto": "四角"
+ },
+ {
+  "clave": "constructor.forma.posicion",
+  "texto": "位置"
+ },
+ {
+  "clave": "constructor.forma.triangulo",
+  "texto": "三角"
+ },
+ {
+  "clave": "constructor.grid.ampliar",
+  "texto": "拡大"
+ },
+ {
+  "clave": "constructor.grid.reducir",
+  "texto": "縮小"
+ },
+ {
+  "clave": "constructor.cuadrantes.titulo",
+  "texto": "区画"
+ },
+ {
+  "clave": "constructor.cuadrantes.todo",
+  "texto": "マップ全体"
+ },
+ {
+  "clave": "constructor.cuadrantes.enfocar",
+  "texto": "この区画にフォーカス"
+ },
+ {
+  "clave": "constructor.cuadrantes.enfocarRenombrar",
+  "texto": "フォーカス（ダブルクリックで名前変更）"
+ },
+ {
+  "clave": "constructor.cuadrantes.eliminar",
+  "texto": "区画を削除"
+ },
+ {
+  "clave": "constructor.cuadrantes.referencias",
+  "texto": "参照"
+ },
+ {
+  "clave": "constructor.cuadrantes.referenciasHint",
+  "texto": "表示位置が変わるだけで、編集はどこでも行えます。"
+ },
+ {
+  "clave": "constructor.cuadrantes.tuyas",
+  "texto": "自分のゾーン"
+ },
+ {
+  "clave": "constructor.cuadrantes.tuyasHint",
+  "texto": "一つ選ぶと、他のメニューではそのマスしか編集できなくなります。"
+ },
+ {
+  "clave": "constructor.cuadrantes.renombrar",
+  "texto": "名前を変更"
+ },
+ {
+  "clave": "constructor.cuadrantes.dibujar",
+  "texto": "区画を描く"
+ },
+ {
+  "clave": "constructor.cuadrantes.cancelar",
+  "texto": "描画をキャンセル"
+ },
+ {
+  "clave": "constructor.cuadrantes.ayuda",
+  "texto": "スケッチや3Dマップ上で、フォーカスしたいエリアをドラッグして選んでください。"
+ },
+ {
+  "clave": "constructor.cuadrantes.nuevo",
+  "texto": "ゾーン"
+ },
+ {
+  "clave": "constructor.muro.circulo",
+  "texto": "円"
+ },
+ {
+  "clave": "constructor.muro.crear",
+  "texto": "作成"
+ },
+ {
+  "clave": "constructor.muro.curvaInfDer",
+  "texto": "右下カーブ"
+ },
+ {
+  "clave": "constructor.muro.curvaInfIzq",
+  "texto": "左下カーブ"
+ },
+ {
+  "clave": "constructor.muro.curvaSupDer",
+  "texto": "右上カーブ"
+ },
+ {
+  "clave": "constructor.muro.curvaSupIzq",
+  "texto": "左上カーブ"
+ },
+ {
+  "clave": "constructor.muro.diagonal1",
+  "texto": "斜め"
+ },
+ {
+  "clave": "constructor.muro.diagonal2",
+  "texto": "逆斜め"
+ },
+ {
+  "clave": "constructor.muro.editar",
+  "texto": "選択中の壁"
+ },
+ {
+  "clave": "constructor.muro.eliminar",
+  "texto": "壁を削除"
+ },
+ {
+  "clave": "constructor.muro.eliminarCorto",
+  "texto": "削除"
+ },
+ {
+  "clave": "constructor.muro.hint",
+  "texto": "左下で形を選びます。「辺」では水平か垂直を選び、グリッドをタップして直線の壁を置いたり消したりします。「三角形/円形」では最初のパターンを選んでマスをタップします。同じ場所をもう一度タップすると次のパターンに進み、最後のパターンの後で削除されます。"
+ },
+ {
+  "clave": "constructor.muro.hintSeleccionar",
+  "texto": "3Dマップ上の壁（直線・長方形・円形）をタップして選択すると、テクスチャ・色・高さ・形を編集できます。"
+ },
+ {
+  "clave": "constructor.muro.horizontal",
+  "texto": "水平"
+ },
+ {
+  "clave": "constructor.muro.lado",
+  "texto": "辺"
+ },
+ {
+  "clave": "constructor.muro.lados",
+  "texto": "辺（エッジ）"
+ },
+ {
+  "clave": "constructor.muro.orientacion",
+  "texto": "向き"
+ },
+ {
+  "clave": "constructor.muro.ponerPuerta",
+  "texto": "+ ドアを追加"
+ },
+ {
+  "clave": "constructor.muro.ponerVentana",
+  "texto": "+ 窓を追加"
+ },
+ {
+  "clave": "constructor.muro.quitarPuerta",
+  "texto": "✓ ドアあり（削除）"
+ },
+ {
+  "clave": "constructor.muro.quitarVentana",
+  "texto": "✓ 窓あり（削除）"
+ },
+ {
+  "clave": "constructor.muro.rotar",
+  "texto": "90°回転"
+ },
+ {
+  "clave": "constructor.muro.seleccionar",
+  "texto": "選択"
+ },
+ {
+  "clave": "constructor.muro.triangulo",
+  "texto": "三角"
+ },
+ {
+  "clave": "constructor.muro.vertical",
+  "texto": "垂直"
+ },
+ {
+  "clave": "constructor.piso.cambiarTodas",
+  "texto": "全部まとめて変更"
+ },
+ {
+  "clave": "constructor.piso.hint",
+  "texto": "または、スケッチや3Dマップのマスをタップして1つ以上選びます。"
+ },
+ {
+  "clave": "constructor.piso.todasExt",
+  "texto": "外側のマスをすべて選択"
+ },
+ {
+  "clave": "constructor.piso.todasInt",
+  "texto": "内側のマスをすべて選択"
+ },
+ {
+  "clave": "cubo.atras",
+  "texto": "背面"
+ },
+ {
+  "clave": "cubo.der",
+  "texto": "右"
+ },
+ {
+  "clave": "cubo.frente",
+  "texto": "正面"
+ },
+ {
+  "clave": "cubo.izq",
+  "texto": "左"
+ },
+ {
+  "clave": "cubo.planta",
+  "texto": "上面"
+ },
+ {
+  "clave": "cubo.titulo",
+  "texto": "ナビゲーションキューブ：角=アイソメトリック、面=平面図"
+ },
+ {
+  "clave": "editor.abrir",
+  "texto": "家のエディタを開く"
+ },
+ {
+  "clave": "editor.ayuda.conf.a",
+  "texto": "マップの"
+ },
+ {
+  "clave": "editor.ayuda.conf.b",
+  "texto": "見た目のスタイル"
+ },
+ {
+  "clave": "editor.ayuda.conf.c",
+  "texto": "、言語と"
+ },
+ {
+  "clave": "editor.ayuda.conf.d",
+  "texto": "インターフェース"
+ },
+ {
+  "clave": "editor.ayuda.cuarto.a",
+  "texto": "外観・壁・大きさをカスタマイズできます。"
+ },
+ {
+  "clave": "editor.ayuda.cuarto.b",
+  "texto": "家具や装飾は"
+ },
+ {
+  "clave": "editor.ayuda.cuarto.c",
+  "texto": "部屋の中でドラッグして動かせます。"
+ },
+ {
+  "clave": "editor.ayuda.mapa.a",
+  "texto": "上の"
+ },
+ {
+  "clave": "editor.ayuda.mapa.b",
+  "texto": "モード"
+ },
+ {
+  "clave": "editor.ayuda.mapa.c",
+  "texto": "を選んで、"
+ },
+ {
+  "clave": "editor.ayuda.mapa.d",
+  "texto": "スケッチ"
+ },
+ {
+  "clave": "editor.ayuda.mapa.e",
+  "texto": "か3Dマップで編集しましょう。下では、家を自由にカスタマイズできます。"
+ },
+ {
+  "clave": "editor.ayuda.obj.a",
+  "texto": "まずは"
+ },
+ {
+  "clave": "editor.ayuda.obj.b",
+  "texto": "オブジェクト"
+ },
+ {
+  "clave": "editor.ayuda.obj.c",
+  "texto": "を選んで、"
+ },
+ {
+  "clave": "editor.ayuda.obj.d",
+  "texto": "色・大きさ・回転を編集します。"
+ },
+ {
+  "clave": "editor.ayuda.pers.a",
+  "texto": "まずは"
+ },
+ {
+  "clave": "editor.ayuda.pers.b",
+  "texto": "キャラクター"
+ },
+ {
+  "clave": "editor.ayuda.pers.c",
+  "texto": "を選んで、"
+ },
+ {
+  "clave": "editor.ayuda.pers.d",
+  "texto": "名前・体・3Dアバターを編集します。"
+ },
+ {
+  "clave": "editor.fondo.colorFijo",
+  "texto": "固定カラー"
+ },
+ {
+  "clave": "editor.fondo.colorFijoDesc",
+  "texto": "時間帯によって変わらない、空の単色です。"
+ },
+ {
+  "clave": "editor.imgActiva",
+  "texto": "使用中"
+ },
+ {
+  "clave": "editor.mapa.mapa",
+  "texto": "マップ"
+ },
+ {
+  "clave": "editor.muro.alt",
+  "texto": "壁"
+ },
+ {
+  "clave": "editor.obj.altura",
+  "texto": "高さ"
+ },
+ {
+  "clave": "editor.obj.asignarApp",
+  "texto": "+ このオブジェクトにアプリを割り当て"
+ },
+ {
+  "clave": "editor.obj.cambiarApp",
+  "texto": "変更"
+ },
+ {
+  "clave": "editor.obj.color",
+  "texto": "色"
+ },
+ {
+  "clave": "editor.obj.crearPiezas",
+  "texto": "3Dパーツでオブジェクトを作成"
+ }
+]

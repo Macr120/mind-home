@@ -1,0 +1,145 @@
+[
+  {
+    "clave": "chat.manual.cat.ayuda",
+    "en": "Help and tutorials"
+  },
+  {
+    "clave": "chat.manual.nota.ayuda",
+    "en": "Ask how any app or menu works, or request its tutorial: the wizard shows it on screen step by step. In English, on-screen tours resolve for the editor, chat and menu; the assistant answers the rest (AI)."
+  },
+  {
+    "clave": "tut.casa.titulo",
+    "es": "Tu casa",
+    "en": "Your home"
+  },
+  {
+    "clave": "tut.casa.resumen",
+    "es": "La casa es el mapa de tus apps: cada cuarto guarda una. Te mueves con el joystick o WASD, cambias de vista con V y abres el menú con el botón de arriba a la izquierda. El hueco de la esquina cambia solo según lo que tengas cerca; el reloj lleva el calendario, las rutinas y la música.",
+    "en": "The home is the map of your apps: each room holds one. Move with the joystick or WASD, switch views with V and open the menu with the top-left button. The corner control changes on its own depending on what's nearby; the clock holds the calendar, routines and music."
+  },
+  {
+    "clave": "tut.primeros.titulo",
+    "es": "Primeros pasos",
+    "en": "First steps"
+  },
+  {
+    "clave": "tut.primeros.resumen",
+    "es": "Crea un cuarto desde el menú, asígnale su app y entra a verla.",
+    "en": "Create a room from the menu, give it its app and step inside to see it."
+  },
+  {
+    "clave": "tut.primeros.2a.titulo",
+    "es": "La rueda de herramientas",
+    "en": "The tool wheel"
+  },
+  {
+    "clave": "tut.primeros.2a.texto",
+    "es": "En el teléfono los cuartos se dibujan sobre el mapa, sin abrir paneles. Todo sale de este botón junto al joystick: la rueda de herramientas.",
+    "en": "On the phone you draw rooms right on the map, without opening any panel. It all starts with this button next to the joystick: the tool wheel."
+  },
+  {
+    "clave": "tut.primeros.2b.titulo",
+    "es": "Construcción",
+    "en": "Building"
+  },
+  {
+    "clave": "tut.primeros.2b.texto",
+    "es": "La rueda tiene dos niveles. Su cuarta categoría es la que levanta la casa: cuartos, muros, puertas, ventanas, pisos y techos.",
+    "en": "The wheel has two levels. Its fourth category is the one that puts the house up: rooms, walls, doors, windows, floors and roofs."
+  },
+  {
+    "clave": "tut.primeros.2c.titulo",
+    "es": "Modo Cuartos",
+    "en": "Rooms mode"
+  },
+  {
+    "clave": "tut.primeros.2c.texto",
+    "es": "Cuartos deja el pincel listo: la rueda se cierra y cada toque en el suelo levanta un cuarto nuevo. Para enseñarte el resto del camino, ahora te creo uno…",
+    "en": "Rooms leaves the brush ready: the wheel closes and every tap on the ground raises a new room. To show you the rest of the way, I'll create one for you now…"
+  },
+  {
+    "clave": "tut.menu-cuartos.titulo",
+    "es": "Menú · Cuartos",
+    "en": "Menu · Rooms"
+  },
+  {
+    "clave": "tut.menu-cuartos.resumen",
+    "es": "La pestaña Cuartos lista los cuartos de tu casa por categoría, con su progreso. Cada tarjeta tiene Editar (personalizar el cuarto) y Entrar (abrir su app) o + Asignar si aún no tiene app. Arriba vive tu resumen: humor, rango y racha; abajo puedes crear cuartos nuevos.",
+    "en": "The Rooms tab lists your home's rooms by category, with their progress. Each card has Edit (customize the room) and Enter (open its app), or + Assign if it has no app yet. Your summary lives up top: mood, rank and streak; at the bottom you can create new rooms."
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.titulo",
+    "es": "Rango, insignias y resumen",
+    "en": "Rank, badges and recap"
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.texto",
+    "es": "Los dos aros junto a tu personaje son la Montaña de Sísifo (rango del 1 al 12 e insignias) y abajo está tu Wrapped, el resumen de la semana, el mes o el año. Los dos tienen su propio tutorial.",
+    "en": "The two rings next to your character are the Sisyphus Mountain (rank 1 to 12 and badges), and below sits your Wrapped, the recap of your week, month or year. Both have their own tutorial."
+  },
+  {
+    "clave": "tut.menu-plantillas.titulo",
+    "es": "Menú · Plantillas",
+    "en": "Menu · Templates"
+  },
+  {
+    "clave": "tut.menu-plantillas.resumen",
+    "es": "Las plantillas son las apps de la casa: se asignan a un objeto de un cuarto. Esta pestaña tiene dos vistas —Cuartos (las apps de siempre) e Infraestructura (lo que se construye directo en el mapa)— y el catálogo incluye las plantillas que tú mismo armas con bloques.",
+    "en": "Templates are the home's apps: they get assigned to an object in a room. This tab has two views —Rooms (the usual apps) and Infrastructure (what gets built straight on the map)— and the catalog includes the templates you build yourself from blocks."
+  },
+  {
+    "clave": "tut.plantillas-custom.titulo",
+    "es": "Tus propias plantillas",
+    "en": "Your own templates"
+  },
+  {
+    "clave": "tut.plantillas-custom.resumen",
+    "es": "El editor de plantillas propias arma una app entera con bloques: notas, checklist, contador, enlaces, hábito, galería y más. Le pones nombre, emoji y color, eliges sus bloques y queda lista para asignar como cualquier otra app.",
+    "en": "The custom template editor builds a whole app from blocks: notes, checklist, counter, links, habit, gallery and more. Give it a name, emoji and color, choose its blocks, and it's ready to assign like any other app."
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.titulo",
+    "es": "Menús y submenús",
+    "en": "Menus and submenus"
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.texto",
+    "es": "Si tu app crece, repártela en pestañas superiores: cada menú lleva su nombre y su emoji, puede tener submenús, y agregas las herramientas dentro del que quieras. Sin menús, todo vive en una sola pantalla.",
+    "en": "If your app grows, split it into top tabs: each menu has its own name and emoji, can hold submenus, and you add tools inside whichever one you want. With no menus, everything lives on a single screen."
+  },
+  {
+    "clave": "tut.menu-inventario.titulo",
+    "es": "Menú · Inventario",
+    "en": "Menu · Inventory"
+  },
+  {
+    "clave": "tut.menu-inventario.resumen",
+    "es": "El inventario guarda los objetos para decorar la casa: la biblioteca por categorías y los objetos especiales (vehículos, fuentes, juegos de parque, luces). Con el menú abierto puedes arrastrarlos directo a la escena.",
+    "en": "The inventory holds the objects to decorate your home: the library by category and the special objects (vehicles, fountains, playground rides, lights). With the menu open you can drag them straight into the scene."
+  },
+  {
+    "clave": "tut.editor-mapa.titulo",
+    "es": "El editor · Mapa",
+    "en": "The editor · Map"
+  },
+  {
+    "clave": "tut.editor-mapa.resumen",
+    "es": "El editor personaliza toda la casa en 4 pestañas: Mapa, Personajes, Objetos y Configuraciones — cada una con su propio tutorial. La de Mapa dibuja cuartos, muros, puertas, ventanas, pisos y techos en un croquis que se ve en 3D al instante, y también da niveles: pisos apilables y un sótano.",
+    "en": "The editor customizes the whole home in 4 tabs: Map, Characters, Objects and Settings — each with its own tutorial. The Map one draws rooms, walls, doors, windows, floors and roofs on a blueprint that updates in 3D instantly, and it also gives you levels: stackable floors and a basement."
+  },
+  {
+    "clave": "tut.editor-personajes.titulo",
+    "es": "El editor · Personajes",
+    "en": "The editor · Characters"
+  },
+  {
+    "clave": "tut.editor-personajes.resumen",
+    "es": "Tu avatar y tus asistentes comparten editor: cuerpo, rostro (con foto), color, tamaño, ropa y animaciones, con vista previa 3D. El avatar además tiene guardarropa a medida y puede vestir distinto en cada cuarto.",
+    "en": "Your avatar and your assistants share an editor: body, face (with photo), color, size, clothes and animations, with a 3D preview. The avatar also gets a custom wardrobe and can dress differently in each room."
+  },
+  {
+    "clave": "tut.editor-objetos.titulo",
+    "es": "El editor · Objetos",
+    "en": "The editor · Objects"
+  }
+]

@@ -1,0 +1,234 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "texto": "Sepeda baja bekas, warna abu-abu dan agak berisik, yang kupakai setiap hari untuk shift kerja, ke laboratorium, dan latihan. Setahun penuh, sepeda ini belum pernah sekali pun meninggalkanku di jalan."
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "texto": "Sedan warisan dari pamanku, lebih tua dariku, dengan dasbor yang sudah pudar kena matahari. Kunyalakan sekali tiap dua minggu, dan setiap kali lupa, dia menagih bunga."
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "texto": "Diselamatkan dari gudang bawah tanah"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "texto": "Kuturunkan dari gudang bawah tanah dengan ban kempes dan rantai yang sudah berkerak; butuh setengah sore penuh dengan lap, angin, dan oli sampai bisa dikayuh lagi."
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "texto": "Ganti oli yang sudah sangat telat"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "texto": "Keluar hitam seperti kopi dingin, dan montirnya cuma mengangkat alis, itu caranya menegurku."
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "texto": "Ban dalam baru, tambalan pertama"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "texto": "Bocor di Doctor Vértiz dalam perjalanan ke kafe; aku belajar ganti ban dalam di trotoar, telat tapi akhirnya bisa."
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "texto": "Aki baru"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "texto": "Gara-gara terlalu lama tidak dipakai, akinya tekor sendiri; aku minta tolong tetangga untuk jumper, lalu langsung beli aki baru."
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "texto": "Rantai akhirnya bersih"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "texto": "Kubersihkan dari gemuk lama dan kulumasi pelan-pelan di hari Minggu: rantainya berhenti berbunyi seperti engsel tua, mengayuh pun jadi lebih ringan."
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "texto": "Kampas rem depan"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "texto": "Berdecit setiap kali berhenti, sudah tidak bisa dicuekin lagi; menghabiskan gajian dua mingguanku, tapi malamnya aku tidur nyenyak."
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "texto": "Sepatu rem baru"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "texto": "Waktu musim hujan, aku baru berhenti dua meter lebih jauh dari yang kuinginkan, jadi kuganti sepatu rem dan kusetel kabelnya."
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "texto": "Ban bocor di jalan ke lab"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "texto": "Kena pecahan kaca di Eje 8, aku sampai lab telat dua puluh menit sambil mendorong sepeda."
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "texto": "Mogok di Calzada de Tlalpan"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "texto": "Mobilnya mati mendadak di tengah jalan raya pada Selasa malam, dan aku duduk di trotoar selama satu setengah jam menunggu mobil derek sambil menghitung-hitung uang yang tidak kupunya; di situlah beban sebulan penuh tiba-tiba menghantamku."
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "texto": "Servis lengkap"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "texto": "Karena lututku sedang fisioterapi dan tidak bisa lari, kuluangkan waktu untuk sepeda: pelek diseimbangkan, kabel diganti, semua bagian dikencangkan."
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "texto": "Filter setelah insiden itu"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "texto": "Kuganti filter udara dan bensin murni karena parno; lebih baik bayar ini daripada menunggu mobil derek lagi."
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "texto": "Rantai molor, diganti"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "texto": "Karena program half marathon, aku pakai sepeda ini tiap hari, dan rantainya sudah mulai selip saat mengayuh dari posisi berhenti."
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "texto": "Kaset dan kabel baru"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "texto": "Gigi suka loncat-loncat kalau nanjak; dengan kaset baru, akhirnya aku bisa mengandalkan gir depan yang kecil."
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "texto": "Ganti oli dan pengecekan umum"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "texto": "Servis biasa, tanpa kejutan, dan untuk mobil ini itu sudah termasuk kabar baik."
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "texto": "Rem sebelum maraton"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "texto": "Penyetelan cepat karena minggu-minggu itu sepeda adalah satu-satunya alat transportasiku, dan aku tidak mau ada alasan apa pun."
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "texto": "Cuci sebelum keluarga datang"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "texto": "Kucuci dan kuvakum sebelum jemput keluarga di terminal bus: tidak memperbaiki apa pun secara mekanis, tapi rasanya beda."
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "texto": "Taller Mecánico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "texto": "Don Rivas selalu menjelaskan mana yang benar-benar mendesak dan mana yang bisa menunggu, dan tidak pernah menggelembungkan tagihan; dia satu-satunya yang kupercaya soal mobil ini."
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "texto": "Seguros Meridiano - agente Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "texto": "Nadia selalu membalas WhatsApp meski hari Minggu, dan dia yang mengatur cicilan bulanan waktu aku naik ke asuransi lengkap."
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "texto": "Verificentro 09-118 Iztaccíhuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "texto": "Janji jam tujuh pagi dan aku sudah keluar dalam empat puluh menit; yang di Coyoacán dulu menghabiskan setengah pagi cuma buat antre."
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "texto": "Sepedaku dibeli dari situ, dan servisnya juga di situ; mereka meminjamkan alat dan mengajariku sendiri, bukannya mengenakan biaya untuk semuanya."
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "texto": "Grúas Tepeyac 24 horas"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "texto": "Ini nomor yang kutelepon malam waktu aku mogok di jalan; mereka datang dalam satu setengah jam dan tidak coba menipu soal harga."
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "texto": "Uji emisi enam bulanan"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "texto": "Jadwalnya ditentukan oleh stiker kendaraan, dan aku selalu ambil janji di minggu pertama: kalau sampai lewat, dendanya lebih menyakitkan daripada uji emisinya sendiri."
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "texto": "Perpanjangan polis asuransi"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "texto": "Tahun ini aku naik ke asuransi lengkap bareng Nadia setelah kejadian mobil mogok yang bikin kapok itu; aku bayar cicilan bulanan dan kumasukkan ke anggaran gajian dua mingguan."
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "texto": "Pajak kendaraan tahunan"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "texto": "Kubayar di awal tahun supaya dapat potongan dan urusan ini lepas dari pikiran."
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "texto": "Balik nama dan STNK"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "texto": "STNK-nya masih atas nama pamanku, dan sudah waktunya diurus sebelum bikin masalah kalau kena razia."
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "texto": "Servis sepeda"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "texto": "Setiap enam bulan di Ciclos Malinche: pelek diseimbangkan, kabel dan rem dicek, jauh lebih murah daripada memperbaiki pelek yang bengkok."
+  }
+]

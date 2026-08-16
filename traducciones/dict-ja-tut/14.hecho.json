@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "カタログのトピックは最初から入っています。ぶら下がっているものは、チャットが開いたものです。項目をタップすると、要約と要点、イラストが読めます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "項目は手で書くことも、会話から抽出することもできます。ブラックホールとピアノの物理には絵が付いています。アプリが描いてくれます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "一年分の問い"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Pepが勉強しながら交わした会話がここにあります。エントロピー、時間の遅れ、ピアノがピアノらしく響く理由。どれもそのまま残っています。"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "チャットから木へ"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "こうして百科事典は、写した理論ではなく、本当に尋ねたことで満ちていきます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "索引は自分のもの"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "各行の + は、その場に項目を書きます。分野とトピックは入力済みです。鉛筆のボタンを押すと木が育ちます。同じ + が枝を足し、「種」の + は新しい分野を作り、名前の変更も並べ替えも削除もできます。小枝の付いた数字は、そこにぶら下がる小索引の数です。"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "学習のプラン"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "どの目標にもプランを頼めます。AIが目標日と使える時間を尋ね、学習の時間をカレンダーに入れてくれます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "百科事典にいくつ項目があり、索引の分野とトピックをどれだけ埋めたか。チャットが開いたトピックは別に数えます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "四つの数字"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "賢者とのおしゃべりの数、総学習時間と今週の学習時間、そして続けて学習した日の連続記録です。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "どこが偏っているか"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "いちばん長いバーが、いちばん注意を注いだ分野です。Pepの場合は、中間試験の週の熱力学でした。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "学習した日々"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "1日ひとマス。中間試験前の詰め込みと、三週間の日本旅行の空白が、履歴をぜんぶ開かなくても見て取れます。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "時間はどこへ行ったか"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "上と同じものを分で見ます。ある分野に項目がたくさんあることと、そこに本当に時間を注いだことは別です。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "一年分のセッション"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "もっと細かく見たいときは、履歴が一つひとつのセッションを分数と分野つきで、年・月・週ごとに整理して保存しています。"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "今日の分"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pepはもう一年続けていますが、それでも復習は残ります。すべての語彙を求められるのではなく、忘れかけているものだけが出てきます。"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "一年の積み重ね"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "履歴には、毎日いくつ復習していくつ正解したかが残ります。Pepは間違いだらけで始まり、最後はほとんど正解に。日本ではいつもより多く復習しました。"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "二つの言語を同時に"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "上で言語を切り替えられます。メインのほかに、Pepは4か月目から旅行までサバイバル日本語を仕込みました。帰ってからはほとんど放り出し、それが復習ボックスに出ています。"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "三つの領域、六つのレベル"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "A1からC2まで、レベルごとに語彙のトピック、発音のポイント、文法がそろっています。外の講座を探さなくても、何が足りないかが分かります。"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "いまどこにいるか"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "習得済みのカード、今月の復習、そして今のレベル。Pepは年の初めはA2で、いまはB1あたりです。"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "タスクのトレイ"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "やることのうち、まだ日が決まっていないものはここに、優先度つきで置かれます。書き留めるために日付を決める必要はありません。"
+  }
+]

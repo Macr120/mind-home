@@ -1,0 +1,742 @@
+[
+ {
+  "clave": "computo.calc.raicesEn",
+  "texto": "{a}〜{b}の間に{n}個の解があります。範囲外にもあるかもしれません。"
+ },
+ {
+  "clave": "computo.calc.raizEn",
+  "texto": "{a}〜{b}の間に解が1つあります。範囲外にもあるかもしれません。"
+ },
+ {
+  "clave": "computo.calc.sinRaices",
+  "texto": "この区間に解なし"
+ },
+ {
+  "clave": "computo.calc.sinRaicesEn",
+  "texto": "{a}〜{b}の間に実数解はありません。"
+ },
+ {
+  "clave": "computo.calc.historial",
+  "texto": "履歴"
+ },
+ {
+  "clave": "computo.calc.sinHistorial",
+  "texto": "計算した内容がここに保存されます。"
+ },
+ {
+  "clave": "computo.graf.tipos",
+  "texto": "グラフの種類"
+ },
+ {
+  "clave": "computo.graf.tipo.2d",
+  "texto": "2D"
+ },
+ {
+  "clave": "computo.graf.tipo.polar",
+  "texto": "極座標"
+ },
+ {
+  "clave": "computo.graf.tipo.parametrica",
+  "texto": "パラメトリック"
+ },
+ {
+  "clave": "computo.graf.tipo.3d",
+  "texto": "3D曲面"
+ },
+ {
+  "clave": "computo.graf.soltar",
+  "texto": "通常の関数入力に戻る"
+ },
+ {
+  "clave": "computo.graf.congeladas",
+  "texto": "他の値はここで固定されます。1つ変えるとグラフが動きます。"
+ },
+ {
+  "clave": "computo.graf.placeholderPolar",
+  "texto": "θの関数としてのr、例：2*cos(3*theta)"
+ },
+ {
+  "clave": "computo.graf.placeholderX",
+  "texto": "x(t)、例：cos(t)"
+ },
+ {
+  "clave": "computo.graf.placeholderY",
+  "texto": "y(t)、例：sin(2*t)"
+ },
+ {
+  "clave": "computo.graf.placeholder3d",
+  "texto": "xとyの関数としてのz、例：sin(x)*cos(y)"
+ },
+ {
+  "clave": "computo.graf.pistaPolar",
+  "texto": "θは2周分動きます"
+ },
+ {
+  "clave": "computo.graf.pistaParam",
+  "texto": "tは{a}から{b}まで"
+ },
+ {
+  "clave": "computo.graf.hasta",
+  "texto": "まで"
+ },
+ {
+  "clave": "computo.graf.reencuadrar",
+  "texto": "カーブに合わせる"
+ },
+ {
+  "clave": "computo.graf.unaVariable",
+  "texto": "変数が1つだけでは描く曲面がありません。"
+ },
+ {
+  "clave": "computo.graf.volver2d",
+  "texto": "平面に戻る"
+ },
+ {
+  "clave": "computo.graf.sinPolarFormula",
+  "texto": "公式帳の式は平面または曲面として描かれます。"
+ },
+ {
+  "clave": "computo.graf.placeholder",
+  "texto": "xの関数、例：sin(x)"
+ },
+ {
+  "clave": "computo.graf.otra",
+  "texto": "別の関数"
+ },
+ {
+  "clave": "computo.graf.quitar",
+  "texto": "削除"
+ },
+ {
+  "clave": "computo.graf.mostrar",
+  "texto": "表示"
+ },
+ {
+  "clave": "computo.graf.ocultar",
+  "texto": "非表示"
+ },
+ {
+  "clave": "computo.graf.acercar",
+  "texto": "ズームイン"
+ },
+ {
+  "clave": "computo.graf.alejar",
+  "texto": "ズームアウト"
+ },
+ {
+  "clave": "computo.graf.leer",
+  "texto": "点を読み取る"
+ },
+ {
+  "clave": "computo.graf.centrar",
+  "texto": "中央に戻す"
+ },
+ {
+  "clave": "computo.graf.alto",
+  "texto": "グラフの高さ：{nivel}"
+ },
+ {
+  "clave": "computo.graf.altoCompacta",
+  "texto": "コンパクト"
+ },
+ {
+  "clave": "computo.graf.altoNormal",
+  "texto": "標準"
+ },
+ {
+  "clave": "computo.graf.altoAlta",
+  "texto": "大きめ"
+ },
+ {
+  "clave": "computo.graf.pista",
+  "texto": "ドラッグで平面を動かし、ピンチで拡大縮小できます。"
+ },
+ {
+  "clave": "computo.graf.pistaLeer",
+  "texto": "読み取りモード：グラフの上を指でなぞると値が読み取れます。"
+ },
+ {
+  "clave": "computo.modo.normal",
+  "texto": "通常"
+ },
+ {
+  "clave": "computo.modo.grafica",
+  "texto": "グラフ"
+ },
+ {
+  "clave": "computo.modo.bases",
+  "texto": "進数"
+ },
+ {
+  "clave": "computo.modo.matrices",
+  "texto": "行列"
+ },
+ {
+  "clave": "computo.modo.sistemas",
+  "texto": "連立方程式"
+ },
+ {
+  "clave": "computo.modo.unidades",
+  "texto": "単位"
+ },
+ {
+  "clave": "computo.modo.propina",
+  "texto": "チップ"
+ },
+ {
+  "clave": "computo.modo.regla3",
+  "texto": "比例式"
+ },
+ {
+  "clave": "computo.bases.base",
+  "texto": "基数"
+ },
+ {
+  "clave": "computo.bases.enBase",
+  "texto": "{n}進法"
+ },
+ {
+  "clave": "computo.bases.placeholder",
+  "texto": "FF、または0xFF + 0b1010"
+ },
+ {
+  "clave": "computo.bases.ayuda",
+  "texto": "単独の数値は選んだ基数で読み取られます。演算を行う場合はエンジンが優先されるため、基数を混ぜるには0b、0o、0xを使ってください。"
+ },
+ {
+  "clave": "computo.bases.prefijo",
+  "texto": "この基数で数値を入力開始"
+ },
+ {
+  "clave": "computo.bases.noEntero",
+  "texto": "他の基数で読み取れるのは整数だけです。"
+ },
+ {
+  "clave": "computo.bases.guardar",
+  "texto": "履歴に保存"
+ },
+ {
+  "clave": "computo.matriz.medidas",
+  "texto": "サイズ"
+ },
+ {
+  "clave": "computo.matriz.filas",
+  "texto": "行"
+ },
+ {
+  "clave": "computo.matriz.cols",
+  "texto": "列"
+ },
+ {
+  "clave": "computo.matriz.noCuadrada",
+  "texto": "この演算には正方行列が必要です。サイズを変更してください。"
+ },
+ {
+  "clave": "computo.matriz.singular",
+  "texto": "できません：この行列には逆行列がありません（行列式が0です）。"
+ },
+ {
+  "clave": "computo.sistema.placeholder",
+  "texto": "2x + 3y = 12"
+ },
+ {
+  "clave": "computo.sistema.ecuacion",
+  "texto": "方程式{n}"
+ },
+ {
+  "clave": "computo.sistema.quitar",
+  "texto": "この方程式を削除"
+ },
+ {
+  "clave": "computo.sistema.otra",
+  "texto": "別の方程式"
+ },
+ {
+  "clave": "computo.sistema.incognitas",
+  "texto": "未知数"
+ },
+ {
+  "clave": "computo.sistema.ninguna",
+  "texto": "まだありません"
+ },
+ {
+  "clave": "computo.sistema.resolver",
+  "texto": "計算"
+ },
+ {
+  "clave": "computo.sistema.descuadra",
+  "texto": "方程式の数は未知数の数と同じである必要があります。現在は{e}と{i}です。"
+ },
+ {
+  "clave": "computo.sistema.sinSolucion",
+  "texto": "唯一の解がありません：方程式が重複しているか、矛盾しているか、線形でないものが含まれています。"
+ },
+ {
+  "clave": "computo.unid.longitud",
+  "texto": "長さ"
+ },
+ {
+  "clave": "computo.unid.masa",
+  "texto": "質量"
+ },
+ {
+  "clave": "computo.unid.temperatura",
+  "texto": "温度"
+ },
+ {
+  "clave": "computo.unid.volumen",
+  "texto": "体積"
+ },
+ {
+  "clave": "computo.unid.area",
+  "texto": "面積"
+ },
+ {
+  "clave": "computo.unid.tiempo",
+  "texto": "時間"
+ },
+ {
+  "clave": "computo.unid.velocidad",
+  "texto": "速さ"
+ },
+ {
+  "clave": "computo.unid.datos",
+  "texto": "データ量"
+ },
+ {
+  "clave": "computo.unid.valor",
+  "texto": "数値"
+ },
+ {
+  "clave": "computo.unid.de",
+  "texto": "から"
+ },
+ {
+  "clave": "computo.unid.a",
+  "texto": "まで"
+ },
+ {
+  "clave": "computo.unid.invertir",
+  "texto": "入れ替え"
+ },
+ {
+  "clave": "computo.unid.faltan",
+  "texto": "数値を入力すると自動で変換されます。"
+ },
+ {
+  "clave": "computo.unid.imposible",
+  "texto": "この2つの単位は互いに変換できません。"
+ },
+ {
+  "clave": "computo.unid.u.km",
+  "texto": "キロメートル"
+ },
+ {
+  "clave": "computo.unid.u.m",
+  "texto": "メートル"
+ },
+ {
+  "clave": "computo.unid.u.cm",
+  "texto": "センチメートル"
+ },
+ {
+  "clave": "computo.unid.u.mm",
+  "texto": "ミリメートル"
+ },
+ {
+  "clave": "computo.unid.u.mile",
+  "texto": "マイル"
+ },
+ {
+  "clave": "computo.unid.u.yd",
+  "texto": "ヤード"
+ },
+ {
+  "clave": "computo.unid.u.ft",
+  "texto": "フィート"
+ },
+ {
+  "clave": "computo.unid.u.inch",
+  "texto": "インチ"
+ },
+ {
+  "clave": "computo.unid.u.tonne",
+  "texto": "トン"
+ },
+ {
+  "clave": "computo.unid.u.kg",
+  "texto": "キログラム"
+ },
+ {
+  "clave": "computo.unid.u.g",
+  "texto": "グラム"
+ },
+ {
+  "clave": "computo.unid.u.mg",
+  "texto": "ミリグラム"
+ },
+ {
+  "clave": "computo.unid.u.lb",
+  "texto": "ポンド"
+ },
+ {
+  "clave": "computo.unid.u.oz",
+  "texto": "オンス"
+ },
+ {
+  "clave": "computo.unid.u.degC",
+  "texto": "摂氏度"
+ },
+ {
+  "clave": "computo.unid.u.degF",
+  "texto": "華氏度"
+ },
+ {
+  "clave": "computo.unid.u.K",
+  "texto": "ケルビン"
+ },
+ {
+  "clave": "computo.unid.u.m3",
+  "texto": "立方メートル"
+ },
+ {
+  "clave": "computo.unid.u.L",
+  "texto": "リットル"
+ },
+ {
+  "clave": "computo.unid.u.mL",
+  "texto": "ミリリットル"
+ },
+ {
+  "clave": "computo.unid.u.gal",
+  "texto": "ガロン"
+ },
+ {
+  "clave": "computo.unid.u.qt",
+  "texto": "クォート"
+ },
+ {
+  "clave": "computo.unid.u.pt",
+  "texto": "パイント"
+ },
+ {
+  "clave": "computo.unid.u.cup",
+  "texto": "カップ"
+ },
+ {
+  "clave": "computo.unid.u.floz",
+  "texto": "液量オンス"
+ },
+ {
+  "clave": "computo.unid.u.km2",
+  "texto": "平方キロメートル"
+ },
+ {
+  "clave": "computo.unid.u.m2",
+  "texto": "平方メートル"
+ },
+ {
+  "clave": "computo.unid.u.cm2",
+  "texto": "平方センチメートル"
+ },
+ {
+  "clave": "computo.unid.u.hectare",
+  "texto": "ヘクタール"
+ },
+ {
+  "clave": "computo.unid.u.acre",
+  "texto": "エーカー"
+ },
+ {
+  "clave": "computo.unid.u.sqft",
+  "texto": "平方フィート"
+ },
+ {
+  "clave": "computo.unid.u.sqmi",
+  "texto": "平方マイル"
+ },
+ {
+  "clave": "computo.unid.u.year",
+  "texto": "年"
+ },
+ {
+  "clave": "computo.unid.u.month",
+  "texto": "月"
+ },
+ {
+  "clave": "computo.unid.u.week",
+  "texto": "週"
+ },
+ {
+  "clave": "computo.unid.u.day",
+  "texto": "日"
+ },
+ {
+  "clave": "computo.unid.u.hour",
+  "texto": "時間"
+ },
+ {
+  "clave": "computo.unid.u.minute",
+  "texto": "分"
+ },
+ {
+  "clave": "computo.unid.u.s",
+  "texto": "秒"
+ },
+ {
+  "clave": "computo.unid.u.ms",
+  "texto": "ミリ秒"
+ },
+ {
+  "clave": "computo.unid.u.kmh",
+  "texto": "時速キロメートル"
+ },
+ {
+  "clave": "computo.unid.u.mih",
+  "texto": "時速マイル"
+ },
+ {
+  "clave": "computo.unid.u.ms1",
+  "texto": "秒速メートル"
+ },
+ {
+  "clave": "computo.unid.u.fts",
+  "texto": "秒速フィート"
+ },
+ {
+  "clave": "computo.unid.u.TB",
+  "texto": "テラバイト"
+ },
+ {
+  "clave": "computo.unid.u.GB",
+  "texto": "ギガバイト"
+ },
+ {
+  "clave": "computo.unid.u.MB",
+  "texto": "メガバイト"
+ },
+ {
+  "clave": "computo.unid.u.kB",
+  "texto": "キロバイト"
+ },
+ {
+  "clave": "computo.unid.u.B",
+  "texto": "バイト"
+ },
+ {
+  "clave": "computo.unid.u.b",
+  "texto": "ビット"
+ },
+ {
+  "clave": "computo.unid.u.GiB",
+  "texto": "ギビバイト"
+ },
+ {
+  "clave": "computo.unid.u.MiB",
+  "texto": "メビバイト"
+ },
+ {
+  "clave": "computo.unid.u.KiB",
+  "texto": "キビバイト"
+ },
+ {
+  "clave": "computo.propina.cuenta",
+  "texto": "会計"
+ },
+ {
+  "clave": "computo.propina.personas",
+  "texto": "何人で割る"
+ },
+ {
+  "clave": "computo.propina.pct",
+  "texto": "チップ"
+ },
+ {
+  "clave": "computo.propina.faltan",
+  "texto": "会計と割合を入力してください。"
+ },
+ {
+  "clave": "computo.propina.laPropina",
+  "texto": "チップ"
+ },
+ {
+  "clave": "computo.propina.total",
+  "texto": "合計"
+ },
+ {
+  "clave": "computo.propina.cadaUno",
+  "texto": "一人あたり"
+ },
+ {
+  "clave": "computo.regla3.directa",
+  "texto": "正比例"
+ },
+ {
+  "clave": "computo.regla3.inversa",
+  "texto": "反比例"
+ },
+ {
+  "clave": "computo.regla3.ayudaDirecta",
+  "texto": "一方が増えるともう一方も増える場合：キロ数と価格、時間と給料など。"
+ },
+ {
+  "clave": "computo.regla3.ayudaInversa",
+  "texto": "一方が増えるともう一方が減る場合：作業員の数と日数、速さと時間など。"
+ },
+ {
+  "clave": "computo.regla3.a",
+  "texto": "これが…"
+ },
+ {
+  "clave": "computo.regla3.b",
+  "texto": "…はこれ"
+ },
+ {
+  "clave": "computo.regla3.c",
+  "texto": "この場合…"
+ },
+ {
+  "clave": "computo.regla3.x",
+  "texto": "…はいくつ？"
+ },
+ {
+  "clave": "computo.regla3.faltan",
+  "texto": "3つの数値を入力すると、xが自動で求まります。"
+ },
+ {
+  "clave": "computo.regla3.cero",
+  "texto": "0では割れません。その数値を変更してください。"
+ },
+ {
+  "clave": "computo.hojas.mias",
+  "texto": "マイシート"
+ },
+ {
+  "clave": "computo.hojas.vacio",
+  "texto": "まだシートがありません。上のボタンから作成してください。"
+ },
+ {
+  "clave": "computo.hojas.nueva",
+  "texto": "新しいシート"
+ },
+ {
+  "clave": "computo.hojas.sinNombre",
+  "texto": "新しいシート"
+ },
+ {
+  "clave": "computo.hojas.nuevaMsg",
+  "texto": "名前は？"
+ },
+ {
+  "clave": "computo.hojas.renombrar",
+  "texto": "シート名を変更"
+ },
+ {
+  "clave": "computo.hojas.duplicar",
+  "texto": "複製"
+ },
+ {
+  "clave": "computo.hojas.copiaDe",
+  "texto": "{nombre}のコピー"
+ },
+ {
+  "clave": "computo.hojas.borrar",
+  "texto": "「{nombre}」を削除"
+ },
+ {
+  "clave": "computo.hojas.borrarCorto",
+  "texto": "削除"
+ },
+ {
+  "clave": "computo.hojas.borrarMsg",
+  "texto": "シートとその中身がすべて削除されます。"
+ },
+ {
+  "clave": "computo.hojas.celdas",
+  "texto": "{n}セル"
+ },
+ {
+  "clave": "computo.hojas.volver",
+  "texto": "一覧に戻る"
+ },
+ {
+  "clave": "computo.hojas.aExcel",
+  "texto": "Excelにエクスポート"
+ },
+ {
+  "clave": "computo.hojas.aPdf",
+  "texto": "印刷またはPDFで保存"
+ },
+ {
+  "clave": "computo.hojas.formulaPlaceholder",
+  "texto": "数値、テキスト、または =SUMA(A1:A5)"
+ },
+ {
+  "clave": "computo.form.ampliar",
+  "texto": "範囲を広げる"
+ },
+ {
+  "clave": "computo.form.ampliarTramo",
+  "texto": "スライダーの範囲を広げる（{min}〜{max}）"
+ },
+ {
+  "clave": "computo.form.verEnGrande",
+  "texto": "拡大表示"
+ },
+ {
+  "clave": "computo.form.eje",
+  "texto": "軸"
+ },
+ {
+  "clave": "computo.sup.imposible",
+  "texto": "この値では、描画できる曲面が得られません。"
+ },
+ {
+  "clave": "computo.sup.huecos",
+  "texto": "未定義の領域があります"
+ },
+ {
+  "clave": "computo.sup.cargando",
+  "texto": "曲面を準備中…"
+ },
+ {
+  "clave": "computo.not.titulo",
+  "texto": "記法"
+ },
+ {
+  "clave": "computo.not.basicas",
+  "texto": "基本"
+ },
+ {
+  "clave": "computo.not.calculo",
+  "texto": "微積分"
+ },
+ {
+  "clave": "computo.not.matrices",
+  "texto": "行列"
+ },
+ {
+  "clave": "computo.not.trigonometria",
+  "texto": "三角関数"
+ },
+ {
+  "clave": "computo.not.simbolos",
+  "texto": "記号"
+ },
+ {
+  "clave": "computo.not.ayuda",
+  "texto": "カーソルの位置に挿入され、入力欄がすぐ使える状態になります。見た目のきれいな表示は入力内容から自動で生成されます。"
+ },
+ {
+  "clave": "computo.hojas.resumen",
+  "texto": "合計 {suma}・平均 {prom}・件数 {n}"
+ },
+ {
+  "clave": "computo.hojas.masFilas",
+  "texto": "行"
+ },
+ {
+  "clave": "computo.hojas.masCols",
+  "texto": "列"
+ }
+]

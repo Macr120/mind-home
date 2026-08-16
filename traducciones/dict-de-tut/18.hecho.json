@@ -1,0 +1,138 @@
+[
+  {
+    "clave": "tut.app-despacho--calculadoras.3.texto",
+    "texto": "Ein Tipp, und das Ergebnis wird zu einem echten Sparziel, bereit für den Zeitplan und ein Datum. (In der Demo besser nicht drücken: Es würde ein echtes Ziel anlegen.)"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.titulo",
+    "texto": "Ist etwas dringend?"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.texto",
+    "texto": "Eine einzige Ampel, damit du nicht zwei Listen lesen musst: Rot, wenn etwas überfällig ist, Gelb, wenn es demnächst ansteht, Grün, wenn in der Garage Ruhe herrscht."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.titulo",
+    "texto": "Was du bisher ausgegeben hast"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.texto",
+    "texto": "Wie viele Fahrzeuge, wie viele offene Behördengänge und was in diesem Jahr zusammengekommen ist. Pep kam das Auto teuer zu stehen."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.titulo",
+    "texto": "Das Rad für jeden Tag"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.texto",
+    "texto": "Peps echtes Verkehrsmittel: Kette, Schläuche, Bremsen, jedes in seiner eigenen Zeile – dasselbe Archiv mit Ordnern nach Jahr und Monat wie in den anderen Apps. Schau, wie sich die Wartungen in den letzten Monaten häufen: Das Marathontraining fordert seinen Preis."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.titulo",
+    "texto": "Und das geerbte Auto"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.texto",
+    "texto": "Hier ist die Panne aus Monat 7: liegen geblieben, Abschleppdienst und fast zehntausend Pesos, die nicht da waren. Jede Wartung merkt sich ihre Kosten, den Kilometerstand und die Werkstatt."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.titulo",
+    "texto": "Die Akte"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.texto",
+    "texto": "Marke, Modell, Baujahr, Kennzeichen und der aktuelle Kilometerstand. Mit hinterlegtem Kennzeichen schaltet die Garage die Behördengänge frei, die es nur beim Auto gibt."
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.titulo",
+    "texto": "Was ansteht"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.texto",
+    "texto": "Jeder Behördengang merkt sich seinen nächsten Termin, in wie vielen Monaten er sich wiederholt und was er kostet. Hakst du ihn ab, springt das Datum von selbst zum nächsten."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.titulo",
+    "texto": "Das Rad zahlt keine Kfz-Steuer"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.texto",
+    "texto": "Ohne Kennzeichen blendet die Garage aus, was nicht passt: Dem Rad bietet sie nur seine regelmäßige Wartung an."
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.titulo",
+    "texto": "Das Kontaktbuch"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.texto",
+    "texto": "Die Vertrauenswerkstatt, die Versicherung, die Prüfstelle, der Fahrradladen um die Ecke und der Abschleppdienst von jener Nacht – mit Telefonnummer und Adresse, einen Tipp entfernt."
+  },
+  {
+    "clave": "tut.app-garage--tramites.4.texto",
+    "texto": "All diese Behördengänge stehen auch im Kalender des Hauses, mit ihrer Vorwarnung. Und Achtung: Die Fahrzeuge, die du über die Karte fährst, sind etwas anderes – die wohnen im Inventar."
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.titulo",
+    "texto": "Wo du schon warst"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.texto",
+    "texto": "Vier Länder und ein paar Städte – fast alle aus ein und derselben Reise. Tipp auf eine der drei Zahlen, und die Liste erscheint unter der Karte."
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.titulo",
+    "texto": "Die Nadeln"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.texto",
+    "texto": "Die sieben Nadeln dicht beieinander in Japan sind die drei Wochen der Reise. Die gelben – Seoul, Patagonien, Island – sind das, was noch aussteht. Ein Tipp auf die Karte setzt eine neue Nadel, wo du willst."
+  },
+  {
+    "clave": "tut.app-sala--japon.1.titulo",
+    "texto": "Die Alben"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.texto",
+    "texto": "Ein Ordner pro Land, mit seinem Titelfoto. Darin eine Karte pro Ort und in jeder das, was Pep an dem Tag geschrieben hat."
+  },
+  {
+    "clave": "tut.app-sala--japon.2.titulo",
+    "texto": "Was Pep dort schrieb"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.texto",
+    "texto": "Acht Einträge von der Reise, jeder mit seinem Foto: der Fuji im Morgengrauen, der Bambus von Arashiyama, die Hirsche von Nara. Geschrieben im Moment selbst, den Geruch noch in der Nase."
+  },
+  {
+    "clave": "tut.app-sala--japon.3.texto",
+    "texto": "In jedem Ort öffnet die Schaltfläche „Reiseplan“ das Reiseblatt: Tag für Tag, von wo nach wo, wo Pep geschlafen hat, wie es weiterging und was es gekostet hat."
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.titulo",
+    "texto": "Was noch aussteht"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.texto",
+    "texto": "Drei notierte Träume. Seoul hat schon Datum und Plan; Patagonien und Island sind noch eine Idee. Was ein Datum hat, taucht in deinem Kalender auf."
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.titulo",
+    "texto": "Vom Reiseblatt zum Ziel"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.texto",
+    "texto": "Die acht Tage in Korea ergeben zusammen, was die Reise kosten würde, und diese Summe wird im Arbeitszimmer als Sparziel gespeichert: Sie dort wachsen zu sehen heißt, sie hier näher kommen zu sehen."
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.titulo",
+    "texto": "Routen"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.texto",
+    "texto": "Eine Route reiht Orte der Reihe nach auf und zeichnet sie auf die Karte. Die japanische ist der Weg, der schon zurückgelegt wurde; die koreanische der, der noch kommen soll."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.titulo",
+    "texto": "Dreißig Werke, ein Jahr"
+  }
+]

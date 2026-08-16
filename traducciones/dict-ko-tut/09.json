@@ -1,0 +1,182 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "es": "Este es el huerto del santuario de Pep@: parcelas reales con un año de trabajo encima. Nada de esto es un ejemplo — está vivo, crece en tiempo real y puedes tocarlo.",
+    "en": "This is the sanctuary garden of Pep@: real plots with a year of work on them. None of this is an example — it is alive, grows in real time and you can touch it."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "es": "Comida y Granja comparten editor: lo que se cosecha aquí llena la despensa de los animales de al lado. Es una sola cadena.",
+    "en": "Food and Farm share one editor: what you harvest here fills the pantry of the animals next door. It is a single chain."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "es": "El riego manda",
+    "en": "Watering rules"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "es": "Mira las parcelas: hay una semilla recién puesta, plantas a medio crecer, un girasol listo… y una zanahoria marchita que Pep@ dejó sin agua a propósito. La gota azul avisa la sed; lo marchito ya no se salva.",
+    "en": "Look at the plots: a fresh seed, plants half grown, a sunflower ready… and a carrot Pep@ left to wither on purpose. The blue drop warns of thirst; withered crops cannot be saved."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "es": "Riego automático",
+    "en": "Automatic watering"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "es": "El tomate tiene aspersor: riega su celda y las ocho vecinas para siempre. Así se deja el huerto solo sin que se marchite nada.",
+    "en": "The tomato has a sprinkler: it waters its cell and the eight neighbors forever. That is how you leave the garden alone without losing anything."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "es": "Cosechar",
+    "en": "Harvest"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "es": "El girasol está listo: un toque y a la cesta. También se cosecha caminando por encima de lo que está listo, sin abrir este editor.",
+    "en": "The sunflower is ready: one tap and into the basket. You can also harvest by walking over whatever is ready, without opening this editor."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "es": "Un año en la cesta",
+    "en": "A year in the basket"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "es": "Cada parcela lleva la cuenta de sus cosechas y la cesta acumula las de todo el año — más de 400 piezas. De aquí comen los animales del santuario.",
+    "en": "Each plot keeps its harvest count and the basket holds the whole year — over 400 pieces. This is what the sanctuary animals eat."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "es": "Todo sigue corriendo al salir. En la demo puedes regar, cosechar y sembrar de verdad: pruébalo antes de irte.",
+    "en": "Everything keeps running when you leave. In the demo you can water, harvest and plant for real: try it before you go."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "es": "Primero, la tierra",
+    "en": "Soil first"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "es": "Con Parcela tocas una celda del mapa y queda tierra lista. En el santuario hay dos parcelas vacías esperándote.",
+    "en": "With Plot you tap a map cell and it becomes ready soil. The sanctuary has two empty plots waiting for you."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "es": "Elegir qué sembrar",
+    "en": "Pick what to plant"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "es": "Seis especies, y debajo de cada una cuánto tarda y cada cuánto pide agua: la zanahoria en 3 minutos, la calabaza en 2 horas.",
+    "en": "Six species, and under each one how long it takes and how often it asks for water: the carrot in 3 minutes, the pumpkin in 2 hours."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "es": "La rápida",
+    "en": "The fast one"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "es": "Para ver el ciclo completo hoy, siembra zanahoria en una parcela libre: estará lista antes de que termines de pasear.",
+    "en": "To see the full cycle today, plant a carrot in a free plot: it will be ready before you finish your stroll."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "es": "Deshacer",
+    "en": "Undo"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "es": "Quitar va de uno en uno sobre la misma celda: primero la planta, luego el aspersor y al final la parcela.",
+    "en": "Remove works one layer at a time on the same cell: first the plant, then the sprinkler, finally the plot."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "es": "Eso es todo: tierra, especie y paciencia. Lo que siembres en la demo crece de verdad mientras exploras el resto.",
+    "en": "That is the whole trade: soil, species and patience. Whatever you plant in the demo really grows while you explore."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "es": "Este es el santuario de Pep@: los corrales de los rescatados y, al sur, el huerto del que comen. Bajemos con ellos.",
+    "en": "This is Pep@'s sanctuary: the pens of the rescues and, to the south, the garden they eat from. Let's go down with them."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "es": "Estos son los rescatados del santuario de Pep@: cada uno con su nombre, su hambre y su ánimo corriendo en tiempo real. Nada es un ejemplo — puedes cuidarlos de verdad.",
+    "en": "These are Pep@'s rescues: each with a name, hunger and mood running in real time. Nothing is an example — you can truly care for them."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "es": "La despensa del año",
+    "en": "The year's pantry"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "es": "Alimentar consume de la cesta, y la cesta se llena cosechando el huerto de al lado. Pep@ dejó reservas de un año: úsalas.",
+    "en": "Feeding takes from the basket, and the basket fills by harvesting the garden next door. Pep@ left a year of reserves: use them."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "es": "Alimentar",
+    "en": "Feed"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "es": "Un toque en el corral da de comer a todos los que tengan hambre, empezando por el más hambriento. La gallina pide cada 4 horas; la vaca aguanta 12.",
+    "en": "One tap on the pen feeds everyone who is hungry, hungriest first. The hen asks every 4 hours; the cow lasts 12."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "es": "Mimar",
+    "en": "Pet"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "es": "Seis horas sin cariño y se aburren (el doble de rápido si el corral está sucio). Un toque acaricia a todo el corral.",
+    "en": "Six hours without affection and they get bored (twice as fast in a dirty pen). One tap pets the whole pen."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "es": "El corral sucio",
+    "en": "The dirty pen"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "es": "El corral chico lleva ocho días sin limpiarse — se le nota la paja. Tócalo con Limpiar y déjalo como nuevo: en la demo se puede.",
+    "en": "The small pen has gone eight days without cleaning — you can tell by the straw. Tap it with Clean and leave it like new: the demo allows it."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "es": "El recién llegado",
+    "en": "The newcomer"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "es": "El cerdo llegó enfermo al santuario esta mañana. Un animal enfermo deja de comer y solo Curar lo levanta — tiene una semana antes de que sea tarde. Cúralo tú.",
+    "en": "The pig arrived sick this morning. A sick animal stops eating and only Heal brings it back — it has a week before it is too late. Heal it yourself."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "es": "Para el día a día no hace falta abrir esto: al caminar junto a un corral sale su burbuja con Alimentar y Acariciar, y también puedes pedírmelo por chat.",
+    "en": "For day to day you do not need this editor: walk next to a pen and its bubble shows Feed and Pet, and you can also ask me in chat."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "es": "El corral",
+    "en": "The pen"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "es": "Toca una celda libre y nace un corral de 1×1; toca una pegada y se estira. Caben tres animales por celda: mira los dos del santuario, uno grande de pastoreo y uno chico de aves.",
+    "en": "Tap a free cell and a 1×1 pen is born; tap an adjacent one and it stretches. Three animals fit per cell: see the two sanctuary pens, a big grazing one and a small one for birds."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "es": "Las especies",
+    "en": "The species"
+  }
+]

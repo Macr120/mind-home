@@ -1,0 +1,234 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "texto": "İkinci el çelik bisikletim, gri ve biraz gürültülü; her gün onunla vardiyalara, laboratuvara ve antrenmanlara gidiyorum. Bir yıl boyunca beni bir kez bile yolda bırakmadı."
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "texto": "Amcamdan miras kalan bir sedan; benden bile daha yaşlı, gösterge paneli güneşten solmuş. On beş günde bir çalıştırıyorum ve her ihmalimin faizini bana ödetiyor."
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "texto": "Bodrumdan kurtarma"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "texto": "Lastikleri patlak, zinciri kabuk bağlamış halde bodrumdan indirdim; tekrar yola çıkması için yarım öğleden sonra bez, hava ve yağ uğraşı gerekti."
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "texto": "Çok geciken yağ değişimi"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "texto": "Soğuk kahve gibi simsiyah çıktı, tamirci sadece kaşlarını kaldırdı; beni azarlama şekli bu."
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "texto": "Yeni iç lastik, ilk yama"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "texto": "Kafeye giderken Doctor Vértiz’de patlak verdi; kaldırımda iç lastik değiştirmeyi öğrendim, geç ama öğrendim."
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "texto": "Yeni akü"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "texto": "Kullanılmadığı için akü kendiliğinden bitti; bir komşudan takviye istedim ve oradan direkt akü almaya gittim."
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "texto": "Zincir sonunda temiz"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "texto": "Bir pazar günü sakin sakin yağını aldım ve yeniden yağladım: artık eski bir menteşe gibi ses çıkarmıyor, pedal çevirmek bile daha hafif."
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "texto": "Ön fren balataları"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "texto": "Her dur işaretinde cıyaklıyorlardı, artık görmezden gelinecek gibi değildi; iki haftalık maaşımı yediler ama içim rahat uyudum."
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "texto": "Yeni fren pabuçları"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "texto": "Yağmurlarla birlikte istediğimden iki metre sonra duruyordum, o yüzden fren pabuçlarını değiştirip kabloları ayarladım."
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "texto": "Laboratuvar yolunda patlak"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "texto": "Eje 8’de bir cam parçası yüzünden bisikleti iterek laboratuvara yirmi dakika geç vardım."
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "texto": "Calzada de Tlalpan’da yolda kalış"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "texto": "Araba bir salı gecesi caddenin tam ortasında durdu ve çekiciyi beklerken bir buçuk saat kaldırımda oturup elimde olmayan parayı hesapladım; bütün ayın yükü tam o an üstüme çöktü."
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "texto": "Tam bakım"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "texto": "Dizim fizyoterapide olduğu için koşamıyordum, o yüzden vaktimi bisiklete ayırdım: jantlar hizalandı, kablolar değişti, her şey sıkıldı."
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "texto": "Korkudan sonra filtreler"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "texto": "Sırf paranoyadan hava ve yakıt filtresini değiştirdim; yeniden çekici beklemektense bunu ödemeyi tercih ederim."
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "texto": "Uzamış zincir değişti"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "texto": "Yarı maraton planıyla her gün kullanıyorum ve zincir kalkışta kaymaya başlamıştı."
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "texto": "Yeni kaset ve kablolar"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "texto": "Yokuşlarda vites atlıyordu; yeni kasetle artık küçük platoya güvenebiliyorum."
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "texto": "Yağ değişimi ve genel kontrol"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "texto": "Sıradan bir bakım, sürprizsiz; bu arabayla bu bile iyi haber sayılır."
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "texto": "Maratondan önce frenler"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "texto": "Hızlı bir ayar, çünkü o haftalarda bisiklet tek ulaşım aracımdı ve hiçbir bahaneye yer bırakmak istemiyordum."
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "texto": "Aileden önce yıkama"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "texto": "Ailemi otobüs terminalinden almaya gitmeden önce yıkayıp içini süpürdüm: mekanik olarak hiçbir şeyi düzeltmiyor ama hissi başka."
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "texto": "Taller Mecánico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "texto": "Don Rivas bana neyin gerçekten acil neyin bekleyebileceğini anlatıyor ve hiç faturayı şişirmedi; bu arabayla ilgili güvendiğim tek kişi o."
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "texto": "Seguros Meridiano - agente Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "texto": "Nadia pazar günü bile WhatsApp’a cevap veriyor ve geniş kapsamlı sigortaya geçtiğimde bana aylık ödeme planı hazırladı."
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "texto": "Verificentro 09-118 Iztaccíhuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "texto": "Randevu sabah yedide ve kırk dakikada çıkıyorum; Coyoacán’daki bana yarım sabah süren bir kuyruğa mal oldu."
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "texto": "Bisikleti oradan aldım, bakımını da orada yaptırıyorum; alet ödünç veriyorlar ve her şey için para almak yerine bana nasıl yapılacağını öğretiyorlar."
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "texto": "Grúas Tepeyac 24 horas"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "texto": "Yolda kaldığım gece aradığım numara bu; bir buçuk saatte geldiler ve fiyatla beni kazıklamadılar."
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "texto": "Yarı yıllık egzoz muayenesi"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "texto": "Sırası aracın etiketine göre geliyor ve her zaman ilk hafta randevu alıyorum: kaçırırsam ceza, işlemin kendisinden daha çok acıtıyor."
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "texto": "Poliçe yenileme"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "texto": "Bu yıl arıza korkusundan sonra Nadia ile geniş kapsamlı sigortaya geçtim; aylık taksitlerle ödüyorum ve bunu iki haftalık bütçeme dahil ediyorum."
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "texto": "Yıllık taşıt vergisi"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "texto": "İndirimden yararlanmak ve bu işi üzerimden atmak için yılın ilk aylarında ödüyorum."
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "texto": "Sahiplik devri ve ruhsat değişikliği"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "texto": "Ruhsat hâlâ amcamın üzerine kayıtlı, bir kontrol noktasında başıma iş açmadan bunu düzeltmem gerekiyor."
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "texto": "Bisiklet bakımı"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "texto": "Her altı ayda bir Ciclos Malinche’de: jant hizalama, kablo ve fren kontrolü — eğrilmiş bir jantı düzeltmekten çok daha ucuza geliyor."
+  }
+]

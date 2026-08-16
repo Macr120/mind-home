@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.menu-cuartos.6.texto",
+    "texto": "Utwórz pokój otwiera edytor mapy z pędzlem gotowym do narysowania nowego pokoju: kształt, rozmiar i miejsce zależą tylko od ciebie. Na telefonie wygodniejszy jest skrót z koła narzędzi › Budowa › Pokoje, który rysuje wprost na mapie, bez otwierania panelu."
+  },
+  {
+    "clave": "tut.menu-cuartos.7.texto",
+    "texto": "W skrócie: Edytuj, żeby dostosować, Wejdź, żeby używać aplikacji. Pozostałe zakładki tego menu mają własny samouczek."
+  },
+  {
+    "clave": "tut.menu-plantillas.1.texto",
+    "texto": "Szablon to aplikacja (Kuchnia, Siłownia, Gabinet…). Przypisujesz go do obiektu w pokoju i otwiera się przy wejściu."
+  },
+  {
+    "clave": "tut.menu-plantillas.2.titulo",
+    "texto": "Dwa widoki"
+  },
+  {
+    "clave": "tut.menu-plantillas.2.texto",
+    "texto": "Pokoje to zwykłe aplikacje, każda w swoim obiekcie. Dodatki działają inaczej: Trasy, Boiska, Jedzenie, Farma czy Paintball buduje się wprost na terenie, bez zajmowania pokoju."
+  },
+  {
+    "clave": "tut.menu-plantillas.3.titulo",
+    "texto": "Katalog"
+  },
+  {
+    "clave": "tut.menu-plantillas.3.texto",
+    "texto": "Aplikacje wbudowane i twoje własne, uporządkowane w grupy. Dotknij jednej, żeby przypisać ją do pokoju albo, w Dodatkach, żeby zbudować ją na mapie."
+  },
+  {
+    "clave": "tut.menu-plantillas.4.titulo",
+    "texto": "Własne szablony"
+  },
+  {
+    "clave": "tut.menu-plantillas.4.texto",
+    "texto": "Twórz własne szablony, składając je z bloków: notatki, listy kontrolne, liczniki, nawyki, galerie… Ten przycisk otwiera własny edytor z własnym samouczkiem."
+  },
+  {
+    "clave": "tut.menu-plantillas.5.texto",
+    "texto": "Jeden pokój może mieć kilka aplikacji: przy wejściu pojawia się ekran wyboru, którą otworzyć."
+  },
+  {
+    "clave": "tut.plantillas-custom.1.texto",
+    "texto": "Ten edytor buduje twoją własną aplikację od zera: nadajesz jej nazwę, emoji i bloki, a ona ląduje w katalogu obok wbudowanych."
+  },
+  {
+    "clave": "tut.plantillas-custom.2.titulo",
+    "texto": "Nazwa, emoji i kolor"
+  },
+  {
+    "clave": "tut.plantillas-custom.2.texto",
+    "texto": "Jak będzie się nazywać i jakim kolorem maluje się w menu, w katalogu i w kalendarzu, jeśli zaplanujesz coś z niej."
+  },
+  {
+    "clave": "tut.plantillas-custom.3.titulo",
+    "texto": "Narzędzia"
+  },
+  {
+    "clave": "tut.plantillas-custom.3.texto",
+    "texto": "Dwanaście rodzajów bloku: notatki, lista kontrolna, licznik, nawyk, sesje, odliczanie, galeria, dziennik, ocena, postęp, lista i linki. Każdy dodany zmienia się w sekcję twojej aplikacji."
+  },
+  {
+    "clave": "tut.plantillas-custom.4.titulo",
+    "texto": "Kolejność ma znaczenie"
+  },
+  {
+    "clave": "tut.plantillas-custom.4.texto",
+    "texto": "Dodane bloki przestawiasz strzałkami, a usuwasz krzyżykiem ✕ — usunięcie jednego kasuje jego dane przy zapisie, więc sprawdź to przed zatwierdzeniem. Listą rozwijaną „Menu” przenosisz je z jednej zakładki do drugiej, nic nie tracąc."
+  },
+  {
+    "clave": "tut.plantillas-custom.5.titulo",
+    "texto": "Zapisz"
+  },
+  {
+    "clave": "tut.plantillas-custom.5.texto",
+    "texto": "Gdy jest nazwa i przynajmniej jeden blok, Zapisz odkłada ją gotową do katalogu. Stamtąd przypisujesz ją do obiektu tak samo jak każdy wbudowany szablon."
+  },
+  {
+    "clave": "tut.plantillas-custom.6.texto",
+    "texto": "Możesz ją edytować ponownie, kiedy zechcesz: jej bloki i dane zostają nietknięte, zmienia się tylko to, co zmienisz."
+  },
+  {
+    "clave": "tut.menu-inventario.1.texto",
+    "texto": "Ekwipunek: wszystkie obiekty, które możesz postawić w domu, gotowe do przeciągnięcia."
+  },
+  {
+    "clave": "tut.menu-inventario.2.titulo",
+    "texto": "Obiekty"
+  },
+  {
+    "clave": "tut.menu-inventario.2.texto",
+    "texto": "Twoja biblioteka obiektów w kategoriach i folderach. Możesz zmieniać ich nazwy i porządkować je, żeby następnym razem szybko je znaleźć."
+  },
+  {
+    "clave": "tut.menu-inventario.3.titulo",
+    "texto": "Obiekty specjalne"
+  },
+  {
+    "clave": "tut.menu-inventario.3.texto",
+    "texto": "Te, które coś robią, a nie tylko zdobią: pojazdy do jeżdżenia, pistolety-zabawki, fontanny, urządzenia z placu zabaw i światła."
+  },
+  {
+    "clave": "tut.menu-inventario.4.titulo",
+    "texto": "Stawianie"
+  },
+  {
+    "clave": "tut.menu-inventario.4.texto",
+    "texto": "Przy otwartym menu przeciągnij miniaturę wprost na scenę 3D, żeby postawić ją tam, gdzie chcesz."
+  },
+  {
+    "clave": "tut.menu-inventario.5.texto",
+    "texto": "Żeby przesuwać, malować albo usuwać to, co już stoi, użyj Edytora (zakładka Obiekty) — to menu służy tylko do wnoszenia nowych rzeczy na scenę."
+  },
+  {
+    "clave": "tut.editor-mapa.1.texto",
+    "texto": "Edytor domu ma 4 zakładki: Mapa, Postacie, Obiekty i Ustawienia. Ten samouczek dotyczy Mapy; pozostałe trzy mają swoje własne."
+  },
+  {
+    "clave": "tut.editor-mapa.2.titulo",
+    "texto": "Szkic"
+  },
+  {
+    "clave": "tut.editor-mapa.2.texto",
+    "texto": "Rysujesz na siatce widzianej z góry: pokoje, ściany, drzwi, okna i podłogi, trybami i pędzlami z górnego paska. To, co narysujesz, od razu pojawia się w 3D, bez przeładowywania."
+  }
+]

@@ -1,0 +1,668 @@
+[
+  {
+    "clave": "ejercicio.cronograma.desc",
+    "es": "Tus metas grandes sobre el eje del tiempo. Con ✨ la IA te arma el plan y te sugiere cuáles de tus rutinas agendar.",
+    "en": "Your big goals on the time axis. With ✨ the AI builds the plan and suggests which of your routines to schedule."
+  },
+  {
+    "clave": "sala.tab.cronograma",
+    "en": "Goals"
+  },
+  {
+    "clave": "avisos.rutinaPasos",
+    "es": "Te tocan {n} pasos.",
+    "en": "You have {n} steps to do."
+  },
+  {
+    "clave": "avisos.rutinaHora",
+    "es": "Es la hora.",
+    "en": "It's time."
+  },
+  {
+    "clave": "avisos.abrir",
+    "es": "Abrir",
+    "en": "Open"
+  },
+  {
+    "clave": "avisos.metaFalta",
+    "es": "Llevas {hecho} de {objetivo}.",
+    "en": "You're at {hecho} of {objetivo}."
+  },
+  {
+    "clave": "notif.titulo",
+    "es": "Notificaciones",
+    "en": "Notifications"
+  },
+  {
+    "clave": "notif.general",
+    "es": "Avisarme",
+    "en": "Notify me"
+  },
+  {
+    "clave": "notif.rutinas",
+    "es": "Eventos y rutinas con hora",
+    "en": "Timed events and routines"
+  },
+  {
+    "clave": "notif.metas",
+    "es": "Metas del día sin cumplir",
+    "en": "Unmet daily goals"
+  },
+  {
+    "clave": "notif.porApp",
+    "es": "Por app",
+    "en": "Per app"
+  },
+  {
+    "clave": "notif.denegado",
+    "es": "El navegador tiene bloqueadas las notificaciones de este sitio: solo puedes desbloquearlas desde su candado. Mientras tanto, los avisos te llegan por tu asistente.",
+    "en": "Your browser has blocked notifications for this site: only you can unblock them from its padlock. Meanwhile, your assistant still delivers the reminders."
+  },
+  {
+    "clave": "notif.noSoportado",
+    "es": "Este navegador no tiene notificaciones; los avisos te llegan por tu asistente.",
+    "en": "This browser has no notifications; your assistant delivers the reminders instead."
+  },
+  {
+    "clave": "horario.agendar",
+    "es": "Agendar",
+    "en": "Schedule"
+  },
+  {
+    "clave": "horario.titulo",
+    "es": "Horario",
+    "en": "Schedule"
+  },
+  {
+    "clave": "horario.plegar",
+    "es": "Listo",
+    "en": "Done"
+  },
+  {
+    "clave": "horario.hora",
+    "es": "Hora",
+    "en": "Time"
+  },
+  {
+    "clave": "horario.frecuencia",
+    "es": "Frecuencia",
+    "en": "Repeats"
+  },
+  {
+    "clave": "horario.dias",
+    "es": "Días",
+    "en": "Days"
+  },
+  {
+    "clave": "horario.sinDias",
+    "es": "Sin marcar ninguno: todos los días.",
+    "en": "None checked: every day."
+  },
+  {
+    "clave": "horario.sinHora",
+    "es": "Sin hora",
+    "en": "No time"
+  },
+  {
+    "clave": "horario.todosDias",
+    "es": "todos los días",
+    "en": "every day"
+  },
+  {
+    "clave": "horario.avisar",
+    "es": "Avisarme a su hora",
+    "en": "Remind me at that time"
+  },
+  {
+    "clave": "horario.avisar.hint",
+    "es": "Te llegará una notificación.",
+    "en": "You'll get a notification."
+  },
+  {
+    "clave": "horario.avisar.hintSinPermiso",
+    "es": "Te avisaremos dentro de la app.",
+    "en": "We'll remind you inside the app."
+  },
+  {
+    "clave": "horario.avisar.on",
+    "es": "Sí",
+    "en": "Yes"
+  },
+  {
+    "clave": "horario.avisar.off",
+    "es": "No",
+    "en": "No"
+  },
+  {
+    "clave": "horario.hechoHoy",
+    "es": "Hecho hoy",
+    "en": "Done today"
+  },
+  {
+    "clave": "horario.masOpciones",
+    "es": "Más opciones ›",
+    "en": "More options ›"
+  },
+  {
+    "clave": "horario.quitar",
+    "es": "Quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "rutinas.avisar",
+    "es": "Avisarme a su hora",
+    "en": "Remind me at that time"
+  },
+  {
+    "clave": "rutinas.avisar.hint",
+    "es": "Te llegará una notificación.",
+    "en": "You'll get a notification."
+  },
+  {
+    "clave": "rutinas.avisar.hintSinPermiso",
+    "es": "Te avisaremos dentro de la app.",
+    "en": "We'll remind you inside the app."
+  },
+  {
+    "clave": "rutinas.avisar.on",
+    "es": "Sí",
+    "en": "Yes"
+  },
+  {
+    "clave": "rutinas.avisar.off",
+    "es": "No",
+    "en": "No"
+  },
+  {
+    "clave": "avisoAct.cuerpo",
+    "en": "It's time ({hora})."
+  },
+  {
+    "clave": "avisoAct.ahoraNo",
+    "es": "Ahora no",
+    "en": "Not now"
+  },
+  {
+    "clave": "avisoAct.ir",
+    "es": "Ir a registrar",
+    "en": "Go log it"
+  },
+  {
+    "clave": "hobbies.registrarMin",
+    "es": "Registrar {n} min",
+    "en": "Log {n} min"
+  },
+  {
+    "clave": "hobbies.plan.tipo",
+    "es": "Práctica",
+    "en": "Practice"
+  },
+  {
+    "clave": "hobbies.plan.ejemplo",
+    "es": "Tocar 3 canciones completas",
+    "en": "Play 3 full songs"
+  },
+  {
+    "clave": "hobbies.plan.ejProyecto",
+    "es": "Terminar {proyecto}",
+    "en": "Finish {proyecto}"
+  },
+  {
+    "clave": "hobbies.plan.material",
+    "es": "Proyectos del plan",
+    "en": "Plan projects"
+  },
+  {
+    "clave": "ejercicio.registrarSesion",
+    "es": "Registrar {n} min",
+    "en": "Log {n} min"
+  },
+  {
+    "clave": "ejercicio.plan.ejemplo",
+    "es": "Correr 5 km sin parar",
+    "en": "Run 5 km non-stop"
+  },
+  {
+    "clave": "ejercicio.plan.material",
+    "es": "Rutinas del plan",
+    "en": "Plan routines"
+  },
+  {
+    "clave": "cocina.horarios",
+    "en": "Meal times"
+  },
+  {
+    "clave": "cocina.plan.tipoComida",
+    "es": "Comida",
+    "en": "Meal"
+  },
+  {
+    "clave": "cocina.plan.material",
+    "es": "Recetas del plan",
+    "en": "Plan recipes"
+  },
+  {
+    "clave": "cocina.plan.ejemplo",
+    "es": "Probar la dieta mediterránea",
+    "en": "Try the Mediterranean diet"
+  },
+  {
+    "clave": "cocina.plan.ejBajar",
+    "es": "Bajar a {kg} kg",
+    "en": "Get down to {kg} kg"
+  },
+  {
+    "clave": "cocina.plan.ejSubir",
+    "es": "Subir a {kg} kg",
+    "en": "Get up to {kg} kg"
+  },
+  {
+    "clave": "cocina.plan.ejMantener",
+    "es": "Mantenerme en {kg} kg",
+    "en": "Stay at {kg} kg"
+  },
+  {
+    "clave": "biblioteca.plan.ejemplo",
+    "es": "Dominar los fundamentos de estadística",
+    "en": "Master the basics of statistics"
+  },
+  {
+    "clave": "biblioteca.plan.material",
+    "es": "De tu enciclopedia",
+    "en": "From your encyclopedia"
+  },
+  {
+    "clave": "idiomas.plan.ejemplo",
+    "es": "Hablar con soltura en mi próximo viaje",
+    "en": "Speak with confidence on my next trip"
+  },
+  {
+    "clave": "idiomas.plan.ejemploNivel",
+    "es": "Alcanzar nivel {nivel} de {idioma}",
+    "en": "Reach {nivel} level in {idioma}"
+  },
+  {
+    "clave": "idiomas.plan.material",
+    "es": "Temas del plan",
+    "en": "Plan topics"
+  },
+  {
+    "clave": "sala.plan.ejemplo",
+    "es": "Itinerario de 5 días en Kioto",
+    "en": "A 5-day itinerary in Kyoto"
+  },
+  {
+    "clave": "sala.plan.ejLugar",
+    "es": "Itinerario de viaje a {lugar}",
+    "en": "Travel itinerary to {lugar}"
+  },
+  {
+    "clave": "sala.plan.material",
+    "es": "De tu lista Por conocer",
+    "en": "From your Places to see"
+  },
+  {
+    "clave": "entret.plan.ejemplo",
+    "es": "Terminar la saga de El Padrino",
+    "en": "Finish The Godfather saga"
+  },
+  {
+    "clave": "entret.plan.material",
+    "es": "De tu archivo",
+    "en": "From your archive"
+  },
+  {
+    "clave": "descanso.plan.ejemplo",
+    "es": "Dormirme en menos de 15 minutos",
+    "en": "Fall asleep in under 15 minutes"
+  },
+  {
+    "clave": "anecdotario.plan.ejemplo",
+    "es": "Dejar contado el viaje de este año",
+    "en": "Get this year's trip written down"
+  },
+  {
+    "clave": "jardin.plan.ejemplo",
+    "es": "Diez minutos de calma al día",
+    "en": "Ten minutes of calm a day"
+  },
+  {
+    "clave": "ideas.plan.ejemplo",
+    "es": "Convertir una idea del diario en algo real",
+    "en": "Turn an idea from the diary into something real"
+  },
+  {
+    "clave": "ideas.plan.material",
+    "es": "Ideas del plan",
+    "en": "Ideas in the plan"
+  },
+  {
+    "clave": "diario.plan.ejemplo",
+    "es": "Leer la edición de la mañana todos los días",
+    "en": "Read the morning edition every day"
+  },
+  {
+    "clave": "garage.plan.ejemplo",
+    "es": "Dejar el coche listo para el invierno",
+    "en": "Get the car ready for winter"
+  },
+  {
+    "clave": "garage.plan.material",
+    "es": "Trámites del plan",
+    "en": "Paperwork in the plan"
+  },
+  {
+    "clave": "agenda.plan.ejemplo",
+    "es": "Entregar el proyecto a tiempo",
+    "en": "Hand the project in on time"
+  },
+  {
+    "clave": "agenda.plan.material",
+    "es": "Pendientes del plan",
+    "en": "Tasks in the plan"
+  },
+  {
+    "clave": "cocina.horarios.ayuda",
+    "en": "When you eat each one. They show up in your calendar and can remind you."
+  },
+  {
+    "clave": "jardin.med.reservar",
+    "es": "Tu rato de calma",
+    "en": "Your calm time"
+  },
+  {
+    "clave": "jardin.med.bloque",
+    "es": "Meditar",
+    "en": "Meditate"
+  },
+  {
+    "clave": "jardin.registrarMin",
+    "es": "Registrar {n} min",
+    "en": "Log {n} min"
+  },
+  {
+    "clave": "biblioteca.est.reservar",
+    "es": "Tu rato de estudio",
+    "en": "Your study time"
+  },
+  {
+    "clave": "biblioteca.est.bloque",
+    "es": "Estudiar",
+    "en": "Study"
+  },
+  {
+    "clave": "biblioteca.registrarMin",
+    "es": "Registrar {n} min",
+    "en": "Log {n} min"
+  },
+  {
+    "clave": "idiomas.rep.reservar",
+    "es": "Tu rato de repaso",
+    "en": "Your review time"
+  },
+  {
+    "clave": "idiomas.rep.bloque",
+    "es": "Repasar {idioma}",
+    "en": "Review {idioma}"
+  },
+  {
+    "clave": "notif.ayudaCerrada",
+    "es": "Los avisos llegan con la app abierta, aunque esté en segundo plano. Con la pestaña cerrada el navegador no puede despertarla: para eso hace falta la app instalada en el móvil.",
+    "en": "Reminders arrive while the app is open, even in the background. With the tab closed the browser can't wake it up: that needs the app installed on your phone."
+  },
+  {
+    "clave": "progreso.nivel",
+    "es": "Nivel",
+    "en": "Level"
+  },
+  {
+    "clave": "progreso.racha",
+    "es": "Racha",
+    "en": "Streak"
+  },
+  {
+    "clave": "progreso.dias",
+    "en": "days"
+  },
+  {
+    "clave": "progreso.hoy",
+    "es": "Hoy",
+    "en": "Today"
+  },
+  {
+    "clave": "progreso.semana",
+    "es": "7 días",
+    "en": "7 days"
+  },
+  {
+    "clave": "plantillas.ayuda",
+    "es": "Arrastra una plantilla a otra carpeta; toca el icono para probar la app y el nombre de la carpeta para renombrarla.",
+    "en": "Tap the icon to open the app, pick its assistant and assign it to a room."
+  },
+  {
+    "clave": "plantillas.entrar",
+    "es": "Entrar a la app",
+    "en": "Open the app"
+  },
+  {
+    "clave": "plantillas.cerrarPrevia",
+    "es": "‹ Cerrar",
+    "en": "‹ Close"
+  },
+  {
+    "clave": "plantillas.asistente",
+    "es": "Asistente que la atiende",
+    "en": "Assistant in charge"
+  },
+  {
+    "clave": "plantillas.sinAsistente",
+    "es": "Sin asistente (la atienden todos)",
+    "en": "No assistant (handled by all)"
+  },
+  {
+    "clave": "plantillas.asignar",
+    "es": "Asignar a un objeto o cuarto",
+    "en": "Assign to an object or room"
+  },
+  {
+    "clave": "plantillas.asignarObjeto",
+    "en": "+ Assign to an object…"
+  },
+  {
+    "clave": "plantillas.asignarA",
+    "en": "+ Assign to a room…"
+  },
+  {
+    "clave": "plantillas.sinCuartos",
+    "en": "Create a room first"
+  },
+  {
+    "clave": "plantillas.objetoPrincipal",
+    "es": "Objeto principal (entrada del cuarto)",
+    "en": "Main object (room entrance)"
+  },
+  {
+    "clave": "plantillas.traeObjetos",
+    "es": "Objetos que trae la app",
+    "en": "Objects the app brings"
+  },
+  {
+    "clave": "plantillas.esPrincipal",
+    "es": "Objeto principal",
+    "en": "Main object"
+  },
+  {
+    "clave": "plantillas.hacerPrincipal",
+    "es": "Marcar como principal",
+    "en": "Set as main object"
+  },
+  {
+    "clave": "plantillas.quitarObjeto",
+    "es": "Quitar objeto",
+    "en": "Remove object"
+  },
+  {
+    "clave": "plantillas.agregarObjeto",
+    "es": "Agregar objeto",
+    "en": "Add object"
+  },
+  {
+    "clave": "selObjeto.titulo",
+    "es": "Agregar objeto",
+    "en": "Add object"
+  },
+  {
+    "clave": "plantillas.todasAsignadas",
+    "es": "Todas las apps ya viven en un cuarto. Si borras un cuarto, su plantilla vuelve aquí.",
+    "en": "All apps already live in a room. If you delete a room, its template comes back here."
+  },
+  {
+    "clave": "plantillaCustom.crear",
+    "es": "Crear plantilla",
+    "en": "Create template"
+  },
+  {
+    "clave": "plantillaCustom.editar",
+    "es": "Editar plantilla",
+    "en": "Edit template"
+  },
+  {
+    "clave": "plantillaCustom.eliminar",
+    "es": "Eliminar plantilla",
+    "en": "Delete template"
+  },
+  {
+    "clave": "plantillaCustom.confirmarBorrar",
+    "es": "¿Eliminar esta plantilla y todos sus datos?",
+    "en": "Delete this template and all its data?"
+  },
+  {
+    "clave": "plantillaCustom.enUso",
+    "en": "Your templates in use"
+  },
+  {
+    "clave": "plantillaCustom.nombrePh",
+    "es": "Ej. Mudanza, plantas, mascota…",
+    "en": "E.g. Moving, plants, pet…"
+  },
+  {
+    "clave": "plantillaCustom.emojiLibre",
+    "es": "Otro emoji",
+    "en": "Another emoji"
+  },
+  {
+    "clave": "plantillaCustom.herramientas",
+    "es": "Herramientas de la plantilla",
+    "en": "Template tools"
+  },
+  {
+    "clave": "plantillaCustom.sinBloques",
+    "es": "Agrega al menos una herramienta: serán las secciones de tu app.",
+    "en": "Add at least one tool: they become the sections of your app."
+  },
+  {
+    "clave": "plantillaCustom.quitarBloque",
+    "es": "Quitar (al guardar se borran sus datos)",
+    "en": "Remove (its data is deleted on save)"
+  },
+  {
+    "clave": "plantillaCustom.menusAyuda",
+    "es": "Reparte los bloques en pestañas. Sin menús, tu app es una sola pantalla.",
+    "en": "Split the blocks into tabs. With no menus your app is a single screen."
+  },
+  {
+    "clave": "plantillaCustom.agregarMenu",
+    "es": "Menú",
+    "en": "Menu"
+  },
+  {
+    "clave": "plantillaCustom.agregarAqui",
+    "es": "Agregar herramienta",
+    "en": "Add tool"
+  },
+  {
+    "clave": "plantillaCustom.agregarSubmenu",
+    "es": "Submenú de este menú",
+    "en": "Submenu of this menu"
+  },
+  {
+    "clave": "plantillaCustom.menuNuevo",
+    "es": "Menú {n}",
+    "en": "Menu {n}"
+  },
+  {
+    "clave": "plantillaCustom.submenuNuevo",
+    "es": "Submenú {n}",
+    "en": "Submenu {n}"
+  },
+  {
+    "clave": "plantillaCustom.menuSinNombre",
+    "es": "Menú",
+    "en": "Menu"
+  },
+  {
+    "clave": "plantillaCustom.menuNombrePh",
+    "es": "Nombre del menú",
+    "en": "Menu name"
+  },
+  {
+    "clave": "plantillaCustom.menuEmoji",
+    "es": "Emoji del menú (opcional)",
+    "en": "Menu emoji (optional)"
+  },
+  {
+    "clave": "plantillaCustom.borrarMenu",
+    "es": "Borrar menú (sus bloques pasan al primero)",
+    "en": "Delete menu (its blocks move to the first one)"
+  },
+  {
+    "clave": "plantillaCustom.menuBloque",
+    "es": "Menú",
+    "en": "Menu"
+  },
+  {
+    "clave": "plantillaCustom.menuVacio",
+    "es": "Este menú aún no tiene bloques.",
+    "en": "This menu has no blocks yet."
+  },
+  {
+    "clave": "plantillaCustom.submenu",
+    "es": "Submenú",
+    "en": "Submenu"
+  },
+  {
+    "clave": "plantillaCustom.editarApp",
+    "es": "Editar app",
+    "en": "Edit app"
+  },
+  {
+    "clave": "plantillaCustom.listo",
+    "es": "Listo",
+    "en": "Done"
+  },
+  {
+    "clave": "plantillaCustom.editorCompleto",
+    "es": "Editor completo",
+    "en": "Full editor"
+  },
+  {
+    "clave": "plantillaCustom.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "plantillaCustom.borrarMenuTitulo",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete “{nombre}”"
+  },
+  {
+    "clave": "plantillaCustom.borrarMenuMsj",
+    "es": "Sus herramientas pasan al primer menú, con sus datos.",
+    "en": "Its tools move to the first menu, data included."
+  },
+  {
+    "clave": "plantillaCustom.borrarBloqueTitulo",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete “{nombre}”"
+  }
+]

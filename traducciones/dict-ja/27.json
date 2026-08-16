@@ -1,0 +1,377 @@
+[
+  {
+    "clave": "chat.destino.menu.plantillas",
+    "es": "Ver las plantillas",
+    "en": "See the templates"
+  },
+  {
+    "clave": "chat.destino.rutinas",
+    "es": "Ver mis rutinas",
+    "en": "See my routines"
+  },
+  {
+    "clave": "chat.foto",
+    "es": "Adjuntar foto (comida, ticket…)",
+    "en": "Attach a photo (food, receipt…)"
+  },
+  {
+    "clave": "chat.fotoLista",
+    "es": "Foto lista para enviar",
+    "en": "Photo ready to send"
+  },
+  {
+    "clave": "chat.fotoSinIa",
+    "es": "Las fotos requieren IA: elige un modelo en el botón de la derecha",
+    "en": "Photos require AI: pick a model with the button on the right"
+  },
+  {
+    "clave": "chat.imagenFallo",
+    "es": "No pude generar la imagen, inténtalo de nuevo.",
+    "en": "I couldn't generate the image — try again."
+  },
+  {
+    "clave": "chat.imagenLista",
+    "es": "¡Listo! Aquí está tu imagen 🎨",
+    "en": "Done! Here's your image 🎨"
+  },
+  {
+    "clave": "chat.manual",
+    "es": "Manual",
+    "en": "Manual"
+  },
+  {
+    "clave": "chat.manual.abrir",
+    "es": "Manual: qué puedes pedir",
+    "en": "Manual: what you can ask for"
+  },
+  {
+    "clave": "chat.manual.aviso.caminos",
+    "en": "Build commands open a full-screen editor: the chat closes until you exit with ✕. Care actions work without leaving the chat."
+  },
+  {
+    "clave": "chat.manual.aviso.granja",
+    "en": "Build commands open a full-screen editor: the chat closes until you exit with ✕. Care actions work without leaving the chat."
+  },
+  {
+    "clave": "chat.manual.aviso.huerto",
+    "en": "Build commands open a full-screen editor: the chat closes until you exit with ✕. Care actions work without leaving the chat."
+  },
+  {
+    "clave": "chat.manual.cat.configuraciones",
+    "en": "Settings"
+  },
+  {
+    "clave": "chat.manual.cat.cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "chat.manual.cat.interfaz",
+    "en": "House & interface"
+  },
+  {
+    "clave": "chat.manual.cat.mapa",
+    "en": "Map and structure"
+  },
+  {
+    "clave": "chat.manual.cat.memoria",
+    "en": "Memory & capture"
+  },
+  {
+    "clave": "chat.manual.cat.objetos",
+    "en": "Objects"
+  },
+  {
+    "clave": "chat.manual.cat.personaje",
+    "en": "Character & rides"
+  },
+  {
+    "clave": "chat.manual.cat.calendario",
+    "en": "Calendar"
+  },
+  {
+    "clave": "chat.manual.cat.superficies",
+    "en": "Color, floor and roof"
+  },
+  {
+    "clave": "chat.manual.cat.teclado",
+    "en": "Keyboard (PC)"
+  },
+  {
+    "clave": "chat.manual.grupo.abrir",
+    "en": "Open & menus"
+  },
+  {
+    "clave": "chat.manual.grupo.acciones",
+    "en": "Actions"
+  },
+  {
+    "clave": "chat.manual.grupo.ia",
+    "en": "With AI"
+  },
+  {
+    "clave": "chat.manual.grupo.jugar",
+    "en": "Play"
+  },
+  {
+    "clave": "chat.manual.grupo.registrar",
+    "en": "Log"
+  },
+  {
+    "clave": "chat.manual.intro",
+    "es": "Abre una carpeta y toca un ejemplo para escribirlo en el chat. La mayoría funciona sin IA.",
+    "en": "Open a folder and tap an example to type it in the chat. Most work without AI."
+  },
+  {
+    "clave": "chat.manual.leyenda.comando",
+    "es": "azul: la orden",
+    "en": "blue: the command"
+  },
+  {
+    "clave": "chat.manual.leyenda.ia",
+    "es": "violeta: gasta una llamada de IA",
+    "en": "purple: costs an AI call"
+  },
+  {
+    "clave": "chat.manual.leyenda.variable",
+    "es": "ámbar: cámbialo a tu gusto",
+    "en": "amber: change it as you like"
+  },
+  {
+    "clave": "chat.manual.nota.biblioteca",
+    "en": "Inside live the Sage (AI chats), distilling into wiki entries and the topic tree."
+  },
+  {
+    "clave": "chat.manual.nota.calendario",
+    "en": "Gathers goals and events from every app; its Timeline offers AI plans (✨)."
+  },
+  {
+    "clave": "chat.manual.nota.caminos",
+    "en": "With the track and finish line drawn you can race against the clock or an assistant; you board the train from the rails."
+  },
+  {
+    "clave": "chat.manual.nota.canchas",
+    "en": "Courts are played by walking inside; you control the ball by getting close."
+  },
+  {
+    "clave": "chat.manual.nota.cocina",
+    "en": "With AI it also understands a photo of your dish (logs it estimating macros). Recipes and diets you ask for in the chat come with their image: they take a bit longer to show up and cost the credits shown."
+  },
+  {
+    "clave": "chat.manual.nota.cuartos",
+    "en": "Create, rename and organize rooms. \"Delete\" removes the room from the house."
+  },
+  {
+    "clave": "chat.manual.nota.despacho",
+    "en": "With AI you can also attach a receipt photo: it logs the expense."
+  },
+  {
+    "clave": "chat.manual.nota.diario",
+    "en": "The day's cultural sections and the assistant delivery use AI inside the app."
+  },
+  {
+    "clave": "chat.manual.nota.ejercicio",
+    "en": "With AI: a training plan in its Timeline (✨ button) and illustrative exercise images inside the app."
+  },
+  {
+    "clave": "chat.manual.nota.entretenimiento",
+    "en": "Table games: snake, tetris, chess, checkers, sudoku, memory, pong, hockey, simon, connect four, space, dino…"
+  },
+  {
+    "clave": "chat.manual.nota.garage",
+    "en": "The vehicles you ride (bike, motorbike, car, UFO) are under \"Character & rides\"."
+  },
+  {
+    "clave": "chat.manual.nota.granja",
+    "en": "Animals: hen, pig, goat, sheep, cow and horse. They eat what you harvest in Food."
+  },
+  {
+    "clave": "chat.manual.nota.hobbies",
+    "en": "In its Timeline you can ask for an AI plan (✨) to push a project forward."
+  },
+  {
+    "clave": "chat.manual.nota.huerto",
+    "en": "Crops: carrot, lettuce, sunflower, tomato, corn and pumpkin."
+  },
+  {
+    "clave": "chat.manual.nota.idiomas",
+    "en": "Inside live the conversational tutor by level, cards from the chat and cards by topic (AI)."
+  },
+  {
+    "clave": "chat.manual.nota.configuraciones",
+    "en": "Everything in the editor's Settings tab: language, appearance (light, dark, transparent), icon style, interface theme and font, panel glass, the map's visual style (normal, comic, miniature, retro, neon) with its effects, notifications and backup."
+  },
+  {
+    "clave": "chat.manual.aviso.configuraciones",
+    "en": "Signing in, restoring a backup and deleting your data are NOT done from the chat: the assistant opens that section so you confirm it yourself."
+  },
+  {
+    "clave": "chat.manual.nota.interfaz",
+    "en": "House theme, sky background, ambient music and your Wrapped recap. Music moods: calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita."
+  },
+  {
+    "clave": "chat.manual.nota.mapa",
+    "en": "Sides: north, south, east and west (also up, down, left or right)."
+  },
+  {
+    "clave": "chat.manual.nota.memoria",
+    "en": "The assistant remembers facts between sessions. Attach a photo with the clip or dictate with the mic; @app forces where an entry goes."
+  },
+  {
+    "clave": "chat.manual.nota.objetos",
+    "en": "No-AI catalog: lamp, chair, table, plant, guitar, rug, chest, picture, ball and book. Anything else is generated with AI as a 3D model and saved to your inventory. 2D images are asked for with \"create an image of…\" and stay in the chat."
+  },
+  {
+    "clave": "chat.manual.nota.personaje",
+    "en": "Garments: hat, glasses… Parts: head, torso and legs. Vehicles: bike, motorbike, car and UFO (flies with Space/Shift). Views: isometric, third and first person (V key)."
+  },
+  {
+    "clave": "chat.manual.nota.sala",
+    "en": "With AI, new places geocode themselves and show up as a pin on the world map."
+  },
+  {
+    "clave": "chat.manual.nota.superficies",
+    "en": "Colors: red, blue, green… or a #hex code. Floor materials and roof shapes come from the editor catalog."
+  },
+  {
+    "clave": "chat.manual.nota.teclado",
+    "en": "Shortcuts to play with a keyboard. They are not typed in the chat: you use them in the house. They do nothing while you type in a field or with a room open."
+  },
+  {
+    "clave": "chat.manual.notaSeccion.apps",
+    "en": "Each app logs its own data in your words (use @app to force the destination) and its menus open by name. \"With AI\" examples always spend an AI call (Pro plan or your key); your custom templates also capture via chat and open by name. Note: the offline parser speaks Spanish, so in English most commands run through the AI."
+  },
+  {
+    "clave": "chat.manual.notaSeccion.mapa",
+    "en": "Garden, farm, tracks and courts live outside the rooms, on the 3D map."
+  },
+  {
+    "clave": "chat.manual.seccion.apps",
+    "en": "Home apps"
+  },
+  {
+    "clave": "chat.manual.seccion.asistente",
+    "en": "Assistant & help"
+  },
+  {
+    "clave": "chat.manual.seccion.casa",
+    "en": "House & editor"
+  },
+  {
+    "clave": "chat.manual.seccion.mapa",
+    "en": "Outdoor map"
+  },
+  {
+    "clave": "chat.manual.seccion.precios",
+    "es": "Lo que cuesta la IA",
+    "en": "What AI costs"
+  },
+  {
+    "clave": "chat.manual.preciosCargando",
+    "es": "Cargando la tabla…",
+    "en": "Loading the table…"
+  },
+  {
+    "clave": "chat.manual.titulo",
+    "es": "Manual: qué puedes pedir",
+    "en": "Manual: what you can ask for"
+  },
+  {
+    "clave": "chat.memorias",
+    "es": "Lo que recuerdo de ti",
+    "en": "What I remember about you"
+  },
+  {
+    "clave": "chat.modelo",
+    "es": "Modelo de IA: {prov}",
+    "en": "AI model: {prov}"
+  },
+  {
+    "clave": "chat.mapa.abrir",
+    "es": "Ver el mapa en Ideas",
+    "en": "View the map in Ideas"
+  },
+  {
+    "clave": "chat.mapa.descartar",
+    "es": "Ahora no",
+    "en": "Not now"
+  },
+  {
+    "clave": "chat.mapa.dibujar",
+    "es": "Dibujarlo",
+    "en": "Draw it"
+  },
+  {
+    "clave": "chat.mapa.dibujando",
+    "es": "Dibujando el mapa…",
+    "en": "Drawing the map…"
+  },
+  {
+    "clave": "chat.mapa.fallo",
+    "es": "No pude dibujar ese mapa.",
+    "en": "I couldn't draw that map."
+  },
+  {
+    "clave": "chat.mapa.ofrecer",
+    "es": "¿Te lo dibujo como {tipo} de «{tema}»?",
+    "en": "Want me to draw it as a {tipo} of “{tema}”?"
+  },
+  {
+    "clave": "chat.modelo.clave",
+    "es": "Clave API de {prov}",
+    "en": "{prov} API key"
+  },
+  {
+    "clave": "chat.modelo.local",
+    "es": "Requiere Ollama corriendo en tu equipo (puerto 11434). Gratis y privado.",
+    "en": "Requires Ollama running on your machine (port 11434). Free and private."
+  },
+  {
+    "clave": "chat.modelo.priv",
+    "es": "Se guarda solo en este dispositivo. Sin clave: modo local por palabras clave.",
+    "en": "Stored only on this device. Without a key: local keyword mode."
+  },
+  {
+    "clave": "chat.modelo.titulo",
+    "es": "Modelo de IA de los asistentes",
+    "en": "Assistants AI model"
+  },
+  {
+    "clave": "chat.olvidar",
+    "es": "Olvidar",
+    "en": "Forget"
+  },
+  {
+    "clave": "chat.plegar",
+    "en": "Collapse chat"
+  },
+  {
+    "clave": "chat.quitarFoto",
+    "es": "Quitar foto",
+    "en": "Remove photo"
+  },
+  {
+    "clave": "chat.rutinaCreada",
+    "es": "⏰ Rutina «{n}» creada. La verás en el panel de rutinas.",
+    "en": "⏰ Routine “{n}” created. You'll find it in the routines panel."
+  },
+  {
+    "clave": "chat.sinApps",
+    "es": "No hay apps asignadas. Asígnalas a un objeto en un cuarto.",
+    "en": "No apps assigned. Assign them to an object in a room."
+  },
+  {
+    "clave": "chat.voz",
+    "es": "Dictar por voz",
+    "en": "Voice dictation"
+  },
+  {
+    "clave": "chat.voz.error",
+    "es": "No pude usar el dictado ({motivo}).",
+    "en": "I couldn't use dictation ({motivo})."
+  },
+  {
+    "clave": "chat.voz.idioma",
+    "es": "Tu navegador no soporta dictado en este idioma.",
+    "en": "Your browser doesn't support dictation in this language."
+  }
+]

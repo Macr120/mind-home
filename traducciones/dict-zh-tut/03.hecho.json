@@ -1,0 +1,126 @@
+[
+ {
+  "clave": "tut.menu-cuartos.6.texto",
+  "texto": "“创建房间”会打开地图编辑器，画笔已经就绪，可以直接画出新房间：形状、大小和位置都由你决定。在手机上，工具轮盘 › 建造 › 房间的快捷方式更顺手，不用打开面板就能直接在地图上画。"
+ },
+ {
+  "clave": "tut.menu-cuartos.7.texto",
+  "texto": "简单来说：自定义用“编辑”，使用应用用“进入”。这个菜单的其他标签页都有自己的教程。"
+ },
+ {
+  "clave": "tut.menu-plantillas.1.texto",
+  "texto": "模板就是一个应用（厨房、健身房、财务……）。把它分配给房间里的某个物件，进入时就会打开。"
+ },
+ {
+  "clave": "tut.menu-plantillas.2.titulo",
+  "texto": "两种视图"
+ },
+ {
+  "clave": "tut.menu-plantillas.2.texto",
+  "texto": "“房间”是常见的应用，每个都待在自己的物件上。“扩展”不一样：赛道、球场、菜园、农场或Paintball直接建在地面上，不占用房间。"
+ },
+ {
+  "clave": "tut.menu-plantillas.3.titulo",
+  "texto": "目录"
+ },
+ {
+  "clave": "tut.menu-plantillas.3.texto",
+  "texto": "自带的应用和你自己的应用，按分组排列。点一个就能分配给房间；在“扩展”里，点一下则是把它建在地图上。"
+ },
+ {
+  "clave": "tut.menu-plantillas.4.titulo",
+  "texto": "你自己的模板"
+ },
+ {
+  "clave": "tut.menu-plantillas.4.texto",
+  "texto": "用模块搭出你自己的模板：笔记、清单、计数器、习惯、相册……这个按钮会打开它专属的编辑器，还配有自己的教程。"
+ },
+ {
+  "clave": "tut.menu-plantillas.5.texto",
+  "texto": "同一个房间可以放多个应用：进入时会出现一个启动器，让你选择打开哪一个。"
+ },
+ {
+  "clave": "tut.plantillas-custom.1.texto",
+  "texto": "这个编辑器从零搭建你自己的应用：用名称、表情符号和模块把它做出来，它就会和自带的应用一起出现在目录里。"
+ },
+ {
+  "clave": "tut.plantillas-custom.2.titulo",
+  "texto": "名称、表情符号和颜色"
+ },
+ {
+  "clave": "tut.plantillas-custom.2.texto",
+  "texto": "它叫什么名字，以及在菜单、目录和日历里显示什么颜色——你给它安排日程时，也是这个颜色。"
+ },
+ {
+  "clave": "tut.plantillas-custom.3.titulo",
+  "texto": "工具"
+ },
+ {
+  "clave": "tut.plantillas-custom.3.texto",
+  "texto": "十二种模块：笔记、清单、计数器、习惯、场次、倒计时、相册、日志、评分、进度、列表和链接。每加一个，就变成你应用里的一个板块。"
+ },
+ {
+  "clave": "tut.plantillas-custom.4.titulo",
+  "texto": "顺序很重要"
+ },
+ {
+  "clave": "tut.plantillas-custom.4.texto",
+  "texto": "加进来的模块可以用箭头调整顺序，用✕移除——移除后保存时会删掉它的数据，所以确认前先检查一下。用“菜单”下拉框可以把它们从一个标签页移到另一个，什么都不会丢。"
+ },
+ {
+  "clave": "tut.plantillas-custom.5.titulo",
+  "texto": "保存"
+ },
+ {
+  "clave": "tut.plantillas-custom.5.texto",
+  "texto": "有了名称和至少一个模块，“保存”就会把它放进目录。之后像其他自带模板一样，分配给某个物件就行。"
+ },
+ {
+  "clave": "tut.plantillas-custom.6.texto",
+  "texto": "你随时可以再编辑它：模块和数据都不动，只有你改的地方会变。"
+ },
+ {
+  "clave": "tut.menu-inventario.1.texto",
+  "texto": "物品栏：所有能放进家里的物件都在这里，拖一下就能用。"
+ },
+ {
+  "clave": "tut.menu-inventario.2.titulo",
+  "texto": "物件"
+ },
+ {
+  "clave": "tut.menu-inventario.2.texto",
+  "texto": "你的物件素材库，按分类和文件夹整理。可以重命名和整理，下次能更快找到。"
+ },
+ {
+  "clave": "tut.menu-inventario.3.titulo",
+  "texto": "特殊物件"
+ },
+ {
+  "clave": "tut.menu-inventario.3.texto",
+  "texto": "这些会做点什么，不只是装饰：可骑乘的载具、玩具枪、喷泉、游乐设施和灯光。"
+ },
+ {
+  "clave": "tut.menu-inventario.4.titulo",
+  "texto": "摆放"
+ },
+ {
+  "clave": "tut.menu-inventario.4.texto",
+  "texto": "打开这个菜单，把缩略图直接拖进3D场景，就能放在你想要的位置。"
+ },
+ {
+  "clave": "tut.menu-inventario.5.texto",
+  "texto": "要移动、上色或删除已经放好的物件，请用编辑器的“物件”标签页——这个菜单只负责把新东西带进场景。"
+ },
+ {
+  "clave": "tut.editor-mapa.1.texto",
+  "texto": "家的编辑器有4个标签页：地图、角色、物件和设置。这次导览讲的是“地图”，另外三个各有自己的导览。"
+ },
+ {
+  "clave": "tut.editor-mapa.2.titulo",
+  "texto": "平面图"
+ },
+ {
+  "clave": "tut.editor-mapa.2.texto",
+  "texto": "你在俯视的网格上作画：房间、墙、门、窗和地板，用顶部工具栏的模式和画笔。画下的内容会立刻在3D里呈现，不用重新加载。"
+ }
+]

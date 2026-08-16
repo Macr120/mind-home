@@ -1,0 +1,894 @@
+[
+  {
+    "ruta": "recetas.0.nombre",
+    "texto": "Overnight oats della sera prima"
+  },
+  {
+    "ruta": "recetas.0.carpeta",
+    "texto": "Corridore"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.0",
+    "texto": "60 g di fiocchi d'avena"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.1",
+    "texto": "150 ml di latte (o bevanda d'avena)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.2",
+    "texto": "100 g di yogurt greco naturale"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.3",
+    "texto": "1 cucchiaio di semi di chia (12 g)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.4",
+    "texto": "1 banana matura"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.5",
+    "texto": "1 cucchiaino di miele"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.6",
+    "texto": "1 pizzico di cannella"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.7",
+    "texto": "1 pizzico di sale"
+  },
+  {
+    "ruta": "recetas.0.pasos.0",
+    "texto": "Mescolare in un barattolo di vetro l'avena, la chia, la cannella e il sale."
+  },
+  {
+    "ruta": "recetas.0.pasos.1",
+    "texto": "Aggiungere il latte e lo yogurt e mescolare finché non restano grumi secchi."
+  },
+  {
+    "ruta": "recetas.0.pasos.2",
+    "texto": "Schiacciare mezza banana con una forchetta e incorporarla; conservare l'altra metà in frigorifero."
+  },
+  {
+    "ruta": "recetas.0.pasos.3",
+    "texto": "Coprire e lasciare in frigorifero da 6 a 10 ore."
+  },
+  {
+    "ruta": "recetas.0.pasos.4",
+    "texto": "Al mattino, guarnire con il resto della banana a fettine e il miele. Mangiare 90 minuti prima di uscire a correre."
+  },
+  {
+    "ruta": "recetas.1.nombre",
+    "texto": "Pasta di carico della vigilia"
+  },
+  {
+    "ruta": "recetas.1.carpeta",
+    "texto": "Corridore"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.0",
+    "texto": "200 g di spaghetti"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.1",
+    "texto": "400 g di polpa di pomodoro"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.2",
+    "texto": "2 spicchi d'aglio"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.3",
+    "texto": "2 cucchiai di olio d'oliva"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.4",
+    "texto": "1 cucchiaino di origano secco"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.5",
+    "texto": "1 cucchiaino di zucchero"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.6",
+    "texto": "40 g di parmigiano grattugiato"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.7",
+    "texto": "6 foglie di basilico fresco"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.8",
+    "texto": "Sale"
+  },
+  {
+    "ruta": "recetas.1.pasos.0",
+    "texto": "Portare a bollore una pentola grande con abbondante acqua salata."
+  },
+  {
+    "ruta": "recetas.1.pasos.1",
+    "texto": "Nel frattempo, rosolare l'aglio a lamelle nell'olio a fuoco medio-basso, 2 minuti, senza farlo bruciare."
+  },
+  {
+    "ruta": "recetas.1.pasos.2",
+    "texto": "Aggiungere il pomodoro, l'origano, lo zucchero e un pizzico di sale; cuocere 15 minuti a fuoco dolce."
+  },
+  {
+    "ruta": "recetas.1.pasos.3",
+    "texto": "Cuocere la pasta un minuto in meno rispetto a quanto indicato sulla confezione e conservare mezzo bicchiere dell'acqua di cottura."
+  },
+  {
+    "ruta": "recetas.1.pasos.4",
+    "texto": "Saltare la pasta nel sugo per 1 minuto con un goccio dell'acqua conservata."
+  },
+  {
+    "ruta": "recetas.1.pasos.5",
+    "texto": "Servire con il parmigiano e il basilico. Cena leggera di grassi, senza piccante: domani c'è la gara."
+  },
+  {
+    "ruta": "recetas.2.nombre",
+    "texto": "Bowl di pollo per tutta la settimana"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.0",
+    "texto": "600 g di petto di pollo"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.1",
+    "texto": "300 g di riso integrale (crudo)"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.2",
+    "texto": "400 g di patata dolce a cubetti"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.3",
+    "texto": "400 g di broccoli a cimette"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.4",
+    "texto": "3 cucchiai di olio d'oliva"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.5",
+    "texto": "1 cucchiaino di paprika dolce"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.6",
+    "texto": "1 cucchiaino di cumino macinato"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.7",
+    "texto": "200 g di yogurt greco naturale"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.8",
+    "texto": "1 limone"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.9",
+    "texto": "Sale e pepe"
+  },
+  {
+    "ruta": "recetas.2.pasos.0",
+    "texto": "Preriscaldare il forno a 200 °C."
+  },
+  {
+    "ruta": "recetas.2.pasos.1",
+    "texto": "Mescolare la patata dolce con 1 cucchiaio di olio, sale e pepe; infornare 25 minuti."
+  },
+  {
+    "ruta": "recetas.2.pasos.2",
+    "texto": "Salare e pepare il pollo, strofinarlo con la paprika, il cumino e 1 cucchiaio di olio e cuocerlo alla piastra 6 minuti per lato. Lasciar riposare 5 minuti e tagliare a strisce."
+  },
+  {
+    "ruta": "recetas.2.pasos.3",
+    "texto": "Cuocere il riso integrale 25 minuti in acqua salata e scolare."
+  },
+  {
+    "ruta": "recetas.2.pasos.4",
+    "texto": "Cuocere i broccoli al vapore 5 minuti: devono restare sodi per durare fino a giovedì."
+  },
+  {
+    "ruta": "recetas.2.pasos.5",
+    "texto": "Sbattere lo yogurt con il succo di mezzo limone, sale e il cucchiaio di olio rimasto."
+  },
+  {
+    "ruta": "recetas.2.pasos.6",
+    "texto": "Distribuire tutto in quattro contenitori e conservare la salsa a parte. Si conserva quattro giorni in frigorifero."
+  },
+  {
+    "ruta": "recetas.3.nombre",
+    "texto": "Curry giapponese fatto in casa"
+  },
+  {
+    "ruta": "recetas.3.carpeta",
+    "texto": "Dal Giappone"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.0",
+    "texto": "500 g di sovraccoscia di pollo a dadini"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.1",
+    "texto": "2 cipolle a julienne"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.2",
+    "texto": "2 carote a rondelle spesse"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.3",
+    "texto": "400 g di patate a cubetti"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.4",
+    "texto": "40 g di burro"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.5",
+    "texto": "40 g di farina"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.6",
+    "texto": "2 cucchiai di curry in polvere"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.7",
+    "texto": "1 cucchiaino di garam masala"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.8",
+    "texto": "1 cucchiaio di salsa di soia"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.9",
+    "texto": "1 cucchiaino di miele"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.10",
+    "texto": "700 ml di brodo di pollo"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.11",
+    "texto": "1 cucchiaio di olio"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.12",
+    "texto": "300 g di riso a grana corta (crudo)"
+  },
+  {
+    "ruta": "recetas.3.pasos.0",
+    "texto": "Preparare il roux: sciogliere il burro, aggiungere la farina e mescolare 5 minuti a fuoco basso finché non prende un colore nocciola. Aggiungere il curry e il garam masala, mescolare 1 minuto e togliere dal fuoco."
+  },
+  {
+    "ruta": "recetas.3.pasos.1",
+    "texto": "In una pentola, rosolare il pollo nell'olio e toglierlo."
+  },
+  {
+    "ruta": "recetas.3.pasos.2",
+    "texto": "Stufare la cipolla 8 minuti finché è dorata; aggiungere carota e patata e rosolare 2 minuti."
+  },
+  {
+    "ruta": "recetas.3.pasos.3",
+    "texto": "Rimettere il pollo, coprire con il brodo e cuocere 20 minuti a fuoco medio."
+  },
+  {
+    "ruta": "recetas.3.pasos.4",
+    "texto": "Sciogliere il roux con un mestolo di brodo caldo e versarlo nella pentola. Cuocere altri 5 minuti mescolando finché si addensa."
+  },
+  {
+    "ruta": "recetas.3.pasos.5",
+    "texto": "Aggiungere la soia e il miele, assaggiare di sale e servire sul riso appena cotto."
+  },
+  {
+    "ruta": "recetas.4.nombre",
+    "texto": "Ramen al miso veloce"
+  },
+  {
+    "ruta": "recetas.4.carpeta",
+    "texto": "Dal Giappone"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.0",
+    "texto": "200 g di noodle ramen secchi"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.1",
+    "texto": "900 ml di brodo di pollo"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.2",
+    "texto": "2 cucchiai di pasta di miso"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.3",
+    "texto": "1 cucchiaio di salsa di soia"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.4",
+    "texto": "1 cucchiaino di olio di sesamo"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.5",
+    "texto": "2 spicchi d'aglio tritati"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.6",
+    "texto": "10 g di zenzero grattugiato"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.7",
+    "texto": "200 g di pancetta o pollo a strisce"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.8",
+    "texto": "2 uova"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.9",
+    "texto": "100 g di mais dolce"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.10",
+    "texto": "2 cipollotti a rondelle"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.11",
+    "texto": "1 foglio di alga nori"
+  },
+  {
+    "ruta": "recetas.4.pasos.0",
+    "texto": "Cuocere le uova 6 minuti e 30 secondi, raffreddarle in acqua e ghiaccio e sgusciarle."
+  },
+  {
+    "ruta": "recetas.4.pasos.1",
+    "texto": "Rosolare la pancetta o il pollo in una pentola con l'olio di sesamo; aggiungere l'aglio e lo zenzero per 1 minuto."
+  },
+  {
+    "ruta": "recetas.4.pasos.2",
+    "texto": "Versare il brodo e far bollire piano 15 minuti. Togliere dal fuoco."
+  },
+  {
+    "ruta": "recetas.4.pasos.3",
+    "texto": "Sciogliere il miso in un mestolo di brodo e rimetterlo nella pentola insieme alla soia. Non far bollire di nuovo."
+  },
+  {
+    "ruta": "recetas.4.pasos.4",
+    "texto": "Cuocere i noodle a parte seguendo la confezione e scolarli bene."
+  },
+  {
+    "ruta": "recetas.4.pasos.5",
+    "texto": "Comporre le ciotole: noodle, brodo, carne, mais, uovo tagliato a metà, cipollotto e nori."
+  },
+  {
+    "ruta": "recetas.5.nombre",
+    "texto": "Banana bread del bar"
+  },
+  {
+    "ruta": "recetas.5.carpeta",
+    "texto": "Dolci"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.0",
+    "texto": "3 banane molto mature (350 g sbucciate)"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.1",
+    "texto": "2 uova"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.2",
+    "texto": "80 g di zucchero di canna"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.3",
+    "texto": "60 ml di olio di semi di girasole"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.4",
+    "texto": "220 g di farina di grano"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.5",
+    "texto": "1 cucchiaino di lievito chimico"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.6",
+    "texto": "1/2 cucchiaino di bicarbonato"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.7",
+    "texto": "1 cucchiaino di cannella"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.8",
+    "texto": "1/2 cucchiaino di sale"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.9",
+    "texto": "60 g di noci tritate"
+  },
+  {
+    "ruta": "recetas.5.pasos.0",
+    "texto": "Preriscaldare il forno a 175 °C e foderare uno stampo da plumcake da 22 cm."
+  },
+  {
+    "ruta": "recetas.5.pasos.1",
+    "texto": "Schiacciare le banane con una forchetta fino a ottenere una purea grumosa."
+  },
+  {
+    "ruta": "recetas.5.pasos.2",
+    "texto": "Sbattere le uova con lo zucchero e l'olio e incorporare la purea."
+  },
+  {
+    "ruta": "recetas.5.pasos.3",
+    "texto": "Mescolare a parte la farina, il lievito, il bicarbonato, la cannella e il sale."
+  },
+  {
+    "ruta": "recetas.5.pasos.4",
+    "texto": "Unire gli ingredienti secchi a quelli umidi con una spatola, senza lavorare troppo, e aggiungere le noci."
+  },
+  {
+    "ruta": "recetas.5.pasos.5",
+    "texto": "Versare nello stampo e infornare 50-55 minuti, finché lo stecchino non esce pulito."
+  },
+  {
+    "ruta": "recetas.5.pasos.6",
+    "texto": "Sformare e far raffreddare su una gratella. Tagliato in dieci fette, dura tre giorni avvolto nella carta."
+  },
+  {
+    "ruta": "recetas.6.nombre",
+    "texto": "Crema di lenticchie rosse"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.0",
+    "texto": "250 g di lenticchie rosse"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.1",
+    "texto": "1 cipolla tritata"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.2",
+    "texto": "2 carote a dadini"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.3",
+    "texto": "2 spicchi d'aglio"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.4",
+    "texto": "1 cucchiaino di cumino macinato"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.5",
+    "texto": "1 cucchiaino di curcuma"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.6",
+    "texto": "1 litro di brodo vegetale"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.7",
+    "texto": "2 cucchiai di olio d'oliva"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.8",
+    "texto": "100 ml di latte di cocco"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.9",
+    "texto": "1 limone"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.10",
+    "texto": "Sale e pepe"
+  },
+  {
+    "ruta": "recetas.6.pasos.0",
+    "texto": "Stufare la cipolla e la carota nell'olio 8 minuti con un pizzico di sale."
+  },
+  {
+    "ruta": "recetas.6.pasos.1",
+    "texto": "Aggiungere l'aglio tritato, il cumino e la curcuma e mescolare 1 minuto."
+  },
+  {
+    "ruta": "recetas.6.pasos.2",
+    "texto": "Sciacquare le lenticchie, aggiungerle con il brodo e portare a bollore."
+  },
+  {
+    "ruta": "recetas.6.pasos.3",
+    "texto": "Cuocere 20 minuti a fuoco medio-basso, mescolando di tanto in tanto."
+  },
+  {
+    "ruta": "recetas.6.pasos.4",
+    "texto": "Frullare con il frullatore a immersione, aggiungere il latte di cocco e il succo di mezzo limone, e aggiustare di sale."
+  },
+  {
+    "ruta": "recetas.6.pasos.5",
+    "texto": "Distribuire nei contenitori; si congela bene in porzioni singole."
+  },
+  {
+    "ruta": "recetas.7.nombre",
+    "texto": "Salmone teriyaki con spinaci"
+  },
+  {
+    "ruta": "recetas.7.carpeta",
+    "texto": "Dal Giappone"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.0",
+    "texto": "2 filetti di salmone da 150 g"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.1",
+    "texto": "3 cucchiai di salsa di soia"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.2",
+    "texto": "2 cucchiai di mirin"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.3",
+    "texto": "1 cucchiaio di zucchero"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.4",
+    "texto": "1 cucchiaino di zenzero grattugiato"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.5",
+    "texto": "1 cucchiaino di amido di mais"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.6",
+    "texto": "1 cucchiaio di olio"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.7",
+    "texto": "150 g di riso a grana corta (crudo)"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.8",
+    "texto": "200 g di spinaci freschi"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.9",
+    "texto": "1 cucchiaino di semi di sesamo"
+  },
+  {
+    "ruta": "recetas.7.pasos.0",
+    "texto": "Mettere il riso a cuocere seguendo la confezione."
+  },
+  {
+    "ruta": "recetas.7.pasos.1",
+    "texto": "Mescolare la soia, il mirin, lo zucchero, lo zenzero e l'amido di mais in un bicchiere."
+  },
+  {
+    "ruta": "recetas.7.pasos.2",
+    "texto": "Asciugare bene il salmone e scottarlo dal lato della pelle in padella con l'olio, 4 minuti."
+  },
+  {
+    "ruta": "recetas.7.pasos.3",
+    "texto": "Girare, cuocere altri 2 minuti e versare la salsa; cuocere 2 minuti finché si addensa, irrorando il pesce con un cucchiaio."
+  },
+  {
+    "ruta": "recetas.7.pasos.4",
+    "texto": "Saltare gli spinaci 2 minuti nella stessa padella, a lato del salmone, con un pizzico di sale."
+  },
+  {
+    "ruta": "recetas.7.pasos.5",
+    "texto": "Servire sul riso con la salsa sopra e il sesamo."
+  },
+  {
+    "ruta": "recetas.8.nombre",
+    "texto": "Tacos di lenticchie alla paprika affumicata"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.0",
+    "texto": "400 g di lenticchie brune cotte e scolate"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.1",
+    "texto": "1 cipolla tritata"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.2",
+    "texto": "1 peperone rosso a dadini"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.3",
+    "texto": "2 spicchi d'aglio"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.4",
+    "texto": "1 cucchiaino di cumino"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.5",
+    "texto": "1 cucchiaino di paprika affumicata"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.6",
+    "texto": "200 g di polpa di pomodoro"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.7",
+    "texto": "2 cucchiai di olio d'oliva"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.8",
+    "texto": "8 tortillas di mais"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.9",
+    "texto": "1 avocado"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.10",
+    "texto": "1 lime"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.11",
+    "texto": "Coriandolo fresco"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.12",
+    "texto": "100 g di yogurt naturale"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.13",
+    "texto": "Sale"
+  },
+  {
+    "ruta": "recetas.8.pasos.0",
+    "texto": "Soffriggere la cipolla e il peperone nell'olio per 8 minuti."
+  },
+  {
+    "ruta": "recetas.8.pasos.1",
+    "texto": "Aggiungere l'aglio, il cumino e la paprika e mescolare 1 minuto."
+  },
+  {
+    "ruta": "recetas.8.pasos.2",
+    "texto": "Incorporare il pomodoro e le lenticchie e cuocere 10 minuti, schiacciando un po' con il cucchiaio perché si leghi."
+  },
+  {
+    "ruta": "recetas.8.pasos.3",
+    "texto": "Salare e aggiungere il succo di mezzo lime."
+  },
+  {
+    "ruta": "recetas.8.pasos.4",
+    "texto": "Scaldare le tortillas in una padella asciutta, 30 secondi per lato."
+  },
+  {
+    "ruta": "recetas.8.pasos.5",
+    "texto": "Farcire con le lenticchie, l'avocado a fettine, lo yogurt e il coriandolo. Due tacos a testa."
+  },
+  {
+    "ruta": "recetas.9.nombre",
+    "texto": "Frullato di recupero"
+  },
+  {
+    "ruta": "recetas.9.carpeta",
+    "texto": "Corridore"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.0",
+    "texto": "1 banana congelata a fettine"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.1",
+    "texto": "200 ml di latte"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.2",
+    "texto": "150 g di yogurt greco naturale"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.3",
+    "texto": "100 g di frutti di bosco congelati"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.4",
+    "texto": "1 cucchiaio di burro di arachidi (16 g)"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.5",
+    "texto": "1 cucchiaino di cacao amaro in polvere"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.6",
+    "texto": "1 pizzico di sale"
+  },
+  {
+    "ruta": "recetas.9.pasos.0",
+    "texto": "Mettere tutto nel frullatore, prima i liquidi."
+  },
+  {
+    "ruta": "recetas.9.pasos.1",
+    "texto": "Frullare 45 secondi finché diventa cremoso; se è troppo denso, aggiungere un goccio di latte."
+  },
+  {
+    "ruta": "recetas.9.pasos.2",
+    "texto": "Bere nei 30 minuti successivi all'allenamento lungo, direttamente dal bicchiere del frullatore per non dover lavare altro."
+  },
+  {
+    "ruta": "dietas.0.nombre",
+    "texto": "Settimana della maratona"
+  },
+  {
+    "ruta": "dietas.0.descripcion",
+    "texto": "I sette giorni prima della gara. Da lunedì a giovedì come al solito (bowl di pollo preparato la domenica, avena prima delle corse blande); venerdì e sabato aumento i carboidrati e riduco fibre e grassi. La sera prima, pasta al pomodoro e niente esperimenti. Il frullato è per la mezz'ora dopo il traguardo, insieme alla fetta di banana bread che ho preparato giovedì."
+  },
+  {
+    "ruta": "dietas.0.recetas.0",
+    "texto": "Overnight oats della sera prima"
+  },
+  {
+    "ruta": "dietas.0.recetas.1",
+    "texto": "Pasta di carico della vigilia"
+  },
+  {
+    "ruta": "dietas.0.recetas.2",
+    "texto": "Bowl di pollo per tutta la settimana"
+  },
+  {
+    "ruta": "dietas.0.recetas.3",
+    "texto": "Frullato di recupero"
+  },
+  {
+    "ruta": "dietas.0.recetas.4",
+    "texto": "Banana bread del bar"
+  },
+  {
+    "ruta": "dietas.1.nombre",
+    "texto": "Ritorno dal Giappone, leggero"
+  },
+  {
+    "ruta": "dietas.1.descripcion",
+    "texto": "Tre settimane di ramen, konbini e katsu curry mi hanno lasciato il corpo pesante e il frigo vuoto. Due settimane di cene leggere con tanti legumi e verdura, un pasto decente di pesce alla settimana e colazioni preparate la sera prima per non improvvisare prima del turno delle sette. Un omaggio al Giappone, ma fatto in casa e con moderazione."
+  },
+  {
+    "ruta": "dietas.1.recetas.0",
+    "texto": "Crema di lenticchie rosse"
+  },
+  {
+    "ruta": "dietas.1.recetas.1",
+    "texto": "Tacos di lenticchie alla paprika affumicata"
+  },
+  {
+    "ruta": "dietas.1.recetas.2",
+    "texto": "Salmone teriyaki con spinaci"
+  },
+  {
+    "ruta": "dietas.1.recetas.3",
+    "texto": "Overnight oats della sera prima"
+  },
+  {
+    "ruta": "dietas.1.recetas.4",
+    "texto": "Frullato di recupero"
+  },
+  {
+    "ruta": "listas.0.nombre",
+    "texto": "Spesa della settimana della maratona"
+  },
+  {
+    "ruta": "listas.0.items.0",
+    "texto": "1 kg di spaghetti"
+  },
+  {
+    "ruta": "listas.0.items.1",
+    "texto": "800 g di polpa di pomodoro"
+  },
+  {
+    "ruta": "listas.0.items.2",
+    "texto": "1,2 kg di petto di pollo"
+  },
+  {
+    "ruta": "listas.0.items.3",
+    "texto": "1 kg di riso integrale"
+  },
+  {
+    "ruta": "listas.0.items.4",
+    "texto": "500 g di fiocchi d'avena"
+  },
+  {
+    "ruta": "listas.0.items.5",
+    "texto": "12 banane"
+  },
+  {
+    "ruta": "listas.0.items.6",
+    "texto": "1 kg di patate dolci"
+  },
+  {
+    "ruta": "listas.0.items.7",
+    "texto": "2 litri di latte"
+  },
+  {
+    "ruta": "listas.0.items.8",
+    "texto": "1 kg di yogurt greco"
+  },
+  {
+    "ruta": "listas.0.items.9",
+    "texto": "6 uova"
+  },
+  {
+    "ruta": "listas.0.items.10",
+    "texto": "1 testa d'aglio"
+  },
+  {
+    "ruta": "listas.0.items.11",
+    "texto": "1 vasetto di burro di arachidi da 350 g"
+  },
+  {
+    "ruta": "listas.0.items.12",
+    "texto": "250 g di noci"
+  },
+  {
+    "ruta": "listas.0.items.13",
+    "texto": "2 limoni"
+  },
+  {
+    "ruta": "listas.1.nombre",
+    "texto": "Spesa del ritorno dal Giappone"
+  },
+  {
+    "ruta": "listas.1.items.0",
+    "texto": "500 g di lenticchie rosse"
+  },
+  {
+    "ruta": "listas.1.items.1",
+    "texto": "2 barattoli di lenticchie brune cotte da 400 g"
+  },
+  {
+    "ruta": "listas.1.items.2",
+    "texto": "1 litro di brodo vegetale"
+  },
+  {
+    "ruta": "listas.1.items.3",
+    "texto": "2 carote grandi"
+  },
+  {
+    "ruta": "listas.1.items.4",
+    "texto": "3 cipolle"
+  },
+  {
+    "ruta": "listas.1.items.5",
+    "texto": "1 peperone rosso"
+  },
+  {
+    "ruta": "listas.1.items.6",
+    "texto": "400 ml di latte di cocco"
+  },
+  {
+    "ruta": "listas.1.items.7",
+    "texto": "2 filetti di salmone da 150 g"
+  },
+  {
+    "ruta": "listas.1.items.8",
+    "texto": "1 confezione da 12 tortillas di mais"
+  },
+  {
+    "ruta": "listas.1.items.9",
+    "texto": "2 avocado"
+  },
+  {
+    "ruta": "listas.1.items.10",
+    "texto": "1 mazzetto di coriandolo"
+  },
+  {
+    "ruta": "listas.1.items.11",
+    "texto": "2 lime"
+  },
+  {
+    "ruta": "listas.1.items.12",
+    "texto": "500 g di spinaci freschi"
+  },
+  {
+    "ruta": "listas.1.items.13",
+    "texto": "1 barattolo di cumino macinato"
+  }
+]

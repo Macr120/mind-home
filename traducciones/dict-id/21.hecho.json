@@ -1,0 +1,450 @@
+[
+  {
+    "clave": "editor.anim.vidaDesc",
+    "texto": "Objek berkeliaran di areanya, jadi lapar dan bosan. Beri makan dan elus dengan tombol yang muncul saat kamu mendekat."
+  },
+  {
+    "clave": "editor.anim.vidaAviso",
+    "texto": "Objek ini menembus dinding dan perabot: beri area kecil kalau kamu meletakkannya di dalam ruangan."
+  },
+  {
+    "clave": "editor.anim.activacion",
+    "texto": "Diputar"
+  },
+  {
+    "clave": "editor.anim.apagado",
+    "texto": "Nonaktif"
+  },
+  {
+    "clave": "editor.anim.siempre",
+    "texto": "Selalu"
+  },
+  {
+    "clave": "editor.anim.cerca",
+    "texto": "Di dekatmu"
+  },
+  {
+    "clave": "editor.anim.poses",
+    "texto": "Pose (animasi khusus)"
+  },
+  {
+    "clave": "editor.anim.posesDesc",
+    "texto": "Atur bagian-bagiannya dengan editor (roda gigi) dan tangkap setiap pose. Dengan 2 pose atau lebih, model berpindah di antaranya secara berulang."
+  },
+  {
+    "clave": "editor.anim.pose",
+    "texto": "Pose"
+  },
+  {
+    "clave": "editor.anim.capturar",
+    "texto": "Tangkap pose saat ini"
+  },
+  {
+    "clave": "editor.anim.cargar",
+    "texto": "Edit"
+  },
+  {
+    "clave": "editor.anim.cargarTip",
+    "texto": "Menempatkan bagian-bagian ke pose ini supaya kamu bisa menyempurnakannya"
+  },
+  {
+    "clave": "editor.anim.actualizar",
+    "texto": "Perbarui"
+  },
+  {
+    "clave": "editor.anim.actualizarTip",
+    "texto": "Mengganti pose ini dengan bentuk saat ini"
+  },
+  {
+    "clave": "editor.anim.quitar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "editor.anim.quitarPose",
+    "texto": "Hapus pose ini"
+  },
+  {
+    "clave": "editor.anim.necesitaDos",
+    "texto": "Kamu butuh 2 pose atau lebih untuk memutar animasi."
+  },
+  {
+    "clave": "editor.anim.duracion",
+    "texto": "Durasi per pose"
+  },
+  {
+    "clave": "editor.anim.reproducir",
+    "texto": "Putar animasi"
+  },
+  {
+    "clave": "editor.anim.pausar",
+    "texto": "Jeda animasi"
+  },
+  {
+    "clave": "editor.pers.anim",
+    "texto": "Animasi"
+  },
+  {
+    "clave": "editor.pers.animFlote",
+    "texto": "Gerakan menggantikan gerak melayang alami karakter; lambaian tangan tetap ada."
+  },
+  {
+    "clave": "editor.pers.animSinPiezas",
+    "texto": "Untuk membuat animasi pose, bangun tubuhnya dengan bagian 3D di tab Tubuh."
+  },
+  {
+    "clave": "room.cocina.desc",
+    "texto": "Nutrisi: catat makananmu, makro, air minum, dan rencana mingguanmu."
+  },
+  {
+    "clave": "room.ejercicio.desc",
+    "texto": "Rutinitas kekuatan, daya tahan, dan fleksibilitas dengan target."
+  },
+  {
+    "clave": "room.recamara.desc",
+    "texto": "Pantau istirahatmu dan tulis buku kenangan pribadimu."
+  },
+  {
+    "clave": "room.descanso.desc",
+    "texto": "Tidurmu sebagai langit malam: jadwal, alarm, skor, dan catatan malam."
+  },
+  {
+    "clave": "room.anecdotario.desc",
+    "texto": "Buku kenanganmu: kenangan dengan foto dan suasana hati harian."
+  },
+  {
+    "clave": "room.despacho.desc",
+    "texto": "Keuangan: anggaran dengan pengeluaran dan pemasukan (tetap dan variabel), target (kalkulator finansial, tabungan/investasi, utang) dengan simulator, dan pasar langsung."
+  },
+  {
+    "clave": "room.biblioteca.desc",
+    "texto": "Ensiklopedia percakapan: obrolan AI, entri wiki, dan sesi belajar."
+  },
+  {
+    "clave": "room.entretenimiento.desc",
+    "texto": "Arsip film, serial, buku, dan permainan papan."
+  },
+  {
+    "clave": "room.sala.desc",
+    "texto": "Rencanakan perjalanan: itinerary, pengeluaran, daftar periksa, dan daftar keinginan."
+  },
+  {
+    "clave": "room.jardin.desc",
+    "texto": "Ketenangan: meditasi terpandu, latihan napas, dan jurnal rasa syukur."
+  },
+  {
+    "clave": "room.garage.desc",
+    "texto": "Perawatan kendaraanmu dan servisnya."
+  },
+  {
+    "clave": "room.diario.desc",
+    "texto": "Pusat berita harian, berdasarkan kategori."
+  },
+  {
+    "clave": "room.hobbies.desc",
+    "texto": "Hobi dan proyek kreatifmu."
+  },
+  {
+    "clave": "room.idiomas.desc",
+    "texto": "Belajar bahasa: tutor AI, kosakata pengulangan berjarak, silabus tingkat, dan latihan."
+  },
+  {
+    "clave": "room.calendario.desc",
+    "texto": "Kalendermu: acara dan rutinitas per hari, minggu, dan bulan."
+  },
+  {
+    "clave": "room.caminos.desc",
+    "texto": "Buat lintasan balap, rel kereta, dan roller coaster di peta."
+  },
+  {
+    "clave": "room.canchas.desc",
+    "texto": "Tempatkan lapangan sepak bola, tenis, basket, dan bisbol di peta."
+  },
+  {
+    "clave": "room.huerto.desc",
+    "texto": "Siapkan petak, tanam bibit, siram, dan panen secara real-time."
+  },
+  {
+    "clave": "room.granja.desc",
+    "texto": "Pelihara ayam, babi, kambing, domba, sapi, dan kuda, serta tanam pakannya di editor yang sama."
+  },
+  {
+    "clave": "room.ideas.desc",
+    "texto": "Jurnal ide dan curah gagasanmu, sepuluh format peta konsep di kanvas bebas (peta pikiran, pohon, linimasa, siklus, piramida, Venn…) dan delapan diagram untuk mengambil keputusan (kelebihan dan kekurangan, force field, SWOT, Eisenhower, pohon keputusan, tier list, matriks keputusan berbobot, dan Ishikawa), dengan tangan atau dengan AI."
+  },
+  {
+    "clave": "room.computo.desc",
+    "texto": "Ruang komputer: kalkulator ilmiah dengan buku rumus yang menggantung di sampingnya (Matematika, Fisika, dan Kimia sudah ada dan bisa diedit) serta delapan mode — plotter dengan empat jenis (2D, polar, parametrik, dan permukaan 3D), biner dan heksadesimal, matriks, sistem persamaan, konversi satuan, tip, dan aturan tiga; juga spreadsheet yang bisa diekspor ke Excel dan PDF."
+  },
+  {
+    "clave": "computo.tab.calculadora",
+    "texto": "Kalkulator"
+  },
+  {
+    "clave": "computo.tab.hojas",
+    "texto": "Spreadsheet"
+  },
+  {
+    "clave": "computo.menu.formulario",
+    "texto": "Buku Rumus"
+  },
+  {
+    "clave": "computo.meta.calculos",
+    "texto": "Selesaikan sesuatu"
+  },
+  {
+    "clave": "computo.motor.error",
+    "texto": "Mesin kalkulasi tidak bisa dimuat. Periksa koneksimu."
+  },
+  {
+    "clave": "computo.motor.reintentar",
+    "texto": "Coba lagi"
+  },
+  {
+    "clave": "computo.error.sintaxis",
+    "texto": "Ekspresi ini tidak bisa dibaca"
+  },
+  {
+    "clave": "computo.error.simbolo",
+    "texto": "Simbol tidak dikenal"
+  },
+  {
+    "clave": "computo.error.dominio",
+    "texto": "Tidak berfungsi dengan nilai-nilai ini"
+  },
+  {
+    "clave": "computo.plan.ejemplo",
+    "texto": "Kuasai rumus suatu topik dan terapkan"
+  },
+  {
+    "clave": "computo.plan.material",
+    "texto": "Rumus untuk rencana"
+  },
+  {
+    "clave": "computo.form.buscar",
+    "texto": "Cari rumus…"
+  },
+  {
+    "clave": "computo.form.sinResultados",
+    "texto": "Tidak ada dengan nama itu."
+  },
+  {
+    "clave": "computo.form.editar",
+    "texto": "Edit"
+  },
+  {
+    "clave": "computo.form.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "computo.form.cerrarFicha",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "computo.form.imprimir",
+    "texto": "Cetak atau simpan sebagai PDF"
+  },
+  {
+    "clave": "computo.form.imprimirCarpeta",
+    "texto": "Cetak folder"
+  },
+  {
+    "clave": "computo.form.carpetaNueva",
+    "texto": "Folder"
+  },
+  {
+    "clave": "computo.form.nuevaCarpeta",
+    "texto": "Folder baru"
+  },
+  {
+    "clave": "computo.form.nuevaCarpetaMsg",
+    "texto": "Namanya apa?"
+  },
+  {
+    "clave": "computo.form.subcarpeta",
+    "texto": "Subfolder"
+  },
+  {
+    "clave": "computo.form.formulaNueva",
+    "texto": "Rumus"
+  },
+  {
+    "clave": "computo.form.borrarCarpeta",
+    "texto": "Hapus “{nombre}”"
+  },
+  {
+    "clave": "computo.form.borrarCarpetaMsg",
+    "texto": "{n} rumus dan subfoldernya juga akan terhapus."
+  },
+  {
+    "clave": "computo.form.borrarCarpetaVacia",
+    "texto": "Folder ini akan terhapus beserta subfoldernya."
+  },
+  {
+    "clave": "computo.form.borrarFormula",
+    "texto": "Hapus “{nombre}”"
+  },
+  {
+    "clave": "computo.form.constantes",
+    "texto": "Konstanta: {lista}"
+  },
+  {
+    "clave": "computo.form.vacio",
+    "texto": "Belum ada rumus. Buat folder dan tulis rumusmu sendiri."
+  },
+  {
+    "clave": "computo.form.masAcciones",
+    "texto": "Aksi lainnya"
+  },
+  {
+    "clave": "computo.form.editarCarpeta",
+    "texto": "Edit folder"
+  },
+  {
+    "clave": "computo.form.arrastrar",
+    "texto": "Seret untuk memindahkan"
+  },
+  {
+    "clave": "computo.carpeta.titulo",
+    "texto": "Edit folder"
+  },
+  {
+    "clave": "computo.carpeta.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "computo.carpeta.nombre",
+    "texto": "Nama folder"
+  },
+  {
+    "clave": "computo.carpeta.emoji",
+    "texto": "Ikon"
+  },
+  {
+    "clave": "computo.carpeta.emojiLibre",
+    "texto": "Emoji lain"
+  },
+  {
+    "clave": "computo.carpeta.color",
+    "texto": "Warna"
+  },
+  {
+    "clave": "computo.carpeta.colorPista",
+    "texto": "Subfolder tanpa warna sendiri akan mewarisi warna ini."
+  },
+  {
+    "clave": "computo.carpeta.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "computo.carpeta.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "computo.editor.titulo.nueva",
+    "texto": "Rumus baru"
+  },
+  {
+    "clave": "computo.editor.titulo.editar",
+    "texto": "Edit rumus"
+  },
+  {
+    "clave": "computo.editor.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "computo.editor.carpeta",
+    "texto": "Simpan di"
+  },
+  {
+    "clave": "computo.editor.nombre",
+    "texto": "Nama (“Energi kinetik”)"
+  },
+  {
+    "clave": "computo.editor.resultado",
+    "texto": "Simbol hasil"
+  },
+  {
+    "clave": "computo.editor.descripcion",
+    "texto": "Catatan (kapan digunakan, dari mana asalnya)"
+  },
+  {
+    "clave": "computo.editor.variables",
+    "texto": "Variabel"
+  },
+  {
+    "clave": "computo.editor.varNombre",
+    "texto": "nama"
+  },
+  {
+    "clave": "computo.editor.varUnidad",
+    "texto": "satuan"
+  },
+  {
+    "clave": "computo.editor.varValor",
+    "texto": "nilai"
+  },
+  {
+    "clave": "computo.editor.constante",
+    "texto": "Konstanta: tidak ditanyakan, nilainya langsung dipakai"
+  },
+  {
+    "clave": "computo.editor.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "computo.editor.faltaNombre",
+    "texto": "Beri nama"
+  },
+  {
+    "clave": "computo.editor.faltaExpresion",
+    "texto": "Tulis ekspresinya"
+  },
+  {
+    "clave": "computo.editor.resultadoReservado",
+    "texto": "Simbol itu milik mathjs; pilih yang lain"
+  },
+  {
+    "clave": "computo.editor.resultadoInvalido",
+    "texto": "Simbol hasil itu tidak valid"
+  },
+  {
+    "clave": "computo.editor.noSeEntiende",
+    "texto": "Ada yang belum ditutup, atau ada simbol yang salah tempat."
+  },
+  {
+    "clave": "computo.editor.implicita",
+    "texto": "“{simbolos}” dibaca sebagai satu variabel. Kalau maksudmu mengalikan, tulis tanda bintangnya: m * g * h."
+  },
+  {
+    "clave": "computo.calc.placeholder",
+    "texto": "2*sin(pi/4) + log(100, 10)"
+  },
+  {
+    "clave": "computo.calc.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "computo.calc.grados",
+    "texto": "Derajat"
+  },
+  {
+    "clave": "computo.calc.radianes",
+    "texto": "Radian"
+  },
+  {
+    "clave": "computo.calc.resolver",
+    "texto": "Selesaikan"
+  },
+  {
+    "clave": "computo.calc.pulsaResolver",
+    "texto": "Tekan “Selesaikan”"
+  },
+  {
+    "clave": "computo.calc.soluciones",
+    "texto": "Solusi"
+  },
+  {
+    "clave": "computo.calc.exactas",
+    "texto": "Akar eksak dari polinomial."
+  }
+]

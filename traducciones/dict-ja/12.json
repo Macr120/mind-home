@@ -1,0 +1,955 @@
+[
+  {
+    "clave": "entre.res.invalido",
+    "es": "La IA no devolvió un resumen usable.",
+    "en": "The AI did not return a usable summary."
+  },
+  {
+    "clave": "entre.prog.titulo",
+    "es": "Programas",
+    "en": "Programs"
+  },
+  {
+    "clave": "entre.prog.desc",
+    "es": "Pídele a la IA un programa para ver, leer o jugar por tema, género o autor (p. ej. «películas de terror de los 80s»). Cada título es una meta del cronograma: palomea lo que completes y, si quieres, ponle fechas o pídele el plan al ✨ para verlo en el calendario.",
+    "en": "Ask the AI for a program to watch, read or play by topic, genre or author (e.g. \"80s horror movies\"). Each title is a goal on the timeline: check off what you finish and, if you want, set dates or ask the ✨ for a plan to see it on the calendar."
+  },
+  {
+    "clave": "entre.prog.nuevo",
+    "es": "Generar programa con IA",
+    "en": "Generate program with AI"
+  },
+  {
+    "clave": "entre.prog.ocultar",
+    "es": "Ocultar generador",
+    "en": "Hide generator"
+  },
+  {
+    "clave": "entre.prog.tema",
+    "es": "Tema, género o autor (p. ej. terror de los 80s)",
+    "en": "Topic, genre or author (e.g. 80s horror)"
+  },
+  {
+    "clave": "entre.prog.cuantos",
+    "es": "Títulos",
+    "en": "Titles"
+  },
+  {
+    "clave": "entre.prog.generar",
+    "es": "Generar programa",
+    "en": "Generate program"
+  },
+  {
+    "clave": "entre.prog.generando",
+    "es": "Armando el programa…",
+    "en": "Putting the program together…"
+  },
+  {
+    "clave": "entre.prog.error",
+    "es": "No se pudo generar el programa.",
+    "en": "The program could not be generated."
+  },
+  {
+    "clave": "entre.prog.desconocido",
+    "es": "La IA no pudo armar un programa con ese tema.",
+    "en": "The AI could not build a program from that topic."
+  },
+  {
+    "clave": "entre.prog.invalido",
+    "es": "La IA no devolvió un programa usable.",
+    "en": "The AI did not return a usable program."
+  },
+  {
+    "clave": "entre.prog.nombre",
+    "es": "Nombre del programa",
+    "en": "Program name"
+  },
+  {
+    "clave": "entre.prog.guardar",
+    "es": "Guardar programa ({n})",
+    "en": "Save program ({n})"
+  },
+  {
+    "clave": "entre.prog.guardando",
+    "es": "Guardando…",
+    "en": "Saving…"
+  },
+  {
+    "clave": "entre.prog.descartar",
+    "es": "Descartar",
+    "en": "Discard"
+  },
+  {
+    "clave": "entre.port.buscar",
+    "es": "Buscar portada",
+    "en": "Find cover"
+  },
+  {
+    "clave": "entre.port.buscando",
+    "es": "Buscando portada…",
+    "en": "Looking for cover…"
+  },
+  {
+    "clave": "entre.port.sinResultado",
+    "es": "Sin portada",
+    "en": "No cover"
+  },
+  {
+    "clave": "entre.port.quitar",
+    "es": "Quitar portada",
+    "en": "Remove cover"
+  },
+  {
+    "clave": "entre.j.volver",
+    "es": "Volver",
+    "en": "Back"
+  },
+  {
+    "clave": "entre.j.fam.tablero",
+    "en": "Board"
+  },
+  {
+    "clave": "entre.j.fam.ingenio",
+    "en": "Brain teasers"
+  },
+  {
+    "clave": "entre.j.fam.arcade",
+    "en": "Arcade"
+  },
+  {
+    "clave": "entre.j.fam.cartas",
+    "en": "Cards & casino"
+  },
+  {
+    "clave": "entre.j.fam.grupo",
+    "en": "For the group"
+  },
+  {
+    "clave": "entre.j.seccion.12",
+    "en": "1–2 players"
+  },
+  {
+    "clave": "entre.j.seccion.3mas",
+    "en": "3+ players"
+  },
+  {
+    "clave": "entre.j.nueva",
+    "es": "Nueva partida",
+    "en": "New game"
+  },
+  {
+    "clave": "entre.j.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
+  },
+  {
+    "clave": "entre.j.mejor",
+    "es": "Mejor",
+    "en": "Best"
+  },
+  {
+    "clave": "entre.j.puntos",
+    "es": "Puntos",
+    "en": "Score"
+  },
+  {
+    "clave": "entre.j.movs",
+    "es": "Movimientos",
+    "en": "Moves"
+  },
+  {
+    "clave": "entre.j.turno",
+    "es": "Turno",
+    "en": "Turn"
+  },
+  {
+    "clave": "entre.j.tu",
+    "es": "Tú",
+    "en": "You"
+  },
+  {
+    "clave": "entre.j.maquina",
+    "es": "Máquina",
+    "en": "Computer"
+  },
+  {
+    "clave": "entre.j.ganaste",
+    "es": "¡Ganaste! 🎉",
+    "en": "You win! 🎉"
+  },
+  {
+    "clave": "entre.j.saldo",
+    "es": "Saldo",
+    "en": "Balance"
+  },
+  {
+    "clave": "entre.j.recargar",
+    "es": "Recibir 500 fichas",
+    "en": "Get 500 chips"
+  },
+  {
+    "clave": "entre.j.dificultad",
+    "es": "Dificultad",
+    "en": "Difficulty"
+  },
+  {
+    "clave": "entre.j.dif.facil",
+    "en": "Easy"
+  },
+  {
+    "clave": "entre.j.dif.medio",
+    "en": "Medium"
+  },
+  {
+    "clave": "entre.j.dif.dificil",
+    "en": "Hard"
+  },
+  {
+    "clave": "entre.j.modo.titulo",
+    "es": "¿Cómo quieres jugar?",
+    "en": "How do you want to play?"
+  },
+  {
+    "clave": "entre.j.modo.2j",
+    "es": "2 jugadores",
+    "en": "2 players"
+  },
+  {
+    "clave": "entre.j.modo.2jDesc",
+    "es": "En el mismo dispositivo",
+    "en": "On the same device"
+  },
+  {
+    "clave": "entre.j.modo.ia",
+    "es": "Contra la máquina",
+    "en": "Against the computer"
+  },
+  {
+    "clave": "entre.j.modo.cambiar",
+    "es": "Cambiar modo",
+    "en": "Change mode"
+  },
+  {
+    "clave": "entre.j.sudoku.nombre",
+    "en": "Sudoku"
+  },
+  {
+    "clave": "entre.j.sudoku.desc",
+    "en": "Fill the 9×9 grid without repeating numbers."
+  },
+  {
+    "clave": "entre.j.sudoku.notas",
+    "es": "Lápiz",
+    "en": "Pencil"
+  },
+  {
+    "clave": "entre.j.sudoku.borrar",
+    "es": "Borrar",
+    "en": "Erase"
+  },
+  {
+    "clave": "entre.j.solitario.nombre",
+    "en": "Solitaire"
+  },
+  {
+    "clave": "entre.j.solitario.desc",
+    "en": "Classic Klondike: sort all 52 cards."
+  },
+  {
+    "clave": "entre.j.sol.auto",
+    "es": "Auto",
+    "en": "Auto"
+  },
+  {
+    "clave": "entre.j.sol.vueltas",
+    "es": "Vueltas al mazo",
+    "en": "Deck passes left"
+  },
+  {
+    "clave": "entre.j.j2048.nombre",
+    "en": "2048"
+  },
+  {
+    "clave": "entre.j.j2048.desc",
+    "en": "Swipe and merge your way to 2048."
+  },
+  {
+    "clave": "entre.j.2048.fin",
+    "es": "Sin movimientos. ¿Otra?",
+    "en": "No moves left. Another round?"
+  },
+  {
+    "clave": "entre.j.2048.logro",
+    "es": "¡Llegaste a 2048! Puedes seguir.",
+    "en": "You reached 2048! Keep going."
+  },
+  {
+    "clave": "entre.j.damas.nombre",
+    "en": "Checkers"
+  },
+  {
+    "clave": "entre.j.damas.desc",
+    "en": "Jump and capture every rival piece."
+  },
+  {
+    "clave": "entre.j.damas.iaDesc",
+    "es": "Tú llevas las claras",
+    "en": "You play the light pieces"
+  },
+  {
+    "clave": "entre.j.damas.claras",
+    "es": "Claras",
+    "en": "Light"
+  },
+  {
+    "clave": "entre.j.damas.oscuras",
+    "es": "Oscuras",
+    "en": "Dark"
+  },
+  {
+    "clave": "entre.j.damas.gana",
+    "en": "{color} wins!"
+  },
+  {
+    "clave": "entre.j.damas.ganaMaquina",
+    "es": "Gana la máquina",
+    "en": "The computer wins"
+  },
+  {
+    "clave": "entre.j.damas.regla",
+    "es": "Captura obligatoria: si puedes comer, debes comer.",
+    "en": "Forced capture: if you can jump, you must."
+  },
+  {
+    "clave": "entre.j.ajedrez.nombre",
+    "en": "Chess"
+  },
+  {
+    "clave": "entre.j.ajedrez.desc",
+    "en": "The strategy classic, all the way to checkmate."
+  },
+  {
+    "clave": "entre.j.ajedrez.iaDesc",
+    "es": "Tú llevas las blancas",
+    "en": "You play white"
+  },
+  {
+    "clave": "entre.j.ajedrez.blancas",
+    "es": "Blancas",
+    "en": "White"
+  },
+  {
+    "clave": "entre.j.ajedrez.negras",
+    "es": "Negras",
+    "en": "Black"
+  },
+  {
+    "clave": "entre.j.ajedrez.jaque",
+    "es": "Jaque",
+    "en": "Check"
+  },
+  {
+    "clave": "entre.j.ajedrez.mateBlancas",
+    "es": "♔ Jaque mate: ganan blancas",
+    "en": "♔ Checkmate: White wins"
+  },
+  {
+    "clave": "entre.j.ajedrez.mateNegras",
+    "es": "♚ Jaque mate: ganan negras",
+    "en": "♚ Checkmate: Black wins"
+  },
+  {
+    "clave": "entre.j.ajedrez.tablas",
+    "es": "½–½ Tablas por ahogado",
+    "en": "½–½ Stalemate — draw"
+  },
+  {
+    "clave": "entre.j.ajedrez.promo",
+    "es": "Los peones coronan a dama automáticamente.",
+    "en": "Pawns auto-promote to queen."
+  },
+  {
+    "clave": "entre.j.blackjack.nombre",
+    "en": "Blackjack"
+  },
+  {
+    "clave": "entre.j.blackjack.desc",
+    "en": "Hit 21 and beat the dealer."
+  },
+  {
+    "clave": "entre.j.bj.crupier",
+    "es": "Crupier",
+    "en": "Dealer"
+  },
+  {
+    "clave": "entre.j.bj.tu",
+    "es": "Tu mano",
+    "en": "Your hand"
+  },
+  {
+    "clave": "entre.j.bj.apuesta",
+    "es": "Apuesta",
+    "en": "Bet"
+  },
+  {
+    "clave": "entre.j.bj.quitar",
+    "es": "Quitar",
+    "en": "Clear"
+  },
+  {
+    "clave": "entre.j.bj.repartir",
+    "es": "Repartir",
+    "en": "Deal"
+  },
+  {
+    "clave": "entre.j.bj.pedir",
+    "es": "Pedir",
+    "en": "Hit"
+  },
+  {
+    "clave": "entre.j.bj.plantarse",
+    "es": "Plantarse",
+    "en": "Stand"
+  },
+  {
+    "clave": "entre.j.bj.doblar",
+    "es": "Doblar",
+    "en": "Double"
+  },
+  {
+    "clave": "entre.j.bj.nuevaMano",
+    "es": "Nueva mano",
+    "en": "New hand"
+  },
+  {
+    "clave": "entre.j.bj.blackjack",
+    "es": "¡Blackjack! Paga 3:2 🎉",
+    "en": "Blackjack! Pays 3:2 🎉"
+  },
+  {
+    "clave": "entre.j.bj.empate",
+    "es": "Empate: recuperas tu apuesta",
+    "en": "Push: your bet is returned"
+  },
+  {
+    "clave": "entre.j.bj.pierde",
+    "es": "Gana el crupier",
+    "en": "Dealer wins"
+  },
+  {
+    "clave": "entre.j.bj.pasaste",
+    "es": "Te pasaste de 21",
+    "en": "Bust — over 21"
+  },
+  {
+    "clave": "entre.j.bj.crupierPasa",
+    "es": "El crupier se pasa: ¡ganaste!",
+    "en": "Dealer busts: you win!"
+  },
+  {
+    "clave": "entre.j.bj.regla",
+    "es": "El crupier se planta con 17. El blackjack paga 3:2.",
+    "en": "Dealer stands on 17. Blackjack pays 3:2."
+  },
+  {
+    "clave": "entre.j.ruleta.nombre",
+    "en": "Roulette"
+  },
+  {
+    "clave": "entre.j.ruleta.desc",
+    "en": "Bet on red, black or your lucky number."
+  },
+  {
+    "clave": "entre.j.rul.ficha",
+    "es": "Ficha",
+    "en": "Chip"
+  },
+  {
+    "clave": "entre.j.rul.girar",
+    "es": "Girar",
+    "en": "Spin"
+  },
+  {
+    "clave": "entre.j.rul.limpiar",
+    "es": "Quitar",
+    "en": "Clear"
+  },
+  {
+    "clave": "entre.j.rul.repetir",
+    "es": "Repetir",
+    "en": "Rebet"
+  },
+  {
+    "clave": "entre.j.rul.col",
+    "es": "Col.",
+    "en": "Col."
+  },
+  {
+    "clave": "entre.j.rul.d1",
+    "es": "1.ª docena",
+    "en": "1st dozen"
+  },
+  {
+    "clave": "entre.j.rul.d2",
+    "es": "2.ª docena",
+    "en": "2nd dozen"
+  },
+  {
+    "clave": "entre.j.rul.d3",
+    "es": "3.ª docena",
+    "en": "3rd dozen"
+  },
+  {
+    "clave": "entre.j.rul.par",
+    "es": "PAR",
+    "en": "EVEN"
+  },
+  {
+    "clave": "entre.j.rul.impar",
+    "es": "IMPAR",
+    "en": "ODD"
+  },
+  {
+    "clave": "entre.j.rul.rojo",
+    "es": "ROJO",
+    "en": "RED"
+  },
+  {
+    "clave": "entre.j.rul.negro",
+    "es": "NEGRO",
+    "en": "BLACK"
+  },
+  {
+    "clave": "entre.j.rul.gano",
+    "en": "You won {n} chips! 🎉"
+  },
+  {
+    "clave": "entre.j.rul.nada",
+    "es": "Sin premio esta vez",
+    "en": "No luck this time"
+  },
+  {
+    "clave": "entre.j.rul.ultimos",
+    "es": "Últimos",
+    "en": "Last numbers"
+  },
+  {
+    "clave": "entre.j.buscaminas.nombre",
+    "en": "Minesweeper"
+  },
+  {
+    "clave": "entre.j.buscaminas.desc",
+    "en": "Clear the field without hitting a mine."
+  },
+  {
+    "clave": "entre.j.buscaminas.modoBandera",
+    "es": "Modo bandera",
+    "en": "Flag mode"
+  },
+  {
+    "clave": "entre.j.buscaminas.perdiste",
+    "es": "💥 ¡Buuum! Pisaste una mina.",
+    "en": "💥 Boom! You stepped on a mine."
+  },
+  {
+    "clave": "entre.j.domino.nombre",
+    "en": "Dominoes"
+  },
+  {
+    "clave": "entre.j.domino.desc",
+    "en": "Double-six against the computer, with a boneyard."
+  },
+  {
+    "clave": "entre.j.domino.pozo",
+    "es": "Pozo",
+    "en": "Boneyard"
+  },
+  {
+    "clave": "entre.j.domino.robar",
+    "es": "Robar del pozo",
+    "en": "Draw from boneyard"
+  },
+  {
+    "clave": "entre.j.domino.pasar",
+    "es": "Paso",
+    "en": "Pass"
+  },
+  {
+    "clave": "entre.j.domino.pasoIA",
+    "es": "La máquina pasa",
+    "en": "The computer passes"
+  },
+  {
+    "clave": "entre.j.domino.robaIA",
+    "en": "The computer drew {n}"
+  },
+  {
+    "clave": "entre.j.domino.eliges",
+    "es": "¿En qué punta?",
+    "en": "Which end?"
+  },
+  {
+    "clave": "entre.j.domino.trancado",
+    "es": "Juego trancado",
+    "en": "Blocked game"
+  },
+  {
+    "clave": "entre.j.domino.ganasteRonda",
+    "en": "You win the round: +{n} points"
+  },
+  {
+    "clave": "entre.j.domino.rondaIA",
+    "en": "The computer wins the round: +{n} points"
+  },
+  {
+    "clave": "entre.j.domino.empateRonda",
+    "es": "Empate: nadie suma puntos",
+    "en": "Tie: nobody scores"
+  },
+  {
+    "clave": "entre.j.domino.siguienteRonda",
+    "es": "Siguiente ronda",
+    "en": "Next round"
+  },
+  {
+    "clave": "entre.j.conocerse.nombre",
+    "en": "Getting to know you"
+  },
+  {
+    "clave": "entre.j.conocerse.desc",
+    "en": "100 questions in 3 levels to truly get to know each other."
+  },
+  {
+    "clave": "entre.j.debates.nombre",
+    "en": "Debates"
+  },
+  {
+    "clave": "entre.j.debates.desc",
+    "en": "100 questions to spark the table talk."
+  },
+  {
+    "clave": "entre.j.cartas.barajar",
+    "es": "Barajar",
+    "en": "Shuffle"
+  },
+  {
+    "clave": "entre.j.cartas.carta",
+    "en": "Card {n} of {t}"
+  },
+  {
+    "clave": "entre.j.cartas.toca",
+    "es": "Toca la carta para la siguiente",
+    "en": "Tap the card for the next one"
+  },
+  {
+    "clave": "entre.j.cartas.fin",
+    "es": "Se acabaron las preguntas",
+    "en": "No more questions"
+  },
+  {
+    "clave": "entre.j.cartas.reiniciar",
+    "es": "Volver a barajar",
+    "en": "Shuffle again"
+  },
+  {
+    "clave": "entre.j.cartas.siguiente",
+    "es": "Siguiente",
+    "en": "Next"
+  },
+  {
+    "clave": "entre.j.cartas.g.rompehielos",
+    "en": "Icebreaker"
+  },
+  {
+    "clave": "entre.j.cartas.g.personal",
+    "en": "Personal"
+  },
+  {
+    "clave": "entre.j.cartas.g.profundo",
+    "en": "Deep"
+  },
+  {
+    "clave": "entre.j.cartas.g.sociedad",
+    "en": "Society"
+  },
+  {
+    "clave": "entre.j.cartas.g.etica",
+    "en": "Ethics"
+  },
+  {
+    "clave": "entre.j.cartas.g.tecnologia",
+    "en": "Technology"
+  },
+  {
+    "clave": "entre.j.cartas.g.cultura",
+    "en": "Culture"
+  },
+  {
+    "clave": "entre.j.cartas.g.futuro",
+    "en": "Future"
+  },
+  {
+    "clave": "entre.j.pausa",
+    "es": "Pausa",
+    "en": "Paused"
+  },
+  {
+    "clave": "entre.j.seguir",
+    "es": "Seguir",
+    "en": "Resume"
+  },
+  {
+    "clave": "entre.j.jugar",
+    "es": "Jugar",
+    "en": "Play"
+  },
+  {
+    "clave": "entre.j.viborita.nombre",
+    "en": "Snake"
+  },
+  {
+    "clave": "entre.j.viborita.desc",
+    "en": "Eat apples without biting your own tail."
+  },
+  {
+    "clave": "entre.j.viborita.fin",
+    "es": "¡Ay! La viborita chocó.",
+    "en": "Ouch! The snake crashed."
+  },
+  {
+    "clave": "entre.j.space.nombre",
+    "en": "Space Defender"
+  },
+  {
+    "clave": "entre.j.space.desc",
+    "en": "Shoot down the invader waves."
+  },
+  {
+    "clave": "entre.j.space.ayuda",
+    "es": "← → o arrastra · disparo automático",
+    "en": "← → or drag · auto-fire"
+  },
+  {
+    "clave": "entre.j.space.fin",
+    "es": "La flota te superó.",
+    "en": "The fleet got you."
+  },
+  {
+    "clave": "entre.j.dino.nombre",
+    "en": "Dino Runner"
+  },
+  {
+    "clave": "entre.j.dino.desc",
+    "en": "Jump the cacti and keep on running."
+  },
+  {
+    "clave": "entre.j.dino.ayuda",
+    "es": "Espacio, ↑ o toca para saltar",
+    "en": "Space, ↑ or tap to jump"
+  },
+  {
+    "clave": "entre.j.pong.nombre",
+    "en": "Pong"
+  },
+  {
+    "clave": "entre.j.pong.desc",
+    "en": "The paddle classic, solo or with a friend."
+  },
+  {
+    "clave": "entre.j.pong.iaDesc",
+    "es": "Tú llevas la paleta de abajo",
+    "en": "You control the bottom paddle"
+  },
+  {
+    "clave": "entre.j.pong.j1",
+    "es": "Jugador 1",
+    "en": "Player 1"
+  },
+  {
+    "clave": "entre.j.pong.j2",
+    "es": "Jugador 2",
+    "en": "Player 2"
+  },
+  {
+    "clave": "entre.j.pong.gana",
+    "es": "Gana {j}",
+    "en": "{j} wins"
+  },
+  {
+    "clave": "entre.j.pong.ayuda2j",
+    "es": "Abajo: ← →  ·  Arriba: A / D  ·  o arrastra en tu mitad",
+    "en": "Bottom: ← →  ·  Top: A / D  ·  or drag on your half"
+  },
+  {
+    "clave": "entre.j.pong.ayudaIa",
+    "es": "Mueve con ← → o arrastrando",
+    "en": "Move with ← → or by dragging"
+  },
+  {
+    "clave": "entre.j.hockey.nombre",
+    "en": "Air hockey"
+  },
+  {
+    "clave": "entre.j.hockey.desc",
+    "en": "Send the puck into the rival goal."
+  },
+  {
+    "clave": "entre.j.hockey.iaDesc",
+    "es": "Tú defiendes la portería de abajo",
+    "en": "You defend the bottom goal"
+  },
+  {
+    "clave": "entre.j.hockey.ayuda",
+    "es": "Arrastra tu mazo para golpear el disco",
+    "en": "Drag your mallet to hit the puck"
+  },
+  {
+    "clave": "entre.j.billar.nombre",
+    "en": "Pool"
+  },
+  {
+    "clave": "entre.j.billar.desc",
+    "en": "Aim, shoot and clear the table."
+  },
+  {
+    "clave": "entre.j.billar.solo",
+    "es": "Solitario",
+    "en": "Solo"
+  },
+  {
+    "clave": "entre.j.billar.soloDesc",
+    "es": "Limpia la mesa en pocos tiros",
+    "en": "Clear the table in as few shots as you can"
+  },
+  {
+    "clave": "entre.j.billar.tiros",
+    "es": "Tiros",
+    "en": "Shots"
+  },
+  {
+    "clave": "entre.j.billar.falta",
+    "es": "Falta: la blanca se metió",
+    "en": "Foul: the cue ball went in"
+  },
+  {
+    "clave": "entre.j.billar.sigue",
+    "es": "¡Bola dentro, sigues tú!",
+    "en": "Ball in — shoot again!"
+  },
+  {
+    "clave": "entre.j.billar.fin1j",
+    "es": "Mesa limpia en {n} tiros",
+    "en": "Table cleared in {n} shots"
+  },
+  {
+    "clave": "entre.j.billar.ayuda",
+    "es": "Arrastra desde la mesa y suelta para tirar (resortera)",
+    "en": "Drag on the table and release to shoot (slingshot)"
+  },
+  {
+    "clave": "entre.j.tetris.nombre",
+    "en": "Tetris"
+  },
+  {
+    "clave": "entre.j.tetris.desc",
+    "en": "Fit the pieces and clear lines."
+  },
+  {
+    "clave": "entre.j.tetris.fin",
+    "es": "Tablero lleno. ¡Buena partida!",
+    "en": "Board full. Nice run!"
+  },
+  {
+    "clave": "entre.j.tetris.siguiente",
+    "es": "Siguiente",
+    "en": "Next"
+  },
+  {
+    "clave": "entre.j.tetris.lineas",
+    "es": "Líneas",
+    "en": "Lines"
+  },
+  {
+    "clave": "entre.j.tetris.nivel",
+    "es": "Nivel",
+    "en": "Level"
+  },
+  {
+    "clave": "entre.j.memorama.nombre",
+    "en": "Memory match"
+  },
+  {
+    "clave": "entre.j.memorama.desc",
+    "en": "Find the pairs in as few tries as you can."
+  },
+  {
+    "clave": "entre.j.memorama.intentos",
+    "es": "Intentos",
+    "en": "Tries"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.nombre",
+    "en": "Connect 4"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.desc",
+    "en": "Connect four checkers before your rival."
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.iaDesc",
+    "es": "Tú llevas las rojas",
+    "en": "You play the red checkers"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.rojas",
+    "es": "Rojas",
+    "en": "Red"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.amarillas",
+    "es": "Amarillas",
+    "en": "Yellow"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.empate",
+    "es": "Empate: tablero lleno",
+    "en": "Draw: the board is full"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.ganaMaquina",
+    "es": "Gana la máquina",
+    "en": "The computer wins"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.gana",
+    "en": "{color} wins!"
+  },
+  {
+    "clave": "entre.j.simon.nombre",
+    "en": "Simon says"
+  },
+  {
+    "clave": "entre.j.simon.desc",
+    "en": "Repeat the color sequence."
+  },
+  {
+    "clave": "entre.j.simon.ronda",
+    "es": "Ronda",
+    "en": "Round"
+  },
+  {
+    "clave": "entre.j.simon.observa",
+    "es": "Observa…",
+    "en": "Watch…"
+  },
+  {
+    "clave": "entre.j.simon.tuTurno",
+    "es": "¡Tu turno!",
+    "en": "Your turn!"
+  },
+  {
+    "clave": "entre.j.simon.fallaste",
+    "es": "Fallaste en la ronda {n}",
+    "en": "You missed on round {n}"
+  }
+]

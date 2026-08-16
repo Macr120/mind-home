@@ -1,0 +1,698 @@
+[
+ {
+  "clave": "canchas.tocaParaEditar",
+  "texto": "Нажми на площадку на карте, чтобы её изменить."
+ },
+ {
+  "clave": "canchas.ayuda",
+  "texto": "Нажми на карту, чтобы разместить; в режиме редактирования нажми на площадку, чтобы сменить её цвет, размер или поворот."
+ },
+ {
+  "clave": "canchas.resumen.nota",
+  "texto": "После установки площадка перемещается и удаляется как любой объект карты."
+ },
+ {
+  "clave": "huerto.herr.parcela",
+  "texto": "Грядка"
+ },
+ {
+  "clave": "huerto.herr.sembrar",
+  "texto": "Посадить"
+ },
+ {
+  "clave": "huerto.herr.regar",
+  "texto": "Полить"
+ },
+ {
+  "clave": "huerto.herr.cosechar",
+  "texto": "Собрать урожай"
+ },
+ {
+  "clave": "huerto.herr.aspersor",
+  "texto": "Разбрызгиватель"
+ },
+ {
+  "clave": "huerto.herr.quitar",
+  "texto": "Убрать"
+ },
+ {
+  "clave": "huerto.etiqueta.listo",
+  "texto": "Готово"
+ },
+ {
+  "clave": "huerto.etiqueta.marchito",
+  "texto": "Завяло"
+ },
+ {
+  "clave": "huerto.etiqueta.ver",
+  "texto": "Подробнее"
+ },
+ {
+  "clave": "huerto.etiqueta.guardar",
+  "texto": "Скрыть уведомление"
+ },
+ {
+  "clave": "huerto.aviso.listo",
+  "texto": "Готово к сбору!"
+ },
+ {
+  "clave": "huerto.aspersor.auto",
+  "texto": "Автополив"
+ },
+ {
+  "clave": "huerto.especie.zanahoria",
+  "texto": "Морковь"
+ },
+ {
+  "clave": "huerto.especie.lechuga",
+  "texto": "Салат"
+ },
+ {
+  "clave": "huerto.especie.girasol",
+  "texto": "Подсолнух"
+ },
+ {
+  "clave": "huerto.especie.tomate",
+  "texto": "Помидор"
+ },
+ {
+  "clave": "huerto.especie.maiz",
+  "texto": "Кукуруза"
+ },
+ {
+  "clave": "huerto.especie.calabaza",
+  "texto": "Тыква"
+ },
+ {
+  "clave": "huerto.ayuda",
+  "texto": "Растения растут в реальном времени и просят полив: синяя капля предупреждает; без полива они вянут, и через время грядка очищается сама. Разбрызгиватель поливает свою клетку и 8 соседних сам. Урожай попадает в корзину (и просто при проходе по готовому растению): им кормят животных."
+ },
+ {
+  "clave": "huerto.stat.parcelas",
+  "texto": "Грядки"
+ },
+ {
+  "clave": "huerto.stat.creciendo",
+  "texto": "Растёт"
+ },
+ {
+  "clave": "huerto.stat.listos",
+  "texto": "Готово"
+ },
+ {
+  "clave": "huerto.stat.marchitos",
+  "texto": "Завяло"
+ },
+ {
+  "clave": "huerto.stat.cosechas",
+  "texto": "Урожай"
+ },
+ {
+  "clave": "huerto.resumen.nota",
+  "texto": "Растения растут в реальном времени; поливай их вовремя, иначе завянут."
+ },
+ {
+  "clave": "huerto.cesta",
+  "texto": "Корзина"
+ },
+ {
+  "clave": "granja.animal.gallina",
+  "texto": "Курица"
+ },
+ {
+  "clave": "granja.animal.cerdo",
+  "texto": "Свинья"
+ },
+ {
+  "clave": "granja.animal.cabra",
+  "texto": "Коза"
+ },
+ {
+  "clave": "granja.animal.oveja",
+  "texto": "Овца"
+ },
+ {
+  "clave": "granja.animal.vaca",
+  "texto": "Корова"
+ },
+ {
+  "clave": "granja.animal.caballo",
+  "texto": "Лошадь"
+ },
+ {
+  "clave": "granja.come",
+  "texto": "ест каждые"
+ },
+ {
+  "clave": "granja.herr.corral",
+  "texto": "Загон"
+ },
+ {
+  "clave": "granja.herr.animal",
+  "texto": "Животное"
+ },
+ {
+  "clave": "granja.herr.alimentar",
+  "texto": "Покормить"
+ },
+ {
+  "clave": "granja.herr.mimar",
+  "texto": "Приласкать"
+ },
+ {
+  "clave": "granja.herr.curar",
+  "texto": "Вылечить"
+ },
+ {
+  "clave": "granja.herr.limpiar",
+  "texto": "Почистить"
+ },
+ {
+  "clave": "granja.herr.accesorio",
+  "texto": "Игрушки"
+ },
+ {
+  "clave": "granja.herr.nombrar",
+  "texto": "Назвать"
+ },
+ {
+  "clave": "granja.herr.quitar",
+  "texto": "Убрать"
+ },
+ {
+  "clave": "granja.accesorio.lodo",
+  "texto": "Лужа грязи"
+ },
+ {
+  "clave": "granja.accesorio.tina",
+  "texto": "Ванна"
+ },
+ {
+  "clave": "granja.accesorio.pelota",
+  "texto": "Мяч"
+ },
+ {
+  "clave": "granja.cestaVacia",
+  "texto": "пусто — собери урожай в разделе «Еда»"
+ },
+ {
+  "clave": "granja.sinComida",
+  "texto": "В корзине пусто: собери урожай в огороде, чтобы кормить животных."
+ },
+ {
+  "clave": "granja.corralLleno",
+  "texto": "Загон заполнен: расширь его или построй другой."
+ },
+ {
+  "clave": "granja.noCabe",
+  "texto": "Здесь не помещается: выходит за карту или пересекается с другим загоном."
+ },
+ {
+  "clave": "granja.nombrar.elegir",
+  "texto": "Нажми на загон, чтобы увидеть его животных."
+ },
+ {
+  "clave": "granja.nombrar.titulo",
+  "texto": "Нажми на животное, чтобы сменить его имя"
+ },
+ {
+  "clave": "granja.nombrar.placeholder",
+  "texto": "Имя"
+ },
+ {
+  "clave": "granja.nombrar.guardar",
+  "texto": "Сохранить"
+ },
+ {
+  "clave": "granja.nombrar.vacio",
+  "texto": "В этом загоне нет животных."
+ },
+ {
+  "clave": "granja.capacidad",
+  "texto": "Вместимость"
+ },
+ {
+  "clave": "granja.burbuja.alimentar",
+  "texto": "Покормить"
+ },
+ {
+  "clave": "granja.burbuja.acariciar",
+  "texto": "Приласкать"
+ },
+ {
+  "clave": "granja.burbuja.curar",
+  "texto": "Вылечить"
+ },
+ {
+  "clave": "granja.burbuja.limpiar",
+  "texto": "Убрать"
+ },
+ {
+  "clave": "granja.barra.comida",
+  "texto": "Еда"
+ },
+ {
+  "clave": "granja.barra.animo",
+  "texto": "Настроение"
+ },
+ {
+  "clave": "granja.hayEnfermos",
+  "texto": "Есть больные животные: вылечи их, чтобы снова ели."
+ },
+ {
+  "clave": "granja.sinEnfermos",
+  "texto": "В этом загоне никто не болеет."
+ },
+ {
+  "clave": "granja.yaLimpio",
+  "texto": "Этот загон уже был чистым; неделя начинается заново."
+ },
+ {
+  "clave": "granja.etiqueta.enfermo",
+  "texto": "Болеет"
+ },
+ {
+  "clave": "granja.etiqueta.dias",
+  "texto": "{n} дн."
+ },
+ {
+  "clave": "granja.aviso.enfermo.titulo",
+  "texto": "🤒 {nombre} заболел"
+ },
+ {
+  "clave": "granja.aviso.enfermo.cuerpo",
+  "texto": "Вылечи его на ферме: осталось {dias} дней."
+ },
+ {
+  "clave": "granja.aviso.muerte.titulo",
+  "texto": "💔 {nombre} умер"
+ },
+ {
+  "clave": "granja.aviso.muerte.cuerpo",
+  "texto": "Долго болел, и его не вылечили."
+ },
+ {
+  "clave": "granja.ayuda",
+  "texto": "Загон создаёт загоны и расширяет их при нажатии на соседнюю клетку. Добавляй животных, корми их своим урожаем, ласкай и давай им игрушки. То, что долго не ест, заболевает: вылечи его за неделю. Убирай каждый загон раз в неделю, иначе настроение будет падать вдвое быстрее."
+ },
+ {
+  "clave": "granja.stat.hambrientos",
+  "texto": "Голодные"
+ },
+ {
+  "clave": "granja.stat.aburridos",
+  "texto": "Скучают"
+ },
+ {
+  "clave": "granja.stat.enfermos",
+  "texto": "Больные"
+ },
+ {
+  "clave": "granja.stat.sucios",
+  "texto": "Грязные загоны"
+ },
+ {
+  "clave": "granja.resumen.nota",
+  "texto": "Их кормят из корзины «Еда»."
+ },
+ {
+  "clave": "tren.bajarte",
+  "texto": "Сойти"
+ },
+ {
+  "clave": "tren.montarTren",
+  "texto": "Сесть на поезд"
+ },
+ {
+  "clave": "tren.montarCarrito",
+  "texto": "Сесть в вагонетку"
+ },
+ {
+  "clave": "juego.tu",
+  "texto": "Ты"
+ },
+ {
+  "clave": "juego.rival",
+  "texto": "Соперник"
+ },
+ {
+  "clave": "juego.gol",
+  "texto": "ГОЛ! 🎉"
+ },
+ {
+  "clave": "juego.golRival",
+  "texto": "Гол соперника…"
+ },
+ {
+  "clave": "juego.canasta2",
+  "texto": "Попадание! +2 🎉"
+ },
+ {
+  "clave": "juego.canasta3",
+  "texto": "Трёхочковый! +3 🎉"
+ },
+ {
+  "clave": "juego.canastaRival",
+  "texto": "Попадание соперника…"
+ },
+ {
+  "clave": "juego.fallo",
+  "texto": "Промах…"
+ },
+ {
+  "clave": "juego.puntoTenis",
+  "texto": "Твоё очко! 🎉"
+ },
+ {
+  "clave": "juego.puntoTenisRival",
+  "texto": "Очко соперника…"
+ },
+ {
+  "clave": "juego.comoJugar",
+  "texto": "Как хочешь играть?"
+ },
+ {
+  "clave": "juego.solo",
+  "texto": "Играть одному"
+ },
+ {
+  "clave": "juego.soloFronton",
+  "texto": "Играть одному (удары о стену)"
+ },
+ {
+  "clave": "juego.soloMaquina",
+  "texto": "Играть одному (машина для подачи)"
+ },
+ {
+  "clave": "juego.contraIA",
+  "texto": "Или против помощника:"
+ },
+ {
+  "clave": "juego.peloteo",
+  "texto": "Хороший удар! +1"
+ },
+ {
+  "clave": "juego.seEscapo",
+  "texto": "Ушёл мяч…"
+ },
+ {
+  "clave": "juego.aLaRed",
+  "texto": "В сетку…"
+ },
+ {
+  "clave": "juego.fuera",
+  "texto": "Аут!"
+ },
+ {
+  "clave": "juego.dificultad",
+  "texto": "Сложность"
+ },
+ {
+  "clave": "juego.perspectiva",
+  "texto": "Вид"
+ },
+ {
+  "clave": "juego.vistaIso",
+  "texto": "Изометрия"
+ },
+ {
+  "clave": "juego.vista3",
+  "texto": "От 3-го лица"
+ },
+ {
+  "clave": "juego.patear",
+  "texto": "Ударить"
+ },
+ {
+  "clave": "juego.tirar",
+  "texto": "Бросок"
+ },
+ {
+  "clave": "juego.golpear",
+  "texto": "Удар"
+ },
+ {
+  "clave": "juego.hintFutbol",
+  "texto": "Удерживай, чтобы зарядить удар, отпусти для удара (Пробел)"
+ },
+ {
+  "clave": "juego.hintBasket",
+  "texto": "Удерживай, чтобы задать силу, отпусти для броска (Пробел)"
+ },
+ {
+  "clave": "juego.hintTenis",
+  "texto": "Целься разворотом и нажми, чтобы подать или ударить (Пробел)"
+ },
+ {
+  "clave": "juego.batear",
+  "texto": "Бить"
+ },
+ {
+  "clave": "juego.hintBeisbol",
+  "texto": "Удерживай, чтобы зарядить замах, отпусти, когда мяч долетит (Пробел)"
+ },
+ {
+  "clave": "juego.homerun",
+  "texto": "ХОУМ-РАН! +3 🎉"
+ },
+ {
+  "clave": "juego.hit",
+  "texto": "Удар! +1"
+ },
+ {
+  "clave": "juego.foul",
+  "texto": "Фол-мяч…"
+ },
+ {
+  "clave": "juego.strike",
+  "texto": "Страйк!"
+ },
+ {
+  "clave": "juego.ponche",
+  "texto": "Аут! Три страйка…"
+ },
+ {
+  "clave": "dif.muyFacil",
+  "texto": "Очень легко"
+ },
+ {
+  "clave": "dif.facil",
+  "texto": "Легко"
+ },
+ {
+  "clave": "dif.normal",
+  "texto": "Обычно"
+ },
+ {
+  "clave": "dif.dificil",
+  "texto": "Сложно"
+ },
+ {
+  "clave": "dif.experto",
+  "texto": "Эксперт"
+ },
+ {
+  "clave": "juego.juegos",
+  "texto": "Геймы"
+ },
+ {
+  "clave": "juego.sets",
+  "texto": "Сеты"
+ },
+ {
+  "clave": "juego.peloteoActual",
+  "texto": "Розыгрыш"
+ },
+ {
+  "clave": "juego.record",
+  "texto": "Рекорд"
+ },
+ {
+  "clave": "juego.juegoTuyo",
+  "texto": "Твой гейм! 🎉"
+ },
+ {
+  "clave": "juego.juegoRival",
+  "texto": "Гейм соперника…"
+ },
+ {
+  "clave": "juego.setTuyo",
+  "texto": "Твой СЕТ! 🎉"
+ },
+ {
+  "clave": "juego.setRival",
+  "texto": "Сет соперника…"
+ },
+ {
+  "clave": "juego.partidoTuyo",
+  "texto": "МАТЧ ВЫИГРАН! 🏆"
+ },
+ {
+  "clave": "juego.partidoRival",
+  "texto": "Соперник выиграл матч…"
+ },
+ {
+  "clave": "juego.nuevoRecord",
+  "texto": "Новый рекорд! 🎉"
+ },
+ {
+  "clave": "progreso.cargando",
+  "texto": "Считаем твой прогресс…"
+ },
+ {
+  "clave": "progreso.jugador",
+  "texto": "Твой персонаж"
+ },
+ {
+  "clave": "progreso.editarAvatar",
+  "texto": "Изменить своего персонажа"
+ },
+ {
+  "clave": "progreso.humor.feliz",
+  "texto": "Он счастлив! Держи свою серию."
+ },
+ {
+  "clave": "progreso.humor.contento",
+  "texto": "Он доволен. Ещё одна запись сегодня его порадует."
+ },
+ {
+  "clave": "progreso.humor.triste",
+  "texto": "Ему грустно… запиши что-нибудь в своих приложениях, чтобы его подбодрить."
+ },
+ {
+  "clave": "progreso.humor.dormido",
+  "texto": "Он спит. Используй приложения, чтобы его разбудить."
+ },
+ {
+  "clave": "progreso.radarCuartos",
+  "texto": "Опыт по комнатам"
+ },
+ {
+  "clave": "meta.generica",
+  "texto": "Отметь что-нибудь сегодня"
+ },
+ {
+  "clave": "meta.cumplida",
+  "texto": "Готово!"
+ },
+ {
+  "clave": "meta.pendiente",
+  "texto": "Ожидает"
+ },
+ {
+  "clave": "meta.apagada",
+  "texto": "Без цели"
+ },
+ {
+  "clave": "meta.aMano",
+  "texto": "вручную"
+ },
+ {
+  "clave": "meta.auto",
+  "texto": "Вернуть автоматический режим"
+ },
+ {
+  "clave": "meta.marcar",
+  "texto": "Отметить как выполненное"
+ },
+ {
+  "clave": "meta.desmarcar",
+  "texto": "Отметить как невыполненное"
+ },
+ {
+  "clave": "meta.agendar",
+  "texto": "Добавить в календарь"
+ },
+ {
+  "clave": "hoy.titulo",
+  "texto": "Сегодня"
+ },
+ {
+  "clave": "hoy.alDia",
+  "texto": "На сегодня всё готово"
+ },
+ {
+  "clave": "hoy.hechos",
+  "texto": "Готово ({n})"
+ },
+ {
+  "clave": "hoy.registrar",
+  "texto": "Отметить"
+ },
+ {
+  "clave": "hoy.objetivo",
+  "texto": "Твоя цель на каждый день (0 — выключить)"
+ },
+ {
+  "clave": "cal.meta.mientrasDure",
+  "texto": "Пока длится, спрашивай у меня"
+ },
+ {
+  "clave": "cal.meta.unObjetivo",
+  "texto": "цель на день"
+ },
+ {
+  "clave": "cal.meta.unaActividad",
+  "texto": "занятие каждую неделю"
+ },
+ {
+  "clave": "cal.meta.diasRitmo",
+  "texto": "{hechos}/{pedidos} дней"
+ },
+ {
+  "clave": "rutinas.sinApp",
+  "texto": "Без приложения (событие дома)"
+ },
+ {
+  "clave": "cocina.metaDiaria",
+  "texto": "Вода на сегодня"
+ },
+ {
+  "clave": "cocina.objetivo.comidas",
+  "texto": "Приёмы пищи сегодня"
+ },
+ {
+  "clave": "cocina.objetivo.vaso",
+  "texto": "Один стакан"
+ },
+ {
+  "clave": "ejercicio.metaDiaria",
+  "texto": "Тренировка сегодня"
+ },
+ {
+  "clave": "hobbies.metaDiaria",
+  "texto": "Практика сегодня"
+ },
+ {
+  "clave": "jardin.metaDiaria",
+  "texto": "Спокойствие на сегодня"
+ },
+ {
+  "clave": "idiomas.metaDiaria",
+  "texto": "Повторение на сегодня"
+ },
+ {
+  "clave": "biblioteca.metaDiaria",
+  "texto": "Учёба на сегодня"
+ },
+ {
+  "clave": "diario.metaDiaria",
+  "texto": "Прочитай сегодняшний выпуск"
+ },
+ {
+  "clave": "descanso.metaDiaria",
+  "texto": "Запиши свою ночь"
+ },
+ {
+  "clave": "sala.evento.viaje",
+  "texto": "Путешествие"
+ },
+ {
+  "clave": "sala.evento.dia",
+  "texto": "День {n}"
+ },
+ {
+  "clave": "ejercicio.tab.cronograma",
+  "texto": "Цели"
+ }
+]

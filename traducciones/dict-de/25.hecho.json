@@ -1,0 +1,746 @@
+[
+  {
+    "clave": "ideas.carp.renombrar",
+    "texto": "Ordner umbenennen"
+  },
+  {
+    "clave": "ideas.carp.plegar",
+    "texto": "Einklappen"
+  },
+  {
+    "clave": "ideas.carp.borrarTit",
+    "texto": "„{n}“ löschen?"
+  },
+  {
+    "clave": "ideas.carp.borrarMsg",
+    "texto": "Auch die Unterordner werden gelöscht. Die Ideen gehen NICHT verloren: Sie wandern in den übergeordneten Ordner."
+  },
+  {
+    "clave": "ideas.detalle.volver",
+    "texto": "Zurück zum Tagebuch"
+  },
+  {
+    "clave": "ideas.detalle.resuelto",
+    "texto": "Erledigt oder verworfen"
+  },
+  {
+    "clave": "ideas.detalle.subir",
+    "texto": "Nach oben"
+  },
+  {
+    "clave": "ideas.detalle.bajar",
+    "texto": "Nach unten"
+  },
+  {
+    "clave": "ideas.detalle.nuevoPunto",
+    "texto": "Füge einen Punkt hinzu…"
+  },
+  {
+    "clave": "ideas.detalle.convertir",
+    "texto": "In Punkte umwandeln"
+  },
+  {
+    "clave": "ideas.detalle.desarrollar",
+    "texto": "Ausarbeiten"
+  },
+  {
+    "clave": "ideas.detalle.desarrollarDesc",
+    "texto": "Punkte, die „{idea}“ ausarbeiten:"
+  },
+  {
+    "clave": "ideas.detalle.complementarias",
+    "texto": "Ergänzende Ideen"
+  },
+  {
+    "clave": "ideas.detalle.complementariasDesc",
+    "texto": "Neue Ideen, die „{idea}“ ergänzen:"
+  },
+  {
+    "clave": "ajustes.ajusteEfectos",
+    "texto": "Effekteinstellungen"
+  },
+  {
+    "clave": "ajustes.efectos",
+    "texto": "Visuelle Effekte"
+  },
+  {
+    "clave": "ajustes.efectos.desc",
+    "texto": "Verdeckung, Glanzlichter und Renderstile. Schalte sie aus, wenn die Karte langsam läuft."
+  },
+  {
+    "clave": "ajustes.efectos.off",
+    "texto": "Aus"
+  },
+  {
+    "clave": "ajustes.efectos.on",
+    "texto": "An"
+  },
+  {
+    "clave": "ajustes.estiloAplica",
+    "texto": "Gilt für:"
+  },
+  {
+    "clave": "ajustes.estiloMapa",
+    "texto": "Visueller Kartenstil"
+  },
+  {
+    "clave": "ajustes.vidrio",
+    "texto": "Stil der Oberfläche"
+  },
+  {
+    "clave": "ajustes.vidrio.transparencia",
+    "texto": "Transparenz"
+  },
+  {
+    "clave": "ajustes.vidrio.intensidad",
+    "texto": "Intensität"
+  },
+  {
+    "clave": "ajustes.vidrio.desc",
+    "texto": "Wie durchsichtig und unscharf die Panels und Schaltflächen sind, die über der Karte schweben."
+  },
+  {
+    "clave": "estilo.normal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "estilo.normal.desc",
+    "texto": "Der gewohnte Look, fein poliert."
+  },
+  {
+    "clave": "estilo.comic",
+    "texto": "Comic"
+  },
+  {
+    "clave": "estilo.comic.desc",
+    "texto": "Gebändertes Licht und Cartoon-Konturen."
+  },
+  {
+    "clave": "estilo.miniatura",
+    "texto": "Miniatur"
+  },
+  {
+    "clave": "estilo.miniatura.desc",
+    "texto": "Das Haus als Spielzeugdiorama."
+  },
+  {
+    "clave": "estilo.retro",
+    "texto": "Retro"
+  },
+  {
+    "clave": "estilo.retro.desc",
+    "texto": "Grobe Pixel, Videospiel der 90er."
+  },
+  {
+    "clave": "estilo.neon",
+    "texto": "Neon"
+  },
+  {
+    "clave": "estilo.neon.desc",
+    "texto": "Leuchtende Lichter und Glanzpunkte."
+  },
+  {
+    "clave": "efecto.oclusion",
+    "texto": "Verdeckung"
+  },
+  {
+    "clave": "efecto.oclusion.desc",
+    "texto": "Kontaktschatten in Ecken und Kanten."
+  },
+  {
+    "clave": "efecto.bloom",
+    "texto": "Leuchten"
+  },
+  {
+    "clave": "efecto.bloom.desc",
+    "texto": "Leuchten von Lichtern und hellen Flächen."
+  },
+  {
+    "clave": "efecto.contornos",
+    "texto": "Konturen"
+  },
+  {
+    "clave": "efecto.contornos.desc",
+    "texto": "Cartoon-Linien an Silhouetten."
+  },
+  {
+    "clave": "efecto.toon",
+    "texto": "Cartoon-Schattierung"
+  },
+  {
+    "clave": "efecto.toon.desc",
+    "texto": "Flach gebändertes Licht (Cel-Shading)."
+  },
+  {
+    "clave": "efecto.miniatura",
+    "texto": "Miniatur"
+  },
+  {
+    "clave": "efecto.miniatura.desc",
+    "texto": "Tilt-Shift-Diorama-Unschärfe."
+  },
+  {
+    "clave": "efecto.pixelado",
+    "texto": "Pixelig"
+  },
+  {
+    "clave": "efecto.pixelado.desc",
+    "texto": "Grobe Pixel im Retro-Stil."
+  },
+  {
+    "clave": "efecto.byn",
+    "texto": "Schwarz-Weiß"
+  },
+  {
+    "clave": "efecto.byn.desc",
+    "texto": "Entfernt Farbe zu Graustufen."
+  },
+  {
+    "clave": "efecto.sepia",
+    "texto": "Sepia"
+  },
+  {
+    "clave": "efecto.sepia.desc",
+    "texto": "Warmer Alt-Foto-Ton."
+  },
+  {
+    "clave": "efecto.vineta",
+    "texto": "Vignette"
+  },
+  {
+    "clave": "efecto.vineta.desc",
+    "texto": "Verdunkelt die Ecken."
+  },
+  {
+    "clave": "efecto.grano",
+    "texto": "Filmkorn"
+  },
+  {
+    "clave": "efecto.grano.desc",
+    "texto": "Analoges Film-/TV-Rauschen."
+  },
+  {
+    "clave": "asignar.titulo",
+    "texto": "App zuweisen"
+  },
+  {
+    "clave": "cal.anio",
+    "texto": "Jahr"
+  },
+  {
+    "clave": "cal.armarMeta",
+    "texto": "Auswählen, um es im Kalender einzutragen"
+  },
+  {
+    "clave": "cal.cancelarTrazo",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "cal.cron.acercar",
+    "texto": "Vergrößern"
+  },
+  {
+    "clave": "cal.cron.alejar",
+    "texto": "Verkleinern"
+  },
+  {
+    "clave": "cal.cron.apagarRejilla",
+    "texto": "Raster ausblenden"
+  },
+  {
+    "clave": "cal.cron.encenderRejilla",
+    "texto": "Raster einblenden"
+  },
+  {
+    "clave": "cal.cron.nivel.dia",
+    "texto": "Tage"
+  },
+  {
+    "clave": "cal.cron.nivel.mes",
+    "texto": "Monate"
+  },
+  {
+    "clave": "cal.cron.nivel.semana",
+    "texto": "Wochen"
+  },
+  {
+    "clave": "cal.cron.nivel.anio",
+    "texto": "Jahre"
+  },
+  {
+    "clave": "cal.cron.ajustar",
+    "texto": "Anpassen"
+  },
+  {
+    "clave": "cal.cron.ajustarAncho",
+    "texto": "Ziehen, um die Breite der Liste anzupassen"
+  },
+  {
+    "clave": "cal.cron.ajustarAyuda",
+    "texto": "Alle Zeiträume einpassen"
+  },
+  {
+    "clave": "cal.cron.avance",
+    "texto": "{n}% erledigt"
+  },
+  {
+    "clave": "cal.cron.buscar",
+    "texto": "Suchen…"
+  },
+  {
+    "clave": "cal.cron.desplegarTodo",
+    "texto": "Alles ausklappen"
+  },
+  {
+    "clave": "cal.cron.hechas",
+    "texto": "Erledigt"
+  },
+  {
+    "clave": "cal.cron.ocultarHechas",
+    "texto": "Erledigte ausblenden"
+  },
+  {
+    "clave": "cal.cron.plegarTodo",
+    "texto": "Alles einklappen"
+  },
+  {
+    "clave": "cal.cron.resumen",
+    "texto": "Fasst den Zeitraum seiner Unterziele zusammen"
+  },
+  {
+    "clave": "cal.cron.sinResultados",
+    "texto": "Kein Ziel passt."
+  },
+  {
+    "clave": "cal.cron.trazar",
+    "texto": "Hierher ziehen, um ihm einen Zeitraum zu geben"
+  },
+  {
+    "clave": "cal.cron.vacio",
+    "texto": "Noch keine Ziele."
+  },
+  {
+    "clave": "cal.cron.vencida",
+    "texto": "Abgelaufen, ohne erledigt zu werden"
+  },
+  {
+    "clave": "cal.cronograma",
+    "texto": "Zeitplan"
+  },
+  {
+    "clave": "cal.dia",
+    "texto": "Tag"
+  },
+  {
+    "clave": "cal.editarEvento",
+    "texto": "Termin bearbeiten"
+  },
+  {
+    "clave": "cal.estirarAmbiguo",
+    "texto": "Dieser Tag hat mehrere Termine: Öffne den Monat, um einen zu dehnen"
+  },
+  {
+    "clave": "cal.estirarRepetir",
+    "texto": "Dehne es, um es an aufeinanderfolgenden Tagen zu wiederholen"
+  },
+  {
+    "clave": "cal.eventoSimple",
+    "texto": "Kalendertermin (ohne Checkliste)."
+  },
+  {
+    "clave": "cal.filtro.casa",
+    "texto": "Aus dem Haus"
+  },
+  {
+    "clave": "cal.filtro.titulo",
+    "texto": "Filtern"
+  },
+  {
+    "clave": "cal.filtro.todas",
+    "texto": "Alle"
+  },
+  {
+    "clave": "cal.filtro.otras",
+    "texto": "Andere"
+  },
+  {
+    "clave": "cal.filtro.carpetaSolo",
+    "texto": "Nur diesen Ordner anzeigen"
+  },
+  {
+    "clave": "cal.filtro.carpetaQuitar",
+    "texto": "Diesen Ordner aus dem Filter entfernen"
+  },
+  {
+    "clave": "cal.hoy",
+    "texto": "Heute"
+  },
+  {
+    "clave": "cal.met.faltan",
+    "texto": "Offen"
+  },
+  {
+    "clave": "cal.met.hechas",
+    "texto": "Erledigt"
+  },
+  {
+    "clave": "cal.met.nada",
+    "texto": "Nichts"
+  },
+  {
+    "clave": "cal.met.progreso",
+    "texto": "Fortschritt"
+  },
+  {
+    "clave": "cal.met.sem",
+    "texto": "KW {n}"
+  },
+  {
+    "clave": "cal.met.vacio",
+    "texto": "Nichts geplant in diesem Zeitraum."
+  },
+  {
+    "clave": "cal.marcarHecho",
+    "texto": "Als erledigt markieren"
+  },
+  {
+    "clave": "cal.mes",
+    "texto": "Monat"
+  },
+  {
+    "clave": "cal.meta.agregarHija",
+    "texto": "Ein Unterziel hinzufügen"
+  },
+  {
+    "clave": "cal.meta.alcance",
+    "texto": "Abgeschlossene Schritte und Unterziele"
+  },
+  {
+    "clave": "cal.meta.armarORenombrar",
+    "texto": "Klick: im Kalender eintragen · Doppelklick: umbenennen"
+  },
+  {
+    "clave": "cal.meta.colorDe",
+    "texto": "Farbe dieses Ziels"
+  },
+  {
+    "clave": "cal.meta.borrar",
+    "texto": "Dieses Ziel löschen?"
+  },
+  {
+    "clave": "cal.meta.borrarConHijas",
+    "texto": "Dieses Ziel und alle Unterziele löschen?"
+  },
+  {
+    "clave": "cal.meta.conHorario",
+    "texto": "Mit fester Uhrzeit?"
+  },
+  {
+    "clave": "cal.meta.conHorarioBoton",
+    "texto": "Mit Uhrzeit"
+  },
+  {
+    "clave": "cal.meta.cuentaAnios",
+    "texto": "{n} J"
+  },
+  {
+    "clave": "cal.meta.cuentaDias",
+    "texto": "{n} T"
+  },
+  {
+    "clave": "cal.meta.cuentaHoy",
+    "texto": "heute!"
+  },
+  {
+    "clave": "cal.meta.cuentaMeses",
+    "texto": "{n} M"
+  },
+  {
+    "clave": "cal.meta.cuentaTermino",
+    "texto": "Endete am {fecha}"
+  },
+  {
+    "clave": "cal.meta.cuentaTitulo",
+    "texto": "Countdown: endet am {fecha}"
+  },
+  {
+    "clave": "cal.meta.desde",
+    "texto": "Beginnt"
+  },
+  {
+    "clave": "cal.meta.desplegar",
+    "texto": "Ausklappen"
+  },
+  {
+    "clave": "cal.meta.detalle",
+    "texto": "Termine, Schritte und Notiz"
+  },
+  {
+    "clave": "cal.meta.duracion",
+    "texto": "Dauer in Minuten"
+  },
+  {
+    "clave": "cal.meta.etiquetaMeta",
+    "texto": "Ziel"
+  },
+  {
+    "clave": "cal.meta.etiquetaNota",
+    "texto": "Notiz"
+  },
+  {
+    "clave": "cal.meta.etiquetaPaso",
+    "texto": "Schritt"
+  },
+  {
+    "clave": "cal.meta.hasta",
+    "texto": "Endet"
+  },
+  {
+    "clave": "cal.meta.hora",
+    "texto": "Startzeit"
+  },
+  {
+    "clave": "cal.meta.min",
+    "texto": "min"
+  },
+  {
+    "clave": "cal.meta.nueva",
+    "texto": "Ziel"
+  },
+  {
+    "clave": "cal.meta.nuevaHija",
+    "texto": "Unterziel…"
+  },
+  {
+    "clave": "cal.meta.nuevaMetaPlaceholder",
+    "texto": "Neues Ziel…"
+  },
+  {
+    "clave": "cal.meta.pasoNuevo",
+    "texto": "Einen Schritt hinzufügen…"
+  },
+  {
+    "clave": "cal.meta.pasoRenombrar",
+    "texto": "Doppelklick, um den Schritt umzubenennen"
+  },
+  {
+    "clave": "cal.meta.pasos",
+    "texto": "Schritte dieses Ziels"
+  },
+  {
+    "clave": "cal.meta.plan",
+    "texto": "Plan"
+  },
+  {
+    "clave": "cal.meta.planEnCronograma",
+    "texto": "Seinen Plan im Zeitplan ansehen"
+  },
+  {
+    "clave": "cal.meta.planHoja",
+    "texto": "Die Tabelle seines Plans öffnen"
+  },
+  {
+    "clave": "cal.meta.plegar",
+    "texto": "Einklappen"
+  },
+  {
+    "clave": "cal.meta.ponerHora",
+    "texto": "Uhrzeit festlegen"
+  },
+  {
+    "clave": "cal.meta.prefijoSub",
+    "texto": "Unter"
+  },
+  {
+    "clave": "cal.meta.quitarFechas",
+    "texto": "Termine entfernen (zurück zur Liste)"
+  },
+  {
+    "clave": "cal.meta.sinFecha",
+    "texto": "ohne Datum"
+  },
+  {
+    "clave": "cal.meta.sinHorario",
+    "texto": "Ohne Uhrzeit"
+  },
+  {
+    "clave": "cal.meta.sufijoMeta",
+    "texto": "Ziel"
+  },
+  {
+    "clave": "cal.meta.tarde",
+    "texto": "überfällig"
+  },
+  {
+    "clave": "cal.meta.todoElDia",
+    "texto": "Ganztägig"
+  },
+  {
+    "clave": "cal.meta.verEnCronograma",
+    "texto": "Im Zeitplan ansehen"
+  },
+  {
+    "clave": "cal.metaPlaceholder",
+    "texto": "Ein Ziel hinzufügen…"
+  },
+  {
+    "clave": "cal.metas",
+    "texto": "Ziele"
+  },
+  {
+    "clave": "cal.plan.ia",
+    "texto": "Mit KI planen"
+  },
+  {
+    "clave": "cal.plan.titulo",
+    "texto": "„{meta}“ planen"
+  },
+  {
+    "clave": "cal.plan.desc",
+    "texto": "Sag mir, wie viel Zeit du hast, und die KI erstellt einen Zeitplan aus Unterzielen."
+  },
+  {
+    "clave": "cal.plan.fechaObjetivo",
+    "texto": "Zieldatum"
+  },
+  {
+    "clave": "cal.plan.fechas",
+    "texto": "Start- und Zieldatum"
+  },
+  {
+    "clave": "cal.plan.fechaInicio",
+    "texto": "Wann der Plan beginnt"
+  },
+  {
+    "clave": "cal.plan.fechasInvalidas",
+    "texto": "Das Zieldatum muss nach dem Start liegen."
+  },
+  {
+    "clave": "cal.plan.horasSemana",
+    "texto": "Stunden pro Woche"
+  },
+  {
+    "clave": "cal.plan.dias",
+    "texto": "Tage, die du dafür einplanen kannst"
+  },
+  {
+    "clave": "cal.plan.dia.0",
+    "texto": "So"
+  },
+  {
+    "clave": "cal.plan.dia.1",
+    "texto": "Mo"
+  },
+  {
+    "clave": "cal.plan.dia.2",
+    "texto": "Di"
+  },
+  {
+    "clave": "cal.plan.dia.3",
+    "texto": "Mi"
+  },
+  {
+    "clave": "cal.plan.dia.4",
+    "texto": "Do"
+  },
+  {
+    "clave": "cal.plan.dia.5",
+    "texto": "Fr"
+  },
+  {
+    "clave": "cal.plan.dia.6",
+    "texto": "Sa"
+  },
+  {
+    "clave": "cal.plan.nivel",
+    "texto": "Ausgangspunkt"
+  },
+  {
+    "clave": "cal.plan.nivel.cero",
+    "texto": "Bei null"
+  },
+  {
+    "clave": "cal.plan.nivel.algo",
+    "texto": "Grundkenntnisse"
+  },
+  {
+    "clave": "cal.plan.nivel.medio",
+    "texto": "Mittelstufe"
+  },
+  {
+    "clave": "cal.plan.nivel.avanzado",
+    "texto": "Fortgeschritten"
+  },
+  {
+    "clave": "cal.plan.generar",
+    "texto": "Plan erstellen"
+  },
+  {
+    "clave": "cal.plan.generando",
+    "texto": "Zeitplan wird erstellt…"
+  },
+  {
+    "clave": "cal.plan.fallo",
+    "texto": "Die KI konnte den Plan nicht erstellen. Versuch es erneut oder erstelle ihn von Hand."
+  },
+  {
+    "clave": "cal.plan.iaApagada",
+    "texto": "Die KI ist nicht verfügbar: Überprüfe deinen Schlüssel und deine Verbindung. In der Zwischenzeit kannst du den Plan von Hand erstellen."
+  },
+  {
+    "clave": "cal.plan.aMano",
+    "texto": "Von Hand erstellen"
+  },
+  {
+    "clave": "cal.plan.aMano.desc",
+    "texto": "Speichert den Plan leer, und du schreibst die Phasen selbst, ohne Credits zu verbrauchen."
+  },
+  {
+    "clave": "cal.plan.revisar",
+    "texto": "Das ist der Plan. Speichere ihn, um ihn in deinem Zeitplan zu sehen."
+  },
+  {
+    "clave": "cal.plan.guardar",
+    "texto": "Plan speichern"
+  },
+  {
+    "clave": "cal.plan.otraVez",
+    "texto": "Zurück"
+  },
+  {
+    "clave": "cal.plan.rutinas",
+    "texto": "Im Kalender einplanen"
+  },
+  {
+    "clave": "cal.plan.rutinas.desc",
+    "texto": "Die markierten werden beim Speichern des Plans mit ihrer Uhrzeit und ihren Tagen im Kalender eingeplant."
+  },
+  {
+    "clave": "cal.plan.rutinas.usar",
+    "texto": "Diese Routine einplanen"
+  },
+  {
+    "clave": "cal.metas.enTablero",
+    "texto": "Als Board ansehen"
+  },
+  {
+    "clave": "cal.metas.tableroDesc",
+    "texto": "Karten platzieren sich von selbst: Ein Ziel wechselt die Spalte, wenn sein Plan vorankommt, nicht durch Ziehen."
+  },
+  {
+    "clave": "cal.metas.columnaVacia",
+    "texto": "Nichts hier."
+  },
+  {
+    "clave": "cal.metaEnCarpeta",
+    "texto": "Neues Ziel in {carpeta}…"
+  },
+  {
+    "clave": "cal.metas.enOtraCarpeta",
+    "texto": "Ziel in einem anderen Ordner"
+  },
+  {
+    "clave": "cal.metas.tablero.agrupadas",
+    "texto": "Gruppiert"
+  }
+]

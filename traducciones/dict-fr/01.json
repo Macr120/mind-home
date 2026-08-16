@@ -1,0 +1,299 @@
+[
+  {
+    "clave": "corazon.gato.noche.1",
+    "en": "Quiet night. Don’t ruin it 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.0",
+    "en": "Hey, “{r}” is at {h}. I’m not moving 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.1",
+    "en": "“{r}” is coming up ({h}). You got this; I’ll supervise 🐱"
+  },
+  {
+    "clave": "corazon.gato.generica.0",
+    "en": "All under control. I checked while napping 🐾"
+  },
+  {
+    "clave": "corazon.gato.generica.1",
+    "en": "Hmm. The house still stands. You’re welcome 🐱"
+  },
+  {
+    "clave": "corazon.perro.manana.0",
+    "en": "Good morning! Today smells like a great day! 🐶"
+  },
+  {
+    "clave": "corazon.perro.manana.1",
+    "en": "It’s morning! Let’s go go go! 🦴"
+  },
+  {
+    "clave": "corazon.perro.tarde.0",
+    "en": "The perfect afternoon to get things done! Woof! 🐶"
+  },
+  {
+    "clave": "corazon.perro.tarde.1",
+    "en": "Still here, watching everything! 🎉"
+  },
+  {
+    "clave": "corazon.perro.noche.0",
+    "en": "What a great day we had! Right? Right? 🐶"
+  },
+  {
+    "clave": "corazon.perro.noche.1",
+    "en": "Quiet night… I’ll keep watch! 🦴"
+  },
+  {
+    "clave": "corazon.perro.rutina.0",
+    "en": "“{r}” at {h}! You can do it! 🎉"
+  },
+  {
+    "clave": "corazon.perro.rutina.1",
+    "en": "Don’t forget “{r}” at {h}! Woof! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.0",
+    "en": "I love this house! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.1",
+    "en": "Call me if you need anything! Anything! 🦴"
+  },
+  {
+    "clave": "corazon.buho.manana.0",
+    "en": "Dawn. Ideal for planning the day calmly. 🦉"
+  },
+  {
+    "clave": "corazon.buho.manana.1",
+    "en": "A tidy morning yields double."
+  },
+  {
+    "clave": "corazon.buho.tarde.0",
+    "en": "Midday: a good moment to review progress. 🦉"
+  },
+  {
+    "clave": "corazon.buho.tarde.1",
+    "en": "The afternoon proceeds as planned."
+  },
+  {
+    "clave": "corazon.buho.noche.0",
+    "en": "Night falls. I suggest closing the day with a note. 🦉"
+  },
+  {
+    "clave": "corazon.buho.noche.1",
+    "en": "Night invites reflection."
+  },
+  {
+    "clave": "corazon.buho.rutina.0",
+    "en": "Timely notice: “{r}” at {h}. 🦉"
+  },
+  {
+    "clave": "corazon.buho.rutina.1",
+    "en": "Your schedule lists “{r}” at {h}."
+  },
+  {
+    "clave": "corazon.buho.generica.0",
+    "en": "I observe and take note. All in order. 🦉"
+  },
+  {
+    "clave": "corazon.buho.generica.1",
+    "en": "Knowledge builds up day by day."
+  },
+  {
+    "clave": "corazon.robot.manana.0",
+    "en": "☀ DAY CYCLE STARTED. SYSTEMS AT 100%. 🤖"
+  },
+  {
+    "clave": "corazon.robot.manana.1",
+    "en": "GOOD MORNING. BATTERY FULL. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.0",
+    "en": "AFTERNOON SCAN COMPLETE. NO ANOMALIES. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.1",
+    "en": "PRODUCTIVITY WITHIN PARAMETERS. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.0",
+    "en": "NIGHT MODE ACTIVE. WATCH IN PROGRESS. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.1",
+    "en": "RECOMMENDATION: RECHARGE HUMAN UNIT (SLEEP). ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.0",
+    "en": "REMINDER: “{r}” SCHEDULED AT {h}. ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.1",
+    "en": "ALERT: “{r}” AT {h}. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.0",
+    "en": "ALL SYSTEMS NOMINAL. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.1",
+    "en": "AWAITING INSTRUCTIONS. NOT URGENT. ✓"
+  },
+  {
+    "clave": "chat.config.activoMapa",
+    "es": "El asistente activo siempre está en el mapa",
+    "en": "The active assistant is always on the map"
+  },
+  {
+    "clave": "chat.config.editar",
+    "es": "Personalizar",
+    "en": "Customize"
+  },
+  {
+    "clave": "chat.config.eliminar",
+    "es": "Eliminar asistente",
+    "en": "Remove assistant"
+  },
+  {
+    "clave": "chat.config.eliminarConfirma",
+    "es": "¿Eliminar a {n}? Sus conversaciones se quedan.",
+    "en": "Remove {n}? Their conversations stay."
+  },
+  {
+    "clave": "chat.config.eliminarOk",
+    "es": "Eliminar",
+    "en": "Remove"
+  },
+  {
+    "clave": "chat.config.eliminarUltimo",
+    "es": "Debe quedar al menos un asistente",
+    "en": "At least one assistant must remain"
+  },
+  {
+    "clave": "chat.config.restaurar",
+    "es": "Restaurar:",
+    "en": "Restore:"
+  },
+  {
+    "clave": "chat.config.restaurarUno",
+    "es": "Restaurar a",
+    "en": "Restore"
+  },
+  {
+    "clave": "acceso.subir",
+    "en": "Go up to level {n}"
+  },
+  {
+    "clave": "acceso.bajarPlanta",
+    "en": "Go down to ground floor"
+  },
+  {
+    "clave": "acceso.bajar",
+    "en": "Go down to level {n}"
+  },
+  {
+    "clave": "veh.ayuda",
+    "en": "Place a vehicle on the map and walk up to it to ride it."
+  },
+  {
+    "clave": "veh.colocar",
+    "en": "Place on the map"
+  },
+  {
+    "clave": "veh.color",
+    "en": "Vehicle color"
+  },
+  {
+    "clave": "veh.subirte",
+    "es": "Subirte",
+    "en": "Ride"
+  },
+  {
+    "clave": "veh.bajarte",
+    "es": "Bajarte",
+    "en": "Get off"
+  },
+  {
+    "clave": "accion.sentarte",
+    "es": "Sentarte",
+    "en": "Sit down"
+  },
+  {
+    "clave": "accion.acostarte",
+    "es": "Acostarte",
+    "en": "Lie down"
+  },
+  {
+    "clave": "accion.sentado",
+    "en": "Sitting"
+  },
+  {
+    "clave": "accion.acostado",
+    "en": "Lying down"
+  },
+  {
+    "clave": "accion.levantarte",
+    "es": "Levantarte",
+    "en": "Get up"
+  },
+  {
+    "clave": "veh.subir",
+    "es": "Ascender (Espacio)",
+    "en": "Ascend (Space)"
+  },
+  {
+    "clave": "veh.bajar",
+    "es": "Descender (Shift)",
+    "en": "Descend (Shift)"
+  },
+  {
+    "clave": "veh.derrape",
+    "es": "Derrape (Espacio)",
+    "en": "Drift (Space)"
+  },
+  {
+    "clave": "hud.ayuda",
+    "en": "Move with WASD/arrows or the pad (bottom left). Rotate and zoom with the buttons (bottom right). Walk through the doors between rooms."
+  },
+  {
+    "clave": "cat.cuerpo",
+    "en": "Body"
+  },
+  {
+    "clave": "cat.mente",
+    "en": "Mind"
+  },
+  {
+    "clave": "cat.complemento",
+    "en": "Extras"
+  },
+  {
+    "clave": "cat.config",
+    "en": "Settings"
+  },
+  {
+    "clave": "ajustes.titulo",
+    "es": "Ajustes",
+    "en": "Settings"
+  },
+  {
+    "clave": "ajustes.idioma.ja",
+    "en": "Japanese"
+  },
+  {
+    "clave": "ajustes.idioma.zh",
+    "en": "Chinese"
+  },
+  {
+    "clave": "ajustes.idioma.ko",
+    "en": "Korean"
+  },
+  {
+    "clave": "ajustes.idioma.ru",
+    "en": "Russian"
+  },
+  {
+    "clave": "ajustes.idioma.hi",
+    "en": "Hindi"
+  }
+]

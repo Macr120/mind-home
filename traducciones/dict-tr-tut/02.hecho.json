@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "İşte evin: her oda bir uygulama barındırır. Sana temel kontrolleri göstereyim."
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "Ana menü"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "Bu düğme menüyü açar: odaların, şablon (uygulama) kataloğu ve nesne envanteri."
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "Hareket etmek"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "Joystick’le, WASD ile ya da klavyenin ok tuşlarıyla yürü. Bir odanın kapısından geçtiğinde içeri girersin ve uygulaması kendiliğinden açılır."
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "Üç bakış biçimi"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "İzometrik, üçüncü ve birinci şahıs (ya da V tuşu). 3. / 1. şahısta ayrıca dünyayı içinde yürürken düzenlemeni sağlayan bir düğme çıkar."
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "Tek köşe, birkaç sahip"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "O köşe sadece bakış küpü değil: etkileşime girebileceğin bir şeye yaklaştığında —bir sandalye, bir araç, bir saha— yakınında ne varsa ona göre kendiliğinden değişir. Sen yaklaşmadan hiçbir şey çalışmaz."
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "Araç çarkı"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "Hareketler, Oyuncaklar, Araçlar ve İnşaat; aynı anda en fazla 3 tanesi kuşanılır. Buradan ya da elin boşken aynı köşedeki o yuvadan açılır."
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "Saat"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "Evin saati. Buradan tam takvim ve bugün sana kalanları gösteren Rutinler paneli açılır."
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "Evin müziği"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "Her odanın kendi parçası olabilir ya da evin genel atmosferi çalmaya devam edebilir. Sessizliği tercih edersen tamamen kapatılır."
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "Sohbet"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "Mimarın sohbeti: ne yaptığını anlat, doğru uygulamaya kaydetsin; ya da evde değişiklik iste."
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "Temeller bu kadar. Yukarıdaki Düzenleyici düğmesi kişiselleştirmenin tamamını açar; her menünün ve her uygulamanın da kendi ? düğmesi ve kendi eğitimi var."
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "İlk iş: ev nasıl kuruluyor. Her şey Odalar sekmesinde başlar."
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "Oda oluştur"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "Bu düğmeyle haritaya yeni odalar çizersin. Yolun geri kalanını göstermek için şimdi sana bir tane oluşturuyorum…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "Yeni odan"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "İşte burada! Yeni oluşturulmuş bir oda, henüz uygulaması yok: bu yüzden düğmesinde + Ata yazıyor."
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "Bir uygulama ata"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "+ Ata ile uygulamasını verdim: bak, oda adını, simgesini ve mobilyalarını nasıl aldı; düğmesinde de artık Gir yazıyor."
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "Gir"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "İçerideyiz: bu, odanın uygulaması. Dolaşırken de kapısından geçerek girersin ve ‹ Eve dön ile çıkarsın."
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "Oda, uygulaması hazır halde evinde kalır. Gerisi de böyle kurulur: burada tutmak istediğin her şey için bir oda."
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "Odalar sekmesi, evindeki bütün odaları kategorilerine göre gruplayarak listeler."
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "Senin özetin"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "Karakterin senin gerçek etkinliğinden beslenir: burada keyfini, seviyesini ve serisini görürsün. Herhangi bir uygulamaya bir şey kaydet, keyiflendiğini fark edersin; birkaç gün hiçbir şey olmazsa üzülür — ama seni asla cezalandırmaz, hiçbir şey sıfırlanmaz."
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "Kartlar"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "Her kart bir odadır: simgesi, adı ve uygulamasının ilerlemesi; Beden, Zihin, Ekstralar ve Ayarlar altında gruplanır. Uygulaması atanmamış odalar en sonda kalır."
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "Düzenle"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "Düzenle, odanın düzenleyicisini açar: biçim, renkler, duvarlar ve nesneler. (Şimdi basma: bu menüyü kapatır.)"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "Gir ve Ata"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "Gir, odanın uygulamasını açar. Bir odanın henüz uygulaması yoksa, onun yerinde + Ata görürsün: katalogdan birini seçmen için."
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "Oda oluştur"
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "这一行的按钮会把真实的数据记进应用——一杯水、一顿饭——步骤被划掉，是因为这条记录已经在那里了，而不是因为谁勾了它。已经完成后再按也不会重复：按钮会消失。"
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "你每天的数字"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "可以调数字的步骤，就在这里改。设为0会关掉当天的目标，之前几天的历史不会被删掉。"
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "从目标到日常安排"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "日历会把同一个目标安排到固定时间：它打开的是和时钟里日常安排一样的编辑器，所以两边会同时记上。"
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "完成的不会消失"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "它会落到收起的“已完成”里：看着记录生效本身就是奖励的一部分，万一多记了一条，也可以从那里撤销。"
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "你的角色卡：Pep身后有整整一年的真实活动，所以这里的每个数字背后都有一个真实的故事。"
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "角色"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "点一下会打开角色编辑器。它的心情——开心、满足、难过或睡着——每记录一次就上升，只有连着几天没有记录才会下降；不会一下子清零。"
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "西西弗斯的段位"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "攀登共十二个段位：有活动的每一天，就在365级里向上爬一级。Pep已经拿下好几个段位了；点一下就能看到整座山。"
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "级数与宽限天数"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "每7级得到一枚徽章，每隔几周提升一次段位。漏掉一天不会毁掉什么：每月有2天宽限期，用完了才会退回当前段位的起点。"
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "按家族分的52枚徽章"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "按地质家族分组，拿到之前都是谜：解锁前看不到名字，也看不到说明。"
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "你的回顾"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped会把你一周、一个月或一年的回顾做成一幅幅画面——它有自己的教程，像Pep这样的一年，数据多得很。"
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "各房间的雷达图"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "每个顶点是家里的一个房间，大小是分配给它的应用的XP总和。哪个房间没有活动一眼就看得出来：它的顶点会向中心塌下去。"
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "像看动态一样：点右边前进，点左边后退，长按可以停在某一幅画面上。"
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "周、月或年"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "每一种都用自己的数据组成自己的画面——Pep的年度回顾最长，里面有整整一年最高和最低的时刻。"
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "在各个周期之间移动"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "用 ‹ › 箭头翻看已经结束的周期：不能跳到今天之后，所以比较的永远是真实发生过的事。"
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "分享一幅画面"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "会复制你正在看的那幅画面的文字，随手粘到哪里都行——不用截图。"
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "打开它的按钮旁边有个小点，提示有新的回顾还没看；打开之后小点就灭了。"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "这里是Pep的庇护所：一边是围栏，另一边是养活它们的菜园。我们去地块看看。"
+  }
+]

@@ -1,0 +1,152 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "es": "Enlazar app abre el selector: primero eliges la app, luego a qué parte de ella (si tiene varias secciones donde registrar).",
+    "en": "Link app opens the selector: first you pick the app, then which part of it, if it has more than one place to log."
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "es": "El chip ya puesto",
+    "en": "The chip once it's set"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "es": "Con el chip puesto, tocarlo abre esa app directo en esa sección. Quitarlo no borra la meta ni sus fechas: solo suelta el enlace.",
+    "en": "With the chip in place, tapping it opens that app straight to that section. Removing it doesn't delete the goal or its dates: it just drops the link."
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "es": "Solo las apps asignadas a un objeto de un cuarto aparecen como destino: enlazar a una sin cuarto sería un chip que no lleva a ningún sitio.",
+    "en": "Only apps assigned to an object in a room show up as a destination: linking to one with no room would be a chip that leads nowhere."
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "es": "Este botón abre el control de música de la casa.",
+    "en": "This button opens the home's music control."
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "es": "Encender o apagar",
+    "en": "On or off"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "es": "Un interruptor para toda la música ambiental de la casa. Apagado, la casa queda en silencio salvo los sonidos de acciones concretas.",
+    "en": "One switch for all the home's ambient music. Off, the home stays silent except for the sounds of specific actions."
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "es": "Tema por cuarto",
+    "en": "Theme per room"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "es": "Cada cuarto puede sonar distinto: automático según su app, uno elegido a mano, o silencio total en ese cuarto sin tocar el resto de la casa.",
+    "en": "Each room can sound different: automatic based on its app, one you pick by hand, or total silence in that room without touching the rest of the home."
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "es": "De dónde sale el sonido",
+    "en": "Where the sound comes from"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "es": "Generada (compone sola según el ambiente), Mis pistas (lo que tú subiste) o Sistema (lo que ya estés reproduciendo fuera de la app, sin que se pise).",
+    "en": "Generated (composes on its own to match the mood), My tracks (whatever you uploaded) or System (whatever you're already playing outside the app, without being overridden)."
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "es": "Volúmenes por separado",
+    "en": "Separate volumes"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "es": "La música y los sonidos de acciones (pasos, clics, logros) se ajustan por separado — puedes bajar la música y dejar los efectos, o al revés.",
+    "en": "Music and action sounds (footsteps, clicks, achievements) adjust separately — you can lower the music and keep the effects, or the other way around."
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "es": "El botón del HUD se puede quitar de la pantalla principal; sigue disponible en Editor › Configuraciones › Música.",
+    "en": "The HUD button can be removed from the main screen; it's still available in Editor › Settings › Music."
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "es": "Aquí se enciende la IA de la casa: sin esto, el chat sigue funcionando por palabras clave, y funciones como generar una receta, un plan o una imagen quedan apagadas.",
+    "en": "This is where the home's AI turns on: without it, the chat still works by keyword, and features like generating a recipe, a plan or an image stay off."
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "es": "Con o sin cuenta",
+    "en": "With or without an account"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "es": "Puedes usar la IA con tu propia clave de proveedor (sin cuenta, sin créditos) o con una cuenta que trae créditos y sincroniza entre dispositivos.",
+    "en": "You can use AI with your own provider key (no account, no credits) or with an account that comes with credits and syncs across devices."
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "es": "Precios de la IA",
+    "en": "AI pricing"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "es": "Esta tabla es informativa aunque no tengas cuenta: es justo lo que hace falta para decidir si vale la pena. Se ve por cuarto, operación por operación.",
+    "en": "This table is informative even without an account: it's exactly what you need to decide if it's worth it. Shown room by room, operation by operation."
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "es": "La única palanca",
+    "en": "The one lever"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "es": "La calidad de imagen es lo único que cambia el precio de la tabla entera: Rápida es buena y barata (la que se usa por defecto); Buena da más detalle y mejor texto dentro de la imagen.",
+    "en": "Image quality is the only thing that changes the whole table's pricing: Fast is good and cheap (the default); Good gives more detail and better text inside the image."
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "es": "Una unidad, muchas operaciones",
+    "en": "One unit, many operations"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "es": "Una respuesta cuesta 1 crédito, un plan largo 3, una imagen o un modelo 3D 10 — la regla es la misma para todos los cuartos, esta tabla solo la despliega una por una.",
+    "en": "A reply costs 1 credit, a long plan 3, an image or a 3D model 10 — the rule is the same across every room, this table just unpacks it one by one."
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "es": "Esta barra aparece en casi todas las apps cuando aún no tienen datos tuyos: un botón para verla llena de ejemplo, en vez de empezar frente a una pantalla vacía.",
+    "en": "This bar shows up in almost every app while it still has none of your own data: a button to see it full of example content instead of starting on an empty screen."
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "es": "Ver un ejemplo no borra ni mezcla nada tuyo: son filas propias, marcadas como ejemplo, que se ocultan (no se borran) al apagarlo. Volver a encenderlo las trae de vuelta tal cual estaban.",
+    "en": "Viewing an example doesn't delete or mix in anything of yours: it's its own rows, marked as example, hidden (not deleted) when you turn it off. Turning it back on brings them back exactly as they were."
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "es": "Dentro de la casa demo esta barra no aparece: el año entero de Pep@ ya cumple ese papel, así que no hace falta un ejemplo aparte.",
+    "en": "Inside the demo home this bar doesn't appear: Pep@'s whole year already plays that role, so there's no need for a separate example."
+  },
+  {
+    "clave": "tut.hoy.1.texto",
+    "es": "Bajo el encabezado de cada app vive su lista Hoy: nace plegada, con el resumen del día en una sola línea para no comerse la pantalla.",
+    "en": "Under every app's header lives its Today list: it's born collapsed, with the day's summary in a single line so it doesn't eat up the screen."
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "es": "Tres fuentes, una lista",
+    "en": "Three sources, one list"
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "es": "Los objetivos propios de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo aparece junto, ordenado por hora.",
+    "en": "The app's own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: it all shows up together, sorted by time."
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "es": "Se tacha porque el dato existe",
+    "en": "It crosses off because the data exists"
+  }
+]

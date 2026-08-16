@@ -1,0 +1,789 @@
+[
+  {
+    "clave": "nav3d.vistaIso",
+    "es": "Vista isométrica",
+    "en": "Isometric view"
+  },
+  {
+    "clave": "nav3d.vistaIsoCorta",
+    "es": "Iso",
+    "en": "Iso"
+  },
+  {
+    "clave": "nav3d.vistaPrimera",
+    "es": "Primera persona",
+    "en": "First person"
+  },
+  {
+    "clave": "nav3d.vistaTercera",
+    "es": "Tercera persona",
+    "en": "Third person"
+  },
+  {
+    "clave": "paredes.alto",
+    "es": "Altura",
+    "en": "Height"
+  },
+  {
+    "clave": "paredes.altoGen",
+    "es": "Alto",
+    "en": "Height"
+  },
+  {
+    "clave": "paredes.altoPuerta",
+    "es": "Alto",
+    "en": "Door height"
+  },
+  {
+    "clave": "paredes.altoTodos",
+    "es": "Aplicar a todas las paredes del cuarto",
+    "en": "Apply to all walls of the room"
+  },
+  {
+    "clave": "paredes.anchoGen",
+    "es": "Ancho",
+    "en": "Width"
+  },
+  {
+    "clave": "paredes.anchoVano",
+    "es": "Ancho",
+    "en": "Opening width"
+  },
+  {
+    "clave": "paredes.borrar",
+    "es": "Borrar imagen",
+    "en": "Delete image"
+  },
+  {
+    "clave": "paredes.cambiar",
+    "es": "Cambiar",
+    "en": "Change"
+  },
+  {
+    "clave": "paredes.cambiarFoto",
+    "es": "Cambiar la foto",
+    "en": "Change the photo"
+  },
+  {
+    "clave": "paredes.caraExterior",
+    "es": "Cara exterior",
+    "en": "Outer face"
+  },
+  {
+    "clave": "paredes.imagenPuerta",
+    "es": "Imagen de la puerta",
+    "en": "Door image"
+  },
+  {
+    "clave": "paredes.quitarImagenPuerta",
+    "es": "Quitar la imagen",
+    "en": "Remove the image"
+  },
+  {
+    "clave": "paredes.imagenPuertaAyuda",
+    "es": "Viste la hoja de la puerta (recta, doble o corredera). El portón de láminas conserva su color.",
+    "en": "It dresses the door leaf (single, double or sliding). Slatted gates keep their colour."
+  },
+  {
+    "clave": "paredes.caraInterior",
+    "es": "Cara interior",
+    "en": "Inner face"
+  },
+  {
+    "clave": "paredes.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "paredes.cont.cuadro",
+    "en": "Picture"
+  },
+  {
+    "clave": "paredes.cont.espejo",
+    "en": "Mirror"
+  },
+  {
+    "clave": "paredes.cont.ventana",
+    "en": "Window"
+  },
+  {
+    "clave": "paredes.cristal",
+    "es": "Cristal",
+    "en": "Glass"
+  },
+  {
+    "clave": "paredes.espejoNota",
+    "es": "La luna refleja en tiempo real lo que tiene enfrente.",
+    "en": "The glass reflects whatever is in front of it in real time."
+  },
+  {
+    "clave": "paredes.fotoAyuda",
+    "es": "La foto llena la forma del marco en la cara elegida del muro.",
+    "en": "The photo fills the frame shape on the chosen face of the wall."
+  },
+  {
+    "clave": "paredes.fotoCuadro",
+    "es": "Foto",
+    "en": "Photo"
+  },
+  {
+    "clave": "paredes.desactivar",
+    "es": "Desactivar",
+    "en": "Disable"
+  },
+  {
+    "clave": "paredes.editando",
+    "es": "Editando",
+    "en": "Editing"
+  },
+  {
+    "clave": "paredes.editarBorde",
+    "es": "Editar este borde",
+    "en": "Edit this edge"
+  },
+  {
+    "clave": "paredes.forma.arco",
+    "en": "Arch"
+  },
+  {
+    "clave": "paredes.forma.recta",
+    "en": "Straight"
+  },
+  {
+    "clave": "paredes.forma.triangulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "paredes.formaAlto",
+    "es": "Alto del arco",
+    "en": "Arch height"
+  },
+  {
+    "clave": "paredes.formaAltoPico",
+    "es": "Alto del pico",
+    "en": "Peak height"
+  },
+  {
+    "clave": "paredes.formaAncho",
+    "es": "Ancho",
+    "en": "Width"
+  },
+  {
+    "clave": "paredes.formaDividir",
+    "es": "Color propio en la silueta",
+    "en": "Split into two bodies (own texture)"
+  },
+  {
+    "clave": "paredes.formaPosX",
+    "es": "Posición del pico",
+    "en": "Peak position"
+  },
+  {
+    "clave": "paredes.formaVano",
+    "es": "Forma del vano",
+    "en": "Opening shape"
+  },
+  {
+    "clave": "paredes.formas",
+    "es": "Forma",
+    "en": "Parametric shapes"
+  },
+  {
+    "clave": "paredes.imagen",
+    "es": "Imagen de fondo",
+    "en": "Background image"
+  },
+  {
+    "clave": "paredes.mosaico",
+    "es": "Mosaico",
+    "en": "Tiling"
+  },
+  {
+    "clave": "paredes.multicolor",
+    "es": "Multicolor",
+    "en": "Multicolor"
+  },
+  {
+    "clave": "paredes.posXPuerta",
+    "es": "Posición horizontal",
+    "en": "Horizontal position"
+  },
+  {
+    "clave": "paredes.quitarCuadro",
+    "es": "Quitar el cuadro",
+    "en": "Remove the picture"
+  },
+  {
+    "clave": "paredes.quitarEspejo",
+    "es": "Quitar el espejo",
+    "en": "Remove the mirror"
+  },
+  {
+    "clave": "paredes.quitarFoto",
+    "es": "Quitar la foto",
+    "en": "Remove the photo"
+  },
+  {
+    "clave": "paredes.quitarPuerta",
+    "es": "Quitar la puerta (dejar muro)",
+    "en": "Remove the door (leave wall)"
+  },
+  {
+    "clave": "paredes.quitarVentana",
+    "es": "Quitar la ventana",
+    "en": "Remove the window"
+  },
+  {
+    "clave": "paredes.subirFoto",
+    "es": "Subir una foto",
+    "en": "Upload a photo"
+  },
+  {
+    "clave": "paredes.subirImagen",
+    "es": "Subir imagen",
+    "en": "Upload image"
+  },
+  {
+    "clave": "paredes.textura",
+    "es": "Textura",
+    "en": "Texture"
+  },
+  {
+    "clave": "paredes.tocaBordeModo",
+    "es": "Toca un borde para editarlo como",
+    "en": "Tap an edge to edit it as"
+  },
+  {
+    "clave": "paredes.usarImagen",
+    "es": "Usar imagen",
+    "en": "Use image"
+  },
+  {
+    "clave": "paredes.ventAlto",
+    "es": "Alto",
+    "en": "Window height"
+  },
+  {
+    "clave": "paredes.ventAncho",
+    "es": "Ancho",
+    "en": "Window width"
+  },
+  {
+    "clave": "paredes.ventForma.cuadrado",
+    "en": "Square"
+  },
+  {
+    "clave": "paredes.ventForma.circulo",
+    "en": "Circle"
+  },
+  {
+    "clave": "paredes.ventForma.triangulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "paredes.ventRot",
+    "en": "Rotation"
+  },
+  {
+    "clave": "paredes.ventPosX",
+    "es": "Posición horizontal",
+    "en": "Horizontal position"
+  },
+  {
+    "clave": "paredes.ventPosY",
+    "es": "Posición vertical",
+    "en": "Vertical position"
+  },
+  {
+    "clave": "paredes.ventana",
+    "es": "Ventana",
+    "en": "Window"
+  },
+  {
+    "clave": "plano.controles",
+    "es": "Rueda: zoom · Shift/Alt + arrastrar: mover · Doble clic en margen: encajar",
+    "en": "Wheel: zoom · Shift/Alt + drag: pan · Double-click the margin: fit"
+  },
+  {
+    "clave": "planos.arista",
+    "es": "Arista",
+    "en": "Edge"
+  },
+  {
+    "clave": "planos.celdasPiso",
+    "es": "loseta de piso",
+    "en": "floor tile"
+  },
+  {
+    "clave": "planos.confirmarNombre",
+    "es": "Confirmar nombre",
+    "en": "Confirm name"
+  },
+  {
+    "clave": "planos.detalle.celda",
+    "es": "Celdas normales",
+    "en": "Normal cells"
+  },
+  {
+    "clave": "planos.detalle.subcelda",
+    "es": "Celdas finas (½)",
+    "en": "Fine cells (½)"
+  },
+  {
+    "clave": "planos.eliminarCuarto",
+    "es": "Eliminar cuarto",
+    "en": "Delete room"
+  },
+  {
+    "clave": "planos.grupo.interiorDesc",
+    "es": "{cuartos} cuartos · {zonas} básicos · Nivel {n}",
+    "en": "{cuartos} rooms · {zonas} basic · Level {n}"
+  },
+  {
+    "clave": "planos.grupo.interiorVacio",
+    "es": "No hay pisos interiores en este nivel",
+    "en": "No interior floors on this level"
+  },
+  {
+    "clave": "planos.moverZonaHint",
+    "es": "Arrastra el cuarto en el plano para moverlo.",
+    "en": "Drag the room on the plan to move it."
+  },
+  {
+    "clave": "planos.nombrarHint",
+    "es": "El cuarto ya tiene paredes, piso y techo genéricos. Elige un nombre para identificarlo.",
+    "en": "The room already has generic walls, floor and roof. Pick a name to identify it."
+  },
+  {
+    "clave": "planos.nombrarTitulo",
+    "es": "Nombra tu cuarto",
+    "en": "Name your room"
+  },
+  {
+    "clave": "planos.paredesHint",
+    "es": "Toca una pared en el croquis o en el mapa 3D para ponerle muro, puerta o ventana.",
+    "en": "Tap a wall on the sketch or the 3D map to add a wall, door or window."
+  },
+  {
+    "clave": "planos.pisosHint",
+    "es": "Selecciona cuartos o marca varias celdas exteriores (clic repetido). Elige textura y color en el panel.",
+    "en": "Select rooms or mark several exterior cells (repeated click). Pick texture and color in the panel."
+  },
+  {
+    "clave": "planos.preview.mostrar",
+    "es": "Mostrar previsualización 3D",
+    "en": "Show 3D preview"
+  },
+  {
+    "clave": "planos.preview.ocultar",
+    "es": "Ocultar previsualización 3D",
+    "en": "Hide 3D preview"
+  },
+  {
+    "clave": "planos.props.paredesZona",
+    "es": "Edita la arista del cuarto básico.",
+    "en": "Edit the basic room's edge."
+  },
+  {
+    "clave": "plantillaCustom.arrastrarGrupo",
+    "es": "Arrastrar para reordenar",
+    "en": "Drag to reorder"
+  },
+  {
+    "clave": "plantillaCustom.borrarGrupo",
+    "es": "Borrar carpeta",
+    "en": "Delete folder"
+  },
+  {
+    "clave": "plantillaCustom.borrarGrupoConfirm",
+    "es": "¿Borrar esta carpeta? Sus plantillas pasan a la primera.",
+    "en": "Delete this folder? Its templates move to the first one."
+  },
+  {
+    "clave": "plantillaCustom.desplegarGrupo",
+    "es": "Desplegar carpeta",
+    "en": "Expand folder"
+  },
+  {
+    "clave": "plantillaCustom.enUsoTag",
+    "es": "en uso",
+    "en": "in use"
+  },
+  {
+    "clave": "plantillaCustom.grupo",
+    "es": "Grupo",
+    "en": "Group"
+  },
+  {
+    "clave": "plantillaCustom.grupoVacio",
+    "es": "Carpeta vacía · arrastra plantillas aquí",
+    "en": "Empty folder · drag templates here"
+  },
+  {
+    "clave": "plantillaCustom.nuevoGrupo",
+    "es": "Nuevo grupo",
+    "en": "New group"
+  },
+  {
+    "clave": "plantillaCustom.nuevoGrupoNombre",
+    "es": "Nuevo grupo",
+    "en": "New group"
+  },
+  {
+    "clave": "plantillaCustom.plegarGrupo",
+    "es": "Plegar carpeta",
+    "en": "Collapse folder"
+  },
+  {
+    "clave": "plantillaCustom.renombrarGrupo",
+    "es": "Renombrar carpeta",
+    "en": "Rename folder"
+  },
+  {
+    "clave": "plantillaCustom.unidadPh",
+    "es": "kg, $, págs…",
+    "en": "kg, $, pages…"
+  },
+  {
+    "clave": "preview.girar",
+    "es": "Arrastra para girar · rueda para acercar",
+    "en": "Drag to rotate · wheel to zoom"
+  },
+  {
+    "clave": "preview.tocarEditar",
+    "es": "Toca una parte para editarla · arrastra para girar",
+    "en": "Tap a part to edit it · drag to rotate"
+  },
+  {
+    "clave": "preview.fondoClaro",
+    "es": "Fondo claro",
+    "en": "Light background"
+  },
+  {
+    "clave": "preview.fondoOscuro",
+    "es": "Fondo oscuro",
+    "en": "Dark background"
+  },
+  {
+    "clave": "preview.techo",
+    "es": "Mostrar/ocultar techo",
+    "en": "Show/hide roof"
+  },
+  {
+    "clave": "preview.techoOff",
+    "es": "Sin techo",
+    "en": "No roof"
+  },
+  {
+    "clave": "preview.techoOn",
+    "es": "Techo",
+    "en": "Roof"
+  },
+  {
+    "clave": "preview.objetos",
+    "es": "Mostrar/ocultar objetos",
+    "en": "Show/hide objects"
+  },
+  {
+    "clave": "preview.objetosOff",
+    "es": "Sin objetos",
+    "en": "No objects"
+  },
+  {
+    "clave": "preview.objetosOn",
+    "es": "Objetos",
+    "en": "Objects"
+  },
+  {
+    "clave": "preview.moverObjetos",
+    "es": "Mover objetos en el mapa",
+    "en": "Move objects on the map"
+  },
+  {
+    "clave": "mover.adelante",
+    "es": "Mover hacia adelante",
+    "en": "Move forward"
+  },
+  {
+    "clave": "mover.atras",
+    "es": "Mover hacia atrás",
+    "en": "Move backward"
+  },
+  {
+    "clave": "mover.izquierda",
+    "es": "Mover a la izquierda",
+    "en": "Move left"
+  },
+  {
+    "clave": "mover.derecha",
+    "es": "Mover a la derecha",
+    "en": "Move right"
+  },
+  {
+    "clave": "progreso.nv",
+    "es": "Nv",
+    "en": "Lv"
+  },
+  {
+    "clave": "prop.restablecer",
+    "es": "Restablecer",
+    "en": "Reset"
+  },
+  {
+    "clave": "respaldo.ahora",
+    "es": "Respaldar",
+    "en": "Back up"
+  },
+  {
+    "clave": "respaldo.aviso",
+    "en": "Your last backup was ${n} days ago."
+  },
+  {
+    "clave": "respaldo.luego",
+    "es": "Recordar en una semana",
+    "en": "Remind me in a week"
+  },
+  {
+    "clave": "rot.der",
+    "en": "Rotate 90° right"
+  },
+  {
+    "clave": "rot.izq",
+    "en": "Rotate 90° left"
+  },
+  {
+    "clave": "rutinas.activar",
+    "es": "Activar",
+    "en": "Activate"
+  },
+  {
+    "clave": "rutinas.agregarPaso",
+    "es": "Agregar paso",
+    "en": "Add step"
+  },
+  {
+    "clave": "rutinas.autoRegistro",
+    "es": "Registra automáticamente en el cuarto",
+    "en": "Logs automatically in the room"
+  },
+  {
+    "clave": "rutinas.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "rutinas.confirmarBorrar",
+    "es": "¿Borrar este evento?",
+    "en": "Delete this event?"
+  },
+  {
+    "clave": "rutinas.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "rutinas.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "rutinas.completada",
+    "es": "¡Rutina completada!",
+    "en": "Routine completed!"
+  },
+  {
+    "clave": "rutinas.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "rutinas.eventoSimple",
+    "es": "Evento del calendario.",
+    "en": "Calendar event."
+  },
+  {
+    "clave": "rutinas.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "rutinas.hoy",
+    "es": "Hoy",
+    "en": "Today"
+  },
+  {
+    "clave": "rutinas.nombre",
+    "es": "Nombre de la rutina/evento",
+    "en": "Routine/event name"
+  },
+  {
+    "clave": "rutinas.nueva",
+    "es": "Nueva",
+    "en": "New"
+  },
+  {
+    "clave": "rutinas.pasoPh",
+    "es": "Qué hacer…",
+    "en": "What to do…"
+  },
+  {
+    "clave": "rutinas.pasos",
+    "es": "pasos",
+    "en": "steps"
+  },
+  {
+    "clave": "rutinas.pasosOpcional",
+    "es": "opcional",
+    "en": "optional"
+  },
+  {
+    "clave": "rutinas.pasosTitulo",
+    "es": "Pasos",
+    "en": "Steps"
+  },
+  {
+    "clave": "rutinas.pausar",
+    "es": "Pausar",
+    "en": "Pause"
+  },
+  {
+    "clave": "rutinas.rep.hintIndefinido",
+    "es": "Sin días marcados = todos los días, sin fecha de fin.",
+    "en": "No days marked = every day, with no end date."
+  },
+  {
+    "clave": "rutinas.rep.hintSemanal",
+    "es": "Se repite cada semana en los días marcados.",
+    "en": "Repeats every week on the marked days."
+  },
+  {
+    "clave": "rutinas.rep.sinFin",
+    "es": "Sin fecha de fin",
+    "en": "No end date"
+  },
+  {
+    "clave": "rutinas.rep.soloTrazo",
+    "es": "se agendó trazándola en el calendario; vuelve a trazarla para cambiar las fechas",
+    "en": "scheduled by drawing it on the calendar; draw it again to change the dates"
+  },
+  {
+    "clave": "rutinas.rep.termina",
+    "es": "Termina el",
+    "en": "Ends on"
+  },
+  {
+    "clave": "rutinas.rep.titulo",
+    "es": "Repetición",
+    "en": "Repetition"
+  },
+  {
+    "clave": "rutinas.sinHora",
+    "es": "sin hora",
+    "en": "no time"
+  },
+  {
+    "clave": "rutinas.titulo",
+    "es": "Rutinas",
+    "en": "Routines"
+  },
+  {
+    "clave": "rutinas.todas",
+    "es": "Todas las rutinas",
+    "en": "All routines"
+  },
+  {
+    "clave": "rutinas.vacio",
+    "es": "Aún no hay rutinas. Crea una con «+ Nueva» o pídesela a tu asistente: «créame una rutina de mañana con agua, estiramiento y gratitud».",
+    "en": "No routines yet. Create one with “+ New” or ask your assistant: “create me a morning routine with water, stretching and gratitude”."
+  },
+  {
+    "clave": "ui.sinApp",
+    "es": "Este cuarto no tiene ninguna app asignada.",
+    "en": "This room has no app assigned."
+  },
+  {
+    "clave": "ui.sinAppAyuda",
+    "es": "Edita el cuarto y asigna una app a un objeto.",
+    "en": "Edit the room and assign an app to an object."
+  },
+  {
+    "clave": "ui.volverApps",
+    "es": "‹ Apps del cuarto",
+    "en": "‹ Room apps"
+  },
+  {
+    "clave": "mascota.mago.nombre",
+    "es": "Mago",
+    "en": "Wizard"
+  },
+  {
+    "clave": "mascota.gato.nombre",
+    "en": "Cat"
+  },
+  {
+    "clave": "mascota.perro.nombre",
+    "en": "Dog"
+  },
+  {
+    "clave": "mascota.buho.nombre",
+    "en": "Owl"
+  },
+  {
+    "clave": "mascota.robot.nombre",
+    "en": "Robot"
+  },
+  {
+    "clave": "mascota.mago.saludo",
+    "en": "I'm your arcane architect. Tell me what you did and I shall inscribe it ✨"
+  },
+  {
+    "clave": "mascota.gato.saludo",
+    "en": "Meow. Tell me your stuff and I'll see where it goes 🐾"
+  },
+  {
+    "clave": "mascota.perro.saludo",
+    "en": "Woof! Tell me what you did and I'll save it right away! 🦴"
+  },
+  {
+    "clave": "mascota.buho.saludo",
+    "en": "Wise and attentive. Recount your day and I shall organize it."
+  },
+  {
+    "clave": "mascota.robot.saludo",
+    "en": "System ready. Enter a record to process."
+  },
+  {
+    "clave": "mascota.bitacora",
+    "es": "la bitácora",
+    "en": "the log"
+  },
+  {
+    "clave": "mascota.elObjeto",
+    "es": "el objeto",
+    "en": "the object"
+  },
+  {
+    "clave": "mascota.mago.capturado.0",
+    "en": "✨ Done. I've inscribed the record in {c}."
+  },
+  {
+    "clave": "mascota.mago.capturado.1",
+    "en": "So it shall be: noted in {c} in detail ✨"
+  },
+  {
+    "clave": "mascota.mago.clasificado.0",
+    "en": "📜 I've stored your scroll in the {c} log."
+  },
+  {
+    "clave": "mascota.mago.clasificado.1",
+    "en": "I left it resting in {c}."
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.0",
+    "en": "I have saved it, but I know not which chamber it belongs to… will you guide me? 🔮"
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.1",
+    "en": "Unclassified for now. Which room shall I take it to?"
+  }
+]

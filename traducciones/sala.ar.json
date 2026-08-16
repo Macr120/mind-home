@@ -1,0 +1,642 @@
+[
+  {
+    "ruta": "itinerarioJapon.0.inicio",
+    "texto": "مدينة مكسيكو · مطار AICM"
+  },
+  {
+    "ruta": "itinerarioJapon.0.destino",
+    "texto": "طوكيو · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.0.hospedaje",
+    "texto": "Hostal Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.0.actividades",
+    "texto": "وصلتُ بعد أربع عشرة ساعة طيران، تركتُ الحقيبة وخرجتُ أمشي حتى معبد Sensō-ji شبه الخالي في الحادية عشرة ليلاً. تناولتُ عشائي، أونيغيري من الكونبيني، جلوسًا على درج مدخل النُّزل."
+  },
+  {
+    "ruta": "itinerarioJapon.0.transporte",
+    "texto": "رحلة AICM–Narita مع توقف + Keisei Skyliner"
+  },
+  {
+    "ruta": "itinerarioJapon.1.inicio",
+    "texto": "طوكيو · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.1.destino",
+    "texto": "طوكيو · Asakusa وUeno"
+  },
+  {
+    "ruta": "itinerarioJapon.1.hospedaje",
+    "texto": "Hostal Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.1.actividades",
+    "texto": "عدتُ إلى المعبد في السابعة، حين كانوا لا يزالون يكنسون الفناء، وتهتُ في سوق Ameyoko بحثًا عن بطاريات للكاميرا. بعد الظهر جلستُ ساعتين في حديقة Ueno أكتب، وفارق التوقيت يثقل عليّ."
+  },
+  {
+    "ruta": "itinerarioJapon.1.transporte",
+    "texto": "سيرًا على الأقدام + مترو Ginza"
+  },
+  {
+    "ruta": "itinerarioJapon.2.inicio",
+    "texto": "طوكيو · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.2.destino",
+    "texto": "طوكيو · Shibuya وShimokitazawa"
+  },
+  {
+    "ruta": "itinerarioJapon.2.hospedaje",
+    "texto": "Hostal Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.2.actividades",
+    "texto": "عبرتُ تقاطع Shibuya عدة مرات فقط لأرى كيف يعمل، ثم دخلتُ متاجر الأسطوانات المستعملة في Shimokitazawa. تناولتُ عشاء الرامن على منضدة من سبعة مقاعد، طلبتُه من آلة بأزرار."
+  },
+  {
+    "ruta": "itinerarioJapon.3.inicio",
+    "texto": "طوكيو · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.3.destino",
+    "texto": "طوكيو · Shinjuku وGolden Gai"
+  },
+  {
+    "ruta": "itinerarioJapon.3.hospedaje",
+    "texto": "Hostal Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.3.actividades",
+    "texto": "قضيتُ الصباح في حديقة Shinjuku Gyoen أقرأ تحت شجرة ضخمة، وانتهى بي المساء في حانة من ستة مقاعد في Golden Gai. تدربتُ على يابانية النجاة مع النادل وزوجين من Nagoya."
+  },
+  {
+    "ruta": "itinerarioJapon.3.transporte",
+    "texto": "مترو Marunouchi + سيرًا على الأقدام"
+  },
+  {
+    "ruta": "itinerarioJapon.4.inicio",
+    "texto": "طوكيو · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.4.destino",
+    "texto": "طوكيو · Yanaka وAkihabara"
+  },
+  {
+    "ruta": "itinerarioJapon.4.hospedaje",
+    "texto": "Hostal Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.4.actividades",
+    "texto": "غسلتُ الملابس في النُّزل ومشيتُ في مقبرة Yanaka بين القطط والسيدات اللواتي يسقين القبور. اشتريتُ في Akihabara عدسة مستعملة مقاس 50 مم، وفي بالي صور النجوم في الشتاء."
+  },
+  {
+    "ruta": "itinerarioJapon.4.transporte",
+    "texto": "JR Yamanote + مترو Chiyoda"
+  },
+  {
+    "ruta": "itinerarioJapon.5.inicio",
+    "texto": "طوكيو · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.5.hospedaje",
+    "texto": "Ryokan Tsukimisō"
+  },
+  {
+    "ruta": "itinerarioJapon.5.actividades",
+    "texto": "ركبتُ الـRomancecar وبينتو على ركبتيّ، ووصلتُ إلى غرفة تاتامي تفوح منها رائحة القش الجديد. أكلتُ بيضة سوداء في Ōwakudani وسط بخار الكبريت، وفي المساء دخلتُ الأونسن لأول مرة."
+  },
+  {
+    "ruta": "itinerarioJapon.5.transporte",
+    "texto": "Odakyu Romancecar + القطار الجبلي في هاكوني"
+  },
+  {
+    "ruta": "itinerarioJapon.6.destino",
+    "texto": "Kawaguchiko · الضفة الشمالية للبحيرة"
+  },
+  {
+    "ruta": "itinerarioJapon.6.hospedaje",
+    "texto": "Minshuku Fujimien"
+  },
+  {
+    "ruta": "itinerarioJapon.6.actividades",
+    "texto": "عبرتُ الجبل بالحافلة واستأجرتُ دراجة للدوران حول البحيرة، وفوجي محتجب خلف الغيوم طوال بعد الظهر. عند السادسة انقشعت الغيمة عشر دقائق، فبقيتُ على الشاطئ بلا حراك حتى اختفى الجبل من جديد."
+  },
+  {
+    "ruta": "itinerarioJapon.6.transporte",
+    "texto": "حافلة جبلية + دراجة مستأجرة"
+  },
+  {
+    "ruta": "itinerarioJapon.7.destino",
+    "texto": "كيوتو · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.7.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.7.actividades",
+    "texto": "نزلتُ بالحافلة إلى Mishima وركبتُ الشينكانسن بشعور أن البلد هو الذي يتحرك لا أنا. وصلتُ إلى الماتشيا ليلاً، واصطدم رأسي بعارضة المدخل، وتعشيتُ أودون في الزاوية."
+  },
+  {
+    "ruta": "itinerarioJapon.7.transporte",
+    "texto": "حافلة إلى Mishima + Shinkansen Hikari"
+  },
+  {
+    "ruta": "itinerarioJapon.8.inicio",
+    "texto": "كيوتو · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.8.destino",
+    "texto": "كيوتو · Arashiyama"
+  },
+  {
+    "ruta": "itinerarioJapon.8.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.8.actividades",
+    "texto": "ضبطتُ المنبه على الخامسة لأدخل غابة الخيزران قبل الجميع، ونجحت الخطة حتى الثامنة. بعدها تسلقتُ جبل القرود عرقًا من رطوبة سبتمبر، وأكلتُ التوفو قرب النهر."
+  },
+  {
+    "ruta": "itinerarioJapon.8.transporte",
+    "texto": "قطار JR Sagano"
+  },
+  {
+    "ruta": "itinerarioJapon.9.inicio",
+    "texto": "كيوتو · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.9.destino",
+    "texto": "كيوتو · Fushimi Inari وTōfuku-ji"
+  },
+  {
+    "ruta": "itinerarioJapon.9.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.9.actividades",
+    "texto": "صعدتُ بين بوابات التوري حتى القمة قبل الحر، وشربتُ علبة قهوة باردة هناك والمدينة مسطحة تحتي. عدتُ إلى الماتشيا لقيلولة كقيلولة الأجداد، وخرجتُ مجددًا عند الغروب."
+  },
+  {
+    "ruta": "itinerarioJapon.9.transporte",
+    "texto": "قطار Keihan + مشي"
+  },
+  {
+    "ruta": "itinerarioJapon.10.inicio",
+    "texto": "كيوتو · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.10.destino",
+    "texto": "نارا · حديقة نارا وTōdai-ji"
+  },
+  {
+    "ruta": "itinerarioJapon.10.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.10.actividades",
+    "texto": "أكل الغزال الخريطة من جيبي قبل أن أصل إلى Tōdai-ji. قضيتُ بعد الظهر بين فوانيس Kasuga الحجرية، وعدتُ في القطار وأنا آكل السوشي الملفوف بورق الكاكي."
+  },
+  {
+    "ruta": "itinerarioJapon.10.transporte",
+    "texto": "قطار Kintetsu، ذهابًا وإيابًا"
+  },
+  {
+    "ruta": "itinerarioJapon.11.inicio",
+    "texto": "كيوتو · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.11.destino",
+    "texto": "كيوتو · Higashiyama وKiyomizu-dera"
+  },
+  {
+    "ruta": "itinerarioJapon.11.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.11.actividades",
+    "texto": "مشيتُ في Sannenzaka في السابعة والمحال مغلقة، والحي كله تفوح منه رائحة الخشب المبلل. بعد الظهر هطل مطر غزير واحتميتُ ساعتين في كيساتن بقهوة السيفون."
+  },
+  {
+    "ruta": "itinerarioJapon.11.transporte",
+    "texto": "حافلة رقم 206 + سيرًا على الأقدام"
+  },
+  {
+    "ruta": "itinerarioJapon.12.inicio",
+    "texto": "كيوتو · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.12.destino",
+    "texto": "كيوتو · Kinkaku-ji وNishijin"
+  },
+  {
+    "ruta": "itinerarioJapon.12.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.12.actividades",
+    "texto": "شاهدتُ الجناح الذهبي مع مئتي شخص آخرين، وأعجبتني أكثر حديقة الطحالب خلفه. في Nishijin بادلتُ ساعة إسبانية بساعة يابانية مع طالبة، واشتريتُ شايًا وقهوة لآخذهما إلى البيت."
+  },
+  {
+    "ruta": "itinerarioJapon.12.transporte",
+    "texto": "حافلة رقم 205"
+  },
+  {
+    "ruta": "itinerarioJapon.13.inicio",
+    "texto": "كيوتو · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.13.hospedaje",
+    "texto": "Hostal Ebisu Namba"
+  },
+  {
+    "ruta": "itinerarioJapon.13.actividades",
+    "texto": "غادرتُ الماتشيا ظهرًا ووصلتُ إلى أوساكا، إلى حيّ صاخب مقارنة بكيوتو. احترق سقف حلقي من أول تاكوياكي، وتعشيتُ واقفًا عند منضدة سكب لي فيها الرجل المجاور جعة دون أن يسأل."
+  },
+  {
+    "ruta": "itinerarioJapon.13.transporte",
+    "texto": "قطار Hankyū السريع"
+  },
+  {
+    "ruta": "itinerarioJapon.14.destino",
+    "texto": "أوساكا · القلعة وShinsekai"
+  },
+  {
+    "ruta": "itinerarioJapon.14.hospedaje",
+    "texto": "Hostal Ebisu Namba"
+  },
+  {
+    "ruta": "itinerarioJapon.14.actividades",
+    "texto": "ذهبتُ إلى القلعة باكرًا، للحديقة أكثر من القلعة نفسها، وأكلتُ الكوشيكاتسو في Shinsekai بقاعدة مقدسة: لا تغميس ثانٍ في الصلصة نفسها. انتهى بي الأمر في كاريوكي مع شخصين من النُّزل نغني أغاني التسعينيات."
+  },
+  {
+    "ruta": "itinerarioJapon.14.transporte",
+    "texto": "مترو Midōsuji + Sakaisuji"
+  },
+  {
+    "ruta": "itinerarioJapon.15.hospedaje",
+    "texto": "Guest House Akatsuki"
+  },
+  {
+    "ruta": "itinerarioJapon.15.actividades",
+    "texto": "وصلتُ منتصف الصباح وقضيتُ أربع ساعات في المتحف وحديقة السلام دون رغبة في الحديث مع أحد. مشيتُ على النهر حتى حلّ الظلام، وتعشيتُ أوكونومياكي هيروشيما على الصاج مع ستة غرباء."
+  },
+  {
+    "ruta": "itinerarioJapon.15.transporte",
+    "texto": "Shinkansen Nozomi"
+  },
+  {
+    "ruta": "itinerarioJapon.16.hospedaje",
+    "texto": "Guest House Akatsuki"
+  },
+  {
+    "ruta": "itinerarioJapon.16.actividades",
+    "texto": "وصلتُ بالعبّارة عند الجزر ومشيتُ على الرمل حتى التوري، الذي يبدو من قرب خشبًا قديمًا ومسامير. صعدتُ نصف الجبل، واستسلمتُ للحر، ونزلتُ لآكل المحار المشوي في الشارع."
+  },
+  {
+    "ruta": "itinerarioJapon.16.transporte",
+    "texto": "قطار JR Sanyō + عبّارة"
+  },
+  {
+    "ruta": "itinerarioJapon.17.hospedaje",
+    "texto": "Hotel cápsula Kita Umeda"
+  },
+  {
+    "ruta": "itinerarioJapon.17.actividades",
+    "texto": "عدتُ إلى أوساكا وقضيتُ الوقت في مقاهي Nakazakichō القديمة وشراء الهدايا وآلة الحاسبة في الهاتف مفتوحة طوال الوقت. أعدتُ ترتيب الحقيبة على أرض الفندق الكبسولي، وتبقّى معي علبتا شاي زائدتان."
+  },
+  {
+    "ruta": "itinerarioJapon.17.transporte",
+    "texto": "Shinkansen Sakura"
+  },
+  {
+    "ruta": "itinerarioJapon.18.destino",
+    "texto": "طوكيو · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.18.hospedaje",
+    "texto": "Hostal Hoshimachi Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.18.actividades",
+    "texto": "ركبتُ الشينكانسن ومعي بينتو من المحطة، ورأيتُ فوجي يمر من النافذة اليمنى. مشيتُ في Nakameguro على طول القناة وبقيتُ حتى الإغلاق في مكتبة كراسيها غير مريحة."
+  },
+  {
+    "ruta": "itinerarioJapon.18.transporte",
+    "texto": "Shinkansen Nozomi + Tōkyū Tōyoko"
+  },
+  {
+    "ruta": "itinerarioJapon.19.inicio",
+    "texto": "طوكيو · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.19.destino",
+    "texto": "طوكيو · Shimokitazawa وShibuya"
+  },
+  {
+    "ruta": "itinerarioJapon.19.hospedaje",
+    "texto": "Hostal Hoshimachi Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.19.actividades",
+    "texto": "آخر يوم كامل: أرسلتُ بطاقات بريدية، واشتريتُ هدية أختي في السابعة مساءً، وشربتُ قهوة مقطّرة وأنا أكتب قائمة بما أريد أن أحتفظ به من هذه الأسابيع الثلاثة. عدتُ إلى Shibuya ليلاً لأودّع التقاطع."
+  },
+  {
+    "ruta": "itinerarioJapon.20.inicio",
+    "texto": "طوكيو · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.20.destino",
+    "texto": "Narita · صالة 1، رحلة العودة إلى البيت"
+  },
+  {
+    "ruta": "itinerarioJapon.20.hospedaje",
+    "texto": "ليلة في الطائرة"
+  },
+  {
+    "ruta": "itinerarioJapon.20.actividades",
+    "texto": "تناولتُ آخر أونيغيري فطورًا على الرصيف وركبتُ Narita Express والحقيبة أثقل بخمسة كيلوغرامات. في صالة الانتظار عددتُ ما تبقّى معي من الين وأنفقته على قهوة معلّبة لطريق العودة."
+  },
+  {
+    "ruta": "itinerarioJapon.20.transporte",
+    "texto": "Narita Express + رحلة Narita–AICM"
+  },
+  {
+    "ruta": "itinerarioJapon.21.inicio",
+    "texto": "طوكيو · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.21.destino",
+    "texto": "Narita · صالة 1، رحلة العودة إلى البيت"
+  },
+  {
+    "ruta": "itinerarioJapon.21.hospedaje",
+    "texto": "ليلة في الطائرة"
+  },
+  {
+    "ruta": "itinerarioJapon.21.actividades",
+    "texto": "تناولتُ آخر أونيغيري فطورًا على الرصيف وركبتُ Narita Express والحقيبة أثقل بخمسة كيلوغرامات."
+  },
+  {
+    "ruta": "itinerarioJapon.21.transporte",
+    "texto": "Narita Express + رحلة Narita–AICM"
+  },
+  {
+    "ruta": "itinerarioCorea.0.inicio",
+    "texto": "مدينة مكسيكو"
+  },
+  {
+    "ruta": "itinerarioCorea.0.destino",
+    "texto": "سول · لم يُحدَّد بعد"
+  },
+  {
+    "ruta": "itinerarioCorea.0.hospedaje",
+    "texto": "لم يُحدَّد بعد"
+  },
+  {
+    "ruta": "itinerarioCorea.0.actividades",
+    "texto": "لم يُخطَّط له بعد."
+  },
+  {
+    "ruta": "itinerarioCorea.0.transporte",
+    "texto": "لم يُحدَّد بعد"
+  },
+  {
+    "ruta": "itinerarioCorea.1.inicio",
+    "texto": "مدينة مكسيكو"
+  },
+  {
+    "ruta": "itinerarioCorea.1.destino",
+    "texto": "سول · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.1.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.1.actividades",
+    "texto": "الوصول وقد أنهكتني اثنتا عشرة ساعة طيران، ترك الحقيبة والخروج للتجول في Hongdae بلا خطة حتى يطرحني فارق التوقيت أرضًا. تناول العشاء أول ما تفوح رائحته الطيبة، وشراء بطاقة المواصلات في تلك الليلة حتى لا يضيع الصباح."
+  },
+  {
+    "ruta": "itinerarioCorea.1.transporte",
+    "texto": "رحلة AICM–Incheon + قطار AREX"
+  },
+  {
+    "ruta": "itinerarioCorea.2.inicio",
+    "texto": "سول · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.2.destino",
+    "texto": "سول · Bukchon وGyeongbokgung"
+  },
+  {
+    "ruta": "itinerarioCorea.2.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.2.actividades",
+    "texto": "البدء مبكرًا بالقصر قبل أن يمتلئ، ثم التوهان في أزقة Bukchon مع الكاميرا. أريد أن أنهي اليوم في بيت شاي في Insadong، أتذوق الشاي الشعيري البارد وأكتب في دفتر يوميات الرحلة."
+  },
+  {
+    "ruta": "itinerarioCorea.2.transporte",
+    "texto": "مترو الخط 3 + مشي كثير"
+  },
+  {
+    "ruta": "itinerarioCorea.3.inicio",
+    "texto": "سول · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.3.destino",
+    "texto": "سول · Seongsu ونهر هان"
+  },
+  {
+    "ruta": "itinerarioCorea.3.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.3.actividades",
+    "texto": "يوم مقاهٍ: في Seongsu محامص قهوة داخل مصانع قديمة، وأريد مقارنة ثلاثة أنواع مقطّرة على الأقل دون تأنيب ضمير. بعد الظهر استئجار دراجة على نهر هان والجري نحو ثمانية كيلومترات هادئة عند غروب الشمس."
+  },
+  {
+    "ruta": "itinerarioCorea.3.transporte",
+    "texto": "مترو الخط 2 + دراجة عامة"
+  },
+  {
+    "ruta": "itinerarioCorea.4.inicio",
+    "texto": "سول · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.4.destino",
+    "texto": "سول · Gwangjang وIkseondong"
+  },
+  {
+    "ruta": "itinerarioCorea.4.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.4.actividades",
+    "texto": "الأكل وقوفًا في Gwangjang حتى لو لم أفهم نصف قائمة الطعام: بينديتوك وما تشير إليه السيدة. مساءً صعود Naksan على طول السور لرؤية المدينة مضاءة من الأعلى."
+  },
+  {
+    "ruta": "itinerarioCorea.4.transporte",
+    "texto": "مترو الخط 1 + صعود سيرًا على الأقدام"
+  },
+  {
+    "ruta": "itinerarioCorea.5.inicio",
+    "texto": "سول"
+  },
+  {
+    "ruta": "itinerarioCorea.5.hospedaje",
+    "texto": "Hostal Dalbit Haeundae"
+  },
+  {
+    "ruta": "itinerarioCorea.5.actividades",
+    "texto": "ركوب الـKTX باكرًا مع قهوة معلّبة ومشاهدة المشهد يتغيّر طوال ساعتين ونصف. الوصول، ترك كل شيء، وغمس القدمين في البحر حتى لو كان الماء باردًا."
+  },
+  {
+    "ruta": "itinerarioCorea.5.transporte",
+    "texto": "KTX سول–بوسان + مترو"
+  },
+  {
+    "ruta": "itinerarioCorea.6.destino",
+    "texto": "بوسان · Gamcheon وJagalchi"
+  },
+  {
+    "ruta": "itinerarioCorea.6.hospedaje",
+    "texto": "Hostal Dalbit Haeundae"
+  },
+  {
+    "ruta": "itinerarioCorea.6.actividades",
+    "texto": "صعود Gamcheon منتصف الصباح والنزول ببطء عبر الدرجات الملوّنة، والتوقف أينما يحلو لي. بعدها سوق السمك في Jagalchi وتناول العشاء على منضدة مما هو طازج، بالإشارة بالإصبع."
+  },
+  {
+    "ruta": "itinerarioCorea.6.transporte",
+    "texto": "حافلة محلية + مترو الخط 1"
+  },
+  {
+    "ruta": "itinerarioCorea.7.destino",
+    "texto": "بوسان · Haedong Yonggungsa وSongjeong"
+  },
+  {
+    "ruta": "itinerarioCorea.7.hospedaje",
+    "texto": "Hostal Dalbit Haeundae"
+  },
+  {
+    "ruta": "itinerarioCorea.7.actividades",
+    "texto": "الذهاب إلى معبد الجرف في أول ساعات النهار، حين لا يزال صوت البحر يعلو على أصوات الناس. الانتهاء في شاطئ Songjeong بقهوة في الهواء الطلق ودفتر الملاحظات، لتصفية حسابات الرحلة."
+  },
+  {
+    "ruta": "itinerarioCorea.7.transporte",
+    "texto": "حافلة رقم 181 + قطار ساحلي"
+  },
+  {
+    "ruta": "itinerarioCorea.8.destino",
+    "texto": "إنتشون · رحلة العودة"
+  },
+  {
+    "ruta": "itinerarioCorea.8.hospedaje",
+    "texto": "ليلة في الطائرة"
+  },
+  {
+    "ruta": "itinerarioCorea.8.actividades",
+    "texto": "الـKTX في طريق العودة بهامش وقت كافٍ، فلا نية للركض في محطة مرة أخرى. إنفاق ما تبقّى من الوون على شاي وشيء للايكا قبل الصعود إلى الطائرة."
+  },
+  {
+    "ruta": "itinerarioCorea.8.transporte",
+    "texto": "KTX + AREX + رحلة Incheon–AICM"
+  },
+  {
+    "ruta": "recuerdos.0.texto",
+    "texto": "وصلتُ بعد أربع عشرة ساعة طيران، ومحيت كل الجمل التي تدربتُ عليها لأشهر في طابور الهجرة. القطار القادم من Narita كانت رائحته نظيفة، رائحة بلاستيك جديد وصابون، ولم يكن أحد يتحدث بصوت مرتفع. في نُزل Asakusa أعطوني مفتاحًا بميدالية خشبية وخريطة مرسومة باليد عليها ثلاثة مقاهٍ محدَّدة. تعشيتُ أونيغيري بالتونة على درج المدخل، والحقيبة لا تزال على ظهري، قرابة منتصف الليل. نمتُ باكرًا واستيقظتُ في الثالثة أحدّق في السقف: سنة كاملة من عدّ البقشيش من أجل هذا السقف."
+  },
+  {
+    "ruta": "recuerdos.1.texto",
+    "texto": "عبرتُ تقاطع Shibuya أربع مرات متتالية فقط لأرى كيف ينتظم الناس دون أن يصطدموا. كان مطر خفيف يهطل والإسفلت يعكس حمرة اللافتات؛ بقيتُ عند نافذة الطابق الثاني في مقهى حتى بردَ كل شيء. في Shimokitazawa قضيتُ ساعة ونصف في متجر أسطوانات مستعملة تفوح منه رائحة الكرتون الرطب، واشتريتُ أسطوانة لا أملك حتى ما أشغّلها عليه. تعشيتُ رامن على منضدة من سبعة مقاعد يُطلب فيها بآلة أزرار؛ أخطأتُ فجاءتني بيضتان بدل واحدة، وأكلتُهما رغم ذلك. عند السادسة نفدت بطارية هاتفي وعدتُ إلى النُّزل أسأل عن الطريق بيابانيتي الناجية: نجحت مرتين من ثلاث."
+  },
+  {
+    "ruta": "recuerdos.2.texto",
+    "texto": "دخلتُ الأمس أونسن لأول مرة، واستغرقتُ عشر دقائق قبل أن أجرؤ على ترك المنشفة؛ ثم بقيتُ أربعين أخرى دون رغبة في الخروج. اليوم عبرتُ الجبل بالحافلة حتى بحيرة Kawaguchi وكان فوجي محتجبًا طوال بعد الظهر، فاستأجرتُ دراجة ودرتُ حول البحيرة والمعنويات في الحضيض. عند السادسة إلا ربعًا انقشعت الغيمة وكان هناك، ضخمًا، رماديًا وأزرق، كأنه كان ينتظر أن أتوقف عن البحث عنه. كانت يدي باردة حول علبة قهوة ساخنة من الكونبيني ولم أتحرك حتى اختفى من جديد. أرسلتُ الصورة لأمي رغم أن الساعة كانت الثالثة فجرًا في المكسيك."
+  },
+  {
+    "ruta": "recuerdos.3.texto",
+    "texto": "ضبطتُ المنبه على الخامسة لأدخل غابة الخيزران قبل الجميع، واستحق الأمر كل دقيقة نوم ضائعة. يُسمع طقطقة جافة من الأعلى، أشبه بصوت سفينة قديمة، والهواء أبرد من الشارع بعشر درجات. عند الثامنة كنا ثلاثمئة بعصي السيلفي، وانتهى السحر. تسلقتُ بعدها جبل القرود عرقًا من رطوبة سبتمبر، والقميص لاصق بظهري ونفطة جديدة في كعبي. أكلتُ التوفو قرب النهر دون أن أفهم القائمة وطلبتُ بالإشارة، تقنيتي المفضلة. رائحة كيوتو مختلفة عن طوكيو: خشب وبخور وقناة ماء."
+  },
+  {
+    "ruta": "recuerdos.4.texto",
+    "texto": "أكل غزال الخريطة من جيبي الخلفي قبل أن أصل حتى إلى Tōdai-ji. تنحني الغزلان طلبًا لبسكويت، ثم تدفعك برأسها إن تأخرتَ؛ عضّ أحدها سحّاب سترتي. داخل المعبد بوذا ضخم جدًا لدرجة أن التقاط الصور غاب عن بالي طويلاً. بعد الظهر مشيتُ بين فوانيس Kasuga الحجرية في ضوء خافت وشبه خلوّ من الناس، وبقيتُ جلوسًا على درجة نصف ساعة. عدتُ إلى كيوتو وأنا آكل سوشي ورق الكاكي في القطار، ويدايَ تفوحان برائحة بسكويت الغزلان."
+  },
+  {
+    "ruta": "recuerdos.5.texto",
+    "texto": "مشيتُ في Sannenzaka في السابعة والمحال كلها مغلقة، والحي تفوح منه رائحة الخشب المبلل. بعد الظهر هطل مطر غزير لم يكن في أي توقعات، فدخلتُ كيساتن بكراسٍ مخملية حمراء. كان الرجل يحضّر القهوة بالسيفون دون عجلة، بينما قطة نائمة فوق جهاز التسجيل. قلتُ له باليابانية إنها لذيذة جدًا فأجابني ببطء، بصبر معلّم، وهكذا تحدّثنا عشرين دقيقة بمئتي كلمة بيننا. خرجتُ حين توقف المطر وكانت الشوارع المرصوفة تلمع؛ كان ذلك أفضل يوم في الرحلة ولم أفعل شيئًا من القائمة."
+  },
+  {
+    "ruta": "recuerdos.6.texto",
+    "texto": "أوساكا صاخبة، وقد أعجبني ذلك بعد كل صمت كيوتو. احترق سقف حلقي من أول تاكوياكي لأنني أكلته وقوفًا دون انتظار؛ ومنذ يومين وسقف فمي يشعر بغرابة. في Dōtonbori يتسلل النيون إلى القناة ويلتقط الجميع الصورة نفسها لعدّاء Glico، وأنا معهم. تعشيتُ على منضدة واقفة حيث شرح لي رجل بدلة البيسبول الياباني مستخدمًا حوامل الأكواب، ولم أفهم سوى نصف كلامه. انتهى بي الأمر في كاريوكي في الواحدة صباحًا مع شخصين من النُّزل، واحد من بوسان والآخر من مانشستر، نغني أغاني التسعينيات. عدتُ سيرًا مع شطيرة بيض من الكونبيني والمدينة لا تزال مضاءة."
+  },
+  {
+    "ruta": "recuerdos.7.texto",
+    "texto": "قضيتُ أمس أربع ساعات في متحف السلام وخرجتُ دون رغبة في الحديث مع أحد. هناك ساعة متوقفة عند 8:15 ودراجة ثلاثية محترقة لن أستطيع نسيانها؛ جلستُ على مقعد في الحديقة حتى زالت العقدة في حلقي. تعشيتُ أوكونومياكي على الصاج مع ستة غرباء، وأعدّه رجل كان يتحدث عن البيسبول طوال الوقت، كأن المدينة قررت أن تواصل الحياة عن عمد. اليوم عبرتُ بالعبّارة إلى مياجيما عند الجزر ومشيتُ على الرمل حتى التوري، الذي يبدو من قرب خشبًا قديمًا مليئًا بعملات مغروسة فيه. صعدتُ نصف الجبل، واستسلمتُ للحر، ونزلتُ لآكل ثلاث محاّرات مشوية في الشارع. كتبتُ في الدفتر أنني أريد أن أعود مع شخص أحكي له هذا وجهًا لوجه."
+  },
+  {
+    "ruta": "recuerdos.8.texto",
+    "texto": "ذهبتُ أربعة أيام إلى Oaxaca مع صديقين وصادف وجودي في سوق 20 de Noviembre في وقت الدخان، وشوايات التاساخو تملأ الثياب برائحتها. كنتُ في الأسبوع الثالث من الحمية وتخليتُ عنها كليًا في اليوم الأول: مولي أسود وتلايودا وميزكال من أغاف إسبادين تركني أسعل بينما كانت السيدة تضحك. ما ساء هو حافلة العودة من Hierve el Agua التي تأخرت ساعتين، فانتهى الأمر بمشاهدة الغروب جلوسًا على صخرة وبطارية الهاتف عند 4%. تذكّرتُ هناك أن أتأمل، دون تطبيق ودون مؤقّت، وأنا أسمع الناس يتحدثون بالزاباتيكية خلفي. ركضتُ مرتين في ممشى Santo Domingo في السادسة والنصف صباحًا، حين تفوح من المدينة رائحة الخبز والجير المبلل. عدتُ بخمس قوالب شوكولاتة من الحجر وبفكرة أن السفر بمفردي ممكن إن أحسنتُ التنظيم."
+  },
+  {
+    "ruta": "recuerdos.9.texto",
+    "texto": "هربتُ في نهاية الأسبوع إلى Valle de Bravo، بعد أسبوعين من نصف الماراثون، أساسًا لأختبر ساقيّ في الصعود. يوم السبت ركضتُ اثني عشر كيلومترًا على طريق ترابي حتى نقطة مشرفة، وهواء الـ1800 متر ذكّرني بأنني لستُ من كنتُ قبل عام. ذهبنا إلى محمية Piedra Herrada ولم أتوقع الضجيج: حين تمر آلاف الفراشات الملكية معًا يبدو الصوت كمطر خفيف على أوراق يابسة. جعلتنا المرشدة نصمت عشر دقائق، وكان ذلك أقرب ما مارستُه للتأمل خارج غرفتي. في الليل نصبتُ الحامل الثلاثي قرب البحيرة والتقطتُ أفضل صورة نجوم لي هذا العام، رغم أن العدسة تبخّرت مرتين وأضعتُ نصف ساعة أنظّفها. عدتُ يوم الأحد والدفتر ممتلئ برسم الدراسات العليا مقابل العمل، ودون أن أحسم شيئًا، وهذا جيد أيضًا."
+  },
+  {
+    "ruta": "lugares.0.nota",
+    "texto": "لم يُكتَب بعد."
+  },
+  {
+    "ruta": "lugares.1.nota",
+    "texto": "خمسة أيام من القطارات والمكتبات وتقاطع صرتُ أحفظه عن ظهر قلب؛ بدت لي المدينة ضخمة ولطيفة على نحو مفاجئ."
+  },
+  {
+    "ruta": "lugares.2.nota",
+    "texto": "الأونسن الذي أراح ظهري، وأول ليلة على التاتامي، والمطر يقرع سقف الريوكان."
+  },
+  {
+    "ruta": "lugares.3.nota",
+    "texto": "انتظرتُ فوجي يومين بين الغيوم، وظهر في السادسة صباحًا لخمس عشرة دقيقة، تمامًا حين كنتُ سأرحل."
+  },
+  {
+    "ruta": "lugares.4.nota",
+    "texto": "ستة أيام من الاستيقاظ الباكر والخيزران وكيساتن به قطة، حيث دارت أفضل محادثة في الرحلة بمئتي كلمة يابانية."
+  },
+  {
+    "ruta": "lugares.5.nota",
+    "texto": "رحلة يوم واحد بين غزلان تنحني ثم تعضّ الخريطة؛ داخل Tōdai-ji شعور وكأنك تحت سماء من خشب."
+  },
+  {
+    "ruta": "lugares.6.nota",
+    "texto": "ضجيج ونيون وتاكوياكي أحرق سقف حلقي وكاريوكي في الواحدة صباحًا مع أشخاص تعرّفتُ إليهم للتو."
+  },
+  {
+    "ruta": "lugares.7.nota",
+    "texto": "أسكتني المتحف أربع ساعات، ثم أطعمتني المدينة أوكونومياكي وهي تتحدث عن البيسبول؛ وأنهت مياجيما عند الجزر اليوم بشكل جميل."
+  },
+  {
+    "ruta": "lugares.8.nota",
+    "texto": "أربعة أيام من المولي والميزكال وصباحات الركض في Santo Domingo: الرحلة التي أقنعتني بأن السفر بمفردي ممكن."
+  },
+  {
+    "ruta": "lugares.9.nota",
+    "texto": "تلال للتدريب، وفراشات ملكية يبدو صوتها كالمطر، وأفضل صورة نجوم التقطتُها حتى الآن."
+  },
+  {
+    "ruta": "lugares.10.nota",
+    "texto": "التالية: ثمانية أيام تشمل بوسان، ادّخار منذ يناير وذريعة مثالية للعودة إلى تعلّم لغة من الصفر."
+  },
+  {
+    "ruta": "lugares.11.nota",
+    "texto": "في عام ما، حين يتوفر المال والساقان: أريد المشي عدة أيام متتالية والنوم حيث لا تصل الإشارة."
+  },
+  {
+    "ruta": "lugares.12.nota",
+    "texto": "القائمة الطويلة: الذهاب في الشتاء، مع الحامل الثلاثي، لمحاولة تصوير الشفق القطبي حتى لو تجمّدت يداي."
+  }
+]

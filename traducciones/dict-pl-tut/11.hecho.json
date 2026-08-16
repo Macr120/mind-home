@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "To dziennik wspomnień Pepa: cały rok, dwa albo trzy wpisy w tygodniu. Zapisana jest tu CAŁA historia — od zniechęcenia na starcie po maraton sprzed dwóch tygodni."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "Jak się pisze"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "Wybierz nastrój dnia, dodaj tytuł, jeśli chcesz, napisz i dołącz zdjęcia. Wystarczy samo zdjęcie: tekst nie jest konieczny."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "Rok w kolorach"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "Każdy dzień maluje się swoim nastrojem. Zobacz dołek 7. miesiąca (kontuzja) i to, jak jasno świeci Japonia. Dotknij dnia, aby przefiltrować jego wpisy."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "Archiwum"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "Wpisy same układają się w folderach według roku, miesiąca i tygodnia. Otwórz tygodnie Japonii i przeczytaj całą podróż."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "Kamienie milowe roku Pepa mają zdjęcie: używane pianino, przyjazd Laiki, dwie pocztówki z Japonii i medal z maratonu."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "Znajdź je w historii"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "Otwórz 2. miesiąc (pianino), 9. miesiąc (Japonia) albo sprzed dwóch tygodni (medal). Dotknij dowolnego zdjęcia, a otworzy się na pełnym ekranie."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "Każdy wpis zasila serię i budzi postać: pisanie tutaj to też dbanie o dom."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "Zgromadzony spokój"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "Każda minuta praktyki podlewa ten ogród. Ogród Pepa rósł przez cały rok: od nasiona do lasu."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "Medytacja z dźwiękiem"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "Wybierz podkład (las, morze, deszcz, misy tybetańskie) i czas trwania albo medytuj w ciszy z dzwonkiem. Sesja zapisuje się sama po zakończeniu."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "Rok sesji"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "Oto rok Pepa: zaczęło się od trzech razy w tygodniu, a w 7. miesiącu — kontuzja, wydatek na samochód — praktyka stała się prawie codzienna. To dzięki niej ten dołek dało się przetrwać."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "Oddychanie"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "Dwa prowadzone wzorce: oddychanie pudełkowe 4-4-4-4, żeby się zebrać, i 4-7-8, żeby odpuścić dzień. Ekran oddycha razem z tobą."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "Dziś dziękuję za…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "Trzy linijki dziennie. Jedna wystarczy, trzy — jeszcze lepiej. Zapisuje się jeden wpis na dzień i można go poprawiać na bieżąco."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "Wdzięczność Pepa"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "Dziewięćdziesiąt dni prawdziwej wdzięczności: pianino, Laika śpiąca na notatkach, gojące się kolano, powrót z Japonii. Przeczytaj je bez pośpiechu."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "Ten pokój nie prowadzi serii ani nie karze za opuszczony dzień: tak ma być. Spokój to nie zawody."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "Dwa hobby, jeden rok"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "Pep prowadzi dwa: pianino (projekt roku, cel 4 dni w tygodniu) i astrofotografię. Każda karta pokazuje bieżący tydzień i serię."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "Pianino od środka"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "Seria, najlepsza seria, suma praktyki, aktywne dni i średnia. Rok przy klawiszach — z uczciwą przerwą na Japonię."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "Mapa aktywności"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "Każdy kwadracik to jeden dzień. Widać start w 2. miesiącu, to, jak pianino PODTRZYMAŁO dołek 7. miesiąca, i lukę trzech tygodni w Japonii."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "Sesje"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "Każda praktyka ze swoimi minutami, a wiele z notatką: od „bolą mnie ręce” po zagranie całego „Clair de Lune”."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "Projekty"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "Praktyka z kierunkiem: pierwszy utwór (skończony w 5. miesiącu) i „Clair de Lune”, zagrany dla rodziny tydzień temu."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "Projekty pianina"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "Projekt zbiera sesje, które mu poświęcono: widać tu, ile ich jest i ile minut ma każdy z nich."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "Postęp w zdjęciach"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "„Clair de Lune” przechowuje partyturę z notatkami. W astrofotografii projekt dwunastu pełni księżyca zbiera najlepsze ujęcia roku."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "Sesje możesz też rejestrować przez czat („zapisz 30 min pianina”) i planować cele projektu w harmonogramie."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "Dodawanie hobby"
+  }
+]

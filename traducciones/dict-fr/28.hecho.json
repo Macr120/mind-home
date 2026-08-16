@@ -1,0 +1,654 @@
+[
+  {
+    "clave": "nav3d.vistaIso",
+    "texto": "Vue isométrique"
+  },
+  {
+    "clave": "nav3d.vistaIsoCorta",
+    "texto": "Iso"
+  },
+  {
+    "clave": "nav3d.vistaPrimera",
+    "texto": "Première personne"
+  },
+  {
+    "clave": "nav3d.vistaTercera",
+    "texto": "Troisième personne"
+  },
+  {
+    "clave": "paredes.alto",
+    "texto": "Hauteur"
+  },
+  {
+    "clave": "paredes.altoGen",
+    "texto": "Hauteur"
+  },
+  {
+    "clave": "paredes.altoPuerta",
+    "texto": "Hauteur"
+  },
+  {
+    "clave": "paredes.altoTodos",
+    "texto": "Appliquer à tous les murs de la pièce"
+  },
+  {
+    "clave": "paredes.anchoGen",
+    "texto": "Largeur"
+  },
+  {
+    "clave": "paredes.anchoVano",
+    "texto": "Largeur"
+  },
+  {
+    "clave": "paredes.borrar",
+    "texto": "Supprimer l’image"
+  },
+  {
+    "clave": "paredes.cambiar",
+    "texto": "Changer"
+  },
+  {
+    "clave": "paredes.cambiarFoto",
+    "texto": "Changer la photo"
+  },
+  {
+    "clave": "paredes.caraExterior",
+    "texto": "Face extérieure"
+  },
+  {
+    "clave": "paredes.imagenPuerta",
+    "texto": "Image de la porte"
+  },
+  {
+    "clave": "paredes.quitarImagenPuerta",
+    "texto": "Retirer l’image"
+  },
+  {
+    "clave": "paredes.imagenPuertaAyuda",
+    "texto": "Habille le vantail de la porte (droite, double ou coulissante). Le portail à lames garde sa couleur."
+  },
+  {
+    "clave": "paredes.caraInterior",
+    "texto": "Face intérieure"
+  },
+  {
+    "clave": "paredes.color",
+    "texto": "Couleur"
+  },
+  {
+    "clave": "paredes.cont.cuadro",
+    "texto": "Tableau"
+  },
+  {
+    "clave": "paredes.cont.espejo",
+    "texto": "Miroir"
+  },
+  {
+    "clave": "paredes.cont.ventana",
+    "texto": "Fenêtre"
+  },
+  {
+    "clave": "paredes.cristal",
+    "texto": "Verre"
+  },
+  {
+    "clave": "paredes.espejoNota",
+    "texto": "Le miroir reflète en temps réel ce qui se trouve en face."
+  },
+  {
+    "clave": "paredes.fotoAyuda",
+    "texto": "La photo remplit la forme du cadre sur la face choisie du mur."
+  },
+  {
+    "clave": "paredes.fotoCuadro",
+    "texto": "Photo"
+  },
+  {
+    "clave": "paredes.desactivar",
+    "texto": "Désactiver"
+  },
+  {
+    "clave": "paredes.editando",
+    "texto": "Modification"
+  },
+  {
+    "clave": "paredes.editarBorde",
+    "texto": "Modifier ce bord"
+  },
+  {
+    "clave": "paredes.forma.arco",
+    "texto": "Arc"
+  },
+  {
+    "clave": "paredes.forma.recta",
+    "texto": "Droite"
+  },
+  {
+    "clave": "paredes.forma.triangulo",
+    "texto": "Triangle"
+  },
+  {
+    "clave": "paredes.formaAlto",
+    "texto": "Hauteur de l’arc"
+  },
+  {
+    "clave": "paredes.formaAltoPico",
+    "texto": "Hauteur du pic"
+  },
+  {
+    "clave": "paredes.formaAncho",
+    "texto": "Largeur"
+  },
+  {
+    "clave": "paredes.formaDividir",
+    "texto": "Couleur propre sur la silhouette"
+  },
+  {
+    "clave": "paredes.formaPosX",
+    "texto": "Position du pic"
+  },
+  {
+    "clave": "paredes.formaVano",
+    "texto": "Forme de l’ouverture"
+  },
+  {
+    "clave": "paredes.formas",
+    "texto": "Forme"
+  },
+  {
+    "clave": "paredes.imagen",
+    "texto": "Image de fond"
+  },
+  {
+    "clave": "paredes.mosaico",
+    "texto": "Mosaïque"
+  },
+  {
+    "clave": "paredes.multicolor",
+    "texto": "Multicolore"
+  },
+  {
+    "clave": "paredes.posXPuerta",
+    "texto": "Position horizontale"
+  },
+  {
+    "clave": "paredes.quitarCuadro",
+    "texto": "Retirer le tableau"
+  },
+  {
+    "clave": "paredes.quitarEspejo",
+    "texto": "Retirer le miroir"
+  },
+  {
+    "clave": "paredes.quitarFoto",
+    "texto": "Retirer la photo"
+  },
+  {
+    "clave": "paredes.quitarPuerta",
+    "texto": "Retirer la porte (garder le mur)"
+  },
+  {
+    "clave": "paredes.quitarVentana",
+    "texto": "Retirer la fenêtre"
+  },
+  {
+    "clave": "paredes.subirFoto",
+    "texto": "Importer une photo"
+  },
+  {
+    "clave": "paredes.subirImagen",
+    "texto": "Importer une image"
+  },
+  {
+    "clave": "paredes.textura",
+    "texto": "Texture"
+  },
+  {
+    "clave": "paredes.tocaBordeModo",
+    "texto": "Touche un bord pour le modifier en tant que"
+  },
+  {
+    "clave": "paredes.usarImagen",
+    "texto": "Utiliser l’image"
+  },
+  {
+    "clave": "paredes.ventAlto",
+    "texto": "Hauteur"
+  },
+  {
+    "clave": "paredes.ventAncho",
+    "texto": "Largeur"
+  },
+  {
+    "clave": "paredes.ventForma.cuadrado",
+    "texto": "Carré"
+  },
+  {
+    "clave": "paredes.ventForma.circulo",
+    "texto": "Cercle"
+  },
+  {
+    "clave": "paredes.ventForma.triangulo",
+    "texto": "Triangle"
+  },
+  {
+    "clave": "paredes.ventRot",
+    "texto": "Rotation"
+  },
+  {
+    "clave": "paredes.ventPosX",
+    "texto": "Position horizontale"
+  },
+  {
+    "clave": "paredes.ventPosY",
+    "texto": "Position verticale"
+  },
+  {
+    "clave": "paredes.ventana",
+    "texto": "Fenêtre"
+  },
+  {
+    "clave": "plano.controles",
+    "texto": "Molette : zoom · Maj/Alt + glisser : déplacer · Double-clic dans la marge : ajuster"
+  },
+  {
+    "clave": "planos.arista",
+    "texto": "Arête"
+  },
+  {
+    "clave": "planos.celdasPiso",
+    "texto": "carreau de sol"
+  },
+  {
+    "clave": "planos.confirmarNombre",
+    "texto": "Confirmer le nom"
+  },
+  {
+    "clave": "planos.detalle.celda",
+    "texto": "Cellules normales"
+  },
+  {
+    "clave": "planos.detalle.subcelda",
+    "texto": "Cellules fines (½)"
+  },
+  {
+    "clave": "planos.eliminarCuarto",
+    "texto": "Supprimer la pièce"
+  },
+  {
+    "clave": "planos.grupo.interiorDesc",
+    "texto": "{cuartos} pièces · {zonas} basiques · Niveau {n}"
+  },
+  {
+    "clave": "planos.grupo.interiorVacio",
+    "texto": "Pas d’étages intérieurs à ce niveau"
+  },
+  {
+    "clave": "planos.moverZonaHint",
+    "texto": "Fais glisser la pièce sur le plan pour la déplacer."
+  },
+  {
+    "clave": "planos.nombrarHint",
+    "texto": "La pièce a déjà des murs, un sol et un toit génériques. Choisis un nom pour l’identifier."
+  },
+  {
+    "clave": "planos.nombrarTitulo",
+    "texto": "Nomme ta pièce"
+  },
+  {
+    "clave": "planos.paredesHint",
+    "texto": "Touche un mur sur le croquis ou sur le plan 3D pour lui donner un mur, une porte ou une fenêtre."
+  },
+  {
+    "clave": "planos.pisosHint",
+    "texto": "Sélectionne des pièces ou marque plusieurs cellules extérieures (clic répété). Choisis la texture et la couleur dans le panneau."
+  },
+  {
+    "clave": "planos.preview.mostrar",
+    "texto": "Afficher l’aperçu 3D"
+  },
+  {
+    "clave": "planos.preview.ocultar",
+    "texto": "Masquer l’aperçu 3D"
+  },
+  {
+    "clave": "planos.props.paredesZona",
+    "texto": "Modifie l’arête de la pièce basique."
+  },
+  {
+    "clave": "plantillaCustom.arrastrarGrupo",
+    "texto": "Fais glisser pour réorganiser"
+  },
+  {
+    "clave": "plantillaCustom.borrarGrupo",
+    "texto": "Supprimer le dossier"
+  },
+  {
+    "clave": "plantillaCustom.borrarGrupoConfirm",
+    "texto": "Supprimer ce dossier ? Ses modèles passent dans le premier."
+  },
+  {
+    "clave": "plantillaCustom.desplegarGrupo",
+    "texto": "Déplier le dossier"
+  },
+  {
+    "clave": "plantillaCustom.enUsoTag",
+    "texto": "en usage"
+  },
+  {
+    "clave": "plantillaCustom.grupo",
+    "texto": "Groupe"
+  },
+  {
+    "clave": "plantillaCustom.grupoVacio",
+    "texto": "Dossier vide · fais glisser des modèles ici"
+  },
+  {
+    "clave": "plantillaCustom.nuevoGrupo",
+    "texto": "Nouveau groupe"
+  },
+  {
+    "clave": "plantillaCustom.nuevoGrupoNombre",
+    "texto": "Nouveau groupe"
+  },
+  {
+    "clave": "plantillaCustom.plegarGrupo",
+    "texto": "Replier le dossier"
+  },
+  {
+    "clave": "plantillaCustom.renombrarGrupo",
+    "texto": "Renommer le dossier"
+  },
+  {
+    "clave": "plantillaCustom.unidadPh",
+    "texto": "kg, €, pages…"
+  },
+  {
+    "clave": "preview.girar",
+    "texto": "Fais glisser pour tourner · molette pour zoomer"
+  },
+  {
+    "clave": "preview.tocarEditar",
+    "texto": "Touche une partie pour la modifier · fais glisser pour tourner"
+  },
+  {
+    "clave": "preview.fondoClaro",
+    "texto": "Fond clair"
+  },
+  {
+    "clave": "preview.fondoOscuro",
+    "texto": "Fond sombre"
+  },
+  {
+    "clave": "preview.techo",
+    "texto": "Afficher/masquer le toit"
+  },
+  {
+    "clave": "preview.techoOff",
+    "texto": "Sans toit"
+  },
+  {
+    "clave": "preview.techoOn",
+    "texto": "Toit"
+  },
+  {
+    "clave": "preview.objetos",
+    "texto": "Afficher/masquer les objets"
+  },
+  {
+    "clave": "preview.objetosOff",
+    "texto": "Sans objets"
+  },
+  {
+    "clave": "preview.objetosOn",
+    "texto": "Objets"
+  },
+  {
+    "clave": "preview.moverObjetos",
+    "texto": "Déplacer les objets sur le plan"
+  },
+  {
+    "clave": "mover.adelante",
+    "texto": "Avancer"
+  },
+  {
+    "clave": "mover.atras",
+    "texto": "Reculer"
+  },
+  {
+    "clave": "mover.izquierda",
+    "texto": "Aller à gauche"
+  },
+  {
+    "clave": "mover.derecha",
+    "texto": "Aller à droite"
+  },
+  {
+    "clave": "progreso.nv",
+    "texto": "Niv"
+  },
+  {
+    "clave": "prop.restablecer",
+    "texto": "Réinitialiser"
+  },
+  {
+    "clave": "respaldo.ahora",
+    "texto": "Sauvegarder"
+  },
+  {
+    "clave": "respaldo.aviso",
+    "texto": "Ta dernière sauvegarde date de {n} jours."
+  },
+  {
+    "clave": "respaldo.luego",
+    "texto": "Me le rappeler dans une semaine"
+  },
+  {
+    "clave": "rot.der",
+    "texto": "Tourner 90° à droite"
+  },
+  {
+    "clave": "rot.izq",
+    "texto": "Tourner 90° à gauche"
+  },
+  {
+    "clave": "rutinas.activar",
+    "texto": "Activer"
+  },
+  {
+    "clave": "rutinas.agregarPaso",
+    "texto": "Ajouter une étape"
+  },
+  {
+    "clave": "rutinas.autoRegistro",
+    "texto": "S’enregistre automatiquement dans la pièce"
+  },
+  {
+    "clave": "rutinas.borrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "rutinas.confirmarBorrar",
+    "texto": "Supprimer cet événement ?"
+  },
+  {
+    "clave": "rutinas.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "rutinas.cerrar",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "rutinas.completada",
+    "texto": "Routine terminée !"
+  },
+  {
+    "clave": "rutinas.editar",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "rutinas.eventoSimple",
+    "texto": "Événement du calendrier."
+  },
+  {
+    "clave": "rutinas.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "rutinas.hoy",
+    "texto": "Aujourd’hui"
+  },
+  {
+    "clave": "rutinas.nombre",
+    "texto": "Nom de la routine/de l’événement"
+  },
+  {
+    "clave": "rutinas.nueva",
+    "texto": "Nouvelle"
+  },
+  {
+    "clave": "rutinas.pasoPh",
+    "texto": "Quoi faire…"
+  },
+  {
+    "clave": "rutinas.pasos",
+    "texto": "étapes"
+  },
+  {
+    "clave": "rutinas.pasosOpcional",
+    "texto": "facultatif"
+  },
+  {
+    "clave": "rutinas.pasosTitulo",
+    "texto": "Étapes"
+  },
+  {
+    "clave": "rutinas.pausar",
+    "texto": "Mettre en pause"
+  },
+  {
+    "clave": "rutinas.rep.hintIndefinido",
+    "texto": "Aucun jour coché = tous les jours, sans date de fin."
+  },
+  {
+    "clave": "rutinas.rep.hintSemanal",
+    "texto": "Se répète chaque semaine les jours cochés."
+  },
+  {
+    "clave": "rutinas.rep.sinFin",
+    "texto": "Sans date de fin"
+  },
+  {
+    "clave": "rutinas.rep.soloTrazo",
+    "texto": "elle a été programmée en la traçant sur le calendrier ; retrace-la pour changer les dates"
+  },
+  {
+    "clave": "rutinas.rep.termina",
+    "texto": "Se termine le"
+  },
+  {
+    "clave": "rutinas.rep.titulo",
+    "texto": "Répétition"
+  },
+  {
+    "clave": "rutinas.sinHora",
+    "texto": "sans heure"
+  },
+  {
+    "clave": "rutinas.titulo",
+    "texto": "Routines"
+  },
+  {
+    "clave": "rutinas.todas",
+    "texto": "Toutes les routines"
+  },
+  {
+    "clave": "rutinas.vacio",
+    "texto": "Pas encore de routines. Crées-en une avec « + Nouvelle » ou demande-le à ton assistant : « crée-moi une routine du matin avec de l’eau, des étirements et de la gratitude »."
+  },
+  {
+    "clave": "ui.sinApp",
+    "texto": "Cette pièce n’a aucune app assignée."
+  },
+  {
+    "clave": "ui.sinAppAyuda",
+    "texto": "Modifie la pièce et assigne une app à un objet."
+  },
+  {
+    "clave": "ui.volverApps",
+    "texto": "‹ Apps de la pièce"
+  },
+  {
+    "clave": "mascota.mago.nombre",
+    "texto": "Mage"
+  },
+  {
+    "clave": "mascota.gato.nombre",
+    "texto": "Chat"
+  },
+  {
+    "clave": "mascota.perro.nombre",
+    "texto": "Chien"
+  },
+  {
+    "clave": "mascota.buho.nombre",
+    "texto": "Hibou"
+  },
+  {
+    "clave": "mascota.robot.nombre",
+    "texto": "Robot"
+  },
+  {
+    "clave": "mascota.mago.saludo",
+    "texto": "Je suis ton architecte arcanique. Raconte-moi ce que tu as fait et je l’inscrirai ✨"
+  },
+  {
+    "clave": "mascota.gato.saludo",
+    "texto": "Miaou. Raconte-moi tes trucs et je verrai où ça va 🐾"
+  },
+  {
+    "clave": "mascota.perro.saludo",
+    "texto": "Ouaf ! Raconte-moi ce que tu as fait et je l’enregistre tout de suite ! 🦴"
+  },
+  {
+    "clave": "mascota.buho.saludo",
+    "texto": "Sage et attentif. Raconte-moi ta journée et je l’organiserai."
+  },
+  {
+    "clave": "mascota.robot.saludo",
+    "texto": "Système prêt. Saisis un enregistrement à traiter."
+  },
+  {
+    "clave": "mascota.bitacora",
+    "texto": "le journal de bord"
+  },
+  {
+    "clave": "mascota.elObjeto",
+    "texto": "l’objet"
+  },
+  {
+    "clave": "mascota.mago.capturado.0",
+    "texto": "✨ Voilà. J’ai inscrit l’enregistrement dans {c}."
+  },
+  {
+    "clave": "mascota.mago.capturado.1",
+    "texto": "Ainsi soit-il : noté en détail dans {c} ✨"
+  },
+  {
+    "clave": "mascota.mago.clasificado.0",
+    "texto": "📜 J’ai rangé ton parchemin dans le journal de {c}."
+  },
+  {
+    "clave": "mascota.mago.clasificado.1",
+    "texto": "Je l’ai laissé reposer dans {c}."
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.0",
+    "texto": "Je l’ai enregistré, mais j’ignore à quelle pièce il appartient… veux-tu me guider ? 🔮"
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.1",
+    "texto": "Pas encore classé. Dans quelle pièce dois-je le porter ?"
+  }
+]

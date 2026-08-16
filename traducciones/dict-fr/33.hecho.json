@@ -1,0 +1,506 @@
+[
+  {
+    "clave": "wrapped.estudio.titulo",
+    "texto": "Tu as nourri ton esprit"
+  },
+  {
+    "clave": "wrapped.estudio.min",
+    "texto": "d’étude"
+  },
+  {
+    "clave": "wrapped.estudio.sesiones",
+    "texto": "séances"
+  },
+  {
+    "clave": "wrapped.idiomas.titulo",
+    "texto": "Tu as pratiqué des langues"
+  },
+  {
+    "clave": "wrapped.idiomas.repasos",
+    "texto": "révisions"
+  },
+  {
+    "clave": "wrapped.idiomas.aciertos",
+    "texto": "de réussite"
+  },
+  {
+    "clave": "wrapped.hobbies.titulo",
+    "texto": "Tu as fait avancer tes hobbies"
+  },
+  {
+    "clave": "wrapped.hobbies.min",
+    "texto": "de pratique"
+  },
+  {
+    "clave": "wrapped.hobbies.sesiones",
+    "texto": "séances"
+  },
+  {
+    "clave": "wrapped.hobbies.top",
+    "texto": "ton hobby star ({min})"
+  },
+  {
+    "clave": "wrapped.sueno.titulo",
+    "texto": "Comment tu t’es reposé"
+  },
+  {
+    "clave": "wrapped.sueno.horas",
+    "texto": "de sommeil moyen"
+  },
+  {
+    "clave": "wrapped.sueno.noches",
+    "texto": "nuits enregistrées"
+  },
+  {
+    "clave": "wrapped.sueno.calidad",
+    "texto": "qualité moyenne"
+  },
+  {
+    "clave": "wrapped.cocina.titulo",
+    "texto": "Dans la cuisine"
+  },
+  {
+    "clave": "wrapped.cocina.comidas",
+    "texto": "repas enregistrés"
+  },
+  {
+    "clave": "wrapped.cocina.agua",
+    "texto": "d’eau"
+  },
+  {
+    "clave": "wrapped.cocina.peso",
+    "texto": "de variation de poids"
+  },
+  {
+    "clave": "wrapped.fin.titulo",
+    "texto": "Ton argent"
+  },
+  {
+    "clave": "wrapped.fin.ingresos",
+    "texto": "de revenus"
+  },
+  {
+    "clave": "wrapped.fin.gastos",
+    "texto": "de dépenses"
+  },
+  {
+    "clave": "wrapped.fin.topCategoria",
+    "texto": "où tu as le plus dépensé"
+  },
+  {
+    "clave": "wrapped.heatmap.titulo",
+    "texto": "Ta carte de constance"
+  },
+  {
+    "clave": "wrapped.heatmap.pie",
+    "texto": "Chaque case est un jour ; plus il y a de couleur, plus il y a d’entrées."
+  },
+  {
+    "clave": "wrapped.hitos.titulo",
+    "texto": "Tes jalons"
+  },
+  {
+    "clave": "wrapped.hito.lugares",
+    "texto": "{n} lieux visités"
+  },
+  {
+    "clave": "wrapped.hito.recuerdos",
+    "texto": "{n} souvenirs de voyage"
+  },
+  {
+    "clave": "wrapped.hito.peliculas",
+    "texto": "{n} films"
+  },
+  {
+    "clave": "wrapped.hito.series",
+    "texto": "{n} séries"
+  },
+  {
+    "clave": "wrapped.hito.libros",
+    "texto": "{n} livres"
+  },
+  {
+    "clave": "wrapped.hito.videojuegos",
+    "texto": "{n} jeux vidéo"
+  },
+  {
+    "clave": "wrapped.hito.anecdotas",
+    "texto": "{n} souvenirs enregistrés"
+  },
+  {
+    "clave": "wrapped.hito.proyectos",
+    "texto": "{n} projets terminés"
+  },
+  {
+    "clave": "wrapped.hito.mantenimientos",
+    "texto": "{n} entretiens réalisés"
+  },
+  {
+    "clave": "wrapped.hito.rutinas",
+    "texto": "{n} jours de routine complétés"
+  },
+  {
+    "clave": "wrapped.comparativa.titulo",
+    "texto": "Face à la période précédente"
+  },
+  {
+    "clave": "wrapped.comparativa.dias",
+    "texto": "Jours actifs"
+  },
+  {
+    "clave": "wrapped.comparativa.ejercicio",
+    "texto": "Exercice"
+  },
+  {
+    "clave": "wrapped.comparativa.calma",
+    "texto": "Calme"
+  },
+  {
+    "clave": "wrapped.cierre.top",
+    "texto": "Imparable ! Presque tous les jours, tu étais là."
+  },
+  {
+    "clave": "wrapped.cierre.bien",
+    "texto": "Bon rythme : plus de la moitié des jours."
+  },
+  {
+    "clave": "wrapped.cierre.animo",
+    "texto": "Chaque jour enregistré compte. Continue comme ça."
+  },
+  {
+    "clave": "wrapped.cierre.nav",
+    "texto": "Utilise ‹ › et le sélecteur au-dessus pour voir d’autres périodes."
+  },
+  {
+    "clave": "wrapped.vacio",
+    "texto": "Aucune entrée pour cette période. Les résumés se construisent tout seuls avec ce que tu enregistres dans tes apps."
+  },
+  {
+    "clave": "wrapped.aviso.titulo.semana",
+    "texto": "✨ Ton résumé de la semaine est prêt"
+  },
+  {
+    "clave": "wrapped.aviso.titulo.mes",
+    "texto": "✨ Ton résumé du mois est prêt"
+  },
+  {
+    "clave": "wrapped.aviso.titulo.anio",
+    "texto": "✨ Ton résumé de l’année est prêt"
+  },
+  {
+    "clave": "wrapped.aviso.cuerpo",
+    "texto": "Regarde tes progrès de la période."
+  },
+  {
+    "clave": "wrapped.aviso.abrir",
+    "texto": "Voir"
+  },
+  {
+    "clave": "wrapped.mute",
+    "texto": "Couper la musique"
+  },
+  {
+    "clave": "wrapped.compartir",
+    "texto": "Partager cette diapositive"
+  },
+  {
+    "clave": "wrapped.compartir.titulo",
+    "texto": "Mon résumé Mind Planner Home · {periodo}"
+  },
+  {
+    "clave": "wrapped.compartir.copiarManual",
+    "texto": "Impossible de copier automatiquement. Sélectionne le texte et copie-le (Ctrl+C) :"
+  },
+  {
+    "clave": "wrapped.compartir.cerrarManual",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "wrapped.nuevo",
+    "texto": "Nouveau"
+  },
+  {
+    "clave": "wrapped.nuevoTitulo",
+    "texto": "Tu as un nouveau résumé"
+  },
+  {
+    "clave": "notif.wrapped",
+    "texto": "Résumé de la période (Wrapped)"
+  },
+  {
+    "clave": "sisifo.titulo",
+    "texto": "Montagne de Sisyphe"
+  },
+  {
+    "clave": "sisifo.menu",
+    "texto": "Montagne"
+  },
+  {
+    "clave": "sisifo.dia",
+    "texto": "Jour"
+  },
+  {
+    "clave": "sisifo.insignias",
+    "texto": "badges"
+  },
+  {
+    "clave": "sisifo.gracias",
+    "texto": "Jours de grâce"
+  },
+  {
+    "clave": "sisifo.cerrar",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "sisifo.rangos",
+    "texto": "Rangs"
+  },
+  {
+    "clave": "sisifo.bloqueada",
+    "texto": "Badge verrouillé"
+  },
+  {
+    "clave": "sisifo.comoFunciona",
+    "texto": "Comment ça marche"
+  },
+  {
+    "clave": "sisifo.ayuda1",
+    "texto": "Chaque jour avec de l’activité dans tes apps fait monter une marche. Le sommet, c’est 365 jours."
+  },
+  {
+    "clave": "sisifo.ayuda2",
+    "texto": "Tous les 7 marches, tu gagnes un badge (52 au total), et chaque tranche de semaines fait monter ton rang (12 au total)."
+  },
+  {
+    "clave": "sisifo.ayuda3",
+    "texto": "Si tu rates un jour, tu as 2 jours de grâce par mois : pas de souci. Une fois épuisés, le rocher redescend au début de ton rang actuel."
+  },
+  {
+    "clave": "sisifo.ayuda4",
+    "texto": "En atteignant le sommet, tu gagnes une étoile permanente et tu repars de zéro."
+  },
+  {
+    "clave": "sisifo.frase",
+    "texto": "Il faut imaginer Sisyphe heureux."
+  },
+  {
+    "clave": "sisifo.aviso.genial",
+    "texto": "Génial !"
+  },
+  {
+    "clave": "sisifo.aviso.estrella.titulo",
+    "texto": "Tu as couronné la montagne !"
+  },
+  {
+    "clave": "sisifo.aviso.estrella.cuerpo",
+    "texto": "Tu as gagné une étoile permanente. L’ascension recommence."
+  },
+  {
+    "clave": "sisifo.aviso.rango.titulo",
+    "texto": "Tu as gagné un rang !"
+  },
+  {
+    "clave": "sisifo.aviso.rango.cuerpo",
+    "texto": "Tu es maintenant {nombre}."
+  },
+  {
+    "clave": "sisifo.aviso.insignia.titulo",
+    "texto": "Nouveau badge !"
+  },
+  {
+    "clave": "wrapped.sisifo.titulo",
+    "texto": "Ton ascension"
+  },
+  {
+    "clave": "wrapped.sisifo.estrellas",
+    "texto": "étoiles gagnées"
+  },
+  {
+    "clave": "ajustes.musica",
+    "texto": "Musique"
+  },
+  {
+    "clave": "ajustes.musica.ambiental",
+    "texto": "Musique d’ambiance dans la maison"
+  },
+  {
+    "clave": "ajustes.musica.ambientalDesc",
+    "texto": "Elle joue pendant que tu te promènes dans la maison ; à cause du navigateur, elle démarre à ton premier clic."
+  },
+  {
+    "clave": "ajustes.musica.hud",
+    "texto": "Afficher sur l’écran principal"
+  },
+  {
+    "clave": "musica.hudNota",
+    "texto": "Désactivé, la musique se règle dans Éditeur › Paramètres › Musique."
+  },
+  {
+    "clave": "ajustes.musica.hudDesc",
+    "texto": "Désactivé, la maison reste plus épurée : la musique se règle depuis ici."
+  },
+  {
+    "clave": "ajustes.musica.fuente",
+    "texto": "Source"
+  },
+  {
+    "clave": "ajustes.musica.fuente.generada",
+    "texto": "Générée"
+  },
+  {
+    "clave": "ajustes.musica.fuente.pistas",
+    "texto": "Mes pistes"
+  },
+  {
+    "clave": "ajustes.musica.fuente.sistema",
+    "texto": "Système"
+  },
+  {
+    "clave": "ajustes.musica.sistema.conectar",
+    "texto": "Détecter l’audio du système"
+  },
+  {
+    "clave": "ajustes.musica.sistema.desconectar",
+    "texto": "Arrêter d’écouter"
+  },
+  {
+    "clave": "ajustes.musica.sistema.activo",
+    "texto": "En train d’écouter l’audio du système."
+  },
+  {
+    "clave": "ajustes.musica.sistema.desc",
+    "texto": "Le navigateur va te demander de partager ton écran ou un onglet : coche « Partager l’audio » et ta musique (Spotify, YouTube…) apparaîtra ici en direct. Du titre, il ne peut lire que le nom de ce que tu partages."
+  },
+  {
+    "clave": "ajustes.musica.sistema.sinAudio",
+    "texto": "Partagé sans audio : coche la case « Partager l’audio » en choisissant l’écran ou l’onglet."
+  },
+  {
+    "clave": "ajustes.musica.sistema.pestana",
+    "texto": "Onglet"
+  },
+  {
+    "clave": "ajustes.musica.sistema.ventana",
+    "texto": "Fenêtre"
+  },
+  {
+    "clave": "ajustes.musica.sistema.pantalla",
+    "texto": "Écran entier"
+  },
+  {
+    "clave": "ajustes.musica.sistema.pausa",
+    "texto": "en pause"
+  },
+  {
+    "clave": "ajustes.musica.sistema.tituloFijo",
+    "texto": "C’est le nom de ce que tu as partagé : il ne change pas quand la chanson change."
+  },
+  {
+    "clave": "ajustes.musica.sistema.permiso",
+    "texto": "Autoriser la lecture de ce qui joue"
+  },
+  {
+    "clave": "ajustes.musica.sistema.permisoDesc",
+    "texto": "Les réglages Android vont s’ouvrir : active Mind Planner Home dans « Accès aux notifications » et l’artiste et la chanson que tu écoutes apparaîtront ici. Nous ne lisons aucune notification : Android exige cette permission pour laisser voir la lecture en cours."
+  },
+  {
+    "clave": "ajustes.musica.mood",
+    "texto": "Ambiance"
+  },
+  {
+    "clave": "ajustes.musica.mood.calma",
+    "texto": "Calme"
+  },
+  {
+    "clave": "ajustes.musica.mood.festivo",
+    "texto": "Festif"
+  },
+  {
+    "clave": "ajustes.musica.mood.nocturno",
+    "texto": "Nuit"
+  },
+  {
+    "clave": "ajustes.musica.mood.chiptune",
+    "texto": "Chiptune"
+  },
+  {
+    "clave": "ajustes.musica.mood.acogedor",
+    "texto": "Cosy"
+  },
+  {
+    "clave": "ajustes.musica.mood.energia",
+    "texto": "Énergie"
+  },
+  {
+    "clave": "ajustes.musica.mood.estudio",
+    "texto": "Étude"
+  },
+  {
+    "clave": "ajustes.musica.mood.arcade",
+    "texto": "Arcade"
+  },
+  {
+    "clave": "ajustes.musica.mood.bosque",
+    "texto": "Forêt"
+  },
+  {
+    "clave": "ajustes.musica.mood.viaje",
+    "texto": "Voyage"
+  },
+  {
+    "clave": "ajustes.musica.mood.carrera",
+    "texto": "Course"
+  },
+  {
+    "clave": "ajustes.musica.mood.cajita",
+    "texto": "Boîte à musique"
+  },
+  {
+    "clave": "ajustes.musica.mood.lectura",
+    "texto": "Lecture"
+  },
+  {
+    "clave": "ajustes.musica.mood.oficina",
+    "texto": "Bureau"
+  },
+  {
+    "clave": "ajustes.musica.mood.taller",
+    "texto": "Atelier"
+  },
+  {
+    "clave": "ajustes.musica.mood.digital",
+    "texto": "Digital"
+  },
+  {
+    "clave": "ajustes.musica.mood.noticias",
+    "texto": "Rédaction"
+  },
+  {
+    "clave": "ajustes.musica.mood.campo",
+    "texto": "Campagne"
+  },
+  {
+    "clave": "ajustes.musica.mood.deporte",
+    "texto": "Stade"
+  },
+  {
+    "clave": "ajustes.musica.mood.ruta",
+    "texto": "Road trip"
+  },
+  {
+    "clave": "ajustes.musica.mood.tactico",
+    "texto": "Tactique"
+  },
+  {
+    "clave": "ajustes.musica.moodCuartos",
+    "texto": "C’est l’ambiance générale. Chaque pièce peut avoir son propre thème : change-le avec le bouton musique à l’intérieur de la pièce."
+  },
+  {
+    "clave": "ajustes.musica.sfx",
+    "texto": "Sons d’action"
+  },
+  {
+    "clave": "ajustes.musica.sfxOff",
+    "texto": "Désactivés"
+  }
+]

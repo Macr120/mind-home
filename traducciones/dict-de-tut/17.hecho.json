@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "Jeden Morgen trägst du ein, wann du ins Bett gegangen bist, wann du aufgewacht bist, wie oft du wach wurdest und wie es war. Mehr braucht die App für alles andere nicht."
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "Ein Jahr, vier Lupen"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "Wähl Tag, Woche, Monat oder Jahr und blätter mit den Pfeilen. Geh ein paar Monate zurück: Da ist der Monat mit der Autopanne und der Monat des Japan-Flugs, beide in Rot."
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "Die Form des Jahres"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "Sechs Zeiträume zurück, als Balken. Die blauen sind die Monate, in denen etwas übrig blieb; die roten die, die wehtaten. Da siehst du das Loch und den Weg heraus."
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "Wohin fließt es?"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "Die Aufschlüsselung nach Kategorie für den Zeitraum, den du gerade ansiehst. Pep tippt die Kategorien von Hand ein: Die App erkennt die geläufigen und gibt allen anderen eine eigene Farbe."
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "Das Limit des Monats"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "Ein Monatsbudget und ein Balken, der rot wird, sobald du drüber bist. Schaust du nach Woche oder nach Jahr, rechnet die App es von selbst um."
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "Was du heute hast"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "Dein Vermögen kommt direkt aus dem Tab Vermögen: Vermögenswerte minus Verbindlichkeiten. Hier wird der Saldo des Zeitraums dazugerechnet oder abgezogen, damit du siehst, wo du landen würdest."
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "Und in einem Jahr"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "Sie rechnet zwölf Monate voraus: die fixen Posten zu ihrem Fälligkeitstermin, das Variable mit deinem Durchschnitt – in zwei Szenarien, mit Vermögen und ohne."
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Peps fixe Kosten"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "Miete, Internet, Handy, Streaming und die Autoversicherung: fünf Einträge aus Monat 2, als der Entschluss fiel, Ordnung zu schaffen. Jeder zählt sich seitdem von selbst."
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "So trägst du eine ein"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "Das Formular geht Schritt für Schritt: Betrag, variabel oder fix, Kategorie (du tippst deine eigene, die geläufigen schlägt es dir vor), wie oft sie sich wiederholt und die Notiz."
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "Ein Jahr voller Einträge"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "Hunderte Ausgaben, abgelegt in Ordnern nach Jahr und Monat. Such Monat 7: Da steht die Panne, die auf einen Schlag fast zehntausend Pesos verschlungen hat."
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "Woher das Geld kommt"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "Zwei Halbmonatslöhne aus dem Café, die Physiknachhilfe, die mit dem Entschluss zur Reise dazukam, und das Trinkgeld jede Woche, das nie gleich ausfällt."
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "In deinem eigenen Haus kannst du auch per Chat erfassen: „habe 250 im Supermarkt ausgegeben“ – und es ist notiert."
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "Das Ziel, das erreicht wurde"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "Die Japanreise, bei 100 %: elf Monate Sparen, die Nachhilfestunden, das Weihnachtsgeld und das Geburtstagsgeld. Darunter der Notgroschen, der nach der Rückkehr anfing, und eine kleine Anlage."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "Das Ziel in der Zeit"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "Was Pep schuldete"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "Die Autopanne ging auf die Kreditkarte und war erst nach Monaten abbezahlt. Schulden stehen getrennt, weil man sie andersherum liest: Hier heißt runter gewinnen."
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "Märkte"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pep behält den Yen im Auge, seit die Reise beschlossen war, und jetzt den Won, wegen der nächsten. Devisen, Krypto, Aktien und Rohstoffe in Echtzeit (braucht Internet)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "Vier Regeln der persönlichen Finanzen, jede in ihrem Tab: Notfallfonds, Finanzielle Freiheit, 50/30/20 und die Anzahlung fürs Auto (20/4/10)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "Startet mit deinem Saldo"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "Die Felder sind schon mit deinen echten Einnahmen oder Ausgaben des Monats gefüllt – tipp sie an, um eine andere Zahl durchzuspielen, ohne die echte aus den Augen zu verlieren."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "Von der Rechnung zum Ziel"
+  }
+]

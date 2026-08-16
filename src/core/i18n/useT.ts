@@ -3,9 +3,11 @@ import { useAjustes } from '../state/ajustesStore'
 import { asegurarIdioma, DICTS, dictStore } from './dict'
 import { datosIdioma, type Idioma } from './idiomas'
 
-// El inglés se carga perezoso: al arrancar (si el idioma guardado es 'en') y en
-// cada cambio de idioma. Suscripción a nivel de módulo: sin efectos por
-// componente y sin side effects en render.
+// Los diccionarios se cargan perezosos: al arrancar y en cada cambio de idioma
+// baja el del idioma activo, y con cualquier idioma que no sea español baja
+// también el inglés, que es el respaldo de lo que falte (ver `traducir`).
+// Suscripción a nivel de módulo: sin efectos por componente y sin side effects
+// en render.
 asegurarIdioma(useAjustes.getState().idioma)
 useAjustes.subscribe((s) => asegurarIdioma(s.idioma))
 
@@ -14,7 +16,10 @@ export type TFunc = (clave: string, fallback?: string, vars?: Record<string, str
 
 /**
  * Resuelve una clave de traducción.
- * Orden: idioma activo → español → fallback del componente → la propia clave.
+ * Orden: idioma activo → inglés → español → fallback del componente → la clave.
+ * El español es la fuente de verdad (vive en los fallbacks del código), pero el
+ * RESPALDO visible de un idioma incompleto es el inglés: a un usuario en francés
+ * una clave sin traducir le sale en inglés, nunca en español.
  * `vars` interpola `{nombre}` en el texto.
  */
 function traducir(
@@ -24,7 +29,12 @@ function traducir(
   vars?: Record<string, string | number>,
 ): string {
   // `?.`: el diccionario del idioma puede no haber llegado todavía (o no existir).
-  let texto = DICTS[idioma]?.[clave] ?? DICTS.es[clave] ?? fallback ?? clave
+  let texto =
+    DICTS[idioma]?.[clave] ??
+    (idioma === 'es' ? undefined : DICTS.en?.[clave]) ??
+    DICTS.es[clave] ??
+    fallback ??
+    clave
   if (vars) {
     for (const [k, v] of Object.entries(vars)) {
       // split/join en vez de RegExp: sin compilar una regex por interpolación.

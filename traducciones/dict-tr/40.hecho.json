@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-biblioteca--charlas.2.texto2",
+    "texto": "İlk yanıt, sohbeti dalına yerleştirir ve bir giriş olarak yazılı hale getirir. O girişten dallandırırsın: seni meraklandıran alt konular yeni dallar haline gelir."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.titulo",
+    "texto": "Çalışma ve planlama"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.resumen",
+    "texto": "Zamanlayıcı ne kadar çalıştığını kaydeder —tek seferde ya da pomodoro ile— ve çalışma planı hedeflerini takvime yayar."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.titulo",
+    "texto": "Çalışma saati"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.texto",
+    "texto": "Bir alan seçip başlarsın: Basit modda dakikalar tek seferde işler, Pomodoro modunda ise uygulama odaklanma aralıklarını molalarla art arda dizer. Her aralık kendiliğinden kaydedilir ve odadan çıksan bile saat çalışmaya devam eder."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.titulo",
+    "texto": "Yılın genel görünümü"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.resumen",
+    "texto": "Özet, diğer üç sekmenin dağıttığını tek ekranda toplar: her alanda kaç girdin olduğunu, ne kadar çalıştığını ve hangi günler çalıştığını."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.titulo",
+    "texto": "Günlük tekrar"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.resumen",
+    "texto": "Kartlar kutulara göre tekrar edilir: her doğru cevap bir sonraki tarihi uzaklaştırır, her yanlış cevap onu yaklaştırır. Uygulama sadece bugün sırası gelenleri sorar."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.titulo",
+    "texto": "Kartlar değil, alıştırmalar"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.texto",
+    "texto": "Cevap vererek tekrar edersin: çoktan seçmeli, tersten ya da örnek cümleyi tamamlayarak. Üstte tura neyin gireceğini seçersin — bugün sırası gelenler, tüm kelime hazinesi ya da müfredattan bir konu."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.titulo",
+    "texto": "Kelime hazinesi"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.resumen2",
+    "texto": "Kartlar müfredatın İÇİNDE yaşar: her konu açıldığında kendi sesi, resmi ve tekrar kutusuyla orada dururlar."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.titulo2",
+    "texto": "Her kelime, kendi konusunda"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.texto2",
+    "texto": "Bir konuyu aç, kartlarını göreceksin: onlara dokunmak sesli okur, küçük resim illüstrasyonu açar ve kalem onları düzenler. Pep’in ilk kartları A2 düzeyinde —alışveriş, yön tarifi— sonrakiler ise artık B1."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.3.texto2",
+    "texto": "Kartlar konularına elle eklenir, öğretmenle yapılan bir sohbetten çıkar ya da Yapay Zeka tarafından önerilir. Boşta kalanlar «Sınıflandırılmamış»a düşer, oradan da ait olduğu konuya gönderirsin."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.titulo",
+    "texto": "Müfredat ve plan"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.resumen",
+    "texto": "Müfredat, dili üç alanda düzenler —konular, telaffuz ve dil bilgisi— CEFR seviyesine göre, ve İlerleme senin ne kadar yol katettiğini özetler."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.3.texto2",
+    "texto": "Ayrıca bir konunun içine kendi materyalini de saklayabilirsin —notlar, otel cümleleri, defterinin bir fotoğrafı—, ✏️ ile onu kendine göre şekillendirebilir (konu ekleyebilir, yeniden adlandırabilir, sıralayabilir ya da silebilirsin) ve hedef tarihli bir çalışma planı isteyebilirsin."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.titulo",
+    "texto": "İş ve öğrenim"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.resumen",
+    "texto": "Tarihsiz yapılacaklar kutusu ve kartların sütundan sütuna sürüklendiği bir Kanban panosu."
+  },
+  {
+    "clave": "tut.app-agenda--salud.titulo",
+    "texto": "Sağlık ve evcil hayvanlar"
+  },
+  {
+    "clave": "tut.app-agenda--salud.resumen",
+    "texto": "Doktor randevuları, saatleriyle ilaçlar ve bakımlarıyla evcil hayvanlar: hepsi kendiliğinden takvime düşer."
+  },
+  {
+    "clave": "tut.app-agenda--personas.titulo",
+    "texto": "Kişiler"
+  },
+  {
+    "clave": "tut.app-agenda--personas.resumen",
+    "texto": "İlişkiye göre düzenlenmiş kişi rehberin, takvimde her yıl kendiliğinden tekrarlanan doğum günleriyle."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.titulo",
+    "texto": "Pep’in koşmayı öğrendiği yıl"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.resumen",
+    "texto": "Spor Salonu; kuvvet, kardiyo ve hareketliliği aynı yerde toplar: kaydettiğin her seans serini, haftalık hedeflerini ve yılın geçmişini besler."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.titulo",
+    "texto": "Sıfırdan 42 kilometreye"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.resumen",
+    "texto": "Dayanıklılık sekmesi her koşuyu mesafesi, temposu ve rotasıyla saklar; ilerleme ayı bir ısı haritasında özetler ve en iyi derecelerini çıkarır."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.titulo",
+    "texto": "Dizin alıp götüremediği güç"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.resumen",
+    "texto": "Kuvvet sekmesinde set, tekrar ve ağırlık kaydedersin; bunlarla uygulama hacmini hesaplar, her egzersizin ilerlemesini çizer ve kişisel rekorlarını saklar."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.titulo",
+    "texto": "Bir hedefle yemek"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "Aplikasi menjadwalkan sendiri: janji temu dari Agenda, tidur dari Istirahat, waktu belajar dari Perpustakaan. Dengan Filter kamu menyisakan satu aplikasi saja di layar."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "Menyusuri tahun"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "Panah ‹ › menggeser periodenya dan Hari ini mengembalikanmu ke sekarang. Sepanjang tahun Pep ada di sini, minggu demi minggu. Dengan + Baru kamu membuat acara, atau kamu menggambarnya langsung di atas kisi."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "Kebiasaan demi kebiasaan"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "Setiap baris adalah satu rutinitas dan setiap kolom satu hari: hijau kalau terpenuhi. Kamu mencentangnya langsung dari sini, dan persentase di atas merangkum periode yang sedang kamu lihat."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "Alur satu tahun"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "Di tampilan Tahun grafiknya menceritakan kisah lengkapnya: Pep memulai dengan memenuhi sepertiga dari yang dia niatkan dan menutup tahun di atas 85%. Konsistensi itu dibangun, bukan datang sendiri."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "Masa turun juga dihitung"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "Kedua lubang itu nyata: cedera lutut di bulan ke-7 dan tiga minggu di Jepang. Bolong tidak menghapus kemajuanmu — panel ini menampilkan tahun itu apa adanya, bukan seharusnya. Dan satu rutinitas baru dihitung sejak hari kamu membuatnya."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "Target lebih dulu"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "Tampilannya terbuka di Target, dikelompokkan menurut aplikasi yang memegangnya: lari di Gym, kuliah fisika di Perpustakaan. “Rumah” bukan aplikasi mana pun — kategori itu dibuat sendiri oleh Pep untuk renovasi dapurnya."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "Dari target ke rencananya"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "Setiap baris terbaca seperti papan: nomornya di dalam folder, tenggatnya, kemajuannya, dan statusnya — Belum dikerjakan, Sedang berjalan, atau Selesai, tergantung seberapa banyak yang sudah tercentang. Satu klik membuka targetnya: rencananya kalau ada (tanda ✨ yang memberitahu) dan, kalau tidak, lembarnya berisi sub-target, tanggal, dan langkah-langkahnya."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "Tiga rencana, tiga status"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "Dapur dan maraton berikutnya masih berupa usulan; pendaftaran pascasarjana sudah masuk Linimasa. Rencana maraton diminta tanpa tenggat: AI menghitung bahwa itu butuh 24 minggu, dan mengatakannya di ringkasannya."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "Lembar rencananya"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "Enam tahap beserta sub-targetnya, masing-masing dengan periodenya sendiri. Selama masih usulan, semuanya bisa diedit: ganti nama, geser tanggal, tambah atau buang simpul tanpa mengacaukan yang lain."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "Mencentang tanpa terikat"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "Centang sebuah usulan tinggal di lembarnya, bukan di targetmu: kamu bisa menandai yang sudah selesai tanpa menyentuh linimasamu. Batangnya terisi sendiri ke atas — perencanaan dapur sudah ditutup."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "Pindahkan ke linimasa nyata"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "Tombol ini mengubah setiap tahap dan setiap sub-target menjadi target sungguhan, dengan tanggalnya sudah terpasang dan menggantung pada target aslinya. Apa yang sudah dimiliki target itu tetap dipertahankan."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "Diterima: satu kebenaran saja"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "Rencana pascasarjana sudah dipindahkan. Sekarang centangnya adalah centang sub-target nyata dan batangnya adalah batang linimasamu: lembarnya berhenti menghitung sendiri."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "Dan itu dia, di sumbunya"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "Sub-target yang lahir dari rencana menempati periodenya di Linimasa, dengan rencananya tertumpuk berwarna ungu di atasnya: yang diusulkan dan yang nyata, di sumbu yang sama."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "Setahun kuliah, dalam satu pohon"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep kuliah Fisika: mekanika di awal tahun, termodinamika menjelang ujian tengah semester di bulan ke-6, relativitas dan astrofisika di akhir. Setiap cabang terbuka untuk memperlihatkan entri-entrinya."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "Pohonnya tumbuh bersamamu"
+  }
+]

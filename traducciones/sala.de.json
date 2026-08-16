@@ -1,0 +1,642 @@
+[
+  {
+    "ruta": "itinerarioJapon.0.inicio",
+    "texto": "Mexiko-Stadt · AICM"
+  },
+  {
+    "ruta": "itinerarioJapon.0.destino",
+    "texto": "Tokio · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.0.hospedaje",
+    "texto": "Hostel Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.0.actividades",
+    "texto": "Ich kam nach vierzehn Stunden Flug an, ließ den Rucksack fallen und ging noch los, bis zum fast leeren Sensō-ji, um elf Uhr nachts. Zu Abend gab es ein Onigiri vom Konbini, gegessen auf der Treppe des Hostels."
+  },
+  {
+    "ruta": "itinerarioJapon.0.transporte",
+    "texto": "Flug AICM–Narita mit Zwischenstopp + Keisei Skyliner"
+  },
+  {
+    "ruta": "itinerarioJapon.1.inicio",
+    "texto": "Tokio · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.1.destino",
+    "texto": "Tokio · Asakusa und Ueno"
+  },
+  {
+    "ruta": "itinerarioJapon.1.hospedaje",
+    "texto": "Hostel Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.1.actividades",
+    "texto": "Ich ging um sieben noch einmal zum Tempel, als der Vorhof noch gefegt wurde, und verlor mich im Ameyoko-Markt auf der Suche nach Batterien für die Kamera. Am Nachmittag saß ich zwei Stunden im Ueno-Park und schrieb, mit dem Jetlag im Nacken."
+  },
+  {
+    "ruta": "itinerarioJapon.1.transporte",
+    "texto": "Zu Fuß + U-Bahn-Linie Ginza"
+  },
+  {
+    "ruta": "itinerarioJapon.2.inicio",
+    "texto": "Tokio · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.2.destino",
+    "texto": "Tokio · Shibuya und Shimokitazawa"
+  },
+  {
+    "ruta": "itinerarioJapon.2.hospedaje",
+    "texto": "Hostel Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.2.actividades",
+    "texto": "Ich überquerte die Shibuya-Kreuzung mehrmals, nur um zu sehen, wie das Ganze funktioniert, und stöberte danach in den Gebrauchtplattenläden von Shimokitazawa. Zum Abendessen gab es Ramen an einer Theke mit sieben Plätzen, bestellt am Automaten mit Knöpfen."
+  },
+  {
+    "ruta": "itinerarioJapon.3.inicio",
+    "texto": "Tokio · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.3.destino",
+    "texto": "Tokio · Shinjuku und Golden Gai"
+  },
+  {
+    "ruta": "itinerarioJapon.3.hospedaje",
+    "texto": "Hostel Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.3.actividades",
+    "texto": "Den Vormittag verbrachte ich im Garten des Shinjuku Gyoen, lesend unter einem riesigen Baum, und abends landete ich in einer Bar mit sechs Plätzen in Golden Gai. Dort übte ich mein Überlebensjapanisch am Barkeeper und an einem Paar aus Nagoya."
+  },
+  {
+    "ruta": "itinerarioJapon.3.transporte",
+    "texto": "U-Bahn-Linie Marunouchi + zu Fuß"
+  },
+  {
+    "ruta": "itinerarioJapon.4.inicio",
+    "texto": "Tokio · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.4.destino",
+    "texto": "Tokio · Yanaka und Akihabara"
+  },
+  {
+    "ruta": "itinerarioJapon.4.hospedaje",
+    "texto": "Hostel Kuroneko Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.4.actividades",
+    "texto": "Im Hostel lief die Waschmaschine, während ich durch den Friedhof von Yanaka lief, zwischen Katzen und Frauen, die Gräber gossen. In Akihabara kaufte ich ein gebrauchtes 50-mm-Objektiv, schon mit den Sternfotos vom Winter im Kopf."
+  },
+  {
+    "ruta": "itinerarioJapon.4.transporte",
+    "texto": "JR Yamanote + U-Bahn-Linie Chiyoda"
+  },
+  {
+    "ruta": "itinerarioJapon.5.inicio",
+    "texto": "Tokio · Asakusa"
+  },
+  {
+    "ruta": "itinerarioJapon.5.hospedaje",
+    "texto": "Ryokan Tsukimisō"
+  },
+  {
+    "ruta": "itinerarioJapon.5.actividades",
+    "texto": "Ich stieg mit einem Bentō auf den Knien in den Romancecar und kam in einem Tatami-Zimmer an, das nach frischem Stroh roch. In Ōwakudani aß ich ein schwarzes Ei im Schwefeldampf, und abends stieg ich zum ersten Mal in einen Onsen."
+  },
+  {
+    "ruta": "itinerarioJapon.5.transporte",
+    "texto": "Odakyu Romancecar + Standseilbahn von Hakone"
+  },
+  {
+    "ruta": "itinerarioJapon.6.destino",
+    "texto": "Kawaguchiko · Nordufer des Sees"
+  },
+  {
+    "ruta": "itinerarioJapon.6.hospedaje",
+    "texto": "Minshuku Fujimien"
+  },
+  {
+    "ruta": "itinerarioJapon.6.actividades",
+    "texto": "Ich überquerte den Berg mit dem Bus und lieh mir ein Fahrrad, um den See zu umrunden, während der Fuji den ganzen Nachmittag in Wolken hing. Um sechs riss der Himmel für zehn Minuten auf, und ich stand reglos am Ufer, bis er sich wieder versteckte."
+  },
+  {
+    "ruta": "itinerarioJapon.6.transporte",
+    "texto": "Bergbus + Leihfahrrad"
+  },
+  {
+    "ruta": "itinerarioJapon.7.destino",
+    "texto": "Kyoto · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.7.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.7.actividades",
+    "texto": "Ich fuhr mit dem Bus nach Mishima hinunter und nahm den Shinkansen, mit dem Gefühl, dass sich das Land bewegte und nicht ich. Ich kam nachts in der Machiya an, stieß mir den Kopf am Türbalken und aß Udon an der Ecke."
+  },
+  {
+    "ruta": "itinerarioJapon.7.transporte",
+    "texto": "Bus nach Mishima + Shinkansen Hikari"
+  },
+  {
+    "ruta": "itinerarioJapon.8.inicio",
+    "texto": "Kyoto · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.8.destino",
+    "texto": "Kyoto · Arashiyama"
+  },
+  {
+    "ruta": "itinerarioJapon.8.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.8.actividades",
+    "texto": "Ich stellte den Wecker auf fünf, um den Bambuswald ohne Publikum zu erleben, und das klappte bis acht. Danach stieg ich schwitzend in der Septemberluft auf den Affenberg und aß Tofu am Fluss."
+  },
+  {
+    "ruta": "itinerarioJapon.8.transporte",
+    "texto": "JR-Zug Sagano"
+  },
+  {
+    "ruta": "itinerarioJapon.9.inicio",
+    "texto": "Kyoto · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.9.destino",
+    "texto": "Kyoto · Fushimi Inari und Tōfuku-ji"
+  },
+  {
+    "ruta": "itinerarioJapon.9.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.9.actividades",
+    "texto": "Ich stieg vor der Hitze die Toriis ganz nach oben und trank auf dem Gipfel eine Dose kalten Kaffee, die Stadt flach unter mir. Danach hielt ich in der Machiya ein Nickerchen wie ein Opa und ging bei Sonnenuntergang noch einmal los."
+  },
+  {
+    "ruta": "itinerarioJapon.9.transporte",
+    "texto": "Keihan-Zug + Fußweg"
+  },
+  {
+    "ruta": "itinerarioJapon.10.inicio",
+    "texto": "Kyoto · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.10.destino",
+    "texto": "Nara · Nara-Park und Tōdai-ji"
+  },
+  {
+    "ruta": "itinerarioJapon.10.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.10.actividades",
+    "texto": "Ein Hirsch fraß mir die Karte aus der Tasche, noch bevor ich den Tōdai-ji erreichte. Den Nachmittag verbrachte ich zwischen den Steinlaternen von Kasuga und fuhr zurück, im Zug Kaki-Blatt-Sushi essend."
+  },
+  {
+    "ruta": "itinerarioJapon.10.transporte",
+    "texto": "Kintetsu-Zug, hin und zurück"
+  },
+  {
+    "ruta": "itinerarioJapon.11.inicio",
+    "texto": "Kyoto · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.11.destino",
+    "texto": "Kyoto · Higashiyama und Kiyomizu-dera"
+  },
+  {
+    "ruta": "itinerarioJapon.11.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.11.actividades",
+    "texto": "Um sieben ging ich durch die Sannenzaka, alle Läden noch geschlossen und das ganze Viertel roch nach nassem Holz. Am Nachmittag brach ein Wolkenbruch los, und ich flüchtete für zwei Stunden in ein Kissaten mit Siphon-Kaffee."
+  },
+  {
+    "ruta": "itinerarioJapon.11.transporte",
+    "texto": "Bus 206 + zu Fuß"
+  },
+  {
+    "ruta": "itinerarioJapon.12.inicio",
+    "texto": "Kyoto · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.12.destino",
+    "texto": "Kyoto · Kinkaku-ji und Nishijin"
+  },
+  {
+    "ruta": "itinerarioJapon.12.hospedaje",
+    "texto": "Machiya Kikunoya"
+  },
+  {
+    "ruta": "itinerarioJapon.12.actividades",
+    "texto": "Ich sah den goldenen Pavillon zusammen mit zweihundert anderen Leuten und mochte den Moosgarten dahinter noch lieber. In Nishijin tauschte ich eine Stunde Spanisch gegen eine Stunde Japanisch mit einer Studentin und kaufte Tee und Kaffee für zu Hause."
+  },
+  {
+    "ruta": "itinerarioJapon.12.transporte",
+    "texto": "Bus 205"
+  },
+  {
+    "ruta": "itinerarioJapon.13.inicio",
+    "texto": "Kyoto · Gion"
+  },
+  {
+    "ruta": "itinerarioJapon.13.hospedaje",
+    "texto": "Hostel Ebisu Namba"
+  },
+  {
+    "ruta": "itinerarioJapon.13.actividades",
+    "texto": "Ich verließ die Machiya mittags und kam in Osaka in einem Viertel an, das im Vergleich zu Kyoto regelrecht schreit. Am ersten Takoyaki verbrannte ich mir den Gaumen und aß stehend an einer Theke zu Abend, wo mir der Mann nebenan ungefragt Bier einschenkte."
+  },
+  {
+    "ruta": "itinerarioJapon.13.transporte",
+    "texto": "Hankyū-Schnellzug"
+  },
+  {
+    "ruta": "itinerarioJapon.14.destino",
+    "texto": "Osaka · Burg und Shinsekai"
+  },
+  {
+    "ruta": "itinerarioJapon.14.hospedaje",
+    "texto": "Hostel Ebisu Namba"
+  },
+  {
+    "ruta": "itinerarioJapon.14.actividades",
+    "texto": "Ich ging früh zur Burg, mehr wegen des Parks als wegen der Burg, und aß Kushikatsu in Shinsekai nach der heiligen Regel: nicht zweimal in dieselbe Soße tunken. Am Ende landete ich in einer Karaoke-Bar mit zwei Leuten aus dem Hostel und sang Neunziger-Hits."
+  },
+  {
+    "ruta": "itinerarioJapon.14.transporte",
+    "texto": "U-Bahn-Linien Midōsuji + Sakaisuji"
+  },
+  {
+    "ruta": "itinerarioJapon.15.hospedaje",
+    "texto": "Guesthouse Akatsuki"
+  },
+  {
+    "ruta": "itinerarioJapon.15.actividades",
+    "texto": "Ich kam am späten Vormittag an und verbrachte vier Stunden im Friedensmuseum und -park, ohne Lust, mit irgendjemandem zu reden. Ich lief am Fluss entlang, bis es dunkel wurde, und aß Hiroshima-Okonomiyaki auf einer Platte mit sechs Fremden."
+  },
+  {
+    "ruta": "itinerarioJapon.15.transporte",
+    "texto": "Shinkansen Nozomi"
+  },
+  {
+    "ruta": "itinerarioJapon.16.hospedaje",
+    "texto": "Guesthouse Akatsuki"
+  },
+  {
+    "ruta": "itinerarioJapon.16.actividades",
+    "texto": "Ich kam mit der Fähre bei Ebbe an und lief über den Sand bis zum Torii, das aus der Nähe nur altes Holz und Nägel ist. Ich stieg den halben Berg hinauf, gab bei der Hitze auf und aß unten gegrillte Austern auf der Straße."
+  },
+  {
+    "ruta": "itinerarioJapon.16.transporte",
+    "texto": "JR-Zug Sanyō + Fähre"
+  },
+  {
+    "ruta": "itinerarioJapon.17.hospedaje",
+    "texto": "Kapselhotel Kita Umeda"
+  },
+  {
+    "ruta": "itinerarioJapon.17.actividades",
+    "texto": "Ich fuhr zurück nach Osaka und widmete mich den alten Cafés von Nakazakichō sowie dem Geschenkekauf, den Taschenrechner des Handys die ganze Zeit offen. Auf dem Boden des Kapselhotels packte ich den Koffer neu, und zwei Schachteln Tee blieben übrig."
+  },
+  {
+    "ruta": "itinerarioJapon.17.transporte",
+    "texto": "Shinkansen Sakura"
+  },
+  {
+    "ruta": "itinerarioJapon.18.destino",
+    "texto": "Tokio · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.18.hospedaje",
+    "texto": "Hostel Hoshimachi Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.18.actividades",
+    "texto": "Ich nahm den Shinkansen mit einem Bentō vom Bahnhof und sah den Fuji am rechten Fenster vorbeiziehen. In Nakameguro ging ich am Kanal entlang und blieb bis zur Schließung in einer Buchhandlung mit sehr unbequemen Stühlen."
+  },
+  {
+    "ruta": "itinerarioJapon.18.transporte",
+    "texto": "Shinkansen Nozomi + Tōkyū Tōyoko"
+  },
+  {
+    "ruta": "itinerarioJapon.19.inicio",
+    "texto": "Tokio · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.19.destino",
+    "texto": "Tokio · Shimokitazawa und Shibuya"
+  },
+  {
+    "ruta": "itinerarioJapon.19.hospedaje",
+    "texto": "Hostel Hoshimachi Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.19.actividades",
+    "texto": "Letzter voller Tag: Ich schickte Postkarten, kaufte um sieben Uhr abends das Geschenk für meine Schwester und trank einen Filterkaffee, während ich aufschrieb, was ich von diesen drei Wochen behalten möchte. Abends ging ich noch einmal nach Shibuya, um mich von der Kreuzung zu verabschieden."
+  },
+  {
+    "ruta": "itinerarioJapon.20.inicio",
+    "texto": "Tokio · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.20.destino",
+    "texto": "Narita · Terminal 1, Flug nach Hause"
+  },
+  {
+    "ruta": "itinerarioJapon.20.hospedaje",
+    "texto": "Nacht im Flugzeug"
+  },
+  {
+    "ruta": "itinerarioJapon.20.actividades",
+    "texto": "Zum Frühstück gab es ein letztes Onigiri auf dem Bahnsteig, dann stieg ich mit dem Koffer, fünf Kilo schwerer, in den Narita Express. Im Gate zählte ich, was mir an Yen übrig blieb, und gab alles für Dosenkaffee für unterwegs aus."
+  },
+  {
+    "ruta": "itinerarioJapon.20.transporte",
+    "texto": "Narita Express + Flug Narita–AICM"
+  },
+  {
+    "ruta": "itinerarioJapon.21.inicio",
+    "texto": "Tokio · Nakameguro"
+  },
+  {
+    "ruta": "itinerarioJapon.21.destino",
+    "texto": "Narita · Terminal 1, Flug nach Hause"
+  },
+  {
+    "ruta": "itinerarioJapon.21.hospedaje",
+    "texto": "Nacht im Flugzeug"
+  },
+  {
+    "ruta": "itinerarioJapon.21.actividades",
+    "texto": "Zum Frühstück gab es ein letztes Onigiri auf dem Bahnsteig, dann stieg ich mit dem Koffer, fünf Kilo schwerer, in den Narita Express."
+  },
+  {
+    "ruta": "itinerarioJapon.21.transporte",
+    "texto": "Narita Express + Flug Narita–AICM"
+  },
+  {
+    "ruta": "itinerarioCorea.0.inicio",
+    "texto": "Mexiko-Stadt"
+  },
+  {
+    "ruta": "itinerarioCorea.0.destino",
+    "texto": "Seoul · noch offen"
+  },
+  {
+    "ruta": "itinerarioCorea.0.hospedaje",
+    "texto": "Noch offen"
+  },
+  {
+    "ruta": "itinerarioCorea.0.actividades",
+    "texto": "Noch zu planen."
+  },
+  {
+    "ruta": "itinerarioCorea.0.transporte",
+    "texto": "Noch offen"
+  },
+  {
+    "ruta": "itinerarioCorea.1.inicio",
+    "texto": "Mexiko-Stadt"
+  },
+  {
+    "ruta": "itinerarioCorea.1.destino",
+    "texto": "Seoul · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.1.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.1.actividades",
+    "texto": "Erschöpft ankommen nach zwölftausend Stunden Flug, den Rucksack fallen lassen und einfach ohne Plan durch Hongdae laufen, bis mich der Jetlag umhaut. Zum Abendessen das Erste nehmen, was gut riecht, und noch am selben Abend die Verkehrskarte kaufen, um am Morgen keine Zeit zu verlieren."
+  },
+  {
+    "ruta": "itinerarioCorea.1.transporte",
+    "texto": "Flug AICM–Incheon + AREX-Zug"
+  },
+  {
+    "ruta": "itinerarioCorea.2.inicio",
+    "texto": "Seoul · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.2.destino",
+    "texto": "Seoul · Bukchon und Gyeongbokgung"
+  },
+  {
+    "ruta": "itinerarioCorea.2.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.2.actividades",
+    "texto": "Früh anfangen, zum Palast, bevor er sich füllt, und mich danach mit der Kamera in den Gassen von Bukchon verlieren. Den Tag möchte ich in einem Teehaus in Insadong beenden, mit kaltem Gerstentee und dem Logbuch."
+  },
+  {
+    "ruta": "itinerarioCorea.2.transporte",
+    "texto": "U-Bahn-Linie 3 + viel zu Fuß"
+  },
+  {
+    "ruta": "itinerarioCorea.3.inicio",
+    "texto": "Seoul · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.3.destino",
+    "texto": "Seoul · Seongsu und der Han-Fluss"
+  },
+  {
+    "ruta": "itinerarioCorea.3.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.3.actividades",
+    "texto": "Kaffeetag: In Seongsu gibt es Röstereien in alten Fabrikhallen, und ich will mindestens drei Filterkaffees vergleichen, ohne mich schuldig zu fühlen. Am Nachmittag ein Fahrrad am Han leihen und, wenn die Sonne tiefer steht, gemütliche acht Kilometer laufen."
+  },
+  {
+    "ruta": "itinerarioCorea.3.transporte",
+    "texto": "U-Bahn-Linie 2 + öffentliches Fahrrad"
+  },
+  {
+    "ruta": "itinerarioCorea.4.inicio",
+    "texto": "Seoul · Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.4.destino",
+    "texto": "Seoul · Gwangjang und Ikseondong"
+  },
+  {
+    "ruta": "itinerarioCorea.4.hospedaje",
+    "texto": "Guesthouse Namu Hongdae"
+  },
+  {
+    "ruta": "itinerarioCorea.4.actividades",
+    "texto": "Stehend essen in Gwangjang, auch wenn ich die halbe Karte nicht verstehe: Bindaetteok und was mir die Frau sonst zeigt. Abends über die Stadtmauer nach Naksan hinaufsteigen, um die Stadt von oben im Lichtermeer zu sehen."
+  },
+  {
+    "ruta": "itinerarioCorea.4.transporte",
+    "texto": "U-Bahn-Linie 1 + Aufstieg zu Fuß"
+  },
+  {
+    "ruta": "itinerarioCorea.5.inicio",
+    "texto": "Seoul"
+  },
+  {
+    "ruta": "itinerarioCorea.5.hospedaje",
+    "texto": "Hostel Dalbit Haeundae"
+  },
+  {
+    "ruta": "itinerarioCorea.5.actividades",
+    "texto": "Früh den KTX nehmen, mit Dosenkaffee, und zweieinhalb Stunden lang zusehen, wie sich die Landschaft verändert. Ankommen, alles fallen lassen und die Füße ins Meer stecken, auch wenn das Wasser kalt ist."
+  },
+  {
+    "ruta": "itinerarioCorea.5.transporte",
+    "texto": "KTX Seoul–Busan + U-Bahn"
+  },
+  {
+    "ruta": "itinerarioCorea.6.destino",
+    "texto": "Busan · Gamcheon und Jagalchi"
+  },
+  {
+    "ruta": "itinerarioCorea.6.hospedaje",
+    "texto": "Hostel Dalbit Haeundae"
+  },
+  {
+    "ruta": "itinerarioCorea.6.actividades",
+    "texto": "Am späten Vormittag nach Gamcheon hinaufsteigen und langsam über die bunten Treppen hinuntergehen, mit Pausen, wo mir danach ist. Danach der Fischmarkt von Jagalchi und Abendessen an einer Theke mit dem, was am frischesten aussieht, bestellt mit dem Finger."
+  },
+  {
+    "ruta": "itinerarioCorea.6.transporte",
+    "texto": "Lokaler Bus + U-Bahn-Linie 1"
+  },
+  {
+    "ruta": "itinerarioCorea.7.destino",
+    "texto": "Busan · Haedong Yonggungsa und Songjeong"
+  },
+  {
+    "ruta": "itinerarioCorea.7.hospedaje",
+    "texto": "Hostel Dalbit Haeundae"
+  },
+  {
+    "ruta": "itinerarioCorea.7.actividades",
+    "texto": "Ganz früh zum Klippentempel gehen, solange man das Meer noch über die Leute hinweg hört. Am Strand von Songjeong enden, mit Kaffee draußen und dem Notizbuch, um Bilanz über die Reise zu ziehen."
+  },
+  {
+    "ruta": "itinerarioCorea.7.transporte",
+    "texto": "Bus 181 + Küstenbahn"
+  },
+  {
+    "ruta": "itinerarioCorea.8.destino",
+    "texto": "Incheon · Rückflug"
+  },
+  {
+    "ruta": "itinerarioCorea.8.hospedaje",
+    "texto": "Nacht im Flugzeug"
+  },
+  {
+    "ruta": "itinerarioCorea.8.actividades",
+    "texto": "Der KTX zurück mit reichlich Puffer, weil ich kein zweites Mal durch einen Bahnhof rennen will. Die restlichen Won vor dem Boarding noch in Tee und etwas für Laika ausgeben."
+  },
+  {
+    "ruta": "itinerarioCorea.8.transporte",
+    "texto": "KTX + AREX + Flug Incheon–AICM"
+  },
+  {
+    "ruta": "recuerdos.0.texto",
+    "texto": "Ich landete nach vierzehn Stunden Flug, und alle Sätze, die ich monatelang geübt hatte, waren in der Einreiseschlange plötzlich weg. Der Zug ab Narita roch sauber, nach neuem Plastik und Seife, und niemand sprach laut. Im Hostel in Asakusa bekam ich einen Schlüssel mit Holzanhänger und eine handgezeichnete Karte mit drei markierten Cafés. Kurz vor Mitternacht aß ich ein Thunfisch-Onigiri auf der Eingangstreppe, den Rucksack noch auf dem Rücken. Ich schlief früh ein und wachte um drei Uhr auf, den Blick an die Decke gerichtet: Ein Jahr lang hatte ich Trinkgeld für genau diese Decke zusammengezählt."
+  },
+  {
+    "ruta": "recuerdos.1.texto",
+    "texto": "Ich überquerte die Shibuya-Kreuzung viermal hintereinander, nur um zu sehen, wie sich die Menge ordnet, ohne dass jemand zusammenstößt. Es nieselte, und der Asphalt spiegelte das Rot der Reklamen zurück; ich blieb am Fenster im zweiten Stock eines Cafés, bis mein Getränk ganz kalt war. In Shimokitazawa verbrachte ich anderthalb Stunden in einem Gebrauchtplattenladen, der nach feuchter Pappe roch, und kaufte eine Platte, die ich gar nicht abspielen kann. Zum Abendessen gab es Ramen an einer Theke mit sieben Plätzen, bestellt am Automaten mit Knöpfen; ich drückte den falschen und bekam ein doppeltes Ei, das ich trotzdem aufaß. Um sechs war der Akku vom Handy leer, und ich fand mit meinem Überlebensjapanisch den Weg zurück ins Hostel: Es klappte zwei von drei Mal."
+  },
+  {
+    "ruta": "recuerdos.2.texto",
+    "texto": "Gestern Abend war ich zum ersten Mal in einem Onsen, und ich brauchte zehn Minuten, um mich zu trauen, das Handtuch loszulassen; danach wollte ich vierzig Minuten lang nicht mehr raus. Heute überquerte ich den Berg mit dem Bus bis zum Kawaguchiko, und der Fuji blieb den ganzen Nachmittag in Wolken, also lieh ich mir ein Fahrrad und umrundete den See mit gedrückter Stimmung. Um Viertel vor sechs öffnete sich die Wolke, und da war er, riesig, grau und blau, als hätte er nur darauf gewartet, dass ich aufhöre zu suchen. Meine kalte Hand hielt eine heiße Dose Kaffee vom Konbini, und ich bewegte mich nicht, bis er sich wieder versteckte. Ich schickte das Foto meiner Mutter, obwohl es in Mexiko drei Uhr morgens war."
+  },
+  {
+    "ruta": "recuerdos.3.texto",
+    "texto": "Ich stellte den Wecker auf fünf, um vor allen anderen in den Bambuswald zu kommen, und es war jede verlorene Schlafminute wert. Oben hört man ein trockenes Knarren, wie von einem alten Schiff, und die Luft ist zehn Grad kühler als auf der Straße. Um acht waren wir schon dreihundert mit Selfie-Sticks, und der Zauber war vorbei. Danach stieg ich schwitzend in der Septemberluft auf den Affenberg, das T-Shirt am Rücken klebend und mit einer neuen Blase an der Ferse. Am Fluss aß ich Tofu, ohne die Karte zu verstehen, und bestellte zeigend, meine liebste Technik. Kyoto riecht anders als Tokio: nach Holz, Weihrauch und Kanal."
+  },
+  {
+    "ruta": "recuerdos.4.texto",
+    "texto": "Ein Hirsch fraß mir die Karte aus der Gesäßtasche, noch bevor ich überhaupt beim Tōdai-ji ankam. Sie verbeugen sich, um einen Keks zu erbetteln, und stoßen einen dann mit dem Kopf an, wenn man zu langsam ist; einer biss mir in den Jackenreißverschluss. Im Tempel ist der Buddha so groß, dass ich eine ganze Weile vergaß, Fotos zu machen. Am Nachmittag ging ich bei tiefstehendem Licht und fast ohne Menschen zwischen den Steinlaternen von Kasuga entlang und saß eine halbe Stunde auf einer Stufe. Ich fuhr zurück nach Kyoto und aß im Zug Kaki-Blatt-Sushi, die Hände noch nach Hirschkeksen riechend."
+  },
+  {
+    "ruta": "recuerdos.5.texto",
+    "texto": "Um sieben ging ich durch die Sannenzaka, alle Läden noch zu, und das ganze Viertel roch nach nassem Holz. Am Nachmittag brach ein Wolkenbruch los, von dem keine Vorhersage etwas gesagt hatte, und ich flüchtete in ein Kissaten mit rotsamtenen Sesseln. Der alte Herr bereitete den Kaffee im Siphon zu, ganz ohne Eile, während eine Katze auf der Stereoanlage schlief. Ich sagte ihm auf Japanisch, dass er sehr gut sei, und er antwortete langsam, mit der Geduld eines Lehrers, und so unterhielten wir uns zwanzig Minuten mit vielleicht zweihundert Wörtern zwischen uns beiden. Ich ging, als der Regen aufhörte und die Kopfsteinpflasterstraßen glänzten; das war der beste Tag der Reise, und ich hatte nichts von der Liste abgehakt."
+  },
+  {
+    "ruta": "recuerdos.6.texto",
+    "texto": "Osaka schreit, und mir gefiel das gut nach so viel Stille in Kyoto. Am ersten Takoyaki verbrannte ich mir den Gaumen, weil ich es stehend und ohne zu warten aß; seit zwei Tagen fühlt sich mein Gaumen noch komisch an. In Dōtonbori zieht sich das Neonlicht bis in den Kanal, und alle machen dasselbe Foto vom Glico-Läufer, ich eingeschlossen. Zum Abendessen stand ich an einer Theke, wo mir ein Mann im Anzug mit Untersetzern japanisches Baseball erklärte, von dem ich nicht einmal die Hälfte verstand. Um ein Uhr landete ich in einer Karaoke-Bar mit zwei Leuten aus dem Hostel, einer aus Busan, einer aus Manchester, und wir sangen Neunziger-Hits. Zurück ging ich zu Fuß, mit einem Eiersandwich vom Konbini, die Stadt noch immer hell erleuchtet."
+  },
+  {
+    "ruta": "recuerdos.7.texto",
+    "texto": "Gestern verbrachte ich vier Stunden im Friedensmuseum und kam heraus, ohne mit irgendjemandem reden zu wollen. Es gibt eine Uhr, die um 8:15 stehen geblieben ist, und ein verbranntes Dreirad, die ich nicht vergessen werde; ich saß auf einer Parkbank, bis der Kloß im Hals verging. Zum Abendessen gab es Okonomiyaki auf einer Platte mit sechs Fremden, und der Koch redete dabei über Baseball, als hätte die Stadt beschlossen, absichtlich weiterzuleben. Heute setzte ich mit der Fähre bei Ebbe nach Miyajima über und lief über den Sand bis zum Torii, das aus der Nähe nur altes, mit Münzen gespicktes Holz ist. Ich stieg den halben Berg hinauf, gab bei der Hitze auf und aß unten drei gegrillte Austern auf der Straße. Ins Notizbuch schrieb ich, dass ich mit jemandem zurückkommen möchte, dem ich das alles persönlich erzählen kann."
+  },
+  {
+    "ruta": "recuerdos.8.texto",
+    "texto": "Ich war vier Tage mit zwei Freunden in Oaxaca und erwischte den Markt 20 de Noviembre genau zur Rauchstunde, wenn die Tasajo-Grills einem die Kleidung mit Geruch vollsaugen. Ich war drei Wochen in der Diät und riss sie am ersten Tag komplett: Mole negro, eine Tlayuda und ein Espadín-Mezcal, bei dem ich husten musste, während die Frau dahinter lachte. Schiefgelaufen ist der Rückbus von Hierve el Agua, der sich um zwei Stunden verspätete, sodass ich am Ende den Sonnenuntergang ansah, auf einem Stein sitzend, der Handyakku bei 4 %. Dort fiel mir wieder ein zu meditieren, ohne App und ohne Timer, während hinter mir Leute Zapotekisch sprachen. Zweimal lief ich um halb sieben Uhr morgens auf der Promenade von Santo Domingo, wenn die ganze Stadt nach Brot und feuchtem Kalk riecht. Ich kam mit fünf Tafeln Metate-Schokolade zurück und mit der Erkenntnis, dass ich durchaus allein reisen kann, wenn ich mich gut organisiere."
+  },
+  {
+    "ruta": "recuerdos.9.texto",
+    "texto": "Am Wochenende bin ich nach Valle de Bravo geflüchtet, zwei Wochen nach dem Halbmarathon, vor allem um die Beine bergauf zu testen. Am Samstag lief ich zwölf Kilometer über Feldwege bis zu einem Aussichtspunkt, und die Luft auf 1.800 Metern erinnerte mich daran, dass ich nicht mehr derselbe bin wie vor einem Jahr. Wir fuhren zum Schutzgebiet Piedra Herrada, und auf den Klang war ich nicht vorbereitet: Wenn Tausende Monarchfalter zusammen fliegen, klingt das wie feiner Regen auf trockenem Laub. Die Führerin ließ uns zehn Minuten schweigen, und das kam einer Meditation näher als alles, was ich sonst außerhalb meines Zimmers gemacht habe. Abends stellte ich das Stativ am See auf und machte mein bestes Sternenfoto des Jahres, auch wenn das Objektiv zweimal beschlug und ich eine halbe Stunde mit Putzen verlor. Am Sonntag kam ich zurück, das Notizbuch voll mit dem Diagramm Studium gegen Job, ohne etwas entschieden zu haben – und das ist auch in Ordnung."
+  },
+  {
+    "ruta": "lugares.0.nota",
+    "texto": "Noch nicht geschrieben."
+  },
+  {
+    "ruta": "lugares.1.nota",
+    "texto": "Fünf Tage mit Zügen, Buchhandlungen und einer Kreuzung, die ich inzwischen auswendig kenne; die Stadt wirkte auf mich riesig und überraschend freundlich."
+  },
+  {
+    "ruta": "lugares.2.nota",
+    "texto": "Der Onsen, der meinen Rücken kurierte, und die erste Nacht auf Tatami, mit dem Regen auf dem Dach des Ryokan."
+  },
+  {
+    "ruta": "lugares.3.nota",
+    "texto": "Zwei Tage wartete ich zwischen Wolken auf den Fuji, und er zeigte sich um sechs Uhr morgens für fünfzehn Minuten, genau als ich schon gehen wollte."
+  },
+  {
+    "ruta": "lugares.4.nota",
+    "texto": "Sechs Tage mit frühem Aufstehen, Bambus und einem Kissaten mit Katze, wo ich mit zweihundert Wörtern Japanisch das beste Gespräch der Reise führte."
+  },
+  {
+    "ruta": "lugares.5.nota",
+    "texto": "Tagesausflug zwischen Hirschen, die sich verbeugen und einem dann die Karte abknabbern; der Tōdai-ji fühlt sich innen an, als stünde man unter einem hölzernen Himmel."
+  },
+  {
+    "ruta": "lugares.6.nota",
+    "texto": "Lärm, Neonlicht, Takoyaki, das mir den Gaumen verbrannte, und Karaoke um ein Uhr morgens mit Leuten, die ich gerade erst kennengelernt hatte."
+  },
+  {
+    "ruta": "lugares.7.nota",
+    "texto": "Das Museum machte mich vier Stunden lang sprachlos, und danach gab mir die Stadt Okonomiyaki zum Abendessen und redete dabei über Baseball; Miyajima bei Ebbe rundete es gut ab."
+  },
+  {
+    "ruta": "lugares.8.nota",
+    "texto": "Vier Tage mit Mole, Mezcal und frühmorgendlichen Läufen bei Santo Domingo: die Reise, die mich überzeugte, dass ich allein reisen kann."
+  },
+  {
+    "ruta": "lugares.9.nota",
+    "texto": "Berge zum Trainieren, Monarchfalter, die wie Regen klingen, und das beste Sternenfoto, das ich bisher gemacht habe."
+  },
+  {
+    "ruta": "lugares.10.nota",
+    "texto": "Als Nächstes: acht Tage inklusive Busan, seit Januar gespart und mit der perfekten Ausrede, wieder ganz von vorn eine Sprache zu lernen."
+  },
+  {
+    "ruta": "lugares.11.nota",
+    "texto": "Irgendwann, mit Geld und starken Beinen: Ich will mehrere Tage am Stück wandern und dort schlafen, wo es kein Netz gibt."
+  },
+  {
+    "ruta": "lugares.12.nota",
+    "texto": "Die lange Liste: im Winter mit dem Stativ losziehen und versuchen, Polarlichter zu fotografieren, auch wenn mir die Hände einfrieren."
+  }
+]

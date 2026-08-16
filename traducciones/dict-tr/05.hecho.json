@@ -1,0 +1,1078 @@
+[
+  {
+    "clave": "corazon.gato.noche.1",
+    "texto": "Sessiz bir gece. Bozma 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.0",
+    "texto": "Hey, «{r}» saat {h}’de. Ben kıpırdamıyorum 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.1",
+    "texto": "«{r}» yaklaşıyor ({h}). Sen yaparsın, ben gözetlerim 🐱"
+  },
+  {
+    "clave": "corazon.gato.generica.0",
+    "texto": "Her şey kontrol altında. Şekerlemede kontrol ettim 🐾"
+  },
+  {
+    "clave": "corazon.gato.generica.1",
+    "texto": "Hmm. Ev hâlâ ayakta. Rica ederim 🐱"
+  },
+  {
+    "clave": "corazon.perro.manana.0",
+    "texto": "Günaydın! Bugün harika bir gün gibi kokuyor! 🐶"
+  },
+  {
+    "clave": "corazon.perro.manana.1",
+    "texto": "Sabah oldu! Hadi hadi hadi! 🦴"
+  },
+  {
+    "clave": "corazon.perro.tarde.0",
+    "texto": "İş bitirmek için mükemmel bir öğleden sonra! Hav! 🐶"
+  },
+  {
+    "clave": "corazon.perro.tarde.1",
+    "texto": "Hâlâ buradayım, her şeyi izliyorum! 🎉"
+  },
+  {
+    "clave": "corazon.perro.noche.0",
+    "texto": "Ne harika bir gün geçirdik! Değil mi? Değil mi? 🐶"
+  },
+  {
+    "clave": "corazon.perro.noche.1",
+    "texto": "Sessiz bir gece… Nöbeti ben tutarım! 🦴"
+  },
+  {
+    "clave": "corazon.perro.rutina.0",
+    "texto": "«{r}» saat {h}’de! Yaparsın! 🎉"
+  },
+  {
+    "clave": "corazon.perro.rutina.1",
+    "texto": "Sakın unutma: «{r}», saat {h}’de! Hav! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.0",
+    "texto": "Bu evi seviyorum! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.1",
+    "texto": "Bir şeye ihtiyacın olursa beni çağır! Her şey için! 🦴"
+  },
+  {
+    "clave": "corazon.buho.manana.0",
+    "texto": "Şafak. Günü sakince planlamak için ideal. 🦉"
+  },
+  {
+    "clave": "corazon.buho.manana.1",
+    "texto": "Düzenli bir sabah iki katı verim getirir."
+  },
+  {
+    "clave": "corazon.buho.tarde.0",
+    "texto": "Öğle vakti: ilerlemeyi gözden geçirmek için iyi bir an. 🦉"
+  },
+  {
+    "clave": "corazon.buho.tarde.1",
+    "texto": "Öğleden sonra plana göre ilerliyor."
+  },
+  {
+    "clave": "corazon.buho.noche.0",
+    "texto": "Gece çöküyor. Günü bir notla kapatmanı öneririm. 🦉"
+  },
+  {
+    "clave": "corazon.buho.noche.1",
+    "texto": "Gece, düşünmeye davet eder."
+  },
+  {
+    "clave": "corazon.buho.rutina.0",
+    "texto": "Zamanında uyarı: «{r}» saat {h}’de. 🦉"
+  },
+  {
+    "clave": "corazon.buho.rutina.1",
+    "texto": "Zaman çizelgende «{r}» saat {h}’de yer alıyor."
+  },
+  {
+    "clave": "corazon.buho.generica.0",
+    "texto": "Gözlemliyor ve not ediyorum. Her şey yolunda. 🦉"
+  },
+  {
+    "clave": "corazon.buho.generica.1",
+    "texto": "Bilgi gün geçtikçe birikir."
+  },
+  {
+    "clave": "corazon.robot.manana.0",
+    "texto": "☀ GÜN DÖNGÜSÜ BAŞLADI. SİSTEMLER %100. 🤖"
+  },
+  {
+    "clave": "corazon.robot.manana.1",
+    "texto": "GÜNAYDIN. PİL DOLU. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.0",
+    "texto": "ÖĞLEDEN SONRA TARAMASI TAMAMLANDI. ANOMALİ YOK. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.1",
+    "texto": "VERİMLİLİK PARAMETRELER İÇİNDE. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.0",
+    "texto": "GECE MODU AKTİF. NÖBET SÜRÜYOR. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.1",
+    "texto": "ÖNERİ: İNSAN BİRİMİNİ ŞARJ ET (UYKU). ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.0",
+    "texto": "HATIRLATMA: «{r}» SAAT {h} İÇİN PLANLANDI. ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.1",
+    "texto": "UYARI: «{r}» SAAT {h}’DE. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.0",
+    "texto": "TÜM SİSTEMLER NORMAL. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.1",
+    "texto": "TALİMAT BEKLENİYOR. ACİL DEĞİL. ✓"
+  },
+  {
+    "clave": "chat.config.activoMapa",
+    "texto": "Aktif asistan her zaman haritada bulunur"
+  },
+  {
+    "clave": "chat.config.editar",
+    "texto": "Özelleştir"
+  },
+  {
+    "clave": "chat.config.eliminar",
+    "texto": "Asistanı kaldır"
+  },
+  {
+    "clave": "chat.config.eliminarConfirma",
+    "texto": "{n} kaldırılsın mı? Konuşmaları kalır."
+  },
+  {
+    "clave": "chat.config.eliminarOk",
+    "texto": "Kaldır"
+  },
+  {
+    "clave": "chat.config.eliminarUltimo",
+    "texto": "En az bir asistan kalmalı"
+  },
+  {
+    "clave": "chat.config.restaurar",
+    "texto": "Geri yükle:"
+  },
+  {
+    "clave": "chat.config.restaurarUno",
+    "texto": "Geri yükle"
+  },
+  {
+    "clave": "acceso.subir",
+    "texto": "{n}. seviyeye çık"
+  },
+  {
+    "clave": "acceso.bajarPlanta",
+    "texto": "Zemin kata in"
+  },
+  {
+    "clave": "acceso.bajar",
+    "texto": "{n}. seviyeye in"
+  },
+  {
+    "clave": "veh.ayuda",
+    "texto": "Haritaya bir araç yerleştir ve binmek için yanına yaklaş."
+  },
+  {
+    "clave": "veh.colocar",
+    "texto": "Haritaya yerleştir"
+  },
+  {
+    "clave": "veh.color",
+    "texto": "Araç rengi"
+  },
+  {
+    "clave": "veh.subirte",
+    "texto": "Bin"
+  },
+  {
+    "clave": "veh.bajarte",
+    "texto": "İn"
+  },
+  {
+    "clave": "accion.sentarte",
+    "texto": "Otur"
+  },
+  {
+    "clave": "accion.acostarte",
+    "texto": "Uzan"
+  },
+  {
+    "clave": "accion.sentado",
+    "texto": "Oturuyor"
+  },
+  {
+    "clave": "accion.acostado",
+    "texto": "Uzanıyor"
+  },
+  {
+    "clave": "accion.levantarte",
+    "texto": "Kalk"
+  },
+  {
+    "clave": "veh.subir",
+    "texto": "Yüksel (Boşluk)"
+  },
+  {
+    "clave": "veh.bajar",
+    "texto": "Alçal (Shift)"
+  },
+  {
+    "clave": "veh.derrape",
+    "texto": "Drift (Boşluk)"
+  },
+  {
+    "clave": "hud.ayuda",
+    "texto": "WASD/oklar veya sol alttaki pad ile hareket et. Sağ alttaki düğmelerle döndür ve yakınlaştır. Odalar arasında kapılardan geç."
+  },
+  {
+    "clave": "cat.cuerpo",
+    "texto": "Beden"
+  },
+  {
+    "clave": "cat.mente",
+    "texto": "Zihin"
+  },
+  {
+    "clave": "cat.complemento",
+    "texto": "Ekstralar"
+  },
+  {
+    "clave": "cat.config",
+    "texto": "Ayarlar"
+  },
+  {
+    "clave": "ajustes.titulo",
+    "texto": "Ayarlar"
+  },
+  {
+    "clave": "ajustes.idioma",
+    "texto": "Dil"
+  },
+  {
+    "clave": "diario.nacidoAbrev",
+    "texto": "d."
+  },
+  {
+    "clave": "ajustes.tema",
+    "texto": "Arayüz teması"
+  },
+  {
+    "clave": "ajustes.modo",
+    "texto": "Görünüm"
+  },
+  {
+    "clave": "ajustes.modo.claro",
+    "texto": "Açık"
+  },
+  {
+    "clave": "ajustes.modo.oscuro",
+    "texto": "Koyu"
+  },
+  {
+    "clave": "ajustes.modo.transparente",
+    "texto": "Şeffaf"
+  },
+  {
+    "clave": "ajustes.iconos",
+    "texto": "Simge stili"
+  },
+  {
+    "clave": "ajustes.iconos.emoji",
+    "texto": "Emojiler"
+  },
+  {
+    "clave": "ajustes.iconos.profesional",
+    "texto": "Profesyonel"
+  },
+  {
+    "clave": "ajustes.tipografia",
+    "texto": "Tipografi"
+  },
+  {
+    "clave": "ajustes.abrir",
+    "texto": "Ayarlar"
+  },
+  {
+    "clave": "tipografia.sistema",
+    "texto": "Sistem"
+  },
+  {
+    "clave": "tipografia.serif",
+    "texto": "Serif"
+  },
+  {
+    "clave": "tipografia.mono",
+    "texto": "Sabit genişlikli"
+  },
+  {
+    "clave": "tipografia.redondeada",
+    "texto": "Yuvarlak"
+  },
+  {
+    "clave": "tipografia.manuscrita",
+    "texto": "El yazısı"
+  },
+  {
+    "clave": "temaUI.medianoche",
+    "texto": "Gece Yarısı"
+  },
+  {
+    "clave": "temaUI.neon",
+    "texto": "Neon"
+  },
+  {
+    "clave": "temaUI.bosque",
+    "texto": "Orman"
+  },
+  {
+    "clave": "temaUI.ambar",
+    "texto": "Kehribar"
+  },
+  {
+    "clave": "temaUI.ciruela",
+    "texto": "Erik"
+  },
+  {
+    "clave": "room.cocina.nombre",
+    "texto": "Mutfak"
+  },
+  {
+    "clave": "room.ejercicio.nombre",
+    "texto": "Spor Salonu"
+  },
+  {
+    "clave": "room.recamara.nombre",
+    "texto": "Yatak Odası"
+  },
+  {
+    "clave": "room.descanso.nombre",
+    "texto": "Yatak · Dinlenme"
+  },
+  {
+    "clave": "room.anecdotario.nombre",
+    "texto": "Masa · Anı Defteri"
+  },
+  {
+    "clave": "room.despacho.nombre",
+    "texto": "Çalışma Odası"
+  },
+  {
+    "clave": "room.biblioteca.nombre",
+    "texto": "Kütüphane"
+  },
+  {
+    "clave": "room.entretenimiento.nombre",
+    "texto": "Eğlence"
+  },
+  {
+    "clave": "room.sala.nombre",
+    "texto": "Oturma Odası"
+  },
+  {
+    "clave": "room.jardin.nombre",
+    "texto": "Bahçe"
+  },
+  {
+    "clave": "room.garage.nombre",
+    "texto": "Garaj"
+  },
+  {
+    "clave": "room.diario.nombre",
+    "texto": "Günlük Haberler"
+  },
+  {
+    "clave": "room.hobbies.nombre",
+    "texto": "Hobiler"
+  },
+  {
+    "clave": "room.idiomas.nombre",
+    "texto": "Diller"
+  },
+  {
+    "clave": "room.caminos.nombre",
+    "texto": "Parkurlar"
+  },
+  {
+    "clave": "room.canchas.nombre",
+    "texto": "Sahalar"
+  },
+  {
+    "clave": "room.huerto.nombre",
+    "texto": "Yemek"
+  },
+  {
+    "clave": "room.granja.nombre",
+    "texto": "Çiftlik"
+  },
+  {
+    "clave": "room.ideas.nombre",
+    "texto": "Fikirler"
+  },
+  {
+    "clave": "room.computo.nombre",
+    "texto": "Bilgi İşlem"
+  },
+  {
+    "clave": "room.agenda.nombre",
+    "texto": "Ajanda"
+  },
+  {
+    "clave": "room.cocina.sub",
+    "texto": "Beslenme"
+  },
+  {
+    "clave": "room.ejercicio.sub",
+    "texto": "Güç ve fitness rutinleri"
+  },
+  {
+    "clave": "room.recamara.sub",
+    "texto": "Uyku ve anılar"
+  },
+  {
+    "clave": "room.descanso.sub",
+    "texto": "Uyku ve alarm"
+  },
+  {
+    "clave": "room.anecdotario.sub",
+    "texto": "Kişisel anı defteri"
+  },
+  {
+    "clave": "room.despacho.sub",
+    "texto": "Finans"
+  },
+  {
+    "clave": "room.biblioteca.sub",
+    "texto": "Öğrenme"
+  },
+  {
+    "clave": "room.entretenimiento.sub",
+    "texto": "Arşiv ve masa oyunları"
+  },
+  {
+    "clave": "room.sala.sub",
+    "texto": "Seyahatler"
+  },
+  {
+    "clave": "room.jardin.sub",
+    "texto": "Farkındalık"
+  },
+  {
+    "clave": "room.garage.sub",
+    "texto": "Araç bakımı"
+  },
+  {
+    "clave": "room.diario.sub",
+    "texto": "Günlük haberler"
+  },
+  {
+    "clave": "room.hobbies.sub",
+    "texto": "Uğraşlar ve projeler"
+  },
+  {
+    "clave": "room.calendario.sub",
+    "texto": "Etkinlikler ve rutinler"
+  },
+  {
+    "clave": "room.ideas.sub",
+    "texto": "Serbest tuval üzerinde kavram haritaları"
+  },
+  {
+    "clave": "room.computo.sub",
+    "texto": "Hesap makinesi ve elektronik tablolar"
+  },
+  {
+    "clave": "room.agenda.sub",
+    "texto": "İş, sağlık ve kişiler"
+  },
+  {
+    "clave": "hud.plegar",
+    "texto": "Kontrolleri daralt"
+  },
+  {
+    "clave": "hud.desplegar",
+    "texto": "Kontrolleri göster"
+  },
+  {
+    "clave": "nav3d.aria",
+    "texto": "Görünüm kontrolleri"
+  },
+  {
+    "clave": "nav3d.vistaCuarto",
+    "texto": "Oda görünümü"
+  },
+  {
+    "clave": "nav3d.vistaInterior",
+    "texto": "Duvara bakıyor"
+  },
+  {
+    "clave": "nav3d.rotarIzq",
+    "texto": "Görünümü sola döndür"
+  },
+  {
+    "clave": "nav3d.rotarDer",
+    "texto": "Görünümü sağa döndür"
+  },
+  {
+    "clave": "nav3d.acercar",
+    "texto": "Yakınlaştır"
+  },
+  {
+    "clave": "nav3d.alejar",
+    "texto": "Uzaklaştır"
+  },
+  {
+    "clave": "nav3d.restaurarCuarto",
+    "texto": "Oda yakınlaştırmasını ve odağını sıfırla"
+  },
+  {
+    "clave": "nav3d.vistaInicial",
+    "texto": "Başlangıç görünümü"
+  },
+  {
+    "clave": "nav3d.centrarCuarto",
+    "texto": "Odayı ortala"
+  },
+  {
+    "clave": "nav3d.reiniciar",
+    "texto": "Görünümü sıfırla"
+  },
+  {
+    "clave": "nav3d.editor3d",
+    "texto": "3D Düzenleyici"
+  },
+  {
+    "clave": "nav3d.editor3dOn",
+    "texto": "Düzenleyiciyi kapat"
+  },
+  {
+    "clave": "nav3d.editor3dHint",
+    "texto": "Dünyayı perspektiften düzenle: düzenlemek için bir nesneye, zemine, duvara veya karaktere dokun"
+  },
+  {
+    "clave": "nav3d.verFlechas",
+    "texto": "Hareket oklarına dön"
+  },
+  {
+    "clave": "nav3d.verCubo",
+    "texto": "Okları katla ve görünüm küpünü göster"
+  },
+  {
+    "clave": "nav3d.verFlechasBtn",
+    "texto": "Okları göster"
+  },
+  {
+    "clave": "nav3d.verCuboBtn",
+    "texto": "Görünümü göster"
+  },
+  {
+    "clave": "herr.boton",
+    "texto": "Araçlar"
+  },
+  {
+    "clave": "herr.rueda",
+    "texto": "Araç çarkı"
+  },
+  {
+    "clave": "herr.cubo",
+    "texto": "Küp"
+  },
+  {
+    "clave": "herr.saltar",
+    "texto": "Zıpla"
+  },
+  {
+    "clave": "herr.correr",
+    "texto": "Koş"
+  },
+  {
+    "clave": "herr.bailar",
+    "texto": "Dans et"
+  },
+  {
+    "clave": "herr.laser",
+    "texto": "Lazer"
+  },
+  {
+    "clave": "herr.volverCubo",
+    "texto": "Görünüm küpüne dön"
+  },
+  {
+    "clave": "herr.saltarBtn",
+    "texto": "Zıpla!"
+  },
+  {
+    "clave": "herr.corriendo",
+    "texto": "Koşuyor"
+  },
+  {
+    "clave": "herr.bailando",
+    "texto": "Dans ediyor"
+  },
+  {
+    "clave": "herr.disparar",
+    "texto": "Ateş et"
+  },
+  {
+    "clave": "herr.invocar",
+    "texto": "Çağır"
+  },
+  {
+    "clave": "herr.soloPlantaBaja",
+    "texto": "Çağırmak için zemin kata in"
+  },
+  {
+    "clave": "herr.veh.bicicleta",
+    "texto": "Bisiklet"
+  },
+  {
+    "clave": "herr.veh.motocicleta",
+    "texto": "Motosiklet"
+  },
+  {
+    "clave": "herr.veh.automovil",
+    "texto": "Araba"
+  },
+  {
+    "clave": "herr.veh.ovni",
+    "texto": "UFO"
+  },
+  {
+    "clave": "herr.cat.movimientos",
+    "texto": "Hareketler"
+  },
+  {
+    "clave": "herr.cat.juguetes",
+    "texto": "Oyuncaklar"
+  },
+  {
+    "clave": "herr.cat.vehiculos",
+    "texto": "Araçlar"
+  },
+  {
+    "clave": "herr.cat.construccion",
+    "texto": "İnşaat"
+  },
+  {
+    "clave": "herr.construir",
+    "texto": "İnşa et"
+  },
+  {
+    "clave": "herr.constrDibujar",
+    "texto": "Çiz"
+  },
+  {
+    "clave": "herr.abrirEditor",
+    "texto": "Düzenleyiciyi aç"
+  },
+  {
+    "clave": "herr.atras",
+    "texto": "Geri"
+  },
+  {
+    "clave": "herr.cuerda",
+    "texto": "İp atla"
+  },
+  {
+    "clave": "herr.mortal",
+    "texto": "Takla"
+  },
+  {
+    "clave": "herr.saludar",
+    "texto": "El salla"
+  },
+  {
+    "clave": "herr.mover",
+    "texto": "Taşı"
+  },
+  {
+    "clave": "herr.moverAcercate",
+    "texto": "Bir nesneye veya odaya yaklaş"
+  },
+  {
+    "clave": "herr.agarrar",
+    "texto": "Tut"
+  },
+  {
+    "clave": "herr.agarrarCuarto",
+    "texto": "Odayı tut"
+  },
+  {
+    "clave": "herr.moverCargandoObjeto",
+    "texto": "Nesne taşınıyor"
+  },
+  {
+    "clave": "herr.moverCargandoCuarto",
+    "texto": "Oda taşınıyor"
+  },
+  {
+    "clave": "herr.soltar",
+    "texto": "Bırak"
+  },
+  {
+    "clave": "ctx.interactuar",
+    "texto": "Etkileşim kur"
+  },
+  {
+    "clave": "ctx.entrarApp",
+    "texto": "Uygulamayı aç"
+  },
+  {
+    "clave": "ctx.cambiarLetrero",
+    "texto": "Tabelayı düzenle"
+  },
+  {
+    "clave": "ctx.usar",
+    "texto": "Kullan"
+  },
+  {
+    "clave": "ctx.subirte",
+    "texto": "Bin"
+  },
+  {
+    "clave": "ctx.subirteDona",
+    "texto": "Şamandıraya bin"
+  },
+  {
+    "clave": "ctx.cosechar",
+    "texto": "Hasat et"
+  },
+  {
+    "clave": "ctx.recoger",
+    "texto": "Topla"
+  },
+  {
+    "clave": "ctx.bajarte",
+    "texto": "İn"
+  },
+  {
+    "clave": "ctx.correr",
+    "texto": "Yarış"
+  },
+  {
+    "clave": "ctx.revisarTu",
+    "texto": "Kontrol et"
+  },
+  {
+    "clave": "ctx.subirA",
+    "texto": "Çık"
+  },
+  {
+    "clave": "ctx.bajarA",
+    "texto": "İn"
+  },
+  {
+    "clave": "ctx.nivelN",
+    "texto": "Seviye {n}"
+  },
+  {
+    "clave": "ctx.plantaBaja",
+    "texto": "Zemin kat"
+  },
+  {
+    "clave": "ctx.jugar.futbol",
+    "texto": "Futbol oyna"
+  },
+  {
+    "clave": "ctx.jugar.tenis",
+    "texto": "Tenis oyna"
+  },
+  {
+    "clave": "ctx.jugar.basket",
+    "texto": "Basketbol oyna"
+  },
+  {
+    "clave": "ctx.jugar.beisbol",
+    "texto": "Beyzbol oyna"
+  },
+  {
+    "clave": "herr.portales",
+    "texto": "Portallar"
+  },
+  {
+    "clave": "herr.fuegos",
+    "texto": "Havai fişekler"
+  },
+  {
+    "clave": "herr.burbujas",
+    "texto": "Baloncuklar"
+  },
+  {
+    "clave": "herr.cuerdaOn",
+    "texto": "İp atlıyor"
+  },
+  {
+    "clave": "herr.mortalBtn",
+    "texto": "Takla!"
+  },
+  {
+    "clave": "herr.saludarBtn",
+    "texto": "Selam!"
+  },
+  {
+    "clave": "herr.portalColocar",
+    "texto": "Portal yerleştir"
+  },
+  {
+    "clave": "herr.portalQuitar",
+    "texto": "Portalları kaldır"
+  },
+  {
+    "clave": "herr.fuegosBtn",
+    "texto": "Fırlat!"
+  },
+  {
+    "clave": "herr.burbujasOn",
+    "texto": "Baloncuk üflüyor"
+  },
+  {
+    "clave": "herr.quitar",
+    "texto": "Aracı kaldır"
+  },
+  {
+    "clave": "herr.grafiti",
+    "texto": "Grafiti"
+  },
+  {
+    "clave": "herr.grafitiPintar",
+    "texto": "Duvarı boya"
+  },
+  {
+    "clave": "herr.grafitiSinMuro",
+    "texto": "Bir duvara yaklaş"
+  },
+  {
+    "clave": "herr.grafitiMuroPuerta",
+    "texto": "Kapılı duvarlar boyanamaz"
+  },
+  {
+    "clave": "herr.grafitiMuroCurvo",
+    "texto": "Kavisli duvarlar boyanamaz"
+  },
+  {
+    "clave": "graf.titulo",
+    "texto": "Grafiti"
+  },
+  {
+    "clave": "graf.pincel",
+    "texto": "Fırça"
+  },
+  {
+    "clave": "graf.spray",
+    "texto": "Sprey"
+  },
+  {
+    "clave": "graf.borrador",
+    "texto": "Silgi"
+  },
+  {
+    "clave": "graf.bote",
+    "texto": "Hepsini tek renkle doldur"
+  },
+  {
+    "clave": "graf.grosor",
+    "texto": "Kalınlık"
+  },
+  {
+    "clave": "graf.color",
+    "texto": "Renk"
+  },
+  {
+    "clave": "graf.deshacer",
+    "texto": "Geri al"
+  },
+  {
+    "clave": "graf.limpiar",
+    "texto": "Temizle"
+  },
+  {
+    "clave": "graf.borrar",
+    "texto": "Grafitiyi sil"
+  },
+  {
+    "clave": "graf.guardar",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "graf.salir",
+    "texto": "Kaydetmeden çık"
+  },
+  {
+    "clave": "despacho.tab.balance",
+    "texto": "Nakit akışı"
+  },
+  {
+    "clave": "despacho.tab.mercados",
+    "texto": "Piyasalar"
+  },
+  {
+    "clave": "despacho.tab.divisas",
+    "texto": "Döviz"
+  },
+  {
+    "clave": "despacho.tab.criptos",
+    "texto": "Kripto"
+  },
+  {
+    "clave": "despacho.tab.acciones",
+    "texto": "Hisseler"
+  },
+  {
+    "clave": "despacho.tab.commodities",
+    "texto": "Emtialar"
+  },
+  {
+    "clave": "despacho.sub.balance",
+    "texto": "Bakiye"
+  },
+  {
+    "clave": "despacho.tab.gastos",
+    "texto": "Giderler"
+  },
+  {
+    "clave": "despacho.tab.ingresos",
+    "texto": "Gelirler"
+  },
+  {
+    "clave": "despacho.tab.metas",
+    "texto": "Hedefler"
+  },
+  {
+    "clave": "despacho.tab.financieras",
+    "texto": "Finansal"
+  },
+  {
+    "clave": "despacho.tab.ahorroInversion",
+    "texto": "Tasarruf/Yatırım"
+  },
+  {
+    "clave": "despacho.tab.ahorro",
+    "texto": "Tasarruf"
+  },
+  {
+    "clave": "despacho.tab.inversion",
+    "texto": "Yatırım"
+  },
+  {
+    "clave": "despacho.tab.deuda",
+    "texto": "Borç"
+  },
+  {
+    "clave": "despacho.r.ingresos",
+    "texto": "Gelirler"
+  },
+  {
+    "clave": "despacho.r.gastos",
+    "texto": "Giderler"
+  },
+  {
+    "clave": "despacho.r.balance",
+    "texto": "Bakiye"
+  },
+  {
+    "clave": "despacho.presupuesto",
+    "texto": "Aylık bütçe"
+  },
+  {
+    "clave": "despacho.presupuesto.equivale",
+    "texto": "Bu dönem için bu {n} demek"
+  },
+  {
+    "clave": "despacho.patrimonio",
+    "texto": "Net değer"
+  },
+  {
+    "clave": "despacho.patrimonio.ayuda",
+    "texto": "Varlıkların eksi borçların, Net Değer sekmesinde. Burada sadece dönem böyle kapanırsa nasıl olacağını görürsün."
+  },
+  {
+    "clave": "despacho.excedido",
+    "texto": "Bütçe {n} aşıldı"
+  },
+  {
+    "clave": "despacho.progreso",
+    "texto": "{total} içinden {used} kullandın (%{pct})"
+  },
+  {
+    "clave": "despacho.catGastos",
+    "texto": "Kategoriye göre giderler"
+  },
+  {
+    "clave": "despacho.sinGastos",
+    "texto": "Bu dönemde gider yok."
+  },
+  {
+    "clave": "despacho.periodo.dia",
+    "texto": "Gün"
+  },
+  {
+    "clave": "despacho.periodo.semana",
+    "texto": "Hafta"
+  },
+  {
+    "clave": "despacho.periodo.mes",
+    "texto": "Ay"
+  },
+  {
+    "clave": "despacho.periodo.anio",
+    "texto": "Yıl"
+  },
+  {
+    "clave": "despacho.plazo.dia",
+    "texto": "Her gün"
+  },
+  {
+    "clave": "despacho.plazo.semana",
+    "texto": "Her hafta"
+  },
+  {
+    "clave": "despacho.plazo.mes",
+    "texto": "Her ay"
+  },
+  {
+    "clave": "despacho.plazo.anio",
+    "texto": "Her yıl"
+  },
+  {
+    "clave": "despacho.tendencia.dia",
+    "texto": "Bakiye · son 6 gün"
+  },
+  {
+    "clave": "despacho.tendencia.semana",
+    "texto": "Bakiye · son 6 hafta"
+  },
+  {
+    "clave": "despacho.tendencia.mes",
+    "texto": "Bakiye · son 6 ay"
+  },
+  {
+    "clave": "despacho.tendencia.anio",
+    "texto": "Bakiye · son 6 yıl"
+  },
+  {
+    "clave": "despacho.m.monto",
+    "texto": "Tutar"
+  },
+  {
+    "clave": "despacho.m.nota",
+    "texto": "Not (isteğe bağlı)"
+  },
+  {
+    "clave": "despacho.m.categoria",
+    "texto": "Kategori"
+  }
+]

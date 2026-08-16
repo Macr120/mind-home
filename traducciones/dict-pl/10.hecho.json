@@ -1,0 +1,522 @@
+[
+  {
+    "clave": "idiomas.rep.paraHoy",
+    "texto": "fiszek do powtórki dziś w {idioma}"
+  },
+  {
+    "clave": "idiomas.rep.empezar",
+    "texto": "Zacznij powtórkę"
+  },
+  {
+    "clave": "idiomas.rep.sinTarjetas",
+    "texto": "Nie ma jeszcze nic do powtórki: utwórz słownictwo w zakładce Słownictwo lub rozmawiając ze swoim nauczycielem."
+  },
+  {
+    "clave": "idiomas.rep.alDia",
+    "texto": "Jesteś na bieżąco: nie masz żadnych zaległych fiszek. Wróć jutro albo zrób powtórkę swobodną."
+  },
+  {
+    "clave": "idiomas.rep.libre",
+    "texto": "Powtórka swobodna"
+  },
+  {
+    "clave": "idiomas.rep.libreTag",
+    "texto": "Powtórka swobodna"
+  },
+  {
+    "clave": "idiomas.rep.quedan",
+    "texto": "Zostało {n}"
+  },
+  {
+    "clave": "idiomas.rep.marcador",
+    "texto": "{aciertos}/{hecho} poprawnych"
+  },
+  {
+    "clave": "idiomas.rep.mostrar",
+    "texto": "Pokaż odpowiedź"
+  },
+  {
+    "clave": "idiomas.rep.noSabia",
+    "texto": "Nie umiem tego"
+  },
+  {
+    "clave": "idiomas.rep.siSabia",
+    "texto": "Umiem to"
+  },
+  {
+    "clave": "idiomas.rep.salir",
+    "texto": "Koniec na dziś"
+  },
+  {
+    "clave": "idiomas.rep.ilustrar",
+    "texto": "Zilustruj tę fiszkę"
+  },
+  {
+    "clave": "idiomas.rep.cambiarIlustracion",
+    "texto": "Zmień ilustrację"
+  },
+  {
+    "clave": "idiomas.rep.verMazo",
+    "texto": "Zobacz talię"
+  },
+  {
+    "clave": "idiomas.rep.verMazoHoy",
+    "texto": "Zobacz dzisiejsze fiszki"
+  },
+  {
+    "clave": "idiomas.ilustrar.cerrar",
+    "texto": "Zamknij"
+  },
+  {
+    "clave": "idiomas.ilustrar.nota",
+    "texto": "Obrazek pojawia się, gdy odsłonisz odpowiedź: to wskazówka, która utrwala znaczenie."
+  },
+  {
+    "clave": "idiomas.ilustrar.nota2",
+    "texto": "Obraz i dźwięk razem: wskazówka, która utrwala znaczenie, gdy fiszka pojawi się w ćwiczeniach."
+  },
+  {
+    "clave": "idiomas.rep.fin",
+    "texto": "Sesja zakończona!"
+  },
+  {
+    "clave": "idiomas.rep.finDetalle",
+    "texto": "{aciertos} poprawnych z {total} odpowiedzi"
+  },
+  {
+    "clave": "idiomas.rep.listo",
+    "texto": "Gotowe"
+  },
+  {
+    "clave": "idiomas.ej.modo.opcion",
+    "texto": "Co to znaczy?"
+  },
+  {
+    "clave": "idiomas.ej.modo.inverso",
+    "texto": "Odwrócony"
+  },
+  {
+    "clave": "idiomas.ej.modo.cloze",
+    "texto": "Uzupełnianie"
+  },
+  {
+    "clave": "idiomas.ej.descOpcion",
+    "texto": "Widzisz termin w {idioma} i wybierasz jego tłumaczenie."
+  },
+  {
+    "clave": "idiomas.ej.descInverso",
+    "texto": "Widzisz tłumaczenie i wybierasz właściwy termin w {idioma}."
+  },
+  {
+    "clave": "idiomas.ej.descCloze",
+    "texto": "Uzupełnij przykładowe zdanie brakującym terminem."
+  },
+  {
+    "clave": "idiomas.ej.pocas",
+    "texto": "Potrzebujesz co najmniej 4 fiszek z {idioma}, żeby wygenerować ćwiczenia."
+  },
+  {
+    "clave": "idiomas.ej.pocas2",
+    "texto": "Potrzebujesz co najmniej 4 fiszek z {idioma}, żeby wygenerować ćwiczenia: utwórz je w programie nauki, rozmawiając ze swoim nauczycielem lub prosząc o nie AI."
+  },
+  {
+    "clave": "idiomas.ej.fuente",
+    "texto": "Co powtarzasz"
+  },
+  {
+    "clave": "idiomas.ej.fuenteTip",
+    "texto": "Fiszki, które wejdą do rundy"
+  },
+  {
+    "clave": "idiomas.ej.fuenteHoy",
+    "texto": "To, co wypada dziś ({n})"
+  },
+  {
+    "clave": "idiomas.ej.fuenteTodo",
+    "texto": "Całe słownictwo ({n})"
+  },
+  {
+    "clave": "idiomas.ej.temaVacio",
+    "texto": "Ten temat nie ma jeszcze fiszek. Wybierz inny albo wygeneruj je z programu nauki."
+  },
+  {
+    "clave": "idiomas.ej.sinCloze",
+    "texto": "Żadna fiszka nie ma zdania przykładowego ze swoim terminem: dodaj przykłady, żeby ćwiczyć uzupełnianie."
+  },
+  {
+    "clave": "idiomas.ej.empezar",
+    "texto": "Zacznij ćwiczenia"
+  },
+  {
+    "clave": "idiomas.ej.siguiente",
+    "texto": "Dalej"
+  },
+  {
+    "clave": "idiomas.ej.verResumen",
+    "texto": "Zobacz podsumowanie"
+  },
+  {
+    "clave": "idiomas.ej.fin",
+    "texto": "{aciertos} z {total} poprawnych"
+  },
+  {
+    "clave": "idiomas.ej.cambiarModo",
+    "texto": "Zmień tryb"
+  },
+  {
+    "clave": "idiomas.ej.otraRonda",
+    "texto": "Kolejna runda"
+  },
+  {
+    "clave": "idiomas.ej.reto.libre",
+    "texto": "Bez pośpiechu"
+  },
+  {
+    "clave": "idiomas.ej.reto.vidas",
+    "texto": "Trzy życia"
+  },
+  {
+    "clave": "idiomas.ej.reto.contrarreloj",
+    "texto": "Wyścig z czasem"
+  },
+  {
+    "clave": "idiomas.ej.descLibre",
+    "texto": "Runda {n} pytań, bez pośpiechu."
+  },
+  {
+    "clave": "idiomas.ej.descVidas",
+    "texto": "Grasz dalej, dopóki masz życia: każdy błąd kosztuje jedno."
+  },
+  {
+    "clave": "idiomas.ej.descReloj",
+    "texto": "Ile zdołasz w {n} sekund; szybka odpowiedź daje dodatkowe punkty."
+  },
+  {
+    "clave": "idiomas.ej.mult",
+    "texto": "{n}×"
+  },
+  {
+    "clave": "idiomas.ej.vidas",
+    "texto": "{n} żyć"
+  },
+  {
+    "clave": "idiomas.ej.terminar",
+    "texto": "Zakończ rundę"
+  },
+  {
+    "clave": "idiomas.ej.mejorCombo",
+    "texto": "najlepsza seria {n}"
+  },
+  {
+    "clave": "idiomas.medalla.perfecta",
+    "texto": "Idealna runda"
+  },
+  {
+    "clave": "idiomas.medalla.combo10",
+    "texto": "Dziesięć z rzędu"
+  },
+  {
+    "clave": "idiomas.medalla.relampago",
+    "texto": "Błyskawica"
+  },
+  {
+    "clave": "idiomas.medalla.superviviente",
+    "texto": "Przetrwanie"
+  },
+  {
+    "clave": "idiomas.medalla.maraton",
+    "texto": "Maraton"
+  },
+  {
+    "clave": "idiomas.mis.titulo",
+    "texto": "Dzisiejsze wyzwania"
+  },
+  {
+    "clave": "idiomas.mis.resp20",
+    "texto": "Odpowiedz na 20 ćwiczeń"
+  },
+  {
+    "clave": "idiomas.mis.resp40",
+    "texto": "Odpowiedz na 40 ćwiczeń"
+  },
+  {
+    "clave": "idiomas.mis.acierta15",
+    "texto": "Zdobądź 15 poprawnych odpowiedzi"
+  },
+  {
+    "clave": "idiomas.mis.acierta30",
+    "texto": "Zdobądź 30 poprawnych odpowiedzi"
+  },
+  {
+    "clave": "idiomas.mis.combo8",
+    "texto": "Zbuduj serię 8 poprawnych odpowiedzi"
+  },
+  {
+    "clave": "idiomas.mis.combo12",
+    "texto": "Zbuduj serię 12 poprawnych odpowiedzi"
+  },
+  {
+    "clave": "idiomas.mis.partidas2",
+    "texto": "Zagraj 2 rundy"
+  },
+  {
+    "clave": "idiomas.mis.partidas4",
+    "texto": "Zagraj 4 rundy"
+  },
+  {
+    "clave": "idiomas.mis.perfecta1",
+    "texto": "Ukończ idealną rundę"
+  },
+  {
+    "clave": "idiomas.mis.modos3",
+    "texto": "Wypróbuj wszystkie 3 tryby"
+  },
+  {
+    "clave": "idiomas.rec.titulo",
+    "texto": "Rekordy ćwiczeń"
+  },
+  {
+    "clave": "idiomas.rec.mejorCombo",
+    "texto": "Najlepsza seria"
+  },
+  {
+    "clave": "idiomas.rec.vacio",
+    "texto": "Nie rozegrano jeszcze żadnej rundy."
+  },
+  {
+    "clave": "idiomas.nivel.A1",
+    "texto": "Początkujący"
+  },
+  {
+    "clave": "idiomas.nivel.A2",
+    "texto": "Podstawowy"
+  },
+  {
+    "clave": "idiomas.nivel.B1",
+    "texto": "Średni"
+  },
+  {
+    "clave": "idiomas.nivel.B2",
+    "texto": "Średnio zaawansowany"
+  },
+  {
+    "clave": "idiomas.nivel.C1",
+    "texto": "Zaawansowany"
+  },
+  {
+    "clave": "idiomas.nivel.C2",
+    "texto": "Biegłość"
+  },
+  {
+    "clave": "idiomas.tem.tuNivel",
+    "texto": "twój poziom"
+  },
+  {
+    "clave": "idiomas.tem.cobertura",
+    "texto": "{c}/{total} tematów ze słownictwem"
+  },
+  {
+    "clave": "idiomas.tem.nTarjetas",
+    "texto": "{n} fiszek z tego tematu"
+  },
+  {
+    "clave": "idiomas.tem.prompt.temas",
+    "texto": "Chcę poćwiczyć „{tema}”. Zaczynajmy."
+  },
+  {
+    "clave": "idiomas.tem.prompt.pronunciacion",
+    "texto": "Chcę popracować nad wymową: „{tema}”. Wyjaśnij mi to i podaj przykłady do powtarzania."
+  },
+  {
+    "clave": "idiomas.tem.prompt.gramatica",
+    "texto": "Wyjaśnij mi gramatykę „{tema}” na przykładach, a potem daj mi ćwiczenia."
+  },
+  {
+    "clave": "idiomas.tem.charlarTip",
+    "texto": "Poćwicz ten temat ze swoim nauczycielem"
+  },
+  {
+    "clave": "idiomas.tem.verTarjetasTip",
+    "texto": "Zobacz fiszki z tego tematu"
+  },
+  {
+    "clave": "idiomas.tem.generarTip",
+    "texto": "Generuj słownictwo z tego tematu przy pomocy AI"
+  },
+  {
+    "clave": "idiomas.tem.materialTip",
+    "texto": "Twoje notatki i zdjęcia z tego tematu"
+  },
+  {
+    "clave": "idiomas.tem.practicarTip",
+    "texto": "Ćwiczenia z fiszkami z tego tematu"
+  },
+  {
+    "clave": "idiomas.tem.sinTarjetas",
+    "texto": "Ten temat nie ma jeszcze fiszek."
+  },
+  {
+    "clave": "idiomas.tem.edicionDesc",
+    "texto": "Zrób z całego programu nauki swój własny: obszary, poziomy, tematy i podtematy można dodawać, zmieniać nazwę, porządkować i usuwać."
+  },
+  {
+    "clave": "idiomas.tem.modoEdicion",
+    "texto": "Edytuj program nauki"
+  },
+  {
+    "clave": "idiomas.tem.subir",
+    "texto": "W górę"
+  },
+  {
+    "clave": "idiomas.tem.bajar",
+    "texto": "W dół"
+  },
+  {
+    "clave": "idiomas.tem.izquierda",
+    "texto": "Przesuń w lewo"
+  },
+  {
+    "clave": "idiomas.tem.derecha",
+    "texto": "Przesuń w prawo"
+  },
+  {
+    "clave": "idiomas.tem.renombrar",
+    "texto": "Zmień nazwę"
+  },
+  {
+    "clave": "idiomas.tem.borrar",
+    "texto": "Usuń temat"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTema",
+    "texto": "Nowy temat w {nivel}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaTit",
+    "texto": "Nowy temat"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaMsg",
+    "texto": "W {nivel} · {area}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoSubtema",
+    "texto": "Nowy podtemat"
+  },
+  {
+    "clave": "idiomas.tem.subtemaTip",
+    "texto": "Dodaj podtemat wewnątrz"
+  },
+  {
+    "clave": "idiomas.tem.nSubtemas",
+    "texto": "{n} podtematów tutaj"
+  },
+  {
+    "clave": "idiomas.tem.dentroDe",
+    "texto": "Wewnątrz „{padre}”"
+  },
+  {
+    "clave": "idiomas.tem.verNivel",
+    "texto": "Zobacz tematy tego poziomu"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivel",
+    "texto": "Nowy poziom w {area}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelTit",
+    "texto": "Nowy poziom"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelMsg",
+    "texto": "Twój własny poziom wewnątrz „{area}”; jego odznaką będą pierwsze trzy litery."
+  },
+  {
+    "clave": "idiomas.tem.borrarNivel",
+    "texto": "Usuń poziom"
+  },
+  {
+    "clave": "idiomas.tem.areaActiva",
+    "texto": "Obszar „{n}”"
+  },
+  {
+    "clave": "idiomas.tem.nuevaArea",
+    "texto": "Nowy obszar"
+  },
+  {
+    "clave": "idiomas.tem.nuevaAreaMsg",
+    "texto": "Twój własny obszar tego języka, obok tych gotowych. Zaczyna się pusty: wewnątrz tworzysz jego poziomy."
+  },
+  {
+    "clave": "idiomas.tem.borrarArea",
+    "texto": "Usuń obszar"
+  },
+  {
+    "clave": "idiomas.tem.sinAreas",
+    "texto": "Twój program nauki jest pusty. Włącz ✏️ i utwórz pierwszy obszar."
+  },
+  {
+    "clave": "idiomas.tem.sinNiveles",
+    "texto": "Ten obszar nie ma jeszcze poziomów. Włącz ✏️ i utwórz pierwszy."
+  },
+  {
+    "clave": "idiomas.tem.prompt.propia",
+    "texto": "Chcę poćwiczyć „{tema}”. Zaczynajmy."
+  },
+  {
+    "clave": "idiomas.tem.crear",
+    "texto": "Utwórz"
+  },
+  {
+    "clave": "idiomas.tem.borrarTit",
+    "texto": "Usunąć „{n}”?"
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgHijos",
+    "texto": "Znika razem ze wszystkim, co jest w nim."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgTarjetas",
+    "texto": "Jego {n} fiszek NIE zostaje usuniętych: trafiają do „Bez kategorii”."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsg",
+    "texto": "Znika z programu nauki tego języka."
+  },
+  {
+    "clave": "idiomas.tem.sinClasificar",
+    "texto": "Bez kategorii"
+  },
+  {
+    "clave": "idiomas.tem.sinClasificarDesc",
+    "texto": "{n} fiszek, które nie są jeszcze w żadnym temacie"
+  },
+  {
+    "clave": "idiomas.tem.clasificar",
+    "texto": "— Temat —"
+  },
+  {
+    "clave": "idiomas.tem.clasificarTip",
+    "texto": "Wyślij ją do tematu w programie nauki"
+  },
+  {
+    "clave": "idiomas.area.temas",
+    "texto": "Tematy"
+  },
+  {
+    "clave": "idiomas.area.pronunciacion",
+    "texto": "Wymowa"
+  },
+  {
+    "clave": "idiomas.area.gramatica",
+    "texto": "Gramatyka"
+  },
+  {
+    "clave": "idiomas.area.temas.desc",
+    "texto": "O czym rozmawiać: słownictwo i sytuacje z każdego poziomu."
+  },
+  {
+    "clave": "idiomas.area.pronunciacion.desc",
+    "texto": "Jak brzmi język: głoski, akcent, rytm i intonacja."
+  }
+]

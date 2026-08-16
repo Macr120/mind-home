@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-biblioteca--charlas.2.texto2",
+    "texto": "Het eerste antwoord zet de chat meteen in zijn tak en legt hem vast als item. Vanuit dat item vertak je verder: de subonderwerpen die je nieuwsgierig maakten, worden nieuwe takken."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.titulo",
+    "texto": "Studeren en plannen"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.resumen",
+    "texto": "De timer houdt bij hoelang je studeert —in één keer of met pomodoro's— en het studieplan verdeelt je doelen over de kalender."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.titulo",
+    "texto": "De studieklok"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.texto",
+    "texto": "Kies een vak en start: bij Eenvoudig lopen de minuten in één keer door, en bij Pomodoro rijgt de app concentratieblokken en pauzes aan elkaar. Elk blok wordt vanzelf vastgelegd, en de klok blijft lopen, ook als je de kamer verlaat."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.titulo",
+    "texto": "Het jaar in één oogopslag"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.resumen",
+    "texto": "Overzicht brengt op één scherm samen wat de andere drie tabbladen verspreiden: hoeveel items je per vak hebt, hoeveel je hebt gestudeerd en op welke dagen."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.titulo",
+    "texto": "De dagelijkse herhaling"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.resumen",
+    "texto": "Kaarten herhaal je via vakjes: elk goed antwoord duwt de volgende beurt verder weg, elke fout haalt hem dichterbij. De app vraagt je alleen wat er vandaag aan de beurt is."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.titulo",
+    "texto": "Oefeningen, geen kaarten"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.texto",
+    "texto": "Je herhaalt door te antwoorden: meerkeuze, omgekeerd of door de voorbeeldzin aan te vullen. Bovenaan kies je wat meedoet in de ronde — wat er vandaag aan de beurt is, alle woordenschat of een onderwerp uit het lesprogramma."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.titulo",
+    "texto": "De woordenschat"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.resumen2",
+    "texto": "De kaarten leven BINNEN het lesprogramma: elk onderwerp klapt open en daar staan ze, met hun geluid, hun afbeelding en hun herhalingsvakje."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.titulo2",
+    "texto": "Elk woord, in zijn onderwerp"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.texto2",
+    "texto": "Klap een onderwerp open en je ziet zijn kaarten: erop tikken leest ze hardop voor, de miniatuur opent de illustratie en het potlood bewerkt ze. Peps eerste kaarten zijn A2 —boodschappen, de weg vragen— en de laatste zijn al B1."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.3.texto2",
+    "texto": "Kaarten voeg je met de hand toe aan hun onderwerp, of ze komen uit een chat met je tutor, of de AI stelt ze voor. Wat los blijft, valt onder “Niet ingedeeld”, en van daaruit stuur je het naar het onderwerp waar het hoort."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.titulo",
+    "texto": "Lesprogramma en plan"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.resumen",
+    "texto": "Het lesprogramma ordent de taal in drie gebieden —onderwerpen, uitspraak en grammatica— per MCER-niveau, en Voortgang vat je vooruitgang samen."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.3.texto2",
+    "texto": "Je kunt ook eigen materiaal bewaren binnen een onderwerp —aantekeningen, zinnetjes voor het hotel, een foto van je schriftje—, het van jezelf maken met het ✏️ (onderwerpen toevoegen, hernoemen, sorteren of verwijderen) en een studieplan met einddatum aanvragen."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.titulo",
+    "texto": "Werk en studie"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.resumen",
+    "texto": "De inbox met taken zonder datum en een Kanban-bord waarop je kaarten van kolom naar kolom sleept."
+  },
+  {
+    "clave": "tut.app-agenda--salud.titulo",
+    "texto": "Gezondheid en huisdieren"
+  },
+  {
+    "clave": "tut.app-agenda--salud.resumen",
+    "texto": "Doktersafspraken, medicijnen met hun tijden en huisdieren met hun verzorging: alles komt vanzelf in de kalender terecht."
+  },
+  {
+    "clave": "tut.app-agenda--personas.titulo",
+    "texto": "Personen"
+  },
+  {
+    "clave": "tut.app-agenda--personas.resumen",
+    "texto": "Je adresboekje per relatie, met verjaardagen die elk jaar vanzelf terugkomen in de kalender."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.titulo",
+    "texto": "Het jaar dat Pep leerde rennen"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.resumen",
+    "texto": "Gym brengt kracht, cardio en mobiliteit samen op één plek: elke sessie die je vastlegt voedt je reeks, je wekelijkse doelen en de geschiedenis van het jaar."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.titulo",
+    "texto": "Van nul naar 42 kilometer"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.resumen",
+    "texto": "Het tabblad Cardio bewaart elke run met afstand, tempo en route; de voortgang vat de maand samen in een heatmap en haalt je beste tijden eruit."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.titulo",
+    "texto": "De kracht die de knie niet kon afpakken"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.resumen",
+    "texto": "Bij Kracht leg je sets, herhalingen en gewicht vast; daarmee berekent de app je volume, tekent de progressie van elke oefening en bewaart je persoonlijke records."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.titulo",
+    "texto": "Eten met een doel"
+  }
+]

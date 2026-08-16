@@ -1,0 +1,117 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "es": "Seis especies, cada una con su ventana de hambre. Toca dentro de un corral con cupo y aparece con nombre puesto.",
+    "en": "Six species, each with its hunger window. Tap inside a pen with room and it appears, name included."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "es": "Juguetes",
+    "en": "Toys"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "es": "Lodo, tina y pelota, uno por celda: los animales van solos y jugar les levanta el ánimo. El santuario ya tiene los tres repartidos.",
+    "en": "Mud, tub and ball, one per cell: animals go on their own and playing lifts their mood. The sanctuary already has all three."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "es": "Nombres",
+    "en": "Names"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "es": "Con Nombrar tocas un corral y ves su lista con el cupo usado; toca un animal para renombrarlo.",
+    "en": "With Name you tap a pen and see its list with the used capacity; tap an animal to rename it."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "es": "Eso es todo el oficio: corral, cupo, juguetes y cariño. En la demo puedes ampliar el santuario si te animas.",
+    "en": "That is the whole craft: pen, capacity, toys and affection. In the demo you can even expand the sanctuary."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "es": "Esta es la pista de Pep@: un óvalo de asfalto con línea de meta a cuadros. Es la única meta del mapa — todo el modo carrera gira alrededor de ella.",
+    "en": "This is Pep@'s track: an asphalt oval with a checkered finish line. It is the only finish line on the map — the whole race mode revolves around it."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "es": "Ahí está la meta. Acércate a la bici o al coche del patio y móntate con su botón; con el vehículo puesto, pisa esta línea y sale el semáforo.",
+    "en": "There is the finish line. Walk up to the bike or the car in the yard and mount with its button; with the vehicle on, cross this line and the traffic light appears."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "es": "Pégate al óvalo y derrapa en las curvas para no perder velocidad. También puedes correr contra un asistente, con ítems de por medio: banana, turbo y bomba.",
+    "en": "Hug the oval and drift the corners to keep your speed. You can also race an assistant, items included: banana, turbo and bomb."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "es": "Junto a la meta vive la tabla de tiempos: la bici de Pep@ acumula 38 victorias y una mejor vuelta de 41.8 s. Bátela — los récords que hagas en la demo se guardan.",
+    "en": "Next to the line lives the time table: Pep@'s bike holds 38 wins and a 41.8 s best lap. Beat it — records you set in the demo are saved."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "es": "El riel que rodea el mapa y la montaña rusa de la feria también son caminos: camina sobre la vía y aparece «Montar». Cada trazo es su propia red.",
+    "en": "The rail circling the map and the fair coaster are paths too: walk onto the track and \"Ride\" appears. Each stroke is its own network."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "es": "Hay tres trazos, y desde aquí se ven los tres: pista (para carreras), riel (el tren que rodea el mapa) y coaster (la montaña rusa, con alturas por celda). No se mezclan aunque se toquen: cada uno busca vecinos de su propio tipo.",
+    "en": "There are three strokes, and from up here you can see all three: track (racing), rail (the train circling the map) and coaster (the roller coaster, with heights per cell). They never mix even when touching: each looks for neighbors of its own kind."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "es": "La montaña rusa de la feria sube hasta seis niveles y las rampas entre celda y celda se interpolan solas. Súbete: el carrito recorre el circuito cerrado.",
+    "en": "The fair coaster climbs up to six levels and the ramps between cells interpolate on their own. Hop on: the cart runs the closed circuit."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "es": "En tu propia casa los dibujas celda a celda con el editor de Circuitos, o a mano alzada con el trazo libre por sectores. Aquí en la demo el mapa ya viene trazado.",
+    "en": "In your own home you draw them cell by cell with the Circuits editor, or freehand with sector-based free drawing. Here in the demo the map comes pre-drawn."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "es": "Este es el complejo deportivo de Pep@: fútbol, básquet, tenis y béisbol, uno junto a otro. Cada cancha es un rectángulo sobre el mapa — entrar caminando a él arranca su juego.",
+    "en": "This is Pep@'s sports complex: football, basketball, tennis and baseball, side by side. Each court is a rectangle on the map — walking into it starts its game."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "es": "El botón de carga aparece en el hueco del cubo de navegación y tira hacia donde mira tu personaje: apunta primero, carga después.",
+    "en": "The charge button appears in the navigation-cube slot and shoots where your character faces: aim first, charge after."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "es": "Abajo, el campo de béisbol y la cancha de tenis: el tenis tiene rebote y peloteo, y el béisbol es puro bateo, contra máquina o pitcher.",
+    "en": "Below, the baseball field and the tennis court: tennis has rebound and rallies, and baseball is pure batting, against machine or pitcher."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "es": "Arriba, la cancha de fútbol y la de básquet. El fútbol se juega con dribbling y tiro; el básquet, midiendo la potencia del lanzamiento.",
+    "en": "Up top, the football and basketball courts. Football plays with dribbling and shooting; basketball, by measuring the power of your shot."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "es": "El marcador se guarda por cancha: Pep@ dejó un 21-15 en básquet y una racha de 18 peloteos en tenis. En la demo los partidos cuentan — mejóralos.",
+    "en": "The scoreboard is saved per court: Pep@ left a 21-15 in basketball and an 18-rally streak in tennis. Demo matches count — top them."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "es": "Abre la rueda de herramientas: ahí vive Paintball, en la categoría de construcción y juegos, junto a los vehículos.",
+    "en": "Open the tools wheel: Paintball lives there, in the building-and-games category, next to the vehicles."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "es": "Elige el modo: 1v1, 2v2 o batalla campal. Tus rivales son los asistentes del mapa — Laika cuenta — y se juega en la planta baja.",
+    "en": "Pick the mode: 1v1, 2v2 or free-for-all. Your rivals are the assistants on the map — Laika counts — and it is played on the ground floor."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "es": "La casa entera es el campo: cúbrete tras los muros, asómate a disparar y cuida la espalda. Las salpicaduras se quedan pintadas durante la batalla.",
+    "en": "The whole house is the arena: take cover behind walls, peek out to shoot and watch your back. Splats stay painted for the battle."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "es": "El marcador de Pep@ va 47 victorias por 23 derrotas. En la demo las batallas cuentan de verdad: súbelo antes de irte.",
+    "en": "Pep@'s scoreboard stands at 47 wins to 23 losses. Demo battles count for real: raise it before you leave."
+  }
+]

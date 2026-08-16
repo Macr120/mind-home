@@ -1,0 +1,102 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.texto",
+    "texto": "映画、シリーズ、本、ゲームが、見終わった日の順に並んでいます。7か月目には一気見の山があり（膝を痛めてソファの時間が余ったのです）、三週間ぽっかり空いた時期もあります。日本旅行です。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.titulo",
+    "texto": "1件の項目"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.texto",
+    "texto": "タイトル、作者や監督、ジャンル、状態、星の数。レビューはPepが感じたことで、あらすじの要約ではありません。1年後に役に立つのは、そこだけです。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.titulo",
+    "texto": "並べ替えは4通り"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.texto",
+    "texto": "ジャンル順、カテゴリー順（映画、シリーズ、本、ゲーム）、作者順、日付順。ジャンル順の表示ではフォルダをドラッグできます。よく見るものを先頭に置きましょう。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.titulo",
+    "texto": "視聴リスト"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.texto",
+    "texto": "PepはSFの名作を集めたプログラムを作りました。AIならテーマから生成できますし（「80年代のホラー」など）、手で書くこともできます。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.titulo",
+    "texto": "1作ごとに目標"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.3.texto",
+    "texto": "そしてもう一つのタブがデジタルテーブルです。ボードゲームとアーケードゲームが20種類以上、その場ですぐ遊べます。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.1.texto",
+    "texto": "「1〜2人」か「3人以上」か。目の前の人数に合わないものはフィルターが隠します。「2+」と書かれたゲームは、どちらのセクションにも出てきます。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.titulo",
+    "texto": "系統ごと"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.texto",
+    "texto": "ボード、頭脳パズル、アーケード、カード・カジノ、みんなで。系統ごとに色が決まっています。チェス、チェッカー、ドミノ、ブラックジャック、テトリス、マインスイーパー、さらに十数種類。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.titulo",
+    "texto": "ワンタップで開始"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.texto",
+    "texto": "どのカードもゲームを全画面で開きます。対応しているものは、上に難易度の切り替えが付いています。戻れば、この場所にそのまま帰ってこられます。"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.titulo",
+    "texto": "今日のニュース"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.texto",
+    "texto": "世界、経済、テック、健康、スポーツ、エンタメ。実在のメディアから届きます。上のタグでカテゴリーを絞り込めます。"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.titulo",
+    "texto": "ひとりでに新しくなります"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.texto",
+    "texto": "その日の版はひとりでにダウンロードされ、深夜0時にまるごと入れ替わります。ここには何もたまりません。本物の新聞と同じです。"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.titulo",
+    "texto": "今日は何の日"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.texto",
+    "texto": "もう半分はこちらです。今日と同じ日に起きたこと、美術作品、一冊の本、生き物、言葉。ニュースを読む気がしない日でも、開く口実になります。"
+  },
+  {
+    "clave": "tut.app-diario--habito.4.texto",
+    "texto": "Pepは今年、200日ほど読みました。最初はたくさん、つらかった月はほとんど読まず、最後の三週間は毎日です。連続記録は、そこから生まれています。"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.titulo",
+    "texto": "お届け"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.texto",
+    "texto": "誰が何を届けるかは、ここで決めます。ただの通知ではありません。アシスタントからのメッセージとして、その語り口のまま届きます。"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.titulo",
+    "texto": "配達員は2人"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.texto",
+    "texto": "魔法使いは7:30に世界、テック、経済を届けます。Laikaは気が向いたときに軽い話題を運んできます。セクションと届け方は、アシスタントごとに選べます。"
+  }
+]

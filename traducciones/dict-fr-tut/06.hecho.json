@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.chat.6.texto",
+    "texto": "Le manuel liste les commandes : ajouter ou retirer des pièces, créer des objets, retenir des choses…"
+  },
+  {
+    "clave": "tut.chat.7.titulo",
+    "texto": "Le modèle d’IA"
+  },
+  {
+    "clave": "tut.chat.7.texto",
+    "texto": "Cette icône choisit quelle IA répond et garde ta clé si tu utilises la tienne. Sans rien de configuré, le chat marche quand même par mots-clés, sans comprendre le langage libre."
+  },
+  {
+    "clave": "tut.chat.8.texto",
+    "texto": "Tu peux aussi demander « comment marche la Cuisine ? » ou réclamer « tutoriel de Gym » ici même, et ce qui a été enregistré se revoit dans le tutoriel « Historique et mémoires »."
+  },
+  {
+    "clave": "tut.chat-registros.1.texto",
+    "texto": "Chats montre avec qui tu as discuté ; Entrées, ce qui a été gardé de ces conversations."
+  },
+  {
+    "clave": "tut.chat-registros.2.titulo",
+    "texto": "Ce qu’il retient de toi"
+  },
+  {
+    "clave": "tut.chat-registros.2.texto",
+    "texto": "Des détails que l’assistant a jugé utile de retenir d’une session à l’autre —une allergie, un objectif, une préférence— pour ne pas te les redemander. Tu les oublies en touchant leur ✕."
+  },
+  {
+    "clave": "tut.chat-registros.3.texto",
+    "texto": "Ce que tu enregistres dans tes apps (repas, dépenses, séances) vit dans chaque app, pas ici : cet onglet n’est que la mémoire de la conversation elle-même."
+  },
+  {
+    "clave": "tut.app-generica.1.texto",
+    "texto": "L’en-tête montre la pièce et l’app ouverte. Si la pièce a plusieurs apps, la flèche ‹ ramène au lanceur."
+  },
+  {
+    "clave": "tut.app-generica.2.titulo",
+    "texto": "Aujourd’hui"
+  },
+  {
+    "clave": "tut.app-generica.2.texto",
+    "texto": "Tes étapes du jour dans cette app : ton objectif quotidien, ce que tu as programmé et ce que réclament tes objectifs. Touche-la pour la déplier ; chaque étape se raye toute seule dès que tu enregistres."
+  },
+  {
+    "clave": "tut.app-generica.3.titulo",
+    "texto": "Les blocs"
+  },
+  {
+    "clave": "tut.app-generica.3.texto",
+    "texto": "Ce modèle est monté avec des blocs (notes, listes, compteurs, habitudes…). Tu peux les changer dans Menu › Modèles › Modifier."
+  },
+  {
+    "clave": "tut.app-generica.4.titulo",
+    "texto": "Sortir"
+  },
+  {
+    "clave": "tut.app-generica.4.texto",
+    "texto": "« Retour à la maison » ferme l’app et te ramène dans la 3D. Ce que tu notes ici est déjà enregistré."
+  },
+  {
+    "clave": "tut.rutinas.1.texto",
+    "texto": "Le panneau des routines de Pep : en haut ce qu’il y a aujourd’hui, en bas le catalogue complet pour mettre en pause, modifier ou supprimer."
+  },
+  {
+    "clave": "tut.rutinas.2.titulo",
+    "texto": "Au programme aujourd’hui"
+  },
+  {
+    "clave": "tut.rutinas.2.texto",
+    "texto": "Le service au café, le cours de physique, la course à l’aube, le piano le soir : chaque carte est une routine avec ses étapes. Celle qui déborde en ambre devrait déjà être en cours et attend toujours."
+  },
+  {
+    "clave": "tut.rutinas.3.titulo",
+    "texto": "Cocher n’est pas toujours nécessaire"
+  },
+  {
+    "clave": "tut.rutinas.3.texto",
+    "texto": "L’étape avec l’éclair ⚡ s’enregistre toute seule : la course à l’aube se raye parce que cette sortie est déjà enregistrée dans Gym, pas parce que quelqu’un l’a cochée à la main. Les autres étapes, elles, se cochent d’un toucher."
+  },
+  {
+    "clave": "tut.rutinas.4.titulo",
+    "texto": "Le catalogue complet"
+  },
+  {
+    "clave": "tut.rutinas.4.texto",
+    "texto": "Elles sont toutes là, au programme aujourd’hui ou non. ON/OFF met une routine en pause sans effacer son historique : ce qui est fait jusqu’à aujourd’hui reste, et dès demain elle ne se demande plus. Modifier et ✕ changent ou suppriment la routine entière."
+  },
+  {
+    "clave": "tut.rutinas.5.titulo",
+    "texto": "Créer une routine"
+  },
+  {
+    "clave": "tut.rutinas.5.texto",
+    "texto": "Un nom, l’app à laquelle elle appartient (ou aucune, si c’est un événement isolé de la maison), l’horaire et la couleur. Les étapes sont facultatives : sans elles, c’est juste un événement dans le calendrier."
+  },
+  {
+    "clave": "tut.rutinas.6.titulo",
+    "texto": "Une fois, chaque semaine ou toujours"
+  },
+  {
+    "clave": "tut.rutinas.6.texto",
+    "texto": "Le piano est sans fin et sans jours cochés (donc tous) ; la course ne se répète que les jours que Pep a cochés. Le mensuel, l’annuel ou une période ne se choisissent pas ici : ça naît quand tu traces l’objectif directement sur la grille du calendrier."
+  },
+  {
+    "clave": "tut.rutinas.7.titulo",
+    "texto": "Le rappel à l’heure dite"
+  },
+  {
+    "clave": "tut.rutinas.7.texto",
+    "texto": "Si tu as accordé l’autorisation, il arrive comme notification du système ; sinon, l’assistant te le dit dans l’app la prochaine fois que tu l’ouvres."
+  },
+  {
+    "clave": "tut.rutinas.8.texto",
+    "texto": "Tout ce qui est programmé ici apparaît aussi sur la grille du calendrier et, dans l’app de chaque étape, dans sa liste Aujourd’hui."
+  },
+  {
+    "clave": "tut.enlaces.1.titulo",
+    "texto": "De l’objectif à son app"
+  },
+  {
+    "clave": "tut.enlaces.1.texto",
+    "texto": "N’importe quel objectif ou étape de plan peut porter une puce avec l’icône d’une app : c’est la réponse à « et ça, où ça se note ? »."
+  },
+  {
+    "clave": "tut.enlaces.2.titulo",
+    "texto": "La mettre ou la changer"
+  }
+]

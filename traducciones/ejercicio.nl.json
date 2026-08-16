@@ -1,0 +1,502 @@
+[
+  {
+    "ruta": "titulos.fuerza.0",
+    "texto": "Volledig onderlichaam"
+  },
+  {
+    "ruta": "titulos.fuerza.1",
+    "texto": "Push voor bovenlichaam"
+  },
+  {
+    "ruta": "titulos.fuerza.2",
+    "texto": "Rug en pull-oefeningen"
+  },
+  {
+    "ruta": "titulos.fuerza.3",
+    "texto": "Core en stabiliteit"
+  },
+  {
+    "ruta": "titulos.fuerza.4",
+    "texto": "Full body circuit"
+  },
+  {
+    "ruta": "titulos.fuerza.5",
+    "texto": "Benen en billen"
+  },
+  {
+    "ruta": "titulos.fuerza.6",
+    "texto": "Krachtonderhoud"
+  },
+  {
+    "ruta": "titulos.fuerza.7",
+    "texto": "Korte gymsessie"
+  },
+  {
+    "ruta": "titulos.resistencia.0",
+    "texto": "Rustige duurloop"
+  },
+  {
+    "ruta": "titulos.resistencia.1",
+    "texto": "Baanintervallen"
+  },
+  {
+    "ruta": "titulos.resistencia.2",
+    "texto": "Lange duurloop"
+  },
+  {
+    "ruta": "titulos.resistencia.3",
+    "texto": "Heuvels door de buurt"
+  },
+  {
+    "ruta": "titulos.resistencia.4",
+    "texto": "Duurloop op vast tempo"
+  },
+  {
+    "ruta": "titulos.resistencia.5",
+    "texto": "Hersteldraf"
+  },
+  {
+    "ruta": "titulos.resistencia.6",
+    "texto": "Fartlek door het park"
+  },
+  {
+    "ruta": "titulos.resistencia.7",
+    "texto": "Rondje na de dienst"
+  },
+  {
+    "ruta": "titulos.resistencia.8",
+    "texto": "Cardio thuis"
+  },
+  {
+    "ruta": "titulos.resistencia.9",
+    "texto": "Duurloop bij zonsopgang"
+  },
+  {
+    "ruta": "titulos.flexibilidad.0",
+    "texto": "Algemene mobiliteit"
+  },
+  {
+    "ruta": "titulos.flexibilidad.1",
+    "texto": "Ochtendyoga"
+  },
+  {
+    "ruta": "titulos.flexibilidad.2",
+    "texto": "Stretchen na het hardlopen"
+  },
+  {
+    "ruta": "titulos.flexibilidad.3",
+    "texto": "Vloerwerk en ademhaling"
+  },
+  {
+    "ruta": "titulos.flexibilidad.4",
+    "texto": "Heupmobiliteit"
+  },
+  {
+    "ruta": "titulos.flexibilidad.5",
+    "texto": "Benen losmaken"
+  },
+  {
+    "ruta": "titulos.flexibilidad.6",
+    "texto": "Zachte avondyoga"
+  },
+  {
+    "ruta": "titulos.flexibilidad.7",
+    "texto": "Fysioroutine"
+  },
+  {
+    "ruta": "enfoquesFlex.0",
+    "texto": "Heupen"
+  },
+  {
+    "ruta": "enfoquesFlex.1",
+    "texto": "Hamstrings"
+  },
+  {
+    "ruta": "enfoquesFlex.2",
+    "texto": "Onderrug"
+  },
+  {
+    "ruta": "enfoquesFlex.3",
+    "texto": "Schouders en nek"
+  },
+  {
+    "ruta": "enfoquesFlex.4",
+    "texto": "Kuiten en enkels"
+  },
+  {
+    "ruta": "enfoquesFlex.5",
+    "texto": "Quadriceps"
+  },
+  {
+    "ruta": "actividades.correr",
+    "texto": "Hardlopen"
+  },
+  {
+    "ruta": "actividades.caminar",
+    "texto": "Wandelen"
+  },
+  {
+    "ruta": "actividades.trote",
+    "texto": "Rustig joggen"
+  },
+  {
+    "ruta": "actividades.bici",
+    "texto": "Fietsen"
+  },
+  {
+    "ruta": "actividades.cuerda",
+    "texto": "Touwtjespringen"
+  },
+  {
+    "ruta": "hitos.0.titulo",
+    "texto": "De eerste keer joggen"
+  },
+  {
+    "ruta": "hitos.0.nota",
+    "texto": "Ik ging naar buiten zonder te weten of ik de hoek zou halen. Kwam terug met een rood hoofd en een vreemde zin om het nog eens te doen."
+  },
+  {
+    "ruta": "hitos.1.titulo",
+    "texto": "Het schema begint"
+  },
+  {
+    "ruta": "hitos.1.nota",
+    "texto": "Downloadde een schema en plakte het op de koelkast. Hardlopen was niet langer improviseren, maar iets om af te vinken."
+  },
+  {
+    "ruta": "hitos.2.titulo",
+    "texto": "Mijn eerste wedstrijd"
+  },
+  {
+    "ruta": "hitos.2.nota",
+    "texto": "Startnummer, zenuwen en mensen die vreemden aanmoedigen. Ik kwam over de finish zonder ook maar één keer te wandelen en bleef als een idioot naar mijn horloge staan staren."
+  },
+  {
+    "ruta": "hitos.3.titulo",
+    "texto": "Dubbele afstand"
+  },
+  {
+    "ruta": "hitos.3.nota",
+    "texto": "Schreef me in bijna uit nieuwsgierigheid, om te zien waar mijn grens lag. Het laatste stuk deed pijn, maar ik stopte niet."
+  },
+  {
+    "ruta": "hitos.4.titulo",
+    "texto": "Nieuwe langste duurloop"
+  },
+  {
+    "ruta": "hitos.4.nota",
+    "texto": "Had nog nooit zo lang aan één stuk gelopen. Kwam leeg en blij thuis, staand brood etend in de keuken."
+  },
+  {
+    "ruta": "hitos.5.titulo",
+    "texto": "De laatste goede"
+  },
+  {
+    "ruta": "hitos.5.nota",
+    "texto": "Ging licht, alles klopte, zelfs de ademhaling. Had geen idee dat het de laatste voor weken zou zijn."
+  },
+  {
+    "ruta": "hitos.6.titulo",
+    "texto": "Er brak iets"
+  },
+  {
+    "ruta": "hitos.6.nota",
+    "texto": "Steek in de knie en heel langzaam terug naar huis lopend. Kwam boos, bang en met geen zin om met wie dan ook te praten."
+  },
+  {
+    "ruta": "hitos.7.titulo",
+    "texto": "Eerste fysiosessie"
+  },
+  {
+    "ruta": "hitos.7.nota",
+    "texto": "Ze drukten precies waar het pijn deed en stuurden me met het saaiste huiswerk ooit naar huis. Ik liep naar buiten met een plan, en dat was precies wat ik nodig had."
+  },
+  {
+    "ruta": "hitos.8.titulo",
+    "texto": "Voorzichtig terug"
+  },
+  {
+    "ruta": "hitos.8.nota",
+    "texto": "Joggen en wandelen afgewisseld, trots in de zak gestoken. Luisterde bij elke stap naar de knie en die hield zich stil."
+  },
+  {
+    "ruta": "hitos.9.titulo",
+    "texto": "Heel Japan lopend"
+  },
+  {
+    "ruta": "hitos.9.nota",
+    "texto": "Geen enkele dag van de reis gerend, maar wel van ochtend tot avond gelopen tussen tempels, stations en straten die ik nog nooit had gezien. De voeten protesteerden en de benen kwamen sterker terug."
+  },
+  {
+    "ruta": "hitos.10.titulo",
+    "texto": "De knie houdt stand"
+  },
+  {
+    "ruta": "hitos.10.nota",
+    "texto": "Eerste echte lange duurloop van het nieuwe schema. Eindigde met meer gedachten aan het avondeten dan aan de blessure, en dat was het echte cadeau."
+  },
+  {
+    "ruta": "hitos.11.titulo",
+    "texto": "Halve marathon"
+  },
+  {
+    "ruta": "hitos.11.nota",
+    "texto": "Ging voorzichtig van start en haalde in het laatste stuk mensen in. Bij de finish dacht ik terug aan de dag dat ik de hoek niet eens haalde."
+  },
+  {
+    "ruta": "hitos.12.titulo",
+    "texto": "De monsterduurloop"
+  },
+  {
+    "ruta": "hitos.12.nota",
+    "texto": "De langste van het hele schema en degene waar ik het meest bang voor was. Kwam strompelend van de voordeur tot de douche, maar ik kwam er."
+  },
+  {
+    "ruta": "hitos.13.titulo",
+    "texto": "Mijn snelste dag"
+  },
+  {
+    "ruta": "hitos.13.nota",
+    "texto": "Ging op tempo lopen en de benen liepen vanzelf. Had het niet verwacht, middenin een week vol diensten en tentamens."
+  },
+  {
+    "ruta": "hitos.14.titulo",
+    "texto": "Afbouwen"
+  },
+  {
+    "ruta": "hitos.14.nota",
+    "texto": "Minder van alles en een hoofd dat maar door blijft malen. Benen sparen is lastiger dan trainen."
+  },
+  {
+    "ruta": "hitos.15.titulo",
+    "texto": "De marathon"
+  },
+  {
+    "ruta": "hitos.15.nota",
+    "texto": "Vertrok doodsbang en kwam huilend aan zonder goed te weten waarom. Een jaar eerder kon ik geen twee straten joggen."
+  },
+  {
+    "ruta": "hitos.16.titulo",
+    "texto": "Eerste keer weer rennen"
+  },
+  {
+    "ruta": "hitos.16.nota",
+    "texto": "Eerste keer erna, kort en zonder op het horloge te kijken. De benen wisten alles nog, maar ik liep glimlachend."
+  },
+  {
+    "ruta": "notas.0.nota",
+    "texto": "Ging joggen en na twee straten liep ik alweer. Beetje beschamend, maar ik schrijf het toch op."
+  },
+  {
+    "ruta": "notas.1.nota",
+    "texto": "Stretchen leek me tijdverspilling tot ik zonder klagen van de grond opstond."
+  },
+  {
+    "ruta": "notas.2.nota",
+    "texto": "Eerste dag met een geleend setje dumbbells. De dag erna deed zelfs lachen pijn."
+  },
+  {
+    "ruta": "notas.3.nota",
+    "texto": "Heel losse jog door het park. Mijn hoofd werd even stil, en dat is al veel."
+  },
+  {
+    "ruta": "notas.4.nota",
+    "texto": "Beendag. De trap thuis aflopen was de echte test."
+  },
+  {
+    "ruta": "notas.5.nota",
+    "texto": "Ging na mijn dienst hardlopen, koffiegeur nog in mijn kleren. Beter dan naar het plafond staren."
+  },
+  {
+    "ruta": "notas.6.nota",
+    "texto": "Laika kroop midden in de sessie boven op me. De heupen waren er evengoed blij mee."
+  },
+  {
+    "ruta": "notas.7.nota",
+    "texto": "Verhoogde de belasting een beetje en mijn techniek ging naar de knoppen. Ging terug en deed het zonder gedoe opnieuw."
+  },
+  {
+    "ruta": "notas.8.nota",
+    "texto": "Eerste dag dat ik de hele jog uitloop zonder te stoppen met wandelen. Klein, maar ik vier het."
+  },
+  {
+    "ruta": "notas.9.nota",
+    "texto": "Rug stijf van de hele dienst staan. Na de sessie ademde ik anders."
+  },
+  {
+    "ruta": "notas.10.nota",
+    "texto": "Korte sessie voor college. Minder dan ik wilde, maar gedaan."
+  },
+  {
+    "ruta": "notas.11.nota",
+    "texto": "Intervallen. Haatte elk snel stuk en hield van het laatste."
+  },
+  {
+    "ruta": "notas.12.nota",
+    "texto": "Zag mezelf vanuit mijn ooghoek in de spiegel en herkende mijn eigen houding niet. Er verandert iets."
+  },
+  {
+    "ruta": "notas.13.nota",
+    "texto": "Zenuwen voor de wedstrijd, dus ging ik rustig een stukje lopen alleen om te kalmeren."
+  },
+  {
+    "ruta": "notas.14.nota",
+    "texto": "Enkels en kuiten. Alles kraakte en daarna liep ik alsof ik zweefde."
+  },
+  {
+    "ruta": "notas.15.nota",
+    "texto": "Lange duurloop met een wetenschapspodcast. Voorbij voor ik het wist."
+  },
+  {
+    "ruta": "notas.16.nota",
+    "texto": "Core. Ik trilde helemaal en maakte de laatste set toch af."
+  },
+  {
+    "ruta": "notas.17.nota",
+    "texto": "Heuvels. Langzaam omhoog, erger omlaag, maar ik heb niets van het schema overgeslagen."
+  },
+  {
+    "ruta": "notas.18.nota",
+    "texto": "Hamstrings zo strak als gitaarsnaren. Een hele tijd op de grond en er gaf iets mee."
+  },
+  {
+    "ruta": "notas.19.nota",
+    "texto": "Push voor bovenlichaam. Verbaasd over wat ik nu aankan vergeleken met het begin."
+  },
+  {
+    "ruta": "notas.20.nota",
+    "texto": "Lange duurloop in het weekend. Het einde ging over het hoofd, niet over de benen."
+  },
+  {
+    "ruta": "notas.21.nota",
+    "texto": "Heupen helemaal op slot van elke dag naar het werk fietsen. Lange sessie en verdiend."
+  },
+  {
+    "ruta": "notas.22.nota",
+    "texto": "Vreemd gevoel in de knie en ik negeerde het volledig. Ik vermoed dat ik daarvoor ga boeten."
+  },
+  {
+    "ruta": "notas.23.nota",
+    "texto": "Alleen bovenlichaam. De knie maakte heel duidelijk dat ik niet eens aan squats moest denken."
+  },
+  {
+    "ruta": "notas.24.nota",
+    "texto": "Zachte mobiliteit en ijs. Ik haat het niet te kunnen hardlopen, en dat schrijf ik letterlijk zo op."
+  },
+  {
+    "ruta": "notas.25.nota",
+    "texto": "Armsessie met slecht humeur. Dit lijf laat me tenminste nog iets doen."
+  },
+  {
+    "ruta": "notas.26.nota",
+    "texto": "Het huiswerk van de fysio op de vloer van de woonkamer. Doodsaai en broodnodig."
+  },
+  {
+    "ruta": "notas.27.nota",
+    "texto": "Heel rustig op de hometrainer, met officiële toestemming. Weer zweten gaf me mijn humeur terug."
+  },
+  {
+    "ruta": "notas.28.nota",
+    "texto": "Joggen en wandelen afgewisseld. Telde elke voetstap alsof ik over ijs liep."
+  },
+  {
+    "ruta": "notas.29.nota",
+    "texto": "Billen en heupen, het vaste huiswerk. Ontdekte spieren die ik jarenlang niet had gebruikt."
+  },
+  {
+    "ruta": "notas.30.nota",
+    "texto": "Lange mobiliteitssessie. Nu snap ik eindelijk waar dit allemaal goed voor was."
+  },
+  {
+    "ruta": "notas.31.nota",
+    "texto": "Eerste rondje waarbij ik geen moment aan de knie dacht. Was dit gevoel helemaal vergeten."
+  },
+  {
+    "ruta": "notas.32.nota",
+    "texto": "Stretchen op de vloer van de kamer, met kapotgelopen voeten van de hele dag wandelen."
+  },
+  {
+    "ruta": "notas.33.nota",
+    "texto": "Weer een dag van station naar station lopen met de rugzak. Ik tel het als training omdat ik dat zelf beslis."
+  },
+  {
+    "ruta": "notas.34.nota",
+    "texto": "Eerste keer hardlopen na thuiskomst. De benen kwamen sterk uit de reis en dat was te merken."
+  },
+  {
+    "ruta": "notas.35.nota",
+    "texto": "Terug naar de gewichten na weken pauze. Begon bijna van nul en het kon me eerlijk gezegd niets schelen."
+  },
+  {
+    "ruta": "notas.36.nota",
+    "texto": "Weer intervallen. Ik hou van deze versie van mezelf die niet onderhandelt met het schema."
+  },
+  {
+    "ruta": "notas.37.nota",
+    "texto": "Schoudermobiliteit. De espressomachine sloopt ze elke dienst opnieuw."
+  },
+  {
+    "ruta": "notas.38.nota",
+    "texto": "Lange duurloop in de regen. Kwam doorweekt en dolblij terug, iets wat ik vroeger niet had begrepen."
+  },
+  {
+    "ruta": "notas.39.nota",
+    "texto": "Zware beensessie voor de grote week. Voor het eerst in maanden geen angst voor de knie."
+  },
+  {
+    "ruta": "notas.40.nota",
+    "texto": "Rustige duurloop na de wedstrijd. Alles nog heel, verrassend genoeg."
+  },
+  {
+    "ruta": "notas.41.nota",
+    "texto": "Hamstrings en kuiten, pure onderhoudsroutine. Het deel van het schema waar ik het minst zin in heb en dat me het meest redt."
+  },
+  {
+    "ruta": "notas.42.nota",
+    "texto": "Laatste echte lange duurloop. Vertrok bang en kwam kalm terug, precies wat ik nodig had."
+  },
+  {
+    "ruta": "notas.43.nota",
+    "texto": "Korte sessie en alles licht. Geen week voor heldendom."
+  },
+  {
+    "ruta": "notas.44.nota",
+    "texto": "Mobiliteit en niet veel meer. Benen sparen maakt me rusteloos."
+  },
+  {
+    "ruta": "notas.45.nota",
+    "texto": "Traplopen blijft het ergste. Loop als een pinguïn en heb een vreemde genegenheid voor deze spierpijn."
+  },
+  {
+    "ruta": "notas.46.nota",
+    "texto": "Kort jogje om de roest eraf te lopen. De benen wisten alles nog."
+  },
+  {
+    "ruta": "notas.47.nota",
+    "texto": "Rustige terugkeer naar de gewichten, belachelijk lichte belasting. Ben nu al aan het bedenken wat ik volgend jaar ga doen."
+  },
+  {
+    "ruta": "notas.48.nota",
+    "texto": "Vloerwerk, ademhaling en stretchen met Laika als getuige. Mijn lichaam voelt niet meer als een vijand."
+  },
+  {
+    "ruta": "metas.cinco",
+    "texto": "Eerste hardloopwedstrijd"
+  },
+  {
+    "ruta": "metas.diez",
+    "texto": "Afstand verdubbelen"
+  },
+  {
+    "ruta": "metas.medio",
+    "texto": "Halve marathon"
+  },
+  {
+    "ruta": "metas.maraton",
+    "texto": "De marathon finishen"
+  },
+  {
+    "ruta": "metas.siguiente",
+    "texto": "Volgende marathon, blessurevrij"
+  }
+]

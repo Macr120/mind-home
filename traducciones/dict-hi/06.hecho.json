@@ -1,0 +1,638 @@
+[
+ {
+  "clave": "despacho.m.categoriaPh",
+  "texto": "अपनी लिखें या किसी जानी-पहचानी को चुनें"
+ },
+ {
+  "clave": "despacho.m.tipoMov",
+  "texto": "बदलने वाला या तय?"
+ },
+ {
+  "clave": "despacho.m.variable",
+  "texto": "बदलने वाला"
+ },
+ {
+  "clave": "despacho.m.fijo",
+  "texto": "तय"
+ },
+ {
+  "clave": "despacho.m.plazo",
+  "texto": "कितनी बार?"
+ },
+ {
+  "clave": "despacho.m.plazoAyuda",
+  "texto": "यह उस तारीख़ से खुद-ब-खुद दोहराता है जो आपने तय की — फिर से दर्ज करने की ज़रूरत नहीं।"
+ },
+ {
+  "clave": "despacho.m.repetidos",
+  "texto": "तय"
+ },
+ {
+  "clave": "despacho.m.alMes",
+  "texto": "≈ {n} प्रति माह"
+ },
+ {
+  "clave": "despacho.m.desde",
+  "texto": "{f} से"
+ },
+ {
+  "clave": "despacho.m.llevas",
+  "texto": "अब तक {n}"
+ },
+ {
+  "clave": "despacho.m.acumuladoTotal",
+  "texto": "आपकी तय मदों का अब तक का जोड़"
+ },
+ {
+  "clave": "despacho.r.deLosFijos",
+  "texto": "आपकी तय मदों से: +{i} · −{g}"
+ },
+ {
+  "clave": "despacho.sim.titulo",
+  "texto": "सिम्युलेटर · अगले {n} महीने"
+ },
+ {
+  "clave": "despacho.sim.meses",
+  "texto": "महीने"
+ },
+ {
+  "clave": "despacho.sim.base",
+  "texto": "यह आपकी तय मदों को उनकी नियत तारीख़ तक और बदलने वाली मदों को अब तक दर्ज के मासिक औसत से आगे दिखाता है।"
+ },
+ {
+  "clave": "despacho.sim.sinPatrimonio",
+  "texto": "संपत्ति के बिना · {n} महीनों में"
+ },
+ {
+  "clave": "despacho.sim.conPatrimonio",
+  "texto": "संपत्ति के साथ · {n} महीनों में"
+ },
+ {
+  "clave": "despacho.sim.faltaPatrimonio",
+  "texto": "उस परिदृश्य को भी देखने के लिए ऊपर अपनी संपत्ति दर्ज करें।"
+ },
+ {
+  "clave": "despacho.m.agregar",
+  "texto": "लेन-देन जोड़ें"
+ },
+ {
+  "clave": "despacho.m.movs",
+  "texto": "{n} लेन-देन"
+ },
+ {
+  "clave": "despacho.m.nuevoGasto",
+  "texto": "नया खर्च"
+ },
+ {
+  "clave": "despacho.m.nuevoIngreso",
+  "texto": "नई आय"
+ },
+ {
+  "clave": "despacho.m.sinGastos",
+  "texto": "कोई खर्च दर्ज नहीं है।"
+ },
+ {
+  "clave": "despacho.m.sinIngresos",
+  "texto": "कोई आय दर्ज नहीं है।"
+ },
+ {
+  "clave": "despacho.meta.nueva",
+  "texto": "नया बचत लक्ष्य"
+ },
+ {
+  "clave": "despacho.meta.ph.nombre",
+  "texto": "जैसे, जापान की यात्रा"
+ },
+ {
+  "clave": "despacho.meta.ph.objetivo",
+  "texto": "लक्ष्य"
+ },
+ {
+  "clave": "despacho.meta.crear",
+  "texto": "लक्ष्य बनाएं"
+ },
+ {
+  "clave": "despacho.meta.vacio",
+  "texto": "अभी कोई लक्ष्य नहीं है। अपना पहला बचत लक्ष्य बनाएं!"
+ },
+ {
+  "clave": "despacho.meta.ph.abono",
+  "texto": "जोड़ें"
+ },
+ {
+  "clave": "despacho.meta.abonar",
+  "texto": "जोड़ें"
+ },
+ {
+  "clave": "despacho.meta.nuevaInv",
+  "texto": "नया निवेश लक्ष्य"
+ },
+ {
+  "clave": "despacho.meta.ph.nombreInv",
+  "texto": "जैसे, इंडेक्स फंड"
+ },
+ {
+  "clave": "despacho.meta.vacioInv",
+  "texto": "अभी कोई निवेश लक्ष्य नहीं है। तय करें कि कितना निवेश करना है और चलते-चलते जोड़ते रहें।"
+ },
+ {
+  "clave": "despacho.meta.aportar",
+  "texto": "योगदान करें"
+ },
+ {
+  "clave": "despacho.meta.ph.aporte",
+  "texto": "योगदान"
+ },
+ {
+  "clave": "despacho.meta.nuevaDeuda",
+  "texto": "चुकाने के लिए नया क़र्ज़"
+ },
+ {
+  "clave": "despacho.meta.ph.nombreDeuda",
+  "texto": "जैसे, क्रेडिट कार्ड"
+ },
+ {
+  "clave": "despacho.meta.ph.deuda",
+  "texto": "क़र्ज़"
+ },
+ {
+  "clave": "despacho.meta.vacioDeuda",
+  "texto": "कोई क़र्ज़ दर्ज नहीं है। जो बकाया है उसे लिखें और हर भुगतान दर्ज करें।"
+ },
+ {
+  "clave": "despacho.meta.pagar",
+  "texto": "चुकाएं"
+ },
+ {
+  "clave": "despacho.meta.ph.pago",
+  "texto": "भुगतान"
+ },
+ {
+  "clave": "despacho.tab.simuladores",
+  "texto": "सिमुलेशन"
+ },
+ {
+  "clave": "despacho.s.simulador",
+  "texto": "सिम्युलेटर"
+ },
+ {
+  "clave": "despacho.s.usarDeuda",
+  "texto": "अपने किसी क़र्ज़ का उपयोग करें…"
+ },
+ {
+  "clave": "despacho.s.compuesto",
+  "texto": "चक्रवृद्धि"
+ },
+ {
+  "clave": "despacho.s.simple",
+  "texto": "साधारण"
+ },
+ {
+  "clave": "despacho.s.meta",
+  "texto": "लक्ष्य"
+ },
+ {
+  "clave": "despacho.s.credito",
+  "texto": "लोन"
+ },
+ {
+  "clave": "despacho.s.inicial",
+  "texto": "शुरुआती पूंजी"
+ },
+ {
+  "clave": "despacho.s.aporteMes",
+  "texto": "मासिक जमा"
+ },
+ {
+  "clave": "despacho.s.tasaAnual",
+  "texto": "सालाना दर %"
+ },
+ {
+  "clave": "despacho.s.anos",
+  "texto": "साल"
+ },
+ {
+  "clave": "despacho.s.capitalizacion",
+  "texto": "चक्रवृद्धि अवधि"
+ },
+ {
+  "clave": "despacho.s.cap.12",
+  "texto": "मासिक"
+ },
+ {
+  "clave": "despacho.s.cap.4",
+  "texto": "त्रैमासिक"
+ },
+ {
+  "clave": "despacho.s.cap.2",
+  "texto": "अर्धवार्षिक"
+ },
+ {
+  "clave": "despacho.s.cap.1",
+  "texto": "वार्षिक"
+ },
+ {
+  "clave": "despacho.s.saldoFinal",
+  "texto": "अंतिम बैलेंस"
+ },
+ {
+  "clave": "despacho.s.aportado",
+  "texto": "जमा"
+ },
+ {
+  "clave": "despacho.s.interesGanado",
+  "texto": "अर्जित ब्याज"
+ },
+ {
+  "clave": "despacho.s.porAno",
+  "texto": "साल दर साल"
+ },
+ {
+  "clave": "despacho.s.col.ano",
+  "texto": "साल"
+ },
+ {
+  "clave": "despacho.s.col.aportado",
+  "texto": "जमा"
+ },
+ {
+  "clave": "despacho.s.col.interes",
+  "texto": "ब्याज"
+ },
+ {
+  "clave": "despacho.s.col.saldo",
+  "texto": "बैलेंस"
+ },
+ {
+  "clave": "despacho.s.interesGenerado",
+  "texto": "संचित ब्याज"
+ },
+ {
+  "clave": "despacho.s.total",
+  "texto": "अंतिम कुल"
+ },
+ {
+  "clave": "despacho.s.vsCompuesto",
+  "texto": "चक्रवृद्धि ब्याज (सालाना चक्रवृद्धि) के साथ राशि {x} होती — यानी {d} ज़्यादा।"
+ },
+ {
+  "clave": "despacho.s.usarMeta",
+  "texto": "अपने किसी लक्ष्य का उपयोग करें…"
+ },
+ {
+  "clave": "despacho.s.objetivo",
+  "texto": "लक्ष्य राशि $"
+ },
+ {
+  "clave": "despacho.s.metaLista",
+  "texto": "आपकी शुरुआती पूंजी और इस दर के साथ लक्ष्य बिना अतिरिक्त जमा के ही पूरा हो जाता है।"
+ },
+ {
+  "clave": "despacho.s.aporteNecesario",
+  "texto": "आवश्यक मासिक जमा"
+ },
+ {
+  "clave": "despacho.s.durante",
+  "texto": "{n} महीनों तक"
+ },
+ {
+  "clave": "despacho.s.deTuBolsillo",
+  "texto": "आपकी अपनी जेब से"
+ },
+ {
+  "clave": "despacho.s.generaInteres",
+  "texto": "ब्याज कवर करता है"
+ },
+ {
+  "clave": "despacho.s.montoCredito",
+  "texto": "लोन राशि"
+ },
+ {
+  "clave": "despacho.s.plazoMeses",
+  "texto": "अवधि (महीने)"
+ },
+ {
+  "clave": "despacho.s.mensualidad",
+  "texto": "मासिक भुगतान"
+ },
+ {
+  "clave": "despacho.s.totalPagado",
+  "texto": "कुल भुगतान"
+ },
+ {
+  "clave": "despacho.s.intereses",
+  "texto": "कुल ब्याज"
+ },
+ {
+  "clave": "despacho.s.col.capital",
+  "texto": "मूलधन"
+ },
+ {
+  "clave": "despacho.s.col.restante",
+  "texto": "शेष"
+ },
+ {
+  "clave": "despacho.ejemplo.vacio",
+  "texto": "समझ नहीं आ रहा कहां से शुरू करें? एक उदाहरण लोड करें और उसे भीतर से देखें।"
+ },
+ {
+  "clave": "despacho.ejemplo.cargado",
+  "texto": "जो कुछ भी उदाहरण के तौर पर दिख रहा है, उसे एक ही बार में मिटाया जा सकता है।"
+ },
+ {
+  "clave": "despacho.ejemplo.cargar",
+  "texto": "एक उदाहरण लोड करें"
+ },
+ {
+  "clave": "despacho.ejemplo.borrar",
+  "texto": "उदाहरण हटाएं"
+ },
+ {
+  "clave": "despacho.ejemplo.confirmar",
+  "texto": "हां, उदाहरण हटाएं"
+ },
+ {
+  "clave": "despacho.mk.divisas",
+  "texto": "फ़ॉरेक्स"
+ },
+ {
+  "clave": "despacho.mk.criptos",
+  "texto": "क्रिप्टोकरेंसी"
+ },
+ {
+  "clave": "despacho.mk.acciones",
+  "texto": "शेयर"
+ },
+ {
+  "clave": "despacho.mk.commodities",
+  "texto": "कमोडिटी"
+ },
+ {
+  "clave": "despacho.mk.dias30",
+  "texto": "30 दिन"
+ },
+ {
+  "clave": "despacho.mk.dias7",
+  "texto": "7 दिन"
+ },
+ {
+  "clave": "despacho.mk.top10cap",
+  "texto": "मार्केट कैप के अनुसार टॉप 10 · USD"
+ },
+ {
+  "clave": "despacho.mk.top10capNyse",
+  "texto": "मार्केट कैप के अनुसार टॉप 10 · USD · NYSE/Nasdaq"
+ },
+ {
+  "clave": "despacho.mk.top10pares",
+  "texto": "सबसे ज़्यादा ट्रेड होने वाले 10 पेयर"
+ },
+ {
+  "clave": "despacho.mk.col.activo",
+  "texto": "एसेट"
+ },
+ {
+  "clave": "despacho.mk.col.precio",
+  "texto": "कीमत"
+ },
+ {
+  "clave": "despacho.mk.col.dia",
+  "texto": "दिन"
+ },
+ {
+  "clave": "despacho.mk.col.cap",
+  "texto": "कैप."
+ },
+ {
+  "clave": "despacho.mk.col.30d",
+  "texto": "30 दि"
+ },
+ {
+  "clave": "despacho.mk.col.etf",
+  "texto": "ETF"
+ },
+ {
+  "clave": "despacho.mk.viaEtf",
+  "texto": "ETF के ज़रिए · USD"
+ },
+ {
+  "clave": "despacho.mk.sinCapDivisas",
+  "texto": "करेंसी पेयर की कोई मार्केट कैप नहीं होती: इसके बजाय 30 दिन का बदलाव दिखाया जाता है।"
+ },
+ {
+  "clave": "despacho.mk.notaEtf",
+  "texto": "यह कीमत उस ETF की है जो हर कमोडिटी को ट्रैक करता है, न कि उसकी स्पॉट कीमत; इनकी कोई मार्केट कैप भी नहीं होती।"
+ },
+ {
+  "clave": "despacho.mk.fuenteDivisas",
+  "texto": "स्रोत: ECB (Frankfurter)"
+ },
+ {
+  "clave": "despacho.mk.fuenteCripto",
+  "texto": "स्रोत: CoinGecko · 7 दिन"
+ },
+ {
+  "clave": "despacho.mk.fuenteAcciones",
+  "texto": "स्रोत: Finnhub"
+ },
+ {
+  "clave": "despacho.mk.miLista",
+  "texto": "मेरी वॉचलिस्ट"
+ },
+ {
+  "clave": "despacho.mk.cargando",
+  "texto": "बाज़ार लोड हो रहे हैं…"
+ },
+ {
+  "clave": "despacho.mk.cargandoBtn",
+  "texto": "लोड हो रहा है…"
+ },
+ {
+  "clave": "despacho.mk.error",
+  "texto": "बाज़ार स्रोतों से कनेक्ट नहीं हो सका। अपना इंटरनेट जांचें।"
+ },
+ {
+  "clave": "despacho.mk.reintentar",
+  "texto": "फिर से कोशिश करें"
+ },
+ {
+  "clave": "despacho.mk.cacheAviso",
+  "texto": "किसी स्रोत से संपर्क नहीं हो पा रहा — आख़िरी सहेजा गया डेटा दिखाया जा रहा है।"
+ },
+ {
+  "clave": "despacho.mk.clave",
+  "texto": "Finnhub API कुंजी"
+ },
+ {
+  "clave": "despacho.mk.clave.ph",
+  "texto": "finnhub.io कुंजी"
+ },
+ {
+  "clave": "despacho.mk.clave.guardada",
+  "texto": "कुंजी सहेजी गई — बदलने के लिए नई पेस्ट करें"
+ },
+ {
+  "clave": "despacho.mk.guardar",
+  "texto": "सहेजें"
+ },
+ {
+  "clave": "despacho.mk.claveInvalida",
+  "texto": "Finnhub कुंजी अमान्य है। इसे API बटन में बदलें (finnhub.io पर मुफ़्त)।"
+ },
+ {
+  "clave": "despacho.mk.sinDatos",
+  "texto": "कोई डेटा नहीं"
+ },
+ {
+  "clave": "despacho.mk.vacia",
+  "texto": "यहां ट्रैक करने के लिए शेयर जोड़ें।"
+ },
+ {
+  "clave": "despacho.mk.misDivisas",
+  "texto": "मेरे करेंसी पेयर"
+ },
+ {
+  "clave": "despacho.mk.vaciaDivisa",
+  "texto": "यहां ट्रैक करने के लिए एक करेंसी पेयर जोड़ें।"
+ },
+ {
+  "clave": "despacho.mk.misCriptos",
+  "texto": "मेरी क्रिप्टोकरेंसी"
+ },
+ {
+  "clave": "despacho.mk.vaciaCripto",
+  "texto": "यहां ट्रैक करने के लिए एक क्रिप्टोकरेंसी खोजें।"
+ },
+ {
+  "clave": "despacho.mk.buscarCripto.ph",
+  "texto": "खोजें (जैसे, cardano)"
+ },
+ {
+  "clave": "despacho.mk.misMaterias",
+  "texto": "मेरी कमोडिटी"
+ },
+ {
+  "clave": "despacho.mk.vaciaMateria",
+  "texto": "जिस कमोडिटी को ट्रैक करना है, उसका ETF जोड़ें।"
+ },
+ {
+  "clave": "despacho.mk.nombreMateria.ph",
+  "texto": "नाम (जैसे, पैलेडियम)"
+ },
+ {
+  "clave": "despacho.mk.etf.ph",
+  "texto": "ETF (जैसे, PALL)"
+ },
+ {
+  "clave": "despacho.mk.ticker.ph",
+  "texto": "टिकर (जैसे, AAPL)"
+ },
+ {
+  "clave": "despacho.mk.agregar",
+  "texto": "जोड़ें"
+ },
+ {
+  "clave": "despacho.mk.actualizar",
+  "texto": "ताज़ा करें"
+ },
+ {
+  "clave": "despacho.mk.com.oro",
+  "texto": "सोना"
+ },
+ {
+  "clave": "despacho.mk.com.plata",
+  "texto": "चांदी"
+ },
+ {
+  "clave": "despacho.mk.com.platino",
+  "texto": "प्लैटिनम"
+ },
+ {
+  "clave": "despacho.mk.com.petroleo",
+  "texto": "तेल (WTI)"
+ },
+ {
+  "clave": "despacho.mk.com.gas",
+  "texto": "प्राकृतिक गैस"
+ },
+ {
+  "clave": "despacho.mk.com.cobre",
+  "texto": "तांबा"
+ },
+ {
+  "clave": "despacho.mk.com.maiz",
+  "texto": "मक्का"
+ },
+ {
+  "clave": "despacho.mk.com.trigo",
+  "texto": "गेहूं"
+ },
+ {
+  "clave": "despacho.mk.com.soya",
+  "texto": "सोयाबीन"
+ },
+ {
+  "clave": "despacho.mk.com.agricolas",
+  "texto": "कृषि टोकरी"
+ },
+ {
+  "clave": "despacho.tab.patrimonio",
+  "texto": "पूंजी"
+ },
+ {
+  "clave": "despacho.tab.activos",
+  "texto": "संपत्ति"
+ },
+ {
+  "clave": "despacho.tab.pasivos",
+  "texto": "देनदारियां"
+ },
+ {
+  "clave": "despacho.patr.neto",
+  "texto": "शुद्ध पूंजी"
+ },
+ {
+  "clave": "despacho.patr.ayudaCorta",
+  "texto": "जो आपके पास है, उसमें से जो आप पर बकाया है वह घटाकर।"
+ },
+ {
+  "clave": "despacho.patr.ayuda",
+  "texto": "बचत, निवेश और क़र्ज़ अपने आप आपके लक्ष्यों से यहां आ जाते हैं; अवधि का बैलेंस यहां नहीं जोड़ा जाता — यह बताता है कि इस आंकड़े का क्या होगा, अलग से कोई पैसा नहीं है।"
+ },
+ {
+  "clave": "despacho.patr.efectivoOjoCorta",
+  "texto": "यह कब उपयोगी है?"
+ },
+ {
+  "clave": "despacho.ui.masAyuda",
+  "texto": "और जानकारी"
+ },
+ {
+  "clave": "despacho.patr.fisicos",
+  "texto": "संपत्ति और सामान"
+ },
+ {
+  "clave": "despacho.patr.liquidos",
+  "texto": "नकद और निवेश"
+ },
+ {
+  "clave": "despacho.patr.deudas",
+  "texto": "क़र्ज़, लोन और बंधक"
+ },
+ {
+  "clave": "despacho.patr.deMetas",
+  "texto": "आपके लक्ष्यों से"
+ },
+ {
+  "clave": "despacho.patr.efectivo",
+  "texto": "नकद · आपके लेन-देन से"
+ },
+ {
+  "clave": "despacho.patr.deMovs",
+  "texto": "अब तक की आय − खर्च"
+ },
+ {
+  "clave": "despacho.patr.efectivoAuto",
+  "texto": "यहां वह जोड़ें जो मेरे लेन-देन से बचता है (मेरी सारी आय घटा मेरे सारे खर्च)"
+ }
+]

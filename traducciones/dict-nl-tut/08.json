@@ -1,0 +1,152 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "es": "El botón de la fila registra el dato REAL en la app — un vaso de agua, una comida — y el paso se tacha solo porque ese registro ya está ahí, no porque alguien lo marcó. Volver a pulsarlo con el paso cumplido no duplica nada: el botón desaparece.",
+    "en": "The row's button logs the REAL data in the app — a glass of water, a meal — and the step crosses itself off simply because that record now exists, not because anyone marked it. Tapping it again once done doesn't duplicate anything: the button disappears."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "es": "Tu cifra de cada día",
+    "en": "Your number for each day"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "es": "Los pasos con cifra ajustable la cambian aquí mismo. Ponerla en 0 apaga ese objetivo del día sin borrar el historial de días anteriores.",
+    "en": "Steps with an adjustable count change it right here. Setting it to 0 turns off that day's target without erasing the history of previous days."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "es": "De un objetivo a una rutina",
+    "en": "From a target to a routine"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "es": "El calendario agenda ese mismo objetivo con hora fija: abre el mismo editor que las rutinas del reloj, así que queda registrado en los dos sitios a la vez.",
+    "en": "The calendar schedules that same target with a fixed time: it opens the same editor as the clock's routines, so it ends up logged in both places at once."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "es": "Lo cumplido no desaparece",
+    "en": "Done doesn't disappear"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "es": "Baja a «Hechos», plegado: ver el registro surtir efecto es parte de la recompensa, y desde ahí se puede deshacer si se coló uno de más.",
+    "en": "It drops down to \"Done\", collapsed: seeing the log take effect is part of the reward, and you can undo it from there if one slipped in by mistake."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "es": "Esta lista sustituyó a la vieja barra de un solo objetivo por app — ahora reúne calendario, metas y objetivos propios en el mismo sitio, app por app.",
+    "en": "This list replaced the old single-target bar per app — now it brings together the calendar, your goals and the app's own targets in the same place, app by app."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "es": "La carta de tu personaje: Pep@ lleva un año entero de actividad real detrás, así que cada número aquí tiene una historia real que lo explica.",
+    "en": "Your character's card: Pep@ has a whole year of real activity behind them, so every number here has a real story explaining it."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "es": "El personaje",
+    "en": "The character"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "es": "Tocarlo abre el editor de personajes. Su humor —feliz, contento, triste o dormido— sube con cada registro nuevo y baja solo si pasan días sin ninguno; nunca se reinicia de golpe.",
+    "en": "Tapping it opens the character editor. Its mood —happy, content, sad or asleep— rises with every new log and only drops if days pass with none; it never resets all at once."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "es": "El rango de Sísifo",
+    "en": "The Sisyphus rank"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "es": "Doce rangos de ascenso: cada día con actividad sube un escalón de 365. Pep@ ya lleva varios rangos ganados; tócalo para ver la montaña completa.",
+    "en": "Twelve ranks of ascent: every day with activity climbs one step out of 365. Pep@ has already earned several ranks; tap it to see the whole mountain."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "es": "Escalones y días de gracia",
+    "en": "Steps and grace days"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "es": "Cada 7 escalones llega una insignia, cada tramo de semanas sube el rango. Fallar un día no rompe nada: hay 2 días de gracia al mes antes de retroceder al inicio del rango actual.",
+    "en": "Every 7 steps earns a badge, every stretch of weeks climbs the rank. Missing a day breaks nothing: there are 2 grace days a month before slipping back to the start of the current rank."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "es": "52 insignias por familia",
+    "en": "52 badges by family"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "es": "Agrupadas por familia geológica, en misterio hasta que se ganan: sin nombre ni descripción visibles hasta el desbloqueo.",
+    "en": "Grouped by geological family, kept a mystery until earned: no name or description shows until you unlock one."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "es": "Tu resumen",
+    "en": "Your recap"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "es": "Wrapped arma el resumen de tu semana, mes o año en láminas — tiene su propio tour, con datos de sobra en un año como el de Pep@.",
+    "en": "Wrapped builds the recap of your week, month or year in slides — it has its own tour, with plenty of data in a year like Pep@'s."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "es": "El radar por cuarto",
+    "en": "The radar by room"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "es": "Cada vértice es un cuarto de la casa, y su tamaño es la suma de XP de las apps que tiene asignadas. Un cuarto vacío de actividad se nota al vuelo: su vértice se hunde hacia el centro.",
+    "en": "Every vertex is a room in the home, and its size is the sum of XP from the apps assigned to it. A room with no activity shows at a glance: its vertex sinks toward the center."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "es": "Estilo historias: toca el lado derecho para avanzar, el izquierdo para retroceder, y mantén pulsado para pausar en una lámina.",
+    "en": "Stories-style: tap the right side to move forward, the left to go back, and hold to pause on a slide."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "es": "Semana, mes o año",
+    "en": "Week, month or year"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "es": "Cada tipo arma sus propias láminas con sus propios datos — el resumen anual de Pep@ es el más largo, con los momentos más altos y más bajos del año entero.",
+    "en": "Each type builds its own slides with its own data — Pep@'s yearly recap is the longest, with the highest and lowest moments of the whole year."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "es": "Moverse por periodos",
+    "en": "Moving through periods"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "es": "Las flechas ‹ › recorren periodos ya cerrados: no se puede adelantar más allá de hoy, así que siempre se compara contra algo real.",
+    "en": "The ‹ › arrows move through periods that already closed: you can't go past today, so you're always comparing against something real."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "es": "Compartir una lámina",
+    "en": "Sharing a slide"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "es": "Copia el texto de la lámina que estés viendo, lista para pegar donde quieras — sin capturas de pantalla.",
+    "en": "Copies the text of the slide you're looking at, ready to paste anywhere — no screenshots needed."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "es": "Un punto junto al botón que lo abre avisa cuando hay un resumen nuevo sin ver; abrirlo lo apaga.",
+    "en": "A dot next to the button that opens it warns when there's a new recap you haven't seen; opening it turns the dot off."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "es": "Este es el santuario de Pep@: a un lado los corrales y al otro el huerto que los alimenta. Vamos a las parcelas.",
+    "en": "This is Pep@'s sanctuary: the pens on one side and, on the other, the garden that feeds them. Let's head to the plots."
+  }
+]

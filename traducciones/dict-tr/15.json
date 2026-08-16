@@ -1,0 +1,960 @@
+[
+  {
+    "clave": "ejercicio.fuerza.registrar",
+    "es": "Registrar sesión de fuerza",
+    "en": "Log strength session"
+  },
+  {
+    "clave": "ejercicio.fuerza.ph.nombre",
+    "es": "Nombre del entreno",
+    "en": "Workout name"
+  },
+  {
+    "clave": "ejercicio.duracion",
+    "es": "Duración (min)",
+    "en": "Duration (min)"
+  },
+  {
+    "clave": "ejercicio.rpe",
+    "es": "RPE",
+    "en": "RPE (1–10)"
+  },
+  {
+    "clave": "ejercicio.ejercicios",
+    "es": "Ejercicios",
+    "en": "Exercises"
+  },
+  {
+    "clave": "ejercicio.fuerza.ph.ej",
+    "es": "Ejercicio",
+    "en": "Exercise"
+  },
+  {
+    "clave": "ejercicio.fuerza.añadir",
+    "es": "+ Añadir ejercicio",
+    "en": "+ Add exercise"
+  },
+  {
+    "clave": "ejercicio.ph.notas.fuerza",
+    "es": "Notas (progresión, sensaciones...)",
+    "en": "Notes (progression, how you felt...)"
+  },
+  {
+    "clave": "ejercicio.fuerza.guardar",
+    "es": "Guardar entreno",
+    "en": "Save workout"
+  },
+  {
+    "clave": "ejercicio.fuerza.editando",
+    "es": "Editando entreno",
+    "en": "Editing workout"
+  },
+  {
+    "clave": "ejercicio.records",
+    "es": "Records personales",
+    "en": "Personal records"
+  },
+  {
+    "clave": "ejercicio.records.corporal",
+    "es": "Peso corporal",
+    "en": "Bodyweight"
+  },
+  {
+    "clave": "ejercicio.records.maxReps",
+    "es": "Máx. reps",
+    "en": "Max reps"
+  },
+  {
+    "clave": "ejercicio.records.e1rm",
+    "es": "1RM",
+    "en": "1RM"
+  },
+  {
+    "clave": "ejercicio.checks.faltan",
+    "es": "Marca todos los ejercicios para guardar el entreno.",
+    "en": "Check off every exercise to save the workout."
+  },
+  {
+    "clave": "ejercicio.periodo.semana",
+    "en": "Week"
+  },
+  {
+    "clave": "ejercicio.periodo.mes",
+    "en": "Month"
+  },
+  {
+    "clave": "ejercicio.periodo.anio",
+    "en": "Year"
+  },
+  {
+    "clave": "ejercicio.periodo.todo",
+    "en": "All"
+  },
+  {
+    "clave": "ejercicio.periodo.objetivo",
+    "es": "Objetivo ajustado a: {p}",
+    "en": "Target scaled to: {p}"
+  },
+  {
+    "clave": "ejercicio.progreso.rango",
+    "es": "Progreso",
+    "en": "Progress"
+  },
+  {
+    "clave": "ejercicio.minTotales.rango",
+    "es": "Minutos entrenados",
+    "en": "Minutes trained"
+  },
+  {
+    "clave": "ejercicio.metas.sistema",
+    "es": "Sistema de medidas",
+    "en": "Unit system"
+  },
+  {
+    "clave": "ejercicio.metas.sistema.desc",
+    "es": "Cambia cómo se ven los pesos de fuerza (kg o lb) y las distancias y ritmos de resistencia (km o mi). Tus entrenos guardados se convierten solos.",
+    "en": "Changes how strength weights (kg or lb) and endurance distances and paces (km or mi) are shown. Your saved workouts are converted automatically."
+  },
+  {
+    "clave": "ejercicio.sistema.internacional",
+    "en": "Metric"
+  },
+  {
+    "clave": "ejercicio.sistema.ingles",
+    "en": "Imperial"
+  },
+  {
+    "clave": "ejercicio.hoy",
+    "es": "Hoy",
+    "en": "Today"
+  },
+  {
+    "clave": "ejercicio.recientes",
+    "es": "Tus recientes",
+    "en": "Your recent"
+  },
+  {
+    "clave": "ejercicio.ultimaVez",
+    "es": "Última vez",
+    "en": "Last time"
+  },
+  {
+    "clave": "ejercicio.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "ejercicio.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "ejercicio.actualizar",
+    "es": "Actualizar sesión",
+    "en": "Update session"
+  },
+  {
+    "clave": "ejercicio.progresion",
+    "es": "Progresión",
+    "en": "Progression"
+  },
+  {
+    "clave": "ejercicio.e1rm",
+    "es": "1RM estimado (Epley)",
+    "en": "Estimated 1RM (Epley)"
+  },
+  {
+    "clave": "ejercicio.progresion.pocosDatos",
+    "es": "Registra este ejercicio con peso en al menos 2 sesiones para ver su progresión.",
+    "en": "Log this exercise with weight in at least 2 sessions to see its progression."
+  },
+  {
+    "clave": "ejercicio.grupo.pecho",
+    "en": "Chest"
+  },
+  {
+    "clave": "ejercicio.grupo.espalda",
+    "en": "Back"
+  },
+  {
+    "clave": "ejercicio.grupo.hombros",
+    "en": "Shoulders"
+  },
+  {
+    "clave": "ejercicio.grupo.biceps",
+    "en": "Biceps"
+  },
+  {
+    "clave": "ejercicio.grupo.triceps",
+    "en": "Triceps"
+  },
+  {
+    "clave": "ejercicio.grupo.piernas",
+    "en": "Legs"
+  },
+  {
+    "clave": "ejercicio.grupo.gluteos",
+    "en": "Glutes"
+  },
+  {
+    "clave": "ejercicio.grupo.core",
+    "en": "Core"
+  },
+  {
+    "clave": "ejercicio.sub.catalogo",
+    "en": "Catalog"
+  },
+  {
+    "clave": "ejercicio.sub.rutinas",
+    "en": "Routines"
+  },
+  {
+    "clave": "ejercicio.sub.progreso",
+    "en": "Progress"
+  },
+  {
+    "clave": "ejercicio.piramide",
+    "es": "Catálogo por enfoque",
+    "en": "Catalog by focus"
+  },
+  {
+    "clave": "ejercicio.sugeridos",
+    "es": "Ejercicios disponibles · toca para añadir",
+    "en": "Available exercises · tap to add"
+  },
+  {
+    "clave": "ejercicio.rutina.usar",
+    "es": "Usar rutina",
+    "en": "Use routine"
+  },
+  {
+    "clave": "ejercicio.rutina.iniciar",
+    "es": "Iniciar",
+    "en": "Start"
+  },
+  {
+    "clave": "ejercicio.check.marcar",
+    "es": "Marcar como hecho",
+    "en": "Mark as done"
+  },
+  {
+    "clave": "ejercicio.rutina.sugerida",
+    "es": "Rutina sugerida",
+    "en": "Suggested routine"
+  },
+  {
+    "clave": "ejercicio.rutina.propia",
+    "en": "Custom"
+  },
+  {
+    "clave": "ejercicio.rutina.borrar",
+    "es": "Borrar rutina",
+    "en": "Delete routine"
+  },
+  {
+    "clave": "ejercicio.rutina.miRutina",
+    "es": "Mi rutina",
+    "en": "My routine"
+  },
+  {
+    "clave": "ejercicio.rutinas.biblioteca",
+    "es": "Mis rutinas",
+    "en": "My routines"
+  },
+  {
+    "clave": "ejercicio.rutinas.vacio",
+    "es": "No tienes rutinas. Créalas en Catálogo.",
+    "en": "No routines yet. Create them in Catalog."
+  },
+  {
+    "clave": "ejercicio.vivo.soloHoy",
+    "es": "El entrenamiento en vivo solo está disponible para hoy.",
+    "en": "Live workout is only available for today."
+  },
+  {
+    "clave": "ejercicio.grupo.personalizadas",
+    "en": "Custom"
+  },
+  {
+    "clave": "ejercicio.cardio.titulo",
+    "es": "Título de la actividad",
+    "en": "Activity title"
+  },
+  {
+    "clave": "ejercicio.cardio.ph.titulo",
+    "es": "Título de la sesión",
+    "en": "Session title"
+  },
+  {
+    "clave": "ejercicio.cardio.catalogo",
+    "es": "Catálogo por categoría",
+    "en": "Catalog by category"
+  },
+  {
+    "clave": "ejercicio.cardio.disponibles",
+    "es": "Actividades disponibles · toca para añadir",
+    "en": "Available activities · tap to add"
+  },
+  {
+    "clave": "ejercicio.cardio.crearVacio",
+    "es": "Toca actividades del catálogo de arriba para agregarlas.",
+    "en": "Tap activities from the catalog above to add them."
+  },
+  {
+    "clave": "ejercicio.cardio.suma",
+    "es": "Suma de los tramos",
+    "en": "Legs total"
+  },
+  {
+    "clave": "ejercicio.cardio.tramos",
+    "en": "Legs · activity, minutes and km"
+  },
+  {
+    "clave": "ejercicio.cardio.ph.actividad",
+    "es": "Actividad",
+    "en": "Activity"
+  },
+  {
+    "clave": "ejercicio.cardio.ph.min",
+    "es": "min",
+    "en": "min"
+  },
+  {
+    "clave": "ejercicio.cardio.ph.km",
+    "en": "km"
+  },
+  {
+    "clave": "ejercicio.cardio.tramos2",
+    "es": "Tramos · actividad, minutos y distancia",
+    "en": "Legs · activity, minutes and distance"
+  },
+  {
+    "clave": "ejercicio.cardio.anadirTramo",
+    "es": "+ Añadir tramo",
+    "en": "+ Add leg"
+  },
+  {
+    "clave": "ejercicio.catalogo.ph.actividad",
+    "es": "Nombre de la actividad",
+    "en": "Activity name"
+  },
+  {
+    "clave": "ejercicio.catalogo.nuevaActividad",
+    "es": "+ Añadir actividad al catálogo",
+    "en": "+ Add activity to catalog"
+  },
+  {
+    "clave": "ejercicio.stats.sesiones",
+    "es": "Sesiones",
+    "en": "Sessions"
+  },
+  {
+    "clave": "ejercicio.stats.km",
+    "en": "Total km"
+  },
+  {
+    "clave": "ejercicio.stats.distancia",
+    "es": "Distancia total",
+    "en": "Total distance"
+  },
+  {
+    "clave": "ejercicio.stats.masLarga",
+    "es": "Más larga",
+    "en": "Longest"
+  },
+  {
+    "clave": "ejercicio.stats.mejorRitmo",
+    "es": "Mejor ritmo",
+    "en": "Best pace"
+  },
+  {
+    "clave": "ejercicio.stats.minutos",
+    "es": "Minutos totales",
+    "en": "Total minutes"
+  },
+  {
+    "clave": "ejercicio.flex.catalogo",
+    "es": "Catálogo por enfoque",
+    "en": "Catalog by focus"
+  },
+  {
+    "clave": "ejercicio.flex.posturas",
+    "es": "Posturas · tiempo × reps",
+    "en": "Poses · time × reps"
+  },
+  {
+    "clave": "ejercicio.flex.suma",
+    "es": "Suma de los ejercicios",
+    "en": "Sum of exercises"
+  },
+  {
+    "clave": "ejercicio.flex.ph.postura",
+    "es": "Postura",
+    "en": "Pose"
+  },
+  {
+    "clave": "ejercicio.flex.ph.seg",
+    "es": "seg",
+    "en": "sec"
+  },
+  {
+    "clave": "ejercicio.flex.ph.reps",
+    "es": "reps",
+    "en": "reps"
+  },
+  {
+    "clave": "ejercicio.flex.añadirPostura",
+    "es": "+ Añadir postura",
+    "en": "+ Add pose"
+  },
+  {
+    "clave": "ejercicio.flex.cronometrar",
+    "es": "Cronometrar",
+    "en": "Time it"
+  },
+  {
+    "clave": "ejercicio.flex.timer",
+    "es": "Timer",
+    "en": "Timer"
+  },
+  {
+    "clave": "ejercicio.timer.seg",
+    "es": "segundos",
+    "en": "seconds"
+  },
+  {
+    "clave": "ejercicio.timer.play",
+    "es": "Reanudar",
+    "en": "Resume"
+  },
+  {
+    "clave": "ejercicio.timer.pausa",
+    "es": "Pausa",
+    "en": "Pause"
+  },
+  {
+    "clave": "ejercicio.timer.reiniciar",
+    "es": "Reiniciar",
+    "en": "Reset"
+  },
+  {
+    "clave": "ejercicio.reproductor.paso",
+    "es": "Ejercicio {i}/{n}",
+    "en": "Exercise {i}/{n}"
+  },
+  {
+    "clave": "ejercicio.reproductor.segundos",
+    "es": "Segundos por postura",
+    "en": "Seconds per pose"
+  },
+  {
+    "clave": "ejercicio.reproductor.completado",
+    "es": "¡Rutina completada!",
+    "en": "Routine complete!"
+  },
+  {
+    "clave": "ejercicio.reproductor.sinImagen",
+    "es": "Sin imagen · añádela en el catálogo",
+    "en": "No image · add it in the catalog"
+  },
+  {
+    "clave": "ejercicio.reproductor.anterior",
+    "es": "Anterior",
+    "en": "Previous"
+  },
+  {
+    "clave": "ejercicio.reproductor.siguiente",
+    "es": "Siguiente",
+    "en": "Next"
+  },
+  {
+    "clave": "ejercicio.reproductor.reiniciar",
+    "es": "Repetir",
+    "en": "Repeat"
+  },
+  {
+    "clave": "ejercicio.reproductor.terminar",
+    "es": "Terminar",
+    "en": "Finish"
+  },
+  {
+    "clave": "ejercicio.reproductor.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "ejercicio.heatmap.dias",
+    "es": "días activos",
+    "en": "active days"
+  },
+  {
+    "clave": "ejercicio.heatmap.menos",
+    "es": "menos",
+    "en": "less"
+  },
+  {
+    "clave": "ejercicio.heatmap.mas",
+    "es": "más",
+    "en": "more"
+  },
+  {
+    "clave": "ejercicio.crearRutina.titulo",
+    "es": "Crear rutina",
+    "en": "Create routine"
+  },
+  {
+    "clave": "ejercicio.crearRutina.ph.nombre",
+    "es": "Nombre de la rutina",
+    "en": "Routine name"
+  },
+  {
+    "clave": "ejercicio.crearRutina.vacio",
+    "es": "Toca posturas del catálogo de arriba para agregarlas.",
+    "en": "Tap exercises from the catalog above to add them."
+  },
+  {
+    "clave": "ejercicio.crearRutina.guardar",
+    "es": "Guardar rutina",
+    "en": "Save routine"
+  },
+  {
+    "clave": "ejercicio.catalogo.borrarGrupo",
+    "es": "Borrar grupo",
+    "en": "Delete group"
+  },
+  {
+    "clave": "ejercicio.catalogo.ph.grupo",
+    "es": "Nombre del grupo",
+    "en": "Group name"
+  },
+  {
+    "clave": "ejercicio.catalogo.nuevoGrupo",
+    "es": "+ Nuevo grupo",
+    "en": "+ New group"
+  },
+  {
+    "clave": "ejercicio.catalogo.borrarEjercicio",
+    "es": "Borrar del catálogo",
+    "en": "Remove from catalog"
+  },
+  {
+    "clave": "ejercicio.catalogo.ph.ejercicio",
+    "es": "Nombre del ejercicio",
+    "en": "Exercise name"
+  },
+  {
+    "clave": "ejercicio.catalogo.ph.postura",
+    "es": "Nombre de la postura",
+    "en": "Posture name"
+  },
+  {
+    "clave": "ejercicio.catalogo.ph.descripcion",
+    "es": "Descripción (opcional)",
+    "en": "Description (optional)"
+  },
+  {
+    "clave": "ejercicio.catalogo.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "ejercicio.catalogo.nuevoEjercicio",
+    "es": "+ Añadir ejercicio al catálogo",
+    "en": "+ Add exercise to catalog"
+  },
+  {
+    "clave": "ejercicio.progreso.vacio",
+    "es": "Registra entrenos de fuerza para ver tus records y progresión.",
+    "en": "Log strength workouts to see your records and progression."
+  },
+  {
+    "clave": "ejercicio.split.fullbody",
+    "en": "Full body"
+  },
+  {
+    "clave": "ejercicio.split.trenSuperior",
+    "en": "Upper body"
+  },
+  {
+    "clave": "ejercicio.split.trenInferior",
+    "en": "Lower body"
+  },
+  {
+    "clave": "ejercicio.split.empuje",
+    "en": "Push"
+  },
+  {
+    "clave": "ejercicio.split.jale",
+    "en": "Pull"
+  },
+  {
+    "clave": "ejercicio.split.pierna",
+    "en": "Legs"
+  },
+  {
+    "clave": "ejercicio.grupo.aire",
+    "en": "Outdoor"
+  },
+  {
+    "clave": "ejercicio.grupo.maquinas",
+    "en": "Machines"
+  },
+  {
+    "clave": "ejercicio.grupo.intenso",
+    "en": "High intensity"
+  },
+  {
+    "clave": "ejercicio.grupo.bajoImpacto",
+    "en": "Low impact"
+  },
+  {
+    "clave": "ejercicio.grupo.deportes",
+    "en": "Sports"
+  },
+  {
+    "clave": "ejercicio.grupo.flexCompleto",
+    "en": "Full body"
+  },
+  {
+    "clave": "ejercicio.grupo.flexCadera",
+    "en": "Hips & legs"
+  },
+  {
+    "clave": "ejercicio.grupo.flexEspalda",
+    "en": "Back & shoulders"
+  },
+  {
+    "clave": "ejercicio.grupo.flexCuello",
+    "en": "Neck & spine"
+  },
+  {
+    "clave": "ejercicio.grupo.flexPost",
+    "en": "Post-workout"
+  },
+  {
+    "clave": "ejercicio.grupo.flexRestaurativo",
+    "en": "Restorative yoga"
+  },
+  {
+    "clave": "ejercicio.grupo.flexPies",
+    "en": "Feet & ankles"
+  },
+  {
+    "clave": "ejercicio.grupo.flexRodillas",
+    "en": "Knees"
+  },
+  {
+    "clave": "ejercicio.grupo.flexCaderaMov",
+    "en": "Hip mobility"
+  },
+  {
+    "clave": "ejercicio.grupo.flexEspaldaBaja",
+    "en": "Lower back"
+  },
+  {
+    "clave": "ejercicio.grupo.flexEspaldaAlta",
+    "en": "Upper back"
+  },
+  {
+    "clave": "ejercicio.grupo.flexHombros",
+    "en": "Shoulders"
+  },
+  {
+    "clave": "ejercicio.grupo.flexCuelloMov",
+    "en": "Neck mobility"
+  },
+  {
+    "clave": "ejercicio.grupo.flexMunecas",
+    "en": "Wrists & hands"
+  },
+  {
+    "clave": "ejercicio.cardio.minSemana",
+    "en": "Cardio minutes this week"
+  },
+  {
+    "clave": "ejercicio.cardio.registrar",
+    "es": "Registrar cardio / resistencia",
+    "en": "Log cardio / endurance"
+  },
+  {
+    "clave": "ejercicio.cardio.editando",
+    "es": "Editando sesión de cardio",
+    "en": "Editing cardio session"
+  },
+  {
+    "clave": "ejercicio.ppm",
+    "es": "PPM (opc.)",
+    "en": "BPM (opt.)"
+  },
+  {
+    "clave": "ejercicio.vivo.abrir",
+    "es": "Entrenar en vivo · GPS y pulsómetro",
+    "en": "Live workout · GPS & heart rate"
+  },
+  {
+    "clave": "ejercicio.vivo.titulo",
+    "es": "Entrenamiento en vivo",
+    "en": "Live workout"
+  },
+  {
+    "clave": "ejercicio.vivo.dist",
+    "es": "Distancia",
+    "en": "Distance"
+  },
+  {
+    "clave": "ejercicio.vivo.ritmo",
+    "es": "Ritmo",
+    "en": "Pace"
+  },
+  {
+    "clave": "ejercicio.vivo.vel",
+    "es": "Velocidad",
+    "en": "Speed"
+  },
+  {
+    "clave": "ejercicio.vivo.gpsActivo",
+    "es": "GPS activo",
+    "en": "GPS active"
+  },
+  {
+    "clave": "ejercicio.vivo.gpsError",
+    "es": "GPS no disponible (revisa permisos)",
+    "en": "GPS unavailable (check permissions)"
+  },
+  {
+    "clave": "ejercicio.vivo.gpsApagado",
+    "es": "GPS apagado",
+    "en": "GPS off"
+  },
+  {
+    "clave": "ejercicio.vivo.conectar",
+    "es": "Conectar pulsómetro",
+    "en": "Connect heart rate sensor"
+  },
+  {
+    "clave": "ejercicio.vivo.sensorOk",
+    "es": "Sensor conectado",
+    "en": "Sensor connected"
+  },
+  {
+    "clave": "ejercicio.vivo.btNo",
+    "es": "Bluetooth no disponible en este navegador",
+    "en": "Bluetooth not available in this browser"
+  },
+  {
+    "clave": "ejercicio.vivo.iniciar",
+    "es": "Iniciar",
+    "en": "Start"
+  },
+  {
+    "clave": "ejercicio.vivo.pausa",
+    "es": "Pausa",
+    "en": "Pause"
+  },
+  {
+    "clave": "ejercicio.vivo.reanudar",
+    "es": "Reanudar",
+    "en": "Resume"
+  },
+  {
+    "clave": "ejercicio.vivo.terminar",
+    "es": "Terminar y guardar",
+    "en": "Finish & save"
+  },
+  {
+    "clave": "ejercicio.vivo.descartar",
+    "es": "Descartar",
+    "en": "Discard"
+  },
+  {
+    "clave": "ejercicio.vivo.ultimoParcial",
+    "es": "Último parcial",
+    "en": "Last split"
+  },
+  {
+    "clave": "ejercicio.vivo.guardado",
+    "es": "Entreno guardado",
+    "en": "Workout saved"
+  },
+  {
+    "clave": "ejercicio.vivo.listo",
+    "es": "Listo",
+    "en": "Done"
+  },
+  {
+    "clave": "ejercicio.det.distancia",
+    "es": "Distancia",
+    "en": "Distance"
+  },
+  {
+    "clave": "ejercicio.det.duracion",
+    "es": "Duración",
+    "en": "Duration"
+  },
+  {
+    "clave": "ejercicio.det.calorias",
+    "es": "Calorías",
+    "en": "Calories"
+  },
+  {
+    "clave": "ejercicio.det.ritmoMedio",
+    "es": "Ritmo medio",
+    "en": "Avg pace"
+  },
+  {
+    "clave": "ejercicio.det.velMedia",
+    "es": "Velocidad media",
+    "en": "Avg speed"
+  },
+  {
+    "clave": "ejercicio.det.velMax",
+    "es": "Velocidad máxima",
+    "en": "Max speed"
+  },
+  {
+    "clave": "ejercicio.det.fcMedia",
+    "es": "FC media",
+    "en": "Avg HR"
+  },
+  {
+    "clave": "ejercicio.det.fcMax",
+    "es": "FC máxima",
+    "en": "Max HR"
+  },
+  {
+    "clave": "ejercicio.det.max",
+    "es": "máx",
+    "en": "max"
+  },
+  {
+    "clave": "ejercicio.det.desnivel",
+    "es": "Desnivel",
+    "en": "Elevation"
+  },
+  {
+    "clave": "ejercicio.det.estimadas",
+    "es": "Las calorías son una estimación a partir de tu peso, la distancia y el tiempo.",
+    "en": "Calories are an estimate from your weight, distance and time."
+  },
+  {
+    "clave": "ejercicio.det.grafRitmo",
+    "es": "Ritmo",
+    "en": "Pace"
+  },
+  {
+    "clave": "ejercicio.det.masRapido",
+    "es": "más rápido",
+    "en": "fastest"
+  },
+  {
+    "clave": "ejercicio.det.masLento",
+    "es": "más lento",
+    "en": "slowest"
+  },
+  {
+    "clave": "ejercicio.det.parciales",
+    "es": "Parciales",
+    "en": "Splits"
+  },
+  {
+    "clave": "ejercicio.det.sinDatos",
+    "es": "Esta sesión no tiene trazo GPS con tiempos, así que no hay ritmo por tramo ni parciales. Grábala con «Entrenar en vivo» para verlos.",
+    "en": "This session has no timed GPS track, so there is no per-segment pace or splits. Record it with “Live workout” to see them."
+  },
+  {
+    "clave": "ejercicio.det.ver",
+    "es": "Ver estadísticas",
+    "en": "View stats"
+  },
+  {
+    "clave": "ejercicio.det.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "ejercicio.minutos",
+    "en": "Minutes"
+  },
+  {
+    "clave": "ejercicio.km",
+    "en": "Km (opt.)"
+  },
+  {
+    "clave": "ejercicio.zonas",
+    "es": "Zonas: RPE 1–4 recuperación · 5–6 aeróbico · 7–8 umbral · 9–10 máximo",
+    "en": "Zones: RPE 1–4 recovery · 5–6 aerobic · 7–8 threshold · 9–10 max"
+  },
+  {
+    "clave": "ejercicio.ph.notas.cardio",
+    "es": "Notas (ritmo, pendiente, sensación...)",
+    "en": "Notes (pace, incline, feel...)"
+  },
+  {
+    "clave": "ejercicio.guardar",
+    "es": "Guardar sesión",
+    "en": "Save session"
+  },
+  {
+    "clave": "ejercicio.flex.movilidad",
+    "en": "Mobility & stretching · week"
+  },
+  {
+    "clave": "ejercicio.flex.registrar",
+    "es": "Registrar flexibilidad",
+    "en": "Log flexibility"
+  },
+  {
+    "clave": "ejercicio.flex.editando",
+    "es": "Editando sesión de flexibilidad",
+    "en": "Editing flexibility session"
+  },
+  {
+    "clave": "ejercicio.flex.ph.nombre",
+    "es": "Nombre de la sesión",
+    "en": "Session name"
+  },
+  {
+    "clave": "ejercicio.intensidad",
+    "en": "Intensity RPE"
+  },
+  {
+    "clave": "ejercicio.ph.notas.flex",
+    "en": "Poses, limitations, progress..."
+  },
+  {
+    "clave": "ejercicio.metas.titulo",
+    "es": "Objetivos semanales",
+    "en": "Weekly goals"
+  },
+  {
+    "clave": "ejercicio.metas.desc",
+    "es": "Inspirado en programas progresivos (Apple Fitness+, Fitbod, Peloton): define cuánto quieres entrenar cada modalidad.",
+    "en": "Inspired by progressive programs (Apple Fitness+, Fitbod, Peloton): set how much you want to train each modality."
+  },
+  {
+    "clave": "ejercicio.preset.balance",
+    "en": "Balanced"
+  },
+  {
+    "clave": "ejercicio.preset.fuerza",
+    "en": "Hypertrophy"
+  },
+  {
+    "clave": "ejercicio.preset.cardio",
+    "en": "Endurance"
+  },
+  {
+    "clave": "ejercicio.preset.movilidad",
+    "en": "Mobility"
+  },
+  {
+    "clave": "ejercicio.metas.fuerza",
+    "es": "Sesiones fuerza / sem",
+    "en": "Strength sessions / wk"
+  },
+  {
+    "clave": "ejercicio.metas.resistencia",
+    "es": "Min resistencia / sem",
+    "en": "Endurance min / wk"
+  }
+]

@@ -1,0 +1,214 @@
+[
+  {
+    "clave": "tut.cuenta-ia.resumen",
+    "texto": "AI diaktifkan di Editor › Pengaturan. Setiap operasi —balasan, rencana, gambar, model 3D— punya tarif kreditnya sendiri, terlihat sebelum kamu memintanya. Dengan kunci penyedia milikmu sendiri, tidak ada kredit yang terpakai: kamu membayar langsung ke penyedianya."
+  },
+  {
+    "clave": "tut.ejemplos.titulo",
+    "texto": "Mulai dengan contoh"
+  },
+  {
+    "clave": "tut.ejemplos.resumen",
+    "texto": "Hampir setiap aplikasi punya bilah untuk melihat contoh siap pakai yang datanya sudah terisi, dan menyembunyikannya lagi nanti tanpa kehilangan apa pun milikmu. Ini tidak muncul di dalam rumah demo: di sana, seluruh tahun SUDAH menjadi contohnya."
+  },
+  {
+    "clave": "tut.hoy.titulo",
+    "texto": "Daftar hari ini"
+  },
+  {
+    "clave": "tut.hoy.resumen",
+    "texto": "Daftar Hari ini di setiap aplikasi menyatukan tiga hal dalam satu tempat: target harian aplikasi itu, apa yang kamu jadwalkan untuk hari ini, dan langkah-langkah dari target aktifmu. Sebuah langkah selesai karena catatannya sudah ada di aplikasi, bukan karena seseorang mencentangnya secara manual."
+  },
+  {
+    "clave": "tut.progreso.titulo",
+    "texto": "Kemajuanmu"
+  },
+  {
+    "clave": "tut.progreso.resumen",
+    "texto": "Karaktermu hidup dari aktivitas nyatamu: suasana hatinya, levelnya, Gunung Sisifus (pangkat dan lencana), dan radar XP per ruangan. Semuanya dihitung dari apa yang sudah kamu catat, tidak ada yang diisi manual."
+  },
+  {
+    "clave": "tut.wrapped.titulo",
+    "texto": "Wrapped: rangkumanmu"
+  },
+  {
+    "clave": "tut.wrapped.resumen",
+    "texto": "Rangkuman periode —minggu, bulan, atau tahun— diceritakan lewat slide, dengan musik latar dan perbandingan terhadap periode sebelumnya. Dibagikan sebagai teks langsung dari slide itu sendiri."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.titulo",
+    "texto": "Siklus kebun sayur"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.resumen",
+    "texto": "Jalan-jalan di kebun sayur suaka yang hidup: tahapan tiap tanaman, penyiraman, panen, dan keranjang berisi kerja setahun."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.titulo",
+    "texto": "Menanam dari nol"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.resumen",
+    "texto": "Cara menyiapkan tanah, memilih spesies, dan membatalkan kesalahan — dicoba langsung di suaka."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.titulo",
+    "texto": "Merawat suaka"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.resumen",
+    "texto": "Memberi makan, memanjakan, membersihkan, dan menyembuhkan hewan-hewan yang diselamatkan di suaka — dengan kandang kotor dan babi sakit yang benar-benar menunggumu."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.titulo",
+    "texto": "Kandang dan kapasitas"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.resumen",
+    "texto": "Cara membangun kandang, mengisinya dengan spesiesnya, dan memberinya mainan serta nama."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.titulo",
+    "texto": "Balapan di lintasan"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.resumen",
+    "texto": "Lintasan demo, garis finis, cara memulai balapan sambil menunggang, dan tabel rekor Pep yang bisa kamu kalahkan."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.titulo",
+    "texto": "Lintasan, rel, dan coaster"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.resumen",
+    "texto": "Tiga jenis jalur di peta dan cara menggambarnya di rumahmu sendiri."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.titulo",
+    "texto": "Bermain di lapangan"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.resumen",
+    "texto": "Kompleks olahraga demo: cara tiap permainan dimulai saat kamu masuk ke lapangan, dan papan skor Pep yang bisa kamu tingkatkan."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.titulo",
+    "texto": "Pertempuran paintball"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.resumen",
+    "texto": "Cara menyiapkan pertempuran 1v1, 2v2, atau bebas melawan asisten, dengan seluruh rumah sebagai arena."
+  },
+  {
+    "clave": "bienvenida.titulo",
+    "texto": "Selamat datang di Mind Planner Home"
+  },
+  {
+    "clave": "bienvenida.paso",
+    "texto": "Langkah {n} dari {m}"
+  },
+  {
+    "clave": "bienvenida.idioma.titulo",
+    "texto": "Kamu mau rumah dalam bahasa apa?"
+  },
+  {
+    "clave": "bienvenida.idioma.desc",
+    "texto": "Kamu bisa mengubahnya nanti di Pengaturan."
+  },
+  {
+    "clave": "bienvenida.intereses.titulo",
+    "texto": "Apa yang ingin kamu lacak di sini?"
+  },
+  {
+    "clave": "bienvenida.intereses.desc",
+    "texto": "Setiap minat menjadi ruangan di rumahmu dengan aplikasinya sendiri. Pilih sebanyak yang kamu mau."
+  },
+  {
+    "clave": "bienvenida.intereses.todas",
+    "texto": "Rumahmu sudah punya semua aplikasi yang tersedia."
+  },
+  {
+    "clave": "bienvenida.apariencia.titulo",
+    "texto": "Kamu mau tampilan antarmuka seperti apa?"
+  },
+  {
+    "clave": "bienvenida.personaje.titulo",
+    "texto": "Kamu mau jadi karakter yang mana?"
+  },
+  {
+    "clave": "bienvenida.personaje.desc",
+    "texto": "Ini akan jadi tubuhmu di rumah. Kamu bisa terus menyesuaikannya nanti di editor."
+  },
+  {
+    "clave": "bienvenida.personaje.generando",
+    "texto": "Menyiapkan pratinjau…"
+  },
+  {
+    "clave": "bienvenida.asistente.titulo",
+    "texto": "Siapa yang akan menemanimu?"
+  },
+  {
+    "clave": "bienvenida.asistente.desc",
+    "texto": "Asistenmu mengobrol denganmu di chat dan tinggal di peta."
+  },
+  {
+    "clave": "bienvenida.atras",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "bienvenida.siguiente",
+    "texto": "Berikutnya"
+  },
+  {
+    "clave": "bienvenida.crear",
+    "texto": "Buat rumahku"
+  },
+  {
+    "clave": "bienvenida.creando",
+    "texto": "Membuat rumahmu…"
+  },
+  {
+    "clave": "bienvenida.final.titulo",
+    "texto": "Rumahmu sudah siap!"
+  },
+  {
+    "clave": "bienvenida.cuenta",
+    "texto": "Buat akun atau masuk (menyinkronkan rumahmu)"
+  },
+  {
+    "clave": "bienvenida.guia.desc",
+    "texto": "Tiga langkah untuk mulai terbiasa."
+  },
+  {
+    "clave": "bienvenida.guia.empezar",
+    "texto": "Mulai"
+  },
+  {
+    "clave": "bienvenida.guia.repetir",
+    "texto": "Ulangi"
+  },
+  {
+    "clave": "bienvenida.guia.salir",
+    "texto": "Pergi ke rumah"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.titulo",
+    "texto": "Buat ruangan"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.desc",
+    "texto": "Aku akan menunjukkan cara membuat ruangan dan memberinya aplikasinya."
+  },
+  {
+    "clave": "bienvenida.guia.tour.titulo",
+    "texto": "Jelajahi rumahmu"
+  },
+  {
+    "clave": "bienvenida.guia.tour.desc",
+    "texto": "Jalan-jalan singkat lewat menu, gerakan, jam, dan chat."
+  },
+  {
+    "clave": "bienvenida.guia.explorar.titulo",
+    "texto": "Jelajahi sendiri"
+  }
+]

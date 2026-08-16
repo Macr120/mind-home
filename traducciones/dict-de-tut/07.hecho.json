@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "texto": "„App verknüpfen“ öffnet die Auswahl: Zuerst wählst du die App, dann welchen Teil davon (falls sie mehrere Stellen zum Eintragen hat)."
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "texto": "Wenn der Chip sitzt"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "texto": "Sitzt der Chip, öffnet ein Tipp darauf die App direkt an dieser Stelle. Ihn zu entfernen löscht weder das Ziel noch seine Termine: Es löst nur die Verknüpfung."
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "texto": "Als Ziel erscheinen nur Apps, die einem Objekt in einem Raum zugewiesen sind: eine ohne Raum zu verknüpfen wäre ein Chip, der nirgendwohin führt."
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "texto": "Dieser Button öffnet die Musiksteuerung des Hauses."
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "texto": "An oder aus"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "texto": "Ein Schalter für die gesamte Umgebungsmusik im Haus. Ausgeschaltet bleibt das Haus still – bis auf die Geräusche einzelner Aktionen."
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "texto": "Thema pro Raum"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "texto": "Jeder Raum kann anders klingen: automatisch nach seiner App, ein selbst gewähltes Thema oder völlige Stille in diesem Raum, ohne den Rest des Hauses anzurühren."
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "texto": "Woher der Klang kommt"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "texto": "Generiert (komponiert von selbst passend zur Stimmung), Meine Titel (was du hochgeladen hast) oder System (was du außerhalb der App ohnehin schon abspielst, ohne dass sich beides überlagert)."
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "texto": "Getrennte Lautstärken"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "texto": "Musik und Aktionsgeräusche (Schritte, Klicks, Erfolge) stellst du getrennt ein – du kannst die Musik leiser drehen und die Effekte lassen, oder andersherum."
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "texto": "Den HUD-Button kannst du vom Hauptbildschirm nehmen; unter Editor › Einstellungen › Musik bleibt er erreichbar."
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "texto": "Hier schaltest du die KI des Hauses ein: Ohne sie läuft der Chat weiter über Stichwörter, aber Funktionen wie ein Rezept, einen Plan oder ein Bild zu erzeugen bleiben aus."
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "texto": "Mit oder ohne Konto"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "texto": "Du kannst die KI mit deinem eigenen Anbieterschlüssel nutzen (ohne Konto, ohne Credits) oder mit einem Konto, das Credits mitbringt und zwischen deinen Geräten synchronisiert."
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "texto": "KI-Preise"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "texto": "Diese Tabelle hilft dir auch ohne Konto: Sie ist genau das, was du brauchst, um zu entscheiden, ob es sich lohnt. Raum für Raum, Operation für Operation."
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "texto": "Der einzige Hebel"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "texto": "Die Bildqualität ist das Einzige, was die Preise der ganzen Tabelle verändert: Schnell ist gut und günstig (die Voreinstellung); Beste gibt mehr Details und besseren Text im Bild."
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "texto": "Eine Einheit, viele Operationen"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "texto": "Eine Antwort kostet 1 Credit, ein langer Plan 3, ein Bild oder ein 3D-Modell 10 – die Regel gilt in allen Räumen gleich, diese Tabelle führt sie nur Punkt für Punkt auf."
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "texto": "Diese Leiste erscheint in fast jeder App, solange sie noch keine Daten von dir hat: ein Button, um sie mit einem Beispiel gefüllt zu sehen, statt vor einem leeren Bildschirm anzufangen."
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "texto": "Ein Beispiel anzusehen löscht nichts von dir und mischt sich auch nicht darunter: Es sind eigene Zeilen, als Beispiel markiert, die beim Ausschalten ausgeblendet (nicht gelöscht) werden. Schaltest du es wieder ein, kommen sie genau so zurück, wie sie waren."
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "texto": "Im Demo-Haus erscheint diese Leiste nicht: Peps ganzes Jahr übernimmt schon diese Rolle, ein eigenes Beispiel braucht es also nicht."
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "texto": "Drei Quellen, eine Liste"
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "texto": "Erledigt, weil der Eintrag existiert"
+  }
+]

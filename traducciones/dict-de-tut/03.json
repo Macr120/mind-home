@@ -1,0 +1,157 @@
+[
+  {
+    "clave": "tut.menu-cuartos.6.texto",
+    "es": "Crear cuarto abre el editor de mapa con el pincel listo para dibujar el cuarto nuevo: forma, tamaño y ubicación quedan en tus manos. En el teléfono es más cómodo el atajo de la rueda de herramientas › Construcción › Cuartos, que dibuja directo sobre el mapa sin abrir el panel.",
+    "en": "Create room opens the map editor with the brush ready to draw the new room: shape, size and placement are all yours. On the phone the handier route is the tool wheel shortcut › Building › Rooms, which draws straight onto the map without opening the panel."
+  },
+  {
+    "clave": "tut.menu-cuartos.7.texto",
+    "es": "En resumen: Editar para personalizar, Entrar para usar la app. Las otras pestañas de este menú tienen su propio tutorial.",
+    "en": "In short: Edit to customize, Enter to use the app. The other tabs in this menu have their own tutorial."
+  },
+  {
+    "clave": "tut.menu-plantillas.1.texto",
+    "es": "Una plantilla es una app (Cocina, Ejercicio, Finanzas…). Se asigna a un objeto de un cuarto y se abre al entrar.",
+    "en": "A template is an app (Kitchen, Exercise, Finance…). It's assigned to an object in a room and opens when you enter."
+  },
+  {
+    "clave": "tut.menu-plantillas.2.titulo",
+    "es": "Dos vistas",
+    "en": "Two views"
+  },
+  {
+    "clave": "tut.menu-plantillas.2.texto",
+    "es": "Cuartos son las apps de siempre, cada una en su objeto. Infraestructura es distinta: pistas, canchas, huerto, granja o paintball se construyen directo sobre el terreno, sin ocupar un cuarto.",
+    "en": "Rooms are the usual apps, each in its own object. Infrastructure is different: tracks, courts, the garden, the farm or paintball get built straight on the terrain, without taking up a room."
+  },
+  {
+    "clave": "tut.menu-plantillas.3.titulo",
+    "es": "El catálogo",
+    "en": "The catalog"
+  },
+  {
+    "clave": "tut.menu-plantillas.3.texto",
+    "es": "Las apps de serie y las tuyas, organizadas por grupos. Toca una para asignarla a un cuarto o, en Infraestructura, para construirla en el mapa.",
+    "en": "Built-in apps and your own, organized in groups. Tap one to assign it to a room or, under Infrastructure, to build it on the map."
+  },
+  {
+    "clave": "tut.menu-plantillas.4.titulo",
+    "es": "Plantillas propias",
+    "en": "Your own templates"
+  },
+  {
+    "clave": "tut.menu-plantillas.4.texto",
+    "es": "Crea plantillas propias armándolas con bloques: notas, checklists, contadores, hábitos, galerías… Este botón abre su propio editor con su propio tutorial.",
+    "en": "Create your own templates from blocks: notes, checklists, counters, habits, galleries… This button opens its own editor with its own tutorial."
+  },
+  {
+    "clave": "tut.menu-plantillas.5.texto",
+    "es": "Un mismo cuarto puede tener varias apps: al entrar aparece un lanzador para elegir cuál abrir.",
+    "en": "A single room can hold several apps: entering shows a launcher to pick which one to open."
+  },
+  {
+    "clave": "tut.plantillas-custom.1.texto",
+    "es": "Este editor arma una app tuya de cero: le das forma con nombre, emoji y bloques, y queda en el catálogo junto a las de serie.",
+    "en": "This editor builds an app of your own from scratch: shape it with a name, emoji and blocks, and it lands in the catalog next to the built-in ones."
+  },
+  {
+    "clave": "tut.plantillas-custom.2.titulo",
+    "es": "Nombre, emoji y color",
+    "en": "Name, emoji and color"
+  },
+  {
+    "clave": "tut.plantillas-custom.2.texto",
+    "es": "Cómo se va a llamar y de qué color se pinta en el menú, el catálogo y el calendario si agendas algo suyo.",
+    "en": "What it's called and what color it paints in the menu, the catalog and the calendar if you schedule something of its own."
+  },
+  {
+    "clave": "tut.plantillas-custom.3.titulo",
+    "es": "Las herramientas",
+    "en": "The tools"
+  },
+  {
+    "clave": "tut.plantillas-custom.3.texto",
+    "es": "Doce tipos de bloque: notas, checklist, contador, hábito, sesiones, cuenta regresiva, galería, bitácora, valoración, progreso, lista y enlaces. Cada uno que agregues se vuelve una sección de tu app.",
+    "en": "Twelve block types: notes, checklist, counter, habit, sessions, countdown, gallery, log, rating, progress, list and links. Every one you add becomes a section of your app."
+  },
+  {
+    "clave": "tut.plantillas-custom.4.titulo",
+    "es": "El orden importa",
+    "en": "Order matters"
+  },
+  {
+    "clave": "tut.plantillas-custom.4.texto",
+    "es": "Los bloques agregados se reordenan con las flechas y se quitan con la ✕ — quitar uno borra sus datos al guardar, así que revisa antes de confirmar. Con el desplegable «Menú» pasan de una pestaña a otra sin perder nada.",
+    "en": "Added blocks reorder with the arrows and remove with the ✕ — removing one deletes its data on save, so double-check before confirming. The “Menu” dropdown moves them from one tab to another without losing anything."
+  },
+  {
+    "clave": "tut.plantillas-custom.5.titulo",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "tut.plantillas-custom.5.texto",
+    "es": "Con nombre y al menos un bloque, Guardar la deja lista en el catálogo. Desde ahí se asigna a un objeto igual que cualquier plantilla de serie.",
+    "en": "With a name and at least one block, Save drops it into the catalog, ready. From there it's assigned to an object just like any built-in template."
+  },
+  {
+    "clave": "tut.plantillas-custom.6.texto",
+    "es": "Puedes volver a editarla cuando quieras: sus bloques y sus datos no se tocan, solo cambia lo que edites.",
+    "en": "You can edit it again anytime: its blocks and data stay put, only what you change actually changes."
+  },
+  {
+    "clave": "tut.menu-inventario.1.texto",
+    "es": "El inventario: todos los objetos que puedes colocar en tu casa, listos para arrastrar.",
+    "en": "The inventory: every object you can place in your home, ready to drag."
+  },
+  {
+    "clave": "tut.menu-inventario.2.titulo",
+    "es": "Objetos",
+    "en": "Objects"
+  },
+  {
+    "clave": "tut.menu-inventario.2.texto",
+    "es": "Tu biblioteca de objetos por categorías y carpetas. Puedes renombrarlos y organizarlos para encontrarlos rápido la próxima vez.",
+    "en": "Your object library, by categories and folders. You can rename and organize them to find them fast next time."
+  },
+  {
+    "clave": "tut.menu-inventario.3.titulo",
+    "es": "Objetos especiales",
+    "en": "Special objects"
+  },
+  {
+    "clave": "tut.menu-inventario.3.texto",
+    "es": "Los que hacen algo, no solo decoran: vehículos montables, pistolas de juguete, fuentes, juegos de parque y luces.",
+    "en": "The ones that do something, not just decorate: rideable vehicles, toy blasters, fountains, playground rides and lights."
+  },
+  {
+    "clave": "tut.menu-inventario.4.titulo",
+    "es": "Colocar",
+    "en": "Placing"
+  },
+  {
+    "clave": "tut.menu-inventario.4.texto",
+    "es": "Con este menú abierto, arrastra una miniatura directo a la escena 3D para colocarla donde quieras.",
+    "en": "With this menu open, drag a thumbnail straight into the 3D scene to place it wherever you like."
+  },
+  {
+    "clave": "tut.menu-inventario.5.texto",
+    "es": "Para mover, pintar o borrar lo ya colocado, usa el Editor (pestaña Objetos) — este menú es solo para traer cosas nuevas a escena.",
+    "en": "To move, paint or delete what's already placed, use the Editor (Objects tab) — this menu is only for bringing new things into the scene."
+  },
+  {
+    "clave": "tut.editor-mapa.1.texto",
+    "es": "El editor de la casa tiene 4 pestañas: Mapa, Personajes, Objetos y Configuraciones. Este tour es el de Mapa; los otros tres tienen el suyo.",
+    "en": "The home editor has 4 tabs: Map, Characters, Objects and Settings. This tour is the Map one; the other three have their own."
+  },
+  {
+    "clave": "tut.editor-mapa.2.titulo",
+    "es": "El croquis",
+    "en": "The blueprint"
+  },
+  {
+    "clave": "tut.editor-mapa.2.texto",
+    "es": "Dibujas sobre una rejilla vista desde arriba: cuartos, muros, puertas, ventanas y pisos, con los modos y pinceles de la barra superior. Lo que trazas aparece al momento en el 3D, sin recargar nada.",
+    "en": "You draw on a top-down grid: rooms, walls, doors, windows and floors, with the modes and brushes in the top bar. What you trace shows up in 3D instantly, no reload needed."
+  }
+]

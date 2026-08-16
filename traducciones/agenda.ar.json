@@ -1,0 +1,354 @@
+[
+  {
+    "ruta": "trabajo.0.titulo",
+    "texto": "امتحان الميكانيكا النصفي 1"
+  },
+  {
+    "ruta": "trabajo.0.lugar",
+    "texto": "كلية العلوم، القاعة 12"
+  },
+  {
+    "ruta": "trabajo.1.titulo",
+    "texto": "تسليم تقرير المختبر"
+  },
+  {
+    "ruta": "trabajo.1.lugar",
+    "texto": "مختبر الفيزياء الأول"
+  },
+  {
+    "ruta": "trabajo.2.titulo",
+    "texto": "الجرد الشهري للبار"
+  },
+  {
+    "ruta": "trabajo.2.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.3.titulo",
+    "texto": "مناوبة إضافية: تذوق قهوة أحادية المصدر"
+  },
+  {
+    "ruta": "trabajo.3.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.4.titulo",
+    "texto": "اجتماع انطلاق المشروع الفصلي"
+  },
+  {
+    "ruta": "trabajo.4.lugar",
+    "texto": "مكتب المشرفة إيلينا"
+  },
+  {
+    "ruta": "trabajo.5.titulo",
+    "texto": "امتحان الموجات والبصريات النصفي"
+  },
+  {
+    "ruta": "trabajo.5.lugar",
+    "texto": "كلية العلوم"
+  },
+  {
+    "ruta": "trabajo.6.titulo",
+    "texto": "تسليم تقرير المختبر: البندولات المترابطة"
+  },
+  {
+    "ruta": "trabajo.6.lugar",
+    "texto": "مختبر الفيزياء الثاني"
+  },
+  {
+    "ruta": "trabajo.7.titulo",
+    "texto": "مناوبة مزدوجة بسبب مهرجان الحي"
+  },
+  {
+    "ruta": "trabajo.8.titulo",
+    "texto": "تجديد جواز السفر"
+  },
+  {
+    "ruta": "trabajo.8.lugar",
+    "texto": "مكتب الجوازات"
+  },
+  {
+    "ruta": "trabajo.9.titulo",
+    "texto": "متابعة تقدم المشروع مع إيلينا"
+  },
+  {
+    "ruta": "trabajo.9.lugar",
+    "texto": "كلية العلوم"
+  },
+  {
+    "ruta": "trabajo.10.titulo",
+    "texto": "الورشة: فحص السيارة"
+  },
+  {
+    "ruta": "trabajo.10.lugar",
+    "texto": "ورشة رويز"
+  },
+  {
+    "ruta": "trabajo.11.titulo",
+    "texto": "معاملات تأمين السيارة"
+  },
+  {
+    "ruta": "trabajo.11.lugar",
+    "texto": "فرع وسط المدينة"
+  },
+  {
+    "ruta": "trabajo.12.titulo",
+    "texto": "امتحان الديناميكا الحرارية النصفي"
+  },
+  {
+    "ruta": "trabajo.12.lugar",
+    "texto": "كلية العلوم"
+  },
+  {
+    "ruta": "trabajo.13.titulo",
+    "texto": "تسليم تقرير المختبر: المسعرية الحرارية"
+  },
+  {
+    "ruta": "trabajo.13.lugar",
+    "texto": "مختبر الفيزياء الثاني"
+  },
+  {
+    "ruta": "trabajo.14.titulo",
+    "texto": "طلب إذن السفر من ماريسول"
+  },
+  {
+    "ruta": "trabajo.14.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.15.titulo",
+    "texto": "تدريب على الماكينة الجديدة"
+  },
+  {
+    "ruta": "trabajo.15.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.16.titulo",
+    "texto": "اجتماع نتائج المشروع"
+  },
+  {
+    "ruta": "trabajo.16.lugar",
+    "texto": "كلية العلوم"
+  },
+  {
+    "ruta": "trabajo.17.titulo",
+    "texto": "امتحان الكهرومغناطيسية النصفي"
+  },
+  {
+    "ruta": "trabajo.17.lugar",
+    "texto": "كلية العلوم"
+  },
+  {
+    "ruta": "trabajo.18.titulo",
+    "texto": "تسليم تقرير المختبر النهائي"
+  },
+  {
+    "ruta": "trabajo.18.lugar",
+    "texto": "مختبر الفيزياء الثاني"
+  },
+  {
+    "ruta": "trabajo.19.titulo",
+    "texto": "مناقشة المشروع الفصلي"
+  },
+  {
+    "ruta": "trabajo.19.lugar",
+    "texto": "المدرج B"
+  },
+  {
+    "ruta": "trabajo.20.titulo",
+    "texto": "مناوبة خاصة: تذوق الشاي"
+  },
+  {
+    "ruta": "trabajo.20.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "salud.0.titulo",
+    "texto": "أول استشارة تغذية"
+  },
+  {
+    "ruta": "salud.0.lugar",
+    "texto": "مركز ألدانا الصحي"
+  },
+  {
+    "ruta": "salud.1.titulo",
+    "texto": "التطعيم السنوي للايكا"
+  },
+  {
+    "ruta": "salud.1.lugar",
+    "texto": "عيادة لوس ألاموس البيطرية"
+  },
+  {
+    "ruta": "salud.2.titulo",
+    "texto": "متابعة التغذية"
+  },
+  {
+    "ruta": "salud.2.lugar",
+    "texto": "مركز ألدانا الصحي"
+  },
+  {
+    "ruta": "salud.3.titulo",
+    "texto": "أخصائي العظام: ألم الركبة"
+  },
+  {
+    "ruta": "salud.3.lugar",
+    "texto": "عيادة سان فيسنتي"
+  },
+  {
+    "ruta": "salud.4.titulo",
+    "texto": "العلاج الطبيعي 1 من 6"
+  },
+  {
+    "ruta": "salud.4.lugar",
+    "texto": "عيادة سان فيسنتي"
+  },
+  {
+    "ruta": "salud.5.titulo",
+    "texto": "العلاج الطبيعي 2 من 6"
+  },
+  {
+    "ruta": "salud.5.lugar",
+    "texto": "عيادة سان فيسنتي"
+  },
+  {
+    "ruta": "salud.6.titulo",
+    "texto": "العلاج الطبيعي 3 من 6"
+  },
+  {
+    "ruta": "salud.6.lugar",
+    "texto": "عيادة سان فيسنتي"
+  },
+  {
+    "ruta": "salud.7.titulo",
+    "texto": "العلاج الطبيعي 4 من 6"
+  },
+  {
+    "ruta": "salud.7.lugar",
+    "texto": "عيادة سان فيسنتي"
+  },
+  {
+    "ruta": "salud.8.titulo",
+    "texto": "العلاج الطبيعي 5 من 6"
+  },
+  {
+    "ruta": "salud.8.lugar",
+    "texto": "عيادة سان فيسنتي"
+  },
+  {
+    "ruta": "salud.9.titulo",
+    "texto": "العلاج الطبيعي 6 من 6: التعافي"
+  },
+  {
+    "ruta": "salud.9.lugar",
+    "texto": "عيادة سان فيسنتي"
+  },
+  {
+    "ruta": "salud.10.titulo",
+    "texto": "تنظيف الأسنان"
+  },
+  {
+    "ruta": "salud.10.lugar",
+    "texto": "عيادة الدكتور أولموس"
+  },
+  {
+    "ruta": "salud.11.titulo",
+    "texto": "لايكا: فحص وطرد الديدان"
+  },
+  {
+    "ruta": "salud.11.lugar",
+    "texto": "عيادة لوس ألاموس البيطرية"
+  },
+  {
+    "ruta": "salud.12.titulo",
+    "texto": "متابعة التغذية"
+  },
+  {
+    "ruta": "salud.12.lugar",
+    "texto": "مركز ألدانا الصحي"
+  },
+  {
+    "ruta": "salud.13.titulo",
+    "texto": "الفحص العام السنوي"
+  },
+  {
+    "ruta": "salud.13.lugar",
+    "texto": "مركز ألدانا الصحي"
+  },
+  {
+    "ruta": "personas.0.titulo",
+    "texto": "قهوة طويلة مليئة بالشكاوى"
+  },
+  {
+    "ruta": "personas.1.titulo",
+    "texto": "عشاء الأحد في البيت"
+  },
+  {
+    "ruta": "personas.2.titulo",
+    "texto": "عيد ميلاد إيكر"
+  },
+  {
+    "ruta": "personas.3.titulo",
+    "texto": "الإفطار بعد سباق 5 كم"
+  },
+  {
+    "ruta": "personas.4.titulo",
+    "texto": "ماراثون أفلام الخيال العلمي"
+  },
+  {
+    "ruta": "personas.5.titulo",
+    "texto": "عيد ميلاد أمي"
+  },
+  {
+    "ruta": "personas.6.titulo",
+    "texto": "قهوة للتنفيس عن النفس"
+  },
+  {
+    "ruta": "personas.7.titulo",
+    "texto": "عشاء وداعي قبل اليابان"
+  },
+  {
+    "ruta": "personas.8.titulo",
+    "texto": "مكالمة فيديو من كيوتو"
+  },
+  {
+    "ruta": "personas.9.titulo",
+    "texto": "أمسية صور الرحلة"
+  },
+  {
+    "ruta": "personas.10.titulo",
+    "texto": "عيد ميلاد ناديا"
+  },
+  {
+    "ruta": "personas.11.titulo",
+    "texto": "برانش مع فريق المقهى"
+  },
+  {
+    "ruta": "personas.12.titulo",
+    "texto": "حفل منزلي: كلير دو لون"
+  },
+  {
+    "ruta": "personas.13.titulo",
+    "texto": "قهوة: دراسات عليا أم عمل؟"
+  },
+  {
+    "ruta": "pendientes.0",
+    "texto": "تبديل مناوبة الجمعة بسبب الاختبار النصفي"
+  },
+  {
+    "ruta": "pendientes.1",
+    "texto": "تحديث السيرة الذاتية بالمشروع الفصلي"
+  },
+  {
+    "ruta": "pendientes.2",
+    "texto": "ترتيب إيصالات الإكراميات لهذا الشهر"
+  },
+  {
+    "ruta": "pendientes.3",
+    "texto": "الرد على بريد إيلينا حول الملصق"
+  },
+  {
+    "ruta": "pendientes.4",
+    "texto": "طلب عروض أسعار لمطحنة جديدة للبار"
+  }
+]

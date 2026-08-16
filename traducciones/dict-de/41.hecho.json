@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.resumen",
+    "texto": "Die Ernährungskontrolle sind vier Schritte: Du setzt deine Ziele, erfasst, was du isst und trinkst, planst deine Woche, und der Fortschritt zeigt dir, ob du auf dem richtigen Weg bist."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.titulo",
+    "texto": "Kochen, planen und einkaufen"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.resumen",
+    "texto": "Das Rezeptbuch speichert deine Rezepte mit ihren Makros, gruppiert sie in Diäten und macht aus dem, was du kochen willst, die Einkaufsliste."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.titulo",
+    "texto": "Der Ernährungsplan im Kalender"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.resumen",
+    "texto": "Peps Gewichts- und Ernährungsziele haben eine eigene Zeitachse: Teilziele mit Datum und einen Plan, den die KI in Phasen aufbaut."
+  },
+  {
+    "clave": "tut.app-descanso--noche.titulo",
+    "texto": "Wie eine Nacht bewertet wird"
+  },
+  {
+    "clave": "tut.app-descanso--noche.resumen",
+    "texto": "Schlaf bewertet jede Nacht mit bis zu hundert Punkten: wie lange du geschlafen hast, wann du ins Bett gegangen bist und wie oft du aufgewacht bist. Daraus entsteht die Jahreshistorie."
+  },
+  {
+    "clave": "tut.app-descanso--horario.titulo",
+    "texto": "Dein Schlafplan"
+  },
+  {
+    "clave": "tut.app-descanso--horario.resumen",
+    "texto": "Der Schlafplan wird auf einer 24-Stunden-Leiste dargestellt, erscheint als Block im Hauskalender und kann dich vor dem Schlafengehen erinnern."
+  },
+  {
+    "clave": "tut.app-despacho--anio.titulo",
+    "texto": "Das Jahr, in dem Pep die eigenen Finanzen in Ordnung brachte"
+  },
+  {
+    "clave": "tut.app-despacho--anio.resumen",
+    "texto": "Der Cashflow fasst zusammen, was reinkam, was rausging und den Saldo für den Zeitraum, den du wählst: Tag, Woche, Monat oder Jahr. Darunter: dein Vermögen, das Monatsbudget, wohin dein Geld fließt und der Trend der letzten Zeiträume."
+  },
+  {
+    "clave": "tut.app-despacho--captura.titulo",
+    "texto": "Fix und variabel"
+  },
+  {
+    "clave": "tut.app-despacho--captura.resumen",
+    "texto": "Eine fixe Ausgabe wird EINMAL erfasst, und die App zählt sie von da an jeden Monat automatisch mit; variable Ausgaben trägst du ein, wenn sie anfallen. Beide stehen in derselben Liste, sortiert nach Datum in Ordnern für Jahr und Monat."
+  },
+  {
+    "clave": "tut.app-despacho--metas.titulo",
+    "texto": "Japan, der Notgroschen und die Schulden"
+  },
+  {
+    "clave": "tut.app-despacho--metas.resumen",
+    "texto": "Ziele bündelt deine Spar- und Anlageziele in einer Liste mit Fortschrittsbalken, und die Schulden getrennt mit ihrem eigenen Simulator. Jedes hat einen Zeitplan, in dem du Termine festlegen kannst."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.titulo",
+    "texto": "Vier Regeln, um auf eine Zahl zu kommen"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.resumen",
+    "texto": "Vier Rechner für persönliche Finanzen schlagen dir anhand deines echten Saldos einen Zielbetrag vor und machen daraus mit einem Tipp ein Ziel. Die Parameter jeder Regel lassen sich anpassen: Niemand muss die 50/30/20-Regel so übernehmen, wie sie ist."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.titulo",
+    "texto": "Ein Fahrrad und ein altes Auto"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.resumen",
+    "texto": "Die Garage verwaltet die Wartung deiner echten Fahrzeuge: jedes mit eigener Akte, Kilometerstand und Servicehistorie. Oben zeigt dir eine Ampel, ob etwas dringend ist."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.titulo",
+    "texto": "Ein neues anmelden"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.texto",
+    "texto": "Name, Typ, Marke, Modell, Baujahr, Kennzeichen und der heutige Kilometerstand. Mit hinterlegtem Kennzeichen weiß die Garage später, welche Behördengänge sie dir anbieten soll."
+  },
+  {
+    "clave": "tut.app-garage--tramites.titulo",
+    "texto": "Behördengänge, die sich von selbst eintragen"
+  },
+  {
+    "clave": "tut.app-garage--tramites.resumen",
+    "texto": "Plane die Abgasuntersuchung, die Kfz-Steuer, die Versicherung oder den regelmäßigen Service, und die Garage trägt ihren Block im Kalender ein, dazu eine Erinnerung mit dem Vorlauf, den du festlegst."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.titulo",
+    "texto": "Die Papiere, getrennt"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.texto",
+    "texto": "Fahrzeugschein, Versicherungspolice und Kfz-Steuer vermischen sich nicht mit dem, was in der Werkstatt passiert: Sie haben ihr eigenes Heft, mit Aktenzeichen, Fälligkeit und Vorwarnung."
+  },
+  {
+    "clave": "tut.app-sala--mapa.titulo",
+    "texto": "Die Karte eines Reisenden"
+  },
+  {
+    "clave": "tut.app-sala--mapa.resumen",
+    "texto": "Jeder Ort ist eine Stecknadel auf der Weltkarte: grün, wenn du schon dort warst, gelb, wenn es noch ein Traum ist. Oben siehst du, wie viele Länder, Städte und offene Ziele du hast."
+  },
+  {
+    "clave": "tut.app-sala--japon.titulo",
+    "texto": "Drei Wochen in Japan"
+  },
+  {
+    "clave": "tut.app-sala--japon.resumen",
+    "texto": "Das Logbuch bewahrt deine Erinnerungen nach Land und Ort auf, mit ihren Fotos; und jede Reise behält ihren Tag-für-Tag-Plan mit Unterkunft, Transport und Budget."
+  },
+  {
+    "clave": "tut.app-sala--proximo.titulo",
+    "texto": "Die nächste Reise"
+  },
+  {
+    "clave": "tut.app-sala--proximo.resumen",
+    "texto": "Orte, die du noch entdecken willst, bekommen ihren eigenen Tag-für-Tag-Plan, und die Summe ihrer Budgets wird im Arbeitszimmer zu einem Sparziel."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.titulo",
+    "texto": "Ein Jahr Science-Fiction"
+  }
+]

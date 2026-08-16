@@ -1,0 +1,442 @@
+[
+  {
+    "clave": "despacho.calc.tasaAuto",
+    "texto": "Jahreszins %"
+  },
+  {
+    "clave": "despacho.calc.enganche",
+    "texto": "Erforderliche Anzahlung"
+  },
+  {
+    "clave": "despacho.calc.mensualidadMax",
+    "texto": "Maximale Monatsrate"
+  },
+  {
+    "clave": "despacho.calc.autoCabe",
+    "texto": "Es passt: Die geschätzte Rate beträgt {m}."
+  },
+  {
+    "clave": "despacho.calc.autoNoCabe",
+    "texto": "Zu diesen Konditionen passt es nicht: Die geschätzte Rate ({m}) liegt über deinem Maximum."
+  },
+  {
+    "clave": "despacho.calc.nombreEnganche",
+    "texto": "Anzahlung fürs Auto"
+  },
+  {
+    "clave": "biblioteca.desc",
+    "texto": "Deine persönliche Enzyklopädie: sprich mit dem Weisen über jedes Thema, halte Gelerntes nach Wissensgebiet fest und lerne mit Timer."
+  },
+  {
+    "clave": "biblioteca.tab.charlas",
+    "texto": "Chats"
+  },
+  {
+    "clave": "biblioteca.tab.enciclopedia",
+    "texto": "Enzyklopädie"
+  },
+  {
+    "clave": "biblioteca.tab.estudio",
+    "texto": "Lernen"
+  },
+  {
+    "clave": "biblioteca.tab.resumen",
+    "texto": "Übersicht"
+  },
+  {
+    "clave": "biblioteca.sinIA",
+    "texto": "Richte deine KI ein (Einstellungen → Künstliche Intelligenz), um mit dem Weisen zu chatten. Bis dahin kannst du Einträge von Hand in der Enzyklopädie anlegen."
+  },
+  {
+    "clave": "biblioteca.charla.nuevaBtn",
+    "texto": "Neuer Chat mit dem Weisen"
+  },
+  {
+    "clave": "biblioteca.charla.todas",
+    "texto": "Alle"
+  },
+  {
+    "clave": "biblioteca.charla.vacio",
+    "texto": "Noch keine Chats. Frag, was du willst – „Warum ist der Himmel blau?“ – und die Bibliothek ordnet es seinem Wissensgebiet zu."
+  },
+  {
+    "clave": "biblioteca.charla.sinTitulo",
+    "texto": "Chat ohne Titel"
+  },
+  {
+    "clave": "biblioteca.charla.porClasificar",
+    "texto": "unsortiert"
+  },
+  {
+    "clave": "biblioteca.charla.nueva",
+    "texto": "Neuer Chat"
+  },
+  {
+    "clave": "biblioteca.charla.sub",
+    "texto": "Enzyklopädie-Chat"
+  },
+  {
+    "clave": "biblioteca.charla.volver",
+    "texto": "Zurück zu den Chats"
+  },
+  {
+    "clave": "biblioteca.charla.renombrar",
+    "texto": "Zum Umbenennen tippen"
+  },
+  {
+    "clave": "biblioteca.charla.destilar",
+    "texto": "Destillieren"
+  },
+  {
+    "clave": "biblioteca.charla.reDestilar",
+    "texto": "Eintrag aktualisieren"
+  },
+  {
+    "clave": "biblioteca.charla.destilarTip",
+    "texto": "Die KI fasst den Chat in einem Enzyklopädie-Eintrag zusammen"
+  },
+  {
+    "clave": "biblioteca.charla.destilarFallo",
+    "texto": "Die KI konnte den Chat nicht destillieren; fülle den Eintrag von Hand aus."
+  },
+  {
+    "clave": "biblioteca.charla.borrar",
+    "texto": "Chat löschen"
+  },
+  {
+    "clave": "biblioteca.charla.campoTip",
+    "texto": "Wissensgebiet, in dem der Chat abgelegt wird"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificar",
+    "texto": "Einordnen"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificarTip",
+    "texto": "Den Chat im Baum einordnen und seinen Eintrag destillieren"
+  },
+  {
+    "clave": "biblioteca.charla.verEntrada",
+    "texto": "Eintrag"
+  },
+  {
+    "clave": "biblioteca.charla.verEntradaTip",
+    "texto": "Den aus diesem Chat destillierten Eintrag ansehen"
+  },
+  {
+    "clave": "biblioteca.charla.irANodo",
+    "texto": "„{n}“ in der Enzyklopädie ansehen"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarTip",
+    "texto": "Verzweigen: Unterthemen aus diesem Chat zum Baum hinzufügen"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarSinTema",
+    "texto": "Dieser Chat hat noch keinen Platz im Baum"
+  },
+  {
+    "clave": "biblioteca.ramas.titulo",
+    "texto": "Den Baum verzweigen"
+  },
+  {
+    "clave": "biblioteca.ramas.desc",
+    "texto": "Neue Zweige unter „{tema}“ aus diesem Chat:"
+  },
+  {
+    "clave": "biblioteca.ramas.cargando",
+    "texto": "Der Weise sucht neue Zweige…"
+  },
+  {
+    "clave": "biblioteca.ramas.vacio",
+    "texto": "Für dieses Thema gibt es keine neuen Zweige."
+  },
+  {
+    "clave": "biblioteca.ramas.agregar",
+    "texto": "Ausgewählte hinzufügen"
+  },
+  {
+    "clave": "biblioteca.ramas.ahoraNo",
+    "texto": "Jetzt nicht"
+  },
+  {
+    "clave": "biblioteca.ramas.charlarSug",
+    "texto": "Hinzufügen und über diesen Zweig chatten"
+  },
+  {
+    "clave": "biblioteca.charla.confirmarBorrar",
+    "texto": "Chat löschen? Der destillierte Eintrag bleibt erhalten."
+  },
+  {
+    "clave": "biblioteca.charla.siBorrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "biblioteca.charla.vacia",
+    "texto": "Frag {sabio} alles, was du willst: Der Chat ordnet sich selbst seinem Wissensgebiet zu"
+  },
+  {
+    "clave": "biblioteca.charla.error",
+    "texto": "Der Weise konnte nicht antworten. Prüfe deine KI in den Einstellungen oder versuch es erneut."
+  },
+  {
+    "clave": "biblioteca.charla.reintentar",
+    "texto": "Erneut versuchen"
+  },
+  {
+    "clave": "biblioteca.charla.placeholder",
+    "texto": "Frag zu einem beliebigen Thema…"
+  },
+  {
+    "clave": "biblioteca.charla.sinIA",
+    "texto": "Richte deine KI in den Einstellungen ein, um zu chatten"
+  },
+  {
+    "clave": "biblioteca.ent.nueva",
+    "texto": "Neuer Eintrag"
+  },
+  {
+    "clave": "biblioteca.ent.editar",
+    "texto": "Eintrag bearbeiten"
+  },
+  {
+    "clave": "biblioteca.ent.editarBtn",
+    "texto": "Bearbeiten"
+  },
+  {
+    "clave": "biblioteca.ent.titulo",
+    "texto": "Titel"
+  },
+  {
+    "clave": "biblioteca.ent.tituloPh",
+    "texto": "Z. B. Die Entropie"
+  },
+  {
+    "clave": "biblioteca.ent.campo",
+    "texto": "Gebiet"
+  },
+  {
+    "clave": "biblioteca.ent.tema",
+    "texto": "Thema im Index"
+  },
+  {
+    "clave": "biblioteca.ent.sinTema",
+    "texto": " – Keins – "
+  },
+  {
+    "clave": "biblioteca.ent.resumen",
+    "texto": "Zusammenfassung"
+  },
+  {
+    "clave": "biblioteca.ent.resumenPh",
+    "texto": "Was du gelernt hast, in 3–5 Sätzen."
+  },
+  {
+    "clave": "biblioteca.ent.puntos",
+    "texto": "Kernpunkte (einer pro Zeile)"
+  },
+  {
+    "clave": "biblioteca.ent.puntosPh",
+    "texto": "Kernidee 1\nKernidee 2"
+  },
+  {
+    "clave": "biblioteca.ent.puntosTitulo",
+    "texto": "Kernpunkte"
+  },
+  {
+    "clave": "biblioteca.mat.titulo",
+    "texto": "Material"
+  },
+  {
+    "clave": "biblioteca.mat.agregar",
+    "texto": "Material erzeugen oder verknüpfen"
+  },
+  {
+    "clave": "biblioteca.mat.vacio",
+    "texto": "Verknüpfe hier die Tabellen und Karten, mit denen du dieses Thema lernst; sie öffnen sich in ihrem eigenen Raum."
+  },
+  {
+    "clave": "biblioteca.mat.hoja",
+    "texto": "Tabelle"
+  },
+  {
+    "clave": "biblioteca.mat.mapa",
+    "texto": "Karte oder Diagramm"
+  },
+  {
+    "clave": "biblioteca.mat.idea",
+    "texto": "Idee"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaHoja",
+    "texto": "Neue Tabelle"
+  },
+  {
+    "clave": "biblioteca.mat.nuevoMapa",
+    "texto": "Neue Karte oder neues Diagramm"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaIdea",
+    "texto": "Neue Idee"
+  },
+  {
+    "clave": "biblioteca.mat.crearTit",
+    "texto": "Neu: {tipo}"
+  },
+  {
+    "clave": "biblioteca.mat.existente",
+    "texto": "{tipo} verknüpfen (bereits vorhanden)"
+  },
+  {
+    "clave": "biblioteca.mat.enlazar",
+    "texto": " – Verknüpfen – "
+  },
+  {
+    "clave": "biblioteca.mat.quitar",
+    "texto": "Verknüpfung entfernen (löscht das Material nicht)"
+  },
+  {
+    "clave": "biblioteca.mat.roto",
+    "texto": "existiert nicht mehr"
+  },
+  {
+    "clave": "computo.vista.vacia",
+    "texto": "Die Tabelle ist noch leer."
+  },
+  {
+    "clave": "biblioteca.mat.sinCuarto",
+    "texto": "Stell den Raum dieser App in deinem Haus auf, um ihr Material zu öffnen."
+  },
+  {
+    "clave": "material.estudiasEn",
+    "texto": "Du lernst es in"
+  },
+  {
+    "clave": "material.abrirEntrada",
+    "texto": "„{n}“ in der Enzyklopädie öffnen"
+  },
+  {
+    "clave": "material.sinBiblioteca",
+    "texto": "Stell den Raum der Bibliothek in deinem Haus auf, um ihre Enzyklopädie zu öffnen."
+  },
+  {
+    "clave": "biblioteca.mat.vacio2",
+    "texto": "Erzeuge hier mit der KI eine Karte oder Notizen zu diesem Thema, oder verknüpfe die Tabellen und Karten, die du schon zum Lernen nutzt."
+  },
+  {
+    "clave": "biblioteca.mat.ver",
+    "texto": "Direkt hier ansehen"
+  },
+  {
+    "clave": "biblioteca.mat.abrirEn",
+    "texto": "Im eigenen Raum öffnen, um es zu bearbeiten"
+  },
+  {
+    "clave": "biblioteca.mat.generarTip",
+    "texto": "Die KI baut es aus dem Inhalt dieses Eintrags"
+  },
+  {
+    "clave": "biblioteca.mat.falloIA",
+    "texto": "Die KI konnte das Material nicht erzeugen."
+  },
+  {
+    "clave": "biblioteca.ent.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "biblioteca.ent.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "biblioteca.ent.borrar",
+    "texto": "Eintrag löschen"
+  },
+  {
+    "clave": "biblioteca.ent.confirmarBorrar",
+    "texto": "Diesen Eintrag löschen? Der ursprüngliche Chat bleibt unberührt."
+  },
+  {
+    "clave": "biblioteca.ent.verCharla",
+    "texto": "Ursprünglichen Chat ansehen"
+  },
+  {
+    "clave": "biblioteca.enc.sub",
+    "texto": "{n} Einträge in {c} Gebieten"
+  },
+  {
+    "clave": "biblioteca.enc.nEntradas",
+    "texto": "{n} Einträge"
+  },
+  {
+    "clave": "biblioteca.enc.buscarTema",
+    "texto": "Thema suchen…"
+  },
+  {
+    "clave": "biblioteca.enc.verEntrada",
+    "texto": "Den Eintrag zu diesem Thema ansehen"
+  },
+  {
+    "clave": "biblioteca.enc.charlarTema",
+    "texto": "Mit dem Weisen darüber chatten"
+  },
+  {
+    "clave": "biblioteca.enc.promptTema",
+    "texto": "Erzähl mir von {tema}. {desc}"
+  },
+  {
+    "clave": "biblioteca.enc.arbolDesc",
+    "texto": "Dein ganzes Wissen in einem Baum: Jeder Chat findet seinen Platz und wächst, wenn du ihn verzweigst."
+  },
+  {
+    "clave": "biblioteca.enc.semilla",
+    "texto": "Samen"
+  },
+  {
+    "clave": "biblioteca.enc.sinResultados",
+    "texto": "Nichts im Baum passt zu deiner Suche."
+  },
+  {
+    "clave": "biblioteca.enc.nuevo",
+    "texto": "neu"
+  },
+  {
+    "clave": "biblioteca.enc.subtemas",
+    "texto": "{n} Unterthemen"
+  },
+  {
+    "clave": "biblioteca.enc.nSubindices",
+    "texto": "{n} Unterthemen hier darunter"
+  },
+  {
+    "clave": "biblioteca.enc.modoEdicion",
+    "texto": "Index bearbeiten"
+  },
+  {
+    "clave": "biblioteca.enc.edicionDesc",
+    "texto": "Mach dir den Index zu eigen: Mit dem + jeder Zeile fügst du Zweige auf jeder Ebene hinzu, auch direkt am Samen. Du kannst auch umbenennen, neu anordnen und löschen."
+  },
+  {
+    "clave": "biblioteca.enc.renombrar",
+    "texto": "Umbenennen"
+  },
+  {
+    "clave": "biblioteca.enc.agregarHijo",
+    "texto": "Etwas darin hinzufügen"
+  },
+  {
+    "clave": "biblioteca.enc.moverEntradaA",
+    "texto": "„{n}“ verschieben nach…"
+  },
+  {
+    "clave": "biblioteca.enc.entradaAqui",
+    "texto": "Hier einen Eintrag schreiben"
+  },
+  {
+    "clave": "biblioteca.enc.borrarNodo",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "biblioteca.enc.borrarTit",
+    "texto": "„{n}“ löschen?"
+  }
+]

@@ -1,0 +1,234 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "texto": "Tweedehands stalen fiets, grijs en een beetje lawaaierig, waarmee ik elke dag naar diensten, het lab en trainingen ga. In een heel jaar heeft hij me nog geen enkele keer in de steek gelaten."
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "texto": "Sedan geërfd van mijn oom, ouder dan ikzelf, met een dashboard dat door de zon is verbleekt. Ik start hem hooguit één keer per twee weken en hij laat me elke verwaarlozing met rente terugbetalen."
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "texto": "Gered uit de kelder"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "texto": "Ik haalde hem uit de kelder met lekke banden en een verroeste ketting; een halve middag met doek, lucht en olie om hem weer te laten rijden."
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "texto": "Olie veel te lang uitgesteld"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "texto": "Ze kwam er zwart als koude koffie uit en de monteur trok alleen zijn wenkbrauwen op, zijn manier om me de les te lezen."
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "texto": "Nieuwe binnenband en een plak"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "texto": "Lekke band op Doctor Vértiz onderweg naar het café; ik leerde op de stoep een binnenband te vervangen, laat maar toch geleerd."
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "texto": "Nieuwe accu"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "texto": "De accu ging vanzelf leeg door hem zo weinig te gebruiken; ik vroeg een buurman om me te helpen starten en reed meteen door om een nieuwe accu te kopen."
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "texto": "Eindelijk een schone ketting"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "texto": "Ontvette en smeerde de ketting rustig op een zondag: hij klinkt niet meer als een oud scharnier en trapt zelfs lichter."
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "texto": "Voorremblokken"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "texto": "Ze piepten bij elk stoplicht en ik kon het niet langer negeren; het kostte me mijn hele loon van die twee weken, maar ik sliep er rustig door."
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "texto": "Nieuwe remblokjes"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "texto": "Door de regen remde ik steeds twee meter later dan de bedoeling was, dus verving ik de remblokjes en stelde de kabels af."
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "texto": "Lekke band onderweg naar het lab"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "texto": "Een stuk glas op Eje 8 en ik kwam de fiets duwend twintig minuten te laat op het lab aan."
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "texto": "Gestrand op Calzada de Tlalpan"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "texto": "De auto viel midden op straat stil op een dinsdagavond en ik zat anderhalf uur op de stoep te wachten op de sleepwagen, rekenend met geld dat er niet was; toen kwam de hele maand in één keer op me af."
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "texto": "Volledige onderhoudsbeurt"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "texto": "Met de knie in fysiotherapie kon ik niet hardlopen, dus stak ik de tijd in de fiets: wielen gecentreerd, kabels en alles aangedraaid."
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "texto": "Filters na de schrik"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "texto": "Ik verving het lucht- en benzinefilter uit pure paranoia; ik betaal dit liever dan nog eens op een sleepwagen te wachten."
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "texto": "Uitgerekte ketting vervangen"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "texto": "Met het halvemarathonplan gebruik ik hem elke dag en de ketting sloeg al door bij het wegtrappen."
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "texto": "Nieuwe cassette en kabels"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "texto": "De versnellingen sloegen over bij het klimmen; met een nieuwe cassette kan ik eindelijk op het kleine tandwiel vertrouwen."
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "texto": "Olie en algehele controle"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "texto": "Gewone beurt zonder verrassingen, wat met deze auto al goed nieuws is."
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "texto": "Remmen voor de marathon"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "texto": "Snelle afstelling, want in die weken was de fiets mijn enige vervoer en ik wilde geen enkel excuus."
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "texto": "Wasbeurt voor familiebezoek"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "texto": "Ik waste en stofzuigde hem om mijn familie van het busstation op te halen: het lost mechanisch niets op, maar het voelt anders."
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "texto": "Taller Mecánico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "texto": "Don Rivas legt me altijd uit wat echt dringend is en wat kan wachten, en heeft nooit een rekening opgeblazen; hij is de enige die ik met deze auto vertrouw."
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "texto": "Seguros Meridiano - verzekeringsagent Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "texto": "Av. Insurgentes Sur 1234, 3e verdieping, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "texto": "Nadia reageert op WhatsApp, ook op zondag, en ze regelde maandelijkse betalingen toen ik overstapte naar volledige dekking."
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "texto": "Verificentro 09-118 Iztaccíhuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "texto": "Afspraak om zeven uur 's ochtends en binnen veertig minuten ben ik klaar; die van Coyoacán kostte me een halve ochtend in de rij."
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "texto": "Daar heb ik de fiets gekocht en daar stel ik hem ook af; ze lenen me gereedschap en leren het me zelf te doen in plaats van voor alles te laten betalen."
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "texto": "Grúas Tepeyac 24 horas"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "texto": "Vestiging: Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "texto": "Dat is het nummer dat ik belde op de avond dat ik gestrand raakte; ze kwamen binnen anderhalf uur en probeerden me niet op te lichten met de prijs."
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "texto": "Halfjaarlijkse emissiekeuring"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "texto": "Het hangt af van mijn vignet en ik maak altijd in de eerste week een afspraak: als ik het mis, doet de boete meer pijn dan de keuring zelf."
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "texto": "Verlenging van de polis"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "texto": "Dit jaar stapte ik na de schrik van de pech over op volledige dekking bij Nadia; ik betaal in maandelijkse termijnen en zet het in het budget van elke twee weken."
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "texto": "Jaarlijkse wegenbelasting en registratie"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "texto": "Ik betaal het in de eerste maanden van het jaar om de korting te krijgen en het van mijn to-dolijst af te hebben."
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "texto": "Eigenaarswissel en kentekenbewijs"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "texto": "Het kentekenbewijs staat nog op naam van mijn oom en het wordt tijd om dat recht te zetten voordat het me bij een controle in de problemen brengt."
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "texto": "Afstelbeurt voor de fiets"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "texto": "Elke zes maanden bij Ciclos Malinche: wielen gecentreerd, kabels en remmen nagekeken, wat veel goedkoper is dan een verbogen wiel te repareren."
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.editor-mapa.3.texto",
+    "texto": "Atap dibuat per sel: tiap sel bisa punya bentuk atau materialnya sendiri, jadi satu ruangan bisa memadukan beberapa kemiringan atap alih-alih satu atap datar saja."
+  },
+  {
+    "clave": "tut.editor-mapa.4.texto",
+    "texto": "Rumahmu juga punya level: lantai yang bisa ditumpuk ke atas dan satu basemen ke bawah. Setiap level baru lahir dengan jalan naiknya sendiri —sebuah tangga atau lubang di pelat lantai— yang menembus lantai di atasnya."
+  },
+  {
+    "clave": "tut.editor-mapa.5.titulo",
+    "texto": "Selesai"
+  },
+  {
+    "clave": "tut.editor-mapa.5.texto",
+    "texto": "Semuanya tersimpan sendiri selagi kamu mengedit. Selesai menutup editor dan mengembalikanmu ke permainan dengan rumah persis seperti yang kamu tinggalkan."
+  },
+  {
+    "clave": "tut.editor-personajes.1.texto",
+    "texto": "Karakter utamamu dan para asistenmu tinggal di editor yang sama: pilih siapa yang mau diedit di bagian atas, dan alatnya ikut berubah sesuai apa yang masuk akal untuk masing-masing."
+  },
+  {
+    "clave": "tut.editor-personajes.2.titulo",
+    "texto": "Wajah dan foto"
+  },
+  {
+    "clave": "tut.editor-personajes.2.texto",
+    "texto": "Ekspresi, model rambut, dan warna rambut, atau langsung fotomu sendiri supaya karakternya mirip kamu. Tidak semua tubuh mendukung wajah sendiri."
+  },
+  {
+    "clave": "tut.editor-personajes.3.titulo",
+    "texto": "Pakaian per kategori"
+  },
+  {
+    "clave": "tut.editor-personajes.3.texto",
+    "texto": "Tiap potong pakaian dipakai, dilepas, dan diganti warnanya secara terpisah: kemeja, celana, alas kaki, aksesori. Semuanya bebas dipadupadankan."
+  },
+  {
+    "clave": "tut.editor-personajes.4.titulo",
+    "texto": "Setelan tersimpan"
+  },
+  {
+    "clave": "tut.editor-personajes.4.texto",
+    "texto": "Simpan satu padanan pakaian lengkap sebagai setelan, lalu ganti penampilanmu seluruhnya dengan sekali ketuk, tanpa menyusun ulang sepotong demi sepotong tiap kali."
+  },
+  {
+    "clave": "tut.editor-personajes.5.titulo",
+    "texto": "Lemari pakaian per ruangan"
+  },
+  {
+    "clave": "tut.editor-personajes.5.texto",
+    "texto": "Tetapkan setelan berbeda untuk tiap ruangan: avatarmu masuk ke Gym dengan pakaian lari dan berganti sendiri begitu pindah ke Dapur."
+  },
+  {
+    "clave": "tut.editor-personajes.6.texto",
+    "texto": "Tubuh, warna, dan ukuran diedit seperti biasa; kalau AI aktif, kamu juga bisa membuat model 3D-mu sendiri alih-alih memilih salah satu preset."
+  },
+  {
+    "clave": "tut.editor-objetos.1.texto",
+    "texto": "Ketuk sebuah objek di adegan (atau di daftar) untuk mengeditnya: warna, ukuran, dan rotasi adalah tiga pengaturan yang dimiliki semua objek."
+  },
+  {
+    "clave": "tut.editor-objetos.2.texto",
+    "texto": "Objek yang sudah punya aplikasi akan membuka templatnya saat kamu masuk ruangan; yang tidak, cuma jadi hiasan — keduanya diedit dengan cara yang sama."
+  },
+  {
+    "clave": "tut.editor-objetos.3.texto",
+    "texto": "Roda gigi ⚙️ pada sebuah objek membuatnya bisa diedit per bagian: rakit modelmu sendiri dengan menggabungkan bentuk-bentuk dasar, atau minta satu ke AI dengan mendeskripsikannya."
+  },
+  {
+    "clave": "tut.editor-config.1.texto",
+    "texto": "Delapan bagian yang bisa dilipat, bukan satu daftar panjang: ketuk judulnya untuk membuka yang kamu butuhkan saja."
+  },
+  {
+    "clave": "tut.editor-config.2.titulo",
+    "texto": "Akun dan AI"
+  },
+  {
+    "clave": "tut.editor-config.2.texto",
+    "texto": "Masuk ke akun, paketmu, dan berapa banyak AI yang sudah kamu pakai bulan ini; tepat di sebelahnya, tabel harga tiap operasi. Keduanya punya tutorial detailnya sendiri."
+  },
+  {
+    "clave": "tut.editor-config.3.titulo",
+    "texto": "Gaya visual"
+  },
+  {
+    "clave": "tut.editor-config.3.texto",
+    "texto": "Tema peta (cahaya, kabut, pencahayaan) dan gaya pascaproses, semuanya dimuat saat dibutuhkan supaya tidak memberatkan."
+  },
+  {
+    "clave": "tut.editor-config.4.titulo",
+    "texto": "Antarmuka dan bahasa"
+  },
+  {
+    "clave": "tut.editor-config.4.texto",
+    "texto": "Bahasa, tema antarmuka (terang/gelap/otomatis), gaya ikon, dan kerapatan — semua yang mengubah BAGAIMANA rumahmu terlihat, bukan apa isinya."
+  },
+  {
+    "clave": "tut.editor-config.5.titulo",
+    "texto": "Notifikasi"
+  },
+  {
+    "clave": "tut.editor-config.5.texto",
+    "texto": "Pemberitahuan mana yang masuk dan mana yang diam: rutinitas, notifikasi rencana, dan pengingat bisa dimatikan satu per satu."
+  },
+  {
+    "clave": "tut.editor-config.6.texto",
+    "texto": "Musik dan Tutorial punya panduannya sendiri; Cadangan data juga, dan itulah yang paling perlu kamu tengok sebelum ganti perangkat."
+  },
+  {
+    "clave": "tut.respaldo.1.titulo",
+    "texto": "Di mana rumahmu tinggal"
+  },
+  {
+    "clave": "tut.respaldo.1.texto",
+    "texto": "Tanpa akun dan tanpa sinkronisasi, datamu hanya ada di perangkat ini. Pemberitahuan di atas memberi tahu apakah browser punya izin untuk melindunginya dari pembersihan otomatis."
+  },
+  {
+    "clave": "tut.respaldo.2.titulo",
+    "texto": "Ekspor"
+  },
+  {
+    "clave": "tut.respaldo.2.texto",
+    "texto": "Mengunduh satu berkas JSON berisi semua tabelmu: ruangan, target, catatan, semuanya. Ini cadangan manualmu."
+  },
+  {
+    "clave": "tut.respaldo.3.titulo",
+    "texto": "Pulihkan"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "Di header setiap aplikasi ada tombol Target, sama seperti yang di kalender tapi hanya untuk aplikasi ini. Tombol ini membuka panel dua lantai: di atas checklist hari ini, di bawah target dan rencana."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "Target milik aplikasi sendiri (air, kalori), apa yang kamu jadwalkan hari ini di kalender, dan langkah-langkah dari target yang sedang berjalan — semuanya jadi satu, dikelompokkan berdasarkan rencana atau target asal setiap langkah."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "Kalau ada yang kurang, «Checklist baru» bikin punyamu sendiri: daftar khusus aplikasi ini yang berulang tiap hari. Di bawah bagian Hari Ini ada perencana lengkap — Target, Rencana, dan Linimasa — dengan semua target aplikasi ini."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "Target hobi dan proyekmu ada di tombol Target di header: perencana Target · Rencana · Linimasa yang sama dengan kalender, tapi hanya untuk aplikasi ini. Minta AI buatkan rencana dengan tahap dan tanggal."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "Target ada di tombol Target di header, linimasa yang sama dengan kalender: «selesaikan termodinamika sebelum ujian» sudah tercapai; persiapan pascasarjana masih berjalan."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "Tombol Target di header menyimpan empat targetnya yang sudah tercapai — 5K, 10K, half marathon, dan marathon — dan satu yang masih berjalan. Target dengan tanggal juga muncul di kalender rumah."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "Tombol Target di header membuka linimasa yang sama dengan kalender rumah, khusus target Dapur: buat target (misalnya «Turun 3 kilo») dan minta rencana ke AI — AI akan tanya tanggal targetmu dan menjadwalkan sub-target dengan tanggal masing-masing."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "Tombol Target di header menyimpan target-target ini di garis waktu: beri tanggal pada salah satunya dan langsung muncul di antara hari-hari kalendermu. Dengan ✨ AI mengusulkan rencana setoran."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "Program yang tersimpan ada di tombol Target di header: setiap judul menyimpan catatan alasan kenapa ada di daftar, dan kalau diberi tanggal, judul itu masuk ke kalender seperti target lainnya."
+  }
+]

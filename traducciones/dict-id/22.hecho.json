@@ -1,0 +1,742 @@
+[
+  {
+    "clave": "computo.calc.raicesEn",
+    "texto": "{n} solusi antara {a} dan {b}. Mungkin ada lagi di luar rentang ini."
+  },
+  {
+    "clave": "computo.calc.raizEn",
+    "texto": "Satu solusi antara {a} dan {b}. Mungkin ada lagi di luar rentang ini."
+  },
+  {
+    "clave": "computo.calc.sinRaices",
+    "texto": "tidak ada solusi dalam rentang ini"
+  },
+  {
+    "clave": "computo.calc.sinRaicesEn",
+    "texto": "Tidak ada solusi real antara {a} dan {b}."
+  },
+  {
+    "clave": "computo.calc.historial",
+    "texto": "Riwayat"
+  },
+  {
+    "clave": "computo.calc.sinHistorial",
+    "texto": "Apa pun yang kamu hitung akan tersimpan di sini."
+  },
+  {
+    "clave": "computo.graf.tipos",
+    "texto": "Jenis plot"
+  },
+  {
+    "clave": "computo.graf.tipo.2d",
+    "texto": "2D"
+  },
+  {
+    "clave": "computo.graf.tipo.polar",
+    "texto": "Polar"
+  },
+  {
+    "clave": "computo.graf.tipo.parametrica",
+    "texto": "Parametrik"
+  },
+  {
+    "clave": "computo.graf.tipo.3d",
+    "texto": "Permukaan 3D"
+  },
+  {
+    "clave": "computo.graf.soltar",
+    "texto": "Kembali ke fungsi bebas"
+  },
+  {
+    "clave": "computo.graf.congeladas",
+    "texto": "Yang lain tetap di nilai ini; ubah salah satu dan grafiknya akan bergerak."
+  },
+  {
+    "clave": "computo.graf.placeholderPolar",
+    "texto": "r sebagai fungsi θ, mis. 2*cos(3*theta)"
+  },
+  {
+    "clave": "computo.graf.placeholderX",
+    "texto": "x(t), mis. cos(t)"
+  },
+  {
+    "clave": "computo.graf.placeholderY",
+    "texto": "y(t), mis. sin(2*t)"
+  },
+  {
+    "clave": "computo.graf.placeholder3d",
+    "texto": "z sebagai fungsi x dan y, mis. sin(x)*cos(y)"
+  },
+  {
+    "clave": "computo.graf.pistaPolar",
+    "texto": "θ berputar dua putaran penuh"
+  },
+  {
+    "clave": "computo.graf.pistaParam",
+    "texto": "t dari {a} sampai {b}"
+  },
+  {
+    "clave": "computo.graf.hasta",
+    "texto": "sampai"
+  },
+  {
+    "clave": "computo.graf.reencuadrar",
+    "texto": "Sesuaikan ke kurva"
+  },
+  {
+    "clave": "computo.graf.unaVariable",
+    "texto": "Dengan satu variabel saja, tidak ada permukaan untuk digambar."
+  },
+  {
+    "clave": "computo.graf.volver2d",
+    "texto": "Kembali ke bidang"
+  },
+  {
+    "clave": "computo.graf.sinPolarFormula",
+    "texto": "Rumus dari buku rumus digambar di bidang atau sebagai permukaan."
+  },
+  {
+    "clave": "computo.graf.placeholder",
+    "texto": "fungsi dari x, mis. sin(x)"
+  },
+  {
+    "clave": "computo.graf.otra",
+    "texto": "Fungsi lain"
+  },
+  {
+    "clave": "computo.graf.quitar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "computo.graf.mostrar",
+    "texto": "Tampilkan"
+  },
+  {
+    "clave": "computo.graf.ocultar",
+    "texto": "Sembunyikan"
+  },
+  {
+    "clave": "computo.graf.acercar",
+    "texto": "Perbesar"
+  },
+  {
+    "clave": "computo.graf.alejar",
+    "texto": "Perkecil"
+  },
+  {
+    "clave": "computo.graf.leer",
+    "texto": "Baca sebuah titik"
+  },
+  {
+    "clave": "computo.graf.centrar",
+    "texto": "Pusatkan"
+  },
+  {
+    "clave": "computo.graf.alto",
+    "texto": "Tinggi grafik: {nivel}"
+  },
+  {
+    "clave": "computo.graf.altoCompacta",
+    "texto": "Ringkas"
+  },
+  {
+    "clave": "computo.graf.altoNormal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "computo.graf.altoAlta",
+    "texto": "Tinggi"
+  },
+  {
+    "clave": "computo.graf.pista",
+    "texto": "Seret untuk memindahkan bidang dan cubit untuk memperbesar."
+  },
+  {
+    "clave": "computo.graf.pistaLeer",
+    "texto": "Mode baca: gerakkan jarimu di atas grafik untuk membaca nilainya."
+  },
+  {
+    "clave": "computo.modo.normal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "computo.modo.grafica",
+    "texto": "Grafik"
+  },
+  {
+    "clave": "computo.modo.bases",
+    "texto": "Basis"
+  },
+  {
+    "clave": "computo.modo.matrices",
+    "texto": "Matriks"
+  },
+  {
+    "clave": "computo.modo.sistemas",
+    "texto": "Sistem"
+  },
+  {
+    "clave": "computo.modo.unidades",
+    "texto": "Satuan"
+  },
+  {
+    "clave": "computo.modo.propina",
+    "texto": "Tip"
+  },
+  {
+    "clave": "computo.modo.regla3",
+    "texto": "Aturan tiga"
+  },
+  {
+    "clave": "computo.bases.base",
+    "texto": "Basis"
+  },
+  {
+    "clave": "computo.bases.enBase",
+    "texto": "Basis {n}"
+  },
+  {
+    "clave": "computo.bases.placeholder",
+    "texto": "FF, atau 0xFF + 0b1010"
+  },
+  {
+    "clave": "computo.bases.ayuda",
+    "texto": "Angka tunggal dibaca dalam basis yang kamu pilih. Dengan operasi, mesinnya yang menentukan: gunakan 0b, 0o, atau 0x untuk mencampur basis."
+  },
+  {
+    "clave": "computo.bases.prefijo",
+    "texto": "Mulai angka dalam basis ini"
+  },
+  {
+    "clave": "computo.bases.noEntero",
+    "texto": "Hanya bilangan bulat yang bisa dibaca dalam basis lain."
+  },
+  {
+    "clave": "computo.bases.guardar",
+    "texto": "Simpan ke riwayat"
+  },
+  {
+    "clave": "computo.matriz.medidas",
+    "texto": "Ukuran"
+  },
+  {
+    "clave": "computo.matriz.filas",
+    "texto": "Baris"
+  },
+  {
+    "clave": "computo.matriz.cols",
+    "texto": "Kolom"
+  },
+  {
+    "clave": "computo.matriz.noCuadrada",
+    "texto": "Operasi ini butuh matriks persegi: ubah ukurannya."
+  },
+  {
+    "clave": "computo.matriz.singular",
+    "texto": "Tidak bisa: matriks ini tidak punya invers (determinannya nol)."
+  },
+  {
+    "clave": "computo.sistema.placeholder",
+    "texto": "2x + 3y = 12"
+  },
+  {
+    "clave": "computo.sistema.ecuacion",
+    "texto": "Persamaan {n}"
+  },
+  {
+    "clave": "computo.sistema.quitar",
+    "texto": "Hapus persamaan ini"
+  },
+  {
+    "clave": "computo.sistema.otra",
+    "texto": "Persamaan lain"
+  },
+  {
+    "clave": "computo.sistema.incognitas",
+    "texto": "Tak diketahui"
+  },
+  {
+    "clave": "computo.sistema.ninguna",
+    "texto": "belum ada"
+  },
+  {
+    "clave": "computo.sistema.resolver",
+    "texto": "Selesaikan"
+  },
+  {
+    "clave": "computo.sistema.descuadra",
+    "texto": "Kamu butuh persamaan sebanyak variabel tak diketahui: saat ini {e} dan {i}."
+  },
+  {
+    "clave": "computo.sistema.sinSolucion",
+    "texto": "Tidak ada solusi tunggal: entah persamaannya berulang, saling bertentangan, atau salah satunya tidak linear."
+  },
+  {
+    "clave": "computo.unid.longitud",
+    "texto": "Panjang"
+  },
+  {
+    "clave": "computo.unid.masa",
+    "texto": "Massa"
+  },
+  {
+    "clave": "computo.unid.temperatura",
+    "texto": "Suhu"
+  },
+  {
+    "clave": "computo.unid.volumen",
+    "texto": "Volume"
+  },
+  {
+    "clave": "computo.unid.area",
+    "texto": "Luas"
+  },
+  {
+    "clave": "computo.unid.tiempo",
+    "texto": "Waktu"
+  },
+  {
+    "clave": "computo.unid.velocidad",
+    "texto": "Kecepatan"
+  },
+  {
+    "clave": "computo.unid.datos",
+    "texto": "Data"
+  },
+  {
+    "clave": "computo.unid.valor",
+    "texto": "Berapa"
+  },
+  {
+    "clave": "computo.unid.de",
+    "texto": "Dari"
+  },
+  {
+    "clave": "computo.unid.a",
+    "texto": "Ke"
+  },
+  {
+    "clave": "computo.unid.invertir",
+    "texto": "Tukar"
+  },
+  {
+    "clave": "computo.unid.faltan",
+    "texto": "Ketik angka dan konversinya muncul sendiri."
+  },
+  {
+    "clave": "computo.unid.imposible",
+    "texto": "Kedua satuan ini tidak bisa dikonversi satu sama lain."
+  },
+  {
+    "clave": "computo.unid.u.km",
+    "texto": "kilometer"
+  },
+  {
+    "clave": "computo.unid.u.m",
+    "texto": "meter"
+  },
+  {
+    "clave": "computo.unid.u.cm",
+    "texto": "sentimeter"
+  },
+  {
+    "clave": "computo.unid.u.mm",
+    "texto": "milimeter"
+  },
+  {
+    "clave": "computo.unid.u.mile",
+    "texto": "mil"
+  },
+  {
+    "clave": "computo.unid.u.yd",
+    "texto": "yard"
+  },
+  {
+    "clave": "computo.unid.u.ft",
+    "texto": "kaki"
+  },
+  {
+    "clave": "computo.unid.u.inch",
+    "texto": "inci"
+  },
+  {
+    "clave": "computo.unid.u.tonne",
+    "texto": "ton"
+  },
+  {
+    "clave": "computo.unid.u.kg",
+    "texto": "kilogram"
+  },
+  {
+    "clave": "computo.unid.u.g",
+    "texto": "gram"
+  },
+  {
+    "clave": "computo.unid.u.mg",
+    "texto": "miligram"
+  },
+  {
+    "clave": "computo.unid.u.lb",
+    "texto": "pon"
+  },
+  {
+    "clave": "computo.unid.u.oz",
+    "texto": "ons"
+  },
+  {
+    "clave": "computo.unid.u.degC",
+    "texto": "derajat Celsius"
+  },
+  {
+    "clave": "computo.unid.u.degF",
+    "texto": "derajat Fahrenheit"
+  },
+  {
+    "clave": "computo.unid.u.K",
+    "texto": "kelvin"
+  },
+  {
+    "clave": "computo.unid.u.m3",
+    "texto": "meter kubik"
+  },
+  {
+    "clave": "computo.unid.u.L",
+    "texto": "liter"
+  },
+  {
+    "clave": "computo.unid.u.mL",
+    "texto": "mililiter"
+  },
+  {
+    "clave": "computo.unid.u.gal",
+    "texto": "galon"
+  },
+  {
+    "clave": "computo.unid.u.qt",
+    "texto": "quart"
+  },
+  {
+    "clave": "computo.unid.u.pt",
+    "texto": "pint"
+  },
+  {
+    "clave": "computo.unid.u.cup",
+    "texto": "cangkir"
+  },
+  {
+    "clave": "computo.unid.u.floz",
+    "texto": "ons cair"
+  },
+  {
+    "clave": "computo.unid.u.km2",
+    "texto": "kilometer persegi"
+  },
+  {
+    "clave": "computo.unid.u.m2",
+    "texto": "meter persegi"
+  },
+  {
+    "clave": "computo.unid.u.cm2",
+    "texto": "sentimeter persegi"
+  },
+  {
+    "clave": "computo.unid.u.hectare",
+    "texto": "hektar"
+  },
+  {
+    "clave": "computo.unid.u.acre",
+    "texto": "acre"
+  },
+  {
+    "clave": "computo.unid.u.sqft",
+    "texto": "kaki persegi"
+  },
+  {
+    "clave": "computo.unid.u.sqmi",
+    "texto": "mil persegi"
+  },
+  {
+    "clave": "computo.unid.u.year",
+    "texto": "tahun"
+  },
+  {
+    "clave": "computo.unid.u.month",
+    "texto": "bulan"
+  },
+  {
+    "clave": "computo.unid.u.week",
+    "texto": "minggu"
+  },
+  {
+    "clave": "computo.unid.u.day",
+    "texto": "hari"
+  },
+  {
+    "clave": "computo.unid.u.hour",
+    "texto": "jam"
+  },
+  {
+    "clave": "computo.unid.u.minute",
+    "texto": "menit"
+  },
+  {
+    "clave": "computo.unid.u.s",
+    "texto": "detik"
+  },
+  {
+    "clave": "computo.unid.u.ms",
+    "texto": "milidetik"
+  },
+  {
+    "clave": "computo.unid.u.kmh",
+    "texto": "kilometer per jam"
+  },
+  {
+    "clave": "computo.unid.u.mih",
+    "texto": "mil per jam"
+  },
+  {
+    "clave": "computo.unid.u.ms1",
+    "texto": "meter per detik"
+  },
+  {
+    "clave": "computo.unid.u.fts",
+    "texto": "kaki per detik"
+  },
+  {
+    "clave": "computo.unid.u.TB",
+    "texto": "TB"
+  },
+  {
+    "clave": "computo.unid.u.GB",
+    "texto": "GB"
+  },
+  {
+    "clave": "computo.unid.u.MB",
+    "texto": "MB"
+  },
+  {
+    "clave": "computo.unid.u.kB",
+    "texto": "kB"
+  },
+  {
+    "clave": "computo.unid.u.B",
+    "texto": "B"
+  },
+  {
+    "clave": "computo.unid.u.b",
+    "texto": "bit"
+  },
+  {
+    "clave": "computo.unid.u.GiB",
+    "texto": "GiB"
+  },
+  {
+    "clave": "computo.unid.u.MiB",
+    "texto": "MiB"
+  },
+  {
+    "clave": "computo.unid.u.KiB",
+    "texto": "KiB"
+  },
+  {
+    "clave": "computo.propina.cuenta",
+    "texto": "Tagihan"
+  },
+  {
+    "clave": "computo.propina.personas",
+    "texto": "Bagi berapa orang"
+  },
+  {
+    "clave": "computo.propina.pct",
+    "texto": "Tip"
+  },
+  {
+    "clave": "computo.propina.faltan",
+    "texto": "Ketik tagihan dan persentasenya."
+  },
+  {
+    "clave": "computo.propina.laPropina",
+    "texto": "Tip"
+  },
+  {
+    "clave": "computo.propina.total",
+    "texto": "Total"
+  },
+  {
+    "clave": "computo.propina.cadaUno",
+    "texto": "Masing-masing bayar"
+  },
+  {
+    "clave": "computo.regla3.directa",
+    "texto": "Berbanding lurus"
+  },
+  {
+    "clave": "computo.regla3.inversa",
+    "texto": "Berbanding terbalik"
+  },
+  {
+    "clave": "computo.regla3.ayudaDirecta",
+    "texto": "Kalau lebih banyak yang satu berarti lebih banyak yang lain: kilo dan harga, jam dan gaji."
+  },
+  {
+    "clave": "computo.regla3.ayudaInversa",
+    "texto": "Kalau lebih banyak yang satu berarti lebih sedikit yang lain: pekerja dan hari, kecepatan dan waktu."
+  },
+  {
+    "clave": "computo.regla3.a",
+    "texto": "Kalau ini…"
+  },
+  {
+    "clave": "computo.regla3.b",
+    "texto": "…segini"
+  },
+  {
+    "clave": "computo.regla3.c",
+    "texto": "Maka ini…"
+  },
+  {
+    "clave": "computo.regla3.x",
+    "texto": "…x"
+  },
+  {
+    "clave": "computo.regla3.faltan",
+    "texto": "Isi tiga angkanya dan x muncul sendiri."
+  },
+  {
+    "clave": "computo.regla3.cero",
+    "texto": "Tidak bisa dibagi nol: ubah angka itu."
+  },
+  {
+    "clave": "computo.hojas.mias",
+    "texto": "Spreadsheet saya"
+  },
+  {
+    "clave": "computo.hojas.vacio",
+    "texto": "Belum ada spreadsheet. Buat satu dengan tombol di atas."
+  },
+  {
+    "clave": "computo.hojas.nueva",
+    "texto": "Spreadsheet baru"
+  },
+  {
+    "clave": "computo.hojas.sinNombre",
+    "texto": "Spreadsheet baru"
+  },
+  {
+    "clave": "computo.hojas.nuevaMsg",
+    "texto": "Namanya apa?"
+  },
+  {
+    "clave": "computo.hojas.renombrar",
+    "texto": "Ganti nama spreadsheet"
+  },
+  {
+    "clave": "computo.hojas.duplicar",
+    "texto": "Gandakan"
+  },
+  {
+    "clave": "computo.hojas.copiaDe",
+    "texto": "Salinan {nombre}"
+  },
+  {
+    "clave": "computo.hojas.borrar",
+    "texto": "Hapus “{nombre}”"
+  },
+  {
+    "clave": "computo.hojas.borrarCorto",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "computo.hojas.borrarMsg",
+    "texto": "Spreadsheet ini beserta semua isinya."
+  },
+  {
+    "clave": "computo.hojas.celdas",
+    "texto": "{n} sel"
+  },
+  {
+    "clave": "computo.hojas.volver",
+    "texto": "Kembali ke daftar"
+  },
+  {
+    "clave": "computo.hojas.aExcel",
+    "texto": "Ekspor ke Excel"
+  },
+  {
+    "clave": "computo.hojas.aPdf",
+    "texto": "Cetak atau simpan sebagai PDF"
+  },
+  {
+    "clave": "computo.hojas.formulaPlaceholder",
+    "texto": "Sebuah nilai, teks, atau =SUMA(A1:A5)"
+  },
+  {
+    "clave": "computo.form.ampliar",
+    "texto": "Perlebar rentang"
+  },
+  {
+    "clave": "computo.form.ampliarTramo",
+    "texto": "Perlebar rentang penggeser ({min} sampai {max})"
+  },
+  {
+    "clave": "computo.form.verEnGrande",
+    "texto": "Buka ukuran penuh"
+  },
+  {
+    "clave": "computo.form.eje",
+    "texto": "Sumbu"
+  },
+  {
+    "clave": "computo.sup.imposible",
+    "texto": "Dengan nilai-nilai ini, rumusnya tidak menghasilkan permukaan yang bisa digambar."
+  },
+  {
+    "clave": "computo.sup.huecos",
+    "texto": "ada area yang tidak terdefinisi"
+  },
+  {
+    "clave": "computo.sup.cargando",
+    "texto": "Menyiapkan permukaan…"
+  },
+  {
+    "clave": "computo.not.titulo",
+    "texto": "Notasi"
+  },
+  {
+    "clave": "computo.not.basicas",
+    "texto": "Dasar"
+  },
+  {
+    "clave": "computo.not.calculo",
+    "texto": "Kalkulus"
+  },
+  {
+    "clave": "computo.not.matrices",
+    "texto": "Matriks"
+  },
+  {
+    "clave": "computo.not.trigonometria",
+    "texto": "Trigonometri"
+  },
+  {
+    "clave": "computo.not.simbolos",
+    "texto": "Simbol"
+  },
+  {
+    "clave": "computo.not.ayuda",
+    "texto": "Ditulis di mana pun kursormu berada, dan bagian kosongnya siap diisi. Tampilan rapinya muncul sendiri dari apa yang kamu tulis."
+  },
+  {
+    "clave": "computo.hojas.resumen",
+    "texto": "Jumlah {suma} · Rata-rata {prom} · Hitung {n}"
+  },
+  {
+    "clave": "computo.hojas.masFilas",
+    "texto": "Baris"
+  },
+  {
+    "clave": "computo.hojas.masCols",
+    "texto": "Kolom"
+  }
+]

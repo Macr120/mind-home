@@ -1,0 +1,234 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "texto": "Używany rower ze stali, szary i trochę hałaśliwy, którym codziennie jeżdżę na zmiany, do laboratorium i na treningi. Przez cały rok ani razu nie zostawił mnie na lodzie."
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "texto": "Sedan odziedziczony po wuju, starszy ode mnie, z deską rozdzielczą wypłowiałą od słońca. Uruchamiam go raz na dwa tygodnie, a on każde zaniedbanie każe mi odpokutować z nawiązką."
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "texto": "Ratunek z piwnicy"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "texto": "Zniesienie roweru z piwnicy, z przebitymi oponami i łańcuchem w skorupie rdzy: pół popołudnia szmatki, powietrza i oleju, żeby znowu ruszył."
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "texto": "Wymiana oleju, mocno spóźniona"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "texto": "Wypłynął czarny jak zimna kawa, a mechanik tylko uniósł brwi — tak właśnie beszta."
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "texto": "Nowa dętka i łatka"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "texto": "Guma capnięta na Doctor Vértiz w drodze na kawę; nauka wymiany dętki na chodniku — późno, ale się udało."
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "texto": "Nowy akumulator"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "texto": "Od tego, że stał bez ruchu, akumulator padł sam z siebie; prośba do sąsiada o odpalenie z kabli, a potem prosto po nowy akumulator."
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "texto": "Łańcuch wreszcie czysty"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "texto": "Odtłuszczenie i naoliwienie w spokojne niedzielne popołudnie: łańcuch przestał skrzypieć jak stara zawiasa, a pedałowanie zrobiło się lżejsze."
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "texto": "Przednie klocki hamulcowe"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "texto": "Piszczały przy każdym świetle i nie dało się już tego ignorować; kosztowało to całą wypłatę, ale przynajmniej spokojniejszy sen."
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "texto": "Nowe szczęki hamulcowe"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "texto": "W deszczu hamowanie działało dwa metry za późno, więc wymiana szczęk i regulacja linek."
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "texto": "Guma w drodze do laboratorium"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "texto": "Szkło na Eje 8 i dotarcie do laboratorium z prowadzonym rowerem, dwadzieścia minut spóźnienia."
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "texto": "Awaria na Calzada de Tlalpan"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "texto": "Samochód zgasł w środku alei we wtorkowy wieczór; półtorej godziny na chodniku w oczekiwaniu na lawetę, z rachunkiem pieniędzy, których po prostu nie było. Właśnie wtedy spadł na mnie cały ten miesiąc."
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "texto": "Pełny przegląd roweru"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "texto": "Z kolanem w fizjoterapii bieganie nie wchodziło w grę, więc cały czas dla roweru: koła wyśrodkowane, linki i wszystko dokręcone."
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "texto": "Filtry po tym przestrachu"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "texto": "Wymiana filtra powietrza i paliwa, czysta paranoja; wolę zapłacić za to niż znowu czekać na lawetę."
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "texto": "Rozciągnięty łańcuch, wymiana"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "texto": "Z planem na półmaraton używam go codziennie, a łańcuch już ślizgał się przy starcie."
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "texto": "Nowa kaseta i linki"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "texto": "Biegi ślizgały się pod górę; z nową kasetą wreszcie mogę zaufać małej tarczy."
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "texto": "Olej i przegląd ogólny"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "texto": "Zwykły serwis, bez niespodzianek — a przy tym samochodzie to już samo w sobie dobra wiadomość."
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "texto": "Hamulce przed maratonem"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "texto": "Szybka regulacja, bo w tamtych tygodniach rower był jedynym środkiem transportu i żadne wymówki nie wchodziły w grę."
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "texto": "Mycie przed wizytą rodziny"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "texto": "Mycie i odkurzanie przed odbiorem rodziny z dworca autobusowego: to nic nie naprawia mechanicznie, ale czuje się inaczej."
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "texto": "Taller Mecánico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "texto": "Pan Rivas zawsze tłumaczy, co naprawdę pilne, a co może poczekać, i nigdy nie zawyżył rachunku; to jedyny mechanik, któremu ufam z tym samochodem."
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "texto": "Seguros Meridiano - agentka Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "texto": "Av. Insurgentes Sur 1234, piętro 3, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "texto": "Nadia odpowiada na WhatsAppie nawet w niedzielę i ustawiła płatności miesięczne przy przejściu na pełne ubezpieczenie."
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "texto": "Verificentro 09-118 Iztaccíhuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "texto": "Wizyta o siódmej rano i wychodzę po czterdziestu minutach; ten w Coyoacán kosztował mnie pół poranka w kolejce."
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "texto": "Tam kupno roweru, tam też jego serwis: pożyczają narzędzia i uczą, jak robić to samodzielnie, zamiast liczyć sobie za wszystko."
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "texto": "Grúas Tepeyac 24 horas"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "texto": "Baza przy Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "texto": "To numer, pod który zadzwoniło się tamtej nocy, kiedy auto zostawiło mnie na ulicy; przyjechali po półtorej godziny i nie próbowali zedrzeć więcej, niż trzeba."
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "texto": "Półroczny przegląd techniczny"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "texto": "Termin zależy od koloru naklejki na szybie i zawsze umawiam się w pierwszym tygodniu: jak przegapię, mandat boli bardziej niż sama procedura."
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "texto": "Odnowienie polisy"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "texto": "W tym roku przejście na pełne ubezpieczenie u Nadii po tamtym przestrachu z awarią; płacę w ratach miesięcznych i wliczam to w budżet na wypłatę."
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "texto": "Podatek od pojazdu i doroczne odnowienie"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "texto": "Płacę w pierwszych miesiącach roku, żeby załapać się na ulgę i mieć to już z głowy."
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "texto": "Zmiana właściciela i dowodu rejestracyjnego"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "texto": "Dowód rejestracyjny wciąż jest na nazwisko wuja i czas to uregulować, zanim spowoduje kłopoty na jakiejś kontroli."
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "texto": "Przegląd roweru"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "texto": "Co pół roku w Ciclos Malinche: centrowanie kół, linki i hamulce — o wiele taniej niż naprawa skrzywionej felgi."
+  }
+]

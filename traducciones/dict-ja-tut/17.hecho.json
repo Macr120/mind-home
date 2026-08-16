@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "毎朝、何時に寝て、何時に起きたか、何回目が覚めたか、どんな眠りだったかを記録します。ほかのすべては、これだけあればアプリが組み立てます。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "1年、4つのレンズ"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "日・週・月・年から選んで、矢印で移動します。数か月さかのぼってみてください。車が故障した月と、日本行きの飛行機の月が、どちらも赤で出てきます。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "1年のかたち"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "直近6期間を棒グラフで。青はお金が余った月、赤は苦しかった月です。落ち込みと持ち直しが、そのまま見えます。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "お金はどこへ？"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "表示中の期間の、カテゴリー別の内訳です。Pepはカテゴリーを自分で書いています。よくあるものはアプリが見分け、それ以外にはそれぞれの色をつけます。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "今月の上限"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "月間予算がひとつ、そして超えると赤くなるバー。週や年で見ているときは、アプリが自動で割り振ります。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "今、持っているもの"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "純資産は「純資産」タブからそのまま出てきます。資産から負債を引いた額です。ここではその期間の差額を足し引きして、最後にどうなるかを見せます。"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "そして1年後は"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "固定費は支払日どおりに、変動費は平均で、12か月先まで予測します。純資産を入れた場合と入れない場合の、2つのシナリオで。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Pepの固定費"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "家賃、インターネット、携帯、サブスク、車の保険。2か月目、そろそろ整理しようと決めたときに登録した5件です。それ以来、どれも自動で計上されています。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "記録のしかた"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "フォームはステップ式です。金額、変動費か固定費か、カテゴリー（自分で書くと、よくあるものを提案します）、繰り返す間隔、そしてメモ。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "1年分の記録"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "何百件もの支出が、年と月のフォルダに入っています。7か月目を探してみてください。1万ペソ近くを一度に持っていった、あの故障があります。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "お金の出どころ"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "カフェの月2回の給料、旅行を決めてから始めた物理の家庭教師、そして毎週のチップ。チップは毎回ちがいます。"
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "自分の家では、チャットからも記録できます。「スーパーで250使った」と書けば、それで残ります。"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "達成した目標"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "日本旅行、100%達成。11か月の貯金、家庭教師の収入、ボーナス、そして誕生日にもらったお金です。その下には、帰ってから始めた緊急資金と、小さな投資があります。"
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "時間軸の上の目標"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "抱えていた借金"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "車の故障はカードで払い、返し終わるまで数か月かかりました。借金は別枠です。読み方が逆で、ここでは減ることが勝ちだからです。"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "マーケット"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pepは旅行を決めてから円を見ていて、いまは次の旅のためにウォンを見ています。為替、仮想通貨、株式、商品をリアルタイムで（インターネットが必要です）。"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "家計の4つのルールが、それぞれタブになっています。緊急資金、経済的自立、50/30/20、そして車の20/4/10ルールです。"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "実際の数字から出発"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "入力欄には、その月の実際の収入や支出があらかじめ入っています——タップすれば、本当の数字を見失わずに別の数字を試せます。"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "計算から目標へ"
+  }
+]

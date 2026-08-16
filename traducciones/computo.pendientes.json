@@ -1,0 +1,537 @@
+[
+  {
+    "ruta": "carpetas.0.nombre",
+    "es": "Física II",
+    "en": "Physics II"
+  },
+  {
+    "ruta": "carpetas.1.nombre",
+    "es": "Parciales",
+    "en": "Midterms"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.nombre",
+    "es": "Posición con aceleración constante",
+    "en": "Position under constant acceleration"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.0.nombre",
+    "es": "posición inicial",
+    "en": "initial position"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.1.nombre",
+    "es": "velocidad inicial",
+    "en": "initial velocity"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.2.nombre",
+    "es": "aceleración",
+    "en": "acceleration"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.3.nombre",
+    "es": "tiempo",
+    "en": "time"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.nombre",
+    "es": "Torricelli (velocidad sin tiempo)",
+    "en": "Torricelli's equation"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.0.nombre",
+    "es": "velocidad inicial",
+    "en": "initial velocity"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.1.nombre",
+    "es": "aceleración",
+    "en": "acceleration"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.2.nombre",
+    "es": "desplazamiento",
+    "en": "displacement"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.nombre",
+    "es": "Energía cinética",
+    "en": "Kinetic energy"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.descripcion",
+    "es": "Con mi masa fija: casi siempre la calculo para mí corriendo.",
+    "en": "With my own mass fixed: I nearly always work it out for myself running."
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.0.nombre",
+    "es": "masa",
+    "en": "mass"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.1.nombre",
+    "es": "velocidad",
+    "en": "velocity"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.nombre",
+    "es": "Ley de Hooke",
+    "en": "Hooke's law"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.0.nombre",
+    "es": "constante del resorte",
+    "en": "spring constant"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.1.nombre",
+    "es": "deformación",
+    "en": "displacement"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.nombre",
+    "es": "Periodo del péndulo simple",
+    "en": "Period of a simple pendulum"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.0.nombre",
+    "es": "longitud",
+    "en": "length"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.1.nombre",
+    "es": "gravedad",
+    "en": "gravity"
+  },
+  {
+    "ruta": "carpetas.2.nombre",
+    "es": "La cafetería",
+    "en": "The café"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.nombre",
+    "es": "Costo por taza",
+    "en": "Cost per cup"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.descripcion",
+    "es": "Lo que cuesta servir una taza, sin contar el tiempo.",
+    "en": "What it costs to serve one cup, not counting my time."
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.0.nombre",
+    "es": "precio del kilo de café",
+    "en": "price per kilo of coffee"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.1.nombre",
+    "es": "gramos por taza",
+    "en": "grams per cup"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.2.nombre",
+    "es": "costo de la leche",
+    "en": "milk cost"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.3.nombre",
+    "es": "vaso y tapa",
+    "en": "cup and lid"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.nombre",
+    "es": "Margen sobre el precio",
+    "en": "Margin on the price"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.tex",
+    "es": "margen = \\dfrac{pv - costo}{pv} \\times 100",
+    "en": "margin = \\dfrac{price - cost}{price} \\times 100"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.0.nombre",
+    "es": "precio de venta",
+    "en": "selling price"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.1.nombre",
+    "es": "costo de la taza",
+    "en": "cost per cup"
+  },
+  {
+    "ruta": "carpetas.3.nombre",
+    "es": "Correr",
+    "en": "Running"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.nombre",
+    "es": "Ritmo por kilómetro",
+    "en": "Pace per kilometre"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.tex",
+    "es": "ritmo = \\dfrac{minutos}{km}",
+    "en": "pace = \\dfrac{minutes}{km}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.0.nombre",
+    "es": "minutos totales",
+    "en": "total minutes"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.1.nombre",
+    "es": "kilómetros",
+    "en": "kilometres"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.nombre",
+    "es": "Ritmo para la meta del maratón",
+    "en": "Pace for the marathon target"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.variables.0.nombre",
+    "es": "meta en minutos",
+    "en": "target in minutes"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.nombre",
+    "es": "VO₂ máx aproximado",
+    "en": "Approximate VO₂ max"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.tex",
+    "es": "VO_{2}\\,m\\acute{a}x \\approx 15.3\\,\\dfrac{FC_{m\\acute{a}x}}{FC_{reposo}}",
+    "en": "VO_{2}\\,max \\approx 15.3\\,\\dfrac{HR_{max}}{HR_{rest}}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.descripcion",
+    "es": "La fórmula de Uth: aproximada, pero sirve para ver si mejoro.",
+    "en": "Uth's formula: rough, but good enough to see whether I am improving."
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.nombre",
+    "es": "frecuencia máxima",
+    "en": "maximum heart rate"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.unidad",
+    "es": "ppm",
+    "en": "bpm"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.nombre",
+    "es": "frecuencia en reposo",
+    "en": "resting heart rate"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.unidad",
+    "es": "ppm",
+    "en": "bpm"
+  },
+  {
+    "ruta": "hojas.0.nombre",
+    "es": "Presupuesto Japón",
+    "en": "Japan budget"
+  },
+  {
+    "ruta": "hojas.0.celdas.A1.crudo",
+    "es": "Día",
+    "en": "Day"
+  },
+  {
+    "ruta": "hojas.0.celdas.B1.crudo",
+    "es": "Comida",
+    "en": "Food"
+  },
+  {
+    "ruta": "hojas.0.celdas.C1.crudo",
+    "es": "Transporte",
+    "en": "Transport"
+  },
+  {
+    "ruta": "hojas.0.celdas.D1.crudo",
+    "es": "Entradas",
+    "en": "Tickets"
+  },
+  {
+    "ruta": "hojas.0.celdas.E1.crudo",
+    "es": "Compras",
+    "en": "Shopping"
+  },
+  {
+    "ruta": "hojas.0.celdas.A2.crudo",
+    "es": "Día 1",
+    "en": "Day 1"
+  },
+  {
+    "ruta": "hojas.0.celdas.A3.crudo",
+    "es": "Día 2",
+    "en": "Day 2"
+  },
+  {
+    "ruta": "hojas.0.celdas.A4.crudo",
+    "es": "Día 3",
+    "en": "Day 3"
+  },
+  {
+    "ruta": "hojas.0.celdas.A5.crudo",
+    "es": "Día 4",
+    "en": "Day 4"
+  },
+  {
+    "ruta": "hojas.0.celdas.A6.crudo",
+    "es": "Día 5",
+    "en": "Day 5"
+  },
+  {
+    "ruta": "hojas.0.celdas.A7.crudo",
+    "es": "Día 6",
+    "en": "Day 6"
+  },
+  {
+    "ruta": "hojas.0.celdas.A8.crudo",
+    "es": "Día 7",
+    "en": "Day 7"
+  },
+  {
+    "ruta": "hojas.0.celdas.A9.crudo",
+    "es": "Día 8",
+    "en": "Day 8"
+  },
+  {
+    "ruta": "hojas.0.celdas.A10.crudo",
+    "es": "Día 9",
+    "en": "Day 9"
+  },
+  {
+    "ruta": "hojas.0.celdas.A11.crudo",
+    "es": "Día 10",
+    "en": "Day 10"
+  },
+  {
+    "ruta": "hojas.0.celdas.A12.crudo",
+    "es": "Día 11",
+    "en": "Day 11"
+  },
+  {
+    "ruta": "hojas.0.celdas.A13.crudo",
+    "es": "Día 12",
+    "en": "Day 12"
+  },
+  {
+    "ruta": "hojas.0.celdas.A14.crudo",
+    "es": "Día 13",
+    "en": "Day 13"
+  },
+  {
+    "ruta": "hojas.0.celdas.A15.crudo",
+    "es": "Día 14",
+    "en": "Day 14"
+  },
+  {
+    "ruta": "hojas.0.celdas.A18.crudo",
+    "es": "Media diaria",
+    "en": "Daily average"
+  },
+  {
+    "ruta": "hojas.0.celdas.A20.crudo",
+    "es": "Total del viaje ¥",
+    "en": "Trip total ¥"
+  },
+  {
+    "ruta": "hojas.0.celdas.A21.crudo",
+    "es": "Tipo de cambio (MXN/¥)",
+    "en": "Exchange rate (MXN/¥)"
+  },
+  {
+    "ruta": "hojas.0.celdas.A22.crudo",
+    "es": "Total en pesos",
+    "en": "Total in pesos"
+  },
+  {
+    "ruta": "hojas.1.nombre",
+    "es": "Plan de 18 semanas",
+    "en": "18-week plan"
+  },
+  {
+    "ruta": "hojas.1.celdas.A1.crudo",
+    "es": "Semana",
+    "en": "Week"
+  },
+  {
+    "ruta": "hojas.1.celdas.B1.crudo",
+    "es": "Kilómetros",
+    "en": "Kilometres"
+  },
+  {
+    "ruta": "hojas.1.celdas.C1.crudo",
+    "es": "Cambio %",
+    "en": "Change %"
+  },
+  {
+    "ruta": "hojas.1.celdas.D1.crudo",
+    "es": "Tirada larga",
+    "en": "Long run"
+  },
+  {
+    "ruta": "hojas.1.celdas.A2.crudo",
+    "es": "Semana 1",
+    "en": "Week 1"
+  },
+  {
+    "ruta": "hojas.1.celdas.A3.crudo",
+    "es": "Semana 2",
+    "en": "Week 2"
+  },
+  {
+    "ruta": "hojas.1.celdas.A4.crudo",
+    "es": "Semana 3",
+    "en": "Week 3"
+  },
+  {
+    "ruta": "hojas.1.celdas.A5.crudo",
+    "es": "Semana 4",
+    "en": "Week 4"
+  },
+  {
+    "ruta": "hojas.1.celdas.A6.crudo",
+    "es": "Semana 5",
+    "en": "Week 5"
+  },
+  {
+    "ruta": "hojas.1.celdas.A7.crudo",
+    "es": "Semana 6",
+    "en": "Week 6"
+  },
+  {
+    "ruta": "hojas.1.celdas.A8.crudo",
+    "es": "Semana 7",
+    "en": "Week 7"
+  },
+  {
+    "ruta": "hojas.1.celdas.A9.crudo",
+    "es": "Semana 8",
+    "en": "Week 8"
+  },
+  {
+    "ruta": "hojas.1.celdas.A10.crudo",
+    "es": "Semana 9",
+    "en": "Week 9"
+  },
+  {
+    "ruta": "hojas.1.celdas.A11.crudo",
+    "es": "Semana 10",
+    "en": "Week 10"
+  },
+  {
+    "ruta": "hojas.1.celdas.A12.crudo",
+    "es": "Semana 11",
+    "en": "Week 11"
+  },
+  {
+    "ruta": "hojas.1.celdas.A13.crudo",
+    "es": "Semana 12",
+    "en": "Week 12"
+  },
+  {
+    "ruta": "hojas.1.celdas.A14.crudo",
+    "es": "Semana 13",
+    "en": "Week 13"
+  },
+  {
+    "ruta": "hojas.1.celdas.A15.crudo",
+    "es": "Semana 14",
+    "en": "Week 14"
+  },
+  {
+    "ruta": "hojas.1.celdas.A16.crudo",
+    "es": "Semana 15",
+    "en": "Week 15"
+  },
+  {
+    "ruta": "hojas.1.celdas.A17.crudo",
+    "es": "Semana 16",
+    "en": "Week 16"
+  },
+  {
+    "ruta": "hojas.1.celdas.A18.crudo",
+    "es": "Semana 17",
+    "en": "Week 17"
+  },
+  {
+    "ruta": "hojas.1.celdas.A19.crudo",
+    "es": "Semana 18",
+    "en": "Week 18"
+  },
+  {
+    "ruta": "hojas.1.celdas.A22.crudo",
+    "es": "Semana pico",
+    "en": "Peak week"
+  },
+  {
+    "ruta": "hojas.1.celdas.A23.crudo",
+    "es": "Media",
+    "en": "Average"
+  },
+  {
+    "ruta": "hojas.2.nombre",
+    "es": "Notas de Física II",
+    "en": "Physics II grades"
+  },
+  {
+    "ruta": "hojas.2.celdas.A1.crudo",
+    "es": "Evaluación",
+    "en": "Assessment"
+  },
+  {
+    "ruta": "hojas.2.celdas.B1.crudo",
+    "es": "Peso",
+    "en": "Weight"
+  },
+  {
+    "ruta": "hojas.2.celdas.C1.crudo",
+    "es": "Nota",
+    "en": "Grade"
+  },
+  {
+    "ruta": "hojas.2.celdas.D1.crudo",
+    "es": "Aporta",
+    "en": "Contributes"
+  },
+  {
+    "ruta": "hojas.2.celdas.A2.crudo",
+    "es": "Parcial 1",
+    "en": "Midterm 1"
+  },
+  {
+    "ruta": "hojas.2.celdas.A3.crudo",
+    "es": "Parcial 2",
+    "en": "Midterm 2"
+  },
+  {
+    "ruta": "hojas.2.celdas.A4.crudo",
+    "es": "Tareas",
+    "en": "Homework"
+  },
+  {
+    "ruta": "hojas.2.celdas.A5.crudo",
+    "es": "Laboratorio",
+    "en": "Lab"
+  },
+  {
+    "ruta": "hojas.2.celdas.A8.crudo",
+    "es": "Peso acumulado",
+    "en": "Weight so far"
+  },
+  {
+    "ruta": "hojas.2.celdas.A9.crudo",
+    "es": "Llevo",
+    "en": "Running total"
+  },
+  {
+    "ruta": "hojas.2.celdas.A10.crudo",
+    "es": "Necesito en el final",
+    "en": "Needed in the final"
+  }
+]

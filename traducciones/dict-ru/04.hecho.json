@@ -1,0 +1,670 @@
+[
+ {
+  "clave": "plantillaCustom.borrarBloqueMsj",
+  "texto": "Инструмент исчезнет вместе со всем, что в нём сохранено."
+ },
+ {
+  "clave": "plantillaCustom.borrarBloqueAhora",
+  "texto": "Удалить инструмент и его данные"
+ },
+ {
+  "clave": "plantillaCustom.meta",
+  "texto": "Цель (необязательно)"
+ },
+ {
+  "clave": "plantillaCustom.guardar",
+  "texto": "Сохранить"
+ },
+ {
+  "clave": "plantillaCustom.cancelar",
+  "texto": "Отмена"
+ },
+ {
+  "clave": "plantillaCustom.tipo.notas",
+  "texto": "Заметки"
+ },
+ {
+  "clave": "plantillaCustom.tipo.checklist",
+  "texto": "Чек-лист"
+ },
+ {
+  "clave": "plantillaCustom.tipo.contador",
+  "texto": "Счётчик"
+ },
+ {
+  "clave": "plantillaCustom.tipo.enlaces",
+  "texto": "Ссылки"
+ },
+ {
+  "clave": "plantillaCustom.tipo.lista",
+  "texto": "Список"
+ },
+ {
+  "clave": "plantillaCustom.tipo.valoracion",
+  "texto": "Оценка"
+ },
+ {
+  "clave": "plantillaCustom.tipo.bitacora",
+  "texto": "Дневник"
+ },
+ {
+  "clave": "plantillaCustom.tipo.progreso",
+  "texto": "Прогресс"
+ },
+ {
+  "clave": "plantillaCustom.tipo.habito",
+  "texto": "Привычка"
+ },
+ {
+  "clave": "plantillaCustom.tipo.sesiones",
+  "texto": "Сессии"
+ },
+ {
+  "clave": "plantillaCustom.tipo.cuenta",
+  "texto": "Обратный отсчёт"
+ },
+ {
+  "clave": "plantillaCustom.tipo.galeria",
+  "texto": "Галерея"
+ },
+ {
+  "clave": "amueblar.titulo",
+  "texto": "Как обставить комнату?"
+ },
+ {
+  "clave": "amueblar.completo",
+  "texto": "Обставлено"
+ },
+ {
+  "clave": "amueblar.completoDesc",
+  "texto": "Добавит все объекты приложения."
+ },
+ {
+  "clave": "amueblar.principal",
+  "texto": "Только главный объект"
+ },
+ {
+  "clave": "amueblar.principalDesc",
+  "texto": "Только объект, который открывает приложение, без остального."
+ },
+ {
+  "clave": "plantillaCustom.eliminada",
+  "texto": "Этот шаблон удалён."
+ },
+ {
+  "clave": "plantillaCustom.notasPh",
+  "texto": "Пиши свои заметки… (сохраняются сами)"
+ },
+ {
+  "clave": "plantillaCustom.checklistPh",
+  "texto": "Новая задача…"
+ },
+ {
+  "clave": "plantillaCustom.checklistVacio",
+  "texto": "Пока нет задач."
+ },
+ {
+  "clave": "plantillaCustom.borrarItem",
+  "texto": "Удалить"
+ },
+ {
+  "clave": "plantillaCustom.enlaceTitulo",
+  "texto": "Заголовок (необязательно)"
+ },
+ {
+  "clave": "plantillaCustom.enlacesVacio",
+  "texto": "Нет сохранённых ссылок."
+ },
+ {
+  "clave": "plantillaCustom.listaPh",
+  "texto": "Новый элемент…"
+ },
+ {
+  "clave": "plantillaCustom.listaVacio",
+  "texto": "Список пуст."
+ },
+ {
+  "clave": "plantillaCustom.bitacoraPh",
+  "texto": "Новая запись…"
+ },
+ {
+  "clave": "plantillaCustom.bitacoraVacio",
+  "texto": "Пока нет записей."
+ },
+ {
+  "clave": "plantillaCustom.progresoPh",
+  "texto": "Значение…"
+ },
+ {
+  "clave": "plantillaCustom.progresoVacio",
+  "texto": "Пока нет измерений."
+ },
+ {
+  "clave": "plantillaCustom.unidad",
+  "texto": "Единица (необязательно)"
+ },
+ {
+  "clave": "plantillaCustom.habitoMarcar",
+  "texto": "Отметить сегодня"
+ },
+ {
+  "clave": "plantillaCustom.habitoHecho",
+  "texto": "Сделано сегодня ✓"
+ },
+ {
+  "clave": "plantillaCustom.habitoRacha",
+  "texto": "серия"
+ },
+ {
+  "clave": "plantillaCustom.habitoDias",
+  "texto": "активных дней"
+ },
+ {
+  "clave": "plantillaCustom.metaSemana",
+  "texto": "Раз в неделю (необязательно)"
+ },
+ {
+  "clave": "plantillaCustom.sesionMin",
+  "texto": "Минуты"
+ },
+ {
+  "clave": "plantillaCustom.sesionNota",
+  "texto": "Заметка (необязательно)"
+ },
+ {
+  "clave": "plantillaCustom.sesionVacio",
+  "texto": "Пока нет сессий."
+ },
+ {
+  "clave": "plantillaCustom.sesionTotal",
+  "texto": "Всего"
+ },
+ {
+  "clave": "plantillaCustom.metaMin",
+  "texto": "Цель в минутах (необязательно)"
+ },
+ {
+  "clave": "plantillaCustom.cuentaFecha",
+  "texto": "Целевая дата"
+ },
+ {
+  "clave": "plantillaCustom.cuentaSinFecha",
+  "texto": "Настрой целевую дату в редактировании."
+ },
+ {
+  "clave": "plantillaCustom.cuentaDias",
+  "texto": "дней осталось"
+ },
+ {
+  "clave": "plantillaCustom.cuentaHoy",
+  "texto": "Сегодня!"
+ },
+ {
+  "clave": "plantillaCustom.cuentaPaso",
+  "texto": "дней назад"
+ },
+ {
+  "clave": "plantillaCustom.galeriaAgregar",
+  "texto": "Добавить фото"
+ },
+ {
+  "clave": "plantillaCustom.galeriaVacio",
+  "texto": "Пока нет фото."
+ },
+ {
+  "clave": "objetos.ayuda",
+  "texto": "Все существующие объекты по категориям. Создавай свои, редактируй или удаляй их."
+ },
+ {
+  "clave": "objetos.ayudaEspeciales",
+  "texto": "Объекты с эффектом, сгруппированные по назначению. Открой, чтобы увидеть папки."
+ },
+ {
+  "clave": "objetos.agregar",
+  "texto": "Добавить 3D-объект"
+ },
+ {
+  "clave": "objetos.alMapa",
+  "texto": "Разместить на карте или в комнате"
+ },
+ {
+  "clave": "destinoObj.titulo",
+  "texto": "Куда его поместить?"
+ },
+ {
+  "clave": "destinoObj.mapa",
+  "texto": "На карте"
+ },
+ {
+  "clave": "destinoObj.mapaDesc",
+  "texto": "Свободно снаружи, вне комнат."
+ },
+ {
+  "clave": "destinoObj.enCuarto",
+  "texto": "Или внутри комнаты"
+ },
+ {
+  "clave": "objetos.editar",
+  "texto": "Редактировать в редакторе"
+ },
+ {
+  "clave": "objetos.editarForma",
+  "texto": "Изменить его форму"
+ },
+ {
+  "clave": "objetos.animado",
+  "texto": "Анимированный объект"
+ },
+ {
+  "clave": "objetos.funcion.vehiculo",
+  "texto": "Можно управлять"
+ },
+ {
+  "clave": "objetos.funcion.asiento",
+  "texto": "Можно сесть"
+ },
+ {
+  "clave": "objetos.funcion.acostarse",
+  "texto": "Можно лечь"
+ },
+ {
+  "clave": "objetos.funcion.laptop",
+  "texto": "Для работы"
+ },
+ {
+  "clave": "objetos.funcion.cajaFuerte",
+  "texto": "Хранит важное"
+ },
+ {
+  "clave": "objetos.funcion.computo",
+  "texto": "Для вычислений"
+ },
+ {
+  "clave": "objetos.funcion.tapete",
+  "texto": "Для медитации"
+ },
+ {
+  "clave": "objetos.funcion.libreta",
+  "texto": "Для записей"
+ },
+ {
+  "clave": "objetos.funcion.caminadora",
+  "texto": "Для ходьбы"
+ },
+ {
+  "clave": "objetos.funcion.anuncio",
+  "texto": "Табличка: напиши свой текст"
+ },
+ {
+  "clave": "objetos.funcion.parque",
+  "texto": "Интерактивный: запрыгни, чтобы поиграть"
+ },
+ {
+  "clave": "objetos.rotarIzq",
+  "texto": "Повернуть влево"
+ },
+ {
+  "clave": "objetos.rotarDer",
+  "texto": "Повернуть вправо"
+ },
+ {
+  "clave": "objetos.quitarDelMapa",
+  "texto": "Убрать с карты"
+ },
+ {
+  "clave": "objetos.borrar",
+  "texto": "Удалить объект"
+ },
+ {
+  "clave": "objetos.borrarConfirm",
+  "texto": "Удалить «{nombre}»? Это нельзя отменить."
+ },
+ {
+  "clave": "objetos.renombrar",
+  "texto": "Переименовать папку"
+ },
+ {
+  "clave": "objetos.restaurar",
+  "texto": "Восстановить базовые объекты"
+ },
+ {
+  "clave": "objetos.restaurarConfirm",
+  "texto": "Удалённые тобой базовые объекты каталога добавятся снова. Продолжить?"
+ },
+ {
+  "clave": "mapa.editar",
+  "texto": "Редактировать карту"
+ },
+ {
+  "clave": "mapa.editarTitulo",
+  "texto": "Редактировать карту дома"
+ },
+ {
+  "clave": "mapa.quitar",
+  "texto": "Убрать с карты"
+ },
+ {
+  "clave": "chat.tuAsistente",
+  "texto": "Твой помощник:"
+ },
+ {
+  "clave": "chat.vacio",
+  "texto": "Записей пока нет. Расскажи архитектору, что у тебя произошло."
+ },
+ {
+  "clave": "chat.sinClasificar",
+  "texto": "Без категории"
+ },
+ {
+  "clave": "chat.capturado",
+  "texto": "зафиксировано"
+ },
+ {
+  "clave": "chat.reclasificar",
+  "texto": "Переместить"
+ },
+ {
+  "clave": "chat.eliminar",
+  "texto": "Удалить"
+ },
+ {
+  "clave": "chat.ocultar",
+  "texto": "Закрыть меню"
+ },
+ {
+  "clave": "chat.verMenu",
+  "texto": "открыть меню"
+ },
+ {
+  "clave": "chat.registrar",
+  "texto": "Записать"
+ },
+ {
+  "clave": "chat.chip.crear",
+  "texto": "Создать"
+ },
+ {
+  "clave": "chat.chip.enMapa",
+  "texto": "(на карте)"
+ },
+ {
+  "clave": "chat.chip.fuera",
+  "texto": "(снаружи)"
+ },
+ {
+  "clave": "chat.abrirConv",
+  "texto": "посмотреть разговор"
+ },
+ {
+  "clave": "chat.verConv",
+  "texto": "Посмотреть всю переписку"
+ },
+ {
+  "clave": "chat.burbuja.ver",
+  "texto": "Нажми, чтобы прочитать всё"
+ },
+ {
+  "clave": "dialogo.salir",
+  "texto": "Завершить разговор (Esc)"
+ },
+ {
+  "clave": "dialogo.completar",
+  "texto": "Показать весь текст"
+ },
+ {
+  "clave": "dialogo.hablar",
+  "texto": "Говорить"
+ },
+ {
+  "clave": "chat.conversacion",
+  "texto": "Разговор"
+ },
+ {
+  "clave": "chat.conv.vacia",
+  "texto": "Сообщений с {pet} пока нет. Напиши что-нибудь в строке внизу"
+ },
+ {
+  "clave": "chat.conv.limpiar",
+  "texto": "Очистить разговор"
+ },
+ {
+  "clave": "chat.conv.cerrar",
+  "texto": "Закрыть"
+ },
+ {
+  "clave": "chat.tu",
+  "texto": "Ты"
+ },
+ {
+  "clave": "chat.tab.chats",
+  "texto": "Чаты"
+ },
+ {
+  "clave": "chat.tab.registros",
+  "texto": "Записи"
+ },
+ {
+  "clave": "chat.config.abrir",
+  "texto": "Настроить помощников"
+ },
+ {
+  "clave": "chat.config.titulo",
+  "texto": "Твои помощники"
+ },
+ {
+  "clave": "chat.config.activo",
+  "texto": "активен"
+ },
+ {
+  "clave": "chat.config.sinCaracter",
+  "texto": "Характер не задан"
+ },
+ {
+  "clave": "chat.config.archivaTodo",
+  "texto": "Архивирует во всех комнатах"
+ },
+ {
+  "clave": "chat.config.cuartos",
+  "texto": "Назначить приложения"
+ },
+ {
+  "clave": "chat.config.cuartosTodos",
+  "texto": "(ничего не отмечено = все)"
+ },
+ {
+  "clave": "chat.config.nuevo",
+  "texto": "Создать помощника"
+ },
+ {
+  "clave": "chat.config.nuevoNombre",
+  "texto": "Новый помощник"
+ },
+ {
+  "clave": "chat.config.nuevoSaludo",
+  "texto": "Привет! Я твой новый помощник."
+ },
+ {
+  "clave": "chat.config.nombre",
+  "texto": "Имя"
+ },
+ {
+  "clave": "chat.config.emoji",
+  "texto": "Эмодзи помощника"
+ },
+ {
+  "clave": "chat.config.historia",
+  "texto": "История и контекст персонажа"
+ },
+ {
+  "clave": "chat.config.historiaPh",
+  "texto": "История и контекст: напр. «Старый морской волк, 40 лет смотревший за маяком; теперь присматривает за твоим домом»"
+ },
+ {
+  "clave": "chat.config.caracterPh",
+  "texto": "Характер: напр. «Говоришь как пират, шутник и прямолинейный, заканчиваешь фразой с 🏴‍☠️»"
+ },
+ {
+  "clave": "chat.config.forma",
+  "texto": "3D-форма:"
+ },
+ {
+  "clave": "chat.config.color",
+  "texto": "Цвет персонажа"
+ },
+ {
+  "clave": "chat.config.formaPh",
+  "texto": "Опиши его: «зелёный дракон в очках и жилете»"
+ },
+ {
+  "clave": "chat.config.formaSinIa",
+  "texto": "Чтобы описать форму, нужен ИИ (выбери модель на панели)"
+ },
+ {
+  "clave": "chat.config.formaGenerar",
+  "texto": "Создать форму с помощью ИИ"
+ },
+ {
+  "clave": "chat.config.formaError",
+  "texto": "Не удалось создать форму. Проверь модель ИИ и попробуй снова."
+ },
+ {
+  "clave": "chat.config.subirGlb",
+  "texto": "Загрузить модель .glb"
+ },
+ {
+  "clave": "chat.config.quitarGlb",
+  "texto": "Удалить загруженную модель"
+ },
+ {
+  "clave": "chat.config.quitarFormaIa",
+  "texto": "Удалить форму, созданную ИИ"
+ },
+ {
+  "clave": "chat.config.enMapa",
+  "texto": "Убрать с карты"
+ },
+ {
+  "clave": "chat.config.ponerMapa",
+  "texto": "Поместить на карту"
+ },
+ {
+  "clave": "chat.config.voz",
+  "texto": "Голос:"
+ },
+ {
+  "clave": "chat.config.vozAuto",
+  "texto": "Автоматически (по языку)"
+ },
+ {
+  "clave": "chat.config.vozIA",
+  "texto": "Голос с ИИ (OpenAI, более естественный)"
+ },
+ {
+  "clave": "chat.config.vozLeer",
+  "texto": "Читать вслух то, что говорит"
+ },
+ {
+  "clave": "chat.config.vozProbar",
+  "texto": "Проверить голос"
+ },
+ {
+  "clave": "chat.config.vozTono",
+  "texto": "Тон"
+ },
+ {
+  "clave": "chat.config.vozVelocidad",
+  "texto": "Скорость"
+ },
+ {
+  "clave": "chat.config.vozVolumen",
+  "texto": "Громкость"
+ },
+ {
+  "clave": "chat.config.espontaneo",
+  "texto": "Спонтанные комментарии"
+ },
+ {
+  "clave": "chat.config.corazon",
+  "texto": "Сердце (спонтанность)"
+ },
+ {
+  "clave": "chat.config.corazonOff",
+  "texto": "Выключены"
+ },
+ {
+  "clave": "corazon.nivel.0",
+  "texto": "Молчаливый"
+ },
+ {
+  "clave": "corazon.nivel.1",
+  "texto": "Спокойный"
+ },
+ {
+  "clave": "corazon.nivel.2",
+  "texto": "Разговорчивый"
+ },
+ {
+  "clave": "corazon.nivel.3",
+  "texto": "Болтливый"
+ },
+ {
+  "clave": "corazon.mago.manana.0",
+  "texto": "Рассвет приносит свежую ману… я чувствую её ✨"
+ },
+ {
+  "clave": "corazon.mago.manana.1",
+  "texto": "Мои свитки проснулись аккуратными. Хороший знак 🔮"
+ },
+ {
+  "clave": "corazon.mago.tarde.0",
+  "texto": "После полудня отлично подходит для того, чтобы вписывать деяния в гримуар ✨"
+ },
+ {
+  "clave": "corazon.mago.tarde.1",
+  "texto": "Сегодня после полудня я чувствую вокруг дома спокойные энергии 🔮"
+ },
+ {
+  "clave": "corazon.mago.noche.0",
+  "texto": "Звёзды рассказывают свои секреты… отличная ночь для заклинаний 🌙"
+ },
+ {
+  "clave": "corazon.mago.noche.1",
+  "texto": "Луна заряжает мой шар. Здесь всё спокойно 🔮"
+ },
+ {
+  "clave": "corazon.mago.rutina.0",
+  "texto": "Мой хрустальный шар предвещает: «{r}» в {h} ✨"
+ },
+ {
+  "clave": "corazon.mago.rutina.1",
+  "texto": "Судьба отмечает {h}: приближается «{r}» 🔮"
+ },
+ {
+  "clave": "corazon.mago.generica.0",
+  "texto": "Сегодня этот дом полон магии ✨"
+ },
+ {
+  "clave": "corazon.mago.generica.1",
+  "texto": "Заклинание уборки никогда не помешает… 🔮"
+ },
+ {
+  "clave": "corazon.gato.manana.0",
+  "texto": "Слишком рано. Странно, что люди встают в такое время 🐾"
+ },
+ {
+  "clave": "corazon.gato.manana.1",
+  "texto": "Зеваю. Утро было бы лучше с дрёмой 🐱"
+ },
+ {
+  "clave": "corazon.gato.tarde.0",
+  "texto": "Идеальное время для дрёмы на солнце. Просто говорю 🐾"
+ },
+ {
+  "clave": "corazon.gato.tarde.1",
+  "texto": "Тягучий день… именно так, как я люблю 🐱"
+ },
+ {
+  "clave": "corazon.gato.noche.0",
+  "texto": "Наконец-то ночь. Моё время 🐱"
+ }
+]

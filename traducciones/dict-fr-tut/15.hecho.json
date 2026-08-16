@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "Le tableau"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "Les mêmes tâches, en trois colonnes : à faire, en cours et fait. Garde une carte appuyée pour la faire glisser vers une autre colonne —la déposer dans « Fait » la coche aussi dans le calendrier—, ou déplace-la avec les flèches."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "L’année du genou"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "Nutrition tous les deux ou trois mois, le dentiste, et les six séances de kiné du mois 7 : la blessure qui a freiné Pep est consignée ici."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "Médicaments"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "Chaque médicament crée un bloc par prise dans le calendrier. L’anti-inflammatoire de la blessure a duré trois semaines et a été archivé ; la vitamine continue."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "Laika"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "La chatte a sa fiche avec son poids et son vétérinaire, et ses soins qui reviennent : vaccin chaque année, vermifuge tous les trois mois, bain tous les mois. Dès que tu les marques comme faits, la prochaine date se recalcule toute seule."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "Le cercle de Pep"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "Famille, amis, gens du travail et de la fac, chacun dans son dossier. Avec leur téléphone, leur adresse et tout ce que tu ne veux pas oublier."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "Des anniversaires jamais oubliés"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "Enregistre une date de naissance et l’anniversaire revient chaque année dans le calendrier et te prévient. L’app calcule l’âge toute seule."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "Les plans avec les gens sont liés à leur contact : tu vois ainsi la dernière fois que tu as vu quelqu’un."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "Une année en trois chiffres"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "La série compte les jours d’affilée avec quelque chose d’enregistré, et l’assiduité compare tes jours actifs à ceux que tu t’étais fixés. Pep a commencé l’année sans pouvoir courir deux pâtés de maisons."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "Les trois disciplines"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "Les barres mesurent ce que tu as fait face à tes objectifs : séances de force, minutes d’endurance et minutes de souplesse. L’objectif s’ajuste à la période que tu choisis en haut."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "Les objectifs de l’année"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "Catalogue, routines et progression"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "Chaque discipline s’organise pareil : le catalogue d’exercices, tes routines avec leur historique, et la progression. Commençons par ce que Pep a déjà couru."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "Chaque sortie reste écrite"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "L’historique se range par année, mois et semaine. Les grandes courses gardent en plus le tracé du parcours et ses tronçons : voilà le marathon, avec ses temps de passage tous les dix kilomètres."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "La carte de chaleur ne ment pas"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "Les trous racontent aussi l’histoire : le mois de la blessure au genou est vide et les trois semaines au Japon, presque. À côté s’affichent les kilomètres totaux, la sortie la plus longue et le meilleur rythme."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "Séries, répétitions et poids"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "Chaque séance garde ses exercices avec le poids que tu as soulevé. L’app se souvient de la dernière fois pour t’éviter de la chercher, et additionne le volume total du jour."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "La courbe d’une année"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "Choisis un exercice et tu verras comme il est monté : le squat de Pep est passé de quarante kilos à soixante-dix. Pendant le mois de la blessure, seul le haut du corps a été travaillé, et cette courbe ne s’en est même pas aperçue."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "Tes records, sans les demander"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "De chaque exercice, l’app garde ton meilleur poids, ton max de répétitions et une estimation de ton 1RM. Ceux au poids du corps, comme les tractions, sont marqués à part."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "Étape 1 : où tu vas"
+  }
+]

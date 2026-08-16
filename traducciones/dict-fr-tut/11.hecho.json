@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "Voici le journal de Pep : une année entière, deux ou trois entrées par semaine. TOUT l’arc y est raconté — du ras-le-bol du début au marathon d’il y a deux semaines."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "Comment on écrit"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "Choisis l’humeur du jour, mets un titre si tu veux, écris et ajoute des photos. Une photo suffit : pas besoin de texte."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "L’année en couleurs"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "Chaque jour se peint de son humeur. Regarde le creux du mois 7 (la blessure) et comme le Japon brille. Touche un jour pour filtrer ses entrées."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "Les archives"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "Les entrées se rangent toutes seules dans des dossiers par année, mois et semaine. Ouvre les semaines du Japon et lis le voyage en entier."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "Les moments forts de l’année de Pep ont leur photo : le clavier d’occasion, l’arrivée de Laika, deux cartes postales du Japon et la médaille du marathon."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "Retrouve-les dans l’historique"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "Ouvre le mois 2 (le clavier), le mois 9 (le Japon) ou il y a deux semaines (la médaille). Touche n’importe quelle photo et elle s’ouvre en plein écran."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "Chaque entrée nourrit ta série et réveille le personnage : écrire ici, c’est aussi prendre soin de la maison."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "Le calme accumulé"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "Chaque minute de pratique arrose ce jardin. Celui de Pep a grandi une année entière : de la graine à la forêt."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "Méditer avec du son"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "Choisis une piste (forêt, océan, pluie, bols) et une durée, ou médite en silence avec la cloche. La séance s’enregistre toute seule à la fin."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "Une année de séances"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "Voici l’année de Pep : trois fois par semaine au début et, au mois 7 — la blessure, la facture de la voiture —, la pratique est devenue presque quotidienne. C’est elle qui a tenu pendant le creux."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "Respirer"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "Deux rythmes guidés : la respiration carrée 4-4-4-4 pour te recentrer et la 4-7-8 pour lâcher la journée. L’écran respire avec toi."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "Ma gratitude d’aujourd’hui…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "Trois lignes par jour. Une suffit ; trois, c’est mieux. Une seule entrée par jour, que tu peux corriger au fil de l’eau."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "Celles de Pep"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "Quatre-vingt-dix jours de gratitudes bien réelles : le clavier, Laika endormie sur les notes, le genou qui guérit, le retour du Japon. Lis-les tranquillement."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "Cette pièce ne tient aucune série et ne punit jamais un jour manqué : c’est voulu. Le calme n’est pas une compétition."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "Deux hobbies, une année"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "Pep en a suivi deux : le piano (son projet de l’année, objectif de 4 jours par semaine) et l’astrophotographie. Chaque carte montre la semaine en cours et la série."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "Le piano en détail"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "Série, meilleure série, total pratiqué, jours actifs et moyenne. Une année au clavier — avec la pause honnête du Japon."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "La carte de chaleur"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "Chaque petit carré est un jour. On voit le démarrage du mois 2, comment le piano a TENU le creux du mois 7, et le trou des trois semaines au Japon."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "Les séances"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "Chaque pratique avec ses minutes et, souvent, une note : de « j’ai mal aux mains » à sortir « Clair de Lune » en entier."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "Projets"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "La pratique avec un cap : le premier morceau (terminé au mois 5) et « Clair de Lune », joué pour la famille il y a une semaine."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "Les projets du piano"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "Un projet rassemble les séances que tu lui as consacrées : ici tu vois combien il y en a et combien de minutes chacun porte."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "L’avancement en photos"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "« Clair de Lune » garde la partition annotée. En astrophotographie, le projet des douze pleines lunes rassemble les meilleures prises de l’année."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "Tu peux aussi noter des séances par le chat (« j’ai fait 30 min de piano ») et prévoir les objectifs du projet avec le planificateur."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "Ajouter un hobby"
+  }
+]

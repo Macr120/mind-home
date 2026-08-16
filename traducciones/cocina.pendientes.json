@@ -1,0 +1,1117 @@
+[
+  {
+    "ruta": "recetas.0.nombre",
+    "es": "Avena de la noche anterior",
+    "en": "Runner's overnight oats"
+  },
+  {
+    "ruta": "recetas.0.carpeta",
+    "es": "Corredor",
+    "en": "Runner"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.0",
+    "es": "60 g de copos de avena",
+    "en": "60 g rolled oats"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.1",
+    "es": "150 ml de leche (o bebida de avena)",
+    "en": "150 ml milk (or oat drink)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.2",
+    "es": "100 g de yogur griego natural",
+    "en": "100 g plain Greek yoghurt"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.3",
+    "es": "1 cucharada de semillas de chía (12 g)",
+    "en": "1 tbsp chia seeds (12 g)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.4",
+    "es": "1 plátano maduro",
+    "en": "1 ripe banana"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.5",
+    "es": "1 cucharadita de miel",
+    "en": "1 tsp honey"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.6",
+    "es": "1 pizca de canela",
+    "en": "A pinch of cinnamon"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.7",
+    "es": "1 pizca de sal",
+    "en": "A pinch of salt"
+  },
+  {
+    "ruta": "recetas.0.pasos.0",
+    "es": "Mezclar en un bote de cristal la avena, la chía, la canela y la sal.",
+    "en": "In a jar, stir together the oats, chia, cinnamon and salt."
+  },
+  {
+    "ruta": "recetas.0.pasos.1",
+    "es": "Añadir la leche y el yogur y remover hasta que no queden grumos secos.",
+    "en": "Pour in the milk and yoghurt and mix until there are no dry pockets left."
+  },
+  {
+    "ruta": "recetas.0.pasos.2",
+    "es": "Aplastar medio plátano con un tenedor e integrarlo; reservar la otra mitad en la nevera.",
+    "en": "Mash half the banana with a fork and fold it in; keep the other half in the fridge."
+  },
+  {
+    "ruta": "recetas.0.pasos.3",
+    "es": "Tapar y dejar en la nevera de 6 a 10 horas.",
+    "en": "Lid on, fridge, 6 to 10 hours."
+  },
+  {
+    "ruta": "recetas.0.pasos.4",
+    "es": "Por la mañana, coronar con el resto del plátano en rodajas y la miel. Comer 90 minutos antes de salir a correr.",
+    "en": "In the morning top with the rest of the banana, sliced, and the honey. Eat it 90 minutes before heading out."
+  },
+  {
+    "ruta": "recetas.1.nombre",
+    "es": "Pasta de carga de la víspera",
+    "en": "Night-before carb-load pasta"
+  },
+  {
+    "ruta": "recetas.1.carpeta",
+    "es": "Corredor",
+    "en": "Runner"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.0",
+    "es": "200 g de espaguetis",
+    "en": "200 g spaghetti"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.1",
+    "es": "400 g de tomate triturado",
+    "en": "400 g crushed tomatoes"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.2",
+    "es": "2 dientes de ajo",
+    "en": "2 garlic cloves"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.3",
+    "es": "2 cucharadas de aceite de oliva",
+    "en": "2 tbsp olive oil"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.4",
+    "es": "1 cucharadita de orégano seco",
+    "en": "1 tsp dried oregano"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.5",
+    "es": "1 cucharadita de azúcar",
+    "en": "1 tsp sugar"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.6",
+    "es": "40 g de queso parmesano rallado",
+    "en": "40 g grated Parmesan"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.7",
+    "es": "6 hojas de albahaca fresca",
+    "en": "6 fresh basil leaves"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.8",
+    "es": "Sal",
+    "en": "Salt"
+  },
+  {
+    "ruta": "recetas.1.pasos.0",
+    "es": "Poner una olla grande con agua abundante y sal a hervir.",
+    "en": "Bring a big pot of well-salted water to the boil."
+  },
+  {
+    "ruta": "recetas.1.pasos.1",
+    "es": "Mientras, dorar el ajo laminado en el aceite a fuego medio-bajo, 2 minutos, sin que se queme.",
+    "en": "Meanwhile, gently colour the sliced garlic in the oil over medium-low heat for 2 minutes without burning it."
+  },
+  {
+    "ruta": "recetas.1.pasos.2",
+    "es": "Añadir el tomate, el orégano, el azúcar y una pizca de sal; cocer 15 minutos a fuego suave.",
+    "en": "Add the tomatoes, oregano, sugar and a pinch of salt; simmer 15 minutes."
+  },
+  {
+    "ruta": "recetas.1.pasos.3",
+    "es": "Cocer la pasta un minuto menos de lo que diga el paquete y reservar medio vaso del agua de cocción.",
+    "en": "Cook the pasta one minute short of the packet time and save half a cup of the cooking water."
+  },
+  {
+    "ruta": "recetas.1.pasos.4",
+    "es": "Saltear la pasta en la salsa 1 minuto con un chorrito del agua reservada.",
+    "en": "Toss the pasta in the sauce for a minute with a splash of that water."
+  },
+  {
+    "ruta": "recetas.1.pasos.5",
+    "es": "Servir con el parmesano y la albahaca. Cena ligera de grasa, sin picante: mañana hay carrera.",
+    "en": "Serve with Parmesan and basil. Low fat, no chilli: there's a race tomorrow."
+  },
+  {
+    "ruta": "recetas.2.nombre",
+    "es": "Bowl de pollo para toda la semana",
+    "en": "Chicken bowl for the whole week"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.0",
+    "es": "600 g de pechuga de pollo",
+    "en": "600 g chicken breast"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.1",
+    "es": "300 g de arroz integral (en crudo)",
+    "en": "300 g brown rice (uncooked)"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.2",
+    "es": "400 g de boniato en cubos",
+    "en": "400 g sweet potato, cubed"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.3",
+    "es": "400 g de brócoli en ramitos",
+    "en": "400 g broccoli florets"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.4",
+    "es": "3 cucharadas de aceite de oliva",
+    "en": "3 tbsp olive oil"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.5",
+    "es": "1 cucharadita de pimentón dulce",
+    "en": "1 tsp sweet paprika"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.6",
+    "es": "1 cucharadita de comino molido",
+    "en": "1 tsp ground cumin"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.7",
+    "es": "200 g de yogur griego natural",
+    "en": "200 g plain Greek yoghurt"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.8",
+    "es": "1 limón",
+    "en": "1 lemon"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.9",
+    "es": "Sal y pimienta",
+    "en": "Salt and pepper"
+  },
+  {
+    "ruta": "recetas.2.pasos.0",
+    "es": "Precalentar el horno a 200 °C.",
+    "en": "Heat the oven to 200 °C."
+  },
+  {
+    "ruta": "recetas.2.pasos.1",
+    "es": "Mezclar el boniato con 1 cucharada de aceite, sal y pimienta; hornear 25 minutos.",
+    "en": "Toss the sweet potato with 1 tbsp oil, salt and pepper and roast for 25 minutes."
+  },
+  {
+    "ruta": "recetas.2.pasos.2",
+    "es": "Salpimentar el pollo, frotarlo con el pimentón, el comino y 1 cucharada de aceite y hacerlo a la plancha 6 minutos por lado. Dejar reposar 5 minutos y cortar en tiras.",
+    "en": "Season the chicken, rub it with the paprika, cumin and 1 tbsp oil, and pan-sear 6 minutes per side. Rest 5 minutes, then slice."
+  },
+  {
+    "ruta": "recetas.2.pasos.3",
+    "es": "Cocer el arroz integral 25 minutos en agua con sal y escurrir.",
+    "en": "Cook the brown rice in salted water for 25 minutes and drain."
+  },
+  {
+    "ruta": "recetas.2.pasos.4",
+    "es": "Cocer el brócoli al vapor 5 minutos: tiene que quedar firme para que aguante hasta el jueves.",
+    "en": "Steam the broccoli for 5 minutes only: it has to still be firm on Thursday."
+  },
+  {
+    "ruta": "recetas.2.pasos.5",
+    "es": "Batir el yogur con el zumo de medio limón, sal y la cucharada de aceite restante.",
+    "en": "Whisk the yoghurt with the juice of half the lemon, salt and the last tablespoon of oil."
+  },
+  {
+    "ruta": "recetas.2.pasos.6",
+    "es": "Repartir todo en cuatro tápers y guardar la salsa aparte. Aguanta cuatro días en la nevera.",
+    "en": "Split everything between four containers, sauce on the side. Keeps four days in the fridge."
+  },
+  {
+    "ruta": "recetas.3.nombre",
+    "es": "Curry japonés de casa",
+    "en": "Japanese curry at home"
+  },
+  {
+    "ruta": "recetas.3.carpeta",
+    "es": "De Japón",
+    "en": "From Japan"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.0",
+    "es": "500 g de contramuslo de pollo en dados",
+    "en": "500 g chicken thigh, diced"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.1",
+    "es": "2 cebollas en juliana",
+    "en": "2 onions, sliced"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.2",
+    "es": "2 zanahorias en rodajas gruesas",
+    "en": "2 carrots, thickly sliced"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.3",
+    "es": "400 g de patata en cubos",
+    "en": "400 g potato, cubed"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.4",
+    "es": "40 g de mantequilla",
+    "en": "40 g butter"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.5",
+    "es": "40 g de harina",
+    "en": "40 g plain flour"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.6",
+    "es": "2 cucharadas de curry en polvo",
+    "en": "2 tbsp curry powder"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.7",
+    "es": "1 cucharadita de garam masala",
+    "en": "1 tsp garam masala"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.8",
+    "es": "1 cucharada de salsa de soja",
+    "en": "1 tbsp soy sauce"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.9",
+    "es": "1 cucharadita de miel",
+    "en": "1 tsp honey"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.10",
+    "es": "700 ml de caldo de pollo",
+    "en": "700 ml chicken stock"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.11",
+    "es": "1 cucharada de aceite",
+    "en": "1 tbsp oil"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.12",
+    "es": "300 g de arroz de grano corto (en crudo)",
+    "en": "300 g short-grain rice (uncooked)"
+  },
+  {
+    "ruta": "recetas.3.pasos.0",
+    "es": "Hacer el roux: fundir la mantequilla, añadir la harina y remover 5 minutos a fuego bajo hasta que tome color avellana. Añadir el curry y el garam masala, remover 1 minuto y retirar del fuego.",
+    "en": "Make the roux: melt the butter, stir in the flour and cook over low heat for 5 minutes until hazelnut-coloured. Stir in the curry powder and garam masala for a minute, then take off the heat."
+  },
+  {
+    "ruta": "recetas.3.pasos.1",
+    "es": "En una olla, dorar el pollo con el aceite y sacarlo.",
+    "en": "Brown the chicken in a pot with the oil and lift it out."
+  },
+  {
+    "ruta": "recetas.3.pasos.2",
+    "es": "Pochar la cebolla 8 minutos hasta que esté dorada; añadir zanahoria y patata y rehogar 2 minutos.",
+    "en": "Cook the onion for 8 minutes until golden; add the carrot and potato and stir for 2 minutes."
+  },
+  {
+    "ruta": "recetas.3.pasos.3",
+    "es": "Devolver el pollo, cubrir con el caldo y cocer 20 minutos a fuego medio.",
+    "en": "Return the chicken, cover with stock and simmer 20 minutes."
+  },
+  {
+    "ruta": "recetas.3.pasos.4",
+    "es": "Deshacer el roux con un cazo del caldo caliente y volcarlo en la olla. Cocer 5 minutos más removiendo hasta que espese.",
+    "en": "Loosen the roux with a ladle of hot stock, pour it into the pot and cook 5 more minutes, stirring, until glossy and thick."
+  },
+  {
+    "ruta": "recetas.3.pasos.5",
+    "es": "Añadir la soja y la miel, probar de sal y servir sobre el arroz recién hecho.",
+    "en": "Add the soy and honey, check the salt and serve over freshly cooked rice."
+  },
+  {
+    "ruta": "recetas.4.nombre",
+    "es": "Ramen de miso rápido",
+    "en": "Quick miso ramen"
+  },
+  {
+    "ruta": "recetas.4.carpeta",
+    "es": "De Japón",
+    "en": "From Japan"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.0",
+    "es": "200 g de fideos ramen secos",
+    "en": "200 g dried ramen noodles"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.1",
+    "es": "900 ml de caldo de pollo",
+    "en": "900 ml chicken stock"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.2",
+    "es": "2 cucharadas de pasta de miso",
+    "en": "2 tbsp miso paste"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.3",
+    "es": "1 cucharada de salsa de soja",
+    "en": "1 tbsp soy sauce"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.4",
+    "es": "1 cucharadita de aceite de sésamo",
+    "en": "1 tsp sesame oil"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.5",
+    "es": "2 dientes de ajo picados",
+    "en": "2 garlic cloves, minced"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.6",
+    "es": "10 g de jengibre rallado",
+    "en": "10 g grated ginger"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.7",
+    "es": "200 g de panceta o de pollo en tiras",
+    "en": "200 g pork belly or chicken, sliced"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.8",
+    "es": "2 huevos",
+    "en": "2 eggs"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.9",
+    "es": "100 g de maíz dulce",
+    "en": "100 g sweetcorn"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.10",
+    "es": "2 cebolletas en rodajas",
+    "en": "2 spring onions, sliced"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.11",
+    "es": "1 hoja de alga nori",
+    "en": "1 sheet of nori"
+  },
+  {
+    "ruta": "recetas.4.pasos.0",
+    "es": "Cocer los huevos 6 minutos y 30 segundos, enfriarlos en agua con hielo y pelarlos.",
+    "en": "Boil the eggs for 6 minutes 30 seconds, cool them in iced water and peel."
+  },
+  {
+    "ruta": "recetas.4.pasos.1",
+    "es": "Dorar la panceta o el pollo en una olla con el aceite de sésamo; añadir el ajo y el jengibre 1 minuto.",
+    "en": "Brown the pork or chicken in a pot with the sesame oil; add garlic and ginger for 1 minute."
+  },
+  {
+    "ruta": "recetas.4.pasos.2",
+    "es": "Verter el caldo y hervir suave 15 minutos. Retirar del fuego.",
+    "en": "Pour in the stock and simmer 15 minutes, then take it off the heat."
+  },
+  {
+    "ruta": "recetas.4.pasos.3",
+    "es": "Deshacer el miso en un cucharón de caldo y devolverlo a la olla junto con la soja. No dejar que vuelva a hervir.",
+    "en": "Dissolve the miso in a ladle of broth and stir it back in with the soy sauce. Do not let it boil again."
+  },
+  {
+    "ruta": "recetas.4.pasos.4",
+    "es": "Cocer los fideos aparte según el paquete y escurrirlos bien.",
+    "en": "Cook the noodles separately and drain them well."
+  },
+  {
+    "ruta": "recetas.4.pasos.5",
+    "es": "Montar los boles: fideos, caldo, carne, maíz, huevo partido por la mitad, cebolleta y nori.",
+    "en": "Build the bowls: noodles, broth, meat, corn, halved egg, spring onion and nori."
+  },
+  {
+    "ruta": "recetas.5.nombre",
+    "es": "Pan de plátano de la cafetería",
+    "en": "Café-counter banana bread"
+  },
+  {
+    "ruta": "recetas.5.carpeta",
+    "es": "Dulce",
+    "en": "Sweet"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.0",
+    "es": "3 plátanos muy maduros (350 g pelados)",
+    "en": "3 very ripe bananas (350 g peeled)"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.1",
+    "es": "2 huevos",
+    "en": "2 eggs"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.2",
+    "es": "80 g de azúcar moreno",
+    "en": "80 g brown sugar"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.3",
+    "es": "60 ml de aceite de girasol",
+    "en": "60 ml sunflower oil"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.4",
+    "es": "220 g de harina de trigo",
+    "en": "220 g plain flour"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.5",
+    "es": "1 cucharadita de levadura química",
+    "en": "1 tsp baking powder"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.6",
+    "es": "1/2 cucharadita de bicarbonato",
+    "en": "1/2 tsp bicarbonate of soda"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.7",
+    "es": "1 cucharadita de canela",
+    "en": "1 tsp cinnamon"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.8",
+    "es": "1/2 cucharadita de sal",
+    "en": "1/2 tsp salt"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.9",
+    "es": "60 g de nueces troceadas",
+    "en": "60 g chopped walnuts"
+  },
+  {
+    "ruta": "recetas.5.pasos.0",
+    "es": "Precalentar el horno a 175 °C y forrar un molde de plum cake de 22 cm.",
+    "en": "Heat the oven to 175 °C and line a 22 cm loaf tin."
+  },
+  {
+    "ruta": "recetas.5.pasos.1",
+    "es": "Aplastar los plátanos con un tenedor hasta hacer un puré con grumos.",
+    "en": "Mash the bananas with a fork, leaving some lumps."
+  },
+  {
+    "ruta": "recetas.5.pasos.2",
+    "es": "Batir los huevos con el azúcar y el aceite e incorporar el puré.",
+    "en": "Beat the eggs with the sugar and oil, then stir in the banana."
+  },
+  {
+    "ruta": "recetas.5.pasos.3",
+    "es": "Mezclar aparte la harina, la levadura, el bicarbonato, la canela y la sal.",
+    "en": "In another bowl mix the flour, baking powder, bicarbonate, cinnamon and salt."
+  },
+  {
+    "ruta": "recetas.5.pasos.4",
+    "es": "Unir secos y húmedos con espátula, sin batir de más, y añadir las nueces.",
+    "en": "Fold wet into dry with a spatula, without overmixing, and add the walnuts."
+  },
+  {
+    "ruta": "recetas.5.pasos.5",
+    "es": "Volcar en el molde y hornear 50-55 minutos, hasta que el palillo salga limpio.",
+    "en": "Pour into the tin and bake 50-55 minutes, until a skewer comes out clean."
+  },
+  {
+    "ruta": "recetas.5.pasos.6",
+    "es": "Desmoldar y enfriar sobre rejilla. Cortado en diez rebanadas, dura tres días envuelto en papel.",
+    "en": "Turn out and cool on a rack. Cut into ten slices, it keeps three days wrapped in paper."
+  },
+  {
+    "ruta": "recetas.6.nombre",
+    "es": "Crema de lentejas rojas",
+    "en": "Red lentil soup"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.0",
+    "es": "250 g de lentejas rojas",
+    "en": "250 g red lentils"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.1",
+    "es": "1 cebolla picada",
+    "en": "1 onion, chopped"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.2",
+    "es": "2 zanahorias en dados",
+    "en": "2 carrots, diced"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.3",
+    "es": "2 dientes de ajo",
+    "en": "2 garlic cloves"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.4",
+    "es": "1 cucharadita de comino molido",
+    "en": "1 tsp ground cumin"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.5",
+    "es": "1 cucharadita de cúrcuma",
+    "en": "1 tsp turmeric"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.6",
+    "es": "1 litro de caldo de verduras",
+    "en": "1 litre vegetable stock"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.7",
+    "es": "2 cucharadas de aceite de oliva",
+    "en": "2 tbsp olive oil"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.8",
+    "es": "100 ml de leche de coco",
+    "en": "100 ml coconut milk"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.9",
+    "es": "1 limón",
+    "en": "1 lemon"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.10",
+    "es": "Sal y pimienta",
+    "en": "Salt and pepper"
+  },
+  {
+    "ruta": "recetas.6.pasos.0",
+    "es": "Pochar la cebolla y la zanahoria en el aceite 8 minutos con una pizca de sal.",
+    "en": "Soften the onion and carrot in the oil for 8 minutes with a pinch of salt."
+  },
+  {
+    "ruta": "recetas.6.pasos.1",
+    "es": "Añadir el ajo picado, el comino y la cúrcuma y remover 1 minuto.",
+    "en": "Add the chopped garlic, cumin and turmeric and stir for a minute."
+  },
+  {
+    "ruta": "recetas.6.pasos.2",
+    "es": "Enjuagar las lentejas, añadirlas con el caldo y llevar a hervor.",
+    "en": "Rinse the lentils, add them with the stock and bring to the boil."
+  },
+  {
+    "ruta": "recetas.6.pasos.3",
+    "es": "Cocer 20 minutos a fuego medio-bajo, removiendo de vez en cuando.",
+    "en": "Simmer 20 minutes over medium-low heat, stirring now and then."
+  },
+  {
+    "ruta": "recetas.6.pasos.4",
+    "es": "Triturar con la batidora, añadir la leche de coco y el zumo de medio limón, y corregir de sal.",
+    "en": "Blend smooth, stir in the coconut milk and the juice of half a lemon, and adjust the salt."
+  },
+  {
+    "ruta": "recetas.6.pasos.5",
+    "es": "Repartir en tápers; congela bien en raciones individuales.",
+    "en": "Portion into containers; it freezes well in single servings."
+  },
+  {
+    "ruta": "recetas.7.nombre",
+    "es": "Salmón teriyaki con espinacas",
+    "en": "Teriyaki salmon with spinach"
+  },
+  {
+    "ruta": "recetas.7.carpeta",
+    "es": "De Japón",
+    "en": "From Japan"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.0",
+    "es": "2 lomos de salmón de 150 g",
+    "en": "2 salmon fillets, 150 g each"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.1",
+    "es": "3 cucharadas de salsa de soja",
+    "en": "3 tbsp soy sauce"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.2",
+    "es": "2 cucharadas de mirin",
+    "en": "2 tbsp mirin"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.3",
+    "es": "1 cucharada de azúcar",
+    "en": "1 tbsp sugar"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.4",
+    "es": "1 cucharadita de jengibre rallado",
+    "en": "1 tsp grated ginger"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.5",
+    "es": "1 cucharadita de maicena",
+    "en": "1 tsp cornflour"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.6",
+    "es": "1 cucharada de aceite",
+    "en": "1 tbsp oil"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.7",
+    "es": "150 g de arroz de grano corto (en crudo)",
+    "en": "150 g short-grain rice (uncooked)"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.8",
+    "es": "200 g de espinacas frescas",
+    "en": "200 g fresh spinach"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.9",
+    "es": "1 cucharadita de semillas de sésamo",
+    "en": "1 tsp sesame seeds"
+  },
+  {
+    "ruta": "recetas.7.pasos.0",
+    "es": "Poner el arroz a cocer según el paquete.",
+    "en": "Start the rice according to the packet."
+  },
+  {
+    "ruta": "recetas.7.pasos.1",
+    "es": "Mezclar la soja, el mirin, el azúcar, el jengibre y la maicena en un vaso.",
+    "en": "Mix the soy, mirin, sugar, ginger and cornflour in a glass."
+  },
+  {
+    "ruta": "recetas.7.pasos.2",
+    "es": "Secar bien el salmón y marcarlo por el lado de la piel en la sartén con el aceite, 4 minutos.",
+    "en": "Pat the salmon dry and sear it skin-side down in the oil for 4 minutes."
+  },
+  {
+    "ruta": "recetas.7.pasos.3",
+    "es": "Dar la vuelta, hacer 2 minutos más y verter la salsa; cocinar 2 minutos hasta que espese y bañar el pescado con una cuchara.",
+    "en": "Flip, cook 2 more minutes, pour in the sauce and cook 2 minutes until it thickens, spooning it over the fish."
+  },
+  {
+    "ruta": "recetas.7.pasos.4",
+    "es": "Saltear las espinacas 2 minutos en la misma sartén, fuera del salmón, con una pizca de sal.",
+    "en": "Wilt the spinach for 2 minutes in the same pan, off to one side, with a pinch of salt."
+  },
+  {
+    "ruta": "recetas.7.pasos.5",
+    "es": "Servir sobre el arroz con la salsa por encima y el sésamo.",
+    "en": "Serve over the rice with the sauce poured on top and the sesame seeds."
+  },
+  {
+    "ruta": "recetas.8.nombre",
+    "es": "Tacos de lentejas al pimentón",
+    "en": "Smoky lentil tacos"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.0",
+    "es": "400 g de lentejas pardinas cocidas y escurridas",
+    "en": "400 g cooked brown lentils, drained"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.1",
+    "es": "1 cebolla picada",
+    "en": "1 onion, chopped"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.2",
+    "es": "1 pimiento rojo en dados",
+    "en": "1 red pepper, diced"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.3",
+    "es": "2 dientes de ajo",
+    "en": "2 garlic cloves"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.4",
+    "es": "1 cucharadita de comino",
+    "en": "1 tsp cumin"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.5",
+    "es": "1 cucharadita de pimentón ahumado",
+    "en": "1 tsp smoked paprika"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.6",
+    "es": "200 g de tomate triturado",
+    "en": "200 g crushed tomatoes"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.7",
+    "es": "2 cucharadas de aceite de oliva",
+    "en": "2 tbsp olive oil"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.8",
+    "es": "8 tortillas de maíz",
+    "en": "8 corn tortillas"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.9",
+    "es": "1 aguacate",
+    "en": "1 avocado"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.10",
+    "es": "1 lima",
+    "en": "1 lime"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.11",
+    "es": "Cilantro fresco",
+    "en": "Fresh coriander"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.12",
+    "es": "100 g de yogur natural",
+    "en": "100 g plain yoghurt"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.13",
+    "es": "Sal",
+    "en": "Salt"
+  },
+  {
+    "ruta": "recetas.8.pasos.0",
+    "es": "Sofreír la cebolla y el pimiento en el aceite 8 minutos.",
+    "en": "Fry the onion and pepper in the oil for 8 minutes."
+  },
+  {
+    "ruta": "recetas.8.pasos.1",
+    "es": "Añadir el ajo, el comino y el pimentón y remover 1 minuto.",
+    "en": "Add the garlic, cumin and smoked paprika and stir for a minute."
+  },
+  {
+    "ruta": "recetas.8.pasos.2",
+    "es": "Incorporar el tomate y las lentejas y cocer 10 minutos, aplastando un poco con la cuchara para que ligue.",
+    "en": "Add the tomatoes and lentils and cook 10 minutes, mashing a little with the spoon so it holds together."
+  },
+  {
+    "ruta": "recetas.8.pasos.3",
+    "es": "Salar y añadir el zumo de media lima.",
+    "en": "Season and add the juice of half the lime."
+  },
+  {
+    "ruta": "recetas.8.pasos.4",
+    "es": "Calentar las tortillas en una sartén seca, 30 segundos por lado.",
+    "en": "Warm the tortillas in a dry pan, 30 seconds a side."
+  },
+  {
+    "ruta": "recetas.8.pasos.5",
+    "es": "Rellenar con las lentejas, el aguacate en láminas, el yogur y el cilantro. Dos tacos por persona.",
+    "en": "Fill with the lentils, sliced avocado, yoghurt and coriander. Two tacos each."
+  },
+  {
+    "ruta": "recetas.9.nombre",
+    "es": "Batido de recuperación",
+    "en": "Recovery shake"
+  },
+  {
+    "ruta": "recetas.9.carpeta",
+    "es": "Corredor",
+    "en": "Runner"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.0",
+    "es": "1 plátano congelado en rodajas",
+    "en": "1 frozen banana, sliced"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.1",
+    "es": "200 ml de leche",
+    "en": "200 ml milk"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.2",
+    "es": "150 g de yogur griego natural",
+    "en": "150 g plain Greek yoghurt"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.3",
+    "es": "100 g de frutos rojos congelados",
+    "en": "100 g frozen berries"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.4",
+    "es": "1 cucharada de mantequilla de cacahuete (16 g)",
+    "en": "1 tbsp peanut butter (16 g)"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.5",
+    "es": "1 cucharadita de cacao puro en polvo",
+    "en": "1 tsp unsweetened cocoa powder"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.6",
+    "es": "1 pizca de sal",
+    "en": "A pinch of salt"
+  },
+  {
+    "ruta": "recetas.9.pasos.0",
+    "es": "Meter todo en la batidora, líquidos primero.",
+    "en": "Everything into the blender, liquids first."
+  },
+  {
+    "ruta": "recetas.9.pasos.1",
+    "es": "Triturar 45 segundos hasta que quede cremoso; si está muy espeso, añadir un chorro de leche.",
+    "en": "Blend for 45 seconds until creamy; loosen with a splash of milk if it's too thick."
+  },
+  {
+    "ruta": "recetas.9.pasos.2",
+    "es": "Beber en los 30 minutos siguientes al entrenamiento largo, directamente del vaso de la batidora para no fregar más.",
+    "en": "Drink within 30 minutes of the long run, straight from the blender jug so there's less washing up."
+  },
+  {
+    "ruta": "dietas.0.nombre",
+    "es": "Semana del maratón",
+    "en": "Marathon week"
+  },
+  {
+    "ruta": "dietas.0.descripcion",
+    "es": "Los siete días previos a la carrera. De lunes a jueves como normal (bowl de pollo del batch del domingo, avena antes de los rodajes suaves); de viernes a sábado subo hidratos y bajo fibra y grasa. La noche antes, pasta con tomate y nada de experimentos. El batido queda para la media hora después de la meta, junto con el trozo de pan de plátano que dejé hecho el jueves.",
+    "en": "The seven days before the race. Monday to Thursday I eat as usual (chicken bowls from Sunday's batch, oats before the easy runs); Friday and Saturday I push the carbs up and drop fibre and fat. The night before, pasta with tomato and no experiments. The shake is for the half hour after the finish line, with the slice of banana bread I baked on Thursday."
+  },
+  {
+    "ruta": "dietas.0.recetas.0",
+    "es": "Avena de la noche anterior",
+    "en": "Runner's overnight oats"
+  },
+  {
+    "ruta": "dietas.0.recetas.1",
+    "es": "Pasta de carga de la víspera",
+    "en": "Night-before carb-load pasta"
+  },
+  {
+    "ruta": "dietas.0.recetas.2",
+    "es": "Bowl de pollo para toda la semana",
+    "en": "Chicken bowl for the whole week"
+  },
+  {
+    "ruta": "dietas.0.recetas.3",
+    "es": "Batido de recuperación",
+    "en": "Recovery shake"
+  },
+  {
+    "ruta": "dietas.0.recetas.4",
+    "es": "Pan de plátano de la cafetería",
+    "en": "Café-counter banana bread"
+  },
+  {
+    "ruta": "dietas.1.nombre",
+    "es": "Vuelta de Japón, ligero",
+    "en": "Back from Japan, light"
+  },
+  {
+    "ruta": "dietas.1.descripcion",
+    "es": "Tres semanas de ramen, konbini y katsu curry me dejaron el cuerpo pesado y la nevera vacía. Dos semanas de cenas ligeras con muchas legumbres y verdura, una comida decente de pescado a la semana y desayunos preparados la noche antes para no improvisar antes del turno de las siete. Un guiño a Japón, pero hecho en casa y con medida.",
+    "en": "Three weeks of ramen, konbini food and katsu curry left me heavy and the fridge empty. Two weeks of light dinners with plenty of pulses and vegetables, one decent fish meal a week, and breakfasts prepped the night before so I don't improvise at six in the morning before the shift. A nod to Japan, but cooked at home and in sensible portions."
+  },
+  {
+    "ruta": "dietas.1.recetas.0",
+    "es": "Crema de lentejas rojas",
+    "en": "Red lentil soup"
+  },
+  {
+    "ruta": "dietas.1.recetas.1",
+    "es": "Tacos de lentejas al pimentón",
+    "en": "Smoky lentil tacos"
+  },
+  {
+    "ruta": "dietas.1.recetas.2",
+    "es": "Salmón teriyaki con espinacas",
+    "en": "Teriyaki salmon with spinach"
+  },
+  {
+    "ruta": "dietas.1.recetas.3",
+    "es": "Avena de la noche anterior",
+    "en": "Runner's overnight oats"
+  },
+  {
+    "ruta": "dietas.1.recetas.4",
+    "es": "Batido de recuperación",
+    "en": "Recovery shake"
+  },
+  {
+    "ruta": "listas.0.nombre",
+    "es": "Compra de la semana del maratón",
+    "en": "Marathon week shop"
+  },
+  {
+    "ruta": "listas.0.items.0",
+    "es": "1 kg de espaguetis",
+    "en": "1 kg spaghetti"
+  },
+  {
+    "ruta": "listas.0.items.1",
+    "es": "800 g de tomate triturado",
+    "en": "800 g crushed tomatoes"
+  },
+  {
+    "ruta": "listas.0.items.2",
+    "es": "1,2 kg de pechuga de pollo",
+    "en": "1.2 kg chicken breast"
+  },
+  {
+    "ruta": "listas.0.items.3",
+    "es": "1 kg de arroz integral",
+    "en": "1 kg brown rice"
+  },
+  {
+    "ruta": "listas.0.items.4",
+    "es": "500 g de copos de avena",
+    "en": "500 g rolled oats"
+  },
+  {
+    "ruta": "listas.0.items.5",
+    "es": "12 plátanos",
+    "en": "12 bananas"
+  },
+  {
+    "ruta": "listas.0.items.6",
+    "es": "1 kg de boniato",
+    "en": "1 kg sweet potatoes"
+  },
+  {
+    "ruta": "listas.0.items.7",
+    "es": "2 litros de leche",
+    "en": "2 litres of milk"
+  },
+  {
+    "ruta": "listas.0.items.8",
+    "es": "1 kg de yogur griego",
+    "en": "1 kg Greek yoghurt"
+  },
+  {
+    "ruta": "listas.0.items.9",
+    "es": "6 huevos",
+    "en": "6 eggs"
+  },
+  {
+    "ruta": "listas.0.items.10",
+    "es": "1 cabeza de ajos",
+    "en": "1 bulb of garlic"
+  },
+  {
+    "ruta": "listas.0.items.11",
+    "es": "1 bote de mantequilla de cacahuete de 350 g",
+    "en": "1 jar of peanut butter, 350 g"
+  },
+  {
+    "ruta": "listas.0.items.12",
+    "es": "250 g de nueces",
+    "en": "250 g walnuts"
+  },
+  {
+    "ruta": "listas.0.items.13",
+    "es": "2 limones",
+    "en": "2 lemons"
+  },
+  {
+    "ruta": "listas.1.nombre",
+    "es": "Súper de vuelta de Japón",
+    "en": "First shop back from Japan"
+  },
+  {
+    "ruta": "listas.1.items.0",
+    "es": "500 g de lentejas rojas",
+    "en": "500 g red lentils"
+  },
+  {
+    "ruta": "listas.1.items.1",
+    "es": "2 botes de lentejas pardinas cocidas de 400 g",
+    "en": "2 tins of cooked brown lentils, 400 g each"
+  },
+  {
+    "ruta": "listas.1.items.2",
+    "es": "1 litro de caldo de verduras",
+    "en": "1 litre vegetable stock"
+  },
+  {
+    "ruta": "listas.1.items.3",
+    "es": "2 zanahorias grandes",
+    "en": "2 large carrots"
+  },
+  {
+    "ruta": "listas.1.items.4",
+    "es": "3 cebollas",
+    "en": "3 onions"
+  },
+  {
+    "ruta": "listas.1.items.5",
+    "es": "1 pimiento rojo",
+    "en": "1 red pepper"
+  },
+  {
+    "ruta": "listas.1.items.6",
+    "es": "400 ml de leche de coco",
+    "en": "400 ml coconut milk"
+  },
+  {
+    "ruta": "listas.1.items.7",
+    "es": "2 lomos de salmón de 150 g",
+    "en": "2 salmon fillets, 150 g each"
+  },
+  {
+    "ruta": "listas.1.items.8",
+    "es": "1 paquete de 12 tortillas de maíz",
+    "en": "1 pack of 12 corn tortillas"
+  },
+  {
+    "ruta": "listas.1.items.9",
+    "es": "2 aguacates",
+    "en": "2 avocados"
+  },
+  {
+    "ruta": "listas.1.items.10",
+    "es": "1 manojo de cilantro",
+    "en": "1 bunch of coriander"
+  },
+  {
+    "ruta": "listas.1.items.11",
+    "es": "2 limas",
+    "en": "2 limes"
+  },
+  {
+    "ruta": "listas.1.items.12",
+    "es": "500 g de espinacas frescas",
+    "en": "500 g fresh spinach"
+  },
+  {
+    "ruta": "listas.1.items.13",
+    "es": "1 bote de comino molido",
+    "en": "1 jar of ground cumin"
+  }
+]

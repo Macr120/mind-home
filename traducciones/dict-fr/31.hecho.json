@@ -1,0 +1,98 @@
+[
+  {
+    "clave": "tut.herramientas.resumen",
+    "texto": "La roue équipe ton personnage dans quatre catégories : déplacements (courir, danser, sauter…), jouets (laser, portails, graffiti…), véhicules montables et construction (un raccourci vers les modes de l’éditeur du plan). Deux niveaux — catégorie → outil — et jusqu’à 3 équipés en même temps."
+  },
+  {
+    "clave": "tut.navegacion.titulo",
+    "texto": "Caméra et déplacement"
+  },
+  {
+    "clave": "tut.navegacion.resumen",
+    "texto": "Il y a trois vues : isométrique, troisième et première personne (touche V). Tu te déplaces avec le joystick, WASD ou les flèches ; le contrôle du coin oriente la caméra sauf si quelque chose est à proximité, auquel cas il propose cette action à la place. En 3e/1re personne, il y a aussi l’Éditeur 3D pour toucher le monde directement."
+  },
+  {
+    "clave": "tut.chat.titulo",
+    "texto": "Le chat de l’architecte"
+  },
+  {
+    "clave": "tut.chat.resumen",
+    "texto": "Le chat enregistre ce que tu lui racontes dans la bonne app (« j’ai couru 20 min » va dans Gym), modifie la maison par texte, dicte à la voix et lit une photo. Chaque assistant a son visage et sa voix ; le manuel liste tout ce que tu peux demander, et ce qui est déjà enregistré vit dans son onglet Historique."
+  },
+  {
+    "clave": "tut.chat-registros.titulo",
+    "texto": "Chat · Historique et mémoires"
+  },
+  {
+    "clave": "tut.chat-registros.resumen",
+    "texto": "L’onglet Historique du chat garde tes conversations précédentes et ce que l’assistant se souvient de toi d’une session à l’autre, pour ne pas avoir à le répéter à chaque fois."
+  },
+  {
+    "clave": "tut.app-generica.titulo",
+    "texto": "Cette app"
+  },
+  {
+    "clave": "tut.app-generica.resumen",
+    "texto": "Chaque app vit dans une pièce : l’en-tête montre la pièce et l’app, la liste du jour porte ce qu’il y a à faire ici et « Retour à la maison » la ferme. Tes propres modèles se construisent avec des blocs : notes, listes, compteurs, habitudes…"
+  },
+  {
+    "clave": "tut.rutinas.titulo",
+    "texto": "Routines"
+  },
+  {
+    "clave": "tut.rutinas.resumen",
+    "texto": "Le panneau des routines porte ta liste du jour en haut et le catalogue complet en bas : chaque routine a une heure, une répétition et des étapes, et chaque étape peut s’enregistrer seule dans son app. À son heure, l’assistant te le rappelle, et tout ce qui est programmé apparaît aussi dans le calendrier."
+  },
+  {
+    "clave": "tut.enlaces.titulo",
+    "texto": "La puce de chaque étape"
+  },
+  {
+    "clave": "tut.enlaces.resumen",
+    "texto": "Une puce d’app à côté d’un objectif ou d’une étape de plan indique où ça s’enregistre, et un toucher t’y emmène. C’est juste de la navigation : l’enregistrement est toujours fait par l’app, jamais par la puce."
+  },
+  {
+    "clave": "tut.musica.titulo",
+    "texto": "La musique de la maison"
+  },
+  {
+    "clave": "tut.musica.resumen",
+    "texto": "Musique d’ambiance générale ou un thème par pièce, avec trois sources possibles : générée, tes propres pistes ou l’audio du système. Coupe-la entièrement si tu préfères jouer en silence."
+  },
+  {
+    "clave": "tut.cuenta-ia.titulo",
+    "texto": "L’IA et ton compte"
+  },
+  {
+    "clave": "tut.cuenta-ia.resumen",
+    "texto": "L’IA s’active dans Éditeur › Paramètres. Chaque opération — une réponse, un plan, une image, un modèle 3D — a son tarif en crédits, visible avant de la demander. Avec ta propre clé de fournisseur, aucun crédit n’est dépensé : tu paies directement le fournisseur."
+  },
+  {
+    "clave": "tut.ejemplos.titulo",
+    "texto": "Commencer avec un exemple"
+  },
+  {
+    "clave": "tut.ejemplos.resumen",
+    "texto": "Presque chaque app a une barre pour voir un exemple prêt à l’emploi déjà rempli, et le masquer ensuite sans rien perdre de ce qui t’appartient. Il n’apparaît pas dans la maison de démo : là-bas, l’année entière EST déjà l’exemple."
+  },
+  {
+    "clave": "tut.hoy.titulo",
+    "texto": "À faire aujourd’hui"
+  },
+  {
+    "clave": "tut.hoy.resumen",
+    "texto": "La liste Aujourd’hui de chaque app réunit trois choses en un seul endroit : les objectifs du jour de cette app, ce que tu as programmé pour aujourd’hui et les étapes de tes objectifs en cours. Une étape est faite parce que l’enregistrement existe déjà dans l’app, pas parce que quelqu’un l’a cochée à la main."
+  },
+  {
+    "clave": "tut.progreso.titulo",
+    "texto": "Ta progression"
+  },
+  {
+    "clave": "tut.progreso.resumen",
+    "texto": "Ton personnage vit de ton activité réelle : son humeur, son niveau, la Montagne de Sisyphe (rang et badges) et le radar d’XP par pièce. Tout est calculé à partir de ce que tu as déjà enregistré, rien n’est déclaré à la main."
+  },
+  {
+    "clave": "tut.wrapped.titulo",
+    "texto": "Wrapped : ton bilan"
+  }
+]

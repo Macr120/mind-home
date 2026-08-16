@@ -1,0 +1,642 @@
+[
+  {
+    "clave": "sala.hoja.fecha",
+    "texto": "Tarih"
+  },
+  {
+    "clave": "sala.hoja.inicio",
+    "texto": "Nereden"
+  },
+  {
+    "clave": "sala.hoja.destino",
+    "texto": "Nereye"
+  },
+  {
+    "clave": "sala.hoja.hospedaje",
+    "texto": "Konaklama"
+  },
+  {
+    "clave": "sala.hoja.actividades",
+    "texto": "Aktiviteler"
+  },
+  {
+    "clave": "sala.hoja.transporte",
+    "texto": "Ulaşım"
+  },
+  {
+    "clave": "sala.hoja.presupuesto",
+    "texto": "Bütçe"
+  },
+  {
+    "clave": "sala.hoja.total",
+    "texto": "Toplam"
+  },
+  {
+    "clave": "sala.hoja.agregarDia",
+    "texto": "Gün"
+  },
+  {
+    "clave": "sala.hoja.sync",
+    "texto": "Tarihli günler evin takviminde görünür, toplam ise çalışma odasında bir birikim hedefine dönüşür. Yeri ziyaret etsen bile plan kalmaya devam eder; yalnızca sen silersen kaybolur."
+  },
+  {
+    "clave": "sala.hoja.compartir",
+    "texto": "Paylaş"
+  },
+  {
+    "clave": "sala.hoja.copiado",
+    "texto": "Kopyalandı"
+  },
+  {
+    "clave": "sala.hoja.guardar",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "sala.hoja.guardado",
+    "texto": "Kaydedildi"
+  },
+  {
+    "clave": "sala.hoja.borrarPlan",
+    "texto": "Planı sil"
+  },
+  {
+    "clave": "sala.hoja.confirmarBorrar",
+    "texto": "Planın tamamı silinsin mi?"
+  },
+  {
+    "clave": "sala.hoja.si",
+    "texto": "Evet"
+  },
+  {
+    "clave": "sala.hoja.no",
+    "texto": "Hayır"
+  },
+  {
+    "clave": "sala.hoja.copiarManual",
+    "texto": "Otomatik kopyalanamadı. Metni seç ve kopyala (Ctrl+C):"
+  },
+  {
+    "clave": "sala.ig.vacio",
+    "texto": "Henüz kaydedilmiş bir gezi planın yok. Bir yerin planından \"💾 Kaydet\"e dokun."
+  },
+  {
+    "clave": "sala.ig.confirmarBorrar",
+    "texto": "Bu kayıtlı gezi planı silinsin mi?"
+  },
+  {
+    "clave": "sala.ig.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "sala.hoja.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "sala.bit.itinerario",
+    "texto": "Gezi planı"
+  },
+  {
+    "clave": "sala.rutas.crear",
+    "texto": "Yeni rota"
+  },
+  {
+    "clave": "sala.rutas.nueva",
+    "texto": "Yeni rota"
+  },
+  {
+    "clave": "sala.rutas.editar",
+    "texto": "Rotayı düzenle"
+  },
+  {
+    "clave": "sala.rutas.nombre",
+    "texto": "Rota adı (örn. Eurotrip 2027)"
+  },
+  {
+    "clave": "sala.rutas.agregarParada",
+    "texto": "Durak ekle (haritada işaretli yerler)…"
+  },
+  {
+    "clave": "sala.rutas.sinElegibles",
+    "texto": "Henüz haritada işaretli bir yer yok: önce koordinatlı yerler ekle."
+  },
+  {
+    "clave": "sala.rutas.cancelar",
+    "texto": "İptal"
+  },
+  {
+    "clave": "sala.rutas.guardar",
+    "texto": "Rotayı kaydet"
+  },
+  {
+    "clave": "sala.rutas.min",
+    "texto": "Bir rota en az 2 durak gerektirir."
+  },
+  {
+    "clave": "sala.rutas.paradas",
+    "texto": "{n} durak"
+  },
+  {
+    "clave": "sala.rutas.vacio",
+    "texto": "Henüz rota yok. Yerlerini bir güzergahta birleştir."
+  },
+  {
+    "clave": "sala.bit.sinVisitados",
+    "texto": "Seyir defteri, ziyaret ettiğin yerlerle yazılır. Haritaya bir iğne bırak ya da gezi planını ✓ ile işaretle."
+  },
+  {
+    "clave": "sala.bit.portada",
+    "texto": "Kapak"
+  },
+  {
+    "clave": "sala.bit.portadaPaisTip",
+    "texto": "Bu klasörün kapak fotoğrafını seç"
+  },
+  {
+    "clave": "sala.bit.portadaLugarTip",
+    "texto": "Bu yerin kapak fotoğrafını seç"
+  },
+  {
+    "clave": "sala.bit.ph",
+    "texto": "Orada ne oldu? Senin hikayen…"
+  },
+  {
+    "clave": "sala.bit.foto",
+    "texto": "Fotoğraf"
+  },
+  {
+    "clave": "sala.bit.guardar",
+    "texto": "Anıyı kaydet"
+  },
+  {
+    "clave": "sala.bit.recuerdo",
+    "texto": "Anı"
+  },
+  {
+    "clave": "sala.bit.sinRecuerdos",
+    "texto": "Henüz anı yok: bir fotoğraf ve hikayeni kaydet."
+  },
+  {
+    "clave": "sala.bit.visitadoEl",
+    "texto": "{f} tarihinde ziyaret edildi"
+  },
+  {
+    "clave": "sala.bit.albumes",
+    "texto": "Albümler"
+  },
+  {
+    "clave": "sala.bit.unLugar",
+    "texto": "1 yer"
+  },
+  {
+    "clave": "sala.bit.nLugares",
+    "texto": "{n} yer"
+  },
+  {
+    "clave": "sala.bit.unRecuerdo",
+    "texto": "1 anı"
+  },
+  {
+    "clave": "sala.bit.nRecuerdos",
+    "texto": "{n} anı"
+  },
+  {
+    "clave": "jardin.desc",
+    "texto": "Huzur alanın: ses parçalarıyla meditasyon, nefes ve şükran. Puan yok, seri yok — bahçe sadece büyür."
+  },
+  {
+    "clave": "jardin.tab.meditacion",
+    "texto": "Meditasyon"
+  },
+  {
+    "clave": "jardin.tab.respiracion",
+    "texto": "Nefes"
+  },
+  {
+    "clave": "jardin.tab.gratitud",
+    "texto": "Şükran"
+  },
+  {
+    "clave": "jardin.calma.titulo",
+    "texto": "Birikmiş huzur"
+  },
+  {
+    "clave": "jardin.calma.mes",
+    "texto": "bu ay huzurlu gün"
+  },
+  {
+    "clave": "jardin.calma.mes1",
+    "texto": "bu ay huzurlu gün"
+  },
+  {
+    "clave": "jardin.calma.siguiente",
+    "texto": "{etapa}’a {n} dk kaldı"
+  },
+  {
+    "clave": "jardin.etapa.semilla",
+    "texto": "Tohum"
+  },
+  {
+    "clave": "jardin.etapa.brote",
+    "texto": "Filiz"
+  },
+  {
+    "clave": "jardin.etapa.retono",
+    "texto": "Fide"
+  },
+  {
+    "clave": "jardin.etapa.planta",
+    "texto": "Bitki"
+  },
+  {
+    "clave": "jardin.etapa.arbol",
+    "texto": "Genç ağaç"
+  },
+  {
+    "clave": "jardin.etapa.flor",
+    "texto": "Çiçek açan bahçe"
+  },
+  {
+    "clave": "jardin.etapa.bosque",
+    "texto": "Huzurlu orman"
+  },
+  {
+    "clave": "jardin.pista.bosque",
+    "texto": "Orman sesleri"
+  },
+  {
+    "clave": "jardin.pista.bosque.desc",
+    "texto": "Ağaçların arasında rüzgar ve uzaktan kuş sesleri."
+  },
+  {
+    "clave": "jardin.pista.mar",
+    "texto": "Deniz sesleri"
+  },
+  {
+    "clave": "jardin.pista.mar.desc",
+    "texto": "Acele etmeden gelip giden dalgalar."
+  },
+  {
+    "clave": "jardin.pista.lluvia",
+    "texto": "Yağmur"
+  },
+  {
+    "clave": "jardin.pista.lluvia.desc",
+    "texto": "Pencereden izleniyormuş gibi sakin bir yağmur."
+  },
+  {
+    "clave": "jardin.pista.cuencos",
+    "texto": "Tibet çanakları"
+  },
+  {
+    "clave": "jardin.pista.cuencos.desc",
+    "texto": "Kendiliğinden sönen uzun rezonanslar."
+  },
+  {
+    "clave": "jardin.med.pistas",
+    "texto": "Ses parçaları"
+  },
+  {
+    "clave": "jardin.med.duracion",
+    "texto": "Süre"
+  },
+  {
+    "clave": "jardin.med.comenzar",
+    "texto": "Meditasyona başla"
+  },
+  {
+    "clave": "jardin.med.libre",
+    "texto": "Serbest zamanlayıcı"
+  },
+  {
+    "clave": "jardin.med.libre.desc",
+    "texto": "Sadece sen ve başta ile sonda bir çan sesi."
+  },
+  {
+    "clave": "jardin.med.comenzarLibre",
+    "texto": "Çanla başla"
+  },
+  {
+    "clave": "jardin.ses.pausar",
+    "texto": "Duraklat"
+  },
+  {
+    "clave": "jardin.ses.reanudar",
+    "texto": "Devam et"
+  },
+  {
+    "clave": "jardin.ses.terminar",
+    "texto": "Bitir"
+  },
+  {
+    "clave": "jardin.ses.pausada",
+    "texto": "Duraklatıldı"
+  },
+  {
+    "clave": "jardin.ses.completa",
+    "texto": "Oturum tamamlandı"
+  },
+  {
+    "clave": "jardin.ses.sumaste",
+    "texto": "{n} dk huzur ekledin"
+  },
+  {
+    "clave": "jardin.ses.llegaste",
+    "texto": "Vardın"
+  },
+  {
+    "clave": "jardin.chk.antes",
+    "texto": "Şu an nasıl hissediyorsun?"
+  },
+  {
+    "clave": "jardin.chk.despues",
+    "texto": "Bitirince nasıl hissediyorsun?"
+  },
+  {
+    "clave": "jardin.chk.saltar",
+    "texto": "Atla"
+  },
+  {
+    "clave": "jardin.gra.hoy",
+    "texto": "Bugün minnettarım…"
+  },
+  {
+    "clave": "jardin.gra.desc",
+    "texto": "Bir tanesi yeter. Üç, daha iyi."
+  },
+  {
+    "clave": "jardin.gra.ph1",
+    "texto": "Bugünden bir şey ya da biri…"
+  },
+  {
+    "clave": "jardin.gra.ph2",
+    "texto": "Genelde hafife aldığın küçük bir şey…"
+  },
+  {
+    "clave": "jardin.gra.ph3",
+    "texto": "Kendinle ilgili değer verdiğin bir şey…"
+  },
+  {
+    "clave": "jardin.gra.guardar",
+    "texto": "Şükranları kaydet"
+  },
+  {
+    "clave": "jardin.gra.guardado",
+    "texto": "Kaydedildi"
+  },
+  {
+    "clave": "jardin.gra.historial",
+    "texto": "Önceki kayıtlar"
+  },
+  {
+    "clave": "jardin.gra.vacio",
+    "texto": "Kaydettiğin şükranlar burada görünecek."
+  },
+  {
+    "clave": "jardin.gra.hoyTag",
+    "texto": "Bugün"
+  },
+  {
+    "clave": "garage.tab.resumen",
+    "texto": "Özet"
+  },
+  {
+    "clave": "garage.tab.vehiculos",
+    "texto": "Araçlar"
+  },
+  {
+    "clave": "garage.detalle.tab.tramites",
+    "texto": "İşlemler"
+  },
+  {
+    "clave": "garage.detalle.tab.documentos",
+    "texto": "Belgeler"
+  },
+  {
+    "clave": "garage.detalle.tab.contactos",
+    "texto": "Kişiler"
+  },
+  {
+    "clave": "garage.desc",
+    "texto": "Araçların: bakım ve masraflar, takvimine planlanan işlemler ve kişi rehberin."
+  },
+  {
+    "clave": "garage.r.vehiculos",
+    "texto": "Araçlar"
+  },
+  {
+    "clave": "garage.r.servicios",
+    "texto": "Servisler"
+  },
+  {
+    "clave": "garage.r.tramites",
+    "texto": "İşlemler"
+  },
+  {
+    "clave": "garage.r.hero.vencido",
+    "texto": "{n} gecikmiş şey"
+  },
+  {
+    "clave": "garage.r.hero.vencidoDet",
+    "texto": "Karmaşıklaşmadan önce güncel duruma gel."
+  },
+  {
+    "clave": "garage.r.hero.proximo",
+    "texto": "{n} yaklaşıyor"
+  },
+  {
+    "clave": "garage.r.hero.proximoDet",
+    "texto": "Gecikmiş hiçbir şey yok: sadece yolda olanlar."
+  },
+  {
+    "clave": "garage.r.hero.alDia",
+    "texto": "Hepsi güncel"
+  },
+  {
+    "clave": "garage.r.hero.alDiaDet",
+    "texto": "Bekleyen bakım ya da işlem yok."
+  },
+  {
+    "clave": "garage.r.vacioTitulo",
+    "texto": "Garaj boş"
+  },
+  {
+    "clave": "garage.veh.servicios",
+    "texto": "{n} servis"
+  },
+  {
+    "clave": "garage.veh.servicio",
+    "texto": "1 servis"
+  },
+  {
+    "clave": "garage.tram.vencidoMeses",
+    "texto": "{n} ay gecikti"
+  },
+  {
+    "clave": "garage.tram.faltanMeses",
+    "texto": "{n} ay sonra"
+  },
+  {
+    "clave": "garage.tram.faltanAnios",
+    "texto": "{n} yıl sonra"
+  },
+  {
+    "clave": "garage.r.odoPasado",
+    "texto": "hedeften {n} {u} geçti"
+  },
+  {
+    "clave": "garage.r.odoAlcanzado",
+    "texto": "planlanan kilometreye ulaştı"
+  },
+  {
+    "clave": "garage.r.odoFaltan",
+    "texto": "{n} {u} kaldı"
+  },
+  {
+    "clave": "garage.detalle.gastoTotal",
+    "texto": "Toplam {c}"
+  },
+  {
+    "clave": "garage.form.pistaPlacas",
+    "texto": "Plaka eklersen taşıt vergisi, egzoz muayenesi, ruhsat ve sigorta işlemlerinin kilidi açılır."
+  },
+  {
+    "clave": "garage.borrar.confirmar",
+    "texto": "Silinsin mi?"
+  },
+  {
+    "clave": "garage.borrar.si",
+    "texto": "Evet"
+  },
+  {
+    "clave": "garage.borrar.no",
+    "texto": "Hayır"
+  },
+  {
+    "clave": "garage.r.gasto",
+    "texto": "{año} Gideri"
+  },
+  {
+    "clave": "garage.r.vencido",
+    "texto": "Gecikmiş bakım"
+  },
+  {
+    "clave": "garage.r.proximo",
+    "texto": "Yaklaşan"
+  },
+  {
+    "clave": "garage.r.sinAlertas",
+    "texto": "Uyarı yok. Bildirim almak için her bakımda bir sonraki servisi kaydet."
+  },
+  {
+    "clave": "garage.r.sinVehiculos",
+    "texto": "İlk bisikletini, arabanı ya da motosikletini Araçlar sekmesinden ekle."
+  },
+  {
+    "clave": "garage.veh.añadir",
+    "texto": "Araç ekle"
+  },
+  {
+    "clave": "garage.veh.vacio",
+    "texto": "Bisikletler, arabalar, motosikletler ve daha fazlası — hepsi tek bir garajda."
+  },
+  {
+    "clave": "garage.form.editar",
+    "texto": "Aracı düzenle"
+  },
+  {
+    "clave": "garage.form.nuevo",
+    "texto": "Yeni araç"
+  },
+  {
+    "clave": "garage.form.nombre",
+    "texto": "Ad *"
+  },
+  {
+    "clave": "garage.form.tipo",
+    "texto": "Tür"
+  },
+  {
+    "clave": "garage.form.marca",
+    "texto": "Marka"
+  },
+  {
+    "clave": "garage.form.modelo",
+    "texto": "Model"
+  },
+  {
+    "clave": "garage.form.año",
+    "texto": "Yıl"
+  },
+  {
+    "clave": "garage.form.placas",
+    "texto": "Plaka / seri"
+  },
+  {
+    "clave": "garage.form.odo",
+    "texto": "Güncel kilometre"
+  },
+  {
+    "clave": "garage.form.unidad",
+    "texto": "Birim"
+  },
+  {
+    "clave": "garage.form.km",
+    "texto": "Kilometre"
+  },
+  {
+    "clave": "garage.form.mi",
+    "texto": "Mil"
+  },
+  {
+    "clave": "garage.form.notas",
+    "texto": "Notlar"
+  },
+  {
+    "clave": "garage.form.guardar",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "garage.form.cancelar",
+    "texto": "İptal"
+  },
+  {
+    "clave": "garage.detalle.volver",
+    "texto": "‹ Garaja dön"
+  },
+  {
+    "clave": "garage.detalle.odo",
+    "texto": "Güncel kilometre ({unit})"
+  },
+  {
+    "clave": "garage.detalle.actualizar",
+    "texto": "Güncelle"
+  },
+  {
+    "clave": "garage.detalle.servicios",
+    "texto": "{n} servis kaydedildi · Toplam gider {cost}"
+  },
+  {
+    "clave": "garage.detalle.registrar",
+    "texto": "Bakım kaydet"
+  },
+  {
+    "clave": "garage.detalle.historial",
+    "texto": "Geçmiş"
+  },
+  {
+    "clave": "garage.detalle.sinServicios",
+    "texto": "Henüz servis yok. Son yağ değişimini, zinciri vb. kaydet."
+  },
+  {
+    "clave": "garage.detalle.editar",
+    "texto": "Düzenle"
+  },
+  {
+    "clave": "garage.detalle.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "garage.detalle.proximo",
+    "texto": "Sıradaki:"
+  }
+]

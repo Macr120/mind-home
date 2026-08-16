@@ -1,0 +1,214 @@
+[
+  {
+    "clave": "tut.cuenta-ia.resumen",
+    "texto": "AI schakel je in via Editor › Instellingen. Elke bewerking —een antwoord, een plan, een afbeelding, een 3D-model— heeft zijn prijs in credits, zichtbaar voordat je erom vraagt. Met je eigen providersleutel worden geen credits verbruikt: je betaalt rechtstreeks aan de provider."
+  },
+  {
+    "clave": "tut.ejemplos.titulo",
+    "texto": "Beginnen met een voorbeeld"
+  },
+  {
+    "clave": "tut.ejemplos.resumen",
+    "texto": "Bijna elke app heeft een balk om een kant-en-klaar voorbeeld met al ingevulde gegevens te bekijken, en die later weer te verbergen zonder iets van jezelf te verliezen. In het demohuis zie je hem niet: daar IS het hele jaar al het voorbeeld."
+  },
+  {
+    "clave": "tut.hoy.titulo",
+    "texto": "Vandaag"
+  },
+  {
+    "clave": "tut.hoy.resumen",
+    "texto": "De lijst Vandaag van elke app brengt drie dingen samen op één plek: de dagelijkse doelen van die app, wat je voor vandaag hebt gepland en de stappen van je actieve doelen. Een stap is voltooid omdat de registratie al in de app staat, niet omdat iemand hem met de hand heeft aangevinkt."
+  },
+  {
+    "clave": "tut.progreso.titulo",
+    "texto": "Jouw voortgang"
+  },
+  {
+    "clave": "tut.progreso.resumen",
+    "texto": "Jouw personage leeft van je echte activiteit: zijn stemming, zijn niveau, de Sisyphusberg (rang en badges) en de XP-radar per kamer. Alles wordt berekend uit wat je al hebt geregistreerd, niets wordt met de hand ingesteld."
+  },
+  {
+    "clave": "tut.wrapped.titulo",
+    "texto": "Wrapped: jouw samenvatting"
+  },
+  {
+    "clave": "tut.wrapped.resumen",
+    "texto": "De samenvatting van de periode —week, maand of jaar— verteld in dia's, met achtergrondmuziek en een vergelijking met de vorige periode. Je deelt hem als tekst, rechtstreeks vanaf de dia zelf."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.titulo",
+    "texto": "De cyclus van de moestuin"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.resumen",
+    "texto": "Een wandeling door de levende moestuin van het toevluchtsoord: de fases van elk gewas, de irrigatie, de oogst en de mand met een jaar werk erin."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.titulo",
+    "texto": "Vanaf nul zaaien"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.resumen",
+    "texto": "Hoe je de grond voorbereidt, een soort kiest en een fout ongedaan maakt — en het écht uitprobeert in het toevluchtsoord."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.titulo",
+    "texto": "Voor het toevluchtsoord zorgen"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.resumen",
+    "texto": "Voeren, aaien, schoonmaken en genezen van de geredde dieren van het toevluchtsoord — met een vies hok en een ziek varken dat echt op je wacht."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.titulo",
+    "texto": "Hokken en capaciteit"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.resumen",
+    "texto": "Hoe je een hok bouwt, vult met de juiste soorten en voorziet van speelgoed en namen."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.titulo",
+    "texto": "Racen op de baan"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.resumen",
+    "texto": "De demobaan, de finish, hoe je een race start terwijl je in het zadel zit, en Peps recordtabel die je kunt verbreken."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.titulo",
+    "texto": "Baan, rail en achtbaan"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.resumen",
+    "texto": "De drie soorten tracés op de kaart en hoe je ze in je eigen huis tekent."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.titulo",
+    "texto": "Spelen op de velden"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.resumen",
+    "texto": "Het sportcomplex van de demo: hoe elk spel begint zodra je het veld betreedt, en Peps scoreborden die je kunt verbeteren."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.titulo",
+    "texto": "Paintballgevecht"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.resumen",
+    "texto": "Hoe je een 1v1-, 2v2- of vrij-voor-allen-gevecht tegen de assistenten opzet, met het hele huis als speelveld."
+  },
+  {
+    "clave": "bienvenida.titulo",
+    "texto": "Welkom bij Mind Planner Home"
+  },
+  {
+    "clave": "bienvenida.paso",
+    "texto": "Stap {n} van {m}"
+  },
+  {
+    "clave": "bienvenida.idioma.titulo",
+    "texto": "In welke taal wil je het huis?"
+  },
+  {
+    "clave": "bienvenida.idioma.desc",
+    "texto": "Je kunt dit later wijzigen in Instellingen."
+  },
+  {
+    "clave": "bienvenida.intereses.titulo",
+    "texto": "Wat wil je hier bijhouden?"
+  },
+  {
+    "clave": "bienvenida.intereses.desc",
+    "texto": "Elke interesse wordt een kamer in je huis met zijn eigen app. Kies er zoveel als je wilt."
+  },
+  {
+    "clave": "bienvenida.intereses.todas",
+    "texto": "Je huis heeft al alle beschikbare apps."
+  },
+  {
+    "clave": "bienvenida.apariencia.titulo",
+    "texto": "Hoe wil je dat de interface eruitziet?"
+  },
+  {
+    "clave": "bienvenida.personaje.titulo",
+    "texto": "Welk personage wil je zijn?"
+  },
+  {
+    "clave": "bienvenida.personaje.desc",
+    "texto": "Dit wordt je lichaam in het huis. Je kunt het later verder aanpassen in de editor."
+  },
+  {
+    "clave": "bienvenida.personaje.generando",
+    "texto": "Voorbeelden voorbereiden…"
+  },
+  {
+    "clave": "bienvenida.asistente.titulo",
+    "texto": "Wie houdt je gezelschap?"
+  },
+  {
+    "clave": "bienvenida.asistente.desc",
+    "texto": "Je assistent chat met je en leeft op de kaart."
+  },
+  {
+    "clave": "bienvenida.atras",
+    "texto": "Terug"
+  },
+  {
+    "clave": "bienvenida.siguiente",
+    "texto": "Volgende"
+  },
+  {
+    "clave": "bienvenida.crear",
+    "texto": "Mijn huis maken"
+  },
+  {
+    "clave": "bienvenida.creando",
+    "texto": "Je huis wordt gemaakt…"
+  },
+  {
+    "clave": "bienvenida.final.titulo",
+    "texto": "Je huis is klaar!"
+  },
+  {
+    "clave": "bienvenida.cuenta",
+    "texto": "Account aanmaken of inloggen (synchroniseert je huis)"
+  },
+  {
+    "clave": "bienvenida.guia.desc",
+    "texto": "Drie stappen om de slag te pakken te krijgen."
+  },
+  {
+    "clave": "bienvenida.guia.empezar",
+    "texto": "Beginnen"
+  },
+  {
+    "clave": "bienvenida.guia.repetir",
+    "texto": "Herhalen"
+  },
+  {
+    "clave": "bienvenida.guia.salir",
+    "texto": "Naar het huis"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.titulo",
+    "texto": "Maak een kamer"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.desc",
+    "texto": "Ik laat je zien hoe je een kamer maakt en er een app aan geeft."
+  },
+  {
+    "clave": "bienvenida.guia.tour.titulo",
+    "texto": "Verken je huis"
+  },
+  {
+    "clave": "bienvenida.guia.tour.desc",
+    "texto": "Een rondleiding langs het menu, de beweging, de klok en de chat."
+  },
+  {
+    "clave": "bienvenida.guia.explorar.titulo",
+    "texto": "Verken zelf"
+  }
+]

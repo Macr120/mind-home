@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "各个应用会自己排期：日程里的预约、床·休息里的睡眠、图书馆里的学习时段。用筛选就能只看一个应用。"
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "在一年里穿行"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "‹ › 箭头带你走过一个个时段，“今天”回到当下。Pep 的一整年都在这里，一周接一周。用“+ 新建”创建活动，也可以直接在网格上画出来。"
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "一个习惯一个习惯地看"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "每一行是一个日常安排，每一列是一天：完成了就变绿。可以直接在这里打勾，上方的百分比会汇总你正在看的时段。"
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "一年的弧线"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "在“年”视图里，图表讲的是完整的故事：Pep 一开始只做到自己定下的三分之一，最后超过了 85%。坚持是一点点建起来的，不是突然出现的。"
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "低谷也算数"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "两个凹陷都是真的：第 7 个月的膝伤，还有在日本的三周。漏掉几天不会抹掉进度——面板显示的是这一年真实的样子，不是它应该的样子。而且日常安排只从你创建它的那天开始计数。"
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "先看目标"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "视图从“目标”打开，按负责它们的应用分组：跑步在“健身房”，物理学位在“图书馆”。“家”不是应用——那是 Pep 为厨房改造自己起的类别。"
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "从目标到它的计划"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "每一行都像一块看板：它在文件夹里的编号、期限、进度和状态——“待办”“进行中”“已完成”，取决于完成了多少。点一下就打开目标：有计划就看计划（✨ 会标出来），没有的话就看它的表格，里面是子目标、日期和步骤。"
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "三个计划，三种状态"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "厨房和下一场马拉松还是提案；研究生申请已经进了日程。马拉松那个是没定截止日期就请的：AI 算出它需要 24 周，并写在了摘要里。"
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "计划的表格"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "六个阶段和它们的子目标，每个都有自己的时段。还是提案的时候，整份都能改：改名、挪日期、增删节点，都不会打乱其他部分。"
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "先打勾，不用承诺"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "提案的勾只留在表格里，不进你的目标：不动日程也能标记已完成的部分。进度条会自己往上填满——厨房的规划已经收尾了。"
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "移入实际日程"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "这个按钮会把每个阶段和每个子目标变成真正的目标，日期都填好，挂在原来的目标下面。目标里原本就有的东西都会保留。"
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "接受之后，只有一个事实"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "研究生的计划已经移过去了。现在它的勾就是真实子目标的勾，进度条就是你日程里的那条：表格不再另算一份。"
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "看，它们就在轴上"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "从计划生出的子目标在日程上占住各自的时段，计划以紫色叠在上面：提案和实际，在同一条轴上。"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "一年的学业，长成一棵树"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep 学的是物理：年初是力学，第 6 个月期中考前是热力学，最后是相对论和天体物理。展开每根枝条就能看到里面的条目。"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "树会跟着你长"
+  }
+]

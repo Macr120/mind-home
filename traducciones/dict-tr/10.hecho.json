@@ -1,0 +1,522 @@
+[
+  {
+    "clave": "idiomas.rep.paraHoy",
+    "texto": "bugün {idioma} dilinde tekrar edilecek kart"
+  },
+  {
+    "clave": "idiomas.rep.empezar",
+    "texto": "Tekrarı başlat"
+  },
+  {
+    "clave": "idiomas.rep.sinTarjetas",
+    "texto": "Henüz tekrar edilecek bir şey yok: Kelimeler sekmesinden ya da öğretmeninle sohbet ederek kelime oluştur."
+  },
+  {
+    "clave": "idiomas.rep.alDia",
+    "texto": "Her şey güncel: bekleyen kart yok. Yarın tekrar gel ya da serbest tekrar yap."
+  },
+  {
+    "clave": "idiomas.rep.libre",
+    "texto": "Serbest tekrar"
+  },
+  {
+    "clave": "idiomas.rep.libreTag",
+    "texto": "Serbest tekrar"
+  },
+  {
+    "clave": "idiomas.rep.quedan",
+    "texto": "{n} kaldı"
+  },
+  {
+    "clave": "idiomas.rep.marcador",
+    "texto": "{aciertos}/{hecho} doğru"
+  },
+  {
+    "clave": "idiomas.rep.mostrar",
+    "texto": "Cevabı göster"
+  },
+  {
+    "clave": "idiomas.rep.noSabia",
+    "texto": "Bilmiyordum"
+  },
+  {
+    "clave": "idiomas.rep.siSabia",
+    "texto": "Biliyordum"
+  },
+  {
+    "clave": "idiomas.rep.salir",
+    "texto": "Bugünlük bu kadar"
+  },
+  {
+    "clave": "idiomas.rep.ilustrar",
+    "texto": "Bu kartı resimle"
+  },
+  {
+    "clave": "idiomas.rep.cambiarIlustracion",
+    "texto": "Resmi değiştir"
+  },
+  {
+    "clave": "idiomas.rep.verMazo",
+    "texto": "Desteyi gör"
+  },
+  {
+    "clave": "idiomas.rep.verMazoHoy",
+    "texto": "Bugünün kartlarını gör"
+  },
+  {
+    "clave": "idiomas.ilustrar.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "idiomas.ilustrar.nota",
+    "texto": "Resim, cevabı açtığında görünür: anlamı aklında sabitleyen ipucu odur."
+  },
+  {
+    "clave": "idiomas.ilustrar.nota2",
+    "texto": "Görsel ve ses bir arada: kart alıştırmalarda çıktığında anlamı sabitleyen ipucu."
+  },
+  {
+    "clave": "idiomas.rep.fin",
+    "texto": "Oturum bitti!"
+  },
+  {
+    "clave": "idiomas.rep.finDetalle",
+    "texto": "{total} cevaptan {aciertos} doğru"
+  },
+  {
+    "clave": "idiomas.rep.listo",
+    "texto": "Tamam"
+  },
+  {
+    "clave": "idiomas.ej.modo.opcion",
+    "texto": "Anlamı ne?"
+  },
+  {
+    "clave": "idiomas.ej.modo.inverso",
+    "texto": "Ters"
+  },
+  {
+    "clave": "idiomas.ej.modo.cloze",
+    "texto": "Boşluk doldur"
+  },
+  {
+    "clave": "idiomas.ej.descOpcion",
+    "texto": "{idioma} dilinde bir terim gösterilir, sen çevirisini seçersin."
+  },
+  {
+    "clave": "idiomas.ej.descInverso",
+    "texto": "Çeviri gösterilir, sen {idioma} dilindeki doğru terimi seçersin."
+  },
+  {
+    "clave": "idiomas.ej.descCloze",
+    "texto": "Örnek cümleyi eksik terimle tamamla."
+  },
+  {
+    "clave": "idiomas.ej.pocas",
+    "texto": "Alıştırma oluşturmak için en az 4 {idioma} kartına ihtiyacın var."
+  },
+  {
+    "clave": "idiomas.ej.pocas2",
+    "texto": "Alıştırma oluşturmak için en az 4 {idioma} kartına ihtiyacın var: bunları müfredattan, öğretmeninle sohbet ederek ya da yapay zekâdan isteyerek oluşturabilirsin."
+  },
+  {
+    "clave": "idiomas.ej.fuente",
+    "texto": "Neyi tekrar ediyorsun"
+  },
+  {
+    "clave": "idiomas.ej.fuenteTip",
+    "texto": "Tura giren kartlar"
+  },
+  {
+    "clave": "idiomas.ej.fuenteHoy",
+    "texto": "Bugün sırası gelenler ({n})"
+  },
+  {
+    "clave": "idiomas.ej.fuenteTodo",
+    "texto": "Tüm kelimeler ({n})"
+  },
+  {
+    "clave": "idiomas.ej.temaVacio",
+    "texto": "Bu konunun henüz kartı yok. Başka bir konu seç ya da müfredattan oluştur."
+  },
+  {
+    "clave": "idiomas.ej.sinCloze",
+    "texto": "Hiçbir kartın, terimini içeren örnek cümlesi yok: boşluk doldurmayı çalışmak için örnek ekle."
+  },
+  {
+    "clave": "idiomas.ej.empezar",
+    "texto": "Alıştırmalara başla"
+  },
+  {
+    "clave": "idiomas.ej.siguiente",
+    "texto": "Sonraki"
+  },
+  {
+    "clave": "idiomas.ej.verResumen",
+    "texto": "Özeti gör"
+  },
+  {
+    "clave": "idiomas.ej.fin",
+    "texto": "{total} sorudan {aciertos} doğru"
+  },
+  {
+    "clave": "idiomas.ej.cambiarModo",
+    "texto": "Modu değiştir"
+  },
+  {
+    "clave": "idiomas.ej.otraRonda",
+    "texto": "Başka bir tur"
+  },
+  {
+    "clave": "idiomas.ej.reto.libre",
+    "texto": "Acele yok"
+  },
+  {
+    "clave": "idiomas.ej.reto.vidas",
+    "texto": "Üç can"
+  },
+  {
+    "clave": "idiomas.ej.reto.contrarreloj",
+    "texto": "Zamana karşı"
+  },
+  {
+    "clave": "idiomas.ej.descLibre",
+    "texto": "{n} sorudan oluşan bir tur, acele etme."
+  },
+  {
+    "clave": "idiomas.ej.descVidas",
+    "texto": "Canların bitmediği sürece devam edersin: her yanlış bir can götürür."
+  },
+  {
+    "clave": "idiomas.ej.descReloj",
+    "texto": "{n} saniyede yapabildiğin kadarını çöz; hızlı cevap ekstra puan kazandırır."
+  },
+  {
+    "clave": "idiomas.ej.mult",
+    "texto": "{n}×"
+  },
+  {
+    "clave": "idiomas.ej.vidas",
+    "texto": "{n} can"
+  },
+  {
+    "clave": "idiomas.ej.terminar",
+    "texto": "Turu bitir"
+  },
+  {
+    "clave": "idiomas.ej.mejorCombo",
+    "texto": "en iyi seri {n}"
+  },
+  {
+    "clave": "idiomas.medalla.perfecta",
+    "texto": "Mükemmel tur"
+  },
+  {
+    "clave": "idiomas.medalla.combo10",
+    "texto": "Art arda on"
+  },
+  {
+    "clave": "idiomas.medalla.relampago",
+    "texto": "Şimşek"
+  },
+  {
+    "clave": "idiomas.medalla.superviviente",
+    "texto": "Hayatta kalan"
+  },
+  {
+    "clave": "idiomas.medalla.maraton",
+    "texto": "Maraton"
+  },
+  {
+    "clave": "idiomas.mis.titulo",
+    "texto": "Bugünün görevleri"
+  },
+  {
+    "clave": "idiomas.mis.resp20",
+    "texto": "20 alıştırma çöz"
+  },
+  {
+    "clave": "idiomas.mis.resp40",
+    "texto": "40 alıştırma çöz"
+  },
+  {
+    "clave": "idiomas.mis.acierta15",
+    "texto": "15 doğru cevap ver"
+  },
+  {
+    "clave": "idiomas.mis.acierta30",
+    "texto": "30 doğru cevap ver"
+  },
+  {
+    "clave": "idiomas.mis.combo8",
+    "texto": "Art arda 8 doğru cevap ver"
+  },
+  {
+    "clave": "idiomas.mis.combo12",
+    "texto": "Art arda 12 doğru cevap ver"
+  },
+  {
+    "clave": "idiomas.mis.partidas2",
+    "texto": "2 tur oyna"
+  },
+  {
+    "clave": "idiomas.mis.partidas4",
+    "texto": "4 tur oyna"
+  },
+  {
+    "clave": "idiomas.mis.perfecta1",
+    "texto": "Mükemmel bir tur tamamla"
+  },
+  {
+    "clave": "idiomas.mis.modos3",
+    "texto": "3 modun üçünü de dene"
+  },
+  {
+    "clave": "idiomas.rec.titulo",
+    "texto": "Alıştırma rekorları"
+  },
+  {
+    "clave": "idiomas.rec.mejorCombo",
+    "texto": "En iyi seri"
+  },
+  {
+    "clave": "idiomas.rec.vacio",
+    "texto": "Henüz hiç tur oynamadın."
+  },
+  {
+    "clave": "idiomas.nivel.A1",
+    "texto": "Başlangıç"
+  },
+  {
+    "clave": "idiomas.nivel.A2",
+    "texto": "Temel"
+  },
+  {
+    "clave": "idiomas.nivel.B1",
+    "texto": "Orta"
+  },
+  {
+    "clave": "idiomas.nivel.B2",
+    "texto": "Orta-üstü"
+  },
+  {
+    "clave": "idiomas.nivel.C1",
+    "texto": "İleri"
+  },
+  {
+    "clave": "idiomas.nivel.C2",
+    "texto": "Ustalık"
+  },
+  {
+    "clave": "idiomas.tem.tuNivel",
+    "texto": "seviyen"
+  },
+  {
+    "clave": "idiomas.tem.cobertura",
+    "texto": "{c}/{total} konuda kelime var"
+  },
+  {
+    "clave": "idiomas.tem.nTarjetas",
+    "texto": "Bu konuda {n} kart"
+  },
+  {
+    "clave": "idiomas.tem.prompt.temas",
+    "texto": "«{tema}» konusunu çalışmak istiyorum. Başlayalım."
+  },
+  {
+    "clave": "idiomas.tem.prompt.pronunciacion",
+    "texto": "Telaffuzum üzerinde çalışmak istiyorum: «{tema}». Açıkla ve tekrar edebileceğim örnekler ver."
+  },
+  {
+    "clave": "idiomas.tem.prompt.gramatica",
+    "texto": "«{tema}» konusunun dil bilgisini örneklerle açıkla, sonra bana alıştırmalar ver."
+  },
+  {
+    "clave": "idiomas.tem.charlarTip",
+    "texto": "Bu konuyu öğretmeninle çalış"
+  },
+  {
+    "clave": "idiomas.tem.verTarjetasTip",
+    "texto": "Bu konunun kartlarını gör"
+  },
+  {
+    "clave": "idiomas.tem.generarTip",
+    "texto": "Bu konunun kelimelerini yapay zekâyla oluştur"
+  },
+  {
+    "clave": "idiomas.tem.materialTip",
+    "texto": "Bu konuya ait notların ve görsellerin"
+  },
+  {
+    "clave": "idiomas.tem.practicarTip",
+    "texto": "Bu konunun kartlarıyla alıştırmalar"
+  },
+  {
+    "clave": "idiomas.tem.sinTarjetas",
+    "texto": "Bu konunun henüz kartı yok."
+  },
+  {
+    "clave": "idiomas.tem.edicionDesc",
+    "texto": "Müfredatın tamamını kendine göre şekillendir: alanlar, seviyeler, konular ve alt konular eklenir, yeniden adlandırılır, sıralanır ve silinir."
+  },
+  {
+    "clave": "idiomas.tem.modoEdicion",
+    "texto": "Müfredatı düzenle"
+  },
+  {
+    "clave": "idiomas.tem.subir",
+    "texto": "Yukarı taşı"
+  },
+  {
+    "clave": "idiomas.tem.bajar",
+    "texto": "Aşağı taşı"
+  },
+  {
+    "clave": "idiomas.tem.izquierda",
+    "texto": "Sola taşı"
+  },
+  {
+    "clave": "idiomas.tem.derecha",
+    "texto": "Sağa taşı"
+  },
+  {
+    "clave": "idiomas.tem.renombrar",
+    "texto": "Yeniden adlandır"
+  },
+  {
+    "clave": "idiomas.tem.borrar",
+    "texto": "Konuyu sil"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTema",
+    "texto": "{nivel} seviyesinde yeni konu"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaTit",
+    "texto": "Yeni konu"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaMsg",
+    "texto": "{nivel} · {area} içinde"
+  },
+  {
+    "clave": "idiomas.tem.nuevoSubtema",
+    "texto": "Yeni alt konu"
+  },
+  {
+    "clave": "idiomas.tem.subtemaTip",
+    "texto": "İçine bir alt konu ekle"
+  },
+  {
+    "clave": "idiomas.tem.nSubtemas",
+    "texto": "Burada {n} alt konu var"
+  },
+  {
+    "clave": "idiomas.tem.dentroDe",
+    "texto": "«{padre}» içinde"
+  },
+  {
+    "clave": "idiomas.tem.verNivel",
+    "texto": "Seviyenin konularını gör"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivel",
+    "texto": "{area} alanında yeni seviye"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelTit",
+    "texto": "Yeni seviye"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelMsg",
+    "texto": "«{area}» içinde kendi seviyen; rozeti ilk üç harf olacak."
+  },
+  {
+    "clave": "idiomas.tem.borrarNivel",
+    "texto": "Seviyeyi sil"
+  },
+  {
+    "clave": "idiomas.tem.areaActiva",
+    "texto": "«{n}» alanı"
+  },
+  {
+    "clave": "idiomas.tem.nuevaArea",
+    "texto": "Yeni alan"
+  },
+  {
+    "clave": "idiomas.tem.nuevaAreaMsg",
+    "texto": "Hazır olanların yanına, dile ait kendi alanın. Boş başlar: içinde seviyelerini sen oluşturursun."
+  },
+  {
+    "clave": "idiomas.tem.borrarArea",
+    "texto": "Alanı sil"
+  },
+  {
+    "clave": "idiomas.tem.sinAreas",
+    "texto": "Müfredatın boş. ✏️’yi aç ve ilk alanı oluştur."
+  },
+  {
+    "clave": "idiomas.tem.sinNiveles",
+    "texto": "Bu alanın henüz seviyesi yok. ✏️’yi aç ve ilkini oluştur."
+  },
+  {
+    "clave": "idiomas.tem.prompt.propia",
+    "texto": "«{tema}» konusunu çalışmak istiyorum. Başlayalım."
+  },
+  {
+    "clave": "idiomas.tem.crear",
+    "texto": "Oluştur"
+  },
+  {
+    "clave": "idiomas.tem.borrarTit",
+    "texto": "«{n}» silinsin mi?"
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgHijos",
+    "texto": "Ona bağlı her şeyle birlikte gider."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgTarjetas",
+    "texto": "{n} kartı SİLİNMEZ: «Sınıflandırılmamış»a taşınır."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsg",
+    "texto": "Bu dilin müfredatından kalkar."
+  },
+  {
+    "clave": "idiomas.tem.sinClasificar",
+    "texto": "Sınıflandırılmamış"
+  },
+  {
+    "clave": "idiomas.tem.sinClasificarDesc",
+    "texto": "Henüz hiçbir konuda olmayan {n} kart"
+  },
+  {
+    "clave": "idiomas.tem.clasificar",
+    "texto": "— Konu —"
+  },
+  {
+    "clave": "idiomas.tem.clasificarTip",
+    "texto": "Müfredattaki bir konuya gönder"
+  },
+  {
+    "clave": "idiomas.area.temas",
+    "texto": "Konular"
+  },
+  {
+    "clave": "idiomas.area.pronunciacion",
+    "texto": "Telaffuz"
+  },
+  {
+    "clave": "idiomas.area.gramatica",
+    "texto": "Dil bilgisi"
+  },
+  {
+    "clave": "idiomas.area.temas.desc",
+    "texto": "Ne hakkında konuşulacağı: her seviyenin kelimeleri ve durumları."
+  },
+  {
+    "clave": "idiomas.area.pronunciacion.desc",
+    "texto": "Dilin nasıl duyulduğu: sesler, vurgu, ritim ve tonlama."
+  }
+]

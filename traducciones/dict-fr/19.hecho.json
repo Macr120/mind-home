@@ -1,0 +1,734 @@
+[
+  {
+    "clave": "computo.matriz.noCuadrada",
+    "texto": "Cette opération demande une matrice carrée : change les dimensions."
+  },
+  {
+    "clave": "computo.matriz.singular",
+    "texto": "Impossible : la matrice n’a pas d’inverse (son déterminant est nul)."
+  },
+  {
+    "clave": "computo.sistema.placeholder",
+    "texto": "2x + 3y = 12"
+  },
+  {
+    "clave": "computo.sistema.ecuacion",
+    "texto": "Équation {n}"
+  },
+  {
+    "clave": "computo.sistema.quitar",
+    "texto": "Retirer cette équation"
+  },
+  {
+    "clave": "computo.sistema.otra",
+    "texto": "Autre équation"
+  },
+  {
+    "clave": "computo.sistema.incognitas",
+    "texto": "Inconnues"
+  },
+  {
+    "clave": "computo.sistema.ninguna",
+    "texto": "aucune pour l’instant"
+  },
+  {
+    "clave": "computo.sistema.resolver",
+    "texto": "Résoudre"
+  },
+  {
+    "clave": "computo.sistema.descuadra",
+    "texto": "Il faut autant d’équations que d’inconnues : {e} et {i} en ce moment."
+  },
+  {
+    "clave": "computo.sistema.sinSolucion",
+    "texto": "Il n’y a pas de solution unique : soit les équations se répètent, soit elles se contredisent, soit l’une d’elles n’est pas linéaire."
+  },
+  {
+    "clave": "computo.unid.longitud",
+    "texto": "Longueur"
+  },
+  {
+    "clave": "computo.unid.masa",
+    "texto": "Masse"
+  },
+  {
+    "clave": "computo.unid.temperatura",
+    "texto": "Température"
+  },
+  {
+    "clave": "computo.unid.volumen",
+    "texto": "Volume"
+  },
+  {
+    "clave": "computo.unid.area",
+    "texto": "Surface"
+  },
+  {
+    "clave": "computo.unid.tiempo",
+    "texto": "Temps"
+  },
+  {
+    "clave": "computo.unid.velocidad",
+    "texto": "Vitesse"
+  },
+  {
+    "clave": "computo.unid.datos",
+    "texto": "Données"
+  },
+  {
+    "clave": "computo.unid.valor",
+    "texto": "Combien"
+  },
+  {
+    "clave": "computo.unid.de",
+    "texto": "De"
+  },
+  {
+    "clave": "computo.unid.a",
+    "texto": "À"
+  },
+  {
+    "clave": "computo.unid.invertir",
+    "texto": "Inverser"
+  },
+  {
+    "clave": "computo.unid.faltan",
+    "texto": "Écris un nombre et la conversion se fait toute seule."
+  },
+  {
+    "clave": "computo.unid.imposible",
+    "texto": "Ces deux unités ne peuvent pas être converties entre elles."
+  },
+  {
+    "clave": "computo.unid.u.km",
+    "texto": "kilomètres"
+  },
+  {
+    "clave": "computo.unid.u.m",
+    "texto": "mètres"
+  },
+  {
+    "clave": "computo.unid.u.cm",
+    "texto": "centimètres"
+  },
+  {
+    "clave": "computo.unid.u.mm",
+    "texto": "millimètres"
+  },
+  {
+    "clave": "computo.unid.u.mile",
+    "texto": "miles"
+  },
+  {
+    "clave": "computo.unid.u.yd",
+    "texto": "yards"
+  },
+  {
+    "clave": "computo.unid.u.ft",
+    "texto": "pieds"
+  },
+  {
+    "clave": "computo.unid.u.inch",
+    "texto": "pouces"
+  },
+  {
+    "clave": "computo.unid.u.tonne",
+    "texto": "tonnes"
+  },
+  {
+    "clave": "computo.unid.u.kg",
+    "texto": "kilogrammes"
+  },
+  {
+    "clave": "computo.unid.u.g",
+    "texto": "grammes"
+  },
+  {
+    "clave": "computo.unid.u.mg",
+    "texto": "milligrammes"
+  },
+  {
+    "clave": "computo.unid.u.lb",
+    "texto": "livres"
+  },
+  {
+    "clave": "computo.unid.u.oz",
+    "texto": "onces"
+  },
+  {
+    "clave": "computo.unid.u.degC",
+    "texto": "degrés Celsius"
+  },
+  {
+    "clave": "computo.unid.u.degF",
+    "texto": "degrés Fahrenheit"
+  },
+  {
+    "clave": "computo.unid.u.K",
+    "texto": "kelvins"
+  },
+  {
+    "clave": "computo.unid.u.m3",
+    "texto": "mètres cubes"
+  },
+  {
+    "clave": "computo.unid.u.L",
+    "texto": "litres"
+  },
+  {
+    "clave": "computo.unid.u.mL",
+    "texto": "millilitres"
+  },
+  {
+    "clave": "computo.unid.u.gal",
+    "texto": "gallons"
+  },
+  {
+    "clave": "computo.unid.u.qt",
+    "texto": "quarts"
+  },
+  {
+    "clave": "computo.unid.u.pt",
+    "texto": "pintes"
+  },
+  {
+    "clave": "computo.unid.u.cup",
+    "texto": "tasses"
+  },
+  {
+    "clave": "computo.unid.u.floz",
+    "texto": "onces liquides"
+  },
+  {
+    "clave": "computo.unid.u.km2",
+    "texto": "kilomètres carrés"
+  },
+  {
+    "clave": "computo.unid.u.m2",
+    "texto": "mètres carrés"
+  },
+  {
+    "clave": "computo.unid.u.cm2",
+    "texto": "centimètres carrés"
+  },
+  {
+    "clave": "computo.unid.u.hectare",
+    "texto": "hectares"
+  },
+  {
+    "clave": "computo.unid.u.acre",
+    "texto": "acres"
+  },
+  {
+    "clave": "computo.unid.u.sqft",
+    "texto": "pieds carrés"
+  },
+  {
+    "clave": "computo.unid.u.sqmi",
+    "texto": "miles carrés"
+  },
+  {
+    "clave": "computo.unid.u.year",
+    "texto": "années"
+  },
+  {
+    "clave": "computo.unid.u.month",
+    "texto": "mois"
+  },
+  {
+    "clave": "computo.unid.u.week",
+    "texto": "semaines"
+  },
+  {
+    "clave": "computo.unid.u.day",
+    "texto": "jours"
+  },
+  {
+    "clave": "computo.unid.u.hour",
+    "texto": "heures"
+  },
+  {
+    "clave": "computo.unid.u.minute",
+    "texto": "minutes"
+  },
+  {
+    "clave": "computo.unid.u.s",
+    "texto": "secondes"
+  },
+  {
+    "clave": "computo.unid.u.ms",
+    "texto": "millisecondes"
+  },
+  {
+    "clave": "computo.unid.u.kmh",
+    "texto": "kilomètres par heure"
+  },
+  {
+    "clave": "computo.unid.u.mih",
+    "texto": "miles par heure"
+  },
+  {
+    "clave": "computo.unid.u.ms1",
+    "texto": "mètres par seconde"
+  },
+  {
+    "clave": "computo.unid.u.fts",
+    "texto": "pieds par seconde"
+  },
+  {
+    "clave": "computo.unid.u.TB",
+    "texto": "téraoctets"
+  },
+  {
+    "clave": "computo.unid.u.GB",
+    "texto": "gigaoctets"
+  },
+  {
+    "clave": "computo.unid.u.MB",
+    "texto": "mégaoctets"
+  },
+  {
+    "clave": "computo.unid.u.kB",
+    "texto": "kilooctets"
+  },
+  {
+    "clave": "computo.unid.u.B",
+    "texto": "octets"
+  },
+  {
+    "clave": "computo.unid.u.b",
+    "texto": "bits"
+  },
+  {
+    "clave": "computo.unid.u.GiB",
+    "texto": "gibioctets"
+  },
+  {
+    "clave": "computo.unid.u.MiB",
+    "texto": "mébioctets"
+  },
+  {
+    "clave": "computo.unid.u.KiB",
+    "texto": "kibioctets"
+  },
+  {
+    "clave": "computo.propina.cuenta",
+    "texto": "L’addition"
+  },
+  {
+    "clave": "computo.propina.personas",
+    "texto": "Diviser entre"
+  },
+  {
+    "clave": "computo.propina.pct",
+    "texto": "Pourboire"
+  },
+  {
+    "clave": "computo.propina.faltan",
+    "texto": "Écris l’addition et le pourcentage."
+  },
+  {
+    "clave": "computo.propina.laPropina",
+    "texto": "Pourboire"
+  },
+  {
+    "clave": "computo.propina.total",
+    "texto": "Total"
+  },
+  {
+    "clave": "computo.propina.cadaUno",
+    "texto": "Chacun paie"
+  },
+  {
+    "clave": "computo.regla3.directa",
+    "texto": "Directe"
+  },
+  {
+    "clave": "computo.regla3.inversa",
+    "texto": "Inverse"
+  },
+  {
+    "clave": "computo.regla3.ayudaDirecta",
+    "texto": "Quand plus de l’un veut dire plus de l’autre : kilos et prix, heures et salaire."
+  },
+  {
+    "clave": "computo.regla3.ayudaInversa",
+    "texto": "Quand plus de l’un veut dire moins de l’autre : ouvriers et jours, vitesse et temps."
+  },
+  {
+    "clave": "computo.regla3.a",
+    "texto": "Si ceci…"
+  },
+  {
+    "clave": "computo.regla3.b",
+    "texto": "…c’est ceci"
+  },
+  {
+    "clave": "computo.regla3.c",
+    "texto": "Alors ceci…"
+  },
+  {
+    "clave": "computo.regla3.x",
+    "texto": "…c’est x"
+  },
+  {
+    "clave": "computo.regla3.faltan",
+    "texto": "Remplis les trois nombres et x sort tout seul."
+  },
+  {
+    "clave": "computo.regla3.cero",
+    "texto": "Impossible de diviser par zéro : change ce nombre."
+  },
+  {
+    "clave": "computo.hojas.mias",
+    "texto": "Mes feuilles"
+  },
+  {
+    "clave": "computo.hojas.vacio",
+    "texto": "Pas encore de feuille. Crées-en une avec le bouton ci-dessus."
+  },
+  {
+    "clave": "computo.hojas.nueva",
+    "texto": "Nouvelle feuille"
+  },
+  {
+    "clave": "computo.hojas.sinNombre",
+    "texto": "Nouvelle feuille"
+  },
+  {
+    "clave": "computo.hojas.nuevaMsg",
+    "texto": "Comment ça s’appelle ?"
+  },
+  {
+    "clave": "computo.hojas.renombrar",
+    "texto": "Renommer la feuille"
+  },
+  {
+    "clave": "computo.hojas.duplicar",
+    "texto": "Dupliquer"
+  },
+  {
+    "clave": "computo.hojas.copiaDe",
+    "texto": "Copie de {nombre}"
+  },
+  {
+    "clave": "computo.hojas.borrar",
+    "texto": "Supprimer « {nombre} »"
+  },
+  {
+    "clave": "computo.hojas.borrarCorto",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "computo.hojas.borrarMsg",
+    "texto": "La feuille et tout ce qu’elle contient."
+  },
+  {
+    "clave": "computo.hojas.celdas",
+    "texto": "{n} cellules"
+  },
+  {
+    "clave": "computo.hojas.volver",
+    "texto": "Revenir à la liste"
+  },
+  {
+    "clave": "computo.hojas.aExcel",
+    "texto": "Exporter vers Excel"
+  },
+  {
+    "clave": "computo.hojas.aPdf",
+    "texto": "Imprimer ou enregistrer en PDF"
+  },
+  {
+    "clave": "computo.hojas.formulaPlaceholder",
+    "texto": "Une valeur, un texte ou =SUMA(A1:A5)"
+  },
+  {
+    "clave": "computo.form.ampliar",
+    "texto": "Élargir la plage"
+  },
+  {
+    "clave": "computo.form.ampliarTramo",
+    "texto": "Élargir la plage du curseur ({min} à {max})"
+  },
+  {
+    "clave": "computo.form.verEnGrande",
+    "texto": "Voir en grand"
+  },
+  {
+    "clave": "computo.form.eje",
+    "texto": "Axe"
+  },
+  {
+    "clave": "computo.sup.imposible",
+    "texto": "Avec ces valeurs, la formule ne donne pas de surface qu’on puisse dessiner."
+  },
+  {
+    "clave": "computo.sup.huecos",
+    "texto": "certaines zones ne sont pas définies"
+  },
+  {
+    "clave": "computo.sup.cargando",
+    "texto": "Préparation de la surface…"
+  },
+  {
+    "clave": "computo.not.titulo",
+    "texto": "Notations"
+  },
+  {
+    "clave": "computo.not.basicas",
+    "texto": "Fondamentaux"
+  },
+  {
+    "clave": "computo.not.calculo",
+    "texto": "Calcul"
+  },
+  {
+    "clave": "computo.not.matrices",
+    "texto": "Matrices"
+  },
+  {
+    "clave": "computo.not.trigonometria",
+    "texto": "Trigonométrie"
+  },
+  {
+    "clave": "computo.not.simbolos",
+    "texto": "Symboles"
+  },
+  {
+    "clave": "computo.not.ayuda",
+    "texto": "Elles s’écrivent là où se trouve ton curseur, et l’espace reste prêt à remplir. L’affichage soigné sort tout seul de ce que tu écris."
+  },
+  {
+    "clave": "computo.hojas.resumen",
+    "texto": "Somme {suma} · Moyenne {prom} · Nombre {n}"
+  },
+  {
+    "clave": "computo.hojas.masFilas",
+    "texto": "Lignes"
+  },
+  {
+    "clave": "computo.hojas.masCols",
+    "texto": "Colonnes"
+  },
+  {
+    "clave": "computo.hojas.deshacer",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "computo.hojas.rehacer",
+    "texto": "Rétablir"
+  },
+  {
+    "clave": "computo.hojas.copiar",
+    "texto": "Copier"
+  },
+  {
+    "clave": "computo.hojas.cortar",
+    "texto": "Couper"
+  },
+  {
+    "clave": "computo.hojas.pegar",
+    "texto": "Coller"
+  },
+  {
+    "clave": "computo.hojas.mover",
+    "texto": "Déplacer"
+  },
+  {
+    "clave": "computo.hojas.moverDestino",
+    "texto": "Touche la destination"
+  },
+  {
+    "clave": "computo.hojas.borrarCeldas",
+    "texto": "Effacer"
+  },
+  {
+    "clave": "computo.hojas.rellenar",
+    "texto": "Fais glisser pour remplir"
+  },
+  {
+    "clave": "computo.hojas.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "computo.hojas.pegarManual",
+    "texto": "Ce navigateur ne permet pas de lire le presse-papiers. Colle ici ce que tu as copié, ça se placera à partir de {ref}."
+  },
+  {
+    "clave": "computo.hojas.plantilla.blanco",
+    "texto": "Vierge"
+  },
+  {
+    "clave": "computo.hojas.plantilla.presupuesto",
+    "texto": "Budget"
+  },
+  {
+    "clave": "computo.hojas.plantilla.notas",
+    "texto": "Moyenne pondérée"
+  },
+  {
+    "clave": "computo.hojas.plantilla.mediciones",
+    "texto": "Journal de mesures"
+  },
+  {
+    "clave": "computo.hojas.graficar",
+    "texto": "Créer un graphique de la sélection"
+  },
+  {
+    "clave": "computo.hojas.rangoTactil",
+    "texto": "Touche la dernière cellule"
+  },
+  {
+    "clave": "computo.hojas.selTodo",
+    "texto": "Sélectionner toute la feuille"
+  },
+  {
+    "clave": "computo.hojas.selCol",
+    "texto": "Sélectionner la colonne {col}"
+  },
+  {
+    "clave": "computo.hojas.selFila",
+    "texto": "Sélectionner la ligne {n}"
+  },
+  {
+    "clave": "computo.hojas.asaMover",
+    "texto": "Fais glisser pour déplacer la sélection"
+  },
+  {
+    "clave": "computo.grafica.sinTitulo",
+    "texto": "Graphique de {rango}"
+  },
+  {
+    "clave": "computo.grafica.sinDatos",
+    "texto": "La plage ne contient pas de nombres à représenter."
+  },
+  {
+    "clave": "computo.grafica.rangoMalo",
+    "texto": "La plage « {rango} » n’est pas valide."
+  },
+  {
+    "clave": "computo.grafica.ajustes",
+    "texto": "Paramètres du graphique"
+  },
+  {
+    "clave": "computo.grafica.borrar",
+    "texto": "Supprimer le graphique"
+  },
+  {
+    "clave": "computo.grafica.borrarMsg",
+    "texto": "Les données de la feuille restent inchangées."
+  },
+  {
+    "clave": "computo.grafica.tipo.barras",
+    "texto": "Barres"
+  },
+  {
+    "clave": "computo.grafica.tipo.lineas",
+    "texto": "Lignes"
+  },
+  {
+    "clave": "computo.grafica.tipo.area",
+    "texto": "Aire"
+  },
+  {
+    "clave": "computo.grafica.tipo.pastel",
+    "texto": "Secteurs"
+  },
+  {
+    "clave": "computo.grafica.tipo.dispersion",
+    "texto": "Nuage de points"
+  },
+  {
+    "clave": "computo.grafica.tituloPlaceholder",
+    "texto": "Titre du graphique"
+  },
+  {
+    "clave": "computo.grafica.rango",
+    "texto": "Plage de données"
+  },
+  {
+    "clave": "computo.grafica.encFila",
+    "texto": "La première ligne contient les noms"
+  },
+  {
+    "clave": "computo.grafica.encCol",
+    "texto": "La première colonne contient les étiquettes"
+  },
+  {
+    "clave": "computo.grafica.encColX",
+    "texto": "La première colonne contient les X"
+  },
+  {
+    "clave": "computo.grafica.listo",
+    "texto": "Terminé"
+  },
+  {
+    "clave": "computo.ia.pensando",
+    "texto": "Réflexion…"
+  },
+  {
+    "clave": "computo.ia.sinIa",
+    "texto": "Pour utiliser l’IA, active-la dans Paramètres › IA : activation et tarifs."
+  },
+  {
+    "clave": "computo.ia.formulaPlaceholder",
+    "texto": "Décris-la : « aire d’un cône tronqué »"
+  },
+  {
+    "clave": "computo.ia.escribirFormula",
+    "texto": "L’écrire avec l’IA"
+  },
+  {
+    "clave": "computo.ia.falloFormula",
+    "texto": "Impossible d’écrire la formule."
+  },
+  {
+    "clave": "computo.ia.explicar",
+    "texto": "Expliquer étape par étape"
+  },
+  {
+    "clave": "computo.ia.falloExplicar",
+    "texto": "Impossible d’expliquer."
+  },
+  {
+    "clave": "computo.ia.cerrarPasos",
+    "texto": "Fermer l’explication"
+  },
+  {
+    "clave": "computo.ia.hojaPlaceholder",
+    "texto": "Décris-la : « suivi des dépenses du mois »"
+  },
+  {
+    "clave": "computo.ia.armarHoja",
+    "texto": "La créer avec l’IA"
+  },
+  {
+    "clave": "computo.ia.falloHoja",
+    "texto": "Impossible de créer la feuille."
+  },
+  {
+    "clave": "computo.ia.analizar",
+    "texto": "Lire les données sélectionnées"
+  },
+  {
+    "clave": "computo.ia.falloAnalizar",
+    "texto": "Impossible de lire les données."
+  },
+  {
+    "clave": "computo.ia.cerrarAnalisis",
+    "texto": "Fermer la lecture"
+  },
+  {
+    "clave": "computo.ia.insertarSugerida",
+    "texto": "Insérer ce graphique"
+  },
+  {
+    "clave": "computo.export.pie",
+    "texto": "Mind Planner Home · Salle de calcul"
+  },
+  {
+    "clave": "computo.export.sinImprimir",
+    "texto": "L’impression ne fonctionne que sur le web"
+  }
+]

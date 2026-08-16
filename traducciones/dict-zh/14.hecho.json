@@ -1,0 +1,590 @@
+[
+ {
+  "clave": "imagenIA.regenerar",
+  "texto": "换一张"
+ },
+ {
+  "clave": "imagenIA.generando",
+  "texto": "正在生成图片…"
+ },
+ {
+  "clave": "imagenIA.subir",
+  "texto": "上传"
+ },
+ {
+  "clave": "imagenIA.cambiar",
+  "texto": "更换"
+ },
+ {
+  "clave": "imagenIA.quitar",
+  "texto": "移除"
+ },
+ {
+  "clave": "imagenIA.sinIa",
+  "texto": "在聊天中设置AI，即可生成图片。"
+ },
+ {
+  "clave": "imagenIA.error",
+  "texto": "图片生成失败。"
+ },
+ {
+  "clave": "biblioteca.plan.titulo",
+  "texto": "学习计划"
+ },
+ {
+  "clave": "biblioteca.plan.desc",
+  "texto": "创建一个目标（例如“学习统计学”），然后让AI帮你制定计划：它会询问目标日期、每周学习时长和可用的天数，再把计划和学习时间安排进日历。"
+ },
+ {
+  "clave": "biblioteca.plan.tipo",
+  "texto": "学习"
+ },
+ {
+  "clave": "idiomas.plan.titulo",
+  "texto": "学习计划"
+ },
+ {
+  "clave": "idiomas.plan.desc",
+  "texto": "创建一个目标（例如“通过B2考试”），然后让AI帮你制定计划：它会询问目标日期、每周学习时长和可用的天数，再把计划和复习时间安排进日历。"
+ },
+ {
+  "clave": "idiomas.plan.tipo",
+  "texto": "复习"
+ },
+ {
+  "clave": "idiomas.form.imagen",
+  "texto": "助记图片（可选）"
+ },
+ {
+  "clave": "cocina.estimar.cargando",
+  "texto": "正在估算…"
+ },
+ {
+  "clave": "cocina.estimar.error",
+  "texto": "无法估算，请手动输入数值。"
+ },
+ {
+  "clave": "cocina.tab.recetas",
+  "texto": "食谱"
+ },
+ {
+  "clave": "cocina.rec.buscar",
+  "texto": "搜索食谱或标签..."
+ },
+ {
+  "clave": "cocina.rec.nueva",
+  "texto": "新建"
+ },
+ {
+  "clave": "cocina.rec.crearIA",
+  "texto": "用AI创建"
+ },
+ {
+  "clave": "cocina.rec.phIA",
+  "texto": "你想做什么菜？例如：烤鸡配蔬菜"
+ },
+ {
+  "clave": "cocina.rec.generar",
+  "texto": "创建食谱"
+ },
+ {
+  "clave": "cocina.rec.generando",
+  "texto": "烹饪中…"
+ },
+ {
+  "clave": "cocina.rec.generandoFoto",
+  "texto": "正在摆盘拍照…"
+ },
+ {
+  "clave": "cocina.rec.todasDietas",
+  "texto": "所有饮食方案"
+ },
+ {
+  "clave": "cocina.rec.sinDeDieta",
+  "texto": "这个饮食方案在食谱库中还没有食谱。"
+ },
+ {
+  "clave": "cocina.rec.errorIA",
+  "texto": "无法创建食谱，请重试。"
+ },
+ {
+  "clave": "cocina.rec.vacio",
+  "texto": "你的食谱库还是空的。创建一份食谱，或者请助手帮你生成。"
+ },
+ {
+  "clave": "cocina.rec.sinResultados",
+  "texto": "没有匹配搜索的食谱。"
+ },
+ {
+  "clave": "cocina.rec.porciones",
+  "texto": "{n}份"
+ },
+ {
+  "clave": "cocina.rec.porPorcion",
+  "texto": "每份"
+ },
+ {
+  "clave": "cocina.rec.kcalPorPorcion",
+  "texto": "{n} kcal/份"
+ },
+ {
+  "clave": "cocina.rec.volver",
+  "texto": "‹ 食谱库"
+ },
+ {
+  "clave": "cocina.rec.editar",
+  "texto": "编辑"
+ },
+ {
+  "clave": "cocina.rec.ingredientes",
+  "texto": "食材"
+ },
+ {
+  "clave": "cocina.rec.pasos",
+  "texto": "做法"
+ },
+ {
+  "clave": "cocina.rec.registrar",
+  "texto": "添加到今日记录"
+ },
+ {
+  "clave": "cocina.rec.registrarBtn",
+  "texto": "记录1份"
+ },
+ {
+  "clave": "cocina.rec.registrado",
+  "texto": "✓ 已记录（1份）"
+ },
+ {
+  "clave": "cocina.rec.cancelar",
+  "texto": "‹ 取消"
+ },
+ {
+  "clave": "cocina.rec.editarTitulo",
+  "texto": "编辑食谱"
+ },
+ {
+  "clave": "cocina.rec.nuevaTitulo",
+  "texto": "新建食谱"
+ },
+ {
+  "clave": "cocina.rec.emoji",
+  "texto": "表情符号"
+ },
+ {
+  "clave": "cocina.rec.ph.nombre",
+  "texto": "菜名"
+ },
+ {
+  "clave": "cocina.rec.campoPorciones",
+  "texto": "份数"
+ },
+ {
+  "clave": "cocina.rec.campoMinutos",
+  "texto": "分钟"
+ },
+ {
+  "clave": "cocina.rec.campoMomentos",
+  "texto": "适合什么时候吃？"
+ },
+ {
+  "clave": "cocina.rec.momentosAyuda",
+  "texto": "不勾选任何选项，则适用于任何时段。"
+ },
+ {
+  "clave": "cocina.rec.ph.etiquetas",
+  "texto": "用逗号分隔的标签（鸡肉、快手菜等）"
+ },
+ {
+  "clave": "cocina.rec.campoIngredientes",
+  "texto": "食材（每行一项，注明用量）"
+ },
+ {
+  "clave": "cocina.rec.campoPasos",
+  "texto": "步骤（每行一项）"
+ },
+ {
+  "clave": "cocina.rec.macrosPorcion",
+  "texto": "每份的营养素"
+ },
+ {
+  "clave": "cocina.rec.guardar",
+  "texto": "保存食谱"
+ },
+ {
+  "clave": "cocina.rec.aLista",
+  "texto": "生成购物清单"
+ },
+ {
+  "clave": "cocina.rec.enLista",
+  "texto": "✓ 已保存到清单"
+ },
+ {
+  "clave": "cocina.rec.todas",
+  "texto": "全部"
+ },
+ {
+  "clave": "cocina.rec.sinCarpeta",
+  "texto": "无文件夹"
+ },
+ {
+  "clave": "cocina.rec.ph.carpeta",
+  "texto": "文件夹（例如：意大利菜、墨西哥菜等）"
+ },
+ {
+  "clave": "cocina.dieta.nueva",
+  "texto": "新建饮食方案"
+ },
+ {
+  "clave": "cocina.dieta.vacio",
+  "texto": "还没有饮食方案。创建一个，或使用示例。"
+ },
+ {
+  "clave": "cocina.dieta.nRecetas",
+  "texto": "{n}份食谱"
+ },
+ {
+  "clave": "cocina.dieta.volver",
+  "texto": "‹ 饮食方案"
+ },
+ {
+  "clave": "cocina.dieta.aplicar",
+  "texto": "应用为我的目标"
+ },
+ {
+  "clave": "cocina.dieta.aplicado",
+  "texto": "✓ 已在饮食管理中更新目标"
+ },
+ {
+  "clave": "cocina.dieta.generandoFotos",
+  "texto": "正在绘制照片…"
+ },
+ {
+  "clave": "cocina.dieta.reparto",
+  "texto": "营养素配比"
+ },
+ {
+  "clave": "cocina.dieta.gProt",
+  "texto": "P (g)"
+ },
+ {
+  "clave": "cocina.dieta.gCarb",
+  "texto": "C (g)"
+ },
+ {
+  "clave": "cocina.dieta.gGras",
+  "texto": "F (g)"
+ },
+ {
+  "clave": "cocina.dieta.pctSinKcal",
+  "texto": "设置热量后即可按百分比分配。"
+ },
+ {
+  "clave": "cocina.dieta.pctSuma",
+  "texto": "营养素合计占热量的{n}%"
+ },
+ {
+  "clave": "cocina.dieta.generarIA",
+  "texto": "AI饮食方案"
+ },
+ {
+  "clave": "cocina.dieta.phIA",
+  "texto": "你需要什么样的饮食方案？例如：减重、1800 kcal、不含乳制品"
+ },
+ {
+  "clave": "cocina.dieta.generar",
+  "texto": "创建饮食方案"
+ },
+ {
+  "clave": "cocina.dieta.generando",
+  "texto": "正在为你制定饮食方案和食谱…"
+ },
+ {
+  "clave": "cocina.dieta.errorIA",
+  "texto": "无法创建饮食方案，请重试。"
+ },
+ {
+  "clave": "cocina.dieta.recetas",
+  "texto": "方案食谱"
+ },
+ {
+  "clave": "cocina.dieta.generarLista",
+  "texto": "生成购物清单"
+ },
+ {
+  "clave": "cocina.dieta.listaGenerada",
+  "texto": "✓ 已保存到清单"
+ },
+ {
+  "clave": "cocina.dieta.sinRecetas",
+  "texto": "这个饮食方案还没有关联食谱。"
+ },
+ {
+  "clave": "cocina.dieta.listaPrefijo",
+  "texto": "饮食方案"
+ },
+ {
+  "clave": "cocina.dieta.editarTitulo",
+  "texto": "编辑饮食方案"
+ },
+ {
+  "clave": "cocina.dieta.nuevaTitulo",
+  "texto": "新建饮食方案"
+ },
+ {
+  "clave": "cocina.dieta.phNombre",
+  "texto": "方案名称"
+ },
+ {
+  "clave": "cocina.dieta.phDescripcion",
+  "texto": "描述（可选）"
+ },
+ {
+  "clave": "cocina.dieta.metasOpc",
+  "texto": "可选目标（可应用到你的目标中）"
+ },
+ {
+  "clave": "cocina.dieta.elegirRecetas",
+  "texto": "方案食谱"
+ },
+ {
+  "clave": "cocina.dieta.sinRecetario",
+  "texto": "你还没有食谱。请在“食谱”标签中创建。"
+ },
+ {
+  "clave": "cocina.dieta.guardar",
+  "texto": "保存饮食方案"
+ },
+ {
+  "clave": "cocina.tab.compras",
+  "texto": "购物"
+ },
+ {
+  "clave": "cocina.comp.subCrear",
+  "texto": "创建清单"
+ },
+ {
+  "clave": "cocina.comp.subListas",
+  "texto": "清单"
+ },
+ {
+  "clave": "cocina.comp.ph.nombre",
+  "texto": "需要买什么..."
+ },
+ {
+  "clave": "cocina.comp.ph.cantidad",
+  "texto": "数量"
+ },
+ {
+  "clave": "cocina.comp.ph.precio",
+  "texto": "$"
+ },
+ {
+  "clave": "cocina.comp.precio",
+  "texto": "价格"
+ },
+ {
+  "clave": "cocina.comp.añadir",
+  "texto": "添加到清单"
+ },
+ {
+  "clave": "cocina.comp.progreso",
+  "texto": "已购买{c}/{n}件"
+ },
+ {
+  "clave": "cocina.comp.limpiar",
+  "texto": "清除已购买"
+ },
+ {
+  "clave": "cocina.comp.borrarChecks",
+  "texto": "清除勾选"
+ },
+ {
+  "clave": "cocina.comp.cambiarCat",
+  "texto": "更改分类"
+ },
+ {
+  "clave": "cocina.comp.generadorVacio",
+  "texto": "这里还什么都没有。请在上方添加物品，或从“食谱”标签发送某道菜的食材。"
+ },
+ {
+  "clave": "cocina.comp.phLista",
+  "texto": "清单名称（例如：每周采购）"
+ },
+ {
+  "clave": "cocina.comp.guardarBtn",
+  "texto": "保存到清单"
+ },
+ {
+  "clave": "cocina.comp.cuenta",
+  "texto": "购物账单"
+ },
+ {
+  "clave": "cocina.comp.cuentaAyuda",
+  "texto": "输入每件物品的价格，账单会自动累加。"
+ },
+ {
+  "clave": "cocina.comp.cuentaConPrecio",
+  "texto": "已填价{c}/{n}件"
+ },
+ {
+  "clave": "cocina.comp.registrarGasto",
+  "texto": "记录为书房的支出"
+ },
+ {
+  "clave": "cocina.comp.actualizarGasto",
+  "texto": "更新书房的支出"
+ },
+ {
+  "clave": "cocina.comp.gastoAlDia",
+  "texto": "✓ 已记录到书房"
+ },
+ {
+  "clave": "cocina.comp.notaGasto",
+  "texto": "购物"
+ },
+ {
+  "clave": "cocina.comp.listaDefecto",
+  "texto": "清单"
+ },
+ {
+  "clave": "cocina.comp.listasVacio",
+  "texto": "没有已保存的清单。可以在“创建清单”中新建，或从食谱生成。"
+ },
+ {
+  "clave": "cocina.comp.nItems",
+  "texto": "{n}件"
+ },
+ {
+  "clave": "cocina.comp.nPend",
+  "texto": "待购{n}件"
+ },
+ {
+  "clave": "cocina.comp.volver",
+  "texto": "‹ 清单"
+ },
+ {
+  "clave": "cocina.comp.eliminarLista",
+  "texto": "删除清单"
+ },
+ {
+  "clave": "cocina.comp.phNombreLista",
+  "texto": "清单名称"
+ },
+ {
+  "clave": "cocina.cat.frutas-verduras",
+  "texto": "果蔬"
+ },
+ {
+  "clave": "cocina.cat.proteinas",
+  "texto": "蛋白质类"
+ },
+ {
+  "clave": "cocina.cat.lacteos",
+  "texto": "乳制品"
+ },
+ {
+  "clave": "cocina.cat.panaderia",
+  "texto": "面包和玉米饼"
+ },
+ {
+  "clave": "cocina.cat.abarrotes",
+  "texto": "干货杂粮"
+ },
+ {
+  "clave": "cocina.cat.dulces",
+  "texto": "甜食零食"
+ },
+ {
+  "clave": "cocina.cat.bebidas",
+  "texto": "饮品"
+ },
+ {
+  "clave": "cocina.cat.congelados",
+  "texto": "冷冻食品"
+ },
+ {
+  "clave": "cocina.cat.hogar",
+  "texto": "家居清洁用品"
+ },
+ {
+  "clave": "cocina.cat.otros",
+  "texto": "其他"
+ },
+ {
+  "clave": "ejercicio.tab.resumen",
+  "texto": "概览"
+ },
+ {
+  "clave": "ejercicio.tab.fuerza",
+  "texto": "力量"
+ },
+ {
+  "clave": "ejercicio.tab.resistencia",
+  "texto": "耐力"
+ },
+ {
+  "clave": "ejercicio.tab.flexibilidad",
+  "texto": "柔韧性"
+ },
+ {
+  "clave": "ejercicio.tab.metas",
+  "texto": "目标"
+ },
+ {
+  "clave": "ejercicio.plan.agendar",
+  "texto": "把日常安排加入日程"
+ },
+ {
+  "clave": "ejercicio.plan.dia",
+  "texto": "今日计划"
+ },
+ {
+  "clave": "ejercicio.racha",
+  "texto": "当前连续天数"
+ },
+ {
+  "clave": "ejercicio.dias",
+  "texto": "天"
+ },
+ {
+  "clave": "ejercicio.diasActivos",
+  "texto": "活跃天数"
+ },
+ {
+  "clave": "ejercicio.adherencia",
+  "texto": "达标率"
+ },
+ {
+  "clave": "ejercicio.progreso",
+  "texto": "每周进度"
+ },
+ {
+  "clave": "ejercicio.ses.fuerza",
+  "texto": "力量训练次数"
+ },
+ {
+  "clave": "ejercicio.min.resistencia",
+  "texto": "耐力训练分钟数"
+ },
+ {
+  "clave": "ejercicio.min.flex",
+  "texto": "柔韧训练分钟数"
+ },
+ {
+  "clave": "ejercicio.unidad.ses",
+  "texto": "次"
+ },
+ {
+  "clave": "ejercicio.minTotales",
+  "texto": "总分钟数·7天"
+ },
+ {
+  "clave": "ejercicio.ultimas",
+  "texto": "最近的训练"
+ },
+ {
+  "clave": "ejercicio.sinEntrenos",
+  "texto": "还没有记录任何训练。"
+ }
+]

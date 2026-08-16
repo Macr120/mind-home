@@ -1,0 +1,342 @@
+[
+ {
+  "clave": "chat.destino.menu.plantillas",
+  "texto": "टेम्पलेट देखें"
+ },
+ {
+  "clave": "chat.destino.rutinas",
+  "texto": "मेरी दिनचर्या देखें"
+ },
+ {
+  "clave": "chat.foto",
+  "texto": "फ़ोटो जोड़ें (खाना, रसीद…)"
+ },
+ {
+  "clave": "chat.fotoLista",
+  "texto": "फ़ोटो भेजने के लिए तैयार"
+ },
+ {
+  "clave": "chat.fotoSinIa",
+  "texto": "फ़ोटो के लिए एआई ज़रूरी है: दाईं ओर के बटन से मॉडल चुनें"
+ },
+ {
+  "clave": "chat.imagenFallo",
+  "texto": "इमेज नहीं बन पाई — फिर कोशिश करें।"
+ },
+ {
+  "clave": "chat.imagenLista",
+  "texto": "हो गया! ये रही आपकी इमेज 🎨"
+ },
+ {
+  "clave": "chat.manual",
+  "texto": "गाइड"
+ },
+ {
+  "clave": "chat.manual.abrir",
+  "texto": "गाइड: आप क्या पूछ सकते हैं"
+ },
+ {
+  "clave": "chat.manual.aviso.caminos",
+  "texto": "बनाने के कमांड फ़ुल-स्क्रीन एडिटर खोलते हैं: जब तक आप ✕ से बाहर नहीं निकलते, चैट बंद रहती है। देखभाल की क्रियाएं चैट छोड़े बिना काम करती हैं।"
+ },
+ {
+  "clave": "chat.manual.aviso.granja",
+  "texto": "बनाने के कमांड फ़ुल-स्क्रीन एडिटर खोलते हैं: जब तक आप ✕ से बाहर नहीं निकलते, चैट बंद रहती है। देखभाल की क्रियाएं चैट छोड़े बिना काम करती हैं।"
+ },
+ {
+  "clave": "chat.manual.aviso.huerto",
+  "texto": "बनाने के कमांड फ़ुल-स्क्रीन एडिटर खोलते हैं: जब तक आप ✕ से बाहर नहीं निकलते, चैट बंद रहती है। देखभाल की क्रियाएं चैट छोड़े बिना काम करती हैं।"
+ },
+ {
+  "clave": "chat.manual.cat.configuraciones",
+  "texto": "सेटिंग्स"
+ },
+ {
+  "clave": "chat.manual.cat.cuartos",
+  "texto": "कमरे"
+ },
+ {
+  "clave": "chat.manual.cat.interfaz",
+  "texto": "घर और इंटरफ़ेस"
+ },
+ {
+  "clave": "chat.manual.cat.mapa",
+  "texto": "नक्शा और ढांचा"
+ },
+ {
+  "clave": "chat.manual.cat.memoria",
+  "texto": "याददाश्त और नोट्स"
+ },
+ {
+  "clave": "chat.manual.cat.objetos",
+  "texto": "वस्तुएं"
+ },
+ {
+  "clave": "chat.manual.cat.personaje",
+  "texto": "किरदार और सवारी"
+ },
+ {
+  "clave": "chat.manual.cat.calendario",
+  "texto": "कैलेंडर"
+ },
+ {
+  "clave": "chat.manual.cat.superficies",
+  "texto": "रंग, फ़र्श और छत"
+ },
+ {
+  "clave": "chat.manual.cat.teclado",
+  "texto": "कीबोर्ड (पीसी)"
+ },
+ {
+  "clave": "chat.manual.grupo.abrir",
+  "texto": "खोलना और मेन्यू"
+ },
+ {
+  "clave": "chat.manual.grupo.acciones",
+  "texto": "क्रियाएं"
+ },
+ {
+  "clave": "chat.manual.grupo.ia",
+  "texto": "एआई के साथ"
+ },
+ {
+  "clave": "chat.manual.grupo.jugar",
+  "texto": "खेलें"
+ },
+ {
+  "clave": "chat.manual.grupo.registrar",
+  "texto": "दर्ज करें"
+ },
+ {
+  "clave": "chat.manual.intro",
+  "texto": "कोई फ़ोल्डर खोलें और किसी उदाहरण पर टैप करें ताकि वह चैट में लिख जाए। ज़्यादातर बिना एआई के काम करते हैं।"
+ },
+ {
+  "clave": "chat.manual.leyenda.comando",
+  "texto": "नीला: कमांड"
+ },
+ {
+  "clave": "chat.manual.leyenda.ia",
+  "texto": "बैंगनी: एक एआई कॉल खर्च करता है"
+ },
+ {
+  "clave": "chat.manual.leyenda.variable",
+  "texto": "एम्बर: अपनी पसंद से बदलें"
+ },
+ {
+  "clave": "chat.manual.nota.biblioteca",
+  "texto": "अंदर गुरु रहते हैं (एआई चैट), जो बातचीत का सार निकालकर विकी एंट्री और विषय-वृक्ष में बदल देते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.calendario",
+  "texto": "हर ऐप से लक्ष्य और इवेंट इकट्ठा करता है; इसकी «समय-सारणी» में एआई योजनाएं मिलती हैं (✨)."
+ },
+ {
+  "clave": "chat.manual.nota.caminos",
+  "texto": "ट्रैक और फिनिश लाइन बनाने के बाद आप समय के खिलाफ़ या सहायक के खिलाफ़ रेस कर सकते हैं; ट्रेन में पटरियों से चढ़ें।"
+ },
+ {
+  "clave": "chat.manual.nota.canchas",
+  "texto": "मैदान में अंदर चलकर खेला जाता है; गेंद के पास जाकर आप उसे नियंत्रित करते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.cocina",
+  "texto": "एआई के साथ यह आपके खाने की फ़ोटो भी समझता है (मैक्रोज़ का अनुमान लगाकर दर्ज करता है)। चैट में मांगी गई रेसिपी और डाइट अपनी तस्वीर के साथ आती हैं: इन्हें आने में थोड़ा ज़्यादा समय लगता है और बताए गए क्रेडिट खर्च होते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.cuartos",
+  "texto": "कमरे बनाएं, नाम बदलें और व्यवस्थित करें। «हटाएं» कमरे को घर से हटा देता है।"
+ },
+ {
+  "clave": "chat.manual.nota.despacho",
+  "texto": "एआई के साथ आप रसीद की फ़ोटो भी जोड़ सकते हैं: खर्च अपने आप दर्ज हो जाता है।"
+ },
+ {
+  "clave": "chat.manual.nota.diario",
+  "texto": "दिन के सांस्कृतिक भाग और सहायक की डिलीवरी, ऐप के अंदर एआई का इस्तेमाल करते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.ejercicio",
+  "texto": "एआई के साथ: इसकी «समय-सारणी» में ट्रेनिंग प्लान (✨ बटन) और ऐप के अंदर एक्सरसाइज़ की तस्वीरें।"
+ },
+ {
+  "clave": "chat.manual.nota.entretenimiento",
+  "texto": "टेबल गेम: सांप, टेट्रिस, शतरंज, चेकर्स, सुडोकू, मेमोरी, पोंग, हॉकी, साइमन, कनेक्ट फ़ोर, स्पेस, डायनो…"
+ },
+ {
+  "clave": "chat.manual.nota.garage",
+  "texto": "जिन वाहनों पर आप सवारी करते हैं (साइकिल, मोटरसाइकिल, कार, यूएफ़ओ) वे «किरदार और सवारी» में मिलेंगे।"
+ },
+ {
+  "clave": "chat.manual.nota.granja",
+  "texto": "जानवर: मुर्गी, सुअर, बकरी, भेड़, गाय और घोड़ा। वे वही खाते हैं जो आप रसोई में इकट्ठा करते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.hobbies",
+  "texto": "इसकी «समय-सारणी» में आप किसी प्रोजेक्ट को आगे बढ़ाने के लिए एआई योजना (✨) मांग सकते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.huerto",
+  "texto": "फ़सलें: गाजर, सलाद पत्ता, सूरजमुखी, टमाटर, मक्का और कद्दू।"
+ },
+ {
+  "clave": "chat.manual.nota.idiomas",
+  "texto": "अंदर स्तर के हिसाब से बातचीत वाला ट्यूटर, चैट से बने कार्ड और विषय के अनुसार कार्ड (एआई) रहते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.configuraciones",
+  "texto": "एडिटर के «सेटिंग्स» टैब में सब कुछ: भाषा, रूप (हल्का, गहरा, पारदर्शी), आइकन शैली, इंटरफ़ेस थीम और फ़ॉन्ट, पैनल ग्लास, नक्शे की विज़ुअल शैली (सामान्य, कॉमिक, मिनिएचर, रेट्रो, नियॉन) उसके इफ़ेक्ट्स के साथ, नोटिफ़िकेशन और बैकअप।"
+ },
+ {
+  "clave": "chat.manual.aviso.configuraciones",
+  "texto": "साइन इन करना, बैकअप बहाल करना और डेटा हटाना चैट से नहीं होता: सहायक वह सेक्शन खोल देता है ताकि आप खुद पुष्टि कर सकें।"
+ },
+ {
+  "clave": "chat.manual.nota.interfaz",
+  "texto": "घर की थीम, आसमान का बैकग्राउंड, माहौल का संगीत और आपका Wrapped रीकैप। संगीत मूड: calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita."
+ },
+ {
+  "clave": "chat.manual.nota.mapa",
+  "texto": "दिशाएं: उत्तर, दक्षिण, पूर्व और पश्चिम (साथ ही ऊपर, नीचे, बाएं या दाएं)।"
+ },
+ {
+  "clave": "chat.manual.nota.memoria",
+  "texto": "सहायक सेशन के बीच बातें याद रखता है। क्लिप से फ़ोटो जोड़ें या माइक से बोलकर लिखें; @app तय करता है कि एंट्री कहां जाएगी।"
+ },
+ {
+  "clave": "chat.manual.nota.objetos",
+  "texto": "बिना-एआई कैटलॉग: लैंप, कुर्सी, मेज़, पौधा, गिटार, कालीन, संदूक, तस्वीर, गेंद और किताब। बाकी सब कुछ एआई से 3D मॉडल के रूप में बनता है और आपके इन्वेंटरी में सेव हो जाता है। 2D इमेज के लिए «…की इमेज बनाओ» कहें, ये चैट में ही रहती हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.personaje",
+  "texto": "कपड़े: टोपी, चश्मा… हिस्से: सिर, धड़ और पैर। वाहन: साइकिल, मोटरसाइकिल, कार और यूएफ़ओ (Space/Shift से उड़ता है)। व्यू: आइसोमेट्रिक, थर्ड और फ़र्स्ट पर्सन (V key)।"
+ },
+ {
+  "clave": "chat.manual.nota.sala",
+  "texto": "एआई के साथ, नई जगहें खुद जियोकोड हो जाती हैं और वर्ल्ड मैप पर पिन के रूप में दिखती हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.superficies",
+  "texto": "रंग: लाल, नीला, हरा… या #hex कोड। फ़र्श की सामग्री और छत के आकार एडिटर के कैटलॉग से आते हैं।"
+ },
+ {
+  "clave": "chat.manual.nota.teclado",
+  "texto": "कीबोर्ड से खेलने के शॉर्टकट। इन्हें चैट में नहीं टाइप किया जाता: इनका इस्तेमाल घर में होता है। जब आप किसी फ़ील्ड में टाइप कर रहे हों या कोई कमरा खुला हो, तो ये काम नहीं करते।"
+ },
+ {
+  "clave": "chat.manual.notaSeccion.apps",
+  "texto": "हर ऐप अपना डेटा आपके शब्दों में दर्ज करता है (मंज़िल तय करने के लिए @app इस्तेमाल करें) और उसके मेन्यू नाम से खुलते हैं। «एआई के साथ» वाले उदाहरण हमेशा एक एआई कॉल खर्च करते हैं (Pro प्लान या आपकी अपनी key); आपके खुद के टेम्पलेट भी चैट से दर्ज होते हैं और नाम से खुलते हैं। नोट: ऑफ़लाइन पार्सर सिर्फ़ स्पैनिश समझता है, इसलिए हिंदी में ज़्यादातर कमांड एआई से होकर जाते हैं।"
+ },
+ {
+  "clave": "chat.manual.notaSeccion.mapa",
+  "texto": "सब्ज़ी बगीचा, फ़ार्म, ट्रैक और मैदान कमरों के बाहर, 3D मैप पर होते हैं।"
+ },
+ {
+  "clave": "chat.manual.seccion.apps",
+  "texto": "घर के ऐप"
+ },
+ {
+  "clave": "chat.manual.seccion.asistente",
+  "texto": "सहायक और मदद"
+ },
+ {
+  "clave": "chat.manual.seccion.casa",
+  "texto": "घर और एडिटर"
+ },
+ {
+  "clave": "chat.manual.seccion.mapa",
+  "texto": "बाहरी नक्शा"
+ },
+ {
+  "clave": "chat.manual.seccion.precios",
+  "texto": "एआई की कीमत"
+ },
+ {
+  "clave": "chat.manual.preciosCargando",
+  "texto": "टेबल लोड हो रही है…"
+ },
+ {
+  "clave": "chat.manual.titulo",
+  "texto": "गाइड: आप क्या पूछ सकते हैं"
+ },
+ {
+  "clave": "chat.memorias",
+  "texto": "मुझे आपके बारे में क्या याद है"
+ },
+ {
+  "clave": "chat.modelo",
+  "texto": "एआई मॉडल: {prov}"
+ },
+ {
+  "clave": "chat.mapa.abrir",
+  "texto": "आइडिया में नक्शा देखें"
+ },
+ {
+  "clave": "chat.mapa.descartar",
+  "texto": "अभी नहीं"
+ },
+ {
+  "clave": "chat.mapa.dibujar",
+  "texto": "बनाएं"
+ },
+ {
+  "clave": "chat.mapa.dibujando",
+  "texto": "नक्शा बन रहा है…"
+ },
+ {
+  "clave": "chat.mapa.fallo",
+  "texto": "वह नक्शा नहीं बन पाया।"
+ },
+ {
+  "clave": "chat.mapa.ofrecer",
+  "texto": "क्या मैं इसे “{tema}” के {tipo} के रूप में बनाऊं?"
+ },
+ {
+  "clave": "chat.modelo.clave",
+  "texto": "{prov} की API कुंजी"
+ },
+ {
+  "clave": "chat.modelo.local",
+  "texto": "आपके डिवाइस पर Ollama चलना ज़रूरी है (पोर्ट 11434)। मुफ़्त और निजी।"
+ },
+ {
+  "clave": "chat.modelo.priv",
+  "texto": "सिर्फ़ इस डिवाइस पर सेव होता है। बिना key के: कीवर्ड वाला लोकल मोड।"
+ },
+ {
+  "clave": "chat.modelo.titulo",
+  "texto": "सहायकों का एआई मॉडल"
+ },
+ {
+  "clave": "chat.olvidar",
+  "texto": "भूल जाएं"
+ },
+ {
+  "clave": "chat.plegar",
+  "texto": "चैट छोटा करें"
+ },
+ {
+  "clave": "chat.quitarFoto",
+  "texto": "फ़ोटो निकालें"
+ },
+ {
+  "clave": "chat.rutinaCreada",
+  "texto": "⏰ “{n}” दिनचर्या बन गई। यह आपको दिनचर्या पैनल में मिलेगी।"
+ },
+ {
+  "clave": "chat.sinApps",
+  "texto": "कोई ऐप असाइन नहीं है। किसी कमरे की वस्तु को असाइन करें।"
+ },
+ {
+  "clave": "chat.voz",
+  "texto": "आवाज़ से लिखें"
+ },
+ {
+  "clave": "chat.voz.error",
+  "texto": "डिक्टेशन इस्तेमाल नहीं हो पाया ({motivo})।"
+ },
+ {
+  "clave": "chat.voz.idioma",
+  "texto": "आपका ब्राउज़र इस भाषा में डिक्टेशन को सपोर्ट नहीं करता।"
+ }
+]

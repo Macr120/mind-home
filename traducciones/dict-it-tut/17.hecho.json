@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "Ogni mattina annoti l'ora di andare a letto, l'ora del risveglio, quante volte hai aperto gli occhi durante la notte e com'è andata. All'app non serve altro per tutto il resto."
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "Un anno, quattro lenti"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "Scegli giorno, settimana, mese o anno e muoviti con le frecce. Torna indietro di qualche mese: trovi il mese del guasto all'auto e quello del volo per il Giappone, tutti e due in rosso."
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "La forma dell'anno"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "Sei periodi all'indietro, a barre. Le blu sono i mesi in cui è avanzato qualcosa; le rosse, quelli che sono costati cari. Lì si vedono la caduta e la risalita."
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "Dove se ne vanno?"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "Il dettaglio per categoria del periodo che stai guardando. Pep scrive le sue a mano: l'app riconosce quelle solite e dà un colore proprio a tutte le altre."
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "Il tetto del mese"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "Un budget mensile e una barra che diventa rossa quando sfori. Se guardi per settimana o per anno, l'app lo ricalcola da sola."
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "Quello che hai oggi"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "Il tuo patrimonio arriva da solo dalla scheda Patrimonio netto: attività meno passività. Qui ci si somma o sottrae il saldo del periodo, per vedere come finiresti."
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "E fra un anno"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "Proietta dodici mesi mettendo le spese fisse alla loro scadenza e il variabile sulla tua media, in due scenari: con patrimonio e senza."
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Le spese fisse di Pep"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "L'affitto, internet, il telefono, lo streaming e l'assicurazione dell'auto: cinque voci inserite al mese 2, quando ha deciso di mettere ordine. Da allora ognuna si conta da sola."
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "Come si registra"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "Il modulo va per passi: importo, se è variabile o fissa, categoria (scrivi la tua e ti suggerisce quelle solite), ogni quanto si ripete e la nota."
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "Un anno di movimenti"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "Centinaia di spese archiviate in cartelle di anno e mese. Cerca il mese 7: lì c'è il guasto che si è portato via quasi diecimila pesos in un colpo solo."
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "Da dove arrivano i soldi"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "Due stipendi quindicinali del bar, le ripetizioni di fisica che ha iniziato a dare quando ha deciso il viaggio, e le mance settimanali, mai uguali."
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "Nella tua casa puoi registrare anche via chat: «ho speso 250 al supermercato» e resta annotato."
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "L'obiettivo raggiunto"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "Il viaggio in Giappone, al 100%: undici mesi di risparmio, le ripetizioni, la tredicesima e i regali del compleanno. Sotto, il fondo di emergenza aperto al ritorno e un piccolo investimento."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "L'obiettivo nel tempo"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "Quello che doveva"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "Il guasto all'auto è finito sulla carta e ci sono voluti mesi per saldarlo. I debiti stanno a parte perché si leggono al contrario: qui scendere è vincere."
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "Mercati"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pep tiene d'occhio lo yen da quando ha deciso il viaggio, e ora il won, per il prossimo. Forex, crypto, azioni e materie prime in diretta (serve internet)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "Quattro regole di finanza personale, ognuna nella sua scheda: fondo di emergenza, indipendenza finanziaria, 50/30/20 e l'acconto dell'auto (20/4/10)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "Partono dal tuo saldo"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "I campi arrivano già compilati con le tue entrate o le tue spese reali del mese — toccali per simulare un'altra cifra senza perdere di vista quella vera."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "Dal calcolo all'obiettivo"
+  }
+]

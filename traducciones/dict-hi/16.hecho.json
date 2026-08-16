@@ -1,0 +1,598 @@
+[
+ {
+  "clave": "ejercicio.metas.flex",
+  "texto": "लचीलापन मिनट / सप्ताह"
+ },
+ {
+  "clave": "ejercicio.metas.dias",
+  "texto": "सक्रिय दिन / सप्ताह"
+ },
+ {
+  "clave": "ejercicio.metas.guardar",
+  "texto": "लक्ष्य सेव करें"
+ },
+ {
+  "clave": "ejercicio.metas.pilares",
+  "texto": "हर स्तंभ में क्या शामिल है"
+ },
+ {
+  "clave": "ejercicio.pilar.fuerza",
+  "texto": "सेट, रेप्स, वज़न, कुल वॉल्यूम और रिकॉर्ड (Fitbod स्टाइल में)."
+ },
+ {
+  "clave": "ejercicio.pilar.resistencia",
+  "texto": "कार्डियो, HIIT, दूरी और ज़ोन के अनुसार RPE (Peloton / NTC स्टाइल में)."
+ },
+ {
+  "clave": "ejercicio.pilar.flex",
+  "texto": "योग, मोबिलिटी और शरीर के हिस्से के अनुसार स्ट्रेचिंग।"
+ },
+ {
+  "clave": "descanso.score.titulo",
+  "texto": "नींद का स्कोर"
+ },
+ {
+  "clave": "descanso.score.vacia",
+  "texto": "अपना स्कोर देखने के लिए पहली रात दर्ज करें।"
+ },
+ {
+  "clave": "descanso.score.duracion",
+  "texto": "अवधि"
+ },
+ {
+  "clave": "descanso.score.horario",
+  "texto": "सोने का समय"
+ },
+ {
+  "clave": "descanso.score.interrupciones",
+  "texto": "रुकावटें"
+ },
+ {
+  "clave": "descanso.score.noche",
+  "texto": "{fecha} की रात · {horas}"
+ },
+ {
+  "clave": "descanso.et.excelente",
+  "texto": "बेहतरीन"
+ },
+ {
+  "clave": "descanso.et.buena",
+  "texto": "अच्छा"
+ },
+ {
+  "clave": "descanso.et.regular",
+  "texto": "ठीक-ठाक"
+ },
+ {
+  "clave": "descanso.et.baja",
+  "texto": "खराब"
+ },
+ {
+  "clave": "descanso.horario.titulo",
+  "texto": "समय-सारणी और रिमाइंडर"
+ },
+ {
+  "clave": "descanso.rutina.nombre",
+  "texto": "नींद"
+ },
+ {
+  "clave": "descanso.aviso.dormir",
+  "texto": "सोने का रिमाइंडर"
+ },
+ {
+  "clave": "descanso.aviso.dormirHint",
+  "texto": "जब तक ऐप खुला रहेगा, यह {hora} बजे याद दिलाएगा।"
+ },
+ {
+  "clave": "descanso.aviso.dormirTitulo",
+  "texto": "सोने का समय हो गया"
+ },
+ {
+  "clave": "descanso.aviso.dormirCuerpo",
+  "texto": "सोने का समय हो गया: लाइट बंद करें और बिस्तर पर जाएं।"
+ },
+ {
+  "clave": "descanso.aviso.pantallas",
+  "texto": "स्क्रीन बंद करें"
+ },
+ {
+  "clave": "descanso.aviso.pantallasHint",
+  "texto": "यह {hora} बजे, सोने से एक घंटे पहले याद दिलाएगा (अगर ऐप खुला है)।"
+ },
+ {
+  "clave": "descanso.aviso.pantallasTitulo",
+  "texto": "रफ़्तार धीमी करें"
+ },
+ {
+  "clave": "descanso.aviso.pantallasCuerpo",
+  "texto": "सोने में एक घंटा बाकी है: स्क्रीन रखें अलग और लाइट धीमी करें।"
+ },
+ {
+  "clave": "descanso.aviso.ok",
+  "texto": "ठीक है"
+ },
+ {
+  "clave": "descanso.horario.dormir",
+  "texto": "सोने का समय"
+ },
+ {
+  "clave": "descanso.horario.despertar",
+  "texto": "जागने का समय"
+ },
+ {
+  "clave": "descanso.horario.arrastra",
+  "texto": "अपनी समय-सारणी सेट करने के लिए चांद और सूरज को खींचें"
+ },
+ {
+  "clave": "descanso.horario.objetivo",
+  "texto": "नींद का लक्ष्य"
+ },
+ {
+  "clave": "descanso.horario.cumple",
+  "texto": "✓ यह समय-सारणी आपके नींद के लक्ष्य को पूरा करती है।"
+ },
+ {
+  "clave": "descanso.horario.noCumple",
+  "texto": "यह समय-सारणी {h} देती है, जो आपके {o} घंटे के लक्ष्य से कम है।"
+ },
+ {
+  "clave": "descanso.horario.alarma",
+  "texto": "अलार्म"
+ },
+ {
+  "clave": "descanso.horario.on",
+  "texto": "चालू"
+ },
+ {
+  "clave": "descanso.horario.off",
+  "texto": "बंद"
+ },
+ {
+  "clave": "descanso.horario.alarmaHint",
+  "texto": "जब तक ऐप खुला रहेगा, यह {hora} बजे बजेगा।"
+ },
+ {
+  "clave": "descanso.horario.falta",
+  "texto": "जागने में {h} बाकी"
+ },
+ {
+  "clave": "descanso.tono.titulo",
+  "texto": "अलार्म टोन"
+ },
+ {
+  "clave": "descanso.tono.probar",
+  "texto": "चुनें और सुनें"
+ },
+ {
+  "clave": "descanso.tono.subir",
+  "texto": "ऑडियो अपलोड करें"
+ },
+ {
+  "clave": "descanso.tono.volumen",
+  "texto": "वॉल्यूम"
+ },
+ {
+  "clave": "descanso.tono.grande",
+  "texto": "फ़ाइल बहुत बड़ी है (अधिकतम {n} MB)।"
+ },
+ {
+  "clave": "descanso.tono.clasico",
+  "texto": "क्लासिक"
+ },
+ {
+  "clave": "descanso.tono.campanas",
+  "texto": "घंटियां"
+ },
+ {
+  "clave": "descanso.tono.marimba",
+  "texto": "मारिम्बा"
+ },
+ {
+  "clave": "descanso.tono.radar",
+  "texto": "रडार"
+ },
+ {
+  "clave": "descanso.tono.arpa",
+  "texto": "वीणा"
+ },
+ {
+  "clave": "descanso.tono.amanecer",
+  "texto": "सूर्योदय"
+ },
+ {
+  "clave": "descanso.deSueno",
+  "texto": "नींद की"
+ },
+ {
+  "clave": "descanso.alarma.notif",
+  "texto": "उठने का समय हो गया"
+ },
+ {
+  "clave": "descanso.alarma.detener",
+  "texto": "पॉज़"
+ },
+ {
+  "clave": "descanso.evid.titulo",
+  "texto": "सबूत के साथ अनलॉक करें"
+ },
+ {
+  "clave": "descanso.evid.ph",
+  "texto": "उदा. मेरा बिस्तर ठीक किया हुआ"
+ },
+ {
+  "clave": "descanso.evid.hint",
+  "texto": "बजने पर आपको \"{tarea}\" की एक फ़ोटो भेजनी होगी; AI उसकी जांच करेगा और तभी अलार्म बंद होगा।"
+ },
+ {
+  "clave": "descanso.evid.falta",
+  "texto": "अलार्म बंद करने के लिए लिखें कि फ़ोटो में क्या दिखना चाहिए।"
+ },
+ {
+  "clave": "descanso.evid.reto",
+  "texto": "इसे बंद करने के लिए, फ़ोटो से साबित करें:"
+ },
+ {
+  "clave": "descanso.evid.foto",
+  "texto": "फ़ोटो लें"
+ },
+ {
+  "clave": "descanso.evid.otra",
+  "texto": "दूसरी फ़ोटो लें"
+ },
+ {
+  "clave": "descanso.evid.revisando",
+  "texto": "आपकी फ़ोटो जांची जा रही है…"
+ },
+ {
+  "clave": "descanso.evid.error",
+  "texto": "फ़ोटो जांची नहीं जा सकी: {e}"
+ },
+ {
+  "clave": "descanso.evid.apagar",
+  "texto": "बिना सबूत के बंद करें"
+ },
+ {
+  "clave": "descanso.evid.probar",
+  "texto": "अभी आज़माएं"
+ },
+ {
+  "clave": "descanso.evid.ensayo",
+  "texto": "चुनौती का रिहर्सल"
+ },
+ {
+  "clave": "descanso.evid.cerrar",
+  "texto": "टेस्ट बंद करें"
+ },
+ {
+  "clave": "descanso.reg.titulo",
+  "texto": "रात दर्ज करें"
+ },
+ {
+  "clave": "descanso.reg.fecha",
+  "texto": "तारीख़"
+ },
+ {
+  "clave": "descanso.reg.acosto",
+  "texto": "सोने का समय"
+ },
+ {
+  "clave": "descanso.reg.desperto",
+  "texto": "उठने का समय"
+ },
+ {
+  "clave": "descanso.reg.interrupciones",
+  "texto": "रुकावटें"
+ },
+ {
+  "clave": "descanso.reg.calidad",
+  "texto": "गुणवत्ता"
+ },
+ {
+  "clave": "descanso.reg.ph.nota",
+  "texto": "नोट (उदा. थकान महसूस हुई)"
+ },
+ {
+  "clave": "descanso.reg.guardar",
+  "texto": "नींद दर्ज करें"
+ },
+ {
+  "clave": "descanso.nDe5",
+  "texto": "5 में से {n}"
+ },
+ {
+  "clave": "descanso.sem.titulo",
+  "texto": "पिछली 7 रातें"
+ },
+ {
+  "clave": "descanso.sem.promedio",
+  "texto": "औसत: {h}"
+ },
+ {
+  "clave": "descanso.hist.vacio",
+  "texto": "अभी तक कोई रात दर्ज नहीं हुई।"
+ },
+ {
+  "clave": "anec.titulo",
+  "texto": "दिन का शीर्षक"
+ },
+ {
+  "clave": "anec.ph",
+  "texto": "आज क्या हुआ? इससे क्या सीख मिली?"
+ },
+ {
+  "clave": "anec.fotos",
+  "texto": "फ़ोटो"
+ },
+ {
+  "clave": "anec.guardar",
+  "texto": "याद सेव करें"
+ },
+ {
+  "clave": "anec.vacio",
+  "texto": "आपकी यादों की डायरी खाली है। अपनी पहली याद लिखें।"
+ },
+ {
+  "clave": "anec.cargarMas",
+  "texto": "और यादें लोड करें"
+ },
+ {
+  "clave": "anec.sinTitulo",
+  "texto": "बिना शीर्षक"
+ },
+ {
+  "clave": "anec.cal.recuerdos",
+  "texto": "याद वाले {n} दिन"
+ },
+ {
+  "clave": "anec.dia.titulo",
+  "texto": "{fecha} की यादें"
+ },
+ {
+  "clave": "anec.dia.cerrar",
+  "texto": "दिन बंद करें"
+ },
+ {
+  "clave": "sala.desc",
+  "texto": "आपकी यात्रा की दुनिया: विश्व मानचित्र पर घूमी हुई जगहों के पिन, देखने लायक जगहों के कैलेंडर वाले प्लान, यात्रा मार्ग और फ़ोटो व किस्सों के साथ सफ़रनामा।"
+ },
+ {
+  "clave": "sala.tab.mapa",
+  "texto": "नक्शा"
+ },
+ {
+  "clave": "sala.tab.porConocer",
+  "texto": "योजना"
+ },
+ {
+  "clave": "sala.tab.rutas",
+  "texto": "मार्ग"
+ },
+ {
+  "clave": "sala.tab.bitacora",
+  "texto": "सफ़रनामा"
+ },
+ {
+  "clave": "sala.mapa.listaVacia",
+  "texto": "यहां अभी कुछ नहीं है।"
+ },
+ {
+  "clave": "sala.mapa.paises",
+  "texto": "देश"
+ },
+ {
+  "clave": "sala.mapa.visitados",
+  "texto": "घूमी हुई जगहें"
+ },
+ {
+  "clave": "sala.mapa.pendientes",
+  "texto": "योजना में"
+ },
+ {
+  "clave": "sala.mapa.pinVisitado",
+  "texto": "घूमी हुई जगह का पिन"
+ },
+ {
+  "clave": "sala.mapa.pinPendiente",
+  "texto": "योजना वाला पिन"
+ },
+ {
+  "clave": "sala.mapa.estados",
+  "texto": "राज्य"
+ },
+ {
+  "clave": "sala.mapa.vistaPlano",
+  "texto": "फ्लैट"
+ },
+ {
+  "clave": "sala.mapa.vistaGlobo",
+  "texto": "ग्लोब"
+ },
+ {
+  "clave": "sala.mapa.cargandoGlobo",
+  "texto": "ग्लोब तैयार हो रहा है…"
+ },
+ {
+  "clave": "sala.globo.girar",
+  "texto": "घुमाने के लिए खींचें · ज़ूम करने के लिए स्क्रॉल करें या पिंच करें"
+ },
+ {
+  "clave": "sala.mapa.tocaVisitado",
+  "texto": "नक्शे पर वह जगह दबाएं जहां आपकी यात्रा हो चुकी है: यह जगह आपके सफ़रनामे में चली जाएगी।"
+ },
+ {
+  "clave": "sala.mapa.tocaPendiente",
+  "texto": "नक्शे पर वह जगह दबाएं जिसे देखने का आपका सपना है: यह जगह आपकी योजना में चली जाएगी।"
+ },
+ {
+  "clave": "sala.mapa.yaVisite",
+  "texto": "वहां जाना हो चुका है"
+ },
+ {
+  "clave": "sala.mapa.leyVisitado",
+  "texto": "घूमी हुई"
+ },
+ {
+  "clave": "sala.mapa.leyPendiente",
+  "texto": "योजना में"
+ },
+ {
+  "clave": "sala.mapa.verBitacora",
+  "texto": "सफ़रनामा"
+ },
+ {
+  "clave": "sala.mapa.editar",
+  "texto": "बदलें"
+ },
+ {
+  "clave": "sala.mapa.quitar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "sala.mapa.vacio",
+  "texto": "अभी कोई पिन नहीं है। \"पिन लगाएं\" दबाएं और अपनी पहली घूमी हुई जगह चुनें।"
+ },
+ {
+  "clave": "sala.form.nuevo",
+  "texto": "नई जगह"
+ },
+ {
+  "clave": "sala.form.editar",
+  "texto": "जगह बदलें"
+ },
+ {
+  "clave": "sala.form.buscar",
+  "texto": "जगह खोजें (उदा. क्योटो, माचू पिच्चू)…"
+ },
+ {
+  "clave": "sala.form.errorBusqueda",
+  "texto": "खोज नहीं हो सकी (इंटरनेट नहीं है?). फ़ील्ड खुद भरें और नक्शे पर पॉइंट को मार्क करें।"
+ },
+ {
+  "clave": "sala.form.sinPunto",
+  "texto": "पॉइंट रखने के लिए नक्शे पर टैप करें (वैकल्पिक लेकिन सुझाया गया)।"
+ },
+ {
+  "clave": "sala.form.nombre",
+  "texto": "जगह का नाम *"
+ },
+ {
+  "clave": "sala.form.pais",
+  "texto": "देश *"
+ },
+ {
+  "clave": "sala.form.estado",
+  "texto": "राज्य / क्षेत्र"
+ },
+ {
+  "clave": "sala.form.ciudad",
+  "texto": "शहर"
+ },
+ {
+  "clave": "sala.form.visitado",
+  "texto": "वहां जाना हो चुका है"
+ },
+ {
+  "clave": "sala.form.nota",
+  "texto": "नोट (क्या देखना चाहते हैं, टिप्स…)"
+ },
+ {
+  "clave": "sala.form.cancelar",
+  "texto": "रद्द करें"
+ },
+ {
+  "clave": "sala.form.guardar",
+  "texto": "जगह सेव करें"
+ },
+ {
+  "clave": "sala.pc.paises",
+  "texto": "देश"
+ },
+ {
+  "clave": "sala.pc.estados",
+  "texto": "राज्य"
+ },
+ {
+  "clave": "sala.pc.ciudades",
+  "texto": "शहर"
+ },
+ {
+  "clave": "sala.pc.fechas",
+  "texto": "तारीख़"
+ },
+ {
+  "clave": "sala.pc.sinFecha",
+  "texto": "बिना तारीख़"
+ },
+ {
+  "clave": "sala.pc.ordenarPor",
+  "texto": "सॉर्ट करें"
+ },
+ {
+  "clave": "sala.pc.buscar",
+  "texto": "अपनी लिस्ट में खोजें…"
+ },
+ {
+  "clave": "sala.pc.agregar",
+  "texto": "जगह"
+ },
+ {
+  "clave": "sala.pc.sinDato",
+  "texto": "निर्दिष्ट नहीं"
+ },
+ {
+  "clave": "sala.pc.count",
+  "texto": "{n} जगहें"
+ },
+ {
+  "clave": "sala.pc.countUno",
+  "texto": "1 जगह"
+ },
+ {
+  "clave": "sala.pc.vacio",
+  "texto": "आपकी यात्रा योजना खाली है। वे जगहें जोड़ें जिन्हें देखने का सपना है।"
+ },
+ {
+  "clave": "sala.pc.visitado",
+  "texto": "वहां जाना हो चुका है"
+ },
+ {
+  "clave": "sala.pc.vistaItinerarios",
+  "texto": "योजनाएं"
+ },
+ {
+  "clave": "sala.pc.vistaGuardados",
+  "texto": "सेव की गई योजनाएं"
+ },
+ {
+  "clave": "sala.pc.confirmarTitulo",
+  "texto": "क्या यह यात्रा हो चुकी है?"
+ },
+ {
+  "clave": "sala.pc.confirmarDesc",
+  "texto": "{lugar} आपके सफ़रनामे में चली जाएगी।"
+ },
+ {
+  "clave": "sala.pc.confirmarNo",
+  "texto": "अभी नहीं"
+ },
+ {
+  "clave": "sala.pc.confirmarSi",
+  "texto": "हां, जाना हो चुका है"
+ },
+ {
+  "clave": "sala.form.sinItinerario",
+  "texto": "कोई योजना नहीं (सामान्य)"
+ },
+ {
+  "clave": "sala.form.fechaPlan",
+  "texto": "योजना की तारीख़ (वैकल्पिक)"
+ },
+ {
+  "clave": "sala.pc.plan",
+  "texto": "रोज़ की योजना"
+ },
+ {
+  "clave": "sala.hoja.dia",
+  "texto": "दिन"
+ }
+]

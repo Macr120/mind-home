@@ -1,0 +1,670 @@
+[
+  {
+    "clave": "plantillaCustom.borrarBloqueMsj",
+    "texto": "Lo strumento viene eliminato con tutto ciò che hai salvato al suo interno."
+  },
+  {
+    "clave": "plantillaCustom.borrarBloqueAhora",
+    "texto": "Elimina lo strumento e i suoi dati"
+  },
+  {
+    "clave": "plantillaCustom.meta",
+    "texto": "Obiettivo (facoltativo)"
+  },
+  {
+    "clave": "plantillaCustom.guardar",
+    "texto": "Salva"
+  },
+  {
+    "clave": "plantillaCustom.cancelar",
+    "texto": "Annulla"
+  },
+  {
+    "clave": "plantillaCustom.tipo.notas",
+    "texto": "Note"
+  },
+  {
+    "clave": "plantillaCustom.tipo.checklist",
+    "texto": "Checklist"
+  },
+  {
+    "clave": "plantillaCustom.tipo.contador",
+    "texto": "Contatore"
+  },
+  {
+    "clave": "plantillaCustom.tipo.enlaces",
+    "texto": "Link"
+  },
+  {
+    "clave": "plantillaCustom.tipo.lista",
+    "texto": "Elenco"
+  },
+  {
+    "clave": "plantillaCustom.tipo.valoracion",
+    "texto": "Valutazione"
+  },
+  {
+    "clave": "plantillaCustom.tipo.bitacora",
+    "texto": "Diario"
+  },
+  {
+    "clave": "plantillaCustom.tipo.progreso",
+    "texto": "Progresso"
+  },
+  {
+    "clave": "plantillaCustom.tipo.habito",
+    "texto": "Abitudine"
+  },
+  {
+    "clave": "plantillaCustom.tipo.sesiones",
+    "texto": "Sessioni"
+  },
+  {
+    "clave": "plantillaCustom.tipo.cuenta",
+    "texto": "Conto alla rovescia"
+  },
+  {
+    "clave": "plantillaCustom.tipo.galeria",
+    "texto": "Galleria"
+  },
+  {
+    "clave": "amueblar.titulo",
+    "texto": "Come vuoi arredare la stanza?"
+  },
+  {
+    "clave": "amueblar.completo",
+    "texto": "Arredata"
+  },
+  {
+    "clave": "amueblar.completoDesc",
+    "texto": "Porta tutti gli oggetti dell'app."
+  },
+  {
+    "clave": "amueblar.principal",
+    "texto": "Solo l'oggetto principale"
+  },
+  {
+    "clave": "amueblar.principalDesc",
+    "texto": "Solo l'oggetto che apre l'app, niente altro."
+  },
+  {
+    "clave": "plantillaCustom.eliminada",
+    "texto": "Questo modello è stato eliminato."
+  },
+  {
+    "clave": "plantillaCustom.notasPh",
+    "texto": "Scrivi le tue note… (si salvano da sole)"
+  },
+  {
+    "clave": "plantillaCustom.checklistPh",
+    "texto": "Nuovo compito…"
+  },
+  {
+    "clave": "plantillaCustom.checklistVacio",
+    "texto": "Ancora nessun compito."
+  },
+  {
+    "clave": "plantillaCustom.borrarItem",
+    "texto": "Elimina"
+  },
+  {
+    "clave": "plantillaCustom.enlaceTitulo",
+    "texto": "Titolo (facoltativo)"
+  },
+  {
+    "clave": "plantillaCustom.enlacesVacio",
+    "texto": "Nessun link salvato."
+  },
+  {
+    "clave": "plantillaCustom.listaPh",
+    "texto": "Nuovo elemento…"
+  },
+  {
+    "clave": "plantillaCustom.listaVacio",
+    "texto": "Elenco vuoto."
+  },
+  {
+    "clave": "plantillaCustom.bitacoraPh",
+    "texto": "Nuova voce…"
+  },
+  {
+    "clave": "plantillaCustom.bitacoraVacio",
+    "texto": "Ancora nessuna voce."
+  },
+  {
+    "clave": "plantillaCustom.progresoPh",
+    "texto": "Valore…"
+  },
+  {
+    "clave": "plantillaCustom.progresoVacio",
+    "texto": "Ancora nessuna misurazione."
+  },
+  {
+    "clave": "plantillaCustom.unidad",
+    "texto": "Unità (facoltativo)"
+  },
+  {
+    "clave": "plantillaCustom.habitoMarcar",
+    "texto": "Segna oggi"
+  },
+  {
+    "clave": "plantillaCustom.habitoHecho",
+    "texto": "Fatto oggi ✓"
+  },
+  {
+    "clave": "plantillaCustom.habitoRacha",
+    "texto": "serie"
+  },
+  {
+    "clave": "plantillaCustom.habitoDias",
+    "texto": "giorni attivi"
+  },
+  {
+    "clave": "plantillaCustom.metaSemana",
+    "texto": "Volte a settimana (facoltativo)"
+  },
+  {
+    "clave": "plantillaCustom.sesionMin",
+    "texto": "Minuti"
+  },
+  {
+    "clave": "plantillaCustom.sesionNota",
+    "texto": "Nota (facoltativo)"
+  },
+  {
+    "clave": "plantillaCustom.sesionVacio",
+    "texto": "Ancora nessuna sessione."
+  },
+  {
+    "clave": "plantillaCustom.sesionTotal",
+    "texto": "Totale"
+  },
+  {
+    "clave": "plantillaCustom.metaMin",
+    "texto": "Obiettivo in minuti (facoltativo)"
+  },
+  {
+    "clave": "plantillaCustom.cuentaFecha",
+    "texto": "Data obiettivo"
+  },
+  {
+    "clave": "plantillaCustom.cuentaSinFecha",
+    "texto": "Imposta una data obiettivo durante la modifica."
+  },
+  {
+    "clave": "plantillaCustom.cuentaDias",
+    "texto": "giorni rimanenti"
+  },
+  {
+    "clave": "plantillaCustom.cuentaHoy",
+    "texto": "Oggi!"
+  },
+  {
+    "clave": "plantillaCustom.cuentaPaso",
+    "texto": "giorni fa"
+  },
+  {
+    "clave": "plantillaCustom.galeriaAgregar",
+    "texto": "Aggiungi foto"
+  },
+  {
+    "clave": "plantillaCustom.galeriaVacio",
+    "texto": "Ancora nessuna foto."
+  },
+  {
+    "clave": "objetos.ayuda",
+    "texto": "Tutti gli oggetti esistenti, per categoria. Crea i tuoi, modificali o eliminali."
+  },
+  {
+    "clave": "objetos.ayudaEspeciales",
+    "texto": "Gli oggetti con effetto, raggruppati per funzione. Aprine uno per vedere le sue cartelle."
+  },
+  {
+    "clave": "objetos.agregar",
+    "texto": "Aggiungi oggetto 3D"
+  },
+  {
+    "clave": "objetos.alMapa",
+    "texto": "Posiziona sulla mappa o in una stanza"
+  },
+  {
+    "clave": "destinoObj.titulo",
+    "texto": "Dove lo metti?"
+  },
+  {
+    "clave": "destinoObj.mapa",
+    "texto": "Sulla mappa"
+  },
+  {
+    "clave": "destinoObj.mapaDesc",
+    "texto": "Libero all'aperto, fuori dalle stanze."
+  },
+  {
+    "clave": "destinoObj.enCuarto",
+    "texto": "Oppure dentro una stanza"
+  },
+  {
+    "clave": "objetos.editar",
+    "texto": "Modifica nell'editor"
+  },
+  {
+    "clave": "objetos.editarForma",
+    "texto": "Modifica la sua forma"
+  },
+  {
+    "clave": "objetos.animado",
+    "texto": "Oggetto animato"
+  },
+  {
+    "clave": "objetos.funcion.vehiculo",
+    "texto": "Guidabile"
+  },
+  {
+    "clave": "objetos.funcion.asiento",
+    "texto": "Puoi sederti qui"
+  },
+  {
+    "clave": "objetos.funcion.acostarse",
+    "texto": "Puoi sdraiarti qui"
+  },
+  {
+    "clave": "objetos.funcion.laptop",
+    "texto": "Usato per lavorare"
+  },
+  {
+    "clave": "objetos.funcion.cajaFuerte",
+    "texto": "Custodisce ciò che conta"
+  },
+  {
+    "clave": "objetos.funcion.computo",
+    "texto": "Usato per calcolare"
+  },
+  {
+    "clave": "objetos.funcion.tapete",
+    "texto": "Usato per meditare"
+  },
+  {
+    "clave": "objetos.funcion.libreta",
+    "texto": "Usato per scrivere"
+  },
+  {
+    "clave": "objetos.funcion.caminadora",
+    "texto": "Usato per camminare"
+  },
+  {
+    "clave": "objetos.funcion.anuncio",
+    "texto": "Cartello: scrivi il tuo testo"
+  },
+  {
+    "clave": "objetos.funcion.parque",
+    "texto": "Interattivo: sali per giocare"
+  },
+  {
+    "clave": "objetos.rotarIzq",
+    "texto": "Ruota a sinistra"
+  },
+  {
+    "clave": "objetos.rotarDer",
+    "texto": "Ruota a destra"
+  },
+  {
+    "clave": "objetos.quitarDelMapa",
+    "texto": "Rimuovi dalla mappa"
+  },
+  {
+    "clave": "objetos.borrar",
+    "texto": "Elimina oggetto"
+  },
+  {
+    "clave": "objetos.borrarConfirm",
+    "texto": "Eliminare «{nombre}»? Non si può annullare."
+  },
+  {
+    "clave": "objetos.renombrar",
+    "texto": "Rinomina cartella"
+  },
+  {
+    "clave": "objetos.restaurar",
+    "texto": "Ripristina oggetti base"
+  },
+  {
+    "clave": "objetos.restaurarConfirm",
+    "texto": "Gli oggetti base del catalogo che hai eliminato verranno aggiunti di nuovo. Continuare?"
+  },
+  {
+    "clave": "mapa.editar",
+    "texto": "Modifica mappa"
+  },
+  {
+    "clave": "mapa.editarTitulo",
+    "texto": "Modifica la mappa della casa"
+  },
+  {
+    "clave": "mapa.quitar",
+    "texto": "Rimuovi dalla mappa"
+  },
+  {
+    "clave": "chat.tuAsistente",
+    "texto": "Il tuo assistente:"
+  },
+  {
+    "clave": "chat.vacio",
+    "texto": "Ancora nessuna registrazione. Racconta all'architetto cosa hai fatto."
+  },
+  {
+    "clave": "chat.sinClasificar",
+    "texto": "Non classificato"
+  },
+  {
+    "clave": "chat.capturado",
+    "texto": "catturato"
+  },
+  {
+    "clave": "chat.reclasificar",
+    "texto": "Riclassifica"
+  },
+  {
+    "clave": "chat.eliminar",
+    "texto": "Elimina"
+  },
+  {
+    "clave": "chat.ocultar",
+    "texto": "Chiudi il menu"
+  },
+  {
+    "clave": "chat.verMenu",
+    "texto": "apri il menu"
+  },
+  {
+    "clave": "chat.registrar",
+    "texto": "Registra"
+  },
+  {
+    "clave": "chat.chip.crear",
+    "texto": "Crea"
+  },
+  {
+    "clave": "chat.chip.enMapa",
+    "texto": "(sulla mappa)"
+  },
+  {
+    "clave": "chat.chip.fuera",
+    "texto": "(fuori)"
+  },
+  {
+    "clave": "chat.abrirConv",
+    "texto": "vedi conversazione"
+  },
+  {
+    "clave": "chat.verConv",
+    "texto": "Vedi la conversazione completa"
+  },
+  {
+    "clave": "chat.burbuja.ver",
+    "texto": "Tocca per leggere tutto"
+  },
+  {
+    "clave": "dialogo.salir",
+    "texto": "Termina la conversazione (Esc)"
+  },
+  {
+    "clave": "dialogo.completar",
+    "texto": "Mostra tutto il testo"
+  },
+  {
+    "clave": "dialogo.hablar",
+    "texto": "Parla"
+  },
+  {
+    "clave": "chat.conversacion",
+    "texto": "Conversazione"
+  },
+  {
+    "clave": "chat.conv.vacia",
+    "texto": "Ancora nessun messaggio con {pet}. Scrivigli dalla barra qui sotto"
+  },
+  {
+    "clave": "chat.conv.limpiar",
+    "texto": "Svuota conversazione"
+  },
+  {
+    "clave": "chat.conv.cerrar",
+    "texto": "Chiudi"
+  },
+  {
+    "clave": "chat.tu",
+    "texto": "Tu"
+  },
+  {
+    "clave": "chat.tab.chats",
+    "texto": "Chat"
+  },
+  {
+    "clave": "chat.tab.registros",
+    "texto": "Registrazioni"
+  },
+  {
+    "clave": "chat.config.abrir",
+    "texto": "Configura assistenti"
+  },
+  {
+    "clave": "chat.config.titulo",
+    "texto": "I tuoi assistenti"
+  },
+  {
+    "clave": "chat.config.activo",
+    "texto": "attivo"
+  },
+  {
+    "clave": "chat.config.sinCaracter",
+    "texto": "Nessuna personalità impostata"
+  },
+  {
+    "clave": "chat.config.archivaTodo",
+    "texto": "Archivia in tutte le stanze"
+  },
+  {
+    "clave": "chat.config.cuartos",
+    "texto": "Assegna stanze"
+  },
+  {
+    "clave": "chat.config.cuartosTodos",
+    "texto": "(nessuna selezionata = tutte)"
+  },
+  {
+    "clave": "chat.config.nuevo",
+    "texto": "Crea assistente"
+  },
+  {
+    "clave": "chat.config.nuevoNombre",
+    "texto": "Nuovo assistente"
+  },
+  {
+    "clave": "chat.config.nuevoSaludo",
+    "texto": "Ciao! Sono il tuo nuovo assistente."
+  },
+  {
+    "clave": "chat.config.nombre",
+    "texto": "Nome"
+  },
+  {
+    "clave": "chat.config.emoji",
+    "texto": "Emoji dell'assistente"
+  },
+  {
+    "clave": "chat.config.historia",
+    "texto": "Storia e contesto del personaggio"
+  },
+  {
+    "clave": "chat.config.historiaPh",
+    "texto": "Storia e contesto: es. \"Vecchio lupo di mare che ha curato un faro per 40 anni; ora si prende cura della tua casa\""
+  },
+  {
+    "clave": "chat.config.caracterPh",
+    "texto": "Carattere: es. \"Parli come un pirata, scherzoso e diretto, chiudi con 🏴‍☠️\""
+  },
+  {
+    "clave": "chat.config.forma",
+    "texto": "Forma 3D:"
+  },
+  {
+    "clave": "chat.config.color",
+    "texto": "Colore del personaggio"
+  },
+  {
+    "clave": "chat.config.formaPh",
+    "texto": "Descrivilo: \"drago verde con occhiali e gilet\""
+  },
+  {
+    "clave": "chat.config.formaSinIa",
+    "texto": "Descrivere la forma richiede l'IA (scegli un modello nella barra)"
+  },
+  {
+    "clave": "chat.config.formaGenerar",
+    "texto": "Crea la forma con l'IA"
+  },
+  {
+    "clave": "chat.config.formaError",
+    "texto": "Non è stato possibile creare la forma. Controlla il modello di IA e riprova."
+  },
+  {
+    "clave": "chat.config.subirGlb",
+    "texto": "Carica modello .glb"
+  },
+  {
+    "clave": "chat.config.quitarGlb",
+    "texto": "Rimuovi modello caricato"
+  },
+  {
+    "clave": "chat.config.quitarFormaIa",
+    "texto": "Rimuovi forma creata con l'IA"
+  },
+  {
+    "clave": "chat.config.enMapa",
+    "texto": "Rimuovi dalla mappa"
+  },
+  {
+    "clave": "chat.config.ponerMapa",
+    "texto": "Metti sulla mappa"
+  },
+  {
+    "clave": "chat.config.voz",
+    "texto": "Voce:"
+  },
+  {
+    "clave": "chat.config.vozAuto",
+    "texto": "Automatica (in base alla lingua)"
+  },
+  {
+    "clave": "chat.config.vozIA",
+    "texto": "Voce con IA (OpenAI, più naturale)"
+  },
+  {
+    "clave": "chat.config.vozLeer",
+    "texto": "Leggi ad alta voce ciò che dice"
+  },
+  {
+    "clave": "chat.config.vozProbar",
+    "texto": "Prova la voce"
+  },
+  {
+    "clave": "chat.config.vozTono",
+    "texto": "Tono"
+  },
+  {
+    "clave": "chat.config.vozVelocidad",
+    "texto": "Velocità"
+  },
+  {
+    "clave": "chat.config.vozVolumen",
+    "texto": "Volume"
+  },
+  {
+    "clave": "chat.config.espontaneo",
+    "texto": "Commenti spontanei"
+  },
+  {
+    "clave": "chat.config.corazon",
+    "texto": "Cuore (spontaneità)"
+  },
+  {
+    "clave": "chat.config.corazonOff",
+    "texto": "Spenti"
+  },
+  {
+    "clave": "corazon.nivel.0",
+    "texto": "Silenzioso"
+  },
+  {
+    "clave": "corazon.nivel.1",
+    "texto": "Tranquillo"
+  },
+  {
+    "clave": "corazon.nivel.2",
+    "texto": "Chiacchierone"
+  },
+  {
+    "clave": "corazon.nivel.3",
+    "texto": "Ciarliero"
+  },
+  {
+    "clave": "corazon.mago.manana.0",
+    "texto": "L'alba porta mana fresco… lo sento ✨"
+  },
+  {
+    "clave": "corazon.mago.manana.1",
+    "texto": "Le mie pergamene si sono svegliate in ordine. Buon presagio 🔮"
+  },
+  {
+    "clave": "corazon.mago.tarde.0",
+    "texto": "Il pomeriggio è perfetto per incidere gesta nel grimorio ✨"
+  },
+  {
+    "clave": "corazon.mago.tarde.1",
+    "texto": "Percepisco energie tranquille in casa questo pomeriggio 🔮"
+  },
+  {
+    "clave": "corazon.mago.noche.0",
+    "texto": "Le stelle rivelano i loro segreti… una bella notte per incantesimi 🌙"
+  },
+  {
+    "clave": "corazon.mago.noche.1",
+    "texto": "La luna carica la mia sfera. Qui tutto è calmo 🔮"
+  },
+  {
+    "clave": "corazon.mago.rutina.0",
+    "texto": "La mia sfera di cristallo annuncia: «{r}» alle {h} ✨"
+  },
+  {
+    "clave": "corazon.mago.rutina.1",
+    "texto": "Il destino segna le {h}: «{r}» si avvicina 🔮"
+  },
+  {
+    "clave": "corazon.mago.generica.0",
+    "texto": "Questa casa oggi trabocca di magia ✨"
+  },
+  {
+    "clave": "corazon.mago.generica.1",
+    "texto": "Un incantesimo di ordine non fa mai male… 🔮"
+  },
+  {
+    "clave": "corazon.gato.manana.0",
+    "texto": "Troppo presto. Gli umani si svegliano in modo strano 🐾"
+  },
+  {
+    "clave": "corazon.gato.manana.1",
+    "texto": "Sbadiglio. Le mattine sarebbero migliori con un pisolino 🐱"
+  },
+  {
+    "clave": "corazon.gato.tarde.0",
+    "texto": "Momento perfetto per un pisolino al sole. Giusto per dire 🐾"
+  },
+  {
+    "clave": "corazon.gato.tarde.1",
+    "texto": "Pomeriggio tranquillo… proprio come mi piace 🐱"
+  },
+  {
+    "clave": "corazon.gato.noche.0",
+    "texto": "Finalmente notte. Il mio momento migliore 🐱"
+  }
+]

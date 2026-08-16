@@ -1,0 +1,494 @@
+[
+  {
+    "clave": "ajustes.musica.hudDesc",
+    "texto": "Kapalıyken ev daha sade görünür: müzik buradan ayarlanır."
+  },
+  {
+    "clave": "ajustes.musica.fuente",
+    "texto": "Kaynak"
+  },
+  {
+    "clave": "ajustes.musica.fuente.generada",
+    "texto": "Oluşturulan"
+  },
+  {
+    "clave": "ajustes.musica.fuente.pistas",
+    "texto": "Parçalarım"
+  },
+  {
+    "clave": "ajustes.musica.fuente.sistema",
+    "texto": "Sistem"
+  },
+  {
+    "clave": "ajustes.musica.sistema.conectar",
+    "texto": "Sistem sesini algıla"
+  },
+  {
+    "clave": "ajustes.musica.sistema.desconectar",
+    "texto": "Dinlemeyi durdur"
+  },
+  {
+    "clave": "ajustes.musica.sistema.activo",
+    "texto": "Sistem sesi dinleniyor."
+  },
+  {
+    "clave": "ajustes.musica.sistema.desc",
+    "texto": "Tarayıcı ekranını veya bir sekmeyi paylaşmanı isteyecek: «Sesi paylaş» seçeneğini işaretle, müziğin (Spotify, YouTube…) burada canlı görünsün. Başlıktan yalnızca paylaştığın şeyin adını okuyabilir."
+  },
+  {
+    "clave": "ajustes.musica.sistema.sinAudio",
+    "texto": "Sessiz paylaşıldı: ekranı veya sekmeyi seçerken «Sesi paylaş» kutusunu işaretle."
+  },
+  {
+    "clave": "ajustes.musica.sistema.pestana",
+    "texto": "Sekme"
+  },
+  {
+    "clave": "ajustes.musica.sistema.ventana",
+    "texto": "Pencere"
+  },
+  {
+    "clave": "ajustes.musica.sistema.pantalla",
+    "texto": "Tüm ekran"
+  },
+  {
+    "clave": "ajustes.musica.sistema.pausa",
+    "texto": "duraklatıldı"
+  },
+  {
+    "clave": "ajustes.musica.sistema.tituloFijo",
+    "texto": "Bu, paylaştığın şeyin adı: şarkı değiştiğinde değişmez."
+  },
+  {
+    "clave": "ajustes.musica.sistema.permiso",
+    "texto": "Çalan parçayı okumaya izin ver"
+  },
+  {
+    "clave": "ajustes.musica.sistema.permisoDesc",
+    "texto": "Android ayarları açılacak: «Bildirim erişimi» bölümünde Mind Planner Home’u etkinleştir, dinlediğin sanatçı ve şarkı burada görünsün. Hiçbir bildirimi okumuyoruz: Android, çalmayı görebilmek için bu izni istiyor."
+  },
+  {
+    "clave": "ajustes.musica.mood",
+    "texto": "Ruh hali"
+  },
+  {
+    "clave": "ajustes.musica.mood.calma",
+    "texto": "Sakin"
+  },
+  {
+    "clave": "ajustes.musica.mood.festivo",
+    "texto": "Şenlikli"
+  },
+  {
+    "clave": "ajustes.musica.mood.nocturno",
+    "texto": "Gece"
+  },
+  {
+    "clave": "ajustes.musica.mood.chiptune",
+    "texto": "Chiptune"
+  },
+  {
+    "clave": "ajustes.musica.mood.acogedor",
+    "texto": "Sıcak"
+  },
+  {
+    "clave": "ajustes.musica.mood.energia",
+    "texto": "Enerji"
+  },
+  {
+    "clave": "ajustes.musica.mood.estudio",
+    "texto": "Çalışma"
+  },
+  {
+    "clave": "ajustes.musica.mood.arcade",
+    "texto": "Arcade"
+  },
+  {
+    "clave": "ajustes.musica.mood.bosque",
+    "texto": "Orman"
+  },
+  {
+    "clave": "ajustes.musica.mood.viaje",
+    "texto": "Yolculuk"
+  },
+  {
+    "clave": "ajustes.musica.mood.carrera",
+    "texto": "Yarış"
+  },
+  {
+    "clave": "ajustes.musica.mood.cajita",
+    "texto": "Müzik kutusu"
+  },
+  {
+    "clave": "ajustes.musica.mood.lectura",
+    "texto": "Okuma"
+  },
+  {
+    "clave": "ajustes.musica.mood.oficina",
+    "texto": "Ofis"
+  },
+  {
+    "clave": "ajustes.musica.mood.taller",
+    "texto": "Atölye"
+  },
+  {
+    "clave": "ajustes.musica.mood.digital",
+    "texto": "Dijital"
+  },
+  {
+    "clave": "ajustes.musica.mood.noticias",
+    "texto": "Haber odası"
+  },
+  {
+    "clave": "ajustes.musica.mood.campo",
+    "texto": "Kırsal"
+  },
+  {
+    "clave": "ajustes.musica.mood.deporte",
+    "texto": "Stadyum"
+  },
+  {
+    "clave": "ajustes.musica.mood.ruta",
+    "texto": "Açık yol"
+  },
+  {
+    "clave": "ajustes.musica.mood.tactico",
+    "texto": "Taktik"
+  },
+  {
+    "clave": "ajustes.musica.moodCuartos",
+    "texto": "Bu, genel ruh hali. Her odanın kendi teması olabilir: odanın içindeki müzik düğmesiyle değiştirebilirsin."
+  },
+  {
+    "clave": "ajustes.musica.sfx",
+    "texto": "Eylem sesleri"
+  },
+  {
+    "clave": "ajustes.musica.sfxOff",
+    "texto": "Kapalı"
+  },
+  {
+    "clave": "ajustes.musica.sfxDesc",
+    "texto": "Blaster, portallar, havai fişekler, oyunlar ve araçlar. Müzik sesinden bağımsızdır."
+  },
+  {
+    "clave": "musica.control",
+    "texto": "Müzik"
+  },
+  {
+    "clave": "musica.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "voz.escuchar",
+    "texto": "Dinle"
+  },
+  {
+    "clave": "voz.callar",
+    "texto": "Okumayı durdur"
+  },
+  {
+    "clave": "voz.autoOn",
+    "texto": "Yanıtlarını sesli okur"
+  },
+  {
+    "clave": "voz.autoOff",
+    "texto": "Yanıtlarını sesli oku"
+  },
+  {
+    "clave": "musica.temaCuarto",
+    "texto": "Bu odanın teması"
+  },
+  {
+    "clave": "musica.temaCuarto.auto",
+    "texto": "Otomatik (evin ruh hali)"
+  },
+  {
+    "clave": "musica.temaCuarto.autoCon",
+    "texto": "Otomatik · {tema}"
+  },
+  {
+    "clave": "musica.temaCuarto.silencio",
+    "texto": "Sessizlik"
+  },
+  {
+    "clave": "musica.temaCuartoDesc",
+    "texto": "Odayı açtığında veya içinde yürüdüğünde çalar."
+  },
+  {
+    "clave": "musica.ambienteGlobal",
+    "texto": "Evin ruh hali"
+  },
+  {
+    "clave": "ajustes.musica.volumen",
+    "texto": "Ses düzeyi"
+  },
+  {
+    "clave": "ajustes.musica.pistas",
+    "texto": "Parçalarım"
+  },
+  {
+    "clave": "ajustes.musica.subir",
+    "texto": "Parça yükle"
+  },
+  {
+    "clave": "ajustes.musica.grande",
+    "texto": "Dosya çok büyük (maks. {n} MB)."
+  },
+  {
+    "clave": "ajustes.musica.sinPistas",
+    "texto": "Henüz parça yok. Kendi müziğini yükle (mp3, ogg…)."
+  },
+  {
+    "clave": "ajustes.musica.todas",
+    "texto": "Parça seçilmediğinde (●) hepsi karışık çalar."
+  },
+  {
+    "clave": "ajustes.musica.reproducir",
+    "texto": "Oynat"
+  },
+  {
+    "clave": "ajustes.musica.parar",
+    "texto": "Durdur"
+  },
+  {
+    "clave": "ajustes.musica.usar",
+    "texto": "Bu parçayı kullan"
+  },
+  {
+    "clave": "ajustes.musica.renombrar",
+    "texto": "Yeniden adlandır"
+  },
+  {
+    "clave": "ajustes.musica.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "ajustes.musica.borrarConfirma",
+    "texto": "«{n}» silinsin mi?"
+  },
+  {
+    "clave": "ajustes.musica.carpetaNueva",
+    "texto": "Yeni klasör"
+  },
+  {
+    "clave": "ajustes.musica.carpetaNombre",
+    "texto": "Adı ne olsun?"
+  },
+  {
+    "clave": "ajustes.musica.carpetaRenombrar",
+    "texto": "Klasörü yeniden adlandır"
+  },
+  {
+    "clave": "ajustes.musica.carpetaBorrar",
+    "texto": "Klasörü sil"
+  },
+  {
+    "clave": "ajustes.musica.carpetaBorrarConfirma",
+    "texto": "«{n}» silinsin mi? İçindeki parçalar silinmez, sadece klasörsüz kalır."
+  },
+  {
+    "clave": "ajustes.musica.carpetaVacia",
+    "texto": "Boş: parçaları buraya sürükle."
+  },
+  {
+    "clave": "ajustes.musica.sinCarpeta",
+    "texto": "Klasörsüz"
+  },
+  {
+    "clave": "ajustes.musica.usarCarpeta",
+    "texto": "Sadece bu klasörü çal"
+  },
+  {
+    "clave": "ajustes.musica.soloCarpeta",
+    "texto": "Sadece işaretli klasör (●) karışık çalar."
+  },
+  {
+    "clave": "musica.toggle",
+    "texto": "Ortam müziği"
+  },
+  {
+    "clave": "cuenta.titulo",
+    "texto": "Hesap"
+  },
+  {
+    "clave": "cuenta.sinBackend",
+    "texto": "Bu kurulumda yapılandırılmış bir sunucu yok: her şey yalnızca bu cihazda saklanır."
+  },
+  {
+    "clave": "cuenta.cargando",
+    "texto": "Yükleniyor…"
+  },
+  {
+    "clave": "cuenta.intro",
+    "texto": "Bir hesapla planın ve evin, hangi cihaza geçersen geç seni takip eder."
+  },
+  {
+    "clave": "cuenta.email",
+    "texto": "E-posta"
+  },
+  {
+    "clave": "cuenta.contrasena",
+    "texto": "Şifre"
+  },
+  {
+    "clave": "cuenta.entrar",
+    "texto": "Giriş yap"
+  },
+  {
+    "clave": "cuenta.registrar",
+    "texto": "Hesap oluştur"
+  },
+  {
+    "clave": "cuenta.cambioRegistrar",
+    "texto": "Hesabım yok: bir tane oluştur"
+  },
+  {
+    "clave": "cuenta.cambioEntrar",
+    "texto": "Zaten hesabım var: giriş yap"
+  },
+  {
+    "clave": "cuenta.confirmaCorreo",
+    "texto": "Hesap oluşturuldu: giriş yapabilmek için e-postanı kontrol edip onayla."
+  },
+  {
+    "clave": "cuenta.salir",
+    "texto": "Oturumu kapat"
+  },
+  {
+    "clave": "cuenta.plan.pro",
+    "texto": "Pro"
+  },
+  {
+    "clave": "cuenta.plan.local",
+    "texto": "Yerel"
+  },
+  {
+    "clave": "cuenta.plan.expira",
+    "texto": "Yenileme veya bitiş: {f}"
+  },
+  {
+    "clave": "cuenta.uso.titulo",
+    "texto": "Bu ay Yapay Zeka kullanımı"
+  },
+  {
+    "clave": "cuenta.uso.tituloLocal",
+    "texto": "Yapay Zeka kredilerin"
+  },
+  {
+    "clave": "cuenta.uso.creditos",
+    "texto": "Krediler"
+  },
+  {
+    "clave": "cuenta.uso.extra",
+    "texto": "Ekstra krediler (yüklemeler): {n}"
+  },
+  {
+    "clave": "cuenta.uso.notaImagen",
+    "texto": "1 yanıt = 1 kredi · uzun bir plan = 4 · bir görsel veya 3D model = 10"
+  },
+  {
+    "clave": "creditos.n",
+    "texto": "{n} kredi"
+  },
+  {
+    "clave": "creditos.ayuda",
+    "texto": "1 yanıt = 1 kredi · uzun bir plan = 4 · bir görsel 3 ya da 10 · 3D model = 10"
+  },
+  {
+    "clave": "creditos.porCada",
+    "texto": "{n} adet başına"
+  },
+  {
+    "clave": "creditos.uno",
+    "texto": "1 kredi"
+  },
+  {
+    "clave": "gastoByok.total",
+    "texto": "Kendi anahtarınla harcanan: {monto}"
+  },
+  {
+    "clave": "gastoByok.ayuda",
+    "texto": "Kendi anahtarınla yaptığın çağrıların türe göre maliyeti."
+  },
+  {
+    "clave": "gastoByok.titulo",
+    "texto": "Kendi anahtarınla harcama"
+  },
+  {
+    "clave": "gastoByok.reiniciar",
+    "texto": "Sıfırla"
+  },
+  {
+    "clave": "gastoByok.totalLabel",
+    "texto": "Toplam"
+  },
+  {
+    "clave": "gastoByok.nota",
+    "texto": "Tahmini, kesin değil — gerçek tutar için sağlayıcı hesabını kontrol et."
+  },
+  {
+    "clave": "gastoByok.chat",
+    "texto": "Sohbet"
+  },
+  {
+    "clave": "gastoByok.imagen",
+    "texto": "Görseller"
+  },
+  {
+    "clave": "gastoByok.modelo3d",
+    "texto": "3D modeller"
+  },
+  {
+    "clave": "gastoByok.voz",
+    "texto": "Dikte"
+  },
+  {
+    "clave": "gastoByok.tts",
+    "texto": "Yapay Zeka sesi"
+  },
+  {
+    "clave": "ia.titulo",
+    "texto": "Yapay Zeka: etkinleştirme ve fiyatlar"
+  },
+  {
+    "clave": "ia.precios.titulo",
+    "texto": "Yapay Zeka fiyatları"
+  },
+  {
+    "clave": "ia.activar.titulo",
+    "texto": "Yapay Zekayı etkinleştir"
+  },
+  {
+    "clave": "ia.activar.porCuenta",
+    "texto": "Hesabınla açık: istediğin her şey kredi harcar."
+  },
+  {
+    "clave": "ia.activar.porClave",
+    "texto": "{prov} anahtarınla açık. Kredi harcamaz: ücretini doğrudan {prov} keser."
+  },
+  {
+    "clave": "ia.activar.sinActivar",
+    "texto": "Yapay Zeka kapalı. Kredi kullanmak için giriş yap ya da aşağıya bir sağlayıcı anahtarı yapıştır."
+  },
+  {
+    "clave": "ia.activar.priv",
+    "texto": "Yalnızca bu cihazda saklanır ve {prov} dışında hiçbir yere gönderilmez."
+  },
+  {
+    "clave": "ia.calidad.titulo",
+    "texto": "Görsel kalitesi"
+  },
+  {
+    "clave": "ia.calidad.rapida",
+    "texto": "Hızlı"
+  },
+  {
+    "clave": "ia.calidad.rapida.desc",
+    "texto": "İyi ve ucuz. Sen aksini söylemedikçe kullandığım seçenek."
+  },
+  {
+    "clave": "ia.calidad.buena",
+    "texto": "En iyi"
+  }
+]

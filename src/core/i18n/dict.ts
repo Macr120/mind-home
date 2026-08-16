@@ -2,14 +2,16 @@
  * Diccionario de traducciones de la interfaz.
  *
  * Diseño incremental: cada texto se pide con `t('clave', 'Español por defecto')`.
- * Si falta la entrada en el idioma activo, se cae al español (o al fallback que
- * pasa el componente), por lo que la app NUNCA queda con claves crudas y se
- * puede traducir por zonas sin romper nada.
+ * El español es la FUENTE DE VERDAD (vive en esos fallbacks del código), pero el
+ * RESPALDO visible de los demás idiomas es el inglés: si falta la entrada en el
+ * idioma activo se cae a `dict.en.ts`, y solo en último término al español. La
+ * app NUNCA queda con claves crudas y se puede traducir por zonas sin romper nada.
  *
  * Cada idioma traducido vive en su `dict.<id>.ts` (claves agrupadas por área con
  * prefijo: `nav.*`, `cat.*`, `room.<id>.*`, …) y se carga con import() perezoso:
- * son ~90 KB gzip que un usuario en español nunca descarga. Mientras llega, la
- * UI pinta los fallbacks en español y `useT` re-renderiza al terminar la carga.
+ * son ~90 KB gzip que un usuario en español nunca descarga. Con un idioma que no
+ * sea español baja también el inglés (el respaldo). Mientras llega, la UI pinta
+ * los fallbacks en español y `useT` re-renderiza al terminar la carga.
  * Añadir un idioma es añadirlo a `idiomas.ts` y colgar su cargador de CARGADORES.
  *
  * DOS CAPAS por idioma: la interfaz (`dict.<id>.ts`) y los textos de PASO de los
@@ -58,6 +60,16 @@ const CARGADORES: Partial<Record<Idioma, () => Promise<Dict>>> = {
   fr: () => import('./dict.fr').then((m) => m.FR),
   de: () => import('./dict.de').then((m) => m.DE),
   it: () => import('./dict.it').then((m) => m.IT),
+  ja: () => import('./dict.ja').then((m) => m.JA),
+  zh: () => import('./dict.zh').then((m) => m.ZH),
+  ko: () => import('./dict.ko').then((m) => m.KO),
+  ru: () => import('./dict.ru').then((m) => m.RU),
+  hi: () => import('./dict.hi').then((m) => m.HI),
+  tr: () => import('./dict.tr').then((m) => m.TR),
+  id: () => import('./dict.id').then((m) => m.ID),
+  pl: () => import('./dict.pl').then((m) => m.PL),
+  nl: () => import('./dict.nl').then((m) => m.NL),
+  ar: () => import('./dict.ar').then((m) => m.AR),
 }
 
 /** Segunda capa: los textos de paso, que solo bajan al lanzar un tutorial. */
@@ -67,6 +79,16 @@ const CARGADORES_TUT: Partial<Record<Idioma, () => Promise<Dict>>> = {
   fr: () => import('./dict.fr.tut').then((m) => m.FR_TUT),
   de: () => import('./dict.de.tut').then((m) => m.DE_TUT),
   it: () => import('./dict.it.tut').then((m) => m.IT_TUT),
+  ja: () => import('./dict.ja.tut').then((m) => m.JA_TUT),
+  zh: () => import('./dict.zh.tut').then((m) => m.ZH_TUT),
+  ko: () => import('./dict.ko.tut').then((m) => m.KO_TUT),
+  ru: () => import('./dict.ru.tut').then((m) => m.RU_TUT),
+  hi: () => import('./dict.hi.tut').then((m) => m.HI_TUT),
+  tr: () => import('./dict.tr.tut').then((m) => m.TR_TUT),
+  id: () => import('./dict.id.tut').then((m) => m.ID_TUT),
+  pl: () => import('./dict.pl.tut').then((m) => m.PL_TUT),
+  nl: () => import('./dict.nl.tut').then((m) => m.NL_TUT),
+  ar: () => import('./dict.ar.tut').then((m) => m.AR_TUT),
 }
 
 const enMarcha = new Map<string, Promise<void>>()
@@ -94,10 +116,13 @@ function cargarCapa(clave: string, idioma: string, cargar: () => Promise<Dict>):
   return p
 }
 
-/** Idempotente: dispara la carga del diccionario del idioma si hace falta. */
+/** Idempotente: dispara la carga del diccionario del idioma si hace falta.
+ *  Con un idioma traducido que no sea el inglés carga TAMBIÉN el inglés: es el
+ *  respaldo de las claves sin traducir (ver `traducir` en useT). */
 export function asegurarIdioma(idioma: string): void {
   const cargar = CARGADORES[idioma as Idioma]
   if (cargar) void cargarCapa(idioma, idioma, cargar)
+  if (cargar && idioma !== 'en') void cargarCapa('en', 'en', CARGADORES.en!)
 }
 
 /**
@@ -111,6 +136,12 @@ export function asegurarDictTut(idioma: string): Promise<void> {
   // La capa base primero: fundir la de pasos sobre un idioma aún sin cargar lo
   // dejaría a medias y la carga base lo sobrescribiría al llegar.
   asegurarIdioma(idioma)
+  // El respaldo inglés de los pasos, sin esperar: si un paso falta en el idioma
+  // activo debe salir en inglés (misma cascada que la capa base).
+  if (idioma !== 'en') {
+    const baseEn = enMarcha.get('en') ?? Promise.resolve()
+    void baseEn.then(() => cargarCapa('en:tut', 'en', CARGADORES_TUT.en!))
+  }
   const base = enMarcha.get(idioma) ?? Promise.resolve()
   return base.then(() => cargarCapa(`${idioma}:tut`, idioma, cargar))
 }

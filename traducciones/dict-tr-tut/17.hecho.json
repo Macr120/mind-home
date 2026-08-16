@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "Her sabah kaçta yattığını, kaçta uyandığını, kaç kez uyandığını ve gecenin nasıl geçtiğini yazıyorsun. Uygulamanın geri kalan her şey için ihtiyacı olan tek şey bu."
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "Bir yıl, dört mercek"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "Gün, Hafta, Ay ya da Yıl seç ve oklarla ilerle. Birkaç ay geri git: arabanın bozulduğu ayı ve Japonya uçuşunun ayını göreceksin, ikisi de kırmızı."
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "Yılın şekli"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "Geriye doğru altı dönem, çubuklar halinde. Maviler para arttığı aylar; kırmızılar canını yakan aylar. Çukur da toparlanma da işte orada."
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "Nereye gidiyor?"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "Baktığın dönemin kategoriye göre dökümü. Pep kendi kategorilerini elle yazıyor: uygulama bilinenleri tanıyor, kalanlara da kendi rengini veriyor."
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "Ayın sınırı"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "Aylık bütçe ve aşınca kırmızıya dönen bir çubuk. Hafta ya da yıl görünümüne geçersen uygulama onu kendi paylaştırıyor."
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "Bugün elinde ne var"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "Net değerin doğrudan Net değer sekmesinden geliyor: varlıkların eksi borçların. Burada üstüne dönemin bakiyesi ekleniyor ya da çıkarılıyor, nerede biteceğini göresin diye."
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "Ya bir yıl sonra"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "Sabit kalemlerini vade tarihlerine, değişkenleri de ortalamana göre alıp on iki ayı öngörüyor; iki senaryoyla: net değerle ve net değer olmadan."
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Pep’in sabitleri"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "Kira, internet, telefon, yayın aboneliği ve araba sigortası: düzene girmeye karar verdiği 2. ayda açtığı beş kalem. O günden beri her biri kendini sayıyor."
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "Nasıl kaydediliyor"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "Form adım adım ilerliyor: tutar, değişken mi sabit mi, kategori (kendi kategorini yazarsın, bilinenleri de önerir), ne sıklıkla tekrarlandığı ve not."
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "Bir yıllık işlem"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "Yıl ve ay klasörlerinde saklanan yüzlerce gider. 7. ayı ara: tek seferde neredeyse on bin peso götüren arıza orada."
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "Para nereden geliyor"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "Kafeden on beş günde bir yatan iki maaş, seyahate karar verince vermeye başladığı fizik dersleri ve asla birbirini tutmayan haftalık bahşişler."
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "Kendi evinde sohbetten de kaydedebilirsin: «markette 250 harcadım» dersin, hemen yazılır."
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "Tamamladığı hedef"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "Japonya gezisi, %100: on bir ay biriktirme, özel dersler, yıl sonu ikramiyesi ve doğum gününde aldığı para. Altında, dönüşte başlattığı acil durum fonu ve küçük bir yatırım."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "Hedef zaman içinde"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "O zamanki borcu"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "Arabanın arızası kredi kartıyla ödendi ve kapanması aylar aldı. Borçlar ayrı duruyor çünkü tersten okunuyor: burada düşmek kazanmak demek."
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "Piyasalar"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pep seyahate karar verdiğinden beri Japon yenini izliyor, şimdi de bir sonraki için Kore wonunu. Döviz, Kripto, Hisseler ve Emtialar canlı (internet ister)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "Dört kişisel finans kuralı, her biri kendi sekmesinde: acil durum fonu, finansal bağımsızlık, 50/30/20 ve arabanın peşinatı (20/4/10)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "Kendi bakiyenden başlıyor"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "Alanlar ayın gerçek gelirin ya da giderinle dolu geliyor — gerçek rakamı gözden kaçırmadan başka bir rakamı denemek için üzerlerine dokun."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "Hesaptan hedefe"
+  }
+]

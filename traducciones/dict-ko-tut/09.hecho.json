@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "여기는 Pep의 보호소 텃밭이에요. 한 해 동안 손길이 쌓인 진짜 구획들이죠. 예시가 아니라 살아 있고, 실시간으로 자라고, 직접 만질 수 있어요."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "'음식'과 '농장'은 편집기를 함께 써요. 여기서 수확한 것이 옆에 있는 동물들의 곳간을 채워요. 하나로 이어진 사슬이에요."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "물주기가 핵심"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "구획을 보세요. 막 심은 씨앗, 절반쯤 자란 작물, 수확할 수 있는 해바라기… 그리고 Pep이 일부러 물을 주지 않은 당근이 있어요. 파란 물방울이 목마름을 알려줘요. 시든 작물은 되살릴 수 없어요."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "자동 급수"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "토마토에는 스프링클러가 있어요. 자기 칸과 이웃한 8칸에 계속 물을 줘요. 이러면 텃밭을 비워둬도 아무것도 시들지 않아요."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "수확"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "해바라기가 다 자랐어요. 한 번 탭하면 바구니로 들어가요. 이 편집기를 열지 않고, 다 자란 작물 위를 걸어도 수확돼요."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "바구니에 담긴 한 해"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "구획마다 수확 횟수를 세고, 바구니에는 한 해치가 쌓여요 — 400개가 넘어요. 보호소 동물들이 여기서 먹어요."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "나가도 모든 게 계속 흘러가요. 데모에서도 물 주기, 수확, 씨앗 심기를 진짜로 할 수 있어요. 떠나기 전에 해보세요."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "먼저 흙부터"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "'구획'으로 지도 칸을 탭하면 흙이 준비돼요. 보호소에는 빈 구획 두 개가 기다리고 있어요."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "무엇을 심을지 고르기"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "여섯 가지 품종이 있고, 각각 아래에 자라는 시간과 물 주는 주기가 적혀 있어요. 당근은 3분, 호박은 2시간이에요."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "가장 빠른 작물"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "오늘 안에 전체 순환을 보고 싶다면 빈 구획에 당근을 심어 보세요. 산책을 마치기 전에 다 자라요."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "되돌리기"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "'제거'는 같은 칸에서 한 겹씩 지워요. 먼저 식물, 그다음 스프링클러, 마지막에 구획이에요."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "이게 전부예요. 흙과 품종, 그리고 기다림이면 돼요. 데모에서 심은 것은 다른 곳을 둘러보는 동안에도 진짜로 자라요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "여기가 Pep의 보호소예요. 구조된 동물들의 우리가 있고, 남쪽에는 그들이 먹는 텃밭이 있어요. 함께 내려가 볼까요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Pep의 보호소에서 구조된 동물들이에요. 저마다 이름이 있고, 배고픔과 기분이 실시간으로 흘러가요. 예시가 아니라 진짜로 돌볼 수 있어요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "한 해의 곳간"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "'먹이 주기'는 바구니에서 꺼내 쓰고, 바구니는 옆 텃밭을 수확하면 채워져요. Pep이 한 해치 비축을 남겼어요. 마음껏 쓰세요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "먹이 주기"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "우리를 한 번 탭하면 배고픈 동물 모두에게, 가장 배고픈 순서로 먹이를 줘요. 닭은 4시간마다 찾고, 소는 12시간을 버텨요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "쓰다듬기"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "여섯 시간 동안 손길이 없으면 지루해해요(우리가 더러우면 두 배로 빨라요). 한 번 탭하면 우리 전체를 쓰다듬어요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "지저분한 우리"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "작은 우리는 여드레째 청소를 못 했어요. 지푸라기만 봐도 알 수 있죠. '청소'로 탭해서 새것처럼 만들어 보세요. 데모에서도 돼요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "새로 온 친구"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "돼지는 오늘 아침 아픈 채로 보호소에 왔어요. 아픈 동물은 먹이를 먹지 않고 '치료'로만 일어나요. 늦기 전까지 일주일이 있어요. 직접 치료해 주세요."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "평소에는 이걸 열지 않아도 돼요. 우리 옆을 걸으면 '먹이 주기'와 '쓰다듬기' 말풍선이 나오고, 채팅으로 저에게 부탁해도 돼요."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "우리"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "빈 칸을 탭하면 1×1 우리가 생기고, 붙은 칸을 탭하면 넓어져요. 한 칸에 동물 세 마리까지 들어가요. 보호소의 두 우리를 보세요. 하나는 방목용 큰 우리, 하나는 새를 위한 작은 우리예요."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "동물 종류"
+  }
+]

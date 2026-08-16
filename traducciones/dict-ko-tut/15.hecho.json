@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "보드"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "같은 할 일을 세 열로 나눈 화면이에요: 할 일, 진행 중, 완료. 카드를 길게 누르면 다른 열로 끌어 옮길 수 있어요. '완료'에 놓으면 캘린더에서도 체크가 돼요. 화살표로 옮겨도 돼요."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "무릎의 한 해"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "몇 달에 한 번씩 가는 영양 상담, 치과, 그리고 7개월째의 물리치료 여섯 번. Pep을 멈춰 세운 부상이 여기에 기록돼 있어요."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "약"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "약마다 복용할 때마다 캘린더에 블록이 하나씩 생겨요. 다쳤을 때 먹던 소염제는 3주 만에 끝나 보관됐고, 비타민은 아직 이어지고 있어요."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "라이카"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "고양이도 체중과 수의사가 적힌 카드가 있고, 주기가 붙은 돌봄이 함께 있어요: 예방접종은 1년에 한 번, 구충은 3개월마다, 목욕은 매달. 완료로 표시하면 다음 날짜가 알아서 다시 계산돼요."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "Pep의 사람들"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "가족, 친구, 직장과 대학에서 만난 사람들이 각자의 폴더에 들어 있어요. 전화번호와 주소, 잊고 싶지 않은 것까지 함께요."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "잊지 않는 생일"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "생년월일을 저장하면 생일이 매년 캘린더에 반복되고 알려 줘요. 나이는 앱이 알아서 계산해요."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "사람과 관련된 약속은 그 연락처에 연결돼요. 누구를 마지막으로 만난 게 언제인지 바로 보여요."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "숫자 세 개로 보는 한 해"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "연속 기록은 무언가를 기록한 날이 며칠 이어졌는지 세요. 달성률은 활동한 날을 스스로 정한 날과 비교해요. Pep은 연초에 두 블록도 뛰지 못했어요."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "세 가지 운동"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "막대는 목표 대비 지금까지 한 만큼을 보여 줘요: 근력 운동 횟수, 지구력 운동 분, 유연성 운동 분. 목표는 위에서 고른 기간에 맞춰 조정돼요."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "올해의 목표"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "카탈로그, 루틴, 진행 상황"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "어떤 운동이든 구성은 같아요: 운동 카탈로그, 기록이 함께 있는 루틴, 그리고 진행 상황. 먼저 Pep이 달려 온 것부터 볼게요."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "달린 날은 모두 적혀요"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "기록은 연·월·주로 묶여요. 큰 대회는 경로 궤적과 구간 기록까지 남아요. 마라톤도 거기 있어요, 10km마다의 구간 기록과 함께요."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "히트맵은 거짓말을 안 해요"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "빈칸도 이야기를 해요. 무릎을 다친 달은 비어 있고, 일본에서 보낸 3주도 거의 비어 있어요. 옆에는 총 km, 최장 기록, 최고 페이스가 나와요."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "세트, 횟수, 무게"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "훈련마다 들어 올린 무게와 함께 운동이 저장돼요. 지난번 기록은 앱이 기억하니 찾지 않아도 되고, 그날의 총 볼륨도 합쳐 줘요."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "한 해의 곡선"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "운동을 하나 고르면 어떻게 올라갔는지 보여요. Pep의 스쿼트는 40킬로에서 70킬로가 됐어요. 다친 달에는 상체만 훈련했는데, 그 곡선은 눈치도 못 챘어요."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "말하지 않아도 쌓이는 개인 기록"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "운동마다 최고 무게, 최대 횟수, 그리고 1RM 추정치가 저장돼요. 턱걸이처럼 체중으로 하는 운동은 따로 표시돼요."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "1단계: 어디로 갈지"
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "ここが家です。部屋ごとにアプリが1つ入っています。基本の操作をご案内しますね。"
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "メインメニュー"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "このボタンでメニューが開きます。部屋、テンプレート（アプリ）のカタログ、オブジェクトのインベントリが入っています。"
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "移動する"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "ジョイスティック、WASD、矢印キーで歩けます。部屋のドアをくぐると中に入り、そのアプリが自動で開きます。"
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "3つの視点"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "アイソメトリック、三人称、一人称（Vキーでも切り替わります）。三人称・一人称では、歩きながら世界を編集できるボタンも出てきます。"
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "隅はひとつ、役割はいくつも"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "あの隅は視点キューブだけではありません。椅子、乗り物、コートなど、操作できるものに近づくと、近くにあるものに合わせて自動で変わります。近づかないかぎり、何も動き出しません。"
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "ツールホイール"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "モーション、おもちゃ、乗り物、建築。同時に3つまで装備できます。ここから開けるほか、手ぶらのときは同じ隅のボタンからも開けます。"
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "時計"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "家の時間です。ここから、カレンダー全体と、今日やり残していることが並ぶルーティンのパネルが開けます。"
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "家の音楽"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "部屋ごとにテーマを決めることも、家の雰囲気をそのまま流すこともできます。静かにしたいときは、完全にオフにもできます。"
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "チャット"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "アーキテクトのチャットです。何をしたか話すと正しいアプリに記録してくれますし、家の変更もお願いできます。"
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "基本はこれで以上です。上の「エディター」ボタンでカスタマイズがすべて開きます。メニューにもアプリにも、それぞれ「?」ボタンとチュートリアルがあります。"
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "まずは家の組み立て方から。すべては「部屋」タブから始まります。"
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "部屋を作成"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "このボタンでマップに新しい部屋を描けます。この先を見せるために、今ひとつ作ってみますね…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "新しい部屋"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "できました！作りたての部屋で、まだアプリがありません。だからボタンが「+ 割り当て」になっています。"
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "アプリを割り当てる"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "「+ 割り当て」でアプリを入れました。部屋が名前もアイコンも家具も受け取り、ボタンが「入る」に変わったのが見えますか。"
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "入る"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "入りました。これが部屋のアプリです。歩いているときはドアをくぐっても入れますし、「‹ 家に戻る」で出られます。"
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "部屋はアプリごと家に残ります。あとも同じ要領です。続けたいことひとつにつき、部屋をひとつ。"
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "「部屋」タブには、家にあるすべての部屋がカテゴリー別に並びます。"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "自分のまとめ"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "キャラクターは実際の活動で生きています。ここで機嫌、レベル、連続記録が見られます。どのアプリでも何か記録すれば元気になり、何日も何もないと元気をなくします。罰もリセットもありません。"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "カード"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "カードはひとつひとつが部屋です。アイコン、名前、アプリの進みぐあいが並び、「体」「心」「その他」「設定」に分かれています。アプリが未設定の部屋は、いちばん最後にまとまります。"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "編集"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "「編集」を押すと部屋のエディターが開きます。形、色、壁、オブジェクトを変えられます。（今は押さないでください。このメニューが閉じてしまいます。）"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "「入る」と「割り当て」"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "「入る」で部屋のアプリが開きます。まだアプリがない部屋には、代わりに「+ 割り当て」が出て、カタログから選べます。"
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "部屋を作成"
+  }
+]

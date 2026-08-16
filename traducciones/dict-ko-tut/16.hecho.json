@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "체중, 키, 활동량으로 앱이 하루에 필요한 양을 계산하고 매크로를 나눠 줘요. Pep은 2,400칼로리와 1킬로도 남지 않은 목표 체중을 정했어요."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "2단계: 오늘 먹은 것"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "아침 식사, 점심 식사, 저녁 식사, 그리고 간식. 기록할 때마다 그날의 링이 채워져요. 수분은 목표가 따로 있고, 집이 하루를 완료로 볼 때 보는 게 바로 이거예요."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "3단계: 74킬로, 67킬로"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "한 해 전체의 곡선이에요. 다친 달에는 정체 구간이 있고, 일본에서는 1킬로가 늘었어요. 아래에는 지금의 속도와 이대로 가면 언제 닿을지가 나와요."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "색으로 보는 한 해"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "초록은 목표 안에 든 날, 주황은 조금 넘은 날, 빨강은 크게 넘은 날이에요. 여행한 달은 한눈에 보여요. 아무 날이나 눌러서 열어 보세요."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "잡지 속 다이어트가 아닌 식단"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "여기서 식단은 레시피가 담긴 계획이에요. Pep은 직접 두 개를 저장했어요. 마라톤 주간과, 일본에서 돌아온 뒤의 가벼운 식단. 앱에 처음부터 들어 있는 것들도 있어요."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "레시피북"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "레시피마다 재료, 순서, 1인분당 매크로가 저장되고 폴더로 정리돼요. 레시피에서 바로 식사를 기록하거나 재료를 장보기 목록으로 보낼 수 있어요."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "AI에게 레시피 부탁하기"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "만들고 싶은 걸 적으면 AI가 요리 사진까지 넣어 레시피를 통째로 만들어 줘요. 이건 AI가 하는 일이에요: 편집기 › 설정 › 계정에서 켤 수 있어요."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "레시피에서 장보기 목록으로"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "'목록 만들기'는 여러 레시피에서 빠진 것을 한 번의 장보기로 모아 줘요. 재료마다 분류(과일 및 채소, 유제품…)를 알아서 짐작하고, 고칠 수도 있어요."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "저장된 목록"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "목록마다 아직 살 것과 이미 집에 있는 것이 함께 저장돼요. 가격을 넣으면 그 금액을 서재의 지출로 보낼 수 있어요."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "단계로 나눈 체중 목표"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "이건 AI가 하는 일이에요: 편집기 › 설정 › 계정에서 켤 수 있어요. 없어도 목표는 똑같이 만들고 고칠 수 있어요. 손으로 하면 돼요."
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "100점, 세 부분"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "시간이 50점, 취침 시간의 꾸준함이 30점, 중단 횟수가 20점이에요. 하루 많이 잤다고 나머지 날에 아무 때나 잔 게 만회되지는 않아요."
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "지난 한 주"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "수면 목표 선 위에 막대 일곱 개가 놓여요. 이번 주에 원하던 만큼 자고 있는지 한눈에 알려 주는 화면이에요."
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "한 해 전체"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "기록은 연·월·주로 남아요. Pep의 첫 몇 달까지 내려가서 마지막 달들과 비교해 보세요. 새벽 1시가 넘어 누웠고 다섯 시간밖에 못 잤어요."
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "11시 30분부터 7시까지"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "막대의 양 끝을 끌면 취침 시간과 기상 시간을 옮길 수 있어요. 위쪽 하늘도 함께 바뀌어요. 이 블록은 자정을 넘어 캘린더에도 나타나요."
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "알람과 알림"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "알람 소리를 고르고, 잘 시간이 되면 알려 달라고 하고, 그 한 시간 전에 화면을 끄도록 할 수 있어요. 알림은 선택이에요. 여기서는 꺼져 있어요."
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "밤 기록하기"
+  }
+]

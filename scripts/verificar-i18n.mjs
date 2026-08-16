@@ -1,27 +1,47 @@
 /**
  * Revisa los diccionarios traducidos contra el inglés, que es la referencia de
- * qué claves existen.
+ * qué claves existen — y el propio inglés contra el CÓDIGO: toda clave literal
+ * de `t()/tGlobal()/T()` debe tener entrada en `dict.en(.tut).ts`, porque el
+ * inglés es el respaldo de los demás idiomas (ver `useT`). Una clave que no
+ * está en el inglés sale en español en los 15 idiomas.
  *
  * Lo que busca no es que la traducción sea buena —eso se mira en la app— sino
  * los fallos que NO se ven al abrirla: un marcador `{nombre}` que se perdió y
  * deja un hueco en la frase, un emoji colado donde el original no lo tenía, o
- * una clave que se quedó sin traducir. La longitud se avisa pero no falla: un
- * texto largo puede estar bien y solo hay que mirarlo en su botón.
+ * una clave que se quedó sin traducir (ERROR: los idiomas van al 100 %). La
+ * longitud se avisa pero no falla: un texto largo puede estar bien y solo hay
+ * que mirarlo en su botón.
  *
  *   node scripts/verificar-i18n.mjs
  *   node scripts/verificar-i18n.mjs --solo=de
  *
  * Sale con código 1 si hay errores, para poder encadenarlo en un script.
  */
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const I18N = path.join(RAIZ, 'src', 'core', 'i18n')
 
-/** A partir de aquí la traducción se mira: puede no caber en su botón. */
+/**
+ * A partir de aquí la traducción se mira: puede no caber en su botón.
+ *
+ * El umbral es POR IDIOMA porque la misma frase no ocupa lo mismo en todos: el
+ * CJK escribe con ideogramas y sale más corto que el inglés (si crece, casi
+ * siempre es una paráfrasis), mientras que el ruso, el hindi y el árabe crecen
+ * de por sí y con 1,6 el informe se llenaba de falsas alarmas.
+ */
 const FACTOR_LARGO = 1.6
+const FACTOR_POR_IDIOMA = {
+  ja: 1.2,
+  zh: 1.2,
+  ko: 1.3,
+  ru: 1.9,
+  hi: 1.9,
+  ar: 1.9,
+}
+const factorDe = (id) => FACTOR_POR_IDIOMA[id] ?? FACTOR_LARGO
 /** Por debajo de esto no se avisa: en textos cortos el factor salta por nada. */
 const MINIMO_LARGO = 12
 
@@ -46,6 +66,35 @@ async function leer(archivo, simbolo) {
 
 const marcadores = (s) => (s.match(RE_MARCADOR) ?? []).slice().sort()
 
+// --- Claves usadas en el código (misma regex que traducir-i18n.mjs) ----------
+
+const CADENA = String.raw`'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|\`(?:[^\`\\]|\\.)*\``
+const RE_CLAVE = new RegExp(String.raw`\b(?:t|tGlobal|T)\(\s*(${CADENA})`, 'g')
+
+function* archivosFuente(dir) {
+  for (const entrada of readdirSync(dir)) {
+    const p = path.join(dir, entrada)
+    if (statSync(p).isDirectory()) yield* archivosFuente(p)
+    else if (/\.tsx?$/.test(p)) yield p
+  }
+}
+
+/** Claves literales de `t()/tGlobal()/T()` en src/, sin los propios diccionarios.
+ *  Las dinámicas (template con `${…}`) no se pueden comprobar y se saltan. */
+function clavesDelCodigo() {
+  const claves = new Map() // clave → archivo donde aparece
+  for (const archivo of archivosFuente(path.join(RAIZ, 'src'))) {
+    const rel = path.relative(RAIZ, archivo).replace(/\\/g, '/')
+    if (rel.startsWith('src/core/i18n/')) continue
+    for (const m of readFileSync(archivo, 'utf8').matchAll(RE_CLAVE)) {
+      if (m[1].startsWith('`') && m[1].includes('${')) continue
+      const clave = m[1].slice(1, -1)
+      if (!claves.has(clave)) claves.set(clave, rel)
+    }
+  }
+  return claves
+}
+
 let errores = 0
 let avisos = 0
 
@@ -54,6 +103,18 @@ async function main() {
   const destinos = IDIOMAS.map((i) => i.id)
     .filter((id) => id !== IDIOMA_BASE && id !== 'en')
     .filter((id) => !soloIdioma || id === soloIdioma)
+
+  // Código → inglés: el respaldo tiene que cubrir todo lo que la app pide.
+  const en = { ...(await leer('dict.en.ts', 'EN')), ...(await leer('dict.en.tut.ts', 'EN_TUT')) }
+  const usadas = clavesDelCodigo()
+  const sinIngles = [...usadas].filter(([k]) => en[k] == null)
+  if (sinIngles.length) {
+    console.log(`✗ código → inglés: ${sinIngles.length} claves sin entrada en dict.en(.tut).ts`)
+    for (const [k, archivo] of sinIngles.slice(0, 12)) console.log(`    ${k}  (${archivo})`)
+    errores += sinIngles.length
+  } else {
+    console.log(`✓ código → inglés: ${usadas.size} claves literales cubiertas`)
+  }
 
   for (const capa of CAPAS) {
     const fuente = await leer(...capa.fuente)
@@ -74,6 +135,7 @@ async function main() {
       const vacias = []
       const conEmoji = []
       const largas = []
+      const factor = factorDe(id)
 
       for (const k of claves) {
         const traducido = dict[k]
@@ -83,7 +145,7 @@ async function main() {
         const b = marcadores(traducido).join(',')
         if (a !== b) rotas.push(`${k}: {${a}} → {${b}}`)
         if (!RE_EMOJI.test(fuente[k]) && RE_EMOJI.test(traducido)) conEmoji.push(k)
-        if (fuente[k].length >= MINIMO_LARGO && traducido.length > fuente[k].length * FACTOR_LARGO) {
+        if (fuente[k].length >= MINIMO_LARGO && traducido.length > fuente[k].length * factor) {
           largas.push(`${k}: ${fuente[k].length}→${traducido.length}`)
         }
       }
@@ -95,7 +157,8 @@ async function main() {
       if (rotas.length) problemas.push(`${rotas.length} con marcadores rotos`)
       if (conEmoji.length) problemas.push(`${conEmoji.length} con emoji nuevo`)
 
-      const grave = rotas.length + vacias.length
+      // Los idiomas van al 100 %: una clave sin traducir es error, no aviso.
+      const grave = rotas.length + vacias.length + faltan.length
       errores += grave
       avisos += largas.length
 
@@ -105,7 +168,7 @@ async function main() {
       for (const r of rotas.slice(0, 8)) console.log(`    marcador: ${r}`)
       for (const k of vacias.slice(0, 8)) console.log(`    vacía: ${k}`)
       for (const k of conEmoji.slice(0, 8)) console.log(`    emoji: ${k} = ${dict[k]}`)
-      if (largas.length) console.log(`    largas (revisar en su botón): ${largas.slice(0, 5).join(' · ')}${largas.length > 5 ? ` …+${largas.length - 5}` : ''}`)
+      if (largas.length) console.log(`    largas (>${factor}×, revisar en su botón): ${largas.slice(0, 5).join(' · ')}${largas.length > 5 ? ` …+${largas.length - 5}` : ''}`)
       if (faltan.length && faltan.length <= 8) console.log(`    faltan: ${faltan.join(', ')}`)
     }
   }

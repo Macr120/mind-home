@@ -1,0 +1,606 @@
+[
+ {
+  "clave": "respaldo.aviso",
+  "texto": "距离上次备份已经{n}天了。"
+ },
+ {
+  "clave": "respaldo.luego",
+  "texto": "一周后提醒我"
+ },
+ {
+  "clave": "rot.der",
+  "texto": "向右旋转90°"
+ },
+ {
+  "clave": "rot.izq",
+  "texto": "向左旋转90°"
+ },
+ {
+  "clave": "rutinas.activar",
+  "texto": "启用"
+ },
+ {
+  "clave": "rutinas.agregarPaso",
+  "texto": "添加步骤"
+ },
+ {
+  "clave": "rutinas.autoRegistro",
+  "texto": "自动记录到该房间"
+ },
+ {
+  "clave": "rutinas.borrar",
+  "texto": "删除"
+ },
+ {
+  "clave": "rutinas.confirmarBorrar",
+  "texto": "删除此事件？"
+ },
+ {
+  "clave": "rutinas.cancelar",
+  "texto": "取消"
+ },
+ {
+  "clave": "rutinas.cerrar",
+  "texto": "关闭"
+ },
+ {
+  "clave": "rutinas.completada",
+  "texto": "日常安排完成！"
+ },
+ {
+  "clave": "rutinas.editar",
+  "texto": "编辑"
+ },
+ {
+  "clave": "rutinas.eventoSimple",
+  "texto": "日历事件。"
+ },
+ {
+  "clave": "rutinas.guardar",
+  "texto": "保存"
+ },
+ {
+  "clave": "rutinas.hoy",
+  "texto": "今天"
+ },
+ {
+  "clave": "rutinas.nombre",
+  "texto": "日常安排/事件名称"
+ },
+ {
+  "clave": "rutinas.nueva",
+  "texto": "新建"
+ },
+ {
+  "clave": "rutinas.pasoPh",
+  "texto": "要做的事…"
+ },
+ {
+  "clave": "rutinas.pasos",
+  "texto": "步骤"
+ },
+ {
+  "clave": "rutinas.pasosOpcional",
+  "texto": "可选"
+ },
+ {
+  "clave": "rutinas.pasosTitulo",
+  "texto": "步骤"
+ },
+ {
+  "clave": "rutinas.pausar",
+  "texto": "暂停"
+ },
+ {
+  "clave": "rutinas.rep.hintIndefinido",
+  "texto": "不勾选任何日期，即代表每天，且没有结束日期。"
+ },
+ {
+  "clave": "rutinas.rep.hintSemanal",
+  "texto": "在勾选的日期每周重复。"
+ },
+ {
+  "clave": "rutinas.rep.sinFin",
+  "texto": "无结束日期"
+ },
+ {
+  "clave": "rutinas.rep.soloTrazo",
+  "texto": "通过在日历上绘制来安排的，重新绘制即可更改日期。"
+ },
+ {
+  "clave": "rutinas.rep.termina",
+  "texto": "结束于："
+ },
+ {
+  "clave": "rutinas.rep.titulo",
+  "texto": "重复"
+ },
+ {
+  "clave": "rutinas.sinHora",
+  "texto": "未设置时间"
+ },
+ {
+  "clave": "rutinas.titulo",
+  "texto": "日常安排"
+ },
+ {
+  "clave": "rutinas.todas",
+  "texto": "全部日常安排"
+ },
+ {
+  "clave": "rutinas.vacio",
+  "texto": "还没有日常安排。点击“+ 新建”创建一个，或者让助手帮你：“帮我创建一个包含喝水、拉伸和感恩的晨间日常安排”。"
+ },
+ {
+  "clave": "ui.sinApp",
+  "texto": "这个房间还没有分配任何应用。"
+ },
+ {
+  "clave": "ui.sinAppAyuda",
+  "texto": "编辑房间，为物件分配一个应用。"
+ },
+ {
+  "clave": "ui.volverApps",
+  "texto": "‹ 房间的应用"
+ },
+ {
+  "clave": "mascota.mago.nombre",
+  "texto": "魔法师"
+ },
+ {
+  "clave": "mascota.gato.nombre",
+  "texto": "猫"
+ },
+ {
+  "clave": "mascota.perro.nombre",
+  "texto": "狗"
+ },
+ {
+  "clave": "mascota.buho.nombre",
+  "texto": "猫头鹰"
+ },
+ {
+  "clave": "mascota.robot.nombre",
+  "texto": "机器人"
+ },
+ {
+  "clave": "mascota.mago.saludo",
+  "texto": "我是你的秘术建筑师，告诉我你做了什么，我会将它刻录下来 ✨"
+ },
+ {
+  "clave": "mascota.gato.saludo",
+  "texto": "喵。告诉我你的事，我看看放哪儿吧 🐾"
+ },
+ {
+  "clave": "mascota.perro.saludo",
+  "texto": "汪！告诉我你做了什么，我马上帮你记下来！🦴"
+ },
+ {
+  "clave": "mascota.buho.saludo",
+  "texto": "睿智而专注。讲讲你的一天，我来帮你整理。"
+ },
+ {
+  "clave": "mascota.robot.saludo",
+  "texto": "系统就绪，请输入要处理的记录。"
+ },
+ {
+  "clave": "mascota.bitacora",
+  "texto": "日志"
+ },
+ {
+  "clave": "mascota.elObjeto",
+  "texto": "该物件"
+ },
+ {
+  "clave": "mascota.mago.capturado.0",
+  "texto": "✨ 完成。我已将记录刻入{c}。"
+ },
+ {
+  "clave": "mascota.mago.capturado.1",
+  "texto": "就这样吧：已在{c}详细记录 ✨"
+ },
+ {
+  "clave": "mascota.mago.clasificado.0",
+  "texto": "📜 我已将你的卷轴收入{c}日志。"
+ },
+ {
+  "clave": "mascota.mago.clasificado.1",
+  "texto": "我把它安放在{c}了。"
+ },
+ {
+  "clave": "mascota.mago.sinClasificar.0",
+  "texto": "已经保存了，但我不知道它属于哪个房间…能指引我吗？🔮"
+ },
+ {
+  "clave": "mascota.mago.sinClasificar.1",
+  "texto": "暂时还没分类。要把它送到哪个房间呢？"
+ },
+ {
+  "clave": "mascota.mago.agregar.0",
+  "texto": "🪄 我已将{c}具现于你的家中。"
+ },
+ {
+  "clave": "mascota.mago.agregar.1",
+  "texto": "{c}已由魔法召唤，出现在地图上 ✨"
+ },
+ {
+  "clave": "mascota.mago.quitar.0",
+  "texto": "🪄 {c}已从地图上消失。"
+ },
+ {
+  "clave": "mascota.mago.quitar.1",
+  "texto": "我已将{c}从你的家中移除。"
+ },
+ {
+  "clave": "mascota.mago.objeto.0",
+  "texto": "🪄 我在{c}召唤出了你的{o} ✨"
+ },
+ {
+  "clave": "mascota.mago.objeto.1",
+  "texto": "让你的{o}显现吧……完成了，就在{c}！"
+ },
+ {
+  "clave": "mascota.mago.recordado.0",
+  "texto": "🧠 我已将它刻入魔法书，绝不会忘记 ✨"
+ },
+ {
+  "clave": "mascota.mago.recordado.1",
+  "texto": "已经记住了。秘术记忆是永恒的 🔮"
+ },
+ {
+  "clave": "mascota.gato.capturado.0",
+  "texto": "嗯，好吧。就放进{c}了 🐾"
+ },
+ {
+  "clave": "mascota.gato.capturado.1",
+  "texto": "好了，记在{c}里了。不用谢我。"
+ },
+ {
+  "clave": "mascota.gato.clasificado.0",
+  "texto": "放进{c}日志里了，就留在那儿吧 🐱"
+ },
+ {
+  "clave": "mascota.gato.clasificado.1",
+  "texto": "记在{c}了，就这样。"
+ },
+ {
+  "clave": "mascota.gato.sinClasificar.0",
+  "texto": "不知道该放哪儿，先留着没分类 🐾"
+ },
+ {
+  "clave": "mascota.gato.sinClasificar.1",
+  "texto": "哼，这属于哪个房间？你说吧。"
+ },
+ {
+  "clave": "mascota.gato.agregar.0",
+  "texto": "好吧，把{c}放到地图上了，反正我也无聊 🐱"
+ },
+ {
+  "clave": "mascota.gato.agregar.1",
+  "texto": "添加了{c}，恭喜吧，算是。"
+ },
+ {
+  "clave": "mascota.gato.quitar.0",
+  "texto": "移除了{c}，少了一件要清理的事 🐾"
+ },
+ {
+  "clave": "mascota.gato.quitar.1",
+  "texto": "{c}，没了。搞定。"
+ },
+ {
+  "clave": "mascota.gato.objeto.0",
+  "texto": "你的{o}在这儿，就在{c}。别弄坏了 🐾"
+ },
+ {
+  "clave": "mascota.gato.objeto.1",
+  "texto": "把你的{o}放在{c}了，让我睡觉去吧 🐱"
+ },
+ {
+  "clave": "mascota.gato.recordado.0",
+  "texto": "好吧，我会记住的，别不信，我记性其实很好 🐱"
+ },
+ {
+  "clave": "mascota.gato.recordado.1",
+  "texto": "记在脑子里了，别指望我再说一遍 🐾"
+ },
+ {
+  "clave": "mascota.perro.capturado.0",
+  "texto": "汪！已经记在{c}里了！🐶"
+ },
+ {
+  "clave": "mascota.perro.capturado.1",
+  "texto": "全部搞定！保存在{c}了！🦴"
+ },
+ {
+  "clave": "mascota.perro.clasificado.0",
+  "texto": "保存到{c}日志里了！🐶"
+ },
+ {
+  "clave": "mascota.perro.clasificado.1",
+  "texto": "记在{c}了！还有别的吗？"
+ },
+ {
+  "clave": "mascota.perro.sinClasificar.0",
+  "texto": "保存好了！但我不知道该放哪个房间…能帮帮我吗？🐶"
+ },
+ {
+  "clave": "mascota.perro.sinClasificar.1",
+  "texto": "好啦！应该拿去哪个房间呢，朋友？"
+ },
+ {
+  "clave": "mascota.perro.agregar.0",
+  "texto": "汪！{c}已添加到地图上啦！🎉"
+ },
+ {
+  "clave": "mascota.perro.agregar.1",
+  "texto": "{c}已经在你家里啦！🐶"
+ },
+ {
+  "clave": "mascota.perro.quitar.0",
+  "texto": "已经把{c}从地图上移除了，搞定！🐾"
+ },
+ {
+  "clave": "mascota.perro.quitar.1",
+  "texto": "好了！{c}已经从地图上消失了。"
+ },
+ {
+  "clave": "mascota.perro.objeto.0",
+  "texto": "汪！在{c}给你做好{o}啦！🎉"
+ },
+ {
+  "clave": "mascota.perro.objeto.1",
+  "texto": "看，{o}在这儿！我放在{c}了 🐶"
+ },
+ {
+  "clave": "mascota.perro.recordado.0",
+  "texto": "我会永远记住的！🐶"
+ },
+ {
+  "clave": "mascota.perro.recordado.1",
+  "texto": "汪！记住了，不会忘的！🦴"
+ },
+ {
+  "clave": "mascota.buho.capturado.0",
+  "texto": "已精确记录于{c}。"
+ },
+ {
+  "clave": "mascota.buho.capturado.1",
+  "texto": "已在{c}记录并处理完毕 🦉"
+ },
+ {
+  "clave": "mascota.buho.clasificado.0",
+  "texto": "已存入{c}日志。"
+ },
+ {
+  "clave": "mascota.buho.clasificado.1",
+  "texto": "已归入{c}分类。"
+ },
+ {
+  "clave": "mascota.buho.sinClasificar.0",
+  "texto": "已保存但暂未分类，方便时请告诉我房间 🦉"
+ },
+ {
+  "clave": "mascota.buho.sinClasificar.1",
+  "texto": "无法确定房间，是哪一个呢？"
+ },
+ {
+  "clave": "mascota.buho.agregar.0",
+  "texto": "{c}已添加至地图。"
+ },
+ {
+  "clave": "mascota.buho.agregar.1",
+  "texto": "我已将{c}纳入你的家中 🦉"
+ },
+ {
+  "clave": "mascota.buho.quitar.0",
+  "texto": "{c}已从地图移除。"
+ },
+ {
+  "clave": "mascota.buho.quitar.1",
+  "texto": "我已移除{c}。"
+ },
+ {
+  "clave": "mascota.buho.objeto.0",
+  "texto": "我已将{o}放置于{c} 🦉"
+ },
+ {
+  "clave": "mascota.buho.objeto.1",
+  "texto": "{o}现在就在{c}了。"
+ },
+ {
+  "clave": "mascota.buho.recordado.0",
+  "texto": "已精确记住 🦉"
+ },
+ {
+  "clave": "mascota.buho.recordado.1",
+  "texto": "我已将它加入对你的了解之中。"
+ },
+ {
+  "clave": "mascota.robot.capturado.0",
+  "texto": "✓ 已在{c}生成记录。"
+ },
+ {
+  "clave": "mascota.robot.capturado.1",
+  "texto": "数据处理完毕 → {c} 🤖"
+ },
+ {
+  "clave": "mascota.robot.clasificado.0",
+  "texto": "✓ 已存入日志：{c}。"
+ },
+ {
+  "clave": "mascota.robot.clasificado.1",
+  "texto": "条目已存储 → {c}。"
+ },
+ {
+  "clave": "mascota.robot.sinClasificar.0",
+  "texto": "⚠ 无法识别房间，条目未分类。"
+ },
+ {
+  "clave": "mascota.robot.sinClasificar.1",
+  "texto": "分类失败，等待指令。"
+ },
+ {
+  "clave": "mascota.robot.agregar.0",
+  "texto": "✓ {c}已添加至地图。"
+ },
+ {
+  "clave": "mascota.robot.agregar.1",
+  "texto": "模块{c}安装完成 🤖"
+ },
+ {
+  "clave": "mascota.robot.quitar.0",
+  "texto": "✓ {c}已从地图移除。"
+ },
+ {
+  "clave": "mascota.robot.quitar.1",
+  "texto": "模块{c}已卸载。"
+ },
+ {
+  "clave": "mascota.robot.objeto.0",
+  "texto": "✓ 物件{o}已在{c}制造完成 🤖"
+ },
+ {
+  "clave": "mascota.robot.objeto.1",
+  "texto": "打印完成：{o} → {c}。"
+ },
+ {
+  "clave": "mascota.robot.recordado.0",
+  "texto": "✓ 持久内存已更新 🤖"
+ },
+ {
+  "clave": "mascota.robot.recordado.1",
+  "texto": "事实数据已存入知识库。"
+ },
+ {
+  "clave": "tut.boton",
+  "texto": "查看教程"
+ },
+ {
+  "clave": "tut.paso",
+  "texto": "第{i}步，共{n}步"
+ },
+ {
+  "clave": "tut.salir",
+  "texto": "退出"
+ },
+ {
+  "clave": "tut.atras",
+  "texto": "上一步"
+ },
+ {
+  "clave": "tut.siguiente",
+  "texto": "下一步"
+ },
+ {
+  "clave": "tut.terminar",
+  "texto": "完成"
+ },
+ {
+  "clave": "tut.voz",
+  "texto": "朗读步骤"
+ },
+ {
+  "clave": "tut.appSinCuarto",
+  "texto": "这个应用还没有分配到任何房间，我先在这里为你说明。要使用它，请在“菜单›模板”中进行分配。"
+ },
+ {
+  "clave": "tut.errorCarga",
+  "texto": "无法加载该教程，请检查网络连接后重试。"
+ },
+ {
+  "clave": "tut.preparandoDemo",
+  "texto": "正在演示屋中准备这个应用的一年数据，导览马上开始…"
+ },
+ {
+  "clave": "tut.selector.titulo",
+  "texto": "你想看哪个教程？"
+ },
+ {
+  "clave": "tut.selector.hint",
+  "texto": "点击黄色高亮的区域，或者先从通用教程开始。"
+ },
+ {
+  "clave": "tut.selector.general",
+  "texto": "通用教程"
+ },
+ {
+  "clave": "tut.selector.cancelar",
+  "texto": "取消"
+ },
+ {
+  "clave": "tut.selector.apps",
+  "texto": "或者选择某个应用的教程："
+ },
+ {
+  "clave": "tut.selector.infra",
+  "texto": "或者在地图上建造附加设施："
+ },
+ {
+  "clave": "tut.selector.nucleo",
+  "texto": "或者日历和目标相关内容："
+ },
+ {
+  "clave": "tut.selector.hudNota",
+  "texto": "关闭后，可在“编辑器›设置›教程”中启动教程。"
+ },
+ {
+  "clave": "tut.selector.pag1",
+  "texto": "基础内容"
+ },
+ {
+  "clave": "tut.selector.pag2",
+  "texto": "其他全部内容"
+ },
+ {
+  "clave": "tut.selector.hint2",
+  "texto": "房屋及其菜单的导览。黄色区域仍然可用。"
+ },
+ {
+  "clave": "tut.selector.cerrar",
+  "texto": "关闭"
+ },
+ {
+  "clave": "tut.selector.volver",
+  "texto": "返回"
+ },
+ {
+  "clave": "tut.selector.gMenu",
+  "texto": "菜单"
+ },
+ {
+  "clave": "tut.selector.gEditor",
+  "texto": "编辑器"
+ },
+ {
+  "clave": "tut.selector.gConfig",
+  "texto": "设置"
+ },
+ {
+  "clave": "tut.selector.gCasa",
+  "texto": "房屋"
+ },
+ {
+  "clave": "tut.selector.gChat",
+  "texto": "聊天"
+ },
+ {
+  "clave": "tut.selector.gProgreso",
+  "texto": "你的一天与进度"
+ },
+ {
+  "clave": "tut.chat.abriendo",
+  "texto": "开始咯：魔法师会在屏幕上为你演示。"
+ },
+ {
+  "clave": "tut.chat.ofrecer",
+  "texto": "输入“{n}教程”或点击它的？按钮，我就在屏幕上为你演示。"
+ },
+ {
+  "clave": "tut.chat.chipTour",
+  "texto": "教程：{n}"
+ },
+ {
+  "clave": "tut.chat.chipAyuda",
+  "texto": "帮助：{n}"
+ }
+]

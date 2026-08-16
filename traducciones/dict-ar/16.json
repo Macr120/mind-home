@@ -1,0 +1,726 @@
+[
+  {
+    "clave": "ejercicio.metas.flex",
+    "es": "Min flexibilidad / sem",
+    "en": "Flexibility min / wk"
+  },
+  {
+    "clave": "ejercicio.metas.dias",
+    "es": "Días activos / sem",
+    "en": "Active days / wk"
+  },
+  {
+    "clave": "ejercicio.metas.guardar",
+    "es": "Guardar metas",
+    "en": "Save goals"
+  },
+  {
+    "clave": "ejercicio.metas.pilares",
+    "es": "Qué incluye cada pilar",
+    "en": "What each pillar includes"
+  },
+  {
+    "clave": "ejercicio.pilar.fuerza",
+    "es": "series, repeticiones, peso, volumen total y records (estilo Fitbod).",
+    "en": "Sets, reps, weight, total volume and PRs (Fitbod style)."
+  },
+  {
+    "clave": "ejercicio.pilar.resistencia",
+    "es": "cardio, HIIT, distancia y RPE por zonas (estilo Peloton / NTC).",
+    "en": "Cardio, HIIT, distance and RPE zones (Peloton / NTC style)."
+  },
+  {
+    "clave": "ejercicio.pilar.flex",
+    "es": "yoga, movilidad y estiramientos por enfoque corporal.",
+    "en": "Yoga, mobility and stretches by body focus."
+  },
+  {
+    "clave": "descanso.score.titulo",
+    "es": "Puntuación de sueño",
+    "en": "Sleep score"
+  },
+  {
+    "clave": "descanso.score.vacia",
+    "es": "Registra tu primera noche para ver tu puntuación.",
+    "en": "Log your first night to see your score."
+  },
+  {
+    "clave": "descanso.score.duracion",
+    "es": "Duración",
+    "en": "Duration"
+  },
+  {
+    "clave": "descanso.score.horario",
+    "es": "Hora de acostarse",
+    "en": "Bedtime"
+  },
+  {
+    "clave": "descanso.score.interrupciones",
+    "es": "Interrupciones",
+    "en": "Interruptions"
+  },
+  {
+    "clave": "descanso.score.noche",
+    "es": "Noche del {fecha} · {horas}",
+    "en": "Night of {fecha} · {horas}"
+  },
+  {
+    "clave": "descanso.et.excelente",
+    "en": "Excellent"
+  },
+  {
+    "clave": "descanso.et.buena",
+    "en": "Good"
+  },
+  {
+    "clave": "descanso.et.regular",
+    "en": "Fair"
+  },
+  {
+    "clave": "descanso.et.baja",
+    "en": "Poor"
+  },
+  {
+    "clave": "descanso.horario.titulo",
+    "es": "Horario y avisos",
+    "en": "Schedule & reminders"
+  },
+  {
+    "clave": "descanso.rutina.nombre",
+    "es": "Dormir",
+    "en": "Sleep"
+  },
+  {
+    "clave": "descanso.aviso.dormir",
+    "es": "Recordatorio de dormir",
+    "en": "Bedtime reminder"
+  },
+  {
+    "clave": "descanso.aviso.dormirHint",
+    "es": "Te avisará a las {hora} mientras la app esté abierta.",
+    "en": "It will remind you at {hora} while the app is open."
+  },
+  {
+    "clave": "descanso.aviso.dormirTitulo",
+    "es": "Hora de dormir",
+    "en": "Time for bed"
+  },
+  {
+    "clave": "descanso.aviso.dormirCuerpo",
+    "es": "Es tu hora de dormir: apaga y a la cama.",
+    "en": "It's your bedtime: lights out."
+  },
+  {
+    "clave": "descanso.aviso.pantallas",
+    "es": "Dejar las pantallas",
+    "en": "Screens off"
+  },
+  {
+    "clave": "descanso.aviso.pantallasHint",
+    "es": "Te avisará a las {hora}, una hora antes de dormir (con la app abierta).",
+    "en": "It will remind you at {hora}, one hour before bed (while the app is open)."
+  },
+  {
+    "clave": "descanso.aviso.pantallasTitulo",
+    "es": "Baja el ritmo",
+    "en": "Wind down"
+  },
+  {
+    "clave": "descanso.aviso.pantallasCuerpo",
+    "es": "Falta una hora para dormir: deja las pantallas y baja las luces.",
+    "en": "One hour to bedtime: put the screens away and dim the lights."
+  },
+  {
+    "clave": "descanso.aviso.ok",
+    "es": "Entendido",
+    "en": "Got it"
+  },
+  {
+    "clave": "descanso.horario.dormir",
+    "es": "Hora de dormir",
+    "en": "Bedtime"
+  },
+  {
+    "clave": "descanso.horario.despertar",
+    "es": "Despertar",
+    "en": "Wake up"
+  },
+  {
+    "clave": "descanso.horario.arrastra",
+    "es": "Arrastra la luna y el sol para ajustar tu horario",
+    "en": "Drag the moon and the sun to set your schedule"
+  },
+  {
+    "clave": "descanso.horario.objetivo",
+    "es": "Objetivo de sueño",
+    "en": "Sleep goal"
+  },
+  {
+    "clave": "descanso.horario.cumple",
+    "es": "✓ Este horario cumple tu objetivo de dormir.",
+    "en": "✓ This schedule meets your sleep goal."
+  },
+  {
+    "clave": "descanso.horario.noCumple",
+    "es": "Este horario da {h}, por debajo de tu objetivo de {o} h.",
+    "en": "This schedule gives {h}, below your {o} h goal."
+  },
+  {
+    "clave": "descanso.horario.alarma",
+    "es": "Despertador",
+    "en": "Alarm"
+  },
+  {
+    "clave": "descanso.horario.on",
+    "es": "Activado",
+    "en": "On"
+  },
+  {
+    "clave": "descanso.horario.off",
+    "es": "Desactivado",
+    "en": "Off"
+  },
+  {
+    "clave": "descanso.horario.alarmaHint",
+    "es": "Sonará a las {hora} mientras la app esté abierta.",
+    "en": "It will ring at {hora} while the app is open."
+  },
+  {
+    "clave": "descanso.horario.falta",
+    "es": "Faltan {h} para despertar",
+    "en": "{h} until wake-up"
+  },
+  {
+    "clave": "descanso.tono.titulo",
+    "es": "Tono del despertador",
+    "en": "Alarm sound"
+  },
+  {
+    "clave": "descanso.tono.probar",
+    "es": "Elegir y escuchar",
+    "en": "Pick and listen"
+  },
+  {
+    "clave": "descanso.tono.subir",
+    "es": "Subir audio",
+    "en": "Upload audio"
+  },
+  {
+    "clave": "descanso.tono.volumen",
+    "es": "Volumen",
+    "en": "Volume"
+  },
+  {
+    "clave": "descanso.tono.grande",
+    "es": "Archivo muy grande (máx. {n} MB).",
+    "en": "File too large (max {n} MB)."
+  },
+  {
+    "clave": "descanso.tono.clasico",
+    "en": "Classic"
+  },
+  {
+    "clave": "descanso.tono.campanas",
+    "en": "Bells"
+  },
+  {
+    "clave": "descanso.tono.marimba",
+    "en": "Marimba"
+  },
+  {
+    "clave": "descanso.tono.radar",
+    "en": "Radar"
+  },
+  {
+    "clave": "descanso.tono.arpa",
+    "en": "Harp"
+  },
+  {
+    "clave": "descanso.tono.amanecer",
+    "en": "Sunrise"
+  },
+  {
+    "clave": "descanso.deSueno",
+    "es": "de sueño",
+    "en": "of sleep"
+  },
+  {
+    "clave": "descanso.alarma.notif",
+    "es": "Hora de despertar",
+    "en": "Time to wake up"
+  },
+  {
+    "clave": "descanso.alarma.detener",
+    "es": "Detener",
+    "en": "Stop"
+  },
+  {
+    "clave": "descanso.evid.titulo",
+    "es": "Desbloquear con evidencia",
+    "en": "Unlock with proof"
+  },
+  {
+    "clave": "descanso.evid.ph",
+    "es": "Ej. mi cama tendida",
+    "en": "E.g. my bed made"
+  },
+  {
+    "clave": "descanso.evid.hint",
+    "es": "Al sonar tendrás que enviar una foto de «{tarea}»; la IA la revisa y solo entonces se apaga.",
+    "en": "When it rings you will have to send a photo of \"{tarea}\"; the AI checks it and only then does it stop."
+  },
+  {
+    "clave": "descanso.evid.falta",
+    "es": "Escribe qué debe mostrar la foto para poder apagar la alarma.",
+    "en": "Write what the photo must show to turn the alarm off."
+  },
+  {
+    "clave": "descanso.evid.reto",
+    "es": "Para apagarla, demuestra con una foto:",
+    "en": "To turn it off, prove with a photo:"
+  },
+  {
+    "clave": "descanso.evid.foto",
+    "es": "Tomar la foto",
+    "en": "Take the photo"
+  },
+  {
+    "clave": "descanso.evid.otra",
+    "es": "Tomar otra foto",
+    "en": "Take another photo"
+  },
+  {
+    "clave": "descanso.evid.revisando",
+    "es": "Revisando tu foto…",
+    "en": "Checking your photo…"
+  },
+  {
+    "clave": "descanso.evid.error",
+    "es": "No se pudo revisar la foto: {e}",
+    "en": "The photo could not be checked: {e}"
+  },
+  {
+    "clave": "descanso.evid.apagar",
+    "es": "Apagar sin evidencia",
+    "en": "Turn off without proof"
+  },
+  {
+    "clave": "descanso.evid.probar",
+    "es": "Probar ahora",
+    "en": "Try it now"
+  },
+  {
+    "clave": "descanso.evid.ensayo",
+    "es": "Prueba del reto",
+    "en": "Challenge rehearsal"
+  },
+  {
+    "clave": "descanso.evid.cerrar",
+    "es": "Cerrar la prueba",
+    "en": "Close the test"
+  },
+  {
+    "clave": "descanso.reg.titulo",
+    "es": "Registrar noche",
+    "en": "Log a night"
+  },
+  {
+    "clave": "descanso.reg.fecha",
+    "es": "Fecha",
+    "en": "Date"
+  },
+  {
+    "clave": "descanso.reg.acosto",
+    "es": "Me acosté",
+    "en": "Went to bed"
+  },
+  {
+    "clave": "descanso.reg.desperto",
+    "es": "Desperté",
+    "en": "Woke up"
+  },
+  {
+    "clave": "descanso.reg.interrupciones",
+    "es": "Interrupciones",
+    "en": "Interruptions"
+  },
+  {
+    "clave": "descanso.reg.calidad",
+    "es": "Calidad",
+    "en": "Quality"
+  },
+  {
+    "clave": "descanso.reg.ph.nota",
+    "es": "Nota (ej. desperté cansado)",
+    "en": "Note (e.g. woke up tired)"
+  },
+  {
+    "clave": "descanso.reg.guardar",
+    "es": "Registrar descanso",
+    "en": "Log sleep"
+  },
+  {
+    "clave": "descanso.nDe5",
+    "en": "{n} of 5"
+  },
+  {
+    "clave": "descanso.sem.titulo",
+    "es": "Últimas 7 noches",
+    "en": "Last 7 nights"
+  },
+  {
+    "clave": "descanso.sem.promedio",
+    "es": "Promedio: {h}",
+    "en": "Average: {h}"
+  },
+  {
+    "clave": "descanso.hist.vacio",
+    "es": "Aún no hay noches registradas.",
+    "en": "No nights logged yet."
+  },
+  {
+    "clave": "anec.titulo",
+    "es": "Título del día",
+    "en": "Title of the day"
+  },
+  {
+    "clave": "anec.ph",
+    "es": "¿Qué pasó hoy? ¿Qué aprendiste?",
+    "en": "What happened today? What did you learn?"
+  },
+  {
+    "clave": "anec.fotos",
+    "es": "Fotos",
+    "en": "Photos"
+  },
+  {
+    "clave": "anec.guardar",
+    "es": "Guardar anécdota",
+    "en": "Save memory"
+  },
+  {
+    "clave": "anec.vacio",
+    "es": "Tu anecdotario está vacío. Escribe tu primer recuerdo.",
+    "en": "Your journal is empty. Write your first memory."
+  },
+  {
+    "clave": "anec.cargarMas",
+    "es": "Cargar más recuerdos",
+    "en": "Load more memories"
+  },
+  {
+    "clave": "anec.sinTitulo",
+    "es": "Sin título",
+    "en": "Untitled"
+  },
+  {
+    "clave": "anec.cal.recuerdos",
+    "es": "{n} días con recuerdo",
+    "en": "{n} days with memories"
+  },
+  {
+    "clave": "anec.dia.titulo",
+    "en": "Memories from {fecha}"
+  },
+  {
+    "clave": "anec.dia.cerrar",
+    "es": "Cerrar el día",
+    "en": "Close day"
+  },
+  {
+    "clave": "sala.desc",
+    "es": "Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje y bitácora con fotos y anécdotas.",
+    "en": "Your traveler world: pins of visited places on the world map, itineraries of places to see with a calendar, travel routes and a journal with photos and stories."
+  },
+  {
+    "clave": "sala.tab.mapa",
+    "en": "Map"
+  },
+  {
+    "clave": "sala.tab.porConocer",
+    "en": "Itinerary"
+  },
+  {
+    "clave": "sala.tab.rutas",
+    "en": "Routes"
+  },
+  {
+    "clave": "sala.tab.bitacora",
+    "en": "Journal"
+  },
+  {
+    "clave": "sala.mapa.listaVacia",
+    "es": "Nada por aquí todavía.",
+    "en": "Nothing here yet."
+  },
+  {
+    "clave": "sala.mapa.paises",
+    "es": "Países",
+    "en": "Countries"
+  },
+  {
+    "clave": "sala.mapa.visitados",
+    "es": "Lugares visitados",
+    "en": "Places visited"
+  },
+  {
+    "clave": "sala.mapa.pendientes",
+    "es": "Por conocer",
+    "en": "To see"
+  },
+  {
+    "clave": "sala.mapa.pinVisitado",
+    "es": "Pin visitado",
+    "en": "Visited pin"
+  },
+  {
+    "clave": "sala.mapa.pinPendiente",
+    "es": "Pin por conocer",
+    "en": "Wishlist pin"
+  },
+  {
+    "clave": "sala.mapa.estados",
+    "es": "Estados",
+    "en": "States"
+  },
+  {
+    "clave": "sala.mapa.vistaPlano",
+    "en": "Flat"
+  },
+  {
+    "clave": "sala.mapa.vistaGlobo",
+    "en": "Globe"
+  },
+  {
+    "clave": "sala.mapa.cargandoGlobo",
+    "es": "Armando el globo…",
+    "en": "Building the globe…"
+  },
+  {
+    "clave": "sala.globo.girar",
+    "es": "Arrastra para girar · rueda o pellizca para acercar",
+    "en": "Drag to spin · scroll or pinch to zoom"
+  },
+  {
+    "clave": "sala.mapa.tocaVisitado",
+    "es": "Toca el mapa donde ya estuviste: el lugar se irá a tu bitácora.",
+    "en": "Tap the map where you've been: the place will go to your journal."
+  },
+  {
+    "clave": "sala.mapa.tocaPendiente",
+    "es": "Toca el mapa que sueñas conocer: el lugar se irá a tu itinerario.",
+    "en": "Tap the map you dream of seeing: the place will go to your itinerary."
+  },
+  {
+    "clave": "sala.mapa.yaVisite",
+    "es": "Ya lo visité",
+    "en": "I've been there"
+  },
+  {
+    "clave": "sala.mapa.leyVisitado",
+    "es": "Visitado",
+    "en": "Visited"
+  },
+  {
+    "clave": "sala.mapa.leyPendiente",
+    "es": "Por conocer",
+    "en": "To see"
+  },
+  {
+    "clave": "sala.mapa.verBitacora",
+    "es": "Bitácora",
+    "en": "Journal"
+  },
+  {
+    "clave": "sala.mapa.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "sala.mapa.quitar",
+    "es": "Quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "sala.mapa.vacio",
+    "es": "Aún no hay pines. Toca «Poner pin» y marca tu primer lugar visitado.",
+    "en": "No pins yet. Tap \"Drop pin\" and mark your first visited place."
+  },
+  {
+    "clave": "sala.form.nuevo",
+    "es": "Nuevo lugar",
+    "en": "New place"
+  },
+  {
+    "clave": "sala.form.editar",
+    "es": "Editar lugar",
+    "en": "Edit place"
+  },
+  {
+    "clave": "sala.form.buscar",
+    "es": "Buscar lugar (ej. Kioto, Machu Picchu)…",
+    "en": "Search a place (e.g. Kyoto, Machu Picchu)…"
+  },
+  {
+    "clave": "sala.form.errorBusqueda",
+    "es": "No se pudo buscar (¿sin internet?). Llena los campos a mano y marca el punto en el mapa.",
+    "en": "Search failed (offline?). Fill in the fields by hand and mark the point on the map."
+  },
+  {
+    "clave": "sala.form.sinPunto",
+    "es": "Toca el mapa para colocar el punto (opcional pero recomendado).",
+    "en": "Tap the map to place the point (optional but recommended)."
+  },
+  {
+    "clave": "sala.form.nombre",
+    "es": "Nombre del lugar *",
+    "en": "Place name *"
+  },
+  {
+    "clave": "sala.form.pais",
+    "es": "País *",
+    "en": "Country *"
+  },
+  {
+    "clave": "sala.form.estado",
+    "es": "Estado / región",
+    "en": "State / region"
+  },
+  {
+    "clave": "sala.form.ciudad",
+    "es": "Ciudad",
+    "en": "City"
+  },
+  {
+    "clave": "sala.form.visitado",
+    "es": "Ya lo visité",
+    "en": "I've been there"
+  },
+  {
+    "clave": "sala.form.nota",
+    "es": "Nota (qué quieres ver, tips…)",
+    "en": "Note (what to see, tips…)"
+  },
+  {
+    "clave": "sala.form.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "sala.form.guardar",
+    "es": "Guardar lugar",
+    "en": "Save place"
+  },
+  {
+    "clave": "sala.pc.paises",
+    "es": "Países",
+    "en": "Countries"
+  },
+  {
+    "clave": "sala.pc.estados",
+    "es": "Estados",
+    "en": "States"
+  },
+  {
+    "clave": "sala.pc.ciudades",
+    "es": "Ciudades",
+    "en": "Cities"
+  },
+  {
+    "clave": "sala.pc.fechas",
+    "es": "Fecha",
+    "en": "Date"
+  },
+  {
+    "clave": "sala.pc.sinFecha",
+    "es": "Sin fecha",
+    "en": "No date"
+  },
+  {
+    "clave": "sala.pc.ordenarPor",
+    "es": "Ordenar por",
+    "en": "Sort by"
+  },
+  {
+    "clave": "sala.pc.buscar",
+    "es": "Buscar en tu lista…",
+    "en": "Search your list…"
+  },
+  {
+    "clave": "sala.pc.agregar",
+    "es": "Lugar",
+    "en": "Place"
+  },
+  {
+    "clave": "sala.pc.sinDato",
+    "es": "Sin especificar",
+    "en": "Unspecified"
+  },
+  {
+    "clave": "sala.pc.count",
+    "es": "{n} lugares",
+    "en": "{n} places"
+  },
+  {
+    "clave": "sala.pc.countUno",
+    "es": "1 lugar",
+    "en": "1 place"
+  },
+  {
+    "clave": "sala.pc.vacio",
+    "es": "Tu itinerario está vacío. Agrega los lugares que sueñas conocer.",
+    "en": "Your itinerary is empty. Add the places you dream of visiting."
+  },
+  {
+    "clave": "sala.pc.visitado",
+    "es": "Ya lo visité",
+    "en": "I've been there"
+  },
+  {
+    "clave": "sala.pc.vistaItinerarios",
+    "en": "Itineraries"
+  },
+  {
+    "clave": "sala.pc.vistaGuardados",
+    "en": "Saved itineraries"
+  },
+  {
+    "clave": "sala.pc.confirmarTitulo",
+    "es": "¿Ya completaste este viaje?",
+    "en": "Did you complete this trip already?"
+  },
+  {
+    "clave": "sala.pc.confirmarDesc",
+    "es": "{lugar} se moverá a tu bitácora de recuerdos.",
+    "en": "{lugar} will move to your memory journal."
+  },
+  {
+    "clave": "sala.pc.confirmarNo",
+    "es": "Todavía no",
+    "en": "Not yet"
+  },
+  {
+    "clave": "sala.pc.confirmarSi",
+    "es": "Sí, lo visité",
+    "en": "Yes, I went"
+  },
+  {
+    "clave": "sala.form.sinItinerario",
+    "en": "No itinerary (general)"
+  },
+  {
+    "clave": "sala.form.fechaPlan",
+    "es": "Fecha planeada (opcional)",
+    "en": "Planned date (optional)"
+  },
+  {
+    "clave": "sala.pc.plan",
+    "es": "Plan día a día",
+    "en": "Day-by-day plan"
+  },
+  {
+    "clave": "sala.hoja.dia",
+    "es": "Día",
+    "en": "Day"
+  }
+]

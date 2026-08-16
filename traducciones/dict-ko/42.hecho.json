@@ -1,0 +1,502 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.resumen",
+    "texto": "아카이브에는 보고 읽고 즐긴 것들이 남아요. 각 항목마다 상태, 별점, 감상평이 있어요. 연도·월 폴더로 날짜순 정리하거나 장르별로 묶을 수 있어요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.titulo",
+    "texto": "시청 목록"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.resumen",
+    "texto": "시청 목록은 주제나 장르별 작품 리스트를 목표로 바꾼 거예요. 다 본 건 체크하고, 원하면 날짜를 정해서 캘린더에서도 볼 수 있어요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.titulo",
+    "texto": "디지털 테이블"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.resumen",
+    "texto": "보드게임과 아케이드 게임 20종 이상이 종류별로 묶여 있고, 인원수로 필터링할 수 있어요. 집을 나가지 않고 그 자리에서 바로 즐길 수 있어요."
+  },
+  {
+    "clave": "tut.app-diario--habito.titulo",
+    "texto": "신문 읽는 습관"
+  },
+  {
+    "clave": "tut.app-diario--habito.resumen",
+    "texto": "신문은 그날그날 사라져요. 매일 분야별 헤드라인과 '오늘의 역사'가 올라오고, 자정이면 새로 바뀌어요. 남는 건 꾸준함이에요. 읽는 것 자체가 그날의 기록이 돼요."
+  },
+  {
+    "clave": "tut.app-diario--reparto.titulo",
+    "texto": "알아서 배달받기"
+  },
+  {
+    "clave": "tut.app-diario--reparto.resumen",
+    "texto": "각 어시스턴트가 채팅으로 전해줄 섹션을 설정할 수 있어요. 정해진 시간에, 또는 하루 중 깜짝 타이밍에요."
+  },
+  {
+    "clave": "demo.paso.limpiar",
+    "texto": "부지 정리"
+  },
+  {
+    "clave": "demo.paso.casa",
+    "texto": "집 짓기"
+  },
+  {
+    "clave": "demo.paso.catalogos",
+    "texto": "카탈로그 준비"
+  },
+  {
+    "clave": "demo.paso.final",
+    "texto": "마무리 손질"
+  },
+  {
+    "clave": "cuenta.sync.activo",
+    "texto": "동기화 중…"
+  },
+  {
+    "clave": "cuenta.sync.ultima",
+    "texto": "동기화 완료: {f}"
+  },
+  {
+    "clave": "cuenta.sync.nunca",
+    "texto": "아직 동기화하지 않음"
+  },
+  {
+    "clave": "cuenta.sync.ahora",
+    "texto": "지금 동기화"
+  },
+  {
+    "clave": "cuenta.sync.otraCuenta",
+    "texto": "이 집은 다른 계정에 연결되어 있었어요. 로컬 데이터를 유지하고 새 계정에 합칠까요? (취소 = 이 집을 비우고 계정 데이터만 내려받기)"
+  },
+  {
+    "clave": "cuenta.sync.respaldoPrevio",
+    "texto": "이 집을 처음으로 동기화하려고 해요. 먼저 로컬 백업을 내려받을까요? (추천)"
+  },
+  {
+    "clave": "carpetas.vacio",
+    "texto": "아직 기록이 없어요."
+  },
+  {
+    "clave": "carpetas.estaSemana",
+    "texto": "이번 주"
+  },
+  {
+    "clave": "carpetas.nRegistro",
+    "texto": "기록 1개"
+  },
+  {
+    "clave": "carpetas.nRegistros",
+    "texto": "기록 {n}개"
+  },
+  {
+    "clave": "cocina.historial",
+    "texto": "식사 기록"
+  },
+  {
+    "clave": "ejercicio.historial",
+    "texto": "나의 세션"
+  },
+  {
+    "clave": "descanso.hist.media",
+    "texto": "평균 {h}"
+  },
+  {
+    "clave": "jardin.hist",
+    "texto": "나의 세션"
+  },
+  {
+    "clave": "jardin.hist.vacio",
+    "texto": "여기에 마음을 가라앉힌 세션이 기록돼요."
+  },
+  {
+    "clave": "jardin.hist.min",
+    "texto": "{n}분"
+  },
+  {
+    "clave": "hobbies.sesion.todas",
+    "texto": "나의 세션"
+  },
+  {
+    "clave": "despacho.m.sinRegistros",
+    "texto": "거래 기록이 없어요."
+  },
+  {
+    "clave": "room.agenda.desc",
+    "texto": "일정이에요. 업무 할 일, 이벤트와 프로젝트, 병원 예약, 약, 반려동물과 돌봄, 생일이 있는 연락처까지 한곳에 모아줘요."
+  },
+  {
+    "clave": "agenda.tab.trabajo",
+    "texto": "업무"
+  },
+  {
+    "clave": "agenda.tab.salud",
+    "texto": "건강"
+  },
+  {
+    "clave": "agenda.tab.personas",
+    "texto": "연락처"
+  },
+  {
+    "clave": "agenda.metaDiaria",
+    "texto": "오늘 일정"
+  },
+  {
+    "clave": "agenda.guardar",
+    "texto": "저장"
+  },
+  {
+    "clave": "agenda.editar",
+    "texto": "편집"
+  },
+  {
+    "clave": "agenda.borrar",
+    "texto": "삭제"
+  },
+  {
+    "clave": "agenda.confirmarBorrado",
+    "texto": "삭제할까요?"
+  },
+  {
+    "clave": "agenda.si",
+    "texto": "네"
+  },
+  {
+    "clave": "agenda.no",
+    "texto": "아니요"
+  },
+  {
+    "clave": "agenda.volver",
+    "texto": "뒤로"
+  },
+  {
+    "clave": "agenda.buscar",
+    "texto": "검색"
+  },
+  {
+    "clave": "agenda.palomear",
+    "texto": "완료로 표시"
+  },
+  {
+    "clave": "agenda.nuevoEvento",
+    "texto": "새로 만들기"
+  },
+  {
+    "clave": "agenda.editarEvento",
+    "texto": "편집"
+  },
+  {
+    "clave": "agenda.sinRelacion",
+    "texto": "관계 없음"
+  },
+  {
+    "clave": "agenda.eventosDe",
+    "texto": "{n}님과"
+  },
+  {
+    "clave": "agenda.cumpleDe",
+    "texto": "{n}님의 생일"
+  },
+  {
+    "clave": "agenda.form.asunto",
+    "texto": "제목"
+  },
+  {
+    "clave": "agenda.form.motivo",
+    "texto": "진료 사유"
+  },
+  {
+    "clave": "agenda.form.plan",
+    "texto": "계획 또는 알림"
+  },
+  {
+    "clave": "agenda.form.nombre",
+    "texto": "이름"
+  },
+  {
+    "clave": "agenda.form.color",
+    "texto": "색상"
+  },
+  {
+    "clave": "agenda.form.fecha",
+    "texto": "날짜"
+  },
+  {
+    "clave": "agenda.form.hora",
+    "texto": "시간"
+  },
+  {
+    "clave": "agenda.form.horaFin",
+    "texto": "종료"
+  },
+  {
+    "clave": "agenda.form.lugar",
+    "texto": "장소"
+  },
+  {
+    "clave": "agenda.form.con",
+    "texto": "누구와"
+  },
+  {
+    "clave": "agenda.form.medico",
+    "texto": "의사"
+  },
+  {
+    "clave": "agenda.form.contacto",
+    "texto": "연락처에 저장된 사람"
+  },
+  {
+    "clave": "agenda.form.ninguno",
+    "texto": "— 없음 —"
+  },
+  {
+    "clave": "agenda.form.prioridad",
+    "texto": "우선순위"
+  },
+  {
+    "clave": "agenda.form.notas",
+    "texto": "메모"
+  },
+  {
+    "clave": "agenda.form.notaSinFecha",
+    "texto": "날짜가 없으면 캘린더에는 나오지 않고 할 일 목록에 남아요."
+  },
+  {
+    "clave": "agenda.form.notaSinHora",
+    "texto": "시간이 없으면 그날에는 표시되지만 알림은 줄 수 없어요."
+  },
+  {
+    "clave": "agenda.prioridad.alta",
+    "texto": "높음"
+  },
+  {
+    "clave": "agenda.prioridad.media",
+    "texto": "보통"
+  },
+  {
+    "clave": "agenda.prioridad.baja",
+    "texto": "낮음"
+  },
+  {
+    "clave": "agenda.trabajo.pendientes",
+    "texto": "할 일"
+  },
+  {
+    "clave": "agenda.trabajo.tablero",
+    "texto": "보드"
+  },
+  {
+    "clave": "ejemplo.vacio",
+    "texto": "어디서부터 시작할지 모르겠나요? 예시를 넣은 모습을 보여드릴게요."
+  },
+  {
+    "clave": "ejemplo.puesto",
+    "texto": "이건 예시예요. 언제든 숨길 수 있고, 원래 데이터는 그대로 남아요."
+  },
+  {
+    "clave": "ejemplo.mostrar",
+    "texto": "예시 보기"
+  },
+  {
+    "clave": "ejemplo.ocultar",
+    "texto": "예시 숨기기"
+  },
+  {
+    "clave": "ejemplo.sinSitio",
+    "texto": "지금은 지도에 예시를 놓을 빈자리가 없어요."
+  },
+  {
+    "clave": "agenda.ejemplo.vacio",
+    "texto": "어디서부터 시작할지 모르겠나요? 예시를 불러와서 안을 둘러보세요."
+  },
+  {
+    "clave": "agenda.ejemplo.cargado",
+    "texto": "보이는 예시는 캘린더 블록까지 한 번에 지울 수 있어요."
+  },
+  {
+    "clave": "agenda.ejemplo.cargar",
+    "texto": "예시 불러오기"
+  },
+  {
+    "clave": "agenda.ejemplo.borrar",
+    "texto": "예시 삭제"
+  },
+  {
+    "clave": "agenda.ejemplo.confirmar",
+    "texto": "네, 예시 삭제"
+  },
+  {
+    "clave": "agenda.tablero.porhacer",
+    "texto": "할 일"
+  },
+  {
+    "clave": "agenda.tablero.encurso",
+    "texto": "진행 중"
+  },
+  {
+    "clave": "agenda.tablero.hecho",
+    "texto": "완료"
+  },
+  {
+    "clave": "agenda.tablero.columnaVacia",
+    "texto": "여기엔 없어요"
+  },
+  {
+    "clave": "agenda.tablero.atras",
+    "texto": "이전 열로 이동"
+  },
+  {
+    "clave": "agenda.tablero.adelante",
+    "texto": "다음 열로 이동"
+  },
+  {
+    "clave": "agenda.vacio.pendientes",
+    "texto": "할 일이 없어요. 머릿속에 있는 걸 적어보세요."
+  },
+  {
+    "clave": "agenda.salud.citas",
+    "texto": "병원 예약"
+  },
+  {
+    "clave": "agenda.salud.sub.yo",
+    "texto": "나"
+  },
+  {
+    "clave": "agenda.salud.sub.projimos",
+    "texto": "소중한 사람"
+  },
+  {
+    "clave": "agenda.salud.sub.mascotas",
+    "texto": "반려동물"
+  },
+  {
+    "clave": "agenda.salud.cuidados",
+    "texto": "정기 관리"
+  },
+  {
+    "clave": "agenda.salud.nuevoCuidado",
+    "texto": "새 관리 항목"
+  },
+  {
+    "clave": "agenda.vacio.cuidadosPersona",
+    "texto": "아직 관리 항목이 없어요. 반복되는 검진과 예방접종은 여기에 등록해요."
+  },
+  {
+    "clave": "agenda.vacio.projimos",
+    "texto": "아직 내가 돌보는 사람이 없어요. 새로 추가하거나, '연락처' 탭의 연락처에서 '내가 돌봄'을 체크하면, 예약·약·관리 정보와 함께 여기에 나타나요."
+  },
+  {
+    "clave": "agenda.persona.alCuidado",
+    "texto": "내가 돌봄"
+  },
+  {
+    "clave": "agenda.persona.alCuidadoAyuda",
+    "texto": "'건강 › 소중한 사람'에 예약, 약, 관리 정보와 함께 나타나요."
+  },
+  {
+    "clave": "agenda.projimo.aMiCuidado",
+    "texto": "내가 돌봄"
+  },
+  {
+    "clave": "agenda.cuidadop.nuevo",
+    "texto": "새 관리 항목"
+  },
+  {
+    "clave": "agenda.cuidado.archivado",
+    "texto": "완료, 반복 없음"
+  },
+  {
+    "clave": "agenda.cuidado.reactivar",
+    "texto": "다시 예약"
+  },
+  {
+    "clave": "agenda.form.especialidad",
+    "texto": "진료과"
+  },
+  {
+    "clave": "agenda.esp.general",
+    "texto": "일반 진료"
+  },
+  {
+    "clave": "agenda.esp.dentista",
+    "texto": "치과"
+  },
+  {
+    "clave": "agenda.esp.oftalmologia",
+    "texto": "안과"
+  },
+  {
+    "clave": "agenda.esp.dermatologia",
+    "texto": "피부과"
+  },
+  {
+    "clave": "agenda.esp.ginecologia",
+    "texto": "산부인과"
+  },
+  {
+    "clave": "agenda.esp.cardiologia",
+    "texto": "심장내과"
+  },
+  {
+    "clave": "agenda.esp.traumatologia",
+    "texto": "정형외과"
+  },
+  {
+    "clave": "agenda.esp.psicologia",
+    "texto": "심리 상담"
+  },
+  {
+    "clave": "agenda.esp.laboratorio",
+    "texto": "검사실"
+  },
+  {
+    "clave": "agenda.esp.otra",
+    "texto": "기타"
+  },
+  {
+    "clave": "agenda.cuidadop.chequeo",
+    "texto": "종합 검진"
+  },
+  {
+    "clave": "agenda.cuidadop.vacuna",
+    "texto": "예방접종"
+  },
+  {
+    "clave": "agenda.cuidadop.analisis",
+    "texto": "검사"
+  },
+  {
+    "clave": "agenda.cuidadop.terapia",
+    "texto": "치료"
+  },
+  {
+    "clave": "agenda.cuidadop.dental",
+    "texto": "치과 검진"
+  },
+  {
+    "clave": "agenda.cuidadop.visual",
+    "texto": "안과 검진"
+  },
+  {
+    "clave": "agenda.cuidadop.otro",
+    "texto": "기타"
+  },
+  {
+    "clave": "agenda.ciclo.titulo",
+    "texto": "생리 주기"
+  },
+  {
+    "clave": "agenda.ciclo.apagado",
+    "texto": "생리 주기를 기록하고, 다음 예상일과 증상, 알림까지 관리해요."
+  },
+  {
+    "clave": "agenda.ciclo.activar",
+    "texto": "생리 주기 추적 켜기"
+  },
+  {
+    "clave": "agenda.ciclo.desactivar",
+    "texto": "추적 끄기 (기록은 유지돼요)"
+  }
+]

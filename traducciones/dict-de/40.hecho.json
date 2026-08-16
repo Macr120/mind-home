@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-biblioteca--charlas.2.texto2",
+    "texto": "Die erste Antwort platziert den Chat schon in seinem Zweig und schreibt ihn als Eintrag. Von diesem Eintrag aus verzweigst du: Die Unterthemen, die deine Neugier geweckt haben, werden zu neuen Zweigen."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.titulo",
+    "texto": "Lernen und planen"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.resumen",
+    "texto": "Der Timer erfasst, wie lange du lernst – am Stück oder in Pomodoros – und der Lernplan verteilt deine Ziele über den Kalender."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.titulo",
+    "texto": "Die Lernuhr"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.1b.texto",
+    "texto": "Wähle ein Gebiet und starte: Bei Einfach laufen die Minuten am Stück, und bei Pomodoro reiht die App Konzentrationsphasen mit Pausen aneinander. Jede Phase wird von selbst erfasst, und die Uhr läuft weiter, auch wenn du den Raum verlässt."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.titulo",
+    "texto": "Das Jahr auf einen Blick"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.resumen",
+    "texto": "Übersicht bringt auf einem Bildschirm zusammen, was sich auf die anderen drei Tabs verteilt: wie viele Einträge du pro Gebiet hast, wie viel du gelernt hast und an welchen Tagen."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.titulo",
+    "texto": "Die tägliche Wiederholung"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.resumen",
+    "texto": "Die Karten werden in Boxen wiederholt: Jeder Treffer schiebt den nächsten Termin weiter weg, jeder Fehler holt ihn näher. Die App fragt nur ab, was heute fällig ist."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.titulo",
+    "texto": "Übungen, keine Karten"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.2b.texto",
+    "texto": "Du wiederholst, indem du antwortest: Multiple Choice, umgekehrt oder indem du den Beispielsatz vervollständigst. Oben wählst du, was in die Runde kommt — was heute fällig ist, der gesamte Wortschatz oder ein Thema aus dem Lehrplan."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.titulo",
+    "texto": "Der Wortschatz"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.resumen2",
+    "texto": "Die Karten leben INNERHALB des Lehrplans: Jedes Thema klappt auf, und dort sind sie schon, mit ihrem Ton, ihrem Bild und ihrer Wiederholungsbox."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.titulo2",
+    "texto": "Jedes Wort in seinem Thema"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.1.texto2",
+    "texto": "Klappe ein Thema auf und du siehst seine Karten: Antippen liest sie laut vor, die Miniatur öffnet die Illustration und der Stift bearbeitet sie. Peps erste sind A2 – Einkaufen, Wegbeschreibungen – und die letzten schon B1."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.3.texto2",
+    "texto": "Karten fügst du von Hand in ihr Thema ein, sie entstehen aus einem Chat mit deinem Tutor oder werden von der KI vorgeschlagen. Was übrig bleibt, landet unter „Nicht sortiert“, und von dort schickst du es zum passenden Thema."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.titulo",
+    "texto": "Lehrplan und Plan"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.resumen",
+    "texto": "Der Lehrplan gliedert die Sprache in drei Bereiche – Themen, Aussprache und Grammatik – nach GER-Niveau, und der Fortschritt fasst zusammen, wie weit du bist."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.3.texto2",
+    "texto": "Du kannst auch eigenes Material in einem Thema ablegen – Notizen, Redewendungen fürs Hotel, ein Foto deines Hefts – , es dir mit dem ✏️ zu eigen machen (Themen hinzufügen, umbenennen, sortieren oder löschen) und einen Lernplan mit Zieldatum anfordern."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.titulo",
+    "texto": "Arbeit und Lernen"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.resumen",
+    "texto": "Der Posteingang für Aufgaben ohne Datum und ein Kanban-Board, auf dem Karten von Spalte zu Spalte gezogen werden."
+  },
+  {
+    "clave": "tut.app-agenda--salud.titulo",
+    "texto": "Gesundheit und Haustiere"
+  },
+  {
+    "clave": "tut.app-agenda--salud.resumen",
+    "texto": "Arzttermine, Medikamente mit ihren Zeiten und Haustiere mit ihrer Pflege: Alles landet von selbst im Kalender."
+  },
+  {
+    "clave": "tut.app-agenda--personas.titulo",
+    "texto": "Personen"
+  },
+  {
+    "clave": "tut.app-agenda--personas.resumen",
+    "texto": "Dein Adressbuch nach Beziehung, mit Geburtstagen, die sich jedes Jahr von selbst im Kalender wiederholen."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.titulo",
+    "texto": "Das Jahr, in dem Pep laufen lernte"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.resumen",
+    "texto": "Sport bringt Kraft, Ausdauer und Beweglichkeit an einem Ort zusammen: Jede Einheit, die du erfasst, füttert deine Serie, deine Wochenziele und die Jahreshistorie."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.titulo",
+    "texto": "Von null auf 42 Kilometer"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.resumen",
+    "texto": "Der Tab Ausdauer speichert jeden Lauf mit Distanz, Tempo und Strecke; der Fortschritt fasst den Monat in einer Heatmap zusammen und zeigt deine Bestleistungen."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.titulo",
+    "texto": "Die Kraft, die das Knie nicht mitnehmen konnte"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.resumen",
+    "texto": "Bei Kraft erfasst du Sätze, Wiederholungen und Gewicht; daraus berechnet die App dein Volumen, zeichnet die Entwicklung jeder Übung und speichert deine persönlichen Rekorde."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.titulo",
+    "texto": "Essen mit einem Ziel"
+  }
+]

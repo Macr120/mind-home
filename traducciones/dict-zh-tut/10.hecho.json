@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "六个物种，每种都有自己的进食间隔。点一下还有空位的围栏内部，它就会带着名字出现。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "玩具"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "泥坑、浴盆和球，一格放一个：动物会自己跑过去，玩耍能提升心情。庇护所里三种都已经摆好了。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "名字"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "用“命名”点一个围栏，就能看到它的名单和已用容量；点某只动物就能改名。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "整套活儿就是这些：围栏、容量、玩具和关爱。在演示里，你想的话还可以扩建庇护所。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "这是Pep的赛道：一条沥青椭圆跑道，带着格子旗终点线。它是地图上唯一的终点线——整个比赛模式都围着它转。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "终点线就在那儿。走到院子里的自行车或汽车旁边，用“乘坐”按钮骑上去；骑着车压过这条线，红绿灯就会亮起。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "贴着椭圆跑，过弯时甩尾才不会掉速。你也可以和助手对战，中间还有道具：香蕉、加速和炸弹。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "终点线旁边就是最佳成绩表：Pep的自行车拿下38胜，最佳圈速41.8秒。去打破它吧——你在演示里创下的纪录都会保存。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "环绕地图的火车轨道和游乐场的过山车也是路：走到轨道上就会出现“乘坐”。每一条线都是自成一体的网络。"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "共有三种线条，从这里三种都看得到：赛道（比赛用）、火车轨道（环绕地图的小火车）和过山车（每格都有高度）。就算挨在一起也不会混：每种只找同类的邻居。"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "游乐场的过山车最高能升到六层，格子与格子之间的坡道会自动衔接。上去坐坐：小车会跑完整个闭合回路。"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "在你自己家里，可以用“赛道”编辑器一格一格地画，也可以用“手绘赛道”按区域自由涂。演示里的地图已经画好了。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "这是Pep的运动中心：足球、篮球、网球和棒球，一个挨着一个。每片球场都是地图上的一个矩形——走进去就会开始它的比赛。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "蓄力按钮会出现在视角方块的位置，朝着你角色面对的方向发力：先瞄准，再蓄力。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "下面是棒球场和网球场：网球有回击和对拉，棒球就是纯击球，可以对发球机，也可以对投手。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "上面是足球场和篮球场。足球靠带球和射门；篮球则要掌握投篮的力度。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "比分按球场分别保存：Pep在篮球留下21-15，在网球打出连续18回合的对拉。演示里的比赛真的算数——去刷新它们吧。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "打开工具轮盘：Paintball就住在那里，在“建造”分类里，紧挨着载具。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "选择模式：1 vs 1、2 vs 2 或大乱斗。对手就是地图上的助手——Laika也算——而且要在一楼玩。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "整个家就是战场：躲在墙后，探头开枪，还要留意背后。溅上的颜料在对战期间会一直留着。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "Pep的战绩是47胜23败。演示里的对战真的算数：走之前把它往上推一推。"
+  }
+]

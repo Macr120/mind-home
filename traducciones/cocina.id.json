@@ -1,0 +1,894 @@
+[
+  {
+    "ruta": "recetas.0.nombre",
+    "texto": "Oat rendam semalam"
+  },
+  {
+    "ruta": "recetas.0.carpeta",
+    "texto": "Pelari"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.0",
+    "texto": "60 g oat"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.1",
+    "texto": "150 ml susu (atau susu oat)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.2",
+    "texto": "100 g yogurt Yunani tawar"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.3",
+    "texto": "1 sdm biji chia (12 g)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.4",
+    "texto": "1 pisang matang"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.5",
+    "texto": "1 sdt madu"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.6",
+    "texto": "1 sejumput kayu manis"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.7",
+    "texto": "1 sejumput garam"
+  },
+  {
+    "ruta": "recetas.0.pasos.0",
+    "texto": "Campur oat, biji chia, kayu manis, dan garam dalam toples kaca."
+  },
+  {
+    "ruta": "recetas.0.pasos.1",
+    "texto": "Tambahkan susu dan yogurt, aduk sampai tidak ada gumpalan kering."
+  },
+  {
+    "ruta": "recetas.0.pasos.2",
+    "texto": "Haluskan setengah pisang dengan garpu lalu campurkan; simpan setengah lagi di kulkas."
+  },
+  {
+    "ruta": "recetas.0.pasos.3",
+    "texto": "Tutup dan simpan di kulkas selama 6-10 jam."
+  },
+  {
+    "ruta": "recetas.0.pasos.4",
+    "texto": "Paginya, taburi dengan sisa pisang yang diiris dan madu. Makan 90 menit sebelum lari."
+  },
+  {
+    "ruta": "recetas.1.nombre",
+    "texto": "Pasta karbo malam sebelum lomba"
+  },
+  {
+    "ruta": "recetas.1.carpeta",
+    "texto": "Pelari"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.0",
+    "texto": "200 g spageti"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.1",
+    "texto": "400 g tomat cincang halus"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.2",
+    "texto": "2 siung bawang putih"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.3",
+    "texto": "2 sdm minyak zaitun"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.4",
+    "texto": "1 sdt oregano kering"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.5",
+    "texto": "1 sdt gula"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.6",
+    "texto": "40 g keju parmesan parut"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.7",
+    "texto": "6 lembar daun basil segar"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.8",
+    "texto": "Garam"
+  },
+  {
+    "ruta": "recetas.1.pasos.0",
+    "texto": "Rebus banyak air dengan garam dalam panci besar."
+  },
+  {
+    "ruta": "recetas.1.pasos.1",
+    "texto": "Sambil menunggu, tumis bawang putih iris tipis dalam minyak dengan api sedang-kecil selama 2 menit, jangan sampai gosong."
+  },
+  {
+    "ruta": "recetas.1.pasos.2",
+    "texto": "Tambahkan tomat, oregano, gula, dan sejumput garam; masak 15 menit dengan api kecil."
+  },
+  {
+    "ruta": "recetas.1.pasos.3",
+    "texto": "Rebus pasta satu menit lebih singkat dari waktu di kemasan, sisihkan setengah gelas air rebusannya."
+  },
+  {
+    "ruta": "recetas.1.pasos.4",
+    "texto": "Aduk pasta dalam saus selama 1 menit dengan sedikit air rebusan yang disisihkan."
+  },
+  {
+    "ruta": "recetas.1.pasos.5",
+    "texto": "Sajikan dengan parmesan dan basil. Makan malam rendah lemak, tanpa pedas: besok ada lomba."
+  },
+  {
+    "ruta": "recetas.2.nombre",
+    "texto": "Mangkuk ayam untuk seminggu penuh"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.0",
+    "texto": "600 g dada ayam"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.1",
+    "texto": "300 g beras merah (mentah)"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.2",
+    "texto": "400 g ubi jalar potong dadu"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.3",
+    "texto": "400 g brokoli, dipotong per kuntum"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.4",
+    "texto": "3 sdm minyak zaitun"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.5",
+    "texto": "1 sdt paprika bubuk manis"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.6",
+    "texto": "1 sdt jintan bubuk"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.7",
+    "texto": "200 g yogurt Yunani tawar"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.8",
+    "texto": "1 buah lemon"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.9",
+    "texto": "Garam dan lada"
+  },
+  {
+    "ruta": "recetas.2.pasos.0",
+    "texto": "Panaskan oven hingga 200 °C."
+  },
+  {
+    "ruta": "recetas.2.pasos.1",
+    "texto": "Campur ubi jalar dengan 1 sdm minyak, garam, dan lada; panggang 25 menit."
+  },
+  {
+    "ruta": "recetas.2.pasos.2",
+    "texto": "Bumbui ayam dengan garam dan lada, lumuri dengan paprika, jintan, dan 1 sdm minyak, lalu panggang di wajan datar 6 menit tiap sisi. Diamkan 5 menit lalu potong memanjang."
+  },
+  {
+    "ruta": "recetas.2.pasos.3",
+    "texto": "Rebus beras merah dalam air garam selama 25 menit, lalu tiriskan."
+  },
+  {
+    "ruta": "recetas.2.pasos.4",
+    "texto": "Kukus brokoli selama 5 menit saja: harus tetap renyah agar masih enak sampai hari Kamis."
+  },
+  {
+    "ruta": "recetas.2.pasos.5",
+    "texto": "Kocok yogurt dengan perasan setengah lemon, garam, dan sisa 1 sdm minyak."
+  },
+  {
+    "ruta": "recetas.2.pasos.6",
+    "texto": "Bagi semua ke empat wadah, simpan sausnya terpisah. Tahan empat hari di kulkas."
+  },
+  {
+    "ruta": "recetas.3.nombre",
+    "texto": "Kari Jepang buatan rumah"
+  },
+  {
+    "ruta": "recetas.3.carpeta",
+    "texto": "Dari Jepang"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.0",
+    "texto": "500 g daging paha ayam, potong dadu"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.1",
+    "texto": "2 bawang bombay, iris tipis"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.2",
+    "texto": "2 wortel, iris tebal"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.3",
+    "texto": "400 g kentang potong dadu"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.4",
+    "texto": "40 g mentega"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.5",
+    "texto": "40 g tepung terigu"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.6",
+    "texto": "2 sdm bubuk kari"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.7",
+    "texto": "1 sdt garam masala"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.8",
+    "texto": "1 sdm kecap asin"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.9",
+    "texto": "1 sdt madu"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.10",
+    "texto": "700 ml kaldu ayam"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.11",
+    "texto": "1 sdm minyak"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.12",
+    "texto": "300 g beras butir pendek (mentah)"
+  },
+  {
+    "ruta": "recetas.3.pasos.0",
+    "texto": "Buat roux: lelehkan mentega, tambahkan tepung, dan aduk dengan api kecil selama 5 menit sampai berwarna cokelat hazelnut. Tambahkan bubuk kari dan garam masala, aduk 1 menit, lalu angkat dari api."
+  },
+  {
+    "ruta": "recetas.3.pasos.1",
+    "texto": "Dalam panci, goreng ayam dengan minyak sampai kecokelatan, lalu angkat."
+  },
+  {
+    "ruta": "recetas.3.pasos.2",
+    "texto": "Tumis bawang bombay 8 menit sampai keemasan; tambahkan wortel dan kentang, tumis 2 menit lagi."
+  },
+  {
+    "ruta": "recetas.3.pasos.3",
+    "texto": "Masukkan kembali ayam, tuang kaldu hingga terendam, dan masak dengan api sedang selama 20 menit."
+  },
+  {
+    "ruta": "recetas.3.pasos.4",
+    "texto": "Larutkan roux dengan sesendok kaldu panas, lalu tuang ke dalam panci. Masak 5 menit lagi sambil diaduk sampai mengental."
+  },
+  {
+    "ruta": "recetas.3.pasos.5",
+    "texto": "Tambahkan kecap asin dan madu, cicipi rasa garamnya, dan sajikan di atas nasi yang baru matang."
+  },
+  {
+    "ruta": "recetas.4.nombre",
+    "texto": "Ramen miso cepat"
+  },
+  {
+    "ruta": "recetas.4.carpeta",
+    "texto": "Dari Jepang"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.0",
+    "texto": "200 g mi ramen kering"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.1",
+    "texto": "900 ml kaldu ayam"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.2",
+    "texto": "2 sdm pasta miso"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.3",
+    "texto": "1 sdm kecap asin"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.4",
+    "texto": "1 sdt minyak wijen"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.5",
+    "texto": "2 siung bawang putih, cincang"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.6",
+    "texto": "10 g jahe parut"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.7",
+    "texto": "200 g daging perut babi atau ayam, iris memanjang"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.8",
+    "texto": "2 butir telur"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.9",
+    "texto": "100 g jagung manis"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.10",
+    "texto": "2 batang daun bawang, iris"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.11",
+    "texto": "1 lembar nori"
+  },
+  {
+    "ruta": "recetas.4.pasos.0",
+    "texto": "Rebus telur selama 6 menit 30 detik, dinginkan dalam air es, lalu kupas."
+  },
+  {
+    "ruta": "recetas.4.pasos.1",
+    "texto": "Goreng daging perut babi atau ayam dalam panci dengan minyak wijen; tambahkan bawang putih dan jahe selama 1 menit."
+  },
+  {
+    "ruta": "recetas.4.pasos.2",
+    "texto": "Tuangkan kaldu dan didihkan pelan selama 15 menit. Angkat dari api."
+  },
+  {
+    "ruta": "recetas.4.pasos.3",
+    "texto": "Larutkan miso dalam satu ciduk kaldu, lalu masukkan kembali ke panci bersama kecap asin. Jangan biarkan mendidih lagi."
+  },
+  {
+    "ruta": "recetas.4.pasos.4",
+    "texto": "Rebus mi secara terpisah sesuai petunjuk kemasan, lalu tiriskan dengan baik."
+  },
+  {
+    "ruta": "recetas.4.pasos.5",
+    "texto": "Susun mangkuk: mi, kaldu, daging, jagung, telur belah dua, daun bawang, dan nori."
+  },
+  {
+    "ruta": "recetas.5.nombre",
+    "texto": "Bolu pisang ala kafe"
+  },
+  {
+    "ruta": "recetas.5.carpeta",
+    "texto": "Manis"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.0",
+    "texto": "3 pisang sangat matang (350 g setelah dikupas)"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.1",
+    "texto": "2 butir telur"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.2",
+    "texto": "80 g gula cokelat"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.3",
+    "texto": "60 ml minyak bunga matahari"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.4",
+    "texto": "220 g tepung terigu"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.5",
+    "texto": "1 sdt baking powder"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.6",
+    "texto": "1/2 sdt soda kue"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.7",
+    "texto": "1 sdt kayu manis"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.8",
+    "texto": "1/2 sdt garam"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.9",
+    "texto": "60 g kacang kenari cincang"
+  },
+  {
+    "ruta": "recetas.5.pasos.0",
+    "texto": "Panaskan oven hingga 175 °C dan lapisi loyang loaf 22 cm dengan kertas roti."
+  },
+  {
+    "ruta": "recetas.5.pasos.1",
+    "texto": "Haluskan pisang dengan garpu hingga menjadi puree yang masih sedikit bertekstur."
+  },
+  {
+    "ruta": "recetas.5.pasos.2",
+    "texto": "Kocok telur dengan gula dan minyak, lalu campurkan puree pisang."
+  },
+  {
+    "ruta": "recetas.5.pasos.3",
+    "texto": "Di wadah lain, campur tepung, baking powder, soda kue, kayu manis, dan garam."
+  },
+  {
+    "ruta": "recetas.5.pasos.4",
+    "texto": "Satukan bahan kering dan basah dengan spatula tanpa mengaduk berlebihan, lalu tambahkan kacang kenari."
+  },
+  {
+    "ruta": "recetas.5.pasos.5",
+    "texto": "Tuang ke loyang dan panggang 50-55 menit, sampai tusuk gigi keluar bersih."
+  },
+  {
+    "ruta": "recetas.5.pasos.6",
+    "texto": "Keluarkan dari loyang dan dinginkan di atas rak kawat. Dipotong sepuluh iris, tahan tiga hari dibungkus kertas."
+  },
+  {
+    "ruta": "recetas.6.nombre",
+    "texto": "Sup krim lentil merah"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.0",
+    "texto": "250 g lentil merah"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.1",
+    "texto": "1 bawang bombay, cincang"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.2",
+    "texto": "2 wortel, potong dadu"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.3",
+    "texto": "2 siung bawang putih"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.4",
+    "texto": "1 sdt jintan bubuk"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.5",
+    "texto": "1 sdt kunyit bubuk"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.6",
+    "texto": "1 liter kaldu sayur"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.7",
+    "texto": "2 sdm minyak zaitun"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.8",
+    "texto": "100 ml santan"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.9",
+    "texto": "1 buah lemon"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.10",
+    "texto": "Garam dan lada"
+  },
+  {
+    "ruta": "recetas.6.pasos.0",
+    "texto": "Tumis bawang bombay dan wortel dalam minyak selama 8 menit dengan sejumput garam."
+  },
+  {
+    "ruta": "recetas.6.pasos.1",
+    "texto": "Tambahkan bawang putih cincang, jintan, dan kunyit, aduk selama 1 menit."
+  },
+  {
+    "ruta": "recetas.6.pasos.2",
+    "texto": "Bilas lentil, masukkan bersama kaldu, dan didihkan."
+  },
+  {
+    "ruta": "recetas.6.pasos.3",
+    "texto": "Masak 20 menit dengan api sedang-kecil, aduk sesekali."
+  },
+  {
+    "ruta": "recetas.6.pasos.4",
+    "texto": "Haluskan dengan blender, tambahkan santan dan perasan setengah lemon, lalu sesuaikan rasa garamnya."
+  },
+  {
+    "ruta": "recetas.6.pasos.5",
+    "texto": "Bagi ke dalam wadah; bisa dibekukan dengan baik dalam porsi sendiri-sendiri."
+  },
+  {
+    "ruta": "recetas.7.nombre",
+    "texto": "Salmon teriyaki dengan bayam"
+  },
+  {
+    "ruta": "recetas.7.carpeta",
+    "texto": "Dari Jepang"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.0",
+    "texto": "2 fillet salmon, 150 g masing-masing"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.1",
+    "texto": "3 sdm kecap asin"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.2",
+    "texto": "2 sdm mirin"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.3",
+    "texto": "1 sdm gula"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.4",
+    "texto": "1 sdt jahe parut"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.5",
+    "texto": "1 sdt tepung maizena"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.6",
+    "texto": "1 sdm minyak"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.7",
+    "texto": "150 g beras butir pendek (mentah)"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.8",
+    "texto": "200 g bayam segar"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.9",
+    "texto": "1 sdt wijen"
+  },
+  {
+    "ruta": "recetas.7.pasos.0",
+    "texto": "Masak nasi sesuai petunjuk kemasan."
+  },
+  {
+    "ruta": "recetas.7.pasos.1",
+    "texto": "Campur kecap asin, mirin, gula, jahe, dan tepung maizena dalam gelas."
+  },
+  {
+    "ruta": "recetas.7.pasos.2",
+    "texto": "Keringkan salmon dengan baik, lalu goreng sisi kulitnya dalam wajan berminyak selama 4 menit."
+  },
+  {
+    "ruta": "recetas.7.pasos.3",
+    "texto": "Balik, masak 2 menit lagi, lalu tuang saus; masak 2 menit sampai mengental sambil disiram ke ikan dengan sendok."
+  },
+  {
+    "ruta": "recetas.7.pasos.4",
+    "texto": "Tumis bayam selama 2 menit dalam wajan yang sama, di luar salmon, dengan sejumput garam."
+  },
+  {
+    "ruta": "recetas.7.pasos.5",
+    "texto": "Sajikan di atas nasi dengan saus di atasnya dan taburan wijen."
+  },
+  {
+    "ruta": "recetas.8.nombre",
+    "texto": "Taco lentil paprika asap"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.0",
+    "texto": "400 g lentil cokelat matang, tiriskan"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.1",
+    "texto": "1 bawang bombay, cincang"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.2",
+    "texto": "1 paprika merah, potong dadu"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.3",
+    "texto": "2 siung bawang putih"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.4",
+    "texto": "1 sdt jintan"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.5",
+    "texto": "1 sdt paprika asap bubuk"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.6",
+    "texto": "200 g tomat cincang halus"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.7",
+    "texto": "2 sdm minyak zaitun"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.8",
+    "texto": "8 tortilla jagung"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.9",
+    "texto": "1 buah alpukat"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.10",
+    "texto": "1 buah jeruk nipis"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.11",
+    "texto": "Daun ketumbar segar"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.12",
+    "texto": "100 g yogurt tawar"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.13",
+    "texto": "Garam"
+  },
+  {
+    "ruta": "recetas.8.pasos.0",
+    "texto": "Tumis bawang bombay dan paprika dalam minyak selama 8 menit."
+  },
+  {
+    "ruta": "recetas.8.pasos.1",
+    "texto": "Tambahkan bawang putih, jintan, dan paprika asap, aduk 1 menit."
+  },
+  {
+    "ruta": "recetas.8.pasos.2",
+    "texto": "Masukkan tomat dan lentil, masak 10 menit sambil sedikit dihaluskan dengan sendok agar menyatu."
+  },
+  {
+    "ruta": "recetas.8.pasos.3",
+    "texto": "Beri garam dan tambahkan perasan setengah jeruk nipis."
+  },
+  {
+    "ruta": "recetas.8.pasos.4",
+    "texto": "Panaskan tortilla di wajan kering, 30 detik tiap sisi."
+  },
+  {
+    "ruta": "recetas.8.pasos.5",
+    "texto": "Isi dengan lentil, alpukat iris, yogurt, dan daun ketumbar. Dua taco per orang."
+  },
+  {
+    "ruta": "recetas.9.nombre",
+    "texto": "Smoothie pemulihan"
+  },
+  {
+    "ruta": "recetas.9.carpeta",
+    "texto": "Pelari"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.0",
+    "texto": "1 pisang beku, iris"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.1",
+    "texto": "200 ml susu"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.2",
+    "texto": "150 g yogurt Yunani tawar"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.3",
+    "texto": "100 g buah beri beku"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.4",
+    "texto": "1 sdm selai kacang (16 g)"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.5",
+    "texto": "1 sdt bubuk kakao murni"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.6",
+    "texto": "1 sejumput garam"
+  },
+  {
+    "ruta": "recetas.9.pasos.0",
+    "texto": "Masukkan semua ke blender, cairan dulu."
+  },
+  {
+    "ruta": "recetas.9.pasos.1",
+    "texto": "Blender selama 45 detik sampai lembut; kalau terlalu kental, tambahkan sedikit susu."
+  },
+  {
+    "ruta": "recetas.9.pasos.2",
+    "texto": "Minum dalam 30 menit setelah lari panjang, langsung dari gelas blender biar tidak nambah cucian."
+  },
+  {
+    "ruta": "dietas.0.nombre",
+    "texto": "Minggu maraton"
+  },
+  {
+    "ruta": "dietas.0.descripcion",
+    "texto": "Tujuh hari sebelum lomba. Senin sampai Kamis seperti biasa (mangkuk ayam dari batch hari Minggu, oat sebelum lari ringan); Jumat dan Sabtu aku menambah karbo dan mengurangi serat serta lemak. Malam sebelum lomba, pasta dengan tomat dan tanpa eksperimen apa pun. Smoothie disimpan untuk setengah jam setelah garis finis, bersama sepotong bolu pisang yang sudah kubuat hari Kamis."
+  },
+  {
+    "ruta": "dietas.0.recetas.0",
+    "texto": "Oat rendam semalam"
+  },
+  {
+    "ruta": "dietas.0.recetas.1",
+    "texto": "Pasta karbo malam sebelum lomba"
+  },
+  {
+    "ruta": "dietas.0.recetas.2",
+    "texto": "Mangkuk ayam untuk seminggu penuh"
+  },
+  {
+    "ruta": "dietas.0.recetas.3",
+    "texto": "Smoothie pemulihan"
+  },
+  {
+    "ruta": "dietas.0.recetas.4",
+    "texto": "Bolu pisang ala kafe"
+  },
+  {
+    "ruta": "dietas.1.nombre",
+    "texto": "Pulang dari Jepang, ringan"
+  },
+  {
+    "ruta": "dietas.1.descripcion",
+    "texto": "Tiga minggu ramen, makanan konbini, dan katsu curry membuat badanku terasa berat dan kulkas kosong. Dua minggu makan malam ringan dengan banyak kacang-kacangan dan sayuran, satu kali makan ikan yang layak setiap minggu, dan sarapan yang disiapkan malam sebelumnya supaya tidak dadakan sebelum shift jam tujuh. Sedikit sentuhan Jepang, tapi dimasak di rumah dan secukupnya."
+  },
+  {
+    "ruta": "dietas.1.recetas.0",
+    "texto": "Sup krim lentil merah"
+  },
+  {
+    "ruta": "dietas.1.recetas.1",
+    "texto": "Taco lentil paprika asap"
+  },
+  {
+    "ruta": "dietas.1.recetas.2",
+    "texto": "Salmon teriyaki dengan bayam"
+  },
+  {
+    "ruta": "dietas.1.recetas.3",
+    "texto": "Oat rendam semalam"
+  },
+  {
+    "ruta": "dietas.1.recetas.4",
+    "texto": "Smoothie pemulihan"
+  },
+  {
+    "ruta": "listas.0.nombre",
+    "texto": "Belanja minggu maraton"
+  },
+  {
+    "ruta": "listas.0.items.0",
+    "texto": "1 kg spageti"
+  },
+  {
+    "ruta": "listas.0.items.1",
+    "texto": "800 g tomat cincang halus"
+  },
+  {
+    "ruta": "listas.0.items.2",
+    "texto": "1,2 kg dada ayam"
+  },
+  {
+    "ruta": "listas.0.items.3",
+    "texto": "1 kg beras merah"
+  },
+  {
+    "ruta": "listas.0.items.4",
+    "texto": "500 g oat"
+  },
+  {
+    "ruta": "listas.0.items.5",
+    "texto": "12 pisang"
+  },
+  {
+    "ruta": "listas.0.items.6",
+    "texto": "1 kg ubi jalar"
+  },
+  {
+    "ruta": "listas.0.items.7",
+    "texto": "2 liter susu"
+  },
+  {
+    "ruta": "listas.0.items.8",
+    "texto": "1 kg yogurt Yunani"
+  },
+  {
+    "ruta": "listas.0.items.9",
+    "texto": "6 butir telur"
+  },
+  {
+    "ruta": "listas.0.items.10",
+    "texto": "1 bonggol bawang putih"
+  },
+  {
+    "ruta": "listas.0.items.11",
+    "texto": "1 toples selai kacang 350 g"
+  },
+  {
+    "ruta": "listas.0.items.12",
+    "texto": "250 g kacang kenari"
+  },
+  {
+    "ruta": "listas.0.items.13",
+    "texto": "2 buah lemon"
+  },
+  {
+    "ruta": "listas.1.nombre",
+    "texto": "Belanja pertama setelah pulang dari Jepang"
+  },
+  {
+    "ruta": "listas.1.items.0",
+    "texto": "500 g lentil merah"
+  },
+  {
+    "ruta": "listas.1.items.1",
+    "texto": "2 kaleng lentil cokelat matang, 400 g masing-masing"
+  },
+  {
+    "ruta": "listas.1.items.2",
+    "texto": "1 liter kaldu sayur"
+  },
+  {
+    "ruta": "listas.1.items.3",
+    "texto": "2 wortel besar"
+  },
+  {
+    "ruta": "listas.1.items.4",
+    "texto": "3 bawang bombay"
+  },
+  {
+    "ruta": "listas.1.items.5",
+    "texto": "1 paprika merah"
+  },
+  {
+    "ruta": "listas.1.items.6",
+    "texto": "400 ml santan"
+  },
+  {
+    "ruta": "listas.1.items.7",
+    "texto": "2 fillet salmon, 150 g masing-masing"
+  },
+  {
+    "ruta": "listas.1.items.8",
+    "texto": "1 paket tortilla jagung isi 12"
+  },
+  {
+    "ruta": "listas.1.items.9",
+    "texto": "2 buah alpukat"
+  },
+  {
+    "ruta": "listas.1.items.10",
+    "texto": "1 ikat daun ketumbar"
+  },
+  {
+    "ruta": "listas.1.items.11",
+    "texto": "2 buah jeruk nipis"
+  },
+  {
+    "ruta": "listas.1.items.12",
+    "texto": "500 g bayam segar"
+  },
+  {
+    "ruta": "listas.1.items.13",
+    "texto": "1 toples jintan bubuk"
+  }
+]

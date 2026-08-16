@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.editor-mapa.3.texto",
+    "texto": "Daken gaan per cel: elke cel kan zijn eigen vorm of materiaal hebben, dus één kamer kan verschillende dakschuintes combineren in plaats van één plat dak."
+  },
+  {
+    "clave": "tut.editor-mapa.4.texto",
+    "texto": "Het huis heeft ook niveaus: stapelbare verdiepingen naar boven en een kelder naar beneden. Elk nieuw niveau komt met zijn eigen manier om omhoog te gaan —een trap of een gat in de vloerplaat— die dwars door de vloer erboven heen gaat."
+  },
+  {
+    "clave": "tut.editor-mapa.5.titulo",
+    "texto": "Klaar"
+  },
+  {
+    "clave": "tut.editor-mapa.5.texto",
+    "texto": "Alles wordt vanzelf opgeslagen terwijl je bewerkt. Klaar sluit de editor en brengt je terug naar het spel, met het huis precies zoals je het achterliet."
+  },
+  {
+    "clave": "tut.editor-personajes.1.texto",
+    "texto": "Je hoofdpersonage en je assistenten wonen in dezelfde editor: kies bovenaan wie je bewerkt, en de hulpmiddelen veranderen mee met wat voor die ene zinvol is."
+  },
+  {
+    "clave": "tut.editor-personajes.2.titulo",
+    "texto": "Gezicht en foto"
+  },
+  {
+    "clave": "tut.editor-personajes.2.texto",
+    "texto": "Expressie, kapsel en haarkleur, of gewoon een foto van jezelf zodat het personage op je lijkt. Niet elk lichaam kan een eigen gezicht dragen."
+  },
+  {
+    "clave": "tut.editor-personajes.3.titulo",
+    "texto": "Kleding per categorie"
+  },
+  {
+    "clave": "tut.editor-personajes.3.texto",
+    "texto": "Elk kledingstuk trek je apart aan en uit, en verf je apart: overhemd, broek, schoeisel, accessoires. Je combineert ze vrij."
+  },
+  {
+    "clave": "tut.editor-personajes.4.titulo",
+    "texto": "Opgeslagen outfits"
+  },
+  {
+    "clave": "tut.editor-personajes.4.texto",
+    "texto": "Sla een complete kledingcombinatie op als outfit en verkleed je in één tik helemaal, zonder elke keer stuk voor stuk opnieuw te beginnen."
+  },
+  {
+    "clave": "tut.editor-personajes.5.titulo",
+    "texto": "Garderobe per kamer"
+  },
+  {
+    "clave": "tut.editor-personajes.5.texto",
+    "texto": "Wijs elke kamer een andere outfit toe: je avatar loopt de Gym binnen in hardloopkleren en verkleedt zich vanzelf zodra hij de keuken in stapt."
+  },
+  {
+    "clave": "tut.editor-personajes.6.texto",
+    "texto": "Lichaam, kleur en grootte bewerk je zoals altijd; met AI aan kun je bovendien je eigen 3D-model laten maken in plaats van er een uit de voorinstellingen te kiezen."
+  },
+  {
+    "clave": "tut.editor-objetos.1.texto",
+    "texto": "Tik op een object in de scène (of in de lijst) om het te bewerken: kleur, grootte en rotatie zijn de drie instellingen die ze allemaal delen."
+  },
+  {
+    "clave": "tut.editor-objetos.2.texto",
+    "texto": "Objecten met een toegewezen app openen hun sjabloon zodra je de kamer binnenkomt; de rest is gewoon decoratie — allebei bewerk je ze op dezelfde manier."
+  },
+  {
+    "clave": "tut.editor-objetos.3.texto",
+    "texto": "Het tandwiel ⚙️ van een object maakt het bewerkbaar per onderdeel: bouw je eigen modellen door basisvormen te combineren, of vraag de AI om er een door hem te beschrijven."
+  },
+  {
+    "clave": "tut.editor-config.1.texto",
+    "texto": "Acht uitklapbare secties, geen lange lijst: tik op een titel om alleen die ene te openen."
+  },
+  {
+    "clave": "tut.editor-config.2.titulo",
+    "texto": "Account en AI"
+  },
+  {
+    "clave": "tut.editor-config.2.texto",
+    "texto": "Inloggen, je abonnement en hoeveel AI je deze maand hebt verbruikt; er pal naast de prijstabel van elke bewerking. Allebei hebben ze hun eigen uitgebreide tutorial."
+  },
+  {
+    "clave": "tut.editor-config.3.titulo",
+    "texto": "Visuele stijl"
+  },
+  {
+    "clave": "tut.editor-config.3.texto",
+    "texto": "Het thema van de kaart (licht, mist, belichting) en de nabewerkingsstijlen, allemaal pas geladen als je ze nodig hebt zodat ze niets extra wegen."
+  },
+  {
+    "clave": "tut.editor-config.4.titulo",
+    "texto": "Interface en taal"
+  },
+  {
+    "clave": "tut.editor-config.4.texto",
+    "texto": "Taal, thema van de interface (licht/donker/automatisch), iconenstijl en dichtheid — alles wat verandert HOE het huis eruitziet, niet wat erin zit."
+  },
+  {
+    "clave": "tut.editor-config.5.titulo",
+    "texto": "Meldingen"
+  },
+  {
+    "clave": "tut.editor-config.5.texto",
+    "texto": "Welke meldingen binnenkomen en welke stil blijven: routines, planmeldingen en herinneringen zet je afzonderlijk uit."
+  },
+  {
+    "clave": "tut.editor-config.6.texto",
+    "texto": "Muziek en Tutorials hebben hun eigen rondleiding; Back-up van gegevens ook, en dat is degene die je het best doorloopt voordat je van apparaat wisselt."
+  },
+  {
+    "clave": "tut.respaldo.1.titulo",
+    "texto": "Waar jouw huis woont"
+  },
+  {
+    "clave": "tut.respaldo.1.texto",
+    "texto": "Zonder account en zonder synchronisatie staan je gegevens alleen op dit apparaat. De melding bovenaan zegt of de browser toestemming heeft om ze te beschermen tegen een automatische opruiming."
+  },
+  {
+    "clave": "tut.respaldo.2.titulo",
+    "texto": "Exporteren"
+  },
+  {
+    "clave": "tut.respaldo.2.texto",
+    "texto": "Downloadt één JSON-bestand met al je tabellen: kamers, doelen, registraties, alles. Dat is je handmatige back-up."
+  },
+  {
+    "clave": "tut.respaldo.3.titulo",
+    "texto": "Herstellen"
+  }
+]

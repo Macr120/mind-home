@@ -1,0 +1,386 @@
+[
+  {
+    "ruta": "plantillas.0.notas.0",
+    "texto": "हफ़्ते का राशन"
+  },
+  {
+    "ruta": "plantillas.0.notas.1",
+    "texto": "साबुत कॉफ़ी बीन्स"
+  },
+  {
+    "ruta": "plantillas.0.notas.2",
+    "texto": "अंडे और टॉर्टिया"
+  },
+  {
+    "ruta": "plantillas.0.notas.3",
+    "texto": "बाज़ार से फल"
+  },
+  {
+    "ruta": "plantillas.0.notas.4",
+    "texto": "शिफ़्ट के बाद टैको"
+  },
+  {
+    "ruta": "plantillas.0.notas.5",
+    "texto": "खुली चायपत्ती"
+  },
+  {
+    "ruta": "plantillas.0.notas.6",
+    "texto": "ओट्स और केले"
+  },
+  {
+    "ruta": "plantillas.0.notas.7",
+    "texto": "सेट लंच मेन्यू"
+  },
+  {
+    "ruta": "plantillas.0.notas.8",
+    "texto": "कोने की दुकान की ब्रेड"
+  },
+  {
+    "ruta": "plantillas.0.notas.9",
+    "texto": "टूना और चावल"
+  },
+  {
+    "ruta": "plantillas.1.notas.0",
+    "texto": "मेट्रो कार्ड टॉप-अप"
+  },
+  {
+    "ruta": "plantillas.1.notas.1",
+    "texto": "गाड़ी के लिए पेट्रोल"
+  },
+  {
+    "ruta": "plantillas.1.notas.2",
+    "texto": "साइकिल की ट्यूब"
+  },
+  {
+    "ruta": "plantillas.1.notas.3",
+    "texto": "चेन और लाइट्स"
+  },
+  {
+    "ruta": "plantillas.1.notas.4",
+    "texto": "कैंपस की पार्किंग"
+  },
+  {
+    "ruta": "plantillas.1.notas.5",
+    "texto": "लैब तक का किराया"
+  },
+  {
+    "ruta": "plantillas.1.notas.6",
+    "texto": "चेन का लुब्रिकेंट"
+  },
+  {
+    "ruta": "plantillas.1.notas.7",
+    "texto": "घर तक का टोल"
+  },
+  {
+    "ruta": "plantillas.2.notas.0",
+    "texto": "साबुन और डिटर्जेंट"
+  },
+  {
+    "ruta": "plantillas.2.notas.1",
+    "texto": "लाइका के लिए लिटर"
+  },
+  {
+    "ruta": "plantillas.2.notas.2",
+    "texto": "लाइका का सूखा खाना"
+  },
+  {
+    "ruta": "plantillas.2.notas.3",
+    "texto": "बैठक कमरे का बल्ब"
+  },
+  {
+    "ruta": "plantillas.2.notas.4",
+    "texto": "बाल्टी और पोंछा"
+  },
+  {
+    "ruta": "plantillas.2.notas.5",
+    "texto": "घर की गैस"
+  },
+  {
+    "ruta": "plantillas.2.notas.6",
+    "texto": "नल की मरम्मत"
+  },
+  {
+    "ruta": "plantillas.2.notas.7",
+    "texto": "नई फ़िल्टर कॉफ़ी मशीन"
+  },
+  {
+    "ruta": "plantillas.3.notas.0",
+    "texto": "सिनेमा टिकट"
+  },
+  {
+    "ruta": "plantillas.3.notas.1",
+    "texto": "बड़े पर्दे पर साइंस-फ़िक्शन"
+  },
+  {
+    "ruta": "plantillas.3.notas.2",
+    "texto": "नूरिया के साथ कॉफ़ी"
+  },
+  {
+    "ruta": "plantillas.3.notas.3",
+    "texto": "कीबोर्ड के तार नहीं, नोट्स"
+  },
+  {
+    "ruta": "plantillas.3.notas.4",
+    "texto": "प्लैनेटेरियम का टिकट"
+  },
+  {
+    "ruta": "plantillas.3.notas.5",
+    "texto": "पुरानी किताब"
+  },
+  {
+    "ruta": "plantillas.3.notas.6",
+    "texto": "परीक्षा के बाद बीयर"
+  },
+  {
+    "ruta": "plantillas.3.notas.7",
+    "texto": "वेधशाला की सैर"
+  },
+  {
+    "ruta": "plantillas.4.notas.0",
+    "texto": "जनरल चेकअप"
+  },
+  {
+    "ruta": "plantillas.4.notas.1",
+    "texto": "घुटने की पट्टी"
+  },
+  {
+    "ruta": "plantillas.4.notas.2",
+    "texto": "रेस के इलेक्ट्रोलाइट्स"
+  },
+  {
+    "ruta": "plantillas.4.notas.3",
+    "texto": "प्रोटीन पाउडर"
+  },
+  {
+    "ruta": "plantillas.4.notas.4",
+    "texto": "सूजनरोधी जेल"
+  },
+  {
+    "ruta": "plantillas.4.notas.5",
+    "texto": "कम्प्रेशन मोज़े"
+  },
+  {
+    "ruta": "plantillas.4.notas.6",
+    "texto": "ख़ून की जांच"
+  },
+  {
+    "ruta": "plantillas.4.notas.7",
+    "texto": "जूतों के लिए इनसोल"
+  },
+  {
+    "ruta": "plantillas.5.notas.0",
+    "texto": "लैब की कॉपी"
+  },
+  {
+    "ruta": "plantillas.5.notas.1",
+    "texto": "नया कैलकुलेटर"
+  },
+  {
+    "ruta": "plantillas.5.notas.2",
+    "texto": "रेस की टी-शर्ट"
+  },
+  {
+    "ruta": "plantillas.5.notas.3",
+    "texto": "सस्ते ईयरबड्स"
+  },
+  {
+    "ruta": "plantillas.5.notas.4",
+    "texto": "सर्दियों की हुडी"
+  },
+  {
+    "ruta": "plantillas.5.notas.5",
+    "texto": "स्पेयर चार्जर"
+  },
+  {
+    "ruta": "plantillas.5.notas.6",
+    "texto": "कैमरे की केबल"
+  },
+  {
+    "ruta": "plantillas.5.notas.7",
+    "texto": "जिम का तौलिया"
+  },
+  {
+    "ruta": "plantillas.6.notas.0",
+    "texto": "थीसिस की फ़ोटोकॉपी"
+  },
+  {
+    "ruta": "plantillas.6.notas.1",
+    "texto": "बाल कटवाना"
+  },
+  {
+    "ruta": "plantillas.6.notas.2",
+    "texto": "लॉन्ड्री"
+  },
+  {
+    "ruta": "plantillas.6.notas.3",
+    "texto": "पोस्टर की प्रिंटिंग"
+  },
+  {
+    "ruta": "plantillas.6.notas.4",
+    "texto": "म्यूज़िक सब्सक्रिप्शन"
+  },
+  {
+    "ruta": "plantillas.6.notas.5",
+    "texto": "फ़ोन की स्क्रीन रिपेयर"
+  },
+  {
+    "ruta": "plantillas.6.notas.6",
+    "texto": "ऑनलाइन काग़ज़ी कार्रवाई की फ़ीस"
+  },
+  {
+    "ruta": "plantillas.6.notas.7",
+    "texto": "प्रिंटर की स्याही"
+  },
+  {
+    "ruta": "plantillas.7.notas.0",
+    "texto": "शिफ़्ट की टिप्स"
+  },
+  {
+    "ruta": "plantillas.7.notas.1",
+    "texto": "शुक्रवार की शिफ़्ट"
+  },
+  {
+    "ruta": "plantillas.7.notas.2",
+    "texto": "भरा हुआ वीकेंड"
+  },
+  {
+    "ruta": "plantillas.7.notas.3",
+    "texto": "साझा टिप जार"
+  },
+  {
+    "ruta": "plantillas.7.notas.4",
+    "texto": "शांत शिफ़्ट"
+  },
+  {
+    "ruta": "plantillas.7.notas.5",
+    "texto": "सुबह के नियमित ग्राहक"
+  },
+  {
+    "ruta": "plantillas.7.notas.6",
+    "texto": "कैफ़े में प्राइवेट इवेंट"
+  },
+  {
+    "ruta": "plantillas.7.notas.7",
+    "texto": "सुस्त सोमवार"
+  },
+  {
+    "ruta": "hitos.0.nota",
+    "texto": "कैफ़े की पखवाड़े की तनख़्वाह — पूरे महीने की नींव।"
+  },
+  {
+    "ruta": "hitos.1.nota",
+    "texto": "फ़िज़िक्स की फ़ीस — पार्ट टाइम पढ़ाई, पर पूरे समय जैसी महसूस होती है।"
+  },
+  {
+    "ruta": "hitos.2.nota",
+    "texto": "कमरे का किराया — हमेशा सबसे पहले अलग रखी जाने वाली रकम।"
+  },
+  {
+    "ruta": "hitos.3.nota",
+    "texto": "इंटरनेट और बिजली — इनके बिना कोई भी होमवर्क नहीं होता।"
+  },
+  {
+    "ruta": "hitos.4.nota",
+    "texto": "फ़ोन का प्लान — बस इतना कि नक़्शे भर खुल जाएं।"
+  },
+  {
+    "ruta": "hitos.5.nota",
+    "texto": "स्ट्रीमिंग: घर बैठे मेरा साइंस-फ़िक्शन सिनेमा।"
+  },
+  {
+    "ruta": "hitos.6.nota",
+    "texto": "कार इंश्योरेंस — एक उबाऊ भुगतान, जिसके लिए किसी दिन दिल से शुक्रिया कहा जाएगा।"
+  },
+  {
+    "ruta": "hitos.7.nota",
+    "texto": "पहले असली रनिंग शूज़ — अब कोई बहाना नहीं बचा।"
+  },
+  {
+    "ruta": "hitos.8.nota",
+    "texto": "5K के लिए रजिस्ट्रेशन — ज़िंदगी का पहला रेस नंबर।"
+  },
+  {
+    "ruta": "hitos.9.nota",
+    "texto": "10K के लिए रजिस्ट्रेशन — इस बार इतना सोचे बिना।"
+  },
+  {
+    "ruta": "hitos.10.nota",
+    "texto": "हाफ़ मैराथन की फ़ीस भरी — घुटने ने आख़िरकार साथ दिया।"
+  },
+  {
+    "ruta": "hitos.11.nota",
+    "texto": "बयालीस किलोमीटर की फ़ीस भर दी गई। अब पीछे हटने का कोई रास्ता नहीं।"
+  },
+  {
+    "ruta": "hitos.12.nota",
+    "texto": "पासपोर्ट रिन्यू होने से जापान अब सिर्फ़ ख़्वाब नहीं, एक योजना बन गया।"
+  },
+  {
+    "ruta": "hitos.13.nota",
+    "texto": "यात्रा वाला बैकपैक — पूरे घर में भरकर आज़माया गया।"
+  },
+  {
+    "ruta": "hitos.14.nota",
+    "texto": "टिकट बुक हुआ — और हाथ कांप उठे: यह सच है।"
+  },
+  {
+    "ruta": "hitos.15.nota",
+    "texto": "JR Pass तैयार — मेरे नाम तीन हफ़्तों की ट्रेनें।"
+  },
+  {
+    "ruta": "hitos.16.nota",
+    "texto": "ठहरने का भुगतान — टोक्यो, हाकोने, क्योटो, ओसाका, हिरोशिमा।"
+  },
+  {
+    "ruta": "hitos.17.nota",
+    "texto": "पूरे साल की कमाई — पाई-पाई करके ख़र्च हो रही है।"
+  },
+  {
+    "ruta": "hitos.18.nota",
+    "texto": "गाड़ी बंद हो गई, और साथ में पूरी जमा-पूंजी भी ख़त्म हो गई।"
+  },
+  {
+    "ruta": "hitos.19.nota",
+    "texto": "घुटने की फ़िज़ियोथेरेपी — महंगी, पर विकल्प था बस यही या हार मान लेना।"
+  },
+  {
+    "ruta": "hitos.20.nota",
+    "texto": "नए टायर — पुराने अब डरावने लगने लगे थे।"
+  },
+  {
+    "ruta": "hitos.21.nota",
+    "texto": "गाड़ी की बड़ी सर्विस — वह मेंटेनेंस जो सचमुच अपनी मर्ज़ी से चुना गया।"
+  },
+  {
+    "ruta": "hitos.22.nota",
+    "texto": "गाड़ी के कागज़ात और टैक्स — पुरानी पर प्यारी गाड़ी रखने की कीमत।"
+  },
+  {
+    "ruta": "hitos.23.nota",
+    "texto": "कैफ़े का सालाना बोनस — सीधा आपातकालीन कोष में।"
+  },
+  {
+    "ruta": "hitos.24.nota",
+    "texto": "परिवार के लिए तोहफ़े — उनके लिए पियानो बजाने के बाद।"
+  },
+  {
+    "ruta": "hitos.25.nota",
+    "texto": "लाइका के टीके — उसे बजट-वजट की कोई समझ नहीं।"
+  },
+  {
+    "ruta": "metas.japon",
+    "texto": "जापान, तीन सप्ताह (पूरा हुआ)"
+  },
+  {
+    "ruta": "metas.emergencia",
+    "texto": "आपातकालीन कोष: तीन महीने"
+  },
+  {
+    "ruta": "metas.inversion",
+    "texto": "CETES: मेरी पहली बचत जो कमाई देती है"
+  },
+  {
+    "ruta": "metas.deuda",
+    "texto": "गाड़ी ख़राब होने का क़र्ज़ (चुका दिया गया)"
+  }
+]

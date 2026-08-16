@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "这是Pep的日记：整整一年，每周两三条记录。这里讲完了全部历程——从最初的厌倦，到两周前的马拉松。"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "怎么写"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "选好当天的心情，想加标题就加，写下来，再附上照片。只有照片也够了，不写字也行。"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "一年的颜色"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "每一天都用当天的心情上色。看看第7个月的低谷（受伤），还有日本那段有多亮。点一天，就只看那天的记录。"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "历史记录"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "记录会自动按年、月、周归入文件夹。打开日本那几周，把整趟旅行读完。"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "Pep这一年的里程碑都带着照片：二手键盘、Laika到家、两张日本明信片，还有马拉松奖牌。"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "在历史记录里找"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "打开第2个月（键盘）、第9个月（日本）或者两周前（奖牌）。点任意一张照片，就会全屏打开。"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "每条记录都会累积连续天数，也会唤醒角色：在这里写字，同样是在照顾这个家。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "累计的平静"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "每一分钟的练习都在浇灌这座花园。Pep的花园长了整整一年：从种子到静谧森林。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "伴着声音冥想"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "选一段音效（森林音效、海浪声、雨声、藏式颂钵）和时长，或者只留一声钟响，安静地冥想。结束时会自动保存。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "一年的冥想记录"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "这是Pep的一年：从每周三次开始，到第7个月——受伤，加上修车的开销——几乎每天都练。撑住那段低谷的就是它。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "呼吸"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "两套引导模式：“箱式呼吸法 4-4-4-4”帮你静下来，“4-7-8呼吸法”帮你放下这一天。屏幕会陪你一起呼吸。"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "今天我感恩的是…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "一天三行。一件就够，三件更好。每天保存一条，随时都能改。"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "Pep的记录"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "九十天真实的感恩：那把键盘、趴在笔记上睡着的Laika、正在复原的膝盖、从日本回来。慢慢读。"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "这个房间不记连续天数，也不会因为你缺一天就惩罚你：这是故意的。平静不用来比。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "两个爱好，一年"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "Pep记录了两个：钢琴（这一年的项目，目标每周4天）和天文摄影。每张卡片都会显示本周情况和连续天数。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "走进钢琴"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "连续天数、最长连续天数、总计、活跃天数和日均。跟键盘相处的一年——还有日本那段诚实的空档。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "热力图"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "每个小方块就是一天。能看到第2个月的起步、钢琴怎样撑住第7个月的低谷，还有在日本那三周的空白。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "你的记录"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "每次练习都有分钟数，很多还带备注：从“手好痛”到完整弹下整首“Clair de Lune”。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "项目"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "有方向的练习：第一首曲子（第5个月完成）和“Clair de Lune”，一周前弹给家人听。"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "钢琴的项目"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "一个项目会把你投入的练习记录归拢起来：这里能看到各有多少次、多少分钟。"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "照片记录的进度"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "“Clair de Lune”里存着标注过的乐谱。天文摄影那边，十二次满月的项目收着这一年最好的几张。"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "你也可以用聊天记录练习（“弹了30分钟钢琴”），再用规划器给项目定目标。"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "添加一个新爱好"
+  }
+]

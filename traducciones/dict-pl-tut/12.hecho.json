@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "Nazwa, emoji, kolor i — opcjonalnie — cel tygodniowy w dniach. Ten formularz to wszystko, czego trzeba, żeby zacząć śledzić hobby."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "Cel tygodniowy"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "Dla pianina cel to 4 dni w tygodniu: wiersz tygodnia zapełnia się z każdym przećwiczonym dniem, a na górze widać, ile ich masz wobec celu."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "Zarejestruj sesję"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "Szybkie minuty jednym dotknięciem albo dokładna liczba; projekt jest opcjonalny, a notatka służy do tego, co chcesz zapamiętać z tej sesji."
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "Skrzynka pomysłów"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "Zapisz to, co ci przyszło do głowy, i tyle. Przez rok wylądowało tu ~90 pomysłów Pepa: z fizyki, z kawiarni, z treningów. Gwiazdka oznacza ulubione."
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "Tematyczne burze mózgów"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "Burza mózgów zbiera wszystko pod jednym tematem. Poszukaj tych od Pepa: imiona dla kotki (wygrała Laika), jak sfinansować Japonię i co zabrać w podróż."
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "Kiedy burza mózgów dojrzeje, jeden przycisk zamienia ją w mapę myśli i porządkujesz ją dalej na płótnie."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "Dziesięć formatów"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "Każdy format rysuje inaczej. Niżej są mapy Pepa z całego roku: poranna rutyna jako schemat blokowy, termodynamika jako drzewo, fizyka i muzyka na diagramie Venna."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "„Moje idealne życie”"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "PIERWSZA mapa roku, z 1. miesiąca: wymarzone życie Pepa. Obejrzyj ją spokojnie — prawie wszystko, co tu jest, w końcu się wydarzyło."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "Na płótnie: dotknij węzła, aby go wybrać, i jeszcze raz, aby pisać; przeciągaj, powiększaj uszczypnięciem i dodawaj pomysły dolnym paskiem."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "Cała mapa z jednego tematu"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "Podaj AI temat, a złoży całą mapę z gotowo poukładanymi węzłami: punkt wyjścia dla tematu, którego nie wiesz, jak zacząć porządkować."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "Rozwiń węzeł z AI"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "Będąc już w mapie, można rozwinąć dowolny węzeł: AI proponuje mu podrzędne węzły na podstawie tego, co już napisano dookoła, bez naruszania twojej struktury."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "Osiem sposobów na decyzję"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "U Pepa nie były ozdobą: Eisenhower w tygodniu kolokwiów, SWOT w połowie roku i macierz do wyboru aparatu."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "Magisterka czy praca?"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "TA otwarta decyzja na koniec roku: każda strona ze swoją wagą od 1 do 5 i suma na dole. Wciąż nierozstrzygnięta — tak wygląda myślenie na poważnie."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "W formatach podzielonych na obszary każdy element mieszka w jednym z nich: wybierz obszar na dole przed dodaniem albo przeciągnij element do innego, a sam się przeniesie."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "Ważona macierz decyzyjna"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "To nie płótno, tylko tabela: każda opcja wobec każdego kryterium, z wagą od 1 do 5 według tego, jak bardzo zależy ci na danym kryterium. Suma sama porządkuje opcje."
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "Zegar"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "Kalendarz nie jest pokojem: mieszka w zegarze domu, więc otwiera się z dowolnego miejsca."
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "Prawdziwy tydzień"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "Zmiany w kawiarni, zajęcia z fizyki, bieganie o świcie, pianino wieczorem. Każdy blok to rutyna ze swoją godziną i kolorem; przeciągasz je, żeby je przesunąć, i rozciągasz, żeby zmienić czas ich trwania."
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "Cztery sposoby patrzenia"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "Dzień i Tydzień pokazują siatkę godzinową; Miesiąc i Rok dają panoramę całego roku. Pierwszy przycisk działa podwójnie: mówi „Dziś” i wraca do teraźniejszości albo „Dzień”, jeśli oglądasz już inną datę."
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "Skąd bierze się każdy blok"
+  }
+]

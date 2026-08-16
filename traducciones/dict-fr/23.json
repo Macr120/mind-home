@@ -1,0 +1,581 @@
+[
+  {
+    "clave": "cal.plan.arrastrar",
+    "es": "Arrastra para reordenar o colgar de otra fase",
+    "en": "Drag to reorder it or hang it from another phase"
+  },
+  {
+    "clave": "cal.plan.incoherente",
+    "es": "Se sale del periodo de su fase",
+    "en": "It runs outside its phase’s dates"
+  },
+  {
+    "clave": "cal.plan.agregarNodo",
+    "es": "Agregar sub-meta a la fase",
+    "en": "Add a sub-goal to the phase"
+  },
+  {
+    "clave": "cal.plan.nuevoNodo",
+    "es": "Sub-meta…",
+    "en": "Sub-goal…"
+  },
+  {
+    "clave": "cal.plan.nodoIni",
+    "es": "Empieza",
+    "en": "Starts"
+  },
+  {
+    "clave": "cal.plan.nodoFin",
+    "es": "Termina",
+    "en": "Ends"
+  },
+  {
+    "clave": "cal.plan.menu",
+    "es": "Planes",
+    "en": "Plans"
+  },
+  {
+    "clave": "cal.plan.menuDesc",
+    "es": "Un plan es el borrador de un cronograma: se palomea aquí y, cuando convence, sus fases pasan a ser sub-metas reales.",
+    "en": "A plan is a timeline draft: you tick it off here and, once it convinces you, its phases become real sub-goals."
+  },
+  {
+    "clave": "cal.plan.nuevo",
+    "es": "Nuevo plan",
+    "en": "New plan"
+  },
+  {
+    "clave": "cal.plan.paraMeta",
+    "es": "¿Para qué meta?",
+    "en": "Which goal is it for?"
+  },
+  {
+    "clave": "cal.plan.sinMetas",
+    "es": "Crea una meta en el Cronograma para poder planearla.",
+    "en": "Create a goal in the Timeline first, then plan it."
+  },
+  {
+    "clave": "cal.plan.vacio",
+    "es": "Todavía no hay planes guardados.",
+    "en": "No saved plans yet."
+  },
+  {
+    "clave": "cal.plan.sinNodos",
+    "es": "Este plan se quedó sin fases.",
+    "en": "This plan has no phases left."
+  },
+  {
+    "clave": "cal.plan.sinNodosEditable",
+    "es": "Todavía no tiene fases: escribe la primera y cuélgale sus sub-metas.",
+    "en": "No phases yet: write the first one and hang its sub-goals off it."
+  },
+  {
+    "clave": "cal.plan.agregarFase",
+    "es": "Agregar fase",
+    "en": "Add phase"
+  },
+  {
+    "clave": "cal.plan.nuevaFase",
+    "es": "Nombre de la fase…",
+    "en": "Phase name…"
+  },
+  {
+    "clave": "cal.plan.volverLista",
+    "es": "Volver a los planes",
+    "en": "Back to plans"
+  },
+  {
+    "clave": "cal.plan.abrirHoja",
+    "es": "Abrir la hoja",
+    "en": "Open the sheet"
+  },
+  {
+    "clave": "cal.plan.estado.propuesta",
+    "es": "Propuesta",
+    "en": "Proposal"
+  },
+  {
+    "clave": "cal.plan.estado.aceptado",
+    "es": "En tu cronograma",
+    "en": "In your timeline"
+  },
+  {
+    "clave": "cal.plan.fases",
+    "es": "{n} fases",
+    "en": "{n} phases"
+  },
+  {
+    "clave": "cal.plan.resumenIA",
+    "es": "Lo que propone la IA",
+    "en": "What the AI proposes"
+  },
+  {
+    "clave": "cal.plan.avisoPropio",
+    "es": "Todavía es una propuesta: lo que palomees vive en la hoja.",
+    "en": "Still a proposal: what you tick off lives in this sheet."
+  },
+  {
+    "clave": "cal.plan.avisoEspejo",
+    "es": "Palomeas la sub-meta real: el avance es el de tu cronograma.",
+    "en": "You are ticking the real sub-goal: this is your timeline’s progress."
+  },
+  {
+    "clave": "cal.plan.verCronograma",
+    "es": "Ver en el cronograma",
+    "en": "See it on the timeline"
+  },
+  {
+    "clave": "cal.plan.aceptadoResumen",
+    "es": "Listo: {n} sub-metas dentro de «{meta}».",
+    "en": "Done: {n} sub-goals inside “{meta}”."
+  },
+  {
+    "clave": "cal.plan.origenPerdido",
+    "es": "La meta de este plan ya no existe.",
+    "en": "This plan’s goal no longer exists."
+  },
+  {
+    "clave": "cal.plan.borrarEste",
+    "es": "Borrar el plan",
+    "en": "Delete the plan"
+  },
+  {
+    "clave": "cal.plan.borrarNodo",
+    "es": "¿Quitar esta fase del plan y todo lo que cuelga de ella?",
+    "en": "Remove this phase and everything under it?"
+  },
+  {
+    "clave": "cal.plan.plazo",
+    "es": "Plazo",
+    "en": "Timeframe"
+  },
+  {
+    "clave": "cal.plan.plazo.sin",
+    "en": "No deadline"
+  },
+  {
+    "clave": "cal.plan.plazo.ia",
+    "en": "Let the AI decide"
+  },
+  {
+    "clave": "cal.plan.plazo.fija",
+    "en": "I have a deadline"
+  },
+  {
+    "clave": "cal.plan.plazo.sin.desc",
+    "en": "The plan stays a list of phases at your own pace: it takes no room on the calendar. You can give it dates later."
+  },
+  {
+    "clave": "cal.plan.plazo.ia.desc",
+    "en": "The AI works out how long this goal takes at your weekly hours, and tells you why."
+  },
+  {
+    "clave": "cal.plan.plazo.fija.desc",
+    "en": "The plan is fitted to end before that date."
+  },
+  {
+    "clave": "cal.plan.sinPlazo",
+    "es": "Sin plazo",
+    "en": "No deadline"
+  },
+  {
+    "clave": "cal.plan.duracionPlan",
+    "es": "Duración del plan",
+    "en": "Plan length"
+  },
+  {
+    "clave": "cal.plan.duracionPropuesta",
+    "es": "Tiempo que propone la IA",
+    "en": "Time the AI suggests"
+  },
+  {
+    "clave": "cal.plan.semanas",
+    "es": "{n} semanas",
+    "en": "{n} weeks"
+  },
+  {
+    "clave": "cal.plan.hasta",
+    "es": "hasta el {fecha}",
+    "en": "through {fecha}"
+  },
+  {
+    "clave": "cal.metas.categoria",
+    "es": "categoría",
+    "en": "category"
+  },
+  {
+    "clave": "cal.metas.categoria.nueva",
+    "es": "Nueva categoría",
+    "en": "New category"
+  },
+  {
+    "clave": "cal.metas.categoria.borrar",
+    "es": "¿Quitar esta categoría?",
+    "en": "Remove this category?"
+  },
+  {
+    "clave": "cal.metas.categoria.borrarConMetas",
+    "es": "Sus {n} metas se quedan, sin categoría.",
+    "en": "Its {n} goals stay, with no category."
+  },
+  {
+    "clave": "cal.metas.sinCategoria",
+    "es": "Sin categoría",
+    "en": "No category"
+  },
+  {
+    "clave": "cal.metas.grupoVacio",
+    "es": "Sin metas todavía.",
+    "en": "No goals yet."
+  },
+  {
+    "clave": "cal.metas.grupoAvance",
+    "es": "Metas completas de este grupo",
+    "en": "Completed goals in this group"
+  },
+  {
+    "clave": "cal.metas.enLista",
+    "es": "Ver en una lista",
+    "en": "Show as one list"
+  },
+  {
+    "clave": "cal.metas.enColumnas",
+    "es": "Ver en dos columnas",
+    "en": "Show in two columns"
+  },
+  {
+    "clave": "cal.meta.categoria",
+    "es": "Categoría",
+    "en": "Category"
+  },
+  {
+    "clave": "cal.meta.ejemplo",
+    "es": "Ej.: {ejemplo}",
+    "en": "E.g.: {ejemplo}"
+  },
+  {
+    "clave": "cal.meta.usarEjemplo",
+    "es": "Usar el ejemplo y personalizarlo",
+    "en": "Use the example and make it yours"
+  },
+  {
+    "clave": "cal.notaPlaceholder",
+    "es": "Nota (opcional)",
+    "en": "Note (optional)"
+  },
+  {
+    "clave": "cal.nueva",
+    "es": "nuevo evento",
+    "en": "new event"
+  },
+  {
+    "clave": "cal.alcance.pregunta",
+    "es": "¿A qué días aplica el cambio?",
+    "en": "Which days does this change apply to?"
+  },
+  {
+    "clave": "cal.alcance.dia",
+    "es": "Solo este día",
+    "en": "This day only"
+  },
+  {
+    "clave": "cal.alcance.todosDias",
+    "es": "Todos los días",
+    "en": "Every day"
+  },
+  {
+    "clave": "cal.alcance.serie",
+    "es": "Toda la serie",
+    "en": "The whole series"
+  },
+  {
+    "clave": "cal.alcance.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "cal.nuevoEvento",
+    "es": "Nuevo evento",
+    "en": "New event"
+  },
+  {
+    "clave": "cal.semana",
+    "es": "Semana",
+    "en": "Week"
+  },
+  {
+    "clave": "cal.soloHoy",
+    "es": "Los pasos solo se palomean el día de hoy.",
+    "en": "Steps can only be checked off today."
+  },
+  {
+    "clave": "cal.traza.anio",
+    "en": "Draw over the days: months, weeks and days"
+  },
+  {
+    "clave": "cal.traza.dia",
+    "en": "Draw on the grid: hours and minutes"
+  },
+  {
+    "clave": "cal.traza.mes",
+    "en": "Draw over the days: weeks and days"
+  },
+  {
+    "clave": "cal.traza.semana",
+    "en": "Draw on the grid: days, hours and minutes"
+  },
+  {
+    "clave": "cal.verMas",
+    "es": "+{n} más",
+    "en": "+{n} more"
+  },
+  {
+    "clave": "cal.verMenos",
+    "es": "Ver menos",
+    "en": "Show less"
+  },
+  {
+    "clave": "casa.confirmarEliminarCuarto",
+    "es": "«{nombre}» tiene una app asignada. ¿Eliminar el cuarto? La plantilla volverá al catálogo.",
+    "en": "«{nombre}» has an app assigned. Delete the room? The template will return to the catalog."
+  },
+  {
+    "clave": "casa.eliminarCuartoTitulo",
+    "es": "Eliminar cuarto",
+    "en": "Delete room"
+  },
+  {
+    "clave": "celdas.eliminarCuarto",
+    "es": "Eliminar el cuarto",
+    "en": "Delete the room"
+  },
+  {
+    "clave": "celdas.extender",
+    "es": "Extender el cuarto aquí",
+    "en": "Extend the room here"
+  },
+  {
+    "clave": "celdas.quitar",
+    "es": "Quitar esta celda",
+    "en": "Remove this cell"
+  },
+  {
+    "clave": "chat.abrir",
+    "es": "Abrir chat",
+    "en": "Open chat"
+  },
+  {
+    "clave": "chat.chip.recordar",
+    "es": "Recordar",
+    "en": "Remember"
+  },
+  {
+    "clave": "chat.creado3d",
+    "es": "Creé «{desc}»: lo puse en el mapa junto a mí y lo guardé en tu inventario 🧊",
+    "en": "I created “{desc}”: I placed it on the map next to me and saved it in your inventory 🧊"
+  },
+  {
+    "clave": "chat.destino.abrir",
+    "es": "Abrir {app}",
+    "en": "Open {app}"
+  },
+  {
+    "clave": "chat.destino.editor.config",
+    "es": "Abrir Configuraciones",
+    "en": "Open Settings"
+  },
+  {
+    "clave": "chat.destino.editor.mapa",
+    "es": "Abrir el editor del mapa",
+    "en": "Open the map editor"
+  },
+  {
+    "clave": "chat.destino.editor.objetos",
+    "es": "Abrir editor · Objetos",
+    "en": "Open editor · Objects"
+  },
+  {
+    "clave": "chat.destino.editor.personajes",
+    "es": "Abrir editor · Personajes",
+    "en": "Open editor · Characters"
+  },
+  {
+    "clave": "chat.destino.inventario",
+    "es": "Ver en el inventario",
+    "en": "See it in the inventory"
+  },
+  {
+    "clave": "chat.destino.menu.cuartos",
+    "es": "Ver mis cuartos",
+    "en": "See my rooms"
+  },
+  {
+    "clave": "chat.destino.menu.plantillas",
+    "es": "Ver las plantillas",
+    "en": "See the templates"
+  },
+  {
+    "clave": "chat.destino.rutinas",
+    "es": "Ver mis rutinas",
+    "en": "See my routines"
+  },
+  {
+    "clave": "chat.foto",
+    "es": "Adjuntar foto (comida, ticket…)",
+    "en": "Attach a photo (food, receipt…)"
+  },
+  {
+    "clave": "chat.fotoLista",
+    "es": "Foto lista para enviar",
+    "en": "Photo ready to send"
+  },
+  {
+    "clave": "chat.fotoSinIa",
+    "es": "Las fotos requieren IA: elige un modelo en el botón de la derecha",
+    "en": "Photos require AI: pick a model with the button on the right"
+  },
+  {
+    "clave": "chat.imagenFallo",
+    "es": "No pude generar la imagen, inténtalo de nuevo.",
+    "en": "I couldn't generate the image — try again."
+  },
+  {
+    "clave": "chat.imagenLista",
+    "es": "¡Listo! Aquí está tu imagen 🎨",
+    "en": "Done! Here's your image 🎨"
+  },
+  {
+    "clave": "chat.manual",
+    "es": "Manual",
+    "en": "Manual"
+  },
+  {
+    "clave": "chat.manual.abrir",
+    "es": "Manual: qué puedes pedir",
+    "en": "Manual: what you can ask for"
+  },
+  {
+    "clave": "chat.manual.aviso.caminos",
+    "en": "Build commands open a full-screen editor: the chat closes until you exit with ✕. Care actions work without leaving the chat."
+  },
+  {
+    "clave": "chat.manual.aviso.granja",
+    "en": "Build commands open a full-screen editor: the chat closes until you exit with ✕. Care actions work without leaving the chat."
+  },
+  {
+    "clave": "chat.manual.aviso.huerto",
+    "en": "Build commands open a full-screen editor: the chat closes until you exit with ✕. Care actions work without leaving the chat."
+  },
+  {
+    "clave": "chat.manual.cat.configuraciones",
+    "en": "Settings"
+  },
+  {
+    "clave": "chat.manual.cat.cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "chat.manual.cat.interfaz",
+    "en": "House & interface"
+  },
+  {
+    "clave": "chat.manual.cat.mapa",
+    "en": "Map and structure"
+  },
+  {
+    "clave": "chat.manual.cat.memoria",
+    "en": "Memory & capture"
+  },
+  {
+    "clave": "chat.manual.cat.objetos",
+    "en": "Objects"
+  },
+  {
+    "clave": "chat.manual.cat.personaje",
+    "en": "Character & rides"
+  },
+  {
+    "clave": "chat.manual.cat.calendario",
+    "en": "Calendar"
+  },
+  {
+    "clave": "chat.manual.cat.superficies",
+    "en": "Color, floor and roof"
+  },
+  {
+    "clave": "chat.manual.cat.teclado",
+    "en": "Keyboard (PC)"
+  },
+  {
+    "clave": "chat.manual.grupo.abrir",
+    "en": "Open & menus"
+  },
+  {
+    "clave": "chat.manual.grupo.acciones",
+    "en": "Actions"
+  },
+  {
+    "clave": "chat.manual.grupo.ia",
+    "en": "With AI"
+  },
+  {
+    "clave": "chat.manual.grupo.jugar",
+    "en": "Play"
+  },
+  {
+    "clave": "chat.manual.grupo.registrar",
+    "en": "Log"
+  },
+  {
+    "clave": "chat.manual.intro",
+    "es": "Abre una carpeta y toca un ejemplo para escribirlo en el chat. La mayoría funciona sin IA.",
+    "en": "Open a folder and tap an example to type it in the chat. Most work without AI."
+  },
+  {
+    "clave": "chat.manual.leyenda.comando",
+    "es": "azul: la orden",
+    "en": "blue: the command"
+  },
+  {
+    "clave": "chat.manual.leyenda.ia",
+    "es": "violeta: gasta una llamada de IA",
+    "en": "purple: costs an AI call"
+  },
+  {
+    "clave": "chat.manual.leyenda.variable",
+    "es": "ámbar: cámbialo a tu gusto",
+    "en": "amber: change it as you like"
+  },
+  {
+    "clave": "chat.manual.nota.biblioteca",
+    "en": "Inside live the Sage (AI chats), distilling into wiki entries and the topic tree."
+  },
+  {
+    "clave": "chat.manual.nota.calendario",
+    "en": "Gathers goals and events from every app; its Timeline offers AI plans (✨)."
+  },
+  {
+    "clave": "chat.manual.nota.caminos",
+    "en": "With the track and finish line drawn you can race against the clock or an assistant; you board the train from the rails."
+  },
+  {
+    "clave": "chat.manual.nota.canchas",
+    "en": "Courts are played by walking inside; you control the ball by getting close."
+  },
+  {
+    "clave": "chat.manual.nota.cocina",
+    "en": "With AI it also understands a photo of your dish (logs it estimating macros). Recipes and diets you ask for in the chat come with their image: they take a bit longer to show up and cost the credits shown."
+  },
+  {
+    "clave": "chat.manual.nota.cuartos",
+    "en": "Create, rename and organize rooms. \"Delete\" removes the room from the house."
+  },
+  {
+    "clave": "chat.manual.nota.despacho",
+    "en": "With AI you can also attach a receipt photo: it logs the expense."
+  },
+  {
+    "clave": "chat.manual.nota.diario",
+    "en": "The day's cultural sections and the assistant delivery use AI inside the app."
+  }
+]

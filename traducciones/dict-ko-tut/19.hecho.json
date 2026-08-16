@@ -1,0 +1,102 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.texto",
+    "texto": "영화, 시리즈, 책, 게임을 다 본 순서대로 정리해 뒀어요. 7개월째에는 몰아보기가 잔뜩 있고(무릎을 다쳐 소파에 있는 시간이 남았거든요), 3주짜리 빈칸도 있어요. 일본이에요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.titulo",
+    "texto": "항목 하나"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.texto",
+    "texto": "제목, 작가나 감독, 장르, 상태, 별점. 리뷰는 Pep이 느낀 점이지 줄거리 요약이 아니에요. 1년 뒤에 도움이 되는 건 그것뿐이거든요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.titulo",
+    "texto": "정리하는 네 가지 방법"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.texto",
+    "texto": "장르순, 카테고리순(영화, 시리즈, 책, 게임), 작가순, 날짜순. 장르순 보기에서는 폴더를 끌어 옮길 수 있어요. 가장 자주 보는 걸 앞에 두세요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.titulo",
+    "texto": "시청 목록"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.texto",
+    "texto": "Pep은 볼 공상과학 명작 프로그램을 만들었어요. AI로 주제에 맞춰 생성할 수도 있고(“80년대 공포 영화”처럼), 직접 손으로 써도 돼요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.titulo",
+    "texto": "작품 하나가 목표 하나"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.3.texto",
+    "texto": "다른 탭에는 디지털 테이블이 있어요. 보드게임과 아케이드 게임 20종 이상을 그 자리에서 바로 즐길 수 있어요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.1.texto",
+    "texto": "'1~2인'이냐 '3인 이상'이냐. 지금 함께 있는 인원에 맞지 않는 건 필터가 숨겨요. '2+'로 표시된 게임은 두 섹션 모두에 나와요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.titulo",
+    "texto": "종류별로"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.texto",
+    "texto": "보드, 두뇌 게임, 아케이드, 카드 & 카지노, 다 같이. 종류마다 고유한 색이 있어요. 체스, 체커, 도미노, 블랙잭, 테트리스, 지뢰찾기, 그리고 열 종류가 넘게 더 있어요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.titulo",
+    "texto": "한 번 누르면 시작"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.texto",
+    "texto": "카드를 누르면 게임이 전체 화면으로 열려요. 지원하는 게임은 위쪽에 난이도 선택이 있어요. 돌아오면 있던 자리 그대로예요."
+  },
+  {
+    "clave": "tut.app-diario--habito.1.titulo",
+    "texto": "오늘의 헤드라인"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.texto",
+    "texto": "세계, 경제, 기술, 건강, 스포츠, 엔터테인먼트를 실제 매체에서 가져와요. 위쪽 칩으로 분야를 걸러낼 수 있어요."
+  },
+  {
+    "clave": "tut.app-diario--habito.2.titulo",
+    "texto": "알아서 새로워져요"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.texto",
+    "texto": "그날 치는 알아서 내려받고, 자정이면 통째로 바뀌어요. 여기엔 아무것도 쌓이지 않아요. 진짜 신문처럼요."
+  },
+  {
+    "clave": "tut.app-diario--habito.3.titulo",
+    "texto": "오늘의 역사"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.texto",
+    "texto": "나머지 절반이에요. 역사 속 오늘 무슨 일이 있었는지, 미술 작품 하나, 책 한 권, 생물 하나, 단어 하나. 뉴스가 당기지 않는 날에도 열어 볼 핑계가 돼요."
+  },
+  {
+    "clave": "tut.app-diario--habito.4.texto",
+    "texto": "Pep은 올해 200일쯤 읽었어요. 처음엔 많이, 힘들었던 달엔 거의 안 읽고, 마지막 3주는 매일이었어요. 연속 기록은 거기서 나온 거예요."
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.titulo",
+    "texto": "전달"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.texto",
+    "texto": "누가 무엇을 가져다줄지 여기서 정해요. 그냥 알림이 아니에요. 어시스턴트가 자기 말투로 보내는 메시지로 도착해요."
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.titulo",
+    "texto": "배달원은 둘"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.texto",
+    "texto": "마법사는 7:30에 세계, 기술, 경제를 가져다줘요. Laika는 내킬 때 가벼운 소식을 물어다 줘요. 어시스턴트마다 섹션과 방식을 고를 수 있어요."
+  }
+]

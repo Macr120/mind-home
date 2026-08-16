@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.respaldo.3.texto",
+    "texto": "Restaurer REMPLACE toutes les données actuelles par celles du fichier — il demande confirmation avant et montre combien d’enregistrements il apporte, donc pas de mauvaise surprise."
+  },
+  {
+    "clave": "tut.respaldo.4.texto",
+    "texto": "Mieux vaut sauvegarder avant de changer d’appareil, de navigateur, ou juste de temps en temps : sans compte, c’est la seule copie que tu as."
+  },
+  {
+    "clave": "tut.editor-cuarto.1.texto",
+    "texto": "Tu modifies une pièce précise : le croquis et la caméra se concentrent dessus, pas sur toute la maison."
+  },
+  {
+    "clave": "tut.editor-cuarto.2.titulo",
+    "texto": "Ce que tu peux modifier"
+  },
+  {
+    "clave": "tut.editor-cuarto.2.texto",
+    "texto": "Forme, sol, murs, portes, couleur et nom de la pièce, et ses objets. L’app affectée se change aussi depuis ici : c’est ce qui amène le plus de monde dans ce panneau."
+  },
+  {
+    "clave": "tut.editor-cuarto.3.titulo",
+    "texto": "Revenir au plan"
+  },
+  {
+    "clave": "tut.editor-cuarto.3.texto",
+    "texto": "Cette flèche revient au plan complet sans fermer l’éditeur, pour continuer sur une autre pièce."
+  },
+  {
+    "clave": "tut.editor-cuarto.4.texto",
+    "texto": "Il y a aussi un bouton flottant « Quitter la pièce » au-dessus de la pièce elle-même en 3D, si tu préfères appuyer là."
+  },
+  {
+    "clave": "tut.herramientas.1.texto",
+    "texto": "Ce bouton ouvre la roue d’outils de ton personnage."
+  },
+  {
+    "clave": "tut.herramientas.2.titulo",
+    "texto": "Deux niveaux"
+  },
+  {
+    "clave": "tut.herramientas.2.texto",
+    "texto": "D’abord la catégorie, ensuite l’outil précis à l’intérieur. Tu peux équiper jusqu’à 3 outils à la fois, de catégories différentes ou de la même."
+  },
+  {
+    "clave": "tut.herramientas.3.titulo",
+    "texto": "La quatrième catégorie"
+  },
+  {
+    "clave": "tut.herramientas.3.texto",
+    "texto": "Construction n’équipe pas un jouet : elle active le mode dessin du plan (pièces, murs, portes, fenêtres, sols, toits) sans passer par l’éditeur complet. C’est le même croquis, on y arrive juste plus vite."
+  },
+  {
+    "clave": "tut.herramientas.4.titulo",
+    "texto": "Le centre"
+  },
+  {
+    "clave": "tut.herramientas.4.texto",
+    "texto": "Le centre lâche tout ce que tu as équipé et rend au coin son état normal (le cube de vues ou un autre contrôle contextuel, selon ce que tu as à proximité)."
+  },
+  {
+    "clave": "tut.herramientas.5.texto",
+    "texto": "Elle se ferme en touchant en dehors de la roue. Essaie quand tu veux : rien de tout ça n’est enregistré comme permanent, ça dure le temps que tu le portes."
+  },
+  {
+    "clave": "tut.navegacion.1.texto",
+    "texto": "Trois caméras : Iso (vue maison de poupée), 3e et 1re personne. Change ici ou avec la touche V."
+  },
+  {
+    "clave": "tut.navegacion.2.titulo",
+    "texto": "S’orienter"
+  },
+  {
+    "clave": "tut.navegacion.2.texto",
+    "texto": "En iso, le cube fait tourner la caméra face par face ; en 3e/1re, fais glisser le pad pour regarder autour de toi."
+  },
+  {
+    "clave": "tut.navegacion.3.titulo",
+    "texto": "Quand quelque chose est tout près"
+  },
+  {
+    "clave": "tut.navegacion.3.texto",
+    "texto": "Ce même coin cesse d’être la caméra dès que tu t’approches de quelque chose d’interactif : un terrain propose son bouton pour jouer, un véhicule celui pour monter, une chaise celui pour s’asseoir. Une seule chose à la fois, et toujours par proximité — jamais automatiquement."
+  },
+  {
+    "clave": "tut.navegacion.4.titulo",
+    "texto": "Tourner et centrer"
+  },
+  {
+    "clave": "tut.navegacion.4.texto",
+    "texto": "Fais tourner la vue sur les côtés, ou recentre-la sur le plan si tu ne sais plus où tu es à force d’explorer."
+  },
+  {
+    "clave": "tut.navegacion.5.titulo",
+    "texto": "Se déplacer"
+  },
+  {
+    "clave": "tut.navegacion.5.texto",
+    "texto": "Marche avec le joystick, WASD ou les flèches. Dans l’eau tu nages ; sur un véhicule, tu conduis avec les mêmes commandes."
+  },
+  {
+    "clave": "tut.navegacion.6.texto",
+    "texto": "En 3e/1re personne, le bouton Éditeur 3D apparaît : touche un objet, un mur ou un personnage pour le modifier là où il est, sans repasser en vue isométrique."
+  },
+  {
+    "clave": "tut.chat.1.texto",
+    "texto": "Le chat de l’architecte : il enregistre ta journée, modifie la maison et répond à tes questions, tout depuis le même champ."
+  },
+  {
+    "clave": "tut.chat.2.titulo",
+    "texto": "Écrire"
+  },
+  {
+    "clave": "tut.chat.2.texto",
+    "texto": "Écris librement : « j’ai couru 20 min », « dépensé 250 au supermarché »… La puce à côté montre dans quelle app ça ira. Utilise @pièce pour forcer la destination s’il devine mal."
+  },
+  {
+    "clave": "tut.chat.3.titulo",
+    "texto": "Dicter à la voix"
+  },
+  {
+    "clave": "tut.chat.3.texto",
+    "texto": "Le micro transcrit ce que tu dis dans le champ de texte — pratique pour enregistrer sans lâcher ce que tu as dans les mains."
+  },
+  {
+    "clave": "tut.chat.4.titulo",
+    "texto": "Envoyer une photo"
+  },
+  {
+    "clave": "tut.chat.4.texto",
+    "texto": "Avec l’IA activée, une photo du ticket, du plat ou de la balance se lit toute seule. Sans IA, ce bouton reste désactivé."
+  },
+  {
+    "clave": "tut.chat.5.titulo",
+    "texto": "Assistants"
+  },
+  {
+    "clave": "tut.chat.5.texto",
+    "texto": "Ton assistant donne un visage et une voix aux réponses. Touche-le pour voir la conversation, changer d’assistant ou en créer d’autres."
+  },
+  {
+    "clave": "tut.chat.6.titulo",
+    "texto": "Le manuel"
+  }
+]

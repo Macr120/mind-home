@@ -1,0 +1,690 @@
+[
+ {
+  "clave": "editor.techoCuarto.propagarMapa",
+  "texto": "지붕이 켜져 있으면 지붕은 하나의 판이에요. 각 방향의 '+'로 이웃한 방까지 고르게 늘리고, '−'로 그 가장자리를 줄여요."
+ },
+ {
+  "clave": "editor.techoCuarto.quitarColor",
+  "texto": "↺ 네이티브"
+ },
+ {
+  "clave": "editor.techoCuarto.reset",
+  "texto": "↺ 집 지붕으로 되돌리기"
+ },
+ {
+  "clave": "editor.techoCuarto.subirImagen",
+  "texto": "이미지 업로드"
+ },
+ {
+  "clave": "editor.techoCuarto.usarImagen",
+  "texto": "이미지 사용"
+ },
+ {
+  "clave": "editor.tema.ajustesDe",
+  "texto": "설정"
+ },
+ {
+  "clave": "editor.tema.ambiente",
+  "texto": "주변광"
+ },
+ {
+  "clave": "editor.tema.cascaron",
+  "texto": "외곽 색상"
+ },
+ {
+  "clave": "editor.tema.emissive",
+  "texto": "발광 (색상)"
+ },
+ {
+  "clave": "editor.tema.emissiveInt",
+  "texto": "발광 (강도)"
+ },
+ {
+  "clave": "editor.tema.exposicion",
+  "texto": "노출"
+ },
+ {
+  "clave": "editor.tema.focos",
+  "texto": "야간 조명"
+ },
+ {
+  "clave": "editor.tema.fondo",
+  "texto": "하늘 배경"
+ },
+ {
+  "clave": "editor.tema.fondoTinte",
+  "texto": "배경과 색조"
+ },
+ {
+  "clave": "editor.tema.fuerza",
+  "texto": "색조 강도"
+ },
+ {
+  "clave": "editor.tema.ibl",
+  "texto": "반사"
+ },
+ {
+  "clave": "editor.tema.intSol",
+  "texto": "태양 강도"
+ },
+ {
+  "clave": "editor.tema.luzNiebla",
+  "texto": "빛과 안개"
+ },
+ {
+  "clave": "editor.tema.materiales",
+  "texto": "재질"
+ },
+ {
+  "clave": "editor.tema.metalness",
+  "texto": "금속성"
+ },
+ {
+  "clave": "editor.tema.muroExt",
+  "texto": "외벽"
+ },
+ {
+  "clave": "editor.tema.muroInt",
+  "texto": "내벽"
+ },
+ {
+  "clave": "editor.tema.niebla",
+  "texto": "안개 (색상)"
+ },
+ {
+  "clave": "editor.tema.nieblaCerca",
+  "texto": "안개 (가까이)"
+ },
+ {
+  "clave": "editor.tema.nieblaLejos",
+  "texto": "안개 (멀리)"
+ },
+ {
+  "clave": "editor.tema.piso",
+  "texto": "바닥"
+ },
+ {
+  "clave": "editor.tema.restaurar",
+  "texto": "복원"
+ },
+ {
+  "clave": "editor.tema.roughness",
+  "texto": "거칠기"
+ },
+ {
+  "clave": "editor.tema.sol",
+  "texto": "태양 (색조)"
+ },
+ {
+  "clave": "editor.tema.techo",
+  "texto": "지붕"
+ },
+ {
+  "clave": "editor.tema.tinte",
+  "texto": "오브젝트 색조"
+ },
+ {
+  "clave": "editor.titulo",
+  "texto": "편집기"
+ },
+ {
+  "clave": "ejercicio.confirmarGenerarImagenes",
+  "texto": "{proveedor}로 이미지 {n}장을 생성해요. 비용이 발생할 수 있어요. 계속할까요?"
+ },
+ {
+  "clave": "ejercicio.f.volumen",
+  "texto": "볼륨"
+ },
+ {
+  "clave": "ejercicio.graf.max",
+  "texto": "최대"
+ },
+ {
+  "clave": "ejercicio.graf.min",
+  "texto": "최소"
+ },
+ {
+  "clave": "ejercicio.img.generar",
+  "texto": "부족한 항목 생성 ({n})"
+ },
+ {
+  "clave": "ejercicio.img.generarUna",
+  "texto": "AI로 생성"
+ },
+ {
+  "clave": "ejercicio.img.generarOtra",
+  "texto": "다른 이미지 생성"
+ },
+ {
+  "clave": "ejercicio.img.generando",
+  "texto": "생성 중…"
+ },
+ {
+  "clave": "ejercicio.img.subir",
+  "texto": "사진 업로드"
+ },
+ {
+  "clave": "ejercicio.img.ver",
+  "texto": "이미지 보기"
+ },
+ {
+  "clave": "ejercicio.img.anadir",
+  "texto": "이미지 추가"
+ },
+ {
+  "clave": "ejercicio.img.sinIa",
+  "texto": "이미지를 생성하려면 채팅에서 AI를 설정해 주세요."
+ },
+ {
+  "clave": "ejercicio.img.listas",
+  "texto": "완료:"
+ },
+ {
+  "clave": "ejercicio.ph.reps",
+  "texto": "횟수"
+ },
+ {
+  "clave": "ejercicio.ph.seg",
+  "texto": "초"
+ },
+ {
+  "clave": "ejercicio.r.porSemana",
+  "texto": "· 주"
+ },
+ {
+  "clave": "ejercicio.vivo.ppm",
+  "texto": "심박수 (bpm)"
+ },
+ {
+  "clave": "mapa.listo",
+  "texto": "완료"
+ },
+ {
+  "clave": "editor.salirCuarto",
+  "texto": "방 나가기 (지도로 돌아가기)"
+ },
+ {
+  "clave": "editor.salirCuartoBoton",
+  "texto": "방 나가기"
+ },
+ {
+  "clave": "editor.moverObjetos.listo",
+  "texto": "오브젝트 이동 완료"
+ },
+ {
+  "clave": "nav.asignar",
+  "texto": "+ 배정"
+ },
+ {
+  "clave": "nav.asignarApp",
+  "texto": "이 방에 앱 배정하기"
+ },
+ {
+  "clave": "nav.crearCuarto",
+  "texto": "방 만들기"
+ },
+ {
+  "clave": "nav.sinCuartos",
+  "texto": "아직 방이 없어요. 아래에서 첫 방을 만들어 보세요."
+ },
+ {
+  "clave": "nav3d.ayuda1P",
+  "texto": "우클릭 또는 조이스틱, 휠로 확대·축소"
+ },
+ {
+  "clave": "nav3d.ayuda3P",
+  "texto": "우클릭 또는 조이스틱, 휠로 확대·축소"
+ },
+ {
+  "clave": "nav3d.cambiarVista",
+  "texto": "시점 전환 (V키)"
+ },
+ {
+  "clave": "nav3d.centrarMapa",
+  "texto": "지도 중앙으로 이동"
+ },
+ {
+  "clave": "nav3d.vista1Corta",
+  "texto": "1인칭"
+ },
+ {
+  "clave": "nav3d.vista3Corta",
+  "texto": "3인칭"
+ },
+ {
+  "clave": "nav3d.vistaIso",
+  "texto": "아이소메트릭 시점"
+ },
+ {
+  "clave": "nav3d.vistaIsoCorta",
+  "texto": "아이소"
+ },
+ {
+  "clave": "nav3d.vistaPrimera",
+  "texto": "1인칭 시점"
+ },
+ {
+  "clave": "nav3d.vistaTercera",
+  "texto": "3인칭 시점"
+ },
+ {
+  "clave": "paredes.alto",
+  "texto": "높이"
+ },
+ {
+  "clave": "paredes.altoGen",
+  "texto": "높이"
+ },
+ {
+  "clave": "paredes.altoPuerta",
+  "texto": "문 높이"
+ },
+ {
+  "clave": "paredes.altoTodos",
+  "texto": "방의 모든 벽에 적용"
+ },
+ {
+  "clave": "paredes.anchoGen",
+  "texto": "너비"
+ },
+ {
+  "clave": "paredes.anchoVano",
+  "texto": "개구부 너비"
+ },
+ {
+  "clave": "paredes.borrar",
+  "texto": "이미지 삭제"
+ },
+ {
+  "clave": "paredes.cambiar",
+  "texto": "변경"
+ },
+ {
+  "clave": "paredes.cambiarFoto",
+  "texto": "사진 변경"
+ },
+ {
+  "clave": "paredes.caraExterior",
+  "texto": "바깥쪽 면"
+ },
+ {
+  "clave": "paredes.imagenPuerta",
+  "texto": "문 이미지"
+ },
+ {
+  "clave": "paredes.quitarImagenPuerta",
+  "texto": "이미지 제거"
+ },
+ {
+  "clave": "paredes.imagenPuertaAyuda",
+  "texto": "문짝(외닫이·양닫이·미닫이)을 꾸며줘요. 루버 대문은 원래 색을 유지해요."
+ },
+ {
+  "clave": "paredes.caraInterior",
+  "texto": "안쪽 면"
+ },
+ {
+  "clave": "paredes.color",
+  "texto": "색상"
+ },
+ {
+  "clave": "paredes.cont.cuadro",
+  "texto": "그림"
+ },
+ {
+  "clave": "paredes.cont.espejo",
+  "texto": "거울"
+ },
+ {
+  "clave": "paredes.cont.ventana",
+  "texto": "창문"
+ },
+ {
+  "clave": "paredes.cristal",
+  "texto": "유리"
+ },
+ {
+  "clave": "paredes.espejoNota",
+  "texto": "거울은 앞에 있는 것을 실시간으로 비춰요."
+ },
+ {
+  "clave": "paredes.fotoAyuda",
+  "texto": "사진은 벽에서 선택한 면의 액자 모양에 맞게 채워져요."
+ },
+ {
+  "clave": "paredes.fotoCuadro",
+  "texto": "사진"
+ },
+ {
+  "clave": "paredes.desactivar",
+  "texto": "비활성화"
+ },
+ {
+  "clave": "paredes.editando",
+  "texto": "편집 중"
+ },
+ {
+  "clave": "paredes.editarBorde",
+  "texto": "이 모서리 편집"
+ },
+ {
+  "clave": "paredes.forma.arco",
+  "texto": "아치"
+ },
+ {
+  "clave": "paredes.forma.recta",
+  "texto": "직선"
+ },
+ {
+  "clave": "paredes.forma.triangulo",
+  "texto": "삼각형"
+ },
+ {
+  "clave": "paredes.formaAlto",
+  "texto": "아치 높이"
+ },
+ {
+  "clave": "paredes.formaAltoPico",
+  "texto": "정점 높이"
+ },
+ {
+  "clave": "paredes.formaAncho",
+  "texto": "너비"
+ },
+ {
+  "clave": "paredes.formaDividir",
+  "texto": "윤곽별 색상 분리 (별도 텍스처)"
+ },
+ {
+  "clave": "paredes.formaPosX",
+  "texto": "정점 위치"
+ },
+ {
+  "clave": "paredes.formaVano",
+  "texto": "개구부 모양"
+ },
+ {
+  "clave": "paredes.formas",
+  "texto": "파라메트릭 모양"
+ },
+ {
+  "clave": "paredes.imagen",
+  "texto": "배경 이미지"
+ },
+ {
+  "clave": "paredes.mosaico",
+  "texto": "타일링"
+ },
+ {
+  "clave": "paredes.multicolor",
+  "texto": "다색"
+ },
+ {
+  "clave": "paredes.posXPuerta",
+  "texto": "수평 위치"
+ },
+ {
+  "clave": "paredes.quitarCuadro",
+  "texto": "그림 제거"
+ },
+ {
+  "clave": "paredes.quitarEspejo",
+  "texto": "거울 제거"
+ },
+ {
+  "clave": "paredes.quitarFoto",
+  "texto": "사진 제거"
+ },
+ {
+  "clave": "paredes.quitarPuerta",
+  "texto": "문 제거 (벽으로 되돌리기)"
+ },
+ {
+  "clave": "paredes.quitarVentana",
+  "texto": "창문 제거"
+ },
+ {
+  "clave": "paredes.subirFoto",
+  "texto": "사진 업로드"
+ },
+ {
+  "clave": "paredes.subirImagen",
+  "texto": "이미지 업로드"
+ },
+ {
+  "clave": "paredes.textura",
+  "texto": "텍스처"
+ },
+ {
+  "clave": "paredes.tocaBordeModo",
+  "texto": "모서리를 눌러 다음으로 편집:"
+ },
+ {
+  "clave": "paredes.usarImagen",
+  "texto": "이미지 사용"
+ },
+ {
+  "clave": "paredes.ventAlto",
+  "texto": "창문 높이"
+ },
+ {
+  "clave": "paredes.ventAncho",
+  "texto": "창문 너비"
+ },
+ {
+  "clave": "paredes.ventForma.cuadrado",
+  "texto": "사각형"
+ },
+ {
+  "clave": "paredes.ventForma.circulo",
+  "texto": "원형"
+ },
+ {
+  "clave": "paredes.ventForma.triangulo",
+  "texto": "삼각형"
+ },
+ {
+  "clave": "paredes.ventRot",
+  "texto": "회전"
+ },
+ {
+  "clave": "paredes.ventPosX",
+  "texto": "수평 위치"
+ },
+ {
+  "clave": "paredes.ventPosY",
+  "texto": "수직 위치"
+ },
+ {
+  "clave": "paredes.ventana",
+  "texto": "창문"
+ },
+ {
+  "clave": "plano.controles",
+  "texto": "휠: 확대·축소 · Shift/Alt+드래그: 이동 · 여백 더블클릭: 화면 맞춤"
+ },
+ {
+  "clave": "planos.arista",
+  "texto": "모서리"
+ },
+ {
+  "clave": "planos.celdasPiso",
+  "texto": "바닥 타일"
+ },
+ {
+  "clave": "planos.confirmarNombre",
+  "texto": "이름 확인"
+ },
+ {
+  "clave": "planos.detalle.celda",
+  "texto": "일반 셀"
+ },
+ {
+  "clave": "planos.detalle.subcelda",
+  "texto": "세밀한 셀 (½)"
+ },
+ {
+  "clave": "planos.eliminarCuarto",
+  "texto": "방 삭제"
+ },
+ {
+  "clave": "planos.grupo.interiorDesc",
+  "texto": "방 {cuartos}개 · 기본 {zonas}개 · {n}층"
+ },
+ {
+  "clave": "planos.grupo.interiorVacio",
+  "texto": "이 층에는 실내 바닥이 없어요"
+ },
+ {
+  "clave": "planos.moverZonaHint",
+  "texto": "도면에서 방을 드래그하면 이동할 수 있어요."
+ },
+ {
+  "clave": "planos.nombrarHint",
+  "texto": "이 방에는 이미 기본 벽·바닥·지붕이 있어요. 이름을 지어 구분해 보세요."
+ },
+ {
+  "clave": "planos.nombrarTitulo",
+  "texto": "방 이름 짓기"
+ },
+ {
+  "clave": "planos.paredesHint",
+  "texto": "스케치나 3D 지도에서 벽을 눌러 벽·문·창문을 설정하세요."
+ },
+ {
+  "clave": "planos.pisosHint",
+  "texto": "방을 선택하거나 여러 개의 실외 셀을 클릭해서 표시하세요. 패널에서 텍스처와 색상을 고를 수 있어요."
+ },
+ {
+  "clave": "planos.preview.mostrar",
+  "texto": "3D 미리보기 표시"
+ },
+ {
+  "clave": "planos.preview.ocultar",
+  "texto": "3D 미리보기 숨기기"
+ },
+ {
+  "clave": "planos.props.paredesZona",
+  "texto": "기본 방의 모서리를 편집해요."
+ },
+ {
+  "clave": "plantillaCustom.arrastrarGrupo",
+  "texto": "드래그하여 순서 변경"
+ },
+ {
+  "clave": "plantillaCustom.borrarGrupo",
+  "texto": "폴더 삭제"
+ },
+ {
+  "clave": "plantillaCustom.borrarGrupoConfirm",
+  "texto": "이 폴더를 삭제할까요? 안에 있던 템플릿은 첫 번째 폴더로 이동해요."
+ },
+ {
+  "clave": "plantillaCustom.desplegarGrupo",
+  "texto": "폴더 펼치기"
+ },
+ {
+  "clave": "plantillaCustom.enUsoTag",
+  "texto": "사용 중"
+ },
+ {
+  "clave": "plantillaCustom.grupo",
+  "texto": "그룹"
+ },
+ {
+  "clave": "plantillaCustom.grupoVacio",
+  "texto": "빈 폴더 · 여기에 템플릿을 드래그하세요"
+ },
+ {
+  "clave": "plantillaCustom.nuevoGrupo",
+  "texto": "새 그룹"
+ },
+ {
+  "clave": "plantillaCustom.nuevoGrupoNombre",
+  "texto": "새 그룹"
+ },
+ {
+  "clave": "plantillaCustom.plegarGrupo",
+  "texto": "폴더 접기"
+ },
+ {
+  "clave": "plantillaCustom.renombrarGrupo",
+  "texto": "폴더 이름 바꾸기"
+ },
+ {
+  "clave": "plantillaCustom.unidadPh",
+  "texto": "kg, $, 페이지…"
+ },
+ {
+  "clave": "preview.girar",
+  "texto": "드래그로 회전 · 휠로 확대·축소"
+ },
+ {
+  "clave": "preview.tocarEditar",
+  "texto": "부분을 눌러 편집 · 드래그로 회전"
+ },
+ {
+  "clave": "preview.fondoClaro",
+  "texto": "밝은 배경"
+ },
+ {
+  "clave": "preview.fondoOscuro",
+  "texto": "어두운 배경"
+ },
+ {
+  "clave": "preview.techo",
+  "texto": "지붕 표시/숨기기"
+ },
+ {
+  "clave": "preview.techoOff",
+  "texto": "지붕 없음"
+ },
+ {
+  "clave": "preview.techoOn",
+  "texto": "지붕"
+ },
+ {
+  "clave": "preview.objetos",
+  "texto": "오브젝트 표시/숨기기"
+ },
+ {
+  "clave": "preview.objetosOff",
+  "texto": "오브젝트 없음"
+ },
+ {
+  "clave": "preview.objetosOn",
+  "texto": "오브젝트"
+ },
+ {
+  "clave": "preview.moverObjetos",
+  "texto": "지도에서 오브젝트 이동"
+ },
+ {
+  "clave": "mover.adelante",
+  "texto": "앞으로 이동"
+ },
+ {
+  "clave": "mover.atras",
+  "texto": "뒤로 이동"
+ },
+ {
+  "clave": "mover.izquierda",
+  "texto": "왼쪽으로 이동"
+ },
+ {
+  "clave": "mover.derecha",
+  "texto": "오른쪽으로 이동"
+ },
+ {
+  "clave": "progreso.nv",
+  "texto": "Lv"
+ },
+ {
+  "clave": "prop.restablecer",
+  "texto": "초기화"
+ },
+ {
+  "clave": "respaldo.ahora",
+  "texto": "백업"
+ }
+]

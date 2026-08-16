@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "Im Kopfbereich jeder App lebt ihr Ziele-Button, wie der im Kalender, nur auf diese App beschränkt. Er öffnet ein Panel mit zwei Ebenen: oben die Checkliste für heute, darunter ihre Ziele und Pläne."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "Die eigenen Ziele der App (Wasser, Kalorien), was du für heute im Kalender geplant hast, und die Schritte deiner aktuellen Ziele: alles zusammen, gruppiert unter dem Plan oder Ziel, aus dem jeder Schritt stammt."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "Und wenn dir etwas fehlt: „Neue Checkliste“ legt deine eigene an — eine Liste dieser App, die sich jeden Tag wiederholt. Unter dem Bereich Heute liegt der komplette Planer — Ziele, Pläne und Zeitplan — mit allen Zielen der App."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "Die Ziele deiner Hobbys und Projekte leben im Ziele-Button im Kopfbereich: derselbe Planer Ziele · Pläne · Zeitplan wie im Kalender, nur auf diese App beschränkt. Bitte die KI um einen Plan mit Phasen und Terminen."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "Ziele leben im Ziele-Button im Kopfbereich, demselben Zeitplan wie im Kalender: „Thermodynamik vor der Prüfung abschließen“ ist bereits erledigt; die Vorbereitung auf den Master läuft noch."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "Der Ziele-Button im Kopfbereich bewahrt ihre vier erreichten Ziele — den 5-km-Lauf, den 10-km-Lauf, den Halbmarathon und den Marathon — sowie das noch offene. Ziele mit Termin erscheinen auch im Hauskalender."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "Der Ziele-Button im Kopfbereich öffnet denselben Zeitplan, den auch der Hauskalender nutzt, beschränkt auf die Ziele der Küche: leg ein Ziel an (z. B. „3 Kilo abnehmen“) und bitte die KI um den Plan — sie fragt nach deinem Zieltermin und plant Teilziele mit eigenem Termin."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "Der Ziele-Button im Kopfbereich bewahrt diese Ziele auf der Zeitachse: gibst du einem einen Termin, erscheint es zwischen deinen Kalendertagen. Mit ✨ schlägt die KI den Sparplan vor."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "Das gespeicherte Programm lebt im Ziele-Button im Kopfbereich: jeder Titel behält seine Notiz, warum er auf der Liste steht, und mit Terminen versehen landet er im Kalender wie jedes andere Ziel."
+  }
+]

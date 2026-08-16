@@ -1,0 +1,716 @@
+[
+  {
+    "clave": "constructor.cuarto.nombre",
+    "es": "Nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "constructor.cuarto.vacio",
+    "es": "Dibuja cuartos con las formas de abajo.",
+    "en": "Draw rooms with the shapes below."
+  },
+  {
+    "clave": "constructor.esquinas",
+    "es": "Esquinas",
+    "en": "Corners"
+  },
+  {
+    "clave": "constructor.plegarModos",
+    "es": "Ocultar los elementos",
+    "en": "Hide elements"
+  },
+  {
+    "clave": "constructor.verModos",
+    "es": "Ver todos los elementos",
+    "en": "Show all elements"
+  },
+  {
+    "clave": "constructor.vista.croquis",
+    "es": "Croquis",
+    "en": "Sketch"
+  },
+  {
+    "clave": "constructor.vista.modelo3d",
+    "es": "Modelo 3D",
+    "en": "3D model"
+  },
+  {
+    "clave": "constructor.vista.hint3d",
+    "es": "Toca un elemento en el croquis o en el mapa 3D para verlo y editarlo aquí.",
+    "en": "Tap an element in the sketch or the 3D map to view and edit it here."
+  },
+  {
+    "clave": "constructor.forma.circulo",
+    "es": "Círculo",
+    "en": "Circle"
+  },
+  {
+    "clave": "constructor.forma.cuadrado",
+    "es": "Cuadrado",
+    "en": "Square"
+  },
+  {
+    "clave": "constructor.forma.posicion",
+    "es": "Posición",
+    "en": "Position"
+  },
+  {
+    "clave": "constructor.forma.triangulo",
+    "es": "Triángulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "constructor.grid.ampliar",
+    "es": "Ampliar",
+    "en": "Enlarge"
+  },
+  {
+    "clave": "constructor.grid.reducir",
+    "es": "Reducir",
+    "en": "Shrink"
+  },
+  {
+    "clave": "constructor.cuadrantes.titulo",
+    "es": "Cuadrantes",
+    "en": "Quadrants"
+  },
+  {
+    "clave": "constructor.cuadrantes.todo",
+    "es": "Mapa completo",
+    "en": "Whole map"
+  },
+  {
+    "clave": "constructor.cuadrantes.enfocar",
+    "es": "Enfocar este cuadrante",
+    "en": "Focus this quadrant"
+  },
+  {
+    "clave": "constructor.cuadrantes.enfocarRenombrar",
+    "es": "Enfocar (doble clic para renombrar)",
+    "en": "Focus (double click to rename)"
+  },
+  {
+    "clave": "constructor.cuadrantes.eliminar",
+    "es": "Eliminar cuadrante",
+    "en": "Delete quadrant"
+  },
+  {
+    "clave": "constructor.cuadrantes.referencias",
+    "es": "Referencias",
+    "en": "References"
+  },
+  {
+    "clave": "constructor.cuadrantes.referenciasHint",
+    "es": "Solo mueven la vista; puedes editar donde quieras.",
+    "en": "They only move the view; you can edit anywhere."
+  },
+  {
+    "clave": "constructor.cuadrantes.tuyas",
+    "es": "Tus zonas",
+    "en": "Your areas"
+  },
+  {
+    "clave": "constructor.cuadrantes.tuyasHint",
+    "es": "Al elegir una, en los demás menús solo se pueden editar sus celdas.",
+    "en": "Pick one and the other menus will only let you edit its cells."
+  },
+  {
+    "clave": "constructor.cuadrantes.renombrar",
+    "es": "Cambiar el nombre",
+    "en": "Rename"
+  },
+  {
+    "clave": "constructor.cuadrantes.dibujar",
+    "es": "Dibujar cuadrante",
+    "en": "Draw quadrant"
+  },
+  {
+    "clave": "constructor.cuadrantes.cancelar",
+    "es": "Cancelar dibujo",
+    "en": "Cancel drawing"
+  },
+  {
+    "clave": "constructor.cuadrantes.ayuda",
+    "es": "Arrastra sobre el croquis o sobre el mapa 3D el área que quieres poder enfocar.",
+    "en": "Drag over the sketch or the 3D map to mark the area you want to focus on."
+  },
+  {
+    "clave": "constructor.cuadrantes.nuevo",
+    "es": "Zona",
+    "en": "Area"
+  },
+  {
+    "clave": "constructor.muro.circulo",
+    "es": "Círculo",
+    "en": "Circle"
+  },
+  {
+    "clave": "constructor.muro.crear",
+    "es": "Crear",
+    "en": "Create"
+  },
+  {
+    "clave": "constructor.muro.curvaInfDer",
+    "es": "Curva inf. derecha",
+    "en": "Bottom-right curve"
+  },
+  {
+    "clave": "constructor.muro.curvaInfIzq",
+    "es": "Curva inf. izquierda",
+    "en": "Bottom-left curve"
+  },
+  {
+    "clave": "constructor.muro.curvaSupDer",
+    "es": "Curva sup. derecha",
+    "en": "Top-right curve"
+  },
+  {
+    "clave": "constructor.muro.curvaSupIzq",
+    "es": "Curva sup. izquierda",
+    "en": "Top-left curve"
+  },
+  {
+    "clave": "constructor.muro.diagonal1",
+    "es": "Diagonal",
+    "en": "Diagonal"
+  },
+  {
+    "clave": "constructor.muro.diagonal2",
+    "es": "Diagonal opuesta",
+    "en": "Opposite diagonal"
+  },
+  {
+    "clave": "constructor.muro.editar",
+    "es": "Muro seleccionado",
+    "en": "Selected wall"
+  },
+  {
+    "clave": "constructor.muro.eliminar",
+    "es": "Eliminar muro",
+    "en": "Delete wall"
+  },
+  {
+    "clave": "constructor.muro.eliminarCorto",
+    "es": "Eliminar",
+    "en": "Delete"
+  },
+  {
+    "clave": "constructor.muro.hint",
+    "es": "Elige la forma abajo a la izquierda. En Lados elige Horizontal o Vertical y toca la rejilla para colocar o quitar el muro recto. En Triángulo/Círculo elige la variante inicial y toca la celda; toca de nuevo el mismo punto para ir pasando por las demás variantes y, tras la última, borrarlo.",
+    "en": "Pick the shape at the bottom left. With Sides pick Horizontal or Vertical and tap the grid to place or remove the straight wall. With Triangle/Circle pick the starting variant and tap the cell; tap the same spot again to cycle through the remaining variants and, after the last one, erase it."
+  },
+  {
+    "clave": "constructor.muro.hintSeleccionar",
+    "es": "Toca un muro en el mapa 3D —recto, rectangular o circular— para seleccionarlo y editar su textura, color, altura y forma.",
+    "en": "Tap a wall on the 3D map — straight, rectangular or circular — to select it and edit its texture, color, height and shape."
+  },
+  {
+    "clave": "constructor.muro.horizontal",
+    "es": "Horizontal",
+    "en": "Horizontal"
+  },
+  {
+    "clave": "constructor.muro.lado",
+    "es": "lado",
+    "en": "side"
+  },
+  {
+    "clave": "constructor.muro.lados",
+    "es": "Lados (aristas)",
+    "en": "Sides (edges)"
+  },
+  {
+    "clave": "constructor.muro.orientacion",
+    "es": "Orientación",
+    "en": "Orientation"
+  },
+  {
+    "clave": "constructor.muro.ponerPuerta",
+    "es": "+ Poner puerta",
+    "en": "+ Add door"
+  },
+  {
+    "clave": "constructor.muro.ponerVentana",
+    "es": "+ Poner ventana",
+    "en": "+ Add window"
+  },
+  {
+    "clave": "constructor.muro.quitarPuerta",
+    "es": "✓ Con puerta (quitar)",
+    "en": "✓ Has door (remove)"
+  },
+  {
+    "clave": "constructor.muro.quitarVentana",
+    "es": "✓ Con ventana (quitar)",
+    "en": "✓ Has window (remove)"
+  },
+  {
+    "clave": "constructor.muro.rotar",
+    "es": "Rotar 90°",
+    "en": "Rotate 90°"
+  },
+  {
+    "clave": "constructor.muro.seleccionar",
+    "es": "Seleccionar",
+    "en": "Select"
+  },
+  {
+    "clave": "constructor.muro.triangulo",
+    "es": "Triángulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "constructor.muro.vertical",
+    "es": "Vertical",
+    "en": "Vertical"
+  },
+  {
+    "clave": "constructor.piso.cambiarTodas",
+    "es": "Cambiar todas de golpe",
+    "en": "Change all at once"
+  },
+  {
+    "clave": "constructor.piso.hint",
+    "es": "O toca celdas en el croquis o en el mapa 3D para elegir una o varias.",
+    "en": "Or tap cells on the sketch or the 3D map to pick one or several."
+  },
+  {
+    "clave": "constructor.piso.todasExt",
+    "es": "Seleccionar todas las exteriores",
+    "en": "Select all exterior cells"
+  },
+  {
+    "clave": "constructor.piso.todasInt",
+    "es": "Seleccionar todos los interiores",
+    "en": "Select all interiors"
+  },
+  {
+    "clave": "cubo.atras",
+    "es": "ATRÁS",
+    "en": "BACK"
+  },
+  {
+    "clave": "cubo.der",
+    "es": "DER.",
+    "en": "RIGHT"
+  },
+  {
+    "clave": "cubo.frente",
+    "es": "FRENTE",
+    "en": "FRONT"
+  },
+  {
+    "clave": "cubo.izq",
+    "es": "IZQ.",
+    "en": "LEFT"
+  },
+  {
+    "clave": "cubo.planta",
+    "es": "PLANTA",
+    "en": "TOP"
+  },
+  {
+    "clave": "cubo.titulo",
+    "es": "Cubo de navegación: esquinas = isométrico, caras = planos",
+    "en": "Navigation cube: corners = isometric, faces = flat views"
+  },
+  {
+    "clave": "editor.abrir",
+    "es": "Abrir el editor de la casa",
+    "en": "Open the house editor"
+  },
+  {
+    "clave": "editor.ayuda.conf.a",
+    "es": "El",
+    "en": "The map's"
+  },
+  {
+    "clave": "editor.ayuda.conf.b",
+    "es": "estilo visual del mapa",
+    "en": "visual style"
+  },
+  {
+    "clave": "editor.ayuda.conf.c",
+    "es": ", idioma e",
+    "en": ", language and"
+  },
+  {
+    "clave": "editor.ayuda.conf.d",
+    "es": "interfaz",
+    "en": "interface"
+  },
+  {
+    "clave": "editor.ayuda.cuarto.a",
+    "en": "Customize appearance, walls and size."
+  },
+  {
+    "clave": "editor.ayuda.cuarto.b",
+    "en": "Drag the furniture and decor"
+  },
+  {
+    "clave": "editor.ayuda.cuarto.c",
+    "en": "inside the room."
+  },
+  {
+    "clave": "editor.ayuda.mapa.a",
+    "es": "Elige un",
+    "en": "Pick a"
+  },
+  {
+    "clave": "editor.ayuda.mapa.b",
+    "es": "modo",
+    "en": "mode"
+  },
+  {
+    "clave": "editor.ayuda.mapa.c",
+    "es": "arriba y edita en el",
+    "en": "above and edit in the"
+  },
+  {
+    "clave": "editor.ayuda.mapa.d",
+    "es": "croquis",
+    "en": "sketch"
+  },
+  {
+    "clave": "editor.ayuda.mapa.e",
+    "es": "o en el mapa 3D. Más abajo, personaliza la casa.",
+    "en": "or on the 3D map. Below, customize the house."
+  },
+  {
+    "clave": "editor.ayuda.obj.a",
+    "es": "Elige un",
+    "en": "Pick an"
+  },
+  {
+    "clave": "editor.ayuda.obj.b",
+    "es": "objeto",
+    "en": "object"
+  },
+  {
+    "clave": "editor.ayuda.obj.c",
+    "es": "y edita su",
+    "en": "and edit its"
+  },
+  {
+    "clave": "editor.ayuda.obj.d",
+    "es": "color, tamaño y rotación",
+    "en": "color, size and rotation"
+  },
+  {
+    "clave": "editor.ayuda.pers.a",
+    "es": "Elige un",
+    "en": "Pick a"
+  },
+  {
+    "clave": "editor.ayuda.pers.b",
+    "es": "personaje",
+    "en": "character"
+  },
+  {
+    "clave": "editor.ayuda.pers.c",
+    "es": "y edita su",
+    "en": "and edit their"
+  },
+  {
+    "clave": "editor.ayuda.pers.d",
+    "es": "nombre, cuerpo y avatar 3D",
+    "en": "name, body and 3D avatar"
+  },
+  {
+    "clave": "editor.fondo.colorFijo",
+    "es": "Color fijo",
+    "en": "Solid color"
+  },
+  {
+    "clave": "editor.fondo.colorFijoDesc",
+    "es": "Un color sólido para el cielo que no cambia con la hora del día.",
+    "en": "A solid sky color that doesn't change with the time of day."
+  },
+  {
+    "clave": "editor.imgActiva",
+    "es": "ACTIVA",
+    "en": "ACTIVE"
+  },
+  {
+    "clave": "editor.mapa.mapa",
+    "es": "Mapa",
+    "en": "Map"
+  },
+  {
+    "clave": "editor.muro.alt",
+    "es": "Muro",
+    "en": "Wall"
+  },
+  {
+    "clave": "editor.obj.altura",
+    "es": "Altura",
+    "en": "Height"
+  },
+  {
+    "clave": "editor.obj.asignarApp",
+    "en": "+ Assign app to this object"
+  },
+  {
+    "clave": "editor.obj.cambiarApp",
+    "en": "Change"
+  },
+  {
+    "clave": "editor.obj.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.obj.crearPiezas",
+    "es": "Crear objeto con piezas 3D",
+    "en": "Create object with 3D pieces"
+  },
+  {
+    "clave": "editor.obj.editarVacio",
+    "es": "Elige un objeto en la pestaña Mapa, o crea uno nuevo.",
+    "en": "Pick an object in the Map tab, or create a new one."
+  },
+  {
+    "clave": "editor.obj.eliminar",
+    "es": "Eliminar objeto",
+    "en": "Delete object"
+  },
+  {
+    "clave": "editor.obj.estilo",
+    "es": "Estilo",
+    "en": "Style"
+  },
+  {
+    "clave": "editor.obj.estiloBloques",
+    "es": "Bloques (voxel)",
+    "en": "Blocks (voxel)"
+  },
+  {
+    "clave": "editor.obj.estiloDetallado",
+    "es": "Detallado",
+    "en": "Detailed"
+  },
+  {
+    "clave": "editor.obj.estiloMinimalista",
+    "es": "Minimalista",
+    "en": "Minimalist"
+  },
+  {
+    "clave": "editor.obj.estiloNormal",
+    "es": "Normal",
+    "en": "Normal"
+  },
+  {
+    "clave": "editor.obj.estiloRedondeado",
+    "es": "Redondeado",
+    "en": "Rounded"
+  },
+  {
+    "clave": "editor.obj.forma",
+    "es": "Forma",
+    "en": "Shape"
+  },
+  {
+    "clave": "editor.obj.formaError",
+    "es": "No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.",
+    "en": "I couldn't create the shape. Check the AI model and try again."
+  },
+  {
+    "clave": "editor.obj.cambiarFoto",
+    "es": "Cambiar la foto",
+    "en": "Change the photo"
+  },
+  {
+    "clave": "editor.obj.foto",
+    "es": "Foto",
+    "en": "Photo"
+  },
+  {
+    "clave": "editor.obj.fotoAyuda",
+    "es": "El marco adopta la proporción de tu foto.",
+    "en": "The frame adapts to your photo's proportions."
+  },
+  {
+    "clave": "editor.obj.fotoAyudaPanel",
+    "es": "La foto llena el panel; el texto queda en una banda encima.",
+    "en": "The photo fills the panel; the text sits on a strip over it."
+  },
+  {
+    "clave": "editor.obj.formaGenerar",
+    "es": "Crear con IA",
+    "en": "Create with AI"
+  },
+  {
+    "clave": "editor.obj.formaPhArq",
+    "es": "Descríbelo: \"columna griega con base\"",
+    "en": "Describe it: \"Greek column with base\""
+  },
+  {
+    "clave": "editor.obj.formaPhObj",
+    "es": "Descríbelo: \"silla de madera con cojín rojo\"",
+    "en": "Describe it: \"wooden chair with a red cushion\""
+  },
+  {
+    "clave": "editor.obj.formaSinIa",
+    "es": "Describir la forma requiere IA (elige modelo en la barra)",
+    "en": "Describing the shape requires AI (pick a model in the bar)"
+  },
+  {
+    "clave": "editor.obj.fxAgua",
+    "es": "Intensidad del agua",
+    "en": "Water intensity"
+  },
+  {
+    "clave": "editor.obj.fxJuego",
+    "es": "Velocidad del juego",
+    "en": "Ride speed"
+  },
+  {
+    "clave": "editor.obj.fxLuz",
+    "es": "Intensidad de la luz",
+    "en": "Light intensity"
+  },
+  {
+    "clave": "editor.obj.grupoAccion",
+    "es": "Función especial",
+    "en": "Special function"
+  },
+  {
+    "clave": "editor.obj.grupoNinguno",
+    "es": "— (ninguno)",
+    "en": "— (none)"
+  },
+  {
+    "clave": "editor.obj.grupoAsiento",
+    "es": "Sentarse",
+    "en": "Sit"
+  },
+  {
+    "clave": "editor.obj.grupoAcostarse",
+    "es": "Acostarse",
+    "en": "Lie down"
+  },
+  {
+    "clave": "editor.obj.grupoVehiculo",
+    "es": "Conducir",
+    "en": "Drive"
+  },
+  {
+    "clave": "editor.obj.girDer",
+    "es": "Girar 90° a la derecha",
+    "en": "Rotate 90° right"
+  },
+  {
+    "clave": "editor.obj.girIzq",
+    "es": "Girar 90° a la izquierda",
+    "en": "Rotate 90° left"
+  },
+  {
+    "clave": "editor.obj.girar",
+    "es": "Girar (Y)",
+    "en": "Rotate (Y)"
+  },
+  {
+    "clave": "editor.obj.glbError",
+    "es": "No pude procesar ese modelo .glb. ¿Es un archivo válido?",
+    "en": "I couldn't process that .glb model. Is it a valid file?"
+  },
+  {
+    "clave": "editor.obj.inclinarX",
+    "es": "Inclinar (X)",
+    "en": "Tilt (X)"
+  },
+  {
+    "clave": "editor.obj.inclinarZ",
+    "es": "Inclinar (Z)",
+    "en": "Tilt (Z)"
+  },
+  {
+    "clave": "editor.obj.mapa",
+    "es": "Mapa",
+    "en": "Map"
+  },
+  {
+    "clave": "editor.obj.nombrePh",
+    "es": "Nombre del objeto",
+    "en": "Object name"
+  },
+  {
+    "clave": "editor.obj.optimizando",
+    "es": "Optimizando modelo…",
+    "en": "Optimizing model…"
+  },
+  {
+    "clave": "editor.obj.quitarApp",
+    "en": "Remove app"
+  },
+  {
+    "clave": "editor.obj.quitarFoto",
+    "es": "Quitar la foto",
+    "en": "Remove the photo"
+  },
+  {
+    "clave": "editor.obj.sinObjetos",
+    "es": "Aún no hay objetos. Créalos en la pestaña Crear.",
+    "en": "No objects yet. Create them in the Create tab."
+  },
+  {
+    "clave": "editor.obj.subirFoto",
+    "es": "Subir una foto",
+    "en": "Upload a photo"
+  },
+  {
+    "clave": "editor.obj.subirGlb",
+    "es": "Subir modelo .glb",
+    "en": "Upload .glb model"
+  },
+  {
+    "clave": "editor.obj.tabCrear",
+    "es": "Crear",
+    "en": "Create"
+  },
+  {
+    "clave": "editor.obj.tabEditar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "editor.obj.tamano",
+    "es": "Tamaño",
+    "en": "Size"
+  },
+  {
+    "clave": "editor.obj.texto",
+    "es": "Texto",
+    "en": "Text"
+  },
+  {
+    "clave": "editor.obj.textoAyuda",
+    "es": "Enter agrega otra línea. Vacío = texto de muestra.",
+    "en": "Enter adds another line. Empty = sample text."
+  },
+  {
+    "clave": "editor.obj.textoPh",
+    "es": "El nombre de tu casa o una frase…",
+    "en": "Your house name or a phrase…"
+  },
+  {
+    "clave": "editor.obj.tipoArq",
+    "es": "Arquitectura",
+    "en": "Architecture"
+  },
+  {
+    "clave": "editor.obj.tipoObjeto",
+    "es": "Objeto",
+    "en": "Object"
+  },
+  {
+    "clave": "editor.pers.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.pers.colorGrupo",
+    "es": "Pinta {n} pieza(s) de este color",
+    "en": "Paint {n} piece(s) of this color"
+  }
+]

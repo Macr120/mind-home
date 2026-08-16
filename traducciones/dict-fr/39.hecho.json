@@ -1,0 +1,730 @@
+[
+  {
+    "clave": "cuenta.sync.respaldoPrevio",
+    "texto": "Tu vas synchroniser cette maison pour la première fois. Télécharger d’abord une sauvegarde locale ? (Recommandé)"
+  },
+  {
+    "clave": "carpetas.vacio",
+    "texto": "Encore aucun enregistrement."
+  },
+  {
+    "clave": "carpetas.estaSemana",
+    "texto": "Cette semaine"
+  },
+  {
+    "clave": "carpetas.nRegistro",
+    "texto": "1 enregistrement"
+  },
+  {
+    "clave": "carpetas.nRegistros",
+    "texto": "{n} enregistrements"
+  },
+  {
+    "clave": "cocina.historial",
+    "texto": "Historique des repas"
+  },
+  {
+    "clave": "ejercicio.historial",
+    "texto": "Tes séances"
+  },
+  {
+    "clave": "descanso.hist.media",
+    "texto": "moy. {h}"
+  },
+  {
+    "clave": "jardin.hist",
+    "texto": "Tes séances"
+  },
+  {
+    "clave": "jardin.hist.vacio",
+    "texto": "Tes séances de calme seront conservées ici."
+  },
+  {
+    "clave": "jardin.hist.min",
+    "texto": "{n} min"
+  },
+  {
+    "clave": "hobbies.sesion.todas",
+    "texto": "Tes séances"
+  },
+  {
+    "clave": "despacho.m.sinRegistros",
+    "texto": "Aucune transaction enregistrée."
+  },
+  {
+    "clave": "room.agenda.desc",
+    "texto": "Ton agenda : tâches, événements et projets professionnels, rendez-vous médicaux, médicaments et tes animaux avec leurs soins, et ton carnet de contacts avec leurs anniversaires."
+  },
+  {
+    "clave": "agenda.tab.trabajo",
+    "texto": "Travail"
+  },
+  {
+    "clave": "agenda.tab.salud",
+    "texto": "Santé"
+  },
+  {
+    "clave": "agenda.tab.personas",
+    "texto": "Personnes"
+  },
+  {
+    "clave": "agenda.metaDiaria",
+    "texto": "Programme du jour"
+  },
+  {
+    "clave": "agenda.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "agenda.editar",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "agenda.borrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "agenda.confirmarBorrado",
+    "texto": "Supprimer ?"
+  },
+  {
+    "clave": "agenda.si",
+    "texto": "Oui"
+  },
+  {
+    "clave": "agenda.no",
+    "texto": "Non"
+  },
+  {
+    "clave": "agenda.volver",
+    "texto": "Retour"
+  },
+  {
+    "clave": "agenda.buscar",
+    "texto": "Rechercher"
+  },
+  {
+    "clave": "agenda.palomear",
+    "texto": "Marquer comme fait"
+  },
+  {
+    "clave": "agenda.nuevoEvento",
+    "texto": "Nouveau"
+  },
+  {
+    "clave": "agenda.editarEvento",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "agenda.sinRelacion",
+    "texto": "Sans lien"
+  },
+  {
+    "clave": "agenda.eventosDe",
+    "texto": "Avec {n}"
+  },
+  {
+    "clave": "agenda.cumpleDe",
+    "texto": "Anniversaire de {n}"
+  },
+  {
+    "clave": "agenda.form.asunto",
+    "texto": "Sujet"
+  },
+  {
+    "clave": "agenda.form.motivo",
+    "texto": "Motif du rendez-vous"
+  },
+  {
+    "clave": "agenda.form.plan",
+    "texto": "Plan ou rappel"
+  },
+  {
+    "clave": "agenda.form.nombre",
+    "texto": "Nom"
+  },
+  {
+    "clave": "agenda.form.color",
+    "texto": "Couleur"
+  },
+  {
+    "clave": "agenda.form.fecha",
+    "texto": "Date"
+  },
+  {
+    "clave": "agenda.form.hora",
+    "texto": "Heure"
+  },
+  {
+    "clave": "agenda.form.horaFin",
+    "texto": "Se termine"
+  },
+  {
+    "clave": "agenda.form.lugar",
+    "texto": "Lieu"
+  },
+  {
+    "clave": "agenda.form.con",
+    "texto": "Avec qui"
+  },
+  {
+    "clave": "agenda.form.medico",
+    "texto": "Médecin"
+  },
+  {
+    "clave": "agenda.form.contacto",
+    "texto": "Personne de ton carnet"
+  },
+  {
+    "clave": "agenda.form.ninguno",
+    "texto": "— Aucune —"
+  },
+  {
+    "clave": "agenda.form.prioridad",
+    "texto": "Priorité"
+  },
+  {
+    "clave": "agenda.form.notas",
+    "texto": "Notes"
+  },
+  {
+    "clave": "agenda.form.notaSinFecha",
+    "texto": "Sans date, ça reste dans tes tâches, hors du calendrier."
+  },
+  {
+    "clave": "agenda.form.notaSinHora",
+    "texto": "Sans heure, ça apparaît dans la journée, mais ça ne peut pas te le rappeler."
+  },
+  {
+    "clave": "agenda.prioridad.alta",
+    "texto": "Haute"
+  },
+  {
+    "clave": "agenda.prioridad.media",
+    "texto": "Moyenne"
+  },
+  {
+    "clave": "agenda.prioridad.baja",
+    "texto": "Basse"
+  },
+  {
+    "clave": "agenda.trabajo.pendientes",
+    "texto": "À faire"
+  },
+  {
+    "clave": "agenda.trabajo.tablero",
+    "texto": "Tableau"
+  },
+  {
+    "clave": "ejemplo.vacio",
+    "texto": "Tu ne sais pas par où commencer ? Regarde à quoi ça ressemble avec un exemple dedans."
+  },
+  {
+    "clave": "ejemplo.puesto",
+    "texto": "Ceci est un exemple : cache-le quand tu veux, tes propres données restent intactes."
+  },
+  {
+    "clave": "ejemplo.mostrar",
+    "texto": "Voir un exemple"
+  },
+  {
+    "clave": "ejemplo.ocultar",
+    "texto": "Cacher l’exemple"
+  },
+  {
+    "clave": "ejemplo.sinSitio",
+    "texto": "Il n’y a pas de place libre sur le plan pour l’exemple en ce moment."
+  },
+  {
+    "clave": "agenda.ejemplo.vacio",
+    "texto": "Tu ne sais pas par où commencer ? Charge un exemple et explore-le."
+  },
+  {
+    "clave": "agenda.ejemplo.cargado",
+    "texto": "Tout ce que tu vois en exemple peut être supprimé d’un coup, blocs du calendrier compris."
+  },
+  {
+    "clave": "agenda.ejemplo.cargar",
+    "texto": "Charger un exemple"
+  },
+  {
+    "clave": "agenda.ejemplo.borrar",
+    "texto": "Supprimer l’exemple"
+  },
+  {
+    "clave": "agenda.ejemplo.confirmar",
+    "texto": "Oui, supprimer l’exemple"
+  },
+  {
+    "clave": "agenda.tablero.porhacer",
+    "texto": "À faire"
+  },
+  {
+    "clave": "agenda.tablero.encurso",
+    "texto": "En cours"
+  },
+  {
+    "clave": "agenda.tablero.hecho",
+    "texto": "Fait"
+  },
+  {
+    "clave": "agenda.tablero.columnaVacia",
+    "texto": "Rien ici"
+  },
+  {
+    "clave": "agenda.tablero.atras",
+    "texto": "Déplacer vers la colonne précédente"
+  },
+  {
+    "clave": "agenda.tablero.adelante",
+    "texto": "Déplacer vers la colonne suivante"
+  },
+  {
+    "clave": "agenda.vacio.pendientes",
+    "texto": "Rien en attente. Note ce que tu as en tête."
+  },
+  {
+    "clave": "agenda.salud.citas",
+    "texto": "Rendez-vous médicaux"
+  },
+  {
+    "clave": "agenda.salud.sub.yo",
+    "texto": "Toi"
+  },
+  {
+    "clave": "agenda.salud.sub.projimos",
+    "texto": "Proches"
+  },
+  {
+    "clave": "agenda.salud.sub.mascotas",
+    "texto": "Animaux"
+  },
+  {
+    "clave": "agenda.salud.cuidados",
+    "texto": "Soins récurrents"
+  },
+  {
+    "clave": "agenda.salud.nuevoCuidado",
+    "texto": "Nouveau soin"
+  },
+  {
+    "clave": "agenda.vacio.cuidadosPersona",
+    "texto": "Aucun soin. Les bilans et vaccins qui se répètent vont ici."
+  },
+  {
+    "clave": "agenda.vacio.projimos",
+    "texto": "Personne à ta charge pour l’instant. Ajoutes-en un nouveau ou coche « À ma charge » sur un contact de l’onglet Personnes : il apparaîtra ici avec ses rendez-vous, ses médicaments et ses soins."
+  },
+  {
+    "clave": "agenda.persona.alCuidado",
+    "texto": "À ma charge"
+  },
+  {
+    "clave": "agenda.persona.alCuidadoAyuda",
+    "texto": "Apparaît dans Santé › Proches, avec ses rendez-vous, ses médicaments et ses soins."
+  },
+  {
+    "clave": "agenda.projimo.aMiCuidado",
+    "texto": "À ma charge"
+  },
+  {
+    "clave": "agenda.cuidadop.nuevo",
+    "texto": "Nouveau soin"
+  },
+  {
+    "clave": "agenda.cuidado.archivado",
+    "texto": "Fait, sans répétition"
+  },
+  {
+    "clave": "agenda.cuidado.reactivar",
+    "texto": "Reprogrammer"
+  },
+  {
+    "clave": "agenda.form.especialidad",
+    "texto": "Spécialité"
+  },
+  {
+    "clave": "agenda.esp.general",
+    "texto": "Médecine générale"
+  },
+  {
+    "clave": "agenda.esp.dentista",
+    "texto": "Dentiste"
+  },
+  {
+    "clave": "agenda.esp.oftalmologia",
+    "texto": "Ophtalmologie"
+  },
+  {
+    "clave": "agenda.esp.dermatologia",
+    "texto": "Dermatologie"
+  },
+  {
+    "clave": "agenda.esp.ginecologia",
+    "texto": "Gynécologie"
+  },
+  {
+    "clave": "agenda.esp.cardiologia",
+    "texto": "Cardiologie"
+  },
+  {
+    "clave": "agenda.esp.traumatologia",
+    "texto": "Orthopédie"
+  },
+  {
+    "clave": "agenda.esp.psicologia",
+    "texto": "Psychologie"
+  },
+  {
+    "clave": "agenda.esp.laboratorio",
+    "texto": "Analyses"
+  },
+  {
+    "clave": "agenda.esp.otra",
+    "texto": "Autre"
+  },
+  {
+    "clave": "agenda.cuidadop.chequeo",
+    "texto": "Bilan général"
+  },
+  {
+    "clave": "agenda.cuidadop.vacuna",
+    "texto": "Vaccin"
+  },
+  {
+    "clave": "agenda.cuidadop.analisis",
+    "texto": "Analyses"
+  },
+  {
+    "clave": "agenda.cuidadop.terapia",
+    "texto": "Thérapie"
+  },
+  {
+    "clave": "agenda.cuidadop.dental",
+    "texto": "Contrôle dentaire"
+  },
+  {
+    "clave": "agenda.cuidadop.visual",
+    "texto": "Contrôle de la vue"
+  },
+  {
+    "clave": "agenda.cuidadop.otro",
+    "texto": "Autre"
+  },
+  {
+    "clave": "agenda.ciclo.titulo",
+    "texto": "Cycle"
+  },
+  {
+    "clave": "agenda.ciclo.apagado",
+    "texto": "Suis tes règles, avec une estimation des prochaines, les symptômes et des rappels."
+  },
+  {
+    "clave": "agenda.ciclo.activar",
+    "texto": "Activer le suivi du cycle"
+  },
+  {
+    "clave": "agenda.ciclo.desactivar",
+    "texto": "Désactiver le suivi (tes enregistrements sont conservés)"
+  },
+  {
+    "clave": "agenda.ciclo.recienActivado",
+    "texto": "Suivi activé. C’était par erreur ?"
+  },
+  {
+    "clave": "agenda.ciclo.deshacer",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "agenda.ciclo.mantener",
+    "texto": "Le garder"
+  },
+  {
+    "clave": "agenda.ciclo.ajustes",
+    "texto": "Paramètres"
+  },
+  {
+    "clave": "agenda.ciclo.diaN",
+    "texto": "Jour {n} de ton cycle"
+  },
+  {
+    "clave": "agenda.ciclo.sinRegistro",
+    "texto": "Rien d’enregistré pour l’instant"
+  },
+  {
+    "clave": "agenda.ciclo.sinDatos",
+    "texto": "Marque ton premier jour de règles pour commencer"
+  },
+  {
+    "clave": "agenda.ciclo.hoyToca",
+    "texto": "Début estimé aujourd’hui"
+  },
+  {
+    "clave": "agenda.ciclo.faltan",
+    "texto": "Encore {n} jours (estimé)"
+  },
+  {
+    "clave": "agenda.ciclo.proximo",
+    "texto": "Prochaines règles"
+  },
+  {
+    "clave": "agenda.ciclo.fertil",
+    "texto": "Fenêtre de fertilité"
+  },
+  {
+    "clave": "agenda.ciclo.base",
+    "texto": "Estimation basée sur tes {n} derniers cycles (moyenne de {d} jours)."
+  },
+  {
+    "clave": "agenda.ciclo.baseSinDatos",
+    "texto": "Estimation basée sur la durée de tes réglages ({d} jours) : il n’y a pas encore deux cycles à mesurer."
+  },
+  {
+    "clave": "agenda.ciclo.historial",
+    "texto": "Tes dernières règles"
+  },
+  {
+    "clave": "agenda.ciclo.duroDias",
+    "texto": "a duré {n} jours"
+  },
+  {
+    "clave": "agenda.ciclo.sangrado",
+    "texto": "Saignement"
+  },
+  {
+    "clave": "agenda.ciclo.ninguno",
+    "texto": "Aucun"
+  },
+  {
+    "clave": "agenda.ciclo.leve",
+    "texto": "Léger"
+  },
+  {
+    "clave": "agenda.ciclo.medio",
+    "texto": "Moyen"
+  },
+  {
+    "clave": "agenda.ciclo.abundante",
+    "texto": "Abondant"
+  },
+  {
+    "clave": "agenda.ciclo.sintomas",
+    "texto": "Symptômes"
+  },
+  {
+    "clave": "agenda.ciclo.animo",
+    "texto": "Humeur"
+  },
+  {
+    "clave": "agenda.ciclo.leyRegistrado",
+    "texto": "Enregistré"
+  },
+  {
+    "clave": "agenda.ciclo.leyEstimado",
+    "texto": "Estimé"
+  },
+  {
+    "clave": "agenda.ciclo.duracionCiclo",
+    "texto": "Durée du cycle (jours)"
+  },
+  {
+    "clave": "agenda.ciclo.duracionPeriodo",
+    "texto": "Durée des règles (jours)"
+  },
+  {
+    "clave": "agenda.ciclo.ayudaDuracion",
+    "texto": "Utilisées seulement tant qu’il n’y a pas deux cycles enregistrés : dès qu’il y en a, c’est ta vraie moyenne qui prime."
+  },
+  {
+    "clave": "agenda.ciclo.avisarAntes",
+    "texto": "Me prévenir (jours avant)"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivo",
+    "texto": "Contraceptif à"
+  },
+  {
+    "clave": "agenda.ciclo.avisoRutina",
+    "texto": "Le début de tes règles est estimé"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivoRutina",
+    "texto": "Contraceptif"
+  },
+  {
+    "clave": "agenda.ciclo.sint.colicos",
+    "texto": "Crampes"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cabeza",
+    "texto": "Maux de tête"
+  },
+  {
+    "clave": "agenda.ciclo.sint.hinchazon",
+    "texto": "Ballonnements"
+  },
+  {
+    "clave": "agenda.ciclo.sint.senos",
+    "texto": "Seins sensibles"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cansancio",
+    "texto": "Fatigue"
+  },
+  {
+    "clave": "agenda.ciclo.sint.antojos",
+    "texto": "Envies alimentaires"
+  },
+  {
+    "clave": "agenda.ciclo.sint.acne",
+    "texto": "Acné"
+  },
+  {
+    "clave": "agenda.ciclo.sint.irritable",
+    "texto": "Irritabilité"
+  },
+  {
+    "clave": "agenda.salud.nuevaCita",
+    "texto": "Nouveau rendez-vous"
+  },
+  {
+    "clave": "agenda.salud.medicamentos",
+    "texto": "Médicaments"
+  },
+  {
+    "clave": "agenda.salud.nuevoMedicamento",
+    "texto": "Nouveau médicament"
+  },
+  {
+    "clave": "agenda.editarMedicamento",
+    "texto": "Modifier le traitement"
+  },
+  {
+    "clave": "agenda.vacio.citas",
+    "texto": "Aucun rendez-vous enregistré."
+  },
+  {
+    "clave": "agenda.vacio.medicamentos",
+    "texto": "Aucun traitement en cours."
+  },
+  {
+    "clave": "agenda.med.dosis",
+    "texto": "Dose"
+  },
+  {
+    "clave": "agenda.med.horas",
+    "texto": "Horaires de prise"
+  },
+  {
+    "clave": "agenda.med.agregarToma",
+    "texto": "Ajouter une prise"
+  },
+  {
+    "clave": "agenda.med.dias",
+    "texto": "Jours"
+  },
+  {
+    "clave": "agenda.med.todosDias",
+    "texto": "Aucun coché : tous les jours."
+  },
+  {
+    "clave": "agenda.med.desde",
+    "texto": "Depuis"
+  },
+  {
+    "clave": "agenda.med.hasta",
+    "texto": "Jusqu’à (facultatif)"
+  },
+  {
+    "clave": "agenda.med.pausar",
+    "texto": "Suspendre"
+  },
+  {
+    "clave": "agenda.med.reanudar",
+    "texto": "Reprendre"
+  },
+  {
+    "clave": "agenda.med.sinHoras",
+    "texto": "Sans rappel"
+  },
+  {
+    "clave": "agenda.med.avisoAppAbierta",
+    "texto": "Les rappels de prise sonnent quand l’app est ouverte."
+  },
+  {
+    "clave": "agenda.dia.0",
+    "texto": "D"
+  },
+  {
+    "clave": "agenda.dia.1",
+    "texto": "L"
+  },
+  {
+    "clave": "agenda.dia.2",
+    "texto": "M"
+  },
+  {
+    "clave": "agenda.dia.3",
+    "texto": "M"
+  },
+  {
+    "clave": "agenda.dia.4",
+    "texto": "J"
+  },
+  {
+    "clave": "agenda.dia.5",
+    "texto": "V"
+  },
+  {
+    "clave": "agenda.dia.6",
+    "texto": "S"
+  },
+  {
+    "clave": "agenda.personas.nuevoContacto",
+    "texto": "Nouveau contact"
+  },
+  {
+    "clave": "agenda.editarContacto",
+    "texto": "Modifier le contact"
+  },
+  {
+    "clave": "agenda.personas.nuevoPlan",
+    "texto": "Programmer quelque chose"
+  },
+  {
+    "clave": "agenda.persona.relacion",
+    "texto": "Relation"
+  },
+  {
+    "clave": "agenda.persona.phRelacion",
+    "texto": "famille, travail…"
+  },
+  {
+    "clave": "agenda.persona.telefono",
+    "texto": "Téléphone"
+  },
+  {
+    "clave": "agenda.persona.correo",
+    "texto": "E-mail"
+  },
+  {
+    "clave": "agenda.persona.cumple",
+    "texto": "Anniversaire"
+  },
+  {
+    "clave": "agenda.persona.horaCumple",
+    "texto": "Me prévenir à"
+  },
+  {
+    "clave": "agenda.persona.direccion",
+    "texto": "Adresse"
+  },
+  {
+    "clave": "agenda.persona.foto",
+    "texto": "Photo"
+  },
+  {
+    "clave": "agenda.persona.edad",
+    "texto": "fête ses {n} ans"
+  }
+]

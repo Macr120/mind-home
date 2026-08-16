@@ -1,0 +1,627 @@
+[
+  {
+    "ruta": "titulos.fuerza.0",
+    "es": "Tren inferior completo",
+    "en": "Full lower body"
+  },
+  {
+    "ruta": "titulos.fuerza.1",
+    "es": "Empuje de tren superior",
+    "en": "Upper body push"
+  },
+  {
+    "ruta": "titulos.fuerza.2",
+    "es": "Tirón de espalda",
+    "en": "Back and pulls"
+  },
+  {
+    "ruta": "titulos.fuerza.3",
+    "es": "Core y estabilidad",
+    "en": "Core and stability"
+  },
+  {
+    "ruta": "titulos.fuerza.4",
+    "es": "Circuito de cuerpo entero",
+    "en": "Full body circuit"
+  },
+  {
+    "ruta": "titulos.fuerza.5",
+    "es": "Piernas y glúteos",
+    "en": "Legs and glutes"
+  },
+  {
+    "ruta": "titulos.fuerza.6",
+    "es": "Fuerza de mantenimiento",
+    "en": "Maintenance strength"
+  },
+  {
+    "ruta": "titulos.fuerza.7",
+    "es": "Sesión corta de gimnasio",
+    "en": "Short gym session"
+  },
+  {
+    "ruta": "titulos.resistencia.0",
+    "es": "Rodaje suave",
+    "en": "Easy run"
+  },
+  {
+    "ruta": "titulos.resistencia.1",
+    "es": "Series en pista",
+    "en": "Track intervals"
+  },
+  {
+    "ruta": "titulos.resistencia.2",
+    "es": "Tirada larga",
+    "en": "Long run"
+  },
+  {
+    "ruta": "titulos.resistencia.3",
+    "es": "Cuestas del barrio",
+    "en": "Neighborhood hills"
+  },
+  {
+    "ruta": "titulos.resistencia.4",
+    "es": "Ritmo controlado",
+    "en": "Steady pace run"
+  },
+  {
+    "ruta": "titulos.resistencia.5",
+    "es": "Trote de recuperación",
+    "en": "Recovery jog"
+  },
+  {
+    "ruta": "titulos.resistencia.6",
+    "es": "Fartlek por el parque",
+    "en": "Fartlek in the park"
+  },
+  {
+    "ruta": "titulos.resistencia.7",
+    "es": "Salida después del turno",
+    "en": "Post-shift run"
+  },
+  {
+    "ruta": "titulos.resistencia.8",
+    "es": "Cardio en casa",
+    "en": "Indoor cardio"
+  },
+  {
+    "ruta": "titulos.resistencia.9",
+    "es": "Rodaje al amanecer",
+    "en": "Sunrise run"
+  },
+  {
+    "ruta": "titulos.flexibilidad.0",
+    "es": "Movilidad general",
+    "en": "General mobility"
+  },
+  {
+    "ruta": "titulos.flexibilidad.1",
+    "es": "Yoga de mañana",
+    "en": "Morning yoga"
+  },
+  {
+    "ruta": "titulos.flexibilidad.2",
+    "es": "Estiramientos post-carrera",
+    "en": "Post-run stretching"
+  },
+  {
+    "ruta": "titulos.flexibilidad.3",
+    "es": "Suelo y respiración",
+    "en": "Floor and breathing"
+  },
+  {
+    "ruta": "titulos.flexibilidad.4",
+    "es": "Movilidad de cadera",
+    "en": "Hip mobility"
+  },
+  {
+    "ruta": "titulos.flexibilidad.5",
+    "es": "Descarga de piernas",
+    "en": "Leg flush"
+  },
+  {
+    "ruta": "titulos.flexibilidad.6",
+    "es": "Yoga suave de noche",
+    "en": "Gentle evening yoga"
+  },
+  {
+    "ruta": "titulos.flexibilidad.7",
+    "es": "Rutina del fisio",
+    "en": "Physio routine"
+  },
+  {
+    "ruta": "enfoquesFlex.0",
+    "es": "Cadera",
+    "en": "Hips"
+  },
+  {
+    "ruta": "enfoquesFlex.1",
+    "es": "Isquiotibiales",
+    "en": "Hamstrings"
+  },
+  {
+    "ruta": "enfoquesFlex.2",
+    "es": "Espalda baja",
+    "en": "Lower back"
+  },
+  {
+    "ruta": "enfoquesFlex.3",
+    "es": "Hombros y cuello",
+    "en": "Shoulders and neck"
+  },
+  {
+    "ruta": "enfoquesFlex.4",
+    "es": "Gemelos y tobillos",
+    "en": "Calves and ankles"
+  },
+  {
+    "ruta": "enfoquesFlex.5",
+    "es": "Cuádriceps",
+    "en": "Quads"
+  },
+  {
+    "ruta": "actividades.correr",
+    "es": "Correr",
+    "en": "Run"
+  },
+  {
+    "ruta": "actividades.caminar",
+    "es": "Caminar",
+    "en": "Walk"
+  },
+  {
+    "ruta": "actividades.trote",
+    "es": "Trote suave",
+    "en": "Easy jog"
+  },
+  {
+    "ruta": "actividades.bici",
+    "es": "Bici",
+    "en": "Bike"
+  },
+  {
+    "ruta": "actividades.cuerda",
+    "es": "Comba",
+    "en": "Jump rope"
+  },
+  {
+    "ruta": "hitos.0.titulo",
+    "es": "El primer trote",
+    "en": "First jog ever"
+  },
+  {
+    "ruta": "hitos.0.nota",
+    "es": "Salí de casa sin saber si aguantaría hasta la esquina. Volví con la cara roja y con unas ganas raras de repetirlo.",
+    "en": "I went out with no idea whether I'd make it to the corner. Came back red-faced and oddly keen to do it again."
+  },
+  {
+    "ruta": "hitos.1.titulo",
+    "es": "Arranca el plan",
+    "en": "The plan begins"
+  },
+  {
+    "ruta": "hitos.1.nota",
+    "es": "Me bajé un plan y lo pegué en la nevera. Correr dejó de ser improvisar y pasó a ser algo que tacho.",
+    "en": "Downloaded a plan and stuck it on the fridge. Running stopped being improvisation and became something I get to cross off."
+  },
+  {
+    "ruta": "hitos.2.titulo",
+    "es": "Mi primera carrera",
+    "en": "My first race"
+  },
+  {
+    "ruta": "hitos.2.nota",
+    "es": "Dorsal, nervios y gente animando a desconocidos. Crucé la meta sin caminar ni una vez y me quedé mirando el reloj como un tonto.",
+    "en": "A bib, nerves, and strangers cheering for strangers. I crossed the line without walking a single step and just stood there staring at my watch."
+  },
+  {
+    "ruta": "hitos.3.titulo",
+    "es": "Doblé la distancia",
+    "en": "Twice as far"
+  },
+  {
+    "ruta": "hitos.3.nota",
+    "es": "Me apunté casi por curiosidad, para ver hasta dónde llegaba. El tramo final dolió, pero no me paré.",
+    "en": "I signed up mostly out of curiosity, to see where my limit was. The last stretch hurt, but I never stopped."
+  },
+  {
+    "ruta": "hitos.4.titulo",
+    "es": "Tirada larga nueva",
+    "en": "Longest run yet"
+  },
+  {
+    "ruta": "hitos.4.nota",
+    "es": "Nunca había estado tanto rato corriendo seguido. Terminé vacío y contento, comiendo pan en la cocina de pie.",
+    "en": "I'd never spent that long running without a break. Came home empty and happy, eating bread standing up in the kitchen."
+  },
+  {
+    "ruta": "hitos.5.titulo",
+    "es": "La última buena",
+    "en": "The last good one"
+  },
+  {
+    "ruta": "hitos.5.nota",
+    "es": "Iba ligero, todo encajaba, hasta la respiración. No tenía ni idea de que iba a ser la última en semanas.",
+    "en": "Everything clicked, even my breathing. I had no clue it would be the last one for weeks."
+  },
+  {
+    "ruta": "hitos.6.titulo",
+    "es": "Se rompió algo",
+    "en": "The knee went"
+  },
+  {
+    "ruta": "hitos.6.nota",
+    "es": "Pinchazo en la rodilla y de vuelta a casa caminando muy despacio. Llegué enfadado, asustado y sin ganas de hablar con nadie.",
+    "en": "A stab in the knee and a very slow walk home. I got back angry, scared, and not in the mood to talk to anyone."
+  },
+  {
+    "ruta": "hitos.7.titulo",
+    "es": "Primera sesión de fisio",
+    "en": "First physio session"
+  },
+  {
+    "ruta": "hitos.7.nota",
+    "es": "Me apretaron donde más dolía y me mandaron deberes aburridísimos. Salí de ahí con un plan, que era lo que necesitaba.",
+    "en": "They pressed exactly where it hurt and sent me home with the most boring homework imaginable. I walked out with a plan, which is what I needed."
+  },
+  {
+    "ruta": "hitos.8.titulo",
+    "es": "Vuelta con freno",
+    "en": "Easing back in"
+  },
+  {
+    "ruta": "hitos.8.nota",
+    "es": "Trote y caminata alternados, con el orgullo guardado en el bolsillo. Iba escuchando la rodilla en cada apoyo y no dijo nada.",
+    "en": "Jog and walk alternating, ego left at the door. I was listening to that knee on every step and it stayed quiet."
+  },
+  {
+    "ruta": "hitos.9.titulo",
+    "es": "Caminar Japón entero",
+    "en": "Walking all of Japan"
+  },
+  {
+    "ruta": "hitos.9.nota",
+    "es": "No corrí ni un solo día del viaje, pero caminé de la mañana a la noche entre templos, estaciones y calles nuevas. Los pies protestaron y las piernas volvieron más fuertes.",
+    "en": "I didn't run a single day of the trip, but I walked from morning to night through temples, stations and streets I'd never seen. My feet complained and my legs came home stronger."
+  },
+  {
+    "ruta": "hitos.10.titulo",
+    "es": "La rodilla aguanta",
+    "en": "The knee holds"
+  },
+  {
+    "ruta": "hitos.10.nota",
+    "es": "Primera tirada de verdad del plan nuevo. Terminé pensando más en la cena que en la lesión, y eso fue el regalo.",
+    "en": "First proper long run of the new plan. I finished thinking about dinner instead of the injury, and that was the real win."
+  },
+  {
+    "ruta": "hitos.11.titulo",
+    "es": "Medio maratón",
+    "en": "Half marathon"
+  },
+  {
+    "ruta": "hitos.11.nota",
+    "es": "Salí conservador y acabé adelantando gente en el último tramo. Al cruzar la meta me acordé del día en que no llegaba a la esquina.",
+    "en": "I started conservative and ended up passing people in the final stretch. Crossing the line I thought about the day I couldn't reach the corner."
+  },
+  {
+    "ruta": "hitos.12.titulo",
+    "es": "La tirada monstruo",
+    "en": "The monster long run"
+  },
+  {
+    "ruta": "hitos.12.nota",
+    "es": "La más larga de todo el plan y la que más miedo me daba. Volví andando desde el portal hasta la ducha, pero volví.",
+    "en": "The longest one in the plan and the one that scared me most. I basically limped from the door to the shower, but I got there."
+  },
+  {
+    "ruta": "hitos.13.titulo",
+    "es": "Mi día más rápido",
+    "en": "My fastest day"
+  },
+  {
+    "ruta": "hitos.13.nota",
+    "es": "Salí a hacer ritmo y las piernas iban solas. No me lo esperaba en plena semana de trabajo y exámenes.",
+    "en": "I went out for a steady effort and my legs just went. Didn't expect that in the middle of shifts and exams."
+  },
+  {
+    "ruta": "hitos.14.titulo",
+    "es": "Bajada de carga",
+    "en": "Winding down"
+  },
+  {
+    "ruta": "hitos.14.nota",
+    "es": "Menos de todo y la cabeza dando vueltas. Guardar piernas cuesta más que entrenar.",
+    "en": "Less of everything and a brain that won't shut up. Saving my legs is harder than training them."
+  },
+  {
+    "ruta": "hitos.15.titulo",
+    "es": "El maratón",
+    "en": "The marathon"
+  },
+  {
+    "ruta": "hitos.15.nota",
+    "es": "Salí muerto de miedo y llegué llorando sin saber muy bien por qué. Un año antes no era capaz de trotar dos manzanas.",
+    "en": "I started terrified and finished crying without quite knowing why. A year ago I couldn't jog two blocks."
+  },
+  {
+    "ruta": "hitos.16.titulo",
+    "es": "Trote de vuelta",
+    "en": "First run after"
+  },
+  {
+    "ruta": "hitos.16.nota",
+    "es": "Primera salida después, corta y sin mirar el reloj. Las piernas se acordaban de todo, pero fui sonriendo.",
+    "en": "Short and slow, no watch. My legs remembered everything, but I ran the whole thing grinning."
+  },
+  {
+    "ruta": "notas.0.nota",
+    "es": "Salí a trotar y a las dos manzanas ya iba andando. Me da vergüenza, pero lo apunto igual.",
+    "en": "Went out to jog and was walking again two blocks in. Embarrassing, but I'm logging it anyway."
+  },
+  {
+    "ruta": "notas.1.nota",
+    "es": "Estirar me parecía perder el tiempo hasta que me levanté del suelo sin quejarme.",
+    "en": "Stretching felt like a waste of time until I got up off the floor without groaning."
+  },
+  {
+    "ruta": "notas.2.nota",
+    "es": "Primer día con unas mancuernas prestadas. Al día siguiente me dolía hasta reírme.",
+    "en": "First day with a borrowed pair of dumbbells. Next morning even laughing hurt."
+  },
+  {
+    "ruta": "notas.3.nota",
+    "es": "Trote muy suelto por el parque. La cabeza se me calló un rato, que ya es mucho.",
+    "en": "Very loose jog around the park. My head went quiet for a while, which is a lot."
+  },
+  {
+    "ruta": "notas.4.nota",
+    "es": "Día de piernas. Bajar las escaleras del portal fue el verdadero test.",
+    "en": "Leg day. Walking down the stairs at home was the real test."
+  },
+  {
+    "ruta": "notas.5.nota",
+    "es": "Salí después del turno, con olor a café en la ropa. Mejor que quedarme mirando el techo.",
+    "en": "Ran straight after my shift, coffee smell still in my clothes. Better than staring at the ceiling."
+  },
+  {
+    "ruta": "notas.6.nota",
+    "es": "Laika se me subió encima en mitad de la sesión. La cadera lo agradeció igual.",
+    "en": "Laika climbed on me halfway through the session. My hips were grateful regardless."
+  },
+  {
+    "ruta": "notas.7.nota",
+    "es": "Subí un poco la carga y la técnica se me fue por el desagüe. Bajé y repetí sin dramas.",
+    "en": "Added a bit of load and my form fell apart. Dropped back down and did it properly."
+  },
+  {
+    "ruta": "notas.8.nota",
+    "es": "Primer día que termino el trote entero sin parar a caminar. Pequeño, pero lo celebro.",
+    "en": "First time I finished the whole jog without walking. Small, but I'm celebrating it."
+  },
+  {
+    "ruta": "notas.9.nota",
+    "es": "Espalda dura de estar de pie todo el turno. Después de la sesión respiraba distinto.",
+    "en": "Back stiff from standing all shift. I breathed differently after the session."
+  },
+  {
+    "ruta": "notas.10.nota",
+    "es": "Sesión corta antes de clase. Menos de lo que quería, pero hecha.",
+    "en": "Quick session before class. Less than I wanted, but done."
+  },
+  {
+    "ruta": "notas.11.nota",
+    "es": "Series. Odié cada tramo rápido y me encantó el último.",
+    "en": "Intervals. Hated every fast bit and loved the last one."
+  },
+  {
+    "ruta": "notas.12.nota",
+    "es": "Me vi de reojo en el espejo y no reconocí mi postura. Algo está cambiando.",
+    "en": "Caught myself in the mirror and didn't recognise my own posture. Something is shifting."
+  },
+  {
+    "ruta": "notas.13.nota",
+    "es": "Nervios previos a la carrera, así que salí a rodar flojo solo para calmarme.",
+    "en": "Pre-race nerves, so I went out for an easy shakeout just to calm down."
+  },
+  {
+    "ruta": "notas.14.nota",
+    "es": "Tobillos y gemelos. Crujió todo y después andaba como si flotara.",
+    "en": "Ankles and calves. Everything cracked and afterwards I walked like I was floating."
+  },
+  {
+    "ruta": "notas.15.nota",
+    "es": "Rodaje largo con un podcast de divulgación. Se me pasó volando.",
+    "en": "Long run with a science podcast. It flew by."
+  },
+  {
+    "ruta": "notas.16.nota",
+    "es": "Core. Me temblaba todo y aun así terminé la última serie.",
+    "en": "Core work. I was shaking all over and still finished the last set."
+  },
+  {
+    "ruta": "notas.17.nota",
+    "es": "Cuestas. Subí lento, bajé peor, pero no me salté nada del plan.",
+    "en": "Hills. Slow going up, worse coming down, but I didn't skip anything."
+  },
+  {
+    "ruta": "notas.18.nota",
+    "es": "Isquios como cuerdas de guitarra. Un buen rato en el suelo y algo cedió.",
+    "en": "Hamstrings like guitar strings. A long stretch on the floor and something finally gave."
+  },
+  {
+    "ruta": "notas.19.nota",
+    "es": "Empuje de tren superior. Me sorprende lo que aguanto ahora comparado con el principio.",
+    "en": "Upper body push. Surprised by what I can handle now compared to the start."
+  },
+  {
+    "ruta": "notas.20.nota",
+    "es": "Tirada larga del fin de semana. El final fue cabeza, no piernas.",
+    "en": "Weekend long run. The end was all head, no legs."
+  },
+  {
+    "ruta": "notas.21.nota",
+    "es": "Cadera cerradísima de pedalear al trabajo todos los días. Sesión larga y merecida.",
+    "en": "Hips locked up from biking to work every day. Long session, well earned."
+  },
+  {
+    "ruta": "notas.22.nota",
+    "es": "Sensación rara en la rodilla y no le hice ni caso. Sospecho que me va a pasar factura.",
+    "en": "Odd feeling in my knee and I ignored it completely. I suspect that bill is coming."
+  },
+  {
+    "ruta": "notas.23.nota",
+    "es": "Solo tren superior. La rodilla me dijo que ni se me ocurriera bajar a piernas.",
+    "en": "Upper body only. The knee made it very clear I shouldn't even think about squats."
+  },
+  {
+    "ruta": "notas.24.nota",
+    "es": "Movilidad suave y hielo. Odio no poder correr, lo escribo tal cual.",
+    "en": "Gentle mobility and ice. I hate not running, writing it down exactly like that."
+  },
+  {
+    "ruta": "notas.25.nota",
+    "es": "Sesión de brazos con mala leche. Al menos algo me deja hacer este cuerpo.",
+    "en": "Angry arm session. At least my body lets me do something."
+  },
+  {
+    "ruta": "notas.26.nota",
+    "es": "Los deberes del fisio en el suelo del salón. Aburridísimos y necesarios.",
+    "en": "Physio homework on the living room floor. Deeply boring and completely necessary."
+  },
+  {
+    "ruta": "notas.27.nota",
+    "es": "Bici estática muy suave, con permiso oficial. Sudar otra vez me devolvió el humor.",
+    "en": "Very easy stationary bike, officially approved. Sweating again put me in a better mood."
+  },
+  {
+    "ruta": "notas.28.nota",
+    "es": "Trote y caminata alternados. Fui contando apoyos como quien camina sobre hielo.",
+    "en": "Jog and walk alternating. I counted every footstrike like I was walking on ice."
+  },
+  {
+    "ruta": "notas.29.nota",
+    "es": "Glúteo y cadera, los deberes de siempre. Descubrí músculos que llevaba años sin usar.",
+    "en": "Glutes and hips, the usual homework. Found muscles I hadn't used in years."
+  },
+  {
+    "ruta": "notas.30.nota",
+    "es": "Sesión larga de movilidad. Ahora sí entiendo para qué servía todo esto.",
+    "en": "Long mobility session. Now I finally get what all of this was for."
+  },
+  {
+    "ruta": "notas.31.nota",
+    "es": "Primera salida en la que no pensé en la rodilla ni una vez. Se me había olvidado esta sensación.",
+    "en": "First run where I didn't think about the knee once. I'd forgotten this feeling."
+  },
+  {
+    "ruta": "notas.32.nota",
+    "es": "Estiramientos en el suelo del alojamiento, con los pies destrozados de andar todo el día.",
+    "en": "Stretching on the floor of the room, feet wrecked from walking all day."
+  },
+  {
+    "ruta": "notas.33.nota",
+    "es": "Otro día caminando de estación en estación con la mochila. Lo cuento como entrenamiento porque me da la gana.",
+    "en": "Another day walking station to station with the backpack. I'm counting it as training because I decide."
+  },
+  {
+    "ruta": "notas.34.nota",
+    "es": "Primera salida al volver a casa. Las piernas venían fuertes del viaje y se notó.",
+    "en": "First run back home. My legs came out of the trip stronger and it showed."
+  },
+  {
+    "ruta": "notas.35.nota",
+    "es": "Vuelta a las pesas después de semanas fuera. Empecé casi de cero y me dio exactamente igual.",
+    "en": "Back to the weights after weeks away. Started almost from scratch and honestly didn't care."
+  },
+  {
+    "ruta": "notas.36.nota",
+    "es": "Series otra vez. Me gusta esta versión de mí que no negocia con el plan.",
+    "en": "Intervals again. I like this version of me that doesn't negotiate with the plan."
+  },
+  {
+    "ruta": "notas.37.nota",
+    "es": "Movilidad de hombros. La barra de la cafetería me los deja hechos polvo.",
+    "en": "Shoulder mobility. The espresso bar destroys them shift after shift."
+  },
+  {
+    "ruta": "notas.38.nota",
+    "es": "Rodaje largo bajo la lluvia. Volví empapado y encantado, cosa que antes no habría entendido.",
+    "en": "Long run in the rain. Came back soaked and delighted, which past me wouldn't understand."
+  },
+  {
+    "ruta": "notas.39.nota",
+    "es": "Piernas fuerte antes de la semana grande. Sin miedo a la rodilla por primera vez en meses.",
+    "en": "Heavy legs session before the big week. No fear about the knee for the first time in months."
+  },
+  {
+    "ruta": "notas.40.nota",
+    "es": "Rodaje suave después de la carrera. Todo entero, sorprendentemente.",
+    "en": "Easy run after the race. Everything still in one piece, surprisingly."
+  },
+  {
+    "ruta": "notas.41.nota",
+    "es": "Isquios y gemelos, mantenimiento puro. Es la parte del plan que menos me apetece y la que más me salva.",
+    "en": "Hamstrings and calves, pure maintenance. The part of the plan I want least and that saves me most."
+  },
+  {
+    "ruta": "notas.42.nota",
+    "es": "Última tirada de verdad. Salí con miedo y volví tranquilo, que es lo que necesitaba.",
+    "en": "Last proper long run. Went out scared and came back calm, which is exactly what I needed."
+  },
+  {
+    "ruta": "notas.43.nota",
+    "es": "Sesión corta y todo ligero. No es momento de heroicidades.",
+    "en": "Short session, everything light. Not the week for heroics."
+  },
+  {
+    "ruta": "notas.44.nota",
+    "es": "Movilidad y poco más. Estoy guardando piernas y me pone nervioso.",
+    "en": "Mobility and not much else. Saving my legs makes me restless."
+  },
+  {
+    "ruta": "notas.45.nota",
+    "es": "Bajar escaleras sigue siendo lo peor. Ando como un pingüino y le tengo cariño a este dolor.",
+    "en": "Stairs are still the enemy. I walk like a penguin and I'm weirdly fond of this soreness."
+  },
+  {
+    "ruta": "notas.46.nota",
+    "es": "Trote cortito para quitar el óxido. Las piernas se acordaban de todo.",
+    "en": "Short jog to shake off the rust. My legs remembered everything."
+  },
+  {
+    "ruta": "notas.47.nota",
+    "es": "Vuelta suave a las pesas, cargas de risa. Ya estoy mirando qué me invento para el año que viene.",
+    "en": "Easy return to the weights, laughable loads. Already scheming about what comes next year."
+  },
+  {
+    "ruta": "notas.48.nota",
+    "es": "Suelo, respiración y estiramientos con Laika de testigo. El cuerpo ya no me parece un enemigo.",
+    "en": "Floor work, breathing and stretching with Laika supervising. My body doesn't feel like an opponent anymore."
+  },
+  {
+    "ruta": "metas.cinco",
+    "es": "Primera carrera popular",
+    "en": "First road race"
+  },
+  {
+    "ruta": "metas.diez",
+    "es": "Doblar la distancia",
+    "en": "Double the distance"
+  },
+  {
+    "ruta": "metas.medio",
+    "es": "Medio maratón",
+    "en": "Half marathon"
+  },
+  {
+    "ruta": "metas.maraton",
+    "es": "Terminar el maratón",
+    "en": "Finish the marathon"
+  },
+  {
+    "ruta": "metas.siguiente",
+    "es": "Siguiente maratón, sin lesiones",
+    "en": "Next marathon, injury-free"
+  }
+]

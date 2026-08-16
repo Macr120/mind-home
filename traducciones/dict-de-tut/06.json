@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.chat.6.texto",
+    "es": "El manual lista los comandos: agregar o quitar cuartos, crear objetos, recordar cosas…",
+    "en": "The manual lists the commands: add or remove rooms, create objects, remember things…"
+  },
+  {
+    "clave": "tut.chat.7.titulo",
+    "es": "El modelo de IA",
+    "en": "The AI model"
+  },
+  {
+    "clave": "tut.chat.7.texto",
+    "es": "Este icono elige qué IA responde y guarda tu clave si usas la tuya. Sin ninguna configurada, el chat sigue funcionando por palabras clave, sin entender lenguaje libre.",
+    "en": "This icon picks which AI answers and stores your key if you use your own. With none configured, the chat still works by keyword matching, without understanding free language."
+  },
+  {
+    "clave": "tut.chat.8.texto",
+    "es": "También puedes preguntar «¿cómo funciona la cocina?» o pedir «tutorial de ejercicio» aquí mismo, y qué quedó guardado se revisa en el tour de Registros.",
+    "en": "You can also ask \"how does the kitchen work?\" or request \"exercise tutorial\" right here, and what got saved is covered in the Records tour."
+  },
+  {
+    "clave": "tut.chat-registros.1.texto",
+    "es": "Chats muestra con quién platicaste; Registros, lo que quedó guardado de esas conversaciones.",
+    "en": "Chats shows who you talked to; Records shows what got saved from those conversations."
+  },
+  {
+    "clave": "tut.chat-registros.2.titulo",
+    "es": "Lo que recuerda de ti",
+    "en": "What it remembers about you"
+  },
+  {
+    "clave": "tut.chat-registros.2.texto",
+    "es": "Datos que el asistente decidió que valía la pena recordar entre sesiones —una alergia, una meta, una preferencia— para no preguntártelo de nuevo. Se olvidan tocando su ✕.",
+    "en": "Details the assistant decided were worth remembering between sessions —an allergy, a goal, a preference— so it doesn't ask again. Forget one by tapping its ✕."
+  },
+  {
+    "clave": "tut.chat-registros.3.texto",
+    "es": "Lo registrado en tus apps (comidas, gastos, sesiones) vive en cada app, no aquí: esta pestaña es solo la memoria de la conversación misma.",
+    "en": "What you logged in your apps (meals, expenses, sessions) lives in each app, not here: this tab is only the memory of the conversation itself."
+  },
+  {
+    "clave": "tut.app-generica.1.texto",
+    "es": "El encabezado muestra el cuarto y la app abierta. Si el cuarto tiene varias apps, la flecha ‹ vuelve al lanzador.",
+    "en": "The header shows the room and the open app. If the room holds several apps, the ‹ arrow returns to the launcher."
+  },
+  {
+    "clave": "tut.app-generica.2.titulo",
+    "es": "Lo de hoy",
+    "en": "Today's steps"
+  },
+  {
+    "clave": "tut.app-generica.2.texto",
+    "es": "Tus pasos de hoy en esta app: tus objetivos, lo que tengas agendado y lo que pidan tus metas. Tócala para desplegarla; cada paso se tacha solo en cuanto registras.",
+    "en": "Your steps for today in this app: your targets, whatever you scheduled and whatever your goals ask for. Tap to unfold it — each step crosses itself off as soon as you log."
+  },
+  {
+    "clave": "tut.app-generica.3.titulo",
+    "es": "Los bloques",
+    "en": "The blocks"
+  },
+  {
+    "clave": "tut.app-generica.3.texto",
+    "es": "Esta plantilla está armada con bloques (notas, listas, contadores, hábitos…). Puedes cambiarlos en Menú › Plantillas › editar.",
+    "en": "This template is built from blocks (notes, lists, counters, habits…). You can change them in Menu › Templates › edit."
+  },
+  {
+    "clave": "tut.app-generica.4.titulo",
+    "es": "Salir",
+    "en": "Leaving"
+  },
+  {
+    "clave": "tut.app-generica.4.texto",
+    "es": "«Volver a la casa» cierra la app y te deja de nuevo en el 3D. Lo que registres aquí ya quedó guardado.",
+    "en": "\"Back to the house\" closes the app and returns you to 3D. Whatever you logged here is already saved."
+  },
+  {
+    "clave": "tut.rutinas.1.texto",
+    "es": "El panel de rutinas de Pep@: arriba lo de hoy, abajo el catálogo completo para pausar, editar o borrar.",
+    "en": "Pep@'s routines panel: today's stuff on top, the full catalog below to pause, edit or delete."
+  },
+  {
+    "clave": "tut.rutinas.2.titulo",
+    "es": "Lo que toca hoy",
+    "en": "What's due today"
+  },
+  {
+    "clave": "tut.rutinas.2.texto",
+    "es": "El turno de cafetería, la clase de física, correr al amanecer, piano por la noche: cada tarjeta es una rutina con sus pasos. La que se sale en ámbar es la que ya debería estar en marcha y sigue pendiente.",
+    "en": "The cafeteria shift, the physics class, the morning run, piano at night: every card is a routine with its steps. The one spilling over in amber is the one that should already be underway and is still pending."
+  },
+  {
+    "clave": "tut.rutinas.3.titulo",
+    "es": "Palomear no siempre hace falta",
+    "en": "Checking it off isn't always needed"
+  },
+  {
+    "clave": "tut.rutinas.3.texto",
+    "es": "El paso con el rayo ⚡ se registra solo: correr al amanecer se tacha porque esa carrera ya quedó guardada en Ejercicio, no porque alguien la marcó a mano. Los demás pasos sí se palomean tocándolos.",
+    "en": "The step with the ⚡ bolt logs itself: the morning run crosses off because that run is already saved in Exercise, not because someone checked it by hand. The rest of the steps do need a tap."
+  },
+  {
+    "clave": "tut.rutinas.4.titulo",
+    "es": "El catálogo completo",
+    "en": "The full catalog"
+  },
+  {
+    "clave": "tut.rutinas.4.texto",
+    "es": "Aquí están todas, tocan hoy o no. ON/OFF pausa una rutina sin borrar su historial: lo cumplido hasta hoy se queda, y desde mañana deja de pedirse. Editar y ✕ cambian o eliminan la rutina entera.",
+    "en": "Every routine is here, due today or not. ON/OFF pauses a routine without erasing its history: what's done up to today stays, and from tomorrow it stops being asked for. Edit and ✕ change or delete the whole routine."
+  },
+  {
+    "clave": "tut.rutinas.5.titulo",
+    "es": "Crear una rutina",
+    "en": "Creating a routine"
+  },
+  {
+    "clave": "tut.rutinas.5.texto",
+    "es": "Nombre, la app a la que pertenece (o ninguna, si es un evento suelto de la casa), horario y color. Los pasos son opcionales: sin ellos es solo un evento en el calendario.",
+    "en": "Name, the app it belongs to (or none, for a loose home event), schedule and color. Steps are optional: without them it's just an event on the calendar."
+  },
+  {
+    "clave": "tut.rutinas.6.titulo",
+    "es": "Una vez, cada semana o siempre",
+    "en": "Once, every week or forever"
+  },
+  {
+    "clave": "tut.rutinas.6.texto",
+    "es": "Piano es indefinida sin días marcados (todos); correr solo se repite los días que Pep@ marcó. Lo mensual, anual o en rango no se elige aquí: nace de trazar la meta directo sobre la rejilla del calendario.",
+    "en": "Piano is indefinite with no days marked (every day); running only repeats on the days Pep@ marked. Monthly, yearly or range repeats aren't chosen here: they come from tracing the goal straight onto the calendar grid."
+  },
+  {
+    "clave": "tut.rutinas.7.titulo",
+    "es": "El aviso a su hora",
+    "en": "The reminder at its time"
+  },
+  {
+    "clave": "tut.rutinas.7.texto",
+    "es": "Con el permiso concedido llega como notificación del sistema; si no, el asistente lo dice dentro de la app la próxima vez que la abras.",
+    "en": "With permission granted it arrives as a system notification; if not, the assistant says it inside the app next time you open it."
+  },
+  {
+    "clave": "tut.rutinas.8.texto",
+    "es": "Todo lo agendado aquí también aparece en la rejilla del calendario y, en la app de cada paso, en su lista Hoy.",
+    "en": "Everything scheduled here also shows up on the calendar grid and, in each step's app, on its Today list."
+  },
+  {
+    "clave": "tut.enlaces.1.titulo",
+    "es": "De la meta a su app",
+    "en": "From the goal to its app"
+  },
+  {
+    "clave": "tut.enlaces.1.texto",
+    "es": "Cualquier meta o paso de plan puede llevar un chip con el icono de una app: es la respuesta a «¿y esto dónde se anota?».",
+    "en": "Any goal or plan step can carry a chip with an app's icon: it answers \"and where does this get logged?\"."
+  },
+  {
+    "clave": "tut.enlaces.2.titulo",
+    "es": "Ponerlo o cambiarlo",
+    "en": "Set it or change it"
+  }
+]

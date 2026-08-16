@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "카탈로그의 주제는 처음부터 들어 있어요. 따로 매달린 것들은 채팅이 열어 준 거예요. 항목을 누르면 요약과 핵심 포인트, 그림을 볼 수 있어요."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "항목은 직접 쓸 수도 있고, 대화에서 뽑아낼 수도 있어요. 블랙홀 항목과 피아노 물리 항목에는 그림이 있어요. 앱이 대신 그려 줘요."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "한 해의 질문들"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Pep이 공부하면서 나눈 대화들이 여기 있어요. 엔트로피, 시간 지연, 피아노가 왜 피아노 소리로 들리는지. 하나하나 그대로 저장돼 있어요."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "채팅에서 나무로"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "그래서 백과사전에는 베껴 온 이론이 아니라, 정말로 물어본 것들이 쌓여요."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "인덱스는 내 것"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "각 줄의 + 는 그 자리에 항목을 써요. 분야와 주제는 이미 채워져 있고요. 연필 버튼을 누르면 나무가 자라요. 같은 + 가 가지를 더하고, '씨앗'의 + 는 새 분야를 만들고, 이름 바꾸기·순서 바꾸기·삭제도 돼요. 잔가지가 붙은 숫자는 그 아래에 하위 인덱스가 몇 개 달렸는지 알려줘요."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "공부 계획"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "어떤 목표든 계획을 요청할 수 있어요. AI가 목표 날짜와 쓸 수 있는 시간을 물어보고, 공부 시간을 캘린더에 넣어 줘요."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "백과사전에 항목이 몇 개인지, 인덱스의 분야와 주제를 얼마나 채웠는지 보여줘요. 채팅이 연 주제는 따로 집계돼요."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "네 개의 숫자"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "현자와의 대화 수, 총 학습 시간과 이번 주 시간, 그리고 이어서 공부한 날의 연속 기록이에요."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "어디가 치우쳤는지"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "가장 긴 막대가 관심을 가장 많이 가져간 분야예요. Pep에게는 중간고사 주간의 열역학이었어요."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "공부한 날들"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "하루에 네모 한 칸. 중간고사 전의 벼락치기와 일본에서 보낸 3주의 빈자리가, 전체 기록을 열지 않아도 보여요."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "시간은 어디로 갔을까요"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "위와 같은 내용을 분 단위로 봐요. 어떤 분야에 항목이 많은 것과, 거기에 진짜 시간을 쓴 것은 다른 얘기예요."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "한 해의 세션"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "자세히 보고 싶으면, 기록이 세션마다 분 수와 분야까지 담아 연·월·주로 정리해 둬요."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "오늘 할 몫"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep은 벌써 1년째인데도 밀린 복습이 있어요. 모든 어휘를 다 물어보는 게 아니라, 잊어버리기 직전의 것만 나와요."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "한 해의 꾸준함"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "기록에는 하루에 몇 개를 복습했고 몇 개를 맞혔는지가 남아요. Pep은 꽤 많이 틀리며 시작해서 거의 다 맞히며 마쳤어요. 그리고 일본에서 그 어느 때보다 많이 복습했어요."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "두 언어를 함께"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "위에서 언어를 바꿀 수 있어요. 주 언어 말고도, Pep은 4개월째부터 여행까지 생존 일본어를 만들어 뒀어요. 돌아온 뒤로는 거의 손을 놓았고, 복습 상자에 그게 보여요."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "영역 셋, 레벨 여섯"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "A1부터 C2까지, 레벨마다 어휘 주제와 발음 포인트, 문법이 갖춰져 있어요. 밖에서 강의를 찾지 않아도 뭐가 부족한지 알 수 있어요."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "지금 어디쯤인지"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "습득한 카드, 이번 달 복습, 그리고 지금 레벨. Pep은 연초에 A2였고 지금은 B1쯤이에요."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "할 일 보관함"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "해야 하지만 아직 날짜가 없는 일은 여기에 우선순위와 함께 있어요. 적어 두려고 굳이 날짜를 정할 필요는 없어요."
+  }
+]

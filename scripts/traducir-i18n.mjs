@@ -144,7 +144,7 @@ const CABECERA = {
  *
  * GENERADO por \`npm run traducir:i18n\` a partir de \`dict.en.ts\` y de los
  * fallbacks españoles del código. No lo edites a mano: se sobrescribe entero.
- * Lo que falte cae al español (ver \`useT\`), nunca al inglés.
+ * Lo que falte cae al inglés (ver \`useT\`); al español solo en último término.
  */`,
   tut: (nombre) => `/**
  * Textos de PASO de los tutoriales en ${nombre}. Capa aparte porque solo hacen

@@ -1,0 +1,536 @@
+[
+  {
+    "clave": "editor.anim.vidaDesc",
+    "es": "El objeto deambula por su zona, le entra hambre y se aburre. Aliméntalo y acarícialo con los botones que salen al acercarte.",
+    "en": "The object wanders around its area, gets hungry and gets bored. Feed it and pet it with the buttons that appear when you get close."
+  },
+  {
+    "clave": "editor.anim.vidaAviso",
+    "es": "Atraviesa muros y muebles: dale una zona pequeña si lo pones dentro de un cuarto.",
+    "en": "It walks through walls and furniture: give it a small area if you put it inside a room."
+  },
+  {
+    "clave": "editor.anim.activacion",
+    "es": "Se anima",
+    "en": "Plays"
+  },
+  {
+    "clave": "editor.anim.apagado",
+    "es": "Apagado",
+    "en": "Off"
+  },
+  {
+    "clave": "editor.anim.siempre",
+    "es": "Siempre",
+    "en": "Always"
+  },
+  {
+    "clave": "editor.anim.cerca",
+    "es": "Cerca de ti",
+    "en": "Near you"
+  },
+  {
+    "clave": "editor.anim.poses",
+    "es": "Poses (animación propia)",
+    "en": "Poses (custom animation)"
+  },
+  {
+    "clave": "editor.anim.posesDesc",
+    "es": "Acomoda las piezas con el editor (engrane) y captura cada pose. Con 2 o más, el modelo pasa de una a otra en bucle.",
+    "en": "Arrange the pieces with the editor (gear) and capture each pose. With 2 or more, the model cycles through them in a loop."
+  },
+  {
+    "clave": "editor.anim.pose",
+    "es": "Pose",
+    "en": "Pose"
+  },
+  {
+    "clave": "editor.anim.capturar",
+    "es": "Capturar pose actual",
+    "en": "Capture current pose"
+  },
+  {
+    "clave": "editor.anim.cargar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "editor.anim.cargarTip",
+    "es": "Deja las piezas en esta pose para retocarla",
+    "en": "Loads the pieces into this pose so you can tweak it"
+  },
+  {
+    "clave": "editor.anim.actualizar",
+    "es": "Actualizar",
+    "en": "Update"
+  },
+  {
+    "clave": "editor.anim.actualizarTip",
+    "es": "Reemplaza esta pose con la forma actual",
+    "en": "Replace this pose with the current shape"
+  },
+  {
+    "clave": "editor.anim.quitar",
+    "es": "Quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "editor.anim.quitarPose",
+    "es": "Quitar esta pose",
+    "en": "Remove this pose"
+  },
+  {
+    "clave": "editor.anim.necesitaDos",
+    "es": "Se necesitan 2 o más poses para reproducir la animación.",
+    "en": "You need 2 or more poses to play the animation."
+  },
+  {
+    "clave": "editor.anim.duracion",
+    "es": "Duración por pose",
+    "en": "Duration per pose"
+  },
+  {
+    "clave": "editor.anim.reproducir",
+    "es": "Reproducir animación",
+    "en": "Play animation"
+  },
+  {
+    "clave": "editor.anim.pausar",
+    "es": "Pausar animación",
+    "en": "Pause animation"
+  },
+  {
+    "clave": "editor.pers.anim",
+    "es": "Animación",
+    "en": "Animation"
+  },
+  {
+    "clave": "editor.pers.animFlote",
+    "es": "El movimiento sustituye el flote natural del personaje; el saludo se conserva.",
+    "en": "Motion replaces the character's natural float; the wave is kept."
+  },
+  {
+    "clave": "editor.pers.animSinPiezas",
+    "es": "Para crear animaciones con poses, construye el cuerpo con piezas 3D en la pestaña Cuerpo.",
+    "en": "To create pose animations, build the body with 3D pieces in the Body tab."
+  },
+  {
+    "clave": "room.cocina.desc",
+    "en": "Nutrition: log meals, macros, water and your weekly plan."
+  },
+  {
+    "clave": "room.ejercicio.desc",
+    "en": "Strength, endurance and flexibility routines with goals."
+  },
+  {
+    "clave": "room.recamara.desc",
+    "en": "Track your rest and write your personal anecdote book."
+  },
+  {
+    "clave": "room.descanso.desc",
+    "en": "Your sleep as a night sky: schedule, alarm, score and night log."
+  },
+  {
+    "clave": "room.anecdotario.desc",
+    "en": "Your personal journal: memories with photos and daily mood."
+  },
+  {
+    "clave": "room.despacho.desc",
+    "en": "Finance: budget with expenses and income (fixed and variable), goals (financial calculators, savings/investing, debt) with simulators, and live markets."
+  },
+  {
+    "clave": "room.biblioteca.desc",
+    "en": "Conversational encyclopedia: AI chats, wiki entries and study sessions."
+  },
+  {
+    "clave": "room.entretenimiento.desc",
+    "en": "Archive of movies, series, books and board games."
+  },
+  {
+    "clave": "room.sala.desc",
+    "en": "Plan trips: itinerary, expenses, checklist and wishlist."
+  },
+  {
+    "clave": "room.jardin.desc",
+    "en": "Calm: guided meditations, breathing and gratitude journal."
+  },
+  {
+    "clave": "room.garage.desc",
+    "en": "Maintenance of your vehicles and their services."
+  },
+  {
+    "clave": "room.diario.desc",
+    "en": "Daily news hub, by category."
+  },
+  {
+    "clave": "room.hobbies.desc",
+    "en": "Your pastimes and creative projects."
+  },
+  {
+    "clave": "room.idiomas.desc",
+    "en": "Learn languages: AI tutor, spaced-repetition vocabulary, level syllabus and exercises."
+  },
+  {
+    "clave": "room.calendario.desc",
+    "en": "Your calendar: events and routines by day, week and month."
+  },
+  {
+    "clave": "room.caminos.desc",
+    "en": "Lay out race tracks, train rails and roller coasters on the map."
+  },
+  {
+    "clave": "room.canchas.desc",
+    "en": "Place soccer, tennis, basketball and baseball courts on the map."
+  },
+  {
+    "clave": "room.huerto.desc",
+    "en": "Prepare plots, sow crops, water them and harvest in real time."
+  },
+  {
+    "clave": "room.granja.desc",
+    "en": "Raise hens, pigs, goats, sheep, cows and horses, and grow their food in the same editor."
+  },
+  {
+    "clave": "room.ideas.desc",
+    "en": "Your idea journal and brainstorms, ten concept-map formats on a free canvas (mind map, tree, timeline, cycle, pyramid, Venn…) and eight diagrams to decide with (pros and cons, force field, SWOT, Eisenhower, decision tree, tier list, weighted decision matrix and Ishikawa), by hand or with AI."
+  },
+  {
+    "clave": "room.computo.desc",
+    "en": "Computing room: a scientific calculator with your formula book hanging off it (Mathematics, Physics and Chemistry included and editable) and eight modes — a plotter with four types (2D, polar, parametric and 3D surface), binary and hexadecimal, matrices, systems of equations, unit conversion, tip and rule of three; and spreadsheets that export to Excel and PDF."
+  },
+  {
+    "clave": "computo.tab.calculadora",
+    "en": "Calculator"
+  },
+  {
+    "clave": "computo.tab.hojas",
+    "en": "Spreadsheets"
+  },
+  {
+    "clave": "computo.menu.formulario",
+    "es": "Formulario",
+    "en": "Formula book"
+  },
+  {
+    "clave": "computo.meta.calculos",
+    "en": "Solve something"
+  },
+  {
+    "clave": "computo.motor.error",
+    "es": "No se pudo cargar el motor de cálculo. Revisa la conexión.",
+    "en": "The calculation engine could not be loaded. Check your connection."
+  },
+  {
+    "clave": "computo.motor.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "computo.error.sintaxis",
+    "es": "La expresión no se entiende",
+    "en": "That expression does not parse"
+  },
+  {
+    "clave": "computo.error.simbolo",
+    "en": "Unknown symbol"
+  },
+  {
+    "clave": "computo.error.dominio",
+    "en": "That does not work with these values"
+  },
+  {
+    "clave": "computo.plan.ejemplo",
+    "es": "Dominar las fórmulas de un tema y aplicarlas",
+    "en": "Master the formulas of a topic and apply them"
+  },
+  {
+    "clave": "computo.plan.material",
+    "es": "Fórmulas del plan",
+    "en": "Formulas for the plan"
+  },
+  {
+    "clave": "computo.form.buscar",
+    "es": "Buscar fórmula…",
+    "en": "Search formula…"
+  },
+  {
+    "clave": "computo.form.sinResultados",
+    "es": "Nada con ese nombre.",
+    "en": "Nothing by that name."
+  },
+  {
+    "clave": "computo.form.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "computo.form.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "computo.form.cerrarFicha",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "computo.form.imprimir",
+    "es": "Imprimir o guardar en PDF",
+    "en": "Print or save as PDF"
+  },
+  {
+    "clave": "computo.form.imprimirCarpeta",
+    "es": "Imprimir la carpeta",
+    "en": "Print the folder"
+  },
+  {
+    "clave": "computo.form.carpetaNueva",
+    "es": "Carpeta",
+    "en": "Folder"
+  },
+  {
+    "clave": "computo.form.nuevaCarpeta",
+    "es": "Carpeta nueva",
+    "en": "New folder"
+  },
+  {
+    "clave": "computo.form.nuevaCarpetaMsg",
+    "es": "¿Cómo se llama?",
+    "en": "What is it called?"
+  },
+  {
+    "clave": "computo.form.subcarpeta",
+    "es": "Subcarpeta",
+    "en": "Subfolder"
+  },
+  {
+    "clave": "computo.form.formulaNueva",
+    "es": "Fórmula",
+    "en": "Formula"
+  },
+  {
+    "clave": "computo.form.borrarCarpeta",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete “{nombre}”"
+  },
+  {
+    "clave": "computo.form.borrarCarpetaMsg",
+    "es": "Se van también sus {n} fórmulas y sus subcarpetas.",
+    "en": "Its {n} formulas and subfolders go too."
+  },
+  {
+    "clave": "computo.form.borrarCarpetaVacia",
+    "es": "La carpeta se va con sus subcarpetas.",
+    "en": "The folder goes with its subfolders."
+  },
+  {
+    "clave": "computo.form.borrarFormula",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete “{nombre}”"
+  },
+  {
+    "clave": "computo.form.constantes",
+    "es": "Constantes: {lista}",
+    "en": "Constants: {lista}"
+  },
+  {
+    "clave": "computo.form.vacio",
+    "es": "Todavía no hay fórmulas. Crea una carpeta y escribe la tuya.",
+    "en": "No formulas yet. Create a folder and write yours."
+  },
+  {
+    "clave": "computo.form.masAcciones",
+    "es": "Más acciones",
+    "en": "More actions"
+  },
+  {
+    "clave": "computo.form.editarCarpeta",
+    "es": "Editar carpeta",
+    "en": "Edit folder"
+  },
+  {
+    "clave": "computo.form.arrastrar",
+    "es": "Arrastrar para mover",
+    "en": "Drag to move"
+  },
+  {
+    "clave": "computo.carpeta.titulo",
+    "es": "Editar carpeta",
+    "en": "Edit folder"
+  },
+  {
+    "clave": "computo.carpeta.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "computo.carpeta.nombre",
+    "es": "Nombre de la carpeta",
+    "en": "Folder name"
+  },
+  {
+    "clave": "computo.carpeta.emoji",
+    "es": "Icono",
+    "en": "Icon"
+  },
+  {
+    "clave": "computo.carpeta.emojiLibre",
+    "es": "Otro emoji",
+    "en": "Another emoji"
+  },
+  {
+    "clave": "computo.carpeta.color",
+    "es": "Color",
+    "en": "Colour"
+  },
+  {
+    "clave": "computo.carpeta.colorPista",
+    "es": "Las subcarpetas sin color propio heredan este.",
+    "en": "Subfolders without their own colour inherit this one."
+  },
+  {
+    "clave": "computo.carpeta.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "computo.carpeta.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "computo.editor.titulo.nueva",
+    "es": "Fórmula nueva",
+    "en": "New formula"
+  },
+  {
+    "clave": "computo.editor.titulo.editar",
+    "es": "Editar fórmula",
+    "en": "Edit formula"
+  },
+  {
+    "clave": "computo.editor.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "computo.editor.carpeta",
+    "es": "Guardar en",
+    "en": "Save in"
+  },
+  {
+    "clave": "computo.editor.nombre",
+    "es": "Nombre («Energía cinética»)",
+    "en": "Name (“Kinetic energy”)"
+  },
+  {
+    "clave": "computo.editor.resultado",
+    "es": "Símbolo del resultado",
+    "en": "Result symbol"
+  },
+  {
+    "clave": "computo.editor.descripcion",
+    "es": "Nota (cuándo se usa, de dónde salió)",
+    "en": "Note (when to use it, where it came from)"
+  },
+  {
+    "clave": "computo.editor.variables",
+    "es": "Variables",
+    "en": "Variables"
+  },
+  {
+    "clave": "computo.editor.varNombre",
+    "es": "nombre",
+    "en": "name"
+  },
+  {
+    "clave": "computo.editor.varUnidad",
+    "es": "unidad",
+    "en": "unit"
+  },
+  {
+    "clave": "computo.editor.varValor",
+    "es": "valor",
+    "en": "value"
+  },
+  {
+    "clave": "computo.editor.constante",
+    "es": "Constante: no se pide, se usa su valor",
+    "en": "Constant: never asked for, its value is used"
+  },
+  {
+    "clave": "computo.editor.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "computo.editor.faltaNombre",
+    "es": "Ponle un nombre",
+    "en": "Give it a name"
+  },
+  {
+    "clave": "computo.editor.faltaExpresion",
+    "es": "Escribe la expresión",
+    "en": "Write the expression"
+  },
+  {
+    "clave": "computo.editor.resultadoReservado",
+    "es": "Ese símbolo es de mathjs; usa otro",
+    "en": "That symbol belongs to mathjs; pick another"
+  },
+  {
+    "clave": "computo.editor.resultadoInvalido",
+    "es": "El símbolo del resultado no vale",
+    "en": "That result symbol is not valid"
+  },
+  {
+    "clave": "computo.editor.noSeEntiende",
+    "es": "Falta cerrar algo o sobra un símbolo.",
+    "en": "Something is unclosed, or a symbol is out of place."
+  },
+  {
+    "clave": "computo.editor.implicita",
+    "es": "«{simbolos}» se lee como una sola variable. Si querías multiplicar, escribe los asteriscos: m * g * h.",
+    "en": "“{simbolos}” reads as a single variable. If you meant to multiply, write the asterisks: m * g * h."
+  },
+  {
+    "clave": "computo.calc.placeholder",
+    "es": "2*sin(pi/4) + log(100, 10)",
+    "en": "2*sin(pi/4) + log(100, 10)"
+  },
+  {
+    "clave": "computo.calc.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "computo.calc.grados",
+    "es": "Grados",
+    "en": "Degrees"
+  },
+  {
+    "clave": "computo.calc.radianes",
+    "es": "Radianes",
+    "en": "Radians"
+  },
+  {
+    "clave": "computo.calc.resolver",
+    "es": "Resolver",
+    "en": "Solve"
+  },
+  {
+    "clave": "computo.calc.pulsaResolver",
+    "es": "Pulsa «Resolver»",
+    "en": "Press “Solve”"
+  },
+  {
+    "clave": "computo.calc.soluciones",
+    "es": "Soluciones",
+    "en": "Solutions"
+  },
+  {
+    "clave": "computo.calc.exactas",
+    "es": "Raíces exactas del polinomio.",
+    "en": "Exact roots of the polynomial."
+  }
+]

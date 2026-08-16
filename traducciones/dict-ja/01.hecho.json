@@ -1,0 +1,778 @@
+[
+ {
+  "clave": "app.brand",
+  "texto": "Mind Planner Home"
+ },
+ {
+  "clave": "app.brandCorto",
+  "texto": "MPH"
+ },
+ {
+  "clave": "nav.ariaMenu",
+  "texto": "部屋メニュー"
+ },
+ {
+  "clave": "nav.retraer",
+  "texto": "メニューを閉じる"
+ },
+ {
+  "clave": "nav.abrir",
+  "texto": "メニューを開く"
+ },
+ {
+  "clave": "nav.editarCuarto",
+  "texto": "この部屋を編集"
+ },
+ {
+  "clave": "nav.entrar",
+  "texto": "入る ›"
+ },
+ {
+  "clave": "nav.ayuda.tarjetaTexto",
+  "texto": "部屋をタップするとアプリが開きます。歯車アイコンでオプション（移動・削除・編集）を開けます。"
+ },
+ {
+  "clave": "nav.entrarCuarto",
+  "texto": "{nombre}に入る"
+ },
+ {
+  "clave": "nav.ajustesCuarto",
+  "texto": "部屋のオプション"
+ },
+ {
+  "clave": "nav.subirCuarto",
+  "texto": "上に移動"
+ },
+ {
+  "clave": "nav.bajarCuarto",
+  "texto": "下に移動"
+ },
+ {
+  "clave": "nav.borrarCuarto",
+  "texto": "部屋を削除"
+ },
+ {
+  "clave": "nav.borrarCuartoTitulo",
+  "texto": "「{nombre}」を削除"
+ },
+ {
+  "clave": "nav.borrarCuartoMsg",
+  "texto": "壁も装飾もオブジェクトも一緒になくなります。"
+ },
+ {
+  "clave": "nav.borrarCuartoOk",
+  "texto": "削除"
+ },
+ {
+  "clave": "nav.agregarCuarto",
+  "texto": "部屋を追加"
+ },
+ {
+  "clave": "nav.agregarCasa",
+  "texto": "家に追加"
+ },
+ {
+  "clave": "nav.todosColocados",
+  "texto": "すべての部屋がすでに家にあります。"
+ },
+ {
+  "clave": "nav.menu.cuartos",
+  "texto": "部屋"
+ },
+ {
+  "clave": "nav.menu.inventarios",
+  "texto": "インベントリ"
+ },
+ {
+  "clave": "inv.plantillas",
+  "texto": "テンプレート"
+ },
+ {
+  "clave": "inv.subObjetos",
+  "texto": "オブジェクト"
+ },
+ {
+  "clave": "inv.subEspeciales",
+  "texto": "特別なオブジェクト"
+ },
+ {
+  "clave": "inv.subPlantCuartos",
+  "texto": "部屋"
+ },
+ {
+  "clave": "inv.subPlantInfra",
+  "texto": "エクストラ"
+ },
+ {
+  "clave": "inv.grupo.mobiliario",
+  "texto": "家具"
+ },
+ {
+  "clave": "inv.grupo.casa",
+  "texto": "家"
+ },
+ {
+  "clave": "inv.grupo.ropa",
+  "texto": "服"
+ },
+ {
+  "clave": "inv.grupo.animales",
+  "texto": "動物"
+ },
+ {
+  "clave": "inv.grupo.agua",
+  "texto": "水"
+ },
+ {
+  "clave": "inv.grupo.luz",
+  "texto": "灯りと炎"
+ },
+ {
+  "clave": "inv.grupo.movimiento",
+  "texto": "自分で動く"
+ },
+ {
+  "clave": "inv.grupo.conducir",
+  "texto": "乗って操作"
+ },
+ {
+  "clave": "inv.grupo.disparar",
+  "texto": "弾を撃つ"
+ },
+ {
+  "clave": "inv.grupo.reflejo",
+  "texto": "反射と映像"
+ },
+ {
+  "clave": "inv.ropa.ayuda",
+  "texto": "服はキャラクターに着せるもので、マップには置けません。服をタップするとクローゼットが開きます。"
+ },
+ {
+  "clave": "inv.animales.ayuda",
+  "texto": "動物は牧場の囲いで暮らします。タップすると囲いを作りに行けます。"
+ },
+ {
+  "clave": "inv.casa.ayuda",
+  "texto": "家が何でできていて、それぞれどれだけあるか。間取りエディターで塗るもので、ドラッグはしません。"
+ },
+ {
+  "clave": "inv.casa.vacia",
+  "texto": "まだ何も建てていません。マップに部屋を建てましょう。"
+ },
+ {
+  "clave": "inv.casa.estructura",
+  "texto": "構造"
+ },
+ {
+  "clave": "inv.casa.muros",
+  "texto": "壁"
+ },
+ {
+  "clave": "inv.casa.siluetas",
+  "texto": "壁の上部"
+ },
+ {
+  "clave": "inv.casa.puertas",
+  "texto": "ドア"
+ },
+ {
+  "clave": "inv.casa.ventanas",
+  "texto": "窓と開口部"
+ },
+ {
+  "clave": "inv.casa.techos",
+  "texto": "屋根"
+ },
+ {
+  "clave": "inv.casa.losetas",
+  "texto": "床タイル"
+ },
+ {
+  "clave": "inv.casa.pisoInterior",
+  "texto": "室内の床"
+ },
+ {
+  "clave": "inv.casa.pisoExterior",
+  "texto": "屋外の床"
+ },
+ {
+  "clave": "inv.casa.accesos",
+  "texto": "階段とエレベーター"
+ },
+ {
+  "clave": "inv.casa.unidad.muros",
+  "texto": "区間あたり"
+ },
+ {
+  "clave": "inv.casa.unidad.techos",
+  "texto": "屋根マスごと"
+ },
+ {
+  "clave": "inv.casa.unidad.losetas",
+  "texto": "マスごと"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoInterior",
+  "texto": "部屋ごと"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoExterior",
+  "texto": "マスごと"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.cuartos",
+  "texto": "部屋"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.basicos",
+  "texto": "基本の空間"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.niveles",
+  "texto": "階"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.sotanos",
+  "texto": "地下室"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.albercas",
+  "texto": "プール"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.patios",
+  "texto": "中庭"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-recto",
+  "texto": "独立した壁"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-diagonal",
+  "texto": "斜めの壁"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-curvo",
+  "texto": "曲がった壁"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.recta",
+  "texto": "フラットな上部"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.arco",
+  "texto": "アーチ"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.esquinas",
+  "texto": "胸壁"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.triangulo",
+  "texto": "切妻"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.plano",
+  "texto": "フラット屋根"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.dos_aguas",
+  "texto": "傾斜屋根"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.abovedado",
+  "texto": "丸屋根"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.cupula",
+  "texto": "ドーム"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.cuadrado",
+  "texto": "四角いタイル"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.triangular",
+  "texto": "斜めのタイル"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.circular",
+  "texto": "丸いタイル"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera",
+  "texto": "階段"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.elevador",
+  "texto": "エレベーター"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.resbaladilla",
+  "texto": "滑り台"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera-marina",
+  "texto": "プールのはしご"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.solido",
+  "texto": "無地"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ventana",
+  "texto": "窓付き"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ladrillo",
+  "texto": "レンガ"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.madera",
+  "texto": "木"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.vitraje",
+  "texto": "ガラス"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.recta",
+  "texto": "片開き"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.sin",
+  "texto": "戸口"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.doble",
+  "texto": "両開き"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.porton",
+  "texto": "門"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.corredera",
+  "texto": "引き戸"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadrado",
+  "texto": "四角い窓"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.circulo",
+  "texto": "丸窓"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.triangulo",
+  "texto": "三角窓"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadro",
+  "texto": "壁の絵"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.espejo",
+  "texto": "壁の鏡"
+ },
+ {
+  "clave": "infra.ayuda",
+  "texto": "これらのテンプレートは部屋の中ではなく、専用のエディターで3Dマップ上に直接建てます。"
+ },
+ {
+  "clave": "infra.construidas",
+  "texto": "建設済み"
+ },
+ {
+  "clave": "infra.desplegar",
+  "texto": "種類を選ぶ"
+ },
+ {
+  "clave": "infra.plegar",
+  "texto": "オプションを隠す"
+ },
+ {
+  "clave": "infra.sub.animales",
+  "texto": "動物"
+ },
+ {
+  "clave": "infra.construir",
+  "texto": "マップに建てる"
+ },
+ {
+  "clave": "infra.salirEditor",
+  "texto": "エディターを終了"
+ },
+ {
+  "clave": "infra.resumen.ayuda",
+  "texto": "このテンプレートは3Dマップ上に建てます：メニュー→テンプレート→エクストラ→建てる。"
+ },
+ {
+  "clave": "caminos.tipo.pista",
+  "texto": "レーストラック"
+ },
+ {
+  "clave": "caminos.tipo.riel",
+  "texto": "電車のレール"
+ },
+ {
+  "clave": "caminos.tipo.coaster",
+  "texto": "ジェットコースター"
+ },
+ {
+  "clave": "caminos.herr.pintar",
+  "texto": "区間を描く"
+ },
+ {
+  "clave": "caminos.herr.borrar",
+  "texto": "区間を消す"
+ },
+ {
+  "clave": "caminos.herr.subir",
+  "texto": "高さを上げる"
+ },
+ {
+  "clave": "caminos.herr.bajar",
+  "texto": "高さを下げる"
+ },
+ {
+  "clave": "caminos.herr.meta",
+  "texto": "ゴールライン"
+ },
+ {
+  "clave": "caminos.tipo.trazo",
+  "texto": "手描きコース"
+ },
+ {
+  "clave": "trazo.herr.punto",
+  "texto": "点を置く"
+ },
+ {
+  "clave": "trazo.herr.mover",
+  "texto": "点を動かす"
+ },
+ {
+  "clave": "trazo.abierto",
+  "texto": "オープンコース"
+ },
+ {
+  "clave": "trazo.cerrado",
+  "texto": "クローズドコース"
+ },
+ {
+  "clave": "trazo.borrarTodo",
+  "texto": "コースを削除"
+ },
+ {
+  "clave": "trazo.ayuda",
+  "texto": "マップをタップして点を置き、点をタップすると削除できます。最初の点がゴールで、タップするとコースが閉じてレースができます。"
+ },
+ {
+  "clave": "carrera.titulo",
+  "texto": "レース"
+ },
+ {
+  "clave": "carrera.mejor",
+  "texto": "ベストラップ"
+ },
+ {
+  "clave": "carrera.vueltas",
+  "texto": "ラップ数"
+ },
+ {
+  "clave": "carrera.solo",
+  "texto": "一人で走る（タイムトライアル）"
+ },
+ {
+  "clave": "carrera.contraIA",
+  "texto": "またはアシスタントと対戦："
+ },
+ {
+  "clave": "carrera.vuelta",
+  "texto": "ラップ"
+ },
+ {
+  "clave": "carrera.abandonar",
+  "texto": "やめる"
+ },
+ {
+  "clave": "carrera.ya",
+  "texto": "スタート！"
+ },
+ {
+  "clave": "carrera.ganaste",
+  "texto": "レースに勝った！🏆"
+ },
+ {
+  "clave": "carrera.perdiste",
+  "texto": "ライバルがレースに勝ちました…"
+ },
+ {
+  "clave": "carrera.fin",
+  "texto": "レース終了！🏁"
+ },
+ {
+  "clave": "carrera.total",
+  "texto": "合計"
+ },
+ {
+  "clave": "carrera.otraVez",
+  "texto": "もう一度"
+ },
+ {
+  "clave": "carrera.salir",
+  "texto": "終了"
+ },
+ {
+  "clave": "carrera.msg.record",
+  "texto": "新記録ラップ！🎉"
+ },
+ {
+  "clave": "carrera.msg.vuelta",
+  "texto": "ラップ完了！"
+ },
+ {
+  "clave": "carrera.msg.corta",
+  "texto": "コースが短すぎてレースできません…"
+ },
+ {
+  "clave": "carrera.tabla.titulo",
+  "texto": "ベストタイム"
+ },
+ {
+  "clave": "carrera.tabla.vueltaCol",
+  "texto": "ラップ"
+ },
+ {
+  "clave": "carrera.tabla.totalCol",
+  "texto": "合計"
+ },
+ {
+  "clave": "carrera.tabla.vd",
+  "texto": "勝/敗"
+ },
+ {
+  "clave": "carrera.usarItem",
+  "texto": "アイテムを使う（E）"
+ },
+ {
+  "clave": "room.paintball.nombre",
+  "texto": "Paintball"
+ },
+ {
+  "clave": "room.paintball.desc",
+  "texto": "家をマップにして、アシスタントとペイントボールで対戦（1対1、2対2、バトルロイヤル）。"
+ },
+ {
+  "clave": "paintball.titulo",
+  "texto": "Paintball"
+ },
+ {
+  "clave": "paintball.jugar",
+  "texto": "マップでプレイ"
+ },
+ {
+  "clave": "paintball.marcador",
+  "texto": "勝利"
+ },
+ {
+  "clave": "paintball.derrotas",
+  "texto": "敗北"
+ },
+ {
+  "clave": "paintball.m1v1",
+  "texto": "1 vs 1"
+ },
+ {
+  "clave": "paintball.m2v2",
+  "texto": "2 vs 2"
+ },
+ {
+  "clave": "paintball.mRoyale",
+  "texto": "バトルロイヤル"
+ },
+ {
+  "clave": "paintball.eligeRival",
+  "texto": "ライバルを選んでください："
+ },
+ {
+  "clave": "paintball.eligeCompanero",
+  "texto": "チームメイトを選んでください（ライバルはランダムです）："
+ },
+ {
+  "clave": "paintball.royaleDesc",
+  "texto": "総当たり戦：家じゅうでアシスタント全員と対決します。"
+ },
+ {
+  "clave": "paintball.empezar",
+  "texto": "バトル開始"
+ },
+ {
+  "clave": "paintball.reglas",
+  "texto": "全員3発まで耐えられます。最後まで立っていたチームの勝ち。家全体が戦場です。"
+ },
+ {
+  "clave": "paintball.posicionate",
+  "texto": "物陰に隠れて！"
+ },
+ {
+  "clave": "paintball.ya",
+  "texto": "スタート！"
+ },
+ {
+  "clave": "paintball.tu",
+  "texto": "自分"
+ },
+ {
+  "clave": "paintball.abandonar",
+  "texto": "やめる"
+ },
+ {
+  "clave": "paintball.hintDisparar",
+  "texto": "長押しで発射（スペース）"
+ },
+ {
+  "clave": "paintball.hintApuntar",
+  "texto": "長押しで狙う（PCは右クリック）"
+ },
+ {
+  "clave": "paintball.cambiarVista",
+  "texto": "1人称と3人称を切り替え（Vキー）"
+ },
+ {
+  "clave": "paintball.vista",
+  "texto": "視点"
+ },
+ {
+  "clave": "paintball.vista1",
+  "texto": "1人称"
+ },
+ {
+  "clave": "paintball.vista3",
+  "texto": "3人称"
+ },
+ {
+  "clave": "herr.pintura",
+  "texto": "ペイント"
+ },
+ {
+  "clave": "herr.apuntar",
+  "texto": "狙う"
+ },
+ {
+  "clave": "herr.apuntando",
+  "texto": "狙い中"
+ },
+ {
+  "clave": "herr.miraEnPerspectiva",
+  "texto": "照準を使うには3人称か1人称に切り替えてください"
+ },
+ {
+  "clave": "tiro.hintDisparar",
+  "texto": "長押しで発射（左クリックまたはスペース）"
+ },
+ {
+  "clave": "tiro.hintApuntar",
+  "texto": "狙う（PCは右クリック、タッチはタップで固定）"
+ },
+ {
+  "clave": "tiro.apuntarConRaton",
+  "texto": "画面上でマウスを動かして狙います"
+ },
+ {
+  "clave": "paintball.ganaste",
+  "texto": "バトルに勝った！🏆"
+ },
+ {
+  "clave": "paintball.perdiste",
+  "texto": "ペイントまみれにされた… 🎨"
+ },
+ {
+  "clave": "paintball.impactos",
+  "texto": "被弾"
+ },
+ {
+  "clave": "paintball.fuera",
+  "texto": "脱落"
+ },
+ {
+  "clave": "paintball.enPie",
+  "texto": "生存"
+ },
+ {
+  "clave": "paintball.otraVez",
+  "texto": "もう一度"
+ },
+ {
+  "clave": "paintball.salir",
+  "texto": "終了"
+ },
+ {
+  "clave": "paintball.msg.fuera",
+  "texto": "{nombre}が脱落しました！"
+ },
+ {
+  "clave": "paintball.msg.teDieron",
+  "texto": "被弾した！ライフが1つ減った"
+ },
+ {
+  "clave": "paintball.msg.nivel",
+  "texto": "プレイするには1階に降りてください。"
+ },
+ {
+  "clave": "paintball.msg.sinAsistentes",
+  "texto": "対戦するにはアシスタントを作成してください。"
+ },
+ {
+  "clave": "paintball.msg.faltan",
+  "texto": "2対2には最低3人のアシスタントが必要です。"
+ },
+ {
+  "clave": "paintball.resumen.ayuda",
+  "texto": "このモードは3Dマップでプレイします：メニュー→テンプレート→エクストラ→プレイ。"
+ },
+ {
+  "clave": "paintball.resumen.nota",
+  "texto": "1対1、2対2、バトルロイヤルの中からアシスタントとの対戦形式を選べます。全員3発まで耐えられ、家全体が戦場になります。"
+ },
+ {
+  "clave": "caminos.ayuda",
+  "texto": "マップのマスをタップして適用します。ドラッグでカメラを動かせます。"
+ },
+ {
+  "clave": "caminos.resumen.unidad",
+  "texto": "カウントは区間（道のあるマスの数）です。"
+ },
+ {
+  "clave": "canchas.clase.futbol",
+  "texto": "サッカー"
+ },
+ {
+  "clave": "canchas.clase.tenis",
+  "texto": "テニス"
+ },
+ {
+  "clave": "canchas.clase.basket",
+  "texto": "バスケットボール"
+ },
+ {
+  "clave": "canchas.clase.beisbol",
+  "texto": "野球"
+ },
+ {
+  "clave": "canchas.rotar",
+  "texto": "回転（R）"
+ },
+ {
+  "clave": "canchas.quitar",
+  "texto": "コートを削除"
+ },
+ {
+  "clave": "canchas.editar",
+  "texto": "コートを編集"
+ },
+ {
+  "clave": "canchas.tamano",
+  "texto": "サイズ"
+ }
+]

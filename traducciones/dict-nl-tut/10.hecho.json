@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "Zes soorten, elk met zijn eigen hongervenster. Tik in een hok waar nog plek is en het dier verschijnt, naam en al."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "Speelgoed"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "Modderpoel, badkuip en bal, één per vakje: de dieren gaan er vanzelf heen en spelen tilt hun humeur op. De opvang heeft alle drie al staan."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "Namen"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "Met Benoemen tik je op een hok en zie je de lijst met de gebruikte capaciteit; tik op een dier om het te hernoemen."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "Dat is het hele vak: hok, capaciteit, speelgoed en aandacht. In de demo mag je de opvang uitbreiden, als je durft."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "Dit is de baan van Pep: een ovaal van asfalt met een geblokte finishlijn. Het is de enige finish op de kaart — de hele racemodus draait eromheen."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "Daar is de finish. Loop naar de fiets of de auto op het erf en stap op met hun knop; met een voertuig onder je raak je deze lijn en verschijnt het stoplicht."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "Blijf dicht tegen het ovaal en drift door de bochten om geen snelheid te verliezen. Je kunt ook tegen een assistent racen, met items ertussendoor: banaan, turbo en bom."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "Naast de finish staan de beste tijden: de fiets van Pep heeft 38 overwinningen en een beste ronde van 41,8 s. Verbreek dat — records die je in de demo neerzet, blijven bewaard."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "De treinrail rond de kaart en de achtbaan van de kermis zijn ook banen: loop op het spoor en de knop om in te stappen verschijnt. Elke baan is zijn eigen netwerk."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "Er zijn drie soorten banen, en van hieruit zie je ze alle drie: racebaan (om te racen), treinrail (de trein die om de kaart loopt) en achtbaan (met hoogtes per vakje). Ze mengen nooit, ook al raken ze elkaar: elke baan zoekt buren van zijn eigen soort."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "De achtbaan van de kermis klimt tot zes niveaus en de hellingen tussen vakje en vakje lopen vanzelf in elkaar over. Stap in: het karretje rijdt het gesloten circuit rond."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "In je eigen huis teken je ze vakje voor vakje met de editor Circuits, of uit de vrije hand met de Vrije baan per sector. Hier in de demo ligt de kaart al getekend."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "Dit is het sportcomplex van Pep: voetbal, basketbal, tennis en honkbal, naast elkaar. Elk veld is een rechthoek op de kaart — naar binnen lopen start het spel."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "De laadknop verschijnt in het gat van de weergavekubus en schiet naar waar je personage kijkt: eerst richten, dan laden."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "Beneden liggen het honkbalveld en de tennisbaan: tennis heeft muurspel en rally's, honkbal is puur slaan, tegen de werpmachine of tegen een pitcher."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "Bovenaan liggen het voetbal- en het basketbalveld. Voetbal speel je met dribbelen en schieten; basketbal door de kracht van je schot af te meten."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "De score wordt per veld bewaard: Pep liet een 21-15 bij basketbal achter en een reeks van 18 rally's bij tennis. In de demo tellen de wedstrijden — doe het beter."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "Open het gereedschapswiel: daar zit Paintball, in de categorie van bouwen en spellen, naast de voertuigen."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "Kies de modus: 1 tegen 1, 2 tegen 2 of ieder voor zich. Je rivalen zijn de assistenten op de kaart — Laika telt mee — en er wordt op de begane grond gespeeld."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "Het hele huis is het speelveld: dek je achter de muren, kom tevoorschijn om te schieten en let op je rug. De spatten blijven de hele strijd zitten."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "De score van Pep staat op 47 overwinningen tegen 23 nederlagen. In de demo tellen de gevechten echt: krik hem op voordat je gaat."
+  }
+]

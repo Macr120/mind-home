@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "De knop op de regel legt het ECHTE gegeven vast in de app — een glas water, een maaltijd — en de stap streept zichzelf door simpelweg omdat die registratie er nu staat, niet omdat iemand hem aanvinkte. Nog eens tikken op een stap die al af is dupliceert niets: de knop verdwijnt."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "Jouw aantal per dag"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "Stappen met een instelbaar aantal verander je hier meteen. Op 0 zetten schakelt dat dagdoel uit zonder de geschiedenis van eerdere dagen te wissen."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "Van dagdoel naar routine"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "De kalender plant datzelfde dagdoel in op een vast tijdstip: hij opent dezelfde editor als de routines van de klok, dus het staat meteen op allebei de plekken."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "Wat af is verdwijnt niet"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "Het zakt naar «Gedaan», ingeklapt: zien dat je registratie effect heeft is deel van de beloning, en van daaruit maak je het ongedaan als er eentje te veel doorglipte."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "De kaart van je personage: Pep heeft een heel jaar echte activiteit achter zich, dus elk getal hier heeft een echt verhaal dat het verklaart."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "Het personage"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "Erop tikken opent de personage-editor. Zijn stemming —blij, tevreden, verdrietig of slapend— stijgt met elke nieuwe registratie en zakt alleen als er dagen zonder voorbijgaan; hij valt nooit in één klap terug."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "De rang van Sisyphus"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "Twaalf rangen om te beklimmen: elke dag met activiteit is één trede van de 365. Pep heeft er al meerdere verdiend; tik erop om de hele Berg te zien."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "Treden en genadedagen"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "Elke 7 treden levert een badge op, elk segment van weken verhoogt je rang. Een dag missen breekt niets: je hebt 2 genadedagen per maand voordat je terugzakt naar het begin van je huidige rang."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "52 badges per familie"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "Gegroepeerd per geologische familie en in nevelen gehuld tot je ze verdient: geen naam en geen beschrijving te zien tot je ze ontgrendelt."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "Jouw samenvatting"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped bouwt de samenvatting van je week, maand of jaar op in dia's — het heeft zijn eigen tour, met gegevens in overvloed in een jaar als dat van Pep."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "De radar per kamer"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "Elke punt is een kamer van het huis, en haar lengte is de som van de XP van de apps die eraan zijn toegewezen. Een kamer zonder activiteit zie je meteen: haar punt zakt naar het midden."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "Als stories: tik rechts om vooruit te gaan, links om terug te gaan, en houd ingedrukt om op een dia te pauzeren."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "Week, maand of jaar"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "Elk type bouwt zijn eigen dia's met zijn eigen gegevens — de jaarsamenvatting van Pep is de langste, met de hoogste en de laagste momenten van het hele jaar."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "Door de periodes bewegen"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "De pijlen ‹ › lopen door periodes die al zijn afgesloten: verder dan vandaag kun je niet, dus je vergelijkt altijd met iets echts."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "Een dia delen"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "Kopieert de tekst van de dia die je bekijkt, klaar om te plakken waar je wilt — geen schermafbeeldingen nodig."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "Een stipje naast de knop die het opent waarschuwt als er een nieuwe samenvatting klaarstaat; openen zet het stipje uit."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "Dit is het toevluchtsoord van Pep: aan de ene kant de hokken en aan de andere de moestuin die ze voedt. Op naar de percelen."
+  }
+]

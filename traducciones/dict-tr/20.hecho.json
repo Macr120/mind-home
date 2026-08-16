@@ -1,0 +1,818 @@
+[
+  {
+    "clave": "ascensos.sinAccesoSotano",
+    "texto": "Havuz merdivenini yerleştirmek için bir bodrum odası kaz."
+  },
+  {
+    "clave": "ascensos.escaleraMarina",
+    "texto": "Havuz merdiveni"
+  },
+  {
+    "clave": "ascensos.hintSotano",
+    "texto": "3D haritada sürükleyerek onu çukurun başka bir duvarına taşı. Karakter havuzun üzerinde yürüyerek iner ve çıkar."
+  },
+  {
+    "clave": "planos.cerrar",
+    "texto": "Kat planlarından çık"
+  },
+  {
+    "clave": "planos.capa.titulo",
+    "texto": "Katman"
+  },
+  {
+    "clave": "planos.capa.cuartos",
+    "texto": "Odalar"
+  },
+  {
+    "clave": "planos.capa.paredes",
+    "texto": "Duvarlar"
+  },
+  {
+    "clave": "planos.capa.pisos",
+    "texto": "Zeminler"
+  },
+  {
+    "clave": "planos.capa.techos",
+    "texto": "Çatılar"
+  },
+  {
+    "clave": "planos.herr.seleccionar",
+    "texto": "Seç"
+  },
+  {
+    "clave": "planos.herr.muro",
+    "texto": "Duvarlar"
+  },
+  {
+    "clave": "planos.herr.puerta",
+    "texto": "Kapılar"
+  },
+  {
+    "clave": "planos.herr.ventana",
+    "texto": "Pencereler"
+  },
+  {
+    "clave": "planos.herr.mover",
+    "texto": "Taşı"
+  },
+  {
+    "clave": "planos.herr.agrupar",
+    "texto": "Grupla"
+  },
+  {
+    "clave": "planos.herr.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "planos.herr.expandir",
+    "texto": "Genişlet"
+  },
+  {
+    "clave": "planos.muro.pared",
+    "texto": "Duvar"
+  },
+  {
+    "clave": "planos.muro.puerta",
+    "texto": "Kapı"
+  },
+  {
+    "clave": "planos.muro.abierto",
+    "texto": "Açık"
+  },
+  {
+    "clave": "planos.accion.regresar",
+    "texto": "Geri"
+  },
+  {
+    "clave": "planos.accion.cambios",
+    "texto": "Temizle"
+  },
+  {
+    "clave": "planos.accion.confirmar",
+    "texto": "Onayla"
+  },
+  {
+    "clave": "planos.volverSecciones",
+    "texto": "Düzenleyici bölümleri"
+  },
+  {
+    "clave": "planos.ayuda",
+    "texto": "Sol altta bir şekil seç ve oda çizmek için krokiye veya 3D haritaya dokun."
+  },
+  {
+    "clave": "planos.props.paredes",
+    "texto": "Krokide seçili kenarı düzenle."
+  },
+  {
+    "clave": "planos.props.techo",
+    "texto": "Tam sıraları uzatmak veya kısaltmak için çatı kenarındaki + ve − işaretlerini kullan."
+  },
+  {
+    "clave": "planos.props.zonaPiso",
+    "texto": "Bölge zemin malzemesi: hücre başına yakında."
+  },
+  {
+    "clave": "planos.nombre",
+    "texto": "Ad"
+  },
+  {
+    "clave": "planos.forma",
+    "texto": "Şekil"
+  },
+  {
+    "clave": "planos.formaHint",
+    "texto": "Alanın bir kısmını kaldırmak için kenar hücrelerinde − kullan:"
+  },
+  {
+    "clave": "planos.quitarCelda",
+    "texto": "Hücreyi kaldır"
+  },
+  {
+    "clave": "planos.celdaVacia",
+    "texto": "Hücre"
+  },
+  {
+    "clave": "planos.colocarApp",
+    "texto": "Uygulama yerleştir"
+  },
+  {
+    "clave": "planos.nuevaZona",
+    "texto": "Yeni temel oda"
+  },
+  {
+    "clave": "planos.nombreZona",
+    "texto": "Odanın adı"
+  },
+  {
+    "clave": "planos.extenderCuarto",
+    "texto": "Mevcut odayı genişlet"
+  },
+  {
+    "clave": "planos.limpiar",
+    "texto": "Seçimi temizle"
+  },
+  {
+    "clave": "planos.appsFuera",
+    "texto": "Haritanın dışındaki uygulamalar"
+  },
+  {
+    "clave": "planos.eliminarZona",
+    "texto": "Temel odayı sil"
+  },
+  {
+    "clave": "planos.celdas",
+    "texto": "hücre"
+  },
+  {
+    "clave": "planos.menu.cielo",
+    "texto": "Gökyüzü arka planı"
+  },
+  {
+    "clave": "planos.menu.cieloTitulo",
+    "texto": "Gökyüzü arka planı"
+  },
+  {
+    "clave": "planos.menu.cieloDesc",
+    "texto": "3D gökyüzünü ve plan kenar boşluğunu değiştirir."
+  },
+  {
+    "clave": "planos.menu.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "planos.menu.superficie",
+    "texto": "Harita yüzeyi"
+  },
+  {
+    "clave": "planos.superficie.titulo",
+    "texto": "Harita yüzeyi"
+  },
+  {
+    "clave": "planos.superficie.desc",
+    "texto": "Plan kağıdını, ızgara çizgilerini ve 3D harita tabanını etkiler."
+  },
+  {
+    "clave": "planos.superficie.relleno",
+    "texto": "Planın dolgusu"
+  },
+  {
+    "clave": "planos.superficie.color",
+    "texto": "Renk"
+  },
+  {
+    "clave": "planos.superficie.foto",
+    "texto": "Arka plan fotoğrafı"
+  },
+  {
+    "clave": "planos.superficie.subir",
+    "texto": "+ Yükle"
+  },
+  {
+    "clave": "planos.superficie.usar",
+    "texto": "Planda kullan"
+  },
+  {
+    "clave": "planos.superficie.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "planos.superficie.sinFoto",
+    "texto": "Kroki kağıdı ve 3D taban için bir görsel yükle."
+  },
+  {
+    "clave": "planos.superficie.rejilla",
+    "texto": "Izgara"
+  },
+  {
+    "clave": "planos.superficie.tamCelda",
+    "texto": "Hücre boyutu"
+  },
+  {
+    "clave": "planos.superficie.tamCeldaHint",
+    "texto": "Odalar, duvarlar, çatılar ve sahalar hücreyle birlikte ölçeklenir; karakterler ve diğer nesneler boyutlarını korur."
+  },
+  {
+    "clave": "planos.superficie.rejillaFuerte",
+    "texto": "Ana çizgiler"
+  },
+  {
+    "clave": "planos.superficie.rejillaSuave",
+    "texto": "İkincil çizgiler"
+  },
+  {
+    "clave": "planos.superficie.borde",
+    "texto": "Kağıt kenarlığı"
+  },
+  {
+    "clave": "planos.superficie.restaurar",
+    "texto": "Varsayılanlara sıfırla"
+  },
+  {
+    "clave": "planos.zoom.encajar",
+    "texto": "Planı ekrana sığdır"
+  },
+  {
+    "clave": "planos.zoom.ayuda",
+    "texto": "Tekerlek: yakınlaştır · Shift/Alt + sürükle: kaydır · Kenar boşluğuna çift tıkla: sığdır"
+  },
+  {
+    "clave": "editor.cuarto.apariencia",
+    "texto": "Oda görünümü"
+  },
+  {
+    "clave": "editor.cuarto.piso",
+    "texto": "Oda zemini"
+  },
+  {
+    "clave": "editor.cuarto.forma",
+    "texto": "Oda şekli"
+  },
+  {
+    "clave": "editor.cuarto.paredes",
+    "texto": "Duvarlar ve kapılar"
+  },
+  {
+    "clave": "editor.cuarto.objetos",
+    "texto": "Oda nesneleri"
+  },
+  {
+    "clave": "editor.avatar.titulo",
+    "texto": "Karakter avatarı"
+  },
+  {
+    "clave": "editor.avatar.cabeza",
+    "texto": "🟡 Baş"
+  },
+  {
+    "clave": "editor.avatar.torso",
+    "texto": "🔴 Gövde"
+  },
+  {
+    "clave": "editor.avatar.piernas",
+    "texto": "🔵 Bacaklar"
+  },
+  {
+    "clave": "editor.avatar.reset",
+    "texto": "↺ Orijinal avatarı geri yükle"
+  },
+  {
+    "clave": "editor.avatar.forma3d",
+    "texto": "Özel 3D şekil"
+  },
+  {
+    "clave": "editor.avatar.formaPh",
+    "texto": "Tanımla: \"kırmızı pelerinli mavi robot\""
+  },
+  {
+    "clave": "editor.avatar.formaSinIa",
+    "texto": "Şekli tanımlamak yapay zekâ gerektirir (çubuktan bir model seç)"
+  },
+  {
+    "clave": "editor.avatar.formaGenerar",
+    "texto": "Şekli yapay zekâyla oluştur"
+  },
+  {
+    "clave": "editor.avatar.formaError",
+    "texto": "Şekli oluşturamadım. Yapay zekâ modelini kontrol et ve tekrar dene."
+  },
+  {
+    "clave": "editor.avatar.subirGlb",
+    "texto": ".glb modeli yükle"
+  },
+  {
+    "clave": "editor.avatar.quitarGlb",
+    "texto": "Yüklenen modeli kaldır"
+  },
+  {
+    "clave": "editor.avatar.quitarFormaIa",
+    "texto": "Yapay zekâyla oluşturulan şekli kaldır"
+  },
+  {
+    "clave": "editor.avatar.usandoGlb",
+    "texto": "Kendi .glb modelin kullanılıyor. Renkler bu modele uygulanmaz."
+  },
+  {
+    "clave": "editor.avatar.usandoIa",
+    "texto": "Yapay zekâyla oluşturulan bir şekil kullanılıyor. Renkler bu şekle uygulanmaz."
+  },
+  {
+    "clave": "editor.tema.titulo",
+    "texto": "Ev teması"
+  },
+  {
+    "clave": "editor.tema.desc",
+    "texto": "Odalara, arka plana, zemine ve çatıya stil uygular. Gökyüzünde mikro animasyonları etkinleştirir."
+  },
+  {
+    "clave": "editor.tema.sin",
+    "texto": "Tema yok"
+  },
+  {
+    "clave": "editor.tema.misTemas",
+    "texto": "Temalarım"
+  },
+  {
+    "clave": "editor.tema.guardar",
+    "texto": "+ Geçerli temayı kaydet"
+  },
+  {
+    "clave": "editor.tema.guardarTitulo",
+    "texto": "Bu temayı kaydet"
+  },
+  {
+    "clave": "editor.tema.guardarMensaje",
+    "texto": "Tema, şu anki hâliyle kaydedilir: renkler, kabuk, ışık, sis, stil ve gökyüzü arka planı."
+  },
+  {
+    "clave": "editor.tema.guardarOk",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "editor.tema.sinTemasPropios",
+    "texto": "İstediğin zaman tekrar uygulayabilmek için şu an kullandığın temayı kaydet."
+  },
+  {
+    "clave": "editor.tema.sinTemaParaGuardar",
+    "texto": "Bir tema seç ve özelleştir: sonra burada adıyla kaydedebilirsin."
+  },
+  {
+    "clave": "editor.tema.usar",
+    "texto": "Kullan"
+  },
+  {
+    "clave": "editor.tema.borrarPropio",
+    "texto": "Sil"
+  },
+  {
+    "clave": "editor.tema.borrarTitulo",
+    "texto": "Temayı sil"
+  },
+  {
+    "clave": "editor.tema.borrarOk",
+    "texto": "Sil"
+  },
+  {
+    "clave": "editor.cuartos.titulo",
+    "texto": "Ev odaları"
+  },
+  {
+    "clave": "editor.cuartos.desc",
+    "texto": "Özel renkler ve adlar. Değişiklikler 3D evde anında görünür."
+  },
+  {
+    "clave": "editor.cuartos.editado",
+    "texto": "düzenlendi"
+  },
+  {
+    "clave": "editor.cuartos.color",
+    "texto": "Renk"
+  },
+  {
+    "clave": "editor.cuartos.nombre",
+    "texto": "Özel ad"
+  },
+  {
+    "clave": "editor.cuartos.reset",
+    "texto": "↺ Sıfırla"
+  },
+  {
+    "clave": "editor.fondo.titulo",
+    "texto": "Gökyüzü arka planı"
+  },
+  {
+    "clave": "editor.fondo.desc",
+    "texto": "Tema değiştirildiğinde otomatik olarak seçilir. Ayrıca elle de değiştirebilirsin."
+  },
+  {
+    "clave": "editor.fondo.anim",
+    "texto": "Mikro animasyonlar"
+  },
+  {
+    "clave": "editor.fondo.animDesc",
+    "texto": "Gökyüzünde hangilerini istediğini seç ya da otomatikte bırak"
+  },
+  {
+    "clave": "editor.fondo.animIntensidad",
+    "texto": "Yoğunluk"
+  },
+  {
+    "clave": "editor.fondo.animAuto",
+    "texto": "Otomatik"
+  },
+  {
+    "clave": "editor.fondo.animTipo",
+    "texto": "Animasyon türü"
+  },
+  {
+    "clave": "anim.nubes",
+    "texto": "Bulutlar"
+  },
+  {
+    "clave": "anim.aves",
+    "texto": "Kuşlar"
+  },
+  {
+    "clave": "anim.copos",
+    "texto": "Kar"
+  },
+  {
+    "clave": "anim.cometas",
+    "texto": "Kuyruklu yıldızlar"
+  },
+  {
+    "clave": "anim.fugaz",
+    "texto": "Kayan yıldızlar"
+  },
+  {
+    "clave": "anim.polvo",
+    "texto": "Parlayan toz"
+  },
+  {
+    "clave": "anim.dragones",
+    "texto": "Ejderhalar"
+  },
+  {
+    "clave": "anim.murcielagos",
+    "texto": "Yarasalar"
+  },
+  {
+    "clave": "anim.bruma",
+    "texto": "Pus"
+  },
+  {
+    "clave": "anim.corazones",
+    "texto": "Kalpler"
+  },
+  {
+    "clave": "anim.rayas",
+    "texto": "Neon çizgiler"
+  },
+  {
+    "clave": "editor.fondo.misImagenes",
+    "texto": "Görsellerim"
+  },
+  {
+    "clave": "editor.fondo.subir",
+    "texto": "+ Görsel yükle"
+  },
+  {
+    "clave": "editor.fondo.sinImagenes",
+    "texto": "Gökyüzü arka planı olarak kullanmak için bir görsel yükle."
+  },
+  {
+    "clave": "editor.fondo.presets",
+    "texto": "Hazır arka planlar"
+  },
+  {
+    "clave": "editor.fondo.previewTitulo",
+    "texto": "Arka planı ayarla — görseli sürükle; çerçeve ekranındır"
+  },
+  {
+    "clave": "editor.fondo.previewAria",
+    "texto": "Arka plan önizlemesi"
+  },
+  {
+    "clave": "editor.fondo.previewMapa",
+    "texto": "Harita gökyüzünün üzerinde"
+  },
+  {
+    "clave": "editor.fondo.nombre",
+    "texto": "Ad"
+  },
+  {
+    "clave": "editor.fondo.zoom",
+    "texto": "Yakınlaştırma"
+  },
+  {
+    "clave": "editor.fondo.cancelar",
+    "texto": "İptal"
+  },
+  {
+    "clave": "editor.fondo.guardar",
+    "texto": "Arka planı kaydet"
+  },
+  {
+    "clave": "editor.fondo.guardando",
+    "texto": "Kaydediliyor…"
+  },
+  {
+    "clave": "editor.fondo.ajustar",
+    "texto": "Ayarla"
+  },
+  {
+    "clave": "editor.fondo.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "editor.fondo.confirmBorrar",
+    "texto": "Bu kayıtlı arka plan silinsin mi?"
+  },
+  {
+    "clave": "editor.piso.desc",
+    "texto": "Bir malzeme seç ya da yalnızca renk kullanmak için «Özel» olarak bırak."
+  },
+  {
+    "clave": "editor.piso.personalizado",
+    "texto": "Özel"
+  },
+  {
+    "clave": "editor.pisoCuarto.desc",
+    "texto": "Odanın içindeki zemin malzemesi. «Varsayılan» oda rengini izler."
+  },
+  {
+    "clave": "editor.pisoCuarto.defecto",
+    "texto": "Varsayılan"
+  },
+  {
+    "clave": "editor.techo.titulo",
+    "texto": "Ev çatıları"
+  },
+  {
+    "clave": "editor.techo.desc",
+    "texto": "Onları görmek için 🏠 görünümünü etkinleştir. Bir tema seçmek ona karşılık gelen çatıyı uygular."
+  },
+  {
+    "clave": "editor.techo.genericos",
+    "texto": "Genel"
+  },
+  {
+    "clave": "editor.techo.porTema",
+    "texto": "Temaya göre"
+  },
+  {
+    "clave": "editor.techo.porCuarto",
+    "texto": "Odaya göre"
+  },
+  {
+    "clave": "editor.perfil.titulo",
+    "texto": "👤 Profilin"
+  },
+  {
+    "clave": "editor.perfil.emoji",
+    "texto": "Emoji"
+  },
+  {
+    "clave": "editor.perfil.nombre",
+    "texto": "Ad"
+  },
+  {
+    "clave": "editor.perfil.tuNombre",
+    "texto": "Adın"
+  },
+  {
+    "clave": "editor.perfil.ph.nombre",
+    "texto": "Adın ne?"
+  },
+  {
+    "clave": "editor.perfil.nacimiento",
+    "texto": "Doğum günü"
+  },
+  {
+    "clave": "editor.perfil.bio",
+    "texto": "Bio"
+  },
+  {
+    "clave": "editor.perfil.ph.bio",
+    "texto": "Kendinle ilgili bir cümle..."
+  },
+  {
+    "clave": "editor.perfil.guardar",
+    "texto": "Profili kaydet"
+  },
+  {
+    "clave": "editor.perfil.guardado",
+    "texto": "✓ Kaydedildi"
+  },
+  {
+    "clave": "editor.perfil.edad",
+    "texto": "{n} yaşında"
+  },
+  {
+    "clave": "editor.room.color",
+    "texto": "Zemin rengi"
+  },
+  {
+    "clave": "editor.room.nombre",
+    "texto": "Özel ad"
+  },
+  {
+    "clave": "editor.room.aplicar",
+    "texto": "Uygula"
+  },
+  {
+    "clave": "editor.room.reset",
+    "texto": "↺ Orijinal görünümü geri yükle"
+  },
+  {
+    "clave": "editor.inv.titulo",
+    "texto": "Tüm envanter"
+  },
+  {
+    "clave": "editor.inv.desc",
+    "texto": "Bir nesne seç: haritada belirir ve istediğin yere sürükleyebilirsin."
+  },
+  {
+    "clave": "editor.inv.deco",
+    "texto": "🎨 Genel dekorasyon"
+  },
+  {
+    "clave": "editor.inv.mapa",
+    "texto": "Haritada ({n})"
+  },
+  {
+    "clave": "editor.inv.quitar",
+    "texto": "Kaldır"
+  },
+  {
+    "clave": "editor.inv.desagrupar",
+    "texto": "Grubu çöz"
+  },
+  {
+    "clave": "editor.inv.agrupar",
+    "texto": "🔗 Seçilenleri grupla ({n})"
+  },
+  {
+    "clave": "editor.obj.desc",
+    "texto": "3D sahnedeki nesneleri sürükle. Oda giriş noktası için ★ işaretle."
+  },
+  {
+    "clave": "editor.obj.cuarto",
+    "texto": "Oda"
+  },
+  {
+    "clave": "editor.obj.marcarPrincipal",
+    "texto": "Ana nesne olarak ayarla"
+  },
+  {
+    "clave": "editor.obj.esPrincipal",
+    "texto": "Ana nesne (oda giriş noktası)"
+  },
+  {
+    "clave": "editor.obj.ultimoObjeto",
+    "texto": "Odada en az bir nesne kalmalı"
+  },
+  {
+    "clave": "editor.obj.vacio",
+    "texto": "Henüz nesne yok. Yukarıdan bir tane ekle."
+  },
+  {
+    "clave": "editor.obj.cargando",
+    "texto": "Yükleniyor…"
+  },
+  {
+    "clave": "editor.obj.agregar",
+    "texto": "{room} içine ekle"
+  },
+  {
+    "clave": "editor.obj.deco",
+    "texto": "Genel dekorasyon"
+  },
+  {
+    "clave": "editor.obj.colocados",
+    "texto": "Oda nesneleri ({n})"
+  },
+  {
+    "clave": "editor.obj.agrupar",
+    "texto": "Seçilenleri grupla ({n})"
+  },
+  {
+    "clave": "editor.obj.quitar",
+    "texto": "Kaldır"
+  },
+  {
+    "clave": "editor.obj.objeto",
+    "texto": "Nesne"
+  },
+  {
+    "clave": "editor.sec.reordenar",
+    "texto": "Yeniden sıralamak için sürükle"
+  },
+  {
+    "clave": "editor.sec.reordenarSec",
+    "texto": "{titulo} sırasını değiştir"
+  },
+  {
+    "clave": "editor.sec.contraer",
+    "texto": "{titulo} bölümünü daralt"
+  },
+  {
+    "clave": "editor.sec.expandir",
+    "texto": "{titulo} bölümünü genişlet"
+  },
+  {
+    "clave": "editor.sec.contraerMapa",
+    "texto": "Haritayı daralt"
+  },
+  {
+    "clave": "editor.sec.expandirMapa",
+    "texto": "Haritayı genişlet"
+  },
+  {
+    "clave": "config.grupo.interfaz",
+    "texto": "Arayüz ve dil"
+  },
+  {
+    "clave": "editor.forma.desc",
+    "texto": "Odayı hücre hücre genişletmek veya küçültmek için sahnedeki + ve − düğmelerini kullan (haritayı kaplayacak kadar büyüyebilir veya L şekli alabilir)."
+  },
+  {
+    "clave": "editor.anim.titulo",
+    "texto": "Animasyon"
+  },
+  {
+    "clave": "editor.anim.preset",
+    "texto": "Hareket"
+  },
+  {
+    "clave": "editor.anim.ninguno",
+    "texto": "Hareket yok"
+  },
+  {
+    "clave": "editor.anim.p.girar",
+    "texto": "Dön"
+  },
+  {
+    "clave": "editor.anim.p.flotar",
+    "texto": "Süzül"
+  },
+  {
+    "clave": "editor.anim.p.pulsar",
+    "texto": "Nabız at"
+  },
+  {
+    "clave": "editor.anim.p.mecerse",
+    "texto": "Sallan"
+  },
+  {
+    "clave": "editor.anim.p.rebotar",
+    "texto": "Zıpla"
+  },
+  {
+    "clave": "editor.anim.p.temblar",
+    "texto": "Titre"
+  },
+  {
+    "clave": "editor.anim.p.vida",
+    "texto": "Canlandır"
+  },
+  {
+    "clave": "editor.hist.deshacer",
+    "texto": "Geri al"
+  },
+  {
+    "clave": "editor.hist.rehacer",
+    "texto": "Yinele"
+  },
+  {
+    "clave": "editor.anim.velocidad",
+    "texto": "Hız"
+  },
+  {
+    "clave": "editor.anim.intensidad",
+    "texto": "Yoğunluk"
+  },
+  {
+    "clave": "editor.anim.zona",
+    "texto": "Gezinme alanı"
+  }
+]

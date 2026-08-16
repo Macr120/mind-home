@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "Name, Emoji, Farbe und – optional – ein Wochenziel in Tagen. Dieses Formular ist alles, was es braucht, um das Hobby ab jetzt mitzuschreiben."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "Das Wochenziel"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "Für Klavier sind 4 Tage pro Woche gesetzt: Die Zeile der Woche färbt sich mit jedem geübten Tag, und oben steht, wie viele du schon hast, gemessen am Ziel."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "Übung eintragen"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "Schnelle Minuten mit einem Tipp oder die genaue Zahl; das Projekt ist optional, und die Notiz ist für das, was du von dieser Sitzung behalten willst."
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "Das Ideentagebuch"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "Schreib den Einfall hin, fertig. Pep hat hier im Lauf des Jahres rund 90 Ideen abgeladen: aus der Physik, aus dem Café, vom Training. Der Stern markiert die Favoriten."
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "Brainstormings nach Thema"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "Ein Brainstorming fasst alles unter einem Thema zusammen. Such die von Pep: die Namen für die Katze (gewonnen hat Laika), wie Japan zu bezahlen ist und was mit auf die Reise soll."
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "Ist ein Brainstorming reif, macht ein Button eine Mindmap daraus, und du ordnest sie auf der Leinwand weiter."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "Zehn Formate"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "Jedes Format zeichnet anders. Unten liegen die Karten, die Pep im Lauf des Jahres gemacht hat: die Morgenroutine als Flussdiagramm, die Thermodynamik als Baum, Physik und Musik als Venn-Diagramm."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "„Mein ideales Leben“"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "Die ERSTE Karte des Jahres, aus Monat 1: das Leben, das Pep wollte. Schau sie dir in Ruhe an – fast alles, was darauf steht, ist am Ende eingetroffen."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "Auf der Leinwand: Tipp auf einen Knoten, um ihn auszuwählen, und noch einmal, um zu schreiben; zieh ihn, zoom mit zwei Fingern und füge Ideen über die Leiste unten hinzu."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "Eine ganze Karte aus einem Thema"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "Gib der KI ein Thema, und sie baut die ganze Karte auf, mit fertig geordneten Knoten: der Startpunkt für ein Thema, bei dem du nicht weißt, wo du mit dem Sortieren anfangen sollst."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "Einen Knoten mit KI erweitern"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "Bist du erst in einer Karte, lässt sich jeder Knoten erweitern: Die KI schlägt Unterknoten vor, passend zu dem, was du drumherum schon geschrieben hast, ohne deine Struktur zu zerlegen."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "Acht Wege zu entscheiden"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "Pep hat sie wirklich benutzt: ein Eisenhower in der Klausurenwoche, eine SWOT zur Jahresmitte und eine Matrix für die Wahl der Kamera."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "Master oder Job?"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "DIE offene Entscheidung zum Jahresende: jede Seite mit ihrem Gewicht von 1 bis 5 und der Summe darunter. Entschieden ist sie noch nicht – so sieht es aus, wenn jemand ernsthaft nachdenkt."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "In den Formaten mit Feldern gehört jedes Element in eine Zone: Wähl sie unten aus, bevor du etwas hinzufügst, oder zieh das Element in eine andere, und es wechselt von selbst."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "Die gewichtete Matrix"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "Keine Leinwand, eine Tabelle: jede Option gegen jedes Kriterium, mit einem Gewicht von 1 bis 5, je nachdem, wie wichtig dir dieses Kriterium ist. Die Gesamtsumme sortiert die Optionen von selbst."
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "Die Uhr"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "Der Kalender ist kein Raum: Er wohnt in der Uhr des Hauses und öffnet sich daher überall, wo du gerade bist."
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "Eine echte Woche"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "Schichten im Café, Physikstunden, Laufen im Morgengrauen, Klavier am Abend. Jeder Block ist eine Routine mit ihrer Uhrzeit und ihrer Farbe; zieh sie, um sie zu verschieben, und dehne sie, um ihre Dauer zu ändern."
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "Vier Arten hinzusehen"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "Tag und Woche zeigen das Raster nach Stunden; Monat und Jahr geben den Blick aufs ganze Jahr. Der erste Button hat zwei Aufgaben: Er heißt „Heute“ und bringt dich in die Gegenwart – oder „Tag“, wenn du schon auf ein anderes Datum schaust."
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "Woher jeder Block kommt"
+  }
+]

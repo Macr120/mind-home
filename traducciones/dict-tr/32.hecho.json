@@ -1,0 +1,606 @@
+[
+  {
+    "clave": "respaldo.aviso",
+    "texto": "Son yedeklemen {n} gün önceydi."
+  },
+  {
+    "clave": "respaldo.luego",
+    "texto": "Bir hafta sonra hatırlat"
+  },
+  {
+    "clave": "rot.der",
+    "texto": "90° sağa döndür"
+  },
+  {
+    "clave": "rot.izq",
+    "texto": "90° sola döndür"
+  },
+  {
+    "clave": "rutinas.activar",
+    "texto": "Etkinleştir"
+  },
+  {
+    "clave": "rutinas.agregarPaso",
+    "texto": "Adım ekle"
+  },
+  {
+    "clave": "rutinas.autoRegistro",
+    "texto": "Odada otomatik olarak kaydeder"
+  },
+  {
+    "clave": "rutinas.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "rutinas.confirmarBorrar",
+    "texto": "Bu etkinlik silinsin mi?"
+  },
+  {
+    "clave": "rutinas.cancelar",
+    "texto": "İptal"
+  },
+  {
+    "clave": "rutinas.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "rutinas.completada",
+    "texto": "Rutin tamamlandı!"
+  },
+  {
+    "clave": "rutinas.editar",
+    "texto": "Düzenle"
+  },
+  {
+    "clave": "rutinas.eventoSimple",
+    "texto": "Takvim etkinliği."
+  },
+  {
+    "clave": "rutinas.guardar",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "rutinas.hoy",
+    "texto": "Bugün"
+  },
+  {
+    "clave": "rutinas.nombre",
+    "texto": "Rutin/etkinlik adı"
+  },
+  {
+    "clave": "rutinas.nueva",
+    "texto": "Yeni"
+  },
+  {
+    "clave": "rutinas.pasoPh",
+    "texto": "Ne yapılacak…"
+  },
+  {
+    "clave": "rutinas.pasos",
+    "texto": "adım"
+  },
+  {
+    "clave": "rutinas.pasosOpcional",
+    "texto": "isteğe bağlı"
+  },
+  {
+    "clave": "rutinas.pasosTitulo",
+    "texto": "Adımlar"
+  },
+  {
+    "clave": "rutinas.pausar",
+    "texto": "Duraklat"
+  },
+  {
+    "clave": "rutinas.rep.hintIndefinido",
+    "texto": "İşaretli gün yoksa = her gün, bitiş tarihi olmadan."
+  },
+  {
+    "clave": "rutinas.rep.hintSemanal",
+    "texto": "İşaretli günlerde her hafta tekrarlanır."
+  },
+  {
+    "clave": "rutinas.rep.sinFin",
+    "texto": "Bitiş tarihi yok"
+  },
+  {
+    "clave": "rutinas.rep.soloTrazo",
+    "texto": "takvimde çizilerek planlandı; tarihleri değiştirmek için tekrar çiz"
+  },
+  {
+    "clave": "rutinas.rep.termina",
+    "texto": "Bitiş tarihi"
+  },
+  {
+    "clave": "rutinas.rep.titulo",
+    "texto": "Tekrar"
+  },
+  {
+    "clave": "rutinas.sinHora",
+    "texto": "saatsiz"
+  },
+  {
+    "clave": "rutinas.titulo",
+    "texto": "Rutinler"
+  },
+  {
+    "clave": "rutinas.todas",
+    "texto": "Tüm rutinler"
+  },
+  {
+    "clave": "rutinas.vacio",
+    "texto": "Henüz rutin yok. «+ Yeni» ile bir tane oluştur ya da asistanından iste: «bana su, esneme ve minnettarlıkla sabah rutini oluştur»."
+  },
+  {
+    "clave": "ui.sinApp",
+    "texto": "Bu odaya atanmış bir uygulama yok."
+  },
+  {
+    "clave": "ui.sinAppAyuda",
+    "texto": "Odayı düzenle ve bir nesneye uygulama ata."
+  },
+  {
+    "clave": "ui.volverApps",
+    "texto": "‹ Oda uygulamaları"
+  },
+  {
+    "clave": "mascota.mago.nombre",
+    "texto": "Büyücü"
+  },
+  {
+    "clave": "mascota.gato.nombre",
+    "texto": "Kedi"
+  },
+  {
+    "clave": "mascota.perro.nombre",
+    "texto": "Köpek"
+  },
+  {
+    "clave": "mascota.buho.nombre",
+    "texto": "Baykuş"
+  },
+  {
+    "clave": "mascota.robot.nombre",
+    "texto": "Robot"
+  },
+  {
+    "clave": "mascota.mago.saludo",
+    "texto": "Ben senin gizemli mimarınım. Bana ne yaptığını söyle, ben de onu kaydedeyim ✨"
+  },
+  {
+    "clave": "mascota.gato.saludo",
+    "texto": "Miyav. Bana neler olduğunu anlat, nereye gideceğine bakarım 🐾"
+  },
+  {
+    "clave": "mascota.perro.saludo",
+    "texto": "Hav! Ne yaptığını anlat, hemen kaydedeyim! 🦴"
+  },
+  {
+    "clave": "mascota.buho.saludo",
+    "texto": "Bilge ve dikkatli. Gününü anlat, ben de düzenleyeyim."
+  },
+  {
+    "clave": "mascota.robot.saludo",
+    "texto": "Sistem hazır. İşlemek için bir kayıt gir."
+  },
+  {
+    "clave": "mascota.bitacora",
+    "texto": "seyir defteri"
+  },
+  {
+    "clave": "mascota.elObjeto",
+    "texto": "nesne"
+  },
+  {
+    "clave": "mascota.mago.capturado.0",
+    "texto": "✨ Tamamdır. Kaydı {c}’ye işledim."
+  },
+  {
+    "clave": "mascota.mago.capturado.1",
+    "texto": "Öyle olsun: {c}’de ayrıntılarıyla not edildi ✨"
+  },
+  {
+    "clave": "mascota.mago.clasificado.0",
+    "texto": "📜 Tomarını {c} kayıt defterine sakladım."
+  },
+  {
+    "clave": "mascota.mago.clasificado.1",
+    "texto": "Onu {c}’de dinlenmeye bıraktım."
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.0",
+    "texto": "Onu kaydettim, ama hangi odaya ait olduğunu bilmiyorum… bana yol gösterir misin? 🔮"
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.1",
+    "texto": "Şimdilik sınıflandırılmadı. Hangi odaya götüreyim?"
+  },
+  {
+    "clave": "mascota.mago.agregar.0",
+    "texto": "🪄 {c}’i evinde var ettim."
+  },
+  {
+    "clave": "mascota.mago.agregar.1",
+    "texto": "{c} haritada beliriyor, büyüyle çağrıldı ✨"
+  },
+  {
+    "clave": "mascota.mago.quitar.0",
+    "texto": "🪄 {c} haritadan kayboluyor."
+  },
+  {
+    "clave": "mascota.mago.quitar.1",
+    "texto": "{c}’i evinden kaldırdım."
+  },
+  {
+    "clave": "mascota.mago.objeto.0",
+    "texto": "🪄 {o}’nu {c}’de yarattım. ✨"
+  },
+  {
+    "clave": "mascota.mago.objeto.1",
+    "texto": "{o}’n belirsin… işte, {c}’de!"
+  },
+  {
+    "clave": "mascota.mago.recordado.0",
+    "texto": "🧠 Onu büyü kitabıma kazıdım. Unutmayacağım ✨"
+  },
+  {
+    "clave": "mascota.mago.recordado.1",
+    "texto": "Ezberlendi. Gizemli hafızam sonsuzdur 🔮"
+  },
+  {
+    "clave": "mascota.gato.capturado.0",
+    "texto": "Hmm, tamam. Sanırım {c}’e koydum 🐾"
+  },
+  {
+    "clave": "mascota.gato.capturado.1",
+    "texto": "Tamam, {c}’e kaydettim. Bana teşekkür etme."
+  },
+  {
+    "clave": "mascota.gato.clasificado.0",
+    "texto": "{c} kayıt defterine bıraktım. Orada kalır 🐱"
+  },
+  {
+    "clave": "mascota.gato.clasificado.1",
+    "texto": "{c}’de not edildi, hepsi bu."
+  },
+  {
+    "clave": "mascota.gato.sinClasificar.0",
+    "texto": "Bunun nereye gideceğine dair hiçbir fikrim yok. Sınıflandırılmamış bıraktım 🐾"
+  },
+  {
+    "clave": "mascota.gato.sinClasificar.1",
+    "texto": "Pff, hangi odaya ait? Sen söyle bana."
+  },
+  {
+    "clave": "mascota.gato.agregar.0",
+    "texto": "Tamam, {c}’i haritaya koydum. Zaten sıkılmıştım 🐱"
+  },
+  {
+    "clave": "mascota.gato.agregar.1",
+    "texto": "{c}’i ekledim. Sanırım tebrikler."
+  },
+  {
+    "clave": "mascota.gato.quitar.0",
+    "texto": "{c} kaldırıldı. Temizlenecek bir şey daha azaldı 🐾"
+  },
+  {
+    "clave": "mascota.gato.quitar.1",
+    "texto": "{c}, gitti. Tamam."
+  },
+  {
+    "clave": "mascota.gato.objeto.0",
+    "texto": "İşte {o}’n, {c}’de. Kırma sakın 🐾"
+  },
+  {
+    "clave": "mascota.gato.objeto.1",
+    "texto": "{o}’nu {c}’e koydum. Şimdi uyumama izin ver 🐱"
+  },
+  {
+    "clave": "mascota.gato.recordado.0",
+    "texto": "Tamam, hatırlarım. İster inan ister inanma, hafızam iyidir 🐱"
+  },
+  {
+    "clave": "mascota.gato.recordado.1",
+    "texto": "Hafızama not edildi. Tekrar edeceğimi sanma 🐾"
+  },
+  {
+    "clave": "mascota.perro.capturado.0",
+    "texto": "Hav! {c}’e kaydettim! 🐶"
+  },
+  {
+    "clave": "mascota.perro.capturado.1",
+    "texto": "Her şey tamam! {c}’e kaydedildi! 🦴"
+  },
+  {
+    "clave": "mascota.perro.clasificado.0",
+    "texto": "{c} kayıt defterine kaydettim! 🐶"
+  },
+  {
+    "clave": "mascota.perro.clasificado.1",
+    "texto": "{c}’e not edildi! Başka bir şey var mı?"
+  },
+  {
+    "clave": "mascota.perro.sinClasificar.0",
+    "texto": "Kaydettim! Ama hangi odaya gideceğini bilmiyorum… bana yardım eder misin? 🐶"
+  },
+  {
+    "clave": "mascota.perro.sinClasificar.1",
+    "texto": "Tamam! Hangi odaya götüreyim, dostum?"
+  },
+  {
+    "clave": "mascota.perro.agregar.0",
+    "texto": "HAV! {c}’i haritaya ekledim! 🎉"
+  },
+  {
+    "clave": "mascota.perro.agregar.1",
+    "texto": "{c} artık evinde! 🐶"
+  },
+  {
+    "clave": "mascota.perro.quitar.0",
+    "texto": "{c}’i haritadan kaldırdım. Tamam! 🐾"
+  },
+  {
+    "clave": "mascota.perro.quitar.1",
+    "texto": "Tamam! {c} haritadan çıktı."
+  },
+  {
+    "clave": "mascota.perro.objeto.0",
+    "texto": "HAV! {o}’nu {c}’de yaptım! 🎉"
+  },
+  {
+    "clave": "mascota.perro.objeto.1",
+    "texto": "Bak, {o}’n! {c}’de bıraktım 🐶"
+  },
+  {
+    "clave": "mascota.perro.recordado.0",
+    "texto": "Onu SONSUZA DEK hatırlayacağım! 🐶"
+  },
+  {
+    "clave": "mascota.perro.recordado.1",
+    "texto": "Hav! Hafızaya kaydedildi, unutmayacağım! 🦴"
+  },
+  {
+    "clave": "mascota.buho.capturado.0",
+    "texto": "{c}’e titizlikle kaydedildi."
+  },
+  {
+    "clave": "mascota.buho.capturado.1",
+    "texto": "{c}’de not edildi ve işlendi. 🦉"
+  },
+  {
+    "clave": "mascota.buho.clasificado.0",
+    "texto": "{c} kayıt defterinde saklandı."
+  },
+  {
+    "clave": "mascota.buho.clasificado.1",
+    "texto": "Onu {c} altında dosyaladım."
+  },
+  {
+    "clave": "mascota.buho.sinClasificar.0",
+    "texto": "Sınıflandırılmadan kaydedildi. Fırsat bulunca odayı söyle. 🦉"
+  },
+  {
+    "clave": "mascota.buho.sinClasificar.1",
+    "texto": "Odayı belirleyemiyorum. Hangisi uygun?"
+  },
+  {
+    "clave": "mascota.buho.agregar.0",
+    "texto": "{c} haritaya eklendi."
+  },
+  {
+    "clave": "mascota.buho.agregar.1",
+    "texto": "{c}’i evine dahil ettim. 🦉"
+  },
+  {
+    "clave": "mascota.buho.quitar.0",
+    "texto": "{c} haritadan kaldırıldı."
+  },
+  {
+    "clave": "mascota.buho.quitar.1",
+    "texto": "{c}’i kaldırdım."
+  },
+  {
+    "clave": "mascota.buho.objeto.0",
+    "texto": "{o}’nu {c}’e yerleştirdim. 🦉"
+  },
+  {
+    "clave": "mascota.buho.objeto.1",
+    "texto": "{o}’n artık {c}’de."
+  },
+  {
+    "clave": "mascota.buho.recordado.0",
+    "texto": "Titizlikle ezberlendi. 🦉"
+  },
+  {
+    "clave": "mascota.buho.recordado.1",
+    "texto": "Onu senin hakkında bildiklerime ekledim."
+  },
+  {
+    "clave": "mascota.robot.capturado.0",
+    "texto": "✓ {c}’DE KAYIT OLUŞTURULDU."
+  },
+  {
+    "clave": "mascota.robot.capturado.1",
+    "texto": "VERİ İŞLENDİ → {c}. 🤖"
+  },
+  {
+    "clave": "mascota.robot.clasificado.0",
+    "texto": "✓ KAYIT DEFTERİNE KAYDEDİLDİ: {c}."
+  },
+  {
+    "clave": "mascota.robot.clasificado.1",
+    "texto": "GİRİŞ KAYDEDİLDİ → {c}."
+  },
+  {
+    "clave": "mascota.robot.sinClasificar.0",
+    "texto": "⚠ ODA BELİRLENEMEDİ. GİRİŞ SINIFLANDIRILMADI."
+  },
+  {
+    "clave": "mascota.robot.sinClasificar.1",
+    "texto": "SINIFLANDIRMA BAŞARISIZ. TALİMAT BEKLENİYOR."
+  },
+  {
+    "clave": "mascota.robot.agregar.0",
+    "texto": "✓ {c} HARİTAYA EKLENDİ."
+  },
+  {
+    "clave": "mascota.robot.agregar.1",
+    "texto": "MODÜL {c} YÜKLENDİ. 🤖"
+  },
+  {
+    "clave": "mascota.robot.quitar.0",
+    "texto": "✓ {c} HARİTADAN KALDIRILDI."
+  },
+  {
+    "clave": "mascota.robot.quitar.1",
+    "texto": "MODÜL {c} KALDIRILDI."
+  },
+  {
+    "clave": "mascota.robot.objeto.0",
+    "texto": "✓ NESNE {o}, {c}’DE ÜRETİLDİ. 🤖"
+  },
+  {
+    "clave": "mascota.robot.objeto.1",
+    "texto": "BASKI TAMAMLANDI: {o} → {c}."
+  },
+  {
+    "clave": "mascota.robot.recordado.0",
+    "texto": "✓ KALICI BELLEK GÜNCELLENDİ. 🤖"
+  },
+  {
+    "clave": "mascota.robot.recordado.1",
+    "texto": "VERİ BİLGİ TABANINA KAYDEDİLDİ."
+  },
+  {
+    "clave": "tut.boton",
+    "texto": "Öğreticiyi görüntüle"
+  },
+  {
+    "clave": "tut.paso",
+    "texto": "Adım {i} / {n}"
+  },
+  {
+    "clave": "tut.salir",
+    "texto": "Çık"
+  },
+  {
+    "clave": "tut.atras",
+    "texto": "Geri"
+  },
+  {
+    "clave": "tut.siguiente",
+    "texto": "İleri"
+  },
+  {
+    "clave": "tut.terminar",
+    "texto": "Bitir"
+  },
+  {
+    "clave": "tut.voz",
+    "texto": "Adımları sesli oku"
+  },
+  {
+    "clave": "tut.appSinCuarto",
+    "texto": "Bu uygulama henüz hiçbir odada değil, o yüzden sana burada anlatıyorum. Kullanmak için Menü › Şablonlar’dan ata."
+  },
+  {
+    "clave": "tut.errorCarga",
+    "texto": "Bu öğreticiyi yükleyemedim. Bağlantını kontrol et ve tekrar dene."
+  },
+  {
+    "clave": "tut.preparandoDemo",
+    "texto": "O uygulamanın yılını demo evinde hazırlıyorum; tur birkaç saniye içinde başlıyor…"
+  },
+  {
+    "clave": "tut.selector.titulo",
+    "texto": "Hangi öğreticiyi görmek istersin?"
+  },
+  {
+    "clave": "tut.selector.hint",
+    "texto": "Sarıyla vurgulanmış bir bölgeye dokun, ya da genel olanla başla."
+  },
+  {
+    "clave": "tut.selector.general",
+    "texto": "Genel öğretici"
+  },
+  {
+    "clave": "tut.selector.cancelar",
+    "texto": "İptal"
+  },
+  {
+    "clave": "tut.selector.apps",
+    "texto": "Ya da bir uygulamanın öğreticisi:"
+  },
+  {
+    "clave": "tut.selector.infra",
+    "texto": "Ya da haritada eklenti inşa et:"
+  },
+  {
+    "clave": "tut.selector.nucleo",
+    "texto": "Ya da takvim ve hedefler:"
+  },
+  {
+    "clave": "tut.selector.hudNota",
+    "texto": "Kapatıldığında öğreticiler Editör › Ayarlar › Öğreticiler’den başlatılır."
+  },
+  {
+    "clave": "tut.selector.pag1",
+    "texto": "Temeller"
+  },
+  {
+    "clave": "tut.selector.pag2",
+    "texto": "Geri kalan her şey"
+  },
+  {
+    "clave": "tut.selector.hint2",
+    "texto": "Evin ve menülerinin turları. Sarı bölgeler hâlâ etkin."
+  },
+  {
+    "clave": "tut.selector.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "tut.selector.volver",
+    "texto": "Geri"
+  },
+  {
+    "clave": "tut.selector.gMenu",
+    "texto": "Menü"
+  },
+  {
+    "clave": "tut.selector.gEditor",
+    "texto": "Editör"
+  },
+  {
+    "clave": "tut.selector.gConfig",
+    "texto": "Ayarlar"
+  },
+  {
+    "clave": "tut.selector.gCasa",
+    "texto": "Ev"
+  },
+  {
+    "clave": "tut.selector.gChat",
+    "texto": "Sohbet"
+  },
+  {
+    "clave": "tut.selector.gProgreso",
+    "texto": "Günün ve ilerlemen"
+  },
+  {
+    "clave": "tut.chat.abriendo",
+    "texto": "İşte geliyor: büyücü sana ekranda gösterecek."
+  },
+  {
+    "clave": "tut.chat.ofrecer",
+    "texto": "«{n} öğreticisi» yaz ya da ? düğmesine bas, sana ekranda göstereyim."
+  },
+  {
+    "clave": "tut.chat.chipTour",
+    "texto": "Öğretici: {n}"
+  },
+  {
+    "clave": "tut.chat.chipAyuda",
+    "texto": "Yardım: {n}"
+  }
+]

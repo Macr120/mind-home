@@ -1,0 +1,194 @@
+[
+  {
+    "clave": "demo.volver.titulo",
+    "texto": "Ende des Tutorials"
+  },
+  {
+    "clave": "demo.volver.cuerpo",
+    "texto": "Das war Peps Demo-Haus. Zurück zu deinem eigenen, oder bleibst du noch und schaust dich um?"
+  },
+  {
+    "clave": "demo.volver.si",
+    "texto": "Zurück zu meinem Haus"
+  },
+  {
+    "clave": "demo.volver.seguir",
+    "texto": "Demo-Haus weiter erkunden"
+  },
+  {
+    "clave": "demo.barra.titulo",
+    "texto": "Demo-Haus"
+  },
+  {
+    "clave": "demo.reiniciar",
+    "texto": "Zurücksetzen"
+  },
+  {
+    "clave": "demo.reiniciar.confirma",
+    "texto": "Demo zurücksetzen? Peps Haus wird von Grund auf neu gebaut."
+  },
+  {
+    "clave": "demo.visitar",
+    "texto": "Demo-Haus besuchen"
+  },
+  {
+    "clave": "demo.visitar.desc",
+    "texto": "Peps Haus mit einem echten Jahr Nutzung darin. Dein Haus und deine Daten bleiben unangetastet; ein Knopf bringt dich zurück."
+  },
+  {
+    "clave": "demo.bienvenida.titulo",
+    "texto": "Das ist Peps Haus"
+  },
+  {
+    "clave": "demo.bienvenida.sub",
+    "texto": "Ein echtes Jahr Leben darin: der Marathon, die Reise nach Japan, das Klavier und die Finanzen. Du kannst alles anfassen; nichts wird gespeichert."
+  },
+  {
+    "clave": "demo.autor.chip",
+    "texto": "Autor-Modus"
+  },
+  {
+    "clave": "demo.autor.exportar",
+    "texto": "casa.json exportieren"
+  },
+  {
+    "clave": "demo.construyendo.sub",
+    "texto": "Ein Jahr aus Peps Leben fügt sich zusammen."
+  },
+  {
+    "clave": "demo.cargandoApp",
+    "texto": "Peps Jahr wird eingerichtet…"
+  },
+  {
+    "clave": "demo.error",
+    "texto": "Die Demo konnte nicht erstellt werden."
+  },
+  {
+    "clave": "demo.reintentar",
+    "texto": "Erneut versuchen"
+  },
+  {
+    "clave": "tut.flujos.titulo",
+    "texto": "Tutorials für diese App"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.titulo",
+    "texto": "Peps Tagebuch"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.resumen",
+    "texto": "Das Erinnerungsbuch ist dein persönliches Tagebuch: Einträge mit Stimmung, Text und Fotos, ein Kalender, der das Jahr nach deinem Gefühl einfärbt, und der Verlauf in Ordnern nach Jahr, Monat und Woche."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.titulo",
+    "texto": "Die Meilensteine in Fotos"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.resumen",
+    "texto": "Wichtige Einträge haben ein Foto: Du siehst sie im Verlauf und öffnest sie im Vollbild."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.titulo",
+    "texto": "Meditieren und atmen"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.resumen",
+    "texto": "Der Garten speichert deine Meditationssitzungen (mit Klangspuren) und geführtes Atmen. Ohne Serien oder Punkte: Die Ruhe wächst einfach."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.titulo",
+    "texto": "Drei gute Dinge"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.resumen",
+    "texto": "Das Dankbarkeitsritual: drei gute Dinge des Tages, in Ordnern gespeichert, um sie später wieder zu lesen."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.titulo",
+    "texto": "Das Jahr am Klavier"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.resumen",
+    "texto": "Hobbys verfolgt jede Freizeitbeschäftigung: Sitzungen mit Minuten und Notiz, eine Jahres-Heatmap, Serien, ein Wochenziel und Projekte."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.titulo",
+    "texto": "Projekte mit Fotos"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.resumen",
+    "texto": "Jedes Projekt speichert seine Notiz, seine verknüpften Sitzungen und seinen Fortschritt in Fotos."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.titulo",
+    "texto": "Erfassen und planen"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.resumen",
+    "texto": "Ein neues Hobby legst du mit einem kurzen Formular an; jede Einheit erfasst du in Sekunden, und ein Wochenziel – oder der komplette Zeitplan – gibt der Zeit, die du investierst, eine Struktur."
+  },
+  {
+    "clave": "tut.app-ideas--diario.titulo",
+    "texto": "Ideen festhalten"
+  },
+  {
+    "clave": "tut.app-ideas--diario.resumen",
+    "texto": "Das Ideentagebuch hält lose Einfälle oder thematische Brainstormings fest; markiere die guten mit einem Stern und verwandle sie in Karten."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.titulo",
+    "texto": "Peps Karten"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.resumen",
+    "texto": "Karten ordnen ein Thema auf einer freien Leinwand: Mindmap, Baum, Flussdiagramm, Zeitleiste, Kreislauf, Pyramide, Venn-Diagramm und mehr."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.titulo",
+    "texto": "Entscheiden mit Diagrammen"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.resumen",
+    "texto": "Diagramme helfen dir beim Entscheiden: gewichtete Vor- und Nachteile, SWOT, Eisenhower, eine gewichtete Matrix und mehr."
+  },
+  {
+    "clave": "tut.calendario.titulo",
+    "texto": "Kalender"
+  },
+  {
+    "clave": "tut.calendario.resumen",
+    "texto": "Die Uhr des Hauses öffnet den Kalender: alles Geplante – Schichten, Kurse, Gewohnheiten und was die anderen Apps beitragen – in den Ansichten Tag, Woche, Monat, Jahr und Ziele. Das Panel darunter misst, wie viel von dem, was du geplant hast, du auch wirklich umsetzt."
+  },
+  {
+    "clave": "tut.calendario.3b.titulo",
+    "texto": "Und Ziele, für sich"
+  },
+  {
+    "clave": "tut.calendario.3b.texto",
+    "texto": "In Rot, damit es nicht mit den vier oberen verwechselt wird: Ziele öffnet deine Ziele, ihre Pläne und den Zeitplan."
+  },
+  {
+    "clave": "tut.metas.titulo",
+    "texto": "Ziele"
+  },
+  {
+    "clave": "tut.metas.resumen",
+    "texto": "Die drei Bildschirme eines Ziels: die Liste, in der es entsteht, der Plan, der es entwickelt (die KI schlägt vor, du hakst ab), und der Zeitplan, in dem seine Phasen als echte Teilziele ihren Platz einnehmen."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.titulo",
+    "texto": "Die eigene Enzyklopädie"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.resumen",
+    "texto": "Alles, was du lernst, wird in einem Baum nach Wissensgebiet abgelegt: Karten mit Zusammenfassung und Kernpunkten, die du illustrieren kannst."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.titulo",
+    "texto": "Chatten und destillieren"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.resumen2",
+    "texto": "Du fragst den Weisen zu einem beliebigen Thema, und der Chat archiviert sich selbst: Er wird in deinen Baum einsortiert und kommt schon destilliert als Enzyklopädie-Karte heraus."
+  }
+]

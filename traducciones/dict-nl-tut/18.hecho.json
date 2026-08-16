@@ -1,0 +1,90 @@
+[
+  {
+    "clave": "tut.app-despacho--calculadoras.3.texto",
+    "texto": "Eén tik en het resultaat wordt een echt spaardoel, klaar om naar de planning te gaan en een datum te krijgen. (Niet indrukken in de demo: dan maak je een echt doel aan.)"
+  },
+  { "clave": "tut.app-garage--vehiculos.1.titulo", "texto": "Is er iets dringend?" },
+  {
+    "clave": "tut.app-garage--vehiculos.1.texto",
+    "texto": "Eén stoplicht, zodat je geen twee lijsten hoeft te lezen: rood als er iets verlopen is, amber als er iets aankomt, groen als de garage rust heeft."
+  },
+  { "clave": "tut.app-garage--vehiculos.2.titulo", "texto": "Wat je tot nu toe uitgaf" },
+  {
+    "clave": "tut.app-garage--vehiculos.2.texto",
+    "texto": "Hoeveel voertuigen, hoeveel administratie er openstaat en wat je dit jaar hebt uitgegeven. Pep kwam de auto duur te staan."
+  },
+  { "clave": "tut.app-garage--vehiculos.3.titulo", "texto": "De fiets van elke dag" },
+  {
+    "clave": "tut.app-garage--vehiculos.3.texto",
+    "texto": "Peps echte vervoer: ketting, binnenbanden, remmen, elk op een eigen regel — hetzelfde archief met mappen per jaar en maand als in de andere apps. Kijk hoe de beurten zich in de laatste maanden opstapelen: dat is de marathontraining die zijn tol eist."
+  },
+  { "clave": "tut.app-garage--vehiculos.4.titulo", "texto": "En de geërfde auto" },
+  {
+    "clave": "tut.app-garage--vehiculos.4.texto",
+    "texto": "Hier is de pech uit maand 7: stilgevallen langs de weg, een sleepdienst en bijna tienduizend peso's die er niet waren. Elke beurt bewaart de kosten, de kilometerstand en in welke werkplaats het gebeurde."
+  },
+  { "clave": "tut.app-garage--vehiculos.5.titulo", "texto": "De kaart" },
+  {
+    "clave": "tut.app-garage--vehiculos.5.texto",
+    "texto": "Merk, model, bouwjaar, kenteken en de tellerstand van vandaag. Met het kenteken erbij zet de garage de administratie aan die alleen voor een auto geldt."
+  },
+  { "clave": "tut.app-garage--tramites.1.titulo", "texto": "Wat eraan komt" },
+  {
+    "clave": "tut.app-garage--tramites.1.texto",
+    "texto": "Elke taak bewaart de volgende vervaldatum, om de hoeveel maanden hij terugkomt en wat hij kost. Zet je hem op Gedaan, dan springt de datum vanzelf naar de volgende."
+  },
+  { "clave": "tut.app-garage--tramites.2.titulo", "texto": "De fiets betaalt geen wegenbelasting" },
+  {
+    "clave": "tut.app-garage--tramites.2.texto",
+    "texto": "Zonder kenteken verbergt de garage de administratie die niet van toepassing is: de fiets krijgt alleen het periodieke onderhoud aangeboden."
+  },
+  { "clave": "tut.app-garage--tramites.3.titulo", "texto": "Het adresboekje" },
+  {
+    "clave": "tut.app-garage--tramites.3.texto",
+    "texto": "De vertrouwde werkplaats, de verzekeraar, het keuringsstation, de fietsenmaker om de hoek en de sleepdienst van die nacht — met telefoon en adres op één tik."
+  },
+  {
+    "clave": "tut.app-garage--tramites.4.texto",
+    "texto": "Al die administratie staat ook in de kalender van het huis, met waarschuwing vooraf. En let op: de voertuigen waarmee je over de kaart rijdt zijn iets anders, die wonen in de Inventaris."
+  },
+  { "clave": "tut.app-sala--mapa.1.titulo", "texto": "Waar je bent geweest" },
+  {
+    "clave": "tut.app-sala--mapa.1.texto",
+    "texto": "Vier landen en een handvol steden: bijna allemaal uit dezelfde reis. Tik op een van de drie getallen om de lijst onder de kaart te zien."
+  },
+  { "clave": "tut.app-sala--mapa.2.titulo", "texto": "De pins" },
+  {
+    "clave": "tut.app-sala--mapa.2.texto",
+    "texto": "De zeven pins die in Japan bij elkaar staan zijn de drie weken van de reis. De ambergele —Seoel, Patagonië, IJsland— zijn wat nog moet komen. Tik op de kaart en er komt een nieuwe pin waar je maar wilt."
+  },
+  { "clave": "tut.app-sala--japon.1.titulo", "texto": "De albums" },
+  {
+    "clave": "tut.app-sala--japon.1.texto",
+    "texto": "Eén map per land, met een omslagfoto. Daarin staat elke plek op een eigen kaartje en, daarbinnen, wat Pep die dag schreef."
+  },
+  { "clave": "tut.app-sala--japon.2.titulo", "texto": "Wat Pep daar schreef" },
+  {
+    "clave": "tut.app-sala--japon.2.texto",
+    "texto": "Acht herinneringen uit de reis, elk met een foto: de Fuji bij zonsopgang, het bamboebos van Arashiyama, de herten van Nara. Je schrijft ze ter plekke, met de geur nog in je kleren."
+  },
+  {
+    "clave": "tut.app-sala--japon.3.texto",
+    "texto": "Binnen elke plek opent de knop «Reisplan» het blad van de reis: dag voor dag, van waar naar waar, waar Pep sliep, hoe Pep zich verplaatste en wat het kostte."
+  },
+  { "clave": "tut.app-sala--proximo.1.titulo", "texto": "Nog te zien" },
+  {
+    "clave": "tut.app-sala--proximo.1.texto",
+    "texto": "Drie dromen genoteerd. Seoel heeft al een datum en een plan; Patagonië en IJsland zijn nog een idee. Wat een datum heeft, verschijnt in je kalender."
+  },
+  { "clave": "tut.app-sala--proximo.2.titulo", "texto": "Van het blad naar het doel" },
+  {
+    "clave": "tut.app-sala--proximo.2.texto",
+    "texto": "De acht dagen Korea tellen op tot wat de reis zou kosten, en die som wordt een spaardoel in de werkkamer: daar zie je hem groeien, hier zie je hem dichterbij komen."
+  },
+  { "clave": "tut.app-sala--proximo.3.titulo", "texto": "Routes" },
+  {
+    "clave": "tut.app-sala--proximo.3.texto",
+    "texto": "Een route rijgt plekken op volgorde aan elkaar en tekent ze op de kaart. Die van Japan is de tocht die al gemaakt is; die van Korea, de tocht die nog wacht."
+  },
+  { "clave": "tut.app-entretenimiento--archivo.1.titulo", "texto": "Dertig titels, één jaar" }
+]

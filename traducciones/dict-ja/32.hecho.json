@@ -1,0 +1,606 @@
+[
+ {
+  "clave": "respaldo.aviso",
+  "texto": "前回のバックアップから{n}日経っています。"
+ },
+ {
+  "clave": "respaldo.luego",
+  "texto": "1週間後にリマインド"
+ },
+ {
+  "clave": "rot.der",
+  "texto": "右に90°回転"
+ },
+ {
+  "clave": "rot.izq",
+  "texto": "左に90°回転"
+ },
+ {
+  "clave": "rutinas.activar",
+  "texto": "有効にする"
+ },
+ {
+  "clave": "rutinas.agregarPaso",
+  "texto": "ステップを追加"
+ },
+ {
+  "clave": "rutinas.autoRegistro",
+  "texto": "部屋に自動で記録します"
+ },
+ {
+  "clave": "rutinas.borrar",
+  "texto": "削除"
+ },
+ {
+  "clave": "rutinas.confirmarBorrar",
+  "texto": "このイベントを削除しますか？"
+ },
+ {
+  "clave": "rutinas.cancelar",
+  "texto": "キャンセル"
+ },
+ {
+  "clave": "rutinas.cerrar",
+  "texto": "閉じる"
+ },
+ {
+  "clave": "rutinas.completada",
+  "texto": "ルーティン完了！"
+ },
+ {
+  "clave": "rutinas.editar",
+  "texto": "編集"
+ },
+ {
+  "clave": "rutinas.eventoSimple",
+  "texto": "カレンダーの予定です。"
+ },
+ {
+  "clave": "rutinas.guardar",
+  "texto": "保存"
+ },
+ {
+  "clave": "rutinas.hoy",
+  "texto": "今日"
+ },
+ {
+  "clave": "rutinas.nombre",
+  "texto": "ルーティン／イベント名"
+ },
+ {
+  "clave": "rutinas.nueva",
+  "texto": "新規"
+ },
+ {
+  "clave": "rutinas.pasoPh",
+  "texto": "やること…"
+ },
+ {
+  "clave": "rutinas.pasos",
+  "texto": "ステップ"
+ },
+ {
+  "clave": "rutinas.pasosOpcional",
+  "texto": "任意"
+ },
+ {
+  "clave": "rutinas.pasosTitulo",
+  "texto": "ステップ"
+ },
+ {
+  "clave": "rutinas.pausar",
+  "texto": "一時停止"
+ },
+ {
+  "clave": "rutinas.rep.hintIndefinido",
+  "texto": "曜日を選ばない場合は毎日・終了日なしになります。"
+ },
+ {
+  "clave": "rutinas.rep.hintSemanal",
+  "texto": "選んだ曜日に毎週繰り返します。"
+ },
+ {
+  "clave": "rutinas.rep.sinFin",
+  "texto": "終了日なし"
+ },
+ {
+  "clave": "rutinas.rep.soloTrazo",
+  "texto": "カレンダーに描いて予定されました。日付を変えるにはもう一度描き直してください。"
+ },
+ {
+  "clave": "rutinas.rep.termina",
+  "texto": "終了日："
+ },
+ {
+  "clave": "rutinas.rep.titulo",
+  "texto": "繰り返し"
+ },
+ {
+  "clave": "rutinas.sinHora",
+  "texto": "時刻未設定"
+ },
+ {
+  "clave": "rutinas.titulo",
+  "texto": "ルーティン"
+ },
+ {
+  "clave": "rutinas.todas",
+  "texto": "すべてのルーティン"
+ },
+ {
+  "clave": "rutinas.vacio",
+  "texto": "まだルーティンがありません。「+ 新規」で作成するか、アシスタントに「水・ストレッチ・感謝を含む朝のルーティンを作って」と頼んでみましょう。"
+ },
+ {
+  "clave": "ui.sinApp",
+  "texto": "この部屋にはアプリが割り当てられていません。"
+ },
+ {
+  "clave": "ui.sinAppAyuda",
+  "texto": "部屋を編集して、オブジェクトにアプリを割り当ててください。"
+ },
+ {
+  "clave": "ui.volverApps",
+  "texto": "‹ 部屋のアプリ"
+ },
+ {
+  "clave": "mascota.mago.nombre",
+  "texto": "魔法使い"
+ },
+ {
+  "clave": "mascota.gato.nombre",
+  "texto": "猫"
+ },
+ {
+  "clave": "mascota.perro.nombre",
+  "texto": "犬"
+ },
+ {
+  "clave": "mascota.buho.nombre",
+  "texto": "フクロウ"
+ },
+ {
+  "clave": "mascota.robot.nombre",
+  "texto": "ロボット"
+ },
+ {
+  "clave": "mascota.mago.saludo",
+  "texto": "私は魔導の建築士です。今日したことを教えてください、記録に刻みましょう ✨"
+ },
+ {
+  "clave": "mascota.gato.saludo",
+  "texto": "にゃー。教えてくれれば、どこに入れるか考えておきます 🐾"
+ },
+ {
+  "clave": "mascota.perro.saludo",
+  "texto": "ワン！やったことを教えてください！すぐに保存します！🦴"
+ },
+ {
+  "clave": "mascota.buho.saludo",
+  "texto": "賢明かつ丁寧に。今日の出来事をお話しください、整理いたしましょう。"
+ },
+ {
+  "clave": "mascota.robot.saludo",
+  "texto": "システム準備完了。処理する記録を入力してください。"
+ },
+ {
+  "clave": "mascota.bitacora",
+  "texto": "記録帳"
+ },
+ {
+  "clave": "mascota.elObjeto",
+  "texto": "そのオブジェクト"
+ },
+ {
+  "clave": "mascota.mago.capturado.0",
+  "texto": "✨ 完了。記録を{c}に刻みました。"
+ },
+ {
+  "clave": "mascota.mago.capturado.1",
+  "texto": "そうなりましょう。{c}に詳しく記しました ✨"
+ },
+ {
+  "clave": "mascota.mago.clasificado.0",
+  "texto": "📜 巻物を{c}の記録に収めました。"
+ },
+ {
+  "clave": "mascota.mago.clasificado.1",
+  "texto": "{c}に安らかに置いておきました。"
+ },
+ {
+  "clave": "mascota.mago.sinClasificar.0",
+  "texto": "保存しましたが、どの部屋に属するか分かりません…導いてくれますか？🔮"
+ },
+ {
+  "clave": "mascota.mago.sinClasificar.1",
+  "texto": "今のところ未分類です。どの部屋にお届けしましょうか？"
+ },
+ {
+  "clave": "mascota.mago.agregar.0",
+  "texto": "🪄 {c}をこの家に具現化しました。"
+ },
+ {
+  "clave": "mascota.mago.agregar.1",
+  "texto": "{c}が魔法により、マップに現れました ✨"
+ },
+ {
+  "clave": "mascota.mago.quitar.0",
+  "texto": "🪄 {c}がマップから消えました。"
+ },
+ {
+  "clave": "mascota.mago.quitar.1",
+  "texto": "{c}をこの家から取り除きました。"
+ },
+ {
+  "clave": "mascota.mago.objeto.0",
+  "texto": "🪄 {c}に{o}を呼び出しました ✨"
+ },
+ {
+  "clave": "mascota.mago.objeto.1",
+  "texto": "{o}よ、現れよ…完了、{c}に！"
+ },
+ {
+  "clave": "mascota.mago.recordado.0",
+  "texto": "🧠 魔導書に刻みました。決して忘れません ✨"
+ },
+ {
+  "clave": "mascota.mago.recordado.1",
+  "texto": "記憶しました。魔導の記憶は永遠です 🔮"
+ },
+ {
+  "clave": "mascota.gato.capturado.0",
+  "texto": "ふん、まあいいでしょう。{c}に入れておきました 🐾"
+ },
+ {
+  "clave": "mascota.gato.capturado.1",
+  "texto": "終わりました。{c}に記録しておきました。お礼はいりません。"
+ },
+ {
+  "clave": "mascota.gato.clasificado.0",
+  "texto": "{c}の記録に置いておきました。そこに残ります 🐱"
+ },
+ {
+  "clave": "mascota.gato.clasificado.1",
+  "texto": "{c}に記録しました。それだけです。"
+ },
+ {
+  "clave": "mascota.gato.sinClasificar.0",
+  "texto": "どこに入れるか分かりません。未分類のままにしておきました 🐾"
+ },
+ {
+  "clave": "mascota.gato.sinClasificar.1",
+  "texto": "フン、どの部屋のものですか？教えてください。"
+ },
+ {
+  "clave": "mascota.gato.agregar.0",
+  "texto": "はい、{c}をマップに置いておきました。どうせ暇でしたし 🐱"
+ },
+ {
+  "clave": "mascota.gato.agregar.1",
+  "texto": "{c}を追加しました。おめでとう、と言っておきます。"
+ },
+ {
+  "clave": "mascota.gato.quitar.0",
+  "texto": "{c}を削除しました。片付けが一つ減りました 🐾"
+ },
+ {
+  "clave": "mascota.gato.quitar.1",
+  "texto": "{c}、消えました。終わりです。"
+ },
+ {
+  "clave": "mascota.gato.objeto.0",
+  "texto": "{o}はここです、{c}にあります。壊さないでください 🐾"
+ },
+ {
+  "clave": "mascota.gato.objeto.1",
+  "texto": "{o}を{c}に置いておきました。もう眠らせてください 🐱"
+ },
+ {
+  "clave": "mascota.gato.recordado.0",
+  "texto": "いいでしょう、覚えておきます。これでも記憶力はいいんです 🐱"
+ },
+ {
+  "clave": "mascota.gato.recordado.1",
+  "texto": "記憶しました。もう一度は言いませんよ 🐾"
+ },
+ {
+  "clave": "mascota.perro.capturado.0",
+  "texto": "ワン！{c}に記録しました！🐶"
+ },
+ {
+  "clave": "mascota.perro.capturado.1",
+  "texto": "完了です！{c}に保存しました！🦴"
+ },
+ {
+  "clave": "mascota.perro.clasificado.0",
+  "texto": "{c}の記録に保存しました！🐶"
+ },
+ {
+  "clave": "mascota.perro.clasificado.1",
+  "texto": "{c}に記録しました！他には何かありますか？"
+ },
+ {
+  "clave": "mascota.perro.sinClasificar.0",
+  "texto": "保存しました！でもどの部屋か分かりません…助けてもらえますか？🐶"
+ },
+ {
+  "clave": "mascota.perro.sinClasificar.1",
+  "texto": "できました！どの部屋に持っていきましょうか、ねえ？"
+ },
+ {
+  "clave": "mascota.perro.agregar.0",
+  "texto": "ワン！{c}をマップに追加しました！🎉"
+ },
+ {
+  "clave": "mascota.perro.agregar.1",
+  "texto": "{c}はもう家にありますよ！🐶"
+ },
+ {
+  "clave": "mascota.perro.quitar.0",
+  "texto": "{c}をマップから削除しました。完了です！🐾"
+ },
+ {
+  "clave": "mascota.perro.quitar.1",
+  "texto": "完了です！{c}はマップから消えました。"
+ },
+ {
+  "clave": "mascota.perro.objeto.0",
+  "texto": "ワン！{c}に{o}を作りました！🎉"
+ },
+ {
+  "clave": "mascota.perro.objeto.1",
+  "texto": "見て、{o}ですよ！{c}に置いておきました 🐶"
+ },
+ {
+  "clave": "mascota.perro.recordado.0",
+  "texto": "一生忘れません！🐶"
+ },
+ {
+  "clave": "mascota.perro.recordado.1",
+  "texto": "ワン！記憶しました、忘れません！🦴"
+ },
+ {
+  "clave": "mascota.buho.capturado.0",
+  "texto": "正確に{c}へ記録しました。"
+ },
+ {
+  "clave": "mascota.buho.capturado.1",
+  "texto": "{c}にて記録し、処理いたしました 🦉"
+ },
+ {
+  "clave": "mascota.buho.clasificado.0",
+  "texto": "{c}の記録に保管いたしました。"
+ },
+ {
+  "clave": "mascota.buho.clasificado.1",
+  "texto": "{c}に分類いたしました。"
+ },
+ {
+  "clave": "mascota.buho.sinClasificar.0",
+  "texto": "未分類のまま保存いたしました。都合のよいときに部屋をお教えください 🦉"
+ },
+ {
+  "clave": "mascota.buho.sinClasificar.1",
+  "texto": "部屋を特定できません。どちらが該当しますか？"
+ },
+ {
+  "clave": "mascota.buho.agregar.0",
+  "texto": "{c}をマップに追加いたしました。"
+ },
+ {
+  "clave": "mascota.buho.agregar.1",
+  "texto": "{c}をこの家に取り入れました 🦉"
+ },
+ {
+  "clave": "mascota.buho.quitar.0",
+  "texto": "{c}をマップから削除いたしました。"
+ },
+ {
+  "clave": "mascota.buho.quitar.1",
+  "texto": "{c}を取り除きました。"
+ },
+ {
+  "clave": "mascota.buho.objeto.0",
+  "texto": "{o}を{c}に配置いたしました 🦉"
+ },
+ {
+  "clave": "mascota.buho.objeto.1",
+  "texto": "{o}はただいま{c}にございます。"
+ },
+ {
+  "clave": "mascota.buho.recordado.0",
+  "texto": "正確に記憶いたしました 🦉"
+ },
+ {
+  "clave": "mascota.buho.recordado.1",
+  "texto": "これまでの記録に新たに加えました。"
+ },
+ {
+  "clave": "mascota.robot.capturado.0",
+  "texto": "✓ {c}にレコードを作成完了。"
+ },
+ {
+  "clave": "mascota.robot.capturado.1",
+  "texto": "データ処理完了 → {c} 🤖"
+ },
+ {
+  "clave": "mascota.robot.clasificado.0",
+  "texto": "✓ ログに保存：{c}。"
+ },
+ {
+  "clave": "mascota.robot.clasificado.1",
+  "texto": "エントリー保存 → {c}。"
+ },
+ {
+  "clave": "mascota.robot.sinClasificar.0",
+  "texto": "⚠ 部屋を特定できません。未分類として処理。"
+ },
+ {
+  "clave": "mascota.robot.sinClasificar.1",
+  "texto": "分類失敗。指示待機中。"
+ },
+ {
+  "clave": "mascota.robot.agregar.0",
+  "texto": "✓ {c}をマップに追加完了。"
+ },
+ {
+  "clave": "mascota.robot.agregar.1",
+  "texto": "モジュール{c}インストール完了 🤖"
+ },
+ {
+  "clave": "mascota.robot.quitar.0",
+  "texto": "✓ {c}をマップから削除完了。"
+ },
+ {
+  "clave": "mascota.robot.quitar.1",
+  "texto": "モジュール{c}アンインストール完了。"
+ },
+ {
+  "clave": "mascota.robot.objeto.0",
+  "texto": "✓ オブジェクト{o}を{c}に生成完了 🤖"
+ },
+ {
+  "clave": "mascota.robot.objeto.1",
+  "texto": "プリント完了：{o} → {c}。"
+ },
+ {
+  "clave": "mascota.robot.recordado.0",
+  "texto": "✓ 永続メモリ更新完了 🤖"
+ },
+ {
+  "clave": "mascota.robot.recordado.1",
+  "texto": "ナレッジベースにデータ保存完了。"
+ },
+ {
+  "clave": "tut.boton",
+  "texto": "チュートリアルを見る"
+ },
+ {
+  "clave": "tut.paso",
+  "texto": "ステップ{i}／{n}"
+ },
+ {
+  "clave": "tut.salir",
+  "texto": "終了"
+ },
+ {
+  "clave": "tut.atras",
+  "texto": "戻る"
+ },
+ {
+  "clave": "tut.siguiente",
+  "texto": "次へ"
+ },
+ {
+  "clave": "tut.terminar",
+  "texto": "完了"
+ },
+ {
+  "clave": "tut.voz",
+  "texto": "ステップを音声で読み上げる"
+ },
+ {
+  "clave": "tut.appSinCuarto",
+  "texto": "このアプリはまだどの部屋にもありませんので、ここで説明します。使うには「メニュー›テンプレート」で割り当ててください。"
+ },
+ {
+  "clave": "tut.errorCarga",
+  "texto": "そのチュートリアルを読み込めませんでした。接続を確認して、もう一度お試しください。"
+ },
+ {
+  "clave": "tut.preparandoDemo",
+  "texto": "デモハウスでそのアプリの一年分を準備しています。ツアーはまもなく始まります…"
+ },
+ {
+  "clave": "tut.selector.titulo",
+  "texto": "どのチュートリアルを見ますか？"
+ },
+ {
+  "clave": "tut.selector.hint",
+  "texto": "黄色く光っているエリアをタップするか、まず全体の説明から始めてください。"
+ },
+ {
+  "clave": "tut.selector.general",
+  "texto": "全体チュートリアル"
+ },
+ {
+  "clave": "tut.selector.cancelar",
+  "texto": "キャンセル"
+ },
+ {
+  "clave": "tut.selector.apps",
+  "texto": "またはアプリのチュートリアル："
+ },
+ {
+  "clave": "tut.selector.infra",
+  "texto": "またはマップに施設を作る："
+ },
+ {
+  "clave": "tut.selector.nucleo",
+  "texto": "またはカレンダーと目標について："
+ },
+ {
+  "clave": "tut.selector.hudNota",
+  "texto": "オフの場合、チュートリアルは「エディター›設定›チュートリアル」から起動できます。"
+ },
+ {
+  "clave": "tut.selector.pag1",
+  "texto": "基本"
+ },
+ {
+  "clave": "tut.selector.pag2",
+  "texto": "その他すべて"
+ },
+ {
+  "clave": "tut.selector.hint2",
+  "texto": "家とメニューの案内です。黄色いエリアは引き続き有効です。"
+ },
+ {
+  "clave": "tut.selector.cerrar",
+  "texto": "閉じる"
+ },
+ {
+  "clave": "tut.selector.volver",
+  "texto": "戻る"
+ },
+ {
+  "clave": "tut.selector.gMenu",
+  "texto": "メニュー"
+ },
+ {
+  "clave": "tut.selector.gEditor",
+  "texto": "エディター"
+ },
+ {
+  "clave": "tut.selector.gConfig",
+  "texto": "設定"
+ },
+ {
+  "clave": "tut.selector.gCasa",
+  "texto": "家"
+ },
+ {
+  "clave": "tut.selector.gChat",
+  "texto": "チャット"
+ },
+ {
+  "clave": "tut.selector.gProgreso",
+  "texto": "今日の記録と進み具合"
+ },
+ {
+  "clave": "tut.chat.abriendo",
+  "texto": "いきます。魔法使いが画面でご案内します。"
+ },
+ {
+  "clave": "tut.chat.ofrecer",
+  "texto": "「{n}のチュートリアル」と入力するか、？ボタンを押すと画面でご案内します。"
+ },
+ {
+  "clave": "tut.chat.chipTour",
+  "texto": "チュートリアル：{n}"
+ },
+ {
+  "clave": "tut.chat.chipAyuda",
+  "texto": "ヘルプ：{n}"
+ }
+]

@@ -1,0 +1,638 @@
+[
+  {
+    "ruta": "entradas.0.titulo",
+    "texto": "As três leis de Newton, relidas sem pressa"
+  },
+  {
+    "ruta": "entradas.0.resumen",
+    "texto": "Vi isso no colégio e jurava que sabia. Não sabia: a primeira não é óbvia, porque diz que o movimento não precisa de causa, quem precisa é a mudança. Ficou clara quando freei a bicicleta e senti a mochila continuar o caminho dela."
+  },
+  {
+    "ruta": "entradas.0.puntosClave.0",
+    "texto": "Sem força resultante, o estado de movimento se mantém, não só o repouso"
+  },
+  {
+    "ruta": "entradas.0.puntosClave.1",
+    "texto": "F = ma fala da variação do momento, não da velocidade que você tem"
+  },
+  {
+    "ruta": "entradas.0.puntosClave.2",
+    "texto": "Ação e reação atuam sobre corpos diferentes, por isso não se cancelam"
+  },
+  {
+    "ruta": "entradas.1.titulo",
+    "texto": "A derivada como velocidade instantânea"
+  },
+  {
+    "ruta": "entradas.1.resumen",
+    "texto": "Eu derivava seguindo regras, como quem aplica uma receita. Esta semana entendi o que ela mede: quanto algo muda por unidade de tempo bem naquele instante. Fiz o gráfico da posição da minha bike a caminho da cafeteria, e a inclinação contava toda a história do trajeto."
+  },
+  {
+    "ruta": "entradas.1.puntosClave.0",
+    "texto": "É o limite do quociente incremental quando o intervalo tende a zero"
+  },
+  {
+    "ruta": "entradas.1.puntosClave.1",
+    "texto": "A segunda derivada é a aceleração: a curvatura do gráfico"
+  },
+  {
+    "ruta": "entradas.1.puntosClave.2",
+    "texto": "Contínua não implica derivável: num pico não existe uma única inclinação"
+  },
+  {
+    "ruta": "entradas.2.titulo",
+    "texto": "Trabalho e energia: o atalho que salva problemas"
+  },
+  {
+    "ruta": "entradas.2.resumen",
+    "texto": "Descobri que muitos problemas que eu resolvia com três equações caem sozinhos se eu usar energia. Não preciso saber o detalhe do caminho, só o começo e o fim. É a primeira vez que a física me parece econômica em vez de cansativa."
+  },
+  {
+    "ruta": "entradas.2.puntosClave.0",
+    "texto": "Só a componente da força na direção do movimento realiza trabalho"
+  },
+  {
+    "ruta": "entradas.2.puntosClave.1",
+    "texto": "Teorema trabalho-energia: o trabalho líquido é a variação da energia cinética"
+  },
+  {
+    "ruta": "entradas.2.puntosClave.2",
+    "texto": "Com forças conservativas o caminho não importa, e é aí que aparece a energia potencial"
+  },
+  {
+    "ruta": "entradas.3.titulo",
+    "texto": "Momento linear e colisões"
+  },
+  {
+    "ruta": "entradas.3.resumen",
+    "texto": "O momento é o que se conserva mesmo quando a energia se perde em ruído e calor. No laboratório, trabalhei a colisão de dois carrinhos e o número saiu quase exato; já a energia cinética sumiu um terço. Gostei de ver uma lei se sustentar onde outra se rende."
+  },
+  {
+    "ruta": "entradas.3.puntosClave.0",
+    "texto": "p = mv, e a força é a taxa de variação do momento"
+  },
+  {
+    "ruta": "entradas.3.puntosClave.1",
+    "texto": "Em qualquer colisão o momento total do sistema se conserva"
+  },
+  {
+    "ruta": "entradas.3.puntosClave.2",
+    "texto": "O centro de massa segue sua trajetória como se nada tivesse acontecido"
+  },
+  {
+    "ruta": "entradas.4.titulo",
+    "texto": "Movimento circular: quem curva quem"
+  },
+  {
+    "ruta": "entradas.4.resumen",
+    "texto": "Fazia anos que eu acreditava na força centrífuga porque sinto ela quando faço uma curva de bike. Ela não existe num referencial inercial: o que existe é atrito empurrando para o centro e meu corpo querendo seguir reto. Entender isso mudou até a forma como me inclino nas curvas."
+  },
+  {
+    "ruta": "entradas.4.puntosClave.0",
+    "texto": "A aceleração centrípeta aponta para o centro e vale v²/r"
+  },
+  {
+    "ruta": "entradas.4.puntosClave.1",
+    "texto": "A sensação de ser jogado para fora é inércia, não uma força real"
+  },
+  {
+    "ruta": "entradas.4.puntosClave.2",
+    "texto": "Se falta atrito, a trajetória vira reta: é exatamente aí que se derrapa"
+  },
+  {
+    "ruta": "entradas.5.titulo",
+    "texto": "Momento angular e o truque da patinadora"
+  },
+  {
+    "ruta": "entradas.5.resumen",
+    "texto": "O clássico da patinadora que gira mais rápido ao fechar os braços, mas agora com números. A energia não vem do nada: o trabalho é dela, ao puxar os braços para dentro. Laika faz algo parecido quando cai e se retorce no ar."
+  },
+  {
+    "ruta": "entradas.5.puntosClave.0",
+    "texto": "L = Iω, e o momento de inércia depende de como a massa está distribuída"
+  },
+  {
+    "ruta": "entradas.5.puntosClave.1",
+    "texto": "Sem torque externo, o momento angular total se conserva"
+  },
+  {
+    "ruta": "entradas.5.puntosClave.2",
+    "texto": "Girar mais rápido com menos inércia custa energia sim: alguém está pagando essa conta"
+  },
+  {
+    "ruta": "entradas.6.titulo",
+    "texto": "O oscilador harmônico está em todo lugar"
+  },
+  {
+    "ruta": "entradas.6.resumen",
+    "texto": "Mola, pêndulo, corda, átomo numa rede: perto o bastante do equilíbrio, tudo oscila do mesmo jeito. É o problema que mais resolvi este ano e o que menos me cansa. Foi aqui que comecei a suspeitar que a física repete poucas ideias com muitos disfarces."
+  },
+  {
+    "ruta": "entradas.6.puntosClave.0",
+    "texto": "Uma força restauradora proporcional ao deslocamento dá solução senoidal"
+  },
+  {
+    "ruta": "entradas.6.puntosClave.1",
+    "texto": "Para amplitudes pequenas, o período não depende da amplitude"
+  },
+  {
+    "ruta": "entradas.6.puntosClave.2",
+    "texto": "Com atrito surge o amortecimento; com forçamento, a ressonância"
+  },
+  {
+    "ruta": "entradas.7.titulo",
+    "texto": "Lei zero: o que a temperatura realmente é"
+  },
+  {
+    "ruta": "entradas.7.resumen",
+    "texto": "Começa termodinâmica e a primeira lei que vejo é a que nem número próprio tem. Ela diz algo simples e necessário: se A está em equilíbrio com C e B também está, então A e B estão em equilíbrio entre si. É isso que faz um termômetro significar alguma coisa."
+  },
+  {
+    "ruta": "entradas.7.puntosClave.0",
+    "texto": "O equilíbrio térmico é transitivo, e é isso que define a temperatura"
+  },
+  {
+    "ruta": "entradas.7.puntosClave.1",
+    "texto": "Temperatura não é calor: uma é estado, o outro é energia em trânsito"
+  },
+  {
+    "ruta": "entradas.7.puntosClave.2",
+    "texto": "A escala absoluta em kelvin evita o absurdo de temperaturas negativas"
+  },
+  {
+    "ruta": "entradas.8.titulo",
+    "texto": "Primeira lei: a contabilidade da energia"
+  },
+  {
+    "ruta": "entradas.8.resumen",
+    "texto": "ΔU = Q − W é basicamente um livro-caixa onde nada se perde. O que me custou entender foi que U depende só do estado, enquanto Q e W dependem do caminho que você tomou para chegar lá. É como o meu orçamento: o saldo é o saldo, mas como você chegou até ele faz diferença."
+  },
+  {
+    "ruta": "entradas.8.puntosClave.0",
+    "texto": "A energia interna é função de estado; o calor e o trabalho não são"
+  },
+  {
+    "ruta": "entradas.8.puntosClave.1",
+    "texto": "Fechar um ciclo devolve U ao ponto de partida, mas não devolve o gasto"
+  },
+  {
+    "ruta": "entradas.8.puntosClave.2",
+    "texto": "Nenhuma máquina entrega mais energia do que consome"
+  },
+  {
+    "ruta": "entradas.9.titulo",
+    "texto": "Teoria cinética e a distribuição de velocidades"
+  },
+  {
+    "ruta": "entradas.9.resumen",
+    "texto": "A pressão deixa de ser um número do enunciado e vira milhões de colisões por segundo. O melhor é a cauda da distribuição: sempre existem moléculas muito mais rápidas que a média. É por isso que o café evapora sem precisar ferver."
+  },
+  {
+    "ruta": "entradas.9.puntosClave.0",
+    "texto": "A pressão vem da troca de momento nas colisões com a parede"
+  },
+  {
+    "ruta": "entradas.9.puntosClave.1",
+    "texto": "A temperatura é proporcional à energia cinética média, não à de uma molécula isolada"
+  },
+  {
+    "ruta": "entradas.9.puntosClave.2",
+    "texto": "A cauda rápida de Maxwell-Boltzmann explica a evaporação"
+  },
+  {
+    "ruta": "entradas.10.titulo",
+    "texto": "Entropia sem misticismo"
+  },
+  {
+    "ruta": "entradas.10.resumen",
+    "texto": "Me neguei a ficar só com o slogan de que entropia é desordem. Com a definição de Boltzmann, passei a ver como contagem: quantas configurações microscópicas dão o mesmo estado que estou vendo. Arrumar meu quarto não viola nada, só exporta a desordem na forma de calor."
+  },
+  {
+    "ruta": "entradas.10.puntosClave.0",
+    "texto": "Definição termodinâmica: dS é o calor reversível δQ dividido por T"
+  },
+  {
+    "ruta": "entradas.10.puntosClave.1",
+    "texto": "Definição estatística: S = k ln Ω, uma contagem de microestados"
+  },
+  {
+    "ruta": "entradas.10.puntosClave.2",
+    "texto": "A segunda lei dá uma seta do tempo, não proíbe a ordem local"
+  },
+  {
+    "ruta": "entradas.11.titulo",
+    "texto": "Carnot e o teto que ninguém supera"
+  },
+  {
+    "ruta": "entradas.11.resumen",
+    "texto": "Um ciclo impossível de construir que serve para saber até onde qualquer motor real pode chegar. O rendimento depende só das duas temperaturas, e isso é brutalmente limpo. Gostei de saber que a física tem ideias úteis justamente por serem ficções."
+  },
+  {
+    "ruta": "entradas.11.puntosClave.0",
+    "texto": "Rendimento máximo: 1 − Tfria/Tquente, com temperaturas absolutas"
+  },
+  {
+    "ruta": "entradas.11.puntosClave.1",
+    "texto": "Nenhuma máquina real supera Carnot entre os mesmos reservatórios"
+  },
+  {
+    "ruta": "entradas.11.puntosClave.2",
+    "texto": "A reversibilidade exige lentidão infinita: por isso é só um limite"
+  },
+  {
+    "ruta": "entradas.12.titulo",
+    "texto": "Calor latente, ou por que o vapor esquenta tão rápido"
+  },
+  {
+    "ruta": "entradas.12.resumen",
+    "texto": "Estudei mudanças de fase e de repente meu trabalho ganhou teoria. Ao condensar, o vapor libera uma quantidade absurda de energia sem baixar de temperatura, e é por isso que o leite passa de frio a pronto em vinte segundos. Agora fico de olho no termômetro pensando no diagrama de fases."
+  },
+  {
+    "ruta": "entradas.12.puntosClave.0",
+    "texto": "Durante a mudança de fase, a energia é absorvida sem que a temperatura suba"
+  },
+  {
+    "ruta": "entradas.12.puntosClave.1",
+    "texto": "O calor latente de vaporização é muito maior que o de fusão"
+  },
+  {
+    "ruta": "entradas.12.puntosClave.2",
+    "texto": "O diagrama de fases e o ponto triplo organizam todo o panorama"
+  },
+  {
+    "ruta": "entradas.13.titulo",
+    "texto": "Incertezas: o que o laboratório me obrigou a aprender"
+  },
+  {
+    "ruta": "entradas.13.resumen",
+    "texto": "Perdi nota por escrever 9,81734 m/s² quando meu cronômetro era o meu polegar. A incerteza não é um enfeite no fim do relatório, é parte do resultado. Desde então começo o laboratório pensando de onde vem o erro, não termino pensando nisso."
+  },
+  {
+    "ruta": "entradas.13.puntosClave.0",
+    "texto": "O erro aleatório diminui repetindo a medida; o sistemático, não"
+  },
+  {
+    "ruta": "entradas.13.puntosClave.1",
+    "texto": "Para variáveis independentes, os erros se somam em quadratura"
+  },
+  {
+    "ruta": "entradas.13.puntosClave.2",
+    "texto": "Os algarismos significativos não devem prometer mais precisão do que existe"
+  },
+  {
+    "ruta": "entradas.14.titulo",
+    "texto": "Mínimos quadrados: ajustar sem se enganar"
+  },
+  {
+    "ruta": "entradas.14.resumen",
+    "texto": "Três semanas sem correr por causa do joelho me deram tardes longas de escrivaninha. Aprendi que um R² alto pode acompanhar um ajuste péssimo se o modelo estiver torto. O que realmente entrega é olhar os resíduos e ver se eles estão rindo de você em forma de curva."
+  },
+  {
+    "ruta": "entradas.14.puntosClave.0",
+    "texto": "Minimiza-se a soma dos quadrados dos resíduos"
+  },
+  {
+    "ruta": "entradas.14.puntosClave.1",
+    "texto": "Um qui-quadrado reduzido próximo de 1 indica erros bem estimados"
+  },
+  {
+    "ruta": "entradas.14.puntosClave.2",
+    "texto": "Os resíduos devem parecer aleatórios: qualquer padrão é uma pista"
+  },
+  {
+    "ruta": "entradas.15.titulo",
+    "texto": "Os dois postulados e a confusão da simultaneidade"
+  },
+  {
+    "ruta": "entradas.15.resumen",
+    "texto": "Começa relatividade e o estranho não são as fórmulas, é aceitar que dois eventos simultâneos para mim não sejam simultâneos para alguém passando de trem. Os postulados são curtos, quase teimosos, e é deles que sai todo o resto. Passei uma tarde inteira desenhando trens e lanternas."
+  },
+  {
+    "ruta": "entradas.15.puntosClave.0",
+    "texto": "As leis da física são as mesmas em qualquer referencial inercial"
+  },
+  {
+    "ruta": "entradas.15.puntosClave.1",
+    "texto": "A velocidade da luz é a mesma para qualquer observador"
+  },
+  {
+    "ruta": "entradas.15.puntosClave.2",
+    "texto": "A simultaneidade não é absoluta: depende do estado de movimento"
+  },
+  {
+    "ruta": "entradas.16.titulo",
+    "texto": "Dilatação do tempo e os múons que não deveriam chegar"
+  },
+  {
+    "ruta": "entradas.16.resumen",
+    "texto": "O caso dos múons cósmicos me convenceu mais que qualquer dedução. Pela meia-vida deles, deveriam se desintegrar antes de tocar o chão, e mesmo assim a gente os detecta. Depende de quem olha: ou o relógio deles anda devagar, ou a atmosfera encolhe, e as duas versões dão o mesmo número."
+  },
+  {
+    "ruta": "entradas.16.puntosClave.0",
+    "texto": "O fator gama só cresce rápido perto da velocidade da luz"
+  },
+  {
+    "ruta": "entradas.16.puntosClave.1",
+    "texto": "Dilatação do tempo e contração do comprimento são a mesma história"
+  },
+  {
+    "ruta": "entradas.16.puntosClave.2",
+    "texto": "Não é uma ilusão de medição: são relógios físicos que marcam horários diferentes"
+  },
+  {
+    "ruta": "entradas.17.titulo",
+    "texto": "Minkowski: o que todo mundo mede igual"
+  },
+  {
+    "ruta": "entradas.17.resumen",
+    "texto": "Depois da viagem voltei aos apontamentos e o espaço-tempo finalmente se encaixou. Se o tempo e o espaço se esticam conforme o observador, alguma coisa precisa ser invariante, e essa coisa é o intervalo. Com isso, E = mc² deixa de ser frase de camiseta e vira um caso particular."
+  },
+  {
+    "ruta": "entradas.17.puntosClave.0",
+    "texto": "O intervalo entre eventos é o mesmo para todos os observadores"
+  },
+  {
+    "ruta": "entradas.17.puntosClave.1",
+    "texto": "Energia e momento formam um único quadrivetor"
+  },
+  {
+    "ruta": "entradas.17.puntosClave.2",
+    "texto": "A massa não se converte em energia: ela é a energia de repouso do sistema"
+  },
+  {
+    "ruta": "entradas.18.titulo",
+    "texto": "Por que o piano soa como piano"
+  },
+  {
+    "ruta": "entradas.18.resumen",
+    "texto": "Faz dez meses que toco e essa semana estudei o que acontece dentro da corda. O timbre não está na nota, está na mistura de harmônicos e nos primeiros milissegundos da batida do martelo. O melhor foi descobrir que as cordas reais são rígidas, e é por isso que se afinam esticadas."
+  },
+  {
+    "ruta": "entradas.18.puntosClave.0",
+    "texto": "Uma corda fixa vibra em modos: fundamental mais harmônicos superiores"
+  },
+  {
+    "ruta": "entradas.18.puntosClave.1",
+    "texto": "O timbre depende da mistura de amplitudes e do ataque, não só da frequência"
+  },
+  {
+    "ruta": "entradas.18.puntosClave.2",
+    "texto": "A inarmonicidade da corda real obriga o afinador a esticar as oitavas"
+  },
+  {
+    "ruta": "entradas.19.titulo",
+    "texto": "Buracos negros: o horizonte não é uma parede"
+  },
+  {
+    "ruta": "entradas.19.resumen",
+    "texto": "Trabalhei a métrica de Schwarzschild com calma e calculei o raio para o Sol, para a Terra e, por diversão, para a Laika. O horizonte não é uma superfície que dá para tocar: é o ponto a partir do qual nenhuma trajetória volta. O que mais me tira do sério é ver alguém caindo e nunca ver essa pessoa chegar."
+  },
+  {
+    "ruta": "entradas.19.puntosClave.0",
+    "texto": "O raio de Schwarzschild é proporcional à massa do objeto"
+  },
+  {
+    "ruta": "entradas.19.puntosClave.1",
+    "texto": "O horizonte é uma fronteira causal, não um objeto material"
+  },
+  {
+    "ruta": "entradas.19.puntosClave.2",
+    "texto": "Para um observador distante, a queda parece congelar e ficar avermelhada"
+  },
+  {
+    "ruta": "entradas.20.titulo",
+    "texto": "Vidas estelares num único diagrama"
+  },
+  {
+    "ruta": "entradas.20.resumen",
+    "texto": "O diagrama de Hertzsprung-Russell parece um gráfico feio até você entender que é um censo de destinos. Uma estrela é uma briga longuíssima entre a gravidade que esmaga e a pressão que sustenta. E quem decide o final é a massa, quase nada mais."
+  },
+  {
+    "ruta": "entradas.20.puntosClave.0",
+    "texto": "Equilíbrio hidrostático: gravidade para dentro, pressão para fora"
+  },
+  {
+    "ruta": "entradas.20.puntosClave.1",
+    "texto": "A massa inicial determina o ritmo de fusão e o desfecho"
+  },
+  {
+    "ruta": "entradas.20.puntosClave.2",
+    "texto": "A sequência principal é onde as estrelas passam quase toda a vida"
+  },
+  {
+    "ruta": "entradas.21.titulo",
+    "texto": "Corpo negro: onde a física clássica quebrou"
+  },
+  {
+    "ruta": "entradas.21.resumen",
+    "texto": "Comecei a ler sobre quântica por conta própria, para a inscrição da pós-graduação, e caí no problema do corpo negro. A teoria clássica previa energia infinita no ultravioleta, o que é uma forma elegante de dizer que estava errada. Planck quantizou por desespero e deu certo; me conforta saber que grandes ideias começam como remendos."
+  },
+  {
+    "ruta": "entradas.21.puntosClave.0",
+    "texto": "A previsão clássica diverge em alta frequência: a catástrofe do ultravioleta"
+  },
+  {
+    "ruta": "entradas.21.puntosClave.1",
+    "texto": "Planck supôs energia em pacotes proporcionais à frequência"
+  },
+  {
+    "ruta": "entradas.21.puntosClave.2",
+    "texto": "A constante h surgiu medindo espectros térmicos, não filosofando"
+  },
+  {
+    "ruta": "entradas.22.titulo",
+    "texto": "Bayes, ou como atualizar no que eu acredito"
+  },
+  {
+    "ruta": "entradas.22.resumen",
+    "texto": "Deixei isso para o final do ano e queria ter visto antes do primeiro laboratório. A ideia é simples: parto do que eu acreditava, confronto com os dados e fico com uma versão atualizada. Em astrofísica usam isso o tempo todo para ajustar modelos com poucos dados e muito ruído."
+  },
+  {
+    "ruta": "entradas.22.puntosClave.0",
+    "texto": "A posterior é proporcional à verossimilhança vezes a priori"
+  },
+  {
+    "ruta": "entradas.22.puntosClave.1",
+    "texto": "Declarar a priori não é trapacear: escondê-la, sim"
+  },
+  {
+    "ruta": "entradas.22.puntosClave.2",
+    "texto": "Com muitos dados, a priori pesa cada vez menos"
+  },
+  {
+    "ruta": "charlas.0.titulo",
+    "texto": "Por que o momento se conserva"
+  },
+  {
+    "ruta": "charlas.0.pregunta",
+    "texto": "Sei de cor que o momento se conserva nas colisões, mas não entendo por quê. É uma lei separada ou se deduz das leis de Newton?"
+  },
+  {
+    "ruta": "charlas.0.respuesta",
+    "texto": "Vem de Newton: se dois corpos só se empurram entre si, as forças são iguais e opostas, então o que um ganha de momento o outro perde. A soma não muda porque não há forças externas ao sistema. O importante é como você escolhe o sistema: se deixar de fora o chão ou a parede, vai aparecer um momento que parece sumir. E existe uma razão mais profunda: a conservação do momento equivale a dizer que as leis da física são as mesmas aqui e um metro mais adiante."
+  },
+  {
+    "ruta": "charlas.0.ramas.0",
+    "texto": "Simetrias e o teorema de Noether"
+  },
+  {
+    "ruta": "charlas.0.ramas.1",
+    "texto": "Colisões inelásticas"
+  },
+  {
+    "ruta": "charlas.1.titulo",
+    "texto": "Entropia sem a palavra desordem"
+  },
+  {
+    "ruta": "charlas.1.pregunta",
+    "texto": "Todos os vídeos dizem que entropia é desordem, mas aí não entendo como consigo arrumar meu quarto sem quebrar a segunda lei. O que é de verdade?"
+  },
+  {
+    "ruta": "charlas.1.respuesta",
+    "texto": "Pense em contagem, não em estética: a entropia mede quantas configurações microscópicas são compatíveis com o que você observa em grande escala. Um estado que pode se realizar de muitas formas diferentes é mais provável, e é por isso que os sistemas evoluem para lá. Quando você arruma seu quarto, reduz a entropia dessa pequena região, mas seu corpo dissipa calor no ar e o balanço total sobe. A segunda lei fala do universo inteiro, não de cada cantinho separado."
+  },
+  {
+    "ruta": "charlas.1.ramas.0",
+    "texto": "Microestados e probabilidade"
+  },
+  {
+    "ruta": "charlas.1.ramas.1",
+    "texto": "Demônio de Maxwell"
+  },
+  {
+    "ruta": "charlas.2.titulo",
+    "texto": "Saber se o meu ajuste serve"
+  },
+  {
+    "ruta": "charlas.2.pregunta",
+    "texto": "No relatório do laboratório meu R² dá 0,99, mas a reta não passa pela metade das minhas barras de erro. Em qual dos dois números eu devo confiar?"
+  },
+  {
+    "ruta": "charlas.2.respuesta",
+    "texto": "Nenhum dos dois sozinho. O R² só diz quanta variação você explica, e com um intervalo amplo de dados ele dispara mesmo que o modelo esteja torto. O que interessa é o qui-quadrado reduzido, que compara os resíduos com suas incertezas: se estiver bem maior que 1, ou o modelo falha ou você subestimou os erros. E antes de mais nada, faça o gráfico dos resíduos: se eles desenharem uma curva, está faltando um termo."
+  },
+  {
+    "ruta": "charlas.2.ramas.0",
+    "texto": "Qui-quadrado reduzido"
+  },
+  {
+    "ruta": "charlas.2.ramas.1",
+    "texto": "Ler resíduos"
+  },
+  {
+    "ruta": "charlas.3.titulo",
+    "texto": "Por que o piano soa como piano"
+  },
+  {
+    "ruta": "charlas.3.pregunta",
+    "texto": "Toco um lá no meu teclado e no piano vertical da escola e soam como coisas diferentes, mesmo sendo a mesma nota. O que está mudando fisicamente?"
+  },
+  {
+    "ruta": "charlas.3.respuesta",
+    "texto": "A frequência fundamental é a mesma, mas o que seu ouvido chama de som é o pacote inteiro: a mistura de harmônicos superiores e como ela evolui no tempo. Num piano de verdade a corda tem rigidez, então os harmônicos não caem em múltiplos exatos, e isso dá aquele brilho característico. O ataque também pesa muito, aqueles primeiros milissegundos do martelo e do ruído da mecânica, que um teclado barato simplifica. Se você gravar as duas notas e olhar o espectro, a diferença aparece antes mesmo de você ouvir."
+  },
+  {
+    "ruta": "charlas.3.ramas.0",
+    "texto": "Inarmonicidade da corda"
+  },
+  {
+    "ruta": "charlas.3.ramas.1",
+    "texto": "Temperamento igual"
+  },
+  {
+    "ruta": "charlas.4.titulo",
+    "texto": "O que revisar para a pós-graduação"
+  },
+  {
+    "ruta": "charlas.4.pregunta",
+    "texto": "Quero me inscrever numa pós-graduação em astrofísica e tenho medo de que minha base de relatividade geral seja de amador. Por onde começo a cobrir essa lacuna?"
+  },
+  {
+    "ruta": "charlas.4.respuesta",
+    "texto": "Com o que você já tem dá para começar: relatividade especial sólida, mecânica lagrangiana e estatística de dados são a base real do dia a dia. Antes de partir para tensores na marra, dedique algumas semanas a uma geometria diferencial mínima e a uma métrica de Schwarzschild bem trabalhada. Para a inscrição, pesa mais um projeto pequeno e terminado do que uma lista de temas lidos por cima: o seu ajuste de curvas de luz vale mais do que você pensa. E escolha o grupo pela pessoa que vai te orientar, não só pelo nome do centro."
+  },
+  {
+    "ruta": "charlas.4.ramas.0",
+    "texto": "Cálculo tensorial mínimo"
+  },
+  {
+    "ruta": "charlas.4.ramas.1",
+    "texto": "Escolher orientador e grupo"
+  },
+  {
+    "ruta": "notasEstudio.0.nota",
+    "texto": "Duas horas de cinemática depois do turno; dormi em cima do caderno, mas os diagramas de corpo livre ficaram prontos."
+  },
+  {
+    "ruta": "notasEstudio.1.nota",
+    "texto": "Plano inclinado com atrito: entendo a física, os sinais é que me perdem."
+  },
+  {
+    "ruta": "notasEstudio.2.nota",
+    "texto": "Primeira sessão de exercícios com a Marta, da turma: três de cinco certos, bem melhor do que sozinho."
+  },
+  {
+    "ruta": "notasEstudio.3.nota",
+    "texto": "Oscilador harmônico na biblioteca até fecharem; cheguei na solução sem abrir o livro."
+  },
+  {
+    "ruta": "notasEstudio.4.nota",
+    "texto": "Começa termodinâmica: li a lei zero e a primeira duas vezes, na segunda já fez sentido."
+  },
+  {
+    "ruta": "notasEstudio.5.nota",
+    "texto": "Exercícios de gases ideais entre um pedido e outro; o caderno acabou cheirando a café."
+  },
+  {
+    "ruta": "notasEstudio.6.nota",
+    "texto": "Simulado da prova: oito de dez exercícios, e o de Carnot eu errei por aritmética, não por teoria."
+  },
+  {
+    "ruta": "notasEstudio.7.nota",
+    "texto": "Prova de termo entregue; saí com a sensação estranha de ter entendido tudo de verdade."
+  },
+  {
+    "ruta": "notasEstudio.8.nota",
+    "texto": "Com o joelho no gelo, tarde inteira de mínimos quadrados: se não posso correr, pelo menos avanço aqui."
+  },
+  {
+    "ruta": "notasEstudio.9.nota",
+    "texto": "Começa relatividade: meia hora de aula gravada e uma hora desenhando trens e relógios."
+  },
+  {
+    "ruta": "notasEstudio.10.nota",
+    "texto": "Revisei as transformações de Lorentz e fechei a pasta até a volta da viagem."
+  },
+  {
+    "ruta": "notasEstudio.11.nota",
+    "texto": "De volta aos estudos com jet lag: reli meus apontamentos de antes da viagem e não entendi nem a minha própria letra."
+  },
+  {
+    "ruta": "notasEstudio.12.nota",
+    "texto": "Metade da sessão em física do som e metade afinando o teclado; estou contando isso como estudo."
+  },
+  {
+    "ruta": "notasEstudio.13.nota",
+    "texto": "Métrica de Schwarzschild com calma; calculei o raio do Sol e, só por gosto, o da Laika."
+  },
+  {
+    "ruta": "notasEstudio.14.nota",
+    "texto": "Corpo negro e Planck: finalmente vejo onde a termo clássica quebrava."
+  },
+  {
+    "ruta": "notasEstudio.15.nota",
+    "texto": "Revisão geral para a prova final e primeiro rascunho da redação de inscrição."
+  },
+  {
+    "ruta": "notasEstudio.16.nota",
+    "texto": "Sessão curta de estatística bayesiana e lista de artigos para ler nas férias."
+  },
+  {
+    "ruta": "metas.termo",
+    "texto": "Fechar termodinâmica antes da prova"
+  },
+  {
+    "ruta": "metas.posgrado",
+    "texto": "Preparar a inscrição da pós-graduação em astrofísica"
+  }
+]

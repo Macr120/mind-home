@@ -1,0 +1,102 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.texto",
+    "texto": "أفلام ومسلسلات وكتب وألعاب فيديو، مرتبة حسب موعد إنهائها. في الشهر السابع نهم مشاهدة (مع إصابة الركبة، كان وقت الأريكة وفيرًا)، ثم فجوة من ثلاثة أسابيع: اليابان."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.titulo",
+    "texto": "العنصر"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.texto",
+    "texto": "العنوان، المؤلف أو المخرج، النوع، الحالة والنجوم. المراجعة هي انطباع بيب عن العمل، لا ملخص الحبكة: بعد سنة، هذا وحده ما سينفع."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.titulo",
+    "texto": "أربع طرق للترتيب"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.texto",
+    "texto": "حسب النوع، أو حسب الفئة (فيلم، مسلسل، كتاب، لعبة فيديو)، أو حسب المؤلف، أو حسب التاريخ. في عرض الأنواع تسحب المجلدات: ضع في المقدمة ما تشاهده أكثر."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.titulo",
+    "texto": "قائمة المشاهدة"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.texto",
+    "texto": "برنامج بيب يضم كلاسيكيات الخيال العلمي بانتظار المشاهدة. يولده الذكاء الاصطناعي حسب الموضوع («رعب الثمانينيات»)، ويمكن كتابته يدويًا أيضًا."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.titulo",
+    "texto": "كل عنوان هو هدف"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.3.texto",
+    "texto": "وفي علامة التبويب الأخرى توجد الطاولة الرقمية: أكثر من عشرين لعبة طاولة وأركيد للعب فورًا."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.1.texto",
+    "texto": "1-2 لاعبين أو 3+ لاعبين: تخفي التصفية ما لا يناسب المجموعة التي أمامك. الألعاب الموسومة بـ «2+» تصلح في القسمين معًا."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.titulo",
+    "texto": "حسب الفئة"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.texto",
+    "texto": "الطاولة، الألغاز، الأركيد، الورق والكازينو، للمجموعة: لكل فئة لونها الخاص. الشطرنج، الضامة، الدومينو، بلاك جاك، تتريس، كانسة الألغام وأكثر من اثنتي عشرة لعبة أخرى."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.titulo",
+    "texto": "لمسة واحدة وتبدأ اللعب"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.texto",
+    "texto": "كل بطاقة تفتح اللعبة بملء الشاشة؛ والألعاب التي تدعم ذلك تعرض في الأعلى محدد «الصعوبة» الخاص بها. زر «رجوع» يعيدك إلى هنا تمامًا، دون أن تفقد مكانك."
+  },
+  {
+    "clave": "tut.app-diario--habito.1.titulo",
+    "texto": "عناوين اليوم"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.texto",
+    "texto": "العالم، الاقتصاد، التقنية، الصحة، الرياضة والترفيه، من مصادر حقيقية. الوسوم في الأعلى تصفي حسب القسم."
+  },
+  {
+    "clave": "tut.app-diario--habito.2.titulo",
+    "texto": "تتجدد وحدها"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.texto",
+    "texto": "تنزل نسخة اليوم وحدها، وعند منتصف الليل يجري استبدالها بالكامل: لا يتراكم هنا شيء، تمامًا كصحيفة حقيقية."
+  },
+  {
+    "clave": "tut.app-diario--habito.3.titulo",
+    "texto": "يوم في التاريخ"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.texto",
+    "texto": "النصف الآخر: ما حدث في مثل هذا اليوم، وعمل فني، وكتاب، وكائن، وكلمة. عذر جيد لفتحها حتى حين لا تروق لك الأخبار."
+  },
+  {
+    "clave": "tut.app-diario--habito.4.texto",
+    "texto": "في سنة بيب نحو مئتي يوم مع الصحيفة: كثير في البداية، ولا شيء تقريبًا في الشهر السيئ، وكل يوم من الأسابيع الثلاثة الأخيرة. وعلى هذا تقوم سلسلة بيب."
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.titulo",
+    "texto": "التوصيل"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.texto",
+    "texto": "من هنا تحدد من يجلب لك ماذا. ليس هذا إشعارًا آخر: يصلك كرسالة من المساعد، بصوته هو."
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.titulo",
+    "texto": "توصيلتان"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.texto",
+    "texto": "الساحر يجلب لبيب العالم والتقنية والاقتصاد في الساعة 7:30. ولايكا تجلب الخفيف متى شاءت. كل مساعد يختار أقسامه وطريقة توصيله."
+  }
+]

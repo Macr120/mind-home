@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "Dari berat, tinggi, dan aktivitasmu, aplikasi menghitung kebutuhan harianmu lalu membagi makronya. Pep menetapkan 2.400 kalori dan berat target yang tinggal kurang dari satu kilo lagi."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "Langkah 2: apa yang kamu makan hari ini"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "Sarapan, makan siang, makan malam, dan camilan di sela-sela: tiap catatan mengisi cincin hari itu. Air punya targetnya sendiri, dan itulah yang dilihat rumah untuk menganggap harimu tuntas."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "Langkah 3: 74 kilo, 67 kilo"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "Kurva sepanjang tahun, lengkap dengan datarannya di bulan cedera dan satu kilo yang naik di Jepang. Di bawahnya kamu diberi tahu kecepatanmu dan kapan kamu sampai kalau terus begini."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "Setahun dalam warna"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "Hijau berarti hari yang masih di dalam target, amber yang lewat sedikit, dan merah yang lewat jauh. Bulan perjalanannya kelihatan sejak pandangan pertama. Sentuh hari mana pun untuk membukanya."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "Diet, bukan diet majalah"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "Diet di sini adalah rencana dengan resep-resepnya di dalam. Pep menyimpan dua buatannya sendiri: minggu maraton dan pulang dari Jepang, selain yang sudah dibawa aplikasi."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "Buku resep"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "Tiap resep menyimpan bahan, langkah, dan makro per porsinya, lalu tersusun dalam folder. Dari sebuah resep kamu bisa mencatat makanannya atau mengirim bahannya ke Belanja."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "Meminta resep ke AI"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "Jelaskan apa yang ingin kamu masak dan AI menyusun resep lengkapnya beserta foto hidangannya. Ini dikerjakan AI: aktifkan di Editor › Pengaturan › Akun."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "Dari resep ke daftar belanja"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "Buat daftar mengumpulkan yang kurang dari beberapa resep menjadi satu kali belanja: tiap bahan menebak kategorinya sendiri (sayur, olahan susu…) dan bisa kamu ubah."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "Daftar tersimpan"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "Tiap daftar tersimpan lengkap dengan yang belum dibeli dan yang sudah ada di dapur. Kalau kamu mengisi harganya, totalnya bisa dikirim ke pengeluaran di Ruang Kerja."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "Target berat, dengan fase-fasenya"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "Ini dikerjakan AI: aktifkan di Editor › Pengaturan › Akun. Tanpa itu, target tetap bisa dibuat dan diedit dengan cara yang sama, hanya saja manual."
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "Seratus poin, tiga bagian"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "Durasi bernilai lima puluh, konsistensi waktu tidurmu tiga puluh, dan gangguan dua puluh. Tidur panjang sehari tidak menutupi tidur larut di semua hari lainnya."
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "Sepekan terakhir"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "Tujuh batang melawan garis target tidurmu. Inilah tampilan yang sekali lihat memberitahumu apakah minggu ini kamu tidur sebanyak yang kamu mau."
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "Setahun penuh"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "Riwayatnya disimpan per tahun, bulan, dan minggu. Gulir sampai bulan-bulan pertama Pep lalu bandingkan dengan yang terakhir: tidur lewat pukul satu dan cuma dapat lima jam."
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "Dari pukul setengah dua belas sampai tujuh"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "Seret kedua ujung bilahnya untuk menggeser waktu tidur dan waktu bangunmu; langit di atasnya ikut berubah. Blok ini juga muncul di kalender, melewati tengah malam."
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "Alarm dan pengingat"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "Kamu bisa memilih suara alarmnya, minta diingatkan saat waktunya tidur, dan meletakkan layar satu jam sebelumnya. Pengingatnya opsional: di sini semuanya datang dalam keadaan mati."
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "Catat malam"
+  }
+]

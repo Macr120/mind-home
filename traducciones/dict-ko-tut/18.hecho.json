@@ -1,0 +1,138 @@
+[
+  {
+    "clave": "tut.app-despacho--calculadoras.3.texto",
+    "texto": "한 번 누르면 결과가 진짜 저축 목표가 돼요. 일정으로 내려서 날짜까지 정할 수 있어요. (데모에서는 누르지 마세요. 진짜 목표가 만들어져요.)"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.titulo",
+    "texto": "급한 일이 있나요?"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.texto",
+    "texto": "신호등 하나면 목록을 두 개나 읽을 필요가 없어요. 기한이 지난 게 있으면 빨간불, 다가오고 있으면 노란불, 차고가 평온하면 초록불이에요."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.titulo",
+    "texto": "지금까지 쓴 돈"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.texto",
+    "texto": "차량이 몇 대인지, 진행 중인 서류가 몇 건인지, 올해 얼마를 썼는지 보여줘요. Pep은 그 차에 돈이 꽤 많이 들었어요."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.titulo",
+    "texto": "매일 타는 자전거"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.texto",
+    "texto": "Pep의 진짜 이동 수단이에요. 체인, 튜브, 브레이크가 하나씩 각자의 줄에 있어요. 다른 앱들이 쓰는 것과 같은, 연도와 월 폴더 보관함이에요. 최근 몇 달에 정비가 몰려 있는 걸 보세요. 마라톤 훈련이 값을 치르게 한 거예요."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.titulo",
+    "texto": "그리고 물려받은 차"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.texto",
+    "texto": "7개월 차의 고장이 여기 있어요. 길에 멈춰 섰고, 견인차를 불렀고, 없던 돈 1만 페소 가까이가 나갔어요. 정비마다 비용과 주행거리, 어느 정비소였는지가 남아요."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.titulo",
+    "texto": "정보 카드"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.texto",
+    "texto": "제조사, 모델, 연식, 번호판, 그리고 최신 주행거리예요. 번호판을 넣어두면 차에만 해당하는 서류 업무를 차고가 열어줘요."
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.titulo",
+    "texto": "다가오는 일"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.texto",
+    "texto": "서류마다 다음 만료일, 몇 달마다 반복되는지, 얼마가 드는지가 들어 있어요. 완료로 표시하면 날짜가 알아서 다음으로 넘어가요."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.titulo",
+    "texto": "자전거는 자동차세를 안 내요"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.texto",
+    "texto": "번호판이 없으면 차고가 해당 없는 서류를 숨겨요. 자전거에는 정기 점검만 보여줘요."
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.titulo",
+    "texto": "연락처 수첩"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.texto",
+    "texto": "단골 정비소, 보험사, 검사소, 동네 자전거 가게, 그리고 그날 밤의 견인 업체까지. 전화번호와 주소가 한 번만 누르면 나와요."
+  },
+  {
+    "clave": "tut.app-garage--tramites.4.texto",
+    "texto": "이 서류들은 집 캘린더에도 미리 알림과 함께 들어가요. 그리고 참고로, 지도에서 몰고 다니는 탈것은 다른 거예요. 그건 '인벤토리'에 있어요."
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.titulo",
+    "texto": "어디에 다녀왔나"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.texto",
+    "texto": "나라 넷과 도시 몇 곳이에요. 거의 다 같은 여행에서 나왔어요. 세 숫자 중 아무거나 누르면 지도 아래에 목록이 나와요."
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.titulo",
+    "texto": "핀"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.texto",
+    "texto": "일본에 모여 있는 핀 일곱 개가 3주간의 여행이에요. 호박색인 서울, 파타고니아, 아이슬란드는 아직 가지 못한 곳이에요. 지도를 누르면 원하는 자리에 새 핀을 꽂을 수 있어요."
+  },
+  {
+    "clave": "tut.app-sala--japon.1.titulo",
+    "texto": "앨범"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.texto",
+    "texto": "나라마다 폴더 하나, 표지 사진과 함께 있어요. 안에는 장소마다 카드가 하나씩, 그 안에는 Pep이 그날 쓴 글이 있어요."
+  },
+  {
+    "clave": "tut.app-sala--japon.2.titulo",
+    "texto": "그곳에서 쓴 글"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.texto",
+    "texto": "여행 기록 여덟 편, 각각 사진이 함께 있어요. 새벽의 후지산, 아라시야마의 대숲, 나라의 사슴. 그 자리에서, 냄새가 아직 남아 있을 때 쓴 글이에요."
+  },
+  {
+    "clave": "tut.app-sala--japon.3.texto",
+    "texto": "장소를 열면 '일정' 버튼이 있어요. 누르면 여행 계획표가 펼쳐져요. 하루하루, 어디서 어디로, 어디서 잤고, 어떻게 이동했고, 얼마가 들었는지 나와요."
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.titulo",
+    "texto": "아직 남은 것"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.texto",
+    "texto": "적어둔 꿈이 셋이에요. 서울은 날짜와 계획이 있고, 파타고니아와 아이슬란드는 아직 생각뿐이에요. 날짜가 있는 것들은 캘린더에 나타나요."
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.titulo",
+    "texto": "계획표에서 목표로"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.texto",
+    "texto": "한국에서 보낼 여드레를 더하면 여행에 들 돈이 나와요. 그 합계는 서재에 저축 목표로 저장돼요. 저기서 자라는 걸 보는 게, 여기서 가까워지는 걸 보는 거예요."
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.titulo",
+    "texto": "경로"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.texto",
+    "texto": "경로는 장소를 순서대로 이어서 지도에 그려줘요. 일본 경로는 이미 다녀온 길이고, 한국 경로는 가고 싶은 길이에요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.titulo",
+    "texto": "서른 편, 한 해"
+  }
+]

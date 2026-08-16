@@ -1,0 +1,1046 @@
+[
+  {
+    "ruta": "notasSesion.0.nota",
+    "texto": "عشر دقائق ولم يتوقف الذهن ولو للحظة. غادرتُ بالقلق نفسه، لكن على الأقل جلستُ."
+  },
+  {
+    "ruta": "notasSesion.1.nota",
+    "texto": "أربعة-سبعة-ثمانية قبل فتح المقهى. أحضّر القهوة بشكل أفضل حين لا أصل بنبض متسارع."
+  },
+  {
+    "ruta": "notasSesion.2.nota",
+    "texto": "الأسبوع الثالث على التوالي بثلاث جلسات كاملة. اليوم لاحظتُ اللحظة بالضبط التي شرد فيها الذهن، وعدتُ دون توبيخ النفس."
+  },
+  {
+    "ruta": "notasSesion.3.nota",
+    "texto": "الليلة التي سبقت سباق الخمسة كيلومترات. لم يهدأ كل القلق، لكن جاء النوم في الحادية عشرة بدل الواحدة."
+  },
+  {
+    "ruta": "notasSesion.4.nota",
+    "texto": "تنفّستُ عند موقف الحافلة، وسط ضجيج المرور. نفع الأمر رغم ذلك، وهذا بالضبط ما كنتُ أشكّ فيه."
+  },
+  {
+    "ruta": "notasSesion.5.nota",
+    "texto": "عشرون دقيقة لأول مرة. الدقائق الخمس الأخيرة كانت نفاد صبر خالصًا، ومع ذلك تحمّلتُها."
+  },
+  {
+    "ruta": "notasSesion.6.nota",
+    "texto": "جلسة قصيرة بعد المختبر. أفادت في تذكّر أنّ التعب والقلق ليسا الشيء نفسه."
+  },
+  {
+    "ruta": "notasSesion.7.nota",
+    "texto": "أول جلسة منذ أن قالت الركبة كفى. طوال الوقت والذهن يفكّر في خطة السباق التي بدأت تتداعى."
+  },
+  {
+    "ruta": "notasSesion.8.nota",
+    "texto": "اليوم لم يكن ممكنًا سوى مراقبة الغضب. لم يرحل، لكنه صار أصغر من الأمس."
+  },
+  {
+    "ruta": "notasSesion.9.nota",
+    "texto": "بعد اتصال الورشة. عشرة أنفاس بطيئة قبل فتح كشف التكلفة مرة أخرى."
+  },
+  {
+    "ruta": "notasSesion.10.nota",
+    "texto": "جلستُ أبكي وانتهيتُ دون بكاء. لا أدري إن كان هذا هو التأمل، لكنه كفى اليوم."
+  },
+  {
+    "ruta": "notasSesion.11.nota",
+    "texto": "أسبوعان دون تفويت يوم واحد. إنه الجزء الوحيد من الروتين الذي لم ينكسر هذا الشهر."
+  },
+  {
+    "ruta": "notasSesion.12.nota",
+    "texto": "عشر دقائق مباشرة بعد جلسة العلاج الطبيعي. الركبة لم تعد تشغل كل التفكير."
+  },
+  {
+    "ruta": "notasSesion.13.nota",
+    "texto": "أربعة-سبعة-ثمانية في الغرفة الخلفية قبل الفتح. خرجتُ إلى البار دون استعجال، لأول مرة منذ أسابيع."
+  },
+  {
+    "ruta": "notasSesion.14.nota",
+    "texto": "الأسبوع الأخير قبل الطيران. جلستُ أراقب توتر الرحلة دون محاولة ترتيبه."
+  },
+  {
+    "ruta": "notasSesion.15.nota",
+    "texto": "على مقعد في أوينو وسط ضجيج القطارات. ثلاث دقائق وارتخت الكتفان."
+  },
+  {
+    "ruta": "notasSesion.16.nota",
+    "texto": "عشرون دقيقة على التاتامي في كيوتو، دون مؤقّت. لم تكن هناك رغبة في أن ينتهي الأمر."
+  },
+  {
+    "ruta": "notasSesion.17.nota",
+    "texto": "أول جلسة على سجادتي بعد شهر من الغياب. كانت رائحة الوسادة رائحة لايكا."
+  },
+  {
+    "ruta": "notasSesion.18.nota",
+    "texto": "خمس دقائق قبل اختبار الميكانيكا. تُجدي أكثر من إعادة قراءة الملاحظات مرة أخرى."
+  },
+  {
+    "ruta": "notasSesion.19.nota",
+    "texto": "جلسة أحد طويلة. ظهر نصف الماراثون، نظرتُ إليه وتركته يمرّ."
+  },
+  {
+    "ruta": "notasSesion.20.nota",
+    "texto": "دقيقتان في صندوق الانطلاق، بتنفّس عبر الأنف. هدأ النبض قبل انطلاق طلقة البداية."
+  },
+  {
+    "ruta": "notasSesion.21.nota",
+    "texto": "أسبوع كثير الكيلومترات: غلبني النوم في الدقيقة الثامنة. ومع ذلك أحتسبها."
+  },
+  {
+    "ruta": "notasSesion.22.nota",
+    "texto": "جلستُ على أرضية الحمّام وقد لففتُ البطانية الحرارية حولي، أتنفّس ببطء. الجسد منهك والذهن في منتهى الصفاء."
+  },
+  {
+    "ruta": "notasSesion.23.nota",
+    "texto": "سنة كاملة على هذه العادة. عشرون دقيقة ولم يحدث شيء مميز، وهو ما يبدو الآن كافيًا تمامًا."
+  },
+  {
+    "ruta": "gratitudes.0.item1",
+    "texto": "الكيبورد المستعمل بالكاد يخرج عن الضبط الآن"
+  },
+  {
+    "ruta": "gratitudes.0.item2",
+    "texto": "لايكا اعتادت على صوت المترونوم"
+  },
+  {
+    "ruta": "gratitudes.0.item3",
+    "texto": "عدس مطبوخ يكفي ثلاثة أيام"
+  },
+  {
+    "ruta": "gratitudes.1.item1",
+    "texto": "ركضتُ عشرين دقيقة دون توقف"
+  },
+  {
+    "ruta": "gratitudes.1.item2",
+    "texto": "بقشيش السبت كفى لشراء شاي جيد"
+  },
+  {
+    "ruta": "gratitudes.2.item1",
+    "texto": "74 كيلوغرامًا على الميزان، ولم تعد النظرة إليها مخيفة"
+  },
+  {
+    "ruta": "gratitudes.2.item2",
+    "texto": "راجعتُ البطاقات الثلاثين في الإنجليزية قبل النوم"
+  },
+  {
+    "ruta": "gratitudes.2.item3",
+    "texto": "دشّ ساخن فور انتهاء الوردية"
+  },
+  {
+    "ruta": "gratitudes.3.item1",
+    "texto": "نصف ساعة من التغطية من نوري لأتمكّن من الوصول إلى المختبر"
+  },
+  {
+    "ruta": "gratitudes.3.item2",
+    "texto": "حذاء الجري أخيرًا لم يعد يسبب تسلّخات"
+  },
+  {
+    "ruta": "gratitudes.3.item3",
+    "texto": "سماء صافية عند السادسة صباحًا"
+  },
+  {
+    "ruta": "gratitudes.4.item1",
+    "texto": "عشر دقائق من التأمل قبل فتح المقهى"
+  },
+  {
+    "ruta": "gratitudes.4.item2",
+    "texto": "سألت أمي عن البيانو دون أي سخرية"
+  },
+  {
+    "ruta": "gratitudes.5.item1",
+    "texto": "اجتزتُ اختبار الميكانيكا"
+  },
+  {
+    "ruta": "gratitudes.5.item2",
+    "texto": "لايكا نائمة فوق ملاحظاتي"
+  },
+  {
+    "ruta": "gratitudes.5.item3",
+    "texto": "خبز الأمس مجانًا من الوردية"
+  },
+  {
+    "ruta": "gratitudes.6.item1",
+    "texto": "الركض تحت مطر خفيف كان أمرًا ممتعًا"
+  },
+  {
+    "ruta": "gratitudes.6.item2",
+    "texto": "توازنت الميزانية هذا النصف من الشهر"
+  },
+  {
+    "ruta": "gratitudes.6.item3",
+    "texto": "سلّم دو الكبير دون النظر إلى المفاتيح"
+  },
+  {
+    "ruta": "gratitudes.7.item1",
+    "texto": "لم أتناول أي وجبة خفيفة بين الورديتين اليوم"
+  },
+  {
+    "ruta": "gratitudes.7.item2",
+    "texto": "وجدتُ بودكاست بالإنجليزية أفهم معظمه"
+  },
+  {
+    "ruta": "gratitudes.8.item1",
+    "texto": "الدرّاجة صمدت أربعين كيلومترًا هذا الأسبوع"
+  },
+  {
+    "ruta": "gratitudes.8.item2",
+    "texto": "عشاء مع أليكس دون النظر إلى الهاتف"
+  },
+  {
+    "ruta": "gratitudes.8.item3",
+    "texto": "شاي أولونغ من متجر الناصية"
+  },
+  {
+    "ruta": "gratitudes.9.item1",
+    "texto": "نمتُ سبع ساعات متواصلة"
+  },
+  {
+    "ruta": "gratitudes.9.item2",
+    "texto": "أول مقطوعة بيدين، بطيئة لكن كاملة"
+  },
+  {
+    "ruta": "gratitudes.9.item3",
+    "texto": "لايكا تنتظر عند الباب"
+  },
+  {
+    "ruta": "gratitudes.10.item1",
+    "texto": "ثلاثة أسابيع من الالتزام بخطة السباق"
+  },
+  {
+    "ruta": "gratitudes.10.item2",
+    "texto": "رحلات الطيران إلى طوكيو أرخص ممّا كنتُ أظنّ"
+  },
+  {
+    "ruta": "gratitudes.11.item1",
+    "texto": "بدّلت ريتا نوبتي ليوم الأحد، يوم السباق"
+  },
+  {
+    "ruta": "gratitudes.11.item2",
+    "texto": "ساقان منتعشتان بعد يومين خفيفين"
+  },
+  {
+    "ruta": "gratitudes.11.item3",
+    "texto": "حساء ساخن عند الحادية عشرة ليلاً"
+  },
+  {
+    "ruta": "gratitudes.12.item1",
+    "texto": "أنهيتُ سباق الخمسة كيلومترات في 29:40"
+  },
+  {
+    "ruta": "gratitudes.12.item2",
+    "texto": "ظهور أليكس عند خط النهاية بلافتة مضحكة"
+  },
+  {
+    "ruta": "gratitudes.12.item3",
+    "texto": "ميدالية رخيصة سأحتفظ بها رغم ذلك"
+  },
+  {
+    "ruta": "gratitudes.13.item1",
+    "texto": "كتبتُ خطة اليابان على الورق، ولم يعد هناك تراجع"
+  },
+  {
+    "ruta": "gratitudes.13.item2",
+    "texto": "فتحتُ حسابًا للتوفير مخصّصًا للرحلة"
+  },
+  {
+    "ruta": "gratitudes.13.item3",
+    "texto": "أميّز عشرة رموز هيراغانا"
+  },
+  {
+    "ruta": "gratitudes.14.item1",
+    "texto": "وردية هادئة وبقشيش لا بأس به"
+  },
+  {
+    "ruta": "gratitudes.14.item2",
+    "texto": "عاد تقرير المختبر بملاحظات جيدة"
+  },
+  {
+    "ruta": "gratitudes.15.item1",
+    "texto": "الركض بعد العمل لم يعد يُنهكني"
+  },
+  {
+    "ruta": "gratitudes.15.item2",
+    "texto": "وجدتُ دليلاً واضحًا لوسائل النقل في كيوتو"
+  },
+  {
+    "ruta": "gratitudes.15.item3",
+    "texto": "لايكا وشمس بعد الظهر في الزاوية نفسها"
+  },
+  {
+    "ruta": "gratitudes.16.item1",
+    "texto": "240 ر.س إضافية إلى صندوق اليابان"
+  },
+  {
+    "ruta": "gratitudes.16.item2",
+    "texto": "أصبحتُ أقول سوميماسن دون تعثّر"
+  },
+  {
+    "ruta": "gratitudes.16.item3",
+    "texto": "تذوّق مجاني لقهوة إثيوبية"
+  },
+  {
+    "ruta": "gratitudes.17.item1",
+    "texto": "كيلوغرام أقل ودون أي دراما"
+  },
+  {
+    "ruta": "gratitudes.17.item2",
+    "texto": "اليدان معًا والدواسة في الوقت نفسه"
+  },
+  {
+    "ruta": "gratitudes.18.item1",
+    "texto": "تسعة كيلومترات وتبقّى نَفَس إلى النهاية"
+  },
+  {
+    "ruta": "gratitudes.18.item2",
+    "texto": "استبدلتُ المشروب الغازي بماء فوّار وما زلتُ على قيد الحياة"
+  },
+  {
+    "ruta": "gratitudes.18.item3",
+    "texto": "إصلاح الدرّاجة كلّف 48 ر.س"
+  },
+  {
+    "ruta": "gratitudes.19.item1",
+    "texto": "أنهيتُ أول مقطوعة كاملة على البيانو"
+  },
+  {
+    "ruta": "gratitudes.19.item2",
+    "texto": "عزفتُها للايكا، الجمهور الوحيد المتاح"
+  },
+  {
+    "ruta": "gratitudes.20.item1",
+    "texto": "10 كم مُنجَزة، ببطء لكن كاملة"
+  },
+  {
+    "ruta": "gratitudes.20.item2",
+    "texto": "صمدت الركبتان طوال الستين دقيقة"
+  },
+  {
+    "ruta": "gratitudes.20.item3",
+    "texto": "فطور ضخم دون أي شعور بالذنب"
+  },
+  {
+    "ruta": "gratitudes.21.item2",
+    "texto": "تنظّمت مجموعة الدراسة دون أي خلاف"
+  },
+  {
+    "ruta": "gratitudes.21.item3",
+    "texto": "ليلة صافية لتجربة الحامل الثلاثي"
+  },
+  {
+    "ruta": "gratitudes.22.item1",
+    "texto": "أول صورة لائقة للقمر"
+  },
+  {
+    "ruta": "gratitudes.22.item2",
+    "texto": "شاي بالزنجبيل عند الثانية فجرًا"
+  },
+  {
+    "ruta": "gratitudes.23.item1",
+    "texto": "وردية الجمعة بموسيقى أعجبتني"
+  },
+  {
+    "ruta": "gratitudes.23.item2",
+    "texto": "التوفير لليابان بلغ الثلاثين بالمئة"
+  },
+  {
+    "ruta": "gratitudes.23.item3",
+    "texto": "علّمني أحد الزبائن حيلته لتبخير الحليب"
+  },
+  {
+    "ruta": "gratitudes.24.item1",
+    "texto": "فهمتُ حلقة كاملة بالإنجليزية دون ترجمة"
+  },
+  {
+    "ruta": "gratitudes.24.item2",
+    "texto": "الركض مع أليكس يوم الأحد"
+  },
+  {
+    "ruta": "gratitudes.24.item3",
+    "texto": "عادت لايكا للنوم عند قدميّ"
+  },
+  {
+    "ruta": "gratitudes.25.item1",
+    "texto": "يوم راحة دون شعور بالذنب"
+  },
+  {
+    "ruta": "gratitudes.25.item2",
+    "texto": "خيال علمي في عرض الثلاثاء الرخيص"
+  },
+  {
+    "ruta": "gratitudes.25.item3",
+    "texto": "جفّت ملابس الركض في الوقت المناسب"
+  },
+  {
+    "ruta": "gratitudes.26.item1",
+    "texto": "اثنا عشر كيلومترًا جديدًا في الخطة"
+  },
+  {
+    "ruta": "gratitudes.26.item2",
+    "texto": "تجديد جواز السفر دون طوابير لا تنتهي"
+  },
+  {
+    "ruta": "gratitudes.27.item1",
+    "texto": "التوفير عند الخمسين بالمئة"
+  },
+  {
+    "ruta": "gratitudes.27.item2",
+    "texto": "بقشيش جيد بشكل مثير للريبة هذا الأسبوع"
+  },
+  {
+    "ruta": "gratitudes.27.item3",
+    "texto": "ثلاث دقائق من التنفّس قبل الاختبار"
+  },
+  {
+    "ruta": "gratitudes.28.item1",
+    "texto": "71 كيلوغرامًا والجينز أصبح فضفاضًا"
+  },
+  {
+    "ruta": "gratitudes.28.item2",
+    "texto": "بدأتُ مقطوعة جديدة أصعب بكثير"
+  },
+  {
+    "ruta": "gratitudes.28.item3",
+    "texto": "عشاء مع أختي"
+  },
+  {
+    "ruta": "gratitudes.29.item1",
+    "texto": "تسليم تقرير المختبر في الوقت المحدد"
+  },
+  {
+    "ruta": "gratitudes.29.item2",
+    "texto": "سباق الـ15 كم في التقويم ولم يعد يخيفني"
+  },
+  {
+    "ruta": "gratitudes.30.item1",
+    "texto": "انطلق المحرّك من أول محاولة"
+  },
+  {
+    "ruta": "gratitudes.30.item2",
+    "texto": "الركض عند الفجر قبل الوردية"
+  },
+  {
+    "ruta": "gratitudes.30.item3",
+    "texto": "خبز طازج من المخبز المجاور"
+  },
+  {
+    "ruta": "gratitudes.31.item1",
+    "texto": "حجزتُ الإقامة في هاكوني"
+  },
+  {
+    "ruta": "gratitudes.31.item2",
+    "texto": "أصبحتُ أعرف كيف أطلب الطعام باليابانية الأساسية"
+  },
+  {
+    "ruta": "gratitudes.31.item3",
+    "texto": "اصطادت لايكا فراشة ليلية وبدت فخورة جدًا"
+  },
+  {
+    "ruta": "gratitudes.32.item1",
+    "texto": "صمدتُ لأربعة عشر كيلومترًا"
+  },
+  {
+    "ruta": "gratitudes.32.item2",
+    "texto": "عرض والداي رعاية لايكا أثناء الرحلة"
+  },
+  {
+    "ruta": "gratitudes.33.item1",
+    "texto": "راتب نصف الشهر بأكمله إلى صندوق الرحلة"
+  },
+  {
+    "ruta": "gratitudes.33.item2",
+    "texto": "عشر دقائق من التأمل دون النظر إلى الساعة"
+  },
+  {
+    "ruta": "gratitudes.33.item3",
+    "texto": "شاي أخضر جديد، ذلك الذي رائحته كالعشب"
+  },
+  {
+    "ruta": "gratitudes.34.item1",
+    "texto": "قال الطبيب إن الأمر ليس خطيرًا، فقط بطيء"
+  },
+  {
+    "ruta": "gratitudes.34.item2",
+    "texto": "أستطيع العزف على البيانو دون استخدام الركبة"
+  },
+  {
+    "ruta": "gratitudes.34.item3",
+    "texto": "لم تتحرّك لايكا من جانبي"
+  },
+  {
+    "ruta": "gratitudes.35.item1",
+    "texto": "الثلج والأريكة يُحتسبان أيضًا كخطة"
+  },
+  {
+    "ruta": "gratitudes.35.item2",
+    "texto": "أنهيتُ كتابًا ظلّ مفتوحًا لأشهر"
+  },
+  {
+    "ruta": "gratitudes.36.item1",
+    "texto": "تبديل النوبات مع نوري لأقف وقتًا أقل"
+  },
+  {
+    "ruta": "gratitudes.36.item2",
+    "texto": "نصف ساعة من العزف على البيانو أخرجتني من الحلقة المفرغة"
+  },
+  {
+    "ruta": "gratitudes.36.item3",
+    "texto": "الحساء الذي أحضرته الجارة"
+  },
+  {
+    "ruta": "gratitudes.37.item1",
+    "texto": "سمحت الورشة بدفع تكلفة الإصلاح على دفعات"
+  },
+  {
+    "ruta": "gratitudes.37.item2",
+    "texto": "عشرون نفسًا قبل الردّ على تلك الرسالة"
+  },
+  {
+    "ruta": "gratitudes.37.item3",
+    "texto": "أموال اليابان ما زالت لم تُمَس"
+  },
+  {
+    "ruta": "gratitudes.38.item1",
+    "texto": "السباحة لم تعد تؤلمني"
+  },
+  {
+    "ruta": "gratitudes.38.item2",
+    "texto": "تعلّمتُ كيف أقول التواريخ باليابانية"
+  },
+  {
+    "ruta": "gratitudes.39.item1",
+    "texto": "نزلتُ الدرج دون عرج"
+  },
+  {
+    "ruta": "gratitudes.39.item2",
+    "texto": "اتصلت أمي بالضبط حين كانت الحاجة إليها"
+  },
+  {
+    "ruta": "gratitudes.39.item3",
+    "texto": "قهوة مجانية في منتصف الوردية"
+  },
+  {
+    "ruta": "gratitudes.40.item1",
+    "texto": "السيارة تعمل من جديد، وكلّفت أقل ممّا كنتُ أخشى"
+  },
+  {
+    "ruta": "gratitudes.40.item2",
+    "texto": "أسبوعان من التأمل كل يوم"
+  },
+  {
+    "ruta": "gratitudes.40.item3",
+    "texto": "أجبرني المطر على البقاء للدراسة"
+  },
+  {
+    "ruta": "gratitudes.41.item1",
+    "texto": "اجتزتُ الكهرومغناطيسية بصعوبة، لكنّني اجتزتها"
+  },
+  {
+    "ruta": "gratitudes.41.item2",
+    "texto": "أمشي أربعين دقيقة دون أي إزعاج"
+  },
+  {
+    "ruta": "gratitudes.42.item1",
+    "texto": "سأل أحد الزبائن الدائمين عن ركبتي"
+  },
+  {
+    "ruta": "gratitudes.42.item2",
+    "texto": "أصبحت المقطوعة الجديدة تُسمع كموسيقى لا كتمرين"
+  },
+  {
+    "ruta": "gratitudes.42.item3",
+    "texto": "لايكا تنام داخل علبة الكيبورد"
+  },
+  {
+    "ruta": "gratitudes.43.item1",
+    "texto": "أول هرولة تجريبية: خمس دقائق، بلا أي ألم"
+  },
+  {
+    "ruta": "gratitudes.43.item2",
+    "texto": "لدى أخصائي العلاج الطبيعي موعد شاغر الأسبوع المقبل"
+  },
+  {
+    "ruta": "gratitudes.43.item3",
+    "texto": "شاي بالعسل عند منتصف الليل"
+  },
+  {
+    "ruta": "gratitudes.44.item1",
+    "texto": "كتبتُ برنامج الرحلة الكامل إلى اليابان"
+  },
+  {
+    "ruta": "gratitudes.44.item2",
+    "texto": "نمتُ ثماني ساعات متواصلة"
+  },
+  {
+    "ruta": "gratitudes.45.item1",
+    "texto": "أول جلسة علاج طبيعي: تمارين مملة لكن بخطة واضحة"
+  },
+  {
+    "ruta": "gratitudes.45.item2",
+    "texto": "وردية هادئة وبقشيش لا بأس به"
+  },
+  {
+    "ruta": "gratitudes.45.item3",
+    "texto": "لايكا تنتظر عند النافذة"
+  },
+  {
+    "ruta": "gratitudes.46.item1",
+    "texto": "عشر دقائق من الهرولة دون أي إزعاج"
+  },
+  {
+    "ruta": "gratitudes.46.item2",
+    "texto": "أعارتني الجارة حقيبة سفر للرحلة"
+  },
+  {
+    "ruta": "gratitudes.47.item1",
+    "texto": "اشتريتُ تذكرة القطار إلى هاكوني"
+  },
+  {
+    "ruta": "gratitudes.47.item2",
+    "texto": "قهوة إثيوبية جديدة على قائمة البار"
+  },
+  {
+    "ruta": "gratitudes.47.item3",
+    "texto": "نمتُ ليلة كاملة دون انقطاع"
+  },
+  {
+    "ruta": "gratitudes.48.item1",
+    "texto": "أصبحت تمارين العلاج الطبيعي تخرج دون النظر إلى الورقة"
+  },
+  {
+    "ruta": "gratitudes.48.item2",
+    "texto": "اكتمل التوفير المخصّص لليابان"
+  },
+  {
+    "ruta": "gratitudes.48.item3",
+    "texto": "تعلّمتُ كيف أطلب في مطعم باليابانية"
+  },
+  {
+    "ruta": "gratitudes.49.item1",
+    "texto": "عشرون دقيقة من الركض المتواصل"
+  },
+  {
+    "ruta": "gratitudes.49.item2",
+    "texto": "علامة جيدة في تقرير المختبر"
+  },
+  {
+    "ruta": "gratitudes.49.item3",
+    "texto": "أرسلت أختي محوّلات للمقابس الكهربائية"
+  },
+  {
+    "ruta": "gratitudes.50.item1",
+    "texto": "يقول أخصائي العلاج الطبيعي إن الركبة ستكون جاهزة للرحلة"
+  },
+  {
+    "ruta": "gratitudes.50.item2",
+    "texto": "أصبحتُ أعرف كيف أقول بدون لحم من فضلك"
+  },
+  {
+    "ruta": "gratitudes.51.item1",
+    "texto": "وردية مزدوجة ببقشيش جيد"
+  },
+  {
+    "ruta": "gratitudes.51.item2",
+    "texto": "خرائط دون اتصال محمّلة وبرنامج الرحلة مُراجَع"
+  },
+  {
+    "ruta": "gratitudes.51.item3",
+    "texto": "لايكا داخل الحقيبة المفتوحة"
+  },
+  {
+    "ruta": "gratitudes.52.item1",
+    "texto": "سلّمتُ مشروع الفصل الدراسي قبل السفر"
+  },
+  {
+    "ruta": "gratitudes.52.item2",
+    "texto": "فهمتُ بودكاست كاملاً بالإنجليزية"
+  },
+  {
+    "ruta": "gratitudes.52.item3",
+    "texto": "شاي أخضر مع نيكو بعد الوردية"
+  },
+  {
+    "ruta": "gratitudes.53.item1",
+    "texto": "كل شيء يتّسع في حقيبة ظهر واحدة"
+  },
+  {
+    "ruta": "gratitudes.53.item2",
+    "texto": "بقاء نيكو مع لايكا لمدة ثلاثة أسابيع"
+  },
+  {
+    "ruta": "gratitudes.53.item3",
+    "texto": "التوتّر من النوع الجيد"
+  },
+  {
+    "ruta": "gratitudes.54.item1",
+    "texto": "عدتُ بدفتر مليء بالأيام"
+  },
+  {
+    "ruta": "gratitudes.54.item2",
+    "texto": "عاتبتني لايكا نصف ساعة، ثم نامت فوقي"
+  },
+  {
+    "ruta": "gratitudes.54.item3",
+    "texto": "سريري"
+  },
+  {
+    "ruta": "gratitudes.55.item1",
+    "texto": "فككتُ الحقيبة دون استعجال"
+  },
+  {
+    "ruta": "gratitudes.55.item2",
+    "texto": "قهوة مقهاي طعمها مختلف وأعجبني ذلك"
+  },
+  {
+    "ruta": "gratitudes.55.item3",
+    "texto": "صور جبل فوجي جاءت واضحة"
+  },
+  {
+    "ruta": "gratitudes.56.item1",
+    "texto": "أول يوم في خطة نصف الماراثون"
+  },
+  {
+    "ruta": "gratitudes.56.item2",
+    "texto": "عدتُ إلى السجادة وكأنّ شهرًا لم يمرّ"
+  },
+  {
+    "ruta": "gratitudes.56.item3",
+    "texto": "نودلز منزلي بما تعلّمتُه هناك"
+  },
+  {
+    "ruta": "gratitudes.57.item1",
+    "texto": "دفتر المصروفات محدَّث من جديد"
+  },
+  {
+    "ruta": "gratitudes.57.item2",
+    "texto": "ثماني ساعات من النوم"
+  },
+  {
+    "ruta": "gratitudes.57.item3",
+    "texto": "بقيت النبتة حية بفضل نيكو"
+  },
+  {
+    "ruta": "gratitudes.58.item1",
+    "texto": "تعلّم الجزء الأول من كلير دو لون"
+  },
+  {
+    "ruta": "gratitudes.58.item2",
+    "texto": "وردية بموسيقى جيدة وزبائن لطفاء"
+  },
+  {
+    "ruta": "gratitudes.59.item1",
+    "texto": "12 كم دون توقف"
+  },
+  {
+    "ruta": "gratitudes.59.item2",
+    "texto": "الركبة تصمد ولا تحتجّ في اليوم التالي"
+  },
+  {
+    "ruta": "gratitudes.59.item3",
+    "texto": "حساء ميسو منزلي"
+  },
+  {
+    "ruta": "gratitudes.60.item1",
+    "texto": "أشار الميزان إلى 69"
+  },
+  {
+    "ruta": "gratitudes.60.item2",
+    "texto": "طلب أحد الزبائن توصية بشاي، وأصبتُ الاختيار"
+  },
+  {
+    "ruta": "gratitudes.60.item3",
+    "texto": "سماء صافية لتصوير القمر"
+  },
+  {
+    "ruta": "gratitudes.61.item1",
+    "texto": "أول إيداع في صندوق الطوارئ"
+  },
+  {
+    "ruta": "gratitudes.61.item2",
+    "texto": "العودة إلى بطاقات اللغة الإنجليزية بعد التوقف"
+  },
+  {
+    "ruta": "gratitudes.61.item3",
+    "texto": "بطانية جديدة من متجر الأغراض المستعملة"
+  },
+  {
+    "ruta": "gratitudes.62.item1",
+    "texto": "اجتزتُ اختبار المختبر"
+  },
+  {
+    "ruta": "gratitudes.62.item2",
+    "texto": "مكالمة فيديو طويلة مع أمي"
+  },
+  {
+    "ruta": "gratitudes.62.item3",
+    "texto": "لايكا تجلس على الكيبورد من جديد"
+  },
+  {
+    "ruta": "gratitudes.63.item1",
+    "texto": "ركضتُ تحت المطر ولم أكرهه"
+  },
+  {
+    "ruta": "gratitudes.63.item2",
+    "texto": "خبز ساخن من فرن الناصية"
+  },
+  {
+    "ruta": "gratitudes.64.item1",
+    "texto": "الجزء الثاني من كلير دو لون"
+  },
+  {
+    "ruta": "gratitudes.64.item2",
+    "texto": "ثمانية أشهر متتالية من بطاقات اللغة"
+  },
+  {
+    "ruta": "gratitudes.64.item3",
+    "texto": "شاي أولونغ جديد بسعر معقول"
+  },
+  {
+    "ruta": "gratitudes.65.item1",
+    "texto": "18 كم، أطول مسافة في الخطة"
+  },
+  {
+    "ruta": "gratitudes.65.item2",
+    "texto": "بقشيش هذا الشهر يغطّي ثمن الحذاء"
+  },
+  {
+    "ruta": "gratitudes.65.item3",
+    "texto": "دشّ ساخن وصمت"
+  },
+  {
+    "ruta": "gratitudes.66.item1",
+    "texto": "تجربة الحذاء الجديد لأول مرة"
+  },
+  {
+    "ruta": "gratitudes.66.item2",
+    "texto": "سار الاختبار بشكل أفضل ممّا كنتُ أتوقّع"
+  },
+  {
+    "ruta": "gratitudes.66.item3",
+    "texto": "لايكا نائمة عند قدميّ"
+  },
+  {
+    "ruta": "gratitudes.67.item1",
+    "texto": "مخطط الدراسات العليا أو العمل أخيرًا على الورق"
+  },
+  {
+    "ruta": "gratitudes.67.item2",
+    "texto": "حدّثتني أستاذة عن سنواتها في المختبر"
+  },
+  {
+    "ruta": "gratitudes.68.item1",
+    "texto": "يوم راحة دون الشعور بالذنب"
+  },
+  {
+    "ruta": "gratitudes.68.item2",
+    "texto": "خيال علمي في سينما الثلاثاء الرخيصة"
+  },
+  {
+    "ruta": "gratitudes.68.item3",
+    "texto": "قهوة مع نيكو دون النظر إلى الساعة"
+  },
+  {
+    "ruta": "gratitudes.69.item1",
+    "texto": "أسبوع التخفيف: الساقان تبدوان منتعشتين"
+  },
+  {
+    "ruta": "gratitudes.69.item2",
+    "texto": "ثلاث ليالٍ جيدة متتالية"
+  },
+  {
+    "ruta": "gratitudes.69.item3",
+    "texto": "استلمتُ رقم السباق دون طوابير"
+  },
+  {
+    "ruta": "gratitudes.70.item1",
+    "texto": "رقم السباق والمكمّلات الهلامية والمنبّه جاهزون للغد"
+  },
+  {
+    "ruta": "gratitudes.70.item2",
+    "texto": "وعد من نيكو بالحضور عند خط النهاية"
+  },
+  {
+    "ruta": "gratitudes.71.item1",
+    "texto": "21 كم أُنجزت في 2:04"
+  },
+  {
+    "ruta": "gratitudes.71.item2",
+    "texto": "أمشي اليوم دون عرج"
+  },
+  {
+    "ruta": "gratitudes.71.item3",
+    "texto": "فطور ضخم ومستحَق"
+  },
+  {
+    "ruta": "gratitudes.72.item2",
+    "texto": "العودة إلى البيانو بيدين متعبتين، والصوت لا يتغيّر"
+  },
+  {
+    "ruta": "gratitudes.72.item3",
+    "texto": "غطّى زميل نوبتي يوم الأحد"
+  },
+  {
+    "ruta": "gratitudes.73.item1",
+    "texto": "قرّرتُ التقدّم للدراسات العليا دون استبعاد فكرة العمل"
+  },
+  {
+    "ruta": "gratitudes.73.item2",
+    "texto": "بدء كتابة خطاب الدافع"
+  },
+  {
+    "ruta": "gratitudes.73.item3",
+    "texto": "مراقبة المطر من الداخل"
+  },
+  {
+    "ruta": "gratitudes.74.item1",
+    "texto": "أول تدريب والماراثون في الذهن بالفعل"
+  },
+  {
+    "ruta": "gratitudes.74.item2",
+    "texto": "تحدّثتُ خمس دقائق بالإنجليزية دون تعثّر"
+  },
+  {
+    "ruta": "gratitudes.75.item1",
+    "texto": "اجتازت السيارة الفحص الدوري"
+  },
+  {
+    "ruta": "gratitudes.75.item2",
+    "texto": "صورة لكوكبة الجبّار يمكن عرضها بفخر"
+  },
+  {
+    "ruta": "gratitudes.75.item3",
+    "texto": "لايكا تخرخر فوق الحاسوب المحمول"
+  },
+  {
+    "ruta": "gratitudes.76.item1",
+    "texto": "وردية هادئة وعشرون صفحة قُرئت خلف البار"
+  },
+  {
+    "ruta": "gratitudes.76.item2",
+    "texto": "كلير دو لون عن ظهر قلب حتى المازورة 40"
+  },
+  {
+    "ruta": "gratitudes.76.item3",
+    "texto": "يخنة كفت لثلاثة أيام"
+  },
+  {
+    "ruta": "gratitudes.77.item1",
+    "texto": "32 كم: أطول تدريب في حياتي"
+  },
+  {
+    "ruta": "gratitudes.77.item2",
+    "texto": "أكلتُ بشراهة ودون أي شعور بالذنب"
+  },
+  {
+    "ruta": "gratitudes.77.item3",
+    "texto": "الساقان في ماء بارد بينما كان صوت بيانو أحدهم يُسمَع"
+  },
+  {
+    "ruta": "gratitudes.78.item1",
+    "texto": "لا شيء يؤلمني اليوم"
+  },
+  {
+    "ruta": "gratitudes.78.item2",
+    "texto": "مدّخرات هذا الشهر لم تُمَس"
+  },
+  {
+    "ruta": "gratitudes.78.item3",
+    "texto": "كتب لي أبي يسأل عن السباق"
+  },
+  {
+    "ruta": "gratitudes.79.item1",
+    "texto": "عزفتُ كلير دو لون كاملةً، بأخطاء لكن كاملة"
+  },
+  {
+    "ruta": "gratitudes.79.item2",
+    "texto": "شاي بالزنجبيل في يوم رمادي"
+  },
+  {
+    "ruta": "gratitudes.80.item1",
+    "texto": "أسبوع التخفيف: نوم أكثر وركض أقل"
+  },
+  {
+    "ruta": "gratitudes.80.item2",
+    "texto": "اشترت عائلتي التذاكر للحضور"
+  },
+  {
+    "ruta": "gratitudes.80.item3",
+    "texto": "ملاحظات الفصل الدراسي محدَّثة"
+  },
+  {
+    "ruta": "gratitudes.81.item1",
+    "texto": "تركتُ ملابس الماراثون جاهزة على الكرسي"
+  },
+  {
+    "ruta": "gratitudes.81.item2",
+    "texto": "توتّر أصبحتُ أعرف كيف أتنفّس خلاله"
+  },
+  {
+    "ruta": "gratitudes.81.item3",
+    "texto": "معكرونة بكمية زائدة من الجبن"
+  },
+  {
+    "ruta": "gratitudes.82.item1",
+    "texto": "الماراثون اكتمل في 4:12"
+  },
+  {
+    "ruta": "gratitudes.82.item2",
+    "texto": "عائلتي تصرخ عند الكيلومتر 35"
+  },
+  {
+    "ruta": "gratitudes.82.item3",
+    "texto": "الميدالية فوق طاولة المطبخ"
+  },
+  {
+    "ruta": "gratitudes.83.item1",
+    "texto": "اكتشفتُ أنّ النزول عن الدرج للخلف يُحسب أيضًا"
+  },
+  {
+    "ruta": "gratitudes.83.item2",
+    "texto": "عدتُ إلى البار وسأل الجميع عن السباق"
+  },
+  {
+    "ruta": "gratitudes.83.item3",
+    "texto": "اثنتا عشرة ساعة من النوم"
+  },
+  {
+    "ruta": "gratitudes.84.item1",
+    "texto": "مشية طويلة دون ألم"
+  },
+  {
+    "ruta": "gratitudes.84.item2",
+    "texto": "عدتُ إلى البيانو وأنا أفكّر في العائلة"
+  },
+  {
+    "ruta": "gratitudes.85.item1",
+    "texto": "عزفتُ كلير دو لون كاملةً لعائلتي"
+  },
+  {
+    "ruta": "gratitudes.85.item2",
+    "texto": "بكت جدّتي وكدتُ أبكي أنا أيضًا"
+  },
+  {
+    "ruta": "gratitudes.85.item3",
+    "texto": "صوّرت أختي كل شيء"
+  },
+  {
+    "ruta": "gratitudes.86.item1",
+    "texto": "67 كيلوغرامًا، بعد عام من الـ74"
+  },
+  {
+    "ruta": "gratitudes.86.item2",
+    "texto": "صندوق الطوارئ يغطّي الآن ثلاثة أسابيع"
+  },
+  {
+    "ruta": "gratitudes.86.item3",
+    "texto": "بدأتُ أبحث عن رحلات إلى كوريا"
+  },
+  {
+    "ruta": "gratitudes.87.item1",
+    "texto": "سنة كاملة من التسجيل دون توقف"
+  },
+  {
+    "ruta": "gratitudes.87.item2",
+    "texto": "دفتر مليء بأشياء صغيرة حدثت فعلاً"
+  }
+]

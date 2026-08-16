@@ -1,0 +1,234 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "texto": "Bicicleta de aço, usada, cinza e barulhenta, com a qual faço turnos, laboratório e treinos todos os dias. Em um ano nunca me deixou na mão."
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "texto": "Sedã herdado do meu tio, mais velho do que eu e com o painel desbotado pelo sol. Ligo o carro a cada quinze dias, e ele me cobra juros por cada esquecimento."
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "texto": "Resgate do porão"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "texto": "Tirei ela do porão com os pneus murchos e a corrente toda empastada; foi uma tarde inteira de pano, ar e óleo até ela voltar a rodar."
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "texto": "Troca de óleo muito atrasada"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "texto": "Saiu preto como café frio, e o mecânico só levantou as sobrancelhas, que é o jeito dele de me repreender."
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "texto": "Câmara nova e primeiro remendo"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "texto": "Furou o pneu na Doctor Vértiz a caminho do café; aprendi a trocar câmara na calçada, tarde, mas aprendi."
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "texto": "Bateria nova"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "texto": "De tanto ficar parado, morreu sozinha; pedi uma carga para um vizinho e fui direto comprar uma bateria."
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "texto": "Corrente limpa, finalmente"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "texto": "Desengraxei e lubrifiquei com calma num domingo: parou de fazer barulho de dobradiça velha e até pedalar ficou mais leve."
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "texto": "Pastilhas de freio dianteiras"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "texto": "Chiavam em cada sinal e não dava mais para ignorar; comeram o meu salário da quinzena, mas trouxeram uma noite tranquila."
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "texto": "Sapatas novas"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "texto": "Com as chuvas eu freava dois metros depois do que queria, então troquei as sapatas e ajustei os cabos."
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "texto": "Furo a caminho do laboratório"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "texto": "Um caco de vidro no Eje 8 e cheguei empurrando a bicicleta, vinte minutos atrasado para o laboratório."
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "texto": "Na mão na Calzada de Tlalpan"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "texto": "O carro morreu no meio da avenida numa terça à noite, e passei uma hora e meia na calçada esperando o guincho, fazendo conta de um dinheiro que eu não tinha; foi aí que o mês inteiro desabou em cima de mim."
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "texto": "Revisão completa"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "texto": "Com o joelho em fisioterapia eu não podia correr, então dediquei o tempo à bicicleta: rodas alinhadas, cabos trocados e tudo bem apertado."
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "texto": "Filtros depois do susto"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "texto": "Troquei o filtro de ar e o de combustível por pura paranoia; prefiro pagar isso a esperar outro guincho."
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "texto": "Corrente esticada, troquei"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "texto": "Com o plano da meia maratona eu uso ela todo dia, e a corrente já estava patinando na largada."
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "texto": "Cassete e cabos novos"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "texto": "As marchas pulavam na subida; com o cassete novo, finalmente posso confiar no prato pequeno."
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "texto": "Óleo e revisão geral"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "texto": "Serviço de rotina e sem surpresas, o que com esse carro já conta como boa notícia."
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "texto": "Freios antes da maratona"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "texto": "Ajuste rápido porque naquelas semanas a bicicleta era meu único transporte e eu não queria nenhum pretexto."
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "texto": "Lavagem antes da família"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "texto": "Lavei e aspirei para ir buscar minha família na rodoviária: não conserta nada mecânico, mas parece outro carro."
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "texto": "Taller Mecánico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "texto": "Seu Rivas me explica o que é urgente e o que pode esperar, e nunca inflou uma conta; é o único em quem confio com esse carro."
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "texto": "Seguros Meridiano - agente Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "texto": "Av. Insurgentes Sur 1234, 3º andar, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "texto": "A Nadia responde o WhatsApp mesmo aos domingos e organizou pagamentos mensais quando subi para a cobertura completa."
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "texto": "Verificentro 09-118 Iztaccíhuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "texto": "Horário marcado às sete da manhã, e saio em quarenta minutos; o de Coyoacán me custou meia manhã de fila."
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "texto": "Foi lá que comprei a bicicleta e é lá que faço a revisão; eles emprestam ferramenta e me ensinam a fazer eu mesmo, em vez de cobrar por tudo."
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "texto": "Grúas Tepeyac 24 horas"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "texto": "Base na Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "texto": "É o número que liguei na noite em que o carro me deixou na mão; chegaram em uma hora e meia e não tentaram me passar a perna no preço."
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "texto": "Vistoria semestral"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "texto": "Cai de acordo com o adesivo do carro, e eu sempre marco na primeira semana: se eu deixar passar, a multa dói mais do que o trâmite."
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "texto": "Renovação da apólice"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "texto": "Este ano passei para a cobertura completa com a Nadia depois do susto da pane; pago em parcelas mensais e incluo no orçamento da quinzena."
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "texto": "IPVA e licenciamento anual"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "texto": "Pago nos primeiros meses do ano para conseguir o desconto e tirar isso da cabeça."
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "texto": "Transferência de propriedade e documento"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "texto": "O documento ainda está no nome do meu tio, e já é hora de regularizar antes que vire problema numa blitz."
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "texto": "Revisão da bicicleta"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "texto": "A cada seis meses na Ciclos Malinche: alinhamento das rodas, cabos e freios, que sai bem mais barato do que consertar uma roda torta."
+  }
+]

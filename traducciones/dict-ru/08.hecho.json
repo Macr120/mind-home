@@ -1,0 +1,442 @@
+[
+  {
+    "clave": "despacho.calc.tasaAuto",
+    "texto": "Годовая ставка, %"
+  },
+  {
+    "clave": "despacho.calc.enganche",
+    "texto": "Требуемый первый взнос"
+  },
+  {
+    "clave": "despacho.calc.mensualidadMax",
+    "texto": "Максимальный платёж"
+  },
+  {
+    "clave": "despacho.calc.autoCabe",
+    "texto": "Подходит: расчётный платёж — {m}."
+  },
+  {
+    "clave": "despacho.calc.autoNoCabe",
+    "texto": "Не подходит на этих условиях: расчётный платёж ({m}) превышает твой максимум."
+  },
+  {
+    "clave": "despacho.calc.nombreEnganche",
+    "texto": "Первый взнос за авто"
+  },
+  {
+    "clave": "biblioteca.desc",
+    "texto": "Твоя личная энциклопедия: общайся с Мудрецом на любую тему, сохраняй изученное по областям знаний и занимайся с таймером."
+  },
+  {
+    "clave": "biblioteca.tab.charlas",
+    "texto": "Чаты"
+  },
+  {
+    "clave": "biblioteca.tab.enciclopedia",
+    "texto": "Энциклопедия"
+  },
+  {
+    "clave": "biblioteca.tab.estudio",
+    "texto": "Учёба"
+  },
+  {
+    "clave": "biblioteca.tab.resumen",
+    "texto": "Обзор"
+  },
+  {
+    "clave": "biblioteca.sinIA",
+    "texto": "Настрой ИИ (Настройки → Искусственный интеллект), чтобы общаться с Мудрецом. А пока можно добавлять записи в Энциклопедию вручную."
+  },
+  {
+    "clave": "biblioteca.charla.nuevaBtn",
+    "texto": "Новый чат с Мудрецом"
+  },
+  {
+    "clave": "biblioteca.charla.todas",
+    "texto": "Все"
+  },
+  {
+    "clave": "biblioteca.charla.vacio",
+    "texto": "Чатов пока нет. Спроси о чём угодно — «почему небо голубое?» — и библиотека сама разложит это по нужной области знаний."
+  },
+  {
+    "clave": "biblioteca.charla.sinTitulo",
+    "texto": "Чат без названия"
+  },
+  {
+    "clave": "biblioteca.charla.porClasificar",
+    "texto": "не распределено"
+  },
+  {
+    "clave": "biblioteca.charla.nueva",
+    "texto": "Новый чат"
+  },
+  {
+    "clave": "biblioteca.charla.sub",
+    "texto": "Чат энциклопедии"
+  },
+  {
+    "clave": "biblioteca.charla.volver",
+    "texto": "Назад к чатам"
+  },
+  {
+    "clave": "biblioteca.charla.renombrar",
+    "texto": "Нажми, чтобы переименовать"
+  },
+  {
+    "clave": "biblioteca.charla.destilar",
+    "texto": "Обобщить"
+  },
+  {
+    "clave": "biblioteca.charla.reDestilar",
+    "texto": "Обновить запись"
+  },
+  {
+    "clave": "biblioteca.charla.destilarTip",
+    "texto": "ИИ превращает чат в запись энциклопедии"
+  },
+  {
+    "clave": "biblioteca.charla.destilarFallo",
+    "texto": "ИИ не смог обобщить чат — заполни запись вручную."
+  },
+  {
+    "clave": "biblioteca.charla.borrar",
+    "texto": "Удалить чат"
+  },
+  {
+    "clave": "biblioteca.charla.campoTip",
+    "texto": "Область знаний, в которой сохраняется чат"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificar",
+    "texto": "Распределить"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificarTip",
+    "texto": "Распределить чат по дереву тем и обобщить его в запись"
+  },
+  {
+    "clave": "biblioteca.charla.verEntrada",
+    "texto": "Запись"
+  },
+  {
+    "clave": "biblioteca.charla.verEntradaTip",
+    "texto": "Посмотреть запись, составленную по этому чату"
+  },
+  {
+    "clave": "biblioteca.charla.irANodo",
+    "texto": "Смотреть «{n}» в энциклопедии"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarTip",
+    "texto": "Ветвление: добавить подтемы из этого чата в дерево"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarSinTema",
+    "texto": "У этого чата пока нет места в дереве"
+  },
+  {
+    "clave": "biblioteca.ramas.titulo",
+    "texto": "Разветвить дерево"
+  },
+  {
+    "clave": "biblioteca.ramas.desc",
+    "texto": "Новые ветви под «{tema}» на основе этого чата:"
+  },
+  {
+    "clave": "biblioteca.ramas.cargando",
+    "texto": "Мудрец ищет новые ветви…"
+  },
+  {
+    "clave": "biblioteca.ramas.vacio",
+    "texto": "Для этой темы нет новых ветвей, которые можно предложить."
+  },
+  {
+    "clave": "biblioteca.ramas.agregar",
+    "texto": "Добавить выбранные"
+  },
+  {
+    "clave": "biblioteca.ramas.ahoraNo",
+    "texto": "Не сейчас"
+  },
+  {
+    "clave": "biblioteca.ramas.charlarSug",
+    "texto": "Добавить и обсудить эту ветвь"
+  },
+  {
+    "clave": "biblioteca.charla.confirmarBorrar",
+    "texto": "Удалить чат? Составленная запись останется."
+  },
+  {
+    "clave": "biblioteca.charla.siBorrar",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "biblioteca.charla.vacia",
+    "texto": "Спроси {sabio} о чём угодно: чат сам разложится по нужной области знаний"
+  },
+  {
+    "clave": "biblioteca.charla.error",
+    "texto": "Мудрец не смог ответить. Проверь ИИ в Настройках или попробуй снова."
+  },
+  {
+    "clave": "biblioteca.charla.reintentar",
+    "texto": "Повторить"
+  },
+  {
+    "clave": "biblioteca.charla.placeholder",
+    "texto": "Спроси о чём угодно…"
+  },
+  {
+    "clave": "biblioteca.charla.sinIA",
+    "texto": "Настрой ИИ в Настройках, чтобы общаться"
+  },
+  {
+    "clave": "biblioteca.ent.nueva",
+    "texto": "Новая запись"
+  },
+  {
+    "clave": "biblioteca.ent.editar",
+    "texto": "Изменить запись"
+  },
+  {
+    "clave": "biblioteca.ent.editarBtn",
+    "texto": "Изменить"
+  },
+  {
+    "clave": "biblioteca.ent.titulo",
+    "texto": "Заголовок"
+  },
+  {
+    "clave": "biblioteca.ent.tituloPh",
+    "texto": "Например, энтропия"
+  },
+  {
+    "clave": "biblioteca.ent.campo",
+    "texto": "Область"
+  },
+  {
+    "clave": "biblioteca.ent.tema",
+    "texto": "Тема в оглавлении"
+  },
+  {
+    "clave": "biblioteca.ent.sinTema",
+    "texto": "— Нет —"
+  },
+  {
+    "clave": "biblioteca.ent.resumen",
+    "texto": "Резюме"
+  },
+  {
+    "clave": "biblioteca.ent.resumenPh",
+    "texto": "Что удалось узнать, в 3-5 предложениях."
+  },
+  {
+    "clave": "biblioteca.ent.puntos",
+    "texto": "Ключевые пункты (по одному на строку)"
+  },
+  {
+    "clave": "biblioteca.ent.puntosPh",
+    "texto": "Ключевая идея 1\nКлючевая идея 2"
+  },
+  {
+    "clave": "biblioteca.ent.puntosTitulo",
+    "texto": "Ключевые пункты"
+  },
+  {
+    "clave": "biblioteca.mat.titulo",
+    "texto": "Материалы"
+  },
+  {
+    "clave": "biblioteca.mat.agregar",
+    "texto": "Создать или привязать материал"
+  },
+  {
+    "clave": "biblioteca.mat.vacio",
+    "texto": "Прикрепи сюда таблицы и карты, которые используешь для изучения этой темы, — они открываются в своей комнате."
+  },
+  {
+    "clave": "biblioteca.mat.hoja",
+    "texto": "Таблица"
+  },
+  {
+    "clave": "biblioteca.mat.mapa",
+    "texto": "Карта или диаграмма"
+  },
+  {
+    "clave": "biblioteca.mat.idea",
+    "texto": "Идея"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaHoja",
+    "texto": "Новая таблица"
+  },
+  {
+    "clave": "biblioteca.mat.nuevoMapa",
+    "texto": "Новая карта или диаграмма"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaIdea",
+    "texto": "Новая идея"
+  },
+  {
+    "clave": "biblioteca.mat.crearTit",
+    "texto": "Новое: {tipo}"
+  },
+  {
+    "clave": "biblioteca.mat.existente",
+    "texto": "Привязать {tipo}, который уже есть"
+  },
+  {
+    "clave": "biblioteca.mat.enlazar",
+    "texto": "— Привязать —"
+  },
+  {
+    "clave": "biblioteca.mat.quitar",
+    "texto": "Убрать привязку (материал не удаляется)"
+  },
+  {
+    "clave": "biblioteca.mat.roto",
+    "texto": "больше не существует"
+  },
+  {
+    "clave": "computo.vista.vacia",
+    "texto": "Таблица пока пуста."
+  },
+  {
+    "clave": "biblioteca.mat.sinCuarto",
+    "texto": "Размести комнату этого приложения в доме, чтобы открыть его материалы."
+  },
+  {
+    "clave": "material.estudiasEn",
+    "texto": "Изучаешь это в"
+  },
+  {
+    "clave": "material.abrirEntrada",
+    "texto": "Открыть «{n}» в энциклопедии"
+  },
+  {
+    "clave": "material.sinBiblioteca",
+    "texto": "Размести комнату библиотеки в доме, чтобы открыть энциклопедию."
+  },
+  {
+    "clave": "biblioteca.mat.vacio2",
+    "texto": "Создай здесь карту или заметки по этой теме с помощью ИИ, или подключи таблицы и карты, которые уже используешь для учёбы."
+  },
+  {
+    "clave": "biblioteca.mat.ver",
+    "texto": "Смотреть прямо здесь"
+  },
+  {
+    "clave": "biblioteca.mat.abrirEn",
+    "texto": "Открыть в его комнате, чтобы отредактировать"
+  },
+  {
+    "clave": "biblioteca.mat.generarTip",
+    "texto": "Пусть ИИ соберёт это по содержанию записи"
+  },
+  {
+    "clave": "biblioteca.mat.falloIA",
+    "texto": "ИИ не смог создать материал."
+  },
+  {
+    "clave": "biblioteca.ent.cancelar",
+    "texto": "Отмена"
+  },
+  {
+    "clave": "biblioteca.ent.guardar",
+    "texto": "Сохранить"
+  },
+  {
+    "clave": "biblioteca.ent.borrar",
+    "texto": "Удалить запись"
+  },
+  {
+    "clave": "biblioteca.ent.confirmarBorrar",
+    "texto": "Удалить эту запись? Исходный чат останется без изменений."
+  },
+  {
+    "clave": "biblioteca.ent.verCharla",
+    "texto": "Смотреть исходный чат"
+  },
+  {
+    "clave": "biblioteca.enc.sub",
+    "texto": "{n} записей в {c} областях"
+  },
+  {
+    "clave": "biblioteca.enc.nEntradas",
+    "texto": "{n} записей"
+  },
+  {
+    "clave": "biblioteca.enc.buscarTema",
+    "texto": "Поиск темы…"
+  },
+  {
+    "clave": "biblioteca.enc.verEntrada",
+    "texto": "Смотреть запись этой темы"
+  },
+  {
+    "clave": "biblioteca.enc.charlarTema",
+    "texto": "Обсудить это с Мудрецом"
+  },
+  {
+    "clave": "biblioteca.enc.promptTema",
+    "texto": "Расскажи мне про {tema}. {desc}"
+  },
+  {
+    "clave": "biblioteca.enc.arbolDesc",
+    "texto": "Всё твоё знание — в одном дереве: каждый чат сам находит своё место и разрастается, когда ты его ветвишь."
+  },
+  {
+    "clave": "biblioteca.enc.semilla",
+    "texto": "Семя"
+  },
+  {
+    "clave": "biblioteca.enc.sinResultados",
+    "texto": "В дереве нет совпадений с твоим запросом."
+  },
+  {
+    "clave": "biblioteca.enc.nuevo",
+    "texto": "новое"
+  },
+  {
+    "clave": "biblioteca.enc.subtemas",
+    "texto": "{n} подтем"
+  },
+  {
+    "clave": "biblioteca.enc.nSubindices",
+    "texto": "{n} подразделов ниже"
+  },
+  {
+    "clave": "biblioteca.enc.modoEdicion",
+    "texto": "Редактировать оглавление"
+  },
+  {
+    "clave": "biblioteca.enc.edicionDesc",
+    "texto": "Сделай оглавление своим: значок + в каждой строке добавляет ветви на любом уровне, даже прямо от Семени. Можно также переименовывать, менять порядок и удалять."
+  },
+  {
+    "clave": "biblioteca.enc.renombrar",
+    "texto": "Переименовать"
+  },
+  {
+    "clave": "biblioteca.enc.agregarHijo",
+    "texto": "Добавить что-то внутрь"
+  },
+  {
+    "clave": "biblioteca.enc.moverEntradaA",
+    "texto": "Переместить «{n}» в…"
+  },
+  {
+    "clave": "biblioteca.enc.entradaAqui",
+    "texto": "Написать запись здесь"
+  },
+  {
+    "clave": "biblioteca.enc.borrarNodo",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "biblioteca.enc.borrarTit",
+    "texto": "Удалить «{n}»?"
+  }
+]

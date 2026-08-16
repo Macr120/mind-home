@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.resumen",
+    "texto": "식단 관리는 네 단계예요. 목표를 정하고, 먹고 마신 것을 기록하고, 한 주를 계획하면, 진행 상황이 원하는 방향으로 가고 있는지 알려줘요."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.titulo",
+    "texto": "요리, 계획, 장보기"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.resumen",
+    "texto": "레시피북은 영양 성분과 함께 레시피를 저장하고, 식단별로 묶어주고, 만들 요리를 장보기 목록으로 바꿔줘요."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.titulo",
+    "texto": "캘린더 속 식단"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.resumen",
+    "texto": "Pep의 체중과 식단 목표에는 전용 타임라인이 있어요. 날짜가 있는 세부 목표와, AI가 단계별로 짜주는 계획이에요."
+  },
+  {
+    "clave": "tut.app-descanso--noche.titulo",
+    "texto": "하룻밤 점수 매기는 법"
+  },
+  {
+    "clave": "tut.app-descanso--noche.resumen",
+    "texto": "수면은 매일 밤을 100점 만점으로 채점해요. 얼마나 잤는지, 몇 시에 잠들었는지, 몇 번 깼는지. 이게 1년치 기록을 만들어요."
+  },
+  {
+    "clave": "tut.app-descanso--horario.titulo",
+    "texto": "수면 일정"
+  },
+  {
+    "clave": "tut.app-descanso--horario.resumen",
+    "texto": "일정은 24시간 막대에 그려지고, 집 캘린더에 블록으로 표시되며, 잠들기 전에 알려줄 수도 있어요."
+  },
+  {
+    "clave": "tut.app-despacho--anio.titulo",
+    "texto": "Pep이 돈을 정리한 한 해"
+  },
+  {
+    "clave": "tut.app-despacho--anio.resumen",
+    "texto": "현금 흐름은 선택한 기간(일·주·월·년)의 수입, 지출, 순액을 정리해 줘요. 그 아래에는 순자산, 월 예산, 돈이 어디로 가는지, 최근 추이가 있어요."
+  },
+  {
+    "clave": "tut.app-despacho--captura.titulo",
+    "texto": "고정과 변동"
+  },
+  {
+    "clave": "tut.app-despacho--captura.resumen",
+    "texto": "고정 지출은 한 번만 입력하면 앱이 매달 알아서 반영해요. 변동 지출은 생길 때마다 기록해요. 둘 다 같은 목록에 있고, 연도와 월 폴더로 날짜순 정리돼요."
+  },
+  {
+    "clave": "tut.app-despacho--metas.titulo",
+    "texto": "일본 여행, 비상금, 빚"
+  },
+  {
+    "clave": "tut.app-despacho--metas.resumen",
+    "texto": "'목표'는 저축과 투자 목표를 진행률 막대와 함께 하나의 목록에 모아주고, 빚은 전용 시뮬레이터로 따로 관리해요. 각각 일정이 있어서 날짜를 정할 수 있어요."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.titulo",
+    "texto": "숫자를 정하는 네 가지 규칙"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.resumen",
+    "texto": "개인 재무 계산기 네 가지가 실제 잔액을 바탕으로 목표 금액을 제안하고, 탭 한 번으로 목표로 바꿔줘요. 각 규칙의 매개변수는 조정할 수 있어서, 50/30/20 법칙을 그대로 따를 필요는 없어요."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.titulo",
+    "texto": "자전거 한 대와 낡은 차 한 대"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.resumen",
+    "texto": "차고는 실제 차량의 관리를 맡아줘요. 각 차량마다 정보 카드, 주행거리, 정비 기록이 있어요. 위쪽 신호등이 급한 일이 있는지 알려줘요."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.titulo",
+    "texto": "새 차량 등록"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.texto",
+    "texto": "이름, 종류, 제조사, 모델, 연식, 번호판, 오늘 주행거리예요. 번호판을 등록해두면, 차고가 나중에 어떤 서류 업무를 안내할지 알 수 있어요."
+  },
+  {
+    "clave": "tut.app-garage--tramites.titulo",
+    "texto": "저절로 일정에 잡히는 서류 업무"
+  },
+  {
+    "clave": "tut.app-garage--tramites.resumen",
+    "texto": "검사, 자동차세, 보험, 정기 점검을 등록하면, 차고가 캘린더에 일정 블록을 넣고 원하는 만큼 미리 알림도 줘요."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.titulo",
+    "texto": "서류는 따로 관리"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.texto",
+    "texto": "등록증, 보험 증권, 자동차세는 정비소 업무와 섞이지 않아요. 문서 번호, 만료일, 사전 알림이 있는 전용 기록장에 따로 관리돼요."
+  },
+  {
+    "clave": "tut.app-sala--mapa.titulo",
+    "texto": "여행자의 지도"
+  },
+  {
+    "clave": "tut.app-sala--mapa.resumen",
+    "texto": "모든 장소는 세계지도 위의 핀이에요. 다녀온 곳은 초록색, 아직 꿈꾸는 곳은 호박색이에요. 위쪽에는 다녀온 나라와 도시, 남은 버킷리스트 수가 나와요."
+  },
+  {
+    "clave": "tut.app-sala--japon.titulo",
+    "texto": "일본에서의 3주"
+  },
+  {
+    "clave": "tut.app-sala--japon.resumen",
+    "texto": "여행 일지는 나라와 장소별로 사진과 함께 추억을 담아두고, 여행마다 숙소, 교통, 예산이 담긴 일자별 계획표도 남아요."
+  },
+  {
+    "clave": "tut.app-sala--proximo.titulo",
+    "texto": "다음 여행"
+  },
+  {
+    "clave": "tut.app-sala--proximo.resumen",
+    "texto": "가보고 싶은 곳마다 일자별 계획표가 있고, 예산 합계는 서재에서 저축 목표로 바뀌어요."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.titulo",
+    "texto": "공상과학의 한 해"
+  }
+]

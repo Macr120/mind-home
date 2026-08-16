@@ -1,0 +1,506 @@
+[
+  {
+    "clave": "ia.calidad.buena.desc",
+    "texto": "Meer detail en betere tekst in de afbeelding."
+  },
+  {
+    "clave": "ia.tarifas",
+    "texto": "Een antwoord kost 1 credit · een uitgebreid plan 4 · een afbeelding {img} · een 3D-model 10."
+  },
+  {
+    "clave": "ia.precios.pie",
+    "texto": "De server rekent af: dit is wat het kost, nog voordat je het vraagt."
+  },
+  {
+    "clave": "ia.precios.pieSinCuenta",
+    "texto": "Met je eigen AI-sleutel worden geen credits gebruikt: je betaalt rechtstreeks aan je aanbieder."
+  },
+  {
+    "clave": "ia.grupo.chat",
+    "texto": "Huischat"
+  },
+  {
+    "clave": "ia.grupo.editor",
+    "texto": "Huiseditor"
+  },
+  {
+    "clave": "ia.grupo.metas",
+    "texto": "Doelen en planning"
+  },
+  {
+    "clave": "ia.donde.chat",
+    "texto": "Huischat"
+  },
+  {
+    "clave": "ia.donde.casa",
+    "texto": "Het huis (automatisch)"
+  },
+  {
+    "clave": "ia.donde.editorObjetos",
+    "texto": "Editor › Objecten"
+  },
+  {
+    "clave": "ia.donde.editorPersonajes",
+    "texto": "Editor › Personages"
+  },
+  {
+    "clave": "ia.donde.editorCuarto",
+    "texto": "Editor › Vloer, muren, plafond, deuren en raster"
+  },
+  {
+    "clave": "ia.donde.editorFondo",
+    "texto": "Luchtachtergrond"
+  },
+  {
+    "clave": "ia.donde.asistentes",
+    "texto": "Assistenten"
+  },
+  {
+    "clave": "ia.donde.metas",
+    "texto": "Keuken, Gym, Bibliotheek, Talen, Woonkamer, Hobbies, Werkkamer en Vermaak"
+  },
+  {
+    "clave": "ia.op.chat.mensaje",
+    "texto": "Bericht aan je assistent"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d",
+    "texto": "“Maak een 3D…” vanuit de chat"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d.nota",
+    "texto": "Twee aanroepen: de beurt die de opdracht leest en de generatie zelf."
+  },
+  {
+    "clave": "ia.op.chat.imagen",
+    "texto": "“Maak een afbeelding van…” vanuit de chat"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas",
+    "texto": "“Maak een ideeënkaart voor me” vanuit de chat"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas.nota",
+    "texto": "Als de kaart de eerste keer niet goed uitpakt, wordt het één keer opnieuw geprobeerd."
+  },
+  {
+    "clave": "ia.op.chat.latido",
+    "texto": "Spontane zin van je personage"
+  },
+  {
+    "clave": "ia.op.chat.latido.nota",
+    "texto": "Alleen met een abonnement en maar bij 1 op de 10 hartslagen."
+  },
+  {
+    "clave": "ia.op.editor.objeto3d",
+    "texto": "3D-model van een object of bouwwerk"
+  },
+  {
+    "clave": "ia.op.editor.personaje3d",
+    "texto": "3D-model van een personage"
+  },
+  {
+    "clave": "ia.op.editor.ropa3d",
+    "texto": "Kledingstuk voor de garderobe"
+  },
+  {
+    "clave": "ia.op.editor.asistente3d",
+    "texto": "Vorm van een assistent"
+  },
+  {
+    "clave": "ia.op.editor.asistenteVoz",
+    "texto": "AI-stem voor een assistent"
+  },
+  {
+    "clave": "ia.op.editor.textura",
+    "texto": "Textuur voor vloer, muur, plafond, deur of kaart"
+  },
+  {
+    "clave": "ia.op.editor.fondo",
+    "texto": "Textuur voor de luchtachtergrond"
+  },
+  {
+    "clave": "ia.op.metas.plan",
+    "texto": "AI-plan ✨ voor een doel"
+  },
+  {
+    "clave": "ia.op.metas.plan.nota",
+    "texto": "Planningen, reisplannen, studieplannen en financiële plannen."
+  },
+  {
+    "clave": "ia.op.cocina.receta",
+    "texto": "Recept maken met AI"
+  },
+  {
+    "clave": "ia.op.cocina.dieta",
+    "texto": "Compleet dieet of maaltijdplan"
+  },
+  {
+    "clave": "ia.op.cocina.dieta.nota",
+    "texto": "Het plan en elk recept erin worden apart geschreven, en elk gerecht krijgt een eigen foto."
+  },
+  {
+    "clave": "ia.op.cocina.macros",
+    "texto": "Calorieën en macro's berekenen"
+  },
+  {
+    "clave": "ia.op.cocina.portada",
+    "texto": "Foto voor een recept of dieet"
+  },
+  {
+    "clave": "ia.donde.cocina.recetario",
+    "texto": "Receptenboek"
+  },
+  {
+    "clave": "ia.donde.cocina.dietas",
+    "texto": "Diëten · Maaltijdplan"
+  },
+  {
+    "clave": "ia.donde.cocina.registro",
+    "texto": "Dagboek"
+  },
+  {
+    "clave": "ia.donde.cocina.detalle",
+    "texto": "Detail van recept of dieet"
+  },
+  {
+    "clave": "ia.op.ejercicio.imagen",
+    "texto": "Oefening illustreren"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote",
+    "texto": "De ontbrekende oefeningen illustreren"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote.nota",
+    "texto": "Eén afbeelding per niet-geïllustreerde oefening: het totaal hangt af van hoeveel er ontbreken."
+  },
+  {
+    "clave": "ia.donde.ejercicio.catalogo",
+    "texto": "Oefeningencatalogus"
+  },
+  {
+    "clave": "ia.op.biblioteca.charla",
+    "texto": "Beurt van een gesprek met de Wijze"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva",
+    "texto": "Eerste beurt van een nieuw gesprek"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva.nota",
+    "texto": "Het antwoord, plus de aanroep die het een titel geeft en in je boom plaatst, plus de aanroep die het item destilleert."
+  },
+  {
+    "clave": "ia.op.biblioteca.clasificar",
+    "texto": "Gesprek classificeren en destilleren ✨"
+  },
+  {
+    "clave": "ia.op.biblioteca.ramificar",
+    "texto": "De boom vertakken 🌿"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar",
+    "texto": "Item bijwerken bij het verlaten van het gesprek"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar.nota",
+    "texto": "Alleen als het gesprek is gegroeid na het destilleren."
+  },
+  {
+    "clave": "ia.op.biblioteca.material",
+    "texto": "Studiemateriaal genereren vanuit een item"
+  },
+  {
+    "clave": "ia.op.biblioteca.ilustrar",
+    "texto": "Item illustreren"
+  },
+  {
+    "clave": "ia.donde.biblioteca.charlas",
+    "texto": "Gesprekken"
+  },
+  {
+    "clave": "ia.donde.biblioteca.enciclopedia",
+    "texto": "Encyclopedie"
+  },
+  {
+    "clave": "ia.op.idiomas.charla",
+    "texto": "Beurt van een gesprek met de tutor"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva",
+    "texto": "Eerste beurt van een nieuw gesprek"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva.nota",
+    "texto": "Het antwoord, plus de aanroep die het in je lesprogramma plaatst."
+  },
+  {
+    "clave": "ia.op.idiomas.clasificar",
+    "texto": "Gesprek classificeren ✨"
+  },
+  {
+    "clave": "ia.op.idiomas.extraerTarjetas",
+    "texto": "Kaarten uit het gesprek halen"
+  },
+  {
+    "clave": "ia.op.idiomas.generarTarjetas",
+    "texto": "Kaarten genereren voor een onderwerp"
+  },
+  {
+    "clave": "ia.op.idiomas.imagenTarjeta",
+    "texto": "Afbeelding als geheugensteun voor een kaart"
+  },
+  {
+    "clave": "ia.donde.idiomas.charlas",
+    "texto": "Gesprekken"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabulario",
+    "texto": "Woordenschat · Lesprogramma"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabularioRepaso",
+    "texto": "Woordenschat · Herhaling"
+  },
+  {
+    "clave": "ia.op.ideas.mapa",
+    "texto": "Conceptkaart met AI"
+  },
+  {
+    "clave": "ia.op.ideas.mapa.nota",
+    "texto": "Als de kaart de eerste keer niet bruikbaar is, wordt het één keer opnieuw geprobeerd en kost het dubbel."
+  },
+  {
+    "clave": "ia.op.ideas.expandir",
+    "texto": "Meer ideeën (uitbreiden, uitwerken of aanvullende ideeën)"
+  },
+  {
+    "clave": "ia.donde.ideas.mapas",
+    "texto": "Kaarten en diagrammen · Brainstorm"
+  },
+  {
+    "clave": "ia.donde.ideas.diario",
+    "texto": "Ideeëndagboek · Idee-detail · Kaartcanvas"
+  },
+  {
+    "clave": "ia.op.entretenimiento.ficha",
+    "texto": "Item invullen met AI"
+  },
+  {
+    "clave": "ia.op.entretenimiento.resumen",
+    "texto": "Samenvatting van een werk"
+  },
+  {
+    "clave": "ia.op.entretenimiento.programa",
+    "texto": "Programma van series, boeken of spellen"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.archivo",
+    "texto": "Archief"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.programas",
+    "texto": "Programma's"
+  },
+  {
+    "clave": "ia.op.diario.efemerides",
+    "texto": "Culturele gebeurtenissen op deze dag"
+  },
+  {
+    "clave": "ia.op.diario.efemerides.nota",
+    "texto": "Eén keer per dag en alleen met een abonnement."
+  },
+  {
+    "clave": "ia.op.diario.reparto",
+    "texto": "Krantenbezorging door een assistent"
+  },
+  {
+    "clave": "ia.op.diario.reparto.nota",
+    "texto": "Eén per geplande bezorging en alleen met een abonnement."
+  },
+  {
+    "clave": "ia.donde.diario",
+    "texto": "Krant (automatisch)"
+  },
+  {
+    "clave": "ia.op.descanso.evidencia",
+    "texto": "Fotobewijs om het alarm uit te zetten"
+  },
+  {
+    "clave": "ia.donde.descanso",
+    "texto": "Wekker"
+  },
+  {
+    "clave": "ia.op.computo.formula",
+    "texto": "Formule schrijven vanuit de beschrijving"
+  },
+  {
+    "clave": "ia.op.computo.explicar",
+    "texto": "Stap voor stap uitleggen of oplossen"
+  },
+  {
+    "clave": "ia.op.computo.hoja",
+    "texto": "Spreadsheet bouwen met de bijbehorende formules"
+  },
+  {
+    "clave": "ia.op.computo.analizar",
+    "texto": "De geselecteerde gegevens interpreteren"
+  },
+  {
+    "clave": "ia.donde.computo.formulario",
+    "texto": "Formuleboek · Nieuwe formule"
+  },
+  {
+    "clave": "ia.donde.computo.calculadora",
+    "texto": "Rekenmachine"
+  },
+  {
+    "clave": "ia.donde.computo.hojas",
+    "texto": "Spreadsheets · Nieuwe spreadsheet"
+  },
+  {
+    "clave": "chat.cuotaAgotada",
+    "texto": "Je hebt je AI-quotum voor deze maand op. Bekijk je gebruik in Editor → Instellingen → Account."
+  },
+  {
+    "clave": "chat.sinPro",
+    "texto": "Je account heeft geen actief abonnement."
+  },
+  {
+    "clave": "cuenta.pago.comprar",
+    "texto": "Word Pro"
+  },
+  {
+    "clave": "cuenta.pago.comprarPrecio",
+    "texto": "Word Pro — {p}/maand"
+  },
+  {
+    "clave": "cuenta.pago.renovar",
+    "texto": "Abonnement vernieuwen — {p}/maand"
+  },
+  {
+    "clave": "cuenta.pago.comprarWeb",
+    "texto": "Word Pro via de website"
+  },
+  {
+    "clave": "cuenta.pago.cancelado",
+    "texto": "De aankoop is niet voltooid."
+  },
+  {
+    "clave": "cuenta.pago.gestionar",
+    "texto": "Mijn abonnement beheren"
+  },
+  {
+    "clave": "cuenta.olvide",
+    "texto": "Wachtwoord vergeten?"
+  },
+  {
+    "clave": "cuenta.olvide.sinCorreo",
+    "texto": "Vul eerst je e-mailadres hierboven in."
+  },
+  {
+    "clave": "cuenta.olvide.enviado",
+    "texto": "We hebben je een e-mail gestuurd om het opnieuw in te stellen."
+  },
+  {
+    "clave": "cuenta.eliminar",
+    "texto": "Account verwijderen"
+  },
+  {
+    "clave": "cuenta.eliminar.confirma",
+    "texto": "Je account en al je gegevens van de servers verwijderen? Dit kan niet ongedaan worden gemaakt. De lokale gegevens op dit apparaat blijven bewaard."
+  },
+  {
+    "clave": "cuenta.eliminar.confirma2",
+    "texto": "Laatste bevestiging: de account definitief verwijderen?"
+  },
+  {
+    "clave": "cuenta.eliminar.borrando",
+    "texto": "Verwijderen…"
+  },
+  {
+    "clave": "cuenta.renovar.titulo",
+    "texto": "Je abonnement is verlopen"
+  },
+  {
+    "clave": "cuenta.renovar.cuerpo",
+    "texto": "AI en synchronisatie komen terug zodra je vernieuwt. Je gegevens blijven op dit apparaat."
+  },
+  {
+    "clave": "cuenta.renovar.cta",
+    "texto": "Abonnement vernieuwen"
+  },
+  {
+    "clave": "cuenta.renovar.corto",
+    "texto": "Je abonnement is verlopen."
+  },
+  {
+    "clave": "cuenta.cuota.titulo",
+    "texto": "Je credits voor deze maand zijn op"
+  },
+  {
+    "clave": "cuenta.cuota.tituloSin",
+    "texto": "Je hebt credits nodig om AI te gebruiken"
+  },
+  {
+    "clave": "cuenta.cuota.cuerpo",
+    "texto": "Je credits worden op {f} vernieuwd."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoLocal",
+    "texto": "De app en je gegevens zijn helemaal gratis van jou. Alleen AI wordt in rekening gebracht: waardeer credits op wanneer je ze nodig hebt, of neem een abonnement en krijg ze elke maand."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoVencida",
+    "texto": "Je gegevens blijven op dit apparaat. Vernieuw je abonnement om je maandelijkse credits en synchronisatie terug te krijgen, of koop een losse opwaardering."
+  },
+  {
+    "clave": "cuenta.cuota.recarga",
+    "texto": "+600 credits — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaN",
+    "texto": "+{n} credits — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaLista",
+    "texto": "Opwaardering toegepast: je extra credits staan al op je account."
+  },
+  {
+    "clave": "cuenta.cuota.suscribirse",
+    "texto": "Abonnement bekijken"
+  },
+  {
+    "clave": "cuenta.cuota.nativo",
+    "texto": "Credits worden beheerd via je account."
+  },
+  {
+    "clave": "cuenta.cuota.web",
+    "texto": "Credits kopen in mijn account"
+  },
+  {
+    "clave": "cuenta.creditos.faltan",
+    "texto": "Je AI-credits zijn op."
+  },
+  {
+    "clave": "comun.entendido",
+    "texto": "Begrepen"
+  },
+  {
+    "clave": "demo.aviso.titulo",
+    "texto": "Je bent in het demohuis"
+  },
+  {
+    "clave": "demo.aviso.cuerpo",
+    "texto": "Probeer gerust alles: je kunt het huis aanpassen en de apps gebruiken met een jaar uit Peps leven erin. Er wordt niets bewaard — bij het herladen staat het huis er weer als voorheen."
+  },
+  {
+    "clave": "demo.aviso.seguir",
+    "texto": "Verder verkennen"
+  },
+  {
+    "clave": "demo.salir",
+    "texto": "Demo verlaten"
+  }
+]

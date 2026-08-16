@@ -1,0 +1,102 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.texto",
+    "texto": "Film, serial, buku, dan video game, diurutkan berdasarkan kapan dia menyelesaikannya. Ada maraton di bulan ke-7 (dengan lutut yang cedera, waktu di sofa jadi berlimpah) dan celah tiga minggu: Jepang."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.titulo",
+    "texto": "Entri"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.texto",
+    "texto": "Judul, penulis atau sutradara, genre, status, dan bintang. Ulasan berisi pendapat Pep, bukan ringkasan cerita: setahun lagi, hanya bagian itulah yang berguna untuknya."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.titulo",
+    "texto": "Empat cara mengurutkannya"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.texto",
+    "texto": "Berdasarkan genre, berdasarkan kategori (film, serial, buku, video game), berdasarkan penulis, atau berdasarkan tanggal. Di tampilan per genre, foldernya bisa diseret: taruh yang paling sering kamu tonton di urutan pertama."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.titulo",
+    "texto": "Daftar yang mau ditonton"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.texto",
+    "texto": "Pep menyusun programnya sendiri berisi klasik fiksi ilmiah yang mau ditonton. Dengan AI, program dibuat berdasarkan topik (“horor 80-an”), tapi bisa juga kamu tulis manual."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.titulo",
+    "texto": "Setiap judul, satu target"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.3.texto",
+    "texto": "Dan di tab satunya ada meja digital: lebih dari dua puluh permainan papan dan arcade untuk dimainkan langsung di situ."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.1.texto",
+    "texto": "1-2 pemain atau 3+ pemain: filternya menyembunyikan yang tidak cocok untuk kelompok di depanmu. Permainan bertanda “2+” muncul di kedua bagian."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.titulo",
+    "texto": "Berdasarkan jenis"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.texto",
+    "texto": "Permainan Papan, Asah Otak, Arcade, Permainan Kartu, Permainan Kelompok: setiap jenis punya warnanya sendiri. Catur, Dam, Domino, Blackjack, Tetris, Penyapu Ranjau, dan lebih dari selusin lainnya."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.titulo",
+    "texto": "Sekali ketuk, langsung main"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.texto",
+    "texto": "Setiap kartu membuka permainan dalam layar penuh; yang mendukungnya membawa pemilih Kesulitan sendiri di bagian atas. Kembali membawamu tepat ke sini lagi, tanpa kehilangan posisimu."
+  },
+  {
+    "clave": "tut.app-diario--habito.1.titulo",
+    "texto": "Berita utama hari ini"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.texto",
+    "texto": "Dunia, Ekonomi, Teknologi, Kesehatan, Olahraga, dan Hiburan, semuanya dari sumber sungguhan. Chip di atas menyaring per bagian."
+  },
+  {
+    "clave": "tut.app-diario--habito.2.titulo",
+    "texto": "Memperbarui dirinya sendiri"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.texto",
+    "texto": "Edisi hari itu diunduh sendiri dan tengah malam diganti seutuhnya: di sini tidak ada yang menumpuk, persis seperti koran sungguhan."
+  },
+  {
+    "clave": "tut.app-diario--habito.3.titulo",
+    "texto": "Sehari dalam sejarah"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.texto",
+    "texto": "Setengah lainnya: apa yang terjadi di hari seperti ini, sebuah karya seni, sebuah buku, sebuah spesies, sebuah kata. Ini alasan bagus untuk membukanya walau kamu sedang malas membaca berita."
+  },
+  {
+    "clave": "tut.app-diario--habito.4.texto",
+    "texto": "Pep membacanya sekitar dua ratus hari tahun ini: banyak di awal, hampir tidak pernah di bulan yang berat, dan setiap hari selama tiga minggu terakhir. Runtunannya hidup dari situ."
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.titulo",
+    "texto": "Pengiriman oleh asisten"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.texto",
+    "texto": "Di sini kamu mengatur siapa membawakan apa untukmu. Ini bukan notifikasi biasa: pesannya datang dari asisten, dengan suaranya sendiri."
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.titulo",
+    "texto": "Dua pengantar koran"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.texto",
+    "texto": "Penyihir mengantarkan Dunia, Teknologi, dan Ekonomi kepadanya pukul 7:30. Laika membawa yang ringan-ringan kapan pun dia mau. Setiap asisten memilih bagian dan modenya sendiri."
+  }
+]

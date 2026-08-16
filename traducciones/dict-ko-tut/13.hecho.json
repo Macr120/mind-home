@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "앱들이 알아서 일정을 넣어요. 일정의 약속, 침대·휴식의 수면, 도서관의 공부 시간. 필터를 쓰면 앱 하나만 볼 수 있어요."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "한 해를 오가기"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "‹ › 화살표로 기간을 넘기고, '오늘'로 현재에 돌아와요. Pep의 한 해가 주 단위로 전부 여기 있어요. '+ 새로 만들기'로 이벤트를 만들거나 격자 위에 바로 그려도 돼요."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "습관 하나하나"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "가로 한 줄은 루틴, 세로 한 칸은 하루예요. 해낸 날은 초록색이 돼요. 여기서 바로 체크할 수 있고, 위쪽 퍼센트는 지금 보고 있는 기간을 요약해요."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "한 해의 곡선"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "'연도' 보기에서는 그래프가 한 해의 이야기를 전부 들려줘요. Pep은 마음먹은 것의 3분의 1만 지키며 시작해서 85%를 넘기며 마쳤어요. 꾸준함은 나타난 게 아니라 쌓아 올린 거예요."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "내려간 날도 기록이에요"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "움푹 팬 두 곳은 진짜예요. 7개월째의 무릎 부상, 그리고 일본에서 보낸 3주. 며칠 빠졌다고 진행이 지워지지는 않아요. 이 패널은 있어야 했던 한 해가 아니라 실제로 지나온 한 해를 보여줘요. 그리고 루틴은 만든 날부터만 계산돼요."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "먼저, 목표부터"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "화면은 '목표'로 열리고, 목표를 맡은 앱별로 묶여 있어요. 달리기는 '헬스장', 물리학 학위는 '도서관'. '집'은 앱이 아니에요. 주방 공사를 위해 Pep이 직접 만든 카테고리예요."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "목표에서 계획으로"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "한 줄 한 줄이 보드처럼 읽혀요. 폴더 안의 번호, 기한, 진행률, 그리고 상태 — 얼마나 해냈는지에 따라 '할 일', '진행 중', '완료'로 바뀌어요. 한 번 누르면 목표가 열려요. 계획이 있으면 계획이 (✨가 알려줘요), 없으면 하위 목표와 날짜와 단계가 담긴 시트가 나와요."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "계획 셋, 상태 셋"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "주방과 다음 마라톤은 아직 제안이에요. 대학원 지원은 이미 일정에 들어가 있어요. 마라톤 계획은 마감일 없이 부탁한 거라, AI가 24주가 필요하다고 계산해서 요약에 적어 뒀어요."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "계획 시트"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "여섯 단계와 그 하위 목표들, 각각 자기 기간이 있어요. 제안인 동안에는 전체를 고칠 수 있어요. 이름 바꾸기, 날짜 옮기기, 노드 추가하거나 빼기 — 나머지는 흐트러지지 않아요."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "부담 없이 체크하기"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "제안의 체크는 시트 안에만 있고 목표에는 들어가지 않아요. 일정을 건드리지 않고도 해낸 것을 표시할 수 있어요. 막대는 아래에서 위로 저절로 채워져요. 주방 계획 세우기는 이미 끝났어요."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "실제 일정으로 옮기기"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "이 버튼을 누르면 모든 단계와 하위 목표가 진짜 목표가 돼요. 날짜가 채워지고 원래 목표 아래에 달려요. 목표에 이미 있던 것은 그대로 남아요."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "수락하면 진실은 하나"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "대학원 계획은 이미 옮겨졌어요. 이제 체크는 실제 하위 목표의 것이고 막대는 일정의 것이라, 시트가 따로 세는 일은 없어져요."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "그리고 축 위에 나타나요"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "계획에서 나온 하위 목표들이 일정 위에서 각자의 기간을 차지하고, 그 위에 보라색으로 계획이 겹쳐져요. 제안과 실제가 같은 축에 놓여요."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "한 해의 공부가 나무 한 그루로"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep은 물리를 공부해요. 연초에는 역학, 6개월째 중간고사 무렵에는 열역학, 마지막에는 상대성이론과 천체물리. 가지를 펼치면 그 안의 항목이 보여요."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "나무는 함께 자라요"
+  }
+]

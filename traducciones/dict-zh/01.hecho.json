@@ -1,0 +1,778 @@
+[
+ {
+  "clave": "app.brand",
+  "texto": "Mind Planner Home"
+ },
+ {
+  "clave": "app.brandCorto",
+  "texto": "MPH"
+ },
+ {
+  "clave": "nav.ariaMenu",
+  "texto": "房间菜单"
+ },
+ {
+  "clave": "nav.retraer",
+  "texto": "收起菜单"
+ },
+ {
+  "clave": "nav.abrir",
+  "texto": "打开菜单"
+ },
+ {
+  "clave": "nav.editarCuarto",
+  "texto": "编辑这个房间"
+ },
+ {
+  "clave": "nav.entrar",
+  "texto": "进入 ›"
+ },
+ {
+  "clave": "nav.ayuda.tarjetaTexto",
+  "texto": "点击房间即可打开对应应用；点击齿轮图标可查看选项（移动、删除、编辑）。"
+ },
+ {
+  "clave": "nav.entrarCuarto",
+  "texto": "进入{nombre}"
+ },
+ {
+  "clave": "nav.ajustesCuarto",
+  "texto": "房间选项"
+ },
+ {
+  "clave": "nav.subirCuarto",
+  "texto": "上移"
+ },
+ {
+  "clave": "nav.bajarCuarto",
+  "texto": "下移"
+ },
+ {
+  "clave": "nav.borrarCuarto",
+  "texto": "删除房间"
+ },
+ {
+  "clave": "nav.borrarCuartoTitulo",
+  "texto": "删除“{nombre}”"
+ },
+ {
+  "clave": "nav.borrarCuartoMsg",
+  "texto": "它的墙壁、装饰和物件也会一并删除。"
+ },
+ {
+  "clave": "nav.borrarCuartoOk",
+  "texto": "删除"
+ },
+ {
+  "clave": "nav.agregarCuarto",
+  "texto": "添加房间"
+ },
+ {
+  "clave": "nav.agregarCasa",
+  "texto": "添加到家里"
+ },
+ {
+  "clave": "nav.todosColocados",
+  "texto": "所有房间都已经放进家里了。"
+ },
+ {
+  "clave": "nav.menu.cuartos",
+  "texto": "房间"
+ },
+ {
+  "clave": "nav.menu.inventarios",
+  "texto": "物品栏"
+ },
+ {
+  "clave": "inv.plantillas",
+  "texto": "模板"
+ },
+ {
+  "clave": "inv.subObjetos",
+  "texto": "物件"
+ },
+ {
+  "clave": "inv.subEspeciales",
+  "texto": "特殊物件"
+ },
+ {
+  "clave": "inv.subPlantCuartos",
+  "texto": "房间"
+ },
+ {
+  "clave": "inv.subPlantInfra",
+  "texto": "扩展"
+ },
+ {
+  "clave": "inv.grupo.mobiliario",
+  "texto": "家具"
+ },
+ {
+  "clave": "inv.grupo.casa",
+  "texto": "家"
+ },
+ {
+  "clave": "inv.grupo.ropa",
+  "texto": "服装"
+ },
+ {
+  "clave": "inv.grupo.animales",
+  "texto": "动物"
+ },
+ {
+  "clave": "inv.grupo.agua",
+  "texto": "水"
+ },
+ {
+  "clave": "inv.grupo.luz",
+  "texto": "灯光与火"
+ },
+ {
+  "clave": "inv.grupo.movimiento",
+  "texto": "会自己动"
+ },
+ {
+  "clave": "inv.grupo.conducir",
+  "texto": "可以乘坐"
+ },
+ {
+  "clave": "inv.grupo.disparar",
+  "texto": "会发射"
+ },
+ {
+  "clave": "inv.grupo.reflejo",
+  "texto": "反射与影像"
+ },
+ {
+  "clave": "inv.ropa.ayuda",
+  "texto": "衣服要穿在角色身上，不能放到地图上。点击衣物即可打开衣柜。"
+ },
+ {
+  "clave": "inv.animales.ayuda",
+  "texto": "动物住在农场的围栏里。点击动物即可前往搭建围栏。"
+ },
+ {
+  "clave": "inv.casa.ayuda",
+  "texto": "你的家由什么材料构成，每种各有多少。这些在户型编辑器里涂画，不能拖动。"
+ },
+ {
+  "clave": "inv.casa.vacia",
+  "texto": "还没有建造任何东西。在地图上建一个房间吧。"
+ },
+ {
+  "clave": "inv.casa.estructura",
+  "texto": "结构"
+ },
+ {
+  "clave": "inv.casa.muros",
+  "texto": "墙壁"
+ },
+ {
+  "clave": "inv.casa.siluetas",
+  "texto": "墙顶"
+ },
+ {
+  "clave": "inv.casa.puertas",
+  "texto": "门"
+ },
+ {
+  "clave": "inv.casa.ventanas",
+  "texto": "窗户与洞口"
+ },
+ {
+  "clave": "inv.casa.techos",
+  "texto": "屋顶"
+ },
+ {
+  "clave": "inv.casa.losetas",
+  "texto": "地砖"
+ },
+ {
+  "clave": "inv.casa.pisoInterior",
+  "texto": "室内地板"
+ },
+ {
+  "clave": "inv.casa.pisoExterior",
+  "texto": "室外地板"
+ },
+ {
+  "clave": "inv.casa.accesos",
+  "texto": "楼梯与电梯"
+ },
+ {
+  "clave": "inv.casa.unidad.muros",
+  "texto": "每段"
+ },
+ {
+  "clave": "inv.casa.unidad.techos",
+  "texto": "每个屋顶格"
+ },
+ {
+  "clave": "inv.casa.unidad.losetas",
+  "texto": "每格"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoInterior",
+  "texto": "每个房间"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoExterior",
+  "texto": "每格"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.cuartos",
+  "texto": "房间"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.basicos",
+  "texto": "基础空间"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.niveles",
+  "texto": "楼层"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.sotanos",
+  "texto": "地下室"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.albercas",
+  "texto": "泳池"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.patios",
+  "texto": "露天庭院"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-recto",
+  "texto": "独立墙"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-diagonal",
+  "texto": "斜墙"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-curvo",
+  "texto": "弧形墙"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.recta",
+  "texto": "平顶"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.arco",
+  "texto": "拱形"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.esquinas",
+  "texto": "城垛"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.triangulo",
+  "texto": "山墙"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.plano",
+  "texto": "平屋顶"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.dos_aguas",
+  "texto": "斜屋顶"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.abovedado",
+  "texto": "拱顶"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.cupula",
+  "texto": "穹顶"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.cuadrado",
+  "texto": "方形地砖"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.triangular",
+  "texto": "斜角地砖"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.circular",
+  "texto": "弧形地砖"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera",
+  "texto": "楼梯"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.elevador",
+  "texto": "电梯"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.resbaladilla",
+  "texto": "滑梯"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera-marina",
+  "texto": "泳池扶梯"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.solido",
+  "texto": "实心"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ventana",
+  "texto": "带窗"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ladrillo",
+  "texto": "砖"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.madera",
+  "texto": "木"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.vitraje",
+  "texto": "玻璃"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.recta",
+  "texto": "单开"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.sin",
+  "texto": "门洞"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.doble",
+  "texto": "双开"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.porton",
+  "texto": "大门"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.corredera",
+  "texto": "推拉"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadrado",
+  "texto": "方形窗"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.circulo",
+  "texto": "圆窗"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.triangulo",
+  "texto": "三角窗"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadro",
+  "texto": "嵌入式画"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.espejo",
+  "texto": "嵌入式镜子"
+ },
+ {
+  "clave": "infra.ayuda",
+  "texto": "这些模板不属于某个房间：你要用它们各自的编辑器，直接建在3D地图上。"
+ },
+ {
+  "clave": "infra.construidas",
+  "texto": "已建造"
+ },
+ {
+  "clave": "infra.desplegar",
+  "texto": "选择类型"
+ },
+ {
+  "clave": "infra.plegar",
+  "texto": "隐藏选项"
+ },
+ {
+  "clave": "infra.sub.animales",
+  "texto": "动物"
+ },
+ {
+  "clave": "infra.construir",
+  "texto": "在地图上建造"
+ },
+ {
+  "clave": "infra.salirEditor",
+  "texto": "退出编辑器"
+ },
+ {
+  "clave": "infra.resumen.ayuda",
+  "texto": "这个模板要建在3D地图上：菜单→模板→扩展→建造。"
+ },
+ {
+  "clave": "caminos.tipo.pista",
+  "texto": "赛道"
+ },
+ {
+  "clave": "caminos.tipo.riel",
+  "texto": "火车轨道"
+ },
+ {
+  "clave": "caminos.tipo.coaster",
+  "texto": "过山车"
+ },
+ {
+  "clave": "caminos.herr.pintar",
+  "texto": "绘制路段"
+ },
+ {
+  "clave": "caminos.herr.borrar",
+  "texto": "擦除路段"
+ },
+ {
+  "clave": "caminos.herr.subir",
+  "texto": "提高高度"
+ },
+ {
+  "clave": "caminos.herr.bajar",
+  "texto": "降低高度"
+ },
+ {
+  "clave": "caminos.herr.meta",
+  "texto": "终点线"
+ },
+ {
+  "clave": "caminos.tipo.trazo",
+  "texto": "手绘赛道"
+ },
+ {
+  "clave": "trazo.herr.punto",
+  "texto": "放置点"
+ },
+ {
+  "clave": "trazo.herr.mover",
+  "texto": "移动点"
+ },
+ {
+  "clave": "trazo.abierto",
+  "texto": "开放赛道"
+ },
+ {
+  "clave": "trazo.cerrado",
+  "texto": "封闭赛道"
+ },
+ {
+  "clave": "trazo.borrarTodo",
+  "texto": "删除赛道"
+ },
+ {
+  "clave": "trazo.ayuda",
+  "texto": "点击地图放置点，点击某个点即可删除。第一个点是终点：点击它可以闭合赛道并开始比赛。"
+ },
+ {
+  "clave": "carrera.titulo",
+  "texto": "比赛"
+ },
+ {
+  "clave": "carrera.mejor",
+  "texto": "最佳圈速"
+ },
+ {
+  "clave": "carrera.vueltas",
+  "texto": "圈数"
+ },
+ {
+  "clave": "carrera.solo",
+  "texto": "单人比赛（计时赛）"
+ },
+ {
+  "clave": "carrera.contraIA",
+  "texto": "或者对战助手："
+ },
+ {
+  "clave": "carrera.vuelta",
+  "texto": "圈"
+ },
+ {
+  "clave": "carrera.abandonar",
+  "texto": "退出"
+ },
+ {
+  "clave": "carrera.ya",
+  "texto": "出发！"
+ },
+ {
+  "clave": "carrera.ganaste",
+  "texto": "你赢得了比赛！🏆"
+ },
+ {
+  "clave": "carrera.perdiste",
+  "texto": "对手赢得了比赛…"
+ },
+ {
+  "clave": "carrera.fin",
+  "texto": "比赛结束！🏁"
+ },
+ {
+  "clave": "carrera.total",
+  "texto": "总计"
+ },
+ {
+  "clave": "carrera.otraVez",
+  "texto": "再来一次"
+ },
+ {
+  "clave": "carrera.salir",
+  "texto": "退出"
+ },
+ {
+  "clave": "carrera.msg.record",
+  "texto": "圈速新纪录！🎉"
+ },
+ {
+  "clave": "carrera.msg.vuelta",
+  "texto": "完成一圈！"
+ },
+ {
+  "clave": "carrera.msg.corta",
+  "texto": "赛道太短，无法比赛…"
+ },
+ {
+  "clave": "carrera.tabla.titulo",
+  "texto": "最佳成绩"
+ },
+ {
+  "clave": "carrera.tabla.vueltaCol",
+  "texto": "圈"
+ },
+ {
+  "clave": "carrera.tabla.totalCol",
+  "texto": "总计"
+ },
+ {
+  "clave": "carrera.tabla.vd",
+  "texto": "胜/负"
+ },
+ {
+  "clave": "carrera.usarItem",
+  "texto": "使用道具（E）"
+ },
+ {
+  "clave": "room.paintball.nombre",
+  "texto": "Paintball"
+ },
+ {
+  "clave": "room.paintball.desc",
+  "texto": "用家作为地图，与助手进行彩弹对战（1v1、2v2或大乱斗）。"
+ },
+ {
+  "clave": "paintball.titulo",
+  "texto": "Paintball"
+ },
+ {
+  "clave": "paintball.jugar",
+  "texto": "在地图上玩"
+ },
+ {
+  "clave": "paintball.marcador",
+  "texto": "胜场"
+ },
+ {
+  "clave": "paintball.derrotas",
+  "texto": "败场"
+ },
+ {
+  "clave": "paintball.m1v1",
+  "texto": "1 vs 1"
+ },
+ {
+  "clave": "paintball.m2v2",
+  "texto": "2 vs 2"
+ },
+ {
+  "clave": "paintball.mRoyale",
+  "texto": "大乱斗"
+ },
+ {
+  "clave": "paintball.eligeRival",
+  "texto": "选择你的对手："
+ },
+ {
+  "clave": "paintball.eligeCompanero",
+  "texto": "选择你的队友（对手随机选出）："
+ },
+ {
+  "clave": "paintball.royaleDesc",
+  "texto": "大乱斗：你在整个家里对战所有助手。"
+ },
+ {
+  "clave": "paintball.empezar",
+  "texto": "开始战斗"
+ },
+ {
+  "clave": "paintball.reglas",
+  "texto": "每人可承受3次命中。最后站着的队伍获胜。整个家就是战场。"
+ },
+ {
+  "clave": "paintball.posicionate",
+  "texto": "快找掩护！"
+ },
+ {
+  "clave": "paintball.ya",
+  "texto": "出发！"
+ },
+ {
+  "clave": "paintball.tu",
+  "texto": "你"
+ },
+ {
+  "clave": "paintball.abandonar",
+  "texto": "退出"
+ },
+ {
+  "clave": "paintball.hintDisparar",
+  "texto": "按住发射（空格）"
+ },
+ {
+  "clave": "paintball.hintApuntar",
+  "texto": "按住瞄准（电脑端右键）"
+ },
+ {
+  "clave": "paintball.cambiarVista",
+  "texto": "切换第一/第三人称（V键）"
+ },
+ {
+  "clave": "paintball.vista",
+  "texto": "视角"
+ },
+ {
+  "clave": "paintball.vista1",
+  "texto": "第一人称"
+ },
+ {
+  "clave": "paintball.vista3",
+  "texto": "第三人称"
+ },
+ {
+  "clave": "herr.pintura",
+  "texto": "涂料"
+ },
+ {
+  "clave": "herr.apuntar",
+  "texto": "瞄准"
+ },
+ {
+  "clave": "herr.apuntando",
+  "texto": "瞄准中"
+ },
+ {
+  "clave": "herr.miraEnPerspectiva",
+  "texto": "切换到第三或第一人称才能用准星瞄准"
+ },
+ {
+  "clave": "tiro.hintDisparar",
+  "texto": "按住发射（左键或空格）"
+ },
+ {
+  "clave": "tiro.hintApuntar",
+  "texto": "瞄准（电脑端右键；触屏点按锁定）"
+ },
+ {
+  "clave": "tiro.apuntarConRaton",
+  "texto": "在场景中移动鼠标即可瞄准"
+ },
+ {
+  "clave": "paintball.ganaste",
+  "texto": "你赢得了战斗！🏆"
+ },
+ {
+  "clave": "paintball.perdiste",
+  "texto": "你被涂满了颜料… 🎨"
+ },
+ {
+  "clave": "paintball.impactos",
+  "texto": "中弹"
+ },
+ {
+  "clave": "paintball.fuera",
+  "texto": "出局"
+ },
+ {
+  "clave": "paintball.enPie",
+  "texto": "存活"
+ },
+ {
+  "clave": "paintball.otraVez",
+  "texto": "再来一次"
+ },
+ {
+  "clave": "paintball.salir",
+  "texto": "退出"
+ },
+ {
+  "clave": "paintball.msg.fuera",
+  "texto": "{nombre}出局了！"
+ },
+ {
+  "clave": "paintball.msg.teDieron",
+  "texto": "你被击中了！失去一条生命"
+ },
+ {
+  "clave": "paintball.msg.nivel",
+  "texto": "前往一楼才能开始游戏。"
+ },
+ {
+  "clave": "paintball.msg.sinAsistentes",
+  "texto": "创建一个助手才能对战。"
+ },
+ {
+  "clave": "paintball.msg.faltan",
+  "texto": "2v2至少需要3个助手。"
+ },
+ {
+  "clave": "paintball.resumen.ayuda",
+  "texto": "这个模式在3D地图上进行：菜单→模板→扩展→开始游戏。"
+ },
+ {
+  "clave": "paintball.resumen.nota",
+  "texto": "选择1v1、2v2或大乱斗对战你的助手：每人可承受3次命中，整个家就是战场。"
+ },
+ {
+  "clave": "caminos.ayuda",
+  "texto": "点击地图格子即可应用；拖动可以移动镜头。"
+ },
+ {
+  "clave": "caminos.resumen.unidad",
+  "texto": "统计的是路段数（有路径的地图格子）。"
+ },
+ {
+  "clave": "canchas.clase.futbol",
+  "texto": "足球"
+ },
+ {
+  "clave": "canchas.clase.tenis",
+  "texto": "网球"
+ },
+ {
+  "clave": "canchas.clase.basket",
+  "texto": "篮球"
+ },
+ {
+  "clave": "canchas.clase.beisbol",
+  "texto": "棒球"
+ },
+ {
+  "clave": "canchas.rotar",
+  "texto": "旋转（R）"
+ },
+ {
+  "clave": "canchas.quitar",
+  "texto": "移除球场"
+ },
+ {
+  "clave": "canchas.editar",
+  "texto": "编辑球场"
+ },
+ {
+  "clave": "canchas.tamano",
+  "texto": "尺寸"
+ }
+]

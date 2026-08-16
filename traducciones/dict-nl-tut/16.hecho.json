@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "Met je gewicht, je lengte en je activiteit rekent de app uit hoeveel je per dag nodig hebt en verdeelt ze de macro's. Pep zette 2.400 calorieën neer en een streefgewicht dat nog geen kilo weg is."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "Stap 2: wat je vandaag at"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "Ontbijt, lunch, diner en een snack tussendoor: elke registratie vult de ringen van de dag. Water heeft zijn eigen doel, en dat is het doel waar het huis naar kijkt om de dag als gehaald te tellen."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "Stap 3: 74 kilo, 67 kilo"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "De curve van het hele jaar, met zijn plateau in de maand van de blessure en de kilo die er in Japan bij kwam. Onderaan lees je in welk tempo je gaat en wanneer je er bent als je zo doorgaat."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "Een jaar in kleuren"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "Groen is een dag binnen je doel, amber een dag die er net overheen ging en rood een dag die er ver overheen schoot. De maand van de reis zie je meteen. Tik op een dag om hem te openen."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "Diëten, geen tijdschriftdiëten"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "Een dieet is hier een plan met zijn recepten erin. Pep bewaarde er twee eigen: de week van de marathon en de terugkeer uit Japan, naast de diëten die de app al meebrengt."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "Het receptenboek"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "Elk recept bewaart ingrediënten, stappen en zijn macro's per portie, geordend in mappen. Vanuit een recept leg je de maaltijd vast of stuur je de ingrediënten naar de boodschappenlijst."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "De AI om het recept vragen"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "Beschrijf wat je wilt koken en de AI zet het hele recept in elkaar, met foto van het gerecht. Dit doet de AI: aanzetten kan bij Editor › Instellingen › Account."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "Van recept naar boodschappenlijst"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "Lijst maken bundelt wat er van meerdere recepten ontbreekt tot één boodschappenronde: elk ingrediënt raadt zijn categorie (groente, zuivel…) en je kunt die aanpassen."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "De opgeslagen lijsten"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "Elke lijst bewaart wat er nog gekocht moet worden en wat al in huis is. Zet je er prijzen bij, dan kun je de rekening doorsturen naar de uitgaven in de Werkkamer."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "Het gewichtsdoel, in fases"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "Dit doet de AI: aanzetten kan bij Editor › Instellingen › Account. Zonder AI maak en bewerk je je doelen precies zo, alleen met de hand."
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "Honderd punten, drie delen"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "De duur telt voor vijftig, de regelmaat van je bedtijd voor dertig en de onderbrekingen voor twintig. Eén nacht flink doorslapen maakt niet goed dat je alle andere op rare tijden naar bed gaat."
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "De afgelopen week"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "Zeven balken tegen de lijn van je doel. Dit is de weergave die je in één oogopslag zegt of je deze week slaapt wat je wilde."
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "Het hele jaar"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "De geschiedenis wordt bewaard per jaar, maand en week. Scroll terug naar Peps eerste maanden en leg ze naast de laatste: bed na enen en vijf uur slaap."
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "Van half twaalf tot zeven"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "Sleep de uiteinden van de balk om je bedtijd en je wektijd te verschuiven; de hemel erboven verandert mee. Dit blok verschijnt ook in de kalender, dwars over middernacht."
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "Wekker en herinneringen"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "Je kiest je wekkergeluid, laat je waarschuwen als het bedtijd is en legt de schermen een uur eerder weg. De meldingen zijn optioneel: hier staan ze uit."
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "De nacht vastleggen"
+  }
+]

@@ -1,0 +1,442 @@
+[
+  {
+    "ruta": "trabajo.0.titulo",
+    "es": "Parcial 1 de Mecánica",
+    "en": "Mechanics midterm 1"
+  },
+  {
+    "ruta": "trabajo.0.lugar",
+    "es": "Facultad de Ciencias, aula 12",
+    "en": "Science Faculty, room 12"
+  },
+  {
+    "ruta": "trabajo.1.titulo",
+    "es": "Entrega informe de laboratorio",
+    "en": "Lab report due: free fall"
+  },
+  {
+    "ruta": "trabajo.1.lugar",
+    "es": "Lab de Física I",
+    "en": "Physics Lab I"
+  },
+  {
+    "ruta": "trabajo.2.titulo",
+    "es": "Inventario mensual de la barra",
+    "en": "Monthly bar inventory"
+  },
+  {
+    "ruta": "trabajo.2.lugar",
+    "es": "Café Mirasol",
+    "en": "Mirasol Coffee"
+  },
+  {
+    "ruta": "trabajo.3.titulo",
+    "es": "Turno extra: catación de origen",
+    "en": "Extra shift: single origin cupping"
+  },
+  {
+    "ruta": "trabajo.3.lugar",
+    "es": "Café Mirasol",
+    "en": "Mirasol Coffee"
+  },
+  {
+    "ruta": "trabajo.4.titulo",
+    "es": "Reunión inicial del proyecto semestral",
+    "en": "Semester project kickoff meeting"
+  },
+  {
+    "ruta": "trabajo.4.lugar",
+    "es": "Cubículo de la tutora Elena",
+    "en": "Elena's office"
+  },
+  {
+    "ruta": "trabajo.5.titulo",
+    "es": "Parcial de Ondas y Óptica",
+    "en": "Waves and Optics midterm"
+  },
+  {
+    "ruta": "trabajo.5.lugar",
+    "es": "Facultad de Ciencias",
+    "en": "Science Faculty"
+  },
+  {
+    "ruta": "trabajo.6.titulo",
+    "es": "Entrega lab: péndulos acoplados",
+    "en": "Lab report due: coupled pendulums"
+  },
+  {
+    "ruta": "trabajo.6.lugar",
+    "es": "Lab de Física II",
+    "en": "Physics Lab II"
+  },
+  {
+    "ruta": "trabajo.7.titulo",
+    "es": "Turno doble por feria del barrio",
+    "en": "Double shift, street fair"
+  },
+  {
+    "ruta": "trabajo.8.titulo",
+    "es": "Renovación del pasaporte",
+    "en": "Passport renewal appointment"
+  },
+  {
+    "ruta": "trabajo.8.lugar",
+    "es": "Oficina de pasaportes",
+    "en": "Passport office"
+  },
+  {
+    "ruta": "trabajo.9.titulo",
+    "es": "Avance del proyecto con Elena",
+    "en": "Project progress check with Elena"
+  },
+  {
+    "ruta": "trabajo.9.lugar",
+    "es": "Facultad de Ciencias",
+    "en": "Science Faculty"
+  },
+  {
+    "ruta": "trabajo.10.titulo",
+    "es": "Taller: revisión del coche",
+    "en": "Garage: engine check on the car"
+  },
+  {
+    "ruta": "trabajo.10.lugar",
+    "es": "Taller Ruiz",
+    "en": "Ruiz Garage"
+  },
+  {
+    "ruta": "trabajo.11.titulo",
+    "es": "Trámite del seguro del coche",
+    "en": "Car insurance paperwork"
+  },
+  {
+    "ruta": "trabajo.11.lugar",
+    "es": "Sucursal centro",
+    "en": "Downtown branch"
+  },
+  {
+    "ruta": "trabajo.12.titulo",
+    "es": "Parcial de Termodinámica",
+    "en": "Thermodynamics midterm"
+  },
+  {
+    "ruta": "trabajo.12.lugar",
+    "es": "Facultad de Ciencias",
+    "en": "Science Faculty"
+  },
+  {
+    "ruta": "trabajo.13.titulo",
+    "es": "Entrega lab: calorimetría",
+    "en": "Lab report due: calorimetry"
+  },
+  {
+    "ruta": "trabajo.13.lugar",
+    "es": "Lab de Física II",
+    "en": "Physics Lab II"
+  },
+  {
+    "ruta": "trabajo.14.titulo",
+    "es": "Pedir permiso por viaje a Marisol",
+    "en": "Ask Marisol for trip leave"
+  },
+  {
+    "ruta": "trabajo.14.lugar",
+    "es": "Café Mirasol",
+    "en": "Mirasol Coffee"
+  },
+  {
+    "ruta": "trabajo.15.titulo",
+    "es": "Capacitación de la máquina nueva",
+    "en": "Training on the new machine"
+  },
+  {
+    "ruta": "trabajo.15.lugar",
+    "es": "Café Mirasol",
+    "en": "Mirasol Coffee"
+  },
+  {
+    "ruta": "trabajo.16.titulo",
+    "es": "Reunión de resultados del proyecto",
+    "en": "Project results meeting"
+  },
+  {
+    "ruta": "trabajo.16.lugar",
+    "es": "Facultad de Ciencias",
+    "en": "Science Faculty"
+  },
+  {
+    "ruta": "trabajo.17.titulo",
+    "es": "Parcial de Electromagnetismo",
+    "en": "Electromagnetism midterm"
+  },
+  {
+    "ruta": "trabajo.17.lugar",
+    "es": "Facultad de Ciencias",
+    "en": "Science Faculty"
+  },
+  {
+    "ruta": "trabajo.18.titulo",
+    "es": "Entrega final de laboratorio",
+    "en": "Final lab report due"
+  },
+  {
+    "ruta": "trabajo.18.lugar",
+    "es": "Lab de Física II",
+    "en": "Physics Lab II"
+  },
+  {
+    "ruta": "trabajo.19.titulo",
+    "es": "Defensa del proyecto semestral",
+    "en": "Semester project defense"
+  },
+  {
+    "ruta": "trabajo.19.lugar",
+    "es": "Auditorio B",
+    "en": "Auditorium B"
+  },
+  {
+    "ruta": "trabajo.20.titulo",
+    "es": "Turno especial: cata de tés",
+    "en": "Special shift: winter tea tasting"
+  },
+  {
+    "ruta": "trabajo.20.lugar",
+    "es": "Café Mirasol",
+    "en": "Mirasol Coffee"
+  },
+  {
+    "ruta": "salud.0.titulo",
+    "es": "Primera consulta de nutrición",
+    "en": "First nutrition appointment"
+  },
+  {
+    "ruta": "salud.0.lugar",
+    "es": "Centro de Salud Aldana",
+    "en": "Aldana Health Center"
+  },
+  {
+    "ruta": "salud.1.titulo",
+    "es": "Vacuna anual de Laika",
+    "en": "Laika's yearly shots"
+  },
+  {
+    "ruta": "salud.1.lugar",
+    "es": "Veterinaria Los Álamos",
+    "en": "Los Álamos Vet Clinic"
+  },
+  {
+    "ruta": "salud.2.titulo",
+    "es": "Control de nutrición",
+    "en": "Nutrition follow-up"
+  },
+  {
+    "ruta": "salud.2.lugar",
+    "es": "Centro de Salud Aldana",
+    "en": "Aldana Health Center"
+  },
+  {
+    "ruta": "salud.3.titulo",
+    "es": "Traumatología: dolor de rodilla",
+    "en": "Sports doctor: knee pain"
+  },
+  {
+    "ruta": "salud.3.lugar",
+    "es": "Clínica San Vicente",
+    "en": "San Vicente Clinic"
+  },
+  {
+    "ruta": "salud.4.titulo",
+    "es": "Fisioterapia 1 de 6",
+    "en": "Physio session 1 of 6"
+  },
+  {
+    "ruta": "salud.4.lugar",
+    "es": "Clínica San Vicente",
+    "en": "San Vicente Clinic"
+  },
+  {
+    "ruta": "salud.5.titulo",
+    "es": "Fisioterapia 2 de 6",
+    "en": "Physio session 2 of 6"
+  },
+  {
+    "ruta": "salud.5.lugar",
+    "es": "Clínica San Vicente",
+    "en": "San Vicente Clinic"
+  },
+  {
+    "ruta": "salud.6.titulo",
+    "es": "Fisioterapia 3 de 6",
+    "en": "Physio session 3 of 6"
+  },
+  {
+    "ruta": "salud.6.lugar",
+    "es": "Clínica San Vicente",
+    "en": "San Vicente Clinic"
+  },
+  {
+    "ruta": "salud.7.titulo",
+    "es": "Fisioterapia 4 de 6",
+    "en": "Physio session 4 of 6"
+  },
+  {
+    "ruta": "salud.7.lugar",
+    "es": "Clínica San Vicente",
+    "en": "San Vicente Clinic"
+  },
+  {
+    "ruta": "salud.8.titulo",
+    "es": "Fisioterapia 5 de 6",
+    "en": "Physio session 5 of 6"
+  },
+  {
+    "ruta": "salud.8.lugar",
+    "es": "Clínica San Vicente",
+    "en": "San Vicente Clinic"
+  },
+  {
+    "ruta": "salud.9.titulo",
+    "es": "Fisioterapia 6 de 6: alta",
+    "en": "Physio 6 of 6: cleared to run"
+  },
+  {
+    "ruta": "salud.9.lugar",
+    "es": "Clínica San Vicente",
+    "en": "San Vicente Clinic"
+  },
+  {
+    "ruta": "salud.10.titulo",
+    "es": "Limpieza dental",
+    "en": "Dental cleaning"
+  },
+  {
+    "ruta": "salud.10.lugar",
+    "es": "Consultorio Dr. Olmos",
+    "en": "Dr. Olmos' office"
+  },
+  {
+    "ruta": "salud.11.titulo",
+    "es": "Laika: control y desparasitación",
+    "en": "Laika: checkup and deworming"
+  },
+  {
+    "ruta": "salud.11.lugar",
+    "es": "Veterinaria Los Álamos",
+    "en": "Los Álamos Vet Clinic"
+  },
+  {
+    "ruta": "salud.12.titulo",
+    "es": "Control de nutrición",
+    "en": "Nutrition follow-up"
+  },
+  {
+    "ruta": "salud.12.lugar",
+    "es": "Centro de Salud Aldana",
+    "en": "Aldana Health Center"
+  },
+  {
+    "ruta": "salud.13.titulo",
+    "es": "Revisión general anual",
+    "en": "Annual general checkup"
+  },
+  {
+    "ruta": "salud.13.lugar",
+    "es": "Centro de Salud Aldana",
+    "en": "Aldana Health Center"
+  },
+  {
+    "ruta": "personas.0.titulo",
+    "es": "Café largo de quejas",
+    "en": "Long coffee, mostly complaining"
+  },
+  {
+    "ruta": "personas.1.titulo",
+    "es": "Cena de domingo en casa",
+    "en": "Sunday dinner at home"
+  },
+  {
+    "ruta": "personas.2.titulo",
+    "es": "Cumpleaños de Iker",
+    "en": "Iker's birthday"
+  },
+  {
+    "ruta": "personas.3.titulo",
+    "es": "Desayuno después del 5K",
+    "en": "Breakfast after the 5K"
+  },
+  {
+    "ruta": "personas.4.titulo",
+    "es": "Maratón de cine de ciencia ficción",
+    "en": "Sci-fi movie night"
+  },
+  {
+    "ruta": "personas.5.titulo",
+    "es": "Cumpleaños de mamá",
+    "en": "Mum's birthday dinner"
+  },
+  {
+    "ruta": "personas.6.titulo",
+    "es": "Café para desahogarme",
+    "en": "Coffee to vent about everything"
+  },
+  {
+    "ruta": "personas.7.titulo",
+    "es": "Cena de despedida antes de Japón",
+    "en": "Farewell dinner before Japan"
+  },
+  {
+    "ruta": "personas.8.titulo",
+    "es": "Videollamada desde Kioto",
+    "en": "Video call from Kyoto"
+  },
+  {
+    "ruta": "personas.9.titulo",
+    "es": "Noche de fotos del viaje",
+    "en": "Trip photos night"
+  },
+  {
+    "ruta": "personas.10.titulo",
+    "es": "Cumpleaños de Nadia",
+    "en": "Nadia's birthday"
+  },
+  {
+    "ruta": "personas.11.titulo",
+    "es": "Brunch con la gente del café",
+    "en": "Brunch with the café crew"
+  },
+  {
+    "ruta": "personas.12.titulo",
+    "es": "Concierto casero: Clair de Lune",
+    "en": "Living room concert: Clair de Lune"
+  },
+  {
+    "ruta": "personas.13.titulo",
+    "es": "Café: ¿posgrado o trabajo?",
+    "en": "Coffee: grad school or a job?"
+  },
+  {
+    "ruta": "pendientes.0",
+    "es": "Cambiar turno del viernes por el parcial",
+    "en": "Swap Friday shift because of the midterm"
+  },
+  {
+    "ruta": "pendientes.1",
+    "es": "Actualizar el CV con el proyecto semestral",
+    "en": "Add the semester project to my CV"
+  },
+  {
+    "ruta": "pendientes.2",
+    "es": "Ordenar los recibos de propinas del mes",
+    "en": "Sort out this month's tip receipts"
+  },
+  {
+    "ruta": "pendientes.3",
+    "es": "Responder el correo de Elena sobre el póster",
+    "en": "Reply to Elena about the poster"
+  },
+  {
+    "ruta": "pendientes.4",
+    "es": "Cotizar molino nuevo para la barra",
+    "en": "Get quotes for a new grinder"
+  }
+]

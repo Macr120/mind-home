@@ -1,0 +1,506 @@
+[
+  {
+    "clave": "ia.calidad.buena.desc",
+    "texto": "Più dettaglio e testo migliore dentro l'immagine."
+  },
+  {
+    "clave": "ia.tarifas",
+    "texto": "Una risposta costa 1 credito · un piano lungo 3 · un'immagine {img} · un modello 3D 10."
+  },
+  {
+    "clave": "ia.precios.pie",
+    "texto": "È il server a fare l'addebito: questo è quanto costerà prima di richiederlo."
+  },
+  {
+    "clave": "ia.precios.pieSinCuenta",
+    "texto": "Con la tua chiave IA personale non si spendono crediti: paghi direttamente il tuo fornitore."
+  },
+  {
+    "clave": "ia.grupo.chat",
+    "texto": "Chat di casa"
+  },
+  {
+    "clave": "ia.grupo.editor",
+    "texto": "Editor di casa"
+  },
+  {
+    "clave": "ia.grupo.metas",
+    "texto": "Obiettivi e programma"
+  },
+  {
+    "clave": "ia.donde.chat",
+    "texto": "Chat di casa"
+  },
+  {
+    "clave": "ia.donde.casa",
+    "texto": "La casa (automatico)"
+  },
+  {
+    "clave": "ia.donde.editorObjetos",
+    "texto": "Editor › Oggetti"
+  },
+  {
+    "clave": "ia.donde.editorPersonajes",
+    "texto": "Editor › Personaggi"
+  },
+  {
+    "clave": "ia.donde.editorCuarto",
+    "texto": "Editor › Pavimento, pareti, soffitto, porte e griglia"
+  },
+  {
+    "clave": "ia.donde.editorFondo",
+    "texto": "Sfondo del cielo"
+  },
+  {
+    "clave": "ia.donde.asistentes",
+    "texto": "Assistenti"
+  },
+  {
+    "clave": "ia.donde.metas",
+    "texto": "Cucina, Esercizio, Biblioteca, Lingue, Soggiorno, Hobby, Studio e Intrattenimento"
+  },
+  {
+    "clave": "ia.op.chat.mensaje",
+    "texto": "Messaggio al tuo assistente"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d",
+    "texto": "«Crea un 3D…» dalla chat"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d.nota",
+    "texto": "Due chiamate: il turno che legge l'ordine e la generazione vera e propria."
+  },
+  {
+    "clave": "ia.op.chat.imagen",
+    "texto": "«Crea un'immagine di…» dalla chat"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas",
+    "texto": "«Fammi una mappa di idee» dalla chat"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas.nota",
+    "texto": "Se la mappa non riesce bene la prima volta, ci riprova una volta."
+  },
+  {
+    "clave": "ia.op.chat.latido",
+    "texto": "Battuta spontanea del tuo personaggio"
+  },
+  {
+    "clave": "ia.op.chat.latido.nota",
+    "texto": "Solo con abbonamento e solo 1 volta ogni 10 battiti."
+  },
+  {
+    "clave": "ia.op.editor.objeto3d",
+    "texto": "Modello 3D di un oggetto o una struttura"
+  },
+  {
+    "clave": "ia.op.editor.personaje3d",
+    "texto": "Modello 3D di un personaggio"
+  },
+  {
+    "clave": "ia.op.editor.ropa3d",
+    "texto": "Capo del guardaroba"
+  },
+  {
+    "clave": "ia.op.editor.asistente3d",
+    "texto": "Forma di un assistente"
+  },
+  {
+    "clave": "ia.op.editor.asistenteVoz",
+    "texto": "Voce IA per un assistente"
+  },
+  {
+    "clave": "ia.op.editor.textura",
+    "texto": "Texture per pavimento, parete, soffitto, porta o mappa"
+  },
+  {
+    "clave": "ia.op.editor.fondo",
+    "texto": "Texture dello sfondo del cielo"
+  },
+  {
+    "clave": "ia.op.metas.plan",
+    "texto": "Piano IA ✨ per un obiettivo"
+  },
+  {
+    "clave": "ia.op.metas.plan.nota",
+    "texto": "Programmi, itinerari di viaggio, piani di studio e piani finanziari."
+  },
+  {
+    "clave": "ia.op.cocina.receta",
+    "texto": "Crea una ricetta con l'IA"
+  },
+  {
+    "clave": "ia.op.cocina.dieta",
+    "texto": "Dieta completa o piano alimentare"
+  },
+  {
+    "clave": "ia.op.cocina.dieta.nota",
+    "texto": "Il piano e ognuna delle sue ricette vengono scritti separatamente, e ogni piatto ha la sua foto."
+  },
+  {
+    "clave": "ia.op.cocina.macros",
+    "texto": "Calcola calorie e macro"
+  },
+  {
+    "clave": "ia.op.cocina.portada",
+    "texto": "Foto per una ricetta o una dieta"
+  },
+  {
+    "clave": "ia.donde.cocina.recetario",
+    "texto": "Ricettario"
+  },
+  {
+    "clave": "ia.donde.cocina.dietas",
+    "texto": "Diete · Piano alimentare"
+  },
+  {
+    "clave": "ia.donde.cocina.registro",
+    "texto": "Registro pasti"
+  },
+  {
+    "clave": "ia.donde.cocina.detalle",
+    "texto": "Dettaglio di ricetta o dieta"
+  },
+  {
+    "clave": "ia.op.ejercicio.imagen",
+    "texto": "Illustra un esercizio"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote",
+    "texto": "Illustra gli esercizi mancanti"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote.nota",
+    "texto": "Un'immagine per ogni esercizio non illustrato: il totale dipende da quanti mancano."
+  },
+  {
+    "clave": "ia.donde.ejercicio.catalogo",
+    "texto": "Catalogo degli esercizi"
+  },
+  {
+    "clave": "ia.op.biblioteca.charla",
+    "texto": "Turno di una chat con il Saggio"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva",
+    "texto": "Primo turno di una nuova chat"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva.nota",
+    "texto": "La risposta, più la chiamata che le dà un titolo e la colloca nel tuo albero, più quella che distilla la sua voce."
+  },
+  {
+    "clave": "ia.op.biblioteca.clasificar",
+    "texto": "Classifica e distilla una chat ✨"
+  },
+  {
+    "clave": "ia.op.biblioteca.ramificar",
+    "texto": "Ramifica l'albero 🌿"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar",
+    "texto": "Aggiorna la voce quando esci dalla chat"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar.nota",
+    "texto": "Solo se la chat è cresciuta dopo essere stata distillata."
+  },
+  {
+    "clave": "ia.op.biblioteca.material",
+    "texto": "Genera materiale di studio da una voce"
+  },
+  {
+    "clave": "ia.op.biblioteca.ilustrar",
+    "texto": "Illustra una voce"
+  },
+  {
+    "clave": "ia.donde.biblioteca.charlas",
+    "texto": "Chat"
+  },
+  {
+    "clave": "ia.donde.biblioteca.enciclopedia",
+    "texto": "Enciclopedia"
+  },
+  {
+    "clave": "ia.op.idiomas.charla",
+    "texto": "Turno di una chat con il tutor"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva",
+    "texto": "Primo turno di una nuova chat"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva.nota",
+    "texto": "La risposta, più la chiamata che la colloca nel tuo programma."
+  },
+  {
+    "clave": "ia.op.idiomas.clasificar",
+    "texto": "Classifica una chat ✨"
+  },
+  {
+    "clave": "ia.op.idiomas.extraerTarjetas",
+    "texto": "Estrai le carte dalla chat"
+  },
+  {
+    "clave": "ia.op.idiomas.generarTarjetas",
+    "texto": "Genera carte per un argomento"
+  },
+  {
+    "clave": "ia.op.idiomas.imagenTarjeta",
+    "texto": "Immagine mnemonica per una carta"
+  },
+  {
+    "clave": "ia.donde.idiomas.charlas",
+    "texto": "Chat"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabulario",
+    "texto": "Vocabolario · Programma"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabularioRepaso",
+    "texto": "Vocabolario · Ripasso"
+  },
+  {
+    "clave": "ia.op.ideas.mapa",
+    "texto": "Mappa concettuale con l'IA"
+  },
+  {
+    "clave": "ia.op.ideas.mapa.nota",
+    "texto": "Se la mappa non è utilizzabile la prima volta, ci riprova una volta e costa il doppio."
+  },
+  {
+    "clave": "ia.op.ideas.expandir",
+    "texto": "Più idee (espandi, sviluppa o idee correlate)"
+  },
+  {
+    "clave": "ia.donde.ideas.mapas",
+    "texto": "Mappe e diagrammi · Brainstorm"
+  },
+  {
+    "clave": "ia.donde.ideas.diario",
+    "texto": "Diario delle idee · Dettaglio idea · Tela della mappa"
+  },
+  {
+    "clave": "ia.op.entretenimiento.ficha",
+    "texto": "Completa la scheda con l'IA"
+  },
+  {
+    "clave": "ia.op.entretenimiento.resumen",
+    "texto": "Riepilogo di un'opera"
+  },
+  {
+    "clave": "ia.op.entretenimiento.programa",
+    "texto": "Programma di serie, libri o giochi"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.archivo",
+    "texto": "Archivio"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.programas",
+    "texto": "Programmi"
+  },
+  {
+    "clave": "ia.op.diario.efemerides",
+    "texto": "Eventi culturali del giorno"
+  },
+  {
+    "clave": "ia.op.diario.efemerides.nota",
+    "texto": "Una volta al giorno e solo con abbonamento."
+  },
+  {
+    "clave": "ia.op.diario.reparto",
+    "texto": "Consegna del giornale da parte di un assistente"
+  },
+  {
+    "clave": "ia.op.diario.reparto.nota",
+    "texto": "Una per ogni consegna programmata e solo con abbonamento."
+  },
+  {
+    "clave": "ia.donde.diario",
+    "texto": "Giornale (automatico)"
+  },
+  {
+    "clave": "ia.op.descanso.evidencia",
+    "texto": "Foto di prova per spegnere la sveglia"
+  },
+  {
+    "clave": "ia.donde.descanso",
+    "texto": "Sveglia"
+  },
+  {
+    "clave": "ia.op.computo.formula",
+    "texto": "Scrivi una formula dalla sua descrizione"
+  },
+  {
+    "clave": "ia.op.computo.explicar",
+    "texto": "Spiega o risolvi passo dopo passo"
+  },
+  {
+    "clave": "ia.op.computo.hoja",
+    "texto": "Crea un foglio di calcolo con le sue formule"
+  },
+  {
+    "clave": "ia.op.computo.analizar",
+    "texto": "Interpreta i dati selezionati"
+  },
+  {
+    "clave": "ia.donde.computo.formulario",
+    "texto": "Formulario · Nuova formula"
+  },
+  {
+    "clave": "ia.donde.computo.calculadora",
+    "texto": "Calcolatrice"
+  },
+  {
+    "clave": "ia.donde.computo.hojas",
+    "texto": "Fogli di calcolo · Nuovo foglio di calcolo"
+  },
+  {
+    "clave": "chat.cuotaAgotada",
+    "texto": "Hai esaurito la tua quota IA di questo mese. Controlla il tuo utilizzo in Editor → Impostazioni → Account."
+  },
+  {
+    "clave": "chat.sinPro",
+    "texto": "Il tuo account non ha un abbonamento attivo."
+  },
+  {
+    "clave": "cuenta.pago.comprar",
+    "texto": "Diventa Pro"
+  },
+  {
+    "clave": "cuenta.pago.comprarPrecio",
+    "texto": "Diventa Pro — {p}/mese"
+  },
+  {
+    "clave": "cuenta.pago.renovar",
+    "texto": "Rinnova abbonamento — {p}/mese"
+  },
+  {
+    "clave": "cuenta.pago.comprarWeb",
+    "texto": "Diventa Pro sul web"
+  },
+  {
+    "clave": "cuenta.pago.cancelado",
+    "texto": "L'acquisto non è stato completato."
+  },
+  {
+    "clave": "cuenta.pago.gestionar",
+    "texto": "Gestisci il mio abbonamento"
+  },
+  {
+    "clave": "cuenta.olvide",
+    "texto": "Hai dimenticato la password?"
+  },
+  {
+    "clave": "cuenta.olvide.sinCorreo",
+    "texto": "Scrivi prima la tua email qui sopra."
+  },
+  {
+    "clave": "cuenta.olvide.enviado",
+    "texto": "Ti abbiamo inviato un'email per reimpostarla."
+  },
+  {
+    "clave": "cuenta.eliminar",
+    "texto": "Elimina account"
+  },
+  {
+    "clave": "cuenta.eliminar.confirma",
+    "texto": "Vuoi eliminare il tuo account e tutti i tuoi dati dai server? Questa azione non può essere annullata. I dati locali su questo dispositivo vengono conservati."
+  },
+  {
+    "clave": "cuenta.eliminar.confirma2",
+    "texto": "Ultima conferma: eliminare l'account definitivamente?"
+  },
+  {
+    "clave": "cuenta.eliminar.borrando",
+    "texto": "Eliminazione…"
+  },
+  {
+    "clave": "cuenta.renovar.titulo",
+    "texto": "Il tuo abbonamento è terminato"
+  },
+  {
+    "clave": "cuenta.renovar.cuerpo",
+    "texto": "L'IA e la sincronizzazione tornano attive quando rinnovi. I tuoi dati restano su questo dispositivo."
+  },
+  {
+    "clave": "cuenta.renovar.cta",
+    "texto": "Rinnova abbonamento"
+  },
+  {
+    "clave": "cuenta.renovar.corto",
+    "texto": "Il tuo abbonamento è terminato."
+  },
+  {
+    "clave": "cuenta.cuota.titulo",
+    "texto": "Hai esaurito i crediti di questo mese"
+  },
+  {
+    "clave": "cuenta.cuota.tituloSin",
+    "texto": "Ti servono crediti per usare l'IA"
+  },
+  {
+    "clave": "cuenta.cuota.cuerpo",
+    "texto": "I tuoi crediti si rinnovano il {f}."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoLocal",
+    "texto": "L'app e i tuoi dati sono tuoi senza pagare nulla. Solo l'IA si paga: ricarica crediti quando ti servono, oppure abbonati e ricevili ogni mese."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoVencida",
+    "texto": "I tuoi dati restano su questo dispositivo. Rinnova per recuperare i crediti del mese e la sincronizzazione, oppure acquista una ricarica singola."
+  },
+  {
+    "clave": "cuenta.cuota.recarga",
+    "texto": "+600 crediti — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaN",
+    "texto": "+{n} crediti — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaLista",
+    "texto": "Ricarica applicata: i tuoi crediti extra sono già nel tuo account."
+  },
+  {
+    "clave": "cuenta.cuota.suscribirse",
+    "texto": "Vedi l'abbonamento"
+  },
+  {
+    "clave": "cuenta.cuota.nativo",
+    "texto": "I crediti si gestiscono dal tuo account."
+  },
+  {
+    "clave": "cuenta.cuota.web",
+    "texto": "Compra crediti nel mio account"
+  },
+  {
+    "clave": "cuenta.creditos.faltan",
+    "texto": "Hai esaurito i crediti IA."
+  },
+  {
+    "clave": "comun.entendido",
+    "texto": "Capito"
+  },
+  {
+    "clave": "demo.aviso.titulo",
+    "texto": "Sei nella casa demo"
+  },
+  {
+    "clave": "demo.aviso.cuerpo",
+    "texto": "Prova tutto: puoi modificare la casa e usare le app con dentro un anno della vita di Pep. Niente viene salvato — ricaricando, la casa torna com'era."
+  },
+  {
+    "clave": "demo.aviso.seguir",
+    "texto": "Continua a esplorare"
+  },
+  {
+    "clave": "demo.salir",
+    "texto": "Esci dalla demo"
+  }
+]

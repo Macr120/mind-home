@@ -1,0 +1,1307 @@
+[
+  {
+    "ruta": "notasSesion.0.nota",
+    "es": "Diez minutos y la cabeza no paró ni un segundo. Salí igual de inquiet@, pero al menos me senté.",
+    "en": "Ten minutes and my head never stopped once. I got up just as restless, but at least I sat down."
+  },
+  {
+    "ruta": "notasSesion.1.nota",
+    "es": "Cuatro-siete-ocho antes de abrir la cafetería. Sirvo mejor los cafés cuando no llego con el pulso a mil.",
+    "en": "Four-seven-eight before opening the shop. I pull better shots when I don't arrive with my pulse at a thousand."
+  },
+  {
+    "ruta": "notasSesion.2.nota",
+    "es": "Tercera semana seguida cumpliendo las tres sesiones. Hoy noté el momento exacto en que me distraje y volví sin regañarme.",
+    "en": "Third week straight hitting all three sessions. Today I caught the exact moment I drifted off and came back without scolding myself."
+  },
+  {
+    "ruta": "notasSesion.3.nota",
+    "es": "La noche antes de la 5K. No me calmó del todo, pero dormí a las once en vez de a la una.",
+    "en": "Night before the 5K. It didn't fully settle me, but I fell asleep at eleven instead of one."
+  },
+  {
+    "ruta": "notasSesion.4.nota",
+    "es": "Respiré en la parada del bus, con el ruido del tráfico encima. Funcionó igual, que era lo que dudaba.",
+    "en": "Breathed at the bus stop with traffic right there. Worked anyway, which is the part I doubted."
+  },
+  {
+    "ruta": "notasSesion.5.nota",
+    "es": "Veinte minutos por primera vez. Los últimos cinco fueron pura impaciencia y aun así los aguanté.",
+    "en": "Twenty minutes for the first time. The last five were pure impatience and I stayed put regardless."
+  },
+  {
+    "ruta": "notasSesion.6.nota",
+    "es": "Sesión corta después del laboratorio. Me sirvió para acordarme de que el cansancio y la ansiedad no son lo mismo.",
+    "en": "Short sit after lab. Useful reminder that being tired and being anxious are not the same thing."
+  },
+  {
+    "ruta": "notasSesion.7.nota",
+    "es": "Primera sesión desde que la rodilla dijo basta. Todo el rato pensando en el plan de carrera que se me cae encima.",
+    "en": "First session since my knee said enough. Spent the whole time thinking about the race plan falling apart."
+  },
+  {
+    "ruta": "notasSesion.8.nota",
+    "es": "Hoy solo pude quedarme mirando la rabia. No se fue, pero se hizo más pequeña que ayer.",
+    "en": "All I could do today was look at the anger. It didn't leave, but it got smaller than yesterday."
+  },
+  {
+    "ruta": "notasSesion.9.nota",
+    "es": "Después de la llamada del taller. Diez respiraciones lentas antes de abrir el presupuesto otra vez.",
+    "en": "Right after the garage called. Ten slow breaths before opening that estimate again."
+  },
+  {
+    "ruta": "notasSesion.10.nota",
+    "es": "Me senté llorando y terminé sin llorar. No sé si eso es meditar, pero hoy me valió.",
+    "en": "Sat down crying and finished not crying. Not sure that counts as meditation, but it did the job."
+  },
+  {
+    "ruta": "notasSesion.11.nota",
+    "es": "Dos semanas sin fallar un solo día. Es lo único de mi rutina que no se ha roto este mes.",
+    "en": "Two weeks without skipping a single day. It's the only part of my routine that hasn't broken this month."
+  },
+  {
+    "ruta": "notasSesion.12.nota",
+    "es": "Diez minutos justo después del fisio. La rodilla ya no me ocupa toda la cabeza.",
+    "en": "Ten minutes right after physio. My knee no longer takes up all the space in my head."
+  },
+  {
+    "ruta": "notasSesion.13.nota",
+    "es": "Cuatro-siete-ocho en la trastienda antes de abrir. Salí a la barra sin prisa por primera vez en semanas.",
+    "en": "Four-seven-eight in the back room before opening. Walked out to the bar unhurried for the first time in weeks."
+  },
+  {
+    "ruta": "notasSesion.14.nota",
+    "es": "Última semana antes del vuelo. Me senté a mirar los nervios del viaje sin intentar ordenarlos.",
+    "en": "Last week before the flight. Sat and watched the travel nerves without trying to tidy them up."
+  },
+  {
+    "ruta": "notasSesion.15.nota",
+    "es": "En un banco de Ueno con el ruido de los trenes de fondo. Tres minutos y se me bajaron los hombros.",
+    "en": "On a bench in Ueno with the trains rattling past. Three minutes and my shoulders dropped."
+  },
+  {
+    "ruta": "notasSesion.16.nota",
+    "es": "Veinte minutos sobre tatami en Kioto, sin temporizador. No tenía ganas de que se acabara.",
+    "en": "Twenty minutes on tatami in Kyoto, no timer. I didn't want it to end."
+  },
+  {
+    "ruta": "notasSesion.17.nota",
+    "es": "Primera sesión en mi esterilla después de un mes fuera. El cojín olía a Laika.",
+    "en": "First sit on my own mat after a month away. The cushion smelled like Laika."
+  },
+  {
+    "ruta": "notasSesion.18.nota",
+    "es": "Cinco minutos antes del parcial de mecánica. Sirve más que releer los apuntes otra vez.",
+    "en": "Five minutes before the mechanics midterm. Worth more than rereading my notes again."
+  },
+  {
+    "ruta": "notasSesion.19.nota",
+    "es": "Sesión larga de domingo. Apareció el medio maratón, lo miré y lo dejé pasar.",
+    "en": "Long Sunday sit. The half marathon showed up, I looked at it, and let it go by."
+  },
+  {
+    "ruta": "notasSesion.20.nota",
+    "es": "Dos minutos en el cajón de salida, respirando por la nariz. El pulso bajó antes del disparo.",
+    "en": "Two minutes in the starting corral, breathing through my nose. My pulse came down before the gun."
+  },
+  {
+    "ruta": "notasSesion.21.nota",
+    "es": "Semana de muchos kilómetros: me dormí al minuto ocho. Lo cuento igual.",
+    "en": "High mileage week: I fell asleep at minute eight. Counting it anyway."
+  },
+  {
+    "ruta": "notasSesion.22.nota",
+    "es": "Sentad@ en el suelo del baño con la manta térmica puesta, respirando despacio. El cuerpo destrozado y la cabeza clarísima.",
+    "en": "Sitting on the bathroom floor in the foil blanket, breathing slowly. Body wrecked, head completely clear."
+  },
+  {
+    "ruta": "notasSesion.23.nota",
+    "es": "Un año haciendo esto. Veinte minutos y no pasó nada especial, que a estas alturas ya me parece bastante.",
+    "en": "A year of doing this. Twenty minutes and nothing special happened, which by now feels like plenty."
+  },
+  {
+    "ruta": "gratitudes.0.item1",
+    "es": "El teclado usado ya casi no desafina",
+    "en": "The secondhand keyboard barely goes out of tune now"
+  },
+  {
+    "ruta": "gratitudes.0.item2",
+    "es": "Laika se acostumbró al ruido del metrónomo",
+    "en": "Laika got used to the metronome"
+  },
+  {
+    "ruta": "gratitudes.0.item3",
+    "es": "Lentejas hechas para tres días",
+    "en": "A pot of lentils that covers three days"
+  },
+  {
+    "ruta": "gratitudes.1.item1",
+    "es": "Corrí veinte minutos sin parar",
+    "en": "Ran twenty minutes without stopping"
+  },
+  {
+    "ruta": "gratitudes.1.item2",
+    "es": "Las propinas del sábado dieron para el té bueno",
+    "en": "Saturday tips covered the good tea"
+  },
+  {
+    "ruta": "gratitudes.2.item1",
+    "es": "74 kg en la balanza y ya no me asusta mirar",
+    "en": "74 kg on the scale and I can look at it now"
+  },
+  {
+    "ruta": "gratitudes.2.item2",
+    "es": "Repasé las treinta tarjetas de inglés antes de dormir",
+    "en": "Got through all thirty English flashcards before bed"
+  },
+  {
+    "ruta": "gratitudes.2.item3",
+    "es": "La ducha caliente al salir del turno",
+    "en": "Hot shower after the shift"
+  },
+  {
+    "ruta": "gratitudes.3.item1",
+    "es": "Nuri me cubrió media hora para llegar al laboratorio",
+    "en": "Nuri covered half an hour so I could make it to lab"
+  },
+  {
+    "ruta": "gratitudes.3.item2",
+    "es": "Las zapatillas por fin no me hacen rozaduras",
+    "en": "The running shoes finally stopped rubbing"
+  },
+  {
+    "ruta": "gratitudes.3.item3",
+    "es": "Cielo despejado a las seis de la mañana",
+    "en": "Clear sky at six in the morning"
+  },
+  {
+    "ruta": "gratitudes.4.item1",
+    "es": "Diez minutos de meditación antes de abrir la cafetería",
+    "en": "Ten minutes of meditation before opening the shop"
+  },
+  {
+    "ruta": "gratitudes.4.item2",
+    "es": "Mi madre preguntó por el piano sin ironía",
+    "en": "My mother asked about the piano without irony"
+  },
+  {
+    "ruta": "gratitudes.5.item1",
+    "es": "Aprobé el parcial de mecánica",
+    "en": "Passed the mechanics midterm"
+  },
+  {
+    "ruta": "gratitudes.5.item2",
+    "es": "Laika dormida encima de mis apuntes",
+    "en": "Laika asleep on top of my notes"
+  },
+  {
+    "ruta": "gratitudes.5.item3",
+    "es": "Pan del día anterior gratis del turno",
+    "en": "Free day-old bread from the shift"
+  },
+  {
+    "ruta": "gratitudes.6.item1",
+    "es": "Correr con lluvia fina resultó agradable",
+    "en": "Running in light rain turned out to be nice"
+  },
+  {
+    "ruta": "gratitudes.6.item2",
+    "es": "El presupuesto cuadró esta quincena",
+    "en": "The budget actually balanced this pay period"
+  },
+  {
+    "ruta": "gratitudes.6.item3",
+    "es": "Escala de do mayor sin mirar las teclas",
+    "en": "C major scale without looking at the keys"
+  },
+  {
+    "ruta": "gratitudes.7.item1",
+    "es": "Hoy no piqué nada entre turnos",
+    "en": "Didn't snack between shifts today"
+  },
+  {
+    "ruta": "gratitudes.7.item2",
+    "es": "Encontré un podcast en inglés que entiendo casi entero",
+    "en": "Found an English podcast I understand almost all of"
+  },
+  {
+    "ruta": "gratitudes.8.item1",
+    "es": "La bici aguantó cuarenta kilómetros esta semana",
+    "en": "The bike survived forty kilometres this week"
+  },
+  {
+    "ruta": "gratitudes.8.item2",
+    "es": "Cena con Alex sin mirar el móvil",
+    "en": "Dinner with Alex without touching my phone"
+  },
+  {
+    "ruta": "gratitudes.8.item3",
+    "es": "Oolong de la tienda de la esquina",
+    "en": "Oolong from the shop on the corner"
+  },
+  {
+    "ruta": "gratitudes.9.item1",
+    "es": "Dormí siete horas seguidas",
+    "en": "Seven hours of sleep in a row"
+  },
+  {
+    "ruta": "gratitudes.9.item2",
+    "es": "Primera canción a dos manos, lenta pero entera",
+    "en": "First two-hand song, slow but complete"
+  },
+  {
+    "ruta": "gratitudes.9.item3",
+    "es": "Laika esperándome en la puerta",
+    "en": "Laika waiting at the door"
+  },
+  {
+    "ruta": "gratitudes.10.item1",
+    "es": "Tres semanas cumpliendo el plan de carrera",
+    "en": "Three weeks sticking to the running plan"
+  },
+  {
+    "ruta": "gratitudes.10.item2",
+    "es": "Los vuelos a Tokio están más baratos de lo que pensaba",
+    "en": "Flights to Tokyo are cheaper than I assumed"
+  },
+  {
+    "ruta": "gratitudes.11.item1",
+    "es": "Rita me cambió el turno para el domingo de la carrera",
+    "en": "Rita swapped my shift for race Sunday"
+  },
+  {
+    "ruta": "gratitudes.11.item2",
+    "es": "Piernas frescas después de dos días suaves",
+    "en": "Fresh legs after two easy days"
+  },
+  {
+    "ruta": "gratitudes.11.item3",
+    "es": "Sopa caliente a las once de la noche",
+    "en": "Hot soup at eleven at night"
+  },
+  {
+    "ruta": "gratitudes.12.item1",
+    "es": "Terminé la 5K en 29:40",
+    "en": "Finished the 5K in 29:40"
+  },
+  {
+    "ruta": "gratitudes.12.item2",
+    "es": "Alex apareció en la meta con un cartel ridículo",
+    "en": "Alex showed up at the finish with a ridiculous sign"
+  },
+  {
+    "ruta": "gratitudes.12.item3",
+    "es": "Una medalla barata que voy a guardar igual",
+    "en": "A cheap medal I'm keeping anyway"
+  },
+  {
+    "ruta": "gratitudes.13.item1",
+    "es": "Escribí en papel lo de Japón y ya no hay marcha atrás",
+    "en": "Wrote the Japan plan down on paper, no backing out"
+  },
+  {
+    "ruta": "gratitudes.13.item2",
+    "es": "Abrí una cuenta de ahorro aparte para el viaje",
+    "en": "Opened a separate savings account for the trip"
+  },
+  {
+    "ruta": "gratitudes.13.item3",
+    "es": "Reconozco diez hiragana",
+    "en": "I can recognise ten hiragana"
+  },
+  {
+    "ruta": "gratitudes.14.item1",
+    "es": "Turno tranquilo y propinas decentes",
+    "en": "Quiet shift, decent tips"
+  },
+  {
+    "ruta": "gratitudes.14.item2",
+    "es": "El informe de laboratorio volvió con buenos comentarios",
+    "en": "Lab report came back with good comments"
+  },
+  {
+    "ruta": "gratitudes.15.item1",
+    "es": "Correr después del trabajo ya no me destroza",
+    "en": "Running after work doesn't wreck me anymore"
+  },
+  {
+    "ruta": "gratitudes.15.item2",
+    "es": "Encontré una guía clara del transporte en Kioto",
+    "en": "Found a clear guide to getting around Kyoto"
+  },
+  {
+    "ruta": "gratitudes.15.item3",
+    "es": "Laika y el sol de la tarde en la misma esquina",
+    "en": "Laika and the afternoon sun in the same corner"
+  },
+  {
+    "ruta": "gratitudes.16.item1",
+    "es": "Sesenta euros más al fondo de Japón",
+    "en": "Another sixty into the Japan fund"
+  },
+  {
+    "ruta": "gratitudes.16.item2",
+    "es": "Ya digo sumimasen sin trabarme",
+    "en": "I can say sumimasen without stumbling"
+  },
+  {
+    "ruta": "gratitudes.16.item3",
+    "es": "Cata gratis de un café de Etiopía",
+    "en": "Free tasting of an Ethiopian coffee"
+  },
+  {
+    "ruta": "gratitudes.17.item1",
+    "es": "Un kilo menos y sin dramas",
+    "en": "One kilo down, no drama"
+  },
+  {
+    "ruta": "gratitudes.17.item2",
+    "es": "Dos manos y pedal a la vez",
+    "en": "Both hands and the pedal at the same time"
+  },
+  {
+    "ruta": "gratitudes.18.item1",
+    "es": "Nueve kilómetros y me sobró aire al final",
+    "en": "Nine kilometres with air to spare at the end"
+  },
+  {
+    "ruta": "gratitudes.18.item2",
+    "es": "Cambié el refresco por agua con gas y sigo viv@",
+    "en": "Swapped soda for sparkling water and I'm still alive"
+  },
+  {
+    "ruta": "gratitudes.18.item3",
+    "es": "La bici arreglada por doce euros",
+    "en": "Bike fixed for twelve euros"
+  },
+  {
+    "ruta": "gratitudes.19.item1",
+    "es": "Terminé mi primera pieza entera al piano",
+    "en": "Finished my first full piano piece"
+  },
+  {
+    "ruta": "gratitudes.19.item2",
+    "es": "La toqué para Laika, único público disponible",
+    "en": "Played it for Laika, the only audience available"
+  },
+  {
+    "ruta": "gratitudes.20.item1",
+    "es": "10K completados, lentos pero completos",
+    "en": "10K done, slow but done"
+  },
+  {
+    "ruta": "gratitudes.20.item2",
+    "es": "Las rodillas aguantaron los sesenta minutos",
+    "en": "Knees held up for the whole hour"
+  },
+  {
+    "ruta": "gratitudes.20.item3",
+    "es": "Desayuno enorme sin culpa",
+    "en": "Enormous breakfast with zero guilt"
+  },
+  {
+    "ruta": "gratitudes.21.item2",
+    "es": "El grupo de estudio se organizó sin peleas",
+    "en": "The study group organised itself without arguing"
+  },
+  {
+    "ruta": "gratitudes.21.item3",
+    "es": "Noche limpia para probar el trípode",
+    "en": "Clear night to test the tripod"
+  },
+  {
+    "ruta": "gratitudes.22.item1",
+    "es": "Primera foto decente de la luna",
+    "en": "First decent photo of the moon"
+  },
+  {
+    "ruta": "gratitudes.22.item2",
+    "es": "Té con jengibre a las dos de la mañana",
+    "en": "Ginger tea at two in the morning"
+  },
+  {
+    "ruta": "gratitudes.23.item1",
+    "es": "Viernes de turno con música que me gustaba",
+    "en": "Friday shift with music I actually liked"
+  },
+  {
+    "ruta": "gratitudes.23.item2",
+    "es": "El ahorro para Japón va por el treinta por ciento",
+    "en": "Japan savings at thirty percent"
+  },
+  {
+    "ruta": "gratitudes.23.item3",
+    "es": "Un cliente me enseñó su truco para vaporizar la leche",
+    "en": "A customer taught me his trick for steaming milk"
+  },
+  {
+    "ruta": "gratitudes.24.item1",
+    "es": "Entendí un episodio entero en inglés sin subtítulos",
+    "en": "Understood a whole episode in English with no subtitles"
+  },
+  {
+    "ruta": "gratitudes.24.item2",
+    "es": "Correr con Alex el domingo",
+    "en": "Sunday run with Alex"
+  },
+  {
+    "ruta": "gratitudes.24.item3",
+    "es": "Laika volvió a dormir a mis pies",
+    "en": "Laika sleeping at my feet again"
+  },
+  {
+    "ruta": "gratitudes.25.item1",
+    "es": "Día de descanso sin sentirme culpable",
+    "en": "Rest day without feeling guilty about it"
+  },
+  {
+    "ruta": "gratitudes.25.item2",
+    "es": "Ciencia ficción en la sesión barata del martes",
+    "en": "Cheap Tuesday science fiction screening"
+  },
+  {
+    "ruta": "gratitudes.25.item3",
+    "es": "La ropa de correr se secó a tiempo",
+    "en": "Running clothes dried in time"
+  },
+  {
+    "ruta": "gratitudes.26.item1",
+    "es": "Doce kilómetros nuevos en el plan",
+    "en": "Twelve new kilometres in the plan"
+  },
+  {
+    "ruta": "gratitudes.26.item2",
+    "es": "Pasaporte renovado sin colas eternas",
+    "en": "Passport renewed without endless queues"
+  },
+  {
+    "ruta": "gratitudes.27.item1",
+    "es": "Ahorro al cincuenta por ciento",
+    "en": "Savings at fifty percent"
+  },
+  {
+    "ruta": "gratitudes.27.item2",
+    "es": "Propinas sospechosamente buenas esta semana",
+    "en": "Suspiciously good tips this week"
+  },
+  {
+    "ruta": "gratitudes.27.item3",
+    "es": "Respiración de tres minutos antes del parcial",
+    "en": "Three-minute breathing before the midterm"
+  },
+  {
+    "ruta": "gratitudes.28.item1",
+    "es": "71 kg y los vaqueros me quedan holgados",
+    "en": "71 kg and my jeans are loose"
+  },
+  {
+    "ruta": "gratitudes.28.item2",
+    "es": "Empecé una pieza nueva bastante más difícil",
+    "en": "Started a new piece, considerably harder"
+  },
+  {
+    "ruta": "gratitudes.28.item3",
+    "es": "Cena con mi hermana",
+    "en": "Dinner with my sister"
+  },
+  {
+    "ruta": "gratitudes.29.item1",
+    "es": "Informe de laboratorio entregado a tiempo",
+    "en": "Lab report handed in on time"
+  },
+  {
+    "ruta": "gratitudes.29.item2",
+    "es": "Los 15K están en el calendario y no me dan miedo",
+    "en": "The 15K is on the calendar and it doesn't scare me"
+  },
+  {
+    "ruta": "gratitudes.30.item1",
+    "es": "El coche arrancó a la primera",
+    "en": "The car started on the first try"
+  },
+  {
+    "ruta": "gratitudes.30.item2",
+    "es": "Correr al amanecer antes del turno",
+    "en": "Sunrise run before the shift"
+  },
+  {
+    "ruta": "gratitudes.30.item3",
+    "es": "Pan recién hecho de la panadería de al lado",
+    "en": "Fresh bread from the bakery next door"
+  },
+  {
+    "ruta": "gratitudes.31.item1",
+    "es": "Reservé el alojamiento de Hakone",
+    "en": "Booked the place in Hakone"
+  },
+  {
+    "ruta": "gratitudes.31.item2",
+    "es": "Ya sé pedir comida en japonés básico",
+    "en": "I can order food in basic Japanese now"
+  },
+  {
+    "ruta": "gratitudes.31.item3",
+    "es": "Laika cazó una polilla y quedó orgullosa",
+    "en": "Laika caught a moth and looked very proud"
+  },
+  {
+    "ruta": "gratitudes.32.item1",
+    "es": "Aguanté catorce kilómetros",
+    "en": "Held on for fourteen kilometres"
+  },
+  {
+    "ruta": "gratitudes.32.item2",
+    "es": "Mis padres se ofrecieron a cuidar a Laika durante el viaje",
+    "en": "My parents offered to look after Laika during the trip"
+  },
+  {
+    "ruta": "gratitudes.33.item1",
+    "es": "Quincena entera al fondo del viaje",
+    "en": "Whole paycheck straight into the travel fund"
+  },
+  {
+    "ruta": "gratitudes.33.item2",
+    "es": "Diez minutos de meditación sin mirar el reloj",
+    "en": "Ten minutes of meditation without checking the clock"
+  },
+  {
+    "ruta": "gratitudes.33.item3",
+    "es": "Té verde nuevo, el que huele a hierba",
+    "en": "New green tea, the grassy one"
+  },
+  {
+    "ruta": "gratitudes.34.item1",
+    "es": "El médico dijo que no es grave, solo lento",
+    "en": "The doctor said it's not serious, just slow"
+  },
+  {
+    "ruta": "gratitudes.34.item2",
+    "es": "Puedo tocar el piano sin usar la rodilla",
+    "en": "I can play piano without using the knee"
+  },
+  {
+    "ruta": "gratitudes.34.item3",
+    "es": "Laika no se ha movido de mi lado",
+    "en": "Laika hasn't left my side"
+  },
+  {
+    "ruta": "gratitudes.35.item1",
+    "es": "Hielo y sofá también cuentan como plan",
+    "en": "Ice and the couch count as a plan too"
+  },
+  {
+    "ruta": "gratitudes.35.item2",
+    "es": "Terminé un libro que llevaba meses abierto",
+    "en": "Finished a book I'd left open for months"
+  },
+  {
+    "ruta": "gratitudes.36.item1",
+    "es": "Nuri me cambió turnos para estar menos de pie",
+    "en": "Nuri swapped shifts so I'd stand less"
+  },
+  {
+    "ruta": "gratitudes.36.item2",
+    "es": "Media hora de piano me sacó del bucle",
+    "en": "Half an hour of piano pulled me out of the loop"
+  },
+  {
+    "ruta": "gratitudes.36.item3",
+    "es": "La sopa que me subió la vecina",
+    "en": "The soup my neighbour brought up"
+  },
+  {
+    "ruta": "gratitudes.37.item1",
+    "es": "El taller me dejó pagar la reparación por partes",
+    "en": "The garage let me pay for the repair in parts"
+  },
+  {
+    "ruta": "gratitudes.37.item2",
+    "es": "Veinte respiraciones antes de contestar ese correo",
+    "en": "Twenty breaths before answering that email"
+  },
+  {
+    "ruta": "gratitudes.37.item3",
+    "es": "No he tocado el dinero de Japón",
+    "en": "I haven't touched the Japan money"
+  },
+  {
+    "ruta": "gratitudes.38.item1",
+    "es": "Nadar no me duele",
+    "en": "Swimming doesn't hurt"
+  },
+  {
+    "ruta": "gratitudes.38.item2",
+    "es": "Aprendí a decir las fechas en japonés",
+    "en": "Learned how to say dates in Japanese"
+  },
+  {
+    "ruta": "gratitudes.39.item1",
+    "es": "Bajé la escalera sin cojear",
+    "en": "Walked down the stairs without limping"
+  },
+  {
+    "ruta": "gratitudes.39.item2",
+    "es": "Mi madre llamó justo cuando hacía falta",
+    "en": "My mother called at exactly the right moment"
+  },
+  {
+    "ruta": "gratitudes.39.item3",
+    "es": "Café gratis a mitad del turno",
+    "en": "Free coffee halfway through the shift"
+  },
+  {
+    "ruta": "gratitudes.40.item1",
+    "es": "El coche ya rueda y costó menos de lo que temía",
+    "en": "The car runs again and cost less than I feared"
+  },
+  {
+    "ruta": "gratitudes.40.item2",
+    "es": "Dos semanas meditando todos los días",
+    "en": "Two weeks meditating every single day"
+  },
+  {
+    "ruta": "gratitudes.40.item3",
+    "es": "La lluvia me obligó a quedarme a estudiar",
+    "en": "The rain forced me to stay in and study"
+  },
+  {
+    "ruta": "gratitudes.41.item1",
+    "es": "Pasé electromagnetismo raspando, pero pasé",
+    "en": "Scraped through electromagnetism, but I passed"
+  },
+  {
+    "ruta": "gratitudes.41.item2",
+    "es": "Camino cuarenta minutos sin molestias",
+    "en": "Forty minutes of walking with no ache"
+  },
+  {
+    "ruta": "gratitudes.42.item1",
+    "es": "Un cliente habitual preguntó por mi rodilla",
+    "en": "A regular asked how my knee was doing"
+  },
+  {
+    "ruta": "gratitudes.42.item2",
+    "es": "La pieza nueva ya suena a música y no a ejercicio",
+    "en": "The new piece sounds like music now, not an exercise"
+  },
+  {
+    "ruta": "gratitudes.42.item3",
+    "es": "Laika duerme dentro de la caja del teclado",
+    "en": "Laika sleeps inside the keyboard box"
+  },
+  {
+    "ruta": "gratitudes.43.item1",
+    "es": "Primer trote de prueba: cinco minutos, cero dolor",
+    "en": "First test jog: five minutes, zero pain"
+  },
+  {
+    "ruta": "gratitudes.43.item2",
+    "es": "El fisio tiene hueco la semana que viene",
+    "en": "The physio has a slot next week"
+  },
+  {
+    "ruta": "gratitudes.43.item3",
+    "es": "Té con miel a medianoche",
+    "en": "Tea with honey at midnight"
+  },
+  {
+    "ruta": "gratitudes.44.item1",
+    "es": "Escribí el itinerario completo de Japón",
+    "en": "Wrote out the full Japan itinerary"
+  },
+  {
+    "ruta": "gratitudes.44.item2",
+    "es": "Dormí ocho horas de un tirón",
+    "en": "Eight hours of sleep straight through"
+  },
+  {
+    "ruta": "gratitudes.45.item1",
+    "es": "Primera sesión de fisio: ejercicios aburridos pero con un plan claro",
+    "en": "First physio session: dull exercises, but a clear plan"
+  },
+  {
+    "ruta": "gratitudes.45.item2",
+    "es": "Turno tranquilo y propinas decentes",
+    "en": "Quiet shift and decent tips"
+  },
+  {
+    "ruta": "gratitudes.45.item3",
+    "es": "Laika esperando en la ventana",
+    "en": "Laika waiting in the window"
+  },
+  {
+    "ruta": "gratitudes.46.item1",
+    "es": "Diez minutos de trote sin una sola molestia",
+    "en": "Ten minutes of jogging with zero twinges"
+  },
+  {
+    "ruta": "gratitudes.46.item2",
+    "es": "La vecina me prestó una maleta para el viaje",
+    "en": "My neighbour lent me a suitcase for the trip"
+  },
+  {
+    "ruta": "gratitudes.47.item1",
+    "es": "Compré el tren a Hakone",
+    "en": "Booked the train to Hakone"
+  },
+  {
+    "ruta": "gratitudes.47.item2",
+    "es": "Café nuevo de Etiopía en la barra",
+    "en": "New Ethiopian coffee on the bar"
+  },
+  {
+    "ruta": "gratitudes.47.item3",
+    "es": "Dormí de un tirón",
+    "en": "Slept straight through"
+  },
+  {
+    "ruta": "gratitudes.48.item1",
+    "es": "Los ejercicios de fisio ya me salen sin mirar el papel",
+    "en": "I do the physio exercises without checking the sheet now"
+  },
+  {
+    "ruta": "gratitudes.48.item2",
+    "es": "El ahorro de Japón está completo",
+    "en": "The Japan savings are complete"
+  },
+  {
+    "ruta": "gratitudes.48.item3",
+    "es": "Aprendí a pedir en un restaurante en japonés",
+    "en": "Learned how to order in a restaurant in Japanese"
+  },
+  {
+    "ruta": "gratitudes.49.item1",
+    "es": "Veinte minutos corriendo seguidos",
+    "en": "Twenty minutes of running without stopping"
+  },
+  {
+    "ruta": "gratitudes.49.item2",
+    "es": "Buena nota en el informe del laboratorio",
+    "en": "Good mark on the lab report"
+  },
+  {
+    "ruta": "gratitudes.49.item3",
+    "es": "Mi hermana me mandó adaptadores de enchufe",
+    "en": "My sister sent me plug adapters"
+  },
+  {
+    "ruta": "gratitudes.50.item1",
+    "es": "El fisio dice que la rodilla llega bien al viaje",
+    "en": "Physio says the knee will hold up for the trip"
+  },
+  {
+    "ruta": "gratitudes.50.item2",
+    "es": "Ya sé decir sin carne, por favor",
+    "en": "I can say no meat, please"
+  },
+  {
+    "ruta": "gratitudes.51.item1",
+    "es": "Turno doble con propinas buenas",
+    "en": "Double shift with good tips"
+  },
+  {
+    "ruta": "gratitudes.51.item2",
+    "es": "Mapas offline descargados y itinerario repasado",
+    "en": "Offline maps downloaded, itinerary checked twice"
+  },
+  {
+    "ruta": "gratitudes.51.item3",
+    "es": "Laika metida en la maleta abierta",
+    "en": "Laika sitting inside the open suitcase"
+  },
+  {
+    "ruta": "gratitudes.52.item1",
+    "es": "Entregué el proyecto del semestre antes de irme",
+    "en": "Handed in the semester project before leaving"
+  },
+  {
+    "ruta": "gratitudes.52.item2",
+    "es": "Entendí un podcast entero en inglés",
+    "en": "Understood a whole podcast in Spanish"
+  },
+  {
+    "ruta": "gratitudes.52.item3",
+    "es": "Té verde con Nico después del turno",
+    "en": "Green tea with Nico after the shift"
+  },
+  {
+    "ruta": "gratitudes.53.item1",
+    "es": "Todo cabe en una mochila",
+    "en": "Everything fits in one backpack"
+  },
+  {
+    "ruta": "gratitudes.53.item2",
+    "es": "Nico se queda con Laika tres semanas",
+    "en": "Nico is keeping Laika for three weeks"
+  },
+  {
+    "ruta": "gratitudes.53.item3",
+    "es": "Nervios de los buenos",
+    "en": "The good kind of nerves"
+  },
+  {
+    "ruta": "gratitudes.54.item1",
+    "es": "Volví con la libreta llena de días",
+    "en": "Came home with a notebook full of days"
+  },
+  {
+    "ruta": "gratitudes.54.item2",
+    "es": "Laika me riñó media hora y luego se durmió encima",
+    "en": "Laika told me off for half an hour, then slept on me"
+  },
+  {
+    "ruta": "gratitudes.54.item3",
+    "es": "Mi cama",
+    "en": "My own bed"
+  },
+  {
+    "ruta": "gratitudes.55.item1",
+    "es": "Deshice la maleta sin prisa",
+    "en": "Unpacked slowly, no rush"
+  },
+  {
+    "ruta": "gratitudes.55.item2",
+    "es": "El café de mi cafetería sabe distinto y me gusta",
+    "en": "Coffee at my own shop tastes different and I like it"
+  },
+  {
+    "ruta": "gratitudes.55.item3",
+    "es": "Las fotos del Fuji salieron nítidas",
+    "en": "The Fuji photos came out sharp"
+  },
+  {
+    "ruta": "gratitudes.56.item1",
+    "es": "Primer día del plan de medio maratón",
+    "en": "First day of the half marathon plan"
+  },
+  {
+    "ruta": "gratitudes.56.item2",
+    "es": "Volví a la esterilla como si no hubiera pasado un mes",
+    "en": "Back on the mat like no month had passed"
+  },
+  {
+    "ruta": "gratitudes.56.item3",
+    "es": "Fideos hechos en casa con lo aprendido allí",
+    "en": "Homemade noodles with what I learned over there"
+  },
+  {
+    "ruta": "gratitudes.57.item1",
+    "es": "El cuaderno de gastos al día otra vez",
+    "en": "Expense notebook up to date again"
+  },
+  {
+    "ruta": "gratitudes.57.item2",
+    "es": "Ocho horas de sueño",
+    "en": "Eight hours of sleep"
+  },
+  {
+    "ruta": "gratitudes.57.item3",
+    "es": "Nico mantuvo viva la planta",
+    "en": "Nico kept the plant alive"
+  },
+  {
+    "ruta": "gratitudes.58.item1",
+    "es": "Primera sección de Clair de Lune aprendida",
+    "en": "First section of Clair de Lune learned"
+  },
+  {
+    "ruta": "gratitudes.58.item2",
+    "es": "Turno con buena música y clientes amables",
+    "en": "Good music and kind customers on shift"
+  },
+  {
+    "ruta": "gratitudes.59.item1",
+    "es": "12K sin parar",
+    "en": "12K without stopping"
+  },
+  {
+    "ruta": "gratitudes.59.item2",
+    "es": "La rodilla aguanta y no protesta al día siguiente",
+    "en": "The knee holds and doesn't complain the day after"
+  },
+  {
+    "ruta": "gratitudes.59.item3",
+    "es": "Sopa de miso hecha en casa",
+    "en": "Homemade miso soup"
+  },
+  {
+    "ruta": "gratitudes.60.item1",
+    "es": "La balanza marcó 69",
+    "en": "Scale said 69"
+  },
+  {
+    "ruta": "gratitudes.60.item2",
+    "es": "Un cliente me pidió recomendación de té y acerté",
+    "en": "A customer asked for a tea recommendation and I nailed it"
+  },
+  {
+    "ruta": "gratitudes.60.item3",
+    "es": "Cielo despejado para fotografiar la luna",
+    "en": "Clear sky for shooting the moon"
+  },
+  {
+    "ruta": "gratitudes.61.item1",
+    "es": "Primer ingreso al fondo de emergencia",
+    "en": "First deposit into the emergency fund"
+  },
+  {
+    "ruta": "gratitudes.61.item2",
+    "es": "Vuelta a las tarjetas de inglés después del parón",
+    "en": "Back to the language flashcards after the break"
+  },
+  {
+    "ruta": "gratitudes.61.item3",
+    "es": "Manta nueva de la tienda de segunda mano",
+    "en": "A new blanket from the second-hand shop"
+  },
+  {
+    "ruta": "gratitudes.62.item1",
+    "es": "Aprobé el examen de laboratorio",
+    "en": "Passed the lab exam"
+  },
+  {
+    "ruta": "gratitudes.62.item2",
+    "es": "Videollamada larga con mi madre",
+    "en": "Long video call with my mother"
+  },
+  {
+    "ruta": "gratitudes.62.item3",
+    "es": "Laika otra vez sentada en el teclado",
+    "en": "Laika on the keyboard again"
+  },
+  {
+    "ruta": "gratitudes.63.item1",
+    "es": "Corrí bajo la lluvia y no lo odié",
+    "en": "Ran in the rain and didn't hate it"
+  },
+  {
+    "ruta": "gratitudes.63.item2",
+    "es": "Pan caliente del horno de la esquina",
+    "en": "Warm bread from the bakery on the corner"
+  },
+  {
+    "ruta": "gratitudes.64.item1",
+    "es": "Segunda sección de Clair de Lune",
+    "en": "Second section of Clair de Lune"
+  },
+  {
+    "ruta": "gratitudes.64.item2",
+    "es": "Ocho meses seguidos de tarjetas de idioma",
+    "en": "Eight straight months of language cards"
+  },
+  {
+    "ruta": "gratitudes.64.item3",
+    "es": "Un oolong nuevo que costó lo justo",
+    "en": "A new oolong that cost about right"
+  },
+  {
+    "ruta": "gratitudes.65.item1",
+    "es": "18K, la tirada más larga del plan",
+    "en": "18K, longest run of the plan"
+  },
+  {
+    "ruta": "gratitudes.65.item2",
+    "es": "Las propinas del mes pagan las zapatillas",
+    "en": "This month's tips cover the shoes"
+  },
+  {
+    "ruta": "gratitudes.65.item3",
+    "es": "Ducha caliente y silencio",
+    "en": "Hot shower and silence"
+  },
+  {
+    "ruta": "gratitudes.66.item1",
+    "es": "Zapatillas nuevas estrenadas",
+    "en": "Broke in the new shoes"
+  },
+  {
+    "ruta": "gratitudes.66.item2",
+    "es": "El parcial salió mejor de lo que esperaba",
+    "en": "The midterm went better than expected"
+  },
+  {
+    "ruta": "gratitudes.66.item3",
+    "es": "Laika durmiendo a mis pies",
+    "en": "Laika asleep on my feet"
+  },
+  {
+    "ruta": "gratitudes.67.item1",
+    "es": "El diagrama de posgrado o trabajo por fin en papel",
+    "en": "The grad school or job diagram finally on paper"
+  },
+  {
+    "ruta": "gratitudes.67.item2",
+    "es": "Una profesora me contó cómo fueron sus años en el laboratorio",
+    "en": "A professor told me what her lab years were actually like"
+  },
+  {
+    "ruta": "gratitudes.68.item1",
+    "es": "Día de descanso sin sentir culpa",
+    "en": "Rest day without guilt"
+  },
+  {
+    "ruta": "gratitudes.68.item2",
+    "es": "Ciencia ficción en el cine barato de los martes",
+    "en": "Science fiction at the cheap Tuesday screening"
+  },
+  {
+    "ruta": "gratitudes.68.item3",
+    "es": "Café con Nico sin mirar el reloj",
+    "en": "Coffee with Nico and no clock-watching"
+  },
+  {
+    "ruta": "gratitudes.69.item1",
+    "es": "Semana de bajada: las piernas se notan frescas",
+    "en": "Taper week: legs feel fresh"
+  },
+  {
+    "ruta": "gratitudes.69.item2",
+    "es": "Tres noches buenas seguidas",
+    "en": "Three good nights in a row"
+  },
+  {
+    "ruta": "gratitudes.69.item3",
+    "es": "Recogí el dorsal sin colas",
+    "en": "Picked up my race number with no queue"
+  },
+  {
+    "ruta": "gratitudes.70.item1",
+    "es": "Dorsal, geles y alarma listos para mañana",
+    "en": "Bib, gels and alarm ready for tomorrow"
+  },
+  {
+    "ruta": "gratitudes.70.item2",
+    "es": "Nico dice que estará en la meta",
+    "en": "Nico says they'll be at the finish line"
+  },
+  {
+    "ruta": "gratitudes.71.item1",
+    "es": "21K terminados en 2h04",
+    "en": "21K done in 2h04"
+  },
+  {
+    "ruta": "gratitudes.71.item2",
+    "es": "Hoy camino sin cojear",
+    "en": "Walking without a limp today"
+  },
+  {
+    "ruta": "gratitudes.71.item3",
+    "es": "Desayuno enorme y merecido",
+    "en": "A huge, earned breakfast"
+  },
+  {
+    "ruta": "gratitudes.72.item2",
+    "es": "Volver al piano con las manos cansadas y que suene igual",
+    "en": "Back at the piano with tired hands and it still sounds right"
+  },
+  {
+    "ruta": "gratitudes.72.item3",
+    "es": "Un compañero me cubrió el turno del domingo",
+    "en": "A coworker covered my Sunday shift"
+  },
+  {
+    "ruta": "gratitudes.73.item1",
+    "es": "Decidí presentarme al posgrado sin cerrarme a trabajar",
+    "en": "Decided to apply for grad school without ruling out work"
+  },
+  {
+    "ruta": "gratitudes.73.item2",
+    "es": "Carta de motivación empezada",
+    "en": "Statement of purpose started"
+  },
+  {
+    "ruta": "gratitudes.73.item3",
+    "es": "Mirar la lluvia desde dentro",
+    "en": "Watching the rain from inside"
+  },
+  {
+    "ruta": "gratitudes.74.item1",
+    "es": "Primer entrenamiento pensando ya en el maratón",
+    "en": "First run with the marathon actually in my head"
+  },
+  {
+    "ruta": "gratitudes.74.item2",
+    "es": "Hablé cinco minutos en inglés sin trabarme",
+    "en": "Spoke five minutes in Spanish without stumbling"
+  },
+  {
+    "ruta": "gratitudes.75.item1",
+    "es": "El coche pasó la revisión",
+    "en": "The car passed its inspection"
+  },
+  {
+    "ruta": "gratitudes.75.item2",
+    "es": "Una foto de Orión que se puede enseñar",
+    "en": "An Orion shot I'd actually show someone"
+  },
+  {
+    "ruta": "gratitudes.75.item3",
+    "es": "Laika ronroneando encima del portátil",
+    "en": "Laika purring on the laptop"
+  },
+  {
+    "ruta": "gratitudes.76.item1",
+    "es": "Turno flojo y veinte páginas leídas detrás de la barra",
+    "en": "Slow shift, twenty pages read behind the bar"
+  },
+  {
+    "ruta": "gratitudes.76.item2",
+    "es": "Clair de Lune de memoria hasta el compás 40",
+    "en": "Clair de Lune from memory up to bar 40"
+  },
+  {
+    "ruta": "gratitudes.76.item3",
+    "es": "Guiso que dio para tres días",
+    "en": "A stew that lasted three days"
+  },
+  {
+    "ruta": "gratitudes.77.item1",
+    "es": "32K: el entrenamiento más largo de mi vida",
+    "en": "32K: longest run of my life"
+  },
+  {
+    "ruta": "gratitudes.77.item2",
+    "es": "Comí como un caballo y sin remordimiento",
+    "en": "Ate like a horse and felt fine about it"
+  },
+  {
+    "ruta": "gratitudes.77.item3",
+    "es": "Piernas en agua fría mientras sonaba el piano de alguien",
+    "en": "Legs in cold water while someone's piano played next door"
+  },
+  {
+    "ruta": "gratitudes.78.item1",
+    "es": "Hoy no me duele nada",
+    "en": "Nothing hurts today"
+  },
+  {
+    "ruta": "gratitudes.78.item2",
+    "es": "El ahorro del mes intacto",
+    "en": "This month's savings untouched"
+  },
+  {
+    "ruta": "gratitudes.78.item3",
+    "es": "Mi padre me escribió para preguntar por la carrera",
+    "en": "My dad texted to ask about the race"
+  },
+  {
+    "ruta": "gratitudes.79.item1",
+    "es": "Toqué Clair de Lune entera, con errores pero entera",
+    "en": "Played Clair de Lune all the way through, mistakes and all"
+  },
+  {
+    "ruta": "gratitudes.79.item2",
+    "es": "Té con jengibre en un día gris",
+    "en": "Ginger tea on a grey day"
+  },
+  {
+    "ruta": "gratitudes.80.item1",
+    "es": "Semana de bajada: dormir más y correr menos",
+    "en": "Taper week: more sleeping, less running"
+  },
+  {
+    "ruta": "gratitudes.80.item2",
+    "es": "Mi familia compró los billetes para venir",
+    "en": "My family booked tickets to come"
+  },
+  {
+    "ruta": "gratitudes.80.item3",
+    "es": "Los apuntes del semestre al día",
+    "en": "Semester notes finally caught up"
+  },
+  {
+    "ruta": "gratitudes.81.item1",
+    "es": "Dejé la ropa del maratón preparada en la silla",
+    "en": "Laid out the marathon kit on the chair"
+  },
+  {
+    "ruta": "gratitudes.81.item2",
+    "es": "Nervios que ya sé respirar",
+    "en": "Nerves I now know how to breathe through"
+  },
+  {
+    "ruta": "gratitudes.81.item3",
+    "es": "Pasta con demasiado queso",
+    "en": "Pasta with far too much cheese"
+  },
+  {
+    "ruta": "gratitudes.82.item1",
+    "es": "Maratón terminado en 4h12",
+    "en": "Marathon finished in 4h12"
+  },
+  {
+    "ruta": "gratitudes.82.item2",
+    "es": "Mi familia gritando en el kilómetro 35",
+    "en": "My family shouting at kilometre 35"
+  },
+  {
+    "ruta": "gratitudes.82.item3",
+    "es": "La medalla encima de la mesa de la cocina",
+    "en": "The medal sitting on the kitchen table"
+  },
+  {
+    "ruta": "gratitudes.83.item1",
+    "es": "Descubrí que bajar escaleras de espaldas también vale",
+    "en": "Learned that walking down stairs backwards is a valid technique"
+  },
+  {
+    "ruta": "gratitudes.83.item2",
+    "es": "Volví a la barra y todos preguntaron por la carrera",
+    "en": "Back behind the bar and everyone asked about the race"
+  },
+  {
+    "ruta": "gratitudes.83.item3",
+    "es": "Doce horas de sueño",
+    "en": "Twelve hours of sleep"
+  },
+  {
+    "ruta": "gratitudes.84.item1",
+    "es": "Caminata larga sin dolor",
+    "en": "Long walk with no pain"
+  },
+  {
+    "ruta": "gratitudes.84.item2",
+    "es": "Retomé el piano pensando en la familia",
+    "en": "Back to the piano with my family in mind"
+  },
+  {
+    "ruta": "gratitudes.85.item1",
+    "es": "Toqué Clair de Lune entera para mi familia",
+    "en": "Played all of Clair de Lune for my family"
+  },
+  {
+    "ruta": "gratitudes.85.item2",
+    "es": "Mi abuela lloró y yo casi",
+    "en": "My grandmother cried and I nearly did"
+  },
+  {
+    "ruta": "gratitudes.85.item3",
+    "es": "Mi hermana lo grabó todo",
+    "en": "My sister filmed the whole thing"
+  },
+  {
+    "ruta": "gratitudes.86.item1",
+    "es": "67 kg, un año después de los 74",
+    "en": "67 kg, a year after 74"
+  },
+  {
+    "ruta": "gratitudes.86.item2",
+    "es": "El fondo de emergencia cubre ya tres semanas",
+    "en": "The emergency fund covers three weeks now"
+  },
+  {
+    "ruta": "gratitudes.86.item3",
+    "es": "Empecé a mirar vuelos a Corea",
+    "en": "Started looking at flights to Korea"
+  },
+  {
+    "ruta": "gratitudes.87.item1",
+    "es": "Un año registrando sin abandonar",
+    "en": "A whole year of tracking without quitting"
+  },
+  {
+    "ruta": "gratitudes.87.item2",
+    "es": "La libreta llena de cosas pequeñas que sí pasaron",
+    "en": "A notebook full of small things that actually happened"
+  }
+]

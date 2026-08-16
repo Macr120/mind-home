@@ -1,0 +1,138 @@
+[
+  {
+    "clave": "tut.app-despacho--calculadoras.3.texto",
+    "texto": "ワンタップで、その結果が本物の貯蓄目標になります。スケジュールに下ろして日付をつけられる状態です。（デモでは押さないでください。本当に目標ができてしまいます。）"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.titulo",
+    "texto": "急ぎの用はある？"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.texto",
+    "texto": "信号はひとつだけ。ふたつのリストを読まずにすみます。期限切れがあれば赤、近づいていれば黄、ガレージが落ち着いていれば緑です。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.titulo",
+    "texto": "これまでの出費"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.texto",
+    "texto": "車両の数、進行中の手続きの数、そして今年これまでの出費です。Pepにとって、車は高くつきました。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.titulo",
+    "texto": "毎日の自転車"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.texto",
+    "texto": "Pepの本当の足です。チェーン、チューブ、ブレーキが、ひとつずつ別の行に——ほかのアプリと同じ、年と月のフォルダの整理棚です。ここ数か月、整備が固まっているのに気づきましたか。マラソンの練習のつけが回ってきたのです。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.titulo",
+    "texto": "そして、譲り受けた車"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.texto",
+    "texto": "7か月目の故障がこれです。路上で立ち往生し、レッカーを呼び、手元になかった1万ペソ近くが飛びました。整備はどれも、費用と走行距離、どの整備工場だったかを残します。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.titulo",
+    "texto": "カルテ"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.texto",
+    "texto": "メーカー、モデル、年式、ナンバー、そして最新の走行距離。ナンバーを入れておくと、車にしか関係のない手続きをガレージが出してくれます。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.titulo",
+    "texto": "これから来るもの"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.texto",
+    "texto": "手続きはそれぞれ、次の期限、何か月ごとに繰り返すか、いくらかかるかを持っています。終わりにすると、日付は自動で次へ進みます。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.titulo",
+    "texto": "自転車に自動車税はない"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.texto",
+    "texto": "ナンバーがなければ、関係のない手続きはガレージが隠します。自転車には、定期点検だけを出します。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.titulo",
+    "texto": "連絡先の手帳"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.texto",
+    "texto": "行きつけの整備工場、保険会社、車検場、近所の自転車屋、そしてあの夜のレッカー会社——電話番号と住所が、ワンタップで出ます。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.4.texto",
+    "texto": "これらの手続きは、家のカレンダーにも事前のお知らせつきで入ります。ひとつ注意を。マップで乗り回す乗り物は別ものです。あちらは「インベントリ」にいます。"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.titulo",
+    "texto": "どこへ行ったか"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.texto",
+    "texto": "4つの国と、いくつもの都市。ほとんどが同じ1回の旅です。3つの数字のどれかに触れると、マップの下に一覧が出ます。"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.titulo",
+    "texto": "ピン"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.texto",
+    "texto": "日本に固まっている7本のピンが、3週間の旅です。オレンジのピン——ソウル、パタゴニア、アイスランド——は、まだこれからの場所。マップに触れば、好きなところに新しいピンを立てられます。"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.titulo",
+    "texto": "アルバム"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.texto",
+    "texto": "国ごとにフォルダがひとつ、カバー写真つきで。中には場所ごとのカードがあり、そのまた中に、Pepがその日に書いたものが入っています。"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.titulo",
+    "texto": "向こうで書いたこと"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.texto",
+    "texto": "旅の記録が8つ、それぞれ写真つきです。夜明けの富士山、嵐山の竹林、奈良の鹿。その場で、においがまだ残っているうちに書いたものです。"
+  },
+  {
+    "clave": "tut.app-sala--japon.3.texto",
+    "texto": "場所を開くと「旅程」ボタンがあり、押すと旅のシートが出ます。日ごとに、どこからどこへ、どこに泊まり、どう移動し、いくらかかったか。"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.titulo",
+    "texto": "まだのもの"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.texto",
+    "texto": "書きとめた夢が3つ。ソウルはもう日付とプランがあり、パタゴニアとアイスランドはまだ思いつきのままです。日付があるものは、カレンダーに出てきます。"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.titulo",
+    "texto": "シートから目標へ"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.texto",
+    "texto": "韓国の8日間を足すと、旅にかかる金額が出ます。その合計は書斎に貯蓄目標として保存されます。あちらで増えるのを見るのは、こちらで旅が近づくのを見ることです。"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.titulo",
+    "texto": "ルート"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.texto",
+    "texto": "ルートは場所を順につないで、マップに線を描きます。日本のルートはもう歩いた道のり、韓国のルートはこれから歩きたい道のりです。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.titulo",
+    "texto": "30作品、1年"
+  }
+]

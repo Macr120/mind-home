@@ -1,0 +1,292 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "es": "Bici de acero de segunda mano, gris y ruidosa, con la que hago turnos, laboratorio y entrenamientos todos los días. En un año no me ha dejado a pie ni una vez.",
+    "en": "Secondhand steel bike, grey and a little noisy, that gets me to shifts, labs and training runs every single day. In a whole year it has never left me stranded."
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "es": "Sedán heredado de mi tío, más viejo que yo y con el tablero decolorado por el sol. Lo prendo una vez cada quince días y me cobra cada olvido con intereses.",
+    "en": "A sedan I inherited from my uncle, older than me, with a dashboard bleached by the sun. I start it maybe twice a month and it charges me interest on every neglected thing."
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "es": "Rescate del sótano",
+    "en": "Rescued from the storage room"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "es": "La bajé del sótano con las llantas ponchadas y la cadena hecha una costra; media tarde de trapo, aire y aceite para que volviera a rodar.",
+    "en": "Both tires flat and the chain crusted solid; one afternoon of rags, air and oil and it rolled again."
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "es": "Aceite muy atrasado",
+    "en": "Very overdue oil change"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "es": "Salió negro como café frío y el mecánico solo levantó las cejas, que es su forma de regañarme.",
+    "en": "The oil came out black as cold coffee and the mechanic just raised his eyebrows, which is how he tells me off."
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "es": "Cámara nueva y parche",
+    "en": "New tube, first patch"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "es": "Poncha en Doctor Vértiz camino al café; aprendí a cambiar cámara en la banqueta, tarde pero aprendí.",
+    "en": "Flat on Doctor Vertiz on my way to the cafe; I learned to swap a tube on the sidewalk, late in life but I learned."
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "es": "Batería nueva",
+    "en": "New battery"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "es": "De tanto no usarlo se murió sola; pedí pasar corriente a un vecino y de ahí directo a comprar batería.",
+    "en": "It died from sitting unused, so after begging a neighbor for a jump I drove straight to buy a battery."
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "es": "Cadena limpia por fin",
+    "en": "Chain finally clean"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "es": "Desengrasé y lubriqué con calma un domingo: dejó de sonar como bisagra vieja y hasta pedaleo más ligero.",
+    "en": "Degreased and lubed it properly on a Sunday: it stopped sounding like a rusty hinge and the pedaling feels lighter."
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "es": "Balatas delanteras",
+    "en": "Front brake pads"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "es": "Chillaban en cada alto y ya no era cuestión de ignorarlas; me comieron la quincena pero dormí tranquil@.",
+    "en": "They squealed at every light and I couldn't pretend otherwise; it ate half a paycheck but I slept better."
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "es": "Zapatas nuevas",
+    "en": "New brake pads"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "es": "Con las lluvias frenaba dos metros después de lo que quería, así que cambié zapatas y ajusté cables.",
+    "en": "With the rain I was stopping two meters later than I wanted, so new pads and a cable adjustment."
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "es": "Ponchadura camino al lab",
+    "en": "Flat on the way in"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "es": "Un vidrio en Eje 8 y llegué empujando la bici veinte minutos tarde al laboratorio.",
+    "en": "Glass on Eje 8 and I pushed the bike the last stretch, twenty minutes late to the lab."
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "es": "Tirado en Calzada de Tlalpan",
+    "en": "Stranded on Calzada de Tlalpan"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "es": "El coche se apagó en plena avenida un martes en la noche y estuve hora y media sentad@ en la banqueta esperando la grúa, sacando cuentas de un dinero que no tenía; ahí fue cuando el mes entero se me vino encima.",
+    "en": "The car cut out in the middle of the avenue on a Tuesday night and I sat on the curb for an hour and a half waiting for the tow, doing math on money I didn't have; that was the moment the whole month landed on me."
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "es": "Afinación completa",
+    "en": "Full tune-up"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "es": "Con la rodilla en fisioterapia no podía correr, así que le dediqué el tiempo a la bici: ruedas centradas, cables y todo apretado.",
+    "en": "With my knee in physio I couldn't run, so I gave the time to the bike: wheels trued, cables replaced, everything tightened."
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "es": "Filtros después del susto",
+    "en": "Filters after the scare"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "es": "Cambié filtro de aire y de gasolina por pura paranoia; prefiero pagar esto a volver a esperar una grúa.",
+    "en": "Air and fuel filter out of pure paranoia; I'd rather pay this than wait for another tow truck."
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "es": "Cadena estirada, cambio",
+    "en": "Stretched chain replaced"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "es": "Con el plan de medio maratón la uso todos los días y la cadena ya patinaba al arrancar.",
+    "en": "With the half marathon plan I ride every day and the chain was slipping whenever I pushed off."
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "es": "Cassette y cables nuevos",
+    "en": "New cassette and cables"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "es": "Los cambios se saltaban en subida; con cassette nuevo por fin puedo confiar en el plato chico.",
+    "en": "The gears skipped on every climb; with a new cassette I can finally trust the small ring."
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "es": "Aceite y revisión general",
+    "en": "Oil and full check"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "es": "Servicio normal y sin sorpresas, que con este coche ya cuenta como buena noticia.",
+    "en": "Routine service and no surprises, which with this car already counts as good news."
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "es": "Frenos antes del maratón",
+    "en": "Brakes before the marathon"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "es": "Ajuste rápido porque en esas semanas la bici era mi único transporte y no quería ningún pretexto.",
+    "en": "Quick adjustment because in those weeks the bike was my only transport and I wanted zero excuses."
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "es": "Lavado antes de la familia",
+    "en": "Wash before family visit"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "es": "Lo lavé y aspiré para ir por mi familia a la central: no arregla nada mecánico, pero se siente distinto.",
+    "en": "Washed and vacuumed it to pick up my family at the bus terminal; it fixes nothing mechanical, but it feels different."
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "es": "Taller Mecánico Rivas",
+    "en": "Taller Mecanico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "es": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez",
+    "en": "Av. Cuauhtemoc 812, Col. Narvarte, Benito Juarez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "es": "Don Rivas me explica qué sí urge y qué puede esperar, y nunca me ha inflado una factura; es el único al que le creo con este coche.",
+    "en": "Mr. Rivas tells me what's urgent and what can wait, and has never padded a bill; he's the only person I trust with this car."
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "es": "Seguros Meridiano - agente Nadia Ortega",
+    "en": "Seguros Meridiano - agent Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "es": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle",
+    "en": "Av. Insurgentes Sur 1234, 3rd floor, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "es": "Nadia contesta el WhatsApp aunque sea domingo y me armó pagos mensuales cuando subí a cobertura amplia.",
+    "en": "Nadia answers messages even on Sundays and set up monthly payments when I upgraded to full coverage."
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "es": "Verificentro 09-118 Iztaccíhuatl",
+    "en": "Emissions Center 09-118 Iztaccihuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "es": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez",
+    "en": "Calz. Iztaccihuatl 240, Col. Iztaccihuatl, Benito Juarez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "es": "Cita a las siete de la mañana y salgo en cuarenta minutos; el de Coyoacán me costó media mañana de fila.",
+    "en": "Seven in the morning appointment and I'm out in forty minutes; the Coyoacan one cost me half a morning in line."
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "es": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc",
+    "en": "Zacatecas 145, Col. Roma Sur, Cuauhtemoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "es": "Ahí compré la bici y ahí la afino; me prestan herramienta y me enseñan a hacerlo yo en vez de cobrarme por todo.",
+    "en": "I bought the bike there and I get it tuned there; they lend me tools and teach me instead of charging me for everything."
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "es": "Grúas Tepeyac 24 horas",
+    "en": "Gruas Tepeyac 24 hours"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "es": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos",
+    "en": "Base at Eje Central Lazaro Cardenas 1105, Col. Alamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "es": "Es el número que marqué la noche que me quedé tirad@; llegaron en hora y media y no me quisieron ver la cara con el precio.",
+    "en": "This is the number I called the night I got stranded; they showed up in ninety minutes and didn't gouge me on the price."
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "es": "Verificación semestral",
+    "en": "Semiannual emissions test"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "es": "Me toca según el engomado y siempre saco cita la primera semana: si se me pasa, la multa duele más que el trámite.",
+    "en": "It falls on my sticker's window and I always book the first week; the fine hurts far more than the test itself."
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "es": "Renovación de póliza",
+    "en": "Insurance renewal"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "es": "Este año pasé a cobertura amplia con Nadia después del susto de la avería; pago en mensualidades y lo pongo en el presupuesto de la quincena.",
+    "en": "I moved up to full coverage with Nadia after the breakdown scare; monthly payments, budgeted right into each paycheck."
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "es": "Tenencia y refrendo anual",
+    "en": "Annual vehicle tax"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "es": "Lo pago en los primeros meses del año para alcanzar el subsidio y quitarme el pendiente de encima.",
+    "en": "I pay it early in the year to catch the subsidy and get it off my head."
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "es": "Cambio de propietario y tarjeta",
+    "en": "Title transfer and registration"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "es": "La tarjeta sigue a nombre de mi tío y ya toca regularizarlo antes de que me cause un problema en algún alto.",
+    "en": "The registration is still in my uncle's name and I need to sort it out before it turns into trouble at some checkpoint."
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "es": "Afinación de la bici",
+    "en": "Bike tune-up"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "es": "Cada seis meses en Ciclos Malinche: centrado de ruedas, cables y frenos, que sale mucho más barato que arreglar una rueda torcida.",
+    "en": "Every six months at Ciclos Malinche: wheels trued, cables and brakes checked, way cheaper than fixing a bent rim."
+  }
+]

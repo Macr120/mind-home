@@ -1,0 +1,130 @@
+[
+ {
+  "clave": "tut.app-biblioteca--charlas.2.texto2",
+  "texto": "最初の返信で、会話はすでに枝に収められ、エントリーとして書き残されます。そのエントリーから枝分かれさせられます。気になったサブトピックが新しい枝になります。"
+ },
+ {
+  "clave": "tut.app-biblioteca--estudio.titulo",
+  "texto": "勉強と計画"
+ },
+ {
+  "clave": "tut.app-biblioteca--estudio.resumen",
+  "texto": "タイマーは、一気に勉強したかポモドーロ方式で区切ったかを記録し、学習プランがカレンダーに目標を振り分けます。"
+ },
+ {
+  "clave": "tut.app-biblioteca--estudio.1b.titulo",
+  "texto": "勉強の時計"
+ },
+ {
+  "clave": "tut.app-biblioteca--estudio.1b.texto",
+  "texto": "分野を選んで開始します。「シンプル」では時間を一気に計り、「ポモドーロ」では集中と休憩を交互に繰り返します。各区切りは自動で記録され、時計は部屋を離れても動き続けます。"
+ },
+ {
+  "clave": "tut.app-biblioteca--resumen.titulo",
+  "texto": "1年の全体像"
+ },
+ {
+  "clave": "tut.app-biblioteca--resumen.resumen",
+  "texto": "「概要」は、ほかの3つのタブに散らばっている情報を1画面にまとめます。分野ごとのエントリー数、学習時間、そして学習した日です。"
+ },
+ {
+  "clave": "tut.app-idiomas--repaso.titulo",
+  "texto": "毎日の復習"
+ },
+ {
+  "clave": "tut.app-idiomas--repaso.resumen",
+  "texto": "カードは復習ボックスごとに管理されます。正解すると次の復習日が先に延び、間違えると近くなります。アプリが出すのは今日が期限のカードだけです。"
+ },
+ {
+  "clave": "tut.app-idiomas--repaso.2b.titulo",
+  "texto": "カードではなく問題"
+ },
+ {
+  "clave": "tut.app-idiomas--repaso.2b.texto",
+  "texto": "復習は答える形で行います。選択式、逆方向、例文の穴埋めです。上部では、ラウンドに何を含めるか選べます——今日の分、すべての語彙、あるいはシラバスの特定のテーマです。"
+ },
+ {
+  "clave": "tut.app-idiomas--vocabulario.titulo",
+  "texto": "語彙"
+ },
+ {
+  "clave": "tut.app-idiomas--vocabulario.resumen2",
+  "texto": "カードはシラバスの中に組み込まれています。テーマを開くとそのカードが現れ、音声、画像、復習ボックスまでそろっています。"
+ },
+ {
+  "clave": "tut.app-idiomas--vocabulario.1.titulo2",
+  "texto": "単語はそれぞれのテーマに"
+ },
+ {
+  "clave": "tut.app-idiomas--vocabulario.1.texto2",
+  "texto": "テーマを開くとそのカードが表示されます。タップすると音読され、サムネイルをタップするとイラストが開き、鉛筆マークで編集できます。Pepさんの最初のカードはA2(買い物、道案内)で、最新のものはすでにB1です。"
+ },
+ {
+  "clave": "tut.app-idiomas--vocabulario.3.texto2",
+  "texto": "カードはテーマの中に手動で追加できるほか、先生との会話から生まれたり、AIが提案したりします。行き場のないものは「未分類」に入り、そこから該当するテーマへ振り分けられます。"
+ },
+ {
+  "clave": "tut.app-idiomas--temario.titulo",
+  "texto": "シラバスとプラン"
+ },
+ {
+  "clave": "tut.app-idiomas--temario.resumen",
+  "texto": "シラバスは言語を「テーマ」「発音」「文法」の3分野に分け、初級から最上級までのレベル別に整理します。進捗ではこれまでの歩みがひと目でわかります。"
+ },
+ {
+  "clave": "tut.app-idiomas--temario.3.texto2",
+  "texto": "テーマの中には自分の教材も保存できます——メモ、ホテルで使うフレーズ、ノートの写真など。✏️で自分仕様にでき(テーマの追加、名前の変更、並べ替え、削除)、目標日を決めて学習プランを依頼することもできます。"
+ },
+ {
+  "clave": "tut.app-agenda--trabajo.titulo",
+  "texto": "仕事と勉強"
+ },
+ {
+  "clave": "tut.app-agenda--trabajo.resumen",
+  "texto": "期限のないタスクをためる受信箱と、カードを列ごとにドラッグするボードです。"
+ },
+ {
+  "clave": "tut.app-agenda--salud.titulo",
+  "texto": "健康とペット"
+ },
+ {
+  "clave": "tut.app-agenda--salud.resumen",
+  "texto": "通院の予約、時間が決まった服薬、そしてペットのお世話まで——すべて自動的にカレンダーへ登録されます。"
+ },
+ {
+  "clave": "tut.app-agenda--personas.titulo",
+  "texto": "人間関係"
+ },
+ {
+  "clave": "tut.app-agenda--personas.resumen",
+  "texto": "間柄ごとに整理された連絡先リストです。誕生日は毎年自動でカレンダーに繰り返し登録されます。"
+ },
+ {
+  "clave": "tut.app-ejercicio--anio.titulo",
+  "texto": "Pepさんが走れるようになった1年"
+ },
+ {
+  "clave": "tut.app-ejercicio--anio.resumen",
+  "texto": "運動では筋力、持久力、可動域が1か所にまとまります。記録するセッションはすべて、連続記録や週間目標、年間の履歴に反映されます。"
+ },
+ {
+  "clave": "tut.app-ejercicio--carrera.titulo",
+  "texto": "ゼロから42キロへ"
+ },
+ {
+  "clave": "tut.app-ejercicio--carrera.resumen",
+  "texto": "「持久力」タブには、走るたびの距離、ペース、コースが記録されます。進捗ではその月をヒートマップにまとめ、自己ベストを算出します。"
+ },
+ {
+  "clave": "tut.app-ejercicio--fuerza.titulo",
+  "texto": "膝が奪えなかった筋力"
+ },
+ {
+  "clave": "tut.app-ejercicio--fuerza.resumen",
+  "texto": "「筋力」ではセット数、回数、重量を記録します。それをもとにアプリがボリュームを計算し、種目ごとの伸びをグラフ化し、自己ベストを保存します。"
+ },
+ {
+  "clave": "tut.app-cocina--alimentacion.titulo",
+  "texto": "目的を持って食べる"
+ }
+]

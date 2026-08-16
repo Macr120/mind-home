@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "Naam, emoji, kleur en — optioneel — een wekelijks doel in dagen. Meer heeft dat formulier niet nodig om je hobby te gaan bijhouden."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "Het wekelijks doel"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "Piano stelde 4 dagen per week: de rij van de week kleurt bij elke dag dat je oefent, en bovenaan staat hoeveel je er hebt tegenover het doel."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "Een sessie vastleggen"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "Snelle minuten met één tik, of het exacte aantal; het project is optioneel en de notitie is voor wat je van die sessie wilt onthouden."
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "De inbox"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "Schrijf de inval op en klaar. Pep dumpte hier ~90 ideeën in een jaar: over natuurkunde, over de koffiebar, over de training. De ster markeert de favorieten."
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "Brainstorms per onderwerp"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "Een brainstorm bundelt alles onder één onderwerp. Zoek die van Pep: de namen voor de kat (Laika won), hoe Japan te betalen en wat mee te nemen op reis."
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "Als een brainstorm rijp is, maakt één knop er een mindmap van en ga je verder ordenen op het canvas."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "Tien vormen"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "Elke vorm tekent anders. Hieronder staan de kaarten die Pep in de loop van het jaar maakte: de ochtendroutine als stroomschema, thermodynamica als boomdiagram, natuurkunde en muziek als venndiagram."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "«Mijn ideale leven»"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "De EERSTE kaart van het jaar, uit maand 1: het leven dat Pep wilde. Bekijk hem rustig — bijna alles wat erop staat, is uiteindelijk gebeurd."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "Op het canvas: tik op een knooppunt om het te kiezen en nog eens om te typen; sleep het, knijp om te zoomen en voeg ideeën toe met de balk onderaan."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "Een hele kaart, uit één onderwerp"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "Geef de AI een onderwerp en ze bouwt de hele kaart, met de knooppunten al geordend: het vertrekpunt voor een onderwerp waarvan je niet weet waar je met ordenen moet beginnen."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "Een knooppunt uitbreiden met AI"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "Eenmaal in een kaart kun je elk knooppunt uitbreiden: de AI stelt subknooppunten voor op basis van wat je eromheen al schreef, zonder je structuur te breken."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "Acht manieren om te beslissen"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "Pep gebruikte ze echt: een Eisenhower in de tentamenweek, een SWOT halverwege het jaar en een matrix om een camera te kiezen."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "Doorstuderen of werken?"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "DE open beslissing aan het eind van het jaar: elke kant met zijn gewicht van 1 tot 5 en het totaal eronder. Nog altijd niet beslist — zo ziet serieus nadenken eruit."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "In de vormen met zones woont elk element in een zone: kies die onderaan voordat je toevoegt, of sleep het element naar een andere en het verhuist vanzelf."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "De Beslismatrix"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "Het is geen canvas maar een tabel: elke optie tegen elk criterium, met een gewicht van 1 tot 5 naar hoezeer dat criterium voor jou telt. Het totaal rangschikt de opties vanzelf."
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "De klok"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "De kalender is geen kamer: hij zit in de klok van het huis, dus je opent hem waar je ook bent."
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "Een echte week"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "Diensten in de koffiebar, colleges natuurkunde, hardlopen bij zonsopgang, piano 's avonds. Elk blok is een routine met zijn tijd en zijn kleur; sleep ze om ze te verplaatsen en rek ze uit om hun duur te wijzigen."
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "Vier manieren om te kijken"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "Dag en Week tonen het raster per uur; Maand en Jaar geven het overzicht van het hele jaar. De eerste knop doet dubbel werk: hij zegt «Vandaag» en brengt je naar het heden, of «Dag» als je al naar een andere datum kijkt."
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "Waar elk blok vandaan komt"
+  }
+]

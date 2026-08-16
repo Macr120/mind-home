@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "Voici ta maison : chaque pièce garde une app. Je te montre les commandes de base."
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "Le menu principal"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "Ce bouton ouvre le menu : tes pièces, le catalogue de modèles (les apps) et l’inventaire d’objets."
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "Se déplacer"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "Marche avec le joystick, avec WASD ou avec les flèches du clavier. Franchis la porte d’une pièce et tu y entres : son app s’ouvre toute seule."
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "Trois façons de regarder"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "Isométrique, troisième et première personne (ou la touche V). En 3e/1re personne, un bouton apparaît en plus pour modifier le monde en le parcourant."
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "Un coin, plusieurs maîtres"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "Ce coin n’est pas que le cube de vues : approche-toi de quelque chose avec quoi on peut interagir — une chaise, un véhicule, un terrain — et il se change tout seul en ce que tu as à côté. Rien ne s’active sans que tu t’approches."
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "La roue d’outils"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "Mouvements, jouets, véhicules et construction, jusqu’à 3 équipés à la fois. Elle s’ouvre ici, ou depuis ce même coin quand tu as les mains libres."
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "L’horloge"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "L’heure de la maison. D’ici s’ouvrent le calendrier complet et le panneau des routines avec ce qu’il te reste aujourd’hui."
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "La musique de la maison"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "Chaque pièce peut avoir son propre thème, ou laisser jouer l’ambiance générale de la maison. Elle s’éteint complètement si tu préfères le silence."
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "Le chat"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "Le chat de l’architecte : raconte-lui ce que tu as fait et il l’enregistre dans la bonne app, ou demande-lui des changements dans la maison."
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "Voilà pour l’essentiel. Le bouton Éditeur en haut ouvre toute la personnalisation, et chaque menu et chaque app ont leur propre bouton ? avec son tutoriel."
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "D’abord : comment la maison se monte. Tout commence dans l’onglet Pièces."
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "Créer une pièce"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "Avec ce bouton, tu dessines de nouvelles pièces sur le plan. Pour te montrer la suite du chemin, je t’en crée une tout de suite…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "Ta nouvelle pièce"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "La voilà ! Une pièce toute neuve, encore sans app : c’est pour ça que son bouton dit + Assigner."
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "Assigner une app"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "Avec + Assigner, je lui ai donné son app : regarde comme la pièce a pris son nom, son icône et ses meubles, et son bouton dit maintenant Entrer."
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "Entrer"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "Nous voilà dedans : c’est l’app de la pièce. En te promenant, tu y entres aussi en franchissant sa porte, et tu en sors avec ‹ Retour à la maison."
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "La pièce reste dans ta maison, son app prête. C’est comme ça que se monte le reste : une pièce pour chaque chose que tu veux suivre."
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "L’onglet Pièces liste toutes les pièces de ta maison, groupées par catégorie."
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "Ton résumé"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "Ton personnage vit de ton activité réelle : ici tu vois son humeur, son niveau et sa série. Enregistre quelque chose dans n’importe quelle app et tu le verras content ; quelques jours sans rien et il devient triste — jamais de punition, jamais de remise à zéro."
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "Les cartes"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "Chaque carte est une pièce : son icône, son nom et l’avancement de son app, groupés en Corps, Esprit, Compléments et Paramètres. Les pièces sans app assignée restent tout à la fin."
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "Modifier ouvre l’éditeur de la pièce : forme, couleurs, murs et objets. (Ne le touche pas maintenant : ça fermerait ce menu.)"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "Entrer et Assigner"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "Entrer ouvre l’app de la pièce. Si une pièce n’a pas encore d’app, tu verras + Assigner à la place, pour lui en choisir une dans le catalogue."
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "Créer une pièce"
+  }
+]

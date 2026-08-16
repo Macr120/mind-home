@@ -1,0 +1,502 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.resumen",
+    "texto": "Das Archiv sammelt, was du schaust, liest und spielst: jeder Eintrag mit Status, Sternen und deiner Rezension. Gruppiere es nach Datum in Jahres- und Monatsordnern oder nach Genre."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.titulo",
+    "texto": "Watchlists"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.resumen",
+    "texto": "Ein Programm ist eine Liste von Titeln nach Thema oder Genre, die zu Zielen wird: hake ab, was du fertig hast, und gib ihnen bei Bedarf ein Datum, um sie im Kalender zu sehen."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.titulo",
+    "texto": "Der digitale Tisch"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.resumen",
+    "texto": "Über zwanzig Brett- und Arcade-Spiele, gruppiert nach Familie und filterbar nach Spielerzahl: spiel sie direkt dort, ohne das Haus zu verlassen."
+  },
+  {
+    "clave": "tut.app-diario--habito.titulo",
+    "texto": "Die Gewohnheit, die Zeitung zu lesen"
+  },
+  {
+    "clave": "tut.app-diario--habito.resumen",
+    "texto": "Die Zeitung ist vergänglich: jeden Tag bringt sie Schlagzeilen nach Kategorie und Ereignisse von damals, und um Mitternacht wird sie erneuert. Was bleibt, ist deine Beständigkeit — sie zu lesen zählt als Eintrag des Tages."
+  },
+  {
+    "clave": "tut.app-diario--reparto.titulo",
+    "texto": "Lass es dir bringen"
+  },
+  {
+    "clave": "tut.app-diario--reparto.resumen",
+    "texto": "Du kannst festlegen, welche Rubriken dir jeder Assistent in seinem Chat liefert: zu einer festen Uhrzeit oder zu einem Überraschungsmoment am Tag."
+  },
+  {
+    "clave": "demo.paso.limpiar",
+    "texto": "Den Boden bereiten"
+  },
+  {
+    "clave": "demo.paso.casa",
+    "texto": "Das Haus errichten"
+  },
+  {
+    "clave": "demo.paso.catalogos",
+    "texto": "Kataloge befüllen"
+  },
+  {
+    "clave": "demo.paso.final",
+    "texto": "Letzter Schliff"
+  },
+  {
+    "clave": "cuenta.sync.activo",
+    "texto": "Synchronisiert …"
+  },
+  {
+    "clave": "cuenta.sync.ultima",
+    "texto": "Synchronisiert: {f}"
+  },
+  {
+    "clave": "cuenta.sync.nunca",
+    "texto": "Noch nicht synchronisiert"
+  },
+  {
+    "clave": "cuenta.sync.ahora",
+    "texto": "Synchronisieren"
+  },
+  {
+    "clave": "cuenta.sync.otraCuenta",
+    "texto": "Dieses Haus war mit einem anderen Konto verknüpft. Lokale Daten behalten und mit dem neuen Konto zusammenführen? (Abbrechen = dieses Haus leeren und nur die Kontodaten herunterladen)"
+  },
+  {
+    "clave": "cuenta.sync.respaldoPrevio",
+    "texto": "Du synchronisierst dieses Haus zum ersten Mal. Vorher eine lokale Sicherung herunterladen? (Empfohlen)"
+  },
+  {
+    "clave": "carpetas.vacio",
+    "texto": "Noch keine Einträge."
+  },
+  {
+    "clave": "carpetas.estaSemana",
+    "texto": "Diese Woche"
+  },
+  {
+    "clave": "carpetas.nRegistro",
+    "texto": "1 Eintrag"
+  },
+  {
+    "clave": "carpetas.nRegistros",
+    "texto": "{n} Einträge"
+  },
+  {
+    "clave": "cocina.historial",
+    "texto": "Verlauf der Mahlzeiten"
+  },
+  {
+    "clave": "ejercicio.historial",
+    "texto": "Deine Einheiten"
+  },
+  {
+    "clave": "descanso.hist.media",
+    "texto": "Ø {h}"
+  },
+  {
+    "clave": "jardin.hist",
+    "texto": "Deine Sitzungen"
+  },
+  {
+    "clave": "jardin.hist.vacio",
+    "texto": "Hier werden deine Ruhe-Sitzungen gespeichert."
+  },
+  {
+    "clave": "jardin.hist.min",
+    "texto": "{n} Min."
+  },
+  {
+    "clave": "hobbies.sesion.todas",
+    "texto": "Deine Sitzungen"
+  },
+  {
+    "clave": "despacho.m.sinRegistros",
+    "texto": "Keine Transaktionen erfasst."
+  },
+  {
+    "clave": "room.agenda.desc",
+    "texto": "Dein Zeitplan: Aufgaben, Termine und Projekte für die Arbeit, Arzttermine, Medikamente und deine Haustiere mit ihrer Pflege sowie dein Kontaktbuch mit den Geburtstagen."
+  },
+  {
+    "clave": "agenda.tab.trabajo",
+    "texto": "Arbeit"
+  },
+  {
+    "clave": "agenda.tab.salud",
+    "texto": "Gesundheit"
+  },
+  {
+    "clave": "agenda.tab.personas",
+    "texto": "Personen"
+  },
+  {
+    "clave": "agenda.metaDiaria",
+    "texto": "Tagesplan"
+  },
+  {
+    "clave": "agenda.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "agenda.editar",
+    "texto": "Bearbeiten"
+  },
+  {
+    "clave": "agenda.borrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "agenda.confirmarBorrado",
+    "texto": "Löschen?"
+  },
+  {
+    "clave": "agenda.si",
+    "texto": "Ja"
+  },
+  {
+    "clave": "agenda.no",
+    "texto": "Nein"
+  },
+  {
+    "clave": "agenda.volver",
+    "texto": "Zurück"
+  },
+  {
+    "clave": "agenda.buscar",
+    "texto": "Suchen"
+  },
+  {
+    "clave": "agenda.palomear",
+    "texto": "Als erledigt markieren"
+  },
+  {
+    "clave": "agenda.nuevoEvento",
+    "texto": "Neu"
+  },
+  {
+    "clave": "agenda.editarEvento",
+    "texto": "Bearbeiten"
+  },
+  {
+    "clave": "agenda.sinRelacion",
+    "texto": "Keine Beziehung"
+  },
+  {
+    "clave": "agenda.eventosDe",
+    "texto": "Mit {n}"
+  },
+  {
+    "clave": "agenda.cumpleDe",
+    "texto": "Geburtstag von {n}"
+  },
+  {
+    "clave": "agenda.form.asunto",
+    "texto": "Betreff"
+  },
+  {
+    "clave": "agenda.form.motivo",
+    "texto": "Grund des Termins"
+  },
+  {
+    "clave": "agenda.form.plan",
+    "texto": "Plan oder Erinnerung"
+  },
+  {
+    "clave": "agenda.form.nombre",
+    "texto": "Name"
+  },
+  {
+    "clave": "agenda.form.color",
+    "texto": "Farbe"
+  },
+  {
+    "clave": "agenda.form.fecha",
+    "texto": "Datum"
+  },
+  {
+    "clave": "agenda.form.hora",
+    "texto": "Uhrzeit"
+  },
+  {
+    "clave": "agenda.form.horaFin",
+    "texto": "Endet"
+  },
+  {
+    "clave": "agenda.form.lugar",
+    "texto": "Ort"
+  },
+  {
+    "clave": "agenda.form.con",
+    "texto": "Mit wem"
+  },
+  {
+    "clave": "agenda.form.medico",
+    "texto": "Arzt"
+  },
+  {
+    "clave": "agenda.form.contacto",
+    "texto": "Person aus deinem Adressbuch"
+  },
+  {
+    "clave": "agenda.form.ninguno",
+    "texto": " – Keine – "
+  },
+  {
+    "clave": "agenda.form.prioridad",
+    "texto": "Priorität"
+  },
+  {
+    "clave": "agenda.form.notas",
+    "texto": "Notizen"
+  },
+  {
+    "clave": "agenda.form.notaSinFecha",
+    "texto": "Ohne Datum bleibt es in deinen Aufgaben, außerhalb des Kalenders."
+  },
+  {
+    "clave": "agenda.form.notaSinHora",
+    "texto": "Ohne Uhrzeit erscheint es am Tag, kann dich aber nicht erinnern."
+  },
+  {
+    "clave": "agenda.prioridad.alta",
+    "texto": "Hoch"
+  },
+  {
+    "clave": "agenda.prioridad.media",
+    "texto": "Mittel"
+  },
+  {
+    "clave": "agenda.prioridad.baja",
+    "texto": "Niedrig"
+  },
+  {
+    "clave": "agenda.trabajo.pendientes",
+    "texto": "Aufgaben"
+  },
+  {
+    "clave": "agenda.trabajo.tablero",
+    "texto": "Board"
+  },
+  {
+    "clave": "ejemplo.vacio",
+    "texto": "Nicht sicher, wo du anfangen sollst? Sieh dir an, wie es mit einem Beispiel aussieht."
+  },
+  {
+    "clave": "ejemplo.puesto",
+    "texto": "Das ist ein Beispiel: blende es aus, wann du willst — deine eigenen Daten bleiben unberührt."
+  },
+  {
+    "clave": "ejemplo.mostrar",
+    "texto": "Beispiel ansehen"
+  },
+  {
+    "clave": "ejemplo.ocultar",
+    "texto": "Beispiel ausblenden"
+  },
+  {
+    "clave": "ejemplo.sinSitio",
+    "texto": "Auf der Karte ist gerade kein freier Platz für das Beispiel."
+  },
+  {
+    "clave": "agenda.ejemplo.vacio",
+    "texto": "Nicht sicher, wo du anfangen sollst? Lade ein Beispiel und schau es dir von innen an."
+  },
+  {
+    "clave": "agenda.ejemplo.cargado",
+    "texto": "Alles, was du als Beispiel siehst, lässt sich auf einmal löschen, inklusive Kalenderblöcke."
+  },
+  {
+    "clave": "agenda.ejemplo.cargar",
+    "texto": "Beispiel laden"
+  },
+  {
+    "clave": "agenda.ejemplo.borrar",
+    "texto": "Beispiel löschen"
+  },
+  {
+    "clave": "agenda.ejemplo.confirmar",
+    "texto": "Ja, Beispiel löschen"
+  },
+  {
+    "clave": "agenda.tablero.porhacer",
+    "texto": "Offen"
+  },
+  {
+    "clave": "agenda.tablero.encurso",
+    "texto": "In Arbeit"
+  },
+  {
+    "clave": "agenda.tablero.hecho",
+    "texto": "Erledigt"
+  },
+  {
+    "clave": "agenda.tablero.columnaVacia",
+    "texto": "Nichts hier"
+  },
+  {
+    "clave": "agenda.tablero.atras",
+    "texto": "Zur vorherigen Spalte verschieben"
+  },
+  {
+    "clave": "agenda.tablero.adelante",
+    "texto": "Zur nächsten Spalte verschieben"
+  },
+  {
+    "clave": "agenda.vacio.pendientes",
+    "texto": "Keine Aufgaben. Schreib auf, was dir durch den Kopf geht."
+  },
+  {
+    "clave": "agenda.salud.citas",
+    "texto": "Arzttermine"
+  },
+  {
+    "clave": "agenda.salud.sub.yo",
+    "texto": "Du"
+  },
+  {
+    "clave": "agenda.salud.sub.projimos",
+    "texto": "Angehörige"
+  },
+  {
+    "clave": "agenda.salud.sub.mascotas",
+    "texto": "Haustiere"
+  },
+  {
+    "clave": "agenda.salud.cuidados",
+    "texto": "Pflege"
+  },
+  {
+    "clave": "agenda.salud.nuevoCuidado",
+    "texto": "Neue Pflege"
+  },
+  {
+    "clave": "agenda.vacio.cuidadosPersona",
+    "texto": "Noch keine Pflege. Hier kommen wiederkehrende Kontrollen und Impfungen hin."
+  },
+  {
+    "clave": "agenda.vacio.projimos",
+    "texto": "Noch niemand in deiner Obhut. Füge jemanden hinzu oder aktiviere „In meiner Obhut“ bei einem Kontakt im Tab Personen: die Person erscheint hier mit Terminen, Medikamenten und Pflege."
+  },
+  {
+    "clave": "agenda.persona.alCuidado",
+    "texto": "In meiner Obhut"
+  },
+  {
+    "clave": "agenda.persona.alCuidadoAyuda",
+    "texto": "Erscheint unter Gesundheit › Angehörige, mit Terminen, Medikamenten und Pflege."
+  },
+  {
+    "clave": "agenda.projimo.aMiCuidado",
+    "texto": "In meiner Obhut"
+  },
+  {
+    "clave": "agenda.cuidadop.nuevo",
+    "texto": "Neue Pflege"
+  },
+  {
+    "clave": "agenda.cuidado.archivado",
+    "texto": "Erledigt, keine Wiederholung"
+  },
+  {
+    "clave": "agenda.cuidado.reactivar",
+    "texto": "Erneut planen"
+  },
+  {
+    "clave": "agenda.form.especialidad",
+    "texto": "Fachgebiet"
+  },
+  {
+    "clave": "agenda.esp.general",
+    "texto": "Allgemeinmedizin"
+  },
+  {
+    "clave": "agenda.esp.dentista",
+    "texto": "Zahnarzt"
+  },
+  {
+    "clave": "agenda.esp.oftalmologia",
+    "texto": "Augenheilkunde"
+  },
+  {
+    "clave": "agenda.esp.dermatologia",
+    "texto": "Dermatologie"
+  },
+  {
+    "clave": "agenda.esp.ginecologia",
+    "texto": "Gynäkologie"
+  },
+  {
+    "clave": "agenda.esp.cardiologia",
+    "texto": "Kardiologie"
+  },
+  {
+    "clave": "agenda.esp.traumatologia",
+    "texto": "Orthopädie"
+  },
+  {
+    "clave": "agenda.esp.psicologia",
+    "texto": "Psychologie"
+  },
+  {
+    "clave": "agenda.esp.laboratorio",
+    "texto": "Labor"
+  },
+  {
+    "clave": "agenda.esp.otra",
+    "texto": "Andere"
+  },
+  {
+    "clave": "agenda.cuidadop.chequeo",
+    "texto": "Allgemeine Kontrolle"
+  },
+  {
+    "clave": "agenda.cuidadop.vacuna",
+    "texto": "Impfung"
+  },
+  {
+    "clave": "agenda.cuidadop.analisis",
+    "texto": "Laboruntersuchung"
+  },
+  {
+    "clave": "agenda.cuidadop.terapia",
+    "texto": "Therapie"
+  },
+  {
+    "clave": "agenda.cuidadop.dental",
+    "texto": "Zahnkontrolle"
+  },
+  {
+    "clave": "agenda.cuidadop.visual",
+    "texto": "Augenkontrolle"
+  },
+  {
+    "clave": "agenda.cuidadop.otro",
+    "texto": "Andere"
+  },
+  {
+    "clave": "agenda.ciclo.titulo",
+    "texto": "Zyklus"
+  },
+  {
+    "clave": "agenda.ciclo.apagado",
+    "texto": "Verfolge deine Periode, mit Schätzung der nächsten, Symptomen und Erinnerungen."
+  },
+  {
+    "clave": "agenda.ciclo.activar",
+    "texto": "Zyklus-Tracking aktivieren"
+  },
+  {
+    "clave": "agenda.ciclo.desactivar",
+    "texto": "Tracking deaktivieren (Einträge bleiben erhalten)"
+  }
+]

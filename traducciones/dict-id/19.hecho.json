@@ -1,0 +1,806 @@
+[
+  {
+    "clave": "respaldo.danger.desc",
+    "texto": "Ini akan menghapus SEMUA data Mind Planner Home kamu secara permanen."
+  },
+  {
+    "clave": "respaldo.danger.btn",
+    "texto": "Hapus semua data"
+  },
+  {
+    "clave": "respaldo.danger.confirmar",
+    "texto": "Kamu yakin?"
+  },
+  {
+    "clave": "respaldo.danger.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "respaldo.danger.borrar",
+    "texto": "Ya, hapus semua"
+  },
+  {
+    "clave": "respaldo.borrado",
+    "texto": "✓ Data berhasil dihapus."
+  },
+  {
+    "clave": "hobbies.desc",
+    "texto": "Pantau hobi kamu: sesi, runtunan, target, dan proyek."
+  },
+  {
+    "clave": "hobbies.nuevo",
+    "texto": "Hobi baru"
+  },
+  {
+    "clave": "hobbies.ph.nombre",
+    "texto": "Cth. Melukis, catur, fotografi..."
+  },
+  {
+    "clave": "hobbies.vacio.titulo",
+    "texto": "Kamu belum punya hobi yang tercatat. Mulai dengan menambahkan yang kamu nikmati."
+  },
+  {
+    "clave": "hobbies.lista.meta",
+    "texto": "{d}/{m} hari minggu ini"
+  },
+  {
+    "clave": "hobbies.lista.semana",
+    "texto": "{n} mnt minggu ini"
+  },
+  {
+    "clave": "hobbies.form.nuevo",
+    "texto": "Hobi baru"
+  },
+  {
+    "clave": "hobbies.form.editar",
+    "texto": "Edit hobi"
+  },
+  {
+    "clave": "hobbies.form.color",
+    "texto": "Warna"
+  },
+  {
+    "clave": "hobbies.form.meta",
+    "texto": "Target mingguan (hari latihan)"
+  },
+  {
+    "clave": "hobbies.form.sinMeta",
+    "texto": "Tanpa target"
+  },
+  {
+    "clave": "hobbies.form.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "hobbies.form.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "hobbies.det.volver",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "hobbies.det.editar",
+    "texto": "Edit"
+  },
+  {
+    "clave": "hobbies.det.eliminar",
+    "texto": "Hapus hobi"
+  },
+  {
+    "clave": "hobbies.det.confirmar",
+    "texto": "Hapus semua?"
+  },
+  {
+    "clave": "hobbies.det.si",
+    "texto": "Ya"
+  },
+  {
+    "clave": "hobbies.det.no",
+    "texto": "Tidak"
+  },
+  {
+    "clave": "hobbies.stat.racha",
+    "texto": "Runtunan"
+  },
+  {
+    "clave": "hobbies.stat.mejor",
+    "texto": "Runtunan terbaik"
+  },
+  {
+    "clave": "hobbies.stat.total",
+    "texto": "Total"
+  },
+  {
+    "clave": "hobbies.stat.activos",
+    "texto": "Hari aktif"
+  },
+  {
+    "clave": "hobbies.stat.promedio",
+    "texto": "Rata-rata/hari"
+  },
+  {
+    "clave": "hobbies.meta.titulo",
+    "texto": "Target mingguan"
+  },
+  {
+    "clave": "hobbies.meta.lograda",
+    "texto": "Tercapai! 🎉"
+  },
+  {
+    "clave": "hobbies.meta.progreso",
+    "texto": "{d}/{m} hari"
+  },
+  {
+    "clave": "hobbies.sesion.titulo",
+    "texto": "Catat latihan"
+  },
+  {
+    "clave": "hobbies.sesion.sinProyecto",
+    "texto": "— Tanpa proyek —"
+  },
+  {
+    "clave": "hobbies.sesion.nota",
+    "texto": "Catatan (opsional): apa yang kamu latih?"
+  },
+  {
+    "clave": "hobbies.sesion.guardar",
+    "texto": "+ Catat"
+  },
+  {
+    "clave": "hobbies.sesion.historial",
+    "texto": "Sesi terbaru"
+  },
+  {
+    "clave": "hobbies.sesion.borrar",
+    "texto": "Hapus sesi"
+  },
+  {
+    "clave": "hobbies.heatmap.anual",
+    "texto": "Setahun terakhir"
+  },
+  {
+    "clave": "hobbies.heatmap.dias",
+    "texto": "hari aktif"
+  },
+  {
+    "clave": "hobbies.heatmap.verDia",
+    "texto": "lihat di riwayat"
+  },
+  {
+    "clave": "hobbies.heatmap.menos",
+    "texto": "sedikit"
+  },
+  {
+    "clave": "hobbies.heatmap.mas",
+    "texto": "banyak"
+  },
+  {
+    "clave": "hobbies.proy.titulo",
+    "texto": "Proyek"
+  },
+  {
+    "clave": "hobbies.proy.ph",
+    "texto": "Cth. Merajut syal, belajar 3 lagu..."
+  },
+  {
+    "clave": "hobbies.proy.agregar",
+    "texto": "+ Tambah"
+  },
+  {
+    "clave": "hobbies.proy.vacio",
+    "texto": "Belum ada proyek. Proyek memberi arah pada latihan kamu."
+  },
+  {
+    "clave": "hobbies.proy.stats",
+    "texto": "{n} sesi · {m}"
+  },
+  {
+    "clave": "hobbies.proy.terminar",
+    "texto": "Selesai"
+  },
+  {
+    "clave": "hobbies.proy.reabrir",
+    "texto": "Buka lagi"
+  },
+  {
+    "clave": "hobbies.proy.borrar",
+    "texto": "Hapus proyek"
+  },
+  {
+    "clave": "hobbies.proy.metas",
+    "texto": "{h}/{n} target"
+  },
+  {
+    "clave": "hobbies.proy.volver",
+    "texto": "Kembali ke hobi"
+  },
+  {
+    "clave": "hobbies.proy.renombrar",
+    "texto": "Ganti nama proyek"
+  },
+  {
+    "clave": "hobbies.proy.sesiones",
+    "texto": "Sesi"
+  },
+  {
+    "clave": "hobbies.proy.fotos",
+    "texto": "Foto"
+  },
+  {
+    "clave": "hobbies.proy.notaPh",
+    "texto": "Proyek ini tentang apa? Bahan, ide, referensi..."
+  },
+  {
+    "clave": "hobbies.proy.avance",
+    "texto": "Progres dalam foto"
+  },
+  {
+    "clave": "hobbies.proy.subir",
+    "texto": "+ Unggah gambar"
+  },
+  {
+    "clave": "hobbies.proy.sinFotos",
+    "texto": "Belum ada foto. Unggah satu untuk melihat progresnya."
+  },
+  {
+    "clave": "hobbies.proy.borrarFoto",
+    "texto": "Hapus gambar"
+  },
+  {
+    "clave": "ui.volverCasa",
+    "texto": "‹ Kembali ke rumah"
+  },
+  {
+    "clave": "ui.cargando",
+    "texto": "Memuat {nombre}…"
+  },
+  {
+    "clave": "ui.errorFallo",
+    "texto": "Ada yang gagal dimuat"
+  },
+  {
+    "clave": "ui.reintentar",
+    "texto": "Coba lagi"
+  },
+  {
+    "clave": "ui.mover",
+    "texto": "pindah"
+  },
+  {
+    "clave": "ui.mirar",
+    "texto": "lihat"
+  },
+  {
+    "clave": "ui.techo.quitar",
+    "texto": "Lepas atap"
+  },
+  {
+    "clave": "ui.techo.ver",
+    "texto": "Pasang atap"
+  },
+  {
+    "clave": "ui.explotar.juntar",
+    "texto": "Satukan lantai"
+  },
+  {
+    "clave": "ui.explotar.separar",
+    "texto": "Pisahkan lantai"
+  },
+  {
+    "clave": "editor.techoCuarto.soloPlano",
+    "texto": "Ruangan ini punya lantai di atasnya, jadi atapnya terlihat datar (lantai tidak bisa berdiri di atas kubah). Hapus lantai di atas untuk mengembalikan bentuknya."
+  },
+  {
+    "clave": "ui.estrellas",
+    "texto": "{n} bintang"
+  },
+  {
+    "clave": "ui.pronto",
+    "texto": "Segera hadir"
+  },
+  {
+    "clave": "ui.prontoDesc",
+    "texto": "Ruangan ini sedang dalam pengerjaan."
+  },
+  {
+    "clave": "ui.editar",
+    "texto": "Edit"
+  },
+  {
+    "clave": "ui.eliminar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "ui.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "ui.confirmar",
+    "texto": "Konfirmasi"
+  },
+  {
+    "clave": "ui.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "ui.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "paredes.titulo",
+    "texto": "Dinding dan bukaan"
+  },
+  {
+    "clave": "paredes.pared",
+    "texto": "Dinding"
+  },
+  {
+    "clave": "paredes.puerta",
+    "texto": "Pintu"
+  },
+  {
+    "clave": "paredes.abierto",
+    "texto": "Terbuka"
+  },
+  {
+    "clave": "paredes.toca",
+    "texto": "Ketuk tepi untuk mengubahnya."
+  },
+  {
+    "clave": "paredes.tipoMuro",
+    "texto": "Jenis dinding"
+  },
+  {
+    "clave": "paredes.tipoPuerta",
+    "texto": "Jenis pintu"
+  },
+  {
+    "clave": "paredes.colorPuerta",
+    "texto": "Warna pintu"
+  },
+  {
+    "clave": "paredes.colorMarco",
+    "texto": "Warna bingkai"
+  },
+  {
+    "clave": "paredes.pintar",
+    "texto": "Cat sebagai {modo}"
+  },
+  {
+    "clave": "paredes.ayudaMuro",
+    "texto": "Pilih jenis dinding di atas lalu ketuk tepi pada sketsa."
+  },
+  {
+    "clave": "paredes.ayudaPuerta",
+    "texto": "Pilih jenis pintu dan ketuk tepi untuk bukaan."
+  },
+  {
+    "clave": "paredes.ayudaAbierto",
+    "texto": "Ketuk tepi untuk membiarkannya terbuka (tanpa dinding)."
+  },
+  {
+    "clave": "paredes.muro.solido",
+    "texto": "Polos"
+  },
+  {
+    "clave": "paredes.muro.ventana",
+    "texto": "Dengan jendela"
+  },
+  {
+    "clave": "paredes.muro.ladrillo",
+    "texto": "Bata"
+  },
+  {
+    "clave": "paredes.muro.madera",
+    "texto": "Kayu"
+  },
+  {
+    "clave": "paredes.muro.vitraje",
+    "texto": "Kaca"
+  },
+  {
+    "clave": "paredes.puerta.recta",
+    "texto": "Rata"
+  },
+  {
+    "clave": "paredes.puerta.sin",
+    "texto": "Tanpa pintu"
+  },
+  {
+    "clave": "paredes.puerta.doble",
+    "texto": "Ganda"
+  },
+  {
+    "clave": "paredes.puerta.porton",
+    "texto": "Gulung"
+  },
+  {
+    "clave": "paredes.puerta.corredera",
+    "texto": "Geser"
+  },
+  {
+    "clave": "ciclo.clima",
+    "texto": "Cuaca nyata"
+  },
+  {
+    "clave": "ciclo.climaDesc",
+    "texto": "Menggunakan lokasi sistem untuk suhu, hujan, dan kondisi saat ini."
+  },
+  {
+    "clave": "ciclo.cargando",
+    "texto": "Mengambil cuaca…"
+  },
+  {
+    "clave": "ciclo.cargandoHint",
+    "texto": "Jika lama, browser juga perlu mengizinkan lokasi (ikon gembok di bilah alamat)."
+  },
+  {
+    "clave": "ciclo.reintentar",
+    "texto": "Coba lagi"
+  },
+  {
+    "clave": "ciclo.actualizar",
+    "texto": "Perbarui"
+  },
+  {
+    "clave": "ciclo.paso",
+    "texto": "Perjalanan waktu"
+  },
+  {
+    "clave": "ciclo.pasoToggle",
+    "texto": "Aktifkan atau jeda perjalanan waktu"
+  },
+  {
+    "clave": "ciclo.pasoPausadoDesc",
+    "texto": "Dijeda. Pilih warna latar di Pengaturan → Latar."
+  },
+  {
+    "clave": "ciclo.sol",
+    "texto": "Matahari: Timur → Barat"
+  },
+  {
+    "clave": "ciclo.solLuna",
+    "texto": "Matahari dan bulan"
+  },
+  {
+    "clave": "ciclo.focos",
+    "texto": "Lampu ruangan"
+  },
+  {
+    "clave": "ciclo.enVivo",
+    "texto": "Langsung"
+  },
+  {
+    "clave": "ciclo.volverVivo",
+    "texto": "Kembali ke langsung"
+  },
+  {
+    "clave": "ciclo.abrirCal",
+    "texto": "Buka kalender rutinitas"
+  },
+  {
+    "clave": "ciclo.rutinasHoy",
+    "texto": "Rutinitas hari ini"
+  },
+  {
+    "clave": "construir.donde",
+    "texto": "Di mana kamu membangunnya?"
+  },
+  {
+    "clave": "construir.plantaBaja",
+    "texto": "Lantai dasar"
+  },
+  {
+    "clave": "construir.plantaDesc",
+    "texto": "Di lantai dasar, di sebelah yang lain."
+  },
+  {
+    "clave": "construir.encima",
+    "texto": "Di atas ruangan"
+  },
+  {
+    "clave": "construir.sinBase",
+    "texto": "Kamu perlu ruangan di lantai dasar terlebih dahulu."
+  },
+  {
+    "clave": "construir.sinLibres",
+    "texto": "Tidak ada ruangan kosong untuk ditumpuk."
+  },
+  {
+    "clave": "construir.apilar",
+    "texto": "Menumpuk di atas yang lain dan melayang sampai kamu memasang atap rumah."
+  },
+  {
+    "clave": "construir.eligeBase",
+    "texto": "Pilih ruangan tempat menumpuk:"
+  },
+  {
+    "clave": "construir.enNivel",
+    "texto": "Akan berada di level {n}"
+  },
+  {
+    "clave": "construir.elegirAcceso",
+    "texto": "Bagaimana cara naik ke level baru ini? (dipilih sekali per level)"
+  },
+  {
+    "clave": "construir.volver",
+    "texto": "← Kembali"
+  },
+  {
+    "clave": "construir.escalera.label",
+    "texto": "Tangga spiral"
+  },
+  {
+    "clave": "construir.escalera.desc",
+    "texto": "Anak tangga yang berputar mengelilingi tiang tengah."
+  },
+  {
+    "clave": "construir.elevador.label",
+    "texto": "Lift"
+  },
+  {
+    "clave": "construir.elevador.desc",
+    "texto": "Kabin kaca yang naik turun secara otomatis."
+  },
+  {
+    "clave": "construir.resbaladilla.label",
+    "texto": "Tabung isap"
+  },
+  {
+    "clave": "construir.resbaladilla.desc",
+    "texto": "Silinder tembus cahaya dengan cincin untuk naik turun."
+  },
+  {
+    "clave": "diario.tarjeta.leer",
+    "texto": "Baca selengkapnya →"
+  },
+  {
+    "clave": "diario.imagen.ampliar",
+    "texto": "Lihat gambar dalam ukuran besar"
+  },
+  {
+    "clave": "diario.imagen.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "entre.tarjeta.editar",
+    "texto": "Edit"
+  },
+  {
+    "clave": "entre.tarjeta.eliminar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "garage.mant.editar",
+    "texto": "Edit servis"
+  },
+  {
+    "clave": "garage.mant.nuevo",
+    "texto": "Catat perawatan"
+  },
+  {
+    "clave": "garage.mant.fecha",
+    "texto": "Tanggal"
+  },
+  {
+    "clave": "garage.mant.tipo",
+    "texto": "Jenis servis"
+  },
+  {
+    "clave": "garage.mant.titulo",
+    "texto": "Judul *"
+  },
+  {
+    "clave": "garage.mant.costo",
+    "texto": "Biaya (MXN)"
+  },
+  {
+    "clave": "garage.mant.odo",
+    "texto": "Odometer ({unit})"
+  },
+  {
+    "clave": "garage.mant.taller",
+    "texto": "Bengkel / montir"
+  },
+  {
+    "clave": "garage.mant.proximo",
+    "texto": "Servis berikutnya (opsional)"
+  },
+  {
+    "clave": "garage.mant.proxOdo",
+    "texto": "Pada {unit}"
+  },
+  {
+    "clave": "garage.mant.ph.proxOdo",
+    "texto": "Cth. 52000"
+  },
+  {
+    "clave": "garage.mant.proxFecha",
+    "texto": "Tanggal batas"
+  },
+  {
+    "clave": "garage.mant.notas",
+    "texto": "Catatan"
+  },
+  {
+    "clave": "garage.mant.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "garage.mant.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "jardin.resp.inhala",
+    "texto": "Tarik napas"
+  },
+  {
+    "clave": "jardin.resp.sosten",
+    "texto": "Tahan"
+  },
+  {
+    "clave": "jardin.resp.exhala",
+    "texto": "Buang napas"
+  },
+  {
+    "clave": "jardin.resp.478",
+    "texto": "Teknik 4-7-8"
+  },
+  {
+    "clave": "jardin.resp.caja",
+    "texto": "Pernapasan kotak 4-4-4-4"
+  },
+  {
+    "clave": "jardin.resp.patron",
+    "texto": "Pilih pola kamu"
+  },
+  {
+    "clave": "jardin.resp.duracion",
+    "texto": "Durasi"
+  },
+  {
+    "clave": "jardin.resp.comenzar",
+    "texto": "Mulai pernapasan"
+  },
+  {
+    "clave": "jardin.resp.caja.titulo",
+    "texto": "Pernapasan kotak 4-4-4-4"
+  },
+  {
+    "clave": "jardin.resp.caja.desc",
+    "texto": "Tarik napas, tahan, buang, tahan: masing-masing fase 4 dtk. Keseimbangan dan fokus."
+  },
+  {
+    "clave": "jardin.resp.478.titulo",
+    "texto": "Pernapasan 4-7-8"
+  },
+  {
+    "clave": "jardin.resp.478.desc",
+    "texto": "Tarik napas 4 dtk, tahan 7 dtk, buang 8 dtk. Menenangkan sistem saraf."
+  },
+  {
+    "clave": "editor.mapa.ajustes",
+    "texto": "Antarmuka & bahasa"
+  },
+  {
+    "clave": "editor.mapa.tema",
+    "texto": "Tema rumah"
+  },
+  {
+    "clave": "editor.mapa.fondo",
+    "texto": "Latar langit"
+  },
+  {
+    "clave": "editor.mapa.techo",
+    "texto": "Atap rumah"
+  },
+  {
+    "clave": "editor.mapa.inventario",
+    "texto": "Inventaris peta"
+  },
+  {
+    "clave": "editor.mapa.piso",
+    "texto": "Lantai rumah"
+  },
+  {
+    "clave": "editor.mapa.cuartos",
+    "texto": "Ruangan rumah"
+  },
+  {
+    "clave": "editor.mapa.avatar",
+    "texto": "Avatar karakter"
+  },
+  {
+    "clave": "editor.mapa.perfil",
+    "texto": "Profil kamu"
+  },
+  {
+    "clave": "planos.titulo",
+    "texto": "Denah lantai"
+  },
+  {
+    "clave": "planos.tab.casa",
+    "texto": "Rumah"
+  },
+  {
+    "clave": "planos.tab.planos",
+    "texto": "Denah"
+  },
+  {
+    "clave": "planos.bloque.herramientas",
+    "texto": "Alat denah"
+  },
+  {
+    "clave": "planos.bloque.seleccion",
+    "texto": "Pemilihan"
+  },
+  {
+    "clave": "planos.nivel",
+    "texto": "Level"
+  },
+  {
+    "clave": "planos.nivelNuevo",
+    "texto": "Bangun lantai baru di atasnya"
+  },
+  {
+    "clave": "planos.nivelSotano",
+    "texto": "Gali ruang bawah tanah (kolam atau bunker)"
+  },
+  {
+    "clave": "acceso.nuevoNivel",
+    "texto": "Level baru {n}"
+  },
+  {
+    "clave": "constructor.modo.ascensos",
+    "texto": "Lift"
+  },
+  {
+    "clave": "constructor.modo.grid",
+    "texto": "Kisi-kisi"
+  },
+  {
+    "clave": "constructor.modo.fondo",
+    "texto": "Latar"
+  },
+  {
+    "clave": "constructor.modo.cuartos",
+    "texto": "Ruangan"
+  },
+  {
+    "clave": "constructor.modo.muros",
+    "texto": "Dinding"
+  },
+  {
+    "clave": "constructor.modo.puertas",
+    "texto": "Pintu"
+  },
+  {
+    "clave": "constructor.modo.ventanas",
+    "texto": "Jendela"
+  },
+  {
+    "clave": "constructor.modo.piso-ext",
+    "texto": "Lantai luar"
+  },
+  {
+    "clave": "constructor.modo.piso-int",
+    "texto": "Lantai dalam"
+  },
+  {
+    "clave": "constructor.modo.techos",
+    "texto": "Atap"
+  },
+  {
+    "clave": "ascensos.tipo",
+    "texto": "Jenis lift"
+  },
+  {
+    "clave": "ascensos.hint",
+    "texto": "Seret lift di peta 3D untuk memindahkannya ke sudut lain ruangan di level ini. Selalu berada di sudut agar tidak menutupi pintu."
+  },
+  {
+    "clave": "ascensos.sinAcceso",
+    "texto": "Level ini belum punya lift."
+  }
+]

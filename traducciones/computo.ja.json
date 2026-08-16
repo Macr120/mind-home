@@ -1,0 +1,430 @@
+[
+  {
+    "ruta": "carpetas.0.nombre",
+    "texto": "物理II"
+  },
+  {
+    "ruta": "carpetas.1.nombre",
+    "texto": "中間テスト"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.nombre",
+    "texto": "等加速度運動の位置"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.0.nombre",
+    "texto": "初期位置"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.1.nombre",
+    "texto": "初速度"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.2.nombre",
+    "texto": "加速度"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.3.nombre",
+    "texto": "時間"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.nombre",
+    "texto": "トリチェリ（時間を使わない速度）"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.0.nombre",
+    "texto": "初速度"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.1.nombre",
+    "texto": "加速度"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.2.nombre",
+    "texto": "変位"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.nombre",
+    "texto": "運動エネルギー"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.descripcion",
+    "texto": "自分の体重を固定値にして、走っている自分のために計算することがほとんどです。"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.0.nombre",
+    "texto": "質量"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.1.nombre",
+    "texto": "速度"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.nombre",
+    "texto": "フックの法則"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.0.nombre",
+    "texto": "ばね定数"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.1.nombre",
+    "texto": "変形量"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.nombre",
+    "texto": "単振り子の周期"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.0.nombre",
+    "texto": "長さ"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.1.nombre",
+    "texto": "重力加速度"
+  },
+  {
+    "ruta": "carpetas.2.nombre",
+    "texto": "カフェ"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.nombre",
+    "texto": "1杯あたりのコスト"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.descripcion",
+    "texto": "時間を除いて、1杯を出すのにかかる費用です。"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.0.nombre",
+    "texto": "コーヒー1kgの価格"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.1.nombre",
+    "texto": "1杯あたりのグラム数"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.2.nombre",
+    "texto": "牛乳のコスト"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.3.nombre",
+    "texto": "カップとふた"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.nombre",
+    "texto": "価格に対する利益率"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.tex",
+    "texto": "利益率 = \\dfrac{価格 - 原価}{価格} \\times 100"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.0.nombre",
+    "texto": "販売価格"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.1.nombre",
+    "texto": "1杯あたりの原価"
+  },
+  {
+    "ruta": "carpetas.3.nombre",
+    "texto": "ランニング"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.nombre",
+    "texto": "1kmあたりのペース"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.tex",
+    "texto": "ペース = \\dfrac{分}{km}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.0.nombre",
+    "texto": "合計分数"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.1.nombre",
+    "texto": "キロメートル"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.nombre",
+    "texto": "マラソン目標のペース"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.variables.0.nombre",
+    "texto": "目標タイム（分）"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.nombre",
+    "texto": "VO₂maxの概算"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.tex",
+    "texto": "VO_{2}\\,max \\approx 15.3\\,\\dfrac{HR_{最大}}{HR_{安静時}}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.descripcion",
+    "texto": "ウスの式です。大まかですが、自分が上達しているかを見るのには十分です。"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.nombre",
+    "texto": "最大心拍数"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.unidad",
+    "texto": "回/分"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.nombre",
+    "texto": "安静時心拍数"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.unidad",
+    "texto": "回/分"
+  },
+  {
+    "ruta": "hojas.0.nombre",
+    "texto": "メキシコの予算"
+  },
+  {
+    "ruta": "hojas.0.celdas.A1.crudo",
+    "texto": "日"
+  },
+  {
+    "ruta": "hojas.0.celdas.B1.crudo",
+    "texto": "食事"
+  },
+  {
+    "ruta": "hojas.0.celdas.C1.crudo",
+    "texto": "交通"
+  },
+  {
+    "ruta": "hojas.0.celdas.D1.crudo",
+    "texto": "チケット"
+  },
+  {
+    "ruta": "hojas.0.celdas.E1.crudo",
+    "texto": "買い物"
+  },
+  {
+    "ruta": "hojas.0.celdas.A2.crudo",
+    "texto": "1日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A3.crudo",
+    "texto": "2日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A4.crudo",
+    "texto": "3日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A5.crudo",
+    "texto": "4日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A6.crudo",
+    "texto": "5日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A7.crudo",
+    "texto": "6日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A8.crudo",
+    "texto": "7日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A9.crudo",
+    "texto": "8日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A10.crudo",
+    "texto": "9日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A11.crudo",
+    "texto": "10日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A12.crudo",
+    "texto": "11日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A13.crudo",
+    "texto": "12日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A14.crudo",
+    "texto": "13日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A15.crudo",
+    "texto": "14日目"
+  },
+  {
+    "ruta": "hojas.0.celdas.A18.crudo",
+    "texto": "1日の平均"
+  },
+  {
+    "ruta": "hojas.0.celdas.A20.crudo",
+    "texto": "旅行合計 ¥"
+  },
+  {
+    "ruta": "hojas.0.celdas.A21.crudo",
+    "texto": "為替レート（MXN/¥）"
+  },
+  {
+    "ruta": "hojas.0.celdas.A22.crudo",
+    "texto": "ペソでの合計"
+  },
+  {
+    "ruta": "hojas.1.nombre",
+    "texto": "18週間プラン"
+  },
+  {
+    "ruta": "hojas.1.celdas.A1.crudo",
+    "texto": "週"
+  },
+  {
+    "ruta": "hojas.1.celdas.B1.crudo",
+    "texto": "キロメートル"
+  },
+  {
+    "ruta": "hojas.1.celdas.C1.crudo",
+    "texto": "変化率"
+  },
+  {
+    "ruta": "hojas.1.celdas.D1.crudo",
+    "texto": "ロング走"
+  },
+  {
+    "ruta": "hojas.1.celdas.A2.crudo",
+    "texto": "第1週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A3.crudo",
+    "texto": "第2週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A4.crudo",
+    "texto": "第3週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A5.crudo",
+    "texto": "第4週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A6.crudo",
+    "texto": "第5週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A7.crudo",
+    "texto": "第6週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A8.crudo",
+    "texto": "第7週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A9.crudo",
+    "texto": "第8週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A10.crudo",
+    "texto": "第9週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A11.crudo",
+    "texto": "第10週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A12.crudo",
+    "texto": "第11週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A13.crudo",
+    "texto": "第12週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A14.crudo",
+    "texto": "第13週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A15.crudo",
+    "texto": "第14週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A16.crudo",
+    "texto": "第15週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A17.crudo",
+    "texto": "第16週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A18.crudo",
+    "texto": "第17週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A19.crudo",
+    "texto": "第18週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A22.crudo",
+    "texto": "ピーク週"
+  },
+  {
+    "ruta": "hojas.1.celdas.A23.crudo",
+    "texto": "平均"
+  },
+  {
+    "ruta": "hojas.2.nombre",
+    "texto": "物理IIの成績"
+  },
+  {
+    "ruta": "hojas.2.celdas.A1.crudo",
+    "texto": "評価項目"
+  },
+  {
+    "ruta": "hojas.2.celdas.B1.crudo",
+    "texto": "比重"
+  },
+  {
+    "ruta": "hojas.2.celdas.C1.crudo",
+    "texto": "点数"
+  },
+  {
+    "ruta": "hojas.2.celdas.D1.crudo",
+    "texto": "寄与"
+  },
+  {
+    "ruta": "hojas.2.celdas.A2.crudo",
+    "texto": "中間テスト1"
+  },
+  {
+    "ruta": "hojas.2.celdas.A3.crudo",
+    "texto": "中間テスト2"
+  },
+  {
+    "ruta": "hojas.2.celdas.A4.crudo",
+    "texto": "課題"
+  },
+  {
+    "ruta": "hojas.2.celdas.A5.crudo",
+    "texto": "実験"
+  },
+  {
+    "ruta": "hojas.2.celdas.A8.crudo",
+    "texto": "これまでの比重"
+  },
+  {
+    "ruta": "hojas.2.celdas.A9.crudo",
+    "texto": "現在の合計"
+  },
+  {
+    "ruta": "hojas.2.celdas.A10.crudo",
+    "texto": "期末に必要な点数"
+  }
+]

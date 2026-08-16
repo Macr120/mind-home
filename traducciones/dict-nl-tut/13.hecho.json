@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "De apps plannen zichzelf in: de afspraken uit de Agenda, de nachten uit Slaap, de studiemomenten uit de Bibliotheek. Met Filteren laat je er maar één zien."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "Door het jaar bewegen"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "De pijlen ‹ › lopen door de periode en Vandaag brengt je terug naar nu. Peps hele jaar staat hier, week voor week. Met + Nieuw maak je een gebeurtenis, of je tekent hem direct op het raster."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "Gewoonte voor gewoonte"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "Elke rij is een routine en elke kolom een dag: groen is gedaan. Hier vink je meteen af, en het percentage bovenaan vat de periode samen die je bekijkt."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "De boog van het jaar"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "In de weergave Jaar vertelt de grafiek het hele verhaal: Pep haalde in het begin een derde van wat er gepland stond en eindigde boven de 85%. Regelmaat is opgebouwd, niet komen aanwaaien."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "De dalen tellen ook mee"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "Die twee gaten zijn echt: de knieblessure in maand 7 en de drie weken in Japan. Missen wist je voortgang niet uit — het paneel toont het jaar zoals het was, niet zoals het had moeten zijn. En een routine telt pas mee vanaf de dag dat je hem aanmaakte."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "Eerst de doelen"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "De weergave opent op Doelen, gegroepeerd per app die ze bijhoudt: hardlopen onder Gym, de studie natuurkunde onder Bibliotheek. “Huis” is geen app — die categorie bedacht Pep zelf voor de verbouwing van de keuken."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "Van doel naar plan"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "Elke rij leest als een bord: zijn nummer in de map, de deadline, de voortgang en de status — Te doen, Bezig of Klaar, naargelang wat er is afgevinkt. Eén klik opent het doel: zijn plan als het er een heeft (het ✨ verklapt het) en anders zijn blad met de subdoelen, de data en de stappen."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "Drie plannen, drie toestanden"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "De keuken en de volgende marathon zijn nog Voorstel; de aanvraag voor de master staat al in de planning. Die van de marathon werd zonder einddatum gevraagd: de AI rekende uit dat er 24 weken nodig zijn en zegt dat in zijn samenvatting."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "Het blad van het plan"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "Zes fases met hun subdoelen, elk met zijn eigen periode. Zolang het een voorstel is, bewerk je alles: hernoemen, data verschuiven, knooppunten toevoegen of weghalen zonder de rest scheef te trekken."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "Afvinken zonder je vast te leggen"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "De vinkjes van een voorstel leven in het blad, niet in je doelen: je markeert wat klaar is zonder je planning aan te raken. De balken vullen zichzelf van onder naar boven — de planfase van de keuken is al afgerond."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "Verplaatsen naar echte planning"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "Deze knop maakt van elke fase en elk subdoel een echt doel, met de data erbij en hangend onder het oorspronkelijke doel. Wat het doel al had, blijft staan."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "Geaccepteerd: één waarheid"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "Het plan voor de master is al verplaatst. Zijn vinkjes zijn nu die van de echte subdoelen en de balk is die van je planning: het blad houdt geen aparte telling meer bij."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "En daar staan ze, op de as"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "De subdoelen die uit het plan zijn ontstaan, nemen hun periode in op de planning, met het plan er in paars overheen: het voorstel en het echte werk op dezelfde as."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "Een jaar studie, in één boom"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep studeert natuurkunde: mechanica aan het begin van het jaar, thermodynamica richting het tentamen in maand 6, relativiteit en astrofysica aan het eind. Elke tak klapt open en toont zijn items."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "De boom groeit met je mee"
+  }
+]

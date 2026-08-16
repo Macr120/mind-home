@@ -1,0 +1,354 @@
+[
+  {
+    "ruta": "trabajo.0.titulo",
+    "texto": "Prova 1 de Mecânica"
+  },
+  {
+    "ruta": "trabajo.0.lugar",
+    "texto": "Faculdade de Ciências, sala 12"
+  },
+  {
+    "ruta": "trabajo.1.titulo",
+    "texto": "Entrega do relatório de laboratório: queda livre"
+  },
+  {
+    "ruta": "trabajo.1.lugar",
+    "texto": "Laboratório de Física I"
+  },
+  {
+    "ruta": "trabajo.2.titulo",
+    "texto": "Inventário mensal do balcão"
+  },
+  {
+    "ruta": "trabajo.2.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.3.titulo",
+    "texto": "Turno extra: degustação de café de origem única"
+  },
+  {
+    "ruta": "trabajo.3.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.4.titulo",
+    "texto": "Reunião inicial do projeto do semestre"
+  },
+  {
+    "ruta": "trabajo.4.lugar",
+    "texto": "Sala da orientadora Elena"
+  },
+  {
+    "ruta": "trabajo.5.titulo",
+    "texto": "Prova de Ondas e Óptica"
+  },
+  {
+    "ruta": "trabajo.5.lugar",
+    "texto": "Faculdade de Ciências"
+  },
+  {
+    "ruta": "trabajo.6.titulo",
+    "texto": "Entrega do laboratório: pêndulos acoplados"
+  },
+  {
+    "ruta": "trabajo.6.lugar",
+    "texto": "Laboratório de Física II"
+  },
+  {
+    "ruta": "trabajo.7.titulo",
+    "texto": "Turno duplo por causa da feira do bairro"
+  },
+  {
+    "ruta": "trabajo.8.titulo",
+    "texto": "Renovação do passaporte"
+  },
+  {
+    "ruta": "trabajo.8.lugar",
+    "texto": "Posto de passaportes"
+  },
+  {
+    "ruta": "trabajo.9.titulo",
+    "texto": "Acompanhamento do projeto com Elena"
+  },
+  {
+    "ruta": "trabajo.9.lugar",
+    "texto": "Faculdade de Ciências"
+  },
+  {
+    "ruta": "trabajo.10.titulo",
+    "texto": "Oficina: revisão do carro"
+  },
+  {
+    "ruta": "trabajo.10.lugar",
+    "texto": "Taller Ruiz"
+  },
+  {
+    "ruta": "trabajo.11.titulo",
+    "texto": "Providências do seguro do carro"
+  },
+  {
+    "ruta": "trabajo.11.lugar",
+    "texto": "Agência centro"
+  },
+  {
+    "ruta": "trabajo.12.titulo",
+    "texto": "Prova de Termodinâmica"
+  },
+  {
+    "ruta": "trabajo.12.lugar",
+    "texto": "Faculdade de Ciências"
+  },
+  {
+    "ruta": "trabajo.13.titulo",
+    "texto": "Entrega do laboratório: calorimetria"
+  },
+  {
+    "ruta": "trabajo.13.lugar",
+    "texto": "Laboratório de Física II"
+  },
+  {
+    "ruta": "trabajo.14.titulo",
+    "texto": "Pedir folga a Marisol para a viagem"
+  },
+  {
+    "ruta": "trabajo.14.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.15.titulo",
+    "texto": "Treinamento da máquina nova"
+  },
+  {
+    "ruta": "trabajo.15.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "trabajo.16.titulo",
+    "texto": "Reunião de resultados do projeto"
+  },
+  {
+    "ruta": "trabajo.16.lugar",
+    "texto": "Faculdade de Ciências"
+  },
+  {
+    "ruta": "trabajo.17.titulo",
+    "texto": "Prova de Eletromagnetismo"
+  },
+  {
+    "ruta": "trabajo.17.lugar",
+    "texto": "Faculdade de Ciências"
+  },
+  {
+    "ruta": "trabajo.18.titulo",
+    "texto": "Entrega final do laboratório"
+  },
+  {
+    "ruta": "trabajo.18.lugar",
+    "texto": "Laboratório de Física II"
+  },
+  {
+    "ruta": "trabajo.19.titulo",
+    "texto": "Defesa do projeto do semestre"
+  },
+  {
+    "ruta": "trabajo.19.lugar",
+    "texto": "Auditório B"
+  },
+  {
+    "ruta": "trabajo.20.titulo",
+    "texto": "Turno especial: degustação de chás de inverno"
+  },
+  {
+    "ruta": "trabajo.20.lugar",
+    "texto": "Café Mirasol"
+  },
+  {
+    "ruta": "salud.0.titulo",
+    "texto": "Primeira consulta de nutrição"
+  },
+  {
+    "ruta": "salud.0.lugar",
+    "texto": "Centro de Saúde Aldana"
+  },
+  {
+    "ruta": "salud.1.titulo",
+    "texto": "Vacina anual da Laika"
+  },
+  {
+    "ruta": "salud.1.lugar",
+    "texto": "Veterinária Los Álamos"
+  },
+  {
+    "ruta": "salud.2.titulo",
+    "texto": "Retorno de nutrição"
+  },
+  {
+    "ruta": "salud.2.lugar",
+    "texto": "Centro de Saúde Aldana"
+  },
+  {
+    "ruta": "salud.3.titulo",
+    "texto": "Ortopedista: dor no joelho"
+  },
+  {
+    "ruta": "salud.3.lugar",
+    "texto": "Clínica San Vicente"
+  },
+  {
+    "ruta": "salud.4.titulo",
+    "texto": "Fisioterapia 1 de 6"
+  },
+  {
+    "ruta": "salud.4.lugar",
+    "texto": "Clínica San Vicente"
+  },
+  {
+    "ruta": "salud.5.titulo",
+    "texto": "Fisioterapia 2 de 6"
+  },
+  {
+    "ruta": "salud.5.lugar",
+    "texto": "Clínica San Vicente"
+  },
+  {
+    "ruta": "salud.6.titulo",
+    "texto": "Fisioterapia 3 de 6"
+  },
+  {
+    "ruta": "salud.6.lugar",
+    "texto": "Clínica San Vicente"
+  },
+  {
+    "ruta": "salud.7.titulo",
+    "texto": "Fisioterapia 4 de 6"
+  },
+  {
+    "ruta": "salud.7.lugar",
+    "texto": "Clínica San Vicente"
+  },
+  {
+    "ruta": "salud.8.titulo",
+    "texto": "Fisioterapia 5 de 6"
+  },
+  {
+    "ruta": "salud.8.lugar",
+    "texto": "Clínica San Vicente"
+  },
+  {
+    "ruta": "salud.9.titulo",
+    "texto": "Fisioterapia 6 de 6: alta"
+  },
+  {
+    "ruta": "salud.9.lugar",
+    "texto": "Clínica San Vicente"
+  },
+  {
+    "ruta": "salud.10.titulo",
+    "texto": "Limpeza dental"
+  },
+  {
+    "ruta": "salud.10.lugar",
+    "texto": "Consultório do Dr. Olmos"
+  },
+  {
+    "ruta": "salud.11.titulo",
+    "texto": "Laika: consulta e vermifugação"
+  },
+  {
+    "ruta": "salud.11.lugar",
+    "texto": "Veterinária Los Álamos"
+  },
+  {
+    "ruta": "salud.12.titulo",
+    "texto": "Retorno de nutrição"
+  },
+  {
+    "ruta": "salud.12.lugar",
+    "texto": "Centro de Saúde Aldana"
+  },
+  {
+    "ruta": "salud.13.titulo",
+    "texto": "Check-up geral anual"
+  },
+  {
+    "ruta": "salud.13.lugar",
+    "texto": "Centro de Saúde Aldana"
+  },
+  {
+    "ruta": "personas.0.titulo",
+    "texto": "Um café comprido de reclamações"
+  },
+  {
+    "ruta": "personas.1.titulo",
+    "texto": "Jantar de domingo em casa"
+  },
+  {
+    "ruta": "personas.2.titulo",
+    "texto": "Aniversário do Iker"
+  },
+  {
+    "ruta": "personas.3.titulo",
+    "texto": "Café da manhã depois do 5K"
+  },
+  {
+    "ruta": "personas.4.titulo",
+    "texto": "Maratona de filmes de ficção científica"
+  },
+  {
+    "ruta": "personas.5.titulo",
+    "texto": "Jantar de aniversário da mãe"
+  },
+  {
+    "ruta": "personas.6.titulo",
+    "texto": "Café para desabafar"
+  },
+  {
+    "ruta": "personas.7.titulo",
+    "texto": "Jantar de despedida antes do Japão"
+  },
+  {
+    "ruta": "personas.8.titulo",
+    "texto": "Chamada de vídeo de Quioto"
+  },
+  {
+    "ruta": "personas.9.titulo",
+    "texto": "Noite de fotos da viagem"
+  },
+  {
+    "ruta": "personas.10.titulo",
+    "texto": "Aniversário da Nadia"
+  },
+  {
+    "ruta": "personas.11.titulo",
+    "texto": "Brunch com a turma do café"
+  },
+  {
+    "ruta": "personas.12.titulo",
+    "texto": "Concerto em casa: Clair de Lune"
+  },
+  {
+    "ruta": "personas.13.titulo",
+    "texto": "Café: pós-graduação ou emprego?"
+  },
+  {
+    "ruta": "pendientes.0",
+    "texto": "Trocar o turno de sexta por causa da prova"
+  },
+  {
+    "ruta": "pendientes.1",
+    "texto": "Atualizar o currículo com o projeto do semestre"
+  },
+  {
+    "ruta": "pendientes.2",
+    "texto": "Organizar os recibos de gorjetas do mês"
+  },
+  {
+    "ruta": "pendientes.3",
+    "texto": "Responder o e-mail da Elena sobre o pôster"
+  },
+  {
+    "ruta": "pendientes.4",
+    "texto": "Pedir orçamento de um moedor novo para o balcão"
+  }
+]

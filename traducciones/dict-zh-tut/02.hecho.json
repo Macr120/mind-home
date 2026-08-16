@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "这就是你的家：每个房间放着一个应用。我来带你看看基本操作。"
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "主菜单"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "这个按钮会打开菜单：你的房间、模板（应用）目录，还有物件的物品栏。"
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "移动"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "用摇杆、WASD或方向键走动。穿过房间的门就会进去，它的应用会自动打开。"
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "三种视角"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "等距视角、第三人称和第一人称（也可以按V键）。在第三/第一人称下还会多出一个按钮，可以边走边编辑这个世界。"
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "一个角落，多个主人"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "那个角落不只是视角方块：靠近可以互动的东西——椅子、载具、球场——它就会按你附近的东西自动切换。不靠近，就什么都不会启动。"
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "工具轮盘"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "动作、玩具、载具和建造，最多同时装备3个。可以从这里打开，两手空着的时候也能从角落的那个位置打开。"
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "时钟"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "家里的时间。从这里可以打开完整的日历，还有日常安排面板，上面列着你今天还没做完的事。"
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "家里的音乐"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "每个房间都可以有自己的主题，也可以让家的氛围一直放着。想安静的话，可以完全关掉。"
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "聊天"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "建筑师的聊天：告诉它你做了什么，它会记到对应的应用里；也可以让它改动房子。"
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "基础就这些。上面的“编辑器”按钮会打开完整的自定义，每个菜单和每个应用也都有自己的“?”按钮和教程。"
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "先说最要紧的：家是怎么搭起来的。一切都从“房间”标签页开始。"
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "创建房间"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "用这个按钮可以在地图上画新房间。为了带你看看接下来的步骤，现在就给你建一个吧……"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "你的新房间"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "在这儿！刚建好的房间，还没有应用：所以它的按钮写着“+ 分配”。"
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "分配一个应用"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "用“+ 分配”给它装上了应用：看，房间拿到了自己的名字、图标和家具，按钮现在写着“进入”。"
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "进入"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "进来了：这就是房间的应用。走动的时候穿过它的门也能进来，用“‹ 返回家”离开。"
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "房间会留在你家里，应用也准备好了。剩下的也这么搭：想放在这儿的每件事，都给它一个房间。"
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "“房间”标签页会按分类列出你家里的所有房间。"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "你的概览"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "你的角色靠你真实的活动过日子：在这里能看到它的心情、等级和连续天数。在任何应用里记一笔，它就会开心起来；好几天什么都没有，它就会难过——但从不惩罚你，也不会清零。"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "卡片"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "每张卡片都是一个房间：图标、名字和应用的进度，分成“身体”“心灵”“附加”和“设置”。还没分配应用的房间排在最后面。"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "编辑"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "“编辑”会打开房间的编辑器：形状、颜色、墙壁和物件。（现在先别点：会把这个菜单关掉。）"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "“进入”和“分配”"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "“进入”会打开房间的应用。如果房间还没有应用，那里会显示“+ 分配”，可以从目录里挑一个。"
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "创建房间"
+  }
+]

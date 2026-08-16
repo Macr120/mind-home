@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "Die Themen des Katalogs sind schon da; die, die lose hängen, hat ein Chat eröffnet. Tipp einen Eintrag an, um seine Zusammenfassung, seine Kernpunkte und seine Illustration zu lesen."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "Einen Eintrag schreibst du von Hand oder destillierst ihn aus einem Chat. Der zum Schwarzen Loch und der zur Physik des Klaviers haben eine Zeichnung: Die App kann sie für dich illustrieren."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "Die Fragen des Jahres"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Hier sind die Chats, die Pep beim Lernen geführt hat: Entropie, Zeitdilatation, warum ein Klavier nach Klavier klingt. Jeder einzelne ist erhalten geblieben."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "Vom Chat in den Baum"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "So füllt sich die Enzyklopädie nicht mit abgeschriebener Theorie, sondern mit dem, was du wirklich gefragt hast."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "Der Index gehört dir"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "Das + in jeder Zeile schreibt genau dort einen Eintrag, mit Gebiet und Thema schon gesetzt. Und mit dem Stift-Button lässt du den Baum wachsen: Dasselbe + fügt Zweige hinzu, das beim Samen legt neue Gebiete an, und du kannst umbenennen, umsortieren und löschen. Die Zahl mit dem Zweiglein sagt dir, wie viele Unterthemen darunter hängen."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "Der Lernplan"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "Für jedes Ziel kannst du einen Plan anfordern: Die KI fragt nach deinem Zieldatum und deinen freien Stunden und trägt die Lernzeiten in deinen Kalender ein."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "Wie viele Einträge deine Enzyklopädie hat und wie viele der Gebiete und Themen des Index du schon abdeckst. Themen, die ein Chat eröffnet hat, werden getrennt gezählt."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "Vier Zahlen"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "Chats mit dem Weisen, Lernminuten insgesamt und in dieser Woche, und deine Serie aus Tagen, an denen du hintereinander gelernt hast."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "Wo die Schieflage ist"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "Der längste Balken ist das Gebiet, das die meiste Aufmerksamkeit gekostet hat – bei Pep die Thermodynamik in der Klausurwoche."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "Die Lerntage"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "Ein Kästchen pro Tag: Das Pauken vor der Klausur und die Lücke der drei Wochen in Japan fallen sofort auf, ohne den ganzen Verlauf zu öffnen."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "Wohin die Stunden gegangen sind"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "Dasselbe wie oben, aber in Minuten: Viele Einträge in einem Gebiet zu haben ist das eine, wirklich Zeit hineingesteckt zu haben das andere."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "Ein Jahr voller Sitzungen"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "Und wenn du es genau wissen willst: Der Verlauf bewahrt jede Sitzung mit ihren Minuten und ihrem Gebiet auf, abgelegt nach Jahr, Monat und Woche."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "Was heute dran ist"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep ist seit einem Jahr dabei und hat trotzdem noch Wiederholungen offen: Das System fragt nicht den ganzen Wortschatz ab, nur das, was du gerade zu vergessen drohst."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "Ein Jahr Beständigkeit"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "Der Verlauf hält fest, wie viele du an jedem Tag wiederholt und wie viele du richtig hattest. Am Anfang lag Pep ziemlich oft daneben und am Ende stimmte fast alles – und in Japan wurde mehr wiederholt als je zuvor."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "Zwei Sprachen auf einmal"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "Oben wechselst du die Sprache: Neben der Hauptsprache hat sich Pep zwischen Monat 4 und der Reise ein Überlebens-Japanisch aufgebaut. Nach der Rückkehr blieb es fast liegen, und an den Boxen sieht man das."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "Drei Bereiche, sechs Level"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "Von A1 bis C2, jedes Level mit seinen Wortschatzthemen, seinen Aussprachepunkten und seiner Grammatik. Du weißt, was dir fehlt, ohne dir woanders einen Kurs zu suchen."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "Wo du stehst"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "Gemeisterte Karteikarten, Wiederholungen des Monats und dein aktuelles Level. Pep ist mit A2 ins Jahr gestartet und liegt heute bei B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "Der Posteingang"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "Was ansteht, aber noch keinen Tag hat, wohnt hier, mit seiner Priorität. Nichts zwingt dich, ein Datum zu setzen, nur um es aufzuschreiben."
+  }
+]

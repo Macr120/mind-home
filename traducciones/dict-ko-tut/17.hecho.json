@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "매일 아침 몇 시에 잠들었는지, 몇 시에 일어났는지, 몇 번 깼는지, 어땠는지를 적어요. 나머지는 이것만 있으면 앱이 알아서 해요."
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "한 해, 네 가지 렌즈"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "일, 주, 월, 년 중에서 고르고 화살표로 옮겨 다녀요. 몇 달 뒤로 가 보세요. 차가 고장 난 달과 일본행 비행기를 탄 달이 둘 다 빨간색으로 보여요."
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "한 해의 모양"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "최근 여섯 기간을 막대로 보여줘요. 파란색은 돈이 남은 달, 빨간색은 힘들었던 달이에요. 가라앉은 구간과 다시 올라온 구간이 그대로 보여요."
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "돈은 어디로 갈까요?"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "지금 보고 있는 기간을 카테고리별로 나눠서 보여줘요. Pep은 카테고리를 직접 적어요. 흔한 것은 앱이 알아보고, 나머지는 각자 색을 받아요."
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "이달의 상한"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "월간 예산 하나와, 넘기면 빨개지는 막대예요. 주나 년으로 보면 앱이 알아서 나눠 줘요."
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "지금 가진 것"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "순자산은 '순자산' 탭에서 그대로 가져와요. 자산에서 부채를 뺀 값이에요. 여기에 그 기간의 순액을 더하거나 빼서, 어떻게 마무리될지 보여줘요."
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "그리고 1년 뒤"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "고정 지출은 결제일에 맞춰, 변동 지출은 평균으로 열두 달을 내다봐요. 순자산을 넣은 경우와 넣지 않은 경우, 두 가지로요."
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Pep의 고정 지출"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "월세, 인터넷, 휴대폰, 스트리밍, 자동차 보험. 정리를 시작하기로 한 2개월 차에 등록한 다섯 건이에요. 그때부터 하나하나 알아서 계산돼요."
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "기록하는 법"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "입력 폼은 단계별로 진행돼요. 금액, 변동인지 고정인지, 카테고리(직접 적으면 흔한 것들을 제안해요), 반복 주기, 그리고 메모예요."
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "1년치 기록"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "수백 건의 지출이 연도와 월 폴더에 정리돼 있어요. 7개월 차를 찾아보세요. 한 번에 1만 페소 가까이 가져간 그 고장이 거기 있어요."
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "돈은 어디서 오나"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "카페에서 받는 격주 급여 두 건, 여행을 정하고 나서 시작한 물리 과외, 그리고 매주 들어오는 팁이에요. 팁은 매번 달라요."
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "내 집에서는 채팅으로도 기록할 수 있어요. '마트에서 250 썼어'라고 하면 그대로 적혀요."
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "이룬 목표"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "일본 여행, 100% 달성이에요. 열한 달의 저축, 과외 수입, 연말 상여금, 그리고 생일에 받은 돈이에요. 아래에는 돌아와서 시작한 비상금과 작은 투자가 있어요."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "시간 축 위의 목표"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "지고 있던 빚"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "차 고장은 카드로 결제했고, 다 갚는 데 몇 달이 걸렸어요. 빚은 따로 있어요. 반대로 읽어야 하거든요. 여기서는 줄어드는 게 이기는 거예요."
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "시장"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pep은 여행을 정한 뒤로 엔화를 지켜봤고, 지금은 다음 여행을 위해 원화를 봐요. 외환, 암호화폐, 주식, 원자재를 실시간으로 보여줘요(인터넷이 필요해요)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "개인 재무 법칙 네 가지가 각각 탭 하나씩 차지해요. 비상금, 경제적 자립, 50/30/20, 그리고 자동차 20/4/10 규칙이에요."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "실제 금액에서 출발"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "입력란에는 이번 달 실제 수입이나 지출이 미리 채워져 있어요. 눌러서 다른 금액으로 시뮬레이션해도, 진짜 금액은 계속 보여요."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "계산에서 목표로"
+  }
+]

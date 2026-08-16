@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "Satırdaki düğme GERÇEK veriyi uygulamaya kaydeder — bir bardak su, bir öğün — ve adımın üstü, o kayıt artık orada olduğu için çizilir; biri işaretlediği için değil. Adım tamamlandıktan sonra düğmeye yeniden basmak hiçbir şeyi çoğaltmaz: düğme ortadan kaybolur."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "Her günkü rakamın"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "Ayarlanabilir rakamı olan adımlar onu tam burada değiştirir. 0 yapmak, önceki günlerin geçmişini silmeden o günkü hedefi kapatır."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "Hedeften rutine"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "Takvim aynı hedefi sabit saatle planlar: saatteki rutinlerle aynı düzenleyiciyi açar, böylece iki yerde birden kayıtlı kalır."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "Tamamlanan kaybolmaz"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "«Tamamlanan» bölümüne kapalı olarak iner: kaydın etkisini görmek ödülün bir parçasıdır ve fazladan bir tanesi karıştıysa oradan geri alınabilir."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "Karakterinin kartı: Pep’in arkasında bir yıllık gerçek etkinlik var, yani buradaki her sayının onu açıklayan gerçek bir hikâyesi var."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "Karakter"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "Ona dokunmak karakter düzenleyicisini açar. Keyfi —mutlu, hoşnut, üzgün ya da uykuda— her yeni kayıtla yükselir ve yalnızca hiç kayıt olmadan günler geçerse düşer; asla bir anda sıfırlanmaz."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "Sisifos rütbesi"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "On iki tırmanış rütbesi: etkinlik olan her gün 365 basamağın birini çıkarır. Pep birkaç rütbeyi çoktan kazandı; dağın tamamını görmek için ona dokun."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "Basamaklar ve af günleri"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "Her 7 basamakta bir rozet gelir, her haftalık bölüm rütbeyi yükseltir. Bir günü kaçırmak hiçbir şeyi bozmaz: mevcut rütbenin başına geri düşmeden önce ayda 2 af günün var."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "Aileye göre 52 rozet"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "Jeolojik ailelerine göre gruplanır ve kazanılana kadar gizemli kalır: kilit açılana dek ne adı ne de açıklaması görünür."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "Özetin"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped, haftanın, ayın ya da yılın özetini slaytlar hâlinde kurar — kendi öğreticisi var ve Pep’inki gibi bir yılda fazlasıyla veri bulur."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "Odaya göre radar"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "Her köşe evdeki bir odadır ve boyutu, o odaya atanmış uygulamaların XP toplamıdır. Etkinliği olmayan bir oda hemen belli olur: köşesi merkeze doğru çöker."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "Hikâye tarzı: ilerlemek için sağ tarafa, geri gitmek için sol tarafa dokun; bir slaytta duraklatmak için basılı tut."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "Hafta, ay ya da yıl"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "Her tür kendi slaytlarını kendi verileriyle kurar — Pep’in yıllık özeti en uzunu; bütün yılın en yüksek ve en düşük anlarıyla birlikte."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "Dönemler arasında gezinmek"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "‹ › okları çoktan kapanmış dönemleri gezer: bugünün ötesine geçilemez, yani karşılaştırma hep gerçek bir şeyle yapılır."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "Bir slaydı paylaşmak"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "Baktığın slaydın metnini kopyalar; istediğin yere yapıştırmaya hazır — ekran görüntüsüne gerek yok."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "Onu açan düğmenin yanındaki bir nokta, görülmemiş yeni bir özet olduğunu haber verir; açtığında nokta söner."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "Burası Pep’in sığınağı: bir yanda ağıllar, öbür yanda onları besleyen sebze bahçesi. Haydi parsellere gidelim."
+  }
+]

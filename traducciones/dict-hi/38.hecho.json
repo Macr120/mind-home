@@ -1,0 +1,506 @@
+[
+  {
+    "clave": "ia.calidad.buena.desc",
+    "texto": "ज़्यादा डिटेल और इमेज के अंदर बेहतर टेक्स्ट।"
+  },
+  {
+    "clave": "ia.tarifas",
+    "texto": "जवाब की कीमत 1 क्रेडिट है · लंबी योजना 3 · इमेज {img} · 3D मॉडल 10।"
+  },
+  {
+    "clave": "ia.precios.pie",
+    "texto": "शुल्क सर्वर लेता है: पूछने से पहले ही यह पता चल जाता है कि इसकी कीमत क्या होगी।"
+  },
+  {
+    "clave": "ia.precios.pieSinCuenta",
+    "texto": "अपनी एआई कुंजी से कोई क्रेडिट खर्च नहीं होता: आप सीधे अपने प्रोवाइडर को भुगतान करते हैं।"
+  },
+  {
+    "clave": "ia.grupo.chat",
+    "texto": "घर की चैट"
+  },
+  {
+    "clave": "ia.grupo.editor",
+    "texto": "घर का एडिटर"
+  },
+  {
+    "clave": "ia.grupo.metas",
+    "texto": "लक्ष्य और समय-सारणी"
+  },
+  {
+    "clave": "ia.donde.chat",
+    "texto": "घर की चैट"
+  },
+  {
+    "clave": "ia.donde.casa",
+    "texto": "घर (अपने आप)"
+  },
+  {
+    "clave": "ia.donde.editorObjetos",
+    "texto": "एडिटर › वस्तुएं"
+  },
+  {
+    "clave": "ia.donde.editorPersonajes",
+    "texto": "एडिटर › किरदार"
+  },
+  {
+    "clave": "ia.donde.editorCuarto",
+    "texto": "एडिटर › फ़र्श, दीवारें, छत, दरवाज़े और ग्रिड"
+  },
+  {
+    "clave": "ia.donde.editorFondo",
+    "texto": "आसमान का बैकग्राउंड"
+  },
+  {
+    "clave": "ia.donde.asistentes",
+    "texto": "सहायक"
+  },
+  {
+    "clave": "ia.donde.metas",
+    "texto": "रसोई, जिम, पुस्तकालय, भाषाएं, बैठक, शौक, कार्यकक्ष और मनोरंजन"
+  },
+  {
+    "clave": "ia.op.chat.mensaje",
+    "texto": "आपके सहायक को मैसेज"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d",
+    "texto": "चैट से «3D बनाओ…»"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d.nota",
+    "texto": "दो कॉल: जो टर्न ऑर्डर पढ़ता है, और खुद जनरेशन।"
+  },
+  {
+    "clave": "ia.op.chat.imagen",
+    "texto": "चैट से «...की इमेज बनाओ»"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas",
+    "texto": "चैट से «मेरे लिए आइडिया मैप बनाओ»"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas.nota",
+    "texto": "अगर मैप पहली बार ठीक नहीं बनता, तो एक बार फिर कोशिश होती है।"
+  },
+  {
+    "clave": "ia.op.chat.latido",
+    "texto": "आपके किरदार की सहज टिप्पणी"
+  },
+  {
+    "clave": "ia.op.chat.latido.nota",
+    "texto": "सिर्फ़ सब्सक्रिप्शन के साथ और सिर्फ़ हर 10 में से 1 «हार्टबीट» पर।"
+  },
+  {
+    "clave": "ia.op.editor.objeto3d",
+    "texto": "किसी वस्तु या स्ट्रक्चर का 3D मॉडल"
+  },
+  {
+    "clave": "ia.op.editor.personaje3d",
+    "texto": "किरदार का 3D मॉडल"
+  },
+  {
+    "clave": "ia.op.editor.ropa3d",
+    "texto": "पोशाक"
+  },
+  {
+    "clave": "ia.op.editor.asistente3d",
+    "texto": "सहायक का रूप"
+  },
+  {
+    "clave": "ia.op.editor.asistenteVoz",
+    "texto": "सहायक के लिए एआई आवाज़"
+  },
+  {
+    "clave": "ia.op.editor.textura",
+    "texto": "फ़र्श, दीवार, छत, दरवाज़े या नक्शे के लिए टेक्सचर"
+  },
+  {
+    "clave": "ia.op.editor.fondo",
+    "texto": "आसमान के बैकग्राउंड का टेक्सचर"
+  },
+  {
+    "clave": "ia.op.metas.plan",
+    "texto": "लक्ष्य के लिए एआई✨ योजना"
+  },
+  {
+    "clave": "ia.op.metas.plan.nota",
+    "texto": "समय-सारणी, यात्रा योजनाएं, अध्ययन योजनाएं और वित्तीय योजनाएं।"
+  },
+  {
+    "clave": "ia.op.cocina.receta",
+    "texto": "एआई से रेसिपी बनाएं"
+  },
+  {
+    "clave": "ia.op.cocina.dieta",
+    "texto": "पूरी डाइट या भोजन योजना"
+  },
+  {
+    "clave": "ia.op.cocina.dieta.nota",
+    "texto": "योजना और उसकी हर रेसिपी अलग-अलग लिखी जाती है, और हर डिश की अपनी फ़ोटो होती है।"
+  },
+  {
+    "clave": "ia.op.cocina.macros",
+    "texto": "कैलोरी और मैक्रोज़ का हिसाब लगाएं"
+  },
+  {
+    "clave": "ia.op.cocina.portada",
+    "texto": "रेसिपी या डाइट के लिए फ़ोटो"
+  },
+  {
+    "clave": "ia.donde.cocina.recetario",
+    "texto": "रेसिपी बुक"
+  },
+  {
+    "clave": "ia.donde.cocina.dietas",
+    "texto": "डाइट · भोजन योजना"
+  },
+  {
+    "clave": "ia.donde.cocina.registro",
+    "texto": "भोजन लॉग"
+  },
+  {
+    "clave": "ia.donde.cocina.detalle",
+    "texto": "रेसिपी या डाइट का विवरण"
+  },
+  {
+    "clave": "ia.op.ejercicio.imagen",
+    "texto": "किसी एक्सरसाइज़ की इलस्ट्रेशन बनाएं"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote",
+    "texto": "बची हुई एक्सरसाइज़ की इलस्ट्रेशन बनाएं"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote.nota",
+    "texto": "बिना इलस्ट्रेशन वाली हर एक्सरसाइज़ के लिए एक इमेज: कुल संख्या इस पर निर्भर करती है कि कितनी बाकी हैं।"
+  },
+  {
+    "clave": "ia.donde.ejercicio.catalogo",
+    "texto": "एक्सरसाइज़ कैटलॉग"
+  },
+  {
+    "clave": "ia.op.biblioteca.charla",
+    "texto": "गुरु के साथ चैट का एक टर्न"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva",
+    "texto": "नई चैट का पहला टर्न"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva.nota",
+    "texto": "जवाब, साथ ही वह कॉल जो इसे नाम देती है और आपके ट्री में रखती है, और साथ ही वह जो इसकी एंट्री को डिस्टिल करती है।"
+  },
+  {
+    "clave": "ia.op.biblioteca.clasificar",
+    "texto": "चैट को क्लासिफ़ाई और डिस्टिल करें ✨"
+  },
+  {
+    "clave": "ia.op.biblioteca.ramificar",
+    "texto": "ट्री को शाखाओं में बांटें 🌿"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar",
+    "texto": "चैट छोड़ते समय एंट्री अपडेट करें"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar.nota",
+    "texto": "सिर्फ़ तब जब डिस्टिल होने के बाद चैट बड़ी हुई हो।"
+  },
+  {
+    "clave": "ia.op.biblioteca.material",
+    "texto": "एंट्री से स्टडी मटीरियल जनरेट करें"
+  },
+  {
+    "clave": "ia.op.biblioteca.ilustrar",
+    "texto": "एंट्री की इलस्ट्रेशन बनाएं"
+  },
+  {
+    "clave": "ia.donde.biblioteca.charlas",
+    "texto": "चैट"
+  },
+  {
+    "clave": "ia.donde.biblioteca.enciclopedia",
+    "texto": "विश्वकोश"
+  },
+  {
+    "clave": "ia.op.idiomas.charla",
+    "texto": "ट्यूटर के साथ चैट का एक टर्न"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva",
+    "texto": "नई चैट का पहला टर्न"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva.nota",
+    "texto": "जवाब, साथ ही वह कॉल जो इसे आपके पाठ्यक्रम में रखती है।"
+  },
+  {
+    "clave": "ia.op.idiomas.clasificar",
+    "texto": "चैट को क्लासिफ़ाई करें ✨"
+  },
+  {
+    "clave": "ia.op.idiomas.extraerTarjetas",
+    "texto": "चैट से कार्ड निकालें"
+  },
+  {
+    "clave": "ia.op.idiomas.generarTarjetas",
+    "texto": "किसी विषय के लिए कार्ड जनरेट करें"
+  },
+  {
+    "clave": "ia.op.idiomas.imagenTarjeta",
+    "texto": "कार्ड के लिए स्मृति इमेज"
+  },
+  {
+    "clave": "ia.donde.idiomas.charlas",
+    "texto": "चैट"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabulario",
+    "texto": "शब्दावली · पाठ्यक्रम"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabularioRepaso",
+    "texto": "शब्दावली · रिवीज़न"
+  },
+  {
+    "clave": "ia.op.ideas.mapa",
+    "texto": "एआई से कॉन्सेप्ट मैप"
+  },
+  {
+    "clave": "ia.op.ideas.mapa.nota",
+    "texto": "अगर मैप पहली बार काम का नहीं बनता, तो एक बार फिर कोशिश होती है और कीमत दोगुनी हो जाती है।"
+  },
+  {
+    "clave": "ia.op.ideas.expandir",
+    "texto": "और आइडिया (विस्तार, विकास या साथ वाले आइडिया)"
+  },
+  {
+    "clave": "ia.donde.ideas.mapas",
+    "texto": "मैप और डायग्राम · ब्रेनस्टॉर्म"
+  },
+  {
+    "clave": "ia.donde.ideas.diario",
+    "texto": "आइडिया डायरी · आइडिया विवरण · मैप कैनवस"
+  },
+  {
+    "clave": "ia.op.entretenimiento.ficha",
+    "texto": "एआई से एंट्री भरें"
+  },
+  {
+    "clave": "ia.op.entretenimiento.resumen",
+    "texto": "किसी कृति का सारांश"
+  },
+  {
+    "clave": "ia.op.entretenimiento.programa",
+    "texto": "सीरीज़, किताबों या गेम्स का प्रोग्राम"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.archivo",
+    "texto": "आर्काइव"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.programas",
+    "texto": "प्रोग्राम"
+  },
+  {
+    "clave": "ia.op.diario.efemerides",
+    "texto": "दिन की सांस्कृतिक घटनाएं"
+  },
+  {
+    "clave": "ia.op.diario.efemerides.nota",
+    "texto": "दिन में एक बार और सिर्फ़ सब्सक्रिप्शन के साथ।"
+  },
+  {
+    "clave": "ia.op.diario.reparto",
+    "texto": "सहायक द्वारा अख़बार की डिलीवरी"
+  },
+  {
+    "clave": "ia.op.diario.reparto.nota",
+    "texto": "हर तय डिलीवरी पर एक और सिर्फ़ सब्सक्रिप्शन के साथ।"
+  },
+  {
+    "clave": "ia.donde.diario",
+    "texto": "अख़बार (अपने आप)"
+  },
+  {
+    "clave": "ia.op.descanso.evidencia",
+    "texto": "अलार्म बंद करने के लिए फ़ोटो प्रूफ़"
+  },
+  {
+    "clave": "ia.donde.descanso",
+    "texto": "अलार्म घड़ी"
+  },
+  {
+    "clave": "ia.op.computo.formula",
+    "texto": "विवरण से फ़ॉर्मूला लिखें"
+  },
+  {
+    "clave": "ia.op.computo.explicar",
+    "texto": "चरण दर चरण समझाएं या हल करें"
+  },
+  {
+    "clave": "ia.op.computo.hoja",
+    "texto": "फ़ॉर्मूलों के साथ स्प्रेडशीट बनाएं"
+  },
+  {
+    "clave": "ia.op.computo.analizar",
+    "texto": "चुने गए डेटा की व्याख्या करें"
+  },
+  {
+    "clave": "ia.donde.computo.formulario",
+    "texto": "फ़ॉर्मूला बुक · नया फ़ॉर्मूला"
+  },
+  {
+    "clave": "ia.donde.computo.calculadora",
+    "texto": "कैलकुलेटर"
+  },
+  {
+    "clave": "ia.donde.computo.hojas",
+    "texto": "स्प्रेडशीट · नई स्प्रेडशीट"
+  },
+  {
+    "clave": "chat.cuotaAgotada",
+    "texto": "आपका इस महीने का एआई कोटा खत्म हो गया। एडिटर → सेटिंग्स → खाता में अपना उपयोग देखें।"
+  },
+  {
+    "clave": "chat.sinPro",
+    "texto": "आपके खाते में कोई सक्रिय सब्सक्रिप्शन नहीं है।"
+  },
+  {
+    "clave": "cuenta.pago.comprar",
+    "texto": "Pro बनें"
+  },
+  {
+    "clave": "cuenta.pago.comprarPrecio",
+    "texto": "Pro बनें — {p}/महीना"
+  },
+  {
+    "clave": "cuenta.pago.renovar",
+    "texto": "सब्सक्रिप्शन रिन्यू करें — {p}/महीना"
+  },
+  {
+    "clave": "cuenta.pago.comprarWeb",
+    "texto": "वेब पर Pro बनें"
+  },
+  {
+    "clave": "cuenta.pago.cancelado",
+    "texto": "खरीदारी पूरी नहीं हुई।"
+  },
+  {
+    "clave": "cuenta.pago.gestionar",
+    "texto": "अपना सब्सक्रिप्शन मैनेज करें"
+  },
+  {
+    "clave": "cuenta.olvide",
+    "texto": "पासवर्ड भूल गए?"
+  },
+  {
+    "clave": "cuenta.olvide.sinCorreo",
+    "texto": "पहले ऊपर अपना ईमेल लिखें।"
+  },
+  {
+    "clave": "cuenta.olvide.enviado",
+    "texto": "हमने इसे रीसेट करने के लिए आपको एक ईमेल भेजा है।"
+  },
+  {
+    "clave": "cuenta.eliminar",
+    "texto": "खाता मिटाएं"
+  },
+  {
+    "clave": "cuenta.eliminar.confirma",
+    "texto": "क्या सर्वर से आपका खाता और आपका सारा डेटा मिटाएं? यह कार्रवाई वापस नहीं हो सकती। इस डिवाइस का लोकल डेटा बना रहेगा।"
+  },
+  {
+    "clave": "cuenta.eliminar.confirma2",
+    "texto": "आखिरी पुष्टि: क्या खाता हमेशा के लिए मिटाएं?"
+  },
+  {
+    "clave": "cuenta.eliminar.borrando",
+    "texto": "मिटाया जा रहा है…"
+  },
+  {
+    "clave": "cuenta.renovar.titulo",
+    "texto": "आपका सब्सक्रिप्शन खत्म हो गया"
+  },
+  {
+    "clave": "cuenta.renovar.cuerpo",
+    "texto": "रिन्यू करने पर एआई और सिंक फिर से चालू हो जाते हैं। आपका डेटा इसी डिवाइस पर रहता है।"
+  },
+  {
+    "clave": "cuenta.renovar.cta",
+    "texto": "सब्सक्रिप्शन रिन्यू करें"
+  },
+  {
+    "clave": "cuenta.renovar.corto",
+    "texto": "आपका सब्सक्रिप्शन खत्म हो गया।"
+  },
+  {
+    "clave": "cuenta.cuota.titulo",
+    "texto": "इस महीने के आपके क्रेडिट खत्म हो गए"
+  },
+  {
+    "clave": "cuenta.cuota.tituloSin",
+    "texto": "एआई इस्तेमाल करने के लिए क्रेडिट चाहिए"
+  },
+  {
+    "clave": "cuenta.cuota.cuerpo",
+    "texto": "आपके क्रेडिट {f} को रिन्यू होंगे।"
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoLocal",
+    "texto": "ऐप और आपका डेटा बिना किसी भुगतान के आपका है। सिर्फ़ एआई के पैसे लगते हैं: जब ज़रूरत हो क्रेडिट टॉप-अप करें, या सब्सक्राइब करके हर महीने पाएं।"
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoVencida",
+    "texto": "आपका डेटा इसी डिवाइस पर रहता है। महीने के क्रेडिट और सिंक वापस पाने के लिए रिन्यू करें, या अलग से क्रेडिट टॉप-अप करें।"
+  },
+  {
+    "clave": "cuenta.cuota.recarga",
+    "texto": "+600 क्रेडिट — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaN",
+    "texto": "+{n} क्रेडिट — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaLista",
+    "texto": "टॉप-अप हो गया: आपके अतिरिक्त क्रेडिट आपके खाते में आ गए हैं।"
+  },
+  {
+    "clave": "cuenta.cuota.suscribirse",
+    "texto": "सब्सक्रिप्शन देखें"
+  },
+  {
+    "clave": "cuenta.cuota.nativo",
+    "texto": "क्रेडिट आपके खाते से मैनेज होते हैं।"
+  },
+  {
+    "clave": "cuenta.cuota.web",
+    "texto": "मेरे खाते में क्रेडिट खरीदें"
+  },
+  {
+    "clave": "cuenta.creditos.faltan",
+    "texto": "आपके एआई क्रेडिट खत्म हो गए।"
+  },
+  {
+    "clave": "comun.entendido",
+    "texto": "ठीक है"
+  },
+  {
+    "clave": "demo.aviso.titulo",
+    "texto": "आप डेमो हाउस में हैं"
+  },
+  {
+    "clave": "demo.aviso.cuerpo",
+    "texto": "सब कुछ आज़माएं: आप घर को संपादित कर सकते हैं और Pep के एक साल के जीवन के साथ ऐप्स इस्तेमाल कर सकते हैं। कुछ भी सेव नहीं होता — फिर से लोड करने पर घर वैसा ही हो जाता है जैसा पहले था।"
+  },
+  {
+    "clave": "demo.aviso.seguir",
+    "texto": "एक्सप्लोर करना जारी रखें"
+  },
+  {
+    "clave": "demo.salir",
+    "texto": "डेमो से बाहर निकलें"
+  }
+]

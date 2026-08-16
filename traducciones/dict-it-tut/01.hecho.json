@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "Nell'intestazione di ogni app vive il suo pulsante Obiettivi, come quello del calendario ma limitato a quest'app. Apre un pannello a due piani: sopra la checklist di oggi, sotto i suoi obiettivi e piani."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "Gli obiettivi propri dell'app (l'acqua, le calorie), quello che hai programmato per oggi nel calendario e i passi dei tuoi obiettivi in corso: tutto insieme, raggruppato sotto il piano o l'obiettivo da cui viene ogni passo."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "E se ti manca qualcosa, «Nuova checklist» crea la tua: una lista propria di quest'app che si ripete ogni giorno. Sotto la sezione Oggi c'è il pianificatore completo — Obiettivi, Piani e Programma — con tutti gli obiettivi dell'app."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "Gli obiettivi dei tuoi hobby e progetti vivono nel pulsante Obiettivi dell'intestazione: lo stesso pianificatore Obiettivi · Piani · Programma del calendario, limitato a quest'app. Chiedi all'IA un piano con fasi e date."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "Gli obiettivi vivono nel pulsante Obiettivi dell'intestazione, lo stesso programma del calendario: «finire termodinamica prima del compito» è già raggiunto; prepararsi per la magistrale è ancora in corso."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "Il pulsante Obiettivi dell'intestazione conserva i suoi quattro obiettivi raggiunti — i 5K, i 10K, la mezza maratona e la maratona — e quello ancora aperto. Gli obiettivi con data compaiono anche nel calendario di casa."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "Il pulsante Obiettivi dell'intestazione apre lo stesso programma che usa il calendario di casa, limitato agli obiettivi della Cucina: crea un obiettivo (ad es. «Perdere 3 chili») e chiedi il piano all'IA — ti chiede la data obiettivo e pianifica sotto-obiettivi con la loro data."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "Il pulsante Obiettivi dell'intestazione conserva questi obiettivi sull'asse del tempo: dai una data a uno di essi e compare tra i tuoi giorni del calendario. Con ✨ l'IA propone il piano di versamenti."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "Il programma salvato vive nel pulsante Obiettivi dell'intestazione: ogni titolo conserva la sua nota sul perché è nella lista, e se gli dai una data scende nel calendario come qualsiasi altro obiettivo."
+  }
+]

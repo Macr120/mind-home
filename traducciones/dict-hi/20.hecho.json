@@ -1,0 +1,818 @@
+[
+ {
+  "clave": "ascensos.sinAccesoSotano",
+  "texto": "पूल की सीढ़ी लगाने के लिए एक बेसमेंट कमरा खोदें।"
+ },
+ {
+  "clave": "ascensos.escaleraMarina",
+  "texto": "पूल की सीढ़ी"
+ },
+ {
+  "clave": "ascensos.hintSotano",
+  "texto": "इसे दूसरी दीवार पर ले जाने के लिए 3D मैप पर खींचें। किरदार पूल में चलकर नीचे उतरता और ऊपर चढ़ता है।"
+ },
+ {
+  "clave": "planos.cerrar",
+  "texto": "फ़्लोर प्लान से बाहर जाएं"
+ },
+ {
+  "clave": "planos.capa.titulo",
+  "texto": "लेयर"
+ },
+ {
+  "clave": "planos.capa.cuartos",
+  "texto": "कमरे"
+ },
+ {
+  "clave": "planos.capa.paredes",
+  "texto": "दीवारें"
+ },
+ {
+  "clave": "planos.capa.pisos",
+  "texto": "फ़र्श"
+ },
+ {
+  "clave": "planos.capa.techos",
+  "texto": "छतें"
+ },
+ {
+  "clave": "planos.herr.seleccionar",
+  "texto": "चुनें"
+ },
+ {
+  "clave": "planos.herr.muro",
+  "texto": "दीवारें"
+ },
+ {
+  "clave": "planos.herr.puerta",
+  "texto": "दरवाज़े"
+ },
+ {
+  "clave": "planos.herr.ventana",
+  "texto": "खिड़कियां"
+ },
+ {
+  "clave": "planos.herr.mover",
+  "texto": "हिलाएं"
+ },
+ {
+  "clave": "planos.herr.agrupar",
+  "texto": "ग्रुप करें"
+ },
+ {
+  "clave": "planos.herr.borrar",
+  "texto": "मिटाएं"
+ },
+ {
+  "clave": "planos.herr.expandir",
+  "texto": "बड़ा करें"
+ },
+ {
+  "clave": "planos.muro.pared",
+  "texto": "दीवार"
+ },
+ {
+  "clave": "planos.muro.puerta",
+  "texto": "दरवाज़ा"
+ },
+ {
+  "clave": "planos.muro.abierto",
+  "texto": "खुला"
+ },
+ {
+  "clave": "planos.accion.regresar",
+  "texto": "वापस"
+ },
+ {
+  "clave": "planos.accion.cambios",
+  "texto": "साफ़ करें"
+ },
+ {
+  "clave": "planos.accion.confirmar",
+  "texto": "पुष्टि करें"
+ },
+ {
+  "clave": "planos.volverSecciones",
+  "texto": "एडिटर सेक्शन"
+ },
+ {
+  "clave": "planos.ayuda",
+  "texto": "नीचे बाईं ओर से आकार चुनें और कमरे बनाने के लिए प्लान या 3D मैप पर टैप करें।"
+ },
+ {
+  "clave": "planos.props.paredes",
+  "texto": "स्केच पर चुने गए किनारे को बदलें।"
+ },
+ {
+  "clave": "planos.props.techo",
+  "texto": "पूरी लाइनों को बढ़ाने या घटाने के लिए छत के किनारे पर + और − का इस्तेमाल करें।"
+ },
+ {
+  "clave": "planos.props.zonaPiso",
+  "texto": "ज़ोन के फ़र्श की सामग्री: सेल के हिसाब से जल्द आ रहा है।"
+ },
+ {
+  "clave": "planos.nombre",
+  "texto": "नाम"
+ },
+ {
+  "clave": "planos.forma",
+  "texto": "आकार"
+ },
+ {
+  "clave": "planos.formaHint",
+  "texto": "आउटलाइन का हिस्सा हटाने के लिए किनारे की सेल पर − का इस्तेमाल करें:"
+ },
+ {
+  "clave": "planos.quitarCelda",
+  "texto": "सेल हटाएं"
+ },
+ {
+  "clave": "planos.celdaVacia",
+  "texto": "सेल"
+ },
+ {
+  "clave": "planos.colocarApp",
+  "texto": "ऐप लगाएं"
+ },
+ {
+  "clave": "planos.nuevaZona",
+  "texto": "नया बेसिक कमरा"
+ },
+ {
+  "clave": "planos.nombreZona",
+  "texto": "कमरे का नाम"
+ },
+ {
+  "clave": "planos.extenderCuarto",
+  "texto": "मौजूदा कमरा बढ़ाएं"
+ },
+ {
+  "clave": "planos.limpiar",
+  "texto": "चयन हटाएं"
+ },
+ {
+  "clave": "planos.appsFuera",
+  "texto": "मैप के बाहर के ऐप"
+ },
+ {
+  "clave": "planos.eliminarZona",
+  "texto": "बेसिक कमरा हटाएं"
+ },
+ {
+  "clave": "planos.celdas",
+  "texto": "सेल"
+ },
+ {
+  "clave": "planos.menu.cielo",
+  "texto": "आसमान का बैकग्राउंड"
+ },
+ {
+  "clave": "planos.menu.cieloTitulo",
+  "texto": "आसमान का बैकग्राउंड"
+ },
+ {
+  "clave": "planos.menu.cieloDesc",
+  "texto": "3D आसमान और प्लान के मार्जिन को बदलता है।"
+ },
+ {
+  "clave": "planos.menu.cerrar",
+  "texto": "बंद करें"
+ },
+ {
+  "clave": "planos.menu.superficie",
+  "texto": "मैप की सतह"
+ },
+ {
+  "clave": "planos.superficie.titulo",
+  "texto": "मैप की सतह"
+ },
+ {
+  "clave": "planos.superficie.desc",
+  "texto": "यह प्लान के पेपर, ग्रिड लाइनों और 3D मैप के बेस को प्रभावित करता है।"
+ },
+ {
+  "clave": "planos.superficie.relleno",
+  "texto": "प्लान फ़िल"
+ },
+ {
+  "clave": "planos.superficie.color",
+  "texto": "रंग"
+ },
+ {
+  "clave": "planos.superficie.foto",
+  "texto": "बैकग्राउंड फ़ोटो"
+ },
+ {
+  "clave": "planos.superficie.subir",
+  "texto": "+ अपलोड करें"
+ },
+ {
+  "clave": "planos.superficie.usar",
+  "texto": "प्लान में इस्तेमाल करें"
+ },
+ {
+  "clave": "planos.superficie.borrar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "planos.superficie.sinFoto",
+  "texto": "स्केच के पेपर और 3D बेस के लिए एक फ़ोटो अपलोड करें।"
+ },
+ {
+  "clave": "planos.superficie.rejilla",
+  "texto": "ग्रिड"
+ },
+ {
+  "clave": "planos.superficie.tamCelda",
+  "texto": "सेल का आकार"
+ },
+ {
+  "clave": "planos.superficie.tamCeldaHint",
+  "texto": "कमरे, दीवारें, छतें और मैदान सेल के साथ स्केल होते हैं; किरदार और बाकी वस्तुएं अपना आकार बनाए रखती हैं।"
+ },
+ {
+  "clave": "planos.superficie.rejillaFuerte",
+  "texto": "मुख्य लाइनें"
+ },
+ {
+  "clave": "planos.superficie.rejillaSuave",
+  "texto": "पतली लाइनें"
+ },
+ {
+  "clave": "planos.superficie.borde",
+  "texto": "पेपर बॉर्डर"
+ },
+ {
+  "clave": "planos.superficie.restaurar",
+  "texto": "डिफ़ॉल्ट वैल्यू बहाल करें"
+ },
+ {
+  "clave": "planos.zoom.encajar",
+  "texto": "प्लान को स्क्रीन में फ़िट करें"
+ },
+ {
+  "clave": "planos.zoom.ayuda",
+  "texto": "व्हील: ज़ूम · Shift/Alt + खींचें: पैन · मार्जिन पर डबल-क्लिक: फ़िट"
+ },
+ {
+  "clave": "editor.cuarto.apariencia",
+  "texto": "कमरे का रूप"
+ },
+ {
+  "clave": "editor.cuarto.piso",
+  "texto": "कमरे का फ़र्श"
+ },
+ {
+  "clave": "editor.cuarto.forma",
+  "texto": "कमरे का आकार"
+ },
+ {
+  "clave": "editor.cuarto.paredes",
+  "texto": "दीवारें और दरवाज़े"
+ },
+ {
+  "clave": "editor.cuarto.objetos",
+  "texto": "कमरे की वस्तुएं"
+ },
+ {
+  "clave": "editor.avatar.titulo",
+  "texto": "किरदार का अवतार"
+ },
+ {
+  "clave": "editor.avatar.cabeza",
+  "texto": "🟡 सिर"
+ },
+ {
+  "clave": "editor.avatar.torso",
+  "texto": "🔴 धड़"
+ },
+ {
+  "clave": "editor.avatar.piernas",
+  "texto": "🔵 पैर"
+ },
+ {
+  "clave": "editor.avatar.reset",
+  "texto": "↺ मूल अवतार बहाल करें"
+ },
+ {
+  "clave": "editor.avatar.forma3d",
+  "texto": "कस्टम 3D आकार"
+ },
+ {
+  "clave": "editor.avatar.formaPh",
+  "texto": "इसका वर्णन करें: \"लाल केप वाला नीला रोबोट\""
+ },
+ {
+  "clave": "editor.avatar.formaSinIa",
+  "texto": "आकार बताने के लिए AI चाहिए (बार में मॉडल चुनें)"
+ },
+ {
+  "clave": "editor.avatar.formaGenerar",
+  "texto": "AI से आकार बनाएं"
+ },
+ {
+  "clave": "editor.avatar.formaError",
+  "texto": "आकार नहीं बन सका। AI मॉडल जांचें और फिर कोशिश करें।"
+ },
+ {
+  "clave": "editor.avatar.subirGlb",
+  "texto": ".glb मॉडल अपलोड करें"
+ },
+ {
+  "clave": "editor.avatar.quitarGlb",
+  "texto": "अपलोड की गई मॉडल हटाएं"
+ },
+ {
+  "clave": "editor.avatar.quitarFormaIa",
+  "texto": "AI से बना आकार हटाएं"
+ },
+ {
+  "clave": "editor.avatar.usandoGlb",
+  "texto": "आपकी अपनी .glb मॉडल इस्तेमाल हो रही है। इस मॉडल पर रंग लागू नहीं होते।"
+ },
+ {
+  "clave": "editor.avatar.usandoIa",
+  "texto": "AI से बना आकार इस्तेमाल हो रहा है। इस आकार पर रंग लागू नहीं होते।"
+ },
+ {
+  "clave": "editor.tema.titulo",
+  "texto": "घर की थीम"
+ },
+ {
+  "clave": "editor.tema.desc",
+  "texto": "कमरों, बैकग्राउंड, फ़र्श और छत पर स्टाइल लागू करता है। आसमान में माइक्रोएनिमेशन चालू करता है।"
+ },
+ {
+  "clave": "editor.tema.sin",
+  "texto": "बिना थीम"
+ },
+ {
+  "clave": "editor.tema.misTemas",
+  "texto": "मेरी थीम्स"
+ },
+ {
+  "clave": "editor.tema.guardar",
+  "texto": "+ मौजूदा सेव करें"
+ },
+ {
+  "clave": "editor.tema.guardarTitulo",
+  "texto": "यह थीम सेव करें"
+ },
+ {
+  "clave": "editor.tema.guardarMensaje",
+  "texto": "थीम वैसी ही सेव होगी जैसी अभी है: रंग, ढांचा, रोशनी, धुंध, स्टाइल और आसमान का बैकग्राउंड।"
+ },
+ {
+  "clave": "editor.tema.guardarOk",
+  "texto": "सहेजें"
+ },
+ {
+  "clave": "editor.tema.sinTemasPropios",
+  "texto": "अभी लगी थीम को सेव करें ताकि जब चाहें दोबारा लगा सकें।"
+ },
+ {
+  "clave": "editor.tema.sinTemaParaGuardar",
+  "texto": "एक थीम चुनें और उसे कस्टमाइज़ करें: बाद में आप उसे यहां नाम देकर सेव कर सकते हैं।"
+ },
+ {
+  "clave": "editor.tema.usar",
+  "texto": "इस्तेमाल करें"
+ },
+ {
+  "clave": "editor.tema.borrarPropio",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "editor.tema.borrarTitulo",
+  "texto": "थीम हटाएं"
+ },
+ {
+  "clave": "editor.tema.borrarOk",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "editor.cuartos.titulo",
+  "texto": "घर के कमरे"
+ },
+ {
+  "clave": "editor.cuartos.desc",
+  "texto": "कस्टम रंग और नाम। बदलाव तुरंत 3D घर में दिखते हैं।"
+ },
+ {
+  "clave": "editor.cuartos.editado",
+  "texto": "बदला गया"
+ },
+ {
+  "clave": "editor.cuartos.color",
+  "texto": "रंग"
+ },
+ {
+  "clave": "editor.cuartos.nombre",
+  "texto": "कस्टम नाम"
+ },
+ {
+  "clave": "editor.cuartos.reset",
+  "texto": "↺ रीसेट करें"
+ },
+ {
+  "clave": "editor.fondo.titulo",
+  "texto": "आसमान का बैकग्राउंड"
+ },
+ {
+  "clave": "editor.fondo.desc",
+  "texto": "थीम बदलने पर यह अपने आप चुना जाता है। इसे मैन्युअली भी बदला जा सकता है।"
+ },
+ {
+  "clave": "editor.fondo.anim",
+  "texto": "माइक्रोएनिमेशन"
+ },
+ {
+  "clave": "editor.fondo.animDesc",
+  "texto": "आसमान में कौन-सी चाहिए चुनें, या इसे ऑटोमैटिक छोड़ दें"
+ },
+ {
+  "clave": "editor.fondo.animIntensidad",
+  "texto": "तीव्रता"
+ },
+ {
+  "clave": "editor.fondo.animAuto",
+  "texto": "ऑटोमैटिक"
+ },
+ {
+  "clave": "editor.fondo.animTipo",
+  "texto": "एनिमेशन का प्रकार"
+ },
+ {
+  "clave": "anim.nubes",
+  "texto": "बादल"
+ },
+ {
+  "clave": "anim.aves",
+  "texto": "पक्षी"
+ },
+ {
+  "clave": "anim.copos",
+  "texto": "बर्फ़"
+ },
+ {
+  "clave": "anim.cometas",
+  "texto": "धूमकेतु"
+ },
+ {
+  "clave": "anim.fugaz",
+  "texto": "टूटते तारे"
+ },
+ {
+  "clave": "anim.polvo",
+  "texto": "चमकती धूल"
+ },
+ {
+  "clave": "anim.dragones",
+  "texto": "ड्रैगन"
+ },
+ {
+  "clave": "anim.murcielagos",
+  "texto": "चमगादड़"
+ },
+ {
+  "clave": "anim.bruma",
+  "texto": "धुंध"
+ },
+ {
+  "clave": "anim.corazones",
+  "texto": "दिल"
+ },
+ {
+  "clave": "anim.rayas",
+  "texto": "नियॉन धारियां"
+ },
+ {
+  "clave": "editor.fondo.misImagenes",
+  "texto": "मेरी फ़ोटो"
+ },
+ {
+  "clave": "editor.fondo.subir",
+  "texto": "+ फ़ोटो अपलोड करें"
+ },
+ {
+  "clave": "editor.fondo.sinImagenes",
+  "texto": "आसमान के बैकग्राउंड के लिए एक फ़ोटो अपलोड करें।"
+ },
+ {
+  "clave": "editor.fondo.presets",
+  "texto": "पहले से बने बैकग्राउंड"
+ },
+ {
+  "clave": "editor.fondo.previewTitulo",
+  "texto": "बैकग्राउंड सेट करें — फ़ोटो को खींचें; फ़्रेम आपकी स्क्रीन है"
+ },
+ {
+  "clave": "editor.fondo.previewAria",
+  "texto": "बैकग्राउंड का पूर्वावलोकन"
+ },
+ {
+  "clave": "editor.fondo.previewMapa",
+  "texto": "आसमान पर मैप"
+ },
+ {
+  "clave": "editor.fondo.nombre",
+  "texto": "नाम"
+ },
+ {
+  "clave": "editor.fondo.zoom",
+  "texto": "ज़ूम"
+ },
+ {
+  "clave": "editor.fondo.cancelar",
+  "texto": "रद्द करें"
+ },
+ {
+  "clave": "editor.fondo.guardar",
+  "texto": "बैकग्राउंड सेव करें"
+ },
+ {
+  "clave": "editor.fondo.guardando",
+  "texto": "सहेजा जा रहा है…"
+ },
+ {
+  "clave": "editor.fondo.ajustar",
+  "texto": "एडजस्ट करें"
+ },
+ {
+  "clave": "editor.fondo.borrar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "editor.fondo.confirmBorrar",
+  "texto": "यह सेव किया गया बैकग्राउंड हटाएं?"
+ },
+ {
+  "clave": "editor.piso.desc",
+  "texto": "कोई मटीरियल चुनें या सिर्फ़ रंग इस्तेमाल करने के लिए «कस्टम» छोड़ दें।"
+ },
+ {
+  "clave": "editor.piso.personalizado",
+  "texto": "कस्टम"
+ },
+ {
+  "clave": "editor.pisoCuarto.desc",
+  "texto": "कमरे के अंदर फ़र्श का मटीरियल। «डिफ़ॉल्ट» कमरे के रंग के हिसाब से रहता है।"
+ },
+ {
+  "clave": "editor.pisoCuarto.defecto",
+  "texto": "डिफ़ॉल्ट"
+ },
+ {
+  "clave": "editor.techo.titulo",
+  "texto": "घर की छतें"
+ },
+ {
+  "clave": "editor.techo.desc",
+  "texto": "उन्हें देखने के लिए 🏠 व्यू चालू करें। थीम चुनने पर उससे जुड़ी छत लागू हो जाती है।"
+ },
+ {
+  "clave": "editor.techo.genericos",
+  "texto": "सामान्य"
+ },
+ {
+  "clave": "editor.techo.porTema",
+  "texto": "थीम के अनुसार"
+ },
+ {
+  "clave": "editor.techo.porCuarto",
+  "texto": "कमरे के अनुसार"
+ },
+ {
+  "clave": "editor.perfil.titulo",
+  "texto": "👤 आपकी प्रोफ़ाइल"
+ },
+ {
+  "clave": "editor.perfil.emoji",
+  "texto": "इमोजी"
+ },
+ {
+  "clave": "editor.perfil.nombre",
+  "texto": "नाम"
+ },
+ {
+  "clave": "editor.perfil.tuNombre",
+  "texto": "आपका नाम"
+ },
+ {
+  "clave": "editor.perfil.ph.nombre",
+  "texto": "आपका नाम क्या है?"
+ },
+ {
+  "clave": "editor.perfil.nacimiento",
+  "texto": "जन्मदिन"
+ },
+ {
+  "clave": "editor.perfil.bio",
+  "texto": "बायो"
+ },
+ {
+  "clave": "editor.perfil.ph.bio",
+  "texto": "अपने बारे में एक लाइन..."
+ },
+ {
+  "clave": "editor.perfil.guardar",
+  "texto": "प्रोफ़ाइल सेव करें"
+ },
+ {
+  "clave": "editor.perfil.guardado",
+  "texto": "✓ सेव हो गया"
+ },
+ {
+  "clave": "editor.perfil.edad",
+  "texto": "{n} साल"
+ },
+ {
+  "clave": "editor.room.color",
+  "texto": "फ़र्श का रंग"
+ },
+ {
+  "clave": "editor.room.nombre",
+  "texto": "कस्टम नाम"
+ },
+ {
+  "clave": "editor.room.aplicar",
+  "texto": "लागू करें"
+ },
+ {
+  "clave": "editor.room.reset",
+  "texto": "↺ मूल रूप बहाल करें"
+ },
+ {
+  "clave": "editor.inv.titulo",
+  "texto": "पूरी इन्वेंट्री"
+ },
+ {
+  "clave": "editor.inv.desc",
+  "texto": "कोई वस्तु चुनें: वह मैप पर आ जाएगी और आप उसे जहां चाहें खींच सकते हैं।"
+ },
+ {
+  "clave": "editor.inv.deco",
+  "texto": "🎨 सामान्य सजावट"
+ },
+ {
+  "clave": "editor.inv.mapa",
+  "texto": "मैप पर ({n})"
+ },
+ {
+  "clave": "editor.inv.quitar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "editor.inv.desagrupar",
+  "texto": "अनग्रुप करें"
+ },
+ {
+  "clave": "editor.inv.agrupar",
+  "texto": "🔗 चुनी गई वस्तुएं ग्रुप करें ({n})"
+ },
+ {
+  "clave": "editor.obj.desc",
+  "texto": "3D सीन में वस्तुओं को खींचें। कमरे के एंट्री पॉइंट के लिए ★ चिह्नित करें।"
+ },
+ {
+  "clave": "editor.obj.cuarto",
+  "texto": "कमरा"
+ },
+ {
+  "clave": "editor.obj.marcarPrincipal",
+  "texto": "मुख्य के रूप में सेट करें"
+ },
+ {
+  "clave": "editor.obj.esPrincipal",
+  "texto": "मुख्य वस्तु (कमरे का एंट्री पॉइंट)"
+ },
+ {
+  "clave": "editor.obj.ultimoObjeto",
+  "texto": "कमरे में कम से कम एक वस्तु ज़रूर रहनी चाहिए"
+ },
+ {
+  "clave": "editor.obj.vacio",
+  "texto": "अभी कोई वस्तु नहीं है। ऊपर से एक जोड़ें।"
+ },
+ {
+  "clave": "editor.obj.cargando",
+  "texto": "लोड हो रहा है…"
+ },
+ {
+  "clave": "editor.obj.agregar",
+  "texto": "{room} में जोड़ें"
+ },
+ {
+  "clave": "editor.obj.deco",
+  "texto": "सामान्य सजावट"
+ },
+ {
+  "clave": "editor.obj.colocados",
+  "texto": "कमरे की वस्तुएं ({n})"
+ },
+ {
+  "clave": "editor.obj.agrupar",
+  "texto": "चुनी गई वस्तुएं ग्रुप करें ({n})"
+ },
+ {
+  "clave": "editor.obj.quitar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "editor.obj.objeto",
+  "texto": "वस्तु"
+ },
+ {
+  "clave": "editor.sec.reordenar",
+  "texto": "क्रम बदलने के लिए खींचें"
+ },
+ {
+  "clave": "editor.sec.reordenarSec",
+  "texto": "{titulo} का क्रम बदलें"
+ },
+ {
+  "clave": "editor.sec.contraer",
+  "texto": "{titulo} छोटा करें"
+ },
+ {
+  "clave": "editor.sec.expandir",
+  "texto": "{titulo} बड़ा करें"
+ },
+ {
+  "clave": "editor.sec.contraerMapa",
+  "texto": "मैप छोटा करें"
+ },
+ {
+  "clave": "editor.sec.expandirMapa",
+  "texto": "मैप बड़ा करें"
+ },
+ {
+  "clave": "config.grupo.interfaz",
+  "texto": "इंटरफ़ेस और भाषा"
+ },
+ {
+  "clave": "editor.forma.desc",
+  "texto": "सीन में कमरे पर + और − बटन का इस्तेमाल करके इसे सेल-दर-सेल बढ़ाएं या घटाएं (यह पूरे मैप को घेर सकता है या L आकार ले सकता है)।"
+ },
+ {
+  "clave": "editor.anim.titulo",
+  "texto": "एनिमेशन"
+ },
+ {
+  "clave": "editor.anim.preset",
+  "texto": "गति"
+ },
+ {
+  "clave": "editor.anim.ninguno",
+  "texto": "कोई गति नहीं"
+ },
+ {
+  "clave": "editor.anim.p.girar",
+  "texto": "घूमना"
+ },
+ {
+  "clave": "editor.anim.p.flotar",
+  "texto": "तैरना"
+ },
+ {
+  "clave": "editor.anim.p.pulsar",
+  "texto": "पल्स"
+ },
+ {
+  "clave": "editor.anim.p.mecerse",
+  "texto": "झूलना"
+ },
+ {
+  "clave": "editor.anim.p.rebotar",
+  "texto": "उछलना"
+ },
+ {
+  "clave": "editor.anim.p.temblar",
+  "texto": "कंपन"
+ },
+ {
+  "clave": "editor.anim.p.vida",
+  "texto": "जीवंत करें"
+ },
+ {
+  "clave": "editor.hist.deshacer",
+  "texto": "पूर्ववत करें"
+ },
+ {
+  "clave": "editor.hist.rehacer",
+  "texto": "फिर से करें"
+ },
+ {
+  "clave": "editor.anim.velocidad",
+  "texto": "रफ़्तार"
+ },
+ {
+  "clave": "editor.anim.intensidad",
+  "texto": "तीव्रता"
+ },
+ {
+  "clave": "editor.anim.zona",
+  "texto": "घूमने का क्षेत्र"
+ }
+]

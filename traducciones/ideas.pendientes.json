@@ -1,0 +1,822 @@
+[
+  {
+    "ruta": "sueltas.0.texto",
+    "es": "Apuntar todas las ideas en un solo sitio y dejar de escribirlas en servilletas",
+    "en": "Keep every idea in one place and stop scribbling on napkins"
+  },
+  {
+    "ruta": "sueltas.0.detalle",
+    "es": "Hoy tiré una servilleta con algo que quería probar en el laboratorio y ya no me acuerdo de qué era.",
+    "en": "Threw out a napkin today with something I wanted to try in the lab. No idea what it was now."
+  },
+  {
+    "ruta": "sueltas.1.texto",
+    "es": "Medir cuánto tarda en enfriarse un café según la taza: cerámica, cartón, cristal",
+    "en": "Measure how fast coffee cools in different cups: ceramic, paper, glass"
+  },
+  {
+    "ruta": "sueltas.2.texto",
+    "es": "Listar todo lo que pago al mes; sospecho que hay dos o tres fugas que ni veo",
+    "en": "List everything I pay monthly; I'm sure there are two or three leaks I can't see"
+  },
+  {
+    "ruta": "sueltas.3.texto",
+    "es": "Dejar el móvil cargando en la cocina y comprar un despertador de los de verdad",
+    "en": "Charge the phone in the kitchen and buy an actual alarm clock"
+  },
+  {
+    "ruta": "sueltas.3.detalle",
+    "es": "Anoche eran las dos otra vez y no sabría decir qué estuve mirando.",
+    "en": "It was two in the morning again last night and I couldn't say what I was looking at."
+  },
+  {
+    "ruta": "sueltas.4.texto",
+    "es": "Cruzar en una hoja mis turnos con mis horas reales de estudio, a ver dónde chocan",
+    "en": "Put my shifts and my real study hours on one sheet and see where they collide"
+  },
+  {
+    "ruta": "sueltas.5.texto",
+    "es": "La espuma de la leche drena como la de jabón: ¿se puede medir el tiempo de colapso?",
+    "en": "Milk foam drains like soap foam: could I time the collapse?"
+  },
+  {
+    "ruta": "sueltas.6.texto",
+    "es": "Preguntar si puedo cambiar el turno del viernes por uno de mañana",
+    "en": "Ask if I can swap the Friday shift for a morning one"
+  },
+  {
+    "ruta": "sueltas.7.texto",
+    "es": "Bote aparte para las propinas y no tocarlo en un mes, solo para ver cuánto sale",
+    "en": "Separate jar for tips, untouched for a month, just to see the number"
+  },
+  {
+    "ruta": "sueltas.8.texto",
+    "es": "Presupuesto en tres cubos: fijo, comida, capricho. Nada más",
+    "en": "Budget in three buckets: fixed, food, fun. Nothing else"
+  },
+  {
+    "ruta": "sueltas.9.texto",
+    "es": "Buscar teclado usado en el grupo de anuncios del barrio, con 61 teclas me sobra",
+    "en": "Look for a used keyboard in the neighbourhood listings; 61 keys is plenty"
+  },
+  {
+    "ruta": "sueltas.10.texto",
+    "es": "Trotar hasta el puente y volver, sin reloj y sin objetivo, solo para ver si aguanto",
+    "en": "Jog to the bridge and back, no watch, no target, just to see if I last"
+  },
+  {
+    "ruta": "sueltas.11.texto",
+    "es": "Poner una alarma para irme a dormir, no solo para levantarme",
+    "en": "Set an alarm for going to bed, not only for getting up"
+  },
+  {
+    "ruta": "sueltas.11.detalle",
+    "es": "La de despertarme la respeto; la de acostarme es la que me falta.",
+    "en": "I respect the wake-up one. It's the bedtime one I've never had."
+  },
+  {
+    "ruta": "sueltas.12.texto",
+    "es": "Etiquetar los tarros de casa con la fecha de tueste, como hacemos en la barra",
+    "en": "Label the jars at home with roast dates, like we do behind the bar"
+  },
+  {
+    "ruta": "sueltas.13.texto",
+    "es": "Grabar treinta segundos del teclado hoy, día uno, y guardarlo para dentro de un año",
+    "en": "Record thirty seconds of the keyboard today, day one, and save it for a year from now"
+  },
+  {
+    "ruta": "sueltas.14.texto",
+    "es": "Dejar las llaves del coche en un cajón para que la bici sea la opción por defecto",
+    "en": "Put the car keys in a drawer so the bike becomes the default"
+  },
+  {
+    "ruta": "sueltas.15.texto",
+    "es": "En el cuaderno de laboratorio: escribir la conclusión antes de las gráficas y luego corregirme",
+    "en": "Lab notebook rule: write the conclusion before the plots, then let the plots correct me"
+  },
+  {
+    "ruta": "sueltas.16.texto",
+    "es": "Un tendedero de tarjetas de inglés encima del fregadero de la cafetería",
+    "en": "A line of Spanish flashcards pinned above the café sink"
+  },
+  {
+    "ruta": "sueltas.17.texto",
+    "es": "Meditar diez minutos en el local vacío antes de abrir, con las luces todavía apagadas",
+    "en": "Ten minutes of sitting still in the empty shop before opening, lights off"
+  },
+  {
+    "ruta": "sueltas.17.detalle",
+    "es": "Es el único rato del día en que nadie me pide nada.",
+    "en": "It's the only part of the day when nobody is asking me for anything."
+  },
+  {
+    "ruta": "sueltas.18.texto",
+    "es": "Poner una caja con una manta vieja junto al radiador antes de que llegue la gata",
+    "en": "Old blanket in a box by the radiator, ready for the cat"
+  },
+  {
+    "ruta": "sueltas.19.texto",
+    "es": "Pesar los desayunos una semana sin cambiar nada, solo para tener el número",
+    "en": "Weigh breakfast for a week without changing anything, just to have the number"
+  },
+  {
+    "ruta": "sueltas.20.texto",
+    "es": "Plan de 5K en la nevera, con casillas para tachar a rotulador",
+    "en": "5K plan on the fridge with boxes to cross off in marker"
+  },
+  {
+    "ruta": "sueltas.21.texto",
+    "es": "Usar la cadencia de correr como metrónomo mental para el piano: 90 pasos, 90 negras",
+    "en": "Use running cadence as a mental metronome for piano: 90 steps, 90 beats"
+  },
+  {
+    "ruta": "sueltas.22.texto",
+    "es": "Preguntarle al cliente de las gafas redondas dónde compra ese té ahumado",
+    "en": "Ask the customer with the round glasses where he buys that smoky tea"
+  },
+  {
+    "ruta": "sueltas.23.texto",
+    "es": "Hacer una lista de treinta minutos exactos para no mirar el reloj mientras corro",
+    "en": "Build a playlist that's exactly thirty minutes so I stop checking the clock"
+  },
+  {
+    "ruta": "sueltas.24.texto",
+    "es": "Subir a la azotea con el trípode y probar diez segundos de exposición aunque haya farolas",
+    "en": "Take the tripod to the roof and try ten-second exposures, streetlights and all"
+  },
+  {
+    "ruta": "sueltas.25.texto",
+    "es": "Escribir el tiempo de la 5K en el diario y no compararlo con el de nadie más",
+    "en": "Write the 5K time in the journal and never compare it to anyone else's"
+  },
+  {
+    "ruta": "sueltas.26.texto",
+    "es": "Transferir el dinero del viaje el mismo día del cobro, antes de que me lo gaste",
+    "en": "Move the trip money on payday, before I can spend it"
+  },
+  {
+    "ruta": "sueltas.26.detalle",
+    "es": "Si sigue en la cuenta de siempre, desaparece. Cuenta aparte y sin tarjeta.",
+    "en": "If it sits in the usual account it evaporates. Separate account, no card."
+  },
+  {
+    "ruta": "sueltas.27.texto",
+    "es": "Aprender katakana primero: la mitad de los menús están en katakana",
+    "en": "Learn katakana first: half the menus are katakana anyway"
+  },
+  {
+    "ruta": "sueltas.28.texto",
+    "es": "Vender el amplificador que no toco desde el instituto",
+    "en": "Sell the amp I haven't touched since high school"
+  },
+  {
+    "ruta": "sueltas.29.texto",
+    "es": "Pedir un turno extra los sábados de aquí a agosto y llamarlo «turno Japón»",
+    "en": "Take an extra Saturday shift from now until August and call it the Japan shift"
+  },
+  {
+    "ruta": "sueltas.30.texto",
+    "es": "Fotografiar todas las facturas del taller y guardarlas en una carpeta con fecha",
+    "en": "Photograph every garage invoice and keep them in one dated folder"
+  },
+  {
+    "ruta": "sueltas.31.texto",
+    "es": "Repasar frases de japonés mientras limpio la máquina; son quince minutos muertos",
+    "en": "Run Japanese phrases while cleaning the machine; that's fifteen dead minutes"
+  },
+  {
+    "ruta": "sueltas.32.texto",
+    "es": "Un plano de metro de Tokio impreso en tamaño A3 para ir marcando barrios",
+    "en": "Print the Tokyo subway map at A3 and start marking neighbourhoods"
+  },
+  {
+    "ruta": "sueltas.33.texto",
+    "es": "Partir la pieza de piano en trozos de ocho compases y numerarlos como si fueran series",
+    "en": "Cut the piano piece into eight-bar chunks and number them like intervals"
+  },
+  {
+    "ruta": "sueltas.34.texto",
+    "es": "Para el proyecto semestral: medir algo que ya tenga delante todos los días",
+    "en": "For the semester project: measure something I already see every single day"
+  },
+  {
+    "ruta": "sueltas.35.texto",
+    "es": "Correr los 10K por el carril del río: sin semáforos no hay excusa para parar",
+    "en": "Do the 10K along the river path; no traffic lights, no excuse to stop"
+  },
+  {
+    "ruta": "sueltas.36.texto",
+    "es": "Hacer el café de casa con balanza y anotar ratio, temperatura y tiempo",
+    "en": "Brew at home with the scale and log ratio, temperature and time"
+  },
+  {
+    "ruta": "sueltas.36.detalle",
+    "es": "Si lo apunto tres semanas, ya tengo datos de verdad y no impresiones.",
+    "en": "Three weeks of that and I'll have real data instead of impressions."
+  },
+  {
+    "ruta": "sueltas.37.texto",
+    "es": "Una semana entera de manos separadas al piano, aunque me aburra",
+    "en": "A whole week of hands separate at the piano, even if it bores me"
+  },
+  {
+    "ruta": "sueltas.38.texto",
+    "es": "Grabar el ruido del molinillo y sacarle el espectro con el portátil",
+    "en": "Record the grinder and pull its spectrum on the laptop"
+  },
+  {
+    "ruta": "sueltas.39.texto",
+    "es": "Pedirle a Nuria que me cubra el jueves de parciales y devolverle un domingo",
+    "en": "Ask Nuria to cover my Thursday during midterms and give her a Sunday back"
+  },
+  {
+    "ruta": "sueltas.40.texto",
+    "es": "Colgar en la pared un calendario del año entero y marcar solo tres cosas: 10K, Japón, la pieza",
+    "en": "Hang a full-year calendar and mark only three things: 10K, Japan, the piece"
+  },
+  {
+    "ruta": "sueltas.41.texto",
+    "es": "Renovar el pasaporte ya: las citas se llenan con meses de antelación",
+    "en": "Renew the passport now; appointments fill up months ahead"
+  },
+  {
+    "ruta": "sueltas.42.texto",
+    "es": "Mapa de Japón en la pared con chinchetas de dos colores: seguro y quizá",
+    "en": "Japan map on the wall with two pin colours: certain and maybe"
+  },
+  {
+    "ruta": "sueltas.43.texto",
+    "es": "Una vez al mes, correr largo sin auriculares para oírme respirar",
+    "en": "Once a month, run long with no headphones and just listen to my breathing"
+  },
+  {
+    "ruta": "sueltas.44.texto",
+    "es": "Gráfico del ahorro en la puerta de la nevera; hoy pinté la barra hasta la mitad",
+    "en": "Savings chart on the fridge door; today I coloured the bar up to halfway"
+  },
+  {
+    "ruta": "sueltas.45.texto",
+    "es": "Estudiar de pie en la barra antes de abrir: veinte minutos limpios de teoría",
+    "en": "Study standing at the bar before opening: twenty clean minutes of theory"
+  },
+  {
+    "ruta": "sueltas.46.texto",
+    "es": "Cambiar las zapatillas antes de que la suela me pase factura en las rodillas",
+    "en": "Replace the shoes before the worn soles start charging me in the knees"
+  },
+  {
+    "ruta": "sueltas.46.detalle",
+    "es": "Llevan más kilómetros de los que confieso y noto el talón raro al bajar.",
+    "en": "They've got more kilometres than I admit and my heel feels odd on descents."
+  },
+  {
+    "ruta": "sueltas.47.texto",
+    "es": "Apilar sesenta tomas de la luna para que se vea el terminador con relieve",
+    "en": "Stack sixty frames of the moon so the terminator shows real relief"
+  },
+  {
+    "ruta": "sueltas.48.texto",
+    "es": "Pedir presupuesto del coche en dos talleres distintos antes de decidir nada",
+    "en": "Get quotes from two different garages before deciding anything about the car"
+  },
+  {
+    "ruta": "sueltas.49.texto",
+    "es": "Si no puedo correr, al menos puedo medir: apuntar el dolor de rodilla del 1 al 10 cada mañana",
+    "en": "If I can't run I can at least measure: log the knee pain 1 to 10 every morning"
+  },
+  {
+    "ruta": "sueltas.49.detalle",
+    "es": "Tres semanas paradas duelen menos si son una tabla de datos y no un agujero en el calendario.",
+    "en": "Three weeks off hurt less if they're a table of data instead of a hole in the calendar."
+  },
+  {
+    "ruta": "sueltas.50.texto",
+    "es": "Preguntar si puedo hacer más caja y menos barra mientras la rodilla se calma",
+    "en": "Ask if I can take more register shifts and less bar while the knee settles"
+  },
+  {
+    "ruta": "sueltas.51.texto",
+    "es": "Aprender a leer una factura de taller antes de firmarla",
+    "en": "Learn to read a garage invoice before signing it"
+  },
+  {
+    "ruta": "sueltas.51.detalle",
+    "es": "Me cobraron la hora empezada como hora entera y no supe qué decir.",
+    "en": "They charged a started hour as a full hour and I had nothing to say back."
+  },
+  {
+    "ruta": "sueltas.52.texto",
+    "es": "Poner el teclado donde antes dejaba las zapatillas, a ver si el cuerpo pilla la indirecta",
+    "en": "Put the keyboard where the running shoes used to live and see if my body takes the hint"
+  },
+  {
+    "ruta": "sueltas.53.texto",
+    "es": "El ruido de la máquina cambia cuando el filtro está sucio; se podría oír la limpieza",
+    "en": "The machine sounds different when the basket is dirty; you could hear the cleaning"
+  },
+  {
+    "ruta": "sueltas.53.detalle",
+    "es": "Grabar dos extracciones, una con la cesta recién limpia y otra al final del turno, y comparar el espectro.",
+    "en": "Record two shots, one with a fresh basket and one at the end of a shift, and compare the spectra."
+  },
+  {
+    "ruta": "sueltas.54.texto",
+    "es": "Meditar sentad en el suelo con Laika encima cuenta igual",
+    "en": "Meditating on the floor with Laika parked on me still counts"
+  },
+  {
+    "ruta": "sueltas.55.texto",
+    "es": "Escribir aunque sea una línea fea; las líneas feas también son datos",
+    "en": "Write even if the line is ugly; ugly lines are data too"
+  },
+  {
+    "ruta": "sueltas.56.texto",
+    "es": "Lista de lo que sí puedo hacer: bici suave, piscina, escalas de piano",
+    "en": "List of what I still can do: easy bike, pool, piano scales"
+  },
+  {
+    "ruta": "sueltas.57.texto",
+    "es": "Mirar el itinerario de Japón por la noche en vez de las carreras que me estoy perdiendo",
+    "en": "Read the Japan itinerary at night instead of the races I'm missing"
+  },
+  {
+    "ruta": "sueltas.58.texto",
+    "es": "Preguntar al fisio cuántos minutos de andar rápido puedo meter y a partir de cuándo",
+    "en": "Ask the physio how many minutes of brisk walking I can add, and starting when"
+  },
+  {
+    "ruta": "sueltas.59.texto",
+    "es": "Volver a la calle con tres minutos de andar y uno de trote; el reloj no opina",
+    "en": "Back outside with three minutes walking, one jogging; the watch doesn't get a vote"
+  },
+  {
+    "ruta": "sueltas.60.texto",
+    "es": "Katakana primero: media carta de cualquier bar está en katakana",
+    "en": "Katakana first: half of any menu is written in katakana"
+  },
+  {
+    "ruta": "sueltas.61.texto",
+    "es": "Llevar la dirección del alojamiento escrita en japonés en un papel, por si el taxi",
+    "en": "Carry the address of each place written in Japanese on paper, in case of taxis"
+  },
+  {
+    "ruta": "sueltas.62.texto",
+    "es": "Turnos dobles esta quincena y todo lo que salga al bote del viaje",
+    "en": "Double shifts this fortnight and everything straight into the trip jar"
+  },
+  {
+    "ruta": "sueltas.63.texto",
+    "es": "Trípode pequeño en la mochila para intentar la Vía Láctea desde Hakone",
+    "en": "Small tripod in the backpack to try the Milky Way from Hakone"
+  },
+  {
+    "ruta": "sueltas.64.texto",
+    "es": "Descargar mapas y líneas de tren sin conexión antes de volar",
+    "en": "Download offline maps and train lines before flying"
+  },
+  {
+    "ruta": "sueltas.65.texto",
+    "es": "Dejar por escrito los horarios de Laika a la vecina, no de palabra",
+    "en": "Give the neighbour Laika's schedule in writing, not out loud"
+  },
+  {
+    "ruta": "sueltas.66.texto",
+    "es": "Prueba de mochila: cargarla entera y andar una hora por el barrio",
+    "en": "Backpack test: load it fully and walk an hour around the neighbourhood"
+  },
+  {
+    "ruta": "sueltas.67.texto",
+    "es": "Cerrar el itinerario y dejar dos días sin plan a propósito",
+    "en": "Close the itinerary and leave two days with no plan on purpose"
+  },
+  {
+    "ruta": "sueltas.68.texto",
+    "es": "Bitácora cada noche antes de dormir, aunque sean cuatro líneas y una foto",
+    "en": "Travel log every night before sleeping, even if it's four lines and one photo"
+  },
+  {
+    "ruta": "sueltas.69.texto",
+    "es": "Cada estación tiene su melodía de andén; grabarlas todas y montarlas al volver",
+    "en": "Every station has its own platform jingle; record them all and edit them at home"
+  },
+  {
+    "ruta": "sueltas.70.texto",
+    "es": "Aquí el filtrado se sirve con una calma que me da envidia profesional",
+    "en": "Filter coffee here is served with a calm that makes me professionally jealous"
+  },
+  {
+    "ruta": "sueltas.70.detalle",
+    "es": "El chico pesó el agua tres veces sin que le temblara el pulso, con toda la cola mirando.",
+    "en": "The guy weighed the water three times without flinching, with the whole queue watching."
+  },
+  {
+    "ruta": "sueltas.71.texto",
+    "es": "El Fuji salió a las seis y media y se escondió a las siete: madrugar es la única técnica",
+    "en": "Fuji showed up at six thirty and hid at seven: getting up early is the only technique"
+  },
+  {
+    "ruta": "sueltas.72.texto",
+    "es": "Contar máquinas expendedoras por manzana y hacer la gráfica cuando vuelva",
+    "en": "Count vending machines per block and plot it when I'm back"
+  },
+  {
+    "ruta": "sueltas.73.texto",
+    "es": "En Nara hay un protocolo con los ciervos y no lo he entendido del todo",
+    "en": "There's a protocol with the deer in Nara and I still haven't cracked it"
+  },
+  {
+    "ruta": "sueltas.74.texto",
+    "es": "Apuntar la receta del caldo que me explicaron por señas en Osaka",
+    "en": "Write down the broth recipe they explained to me in gestures in Osaka"
+  },
+  {
+    "ruta": "sueltas.75.texto",
+    "es": "Hoy no escribir nada ingenioso; solo lo que vi y en qué orden",
+    "en": "Nothing clever today; just what I saw and in what order"
+  },
+  {
+    "ruta": "sueltas.76.texto",
+    "es": "Traer dos paquetes de sencha: uno para casa y otro para la cafetería",
+    "en": "Bring back two bags of sencha: one for home, one for the café"
+  },
+  {
+    "ruta": "sueltas.77.texto",
+    "es": "Proponer un filtrado suave en la carta y ver si alguien lo pide dos veces",
+    "en": "Pitch a light filter brew for the menu and see if anyone orders it twice"
+  },
+  {
+    "ruta": "sueltas.78.texto",
+    "es": "Plan de ocho semanas para el medio, con la tirada larga los domingos temprano",
+    "en": "Eight-week half marathon plan, long run early on Sundays"
+  },
+  {
+    "ruta": "sueltas.79.texto",
+    "es": "Clair de Lune por trozos: ocho compases al día y no avanzar hasta que salgan tres veces seguidas",
+    "en": "Clair de Lune in chunks: eight bars a day, no moving on until they come out three times in a row"
+  },
+  {
+    "ruta": "sueltas.80.texto",
+    "es": "Digitalizar los tickets del viaje y cerrar el presupuesto real de Japón",
+    "en": "Scan the trip receipts and close the real Japan budget"
+  },
+  {
+    "ruta": "sueltas.81.texto",
+    "es": "Volver a las tarjetas de inglés; allí lo hablé mejor de lo que creía",
+    "en": "Back to the English flashcards; out there I spoke better than I expected"
+  },
+  {
+    "ruta": "sueltas.82.texto",
+    "es": "Preguntar en secretaría los plazos de matrícula del curso que viene",
+    "en": "Ask the office about enrolment deadlines for next year"
+  },
+  {
+    "ruta": "sueltas.83.texto",
+    "es": "Planificar la astrofotografía por fases de luna y no por ganas de salir",
+    "en": "Plan astrophotography around moon phases, not around how keen I feel"
+  },
+  {
+    "ruta": "sueltas.84.texto",
+    "es": "Cocinar el domingo para tres días; entrenar cansa menos que improvisar la cena",
+    "en": "Cook Sundays for three days; training tires me less than improvising dinner"
+  },
+  {
+    "ruta": "sueltas.85.texto",
+    "es": "Probar el desayuno de carrera dos semanas antes, nunca el mismo día",
+    "en": "Test the race breakfast two weeks out, never on race day"
+  },
+  {
+    "ruta": "sueltas.86.texto",
+    "es": "Diagrama de dos ramas: posgrado o trabajo, con lo que gano y lo que pierdo en cada una",
+    "en": "Two-branch diagram: grad school or a job, with what I gain and lose on each side"
+  },
+  {
+    "ruta": "sueltas.87.texto",
+    "es": "Escribir a la profesora del laboratorio y preguntar si hay plaza de becario",
+    "en": "Email the lab professor and ask whether there's an assistant position"
+  },
+  {
+    "ruta": "sueltas.88.texto",
+    "es": "Si el medio sale bien, apuntarme al maratón antes de arrepentirme",
+    "en": "If the half goes well, sign up for the marathon before I talk myself out of it"
+  },
+  {
+    "ruta": "sueltas.89.texto",
+    "es": "21K hechos: lo duro fue el kilómetro 17, no el 21",
+    "en": "21K done: the hard part was kilometre 17, not 21"
+  },
+  {
+    "ruta": "sueltas.89.detalle",
+    "es": "Me quedé sin cabeza antes que sin piernas. Hay que entrenar el aburrimiento.",
+    "en": "My head gave out before my legs did. Boredom needs training too."
+  },
+  {
+    "ruta": "sueltas.90.texto",
+    "es": "Grabar el primer minuto de Clair de Lune para comparar dentro de un mes",
+    "en": "Record the first minute of Clair de Lune to compare in a month"
+  },
+  {
+    "ruta": "sueltas.91.texto",
+    "es": "Bajar el volumen estas semanas aunque el cuerpo pida más",
+    "en": "Cut the volume these weeks even if my body asks for more"
+  },
+  {
+    "ruta": "sueltas.92.texto",
+    "es": "Probar los geles en la tirada larga; nada nuevo el día de la carrera",
+    "en": "Test the gels on the long run; nothing new on race day"
+  },
+  {
+    "ruta": "sueltas.93.texto",
+    "es": "Anotar en qué kilómetros va a estar esperándome cada uno",
+    "en": "Note down which kilometre each of them will be waiting at"
+  },
+  {
+    "ruta": "sueltas.94.texto",
+    "es": "Maratón terminado. El reloj marcó lo que marcó y me da exactamente igual",
+    "en": "Marathon done. The clock said what it said and I genuinely don't care"
+  },
+  {
+    "ruta": "sueltas.94.detalle",
+    "es": "Salí del kilómetro 35 andando y volví a correr en el 37. Eso es lo que me llevo.",
+    "en": "I walked out of kilometre 35 and started running again at 37. That's the part I keep."
+  },
+  {
+    "ruta": "sueltas.95.texto",
+    "es": "Dos uñas negras y una lección: los calcetines no se estrenan en 42 kilómetros",
+    "en": "Two black toenails and one lesson: you don't debut socks over 42 kilometres"
+  },
+  {
+    "ruta": "sueltas.96.texto",
+    "es": "Ensayar con la puerta abierta para acostumbrarme a que me oigan",
+    "en": "Practise with the door open so I get used to being heard"
+  },
+  {
+    "ruta": "sueltas.97.texto",
+    "es": "Clair de Lune entera para la familia; mi madre lloró justo en el compás que siempre fallo",
+    "en": "Clair de Lune all the way through for the family; my mother cried right on the bar I always miss"
+  },
+  {
+    "ruta": "sueltas.98.texto",
+    "es": "Abrir la cuenta del fondo de emergencia: tres meses de gastos y no tocarla",
+    "en": "Open the emergency fund account: three months of expenses, hands off"
+  },
+  {
+    "ruta": "sueltas.99.texto",
+    "es": "Siguiente pieza: Satie o la primera Arabesque; decidir esta semana y empezar",
+    "en": "Next piece: Satie or the first Arabesque; decide this week and start"
+  },
+  {
+    "ruta": "sueltas.100.texto",
+    "es": "Próximo viaje: Corea. El bote empieza mañana con las propinas de hoy",
+    "en": "Next trip: Korea. The jar starts tomorrow with today's tips"
+  },
+  {
+    "ruta": "lluvias.0.tema",
+    "es": "Nombres para la gata",
+    "en": "Names for the cat"
+  },
+  {
+    "ruta": "lluvias.0.textos.0",
+    "es": "Laika, por la perra del Sputnik; tiene esa mirada de ir a alguna parte",
+    "en": "Laika, after the Sputnik dog; she has that look of going somewhere"
+  },
+  {
+    "ruta": "lluvias.0.textos.1",
+    "es": "Curie, aunque suena a que le voy a pedir notas",
+    "en": "Curie, though it sounds like I'll be asking her for grades"
+  },
+  {
+    "ruta": "lluvias.0.textos.2",
+    "es": "Vega, corto y se grita bien desde la cocina",
+    "en": "Vega, short and easy to shout from the kitchen"
+  },
+  {
+    "ruta": "lluvias.0.textos.3",
+    "es": "Cassini, precioso pero nadie lo va a pronunciar bien",
+    "en": "Cassini, beautiful and nobody will ever say it right"
+  },
+  {
+    "ruta": "lluvias.0.textos.4",
+    "es": "Miso, porque duerme como una sopa caliente",
+    "en": "Miso, because she sleeps like warm soup"
+  },
+  {
+    "ruta": "lluvias.0.textos.5",
+    "es": "Nébula, demasiado nombre para algo que cabe en una caja de zapatos",
+    "en": "Nebula, far too big a name for something that fits in a shoebox"
+  },
+  {
+    "ruta": "lluvias.0.textos.6",
+    "es": "Bosón, gracioso una semana y pesado el resto del año",
+    "en": "Boson, funny for a week and tiring for the rest of the year"
+  },
+  {
+    "ruta": "lluvias.0.textos.7",
+    "es": "Kepler, si acaba subiéndose a las estanterías en órbitas raras",
+    "en": "Kepler, if she keeps orbiting the bookshelves like that"
+  },
+  {
+    "ruta": "lluvias.0.textos.8",
+    "es": "Decidido: Laika. Responde al ruido de la lata, que es lo que importa",
+    "en": "Settled: Laika. She answers to the sound of the can, which is what counts"
+  },
+  {
+    "ruta": "lluvias.1.tema",
+    "es": "Cómo pago Japón",
+    "en": "How to pay for Japan"
+  },
+  {
+    "ruta": "lluvias.1.textos.0",
+    "es": "Cuenta separada solo para el viaje, sin tarjeta asociada",
+    "en": "A separate account for the trip, with no card attached"
+  },
+  {
+    "ruta": "lluvias.1.textos.1",
+    "es": "Todas las propinas al bote y el bote al banco cada quincena",
+    "en": "All tips into the jar, jar into the bank every payday"
+  },
+  {
+    "ruta": "lluvias.1.textos.2",
+    "es": "Turno extra los sábados desde ahora hasta agosto",
+    "en": "Extra Saturday shift from now until August"
+  },
+  {
+    "ruta": "lluvias.1.textos.3",
+    "es": "Vender el amplificador, dos libros de texto viejos y la bici de repuesto",
+    "en": "Sell the amp, two old textbooks and the spare bike"
+  },
+  {
+    "ruta": "lluvias.1.textos.4",
+    "es": "Cancelar las dos suscripciones que no he abierto este mes",
+    "en": "Cancel the two subscriptions I haven't opened this month"
+  },
+  {
+    "ruta": "lluvias.1.textos.5",
+    "es": "Volar en temporada baja aunque sea con escala larga",
+    "en": "Fly off-season even if it means a long layover"
+  },
+  {
+    "ruta": "lluvias.1.textos.6",
+    "es": "Hostales y cápsulas casi todo, un ryokan solo en Hakone",
+    "en": "Hostels and capsules mostly, one ryokan in Hakone only"
+  },
+  {
+    "ruta": "lluvias.1.textos.7",
+    "es": "Cocinar en casa cinco días por semana y contar el ahorro como ingreso",
+    "en": "Cook at home five nights a week and count the saving as income"
+  },
+  {
+    "ruta": "lluvias.1.textos.8",
+    "es": "Meta semanal fija: si una semana falla, la siguiente se compensa",
+    "en": "Fixed weekly target: if one week fails, the next one makes it up"
+  },
+  {
+    "ruta": "lluvias.2.tema",
+    "es": "Proyecto semestral",
+    "en": "Semester project"
+  },
+  {
+    "ruta": "lluvias.2.textos.0",
+    "es": "Enfriamiento del café: ley de Newton con termómetro y tres tazas distintas",
+    "en": "Coffee cooling: Newton's law with a thermometer and three different cups"
+  },
+  {
+    "ruta": "lluvias.2.textos.1",
+    "es": "Péndulo grabado con el móvil a cámara lenta para sacar g",
+    "en": "Pendulum filmed in slow motion on the phone to extract g"
+  },
+  {
+    "ruta": "lluvias.2.textos.2",
+    "es": "Espectro de las luces del barrio con un CD rayado y la webcam",
+    "en": "Spectrum of the neighbourhood streetlights with a scratched CD and a webcam"
+  },
+  {
+    "ruta": "lluvias.2.textos.3",
+    "es": "Difracción con puntero láser y un pelo mío como rendija",
+    "en": "Diffraction with a laser pointer and one of my own hairs as the slit"
+  },
+  {
+    "ruta": "lluvias.2.textos.4",
+    "es": "Curva de extracción del espresso frente a temperatura del agua",
+    "en": "Espresso extraction curve against water temperature"
+  },
+  {
+    "ruta": "lluvias.2.textos.5",
+    "es": "Ruido del molinillo y de la máquina: espectro y picos repetibles",
+    "en": "Grinder and machine noise: spectrum and repeatable peaks"
+  },
+  {
+    "ruta": "lluvias.2.textos.6",
+    "es": "Medir la contaminación lumínica desde la azotea con fotos calibradas",
+    "en": "Light pollution from the roof measured with calibrated photos"
+  },
+  {
+    "ruta": "lluvias.2.textos.7",
+    "es": "Caída de gotas de leche en el café: mezcla y vórtices grabados desde arriba",
+    "en": "Milk drops falling into coffee: mixing and vortices filmed from above"
+  },
+  {
+    "ruta": "lluvias.2.textos.8",
+    "es": "Me quedo con el café: tengo la máquina, los datos y la excusa perfecta",
+    "en": "Going with the coffee: I have the machine, the data and the perfect excuse"
+  },
+  {
+    "ruta": "lluvias.3.tema",
+    "es": "Qué llevo a Japón",
+    "en": "What to pack for Japan"
+  },
+  {
+    "ruta": "lluvias.3.textos.0",
+    "es": "Zapatillas ya rodadas, no las nuevas; ampollas en Kioto ni de broma",
+    "en": "Broken-in shoes, not the new ones; blisters in Kyoto are not happening"
+  },
+  {
+    "ruta": "lluvias.3.textos.1",
+    "es": "Mochila de cuarenta litros y nada de maleta con ruedas: hay escaleras por todas partes",
+    "en": "Forty-litre backpack, no wheeled suitcase: stairs everywhere"
+  },
+  {
+    "ruta": "lluvias.3.textos.2",
+    "es": "Trípode pequeño para el cielo de Hakone y para las fotos de noche en la ciudad",
+    "en": "Small tripod for the Hakone sky and for night shots in the cities"
+  },
+  {
+    "ruta": "lluvias.3.textos.3",
+    "es": "Adaptador de enchufe y una batería externa que aguante un día entero",
+    "en": "Plug adapter and a power bank that survives a full day"
+  },
+  {
+    "ruta": "lluvias.3.textos.4",
+    "es": "Toalla fina de secado rápido, sirve para los baños y para la lluvia de septiembre",
+    "en": "Thin quick-dry towel, good for the baths and for September rain"
+  },
+  {
+    "ruta": "lluvias.3.textos.5",
+    "es": "Tres camisetas técnicas y lavar en el lavabo cada dos noches",
+    "en": "Three technical shirts and sink laundry every other night"
+  },
+  {
+    "ruta": "lluvias.3.textos.6",
+    "es": "Cuaderno de papel para la bitácora: el móvil se queda sin batería, el papel no",
+    "en": "Paper notebook for the log: the phone runs out of battery, paper doesn't"
+  },
+  {
+    "ruta": "lluvias.3.textos.7",
+    "es": "Libretita de frases en japonés con furigana, tamaño bolsillo",
+    "en": "Pocket-size phrase book in Japanese with furigana"
+  },
+  {
+    "ruta": "lluvias.3.textos.8",
+    "es": "Dejar media mochila vacía para lo que traiga de vuelta",
+    "en": "Leave half the backpack empty for whatever I bring home"
+  },
+  {
+    "ruta": "lluvias.4.tema",
+    "es": "Regalos de fin de año",
+    "en": "Year-end gifts"
+  },
+  {
+    "ruta": "lluvias.4.textos.0",
+    "es": "Para mamá: el gyokuro que guardé de Kioto, aunque me duela soltarlo",
+    "en": "Mum: the gyokuro I saved from Kyoto, even if it hurts to hand it over"
+  },
+  {
+    "ruta": "lluvias.4.textos.1",
+    "es": "Para papá: guantes de bici decentes, los suyos están rotos desde marzo",
+    "en": "Dad: decent cycling gloves, his have been torn since March"
+  },
+  {
+    "ruta": "lluvias.4.textos.2",
+    "es": "Para mi hermana: la lámina del andén de Tokio, enmarcada en algo barato",
+    "en": "My sister: the Tokyo platform print, framed in something cheap"
+  },
+  {
+    "ruta": "lluvias.4.textos.3",
+    "es": "Para mis abuelos: grabar Clair de Lune en vídeo y mandárselo el día 24",
+    "en": "Grandparents: film Clair de Lune and send them the video on the 24th"
+  },
+  {
+    "ruta": "lluvias.4.textos.4",
+    "es": "Para el jefe de la cafetería: un café de origen que sé que no ha probado",
+    "en": "Café manager: a single-origin bag I know he hasn't tried"
+  },
+  {
+    "ruta": "lluvias.4.textos.5",
+    "es": "Para Nuria, del turno de tarde: su bebida de siempre pagada durante un mes",
+    "en": "Nuria from the afternoon shift: her usual drink covered for a month"
+  },
+  {
+    "ruta": "lluvias.4.textos.6",
+    "es": "Para Laika: una caja de cartón, literalmente; lo demás lo ignora",
+    "en": "Laika: a cardboard box, literally; she ignores everything else"
+  },
+  {
+    "ruta": "lluvias.4.textos.7",
+    "es": "Para mí: nada este año, lo que sobre va al fondo de emergencia",
+    "en": "Me: nothing this year, whatever is left goes to the emergency fund"
+  },
+  {
+    "ruta": "lluvias.4.textos.8",
+    "es": "Envolver todo con los mapas de metro que traje: sale gratis y queda bien",
+    "en": "Wrap it all in the metro maps I brought back: free and it looks good"
+  }
+]

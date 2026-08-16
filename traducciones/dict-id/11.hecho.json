@@ -1,0 +1,478 @@
+[
+  {
+    "clave": "idiomas.area.gramatica.desc",
+    "texto": "Aturan bahasa: struktur dan bentuk waktu berdasarkan level."
+  },
+  {
+    "clave": "idiomas.mat.titulo",
+    "texto": "Materiku"
+  },
+  {
+    "clave": "idiomas.mat.desc",
+    "texto": "Simpan catatan dan fotomu untuk topik ini di sini: papan tulis kelas, tabel konjugasi, tangkapan layar, atau catatanmu sendiri."
+  },
+  {
+    "clave": "idiomas.mat.tituloPh",
+    "texto": "Judul catatan (opsional)"
+  },
+  {
+    "clave": "idiomas.mat.textoPh",
+    "texto": "Tempel atau tulis catatanmu…"
+  },
+  {
+    "clave": "idiomas.mat.guardarNota",
+    "texto": "Simpan catatan"
+  },
+  {
+    "clave": "idiomas.mat.subirImagen",
+    "texto": "Unggah gambar"
+  },
+  {
+    "clave": "idiomas.mat.subiendo",
+    "texto": "Mengunggah…"
+  },
+  {
+    "clave": "idiomas.mat.vacio",
+    "texto": "Kamu belum mengunggah apa pun ke topik ini."
+  },
+  {
+    "clave": "idiomas.mat.sinTitulo",
+    "texto": "Catatan"
+  },
+  {
+    "clave": "idiomas.mat.borrar",
+    "texto": "Hapus materi"
+  },
+  {
+    "clave": "idiomas.mat.confirmarBorrar",
+    "texto": "Hapus materi ini?"
+  },
+  {
+    "clave": "idiomas.charla.nuevaBtn",
+    "texto": "Obrolan baru dengan {tutor}"
+  },
+  {
+    "clave": "idiomas.charla.vacio",
+    "texto": "Belum ada obrolan {idioma}. Tutormu bicara sesuai levelmu, mengoreksimu dengan lembut, dan dari obrolan itu muncul kartu kosakata."
+  },
+  {
+    "clave": "idiomas.charla.sinTitulo",
+    "texto": "Obrolan tanpa judul"
+  },
+  {
+    "clave": "idiomas.charla.libre",
+    "texto": "Latihan bebas"
+  },
+  {
+    "clave": "idiomas.charla.conVocab",
+    "texto": "kosakata diambil"
+  },
+  {
+    "clave": "idiomas.charla.nueva",
+    "texto": "Obrolan baru"
+  },
+  {
+    "clave": "idiomas.charla.volver",
+    "texto": "Kembali ke obrolan"
+  },
+  {
+    "clave": "idiomas.charla.renombrar",
+    "texto": "Ketuk untuk mengganti nama"
+  },
+  {
+    "clave": "idiomas.charla.sub",
+    "texto": "Tutor {idioma} · level {nivel}"
+  },
+  {
+    "clave": "idiomas.charla.destilar",
+    "texto": "Ambil"
+  },
+  {
+    "clave": "idiomas.charla.destilarTip",
+    "texto": "AI mengambil kosakata dari obrolan sebagai kartu latihan"
+  },
+  {
+    "clave": "idiomas.charla.destilarFallo",
+    "texto": "AI tidak berhasil mengambil kosakata dari obrolan; buat kartunya secara manual."
+  },
+  {
+    "clave": "idiomas.charla.borrar",
+    "texto": "Hapus obrolan"
+  },
+  {
+    "clave": "idiomas.charla.confirmarBorrar",
+    "texto": "Hapus obrolan? Kartu yang sudah diambil akan tetap disimpan."
+  },
+  {
+    "clave": "idiomas.charla.siBorrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "idiomas.charla.clasificar",
+    "texto": "Kelompokkan"
+  },
+  {
+    "clave": "idiomas.charla.extraido",
+    "texto": "Diambil"
+  },
+  {
+    "clave": "idiomas.charla.yaExtraido",
+    "texto": "Kamu sudah mengambil kosakata dari obrolan ini; lanjutkan mengobrol supaya ada lebih banyak lagi"
+  },
+  {
+    "clave": "idiomas.charla.verEnTemario",
+    "texto": "Lihat “{tema}” di silabus"
+  },
+  {
+    "clave": "idiomas.charla.verTemario",
+    "texto": "Buka silabus"
+  },
+  {
+    "clave": "idiomas.charla.clasificarTip",
+    "texto": "Minta AI memberi judul dan menempatkan obrolan ini di silabus"
+  },
+  {
+    "clave": "idiomas.charla.vacia",
+    "texto": "Sapa {tutor} dalam {idioma} atau bahasa Spanyol: dia bicara sesuai levelmu, mengoreksimu dengan lembut, dan di akhir kamu bisa mengambil kosakata barunya."
+  },
+  {
+    "clave": "idiomas.charla.error",
+    "texto": "Tutormu tidak bisa membalas. Periksa AI-mu di Pengaturan atau coba lagi."
+  },
+  {
+    "clave": "idiomas.charla.reintentar",
+    "texto": "Coba lagi"
+  },
+  {
+    "clave": "idiomas.charla.placeholder",
+    "texto": "Tulis dalam {idioma} atau bahasa Spanyol…"
+  },
+  {
+    "clave": "idiomas.charla.sinIAInput",
+    "texto": "Atur AI-mu di Pengaturan untuk mulai mengobrol"
+  },
+  {
+    "clave": "idiomas.dest.titulo",
+    "texto": "Kosakata obrolan"
+  },
+  {
+    "clave": "idiomas.dest.cargando",
+    "texto": "Mencari kosakata baru di obrolan…"
+  },
+  {
+    "clave": "idiomas.dest.fallo",
+    "texto": "AI tidak berhasil mengambil kosakata (atau tidak menemukan yang baru)."
+  },
+  {
+    "clave": "idiomas.dest.aMano",
+    "texto": "Buat kartu secara manual"
+  },
+  {
+    "clave": "idiomas.dest.desc",
+    "texto": "Ini muncul di obrolan dan belum ada di kosakatamu:"
+  },
+  {
+    "clave": "idiomas.dest.ahoraNo",
+    "texto": "Nanti saja"
+  },
+  {
+    "clave": "idiomas.dest.guardar",
+    "texto": "Simpan {n} kartu"
+  },
+  {
+    "clave": "idiomas.pr.titulo",
+    "texto": "Bahasa {idioma} Kamu"
+  },
+  {
+    "clave": "idiomas.pr.tarjetas",
+    "texto": "{n} kartu"
+  },
+  {
+    "clave": "idiomas.pr.dominadas",
+    "texto": "{d} dikuasai · {p} dalam proses"
+  },
+  {
+    "clave": "idiomas.pr.desbloqueados",
+    "texto": "{n} topik terbuka lewat obrolanmu"
+  },
+  {
+    "clave": "idiomas.pr.propios",
+    "texto": "{n} topik buatanmu sendiri di silabus"
+  },
+  {
+    "clave": "idiomas.pr.racha",
+    "texto": "Runtunan latihan"
+  },
+  {
+    "clave": "idiomas.pr.rachaDias",
+    "texto": "{n} hari"
+  },
+  {
+    "clave": "idiomas.pr.semana",
+    "texto": "Latihan minggu ini"
+  },
+  {
+    "clave": "idiomas.pr.acierto",
+    "texto": "Akurasi keseluruhan"
+  },
+  {
+    "clave": "idiomas.pr.charlas",
+    "texto": "Obrolan dengan tutormu"
+  },
+  {
+    "clave": "idiomas.pr.porNivel",
+    "texto": "Kosakata per level"
+  },
+  {
+    "clave": "idiomas.pr.porTema",
+    "texto": "Topik dengan kosakata terbanyak"
+  },
+  {
+    "clave": "idiomas.pr.vacio",
+    "texto": "Progresmu masih menunggu: kumpulkan kosakata, latih tiap hari, dan grafik ini akan hidup."
+  },
+  {
+    "clave": "idiomas.heatmap.anual",
+    "texto": "Setahun terakhir latihan"
+  },
+  {
+    "clave": "idiomas.heatmap.resumen",
+    "texto": "{n} latihan · {d} hari aktif"
+  },
+  {
+    "clave": "idiomas.heatmap.menos",
+    "texto": "sedikit"
+  },
+  {
+    "clave": "idiomas.heatmap.mas",
+    "texto": "banyak"
+  },
+  {
+    "clave": "entre.tab.archivo",
+    "texto": "Arsip"
+  },
+  {
+    "clave": "entre.tab.mesa",
+    "texto": "Permainan Papan"
+  },
+  {
+    "clave": "entre.tab.programas",
+    "texto": "Program"
+  },
+  {
+    "clave": "entre.desc",
+    "texto": "Film, serial, buku, video game, dan koleksi permainan papanmu — semuanya ada di ruang hiburan. Data arsip lamamu tetap tersimpan di sini."
+  },
+  {
+    "clave": "entre.arch.ocultar",
+    "texto": "Sembunyikan formulir"
+  },
+  {
+    "clave": "entre.arch.añadir",
+    "texto": "Tambah judul"
+  },
+  {
+    "clave": "entre.arch.entrada",
+    "texto": "entri"
+  },
+  {
+    "clave": "entre.arch.entradas",
+    "texto": "entri"
+  },
+  {
+    "clave": "entre.arch.vacio",
+    "texto": "Arsipmu masih kosong. Tambahkan film, serial, buku, atau video game pertamamu."
+  },
+  {
+    "clave": "entre.arch.porFecha",
+    "texto": "Berdasarkan tanggal"
+  },
+  {
+    "clave": "entre.arch.porGenero",
+    "texto": "Berdasarkan genre"
+  },
+  {
+    "clave": "entre.arch.porTipo",
+    "texto": "Berdasarkan kategori"
+  },
+  {
+    "clave": "entre.arch.porAutor",
+    "texto": "Berdasarkan penulis"
+  },
+  {
+    "clave": "entre.arch.sinGenero",
+    "texto": "Tanpa genre"
+  },
+  {
+    "clave": "entre.arch.sinTipo",
+    "texto": "Tanpa kategori"
+  },
+  {
+    "clave": "entre.arch.sinAutor",
+    "texto": "Tanpa penulis"
+  },
+  {
+    "clave": "entre.arch.arrastraGeneros",
+    "texto": "Seret folder untuk mengatur urutan genre sesuai keinginanmu."
+  },
+  {
+    "clave": "entre.tipo.pelicula",
+    "texto": "Film"
+  },
+  {
+    "clave": "entre.tipo.serie",
+    "texto": "Serial"
+  },
+  {
+    "clave": "entre.tipo.libro",
+    "texto": "Buku"
+  },
+  {
+    "clave": "entre.tipo.videojuego",
+    "texto": "Video game"
+  },
+  {
+    "clave": "entre.port.lote.buscar",
+    "texto": "Cari {n} sampul yang hilang"
+  },
+  {
+    "clave": "entre.port.lote.progreso",
+    "texto": "Mencari sampul… {n}/{total}"
+  },
+  {
+    "clave": "entre.port.lote.cancelar",
+    "texto": "Hentikan"
+  },
+  {
+    "clave": "entre.port.lote.listo",
+    "texto": "{n} ditemukan"
+  },
+  {
+    "clave": "entre.port.subir",
+    "texto": "Unggah sampul"
+  },
+  {
+    "clave": "entre.port.falta.una",
+    "texto": "Satu judul tidak mendapat sampul"
+  },
+  {
+    "clave": "entre.port.falta.varias",
+    "texto": "{n} judul tidak mendapat sampul"
+  },
+  {
+    "clave": "entre.port.falta.desc",
+    "texto": "Judul ini tidak ditemukan di Wikipedia atau Open Library. Kamu bisa coba lagi atau mengunggah sampul yang benar sendiri."
+  },
+  {
+    "clave": "entre.port.falta.reintentar",
+    "texto": "Terus cari"
+  },
+  {
+    "clave": "entre.port.falta.dejarlo",
+    "texto": "Biarkan saja"
+  },
+  {
+    "clave": "entre.form.editarTitulo",
+    "texto": "Edit entri"
+  },
+  {
+    "clave": "entre.form.añadirTitulo",
+    "texto": "Tambah ke arsip"
+  },
+  {
+    "clave": "entre.form.titulo",
+    "texto": "Judul"
+  },
+  {
+    "clave": "entre.form.autor",
+    "texto": "Penulis / sutradara / pengembang (opsional)"
+  },
+  {
+    "clave": "entre.form.genero",
+    "texto": "Genre"
+  },
+  {
+    "clave": "entre.form.fecha",
+    "texto": "Tanggal (dinikmati atau rilis)"
+  },
+  {
+    "clave": "entre.form.estado",
+    "texto": "Status"
+  },
+  {
+    "clave": "entre.form.calificacion",
+    "texto": "Penilaianmu"
+  },
+  {
+    "clave": "entre.form.ph.resena",
+    "texto": "Ulasanmu…"
+  },
+  {
+    "clave": "entre.form.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "entre.form.guardar",
+    "texto": "Simpan perubahan"
+  },
+  {
+    "clave": "entre.form.guardarNuevo",
+    "texto": "Tambah ke arsip"
+  },
+  {
+    "clave": "entre.form.sugerencias",
+    "texto": "Yang mana?"
+  },
+  {
+    "clave": "entre.form.completarIA",
+    "texto": "Lengkapi dengan AI"
+  },
+  {
+    "clave": "entre.form.completarAyuda",
+    "texto": "Mengisi penulis dan genre, serta mengambil sinopsis dan sampul."
+  },
+  {
+    "clave": "entre.form.consultando",
+    "texto": "Mencari judulnya…"
+  },
+  {
+    "clave": "entre.res.titulo",
+    "texto": "Ringkasan AI"
+  },
+  {
+    "clave": "entre.res.generar",
+    "texto": "Ringkas dengan AI"
+  },
+  {
+    "clave": "entre.res.generando",
+    "texto": "Meringkas judul…"
+  },
+  {
+    "clave": "entre.res.sinSpoilers",
+    "texto": "tanpa spoiler"
+  },
+  {
+    "clave": "entre.res.verMas",
+    "texto": "Tampilkan lebih banyak"
+  },
+  {
+    "clave": "entre.res.verMenos",
+    "texto": "Tampilkan lebih sedikit"
+  },
+  {
+    "clave": "entre.res.rehacer",
+    "texto": "Ulangi"
+  },
+  {
+    "clave": "entre.res.quitar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "entre.res.error",
+    "texto": "Ringkasan tidak berhasil dibuat."
+  },
+  {
+    "clave": "entre.res.desconocida",
+    "texto": "AI tidak mengenali judul ini."
+  }
+]

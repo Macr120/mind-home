@@ -1,0 +1,574 @@
+[
+  {
+    "clave": "garage.detalle.editar",
+    "texto": "Bearbeiten"
+  },
+  {
+    "clave": "garage.detalle.borrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "garage.detalle.proximo",
+    "texto": "Nächstes:"
+  },
+  {
+    "clave": "garage.detalle.placas",
+    "texto": "Kennzeichen: {n}"
+  },
+  {
+    "clave": "garage.tram.seccion",
+    "texto": "Behördengänge"
+  },
+  {
+    "clave": "garage.tram.programar",
+    "texto": "Planen"
+  },
+  {
+    "clave": "garage.tram.nuevo",
+    "texto": "Behördengang planen"
+  },
+  {
+    "clave": "garage.tram.editar",
+    "texto": "Behördengang bearbeiten"
+  },
+  {
+    "clave": "garage.tram.tipo",
+    "texto": "Typ"
+  },
+  {
+    "clave": "garage.tram.titulo",
+    "texto": "Name *"
+  },
+  {
+    "clave": "garage.tram.fecha",
+    "texto": "Nächste Fälligkeit *"
+  },
+  {
+    "clave": "garage.tram.hora",
+    "texto": "Uhrzeit der Erinnerung"
+  },
+  {
+    "clave": "garage.tram.repite",
+    "texto": "Wiederholung"
+  },
+  {
+    "clave": "garage.tram.aviso",
+    "texto": "Benachrichtigen"
+  },
+  {
+    "clave": "garage.tram.costo",
+    "texto": "Geschätzte Kosten (MXN)"
+  },
+  {
+    "clave": "garage.tram.folio",
+    "texto": "Police / Referenz"
+  },
+  {
+    "clave": "garage.tram.taller",
+    "texto": "Wo es gemacht wird"
+  },
+  {
+    "clave": "garage.tram.sinTaller",
+    "texto": "Kein Kontakt"
+  },
+  {
+    "clave": "garage.tram.nota",
+    "texto": "Notizen"
+  },
+  {
+    "clave": "garage.tram.pista",
+    "texto": "Der Behördengang erscheint im Kalender und erinnert dich zur richtigen Zeit."
+  },
+  {
+    "clave": "garage.tram.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "garage.tram.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "garage.tram.sinPlaca",
+    "texto": "Ohne registriertes Kennzeichen erscheint nur das Wichtigste. Trage das Kennzeichen im Fahrzeugprofil ein, um Kfz-Steuer, Abgasuntersuchung, Fahrzeugschein und Versicherung zu planen."
+  },
+  {
+    "clave": "garage.tram.vacio",
+    "texto": "Plane die Abgasuntersuchung oder die regelmäßige Wartung, und wir erinnern dich rechtzeitig."
+  },
+  {
+    "clave": "garage.tram.vacioSinPlaca",
+    "texto": "Plane die regelmäßige Wartung, und wir erinnern dich rechtzeitig. Mit Kennzeichen wird auch die Abgasuntersuchung freigeschaltet."
+  },
+  {
+    "clave": "garage.doc.seccion",
+    "texto": "Dokumente"
+  },
+  {
+    "clave": "garage.doc.agregar",
+    "texto": "Hinzufügen"
+  },
+  {
+    "clave": "garage.doc.nuevo",
+    "texto": "Neues Dokument"
+  },
+  {
+    "clave": "garage.doc.editar",
+    "texto": "Dokument bearbeiten"
+  },
+  {
+    "clave": "garage.doc.pista",
+    "texto": "Das Dokument erscheint im Kalender und warnt dich, bevor es abläuft."
+  },
+  {
+    "clave": "garage.doc.vacio",
+    "texto": "Speichere hier Fahrzeugschein, Versicherungspolice und Kfz-Steuer mit Referenznummer und Fälligkeitsdatum: Wir warnen dich, bevor sie ablaufen."
+  },
+  {
+    "clave": "garage.doc.vacioSinPlaca",
+    "texto": "Dieses Fahrzeug hat keine Papiere. Trage das Kennzeichen im Profil ein, um Kfz-Steuer, Fahrzeugschein und Versicherung freizuschalten."
+  },
+  {
+    "clave": "garage.tram.vencidoHace",
+    "texto": "seit {n} Tagen überfällig"
+  },
+  {
+    "clave": "garage.tram.hoy",
+    "texto": "heute fällig"
+  },
+  {
+    "clave": "garage.tram.faltan",
+    "texto": "noch {n} Tage"
+  },
+  {
+    "clave": "garage.tram.avisoPrevio",
+    "texto": "{n} Tage vorher"
+  },
+  {
+    "clave": "garage.tram.folioNota",
+    "texto": "Referenz: {n}"
+  },
+  {
+    "clave": "garage.tram.hecho",
+    "texto": "Erledigt"
+  },
+  {
+    "clave": "garage.tram.hechoAyuda",
+    "texto": "Speichert es im Verlauf und springt zum nächsten Zeitraum"
+  },
+  {
+    "clave": "garage.tram.hechoUnicoAyuda",
+    "texto": "Speichert es im Verlauf und archiviert es"
+  },
+  {
+    "clave": "garage.tram.recordatorio",
+    "texto": "Demnächst: {n}"
+  },
+  {
+    "clave": "garage.tram.sinVehiculo",
+    "texto": "Fahrzeug"
+  },
+  {
+    "clave": "garage.tram.venceHace",
+    "texto": "Seit {n} Tagen überfällig ({f})"
+  },
+  {
+    "clave": "garage.tram.venceHoy",
+    "texto": "Heute fällig"
+  },
+  {
+    "clave": "garage.tram.venceEn",
+    "texto": "In {n} Tagen ({f})"
+  },
+  {
+    "clave": "garage.tramTipo.mantenimiento",
+    "texto": "Regelmäßige Wartung"
+  },
+  {
+    "clave": "garage.tramTipo.tenencia",
+    "texto": "Kfz-Steuer"
+  },
+  {
+    "clave": "garage.tramTipo.verificacion",
+    "texto": "Abgasuntersuchung"
+  },
+  {
+    "clave": "garage.tramTipo.circulacion",
+    "texto": "Fahrzeugschein"
+  },
+  {
+    "clave": "garage.tramTipo.seguro",
+    "texto": "Versicherung"
+  },
+  {
+    "clave": "garage.tramTipo.otro",
+    "texto": "Anderer Behördengang"
+  },
+  {
+    "clave": "garage.tramCada.0",
+    "texto": "Einmalig"
+  },
+  {
+    "clave": "garage.tramCada.1",
+    "texto": "Monatlich"
+  },
+  {
+    "clave": "garage.tramCada.3",
+    "texto": "Alle 3 Monate"
+  },
+  {
+    "clave": "garage.tramCada.6",
+    "texto": "Alle 6 Monate"
+  },
+  {
+    "clave": "garage.tramCada.12",
+    "texto": "Jährlich"
+  },
+  {
+    "clave": "garage.tramCada.24",
+    "texto": "Alle 2 Jahre"
+  },
+  {
+    "clave": "garage.tramCada.36",
+    "texto": "Alle 3 Jahre"
+  },
+  {
+    "clave": "garage.tramAviso.0",
+    "texto": "Nur am selben Tag"
+  },
+  {
+    "clave": "garage.tramAviso.7",
+    "texto": "Eine Woche vorher"
+  },
+  {
+    "clave": "garage.tramAviso.15",
+    "texto": "Fünfzehn Tage vorher"
+  },
+  {
+    "clave": "garage.tramAviso.30",
+    "texto": "Einen Monat vorher"
+  },
+  {
+    "clave": "garage.taller.añadir",
+    "texto": "Kontakt hinzufügen"
+  },
+  {
+    "clave": "garage.taller.nuevo",
+    "texto": "Neuer Kontakt"
+  },
+  {
+    "clave": "garage.taller.editar",
+    "texto": "Kontakt bearbeiten"
+  },
+  {
+    "clave": "garage.taller.nombre",
+    "texto": "Name *"
+  },
+  {
+    "clave": "garage.taller.tipo",
+    "texto": "Typ"
+  },
+  {
+    "clave": "garage.taller.telefono",
+    "texto": "Telefon"
+  },
+  {
+    "clave": "garage.taller.correo",
+    "texto": "E-Mail"
+  },
+  {
+    "clave": "garage.taller.direccion",
+    "texto": "Adresse"
+  },
+  {
+    "clave": "garage.taller.vehiculo",
+    "texto": "Zuständig für"
+  },
+  {
+    "clave": "garage.taller.todos",
+    "texto": "Alle meine Fahrzeuge"
+  },
+  {
+    "clave": "garage.taller.atiendeA",
+    "texto": "Zuständig für {n}"
+  },
+  {
+    "clave": "garage.taller.notas",
+    "texto": "Notizen"
+  },
+  {
+    "clave": "garage.taller.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "garage.taller.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "garage.taller.vacio",
+    "texto": "Speichere hier deine Vertrauenswerkstatt, Versicherung, Prüfstelle und den Abschleppdienst: immer griffbereit, wenn eine Behördengang ansteht."
+  },
+  {
+    "clave": "garage.tallerTipo.taller",
+    "texto": "Werkstatt / Mechaniker"
+  },
+  {
+    "clave": "garage.tallerTipo.aseguradora",
+    "texto": "Versicherung"
+  },
+  {
+    "clave": "garage.tallerTipo.verificentro",
+    "texto": "Prüfstelle"
+  },
+  {
+    "clave": "garage.tallerTipo.refaccionaria",
+    "texto": "Ersatzteilladen"
+  },
+  {
+    "clave": "garage.tallerTipo.grua",
+    "texto": "Abschleppdienst"
+  },
+  {
+    "clave": "garage.tallerTipo.otro",
+    "texto": "Anderer Kontakt"
+  },
+  {
+    "clave": "diario.titulo",
+    "texto": "Die Zeitung von heute"
+  },
+  {
+    "clave": "diario.tab.titulares",
+    "texto": "Schlagzeilen"
+  },
+  {
+    "clave": "diario.tab.efemerides",
+    "texto": "An diesem Tag"
+  },
+  {
+    "clave": "diario.actualizar",
+    "texto": "Aktualisieren"
+  },
+  {
+    "clave": "diario.reintentar",
+    "texto": "Erneut versuchen"
+  },
+  {
+    "clave": "diario.error",
+    "texto": "Die Quellen konnten nicht erreicht werden. Prüfe deine Internetverbindung und versuch es erneut."
+  },
+  {
+    "clave": "diario.vacio",
+    "texto": "Die Schlagzeilen konnten heute nicht geladen werden. Versuch zu aktualisieren."
+  },
+  {
+    "clave": "diario.cat.todo",
+    "texto": "Alle"
+  },
+  {
+    "clave": "diario.cat.mundo",
+    "texto": "Welt"
+  },
+  {
+    "clave": "diario.cat.economia",
+    "texto": "Wirtschaft"
+  },
+  {
+    "clave": "diario.cat.tecnologia",
+    "texto": "Technik"
+  },
+  {
+    "clave": "diario.cat.salud",
+    "texto": "Gesundheit"
+  },
+  {
+    "clave": "diario.cat.deportes",
+    "texto": "Sport"
+  },
+  {
+    "clave": "diario.cat.entretenimiento",
+    "texto": "Unterhaltung"
+  },
+  {
+    "clave": "diario.ef.historia",
+    "texto": "Ein Tag in der Geschichte"
+  },
+  {
+    "clave": "diario.ef.arte",
+    "texto": "Kunstwerk des Tages"
+  },
+  {
+    "clave": "diario.ef.libro",
+    "texto": "Buch des Tages"
+  },
+  {
+    "clave": "diario.ef.personalidad",
+    "texto": "Persönlichkeit des Tages"
+  },
+  {
+    "clave": "diario.ef.especie",
+    "texto": "Art des Tages"
+  },
+  {
+    "clave": "diario.ef.palabra",
+    "texto": "Wort des Tages"
+  },
+  {
+    "clave": "diario.ef.frase",
+    "texto": "Zitat des Tages"
+  },
+  {
+    "clave": "diario.ef.vacio",
+    "texto": "Die Ereignisse von heute konnten nicht geladen werden. Versuch zu aktualisieren."
+  },
+  {
+    "clave": "diario.ef.profundizar",
+    "texto": "In der Bibliothek vertiefen"
+  },
+  {
+    "clave": "diario.ef.profundizarTitulo",
+    "texto": "Mit dem Weisen der Bibliothek vertiefen"
+  },
+  {
+    "clave": "diario.ef.leerMas",
+    "texto": "Mehr lesen ▾"
+  },
+  {
+    "clave": "diario.ef.leerMenos",
+    "texto": "Weniger lesen ▴"
+  },
+  {
+    "clave": "diario.reparto.titulo",
+    "texto": "Zustellung durch Assistenten"
+  },
+  {
+    "clave": "diario.reparto.desc",
+    "texto": "Lege fest, welche Feeds dir jeder Assistent im Chat liefert: zu einer festen Uhrzeit oder überraschend im Laufe des Tages (bei geöffneter App)."
+  },
+  {
+    "clave": "diario.reparto.vacio",
+    "texto": "Noch keine Zeitpläne. Füge einen hinzu, damit dir ein Assistent die Zeitung bringt."
+  },
+  {
+    "clave": "diario.reparto.agregar",
+    "texto": "Zeitplan hinzufügen"
+  },
+  {
+    "clave": "diario.reparto.grupoTitulares",
+    "texto": "Schlagzeilen"
+  },
+  {
+    "clave": "diario.reparto.grupoEfemerides",
+    "texto": "An diesem Tag"
+  },
+  {
+    "clave": "diario.reparto.todas",
+    "texto": "Alle"
+  },
+  {
+    "clave": "diario.reparto.ninguna",
+    "texto": "Keine"
+  },
+  {
+    "clave": "diario.reparto.eliminar",
+    "texto": "Zeitplan löschen"
+  },
+  {
+    "clave": "diario.reparto.modo.hora",
+    "texto": "Feste Uhrzeit"
+  },
+  {
+    "clave": "diario.reparto.modo.aleatoria",
+    "texto": "Zufällig"
+  },
+  {
+    "clave": "diario.reparto.pendiente",
+    "texto": "Heute um {hora}"
+  },
+  {
+    "clave": "diario.reparto.entregada",
+    "texto": "Heute geliefert"
+  },
+  {
+    "clave": "diario.reparto.plantillaTitulo",
+    "texto": "🗞️ Deine Zeitung von heute!"
+  },
+  {
+    "clave": "diario.reparto.sinContenido",
+    "texto": "🗞️ Heute gab es keine Inhalte in deinen Zeitungsrubriken."
+  },
+  {
+    "clave": "respaldo.titulo",
+    "texto": "Datensicherung"
+  },
+  {
+    "clave": "respaldo.desc",
+    "texto": "Exportiere, stelle wieder her oder lösche die auf diesem Gerät gespeicherten Daten."
+  },
+  {
+    "clave": "respaldo.persistente.si",
+    "texto": "✓ Geschützter Speicher: Der Browser löscht deine Daten nicht wegen Platzmangels"
+  },
+  {
+    "clave": "respaldo.persistente.no",
+    "texto": "⚠ Speicher NICHT dauerhaft: Der Browser könnte deine Daten löschen; sichere regelmäßig"
+  },
+  {
+    "clave": "respaldo.ultimo",
+    "texto": "Letzte Sicherung: {fecha}"
+  },
+  {
+    "clave": "respaldo.sinRespaldo",
+    "texto": "Du hast noch keine Sicherung exportiert."
+  },
+  {
+    "clave": "respaldo.total",
+    "texto": "Datensätze insgesamt"
+  },
+  {
+    "clave": "respaldo.exportar",
+    "texto": "Alles als JSON exportieren"
+  },
+  {
+    "clave": "respaldo.restaurar",
+    "texto": "Aus Sicherung wiederherstellen"
+  },
+  {
+    "clave": "respaldo.confirm.titulo",
+    "texto": "Wiederherstellung bestätigen"
+  },
+  {
+    "clave": "respaldo.confirm.desc",
+    "texto": "{nombre} enthält {n} Datensätze. Die Wiederherstellung ersetzt alle aktuellen Daten und bringt das Haus in den Zustand beim Export zurück."
+  },
+  {
+    "clave": "respaldo.confirm.omitir",
+    "texto": "Tabellen, die diese Version nicht kennt, werden übersprungen: {tablas}."
+  },
+  {
+    "clave": "respaldo.confirm.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "respaldo.confirm.restaurar",
+    "texto": "Sicherung wiederherstellen"
+  },
+  {
+    "clave": "respaldo.archivoInvalido",
+    "texto": "Die Datei ist keine gültige Mind Planner Home-Sicherung."
+  },
+  {
+    "clave": "respaldo.sinRegistros",
+    "texto": "Die Datei enthält keine Datensätze zum Wiederherstellen."
+  },
+  {
+    "clave": "respaldo.restaurado",
+    "texto": "✓ Sicherung wiederhergestellt ({n} Datensätze). Wird neu geladen…"
+  },
+  {
+    "clave": "respaldo.errorRestaura",
+    "texto": "Wiederherstellung fehlgeschlagen; deine aktuellen Daten wurden nicht verändert."
+  },
+  {
+    "clave": "respaldo.danger.titulo",
+    "texto": "Gefahrenzone"
+  }
+]

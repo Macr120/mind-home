@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "Das ist der Gemüsegarten von Peps Gnadenhof: echte Beete mit einem Jahr Arbeit darin. Nichts davon ist ein Beispiel – es lebt, es wächst in Echtzeit, und du darfst anfassen."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "Essen und Bauernhof teilen sich einen Editor: Was du hier erntest, füllt die Vorräte der Tiere nebenan. Es ist eine einzige Kette."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "Gießen entscheidet"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "Schau dir die Beete an: ein frisch gelegtes Korn, halb gewachsene Pflanzen, eine Sonnenblume, die bereit ist … und eine verwelkte Karotte, die Pep mit Absicht nicht gegossen hat. Der blaue Tropfen meldet den Durst; was verwelkt ist, rettet niemand mehr."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "Automatische Bewässerung"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "Die Tomate hat einen Sprinkler: Er gießt ihre Zelle und die acht Nachbarzellen für immer. So lässt du den Gemüsegarten allein, ohne dass etwas verwelkt."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "Ernten"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "Die Sonnenblume ist bereit: einmal tippen und ab in den Korb. Du kannst auch ernten, indem du über alles läufst, was bereit ist – ganz ohne diesen Editor."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "Ein Jahr im Korb"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "Jedes Beet zählt seine Ernten mit, und im Korb sammelt sich das ganze Jahr – über 400 Stück. Davon leben die Tiere des Gnadenhofs."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "Alles läuft weiter, wenn du gehst. In der Demo darfst du wirklich gießen, ernten und säen: Probier es aus, bevor du weiterziehst."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "Zuerst die Erde"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "Mit Beet tippst du auf eine Zelle der Karte und dort liegt fertige Erde. Auf dem Gnadenhof warten zwei leere Beete auf dich."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "Was du säst"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "Sechs Arten, und unter jeder steht, wie lange sie braucht und wie oft sie Wasser will: die Karotte in 3 Minuten, der Kürbis in 2 Stunden."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "Die Schnelle"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "Wenn du den ganzen Kreislauf heute sehen willst, sä eine Karotte in ein freies Beet: Sie ist bereit, bevor du deinen Rundgang beendet hast."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "Rückgängig"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "Entfernen geht Schicht für Schicht auf derselben Zelle: erst die Pflanze, dann der Sprinkler und zum Schluss das Beet."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "Mehr ist es nicht: Erde, Art und Geduld. Was du in der Demo säst, wächst wirklich, während du den Rest erkundest."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "Das ist Peps Gnadenhof: die Gehege der Schützlinge und im Süden der Gemüsegarten, von dem sie leben. Gehen wir mit ihnen hinunter."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Das sind die Schützlinge von Peps Gnadenhof: jeder mit eigenem Namen, eigenem Hunger und eigener Laune, alles in Echtzeit. Nichts davon ist ein Beispiel – du kannst dich wirklich um sie kümmern."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "Die Vorräte des Jahres"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "Füttern nimmt aus dem Korb, und der Korb füllt sich, wenn du den Gemüsegarten nebenan erntest. Pep hat Vorräte für ein Jahr hinterlassen: Nutze sie."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "Füttern"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "Ein Tippen auf das Gehege füttert alle, die Hunger haben, den Hungrigsten zuerst. Das Huhn meldet sich alle 4 Stunden; die Kuh hält 12 durch."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "Streicheln"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "Sechs Stunden ohne Zuwendung und sie langweilen sich (doppelt so schnell, wenn das Gehege schmutzig ist). Ein Tippen streichelt das ganze Gehege."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "Das schmutzige Gehege"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "Das kleine Gehege ist seit acht Tagen nicht gesäubert – man sieht es am Stroh. Tipp es mit Reinigen an und mach es wie neu: In der Demo geht das."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "Der Neuzugang"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "Das Schwein kam heute Morgen krank auf dem Gnadenhof an. Ein krankes Tier frisst nicht mehr, und nur Heilen bringt es zurück – es hat eine Woche, bevor es zu spät ist. Heil du es."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "Für den Alltag musst du das hier nicht öffnen: Gehst du an einem Gehege vorbei, erscheint seine Blase mit Füttern und Streicheln – und du kannst mich auch im Chat darum bitten."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "Das Gehege"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "Tipp auf eine freie Zelle und ein Gehege von 1×1 entsteht; tipp auf eine daneben und es wächst mit. Drei Tiere passen pro Zelle: Schau dir die beiden auf dem Gnadenhof an, ein großes zum Weiden und ein kleines für das Geflügel."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "Die Arten"
+  }
+]

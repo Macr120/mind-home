@@ -1,0 +1,562 @@
+[
+  {
+    "clave": "agenda.ciclo.recienActivado",
+    "texto": "Tracking ist aktiv. Aus Versehen angetippt?"
+  },
+  {
+    "clave": "agenda.ciclo.deshacer",
+    "texto": "Rückgängig"
+  },
+  {
+    "clave": "agenda.ciclo.mantener",
+    "texto": "Beibehalten"
+  },
+  {
+    "clave": "agenda.ciclo.ajustes",
+    "texto": "Einstellungen"
+  },
+  {
+    "clave": "agenda.ciclo.diaN",
+    "texto": "Tag {n} deines Zyklus"
+  },
+  {
+    "clave": "agenda.ciclo.sinRegistro",
+    "texto": "Noch keine Einträge"
+  },
+  {
+    "clave": "agenda.ciclo.sinDatos",
+    "texto": "Markiere deinen ersten Periodentag, um zu starten"
+  },
+  {
+    "clave": "agenda.ciclo.hoyToca",
+    "texto": "Voraussichtlich beginnt sie heute"
+  },
+  {
+    "clave": "agenda.ciclo.faltan",
+    "texto": "Noch {n} Tage (geschätzt)"
+  },
+  {
+    "clave": "agenda.ciclo.proximo",
+    "texto": "Nächste Periode"
+  },
+  {
+    "clave": "agenda.ciclo.fertil",
+    "texto": "Fruchtbares Fenster"
+  },
+  {
+    "clave": "agenda.ciclo.base",
+    "texto": "Schätzung aus deinen letzten {n} Zyklen (Durchschnitt {d} Tage)."
+  },
+  {
+    "clave": "agenda.ciclo.baseSinDatos",
+    "texto": "Schätzung anhand der Dauer aus deinen Einstellungen ({d} Tage): es gibt noch keine zwei Perioden zum Messen."
+  },
+  {
+    "clave": "agenda.ciclo.historial",
+    "texto": "Deine letzten Perioden"
+  },
+  {
+    "clave": "agenda.ciclo.duroDias",
+    "texto": "dauerte {n} Tage"
+  },
+  {
+    "clave": "agenda.ciclo.sangrado",
+    "texto": "Blutung"
+  },
+  {
+    "clave": "agenda.ciclo.ninguno",
+    "texto": "Keine"
+  },
+  {
+    "clave": "agenda.ciclo.leve",
+    "texto": "Leicht"
+  },
+  {
+    "clave": "agenda.ciclo.medio",
+    "texto": "Mittel"
+  },
+  {
+    "clave": "agenda.ciclo.abundante",
+    "texto": "Stark"
+  },
+  {
+    "clave": "agenda.ciclo.sintomas",
+    "texto": "Symptome"
+  },
+  {
+    "clave": "agenda.ciclo.animo",
+    "texto": "Stimmung"
+  },
+  {
+    "clave": "agenda.ciclo.leyRegistrado",
+    "texto": "Erfasst"
+  },
+  {
+    "clave": "agenda.ciclo.leyEstimado",
+    "texto": "Geschätzt"
+  },
+  {
+    "clave": "agenda.ciclo.duracionCiclo",
+    "texto": "Zykluslänge (Tage)"
+  },
+  {
+    "clave": "agenda.ciclo.duracionPeriodo",
+    "texto": "Periodenlänge (Tage)"
+  },
+  {
+    "clave": "agenda.ciclo.ayudaDuracion",
+    "texto": "Wird nur verwendet, solange keine zwei Perioden erfasst sind: danach zählt dein tatsächlicher Durchschnitt."
+  },
+  {
+    "clave": "agenda.ciclo.avisarAntes",
+    "texto": "Erinnere mich (Tage vorher)"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivo",
+    "texto": "Verhütung um"
+  },
+  {
+    "clave": "agenda.ciclo.avisoRutina",
+    "texto": "Deine Periode beginnt voraussichtlich"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivoRutina",
+    "texto": "Verhütung"
+  },
+  {
+    "clave": "agenda.ciclo.sint.colicos",
+    "texto": "Krämpfe"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cabeza",
+    "texto": "Kopfschmerzen"
+  },
+  {
+    "clave": "agenda.ciclo.sint.hinchazon",
+    "texto": "Blähungen"
+  },
+  {
+    "clave": "agenda.ciclo.sint.senos",
+    "texto": "Spannen in der Brust"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cansancio",
+    "texto": "Erschöpfung"
+  },
+  {
+    "clave": "agenda.ciclo.sint.antojos",
+    "texto": "Heißhunger"
+  },
+  {
+    "clave": "agenda.ciclo.sint.acne",
+    "texto": "Akne"
+  },
+  {
+    "clave": "agenda.ciclo.sint.irritable",
+    "texto": "Reizbarkeit"
+  },
+  {
+    "clave": "agenda.salud.nuevaCita",
+    "texto": "Neuer Termin"
+  },
+  {
+    "clave": "agenda.salud.medicamentos",
+    "texto": "Medikamente"
+  },
+  {
+    "clave": "agenda.salud.nuevoMedicamento",
+    "texto": "Neues Medikament"
+  },
+  {
+    "clave": "agenda.editarMedicamento",
+    "texto": "Behandlung bearbeiten"
+  },
+  {
+    "clave": "agenda.vacio.citas",
+    "texto": "Keine Termine erfasst."
+  },
+  {
+    "clave": "agenda.vacio.medicamentos",
+    "texto": "Keine laufende Behandlung."
+  },
+  {
+    "clave": "agenda.med.dosis",
+    "texto": "Dosis"
+  },
+  {
+    "clave": "agenda.med.horas",
+    "texto": "Einnahmezeiten"
+  },
+  {
+    "clave": "agenda.med.agregarToma",
+    "texto": "Einnahme hinzufügen"
+  },
+  {
+    "clave": "agenda.med.dias",
+    "texto": "Tage"
+  },
+  {
+    "clave": "agenda.med.todosDias",
+    "texto": "Nichts ausgewählt: jeden Tag."
+  },
+  {
+    "clave": "agenda.med.desde",
+    "texto": "Ab"
+  },
+  {
+    "clave": "agenda.med.hasta",
+    "texto": "Bis (optional)"
+  },
+  {
+    "clave": "agenda.med.pausar",
+    "texto": "Pausieren"
+  },
+  {
+    "clave": "agenda.med.reanudar",
+    "texto": "Fortsetzen"
+  },
+  {
+    "clave": "agenda.med.sinHoras",
+    "texto": "Keine Erinnerung"
+  },
+  {
+    "clave": "agenda.med.avisoAppAbierta",
+    "texto": "Einnahme-Erinnerungen klingeln nur bei geöffneter App."
+  },
+  {
+    "clave": "agenda.dia.0",
+    "texto": "S"
+  },
+  {
+    "clave": "agenda.dia.1",
+    "texto": "M"
+  },
+  {
+    "clave": "agenda.dia.2",
+    "texto": "D"
+  },
+  {
+    "clave": "agenda.dia.3",
+    "texto": "M"
+  },
+  {
+    "clave": "agenda.dia.4",
+    "texto": "D"
+  },
+  {
+    "clave": "agenda.dia.5",
+    "texto": "F"
+  },
+  {
+    "clave": "agenda.dia.6",
+    "texto": "S"
+  },
+  {
+    "clave": "agenda.personas.nuevoContacto",
+    "texto": "Neuer Kontakt"
+  },
+  {
+    "clave": "agenda.editarContacto",
+    "texto": "Kontakt bearbeiten"
+  },
+  {
+    "clave": "agenda.personas.nuevoPlan",
+    "texto": "Etwas planen"
+  },
+  {
+    "clave": "agenda.persona.relacion",
+    "texto": "Beziehung"
+  },
+  {
+    "clave": "agenda.persona.phRelacion",
+    "texto": "Familie, Arbeit …"
+  },
+  {
+    "clave": "agenda.persona.telefono",
+    "texto": "Telefon"
+  },
+  {
+    "clave": "agenda.persona.correo",
+    "texto": "E-Mail"
+  },
+  {
+    "clave": "agenda.persona.cumple",
+    "texto": "Geburtstag"
+  },
+  {
+    "clave": "agenda.persona.horaCumple",
+    "texto": "Erinnere mich um"
+  },
+  {
+    "clave": "agenda.persona.direccion",
+    "texto": "Adresse"
+  },
+  {
+    "clave": "agenda.persona.foto",
+    "texto": "Foto"
+  },
+  {
+    "clave": "agenda.persona.edad",
+    "texto": "wird {n}"
+  },
+  {
+    "clave": "agenda.persona.hoyCumple",
+    "texto": "ist heute!"
+  },
+  {
+    "clave": "agenda.persona.faltan",
+    "texto": "noch {n} Tage"
+  },
+  {
+    "clave": "agenda.persona.hoy",
+    "texto": "heute"
+  },
+  {
+    "clave": "agenda.persona.enDias",
+    "texto": "{n} T"
+  },
+  {
+    "clave": "agenda.vacio.contactos",
+    "texto": "Dein Adressbuch ist leer. Füge deine Leute hinzu."
+  },
+  {
+    "clave": "agenda.vacio.eventosContacto",
+    "texto": "Nichts mit dieser Person geplant."
+  },
+  {
+    "clave": "agenda.salud.mascotas",
+    "texto": "Haustiere"
+  },
+  {
+    "clave": "agenda.salud.nuevaMascota",
+    "texto": "Neues Haustier"
+  },
+  {
+    "clave": "agenda.salud.nuevoProjimo",
+    "texto": "Neuer Angehöriger"
+  },
+  {
+    "clave": "agenda.vacio.mascotas",
+    "texto": "Noch keine Haustiere. Füge die hinzu, die auch von dir abhängen."
+  },
+  {
+    "clave": "agenda.vacio.cuidados",
+    "texto": "Keine Pflege geplant: Impfungen, Entwurmung, Baden …"
+  },
+  {
+    "clave": "agenda.vacio.citasMascota",
+    "texto": "Keine Termine für dieses Haustier."
+  },
+  {
+    "clave": "agenda.mascota.editar",
+    "texto": "Haustier bearbeiten"
+  },
+  {
+    "clave": "agenda.mascota.especie",
+    "texto": "Art"
+  },
+  {
+    "clave": "agenda.mascota.raza",
+    "texto": "Rasse"
+  },
+  {
+    "clave": "agenda.mascota.nacimiento",
+    "texto": "Geburtsdatum"
+  },
+  {
+    "clave": "agenda.mascota.peso",
+    "texto": "Gewicht (kg)"
+  },
+  {
+    "clave": "agenda.mascota.veterinario",
+    "texto": "Tierarzt"
+  },
+  {
+    "clave": "agenda.mascota.phNotas",
+    "texto": "Allergien, Futter, Chip …"
+  },
+  {
+    "clave": "agenda.mascota.cuidados",
+    "texto": "Pflege"
+  },
+  {
+    "clave": "agenda.mascota.nuevoCuidado",
+    "texto": "Neue Pflege"
+  },
+  {
+    "clave": "agenda.mascota.citas",
+    "texto": "Tierarzttermine"
+  },
+  {
+    "clave": "agenda.mascota.meses",
+    "texto": "{n} Monate"
+  },
+  {
+    "clave": "agenda.mascota.anio",
+    "texto": "1 Jahr"
+  },
+  {
+    "clave": "agenda.mascota.anios",
+    "texto": "{n} Jahre"
+  },
+  {
+    "clave": "agenda.mascota.sinFicha",
+    "texto": "Haustier"
+  },
+  {
+    "clave": "agenda.especie.perro",
+    "texto": "Hund"
+  },
+  {
+    "clave": "agenda.especie.gato",
+    "texto": "Katze"
+  },
+  {
+    "clave": "agenda.especie.ave",
+    "texto": "Vogel"
+  },
+  {
+    "clave": "agenda.especie.pez",
+    "texto": "Fisch"
+  },
+  {
+    "clave": "agenda.especie.roedor",
+    "texto": "Nagetier"
+  },
+  {
+    "clave": "agenda.especie.reptil",
+    "texto": "Reptil"
+  },
+  {
+    "clave": "agenda.especie.caballo",
+    "texto": "Pferd"
+  },
+  {
+    "clave": "agenda.especie.otro",
+    "texto": "Andere"
+  },
+  {
+    "clave": "agenda.cuidado.vacuna",
+    "texto": "Impfung"
+  },
+  {
+    "clave": "agenda.cuidado.desparasitacion",
+    "texto": "Entwurmung"
+  },
+  {
+    "clave": "agenda.cuidado.veterinario",
+    "texto": "Tierarztkontrolle"
+  },
+  {
+    "clave": "agenda.cuidado.bano",
+    "texto": "Baden"
+  },
+  {
+    "clave": "agenda.cuidado.peluqueria",
+    "texto": "Fell- oder Krallenpflege"
+  },
+  {
+    "clave": "agenda.cuidado.alimento",
+    "texto": "Futter kaufen"
+  },
+  {
+    "clave": "agenda.cuidado.otro",
+    "texto": "Andere"
+  },
+  {
+    "clave": "agenda.cuidado.editar",
+    "texto": "Pflege bearbeiten"
+  },
+  {
+    "clave": "agenda.cuidado.tipo",
+    "texto": "Art"
+  },
+  {
+    "clave": "agenda.cuidado.titulo",
+    "texto": "Was es ist"
+  },
+  {
+    "clave": "agenda.cuidado.proxima",
+    "texto": "Nächstes Mal"
+  },
+  {
+    "clave": "agenda.cuidado.cada",
+    "texto": "Wiederholt sich"
+  },
+  {
+    "clave": "agenda.cuidado.unaVez",
+    "texto": "Nur einmal"
+  },
+  {
+    "clave": "agenda.cuidado.mensual",
+    "texto": "Jeden Monat"
+  },
+  {
+    "clave": "agenda.cuidado.anual",
+    "texto": "Jedes Jahr"
+  },
+  {
+    "clave": "agenda.cuidado.meses",
+    "texto": "Alle {n} Monate"
+  },
+  {
+    "clave": "agenda.cuidado.aviso",
+    "texto": "Sobald du es als erledigt markierst, springt das Datum automatisch zum nächsten Zeitraum."
+  },
+  {
+    "clave": "agenda.cuidado.hecho",
+    "texto": "Erledigt"
+  },
+  {
+    "clave": "agenda.cuidado.ultima",
+    "texto": "Letztes Mal: {f}"
+  },
+  {
+    "clave": "agenda.cuidado.vencido",
+    "texto": "überfällig"
+  },
+  {
+    "clave": "agenda.form.paraQuien",
+    "texto": "Für wen ist es?"
+  },
+  {
+    "clave": "agenda.form.paraMi",
+    "texto": " – Für mich – "
+  },
+  {
+    "clave": "widgets.titulo",
+    "texto": "Heute"
+  },
+  {
+    "clave": "widgets.nivel",
+    "texto": "Level {n}"
+  },
+  {
+    "clave": "widgets.metas",
+    "texto": "Ziele {h}/{t}"
+  },
+  {
+    "clave": "widgets.sisifo",
+    "texto": "Tag {d} · Rang {r}"
+  },
+  {
+    "clave": "widgets.proximoTitulo",
+    "texto": "Als Nächstes"
+  },
+  {
+    "clave": "widgets.sinProximo",
+    "texto": "Nichts Anstehendes mit Uhrzeit"
+  },
+  {
+    "clave": "widgets.efemerideTitulo",
+    "texto": "An diesem Tag"
+  },
+  {
+    "clave": "widgets.vacio",
+    "texto": "Nichts für heute geplant"
+  },
+  {
+    "clave": "widgets.desactualizado",
+    "texto": "Zum Aktualisieren tippen"
+  }
+]

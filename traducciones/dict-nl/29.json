@@ -1,0 +1,713 @@
+[
+  {
+    "clave": "editor.obj.editarVacio",
+    "es": "Elige un objeto en la pestaña Mapa, o crea uno nuevo.",
+    "en": "Pick an object in the Map tab, or create a new one."
+  },
+  {
+    "clave": "editor.obj.eliminar",
+    "es": "Eliminar objeto",
+    "en": "Delete object"
+  },
+  {
+    "clave": "editor.obj.estilo",
+    "es": "Estilo",
+    "en": "Style"
+  },
+  {
+    "clave": "editor.obj.estiloBloques",
+    "es": "Bloques (voxel)",
+    "en": "Blocks (voxel)"
+  },
+  {
+    "clave": "editor.obj.estiloDetallado",
+    "es": "Detallado",
+    "en": "Detailed"
+  },
+  {
+    "clave": "editor.obj.estiloMinimalista",
+    "es": "Minimalista",
+    "en": "Minimalist"
+  },
+  {
+    "clave": "editor.obj.estiloNormal",
+    "es": "Normal",
+    "en": "Normal"
+  },
+  {
+    "clave": "editor.obj.estiloRedondeado",
+    "es": "Redondeado",
+    "en": "Rounded"
+  },
+  {
+    "clave": "editor.obj.forma",
+    "es": "Forma",
+    "en": "Shape"
+  },
+  {
+    "clave": "editor.obj.formaError",
+    "es": "No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.",
+    "en": "I couldn't create the shape. Check the AI model and try again."
+  },
+  {
+    "clave": "editor.obj.cambiarFoto",
+    "es": "Cambiar la foto",
+    "en": "Change the photo"
+  },
+  {
+    "clave": "editor.obj.foto",
+    "es": "Foto",
+    "en": "Photo"
+  },
+  {
+    "clave": "editor.obj.fotoAyuda",
+    "es": "El marco adopta la proporción de tu foto.",
+    "en": "The frame adapts to your photo's proportions."
+  },
+  {
+    "clave": "editor.obj.fotoAyudaPanel",
+    "es": "La foto llena el panel; el texto queda en una banda encima.",
+    "en": "The photo fills the panel; the text sits on a strip over it."
+  },
+  {
+    "clave": "editor.obj.formaGenerar",
+    "es": "Crear con IA",
+    "en": "Create with AI"
+  },
+  {
+    "clave": "editor.obj.formaPhArq",
+    "es": "Descríbelo: \"columna griega con base\"",
+    "en": "Describe it: \"Greek column with base\""
+  },
+  {
+    "clave": "editor.obj.formaPhObj",
+    "es": "Descríbelo: \"silla de madera con cojín rojo\"",
+    "en": "Describe it: \"wooden chair with a red cushion\""
+  },
+  {
+    "clave": "editor.obj.formaSinIa",
+    "es": "Describir la forma requiere IA (elige modelo en la barra)",
+    "en": "Describing the shape requires AI (pick a model in the bar)"
+  },
+  {
+    "clave": "editor.obj.fxAgua",
+    "es": "Intensidad del agua",
+    "en": "Water intensity"
+  },
+  {
+    "clave": "editor.obj.fxJuego",
+    "es": "Velocidad del juego",
+    "en": "Ride speed"
+  },
+  {
+    "clave": "editor.obj.fxLuz",
+    "es": "Intensidad de la luz",
+    "en": "Light intensity"
+  },
+  {
+    "clave": "editor.obj.grupoAccion",
+    "es": "Función especial",
+    "en": "Special function"
+  },
+  {
+    "clave": "editor.obj.grupoNinguno",
+    "es": "— (ninguno)",
+    "en": "— (none)"
+  },
+  {
+    "clave": "editor.obj.grupoAsiento",
+    "es": "Sentarse",
+    "en": "Sit"
+  },
+  {
+    "clave": "editor.obj.grupoAcostarse",
+    "es": "Acostarse",
+    "en": "Lie down"
+  },
+  {
+    "clave": "editor.obj.grupoVehiculo",
+    "es": "Conducir",
+    "en": "Drive"
+  },
+  {
+    "clave": "editor.obj.girDer",
+    "es": "Girar 90° a la derecha",
+    "en": "Rotate 90° right"
+  },
+  {
+    "clave": "editor.obj.girIzq",
+    "es": "Girar 90° a la izquierda",
+    "en": "Rotate 90° left"
+  },
+  {
+    "clave": "editor.obj.girar",
+    "es": "Girar (Y)",
+    "en": "Rotate (Y)"
+  },
+  {
+    "clave": "editor.obj.glbError",
+    "es": "No pude procesar ese modelo .glb. ¿Es un archivo válido?",
+    "en": "I couldn't process that .glb model. Is it a valid file?"
+  },
+  {
+    "clave": "editor.obj.inclinarX",
+    "es": "Inclinar (X)",
+    "en": "Tilt (X)"
+  },
+  {
+    "clave": "editor.obj.inclinarZ",
+    "es": "Inclinar (Z)",
+    "en": "Tilt (Z)"
+  },
+  {
+    "clave": "editor.obj.mapa",
+    "es": "Mapa",
+    "en": "Map"
+  },
+  {
+    "clave": "editor.obj.nombrePh",
+    "es": "Nombre del objeto",
+    "en": "Object name"
+  },
+  {
+    "clave": "editor.obj.optimizando",
+    "es": "Optimizando modelo…",
+    "en": "Optimizing model…"
+  },
+  {
+    "clave": "editor.obj.quitarApp",
+    "en": "Remove app"
+  },
+  {
+    "clave": "editor.obj.quitarFoto",
+    "es": "Quitar la foto",
+    "en": "Remove the photo"
+  },
+  {
+    "clave": "editor.obj.sinObjetos",
+    "es": "Aún no hay objetos. Créalos en la pestaña Crear.",
+    "en": "No objects yet. Create them in the Create tab."
+  },
+  {
+    "clave": "editor.obj.subirFoto",
+    "es": "Subir una foto",
+    "en": "Upload a photo"
+  },
+  {
+    "clave": "editor.obj.subirGlb",
+    "es": "Subir modelo .glb",
+    "en": "Upload .glb model"
+  },
+  {
+    "clave": "editor.obj.tabCrear",
+    "es": "Crear",
+    "en": "Create"
+  },
+  {
+    "clave": "editor.obj.tabEditar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "editor.obj.tamano",
+    "es": "Tamaño",
+    "en": "Size"
+  },
+  {
+    "clave": "editor.obj.texto",
+    "es": "Texto",
+    "en": "Text"
+  },
+  {
+    "clave": "editor.obj.textoAyuda",
+    "es": "Enter agrega otra línea. Vacío = texto de muestra.",
+    "en": "Enter adds another line. Empty = sample text."
+  },
+  {
+    "clave": "editor.obj.textoPh",
+    "es": "El nombre de tu casa o una frase…",
+    "en": "Your house name or a phrase…"
+  },
+  {
+    "clave": "editor.obj.tipoArq",
+    "es": "Arquitectura",
+    "en": "Architecture"
+  },
+  {
+    "clave": "editor.obj.tipoObjeto",
+    "es": "Objeto",
+    "en": "Object"
+  },
+  {
+    "clave": "editor.pers.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "editor.pers.colorGrupo",
+    "es": "Pinta {n} pieza(s) de este color",
+    "en": "Paint {n} piece(s) of this color"
+  },
+  {
+    "clave": "editor.pers.colorPieza",
+    "es": "Pinta la pieza seleccionada y todas las de su mismo color (toda la ropa o todo el cuerpo). Toca una pieza en el visor con el engrane abierto para elegir otro conjunto.",
+    "en": "Paints the selected piece and all pieces of the same color (all clothes or the whole body). Tap a piece in the viewer with the gear open to pick another set."
+  },
+  {
+    "clave": "editor.pers.colorPrenda",
+    "es": "Color de la prenda",
+    "en": "Garment color"
+  },
+  {
+    "clave": "editor.pers.prenda.sombrero",
+    "en": "Hat"
+  },
+  {
+    "clave": "editor.pers.prenda.gorroChef",
+    "en": "Chef hat"
+  },
+  {
+    "clave": "editor.pers.prenda.gorra",
+    "en": "Cap"
+  },
+  {
+    "clave": "editor.pers.prenda.lentes",
+    "en": "Glasses"
+  },
+  {
+    "clave": "editor.pers.prenda.bufanda",
+    "en": "Scarf"
+  },
+  {
+    "clave": "editor.pers.prenda.corbata",
+    "en": "Tie"
+  },
+  {
+    "clave": "editor.pers.prenda.camisa",
+    "en": "Shirt"
+  },
+  {
+    "clave": "editor.pers.prenda.chamarra",
+    "en": "Jacket"
+  },
+  {
+    "clave": "editor.pers.prenda.playera",
+    "en": "T-shirt"
+  },
+  {
+    "clave": "editor.pers.prenda.capa",
+    "en": "Cape"
+  },
+  {
+    "clave": "editor.pers.prenda.vestido",
+    "en": "Dress"
+  },
+  {
+    "clave": "editor.pers.prenda.falda",
+    "en": "Skirt"
+  },
+  {
+    "clave": "editor.pers.prenda.pantalon",
+    "en": "Pants"
+  },
+  {
+    "clave": "editor.pers.prenda.shorts",
+    "en": "Shorts"
+  },
+  {
+    "clave": "editor.pers.prenda.botas",
+    "en": "Boots"
+  },
+  {
+    "clave": "editor.pers.prenda.tenis",
+    "en": "Sneakers"
+  },
+  {
+    "clave": "editor.pers.prenda.guantes",
+    "en": "Gloves"
+  },
+  {
+    "clave": "editor.pers.prenda.mochila",
+    "en": "Backpack"
+  },
+  {
+    "clave": "editor.pers.rostro",
+    "es": "Rostro",
+    "en": "Face"
+  },
+  {
+    "clave": "editor.pers.rostroImagen",
+    "es": "Foto de rostro",
+    "en": "Face photo"
+  },
+  {
+    "clave": "editor.pers.rostroImagenPuesta",
+    "es": "La foto tapa el frente de la cabeza (manda sobre la expresión).",
+    "en": "The photo covers the front of the head (overrides the expression)."
+  },
+  {
+    "clave": "editor.pers.rostroQuitar",
+    "es": "Quitar foto",
+    "en": "Remove photo"
+  },
+  {
+    "clave": "editor.pers.rostroProcesando",
+    "es": "Procesando foto…",
+    "en": "Processing photo…"
+  },
+  {
+    "clave": "editor.pers.rostroCambiar",
+    "es": "Cambiar foto",
+    "en": "Change photo"
+  },
+  {
+    "clave": "editor.pers.rostroSubir",
+    "es": "Subir foto de rostro",
+    "en": "Upload face photo"
+  },
+  {
+    "clave": "editor.pers.rostroExpresion",
+    "es": "Expresión",
+    "en": "Expression"
+  },
+  {
+    "clave": "editor.pers.rostroSustituye",
+    "es": "Elegir una expresión o subir una foto sustituye los ojos que trae de fábrica.",
+    "en": "Choosing an expression or uploading a photo replaces the eyes it comes with."
+  },
+  {
+    "clave": "editor.pers.rostroSoloAvatar",
+    "en": "The face (photo and expressions) is for your main character. Assistants already have a face based on their shape."
+  },
+  {
+    "clave": "editor.pers.rostroNoAplica",
+    "es": "Este modelo ya tiene su propia cara (casco, careta, pelaje…): el rostro y el peinado del editor no le aplican.",
+    "en": "This model already has its own face (helmet, mask, fur…): the editor's face and hairstyle don't apply to it."
+  },
+  {
+    "clave": "editor.pers.expresion.neutral",
+    "en": "Neutral"
+  },
+  {
+    "clave": "editor.pers.expresion.feliz",
+    "en": "Happy"
+  },
+  {
+    "clave": "editor.pers.expresion.sonrisa",
+    "en": "Smile"
+  },
+  {
+    "clave": "editor.pers.expresion.sorpresa",
+    "en": "Surprise"
+  },
+  {
+    "clave": "editor.pers.expresion.guino",
+    "en": "Wink"
+  },
+  {
+    "clave": "editor.pers.expresion.serio",
+    "en": "Serious"
+  },
+  {
+    "clave": "editor.pers.expresion.ternura",
+    "en": "Sweet"
+  },
+  {
+    "clave": "editor.pers.expresion.ninguno",
+    "en": "No face"
+  },
+  {
+    "clave": "editor.pers.modelos",
+    "es": "Modelos",
+    "en": "Models"
+  },
+  {
+    "clave": "editor.pers.modeloBase",
+    "es": "Humano",
+    "en": "Human"
+  },
+  {
+    "clave": "editor.pers.modelosNota",
+    "es": "Elige un cuerpo listo. Los de piezas puedes seguir editándolos abajo; las formas conservan su propia cara.",
+    "en": "Pick a ready-made body. You can keep editing the piece ones below; the shapes keep their own face."
+  },
+  {
+    "clave": "editor.pers.cuerpo.astronauta",
+    "en": "Astronaut"
+  },
+  {
+    "clave": "editor.pers.cuerpo.androide",
+    "en": "Android"
+  },
+  {
+    "clave": "editor.pers.cuerpo.ninja",
+    "en": "Ninja"
+  },
+  {
+    "clave": "editor.pers.cuerpo.alien",
+    "en": "Alien"
+  },
+  {
+    "clave": "editor.pers.cuerpo.osito",
+    "en": "Teddy"
+  },
+  {
+    "clave": "editor.pers.cuerpo.princesa",
+    "en": "Princess"
+  },
+  {
+    "clave": "editor.pers.peinado",
+    "es": "Peinado",
+    "en": "Hairstyle"
+  },
+  {
+    "clave": "editor.pers.peloColor",
+    "es": "Color de pelo",
+    "en": "Hair color"
+  },
+  {
+    "clave": "editor.pers.peinado.ninguno",
+    "en": "No hair"
+  },
+  {
+    "clave": "editor.pers.peinado.corto",
+    "en": "Short"
+  },
+  {
+    "clave": "editor.pers.peinado.puntas",
+    "en": "Spiky"
+  },
+  {
+    "clave": "editor.pers.peinado.coleta",
+    "en": "Ponytail"
+  },
+  {
+    "clave": "editor.pers.peinado.chongo",
+    "en": "Bun"
+  },
+  {
+    "clave": "editor.pers.peinado.largo",
+    "en": "Long"
+  },
+  {
+    "clave": "editor.pers.peinado.afro",
+    "en": "Afro"
+  },
+  {
+    "clave": "editor.pers.peinado.mohawk",
+    "en": "Mohawk"
+  },
+  {
+    "clave": "editor.pers.peinado.tazon",
+    "en": "Bowl"
+  },
+  {
+    "clave": "editor.pers.guardarropa",
+    "es": "Guardarropa a medida",
+    "en": "Custom wardrobe"
+  },
+  {
+    "clave": "editor.pers.ropaCustomPh",
+    "es": "Descríbela: \"chaleco de plumas dorado\"",
+    "en": "Describe it: \"golden feather vest\""
+  },
+  {
+    "clave": "editor.pers.ropaCustomSinIa",
+    "es": "Crear ropa con IA requiere elegir modelo en la barra",
+    "en": "Creating clothes with AI needs a model chosen in the bar"
+  },
+  {
+    "clave": "editor.pers.ropaCustomGenerar",
+    "es": "Crear la prenda con IA",
+    "en": "Create the garment with AI"
+  },
+  {
+    "clave": "editor.pers.ropaCustomError",
+    "es": "No pude crear la prenda. Revisa el modelo de IA e inténtalo de nuevo.",
+    "en": "Couldn't create the garment. Check the AI model and try again."
+  },
+  {
+    "clave": "editor.pers.ropaCustomManual",
+    "es": "Construir a mano",
+    "en": "Build by hand"
+  },
+  {
+    "clave": "editor.pers.ropaCustomVacio",
+    "es": "Aún no tienes prendas a medida. Crea una con IA o constrúyela a mano.",
+    "en": "You don't have custom garments yet. Create one with AI or build it by hand."
+  },
+  {
+    "clave": "editor.pers.ropaCustomNombre",
+    "es": "Nombre de la prenda",
+    "en": "Garment name"
+  },
+  {
+    "clave": "editor.pers.ropaCustomSinNombre",
+    "es": "Prenda",
+    "en": "Garment"
+  },
+  {
+    "clave": "editor.pers.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "editor.pers.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "editor.pers.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "editor.pers.borrar",
+    "es": "Eliminar",
+    "en": "Delete"
+  },
+  {
+    "clave": "editor.pers.categoria.cabeza",
+    "en": "Head"
+  },
+  {
+    "clave": "editor.pers.categoria.cuello",
+    "en": "Neck"
+  },
+  {
+    "clave": "editor.pers.categoria.torso",
+    "en": "Torso"
+  },
+  {
+    "clave": "editor.pers.categoria.cintura",
+    "en": "Waist and legs"
+  },
+  {
+    "clave": "editor.pers.categoria.pies",
+    "en": "Feet"
+  },
+  {
+    "clave": "editor.pers.categoria.accesorios",
+    "en": "Accessories"
+  },
+  {
+    "clave": "editor.ropa.carpetaNueva",
+    "es": "Nueva carpeta",
+    "en": "New folder"
+  },
+  {
+    "clave": "editor.ropa.carpetaNombre",
+    "es": "¿Cómo se llama?",
+    "en": "What should it be called?"
+  },
+  {
+    "clave": "editor.ropa.renombrar",
+    "es": "Cambiar el nombre",
+    "en": "Rename"
+  },
+  {
+    "clave": "editor.ropa.ocultar",
+    "es": "Esconder «{nombre}»",
+    "en": "Hide «{nombre}»"
+  },
+  {
+    "clave": "editor.ropa.ocultarMsg",
+    "es": "La carpeta deja de listarse, pero no se pierde nada: la ropa que ya lleves puesta sigue puesta y puedes recuperarla cuando quieras.",
+    "en": "The folder stops being listed, but nothing is lost: clothes you're already wearing stay on and you can bring it back whenever you like."
+  },
+  {
+    "clave": "editor.ropa.ocultarOk",
+    "es": "Esconder",
+    "en": "Hide"
+  },
+  {
+    "clave": "editor.ropa.ocultarTip",
+    "es": "Esconder la carpeta",
+    "en": "Hide the folder"
+  },
+  {
+    "clave": "editor.ropa.borrar",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete «{nombre}»"
+  },
+  {
+    "clave": "editor.ropa.borrarMsg",
+    "es": "Sus elementos pasan a otra carpeta de la misma categoría; no se borra ninguna prenda.",
+    "en": "Its items move to another folder in the same category; no garment is deleted."
+  },
+  {
+    "clave": "editor.ropa.borrarOk",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "editor.ropa.borrarTip",
+    "es": "Borrar la carpeta",
+    "en": "Delete the folder"
+  },
+  {
+    "clave": "editor.ropa.ocultas",
+    "es": "Carpetas escondidas",
+    "en": "Hidden folders"
+  },
+  {
+    "clave": "editor.ropa.hornear",
+    "es": "Editar «{nombre}»",
+    "en": "Edit «{nombre}»"
+  },
+  {
+    "clave": "editor.ropa.hornearMsg",
+    "es": "Se crea una copia editable de {n} piezas. La copia deja de adaptarse a otros cuerpos; el original se queda en la carpeta.",
+    "en": "This creates an editable copy with {n} pieces. The copy no longer adapts to other bodies; the original stays in the folder."
+  },
+  {
+    "clave": "editor.ropa.hornearMsgMarcha",
+    "es": "Se crea una copia editable de {n} piezas. La copia ya no se mueve con tus pasos ni se adapta a otros cuerpos; el original se queda en la carpeta.",
+    "en": "This creates an editable copy with {n} pieces. The copy no longer moves with your steps nor adapts to other bodies; the original stays in the folder."
+  },
+  {
+    "clave": "editor.ropa.hornearOk",
+    "es": "Crear copia editable",
+    "en": "Create editable copy"
+  },
+  {
+    "clave": "editor.ropa.hornearTip",
+    "es": "Crear una copia editable pieza por pieza",
+    "en": "Create a copy you can edit piece by piece"
+  },
+  {
+    "clave": "editor.ropa.copiaDe",
+    "es": "Mi {nombre}",
+    "en": "My {nombre}"
+  },
+  {
+    "clave": "editor.ropa.soloAvatar",
+    "es": "Los elementos a medida son del personaje principal: los asistentes solo llevan las prendas de fábrica.",
+    "en": "Custom items belong to the main character: assistants only wear the built-in garments."
+  },
+  {
+    "clave": "editor.pers.atuendos",
+    "es": "Atuendos",
+    "en": "Outfits"
+  },
+  {
+    "clave": "editor.pers.atuendosSugeridos",
+    "es": "Sugeridos",
+    "en": "Suggested"
+  },
+  {
+    "clave": "editor.pers.atuendosTuyos",
+    "es": "Tus atuendos",
+    "en": "Your outfits"
+  },
+  {
+    "clave": "editor.pers.atuendoCrear",
+    "es": "Crear atuendo",
+    "en": "Create outfit"
+  },
+  {
+    "clave": "editor.pers.atuendoNombrePh",
+    "es": "Nombre del atuendo",
+    "en": "Outfit name"
+  }
+]

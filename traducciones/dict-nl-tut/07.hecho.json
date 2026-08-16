@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "texto": "App koppelen opent de kiezer: eerst kies je de app, daarna welk deel ervan (als er meerdere plekken zijn om vast te leggen)."
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "texto": "Het chipje als het er staat"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "texto": "Staat het chipje er, dan opent een tik die app meteen op die sectie. Weghalen wist het doel of zijn datums niet: het laat alleen de koppeling los."
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "texto": "Alleen apps die aan een object in een kamer zijn toegewezen verschijnen als bestemming: koppelen aan een app zonder kamer zou een chipje opleveren dat nergens heen leidt."
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "texto": "Deze knop opent de muziekbediening van het huis."
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "texto": "Aan of uit"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "texto": "Eén schakelaar voor alle ambientmuziek in huis. Uit blijft het huis stil, op de geluiden van concrete acties na."
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "texto": "Thema per kamer"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "texto": "Elke kamer mag anders klinken: automatisch volgens haar app, een thema dat je zelf kiest, of volledige stilte in die ene kamer zonder de rest van het huis aan te raken."
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "texto": "Waar het geluid vandaan komt"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "texto": "Gegenereerd (componeert zelf op de sfeer), Mijn nummers (wat je zelf hebt geüpload) of Systeem (wat je al buiten de app afspeelt, zonder dat er overheen wordt gespeeld)."
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "texto": "Volumes apart"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "texto": "Muziek en actiegeluiden (voetstappen, klikken, prestaties) regel je apart — je kunt de muziek zachter zetten en de effecten laten staan, of andersom."
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "texto": "De HUD-knop kun je van het hoofdscherm halen; hij blijft bereikbaar via Editor › Instellingen › Muziek."
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "texto": "Hier zet je de AI van het huis aan: zonder dit blijft de chat op trefwoorden werken en staan functies als een recept, een plan of een afbeelding genereren uit."
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "texto": "Met of zonder account"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "texto": "Je kunt de AI gebruiken met je eigen sleutel van een aanbieder (zonder account, zonder credits) of met een account dat credits meebrengt en synchroniseert tussen je apparaten."
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "texto": "AI-prijzen"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "texto": "Deze tabel is ook zonder account informatief: precies wat je nodig hebt om te beslissen of het de moeite waard is. Je ziet hem per kamer, operatie voor operatie."
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "texto": "De enige hendel"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "texto": "De kwaliteit van de afbeeldingen is het enige dat de prijs in de hele tabel verandert: Snel is goed en goedkoop (die gebruik ik standaard); Beste geeft meer detail en betere tekst in de afbeelding."
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "texto": "Eén eenheid, veel operaties"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "texto": "Een antwoord kost 1 credit, een uitgebreid plan 4, een afbeelding of een 3D-model 10 — de regel is voor alle kamers dezelfde, deze tabel klapt hem alleen stuk voor stuk uit."
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "texto": "Deze balk verschijnt in bijna elke app zolang die nog geen gegevens van jou heeft: één knop om hem gevuld met een voorbeeld te zien, in plaats van te beginnen voor een leeg scherm."
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "texto": "Een voorbeeld bekijken wist of vermengt niets van jou: het zijn eigen regels, gemarkeerd als voorbeeld, die verborgen worden (niet gewist) als je het uitzet. Zet je het weer aan, dan komen ze terug precies zoals ze waren."
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "texto": "In het demohuis zie je deze balk niet: het hele jaar van Pep vervult die rol al, dus een apart voorbeeld is overbodig."
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "texto": "Drie bronnen, één lijst"
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "texto": "Doorgestreept omdat het gegeven er is"
+  }
+]

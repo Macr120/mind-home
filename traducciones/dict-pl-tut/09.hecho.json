@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "To warzywnik sanktuarium Pepa: prawdziwe działki, w które włożono rok pracy. Nic tu nie jest przykładem — to żyje, rośnie w czasie rzeczywistym i możesz tego dotknąć."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "Jedzenie i Farma dzielą jeden edytor: to, co tu zbierzesz, zapełnia spiżarnię zwierząt obok. To jeden łańcuch."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "Podlewanie rządzi"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "Spójrz na działki: świeżo wsiane nasiono, rośliny w połowie wzrostu, gotowy słonecznik… i zwiędła marchewka, celowo zostawiona bez wody. Niebieska kropla ostrzega przed pragnieniem, a tego, co zwiędło, już się nie uratuje."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "Podlewanie automatyczne"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "Pomidor ma zraszacz: podlewa swoje pole i osiem sąsiednich, na zawsze. Tak zostawia się warzywnik samemu sobie i nic nie więdnie."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "Zbierz"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "Słonecznik jest gotowy: jedno dotknięcie i ląduje w koszyku. Zbierać można też, przechodząc po tym, co gotowe, bez otwierania tego edytora."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "Rok w koszyku"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "Każda działka liczy swoje zbiory, a koszyk gromadzi te z całego roku — ponad 400 sztuk. Stąd jedzą zwierzęta sanktuarium."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "Wszystko działa dalej po wyjściu. W demo możesz naprawdę podlewać, zbierać i siać: spróbuj, zanim stąd pójdziesz."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "Najpierw ziemia"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "Narzędziem „Działka” dotykasz pola na mapie i zostaje gotowa ziemia. W sanktuarium czekają na ciebie dwie puste działki."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "Wybierz, co posiać"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "Sześć gatunków, a pod każdym: ile rośnie i jak często prosi o wodę — marchewka w 3 minuty, dynia w 2 godziny."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "Ta szybka"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "Żeby zobaczyć dziś pełny cykl, posiej marchewkę na wolnej działce: będzie gotowa, zanim skończysz spacer."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "Cofanie"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "„Usuń” działa warstwa po warstwie na tym samym polu: najpierw roślina, potem zraszacz, a na końcu działka."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "To całe rzemiosło: ziemia, gatunek i cierpliwość. To, co posiejesz w demo, rośnie naprawdę, kiedy zwiedzasz resztę."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "To sanktuarium Pepa: zagrody uratowanych zwierząt, a na południu warzywnik, z którego jedzą. Zejdźmy do nich."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Oto uratowane zwierzęta z sanktuarium Pepa: każde ze swoim imieniem, głodem i nastrojem, które płyną w czasie rzeczywistym. Nic tu nie jest przykładem — możesz się nimi naprawdę zaopiekować."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "Spiżarnia na cały rok"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "„Karm” czerpie z koszyka, a koszyk napełnia się zbiorami z warzywnika obok. Zapasy na cały rok już czekają: korzystaj z nich."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "Karm"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "Jedno dotknięcie zagrody karmi wszystkie głodne zwierzęta, zaczynając od najbardziej głodnego. Kura prosi co 4 godziny, a krowa wytrzymuje 12."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "Głaskaj"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "Sześć godzin bez czułości i się nudzą (dwa razy szybciej, gdy zagroda jest brudna). Jedno dotknięcie głaszcze całą zagrodę."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "Brudna zagroda"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "Mała zagroda nie była sprzątana od ośmiu dni — widać to po słomie. Dotknij jej narzędziem „Czyść” i będzie jak nowa: w demo można."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "Nowy przybysz"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "Świnia trafiła do sanktuarium dziś rano, i to chora. Chore zwierzę przestaje jeść i podnosi je tylko „Lecz” — ma tydzień, zanim będzie za późno. Wylecz ją."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "Na co dzień nie trzeba tego otwierać: kiedy przechodzisz obok zagrody, wyskakuje jej dymek z przyciskami „Karm” i „Głaskaj”, a możesz też poprosić mnie o to na czacie."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "Zagroda"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "Dotknij wolnego pola, a powstanie zagroda 1×1; dotknij sąsiedniego, a się rozciągnie. Na każde pole przypadają trzy zwierzęta: spójrz na dwie zagrody sanktuarium — dużą pastwiskową i małą dla ptactwa."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "Gatunki"
+  }
+]

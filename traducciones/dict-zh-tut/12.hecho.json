@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "名字、表情符号、颜色，还有——可选的——每周目标天数。开始记录，需要的就是这一张表单。"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "每周目标"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "钢琴定的是每周4天：本周那一行会随着每天的练习一格格填满，上面写着已经完成了几天。"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "记录练习"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "一键填入常用分钟数，或者输入准确数字；项目可以不填，备注留给这次练习里你想记住的事。"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "想法收集箱"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "想到什么写下来就好。这一年Pep在这里丢下了大约90条想法：物理的、咖啡店的、训练的。星标用来标出偏爱的那些。"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "按主题的头脑风暴"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "一次头脑风暴会把所有东西归到一个主题下。找找Pep的那几次：给猫取名（Laika胜出）、日本这趟怎么付钱、还有要带什么上路。"
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "等一次头脑风暴攒够了，一个按钮就能把它变成思维导图，你可以继续在画布上整理。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "十种格式"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "每种格式的画法都不一样。下面是Pep这一年做的图谱：早晨的日常安排用流程图，热力学用树状图，物理和音乐用韦恩图。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "“我理想的生活”"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "这一年的第一张图谱，来自第1个月：Pep想要的生活。慢慢看——上面几乎所有事后来都发生了。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "在画布上：点一下节点选中它，再点一下就能输入；拖动它，双指捏合缩放，用底部栏添加想法。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "一个主题，一整张图谱"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "把主题交给AI，它会把整张图谱搭好，节点也都排好：面对一个不知从哪儿理起的主题，这就是起点。"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "用AI扩展节点"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "进入图谱之后，任何节点都能扩展：AI会根据你在周围写下的内容提出子节点，不打乱你的结构。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "八种做决定的方式"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "Pep是真的用过：期中考那周用艾森豪威尔矩阵，年中做了一次SWOT分析，挑相机时用了决策矩阵。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "读研还是工作？"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "这一年收尾时唯一还没定下的决定：每一边都有1到5的权重，总分在下面。到现在还没决定——认真思考就是这个样子。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "在按区域划分的格式里，每个元素都住在某个区域：添加前先在底部栏选好，或者把它拖到另一个区域，它会自动改过去。"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "带权重的决策矩阵"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "这不是画布，是一张表：每个选项对上每条标准，标准按对你的重要程度加1到5的权重。总分会自动把选项排好序。"
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "时钟"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "日历不是一个房间：它住在家里的时钟里，所以你在哪儿都能打开。"
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "真实的一周"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "咖啡店的排班、物理课、天亮时跑步、晚上弹钢琴。每个色块都是一项日常安排，有自己的时间和颜色；拖动可以挪位置，拉伸可以改时长。"
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "四种查看方式"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "“日”和“周”显示按小时排的格子；“月”和“年”给你整年的全景。第一个按钮身兼两职：写着“今天”时会把你带回当下，如果你正在看别的日期，它就变成“日”。"
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "每个色块从哪儿来"
+  }
+]

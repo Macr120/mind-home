@@ -1,0 +1,506 @@
+[
+  {
+    "clave": "ia.calidad.buena.desc",
+    "texto": "Больше деталей и текст на изображении читается лучше."
+  },
+  {
+    "clave": "ia.tarifas",
+    "texto": "Ответ стоит 1 кредит · длинный план — 3 · изображение — {img} · 3D-модель — 10."
+  },
+  {
+    "clave": "ia.precios.pie",
+    "texto": "Списание делает сервер: вот сколько это будет стоить ещё до запроса."
+  },
+  {
+    "clave": "ia.precios.pieSinCuenta",
+    "texto": "С собственным ключом ИИ кредиты не расходуются: платишь напрямую провайдеру."
+  },
+  {
+    "clave": "ia.grupo.chat",
+    "texto": "Чат дома"
+  },
+  {
+    "clave": "ia.grupo.editor",
+    "texto": "Редактор дома"
+  },
+  {
+    "clave": "ia.grupo.metas",
+    "texto": "Цели и расписание"
+  },
+  {
+    "clave": "ia.donde.chat",
+    "texto": "Чат дома"
+  },
+  {
+    "clave": "ia.donde.casa",
+    "texto": "Дом (автоматически)"
+  },
+  {
+    "clave": "ia.donde.editorObjetos",
+    "texto": "Редактор › Объекты"
+  },
+  {
+    "clave": "ia.donde.editorPersonajes",
+    "texto": "Редактор › Персонажи"
+  },
+  {
+    "clave": "ia.donde.editorCuarto",
+    "texto": "Редактор › Пол, стены, потолок, двери и сетка"
+  },
+  {
+    "clave": "ia.donde.editorFondo",
+    "texto": "Фон неба"
+  },
+  {
+    "clave": "ia.donde.asistentes",
+    "texto": "Помощники"
+  },
+  {
+    "clave": "ia.donde.metas",
+    "texto": "Кухня, Спортзал, Библиотека, Языки, Гостиная, Хобби, Кабинет и Развлечения"
+  },
+  {
+    "clave": "ia.op.chat.mensaje",
+    "texto": "Сообщение твоему помощнику"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d",
+    "texto": "«Сделай 3D…» из чата"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d.nota",
+    "texto": "Два запроса: реплика, которая считывает команду, и сама генерация."
+  },
+  {
+    "clave": "ia.op.chat.imagen",
+    "texto": "«Создай изображение…» из чата"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas",
+    "texto": "«Сделай карту идей» из чата"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas.nota",
+    "texto": "Если карта не получилась с первого раза, будет ещё одна попытка."
+  },
+  {
+    "clave": "ia.op.chat.latido",
+    "texto": "Спонтанная реплика твоего персонажа"
+  },
+  {
+    "clave": "ia.op.chat.latido.nota",
+    "texto": "Только с подпиской и только на 1 из 10 «сердцебиений»."
+  },
+  {
+    "clave": "ia.op.editor.objeto3d",
+    "texto": "3D-модель объекта или конструкции"
+  },
+  {
+    "clave": "ia.op.editor.personaje3d",
+    "texto": "3D-модель персонажа"
+  },
+  {
+    "clave": "ia.op.editor.ropa3d",
+    "texto": "Предмет одежды"
+  },
+  {
+    "clave": "ia.op.editor.asistente3d",
+    "texto": "Облик помощника"
+  },
+  {
+    "clave": "ia.op.editor.asistenteVoz",
+    "texto": "Голос ИИ для помощника"
+  },
+  {
+    "clave": "ia.op.editor.textura",
+    "texto": "Текстура для пола, стены, потолка, двери или карты"
+  },
+  {
+    "clave": "ia.op.editor.fondo",
+    "texto": "Текстура фона неба"
+  },
+  {
+    "clave": "ia.op.metas.plan",
+    "texto": "ИИ✨-план для цели"
+  },
+  {
+    "clave": "ia.op.metas.plan.nota",
+    "texto": "Расписания, туристические планы, учебные планы и финансовые планы."
+  },
+  {
+    "clave": "ia.op.cocina.receta",
+    "texto": "Создать рецепт с ИИ"
+  },
+  {
+    "clave": "ia.op.cocina.dieta",
+    "texto": "Полная диета или план питания"
+  },
+  {
+    "clave": "ia.op.cocina.dieta.nota",
+    "texto": "План и каждый его рецепт пишутся отдельно, и у каждого блюда — своя фотография."
+  },
+  {
+    "clave": "ia.op.cocina.macros",
+    "texto": "Рассчитать калории и БЖУ"
+  },
+  {
+    "clave": "ia.op.cocina.portada",
+    "texto": "Фото для рецепта или диеты"
+  },
+  {
+    "clave": "ia.donde.cocina.recetario",
+    "texto": "Книга рецептов"
+  },
+  {
+    "clave": "ia.donde.cocina.dietas",
+    "texto": "Диеты · План питания"
+  },
+  {
+    "clave": "ia.donde.cocina.registro",
+    "texto": "Дневник питания"
+  },
+  {
+    "clave": "ia.donde.cocina.detalle",
+    "texto": "Детали рецепта или диеты"
+  },
+  {
+    "clave": "ia.op.ejercicio.imagen",
+    "texto": "Проиллюстрировать упражнение"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote",
+    "texto": "Проиллюстрировать недостающие упражнения"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote.nota",
+    "texto": "Одно изображение на каждое неиллюстрированное упражнение: итог зависит от того, скольких не хватает."
+  },
+  {
+    "clave": "ia.donde.ejercicio.catalogo",
+    "texto": "Каталог упражнений"
+  },
+  {
+    "clave": "ia.op.biblioteca.charla",
+    "texto": "Реплика в чате с Мудрецом"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva",
+    "texto": "Первая реплика нового чата"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva.nota",
+    "texto": "Ответ, плюс запрос, который называет его и размещает в твоём дереве, плюс тот, что дистиллирует запись."
+  },
+  {
+    "clave": "ia.op.biblioteca.clasificar",
+    "texto": "Классифицировать и дистиллировать чат ✨"
+  },
+  {
+    "clave": "ia.op.biblioteca.ramificar",
+    "texto": "Разветвить дерево 🌿"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar",
+    "texto": "Обновить запись при выходе из чата"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar.nota",
+    "texto": "Только если чат вырос после дистилляции."
+  },
+  {
+    "clave": "ia.op.biblioteca.material",
+    "texto": "Сгенерировать учебный материал из записи"
+  },
+  {
+    "clave": "ia.op.biblioteca.ilustrar",
+    "texto": "Проиллюстрировать запись"
+  },
+  {
+    "clave": "ia.donde.biblioteca.charlas",
+    "texto": "Чаты"
+  },
+  {
+    "clave": "ia.donde.biblioteca.enciclopedia",
+    "texto": "Энциклопедия"
+  },
+  {
+    "clave": "ia.op.idiomas.charla",
+    "texto": "Реплика в чате с репетитором"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva",
+    "texto": "Первая реплика нового чата"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva.nota",
+    "texto": "Ответ, плюс запрос, который размещает его в твоей учебной программе."
+  },
+  {
+    "clave": "ia.op.idiomas.clasificar",
+    "texto": "Классифицировать чат ✨"
+  },
+  {
+    "clave": "ia.op.idiomas.extraerTarjetas",
+    "texto": "Извлечь карточки из чата"
+  },
+  {
+    "clave": "ia.op.idiomas.generarTarjetas",
+    "texto": "Сгенерировать карточки по теме"
+  },
+  {
+    "clave": "ia.op.idiomas.imagenTarjeta",
+    "texto": "Мнемоническое изображение для карточки"
+  },
+  {
+    "clave": "ia.donde.idiomas.charlas",
+    "texto": "Чаты"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabulario",
+    "texto": "Словарь · Учебная программа"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabularioRepaso",
+    "texto": "Словарь · Повторение"
+  },
+  {
+    "clave": "ia.op.ideas.mapa",
+    "texto": "Концептуальная карта с ИИ"
+  },
+  {
+    "clave": "ia.op.ideas.mapa.nota",
+    "texto": "Если карта не получилась с первого раза, будет ещё одна попытка, и она обойдётся вдвое дороже."
+  },
+  {
+    "clave": "ia.op.ideas.expandir",
+    "texto": "Больше идей (расширить, развить или похожие идеи)"
+  },
+  {
+    "clave": "ia.donde.ideas.mapas",
+    "texto": "Карты и диаграммы · Мозговой штурм"
+  },
+  {
+    "clave": "ia.donde.ideas.diario",
+    "texto": "Дневник идей · Детали идеи · Холст карты"
+  },
+  {
+    "clave": "ia.op.entretenimiento.ficha",
+    "texto": "Заполнить запись с помощью ИИ"
+  },
+  {
+    "clave": "ia.op.entretenimiento.resumen",
+    "texto": "Краткое содержание произведения"
+  },
+  {
+    "clave": "ia.op.entretenimiento.programa",
+    "texto": "Программа сериалов, книг или игр"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.archivo",
+    "texto": "Архив"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.programas",
+    "texto": "Программы"
+  },
+  {
+    "clave": "ia.op.diario.efemerides",
+    "texto": "Культурные события дня"
+  },
+  {
+    "clave": "ia.op.diario.efemerides.nota",
+    "texto": "Раз в день и только с подпиской."
+  },
+  {
+    "clave": "ia.op.diario.reparto",
+    "texto": "Доставка газеты помощником"
+  },
+  {
+    "clave": "ia.op.diario.reparto.nota",
+    "texto": "По одной на каждую запланированную доставку и только с подпиской."
+  },
+  {
+    "clave": "ia.donde.diario",
+    "texto": "Газета (автоматически)"
+  },
+  {
+    "clave": "ia.op.descanso.evidencia",
+    "texto": "Фото-подтверждение, чтобы выключить будильник"
+  },
+  {
+    "clave": "ia.donde.descanso",
+    "texto": "Будильник"
+  },
+  {
+    "clave": "ia.op.computo.formula",
+    "texto": "Написать формулу по описанию"
+  },
+  {
+    "clave": "ia.op.computo.explicar",
+    "texto": "Объяснить или решить по шагам"
+  },
+  {
+    "clave": "ia.op.computo.hoja",
+    "texto": "Построить таблицу с формулами"
+  },
+  {
+    "clave": "ia.op.computo.analizar",
+    "texto": "Интерпретировать выбранные данные"
+  },
+  {
+    "clave": "ia.donde.computo.formulario",
+    "texto": "Справочник формул · Новая формула"
+  },
+  {
+    "clave": "ia.donde.computo.calculadora",
+    "texto": "Калькулятор"
+  },
+  {
+    "clave": "ia.donde.computo.hojas",
+    "texto": "Таблицы · Новая таблица"
+  },
+  {
+    "clave": "chat.cuotaAgotada",
+    "texto": "Квота ИИ на этот месяц исчерпана. Посмотри использование в Редактор → Настройки → Аккаунт."
+  },
+  {
+    "clave": "chat.sinPro",
+    "texto": "У твоего аккаунта нет активной подписки."
+  },
+  {
+    "clave": "cuenta.pago.comprar",
+    "texto": "Стать Pro"
+  },
+  {
+    "clave": "cuenta.pago.comprarPrecio",
+    "texto": "Стать Pro — {p}/мес."
+  },
+  {
+    "clave": "cuenta.pago.renovar",
+    "texto": "Продлить подписку — {p}/мес."
+  },
+  {
+    "clave": "cuenta.pago.comprarWeb",
+    "texto": "Стать Pro на сайте"
+  },
+  {
+    "clave": "cuenta.pago.cancelado",
+    "texto": "Покупка не завершена."
+  },
+  {
+    "clave": "cuenta.pago.gestionar",
+    "texto": "Управлять подпиской"
+  },
+  {
+    "clave": "cuenta.olvide",
+    "texto": "Не помнишь пароль?"
+  },
+  {
+    "clave": "cuenta.olvide.sinCorreo",
+    "texto": "Сначала введи почту выше."
+  },
+  {
+    "clave": "cuenta.olvide.enviado",
+    "texto": "Мы отправили тебе письмо, чтобы его сбросить."
+  },
+  {
+    "clave": "cuenta.eliminar",
+    "texto": "Удалить аккаунт"
+  },
+  {
+    "clave": "cuenta.eliminar.confirma",
+    "texto": "Удалить твой аккаунт и все данные с серверов? Это действие нельзя отменить. Локальные данные на этом устройстве сохранятся."
+  },
+  {
+    "clave": "cuenta.eliminar.confirma2",
+    "texto": "Последнее подтверждение: удалить аккаунт навсегда?"
+  },
+  {
+    "clave": "cuenta.eliminar.borrando",
+    "texto": "Удаление…"
+  },
+  {
+    "clave": "cuenta.renovar.titulo",
+    "texto": "Твоя подписка закончилась"
+  },
+  {
+    "clave": "cuenta.renovar.cuerpo",
+    "texto": "ИИ и синхронизация возвращаются при продлении. Твои данные остаются на этом устройстве."
+  },
+  {
+    "clave": "cuenta.renovar.cta",
+    "texto": "Продлить подписку"
+  },
+  {
+    "clave": "cuenta.renovar.corto",
+    "texto": "Твоя подписка закончилась."
+  },
+  {
+    "clave": "cuenta.cuota.titulo",
+    "texto": "Кредиты за этот месяц закончились"
+  },
+  {
+    "clave": "cuenta.cuota.tituloSin",
+    "texto": "Для использования ИИ нужны кредиты"
+  },
+  {
+    "clave": "cuenta.cuota.cuerpo",
+    "texto": "Твои кредиты обновятся {f}."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoLocal",
+    "texto": "Приложение и твои данные — твои и бесплатно. Платится только ИИ: пополняй кредиты, когда они понадобятся, или оформи подписку и получай их каждый месяц."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoVencida",
+    "texto": "Твои данные остаются на этом устройстве. Продли подписку, чтобы вернуть кредиты за месяц и синхронизацию, или пополни кредиты отдельно."
+  },
+  {
+    "clave": "cuenta.cuota.recarga",
+    "texto": "+600 кредитов — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaN",
+    "texto": "+{n} кредитов — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaLista",
+    "texto": "Пополнение выполнено: дополнительные кредиты уже на твоём аккаунте."
+  },
+  {
+    "clave": "cuenta.cuota.suscribirse",
+    "texto": "Посмотреть подписку"
+  },
+  {
+    "clave": "cuenta.cuota.nativo",
+    "texto": "Кредитами можно управлять из твоего аккаунта."
+  },
+  {
+    "clave": "cuenta.cuota.web",
+    "texto": "Купить кредиты в моём аккаунте"
+  },
+  {
+    "clave": "cuenta.creditos.faltan",
+    "texto": "Кредиты ИИ закончились."
+  },
+  {
+    "clave": "comun.entendido",
+    "texto": "Понятно"
+  },
+  {
+    "clave": "demo.aviso.titulo",
+    "texto": "Ты в демо-доме"
+  },
+  {
+    "clave": "demo.aviso.cuerpo",
+    "texto": "Опробуй всё: ты можешь редактировать дом и пользоваться приложениями — внутри целый год жизни Pep. Ничего не сохраняется: после перезагрузки дом станет таким, как был."
+  },
+  {
+    "clave": "demo.aviso.seguir",
+    "texto": "Продолжить исследовать"
+  },
+  {
+    "clave": "demo.salir",
+    "texto": "Выйти из демо"
+  }
+]

@@ -1,0 +1,542 @@
+[
+ {
+  "clave": "computo.hojas.deshacer",
+  "texto": "元に戻す"
+ },
+ {
+  "clave": "computo.hojas.rehacer",
+  "texto": "やり直す"
+ },
+ {
+  "clave": "computo.hojas.copiar",
+  "texto": "コピー"
+ },
+ {
+  "clave": "computo.hojas.cortar",
+  "texto": "切り取り"
+ },
+ {
+  "clave": "computo.hojas.pegar",
+  "texto": "貼り付け"
+ },
+ {
+  "clave": "computo.hojas.mover",
+  "texto": "移動"
+ },
+ {
+  "clave": "computo.hojas.moverDestino",
+  "texto": "移動先をタップ"
+ },
+ {
+  "clave": "computo.hojas.borrarCeldas",
+  "texto": "クリア"
+ },
+ {
+  "clave": "computo.hojas.rellenar",
+  "texto": "ドラッグして入力"
+ },
+ {
+  "clave": "computo.hojas.cancelar",
+  "texto": "キャンセル"
+ },
+ {
+  "clave": "computo.hojas.pegarManual",
+  "texto": "このブラウザはクリップボードを読み取れません。コピーした内容をここに貼り付けると、{ref}から配置されます。"
+ },
+ {
+  "clave": "computo.hojas.plantilla.blanco",
+  "texto": "空白"
+ },
+ {
+  "clave": "computo.hojas.plantilla.presupuesto",
+  "texto": "予算"
+ },
+ {
+  "clave": "computo.hojas.plantilla.notas",
+  "texto": "加重平均"
+ },
+ {
+  "clave": "computo.hojas.plantilla.mediciones",
+  "texto": "測定記録"
+ },
+ {
+  "clave": "computo.hojas.graficar",
+  "texto": "選択範囲をグラフ化"
+ },
+ {
+  "clave": "computo.hojas.rangoTactil",
+  "texto": "最後のセルをタップ"
+ },
+ {
+  "clave": "computo.hojas.selTodo",
+  "texto": "シート全体を選択"
+ },
+ {
+  "clave": "computo.hojas.selCol",
+  "texto": "列{col}を選択"
+ },
+ {
+  "clave": "computo.hojas.selFila",
+  "texto": "行{n}を選択"
+ },
+ {
+  "clave": "computo.hojas.asaMover",
+  "texto": "ドラッグして選択範囲を移動"
+ },
+ {
+  "clave": "computo.grafica.sinTitulo",
+  "texto": "{rango}のグラフ"
+ },
+ {
+  "clave": "computo.grafica.sinDatos",
+  "texto": "この範囲にはグラフ化できる数値がありません。"
+ },
+ {
+  "clave": "computo.grafica.rangoMalo",
+  "texto": "範囲「{rango}」は無効です。"
+ },
+ {
+  "clave": "computo.grafica.ajustes",
+  "texto": "グラフの設定"
+ },
+ {
+  "clave": "computo.grafica.borrar",
+  "texto": "グラフを削除"
+ },
+ {
+  "clave": "computo.grafica.borrarMsg",
+  "texto": "シートのデータはそのまま残ります。"
+ },
+ {
+  "clave": "computo.grafica.tipo.barras",
+  "texto": "棒グラフ"
+ },
+ {
+  "clave": "computo.grafica.tipo.lineas",
+  "texto": "折れ線グラフ"
+ },
+ {
+  "clave": "computo.grafica.tipo.area",
+  "texto": "面グラフ"
+ },
+ {
+  "clave": "computo.grafica.tipo.pastel",
+  "texto": "円グラフ"
+ },
+ {
+  "clave": "computo.grafica.tipo.dispersion",
+  "texto": "散布図"
+ },
+ {
+  "clave": "computo.grafica.tituloPlaceholder",
+  "texto": "グラフのタイトル"
+ },
+ {
+  "clave": "computo.grafica.rango",
+  "texto": "データ範囲"
+ },
+ {
+  "clave": "computo.grafica.encFila",
+  "texto": "1行目が名前"
+ },
+ {
+  "clave": "computo.grafica.encCol",
+  "texto": "1列目がラベル"
+ },
+ {
+  "clave": "computo.grafica.encColX",
+  "texto": "1列目がX値"
+ },
+ {
+  "clave": "computo.grafica.listo",
+  "texto": "完了"
+ },
+ {
+  "clave": "computo.ia.pensando",
+  "texto": "考え中…"
+ },
+ {
+  "clave": "computo.ia.sinIa",
+  "texto": "AIを使うには、設定›AI：オン設定と料金でオンにしてください。"
+ },
+ {
+  "clave": "computo.ia.formulaPlaceholder",
+  "texto": "説明してください：「円錐台の面積」"
+ },
+ {
+  "clave": "computo.ia.escribirFormula",
+  "texto": "AIで作成"
+ },
+ {
+  "clave": "computo.ia.falloFormula",
+  "texto": "数式を作成できませんでした。"
+ },
+ {
+  "clave": "computo.ia.explicar",
+  "texto": "ステップごとに説明"
+ },
+ {
+  "clave": "computo.ia.falloExplicar",
+  "texto": "説明できませんでした。"
+ },
+ {
+  "clave": "computo.ia.cerrarPasos",
+  "texto": "説明を閉じる"
+ },
+ {
+  "clave": "computo.ia.hojaPlaceholder",
+  "texto": "説明してください：「今月の支出管理」"
+ },
+ {
+  "clave": "computo.ia.armarHoja",
+  "texto": "AIで作成"
+ },
+ {
+  "clave": "computo.ia.falloHoja",
+  "texto": "シートを作成できませんでした。"
+ },
+ {
+  "clave": "computo.ia.analizar",
+  "texto": "選択したデータを読み取る"
+ },
+ {
+  "clave": "computo.ia.falloAnalizar",
+  "texto": "データを読み取れませんでした。"
+ },
+ {
+  "clave": "computo.ia.cerrarAnalisis",
+  "texto": "読み取り結果を閉じる"
+ },
+ {
+  "clave": "computo.ia.insertarSugerida",
+  "texto": "そのグラフを挿入"
+ },
+ {
+  "clave": "computo.export.pie",
+  "texto": "Mind Planner Home・計算室"
+ },
+ {
+  "clave": "computo.export.sinImprimir",
+  "texto": "印刷はウェブ版でのみ利用できます"
+ },
+ {
+  "clave": "computo.export.sinImprimirMsg",
+  "texto": "Androidアプリには印刷ダイアログがありません。PDFとして保存するにはブラウザで開いてください。"
+ },
+ {
+  "clave": "tut.app-computo--formulario.titulo",
+  "texto": "数式帳"
+ },
+ {
+  "clave": "tut.app-computo--formulario.resumen",
+  "texto": "数式帳は自分専用のノートです。数学・物理・化学の公式が最初から入っていますが、別カタログではなく全部自分の公式なので、書いたものと同じように編集・移動・削除できます。"
+ },
+ {
+  "clave": "tut.app-computo--calculadora.titulo",
+  "texto": "計算とグラフ化"
+ },
+ {
+  "clave": "tut.app-computo--calculadora.resumen",
+  "texto": "履歴付きの関数電卓に、単発の計算では済まないときのための8つのモード——4種類のグラフ機能も含む——と、可能な限り正確な解を出す方程式ソルバーが揃っています。"
+ },
+ {
+  "clave": "tut.app-computo--hojas.titulo",
+  "texto": "表計算シート"
+ },
+ {
+  "clave": "tut.app-computo--hojas.resumen",
+  "texto": "A1形式のセル参照と数式（=SUMA(B2:B15)）に対応した表計算シート。数式を保持したままExcelに書き出せるほか、印刷でPDFにも出力できます。"
+ },
+ {
+  "clave": "ideas.editar",
+  "texto": "編集"
+ },
+ {
+  "clave": "ideas.borrar",
+  "texto": "削除"
+ },
+ {
+  "clave": "ideas.cerrar",
+  "texto": "閉じる"
+ },
+ {
+  "clave": "ideas.tipo.mental",
+  "texto": "マインドマップ"
+ },
+ {
+  "clave": "ideas.tipo.arbol",
+  "texto": "ツリー"
+ },
+ {
+  "clave": "ideas.tipo.llaves",
+  "texto": "括弧図"
+ },
+ {
+  "clave": "ideas.tipo.circulo",
+  "texto": "円形図"
+ },
+ {
+  "clave": "ideas.tipo.flujo",
+  "texto": "フローチャート"
+ },
+ {
+  "clave": "ideas.tipo.venn",
+  "texto": "ベン図"
+ },
+ {
+  "clave": "ideas.tipo.comparacion",
+  "texto": "比較図"
+ },
+ {
+  "clave": "ideas.tipoDesc.mental",
+  "texto": "中心のアイデアから枝が四方に広がります。"
+ },
+ {
+  "clave": "ideas.tipoDesc.arbol",
+  "texto": "組織図のような、上から下への階層構造。"
+ },
+ {
+  "clave": "ideas.tipoDesc.llaves",
+  "texto": "全体とその要素を左から右に整理します。"
+ },
+ {
+  "clave": "ideas.tipoDesc.circulo",
+  "texto": "中心のテーマを、知っていることすべてが取り囲みます。"
+ },
+ {
+  "clave": "ideas.tipoDesc.flujo",
+  "texto": "矢印でつながる手順。開始・分岐・終了があります。"
+ },
+ {
+  "clave": "ideas.tipoDesc.venn",
+  "texto": "2つか3つの集合を重ね、共通点を示します。"
+ },
+ {
+  "clave": "ideas.tipoDesc.comparacion",
+  "texto": "2つのテーマを並べ、それぞれの違いと共通点を示します。"
+ },
+ {
+  "clave": "ideas.mapas.volver",
+  "texto": "マップへ戻る"
+ },
+ {
+  "clave": "ideas.mapas.placeholder",
+  "texto": "新しいマップのテーマ…"
+ },
+ {
+  "clave": "ideas.mapas.crear",
+  "texto": "作成"
+ },
+ {
+  "clave": "ideas.mapas.generar",
+  "texto": "AIでマップを生成"
+ },
+ {
+  "clave": "ideas.mapas.generando",
+  "texto": "マップを描いています…"
+ },
+ {
+  "clave": "ideas.mapas.errorIA",
+  "texto": "AIがマップを生成できませんでした："
+ },
+ {
+  "clave": "ideas.ia.sinClave",
+  "texto": "マップや図を生成するには、チャットでAIを設定してください。"
+ },
+ {
+  "clave": "ideas.mapas.vacio",
+  "texto": "形式を選んで、今気になっているテーマで最初のマップを作りましょう。"
+ },
+ {
+  "clave": "ideas.mapas.confirmarBorrar",
+  "texto": "削除しますか？"
+ },
+ {
+  "clave": "ideas.mapa.nuevaIdea",
+  "texto": "新しいアイデア"
+ },
+ {
+  "clave": "ideas.mapa.acercar",
+  "texto": "拡大"
+ },
+ {
+  "clave": "ideas.mapa.alejar",
+  "texto": "縮小"
+ },
+ {
+  "clave": "ideas.mapa.encajar",
+  "texto": "マップを画面に合わせる"
+ },
+ {
+  "clave": "ideas.mapa.idea",
+  "texto": "アイデア"
+ },
+ {
+  "clave": "ideas.mapa.hijo",
+  "texto": "子アイデア"
+ },
+ {
+  "clave": "ideas.mapa.elemento",
+  "texto": "項目"
+ },
+ {
+  "clave": "ideas.mapa.forma",
+  "texto": "ステップの図形を変更"
+ },
+ {
+  "clave": "ideas.mapa.expandir",
+  "texto": "AIで広げる"
+ },
+ {
+  "clave": "ideas.mapa.confirmarBorrar",
+  "texto": "{n}を削除"
+ },
+ {
+  "clave": "ideas.mapa.iaTitulo",
+  "texto": "マップを広げる"
+ },
+ {
+  "clave": "ideas.mapa.iaDescZona",
+  "texto": "「{zona}」への提案項目："
+ },
+ {
+  "clave": "ideas.mapa.iaDescNodo",
+  "texto": "「{nodo}」から広げる提案アイデア："
+ },
+ {
+  "clave": "ideas.mapa.ayuda",
+  "texto": "ノードをタップして選択し、もう一度タップすると編集、ドラッグすると配置を変えられます。ピンチでズームします。"
+ },
+ {
+  "clave": "ideas.mapa.temaA",
+  "texto": "テーマA"
+ },
+ {
+  "clave": "ideas.mapa.temaB",
+  "texto": "テーマB"
+ },
+ {
+  "clave": "ideas.mapa.conjuntoA",
+  "texto": "集合A"
+ },
+ {
+  "clave": "ideas.mapa.conjuntoB",
+  "texto": "集合B"
+ },
+ {
+  "clave": "ideas.mapa.enComun",
+  "texto": "共通点"
+ },
+ {
+  "clave": "ideas.mapa.soloX",
+  "texto": "{x}のみ"
+ },
+ {
+  "clave": "ideas.ia.cargando",
+  "texto": "アイデアを考え中…"
+ },
+ {
+  "clave": "ideas.ia.vacio",
+  "texto": "今回、AIから新しい提案はありませんでした。しばらくしてからもう一度試してください。"
+ },
+ {
+  "clave": "ideas.ia.ahoraNo",
+  "texto": "今はしない"
+ },
+ {
+  "clave": "ideas.ia.agregar",
+  "texto": "追加"
+ },
+ {
+  "clave": "ideas.tab.diario",
+  "texto": "アイデア日記"
+ },
+ {
+  "clave": "ideas.tab.mapas",
+  "texto": "コンセプトマップ"
+ },
+ {
+  "clave": "ideas.tab.diagramas",
+  "texto": "決定図"
+ },
+ {
+  "clave": "ideas.tipo.linea",
+  "texto": "年表"
+ },
+ {
+  "clave": "ideas.tipo.ciclo",
+  "texto": "サイクル図"
+ },
+ {
+  "clave": "ideas.tipo.piramide",
+  "texto": "ピラミッド図"
+ },
+ {
+  "clave": "ideas.tipo.fuerzas",
+  "texto": "フォースフィールド図"
+ },
+ {
+  "clave": "ideas.tipo.eisenhower",
+  "texto": "アイゼンハワーマトリクス"
+ },
+ {
+  "clave": "ideas.tipo.decision",
+  "texto": "決定木"
+ },
+ {
+  "clave": "ideas.tipo.tier",
+  "texto": "ティアリスト"
+ },
+ {
+  "clave": "ideas.tipoDesc.linea",
+  "texto": "節目を時系列に沿って並べます。"
+ },
+ {
+  "clave": "ideas.tipoDesc.ciclo",
+  "texto": "円形に並んだ段階が繰り返されます。"
+ },
+ {
+  "clave": "ideas.tipoDesc.piramide",
+  "texto": "積み重なる階層。土台が下、頂点が上にあります。"
+ },
+ {
+  "clave": "ideas.tipoDesc.fuerzas",
+  "texto": "変化を後押しする力と妨げる力を、その強さとともに示します。"
+ },
+ {
+  "clave": "ideas.tipoDesc.eisenhower",
+  "texto": "緊急度と重要度で分類。今やること、予定に入れること、手放すことが分かります。"
+ },
+ {
+  "clave": "ideas.tipoDesc.decision",
+  "texto": "それぞれの選択肢と、その先に何があるかを枝分かれで示します。"
+ },
+ {
+  "clave": "ideas.tipoDesc.tier",
+  "texto": "SからDまでの段位で、何でもランク付けできます。"
+ },
+ {
+  "clave": "ideas.tipo.matriz",
+  "texto": "決定マトリクス"
+ },
+ {
+  "clave": "ideas.tipoDesc.matriz",
+  "texto": "いくつかの選択肢を、本当に重視する基準で採点します。"
+ },
+ {
+  "clave": "ideas.guia.matriz",
+  "texto": "各基準は自分にとっての重要度で重み付けされ（1〜5）、選択肢はそれぞれ1〜5点で採点されます。合計は点数×重みで計算されるので、どうでもいい基準で高得点でも勝てません。"
+ },
+ {
+  "clave": "ideas.matriz.criterio",
+  "texto": "基準"
+ },
+ {
+  "clave": "ideas.matriz.opcion",
+  "texto": "選択肢"
+ },
+ {
+  "clave": "ideas.matriz.peso",
+  "texto": "重み"
+ }
+]

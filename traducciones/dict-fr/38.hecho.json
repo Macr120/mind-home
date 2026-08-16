@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.app-despacho--captura.resumen",
+    "texto": "Une dépense fixe se saisit UNE fois et l’app la compte seule chaque mois ; les dépenses variables se notent au moment où elles arrivent. Les deux vivent dans la même liste, classée par date en dossiers d’année et de mois."
+  },
+  {
+    "clave": "tut.app-despacho--metas.titulo",
+    "texto": "Le Japon, l’urgence et la dette"
+  },
+  {
+    "clave": "tut.app-despacho--metas.resumen",
+    "texto": "Objectifs regroupe tes objectifs d’épargne et d’investissement dans une liste avec leur barre de progression, et met les dettes à part avec leur propre simulateur. Chacun a un planning où lui donner une date."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.titulo",
+    "texto": "Quatre règles pour fixer un chiffre"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.resumen",
+    "texto": "Quatre calculatrices de finances personnelles proposent un montant cible à partir de ton solde réel, et le transforment en objectif d’un seul geste. Les paramètres de chaque règle peuvent être ajustés : personne n’est obligé d’accepter le 50/30/20 tel quel."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.titulo",
+    "texto": "Un vélo et une vieille voiture"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.resumen",
+    "texto": "Le garage suit l’entretien de tes vrais véhicules : chacun avec sa fiche, son kilométrage et son historique d’entretiens. En haut, un feu tricolore te dit si quelque chose est urgent."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.titulo",
+    "texto": "Ajouter un nouveau"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2b.texto",
+    "texto": "Nom, type, marque, modèle, année, plaques et le kilométrage du jour. Une fois les plaques renseignées, le garage sait quelles démarches te proposer plus tard."
+  },
+  {
+    "clave": "tut.app-garage--tramites.titulo",
+    "texto": "Des démarches qui se planifient seules"
+  },
+  {
+    "clave": "tut.app-garage--tramites.resumen",
+    "texto": "Programme le contrôle technique, la vignette, l’assurance ou l’entretien périodique, et le garage place son bloc dans le calendrier, avec un rappel à l’avance que tu choisis."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.titulo",
+    "texto": "Les papiers, à part"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2b.texto",
+    "texto": "La carte grise, le contrat d’assurance et la vignette ne se mélangent pas avec ce qui se passe à l’atelier : ils ont leur propre carnet, avec référence, échéance et rappel à l’avance."
+  },
+  {
+    "clave": "tut.app-sala--mapa.titulo",
+    "texto": "La carte d’un voyageur"
+  },
+  {
+    "clave": "tut.app-sala--mapa.resumen",
+    "texto": "Chaque lieu est une épingle sur la carte du monde : verte si tu y es déjà allé, ambre si c’est encore un rêve. En haut, le nombre de pays, de villes et de voyages en attente."
+  },
+  {
+    "clave": "tut.app-sala--japon.titulo",
+    "texto": "Trois semaines au Japon"
+  },
+  {
+    "clave": "tut.app-sala--japon.resumen",
+    "texto": "Le journal de bord garde tes souvenirs par pays et par lieu, avec leurs photos ; et chaque voyage conserve sa feuille de route jour par jour, avec hébergement, transport et budget."
+  },
+  {
+    "clave": "tut.app-sala--proximo.titulo",
+    "texto": "Le prochain voyage"
+  },
+  {
+    "clave": "tut.app-sala--proximo.resumen",
+    "texto": "Les lieux à découvrir ont leur propre feuille de route jour par jour, et la somme de leurs budgets devient un objectif d’épargne dans le bureau."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.titulo",
+    "texto": "Une année de science-fiction"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.resumen",
+    "texto": "Les archives gardent ce que tu regardes, lis et joues : chaque fiche avec son statut, ses étoiles et ton avis. Classe-les par date en dossiers d’année et de mois, ou par genre."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.titulo",
+    "texto": "Listes à voir"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.resumen",
+    "texto": "Un programme est une liste de titres par thème ou par genre transformée en objectifs : tu coches ce que tu termines et, si tu veux, tu leur donnes une date pour les voir dans le calendrier."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.titulo",
+    "texto": "La table numérique"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.resumen",
+    "texto": "Plus de vingt jeux de société et d’arcade, regroupés par famille et filtrés par nombre de joueurs : joue-y directement, sans quitter la maison."
+  },
+  {
+    "clave": "tut.app-diario--habito.titulo",
+    "texto": "L’habitude de lire le journal"
+  },
+  {
+    "clave": "tut.app-diario--habito.resumen",
+    "texto": "Le journal est éphémère : chaque jour apporte des titres par catégorie et des éphémérides, et à minuit il se renouvelle. Ce qui compte, c’est ta régularité — le lire vaut comme le suivi du jour."
+  },
+  {
+    "clave": "tut.app-diario--reparto.titulo",
+    "texto": "Qu’on te l’apporte"
+  },
+  {
+    "clave": "tut.app-diario--reparto.resumen",
+    "texto": "Tu peux programmer les sections que chaque assistant te livre dans son chat : à une heure fixe ou à un moment surprise de la journée."
+  },
+  {
+    "clave": "demo.paso.limpiar",
+    "texto": "Nettoyage du terrain"
+  },
+  {
+    "clave": "demo.paso.casa",
+    "texto": "Construction de la maison"
+  },
+  {
+    "clave": "demo.paso.catalogos",
+    "texto": "Remplissage des catalogues"
+  },
+  {
+    "clave": "demo.paso.final",
+    "texto": "Touches finales"
+  },
+  {
+    "clave": "cuenta.sync.activo",
+    "texto": "Synchronisation…"
+  },
+  {
+    "clave": "cuenta.sync.ultima",
+    "texto": "Synchronisé : {f}"
+  },
+  {
+    "clave": "cuenta.sync.nunca",
+    "texto": "Pas encore synchronisé"
+  },
+  {
+    "clave": "cuenta.sync.ahora",
+    "texto": "Synchroniser"
+  },
+  {
+    "clave": "cuenta.sync.otraCuenta",
+    "texto": "Cette maison était liée à un autre compte. Conserver les données locales et les fusionner avec le nouveau compte ? (Annuler = vider cette maison et ne télécharger que les données du compte)"
+  }
+]

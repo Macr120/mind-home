@@ -1,0 +1,234 @@
+[
+  {
+    "ruta": "vehiculos.biciNota",
+    "texto": "中古のスチール製自転車。グレーで少しうるさいけれど、シフト勤務にも実験室にもトレーニングにも毎日欠かさず乗っています。一年間、一度も途中で止まったことがありません。"
+  },
+  {
+    "ruta": "vehiculos.autoNota",
+    "texto": "叔父から譲り受けたセダン。私より古い車で、ダッシュボードは日焼けで色あせています。月に二回ほどしかエンジンをかけませんが、放っておいた分は利子つきで払わされます。"
+  },
+  {
+    "ruta": "servicios.0.titulo",
+    "texto": "地下倉庫からの救出"
+  },
+  {
+    "ruta": "servicios.0.nota",
+    "texto": "タイヤはぺしゃんこ、チェーンはこびりついたサビだらけの状態で地下倉庫から運び出しました。布と空気入れと油で半日かけて、また走れるようにしました。"
+  },
+  {
+    "ruta": "servicios.1.titulo",
+    "texto": "大幅に遅れたオイル交換"
+  },
+  {
+    "ruta": "servicios.1.nota",
+    "texto": "冷めたコーヒーのように真っ黒なオイルが出てきて、整備士は眉を上げただけでした。それが彼なりの叱り方です。"
+  },
+  {
+    "ruta": "servicios.2.titulo",
+    "texto": "新しいチューブと初めてのパンク修理"
+  },
+  {
+    "ruta": "servicios.2.nota",
+    "texto": "カフェに向かう途中、Doctor Vértiz通りでパンク。歩道でチューブ交換を覚えました。遅くなりましたが、ちゃんと覚えました。"
+  },
+  {
+    "ruta": "servicios.3.titulo",
+    "texto": "新しいバッテリー"
+  },
+  {
+    "ruta": "servicios.3.nota",
+    "texto": "あまりに乗らなかったせいで、バッテリーが自然に上がってしまいました。近所の人にブースターケーブルを借りて、そのまま新しいバッテリーを買いに行きました。"
+  },
+  {
+    "ruta": "servicios.4.titulo",
+    "texto": "ようやくきれいになったチェーン"
+  },
+  {
+    "ruta": "servicios.4.nota",
+    "texto": "日曜日にじっくり時間をかけて脱脂・注油しました。古い蝶番のような音が消えて、ペダルまで軽く感じます。"
+  },
+  {
+    "ruta": "servicios.5.titulo",
+    "texto": "フロントブレーキパッド"
+  },
+  {
+    "ruta": "servicios.5.nota",
+    "texto": "信号のたびにキーキー鳴って、もう無視できる状態ではありませんでした。給料の半分が飛びましたが、おかげでぐっすり眠れました。"
+  },
+  {
+    "ruta": "servicios.6.titulo",
+    "texto": "新しいブレーキシュー"
+  },
+  {
+    "ruta": "servicios.6.nota",
+    "texto": "雨の日はいつもより2メートルほど余分に走ってから止まっていたので、ブレーキシューを交換してワイヤーも調整しました。"
+  },
+  {
+    "ruta": "servicios.7.titulo",
+    "texto": "ラボへ向かう途中でパンク"
+  },
+  {
+    "ruta": "servicios.7.nota",
+    "texto": "Eje 8でガラスの破片を踏んでしまい、自転車を押して二十分遅れで研究室に着きました。"
+  },
+  {
+    "ruta": "servicios.8.titulo",
+    "texto": "Calzada de Tlalpanで立ち往生"
+  },
+  {
+    "ruta": "servicios.8.nota",
+    "texto": "火曜の夜、大通りのど真ん中で車が止まってしまい、レッカー車を待つ間、歩道で一時間半、ないお金の計算をしていました。あの瞬間、その月すべての重みが一気にのしかかってきました。"
+  },
+  {
+    "ruta": "servicios.9.titulo",
+    "texto": "総合チューンナップ"
+  },
+  {
+    "ruta": "servicios.9.nota",
+    "texto": "膝がリハビリ中で走れなかった分、その時間を自転車に充てました。ホイールの振れ取り、ワイヤー交換、全体の締め直しまで済ませました。"
+  },
+  {
+    "ruta": "servicios.10.titulo",
+    "texto": "あの一件のあとのフィルター交換"
+  },
+  {
+    "ruta": "servicios.10.nota",
+    "texto": "ただの心配性からエアフィルターと燃料フィルターを交換しました。またレッカー車を待つよりは、こっちにお金を払うほうがましです。"
+  },
+  {
+    "ruta": "servicios.11.titulo",
+    "texto": "伸びたチェーンを交換"
+  },
+  {
+    "ruta": "servicios.11.nota",
+    "texto": "ハーフマラソンのトレーニング計画で毎日乗っているうちに、こぎ出しでチェーンが滑るようになっていました。"
+  },
+  {
+    "ruta": "servicios.12.titulo",
+    "texto": "新しいカセットスプロケットとワイヤー"
+  },
+  {
+    "ruta": "servicios.12.nota",
+    "texto": "坂道でギアが飛ぶようになっていました。新しいカセットのおかげで、ようやくインナーギアを安心して使えます。"
+  },
+  {
+    "ruta": "servicios.13.titulo",
+    "texto": "オイル交換と全体点検"
+  },
+  {
+    "ruta": "servicios.13.nota",
+    "texto": "いつも通りの整備で、特に問題なし。この車にとっては、それだけでもう十分いい知らせです。"
+  },
+  {
+    "ruta": "servicios.14.titulo",
+    "texto": "マラソン前のブレーキ調整"
+  },
+  {
+    "ruta": "servicios.14.nota",
+    "texto": "あの数週間、自転車が唯一の移動手段だったので、言い訳したくなくて手早く調整しました。"
+  },
+  {
+    "ruta": "servicios.15.titulo",
+    "texto": "家族を迎える前の洗車"
+  },
+  {
+    "ruta": "servicios.15.nota",
+    "texto": "バスターミナルまで家族を迎えに行く前に、洗車して掃除機もかけました。機械的には何も直っていませんが、気分はまるで違います。"
+  },
+  {
+    "ruta": "talleres.0.nombre",
+    "texto": "Taller Mecánico Rivas"
+  },
+  {
+    "ruta": "talleres.0.direccion",
+    "texto": "Av. Cuauhtémoc 812, Col. Narvarte, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.0.notas",
+    "texto": "Rivasさんはいつも、本当に急ぎのことと後回しにできることをきちんと説明してくれて、請求書を水増ししたことも一度もありません。この車のことで信頼できるのは彼だけです。"
+  },
+  {
+    "ruta": "talleres.1.nombre",
+    "texto": "Seguros Meridiano - agente Nadia Ortega"
+  },
+  {
+    "ruta": "talleres.1.direccion",
+    "texto": "Av. Insurgentes Sur 1234, piso 3, Col. Del Valle"
+  },
+  {
+    "ruta": "talleres.1.notas",
+    "texto": "Nadiaは日曜日でもWhatsAppにすぐ返信してくれて、フルカバー保険に切り替えたときは月払いのプランを組んでくれました。"
+  },
+  {
+    "ruta": "talleres.2.nombre",
+    "texto": "Verificentro 09-118 Iztaccíhuatl"
+  },
+  {
+    "ruta": "talleres.2.direccion",
+    "texto": "Calz. Iztaccíhuatl 240, Col. Iztaccíhuatl, Benito Juárez"
+  },
+  {
+    "ruta": "talleres.2.notas",
+    "texto": "朝七時に予約を入れると四十分で終わります。Coyoacánの検査場では、行列で午前中を丸々潰されました。"
+  },
+  {
+    "ruta": "talleres.3.direccion",
+    "texto": "Zacatecas 145, Col. Roma Sur, Cuauhtémoc"
+  },
+  {
+    "ruta": "talleres.3.notas",
+    "texto": "あの自転車を買ったのもそこで、整備するのもそこです。工具を貸してくれて、何でも代金を取る代わりに自分でできるように教えてくれます。"
+  },
+  {
+    "ruta": "talleres.4.nombre",
+    "texto": "Grúas Tepeyac 24 horas"
+  },
+  {
+    "ruta": "talleres.4.direccion",
+    "texto": "Base en Eje Central Lázaro Cárdenas 1105, Col. Álamos"
+  },
+  {
+    "ruta": "talleres.4.notas",
+    "texto": "立ち往生したあの夜に電話した番号です。一時間半で来てくれて、料金でぼったくられることもありませんでした。"
+  },
+  {
+    "ruta": "tramites.0.titulo",
+    "texto": "半年ごとの排ガス検査"
+  },
+  {
+    "ruta": "tramites.0.nota",
+    "texto": "検査ステッカーの色によって順番が決まっていて、いつも最初の週に予約を取ります。うっかり忘れると、罰金のほうが手続きよりずっと痛いです。"
+  },
+  {
+    "ruta": "tramites.1.titulo",
+    "texto": "保険の更新"
+  },
+  {
+    "ruta": "tramites.1.nota",
+    "texto": "車が故障して肝を冷やしたあと、今年はNadiaのところでフルカバー保険に切り替えました。月払いにして、毎月の予算にきちんと組み込んでいます。"
+  },
+  {
+    "ruta": "tramites.2.titulo",
+    "texto": "自動車税と年に一度の登録更新"
+  },
+  {
+    "ruta": "tramites.2.nota",
+    "texto": "年の早い時期に払うと割引が受けられるので、そのタイミングで済ませて、気がかりを一つ減らしています。"
+  },
+  {
+    "ruta": "tramites.3.titulo",
+    "texto": "名義変更と車両証の変更"
+  },
+  {
+    "ruta": "tramites.3.nota",
+    "texto": "車両証はまだ叔父の名義のままで、検問か何かでトラブルになる前に、そろそろ名義を変えないといけません。"
+  },
+  {
+    "ruta": "tramites.4.titulo",
+    "texto": "自転車のチューンナップ"
+  },
+  {
+    "ruta": "tramites.4.nota",
+    "texto": "半年ごとにCiclos Malincheで、ホイールの振れ取り、ワイヤーとブレーキの点検をしています。曲がったホイールを直すよりずっと安上がりです。"
+  }
+]

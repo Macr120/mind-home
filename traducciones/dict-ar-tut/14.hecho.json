@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "المواضيع المُدرَجة تأتي جاهزة؛ أما المعلّقة منفردة فقد فتحتها محادثة. المس مدخلًا لقراءة ملخصه ونقاطه الرئيسية ورسمه التوضيحي."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "المدخل يُكتب يدويًا أو يُقطَّر من محادثة. مدخل الثقب الأسود ومدخل فيزياء البيانو يحملان رسمًا: التطبيق قادر على رسمها بدلًا عنك."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "أسئلة العام"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "هنا محادثات بيب أثناء الدراسة: الإنتروبيا، وتمدد الزمن، ولماذا للبيانو ذلك الصوت الذي نعرفه. كل واحدة منها بقيت محفوظة."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "من المحادثة إلى الشجرة"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "هكذا لا تمتلئ الموسوعة بنظرية منسوخة، بل بأسئلتك الحقيقية."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "الفهرس فهرسك"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "زر + في كل صف يكتب مدخلًا هناك مباشرة، بمجاله وموضوعه جاهزين. وبزر القلم تُنمّي الشجرة: الزر + نفسه يضيف فروعًا، والذي عند البذرة ينشئ مجالات جديدة، ويمكن إعادة التسمية وإعادة الترتيب والحذف. الرقم المرفق بالغصن يخبرك كم فهرسًا فرعيًا يتفرع من هناك."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "خطة الدراسة"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "يمكنك أن تطلب خطة لأي هدف: يسأل الذكاء الاصطناعي عن تاريخك المستهدف وساعاتك المتاحة، ثم يجدول أوقات الدراسة في تقويمك."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "كم مدخلًا في موسوعتك، وكم مجالًا وموضوعًا من الفهرس غُطّي بالفعل. المواضيع التي فتحتها محادثة تُحسب على حدة."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "أربعة أرقام"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "محادثات مع الحكيم، ودقائق الدراسة إجمالًا وهذا الأسبوع، وسلسلة أيامك المتتالية في الدراسة."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "أين يختل التوازن"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "الشريط الأطول هو المجال الذي أخذ أكبر قدر من انتباهك — عند بيب، الديناميكا الحرارية في أسبوع الامتحان النصفي."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "أيام الدراسة"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "مربّع صغير لكل يوم: يظهر الاندفاع قبل الامتحان النصفي وفراغ الأسابيع الثلاثة في اليابان، دون الحاجة إلى فتح السجل كاملًا."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "أين ذهبت الساعات"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "الشيء نفسه أعلاه لكن بالدقائق: أن تملك مدخلات كثيرة في مجال شيء، وأن تكون قد منحته وقتًا حقيقيًا شيء آخر."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "عام من الجلسات"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "وإن أردت التفاصيل، يحفظ السجل كل جلسة بدقائقها ومجالها، مؤرشفة حسب السنة والشهر والأسبوع."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "المستحق اليوم"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "مضى على بيب عام كامل في هذا ولا تزال لديه مراجعات معلّقة: لا يطلب النظام كل المفردات، بل ما أنت على وشك نسيانه فقط."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "عام من الانتظام"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "يحفظ السجل كم بطاقة رُوجعت كل يوم وكم منها كانت صحيحة. في البداية كانت أخطاء بيب كثيرة، وفي النهاية أصبح كل شيء تقريبًا صحيحًا — وفي اليابان بلغت المراجعات ذروتها."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "لغتان في آن واحد"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "من الأعلى تُبدّل اللغة: إلى جانب اللغة الرئيسية، كانت لبيب يابانية للنجاة بين الشهر 4 والرحلة. وبعد العودة كادت تُهجَر، ويظهر ذلك في صناديقها."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "ثلاثة مجالات، ستة مستويات"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "من A1 إلى C2، لكل مستوى مواضيع مفرداته ونقاط نطقه وقواعده. تعرف ما ينقصك دون البحث عن دورة في الخارج."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "أين أنت الآن"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "البطاقات المتقنة، ومراجعات الشهر، ومستواك الحالي. بدأ عام بيب عند A2 وهو اليوم قرب B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "صندوق المهام"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "ما يجب فعله ولم يحصل بعد على يوم يعيش هنا، بأولويته. لا شيء يُلزمك بتحديد تاريخ لمجرد تدوينه."
+  }
+]

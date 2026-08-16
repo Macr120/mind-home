@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "Der Button in der Zeile trägt den ECHTEN Wert in der App ein – ein Glas Wasser, eine Mahlzeit – und der Schritt hakt sich von selbst ab, einfach weil dieser Eintrag jetzt da ist, nicht weil ihn jemand markiert hätte. Noch einmal darauf zu tippen, wenn der Schritt erledigt ist, verdoppelt nichts: Der Button verschwindet."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "Deine Zahl für jeden Tag"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "Schritte mit einstellbarer Zahl änderst du direkt hier. Auf 0 gesetzt, schaltet das Tagesziel aus, ohne den Verlauf der vorherigen Tage zu löschen."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "Vom Ziel zur Routine"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "Der Kalender plant dasselbe Ziel mit fester Uhrzeit ein: Er öffnet denselben Editor wie die Routinen der Uhr, also steht es an beiden Stellen zugleich."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "Erledigtes verschwindet nicht"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "Es wandert nach unten zu „Erledigt“, eingeklappt: zu sehen, wie der Eintrag wirkt, gehört zur Belohnung – und von dort lässt es sich rückgängig machen, falls einer zu viel hineingerutscht ist."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "Der Steckbrief deiner Figur: Pep hat ein ganzes Jahr echter Aktivität hinter sich, also steckt hinter jeder Zahl hier eine echte Geschichte."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "Die Figur"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "Ein Tipp darauf öffnet den Figuren-Editor. Ihre Laune – glücklich, zufrieden, traurig oder schlafend – steigt mit jedem neuen Eintrag und sinkt nur, wenn Tage ohne einen einzigen vergehen; sie fällt nie auf einen Schlag zurück."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "Der Sisyphos-Rang"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "Zwölf Ränge im Aufstieg: Jeder Tag mit Aktivität bringt dich eine Stufe von 365 höher. Pep hat schon mehrere Ränge geschafft; tipp darauf, um den ganzen Berg zu sehen."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "Stufen und Gnadentage"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "Alle 7 Stufen kommt ein Abzeichen, jeder Wochenabschnitt hebt den Rang. Einen Tag auszulassen bricht nichts: Du hast 2 Gnadentage im Monat, bevor es zurück an den Anfang des aktuellen Rangs geht."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "52 Abzeichen nach Familien"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "Nach geologischen Familien gruppiert und ein Rätsel, bis du sie verdienst: kein Name, keine Beschreibung, bevor du eines freischaltest."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "Dein Rückblick"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped baut den Rückblick auf deine Woche, deinen Monat oder dein Jahr in Folien – es hat sein eigenes Tutorial, und in einem Jahr wie dem von Pep gibt es Daten mehr als genug."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "Das Radar pro Raum"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "Jede Spitze ist ein Raum des Hauses, und ihre Größe ist die Summe der XP aus den Apps, die ihm zugewiesen sind. Ein Raum ohne Aktivität fällt sofort auf: Seine Spitze sackt zur Mitte hin ein."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "Wie Stories: Tipp rechts, um weiterzugehen, links, um zurückzugehen, und halte gedrückt, um auf einer Folie zu pausieren."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "Woche, Monat oder Jahr"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "Jede Art baut ihre eigenen Folien mit ihren eigenen Daten – Peps Jahresrückblick ist der längste, mit den höchsten und den tiefsten Momenten des ganzen Jahres."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "Von Zeitraum zu Zeitraum"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "Die Pfeile ‹ › führen durch schon abgeschlossene Zeiträume: Über heute hinaus geht es nicht, du vergleichst also immer mit etwas Echtem."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "Eine Folie teilen"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "Kopiert den Text der Folie, die du gerade siehst, fertig zum Einfügen, wo du willst – ganz ohne Screenshots."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "Ein Punkt neben dem Button, der ihn öffnet, meldet einen neuen Rückblick, den du noch nicht gesehen hast; öffnest du ihn, geht der Punkt aus."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "Das hier ist Peps Gnadenhof: auf der einen Seite die Gehege, auf der anderen der Gemüsegarten, der sie ernährt. Auf zu den Beeten."
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.editor-mapa.3.texto",
+    "texto": "Çatılar hücre hücre çalışır: her hücrenin kendi biçimi ya da malzemesi olabilir, yani aynı oda tek bir düz çatı yerine farklı eğimleri bir araya getirebilir."
+  },
+  {
+    "clave": "tut.editor-mapa.4.texto",
+    "texto": "Evin seviyeleri de var: yukarı doğru üst üste eklenen katlar ve aşağıda bir bodrum. Her yeni seviye kendi çıkış yoluyla doğar —bir merdiven ya da döşemede bir boşluk— ve üstteki katı deler."
+  },
+  {
+    "clave": "tut.editor-mapa.5.titulo",
+    "texto": "Bitti"
+  },
+  {
+    "clave": "tut.editor-mapa.5.texto",
+    "texto": "Sen düzenlerken her şey kendiliğinden kaydedilir. Bitti, düzenleyiciyi kapatır ve seni evi bıraktığın haliyle oyuna geri döndürür."
+  },
+  {
+    "clave": "tut.editor-personajes.1.texto",
+    "texto": "Ana karakterin ve asistanların aynı düzenleyicide yaşar: yukarıdan kimi düzenleyeceğini seçersin, araçlar da her biri için anlamlı olana göre değişir."
+  },
+  {
+    "clave": "tut.editor-personajes.2.titulo",
+    "texto": "Yüz ve fotoğraf"
+  },
+  {
+    "clave": "tut.editor-personajes.2.texto",
+    "texto": "İfade, saç modeli ve saç rengi ya da doğrudan kendi fotoğrafın, karakter sana benzesin diye. Her vücut kendi yüzünü kabul etmez."
+  },
+  {
+    "clave": "tut.editor-personajes.3.titulo",
+    "texto": "Kategoriye göre kıyafet"
+  },
+  {
+    "clave": "tut.editor-personajes.3.texto",
+    "texto": "Her parça ayrı ayrı giyilir, çıkarılır ve rengi değişir: gömlek, pantolon, ayakkabı, aksesuar. Dilediğin gibi birleşirler."
+  },
+  {
+    "clave": "tut.editor-personajes.4.titulo",
+    "texto": "Kayıtlı kombinler"
+  },
+  {
+    "clave": "tut.editor-personajes.4.texto",
+    "texto": "Bütün bir kıyafet birleşimini kombin olarak kaydet ve her seferinde parça parça yeniden kurmadan, tek dokunuşla baştan aşağı değiş."
+  },
+  {
+    "clave": "tut.editor-personajes.5.titulo",
+    "texto": "Odaya göre gardırop"
+  },
+  {
+    "clave": "tut.editor-personajes.5.texto",
+    "texto": "Her odaya farklı bir kombin ata: avatarın Spor Salonu’na koşuya hazır girer, Mutfak’a geçince kendiliğinden değişir."
+  },
+  {
+    "clave": "tut.editor-personajes.6.texto",
+    "texto": "Vücut, renk ve boyut her zamanki gibi düzenlenir; Yapay Zeka açıksa hazır modellerden birini seçmek yerine kendi 3D modelini de üretebilirsin."
+  },
+  {
+    "clave": "tut.editor-objetos.1.texto",
+    "texto": "Düzenlemek için sahnedeki (ya da listedeki) bir nesneye dokun: renk, boyut ve döndürme, hepsinin ortak üç ayarıdır."
+  },
+  {
+    "clave": "tut.editor-objetos.2.texto",
+    "texto": "Uygulama atanmış nesneler, odaya girdiğinde şablonunu açar; atanmamışlar yalnızca dekordur — ikisi de aynı şekilde düzenlenir."
+  },
+  {
+    "clave": "tut.editor-objetos.3.texto",
+    "texto": "Bir nesnenin ⚙️ dişlisi onu parça parça düzenlenebilir hale getirir: temel şekilleri birleştirerek kendi modellerini kur ya da tarif ederek Yapay Zeka’dan bir tane iste."
+  },
+  {
+    "clave": "tut.editor-config.1.texto",
+    "texto": "Uzun bir liste değil, katlanabilir sekiz bölüm: yalnızca ilgilendiğini açmak için başlığa dokun."
+  },
+  {
+    "clave": "tut.editor-config.2.titulo",
+    "texto": "Hesap ve Yapay Zeka"
+  },
+  {
+    "clave": "tut.editor-config.2.texto",
+    "texto": "Giriş yapmak, planın ve bu ay Yapay Zeka’ya ne kadar harcadığın; hemen yanında her işlemin fiyat tablosu. İkisinin de kendi ayrıntılı öğreticisi var."
+  },
+  {
+    "clave": "tut.editor-config.3.titulo",
+    "texto": "Görsel stil"
+  },
+  {
+    "clave": "tut.editor-config.3.texto",
+    "texto": "Haritanın teması (ışık, sis, aydınlatma) ve son işlem stilleri; fazladan yük olmasın diye hepsi ihtiyaç anında yüklenir."
+  },
+  {
+    "clave": "tut.editor-config.4.titulo",
+    "texto": "Arayüz ve dil"
+  },
+  {
+    "clave": "tut.editor-config.4.texto",
+    "texto": "Dil, arayüz teması (açık/koyu/otomatik), simge stili ve yoğunluk — evin NASIL göründüğünü değiştiren her şey; ne içerdiğini değil."
+  },
+  {
+    "clave": "tut.editor-config.5.titulo",
+    "texto": "Bildirimler"
+  },
+  {
+    "clave": "tut.editor-config.5.texto",
+    "texto": "Hangi bildirimler gelsin, hangileri sussun: rutinler, plan uyarıları ve hatırlatmalar ayrı ayrı kapatılabilir."
+  },
+  {
+    "clave": "tut.editor-config.6.texto",
+    "texto": "Müzik ve Öğreticiler’in kendi turu var; Veri yedekleme’nin de var ve cihaz değiştirmeden önce en çok göz atmaya değen o."
+  },
+  {
+    "clave": "tut.respaldo.1.titulo",
+    "texto": "Evin nerede yaşıyor"
+  },
+  {
+    "clave": "tut.respaldo.1.texto",
+    "texto": "Hesap ve senkronizasyon yoksa verilerin yalnızca bu cihazda durur. Yukarıdaki uyarı, tarayıcının onları otomatik bir temizlikten koruma izni olup olmadığını söyler."
+  },
+  {
+    "clave": "tut.respaldo.2.titulo",
+    "texto": "Dışa aktar"
+  },
+  {
+    "clave": "tut.respaldo.2.texto",
+    "texto": "Bütün tablolarını tek bir JSON dosyası olarak indirir: odalar, hedefler, kayıtlar, her şey. Elle aldığın yedeğin."
+  },
+  {
+    "clave": "tut.respaldo.3.titulo",
+    "texto": "Geri yükle"
+  }
+]

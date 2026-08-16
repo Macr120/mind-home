@@ -1,0 +1,1074 @@
+[
+  {
+    "clave": "corazon.gato.noche.1",
+    "texto": "Rustige nacht. Verpest het niet 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.0",
+    "texto": "Hé, “{r}” is om {h}. Ik verroer geen poot 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.1",
+    "texto": "“{r}” komt eraan ({h}). Jij kan het; ik hou toezicht 🐱"
+  },
+  {
+    "clave": "corazon.gato.generica.0",
+    "texto": "Alles onder controle. Ik heb het gecheckt tijdens mijn dutje 🐾"
+  },
+  {
+    "clave": "corazon.gato.generica.1",
+    "texto": "Hmm. Het huis staat er nog. Graag gedaan 🐱"
+  },
+  {
+    "clave": "corazon.perro.manana.0",
+    "texto": "Goedemorgen! Vandaag ruikt naar een geweldige dag! 🐶"
+  },
+  {
+    "clave": "corazon.perro.manana.1",
+    "texto": "Het is ochtend! Kom op, kom op, kom op! 🦴"
+  },
+  {
+    "clave": "corazon.perro.tarde.0",
+    "texto": "De perfecte middag om dingen voor elkaar te krijgen! Woef! 🐶"
+  },
+  {
+    "clave": "corazon.perro.tarde.1",
+    "texto": "Nog steeds hier, ik zie alles! 🎉"
+  },
+  {
+    "clave": "corazon.perro.noche.0",
+    "texto": "Wat een geweldige dag hadden we! Toch? Toch? 🐶"
+  },
+  {
+    "clave": "corazon.perro.noche.1",
+    "texto": "Rustige nacht… ik hou de wacht! 🦴"
+  },
+  {
+    "clave": "corazon.perro.rutina.0",
+    "texto": "“{r}” om {h}! Dat kun je! 🎉"
+  },
+  {
+    "clave": "corazon.perro.rutina.1",
+    "texto": "Vergeet “{r}” om {h} niet! Woef! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.0",
+    "texto": "Ik hou van dit huis! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.1",
+    "texto": "Roep me als je iets nodig hebt! Wat dan ook! 🦴"
+  },
+  {
+    "clave": "corazon.buho.manana.0",
+    "texto": "Dageraad. Ideaal om de dag rustig te plannen. 🦉"
+  },
+  {
+    "clave": "corazon.buho.manana.1",
+    "texto": "Een geordende ochtend levert dubbel op."
+  },
+  {
+    "clave": "corazon.buho.tarde.0",
+    "texto": "Middag: een goed moment om de voortgang te bekijken. 🦉"
+  },
+  {
+    "clave": "corazon.buho.tarde.1",
+    "texto": "De middag verloopt zoals gepland."
+  },
+  {
+    "clave": "corazon.buho.noche.0",
+    "texto": "De nacht valt. Ik stel voor de dag af te sluiten met een notitie. 🦉"
+  },
+  {
+    "clave": "corazon.buho.noche.1",
+    "texto": "De nacht nodigt uit tot bezinning."
+  },
+  {
+    "clave": "corazon.buho.rutina.0",
+    "texto": "Tijdige melding: “{r}” om {h}. 🦉"
+  },
+  {
+    "clave": "corazon.buho.rutina.1",
+    "texto": "Je planning vermeldt “{r}” om {h}."
+  },
+  {
+    "clave": "corazon.buho.generica.0",
+    "texto": "Ik observeer en noteer. Alles in orde. 🦉"
+  },
+  {
+    "clave": "corazon.buho.generica.1",
+    "texto": "Kennis stapelt zich dag na dag op."
+  },
+  {
+    "clave": "corazon.robot.manana.0",
+    "texto": "☀ DAGCYCLUS GESTART. SYSTEMEN OP 100%. 🤖"
+  },
+  {
+    "clave": "corazon.robot.manana.1",
+    "texto": "GOEDEMORGEN. BATTERIJ VOL. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.0",
+    "texto": "MIDDAGSCAN VOLTOOID. GEEN AFWIJKINGEN. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.1",
+    "texto": "PRODUCTIVITEIT BINNEN PARAMETERS. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.0",
+    "texto": "NACHTMODUS ACTIEF. BEWAKING BEZIG. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.1",
+    "texto": "AANBEVELING: MENS-EENHEID OPLADEN (SLAPEN). ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.0",
+    "texto": "HERINNERING: “{r}” GEPLAND OM {h}. ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.1",
+    "texto": "WAARSCHUWING: “{r}” OM {h}. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.0",
+    "texto": "ALLE SYSTEMEN NOMINAAL. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.1",
+    "texto": "WACHTEN OP INSTRUCTIES. NIET DRINGEND. ✓"
+  },
+  {
+    "clave": "chat.config.activoMapa",
+    "texto": "De actieve assistent staat altijd op de kaart"
+  },
+  {
+    "clave": "chat.config.editar",
+    "texto": "Aanpassen"
+  },
+  {
+    "clave": "chat.config.eliminar",
+    "texto": "Assistent verwijderen"
+  },
+  {
+    "clave": "chat.config.eliminarConfirma",
+    "texto": "{n} verwijderen? De gesprekken blijven bewaard."
+  },
+  {
+    "clave": "chat.config.eliminarOk",
+    "texto": "Verwijderen"
+  },
+  {
+    "clave": "chat.config.eliminarUltimo",
+    "texto": "Er moet minstens één assistent overblijven"
+  },
+  {
+    "clave": "chat.config.restaurar",
+    "texto": "Herstellen:"
+  },
+  {
+    "clave": "chat.config.restaurarUno",
+    "texto": "Herstellen"
+  },
+  {
+    "clave": "acceso.subir",
+    "texto": "Naar niveau {n} omhoog"
+  },
+  {
+    "clave": "acceso.bajarPlanta",
+    "texto": "Naar de begane grond omlaag"
+  },
+  {
+    "clave": "acceso.bajar",
+    "texto": "Naar niveau {n} omlaag"
+  },
+  {
+    "clave": "veh.ayuda",
+    "texto": "Plaats een voertuig op de kaart en loop ernaartoe om erin te stappen."
+  },
+  {
+    "clave": "veh.colocar",
+    "texto": "Op de kaart plaatsen"
+  },
+  {
+    "clave": "veh.color",
+    "texto": "Kleur van het voertuig"
+  },
+  {
+    "clave": "veh.subirte",
+    "texto": "Instappen"
+  },
+  {
+    "clave": "veh.bajarte",
+    "texto": "Uitstappen"
+  },
+  {
+    "clave": "accion.sentarte",
+    "texto": "Gaan zitten"
+  },
+  {
+    "clave": "accion.acostarte",
+    "texto": "Gaan liggen"
+  },
+  {
+    "clave": "accion.sentado",
+    "texto": "Zittend"
+  },
+  {
+    "clave": "accion.acostado",
+    "texto": "Liggend"
+  },
+  {
+    "clave": "accion.levantarte",
+    "texto": "Opstaan"
+  },
+  {
+    "clave": "veh.subir",
+    "texto": "Omhoog (Spatie)"
+  },
+  {
+    "clave": "veh.bajar",
+    "texto": "Omlaag (Shift)"
+  },
+  {
+    "clave": "veh.derrape",
+    "texto": "Driften (Spatie)"
+  },
+  {
+    "clave": "hud.ayuda",
+    "texto": "Beweeg met WASD/pijltjes of het pad (linksonder). Draai en zoom met de knoppen (rechtsonder). Loop door de deuren tussen de kamers."
+  },
+  {
+    "clave": "cat.cuerpo",
+    "texto": "Lichaam"
+  },
+  {
+    "clave": "cat.mente",
+    "texto": "Geest"
+  },
+  {
+    "clave": "cat.complemento",
+    "texto": "Extra's"
+  },
+  {
+    "clave": "cat.config",
+    "texto": "Instellingen"
+  },
+  {
+    "clave": "ajustes.titulo",
+    "texto": "Instellingen"
+  },
+  {
+    "clave": "diario.nacidoAbrev",
+    "texto": "geb."
+  },
+  {
+    "clave": "ajustes.tema",
+    "texto": "Thema van de interface"
+  },
+  {
+    "clave": "ajustes.modo",
+    "texto": "Weergave"
+  },
+  {
+    "clave": "ajustes.modo.claro",
+    "texto": "Licht"
+  },
+  {
+    "clave": "ajustes.modo.oscuro",
+    "texto": "Donker"
+  },
+  {
+    "clave": "ajustes.modo.transparente",
+    "texto": "Transparant"
+  },
+  {
+    "clave": "ajustes.iconos",
+    "texto": "Iconenstijl"
+  },
+  {
+    "clave": "ajustes.iconos.emoji",
+    "texto": "Emoji's"
+  },
+  {
+    "clave": "ajustes.iconos.profesional",
+    "texto": "Professioneel"
+  },
+  {
+    "clave": "ajustes.tipografia",
+    "texto": "Lettertype"
+  },
+  {
+    "clave": "ajustes.abrir",
+    "texto": "Instellingen"
+  },
+  {
+    "clave": "tipografia.sistema",
+    "texto": "Systeem"
+  },
+  {
+    "clave": "tipografia.serif",
+    "texto": "Serif"
+  },
+  {
+    "clave": "tipografia.mono",
+    "texto": "Monospace"
+  },
+  {
+    "clave": "tipografia.redondeada",
+    "texto": "Rond"
+  },
+  {
+    "clave": "tipografia.manuscrita",
+    "texto": "Handgeschreven"
+  },
+  {
+    "clave": "temaUI.medianoche",
+    "texto": "Middernacht"
+  },
+  {
+    "clave": "temaUI.neon",
+    "texto": "Neon"
+  },
+  {
+    "clave": "temaUI.bosque",
+    "texto": "Bos"
+  },
+  {
+    "clave": "temaUI.ambar",
+    "texto": "Amber"
+  },
+  {
+    "clave": "temaUI.ciruela",
+    "texto": "Pruim"
+  },
+  {
+    "clave": "room.cocina.nombre",
+    "texto": "Keuken"
+  },
+  {
+    "clave": "room.ejercicio.nombre",
+    "texto": "Gym"
+  },
+  {
+    "clave": "room.recamara.nombre",
+    "texto": "Slaapkamer"
+  },
+  {
+    "clave": "room.descanso.nombre",
+    "texto": "Bed · Rust"
+  },
+  {
+    "clave": "room.anecdotario.nombre",
+    "texto": "Bureau · Dagboek"
+  },
+  {
+    "clave": "room.despacho.nombre",
+    "texto": "Werkkamer"
+  },
+  {
+    "clave": "room.biblioteca.nombre",
+    "texto": "Bibliotheek"
+  },
+  {
+    "clave": "room.entretenimiento.nombre",
+    "texto": "Vermaak"
+  },
+  {
+    "clave": "room.sala.nombre",
+    "texto": "Woonkamer"
+  },
+  {
+    "clave": "room.jardin.nombre",
+    "texto": "Tuin"
+  },
+  {
+    "clave": "room.garage.nombre",
+    "texto": "Garage"
+  },
+  {
+    "clave": "room.diario.nombre",
+    "texto": "Dagelijks nieuws"
+  },
+  {
+    "clave": "room.hobbies.nombre",
+    "texto": "Hobby's"
+  },
+  {
+    "clave": "room.idiomas.nombre",
+    "texto": "Talen"
+  },
+  {
+    "clave": "room.caminos.nombre",
+    "texto": "Circuits"
+  },
+  {
+    "clave": "room.canchas.nombre",
+    "texto": "Velden"
+  },
+  {
+    "clave": "room.huerto.nombre",
+    "texto": "Eten"
+  },
+  {
+    "clave": "room.granja.nombre",
+    "texto": "Boerderij"
+  },
+  {
+    "clave": "room.ideas.nombre",
+    "texto": "Ideeën"
+  },
+  {
+    "clave": "room.computo.nombre",
+    "texto": "Computerkamer"
+  },
+  {
+    "clave": "room.agenda.nombre",
+    "texto": "Agenda"
+  },
+  {
+    "clave": "room.cocina.sub",
+    "texto": "Voeding"
+  },
+  {
+    "clave": "room.ejercicio.sub",
+    "texto": "Kracht- en fitnessroutines"
+  },
+  {
+    "clave": "room.recamara.sub",
+    "texto": "Slaap & anekdotes"
+  },
+  {
+    "clave": "room.descanso.sub",
+    "texto": "Slaap & wekker"
+  },
+  {
+    "clave": "room.anecdotario.sub",
+    "texto": "Persoonlijk dagboek"
+  },
+  {
+    "clave": "room.despacho.sub",
+    "texto": "Financiën"
+  },
+  {
+    "clave": "room.biblioteca.sub",
+    "texto": "Leren"
+  },
+  {
+    "clave": "room.entretenimiento.sub",
+    "texto": "Archief & bordspellen"
+  },
+  {
+    "clave": "room.sala.sub",
+    "texto": "Reizen"
+  },
+  {
+    "clave": "room.jardin.sub",
+    "texto": "Mindfulness"
+  },
+  {
+    "clave": "room.garage.sub",
+    "texto": "Voertuigonderhoud"
+  },
+  {
+    "clave": "room.diario.sub",
+    "texto": "Dagelijks nieuws"
+  },
+  {
+    "clave": "room.hobbies.sub",
+    "texto": "Tijdverdrijf & projecten"
+  },
+  {
+    "clave": "room.calendario.sub",
+    "texto": "Gebeurtenissen & routines"
+  },
+  {
+    "clave": "room.ideas.sub",
+    "texto": "Conceptkaarten op een vrij canvas"
+  },
+  {
+    "clave": "room.computo.sub",
+    "texto": "Rekenmachine & spreadsheets"
+  },
+  {
+    "clave": "room.agenda.sub",
+    "texto": "Werk, gezondheid & mensen"
+  },
+  {
+    "clave": "hud.plegar",
+    "texto": "Bediening inklappen"
+  },
+  {
+    "clave": "hud.desplegar",
+    "texto": "Bediening tonen"
+  },
+  {
+    "clave": "nav3d.aria",
+    "texto": "Weergavebediening"
+  },
+  {
+    "clave": "nav3d.vistaCuarto",
+    "texto": "Kamerweergave"
+  },
+  {
+    "clave": "nav3d.vistaInterior",
+    "texto": "Naar de muur kijken"
+  },
+  {
+    "clave": "nav3d.rotarIzq",
+    "texto": "Weergave naar links draaien"
+  },
+  {
+    "clave": "nav3d.rotarDer",
+    "texto": "Weergave naar rechts draaien"
+  },
+  {
+    "clave": "nav3d.acercar",
+    "texto": "Inzoomen"
+  },
+  {
+    "clave": "nav3d.alejar",
+    "texto": "Uitzoomen"
+  },
+  {
+    "clave": "nav3d.restaurarCuarto",
+    "texto": "Kamerzoom en focus herstellen"
+  },
+  {
+    "clave": "nav3d.vistaInicial",
+    "texto": "Beginweergave"
+  },
+  {
+    "clave": "nav3d.centrarCuarto",
+    "texto": "Kamer centreren"
+  },
+  {
+    "clave": "nav3d.reiniciar",
+    "texto": "Weergave herstellen"
+  },
+  {
+    "clave": "nav3d.editor3d",
+    "texto": "3D-editor"
+  },
+  {
+    "clave": "nav3d.editor3dOn",
+    "texto": "Editor sluiten"
+  },
+  {
+    "clave": "nav3d.editor3dHint",
+    "texto": "Bewerk de wereld in perspectief: tik op een object, vloer, muur of personage om het te bewerken"
+  },
+  {
+    "clave": "nav3d.verFlechas",
+    "texto": "Terug naar de bewegingspijlen"
+  },
+  {
+    "clave": "nav3d.verCubo",
+    "texto": "Pijlen inklappen en de weergavekubus tonen"
+  },
+  {
+    "clave": "nav3d.verFlechasBtn",
+    "texto": "Pijlen tonen"
+  },
+  {
+    "clave": "nav3d.verCuboBtn",
+    "texto": "Weergave tonen"
+  },
+  {
+    "clave": "herr.boton",
+    "texto": "Gereedschap"
+  },
+  {
+    "clave": "herr.rueda",
+    "texto": "Gereedschapswiel"
+  },
+  {
+    "clave": "herr.cubo",
+    "texto": "Kubus"
+  },
+  {
+    "clave": "herr.saltar",
+    "texto": "Springen"
+  },
+  {
+    "clave": "herr.correr",
+    "texto": "Rennen"
+  },
+  {
+    "clave": "herr.bailar",
+    "texto": "Dansen"
+  },
+  {
+    "clave": "herr.laser",
+    "texto": "Laser"
+  },
+  {
+    "clave": "herr.volverCubo",
+    "texto": "Terug naar de weergavekubus"
+  },
+  {
+    "clave": "herr.saltarBtn",
+    "texto": "Springen!"
+  },
+  {
+    "clave": "herr.corriendo",
+    "texto": "Rennend"
+  },
+  {
+    "clave": "herr.bailando",
+    "texto": "Dansend"
+  },
+  {
+    "clave": "herr.disparar",
+    "texto": "Vuren"
+  },
+  {
+    "clave": "herr.invocar",
+    "texto": "Oproepen"
+  },
+  {
+    "clave": "herr.soloPlantaBaja",
+    "texto": "Ga naar de begane grond om het op te roepen"
+  },
+  {
+    "clave": "herr.veh.bicicleta",
+    "texto": "Fiets"
+  },
+  {
+    "clave": "herr.veh.motocicleta",
+    "texto": "Motor"
+  },
+  {
+    "clave": "herr.veh.automovil",
+    "texto": "Auto"
+  },
+  {
+    "clave": "herr.veh.ovni",
+    "texto": "UFO"
+  },
+  {
+    "clave": "herr.cat.movimientos",
+    "texto": "Bewegingen"
+  },
+  {
+    "clave": "herr.cat.juguetes",
+    "texto": "Speelgoed"
+  },
+  {
+    "clave": "herr.cat.vehiculos",
+    "texto": "Voertuigen"
+  },
+  {
+    "clave": "herr.cat.construccion",
+    "texto": "Bouwen"
+  },
+  {
+    "clave": "herr.construir",
+    "texto": "Bouwen"
+  },
+  {
+    "clave": "herr.constrDibujar",
+    "texto": "Tekenen"
+  },
+  {
+    "clave": "herr.abrirEditor",
+    "texto": "Editor openen"
+  },
+  {
+    "clave": "herr.atras",
+    "texto": "Terug"
+  },
+  {
+    "clave": "herr.cuerda",
+    "texto": "Touwtjespringen"
+  },
+  {
+    "clave": "herr.mortal",
+    "texto": "Salto"
+  },
+  {
+    "clave": "herr.saludar",
+    "texto": "Zwaaien"
+  },
+  {
+    "clave": "herr.mover",
+    "texto": "Verplaatsen"
+  },
+  {
+    "clave": "herr.moverAcercate",
+    "texto": "Ga dicht bij een object of kamer staan"
+  },
+  {
+    "clave": "herr.agarrar",
+    "texto": "Pakken"
+  },
+  {
+    "clave": "herr.agarrarCuarto",
+    "texto": "Kamer pakken"
+  },
+  {
+    "clave": "herr.moverCargandoObjeto",
+    "texto": "Object dragen"
+  },
+  {
+    "clave": "herr.moverCargandoCuarto",
+    "texto": "Kamer dragen"
+  },
+  {
+    "clave": "herr.soltar",
+    "texto": "Loslaten"
+  },
+  {
+    "clave": "ctx.interactuar",
+    "texto": "Interactie"
+  },
+  {
+    "clave": "ctx.entrarApp",
+    "texto": "App openen"
+  },
+  {
+    "clave": "ctx.cambiarLetrero",
+    "texto": "Bord wijzigen"
+  },
+  {
+    "clave": "ctx.usar",
+    "texto": "Gebruiken"
+  },
+  {
+    "clave": "ctx.subirte",
+    "texto": "Instappen"
+  },
+  {
+    "clave": "ctx.subirteDona",
+    "texto": "Op de zwemring stappen"
+  },
+  {
+    "clave": "ctx.cosechar",
+    "texto": "Oogsten"
+  },
+  {
+    "clave": "ctx.recoger",
+    "texto": "Oprapen"
+  },
+  {
+    "clave": "ctx.bajarte",
+    "texto": "Uitstappen"
+  },
+  {
+    "clave": "ctx.correr",
+    "texto": "Racen"
+  },
+  {
+    "clave": "ctx.revisarTu",
+    "texto": "Bekijk je"
+  },
+  {
+    "clave": "ctx.subirA",
+    "texto": "Omhoog naar"
+  },
+  {
+    "clave": "ctx.bajarA",
+    "texto": "Omlaag naar"
+  },
+  {
+    "clave": "ctx.nivelN",
+    "texto": "Niveau {n}"
+  },
+  {
+    "clave": "ctx.plantaBaja",
+    "texto": "Begane grond"
+  },
+  {
+    "clave": "ctx.jugar.futbol",
+    "texto": "Voetballen"
+  },
+  {
+    "clave": "ctx.jugar.tenis",
+    "texto": "Tennissen"
+  },
+  {
+    "clave": "ctx.jugar.basket",
+    "texto": "Basketballen"
+  },
+  {
+    "clave": "ctx.jugar.beisbol",
+    "texto": "Honkballen"
+  },
+  {
+    "clave": "herr.portales",
+    "texto": "Portalen"
+  },
+  {
+    "clave": "herr.fuegos",
+    "texto": "Vuurwerk"
+  },
+  {
+    "clave": "herr.burbujas",
+    "texto": "Bellen"
+  },
+  {
+    "clave": "herr.cuerdaOn",
+    "texto": "Touwtjespringen"
+  },
+  {
+    "clave": "herr.mortalBtn",
+    "texto": "Salto!"
+  },
+  {
+    "clave": "herr.saludarBtn",
+    "texto": "Zwaai!"
+  },
+  {
+    "clave": "herr.portalColocar",
+    "texto": "Portaal plaatsen"
+  },
+  {
+    "clave": "herr.portalQuitar",
+    "texto": "Portalen verwijderen"
+  },
+  {
+    "clave": "herr.fuegosBtn",
+    "texto": "Afvuren!"
+  },
+  {
+    "clave": "herr.burbujasOn",
+    "texto": "Bellen blazen"
+  },
+  {
+    "clave": "herr.quitar",
+    "texto": "Gereedschap verwijderen"
+  },
+  {
+    "clave": "herr.grafiti",
+    "texto": "Graffiti"
+  },
+  {
+    "clave": "herr.grafitiPintar",
+    "texto": "Muur schilderen"
+  },
+  {
+    "clave": "herr.grafitiSinMuro",
+    "texto": "Ga dicht bij een muur staan"
+  },
+  {
+    "clave": "herr.grafitiMuroPuerta",
+    "texto": "Muren met een deur kun je niet schilderen"
+  },
+  {
+    "clave": "herr.grafitiMuroCurvo",
+    "texto": "Gebogen muren kun je niet schilderen"
+  },
+  {
+    "clave": "graf.titulo",
+    "texto": "Graffiti"
+  },
+  {
+    "clave": "graf.pincel",
+    "texto": "Penseel"
+  },
+  {
+    "clave": "graf.spray",
+    "texto": "Spuitbus"
+  },
+  {
+    "clave": "graf.borrador",
+    "texto": "Gum"
+  },
+  {
+    "clave": "graf.bote",
+    "texto": "Alles met één kleur vullen"
+  },
+  {
+    "clave": "graf.grosor",
+    "texto": "Dikte"
+  },
+  {
+    "clave": "graf.color",
+    "texto": "Kleur"
+  },
+  {
+    "clave": "graf.deshacer",
+    "texto": "Ongedaan maken"
+  },
+  {
+    "clave": "graf.limpiar",
+    "texto": "Wissen"
+  },
+  {
+    "clave": "graf.borrar",
+    "texto": "Graffiti verwijderen"
+  },
+  {
+    "clave": "graf.guardar",
+    "texto": "Opslaan"
+  },
+  {
+    "clave": "graf.salir",
+    "texto": "Afsluiten zonder op te slaan"
+  },
+  {
+    "clave": "despacho.tab.balance",
+    "texto": "Kasstroom"
+  },
+  {
+    "clave": "despacho.tab.mercados",
+    "texto": "Markten"
+  },
+  {
+    "clave": "despacho.tab.divisas",
+    "texto": "Valuta"
+  },
+  {
+    "clave": "despacho.tab.criptos",
+    "texto": "Crypto"
+  },
+  {
+    "clave": "despacho.tab.acciones",
+    "texto": "Aandelen"
+  },
+  {
+    "clave": "despacho.tab.commodities",
+    "texto": "Grondstoffen"
+  },
+  {
+    "clave": "despacho.sub.balance",
+    "texto": "Balans"
+  },
+  {
+    "clave": "despacho.tab.gastos",
+    "texto": "Uitgaven"
+  },
+  {
+    "clave": "despacho.tab.ingresos",
+    "texto": "Inkomsten"
+  },
+  {
+    "clave": "despacho.tab.metas",
+    "texto": "Doelen"
+  },
+  {
+    "clave": "despacho.tab.financieras",
+    "texto": "Financieel"
+  },
+  {
+    "clave": "despacho.tab.ahorroInversion",
+    "texto": "Sparen/Beleggen"
+  },
+  {
+    "clave": "despacho.tab.ahorro",
+    "texto": "Sparen"
+  },
+  {
+    "clave": "despacho.tab.inversion",
+    "texto": "Beleggen"
+  },
+  {
+    "clave": "despacho.tab.deuda",
+    "texto": "Schuld"
+  },
+  {
+    "clave": "despacho.r.ingresos",
+    "texto": "Inkomsten"
+  },
+  {
+    "clave": "despacho.r.gastos",
+    "texto": "Uitgaven"
+  },
+  {
+    "clave": "despacho.r.balance",
+    "texto": "Balans"
+  },
+  {
+    "clave": "despacho.presupuesto",
+    "texto": "Maandbudget"
+  },
+  {
+    "clave": "despacho.presupuesto.equivale",
+    "texto": "Dat is {n} voor deze periode"
+  },
+  {
+    "clave": "despacho.patrimonio",
+    "texto": "Totaal vermogen"
+  },
+  {
+    "clave": "despacho.patrimonio.ayuda",
+    "texto": "Je bezittingen min je schulden, te vinden bij het tabblad Vermogen. Hier zie je alleen hoe het ervoor staat als deze periode zo afsluit."
+  },
+  {
+    "clave": "despacho.excedido",
+    "texto": "Budget overschreden met {n}"
+  },
+  {
+    "clave": "despacho.progreso",
+    "texto": "Je hebt {used} van {total} ({pct}%)"
+  },
+  {
+    "clave": "despacho.catGastos",
+    "texto": "Uitgaven per categorie"
+  },
+  {
+    "clave": "despacho.sinGastos",
+    "texto": "Geen uitgaven in deze periode."
+  },
+  {
+    "clave": "despacho.periodo.dia",
+    "texto": "Dag"
+  },
+  {
+    "clave": "despacho.periodo.semana",
+    "texto": "Week"
+  },
+  {
+    "clave": "despacho.periodo.mes",
+    "texto": "Maand"
+  },
+  {
+    "clave": "despacho.periodo.anio",
+    "texto": "Jaar"
+  },
+  {
+    "clave": "despacho.plazo.dia",
+    "texto": "Elke dag"
+  },
+  {
+    "clave": "despacho.plazo.semana",
+    "texto": "Elke week"
+  },
+  {
+    "clave": "despacho.plazo.mes",
+    "texto": "Elke maand"
+  },
+  {
+    "clave": "despacho.plazo.anio",
+    "texto": "Elk jaar"
+  },
+  {
+    "clave": "despacho.tendencia.dia",
+    "texto": "Balans · laatste 6 dagen"
+  },
+  {
+    "clave": "despacho.tendencia.semana",
+    "texto": "Balans · laatste 6 weken"
+  },
+  {
+    "clave": "despacho.tendencia.mes",
+    "texto": "Balans · laatste 6 maanden"
+  },
+  {
+    "clave": "despacho.tendencia.anio",
+    "texto": "Balans · laatste 6 jaar"
+  },
+  {
+    "clave": "despacho.m.monto",
+    "texto": "Bedrag"
+  },
+  {
+    "clave": "despacho.m.nota",
+    "texto": "Notitie (optioneel)"
+  },
+  {
+    "clave": "despacho.m.categoria",
+    "texto": "Categorie"
+  }
+]

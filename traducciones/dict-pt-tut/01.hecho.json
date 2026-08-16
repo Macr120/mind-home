@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "No cabeçalho de cada app fica o botão Metas, igual ao do calendário mas restrito a este app. Ele abre um painel com dois andares: em cima o checklist de hoje, embaixo suas metas e planos."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "Os objetivos próprios do app (a água, as calorias), o que você agendou para hoje no calendário e os passos das suas metas em curso: tudo junto, agrupado sob o plano ou a meta de onde vem cada passo."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "E se faltar algo, «Novo checklist» cria o seu: uma lista própria deste app que se repete todo dia. Embaixo da seção Hoje está o planejador completo — Metas, Planos e Cronograma — com todas as metas do app."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "As metas dos seus hobbies e projetos ficam no botão Metas do cabeçalho: o mesmo planejador Metas · Planos · Cronograma do calendário, restrito a este app. Peça à IA um plano com fases e datas."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "As metas ficam no botão Metas do cabeçalho, o mesmo cronograma do calendário: «terminar termodinâmica antes da prova» já está cumprida; se preparar para a pós-graduação segue em andamento."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "O botão Metas do cabeçalho guarda suas quatro metas cumpridas —os 5K, os 10K, a meia maratona e a maratona— e a que ainda está ativa. Metas com data também aparecem no calendário da casa."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "O botão Metas do cabeçalho abre o mesmo cronograma que o calendário da casa usa, restrito às metas da Cozinha: crie uma meta (por exemplo, «Perder 3 quilos») e peça o plano à IA — ela pergunta sua data-alvo e agenda submetas com data própria."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "O botão Metas do cabeçalho guarda essas metas na linha do tempo: você coloca datas em uma e ela aparece entre os seus dias do calendário. Com ✨ a IA propõe o plano de aportes."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "O programa salvo fica no botão Metas do cabeçalho: cada título guarda sua nota sobre por que está na lista, e se você colocar datas ele desce para o calendário como qualquer outra meta."
+  }
+]

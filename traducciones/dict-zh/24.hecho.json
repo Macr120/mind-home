@@ -1,0 +1,406 @@
+[
+ {
+  "clave": "ideas.matriz.pesoAyuda",
+  "texto": "这个标准对你有多重要（1-5）"
+ },
+ {
+  "clave": "ideas.matriz.puntajeAyuda",
+  "texto": "符合程度如何（点击可加分）"
+ },
+ {
+  "clave": "ideas.matriz.total",
+  "texto": "总分"
+ },
+ {
+  "clave": "ideas.matriz.nuevoCriterio",
+  "texto": "新标准"
+ },
+ {
+  "clave": "ideas.matriz.nuevaOpcion",
+  "texto": "选项"
+ },
+ {
+  "clave": "ideas.matriz.criterioN",
+  "texto": "标准{n}"
+ },
+ {
+  "clave": "ideas.matriz.opcionN",
+  "texto": "选项{n}"
+ },
+ {
+  "clave": "ideas.matriz.ayuda",
+  "texto": "点击名称可以修改，点击权重可以提高该标准的重要程度，点击每个格子可以打1-5分。总分已经乘以权重计算好了。"
+ },
+ {
+  "clave": "ideas.ejemplo.ver",
+  "texto": "查看示例"
+ },
+ {
+  "clave": "ideas.ejemplo.chip",
+  "texto": "示例"
+ },
+ {
+  "clave": "ideas.ejemplo.comoFunciona",
+  "texto": "这种格式是怎么用的？"
+ },
+ {
+  "clave": "ideas.guia.mental",
+  "texto": "思维导图向四面八方展开一个主题：中心是想法，周围是大分支，细节挂在分支上。适合在确定顺序之前先把脑子里的东西倒出来。"
+ },
+ {
+  "clave": "ideas.guia.arbol",
+  "texto": "树状图像组织结构图一样，从整体到具体展开。当你手里的是能拆分成子类别的分类，而不是零散的想法时，就用它。"
+ },
+ {
+  "clave": "ideas.guia.etimologia",
+  "texto": "词源树把一个词拆解开：它的来源、含义、用法，以及同源的词有哪些。适合在头脑风暴前深入了解一个概念，或者给什么东西起名字时使用。"
+ },
+ {
+  "clave": "ideas.tipo.etimologia",
+  "texto": "词源树"
+ },
+ {
+  "clave": "ideas.tipoDesc.etimologia",
+  "texto": "拆解一个词：来源、含义、用法与同源词。"
+ },
+ {
+  "clave": "ideas.guia.llaves",
+  "texto": "括号图把整体从左到右拆分成部分——经典的大纲形式。适合拆解事物、看清它的构成。"
+ },
+ {
+  "clave": "ideas.guia.circulo",
+  "texto": "圆圈图把主题放在中心，周围环绕着你知道的一切，没有层级关系。适合探索一个概念，或者考试前复习。"
+ },
+ {
+  "clave": "ideas.guia.flujo",
+  "texto": "流程图用箭头把步骤连起来。点击一个步骤，用形状按钮把它变成开始、判断或结束：菱形是是/否的问题。"
+ },
+ {
+  "clave": "ideas.guia.linea",
+  "texto": "时间轴按日期排序：每个里程碑交替出现在线的上方和下方，细节向外延伸。里程碑开头写上年份，读起来就很清楚。"
+ },
+ {
+  "clave": "ideas.guia.ciclo",
+  "texto": "循环图把不断重复的阶段串联起来。每个阶段都从根节点添加——点击背景，这样它就不会挂在前一个阶段下面——它们会自动分布在圆周上。"
+ },
+ {
+  "clave": "ideas.guia.piramide",
+  "texto": "金字塔图把层级堆叠起来：每一层都靠下面一层支撑，所以底层是最先要打好的基础。双击层级名称即可修改。"
+ },
+ {
+  "clave": "ideas.guia.venn",
+  "texto": "韦恩图把两个集合放在一起，它们的共同点落在重叠的区域。添加前先在底部栏选择区域，或者把一个项目拖到另一个上面，它会自动移动。"
+ },
+ {
+  "clave": "ideas.guia.comparacion",
+  "texto": "对比图把两个主题分列展示，共同点放在中间。它就像表格版的韦恩图：每边要点很多时读起来更快。"
+ },
+ {
+  "clave": "ideas.guia.proscontras",
+  "texto": "每一点都有1到5的权重：选中它，用底部栏的－＋调整。每列末尾会自动求和，所以决定不再取决于“哪个列表更长”。"
+ },
+ {
+  "clave": "ideas.guia.fuerzas",
+  "texto": "力场分析着眼于一次变化：左边是推动它的力量，右边是阻碍它的力量，各自都有权重。如果右边占上风，就先解决最重的那股阻力。"
+ },
+ {
+  "clave": "ideas.guia.foda",
+  "texto": "优势和劣势是你自己的；机会和威胁来自外部。拿不准的时候，问问自己这件事是否取决于你。"
+ },
+ {
+  "clave": "ideas.guia.eisenhower",
+  "texto": "重要程度在上，紧急程度在左。“安排日程”这个象限才是真正推动进展的地方：如果它一直空着，你就是在一整天疲于救火。"
+ },
+ {
+  "clave": "ideas.guia.decision",
+  "texto": "每个分支代表一个选项及其后果。即使看起来显而易见，也要写下来：没写下来的东西，等于没法比较。"
+ },
+ {
+  "clave": "ideas.guia.tier",
+  "texto": "S是最高，D是最低。还无法排名的先放在下方的“未分级”里，确定后再拖到对应的行。"
+ },
+ {
+  "clave": "ideas.guia.ishikawa",
+  "texto": "鱼头是问题，每根鱼骨代表一类原因（方法、设备、材料、测量……）。要找的是原因，不是解决方案：那是后面的事。"
+ },
+ {
+  "clave": "ideas.mapa.impulsan",
+  "texto": "推动力"
+ },
+ {
+  "clave": "ideas.mapa.frenan",
+  "texto": "阻碍力"
+ },
+ {
+  "clave": "ideas.mapa.hacer",
+  "texto": "现在做"
+ },
+ {
+  "clave": "ideas.mapa.agendar",
+  "texto": "安排日程"
+ },
+ {
+  "clave": "ideas.mapa.delegar",
+  "texto": "委托他人"
+ },
+ {
+  "clave": "ideas.mapa.quitar",
+  "texto": "放弃"
+ },
+ {
+  "clave": "ideas.mapa.cima",
+  "texto": "顶峰"
+ },
+ {
+  "clave": "ideas.mapa.nivel3",
+  "texto": "第3层"
+ },
+ {
+  "clave": "ideas.mapa.nivel2",
+  "texto": "第2层"
+ },
+ {
+  "clave": "ideas.mapa.base",
+  "texto": "基础"
+ },
+ {
+  "clave": "ideas.mapa.sinClasificar",
+  "texto": "未分级"
+ },
+ {
+  "clave": "ideas.mapa.peso",
+  "texto": "权重（1-5）"
+ },
+ {
+  "clave": "ideas.mapa.pesoMas",
+  "texto": "增加权重"
+ },
+ {
+  "clave": "ideas.mapa.pesoMenos",
+  "texto": "减少权重"
+ },
+ {
+  "clave": "ideas.mapa.total",
+  "texto": "总计"
+ },
+ {
+  "clave": "ideas.tipo.proscontras",
+  "texto": "利弊分析"
+ },
+ {
+  "clave": "ideas.tipo.foda",
+  "texto": "SWOT分析"
+ },
+ {
+  "clave": "ideas.tipo.ishikawa",
+  "texto": "鱼骨图"
+ },
+ {
+  "clave": "ideas.tipoDesc.proscontras",
+  "texto": "一个决定分两栏：加分项和减分项。"
+ },
+ {
+  "clave": "ideas.tipoDesc.foda",
+  "texto": "四个象限：优势、机会、劣势和威胁。"
+ },
+ {
+  "clave": "ideas.tipoDesc.ishikawa",
+  "texto": "鱼骨图：一个问题及其背后的原因。"
+ },
+ {
+  "clave": "ideas.mapa.ventajas",
+  "texto": "优点"
+ },
+ {
+  "clave": "ideas.mapa.desventajas",
+  "texto": "缺点"
+ },
+ {
+  "clave": "ideas.mapa.fortalezas",
+  "texto": "优势"
+ },
+ {
+  "clave": "ideas.mapa.debilidades",
+  "texto": "劣势"
+ },
+ {
+  "clave": "ideas.mapa.oportunidades",
+  "texto": "机会"
+ },
+ {
+  "clave": "ideas.mapa.amenazas",
+  "texto": "威胁"
+ },
+ {
+  "clave": "ideas.mapa.causa",
+  "texto": "原因"
+ },
+ {
+  "clave": "ideas.mapa.categoria",
+  "texto": "类别"
+ },
+ {
+  "clave": "ideas.diagramas.volver",
+  "texto": "返回图表"
+ },
+ {
+  "clave": "ideas.diagramas.placeholder",
+  "texto": "想要分析的决定或问题…"
+ },
+ {
+  "clave": "ideas.diagramas.generar",
+  "texto": "用AI生成图表"
+ },
+ {
+  "clave": "ideas.diagramas.generando",
+  "texto": "正在整理图表…"
+ },
+ {
+  "clave": "ideas.diagramas.errorIA",
+  "texto": "AI无法生成图表："
+ },
+ {
+  "clave": "ideas.diagramas.vacio",
+  "texto": "选择一种格式，把那个在你脑子里打转的决定理清楚。"
+ },
+ {
+  "clave": "ideas.diario.enLluvia",
+  "texto": "头脑风暴：{tema}"
+ },
+ {
+  "clave": "ideas.diario.cerrarLluvia",
+  "texto": "关闭头脑风暴"
+ },
+ {
+  "clave": "ideas.diario.temaPlaceholder",
+  "texto": "头脑风暴的主题是什么？"
+ },
+ {
+  "clave": "ideas.diario.empezar",
+  "texto": "开始"
+ },
+ {
+  "clave": "ideas.diario.nuevaLluvia",
+  "texto": "进行一次头脑风暴"
+ },
+ {
+  "clave": "ideas.diario.placeholder",
+  "texto": "突然想到…"
+ },
+ {
+  "clave": "ideas.diario.placeholderLluvia",
+  "texto": "再想一个，别过滤自己…"
+ },
+ {
+  "clave": "ideas.diario.anotar",
+  "texto": "记下来"
+ },
+ {
+  "clave": "ideas.diario.masIdeas",
+  "texto": "带来更多想法"
+ },
+ {
+  "clave": "ideas.diario.aMapa",
+  "texto": "转换成地图"
+ },
+ {
+  "clave": "ideas.diario.arbolEtimo",
+  "texto": "词源树"
+ },
+ {
+  "clave": "ideas.diario.arbolEtimoGenerando",
+  "texto": "正在拆解词语…"
+ },
+ {
+  "clave": "ideas.diario.errorArbol",
+  "texto": "AI无法生成词源树："
+ },
+ {
+  "clave": "ideas.diario.porDia",
+  "texto": "按日期"
+ },
+ {
+  "clave": "ideas.diario.favoritas",
+  "texto": "已加星标"
+ },
+ {
+  "clave": "ideas.diario.soloFav",
+  "texto": "仅显示已加星标"
+ },
+ {
+  "clave": "ideas.diario.vacio",
+  "texto": "你想到的一切都会落在这里，之后再整理就好。"
+ },
+ {
+  "clave": "ideas.diario.iaTitulo",
+  "texto": "更多想法"
+ },
+ {
+  "clave": "ideas.diario.iaDesc",
+  "texto": "为“{tema}”提议的想法："
+ },
+ {
+  "clave": "ideas.diario.listo",
+  "texto": "完成"
+ },
+ {
+  "clave": "ideas.diario.destacar",
+  "texto": "加星标"
+ },
+ {
+  "clave": "ideas.diario.retomar",
+  "texto": "继续这次头脑风暴"
+ },
+ {
+  "clave": "ideas.diario.encarpetar",
+  "texto": "保存到文件夹"
+ },
+ {
+  "clave": "ideas.diario.enCarpeta",
+  "texto": "位于“{carpeta}”·点击可移动"
+ },
+ {
+  "clave": "ideas.diario.encarpetarTit",
+  "texto": "将“{idea}”保存到…"
+ },
+ {
+  "clave": "ideas.mover.cerrar",
+  "texto": "关闭"
+ },
+ {
+  "clave": "ideas.mover.raiz",
+  "texto": "松散放在日记中"
+ },
+ {
+  "clave": "ideas.mover.sinCarpetas",
+  "texto": "你还没有文件夹：请在日记的“文件夹”视图中创建。"
+ },
+ {
+  "clave": "ideas.vista.sinPuntos",
+  "texto": "这个想法还没有展开。"
+ },
+ {
+  "clave": "ideas.diario.porCarpeta",
+  "texto": "文件夹"
+ },
+ {
+  "clave": "ideas.diario.caeEn",
+  "texto": "落入“{carpeta}”"
+ },
+ {
+  "clave": "ideas.diario.caeSuelta",
+  "texto": "会单独落在日记里，之后可以移动到文件夹。"
+ },
+ {
+  "clave": "ideas.diario.lluviaDesc",
+  "texto": "打开一个主题，你在上面记下的一切都会归到它名下。攒够了之后，把它变成地图来整理。"
+ },
+ {
+  "clave": "ideas.diario.nPuntos",
+  "texto": "{hechos}/{total}项"
+ },
+ {
+  "clave": "ideas.carp.todas",
+  "texto": "所有想法"
+ }
+]

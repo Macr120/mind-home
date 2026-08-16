@@ -1,0 +1,1046 @@
+[
+  {
+    "ruta": "notasSesion.0.nota",
+    "texto": "On dakika ve kafam bir saniye bile durmadı. Yine aynı huzursuzlukla kalktım ama en azından oturdum."
+  },
+  {
+    "ruta": "notasSesion.1.nota",
+    "texto": "Kafeyi açmadan önce dört-yedi-sekiz. Nabzım fırlamış halde gelmediğimde kahveleri daha iyi hazırlıyorum."
+  },
+  {
+    "ruta": "notasSesion.2.nota",
+    "texto": "Üç seansı art arda üçüncü hafta tamamladım. Bugün dikkatimin dağıldığı o anı fark ettim ve kendimi azarlamadan geri döndüm."
+  },
+  {
+    "ruta": "notasSesion.3.nota",
+    "texto": "5K’den önceki gece. Beni tam olarak sakinleştirmedi ama birde değil, on birde uyudum."
+  },
+  {
+    "ruta": "notasSesion.4.nota",
+    "texto": "Otobüs durağında, trafik gürültüsünün ortasında nefes aldım. Yine de işe yaradı, zaten şüphem oydu."
+  },
+  {
+    "ruta": "notasSesion.5.nota",
+    "texto": "İlk kez yirmi dakika. Son beş dakika tam bir sabırsızlıktı ama yine de dayandım."
+  },
+  {
+    "ruta": "notasSesion.6.nota",
+    "texto": "Laboratuvardan sonra kısa bir seans. Yorgunlukla kaygının aynı şey olmadığını hatırlamama yaradı."
+  },
+  {
+    "ruta": "notasSesion.7.nota",
+    "texto": "Dizim yeter dediğinden beri ilk seans. Bütün süre boyunca elimde çöken koşu planını düşündüm."
+  },
+  {
+    "ruta": "notasSesion.8.nota",
+    "texto": "Bugün sadece öfkeye bakabildim. Gitmedi ama dünkünden daha küçüldü."
+  },
+  {
+    "ruta": "notasSesion.9.nota",
+    "texto": "Tamirhaneden gelen aramadan sonra. Fiyat teklifini tekrar açmadan önce on yavaş nefes."
+  },
+  {
+    "ruta": "notasSesion.10.nota",
+    "texto": "Ağlayarak oturdum, ağlamadan bitirdim. Bunun meditasyon sayılıp sayılmadığını bilmiyorum ama bugün işime yaradı."
+  },
+  {
+    "ruta": "notasSesion.11.nota",
+    "texto": "Tek bir gün bile aksatmadan iki hafta. Bu ay rutinimde bozulmayan tek şey bu."
+  },
+  {
+    "ruta": "notasSesion.12.nota",
+    "texto": "Fizyoterapiden hemen sonra on dakika. Diz artık kafamın tamamını kaplamıyor."
+  },
+  {
+    "ruta": "notasSesion.13.nota",
+    "texto": "Açmadan önce arka odada dört-yedi-sekiz. Haftalardır ilk kez aceleye kapılmadan tezgâha çıktım."
+  },
+  {
+    "ruta": "notasSesion.14.nota",
+    "texto": "Uçuştan önceki son hafta. Yolculuk gerginliğini düzene sokmaya çalışmadan izlemek için oturdum."
+  },
+  {
+    "ruta": "notasSesion.15.nota",
+    "texto": "Arka planda trenlerin gürültüsüyle Ueno’da bir bankta. Üç dakika ve omuzlarım gevşedi."
+  },
+  {
+    "ruta": "notasSesion.16.nota",
+    "texto": "Kyoto’da tatami üzerinde yirmi dakika, zamanlayıcı yok. Bitmesini istemedim."
+  },
+  {
+    "ruta": "notasSesion.17.nota",
+    "texto": "Bir aylık aradan sonra kendi minderimde ilk seans. Yastık Laika kokuyordu."
+  },
+  {
+    "ruta": "notasSesion.18.nota",
+    "texto": "Mekanik ara sınavından önce beş dakika. Notları bir kez daha okumaktan daha işe yarıyor."
+  },
+  {
+    "ruta": "notasSesion.19.nota",
+    "texto": "Uzun pazar seansı. Yarı maraton aklıma geldi, ona baktım ve geçip gitmesine izin verdim."
+  },
+  {
+    "ruta": "notasSesion.20.nota",
+    "texto": "Start kutusunda iki dakika, burnumdan nefes alarak. Nabzım start pistolinden önce düştü."
+  },
+  {
+    "ruta": "notasSesion.21.nota",
+    "texto": "Yoğun kilometre haftası: sekizinci dakikada uyuyakaldım. Yine de sayıyorum."
+  },
+  {
+    "ruta": "notasSesion.22.nota",
+    "texto": "Termal battaniyeyle banyo zemininde oturmuş, yavaşça nefes alıyordum. Beden paramparça, kafa tertemiz."
+  },
+  {
+    "ruta": "notasSesion.23.nota",
+    "texto": "Bunu yapmaya başlayalı bir yıl oldu. Yirmi dakika ve özel bir şey olmadı, ki artık bu bile bana yeterli geliyor."
+  },
+  {
+    "ruta": "gratitudes.0.item1",
+    "texto": "İkinci el klavye artık neredeyse hiç akort kaymıyor"
+  },
+  {
+    "ruta": "gratitudes.0.item2",
+    "texto": "Laika metronomun sesine alıştı"
+  },
+  {
+    "ruta": "gratitudes.0.item3",
+    "texto": "Üç gün yetecek mercimek pişirdim"
+  },
+  {
+    "ruta": "gratitudes.1.item1",
+    "texto": "Yirmi dakika durmadan koştum"
+  },
+  {
+    "ruta": "gratitudes.1.item2",
+    "texto": "Cumartesi bahşişleri iyi çaya yetti"
+  },
+  {
+    "ruta": "gratitudes.2.item1",
+    "texto": "Terazi 74 kg gösterdi ve artık bakmaktan korkmuyorum"
+  },
+  {
+    "ruta": "gratitudes.2.item2",
+    "texto": "Uyumadan önce otuz İngilizce kartın hepsini tekrar ettim"
+  },
+  {
+    "ruta": "gratitudes.2.item3",
+    "texto": "Vardiya bitince sıcak duş"
+  },
+  {
+    "ruta": "gratitudes.3.item1",
+    "texto": "Nuri laboratuvara yetişebilmem için yarım saat beni kolladı"
+  },
+  {
+    "ruta": "gratitudes.3.item2",
+    "texto": "Koşu ayakkabıları artık sürtmüyor"
+  },
+  {
+    "ruta": "gratitudes.3.item3",
+    "texto": "Sabah altıda açık gökyüzü"
+  },
+  {
+    "ruta": "gratitudes.4.item1",
+    "texto": "Kafeyi açmadan önce on dakika meditasyon"
+  },
+  {
+    "ruta": "gratitudes.4.item2",
+    "texto": "Annem alay etmeden piyanoyu sordu"
+  },
+  {
+    "ruta": "gratitudes.5.item1",
+    "texto": "Mekanik ara sınavını geçtim"
+  },
+  {
+    "ruta": "gratitudes.5.item2",
+    "texto": "Laika notlarımın üzerinde uyudu"
+  },
+  {
+    "ruta": "gratitudes.5.item3",
+    "texto": "Vardiyadan bir gün önceki bedava ekmek"
+  },
+  {
+    "ruta": "gratitudes.6.item1",
+    "texto": "Hafif yağmurda koşmak hoşuma gitti"
+  },
+  {
+    "ruta": "gratitudes.6.item2",
+    "texto": "Bütçe bu on beş günde tuttu"
+  },
+  {
+    "ruta": "gratitudes.6.item3",
+    "texto": "Tuşlara bakmadan do majör gam"
+  },
+  {
+    "ruta": "gratitudes.7.item1",
+    "texto": "Bugün vardiyalar arasında hiçbir şey atıştırmadım"
+  },
+  {
+    "ruta": "gratitudes.7.item2",
+    "texto": "Neredeyse tamamını anladığım İngilizce bir podcast buldum"
+  },
+  {
+    "ruta": "gratitudes.8.item1",
+    "texto": "Bisiklet bu hafta kırk kilometreye dayandı"
+  },
+  {
+    "ruta": "gratitudes.8.item2",
+    "texto": "Alex ile telefona bakmadan yemek"
+  },
+  {
+    "ruta": "gratitudes.8.item3",
+    "texto": "Köşedeki dükkândan oolong çayı"
+  },
+  {
+    "ruta": "gratitudes.9.item1",
+    "texto": "Yedi saat kesintisiz uyudum"
+  },
+  {
+    "ruta": "gratitudes.9.item2",
+    "texto": "İki elle ilk şarkı, yavaş ama baştan sona"
+  },
+  {
+    "ruta": "gratitudes.9.item3",
+    "texto": "Kapıda beni bekleyen Laika"
+  },
+  {
+    "ruta": "gratitudes.10.item1",
+    "texto": "Üç haftadır koşu planına uyuyorum"
+  },
+  {
+    "ruta": "gratitudes.10.item2",
+    "texto": "Tokyo uçak biletleri sandığımdan ucuz"
+  },
+  {
+    "ruta": "gratitudes.11.item1",
+    "texto": "Rita, koşu günü olan pazar vardiyamı değiştirdi"
+  },
+  {
+    "ruta": "gratitudes.11.item2",
+    "texto": "İki hafif günden sonra dinlenmiş bacaklar"
+  },
+  {
+    "ruta": "gratitudes.11.item3",
+    "texto": "Gece on birde sıcak çorba"
+  },
+  {
+    "ruta": "gratitudes.12.item1",
+    "texto": "5K’yi 29:40’ta bitirdim"
+  },
+  {
+    "ruta": "gratitudes.12.item2",
+    "texto": "Alex bitiş çizgisinde saçma bir pankartla belirdi"
+  },
+  {
+    "ruta": "gratitudes.12.item3",
+    "texto": "Ucuz ama yine de saklayacağım bir madalya"
+  },
+  {
+    "ruta": "gratitudes.13.item1",
+    "texto": "Japonya işini kâğıda döktüm, artık geri dönüş yok"
+  },
+  {
+    "ruta": "gratitudes.13.item2",
+    "texto": "Yolculuk için ayrı bir tasarruf hesabı açtım"
+  },
+  {
+    "ruta": "gratitudes.13.item3",
+    "texto": "On hiragana tanıyorum"
+  },
+  {
+    "ruta": "gratitudes.14.item1",
+    "texto": "Sakin bir vardiya ve gayet iyi bahşişler"
+  },
+  {
+    "ruta": "gratitudes.14.item2",
+    "texto": "Laboratuvar raporu iyi yorumlarla geri döndü"
+  },
+  {
+    "ruta": "gratitudes.15.item1",
+    "texto": "İşten sonra koşmak artık beni bitirmiyor"
+  },
+  {
+    "ruta": "gratitudes.15.item2",
+    "texto": "Kyoto’nun ulaşımı hakkında net bir rehber buldum"
+  },
+  {
+    "ruta": "gratitudes.15.item3",
+    "texto": "Laika ve öğleden sonra güneşi aynı köşede"
+  },
+  {
+    "ruta": "gratitudes.16.item1",
+    "texto": "Japonya fonuna 2.700 ₺ daha"
+  },
+  {
+    "ruta": "gratitudes.16.item2",
+    "texto": "Artık takılmadan sumimasen diyorum"
+  },
+  {
+    "ruta": "gratitudes.16.item3",
+    "texto": "Etiyopya kahvesinden bedava tadım"
+  },
+  {
+    "ruta": "gratitudes.17.item1",
+    "texto": "Bir kilo verdim, dramsız"
+  },
+  {
+    "ruta": "gratitudes.17.item2",
+    "texto": "İki el ve pedal aynı anda"
+  },
+  {
+    "ruta": "gratitudes.18.item1",
+    "texto": "Dokuz kilometre koştum ve sonunda nefesim yetti"
+  },
+  {
+    "ruta": "gratitudes.18.item2",
+    "texto": "Gazozu maden suyuyla değiştirdim ve hâlâ hayattayım"
+  },
+  {
+    "ruta": "gratitudes.18.item3",
+    "texto": "Bisiklet 540 ₺’ye tamir edildi"
+  },
+  {
+    "ruta": "gratitudes.19.item1",
+    "texto": "Piyanoda ilk parçamı baştan sona bitirdim"
+  },
+  {
+    "ruta": "gratitudes.19.item2",
+    "texto": "Onu Laika’ya çaldım, mevcut tek dinleyiciydi"
+  },
+  {
+    "ruta": "gratitudes.20.item1",
+    "texto": "10K’yi tamamladım, yavaş ama tamam"
+  },
+  {
+    "ruta": "gratitudes.20.item2",
+    "texto": "Dizlerim altmış dakikaya dayandı"
+  },
+  {
+    "ruta": "gratitudes.20.item3",
+    "texto": "Suçluluk duymadan kocaman kahvaltı"
+  },
+  {
+    "ruta": "gratitudes.21.item2",
+    "texto": "Çalışma grubu kavgasız organize oldu"
+  },
+  {
+    "ruta": "gratitudes.21.item3",
+    "texto": "Tripodu denemek için temiz bir gece"
+  },
+  {
+    "ruta": "gratitudes.22.item1",
+    "texto": "Ayın ilk düzgün fotoğrafı"
+  },
+  {
+    "ruta": "gratitudes.22.item2",
+    "texto": "Sabahın ikisinde zencefilli çay"
+  },
+  {
+    "ruta": "gratitudes.23.item1",
+    "texto": "Sevdiğim müzikle geçen bir cuma vardiyası"
+  },
+  {
+    "ruta": "gratitudes.23.item2",
+    "texto": "Japonya tasarrufu %30’a ulaştı"
+  },
+  {
+    "ruta": "gratitudes.23.item3",
+    "texto": "Bir müşteri sütü buharla köpürtme numarasını gösterdi"
+  },
+  {
+    "ruta": "gratitudes.24.item1",
+    "texto": "Altyazısız bir bölümü baştan sona İngilizce anladım"
+  },
+  {
+    "ruta": "gratitudes.24.item2",
+    "texto": "Pazar günü Alex ile koşu"
+  },
+  {
+    "ruta": "gratitudes.24.item3",
+    "texto": "Laika yine ayaklarımın ucunda uyudu"
+  },
+  {
+    "ruta": "gratitudes.25.item1",
+    "texto": "Suçluluk duymadan bir dinlenme günü"
+  },
+  {
+    "ruta": "gratitudes.25.item2",
+    "texto": "Salı günü ucuz seansta bilim kurgu"
+  },
+  {
+    "ruta": "gratitudes.25.item3",
+    "texto": "Koşu kıyafetleri zamanında kurudu"
+  },
+  {
+    "ruta": "gratitudes.26.item1",
+    "texto": "Plana eklenen yeni on iki kilometre"
+  },
+  {
+    "ruta": "gratitudes.26.item2",
+    "texto": "Sonu gelmez kuyruklar olmadan pasaport yenilendi"
+  },
+  {
+    "ruta": "gratitudes.27.item1",
+    "texto": "Tasarruf %50’ye ulaştı"
+  },
+  {
+    "ruta": "gratitudes.27.item2",
+    "texto": "Bu hafta şüphe uyandıracak kadar iyi bahşişler"
+  },
+  {
+    "ruta": "gratitudes.27.item3",
+    "texto": "Ara sınavdan önce üç dakikalık nefes egzersizi"
+  },
+  {
+    "ruta": "gratitudes.28.item1",
+    "texto": "71 kg oldum, kotlarım artık bol geliyor"
+  },
+  {
+    "ruta": "gratitudes.28.item2",
+    "texto": "Epey daha zor yeni bir parçaya başladım"
+  },
+  {
+    "ruta": "gratitudes.28.item3",
+    "texto": "Kız kardeşimle akşam yemeği"
+  },
+  {
+    "ruta": "gratitudes.29.item1",
+    "texto": "Laboratuvar raporunu zamanında teslim ettim"
+  },
+  {
+    "ruta": "gratitudes.29.item2",
+    "texto": "15K takvimde ve artık beni korkutmuyor"
+  },
+  {
+    "ruta": "gratitudes.30.item1",
+    "texto": "Araba ilk seferde çalıştı"
+  },
+  {
+    "ruta": "gratitudes.30.item2",
+    "texto": "Vardiyadan önce gün doğumunda koşu"
+  },
+  {
+    "ruta": "gratitudes.30.item3",
+    "texto": "Yandaki fırından taze ekmek"
+  },
+  {
+    "ruta": "gratitudes.31.item1",
+    "texto": "Hakone’de konaklama ayırttım"
+  },
+  {
+    "ruta": "gratitudes.31.item2",
+    "texto": "Temel Japonca’yla artık yemek sipariş edebiliyorum"
+  },
+  {
+    "ruta": "gratitudes.31.item3",
+    "texto": "Laika bir güve yakaladı ve gururlandı"
+  },
+  {
+    "ruta": "gratitudes.32.item1",
+    "texto": "On dört kilometreye dayandım"
+  },
+  {
+    "ruta": "gratitudes.32.item2",
+    "texto": "Ailem yolculuk boyunca Laika’ya bakmayı teklif etti"
+  },
+  {
+    "ruta": "gratitudes.33.item1",
+    "texto": "Bütün maaş yolculuk fonuna gitti"
+  },
+  {
+    "ruta": "gratitudes.33.item2",
+    "texto": "Saate bakmadan on dakika meditasyon"
+  },
+  {
+    "ruta": "gratitudes.33.item3",
+    "texto": "Ot gibi kokan yeni bir yeşil çay"
+  },
+  {
+    "ruta": "gratitudes.34.item1",
+    "texto": "Doktor ciddi değil, sadece yavaş dedi"
+  },
+  {
+    "ruta": "gratitudes.34.item2",
+    "texto": "Dizimi kullanmadan piyano çalabiliyorum"
+  },
+  {
+    "ruta": "gratitudes.34.item3",
+    "texto": "Laika yanımdan hiç ayrılmadı"
+  },
+  {
+    "ruta": "gratitudes.35.item1",
+    "texto": "Buz ve kanepe de bir plan sayılır"
+  },
+  {
+    "ruta": "gratitudes.35.item2",
+    "texto": "Aylardır yarım kalan bir kitabı bitirdim"
+  },
+  {
+    "ruta": "gratitudes.36.item1",
+    "texto": "Nuri daha az ayakta durayım diye vardiyalarımı değiştirdi"
+  },
+  {
+    "ruta": "gratitudes.36.item2",
+    "texto": "Yarım saatlik piyano beni o döngüden çıkardı"
+  },
+  {
+    "ruta": "gratitudes.36.item3",
+    "texto": "Komşumun getirdiği çorba"
+  },
+  {
+    "ruta": "gratitudes.37.item1",
+    "texto": "Tamirhane onarımı taksitle ödememe izin verdi"
+  },
+  {
+    "ruta": "gratitudes.37.item2",
+    "texto": "O e-postayı yanıtlamadan önce yirmi nefes"
+  },
+  {
+    "ruta": "gratitudes.37.item3",
+    "texto": "Japonya parasına hiç dokunmadım"
+  },
+  {
+    "ruta": "gratitudes.38.item1",
+    "texto": "Yüzmek acıtmıyor"
+  },
+  {
+    "ruta": "gratitudes.38.item2",
+    "texto": "Japonca’da tarihleri söylemeyi öğrendim"
+  },
+  {
+    "ruta": "gratitudes.39.item1",
+    "texto": "Merdivenlerden topallamadan indim"
+  },
+  {
+    "ruta": "gratitudes.39.item2",
+    "texto": "Annem tam gerektiği anda aradı"
+  },
+  {
+    "ruta": "gratitudes.39.item3",
+    "texto": "Vardiyanın ortasında bedava kahve"
+  },
+  {
+    "ruta": "gratitudes.40.item1",
+    "texto": "Araba yeniden yola çıktı ve korktuğumdan az tuttu"
+  },
+  {
+    "ruta": "gratitudes.40.item2",
+    "texto": "İki hafta boyunca her gün meditasyon"
+  },
+  {
+    "ruta": "gratitudes.40.item3",
+    "texto": "Yağmur beni evde kalıp ders çalışmaya zorladı"
+  },
+  {
+    "ruta": "gratitudes.41.item1",
+    "texto": "Elektromanyetizmayı kılpayı ama geçtim"
+  },
+  {
+    "ruta": "gratitudes.41.item2",
+    "texto": "Kırk dakika sorunsuz yürüyorum"
+  },
+  {
+    "ruta": "gratitudes.42.item1",
+    "texto": "Sürekli gelen bir müşteri dizimi sordu"
+  },
+  {
+    "ruta": "gratitudes.42.item2",
+    "texto": "Yeni parça artık egzersiz değil, müzik gibi çalıyor"
+  },
+  {
+    "ruta": "gratitudes.42.item3",
+    "texto": "Laika klavye kutusunun içinde uyuyor"
+  },
+  {
+    "ruta": "gratitudes.43.item1",
+    "texto": "İlk deneme koşusu: beş dakika, sıfır ağrı"
+  },
+  {
+    "ruta": "gratitudes.43.item2",
+    "texto": "Fizyoterapistte önümüzdeki hafta yer var"
+  },
+  {
+    "ruta": "gratitudes.43.item3",
+    "texto": "Gece yarısı ballı çay"
+  },
+  {
+    "ruta": "gratitudes.44.item1",
+    "texto": "Japonya’nın tam güzergâhını yazdım"
+  },
+  {
+    "ruta": "gratitudes.44.item2",
+    "texto": "Sekiz saat kesintisiz uyudum"
+  },
+  {
+    "ruta": "gratitudes.45.item1",
+    "texto": "İlk fizyoterapi seansı: sıkıcı egzersizler ama net bir plan var"
+  },
+  {
+    "ruta": "gratitudes.45.item2",
+    "texto": "Sakin bir vardiya ve gayet iyi bahşişler"
+  },
+  {
+    "ruta": "gratitudes.45.item3",
+    "texto": "Laika pencerede bekliyor"
+  },
+  {
+    "ruta": "gratitudes.46.item1",
+    "texto": "Tek bir sorun olmadan on dakika hafif koşu"
+  },
+  {
+    "ruta": "gratitudes.46.item2",
+    "texto": "Komşum yolculuk için bana bir valiz ödünç verdi"
+  },
+  {
+    "ruta": "gratitudes.47.item1",
+    "texto": "Hakone treninin biletini aldım"
+  },
+  {
+    "ruta": "gratitudes.47.item2",
+    "texto": "Barda yeni Etiyopya kahvesi"
+  },
+  {
+    "ruta": "gratitudes.47.item3",
+    "texto": "Kesintisiz uyudum"
+  },
+  {
+    "ruta": "gratitudes.48.item1",
+    "texto": "Fizyoterapi egzersizlerini artık kâğıda bakmadan yapabiliyorum"
+  },
+  {
+    "ruta": "gratitudes.48.item2",
+    "texto": "Japonya tasarrufu tamamlandı"
+  },
+  {
+    "ruta": "gratitudes.48.item3",
+    "texto": "Japonca bir restoranda sipariş vermeyi öğrendim"
+  },
+  {
+    "ruta": "gratitudes.49.item1",
+    "texto": "Yirmi dakika aralıksız koşu"
+  },
+  {
+    "ruta": "gratitudes.49.item2",
+    "texto": "Laboratuvar raporunda iyi bir not"
+  },
+  {
+    "ruta": "gratitudes.49.item3",
+    "texto": "Kız kardeşim bana priz adaptörleri gönderdi"
+  },
+  {
+    "ruta": "gratitudes.50.item1",
+    "texto": "Fizyoterapist dizimin yolculuğa iyi durumda gireceğini söylüyor"
+  },
+  {
+    "ruta": "gratitudes.50.item2",
+    "texto": "Artık \"etsiz, lütfen\" demeyi biliyorum"
+  },
+  {
+    "ruta": "gratitudes.51.item1",
+    "texto": "İyi bahşişli çift vardiya"
+  },
+  {
+    "ruta": "gratitudes.51.item2",
+    "texto": "Çevrimdışı haritalar indirildi, güzergâh iki kez gözden geçirildi"
+  },
+  {
+    "ruta": "gratitudes.51.item3",
+    "texto": "Laika açık valizin içine girmiş"
+  },
+  {
+    "ruta": "gratitudes.52.item1",
+    "texto": "Gitmeden önce dönem projesini teslim ettim"
+  },
+  {
+    "ruta": "gratitudes.52.item2",
+    "texto": "İngilizce bir podcast’i baştan sona anladım"
+  },
+  {
+    "ruta": "gratitudes.52.item3",
+    "texto": "Vardiyadan sonra Nico ile yeşil çay"
+  },
+  {
+    "ruta": "gratitudes.53.item1",
+    "texto": "Her şey tek bir sırt çantasına sığdı"
+  },
+  {
+    "ruta": "gratitudes.53.item2",
+    "texto": "Nico üç hafta boyunca Laika’ya bakacak"
+  },
+  {
+    "ruta": "gratitudes.53.item3",
+    "texto": "İyi türden bir gerginlik"
+  },
+  {
+    "ruta": "gratitudes.54.item1",
+    "texto": "Günlerle dolu bir defterle döndüm"
+  },
+  {
+    "ruta": "gratitudes.54.item2",
+    "texto": "Laika beni yarım saat azarladı, sonra üzerimde uyudu"
+  },
+  {
+    "ruta": "gratitudes.54.item3",
+    "texto": "Kendi yatağım"
+  },
+  {
+    "ruta": "gratitudes.55.item1",
+    "texto": "Valizimi acele etmeden boşalttım"
+  },
+  {
+    "ruta": "gratitudes.55.item2",
+    "texto": "Kendi kafemdeki kahve farklı tadıyor ve hoşuma gidiyor"
+  },
+  {
+    "ruta": "gratitudes.55.item3",
+    "texto": "Fuji fotoğrafları net çıktı"
+  },
+  {
+    "ruta": "gratitudes.56.item1",
+    "texto": "Yarı maraton planının ilk günü"
+  },
+  {
+    "ruta": "gratitudes.56.item2",
+    "texto": "Sanki bir ay geçmemiş gibi minderime döndüm"
+  },
+  {
+    "ruta": "gratitudes.56.item3",
+    "texto": "Orada öğrendiklerimle evde yapılmış erişte"
+  },
+  {
+    "ruta": "gratitudes.57.item1",
+    "texto": "Harcama defteri yine güncel"
+  },
+  {
+    "ruta": "gratitudes.57.item2",
+    "texto": "Sekiz saat uyku"
+  },
+  {
+    "ruta": "gratitudes.57.item3",
+    "texto": "Nico bitkiyi hayatta tuttu"
+  },
+  {
+    "ruta": "gratitudes.58.item1",
+    "texto": "Clair de Lune’un ilk bölümünü öğrendim"
+  },
+  {
+    "ruta": "gratitudes.58.item2",
+    "texto": "İyi müzik ve nazik müşterilerle geçen bir vardiya"
+  },
+  {
+    "ruta": "gratitudes.59.item1",
+    "texto": "12K durmadan"
+  },
+  {
+    "ruta": "gratitudes.59.item2",
+    "texto": "Diz dayanıyor ve ertesi gün şikayet etmiyor"
+  },
+  {
+    "ruta": "gratitudes.59.item3",
+    "texto": "Evde yapılmış miso çorbası"
+  },
+  {
+    "ruta": "gratitudes.60.item1",
+    "texto": "Terazi 69 gösterdi"
+  },
+  {
+    "ruta": "gratitudes.60.item2",
+    "texto": "Bir müşteri çay önerisi istedi ve tam isabet ettim"
+  },
+  {
+    "ruta": "gratitudes.60.item3",
+    "texto": "Ayı fotoğraflamak için açık gökyüzü"
+  },
+  {
+    "ruta": "gratitudes.61.item1",
+    "texto": "Acil durum fonuna ilk yatırım"
+  },
+  {
+    "ruta": "gratitudes.61.item2",
+    "texto": "Aradan sonra İngilizce kartlara dönüş"
+  },
+  {
+    "ruta": "gratitudes.61.item3",
+    "texto": "İkinci el dükkândan yeni bir battaniye"
+  },
+  {
+    "ruta": "gratitudes.62.item1",
+    "texto": "Laboratuvar sınavını geçtim"
+  },
+  {
+    "ruta": "gratitudes.62.item2",
+    "texto": "Annemle uzun bir görüntülü görüşme"
+  },
+  {
+    "ruta": "gratitudes.62.item3",
+    "texto": "Laika yine klavyenin üzerine oturmuş"
+  },
+  {
+    "ruta": "gratitudes.63.item1",
+    "texto": "Yağmurda koştum ve nefret etmedim"
+  },
+  {
+    "ruta": "gratitudes.63.item2",
+    "texto": "Köşedeki fırından sıcak ekmek"
+  },
+  {
+    "ruta": "gratitudes.64.item1",
+    "texto": "Clair de Lune’un ikinci bölümü"
+  },
+  {
+    "ruta": "gratitudes.64.item2",
+    "texto": "Sekiz aydır aralıksız dil kartları"
+  },
+  {
+    "ruta": "gratitudes.64.item3",
+    "texto": "Tam yerinde bir fiyata yeni bir oolong"
+  },
+  {
+    "ruta": "gratitudes.65.item1",
+    "texto": "18K, plandaki en uzun koşu"
+  },
+  {
+    "ruta": "gratitudes.65.item2",
+    "texto": "Bu ayki bahşişler ayakkabıları karşılıyor"
+  },
+  {
+    "ruta": "gratitudes.65.item3",
+    "texto": "Sıcak duş ve sessizlik"
+  },
+  {
+    "ruta": "gratitudes.66.item1",
+    "texto": "Yeni ayakkabıları ilk kez giydim"
+  },
+  {
+    "ruta": "gratitudes.66.item2",
+    "texto": "Ara sınav beklediğimden iyi geçti"
+  },
+  {
+    "ruta": "gratitudes.66.item3",
+    "texto": "Laika ayaklarımın ucunda uyuyor"
+  },
+  {
+    "ruta": "gratitudes.67.item1",
+    "texto": "Yüksek lisans mı iş mi diyagramı sonunda kâğıtta"
+  },
+  {
+    "ruta": "gratitudes.67.item2",
+    "texto": "Bir hocam laboratuvardaki yıllarının nasıl geçtiğini anlattı"
+  },
+  {
+    "ruta": "gratitudes.68.item1",
+    "texto": "Suçluluk duymadan bir dinlenme günü"
+  },
+  {
+    "ruta": "gratitudes.68.item2",
+    "texto": "Salı ucuz seansında bilim kurgu"
+  },
+  {
+    "ruta": "gratitudes.68.item3",
+    "texto": "Nico ile saate bakmadan kahve"
+  },
+  {
+    "ruta": "gratitudes.69.item1",
+    "texto": "Azaltma haftası: bacaklar dinlenmiş hissediyor"
+  },
+  {
+    "ruta": "gratitudes.69.item2",
+    "texto": "Art arda üç iyi gece"
+  },
+  {
+    "ruta": "gratitudes.69.item3",
+    "texto": "Numarayı kuyruksuz aldım"
+  },
+  {
+    "ruta": "gratitudes.70.item1",
+    "texto": "Numara, jeller ve alarm yarına hazır"
+  },
+  {
+    "ruta": "gratitudes.70.item2",
+    "texto": "Nico bitiş çizgisinde olacağını söylüyor"
+  },
+  {
+    "ruta": "gratitudes.71.item1",
+    "texto": "21K’yi 2 saat 4 dakikada bitirdim"
+  },
+  {
+    "ruta": "gratitudes.71.item2",
+    "texto": "Bugün topallamadan yürüyorum"
+  },
+  {
+    "ruta": "gratitudes.71.item3",
+    "texto": "Kocaman ve hak edilmiş bir kahvaltı"
+  },
+  {
+    "ruta": "gratitudes.72.item2",
+    "texto": "Yorgun ellerle piyanoya dönmek ve yine de aynı çalması"
+  },
+  {
+    "ruta": "gratitudes.72.item3",
+    "texto": "Bir arkadaşım pazar vardiyamı devraldı"
+  },
+  {
+    "ruta": "gratitudes.73.item1",
+    "texto": "Çalışmayı da kapatmadan yüksek lisansa başvurmaya karar verdim"
+  },
+  {
+    "ruta": "gratitudes.73.item2",
+    "texto": "Niyet mektubuna başladım"
+  },
+  {
+    "ruta": "gratitudes.73.item3",
+    "texto": "İçeriden yağmuru izlemek"
+  },
+  {
+    "ruta": "gratitudes.74.item1",
+    "texto": "Artık maratonu düşünerek ilk antrenman"
+  },
+  {
+    "ruta": "gratitudes.74.item2",
+    "texto": "Beş dakika takılmadan İngilizce konuştum"
+  },
+  {
+    "ruta": "gratitudes.75.item1",
+    "texto": "Araba muayeneden geçti"
+  },
+  {
+    "ruta": "gratitudes.75.item2",
+    "texto": "Birine gösterebileceğim bir Orion fotoğrafı"
+  },
+  {
+    "ruta": "gratitudes.75.item3",
+    "texto": "Laika dizüstü bilgisayarın üzerinde mırıldıyor"
+  },
+  {
+    "ruta": "gratitudes.76.item1",
+    "texto": "Sakin bir vardiya ve tezgâhın arkasında okunan yirmi sayfa"
+  },
+  {
+    "ruta": "gratitudes.76.item2",
+    "texto": "Clair de Lune’u 40. ölçüye kadar ezbere"
+  },
+  {
+    "ruta": "gratitudes.76.item3",
+    "texto": "Üç güne yetecek güveç"
+  },
+  {
+    "ruta": "gratitudes.77.item1",
+    "texto": "32K: hayatımın en uzun antrenmanı"
+  },
+  {
+    "ruta": "gratitudes.77.item2",
+    "texto": "At gibi yedim, hiç pişman olmadan"
+  },
+  {
+    "ruta": "gratitudes.77.item3",
+    "texto": "Birinin piyanosu çalarken bacaklarım soğuk suda"
+  },
+  {
+    "ruta": "gratitudes.78.item1",
+    "texto": "Bugün hiçbir yerim ağrımıyor"
+  },
+  {
+    "ruta": "gratitudes.78.item2",
+    "texto": "Bu ayki birikim dokunulmadan duruyor"
+  },
+  {
+    "ruta": "gratitudes.78.item3",
+    "texto": "Babam yarışı sorduğu bir mesaj attı"
+  },
+  {
+    "ruta": "gratitudes.79.item1",
+    "texto": "Clair de Lune’u baştan sona çaldım, hatalarla ama sonuna kadar"
+  },
+  {
+    "ruta": "gratitudes.79.item2",
+    "texto": "Gri bir günde zencefilli çay"
+  },
+  {
+    "ruta": "gratitudes.80.item1",
+    "texto": "Azaltma haftası: daha çok uyku, daha az koşu"
+  },
+  {
+    "ruta": "gratitudes.80.item2",
+    "texto": "Ailem gelmek için bilet aldı"
+  },
+  {
+    "ruta": "gratitudes.80.item3",
+    "texto": "Dönem notları güncel"
+  },
+  {
+    "ruta": "gratitudes.81.item1",
+    "texto": "Maraton kıyafetini sandalyeye hazırlayıp bıraktım"
+  },
+  {
+    "ruta": "gratitudes.81.item2",
+    "texto": "Artık nasıl nefes alacağımı bildiğim bir heyecan"
+  },
+  {
+    "ruta": "gratitudes.81.item3",
+    "texto": "Fazla peynirli makarna"
+  },
+  {
+    "ruta": "gratitudes.82.item1",
+    "texto": "Maratonu 4 saat 12 dakikada bitirdim"
+  },
+  {
+    "ruta": "gratitudes.82.item2",
+    "texto": "35. kilometrede bağıran ailem"
+  },
+  {
+    "ruta": "gratitudes.82.item3",
+    "texto": "Mutfak masasının üzerindeki madalya"
+  },
+  {
+    "ruta": "gratitudes.83.item1",
+    "texto": "Merdivenleri geri geri inmenin de işe yaradığını keşfettim"
+  },
+  {
+    "ruta": "gratitudes.83.item2",
+    "texto": "Tezgâha döndüm ve herkes yarışı sordu"
+  },
+  {
+    "ruta": "gratitudes.83.item3",
+    "texto": "On iki saat uyku"
+  },
+  {
+    "ruta": "gratitudes.84.item1",
+    "texto": "Ağrısız uzun bir yürüyüş"
+  },
+  {
+    "ruta": "gratitudes.84.item2",
+    "texto": "Aileyi düşünerek piyanoya geri döndüm"
+  },
+  {
+    "ruta": "gratitudes.85.item1",
+    "texto": "Clair de Lune’u ailem için baştan sona çaldım"
+  },
+  {
+    "ruta": "gratitudes.85.item2",
+    "texto": "Büyükannem ağladı, ben de neredeyse ağlıyordum"
+  },
+  {
+    "ruta": "gratitudes.85.item3",
+    "texto": "Kız kardeşim her anını kaydetti"
+  },
+  {
+    "ruta": "gratitudes.86.item1",
+    "texto": "67 kg, 74’ten bir yıl sonra"
+  },
+  {
+    "ruta": "gratitudes.86.item2",
+    "texto": "Acil durum fonu artık üç haftayı karşılıyor"
+  },
+  {
+    "ruta": "gratitudes.86.item3",
+    "texto": "Kore’ye uçak biletlerine bakmaya başladım"
+  },
+  {
+    "ruta": "gratitudes.87.item1",
+    "texto": "Bırakmadan kayıt tutulan bir yıl"
+  },
+  {
+    "ruta": "gratitudes.87.item2",
+    "texto": "Gerçekten yaşanmış küçük şeylerle dolu bir defter"
+  }
+]

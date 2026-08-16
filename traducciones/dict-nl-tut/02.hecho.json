@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "Dit is jouw huis: elke kamer bevat een app. Ik laat je de basisbediening zien."
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "Het hoofdmenu"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "Deze knop opent het menu: je kamers, de catalogus met sjablonen (apps) en de inventaris met objecten."
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "Rondlopen"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "Loop met de joystick, met WASD of met de pijltjestoetsen. Stap je door de deur van een kamer, dan ga je naar binnen en opent zijn app vanzelf."
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "Drie manieren om te kijken"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "Isometrisch, derde en eerste persoon (of de toets V). In 3e/1e persoon verschijnt er bovendien een knop om de wereld te bewerken terwijl je erdoorheen loopt."
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "Eén hoekje, meerdere eigenaars"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "Die hoek is niet alleen de weergavekubus: kom je dicht bij iets waarmee je iets kunt doen —een stoel, een voertuig, een veld— dan verandert hij vanzelf mee met wat er in de buurt is. Er gaat niets aan zonder dat je ernaartoe loopt."
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "Het gereedschapswiel"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "Bewegingen, speelgoed, voertuigen en bouwen, tot 3 tegelijk uitgerust. Je opent het hier, of vanuit datzelfde hoekje wanneer je handen vrij zijn."
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "De klok"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "De tijd van het huis. Vanaf hier open je de volledige kalender en het routinepaneel met wat je vandaag nog moet doen."
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "De muziek van het huis"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "Elke kamer kan zijn eigen thema hebben, of gewoon de sfeer van het huis laten spelen. Zet je het helemaal uit, dan blijft het stil."
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "De chat"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "De chat van de architect: vertel hem wat je hebt gedaan en hij legt het vast in de juiste app, of vraag hem om iets in huis te veranderen."
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "Dat is de basis. De knop Editor bovenaan opent de volledige aanpassing, en elk menu en elke app hebben hun eigen ?-knop met hun tutorial."
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "Eerst dit: hoe het huis in elkaar wordt gezet. Alles begint bij het tabblad Kamers."
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "Kamer maken"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "Met deze knop teken je nieuwe kamers op de kaart. Om je de rest van de weg te tonen, maak ik er nu eentje voor je…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "Jouw nieuwe kamer"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "Daar is-ie! Een gloednieuwe kamer, nog zonder app: daarom staat er + Toewijzen op zijn knop."
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "Een app toewijzen"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "Met + Toewijzen heb ik hem zijn app gegeven: kijk hoe de kamer haar naam, haar icoon en haar meubels heeft overgenomen — en op zijn knop staat nu Openen."
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "Openen"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "We zijn binnen: dit is de app van de kamer. Tijdens het rondlopen ga je ook naar binnen door zijn deur, en je gaat weer weg met ‹ Terug naar huis."
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "De kamer blijft in je huis staan, app en al. Zo bouw je de rest op: één kamer voor elk ding dat je hier wilt bijhouden."
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "Het tabblad Kamers toont alle kamers van je huis, gegroepeerd per categorie."
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "Jouw overzicht"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "Jouw personage leeft van je echte activiteit: hier zie je zijn stemming, zijn niveau en zijn reeks. Leg iets vast in welke app dan ook en je ziet hem opfleuren; een paar dagen niets en hij wordt verdrietig — er wordt nooit gestraft en nooit op nul gezet."
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "De kaarten"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "Elke kaart is een kamer: zijn icoon, zijn naam en de voortgang van zijn app, gegroepeerd in Lichaam, Geest, Extra's en Instellingen. Kamers zonder toegewezen app staan helemaal onderaan."
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "Bewerken"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "Bewerken opent de editor van de kamer: vorm, kleuren, muren en objecten. (Druk er nu niet op: dit menu zou dan sluiten.)"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "Openen en Toewijzen"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "Openen opent de app van de kamer. Heeft een kamer nog geen app, dan zie je daar + Toewijzen staan om er een uit de catalogus te kiezen."
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "Kamer maken"
+  }
+]

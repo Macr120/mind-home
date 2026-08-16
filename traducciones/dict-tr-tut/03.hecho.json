@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.menu-cuartos.6.texto",
+    "texto": "Oda oluştur, fırçası yeni odayı çizmeye hazır halde harita düzenleyicisini açar: biçim, boyut ve konum senin elinde. Telefonda araç çarkı › İnşaat › Odalar kısayolu daha rahat: paneli açmadan doğrudan haritanın üstüne çizer."
+  },
+  {
+    "clave": "tut.menu-cuartos.7.texto",
+    "texto": "Kısacası: kişiselleştirmek için Düzenle, uygulamayı kullanmak için Gir. Bu menünün diğer sekmelerinin kendi öğreticileri var."
+  },
+  {
+    "clave": "tut.menu-plantillas.1.texto",
+    "texto": "Şablon bir uygulamadır (Mutfak, Spor Salonu, Finans…). Bir odadaki nesneye atanır ve içeri girdiğinde açılır."
+  },
+  {
+    "clave": "tut.menu-plantillas.2.titulo",
+    "texto": "İki görünüm"
+  },
+  {
+    "clave": "tut.menu-plantillas.2.texto",
+    "texto": "Odalar, bildiğin uygulamalar; her biri kendi nesnesinde. Ekler ise başka bir şey: parkurlar, sahalar, sebze bahçesi, çiftlik ya da paintball bir oda kaplamadan doğrudan arazinin üstüne kurulur."
+  },
+  {
+    "clave": "tut.menu-plantillas.3.titulo",
+    "texto": "Katalog"
+  },
+  {
+    "clave": "tut.menu-plantillas.3.texto",
+    "texto": "Hazır uygulamalar ve kendi uygulamaların, gruplara ayrılmış. Bir odaya atamak için birine dokun; Ekler’deysen haritaya kurmak için."
+  },
+  {
+    "clave": "tut.menu-plantillas.4.titulo",
+    "texto": "Kendi şablonların"
+  },
+  {
+    "clave": "tut.menu-plantillas.4.texto",
+    "texto": "Kendi şablonlarını bloklarla kurarak oluştur: notlar, kontrol listeleri, sayaçlar, alışkanlıklar, galeriler… Bu düğme, kendi öğreticisi olan ayrı bir düzenleyici açar."
+  },
+  {
+    "clave": "tut.menu-plantillas.5.texto",
+    "texto": "Aynı odada birden fazla uygulama olabilir: girdiğinde hangisini açacağını seçmen için bir başlatıcı çıkar."
+  },
+  {
+    "clave": "tut.plantillas-custom.1.texto",
+    "texto": "Bu düzenleyici sıfırdan sana ait bir uygulama kurar: ad, emoji ve bloklarla ona şekil verirsin, sonra hazır uygulamaların yanında katalogda yerini alır."
+  },
+  {
+    "clave": "tut.plantillas-custom.2.titulo",
+    "texto": "Ad, emoji ve renk"
+  },
+  {
+    "clave": "tut.plantillas-custom.2.texto",
+    "texto": "Adının ne olacağı ve ona ait bir şey planlarsan menüde, katalogda ve takvimde hangi renkle görüneceği."
+  },
+  {
+    "clave": "tut.plantillas-custom.3.titulo",
+    "texto": "Araçlar"
+  },
+  {
+    "clave": "tut.plantillas-custom.3.texto",
+    "texto": "On iki blok türü: notlar, kontrol listesi, sayaç, alışkanlık, oturumlar, geri sayım, galeri, günlük, değerlendirme, ilerleme, liste ve bağlantılar. Eklediğin her biri uygulamanın bir bölümü olur."
+  },
+  {
+    "clave": "tut.plantillas-custom.4.titulo",
+    "texto": "Sıra önemli"
+  },
+  {
+    "clave": "tut.plantillas-custom.4.texto",
+    "texto": "Eklediğin bloklar oklarla sıralanır, ✕ ile kaldırılır — birini kaldırmak kaydettiğinde verilerini de siler, o yüzden onaylamadan önce bir kontrol et. «Menü» açılır listesiyle hiçbir şey kaybetmeden bir sekmeden diğerine geçerler."
+  },
+  {
+    "clave": "tut.plantillas-custom.5.titulo",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "tut.plantillas-custom.5.texto",
+    "texto": "Bir ad ve en az bir blok varsa Kaydet, şablonu katalogda kullanıma hazır bırakır. Oradan da her hazır şablon gibi bir nesneye atanır."
+  },
+  {
+    "clave": "tut.plantillas-custom.6.texto",
+    "texto": "İstediğin zaman yeniden düzenleyebilirsin: blokları ve verileri yerinde kalır, sadece değiştirdiğin şey değişir."
+  },
+  {
+    "clave": "tut.menu-inventario.1.texto",
+    "texto": "Envanter: evine yerleştirebileceğin bütün nesneler, sürüklenmeye hazır."
+  },
+  {
+    "clave": "tut.menu-inventario.2.titulo",
+    "texto": "Nesneler"
+  },
+  {
+    "clave": "tut.menu-inventario.2.texto",
+    "texto": "Kategorilere ve klasörlere ayrılmış nesne kitaplığın. Bir dahakine hızlı bulmak için adlarını değiştirebilir ve düzenleyebilirsin."
+  },
+  {
+    "clave": "tut.menu-inventario.3.titulo",
+    "texto": "Özel nesneler"
+  },
+  {
+    "clave": "tut.menu-inventario.3.texto",
+    "texto": "Sadece süslemekle kalmayıp bir şey yapanlar: binilebilir araçlar, oyuncak tabancalar, fıskiyeler, park oyuncakları ve ışıklar."
+  },
+  {
+    "clave": "tut.menu-inventario.4.titulo",
+    "texto": "Yerleştirme"
+  },
+  {
+    "clave": "tut.menu-inventario.4.texto",
+    "texto": "Bu menü açıkken küçük görsellerden birini doğrudan 3D sahneye sürükle ve istediğin yere bırak."
+  },
+  {
+    "clave": "tut.menu-inventario.5.texto",
+    "texto": "Yerleştirdiklerini taşımak, boyamak ya da silmek için Düzenleyici’yi kullan (Nesneler sekmesi) — bu menü yalnızca sahneye yeni şeyler getirmek içindir."
+  },
+  {
+    "clave": "tut.editor-mapa.1.texto",
+    "texto": "Ev düzenleyicisinin 4 sekmesi var: Harita, Karakterler, Nesneler ve Ayarlar. Bu tur Harita’nınki; diğer üçünün de kendi turu var."
+  },
+  {
+    "clave": "tut.editor-mapa.2.titulo",
+    "texto": "Kroki"
+  },
+  {
+    "clave": "tut.editor-mapa.2.texto",
+    "texto": "Yukarıdan görünen bir ızgaranın üstüne çizersin: odalar, duvarlar, kapılar, pencereler ve zeminler; üst çubuktaki modlar ve fırçalarla. Çizdiğin şey hiçbir şey yeniden yüklenmeden anında 3D’de belirir."
+  }
+]

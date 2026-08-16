@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "目录里的主题是自带的；单独挂着的那些是聊天打开的。点开一个条目，就能看它的摘要、要点和插图。"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "条目可以手写，也可以从一段对话里提炼出来。黑洞那条和钢琴物理那条都配了图：这些插图应用可以替你画。"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "这一年的疑问"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "这里是 Pep 一边学习一边聊过的对话：熵、时间膨胀、钢琴为什么听起来像钢琴。每一段都保存了下来。"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "从聊天到树"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "这样百科全书里装的就不是抄来的理论，而是你真正问过的东西。"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "索引是你的"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "每一行的 + 会当场写下一条条目，领域和主题都已经填好。铅笔按钮让这棵树长大：同一个 + 会加枝条，“种子”上的那个会建新领域，还能改名、调顺序、删除。带小枝的数字告诉你下面挂了多少个子索引。"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "学习计划"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "任何目标都可以请它做计划：AI 会问你的目标日期和可用时间，然后把学习时段排进你的日历。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "你的百科全书里有多少条目，索引里的领域和主题你覆盖了多少。聊天打开的主题会单独计数。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "四个数字"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "与智者的对话次数、学习总时长和本周时长，以及你学习的连续天数。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "失衡在哪里"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "最长的那条是最占你注意力的领域——对 Pep 来说，是期中考那周的热力学。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "学习的日子"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "一天一个小方块：期中考前的突击和在日本那三周的空白，不用打开完整的历史记录就看得出来。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "时间都去哪儿了"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "和上面一样，只不过换成分钟：一个领域条目多，和真的在它上面花过时间，是两回事。"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "一年的学习时段"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "想看细节的话，历史记录会保存每一次学习时段，连同分钟数和领域，按年、月、周归档。"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "今天该复习的"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep 已经坚持了一年，还是有复习没做完：系统不会让你复习全部词汇，只挑你快要忘掉的。"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "一年的坚持"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "历史记录会保存你每天复习了多少张、答对了多少张。Pep 一开始错得不少，最后几乎全对——在日本那阵子复习得比任何时候都多。"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "两种语言同时学"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "上面可以切换语言：除了主修的，Pep 还在第 4 个月到旅行之间搭了一套生存日语。回来之后几乎放下了，从复习盒里看得出来。"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "三个部分，六个等级"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "从 A1 到 C2，每个等级都有自己的词汇主题、发音要点和语法。不用去外面找课程，也知道自己缺什么。"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "你走到哪儿了"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "已掌握的卡片、这个月的复习，还有你现在的等级。Pep 年初是 A2，现在在 B1 左右。"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "待办箱"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "要做但还没定下日子的事都住在这里，带着各自的优先级。想记下来，不用非得先定日期。"
+  }
+]

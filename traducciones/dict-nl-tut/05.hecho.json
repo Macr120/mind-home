@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.respaldo.3.texto",
+    "texto": "Herstellen VERVANGT al je huidige gegevens door die uit het bestand — het vraagt eerst om bevestiging en laat zien hoeveel records erin zitten, dus geen verrassingen."
+  },
+  {
+    "clave": "tut.respaldo.4.texto",
+    "texto": "Maak een back-up voordat je van apparaat of browser wisselt, of gewoon af en toe: zonder account is dit je enige kopie."
+  },
+  {
+    "clave": "tut.editor-cuarto.1.texto",
+    "texto": "Je bewerkt één bepaalde kamer: de schets en de camera richten zich op die kamer, niet op het hele huis."
+  },
+  {
+    "clave": "tut.editor-cuarto.2.titulo",
+    "texto": "Wat je kunt bewerken"
+  },
+  {
+    "clave": "tut.editor-cuarto.2.texto",
+    "texto": "Vorm, vloer, muren, deuren, kleur en naam van de kamer, plus haar objecten. Ook de toegewezen app wissel je hier: daarvoor komen de meeste mensen naar dit paneel."
+  },
+  {
+    "clave": "tut.editor-cuarto.3.titulo",
+    "texto": "Terug naar de kaart"
+  },
+  {
+    "clave": "tut.editor-cuarto.3.texto",
+    "texto": "Deze pijl brengt je terug naar de hele kaart zonder de editor te sluiten, zodat je verder kunt in een andere kamer."
+  },
+  {
+    "clave": "tut.editor-cuarto.4.texto",
+    "texto": "Er zweeft ook een knop «Kamer verlaten» boven de kamer zelf in 3D, als je liever daar tikt."
+  },
+  {
+    "clave": "tut.herramientas.1.texto",
+    "texto": "Deze knop opent het gereedschapswiel van je personage."
+  },
+  {
+    "clave": "tut.herramientas.2.titulo",
+    "texto": "Twee niveaus"
+  },
+  {
+    "clave": "tut.herramientas.2.texto",
+    "texto": "Eerst kies je een categorie, daarna het gereedschap zelf. Je kunt er 3 tegelijk uitrusten, uit dezelfde categorie of uit verschillende."
+  },
+  {
+    "clave": "tut.herramientas.3.titulo",
+    "texto": "De vierde categorie"
+  },
+  {
+    "clave": "tut.herramientas.3.texto",
+    "texto": "Bouwen rust geen speelgoed uit: het zet de tekenmodus van de kaart aan (kamers, muren, deuren, ramen, vloeren, daken) zonder langs de hele editor te gaan. Dezelfde schets, alleen sneller bereikt."
+  },
+  {
+    "clave": "tut.herramientas.4.titulo",
+    "texto": "Het midden"
+  },
+  {
+    "clave": "tut.herramientas.4.texto",
+    "texto": "Het midden legt alles weg wat je hebt uitgerust en zet de hoekknop terug in zijn normale staat (de weergavekubus of een andere knop, afhankelijk van wat er in de buurt is)."
+  },
+  {
+    "clave": "tut.herramientas.5.texto",
+    "texto": "Tik naast het wiel om het te sluiten. Probeer het gerust: niets hiervan wordt permanent opgeslagen, het geldt alleen zolang je het draagt."
+  },
+  {
+    "clave": "tut.navegacion.1.texto",
+    "texto": "Drie camera's: Iso (poppenhuisaanzicht), 3e en 1e persoon. Wissel hier of met de toets V."
+  },
+  {
+    "clave": "tut.navegacion.2.titulo",
+    "texto": "Je oriënteren"
+  },
+  {
+    "clave": "tut.navegacion.2.texto",
+    "texto": "In iso draait de kubus de camera per zijde; in 3e/1e sleep je het pad om rond te kijken."
+  },
+  {
+    "clave": "tut.navegacion.3.titulo",
+    "texto": "Als er iets in de buurt is"
+  },
+  {
+    "clave": "tut.navegacion.3.texto",
+    "texto": "Diezelfde hoek is geen camera meer zodra je bij iets interactiefs komt: een veld biedt zijn speelknop, een voertuig zijn instapknop, een stoel zijn zitknop. Eén ding tegelijk, en altijd door nabijheid — nooit vanzelf."
+  },
+  {
+    "clave": "tut.navegacion.4.titulo",
+    "texto": "Draaien en centreren"
+  },
+  {
+    "clave": "tut.navegacion.4.texto",
+    "texto": "Draai de weergave opzij of centreer hem weer op de kaart als je bent verdwaald tijdens het verkennen."
+  },
+  {
+    "clave": "tut.navegacion.5.titulo",
+    "texto": "Bewegen"
+  },
+  {
+    "clave": "tut.navegacion.5.texto",
+    "texto": "Loop met de joystick, WASD of de pijltjestoetsen. In het water zwem je; op een voertuig rijd je met dezelfde bediening."
+  },
+  {
+    "clave": "tut.navegacion.6.texto",
+    "texto": "In 3e/1e persoon verschijnt de knop 3D-editor: tik op objecten, muren of personages om ze te bewerken waar ze staan, zonder terug te gaan naar het isometrische aanzicht."
+  },
+  {
+    "clave": "tut.chat.1.texto",
+    "texto": "De chat van de architect: leg je dag vast, bewerk het huis en krijg antwoord op je vragen, allemaal vanuit hetzelfde vak."
+  },
+  {
+    "clave": "tut.chat.2.titulo",
+    "texto": "Typen"
+  },
+  {
+    "clave": "tut.chat.2.texto",
+    "texto": "Typ vrijuit: «20 min gerend», «250 uitgegeven bij de supermarkt»… Het chipje ernaast laat zien naar welke app het gaat. Gebruik @app om de bestemming af te dwingen als hij ernaast zit."
+  },
+  {
+    "clave": "tut.chat.3.titulo",
+    "texto": "Spraakinvoer"
+  },
+  {
+    "clave": "tut.chat.3.texto",
+    "texto": "De microfoon zet wat je zegt om in tekst in het invoervak — handig om iets vast te leggen zonder los te laten wat je in je handen hebt."
+  },
+  {
+    "clave": "tut.chat.4.titulo",
+    "texto": "Een foto sturen"
+  },
+  {
+    "clave": "tut.chat.4.texto",
+    "texto": "Met AI aan wordt een foto van het bonnetje, het gerecht of de weegschaal vanzelf gelezen. Zonder AI blijft deze knop uitgeschakeld."
+  },
+  {
+    "clave": "tut.chat.5.titulo",
+    "texto": "Assistenten"
+  },
+  {
+    "clave": "tut.chat.5.texto",
+    "texto": "Je assistent geeft de antwoorden een gezicht en een stem. Tik erop om het gesprek te bekijken, van assistent te wisselen of er meer te maken."
+  },
+  {
+    "clave": "tut.chat.6.titulo",
+    "texto": "De handleiding"
+  }
+]

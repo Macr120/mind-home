@@ -1,0 +1,470 @@
+[
+  {
+    "clave": "biblioteca.ramas.charlarSug",
+    "texto": "Ajouter et discuter de cette branche"
+  },
+  {
+    "clave": "biblioteca.charla.confirmarBorrar",
+    "texto": "Supprimer la discussion ? L’entrée distillée est conservée."
+  },
+  {
+    "clave": "biblioteca.charla.siBorrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "biblioteca.charla.vacia",
+    "texto": "Demande ce que tu veux à {sabio} : la discussion se classera seule dans son domaine de connaissance"
+  },
+  {
+    "clave": "biblioteca.charla.error",
+    "texto": "Le Sage n’a pas pu répondre. Vérifie ton IA dans Paramètres ou réessaie."
+  },
+  {
+    "clave": "biblioteca.charla.reintentar",
+    "texto": "Réessayer"
+  },
+  {
+    "clave": "biblioteca.charla.placeholder",
+    "texto": "Pose une question sur n’importe quel sujet…"
+  },
+  {
+    "clave": "biblioteca.charla.sinIA",
+    "texto": "Configure ton IA dans Paramètres pour discuter"
+  },
+  {
+    "clave": "biblioteca.ent.nueva",
+    "texto": "Nouvelle entrée"
+  },
+  {
+    "clave": "biblioteca.ent.editar",
+    "texto": "Modifier l’entrée"
+  },
+  {
+    "clave": "biblioteca.ent.editarBtn",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "biblioteca.ent.titulo",
+    "texto": "Titre"
+  },
+  {
+    "clave": "biblioteca.ent.tituloPh",
+    "texto": "Ex. L’entropie"
+  },
+  {
+    "clave": "biblioteca.ent.campo",
+    "texto": "Domaine"
+  },
+  {
+    "clave": "biblioteca.ent.tema",
+    "texto": "Sujet de l’index"
+  },
+  {
+    "clave": "biblioteca.ent.sinTema",
+    "texto": "— Aucun —"
+  },
+  {
+    "clave": "biblioteca.ent.resumen",
+    "texto": "Résumé"
+  },
+  {
+    "clave": "biblioteca.ent.resumenPh",
+    "texto": "Ce que tu as appris, en 3 à 5 phrases."
+  },
+  {
+    "clave": "biblioteca.ent.puntos",
+    "texto": "Points clés (un par ligne)"
+  },
+  {
+    "clave": "biblioteca.ent.puntosPh",
+    "texto": "Idée clé 1\nIdée clé 2"
+  },
+  {
+    "clave": "biblioteca.ent.puntosTitulo",
+    "texto": "Points clés"
+  },
+  {
+    "clave": "biblioteca.mat.titulo",
+    "texto": "Matériel"
+  },
+  {
+    "clave": "biblioteca.mat.agregar",
+    "texto": "Générer ou lier du matériel"
+  },
+  {
+    "clave": "biblioteca.mat.vacio",
+    "texto": "Rattache ici les feuilles de calcul et les plans que tu utilises pour étudier ce sujet ; ils s’ouvrent dans leur propre pièce."
+  },
+  {
+    "clave": "biblioteca.mat.hoja",
+    "texto": "Feuille de calcul"
+  },
+  {
+    "clave": "biblioteca.mat.mapa",
+    "texto": "Plan ou diagramme"
+  },
+  {
+    "clave": "biblioteca.mat.idea",
+    "texto": "Idée"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaHoja",
+    "texto": "Nouvelle feuille de calcul"
+  },
+  {
+    "clave": "biblioteca.mat.nuevoMapa",
+    "texto": "Nouveau plan ou diagramme"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaIdea",
+    "texto": "Nouvelle idée"
+  },
+  {
+    "clave": "biblioteca.mat.crearTit",
+    "texto": "Nouveau : {tipo}"
+  },
+  {
+    "clave": "biblioteca.mat.existente",
+    "texto": "Lier {tipo} que j’ai déjà"
+  },
+  {
+    "clave": "biblioteca.mat.enlazar",
+    "texto": "— Lier —"
+  },
+  {
+    "clave": "biblioteca.mat.quitar",
+    "texto": "Retirer le lien (ne supprime pas le matériel)"
+  },
+  {
+    "clave": "biblioteca.mat.roto",
+    "texto": "disparu"
+  },
+  {
+    "clave": "computo.vista.vacia",
+    "texto": "La feuille est encore vide."
+  },
+  {
+    "clave": "biblioteca.mat.sinCuarto",
+    "texto": "Place la pièce de cette app dans ta maison pour ouvrir son matériel."
+  },
+  {
+    "clave": "material.estudiasEn",
+    "texto": "Tu l’étudies dans"
+  },
+  {
+    "clave": "material.abrirEntrada",
+    "texto": "Ouvrir « {n} » dans l’encyclopédie"
+  },
+  {
+    "clave": "material.sinBiblioteca",
+    "texto": "Place la pièce de la bibliothèque dans ta maison pour ouvrir son encyclopédie."
+  },
+  {
+    "clave": "biblioteca.mat.vacio2",
+    "texto": "Génère ici un plan ou des notes sur ce sujet avec l’IA, ou rattache les feuilles et plans que tu utilises déjà pour l’étudier."
+  },
+  {
+    "clave": "biblioteca.mat.ver",
+    "texto": "Voir ici même"
+  },
+  {
+    "clave": "biblioteca.mat.abrirEn",
+    "texto": "Ouvrir dans sa pièce pour le modifier"
+  },
+  {
+    "clave": "biblioteca.mat.generarTip",
+    "texto": "Laisse l’IA le créer à partir de cette entrée"
+  },
+  {
+    "clave": "biblioteca.mat.falloIA",
+    "texto": "L’IA n’a pas pu générer le matériel."
+  },
+  {
+    "clave": "biblioteca.ent.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "biblioteca.ent.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "biblioteca.ent.borrar",
+    "texto": "Supprimer l’entrée"
+  },
+  {
+    "clave": "biblioteca.ent.confirmarBorrar",
+    "texto": "Supprimer cette entrée ? La discussion d’origine n’est pas touchée."
+  },
+  {
+    "clave": "biblioteca.ent.verCharla",
+    "texto": "Voir la discussion d’origine"
+  },
+  {
+    "clave": "biblioteca.enc.sub",
+    "texto": "{n} entrées dans {c} domaines"
+  },
+  {
+    "clave": "biblioteca.enc.nEntradas",
+    "texto": "{n} entrées"
+  },
+  {
+    "clave": "biblioteca.enc.buscarTema",
+    "texto": "Rechercher un sujet…"
+  },
+  {
+    "clave": "biblioteca.enc.verEntrada",
+    "texto": "Voir l’entrée de ce sujet"
+  },
+  {
+    "clave": "biblioteca.enc.charlarTema",
+    "texto": "En discuter avec le Sage"
+  },
+  {
+    "clave": "biblioteca.enc.promptTema",
+    "texto": "Parle-moi de {tema}. {desc}"
+  },
+  {
+    "clave": "biblioteca.enc.arbolDesc",
+    "texto": "Tout ton savoir dans un arbre : chaque discussion se classe à sa place et grandit quand tu la ramifies."
+  },
+  {
+    "clave": "biblioteca.enc.semilla",
+    "texto": "Graine"
+  },
+  {
+    "clave": "biblioteca.enc.sinResultados",
+    "texto": "Rien dans l’arbre ne correspond à ta recherche."
+  },
+  {
+    "clave": "biblioteca.enc.nuevo",
+    "texto": "nouveau"
+  },
+  {
+    "clave": "biblioteca.enc.subtemas",
+    "texto": "{n} sous-sujets"
+  },
+  {
+    "clave": "biblioteca.enc.nSubindices",
+    "texto": "{n} sous-index en dessous"
+  },
+  {
+    "clave": "biblioteca.enc.modoEdicion",
+    "texto": "Modifier l’index"
+  },
+  {
+    "clave": "biblioteca.enc.edicionDesc",
+    "texto": "Fais de l’index le tien : le + de chaque ligne ajoute des branches à n’importe quel niveau, même directement sous la Graine. Tu peux aussi renommer, réordonner et supprimer."
+  },
+  {
+    "clave": "biblioteca.enc.renombrar",
+    "texto": "Renommer"
+  },
+  {
+    "clave": "biblioteca.enc.agregarHijo",
+    "texto": "Ajouter quelque chose dedans"
+  },
+  {
+    "clave": "biblioteca.enc.moverEntradaA",
+    "texto": "Déplacer « {n} » vers…"
+  },
+  {
+    "clave": "biblioteca.enc.entradaAqui",
+    "texto": "Écrire une entrée ici"
+  },
+  {
+    "clave": "biblioteca.enc.borrarNodo",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "biblioteca.enc.borrarTit",
+    "texto": "Supprimer « {n} » ?"
+  },
+  {
+    "clave": "biblioteca.enc.borrarMsg",
+    "texto": "Tes entrées ne sont PAS supprimées : elles restent isolées dans leur domaine."
+  },
+  {
+    "clave": "biblioteca.enc.borrarMsgHijos",
+    "texto": "Il disparaît avec tout ce qui en dépend. Tes entrées ne sont PAS supprimées : elles restent isolées dans leur domaine."
+  },
+  {
+    "clave": "biblioteca.enc.subir",
+    "texto": "Monter"
+  },
+  {
+    "clave": "biblioteca.enc.bajar",
+    "texto": "Descendre"
+  },
+  {
+    "clave": "biblioteca.enc.nuevaRama",
+    "texto": "Nouvelle branche"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoTema",
+    "texto": "Nouveau sujet"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoCampo",
+    "texto": "Nouveau domaine"
+  },
+  {
+    "clave": "biblioteca.enc.nuevoCampoMsg",
+    "texto": "Un domaine de connaissance à toi, à côté de ceux d’origine."
+  },
+  {
+    "clave": "biblioteca.enc.dentroDe",
+    "texto": "Dans « {padre} »"
+  },
+  {
+    "clave": "biblioteca.enc.crear",
+    "texto": "Créer"
+  },
+  {
+    "clave": "biblioteca.ent.mover",
+    "texto": "Déplacer vers un autre sujet"
+  },
+  {
+    "clave": "biblioteca.ent.ramificar",
+    "texto": "Ramifier"
+  },
+  {
+    "clave": "biblioteca.ent.ramificarTip",
+    "texto": "Ramifier : nouveaux sous-sujets sous « {n} »"
+  },
+  {
+    "clave": "biblioteca.ent.ramificarSinNodo",
+    "texto": "L’entrée n’a pas encore de place dans l’arbre"
+  },
+  {
+    "clave": "biblioteca.mover.cerrar",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "biblioteca.mover.notaEntrada",
+    "texto": "Si tu choisis un domaine, l’entrée y reste isolée, sans sujet."
+  },
+  {
+    "clave": "biblioteca.r.arbol",
+    "texto": "{n} sujets débloqués par tes discussions"
+  },
+  {
+    "clave": "biblioteca.est.titulo",
+    "texto": "Session d’étude"
+  },
+  {
+    "clave": "biblioteca.est.personalizada",
+    "texto": "Durée personnalisée (minutes)"
+  },
+  {
+    "clave": "biblioteca.est.entrada",
+    "texto": "Entrée (facultatif)"
+  },
+  {
+    "clave": "biblioteca.est.libre",
+    "texto": "— Étude libre —"
+  },
+  {
+    "clave": "biblioteca.est.iniciar",
+    "texto": "Démarrer {n} min"
+  },
+  {
+    "clave": "biblioteca.est.nota",
+    "texto": "Le minuteur continue même si tu fermes la pièce."
+  },
+  {
+    "clave": "biblioteca.est.sesionDe",
+    "texto": "Session de {n} min — elle s’enregistre seule à la fin"
+  },
+  {
+    "clave": "biblioteca.est.cancelar",
+    "texto": "Terminer avant"
+  },
+  {
+    "clave": "biblioteca.est.cancelarTip",
+    "texto": "Les minutes complètes déjà passées sont créditées"
+  },
+  {
+    "clave": "biblioteca.est.fin",
+    "texto": "Session terminée ! +{n} min en {campo}"
+  },
+  {
+    "clave": "biblioteca.est.porCampo",
+    "texto": "Temps par domaine"
+  },
+  {
+    "clave": "biblioteca.est.historial",
+    "texto": "Sessions récentes"
+  },
+  {
+    "clave": "biblioteca.est.sinSesiones",
+    "texto": "Tu n’as pas encore utilisé le minuteur d’étude."
+  },
+  {
+    "clave": "biblioteca.est.modoSimple",
+    "texto": "Simple"
+  },
+  {
+    "clave": "biblioteca.est.modoPomodoro",
+    "texto": "Pomodoro"
+  },
+  {
+    "clave": "biblioteca.est.pomodoroDesc",
+    "texto": "Tu travailles par tranches et te reposes entre chacune ; après plusieurs tranches, une pause longue. Chaque tranche de concentration s’enregistre seule."
+  },
+  {
+    "clave": "biblioteca.est.faseTrabajo",
+    "texto": "Concentration"
+  },
+  {
+    "clave": "biblioteca.est.faseCorta",
+    "texto": "Pause"
+  },
+  {
+    "clave": "biblioteca.est.faseLarga",
+    "texto": "Pause longue"
+  },
+  {
+    "clave": "biblioteca.est.pomodoroNota",
+    "texto": "Chaque tranche de concentration s’enregistre à la fin ; les pauses ne comptent pas."
+  },
+  {
+    "clave": "biblioteca.est.tandaTip",
+    "texto": "{n} tranches de concentration terminées"
+  },
+  {
+    "clave": "biblioteca.est.pausar",
+    "texto": "Pause"
+  },
+  {
+    "clave": "biblioteca.est.reanudar",
+    "texto": "Reprendre"
+  },
+  {
+    "clave": "biblioteca.est.saltar",
+    "texto": "Passer la pause"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.clasico",
+    "texto": "Classique"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.profundo",
+    "texto": "Profond"
+  },
+  {
+    "clave": "biblioteca.est.ciclo.corto",
+    "texto": "Court"
+  },
+  {
+    "clave": "biblioteca.est.trabajoMin",
+    "texto": "Concentration"
+  },
+  {
+    "clave": "biblioteca.est.cortoMin",
+    "texto": "Pause"
+  },
+  {
+    "clave": "biblioteca.est.largoMin",
+    "texto": "Pause longue"
+  }
+]

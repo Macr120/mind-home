@@ -1,0 +1,866 @@
+[
+  {
+    "ruta": "tarjetas.0.termino",
+    "texto": "receipt"
+  },
+  {
+    "ruta": "tarjetas.0.traduccion",
+    "texto": "fiş, makbuz"
+  },
+  {
+    "ruta": "tarjetas.0.ejemplo",
+    "texto": "Can I have the receipt, please?"
+  },
+  {
+    "ruta": "tarjetas.1.termino",
+    "texto": "how much is it"
+  },
+  {
+    "ruta": "tarjetas.1.traduccion",
+    "texto": "ne kadar, kaç para"
+  },
+  {
+    "ruta": "tarjetas.1.ejemplo",
+    "texto": "I pointed at the blue mug and asked: how much is it?"
+  },
+  {
+    "ruta": "tarjetas.2.termino",
+    "texto": "cheap"
+  },
+  {
+    "ruta": "tarjetas.2.traduccion",
+    "texto": "ucuz"
+  },
+  {
+    "ruta": "tarjetas.2.ejemplo",
+    "texto": "The loose leaf tea in that little shop is very cheap."
+  },
+  {
+    "ruta": "tarjetas.3.termino",
+    "texto": "to try on"
+  },
+  {
+    "ruta": "tarjetas.3.traduccion",
+    "texto": "denemek (kıyafet)"
+  },
+  {
+    "ruta": "tarjetas.3.ejemplo",
+    "texto": "I want to try on these running shoes before I pay."
+  },
+  {
+    "ruta": "tarjetas.3.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.4.termino",
+    "texto": "size"
+  },
+  {
+    "ruta": "tarjetas.4.traduccion",
+    "texto": "beden, numara"
+  },
+  {
+    "ruta": "tarjetas.4.ejemplo",
+    "texto": "Do you have this jacket in a bigger size?"
+  },
+  {
+    "ruta": "tarjetas.5.termino",
+    "texto": "turn left"
+  },
+  {
+    "ruta": "tarjetas.5.traduccion",
+    "texto": "sola dön"
+  },
+  {
+    "ruta": "tarjetas.5.ejemplo",
+    "texto": "At the traffic lights, turn left and cross the bridge."
+  },
+  {
+    "ruta": "tarjetas.6.termino",
+    "texto": "next to"
+  },
+  {
+    "ruta": "tarjetas.6.traduccion",
+    "texto": "yanında"
+  },
+  {
+    "ruta": "tarjetas.6.ejemplo",
+    "texto": "The bakery is next to the pharmacy, on the same side."
+  },
+  {
+    "ruta": "tarjetas.7.termino",
+    "texto": "how do I get to"
+  },
+  {
+    "ruta": "tarjetas.7.traduccion",
+    "texto": "nasıl giderim"
+  },
+  {
+    "ruta": "tarjetas.7.ejemplo",
+    "texto": "Excuse me, how do I get to the train station?"
+  },
+  {
+    "ruta": "tarjetas.8.termino",
+    "texto": "straight ahead"
+  },
+  {
+    "ruta": "tarjetas.8.traduccion",
+    "texto": "dümdüz ileri"
+  },
+  {
+    "ruta": "tarjetas.8.ejemplo",
+    "texto": "Go straight ahead for two blocks and you will see the park."
+  },
+  {
+    "ruta": "tarjetas.9.termino",
+    "texto": "to feel sick"
+  },
+  {
+    "ruta": "tarjetas.9.traduccion",
+    "texto": "kendini kötü hissetmek"
+  },
+  {
+    "ruta": "tarjetas.9.ejemplo",
+    "texto": "I ate too fast and started to feel sick before my shift."
+  },
+  {
+    "ruta": "tarjetas.10.termino",
+    "texto": "appointment"
+  },
+  {
+    "ruta": "tarjetas.10.traduccion",
+    "texto": "randevu (doktor)"
+  },
+  {
+    "ruta": "tarjetas.10.ejemplo",
+    "texto": "I booked an appointment with the doctor for Friday morning."
+  },
+  {
+    "ruta": "tarjetas.10.tipo",
+    "texto": "palabra"
+  },
+  {
+    "ruta": "tarjetas.11.termino",
+    "texto": "sore"
+  },
+  {
+    "ruta": "tarjetas.11.traduccion",
+    "texto": "ağrılı, tutulmuş"
+  },
+  {
+    "ruta": "tarjetas.11.ejemplo",
+    "texto": "My legs are sore after the long run on Sunday."
+  },
+  {
+    "ruta": "tarjetas.12.termino",
+    "texto": "it hurts here"
+  },
+  {
+    "ruta": "tarjetas.12.traduccion",
+    "texto": "burası ağrıyor"
+  },
+  {
+    "ruta": "tarjetas.12.ejemplo",
+    "texto": "I touched my knee and said: it hurts here, only when I run."
+  },
+  {
+    "ruta": "tarjetas.13.termino",
+    "texto": "to breathe"
+  },
+  {
+    "ruta": "tarjetas.13.traduccion",
+    "texto": "nefes almak"
+  },
+  {
+    "ruta": "tarjetas.13.ejemplo",
+    "texto": "The app tells me to breathe slowly for ten minutes."
+  },
+  {
+    "ruta": "tarjetas.14.termino",
+    "texto": "last week"
+  },
+  {
+    "ruta": "tarjetas.14.traduccion",
+    "texto": "geçen hafta"
+  },
+  {
+    "ruta": "tarjetas.14.ejemplo",
+    "texto": "I ran five kilometres last week without stopping once."
+  },
+  {
+    "ruta": "tarjetas.15.termino",
+    "texto": "I bought"
+  },
+  {
+    "ruta": "tarjetas.15.traduccion",
+    "texto": "satın aldım"
+  },
+  {
+    "ruta": "tarjetas.15.ejemplo",
+    "texto": "I bought a second-hand keyboard from a neighbour."
+  },
+  {
+    "ruta": "tarjetas.15.tipo",
+    "texto": "frase"
+  },
+  {
+    "ruta": "tarjetas.16.termino",
+    "texto": "ago"
+  },
+  {
+    "ruta": "tarjetas.16.traduccion",
+    "texto": "önce (zaman)"
+  },
+  {
+    "ruta": "tarjetas.16.ejemplo",
+    "texto": "I started running four months ago and now I can do 5K."
+  },
+  {
+    "ruta": "tarjetas.16.tipo",
+    "texto": "palabra"
+  },
+  {
+    "ruta": "tarjetas.17.termino",
+    "texto": "was able to"
+  },
+  {
+    "ruta": "tarjetas.17.traduccion",
+    "texto": "başardım, yapabildim"
+  },
+  {
+    "ruta": "tarjetas.17.ejemplo",
+    "texto": "I was able to finish the race without walking."
+  },
+  {
+    "ruta": "tarjetas.17.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.18.termino",
+    "texto": "to save money"
+  },
+  {
+    "ruta": "tarjetas.18.traduccion",
+    "texto": "para biriktirmek"
+  },
+  {
+    "ruta": "tarjetas.18.ejemplo",
+    "texto": "I need to save money every payday for the trip in September."
+  },
+  {
+    "ruta": "tarjetas.18.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.19.termino",
+    "texto": "discount"
+  },
+  {
+    "ruta": "tarjetas.19.traduccion",
+    "texto": "indirim"
+  },
+  {
+    "ruta": "tarjetas.19.ejemplo",
+    "texto": "The shop gave me a small discount because the box was open."
+  },
+  {
+    "ruta": "tarjetas.20.termino",
+    "texto": "I forgot"
+  },
+  {
+    "ruta": "tarjetas.20.traduccion",
+    "texto": "unuttum"
+  },
+  {
+    "ruta": "tarjetas.20.ejemplo",
+    "texto": "I forgot my card at home and paid in cash."
+  },
+  {
+    "ruta": "tarjetas.21.termino",
+    "texto": "on the corner"
+  },
+  {
+    "ruta": "tarjetas.21.traduccion",
+    "texto": "köşede"
+  },
+  {
+    "ruta": "tarjetas.21.ejemplo",
+    "texto": "The coffee shop is on the corner, in front of the bus stop."
+  },
+  {
+    "ruta": "tarjetas.22.termino",
+    "texto": "to book"
+  },
+  {
+    "ruta": "tarjetas.22.traduccion",
+    "texto": "rezervasyon yaptırmak"
+  },
+  {
+    "ruta": "tarjetas.22.ejemplo",
+    "texto": "I want to book a room for three nights in October."
+  },
+  {
+    "ruta": "tarjetas.23.termino",
+    "texto": "not far from"
+  },
+  {
+    "ruta": "tarjetas.23.traduccion",
+    "texto": "uzak değil, yakın"
+  },
+  {
+    "ruta": "tarjetas.23.ejemplo",
+    "texto": "The hostel is not far from the station, about ten minutes walking."
+  },
+  {
+    "ruta": "tarjetas.24.termino",
+    "texto": "to feel better"
+  },
+  {
+    "ruta": "tarjetas.24.traduccion",
+    "texto": "kendini daha iyi hissetmek"
+  },
+  {
+    "ruta": "tarjetas.24.ejemplo",
+    "texto": "After two easy days I started to feel better."
+  },
+  {
+    "ruta": "tarjetas.25.termino",
+    "texto": "passport"
+  },
+  {
+    "ruta": "tarjetas.25.traduccion",
+    "texto": "pasaport"
+  },
+  {
+    "ruta": "tarjetas.25.ejemplo",
+    "texto": "I renewed my passport two weeks ago and it finally arrived."
+  },
+  {
+    "ruta": "tarjetas.26.termino",
+    "texto": "to give up"
+  },
+  {
+    "ruta": "tarjetas.26.traduccion",
+    "texto": "pes etmek, bırakmak"
+  },
+  {
+    "ruta": "tarjetas.26.ejemplo",
+    "texto": "With the knee like this, the easy thing would be to give up."
+  },
+  {
+    "ruta": "tarjetas.26.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.27.termino",
+    "texto": "unexpected expense"
+  },
+  {
+    "ruta": "tarjetas.27.traduccion",
+    "texto": "beklenmedik masraf"
+  },
+  {
+    "ruta": "tarjetas.27.ejemplo",
+    "texto": "The car repair was an unexpected expense of three hundred euros."
+  },
+  {
+    "ruta": "tarjetas.28.termino",
+    "texto": "to be worth it"
+  },
+  {
+    "ruta": "tarjetas.28.traduccion",
+    "texto": "buna değmek"
+  },
+  {
+    "ruta": "tarjetas.28.ejemplo",
+    "texto": "The physio is expensive, but it's going to be worth it."
+  },
+  {
+    "ruta": "tarjetas.29.termino",
+    "texto": "on the other hand"
+  },
+  {
+    "ruta": "tarjetas.29.traduccion",
+    "texto": "öte yandan"
+  },
+  {
+    "ruta": "tarjetas.29.ejemplo",
+    "texto": "The injury annoys me; on the other hand, I'm playing more piano than ever."
+  },
+  {
+    "ruta": "tarjetas.30.termino",
+    "texto": "I'd rather"
+  },
+  {
+    "ruta": "tarjetas.30.traduccion",
+    "texto": "tercih ederim (-mektense)"
+  },
+  {
+    "ruta": "tarjetas.30.ejemplo",
+    "texto": "I'd rather rest one more week than get injured again."
+  },
+  {
+    "ruta": "tarjetas.30.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.31.termino",
+    "texto": "to book"
+  },
+  {
+    "ruta": "tarjetas.31.traduccion",
+    "texto": "rezervasyon yaptırmak"
+  },
+  {
+    "ruta": "tarjetas.31.ejemplo",
+    "texto": "I still need to book the night bus to Hiroshima."
+  },
+  {
+    "ruta": "tarjetas.32.termino",
+    "texto": "round trip"
+  },
+  {
+    "ruta": "tarjetas.32.traduccion",
+    "texto": "gidiş dönüş"
+  },
+  {
+    "ruta": "tarjetas.32.ejemplo",
+    "texto": "The round trip ticket was cheaper than two single ones."
+  },
+  {
+    "ruta": "tarjetas.33.termino",
+    "texto": "to look forward to"
+  },
+  {
+    "ruta": "tarjetas.33.traduccion",
+    "texto": "dört gözle beklemek"
+  },
+  {
+    "ruta": "tarjetas.33.ejemplo",
+    "texto": "I'm starting to look forward to the trip more than I expected."
+  },
+  {
+    "ruta": "tarjetas.34.termino",
+    "texto": "schedule"
+  },
+  {
+    "ruta": "tarjetas.34.traduccion",
+    "texto": "program, zaman çizelgesi"
+  },
+  {
+    "ruta": "tarjetas.34.ejemplo",
+    "texto": "I made a schedule with two free days in every city."
+  },
+  {
+    "ruta": "tarjetas.35.termino",
+    "texto": "to make progress"
+  },
+  {
+    "ruta": "tarjetas.35.traduccion",
+    "texto": "ilerlemek, yol almak"
+  },
+  {
+    "ruta": "tarjetas.35.ejemplo",
+    "texto": "The physio says that slow is the only way to make progress."
+  },
+  {
+    "ruta": "tarjetas.35.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.36.termino",
+    "texto": "jet lag"
+  },
+  {
+    "ruta": "tarjetas.36.traduccion",
+    "texto": "saat farkı yorgunluğu"
+  },
+  {
+    "ruta": "tarjetas.36.ejemplo",
+    "texto": "The jet lag woke me up at four in the morning for three days."
+  },
+  {
+    "ruta": "tarjetas.37.termino",
+    "texto": "to get lost"
+  },
+  {
+    "ruta": "tarjetas.37.traduccion",
+    "texto": "kaybolmak"
+  },
+  {
+    "ruta": "tarjetas.37.ejemplo",
+    "texto": "It's very easy to get lost in Shinjuku station, even with a map."
+  },
+  {
+    "ruta": "tarjetas.37.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.38.termino",
+    "texto": "crowded"
+  },
+  {
+    "ruta": "tarjetas.38.traduccion",
+    "texto": "tıklım tıklım, kalabalık"
+  },
+  {
+    "ruta": "tarjetas.38.ejemplo",
+    "texto": "The train to Hakone was so crowded that I stood the whole way."
+  },
+  {
+    "ruta": "tarjetas.39.termino",
+    "texto": "on time"
+  },
+  {
+    "ruta": "tarjetas.39.traduccion",
+    "texto": "dakik, tam vaktinde"
+  },
+  {
+    "ruta": "tarjetas.39.ejemplo",
+    "texto": "Every train here leaves exactly on time, to the minute."
+  },
+  {
+    "ruta": "tarjetas.39.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.40.termino",
+    "texto": "to run out of"
+  },
+  {
+    "ruta": "tarjetas.40.traduccion",
+    "texto": "tükenmek, elinde kalmamak"
+  },
+  {
+    "ruta": "tarjetas.40.ejemplo",
+    "texto": "It's easy to run out of cash here if you don't find a convenience store."
+  },
+  {
+    "ruta": "tarjetas.41.termino",
+    "texto": "a must-see"
+  },
+  {
+    "ruta": "tarjetas.41.traduccion",
+    "texto": "mutlaka görülmesi gereken şey"
+  },
+  {
+    "ruta": "tarjetas.41.ejemplo",
+    "texto": "Nara is small, but the walk through the old streets is a must-see."
+  },
+  {
+    "ruta": "tarjetas.41.tipo",
+    "texto": "frase"
+  },
+  {
+    "ruta": "tarjetas.42.termino",
+    "texto": "accommodation"
+  },
+  {
+    "ruta": "tarjetas.42.traduccion",
+    "texto": "konaklama"
+  },
+  {
+    "ruta": "tarjetas.42.ejemplo",
+    "texto": "Our accommodation in Kyoto was a ryokan with tatami floors."
+  },
+  {
+    "ruta": "tarjetas.43.termino",
+    "texto": "overwhelming"
+  },
+  {
+    "ruta": "tarjetas.43.traduccion",
+    "texto": "bunaltıcı, baş döndürücü"
+  },
+  {
+    "ruta": "tarjetas.43.ejemplo",
+    "texto": "The noise in Osaka was overwhelming, but in a fun way."
+  },
+  {
+    "ruta": "tarjetas.44.termino",
+    "texto": "by the end of"
+  },
+  {
+    "ruta": "tarjetas.44.traduccion",
+    "texto": "-in sonunda"
+  },
+  {
+    "ruta": "tarjetas.44.ejemplo",
+    "texto": "By the end of the trip I was ordering food without thinking about it."
+  },
+  {
+    "ruta": "tarjetas.45.termino",
+    "texto": "to get used to"
+  },
+  {
+    "ruta": "tarjetas.45.traduccion",
+    "texto": "alışmak"
+  },
+  {
+    "ruta": "tarjetas.45.ejemplo",
+    "texto": "It took me a full week to get used to my home routine again."
+  },
+  {
+    "ruta": "tarjetas.46.termino",
+    "texto": "training plan"
+  },
+  {
+    "ruta": "tarjetas.46.traduccion",
+    "texto": "antrenman planı"
+  },
+  {
+    "ruta": "tarjetas.46.ejemplo",
+    "texto": "My training plan has three short runs and one long run a week."
+  },
+  {
+    "ruta": "tarjetas.47.termino",
+    "texto": "to catch up"
+  },
+  {
+    "ruta": "tarjetas.47.traduccion",
+    "texto": "açığı kapatmak, işleri toparlamak"
+  },
+  {
+    "ruta": "tarjetas.47.ejemplo",
+    "texto": "After the trip I had to catch up with two lab reports."
+  },
+  {
+    "ruta": "tarjetas.48.termino",
+    "texto": "to apply for"
+  },
+  {
+    "ruta": "tarjetas.48.traduccion",
+    "texto": "başvurmak"
+  },
+  {
+    "ruta": "tarjetas.48.ejemplo",
+    "texto": "I don't know whether to apply for a master's or look for a job."
+  },
+  {
+    "ruta": "tarjetas.48.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetas.49.termino",
+    "texto": "deadline"
+  },
+  {
+    "ruta": "tarjetas.49.traduccion",
+    "texto": "son teslim tarihi"
+  },
+  {
+    "ruta": "tarjetas.49.ejemplo",
+    "texto": "The deadline for the application is in January."
+  },
+  {
+    "ruta": "tarjetas.49.tipo",
+    "texto": "palabra"
+  },
+  {
+    "ruta": "tarjetas.50.termino",
+    "texto": "it depends on"
+  },
+  {
+    "ruta": "tarjetas.50.traduccion",
+    "texto": "-e bağlı"
+  },
+  {
+    "ruta": "tarjetas.50.ejemplo",
+    "texto": "It depends on whether I can keep my shifts at the café."
+  },
+  {
+    "ruta": "tarjetas.51.termino",
+    "texto": "achievement"
+  },
+  {
+    "ruta": "tarjetas.51.traduccion",
+    "texto": "başarı"
+  },
+  {
+    "ruta": "tarjetas.51.ejemplo",
+    "texto": "Finishing the half marathon was the biggest achievement of my year."
+  },
+  {
+    "ruta": "tarjetas.52.termino",
+    "texto": "to look back"
+  },
+  {
+    "ruta": "tarjetas.52.traduccion",
+    "texto": "geriye dönüp bakmak"
+  },
+  {
+    "ruta": "tarjetas.52.ejemplo",
+    "texto": "When I look back, the hardest month was the one with the injury."
+  },
+  {
+    "ruta": "tarjetas.53.termino",
+    "texto": "job interview"
+  },
+  {
+    "ruta": "tarjetas.53.traduccion",
+    "texto": "iş görüşmesi"
+  },
+  {
+    "ruta": "tarjetas.53.ejemplo",
+    "texto": "I have a job interview at a lab next month."
+  },
+  {
+    "ruta": "tarjetas.54.termino",
+    "texto": "to save up for"
+  },
+  {
+    "ruta": "tarjetas.54.traduccion",
+    "texto": "bir şey için para biriktirmek"
+  },
+  {
+    "ruta": "tarjetas.54.ejemplo",
+    "texto": "Now I'm starting to save up for Korea."
+  },
+  {
+    "ruta": "tarjetas.55.termino",
+    "texto": "used to"
+  },
+  {
+    "ruta": "tarjetas.55.traduccion",
+    "texto": "eskiden yapardım, önceden"
+  },
+  {
+    "ruta": "tarjetas.55.ejemplo",
+    "texto": "I used to go to bed at two in the morning and hate the alarm."
+  },
+  {
+    "ruta": "tarjetas.55.tipo",
+    "texto": "expresion"
+  },
+  {
+    "ruta": "tarjetasJa.0.traduccion",
+    "texto": "pardon, affedersiniz (birine seslenmek için de)"
+  },
+  {
+    "ruta": "tarjetasJa.1.traduccion",
+    "texto": "çok teşekkür ederim"
+  },
+  {
+    "ruta": "tarjetasJa.2.traduccion",
+    "texto": "tren istasyonu"
+  },
+  {
+    "ruta": "tarjetasJa.3.traduccion",
+    "texto": "bu ne kadar?"
+  },
+  {
+    "ruta": "tarjetasJa.4.traduccion",
+    "texto": "su, lütfen"
+  },
+  {
+    "ruta": "tarjetasJa.5.traduccion",
+    "texto": "tuvalet nerede?"
+  },
+  {
+    "ruta": "tarjetasJa.6.traduccion",
+    "texto": "anlamıyorum"
+  },
+  {
+    "ruta": "tarjetasJa.7.traduccion",
+    "texto": "lütfen (bir şey isterken)"
+  },
+  {
+    "ruta": "tarjetasJa.8.traduccion",
+    "texto": "bunu lütfen (göstererek)"
+  },
+  {
+    "ruta": "tarjetasJa.9.traduccion",
+    "texto": "istasyon nerede?"
+  },
+  {
+    "ruta": "tarjetasJa.10.traduccion",
+    "texto": "bu ne kadar?"
+  },
+  {
+    "ruta": "tarjetasJa.11.traduccion",
+    "texto": "su, lütfen"
+  },
+  {
+    "ruta": "tarjetasJa.12.traduccion",
+    "texto": "tuvalet nerede?"
+  },
+  {
+    "ruta": "tarjetasJa.13.traduccion",
+    "texto": "İngilizce biliyor musunuz?"
+  },
+  {
+    "ruta": "tarjetasJa.14.traduccion",
+    "texto": "böyle iyi, gerek yok"
+  },
+  {
+    "ruta": "tarjetasJa.15.traduccion",
+    "texto": "rezervasyonum var (yaptırmıştım)"
+  },
+  {
+    "ruta": "tarjetasJa.16.traduccion",
+    "texto": "hesap, lütfen"
+  },
+  {
+    "ruta": "tarjetasJa.17.traduccion",
+    "texto": "tren bileti"
+  },
+  {
+    "ruta": "tarjetasJa.18.traduccion",
+    "texto": "lütfen bir dakika bekleyin"
+  },
+  {
+    "ruta": "tarjetasJa.19.traduccion",
+    "texto": "çok lezzetli"
+  },
+  {
+    "ruta": "temas.0.titulo",
+    "texto": "Kafe kelime dağarcığı"
+  },
+  {
+    "ruta": "temas.0.descripcion",
+    "texto": "Vardiyamda söylediğim her şey: siparişler, bitkisel sütler, bekleyişler ve kibar özürler."
+  },
+  {
+    "ruta": "temas.1.titulo",
+    "texto": "Vücut ve doktor"
+  },
+  {
+    "ruta": "temas.1.descripcion",
+    "texto": "Ağrıları anlatmak, randevu almak ve dinlenmekten ders kitabı tadında olmadan konuşmak için kelimeler."
+  },
+  {
+    "ruta": "temas.2.titulo",
+    "texto": "Japonya için para ve birikim"
+  },
+  {
+    "ruta": "temas.2.descripcion",
+    "texto": "Büyük sayılar, fiyatlar ve seyahat bütçesinden konuşmak için cümleler."
+  },
+  {
+    "ruta": "charla.titulo",
+    "texto": "Past Simple ve Present Perfect"
+  },
+  {
+    "ruta": "charla.pregunta",
+    "texto": "Günlüğü İngilizce tutuyorum ve hep kararsız kalıyorum: neden bazen «I ran 5K on Sunday», bazen «I have run 5K» yazıyorum? Bana ikisi de aynı geliyor."
+  },
+  {
+    "ruta": "charla.respuesta",
+    "texto": "Seni okuyan biri için aynı gelmiyor: Past Simple anı kapatır («I ran 5K on Sunday» — pazar günü, bitmiş, tarihi belli), Present Perfect ise şimdiyle bağ kurar («I have run 5K three times this month», ay hâlâ devam ediyor). Günlüğün için pratik kural: ne zaman olduğunu söylüyorsan Past Simple; toplamından ya da bugüne kadarki deneyiminden söz ediyorsan Present Perfect. «yet» ve «already» kelimelerine de dikkat et: «I haven't started the marathon plan yet». Haftanla ilgili iki biçimi de kullanarak üç cümle yaz, ben düzelteyim."
+  },
+  {
+    "ruta": "materiales.0.titulo",
+    "texto": "Check-in cümleleri"
+  },
+  {
+    "ruta": "materiales.0.texto",
+    "texto": "I have a reservation under the name Pepa. — üç hafta boyunca en çok tekrarladığım cümle.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — tren günlerinin can simidi.\nIs there a laundry nearby?\nBir de hep bana dönen cümle: «Could I see your passport, please?»"
+  },
+  {
+    "ruta": "materiales.1.titulo",
+    "texto": "Vardiyamda İngilizce"
+  },
+  {
+    "ruta": "materiales.1.texto",
+    "texto": "To go or for here? / Anything else?\nOat milk, soy milk, half a shot, extra hot — en çok istenen dördü.\nSorry for the wait, the machine is warming up.\nIt's on the house. — biri yirmi dakikadır bekliyorsa.\nCash or card? The card reader is down again."
+  }
+]

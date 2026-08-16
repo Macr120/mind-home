@@ -1,0 +1,742 @@
+[
+  {
+    "clave": "computo.calc.raicesEn",
+    "texto": "{a} ile {b} arasında {n} çözüm. Dışarıda daha fazlası olabilir."
+  },
+  {
+    "clave": "computo.calc.raizEn",
+    "texto": "{a} ile {b} arasında bir çözüm. Dışarıda daha fazlası olabilir."
+  },
+  {
+    "clave": "computo.calc.sinRaices",
+    "texto": "aralıkta çözüm yok"
+  },
+  {
+    "clave": "computo.calc.sinRaicesEn",
+    "texto": "{a} ile {b} arasında gerçek çözüm yok."
+  },
+  {
+    "clave": "computo.calc.historial",
+    "texto": "Geçmiş"
+  },
+  {
+    "clave": "computo.calc.sinHistorial",
+    "texto": "Hesapladıkça buraya kaydedilir."
+  },
+  {
+    "clave": "computo.graf.tipos",
+    "texto": "Çizim türü"
+  },
+  {
+    "clave": "computo.graf.tipo.2d",
+    "texto": "2D"
+  },
+  {
+    "clave": "computo.graf.tipo.polar",
+    "texto": "Polar"
+  },
+  {
+    "clave": "computo.graf.tipo.parametrica",
+    "texto": "Parametrik"
+  },
+  {
+    "clave": "computo.graf.tipo.3d",
+    "texto": "3D yüzey"
+  },
+  {
+    "clave": "computo.graf.soltar",
+    "texto": "Serbest fonksiyonlara dön"
+  },
+  {
+    "clave": "computo.graf.congeladas",
+    "texto": "Diğerleri bu değerlerde sabit kalır; birini değiştir, grafik hareket etsin."
+  },
+  {
+    "clave": "computo.graf.placeholderPolar",
+    "texto": "θ’ya bağlı r, örn. 2*cos(3*theta)"
+  },
+  {
+    "clave": "computo.graf.placeholderX",
+    "texto": "x(t), örn. cos(t)"
+  },
+  {
+    "clave": "computo.graf.placeholderY",
+    "texto": "y(t), örn. sin(2*t)"
+  },
+  {
+    "clave": "computo.graf.placeholder3d",
+    "texto": "x ve y’ye bağlı z, örn. sin(x)*cos(y)"
+  },
+  {
+    "clave": "computo.graf.pistaPolar",
+    "texto": "θ iki tam tur atar"
+  },
+  {
+    "clave": "computo.graf.pistaParam",
+    "texto": "t: {a} ile {b} arası"
+  },
+  {
+    "clave": "computo.graf.hasta",
+    "texto": "ile"
+  },
+  {
+    "clave": "computo.graf.reencuadrar",
+    "texto": "Eğriye sığdır"
+  },
+  {
+    "clave": "computo.graf.unaVariable",
+    "texto": "Tek değişkenle çizilecek bir yüzey yok."
+  },
+  {
+    "clave": "computo.graf.volver2d",
+    "texto": "Düzleme dön"
+  },
+  {
+    "clave": "computo.graf.sinPolarFormula",
+    "texto": "Formül defterinden bir formül, düzlemde veya yüzey olarak çizilir."
+  },
+  {
+    "clave": "computo.graf.placeholder",
+    "texto": "x’e bağlı bir fonksiyon, örn. sin(x)"
+  },
+  {
+    "clave": "computo.graf.otra",
+    "texto": "Başka fonksiyon"
+  },
+  {
+    "clave": "computo.graf.quitar",
+    "texto": "Kaldır"
+  },
+  {
+    "clave": "computo.graf.mostrar",
+    "texto": "Göster"
+  },
+  {
+    "clave": "computo.graf.ocultar",
+    "texto": "Gizle"
+  },
+  {
+    "clave": "computo.graf.acercar",
+    "texto": "Yakınlaştır"
+  },
+  {
+    "clave": "computo.graf.alejar",
+    "texto": "Uzaklaştır"
+  },
+  {
+    "clave": "computo.graf.leer",
+    "texto": "Bir noktayı oku"
+  },
+  {
+    "clave": "computo.graf.centrar",
+    "texto": "Ortala"
+  },
+  {
+    "clave": "computo.graf.alto",
+    "texto": "Grafik yüksekliği: {nivel}"
+  },
+  {
+    "clave": "computo.graf.altoCompacta",
+    "texto": "Kompakt"
+  },
+  {
+    "clave": "computo.graf.altoNormal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "computo.graf.altoAlta",
+    "texto": "Uzun"
+  },
+  {
+    "clave": "computo.graf.pista",
+    "texto": "Düzlemi taşımak için sürükle, yakınlaşmak için sıkıştır."
+  },
+  {
+    "clave": "computo.graf.pistaLeer",
+    "texto": "Okuma modu: değerleri okumak için parmağını grafiğin üzerinde gezdir."
+  },
+  {
+    "clave": "computo.modo.normal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "computo.modo.grafica",
+    "texto": "Grafik"
+  },
+  {
+    "clave": "computo.modo.bases",
+    "texto": "Tabanlar"
+  },
+  {
+    "clave": "computo.modo.matrices",
+    "texto": "Matrisler"
+  },
+  {
+    "clave": "computo.modo.sistemas",
+    "texto": "Sistemler"
+  },
+  {
+    "clave": "computo.modo.unidades",
+    "texto": "Birimler"
+  },
+  {
+    "clave": "computo.modo.propina",
+    "texto": "Bahşiş"
+  },
+  {
+    "clave": "computo.modo.regla3",
+    "texto": "Üçlü kural"
+  },
+  {
+    "clave": "computo.bases.base",
+    "texto": "Taban"
+  },
+  {
+    "clave": "computo.bases.enBase",
+    "texto": "Taban {n}"
+  },
+  {
+    "clave": "computo.bases.placeholder",
+    "texto": "FF veya 0xFF + 0b1010"
+  },
+  {
+    "clave": "computo.bases.ayuda",
+    "texto": "Tek başına bir sayı seçtiğin tabanda okunur. İşlemlerde motor devreye girer: tabanları karıştırmak için 0b, 0o veya 0x kullan."
+  },
+  {
+    "clave": "computo.bases.prefijo",
+    "texto": "Bu tabanda bir sayı başlat"
+  },
+  {
+    "clave": "computo.bases.noEntero",
+    "texto": "Yalnızca tam sayılar başka tabanlarda okunabilir."
+  },
+  {
+    "clave": "computo.bases.guardar",
+    "texto": "Geçmişe kaydet"
+  },
+  {
+    "clave": "computo.matriz.medidas",
+    "texto": "Boyut"
+  },
+  {
+    "clave": "computo.matriz.filas",
+    "texto": "Satırlar"
+  },
+  {
+    "clave": "computo.matriz.cols",
+    "texto": "Sütunlar"
+  },
+  {
+    "clave": "computo.matriz.noCuadrada",
+    "texto": "Bu işlem kare bir matris gerektirir: boyutu değiştir."
+  },
+  {
+    "clave": "computo.matriz.singular",
+    "texto": "Mümkün değil: matrisin tersi yok (determinantı sıfır)."
+  },
+  {
+    "clave": "computo.sistema.placeholder",
+    "texto": "2x + 3y = 12"
+  },
+  {
+    "clave": "computo.sistema.ecuacion",
+    "texto": "Denklem {n}"
+  },
+  {
+    "clave": "computo.sistema.quitar",
+    "texto": "Bu denklemi kaldır"
+  },
+  {
+    "clave": "computo.sistema.otra",
+    "texto": "Başka denklem"
+  },
+  {
+    "clave": "computo.sistema.incognitas",
+    "texto": "Bilinmeyenler"
+  },
+  {
+    "clave": "computo.sistema.ninguna",
+    "texto": "henüz yok"
+  },
+  {
+    "clave": "computo.sistema.resolver",
+    "texto": "Çöz"
+  },
+  {
+    "clave": "computo.sistema.descuadra",
+    "texto": "Bilinmeyen sayısı kadar denklem gerekir: şu an {e} ve {i}."
+  },
+  {
+    "clave": "computo.sistema.sinSolucion",
+    "texto": "Tek bir çözümü yok: ya denklemler tekrarlanıyor, ya birbiriyle çelişiyor ya da biri doğrusal değil."
+  },
+  {
+    "clave": "computo.unid.longitud",
+    "texto": "Uzunluk"
+  },
+  {
+    "clave": "computo.unid.masa",
+    "texto": "Kütle"
+  },
+  {
+    "clave": "computo.unid.temperatura",
+    "texto": "Sıcaklık"
+  },
+  {
+    "clave": "computo.unid.volumen",
+    "texto": "Hacim"
+  },
+  {
+    "clave": "computo.unid.area",
+    "texto": "Alan"
+  },
+  {
+    "clave": "computo.unid.tiempo",
+    "texto": "Zaman"
+  },
+  {
+    "clave": "computo.unid.velocidad",
+    "texto": "Hız"
+  },
+  {
+    "clave": "computo.unid.datos",
+    "texto": "Veri"
+  },
+  {
+    "clave": "computo.unid.valor",
+    "texto": "Ne kadar"
+  },
+  {
+    "clave": "computo.unid.de",
+    "texto": "Nereden"
+  },
+  {
+    "clave": "computo.unid.a",
+    "texto": "Nereye"
+  },
+  {
+    "clave": "computo.unid.invertir",
+    "texto": "Ters çevir"
+  },
+  {
+    "clave": "computo.unid.faltan",
+    "texto": "Bir sayı yaz, dönüşüm kendiliğinden çıksın."
+  },
+  {
+    "clave": "computo.unid.imposible",
+    "texto": "Bu iki birim birbirine dönüştürülemez."
+  },
+  {
+    "clave": "computo.unid.u.km",
+    "texto": "kilometre"
+  },
+  {
+    "clave": "computo.unid.u.m",
+    "texto": "metre"
+  },
+  {
+    "clave": "computo.unid.u.cm",
+    "texto": "santimetre"
+  },
+  {
+    "clave": "computo.unid.u.mm",
+    "texto": "milimetre"
+  },
+  {
+    "clave": "computo.unid.u.mile",
+    "texto": "mil"
+  },
+  {
+    "clave": "computo.unid.u.yd",
+    "texto": "yarda"
+  },
+  {
+    "clave": "computo.unid.u.ft",
+    "texto": "fit"
+  },
+  {
+    "clave": "computo.unid.u.inch",
+    "texto": "inç"
+  },
+  {
+    "clave": "computo.unid.u.tonne",
+    "texto": "ton"
+  },
+  {
+    "clave": "computo.unid.u.kg",
+    "texto": "kilogram"
+  },
+  {
+    "clave": "computo.unid.u.g",
+    "texto": "gram"
+  },
+  {
+    "clave": "computo.unid.u.mg",
+    "texto": "miligram"
+  },
+  {
+    "clave": "computo.unid.u.lb",
+    "texto": "libre"
+  },
+  {
+    "clave": "computo.unid.u.oz",
+    "texto": "ons"
+  },
+  {
+    "clave": "computo.unid.u.degC",
+    "texto": "santigrat derece"
+  },
+  {
+    "clave": "computo.unid.u.degF",
+    "texto": "Fahrenheit derece"
+  },
+  {
+    "clave": "computo.unid.u.K",
+    "texto": "kelvin"
+  },
+  {
+    "clave": "computo.unid.u.m3",
+    "texto": "metreküp"
+  },
+  {
+    "clave": "computo.unid.u.L",
+    "texto": "litre"
+  },
+  {
+    "clave": "computo.unid.u.mL",
+    "texto": "mililitre"
+  },
+  {
+    "clave": "computo.unid.u.gal",
+    "texto": "galon"
+  },
+  {
+    "clave": "computo.unid.u.qt",
+    "texto": "kuart"
+  },
+  {
+    "clave": "computo.unid.u.pt",
+    "texto": "pint"
+  },
+  {
+    "clave": "computo.unid.u.cup",
+    "texto": "su bardağı"
+  },
+  {
+    "clave": "computo.unid.u.floz",
+    "texto": "sıvı ons"
+  },
+  {
+    "clave": "computo.unid.u.km2",
+    "texto": "kilometrekare"
+  },
+  {
+    "clave": "computo.unid.u.m2",
+    "texto": "metrekare"
+  },
+  {
+    "clave": "computo.unid.u.cm2",
+    "texto": "santimetrekare"
+  },
+  {
+    "clave": "computo.unid.u.hectare",
+    "texto": "hektar"
+  },
+  {
+    "clave": "computo.unid.u.acre",
+    "texto": "akr"
+  },
+  {
+    "clave": "computo.unid.u.sqft",
+    "texto": "fit kare"
+  },
+  {
+    "clave": "computo.unid.u.sqmi",
+    "texto": "mil kare"
+  },
+  {
+    "clave": "computo.unid.u.year",
+    "texto": "yıl"
+  },
+  {
+    "clave": "computo.unid.u.month",
+    "texto": "ay"
+  },
+  {
+    "clave": "computo.unid.u.week",
+    "texto": "hafta"
+  },
+  {
+    "clave": "computo.unid.u.day",
+    "texto": "gün"
+  },
+  {
+    "clave": "computo.unid.u.hour",
+    "texto": "saat"
+  },
+  {
+    "clave": "computo.unid.u.minute",
+    "texto": "dakika"
+  },
+  {
+    "clave": "computo.unid.u.s",
+    "texto": "saniye"
+  },
+  {
+    "clave": "computo.unid.u.ms",
+    "texto": "milisaniye"
+  },
+  {
+    "clave": "computo.unid.u.kmh",
+    "texto": "kilometre/saat"
+  },
+  {
+    "clave": "computo.unid.u.mih",
+    "texto": "mil/saat"
+  },
+  {
+    "clave": "computo.unid.u.ms1",
+    "texto": "metre/saniye"
+  },
+  {
+    "clave": "computo.unid.u.fts",
+    "texto": "fit/saniye"
+  },
+  {
+    "clave": "computo.unid.u.TB",
+    "texto": "TB"
+  },
+  {
+    "clave": "computo.unid.u.GB",
+    "texto": "GB"
+  },
+  {
+    "clave": "computo.unid.u.MB",
+    "texto": "MB"
+  },
+  {
+    "clave": "computo.unid.u.kB",
+    "texto": "kB"
+  },
+  {
+    "clave": "computo.unid.u.B",
+    "texto": "B"
+  },
+  {
+    "clave": "computo.unid.u.b",
+    "texto": "bit"
+  },
+  {
+    "clave": "computo.unid.u.GiB",
+    "texto": "GiB"
+  },
+  {
+    "clave": "computo.unid.u.MiB",
+    "texto": "MiB"
+  },
+  {
+    "clave": "computo.unid.u.KiB",
+    "texto": "KiB"
+  },
+  {
+    "clave": "computo.propina.cuenta",
+    "texto": "Hesap"
+  },
+  {
+    "clave": "computo.propina.personas",
+    "texto": "Kaç kişiye"
+  },
+  {
+    "clave": "computo.propina.pct",
+    "texto": "Bahşiş"
+  },
+  {
+    "clave": "computo.propina.faltan",
+    "texto": "Hesabı ve yüzdeyi yaz."
+  },
+  {
+    "clave": "computo.propina.laPropina",
+    "texto": "Bahşiş"
+  },
+  {
+    "clave": "computo.propina.total",
+    "texto": "Toplam"
+  },
+  {
+    "clave": "computo.propina.cadaUno",
+    "texto": "Kişi başı"
+  },
+  {
+    "clave": "computo.regla3.directa",
+    "texto": "Doğru orantı"
+  },
+  {
+    "clave": "computo.regla3.inversa",
+    "texto": "Ters orantı"
+  },
+  {
+    "clave": "computo.regla3.ayudaDirecta",
+    "texto": "Birinden fazlası diğerinden de fazlası demekse: kilo ve fiyat, saat ve maaş."
+  },
+  {
+    "clave": "computo.regla3.ayudaInversa",
+    "texto": "Birinden fazlası diğerinden azı demekse: işçi ve gün, hız ve zaman."
+  },
+  {
+    "clave": "computo.regla3.a",
+    "texto": "Eğer bu…"
+  },
+  {
+    "clave": "computo.regla3.b",
+    "texto": "…şu ise"
+  },
+  {
+    "clave": "computo.regla3.c",
+    "texto": "O zaman bu…"
+  },
+  {
+    "clave": "computo.regla3.x",
+    "texto": "…x’tir"
+  },
+  {
+    "clave": "computo.regla3.faltan",
+    "texto": "Üç sayıyı doldur, x kendiliğinden çıksın."
+  },
+  {
+    "clave": "computo.regla3.cero",
+    "texto": "Sıfıra bölünemez: o sayıyı değiştir."
+  },
+  {
+    "clave": "computo.hojas.mias",
+    "texto": "Tablolarım"
+  },
+  {
+    "clave": "computo.hojas.vacio",
+    "texto": "Henüz tablo yok. Yukarıdaki düğmeyle bir tane oluştur."
+  },
+  {
+    "clave": "computo.hojas.nueva",
+    "texto": "Yeni tablo"
+  },
+  {
+    "clave": "computo.hojas.sinNombre",
+    "texto": "Yeni tablo"
+  },
+  {
+    "clave": "computo.hojas.nuevaMsg",
+    "texto": "Adı ne olsun?"
+  },
+  {
+    "clave": "computo.hojas.renombrar",
+    "texto": "Tabloyu yeniden adlandır"
+  },
+  {
+    "clave": "computo.hojas.duplicar",
+    "texto": "Çoğalt"
+  },
+  {
+    "clave": "computo.hojas.copiaDe",
+    "texto": "{nombre} kopyası"
+  },
+  {
+    "clave": "computo.hojas.borrar",
+    "texto": "«{nombre}» öğesini sil"
+  },
+  {
+    "clave": "computo.hojas.borrarCorto",
+    "texto": "Sil"
+  },
+  {
+    "clave": "computo.hojas.borrarMsg",
+    "texto": "Tablo ve içindeki her şey silinir."
+  },
+  {
+    "clave": "computo.hojas.celdas",
+    "texto": "{n} hücre"
+  },
+  {
+    "clave": "computo.hojas.volver",
+    "texto": "Listeye dön"
+  },
+  {
+    "clave": "computo.hojas.aExcel",
+    "texto": "Excel’e aktar"
+  },
+  {
+    "clave": "computo.hojas.aPdf",
+    "texto": "Yazdır veya PDF olarak kaydet"
+  },
+  {
+    "clave": "computo.hojas.formulaPlaceholder",
+    "texto": "Bir değer, bir metin veya =SUMA(A1:A5)"
+  },
+  {
+    "clave": "computo.form.ampliar",
+    "texto": "Aralığı genişlet"
+  },
+  {
+    "clave": "computo.form.ampliarTramo",
+    "texto": "Kaydırıcının aralığını genişlet ({min} - {max})"
+  },
+  {
+    "clave": "computo.form.verEnGrande",
+    "texto": "Büyük görüntüle"
+  },
+  {
+    "clave": "computo.form.eje",
+    "texto": "Eksen"
+  },
+  {
+    "clave": "computo.sup.imposible",
+    "texto": "Bu değerlerle formül çizilebilecek bir yüzey vermiyor."
+  },
+  {
+    "clave": "computo.sup.huecos",
+    "texto": "tanımsız bölgeler var"
+  },
+  {
+    "clave": "computo.sup.cargando",
+    "texto": "Yüzey hazırlanıyor…"
+  },
+  {
+    "clave": "computo.not.titulo",
+    "texto": "Gösterimler"
+  },
+  {
+    "clave": "computo.not.basicas",
+    "texto": "Temel"
+  },
+  {
+    "clave": "computo.not.calculo",
+    "texto": "Kalkülüs"
+  },
+  {
+    "clave": "computo.not.matrices",
+    "texto": "Matrisler"
+  },
+  {
+    "clave": "computo.not.trigonometria",
+    "texto": "Trigonometri"
+  },
+  {
+    "clave": "computo.not.simbolos",
+    "texto": "Semboller"
+  },
+  {
+    "clave": "computo.not.ayuda",
+    "texto": "İmlecin nerede olursa olsun oraya yazılır ve boşluk doldurmaya hazır kalır. Güzel görünüm, yazdığından kendiliğinden çıkar."
+  },
+  {
+    "clave": "computo.hojas.resumen",
+    "texto": "Toplam {suma} · Ortalama {prom} · Sayım {n}"
+  },
+  {
+    "clave": "computo.hojas.masFilas",
+    "texto": "Satırlar"
+  },
+  {
+    "clave": "computo.hojas.masCols",
+    "texto": "Sütunlar"
+  }
+]

@@ -1,0 +1,562 @@
+[
+  {
+    "clave": "garage.detalle.placas",
+    "texto": "Pelat: {n}"
+  },
+  {
+    "clave": "garage.tram.seccion",
+    "texto": "Administrasi"
+  },
+  {
+    "clave": "garage.tram.programar",
+    "texto": "Jadwalkan"
+  },
+  {
+    "clave": "garage.tram.nuevo",
+    "texto": "Jadwalkan administrasi"
+  },
+  {
+    "clave": "garage.tram.editar",
+    "texto": "Edit administrasi"
+  },
+  {
+    "clave": "garage.tram.tipo",
+    "texto": "Jenis"
+  },
+  {
+    "clave": "garage.tram.titulo",
+    "texto": "Nama *"
+  },
+  {
+    "clave": "garage.tram.fecha",
+    "texto": "Tanggal jatuh tempo berikutnya *"
+  },
+  {
+    "clave": "garage.tram.hora",
+    "texto": "Waktu pengingat"
+  },
+  {
+    "clave": "garage.tram.repite",
+    "texto": "Berulang"
+  },
+  {
+    "clave": "garage.tram.aviso",
+    "texto": "Ingatkan aku"
+  },
+  {
+    "clave": "garage.tram.costo",
+    "texto": "Perkiraan biaya (MXN)"
+  },
+  {
+    "clave": "garage.tram.folio",
+    "texto": "Polis / nomor referensi"
+  },
+  {
+    "clave": "garage.tram.taller",
+    "texto": "Di mana dilakukan"
+  },
+  {
+    "clave": "garage.tram.sinTaller",
+    "texto": "Tanpa kontak"
+  },
+  {
+    "clave": "garage.tram.nota",
+    "texto": "Catatan"
+  },
+  {
+    "clave": "garage.tram.pista",
+    "texto": "Administrasi ini muncul di kalendermu dan mengingatkanmu tepat waktu."
+  },
+  {
+    "clave": "garage.tram.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "garage.tram.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "garage.tram.sinPlaca",
+    "texto": "Tanpa pelat nomor, hanya yang dasar yang muncul. Tambahkan nomor pelat di kartu kendaraan untuk menjadwalkan pajak kendaraan, uji emisi, STNK, dan asuransi."
+  },
+  {
+    "clave": "garage.tram.vacio",
+    "texto": "Jadwalkan uji emisi atau servis berkala dan kami akan mengingatkanmu tepat waktu."
+  },
+  {
+    "clave": "garage.tram.vacioSinPlaca",
+    "texto": "Jadwalkan servis berkala dan kami akan mengingatkanmu tepat waktu. Menambahkan pelat nomor juga membuka uji emisi."
+  },
+  {
+    "clave": "garage.doc.seccion",
+    "texto": "Dokumen"
+  },
+  {
+    "clave": "garage.doc.agregar",
+    "texto": "Tambah"
+  },
+  {
+    "clave": "garage.doc.nuevo",
+    "texto": "Dokumen baru"
+  },
+  {
+    "clave": "garage.doc.editar",
+    "texto": "Edit dokumen"
+  },
+  {
+    "clave": "garage.doc.pista",
+    "texto": "Dokumen ini muncul di kalendermu dan memperingatkanmu sebelum masa berlakunya habis."
+  },
+  {
+    "clave": "garage.doc.vacio",
+    "texto": "Simpan STNK, polis asuransi, dan pajak kendaraan di sini lengkap dengan nomor referensi dan tanggal jatuh temponya: kami akan memperingatkanmu sebelum masa berlakunya habis."
+  },
+  {
+    "clave": "garage.doc.vacioSinPlaca",
+    "texto": "Kendaraan ini belum punya dokumen. Tambahkan nomor pelat di kartunya untuk membuka pajak kendaraan, STNK, dan asuransi."
+  },
+  {
+    "clave": "garage.tram.vencidoHace",
+    "texto": "terlambat {n} hari"
+  },
+  {
+    "clave": "garage.tram.hoy",
+    "texto": "jatuh tempo hari ini"
+  },
+  {
+    "clave": "garage.tram.faltan",
+    "texto": "{n} hari lagi"
+  },
+  {
+    "clave": "garage.tram.avisoPrevio",
+    "texto": "{n} hari sebelumnya"
+  },
+  {
+    "clave": "garage.tram.folioNota",
+    "texto": "Referensi: {n}"
+  },
+  {
+    "clave": "garage.tram.hecho",
+    "texto": "Sudah selesai"
+  },
+  {
+    "clave": "garage.tram.hechoAyuda",
+    "texto": "Menyimpannya ke riwayat dan berpindah ke periode berikutnya"
+  },
+  {
+    "clave": "garage.tram.hechoUnicoAyuda",
+    "texto": "Menyimpannya ke riwayat dan mengarsipkannya"
+  },
+  {
+    "clave": "garage.tram.recordatorio",
+    "texto": "Akan datang: {n}"
+  },
+  {
+    "clave": "garage.tram.sinVehiculo",
+    "texto": "Kendaraan"
+  },
+  {
+    "clave": "garage.tram.venceHace",
+    "texto": "Terlambat {n} hari ({f})"
+  },
+  {
+    "clave": "garage.tram.venceHoy",
+    "texto": "Jatuh tempo hari ini"
+  },
+  {
+    "clave": "garage.tram.venceEn",
+    "texto": "Dalam {n} hari ({f})"
+  },
+  {
+    "clave": "garage.tramTipo.mantenimiento",
+    "texto": "Servis berkala"
+  },
+  {
+    "clave": "garage.tramTipo.tenencia",
+    "texto": "Pembayaran pajak kendaraan"
+  },
+  {
+    "clave": "garage.tramTipo.verificacion",
+    "texto": "Uji emisi"
+  },
+  {
+    "clave": "garage.tramTipo.circulacion",
+    "texto": "STNK"
+  },
+  {
+    "clave": "garage.tramTipo.seguro",
+    "texto": "Asuransi"
+  },
+  {
+    "clave": "garage.tramTipo.otro",
+    "texto": "Administrasi lainnya"
+  },
+  {
+    "clave": "garage.tramCada.0",
+    "texto": "Hanya sekali"
+  },
+  {
+    "clave": "garage.tramCada.1",
+    "texto": "Setiap bulan"
+  },
+  {
+    "clave": "garage.tramCada.3",
+    "texto": "Setiap 3 bulan"
+  },
+  {
+    "clave": "garage.tramCada.6",
+    "texto": "Setiap 6 bulan"
+  },
+  {
+    "clave": "garage.tramCada.12",
+    "texto": "Setiap tahun"
+  },
+  {
+    "clave": "garage.tramCada.24",
+    "texto": "Setiap 2 tahun"
+  },
+  {
+    "clave": "garage.tramCada.36",
+    "texto": "Setiap 3 tahun"
+  },
+  {
+    "clave": "garage.tramAviso.0",
+    "texto": "Hanya pada harinya"
+  },
+  {
+    "clave": "garage.tramAviso.7",
+    "texto": "Satu minggu sebelumnya"
+  },
+  {
+    "clave": "garage.tramAviso.15",
+    "texto": "Lima belas hari sebelumnya"
+  },
+  {
+    "clave": "garage.tramAviso.30",
+    "texto": "Satu bulan sebelumnya"
+  },
+  {
+    "clave": "garage.taller.añadir",
+    "texto": "Tambah kontak"
+  },
+  {
+    "clave": "garage.taller.nuevo",
+    "texto": "Kontak baru"
+  },
+  {
+    "clave": "garage.taller.editar",
+    "texto": "Edit kontak"
+  },
+  {
+    "clave": "garage.taller.nombre",
+    "texto": "Nama *"
+  },
+  {
+    "clave": "garage.taller.tipo",
+    "texto": "Jenis"
+  },
+  {
+    "clave": "garage.taller.telefono",
+    "texto": "Telepon"
+  },
+  {
+    "clave": "garage.taller.correo",
+    "texto": "Email"
+  },
+  {
+    "clave": "garage.taller.direccion",
+    "texto": "Alamat"
+  },
+  {
+    "clave": "garage.taller.vehiculo",
+    "texto": "Melayani"
+  },
+  {
+    "clave": "garage.taller.todos",
+    "texto": "Semua kendaraanku"
+  },
+  {
+    "clave": "garage.taller.atiendeA",
+    "texto": "Melayani: {n}"
+  },
+  {
+    "clave": "garage.taller.notas",
+    "texto": "Catatan"
+  },
+  {
+    "clave": "garage.taller.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "garage.taller.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "garage.taller.vacio",
+    "texto": "Simpan bengkel terpercaya, perusahaan asuransi, tempat uji emisi, dan layanan derek di sini: selalu siap saat administrasi harus diurus."
+  },
+  {
+    "clave": "garage.tallerTipo.taller",
+    "texto": "Bengkel / montir"
+  },
+  {
+    "clave": "garage.tallerTipo.aseguradora",
+    "texto": "Perusahaan asuransi"
+  },
+  {
+    "clave": "garage.tallerTipo.verificentro",
+    "texto": "Tempat uji emisi"
+  },
+  {
+    "clave": "garage.tallerTipo.refaccionaria",
+    "texto": "Toko suku cadang"
+  },
+  {
+    "clave": "garage.tallerTipo.grua",
+    "texto": "Derek / bantuan jalan"
+  },
+  {
+    "clave": "garage.tallerTipo.otro",
+    "texto": "Kontak lainnya"
+  },
+  {
+    "clave": "diario.titulo",
+    "texto": "Koran hari ini"
+  },
+  {
+    "clave": "diario.tab.titulares",
+    "texto": "Berita utama hari ini"
+  },
+  {
+    "clave": "diario.tab.efemerides",
+    "texto": "Hari ini dalam sejarah"
+  },
+  {
+    "clave": "diario.actualizar",
+    "texto": "Segarkan"
+  },
+  {
+    "clave": "diario.reintentar",
+    "texto": "Coba lagi"
+  },
+  {
+    "clave": "diario.error",
+    "texto": "Tidak bisa terhubung ke sumber berita. Periksa koneksi internetmu dan coba lagi."
+  },
+  {
+    "clave": "diario.vacio",
+    "texto": "Berita utama hari ini tidak bisa dimuat. Coba segarkan."
+  },
+  {
+    "clave": "diario.cat.todo",
+    "texto": "Semua"
+  },
+  {
+    "clave": "diario.cat.mundo",
+    "texto": "Dunia"
+  },
+  {
+    "clave": "diario.cat.economia",
+    "texto": "Ekonomi"
+  },
+  {
+    "clave": "diario.cat.tecnologia",
+    "texto": "Teknologi"
+  },
+  {
+    "clave": "diario.cat.salud",
+    "texto": "Kesehatan"
+  },
+  {
+    "clave": "diario.cat.deportes",
+    "texto": "Olahraga"
+  },
+  {
+    "clave": "diario.cat.entretenimiento",
+    "texto": "Hiburan"
+  },
+  {
+    "clave": "diario.ef.historia",
+    "texto": "Sehari dalam sejarah"
+  },
+  {
+    "clave": "diario.ef.arte",
+    "texto": "Karya seni hari ini"
+  },
+  {
+    "clave": "diario.ef.libro",
+    "texto": "Buku hari ini"
+  },
+  {
+    "clave": "diario.ef.personalidad",
+    "texto": "Tokoh hari ini"
+  },
+  {
+    "clave": "diario.ef.especie",
+    "texto": "Spesies hari ini"
+  },
+  {
+    "clave": "diario.ef.palabra",
+    "texto": "Kata hari ini"
+  },
+  {
+    "clave": "diario.ef.frase",
+    "texto": "Kutipan hari ini"
+  },
+  {
+    "clave": "diario.ef.vacio",
+    "texto": "Peristiwa hari ini dalam sejarah tidak bisa dimuat. Coba segarkan."
+  },
+  {
+    "clave": "diario.ef.profundizar",
+    "texto": "Perdalam di perpustakaan"
+  },
+  {
+    "clave": "diario.ef.profundizarTitulo",
+    "texto": "Perdalam bersama Sang Bijak perpustakaan"
+  },
+  {
+    "clave": "diario.ef.leerMas",
+    "texto": "Baca selengkapnya ▾"
+  },
+  {
+    "clave": "diario.ef.leerMenos",
+    "texto": "Baca lebih sedikit ▴"
+  },
+  {
+    "clave": "diario.reparto.titulo",
+    "texto": "Pengiriman oleh asisten"
+  },
+  {
+    "clave": "diario.reparto.desc",
+    "texto": "Atur feed mana yang dikirim setiap asisten ke chatnya: pada jam tertentu atau di momen kejutan sepanjang hari (saat aplikasi terbuka)."
+  },
+  {
+    "clave": "diario.reparto.vacio",
+    "texto": "Belum ada jadwal. Tambahkan satu agar asisten membawakanmu koran."
+  },
+  {
+    "clave": "diario.reparto.agregar",
+    "texto": "Tambah jadwal"
+  },
+  {
+    "clave": "diario.reparto.grupoTitulares",
+    "texto": "Berita utama"
+  },
+  {
+    "clave": "diario.reparto.grupoEfemerides",
+    "texto": "Hari ini dalam sejarah"
+  },
+  {
+    "clave": "diario.reparto.todas",
+    "texto": "Semua"
+  },
+  {
+    "clave": "diario.reparto.ninguna",
+    "texto": "Tidak ada"
+  },
+  {
+    "clave": "diario.reparto.eliminar",
+    "texto": "Hapus jadwal"
+  },
+  {
+    "clave": "diario.reparto.modo.hora",
+    "texto": "Atur waktu"
+  },
+  {
+    "clave": "diario.reparto.modo.aleatoria",
+    "texto": "Acak"
+  },
+  {
+    "clave": "diario.reparto.pendiente",
+    "texto": "Hari ini pukul {hora}"
+  },
+  {
+    "clave": "diario.reparto.entregada",
+    "texto": "Sudah dikirim hari ini"
+  },
+  {
+    "clave": "diario.reparto.plantillaTitulo",
+    "texto": "🗞️ Koranmu hari ini!"
+  },
+  {
+    "clave": "diario.reparto.sinContenido",
+    "texto": "🗞️ Hari ini tidak ada konten di bagian koranmu."
+  },
+  {
+    "clave": "respaldo.titulo",
+    "texto": "Cadangan data"
+  },
+  {
+    "clave": "respaldo.desc",
+    "texto": "Ekspor, pulihkan, atau hapus data yang tersimpan di perangkat ini."
+  },
+  {
+    "clave": "respaldo.persistente.si",
+    "texto": "✓ Penyimpanan terlindungi: browser tidak akan menghapus datamu demi ruang kosong"
+  },
+  {
+    "clave": "respaldo.persistente.no",
+    "texto": "⚠ Penyimpanan TIDAK persisten: browser bisa menghapus datamu; sering-seringlah membuat cadangan"
+  },
+  {
+    "clave": "respaldo.ultimo",
+    "texto": "Cadangan terakhir: {fecha}"
+  },
+  {
+    "clave": "respaldo.sinRespaldo",
+    "texto": "Kamu belum pernah mengekspor cadangan."
+  },
+  {
+    "clave": "respaldo.total",
+    "texto": "Total data"
+  },
+  {
+    "clave": "respaldo.exportar",
+    "texto": "Ekspor semua sebagai JSON"
+  },
+  {
+    "clave": "respaldo.restaurar",
+    "texto": "Pulihkan dari cadangan"
+  },
+  {
+    "clave": "respaldo.confirm.titulo",
+    "texto": "Konfirmasi pemulihan"
+  },
+  {
+    "clave": "respaldo.confirm.desc",
+    "texto": "{nombre} berisi {n} data. Memulihkan akan mengganti semua data saat ini dan mengembalikan rumah ke keadaan saat diekspor."
+  },
+  {
+    "clave": "respaldo.confirm.omitir",
+    "texto": "Tabel yang tidak dikenali versi ini akan dilewati: {tablas}."
+  },
+  {
+    "clave": "respaldo.confirm.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "respaldo.confirm.restaurar",
+    "texto": "Pulihkan cadangan"
+  },
+  {
+    "clave": "respaldo.archivoInvalido",
+    "texto": "File ini bukan cadangan Mind Planner Home yang valid."
+  },
+  {
+    "clave": "respaldo.sinRegistros",
+    "texto": "File ini tidak berisi data untuk dipulihkan."
+  },
+  {
+    "clave": "respaldo.restaurado",
+    "texto": "✓ Cadangan dipulihkan ({n} data). Memuat ulang…"
+  },
+  {
+    "clave": "respaldo.errorRestaura",
+    "texto": "Tidak bisa dipulihkan; data kamu saat ini tidak berubah."
+  },
+  {
+    "clave": "respaldo.danger.titulo",
+    "texto": "Zona berbahaya"
+  }
+]

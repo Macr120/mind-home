@@ -1,0 +1,606 @@
+[
+  {
+    "clave": "respaldo.aviso",
+    "texto": "Cadangan terakhirmu {n} hari yang lalu."
+  },
+  {
+    "clave": "respaldo.luego",
+    "texto": "Ingatkan aku dalam seminggu"
+  },
+  {
+    "clave": "rot.der",
+    "texto": "Putar 90° ke kanan"
+  },
+  {
+    "clave": "rot.izq",
+    "texto": "Putar 90° ke kiri"
+  },
+  {
+    "clave": "rutinas.activar",
+    "texto": "Aktifkan"
+  },
+  {
+    "clave": "rutinas.agregarPaso",
+    "texto": "Tambah langkah"
+  },
+  {
+    "clave": "rutinas.autoRegistro",
+    "texto": "Mencatat otomatis di ruangan"
+  },
+  {
+    "clave": "rutinas.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "rutinas.confirmarBorrar",
+    "texto": "Hapus acara ini?"
+  },
+  {
+    "clave": "rutinas.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "rutinas.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "rutinas.completada",
+    "texto": "Rutinitas selesai!"
+  },
+  {
+    "clave": "rutinas.editar",
+    "texto": "Edit"
+  },
+  {
+    "clave": "rutinas.eventoSimple",
+    "texto": "Acara kalender."
+  },
+  {
+    "clave": "rutinas.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "rutinas.hoy",
+    "texto": "Hari ini"
+  },
+  {
+    "clave": "rutinas.nombre",
+    "texto": "Nama rutinitas/acara"
+  },
+  {
+    "clave": "rutinas.nueva",
+    "texto": "Baru"
+  },
+  {
+    "clave": "rutinas.pasoPh",
+    "texto": "Apa yang harus dilakukan…"
+  },
+  {
+    "clave": "rutinas.pasos",
+    "texto": "langkah"
+  },
+  {
+    "clave": "rutinas.pasosOpcional",
+    "texto": "opsional"
+  },
+  {
+    "clave": "rutinas.pasosTitulo",
+    "texto": "Langkah"
+  },
+  {
+    "clave": "rutinas.pausar",
+    "texto": "Jeda"
+  },
+  {
+    "clave": "rutinas.rep.hintIndefinido",
+    "texto": "Tidak ada hari yang ditandai = setiap hari, tanpa tanggal akhir."
+  },
+  {
+    "clave": "rutinas.rep.hintSemanal",
+    "texto": "Berulang setiap minggu pada hari yang ditandai."
+  },
+  {
+    "clave": "rutinas.rep.sinFin",
+    "texto": "Tanpa tanggal akhir"
+  },
+  {
+    "clave": "rutinas.rep.soloTrazo",
+    "texto": "dijadwalkan dengan menggambarnya di kalender; gambar lagi untuk mengubah tanggalnya"
+  },
+  {
+    "clave": "rutinas.rep.termina",
+    "texto": "Berakhir pada"
+  },
+  {
+    "clave": "rutinas.rep.titulo",
+    "texto": "Pengulangan"
+  },
+  {
+    "clave": "rutinas.sinHora",
+    "texto": "tanpa waktu"
+  },
+  {
+    "clave": "rutinas.titulo",
+    "texto": "Rutinitas"
+  },
+  {
+    "clave": "rutinas.todas",
+    "texto": "Semua rutinitas"
+  },
+  {
+    "clave": "rutinas.vacio",
+    "texto": "Belum ada rutinitas. Buat satu dengan “+ Baru” atau minta asistenmu: “buatkan aku rutinitas pagi dengan air, peregangan, dan rasa syukur”."
+  },
+  {
+    "clave": "ui.sinApp",
+    "texto": "Ruangan ini belum memiliki aplikasi yang ditetapkan."
+  },
+  {
+    "clave": "ui.sinAppAyuda",
+    "texto": "Edit ruangan dan tetapkan aplikasi ke sebuah objek."
+  },
+  {
+    "clave": "ui.volverApps",
+    "texto": "‹ Aplikasi ruangan"
+  },
+  {
+    "clave": "mascota.mago.nombre",
+    "texto": "Penyihir"
+  },
+  {
+    "clave": "mascota.gato.nombre",
+    "texto": "Kucing"
+  },
+  {
+    "clave": "mascota.perro.nombre",
+    "texto": "Anjing"
+  },
+  {
+    "clave": "mascota.buho.nombre",
+    "texto": "Burung Hantu"
+  },
+  {
+    "clave": "mascota.robot.nombre",
+    "texto": "Robot"
+  },
+  {
+    "clave": "mascota.mago.saludo",
+    "texto": "Aku arsitek gaibmu. Ceritakan apa yang kamu lakukan dan akan kucatat ✨"
+  },
+  {
+    "clave": "mascota.gato.saludo",
+    "texto": "Meong. Ceritakan hal-halmu, nanti aku lihat masuk ke mana 🐾"
+  },
+  {
+    "clave": "mascota.perro.saludo",
+    "texto": "Guk! Ceritakan apa yang kamu lakukan, langsung kusimpan! 🦴"
+  },
+  {
+    "clave": "mascota.buho.saludo",
+    "texto": "Bijaksana dan penuh perhatian. Ceritakan harimu dan akan kurapikan."
+  },
+  {
+    "clave": "mascota.robot.saludo",
+    "texto": "Sistem siap. Masukkan catatan untuk diproses."
+  },
+  {
+    "clave": "mascota.bitacora",
+    "texto": "jurnal perjalanan"
+  },
+  {
+    "clave": "mascota.elObjeto",
+    "texto": "objek"
+  },
+  {
+    "clave": "mascota.mago.capturado.0",
+    "texto": "✨ Selesai. Aku telah menuliskan catatan itu di {c}."
+  },
+  {
+    "clave": "mascota.mago.capturado.1",
+    "texto": "Maka jadilah begitu: dicatat di {c} secara rinci ✨"
+  },
+  {
+    "clave": "mascota.mago.clasificado.0",
+    "texto": "📜 Aku telah menyimpan gulunganmu di catatan {c}."
+  },
+  {
+    "clave": "mascota.mago.clasificado.1",
+    "texto": "Aku membiarkannya beristirahat di {c}."
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.0",
+    "texto": "Aku sudah menyimpannya, tapi aku tak tahu ruangan mana yang cocok untuknya… maukah kau membimbingku? 🔮"
+  },
+  {
+    "clave": "mascota.mago.sinClasificar.1",
+    "texto": "Belum diklasifikasikan untuk saat ini. Ke ruangan mana harus kubawa?"
+  },
+  {
+    "clave": "mascota.mago.agregar.0",
+    "texto": "🪄 Aku telah mewujudkan {c} di rumahmu."
+  },
+  {
+    "clave": "mascota.mago.agregar.1",
+    "texto": "{c} muncul di peta, dipanggil dengan sihir ✨"
+  },
+  {
+    "clave": "mascota.mago.quitar.0",
+    "texto": "🪄 {c} lenyap dari peta."
+  },
+  {
+    "clave": "mascota.mago.quitar.1",
+    "texto": "Aku telah menghapus {c} dari rumahmu."
+  },
+  {
+    "clave": "mascota.mago.objeto.0",
+    "texto": "🪄 Aku menciptakan {o} milikmu di {c}. ✨"
+  },
+  {
+    "clave": "mascota.mago.objeto.1",
+    "texto": "Biarkan {o} milikmu muncul… selesai, di {c}!"
+  },
+  {
+    "clave": "mascota.mago.recordado.0",
+    "texto": "🧠 Aku telah mengukirnya di buku mantraku. Aku tak akan lupa ✨"
+  },
+  {
+    "clave": "mascota.mago.recordado.1",
+    "texto": "Sudah kuingat. Ingatan gaibku abadi 🔮"
+  },
+  {
+    "clave": "mascota.gato.capturado.0",
+    "texto": "Hmm, baiklah. Kutaruh di {c}, kurasa 🐾"
+  },
+  {
+    "clave": "mascota.gato.capturado.1",
+    "texto": "Selesai, sudah kucatat di {c}. Jangan berterima kasih."
+  },
+  {
+    "clave": "mascota.gato.clasificado.0",
+    "texto": "Kutinggalkan di catatan {c}. Tetap di sana 🐱"
+  },
+  {
+    "clave": "mascota.gato.clasificado.1",
+    "texto": "Dicatat di {c}, itu saja."
+  },
+  {
+    "clave": "mascota.gato.sinClasificar.0",
+    "texto": "Tidak tahu ini masuk ke mana. Kubiarkan tak terklasifikasi 🐾"
+  },
+  {
+    "clave": "mascota.gato.sinClasificar.1",
+    "texto": "Cih, ini punya ruangan mana? Kau saja yang bilang."
+  },
+  {
+    "clave": "mascota.gato.agregar.0",
+    "texto": "Oke, kutaruh {c} di peta. Lagian aku sedang bosan 🐱"
+  },
+  {
+    "clave": "mascota.gato.agregar.1",
+    "texto": "Sudah kutambahkan {c}. Selamat, kurasa."
+  },
+  {
+    "clave": "mascota.gato.quitar.0",
+    "texto": "{c} dihapus. Satu hal lagi yang tak perlu dibersihkan 🐾"
+  },
+  {
+    "clave": "mascota.gato.quitar.1",
+    "texto": "{c}, hilang. Selesai."
+  },
+  {
+    "clave": "mascota.gato.objeto.0",
+    "texto": "Ini {o} milikmu, di {c}. Jangan sampai rusak 🐾"
+  },
+  {
+    "clave": "mascota.gato.objeto.1",
+    "texto": "Kutaruh {o} milikmu di {c}. Sekarang biarkan aku tidur 🐱"
+  },
+  {
+    "clave": "mascota.gato.recordado.0",
+    "texto": "Baiklah, akan kuingat. Percaya atau tidak, ingatanku bagus 🐱"
+  },
+  {
+    "clave": "mascota.gato.recordado.1",
+    "texto": "Sudah tercatat di ingatanku. Jangan harap aku mengulanginya 🐾"
+  },
+  {
+    "clave": "mascota.perro.capturado.0",
+    "texto": "Guk! Sudah kucatat di {c}! 🐶"
+  },
+  {
+    "clave": "mascota.perro.capturado.1",
+    "texto": "Semua beres! Tersimpan di {c}! 🦴"
+  },
+  {
+    "clave": "mascota.perro.clasificado.0",
+    "texto": "Kusimpan di catatan {c}! 🐶"
+  },
+  {
+    "clave": "mascota.perro.clasificado.1",
+    "texto": "Dicatat di {c}! Ada lagi?"
+  },
+  {
+    "clave": "mascota.perro.sinClasificar.0",
+    "texto": "Sudah kusimpan! Tapi aku tak tahu ruangan mana… bisakah kau bantu aku? 🐶"
+  },
+  {
+    "clave": "mascota.perro.sinClasificar.1",
+    "texto": "Selesai! Ke ruangan mana harus kubawa, teman?"
+  },
+  {
+    "clave": "mascota.perro.agregar.0",
+    "texto": "GUK! Sudah kutambahkan {c} ke peta! 🎉"
+  },
+  {
+    "clave": "mascota.perro.agregar.1",
+    "texto": "{c} sudah ada di rumahmu! 🐶"
+  },
+  {
+    "clave": "mascota.perro.quitar.0",
+    "texto": "Kuhapus {c} dari peta. Selesai! 🐾"
+  },
+  {
+    "clave": "mascota.perro.quitar.1",
+    "texto": "Selesai! {c} sudah tidak ada di peta."
+  },
+  {
+    "clave": "mascota.perro.objeto.0",
+    "texto": "GUK! Kubuat {o} milikmu di {c}! 🎉"
+  },
+  {
+    "clave": "mascota.perro.objeto.1",
+    "texto": "Lihat, {o} milikmu! Kutaruh di {c} 🐶"
+  },
+  {
+    "clave": "mascota.perro.recordado.0",
+    "texto": "Akan kuingat SELAMANYA! 🐶"
+  },
+  {
+    "clave": "mascota.perro.recordado.1",
+    "texto": "Guk! Tersimpan di ingatan, aku tak akan lupa! 🦴"
+  },
+  {
+    "clave": "mascota.buho.capturado.0",
+    "texto": "Tercatat di {c} dengan presisi."
+  },
+  {
+    "clave": "mascota.buho.capturado.1",
+    "texto": "Dicatat dan diproses di {c}. 🦉"
+  },
+  {
+    "clave": "mascota.buho.clasificado.0",
+    "texto": "Disimpan di catatan {c}."
+  },
+  {
+    "clave": "mascota.buho.clasificado.1",
+    "texto": "Kuarsipkan di bawah {c}."
+  },
+  {
+    "clave": "mascota.buho.sinClasificar.0",
+    "texto": "Disimpan tanpa klasifikasi. Beri tahu aku ruangannya kalau sempat. 🦉"
+  },
+  {
+    "clave": "mascota.buho.sinClasificar.1",
+    "texto": "Aku tidak bisa mengenali ruangannya. Yang mana yang sesuai?"
+  },
+  {
+    "clave": "mascota.buho.agregar.0",
+    "texto": "{c} ditambahkan ke peta."
+  },
+  {
+    "clave": "mascota.buho.agregar.1",
+    "texto": "Aku telah memasukkan {c} ke dalam rumahmu. 🦉"
+  },
+  {
+    "clave": "mascota.buho.quitar.0",
+    "texto": "{c} dihapus dari peta."
+  },
+  {
+    "clave": "mascota.buho.quitar.1",
+    "texto": "Aku telah menghapus {c}."
+  },
+  {
+    "clave": "mascota.buho.objeto.0",
+    "texto": "Aku telah menempatkan {o} milikmu di {c}. 🦉"
+  },
+  {
+    "clave": "mascota.buho.objeto.1",
+    "texto": "{o} milikmu kini ada di {c}."
+  },
+  {
+    "clave": "mascota.buho.recordado.0",
+    "texto": "Diingat dengan presisi. 🦉"
+  },
+  {
+    "clave": "mascota.buho.recordado.1",
+    "texto": "Aku telah menambahkannya ke apa yang kutahu tentangmu."
+  },
+  {
+    "clave": "mascota.robot.capturado.0",
+    "texto": "✓ CATATAN DIBUAT DI {c}."
+  },
+  {
+    "clave": "mascota.robot.capturado.1",
+    "texto": "DATA DIPROSES → {c}. 🤖"
+  },
+  {
+    "clave": "mascota.robot.clasificado.0",
+    "texto": "✓ DISIMPAN KE CATATAN: {c}."
+  },
+  {
+    "clave": "mascota.robot.clasificado.1",
+    "texto": "ENTRI DISIMPAN → {c}."
+  },
+  {
+    "clave": "mascota.robot.sinClasificar.0",
+    "texto": "⚠ RUANGAN TIDAK TERIDENTIFIKASI. ENTRI TAK TERKLASIFIKASI."
+  },
+  {
+    "clave": "mascota.robot.sinClasificar.1",
+    "texto": "KLASIFIKASI GAGAL. MENUNGGU INSTRUKSI."
+  },
+  {
+    "clave": "mascota.robot.agregar.0",
+    "texto": "✓ {c} DITAMBAHKAN KE PETA."
+  },
+  {
+    "clave": "mascota.robot.agregar.1",
+    "texto": "MODUL {c} TERPASANG. 🤖"
+  },
+  {
+    "clave": "mascota.robot.quitar.0",
+    "texto": "✓ {c} DIHAPUS DARI PETA."
+  },
+  {
+    "clave": "mascota.robot.quitar.1",
+    "texto": "MODUL {c} DIHAPUS."
+  },
+  {
+    "clave": "mascota.robot.objeto.0",
+    "texto": "✓ OBJEK {o} DIPRODUKSI DI {c}. 🤖"
+  },
+  {
+    "clave": "mascota.robot.objeto.1",
+    "texto": "PENCETAKAN SELESAI: {o} → {c}."
+  },
+  {
+    "clave": "mascota.robot.recordado.0",
+    "texto": "✓ MEMORI PERSISTEN DIPERBARUI. 🤖"
+  },
+  {
+    "clave": "mascota.robot.recordado.1",
+    "texto": "FAKTA DISIMPAN DI BASIS PENGETAHUAN."
+  },
+  {
+    "clave": "tut.boton",
+    "texto": "Lihat tutorial"
+  },
+  {
+    "clave": "tut.paso",
+    "texto": "Langkah {i} dari {n}"
+  },
+  {
+    "clave": "tut.salir",
+    "texto": "Keluar"
+  },
+  {
+    "clave": "tut.atras",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "tut.siguiente",
+    "texto": "Berikutnya"
+  },
+  {
+    "clave": "tut.terminar",
+    "texto": "Selesai"
+  },
+  {
+    "clave": "tut.voz",
+    "texto": "Bacakan langkah-langkah dengan suara"
+  },
+  {
+    "clave": "tut.appSinCuarto",
+    "texto": "Aplikasi ini belum ada di ruangan mana pun, jadi aku akan menjelaskannya dari sini. Untuk memakainya, tetapkan di Menu › Templat."
+  },
+  {
+    "clave": "tut.errorCarga",
+    "texto": "Aku tidak bisa memuat tutorial itu. Periksa koneksimu dan coba lagi."
+  },
+  {
+    "clave": "tut.preparandoDemo",
+    "texto": "Aku sedang menyiapkan tahun aplikasi itu di rumah demo; tur akan dimulai dalam beberapa detik…"
+  },
+  {
+    "clave": "tut.selector.titulo",
+    "texto": "Tutorial mana yang ingin kamu lihat?"
+  },
+  {
+    "clave": "tut.selector.hint",
+    "texto": "Ketuk zona yang disorot kuning, atau mulai dengan yang umum."
+  },
+  {
+    "clave": "tut.selector.general",
+    "texto": "Tutorial umum"
+  },
+  {
+    "clave": "tut.selector.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "tut.selector.apps",
+    "texto": "Atau tutorial sebuah aplikasi:"
+  },
+  {
+    "clave": "tut.selector.infra",
+    "texto": "Atau bangun ekstra di peta:"
+  },
+  {
+    "clave": "tut.selector.nucleo",
+    "texto": "Atau kalender dan target:"
+  },
+  {
+    "clave": "tut.selector.hudNota",
+    "texto": "Saat dimatikan, tutorial dimulai di Editor › Pengaturan › Tutorial."
+  },
+  {
+    "clave": "tut.selector.pag1",
+    "texto": "Dasar-dasar"
+  },
+  {
+    "clave": "tut.selector.pag2",
+    "texto": "Semua yang lain"
+  },
+  {
+    "clave": "tut.selector.hint2",
+    "texto": "Tur rumah dan menu-menunya. Zona kuning masih aktif."
+  },
+  {
+    "clave": "tut.selector.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "tut.selector.volver",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "tut.selector.gMenu",
+    "texto": "Menu"
+  },
+  {
+    "clave": "tut.selector.gEditor",
+    "texto": "Editor"
+  },
+  {
+    "clave": "tut.selector.gConfig",
+    "texto": "Pengaturan"
+  },
+  {
+    "clave": "tut.selector.gCasa",
+    "texto": "Rumah"
+  },
+  {
+    "clave": "tut.selector.gChat",
+    "texto": "Chat"
+  },
+  {
+    "clave": "tut.selector.gProgreso",
+    "texto": "Harimu dan kemajuanmu"
+  },
+  {
+    "clave": "tut.chat.abriendo",
+    "texto": "Ini dia: sang penyihir akan menunjukkannya di layar."
+  },
+  {
+    "clave": "tut.chat.ofrecer",
+    "texto": "Ketik “tutorial {n}” atau tekan tombol ?-nya dan akan kutunjukkan di layar."
+  },
+  {
+    "clave": "tut.chat.chipTour",
+    "texto": "Tutorial: {n}"
+  },
+  {
+    "clave": "tut.chat.chipAyuda",
+    "texto": "Bantuan: {n}"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "Die Apps planen von allein: die Termine aus dem Terminplan, der Schlaf aus Ruhe, die Lernzeiten aus der Bibliothek. Mit dem Filter siehst du nur eine App."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "Durchs Jahr wandern"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "Die Pfeile ‹ › laufen durch den Zeitraum, und Heute bringt dich zurück in die Gegenwart. Peps ganzes Jahr steckt hier drin, Woche für Woche. Mit + Neu legst du einen Termin an, oder du zeichnest ihn direkt aufs Raster."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "Gewohnheit für Gewohnheit"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "Jede Zeile ist eine Routine und jede Spalte ein Tag: Grün heißt erledigt. Hier hakst du direkt ab, und der Prozentsatz oben fasst den Zeitraum zusammen, den du gerade siehst."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "Der Bogen des Jahres"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "In der Ansicht Jahr erzählt die Grafik die ganze Geschichte: Am Anfang hat Pep etwa ein Drittel von dem geschafft, was geplant war, und am Ende über 85 %. Beständigkeit wurde aufgebaut, sie war nicht einfach da."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "Die Einbrüche zählen auch"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "Beide Löcher sind echt: die Knieverletzung in Monat 7 und die drei Wochen in Japan. Aussetzen löscht den Fortschritt nicht – das Panel zeigt das Jahr, wie es war, nicht wie es hätte sein sollen. Und eine Routine zählt erst ab dem Tag, an dem du sie angelegt hast."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "Zuerst die Ziele"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "Die Ansicht öffnet bei Ziele, gruppiert nach der App, die sie führt: Laufen unter Fitness, das Physikstudium unter Bibliothek. „Haus“ ist keine App – diese Kategorie hat sich Pep für den Küchenumbau ausgedacht."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "Vom Ziel zu seinem Plan"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "Jede Zeile liest sich wie eine Anzeigetafel: ihre Nummer im Ordner, die Frist, der Fortschritt und der Status – Offen, Läuft oder Fertig, je nachdem, wie viel schon abgehakt ist. Ein Klick öffnet das Ziel: seinen Plan, wenn es einen hat (das ✨ verrät es), und sonst seine Tabelle mit den Teilzielen, den Terminen und den Schritten."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "Drei Pläne, drei Zustände"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "Die Küche und der nächste Marathon sind noch Vorschläge; die Bewerbung fürs Masterstudium steht schon im Zeitplan. Der Marathon-Plan wurde ohne Frist angefragt: Die KI hat ausgerechnet, dass er 24 Wochen braucht, und sagt es in ihrer Zusammenfassung."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "Die Tabelle des Plans"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "Sechs Phasen und ihre Teilziele, jede mit ihrem eigenen Zeitraum. Solange es ein Vorschlag ist, lässt sich alles bearbeiten: umbenennen, Termine verschieben, Knoten hinzufügen oder entfernen, ohne den Rest durcheinanderzubringen."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "Abhaken, ohne sich zu binden"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "Die Häkchen eines Vorschlags leben in seiner Tabelle, nicht in deinen Zielen: Du kannst abhaken, was erledigt ist, ohne deinen Zeitplan anzurühren. Die Balken füllen sich von selbst nach oben – die Küchenplanung ist schon abgeschlossen."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "In den echten Zeitplan verschieben"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "Dieser Button verwandelt jede Phase und jedes Teilziel in echte Ziele, mit gesetzten Terminen und direkt unter dem ursprünglichen Ziel. Was das Ziel schon hatte, bleibt erhalten."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "Akzeptiert: eine einzige Wahrheit"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "Der Plan fürs Masterstudium ist schon verschoben. Jetzt sind seine Häkchen die der echten Teilziele und der Balken ist der deines Zeitplans: Die Tabelle führt keine eigene Rechnung mehr."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "Und da stehen sie, auf der Achse"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "Die Teilziele, die aus dem Plan entstanden sind, nehmen ihren Zeitraum im Zeitplan ein, mit dem Plan violett darübergelegt: der Vorschlag und das Echte auf derselben Achse."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "Ein Studienjahr als Baum"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep studiert Physik: Mechanik am Anfang des Jahres, Thermodynamik gegen die Klausur in Monat 6, Relativität und Astrophysik zum Schluss. Jeder Zweig klappt auf und zeigt seine Einträge."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "Der Baum wächst mit dir"
+  }
+]

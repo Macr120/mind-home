@@ -1,0 +1,354 @@
+[
+  {
+    "ruta": "trabajo.0.titulo",
+    "texto": "역학 중간고사 1"
+  },
+  {
+    "ruta": "trabajo.0.lugar",
+    "texto": "자연과학대학 12호 강의실"
+  },
+  {
+    "ruta": "trabajo.1.titulo",
+    "texto": "실험 보고서 제출: 자유낙하"
+  },
+  {
+    "ruta": "trabajo.1.lugar",
+    "texto": "물리학 실험실 1"
+  },
+  {
+    "ruta": "trabajo.2.titulo",
+    "texto": "바 월간 재고 조사"
+  },
+  {
+    "ruta": "trabajo.2.lugar",
+    "texto": "미라솔 카페"
+  },
+  {
+    "ruta": "trabajo.3.titulo",
+    "texto": "추가 근무: 싱글 오리진 커핑"
+  },
+  {
+    "ruta": "trabajo.3.lugar",
+    "texto": "미라솔 카페"
+  },
+  {
+    "ruta": "trabajo.4.titulo",
+    "texto": "학기 프로젝트 시작 회의"
+  },
+  {
+    "ruta": "trabajo.4.lugar",
+    "texto": "엘레나 교수님 연구실"
+  },
+  {
+    "ruta": "trabajo.5.titulo",
+    "texto": "파동과 광학 중간고사"
+  },
+  {
+    "ruta": "trabajo.5.lugar",
+    "texto": "자연과학대학"
+  },
+  {
+    "ruta": "trabajo.6.titulo",
+    "texto": "실험 보고서 제출: 결합 진자"
+  },
+  {
+    "ruta": "trabajo.6.lugar",
+    "texto": "물리학 실험실 2"
+  },
+  {
+    "ruta": "trabajo.7.titulo",
+    "texto": "동네 축제 때문에 더블 근무"
+  },
+  {
+    "ruta": "trabajo.8.titulo",
+    "texto": "여권 갱신"
+  },
+  {
+    "ruta": "trabajo.8.lugar",
+    "texto": "여권 발급센터"
+  },
+  {
+    "ruta": "trabajo.9.titulo",
+    "texto": "엘레나와 프로젝트 진행 상황 점검"
+  },
+  {
+    "ruta": "trabajo.9.lugar",
+    "texto": "자연과학대학"
+  },
+  {
+    "ruta": "trabajo.10.titulo",
+    "texto": "정비소: 자동차 엔진 점검"
+  },
+  {
+    "ruta": "trabajo.10.lugar",
+    "texto": "루이스 정비소"
+  },
+  {
+    "ruta": "trabajo.11.titulo",
+    "texto": "자동차 보험 처리"
+  },
+  {
+    "ruta": "trabajo.11.lugar",
+    "texto": "시내 지점"
+  },
+  {
+    "ruta": "trabajo.12.titulo",
+    "texto": "열역학 중간고사"
+  },
+  {
+    "ruta": "trabajo.12.lugar",
+    "texto": "자연과학대학"
+  },
+  {
+    "ruta": "trabajo.13.titulo",
+    "texto": "실험 보고서 제출: 열량 측정"
+  },
+  {
+    "ruta": "trabajo.13.lugar",
+    "texto": "물리학 실험실 2"
+  },
+  {
+    "ruta": "trabajo.14.titulo",
+    "texto": "여행 때문에 마리솔에게 휴가 요청하기"
+  },
+  {
+    "ruta": "trabajo.14.lugar",
+    "texto": "미라솔 카페"
+  },
+  {
+    "ruta": "trabajo.15.titulo",
+    "texto": "새 머신 교육"
+  },
+  {
+    "ruta": "trabajo.15.lugar",
+    "texto": "미라솔 카페"
+  },
+  {
+    "ruta": "trabajo.16.titulo",
+    "texto": "프로젝트 결과 보고 회의"
+  },
+  {
+    "ruta": "trabajo.16.lugar",
+    "texto": "자연과학대학"
+  },
+  {
+    "ruta": "trabajo.17.titulo",
+    "texto": "전자기학 중간고사"
+  },
+  {
+    "ruta": "trabajo.17.lugar",
+    "texto": "자연과학대학"
+  },
+  {
+    "ruta": "trabajo.18.titulo",
+    "texto": "실험 보고서 최종 제출"
+  },
+  {
+    "ruta": "trabajo.18.lugar",
+    "texto": "물리학 실험실 2"
+  },
+  {
+    "ruta": "trabajo.19.titulo",
+    "texto": "학기 프로젝트 발표 심사"
+  },
+  {
+    "ruta": "trabajo.19.lugar",
+    "texto": "B강당"
+  },
+  {
+    "ruta": "trabajo.20.titulo",
+    "texto": "특별 근무: 겨울 티 테이스팅"
+  },
+  {
+    "ruta": "trabajo.20.lugar",
+    "texto": "미라솔 카페"
+  },
+  {
+    "ruta": "salud.0.titulo",
+    "texto": "첫 영양 상담"
+  },
+  {
+    "ruta": "salud.0.lugar",
+    "texto": "알다나 보건센터"
+  },
+  {
+    "ruta": "salud.1.titulo",
+    "texto": "라이카 연간 예방접종"
+  },
+  {
+    "ruta": "salud.1.lugar",
+    "texto": "로스 알라모스 동물병원"
+  },
+  {
+    "ruta": "salud.2.titulo",
+    "texto": "영양 후속 상담"
+  },
+  {
+    "ruta": "salud.2.lugar",
+    "texto": "알다나 보건센터"
+  },
+  {
+    "ruta": "salud.3.titulo",
+    "texto": "정형외과: 무릎 통증"
+  },
+  {
+    "ruta": "salud.3.lugar",
+    "texto": "산비센테 클리닉"
+  },
+  {
+    "ruta": "salud.4.titulo",
+    "texto": "물리치료 1/6"
+  },
+  {
+    "ruta": "salud.4.lugar",
+    "texto": "산비센테 클리닉"
+  },
+  {
+    "ruta": "salud.5.titulo",
+    "texto": "물리치료 2/6"
+  },
+  {
+    "ruta": "salud.5.lugar",
+    "texto": "산비센테 클리닉"
+  },
+  {
+    "ruta": "salud.6.titulo",
+    "texto": "물리치료 3/6"
+  },
+  {
+    "ruta": "salud.6.lugar",
+    "texto": "산비센테 클리닉"
+  },
+  {
+    "ruta": "salud.7.titulo",
+    "texto": "물리치료 4/6"
+  },
+  {
+    "ruta": "salud.7.lugar",
+    "texto": "산비센테 클리닉"
+  },
+  {
+    "ruta": "salud.8.titulo",
+    "texto": "물리치료 5/6"
+  },
+  {
+    "ruta": "salud.8.lugar",
+    "texto": "산비센테 클리닉"
+  },
+  {
+    "ruta": "salud.9.titulo",
+    "texto": "물리치료 6/6: 러닝 재개 허가"
+  },
+  {
+    "ruta": "salud.9.lugar",
+    "texto": "산비센테 클리닉"
+  },
+  {
+    "ruta": "salud.10.titulo",
+    "texto": "스케일링"
+  },
+  {
+    "ruta": "salud.10.lugar",
+    "texto": "올모스 원장 치과"
+  },
+  {
+    "ruta": "salud.11.titulo",
+    "texto": "라이카: 건강검진과 구충"
+  },
+  {
+    "ruta": "salud.11.lugar",
+    "texto": "로스 알라모스 동물병원"
+  },
+  {
+    "ruta": "salud.12.titulo",
+    "texto": "영양 후속 상담"
+  },
+  {
+    "ruta": "salud.12.lugar",
+    "texto": "알다나 보건센터"
+  },
+  {
+    "ruta": "salud.13.titulo",
+    "texto": "연례 종합 건강검진"
+  },
+  {
+    "ruta": "salud.13.lugar",
+    "texto": "알다나 보건센터"
+  },
+  {
+    "ruta": "personas.0.titulo",
+    "texto": "불평으로 가득한 긴 커피타임"
+  },
+  {
+    "ruta": "personas.1.titulo",
+    "texto": "일요일 집밥 저녁"
+  },
+  {
+    "ruta": "personas.2.titulo",
+    "texto": "이케르의 생일"
+  },
+  {
+    "ruta": "personas.3.titulo",
+    "texto": "5km 달리기 후 아침 식사"
+  },
+  {
+    "ruta": "personas.4.titulo",
+    "texto": "SF 영화 마라톤"
+  },
+  {
+    "ruta": "personas.5.titulo",
+    "texto": "엄마 생신"
+  },
+  {
+    "ruta": "personas.6.titulo",
+    "texto": "속풀이 커피타임"
+  },
+  {
+    "ruta": "personas.7.titulo",
+    "texto": "일본 가기 전 송별 저녁 식사"
+  },
+  {
+    "ruta": "personas.8.titulo",
+    "texto": "교토에서 온 영상통화"
+  },
+  {
+    "ruta": "personas.9.titulo",
+    "texto": "여행 사진 보는 밤"
+  },
+  {
+    "ruta": "personas.10.titulo",
+    "texto": "나디아의 생일"
+  },
+  {
+    "ruta": "personas.11.titulo",
+    "texto": "카페 동료들과 브런치"
+  },
+  {
+    "ruta": "personas.12.titulo",
+    "texto": "집콘서트: 달빛"
+  },
+  {
+    "ruta": "personas.13.titulo",
+    "texto": "커피 마시며: 대학원이냐 취업이냐?"
+  },
+  {
+    "ruta": "pendientes.0",
+    "texto": "시험 때문에 금요일 근무 바꾸기"
+  },
+  {
+    "ruta": "pendientes.1",
+    "texto": "이력서에 이번 학기 프로젝트 추가하기"
+  },
+  {
+    "ruta": "pendientes.2",
+    "texto": "이번 달 팁 영수증 정리하기"
+  },
+  {
+    "ruta": "pendientes.3",
+    "texto": "포스터에 관한 엘레나의 메일에 답장하기"
+  },
+  {
+    "ruta": "pendientes.4",
+    "texto": "바용 새 그라인더 견적 받기"
+  }
+]

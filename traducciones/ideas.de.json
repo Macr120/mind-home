@@ -1,0 +1,658 @@
+[
+  {
+    "ruta": "sueltas.0.texto",
+    "texto": "Alle Ideen an einem Ort festhalten und aufhören, sie auf Servietten zu kritzeln"
+  },
+  {
+    "ruta": "sueltas.0.detalle",
+    "texto": "Heute habe ich eine Serviette weggeworfen mit etwas, das ich im Labor ausprobieren wollte – und jetzt weiß ich nicht mehr, was es war."
+  },
+  {
+    "ruta": "sueltas.1.texto",
+    "texto": "Messen, wie lange ein Kaffee je nach Tasse zum Abkühlen braucht: Keramik, Pappe, Glas"
+  },
+  {
+    "ruta": "sueltas.2.texto",
+    "texto": "Alles auflisten, was ich im Monat zahle – ich wette, da verstecken sich zwei, drei Lecks, die ich gar nicht sehe"
+  },
+  {
+    "ruta": "sueltas.3.texto",
+    "texto": "Das Handy in der Küche laden lassen und mir einen echten Wecker kaufen"
+  },
+  {
+    "ruta": "sueltas.3.detalle",
+    "texto": "Gestern Nacht war es wieder zwei Uhr, und ich könnte nicht mal sagen, was ich mir da angeschaut habe."
+  },
+  {
+    "ruta": "sueltas.4.texto",
+    "texto": "Meine Schichten und meine tatsächlichen Lernstunden auf einem Blatt gegenüberstellen, um zu sehen, wo sie sich in die Quere kommen"
+  },
+  {
+    "ruta": "sueltas.5.texto",
+    "texto": "Milchschaum läuft aus wie Seifenschaum – lässt sich die Zeit bis zum Zusammenfallen messen?"
+  },
+  {
+    "ruta": "sueltas.6.texto",
+    "texto": "Fragen, ob ich die Freitagsschicht gegen eine Frühschicht tauschen kann"
+  },
+  {
+    "ruta": "sueltas.7.texto",
+    "texto": "Ein eigenes Glas für Trinkgelder, einen Monat lang nicht anrühren – nur um zu sehen, wie viel zusammenkommt"
+  },
+  {
+    "ruta": "sueltas.8.texto",
+    "texto": "Budget in drei Töpfen: Fixkosten, Essen, Extras. Sonst nichts"
+  },
+  {
+    "ruta": "sueltas.9.texto",
+    "texto": "In der Kleinanzeigen-Gruppe vom Viertel nach einem gebrauchten Keyboard suchen, 61 Tasten reichen mir völlig"
+  },
+  {
+    "ruta": "sueltas.10.texto",
+    "texto": "Bis zur Brücke joggen und zurück, ohne Uhr, ohne Ziel – nur um zu sehen, ob ich durchhalte"
+  },
+  {
+    "ruta": "sueltas.11.texto",
+    "texto": "Einen Alarm zum Schlafengehen stellen, nicht nur zum Aufstehen"
+  },
+  {
+    "ruta": "sueltas.11.detalle",
+    "texto": "Den Wecker zum Aufstehen respektiere ich; der zum Insbettgehen fehlt mir noch."
+  },
+  {
+    "ruta": "sueltas.12.texto",
+    "texto": "Die Gläser zu Hause mit dem Röstdatum beschriften, so wie wir es hinter der Theke machen"
+  },
+  {
+    "ruta": "sueltas.13.texto",
+    "texto": "Heute, Tag eins, dreißig Sekunden vom Keyboard aufnehmen und für in einem Jahr aufheben"
+  },
+  {
+    "ruta": "sueltas.14.texto",
+    "texto": "Die Autoschlüssel in eine Schublade legen, damit das Fahrrad die Standardwahl wird"
+  },
+  {
+    "ruta": "sueltas.15.texto",
+    "texto": "Regel fürs Laborheft: die Schlussfolgerung vor den Diagrammen aufschreiben und mich danach von ihnen korrigieren lassen"
+  },
+  {
+    "ruta": "sueltas.16.texto",
+    "texto": "Eine Wäscheleine mit Englisch-Karteikarten über der Spüle im Café"
+  },
+  {
+    "ruta": "sueltas.17.texto",
+    "texto": "Zehn Minuten meditieren im leeren Café vor der Öffnung, das Licht noch aus"
+  },
+  {
+    "ruta": "sueltas.17.detalle",
+    "texto": "Es ist die einzige Zeit am Tag, in der niemand etwas von mir will."
+  },
+  {
+    "ruta": "sueltas.18.texto",
+    "texto": "Eine Kiste mit einer alten Decke neben den Heizkörper stellen, bevor die Katze einzieht"
+  },
+  {
+    "ruta": "sueltas.19.texto",
+    "texto": "Eine Woche lang die Frühstücke abwiegen, ohne etwas zu ändern – nur um die Zahl zu haben"
+  },
+  {
+    "ruta": "sueltas.20.texto",
+    "texto": "5K-Plan am Kühlschrank, mit Kästchen zum Abhaken mit dem Stift"
+  },
+  {
+    "ruta": "sueltas.21.texto",
+    "texto": "Die Lauf-Kadenz als mentales Metronom fürs Klavier nutzen: 90 Schritte, 90 Viertelnoten"
+  },
+  {
+    "ruta": "sueltas.22.texto",
+    "texto": "Den Kunden mit der runden Brille fragen, wo er diesen geräucherten Tee kauft"
+  },
+  {
+    "ruta": "sueltas.23.texto",
+    "texto": "Eine Playlist von genau dreißig Minuten zusammenstellen, damit ich beim Laufen nicht ständig auf die Uhr schaue"
+  },
+  {
+    "ruta": "sueltas.24.texto",
+    "texto": "Mit dem Stativ aufs Dach steigen und zehn Sekunden Belichtung ausprobieren, Straßenlaternen hin oder her"
+  },
+  {
+    "ruta": "sueltas.25.texto",
+    "texto": "Die 5K-Zeit ins Tagebuch schreiben und sie mit niemandes Zeit vergleichen"
+  },
+  {
+    "ruta": "sueltas.26.texto",
+    "texto": "Das Reisegeld noch am Zahltag überweisen, bevor ich es ausgebe"
+  },
+  {
+    "ruta": "sueltas.26.detalle",
+    "texto": "Bleibt es auf dem gewohnten Konto, verschwindet es. Eigenes Konto, keine Karte."
+  },
+  {
+    "ruta": "sueltas.27.texto",
+    "texto": "Erst Katakana lernen: Die Hälfte der Speisekarten ist in Katakana"
+  },
+  {
+    "ruta": "sueltas.28.texto",
+    "texto": "Den Verstärker verkaufen, den ich seit der Schule nicht mehr angerührt habe"
+  },
+  {
+    "ruta": "sueltas.29.texto",
+    "texto": "Samstags bis August eine Extraschicht übernehmen und sie «Japan-Schicht» nennen"
+  },
+  {
+    "ruta": "sueltas.30.texto",
+    "texto": "Alle Werkstattrechnungen fotografieren und in einem Ordner mit Datum ablegen"
+  },
+  {
+    "ruta": "sueltas.31.texto",
+    "texto": "Japanische Sätze wiederholen, während ich die Maschine putze – das sind fünfzehn tote Minuten"
+  },
+  {
+    "ruta": "sueltas.32.texto",
+    "texto": "Einen U-Bahn-Plan von Tokio in A3 ausdrucken, um nach und nach Viertel zu markieren"
+  },
+  {
+    "ruta": "sueltas.33.texto",
+    "texto": "Das Klavierstück in Achtertakt-Häppchen zerlegen und sie nummerieren wie Versuchsreihen"
+  },
+  {
+    "ruta": "sueltas.34.texto",
+    "texto": "Fürs Semesterprojekt: etwas messen, das ich sowieso jeden Tag vor mir habe"
+  },
+  {
+    "ruta": "sueltas.35.texto",
+    "texto": "Die 10K am Flussweg laufen: ohne Ampeln gibt's keine Ausrede zum Anhalten"
+  },
+  {
+    "ruta": "sueltas.36.texto",
+    "texto": "Den Kaffee zu Hause mit der Waage machen und Verhältnis, Temperatur und Zeit notieren"
+  },
+  {
+    "ruta": "sueltas.36.detalle",
+    "texto": "Wenn ich das drei Wochen lang notiere, habe ich echte Daten statt bloßer Eindrücke."
+  },
+  {
+    "ruta": "sueltas.37.texto",
+    "texto": "Eine ganze Woche Hände getrennt am Klavier üben, auch wenn es mich langweilt"
+  },
+  {
+    "ruta": "sueltas.38.texto",
+    "texto": "Das Geräusch der Mühle aufnehmen und mit dem Laptop das Spektrum davon erstellen"
+  },
+  {
+    "ruta": "sueltas.39.texto",
+    "texto": "Nuria bitten, mir den Donnerstag der Zwischenprüfungen abzunehmen, und ihr dafür einen Sonntag zurückgeben"
+  },
+  {
+    "ruta": "sueltas.40.texto",
+    "texto": "Einen Jahreskalender an die Wand hängen und nur drei Dinge markieren: 10K, Japan, das Stück"
+  },
+  {
+    "ruta": "sueltas.41.texto",
+    "texto": "Den Reisepass jetzt erneuern: Die Termine sind Monate im Voraus ausgebucht"
+  },
+  {
+    "ruta": "sueltas.42.texto",
+    "texto": "Japan-Karte an der Wand mit Pinnnadeln in zwei Farben: sicher und vielleicht"
+  },
+  {
+    "ruta": "sueltas.43.texto",
+    "texto": "Einmal im Monat lange laufen ohne Kopfhörer, nur um mich atmen zu hören"
+  },
+  {
+    "ruta": "sueltas.44.texto",
+    "texto": "Spar-Diagramm an der Kühlschranktür; heute habe ich den Balken bis zur Hälfte ausgemalt"
+  },
+  {
+    "ruta": "sueltas.45.texto",
+    "texto": "Im Stehen an der Theke lernen, bevor wir öffnen: zwanzig reine Theorieminuten"
+  },
+  {
+    "ruta": "sueltas.46.texto",
+    "texto": "Die Laufschuhe wechseln, bevor die abgenutzte Sohle den Knien die Rechnung präsentiert"
+  },
+  {
+    "ruta": "sueltas.46.detalle",
+    "texto": "Sie haben mehr Kilometer drauf, als ich zugeben will, und bergab spüre ich die Ferse komisch."
+  },
+  {
+    "ruta": "sueltas.47.texto",
+    "texto": "Sechzig Mondaufnahmen stapeln, damit der Terminator plastisch hervortritt"
+  },
+  {
+    "ruta": "sueltas.48.texto",
+    "texto": "Kostenvoranschläge fürs Auto in zwei verschiedenen Werkstätten einholen, bevor ich mich entscheide"
+  },
+  {
+    "ruta": "sueltas.49.texto",
+    "texto": "Wenn ich schon nicht laufen kann, kann ich wenigstens messen: jeden Morgen den Knieschmerz von 1 bis 10 notieren"
+  },
+  {
+    "ruta": "sueltas.49.detalle",
+    "texto": "Drei Wochen Pause tun weniger weh, wenn sie eine Datentabelle sind und kein Loch im Kalender."
+  },
+  {
+    "ruta": "sueltas.50.texto",
+    "texto": "Fragen, ob ich mehr Kasse und weniger Theke machen kann, solange das Knie sich beruhigt"
+  },
+  {
+    "ruta": "sueltas.51.texto",
+    "texto": "Lernen, eine Werkstattrechnung zu lesen, bevor ich sie unterschreibe"
+  },
+  {
+    "ruta": "sueltas.51.detalle",
+    "texto": "Sie haben mir die angefangene Stunde als volle Stunde berechnet, und ich wusste nicht, was ich sagen sollte."
+  },
+  {
+    "ruta": "sueltas.52.texto",
+    "texto": "Das Keyboard dahin stellen, wo früher die Laufschuhe standen – mal sehen, ob mein Körper den Wink versteht"
+  },
+  {
+    "ruta": "sueltas.53.texto",
+    "texto": "Das Geräusch der Maschine ändert sich, wenn der Siebträger schmutzig ist – man könnte die Reinigung heraushören"
+  },
+  {
+    "ruta": "sueltas.53.detalle",
+    "texto": "Zwei Extraktionen aufnehmen, eine mit frisch gereinigtem Siebträger und eine am Ende der Schicht, und die Spektren vergleichen."
+  },
+  {
+    "ruta": "sueltas.54.texto",
+    "texto": "Am Boden sitzend meditieren, mit Laika obendrauf, zählt genauso"
+  },
+  {
+    "ruta": "sueltas.55.texto",
+    "texto": "Schreiben, und sei es nur eine hässliche Zeile; hässliche Zeilen sind auch Daten"
+  },
+  {
+    "ruta": "sueltas.56.texto",
+    "texto": "Liste von dem, was ich noch tun kann: lockeres Radfahren, Schwimmbad, Klavier-Tonleitern"
+  },
+  {
+    "ruta": "sueltas.57.texto",
+    "texto": "Abends die Japan-Route anschauen statt der Läufe, die ich verpasse"
+  },
+  {
+    "ruta": "sueltas.58.texto",
+    "texto": "Den Physio fragen, wie viele Minuten zügiges Gehen ich einbauen kann und ab wann"
+  },
+  {
+    "ruta": "sueltas.59.texto",
+    "texto": "Zurück auf die Straße, drei Minuten gehen, eine Minute joggen; die Uhr hat nichts zu sagen"
+  },
+  {
+    "ruta": "sueltas.60.texto",
+    "texto": "Erst Katakana: In jeder Speisekarte steht die Hälfte in Katakana"
+  },
+  {
+    "ruta": "sueltas.61.texto",
+    "texto": "Die Adresse jeder Unterkunft auf Japanisch auf einem Zettel dabeihaben, für alle Fälle mit dem Taxi"
+  },
+  {
+    "ruta": "sueltas.62.texto",
+    "texto": "Doppelschichten diese zwei Wochen, und alles, was dabei rausspringt, ins Reiseglas"
+  },
+  {
+    "ruta": "sueltas.63.texto",
+    "texto": "Kleines Stativ im Rucksack, um es von Hakone aus mit der Milchstraße zu versuchen"
+  },
+  {
+    "ruta": "sueltas.64.texto",
+    "texto": "Karten und Zugverbindungen offline herunterladen, bevor es losgeht"
+  },
+  {
+    "ruta": "sueltas.65.texto",
+    "texto": "Der Nachbarin Laikas Zeiten schriftlich geben, nicht nur mündlich"
+  },
+  {
+    "ruta": "sueltas.66.texto",
+    "texto": "Rucksack-Test: voll beladen und eine Stunde durchs Viertel laufen"
+  },
+  {
+    "ruta": "sueltas.67.texto",
+    "texto": "Die Route fertigstellen und absichtlich zwei Tage ohne Plan lassen"
+  },
+  {
+    "ruta": "sueltas.68.texto",
+    "texto": "Jeden Abend vorm Schlafen ins Reisetagebuch, und seien es nur vier Zeilen und ein Foto"
+  },
+  {
+    "ruta": "sueltas.69.texto",
+    "texto": "Jeder Bahnhof hat seine eigene Bahnsteigmelodie – alle aufnehmen und zu Hause zusammenschneiden"
+  },
+  {
+    "ruta": "sueltas.70.texto",
+    "texto": "Hier wird der Filterkaffee mit einer Ruhe serviert, die mich beruflich neidisch macht"
+  },
+  {
+    "ruta": "sueltas.70.detalle",
+    "texto": "Der Typ hat das Wasser dreimal abgewogen, ohne dass ihm die Hand zitterte, während die ganze Schlange zusah."
+  },
+  {
+    "ruta": "sueltas.71.texto",
+    "texto": "Der Fuji zeigte sich um halb sieben und verschwand um sieben: früh aufstehen ist die einzige Technik"
+  },
+  {
+    "ruta": "sueltas.72.texto",
+    "texto": "Verkaufsautomaten pro Block zählen und die Grafik machen, wenn ich zurück bin"
+  },
+  {
+    "ruta": "sueltas.73.texto",
+    "texto": "In Nara gibt es ein Protokoll mit den Hirschen, das ich noch nicht ganz verstanden habe"
+  },
+  {
+    "ruta": "sueltas.74.texto",
+    "texto": "Das Brührezept aufschreiben, das man mir in Osaka mit Händen und Füßen erklärt hat"
+  },
+  {
+    "ruta": "sueltas.75.texto",
+    "texto": "Heute nichts Geistreiches schreiben; nur, was ich gesehen habe und in welcher Reihenfolge"
+  },
+  {
+    "ruta": "sueltas.76.texto",
+    "texto": "Zwei Packungen Sencha mitbringen: eine für zu Hause, eine fürs Café"
+  },
+  {
+    "ruta": "sueltas.77.texto",
+    "texto": "Einen milden Filterkaffee für die Karte vorschlagen und schauen, ob ihn jemand zweimal bestellt"
+  },
+  {
+    "ruta": "sueltas.78.texto",
+    "texto": "Acht-Wochen-Plan für den Halbmarathon, mit dem langen Lauf früh am Sonntag"
+  },
+  {
+    "ruta": "sueltas.79.texto",
+    "texto": "Clair de Lune in Häppchen: acht Takte am Tag, und erst weiter, wenn sie dreimal hintereinander gelingen"
+  },
+  {
+    "ruta": "sueltas.80.texto",
+    "texto": "Die Reisequittungen digitalisieren und das reale Japan-Budget abschließen"
+  },
+  {
+    "ruta": "sueltas.81.texto",
+    "texto": "Zurück zu den Englisch-Karteikarten; dort drüben habe ich besser gesprochen, als ich dachte"
+  },
+  {
+    "ruta": "sueltas.82.texto",
+    "texto": "Im Sekretariat nach den Einschreibefristen fürs nächste Jahr fragen"
+  },
+  {
+    "ruta": "sueltas.83.texto",
+    "texto": "Astrofotografie nach Mondphasen planen, nicht danach, ob ich gerade Lust habe rauszugehen"
+  },
+  {
+    "ruta": "sueltas.84.texto",
+    "texto": "Sonntags für drei Tage vorkochen; trainieren ist weniger anstrengend, als spontan das Abendessen zu improvisieren"
+  },
+  {
+    "ruta": "sueltas.85.texto",
+    "texto": "Das Wettkampf-Frühstück zwei Wochen vorher testen, nie am selben Tag"
+  },
+  {
+    "ruta": "sueltas.86.texto",
+    "texto": "Diagramm mit zwei Zweigen: Masterstudium oder Job, mit dem, was ich bei jedem gewinne und verliere"
+  },
+  {
+    "ruta": "sueltas.87.texto",
+    "texto": "Der Laborprofessorin schreiben und fragen, ob es eine Stelle als Hilfskraft gibt"
+  },
+  {
+    "ruta": "sueltas.88.texto",
+    "texto": "Wenn der Halbmarathon gut läuft, mich für den Marathon anmelden, bevor ich es mir anders überlege"
+  },
+  {
+    "ruta": "sueltas.89.texto",
+    "texto": "21K geschafft: Hart war Kilometer 17, nicht 21"
+  },
+  {
+    "ruta": "sueltas.89.detalle",
+    "texto": "Mir ging eher der Kopf aus als die Beine. Langeweile muss man auch trainieren."
+  },
+  {
+    "ruta": "sueltas.90.texto",
+    "texto": "Die erste Minute von Clair de Lune aufnehmen, um sie in einem Monat zu vergleichen"
+  },
+  {
+    "ruta": "sueltas.91.texto",
+    "texto": "Diese Wochen kürzertreten, auch wenn der Körper mehr will"
+  },
+  {
+    "ruta": "sueltas.92.texto",
+    "texto": "Die Gels beim langen Lauf testen; am Renntag nichts Neues ausprobieren"
+  },
+  {
+    "ruta": "sueltas.93.texto",
+    "texto": "Aufschreiben, bei welchem Kilometer jeder von ihnen auf mich wartet"
+  },
+  {
+    "ruta": "sueltas.94.texto",
+    "texto": "Marathon geschafft. Die Uhr zeigte, was sie zeigte, und das ist mir vollkommen egal"
+  },
+  {
+    "ruta": "sueltas.94.detalle",
+    "texto": "Bei Kilometer 35 bin ich gegangen, bei 37 wieder gelaufen. Das ist es, was ich mitnehme."
+  },
+  {
+    "ruta": "sueltas.95.texto",
+    "texto": "Zwei schwarze Zehennägel und eine Lektion: Neue Socken testet man nicht über 42 Kilometer"
+  },
+  {
+    "ruta": "sueltas.96.texto",
+    "texto": "Mit offener Tür üben, um mich daran zu gewöhnen, gehört zu werden"
+  },
+  {
+    "ruta": "sueltas.97.texto",
+    "texto": "Clair de Lune ganz für die Familie gespielt; meine Mutter weinte genau an dem Takt, den ich immer verhaue"
+  },
+  {
+    "ruta": "sueltas.98.texto",
+    "texto": "Das Konto für den Notgroschen eröffnen: drei Monatsausgaben, und nicht anrühren"
+  },
+  {
+    "ruta": "sueltas.99.texto",
+    "texto": "Nächstes Stück: Satie oder die erste Arabesque; diese Woche entscheiden und anfangen"
+  },
+  {
+    "ruta": "sueltas.100.texto",
+    "texto": "Nächste Reise: Korea. Das Glas fängt morgen an, mit dem Trinkgeld von heute"
+  },
+  {
+    "ruta": "lluvias.0.tema",
+    "texto": "Namen für die Katze"
+  },
+  {
+    "ruta": "lluvias.0.textos.0",
+    "texto": "Laika, nach der Hündin vom Sputnik; sie hat diesen Blick, als wolle sie irgendwohin"
+  },
+  {
+    "ruta": "lluvias.0.textos.1",
+    "texto": "Curie, auch wenn es klingt, als würde ich sie nach Noten fragen"
+  },
+  {
+    "ruta": "lluvias.0.textos.2",
+    "texto": "Vega, kurz, und lässt sich von der Küche aus gut rufen"
+  },
+  {
+    "ruta": "lluvias.0.textos.3",
+    "texto": "Cassini, wunderschön, aber niemand wird es je richtig aussprechen"
+  },
+  {
+    "ruta": "lluvias.0.textos.4",
+    "texto": "Miso, weil sie schläft wie eine heiße Suppe"
+  },
+  {
+    "ruta": "lluvias.0.textos.5",
+    "texto": "Nebula, viel zu großer Name für etwas, das in einen Schuhkarton passt"
+  },
+  {
+    "ruta": "lluvias.0.textos.6",
+    "texto": "Boson, eine Woche lustig und den Rest des Jahres nervig"
+  },
+  {
+    "ruta": "lluvias.0.textos.7",
+    "texto": "Kepler, falls sie am Ende in seltsamen Umlaufbahnen auf die Regale klettert"
+  },
+  {
+    "ruta": "lluvias.0.textos.8",
+    "texto": "Entschieden: Laika. Sie reagiert auf das Geräusch der Dose, und das ist es, worauf es ankommt"
+  },
+  {
+    "ruta": "lluvias.1.tema",
+    "texto": "Wie ich Japan bezahle"
+  },
+  {
+    "ruta": "lluvias.1.textos.0",
+    "texto": "Ein eigenes Konto nur für die Reise, ohne Karte dazu"
+  },
+  {
+    "ruta": "lluvias.1.textos.1",
+    "texto": "Alle Trinkgelder ins Glas, und das Glas alle zwei Wochen zur Bank"
+  },
+  {
+    "ruta": "lluvias.1.textos.2",
+    "texto": "Extraschicht samstags von jetzt bis August"
+  },
+  {
+    "ruta": "lluvias.1.textos.3",
+    "texto": "Den Verstärker verkaufen, zwei alte Lehrbücher und das Ersatzfahrrad"
+  },
+  {
+    "ruta": "lluvias.1.textos.4",
+    "texto": "Die zwei Abos kündigen, die ich diesen Monat nicht ein einziges Mal geöffnet habe"
+  },
+  {
+    "ruta": "lluvias.1.textos.5",
+    "texto": "In der Nebensaison fliegen, auch wenn es einen langen Zwischenstopp bedeutet"
+  },
+  {
+    "ruta": "lluvias.1.textos.6",
+    "texto": "Fast überall Hostels und Kapselhotels, nur in Hakone ein Ryokan"
+  },
+  {
+    "ruta": "lluvias.1.textos.7",
+    "texto": "Fünf Tage die Woche zu Hause kochen und die Ersparnis als Einnahme zählen"
+  },
+  {
+    "ruta": "lluvias.1.textos.8",
+    "texto": "Festes Wochenziel: Klappt eine Woche nicht, gleicht die nächste es aus"
+  },
+  {
+    "ruta": "lluvias.2.tema",
+    "texto": "Semesterprojekt"
+  },
+  {
+    "ruta": "lluvias.2.textos.0",
+    "texto": "Kaffeeabkühlung: Newtons Gesetz mit Thermometer und drei verschiedenen Tassen"
+  },
+  {
+    "ruta": "lluvias.2.textos.1",
+    "texto": "Pendel in Zeitlupe mit dem Handy gefilmt, um g zu bestimmen"
+  },
+  {
+    "ruta": "lluvias.2.textos.2",
+    "texto": "Spektrum der Straßenlaternen im Viertel mit einer zerkratzten CD und der Webcam"
+  },
+  {
+    "ruta": "lluvias.2.textos.3",
+    "texto": "Beugung mit Laserpointer und einem meiner eigenen Haare als Spalt"
+  },
+  {
+    "ruta": "lluvias.2.textos.4",
+    "texto": "Extraktionskurve des Espressos in Abhängigkeit von der Wassertemperatur"
+  },
+  {
+    "ruta": "lluvias.2.textos.5",
+    "texto": "Geräusch von Mühle und Maschine: Spektrum und wiederholbare Spitzen"
+  },
+  {
+    "ruta": "lluvias.2.textos.6",
+    "texto": "Lichtverschmutzung vom Dach aus mit kalibrierten Fotos messen"
+  },
+  {
+    "ruta": "lluvias.2.textos.7",
+    "texto": "Fallende Milchtropfen im Kaffee: Vermischung und Wirbel, von oben gefilmt"
+  },
+  {
+    "ruta": "lluvias.2.textos.8",
+    "texto": "Ich entscheide mich für den Kaffee: Ich habe die Maschine, die Daten und die perfekte Ausrede"
+  },
+  {
+    "ruta": "lluvias.3.tema",
+    "texto": "Was ich mit nach Japan nehme"
+  },
+  {
+    "ruta": "lluvias.3.textos.0",
+    "texto": "Eingelaufene Laufschuhe, nicht die neuen; Blasen in Kyoto kommt gar nicht infrage"
+  },
+  {
+    "ruta": "lluvias.3.textos.1",
+    "texto": "Vierzig-Liter-Rucksack, kein Rollkoffer: Überall gibt es Treppen"
+  },
+  {
+    "ruta": "lluvias.3.textos.2",
+    "texto": "Kleines Stativ für den Himmel über Hakone und für Nachtfotos in der Stadt"
+  },
+  {
+    "ruta": "lluvias.3.textos.3",
+    "texto": "Steckdosenadapter und eine Powerbank, die einen ganzen Tag durchhält"
+  },
+  {
+    "ruta": "lluvias.3.textos.4",
+    "texto": "Dünnes Schnelltrockentuch, gut für die Bäder und für den Regen im September"
+  },
+  {
+    "ruta": "lluvias.3.textos.5",
+    "texto": "Drei Funktionsshirts und alle zwei Nächte im Waschbecken waschen"
+  },
+  {
+    "ruta": "lluvias.3.textos.6",
+    "texto": "Papierheft fürs Reisetagebuch: Dem Handy geht der Akku aus, dem Papier nicht"
+  },
+  {
+    "ruta": "lluvias.3.textos.7",
+    "texto": "Kleines Satzheft auf Japanisch mit Furigana, im Taschenformat"
+  },
+  {
+    "ruta": "lluvias.3.textos.8",
+    "texto": "Den halben Rucksack leer lassen für das, was ich mitbringe"
+  },
+  {
+    "ruta": "lluvias.4.tema",
+    "texto": "Geschenke zum Jahresende"
+  },
+  {
+    "ruta": "lluvias.4.textos.0",
+    "texto": "Für Mama: der Gyokuro, den ich aus Kyoto aufbewahrt habe, auch wenn es wehtut, ihn herzugeben"
+  },
+  {
+    "ruta": "lluvias.4.textos.1",
+    "texto": "Für Papa: anständige Radhandschuhe, seine sind seit März kaputt"
+  },
+  {
+    "ruta": "lluvias.4.textos.2",
+    "texto": "Für meine Schwester: der Druck vom Bahnsteig in Tokio, gerahmt in etwas Günstigem"
+  },
+  {
+    "ruta": "lluvias.4.textos.3",
+    "texto": "Für meine Großeltern: Clair de Lune auf Video aufnehmen und ihnen am 24. schicken"
+  },
+  {
+    "ruta": "lluvias.4.textos.4",
+    "texto": "Für den Chef vom Café: ein Single-Origin-Kaffee, den er garantiert noch nicht probiert hat"
+  },
+  {
+    "ruta": "lluvias.4.textos.5",
+    "texto": "Für Nuria von der Spätschicht: ihr Stammgetränk einen Monat lang spendiert"
+  },
+  {
+    "ruta": "lluvias.4.textos.6",
+    "texto": "Für Laika: ein Pappkarton, wortwörtlich; alles andere ignoriert sie"
+  },
+  {
+    "ruta": "lluvias.4.textos.7",
+    "texto": "Für mich: dieses Jahr nichts, was übrig bleibt, geht in den Notgroschen"
+  },
+  {
+    "ruta": "lluvias.4.textos.8",
+    "texto": "Alles mit den U-Bahn-Plänen einwickeln, die ich mitgebracht habe: kostet nichts und sieht gut aus"
+  }
+]

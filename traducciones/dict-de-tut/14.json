@@ -1,0 +1,172 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "es": "Los temas del catálogo ya vienen; los que cuelgan sueltos los abrió una charla. Toca una ficha para leer su resumen, sus puntos clave y su ilustración.",
+    "en": "Catalogue topics come built in; the loose ones were opened by a chat. Tap a card to read its summary, its key points and its illustration."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "es": "Una ficha se escribe a mano o se destila de una conversación. La del agujero negro y la de la física del piano llevan dibujo: la app puede ilustrarlas por ti.",
+    "en": "A card is written by hand or distilled from a conversation. The black hole one and the piano physics one carry a drawing: the app can illustrate them for you."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "es": "Las dudas del año",
+    "en": "The year's questions"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "es": "Aquí están las conversaciones que Pep@ tuvo mientras estudiaba: entropía, dilatación del tiempo, por qué un piano suena a piano. Cada una quedó guardada.",
+    "en": "Here are the conversations Pep@ had while studying: entropy, time dilation, why a piano sounds like a piano. Each one was kept."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "es": "De la charla al árbol",
+    "en": "From chat to tree"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "es": "Así la enciclopedia no se llena de teoría copiada, sino de lo que de verdad preguntaste.",
+    "en": "That way the encyclopedia does not fill with copied theory, but with what you actually asked."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "es": "El índice es tuyo",
+    "en": "The index is yours"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "es": "El + de cada fila escribe una entrada ahí mismo, con su campo y su tema ya puestos. Y con el botón del lápiz haces crecer el árbol: ese mismo + añade ramas, el de la Semilla crea campos nuevos, y puedes renombrar, reordenar y borrar. El número con la ramita dice cuántos subíndices cuelgan de ahí.",
+    "en": "The + on each row writes an entry right there, with its field and topic already set. And the pencil button grows the tree: that same + adds branches, the one on the Seed creates new fields, and you can rename, reorder and delete. The number with the little branch tells you how many sub-indexes hang below."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "es": "El plan de estudio",
+    "en": "The study plan"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "es": "Las metas viven en el mismo cronograma del calendario: «terminar termodinámica antes del parcial» ya está cumplida; preparar el posgrado sigue en curso.",
+    "en": "Goals live in the calendar's own timeline: «finish thermodynamics before the midterm» is already done; preparing for grad school is still going."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "es": "A cada meta puedes pedirle un plan: la IA pregunta tu fecha objetivo y tus horas disponibles, y agenda los ratos de estudio en tu calendario.",
+    "en": "You can ask any goal for a plan: the AI asks for your target date and your available hours, and schedules the study slots in your calendar."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "es": "Cuántas entradas tiene tu enciclopedia y cuántos de los campos y temas del índice ya cubriste. Los temas que abrió una charla se cuentan aparte.",
+    "en": "How many entries your encyclopedia holds and how many of the index fields and topics you already cover. Topics opened by a chat are counted separately."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "es": "Cuatro números",
+    "en": "Four numbers"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "es": "Charlas con el Sabio, minutos de estudio en total y en la semana, y tu racha de días seguidos estudiando.",
+    "en": "Chats with the Sage, study minutes in total and this week, and your streak of consecutive study days."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "es": "Dónde está el desbalance",
+    "en": "Where the imbalance is"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "es": "La barra más larga es el campo que más atención te llevó — para Pep@, termodinámica en la semana del parcial.",
+    "en": "The longest bar is the field that took most of your attention — for Pep@, thermodynamics during midterm week."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "es": "Los días de estudio",
+    "en": "The study days"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "es": "Un cuadrito por día: se nota el atracón antes del parcial y el hueco de las tres semanas en Japón, sin necesidad de abrir el historial completo.",
+    "en": "One square per day: the cramming before the midterm and the gap of the three weeks in Japan show up without opening the full history."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "es": "En qué se te fueron las horas",
+    "en": "Where the hours went"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "es": "Lo mismo que arriba pero en minutos: una cosa es tener muchas fichas de un campo y otra haberle dedicado tiempo de verdad.",
+    "en": "The same as above but in minutes: having many cards in a field is one thing, having actually spent time on it is another."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "es": "Un año de sesiones",
+    "en": "A year of sessions"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "es": "Y si quieres el detalle, el historial guarda cada sesión con sus minutos y su campo, archivado por año, mes y semana.",
+    "en": "And if you want the detail, the history keeps every session with its minutes and its field, filed by year, month and week."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "es": "Lo que toca hoy",
+    "en": "What's due today"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "es": "Pep@ lleva un año con esto y aún tiene repasos pendientes: el sistema no te pide todo el vocabulario, solo lo que estás a punto de olvidar.",
+    "en": "Pep@ has been at this for a year and still has reviews pending: the system does not ask for all your vocabulary, only what you are about to forget."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "es": "Un año de constancia",
+    "en": "A year of consistency"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "es": "El historial guarda cuántas repasaste cada día y cuántas acertaste. Pep@ empezó fallando bastante y terminó acertando casi todo — y en Japón repasó más que nunca.",
+    "en": "The history keeps how many you reviewed each day and how many you got right. Pep@ started missing plenty and ended getting almost everything — and reviewed more than ever in Japan."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "es": "Dos idiomas a la vez",
+    "en": "Two languages at once"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "es": "Arriba se cambia de idioma: además del principal, Pep@ montó un japonés de supervivencia entre el mes 4 y el viaje. Al volver casi lo dejó, y se nota en sus cajas.",
+    "en": "The language switcher is up top: besides the main one, Pep@ built survival Japanese between month 4 and the trip. After coming back it was almost dropped, and the boxes show it."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "es": "Tres áreas, seis niveles",
+    "en": "Three areas, six levels"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "es": "De A1 a C2, cada nivel con sus temas de vocabulario, sus puntos de pronunciación y su gramática. Sabes qué te falta sin buscar un curso fuera.",
+    "en": "From A1 to C2, each level with its vocabulary topics, its pronunciation points and its grammar. You know what you are missing without looking for a course elsewhere."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "es": "Dónde vas",
+    "en": "Where you stand"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "es": "Tarjetas dominadas, repasos del mes y tu nivel actual. Pep@ arrancó el año en A2 y hoy anda en B1.",
+    "en": "Mastered cards, reviews this month and your current level. Pep@ started the year at A2 and is now around B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "es": "La bandeja",
+    "en": "The inbox"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "es": "Lo que hay que hacer pero todavía no tiene día vive aquí, con su prioridad. Nada te obliga a ponerle fecha para apuntarlo.",
+    "en": "Things you have to do but have not dated yet live here, with their priority. Nothing forces you to pick a day just to write it down."
+  }
+]

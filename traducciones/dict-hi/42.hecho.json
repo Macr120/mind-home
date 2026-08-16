@@ -1,0 +1,502 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.resumen",
+    "texto": "आर्काइव वह सब कुछ रखता है जो आप देखते, पढ़ते और खेलते हैं: हर एंट्री के साथ उसकी स्थिति, स्टार रेटिंग और आपकी समीक्षा। इसे तारीख़ के हिसाब से साल और महीने के फ़ोल्डर में, या शैली के हिसाब से समूहित करें।"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.titulo",
+    "texto": "देखने की सूचियाँ"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.resumen",
+    "texto": "एक सूची किसी थीम या शैली के शीर्षकों को लक्ष्यों में बदल देती है: जो पूरा कर लें उसे चेक करें और चाहें तो कैलेंडर में देखने के लिए तारीख़ जोड़ें।"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.titulo",
+    "texto": "डिजिटल टेबल"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.resumen",
+    "texto": "बीस से ज़्यादा बोर्ड और आर्केड गेम, परिवार के हिसाब से समूहित और खिलाड़ियों की संख्या से फ़िल्टर किए हुए: यहीं खेले जा सकते हैं, घर से बाहर निकले बिना।"
+  },
+  {
+    "clave": "tut.app-diario--habito.titulo",
+    "texto": "अख़बार पढ़ने की आदत"
+  },
+  {
+    "clave": "tut.app-diario--habito.resumen",
+    "texto": "अख़बार अस्थायी है: हर दिन श्रेणी के हिसाब से सुर्ख़ियाँ और इतिहास में आज का दिन लेकर आता है, और आधी रात को नया हो जाता है। जो बचता है वह है आपकी निरंतरता — इसे पढ़ना ही दिन के रिकॉर्ड के तौर पर गिना जाता है।"
+  },
+  {
+    "clave": "tut.app-diario--reparto.titulo",
+    "texto": "इसे अपने पास मंगवाएं"
+  },
+  {
+    "clave": "tut.app-diario--reparto.resumen",
+    "texto": "आप तय कर सकते हैं कि हर सहायक अपनी चैट में कौन-से सेक्शन दे — किसी तय समय पर, या दिन के किसी अनजान पल में।"
+  },
+  {
+    "clave": "demo.paso.limpiar",
+    "texto": "ज़मीन साफ़ करना"
+  },
+  {
+    "clave": "demo.paso.casa",
+    "texto": "घर खड़ा करना"
+  },
+  {
+    "clave": "demo.paso.catalogos",
+    "texto": "कैटलॉग भरना"
+  },
+  {
+    "clave": "demo.paso.final",
+    "texto": "अंतिम स्पर्श"
+  },
+  {
+    "clave": "cuenta.sync.activo",
+    "texto": "सिंक हो रहा है…"
+  },
+  {
+    "clave": "cuenta.sync.ultima",
+    "texto": "सिंक हुआ: {f}"
+  },
+  {
+    "clave": "cuenta.sync.nunca",
+    "texto": "अभी तक सिंक नहीं हुआ"
+  },
+  {
+    "clave": "cuenta.sync.ahora",
+    "texto": "सिंक करें"
+  },
+  {
+    "clave": "cuenta.sync.otraCuenta",
+    "texto": "यह घर किसी और खाते से जुड़ा हुआ था। लोकल डेटा रखकर उसे नए खाते में मिला दें? (रद्द करें = इस घर को खाली करें और सिर्फ़ खाते का डेटा डाउनलोड करें)"
+  },
+  {
+    "clave": "cuenta.sync.respaldoPrevio",
+    "texto": "आप पहली बार इस घर को सिंक करने जा रहे हैं। पहले लोकल बैकअप डाउनलोड करें? (सुझाया गया)"
+  },
+  {
+    "clave": "carpetas.vacio",
+    "texto": "अभी तक कोई रिकॉर्ड नहीं है।"
+  },
+  {
+    "clave": "carpetas.estaSemana",
+    "texto": "इस हफ़्ते"
+  },
+  {
+    "clave": "carpetas.nRegistro",
+    "texto": "1 रिकॉर्ड"
+  },
+  {
+    "clave": "carpetas.nRegistros",
+    "texto": "{n} रिकॉर्ड"
+  },
+  {
+    "clave": "cocina.historial",
+    "texto": "खाने का इतिहास"
+  },
+  {
+    "clave": "ejercicio.historial",
+    "texto": "आपके सेशन"
+  },
+  {
+    "clave": "descanso.hist.media",
+    "texto": "औसत {h}"
+  },
+  {
+    "clave": "jardin.hist",
+    "texto": "आपके सेशन"
+  },
+  {
+    "clave": "jardin.hist.vacio",
+    "texto": "यहां आपके शांति सेशन सेव होते रहेंगे।"
+  },
+  {
+    "clave": "jardin.hist.min",
+    "texto": "{n} मिनट"
+  },
+  {
+    "clave": "hobbies.sesion.todas",
+    "texto": "आपके सेशन"
+  },
+  {
+    "clave": "despacho.m.sinRegistros",
+    "texto": "कोई लेन-देन दर्ज नहीं है।"
+  },
+  {
+    "clave": "room.agenda.desc",
+    "texto": "आपका शेड्यूल: काम के पेंडिंग टास्क, इवेंट और प्रोजेक्ट, डॉक्टर की अपॉइंटमेंट, दवाइयां, आपके पालतू जानवर उनकी देखभाल के साथ, और जन्मदिन वाली आपकी संपर्क बुक।"
+  },
+  {
+    "clave": "agenda.tab.trabajo",
+    "texto": "काम"
+  },
+  {
+    "clave": "agenda.tab.salud",
+    "texto": "स्वास्थ्य"
+  },
+  {
+    "clave": "agenda.tab.personas",
+    "texto": "संपर्क"
+  },
+  {
+    "clave": "agenda.metaDiaria",
+    "texto": "आज का शेड्यूल"
+  },
+  {
+    "clave": "agenda.guardar",
+    "texto": "सेव करें"
+  },
+  {
+    "clave": "agenda.editar",
+    "texto": "बदलें"
+  },
+  {
+    "clave": "agenda.borrar",
+    "texto": "मिटाएं"
+  },
+  {
+    "clave": "agenda.confirmarBorrado",
+    "texto": "मिटाएं?"
+  },
+  {
+    "clave": "agenda.si",
+    "texto": "हां"
+  },
+  {
+    "clave": "agenda.no",
+    "texto": "नहीं"
+  },
+  {
+    "clave": "agenda.volver",
+    "texto": "वापस"
+  },
+  {
+    "clave": "agenda.buscar",
+    "texto": "खोजें"
+  },
+  {
+    "clave": "agenda.palomear",
+    "texto": "पूरा हुआ मार्क करें"
+  },
+  {
+    "clave": "agenda.nuevoEvento",
+    "texto": "नया"
+  },
+  {
+    "clave": "agenda.editarEvento",
+    "texto": "बदलें"
+  },
+  {
+    "clave": "agenda.sinRelacion",
+    "texto": "कोई रिश्ता नहीं"
+  },
+  {
+    "clave": "agenda.eventosDe",
+    "texto": "{n} के साथ"
+  },
+  {
+    "clave": "agenda.cumpleDe",
+    "texto": "{n} का जन्मदिन"
+  },
+  {
+    "clave": "agenda.form.asunto",
+    "texto": "विषय"
+  },
+  {
+    "clave": "agenda.form.motivo",
+    "texto": "अपॉइंटमेंट की वजह"
+  },
+  {
+    "clave": "agenda.form.plan",
+    "texto": "योजना या रिमाइंडर"
+  },
+  {
+    "clave": "agenda.form.nombre",
+    "texto": "नाम"
+  },
+  {
+    "clave": "agenda.form.color",
+    "texto": "रंग"
+  },
+  {
+    "clave": "agenda.form.fecha",
+    "texto": "तारीख़"
+  },
+  {
+    "clave": "agenda.form.hora",
+    "texto": "समय"
+  },
+  {
+    "clave": "agenda.form.horaFin",
+    "texto": "ख़त्म होता है"
+  },
+  {
+    "clave": "agenda.form.lugar",
+    "texto": "जगह"
+  },
+  {
+    "clave": "agenda.form.con",
+    "texto": "किसके साथ"
+  },
+  {
+    "clave": "agenda.form.medico",
+    "texto": "डॉक्टर"
+  },
+  {
+    "clave": "agenda.form.contacto",
+    "texto": "संपर्क बुक से व्यक्ति"
+  },
+  {
+    "clave": "agenda.form.ninguno",
+    "texto": "— कोई नहीं —"
+  },
+  {
+    "clave": "agenda.form.prioridad",
+    "texto": "प्राथमिकता"
+  },
+  {
+    "clave": "agenda.form.notas",
+    "texto": "नोट्स"
+  },
+  {
+    "clave": "agenda.form.notaSinFecha",
+    "texto": "बिना तारीख़ के यह आपके पेंडिंग टास्क में रहेगा, कैलेंडर से बाहर।"
+  },
+  {
+    "clave": "agenda.form.notaSinHora",
+    "texto": "बिना समय के यह उस दिन दिखेगा, लेकिन आपको याद नहीं दिला सकेगा।"
+  },
+  {
+    "clave": "agenda.prioridad.alta",
+    "texto": "उच्च"
+  },
+  {
+    "clave": "agenda.prioridad.media",
+    "texto": "मध्यम"
+  },
+  {
+    "clave": "agenda.prioridad.baja",
+    "texto": "निम्न"
+  },
+  {
+    "clave": "agenda.trabajo.pendientes",
+    "texto": "पेंडिंग"
+  },
+  {
+    "clave": "agenda.trabajo.tablero",
+    "texto": "बोर्ड"
+  },
+  {
+    "clave": "ejemplo.vacio",
+    "texto": "समझ नहीं आ रहा कहां से शुरू करें? देखें कि अंदर उदाहरण के साथ यह कैसा दिखता है।"
+  },
+  {
+    "clave": "ejemplo.puesto",
+    "texto": "यह एक उदाहरण है: जब चाहें छिपा दें, आपका डेटा जस का तस रहेगा।"
+  },
+  {
+    "clave": "ejemplo.mostrar",
+    "texto": "उदाहरण देखें"
+  },
+  {
+    "clave": "ejemplo.ocultar",
+    "texto": "उदाहरण छिपाएं"
+  },
+  {
+    "clave": "ejemplo.sinSitio",
+    "texto": "अभी नक्शे पर उदाहरण के लिए कोई खाली जगह नहीं है।"
+  },
+  {
+    "clave": "agenda.ejemplo.vacio",
+    "texto": "समझ नहीं आ रहा कहां से शुरू करें? एक उदाहरण लोड करें और उसे अंदर से देखें।"
+  },
+  {
+    "clave": "agenda.ejemplo.cargado",
+    "texto": "जो कुछ उदाहरण के तौर पर दिख रहा है, उसे एक झटके में मिटाया जा सकता है, कैलेंडर के ब्लॉक्स समेत।"
+  },
+  {
+    "clave": "agenda.ejemplo.cargar",
+    "texto": "उदाहरण लोड करें"
+  },
+  {
+    "clave": "agenda.ejemplo.borrar",
+    "texto": "उदाहरण मिटाएं"
+  },
+  {
+    "clave": "agenda.ejemplo.confirmar",
+    "texto": "हां, उदाहरण मिटाएं"
+  },
+  {
+    "clave": "agenda.tablero.porhacer",
+    "texto": "करना है"
+  },
+  {
+    "clave": "agenda.tablero.encurso",
+    "texto": "प्रगति में"
+  },
+  {
+    "clave": "agenda.tablero.hecho",
+    "texto": "हो गया"
+  },
+  {
+    "clave": "agenda.tablero.columnaVacia",
+    "texto": "यहां कुछ नहीं"
+  },
+  {
+    "clave": "agenda.tablero.atras",
+    "texto": "पिछले कॉलम में ले जाएं"
+  },
+  {
+    "clave": "agenda.tablero.adelante",
+    "texto": "अगले कॉलम में ले जाएं"
+  },
+  {
+    "clave": "agenda.vacio.pendientes",
+    "texto": "कोई पेंडिंग टास्क नहीं। जो दिमाग में घूम रहा है उसे लिख लें।"
+  },
+  {
+    "clave": "agenda.salud.citas",
+    "texto": "डॉक्टर की अपॉइंटमेंट"
+  },
+  {
+    "clave": "agenda.salud.sub.yo",
+    "texto": "आप"
+  },
+  {
+    "clave": "agenda.salud.sub.projimos",
+    "texto": "प्रियजन"
+  },
+  {
+    "clave": "agenda.salud.sub.mascotas",
+    "texto": "पालतू जानवर"
+  },
+  {
+    "clave": "agenda.salud.cuidados",
+    "texto": "देखभाल"
+  },
+  {
+    "clave": "agenda.salud.nuevoCuidado",
+    "texto": "नई देखभाल"
+  },
+  {
+    "clave": "agenda.vacio.cuidadosPersona",
+    "texto": "अभी कोई देखभाल नहीं। यहां दोहराए जाने वाले चेकअप और वैक्सीन आएंगे।"
+  },
+  {
+    "clave": "agenda.vacio.projimos",
+    "texto": "अभी आपकी देखरेख में कोई नहीं है। नया जोड़ें या संपर्क टैब में किसी संपर्क पर «मेरी देखरेख में» चिह्नित करें: वह यहां अपनी अपॉइंटमेंट, दवाइयों और देखभाल के साथ दिखेगा।"
+  },
+  {
+    "clave": "agenda.persona.alCuidado",
+    "texto": "मेरी देखरेख में"
+  },
+  {
+    "clave": "agenda.persona.alCuidadoAyuda",
+    "texto": "यह «स्वास्थ्य › प्रियजन» में अपनी अपॉइंटमेंट, दवाइयों और देखभाल के साथ दिखेगा।"
+  },
+  {
+    "clave": "agenda.projimo.aMiCuidado",
+    "texto": "मेरी देखरेख में"
+  },
+  {
+    "clave": "agenda.cuidadop.nuevo",
+    "texto": "नई देखभाल"
+  },
+  {
+    "clave": "agenda.cuidado.archivado",
+    "texto": "हो गया, बिना दोहराव"
+  },
+  {
+    "clave": "agenda.cuidado.reactivar",
+    "texto": "फिर से शेड्यूल करें"
+  },
+  {
+    "clave": "agenda.form.especialidad",
+    "texto": "विशेषज्ञता"
+  },
+  {
+    "clave": "agenda.esp.general",
+    "texto": "जनरल फिज़िशियन"
+  },
+  {
+    "clave": "agenda.esp.dentista",
+    "texto": "दंत चिकित्सक"
+  },
+  {
+    "clave": "agenda.esp.oftalmologia",
+    "texto": "नेत्र रोग"
+  },
+  {
+    "clave": "agenda.esp.dermatologia",
+    "texto": "त्वचा रोग"
+  },
+  {
+    "clave": "agenda.esp.ginecologia",
+    "texto": "स्त्री रोग"
+  },
+  {
+    "clave": "agenda.esp.cardiologia",
+    "texto": "हृदय रोग"
+  },
+  {
+    "clave": "agenda.esp.traumatologia",
+    "texto": "हड्डी रोग"
+  },
+  {
+    "clave": "agenda.esp.psicologia",
+    "texto": "मनोविज्ञान"
+  },
+  {
+    "clave": "agenda.esp.laboratorio",
+    "texto": "लैब टेस्ट"
+  },
+  {
+    "clave": "agenda.esp.otra",
+    "texto": "अन्य"
+  },
+  {
+    "clave": "agenda.cuidadop.chequeo",
+    "texto": "सामान्य जांच"
+  },
+  {
+    "clave": "agenda.cuidadop.vacuna",
+    "texto": "वैक्सीन"
+  },
+  {
+    "clave": "agenda.cuidadop.analisis",
+    "texto": "लैब टेस्ट"
+  },
+  {
+    "clave": "agenda.cuidadop.terapia",
+    "texto": "थेरेपी"
+  },
+  {
+    "clave": "agenda.cuidadop.dental",
+    "texto": "दांतों की जांच"
+  },
+  {
+    "clave": "agenda.cuidadop.visual",
+    "texto": "आंखों की जांच"
+  },
+  {
+    "clave": "agenda.cuidadop.otro",
+    "texto": "अन्य"
+  },
+  {
+    "clave": "agenda.ciclo.titulo",
+    "texto": "चक्र"
+  },
+  {
+    "clave": "agenda.ciclo.apagado",
+    "texto": "अपने पीरियड का रिकॉर्ड रखें, अगले की अनुमानित तारीख़, लक्षण और रिमाइंडर के साथ।"
+  },
+  {
+    "clave": "agenda.ciclo.activar",
+    "texto": "चक्र ट्रैकिंग चालू करें"
+  },
+  {
+    "clave": "agenda.ciclo.desactivar",
+    "texto": "ट्रैकिंग बंद करें (आपके रिकॉर्ड सुरक्षित रहेंगे)"
+  }
+]

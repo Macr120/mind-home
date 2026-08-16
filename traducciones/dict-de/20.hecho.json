@@ -1,0 +1,818 @@
+[
+  {
+    "clave": "ascensos.sinAccesoSotano",
+    "texto": "Grab einen Kellerraum aus, um die Poolleiter zu platzieren."
+  },
+  {
+    "clave": "ascensos.escaleraMarina",
+    "texto": "Poolleiter"
+  },
+  {
+    "clave": "ascensos.hintSotano",
+    "texto": "Zieh sie auf der 3D-Karte, um sie an eine andere Wand des Schachts zu verschieben. Der Charakter steigt hinunter in den Pool und wieder heraus."
+  },
+  {
+    "clave": "planos.cerrar",
+    "texto": "Grundrisse verlassen"
+  },
+  {
+    "clave": "planos.capa.titulo",
+    "texto": "Ebene"
+  },
+  {
+    "clave": "planos.capa.cuartos",
+    "texto": "Räume"
+  },
+  {
+    "clave": "planos.capa.paredes",
+    "texto": "Wände"
+  },
+  {
+    "clave": "planos.capa.pisos",
+    "texto": "Böden"
+  },
+  {
+    "clave": "planos.capa.techos",
+    "texto": "Dächer"
+  },
+  {
+    "clave": "planos.herr.seleccionar",
+    "texto": "Auswählen"
+  },
+  {
+    "clave": "planos.herr.muro",
+    "texto": "Wände"
+  },
+  {
+    "clave": "planos.herr.puerta",
+    "texto": "Türen"
+  },
+  {
+    "clave": "planos.herr.ventana",
+    "texto": "Fenster"
+  },
+  {
+    "clave": "planos.herr.mover",
+    "texto": "Verschieben"
+  },
+  {
+    "clave": "planos.herr.agrupar",
+    "texto": "Gruppieren"
+  },
+  {
+    "clave": "planos.herr.borrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "planos.herr.expandir",
+    "texto": "Erweitern"
+  },
+  {
+    "clave": "planos.muro.pared",
+    "texto": "Wand"
+  },
+  {
+    "clave": "planos.muro.puerta",
+    "texto": "Tür"
+  },
+  {
+    "clave": "planos.muro.abierto",
+    "texto": "Offen"
+  },
+  {
+    "clave": "planos.accion.regresar",
+    "texto": "Zurück"
+  },
+  {
+    "clave": "planos.accion.cambios",
+    "texto": "Leeren"
+  },
+  {
+    "clave": "planos.accion.confirmar",
+    "texto": "Bestätigen"
+  },
+  {
+    "clave": "planos.volverSecciones",
+    "texto": "Editor-Bereiche"
+  },
+  {
+    "clave": "planos.ayuda",
+    "texto": "Wähle unten links eine Form aus und tippe auf den Grundriss oder die 3D-Karte, um Räume zu zeichnen."
+  },
+  {
+    "clave": "planos.props.paredes",
+    "texto": "Bearbeite die ausgewählte Kante in der Skizze."
+  },
+  {
+    "clave": "planos.props.techo",
+    "texto": "Nutze + und − an der Dachkante, um ganze Linien zu verlängern oder zu verkürzen."
+  },
+  {
+    "clave": "planos.props.zonaPiso",
+    "texto": "Bodenmaterial der Zone: pro Zelle folgt bald."
+  },
+  {
+    "clave": "planos.nombre",
+    "texto": "Name"
+  },
+  {
+    "clave": "planos.forma",
+    "texto": "Form"
+  },
+  {
+    "clave": "planos.formaHint",
+    "texto": "Nutze − bei Randzellen, um einen Teil der Grundfläche zu entfernen:"
+  },
+  {
+    "clave": "planos.quitarCelda",
+    "texto": "Zelle entfernen"
+  },
+  {
+    "clave": "planos.celdaVacia",
+    "texto": "Zelle"
+  },
+  {
+    "clave": "planos.colocarApp",
+    "texto": "App platzieren"
+  },
+  {
+    "clave": "planos.nuevaZona",
+    "texto": "Neuer einfacher Raum"
+  },
+  {
+    "clave": "planos.nombreZona",
+    "texto": "Raumname"
+  },
+  {
+    "clave": "planos.extenderCuarto",
+    "texto": "Bestehenden Raum erweitern"
+  },
+  {
+    "clave": "planos.limpiar",
+    "texto": "Auswahl aufheben"
+  },
+  {
+    "clave": "planos.appsFuera",
+    "texto": "Apps außerhalb der Karte"
+  },
+  {
+    "clave": "planos.eliminarZona",
+    "texto": "Einfachen Raum löschen"
+  },
+  {
+    "clave": "planos.celdas",
+    "texto": "Zellen"
+  },
+  {
+    "clave": "planos.menu.cielo",
+    "texto": "Himmelshintergrund"
+  },
+  {
+    "clave": "planos.menu.cieloTitulo",
+    "texto": "Himmelshintergrund"
+  },
+  {
+    "clave": "planos.menu.cieloDesc",
+    "texto": "Ändert den 3D-Himmel und den Rand des Grundrisses."
+  },
+  {
+    "clave": "planos.menu.cerrar",
+    "texto": "Schließen"
+  },
+  {
+    "clave": "planos.menu.superficie",
+    "texto": "Kartenoberfläche"
+  },
+  {
+    "clave": "planos.superficie.titulo",
+    "texto": "Kartenoberfläche"
+  },
+  {
+    "clave": "planos.superficie.desc",
+    "texto": "Wirkt sich auf das Grundrisspapier, die Rasterlinien und die 3D-Kartenbasis aus."
+  },
+  {
+    "clave": "planos.superficie.relleno",
+    "texto": "Füllung des Grundrisses"
+  },
+  {
+    "clave": "planos.superficie.color",
+    "texto": "Farbe"
+  },
+  {
+    "clave": "planos.superficie.foto",
+    "texto": "Hintergrundfoto"
+  },
+  {
+    "clave": "planos.superficie.subir",
+    "texto": "+ Hochladen"
+  },
+  {
+    "clave": "planos.superficie.usar",
+    "texto": "Im Grundriss verwenden"
+  },
+  {
+    "clave": "planos.superficie.borrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "planos.superficie.sinFoto",
+    "texto": "Lade ein Bild für das Skizzenpapier und die 3D-Basis hoch."
+  },
+  {
+    "clave": "planos.superficie.rejilla",
+    "texto": "Raster"
+  },
+  {
+    "clave": "planos.superficie.tamCelda",
+    "texto": "Zellgröße"
+  },
+  {
+    "clave": "planos.superficie.tamCeldaHint",
+    "texto": "Räume, Wände, Dächer und Plätze skalieren mit der Zelle; Charaktere und andere Objekte behalten ihre Größe."
+  },
+  {
+    "clave": "planos.superficie.rejillaFuerte",
+    "texto": "Hauptlinien"
+  },
+  {
+    "clave": "planos.superficie.rejillaSuave",
+    "texto": "Feinlinien"
+  },
+  {
+    "clave": "planos.superficie.borde",
+    "texto": "Papierrand"
+  },
+  {
+    "clave": "planos.superficie.restaurar",
+    "texto": "Standardwerte wiederherstellen"
+  },
+  {
+    "clave": "planos.zoom.encajar",
+    "texto": "Grundriss einpassen"
+  },
+  {
+    "clave": "planos.zoom.ayuda",
+    "texto": "Rad: zoomen · Shift/Alt + Ziehen: verschieben · Doppelklick auf Rand: einpassen"
+  },
+  {
+    "clave": "editor.cuarto.apariencia",
+    "texto": "Aussehen des Raums"
+  },
+  {
+    "clave": "editor.cuarto.piso",
+    "texto": "Raumboden"
+  },
+  {
+    "clave": "editor.cuarto.forma",
+    "texto": "Raumform"
+  },
+  {
+    "clave": "editor.cuarto.paredes",
+    "texto": "Wände und Türen"
+  },
+  {
+    "clave": "editor.cuarto.objetos",
+    "texto": "Raumobjekte"
+  },
+  {
+    "clave": "editor.avatar.titulo",
+    "texto": "Charakter-Avatar"
+  },
+  {
+    "clave": "editor.avatar.cabeza",
+    "texto": "🟡 Kopf"
+  },
+  {
+    "clave": "editor.avatar.torso",
+    "texto": "🔴 Torso"
+  },
+  {
+    "clave": "editor.avatar.piernas",
+    "texto": "🔵 Beine"
+  },
+  {
+    "clave": "editor.avatar.reset",
+    "texto": "↺ Original-Avatar wiederherstellen"
+  },
+  {
+    "clave": "editor.avatar.forma3d",
+    "texto": "Eigene 3D-Form"
+  },
+  {
+    "clave": "editor.avatar.formaPh",
+    "texto": "Beschreib sie: „blauer Roboter mit rotem Umhang“"
+  },
+  {
+    "clave": "editor.avatar.formaSinIa",
+    "texto": "Um die Form zu beschreiben, brauchst du KI (wähle ein Modell in der Leiste)"
+  },
+  {
+    "clave": "editor.avatar.formaGenerar",
+    "texto": "Form mit KI erstellen"
+  },
+  {
+    "clave": "editor.avatar.formaError",
+    "texto": "Die Form konnte nicht erstellt werden. Prüfe das KI-Modell und versuch es erneut."
+  },
+  {
+    "clave": "editor.avatar.subirGlb",
+    "texto": ".glb-Modell hochladen"
+  },
+  {
+    "clave": "editor.avatar.quitarGlb",
+    "texto": "Hochgeladenes Modell entfernen"
+  },
+  {
+    "clave": "editor.avatar.quitarFormaIa",
+    "texto": "KI-erstellte Form entfernen"
+  },
+  {
+    "clave": "editor.avatar.usandoGlb",
+    "texto": "Du verwendest dein eigenes .glb-Modell. Farben wirken sich nicht auf dieses Modell aus."
+  },
+  {
+    "clave": "editor.avatar.usandoIa",
+    "texto": "Du verwendest eine KI-erstellte Form. Farben wirken sich nicht auf diese Form aus."
+  },
+  {
+    "clave": "editor.tema.titulo",
+    "texto": "Haus-Thema"
+  },
+  {
+    "clave": "editor.tema.desc",
+    "texto": "Wendet einen Stil auf Räume, Hintergrund, Boden und Dach an. Aktiviert Mikroanimationen am Himmel."
+  },
+  {
+    "clave": "editor.tema.sin",
+    "texto": "Kein Thema"
+  },
+  {
+    "clave": "editor.tema.misTemas",
+    "texto": "Meine Themen"
+  },
+  {
+    "clave": "editor.tema.guardar",
+    "texto": "+ Aktuelles speichern"
+  },
+  {
+    "clave": "editor.tema.guardarTitulo",
+    "texto": "Dieses Thema speichern"
+  },
+  {
+    "clave": "editor.tema.guardarMensaje",
+    "texto": "Speichert das Thema genau so, wie du es gerade hast: Farben, Hülle, Licht, Nebel, Stil und Himmelshintergrund."
+  },
+  {
+    "clave": "editor.tema.guardarOk",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "editor.tema.sinTemasPropios",
+    "texto": "Speichere das aktuelle Thema, um es jederzeit wieder anzuwenden."
+  },
+  {
+    "clave": "editor.tema.sinTemaParaGuardar",
+    "texto": "Wähle ein Thema und passe es an: Danach kannst du es hier mit einem Namen speichern."
+  },
+  {
+    "clave": "editor.tema.usar",
+    "texto": "Verwenden"
+  },
+  {
+    "clave": "editor.tema.borrarPropio",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "editor.tema.borrarTitulo",
+    "texto": "Thema löschen"
+  },
+  {
+    "clave": "editor.tema.borrarOk",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "editor.cuartos.titulo",
+    "texto": "Hausräume"
+  },
+  {
+    "clave": "editor.cuartos.desc",
+    "texto": "Eigene Farben und Namen. Änderungen erscheinen sofort im 3D-Haus."
+  },
+  {
+    "clave": "editor.cuartos.editado",
+    "texto": "bearbeitet"
+  },
+  {
+    "clave": "editor.cuartos.color",
+    "texto": "Farbe"
+  },
+  {
+    "clave": "editor.cuartos.nombre",
+    "texto": "Eigener Name"
+  },
+  {
+    "clave": "editor.cuartos.reset",
+    "texto": "↺ Zurücksetzen"
+  },
+  {
+    "clave": "editor.fondo.titulo",
+    "texto": "Himmelshintergrund"
+  },
+  {
+    "clave": "editor.fondo.desc",
+    "texto": "Wird beim Themenwechsel automatisch gewählt. Du kannst ihn aber auch manuell ändern."
+  },
+  {
+    "clave": "editor.fondo.anim",
+    "texto": "Mikroanimationen"
+  },
+  {
+    "clave": "editor.fondo.animDesc",
+    "texto": "Wähle aus, welche du am Himmel haben möchtest, oder lass es automatisch"
+  },
+  {
+    "clave": "editor.fondo.animIntensidad",
+    "texto": "Intensität"
+  },
+  {
+    "clave": "editor.fondo.animAuto",
+    "texto": "Automatisch"
+  },
+  {
+    "clave": "editor.fondo.animTipo",
+    "texto": "Animationstyp"
+  },
+  {
+    "clave": "anim.nubes",
+    "texto": "Wolken"
+  },
+  {
+    "clave": "anim.aves",
+    "texto": "Vögel"
+  },
+  {
+    "clave": "anim.copos",
+    "texto": "Schnee"
+  },
+  {
+    "clave": "anim.cometas",
+    "texto": "Kometen"
+  },
+  {
+    "clave": "anim.fugaz",
+    "texto": "Sternschnuppen"
+  },
+  {
+    "clave": "anim.polvo",
+    "texto": "Leuchtstaub"
+  },
+  {
+    "clave": "anim.dragones",
+    "texto": "Drachen"
+  },
+  {
+    "clave": "anim.murcielagos",
+    "texto": "Fledermäuse"
+  },
+  {
+    "clave": "anim.bruma",
+    "texto": "Dunst"
+  },
+  {
+    "clave": "anim.corazones",
+    "texto": "Herzen"
+  },
+  {
+    "clave": "anim.rayas",
+    "texto": "Neonstreifen"
+  },
+  {
+    "clave": "editor.fondo.misImagenes",
+    "texto": "Meine Bilder"
+  },
+  {
+    "clave": "editor.fondo.subir",
+    "texto": "+ Bild hochladen"
+  },
+  {
+    "clave": "editor.fondo.sinImagenes",
+    "texto": "Lade ein Bild hoch, um es als Himmelshintergrund zu verwenden."
+  },
+  {
+    "clave": "editor.fondo.presets",
+    "texto": "Vordefinierte Hintergründe"
+  },
+  {
+    "clave": "editor.fondo.previewTitulo",
+    "texto": "Passe den Hintergrund an — zieh das Bild; der Rahmen ist dein Bildschirm"
+  },
+  {
+    "clave": "editor.fondo.previewAria",
+    "texto": "Vorschau des Hintergrunds"
+  },
+  {
+    "clave": "editor.fondo.previewMapa",
+    "texto": "Karte über Himmel"
+  },
+  {
+    "clave": "editor.fondo.nombre",
+    "texto": "Name"
+  },
+  {
+    "clave": "editor.fondo.zoom",
+    "texto": "Zoom"
+  },
+  {
+    "clave": "editor.fondo.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "editor.fondo.guardar",
+    "texto": "Hintergrund speichern"
+  },
+  {
+    "clave": "editor.fondo.guardando",
+    "texto": "Speichern…"
+  },
+  {
+    "clave": "editor.fondo.ajustar",
+    "texto": "Anpassen"
+  },
+  {
+    "clave": "editor.fondo.borrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "editor.fondo.confirmBorrar",
+    "texto": "Diesen gespeicherten Hintergrund löschen?"
+  },
+  {
+    "clave": "editor.piso.desc",
+    "texto": "Wähle ein Material oder lass „Keine“ stehen, um nur eine Farbe zu verwenden."
+  },
+  {
+    "clave": "editor.piso.personalizado",
+    "texto": "Keine"
+  },
+  {
+    "clave": "editor.pisoCuarto.desc",
+    "texto": "Bodenmaterial im Raum. „Standard“ folgt der Raumfarbe."
+  },
+  {
+    "clave": "editor.pisoCuarto.defecto",
+    "texto": "Standard"
+  },
+  {
+    "clave": "editor.techo.titulo",
+    "texto": "Hausdächer"
+  },
+  {
+    "clave": "editor.techo.desc",
+    "texto": "Aktiviere die 🏠-Ansicht, um sie zu sehen. Die Wahl eines Themas wendet das passende Dach an."
+  },
+  {
+    "clave": "editor.techo.genericos",
+    "texto": "Allgemein"
+  },
+  {
+    "clave": "editor.techo.porTema",
+    "texto": "Nach Thema"
+  },
+  {
+    "clave": "editor.techo.porCuarto",
+    "texto": "Nach Raum"
+  },
+  {
+    "clave": "editor.perfil.titulo",
+    "texto": "👤 Dein Profil"
+  },
+  {
+    "clave": "editor.perfil.emoji",
+    "texto": "Emoji"
+  },
+  {
+    "clave": "editor.perfil.nombre",
+    "texto": "Name"
+  },
+  {
+    "clave": "editor.perfil.tuNombre",
+    "texto": "Dein Name"
+  },
+  {
+    "clave": "editor.perfil.ph.nombre",
+    "texto": "Wie heißt du?"
+  },
+  {
+    "clave": "editor.perfil.nacimiento",
+    "texto": "Geburtstag"
+  },
+  {
+    "clave": "editor.perfil.bio",
+    "texto": "Bio"
+  },
+  {
+    "clave": "editor.perfil.ph.bio",
+    "texto": "Ein Satz über dich..."
+  },
+  {
+    "clave": "editor.perfil.guardar",
+    "texto": "Profil speichern"
+  },
+  {
+    "clave": "editor.perfil.guardado",
+    "texto": "✓ Gespeichert"
+  },
+  {
+    "clave": "editor.perfil.edad",
+    "texto": "{n} Jahre alt"
+  },
+  {
+    "clave": "editor.room.color",
+    "texto": "Bodenfarbe"
+  },
+  {
+    "clave": "editor.room.nombre",
+    "texto": "Eigener Name"
+  },
+  {
+    "clave": "editor.room.aplicar",
+    "texto": "Anwenden"
+  },
+  {
+    "clave": "editor.room.reset",
+    "texto": "↺ Ursprüngliches Aussehen wiederherstellen"
+  },
+  {
+    "clave": "editor.inv.titulo",
+    "texto": "Gesamtes Inventar"
+  },
+  {
+    "clave": "editor.inv.desc",
+    "texto": "Wähle ein Objekt: Es erscheint auf der Karte und du ziehst es, wohin du willst."
+  },
+  {
+    "clave": "editor.inv.deco",
+    "texto": "🎨 Allgemeine Deko"
+  },
+  {
+    "clave": "editor.inv.mapa",
+    "texto": "Auf der Karte ({n})"
+  },
+  {
+    "clave": "editor.inv.quitar",
+    "texto": "Entfernen"
+  },
+  {
+    "clave": "editor.inv.desagrupar",
+    "texto": "Gruppierung aufheben"
+  },
+  {
+    "clave": "editor.inv.agrupar",
+    "texto": "🔗 Auswahl gruppieren ({n})"
+  },
+  {
+    "clave": "editor.obj.desc",
+    "texto": "Ziehe Objekte in der 3D-Szene. Markiere mit ★ den Eingangspunkt des Raums."
+  },
+  {
+    "clave": "editor.obj.cuarto",
+    "texto": "Raum"
+  },
+  {
+    "clave": "editor.obj.marcarPrincipal",
+    "texto": "Als Hauptobjekt festlegen"
+  },
+  {
+    "clave": "editor.obj.esPrincipal",
+    "texto": "Hauptobjekt (Eingangspunkt des Raums)"
+  },
+  {
+    "clave": "editor.obj.ultimoObjeto",
+    "texto": "Mindestens ein Objekt muss im Raum bleiben"
+  },
+  {
+    "clave": "editor.obj.vacio",
+    "texto": "Noch keine Objekte. Füge oben eins hinzu."
+  },
+  {
+    "clave": "editor.obj.cargando",
+    "texto": "Wird geladen…"
+  },
+  {
+    "clave": "editor.obj.agregar",
+    "texto": "Zu {room} hinzufügen"
+  },
+  {
+    "clave": "editor.obj.deco",
+    "texto": "Allgemeine Deko"
+  },
+  {
+    "clave": "editor.obj.colocados",
+    "texto": "Raumobjekte ({n})"
+  },
+  {
+    "clave": "editor.obj.agrupar",
+    "texto": "Auswahl gruppieren ({n})"
+  },
+  {
+    "clave": "editor.obj.quitar",
+    "texto": "Entfernen"
+  },
+  {
+    "clave": "editor.obj.objeto",
+    "texto": "Objekt"
+  },
+  {
+    "clave": "editor.sec.reordenar",
+    "texto": "Ziehen zum Umsortieren"
+  },
+  {
+    "clave": "editor.sec.reordenarSec",
+    "texto": "{titulo} umsortieren"
+  },
+  {
+    "clave": "editor.sec.contraer",
+    "texto": "{titulo} einklappen"
+  },
+  {
+    "clave": "editor.sec.expandir",
+    "texto": "{titulo} ausklappen"
+  },
+  {
+    "clave": "editor.sec.contraerMapa",
+    "texto": "Karte einklappen"
+  },
+  {
+    "clave": "editor.sec.expandirMapa",
+    "texto": "Karte ausklappen"
+  },
+  {
+    "clave": "config.grupo.interfaz",
+    "texto": "Oberfläche und Sprache"
+  },
+  {
+    "clave": "editor.forma.desc",
+    "texto": "Nutze die Tasten + und − am Raum in der Szene, um ihn Zelle für Zelle zu erweitern oder zu verkleinern (er kann die ganze Karte bedecken oder L-Formen annehmen)."
+  },
+  {
+    "clave": "editor.anim.titulo",
+    "texto": "Animation"
+  },
+  {
+    "clave": "editor.anim.preset",
+    "texto": "Bewegung"
+  },
+  {
+    "clave": "editor.anim.ninguno",
+    "texto": "Keine Bewegung"
+  },
+  {
+    "clave": "editor.anim.p.girar",
+    "texto": "Drehen"
+  },
+  {
+    "clave": "editor.anim.p.flotar",
+    "texto": "Schweben"
+  },
+  {
+    "clave": "editor.anim.p.pulsar",
+    "texto": "Pulsieren"
+  },
+  {
+    "clave": "editor.anim.p.mecerse",
+    "texto": "Wiegen"
+  },
+  {
+    "clave": "editor.anim.p.rebotar",
+    "texto": "Hüpfen"
+  },
+  {
+    "clave": "editor.anim.p.temblar",
+    "texto": "Zittern"
+  },
+  {
+    "clave": "editor.anim.p.vida",
+    "texto": "Zum Leben erwecken"
+  },
+  {
+    "clave": "editor.hist.deshacer",
+    "texto": "Rückgängig"
+  },
+  {
+    "clave": "editor.hist.rehacer",
+    "texto": "Wiederholen"
+  },
+  {
+    "clave": "editor.anim.velocidad",
+    "texto": "Geschwindigkeit"
+  },
+  {
+    "clave": "editor.anim.intensidad",
+    "texto": "Intensität"
+  },
+  {
+    "clave": "editor.anim.zona",
+    "texto": "Bewegungsbereich"
+  }
+]

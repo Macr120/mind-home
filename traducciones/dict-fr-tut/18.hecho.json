@@ -1,0 +1,138 @@
+[
+  {
+    "clave": "tut.app-despacho--calculadoras.3.texto",
+    "texto": "D’un geste, le résultat devient un vrai objectif d’épargne, prêt à descendre dans le planning et à recevoir une date. (Ne le touche pas dans la démo : ça créerait un objectif pour de vrai.)"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.titulo",
+    "texto": "Y a-t-il une urgence ?"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.texto",
+    "texto": "Un seul feu tricolore pour ne pas avoir à lire deux listes : rouge si quelque chose est en retard, ambre si ça arrive bientôt, vert si le garage est tranquille."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.titulo",
+    "texto": "Ce que tu as déjà dépensé"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.texto",
+    "texto": "Combien de véhicules, combien de démarches en cours et ce que tu as dépensé dans l’année. La voiture a coûté cher à Pep."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.titulo",
+    "texto": "Le vélo de tous les jours"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.texto",
+    "texto": "Le vrai moyen de transport de Pep : chaîne, chambres à air, freins, chacun sur sa propre ligne — le même classeur en dossiers d’année et de mois que dans les autres apps. Regarde comme les entretiens s’accumulent sur les derniers mois : c’est l’entraînement du marathon qui présente la facture."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.titulo",
+    "texto": "Et la voiture héritée"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.texto",
+    "texto": "Voilà la panne du mois 7 : en rade sur le bas-côté, une dépanneuse et presque dix mille pesos qui manquaient. Chaque entretien garde son coût, son kilométrage et l’atelier qui s’en est occupé."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.titulo",
+    "texto": "La fiche"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.texto",
+    "texto": "Marque, modèle, année, plaque et le kilométrage à jour. Une fois la plaque renseignée, le garage débloque les démarches qui ne concernent qu’une voiture."
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.titulo",
+    "texto": "Ce qui arrive"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.texto",
+    "texto": "Chaque démarche garde sa prochaine échéance, tous les combien de mois elle revient et ce qu’elle coûte. Une fois cochée, la date saute toute seule à la suivante."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.titulo",
+    "texto": "Le vélo ne passe pas au contrôle technique"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.texto",
+    "texto": "Sans plaque, le garage cache les démarches qui ne s’appliquent pas : au vélo, il ne propose que sa révision périodique."
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.titulo",
+    "texto": "Le répertoire"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.texto",
+    "texto": "L’atelier de confiance, l’assureur, le centre de contrôle technique, le vélociste du quartier et la dépanneuse de cette nuit-là — téléphone et adresse à portée de doigt."
+  },
+  {
+    "clave": "tut.app-garage--tramites.4.texto",
+    "texto": "Toutes ces démarches sont aussi dans le calendrier de la maison, avec leur rappel à l’avance. Et attention : les véhicules qui roulent sur le plan, c’est autre chose — ils vivent dans l’Inventaire."
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.titulo",
+    "texto": "Où tu as mis les pieds"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.texto",
+    "texto": "Quatre pays et quelques villes : presque toutes du même voyage. Touche l’un des trois nombres pour voir la liste sous la carte."
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.titulo",
+    "texto": "Les épingles"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.texto",
+    "texto": "Les sept épingles serrées sur le Japon, ce sont les trois semaines du voyage. Les ambre — Séoul, la Patagonie, l’Islande — sont ce qui n’est pas encore arrivé. Touche la carte pour poser une nouvelle épingle où tu veux."
+  },
+  {
+    "clave": "tut.app-sala--japon.1.titulo",
+    "texto": "Les albums"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.texto",
+    "texto": "Un dossier par pays, avec sa photo de couverture. Dedans, une carte par lieu et, dans chacune, ce que Pep a écrit ce jour-là."
+  },
+  {
+    "clave": "tut.app-sala--japon.2.titulo",
+    "texto": "Ce que Pep a écrit là-bas"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.texto",
+    "texto": "Huit entrées du voyage, chacune avec sa photo : le Fuji à l’aube, les bambous d’Arashiyama, les cerfs de Nara. Ça s’écrit sur le moment, avec l’odeur encore sur soi."
+  },
+  {
+    "clave": "tut.app-sala--japon.3.texto",
+    "texto": "Dans chaque lieu, le bouton « Itinéraire » ouvre la feuille de route du voyage : jour par jour, d’où à où, le logement, les transports et ce que ça a coûté."
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.titulo",
+    "texto": "Ce qui attend"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.texto",
+    "texto": "Trois rêves notés. Séoul a déjà une date et un plan ; la Patagonie et l’Islande n’en sont qu’à l’idée. Ceux qui ont une date apparaissent dans ton calendrier."
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.titulo",
+    "texto": "De la feuille à l’objectif"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.texto",
+    "texto": "Les huit jours en Corée additionnent ce que coûterait le voyage, et ce total est enregistré comme objectif d’épargne dans le Bureau : le voir grandir là-bas, c’est le voir se rapprocher ici."
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.titulo",
+    "texto": "Parcours"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.texto",
+    "texto": "Un parcours enchaîne des lieux dans l’ordre et les dessine sur la carte. Celui du Japon, c’est le trajet déjà fait ; celui de la Corée, celui qui reste à faire."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.titulo",
+    "texto": "Trente œuvres, une année"
+  }
+]

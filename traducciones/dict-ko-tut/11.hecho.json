@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "Pep님의 일기예요. 1년 내내, 일주일에 두세 편씩. 시작할 때의 지겨움부터 2주 전 마라톤까지, 한 해의 흐름이 전부 여기에 담겨 있어요."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "이렇게 써요"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "그날의 기분을 고르고, 원하면 제목을 붙이고, 쓰고, 사진을 넣어요. 사진 한 장이면 충분해요. 글은 없어도 돼요."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "색으로 보는 한 해"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "하루하루가 그날의 기분으로 칠해져요. 7개월째의 슬럼프(부상)와 일본이 얼마나 환해 보이는지 살펴보세요. 날짜를 누르면 그날 기록만 남아요."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "기록 보관함"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "기록은 연·월·주 폴더에 알아서 정리돼요. 일본에 있던 주들을 열어서 여행 전체를 읽어보세요."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "Pep님의 한 해 이정표에는 사진이 있어요. 중고 키보드, Laika가 온 날, 일본에서 온 엽서 두 장, 그리고 마라톤 메달이에요."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "기록에서 찾아보세요"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "2개월째(키보드), 9개월째(일본), 2주 전(메달)을 열어보세요. 사진을 누르면 전체 화면으로 열려요."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "기록 하나하나가 연속 기록을 이어주고 캐릭터를 깨워요. 여기에 쓰는 것도 집을 돌보는 일이에요."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "쌓인 평온"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "연습한 1분 1분이 이 정원에 물을 줘요. Pep님의 정원은 1년 동안 씨앗에서 고요한 숲까지 자랐어요."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "소리와 함께 명상"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "사운드(숲 소리, 파도 소리, 빗소리, 티베트 싱잉볼)와 시간을 고르거나, 종소리만 두고 조용히 명상해요. 세션은 끝나면 저절로 저장돼요."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "1년치 세션"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "Pep님의 한 해예요. 주 3회로 시작했다가 7개월째—부상과 자동차 수리비—에는 거의 매일이 됐어요. 그 슬럼프를 버티게 해준 게 이거였어요."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "호흡"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "가이드 패턴 두 가지예요. 중심을 잡고 싶을 땐 “박스 호흡법 4-4-4-4”, 하루를 내려놓고 싶을 땐 “4-7-8 호흡법”. 화면이 같이 호흡해요."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "오늘 감사한 일…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "하루 세 줄이에요. 하나면 충분하고, 셋이면 더 좋아요. 하루에 하나씩 저장되고 언제든 고칠 수 있어요."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "Pep님의 기록"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "90일치 진짜 감사예요. 키보드, 필기 위에서 잠든 Laika, 나아가는 무릎, 일본에서 돌아온 것. 천천히 읽어보세요."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "이 방에는 연속 기록이 없고, 하루 빠져도 뭐라 하지 않아요. 일부러 그렇게 했어요. 평온은 겨루는 게 아니니까요."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "취미 둘, 1년"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "Pep님이 기록한 건 두 가지예요. 피아노(그해의 프로젝트, 주 4일 목표)와 천체 사진이에요. 카드마다 이번 주와 연속 기록이 보여요."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "피아노 속으로"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "연속 기록, 최고 기록, 총합, 활동 일수, 일평균. 건반과 함께한 1년—일본에서의 솔직한 쉼표까지요."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "히트맵"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "네모 하나가 하루예요. 2개월째의 시작, 피아노가 7개월째 슬럼프를 어떻게 버텨줬는지, 일본에서 보낸 3주의 빈자리가 보여요."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "나의 세션"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "연습마다 분이 남고, 대부분 메모도 있어요. “손이 아파요”부터 “Clair de Lune” 완주까지요."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "프로젝트"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "방향이 있는 연습이에요. 첫 곡(5개월째 완성)과 “Clair de Lune”, 일주일 전에 가족 앞에서 연주했어요."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "피아노 프로젝트"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "프로젝트는 거기에 쏟은 세션을 모아줘요. 몇 번이고 몇 분인지 여기서 볼 수 있어요."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "사진으로 보는 진행 상황"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "“Clair de Lune”에는 메모한 악보가 있어요. 천체 사진에서는 보름달 열두 번 프로젝트가 그해 최고의 사진들을 모았어요."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "세션은 채팅으로도 기록할 수 있어요(“피아노 30분 연습했어”). 프로젝트 목표는 플래너로 계획해요."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "새 취미 등록하기"
+  }
+]

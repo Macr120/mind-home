@@ -1,0 +1,550 @@
+[
+  {
+    "clave": "despacho.patr.efectivoOjo",
+    "texto": "Das stimmt nur, wenn du deine Buchungen von Anfang an erfasst hast. Wenn du deine Konten oben schon eingetragen hast, lass es aus — sonst zählt dasselbe Geld doppelt."
+  },
+  {
+    "clave": "despacho.patr.nueva",
+    "texto": "Hinzufügen"
+  },
+  {
+    "clave": "despacho.patr.vacio",
+    "texto": "Hier ist noch nichts. Trag ein, was du besitzt — oder was du schuldest."
+  },
+  {
+    "clave": "despacho.patr.phFisico",
+    "texto": "Z. B. Wohnung, Auto"
+  },
+  {
+    "clave": "despacho.patr.phLiquido",
+    "texto": "Z. B. Girokonto"
+  },
+  {
+    "clave": "despacho.patr.phPasivo",
+    "texto": "Z. B. Hypothek fürs Haus"
+  },
+  {
+    "clave": "despacho.patr.phMonto",
+    "texto": "Betrag"
+  },
+  {
+    "clave": "despacho.patr.escrito",
+    "texto": "was du eingetragen hast"
+  },
+  {
+    "clave": "despacho.patr.porTasas",
+    "texto": "durch deine Zinssätze"
+  },
+  {
+    "clave": "despacho.patr.verEscrito",
+    "texto": "nur Eingetragenes zeigen"
+  },
+  {
+    "clave": "despacho.patr.verEstimado",
+    "texto": "mit Zinssätzen zeigen"
+  },
+  {
+    "clave": "despacho.patr.detalles",
+    "texto": "Wie es sich über die Zeit verändert"
+  },
+  {
+    "clave": "despacho.patr.phTasaActivo",
+    "texto": "Steigt oder sinkt pro Jahr %"
+  },
+  {
+    "clave": "despacho.patr.phTasaPasivo",
+    "texto": "Kreditzins %"
+  },
+  {
+    "clave": "despacho.patr.phPago",
+    "texto": "Monatsrate"
+  },
+  {
+    "clave": "despacho.patr.ayudaTasaActivo",
+    "texto": "Negativ, wenn es an Wert verliert, wie ein Auto."
+  },
+  {
+    "clave": "despacho.patr.tasaBanco",
+    "texto": "Der Jahreszins, den dir die Bank nennt, und was du jeden Monat zahlst."
+  },
+  {
+    "clave": "despacho.patr.alAno",
+    "texto": "%/Jahr"
+  },
+  {
+    "clave": "despacho.patr.cuota",
+    "texto": "{n}/Monat"
+  },
+  {
+    "clave": "despacho.patr.eran",
+    "texto": "war {n}"
+  },
+  {
+    "clave": "despacho.patr.editar",
+    "texto": "Diesen Eintrag bearbeiten"
+  },
+  {
+    "clave": "despacho.patr.monto",
+    "texto": "Wert"
+  },
+  {
+    "clave": "despacho.patr.fechaValor",
+    "texto": "Seit"
+  },
+  {
+    "clave": "despacho.patr.tasaActivo",
+    "texto": "Steigt pro Jahr %"
+  },
+  {
+    "clave": "despacho.patr.tasaPasivo",
+    "texto": "Jahreszins %"
+  },
+  {
+    "clave": "despacho.patr.pagoMensual",
+    "texto": "Monatliche Zahlung"
+  },
+  {
+    "clave": "despacho.patr.borrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "despacho.patr.borrarTitulo",
+    "texto": "Diesen Eintrag löschen?"
+  },
+  {
+    "clave": "despacho.patr.borrarMsg",
+    "texto": "„{n}“ zählt nicht mehr zu deinem Vermögen."
+  },
+  {
+    "clave": "despacho.patr.borrarOk",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "despacho.patr.hoy",
+    "texto": "heute"
+  },
+  {
+    "clave": "despacho.patr.deMeta",
+    "texto": "verknüpft mit „{n}“"
+  },
+  {
+    "clave": "despacho.patr.metaIda",
+    "texto": "das verknüpfte Ziel gibt es nicht mehr"
+  },
+  {
+    "clave": "despacho.patr.metaIdaSoltar",
+    "texto": "Das verknüpfte Ziel gibt es nicht mehr. Tippe darauf, um diesen Eintrag zu lösen."
+  },
+  {
+    "clave": "despacho.patr.montoOriginal",
+    "texto": "Ursprünglicher Kredit"
+  },
+  {
+    "clave": "despacho.patr.valorAparte",
+    "texto": "Wert separat"
+  },
+  {
+    "clave": "despacho.patr.abonarEnMetas",
+    "texto": "Zahlen unter Ziele › Schulden"
+  },
+  {
+    "clave": "despacho.patr.aportarEnMetas",
+    "texto": "Einzahlen unter Ziele"
+  },
+  {
+    "clave": "despacho.patr.desenlazar",
+    "texto": "Vom Ziel lösen?"
+  },
+  {
+    "clave": "despacho.patr.desenlazarMsg",
+    "texto": "Es werden wieder zwei getrennte Dinge: Dieser Eintrag behält {n}, und das Ziel läuft für sich weiter."
+  },
+  {
+    "clave": "despacho.patr.desenlazarOk",
+    "texto": "Lösen"
+  },
+  {
+    "clave": "despacho.patr.soltar",
+    "texto": "lösen"
+  },
+  {
+    "clave": "despacho.patr.crearMetaDeuda",
+    "texto": "Als Schuldenziel verfolgen"
+  },
+  {
+    "clave": "despacho.patr.crearMetaAhorro",
+    "texto": "Als Sparziel verfolgen"
+  },
+  {
+    "clave": "despacho.patr.enlazarMeta",
+    "texto": "Mit einem bestehenden Ziel verknüpfen…"
+  },
+  {
+    "clave": "despacho.patr.objetivoTitulo",
+    "texto": "Wie weit willst du kommen?"
+  },
+  {
+    "clave": "despacho.patr.objetivoMsg",
+    "texto": "Du hast hier schon {n}."
+  },
+  {
+    "clave": "despacho.meta.verEnPasivos",
+    "texto": "Ansehen unter Vermögen › Verbindlichkeiten"
+  },
+  {
+    "clave": "despacho.meta.verEnActivos",
+    "texto": "Ansehen unter Vermögen › Vermögenswerte"
+  },
+  {
+    "clave": "despacho.meta.anadirAPasivos",
+    "texto": "Zu Verbindlichkeiten hinzufügen (mit Zins und Laufzeit)"
+  },
+  {
+    "clave": "despacho.meta.anadirAActivos",
+    "texto": "Zu Vermögenswerten hinzufügen (mit Rendite)"
+  },
+  {
+    "clave": "despacho.tab.simulacion",
+    "texto": "Prognose"
+  },
+  {
+    "clave": "despacho.sim.sinDatos",
+    "texto": "Noch nichts zu prognostizieren. Trag unter Vermögenswerte ein, was du besitzt, und unter Verbindlichkeiten, was du schuldest, gib ihnen einen Zinssatz, und du siehst hier, wohin es geht."
+  },
+  {
+    "clave": "despacho.sim.netoHoy",
+    "texto": "Vermögen heute"
+  },
+  {
+    "clave": "despacho.sim.netoFinal",
+    "texto": "In {n} Monaten"
+  },
+  {
+    "clave": "despacho.sim.interesesFuturos",
+    "texto": "Noch zu zahlende Zinsen"
+  },
+  {
+    "clave": "despacho.sim.aportado",
+    "texto": "Was du einzahlen wirst"
+  },
+  {
+    "clave": "despacho.sim.horizonte",
+    "texto": "Prognosezeitraum (Monate)"
+  },
+  {
+    "clave": "despacho.sim.inflacion",
+    "texto": "Jährliche Inflation %"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoy",
+    "texto": "In heutigem Geldwert ansehen"
+  },
+  {
+    "clave": "despacho.sim.dineroDeHoyAyuda",
+    "texto": "Rechnet die Inflation heraus: was das Geld wirklich wert sein wird, nicht wie viele Scheine es sind."
+  },
+  {
+    "clave": "despacho.sim.flujoMensual",
+    "texto": "Das einrechnen, was ich jeden Monat spare"
+  },
+  {
+    "clave": "despacho.sim.flujoAyuda",
+    "texto": "Aus deinen Buchungen: {i} kommt rein und {g} geht raus, jeden Monat."
+  },
+  {
+    "clave": "despacho.sim.crecIngreso",
+    "texto": "Meine Einnahmen steigen %/Jahr"
+  },
+  {
+    "clave": "despacho.sim.crecGasto",
+    "texto": "Meine Ausgaben steigen %/Jahr"
+  },
+  {
+    "clave": "despacho.sim.pagosYaEnGastos",
+    "texto": "Meine Schuldenzahlungen sind schon in diesen Ausgaben enthalten"
+  },
+  {
+    "clave": "despacho.sim.pagosDeudaMes",
+    "texto": "Deine Schulden verlangen {n} im Monat. Falls du sie nicht als Ausgabe erfasst hast, schalte das aus — dann werden sie separat abgezogen."
+  },
+  {
+    "clave": "despacho.sim.activos",
+    "texto": "Vermögenswerte"
+  },
+  {
+    "clave": "despacho.sim.pasivos",
+    "texto": "Verbindlichkeiten"
+  },
+  {
+    "clave": "despacho.sim.neto",
+    "texto": "Netto"
+  },
+  {
+    "clave": "despacho.sim.hoy",
+    "texto": "heute"
+  },
+  {
+    "clave": "despacho.sim.hitoLiquidas",
+    "texto": "Du zahlst „{n}“ in {f} ab"
+  },
+  {
+    "clave": "despacho.sim.hitoPositivo",
+    "texto": "Dein Vermögen ist in {f} nicht mehr negativ"
+  },
+  {
+    "clave": "despacho.sim.hitoDoble",
+    "texto": "Dein Vermögen verdoppelt sich in {f}"
+  },
+  {
+    "clave": "despacho.sim.noBaja",
+    "texto": "„{n}“ sinkt mit {p} im Monat nicht: Allein die Zinsen betragen {i}."
+  },
+  {
+    "clave": "despacho.sim.creceSinPago",
+    "texto": "„{n}“ hat einen Zinssatz, aber keine monatliche Zahlung: Es wächst nur."
+  },
+  {
+    "clave": "despacho.sim.avisoCorta",
+    "texto": "Eine Prognose, kein Versprechen."
+  },
+  {
+    "clave": "despacho.sim.controles",
+    "texto": "Szenario anpassen"
+  },
+  {
+    "clave": "despacho.periodo.anterior",
+    "texto": "Vorheriger Zeitraum"
+  },
+  {
+    "clave": "despacho.periodo.siguiente",
+    "texto": "Nächster Zeitraum"
+  },
+  {
+    "clave": "despacho.sim.aviso",
+    "texto": "Beruht auf den Zinssätzen, die du eingegeben hast: nützlich, um Szenarien zu vergleichen, nicht um zu wissen, was passieren wird."
+  },
+  {
+    "clave": "despacho.meta.hasPuesto",
+    "texto": "du hast {n} eingezahlt"
+  },
+  {
+    "clave": "despacho.meta.pediste",
+    "texto": "du hast dir {n} geliehen"
+  },
+  {
+    "clave": "despacho.meta.valenHoy",
+    "texto": "heute {n} wert"
+  },
+  {
+    "clave": "despacho.meta.debesHoy",
+    "texto": "du schuldest heute {n}"
+  },
+  {
+    "clave": "despacho.meta.deRendimiento",
+    "texto": "an Rendite"
+  },
+  {
+    "clave": "despacho.meta.deIntereses",
+    "texto": "an Zinsen"
+  },
+  {
+    "clave": "despacho.meta.tasaPuesta",
+    "texto": "{n} %/Jahr"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaDeuda",
+    "texto": "Zinssatz festlegen"
+  },
+  {
+    "clave": "despacho.meta.ponerTasaAhorro",
+    "texto": "Rendite festlegen"
+  },
+  {
+    "clave": "despacho.meta.tasaDeuda",
+    "texto": "Jahreszins %"
+  },
+  {
+    "clave": "despacho.meta.tasaAhorro",
+    "texto": "Rendite pro Jahr %"
+  },
+  {
+    "clave": "despacho.meta.desde",
+    "texto": "Seit"
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaDeuda",
+    "texto": "Der von deiner Bank. Jede Zahlung, die du erfasst, erzeugt ab ihrem Datum keine Zinsen mehr."
+  },
+  {
+    "clave": "despacho.meta.ayudaTasaAhorro",
+    "texto": "Jede Einzahlung wirft ab dem Tag Rendite ab, an dem du sie gemacht hast, nicht von Anfang an."
+  },
+  {
+    "clave": "despacho.meta.movs",
+    "texto": "Buchungen ({n})"
+  },
+  {
+    "clave": "despacho.meta.borrarTitulo",
+    "texto": "Dieses Ziel löschen?"
+  },
+  {
+    "clave": "despacho.meta.borrarMsg",
+    "texto": "„{n}“ wird entfernt; die Buchungen bleiben in deinem Verlauf, aber ohne Verknüpfung."
+  },
+  {
+    "clave": "despacho.meta.borrarOk",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "despacho.meta.deshacer",
+    "texto": "Diese Einzahlung rückgängig machen"
+  },
+  {
+    "clave": "despacho.metas.disponible",
+    "texto": "Verfügbar diesen Monat"
+  },
+  {
+    "clave": "despacho.metas.disponibleDetalle",
+    "texto": "Einnahmen {i} − Ausgaben {g}"
+  },
+  {
+    "clave": "despacho.plan.titulo",
+    "texto": "Ziele"
+  },
+  {
+    "clave": "despacho.plan.desc",
+    "texto": "Dein großes Ziel im Zeitplan. Mit ✨ erstellt dir die KI einen Einzahlungsplan."
+  },
+  {
+    "clave": "despacho.plan.ejAhorro",
+    "texto": "Notfallfonds"
+  },
+  {
+    "clave": "despacho.plan.material",
+    "texto": "Woher das Geld kommen wird"
+  },
+  {
+    "clave": "despacho.plan.ejDeuda",
+    "texto": "Kreditkarte abbezahlen"
+  },
+  {
+    "clave": "despacho.calc.titulo",
+    "texto": "Finanzrechner"
+  },
+  {
+    "clave": "despacho.calc.tab.fondoEmergencia",
+    "texto": "Notfallfonds"
+  },
+  {
+    "clave": "despacho.calc.tab.libertadFinanciera",
+    "texto": "Finanzielle Freiheit"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaCincuenta",
+    "texto": "50/30/20"
+  },
+  {
+    "clave": "despacho.calc.tab.reglaAuto",
+    "texto": "Auto 20/4/10"
+  },
+  {
+    "clave": "despacho.calc.crearMeta",
+    "texto": "Ziel mit diesem Betrag erstellen"
+  },
+  {
+    "clave": "despacho.calc.metaCreada",
+    "texto": "Ziel erstellt — sieh es dir oben an"
+  },
+  {
+    "clave": "despacho.calc.gastoEsencial",
+    "texto": "Wesentliche monatliche Ausgaben"
+  },
+  {
+    "clave": "despacho.calc.mesesColchon",
+    "texto": "Monate als Polster"
+  },
+  {
+    "clave": "despacho.calc.fondoObjetivo",
+    "texto": "Zielbetrag"
+  },
+  {
+    "clave": "despacho.calc.fondoNota",
+    "texto": "{g} × {n} Monate"
+  },
+  {
+    "clave": "despacho.calc.nombreFondo",
+    "texto": "Notfallfonds"
+  },
+  {
+    "clave": "despacho.calc.gastoDeseado",
+    "texto": "Gewünschte monatliche Ausgaben"
+  },
+  {
+    "clave": "despacho.calc.tasaRetiro",
+    "texto": "Sichere Entnahmerate %"
+  },
+  {
+    "clave": "despacho.calc.libertadObjetivo",
+    "texto": "Du brauchst investiert"
+  },
+  {
+    "clave": "despacho.calc.libertadNota",
+    "texto": "Deine Jahresausgaben × {n}"
+  },
+  {
+    "clave": "despacho.calc.nombreLibertad",
+    "texto": "Finanzielle Freiheit"
+  },
+  {
+    "clave": "despacho.calc.ingresoMensual",
+    "texto": "Monatliches Einkommen"
+  },
+  {
+    "clave": "despacho.calc.pctNecesidades",
+    "texto": "Bedürfnisse %"
+  },
+  {
+    "clave": "despacho.calc.pctCaprichos",
+    "texto": "Wünsche %"
+  },
+  {
+    "clave": "despacho.calc.pctAhorro",
+    "texto": "Sparen %"
+  },
+  {
+    "clave": "despacho.calc.noSuman100",
+    "texto": "Die Prozentwerte ergeben {n} %, nicht 100 %."
+  },
+  {
+    "clave": "despacho.calc.necesidades",
+    "texto": "Bedürfnisse"
+  },
+  {
+    "clave": "despacho.calc.caprichos",
+    "texto": "Wünsche"
+  },
+  {
+    "clave": "despacho.calc.ahorroTxt",
+    "texto": "Sparen"
+  },
+  {
+    "clave": "despacho.calc.nombreCaprichos",
+    "texto": "Budget für Wünsche"
+  },
+  {
+    "clave": "despacho.calc.precioAuto",
+    "texto": "Autopreis"
+  },
+  {
+    "clave": "despacho.calc.pctEnganche",
+    "texto": "Anzahlung %"
+  },
+  {
+    "clave": "despacho.calc.plazoMax",
+    "texto": "Max. Laufzeit (Monate)"
+  },
+  {
+    "clave": "despacho.calc.pctIngresoAuto",
+    "texto": "Max. vom Einkommen %"
+  }
+]

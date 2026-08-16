@@ -1,0 +1,202 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "es": "Este es el diario de Pep@: un año entero, dos o tres entradas por semana. Aquí se cuenta TODO el arco — del hartazgo del arranque al maratón de hace dos semanas.",
+    "en": "This is Pep@'s journal: a whole year, two or three entries a week. The WHOLE arc is told here — from the burnout of month 1 to the marathon two weeks ago."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "es": "Así se escribe",
+    "en": "How you write"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "es": "Elige el ánimo del día, pon un título si quieres, escribe y adjunta fotos. Con una foto basta: no hace falta texto.",
+    "en": "Pick the mood of the day, add a title if you want, write and attach photos. A photo alone is enough: no text required."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "es": "El año en colores",
+    "en": "The year in colors"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "es": "Cada día se pinta con su ánimo. Mira el bache del mes 7 (la lesión) y lo brillante que se ve Japón. Toca un día para filtrar sus entradas.",
+    "en": "Each day is painted with its mood. Notice the month-7 slump (the injury) and how bright Japan looks. Tap a day to filter its entries."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "es": "El archivador",
+    "en": "The archive"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "es": "Las entradas se guardan solas en carpetas por año, mes y semana. Abre las semanas de Japón y lee el viaje completo.",
+    "en": "Entries file themselves into folders by year, month and week. Open the Japan weeks and read the whole trip."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "es": "Los hitos del año de Pep@ llevan foto: el teclado usado, la llegada de Laika, dos postales de Japón y la medalla del maratón.",
+    "en": "The milestones of Pep@'s year carry photos: the used keyboard, Laika's arrival, two postcards from Japan and the marathon medal."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "es": "Búscalas en el historial",
+    "en": "Find them in the history"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "es": "Abre el mes 2 (el teclado), el mes 9 (Japón) o hace dos semanas (la medalla). Toca cualquier foto y se abre a pantalla completa.",
+    "en": "Open month 2 (the keyboard), month 9 (Japan) or two weeks ago (the medal). Tap any photo and it opens full screen."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "es": "Cada entrada alimenta la racha y despierta al personaje: escribir aquí también es cuidar la casa.",
+    "en": "Every entry feeds the streak and wakes the character: writing here is also caring for the house."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "es": "La calma acumulada",
+    "en": "Accumulated calm"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "es": "Cada minuto de práctica riega este jardín. El de Pep@ creció un año entero: de semilla a bosque.",
+    "en": "Every minute of practice waters this garden. Pep@'s grew for a whole year: from seed to forest."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "es": "Meditar con sonido",
+    "en": "Meditate with sound"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "es": "Elige una pista (bosque, mar, lluvia, cuencos) y una duración, o medita en silencio con campana. La sesión se guarda sola al terminar.",
+    "en": "Pick a track (forest, sea, rain, bowls) and a length, or meditate in silence with a bell. The session saves itself when it ends."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "es": "Un año de sesiones",
+    "en": "A year of sessions"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "es": "Aquí está el año de Pep@: empezó con tres por semana y en el mes 7 —la lesión, el gasto del coche— la práctica se volvió casi diaria. Fue lo que sostuvo el bache.",
+    "en": "Here is Pep@'s year: it started at three a week, and in month 7 — the injury, the car bill — practice became almost daily. It's what held the slump together."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "es": "Respirar",
+    "en": "Breathe"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "es": "Dos patrones guiados: la caja 4-4-4-4 para centrarte y el 4-7-8 para soltar el día. La pantalla respira contigo.",
+    "en": "Two guided patterns: box 4-4-4-4 to center yourself and 4-7-8 to let the day go. The screen breathes with you."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "es": "Hoy agradezco…",
+    "en": "Today I am grateful for…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "es": "Tres renglones al día. Con uno basta; tres, mejor. Se guarda una entrada por día y se puede corregir sobre la marcha.",
+    "en": "Three lines a day. One is enough; three is better. One entry per day, editable as you go."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "es": "Las de Pep@",
+    "en": "Pep@'s"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "es": "Noventa días de agradecimientos reales: el teclado, Laika dormida encima de los apuntes, la rodilla sanando, volver de Japón. Léelos con calma.",
+    "en": "Ninety days of real gratitude: the keyboard, Laika asleep on the notes, the knee healing, coming back from Japan. Read them slowly."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "es": "Este cuarto no lleva rachas ni castiga faltar: es a propósito. La calma no se compite.",
+    "en": "This room keeps no streaks and never punishes a missed day — on purpose. Calm isn't a competition."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "es": "Dos hobbies, un año",
+    "en": "Two hobbies, one year"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "es": "Pep@ registró dos: el piano (su proyecto del año, meta de 4 días por semana) y la astrofotografía. Cada tarjeta muestra la semana en curso y la racha.",
+    "en": "Pep@ tracked two: piano (the project of the year, 4 days a week) and astrophotography. Each card shows the current week and the streak."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "es": "Dentro del piano",
+    "en": "Inside the piano"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "es": "Racha, mejor racha, total practicado, días activos y promedio. Un año de teclado — con la pausa honesta de Japón.",
+    "en": "Streak, best streak, total practiced, active days and average. A year at the keys — with the honest pause for Japan."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "es": "El heatmap",
+    "en": "The heatmap"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "es": "Cada cuadrito es un día. Se ve el arranque del mes 2, cómo el piano SOSTUVO el bache del mes 7 y el hueco de las tres semanas en Japón.",
+    "en": "Every square is a day. You can see the month-2 start, how piano HELD the month-7 slump, and the three-week gap in Japan."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "es": "Las sesiones",
+    "en": "The sessions"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "es": "Cada práctica con sus minutos y, muchas, con nota: de «me duelen las manos» a sacar «Clair de Lune» completa.",
+    "en": "Each practice with its minutes and, often, a note: from \"my hands hurt\" to playing Clair de Lune whole."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "es": "Proyectos",
+    "en": "Projects"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "es": "La práctica con rumbo: la primera pieza (terminada en el mes 5) y «Clair de Lune», tocada para la familia hace una semana.",
+    "en": "Practice with direction: the first piece (finished in month 5) and Clair de Lune, played for the family a week ago."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "es": "Los proyectos del piano",
+    "en": "The piano projects"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "es": "Un proyecto junta las sesiones que le dedicaste: aquí se ve cuántas y cuántos minutos lleva cada uno.",
+    "en": "A project gathers the sessions you gave it: here you see how many, and how many minutes each one carries."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "es": "El avance en fotos",
+    "en": "Progress in photos"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "es": "«Clair de Lune» guarda la partitura anotada. En la astrofotografía, el proyecto de las doce lunas llenas junta las mejores tomas del año.",
+    "en": "Clair de Lune keeps the annotated sheet music. In astrophotography, the twelve-full-moons project gathers the best shots of the year."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "es": "También puedes registrar sesiones por chat («practiqué piano 30 min») y planear metas del proyecto con el planificador.",
+    "en": "You can also log sessions by chat (\"practiced piano 30 min\") and plan project goals with the planner."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "es": "Dar de alta un hobby",
+    "en": "Adding a hobby"
+  }
+]

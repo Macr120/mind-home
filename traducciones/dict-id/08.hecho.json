@@ -1,0 +1,442 @@
+[
+  {
+    "clave": "despacho.calc.tasaAuto",
+    "texto": "Suku bunga tahunan %"
+  },
+  {
+    "clave": "despacho.calc.enganche",
+    "texto": "Uang muka yang dibutuhkan"
+  },
+  {
+    "clave": "despacho.calc.mensualidadMax",
+    "texto": "Cicilan maksimum"
+  },
+  {
+    "clave": "despacho.calc.autoCabe",
+    "texto": "Cocok: perkiraan cicilannya {m}."
+  },
+  {
+    "clave": "despacho.calc.autoNoCabe",
+    "texto": "Tidak cocok dengan ketentuan ini: perkiraan cicilan ({m}) melebihi maksimummu."
+  },
+  {
+    "clave": "despacho.calc.nombreEnganche",
+    "texto": "Uang muka mobil"
+  },
+  {
+    "clave": "biblioteca.desc",
+    "texto": "Ensiklopedia pribadimu: mengobrol dengan Sang Bijak tentang topik apa pun, simpan yang kamu pelajari menurut bidang pengetahuan, dan belajar dengan pengatur waktu."
+  },
+  {
+    "clave": "biblioteca.tab.charlas",
+    "texto": "Obrolan"
+  },
+  {
+    "clave": "biblioteca.tab.enciclopedia",
+    "texto": "Ensiklopedia"
+  },
+  {
+    "clave": "biblioteca.tab.estudio",
+    "texto": "Belajar"
+  },
+  {
+    "clave": "biblioteca.tab.resumen",
+    "texto": "Ringkasan"
+  },
+  {
+    "clave": "biblioteca.sinIA",
+    "texto": "Atur AI-mu (Pengaturan → Kecerdasan buatan) untuk mengobrol dengan Sang Bijak. Sementara itu, kamu bisa membuat entri secara manual di Ensiklopedia."
+  },
+  {
+    "clave": "biblioteca.charla.nuevaBtn",
+    "texto": "Obrolan baru dengan Sang Bijak"
+  },
+  {
+    "clave": "biblioteca.charla.todas",
+    "texto": "Semua"
+  },
+  {
+    "clave": "biblioteca.charla.vacio",
+    "texto": "Belum ada obrolan. Tanyakan apa saja â “kenapa langit berwarna biru?” â dan perpustakaan akan mengarsipkannya menurut bidang pengetahuannya."
+  },
+  {
+    "clave": "biblioteca.charla.sinTitulo",
+    "texto": "Obrolan tanpa judul"
+  },
+  {
+    "clave": "biblioteca.charla.porClasificar",
+    "texto": "belum diklasifikasi"
+  },
+  {
+    "clave": "biblioteca.charla.nueva",
+    "texto": "Obrolan baru"
+  },
+  {
+    "clave": "biblioteca.charla.sub",
+    "texto": "Obrolan ensiklopedia"
+  },
+  {
+    "clave": "biblioteca.charla.volver",
+    "texto": "Kembali ke obrolan"
+  },
+  {
+    "clave": "biblioteca.charla.renombrar",
+    "texto": "Ketuk untuk mengganti nama"
+  },
+  {
+    "clave": "biblioteca.charla.destilar",
+    "texto": "Sarikan"
+  },
+  {
+    "clave": "biblioteca.charla.reDestilar",
+    "texto": "Perbarui entri"
+  },
+  {
+    "clave": "biblioteca.charla.destilarTip",
+    "texto": "AI menyarikan obrolan ini menjadi entri ensiklopedia"
+  },
+  {
+    "clave": "biblioteca.charla.destilarFallo",
+    "texto": "AI tidak bisa menyarikan obrolan ini; isi entrinya secara manual."
+  },
+  {
+    "clave": "biblioteca.charla.borrar",
+    "texto": "Hapus obrolan"
+  },
+  {
+    "clave": "biblioteca.charla.campoTip",
+    "texto": "Bidang pengetahuan tempat obrolan ini diarsipkan"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificar",
+    "texto": "Klasifikasikan"
+  },
+  {
+    "clave": "biblioteca.charla.reclasificarTip",
+    "texto": "Klasifikasikan obrolan ini di pohon dan sarikan entrinya"
+  },
+  {
+    "clave": "biblioteca.charla.verEntrada",
+    "texto": "Entri"
+  },
+  {
+    "clave": "biblioteca.charla.verEntradaTip",
+    "texto": "Lihat entri yang disarikan dari obrolan ini"
+  },
+  {
+    "clave": "biblioteca.charla.irANodo",
+    "texto": "Lihat “{n}” di ensiklopedia"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarTip",
+    "texto": "Cabangkan: tambahkan subtopik dari obrolan ini ke pohon"
+  },
+  {
+    "clave": "biblioteca.charla.ramificarSinTema",
+    "texto": "Obrolan ini belum punya tempat di pohon"
+  },
+  {
+    "clave": "biblioteca.ramas.titulo",
+    "texto": "Cabangkan pohon"
+  },
+  {
+    "clave": "biblioteca.ramas.desc",
+    "texto": "Cabang baru di bawah “{tema}” dari obrolan ini:"
+  },
+  {
+    "clave": "biblioteca.ramas.cargando",
+    "texto": "Sang Bijak sedang mencari cabang baru…"
+  },
+  {
+    "clave": "biblioteca.ramas.vacio",
+    "texto": "Tidak ada cabang baru yang bisa disarankan untuk topik ini."
+  },
+  {
+    "clave": "biblioteca.ramas.agregar",
+    "texto": "Tambahkan yang dipilih"
+  },
+  {
+    "clave": "biblioteca.ramas.ahoraNo",
+    "texto": "Nanti saja"
+  },
+  {
+    "clave": "biblioteca.ramas.charlarSug",
+    "texto": "Tambahkan dan mengobrol tentang cabang ini"
+  },
+  {
+    "clave": "biblioteca.charla.confirmarBorrar",
+    "texto": "Hapus obrolan ini? Entri yang sudah disarikan tetap disimpan."
+  },
+  {
+    "clave": "biblioteca.charla.siBorrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "biblioteca.charla.vacia",
+    "texto": "Tanyakan apa saja ke {sabio}: obrolan ini akan mengarsipkan dirinya sendiri menurut bidang pengetahuannya"
+  },
+  {
+    "clave": "biblioteca.charla.error",
+    "texto": "Sang Bijak tidak bisa membalas. Periksa AI-mu di Pengaturan atau coba lagi."
+  },
+  {
+    "clave": "biblioteca.charla.reintentar",
+    "texto": "Coba lagi"
+  },
+  {
+    "clave": "biblioteca.charla.placeholder",
+    "texto": "Tanyakan topik apa saja…"
+  },
+  {
+    "clave": "biblioteca.charla.sinIA",
+    "texto": "Atur AI-mu di Pengaturan untuk mulai mengobrol"
+  },
+  {
+    "clave": "biblioteca.ent.nueva",
+    "texto": "Entri baru"
+  },
+  {
+    "clave": "biblioteca.ent.editar",
+    "texto": "Edit entri"
+  },
+  {
+    "clave": "biblioteca.ent.editarBtn",
+    "texto": "Edit"
+  },
+  {
+    "clave": "biblioteca.ent.titulo",
+    "texto": "Judul"
+  },
+  {
+    "clave": "biblioteca.ent.tituloPh",
+    "texto": "Cth. Entropi"
+  },
+  {
+    "clave": "biblioteca.ent.campo",
+    "texto": "Bidang"
+  },
+  {
+    "clave": "biblioteca.ent.tema",
+    "texto": "Topik indeks"
+  },
+  {
+    "clave": "biblioteca.ent.sinTema",
+    "texto": "— Tidak ada —"
+  },
+  {
+    "clave": "biblioteca.ent.resumen",
+    "texto": "Ringkasan"
+  },
+  {
+    "clave": "biblioteca.ent.resumenPh",
+    "texto": "Apa yang kamu pelajari, dalam 3-5 kalimat."
+  },
+  {
+    "clave": "biblioteca.ent.puntos",
+    "texto": "Poin penting (satu per baris)"
+  },
+  {
+    "clave": "biblioteca.ent.puntosPh",
+    "texto": "Ide utama 1\nIde utama 2"
+  },
+  {
+    "clave": "biblioteca.ent.puntosTitulo",
+    "texto": "Poin penting"
+  },
+  {
+    "clave": "biblioteca.mat.titulo",
+    "texto": "Materi"
+  },
+  {
+    "clave": "biblioteca.mat.agregar",
+    "texto": "Buat atau tautkan materi"
+  },
+  {
+    "clave": "biblioteca.mat.vacio",
+    "texto": "Tautkan di sini spreadsheet dan peta yang kamu pakai untuk mempelajari topik ini; keduanya akan terbuka di ruangannya masing-masing."
+  },
+  {
+    "clave": "biblioteca.mat.hoja",
+    "texto": "Spreadsheet"
+  },
+  {
+    "clave": "biblioteca.mat.mapa",
+    "texto": "Peta atau diagram"
+  },
+  {
+    "clave": "biblioteca.mat.idea",
+    "texto": "Ide"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaHoja",
+    "texto": "Spreadsheet baru"
+  },
+  {
+    "clave": "biblioteca.mat.nuevoMapa",
+    "texto": "Peta atau diagram baru"
+  },
+  {
+    "clave": "biblioteca.mat.nuevaIdea",
+    "texto": "Ide baru"
+  },
+  {
+    "clave": "biblioteca.mat.crearTit",
+    "texto": "Baru: {tipo}"
+  },
+  {
+    "clave": "biblioteca.mat.existente",
+    "texto": "Tautkan {tipo} yang sudah kupunya"
+  },
+  {
+    "clave": "biblioteca.mat.enlazar",
+    "texto": "— Tautkan —"
+  },
+  {
+    "clave": "biblioteca.mat.quitar",
+    "texto": "Hapus tautan (tidak menghapus materinya)"
+  },
+  {
+    "clave": "biblioteca.mat.roto",
+    "texto": "sudah tidak ada"
+  },
+  {
+    "clave": "computo.vista.vacia",
+    "texto": "Lembar ini masih kosong."
+  },
+  {
+    "clave": "biblioteca.mat.sinCuarto",
+    "texto": "Tempatkan ruangan aplikasi itu di rumahmu supaya kamu bisa membuka materinya."
+  },
+  {
+    "clave": "material.estudiasEn",
+    "texto": "Kamu mempelajarinya di"
+  },
+  {
+    "clave": "material.abrirEntrada",
+    "texto": "Buka “{n}” di ensiklopedia"
+  },
+  {
+    "clave": "material.sinBiblioteca",
+    "texto": "Tempatkan ruangan perpustakaan di rumahmu untuk membuka ensiklopedianya."
+  },
+  {
+    "clave": "biblioteca.mat.vacio2",
+    "texto": "Buat peta atau catatan tentang topik ini di sini dengan AI, atau tautkan spreadsheet dan peta yang sudah kamu pakai untuk mempelajarinya."
+  },
+  {
+    "clave": "biblioteca.mat.ver",
+    "texto": "Lihat di sini saja"
+  },
+  {
+    "clave": "biblioteca.mat.abrirEn",
+    "texto": "Buka di ruangannya untuk mengeditnya"
+  },
+  {
+    "clave": "biblioteca.mat.generarTip",
+    "texto": "Biarkan AI menyusunnya dari isi entri ini"
+  },
+  {
+    "clave": "biblioteca.mat.falloIA",
+    "texto": "AI tidak bisa membuat materinya."
+  },
+  {
+    "clave": "biblioteca.ent.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "biblioteca.ent.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "biblioteca.ent.borrar",
+    "texto": "Hapus entri"
+  },
+  {
+    "clave": "biblioteca.ent.confirmarBorrar",
+    "texto": "Hapus entri ini? Obrolan sumbernya tidak akan diubah."
+  },
+  {
+    "clave": "biblioteca.ent.verCharla",
+    "texto": "Lihat obrolan sumber"
+  },
+  {
+    "clave": "biblioteca.enc.sub",
+    "texto": "{n} entri dalam {c} bidang"
+  },
+  {
+    "clave": "biblioteca.enc.nEntradas",
+    "texto": "{n} entri"
+  },
+  {
+    "clave": "biblioteca.enc.buscarTema",
+    "texto": "Cari topik…"
+  },
+  {
+    "clave": "biblioteca.enc.verEntrada",
+    "texto": "Lihat entri topik ini"
+  },
+  {
+    "clave": "biblioteca.enc.charlarTema",
+    "texto": "Mengobrol tentang ini dengan Sang Bijak"
+  },
+  {
+    "clave": "biblioteca.enc.promptTema",
+    "texto": "Ceritakan tentang {tema}. {desc}"
+  },
+  {
+    "clave": "biblioteca.enc.arbolDesc",
+    "texto": "Semua pengetahuanmu dalam satu pohon: tiap obrolan mengarsipkan dirinya di tempatnya dan tumbuh saat kamu mencabangkannya."
+  },
+  {
+    "clave": "biblioteca.enc.semilla",
+    "texto": "Benih"
+  },
+  {
+    "clave": "biblioteca.enc.sinResultados",
+    "texto": "Tidak ada yang cocok dengan pencarianmu di pohon ini."
+  },
+  {
+    "clave": "biblioteca.enc.nuevo",
+    "texto": "baru"
+  },
+  {
+    "clave": "biblioteca.enc.subtemas",
+    "texto": "{n} subtopik"
+  },
+  {
+    "clave": "biblioteca.enc.nSubindices",
+    "texto": "{n} sub-indeks di bawah ini"
+  },
+  {
+    "clave": "biblioteca.enc.modoEdicion",
+    "texto": "Edit indeks"
+  },
+  {
+    "clave": "biblioteca.enc.edicionDesc",
+    "texto": "Jadikan indeks ini milikmu: tanda + di tiap baris menambahkan cabang di level mana pun, bahkan langsung dari Benih. Kamu juga bisa mengganti nama, mengurutkan ulang, dan menghapus."
+  },
+  {
+    "clave": "biblioteca.enc.renombrar",
+    "texto": "Ganti nama"
+  },
+  {
+    "clave": "biblioteca.enc.agregarHijo",
+    "texto": "Tambahkan sesuatu di dalamnya"
+  },
+  {
+    "clave": "biblioteca.enc.moverEntradaA",
+    "texto": "Pindahkan “{n}” keâ¦"
+  },
+  {
+    "clave": "biblioteca.enc.entradaAqui",
+    "texto": "Tulis entri di sini"
+  },
+  {
+    "clave": "biblioteca.enc.borrarNodo",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "biblioteca.enc.borrarTit",
+    "texto": "Hapus “{n}”?"
+  }
+]

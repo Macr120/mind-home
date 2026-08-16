@@ -1,0 +1,654 @@
+[
+  {
+    "clave": "editor.pers.atuendoGuardar",
+    "texto": "Aktuelles Outfit speichern"
+  },
+  {
+    "clave": "editor.pers.atuendoDesnudar",
+    "texto": "Alle Kleidung ausziehen"
+  },
+  {
+    "clave": "editor.pers.atuendo.chef",
+    "texto": "Koch"
+  },
+  {
+    "clave": "editor.pers.atuendo.deportista",
+    "texto": "Sportler"
+  },
+  {
+    "clave": "editor.pers.atuendo.pijama",
+    "texto": "Pyjama"
+  },
+  {
+    "clave": "editor.pers.atuendo.oficinista",
+    "texto": "Büroangestellter"
+  },
+  {
+    "clave": "editor.pers.atuendo.academico",
+    "texto": "Gelehrter"
+  },
+  {
+    "clave": "editor.pers.atuendo.explorador",
+    "texto": "Entdecker"
+  },
+  {
+    "clave": "editor.pers.atuendo.zen",
+    "texto": "Zen"
+  },
+  {
+    "clave": "editor.pers.atuendo.mecanico",
+    "texto": "Mechaniker"
+  },
+  {
+    "clave": "editor.pers.atuendo.reportero",
+    "texto": "Reporter"
+  },
+  {
+    "clave": "editor.pers.atuendo.artista",
+    "texto": "Künstler"
+  },
+  {
+    "clave": "editor.pers.colorRopaAvatar",
+    "texto": "Färbt die gesamte getragene Kleidung in einer Farbe."
+  },
+  {
+    "clave": "editor.pers.colorForma",
+    "texto": "Färbt den Körper dieser Form."
+  },
+  {
+    "clave": "editor.pers.colorSinEfecto",
+    "texto": "Diese Figur nutzt ein eigenes Modell; Körperfarben wirken sich nicht aus."
+  },
+  {
+    "clave": "editor.pers.colorSinRopa",
+    "texto": "Diese Figur trägt keine Kleidung. Zieh ihr im Tab Kleidung etwas an, dann kannst du es hier färben."
+  },
+  {
+    "clave": "editor.pers.construirPiezas",
+    "texto": "Mit 3D-Teilen bauen"
+  },
+  {
+    "clave": "editor.pers.crear",
+    "texto": "Erstellen"
+  },
+  {
+    "clave": "editor.pers.crearDesc",
+    "texto": "Figur mit 3D-Teilen erstellen (erscheint auf der Karte)"
+  },
+  {
+    "clave": "editor.pers.cuerpo",
+    "texto": "Körper"
+  },
+  {
+    "clave": "editor.pers.cuerpoAvatar",
+    "texto": "Die Hauptfigur nutzt den Standardkörper (Kopf, Oberkörper und Beine). Gib ihr eine eigene Form: mit 3D-Teilen, mit KI oder durch Hochladen eines .glb-Modells."
+  },
+  {
+    "clave": "editor.pers.eliminar",
+    "texto": "Figur löschen"
+  },
+  {
+    "clave": "editor.pers.forma",
+    "texto": "3D-Form"
+  },
+  {
+    "clave": "editor.pers.formaCerrada",
+    "texto": "Tippe auf das Zahnrad im Vorschaufenster, um die Form Stück für Stück zu bearbeiten. Die Gesamtgröße findest du im Tab Größe."
+  },
+  {
+    "clave": "editor.pers.formaError",
+    "texto": "Ich konnte die Form nicht erstellen. Überprüfe das KI-Modell und versuch es noch mal."
+  },
+  {
+    "clave": "editor.pers.formaGenerar",
+    "texto": "Form mit KI erstellen"
+  },
+  {
+    "clave": "editor.pers.formaPh",
+    "texto": "Beschreib es: „blauer Roboter mit rotem Umhang“"
+  },
+  {
+    "clave": "editor.pers.formaSinIa",
+    "texto": "Die Form zu beschreiben erfordert KI (wähle ein Modell in der Leiste)"
+  },
+  {
+    "clave": "editor.pers.glbError",
+    "texto": "Ich konnte dieses .glb-Modell nicht verarbeiten. Ist es eine gültige Datei?"
+  },
+  {
+    "clave": "editor.pers.nombrePh",
+    "texto": "Name der Figur"
+  },
+  {
+    "clave": "editor.pers.normal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "editor.pers.reset",
+    "texto": "Auf Werkseinstellungen zurücksetzen"
+  },
+  {
+    "clave": "editor.pers.resetMsg",
+    "texto": "Körper, Farbe, Größe, Kleidung, Gesicht, Frisur und Animation von {nombre} gehen verloren. Der Name bleibt erhalten."
+  },
+  {
+    "clave": "editor.pers.resetMsgCustom",
+    "texto": "Körper, Farbe, Größe, Kleidung, Gesicht und Animation von {nombre} gehen verloren. Name, Geschichte und Persönlichkeit bleiben erhalten."
+  },
+  {
+    "clave": "editor.pers.resetOk",
+    "texto": "Zurücksetzen"
+  },
+  {
+    "clave": "editor.pers.nuevoNombre",
+    "texto": "Figur"
+  },
+  {
+    "clave": "editor.pers.optimizando",
+    "texto": "Modell wird optimiert…"
+  },
+  {
+    "clave": "editor.pers.ponerPrenda",
+    "texto": "Anziehen"
+  },
+  {
+    "clave": "editor.pers.quitarFormaIa",
+    "texto": "Teile-Form entfernen"
+  },
+  {
+    "clave": "editor.pers.quitarGlb",
+    "texto": "Hochgeladenes Modell entfernen"
+  },
+  {
+    "clave": "editor.pers.quitarPrenda",
+    "texto": "Ausziehen"
+  },
+  {
+    "clave": "editor.pers.ropa",
+    "texto": "Kleidung"
+  },
+  {
+    "clave": "editor.pers.subirGlb",
+    "texto": ".glb-Modell hochladen"
+  },
+  {
+    "clave": "editor.pers.tamano",
+    "texto": "Größe"
+  },
+  {
+    "clave": "editor.pers.tu",
+    "texto": "Du"
+  },
+  {
+    "clave": "editor.piezas.abrirControles",
+    "texto": "Teile bearbeiten (Steuerung öffnen)"
+  },
+  {
+    "clave": "editor.piezas.activar",
+    "texto": "Mit 3D-Teilen bearbeiten"
+  },
+  {
+    "clave": "editor.piezas.agrandar",
+    "texto": "Größe erhöhen"
+  },
+  {
+    "clave": "editor.piezas.agregar",
+    "texto": "Teil hinzufügen"
+  },
+  {
+    "clave": "editor.piezas.atras",
+    "texto": "Zurück (Z−)"
+  },
+  {
+    "clave": "editor.piezas.bajar",
+    "texto": "Runter (Y−)"
+  },
+  {
+    "clave": "editor.piezas.borrar",
+    "texto": "Teil löschen"
+  },
+  {
+    "clave": "editor.piezas.cerrarControles",
+    "texto": "Bearbeitungssteuerung schließen"
+  },
+  {
+    "clave": "editor.piezas.color",
+    "texto": "Farbe des Teils"
+  },
+  {
+    "clave": "editor.piezas.der",
+    "texto": "Rechts (X+)"
+  },
+  {
+    "clave": "editor.piezas.duplicar",
+    "texto": "Teil duplizieren"
+  },
+  {
+    "clave": "editor.piezas.forma",
+    "texto": "3D-Form"
+  },
+  {
+    "clave": "editor.piezas.tipo.caja",
+    "texto": "Würfel"
+  },
+  {
+    "clave": "editor.piezas.tipo.esfera",
+    "texto": "Kugel"
+  },
+  {
+    "clave": "editor.piezas.tipo.cono",
+    "texto": "Kegel"
+  },
+  {
+    "clave": "editor.piezas.tipo.cilindro",
+    "texto": "Zylinder"
+  },
+  {
+    "clave": "editor.piezas.tipo.plano",
+    "texto": "Ebene"
+  },
+  {
+    "clave": "editor.piezas.frente",
+    "texto": "Vorne (Z+)"
+  },
+  {
+    "clave": "editor.piezas.izq",
+    "texto": "Links (X−)"
+  },
+  {
+    "clave": "editor.piezas.posicion",
+    "texto": "Position"
+  },
+  {
+    "clave": "editor.piezas.reducir",
+    "texto": "Größe verringern"
+  },
+  {
+    "clave": "editor.piezas.restaurar",
+    "texto": "Standardeinstellungen wiederherstellen"
+  },
+  {
+    "clave": "editor.piezas.rotDer",
+    "texto": "Nach rechts drehen"
+  },
+  {
+    "clave": "editor.piezas.rotIzq",
+    "texto": "Nach links drehen"
+  },
+  {
+    "clave": "editor.piezas.rotacion",
+    "texto": "Drehung"
+  },
+  {
+    "clave": "editor.piezas.siguiente",
+    "texto": "Nächstes Teil"
+  },
+  {
+    "clave": "editor.piezas.subir",
+    "texto": "Hoch (Y+)"
+  },
+  {
+    "clave": "editor.piezas.tamano",
+    "texto": "Größe"
+  },
+  {
+    "clave": "editor.piso.alt",
+    "texto": "Eigener Boden"
+  },
+  {
+    "clave": "editor.piso.colorSolido",
+    "texto": "Einfarbig"
+  },
+  {
+    "clave": "editor.piso.sinPiso",
+    "texto": "Kein Boden"
+  },
+  {
+    "clave": "editor.piso.sinPisoHint",
+    "texto": "Keine Fliese auf diesen Zellen. Wähle eine Textur oder Farbe, um den Boden wiederherzustellen."
+  },
+  {
+    "clave": "editor.pisoCuarto.ajuste",
+    "texto": "Kachelgröße"
+  },
+  {
+    "clave": "editor.pisoCuarto.borrar",
+    "texto": "Bild löschen"
+  },
+  {
+    "clave": "editor.pisoCuarto.cambiar",
+    "texto": "Ändern"
+  },
+  {
+    "clave": "editor.pisoCuarto.color",
+    "texto": "Farbe"
+  },
+  {
+    "clave": "editor.pisoCuarto.colorHint",
+    "texto": "Bei Farbwahl wird ein einfarbiger Boden verwendet (deaktiviert die aktive Textur)."
+  },
+  {
+    "clave": "editor.pisoCuarto.desactivar",
+    "texto": "Deaktivieren"
+  },
+  {
+    "clave": "editor.pisoCuarto.exterior",
+    "texto": "Außenboden"
+  },
+  {
+    "clave": "editor.pisoCuarto.exteriorDesc",
+    "texto": "Material für das Zellenstück außerhalb der Silhouette an geformten Ecken (Dreieck/Kreis)."
+  },
+  {
+    "clave": "editor.pisoCuarto.exteriorJardin",
+    "texto": "Garten"
+  },
+  {
+    "clave": "editor.pisoCuarto.imagen",
+    "texto": "Hintergrundbild"
+  },
+  {
+    "clave": "editor.pisoCuarto.subirImagen",
+    "texto": "Bild hochladen"
+  },
+  {
+    "clave": "editor.pisoCuarto.textura",
+    "texto": "Textur"
+  },
+  {
+    "clave": "editor.pisoCuarto.usarImagen",
+    "texto": "Bild verwenden"
+  },
+  {
+    "clave": "editor.prop.color",
+    "texto": "Farbe"
+  },
+  {
+    "clave": "editor.prop.rotacion",
+    "texto": "Drehung"
+  },
+  {
+    "clave": "editor.tab.config",
+    "texto": "Einstellungen"
+  },
+  {
+    "clave": "editor.tab.mapa",
+    "texto": "Karte"
+  },
+  {
+    "clave": "editor.tab.objetos",
+    "texto": "Objekte"
+  },
+  {
+    "clave": "editor.tab.personajes",
+    "texto": "Figuren"
+  },
+  {
+    "clave": "editor.tamano.grande",
+    "texto": "Groß"
+  },
+  {
+    "clave": "editor.tamano.medio",
+    "texto": "Mittel"
+  },
+  {
+    "clave": "editor.tamano.mosaico",
+    "texto": "Mosaik"
+  },
+  {
+    "clave": "editor.techo.alt",
+    "texto": "Eigene Decke"
+  },
+  {
+    "clave": "editor.techoCelda.aplanar",
+    "texto": "Alles abflachen"
+  },
+  {
+    "clave": "editor.techoCelda.celda",
+    "texto": "Zelle"
+  },
+  {
+    "clave": "editor.techoCelda.desc",
+    "texto": "Wähle eine Zelle aus und passe ihr Dach unten an. Jede Silhouette – Quadrat, Dreieck, Kreis – hat eigene Optionen."
+  },
+  {
+    "clave": "editor.techoCelda.titulo",
+    "texto": "Dach pro Zelle"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas",
+    "texto": "Dachflächen"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas1",
+    "texto": "1 · Pultdach"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas2",
+    "texto": "2 · Satteldach"
+  },
+  {
+    "clave": "editor.techoCuarto.aguas4",
+    "texto": "4 · Walmdach"
+  },
+  {
+    "clave": "editor.techoCuarto.ajuste",
+    "texto": "Kachelgröße"
+  },
+  {
+    "clave": "editor.techoCuarto.ajustes",
+    "texto": "Formeinstellungen"
+  },
+  {
+    "clave": "editor.techoCuarto.altura",
+    "texto": "Höhe"
+  },
+  {
+    "clave": "editor.techoCuarto.borrar",
+    "texto": "Bild löschen"
+  },
+  {
+    "clave": "editor.techoCuarto.cambiar",
+    "texto": "Ändern"
+  },
+  {
+    "clave": "editor.techoCuarto.color",
+    "texto": "Farbe des Raums"
+  },
+  {
+    "clave": "editor.techoCuarto.colorTinte",
+    "texto": "Farbe"
+  },
+  {
+    "clave": "editor.techoCuarto.curvatura",
+    "texto": "Krümmung"
+  },
+  {
+    "clave": "editor.techoCuarto.desactivar",
+    "texto": "Deaktivieren"
+  },
+  {
+    "clave": "editor.techoCuarto.desc",
+    "texto": "Aktiviere das Dach in der Vorschau, um es zu sehen. Ohne Auswahl übernimmt es das Dach des Hauses."
+  },
+  {
+    "clave": "editor.techoCuarto.dir",
+    "texto": "Ausrichtung drehen"
+  },
+  {
+    "clave": "editor.techoCuarto.forma",
+    "texto": "Form (ganzer Raum)"
+  },
+  {
+    "clave": "editor.techoForma.plano",
+    "texto": "Flach"
+  },
+  {
+    "clave": "editor.techoForma.dos_aguas",
+    "texto": "Geneigt"
+  },
+  {
+    "clave": "editor.techoForma.abovedado",
+    "texto": "Tonnendach"
+  },
+  {
+    "clave": "editor.techoForma.cupula",
+    "texto": "Kuppel"
+  },
+  {
+    "clave": "editor.techoCuarto.formaCuarto",
+    "texto": "Form des Raums"
+  },
+  {
+    "clave": "editor.techoCuarto.heredar",
+    "texto": "Vom Haus"
+  },
+  {
+    "clave": "editor.techoCuarto.imagen",
+    "texto": "Hintergrundbild"
+  },
+  {
+    "clave": "editor.texturaIA.titulo",
+    "texto": "Mit KI erstellen"
+  },
+  {
+    "clave": "editor.texturaIA.placeholder",
+    "texto": "Beschreib die Textur…"
+  },
+  {
+    "clave": "editor.texturaIA.subirFoto",
+    "texto": "Ein Foto als Grundlage verwenden"
+  },
+  {
+    "clave": "editor.texturaIA.conFoto",
+    "texto": "Die Textur wird aus diesem Foto erstellt."
+  },
+  {
+    "clave": "editor.texturaIA.quitarFoto",
+    "texto": "Foto entfernen"
+  },
+  {
+    "clave": "editor.texturaIA.generar",
+    "texto": "Textur generieren"
+  },
+  {
+    "clave": "editor.texturaIA.generando",
+    "texto": "Wird generiert…"
+  },
+  {
+    "clave": "editor.texturaIA.sinIa",
+    "texto": "Richte die KI im Chat ein, um Texturen zu generieren."
+  },
+  {
+    "clave": "editor.texturaIA.error",
+    "texto": "Die Textur konnte nicht generiert werden."
+  },
+  {
+    "clave": "editor.texturaIA.sug.maderaClara",
+    "texto": "helles Holz"
+  },
+  {
+    "clave": "editor.texturaIA.sug.marmol",
+    "texto": "weißer Marmor"
+  },
+  {
+    "clave": "editor.texturaIA.sug.azulejo",
+    "texto": "gemusterte Bodenfliese"
+  },
+  {
+    "clave": "editor.texturaIA.sug.pastoSeco",
+    "texto": "trockenes Gras"
+  },
+  {
+    "clave": "editor.texturaIA.sug.ladrillo",
+    "texto": "roter Ziegel"
+  },
+  {
+    "clave": "editor.texturaIA.sug.concreto",
+    "texto": "polierter Beton"
+  },
+  {
+    "clave": "editor.texturaIA.sug.tapiz",
+    "texto": "geblümte Tapete"
+  },
+  {
+    "clave": "editor.texturaIA.sug.piedra",
+    "texto": "Steinmauer"
+  },
+  {
+    "clave": "editor.texturaIA.sug.teja",
+    "texto": "Tondachziegel"
+  },
+  {
+    "clave": "editor.texturaIA.sug.lamina",
+    "texto": "Metallblech"
+  },
+  {
+    "clave": "editor.texturaIA.sug.paja",
+    "texto": "Strohdach"
+  },
+  {
+    "clave": "editor.texturaIA.sug.tablones",
+    "texto": "Holzbohlen"
+  },
+  {
+    "clave": "editor.texturaIA.sug.atardecer",
+    "texto": "Sonnenuntergang am Strand"
+  },
+  {
+    "clave": "editor.texturaIA.sug.montanas",
+    "texto": "verschneite Berge"
+  },
+  {
+    "clave": "editor.texturaIA.sug.ciudad",
+    "texto": "Stadt bei Nacht"
+  },
+  {
+    "clave": "editor.texturaIA.sug.campo",
+    "texto": "Landschaft mit Wolken"
+  },
+  {
+    "clave": "editor.texturaIA.sug.cesped",
+    "texto": "gemähter Rasen"
+  },
+  {
+    "clave": "editor.texturaIA.sug.arena",
+    "texto": "Strandsand"
+  },
+  {
+    "clave": "editor.texturaIA.sug.asfalto",
+    "texto": "Stadtasphalt"
+  },
+  {
+    "clave": "editor.texturaIA.sug.isla",
+    "texto": "Insel von oben"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaMadera",
+    "texto": "Holzpaneele"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaMetal",
+    "texto": "Industriemetall"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaPintada",
+    "texto": "farbig gestrichen"
+  },
+  {
+    "clave": "editor.texturaIA.sug.puertaRustica",
+    "texto": "rustikale Bohlen"
+  },
+  {
+    "clave": "editor.fondo.nombreIA",
+    "texto": "Hintergrund mit KI"
+  },
+  {
+    "clave": "editor.techoCuarto.inclinacion",
+    "texto": "Neigung"
+  },
+  {
+    "clave": "editor.techoCuarto.material",
+    "texto": "Material"
+  }
+]

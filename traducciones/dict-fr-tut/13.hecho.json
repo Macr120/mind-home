@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "Les apps se planifient toutes seules : les rendez-vous de l’Agenda, le sommeil du Repos, les moments d’étude de la Bibliothèque. Avec le filtre, tu n’en affiches qu’une."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "Parcourir l’année"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "Les flèches ‹ › parcourent la période et Aujourd’hui te ramène au présent. Toute l’année de Pep est là, semaine après semaine. Avec + Nouvelle tu crées un événement, ou tu le traces directement sur la grille."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "Habitude par habitude"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "Chaque ligne est une routine et chaque colonne un jour : vert si c’est fait. Ici tu coches directement, et le pourcentage du haut résume la période que tu regardes."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "L’arc de l’année"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "En vue Année, le graphique raconte toute l’histoire : Pep a démarré en tenant un tiers de ce qui était prévu et a fini au-dessus de 85 %. La régularité s’est construite, elle n’est pas apparue."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "Les creux comptent aussi"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "Les deux trous sont réels : la blessure au genou du mois 7 et les trois semaines au Japon. Rater des jours n’efface pas les progrès — le panneau montre l’année telle qu’elle a été, pas telle qu’elle aurait dû être. Et une routine ne compte qu’à partir du jour où tu l’as créée."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "D’abord, les objectifs"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "La vue s’ouvre sur Objectifs, groupés par l’app qui les porte : la course dans Gym, la licence de physique dans Bibliothèque. « Maison » n’est aucune app — cette catégorie, Pep l’a inventée pour les travaux de la cuisine."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "De l’objectif à son plan"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "Chaque ligne se lit comme un tableau de bord : son numéro dans le dossier, l’échéance, l’avancement et l’état — à faire, en cours ou fait, selon ce qui est coché. Un clic ouvre l’objectif : son plan s’il en a un (le ✨ l’annonce) et, sinon, sa feuille avec les sous-objectifs, les dates et les étapes."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "Trois plans, trois états"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "La cuisine et le prochain marathon sont encore des propositions ; la candidature en master est déjà dans le planning. Celui du marathon a été demandé sans échéance : l’IA a calculé qu’il exige 24 semaines, et elle le dit dans son résumé."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "La feuille du plan"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "Six phases et leurs sous-objectifs, chacun avec sa période. Tant que c’est une proposition, tout se modifie : renommer, déplacer des dates, ajouter ou retirer des nœuds sans dérégler les autres."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "Cocher sans t’engager"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "Les coches d’une proposition vivent dans la feuille, pas dans tes objectifs : tu peux marquer ce qui est fait sans toucher à ton planning. Les barres se remplissent toutes seules vers le haut — la planification de la cuisine est déjà bouclée."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "Déplacer vers le planning réel"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "Ce bouton transforme chaque phase et chaque sous-objectif en véritables objectifs, avec leurs dates posées et accrochés à l’objectif d’origine. Ce que l’objectif avait déjà est conservé."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "Accepté : une seule vérité"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "Le plan du master est déjà déplacé. Ses coches sont maintenant celles des vrais sous-objectifs et la barre est celle de ton planning : la feuille arrête de tenir un compte à part."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "Et les voilà, sur l’axe"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "Les sous-objectifs nés du plan occupent leur période dans le planning, avec le plan superposé en violet par-dessus : la proposition et le réel, sur le même axe."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "Une année d’études, en un arbre"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep étudie la physique : la mécanique en début d’année, la thermodynamique vers le partiel du mois 6, la relativité et l’astrophysique à la fin. Chaque branche s’ouvre pour voir ses fiches."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "L’arbre grandit avec toi"
+  }
+]

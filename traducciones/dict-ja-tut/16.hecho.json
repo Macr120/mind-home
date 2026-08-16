@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "体重、身長、活動量から、アプリが1日に必要な量を計算してマクロを振り分けます。Pepは2,400キロカロリーと、あと1キロもない目標体重を設定しました。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "ステップ2：今日食べたもの"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "朝食、昼食、夕食、それに間食。記録するたびに、その日のリングが埋まっていきます。水分には専用の目標があり、家がその日を達成と見なすときに見るのはこれです。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "ステップ3：74キロ、67キロ"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "一年ぶんの曲線です。ケガの月には横ばいが続き、日本では1キロ増えました。下には今のペースと、このまま進んだ場合にいつ届くかが出ます。"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "色で見る一年"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "緑は目標のなかに収まった日、オレンジは少し超えた日、赤は大きく超えた日です。旅行の月はひと目で分かります。どの日でもタップすると開きます。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "雑誌のダイエットではない食事プラン"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "ここでいう食事プランは、レシピが入ったプランのことです。Pepは自分で二つ保存しました。マラソン週間と、日本から帰ったあとの軽めの分。アプリに最初から入っているものもあります。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "レシピ帳"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "レシピごとに材料、手順、1人前のマクロが残り、フォルダで整理できます。レシピから食事を記録したり、材料を買い物リストへ送ったりできます。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "AIにレシピを頼む"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "作りたいものを書けば、AIが料理の写真つきでレシピを丸ごと組み立てます。これはAIの機能です：エディター › 設定 › アカウントでオンにできます。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "レシピから買い物リストへ"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "「リストを作成」は、いくつものレシピで足りないものを一回の買い物にまとめます。材料ごとにカテゴリー（野菜と果物、乳製品…）を推測し、あとから直せます。"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "保存したリスト"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "リストごとに、まだ買っていないものと、もう家にあるものが残ります。価格を入れると、その合計を書斎の支出へ送れます。"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "目標体重を、段階に分けて"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "これはAIの機能です：エディター › 設定 › アカウントでオンにできます。なくても目標は同じように作って編集できます。手で入力するだけです。"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "100点を三つに分けて"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "時間が50点、就寝時刻の安定が30点、中断回数が20点です。一日たくさん眠っても、ほかの日に不規則な時間に寝ていては取り返せません。"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "この一週間"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "睡眠目標の線に、七本のバーを重ねたものです。今週ちゃんと眠れているかが、ひと目で分かります。"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "一年ぜんぶ"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "履歴は年・月・週で残ります。Pepの最初の数か月までさかのぼって、最後のころと比べてみてください。1時を過ぎてから寝て、5時間しか眠っていませんでした。"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "11時半から7時まで"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "バーの両端をドラッグすると、就寝時刻と起床時刻を動かせます。上の空もそれに合わせて変わります。このブロックは、真夜中をまたいでカレンダーにも出てきます。"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "アラームと通知"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "アラーム音を選んだり、就寝の時間になったら知らせてもらったり、その一時間前に画面をオフにするよう促してもらえます。通知は任意で、ここではオフになっています。"
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "夜を記録する"
+  }
+]

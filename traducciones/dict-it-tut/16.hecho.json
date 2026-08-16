@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "Con il tuo peso, la tua altezza e la tua attività, l'app calcola quanto ti serve al giorno e ripartisce i macro. Pep ha fissato 2.400 calorie e un peso obiettivo a cui manca meno di un chilo."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "Passo 2: quello che hai mangiato oggi"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "Colazione, pranzo, cena e qualcosa fuori pasto: ogni registrazione riempie gli anelli del giorno. L'acqua ha il suo obiettivo, ed è quello che la casa guarda per dare il giorno per fatto."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "Passo 3: 74 chili, 67 chili"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "La curva di tutto l'anno, con il suo plateau nel mese dell'infortunio e il chilo preso in Giappone. Sotto ti dice a che ritmo stai andando e quando arriveresti di questo passo."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "Un anno a colori"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "Il verde è un giorno in linea con l'obiettivo, l'ambra uno andato un po' oltre e il rosso uno andato del tutto fuori. Il mese del viaggio si vede al primo colpo d'occhio. Tocca un giorno qualsiasi per aprirlo."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "Diete, non diete da rivista"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "Qui una dieta è un piano con le sue ricette dentro. Pep ne ha salvate due sue: la settimana della maratona e il rientro dal Giappone, oltre a quelle che porta l'app."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "Il ricettario"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "Ogni ricetta conserva ingredienti, passi e i suoi macro per porzione, e si ordina in cartelle. Da una ricetta puoi registrare il pasto o mandare i suoi ingredienti alla lista della spesa."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "Chiedere la ricetta all'IA"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "Descrivi cosa vuoi cucinare e l'IA costruisce la ricetta completa con la foto del piatto. Questo lo fa l'IA: si accende in Editor › Impostazioni › Account."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "Dalla ricetta alla lista della spesa"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "Crea lista mette insieme quello che manca da più ricette in una sola spesa: ogni ingrediente indovina la sua categoria (verdura, latticini…) e si può correggere."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "Le liste salvate"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "Ogni lista si salva con quello che manca da comprare e quello che è già in dispensa. Se metti i prezzi, il conto si può mandare alle spese dello Studio."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "L'obiettivo di peso, a fasi"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "Questo lo fa l'IA: si accende in Editor › Impostazioni › Account. Senza, gli obiettivi si creano e si modificano lo stesso, solo a mano."
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "Cento punti, tre parti"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "La durata vale cinquanta, la costanza della tua ora di andare a letto trenta e le interruzioni venti. Dormire tanto un giorno non compensa andare a letto a ore assurde tutti gli altri."
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "L'ultima settimana"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "Sette barre contro la linea del tuo obiettivo. È la vista che ti dice a colpo d'occhio se questa settimana stai dormendo quanto volevi."
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "L'anno intero"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "Lo storico si conserva per anno, mese e settimana. Scendi fino ai primi mesi di Pep e confrontali con gli ultimi: andava a letto dopo l'una e dormiva cinque ore."
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "Dalle undici e mezza alle sette"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "Trascina le estremità della barra per spostare la tua ora di dormire e quella della sveglia; il cielo qui sopra cambia con loro. Questo blocco compare anche nel calendario, a cavallo della mezzanotte."
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "Sveglia e promemoria"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "Puoi scegliere la suoneria della sveglia, chiedere che ti avvisi quando è ora di andare a letto e lasciare gli schermi un'ora prima. Gli avvisi sono facoltativi: qui sono spenti."
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "Registrare la notte"
+  }
+]

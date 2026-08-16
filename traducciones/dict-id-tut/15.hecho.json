@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "Papan"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "Tugas yang sama, dalam tiga kolom: Perlu dikerjakan, Sedang berlangsung, dan Selesai. Tekan lama sebuah kartu untuk menyeretnya ke kolom lain —menjatuhkannya di “Selesai” sekaligus mencentangnya di kalender— atau pindahkan dengan panah."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "Tahun lutut itu"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "Nutrisi tiap beberapa bulan, dokter gigi, dan enam sesi fisioterapi di bulan ke-7: cedera yang menghentikan Pep tercatat di sini."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "Obat"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "Setiap obat membuat satu blok per dosis di kalender. Obat antiradang untuk cederanya bertahan tiga minggu lalu diarsipkan; vitaminnya masih jalan."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "Laika"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "Kucing itu punya kartunya sendiri dengan berat dan dokter hewan, plus perawatan berkalanya: vaksin tahunan, obat cacing tiap tiga bulan, mandi tiap bulan. Begitu kamu mencentangnya, jadwal berikutnya dihitung ulang sendiri."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "Lingkaran Pep"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "Keluarga, teman, orang kantor dan kampus, masing-masing di foldernya sendiri. Lengkap dengan telepon, alamat, dan apa pun yang tidak ingin kamu lupakan."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "Ulang tahun yang tak terlewat"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "Begitu kamu menyimpan tanggal lahir, ulang tahunnya berulang tiap tahun di kalender dan mengingatkanmu. Aplikasi menghitung usianya sendiri."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "Rencana bersama orang lain terhubung ke kontaknya: jadi kamu bisa melihat kapan terakhir kali bertemu seseorang."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "Setahun dalam tiga angka"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "Runtunan aktif menghitung hari berturut-turut yang ada catatannya, dan Kepatuhan membandingkan hari aktifmu dengan yang kamu targetkan. Pep memulai tahun itu tanpa sanggup lari dua blok."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "Tiga jenis latihan"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "Batang-batangnya mengukur capaianmu terhadap targetmu: sesi kekuatan, menit daya tahan, dan menit fleksibilitas. Targetnya menyesuaikan periode yang kamu pilih di atas."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "Target tahun ini"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "Katalog, Rutinitas, dan Progres"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "Tiap jenis latihan tersusun sama: katalog gerakan, rutinitasmu beserta riwayatnya, dan progres. Mari mulai dari lari-lari yang sudah dijalani Pep."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "Tiap lari tercatat"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "Riwayatnya dikelompokkan per tahun, bulan, dan minggu. Lari besar juga menyimpan jejak rutenya beserta bagian-bagiannya: itu maratonnya, lengkap dengan catatan waktu tiap sepuluh kilometer."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "Peta panas tidak berbohong"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "Ruang-ruang kosongnya juga bercerita: bulan cedera lutut kosong melompong dan tiga minggu di Jepang nyaris sama. Di sebelahnya muncul total kilometer, lari terpanjang, dan tempo terbaik."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "Set, repetisi, dan beban"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "Tiap sesi menyimpan gerakannya beserta beban yang kamu angkat. Aplikasi mengingat sesi terakhir supaya kamu tidak perlu mencarinya, lalu menjumlahkan total volume hari itu."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "Kurva setahun"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "Pilih satu gerakan dan lihat kenaikannya: squat Pep naik dari empat puluh kilo ke tujuh puluh. Selama bulan cedera dia hanya melatih tubuh bagian atas, dan kurva itu sama sekali tidak terusik."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "Rekormu, tanpa diminta"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "Tiap gerakan menyimpan beban terbaik, repetisi maksimum, dan perkiraan 1RM-mu. Gerakan berat badan, seperti pull-up, ditandai terpisah."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "Langkah 1: ke mana tujuanmu"
+  }
+]

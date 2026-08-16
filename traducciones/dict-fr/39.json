@@ -1,0 +1,859 @@
+[
+  {
+    "clave": "cuenta.sync.respaldoPrevio",
+    "es": "Vas a sincronizar esta casa por primera vez. ¿Descargar antes un respaldo local? (Recomendado)",
+    "en": "You are about to sync this home for the first time. Download a local backup first? (Recommended)"
+  },
+  {
+    "clave": "carpetas.vacio",
+    "es": "Aún no hay registros.",
+    "en": "Nothing logged yet."
+  },
+  {
+    "clave": "carpetas.estaSemana",
+    "es": "Esta semana",
+    "en": "This week"
+  },
+  {
+    "clave": "carpetas.nRegistro",
+    "es": "1 registro",
+    "en": "1 record"
+  },
+  {
+    "clave": "carpetas.nRegistros",
+    "es": "{n} registros",
+    "en": "{n} records"
+  },
+  {
+    "clave": "cocina.historial",
+    "es": "Historial de comidas",
+    "en": "Meal history"
+  },
+  {
+    "clave": "ejercicio.historial",
+    "es": "Tus sesiones",
+    "en": "Your sessions"
+  },
+  {
+    "clave": "descanso.hist.media",
+    "es": "media {h}",
+    "en": "avg {h}"
+  },
+  {
+    "clave": "jardin.hist",
+    "es": "Tus sesiones",
+    "en": "Your sessions"
+  },
+  {
+    "clave": "jardin.hist.vacio",
+    "es": "Aquí se guardarán tus sesiones de calma.",
+    "en": "Your calm sessions will be kept here."
+  },
+  {
+    "clave": "jardin.hist.min",
+    "es": "{n} min",
+    "en": "{n} min"
+  },
+  {
+    "clave": "hobbies.sesion.todas",
+    "es": "Tus sesiones",
+    "en": "Your sessions"
+  },
+  {
+    "clave": "despacho.m.sinRegistros",
+    "en": "No transactions logged."
+  },
+  {
+    "clave": "room.agenda.desc",
+    "en": "Your schedule: work to-dos, events and projects, medical appointments, medication and your pets with their care, and your contact book with their birthdays."
+  },
+  {
+    "clave": "agenda.tab.trabajo",
+    "en": "Work"
+  },
+  {
+    "clave": "agenda.tab.salud",
+    "en": "Health"
+  },
+  {
+    "clave": "agenda.tab.personas",
+    "en": "People"
+  },
+  {
+    "clave": "agenda.metaDiaria",
+    "en": "Today's schedule"
+  },
+  {
+    "clave": "agenda.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "agenda.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "agenda.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "agenda.confirmarBorrado",
+    "es": "¿Borrar?",
+    "en": "Delete?"
+  },
+  {
+    "clave": "agenda.si",
+    "es": "Sí",
+    "en": "Yes"
+  },
+  {
+    "clave": "agenda.no",
+    "es": "No",
+    "en": "No"
+  },
+  {
+    "clave": "agenda.volver",
+    "es": "Volver",
+    "en": "Back"
+  },
+  {
+    "clave": "agenda.buscar",
+    "es": "Buscar",
+    "en": "Search"
+  },
+  {
+    "clave": "agenda.palomear",
+    "es": "Marcar como hecho",
+    "en": "Mark as done"
+  },
+  {
+    "clave": "agenda.nuevoEvento",
+    "es": "Nuevo",
+    "en": "New"
+  },
+  {
+    "clave": "agenda.editarEvento",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "agenda.sinRelacion",
+    "es": "Sin relación",
+    "en": "No relationship"
+  },
+  {
+    "clave": "agenda.eventosDe",
+    "es": "Con {n}",
+    "en": "With {n}"
+  },
+  {
+    "clave": "agenda.cumpleDe",
+    "es": "Cumple de {n}",
+    "en": "{n}'s birthday"
+  },
+  {
+    "clave": "agenda.form.asunto",
+    "es": "Asunto",
+    "en": "Subject"
+  },
+  {
+    "clave": "agenda.form.motivo",
+    "es": "Motivo de la cita",
+    "en": "Reason for the appointment"
+  },
+  {
+    "clave": "agenda.form.plan",
+    "es": "Plan o recordatorio",
+    "en": "Plan or reminder"
+  },
+  {
+    "clave": "agenda.form.nombre",
+    "es": "Nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "agenda.form.color",
+    "en": "Color"
+  },
+  {
+    "clave": "agenda.form.fecha",
+    "es": "Fecha",
+    "en": "Date"
+  },
+  {
+    "clave": "agenda.form.hora",
+    "es": "Hora",
+    "en": "Time"
+  },
+  {
+    "clave": "agenda.form.horaFin",
+    "es": "Termina",
+    "en": "Ends"
+  },
+  {
+    "clave": "agenda.form.lugar",
+    "es": "Lugar",
+    "en": "Place"
+  },
+  {
+    "clave": "agenda.form.con",
+    "es": "Con quién",
+    "en": "With whom"
+  },
+  {
+    "clave": "agenda.form.medico",
+    "es": "Médico",
+    "en": "Doctor"
+  },
+  {
+    "clave": "agenda.form.contacto",
+    "es": "Persona de tu libreta",
+    "en": "Person from your book"
+  },
+  {
+    "clave": "agenda.form.ninguno",
+    "es": "— Ninguna —",
+    "en": "— None —"
+  },
+  {
+    "clave": "agenda.form.prioridad",
+    "es": "Prioridad",
+    "en": "Priority"
+  },
+  {
+    "clave": "agenda.form.notas",
+    "es": "Notas",
+    "en": "Notes"
+  },
+  {
+    "clave": "agenda.form.notaSinFecha",
+    "es": "Sin fecha se queda en tus pendientes, fuera del calendario.",
+    "en": "With no date it stays in your to-dos, off the calendar."
+  },
+  {
+    "clave": "agenda.form.notaSinHora",
+    "es": "Sin hora aparece en el día, pero no puede avisarte.",
+    "en": "With no time it shows on the day, but it cannot remind you."
+  },
+  {
+    "clave": "agenda.prioridad.alta",
+    "en": "High"
+  },
+  {
+    "clave": "agenda.prioridad.media",
+    "en": "Medium"
+  },
+  {
+    "clave": "agenda.prioridad.baja",
+    "en": "Low"
+  },
+  {
+    "clave": "agenda.trabajo.pendientes",
+    "en": "To-do"
+  },
+  {
+    "clave": "agenda.trabajo.tablero",
+    "en": "Board"
+  },
+  {
+    "clave": "ejemplo.vacio",
+    "es": "¿No sabes por dónde empezar? Mira cómo se ve con un ejemplo dentro.",
+    "en": "Not sure where to start? See how it looks with an example inside."
+  },
+  {
+    "clave": "ejemplo.puesto",
+    "es": "Esto es un ejemplo: escóndelo cuando quieras y tus datos siguen intactos.",
+    "en": "This is an example: hide it whenever you want, your own data stays untouched."
+  },
+  {
+    "clave": "ejemplo.mostrar",
+    "es": "Ver un ejemplo",
+    "en": "See an example"
+  },
+  {
+    "clave": "ejemplo.ocultar",
+    "es": "Ocultar el ejemplo",
+    "en": "Hide the example"
+  },
+  {
+    "clave": "ejemplo.sinSitio",
+    "en": "There is no free room on the map for the example right now."
+  },
+  {
+    "clave": "agenda.ejemplo.vacio",
+    "es": "¿No sabes por dónde empezar? Carga un ejemplo y míralo por dentro.",
+    "en": "Not sure where to start? Load an example and poke around inside it."
+  },
+  {
+    "clave": "agenda.ejemplo.cargado",
+    "es": "Lo que ves de ejemplo se puede borrar de golpe, con sus bloques del calendario.",
+    "en": "Everything you see as an example can be wiped in one go, calendar blocks included."
+  },
+  {
+    "clave": "agenda.ejemplo.cargar",
+    "es": "Cargar un ejemplo",
+    "en": "Load an example"
+  },
+  {
+    "clave": "agenda.ejemplo.borrar",
+    "es": "Borrar el ejemplo",
+    "en": "Delete the example"
+  },
+  {
+    "clave": "agenda.ejemplo.confirmar",
+    "es": "Sí, borrar el ejemplo",
+    "en": "Yes, delete the example"
+  },
+  {
+    "clave": "agenda.tablero.porhacer",
+    "en": "To do"
+  },
+  {
+    "clave": "agenda.tablero.encurso",
+    "en": "In progress"
+  },
+  {
+    "clave": "agenda.tablero.hecho",
+    "en": "Done"
+  },
+  {
+    "clave": "agenda.tablero.columnaVacia",
+    "es": "Nada aquí",
+    "en": "Nothing here"
+  },
+  {
+    "clave": "agenda.tablero.atras",
+    "es": "Mover a la columna anterior",
+    "en": "Move to the previous column"
+  },
+  {
+    "clave": "agenda.tablero.adelante",
+    "es": "Mover a la siguiente columna",
+    "en": "Move to the next column"
+  },
+  {
+    "clave": "agenda.vacio.pendientes",
+    "es": "Sin pendientes. Apunta lo que traes en la cabeza.",
+    "en": "Nothing pending. Jot down what is on your mind."
+  },
+  {
+    "clave": "agenda.salud.citas",
+    "es": "Citas médicas",
+    "en": "Medical appointments"
+  },
+  {
+    "clave": "agenda.salud.sub.yo",
+    "en": "You"
+  },
+  {
+    "clave": "agenda.salud.sub.projimos",
+    "es": "Prójimos",
+    "en": "Loved ones"
+  },
+  {
+    "clave": "agenda.salud.sub.mascotas",
+    "en": "Pets"
+  },
+  {
+    "clave": "agenda.salud.cuidados",
+    "es": "Cuidados",
+    "en": "Recurring care"
+  },
+  {
+    "clave": "agenda.salud.nuevoCuidado",
+    "es": "Nuevo cuidado",
+    "en": "New care item"
+  },
+  {
+    "clave": "agenda.vacio.cuidadosPersona",
+    "es": "Sin cuidados. Aquí van los chequeos y vacunas que se repiten.",
+    "en": "No care items yet. Checkups and shots that repeat go here."
+  },
+  {
+    "clave": "agenda.vacio.projimos",
+    "es": "Nadie a tu cuidado todavía. Agrega uno nuevo o marca «A mi cuidado» en un contacto de la pestaña Personas: aparecerá aquí con sus citas, sus medicamentos y sus cuidados.",
+    "en": "Nobody in your care yet. Add a new one, or tick \"In my care\" on a contact in the People tab: they will show up here with their appointments, medication and care."
+  },
+  {
+    "clave": "agenda.persona.alCuidado",
+    "es": "A mi cuidado",
+    "en": "In my care"
+  },
+  {
+    "clave": "agenda.persona.alCuidadoAyuda",
+    "es": "Aparece en Salud › Prójimos, con sus citas, sus medicamentos y sus cuidados.",
+    "en": "Shows up in Health › Loved ones, with their appointments, medication and care."
+  },
+  {
+    "clave": "agenda.projimo.aMiCuidado",
+    "es": "A mi cuidado",
+    "en": "In my care"
+  },
+  {
+    "clave": "agenda.cuidadop.nuevo",
+    "es": "Nuevo cuidado",
+    "en": "New care item"
+  },
+  {
+    "clave": "agenda.cuidado.archivado",
+    "es": "Hecho, sin repetición",
+    "en": "Done, no repeat"
+  },
+  {
+    "clave": "agenda.cuidado.reactivar",
+    "es": "Volver a programar",
+    "en": "Schedule again"
+  },
+  {
+    "clave": "agenda.form.especialidad",
+    "es": "Especialidad",
+    "en": "Specialty"
+  },
+  {
+    "clave": "agenda.esp.general",
+    "en": "General practice"
+  },
+  {
+    "clave": "agenda.esp.dentista",
+    "en": "Dentist"
+  },
+  {
+    "clave": "agenda.esp.oftalmologia",
+    "en": "Ophthalmology"
+  },
+  {
+    "clave": "agenda.esp.dermatologia",
+    "en": "Dermatology"
+  },
+  {
+    "clave": "agenda.esp.ginecologia",
+    "en": "Gynecology"
+  },
+  {
+    "clave": "agenda.esp.cardiologia",
+    "en": "Cardiology"
+  },
+  {
+    "clave": "agenda.esp.traumatologia",
+    "en": "Orthopedics"
+  },
+  {
+    "clave": "agenda.esp.psicologia",
+    "en": "Psychology"
+  },
+  {
+    "clave": "agenda.esp.laboratorio",
+    "en": "Lab work"
+  },
+  {
+    "clave": "agenda.esp.otra",
+    "es": "Otra",
+    "en": "Other"
+  },
+  {
+    "clave": "agenda.cuidadop.chequeo",
+    "en": "General checkup"
+  },
+  {
+    "clave": "agenda.cuidadop.vacuna",
+    "en": "Vaccine"
+  },
+  {
+    "clave": "agenda.cuidadop.analisis",
+    "en": "Lab tests"
+  },
+  {
+    "clave": "agenda.cuidadop.terapia",
+    "en": "Therapy"
+  },
+  {
+    "clave": "agenda.cuidadop.dental",
+    "en": "Dental checkup"
+  },
+  {
+    "clave": "agenda.cuidadop.visual",
+    "en": "Eye checkup"
+  },
+  {
+    "clave": "agenda.cuidadop.otro",
+    "en": "Other"
+  },
+  {
+    "clave": "agenda.ciclo.titulo",
+    "es": "Ciclo",
+    "en": "Cycle"
+  },
+  {
+    "clave": "agenda.ciclo.apagado",
+    "es": "Lleva el registro de tu periodo, con estimación del siguiente, síntomas y recordatorios.",
+    "en": "Track your period, with an estimate of the next one, symptoms and reminders."
+  },
+  {
+    "clave": "agenda.ciclo.activar",
+    "es": "Activar seguimiento de ciclo",
+    "en": "Turn on cycle tracking"
+  },
+  {
+    "clave": "agenda.ciclo.desactivar",
+    "es": "Desactivar seguimiento (los registros se conservan)",
+    "en": "Turn off tracking (your records are kept)"
+  },
+  {
+    "clave": "agenda.ciclo.recienActivado",
+    "es": "Seguimiento activado. ¿Fue sin querer?",
+    "en": "Tracking is on. Tapped it by mistake?"
+  },
+  {
+    "clave": "agenda.ciclo.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
+  },
+  {
+    "clave": "agenda.ciclo.mantener",
+    "es": "Dejarlo",
+    "en": "Keep it"
+  },
+  {
+    "clave": "agenda.ciclo.ajustes",
+    "es": "Ajustes",
+    "en": "Settings"
+  },
+  {
+    "clave": "agenda.ciclo.diaN",
+    "es": "Día {n} del ciclo",
+    "en": "Day {n} of your cycle"
+  },
+  {
+    "clave": "agenda.ciclo.sinRegistro",
+    "es": "Sin registros todavía",
+    "en": "Nothing recorded yet"
+  },
+  {
+    "clave": "agenda.ciclo.sinDatos",
+    "es": "Marca tu primer día de periodo para empezar",
+    "en": "Mark your first period day to get started"
+  },
+  {
+    "clave": "agenda.ciclo.hoyToca",
+    "es": "Se estima que empieza hoy",
+    "en": "Estimated to start today"
+  },
+  {
+    "clave": "agenda.ciclo.faltan",
+    "es": "Faltan {n} días (estimado)",
+    "en": "{n} days to go (estimated)"
+  },
+  {
+    "clave": "agenda.ciclo.proximo",
+    "es": "Próximo periodo",
+    "en": "Next period"
+  },
+  {
+    "clave": "agenda.ciclo.fertil",
+    "es": "Ventana fértil",
+    "en": "Fertile window"
+  },
+  {
+    "clave": "agenda.ciclo.base",
+    "es": "Estimación con tus {n} últimos ciclos (media de {d} días).",
+    "en": "Estimated from your last {n} cycles ({d}-day average)."
+  },
+  {
+    "clave": "agenda.ciclo.baseSinDatos",
+    "es": "Estimación con la duración de tus ajustes ({d} días): aún no hay dos periodos que medir.",
+    "en": "Estimated from the length in your settings ({d} days): there aren't two periods to measure yet."
+  },
+  {
+    "clave": "agenda.ciclo.historial",
+    "es": "Tus últimos periodos",
+    "en": "Your recent periods"
+  },
+  {
+    "clave": "agenda.ciclo.duroDias",
+    "es": "duró {n} días",
+    "en": "lasted {n} days"
+  },
+  {
+    "clave": "agenda.ciclo.sangrado",
+    "es": "Sangrado",
+    "en": "Bleeding"
+  },
+  {
+    "clave": "agenda.ciclo.ninguno",
+    "es": "Ninguno",
+    "en": "None"
+  },
+  {
+    "clave": "agenda.ciclo.leve",
+    "en": "Light"
+  },
+  {
+    "clave": "agenda.ciclo.medio",
+    "en": "Medium"
+  },
+  {
+    "clave": "agenda.ciclo.abundante",
+    "en": "Heavy"
+  },
+  {
+    "clave": "agenda.ciclo.sintomas",
+    "es": "Síntomas",
+    "en": "Symptoms"
+  },
+  {
+    "clave": "agenda.ciclo.animo",
+    "es": "Ánimo",
+    "en": "Mood"
+  },
+  {
+    "clave": "agenda.ciclo.leyRegistrado",
+    "es": "Registrado",
+    "en": "Recorded"
+  },
+  {
+    "clave": "agenda.ciclo.leyEstimado",
+    "es": "Estimado",
+    "en": "Estimated"
+  },
+  {
+    "clave": "agenda.ciclo.duracionCiclo",
+    "es": "Duración del ciclo (días)",
+    "en": "Cycle length (days)"
+  },
+  {
+    "clave": "agenda.ciclo.duracionPeriodo",
+    "es": "Duración del periodo (días)",
+    "en": "Period length (days)"
+  },
+  {
+    "clave": "agenda.ciclo.ayudaDuracion",
+    "es": "Solo se usan mientras no haya dos periodos registrados: en cuanto los hay, manda tu media real.",
+    "en": "Only used until you have two periods recorded: after that, your real average wins."
+  },
+  {
+    "clave": "agenda.ciclo.avisarAntes",
+    "es": "Avisarme con (días)",
+    "en": "Remind me (days before)"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivo",
+    "es": "Anticonceptivo a las",
+    "en": "Birth control at"
+  },
+  {
+    "clave": "agenda.ciclo.avisoRutina",
+    "es": "Se estima que empieza tu periodo",
+    "en": "Your period is estimated to start"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivoRutina",
+    "es": "Anticonceptivo",
+    "en": "Birth control"
+  },
+  {
+    "clave": "agenda.ciclo.sint.colicos",
+    "en": "Cramps"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cabeza",
+    "en": "Headache"
+  },
+  {
+    "clave": "agenda.ciclo.sint.hinchazon",
+    "en": "Bloating"
+  },
+  {
+    "clave": "agenda.ciclo.sint.senos",
+    "en": "Tender breasts"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cansancio",
+    "en": "Fatigue"
+  },
+  {
+    "clave": "agenda.ciclo.sint.antojos",
+    "en": "Cravings"
+  },
+  {
+    "clave": "agenda.ciclo.sint.acne",
+    "en": "Acne"
+  },
+  {
+    "clave": "agenda.ciclo.sint.irritable",
+    "en": "Irritability"
+  },
+  {
+    "clave": "agenda.salud.nuevaCita",
+    "es": "Nueva cita",
+    "en": "New appointment"
+  },
+  {
+    "clave": "agenda.salud.medicamentos",
+    "es": "Medicamentos",
+    "en": "Medication"
+  },
+  {
+    "clave": "agenda.salud.nuevoMedicamento",
+    "es": "Nuevo medicamento",
+    "en": "New medication"
+  },
+  {
+    "clave": "agenda.editarMedicamento",
+    "es": "Editar tratamiento",
+    "en": "Edit treatment"
+  },
+  {
+    "clave": "agenda.vacio.citas",
+    "en": "No appointments logged."
+  },
+  {
+    "clave": "agenda.vacio.medicamentos",
+    "es": "Ningún tratamiento en curso.",
+    "en": "No treatment in progress."
+  },
+  {
+    "clave": "agenda.med.dosis",
+    "es": "Dosis",
+    "en": "Dose"
+  },
+  {
+    "clave": "agenda.med.horas",
+    "es": "Horas de toma",
+    "en": "Times of day"
+  },
+  {
+    "clave": "agenda.med.agregarToma",
+    "es": "Agregar toma",
+    "en": "Add dose time"
+  },
+  {
+    "clave": "agenda.med.dias",
+    "es": "Días",
+    "en": "Days"
+  },
+  {
+    "clave": "agenda.med.todosDias",
+    "es": "Sin marcar ninguno: todos los días.",
+    "en": "None selected: every day."
+  },
+  {
+    "clave": "agenda.med.desde",
+    "es": "Desde",
+    "en": "From"
+  },
+  {
+    "clave": "agenda.med.hasta",
+    "es": "Hasta (opcional)",
+    "en": "Until (optional)"
+  },
+  {
+    "clave": "agenda.med.pausar",
+    "es": "Pausar",
+    "en": "Pause"
+  },
+  {
+    "clave": "agenda.med.reanudar",
+    "es": "Reanudar",
+    "en": "Resume"
+  },
+  {
+    "clave": "agenda.med.sinHoras",
+    "es": "Sin recordatorio",
+    "en": "No reminder"
+  },
+  {
+    "clave": "agenda.med.avisoAppAbierta",
+    "es": "Los recordatorios de toma suenan con la app abierta.",
+    "en": "Dose reminders ring while the app is open."
+  },
+  {
+    "clave": "agenda.dia.0",
+    "en": "S"
+  },
+  {
+    "clave": "agenda.dia.1",
+    "en": "M"
+  },
+  {
+    "clave": "agenda.dia.2",
+    "en": "T"
+  },
+  {
+    "clave": "agenda.dia.3",
+    "en": "W"
+  },
+  {
+    "clave": "agenda.dia.4",
+    "en": "T"
+  },
+  {
+    "clave": "agenda.dia.5",
+    "en": "F"
+  },
+  {
+    "clave": "agenda.dia.6",
+    "en": "S"
+  },
+  {
+    "clave": "agenda.personas.nuevoContacto",
+    "es": "Nuevo contacto",
+    "en": "New contact"
+  },
+  {
+    "clave": "agenda.editarContacto",
+    "es": "Editar contacto",
+    "en": "Edit contact"
+  },
+  {
+    "clave": "agenda.personas.nuevoPlan",
+    "es": "Agendar algo",
+    "en": "Schedule something"
+  },
+  {
+    "clave": "agenda.persona.relacion",
+    "es": "Relación",
+    "en": "Relationship"
+  },
+  {
+    "clave": "agenda.persona.phRelacion",
+    "es": "familia, trabajo…",
+    "en": "family, work…"
+  },
+  {
+    "clave": "agenda.persona.telefono",
+    "es": "Teléfono",
+    "en": "Phone"
+  },
+  {
+    "clave": "agenda.persona.correo",
+    "es": "Correo",
+    "en": "Email"
+  },
+  {
+    "clave": "agenda.persona.cumple",
+    "es": "Cumpleaños",
+    "en": "Birthday"
+  },
+  {
+    "clave": "agenda.persona.horaCumple",
+    "es": "Avisarme a las",
+    "en": "Remind me at"
+  },
+  {
+    "clave": "agenda.persona.direccion",
+    "es": "Dirección",
+    "en": "Address"
+  },
+  {
+    "clave": "agenda.persona.foto",
+    "es": "Foto",
+    "en": "Photo"
+  },
+  {
+    "clave": "agenda.persona.edad",
+    "es": "cumple {n}",
+    "en": "turning {n}"
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "Każdego ranka zapisujesz porę pójścia spać, porę pobudki, liczbę przebudzeń i to, jak ci się spało. To wszystko, czego aplikacja potrzebuje do całej reszty."
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "Rok w czterech zbliżeniach"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "Wybierz Dzień, Tydzień, Miesiąc albo Rok i przesuwaj się strzałkami. Cofnij się o kilka miesięcy: zobaczysz miesiąc awarii samochodu i miesiąc lotu do Japonii, oba na czerwono."
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "Kształt roku"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "Sześć okresów wstecz, w słupkach. Niebieskie to miesiące, w których coś zostało; czerwone — te, które zabolały. Widać tu dołek i powrót na prostą."
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "Na co to idzie?"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "Wydatki według kategorii w okresie, który właśnie oglądasz. Pep wpisuje swoje ręcznie: aplikacja rozpoznaje te znane, a pozostałym nadaje własny kolor."
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "Limit miesiąca"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "Budżet miesięczny i pasek, który czerwienieje po przekroczeniu. Gdy patrzysz na tydzień albo na rok, aplikacja przelicza go sama."
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "To, co masz dziś"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "Twój majątek netto bierze się prosto z zakładki Majątek netto: aktywa minus pasywa. Tu dolicza się do niego saldo okresu albo odejmuje, żeby było widać, na czym by się skończyło."
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "A za rok"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "Prognozuje dwanaście miesięcy: stałe według ich terminów, zmienne według twojej średniej — w dwóch scenariuszach: z majątkiem netto i bez niego."
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Stałe wydatki Pepa"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "Czynsz, internet, telefon, streaming i ubezpieczenie samochodu: pięć wpisów z 2. miesiąca, kiedy zapadła decyzja o porządkach. Każdy od tamtej pory liczy się sam."
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "Jak się to zapisuje"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "Formularz idzie krok po kroku: kwota, zmienny czy stały, kategoria (wpisujesz własną, a on podpowiada znane), jak często się powtarza i notatka."
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "Rok transakcji"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "Setki wydatków poukładanych w folderach roku i miesiąca. Poszukaj 7. miesiąca: to tam awaria, która jednym ciosem zabrała prawie dziesięć tysięcy pesos."
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "Skąd biorą się pieniądze"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "Dwie wypłaty co dwa tygodnie z kawiarni, korepetycje z fizyki, które ruszyły wraz z decyzją o podróży, i cotygodniowe napiwki — nigdy takie same."
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "W swoim domu możesz zapisywać także przez czat: „wydatek 250 na zakupy” — i już jest zapisane."
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "Cel, który się spełnił"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "Podróż do Japonii, w 100%: jedenaście miesięcy oszczędzania, korepetycje, trzynasta pensja i prezenty urodzinowe. Niżej fundusz awaryjny, który ruszył po powrocie, i mała inwestycja."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "Cel w czasie"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "To, co zostało do spłaty"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "Awaria samochodu poszła na kartę i spłacała się miesiącami. Długi są osobno, bo czyta się je na odwrót: tu spadek to wygrana."
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "Rynki"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pep pilnuje jena od decyzji o podróży, a teraz też wona, ze względu na kolejną. Waluty, Krypto, Akcje i Surowce na żywo (potrzebny internet)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "Cztery reguły finansów osobistych, każda w swojej zakładce: Fundusz awaryjny, Niezależność finansowa, 50/30/20 i wkład własny na samochód (Auto 20/4/10)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "Już z twoim saldem"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "Pola przychodzą wypełnione twoim realnym przychodem albo wydatkiem z tego miesiąca — dotknij ich, żeby zasymulować inną kwotę, nie tracąc z oczu tej prawdziwej."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "Z wyliczenia w cel"
+  }
+]

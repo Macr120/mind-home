@@ -1,0 +1,1082 @@
+[
+  {
+    "ruta": "tarjetas.0.termino",
+    "es": "receipt",
+    "en": "el recibo"
+  },
+  {
+    "ruta": "tarjetas.0.traduccion",
+    "es": "recibo, ticket",
+    "en": "the receipt"
+  },
+  {
+    "ruta": "tarjetas.0.ejemplo",
+    "es": "Can I have the receipt, please?",
+    "en": "¿Me da el recibo, por favor?"
+  },
+  {
+    "ruta": "tarjetas.1.termino",
+    "es": "how much is it",
+    "en": "cuánto cuesta"
+  },
+  {
+    "ruta": "tarjetas.1.traduccion",
+    "es": "cuánto cuesta",
+    "en": "how much is it"
+  },
+  {
+    "ruta": "tarjetas.1.ejemplo",
+    "es": "I pointed at the blue mug and asked: how much is it?",
+    "en": "Señalé la taza azul y pregunté: ¿cuánto cuesta?"
+  },
+  {
+    "ruta": "tarjetas.2.termino",
+    "es": "cheap",
+    "en": "barato"
+  },
+  {
+    "ruta": "tarjetas.2.traduccion",
+    "es": "barato",
+    "en": "cheap"
+  },
+  {
+    "ruta": "tarjetas.2.ejemplo",
+    "es": "The loose leaf tea in that little shop is very cheap.",
+    "en": "El té a granel de esa tienda es muy barato."
+  },
+  {
+    "ruta": "tarjetas.3.termino",
+    "es": "to try on",
+    "en": "probarme"
+  },
+  {
+    "ruta": "tarjetas.3.traduccion",
+    "es": "probarse (ropa)",
+    "en": "to try on (myself)"
+  },
+  {
+    "ruta": "tarjetas.3.ejemplo",
+    "es": "I want to try on these running shoes before I pay.",
+    "en": "¿Puedo probarme estas zapatillas antes de pagar?"
+  },
+  {
+    "ruta": "tarjetas.3.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.4.termino",
+    "es": "size",
+    "en": "talla"
+  },
+  {
+    "ruta": "tarjetas.4.traduccion",
+    "es": "talla, número",
+    "en": "size (clothes)"
+  },
+  {
+    "ruta": "tarjetas.4.ejemplo",
+    "es": "Do you have this jacket in a bigger size?",
+    "en": "¿Tiene esta chaqueta en una talla más grande?"
+  },
+  {
+    "ruta": "tarjetas.5.termino",
+    "es": "turn left",
+    "en": "gira a la izquierda"
+  },
+  {
+    "ruta": "tarjetas.5.traduccion",
+    "es": "gira a la izquierda",
+    "en": "turn left"
+  },
+  {
+    "ruta": "tarjetas.5.ejemplo",
+    "es": "At the traffic lights, turn left and cross the bridge.",
+    "en": "En el semáforo, gira a la izquierda y cruza el puente."
+  },
+  {
+    "ruta": "tarjetas.6.termino",
+    "es": "next to",
+    "en": "al lado de"
+  },
+  {
+    "ruta": "tarjetas.6.traduccion",
+    "es": "al lado de",
+    "en": "next to"
+  },
+  {
+    "ruta": "tarjetas.6.ejemplo",
+    "es": "The bakery is next to the pharmacy, on the same side.",
+    "en": "La panadería está al lado de la farmacia, en la misma acera."
+  },
+  {
+    "ruta": "tarjetas.7.termino",
+    "es": "how do I get to",
+    "en": "cómo llego a"
+  },
+  {
+    "ruta": "tarjetas.7.traduccion",
+    "es": "cómo llego a",
+    "en": "how do I get to"
+  },
+  {
+    "ruta": "tarjetas.7.ejemplo",
+    "es": "Excuse me, how do I get to the train station?",
+    "en": "Perdone, ¿cómo llego a la estación de tren?"
+  },
+  {
+    "ruta": "tarjetas.8.termino",
+    "es": "straight ahead",
+    "en": "todo recto"
+  },
+  {
+    "ruta": "tarjetas.8.traduccion",
+    "es": "todo recto",
+    "en": "straight ahead"
+  },
+  {
+    "ruta": "tarjetas.8.ejemplo",
+    "es": "Go straight ahead for two blocks and you will see the park.",
+    "en": "Sigue todo recto dos calles y vas a ver el parque."
+  },
+  {
+    "ruta": "tarjetas.9.termino",
+    "es": "to feel sick",
+    "en": "encontrarse mal"
+  },
+  {
+    "ruta": "tarjetas.9.traduccion",
+    "es": "encontrarse mal",
+    "en": "to feel sick"
+  },
+  {
+    "ruta": "tarjetas.9.ejemplo",
+    "es": "I ate too fast and started to feel sick before my shift.",
+    "en": "Comí muy rápido y empecé a encontrarse mal justo antes del turno."
+  },
+  {
+    "ruta": "tarjetas.10.termino",
+    "es": "appointment",
+    "en": "pedir cita"
+  },
+  {
+    "ruta": "tarjetas.10.traduccion",
+    "es": "cita (médica)",
+    "en": "to book an appointment"
+  },
+  {
+    "ruta": "tarjetas.10.ejemplo",
+    "es": "I booked an appointment with the doctor for Friday morning.",
+    "en": "Tengo que pedir cita con el médico para el viernes por la mañana."
+  },
+  {
+    "ruta": "tarjetas.10.tipo",
+    "es": "palabra",
+    "en": "expresion"
+  },
+  {
+    "ruta": "tarjetas.11.termino",
+    "es": "sore",
+    "en": "agujetas"
+  },
+  {
+    "ruta": "tarjetas.11.traduccion",
+    "es": "dolorido",
+    "en": "sore muscles"
+  },
+  {
+    "ruta": "tarjetas.11.ejemplo",
+    "es": "My legs are sore after the long run on Sunday.",
+    "en": "Tengo agujetas en las piernas después de la tirada del domingo."
+  },
+  {
+    "ruta": "tarjetas.12.termino",
+    "es": "it hurts here",
+    "en": "me duele aquí"
+  },
+  {
+    "ruta": "tarjetas.12.traduccion",
+    "es": "me duele aquí",
+    "en": "it hurts here"
+  },
+  {
+    "ruta": "tarjetas.12.ejemplo",
+    "es": "I touched my knee and said: it hurts here, only when I run.",
+    "en": "Me toqué la rodilla y dije: me duele aquí, solo cuando corro."
+  },
+  {
+    "ruta": "tarjetas.13.termino",
+    "es": "to breathe",
+    "en": "respirar"
+  },
+  {
+    "ruta": "tarjetas.13.traduccion",
+    "es": "respirar",
+    "en": "to breathe"
+  },
+  {
+    "ruta": "tarjetas.13.ejemplo",
+    "es": "The app tells me to breathe slowly for ten minutes.",
+    "en": "La aplicación me dice que tengo que respirar despacio diez minutos."
+  },
+  {
+    "ruta": "tarjetas.14.termino",
+    "es": "last week",
+    "en": "la semana pasada"
+  },
+  {
+    "ruta": "tarjetas.14.traduccion",
+    "es": "la semana pasada",
+    "en": "last week"
+  },
+  {
+    "ruta": "tarjetas.14.ejemplo",
+    "es": "I ran five kilometres last week without stopping once.",
+    "en": "La semana pasada corrí cinco kilómetros sin parar."
+  },
+  {
+    "ruta": "tarjetas.15.termino",
+    "es": "I bought",
+    "en": "compré"
+  },
+  {
+    "ruta": "tarjetas.15.traduccion",
+    "es": "compré",
+    "en": "I bought"
+  },
+  {
+    "ruta": "tarjetas.15.ejemplo",
+    "es": "I bought a second-hand keyboard from a neighbour.",
+    "en": "Compré un teclado de segunda mano a un vecino."
+  },
+  {
+    "ruta": "tarjetas.15.tipo",
+    "es": "frase",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.16.termino",
+    "es": "ago",
+    "en": "hace cuatro meses"
+  },
+  {
+    "ruta": "tarjetas.16.traduccion",
+    "es": "hace (tiempo)",
+    "en": "four months ago"
+  },
+  {
+    "ruta": "tarjetas.16.ejemplo",
+    "es": "I started running four months ago and now I can do 5K.",
+    "en": "Empecé a correr hace cuatro meses y ya hago cinco kilómetros."
+  },
+  {
+    "ruta": "tarjetas.16.tipo",
+    "es": "palabra",
+    "en": "expresion"
+  },
+  {
+    "ruta": "tarjetas.17.termino",
+    "es": "was able to",
+    "en": "pude"
+  },
+  {
+    "ruta": "tarjetas.17.traduccion",
+    "es": "pude, conseguí",
+    "en": "I was able to"
+  },
+  {
+    "ruta": "tarjetas.17.ejemplo",
+    "es": "I was able to finish the race without walking.",
+    "en": "Pude terminar la carrera sin caminar ni un metro."
+  },
+  {
+    "ruta": "tarjetas.17.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.18.termino",
+    "es": "to save money",
+    "en": "ahorrar"
+  },
+  {
+    "ruta": "tarjetas.18.traduccion",
+    "es": "ahorrar dinero",
+    "en": "to save money"
+  },
+  {
+    "ruta": "tarjetas.18.ejemplo",
+    "es": "I need to save money every payday for the trip in September.",
+    "en": "Necesito ahorrar cada quincena para el viaje de septiembre."
+  },
+  {
+    "ruta": "tarjetas.18.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.19.termino",
+    "es": "discount",
+    "en": "descuento"
+  },
+  {
+    "ruta": "tarjetas.19.traduccion",
+    "es": "descuento",
+    "en": "discount"
+  },
+  {
+    "ruta": "tarjetas.19.ejemplo",
+    "es": "The shop gave me a small discount because the box was open.",
+    "en": "Me hicieron un pequeño descuento porque la caja estaba abierta."
+  },
+  {
+    "ruta": "tarjetas.20.termino",
+    "es": "I forgot",
+    "en": "se me olvidó"
+  },
+  {
+    "ruta": "tarjetas.20.traduccion",
+    "es": "me olvidé, olvidé",
+    "en": "I forgot"
+  },
+  {
+    "ruta": "tarjetas.20.ejemplo",
+    "es": "I forgot my card at home and paid in cash.",
+    "en": "Se me olvidó la tarjeta en casa y pagué en efectivo."
+  },
+  {
+    "ruta": "tarjetas.21.termino",
+    "es": "on the corner",
+    "en": "en la esquina"
+  },
+  {
+    "ruta": "tarjetas.21.traduccion",
+    "es": "en la esquina",
+    "en": "on the corner"
+  },
+  {
+    "ruta": "tarjetas.21.ejemplo",
+    "es": "The coffee shop is on the corner, in front of the bus stop.",
+    "en": "La cafetería está en la esquina, enfrente de la parada del autobús."
+  },
+  {
+    "ruta": "tarjetas.22.termino",
+    "es": "to book",
+    "en": "reservar"
+  },
+  {
+    "ruta": "tarjetas.22.traduccion",
+    "es": "reservar",
+    "en": "to book"
+  },
+  {
+    "ruta": "tarjetas.22.ejemplo",
+    "es": "I want to book a room for three nights in October.",
+    "en": "Quiero reservar una habitación para tres noches en octubre."
+  },
+  {
+    "ruta": "tarjetas.23.termino",
+    "es": "not far from",
+    "en": "lejos de"
+  },
+  {
+    "ruta": "tarjetas.23.traduccion",
+    "es": "no lejos de",
+    "en": "far from"
+  },
+  {
+    "ruta": "tarjetas.23.ejemplo",
+    "es": "The hostel is not far from the station, about ten minutes walking.",
+    "en": "El hostal no está lejos de la estación: unos diez minutos andando."
+  },
+  {
+    "ruta": "tarjetas.24.termino",
+    "es": "to feel better",
+    "en": "sentirme mejor"
+  },
+  {
+    "ruta": "tarjetas.24.traduccion",
+    "es": "sentirse mejor",
+    "en": "to feel better"
+  },
+  {
+    "ruta": "tarjetas.24.ejemplo",
+    "es": "After two easy days I started to feel better.",
+    "en": "Después de dos días suaves empecé a sentirme mejor."
+  },
+  {
+    "ruta": "tarjetas.25.termino",
+    "es": "passport",
+    "en": "pasaporte"
+  },
+  {
+    "ruta": "tarjetas.25.traduccion",
+    "es": "pasaporte",
+    "en": "passport"
+  },
+  {
+    "ruta": "tarjetas.25.ejemplo",
+    "es": "I renewed my passport two weeks ago and it finally arrived.",
+    "en": "Renové el pasaporte hace dos semanas y por fin me llegó."
+  },
+  {
+    "ruta": "tarjetas.26.termino",
+    "es": "to give up",
+    "en": "rendirse"
+  },
+  {
+    "ruta": "tarjetas.26.traduccion",
+    "es": "rendirse, abandonar",
+    "en": "to give up"
+  },
+  {
+    "ruta": "tarjetas.26.ejemplo",
+    "es": "With the knee like this, the easy thing would be to give up.",
+    "en": "Con la rodilla así, lo fácil sería rendirse."
+  },
+  {
+    "ruta": "tarjetas.26.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.27.termino",
+    "es": "unexpected expense",
+    "en": "gasto imprevisto"
+  },
+  {
+    "ruta": "tarjetas.27.traduccion",
+    "es": "gasto imprevisto",
+    "en": "unexpected expense"
+  },
+  {
+    "ruta": "tarjetas.27.ejemplo",
+    "es": "The car repair was an unexpected expense of three hundred euros.",
+    "en": "La reparación del coche fue un gasto imprevisto de trescientos euros."
+  },
+  {
+    "ruta": "tarjetas.28.termino",
+    "es": "to be worth it",
+    "en": "valer la pena"
+  },
+  {
+    "ruta": "tarjetas.28.traduccion",
+    "es": "valer la pena",
+    "en": "to be worth it"
+  },
+  {
+    "ruta": "tarjetas.28.ejemplo",
+    "es": "The physio is expensive, but it's going to be worth it.",
+    "en": "El fisio es caro, pero va a valer la pena."
+  },
+  {
+    "ruta": "tarjetas.29.termino",
+    "es": "on the other hand",
+    "en": "por otro lado"
+  },
+  {
+    "ruta": "tarjetas.29.traduccion",
+    "es": "por otro lado",
+    "en": "on the other hand"
+  },
+  {
+    "ruta": "tarjetas.29.ejemplo",
+    "es": "The injury annoys me; on the other hand, I'm playing more piano than ever.",
+    "en": "Me molesta la lesión; por otro lado, toco más piano que nunca."
+  },
+  {
+    "ruta": "tarjetas.30.termino",
+    "es": "I'd rather",
+    "en": "preferir"
+  },
+  {
+    "ruta": "tarjetas.30.traduccion",
+    "es": "prefiero (antes que)",
+    "en": "to prefer, would rather"
+  },
+  {
+    "ruta": "tarjetas.30.ejemplo",
+    "es": "I'd rather rest one more week than get injured again.",
+    "en": "Este mes aprendí a preferir el descanso antes que forzar la rodilla."
+  },
+  {
+    "ruta": "tarjetas.30.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.31.termino",
+    "es": "to book",
+    "en": "reservar"
+  },
+  {
+    "ruta": "tarjetas.31.traduccion",
+    "es": "reservar",
+    "en": "to book"
+  },
+  {
+    "ruta": "tarjetas.31.ejemplo",
+    "es": "I still need to book the night bus to Hiroshima.",
+    "en": "Todavía tengo que reservar el autobús nocturno a Hiroshima."
+  },
+  {
+    "ruta": "tarjetas.32.termino",
+    "es": "round trip",
+    "en": "ida y vuelta"
+  },
+  {
+    "ruta": "tarjetas.32.traduccion",
+    "es": "ida y vuelta",
+    "en": "round trip"
+  },
+  {
+    "ruta": "tarjetas.32.ejemplo",
+    "es": "The round trip ticket was cheaper than two single ones.",
+    "en": "El billete de ida y vuelta salía más barato que dos sencillos."
+  },
+  {
+    "ruta": "tarjetas.33.termino",
+    "es": "to look forward to",
+    "en": "tener ganas de"
+  },
+  {
+    "ruta": "tarjetas.33.traduccion",
+    "es": "tener ganas de",
+    "en": "to look forward to"
+  },
+  {
+    "ruta": "tarjetas.33.ejemplo",
+    "es": "I'm starting to look forward to the trip more than I expected.",
+    "en": "Empiezo a tener ganas de viajar más de lo que esperaba."
+  },
+  {
+    "ruta": "tarjetas.34.termino",
+    "es": "schedule",
+    "en": "el horario"
+  },
+  {
+    "ruta": "tarjetas.34.traduccion",
+    "es": "horario, planificación",
+    "en": "the schedule, the timetable"
+  },
+  {
+    "ruta": "tarjetas.34.ejemplo",
+    "es": "I made a schedule with two free days in every city.",
+    "en": "Armé el horario con dos días libres en cada ciudad."
+  },
+  {
+    "ruta": "tarjetas.35.termino",
+    "es": "to make progress",
+    "en": "avanzar"
+  },
+  {
+    "ruta": "tarjetas.35.traduccion",
+    "es": "avanzar, progresar",
+    "en": "to make progress"
+  },
+  {
+    "ruta": "tarjetas.35.ejemplo",
+    "es": "The physio says that slow is the only way to make progress.",
+    "en": "El fisio dice que avanzar despacio es la única forma."
+  },
+  {
+    "ruta": "tarjetas.35.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.36.termino",
+    "es": "jet lag",
+    "en": "el desfase horario"
+  },
+  {
+    "ruta": "tarjetas.36.traduccion",
+    "es": "desfase horario",
+    "en": "jet lag"
+  },
+  {
+    "ruta": "tarjetas.36.ejemplo",
+    "es": "The jet lag woke me up at four in the morning for three days.",
+    "en": "El desfase horario me despertaba a las cuatro de la mañana."
+  },
+  {
+    "ruta": "tarjetas.37.termino",
+    "es": "to get lost",
+    "en": "perderse"
+  },
+  {
+    "ruta": "tarjetas.37.traduccion",
+    "es": "perderse",
+    "en": "to get lost"
+  },
+  {
+    "ruta": "tarjetas.37.ejemplo",
+    "es": "It's very easy to get lost in Shinjuku station, even with a map.",
+    "en": "Es facilísimo perderse en la estación de Shinjuku, incluso con mapa."
+  },
+  {
+    "ruta": "tarjetas.37.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.38.termino",
+    "es": "crowded",
+    "en": "abarrotado"
+  },
+  {
+    "ruta": "tarjetas.38.traduccion",
+    "es": "abarrotado, lleno de gente",
+    "en": "packed, crowded"
+  },
+  {
+    "ruta": "tarjetas.38.ejemplo",
+    "es": "The train to Hakone was so crowded that I stood the whole way.",
+    "en": "El tren a Hakone iba abarrotado y fui de pie todo el camino."
+  },
+  {
+    "ruta": "tarjetas.39.termino",
+    "es": "on time",
+    "en": "puntual"
+  },
+  {
+    "ruta": "tarjetas.39.traduccion",
+    "es": "puntual, a la hora",
+    "en": "on time, punctual"
+  },
+  {
+    "ruta": "tarjetas.39.ejemplo",
+    "es": "Every train here leaves exactly on time, to the minute.",
+    "en": "Aquí cada tren sale puntual, al minuto exacto."
+  },
+  {
+    "ruta": "tarjetas.39.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.40.termino",
+    "es": "to run out of",
+    "en": "quedarse sin"
+  },
+  {
+    "ruta": "tarjetas.40.traduccion",
+    "es": "quedarse sin",
+    "en": "to run out of"
+  },
+  {
+    "ruta": "tarjetas.40.ejemplo",
+    "es": "It's easy to run out of cash here if you don't find a convenience store.",
+    "en": "En un pueblo pequeño es fácil quedarse sin efectivo."
+  },
+  {
+    "ruta": "tarjetas.41.termino",
+    "es": "a must-see",
+    "en": "imprescindible"
+  },
+  {
+    "ruta": "tarjetas.41.traduccion",
+    "es": "algo imprescindible",
+    "en": "essential, a must"
+  },
+  {
+    "ruta": "tarjetas.41.ejemplo",
+    "es": "Nara is small, but the walk through the old streets is a must-see.",
+    "en": "Nara es pequeña, pero el paseo por el parque es imprescindible."
+  },
+  {
+    "ruta": "tarjetas.41.tipo",
+    "es": "frase",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.42.termino",
+    "es": "accommodation",
+    "en": "el alojamiento"
+  },
+  {
+    "ruta": "tarjetas.42.traduccion",
+    "es": "alojamiento",
+    "en": "the accommodation"
+  },
+  {
+    "ruta": "tarjetas.42.ejemplo",
+    "es": "Our accommodation in Kyoto was a ryokan with tatami floors.",
+    "en": "El alojamiento en Kioto era un ryokan con suelo de tatami."
+  },
+  {
+    "ruta": "tarjetas.43.termino",
+    "es": "overwhelming",
+    "en": "abrumador"
+  },
+  {
+    "ruta": "tarjetas.43.traduccion",
+    "es": "abrumador",
+    "en": "overwhelming"
+  },
+  {
+    "ruta": "tarjetas.43.ejemplo",
+    "es": "The noise in Osaka was overwhelming, but in a fun way.",
+    "en": "El ruido de Osaka era abrumador, pero de una forma divertida."
+  },
+  {
+    "ruta": "tarjetas.44.termino",
+    "es": "by the end of",
+    "en": "al final del viaje"
+  },
+  {
+    "ruta": "tarjetas.44.traduccion",
+    "es": "al final de",
+    "en": "by the end of the trip"
+  },
+  {
+    "ruta": "tarjetas.44.ejemplo",
+    "es": "By the end of the trip I was ordering food without thinking about it.",
+    "en": "Ya al final del viaje pedía la comida sin pensarlo."
+  },
+  {
+    "ruta": "tarjetas.45.termino",
+    "es": "to get used to",
+    "en": "acostumbrarse a"
+  },
+  {
+    "ruta": "tarjetas.45.traduccion",
+    "es": "acostumbrarse a",
+    "en": "to get used to"
+  },
+  {
+    "ruta": "tarjetas.45.ejemplo",
+    "es": "It took me a full week to get used to my home routine again.",
+    "en": "Volver a acostumbrarse a la rutina de casa me llevó una semana entera."
+  },
+  {
+    "ruta": "tarjetas.46.termino",
+    "es": "training plan",
+    "en": "el plan de entrenamiento"
+  },
+  {
+    "ruta": "tarjetas.46.traduccion",
+    "es": "plan de entrenamiento",
+    "en": "the training plan"
+  },
+  {
+    "ruta": "tarjetas.46.ejemplo",
+    "es": "My training plan has three short runs and one long run a week.",
+    "en": "Mi plan de entrenamiento tiene tres carreras cortas y una tirada larga."
+  },
+  {
+    "ruta": "tarjetas.47.termino",
+    "es": "to catch up",
+    "en": "ponerse al día"
+  },
+  {
+    "ruta": "tarjetas.47.traduccion",
+    "es": "ponerse al día",
+    "en": "to catch up"
+  },
+  {
+    "ruta": "tarjetas.47.ejemplo",
+    "es": "After the trip I had to catch up with two lab reports.",
+    "en": "Después del viaje tocó ponerse al día con dos informes de laboratorio."
+  },
+  {
+    "ruta": "tarjetas.48.termino",
+    "es": "to apply for",
+    "en": "solicitar"
+  },
+  {
+    "ruta": "tarjetas.48.traduccion",
+    "es": "solicitar, presentarse a",
+    "en": "to apply for"
+  },
+  {
+    "ruta": "tarjetas.48.ejemplo",
+    "es": "I don't know whether to apply for a master's or look for a job.",
+    "en": "No sé si solicitar un máster o buscar trabajo en un laboratorio."
+  },
+  {
+    "ruta": "tarjetas.48.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetas.49.termino",
+    "es": "deadline",
+    "en": "la fecha límite"
+  },
+  {
+    "ruta": "tarjetas.49.traduccion",
+    "es": "fecha límite",
+    "en": "the deadline"
+  },
+  {
+    "ruta": "tarjetas.49.ejemplo",
+    "es": "The deadline for the application is in January.",
+    "en": "La fecha límite de la solicitud es en enero."
+  },
+  {
+    "ruta": "tarjetas.49.tipo",
+    "es": "palabra",
+    "en": "frase"
+  },
+  {
+    "ruta": "tarjetas.50.termino",
+    "es": "it depends on",
+    "en": "depende de"
+  },
+  {
+    "ruta": "tarjetas.50.traduccion",
+    "es": "depende de",
+    "en": "it depends on"
+  },
+  {
+    "ruta": "tarjetas.50.ejemplo",
+    "es": "It depends on whether I can keep my shifts at the café.",
+    "en": "Todo depende de si puedo mantener los turnos de la cafetería."
+  },
+  {
+    "ruta": "tarjetas.51.termino",
+    "es": "achievement",
+    "en": "el logro"
+  },
+  {
+    "ruta": "tarjetas.51.traduccion",
+    "es": "logro",
+    "en": "the achievement"
+  },
+  {
+    "ruta": "tarjetas.51.ejemplo",
+    "es": "Finishing the half marathon was the biggest achievement of my year.",
+    "en": "Terminar la media maratón fue el logro más grande del año."
+  },
+  {
+    "ruta": "tarjetas.52.termino",
+    "es": "to look back",
+    "en": "echar la vista atrás"
+  },
+  {
+    "ruta": "tarjetas.52.traduccion",
+    "es": "mirar atrás",
+    "en": "to look back"
+  },
+  {
+    "ruta": "tarjetas.52.ejemplo",
+    "es": "When I look back, the hardest month was the one with the injury.",
+    "en": "Al echar la vista atrás, el mes más duro fue el de la lesión."
+  },
+  {
+    "ruta": "tarjetas.53.termino",
+    "es": "job interview",
+    "en": "la entrevista de trabajo"
+  },
+  {
+    "ruta": "tarjetas.53.traduccion",
+    "es": "entrevista de trabajo",
+    "en": "the job interview"
+  },
+  {
+    "ruta": "tarjetas.53.ejemplo",
+    "es": "I have a job interview at a lab next month.",
+    "en": "Tengo una entrevista de trabajo en un laboratorio el mes que viene."
+  },
+  {
+    "ruta": "tarjetas.54.termino",
+    "es": "to save up for",
+    "en": "ahorrar para"
+  },
+  {
+    "ruta": "tarjetas.54.traduccion",
+    "es": "ahorrar para",
+    "en": "to save up for"
+  },
+  {
+    "ruta": "tarjetas.54.ejemplo",
+    "es": "Now I'm starting to save up for Korea.",
+    "en": "Ahora empiezo a ahorrar para Corea, poco a poco."
+  },
+  {
+    "ruta": "tarjetas.55.termino",
+    "es": "used to",
+    "en": "solía"
+  },
+  {
+    "ruta": "tarjetas.55.traduccion",
+    "es": "solía, antes hacía",
+    "en": "used to"
+  },
+  {
+    "ruta": "tarjetas.55.ejemplo",
+    "es": "I used to go to bed at two in the morning and hate the alarm.",
+    "en": "Antes solía acostarme a las dos de la mañana y odiaba el despertador."
+  },
+  {
+    "ruta": "tarjetas.55.tipo",
+    "es": "expresion",
+    "en": "palabra"
+  },
+  {
+    "ruta": "tarjetasJa.0.traduccion",
+    "es": "perdón, disculpe (también para llamar la atención)",
+    "en": "excuse me / sorry (also to get attention)"
+  },
+  {
+    "ruta": "tarjetasJa.1.traduccion",
+    "es": "muchas gracias",
+    "en": "thank you very much"
+  },
+  {
+    "ruta": "tarjetasJa.2.traduccion",
+    "es": "estación (de tren)",
+    "en": "train station"
+  },
+  {
+    "ruta": "tarjetasJa.3.traduccion",
+    "es": "¿cuánto cuesta?",
+    "en": "how much is it?"
+  },
+  {
+    "ruta": "tarjetasJa.4.traduccion",
+    "es": "agua, por favor",
+    "en": "water, please"
+  },
+  {
+    "ruta": "tarjetasJa.5.traduccion",
+    "es": "¿dónde está el baño?",
+    "en": "where is the toilet?"
+  },
+  {
+    "ruta": "tarjetasJa.6.traduccion",
+    "es": "no entiendo",
+    "en": "I don't understand"
+  },
+  {
+    "ruta": "tarjetasJa.7.traduccion",
+    "es": "por favor (al pedir algo)",
+    "en": "please (when asking for something)"
+  },
+  {
+    "ruta": "tarjetasJa.8.traduccion",
+    "es": "esto, por favor (señalando)",
+    "en": "this one, please (while pointing)"
+  },
+  {
+    "ruta": "tarjetasJa.9.traduccion",
+    "es": "¿dónde está la estación?",
+    "en": "where is the station?"
+  },
+  {
+    "ruta": "tarjetasJa.10.traduccion",
+    "es": "¿cuánto cuesta?",
+    "en": "how much is it?"
+  },
+  {
+    "ruta": "tarjetasJa.11.traduccion",
+    "es": "agua, por favor",
+    "en": "water, please"
+  },
+  {
+    "ruta": "tarjetasJa.12.traduccion",
+    "es": "¿dónde está el baño?",
+    "en": "where is the toilet?"
+  },
+  {
+    "ruta": "tarjetasJa.13.traduccion",
+    "es": "¿habla inglés?",
+    "en": "do you speak English?"
+  },
+  {
+    "ruta": "tarjetasJa.14.traduccion",
+    "es": "está bien, no hace falta",
+    "en": "it's fine / no thanks, I'm okay"
+  },
+  {
+    "ruta": "tarjetasJa.15.traduccion",
+    "es": "tengo una reserva (la hice)",
+    "en": "I have a reservation (I booked)"
+  },
+  {
+    "ruta": "tarjetasJa.16.traduccion",
+    "es": "la cuenta, por favor",
+    "en": "the bill, please"
+  },
+  {
+    "ruta": "tarjetasJa.17.traduccion",
+    "es": "billete de tren",
+    "en": "train ticket"
+  },
+  {
+    "ruta": "tarjetasJa.18.traduccion",
+    "es": "espere un momento, por favor",
+    "en": "one moment, please"
+  },
+  {
+    "ruta": "tarjetasJa.19.traduccion",
+    "es": "está buenísimo",
+    "en": "it's delicious"
+  },
+  {
+    "ruta": "temas.0.titulo",
+    "es": "Vocabulario de cafetería",
+    "en": "Coffee shop vocabulary"
+  },
+  {
+    "ruta": "temas.0.descripcion",
+    "es": "Todo lo que digo en mi turno: pedidos, leches vegetales, esperas y disculpas amables.",
+    "en": "Everything I say during a shift: orders, plant milks, waiting times and polite apologies."
+  },
+  {
+    "ruta": "temas.1.titulo",
+    "es": "El cuerpo y el médico",
+    "en": "Body and doctor"
+  },
+  {
+    "ruta": "temas.1.descripcion",
+    "es": "Palabras para explicar dolores, pedir cita y hablar de descanso sin sonar a manual.",
+    "en": "Words to describe aches, book an appointment and talk about rest without sounding like a textbook."
+  },
+  {
+    "ruta": "temas.2.titulo",
+    "es": "Dinero y ahorro para Japón",
+    "en": "Money and saving for Japan"
+  },
+  {
+    "ruta": "temas.2.descripcion",
+    "es": "Números grandes, precios y frases para hablar del presupuesto del viaje.",
+    "en": "Big numbers, prices and phrases to talk about the travel budget."
+  },
+  {
+    "ruta": "charla.titulo",
+    "es": "Pasado simple y presente perfecto",
+    "en": "Preterite vs imperfect"
+  },
+  {
+    "ruta": "charla.pregunta",
+    "es": "Escribo el diario en inglés y siempre dudo: ¿por qué unas veces pongo «I ran 5K on Sunday» y otras «I have run 5K»? Para mí suenan igual.",
+    "en": "I write my journal in Spanish and I never know which past to use. Why is it \"corrí cinco kilómetros el domingo\" but \"corría por el parque todas las mañanas\"?"
+  },
+  {
+    "ruta": "charla.respuesta",
+    "es": "No suenan igual para quien te lee: el pasado simple cierra el momento («I ran 5K on Sunday» — el domingo, terminado, con fecha), y el presente perfecto conecta con el ahora («I have run 5K three times this month», el mes sigue abierto). Regla práctica para tu diario: si dices cuándo pasó, pasado simple; si hablas de tu total o de tu experiencia hasta hoy, presente perfecto. Fíjate también en «yet» y «already»: «I haven't started the marathon plan yet». Escríbeme tres frases sobre tu semana con las dos formas y te las corrijo.",
+    "en": "Both are past, but they look at time differently. The preterite (corrí, compré, pude) is for finished actions you can put on a calendar: \"El domingo corrí cinco kilómetros\". The imperfect (corría, compraba, podía) is for habits, backgrounds and descriptions: \"Cuando empecé, corría muy despacio y me cansaba en diez minutos\". A useful trick for your diary: preterite tells what happened, imperfect tells what things were like around it. Write me three entries mixing both and I'll mark the ones that feel off."
+  },
+  {
+    "ruta": "materiales.0.titulo",
+    "es": "Frases para el check-in",
+    "en": "Hotel check-in phrases"
+  },
+  {
+    "ruta": "materiales.0.texto",
+    "es": "I have a reservation under the name Pepa. — la frase que más repetí en tres semanas.\nIs breakfast included? / What time is check-out?\nCould you keep my luggage until three, please? — clave los días de tren.\nIs there a laundry nearby?\nY la que siempre me llegaba a mí: «Could I see your passport, please?»",
+    "en": "Tengo una reserva a nombre de Pepa. — the line I repeated most for three weeks.\n¿El desayuno está incluido? / ¿A qué hora es la salida?\n¿Pueden guardarme la maleta hasta las tres? — key on train days.\n¿Hay una lavandería cerca?\nAnd the one they always fire back at me: «¿Me deja su pasaporte, por favor?»"
+  },
+  {
+    "ruta": "materiales.1.titulo",
+    "es": "Mi turno en inglés",
+    "en": "Café shift vocabulary"
+  },
+  {
+    "ruta": "materiales.1.texto",
+    "es": "To go or for here? / Anything else?\nOat milk, soy milk, half a shot, extra hot — los cuatro que más piden.\nSorry for the wait, the machine is warming up.\nIt's on the house. — cuando alguien lleva veinte minutos esperando.\nCash or card? The card reader is down again.",
+    "en": "¿Para llevar o para tomar aquí? / ¿Algo más?\nLeche de avena, leche de soja, un espresso corto, muy caliente — the four I hear most.\nPerdona la espera, la máquina se está calentando.\nInvita la casa. — for when someone has waited twenty minutes.\n¿En efectivo o con tarjeta? El datáfono no va otra vez."
+  }
+]

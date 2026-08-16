@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "texto": "“关联应用”会打开选择器：先选应用，再选它的哪个部分（如果里面有多个可以记录的地方）。"
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "texto": "标签放好之后"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "texto": "标签放好后，点一下就直接打开那个应用的那个部分。移除它不会删掉目标，也不会删掉它的日期：只是断开链接。"
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "texto": "只有已经分配到某个房间物件上的应用才会出现在目的地里：关联一个没有房间的应用，标签就哪儿也去不了。"
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "texto": "这个按钮会打开家里的音乐控制。"
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "texto": "开或关"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "texto": "一个开关，管家里所有的环境音乐。关掉后，除了具体操作的音效，家里就安静了。"
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "texto": "每个房间的主题曲"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "texto": "每个房间都可以不一样：按它的应用自动选、手动挑一首，或者只让这个房间完全安静，不影响家里其他地方。"
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "texto": "声音从哪里来"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "texto": "“自动生成”（按气氛自己作曲）、“我的曲目”（你自己上传的）或“系统”（你已经在应用外播放的，不会被盖掉）。"
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "texto": "音量分开调"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "texto": "音乐和操作音效（脚步、点击、成就）分开调整——可以把音乐调低、留着音效，反过来也行。"
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "texto": "控制面板上的按钮可以从主界面移除；在“编辑器 › 设置 › 音乐”里依然找得到。"
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "texto": "家里的AI在这里开启：不开的话，聊天还是按关键词工作，而生成食谱、计划或图片这类功能会一直关着。"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "texto": "有账户或没账户"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "texto": "可以用你自己的服务商密钥（不用账户，也不消耗点数），也可以用带点数、还能在设备之间同步的账户。"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "texto": "AI价格"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "texto": "就算没有账户，这张表也有用：判断值不值得，需要的正是这些。它按房间、按操作逐条列出。"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "texto": "唯一能调的一项"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "texto": "能改变整张表价格的只有图片质量：“快速”质量不错又便宜（默认用它），“高质量”细节更丰富，图片里的文字也更清晰。"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "texto": "一种单位，很多操作"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "texto": "一次回复1点，长计划3点，一张图片或一个3D模型10点——所有房间的规则都一样，这张表只是把它一条条摊开。"
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "texto": "在几乎每个还没有你自己数据的应用里都会出现这个栏：一个按钮，让你看到填满示例的样子，而不是面对一片空白。"
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "texto": "看示例不会删掉、也不会混进你自己的东西：那是单独的、标着示例的记录，关掉时只是隐藏（不会删除）。再打开，它们会原样回来。"
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "texto": "在演示之家里不会出现这个栏：Pep整整一年的记录已经在扮演这个角色，不需要另外的示例。"
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "texto": "三个来源，一份清单"
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "texto": "划掉，是因为数据已经在了"
+  }
+]

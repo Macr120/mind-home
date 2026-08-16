@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.menu-cuartos.6.texto",
+    "texto": "Kamer maken opent de kaarteditor met het penseel klaar om de nieuwe kamer te tekenen: vorm, grootte en plek liggen bij jou. Op de telefoon is de snelkoppeling via het gereedschapswiel › Bouwen › Kamers handiger: die tekent rechtstreeks op de kaart, zonder het paneel te openen."
+  },
+  {
+    "clave": "tut.menu-cuartos.7.texto",
+    "texto": "Kort samengevat: Bewerken om aan te passen, Openen om de app te gebruiken. De andere tabbladen van dit menu hebben hun eigen tutorial."
+  },
+  {
+    "clave": "tut.menu-plantillas.1.texto",
+    "texto": "Een sjabloon is een app (Keuken, Gym, Financiën…). Je wijst het toe aan een object in een kamer en het opent zodra je binnenkomt."
+  },
+  {
+    "clave": "tut.menu-plantillas.2.titulo",
+    "texto": "Twee weergaven"
+  },
+  {
+    "clave": "tut.menu-plantillas.2.texto",
+    "texto": "Kamers zijn de gewone apps, elk in zijn eigen object. Extra's is iets anders: banen, velden, moestuin, boerderij of paintball bouw je rechtstreeks op de grond, zonder dat ze een kamer innemen."
+  },
+  {
+    "clave": "tut.menu-plantillas.3.titulo",
+    "texto": "De catalogus"
+  },
+  {
+    "clave": "tut.menu-plantillas.3.texto",
+    "texto": "De standaard-apps en die van jou, in groepen geordend. Tik er een aan om hem aan een kamer toe te wijzen of, bij Extra's, om hem op de kaart te bouwen."
+  },
+  {
+    "clave": "tut.menu-plantillas.4.titulo",
+    "texto": "Je eigen sjablonen"
+  },
+  {
+    "clave": "tut.menu-plantillas.4.texto",
+    "texto": "Maak je eigen sjablonen door ze met blokken op te bouwen: notities, checklists, tellers, gewoontes, galerijen… Deze knop opent hun eigen editor met een eigen tutorial."
+  },
+  {
+    "clave": "tut.menu-plantillas.5.texto",
+    "texto": "Eén kamer kan meerdere apps hebben: bij binnenkomst verschijnt een keuzescherm om te kiezen welke je opent."
+  },
+  {
+    "clave": "tut.plantillas-custom.1.texto",
+    "texto": "Deze editor bouwt vanaf nul een eigen app: je geeft hem vorm met een naam, een emoji en blokken, en hij belandt in de catalogus naast de standaard-apps."
+  },
+  {
+    "clave": "tut.plantillas-custom.2.titulo",
+    "texto": "Naam, emoji en kleur"
+  },
+  {
+    "clave": "tut.plantillas-custom.2.texto",
+    "texto": "Hoe hij gaat heten en in welke kleur hij verschijnt in het menu, de catalogus en de kalender als je er iets van inplant."
+  },
+  {
+    "clave": "tut.plantillas-custom.3.titulo",
+    "texto": "De hulpmiddelen"
+  },
+  {
+    "clave": "tut.plantillas-custom.3.texto",
+    "texto": "Twaalf soorten blokken: notities, checklist, teller, gewoonte, sessies, aftellen, galerij, logboek, beoordeling, voortgang, lijst en links. Elk blok dat je toevoegt, wordt een onderdeel van je app."
+  },
+  {
+    "clave": "tut.plantillas-custom.4.titulo",
+    "texto": "De volgorde telt"
+  },
+  {
+    "clave": "tut.plantillas-custom.4.texto",
+    "texto": "Toegevoegde blokken herschik je met de pijltjes en verwijder je met de ✕ — een blok weghalen wist zijn gegevens bij het opslaan, dus kijk het na voordat je bevestigt. Met de keuzelijst “Menu” verhuizen ze van het ene tabblad naar het andere zonder dat er iets verloren gaat."
+  },
+  {
+    "clave": "tut.plantillas-custom.5.titulo",
+    "texto": "Opslaan"
+  },
+  {
+    "clave": "tut.plantillas-custom.5.texto",
+    "texto": "Met een naam en minstens één blok zet Opslaan hem klaar in de catalogus. Vanaf daar wijs je hem aan een object toe, net als elk standaardsjabloon."
+  },
+  {
+    "clave": "tut.plantillas-custom.6.texto",
+    "texto": "Je kunt hem altijd opnieuw bewerken: zijn blokken en zijn gegevens blijven staan, alleen wat je aanpast verandert."
+  },
+  {
+    "clave": "tut.menu-inventario.1.texto",
+    "texto": "De inventaris: alle objecten die je in je huis kunt zetten, klaar om te slepen."
+  },
+  {
+    "clave": "tut.menu-inventario.2.titulo",
+    "texto": "Objecten"
+  },
+  {
+    "clave": "tut.menu-inventario.2.texto",
+    "texto": "Jouw objectenbibliotheek, per categorie en per map. Je kunt ze hernoemen en ordenen zodat je ze de volgende keer snel terugvindt."
+  },
+  {
+    "clave": "tut.menu-inventario.3.titulo",
+    "texto": "Speciale objecten"
+  },
+  {
+    "clave": "tut.menu-inventario.3.texto",
+    "texto": "Die écht iets doen en niet alleen versieren: bestuurbare voertuigen, speelgoedpistolen, fonteinen, speeltoestellen en lampen."
+  },
+  {
+    "clave": "tut.menu-inventario.4.titulo",
+    "texto": "Plaatsen"
+  },
+  {
+    "clave": "tut.menu-inventario.4.texto",
+    "texto": "Met dit menu open sleep je een miniatuur rechtstreeks de 3D-scène in om hem neer te zetten waar je maar wilt."
+  },
+  {
+    "clave": "tut.menu-inventario.5.texto",
+    "texto": "Wil je verplaatsen, verven of verwijderen wat er al staat, gebruik dan de Editor (tabblad Objecten) — dit menu is er alleen om nieuwe dingen de scène in te halen."
+  },
+  {
+    "clave": "tut.editor-mapa.1.texto",
+    "texto": "De editor van het huis heeft 4 tabbladen: Kaart, Personages, Objecten en Instellingen. Deze rondleiding gaat over Kaart; de andere drie hebben hun eigen rondleiding."
+  },
+  {
+    "clave": "tut.editor-mapa.2.titulo",
+    "texto": "De schets"
+  },
+  {
+    "clave": "tut.editor-mapa.2.texto",
+    "texto": "Je tekent op een raster van bovenaf gezien: kamers, muren, deuren, ramen en vloeren, met de modi en penselen uit de bovenste balk. Wat je tekent verschijnt meteen in 3D, zonder iets opnieuw te laden."
+  }
+]

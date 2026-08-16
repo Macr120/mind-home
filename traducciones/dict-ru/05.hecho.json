@@ -1,0 +1,1078 @@
+[
+ {
+  "clave": "corazon.gato.noche.1",
+  "texto": "Тихая ночь. Не порти её 🐾"
+ },
+ {
+  "clave": "corazon.gato.rutina.0",
+  "texto": "Эй, «{r}» в {h}. Я не двигаюсь 🐾"
+ },
+ {
+  "clave": "corazon.gato.rutina.1",
+  "texto": "«{r}» уже скоро ({h}). Ты справишься; я прослежу 🐱"
+ },
+ {
+  "clave": "corazon.gato.generica.0",
+  "texto": "Всё под контролем. Проверил, пока дремал 🐾"
+ },
+ {
+  "clave": "corazon.gato.generica.1",
+  "texto": "Хм. Дом всё ещё стоит. Не за что 🐱"
+ },
+ {
+  "clave": "corazon.perro.manana.0",
+  "texto": "Доброе утро! Сегодня пахнет отличным днём! 🐶"
+ },
+ {
+  "clave": "corazon.perro.manana.1",
+  "texto": "Уже утро! Вперёд-вперёд-вперёд! 🦴"
+ },
+ {
+  "clave": "corazon.perro.tarde.0",
+  "texto": "Идеальный день, чтобы всё успеть! Гав! 🐶"
+ },
+ {
+  "clave": "corazon.perro.tarde.1",
+  "texto": "Всё ещё здесь, слежу за всем! 🎉"
+ },
+ {
+  "clave": "corazon.perro.noche.0",
+  "texto": "Какой отличный был день! Правда? Правда? 🐶"
+ },
+ {
+  "clave": "corazon.perro.noche.1",
+  "texto": "Тихая ночь… Я на страже! 🦴"
+ },
+ {
+  "clave": "corazon.perro.rutina.0",
+  "texto": "«{r}» в {h}! Ты справишься! 🎉"
+ },
+ {
+  "clave": "corazon.perro.rutina.1",
+  "texto": "Не забудь про «{r}» в {h}! Гав! 🐶"
+ },
+ {
+  "clave": "corazon.perro.generica.0",
+  "texto": "Обожаю этот дом! 🐶"
+ },
+ {
+  "clave": "corazon.perro.generica.1",
+  "texto": "Зови, если что-то понадобится! Что угодно! 🦴"
+ },
+ {
+  "clave": "corazon.buho.manana.0",
+  "texto": "Рассвет. Идеальное время, чтобы спокойно спланировать день. 🦉"
+ },
+ {
+  "clave": "corazon.buho.manana.1",
+  "texto": "Упорядоченное утро приносит двойную пользу."
+ },
+ {
+  "clave": "corazon.buho.tarde.0",
+  "texto": "Полдень: хороший момент, чтобы оценить прогресс. 🦉"
+ },
+ {
+  "clave": "corazon.buho.tarde.1",
+  "texto": "Вторая половина дня проходит по плану."
+ },
+ {
+  "clave": "corazon.buho.noche.0",
+  "texto": "Наступает ночь. Предлагаю закрыть день короткой записью. 🦉"
+ },
+ {
+  "clave": "corazon.buho.noche.1",
+  "texto": "Ночь располагает к размышлениям."
+ },
+ {
+  "clave": "corazon.buho.rutina.0",
+  "texto": "Своевременное напоминание: «{r}» в {h}. 🦉"
+ },
+ {
+  "clave": "corazon.buho.rutina.1",
+  "texto": "В твоём расписании указано «{r}» в {h}."
+ },
+ {
+  "clave": "corazon.buho.generica.0",
+  "texto": "Наблюдаю и делаю пометки. Всё в порядке. 🦉"
+ },
+ {
+  "clave": "corazon.buho.generica.1",
+  "texto": "Знание накапливается день за днём."
+ },
+ {
+  "clave": "corazon.robot.manana.0",
+  "texto": "☀ ДНЕВНОЙ ЦИКЛ ЗАПУЩЕН. СИСТЕМЫ НА 100%. 🤖"
+ },
+ {
+  "clave": "corazon.robot.manana.1",
+  "texto": "ДОБРОЕ УТРО. БАТАРЕЯ ЗАРЯЖЕНА ПОЛНОСТЬЮ. ✓"
+ },
+ {
+  "clave": "corazon.robot.tarde.0",
+  "texto": "ДНЕВНОЕ СКАНИРОВАНИЕ ЗАВЕРШЕНО. АНОМАЛИЙ НЕТ. ✓"
+ },
+ {
+  "clave": "corazon.robot.tarde.1",
+  "texto": "ПРОДУКТИВНОСТЬ В ПРЕДЕЛАХ НОРМЫ. 🤖"
+ },
+ {
+  "clave": "corazon.robot.noche.0",
+  "texto": "НОЧНОЙ РЕЖИМ АКТИВЕН. ДЕЖУРСТВО ПРОДОЛЖАЕТСЯ. 🤖"
+ },
+ {
+  "clave": "corazon.robot.noche.1",
+  "texto": "РЕКОМЕНДАЦИЯ: ПЕРЕЗАРЯДИТЬ ЧЕЛОВЕЧЕСКИЙ БЛОК (СОН). ✓"
+ },
+ {
+  "clave": "corazon.robot.rutina.0",
+  "texto": "НАПОМИНАНИЕ: «{r}» ЗАПЛАНИРОВАНО НА {h}. ✓"
+ },
+ {
+  "clave": "corazon.robot.rutina.1",
+  "texto": "ВНИМАНИЕ: «{r}» В {h}. 🤖"
+ },
+ {
+  "clave": "corazon.robot.generica.0",
+  "texto": "ВСЕ СИСТЕМЫ В НОРМЕ. 🤖"
+ },
+ {
+  "clave": "corazon.robot.generica.1",
+  "texto": "ОЖИДАНИЕ ИНСТРУКЦИЙ. НЕ СРОЧНО. ✓"
+ },
+ {
+  "clave": "chat.config.activoMapa",
+  "texto": "Активный помощник всегда на карте"
+ },
+ {
+  "clave": "chat.config.editar",
+  "texto": "Настроить"
+ },
+ {
+  "clave": "chat.config.eliminar",
+  "texto": "Удалить помощника"
+ },
+ {
+  "clave": "chat.config.eliminarConfirma",
+  "texto": "Удалить {n}? Переписка сохранится."
+ },
+ {
+  "clave": "chat.config.eliminarOk",
+  "texto": "Удалить"
+ },
+ {
+  "clave": "chat.config.eliminarUltimo",
+  "texto": "Должен остаться хотя бы один помощник"
+ },
+ {
+  "clave": "chat.config.restaurar",
+  "texto": "Восстановить:"
+ },
+ {
+  "clave": "chat.config.restaurarUno",
+  "texto": "Восстановить"
+ },
+ {
+  "clave": "acceso.subir",
+  "texto": "Подняться на уровень {n}"
+ },
+ {
+  "clave": "acceso.bajarPlanta",
+  "texto": "Спуститься на первый этаж"
+ },
+ {
+  "clave": "acceso.bajar",
+  "texto": "Спуститься на уровень {n}"
+ },
+ {
+  "clave": "veh.ayuda",
+  "texto": "Поставь транспорт на карту и подойди к нему, чтобы сесть."
+ },
+ {
+  "clave": "veh.colocar",
+  "texto": "Поставить на карту"
+ },
+ {
+  "clave": "veh.color",
+  "texto": "Цвет транспорта"
+ },
+ {
+  "clave": "veh.subirte",
+  "texto": "Сесть"
+ },
+ {
+  "clave": "veh.bajarte",
+  "texto": "Слезть"
+ },
+ {
+  "clave": "accion.sentarte",
+  "texto": "Сесть"
+ },
+ {
+  "clave": "accion.acostarte",
+  "texto": "Лечь"
+ },
+ {
+  "clave": "accion.sentado",
+  "texto": "Сидит"
+ },
+ {
+  "clave": "accion.acostado",
+  "texto": "Лежит"
+ },
+ {
+  "clave": "accion.levantarte",
+  "texto": "Встать"
+ },
+ {
+  "clave": "veh.subir",
+  "texto": "Подняться (Пробел)"
+ },
+ {
+  "clave": "veh.bajar",
+  "texto": "Опуститься (Shift)"
+ },
+ {
+  "clave": "veh.derrape",
+  "texto": "Занос (Пробел)"
+ },
+ {
+  "clave": "hud.ayuda",
+  "texto": "Двигайся с помощью WASD/стрелок или джойстика (внизу слева). Вращай и приближай кнопками (внизу справа). Проходи через двери между комнатами."
+ },
+ {
+  "clave": "cat.cuerpo",
+  "texto": "Тело"
+ },
+ {
+  "clave": "cat.mente",
+  "texto": "Разум"
+ },
+ {
+  "clave": "cat.complemento",
+  "texto": "Дополнения"
+ },
+ {
+  "clave": "cat.config",
+  "texto": "Настройки"
+ },
+ {
+  "clave": "ajustes.titulo",
+  "texto": "Настройки"
+ },
+ {
+  "clave": "ajustes.idioma",
+  "texto": "Язык"
+ },
+ {
+  "clave": "diario.nacidoAbrev",
+  "texto": "р."
+ },
+ {
+  "clave": "ajustes.tema",
+  "texto": "Тема интерфейса"
+ },
+ {
+  "clave": "ajustes.modo",
+  "texto": "Оформление"
+ },
+ {
+  "clave": "ajustes.modo.claro",
+  "texto": "Светлая"
+ },
+ {
+  "clave": "ajustes.modo.oscuro",
+  "texto": "Тёмная"
+ },
+ {
+  "clave": "ajustes.modo.transparente",
+  "texto": "Прозрачная"
+ },
+ {
+  "clave": "ajustes.iconos",
+  "texto": "Стиль иконок"
+ },
+ {
+  "clave": "ajustes.iconos.emoji",
+  "texto": "Эмодзи"
+ },
+ {
+  "clave": "ajustes.iconos.profesional",
+  "texto": "Профессиональный"
+ },
+ {
+  "clave": "ajustes.tipografia",
+  "texto": "Шрифт"
+ },
+ {
+  "clave": "ajustes.abrir",
+  "texto": "Настройки"
+ },
+ {
+  "clave": "tipografia.sistema",
+  "texto": "Системный"
+ },
+ {
+  "clave": "tipografia.serif",
+  "texto": "Серифный"
+ },
+ {
+  "clave": "tipografia.mono",
+  "texto": "Моноширинный"
+ },
+ {
+  "clave": "tipografia.redondeada",
+  "texto": "Округлый"
+ },
+ {
+  "clave": "tipografia.manuscrita",
+  "texto": "Рукописный"
+ },
+ {
+  "clave": "temaUI.medianoche",
+  "texto": "Полночь"
+ },
+ {
+  "clave": "temaUI.neon",
+  "texto": "Неон"
+ },
+ {
+  "clave": "temaUI.bosque",
+  "texto": "Лес"
+ },
+ {
+  "clave": "temaUI.ambar",
+  "texto": "Янтарь"
+ },
+ {
+  "clave": "temaUI.ciruela",
+  "texto": "Слива"
+ },
+ {
+  "clave": "room.cocina.nombre",
+  "texto": "Кухня"
+ },
+ {
+  "clave": "room.ejercicio.nombre",
+  "texto": "Спортзал"
+ },
+ {
+  "clave": "room.recamara.nombre",
+  "texto": "Спальня"
+ },
+ {
+  "clave": "room.descanso.nombre",
+  "texto": "Кровать · Отдых"
+ },
+ {
+  "clave": "room.anecdotario.nombre",
+  "texto": "Стол · Дневник"
+ },
+ {
+  "clave": "room.despacho.nombre",
+  "texto": "Кабинет"
+ },
+ {
+  "clave": "room.biblioteca.nombre",
+  "texto": "Библиотека"
+ },
+ {
+  "clave": "room.entretenimiento.nombre",
+  "texto": "Развлечения"
+ },
+ {
+  "clave": "room.sala.nombre",
+  "texto": "Гостиная"
+ },
+ {
+  "clave": "room.jardin.nombre",
+  "texto": "Сад"
+ },
+ {
+  "clave": "room.garage.nombre",
+  "texto": "Гараж"
+ },
+ {
+  "clave": "room.diario.nombre",
+  "texto": "Новости дня"
+ },
+ {
+  "clave": "room.hobbies.nombre",
+  "texto": "Хобби"
+ },
+ {
+  "clave": "room.idiomas.nombre",
+  "texto": "Языки"
+ },
+ {
+  "clave": "room.caminos.nombre",
+  "texto": "Трассы"
+ },
+ {
+  "clave": "room.canchas.nombre",
+  "texto": "Площадки"
+ },
+ {
+  "clave": "room.huerto.nombre",
+  "texto": "Еда"
+ },
+ {
+  "clave": "room.granja.nombre",
+  "texto": "Ферма"
+ },
+ {
+  "clave": "room.ideas.nombre",
+  "texto": "Идеи"
+ },
+ {
+  "clave": "room.computo.nombre",
+  "texto": "Компьютерная"
+ },
+ {
+  "clave": "room.agenda.nombre",
+  "texto": "Ежедневник"
+ },
+ {
+  "clave": "room.cocina.sub",
+  "texto": "Питание"
+ },
+ {
+  "clave": "room.ejercicio.sub",
+  "texto": "Силовые тренировки и фитнес"
+ },
+ {
+  "clave": "room.recamara.sub",
+  "texto": "Сон и воспоминания"
+ },
+ {
+  "clave": "room.descanso.sub",
+  "texto": "Сон и будильник"
+ },
+ {
+  "clave": "room.anecdotario.sub",
+  "texto": "Личный дневник"
+ },
+ {
+  "clave": "room.despacho.sub",
+  "texto": "Финансы"
+ },
+ {
+  "clave": "room.biblioteca.sub",
+  "texto": "Обучение"
+ },
+ {
+  "clave": "room.entretenimiento.sub",
+  "texto": "Архив и настольные игры"
+ },
+ {
+  "clave": "room.sala.sub",
+  "texto": "Путешествия"
+ },
+ {
+  "clave": "room.jardin.sub",
+  "texto": "Осознанность"
+ },
+ {
+  "clave": "room.garage.sub",
+  "texto": "Обслуживание транспорта"
+ },
+ {
+  "clave": "room.diario.sub",
+  "texto": "Новости дня"
+ },
+ {
+  "clave": "room.hobbies.sub",
+  "texto": "Увлечения и проекты"
+ },
+ {
+  "clave": "room.calendario.sub",
+  "texto": "События и рутины"
+ },
+ {
+  "clave": "room.ideas.sub",
+  "texto": "Карты понятий на свободном холсте"
+ },
+ {
+  "clave": "room.computo.sub",
+  "texto": "Калькулятор и таблицы"
+ },
+ {
+  "clave": "room.agenda.sub",
+  "texto": "Работа, здоровье и люди"
+ },
+ {
+  "clave": "hud.plegar",
+  "texto": "Свернуть управление"
+ },
+ {
+  "clave": "hud.desplegar",
+  "texto": "Показать управление"
+ },
+ {
+  "clave": "nav3d.aria",
+  "texto": "Управление видом"
+ },
+ {
+  "clave": "nav3d.vistaCuarto",
+  "texto": "Вид комнаты"
+ },
+ {
+  "clave": "nav3d.vistaInterior",
+  "texto": "Вид на стену"
+ },
+ {
+  "clave": "nav3d.rotarIzq",
+  "texto": "Повернуть вид влево"
+ },
+ {
+  "clave": "nav3d.rotarDer",
+  "texto": "Повернуть вид вправо"
+ },
+ {
+  "clave": "nav3d.acercar",
+  "texto": "Приблизить"
+ },
+ {
+  "clave": "nav3d.alejar",
+  "texto": "Отдалить"
+ },
+ {
+  "clave": "nav3d.restaurarCuarto",
+  "texto": "Сбросить масштаб и фокус комнаты"
+ },
+ {
+  "clave": "nav3d.vistaInicial",
+  "texto": "Исходный вид"
+ },
+ {
+  "clave": "nav3d.centrarCuarto",
+  "texto": "Центрировать комнату"
+ },
+ {
+  "clave": "nav3d.reiniciar",
+  "texto": "Сбросить вид"
+ },
+ {
+  "clave": "nav3d.editor3d",
+  "texto": "3D-редактор"
+ },
+ {
+  "clave": "nav3d.editor3dOn",
+  "texto": "Закрыть редактор"
+ },
+ {
+  "clave": "nav3d.editor3dHint",
+  "texto": "Редактируй мир в перспективе: коснись объекта, пола, стены или персонажа, чтобы изменить его"
+ },
+ {
+  "clave": "nav3d.verFlechas",
+  "texto": "Вернуться к стрелкам движения"
+ },
+ {
+  "clave": "nav3d.verCubo",
+  "texto": "Свернуть стрелки и открыть куб вида"
+ },
+ {
+  "clave": "nav3d.verFlechasBtn",
+  "texto": "Показать стрелки"
+ },
+ {
+  "clave": "nav3d.verCuboBtn",
+  "texto": "Показать вид"
+ },
+ {
+  "clave": "herr.boton",
+  "texto": "Инструменты"
+ },
+ {
+  "clave": "herr.rueda",
+  "texto": "Колесо инструментов"
+ },
+ {
+  "clave": "herr.cubo",
+  "texto": "Куб"
+ },
+ {
+  "clave": "herr.saltar",
+  "texto": "Прыгать"
+ },
+ {
+  "clave": "herr.correr",
+  "texto": "Бежать"
+ },
+ {
+  "clave": "herr.bailar",
+  "texto": "Танцевать"
+ },
+ {
+  "clave": "herr.laser",
+  "texto": "Лазер"
+ },
+ {
+  "clave": "herr.volverCubo",
+  "texto": "Вернуться к кубу вида"
+ },
+ {
+  "clave": "herr.saltarBtn",
+  "texto": "Прыгай!"
+ },
+ {
+  "clave": "herr.corriendo",
+  "texto": "Бежит"
+ },
+ {
+  "clave": "herr.bailando",
+  "texto": "Танцует"
+ },
+ {
+  "clave": "herr.disparar",
+  "texto": "Стрелять"
+ },
+ {
+  "clave": "herr.invocar",
+  "texto": "Призвать"
+ },
+ {
+  "clave": "herr.soloPlantaBaja",
+  "texto": "Спустись на первый этаж, чтобы призвать его"
+ },
+ {
+  "clave": "herr.veh.bicicleta",
+  "texto": "Велосипед"
+ },
+ {
+  "clave": "herr.veh.motocicleta",
+  "texto": "Мотоцикл"
+ },
+ {
+  "clave": "herr.veh.automovil",
+  "texto": "Автомобиль"
+ },
+ {
+  "clave": "herr.veh.ovni",
+  "texto": "НЛО"
+ },
+ {
+  "clave": "herr.cat.movimientos",
+  "texto": "Движения"
+ },
+ {
+  "clave": "herr.cat.juguetes",
+  "texto": "Игрушки"
+ },
+ {
+  "clave": "herr.cat.vehiculos",
+  "texto": "Транспорт"
+ },
+ {
+  "clave": "herr.cat.construccion",
+  "texto": "Строительство"
+ },
+ {
+  "clave": "herr.construir",
+  "texto": "Строить"
+ },
+ {
+  "clave": "herr.constrDibujar",
+  "texto": "Рисовать"
+ },
+ {
+  "clave": "herr.abrirEditor",
+  "texto": "Открыть редактор"
+ },
+ {
+  "clave": "herr.atras",
+  "texto": "Назад"
+ },
+ {
+  "clave": "herr.cuerda",
+  "texto": "Скакалка"
+ },
+ {
+  "clave": "herr.mortal",
+  "texto": "Сальто"
+ },
+ {
+  "clave": "herr.saludar",
+  "texto": "Помахать"
+ },
+ {
+  "clave": "herr.mover",
+  "texto": "Переместить"
+ },
+ {
+  "clave": "herr.moverAcercate",
+  "texto": "Подойди к объекту или комнате"
+ },
+ {
+  "clave": "herr.agarrar",
+  "texto": "Схватить"
+ },
+ {
+  "clave": "herr.agarrarCuarto",
+  "texto": "Схватить комнату"
+ },
+ {
+  "clave": "herr.moverCargandoObjeto",
+  "texto": "Несёшь объект"
+ },
+ {
+  "clave": "herr.moverCargandoCuarto",
+  "texto": "Несёшь комнату"
+ },
+ {
+  "clave": "herr.soltar",
+  "texto": "Отпустить"
+ },
+ {
+  "clave": "ctx.interactuar",
+  "texto": "Взаимодействовать"
+ },
+ {
+  "clave": "ctx.entrarApp",
+  "texto": "Открыть приложение"
+ },
+ {
+  "clave": "ctx.cambiarLetrero",
+  "texto": "Изменить табличку"
+ },
+ {
+  "clave": "ctx.usar",
+  "texto": "Использовать"
+ },
+ {
+  "clave": "ctx.subirte",
+  "texto": "Забраться"
+ },
+ {
+  "clave": "ctx.subirteDona",
+  "texto": "Забраться на круг"
+ },
+ {
+  "clave": "ctx.cosechar",
+  "texto": "Собрать урожай"
+ },
+ {
+  "clave": "ctx.recoger",
+  "texto": "Подобрать"
+ },
+ {
+  "clave": "ctx.bajarte",
+  "texto": "Слезть"
+ },
+ {
+  "clave": "ctx.correr",
+  "texto": "Гонка"
+ },
+ {
+  "clave": "ctx.revisarTu",
+  "texto": "Проверить"
+ },
+ {
+  "clave": "ctx.subirA",
+  "texto": "Подняться на"
+ },
+ {
+  "clave": "ctx.bajarA",
+  "texto": "Спуститься на"
+ },
+ {
+  "clave": "ctx.nivelN",
+  "texto": "Уровень {n}"
+ },
+ {
+  "clave": "ctx.plantaBaja",
+  "texto": "Первый этаж"
+ },
+ {
+  "clave": "ctx.jugar.futbol",
+  "texto": "Играть в футбол"
+ },
+ {
+  "clave": "ctx.jugar.tenis",
+  "texto": "Играть в теннис"
+ },
+ {
+  "clave": "ctx.jugar.basket",
+  "texto": "Играть в баскетбол"
+ },
+ {
+  "clave": "ctx.jugar.beisbol",
+  "texto": "Играть в бейсбол"
+ },
+ {
+  "clave": "herr.portales",
+  "texto": "Порталы"
+ },
+ {
+  "clave": "herr.fuegos",
+  "texto": "Фейерверки"
+ },
+ {
+  "clave": "herr.burbujas",
+  "texto": "Пузыри"
+ },
+ {
+  "clave": "herr.cuerdaOn",
+  "texto": "Прыгает через скакалку"
+ },
+ {
+  "clave": "herr.mortalBtn",
+  "texto": "Сальто!"
+ },
+ {
+  "clave": "herr.saludarBtn",
+  "texto": "Привет!"
+ },
+ {
+  "clave": "herr.portalColocar",
+  "texto": "Поставить портал"
+ },
+ {
+  "clave": "herr.portalQuitar",
+  "texto": "Убрать порталы"
+ },
+ {
+  "clave": "herr.fuegosBtn",
+  "texto": "Запустить!"
+ },
+ {
+  "clave": "herr.burbujasOn",
+  "texto": "Дует пузыри"
+ },
+ {
+  "clave": "herr.quitar",
+  "texto": "Убрать инструмент"
+ },
+ {
+  "clave": "herr.grafiti",
+  "texto": "Граффити"
+ },
+ {
+  "clave": "herr.grafitiPintar",
+  "texto": "Покрасить стену"
+ },
+ {
+  "clave": "herr.grafitiSinMuro",
+  "texto": "Подойди к стене"
+ },
+ {
+  "clave": "herr.grafitiMuroPuerta",
+  "texto": "Стены с дверью не красятся"
+ },
+ {
+  "clave": "herr.grafitiMuroCurvo",
+  "texto": "Изогнутые стены не красятся"
+ },
+ {
+  "clave": "graf.titulo",
+  "texto": "Граффити"
+ },
+ {
+  "clave": "graf.pincel",
+  "texto": "Кисть"
+ },
+ {
+  "clave": "graf.spray",
+  "texto": "Спрей"
+ },
+ {
+  "clave": "graf.borrador",
+  "texto": "Ластик"
+ },
+ {
+  "clave": "graf.bote",
+  "texto": "Залить всё одним цветом"
+ },
+ {
+  "clave": "graf.grosor",
+  "texto": "Толщина"
+ },
+ {
+  "clave": "graf.color",
+  "texto": "Цвет"
+ },
+ {
+  "clave": "graf.deshacer",
+  "texto": "Отменить"
+ },
+ {
+  "clave": "graf.limpiar",
+  "texto": "Очистить"
+ },
+ {
+  "clave": "graf.borrar",
+  "texto": "Удалить граффити"
+ },
+ {
+  "clave": "graf.guardar",
+  "texto": "Сохранить"
+ },
+ {
+  "clave": "graf.salir",
+  "texto": "Выйти без сохранения"
+ },
+ {
+  "clave": "despacho.tab.balance",
+  "texto": "Денежный поток"
+ },
+ {
+  "clave": "despacho.tab.mercados",
+  "texto": "Рынки"
+ },
+ {
+  "clave": "despacho.tab.divisas",
+  "texto": "Форекс"
+ },
+ {
+  "clave": "despacho.tab.criptos",
+  "texto": "Крипто"
+ },
+ {
+  "clave": "despacho.tab.acciones",
+  "texto": "Акции"
+ },
+ {
+  "clave": "despacho.tab.commodities",
+  "texto": "Сырьё"
+ },
+ {
+  "clave": "despacho.sub.balance",
+  "texto": "Баланс"
+ },
+ {
+  "clave": "despacho.tab.gastos",
+  "texto": "Расходы"
+ },
+ {
+  "clave": "despacho.tab.ingresos",
+  "texto": "Доходы"
+ },
+ {
+  "clave": "despacho.tab.metas",
+  "texto": "Цели"
+ },
+ {
+  "clave": "despacho.tab.financieras",
+  "texto": "Финансы"
+ },
+ {
+  "clave": "despacho.tab.ahorroInversion",
+  "texto": "Накопления/Инвестиции"
+ },
+ {
+  "clave": "despacho.tab.ahorro",
+  "texto": "Накопления"
+ },
+ {
+  "clave": "despacho.tab.inversion",
+  "texto": "Инвестиции"
+ },
+ {
+  "clave": "despacho.tab.deuda",
+  "texto": "Долги"
+ },
+ {
+  "clave": "despacho.r.ingresos",
+  "texto": "Доходы"
+ },
+ {
+  "clave": "despacho.r.gastos",
+  "texto": "Расходы"
+ },
+ {
+  "clave": "despacho.r.balance",
+  "texto": "Баланс"
+ },
+ {
+  "clave": "despacho.presupuesto",
+  "texto": "Месячный бюджет"
+ },
+ {
+  "clave": "despacho.presupuesto.equivale",
+  "texto": "Это {n} за этот период"
+ },
+ {
+  "clave": "despacho.patrimonio",
+  "texto": "Капитал"
+ },
+ {
+  "clave": "despacho.patrimonio.ayuda",
+  "texto": "Твои активы минус твои пассивы — на вкладке «Капитал». Здесь видно только то, как всё будет выглядеть, если период закроется вот так."
+ },
+ {
+  "clave": "despacho.excedido",
+  "texto": "Бюджет превышен на {n}"
+ },
+ {
+  "clave": "despacho.progreso",
+  "texto": "У тебя {used} из {total} ({pct}%)"
+ },
+ {
+  "clave": "despacho.catGastos",
+  "texto": "Расходы по категориям"
+ },
+ {
+  "clave": "despacho.sinGastos",
+  "texto": "Нет расходов за этот период."
+ },
+ {
+  "clave": "despacho.periodo.dia",
+  "texto": "День"
+ },
+ {
+  "clave": "despacho.periodo.semana",
+  "texto": "Неделя"
+ },
+ {
+  "clave": "despacho.periodo.mes",
+  "texto": "Месяц"
+ },
+ {
+  "clave": "despacho.periodo.anio",
+  "texto": "Год"
+ },
+ {
+  "clave": "despacho.plazo.dia",
+  "texto": "Каждый день"
+ },
+ {
+  "clave": "despacho.plazo.semana",
+  "texto": "Каждую неделю"
+ },
+ {
+  "clave": "despacho.plazo.mes",
+  "texto": "Каждый месяц"
+ },
+ {
+  "clave": "despacho.plazo.anio",
+  "texto": "Каждый год"
+ },
+ {
+  "clave": "despacho.tendencia.dia",
+  "texto": "Баланс · последние 6 дней"
+ },
+ {
+  "clave": "despacho.tendencia.semana",
+  "texto": "Баланс · последние 6 недель"
+ },
+ {
+  "clave": "despacho.tendencia.mes",
+  "texto": "Баланс · последние 6 месяцев"
+ },
+ {
+  "clave": "despacho.tendencia.anio",
+  "texto": "Баланс · последние 6 лет"
+ },
+ {
+  "clave": "despacho.m.monto",
+  "texto": "Сумма"
+ },
+ {
+  "clave": "despacho.m.nota",
+  "texto": "Заметка (необязательно)"
+ },
+ {
+  "clave": "despacho.m.categoria",
+  "texto": "Категория"
+ }
+]

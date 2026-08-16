@@ -1,0 +1,474 @@
+[
+  {
+    "clave": "idiomas.ej.descVidas",
+    "texto": "Tu continues tant qu’il te reste des vies : chaque erreur en coûte une."
+  },
+  {
+    "clave": "idiomas.ej.descReloj",
+    "texto": "Autant que possible en {n} secondes ; répondre vite donne des points en plus."
+  },
+  {
+    "clave": "idiomas.ej.mult",
+    "texto": "{n}×"
+  },
+  {
+    "clave": "idiomas.ej.vidas",
+    "texto": "{n} vies"
+  },
+  {
+    "clave": "idiomas.ej.terminar",
+    "texto": "Terminer la manche"
+  },
+  {
+    "clave": "idiomas.ej.mejorCombo",
+    "texto": "meilleure série {n}"
+  },
+  {
+    "clave": "idiomas.medalla.perfecta",
+    "texto": "Manche parfaite"
+  },
+  {
+    "clave": "idiomas.medalla.combo10",
+    "texto": "Dix d’affilée"
+  },
+  {
+    "clave": "idiomas.medalla.relampago",
+    "texto": "Éclair"
+  },
+  {
+    "clave": "idiomas.medalla.superviviente",
+    "texto": "Survivant"
+  },
+  {
+    "clave": "idiomas.medalla.maraton",
+    "texto": "Marathon"
+  },
+  {
+    "clave": "idiomas.mis.titulo",
+    "texto": "Défis du jour"
+  },
+  {
+    "clave": "idiomas.mis.resp20",
+    "texto": "Réponds à 20 exercices"
+  },
+  {
+    "clave": "idiomas.mis.resp40",
+    "texto": "Réponds à 40 exercices"
+  },
+  {
+    "clave": "idiomas.mis.acierta15",
+    "texto": "Réussis-en 15"
+  },
+  {
+    "clave": "idiomas.mis.acierta30",
+    "texto": "Réussis-en 30"
+  },
+  {
+    "clave": "idiomas.mis.combo8",
+    "texto": "Enchaîne 8 bonnes réponses"
+  },
+  {
+    "clave": "idiomas.mis.combo12",
+    "texto": "Enchaîne 12 bonnes réponses"
+  },
+  {
+    "clave": "idiomas.mis.partidas2",
+    "texto": "Joue 2 manches"
+  },
+  {
+    "clave": "idiomas.mis.partidas4",
+    "texto": "Joue 4 manches"
+  },
+  {
+    "clave": "idiomas.mis.perfecta1",
+    "texto": "Termine une manche parfaite"
+  },
+  {
+    "clave": "idiomas.mis.modos3",
+    "texto": "Pratique les 3 modes"
+  },
+  {
+    "clave": "idiomas.rec.titulo",
+    "texto": "Records d’exercices"
+  },
+  {
+    "clave": "idiomas.rec.mejorCombo",
+    "texto": "Meilleure série"
+  },
+  {
+    "clave": "idiomas.rec.vacio",
+    "texto": "Tu n’as pas encore joué de manche."
+  },
+  {
+    "clave": "idiomas.nivel.A1",
+    "texto": "Débutant"
+  },
+  {
+    "clave": "idiomas.nivel.A2",
+    "texto": "Élémentaire"
+  },
+  {
+    "clave": "idiomas.nivel.B1",
+    "texto": "Intermédiaire"
+  },
+  {
+    "clave": "idiomas.nivel.B2",
+    "texto": "Intermédiaire avancé"
+  },
+  {
+    "clave": "idiomas.nivel.C1",
+    "texto": "Avancé"
+  },
+  {
+    "clave": "idiomas.nivel.C2",
+    "texto": "Maîtrise"
+  },
+  {
+    "clave": "idiomas.tem.tuNivel",
+    "texto": "ton niveau"
+  },
+  {
+    "clave": "idiomas.tem.cobertura",
+    "texto": "{c}/{total} sujets avec du vocabulaire"
+  },
+  {
+    "clave": "idiomas.tem.nTarjetas",
+    "texto": "{n} cartes pour ce sujet"
+  },
+  {
+    "clave": "idiomas.tem.prompt.temas",
+    "texto": "Je veux pratiquer « {tema} ». Commençons."
+  },
+  {
+    "clave": "idiomas.tem.prompt.pronunciacion",
+    "texto": "Je veux travailler ma prononciation : « {tema} ». Explique-la-moi et donne-moi des exemples à répéter."
+  },
+  {
+    "clave": "idiomas.tem.prompt.gramatica",
+    "texto": "Explique-moi la grammaire de « {tema} » avec des exemples, puis donne-moi des exercices."
+  },
+  {
+    "clave": "idiomas.tem.charlarTip",
+    "texto": "Pratiquer ce sujet avec ton tuteur"
+  },
+  {
+    "clave": "idiomas.tem.verTarjetasTip",
+    "texto": "Voir les cartes de ce sujet"
+  },
+  {
+    "clave": "idiomas.tem.generarTip",
+    "texto": "Générer du vocabulaire de ce sujet avec l’IA"
+  },
+  {
+    "clave": "idiomas.tem.materialTip",
+    "texto": "Tes notes et images pour ce sujet"
+  },
+  {
+    "clave": "idiomas.tem.practicarTip",
+    "texto": "Exercices avec les cartes de ce sujet"
+  },
+  {
+    "clave": "idiomas.tem.sinTarjetas",
+    "texto": "Ce sujet n’a pas encore de cartes."
+  },
+  {
+    "clave": "idiomas.tem.edicionDesc",
+    "texto": "Fais du programme entier le tien : les domaines, niveaux, sujets et sous-sujets s’ajoutent, se renomment, se réordonnent et se suppriment."
+  },
+  {
+    "clave": "idiomas.tem.modoEdicion",
+    "texto": "Modifier le programme"
+  },
+  {
+    "clave": "idiomas.tem.subir",
+    "texto": "Monter"
+  },
+  {
+    "clave": "idiomas.tem.bajar",
+    "texto": "Descendre"
+  },
+  {
+    "clave": "idiomas.tem.izquierda",
+    "texto": "Déplacer à gauche"
+  },
+  {
+    "clave": "idiomas.tem.derecha",
+    "texto": "Déplacer à droite"
+  },
+  {
+    "clave": "idiomas.tem.renombrar",
+    "texto": "Renommer"
+  },
+  {
+    "clave": "idiomas.tem.borrar",
+    "texto": "Supprimer le sujet"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTema",
+    "texto": "Nouveau sujet dans {nivel}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaTit",
+    "texto": "Nouveau sujet"
+  },
+  {
+    "clave": "idiomas.tem.nuevoTemaMsg",
+    "texto": "Dans {nivel} · {area}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoSubtema",
+    "texto": "Nouveau sous-sujet"
+  },
+  {
+    "clave": "idiomas.tem.subtemaTip",
+    "texto": "Ajouter un sous-sujet dedans"
+  },
+  {
+    "clave": "idiomas.tem.nSubtemas",
+    "texto": "{n} sous-sujets ici dedans"
+  },
+  {
+    "clave": "idiomas.tem.dentroDe",
+    "texto": "Dans « {padre} »"
+  },
+  {
+    "clave": "idiomas.tem.verNivel",
+    "texto": "Voir les sujets du niveau"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivel",
+    "texto": "Nouveau niveau dans {area}"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelTit",
+    "texto": "Nouveau niveau"
+  },
+  {
+    "clave": "idiomas.tem.nuevoNivelMsg",
+    "texto": "Un niveau à toi dans « {area} » ; son badge sera les trois premières lettres."
+  },
+  {
+    "clave": "idiomas.tem.borrarNivel",
+    "texto": "Supprimer le niveau"
+  },
+  {
+    "clave": "idiomas.tem.areaActiva",
+    "texto": "Domaine « {n} »"
+  },
+  {
+    "clave": "idiomas.tem.nuevaArea",
+    "texto": "Nouveau domaine"
+  },
+  {
+    "clave": "idiomas.tem.nuevaAreaMsg",
+    "texto": "Un domaine à toi pour cette langue, à côté de ceux d’origine. Il démarre vide : tu crées ses niveaux dedans."
+  },
+  {
+    "clave": "idiomas.tem.borrarArea",
+    "texto": "Supprimer le domaine"
+  },
+  {
+    "clave": "idiomas.tem.sinAreas",
+    "texto": "Ton programme est vide. Active ✏️ et crée le premier domaine."
+  },
+  {
+    "clave": "idiomas.tem.sinNiveles",
+    "texto": "Ce domaine n’a pas encore de niveaux. Active ✏️ et crée le premier."
+  },
+  {
+    "clave": "idiomas.tem.prompt.propia",
+    "texto": "Je veux pratiquer « {tema} ». Commençons."
+  },
+  {
+    "clave": "idiomas.tem.crear",
+    "texto": "Créer"
+  },
+  {
+    "clave": "idiomas.tem.borrarTit",
+    "texto": "Supprimer « {n} » ?"
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgHijos",
+    "texto": "Il disparaît avec tout ce qu’il contient."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsgTarjetas",
+    "texto": "Ses {n} cartes ne sont PAS supprimées : elles passent dans « Non classées »."
+  },
+  {
+    "clave": "idiomas.tem.borrarMsg",
+    "texto": "Il disparaît du programme de cette langue."
+  },
+  {
+    "clave": "idiomas.tem.sinClasificar",
+    "texto": "Non classées"
+  },
+  {
+    "clave": "idiomas.tem.sinClasificarDesc",
+    "texto": "{n} cartes qui ne sont encore dans aucun sujet"
+  },
+  {
+    "clave": "idiomas.tem.clasificar",
+    "texto": "— Sujet —"
+  },
+  {
+    "clave": "idiomas.tem.clasificarTip",
+    "texto": "L’envoyer vers un sujet du programme"
+  },
+  {
+    "clave": "idiomas.area.temas",
+    "texto": "Sujets"
+  },
+  {
+    "clave": "idiomas.area.pronunciacion",
+    "texto": "Prononciation"
+  },
+  {
+    "clave": "idiomas.area.gramatica",
+    "texto": "Grammaire"
+  },
+  {
+    "clave": "idiomas.area.temas.desc",
+    "texto": "De quoi parler : le vocabulaire et les situations de chaque niveau."
+  },
+  {
+    "clave": "idiomas.area.pronunciacion.desc",
+    "texto": "Comment sonne la langue : sons, accent tonique, rythme et intonation."
+  },
+  {
+    "clave": "idiomas.area.gramatica.desc",
+    "texto": "Les règles de la langue : structures et temps par niveau."
+  },
+  {
+    "clave": "idiomas.mat.titulo",
+    "texto": "Mon matériel"
+  },
+  {
+    "clave": "idiomas.mat.desc",
+    "texto": "Garde ici tes notes et photos de ce sujet : le tableau du cours, une table de conjugaison, une capture d’écran ou tes propres notes."
+  },
+  {
+    "clave": "idiomas.mat.tituloPh",
+    "texto": "Titre de la note (facultatif)"
+  },
+  {
+    "clave": "idiomas.mat.textoPh",
+    "texto": "Colle ou écris tes notes…"
+  },
+  {
+    "clave": "idiomas.mat.guardarNota",
+    "texto": "Enregistrer la note"
+  },
+  {
+    "clave": "idiomas.mat.subirImagen",
+    "texto": "Envoyer une image"
+  },
+  {
+    "clave": "idiomas.mat.subiendo",
+    "texto": "Envoi…"
+  },
+  {
+    "clave": "idiomas.mat.vacio",
+    "texto": "Tu n’as encore rien envoyé pour ce sujet."
+  },
+  {
+    "clave": "idiomas.mat.sinTitulo",
+    "texto": "Note"
+  },
+  {
+    "clave": "idiomas.mat.borrar",
+    "texto": "Supprimer le matériel"
+  },
+  {
+    "clave": "idiomas.mat.confirmarBorrar",
+    "texto": "Supprimer ce matériel ?"
+  },
+  {
+    "clave": "idiomas.charla.nuevaBtn",
+    "texto": "Nouvelle discussion avec {tutor}"
+  },
+  {
+    "clave": "idiomas.charla.vacio",
+    "texto": "Pas encore de discussions en {idioma}. Ton tuteur converse à ton niveau, te corrige en douceur et la discussion fait naître des cartes de vocabulaire."
+  },
+  {
+    "clave": "idiomas.charla.sinTitulo",
+    "texto": "Discussion sans titre"
+  },
+  {
+    "clave": "idiomas.charla.libre",
+    "texto": "Pratique libre"
+  },
+  {
+    "clave": "idiomas.charla.conVocab",
+    "texto": "vocabulaire extrait"
+  },
+  {
+    "clave": "idiomas.charla.nueva",
+    "texto": "Nouvelle discussion"
+  },
+  {
+    "clave": "idiomas.charla.volver",
+    "texto": "Retour aux discussions"
+  },
+  {
+    "clave": "idiomas.charla.renombrar",
+    "texto": "Toucher pour renommer"
+  },
+  {
+    "clave": "idiomas.charla.sub",
+    "texto": "Tuteur de {idioma} · niveau {nivel}"
+  },
+  {
+    "clave": "idiomas.charla.destilar",
+    "texto": "Extraire"
+  },
+  {
+    "clave": "idiomas.charla.destilarTip",
+    "texto": "L’IA extrait le vocabulaire de la discussion sous forme de cartes de révision"
+  },
+  {
+    "clave": "idiomas.charla.destilarFallo",
+    "texto": "L’IA n’a pas pu extraire de vocabulaire de la discussion ; crée la carte à la main."
+  },
+  {
+    "clave": "idiomas.charla.borrar",
+    "texto": "Supprimer la discussion"
+  },
+  {
+    "clave": "idiomas.charla.confirmarBorrar",
+    "texto": "Supprimer la discussion ? Les cartes extraites sont conservées."
+  },
+  {
+    "clave": "idiomas.charla.siBorrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "idiomas.charla.clasificar",
+    "texto": "Classer"
+  },
+  {
+    "clave": "idiomas.charla.extraido",
+    "texto": "Extrait"
+  },
+  {
+    "clave": "idiomas.charla.yaExtraido",
+    "texto": "Tu as déjà extrait le vocabulaire de cette discussion ; continue à discuter pour qu’il y en ait plus"
+  },
+  {
+    "clave": "idiomas.charla.verEnTemario",
+    "texto": "Voir « {tema} » dans le programme"
+  },
+  {
+    "clave": "idiomas.charla.verTemario",
+    "texto": "Ouvrir le programme"
+  },
+  {
+    "clave": "idiomas.charla.clasificarTip",
+    "texto": "Demander à l’IA de donner un titre et un sujet à la discussion"
+  },
+  {
+    "clave": "idiomas.charla.vacia",
+    "texto": "Salue-le en {idioma} ou en espagnol : {tutor} converse à ton niveau, te corrige en douceur et à la fin tu peux extraire le nouveau vocabulaire."
+  }
+]

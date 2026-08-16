@@ -1,0 +1,102 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.texto",
+    "texto": "Filme, Serien, Bücher und Videospiele, sortiert danach, wann sie fertig wurden. In Monat 7 gibt es einen Marathon (mit dem lädierten Knie blieb reichlich Sofa) und eine Lücke von drei Wochen: Japan."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.titulo",
+    "texto": "Der Eintrag"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.texto",
+    "texto": "Titel, Autor oder Regie, Genre, Status und Sterne. Die Rezension ist, was Pep davon hielt, keine Inhaltsangabe: In einem Jahr hilft nur genau das weiter."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.titulo",
+    "texto": "Vier Wege, es zu ordnen"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.texto",
+    "texto": "Nach Genre, nach Kategorie (Film, Serie, Buch, Videospiel), nach Autor oder nach Datum. In der Ansicht nach Genre lassen sich die Ordner ziehen: Setz nach oben, was du am meisten schaust."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.titulo",
+    "texto": "Die Watchlist"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.texto",
+    "texto": "Pep hat sich ein Programm mit Science-Fiction-Klassikern zusammengestellt. Mit KI entsteht es nach Thema („Horror der 80er“), von Hand geht es genauso."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.titulo",
+    "texto": "Jeder Titel ein Ziel"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.3.texto",
+    "texto": "Und im anderen Tab steht der digitale Tisch: über zwanzig Brett- und Arcade-Spiele, direkt dort spielbar."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.1.texto",
+    "texto": "1–2 Spieler oder 3+: Der Filter blendet aus, was für die Runde vor dir nicht taugt. Spiele mit „2+“ passen in beide Abschnitte."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.titulo",
+    "texto": "Nach Familie"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.texto",
+    "texto": "Brett, Denkspiele, Arcade, Karten & Casino, Für die Gruppe: jede Familie mit ihrer eigenen Farbe. Schach, Dame, Domino, Blackjack, Tetris, Minesweeper und über ein Dutzend mehr."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.titulo",
+    "texto": "Ein Tipp und los geht's"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.texto",
+    "texto": "Jede Karte öffnet das Spiel im Vollbild; wo es vorgesehen ist, gibt es oben eine eigene Auswahl für die Schwierigkeit. Zurück landest du genau hier wieder, ohne deinen Platz zu verlieren."
+  },
+  {
+    "clave": "tut.app-diario--habito.1.titulo",
+    "texto": "Die Schlagzeilen von heute"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.texto",
+    "texto": "Welt, Wirtschaft, Technik, Gesundheit, Sport und Unterhaltung, aus echten Quellen. Die Chips oben filtern nach Rubrik."
+  },
+  {
+    "clave": "tut.app-diario--habito.2.titulo",
+    "texto": "Sie erneuert sich von selbst"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.texto",
+    "texto": "Die Ausgabe des Tages lädt sich von selbst herunter und wird um Mitternacht komplett ausgetauscht: Hier stapelt sich nichts, wie bei einer echten Zeitung."
+  },
+  {
+    "clave": "tut.app-diario--habito.3.titulo",
+    "texto": "Ein Tag in der Geschichte"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.texto",
+    "texto": "Die andere Hälfte: was an einem Tag wie heute geschah, ein Kunstwerk, ein Buch, eine Art, ein Wort. Ein guter Vorwand, sie zu öffnen, auch wenn dir nicht nach Nachrichten ist."
+  },
+  {
+    "clave": "tut.app-diario--habito.4.texto",
+    "texto": "Pep hat sie dieses Jahr an rund zweihundert Tagen gelesen: viel am Anfang, fast nie im schlechten Monat und jeden einzelnen Tag der letzten drei Wochen. Davon lebt die Serie."
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.titulo",
+    "texto": "Die Zustellung"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.texto",
+    "texto": "Hier legst du fest, wer dir was bringt. Es ist nicht noch eine Benachrichtigung: Es kommt als Nachricht des Assistenten, in seiner Stimme."
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.titulo",
+    "texto": "Zwei Zusteller"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.texto",
+    "texto": "Der Zauberer bringt Welt, Technik und Wirtschaft um 7:30 Uhr. Laika liefert das Leichte, wann immer ihr danach ist. Jeder Assistent wählt seine Rubriken und seinen Modus."
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "여기가 집이에요. 방마다 앱이 하나씩 들어 있어요. 기본 조작을 알려드릴게요."
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "메인 메뉴"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "이 버튼을 누르면 메뉴가 열려요. 방, 템플릿(앱) 목록, 오브젝트 인벤토리가 있어요."
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "이동하기"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "조이스틱, WASD, 방향키로 걸어요. 방의 문을 지나면 안으로 들어가고 그 앱이 저절로 열려요."
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "보는 방법 세 가지"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "아이소메트릭, 3인칭, 1인칭이 있어요(V 키로도 바뀌어요). 3인칭·1인칭에서는 걸어 다니며 세상을 편집하는 버튼도 나와요."
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "한 구석, 여러 주인"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "그 구석은 시점 큐브만이 아니에요. 의자, 탈것, 코트처럼 만질 수 있는 것에 가까이 가면 근처에 있는 것에 맞춰 저절로 바뀌어요. 다가가지 않으면 아무것도 켜지지 않아요."
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "도구 휠"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "동작, 장난감, 탈것, 건축이 있고 한 번에 3개까지 장착할 수 있어요. 여기서 열 수도 있고, 맨손일 때는 아까 그 구석에서도 열려요."
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "시계"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "집의 시간이에요. 여기서 전체 캘린더와, 오늘 아직 남은 일이 담긴 루틴 패널을 열 수 있어요."
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "집의 음악"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "방마다 테마를 정할 수도 있고, 집 분위기를 그대로 틀어 둘 수도 있어요. 조용한 게 좋으면 완전히 꺼도 돼요."
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "채팅"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "아키텍트 채팅이에요. 무엇을 했는지 말하면 알맞은 앱에 기록해 주고, 집을 바꿔 달라고 부탁할 수도 있어요."
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "기본은 여기까지예요. 위쪽 '편집기' 버튼을 누르면 전체 꾸미기가 열리고, 메뉴와 앱마다 각자의 '?' 버튼과 튜토리얼이 있어요."
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "먼저 집을 어떻게 짓는지부터요. 모든 건 '방' 탭에서 시작돼요."
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "방 만들기"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "이 버튼으로 지도에 새 방을 그릴 수 있어요. 다음 과정을 보여드리려고 지금 하나 만들어 드릴게요…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "새로 생긴 방"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "여기 있어요! 방금 만든 방이라 아직 앱이 없어요. 그래서 버튼에 '+ 배정'이라고 쓰여 있죠."
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "앱 배정하기"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "'+ 배정'으로 앱을 넣었어요. 방이 이름과 아이콘, 가구를 갖게 됐고 버튼도 '입장'으로 바뀐 게 보이죠."
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "입장"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "들어왔어요. 이게 방의 앱이에요. 돌아다닐 때는 문을 지나서도 들어올 수 있고, '‹ 집으로 돌아가기'로 나가요."
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "방은 앱과 함께 집에 남아요. 나머지도 이렇게 지으면 돼요. 챙기고 싶은 일마다 방 하나씩요."
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "'방' 탭에는 집에 있는 모든 방이 카테고리별로 나와요."
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "내 요약"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "캐릭터는 실제 활동을 먹고 살아요. 여기서 기분, 레벨, 연속 기록을 볼 수 있어요. 아무 앱에나 뭔가 기록하면 기분이 좋아지고, 며칠 아무것도 없으면 시무룩해져요. 벌을 주거나 초기화하는 일은 없어요."
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "카드"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "카드 하나가 방 하나예요. 아이콘, 이름, 앱 진행 상황이 담기고 '몸', '마음', '기타', '설정'으로 묶여요. 앱이 배정되지 않은 방은 맨 뒤에 모여요."
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "편집"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "'편집'을 누르면 방 편집기가 열려요. 모양, 색, 벽, 오브젝트를 바꿀 수 있어요. (지금은 누르지 마세요. 이 메뉴가 닫혀요.)"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "'입장'과 '배정'"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "'입장'을 누르면 방의 앱이 열려요. 아직 앱이 없는 방에는 대신 '+ 배정'이 보이고, 목록에서 하나 고를 수 있어요."
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "방 만들기"
+  }
+]

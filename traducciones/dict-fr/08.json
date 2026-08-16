@@ -1,0 +1,731 @@
+[
+  {
+    "clave": "idiomas.charla.error",
+    "es": "Tu tutor no pudo responder. Revisa tu IA en Ajustes o reintenta.",
+    "en": "Your tutor could not reply. Check your AI in Settings or retry."
+  },
+  {
+    "clave": "idiomas.charla.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "idiomas.charla.placeholder",
+    "es": "Escribe en {idioma} o en español…",
+    "en": "Write in {idioma} or Spanish…"
+  },
+  {
+    "clave": "idiomas.charla.sinIAInput",
+    "es": "Configura tu IA en Ajustes para charlar",
+    "en": "Set up your AI in Settings to chat"
+  },
+  {
+    "clave": "idiomas.dest.titulo",
+    "es": "Vocabulario de la charla",
+    "en": "Chat vocabulary"
+  },
+  {
+    "clave": "idiomas.dest.cargando",
+    "es": "Buscando vocabulario nuevo en la charla…",
+    "en": "Looking for new vocabulary in the chat…"
+  },
+  {
+    "clave": "idiomas.dest.fallo",
+    "es": "La IA no pudo extraer vocabulario (o no encontró nada nuevo).",
+    "en": "The AI could not extract vocabulary (or found nothing new)."
+  },
+  {
+    "clave": "idiomas.dest.aMano",
+    "es": "Crear una tarjeta a mano",
+    "en": "Create a card by hand"
+  },
+  {
+    "clave": "idiomas.dest.desc",
+    "es": "Esto apareció en la charla y aún no está en tu vocabulario:",
+    "en": "This came up in the chat and is not in your vocabulary yet:"
+  },
+  {
+    "clave": "idiomas.dest.ahoraNo",
+    "es": "Ahora no",
+    "en": "Not now"
+  },
+  {
+    "clave": "idiomas.dest.guardar",
+    "es": "Guardar {n} tarjetas",
+    "en": "Save {n} cards"
+  },
+  {
+    "clave": "idiomas.pr.titulo",
+    "es": "Tu {idioma}",
+    "en": "Your {idioma}"
+  },
+  {
+    "clave": "idiomas.pr.tarjetas",
+    "es": "{n} tarjetas",
+    "en": "{n} cards"
+  },
+  {
+    "clave": "idiomas.pr.dominadas",
+    "es": "{d} dominadas · {p} en camino",
+    "en": "{d} mastered · {p} in progress"
+  },
+  {
+    "clave": "idiomas.pr.desbloqueados",
+    "en": "{n} topics unlocked by your chats"
+  },
+  {
+    "clave": "idiomas.pr.propios",
+    "es": "{n} temas propios en tu temario",
+    "en": "{n} topics of your own in your syllabus"
+  },
+  {
+    "clave": "idiomas.pr.racha",
+    "es": "Racha de práctica",
+    "en": "Practice streak"
+  },
+  {
+    "clave": "idiomas.pr.rachaDias",
+    "es": "{n} días",
+    "en": "{n} days"
+  },
+  {
+    "clave": "idiomas.pr.semana",
+    "es": "Repasos esta semana",
+    "en": "Reviews this week"
+  },
+  {
+    "clave": "idiomas.pr.acierto",
+    "es": "Acierto histórico",
+    "en": "All-time accuracy"
+  },
+  {
+    "clave": "idiomas.pr.charlas",
+    "es": "Charlas con tu tutor",
+    "en": "Chats with your tutor"
+  },
+  {
+    "clave": "idiomas.pr.porNivel",
+    "es": "Vocabulario por nivel",
+    "en": "Vocabulary by level"
+  },
+  {
+    "clave": "idiomas.pr.porTema",
+    "es": "Temas con más vocabulario",
+    "en": "Topics with most vocabulary"
+  },
+  {
+    "clave": "idiomas.pr.vacio",
+    "es": "Tu progreso está esperando: junta vocabulario, repásalo a diario y estas gráficas cobrarán vida.",
+    "en": "Your progress is waiting: collect vocabulary, review it daily and these charts will come alive."
+  },
+  {
+    "clave": "idiomas.heatmap.anual",
+    "es": "Último año de práctica",
+    "en": "Last year of practice"
+  },
+  {
+    "clave": "idiomas.heatmap.resumen",
+    "es": "{n} repasos · {d} días activos",
+    "en": "{n} reviews · {d} active days"
+  },
+  {
+    "clave": "idiomas.heatmap.menos",
+    "es": "menos",
+    "en": "less"
+  },
+  {
+    "clave": "idiomas.heatmap.mas",
+    "es": "más",
+    "en": "more"
+  },
+  {
+    "clave": "entre.tab.archivo",
+    "en": "Archive"
+  },
+  {
+    "clave": "entre.tab.mesa",
+    "en": "Board games"
+  },
+  {
+    "clave": "entre.tab.programas",
+    "en": "Programs"
+  },
+  {
+    "clave": "entre.desc",
+    "es": "Películas, series, libros, videojuegos y juegos de mesa para jugar — todo en la sala de entretenimiento. Tus datos del archivo anterior se conservan aquí.",
+    "en": "Movies, series, books, video games and your board game library — all in the entertainment room. Your archive data is preserved here."
+  },
+  {
+    "clave": "entre.arch.ocultar",
+    "es": "Ocultar formulario",
+    "en": "Hide form"
+  },
+  {
+    "clave": "entre.arch.añadir",
+    "es": "Añadir título",
+    "en": "Add title"
+  },
+  {
+    "clave": "entre.arch.entrada",
+    "es": "entrada",
+    "en": "entry"
+  },
+  {
+    "clave": "entre.arch.entradas",
+    "es": "entradas",
+    "en": "entries"
+  },
+  {
+    "clave": "entre.arch.vacio",
+    "es": "Tu archivo está vacío. Añade la primera película, serie, libro o videojuego.",
+    "en": "Your archive is empty. Add the first movie, series, book or video game."
+  },
+  {
+    "clave": "entre.arch.porFecha",
+    "en": "By date"
+  },
+  {
+    "clave": "entre.arch.porGenero",
+    "en": "By genre"
+  },
+  {
+    "clave": "entre.arch.porTipo",
+    "en": "By category"
+  },
+  {
+    "clave": "entre.arch.porAutor",
+    "en": "By author"
+  },
+  {
+    "clave": "entre.arch.sinGenero",
+    "es": "Sin género",
+    "en": "No genre"
+  },
+  {
+    "clave": "entre.arch.sinTipo",
+    "es": "Sin categoría",
+    "en": "No category"
+  },
+  {
+    "clave": "entre.arch.sinAutor",
+    "es": "Sin autor",
+    "en": "No author"
+  },
+  {
+    "clave": "entre.arch.arrastraGeneros",
+    "es": "Arrastra las carpetas para poner tus géneros en el orden que quieras.",
+    "en": "Drag the folders to put your genres in the order you want."
+  },
+  {
+    "clave": "entre.tipo.pelicula",
+    "en": "Movie"
+  },
+  {
+    "clave": "entre.tipo.serie",
+    "en": "Series"
+  },
+  {
+    "clave": "entre.tipo.libro",
+    "en": "Book"
+  },
+  {
+    "clave": "entre.tipo.videojuego",
+    "en": "Video game"
+  },
+  {
+    "clave": "entre.port.lote.buscar",
+    "es": "Buscar las {n} portadas que faltan",
+    "en": "Find the {n} missing covers"
+  },
+  {
+    "clave": "entre.port.lote.progreso",
+    "es": "Buscando portadas… {n}/{total}",
+    "en": "Finding covers… {n}/{total}"
+  },
+  {
+    "clave": "entre.port.lote.cancelar",
+    "es": "Detener",
+    "en": "Stop"
+  },
+  {
+    "clave": "entre.port.lote.listo",
+    "es": "{n} encontradas",
+    "en": "{n} found"
+  },
+  {
+    "clave": "entre.port.subir",
+    "es": "Subir portada",
+    "en": "Upload cover"
+  },
+  {
+    "clave": "entre.port.falta.una",
+    "es": "Una obra se quedó sin portada",
+    "en": "One title ended up without a cover"
+  },
+  {
+    "clave": "entre.port.falta.varias",
+    "es": "{n} obras se quedaron sin portada",
+    "en": "{n} titles ended up without a cover"
+  },
+  {
+    "clave": "entre.port.falta.desc",
+    "es": "No aparecen en Wikipedia ni en Open Library con ese título. Puedes volver a intentarlo o poner tú la carátula correcta.",
+    "en": "They are not on Wikipedia or Open Library under that title. You can try again or upload the right cover yourself."
+  },
+  {
+    "clave": "entre.port.falta.reintentar",
+    "es": "Seguir buscando",
+    "en": "Keep looking"
+  },
+  {
+    "clave": "entre.port.falta.dejarlo",
+    "es": "Dejarlo así",
+    "en": "Leave it"
+  },
+  {
+    "clave": "entre.form.editarTitulo",
+    "es": "Editar entrada",
+    "en": "Edit entry"
+  },
+  {
+    "clave": "entre.form.añadirTitulo",
+    "es": "Añadir al archivo",
+    "en": "Add to archive"
+  },
+  {
+    "clave": "entre.form.titulo",
+    "es": "Título",
+    "en": "Title"
+  },
+  {
+    "clave": "entre.form.autor",
+    "es": "Autor / director / desarrollador (opcional)",
+    "en": "Author / director / developer (optional)"
+  },
+  {
+    "clave": "entre.form.genero",
+    "es": "Género",
+    "en": "Genre"
+  },
+  {
+    "clave": "entre.form.fecha",
+    "es": "Fecha (consumo o estreno)",
+    "en": "Date (consumed or released)"
+  },
+  {
+    "clave": "entre.form.estado",
+    "es": "Estado",
+    "en": "Status"
+  },
+  {
+    "clave": "entre.form.calificacion",
+    "es": "Tu calificación",
+    "en": "Your rating"
+  },
+  {
+    "clave": "entre.form.ph.resena",
+    "es": "Tu reseña…",
+    "en": "Your review…"
+  },
+  {
+    "clave": "entre.form.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "entre.form.guardar",
+    "es": "Guardar cambios",
+    "en": "Save changes"
+  },
+  {
+    "clave": "entre.form.guardarNuevo",
+    "es": "Añadir al archivo",
+    "en": "Add to archive"
+  },
+  {
+    "clave": "entre.form.sugerencias",
+    "es": "¿Cuál es?",
+    "en": "Which one is it?"
+  },
+  {
+    "clave": "entre.form.completarIA",
+    "es": "Completar con IA",
+    "en": "Fill in with AI"
+  },
+  {
+    "clave": "entre.form.completarAyuda",
+    "es": "Rellena autor y género, y trae sinopsis y portada.",
+    "en": "Fills in author and genre, and brings the synopsis and cover."
+  },
+  {
+    "clave": "entre.form.consultando",
+    "es": "Buscando la obra…",
+    "en": "Looking the title up…"
+  },
+  {
+    "clave": "entre.res.titulo",
+    "es": "Resumen IA",
+    "en": "AI summary"
+  },
+  {
+    "clave": "entre.res.generar",
+    "es": "Resumen con IA",
+    "en": "Summarize with AI"
+  },
+  {
+    "clave": "entre.res.generando",
+    "es": "Resumiendo la obra…",
+    "en": "Summarizing the title…"
+  },
+  {
+    "clave": "entre.res.sinSpoilers",
+    "es": "sin spoilers",
+    "en": "no spoilers"
+  },
+  {
+    "clave": "entre.res.verMas",
+    "es": "Ver más",
+    "en": "Show more"
+  },
+  {
+    "clave": "entre.res.verMenos",
+    "es": "Ver menos",
+    "en": "Show less"
+  },
+  {
+    "clave": "entre.res.rehacer",
+    "es": "Rehacer",
+    "en": "Redo"
+  },
+  {
+    "clave": "entre.res.quitar",
+    "es": "Quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "entre.res.error",
+    "es": "No se pudo generar el resumen.",
+    "en": "The summary could not be generated."
+  },
+  {
+    "clave": "entre.res.desconocida",
+    "es": "La IA no reconoció esta obra.",
+    "en": "The AI does not recognize this title."
+  },
+  {
+    "clave": "entre.res.invalido",
+    "es": "La IA no devolvió un resumen usable.",
+    "en": "The AI did not return a usable summary."
+  },
+  {
+    "clave": "entre.prog.titulo",
+    "es": "Programas",
+    "en": "Programs"
+  },
+  {
+    "clave": "entre.prog.desc",
+    "es": "Pídele a la IA un programa para ver, leer o jugar por tema, género o autor (p. ej. «películas de terror de los 80s»). Cada título es una meta del cronograma: palomea lo que completes y, si quieres, ponle fechas o pídele el plan al ✨ para verlo en el calendario.",
+    "en": "Ask the AI for a program to watch, read or play by topic, genre or author (e.g. \"80s horror movies\"). Each title is a goal on the timeline: check off what you finish and, if you want, set dates or ask the ✨ for a plan to see it on the calendar."
+  },
+  {
+    "clave": "entre.prog.nuevo",
+    "es": "Generar programa con IA",
+    "en": "Generate program with AI"
+  },
+  {
+    "clave": "entre.prog.ocultar",
+    "es": "Ocultar generador",
+    "en": "Hide generator"
+  },
+  {
+    "clave": "entre.prog.tema",
+    "es": "Tema, género o autor (p. ej. terror de los 80s)",
+    "en": "Topic, genre or author (e.g. 80s horror)"
+  },
+  {
+    "clave": "entre.prog.cuantos",
+    "es": "Títulos",
+    "en": "Titles"
+  },
+  {
+    "clave": "entre.prog.generar",
+    "es": "Generar programa",
+    "en": "Generate program"
+  },
+  {
+    "clave": "entre.prog.generando",
+    "es": "Armando el programa…",
+    "en": "Putting the program together…"
+  },
+  {
+    "clave": "entre.prog.error",
+    "es": "No se pudo generar el programa.",
+    "en": "The program could not be generated."
+  },
+  {
+    "clave": "entre.prog.desconocido",
+    "es": "La IA no pudo armar un programa con ese tema.",
+    "en": "The AI could not build a program from that topic."
+  },
+  {
+    "clave": "entre.prog.invalido",
+    "es": "La IA no devolvió un programa usable.",
+    "en": "The AI did not return a usable program."
+  },
+  {
+    "clave": "entre.prog.nombre",
+    "es": "Nombre del programa",
+    "en": "Program name"
+  },
+  {
+    "clave": "entre.prog.guardar",
+    "es": "Guardar programa ({n})",
+    "en": "Save program ({n})"
+  },
+  {
+    "clave": "entre.prog.guardando",
+    "es": "Guardando…",
+    "en": "Saving…"
+  },
+  {
+    "clave": "entre.prog.descartar",
+    "es": "Descartar",
+    "en": "Discard"
+  },
+  {
+    "clave": "entre.port.buscar",
+    "es": "Buscar portada",
+    "en": "Find cover"
+  },
+  {
+    "clave": "entre.port.buscando",
+    "es": "Buscando portada…",
+    "en": "Looking for cover…"
+  },
+  {
+    "clave": "entre.port.sinResultado",
+    "es": "Sin portada",
+    "en": "No cover"
+  },
+  {
+    "clave": "entre.port.quitar",
+    "es": "Quitar portada",
+    "en": "Remove cover"
+  },
+  {
+    "clave": "entre.j.volver",
+    "es": "Volver",
+    "en": "Back"
+  },
+  {
+    "clave": "entre.j.fam.tablero",
+    "en": "Board"
+  },
+  {
+    "clave": "entre.j.fam.ingenio",
+    "en": "Brain teasers"
+  },
+  {
+    "clave": "entre.j.fam.arcade",
+    "en": "Arcade"
+  },
+  {
+    "clave": "entre.j.fam.cartas",
+    "en": "Cards & casino"
+  },
+  {
+    "clave": "entre.j.fam.grupo",
+    "en": "For the group"
+  },
+  {
+    "clave": "entre.j.seccion.12",
+    "en": "1–2 players"
+  },
+  {
+    "clave": "entre.j.seccion.3mas",
+    "en": "3+ players"
+  },
+  {
+    "clave": "entre.j.nueva",
+    "es": "Nueva partida",
+    "en": "New game"
+  },
+  {
+    "clave": "entre.j.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
+  },
+  {
+    "clave": "entre.j.mejor",
+    "es": "Mejor",
+    "en": "Best"
+  },
+  {
+    "clave": "entre.j.puntos",
+    "es": "Puntos",
+    "en": "Score"
+  },
+  {
+    "clave": "entre.j.movs",
+    "es": "Movimientos",
+    "en": "Moves"
+  },
+  {
+    "clave": "entre.j.turno",
+    "es": "Turno",
+    "en": "Turn"
+  },
+  {
+    "clave": "entre.j.tu",
+    "es": "Tú",
+    "en": "You"
+  },
+  {
+    "clave": "entre.j.maquina",
+    "es": "Máquina",
+    "en": "Computer"
+  },
+  {
+    "clave": "entre.j.ganaste",
+    "es": "¡Ganaste! 🎉",
+    "en": "You win! 🎉"
+  },
+  {
+    "clave": "entre.j.saldo",
+    "es": "Saldo",
+    "en": "Balance"
+  },
+  {
+    "clave": "entre.j.recargar",
+    "es": "Recibir 500 fichas",
+    "en": "Get 500 chips"
+  },
+  {
+    "clave": "entre.j.dificultad",
+    "es": "Dificultad",
+    "en": "Difficulty"
+  },
+  {
+    "clave": "entre.j.dif.facil",
+    "en": "Easy"
+  },
+  {
+    "clave": "entre.j.dif.medio",
+    "en": "Medium"
+  },
+  {
+    "clave": "entre.j.dif.dificil",
+    "en": "Hard"
+  },
+  {
+    "clave": "entre.j.modo.titulo",
+    "es": "¿Cómo quieres jugar?",
+    "en": "How do you want to play?"
+  },
+  {
+    "clave": "entre.j.modo.2j",
+    "es": "2 jugadores",
+    "en": "2 players"
+  },
+  {
+    "clave": "entre.j.modo.2jDesc",
+    "es": "En el mismo dispositivo",
+    "en": "On the same device"
+  },
+  {
+    "clave": "entre.j.modo.ia",
+    "es": "Contra la máquina",
+    "en": "Against the computer"
+  },
+  {
+    "clave": "entre.j.modo.cambiar",
+    "es": "Cambiar modo",
+    "en": "Change mode"
+  },
+  {
+    "clave": "entre.j.sudoku.nombre",
+    "en": "Sudoku"
+  },
+  {
+    "clave": "entre.j.sudoku.desc",
+    "en": "Fill the 9×9 grid without repeating numbers."
+  },
+  {
+    "clave": "entre.j.sudoku.notas",
+    "es": "Lápiz",
+    "en": "Pencil"
+  },
+  {
+    "clave": "entre.j.sudoku.borrar",
+    "es": "Borrar",
+    "en": "Erase"
+  },
+  {
+    "clave": "entre.j.solitario.nombre",
+    "en": "Solitaire"
+  },
+  {
+    "clave": "entre.j.solitario.desc",
+    "en": "Classic Klondike: sort all 52 cards."
+  },
+  {
+    "clave": "entre.j.sol.auto",
+    "es": "Auto",
+    "en": "Auto"
+  },
+  {
+    "clave": "entre.j.sol.vueltas",
+    "es": "Vueltas al mazo",
+    "en": "Deck passes left"
+  },
+  {
+    "clave": "entre.j.j2048.nombre",
+    "en": "2048"
+  },
+  {
+    "clave": "entre.j.j2048.desc",
+    "en": "Swipe and merge your way to 2048."
+  },
+  {
+    "clave": "entre.j.2048.fin",
+    "es": "Sin movimientos. ¿Otra?",
+    "en": "No moves left. Another round?"
+  },
+  {
+    "clave": "entre.j.2048.logro",
+    "es": "¡Llegaste a 2048! Puedes seguir.",
+    "en": "You reached 2048! Keep going."
+  },
+  {
+    "clave": "entre.j.damas.nombre",
+    "en": "Checkers"
+  },
+  {
+    "clave": "entre.j.damas.desc",
+    "en": "Jump and capture every rival piece."
+  },
+  {
+    "clave": "entre.j.damas.iaDesc",
+    "es": "Tú llevas las claras",
+    "en": "You play the light pieces"
+  },
+  {
+    "clave": "entre.j.damas.claras",
+    "es": "Claras",
+    "en": "Light"
+  },
+  {
+    "clave": "entre.j.damas.oscuras",
+    "es": "Oscuras",
+    "en": "Dark"
+  },
+  {
+    "clave": "entre.j.damas.gana",
+    "en": "{color} wins!"
+  },
+  {
+    "clave": "entre.j.damas.ganaMaquina",
+    "es": "Gana la máquina",
+    "en": "The computer wins"
+  }
+]

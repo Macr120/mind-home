@@ -1,0 +1,138 @@
+[
+  {
+    "clave": "tut.app-despacho--calculadoras.3.texto",
+    "texto": "轻点一下，结果就变成一个真正的储蓄目标，可以放进日程、定下日期。（演示里别点：那会真的建一个目标。）"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.titulo",
+    "texto": "有什么急事吗？"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.texto",
+    "texto": "一个信号灯就够了，不用去读两份清单：有逾期就是红灯，快到期是黄灯，车库太平就是绿灯。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.titulo",
+    "texto": "你花掉的钱"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.texto",
+    "texto": "有几辆车、有几项手续在跑、今年花了多少。对Pep来说，那辆车很贵。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.titulo",
+    "texto": "每天骑的自行车"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.texto",
+    "texto": "这才是Pep真正的交通工具：链条、内胎、刹车，一项一行——和其他应用一样，按年、月文件夹归档。留意最近几个月保养挤在一起：那是马拉松训练在讨债。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.titulo",
+    "texto": "还有那辆继承来的车"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.texto",
+    "texto": "第7个月的抛锚就在这里：车停在半路，叫了拖车，还花掉近一万比索——那是他手头没有的钱。每次保养都记着费用、里程，以及在哪家维修厂做的。"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.titulo",
+    "texto": "车辆档案"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.texto",
+    "texto": "品牌、型号、年份、车牌，还有最新的里程。填上车牌，车库就会放出只跟汽车有关的那些手续。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.titulo",
+    "texto": "接下来要办的"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.texto",
+    "texto": "每项手续都记着下次到期日、每隔几个月重复一次、要花多少钱。办完打勾，日期就自己跳到下一次。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.titulo",
+    "texto": "自行车不用交车辆税"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.texto",
+    "texto": "没有车牌，车库就把用不上的手续藏起来：自行车只会看到定期保养。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.titulo",
+    "texto": "通讯录"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.texto",
+    "texto": "信得过的维修厂、保险公司、年检站、街角的自行车店，还有那天晚上的拖车公司——电话和地址都在一点之间。"
+  },
+  {
+    "clave": "tut.app-garage--tramites.4.texto",
+    "texto": "这些手续也都在家的日历里，带着提前提醒。还有一点要注意：在地图上开的那些载具是另一回事，它们住在“物品栏”里。"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.titulo",
+    "texto": "你去过哪里"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.texto",
+    "texto": "四个国家和好几座城市：几乎都来自同一趟旅行。点一下那三个数字里的任意一个，地图下面就会列出清单。"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.titulo",
+    "texto": "图钉"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.texto",
+    "texto": "挤在日本的那七枚图钉，就是三周的旅行。琥珀色的——首尔、巴塔哥尼亚、冰岛——是还没去成的。点一下地图，就能在任何地方插上新图钉。"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.titulo",
+    "texto": "相册"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.texto",
+    "texto": "一个国家一个文件夹，配一张封面照片。里面每个地方一张卡片，卡片里是Pep当天写下的东西。"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.titulo",
+    "texto": "在那边写下的"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.texto",
+    "texto": "旅途中的八篇记录，每篇都配着照片：拂晓的富士山、岚山的竹林、奈良的鹿。都是当场写的，身上还带着那股气味。"
+  },
+  {
+    "clave": "tut.app-sala--japon.3.texto",
+    "texto": "打开每个地方，“行程”按钮会展开这趟旅行的计划表：一天一天，从哪儿到哪儿，住在哪里，怎么走的，花了多少。"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.titulo",
+    "texto": "还没去的"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.texto",
+    "texto": "记下了三个梦。首尔已经有日期和计划，巴塔哥尼亚和冰岛还只是个念头。有日期的会出现在你的日历里。"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.titulo",
+    "texto": "从计划表到目标"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.texto",
+    "texto": "韩国那八天加起来就是这趟旅行的花费，这个总数会作为储蓄目标存进书房：在那边看它涨，就是在这边看它靠近。"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.titulo",
+    "texto": "路线"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.texto",
+    "texto": "一条路线把地点按顺序串起来，并画在地图上。日本那条是已经走过的路，韩国那条是想走的路。"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.titulo",
+    "texto": "三十部作品，一年"
+  }
+]

@@ -1,0 +1,698 @@
+[
+  {
+    "clave": "descanso.evid.hint",
+    "es": "Al sonar tendrás que enviar una foto de «{tarea}»; la IA la revisa y solo entonces se apaga.",
+    "en": "When it rings you will have to send a photo of \"{tarea}\"; the AI checks it and only then does it stop."
+  },
+  {
+    "clave": "descanso.evid.falta",
+    "es": "Escribe qué debe mostrar la foto para poder apagar la alarma.",
+    "en": "Write what the photo must show to turn the alarm off."
+  },
+  {
+    "clave": "descanso.evid.reto",
+    "es": "Para apagarla, demuestra con una foto:",
+    "en": "To turn it off, prove with a photo:"
+  },
+  {
+    "clave": "descanso.evid.foto",
+    "es": "Tomar la foto",
+    "en": "Take the photo"
+  },
+  {
+    "clave": "descanso.evid.otra",
+    "es": "Tomar otra foto",
+    "en": "Take another photo"
+  },
+  {
+    "clave": "descanso.evid.revisando",
+    "es": "Revisando tu foto…",
+    "en": "Checking your photo…"
+  },
+  {
+    "clave": "descanso.evid.error",
+    "es": "No se pudo revisar la foto: {e}",
+    "en": "The photo could not be checked: {e}"
+  },
+  {
+    "clave": "descanso.evid.apagar",
+    "es": "Apagar sin evidencia",
+    "en": "Turn off without proof"
+  },
+  {
+    "clave": "descanso.evid.probar",
+    "es": "Probar ahora",
+    "en": "Try it now"
+  },
+  {
+    "clave": "descanso.evid.ensayo",
+    "es": "Prueba del reto",
+    "en": "Challenge rehearsal"
+  },
+  {
+    "clave": "descanso.evid.cerrar",
+    "es": "Cerrar la prueba",
+    "en": "Close the test"
+  },
+  {
+    "clave": "descanso.reg.titulo",
+    "es": "Registrar noche",
+    "en": "Log a night"
+  },
+  {
+    "clave": "descanso.reg.fecha",
+    "es": "Fecha",
+    "en": "Date"
+  },
+  {
+    "clave": "descanso.reg.acosto",
+    "es": "Me acosté",
+    "en": "Went to bed"
+  },
+  {
+    "clave": "descanso.reg.desperto",
+    "es": "Desperté",
+    "en": "Woke up"
+  },
+  {
+    "clave": "descanso.reg.interrupciones",
+    "es": "Interrupciones",
+    "en": "Interruptions"
+  },
+  {
+    "clave": "descanso.reg.calidad",
+    "es": "Calidad",
+    "en": "Quality"
+  },
+  {
+    "clave": "descanso.reg.ph.nota",
+    "es": "Nota (ej. desperté cansado)",
+    "en": "Note (e.g. woke up tired)"
+  },
+  {
+    "clave": "descanso.reg.guardar",
+    "es": "Registrar descanso",
+    "en": "Log sleep"
+  },
+  {
+    "clave": "descanso.nDe5",
+    "en": "{n} of 5"
+  },
+  {
+    "clave": "descanso.sem.titulo",
+    "es": "Últimas 7 noches",
+    "en": "Last 7 nights"
+  },
+  {
+    "clave": "descanso.sem.promedio",
+    "es": "Promedio: {h}",
+    "en": "Average: {h}"
+  },
+  {
+    "clave": "descanso.hist.vacio",
+    "es": "Aún no hay noches registradas.",
+    "en": "No nights logged yet."
+  },
+  {
+    "clave": "anec.titulo",
+    "es": "Título del día",
+    "en": "Title of the day"
+  },
+  {
+    "clave": "anec.ph",
+    "es": "¿Qué pasó hoy? ¿Qué aprendiste?",
+    "en": "What happened today? What did you learn?"
+  },
+  {
+    "clave": "anec.fotos",
+    "es": "Fotos",
+    "en": "Photos"
+  },
+  {
+    "clave": "anec.guardar",
+    "es": "Guardar anécdota",
+    "en": "Save memory"
+  },
+  {
+    "clave": "anec.vacio",
+    "es": "Tu anecdotario está vacío. Escribe tu primer recuerdo.",
+    "en": "Your journal is empty. Write your first memory."
+  },
+  {
+    "clave": "anec.cargarMas",
+    "es": "Cargar más recuerdos",
+    "en": "Load more memories"
+  },
+  {
+    "clave": "anec.sinTitulo",
+    "es": "Sin título",
+    "en": "Untitled"
+  },
+  {
+    "clave": "anec.cal.recuerdos",
+    "es": "{n} días con recuerdo",
+    "en": "{n} days with memories"
+  },
+  {
+    "clave": "anec.dia.titulo",
+    "en": "Memories from {fecha}"
+  },
+  {
+    "clave": "anec.dia.cerrar",
+    "es": "Cerrar el día",
+    "en": "Close day"
+  },
+  {
+    "clave": "sala.desc",
+    "es": "Tu mundo viajero: pines de lugares visitados en el mapamundi, itinerarios de lugares por conocer con calendario, rutas de viaje y bitácora con fotos y anécdotas.",
+    "en": "Your traveler world: pins of visited places on the world map, itineraries of places to see with a calendar, travel routes and a journal with photos and stories."
+  },
+  {
+    "clave": "sala.tab.mapa",
+    "en": "Map"
+  },
+  {
+    "clave": "sala.tab.porConocer",
+    "en": "Itinerary"
+  },
+  {
+    "clave": "sala.tab.rutas",
+    "en": "Routes"
+  },
+  {
+    "clave": "sala.tab.bitacora",
+    "en": "Journal"
+  },
+  {
+    "clave": "sala.mapa.listaVacia",
+    "es": "Nada por aquí todavía.",
+    "en": "Nothing here yet."
+  },
+  {
+    "clave": "sala.mapa.paises",
+    "es": "Países",
+    "en": "Countries"
+  },
+  {
+    "clave": "sala.mapa.visitados",
+    "es": "Lugares visitados",
+    "en": "Places visited"
+  },
+  {
+    "clave": "sala.mapa.pendientes",
+    "es": "Por conocer",
+    "en": "To see"
+  },
+  {
+    "clave": "sala.mapa.pinVisitado",
+    "es": "Pin visitado",
+    "en": "Visited pin"
+  },
+  {
+    "clave": "sala.mapa.pinPendiente",
+    "es": "Pin por conocer",
+    "en": "Wishlist pin"
+  },
+  {
+    "clave": "sala.mapa.estados",
+    "es": "Estados",
+    "en": "States"
+  },
+  {
+    "clave": "sala.mapa.vistaPlano",
+    "en": "Flat"
+  },
+  {
+    "clave": "sala.mapa.vistaGlobo",
+    "en": "Globe"
+  },
+  {
+    "clave": "sala.mapa.cargandoGlobo",
+    "es": "Armando el globo…",
+    "en": "Building the globe…"
+  },
+  {
+    "clave": "sala.globo.girar",
+    "es": "Arrastra para girar · rueda o pellizca para acercar",
+    "en": "Drag to spin · scroll or pinch to zoom"
+  },
+  {
+    "clave": "sala.mapa.tocaVisitado",
+    "es": "Toca el mapa donde ya estuviste: el lugar se irá a tu bitácora.",
+    "en": "Tap the map where you've been: the place will go to your journal."
+  },
+  {
+    "clave": "sala.mapa.tocaPendiente",
+    "es": "Toca el mapa que sueñas conocer: el lugar se irá a tu itinerario.",
+    "en": "Tap the map you dream of seeing: the place will go to your itinerary."
+  },
+  {
+    "clave": "sala.mapa.yaVisite",
+    "es": "Ya lo visité",
+    "en": "I've been there"
+  },
+  {
+    "clave": "sala.mapa.leyVisitado",
+    "es": "Visitado",
+    "en": "Visited"
+  },
+  {
+    "clave": "sala.mapa.leyPendiente",
+    "es": "Por conocer",
+    "en": "To see"
+  },
+  {
+    "clave": "sala.mapa.verBitacora",
+    "es": "Bitácora",
+    "en": "Journal"
+  },
+  {
+    "clave": "sala.mapa.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "sala.mapa.quitar",
+    "es": "Quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "sala.mapa.vacio",
+    "es": "Aún no hay pines. Toca «Poner pin» y marca tu primer lugar visitado.",
+    "en": "No pins yet. Tap \"Drop pin\" and mark your first visited place."
+  },
+  {
+    "clave": "sala.form.nuevo",
+    "es": "Nuevo lugar",
+    "en": "New place"
+  },
+  {
+    "clave": "sala.form.editar",
+    "es": "Editar lugar",
+    "en": "Edit place"
+  },
+  {
+    "clave": "sala.form.buscar",
+    "es": "Buscar lugar (ej. Kioto, Machu Picchu)…",
+    "en": "Search a place (e.g. Kyoto, Machu Picchu)…"
+  },
+  {
+    "clave": "sala.form.errorBusqueda",
+    "es": "No se pudo buscar (¿sin internet?). Llena los campos a mano y marca el punto en el mapa.",
+    "en": "Search failed (offline?). Fill in the fields by hand and mark the point on the map."
+  },
+  {
+    "clave": "sala.form.sinPunto",
+    "es": "Toca el mapa para colocar el punto (opcional pero recomendado).",
+    "en": "Tap the map to place the point (optional but recommended)."
+  },
+  {
+    "clave": "sala.form.nombre",
+    "es": "Nombre del lugar *",
+    "en": "Place name *"
+  },
+  {
+    "clave": "sala.form.pais",
+    "es": "País *",
+    "en": "Country *"
+  },
+  {
+    "clave": "sala.form.estado",
+    "es": "Estado / región",
+    "en": "State / region"
+  },
+  {
+    "clave": "sala.form.ciudad",
+    "es": "Ciudad",
+    "en": "City"
+  },
+  {
+    "clave": "sala.form.visitado",
+    "es": "Ya lo visité",
+    "en": "I've been there"
+  },
+  {
+    "clave": "sala.form.nota",
+    "es": "Nota (qué quieres ver, tips…)",
+    "en": "Note (what to see, tips…)"
+  },
+  {
+    "clave": "sala.form.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "sala.form.guardar",
+    "es": "Guardar lugar",
+    "en": "Save place"
+  },
+  {
+    "clave": "sala.pc.paises",
+    "es": "Países",
+    "en": "Countries"
+  },
+  {
+    "clave": "sala.pc.estados",
+    "es": "Estados",
+    "en": "States"
+  },
+  {
+    "clave": "sala.pc.ciudades",
+    "es": "Ciudades",
+    "en": "Cities"
+  },
+  {
+    "clave": "sala.pc.fechas",
+    "es": "Fecha",
+    "en": "Date"
+  },
+  {
+    "clave": "sala.pc.sinFecha",
+    "es": "Sin fecha",
+    "en": "No date"
+  },
+  {
+    "clave": "sala.pc.ordenarPor",
+    "es": "Ordenar por",
+    "en": "Sort by"
+  },
+  {
+    "clave": "sala.pc.buscar",
+    "es": "Buscar en tu lista…",
+    "en": "Search your list…"
+  },
+  {
+    "clave": "sala.pc.agregar",
+    "es": "Lugar",
+    "en": "Place"
+  },
+  {
+    "clave": "sala.pc.sinDato",
+    "es": "Sin especificar",
+    "en": "Unspecified"
+  },
+  {
+    "clave": "sala.pc.count",
+    "es": "{n} lugares",
+    "en": "{n} places"
+  },
+  {
+    "clave": "sala.pc.countUno",
+    "es": "1 lugar",
+    "en": "1 place"
+  },
+  {
+    "clave": "sala.pc.vacio",
+    "es": "Tu itinerario está vacío. Agrega los lugares que sueñas conocer.",
+    "en": "Your itinerary is empty. Add the places you dream of visiting."
+  },
+  {
+    "clave": "sala.pc.visitado",
+    "es": "Ya lo visité",
+    "en": "I've been there"
+  },
+  {
+    "clave": "sala.pc.vistaItinerarios",
+    "es": "Itinerarios",
+    "en": "Itineraries"
+  },
+  {
+    "clave": "sala.pc.vistaGuardados",
+    "es": "Itinerarios guardados",
+    "en": "Saved itineraries"
+  },
+  {
+    "clave": "sala.pc.confirmarTitulo",
+    "es": "¿Ya completaste este viaje?",
+    "en": "Did you complete this trip already?"
+  },
+  {
+    "clave": "sala.pc.confirmarDesc",
+    "es": "{lugar} se moverá a tu bitácora de recuerdos.",
+    "en": "{lugar} will move to your memory journal."
+  },
+  {
+    "clave": "sala.pc.confirmarNo",
+    "es": "Todavía no",
+    "en": "Not yet"
+  },
+  {
+    "clave": "sala.pc.confirmarSi",
+    "es": "Sí, lo visité",
+    "en": "Yes, I went"
+  },
+  {
+    "clave": "sala.form.sinItinerario",
+    "en": "No itinerary (general)"
+  },
+  {
+    "clave": "sala.form.fechaPlan",
+    "es": "Fecha planeada (opcional)",
+    "en": "Planned date (optional)"
+  },
+  {
+    "clave": "sala.pc.plan",
+    "es": "Plan día a día",
+    "en": "Day-by-day plan"
+  },
+  {
+    "clave": "sala.hoja.dia",
+    "es": "Día",
+    "en": "Day"
+  },
+  {
+    "clave": "sala.hoja.fecha",
+    "es": "Fecha",
+    "en": "Date"
+  },
+  {
+    "clave": "sala.hoja.inicio",
+    "es": "Inicio",
+    "en": "From"
+  },
+  {
+    "clave": "sala.hoja.destino",
+    "es": "Destino",
+    "en": "Destination"
+  },
+  {
+    "clave": "sala.hoja.hospedaje",
+    "es": "Hospedaje",
+    "en": "Lodging"
+  },
+  {
+    "clave": "sala.hoja.actividades",
+    "es": "Actividades",
+    "en": "Activities"
+  },
+  {
+    "clave": "sala.hoja.transporte",
+    "es": "Transporte",
+    "en": "Transport"
+  },
+  {
+    "clave": "sala.hoja.presupuesto",
+    "es": "Presupuesto",
+    "en": "Budget"
+  },
+  {
+    "clave": "sala.hoja.total",
+    "es": "Total",
+    "en": "Total"
+  },
+  {
+    "clave": "sala.hoja.agregarDia",
+    "es": "Día",
+    "en": "Day"
+  },
+  {
+    "clave": "sala.hoja.sync",
+    "es": "Los días con fecha aparecen en el calendario de la casa y el total se vuelve una meta de ahorro en el despacho. El plan se conserva aunque ya visites el lugar; solo desaparece si lo borras.",
+    "en": "Dated days show on the house calendar and the total becomes a savings goal in the office. The plan stays even after you visit the place; it only disappears if you delete it."
+  },
+  {
+    "clave": "sala.hoja.compartir",
+    "es": "Compartir",
+    "en": "Share"
+  },
+  {
+    "clave": "sala.hoja.copiado",
+    "es": "Copiado",
+    "en": "Copied"
+  },
+  {
+    "clave": "sala.hoja.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "sala.hoja.guardado",
+    "es": "Guardado",
+    "en": "Saved"
+  },
+  {
+    "clave": "sala.hoja.borrarPlan",
+    "es": "Borrar plan",
+    "en": "Delete plan"
+  },
+  {
+    "clave": "sala.hoja.confirmarBorrar",
+    "es": "¿Borrar todo el plan?",
+    "en": "Delete the whole plan?"
+  },
+  {
+    "clave": "sala.hoja.si",
+    "es": "Sí",
+    "en": "Yes"
+  },
+  {
+    "clave": "sala.hoja.no",
+    "es": "No",
+    "en": "No"
+  },
+  {
+    "clave": "sala.hoja.copiarManual",
+    "es": "No se pudo copiar solo. Selecciona el texto y cópialo (Ctrl+C):",
+    "en": "Could not copy automatically. Select the text and copy it (Ctrl+C):"
+  },
+  {
+    "clave": "sala.ig.vacio",
+    "es": "Aún no guardas ningún itinerario. Desde el plan de un lugar, toca «💾 Guardar».",
+    "en": "No saved itineraries yet. From a place's plan, tap \"💾 Save\"."
+  },
+  {
+    "clave": "sala.ig.confirmarBorrar",
+    "es": "¿Borrar este itinerario guardado?",
+    "en": "Delete this saved itinerary?"
+  },
+  {
+    "clave": "sala.ig.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "sala.hoja.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "sala.bit.itinerario",
+    "es": "Itinerario",
+    "en": "Itinerary"
+  },
+  {
+    "clave": "sala.rutas.crear",
+    "es": "Nueva ruta",
+    "en": "New route"
+  },
+  {
+    "clave": "sala.rutas.nueva",
+    "es": "Nueva ruta",
+    "en": "New route"
+  },
+  {
+    "clave": "sala.rutas.editar",
+    "es": "Editar ruta",
+    "en": "Edit route"
+  },
+  {
+    "clave": "sala.rutas.nombre",
+    "es": "Nombre de la ruta (ej. Eurotrip 2027)",
+    "en": "Route name (e.g. Eurotrip 2027)"
+  },
+  {
+    "clave": "sala.rutas.agregarParada",
+    "es": "Agregar parada (lugares con punto en el mapa)…",
+    "en": "Add a stop (places pinned on the map)…"
+  },
+  {
+    "clave": "sala.rutas.sinElegibles",
+    "es": "Ningún lugar tiene punto en el mapa todavía: agrega lugares con coordenadas primero.",
+    "en": "No place has a map point yet: add places with coordinates first."
+  },
+  {
+    "clave": "sala.rutas.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "sala.rutas.guardar",
+    "es": "Guardar ruta",
+    "en": "Save route"
+  },
+  {
+    "clave": "sala.rutas.min",
+    "es": "Una ruta necesita al menos 2 paradas.",
+    "en": "A route needs at least 2 stops."
+  },
+  {
+    "clave": "sala.rutas.paradas",
+    "es": "{n} paradas",
+    "en": "{n} stops"
+  },
+  {
+    "clave": "sala.rutas.vacio",
+    "es": "Sin rutas todavía. Encadena tus lugares en un recorrido.",
+    "en": "No routes yet. Chain your places into a journey."
+  },
+  {
+    "clave": "sala.bit.sinVisitados",
+    "es": "La bitácora se escribe con lugares visitados. Pon un pin en el mapa o marca con ✓ tu itinerario.",
+    "en": "The journal is written with visited places. Drop a pin on the map or check ✓ your itinerary."
+  },
+  {
+    "clave": "sala.bit.portada",
+    "es": "Portada",
+    "en": "Cover"
+  },
+  {
+    "clave": "sala.bit.portadaPaisTip",
+    "es": "Elegir foto de portada de esta carpeta",
+    "en": "Choose a cover photo for this folder"
+  },
+  {
+    "clave": "sala.bit.portadaLugarTip",
+    "es": "Elegir foto de portada de este lugar",
+    "en": "Choose a cover photo for this place"
+  },
+  {
+    "clave": "sala.bit.ph",
+    "es": "¿Qué pasó ahí? Tu anécdota…",
+    "en": "What happened there? Your story…"
+  },
+  {
+    "clave": "sala.bit.foto",
+    "es": "Foto",
+    "en": "Photo"
+  },
+  {
+    "clave": "sala.bit.guardar",
+    "es": "Guardar recuerdo",
+    "en": "Save memory"
+  },
+  {
+    "clave": "sala.bit.recuerdo",
+    "es": "Recuerdo",
+    "en": "Memory"
+  },
+  {
+    "clave": "sala.bit.sinRecuerdos",
+    "es": "Sin recuerdos todavía: guarda una foto y tu anécdota.",
+    "en": "No memories yet: save a photo and your story."
+  },
+  {
+    "clave": "sala.bit.visitadoEl",
+    "es": "visitado el {f}",
+    "en": "visited on {f}"
+  },
+  {
+    "clave": "sala.bit.albumes",
+    "es": "Álbumes",
+    "en": "Albums"
+  },
+  {
+    "clave": "sala.bit.unLugar",
+    "es": "1 lugar",
+    "en": "1 place"
+  }
+]

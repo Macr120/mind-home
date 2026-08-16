@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "6種類あり、それぞれ空腹の間隔が違います。空きのある囲いの中をタップすると、名前付きで現れます。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "おもちゃ"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "泥だまり・水浴び桶・ボールを1マスに1つ。動物は自分から遊びに行き、機嫌が上がります。サンクチュアリには3つとも置いてあります。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "名前"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "「名前を付ける」で囲いをタップすると、使っている収容数と一緒に一覧が出ます。動物をタップすると名前を変えられます。"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "仕事はこれだけです。囲い、収容数、おもちゃ、そして愛情。デモでもその気になればサンクチュアリを広げられます。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "ここがPepのレーストラックです。アスファルトのオーバルに、チェッカー柄のゴールライン。マップで唯一のゴールで、レースモードはすべてここを中心に回ります。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "あれがゴールラインです。庭の自転車か車に近づいて、「乗る」ボタンで乗りましょう。乗ったままこの線を踏むと、シグナルが出ます。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "オーバルに沿って走り、カーブではドリフトして速度を落とさないように。アシスタントと対戦することもでき、アイテムも飛び交います。バナナ、ターボ、ボム。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "ゴールラインのそばにベストタイムの表があります。Pepの自転車は38勝、ベストラップは41.8秒。破ってみてください。デモで出した記録も保存されます。"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "マップを一周する電車のレールも、遊園地のジェットコースターも道の一種です。線路の上を歩くと「乗る」が出ます。描いた線ごとに別々のネットワークになります。"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "線は3種類あり、ここから全部見えます。レーストラック（レース用）、電車のレール（マップを一周する電車）、ジェットコースター（マスごとに高さが付きます）。触れ合っても混ざりません。それぞれ同じ種類の隣だけを探します。"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "遊園地のジェットコースターは6階分まで上がり、マスとマスの間のスロープは自動でつながります。乗ってみてください。カートが周回コースを一周します。"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "自分の家では「サーキット」のエディタでマスごとに描くか、「手描きコース」で区画ごとに自由に描けます。デモのマップは最初から描いてあります。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "ここはPepのスポーツ施設です。サッカー、バスケットボール、テニス、野球が並んでいます。コートはマップ上の長方形で、歩いて入るとその競技が始まります。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "チャージボタンは視点キューブの位置に出て、キャラクターが向いている方へ飛ばします。まず狙って、それからチャージ。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "下には野球場とテニスコート。テニスはリターンとラリーがあり、野球はひたすらバッティング。マシン相手でもピッチャー相手でも。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "上にはサッカーコートとバスケットボールコート。サッカーはドリブルとシュートで、バスケットボールはシュートの強さを測って打ちます。"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "スコアはコートごとに保存されます。Pepはバスケットボールで21-15、テニスではラリー18回の連続記録を残しました。デモでも試合はカウントされます。更新してみてください。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "ツールホイールを開いてください。Paintballはそこ、「建築」のカテゴリーに、乗り物の隣にあります。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "モードを選びましょう。1 vs 1、2 vs 2、バトルロイヤル。相手はマップにいるアシスタントで、Laikaも入ります。プレイは1階です。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "家全体が戦場です。壁に隠れ、顔を出して撃ち、背後に気をつけて。ペイントの跡は対戦のあいだ残ります。"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "Pepの戦績は47勝23敗。デモでも対戦は本当にカウントされます。帰る前に伸ばしてみてください。"
+  }
+]

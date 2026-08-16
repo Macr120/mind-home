@@ -1,0 +1,422 @@
+[
+  {
+    "clave": "objetos.editarForma",
+    "texto": "Modifier sa forme"
+  },
+  {
+    "clave": "objetos.animado",
+    "texto": "Objet animé"
+  },
+  {
+    "clave": "objetos.funcion.vehiculo",
+    "texto": "Conduisible"
+  },
+  {
+    "clave": "objetos.funcion.asiento",
+    "texto": "Tu peux t’asseoir ici"
+  },
+  {
+    "clave": "objetos.funcion.acostarse",
+    "texto": "Tu peux t’allonger ici"
+  },
+  {
+    "clave": "objetos.funcion.laptop",
+    "texto": "Utilisé pour travailler"
+  },
+  {
+    "clave": "objetos.funcion.cajaFuerte",
+    "texto": "Garde ce qui compte"
+  },
+  {
+    "clave": "objetos.funcion.computo",
+    "texto": "Utilisé pour calculer"
+  },
+  {
+    "clave": "objetos.funcion.tapete",
+    "texto": "Utilisé pour méditer"
+  },
+  {
+    "clave": "objetos.funcion.libreta",
+    "texto": "Utilisé pour écrire"
+  },
+  {
+    "clave": "objetos.funcion.caminadora",
+    "texto": "Utilisé pour marcher"
+  },
+  {
+    "clave": "objetos.funcion.anuncio",
+    "texto": "Panneau : écris ton propre texte"
+  },
+  {
+    "clave": "objetos.funcion.parque",
+    "texto": "Interactif : monte dessus pour jouer"
+  },
+  {
+    "clave": "objetos.rotarIzq",
+    "texto": "Tourner à gauche"
+  },
+  {
+    "clave": "objetos.rotarDer",
+    "texto": "Tourner à droite"
+  },
+  {
+    "clave": "objetos.quitarDelMapa",
+    "texto": "Retirer de la carte"
+  },
+  {
+    "clave": "objetos.borrar",
+    "texto": "Supprimer l’objet"
+  },
+  {
+    "clave": "objetos.borrarConfirm",
+    "texto": "Supprimer « {nombre} » ? C’est irréversible."
+  },
+  {
+    "clave": "objetos.renombrar",
+    "texto": "Renommer le dossier"
+  },
+  {
+    "clave": "objetos.restaurar",
+    "texto": "Restaurer les objets de base"
+  },
+  {
+    "clave": "objetos.restaurarConfirm",
+    "texto": "Les objets de base du catalogue que tu as supprimés seront rajoutés. Continuer ?"
+  },
+  {
+    "clave": "mapa.editar",
+    "texto": "Modifier la carte"
+  },
+  {
+    "clave": "mapa.editarTitulo",
+    "texto": "Modifier la carte de la maison"
+  },
+  {
+    "clave": "mapa.quitar",
+    "texto": "Retirer de la carte"
+  },
+  {
+    "clave": "chat.tuAsistente",
+    "texto": "Ton assistant :"
+  },
+  {
+    "clave": "chat.vacio",
+    "texto": "Pas encore d’entrées. Raconte à l’architecte ce que tu as fait."
+  },
+  {
+    "clave": "chat.sinClasificar",
+    "texto": "Non classé"
+  },
+  {
+    "clave": "chat.capturado",
+    "texto": "capturé"
+  },
+  {
+    "clave": "chat.reclasificar",
+    "texto": "Reclasser"
+  },
+  {
+    "clave": "chat.eliminar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "chat.ocultar",
+    "texto": "Fermer le menu"
+  },
+  {
+    "clave": "chat.verMenu",
+    "texto": "ouvrir le menu"
+  },
+  {
+    "clave": "chat.registrar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "chat.chip.crear",
+    "texto": "Créer"
+  },
+  {
+    "clave": "chat.chip.enMapa",
+    "texto": "(sur la carte)"
+  },
+  {
+    "clave": "chat.chip.fuera",
+    "texto": "(hors)"
+  },
+  {
+    "clave": "chat.abrirConv",
+    "texto": "voir la conversation"
+  },
+  {
+    "clave": "chat.verConv",
+    "texto": "Voir la conversation complète"
+  },
+  {
+    "clave": "chat.burbuja.ver",
+    "texto": "Touche pour tout lire"
+  },
+  {
+    "clave": "dialogo.salir",
+    "texto": "Terminer la conversation (Échap)"
+  },
+  {
+    "clave": "dialogo.completar",
+    "texto": "Afficher tout le texte"
+  },
+  {
+    "clave": "dialogo.hablar",
+    "texto": "Parler"
+  },
+  {
+    "clave": "chat.conversacion",
+    "texto": "Conversation"
+  },
+  {
+    "clave": "chat.conv.vacia",
+    "texto": "Pas encore de messages avec {pet}. Écris-lui depuis la barre ci-dessous"
+  },
+  {
+    "clave": "chat.conv.limpiar",
+    "texto": "Vider la conversation"
+  },
+  {
+    "clave": "chat.conv.cerrar",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "chat.tu",
+    "texto": "Toi"
+  },
+  {
+    "clave": "chat.tab.chats",
+    "texto": "Chats"
+  },
+  {
+    "clave": "chat.tab.registros",
+    "texto": "Entrées"
+  },
+  {
+    "clave": "chat.config.abrir",
+    "texto": "Configurer les assistants"
+  },
+  {
+    "clave": "chat.config.titulo",
+    "texto": "Tes assistants"
+  },
+  {
+    "clave": "chat.config.activo",
+    "texto": "actif"
+  },
+  {
+    "clave": "chat.config.sinCaracter",
+    "texto": "Aucune personnalité définie"
+  },
+  {
+    "clave": "chat.config.archivaTodo",
+    "texto": "Archive dans toutes les pièces"
+  },
+  {
+    "clave": "chat.config.cuartos",
+    "texto": "Attribuer des pièces"
+  },
+  {
+    "clave": "chat.config.cuartosTodos",
+    "texto": "(aucune cochée = toutes)"
+  },
+  {
+    "clave": "chat.config.nuevo",
+    "texto": "Créer un assistant"
+  },
+  {
+    "clave": "chat.config.nuevoNombre",
+    "texto": "Nouvel assistant"
+  },
+  {
+    "clave": "chat.config.nuevoSaludo",
+    "texto": "Salut ! Je suis ton nouvel assistant."
+  },
+  {
+    "clave": "chat.config.nombre",
+    "texto": "Nom"
+  },
+  {
+    "clave": "chat.config.emoji",
+    "texto": "Emoji de l’assistant"
+  },
+  {
+    "clave": "chat.config.historia",
+    "texto": "Histoire et contexte du personnage"
+  },
+  {
+    "clave": "chat.config.historiaPh",
+    "texto": "Histoire et contexte : ex. « Vieux loup de mer qui a gardé un phare 40 ans ; maintenant il garde ta maison »"
+  },
+  {
+    "clave": "chat.config.caracterPh",
+    "texto": "Caractère : ex. « Tu parles comme un pirate, blagueur et direct, tu termines par 🏴‍☠️ »"
+  },
+  {
+    "clave": "chat.config.forma",
+    "texto": "Forme 3D :"
+  },
+  {
+    "clave": "chat.config.color",
+    "texto": "Couleur du personnage"
+  },
+  {
+    "clave": "chat.config.formaPh",
+    "texto": "Décris-le : « dragon vert avec des lunettes et un gilet »"
+  },
+  {
+    "clave": "chat.config.formaSinIa",
+    "texto": "Décrire la forme nécessite l’IA (choisis un modèle dans la barre)"
+  },
+  {
+    "clave": "chat.config.formaGenerar",
+    "texto": "Créer la forme avec l’IA"
+  },
+  {
+    "clave": "chat.config.formaError",
+    "texto": "Impossible de créer la forme. Vérifie le modèle d’IA et réessaie."
+  },
+  {
+    "clave": "chat.config.subirGlb",
+    "texto": "Importer un modèle .glb"
+  },
+  {
+    "clave": "chat.config.quitarGlb",
+    "texto": "Retirer le modèle importé"
+  },
+  {
+    "clave": "chat.config.quitarFormaIa",
+    "texto": "Retirer la forme créée par l’IA"
+  },
+  {
+    "clave": "chat.config.enMapa",
+    "texto": "Retirer de la carte"
+  },
+  {
+    "clave": "chat.config.ponerMapa",
+    "texto": "Placer sur la carte"
+  },
+  {
+    "clave": "chat.config.voz",
+    "texto": "Voix :"
+  },
+  {
+    "clave": "chat.config.vozAuto",
+    "texto": "Automatique (selon la langue)"
+  },
+  {
+    "clave": "chat.config.vozIA",
+    "texto": "Voix IA (OpenAI, plus naturelle)"
+  },
+  {
+    "clave": "chat.config.vozLeer",
+    "texto": "Lire à voix haute ce qu’il dit"
+  },
+  {
+    "clave": "chat.config.vozProbar",
+    "texto": "Tester la voix"
+  },
+  {
+    "clave": "chat.config.vozTono",
+    "texto": "Ton"
+  },
+  {
+    "clave": "chat.config.vozVelocidad",
+    "texto": "Vitesse"
+  },
+  {
+    "clave": "chat.config.vozVolumen",
+    "texto": "Volume"
+  },
+  {
+    "clave": "chat.config.espontaneo",
+    "texto": "Commentaires spontanés"
+  },
+  {
+    "clave": "chat.config.corazon",
+    "texto": "Cœur (spontanéité)"
+  },
+  {
+    "clave": "chat.config.corazonOff",
+    "texto": "Désactivés"
+  },
+  {
+    "clave": "corazon.nivel.0",
+    "texto": "Silencieux"
+  },
+  {
+    "clave": "corazon.nivel.1",
+    "texto": "Calme"
+  },
+  {
+    "clave": "corazon.nivel.2",
+    "texto": "Bavard"
+  },
+  {
+    "clave": "corazon.nivel.3",
+    "texto": "Très bavard"
+  },
+  {
+    "clave": "corazon.mago.manana.0",
+    "texto": "L’aube apporte du mana frais… je le sens ✨"
+  },
+  {
+    "clave": "corazon.mago.manana.1",
+    "texto": "Mes parchemins se sont réveillés bien rangés. Bon présage 🔮"
+  },
+  {
+    "clave": "corazon.mago.tarde.0",
+    "texto": "L’après-midi est parfait pour graver des exploits dans le grimoire ✨"
+  },
+  {
+    "clave": "corazon.mago.tarde.1",
+    "texto": "Je sens des énergies calmes dans la maison cet après-midi 🔮"
+  },
+  {
+    "clave": "corazon.mago.noche.0",
+    "texto": "Les étoiles livrent leurs secrets… une belle nuit pour les sortilèges 🌙"
+  },
+  {
+    "clave": "corazon.mago.noche.1",
+    "texto": "La lune charge mon orbe. Tout est calme ici 🔮"
+  },
+  {
+    "clave": "corazon.mago.rutina.0",
+    "texto": "Ma boule de cristal annonce : « {r} » à {h} ✨"
+  },
+  {
+    "clave": "corazon.mago.rutina.1",
+    "texto": "Le destin marque {h} : « {r} » approche 🔮"
+  },
+  {
+    "clave": "corazon.mago.generica.0",
+    "texto": "Cette maison déborde de magie aujourd’hui ✨"
+  },
+  {
+    "clave": "corazon.mago.generica.1",
+    "texto": "Un sort de rangement ne fait jamais de mal… 🔮"
+  },
+  {
+    "clave": "corazon.gato.manana.0",
+    "texto": "Bien trop tôt. Les humains se réveillent bizarrement 🐾"
+  },
+  {
+    "clave": "corazon.gato.manana.1",
+    "texto": "Bâillement. Les matins seraient meilleurs avec une sieste 🐱"
+  },
+  {
+    "clave": "corazon.gato.tarde.0",
+    "texto": "Moment parfait pour une sieste au soleil. Juste comme ça 🐾"
+  },
+  {
+    "clave": "corazon.gato.tarde.1",
+    "texto": "Après-midi tranquille… comme je l’aime 🐱"
+  },
+  {
+    "clave": "corazon.gato.noche.0",
+    "texto": "Enfin la nuit. Mon meilleur moment 🐱"
+  }
+]

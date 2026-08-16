@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-descanso--horario.3.texto",
+    "texto": "Elke ochtend noteer je hoe laat je naar bed ging, hoe laat je wakker werd, hoeveel onderbrekingen er waren en hoe het ging. Meer heeft de app niet nodig voor de rest."
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.titulo",
+    "texto": "Eén jaar, vier vergrootglazen"
+  },
+  {
+    "clave": "tut.app-despacho--anio.1.texto",
+    "texto": "Kies Dag, Week, Maand of Jaar en schuif met de pijlen. Ga een paar maanden terug: daar zie je de maand van de autopech en die van de vlucht naar Japan, allebei in het rood."
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.titulo",
+    "texto": "De vorm van het jaar"
+  },
+  {
+    "clave": "tut.app-despacho--anio.2.texto",
+    "texto": "Zes periodes terug, in balken. De blauwe zijn de maanden waarin geld overbleef; de rode, de maanden die pijn deden. Daar zie je de dip en de opleving."
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.titulo",
+    "texto": "Waar gaat het heen?"
+  },
+  {
+    "clave": "tut.app-despacho--anio.3.texto",
+    "texto": "Uitgaven per categorie, voor de periode die je bekijkt. Pep schrijft de categorieën met de hand: de app herkent de bekende en geeft de rest een eigen kleur."
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.titulo",
+    "texto": "De grens van de maand"
+  },
+  {
+    "clave": "tut.app-despacho--anio.4.texto",
+    "texto": "Eén maandbudget en een balk die rood wordt zodra je eroverheen gaat. Kijk je per week of per jaar, dan rekent de app het vanzelf om."
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.titulo",
+    "texto": "Wat je vandaag hebt"
+  },
+  {
+    "clave": "tut.app-despacho--anio.5.texto",
+    "texto": "Je vermogen komt rechtstreeks uit het tabblad Vermogen: bezittingen min schulden. Hier komt de balans van de periode erbij of eraf, zodat je ziet waar je zou eindigen."
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.titulo",
+    "texto": "En over een jaar"
+  },
+  {
+    "clave": "tut.app-despacho--anio.6.texto",
+    "texto": "Twaalf maanden vooruit: je vaste posten op hun vervaldatum en het variabele op je gemiddelde, in twee scenario's: met vermogen en zonder."
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.titulo",
+    "texto": "Peps vaste posten"
+  },
+  {
+    "clave": "tut.app-despacho--captura.1.texto",
+    "texto": "De huur, het internet, de telefoon, de streaming en de autoverzekering: vijf posten uit maand 2, toen Pep besloot orde te scheppen. Ze tellen sindsdien allemaal vanzelf mee."
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.titulo",
+    "texto": "Zo leg je er een vast"
+  },
+  {
+    "clave": "tut.app-despacho--captura.2.texto",
+    "texto": "Het formulier gaat stap voor stap: bedrag, variabel of vast, categorie (schrijf je eigen of kies een bekende), hoe vaak het terugkomt en de notitie."
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.titulo",
+    "texto": "Een jaar aan transacties"
+  },
+  {
+    "clave": "tut.app-despacho--captura.3.texto",
+    "texto": "Honderden uitgaven, opgeborgen in mappen per jaar en maand. Zoek maand 7 op: daar staat de autopech die in één klap bijna tienduizend peso's kostte."
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.titulo",
+    "texto": "Waar het geld vandaan komt"
+  },
+  {
+    "clave": "tut.app-despacho--captura.4.texto",
+    "texto": "Twee halfmaandelijkse lonen van de koffiebar, de natuurkundelessen die Pep ging geven toen de reis besloten was, en de fooien van elke week, nooit twee keer hetzelfde."
+  },
+  {
+    "clave": "tut.app-despacho--captura.5.texto",
+    "texto": "In je eigen huis kun je ook via de chat vastleggen: «250 uitgegeven aan boodschappen» en het staat genoteerd."
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.titulo",
+    "texto": "Het doel dat gehaald werd"
+  },
+  {
+    "clave": "tut.app-despacho--metas.1.texto",
+    "texto": "De reis naar Japan, op 100 %: elf maanden sparen, de bijlessen, de eindejaarsuitkering en het verjaardagsgeld. Daaronder het noodfonds dat na terugkomst begon en een kleine belegging."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.titulo",
+    "texto": "Het doel in de tijd"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.titulo",
+    "texto": "Wat er nog openstond"
+  },
+  {
+    "clave": "tut.app-despacho--metas.3.texto",
+    "texto": "De autopech ging op de creditcard en het duurde maanden voor die was afbetaald. Schulden staan apart, want je leest ze omgekeerd: hier is dalen winnen."
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.titulo",
+    "texto": "Markten"
+  },
+  {
+    "clave": "tut.app-despacho--metas.4.texto",
+    "texto": "Pep volgt de yen sinds de reis besloten was, en nu de won, voor de volgende. Valuta, crypto, aandelen en grondstoffen live (internet nodig)."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.1.texto",
+    "texto": "Vier regels voor je persoonlijke financiën, elk op een eigen tabblad: Noodfonds, Financiële onafhankelijkheid, 50/30/20 en Auto 20/4/10."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.titulo",
+    "texto": "Begint bij jouw balans"
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.2.texto",
+    "texto": "De velden komen al gevuld met je echte inkomsten of uitgaven van de maand — tik erop om een ander bedrag te simuleren zonder het echte uit het oog te verliezen."
+  },
+  {
+    "clave": "tut.app-despacho--calculadoras.3.titulo",
+    "texto": "Van berekening naar doel"
+  }
+]

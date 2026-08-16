@@ -1,0 +1,1078 @@
+[
+  {
+    "clave": "corazon.gato.noche.1",
+    "texto": "Malam yang tenang. Jangan rusak 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.0",
+    "texto": "Hei, “{r}” jam {h}. Aku nggak bakal gerak 🐾"
+  },
+  {
+    "clave": "corazon.gato.rutina.1",
+    "texto": "“{r}” segera tiba ({h}). Kamu pasti bisa, aku yang awasi 🐱"
+  },
+  {
+    "clave": "corazon.gato.generica.0",
+    "texto": "Semua terkendali. Aku periksa sambil tidur siang 🐾"
+  },
+  {
+    "clave": "corazon.gato.generica.1",
+    "texto": "Hmm. Rumah masih berdiri. Sama-sama 🐱"
+  },
+  {
+    "clave": "corazon.perro.manana.0",
+    "texto": "Selamat pagi! Hari ini baunya seperti hari yang hebat! 🐶"
+  },
+  {
+    "clave": "corazon.perro.manana.1",
+    "texto": "Sudah pagi! Ayo ayo ayo! 🦴"
+  },
+  {
+    "clave": "corazon.perro.tarde.0",
+    "texto": "Sore yang sempurna buat menyelesaikan semuanya! Guk! 🐶"
+  },
+  {
+    "clave": "corazon.perro.tarde.1",
+    "texto": "Masih di sini, mengawasi semuanya! 🎉"
+  },
+  {
+    "clave": "corazon.perro.noche.0",
+    "texto": "Hari yang hebat, kan? Kan? 🐶"
+  },
+  {
+    "clave": "corazon.perro.noche.1",
+    "texto": "Malam yang tenang… Aku yang jaga! 🦴"
+  },
+  {
+    "clave": "corazon.perro.rutina.0",
+    "texto": "“{r}” jam {h}! Kamu pasti bisa! 🎉"
+  },
+  {
+    "clave": "corazon.perro.rutina.1",
+    "texto": "Jangan lupa “{r}” jam {h}! Guk! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.0",
+    "texto": "Aku suka rumah ini! 🐶"
+  },
+  {
+    "clave": "corazon.perro.generica.1",
+    "texto": "Panggil aku kalau butuh apa-apa! Apa saja! 🦴"
+  },
+  {
+    "clave": "corazon.buho.manana.0",
+    "texto": "Fajar. Waktu ideal untuk merencanakan hari dengan tenang. 🦉"
+  },
+  {
+    "clave": "corazon.buho.manana.1",
+    "texto": "Pagi yang tertata memberi hasil dua kali lipat."
+  },
+  {
+    "clave": "corazon.buho.tarde.0",
+    "texto": "Tengah hari: saat yang baik untuk meninjau kemajuan. 🦉"
+  },
+  {
+    "clave": "corazon.buho.tarde.1",
+    "texto": "Sore berjalan sesuai rencana."
+  },
+  {
+    "clave": "corazon.buho.noche.0",
+    "texto": "Malam tiba. Aku sarankan menutup hari dengan sebuah catatan. 🦉"
+  },
+  {
+    "clave": "corazon.buho.noche.1",
+    "texto": "Malam mengundang perenungan."
+  },
+  {
+    "clave": "corazon.buho.rutina.0",
+    "texto": "Pemberitahuan tepat waktu: “{r}” jam {h}. 🦉"
+  },
+  {
+    "clave": "corazon.buho.rutina.1",
+    "texto": "Linimasamu mencantumkan “{r}” jam {h}."
+  },
+  {
+    "clave": "corazon.buho.generica.0",
+    "texto": "Aku mengamati dan mencatat. Semua beres. 🦉"
+  },
+  {
+    "clave": "corazon.buho.generica.1",
+    "texto": "Pengetahuan bertambah hari demi hari."
+  },
+  {
+    "clave": "corazon.robot.manana.0",
+    "texto": "☀ SIKLUS HARI DIMULAI. SISTEM 100%. 🤖"
+  },
+  {
+    "clave": "corazon.robot.manana.1",
+    "texto": "SELAMAT PAGI. BATERAI PENUH. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.0",
+    "texto": "PINDAI SORE SELESAI. TIDAK ADA ANOMALI. ✓"
+  },
+  {
+    "clave": "corazon.robot.tarde.1",
+    "texto": "PRODUKTIVITAS SESUAI PARAMETER. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.0",
+    "texto": "MODE MALAM AKTIF. PENGAWASAN BERLANGSUNG. 🤖"
+  },
+  {
+    "clave": "corazon.robot.noche.1",
+    "texto": "REKOMENDASI: ISI ULANG UNIT MANUSIA (TIDUR). ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.0",
+    "texto": "PENGINGAT: “{r}” DIJADWALKAN JAM {h}. ✓"
+  },
+  {
+    "clave": "corazon.robot.rutina.1",
+    "texto": "PERINGATAN: “{r}” JAM {h}. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.0",
+    "texto": "SEMUA SISTEM NORMAL. 🤖"
+  },
+  {
+    "clave": "corazon.robot.generica.1",
+    "texto": "MENUNGGU INSTRUKSI. TIDAK MENDESAK. ✓"
+  },
+  {
+    "clave": "chat.config.activoMapa",
+    "texto": "Asisten aktif selalu ada di peta"
+  },
+  {
+    "clave": "chat.config.editar",
+    "texto": "Sesuaikan"
+  },
+  {
+    "clave": "chat.config.eliminar",
+    "texto": "Hapus asisten"
+  },
+  {
+    "clave": "chat.config.eliminarConfirma",
+    "texto": "Hapus {n}? Percakapannya tetap tersimpan."
+  },
+  {
+    "clave": "chat.config.eliminarOk",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "chat.config.eliminarUltimo",
+    "texto": "Setidaknya harus ada satu asisten"
+  },
+  {
+    "clave": "chat.config.restaurar",
+    "texto": "Pulihkan:"
+  },
+  {
+    "clave": "chat.config.restaurarUno",
+    "texto": "Pulihkan"
+  },
+  {
+    "clave": "acceso.subir",
+    "texto": "Naik ke level {n}"
+  },
+  {
+    "clave": "acceso.bajarPlanta",
+    "texto": "Turun ke lantai dasar"
+  },
+  {
+    "clave": "acceso.bajar",
+    "texto": "Turun ke level {n}"
+  },
+  {
+    "clave": "veh.ayuda",
+    "texto": "Letakkan kendaraan di peta dan dekati untuk menaikinya."
+  },
+  {
+    "clave": "veh.colocar",
+    "texto": "Letakkan di peta"
+  },
+  {
+    "clave": "veh.color",
+    "texto": "Warna kendaraan"
+  },
+  {
+    "clave": "veh.subirte",
+    "texto": "Naik"
+  },
+  {
+    "clave": "veh.bajarte",
+    "texto": "Turun"
+  },
+  {
+    "clave": "accion.sentarte",
+    "texto": "Duduk"
+  },
+  {
+    "clave": "accion.acostarte",
+    "texto": "Berbaring"
+  },
+  {
+    "clave": "accion.sentado",
+    "texto": "Duduk"
+  },
+  {
+    "clave": "accion.acostado",
+    "texto": "Berbaring"
+  },
+  {
+    "clave": "accion.levantarte",
+    "texto": "Berdiri"
+  },
+  {
+    "clave": "veh.subir",
+    "texto": "Naik (Spasi)"
+  },
+  {
+    "clave": "veh.bajar",
+    "texto": "Turun (Shift)"
+  },
+  {
+    "clave": "veh.derrape",
+    "texto": "Drift (Spasi)"
+  },
+  {
+    "clave": "hud.ayuda",
+    "texto": "Bergerak dengan WASD/panah atau pad (kiri bawah). Putar dan perbesar dengan tombol (kanan bawah). Lewati pintu antar ruangan."
+  },
+  {
+    "clave": "cat.cuerpo",
+    "texto": "Tubuh"
+  },
+  {
+    "clave": "cat.mente",
+    "texto": "Pikiran"
+  },
+  {
+    "clave": "cat.complemento",
+    "texto": "Ekstra"
+  },
+  {
+    "clave": "cat.config",
+    "texto": "Pengaturan"
+  },
+  {
+    "clave": "ajustes.titulo",
+    "texto": "Pengaturan"
+  },
+  {
+    "clave": "ajustes.idioma",
+    "texto": "Bahasa"
+  },
+  {
+    "clave": "diario.nacidoAbrev",
+    "texto": "l."
+  },
+  {
+    "clave": "ajustes.tema",
+    "texto": "Tema antarmuka"
+  },
+  {
+    "clave": "ajustes.modo",
+    "texto": "Tampilan"
+  },
+  {
+    "clave": "ajustes.modo.claro",
+    "texto": "Terang"
+  },
+  {
+    "clave": "ajustes.modo.oscuro",
+    "texto": "Gelap"
+  },
+  {
+    "clave": "ajustes.modo.transparente",
+    "texto": "Transparan"
+  },
+  {
+    "clave": "ajustes.iconos",
+    "texto": "Gaya ikon"
+  },
+  {
+    "clave": "ajustes.iconos.emoji",
+    "texto": "Emoji"
+  },
+  {
+    "clave": "ajustes.iconos.profesional",
+    "texto": "Profesional"
+  },
+  {
+    "clave": "ajustes.tipografia",
+    "texto": "Tipografi"
+  },
+  {
+    "clave": "ajustes.abrir",
+    "texto": "Pengaturan"
+  },
+  {
+    "clave": "tipografia.sistema",
+    "texto": "Sistem"
+  },
+  {
+    "clave": "tipografia.serif",
+    "texto": "Serif"
+  },
+  {
+    "clave": "tipografia.mono",
+    "texto": "Lebar tetap"
+  },
+  {
+    "clave": "tipografia.redondeada",
+    "texto": "Bulat"
+  },
+  {
+    "clave": "tipografia.manuscrita",
+    "texto": "Tulisan tangan"
+  },
+  {
+    "clave": "temaUI.medianoche",
+    "texto": "Tengah Malam"
+  },
+  {
+    "clave": "temaUI.neon",
+    "texto": "Neon"
+  },
+  {
+    "clave": "temaUI.bosque",
+    "texto": "Hutan"
+  },
+  {
+    "clave": "temaUI.ambar",
+    "texto": "Amber"
+  },
+  {
+    "clave": "temaUI.ciruela",
+    "texto": "Plum"
+  },
+  {
+    "clave": "room.cocina.nombre",
+    "texto": "Dapur"
+  },
+  {
+    "clave": "room.ejercicio.nombre",
+    "texto": "Gym"
+  },
+  {
+    "clave": "room.recamara.nombre",
+    "texto": "Kamar Tidur"
+  },
+  {
+    "clave": "room.descanso.nombre",
+    "texto": "Tempat Tidur · Istirahat"
+  },
+  {
+    "clave": "room.anecdotario.nombre",
+    "texto": "Meja · Buku Kenangan"
+  },
+  {
+    "clave": "room.despacho.nombre",
+    "texto": "Ruang Kerja"
+  },
+  {
+    "clave": "room.biblioteca.nombre",
+    "texto": "Perpustakaan"
+  },
+  {
+    "clave": "room.entretenimiento.nombre",
+    "texto": "Hiburan"
+  },
+  {
+    "clave": "room.sala.nombre",
+    "texto": "Ruang Tamu"
+  },
+  {
+    "clave": "room.jardin.nombre",
+    "texto": "Taman"
+  },
+  {
+    "clave": "room.garage.nombre",
+    "texto": "Garasi"
+  },
+  {
+    "clave": "room.diario.nombre",
+    "texto": "Berita Harian"
+  },
+  {
+    "clave": "room.hobbies.nombre",
+    "texto": "Hobi"
+  },
+  {
+    "clave": "room.idiomas.nombre",
+    "texto": "Bahasa"
+  },
+  {
+    "clave": "room.caminos.nombre",
+    "texto": "Sirkuit"
+  },
+  {
+    "clave": "room.canchas.nombre",
+    "texto": "Lapangan"
+  },
+  {
+    "clave": "room.huerto.nombre",
+    "texto": "Makanan"
+  },
+  {
+    "clave": "room.granja.nombre",
+    "texto": "Peternakan"
+  },
+  {
+    "clave": "room.ideas.nombre",
+    "texto": "Ide"
+  },
+  {
+    "clave": "room.computo.nombre",
+    "texto": "Komputasi"
+  },
+  {
+    "clave": "room.agenda.nombre",
+    "texto": "Agenda"
+  },
+  {
+    "clave": "room.cocina.sub",
+    "texto": "Nutrisi"
+  },
+  {
+    "clave": "room.ejercicio.sub",
+    "texto": "Rutinitas kekuatan & kebugaran"
+  },
+  {
+    "clave": "room.recamara.sub",
+    "texto": "Tidur & kenangan"
+  },
+  {
+    "clave": "room.descanso.sub",
+    "texto": "Tidur & alarm"
+  },
+  {
+    "clave": "room.anecdotario.sub",
+    "texto": "Buku kenangan pribadi"
+  },
+  {
+    "clave": "room.despacho.sub",
+    "texto": "Keuangan"
+  },
+  {
+    "clave": "room.biblioteca.sub",
+    "texto": "Pembelajaran"
+  },
+  {
+    "clave": "room.entretenimiento.sub",
+    "texto": "Arsip & permainan papan"
+  },
+  {
+    "clave": "room.sala.sub",
+    "texto": "Perjalanan"
+  },
+  {
+    "clave": "room.jardin.sub",
+    "texto": "Kesadaran"
+  },
+  {
+    "clave": "room.garage.sub",
+    "texto": "Perawatan kendaraan"
+  },
+  {
+    "clave": "room.diario.sub",
+    "texto": "Berita harian"
+  },
+  {
+    "clave": "room.hobbies.sub",
+    "texto": "Kegiatan & proyek"
+  },
+  {
+    "clave": "room.calendario.sub",
+    "texto": "Acara & rutinitas"
+  },
+  {
+    "clave": "room.ideas.sub",
+    "texto": "Peta konsep di kanvas bebas"
+  },
+  {
+    "clave": "room.computo.sub",
+    "texto": "Kalkulator & lembar kerja"
+  },
+  {
+    "clave": "room.agenda.sub",
+    "texto": "Kerja, kesehatan & orang"
+  },
+  {
+    "clave": "hud.plegar",
+    "texto": "Ciutkan kontrol"
+  },
+  {
+    "clave": "hud.desplegar",
+    "texto": "Tampilkan kontrol"
+  },
+  {
+    "clave": "nav3d.aria",
+    "texto": "Kontrol tampilan"
+  },
+  {
+    "clave": "nav3d.vistaCuarto",
+    "texto": "Tampilan ruangan"
+  },
+  {
+    "clave": "nav3d.vistaInterior",
+    "texto": "Menghadap dinding"
+  },
+  {
+    "clave": "nav3d.rotarIzq",
+    "texto": "Putar tampilan ke kiri"
+  },
+  {
+    "clave": "nav3d.rotarDer",
+    "texto": "Putar tampilan ke kanan"
+  },
+  {
+    "clave": "nav3d.acercar",
+    "texto": "Perbesar"
+  },
+  {
+    "clave": "nav3d.alejar",
+    "texto": "Perkecil"
+  },
+  {
+    "clave": "nav3d.restaurarCuarto",
+    "texto": "Atur ulang zoom dan fokus ruangan"
+  },
+  {
+    "clave": "nav3d.vistaInicial",
+    "texto": "Tampilan awal"
+  },
+  {
+    "clave": "nav3d.centrarCuarto",
+    "texto": "Pusatkan ruangan"
+  },
+  {
+    "clave": "nav3d.reiniciar",
+    "texto": "Atur ulang tampilan"
+  },
+  {
+    "clave": "nav3d.editor3d",
+    "texto": "Editor 3D"
+  },
+  {
+    "clave": "nav3d.editor3dOn",
+    "texto": "Tutup editor"
+  },
+  {
+    "clave": "nav3d.editor3dHint",
+    "texto": "Edit dunia dalam perspektif: sentuh objek, lantai, dinding, atau karakter untuk mengeditnya"
+  },
+  {
+    "clave": "nav3d.verFlechas",
+    "texto": "Kembali ke panah gerakan"
+  },
+  {
+    "clave": "nav3d.verCubo",
+    "texto": "Lipat panah dan lihat kubus tampilan"
+  },
+  {
+    "clave": "nav3d.verFlechasBtn",
+    "texto": "Tampilkan panah"
+  },
+  {
+    "clave": "nav3d.verCuboBtn",
+    "texto": "Lihat tampilan"
+  },
+  {
+    "clave": "herr.boton",
+    "texto": "Alat"
+  },
+  {
+    "clave": "herr.rueda",
+    "texto": "Roda alat"
+  },
+  {
+    "clave": "herr.cubo",
+    "texto": "Kubus"
+  },
+  {
+    "clave": "herr.saltar",
+    "texto": "Lompat"
+  },
+  {
+    "clave": "herr.correr",
+    "texto": "Lari"
+  },
+  {
+    "clave": "herr.bailar",
+    "texto": "Menari"
+  },
+  {
+    "clave": "herr.laser",
+    "texto": "Laser"
+  },
+  {
+    "clave": "herr.volverCubo",
+    "texto": "Kembali ke kubus tampilan"
+  },
+  {
+    "clave": "herr.saltarBtn",
+    "texto": "Lompat!"
+  },
+  {
+    "clave": "herr.corriendo",
+    "texto": "Berlari"
+  },
+  {
+    "clave": "herr.bailando",
+    "texto": "Menari"
+  },
+  {
+    "clave": "herr.disparar",
+    "texto": "Tembak"
+  },
+  {
+    "clave": "herr.invocar",
+    "texto": "Panggil"
+  },
+  {
+    "clave": "herr.soloPlantaBaja",
+    "texto": "Turun ke lantai dasar untuk memanggilnya"
+  },
+  {
+    "clave": "herr.veh.bicicleta",
+    "texto": "Sepeda"
+  },
+  {
+    "clave": "herr.veh.motocicleta",
+    "texto": "Motor"
+  },
+  {
+    "clave": "herr.veh.automovil",
+    "texto": "Mobil"
+  },
+  {
+    "clave": "herr.veh.ovni",
+    "texto": "UFO"
+  },
+  {
+    "clave": "herr.cat.movimientos",
+    "texto": "Gerakan"
+  },
+  {
+    "clave": "herr.cat.juguetes",
+    "texto": "Mainan"
+  },
+  {
+    "clave": "herr.cat.vehiculos",
+    "texto": "Kendaraan"
+  },
+  {
+    "clave": "herr.cat.construccion",
+    "texto": "Bangunan"
+  },
+  {
+    "clave": "herr.construir",
+    "texto": "Bangun"
+  },
+  {
+    "clave": "herr.constrDibujar",
+    "texto": "Gambar"
+  },
+  {
+    "clave": "herr.abrirEditor",
+    "texto": "Buka editor"
+  },
+  {
+    "clave": "herr.atras",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "herr.cuerda",
+    "texto": "Lompat tali"
+  },
+  {
+    "clave": "herr.mortal",
+    "texto": "Salto"
+  },
+  {
+    "clave": "herr.saludar",
+    "texto": "Lambaikan tangan"
+  },
+  {
+    "clave": "herr.mover",
+    "texto": "Pindahkan"
+  },
+  {
+    "clave": "herr.moverAcercate",
+    "texto": "Dekati objek atau ruangan"
+  },
+  {
+    "clave": "herr.agarrar",
+    "texto": "Ambil"
+  },
+  {
+    "clave": "herr.agarrarCuarto",
+    "texto": "Ambil ruangan"
+  },
+  {
+    "clave": "herr.moverCargandoObjeto",
+    "texto": "Membawa objek"
+  },
+  {
+    "clave": "herr.moverCargandoCuarto",
+    "texto": "Membawa ruangan"
+  },
+  {
+    "clave": "herr.soltar",
+    "texto": "Lepaskan"
+  },
+  {
+    "clave": "ctx.interactuar",
+    "texto": "Berinteraksi"
+  },
+  {
+    "clave": "ctx.entrarApp",
+    "texto": "Buka aplikasi"
+  },
+  {
+    "clave": "ctx.cambiarLetrero",
+    "texto": "Edit papan nama"
+  },
+  {
+    "clave": "ctx.usar",
+    "texto": "Gunakan"
+  },
+  {
+    "clave": "ctx.subirte",
+    "texto": "Naik"
+  },
+  {
+    "clave": "ctx.subirteDona",
+    "texto": "Naik ke pelampung"
+  },
+  {
+    "clave": "ctx.cosechar",
+    "texto": "Panen"
+  },
+  {
+    "clave": "ctx.recoger",
+    "texto": "Ambil"
+  },
+  {
+    "clave": "ctx.bajarte",
+    "texto": "Turun"
+  },
+  {
+    "clave": "ctx.correr",
+    "texto": "Balapan"
+  },
+  {
+    "clave": "ctx.revisarTu",
+    "texto": "Periksa"
+  },
+  {
+    "clave": "ctx.subirA",
+    "texto": "Naik ke"
+  },
+  {
+    "clave": "ctx.bajarA",
+    "texto": "Turun ke"
+  },
+  {
+    "clave": "ctx.nivelN",
+    "texto": "Level {n}"
+  },
+  {
+    "clave": "ctx.plantaBaja",
+    "texto": "Lantai dasar"
+  },
+  {
+    "clave": "ctx.jugar.futbol",
+    "texto": "Main sepak bola"
+  },
+  {
+    "clave": "ctx.jugar.tenis",
+    "texto": "Main tenis"
+  },
+  {
+    "clave": "ctx.jugar.basket",
+    "texto": "Main basket"
+  },
+  {
+    "clave": "ctx.jugar.beisbol",
+    "texto": "Main bisbol"
+  },
+  {
+    "clave": "herr.portales",
+    "texto": "Portal"
+  },
+  {
+    "clave": "herr.fuegos",
+    "texto": "Kembang api"
+  },
+  {
+    "clave": "herr.burbujas",
+    "texto": "Gelembung"
+  },
+  {
+    "clave": "herr.cuerdaOn",
+    "texto": "Melompat tali"
+  },
+  {
+    "clave": "herr.mortalBtn",
+    "texto": "Salto!"
+  },
+  {
+    "clave": "herr.saludarBtn",
+    "texto": "Halo!"
+  },
+  {
+    "clave": "herr.portalColocar",
+    "texto": "Letakkan portal"
+  },
+  {
+    "clave": "herr.portalQuitar",
+    "texto": "Hapus portal"
+  },
+  {
+    "clave": "herr.fuegosBtn",
+    "texto": "Luncurkan!"
+  },
+  {
+    "clave": "herr.burbujasOn",
+    "texto": "Meniup gelembung"
+  },
+  {
+    "clave": "herr.quitar",
+    "texto": "Hapus alat"
+  },
+  {
+    "clave": "herr.grafiti",
+    "texto": "Grafiti"
+  },
+  {
+    "clave": "herr.grafitiPintar",
+    "texto": "Cat dinding"
+  },
+  {
+    "clave": "herr.grafitiSinMuro",
+    "texto": "Dekati dinding"
+  },
+  {
+    "clave": "herr.grafitiMuroPuerta",
+    "texto": "Dinding dengan pintu tidak bisa dicat"
+  },
+  {
+    "clave": "herr.grafitiMuroCurvo",
+    "texto": "Dinding melengkung tidak bisa dicat"
+  },
+  {
+    "clave": "graf.titulo",
+    "texto": "Grafiti"
+  },
+  {
+    "clave": "graf.pincel",
+    "texto": "Kuas"
+  },
+  {
+    "clave": "graf.spray",
+    "texto": "Semprot"
+  },
+  {
+    "clave": "graf.borrador",
+    "texto": "Penghapus"
+  },
+  {
+    "clave": "graf.bote",
+    "texto": "Isi semua dengan satu warna"
+  },
+  {
+    "clave": "graf.grosor",
+    "texto": "Ukuran"
+  },
+  {
+    "clave": "graf.color",
+    "texto": "Warna"
+  },
+  {
+    "clave": "graf.deshacer",
+    "texto": "Urungkan"
+  },
+  {
+    "clave": "graf.limpiar",
+    "texto": "Bersihkan"
+  },
+  {
+    "clave": "graf.borrar",
+    "texto": "Hapus grafiti"
+  },
+  {
+    "clave": "graf.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "graf.salir",
+    "texto": "Keluar tanpa menyimpan"
+  },
+  {
+    "clave": "despacho.tab.balance",
+    "texto": "Arus kas"
+  },
+  {
+    "clave": "despacho.tab.mercados",
+    "texto": "Pasar"
+  },
+  {
+    "clave": "despacho.tab.divisas",
+    "texto": "Forex"
+  },
+  {
+    "clave": "despacho.tab.criptos",
+    "texto": "Kripto"
+  },
+  {
+    "clave": "despacho.tab.acciones",
+    "texto": "Saham"
+  },
+  {
+    "clave": "despacho.tab.commodities",
+    "texto": "Komoditas"
+  },
+  {
+    "clave": "despacho.sub.balance",
+    "texto": "Saldo"
+  },
+  {
+    "clave": "despacho.tab.gastos",
+    "texto": "Pengeluaran"
+  },
+  {
+    "clave": "despacho.tab.ingresos",
+    "texto": "Pemasukan"
+  },
+  {
+    "clave": "despacho.tab.metas",
+    "texto": "Target"
+  },
+  {
+    "clave": "despacho.tab.financieras",
+    "texto": "Finansial"
+  },
+  {
+    "clave": "despacho.tab.ahorroInversion",
+    "texto": "Tabungan/Investasi"
+  },
+  {
+    "clave": "despacho.tab.ahorro",
+    "texto": "Tabungan"
+  },
+  {
+    "clave": "despacho.tab.inversion",
+    "texto": "Investasi"
+  },
+  {
+    "clave": "despacho.tab.deuda",
+    "texto": "Utang"
+  },
+  {
+    "clave": "despacho.r.ingresos",
+    "texto": "Pemasukan"
+  },
+  {
+    "clave": "despacho.r.gastos",
+    "texto": "Pengeluaran"
+  },
+  {
+    "clave": "despacho.r.balance",
+    "texto": "Saldo"
+  },
+  {
+    "clave": "despacho.presupuesto",
+    "texto": "Anggaran bulanan"
+  },
+  {
+    "clave": "despacho.presupuesto.equivale",
+    "texto": "Itu setara dengan {n} untuk periode ini"
+  },
+  {
+    "clave": "despacho.patrimonio",
+    "texto": "Kekayaan bersih"
+  },
+  {
+    "clave": "despacho.patrimonio.ayuda",
+    "texto": "Asetmu dikurangi kewajibanmu, ada di tab Kekayaan bersih. Di sini kamu hanya melihat hasilnya jika periode ini ditutup begini."
+  },
+  {
+    "clave": "despacho.excedido",
+    "texto": "Anggaran terlampaui {n}"
+  },
+  {
+    "clave": "despacho.progreso",
+    "texto": "Kamu punya {used} dari {total} ({pct}%)"
+  },
+  {
+    "clave": "despacho.catGastos",
+    "texto": "Pengeluaran per kategori"
+  },
+  {
+    "clave": "despacho.sinGastos",
+    "texto": "Tidak ada pengeluaran di periode ini."
+  },
+  {
+    "clave": "despacho.periodo.dia",
+    "texto": "Hari"
+  },
+  {
+    "clave": "despacho.periodo.semana",
+    "texto": "Minggu"
+  },
+  {
+    "clave": "despacho.periodo.mes",
+    "texto": "Bulan"
+  },
+  {
+    "clave": "despacho.periodo.anio",
+    "texto": "Tahun"
+  },
+  {
+    "clave": "despacho.plazo.dia",
+    "texto": "Setiap hari"
+  },
+  {
+    "clave": "despacho.plazo.semana",
+    "texto": "Setiap minggu"
+  },
+  {
+    "clave": "despacho.plazo.mes",
+    "texto": "Setiap bulan"
+  },
+  {
+    "clave": "despacho.plazo.anio",
+    "texto": "Setiap tahun"
+  },
+  {
+    "clave": "despacho.tendencia.dia",
+    "texto": "Saldo · 6 hari terakhir"
+  },
+  {
+    "clave": "despacho.tendencia.semana",
+    "texto": "Saldo · 6 minggu terakhir"
+  },
+  {
+    "clave": "despacho.tendencia.mes",
+    "texto": "Saldo · 6 bulan terakhir"
+  },
+  {
+    "clave": "despacho.tendencia.anio",
+    "texto": "Saldo · 6 tahun terakhir"
+  },
+  {
+    "clave": "despacho.m.monto",
+    "texto": "Jumlah"
+  },
+  {
+    "clave": "despacho.m.nota",
+    "texto": "Catatan (opsional)"
+  },
+  {
+    "clave": "despacho.m.categoria",
+    "texto": "Kategori"
+  }
+]

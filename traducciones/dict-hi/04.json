@@ -1,0 +1,794 @@
+[
+  {
+    "clave": "plantillaCustom.borrarBloqueMsj",
+    "es": "Se borra la herramienta con todo lo que guardaste en ella.",
+    "en": "The tool goes away with everything you saved in it."
+  },
+  {
+    "clave": "plantillaCustom.borrarBloqueAhora",
+    "es": "Borrar la herramienta y sus datos",
+    "en": "Delete the tool and its data"
+  },
+  {
+    "clave": "plantillaCustom.meta",
+    "es": "Meta (opcional)",
+    "en": "Goal (optional)"
+  },
+  {
+    "clave": "plantillaCustom.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "plantillaCustom.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "plantillaCustom.tipo.notas",
+    "en": "Notes"
+  },
+  {
+    "clave": "plantillaCustom.tipo.checklist",
+    "en": "Checklist"
+  },
+  {
+    "clave": "plantillaCustom.tipo.contador",
+    "en": "Counter"
+  },
+  {
+    "clave": "plantillaCustom.tipo.enlaces",
+    "en": "Links"
+  },
+  {
+    "clave": "plantillaCustom.tipo.lista",
+    "en": "List"
+  },
+  {
+    "clave": "plantillaCustom.tipo.valoracion",
+    "en": "Rating"
+  },
+  {
+    "clave": "plantillaCustom.tipo.bitacora",
+    "en": "Log"
+  },
+  {
+    "clave": "plantillaCustom.tipo.progreso",
+    "en": "Progress"
+  },
+  {
+    "clave": "plantillaCustom.tipo.habito",
+    "en": "Habit"
+  },
+  {
+    "clave": "plantillaCustom.tipo.sesiones",
+    "en": "Sessions"
+  },
+  {
+    "clave": "plantillaCustom.tipo.cuenta",
+    "en": "Countdown"
+  },
+  {
+    "clave": "plantillaCustom.tipo.galeria",
+    "en": "Gallery"
+  },
+  {
+    "clave": "amueblar.titulo",
+    "es": "¿Cómo amueblar el cuarto?",
+    "en": "How to furnish the room?"
+  },
+  {
+    "clave": "amueblar.completo",
+    "es": "Amueblado",
+    "en": "Furnished"
+  },
+  {
+    "clave": "amueblar.completoDesc",
+    "es": "Trae todos los objetos de la app.",
+    "en": "Bring all of the app’s objects."
+  },
+  {
+    "clave": "amueblar.principal",
+    "es": "Solo el objeto principal",
+    "en": "Main object only"
+  },
+  {
+    "clave": "amueblar.principalDesc",
+    "es": "Solo el objeto que abre la app, sin el resto.",
+    "en": "Only the object that opens the app, nothing else."
+  },
+  {
+    "clave": "plantillaCustom.eliminada",
+    "es": "Esta plantilla fue eliminada.",
+    "en": "This template was deleted."
+  },
+  {
+    "clave": "plantillaCustom.notasPh",
+    "es": "Escribe tus notas… (se guardan solas)",
+    "en": "Write your notes… (saved automatically)"
+  },
+  {
+    "clave": "plantillaCustom.checklistPh",
+    "es": "Nuevo pendiente…",
+    "en": "New to-do…"
+  },
+  {
+    "clave": "plantillaCustom.checklistVacio",
+    "es": "Sin pendientes todavía.",
+    "en": "No to-dos yet."
+  },
+  {
+    "clave": "plantillaCustom.borrarItem",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "plantillaCustom.enlaceTitulo",
+    "es": "Título (opcional)",
+    "en": "Title (optional)"
+  },
+  {
+    "clave": "plantillaCustom.enlacesVacio",
+    "es": "Sin enlaces guardados.",
+    "en": "No saved links."
+  },
+  {
+    "clave": "plantillaCustom.listaPh",
+    "es": "Nuevo elemento…",
+    "en": "New item…"
+  },
+  {
+    "clave": "plantillaCustom.listaVacio",
+    "es": "Lista vacía.",
+    "en": "Empty list."
+  },
+  {
+    "clave": "plantillaCustom.bitacoraPh",
+    "es": "Nueva entrada…",
+    "en": "New entry…"
+  },
+  {
+    "clave": "plantillaCustom.bitacoraVacio",
+    "es": "Sin entradas todavía.",
+    "en": "No entries yet."
+  },
+  {
+    "clave": "plantillaCustom.progresoPh",
+    "es": "Valor…",
+    "en": "Value…"
+  },
+  {
+    "clave": "plantillaCustom.progresoVacio",
+    "es": "Sin mediciones todavía.",
+    "en": "No measurements yet."
+  },
+  {
+    "clave": "plantillaCustom.unidad",
+    "es": "Unidad (opcional)",
+    "en": "Unit (optional)"
+  },
+  {
+    "clave": "plantillaCustom.habitoMarcar",
+    "es": "Marcar hoy",
+    "en": "Mark today"
+  },
+  {
+    "clave": "plantillaCustom.habitoHecho",
+    "es": "Hecho hoy ✓",
+    "en": "Done today ✓"
+  },
+  {
+    "clave": "plantillaCustom.habitoRacha",
+    "es": "racha",
+    "en": "streak"
+  },
+  {
+    "clave": "plantillaCustom.habitoDias",
+    "es": "días activos",
+    "en": "active days"
+  },
+  {
+    "clave": "plantillaCustom.metaSemana",
+    "es": "Veces por semana (opcional)",
+    "en": "Times per week (optional)"
+  },
+  {
+    "clave": "plantillaCustom.sesionMin",
+    "es": "Minutos",
+    "en": "Minutes"
+  },
+  {
+    "clave": "plantillaCustom.sesionNota",
+    "es": "Nota (opcional)",
+    "en": "Note (optional)"
+  },
+  {
+    "clave": "plantillaCustom.sesionVacio",
+    "es": "Sin sesiones todavía.",
+    "en": "No sessions yet."
+  },
+  {
+    "clave": "plantillaCustom.sesionTotal",
+    "es": "Total",
+    "en": "Total"
+  },
+  {
+    "clave": "plantillaCustom.metaMin",
+    "es": "Meta en minutos (opcional)",
+    "en": "Goal in minutes (optional)"
+  },
+  {
+    "clave": "plantillaCustom.cuentaFecha",
+    "es": "Fecha objetivo",
+    "en": "Target date"
+  },
+  {
+    "clave": "plantillaCustom.cuentaSinFecha",
+    "es": "Configura una fecha objetivo al editar.",
+    "en": "Set a target date when editing."
+  },
+  {
+    "clave": "plantillaCustom.cuentaDias",
+    "es": "días restantes",
+    "en": "days left"
+  },
+  {
+    "clave": "plantillaCustom.cuentaHoy",
+    "es": "¡Hoy!",
+    "en": "Today!"
+  },
+  {
+    "clave": "plantillaCustom.cuentaPaso",
+    "es": "días atrás",
+    "en": "days ago"
+  },
+  {
+    "clave": "plantillaCustom.galeriaAgregar",
+    "es": "Agregar fotos",
+    "en": "Add photos"
+  },
+  {
+    "clave": "plantillaCustom.galeriaVacio",
+    "es": "Sin fotos todavía.",
+    "en": "No photos yet."
+  },
+  {
+    "clave": "objetos.ayuda",
+    "es": "Todos los objetos que existen, por categoría. Crea los tuyos, edítalos o bórralos.",
+    "en": "Every object that exists, by category. Create your own, edit or delete them."
+  },
+  {
+    "clave": "objetos.ayudaEspeciales",
+    "es": "Los objetos con efecto, agrupados por lo que hacen. Ábrelos para ver sus carpetas.",
+    "en": "Objects with an effect, grouped by what they do. Open one to see its folders."
+  },
+  {
+    "clave": "objetos.agregar",
+    "es": "Agregar objeto 3D",
+    "en": "Add 3D object"
+  },
+  {
+    "clave": "objetos.alMapa",
+    "es": "Colocar en el mapa o en un cuarto",
+    "en": "Place on the map or in a room"
+  },
+  {
+    "clave": "destinoObj.titulo",
+    "es": "¿Dónde lo pones?",
+    "en": "Where do you want it?"
+  },
+  {
+    "clave": "destinoObj.mapa",
+    "es": "En el mapa",
+    "en": "On the map"
+  },
+  {
+    "clave": "destinoObj.mapaDesc",
+    "es": "Suelto en el exterior, fuera de los cuartos.",
+    "en": "Loose outdoors, outside the rooms."
+  },
+  {
+    "clave": "destinoObj.enCuarto",
+    "es": "O dentro de un cuarto",
+    "en": "Or inside a room"
+  },
+  {
+    "clave": "objetos.editar",
+    "es": "Editar en el editor",
+    "en": "Edit in the editor"
+  },
+  {
+    "clave": "objetos.editarForma",
+    "es": "Editar su forma",
+    "en": "Edit its shape"
+  },
+  {
+    "clave": "objetos.animado",
+    "es": "Objeto animado",
+    "en": "Animated object"
+  },
+  {
+    "clave": "objetos.funcion.vehiculo",
+    "en": "Drivable"
+  },
+  {
+    "clave": "objetos.funcion.asiento",
+    "en": "You can sit here"
+  },
+  {
+    "clave": "objetos.funcion.acostarse",
+    "en": "You can lie down here"
+  },
+  {
+    "clave": "objetos.funcion.laptop",
+    "en": "Used for work"
+  },
+  {
+    "clave": "objetos.funcion.cajaFuerte",
+    "en": "Keeps what matters"
+  },
+  {
+    "clave": "objetos.funcion.computo",
+    "en": "Used for calculating"
+  },
+  {
+    "clave": "objetos.funcion.tapete",
+    "en": "Used for meditation"
+  },
+  {
+    "clave": "objetos.funcion.libreta",
+    "en": "Used for writing"
+  },
+  {
+    "clave": "objetos.funcion.caminadora",
+    "en": "Used for walking"
+  },
+  {
+    "clave": "objetos.funcion.anuncio",
+    "en": "Sign: write your own text"
+  },
+  {
+    "clave": "objetos.funcion.parque",
+    "en": "Interactive: hop on to play"
+  },
+  {
+    "clave": "objetos.rotarIzq",
+    "es": "Rotar a la izquierda",
+    "en": "Rotate left"
+  },
+  {
+    "clave": "objetos.rotarDer",
+    "es": "Rotar a la derecha",
+    "en": "Rotate right"
+  },
+  {
+    "clave": "objetos.quitarDelMapa",
+    "es": "Quitar del mapa",
+    "en": "Remove from the map"
+  },
+  {
+    "clave": "objetos.borrar",
+    "es": "Borrar objeto",
+    "en": "Delete object"
+  },
+  {
+    "clave": "objetos.borrarConfirm",
+    "en": "Delete \"{nombre}\"? This can't be undone."
+  },
+  {
+    "clave": "objetos.renombrar",
+    "es": "Renombrar carpeta",
+    "en": "Rename folder"
+  },
+  {
+    "clave": "objetos.restaurar",
+    "es": "Restaurar objetos base",
+    "en": "Restore base objects"
+  },
+  {
+    "clave": "objetos.restaurarConfirm",
+    "es": "Se volverán a añadir los objetos base del catálogo que hayas borrado. ¿Continuar?",
+    "en": "The base catalog objects you deleted will be added back. Continue?"
+  },
+  {
+    "clave": "mapa.editar",
+    "en": "Edit map"
+  },
+  {
+    "clave": "mapa.editarTitulo",
+    "en": "Edit the house map"
+  },
+  {
+    "clave": "mapa.quitar",
+    "en": "Remove from map"
+  },
+  {
+    "clave": "chat.tuAsistente",
+    "es": "Tu asistente:",
+    "en": "Your assistant:"
+  },
+  {
+    "clave": "chat.vacio",
+    "es": "Aún no hay registros. Cuéntale al arquitecto qué hiciste.",
+    "en": "No entries yet. Tell the architect what you did."
+  },
+  {
+    "clave": "chat.sinClasificar",
+    "es": "Sin clasificar",
+    "en": "Unsorted"
+  },
+  {
+    "clave": "chat.capturado",
+    "es": "capturado",
+    "en": "captured"
+  },
+  {
+    "clave": "chat.reclasificar",
+    "es": "Reclasificar",
+    "en": "Reclassify"
+  },
+  {
+    "clave": "chat.eliminar",
+    "es": "Eliminar",
+    "en": "Delete"
+  },
+  {
+    "clave": "chat.ocultar",
+    "es": "Cerrar el menú",
+    "en": "Close menu"
+  },
+  {
+    "clave": "chat.verMenu",
+    "es": "abrir el menú",
+    "en": "open the menu"
+  },
+  {
+    "clave": "chat.registrar",
+    "es": "Registrar",
+    "en": "Log"
+  },
+  {
+    "clave": "chat.chip.crear",
+    "es": "Crear",
+    "en": "Create"
+  },
+  {
+    "clave": "chat.chip.enMapa",
+    "es": "(en mapa)",
+    "en": "(on map)"
+  },
+  {
+    "clave": "chat.chip.fuera",
+    "es": "(fuera)",
+    "en": "(off)"
+  },
+  {
+    "clave": "chat.abrirConv",
+    "es": "ver conversación",
+    "en": "view conversation"
+  },
+  {
+    "clave": "chat.verConv",
+    "es": "Ver la conversación completa",
+    "en": "See the full conversation"
+  },
+  {
+    "clave": "chat.burbuja.ver",
+    "es": "Toca para leer todo",
+    "en": "Tap to read it all"
+  },
+  {
+    "clave": "dialogo.salir",
+    "es": "Terminar la conversación (Esc)",
+    "en": "End the conversation (Esc)"
+  },
+  {
+    "clave": "dialogo.completar",
+    "es": "Mostrar todo el texto",
+    "en": "Show the whole text"
+  },
+  {
+    "clave": "dialogo.hablar",
+    "es": "Hablar",
+    "en": "Talk"
+  },
+  {
+    "clave": "chat.conversacion",
+    "es": "Conversación",
+    "en": "Conversation"
+  },
+  {
+    "clave": "chat.conv.vacia",
+    "es": "Aún no hay mensajes con {pet}. Escríbele desde la barra de abajo",
+    "en": "No messages with {pet} yet. Type in the bar below "
+  },
+  {
+    "clave": "chat.conv.limpiar",
+    "es": "Vaciar conversación",
+    "en": "Clear conversation"
+  },
+  {
+    "clave": "chat.conv.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "chat.tu",
+    "es": "Tú",
+    "en": "You"
+  },
+  {
+    "clave": "chat.tab.chats",
+    "es": "Chats",
+    "en": "Chats"
+  },
+  {
+    "clave": "chat.tab.registros",
+    "es": "Registros",
+    "en": "Entries"
+  },
+  {
+    "clave": "chat.config.abrir",
+    "es": "Configurar asistentes",
+    "en": "Set up assistants"
+  },
+  {
+    "clave": "chat.config.titulo",
+    "es": "Tus asistentes",
+    "en": "Your assistants"
+  },
+  {
+    "clave": "chat.config.activo",
+    "es": "activo",
+    "en": "active"
+  },
+  {
+    "clave": "chat.config.sinCaracter",
+    "en": "No personality set"
+  },
+  {
+    "clave": "chat.config.archivaTodo",
+    "es": "Archiva en todos los cuartos",
+    "en": "Archives in every room"
+  },
+  {
+    "clave": "chat.config.cuartos",
+    "es": "Asignar apps",
+    "en": "Assign rooms"
+  },
+  {
+    "clave": "chat.config.cuartosTodos",
+    "es": "(ninguna marcada = todas)",
+    "en": "(none checked = all)"
+  },
+  {
+    "clave": "chat.config.nuevo",
+    "es": "Crear asistente",
+    "en": "Create assistant"
+  },
+  {
+    "clave": "chat.config.nuevoNombre",
+    "es": "Nuevo asistente",
+    "en": "New assistant"
+  },
+  {
+    "clave": "chat.config.nuevoSaludo",
+    "es": "¡Hola! Soy tu nuevo asistente.",
+    "en": "Hi! I'm your new assistant."
+  },
+  {
+    "clave": "chat.config.nombre",
+    "es": "Nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "chat.config.emoji",
+    "es": "Emoji del asistente",
+    "en": "Assistant emoji"
+  },
+  {
+    "clave": "chat.config.historia",
+    "es": "Historia y contexto del personaje",
+    "en": "Character backstory and context"
+  },
+  {
+    "clave": "chat.config.historiaPh",
+    "es": "Historia y contexto: ej. \"Viejo lobo de mar que cuidó un faro 40 años; ahora cuida tu casa\"",
+    "en": "Backstory: e.g. \"Old sea wolf who kept a lighthouse for 40 years; now he keeps your home\""
+  },
+  {
+    "clave": "chat.config.caracterPh",
+    "es": "Carácter: ej. \"Hablas como pirata, bromista y directo, cierras con 🏴‍☠️\"",
+    "en": "Personality: e.g. \"You talk like a pirate, playful and direct, you end with 🏴‍☠️\""
+  },
+  {
+    "clave": "chat.config.forma",
+    "es": "Forma 3D:",
+    "en": "3D shape:"
+  },
+  {
+    "clave": "chat.config.color",
+    "es": "Color del personaje",
+    "en": "Character color"
+  },
+  {
+    "clave": "chat.config.formaPh",
+    "es": "Descríbelo: \"dragón verde con lentes y chaleco\"",
+    "en": "Describe it: \"green dragon with glasses and a vest\""
+  },
+  {
+    "clave": "chat.config.formaSinIa",
+    "es": "Describir la forma requiere IA (elige modelo en la barra)",
+    "en": "Describing the shape needs AI (pick a model in the bar)"
+  },
+  {
+    "clave": "chat.config.formaGenerar",
+    "es": "Crear la forma con IA",
+    "en": "Create the shape with AI"
+  },
+  {
+    "clave": "chat.config.formaError",
+    "es": "No pude crear la forma. Revisa el modelo de IA e inténtalo de nuevo.",
+    "en": "Couldn't create the shape. Check the AI model and try again."
+  },
+  {
+    "clave": "chat.config.subirGlb",
+    "es": "Subir modelo .glb",
+    "en": "Upload .glb model"
+  },
+  {
+    "clave": "chat.config.quitarGlb",
+    "es": "Quitar modelo subido",
+    "en": "Remove uploaded model"
+  },
+  {
+    "clave": "chat.config.quitarFormaIa",
+    "es": "Quitar forma creada por IA",
+    "en": "Remove AI-made shape"
+  },
+  {
+    "clave": "chat.config.enMapa",
+    "es": "Quitar del mapa",
+    "en": "Remove from map"
+  },
+  {
+    "clave": "chat.config.ponerMapa",
+    "es": "Poner en el mapa",
+    "en": "Add to the map"
+  },
+  {
+    "clave": "chat.config.voz",
+    "es": "Voz:",
+    "en": "Voice:"
+  },
+  {
+    "clave": "chat.config.vozAuto",
+    "es": "Automática (por idioma)",
+    "en": "Automatic (by language)"
+  },
+  {
+    "clave": "chat.config.vozIA",
+    "es": "Voz con IA (OpenAI, más natural)",
+    "en": "AI voice (OpenAI, more natural)"
+  },
+  {
+    "clave": "chat.config.vozLeer",
+    "es": "Leer en voz alta lo que dice",
+    "en": "Read aloud what they say"
+  },
+  {
+    "clave": "chat.config.vozProbar",
+    "es": "Probar la voz",
+    "en": "Try the voice"
+  },
+  {
+    "clave": "chat.config.vozTono",
+    "es": "Tono",
+    "en": "Tone"
+  },
+  {
+    "clave": "chat.config.vozVelocidad",
+    "es": "Velocidad",
+    "en": "Speed"
+  },
+  {
+    "clave": "chat.config.vozVolumen",
+    "es": "Volumen",
+    "en": "Volume"
+  },
+  {
+    "clave": "chat.config.espontaneo",
+    "es": "Comentarios espontáneos",
+    "en": "Spontaneous comments"
+  },
+  {
+    "clave": "chat.config.corazon",
+    "es": "Corazón (espontaneidad)",
+    "en": "Heart (spontaneity)"
+  },
+  {
+    "clave": "chat.config.corazonOff",
+    "es": "Apagados",
+    "en": "Off"
+  },
+  {
+    "clave": "corazon.nivel.0",
+    "es": "Callado",
+    "en": "Silent"
+  },
+  {
+    "clave": "corazon.nivel.1",
+    "es": "Tranquilo",
+    "en": "Calm"
+  },
+  {
+    "clave": "corazon.nivel.2",
+    "es": "Hablador",
+    "en": "Chatty"
+  },
+  {
+    "clave": "corazon.nivel.3",
+    "es": "Parlanchín",
+    "en": "Talkative"
+  },
+  {
+    "clave": "corazon.mago.manana.0",
+    "en": "Dawn brings fresh mana… I can feel it ✨"
+  },
+  {
+    "clave": "corazon.mago.manana.1",
+    "en": "My scrolls woke up tidy. A good omen 🔮"
+  },
+  {
+    "clave": "corazon.mago.tarde.0",
+    "en": "The afternoon is perfect for inscribing deeds in the grimoire ✨"
+  },
+  {
+    "clave": "corazon.mago.tarde.1",
+    "en": "I sense calm energies around the house this afternoon 🔮"
+  },
+  {
+    "clave": "corazon.mago.noche.0",
+    "en": "The stars are telling their secrets… a fine night for spells 🌙"
+  },
+  {
+    "clave": "corazon.mago.noche.1",
+    "en": "The moon charges my orb. All is calm here 🔮"
+  },
+  {
+    "clave": "corazon.mago.rutina.0",
+    "en": "My crystal ball announces: “{r}” at {h} ✨"
+  },
+  {
+    "clave": "corazon.mago.rutina.1",
+    "en": "Fate marks {h}: “{r}” approaches 🔮"
+  },
+  {
+    "clave": "corazon.mago.generica.0",
+    "en": "This home brims with magic today ✨"
+  },
+  {
+    "clave": "corazon.mago.generica.1",
+    "en": "A tidying spell never hurts… 🔮"
+  },
+  {
+    "clave": "corazon.gato.manana.0",
+    "en": "Way too early. Humans wake up weird 🐾"
+  },
+  {
+    "clave": "corazon.gato.manana.1",
+    "en": "Yawn. Mornings would be better with a nap 🐱"
+  },
+  {
+    "clave": "corazon.gato.tarde.0",
+    "en": "Perfect time for a nap in the sun. Just saying 🐾"
+  },
+  {
+    "clave": "corazon.gato.tarde.1",
+    "en": "Slow afternoon… just how I like it 🐱"
+  },
+  {
+    "clave": "corazon.gato.noche.0",
+    "en": "Night at last. My prime time 🐱"
+  }
+]

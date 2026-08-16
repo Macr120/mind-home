@@ -1,0 +1,278 @@
+[
+  {
+    "clave": "chat.manual.nota.ejercicio",
+    "texto": "Avec l’IA : un plan d’entraînement dans son Planning (bouton ✨) et des images illustratives d’exercices dans l’app."
+  },
+  {
+    "clave": "chat.manual.nota.entretenimiento",
+    "texto": "Jeux de table : snake, tetris, échecs, dames, sudoku, memory, pong, hockey, simon, puissance 4, space, dino…"
+  },
+  {
+    "clave": "chat.manual.nota.garage",
+    "texto": "Les véhicules que tu conduis (vélo, moto, voiture, OVNI) se trouvent dans « Personnage et véhicules »."
+  },
+  {
+    "clave": "chat.manual.nota.granja",
+    "texto": "Animaux : poule, cochon, chèvre, mouton, vache et cheval. Ils mangent ce que tu récoltes dans Cuisine."
+  },
+  {
+    "clave": "chat.manual.nota.hobbies",
+    "texto": "Dans son Planning, tu peux demander un plan IA (✨) pour faire avancer un projet."
+  },
+  {
+    "clave": "chat.manual.nota.huerto",
+    "texto": "Cultures : carotte, laitue, tournesol, tomate, maïs et citrouille."
+  },
+  {
+    "clave": "chat.manual.nota.idiomas",
+    "texto": "À l’intérieur vivent le tuteur conversationnel par niveau, les cartes venant du chat et les cartes par thème (IA)."
+  },
+  {
+    "clave": "chat.manual.nota.configuraciones",
+    "texto": "Tout ce qui est dans l’onglet Paramètres de l’éditeur : langue, apparence (claire, sombre, transparente), style d’icônes, thème et police de l’interface, verre des panneaux, style visuel du plan (normal, comique, miniature, rétro, néon) avec ses effets, notifications et sauvegarde."
+  },
+  {
+    "clave": "chat.manual.aviso.configuraciones",
+    "texto": "Se connecter, restaurer une sauvegarde et supprimer tes données ne se font PAS depuis le chat : l’assistant ouvre cette section pour que tu confirmes toi-même."
+  },
+  {
+    "clave": "chat.manual.nota.interfaz",
+    "texto": "Thème de la maison, fond du ciel, musique d’ambiance et ton récap Wrapped. Ambiances musicales : calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita."
+  },
+  {
+    "clave": "chat.manual.nota.mapa",
+    "texto": "Côtés : nord, sud, est et ouest (aussi haut, bas, gauche ou droite)."
+  },
+  {
+    "clave": "chat.manual.nota.memoria",
+    "texto": "L’assistant se souvient de faits d’une session à l’autre. Joins une photo avec le trombone ou dicte avec le micro ; @app force la destination d’une entrée."
+  },
+  {
+    "clave": "chat.manual.nota.objetos",
+    "texto": "Catalogue sans IA : lampe, chaise, table, plante, guitare, tapis, coffre, tableau, ballon et livre. Tout le reste est généré avec l’IA comme modèle 3D et enregistré dans ton inventaire. Les images 2D se demandent avec « crée une image de… » et restent dans le chat."
+  },
+  {
+    "clave": "chat.manual.nota.personaje",
+    "texto": "Vêtements : chapeau, lunettes… Parties : tête, torse et jambes. Véhicules : vélo, moto, voiture et OVNI (vole avec Espace/Maj). Vues : isométrique, troisième et première personne (touche V)."
+  },
+  {
+    "clave": "chat.manual.nota.sala",
+    "texto": "Avec l’IA, les nouveaux lieux se géolocalisent tout seuls et apparaissent comme une épingle sur la carte du monde."
+  },
+  {
+    "clave": "chat.manual.nota.superficies",
+    "texto": "Couleurs : rouge, bleu, vert… ou un code #hex. Les matériaux de sol et les formes de toit viennent du catalogue de l’éditeur."
+  },
+  {
+    "clave": "chat.manual.nota.teclado",
+    "texto": "Raccourcis pour jouer au clavier. Ils ne se tapent pas dans le chat : tu les utilises dans la maison. Ils ne font rien pendant que tu tapes dans un champ ou qu’une pièce est ouverte."
+  },
+  {
+    "clave": "chat.manual.notaSeccion.apps",
+    "texto": "Chaque app enregistre ses propres données avec tes mots (utilise @app pour forcer la destination) et ses menus s’ouvrent en tapant leur nom. Les exemples « Avec l’IA » utilisent toujours un appel IA (forfait Pro ou ta clé) ; tes modèles personnalisés se capturent aussi via le chat et s’ouvrent par leur nom. Remarque : l’analyseur hors ligne comprend l’espagnol, donc en français la plupart des commandes passent par l’IA."
+  },
+  {
+    "clave": "chat.manual.notaSeccion.mapa",
+    "texto": "Le potager, la ferme, les pistes et les terrains vivent hors des pièces, sur le plan 3D."
+  },
+  {
+    "clave": "chat.manual.seccion.apps",
+    "texto": "Apps de la maison"
+  },
+  {
+    "clave": "chat.manual.seccion.asistente",
+    "texto": "Assistant et aide"
+  },
+  {
+    "clave": "chat.manual.seccion.casa",
+    "texto": "Maison et éditeur"
+  },
+  {
+    "clave": "chat.manual.seccion.mapa",
+    "texto": "Plan extérieur"
+  },
+  {
+    "clave": "chat.manual.seccion.precios",
+    "texto": "Ce que coûte l’IA"
+  },
+  {
+    "clave": "chat.manual.preciosCargando",
+    "texto": "Chargement du tableau…"
+  },
+  {
+    "clave": "chat.manual.titulo",
+    "texto": "Manuel : ce que tu peux demander"
+  },
+  {
+    "clave": "chat.memorias",
+    "texto": "Ce que je me rappelle de toi"
+  },
+  {
+    "clave": "chat.modelo",
+    "texto": "Modèle d’IA : {prov}"
+  },
+  {
+    "clave": "chat.mapa.abrir",
+    "texto": "Voir le plan dans Idées"
+  },
+  {
+    "clave": "chat.mapa.descartar",
+    "texto": "Pas maintenant"
+  },
+  {
+    "clave": "chat.mapa.dibujar",
+    "texto": "Le dessiner"
+  },
+  {
+    "clave": "chat.mapa.dibujando",
+    "texto": "Dessin du plan en cours…"
+  },
+  {
+    "clave": "chat.mapa.fallo",
+    "texto": "Je n’ai pas pu dessiner ce plan."
+  },
+  {
+    "clave": "chat.mapa.ofrecer",
+    "texto": "Je te le dessine comme {tipo} de « {tema} » ?"
+  },
+  {
+    "clave": "chat.modelo.clave",
+    "texto": "Clé API de {prov}"
+  },
+  {
+    "clave": "chat.modelo.local",
+    "texto": "Nécessite Ollama en cours d’exécution sur ton appareil (port 11434). Gratuit et privé."
+  },
+  {
+    "clave": "chat.modelo.priv",
+    "texto": "Enregistré seulement sur cet appareil. Sans clé : mode local par mots-clés."
+  },
+  {
+    "clave": "chat.modelo.titulo",
+    "texto": "Modèle d’IA des assistants"
+  },
+  {
+    "clave": "chat.olvidar",
+    "texto": "Oublier"
+  },
+  {
+    "clave": "chat.plegar",
+    "texto": "Réduire le chat"
+  },
+  {
+    "clave": "chat.quitarFoto",
+    "texto": "Retirer la photo"
+  },
+  {
+    "clave": "chat.rutinaCreada",
+    "texto": "⏰ Routine « {n} » créée. Tu la retrouveras dans le panneau des routines."
+  },
+  {
+    "clave": "chat.sinApps",
+    "texto": "Aucune app assignée. Assigne-les à un objet dans une pièce."
+  },
+  {
+    "clave": "chat.voz",
+    "texto": "Dictée vocale"
+  },
+  {
+    "clave": "chat.voz.error",
+    "texto": "Je n’ai pas pu utiliser la dictée ({motivo})."
+  },
+  {
+    "clave": "chat.voz.idioma",
+    "texto": "Ton navigateur ne prend pas en charge la dictée dans cette langue."
+  },
+  {
+    "clave": "chat.voz.permiso",
+    "texto": "Le navigateur a bloqué le micro. Active-le via le cadenas à côté de la barre d’adresse."
+  },
+  {
+    "clave": "chat.voz.red",
+    "texto": "La dictée du navigateur nécessite internet."
+  },
+  {
+    "clave": "chat.voz.sinMic",
+    "texto": "Je n’ai trouvé aucun micro sur cet appareil."
+  },
+  {
+    "clave": "chat.vozParar",
+    "texto": "Arrêter la dictée"
+  },
+  {
+    "clave": "chat.vozTranscribiendo",
+    "texto": "Transcription…"
+  },
+  {
+    "clave": "ciclo.arrastraSol",
+    "texto": "Fais glisser pour déplacer le soleil"
+  },
+  {
+    "clave": "ciclo.fase.dia",
+    "texto": "Jour"
+  },
+  {
+    "clave": "ciclo.fase.noche",
+    "texto": "Nuit"
+  },
+  {
+    "clave": "ciclo.fase.amanecer",
+    "texto": "Lever du soleil"
+  },
+  {
+    "clave": "ciclo.fase.atardecer",
+    "texto": "Coucher du soleil"
+  },
+  {
+    "clave": "ciclo.humedad",
+    "texto": "Humidité"
+  },
+  {
+    "clave": "ciclo.lluvia",
+    "texto": "Pluie"
+  },
+  {
+    "clave": "ciclo.viento",
+    "texto": "Vent"
+  },
+  {
+    "clave": "ciclo.volverHoraReal",
+    "texto": "Revenir à l’heure réelle du système"
+  },
+  {
+    "clave": "color.personalizado",
+    "texto": "Couleur personnalisée"
+  },
+  {
+    "clave": "color.sin",
+    "texto": "Sans couleur"
+  },
+  {
+    "clave": "constructor.cuarto.agua",
+    "texto": "Remplir d’eau (piscine)"
+  },
+  {
+    "clave": "constructor.cuarto.color",
+    "texto": "Couleur de la pièce"
+  },
+  {
+    "clave": "constructor.cuarto.hintExpandir",
+    "texto": "Touche + pour agrandir une pièce et − pour la réduire. Sur une pièce d’une seule cellule, − la supprime."
+  },
+  {
+    "clave": "constructor.cuarto.hintMover",
+    "texto": "Fais glisser pour déplacer une pièce, ou choisis une forme en bas à gauche pour dessiner. Utilise Agrandir pour agrandir, réduire ou supprimer des pièces."
+  },
+  {
+    "clave": "constructor.cuarto.hintSotano",
+    "texto": "Sous-sol : les pièces sont creusées sous le sol sur la profondeur d’un mur (piscines ou bunkers). Sélectionnes-en une pour la remplir d’eau."
+  },
+  {
+    "clave": "constructor.cuarto.hintPincel",
+    "texto": "Touche une cellule libre pour créer une pièce avec cette forme. Touche à nouveau la même cellule pour la faire pivoter et, à la fin, l’effacer. Touche une cellule d’une pièce pour changer sa forme. Avec la grille fine (en haut à droite), tu découpes des coins de ¼ de cellule."
+  },
+  {
+    "clave": "constructor.cuarto.hintPincelFino",
+    "texto": "Grille fine : touche un quadrant d’une pièce pour découper ce coin (triangle ou cercle) ; touche à nouveau pour pivoter et, à la fin, retirer la découpe. Sur une cellule libre, elle crée une pièce avec ce coin fin."
+  }
+]

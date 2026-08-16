@@ -1,0 +1,342 @@
+[
+ {
+  "clave": "chat.destino.menu.plantillas",
+  "texto": "テンプレートを見る"
+ },
+ {
+  "clave": "chat.destino.rutinas",
+  "texto": "ルーティンを見る"
+ },
+ {
+  "clave": "chat.foto",
+  "texto": "写真を添付（料理、レシートなど）"
+ },
+ {
+  "clave": "chat.fotoLista",
+  "texto": "送信準備ができた写真"
+ },
+ {
+  "clave": "chat.fotoSinIa",
+  "texto": "写真にはAIが必要です。右のボタンでモデルを選んでください"
+ },
+ {
+  "clave": "chat.imagenFallo",
+  "texto": "画像を生成できませんでした。もう一度お試しください。"
+ },
+ {
+  "clave": "chat.imagenLista",
+  "texto": "できました！画像はこちらです🎨"
+ },
+ {
+  "clave": "chat.manual",
+  "texto": "マニュアル"
+ },
+ {
+  "clave": "chat.manual.abrir",
+  "texto": "マニュアル：頼めること"
+ },
+ {
+  "clave": "chat.manual.aviso.caminos",
+  "texto": "建設コマンドは全画面エディタを開きます。✕で閉じるまでチャットは使えません。お世話の操作はチャットを閉じずに行えます。"
+ },
+ {
+  "clave": "chat.manual.aviso.granja",
+  "texto": "建設コマンドは全画面エディタを開きます。✕で閉じるまでチャットは使えません。お世話の操作はチャットを閉じずに行えます。"
+ },
+ {
+  "clave": "chat.manual.aviso.huerto",
+  "texto": "建設コマンドは全画面エディタを開きます。✕で閉じるまでチャットは使えません。お世話の操作はチャットを閉じずに行えます。"
+ },
+ {
+  "clave": "chat.manual.cat.configuraciones",
+  "texto": "設定"
+ },
+ {
+  "clave": "chat.manual.cat.cuartos",
+  "texto": "部屋"
+ },
+ {
+  "clave": "chat.manual.cat.interfaz",
+  "texto": "家とインターフェース"
+ },
+ {
+  "clave": "chat.manual.cat.mapa",
+  "texto": "マップと構造"
+ },
+ {
+  "clave": "chat.manual.cat.memoria",
+  "texto": "記憶と記録"
+ },
+ {
+  "clave": "chat.manual.cat.objetos",
+  "texto": "オブジェクト"
+ },
+ {
+  "clave": "chat.manual.cat.personaje",
+  "texto": "キャラクターと乗り物"
+ },
+ {
+  "clave": "chat.manual.cat.calendario",
+  "texto": "カレンダー"
+ },
+ {
+  "clave": "chat.manual.cat.superficies",
+  "texto": "色・床・屋根"
+ },
+ {
+  "clave": "chat.manual.cat.teclado",
+  "texto": "キーボード（PC）"
+ },
+ {
+  "clave": "chat.manual.grupo.abrir",
+  "texto": "開く・メニュー"
+ },
+ {
+  "clave": "chat.manual.grupo.acciones",
+  "texto": "操作"
+ },
+ {
+  "clave": "chat.manual.grupo.ia",
+  "texto": "AIを使う"
+ },
+ {
+  "clave": "chat.manual.grupo.jugar",
+  "texto": "遊ぶ"
+ },
+ {
+  "clave": "chat.manual.grupo.registrar",
+  "texto": "記録"
+ },
+ {
+  "clave": "chat.manual.intro",
+  "texto": "フォルダを開いて例をタップすると、チャットに入力されます。ほとんどの機能はAIなしで使えます。"
+ },
+ {
+  "clave": "chat.manual.leyenda.comando",
+  "texto": "青：コマンド"
+ },
+ {
+  "clave": "chat.manual.leyenda.ia",
+  "texto": "紫：AI利用1回分を消費"
+ },
+ {
+  "clave": "chat.manual.leyenda.variable",
+  "texto": "黄：好きに変えられます"
+ },
+ {
+  "clave": "chat.manual.nota.biblioteca",
+  "texto": "中には賢者（AIチャット）がいて、内容をウィキの項目とテーマツリーに抽出してくれます。"
+ },
+ {
+  "clave": "chat.manual.nota.calendario",
+  "texto": "全アプリの目標と予定を集約します。スケジュールではAIプラン（✨）も使えます。"
+ },
+ {
+  "clave": "chat.manual.nota.caminos",
+  "texto": "コースとゴールラインを描くと、タイムやアシスタントと競走できます。線路からは電車に乗れます。"
+ },
+ {
+  "clave": "chat.manual.nota.canchas",
+  "texto": "コートは中を歩くだけでプレーでき、ボールに近づくと操作できます。"
+ },
+ {
+  "clave": "chat.manual.nota.cocina",
+  "texto": "AIを使うと料理の写真も認識し、栄養素を推定して記録します。チャットで頼んだレシピや食事プランには画像が付き、表示に少し時間がかかり、表示されたクレジットを消費します。"
+ },
+ {
+  "clave": "chat.manual.nota.cuartos",
+  "texto": "部屋の作成・名前変更・整理ができます。「削除」で家から部屋がなくなります。"
+ },
+ {
+  "clave": "chat.manual.nota.despacho",
+  "texto": "AIを使うとレシート写真も添付でき、支出として記録されます。"
+ },
+ {
+  "clave": "chat.manual.nota.diario",
+  "texto": "その日の文化コーナーとアシスタントによる配達は、アプリ内でAIを使っています。"
+ },
+ {
+  "clave": "chat.manual.nota.ejercicio",
+  "texto": "AIを使うと、スケジュールでトレーニングプラン（✨ボタン）を作成でき、アプリ内でエクササイズの説明画像も見られます。"
+ },
+ {
+  "clave": "chat.manual.nota.entretenimiento",
+  "texto": "テーブルゲーム：スネーク、テトリス、チェス、チェッカー、数独、神経衰弱、ポン、ホッケー、サイモン、コネクトフォー、スペース、恐竜など"
+ },
+ {
+  "clave": "chat.manual.nota.garage",
+  "texto": "乗り物（自転車、バイク、車、UFO）は「キャラクターと乗り物」にあります。"
+ },
+ {
+  "clave": "chat.manual.nota.granja",
+  "texto": "動物：ニワトリ、ブタ、ヤギ、ヒツジ、ウシ、ウマ。エサは「食」で収穫したものです。"
+ },
+ {
+  "clave": "chat.manual.nota.hobbies",
+  "texto": "スケジュールでAIプラン（✨）を頼むと、プロジェクトを前に進められます。"
+ },
+ {
+  "clave": "chat.manual.nota.huerto",
+  "texto": "作物：ニンジン、レタス、ヒマワリ、トマト、トウモロコシ、カボチャ"
+ },
+ {
+  "clave": "chat.manual.nota.idiomas",
+  "texto": "中にはレベル別の会話先生、チャットからのカード、テーマ別カード（AI）があります。"
+ },
+ {
+  "clave": "chat.manual.nota.configuraciones",
+  "texto": "エディタの設定タブにあるすべて：言語、外観（ライト、ダーク、透明）、アイコンスタイル、インターフェースのテーマとフォント、パネルのガラス、マップの見た目のスタイル（通常、コミック、ミニチュア、レトロ、ネオン）とそのエフェクト、通知、バックアップ。"
+ },
+ {
+  "clave": "chat.manual.aviso.configuraciones",
+  "texto": "ログイン、バックアップの復元、データの削除はチャットからは行えません。アシスタントがその画面を開くので、自分で確認してください。"
+ },
+ {
+  "clave": "chat.manual.nota.interfaz",
+  "texto": "家のテーマ、空の背景、環境音楽、Wrappedの振り返り。音楽のムード：calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita"
+ },
+ {
+  "clave": "chat.manual.nota.mapa",
+  "texto": "方角：北、南、東、西（上、下、左、右も可）"
+ },
+ {
+  "clave": "chat.manual.nota.memoria",
+  "texto": "アシスタントはセッションをまたいで内容を覚えています。クリップで写真を添付するか、マイクで話して入力できます。@appで記録先を指定できます。"
+ },
+ {
+  "clave": "chat.manual.nota.objetos",
+  "texto": "AIなしのカタログ：ランプ、椅子、テーブル、植物、ギター、ラグ、収納箱、絵、ボール、本。それ以外はAIが3Dモデルとして生成し、持ち物に保存します。2D画像は「〜の画像を作って」と頼むと、チャットに残ります。"
+ },
+ {
+  "clave": "chat.manual.nota.personaje",
+  "texto": "服：帽子、メガネなど。パーツ：頭、胴体、脚。乗り物：自転車、バイク、車、UFO（Space/Shiftで飛行）。視点：アイソメトリック、三人称、一人称（Vキー）。"
+ },
+ {
+  "clave": "chat.manual.nota.sala",
+  "texto": "AIを使うと、新しい場所が自動でジオコーディングされ、世界地図にピンで表示されます。"
+ },
+ {
+  "clave": "chat.manual.nota.superficies",
+  "texto": "色：赤、青、緑など、または#の16進コード。床の素材と屋根の形はエディタのカタログから選べます。"
+ },
+ {
+  "clave": "chat.manual.nota.teclado",
+  "texto": "キーボードで遊ぶためのショートカットです。チャットには入力しません。家の中で使います。入力欄に文字を入れているときや部屋を開いているときは効きません。"
+ },
+ {
+  "clave": "chat.manual.notaSeccion.apps",
+  "texto": "各アプリは、話したとおりの言葉でそれぞれのデータを記録し（@appで記録先を指定可能）、名前を言えばメニューが開きます。「AIを使う」の例は必ずAI利用1回分を消費します（Proプランまたは自分のキー）。カスタムテンプレートもチャットから記録・名前で起動できます。注：オフライン解析はスペイン語専用のため、日本語ではほとんどのコマンドがAI経由になります。"
+ },
+ {
+  "clave": "chat.manual.notaSeccion.mapa",
+  "texto": "菜園、牧場、コース、コートは部屋の外、3Dマップ上にあります。"
+ },
+ {
+  "clave": "chat.manual.seccion.apps",
+  "texto": "家のアプリ"
+ },
+ {
+  "clave": "chat.manual.seccion.asistente",
+  "texto": "アシスタントとヘルプ"
+ },
+ {
+  "clave": "chat.manual.seccion.casa",
+  "texto": "家とエディタ"
+ },
+ {
+  "clave": "chat.manual.seccion.mapa",
+  "texto": "屋外マップ"
+ },
+ {
+  "clave": "chat.manual.seccion.precios",
+  "texto": "AIの料金"
+ },
+ {
+  "clave": "chat.manual.preciosCargando",
+  "texto": "表を読み込み中…"
+ },
+ {
+  "clave": "chat.manual.titulo",
+  "texto": "マニュアル：頼めること"
+ },
+ {
+  "clave": "chat.memorias",
+  "texto": "覚えていること"
+ },
+ {
+  "clave": "chat.modelo",
+  "texto": "AIモデル：{prov}"
+ },
+ {
+  "clave": "chat.mapa.abrir",
+  "texto": "アイデアでマップを見る"
+ },
+ {
+  "clave": "chat.mapa.descartar",
+  "texto": "今はしない"
+ },
+ {
+  "clave": "chat.mapa.dibujar",
+  "texto": "描く"
+ },
+ {
+  "clave": "chat.mapa.dibujando",
+  "texto": "マップを描画中…"
+ },
+ {
+  "clave": "chat.mapa.fallo",
+  "texto": "そのマップを描けませんでした。"
+ },
+ {
+  "clave": "chat.mapa.ofrecer",
+  "texto": "「{tema}」の{tipo}として描きましょうか？"
+ },
+ {
+  "clave": "chat.modelo.clave",
+  "texto": "{prov}のAPIキー"
+ },
+ {
+  "clave": "chat.modelo.local",
+  "texto": "お使いの端末でOllamaが動いている必要があります（ポート11434）。無料でプライベートです。"
+ },
+ {
+  "clave": "chat.modelo.priv",
+  "texto": "この端末にのみ保存されます。キーがない場合はキーワードによるローカルモードになります。"
+ },
+ {
+  "clave": "chat.modelo.titulo",
+  "texto": "アシスタントのAIモデル"
+ },
+ {
+  "clave": "chat.olvidar",
+  "texto": "忘れる"
+ },
+ {
+  "clave": "chat.plegar",
+  "texto": "チャットを折りたたむ"
+ },
+ {
+  "clave": "chat.quitarFoto",
+  "texto": "写真を削除"
+ },
+ {
+  "clave": "chat.rutinaCreada",
+  "texto": "⏰ルーティン「{n}」を作成しました。ルーティンパネルで確認できます。"
+ },
+ {
+  "clave": "chat.sinApps",
+  "texto": "割り当てられたアプリがありません。部屋のオブジェクトに割り当ててください。"
+ },
+ {
+  "clave": "chat.voz",
+  "texto": "音声入力"
+ },
+ {
+  "clave": "chat.voz.error",
+  "texto": "音声入力を使用できませんでした（{motivo}）。"
+ },
+ {
+  "clave": "chat.voz.idioma",
+  "texto": "お使いのブラウザはこの言語の音声入力に対応していません。"
+ }
+]

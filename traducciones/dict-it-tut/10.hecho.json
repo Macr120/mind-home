@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "Sei specie, ognuna con la sua finestra di fame. Tocca dentro un recinto con posto libero e l'animale compare, nome incluso."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "Giocattoli"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "Pozza di fango, vasca e palla, uno per cella: gli animali ci vanno da soli e giocare gli tira su l'umore. Nel santuario ci sono già tutti e tre."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "Nomi"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "Con Dai un nome tocchi un recinto e vedi la sua lista con la capacità usata; tocca un animale per rinominarlo."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "Il mestiere è tutto qui: recinto, capacità, giocattoli e affetto. Nella demo puoi ampliare il santuario, se ti va."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "Questa è la pista di Pep: un ovale d'asfalto con il traguardo a scacchi. È l'unico traguardo della mappa — tutta la modalità corsa gli gira intorno."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "Ecco il traguardo. Avvicinati alla bicicletta o all'auto nel cortile e sali con il suo pulsante; una volta a bordo, passa su questa linea e compare il semaforo."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "Stai attaccato all'ovale e derapa in curva per non perdere velocità. Puoi anche correre contro un assistente, con gli oggetti di mezzo: banana, turbo e bomba."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "Accanto al traguardo vive la tabella dei tempi: la bicicletta di Pep ha 38 vittorie e un miglior giro di 41,8 s. Battilo — i record che fai nella demo restano salvati."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "Anche il binario che gira intorno alla mappa e le montagne russe del luna park sono circuiti: cammina sui binari e compare «Sali». Ogni tracciato è una rete a sé."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "Ci sono tre tracciati, e da quassù si vedono tutti e tre: pista (per le corse), binario (il treno che gira intorno alla mappa) e coaster (le montagne russe, con altezze per cella). Non si mescolano nemmeno se si toccano: ognuno cerca vicini del proprio tipo."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "Le montagne russe del luna park salgono fino a sei livelli e le rampe tra una cella e l'altra si interpolano da sole. Sali: il carrello percorre tutto il circuito chiuso."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "Nella tua casa li disegni cella per cella con l'editor Circuiti, oppure a mano libera con il Tracciato libero per settori. Qui nella demo la mappa arriva già tracciata."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "Questo è il centro sportivo di Pep: calcio, pallacanestro, tennis e baseball, uno accanto all'altro. Ogni campo è un rettangolo sulla mappa — entrarci camminando fa partire il suo gioco."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "Il pulsante di carica compare nello spazio del cubo di navigazione e tira dove guarda il tuo personaggio: prima mira, poi carica."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "In basso, il campo da baseball e quello da tennis: il tennis ha rimbalzo e palleggio, il baseball è pura battuta, contro la macchina o contro un lanciatore."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "In alto, il campo da calcio e quello da pallacanestro. Il calcio si gioca di dribbling e tiro; la pallacanestro, misurando la potenza del lancio."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "Il punteggio si salva per campo: Pep ha lasciato un 21-15 nella pallacanestro e una serie di 18 palleggi nel tennis. Nella demo le partite contano — migliorali."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "Apri la ruota degli strumenti: lì dentro vive Paintball, nella categoria di costruzione e giochi, accanto ai veicoli."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "Scegli la modalità: 1 contro 1, 2 contro 2 o battaglia reale. I tuoi avversari sono gli assistenti della mappa — Laika compresa — e si gioca al piano terra."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "Tutta la casa è il campo di battaglia: riparati dietro i muri, sporgiti per sparare e guardati le spalle. Gli schizzi di vernice restano dipinti per tutta la battaglia."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "Il punteggio di Pep è di 47 vittorie contro 23 sconfitte. Nella demo le battaglie contano davvero: alzalo prima di andartene."
+  }
+]

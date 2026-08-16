@@ -1,0 +1,642 @@
+[
+  {
+    "clave": "sala.hoja.fecha",
+    "texto": "Tanggal"
+  },
+  {
+    "clave": "sala.hoja.inicio",
+    "texto": "Dari"
+  },
+  {
+    "clave": "sala.hoja.destino",
+    "texto": "Ke"
+  },
+  {
+    "clave": "sala.hoja.hospedaje",
+    "texto": "Penginapan"
+  },
+  {
+    "clave": "sala.hoja.actividades",
+    "texto": "Aktivitas"
+  },
+  {
+    "clave": "sala.hoja.transporte",
+    "texto": "Transportasi"
+  },
+  {
+    "clave": "sala.hoja.presupuesto",
+    "texto": "Anggaran"
+  },
+  {
+    "clave": "sala.hoja.total",
+    "texto": "Total"
+  },
+  {
+    "clave": "sala.hoja.agregarDia",
+    "texto": "Hari"
+  },
+  {
+    "clave": "sala.hoja.sync",
+    "texto": "Hari-hari yang punya tanggal muncul di kalender rumah dan totalnya menjadi target tabungan di ruang kerja. Rencana tetap ada meski kamu sudah mengunjungi tempatnya; hanya hilang jika kamu menghapusnya."
+  },
+  {
+    "clave": "sala.hoja.compartir",
+    "texto": "Bagikan"
+  },
+  {
+    "clave": "sala.hoja.copiado",
+    "texto": "Disalin"
+  },
+  {
+    "clave": "sala.hoja.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "sala.hoja.guardado",
+    "texto": "Tersimpan"
+  },
+  {
+    "clave": "sala.hoja.borrarPlan",
+    "texto": "Hapus rencana"
+  },
+  {
+    "clave": "sala.hoja.confirmarBorrar",
+    "texto": "Hapus seluruh rencana?"
+  },
+  {
+    "clave": "sala.hoja.si",
+    "texto": "Ya"
+  },
+  {
+    "clave": "sala.hoja.no",
+    "texto": "Tidak"
+  },
+  {
+    "clave": "sala.hoja.copiarManual",
+    "texto": "Tidak bisa menyalin otomatis. Pilih teksnya dan salin (Ctrl+C):"
+  },
+  {
+    "clave": "sala.ig.vacio",
+    "texto": "Belum ada rencana perjalanan yang tersimpan. Dari rencana suatu tempat, ketuk \"💾 Simpan\"."
+  },
+  {
+    "clave": "sala.ig.confirmarBorrar",
+    "texto": "Hapus rencana perjalanan tersimpan ini?"
+  },
+  {
+    "clave": "sala.ig.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "sala.hoja.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "sala.bit.itinerario",
+    "texto": "Rencana perjalanan"
+  },
+  {
+    "clave": "sala.rutas.crear",
+    "texto": "Rute baru"
+  },
+  {
+    "clave": "sala.rutas.nueva",
+    "texto": "Rute baru"
+  },
+  {
+    "clave": "sala.rutas.editar",
+    "texto": "Edit rute"
+  },
+  {
+    "clave": "sala.rutas.nombre",
+    "texto": "Nama rute (mis. Eurotrip 2027)"
+  },
+  {
+    "clave": "sala.rutas.agregarParada",
+    "texto": "Tambah pemberhentian (tempat yang ada titik di peta)…"
+  },
+  {
+    "clave": "sala.rutas.sinElegibles",
+    "texto": "Belum ada tempat dengan titik di peta: tambahkan dulu tempat dengan koordinat."
+  },
+  {
+    "clave": "sala.rutas.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "sala.rutas.guardar",
+    "texto": "Simpan rute"
+  },
+  {
+    "clave": "sala.rutas.min",
+    "texto": "Satu rute butuh minimal 2 pemberhentian."
+  },
+  {
+    "clave": "sala.rutas.paradas",
+    "texto": "{n} pemberhentian"
+  },
+  {
+    "clave": "sala.rutas.vacio",
+    "texto": "Belum ada rute. Rangkai tempat-tempatmu jadi satu perjalanan."
+  },
+  {
+    "clave": "sala.bit.sinVisitados",
+    "texto": "Jurnal perjalanan ditulis dengan tempat yang sudah kamu kunjungi. Taruh pin di peta atau tandai ✓ rencana perjalananmu."
+  },
+  {
+    "clave": "sala.bit.portada",
+    "texto": "Sampul"
+  },
+  {
+    "clave": "sala.bit.portadaPaisTip",
+    "texto": "Pilih foto sampul folder ini"
+  },
+  {
+    "clave": "sala.bit.portadaLugarTip",
+    "texto": "Pilih foto sampul tempat ini"
+  },
+  {
+    "clave": "sala.bit.ph",
+    "texto": "Apa yang terjadi di sana? Ceritamu…"
+  },
+  {
+    "clave": "sala.bit.foto",
+    "texto": "Foto"
+  },
+  {
+    "clave": "sala.bit.guardar",
+    "texto": "Simpan kenangan"
+  },
+  {
+    "clave": "sala.bit.recuerdo",
+    "texto": "Kenangan"
+  },
+  {
+    "clave": "sala.bit.sinRecuerdos",
+    "texto": "Belum ada kenangan: simpan foto dan ceritamu."
+  },
+  {
+    "clave": "sala.bit.visitadoEl",
+    "texto": "dikunjungi pada {f}"
+  },
+  {
+    "clave": "sala.bit.albumes",
+    "texto": "Album"
+  },
+  {
+    "clave": "sala.bit.unLugar",
+    "texto": "1 tempat"
+  },
+  {
+    "clave": "sala.bit.nLugares",
+    "texto": "{n} tempat"
+  },
+  {
+    "clave": "sala.bit.unRecuerdo",
+    "texto": "1 kenangan"
+  },
+  {
+    "clave": "sala.bit.nRecuerdos",
+    "texto": "{n} kenangan"
+  },
+  {
+    "clave": "jardin.desc",
+    "texto": "Ruang tenangmu: meditasi dengan trek suara, pernapasan, dan rasa syukur. Tanpa poin atau runtunan — taman ini hanya tumbuh."
+  },
+  {
+    "clave": "jardin.tab.meditacion",
+    "texto": "Meditasi"
+  },
+  {
+    "clave": "jardin.tab.respiracion",
+    "texto": "Pernapasan"
+  },
+  {
+    "clave": "jardin.tab.gratitud",
+    "texto": "Syukur"
+  },
+  {
+    "clave": "jardin.calma.titulo",
+    "texto": "Ketenangan terkumpul"
+  },
+  {
+    "clave": "jardin.calma.mes",
+    "texto": "hari tenang bulan ini"
+  },
+  {
+    "clave": "jardin.calma.mes1",
+    "texto": "hari tenang bulan ini"
+  },
+  {
+    "clave": "jardin.calma.siguiente",
+    "texto": "{n} menit lagi menuju: {etapa}"
+  },
+  {
+    "clave": "jardin.etapa.semilla",
+    "texto": "Benih"
+  },
+  {
+    "clave": "jardin.etapa.brote",
+    "texto": "Tunas"
+  },
+  {
+    "clave": "jardin.etapa.retono",
+    "texto": "Bibit"
+  },
+  {
+    "clave": "jardin.etapa.planta",
+    "texto": "Tanaman"
+  },
+  {
+    "clave": "jardin.etapa.arbol",
+    "texto": "Pohon muda"
+  },
+  {
+    "clave": "jardin.etapa.flor",
+    "texto": "Taman berbunga"
+  },
+  {
+    "clave": "jardin.etapa.bosque",
+    "texto": "Hutan yang tenang"
+  },
+  {
+    "clave": "jardin.pista.bosque",
+    "texto": "Suara hutan"
+  },
+  {
+    "clave": "jardin.pista.bosque.desc",
+    "texto": "Angin di antara pepohonan dan kicau burung dari kejauhan."
+  },
+  {
+    "clave": "jardin.pista.mar",
+    "texto": "Suara laut"
+  },
+  {
+    "clave": "jardin.pista.mar.desc",
+    "texto": "Ombak yang datang dan pergi, tanpa terburu-buru."
+  },
+  {
+    "clave": "jardin.pista.lluvia",
+    "texto": "Hujan"
+  },
+  {
+    "clave": "jardin.pista.lluvia.desc",
+    "texto": "Hujan yang stabil, seolah terlihat dari jendela."
+  },
+  {
+    "clave": "jardin.pista.cuencos",
+    "texto": "Mangkuk Tibet"
+  },
+  {
+    "clave": "jardin.pista.cuencos.desc",
+    "texto": "Gema panjang yang meredup dengan sendirinya."
+  },
+  {
+    "clave": "jardin.med.pistas",
+    "texto": "Trek suara"
+  },
+  {
+    "clave": "jardin.med.duracion",
+    "texto": "Durasi"
+  },
+  {
+    "clave": "jardin.med.comenzar",
+    "texto": "Mulai meditasi"
+  },
+  {
+    "clave": "jardin.med.libre",
+    "texto": "Pengatur waktu bebas"
+  },
+  {
+    "clave": "jardin.med.libre.desc",
+    "texto": "Hanya kamu dan lonceng di awal dan akhir."
+  },
+  {
+    "clave": "jardin.med.comenzarLibre",
+    "texto": "Mulai dengan lonceng"
+  },
+  {
+    "clave": "jardin.ses.pausar",
+    "texto": "Jeda"
+  },
+  {
+    "clave": "jardin.ses.reanudar",
+    "texto": "Lanjutkan"
+  },
+  {
+    "clave": "jardin.ses.terminar",
+    "texto": "Selesai"
+  },
+  {
+    "clave": "jardin.ses.pausada",
+    "texto": "Dijeda"
+  },
+  {
+    "clave": "jardin.ses.completa",
+    "texto": "Sesi selesai"
+  },
+  {
+    "clave": "jardin.ses.sumaste",
+    "texto": "Kamu menambahkan {n} menit ketenangan"
+  },
+  {
+    "clave": "jardin.ses.llegaste",
+    "texto": "Kamu tiba"
+  },
+  {
+    "clave": "jardin.chk.antes",
+    "texto": "Bagaimana perasaanmu sekarang?"
+  },
+  {
+    "clave": "jardin.chk.despues",
+    "texto": "Bagaimana perasaanmu setelah selesai?"
+  },
+  {
+    "clave": "jardin.chk.saltar",
+    "texto": "Lewati"
+  },
+  {
+    "clave": "jardin.gra.hoy",
+    "texto": "Hari ini aku bersyukur atas…"
+  },
+  {
+    "clave": "jardin.gra.desc",
+    "texto": "Satu saja cukup. Tiga, lebih baik."
+  },
+  {
+    "clave": "jardin.gra.ph1",
+    "texto": "Sesuatu atau seseorang dari hari ini…"
+  },
+  {
+    "clave": "jardin.gra.ph2",
+    "texto": "Hal kecil yang biasanya kamu anggap remeh…"
+  },
+  {
+    "clave": "jardin.gra.ph3",
+    "texto": "Sesuatu tentang dirimu yang kamu hargai…"
+  },
+  {
+    "clave": "jardin.gra.guardar",
+    "texto": "Simpan rasa syukur"
+  },
+  {
+    "clave": "jardin.gra.guardado",
+    "texto": "Tersimpan"
+  },
+  {
+    "clave": "jardin.gra.historial",
+    "texto": "Entri sebelumnya"
+  },
+  {
+    "clave": "jardin.gra.vacio",
+    "texto": "Rasa syukur yang kamu simpan akan muncul di sini."
+  },
+  {
+    "clave": "jardin.gra.hoyTag",
+    "texto": "Hari ini"
+  },
+  {
+    "clave": "garage.tab.resumen",
+    "texto": "Ringkasan"
+  },
+  {
+    "clave": "garage.tab.vehiculos",
+    "texto": "Kendaraan"
+  },
+  {
+    "clave": "garage.detalle.tab.tramites",
+    "texto": "Administrasi"
+  },
+  {
+    "clave": "garage.detalle.tab.documentos",
+    "texto": "Dokumen"
+  },
+  {
+    "clave": "garage.detalle.tab.contactos",
+    "texto": "Kontak"
+  },
+  {
+    "clave": "garage.desc",
+    "texto": "Kendaraanmu: servis dan biaya, administrasi yang terjadwal di kalender, dan buku kontakmu."
+  },
+  {
+    "clave": "garage.r.vehiculos",
+    "texto": "Kendaraan"
+  },
+  {
+    "clave": "garage.r.servicios",
+    "texto": "Servis"
+  },
+  {
+    "clave": "garage.r.tramites",
+    "texto": "Administrasi"
+  },
+  {
+    "clave": "garage.r.hero.vencido",
+    "texto": "{n} hal yang terlambat"
+  },
+  {
+    "clave": "garage.r.hero.vencidoDet",
+    "texto": "Selesaikan sebelum jadi rumit."
+  },
+  {
+    "clave": "garage.r.hero.proximo",
+    "texto": "{n} akan datang"
+  },
+  {
+    "clave": "garage.r.hero.proximoDet",
+    "texto": "Tidak ada yang terlambat: hanya yang akan datang."
+  },
+  {
+    "clave": "garage.r.hero.alDia",
+    "texto": "Semua terkini"
+  },
+  {
+    "clave": "garage.r.hero.alDiaDet",
+    "texto": "Tidak ada servis atau administrasi yang tertunda."
+  },
+  {
+    "clave": "garage.r.vacioTitulo",
+    "texto": "Garasi kosong"
+  },
+  {
+    "clave": "garage.veh.servicios",
+    "texto": "{n} servis"
+  },
+  {
+    "clave": "garage.veh.servicio",
+    "texto": "1 servis"
+  },
+  {
+    "clave": "garage.tram.vencidoMeses",
+    "texto": "terlambat {n} bulan"
+  },
+  {
+    "clave": "garage.tram.faltanMeses",
+    "texto": "dalam {n} bulan"
+  },
+  {
+    "clave": "garage.tram.faltanAnios",
+    "texto": "dalam {n} tahun"
+  },
+  {
+    "clave": "garage.r.odoPasado",
+    "texto": "{n} {u} melewati target"
+  },
+  {
+    "clave": "garage.r.odoAlcanzado",
+    "texto": "mencapai jarak tempuh terjadwal"
+  },
+  {
+    "clave": "garage.r.odoFaltan",
+    "texto": "{n} {u} lagi"
+  },
+  {
+    "clave": "garage.detalle.gastoTotal",
+    "texto": "Total {c}"
+  },
+  {
+    "clave": "garage.form.pistaPlacas",
+    "texto": "Pelat nomor membuka jadwal pajak kendaraan, uji emisi, STNK, dan asuransi."
+  },
+  {
+    "clave": "garage.borrar.confirmar",
+    "texto": "Hapus?"
+  },
+  {
+    "clave": "garage.borrar.si",
+    "texto": "Ya"
+  },
+  {
+    "clave": "garage.borrar.no",
+    "texto": "Tidak"
+  },
+  {
+    "clave": "garage.r.gasto",
+    "texto": "Pengeluaran {año}"
+  },
+  {
+    "clave": "garage.r.vencido",
+    "texto": "Perawatan terlambat"
+  },
+  {
+    "clave": "garage.r.proximo",
+    "texto": "Akan datang"
+  },
+  {
+    "clave": "garage.r.sinAlertas",
+    "texto": "Belum ada peringatan. Catat servis berikutnya di setiap perawatan untuk menerima pemberitahuan."
+  },
+  {
+    "clave": "garage.r.sinVehiculos",
+    "texto": "Tambahkan sepeda, mobil, atau motor pertamamu di tab Kendaraan."
+  },
+  {
+    "clave": "garage.veh.añadir",
+    "texto": "Tambah kendaraan"
+  },
+  {
+    "clave": "garage.veh.vacio",
+    "texto": "Sepeda, mobil, motor, dan lainnya — semua dalam satu garasi."
+  },
+  {
+    "clave": "garage.form.editar",
+    "texto": "Edit kendaraan"
+  },
+  {
+    "clave": "garage.form.nuevo",
+    "texto": "Kendaraan baru"
+  },
+  {
+    "clave": "garage.form.nombre",
+    "texto": "Nama *"
+  },
+  {
+    "clave": "garage.form.tipo",
+    "texto": "Jenis"
+  },
+  {
+    "clave": "garage.form.marca",
+    "texto": "Merek"
+  },
+  {
+    "clave": "garage.form.modelo",
+    "texto": "Model"
+  },
+  {
+    "clave": "garage.form.año",
+    "texto": "Tahun"
+  },
+  {
+    "clave": "garage.form.placas",
+    "texto": "Pelat / nomor seri"
+  },
+  {
+    "clave": "garage.form.odo",
+    "texto": "Odometer saat ini"
+  },
+  {
+    "clave": "garage.form.unidad",
+    "texto": "Satuan"
+  },
+  {
+    "clave": "garage.form.km",
+    "texto": "Kilometer"
+  },
+  {
+    "clave": "garage.form.mi",
+    "texto": "Mil"
+  },
+  {
+    "clave": "garage.form.notas",
+    "texto": "Catatan"
+  },
+  {
+    "clave": "garage.form.guardar",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "garage.form.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "garage.detalle.volver",
+    "texto": "‹ Kembali ke garasi"
+  },
+  {
+    "clave": "garage.detalle.odo",
+    "texto": "Odometer saat ini ({unit})"
+  },
+  {
+    "clave": "garage.detalle.actualizar",
+    "texto": "Perbarui"
+  },
+  {
+    "clave": "garage.detalle.servicios",
+    "texto": "{n} servis tercatat · Total pengeluaran {cost}"
+  },
+  {
+    "clave": "garage.detalle.registrar",
+    "texto": "Catat perawatan"
+  },
+  {
+    "clave": "garage.detalle.historial",
+    "texto": "Riwayat"
+  },
+  {
+    "clave": "garage.detalle.sinServicios",
+    "texto": "Belum ada servis. Catat ganti oli terakhir, rantai, dsb."
+  },
+  {
+    "clave": "garage.detalle.editar",
+    "texto": "Edit"
+  },
+  {
+    "clave": "garage.detalle.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "garage.detalle.proximo",
+    "texto": "Berikutnya:"
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "es": "Las apps agendan solas: las citas de la Agenda, el sueño del Descanso, los ratos de estudio de la Biblioteca. Con el filtro dejas ver solo una app.",
+    "en": "The apps schedule on their own: appointments from the Agenda, sleep from Rest, study slots from the Library. The filter lets you show just one app."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "es": "Moverse por el año",
+    "en": "Moving through the year"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "es": "Las flechas ‹ › recorren el periodo y Hoy vuelve al presente. Todo el año de Pep@ está aquí, semana por semana. Con + Nueva creas un evento, o lo trazas directo sobre la rejilla.",
+    "en": "The ‹ › arrows walk through the period and Today brings you back. Pep@'s whole year is in here, week by week. + New creates an event, or you can draw it straight on the grid."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "es": "Hábito por hábito",
+    "en": "Habit by habit"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "es": "Cada fila es una rutina y cada columna un día: verde si se cumplió. Aquí se palomea directo, y el porcentaje de arriba resume el periodo que estés viendo.",
+    "en": "Each row is a routine and each column a day: green means done. You can tick straight from here, and the percentage on top sums up the period you are looking at."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "es": "El arco del año",
+    "en": "The arc of the year"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "es": "En vista Año la gráfica cuenta la historia completa: Pep@ arrancó cumpliendo un tercio de lo que se proponía y cerró arriba del 85 %. La constancia se construyó, no apareció.",
+    "en": "In Year view the graph tells the whole story: Pep@ started keeping about a third of what they set out to do and finished above 85%. Consistency was built, not found."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "es": "Las caídas también cuentan",
+    "en": "The dips count too"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "es": "Los dos hoyos son reales: la lesión de rodilla del mes 7 y las tres semanas en Japón. Fallar no borra el progreso — el panel muestra el año como fue, no como debió ser. Y una rutina solo cuenta desde el día en que la creaste.",
+    "en": "Both holes are real: the knee injury in month 7 and the three weeks in Japan. Missing days does not erase progress — the panel shows the year as it was, not as it should have been. And a routine only counts from the day you created it."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "es": "Primero, las metas",
+    "en": "Goals come first"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "es": "La vista abre en Metas, agrupadas por la app que las lleva: correr en Ejercicio, la carrera de física en Biblioteca. «Casa» no es ninguna app — esa categoría la inventó Pep@ para la obra de la cocina.",
+    "en": "The view opens on Goals, grouped by the app that owns them: running under Exercise, the physics degree under Library. “Home” is no app — Pep@ made that category up for the kitchen build."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "es": "De la meta a su plan",
+    "en": "From the goal to its plan"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "es": "Cada fila se lee como un tablero: su número en la carpeta, el plazo, el avance y el estado — por hacer, en curso o hecho, según lo que lleve cumplido. Un clic abre la meta: su plan si lo tiene (el ✨ lo anuncia) y, si no, su hoja con las sub-metas, las fechas y los pasos.",
+    "en": "Every row reads like a board: its number in the folder, the deadline, the progress and the state — to do, in progress or done, depending on how much is ticked off. One click opens the goal: its plan if it has one (the ✨ says so) and, if not, its sheet with the sub-goals, the dates and the steps."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "es": "Tres planes, tres estados",
+    "en": "Three plans, three states"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "es": "La cocina y el siguiente maratón siguen siendo propuestas; la solicitud de posgrado ya está en el cronograma. El del maratón se pidió sin fecha límite: la IA calculó que exige 24 semanas y lo dice en su resumen.",
+    "en": "The kitchen and the next marathon are still proposals; the grad application is already on the timeline. The marathon one was asked for with no deadline: the AI worked out it needs 24 weeks, and says so in its summary."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "es": "La hoja del plan",
+    "en": "The plan sheet"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "es": "Seis fases y sus sub-metas, cada una con su periodo. Mientras es propuesta se edita entera: renombrar, mover fechas, agregar o quitar nodos sin descuadrar a los demás.",
+    "en": "Six phases and their sub-goals, each with its own window. While it is a proposal the whole thing is editable: rename, move dates, add or drop nodes without throwing the rest off."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "es": "Palomear sin comprometerse",
+    "en": "Tick without committing"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "es": "Los checks de una propuesta viven en la hoja, no en tus metas: puedes ir marcando lo hecho sin tocar tu cronograma. Las barras se llenan solas hacia arriba — la planificación de la cocina ya está cerrada.",
+    "en": "A proposal's ticks live in the sheet, not in your goals: you can mark what's done without touching your timeline. The bars fill upwards on their own — the kitchen planning is already closed."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "es": "Mover a cronograma real",
+    "en": "Move to real timeline"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "es": "Este botón convierte cada fase y cada sub-meta en metas de verdad, con sus fechas puestas y colgando de la meta original. Lo que la meta ya tuviera se conserva.",
+    "en": "This button turns every phase and sub-goal into real goals, with their dates set, hanging off the original goal. Whatever the goal already had is kept."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "es": "Aceptado: una sola verdad",
+    "en": "Accepted: a single truth"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "es": "El plan del posgrado ya se movió. Ahora sus checks son los de las sub-metas reales y la barra es la de tu cronograma: la hoja deja de llevar una cuenta aparte.",
+    "en": "The grad plan has already moved. Its ticks are now the real sub-goals' ticks and the bar is your timeline's: the sheet stops keeping a separate count."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "es": "Y ahí están, en el eje",
+    "en": "And there they are, on the axis"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "es": "Las sub-metas que nacieron del plan ocupan su periodo en el cronograma, con el plan superpuesto en violeta encima: lo propuesto y lo real, en el mismo eje.",
+    "en": "The sub-goals born from the plan take up their window on the timeline, with the plan ghosted in violet on top: the proposal and the real thing on the same axis."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "es": "Un año de carrera, en un árbol",
+    "en": "A year of studies, as a tree"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "es": "Pep@ estudia Física: mecánica al principio del año, termodinámica hacia el parcial del mes 6, relatividad y astrofísica al final. Cada rama se abre para ver sus fichas.",
+    "en": "Pep@ studies Physics: mechanics early in the year, thermodynamics towards the month 6 midterm, relativity and astrophysics at the end. Each branch opens to show its cards."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "es": "El árbol crece contigo",
+    "en": "The tree grows with you"
+  }
+]

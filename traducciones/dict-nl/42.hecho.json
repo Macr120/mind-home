@@ -1,0 +1,502 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.resumen",
+    "texto": "Het archief bewaart wat je bekijkt, leest en speelt: elke titel met zijn status, sterren en jouw recensie. Groepeer op datum in jaar- en maandmappen, of op genre."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.titulo",
+    "texto": "Programma's om te bekijken"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.resumen",
+    "texto": "Een programma is een lijst met titels per thema of genre, omgezet in doelen: vink af wat je afrondt en geef ze, als je wilt, een datum om ze in de kalender te zien."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.titulo",
+    "texto": "De digitale tafel"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.resumen",
+    "texto": "Meer dan twintig bordspellen en arcadegames, gegroepeerd per familie en gefilterd op aantal spelers: speel ze meteen, zonder het huis te verlaten."
+  },
+  {
+    "clave": "tut.app-diario--habito.titulo",
+    "texto": "De gewoonte om de krant te lezen"
+  },
+  {
+    "clave": "tut.app-diario--habito.resumen",
+    "texto": "De krant is vluchtig: elke dag brengt Koppen per categorie en Op deze dag, en om middernacht wordt hij vernieuwd. Wat telt is jouw volharding — hem lezen geldt als het vastleggen van de dag."
+  },
+  {
+    "clave": "tut.app-diario--reparto.titulo",
+    "texto": "Laat het naar je toe brengen"
+  },
+  {
+    "clave": "tut.app-diario--reparto.resumen",
+    "texto": "Je kunt plannen welke secties elke assistent in zijn chat bezorgt: op een vast tijdstip of op een verrassingsmoment tijdens de dag."
+  },
+  {
+    "clave": "demo.paso.limpiar",
+    "texto": "Het terrein vrijmaken"
+  },
+  {
+    "clave": "demo.paso.casa",
+    "texto": "Het huis optrekken"
+  },
+  {
+    "clave": "demo.paso.catalogos",
+    "texto": "De catalogi vullen"
+  },
+  {
+    "clave": "demo.paso.final",
+    "texto": "Laatste details"
+  },
+  {
+    "clave": "cuenta.sync.activo",
+    "texto": "Synchroniseren…"
+  },
+  {
+    "clave": "cuenta.sync.ultima",
+    "texto": "Gesynchroniseerd: {f}"
+  },
+  {
+    "clave": "cuenta.sync.nunca",
+    "texto": "Nog niet gesynchroniseerd"
+  },
+  {
+    "clave": "cuenta.sync.ahora",
+    "texto": "Synchroniseren"
+  },
+  {
+    "clave": "cuenta.sync.otraCuenta",
+    "texto": "Dit huis was gekoppeld aan een ander account. Lokale gegevens bewaren en samenvoegen met het nieuwe account? (Annuleren = dit huis leegmaken en alleen de accountgegevens downloaden)"
+  },
+  {
+    "clave": "cuenta.sync.respaldoPrevio",
+    "texto": "Je staat op het punt dit huis voor het eerst te synchroniseren. Eerst een lokale back-up downloaden? (Aanbevolen)"
+  },
+  {
+    "clave": "carpetas.vacio",
+    "texto": "Nog niets vastgelegd."
+  },
+  {
+    "clave": "carpetas.estaSemana",
+    "texto": "Deze week"
+  },
+  {
+    "clave": "carpetas.nRegistro",
+    "texto": "1 registratie"
+  },
+  {
+    "clave": "carpetas.nRegistros",
+    "texto": "{n} registraties"
+  },
+  {
+    "clave": "cocina.historial",
+    "texto": "Maaltijdgeschiedenis"
+  },
+  {
+    "clave": "ejercicio.historial",
+    "texto": "Je sessies"
+  },
+  {
+    "clave": "descanso.hist.media",
+    "texto": "gem. {h}"
+  },
+  {
+    "clave": "jardin.hist",
+    "texto": "Je sessies"
+  },
+  {
+    "clave": "jardin.hist.vacio",
+    "texto": "Hier worden je rustsessies bewaard."
+  },
+  {
+    "clave": "jardin.hist.min",
+    "texto": "{n} min"
+  },
+  {
+    "clave": "hobbies.sesion.todas",
+    "texto": "Je sessies"
+  },
+  {
+    "clave": "despacho.m.sinRegistros",
+    "texto": "Geen transacties vastgelegd."
+  },
+  {
+    "clave": "room.agenda.desc",
+    "texto": "Je agenda: werktaken, gebeurtenissen en projecten, medische afspraken, medicatie en je huisdieren met hun zorg, en je contactenboek met hun verjaardagen."
+  },
+  {
+    "clave": "agenda.tab.trabajo",
+    "texto": "Werk"
+  },
+  {
+    "clave": "agenda.tab.salud",
+    "texto": "Gezondheid"
+  },
+  {
+    "clave": "agenda.tab.personas",
+    "texto": "Personen"
+  },
+  {
+    "clave": "agenda.metaDiaria",
+    "texto": "Schema van vandaag"
+  },
+  {
+    "clave": "agenda.guardar",
+    "texto": "Opslaan"
+  },
+  {
+    "clave": "agenda.editar",
+    "texto": "Bewerken"
+  },
+  {
+    "clave": "agenda.borrar",
+    "texto": "Verwijderen"
+  },
+  {
+    "clave": "agenda.confirmarBorrado",
+    "texto": "Verwijderen?"
+  },
+  {
+    "clave": "agenda.si",
+    "texto": "Ja"
+  },
+  {
+    "clave": "agenda.no",
+    "texto": "Nee"
+  },
+  {
+    "clave": "agenda.volver",
+    "texto": "Terug"
+  },
+  {
+    "clave": "agenda.buscar",
+    "texto": "Zoeken"
+  },
+  {
+    "clave": "agenda.palomear",
+    "texto": "Markeer als gedaan"
+  },
+  {
+    "clave": "agenda.nuevoEvento",
+    "texto": "Nieuw"
+  },
+  {
+    "clave": "agenda.editarEvento",
+    "texto": "Bewerken"
+  },
+  {
+    "clave": "agenda.sinRelacion",
+    "texto": "Geen relatie"
+  },
+  {
+    "clave": "agenda.eventosDe",
+    "texto": "Met {n}"
+  },
+  {
+    "clave": "agenda.cumpleDe",
+    "texto": "Verjaardag van {n}"
+  },
+  {
+    "clave": "agenda.form.asunto",
+    "texto": "Onderwerp"
+  },
+  {
+    "clave": "agenda.form.motivo",
+    "texto": "Reden van de afspraak"
+  },
+  {
+    "clave": "agenda.form.plan",
+    "texto": "Plan of herinnering"
+  },
+  {
+    "clave": "agenda.form.nombre",
+    "texto": "Naam"
+  },
+  {
+    "clave": "agenda.form.color",
+    "texto": "Kleur"
+  },
+  {
+    "clave": "agenda.form.fecha",
+    "texto": "Datum"
+  },
+  {
+    "clave": "agenda.form.hora",
+    "texto": "Tijd"
+  },
+  {
+    "clave": "agenda.form.horaFin",
+    "texto": "Eindigt"
+  },
+  {
+    "clave": "agenda.form.lugar",
+    "texto": "Plaats"
+  },
+  {
+    "clave": "agenda.form.con",
+    "texto": "Met wie"
+  },
+  {
+    "clave": "agenda.form.medico",
+    "texto": "Arts"
+  },
+  {
+    "clave": "agenda.form.contacto",
+    "texto": "Persoon uit je contactenboek"
+  },
+  {
+    "clave": "agenda.form.ninguno",
+    "texto": "— Geen —"
+  },
+  {
+    "clave": "agenda.form.prioridad",
+    "texto": "Prioriteit"
+  },
+  {
+    "clave": "agenda.form.notas",
+    "texto": "Notities"
+  },
+  {
+    "clave": "agenda.form.notaSinFecha",
+    "texto": "Zonder datum blijft het in je taken, buiten de kalender."
+  },
+  {
+    "clave": "agenda.form.notaSinHora",
+    "texto": "Zonder tijd verschijnt het op de dag, maar kan je er niet aan herinneren."
+  },
+  {
+    "clave": "agenda.prioridad.alta",
+    "texto": "Hoog"
+  },
+  {
+    "clave": "agenda.prioridad.media",
+    "texto": "Gemiddeld"
+  },
+  {
+    "clave": "agenda.prioridad.baja",
+    "texto": "Laag"
+  },
+  {
+    "clave": "agenda.trabajo.pendientes",
+    "texto": "Taken"
+  },
+  {
+    "clave": "agenda.trabajo.tablero",
+    "texto": "Bord"
+  },
+  {
+    "clave": "ejemplo.vacio",
+    "texto": "Weet je niet waar je moet beginnen? Bekijk hoe het eruitziet met een voorbeeld erin."
+  },
+  {
+    "clave": "ejemplo.puesto",
+    "texto": "Dit is een voorbeeld: verberg het wanneer je wilt, je eigen gegevens blijven ongewijzigd."
+  },
+  {
+    "clave": "ejemplo.mostrar",
+    "texto": "Voorbeeld bekijken"
+  },
+  {
+    "clave": "ejemplo.ocultar",
+    "texto": "Voorbeeld verbergen"
+  },
+  {
+    "clave": "ejemplo.sinSitio",
+    "texto": "Er is nu geen vrije plek op de kaart voor het voorbeeld."
+  },
+  {
+    "clave": "agenda.ejemplo.vacio",
+    "texto": "Weet je niet waar je moet beginnen? Laad een voorbeeld en bekijk het van binnen."
+  },
+  {
+    "clave": "agenda.ejemplo.cargado",
+    "texto": "Alles wat je als voorbeeld ziet, kun je in één keer wissen, inclusief de blokken in de kalender."
+  },
+  {
+    "clave": "agenda.ejemplo.cargar",
+    "texto": "Voorbeeld laden"
+  },
+  {
+    "clave": "agenda.ejemplo.borrar",
+    "texto": "Voorbeeld verwijderen"
+  },
+  {
+    "clave": "agenda.ejemplo.confirmar",
+    "texto": "Ja, voorbeeld verwijderen"
+  },
+  {
+    "clave": "agenda.tablero.porhacer",
+    "texto": "Te doen"
+  },
+  {
+    "clave": "agenda.tablero.encurso",
+    "texto": "Bezig"
+  },
+  {
+    "clave": "agenda.tablero.hecho",
+    "texto": "Klaar"
+  },
+  {
+    "clave": "agenda.tablero.columnaVacia",
+    "texto": "Niets hier"
+  },
+  {
+    "clave": "agenda.tablero.atras",
+    "texto": "Verplaats naar de vorige kolom"
+  },
+  {
+    "clave": "agenda.tablero.adelante",
+    "texto": "Verplaats naar de volgende kolom"
+  },
+  {
+    "clave": "agenda.vacio.pendientes",
+    "texto": "Geen taken. Schrijf op wat er in je hoofd zit."
+  },
+  {
+    "clave": "agenda.salud.citas",
+    "texto": "Medische afspraken"
+  },
+  {
+    "clave": "agenda.salud.sub.yo",
+    "texto": "Jij"
+  },
+  {
+    "clave": "agenda.salud.sub.projimos",
+    "texto": "Naasten"
+  },
+  {
+    "clave": "agenda.salud.sub.mascotas",
+    "texto": "Huisdieren"
+  },
+  {
+    "clave": "agenda.salud.cuidados",
+    "texto": "Terugkerende zorg"
+  },
+  {
+    "clave": "agenda.salud.nuevoCuidado",
+    "texto": "Nieuw zorgmoment"
+  },
+  {
+    "clave": "agenda.vacio.cuidadosPersona",
+    "texto": "Nog geen zorgmomenten. Hier komen de terugkerende controles en prikken."
+  },
+  {
+    "clave": "agenda.vacio.projimos",
+    "texto": "Nog niemand in jouw zorg. Voeg iemand nieuw toe of vink “In mijn zorg” aan bij een contact in het tabblad Personen: die verschijnt hier met zijn afspraken, medicatie en zorg."
+  },
+  {
+    "clave": "agenda.persona.alCuidado",
+    "texto": "In mijn zorg"
+  },
+  {
+    "clave": "agenda.persona.alCuidadoAyuda",
+    "texto": "Verschijnt in Gezondheid › Naasten, met zijn afspraken, medicatie en zorg."
+  },
+  {
+    "clave": "agenda.projimo.aMiCuidado",
+    "texto": "In mijn zorg"
+  },
+  {
+    "clave": "agenda.cuidadop.nuevo",
+    "texto": "Nieuw zorgmoment"
+  },
+  {
+    "clave": "agenda.cuidado.archivado",
+    "texto": "Gedaan, geen herhaling"
+  },
+  {
+    "clave": "agenda.cuidado.reactivar",
+    "texto": "Opnieuw inplannen"
+  },
+  {
+    "clave": "agenda.form.especialidad",
+    "texto": "Specialisme"
+  },
+  {
+    "clave": "agenda.esp.general",
+    "texto": "Huisarts"
+  },
+  {
+    "clave": "agenda.esp.dentista",
+    "texto": "Tandarts"
+  },
+  {
+    "clave": "agenda.esp.oftalmologia",
+    "texto": "Oogheelkunde"
+  },
+  {
+    "clave": "agenda.esp.dermatologia",
+    "texto": "Dermatologie"
+  },
+  {
+    "clave": "agenda.esp.ginecologia",
+    "texto": "Gynaecologie"
+  },
+  {
+    "clave": "agenda.esp.cardiologia",
+    "texto": "Cardiologie"
+  },
+  {
+    "clave": "agenda.esp.traumatologia",
+    "texto": "Orthopedie"
+  },
+  {
+    "clave": "agenda.esp.psicologia",
+    "texto": "Psychologie"
+  },
+  {
+    "clave": "agenda.esp.laboratorio",
+    "texto": "Laboratoriumonderzoek"
+  },
+  {
+    "clave": "agenda.esp.otra",
+    "texto": "Overig"
+  },
+  {
+    "clave": "agenda.cuidadop.chequeo",
+    "texto": "Algemene controle"
+  },
+  {
+    "clave": "agenda.cuidadop.vacuna",
+    "texto": "Prik"
+  },
+  {
+    "clave": "agenda.cuidadop.analisis",
+    "texto": "Laboratoriumonderzoek"
+  },
+  {
+    "clave": "agenda.cuidadop.terapia",
+    "texto": "Therapie"
+  },
+  {
+    "clave": "agenda.cuidadop.dental",
+    "texto": "Tandartscontrole"
+  },
+  {
+    "clave": "agenda.cuidadop.visual",
+    "texto": "Oogcontrole"
+  },
+  {
+    "clave": "agenda.cuidadop.otro",
+    "texto": "Overig"
+  },
+  {
+    "clave": "agenda.ciclo.titulo",
+    "texto": "Cyclus"
+  },
+  {
+    "clave": "agenda.ciclo.apagado",
+    "texto": "Houd je menstruatie bij, met een schatting van de volgende, symptomen en herinneringen."
+  },
+  {
+    "clave": "agenda.ciclo.activar",
+    "texto": "Cyclus bijhouden inschakelen"
+  },
+  {
+    "clave": "agenda.ciclo.desactivar",
+    "texto": "Bijhouden uitschakelen (je gegevens blijven bewaard)"
+  }
+]

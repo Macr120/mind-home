@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "Questo è l'orto del santuario di Pep: aiuole vere, con un anno di lavoro addosso. Niente di tutto questo è un esempio — è vivo, cresce in tempo reale e puoi toccarlo."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "Cibo e Fattoria condividono lo stesso editor: quello che raccogli qui riempie la dispensa degli animali qui accanto. È un'unica catena."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "L'acqua comanda"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "Guarda le aiuole: un seme appena messo, piante a metà crescita, un girasole pronto… e una carota appassita che Pep ha lasciato senz'acqua di proposito. La goccia blu avverte della sete; ciò che è appassito non si salva più."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "Irrigazione automatica"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "Il pomodoro ha un irrigatore: annaffia la sua cella e le otto vicine, per sempre. Così puoi lasciare l'orto da solo senza che appassisca nulla."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "Raccogli"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "Il girasole è pronto: un tocco e finisce nella cesta. Si raccoglie anche camminando sopra ciò che è pronto, senza aprire questo editor."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "Un anno nella cesta"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "Ogni aiuola tiene il conto dei suoi raccolti e la cesta accumula quelli di tutto l'anno — più di 400 pezzi. Da qui mangiano gli animali del santuario."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "Tutto continua a correre anche quando esci. Nella demo puoi annaffiare, raccogliere e seminare davvero: provaci prima di andartene."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "Prima la terra"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "Con Aiuola tocchi una cella della mappa e resta terra pronta. Nel santuario ci sono due aiuole vuote che ti aspettano."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "Scegliere cosa seminare"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "Sei specie, e sotto ognuna quanto ci mette e ogni quanto chiede acqua: la carota in 3 minuti, la zucca in 2 ore."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "La più veloce"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "Per vedere il ciclo completo oggi, semina una carota in un'aiuola libera: sarà pronta prima che tu finisca il giro."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "Annulla"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "Rimuovi va uno strato alla volta sulla stessa cella: prima la pianta, poi l'irrigatore e infine l'aiuola."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "È tutto qui: terra, specie e pazienza. Quello che semini nella demo cresce davvero mentre esplori il resto."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "Questo è il santuario di Pep: i recinti dei salvati e, a sud, l'orto da cui mangiano. Scendiamo da loro."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Questi sono i salvati del santuario di Pep: ognuno con il suo nome, la sua fame e il suo umore che corrono in tempo reale. Niente è un esempio — puoi prendertene cura davvero."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "La dispensa dell'anno"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "Nutrire consuma dalla cesta, e la cesta si riempie raccogliendo nell'orto qui accanto. Pep ha lasciato scorte per un anno: usale."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "Nutri"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "Un tocco sul recinto dà da mangiare a tutti quelli che hanno fame, a partire dal più affamato. La gallina chiede ogni 4 ore; la mucca regge 12."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "Coccola"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "Sei ore senza coccole e si annoiano (il doppio più in fretta se il recinto è sporco). Un tocco accarezza tutto il recinto."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "Il recinto sporco"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "Il recinto piccolo è da otto giorni senza pulizia — si vede dalla paglia. Toccalo con Pulisci e rimettilo a nuovo: nella demo si può."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "L'ultimo arrivato"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "Il maiale è arrivato malato al santuario stamattina. Un animale malato smette di mangiare e solo Cura lo rimette in piedi — ha una settimana prima che sia tardi. Curalo tu."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "Per il giorno per giorno non serve aprire questo editor: camminando accanto a un recinto esce la sua bolla con Nutri e Coccola, e puoi anche chiedermelo in chat."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "Il recinto"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "Tocca una cella libera e nasce un recinto 1×1; tocca una cella attaccata e si allunga. Ci stanno tre animali per cella: guarda i due del santuario, uno grande da pascolo e uno piccolo per il pollame."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "Le specie"
+  }
+]

@@ -1,0 +1,354 @@
+[
+  {
+    "ruta": "trabajo.0.titulo",
+    "texto": "力学期中考试1"
+  },
+  {
+    "ruta": "trabajo.0.lugar",
+    "texto": "理学院12号教室"
+  },
+  {
+    "ruta": "trabajo.1.titulo",
+    "texto": "实验报告提交：自由落体"
+  },
+  {
+    "ruta": "trabajo.1.lugar",
+    "texto": "物理实验室I"
+  },
+  {
+    "ruta": "trabajo.2.titulo",
+    "texto": "吧台月度盘点"
+  },
+  {
+    "ruta": "trabajo.2.lugar",
+    "texto": "米拉索尔咖啡馆"
+  },
+  {
+    "ruta": "trabajo.3.titulo",
+    "texto": "加班：单一产地咖啡杯测"
+  },
+  {
+    "ruta": "trabajo.3.lugar",
+    "texto": "米拉索尔咖啡馆"
+  },
+  {
+    "ruta": "trabajo.4.titulo",
+    "texto": "学期项目启动会议"
+  },
+  {
+    "ruta": "trabajo.4.lugar",
+    "texto": "埃琳娜导师的办公室"
+  },
+  {
+    "ruta": "trabajo.5.titulo",
+    "texto": "波动与光学期中考试"
+  },
+  {
+    "ruta": "trabajo.5.lugar",
+    "texto": "理学院"
+  },
+  {
+    "ruta": "trabajo.6.titulo",
+    "texto": "实验报告提交：耦合摆"
+  },
+  {
+    "ruta": "trabajo.6.lugar",
+    "texto": "物理实验室II"
+  },
+  {
+    "ruta": "trabajo.7.titulo",
+    "texto": "社区集市双班"
+  },
+  {
+    "ruta": "trabajo.8.titulo",
+    "texto": "护照续签"
+  },
+  {
+    "ruta": "trabajo.8.lugar",
+    "texto": "护照办理中心"
+  },
+  {
+    "ruta": "trabajo.9.titulo",
+    "texto": "和埃琳娜的项目进度汇报"
+  },
+  {
+    "ruta": "trabajo.9.lugar",
+    "texto": "理学院"
+  },
+  {
+    "ruta": "trabajo.10.titulo",
+    "texto": "汽修厂：汽车发动机检查"
+  },
+  {
+    "ruta": "trabajo.10.lugar",
+    "texto": "鲁伊斯汽修厂"
+  },
+  {
+    "ruta": "trabajo.11.titulo",
+    "texto": "汽车保险手续"
+  },
+  {
+    "ruta": "trabajo.11.lugar",
+    "texto": "市中心分店"
+  },
+  {
+    "ruta": "trabajo.12.titulo",
+    "texto": "热力学期中考试"
+  },
+  {
+    "ruta": "trabajo.12.lugar",
+    "texto": "理学院"
+  },
+  {
+    "ruta": "trabajo.13.titulo",
+    "texto": "实验报告提交：量热法"
+  },
+  {
+    "ruta": "trabajo.13.lugar",
+    "texto": "物理实验室II"
+  },
+  {
+    "ruta": "trabajo.14.titulo",
+    "texto": "向玛丽索尔请假去旅行"
+  },
+  {
+    "ruta": "trabajo.14.lugar",
+    "texto": "米拉索尔咖啡馆"
+  },
+  {
+    "ruta": "trabajo.15.titulo",
+    "texto": "新机器培训"
+  },
+  {
+    "ruta": "trabajo.15.lugar",
+    "texto": "米拉索尔咖啡馆"
+  },
+  {
+    "ruta": "trabajo.16.titulo",
+    "texto": "项目成果汇报会议"
+  },
+  {
+    "ruta": "trabajo.16.lugar",
+    "texto": "理学院"
+  },
+  {
+    "ruta": "trabajo.17.titulo",
+    "texto": "电磁学期中考试"
+  },
+  {
+    "ruta": "trabajo.17.lugar",
+    "texto": "理学院"
+  },
+  {
+    "ruta": "trabajo.18.titulo",
+    "texto": "实验报告最终提交"
+  },
+  {
+    "ruta": "trabajo.18.lugar",
+    "texto": "物理实验室II"
+  },
+  {
+    "ruta": "trabajo.19.titulo",
+    "texto": "学期项目答辩"
+  },
+  {
+    "ruta": "trabajo.19.lugar",
+    "texto": "B礼堂"
+  },
+  {
+    "ruta": "trabajo.20.titulo",
+    "texto": "特别班次：冬季茶品鉴"
+  },
+  {
+    "ruta": "trabajo.20.lugar",
+    "texto": "米拉索尔咖啡馆"
+  },
+  {
+    "ruta": "salud.0.titulo",
+    "texto": "首次营养门诊"
+  },
+  {
+    "ruta": "salud.0.lugar",
+    "texto": "阿尔达纳健康中心"
+  },
+  {
+    "ruta": "salud.1.titulo",
+    "texto": "莱卡的年度疫苗接种"
+  },
+  {
+    "ruta": "salud.1.lugar",
+    "texto": "洛斯阿拉莫斯动物医院"
+  },
+  {
+    "ruta": "salud.2.titulo",
+    "texto": "营养复诊"
+  },
+  {
+    "ruta": "salud.2.lugar",
+    "texto": "阿尔达纳健康中心"
+  },
+  {
+    "ruta": "salud.3.titulo",
+    "texto": "骨科：膝盖疼痛"
+  },
+  {
+    "ruta": "salud.3.lugar",
+    "texto": "圣比森特诊所"
+  },
+  {
+    "ruta": "salud.4.titulo",
+    "texto": "理疗1/6"
+  },
+  {
+    "ruta": "salud.4.lugar",
+    "texto": "圣比森特诊所"
+  },
+  {
+    "ruta": "salud.5.titulo",
+    "texto": "理疗2/6"
+  },
+  {
+    "ruta": "salud.5.lugar",
+    "texto": "圣比森特诊所"
+  },
+  {
+    "ruta": "salud.6.titulo",
+    "texto": "理疗3/6"
+  },
+  {
+    "ruta": "salud.6.lugar",
+    "texto": "圣比森特诊所"
+  },
+  {
+    "ruta": "salud.7.titulo",
+    "texto": "理疗4/6"
+  },
+  {
+    "ruta": "salud.7.lugar",
+    "texto": "圣比森特诊所"
+  },
+  {
+    "ruta": "salud.8.titulo",
+    "texto": "理疗5/6"
+  },
+  {
+    "ruta": "salud.8.lugar",
+    "texto": "圣比森特诊所"
+  },
+  {
+    "ruta": "salud.9.titulo",
+    "texto": "理疗6/6：恢复跑步许可"
+  },
+  {
+    "ruta": "salud.9.lugar",
+    "texto": "圣比森特诊所"
+  },
+  {
+    "ruta": "salud.10.titulo",
+    "texto": "洗牙"
+  },
+  {
+    "ruta": "salud.10.lugar",
+    "texto": "奥尔莫斯医生诊所"
+  },
+  {
+    "ruta": "salud.11.titulo",
+    "texto": "莱卡：体检和驱虫"
+  },
+  {
+    "ruta": "salud.11.lugar",
+    "texto": "洛斯阿拉莫斯动物医院"
+  },
+  {
+    "ruta": "salud.12.titulo",
+    "texto": "营养复诊"
+  },
+  {
+    "ruta": "salud.12.lugar",
+    "texto": "阿尔达纳健康中心"
+  },
+  {
+    "ruta": "salud.13.titulo",
+    "texto": "年度全面体检"
+  },
+  {
+    "ruta": "salud.13.lugar",
+    "texto": "阿尔达纳健康中心"
+  },
+  {
+    "ruta": "personas.0.titulo",
+    "texto": "满是抱怨的长咖啡时光"
+  },
+  {
+    "ruta": "personas.1.titulo",
+    "texto": "周日家庭晚餐"
+  },
+  {
+    "ruta": "personas.2.titulo",
+    "texto": "伊克尔的生日"
+  },
+  {
+    "ruta": "personas.3.titulo",
+    "texto": "5公里跑后的早餐"
+  },
+  {
+    "ruta": "personas.4.titulo",
+    "texto": "科幻电影马拉松"
+  },
+  {
+    "ruta": "personas.5.titulo",
+    "texto": "妈妈的生日"
+  },
+  {
+    "ruta": "personas.6.titulo",
+    "texto": "倒苦水的咖啡时间"
+  },
+  {
+    "ruta": "personas.7.titulo",
+    "texto": "去日本前的告别晚餐"
+  },
+  {
+    "ruta": "personas.8.titulo",
+    "texto": "来自京都的视频通话"
+  },
+  {
+    "ruta": "personas.9.titulo",
+    "texto": "旅行照片之夜"
+  },
+  {
+    "ruta": "personas.10.titulo",
+    "texto": "娜迪亚的生日"
+  },
+  {
+    "ruta": "personas.11.titulo",
+    "texto": "和咖啡店同事的早午餐"
+  },
+  {
+    "ruta": "personas.12.titulo",
+    "texto": "家庭音乐会：月光"
+  },
+  {
+    "ruta": "personas.13.titulo",
+    "texto": "咖啡时间：读研还是工作？"
+  },
+  {
+    "ruta": "pendientes.0",
+    "texto": "因期中考试调换周五的班次"
+  },
+  {
+    "ruta": "pendientes.1",
+    "texto": "把本学期的项目加到简历里"
+  },
+  {
+    "ruta": "pendientes.2",
+    "texto": "整理这个月的小费收据"
+  },
+  {
+    "ruta": "pendientes.3",
+    "texto": "回复埃琳娜关于海报的邮件"
+  },
+  {
+    "ruta": "pendientes.4",
+    "texto": "给吧台的新磨豆机询价"
+  }
+]

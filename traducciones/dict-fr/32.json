@@ -1,0 +1,452 @@
+[
+  {
+    "clave": "tut.wrapped.resumen",
+    "es": "El resumen del periodo —semana, mes o año— contado en láminas, con música de fondo y comparativa contra el periodo anterior. Se comparte como texto desde la propia lámina.",
+    "en": "The recap of the period —week, month or year— told in slides, with background music and a comparison against the previous period. Shared as text straight from the slide itself."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.titulo",
+    "es": "El ciclo del huerto",
+    "en": "The garden cycle"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.resumen",
+    "es": "Un paseo por el huerto vivo del santuario: las etapas de cada cultivo, el riego, la cosecha y la cesta con un año de trabajo.",
+    "en": "A walk through the sanctuary's living garden: each crop's stages, watering, harvesting and a basket holding a year of work."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.titulo",
+    "es": "Sembrar de cero",
+    "en": "Planting from scratch"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.resumen",
+    "es": "Cómo se prepara la tierra, se elige la especie y se deshace un error — probándolo de verdad en el santuario.",
+    "en": "How to prepare soil, pick a species and undo a mistake — trying it for real at the sanctuary."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.titulo",
+    "es": "Cuidar el santuario",
+    "en": "Caring for the sanctuary"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.resumen",
+    "es": "Alimentar, mimar, limpiar y curar a los rescatados del santuario — con un corral sucio y un cerdo enfermo esperándote de verdad.",
+    "en": "Feed, pet, clean and heal the sanctuary rescues — with a dirty pen and a sick pig genuinely waiting for you."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.titulo",
+    "es": "Corrales y cupo",
+    "en": "Pens and capacity"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.resumen",
+    "es": "Cómo se levanta un corral, se puebla con sus especies, se le ponen juguetes y nombres.",
+    "en": "How a pen is raised, stocked with its species, given toys and names."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.titulo",
+    "es": "Correr en la pista",
+    "en": "Racing the track"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.resumen",
+    "es": "La pista del demo, la meta, cómo arrancar una carrera montado y la tabla de récords de Pep@ que puedes batir.",
+    "en": "The demo track, the finish line, how to start a race while mounted, and Pep@'s record table for you to beat."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.titulo",
+    "es": "Pista, riel y coaster",
+    "en": "Track, rail and coaster"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.resumen",
+    "es": "Los tres tipos de trazo del mapa y cómo se dibujan en tu propia casa.",
+    "en": "The three stroke types on the map and how you draw them in your own home."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.titulo",
+    "es": "Jugar en las canchas",
+    "en": "Playing the courts"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.resumen",
+    "es": "El complejo deportivo del demo: cómo arranca cada juego al entrar a la cancha y los marcadores de Pep@ que puedes mejorar.",
+    "en": "The demo sports complex: how each game starts when you step onto a court, and Pep@'s scoreboards for you to top."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.titulo",
+    "es": "Batalla de paintball",
+    "en": "Paintball battle"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.resumen",
+    "es": "Cómo armar una batalla 1v1, 2v2 o campal contra los asistentes, con la casa entera como campo.",
+    "en": "How to set up a 1v1, 2v2 or free-for-all battle against the assistants, with the whole house as the arena."
+  },
+  {
+    "clave": "bienvenida.titulo",
+    "es": "Te damos la bienvenida a Mind Planner Home",
+    "en": "Welcome to Mind Planner Home"
+  },
+  {
+    "clave": "bienvenida.paso",
+    "es": "Paso {n} de {m}",
+    "en": "Step {n} of {m}"
+  },
+  {
+    "clave": "bienvenida.idioma.titulo",
+    "es": "¿En qué idioma quieres la casa?",
+    "en": "Which language do you want the home in?"
+  },
+  {
+    "clave": "bienvenida.idioma.desc",
+    "es": "Puedes cambiarlo después en Configuraciones.",
+    "en": "You can change it later in Settings."
+  },
+  {
+    "clave": "bienvenida.intereses.titulo",
+    "es": "¿Qué te interesa llevar aquí?",
+    "en": "What would you like to track here?"
+  },
+  {
+    "clave": "bienvenida.intereses.desc",
+    "es": "Cada interés se vuelve un cuarto de tu casa con su app. Elige los que quieras.",
+    "en": "Each interest becomes a room in your home with its app. Pick as many as you like."
+  },
+  {
+    "clave": "bienvenida.intereses.todas",
+    "es": "Tu casa ya tiene todas las apps disponibles.",
+    "en": "Your home already has every available app."
+  },
+  {
+    "clave": "bienvenida.apariencia.titulo",
+    "es": "¿Cómo quieres ver la interfaz?",
+    "en": "How do you want the interface to look?"
+  },
+  {
+    "clave": "bienvenida.personaje.titulo",
+    "es": "¿Qué personaje quieres ser?",
+    "en": "What character do you want to be?"
+  },
+  {
+    "clave": "bienvenida.personaje.desc",
+    "es": "Este será tu cuerpo en la casa. Puedes seguir personalizándolo después en el editor.",
+    "en": "This will be your body in the house. You can keep customizing it later in the editor."
+  },
+  {
+    "clave": "bienvenida.personaje.generando",
+    "es": "Preparando vistas previas…",
+    "en": "Preparing previews…"
+  },
+  {
+    "clave": "bienvenida.asistente.titulo",
+    "es": "¿Quién te acompaña?",
+    "en": "Who will keep you company?"
+  },
+  {
+    "clave": "bienvenida.asistente.desc",
+    "es": "Tu asistente habla contigo en el chat y vive en el mapa.",
+    "en": "Your assistant chats with you and lives on the map."
+  },
+  {
+    "clave": "bienvenida.atras",
+    "es": "Atrás",
+    "en": "Back"
+  },
+  {
+    "clave": "bienvenida.siguiente",
+    "es": "Siguiente",
+    "en": "Next"
+  },
+  {
+    "clave": "bienvenida.crear",
+    "es": "Crear mi casa",
+    "en": "Create my home"
+  },
+  {
+    "clave": "bienvenida.creando",
+    "es": "Creando tu casa…",
+    "en": "Creating your home…"
+  },
+  {
+    "clave": "bienvenida.final.titulo",
+    "es": "¡Tu casa está lista!",
+    "en": "Your home is ready!"
+  },
+  {
+    "clave": "bienvenida.cuenta",
+    "es": "Crear cuenta o entrar (sincroniza tu casa)",
+    "en": "Create an account or sign in (syncs your home)"
+  },
+  {
+    "clave": "bienvenida.guia.desc",
+    "es": "Tres pasos para tomarle el modo.",
+    "en": "Three steps to get the hang of it."
+  },
+  {
+    "clave": "bienvenida.guia.empezar",
+    "es": "Empezar",
+    "en": "Start"
+  },
+  {
+    "clave": "bienvenida.guia.repetir",
+    "es": "Repetir",
+    "en": "Repeat"
+  },
+  {
+    "clave": "bienvenida.guia.salir",
+    "es": "Salir a la casa",
+    "en": "Go to the house"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.titulo",
+    "es": "Crea un cuarto",
+    "en": "Create a room"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.desc",
+    "es": "Te enseño a crear un cuarto y darle su app.",
+    "en": "I'll show you how to create a room and give it its app."
+  },
+  {
+    "clave": "bienvenida.guia.tour.titulo",
+    "es": "Recorre tu casa",
+    "en": "Tour your house"
+  },
+  {
+    "clave": "bienvenida.guia.tour.desc",
+    "es": "Un paseo por el menú, el movimiento, el reloj y el chat.",
+    "en": "A walk through the menu, movement, the clock and the chat."
+  },
+  {
+    "clave": "bienvenida.guia.explorar.titulo",
+    "es": "Explora por tu cuenta",
+    "en": "Explore on your own"
+  },
+  {
+    "clave": "bienvenida.guia.explorar.desc",
+    "es": "Listo. Cada menú y cada app guardan su propio tutorial en el botón ?.",
+    "en": "Done. Every menu and app keeps its own tutorial behind the ? button."
+  },
+  {
+    "clave": "ajustes.bienvenida",
+    "es": "Bienvenida",
+    "en": "Welcome"
+  },
+  {
+    "clave": "ajustes.bienvenida.btn",
+    "es": "Volver a ver la bienvenida",
+    "en": "See the welcome again"
+  },
+  {
+    "clave": "ajustes.bienvenida.desc",
+    "es": "El menú de primera vez: elige apps, avatar y tema. No duplica lo que ya tienes.",
+    "en": "The first-time menu: pick apps, avatar and theme. It never duplicates what you already have."
+  },
+  {
+    "clave": "ajustes.tutoriales",
+    "es": "Tutoriales y bienvenida",
+    "en": "Tutorials and welcome"
+  },
+  {
+    "clave": "ajustes.tutoriales.hud",
+    "es": "Mostrar en la pantalla principal",
+    "en": "Show on the main screen"
+  },
+  {
+    "clave": "ajustes.tutoriales.hudDesc",
+    "es": "Apagado, la casa queda más limpia: los tutoriales se lanzan desde aquí.",
+    "en": "Turned off, the house looks cleaner: tutorials start from here."
+  },
+  {
+    "clave": "ajustes.tutoriales.voz",
+    "es": "Leer los pasos en voz alta",
+    "en": "Read the steps aloud"
+  },
+  {
+    "clave": "ajustes.tutoriales.vozDesc",
+    "es": "El mago narra cada paso con la voz de su ficha. También se enciende con el altavoz de la tarjeta.",
+    "en": "The wizard narrates each step with the voice from its profile. You can also turn it on with the speaker on the card."
+  },
+  {
+    "clave": "ajustes.tutoriales.enPantalla",
+    "es": "Elegir un tutorial en la pantalla",
+    "en": "Pick a tutorial on the screen"
+  },
+  {
+    "clave": "ajustes.tutoriales.casa",
+    "es": "La casa y sus menús",
+    "en": "The house and its menus"
+  },
+  {
+    "clave": "ajustes.tutoriales.apps",
+    "es": "Las apps",
+    "en": "The apps"
+  },
+  {
+    "clave": "ajustes.tutoriales.infra",
+    "es": "Las construcciones del mapa",
+    "en": "Map buildings"
+  },
+  {
+    "clave": "ajustes.tutoriales.nucleo",
+    "es": "El calendario y las metas",
+    "en": "The calendar and goals"
+  },
+  {
+    "clave": "wrapped.menu",
+    "es": "Tu resumen",
+    "en": "Your recap"
+  },
+  {
+    "clave": "wrapped.titulo",
+    "es": "Tu resumen",
+    "en": "Your recap"
+  },
+  {
+    "clave": "wrapped.cargando",
+    "es": "Preparando tu resumen…",
+    "en": "Building your recap…"
+  },
+  {
+    "clave": "wrapped.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "wrapped.anterior",
+    "es": "Periodo anterior",
+    "en": "Previous period"
+  },
+  {
+    "clave": "wrapped.siguiente",
+    "es": "Periodo siguiente",
+    "en": "Next period"
+  },
+  {
+    "clave": "wrapped.enCurso",
+    "es": "(en curso)",
+    "en": "(in progress)"
+  },
+  {
+    "clave": "wrapped.tipo.semana",
+    "es": "Semana",
+    "en": "Week"
+  },
+  {
+    "clave": "wrapped.tipo.mes",
+    "es": "Mes",
+    "en": "Month"
+  },
+  {
+    "clave": "wrapped.tipo.anio",
+    "es": "Año",
+    "en": "Year"
+  },
+  {
+    "clave": "wrapped.portada.semana",
+    "es": "Tu semana en Mind Planner Home",
+    "en": "Your week in Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.mes",
+    "es": "Tu mes en Mind Planner Home",
+    "en": "Your month in Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.anio",
+    "es": "Tu año en Mind Planner Home",
+    "en": "Your year in Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.sub",
+    "es": "Un vistazo a todo lo que registraste.",
+    "en": "A look at everything you logged."
+  },
+  {
+    "clave": "wrapped.actividad.titulo",
+    "es": "Estuviste presente",
+    "en": "You showed up"
+  },
+  {
+    "clave": "wrapped.diasActivos",
+    "es": "de {total} días con actividad",
+    "en": "of {total} days with activity"
+  },
+  {
+    "clave": "wrapped.registros",
+    "es": "registros",
+    "en": "entries"
+  },
+  {
+    "clave": "wrapped.registros.mayus",
+    "es": "Registros",
+    "en": "Entries"
+  },
+  {
+    "clave": "wrapped.mejorRacha",
+    "es": "días seguidos (mejor racha)",
+    "en": "days in a row (best streak)"
+  },
+  {
+    "clave": "wrapped.topApp.titulo",
+    "es": "Tu cuarto estrella",
+    "en": "Your star room"
+  },
+  {
+    "clave": "wrapped.topApp.n",
+    "es": "{n} registros",
+    "en": "{n} entries"
+  },
+  {
+    "clave": "wrapped.ej.titulo",
+    "es": "Moviste el cuerpo",
+    "en": "You moved your body"
+  },
+  {
+    "clave": "wrapped.ej.min",
+    "es": "de ejercicio",
+    "en": "of exercise"
+  },
+  {
+    "clave": "wrapped.ej.sesiones",
+    "es": "sesiones",
+    "en": "sessions"
+  },
+  {
+    "clave": "wrapped.ej.km",
+    "es": "recorridos",
+    "en": "covered"
+  },
+  {
+    "clave": "wrapped.ej.kg",
+    "es": "kg levantados",
+    "en": "kg lifted"
+  },
+  {
+    "clave": "wrapped.calma.titulo",
+    "es": "Encontraste calma",
+    "en": "You found calm"
+  },
+  {
+    "clave": "wrapped.calma.min",
+    "es": "de calma",
+    "en": "of calm"
+  },
+  {
+    "clave": "wrapped.calma.sesiones",
+    "es": "sesiones",
+    "en": "sessions"
+  },
+  {
+    "clave": "wrapped.calma.gratitud",
+    "es": "días de gratitud",
+    "en": "gratitude days"
+  },
+  {
+    "clave": "wrapped.calma.animo",
+    "es": "de ánimo tras cada sesión",
+    "en": "mood after each session"
+  }
+]

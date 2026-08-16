@@ -1,0 +1,494 @@
+[
+  {
+    "clave": "cal.plan.arrastrar",
+    "texto": "Fais-la glisser pour la réordonner ou l’accrocher à une autre phase"
+  },
+  {
+    "clave": "cal.plan.incoherente",
+    "texto": "Elle sort de la période de sa phase"
+  },
+  {
+    "clave": "cal.plan.agregarNodo",
+    "texto": "Ajouter un sous-objectif à la phase"
+  },
+  {
+    "clave": "cal.plan.nuevoNodo",
+    "texto": "Sous-objectif…"
+  },
+  {
+    "clave": "cal.plan.nodoIni",
+    "texto": "Commence"
+  },
+  {
+    "clave": "cal.plan.nodoFin",
+    "texto": "Se termine"
+  },
+  {
+    "clave": "cal.plan.menu",
+    "texto": "Plans"
+  },
+  {
+    "clave": "cal.plan.menuDesc",
+    "texto": "Un plan est le brouillon d’un planning : tu le coches ici et, une fois qu’il te convainc, ses phases deviennent de vrais sous-objectifs."
+  },
+  {
+    "clave": "cal.plan.nuevo",
+    "texto": "Nouveau plan"
+  },
+  {
+    "clave": "cal.plan.paraMeta",
+    "texto": "Pour quel objectif ?"
+  },
+  {
+    "clave": "cal.plan.sinMetas",
+    "texto": "Crée d’abord un objectif dans le Planning, puis planifie-le."
+  },
+  {
+    "clave": "cal.plan.vacio",
+    "texto": "Pas encore de plans enregistrés."
+  },
+  {
+    "clave": "cal.plan.sinNodos",
+    "texto": "Ce plan n’a plus de phases."
+  },
+  {
+    "clave": "cal.plan.sinNodosEditable",
+    "texto": "Pas encore de phases : écris la première et accroche-lui ses sous-objectifs."
+  },
+  {
+    "clave": "cal.plan.agregarFase",
+    "texto": "Ajouter une phase"
+  },
+  {
+    "clave": "cal.plan.nuevaFase",
+    "texto": "Nom de la phase…"
+  },
+  {
+    "clave": "cal.plan.volverLista",
+    "texto": "Retour aux plans"
+  },
+  {
+    "clave": "cal.plan.abrirHoja",
+    "texto": "Ouvrir la feuille"
+  },
+  {
+    "clave": "cal.plan.estado.propuesta",
+    "texto": "Proposition"
+  },
+  {
+    "clave": "cal.plan.estado.aceptado",
+    "texto": "Dans ton planning"
+  },
+  {
+    "clave": "cal.plan.fases",
+    "texto": "{n} phases"
+  },
+  {
+    "clave": "cal.plan.resumenIA",
+    "texto": "Ce que propose l’IA"
+  },
+  {
+    "clave": "cal.plan.avisoPropio",
+    "texto": "C’est encore une proposition : ce que tu coches reste dans cette feuille."
+  },
+  {
+    "clave": "cal.plan.avisoEspejo",
+    "texto": "Tu coches le vrai sous-objectif : c’est la progression de ton planning."
+  },
+  {
+    "clave": "cal.plan.verCronograma",
+    "texto": "Voir dans le planning"
+  },
+  {
+    "clave": "cal.plan.aceptadoResumen",
+    "texto": "Terminé : {n} sous-objectifs dans « {meta} »."
+  },
+  {
+    "clave": "cal.plan.origenPerdido",
+    "texto": "L’objectif de ce plan n’existe plus."
+  },
+  {
+    "clave": "cal.plan.borrarEste",
+    "texto": "Supprimer le plan"
+  },
+  {
+    "clave": "cal.plan.borrarNodo",
+    "texto": "Retirer cette phase du plan et tout ce qui en dépend ?"
+  },
+  {
+    "clave": "cal.plan.plazo",
+    "texto": "Délai"
+  },
+  {
+    "clave": "cal.plan.plazo.sin",
+    "texto": "Sans échéance"
+  },
+  {
+    "clave": "cal.plan.plazo.ia",
+    "texto": "Laisser l’IA décider"
+  },
+  {
+    "clave": "cal.plan.plazo.fija",
+    "texto": "J’ai une échéance"
+  },
+  {
+    "clave": "cal.plan.plazo.sin.desc",
+    "texto": "Le plan reste une liste de phases à ton rythme : il ne prend pas de place dans le calendrier. Tu pourras lui donner des dates plus tard."
+  },
+  {
+    "clave": "cal.plan.plazo.ia.desc",
+    "texto": "L’IA calcule combien de temps prendra cet objectif selon tes heures hebdomadaires, et t’explique pourquoi."
+  },
+  {
+    "clave": "cal.plan.plazo.fija.desc",
+    "texto": "Le plan est ajusté pour se terminer avant cette date."
+  },
+  {
+    "clave": "cal.plan.sinPlazo",
+    "texto": "Sans échéance"
+  },
+  {
+    "clave": "cal.plan.duracionPlan",
+    "texto": "Durée du plan"
+  },
+  {
+    "clave": "cal.plan.duracionPropuesta",
+    "texto": "Temps proposé par l’IA"
+  },
+  {
+    "clave": "cal.plan.semanas",
+    "texto": "{n} semaines"
+  },
+  {
+    "clave": "cal.plan.hasta",
+    "texto": "jusqu’au {fecha}"
+  },
+  {
+    "clave": "cal.metas.categoria",
+    "texto": "catégorie"
+  },
+  {
+    "clave": "cal.metas.categoria.nueva",
+    "texto": "Nouvelle catégorie"
+  },
+  {
+    "clave": "cal.metas.categoria.borrar",
+    "texto": "Retirer cette catégorie ?"
+  },
+  {
+    "clave": "cal.metas.categoria.borrarConMetas",
+    "texto": "Ses {n} objectifs restent, sans catégorie."
+  },
+  {
+    "clave": "cal.metas.sinCategoria",
+    "texto": "Sans catégorie"
+  },
+  {
+    "clave": "cal.metas.grupoVacio",
+    "texto": "Pas encore d’objectifs."
+  },
+  {
+    "clave": "cal.metas.grupoAvance",
+    "texto": "Objectifs terminés de ce groupe"
+  },
+  {
+    "clave": "cal.metas.enLista",
+    "texto": "Voir en une liste"
+  },
+  {
+    "clave": "cal.metas.enColumnas",
+    "texto": "Voir en deux colonnes"
+  },
+  {
+    "clave": "cal.meta.categoria",
+    "texto": "Catégorie"
+  },
+  {
+    "clave": "cal.meta.ejemplo",
+    "texto": "Ex. : {ejemplo}"
+  },
+  {
+    "clave": "cal.meta.usarEjemplo",
+    "texto": "Utiliser l’exemple et le personnaliser"
+  },
+  {
+    "clave": "cal.notaPlaceholder",
+    "texto": "Note (facultatif)"
+  },
+  {
+    "clave": "cal.nueva",
+    "texto": "nouvel événement"
+  },
+  {
+    "clave": "cal.alcance.pregunta",
+    "texto": "À quels jours ce changement s’applique-t-il ?"
+  },
+  {
+    "clave": "cal.alcance.dia",
+    "texto": "Seulement ce jour"
+  },
+  {
+    "clave": "cal.alcance.todosDias",
+    "texto": "Tous les jours"
+  },
+  {
+    "clave": "cal.alcance.serie",
+    "texto": "Toute la série"
+  },
+  {
+    "clave": "cal.alcance.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "cal.nuevoEvento",
+    "texto": "Nouvel événement"
+  },
+  {
+    "clave": "cal.semana",
+    "texto": "Semaine"
+  },
+  {
+    "clave": "cal.soloHoy",
+    "texto": "Les étapes ne se cochent que le jour même."
+  },
+  {
+    "clave": "cal.traza.anio",
+    "texto": "Dessine sur les jours : mois, semaines et jours"
+  },
+  {
+    "clave": "cal.traza.dia",
+    "texto": "Dessine sur la grille : heures et minutes"
+  },
+  {
+    "clave": "cal.traza.mes",
+    "texto": "Dessine sur les jours : semaines et jours"
+  },
+  {
+    "clave": "cal.traza.semana",
+    "texto": "Dessine sur la grille : jours, heures et minutes"
+  },
+  {
+    "clave": "cal.verMas",
+    "texto": "+{n} de plus"
+  },
+  {
+    "clave": "cal.verMenos",
+    "texto": "Voir moins"
+  },
+  {
+    "clave": "casa.confirmarEliminarCuarto",
+    "texto": "« {nombre} » a une app assignée. Supprimer la pièce ? Le modèle retournera au catalogue."
+  },
+  {
+    "clave": "casa.eliminarCuartoTitulo",
+    "texto": "Supprimer la pièce"
+  },
+  {
+    "clave": "celdas.eliminarCuarto",
+    "texto": "Supprimer la pièce"
+  },
+  {
+    "clave": "celdas.extender",
+    "texto": "Étendre la pièce ici"
+  },
+  {
+    "clave": "celdas.quitar",
+    "texto": "Retirer cette cellule"
+  },
+  {
+    "clave": "chat.abrir",
+    "texto": "Ouvrir le chat"
+  },
+  {
+    "clave": "chat.chip.recordar",
+    "texto": "Retenir"
+  },
+  {
+    "clave": "chat.creado3d",
+    "texto": "J’ai créé « {desc} » : je l’ai placé sur le plan à côté de moi et je l’ai enregistré dans ton inventaire 🧊"
+  },
+  {
+    "clave": "chat.destino.abrir",
+    "texto": "Ouvrir {app}"
+  },
+  {
+    "clave": "chat.destino.editor.config",
+    "texto": "Ouvrir Paramètres"
+  },
+  {
+    "clave": "chat.destino.editor.mapa",
+    "texto": "Ouvrir l’éditeur du plan"
+  },
+  {
+    "clave": "chat.destino.editor.objetos",
+    "texto": "Ouvrir éditeur · Objets"
+  },
+  {
+    "clave": "chat.destino.editor.personajes",
+    "texto": "Ouvrir éditeur · Personnages"
+  },
+  {
+    "clave": "chat.destino.inventario",
+    "texto": "Voir dans l’inventaire"
+  },
+  {
+    "clave": "chat.destino.menu.cuartos",
+    "texto": "Voir mes pièces"
+  },
+  {
+    "clave": "chat.destino.menu.plantillas",
+    "texto": "Voir les modèles"
+  },
+  {
+    "clave": "chat.destino.rutinas",
+    "texto": "Voir mes routines"
+  },
+  {
+    "clave": "chat.foto",
+    "texto": "Joindre une photo (repas, ticket…)"
+  },
+  {
+    "clave": "chat.fotoLista",
+    "texto": "Photo prête à envoyer"
+  },
+  {
+    "clave": "chat.fotoSinIa",
+    "texto": "Les photos nécessitent l’IA : choisis un modèle avec le bouton à droite"
+  },
+  {
+    "clave": "chat.imagenFallo",
+    "texto": "Je n’ai pas pu générer l’image, réessaie."
+  },
+  {
+    "clave": "chat.imagenLista",
+    "texto": "Voilà ! Voici ton image 🎨"
+  },
+  {
+    "clave": "chat.manual",
+    "texto": "Manuel"
+  },
+  {
+    "clave": "chat.manual.abrir",
+    "texto": "Manuel : ce que tu peux demander"
+  },
+  {
+    "clave": "chat.manual.aviso.caminos",
+    "texto": "Les commandes de construction ouvrent un éditeur plein écran : le chat se ferme jusqu’à ce que tu quittes avec ✕. Les actions d’entretien fonctionnent sans quitter le chat."
+  },
+  {
+    "clave": "chat.manual.aviso.granja",
+    "texto": "Les commandes de construction ouvrent un éditeur plein écran : le chat se ferme jusqu’à ce que tu quittes avec ✕. Les actions d’entretien fonctionnent sans quitter le chat."
+  },
+  {
+    "clave": "chat.manual.aviso.huerto",
+    "texto": "Les commandes de construction ouvrent un éditeur plein écran : le chat se ferme jusqu’à ce que tu quittes avec ✕. Les actions d’entretien fonctionnent sans quitter le chat."
+  },
+  {
+    "clave": "chat.manual.cat.configuraciones",
+    "texto": "Paramètres"
+  },
+  {
+    "clave": "chat.manual.cat.cuartos",
+    "texto": "Pièces"
+  },
+  {
+    "clave": "chat.manual.cat.interfaz",
+    "texto": "Maison et interface"
+  },
+  {
+    "clave": "chat.manual.cat.mapa",
+    "texto": "Plan et structure"
+  },
+  {
+    "clave": "chat.manual.cat.memoria",
+    "texto": "Mémoire et capture"
+  },
+  {
+    "clave": "chat.manual.cat.objetos",
+    "texto": "Objets"
+  },
+  {
+    "clave": "chat.manual.cat.personaje",
+    "texto": "Personnage et véhicules"
+  },
+  {
+    "clave": "chat.manual.cat.calendario",
+    "texto": "Calendrier"
+  },
+  {
+    "clave": "chat.manual.cat.superficies",
+    "texto": "Couleur, sol et toit"
+  },
+  {
+    "clave": "chat.manual.cat.teclado",
+    "texto": "Clavier (PC)"
+  },
+  {
+    "clave": "chat.manual.grupo.abrir",
+    "texto": "Ouvrir et menus"
+  },
+  {
+    "clave": "chat.manual.grupo.acciones",
+    "texto": "Actions"
+  },
+  {
+    "clave": "chat.manual.grupo.ia",
+    "texto": "Avec l’IA"
+  },
+  {
+    "clave": "chat.manual.grupo.jugar",
+    "texto": "Jouer"
+  },
+  {
+    "clave": "chat.manual.grupo.registrar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "chat.manual.intro",
+    "texto": "Ouvre un dossier et touche un exemple pour l’écrire dans le chat. La plupart fonctionnent sans IA."
+  },
+  {
+    "clave": "chat.manual.leyenda.comando",
+    "texto": "bleu : la commande"
+  },
+  {
+    "clave": "chat.manual.leyenda.ia",
+    "texto": "violet : coûte un appel IA"
+  },
+  {
+    "clave": "chat.manual.leyenda.variable",
+    "texto": "ambre : change-le à ta guise"
+  },
+  {
+    "clave": "chat.manual.nota.biblioteca",
+    "texto": "À l’intérieur vit le Sage (conversations avec l’IA), qui se distillent en entrées de wiki et dans l’arbre des sujets."
+  },
+  {
+    "clave": "chat.manual.nota.calendario",
+    "texto": "Rassemble les objectifs et événements de toutes les apps ; son Planning propose des plans IA (✨)."
+  },
+  {
+    "clave": "chat.manual.nota.caminos",
+    "texto": "Une fois la piste et la ligne d’arrivée tracées, tu peux courir contre la montre ou contre un assistant ; tu montes dans le train depuis les rails."
+  },
+  {
+    "clave": "chat.manual.nota.canchas",
+    "texto": "On joue sur les terrains en marchant dedans ; tu contrôles le ballon en t’en approchant."
+  },
+  {
+    "clave": "chat.manual.nota.cocina",
+    "texto": "Avec l’IA, elle comprend aussi une photo de ton plat (elle l’enregistre en estimant les macros). Les recettes et régimes que tu demandes dans le chat arrivent avec leur image : ils mettent un peu plus de temps à apparaître et coûtent les crédits indiqués."
+  },
+  {
+    "clave": "chat.manual.nota.cuartos",
+    "texto": "Crée, renomme et organise des pièces. « Supprimer » retire la pièce de la maison."
+  },
+  {
+    "clave": "chat.manual.nota.despacho",
+    "texto": "Avec l’IA, tu peux aussi joindre une photo de ticket : elle enregistre la dépense."
+  },
+  {
+    "clave": "chat.manual.nota.diario",
+    "texto": "Les rubriques culturelles du jour et la remise par l’assistant utilisent l’IA à l’intérieur de l’app."
+  }
+]

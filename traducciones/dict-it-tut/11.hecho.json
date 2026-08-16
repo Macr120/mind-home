@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "Questo è il diario di Pep: un anno intero, due o tre voci a settimana. Qui c'è TUTTO l'arco — dalla stanchezza del primo mese alla maratona di due settimane fa."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "Si scrive così"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "Scegli l'umore del giorno, metti un titolo se vuoi, scrivi e allega le foto. Basta anche solo una foto: il testo non è obbligatorio."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "L'anno a colori"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "Ogni giorno si colora con il suo umore. Guarda il calo del mese 7 (l'infortunio) e quanto brilla il Giappone. Tocca un giorno per filtrare le sue voci."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "L'archivio"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "Le voci si archiviano da sole in cartelle per anno, mese e settimana. Apri le settimane del Giappone e leggi il viaggio per intero."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "Le tappe dell'anno di Pep hanno la loro foto: la tastiera usata, l'arrivo di Laika, due cartoline dal Giappone e la medaglia della maratona."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "Cercale nella cronologia"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "Apri il mese 2 (la tastiera), il mese 9 (il Giappone) o due settimane fa (la medaglia). Tocca una foto qualsiasi e si apre a schermo intero."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "Ogni voce alimenta la serie e sveglia il personaggio: scrivere qui è anche prendersi cura della casa."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "La calma accumulata"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "Ogni minuto di pratica innaffia questo giardino. Quello di Pep è cresciuto per un anno intero: da seme a foresta."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "Meditare con il suono"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "Scegli una traccia (foresta, oceano, pioggia, campane tibetane) e una durata, oppure medita in silenzio con la campana. La sessione si salva da sola quando finisce."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "Un anno di sessioni"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "Ecco l'anno di Pep: è partito da tre volte a settimana e nel mese 7 —l'infortunio, la spesa dell'auto— la pratica è diventata quasi quotidiana. È stata lei a reggere il calo."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "Respirare"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "Due schemi guidati: la scatola 4-4-4-4 per centrarti e il 4-7-8 per lasciare andare la giornata. Lo schermo respira con te."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "Oggi ringrazio per…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "Tre righe al giorno. Uno basta; tre, meglio. Si salva una voce al giorno e si può correggere strada facendo."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "Quelli di Pep"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "Novanta giorni di ringraziamenti veri: la tastiera, Laika addormentata sugli appunti, il ginocchio che guarisce, tornare dal Giappone. Leggili con calma."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "Questa stanza non tiene serie e non ti punisce se salti un giorno: è voluto. La calma non è una gara."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "Due hobby, un anno"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "Pep ne ha registrati due: il pianoforte (il progetto dell'anno, obiettivo di 4 giorni a settimana) e l'astrofotografia. Ogni scheda mostra la settimana in corso e la serie."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "Dentro il pianoforte"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "Serie, miglior serie, totale praticato, giorni attivi e media. Un anno di tasti — con l'onesta pausa del Giappone."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "La mappa di calore"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "Ogni quadratino è un giorno. Si vede la partenza del mese 2, come il pianoforte ha RETTO il calo del mese 7 e il vuoto delle tre settimane in Giappone."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "Le sessioni"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "Ogni pratica con i suoi minuti e, molte, con una nota: da «mi fanno male le mani» a suonare «Clair de Lune» per intero."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "Progetti"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "La pratica con una direzione: il primo brano (finito nel mese 5) e «Clair de Lune», suonato per la famiglia una settimana fa."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "I progetti del pianoforte"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "Un progetto raccoglie le sessioni che gli hai dedicato: qui vedi quante sono e quanti minuti ha accumulato ciascuno."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "I progressi in foto"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "«Clair de Lune» conserva lo spartito annotato. Nell'astrofotografia, il progetto delle dodici lune piene raccoglie i migliori scatti dell'anno."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "Puoi anche registrare le sessioni dalla chat («ho praticato piano 30 min») e pianificare gli obiettivi del progetto con il pianificatore."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "Aggiungere un hobby"
+  }
+]

@@ -1,0 +1,638 @@
+[
+  {
+    "clave": "room.idiomas.desc",
+    "en": "Learn languages: AI tutor, spaced-repetition vocabulary, level syllabus and exercises."
+  },
+  {
+    "clave": "room.calendario.desc",
+    "en": "Your calendar: events and routines by day, week and month."
+  },
+  {
+    "clave": "room.caminos.desc",
+    "en": "Lay out race tracks, train rails and roller coasters on the map."
+  },
+  {
+    "clave": "room.canchas.desc",
+    "en": "Place soccer, tennis, basketball and baseball courts on the map."
+  },
+  {
+    "clave": "room.huerto.desc",
+    "en": "Prepare plots, sow crops, water them and harvest in real time."
+  },
+  {
+    "clave": "room.granja.desc",
+    "en": "Raise hens, pigs, goats, sheep, cows and horses, and grow their food in the same editor."
+  },
+  {
+    "clave": "room.ideas.desc",
+    "en": "Your idea journal and brainstorms, ten concept-map formats on a free canvas (mind map, tree, timeline, cycle, pyramid, Venn…) and eight diagrams to decide with (pros and cons, force field, SWOT, Eisenhower, decision tree, tier list, weighted decision matrix and Ishikawa), by hand or with AI."
+  },
+  {
+    "clave": "room.computo.desc",
+    "en": "Computing room: a scientific calculator with your formula book hanging off it (Mathematics, Physics and Chemistry included and editable) and eight modes — a plotter with four types (2D, polar, parametric and 3D surface), binary and hexadecimal, matrices, systems of equations, unit conversion, tip and rule of three; and spreadsheets that export to Excel and PDF."
+  },
+  {
+    "clave": "computo.tab.calculadora",
+    "en": "Calculator"
+  },
+  {
+    "clave": "computo.tab.hojas",
+    "en": "Spreadsheets"
+  },
+  {
+    "clave": "computo.menu.formulario",
+    "es": "Formulario",
+    "en": "Formula book"
+  },
+  {
+    "clave": "computo.meta.calculos",
+    "en": "Solve something"
+  },
+  {
+    "clave": "computo.motor.error",
+    "es": "No se pudo cargar el motor de cálculo. Revisa la conexión.",
+    "en": "The calculation engine could not be loaded. Check your connection."
+  },
+  {
+    "clave": "computo.motor.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "computo.error.sintaxis",
+    "es": "La expresión no se entiende",
+    "en": "That expression does not parse"
+  },
+  {
+    "clave": "computo.error.simbolo",
+    "en": "Unknown symbol"
+  },
+  {
+    "clave": "computo.error.dominio",
+    "en": "That does not work with these values"
+  },
+  {
+    "clave": "computo.plan.ejemplo",
+    "es": "Dominar las fórmulas de un tema y aplicarlas",
+    "en": "Master the formulas of a topic and apply them"
+  },
+  {
+    "clave": "computo.plan.material",
+    "es": "Fórmulas del plan",
+    "en": "Formulas for the plan"
+  },
+  {
+    "clave": "computo.form.buscar",
+    "es": "Buscar fórmula…",
+    "en": "Search formula…"
+  },
+  {
+    "clave": "computo.form.sinResultados",
+    "es": "Nada con ese nombre.",
+    "en": "Nothing by that name."
+  },
+  {
+    "clave": "computo.form.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "computo.form.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "computo.form.cerrarFicha",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "computo.form.imprimir",
+    "es": "Imprimir o guardar en PDF",
+    "en": "Print or save as PDF"
+  },
+  {
+    "clave": "computo.form.imprimirCarpeta",
+    "es": "Imprimir la carpeta",
+    "en": "Print the folder"
+  },
+  {
+    "clave": "computo.form.carpetaNueva",
+    "es": "Carpeta",
+    "en": "Folder"
+  },
+  {
+    "clave": "computo.form.nuevaCarpeta",
+    "es": "Carpeta nueva",
+    "en": "New folder"
+  },
+  {
+    "clave": "computo.form.nuevaCarpetaMsg",
+    "es": "¿Cómo se llama?",
+    "en": "What is it called?"
+  },
+  {
+    "clave": "computo.form.subcarpeta",
+    "es": "Subcarpeta",
+    "en": "Subfolder"
+  },
+  {
+    "clave": "computo.form.formulaNueva",
+    "es": "Fórmula",
+    "en": "Formula"
+  },
+  {
+    "clave": "computo.form.borrarCarpeta",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete “{nombre}”"
+  },
+  {
+    "clave": "computo.form.borrarCarpetaMsg",
+    "es": "Se van también sus {n} fórmulas y sus subcarpetas.",
+    "en": "Its {n} formulas and subfolders go too."
+  },
+  {
+    "clave": "computo.form.borrarCarpetaVacia",
+    "es": "La carpeta se va con sus subcarpetas.",
+    "en": "The folder goes with its subfolders."
+  },
+  {
+    "clave": "computo.form.borrarFormula",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete “{nombre}”"
+  },
+  {
+    "clave": "computo.form.constantes",
+    "es": "Constantes: {lista}",
+    "en": "Constants: {lista}"
+  },
+  {
+    "clave": "computo.form.vacio",
+    "es": "Todavía no hay fórmulas. Crea una carpeta y escribe la tuya.",
+    "en": "No formulas yet. Create a folder and write yours."
+  },
+  {
+    "clave": "computo.form.masAcciones",
+    "es": "Más acciones",
+    "en": "More actions"
+  },
+  {
+    "clave": "computo.form.editarCarpeta",
+    "es": "Editar carpeta",
+    "en": "Edit folder"
+  },
+  {
+    "clave": "computo.form.arrastrar",
+    "es": "Arrastrar para mover",
+    "en": "Drag to move"
+  },
+  {
+    "clave": "computo.carpeta.titulo",
+    "es": "Editar carpeta",
+    "en": "Edit folder"
+  },
+  {
+    "clave": "computo.carpeta.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "computo.carpeta.nombre",
+    "es": "Nombre de la carpeta",
+    "en": "Folder name"
+  },
+  {
+    "clave": "computo.carpeta.emoji",
+    "es": "Icono",
+    "en": "Icon"
+  },
+  {
+    "clave": "computo.carpeta.emojiLibre",
+    "es": "Otro emoji",
+    "en": "Another emoji"
+  },
+  {
+    "clave": "computo.carpeta.color",
+    "es": "Color",
+    "en": "Colour"
+  },
+  {
+    "clave": "computo.carpeta.colorPista",
+    "es": "Las subcarpetas sin color propio heredan este.",
+    "en": "Subfolders without their own colour inherit this one."
+  },
+  {
+    "clave": "computo.carpeta.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "computo.carpeta.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "computo.editor.titulo.nueva",
+    "es": "Fórmula nueva",
+    "en": "New formula"
+  },
+  {
+    "clave": "computo.editor.titulo.editar",
+    "es": "Editar fórmula",
+    "en": "Edit formula"
+  },
+  {
+    "clave": "computo.editor.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "computo.editor.carpeta",
+    "es": "Guardar en",
+    "en": "Save in"
+  },
+  {
+    "clave": "computo.editor.nombre",
+    "es": "Nombre («Energía cinética»)",
+    "en": "Name (“Kinetic energy”)"
+  },
+  {
+    "clave": "computo.editor.resultado",
+    "es": "Símbolo del resultado",
+    "en": "Result symbol"
+  },
+  {
+    "clave": "computo.editor.descripcion",
+    "es": "Nota (cuándo se usa, de dónde salió)",
+    "en": "Note (when to use it, where it came from)"
+  },
+  {
+    "clave": "computo.editor.variables",
+    "es": "Variables",
+    "en": "Variables"
+  },
+  {
+    "clave": "computo.editor.varNombre",
+    "es": "nombre",
+    "en": "name"
+  },
+  {
+    "clave": "computo.editor.varUnidad",
+    "es": "unidad",
+    "en": "unit"
+  },
+  {
+    "clave": "computo.editor.varValor",
+    "es": "valor",
+    "en": "value"
+  },
+  {
+    "clave": "computo.editor.constante",
+    "es": "Constante: no se pide, se usa su valor",
+    "en": "Constant: never asked for, its value is used"
+  },
+  {
+    "clave": "computo.editor.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "computo.editor.faltaNombre",
+    "es": "Ponle un nombre",
+    "en": "Give it a name"
+  },
+  {
+    "clave": "computo.editor.faltaExpresion",
+    "es": "Escribe la expresión",
+    "en": "Write the expression"
+  },
+  {
+    "clave": "computo.editor.resultadoReservado",
+    "es": "Ese símbolo es de mathjs; usa otro",
+    "en": "That symbol belongs to mathjs; pick another"
+  },
+  {
+    "clave": "computo.editor.resultadoInvalido",
+    "es": "El símbolo del resultado no vale",
+    "en": "That result symbol is not valid"
+  },
+  {
+    "clave": "computo.editor.noSeEntiende",
+    "es": "Falta cerrar algo o sobra un símbolo.",
+    "en": "Something is unclosed, or a symbol is out of place."
+  },
+  {
+    "clave": "computo.editor.implicita",
+    "es": "«{simbolos}» se lee como una sola variable. Si querías multiplicar, escribe los asteriscos: m * g * h.",
+    "en": "“{simbolos}” reads as a single variable. If you meant to multiply, write the asterisks: m * g * h."
+  },
+  {
+    "clave": "computo.calc.placeholder",
+    "es": "2*sin(pi/4) + log(100, 10)",
+    "en": "2*sin(pi/4) + log(100, 10)"
+  },
+  {
+    "clave": "computo.calc.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "computo.calc.grados",
+    "es": "Grados",
+    "en": "Degrees"
+  },
+  {
+    "clave": "computo.calc.radianes",
+    "es": "Radianes",
+    "en": "Radians"
+  },
+  {
+    "clave": "computo.calc.resolver",
+    "es": "Resolver",
+    "en": "Solve"
+  },
+  {
+    "clave": "computo.calc.pulsaResolver",
+    "es": "Pulsa «Resolver»",
+    "en": "Press “Solve”"
+  },
+  {
+    "clave": "computo.calc.soluciones",
+    "es": "Soluciones",
+    "en": "Solutions"
+  },
+  {
+    "clave": "computo.calc.exactas",
+    "es": "Raíces exactas del polinomio.",
+    "en": "Exact roots of the polynomial."
+  },
+  {
+    "clave": "computo.calc.raicesEn",
+    "es": "{n} soluciones entre {a} y {b}. Puede haber más fuera.",
+    "en": "{n} solutions between {a} and {b}. There may be more outside."
+  },
+  {
+    "clave": "computo.calc.raizEn",
+    "es": "Una solución entre {a} y {b}. Puede haber más fuera.",
+    "en": "One solution between {a} and {b}. There may be more outside."
+  },
+  {
+    "clave": "computo.calc.sinRaices",
+    "es": "sin soluciones en el intervalo",
+    "en": "no solutions in the interval"
+  },
+  {
+    "clave": "computo.calc.sinRaicesEn",
+    "es": "No hay soluciones reales entre {a} y {b}.",
+    "en": "No real solutions between {a} and {b}."
+  },
+  {
+    "clave": "computo.calc.historial",
+    "es": "Historial",
+    "en": "History"
+  },
+  {
+    "clave": "computo.calc.sinHistorial",
+    "es": "Aquí se guarda lo que vayas calculando.",
+    "en": "Whatever you work out gets saved here."
+  },
+  {
+    "clave": "computo.graf.tipos",
+    "en": "Plot type"
+  },
+  {
+    "clave": "computo.graf.tipo.2d",
+    "en": "2D"
+  },
+  {
+    "clave": "computo.graf.tipo.polar",
+    "en": "Polar"
+  },
+  {
+    "clave": "computo.graf.tipo.parametrica",
+    "en": "Parametric"
+  },
+  {
+    "clave": "computo.graf.tipo.3d",
+    "en": "3D surface"
+  },
+  {
+    "clave": "computo.graf.soltar",
+    "es": "Volver a las funciones sueltas",
+    "en": "Back to loose functions"
+  },
+  {
+    "clave": "computo.graf.congeladas",
+    "es": "Las demás se quedan en estos valores; cambia uno y la gráfica se mueve.",
+    "en": "The rest stay at these values; change one and the plot moves."
+  },
+  {
+    "clave": "computo.graf.placeholderPolar",
+    "es": "r en función de θ, p. ej. 2*cos(3*theta)",
+    "en": "r as a function of θ, e.g. 2*cos(3*theta)"
+  },
+  {
+    "clave": "computo.graf.placeholderX",
+    "es": "x(t), p. ej. cos(t)",
+    "en": "x(t), e.g. cos(t)"
+  },
+  {
+    "clave": "computo.graf.placeholderY",
+    "es": "y(t), p. ej. sin(2*t)",
+    "en": "y(t), e.g. sin(2*t)"
+  },
+  {
+    "clave": "computo.graf.placeholder3d",
+    "es": "z en función de x e y, p. ej. sin(x)*cos(y)",
+    "en": "z as a function of x and y, e.g. sin(x)*cos(y)"
+  },
+  {
+    "clave": "computo.graf.pistaPolar",
+    "es": "θ da dos vueltas completas",
+    "en": "θ runs two full turns"
+  },
+  {
+    "clave": "computo.graf.pistaParam",
+    "es": "t de {a} a {b}",
+    "en": "t from {a} to {b}"
+  },
+  {
+    "clave": "computo.graf.hasta",
+    "es": "hasta",
+    "en": "to"
+  },
+  {
+    "clave": "computo.graf.reencuadrar",
+    "es": "Ajustar a la curva",
+    "en": "Fit the curve"
+  },
+  {
+    "clave": "computo.graf.unaVariable",
+    "es": "Con una sola variable no hay superficie que dibujar.",
+    "en": "With a single variable there is no surface to draw."
+  },
+  {
+    "clave": "computo.graf.volver2d",
+    "es": "Volver al plano",
+    "en": "Back to the plane"
+  },
+  {
+    "clave": "computo.graf.sinPolarFormula",
+    "es": "Una fórmula del formulario se dibuja en el plano o como superficie.",
+    "en": "A formula from the book is drawn on the plane or as a surface."
+  },
+  {
+    "clave": "computo.graf.placeholder",
+    "es": "una función de x, p. ej. sin(x)",
+    "en": "a function of x, e.g. sin(x)"
+  },
+  {
+    "clave": "computo.graf.otra",
+    "es": "Otra función",
+    "en": "Another function"
+  },
+  {
+    "clave": "computo.graf.quitar",
+    "es": "Quitar",
+    "en": "Remove"
+  },
+  {
+    "clave": "computo.graf.mostrar",
+    "es": "Mostrar",
+    "en": "Show"
+  },
+  {
+    "clave": "computo.graf.ocultar",
+    "es": "Ocultar",
+    "en": "Hide"
+  },
+  {
+    "clave": "computo.graf.acercar",
+    "es": "Acercar",
+    "en": "Zoom in"
+  },
+  {
+    "clave": "computo.graf.alejar",
+    "es": "Alejar",
+    "en": "Zoom out"
+  },
+  {
+    "clave": "computo.graf.leer",
+    "es": "Leer un punto",
+    "en": "Read a point"
+  },
+  {
+    "clave": "computo.graf.centrar",
+    "es": "Centrar",
+    "en": "Recentre"
+  },
+  {
+    "clave": "computo.graf.alto",
+    "es": "Alto de la gráfica: {nivel}",
+    "en": "Plot height: {nivel}"
+  },
+  {
+    "clave": "computo.graf.altoCompacta",
+    "en": "Compact"
+  },
+  {
+    "clave": "computo.graf.altoNormal",
+    "en": "Normal"
+  },
+  {
+    "clave": "computo.graf.altoAlta",
+    "en": "Tall"
+  },
+  {
+    "clave": "computo.graf.pista",
+    "es": "Arrastra para mover el plano y pellizca para acercarte.",
+    "en": "Drag to move the plane and pinch to zoom."
+  },
+  {
+    "clave": "computo.graf.pistaLeer",
+    "es": "Modo lectura: mueve el dedo sobre la gráfica para leer los valores.",
+    "en": "Reading mode: move your finger over the plot to read the values."
+  },
+  {
+    "clave": "computo.modo.normal",
+    "en": "Normal"
+  },
+  {
+    "clave": "computo.modo.grafica",
+    "en": "Plot"
+  },
+  {
+    "clave": "computo.modo.bases",
+    "en": "Bases"
+  },
+  {
+    "clave": "computo.modo.matrices",
+    "en": "Matrices"
+  },
+  {
+    "clave": "computo.modo.sistemas",
+    "en": "Systems"
+  },
+  {
+    "clave": "computo.modo.unidades",
+    "en": "Units"
+  },
+  {
+    "clave": "computo.modo.propina",
+    "en": "Tip"
+  },
+  {
+    "clave": "computo.modo.regla3",
+    "en": "Rule of three"
+  },
+  {
+    "clave": "computo.bases.base",
+    "es": "Base",
+    "en": "Base"
+  },
+  {
+    "clave": "computo.bases.enBase",
+    "es": "Base {n}",
+    "en": "Base {n}"
+  },
+  {
+    "clave": "computo.bases.placeholder",
+    "es": "FF, o 0xFF + 0b1010",
+    "en": "FF, or 0xFF + 0b1010"
+  },
+  {
+    "clave": "computo.bases.ayuda",
+    "es": "Un número suelto se lee en la base elegida. Con operaciones manda el motor: usa 0b, 0o o 0x para mezclar bases.",
+    "en": "A lone number is read in the base you picked. With operations the engine takes over: use 0b, 0o or 0x to mix bases."
+  },
+  {
+    "clave": "computo.bases.prefijo",
+    "es": "Empezar un número en esta base",
+    "en": "Start a number in this base"
+  },
+  {
+    "clave": "computo.bases.noEntero",
+    "es": "Solo los números enteros se leen en otras bases.",
+    "en": "Only whole numbers can be read in other bases."
+  },
+  {
+    "clave": "computo.bases.guardar",
+    "es": "Guardar en el historial",
+    "en": "Save to history"
+  },
+  {
+    "clave": "computo.matriz.medidas",
+    "es": "Medidas",
+    "en": "Size"
+  },
+  {
+    "clave": "computo.matriz.filas",
+    "es": "Filas",
+    "en": "Rows"
+  },
+  {
+    "clave": "computo.matriz.cols",
+    "es": "Columnas",
+    "en": "Columns"
+  }
+]

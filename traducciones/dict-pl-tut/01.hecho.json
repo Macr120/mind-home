@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "W nagłówku każdej aplikacji jest przycisk Cele, taki sam jak w kalendarzu, ale ograniczony do tej aplikacji. Otwiera panel z dwoma piętrami: na górze dzisiejsza checklista, na dole cele i plany aplikacji."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "Własne cele aplikacji (woda, kalorie), to, co zaplanowałeś na dziś w kalendarzu, i kroki twoich aktualnych celów — wszystko razem, pogrupowane według planu lub celu, z którego pochodzi każdy krok."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "A jeśli czegoś brakuje, «Nowa lista» tworzy twoją własną: listę tej aplikacji, która powtarza się codziennie. Pod sekcją Dziś jest pełny planer — Cele, Plany i Harmonogram — ze wszystkimi celami aplikacji."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "Cele twoich hobby i projektów żyją w przycisku Cele w nagłówku: ten sam planer Cele · Plany · Harmonogram z kalendarza, ograniczony do tej aplikacji. Poproś AI o plan z etapami i datami."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "Cele żyją w przycisku Cele w nagłówku, w tym samym harmonogramie kalendarza: «skończyć termodynamikę przed kolokwium» jest już zrealizowany; przygotowanie do studiów magisterskich wciąż trwa."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "Przycisk Cele w nagłówku przechowuje cztery zrealizowane cele — 5 km, 10 km, półmaraton i maraton — oraz ten, który wciąż trwa. Cele z datą pojawiają się też w kalendarzu domu."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "Przycisk Cele w nagłówku otwiera ten sam harmonogram, którego używa kalendarz domu, ograniczony do celów Kuchni: utwórz cel (np. «Schudnąć 3 kilogramy») i poproś AI o plan — zapyta o twoją docelową datę i zaplanuje podcele z własnymi datami."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "Przycisk Cele w nagłówku przechowuje te cele na osi czasu: ustaw datę dla jednego z nich, a pojawi się wśród dni w twoim kalendarzu. Dzięki ✨ AI proponuje plan wpłat."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "Zapisany program żyje w przycisku Cele w nagłówku: każdy tytuł zachowuje notatkę o tym, dlaczego jest na liście, a po ustawieniu daty trafia do kalendarza jak każdy inny cel."
+  }
+]

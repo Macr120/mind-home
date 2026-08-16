@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "Il pulsante della riga registra il dato REALE nell'app — un bicchiere d'acqua, un pasto — e il passo si spunta da solo perché quella registrazione ormai c'è, non perché qualcuno l'ha segnata. Premerlo di nuovo a passo compiuto non duplica niente: il pulsante sparisce."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "La tua cifra di ogni giorno"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "I passi con una cifra regolabile la cambiano proprio qui. Metterla a 0 spegne quel traguardo del giorno senza cancellare lo storico dei giorni precedenti."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "Da un traguardo a una routine"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "Il calendario programma quello stesso traguardo a un'ora fissa: apre lo stesso editor delle routine dell'orologio, così resta registrato in tutti e due i posti insieme."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "Quello che è fatto non sparisce"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "Scende in «Fatti», chiuso: vedere la registrazione fare effetto fa parte della ricompensa, e da lì puoi annullarla se ne è scappata una di troppo."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "La scheda del tuo personaggio: Pep ha alle spalle un anno intero di attività reale, quindi ogni numero qui ha una storia vera che lo spiega."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "Il personaggio"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "Toccarlo apre l'editor dei personaggi. Il suo umore —felice, contento, triste o addormentato— sale a ogni nuova registrazione e scende solo se passano giorni senza nessuna; non si azzera mai di colpo."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "Il grado di Sisifo"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "Dodici gradi di scalata: ogni giorno con attività sale un gradino su 365. Pep ne ha già conquistati diversi; toccalo per vedere la montagna intera."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "Gradini e giorni di grazia"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "Ogni 7 gradini arriva un distintivo, ogni tratto di settimane fa salire di grado. Saltare un giorno non rompe niente: ci sono 2 giorni di grazia al mese prima di tornare all'inizio del grado attuale."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "52 distintivi per famiglia"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "Raggruppati per famiglia geologica, tenuti nel mistero finché non si conquistano: né nome né descrizione si vedono prima dello sblocco."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "Il tuo riepilogo"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped costruisce il riepilogo della tua settimana, del mese o dell'anno in slide — ha un tour tutto suo, con dati in abbondanza in un anno come quello di Pep."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "Il radar per stanza"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "Ogni vertice è una stanza della casa, e la sua dimensione è la somma degli XP delle app che le sono assegnate. Una stanza senza attività si nota al volo: il suo vertice sprofonda verso il centro."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "Stile storie: tocca il lato destro per andare avanti, il sinistro per tornare indietro, e tieni premuto per fermarti su una slide."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "Settimana, mese o anno"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "Ogni tipo costruisce le sue slide con i suoi dati — il riepilogo dell'anno di Pep è il più lungo, con i momenti più alti e più bassi di tutto l'anno."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "Muoversi tra i periodi"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "Le frecce ‹ › percorrono i periodi già chiusi: non si può andare oltre oggi, così il confronto è sempre con qualcosa di reale."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "Condividere una slide"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "Copia il testo della slide che stai guardando, pronto da incollare dove vuoi — senza bisogno di screenshot."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "Un puntino accanto al pulsante che lo apre avvisa quando c'è un riepilogo nuovo da vedere; aprirlo lo spegne."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "Questo è il santuario di Pep: da un lato i recinti e dall'altro l'orto che li nutre. Andiamo alle aiuole."
+  }
+]

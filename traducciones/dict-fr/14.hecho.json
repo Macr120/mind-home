@@ -1,0 +1,598 @@
+[
+  {
+    "clave": "sala.bit.nLugares",
+    "texto": "{n} endroits"
+  },
+  {
+    "clave": "sala.bit.unRecuerdo",
+    "texto": "1 souvenir"
+  },
+  {
+    "clave": "sala.bit.nRecuerdos",
+    "texto": "{n} souvenirs"
+  },
+  {
+    "clave": "jardin.desc",
+    "texto": "Ton espace de calme : méditation avec des pistes sonores, respiration et gratitude. Sans points ni séries — le jardin ne fait que grandir."
+  },
+  {
+    "clave": "jardin.tab.meditacion",
+    "texto": "Méditation"
+  },
+  {
+    "clave": "jardin.tab.respiracion",
+    "texto": "Respiration"
+  },
+  {
+    "clave": "jardin.tab.gratitud",
+    "texto": "Gratitude"
+  },
+  {
+    "clave": "jardin.calma.titulo",
+    "texto": "Calme accumulé"
+  },
+  {
+    "clave": "jardin.calma.mes",
+    "texto": "jours de calme ce mois-ci"
+  },
+  {
+    "clave": "jardin.calma.mes1",
+    "texto": "jour de calme ce mois-ci"
+  },
+  {
+    "clave": "jardin.calma.siguiente",
+    "texto": "à {n} min de : {etapa}"
+  },
+  {
+    "clave": "jardin.etapa.semilla",
+    "texto": "Graine"
+  },
+  {
+    "clave": "jardin.etapa.brote",
+    "texto": "Pousse"
+  },
+  {
+    "clave": "jardin.etapa.retono",
+    "texto": "Semis"
+  },
+  {
+    "clave": "jardin.etapa.planta",
+    "texto": "Plante"
+  },
+  {
+    "clave": "jardin.etapa.arbol",
+    "texto": "Jeune arbre"
+  },
+  {
+    "clave": "jardin.etapa.flor",
+    "texto": "Jardin en fleurs"
+  },
+  {
+    "clave": "jardin.etapa.bosque",
+    "texto": "Forêt sereine"
+  },
+  {
+    "clave": "jardin.pista.bosque",
+    "texto": "Sons de la forêt"
+  },
+  {
+    "clave": "jardin.pista.bosque.desc",
+    "texto": "Le vent dans les arbres et des oiseaux au loin."
+  },
+  {
+    "clave": "jardin.pista.mar",
+    "texto": "Sons de l’océan"
+  },
+  {
+    "clave": "jardin.pista.mar.desc",
+    "texto": "Des vagues qui vont et viennent, sans se presser."
+  },
+  {
+    "clave": "jardin.pista.lluvia",
+    "texto": "Pluie"
+  },
+  {
+    "clave": "jardin.pista.lluvia.desc",
+    "texto": "Une pluie régulière, comme vue depuis la fenêtre."
+  },
+  {
+    "clave": "jardin.pista.cuencos",
+    "texto": "Bols tibétains"
+  },
+  {
+    "clave": "jardin.pista.cuencos.desc",
+    "texto": "De longues résonances qui s’estompent d’elles-mêmes."
+  },
+  {
+    "clave": "jardin.med.pistas",
+    "texto": "Pistes sonores"
+  },
+  {
+    "clave": "jardin.med.duracion",
+    "texto": "Durée"
+  },
+  {
+    "clave": "jardin.med.comenzar",
+    "texto": "Commencer la méditation"
+  },
+  {
+    "clave": "jardin.med.libre",
+    "texto": "Minuteur libre"
+  },
+  {
+    "clave": "jardin.med.libre.desc",
+    "texto": "Juste toi et une cloche au début et à la fin."
+  },
+  {
+    "clave": "jardin.med.comenzarLibre",
+    "texto": "Commencer avec la cloche"
+  },
+  {
+    "clave": "jardin.ses.pausar",
+    "texto": "Pause"
+  },
+  {
+    "clave": "jardin.ses.reanudar",
+    "texto": "Reprendre"
+  },
+  {
+    "clave": "jardin.ses.terminar",
+    "texto": "Terminer"
+  },
+  {
+    "clave": "jardin.ses.pausada",
+    "texto": "En pause"
+  },
+  {
+    "clave": "jardin.ses.completa",
+    "texto": "Séance terminée"
+  },
+  {
+    "clave": "jardin.ses.sumaste",
+    "texto": "Tu as ajouté {n} min de calme"
+  },
+  {
+    "clave": "jardin.ses.llegaste",
+    "texto": "Te voilà"
+  },
+  {
+    "clave": "jardin.chk.antes",
+    "texto": "Comment arrives-tu ?"
+  },
+  {
+    "clave": "jardin.chk.despues",
+    "texto": "Comment repars-tu ?"
+  },
+  {
+    "clave": "jardin.chk.saltar",
+    "texto": "Passer"
+  },
+  {
+    "clave": "jardin.gra.hoy",
+    "texto": "Ma gratitude d’aujourd’hui…"
+  },
+  {
+    "clave": "jardin.gra.desc",
+    "texto": "Un suffit. Trois, c’est mieux."
+  },
+  {
+    "clave": "jardin.gra.ph1",
+    "texto": "Quelque chose ou quelqu’un d’aujourd’hui…"
+  },
+  {
+    "clave": "jardin.gra.ph2",
+    "texto": "Une petite chose que tu tiens pour acquise…"
+  },
+  {
+    "clave": "jardin.gra.ph3",
+    "texto": "Quelque chose chez toi que tu apprécies…"
+  },
+  {
+    "clave": "jardin.gra.guardar",
+    "texto": "Enregistrer les gratitudes"
+  },
+  {
+    "clave": "jardin.gra.guardado",
+    "texto": "Enregistré"
+  },
+  {
+    "clave": "jardin.gra.historial",
+    "texto": "Entrées précédentes"
+  },
+  {
+    "clave": "jardin.gra.vacio",
+    "texto": "Tes gratitudes enregistrées apparaîtront ici."
+  },
+  {
+    "clave": "jardin.gra.hoyTag",
+    "texto": "Aujourd’hui"
+  },
+  {
+    "clave": "garage.tab.resumen",
+    "texto": "Résumé"
+  },
+  {
+    "clave": "garage.tab.vehiculos",
+    "texto": "Véhicules"
+  },
+  {
+    "clave": "garage.detalle.tab.tramites",
+    "texto": "Démarches"
+  },
+  {
+    "clave": "garage.detalle.tab.documentos",
+    "texto": "Documents"
+  },
+  {
+    "clave": "garage.detalle.tab.contactos",
+    "texto": "Contacts"
+  },
+  {
+    "clave": "garage.desc",
+    "texto": "Tes véhicules : entretiens et coûts, démarches planifiées dans ton calendrier et ton carnet de contacts."
+  },
+  {
+    "clave": "garage.r.vehiculos",
+    "texto": "Véhicules"
+  },
+  {
+    "clave": "garage.r.servicios",
+    "texto": "Entretiens"
+  },
+  {
+    "clave": "garage.r.tramites",
+    "texto": "Démarches"
+  },
+  {
+    "clave": "garage.r.hero.vencido",
+    "texto": "{n} éléments en retard"
+  },
+  {
+    "clave": "garage.r.hero.vencidoDet",
+    "texto": "Rattrape ton retard avant que ça se complique."
+  },
+  {
+    "clave": "garage.r.hero.proximo",
+    "texto": "{n} à venir"
+  },
+  {
+    "clave": "garage.r.hero.proximoDet",
+    "texto": "Rien en retard : juste ce qui arrive."
+  },
+  {
+    "clave": "garage.r.hero.alDia",
+    "texto": "Tout est à jour"
+  },
+  {
+    "clave": "garage.r.hero.alDiaDet",
+    "texto": "Aucun entretien ni démarche en attente."
+  },
+  {
+    "clave": "garage.r.vacioTitulo",
+    "texto": "Le garage est vide"
+  },
+  {
+    "clave": "garage.veh.servicios",
+    "texto": "{n} entretiens"
+  },
+  {
+    "clave": "garage.veh.servicio",
+    "texto": "1 entretien"
+  },
+  {
+    "clave": "garage.tram.vencidoMeses",
+    "texto": "en retard de {n} mois"
+  },
+  {
+    "clave": "garage.tram.faltanMeses",
+    "texto": "dans {n} mois"
+  },
+  {
+    "clave": "garage.tram.faltanAnios",
+    "texto": "dans {n} ans"
+  },
+  {
+    "clave": "garage.r.odoPasado",
+    "texto": "{n} {u} au-delà de l’objectif"
+  },
+  {
+    "clave": "garage.r.odoAlcanzado",
+    "texto": "kilométrage prévu atteint"
+  },
+  {
+    "clave": "garage.r.odoFaltan",
+    "texto": "il reste {n} {u}"
+  },
+  {
+    "clave": "garage.detalle.gastoTotal",
+    "texto": "Total {c}"
+  },
+  {
+    "clave": "garage.form.pistaPlacas",
+    "texto": "Avec la plaque d’immatriculation, tu débloques la taxe, le contrôle technique, la carte grise et l’assurance."
+  },
+  {
+    "clave": "garage.borrar.confirmar",
+    "texto": "Supprimer ?"
+  },
+  {
+    "clave": "garage.borrar.si",
+    "texto": "Oui"
+  },
+  {
+    "clave": "garage.borrar.no",
+    "texto": "Non"
+  },
+  {
+    "clave": "garage.r.gasto",
+    "texto": "Dépense {año}"
+  },
+  {
+    "clave": "garage.r.vencido",
+    "texto": "Entretien en retard"
+  },
+  {
+    "clave": "garage.r.proximo",
+    "texto": "À venir"
+  },
+  {
+    "clave": "garage.r.sinAlertas",
+    "texto": "Aucune alerte. Indique le prochain entretien à chaque enregistrement pour recevoir des rappels."
+  },
+  {
+    "clave": "garage.r.sinVehiculos",
+    "texto": "Ajoute ton premier vélo, ta première voiture ou moto dans l’onglet Véhicules."
+  },
+  {
+    "clave": "garage.veh.añadir",
+    "texto": "Ajouter un véhicule"
+  },
+  {
+    "clave": "garage.veh.vacio",
+    "texto": "Vélos, voitures, motos et plus — tout dans un seul garage."
+  },
+  {
+    "clave": "garage.form.editar",
+    "texto": "Modifier le véhicule"
+  },
+  {
+    "clave": "garage.form.nuevo",
+    "texto": "Nouveau véhicule"
+  },
+  {
+    "clave": "garage.form.nombre",
+    "texto": "Nom *"
+  },
+  {
+    "clave": "garage.form.tipo",
+    "texto": "Type"
+  },
+  {
+    "clave": "garage.form.marca",
+    "texto": "Marque"
+  },
+  {
+    "clave": "garage.form.modelo",
+    "texto": "Modèle"
+  },
+  {
+    "clave": "garage.form.año",
+    "texto": "Année"
+  },
+  {
+    "clave": "garage.form.placas",
+    "texto": "Plaque / numéro de série"
+  },
+  {
+    "clave": "garage.form.odo",
+    "texto": "Kilométrage actuel"
+  },
+  {
+    "clave": "garage.form.unidad",
+    "texto": "Unité"
+  },
+  {
+    "clave": "garage.form.km",
+    "texto": "Kilomètres"
+  },
+  {
+    "clave": "garage.form.mi",
+    "texto": "Miles"
+  },
+  {
+    "clave": "garage.form.notas",
+    "texto": "Notes"
+  },
+  {
+    "clave": "garage.form.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "garage.form.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "garage.detalle.volver",
+    "texto": "‹ Retour au garage"
+  },
+  {
+    "clave": "garage.detalle.odo",
+    "texto": "Kilométrage actuel ({unit})"
+  },
+  {
+    "clave": "garage.detalle.actualizar",
+    "texto": "Mettre à jour"
+  },
+  {
+    "clave": "garage.detalle.servicios",
+    "texto": "{n} entretiens enregistrés · Dépense totale {cost}"
+  },
+  {
+    "clave": "garage.detalle.registrar",
+    "texto": "Enregistrer un entretien"
+  },
+  {
+    "clave": "garage.detalle.historial",
+    "texto": "Historique"
+  },
+  {
+    "clave": "garage.detalle.sinServicios",
+    "texto": "Pas encore d’entretien. Enregistre la dernière vidange, chaîne, etc."
+  },
+  {
+    "clave": "garage.detalle.editar",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "garage.detalle.borrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "garage.detalle.proximo",
+    "texto": "Prochain :"
+  },
+  {
+    "clave": "garage.detalle.placas",
+    "texto": "Plaque : {n}"
+  },
+  {
+    "clave": "garage.tram.seccion",
+    "texto": "Démarches"
+  },
+  {
+    "clave": "garage.tram.programar",
+    "texto": "Programmer"
+  },
+  {
+    "clave": "garage.tram.nuevo",
+    "texto": "Programmer une démarche"
+  },
+  {
+    "clave": "garage.tram.editar",
+    "texto": "Modifier la démarche"
+  },
+  {
+    "clave": "garage.tram.tipo",
+    "texto": "Type"
+  },
+  {
+    "clave": "garage.tram.titulo",
+    "texto": "Nom *"
+  },
+  {
+    "clave": "garage.tram.fecha",
+    "texto": "Prochaine échéance *"
+  },
+  {
+    "clave": "garage.tram.hora",
+    "texto": "Heure du rappel"
+  },
+  {
+    "clave": "garage.tram.repite",
+    "texto": "Se répète"
+  },
+  {
+    "clave": "garage.tram.aviso",
+    "texto": "Me prévenir"
+  },
+  {
+    "clave": "garage.tram.costo",
+    "texto": "Coût estimé (MXN)"
+  },
+  {
+    "clave": "garage.tram.folio",
+    "texto": "Police / référence"
+  },
+  {
+    "clave": "garage.tram.taller",
+    "texto": "Où ça se passe"
+  },
+  {
+    "clave": "garage.tram.sinTaller",
+    "texto": "Sans contact"
+  },
+  {
+    "clave": "garage.tram.nota",
+    "texto": "Notes"
+  },
+  {
+    "clave": "garage.tram.pista",
+    "texto": "La démarche apparaît dans ton calendrier et te prévient à l’heure prévue."
+  },
+  {
+    "clave": "garage.tram.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "garage.tram.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "garage.tram.sinPlaca",
+    "texto": "Sans plaque enregistrée, seul l’essentiel apparaît. Ajoute l’immatriculation dans la fiche du véhicule pour programmer la taxe, le contrôle technique, la carte grise et l’assurance."
+  },
+  {
+    "clave": "garage.tram.vacio",
+    "texto": "Programme le contrôle technique ou l’entretien périodique et on te prévient à temps."
+  },
+  {
+    "clave": "garage.tram.vacioSinPlaca",
+    "texto": "Programme l’entretien périodique et on te prévient à temps. Avec une plaque, tu débloques aussi le contrôle technique."
+  },
+  {
+    "clave": "garage.doc.seccion",
+    "texto": "Documents"
+  },
+  {
+    "clave": "garage.doc.agregar",
+    "texto": "Ajouter"
+  },
+  {
+    "clave": "garage.doc.nuevo",
+    "texto": "Nouveau document"
+  },
+  {
+    "clave": "garage.doc.editar",
+    "texto": "Modifier le document"
+  },
+  {
+    "clave": "garage.doc.pista",
+    "texto": "Le document apparaît dans ton calendrier et te prévient avant son expiration."
+  },
+  {
+    "clave": "garage.doc.vacio",
+    "texto": "Enregistre ici la carte grise, la police d’assurance et la taxe avec leur référence et leur échéance : on te prévient avant qu’elles expirent."
+  },
+  {
+    "clave": "garage.doc.vacioSinPlaca",
+    "texto": "Ce véhicule n’a pas de papiers. Ajoute l’immatriculation dans sa fiche pour débloquer la taxe, la carte grise et l’assurance."
+  },
+  {
+    "clave": "garage.tram.vencidoHace",
+    "texto": "en retard de {n} jours"
+  },
+  {
+    "clave": "garage.tram.hoy",
+    "texto": "échéance aujourd’hui"
+  },
+  {
+    "clave": "garage.tram.faltan",
+    "texto": "il reste {n} jours"
+  },
+  {
+    "clave": "garage.tram.avisoPrevio",
+    "texto": "{n} jours avant"
+  },
+  {
+    "clave": "garage.tram.folioNota",
+    "texto": "Référence : {n}"
+  },
+  {
+    "clave": "garage.tram.hecho",
+    "texto": "Fait"
+  },
+  {
+    "clave": "garage.tram.hechoAyuda",
+    "texto": "L’enregistre dans l’historique et passe à la période suivante"
+  }
+]

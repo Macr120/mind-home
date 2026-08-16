@@ -1,0 +1,562 @@
+[
+  {
+    "clave": "agenda.ciclo.recienActivado",
+    "texto": "Отслеживание включено. Это вышло случайно?"
+  },
+  {
+    "clave": "agenda.ciclo.deshacer",
+    "texto": "Отменить"
+  },
+  {
+    "clave": "agenda.ciclo.mantener",
+    "texto": "Оставить"
+  },
+  {
+    "clave": "agenda.ciclo.ajustes",
+    "texto": "Настройки"
+  },
+  {
+    "clave": "agenda.ciclo.diaN",
+    "texto": "День {n} цикла"
+  },
+  {
+    "clave": "agenda.ciclo.sinRegistro",
+    "texto": "Записей пока нет"
+  },
+  {
+    "clave": "agenda.ciclo.sinDatos",
+    "texto": "Отметь первый день периода, чтобы начать"
+  },
+  {
+    "clave": "agenda.ciclo.hoyToca",
+    "texto": "По оценке, начинается сегодня"
+  },
+  {
+    "clave": "agenda.ciclo.faltan",
+    "texto": "Осталось {n} дней (примерно)"
+  },
+  {
+    "clave": "agenda.ciclo.proximo",
+    "texto": "Следующий период"
+  },
+  {
+    "clave": "agenda.ciclo.fertil",
+    "texto": "Фертильное окно"
+  },
+  {
+    "clave": "agenda.ciclo.base",
+    "texto": "Оценка по твоим последним {n} циклам (в среднем {d} дней)."
+  },
+  {
+    "clave": "agenda.ciclo.baseSinDatos",
+    "texto": "Оценка по длительности из твоих настроек ({d} дней): пока не набралось двух периодов для замера."
+  },
+  {
+    "clave": "agenda.ciclo.historial",
+    "texto": "Твои последние периоды"
+  },
+  {
+    "clave": "agenda.ciclo.duroDias",
+    "texto": "длился {n} дней"
+  },
+  {
+    "clave": "agenda.ciclo.sangrado",
+    "texto": "Кровотечение"
+  },
+  {
+    "clave": "agenda.ciclo.ninguno",
+    "texto": "Нет"
+  },
+  {
+    "clave": "agenda.ciclo.leve",
+    "texto": "Слабое"
+  },
+  {
+    "clave": "agenda.ciclo.medio",
+    "texto": "Среднее"
+  },
+  {
+    "clave": "agenda.ciclo.abundante",
+    "texto": "Обильное"
+  },
+  {
+    "clave": "agenda.ciclo.sintomas",
+    "texto": "Симптомы"
+  },
+  {
+    "clave": "agenda.ciclo.animo",
+    "texto": "Настроение"
+  },
+  {
+    "clave": "agenda.ciclo.leyRegistrado",
+    "texto": "Записано"
+  },
+  {
+    "clave": "agenda.ciclo.leyEstimado",
+    "texto": "Оценено"
+  },
+  {
+    "clave": "agenda.ciclo.duracionCiclo",
+    "texto": "Длительность цикла (дней)"
+  },
+  {
+    "clave": "agenda.ciclo.duracionPeriodo",
+    "texto": "Длительность периода (дней)"
+  },
+  {
+    "clave": "agenda.ciclo.ayudaDuracion",
+    "texto": "Используются только пока не записаны два периода: как только они появятся, в силу вступит твоё реальное среднее."
+  },
+  {
+    "clave": "agenda.ciclo.avisarAntes",
+    "texto": "Напомнить за (дней)"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivo",
+    "texto": "Противозачаточное в"
+  },
+  {
+    "clave": "agenda.ciclo.avisoRutina",
+    "texto": "Ожидается начало периода"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivoRutina",
+    "texto": "Противозачаточное"
+  },
+  {
+    "clave": "agenda.ciclo.sint.colicos",
+    "texto": "Спазмы"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cabeza",
+    "texto": "Головная боль"
+  },
+  {
+    "clave": "agenda.ciclo.sint.hinchazon",
+    "texto": "Вздутие"
+  },
+  {
+    "clave": "agenda.ciclo.sint.senos",
+    "texto": "Чувствительная грудь"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cansancio",
+    "texto": "Усталость"
+  },
+  {
+    "clave": "agenda.ciclo.sint.antojos",
+    "texto": "Тяга к еде"
+  },
+  {
+    "clave": "agenda.ciclo.sint.acne",
+    "texto": "Прыщи"
+  },
+  {
+    "clave": "agenda.ciclo.sint.irritable",
+    "texto": "Раздражительность"
+  },
+  {
+    "clave": "agenda.salud.nuevaCita",
+    "texto": "Новый визит"
+  },
+  {
+    "clave": "agenda.salud.medicamentos",
+    "texto": "Лекарства"
+  },
+  {
+    "clave": "agenda.salud.nuevoMedicamento",
+    "texto": "Новое лекарство"
+  },
+  {
+    "clave": "agenda.editarMedicamento",
+    "texto": "Изменить лечение"
+  },
+  {
+    "clave": "agenda.vacio.citas",
+    "texto": "Визитов пока нет."
+  },
+  {
+    "clave": "agenda.vacio.medicamentos",
+    "texto": "Сейчас нет текущего лечения."
+  },
+  {
+    "clave": "agenda.med.dosis",
+    "texto": "Доза"
+  },
+  {
+    "clave": "agenda.med.horas",
+    "texto": "Время приёма"
+  },
+  {
+    "clave": "agenda.med.agregarToma",
+    "texto": "Добавить приём"
+  },
+  {
+    "clave": "agenda.med.dias",
+    "texto": "Дни"
+  },
+  {
+    "clave": "agenda.med.todosDias",
+    "texto": "Ничего не отмечено — значит, каждый день."
+  },
+  {
+    "clave": "agenda.med.desde",
+    "texto": "С"
+  },
+  {
+    "clave": "agenda.med.hasta",
+    "texto": "До (необязательно)"
+  },
+  {
+    "clave": "agenda.med.pausar",
+    "texto": "Приостановить"
+  },
+  {
+    "clave": "agenda.med.reanudar",
+    "texto": "Возобновить"
+  },
+  {
+    "clave": "agenda.med.sinHoras",
+    "texto": "Без напоминания"
+  },
+  {
+    "clave": "agenda.med.avisoAppAbierta",
+    "texto": "Напоминания о приёме звучат, только когда приложение открыто."
+  },
+  {
+    "clave": "agenda.dia.0",
+    "texto": "Вс"
+  },
+  {
+    "clave": "agenda.dia.1",
+    "texto": "Пн"
+  },
+  {
+    "clave": "agenda.dia.2",
+    "texto": "Вт"
+  },
+  {
+    "clave": "agenda.dia.3",
+    "texto": "Ср"
+  },
+  {
+    "clave": "agenda.dia.4",
+    "texto": "Чт"
+  },
+  {
+    "clave": "agenda.dia.5",
+    "texto": "Пт"
+  },
+  {
+    "clave": "agenda.dia.6",
+    "texto": "Сб"
+  },
+  {
+    "clave": "agenda.personas.nuevoContacto",
+    "texto": "Новый контакт"
+  },
+  {
+    "clave": "agenda.editarContacto",
+    "texto": "Изменить контакт"
+  },
+  {
+    "clave": "agenda.personas.nuevoPlan",
+    "texto": "Запланировать"
+  },
+  {
+    "clave": "agenda.persona.relacion",
+    "texto": "Отношения"
+  },
+  {
+    "clave": "agenda.persona.phRelacion",
+    "texto": "семья, работа…"
+  },
+  {
+    "clave": "agenda.persona.telefono",
+    "texto": "Телефон"
+  },
+  {
+    "clave": "agenda.persona.correo",
+    "texto": "Почта"
+  },
+  {
+    "clave": "agenda.persona.cumple",
+    "texto": "День рождения"
+  },
+  {
+    "clave": "agenda.persona.horaCumple",
+    "texto": "Напомнить в"
+  },
+  {
+    "clave": "agenda.persona.direccion",
+    "texto": "Адрес"
+  },
+  {
+    "clave": "agenda.persona.foto",
+    "texto": "Фото"
+  },
+  {
+    "clave": "agenda.persona.edad",
+    "texto": "исполняется {n}"
+  },
+  {
+    "clave": "agenda.persona.hoyCumple",
+    "texto": "это сегодня!"
+  },
+  {
+    "clave": "agenda.persona.faltan",
+    "texto": "осталось {n} дней"
+  },
+  {
+    "clave": "agenda.persona.hoy",
+    "texto": "сегодня"
+  },
+  {
+    "clave": "agenda.persona.enDias",
+    "texto": "{n} дн."
+  },
+  {
+    "clave": "agenda.vacio.contactos",
+    "texto": "Твоя книга контактов пуста. Добавь своих людей."
+  },
+  {
+    "clave": "agenda.vacio.eventosContacto",
+    "texto": "С этим человеком ничего не запланировано."
+  },
+  {
+    "clave": "agenda.salud.mascotas",
+    "texto": "Питомцы"
+  },
+  {
+    "clave": "agenda.salud.nuevaMascota",
+    "texto": "Новый питомец"
+  },
+  {
+    "clave": "agenda.salud.nuevoProjimo",
+    "texto": "Новый близкий человек"
+  },
+  {
+    "clave": "agenda.vacio.mascotas",
+    "texto": "Питомцев нет. Добавь тех, кто тоже зависит от тебя."
+  },
+  {
+    "clave": "agenda.vacio.cuidados",
+    "texto": "Ухода не запланировано: прививки, дегельминтизация, купание…"
+  },
+  {
+    "clave": "agenda.vacio.citasMascota",
+    "texto": "Нет визитов для этого питомца."
+  },
+  {
+    "clave": "agenda.mascota.editar",
+    "texto": "Изменить питомца"
+  },
+  {
+    "clave": "agenda.mascota.especie",
+    "texto": "Вид"
+  },
+  {
+    "clave": "agenda.mascota.raza",
+    "texto": "Порода"
+  },
+  {
+    "clave": "agenda.mascota.nacimiento",
+    "texto": "Дата рождения"
+  },
+  {
+    "clave": "agenda.mascota.peso",
+    "texto": "Вес (кг)"
+  },
+  {
+    "clave": "agenda.mascota.veterinario",
+    "texto": "Ветеринар"
+  },
+  {
+    "clave": "agenda.mascota.phNotas",
+    "texto": "аллергии, еда, чип…"
+  },
+  {
+    "clave": "agenda.mascota.cuidados",
+    "texto": "Уход"
+  },
+  {
+    "clave": "agenda.mascota.nuevoCuidado",
+    "texto": "Новый уход"
+  },
+  {
+    "clave": "agenda.mascota.citas",
+    "texto": "Визиты к ветеринару"
+  },
+  {
+    "clave": "agenda.mascota.meses",
+    "texto": "{n} мес."
+  },
+  {
+    "clave": "agenda.mascota.anio",
+    "texto": "1 год"
+  },
+  {
+    "clave": "agenda.mascota.anios",
+    "texto": "{n} лет"
+  },
+  {
+    "clave": "agenda.mascota.sinFicha",
+    "texto": "Питомец"
+  },
+  {
+    "clave": "agenda.especie.perro",
+    "texto": "Собака"
+  },
+  {
+    "clave": "agenda.especie.gato",
+    "texto": "Кошка"
+  },
+  {
+    "clave": "agenda.especie.ave",
+    "texto": "Птица"
+  },
+  {
+    "clave": "agenda.especie.pez",
+    "texto": "Рыба"
+  },
+  {
+    "clave": "agenda.especie.roedor",
+    "texto": "Грызун"
+  },
+  {
+    "clave": "agenda.especie.reptil",
+    "texto": "Рептилия"
+  },
+  {
+    "clave": "agenda.especie.caballo",
+    "texto": "Лошадь"
+  },
+  {
+    "clave": "agenda.especie.otro",
+    "texto": "Другое"
+  },
+  {
+    "clave": "agenda.cuidado.vacuna",
+    "texto": "Прививка"
+  },
+  {
+    "clave": "agenda.cuidado.desparasitacion",
+    "texto": "Дегельминтизация"
+  },
+  {
+    "clave": "agenda.cuidado.veterinario",
+    "texto": "Осмотр у ветеринара"
+  },
+  {
+    "clave": "agenda.cuidado.bano",
+    "texto": "Купание"
+  },
+  {
+    "clave": "agenda.cuidado.peluqueria",
+    "texto": "Стрижка шерсти или когтей"
+  },
+  {
+    "clave": "agenda.cuidado.alimento",
+    "texto": "Купить корм"
+  },
+  {
+    "clave": "agenda.cuidado.otro",
+    "texto": "Другое"
+  },
+  {
+    "clave": "agenda.cuidado.editar",
+    "texto": "Изменить уход"
+  },
+  {
+    "clave": "agenda.cuidado.tipo",
+    "texto": "Тип"
+  },
+  {
+    "clave": "agenda.cuidado.titulo",
+    "texto": "Что это"
+  },
+  {
+    "clave": "agenda.cuidado.proxima",
+    "texto": "В следующий раз"
+  },
+  {
+    "clave": "agenda.cuidado.cada",
+    "texto": "Повторяется"
+  },
+  {
+    "clave": "agenda.cuidado.unaVez",
+    "texto": "Один раз"
+  },
+  {
+    "clave": "agenda.cuidado.mensual",
+    "texto": "Каждый месяц"
+  },
+  {
+    "clave": "agenda.cuidado.anual",
+    "texto": "Каждый год"
+  },
+  {
+    "clave": "agenda.cuidado.meses",
+    "texto": "Каждые {n} месяцев"
+  },
+  {
+    "clave": "agenda.cuidado.aviso",
+    "texto": "Когда отмечаешь выполненным, дата сама переходит на следующий период."
+  },
+  {
+    "clave": "agenda.cuidado.hecho",
+    "texto": "Сделано"
+  },
+  {
+    "clave": "agenda.cuidado.ultima",
+    "texto": "В последний раз: {f}"
+  },
+  {
+    "clave": "agenda.cuidado.vencido",
+    "texto": "просрочено"
+  },
+  {
+    "clave": "agenda.form.paraQuien",
+    "texto": "Для кого это?"
+  },
+  {
+    "clave": "agenda.form.paraMi",
+    "texto": "— Для меня —"
+  },
+  {
+    "clave": "widgets.titulo",
+    "texto": "Сегодня"
+  },
+  {
+    "clave": "widgets.nivel",
+    "texto": "Уровень {n}"
+  },
+  {
+    "clave": "widgets.metas",
+    "texto": "Цели {h}/{t}"
+  },
+  {
+    "clave": "widgets.sisifo",
+    "texto": "День {d} · Ранг {r}"
+  },
+  {
+    "clave": "widgets.proximoTitulo",
+    "texto": "Дальше"
+  },
+  {
+    "clave": "widgets.sinProximo",
+    "texto": "Нет дел с указанным временем"
+  },
+  {
+    "clave": "widgets.efemerideTitulo",
+    "texto": "В этот день"
+  },
+  {
+    "clave": "widgets.vacio",
+    "texto": "На сегодня ничего не запланировано"
+  },
+  {
+    "clave": "widgets.desactualizado",
+    "texto": "Нажми, чтобы обновить"
+  }
+]

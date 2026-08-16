@@ -1,0 +1,638 @@
+[
+  {
+    "clave": "sala.pc.plan",
+    "texto": "Tagesplan"
+  },
+  {
+    "clave": "sala.hoja.dia",
+    "texto": "Tag"
+  },
+  {
+    "clave": "sala.hoja.fecha",
+    "texto": "Datum"
+  },
+  {
+    "clave": "sala.hoja.inicio",
+    "texto": "Von"
+  },
+  {
+    "clave": "sala.hoja.destino",
+    "texto": "Ziel"
+  },
+  {
+    "clave": "sala.hoja.hospedaje",
+    "texto": "Unterkunft"
+  },
+  {
+    "clave": "sala.hoja.actividades",
+    "texto": "Aktivitäten"
+  },
+  {
+    "clave": "sala.hoja.transporte",
+    "texto": "Transport"
+  },
+  {
+    "clave": "sala.hoja.presupuesto",
+    "texto": "Budget"
+  },
+  {
+    "clave": "sala.hoja.total",
+    "texto": "Gesamt"
+  },
+  {
+    "clave": "sala.hoja.agregarDia",
+    "texto": "Tag"
+  },
+  {
+    "clave": "sala.hoja.sync",
+    "texto": "Tage mit Datum erscheinen im Kalender des Hauses, und die Summe wird zu einem Sparziel im Arbeitszimmer. Der Plan bleibt erhalten, auch wenn du den Ort schon besucht hast; er verschwindet nur, wenn du ihn löschst."
+  },
+  {
+    "clave": "sala.hoja.compartir",
+    "texto": "Teilen"
+  },
+  {
+    "clave": "sala.hoja.copiado",
+    "texto": "Kopiert"
+  },
+  {
+    "clave": "sala.hoja.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "sala.hoja.guardado",
+    "texto": "Gespeichert"
+  },
+  {
+    "clave": "sala.hoja.borrarPlan",
+    "texto": "Plan löschen"
+  },
+  {
+    "clave": "sala.hoja.confirmarBorrar",
+    "texto": "Den ganzen Plan löschen?"
+  },
+  {
+    "clave": "sala.hoja.si",
+    "texto": "Ja"
+  },
+  {
+    "clave": "sala.hoja.no",
+    "texto": "Nein"
+  },
+  {
+    "clave": "sala.hoja.copiarManual",
+    "texto": "Automatisches Kopieren hat nicht geklappt. Markiere den Text und kopiere ihn (Strg+C):"
+  },
+  {
+    "clave": "sala.ig.vacio",
+    "texto": "Noch keine gespeicherten Reisepläne. Tippe im Plan eines Ortes auf „💾 Speichern“."
+  },
+  {
+    "clave": "sala.ig.confirmarBorrar",
+    "texto": "Diesen gespeicherten Reiseplan löschen?"
+  },
+  {
+    "clave": "sala.ig.borrar",
+    "texto": "Löschen"
+  },
+  {
+    "clave": "sala.hoja.cerrar",
+    "texto": "Schließen"
+  },
+  {
+    "clave": "sala.bit.itinerario",
+    "texto": "Reiseplan"
+  },
+  {
+    "clave": "sala.rutas.crear",
+    "texto": "Neue Route"
+  },
+  {
+    "clave": "sala.rutas.nueva",
+    "texto": "Neue Route"
+  },
+  {
+    "clave": "sala.rutas.editar",
+    "texto": "Route bearbeiten"
+  },
+  {
+    "clave": "sala.rutas.nombre",
+    "texto": "Name der Route (z. B. Eurotrip 2027)"
+  },
+  {
+    "clave": "sala.rutas.agregarParada",
+    "texto": "Stopp hinzufügen (Orte mit Kartenmarkierung)…"
+  },
+  {
+    "clave": "sala.rutas.sinElegibles",
+    "texto": "Noch kein Ort hat eine Kartenmarkierung: Füge zuerst Orte mit Koordinaten hinzu."
+  },
+  {
+    "clave": "sala.rutas.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "sala.rutas.guardar",
+    "texto": "Route speichern"
+  },
+  {
+    "clave": "sala.rutas.min",
+    "texto": "Eine Route braucht mindestens 2 Stopps."
+  },
+  {
+    "clave": "sala.rutas.paradas",
+    "texto": "{n} Stopps"
+  },
+  {
+    "clave": "sala.rutas.vacio",
+    "texto": "Noch keine Routen. Verbinde deine Orte zu einer Reise."
+  },
+  {
+    "clave": "sala.bit.sinVisitados",
+    "texto": "Das Logbuch entsteht aus besuchten Orten. Setz eine Nadel auf die Karte oder hake ✓ deinen Reiseplan ab."
+  },
+  {
+    "clave": "sala.bit.portada",
+    "texto": "Titelbild"
+  },
+  {
+    "clave": "sala.bit.portadaPaisTip",
+    "texto": "Titelbild für diesen Ordner wählen"
+  },
+  {
+    "clave": "sala.bit.portadaLugarTip",
+    "texto": "Titelbild für diesen Ort wählen"
+  },
+  {
+    "clave": "sala.bit.ph",
+    "texto": "Was ist dort passiert? Deine Geschichte…"
+  },
+  {
+    "clave": "sala.bit.foto",
+    "texto": "Foto"
+  },
+  {
+    "clave": "sala.bit.guardar",
+    "texto": "Erinnerung speichern"
+  },
+  {
+    "clave": "sala.bit.recuerdo",
+    "texto": "Erinnerung"
+  },
+  {
+    "clave": "sala.bit.sinRecuerdos",
+    "texto": "Noch keine Erinnerungen: Speichere ein Foto und deine Geschichte."
+  },
+  {
+    "clave": "sala.bit.visitadoEl",
+    "texto": "besucht am {f}"
+  },
+  {
+    "clave": "sala.bit.albumes",
+    "texto": "Alben"
+  },
+  {
+    "clave": "sala.bit.unLugar",
+    "texto": "1 Ort"
+  },
+  {
+    "clave": "sala.bit.nLugares",
+    "texto": "{n} Orte"
+  },
+  {
+    "clave": "sala.bit.unRecuerdo",
+    "texto": "1 Erinnerung"
+  },
+  {
+    "clave": "sala.bit.nRecuerdos",
+    "texto": "{n} Erinnerungen"
+  },
+  {
+    "clave": "jardin.desc",
+    "texto": "Dein Ruheraum: Meditation mit Klängen, Atmung und Dankbarkeit. Ohne Punkte oder Serien — der Garten wächst nur."
+  },
+  {
+    "clave": "jardin.tab.meditacion",
+    "texto": "Meditation"
+  },
+  {
+    "clave": "jardin.tab.respiracion",
+    "texto": "Atmung"
+  },
+  {
+    "clave": "jardin.tab.gratitud",
+    "texto": "Dankbarkeit"
+  },
+  {
+    "clave": "jardin.calma.titulo",
+    "texto": "Gesammelte Ruhe"
+  },
+  {
+    "clave": "jardin.calma.mes",
+    "texto": "Tage mit Ruhe diesen Monat"
+  },
+  {
+    "clave": "jardin.calma.mes1",
+    "texto": "Tag mit Ruhe diesen Monat"
+  },
+  {
+    "clave": "jardin.calma.siguiente",
+    "texto": "Noch {n} Min. bis: {etapa}"
+  },
+  {
+    "clave": "jardin.etapa.semilla",
+    "texto": "Samen"
+  },
+  {
+    "clave": "jardin.etapa.brote",
+    "texto": "Sprössling"
+  },
+  {
+    "clave": "jardin.etapa.retono",
+    "texto": "Setzling"
+  },
+  {
+    "clave": "jardin.etapa.planta",
+    "texto": "Pflanze"
+  },
+  {
+    "clave": "jardin.etapa.arbol",
+    "texto": "Junger Baum"
+  },
+  {
+    "clave": "jardin.etapa.flor",
+    "texto": "Garten in Blüte"
+  },
+  {
+    "clave": "jardin.etapa.bosque",
+    "texto": "Stiller Wald"
+  },
+  {
+    "clave": "jardin.pista.bosque",
+    "texto": "Waldklänge"
+  },
+  {
+    "clave": "jardin.pista.bosque.desc",
+    "texto": "Wind in den Bäumen und Vögel in der Ferne."
+  },
+  {
+    "clave": "jardin.pista.mar",
+    "texto": "Meeresklänge"
+  },
+  {
+    "clave": "jardin.pista.mar.desc",
+    "texto": "Wellen, die kommen und gehen, ganz ohne Eile."
+  },
+  {
+    "clave": "jardin.pista.lluvia",
+    "texto": "Regen"
+  },
+  {
+    "clave": "jardin.pista.lluvia.desc",
+    "texto": "Gleichmäßiger Regen, wie vom Fenster aus gesehen."
+  },
+  {
+    "clave": "jardin.pista.cuencos",
+    "texto": "Tibetische Klangschalen"
+  },
+  {
+    "clave": "jardin.pista.cuencos.desc",
+    "texto": "Lange Klänge, die von selbst verklingen."
+  },
+  {
+    "clave": "jardin.med.pistas",
+    "texto": "Klänge"
+  },
+  {
+    "clave": "jardin.med.duracion",
+    "texto": "Dauer"
+  },
+  {
+    "clave": "jardin.med.comenzar",
+    "texto": "Meditation starten"
+  },
+  {
+    "clave": "jardin.med.libre",
+    "texto": "Freier Timer"
+  },
+  {
+    "clave": "jardin.med.libre.desc",
+    "texto": "Nur du und eine Glocke am Anfang und am Ende."
+  },
+  {
+    "clave": "jardin.med.comenzarLibre",
+    "texto": "Mit Glocke starten"
+  },
+  {
+    "clave": "jardin.ses.pausar",
+    "texto": "Pausieren"
+  },
+  {
+    "clave": "jardin.ses.reanudar",
+    "texto": "Fortsetzen"
+  },
+  {
+    "clave": "jardin.ses.terminar",
+    "texto": "Beenden"
+  },
+  {
+    "clave": "jardin.ses.pausada",
+    "texto": "Pausiert"
+  },
+  {
+    "clave": "jardin.ses.completa",
+    "texto": "Sitzung abgeschlossen"
+  },
+  {
+    "clave": "jardin.ses.sumaste",
+    "texto": "Du hast {n} Min. Ruhe gesammelt"
+  },
+  {
+    "clave": "jardin.ses.llegaste",
+    "texto": "Du bist angekommen"
+  },
+  {
+    "clave": "jardin.chk.antes",
+    "texto": "Wie kommst du an?"
+  },
+  {
+    "clave": "jardin.chk.despues",
+    "texto": "Wie gehst du?"
+  },
+  {
+    "clave": "jardin.chk.saltar",
+    "texto": "Überspringen"
+  },
+  {
+    "clave": "jardin.gra.hoy",
+    "texto": "Heute bin ich dankbar für…"
+  },
+  {
+    "clave": "jardin.gra.desc",
+    "texto": "Eine reicht. Drei sind besser."
+  },
+  {
+    "clave": "jardin.gra.ph1",
+    "texto": "Etwas oder jemand von heute…"
+  },
+  {
+    "clave": "jardin.gra.ph2",
+    "texto": "Etwas Kleines, das du für selbstverständlich hältst…"
+  },
+  {
+    "clave": "jardin.gra.ph3",
+    "texto": "Etwas an dir, das du schätzt…"
+  },
+  {
+    "clave": "jardin.gra.guardar",
+    "texto": "Dankbarkeit speichern"
+  },
+  {
+    "clave": "jardin.gra.guardado",
+    "texto": "Gespeichert"
+  },
+  {
+    "clave": "jardin.gra.historial",
+    "texto": "Frühere Einträge"
+  },
+  {
+    "clave": "jardin.gra.vacio",
+    "texto": "Deine gespeicherten Dankbarkeitseinträge erscheinen hier."
+  },
+  {
+    "clave": "jardin.gra.hoyTag",
+    "texto": "Heute"
+  },
+  {
+    "clave": "garage.tab.resumen",
+    "texto": "Übersicht"
+  },
+  {
+    "clave": "garage.tab.vehiculos",
+    "texto": "Fahrzeuge"
+  },
+  {
+    "clave": "garage.detalle.tab.tramites",
+    "texto": "Behördengänge"
+  },
+  {
+    "clave": "garage.detalle.tab.documentos",
+    "texto": "Dokumente"
+  },
+  {
+    "clave": "garage.detalle.tab.contactos",
+    "texto": "Kontakte"
+  },
+  {
+    "clave": "garage.desc",
+    "texto": "Deine Fahrzeuge: Wartungen und Kosten, im Kalender geplante Behördengänge und dein Kontaktbuch."
+  },
+  {
+    "clave": "garage.r.vehiculos",
+    "texto": "Fahrzeuge"
+  },
+  {
+    "clave": "garage.r.servicios",
+    "texto": "Wartungen"
+  },
+  {
+    "clave": "garage.r.tramites",
+    "texto": "Behördengänge"
+  },
+  {
+    "clave": "garage.r.hero.vencido",
+    "texto": "{n} überfällig"
+  },
+  {
+    "clave": "garage.r.hero.vencidoDet",
+    "texto": "Hol es nach, bevor es kompliziert wird."
+  },
+  {
+    "clave": "garage.r.hero.proximo",
+    "texto": "{n} demnächst"
+  },
+  {
+    "clave": "garage.r.hero.proximoDet",
+    "texto": "Nichts überfällig: nur was unterwegs ist."
+  },
+  {
+    "clave": "garage.r.hero.alDia",
+    "texto": "Alles aktuell"
+  },
+  {
+    "clave": "garage.r.hero.alDiaDet",
+    "texto": "Keine offenen Wartungen oder Behördengänge."
+  },
+  {
+    "clave": "garage.r.vacioTitulo",
+    "texto": "Die Garage ist leer"
+  },
+  {
+    "clave": "garage.veh.servicios",
+    "texto": "{n} Wartungen"
+  },
+  {
+    "clave": "garage.veh.servicio",
+    "texto": "1 Wartung"
+  },
+  {
+    "clave": "garage.tram.vencidoMeses",
+    "texto": "seit {n} Monaten überfällig"
+  },
+  {
+    "clave": "garage.tram.faltanMeses",
+    "texto": "in {n} Monaten"
+  },
+  {
+    "clave": "garage.tram.faltanAnios",
+    "texto": "in {n} Jahren"
+  },
+  {
+    "clave": "garage.r.odoPasado",
+    "texto": "{n} {u} über dem Ziel"
+  },
+  {
+    "clave": "garage.r.odoAlcanzado",
+    "texto": "hat den geplanten Kilometerstand erreicht"
+  },
+  {
+    "clave": "garage.r.odoFaltan",
+    "texto": "noch {n} {u}"
+  },
+  {
+    "clave": "garage.detalle.gastoTotal",
+    "texto": "Gesamt {c}"
+  },
+  {
+    "clave": "garage.form.pistaPlacas",
+    "texto": "Mit einem Kennzeichen werden die Behördengänge für Kfz-Steuer, Abgasuntersuchung, Fahrzeugschein und Versicherung freigeschaltet."
+  },
+  {
+    "clave": "garage.borrar.confirmar",
+    "texto": "Löschen?"
+  },
+  {
+    "clave": "garage.borrar.si",
+    "texto": "Ja"
+  },
+  {
+    "clave": "garage.borrar.no",
+    "texto": "Nein"
+  },
+  {
+    "clave": "garage.r.gasto",
+    "texto": "Ausgaben {año}"
+  },
+  {
+    "clave": "garage.r.vencido",
+    "texto": "Überfällige Wartung"
+  },
+  {
+    "clave": "garage.r.proximo",
+    "texto": "Demnächst"
+  },
+  {
+    "clave": "garage.r.sinAlertas",
+    "texto": "Keine Hinweise. Trage in jeder Wartung den nächsten Termin ein, um Erinnerungen zu erhalten."
+  },
+  {
+    "clave": "garage.r.sinVehiculos",
+    "texto": "Füge dein erstes Fahrrad, Auto oder Motorrad im Tab Fahrzeuge hinzu."
+  },
+  {
+    "clave": "garage.veh.añadir",
+    "texto": "Fahrzeug hinzufügen"
+  },
+  {
+    "clave": "garage.veh.vacio",
+    "texto": "Fahrräder, Autos, Motorräder und mehr — alles in einer Garage."
+  },
+  {
+    "clave": "garage.form.editar",
+    "texto": "Fahrzeug bearbeiten"
+  },
+  {
+    "clave": "garage.form.nuevo",
+    "texto": "Neues Fahrzeug"
+  },
+  {
+    "clave": "garage.form.nombre",
+    "texto": "Name *"
+  },
+  {
+    "clave": "garage.form.tipo",
+    "texto": "Typ"
+  },
+  {
+    "clave": "garage.form.marca",
+    "texto": "Marke"
+  },
+  {
+    "clave": "garage.form.modelo",
+    "texto": "Modell"
+  },
+  {
+    "clave": "garage.form.año",
+    "texto": "Jahr"
+  },
+  {
+    "clave": "garage.form.placas",
+    "texto": "Kennzeichen / Seriennummer"
+  },
+  {
+    "clave": "garage.form.odo",
+    "texto": "Aktueller Kilometerstand"
+  },
+  {
+    "clave": "garage.form.unidad",
+    "texto": "Einheit"
+  },
+  {
+    "clave": "garage.form.km",
+    "texto": "Kilometer"
+  },
+  {
+    "clave": "garage.form.mi",
+    "texto": "Meilen"
+  },
+  {
+    "clave": "garage.form.notas",
+    "texto": "Notizen"
+  },
+  {
+    "clave": "garage.form.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "garage.form.cancelar",
+    "texto": "Abbrechen"
+  },
+  {
+    "clave": "garage.detalle.volver",
+    "texto": "‹ Zurück zur Garage"
+  },
+  {
+    "clave": "garage.detalle.odo",
+    "texto": "Aktueller Kilometerstand ({unit})"
+  },
+  {
+    "clave": "garage.detalle.actualizar",
+    "texto": "Aktualisieren"
+  },
+  {
+    "clave": "garage.detalle.servicios",
+    "texto": "{n} Wartungen erfasst · Gesamtkosten {cost}"
+  },
+  {
+    "clave": "garage.detalle.registrar",
+    "texto": "Wartung erfassen"
+  },
+  {
+    "clave": "garage.detalle.historial",
+    "texto": "Verlauf"
+  },
+  {
+    "clave": "garage.detalle.sinServicios",
+    "texto": "Noch keine Wartungen. Trage den letzten Ölwechsel, die Kette usw. ein."
+  }
+]

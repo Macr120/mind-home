@@ -1,0 +1,949 @@
+[
+  {
+    "clave": "ui.errorFallo",
+    "en": "Something failed to load"
+  },
+  {
+    "clave": "ui.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "ui.mover",
+    "es": "mover",
+    "en": "move"
+  },
+  {
+    "clave": "ui.mirar",
+    "es": "mirar",
+    "en": "look"
+  },
+  {
+    "clave": "ui.techo.quitar",
+    "es": "Quitar techo",
+    "en": "Remove roof"
+  },
+  {
+    "clave": "ui.techo.ver",
+    "es": "Poner techo",
+    "en": "Add roof"
+  },
+  {
+    "clave": "ui.explotar.juntar",
+    "es": "Juntar los pisos",
+    "en": "Stack the floors"
+  },
+  {
+    "clave": "ui.explotar.separar",
+    "es": "Separar los pisos",
+    "en": "Separate the floors"
+  },
+  {
+    "clave": "editor.techoCuarto.soloPlano",
+    "es": "Este cuarto tiene un piso encima, así que su techo se ve plano (un piso no se asienta sobre una bóveda). Borra el piso de arriba para recuperar su forma.",
+    "en": "This room has a floor above it, so its roof shows flat (a floor cannot rest on a vault). Delete the floor above to get its shape back."
+  },
+  {
+    "clave": "ui.estrellas",
+    "en": "{n} stars"
+  },
+  {
+    "clave": "ui.pronto",
+    "en": "Coming soon"
+  },
+  {
+    "clave": "ui.prontoDesc",
+    "en": "This room is under construction."
+  },
+  {
+    "clave": "ui.editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "ui.eliminar",
+    "en": "Delete"
+  },
+  {
+    "clave": "ui.cancelar",
+    "es": "Cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "ui.confirmar",
+    "es": "Confirmar",
+    "en": "Confirm"
+  },
+  {
+    "clave": "ui.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "ui.guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "paredes.titulo",
+    "en": "Walls and openings"
+  },
+  {
+    "clave": "paredes.pared",
+    "en": "Wall"
+  },
+  {
+    "clave": "paredes.puerta",
+    "es": "Puerta",
+    "en": "Door"
+  },
+  {
+    "clave": "paredes.abierto",
+    "en": "Open"
+  },
+  {
+    "clave": "paredes.toca",
+    "en": "Tap a border to change it."
+  },
+  {
+    "clave": "paredes.tipoMuro",
+    "en": "Wall type"
+  },
+  {
+    "clave": "paredes.tipoPuerta",
+    "es": "Tipo de puerta",
+    "en": "Door type"
+  },
+  {
+    "clave": "paredes.colorPuerta",
+    "en": "Door color"
+  },
+  {
+    "clave": "paredes.colorMarco",
+    "en": "Frame color"
+  },
+  {
+    "clave": "paredes.pintar",
+    "en": "Paint as {modo}"
+  },
+  {
+    "clave": "paredes.ayudaMuro",
+    "en": "Pick a wall type above and tap borders on the sketch."
+  },
+  {
+    "clave": "paredes.ayudaPuerta",
+    "en": "Pick a door type and tap borders for openings."
+  },
+  {
+    "clave": "paredes.ayudaAbierto",
+    "en": "Tap a border to leave it open (no wall)."
+  },
+  {
+    "clave": "paredes.muro.solido",
+    "en": "Solid"
+  },
+  {
+    "clave": "paredes.muro.ventana",
+    "en": "With window"
+  },
+  {
+    "clave": "paredes.muro.ladrillo",
+    "en": "Brick"
+  },
+  {
+    "clave": "paredes.muro.madera",
+    "en": "Wood"
+  },
+  {
+    "clave": "paredes.muro.vitraje",
+    "en": "Glass"
+  },
+  {
+    "clave": "paredes.puerta.recta",
+    "en": "Flat"
+  },
+  {
+    "clave": "paredes.puerta.sin",
+    "en": "No door"
+  },
+  {
+    "clave": "paredes.puerta.doble",
+    "en": "Double"
+  },
+  {
+    "clave": "paredes.puerta.porton",
+    "en": "Roll-up"
+  },
+  {
+    "clave": "paredes.puerta.corredera",
+    "en": "Sliding"
+  },
+  {
+    "clave": "ciclo.clima",
+    "es": "Clima real",
+    "en": "Real weather"
+  },
+  {
+    "clave": "ciclo.climaDesc",
+    "es": "Usa la ubicación del sistema para temperatura, lluvia y condiciones actuales.",
+    "en": "Uses system location for temperature, rain and current conditions."
+  },
+  {
+    "clave": "ciclo.cargando",
+    "es": "Obteniendo clima…",
+    "en": "Getting weather…"
+  },
+  {
+    "clave": "ciclo.cargandoHint",
+    "es": "Si tarda, el navegador también debe permitir ubicación (candado en la barra).",
+    "en": "If it takes a while, the browser also needs to allow location ( icon in the bar)."
+  },
+  {
+    "clave": "ciclo.reintentar",
+    "es": "Reintentar",
+    "en": "Retry"
+  },
+  {
+    "clave": "ciclo.actualizar",
+    "es": "Actualizar",
+    "en": "Update"
+  },
+  {
+    "clave": "ciclo.paso",
+    "es": "Paso del tiempo",
+    "en": "Time of day"
+  },
+  {
+    "clave": "ciclo.pasoToggle",
+    "es": "Activar o pausar el paso del tiempo",
+    "en": "Turn time flow on or off"
+  },
+  {
+    "clave": "ciclo.pasoPausadoDesc",
+    "es": "En pausa. Elige el color de fondo en Configuraciones → Fondo.",
+    "en": "Paused. Pick the background color in Settings → Background."
+  },
+  {
+    "clave": "ciclo.sol",
+    "es": "Sol: Este → Oeste",
+    "en": "Sun: East → West"
+  },
+  {
+    "clave": "ciclo.solLuna",
+    "es": "Sol y luna",
+    "en": "Sun and moon"
+  },
+  {
+    "clave": "ciclo.focos",
+    "es": "Focos cuartos",
+    "en": "Room lights"
+  },
+  {
+    "clave": "ciclo.enVivo",
+    "es": "En vivo",
+    "en": "Live"
+  },
+  {
+    "clave": "ciclo.volverVivo",
+    "es": "Volver a en vivo",
+    "en": "Back to live"
+  },
+  {
+    "clave": "ciclo.abrirCal",
+    "es": "Abrir calendario de rutinas",
+    "en": "Open routine calendar"
+  },
+  {
+    "clave": "ciclo.rutinasHoy",
+    "en": "Today's routines"
+  },
+  {
+    "clave": "construir.donde",
+    "en": "Where are you building it?"
+  },
+  {
+    "clave": "construir.plantaBaja",
+    "en": "Ground floor"
+  },
+  {
+    "clave": "construir.plantaDesc",
+    "en": "At ground level, next to the others."
+  },
+  {
+    "clave": "construir.encima",
+    "en": "On top of a room"
+  },
+  {
+    "clave": "construir.sinBase",
+    "en": "You first need a ground floor room."
+  },
+  {
+    "clave": "construir.sinLibres",
+    "en": "No free rooms to stack on."
+  },
+  {
+    "clave": "construir.apilar",
+    "en": "Stacks on another and floats until you roof the house."
+  },
+  {
+    "clave": "construir.eligeBase",
+    "en": "Choose which room to stack on:"
+  },
+  {
+    "clave": "construir.enNivel",
+    "en": "Will be on level {n}"
+  },
+  {
+    "clave": "construir.elegirAcceso",
+    "es": "¿Cómo se sube a este nivel nuevo? (se elige una vez por nivel)",
+    "en": "How do you get to this new level? (chosen once per level)"
+  },
+  {
+    "clave": "construir.volver",
+    "en": "← Back"
+  },
+  {
+    "clave": "construir.escalera.label",
+    "en": "Spiral staircase"
+  },
+  {
+    "clave": "construir.escalera.desc",
+    "en": "Steps spiraling around a central pole."
+  },
+  {
+    "clave": "construir.elevador.label",
+    "en": "Elevator"
+  },
+  {
+    "clave": "construir.elevador.desc",
+    "en": "Glass cabin that goes up and down automatically."
+  },
+  {
+    "clave": "construir.resbaladilla.label",
+    "en": "Suction tube"
+  },
+  {
+    "clave": "construir.resbaladilla.desc",
+    "en": "Translucent cylinder with rings to go up and down."
+  },
+  {
+    "clave": "diario.tarjeta.leer",
+    "es": "Leer completa →",
+    "en": "Read full story →"
+  },
+  {
+    "clave": "diario.imagen.ampliar",
+    "es": "Ver la imagen en grande",
+    "en": "View image larger"
+  },
+  {
+    "clave": "diario.imagen.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "entre.tarjeta.editar",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "entre.tarjeta.eliminar",
+    "es": "Eliminar",
+    "en": "Delete"
+  },
+  {
+    "clave": "garage.mant.editar",
+    "es": "Editar servicio",
+    "en": "Edit service"
+  },
+  {
+    "clave": "garage.mant.nuevo",
+    "es": "Registrar mantenimiento",
+    "en": "Register maintenance"
+  },
+  {
+    "clave": "garage.mant.fecha",
+    "es": "Fecha",
+    "en": "Date"
+  },
+  {
+    "clave": "garage.mant.tipo",
+    "es": "Tipo de servicio",
+    "en": "Service type"
+  },
+  {
+    "clave": "garage.mant.titulo",
+    "es": "Título *",
+    "en": "Title *"
+  },
+  {
+    "clave": "garage.mant.costo",
+    "es": "Costo (MXN)",
+    "en": "Cost (MXN)"
+  },
+  {
+    "clave": "garage.mant.odo",
+    "en": "Odometer ({unit})"
+  },
+  {
+    "clave": "garage.mant.taller",
+    "es": "Taller / mecánico",
+    "en": "Shop / mechanic"
+  },
+  {
+    "clave": "garage.mant.proximo",
+    "es": "Próximo servicio (opcional)",
+    "en": "Next service (optional)"
+  },
+  {
+    "clave": "garage.mant.proxOdo",
+    "en": "At the {unit}"
+  },
+  {
+    "clave": "garage.mant.ph.proxOdo",
+    "es": "Ej. 52000",
+    "en": "E.g. 52000"
+  },
+  {
+    "clave": "garage.mant.proxFecha",
+    "es": "Fecha límite",
+    "en": "Deadline"
+  },
+  {
+    "clave": "garage.mant.notas",
+    "es": "Notas",
+    "en": "Notes"
+  },
+  {
+    "clave": "garage.mant.guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "garage.mant.cancelar",
+    "en": "Cancel"
+  },
+  {
+    "clave": "jardin.resp.inhala",
+    "es": "Inhala",
+    "en": "Inhale"
+  },
+  {
+    "clave": "jardin.resp.sosten",
+    "es": "Sostén",
+    "en": "Hold"
+  },
+  {
+    "clave": "jardin.resp.exhala",
+    "es": "Exhala",
+    "en": "Exhale"
+  },
+  {
+    "clave": "jardin.resp.478",
+    "es": "Técnica 4-7-8",
+    "en": "4-7-8 Technique"
+  },
+  {
+    "clave": "jardin.resp.caja",
+    "es": "Respiración en caja 4-4-4-4",
+    "en": "Box breathing 4-4-4-4"
+  },
+  {
+    "clave": "jardin.resp.patron",
+    "es": "Elige tu patrón",
+    "en": "Choose your pattern"
+  },
+  {
+    "clave": "jardin.resp.duracion",
+    "es": "Duración",
+    "en": "Duration"
+  },
+  {
+    "clave": "jardin.resp.comenzar",
+    "es": "Comenzar respiración",
+    "en": "Start breathing"
+  },
+  {
+    "clave": "jardin.resp.caja.titulo",
+    "en": "Box breathing 4-4-4-4"
+  },
+  {
+    "clave": "jardin.resp.caja.desc",
+    "en": "Inhale, hold, exhale, hold: 4 s each phase. Balance and focus."
+  },
+  {
+    "clave": "jardin.resp.478.titulo",
+    "en": "4-7-8 Breathing"
+  },
+  {
+    "clave": "jardin.resp.478.desc",
+    "en": "Inhale 4 s, hold 7 s, exhale 8 s. Relaxes the nervous system."
+  },
+  {
+    "clave": "editor.mapa.ajustes",
+    "en": "Interface & language"
+  },
+  {
+    "clave": "editor.mapa.tema",
+    "en": "House theme"
+  },
+  {
+    "clave": "editor.mapa.fondo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "editor.mapa.techo",
+    "en": "House roofs"
+  },
+  {
+    "clave": "editor.mapa.inventario",
+    "en": "Map inventory"
+  },
+  {
+    "clave": "editor.mapa.piso",
+    "en": "House floor"
+  },
+  {
+    "clave": "editor.mapa.cuartos",
+    "en": "House rooms"
+  },
+  {
+    "clave": "editor.mapa.avatar",
+    "en": "Character avatar"
+  },
+  {
+    "clave": "editor.mapa.perfil",
+    "en": "Your profile"
+  },
+  {
+    "clave": "planos.titulo",
+    "en": "Floor plans"
+  },
+  {
+    "clave": "planos.tab.casa",
+    "en": "House"
+  },
+  {
+    "clave": "planos.tab.planos",
+    "en": "Plans"
+  },
+  {
+    "clave": "planos.bloque.herramientas",
+    "en": "Plan tools"
+  },
+  {
+    "clave": "planos.bloque.seleccion",
+    "en": "Selection"
+  },
+  {
+    "clave": "planos.nivel",
+    "es": "Nivel",
+    "en": "Level"
+  },
+  {
+    "clave": "planos.nivelNuevo",
+    "es": "Construir un piso nuevo encima",
+    "en": "Build a new floor on top"
+  },
+  {
+    "clave": "planos.nivelSotano",
+    "es": "Excavar un sótano (alberca o búnker)",
+    "en": "Dig a basement (pool or bunker)"
+  },
+  {
+    "clave": "acceso.nuevoNivel",
+    "en": "New level {n}"
+  },
+  {
+    "clave": "constructor.modo.ascensos",
+    "es": "Ascensos",
+    "en": "Lifts"
+  },
+  {
+    "clave": "constructor.modo.grid",
+    "en": "Grid"
+  },
+  {
+    "clave": "constructor.modo.fondo",
+    "en": "Backdrop"
+  },
+  {
+    "clave": "constructor.modo.cuartos",
+    "es": "Cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "constructor.modo.muros",
+    "es": "Muros",
+    "en": "Walls"
+  },
+  {
+    "clave": "constructor.modo.puertas",
+    "es": "Puertas",
+    "en": "Doors"
+  },
+  {
+    "clave": "constructor.modo.ventanas",
+    "es": "Ventanas",
+    "en": "Windows"
+  },
+  {
+    "clave": "constructor.modo.piso-ext",
+    "es": "Piso ext.",
+    "en": "Ext. floor"
+  },
+  {
+    "clave": "constructor.modo.piso-int",
+    "es": "Piso int.",
+    "en": "Int. floor"
+  },
+  {
+    "clave": "constructor.modo.techos",
+    "es": "Techos",
+    "en": "Roofs"
+  },
+  {
+    "clave": "ascensos.tipo",
+    "es": "Tipo de ascenso",
+    "en": "Lift type"
+  },
+  {
+    "clave": "ascensos.hint",
+    "es": "Arrastra el ascenso en el mapa 3D para moverlo a otra esquina de un cuarto de este nivel. Va siempre en una esquina para no tapar las puertas.",
+    "en": "Drag the lift in the 3D map to move it to another corner of a room on this level. It always sits in a corner so it never blocks the doors."
+  },
+  {
+    "clave": "ascensos.sinAcceso",
+    "es": "Este nivel aún no tiene ascenso.",
+    "en": "This level has no lift yet."
+  },
+  {
+    "clave": "ascensos.sinAccesoSotano",
+    "es": "Excava un cuarto de sótano para colocar la escalera marina.",
+    "en": "Dig a basement room to place the pool ladder."
+  },
+  {
+    "clave": "ascensos.escaleraMarina",
+    "es": "Escalera marina",
+    "en": "Pool ladder"
+  },
+  {
+    "clave": "ascensos.hintSotano",
+    "es": "Arrástrala en el mapa 3D para moverla a otra pared del pozo. El personaje baja y sube caminando sobre la alberca.",
+    "en": "Drag it in the 3D map to move it to another wall of the pit. The character walks down into and up out of the pool."
+  },
+  {
+    "clave": "planos.cerrar",
+    "en": "Exit floor plans"
+  },
+  {
+    "clave": "planos.capa.titulo",
+    "en": "Layer"
+  },
+  {
+    "clave": "planos.capa.cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "planos.capa.paredes",
+    "en": "Walls"
+  },
+  {
+    "clave": "planos.capa.pisos",
+    "en": "Floors"
+  },
+  {
+    "clave": "planos.capa.techos",
+    "en": "Roofs"
+  },
+  {
+    "clave": "planos.herr.seleccionar",
+    "en": "Select"
+  },
+  {
+    "clave": "planos.herr.muro",
+    "en": "Walls"
+  },
+  {
+    "clave": "planos.herr.puerta",
+    "en": "Doors"
+  },
+  {
+    "clave": "planos.herr.ventana",
+    "en": "Windows"
+  },
+  {
+    "clave": "planos.herr.mover",
+    "es": "Mover",
+    "en": "Move"
+  },
+  {
+    "clave": "planos.herr.agrupar",
+    "en": "Group"
+  },
+  {
+    "clave": "planos.herr.borrar",
+    "en": "Erase"
+  },
+  {
+    "clave": "planos.herr.expandir",
+    "es": "Expandir",
+    "en": "Expand"
+  },
+  {
+    "clave": "planos.muro.pared",
+    "en": "Wall"
+  },
+  {
+    "clave": "planos.muro.puerta",
+    "en": "Door"
+  },
+  {
+    "clave": "planos.muro.abierto",
+    "en": "Open"
+  },
+  {
+    "clave": "planos.accion.regresar",
+    "en": "Back"
+  },
+  {
+    "clave": "planos.accion.cambios",
+    "en": "Clear"
+  },
+  {
+    "clave": "planos.accion.confirmar",
+    "en": "Confirm"
+  },
+  {
+    "clave": "planos.volverSecciones",
+    "en": "Editor sections"
+  },
+  {
+    "clave": "planos.ayuda",
+    "es": "Elige una forma abajo a la izquierda y toca el plano o el mapa 3D para dibujar cuartos.",
+    "en": "Select a room, edge or cell on the sketch. Switch layers above to edit walls, floors or roofs."
+  },
+  {
+    "clave": "planos.props.paredes",
+    "es": "Edita la arista seleccionada en el croquis.",
+    "en": "Edit the selected edge on the sketch."
+  },
+  {
+    "clave": "planos.props.techo",
+    "en": "Use + and − on the roof edge to extend or retract full lines."
+  },
+  {
+    "clave": "planos.props.zonaPiso",
+    "en": "Zone floor material: per-cell coming soon."
+  },
+  {
+    "clave": "planos.nombre",
+    "es": "Nombre",
+    "en": "Name"
+  },
+  {
+    "clave": "planos.forma",
+    "es": "Forma",
+    "en": "Shape"
+  },
+  {
+    "clave": "planos.formaHint",
+    "es": "Usa − en celdas del borde para quitar parte del footprint:",
+    "en": "Use − on edge cells to remove part of the footprint:"
+  },
+  {
+    "clave": "planos.quitarCelda",
+    "es": "Quitar celda",
+    "en": "Remove cell"
+  },
+  {
+    "clave": "planos.celdaVacia",
+    "es": "Celda",
+    "en": "Cell"
+  },
+  {
+    "clave": "planos.colocarApp",
+    "es": "Colocar app",
+    "en": "Place app"
+  },
+  {
+    "clave": "planos.nuevaZona",
+    "en": "New basic room"
+  },
+  {
+    "clave": "planos.nombreZona",
+    "es": "Nombre del cuarto",
+    "en": "Room name"
+  },
+  {
+    "clave": "planos.extenderCuarto",
+    "en": "Extend existing room"
+  },
+  {
+    "clave": "planos.limpiar",
+    "en": "Clear selection"
+  },
+  {
+    "clave": "planos.appsFuera",
+    "es": "Apps fuera del mapa",
+    "en": "Apps off the map"
+  },
+  {
+    "clave": "planos.eliminarZona",
+    "es": "Eliminar cuarto básico",
+    "en": "Delete basic room"
+  },
+  {
+    "clave": "planos.celdas",
+    "es": "celdas",
+    "en": "cells"
+  },
+  {
+    "clave": "planos.menu.cielo",
+    "es": "Fondo de cielo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "planos.menu.cieloTitulo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "planos.menu.cieloDesc",
+    "en": "Changes the 3D sky and the plan margin."
+  },
+  {
+    "clave": "planos.menu.cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "planos.menu.superficie",
+    "es": "Superficie del mapa",
+    "en": "Map surface"
+  },
+  {
+    "clave": "planos.superficie.titulo",
+    "es": "Superficie del mapa",
+    "en": "Map surface"
+  },
+  {
+    "clave": "planos.superficie.desc",
+    "en": "Affects the plan paper, grid lines and 3D map base."
+  },
+  {
+    "clave": "planos.superficie.relleno",
+    "es": "Relleno del plano",
+    "en": "Plan fill"
+  },
+  {
+    "clave": "planos.superficie.color",
+    "en": "Color"
+  },
+  {
+    "clave": "planos.superficie.foto",
+    "es": "Foto de fondo",
+    "en": "Background photo"
+  },
+  {
+    "clave": "planos.superficie.subir",
+    "es": "+ Subir",
+    "en": "+ Upload"
+  },
+  {
+    "clave": "planos.superficie.usar",
+    "es": "Usar en plano",
+    "en": "Use on plan"
+  },
+  {
+    "clave": "planos.superficie.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "planos.superficie.sinFoto",
+    "es": "Sube una imagen para el papel del croquis y la base 3D.",
+    "en": "Upload an image for the plan paper and 3D base."
+  },
+  {
+    "clave": "planos.superficie.rejilla",
+    "en": "Grid"
+  },
+  {
+    "clave": "planos.superficie.tamCelda",
+    "es": "Tamaño de celda",
+    "en": "Cell size"
+  },
+  {
+    "clave": "planos.superficie.tamCeldaHint",
+    "es": "Los cuartos, muros, techos y canchas se escalan con la celda; los personajes y demás objetos conservan su tamaño.",
+    "en": "Rooms, walls, roofs and courts scale with the cell; characters and other objects keep their size."
+  },
+  {
+    "clave": "planos.superficie.rejillaFuerte",
+    "es": "Líneas principales",
+    "en": "Main lines"
+  },
+  {
+    "clave": "planos.superficie.rejillaSuave",
+    "es": "Líneas secundarias",
+    "en": "Fine lines"
+  },
+  {
+    "clave": "planos.superficie.borde",
+    "en": "Paper border"
+  },
+  {
+    "clave": "planos.superficie.restaurar",
+    "es": "Restaurar valores por defecto",
+    "en": "Restore defaults"
+  },
+  {
+    "clave": "planos.zoom.encajar",
+    "es": "Encajar plano en pantalla",
+    "en": "Fit plan to screen"
+  },
+  {
+    "clave": "planos.zoom.ayuda",
+    "en": "Wheel: zoom · Shift/Alt + drag: pan · Double-click margin: fit"
+  },
+  {
+    "clave": "editor.cuarto.apariencia",
+    "en": "Room appearance"
+  },
+  {
+    "clave": "editor.cuarto.piso",
+    "en": "Room floor"
+  },
+  {
+    "clave": "editor.cuarto.forma",
+    "en": "Room shape"
+  },
+  {
+    "clave": "editor.cuarto.paredes",
+    "en": "Walls and doors"
+  },
+  {
+    "clave": "editor.cuarto.objetos",
+    "en": "Room objects"
+  },
+  {
+    "clave": "editor.avatar.titulo",
+    "en": "Character avatar"
+  },
+  {
+    "clave": "editor.avatar.cabeza",
+    "en": "🟡 Head"
+  },
+  {
+    "clave": "editor.avatar.torso",
+    "en": "🔴 Torso"
+  },
+  {
+    "clave": "editor.avatar.piernas",
+    "en": "🔵 Legs"
+  },
+  {
+    "clave": "editor.avatar.reset",
+    "en": "↺ Restore original avatar"
+  },
+  {
+    "clave": "editor.avatar.forma3d",
+    "en": "Custom 3D shape"
+  }
+]

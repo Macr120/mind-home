@@ -1,0 +1,406 @@
+[
+ {
+  "clave": "ideas.matriz.pesoAyuda",
+  "texto": "यह मानदंड आपके लिए कितना मायने रखता है (1-5)"
+ },
+ {
+  "clave": "ideas.matriz.puntajeAyuda",
+  "texto": "यह कितना अच्छा है (बढ़ाने के लिए टैप करें)"
+ },
+ {
+  "clave": "ideas.matriz.total",
+  "texto": "कुल"
+ },
+ {
+  "clave": "ideas.matriz.nuevoCriterio",
+  "texto": "नया मानदंड"
+ },
+ {
+  "clave": "ideas.matriz.nuevaOpcion",
+  "texto": "विकल्प"
+ },
+ {
+  "clave": "ideas.matriz.criterioN",
+  "texto": "मानदंड {n}"
+ },
+ {
+  "clave": "ideas.matriz.opcionN",
+  "texto": "विकल्प {n}"
+ },
+ {
+  "clave": "ideas.matriz.ayuda",
+  "texto": "नाम बदलने के लिए उस पर टैप करें, मानदंड का महत्व बढ़ाने के लिए वज़न पर, और 1 से 5 तक स्कोर देने के लिए हर सेल पर टैप करें। कुल स्कोर पहले से वज़न से गुणा होकर आता है।"
+ },
+ {
+  "clave": "ideas.ejemplo.ver",
+  "texto": "उदाहरण देखें"
+ },
+ {
+  "clave": "ideas.ejemplo.chip",
+  "texto": "उदाहरण"
+ },
+ {
+  "clave": "ideas.ejemplo.comoFunciona",
+  "texto": "यह फ़ॉर्मैट कैसे काम करता है?"
+ },
+ {
+  "clave": "ideas.guia.mental",
+  "texto": "माइंड मैप किसी विषय को हर दिशा में खोलता है: बीच में मुख्य विचार, उसके चारों ओर बड़ी शाखाएं और उनसे लटकते उनके विवरण। यह किसी क्रम में बांधने से पहले दिमाग़ को खाली करने के लिए है।"
+ },
+ {
+  "clave": "ideas.guia.arbol",
+  "texto": "वृक्ष सामान्य से विशेष की ओर जाता है, जैसे संगठन चार्ट। इसका इस्तेमाल तब करें जब आपके पास श्रेणियां हों जो उप-श्रेणियों में बंटती हैं, बिखरे विचार नहीं।"
+ },
+ {
+  "clave": "ideas.guia.etimologia",
+  "texto": "व्युत्पत्ति वृक्ष किसी शब्द को खोलकर दिखाता है: वह कहां से आया, उसका क्या मतलब है, वह कैसे इस्तेमाल होता है और कौन-से शब्द उसके परिवार में आते हैं। किसी विचार-मंथन से पहले किसी अवधारणा को गहराई से समझने या किसी चीज़ का नाम रखने के लिए काम का।"
+ },
+ {
+  "clave": "ideas.tipo.etimologia",
+  "texto": "व्युत्पत्ति वृक्ष"
+ },
+ {
+  "clave": "ideas.tipoDesc.etimologia",
+  "texto": "एक शब्द को खोलकर देखना: उसका मूल, अर्थ, प्रयोग और परिवार।"
+ },
+ {
+  "clave": "ideas.guia.llaves",
+  "texto": "कोष्ठक किसी पूरी चीज़ को बाएं से दाएं उसके हिस्सों में बांटते हैं — क्लासिक आउटलाइन। किसी चीज़ को खोलकर देखने के लिए अच्छा कि वह किससे बनी है।"
+ },
+ {
+  "clave": "ideas.guia.circulo",
+  "texto": "वृत्त किसी विषय को बीच में रखता है और उसके चारों ओर वह सब कुछ रखता है जो उसके बारे में मालूम है, बिना किसी पदानुक्रम के। किसी अवधारणा को खंगालने या परीक्षा से पहले दोहराने के लिए काम का।"
+ },
+ {
+  "clave": "ideas.guia.flujo",
+  "texto": "फ़्लोचार्ट चरणों को तीरों से जोड़ता है। किसी चरण पर टैप करें और उसे शुरुआत, निर्णय या अंत बनाने के लिए शेप बटन का इस्तेमाल करें: हीरे के आकार हां/नहीं वाले सवाल होते हैं।"
+ },
+ {
+  "clave": "ideas.guia.linea",
+  "texto": "समयरेखा तारीख़ के हिसाब से सजाती है: हर मील का पत्थर बारी-बारी से रेखा के ऊपर और नीचे आता है, और उसके विवरण बाहर की ओर लटकते हैं। मील के पत्थर की शुरुआत साल से करें, और यह अपने-आप समझ आ जाता है।"
+ },
+ {
+  "clave": "ideas.guia.ciclo",
+  "texto": "चक्र उन चरणों को जोड़ता है जो फिर से शुरू होते हैं। हर चरण को जड़ से जोड़ें — बैकग्राउंड पर टैप करें ताकि वह पिछले चरण से न जुड़े — और वे अपने-आप घेरे में फैल जाते हैं।"
+ },
+ {
+  "clave": "ideas.guia.piramide",
+  "texto": "पिरामिड स्तरों को एक के ऊपर एक रखता है: हर स्तर नीचे वाले पर टिका होता है, इसलिए आधार वह है जिसे पहले पूरा करना है। स्तर का नाम बदलने के लिए उस पर दो बार टैप करें।"
+ },
+ {
+  "clave": "ideas.guia.venn",
+  "texto": "वेन दो समूहों को आमने-सामने रखता है और जो उनमें साझा है वह ओवरलैप वाले हिस्से में आता है। जोड़ने से पहले नीचे की पट्टी में क्षेत्र चुनें, या किसी आइटम को दूसरे पर खींच दें और वह अपने-आप वहां चला जाएगा।"
+ },
+ {
+  "clave": "ideas.guia.comparacion",
+  "texto": "तुलना दो विषयों को कॉलम में रखती है और जो उनमें साझा है वह बीच में। यह वेन का ही टेबल रूप है: जब हर तरफ़ कई बिंदु हों तो पढ़ने में तेज़।"
+ },
+ {
+  "clave": "ideas.guia.proscontras",
+  "texto": "हर बिंदु का वज़न 1 से 5 तक होता है: उसे चुनें और नीचे की पट्टी में − + का इस्तेमाल करें। हर कॉलम का जोड़ नीचे दिखता है, इसलिए फ़ैसला अब “कौन-सी लिस्ट लंबी है” नहीं रह जाता।"
+ },
+ {
+  "clave": "ideas.guia.fuerzas",
+  "texto": "बल क्षेत्र किसी बदलाव को देखता है: बाईं ओर वह जो उसे आगे धकेलता है, दाईं ओर वह जो रोकता है, हर एक का अपना वज़न। अगर दाईं ओर भारी पड़े, तो सबसे भारी ताक़त से निपटना पहले शुरू करें।"
+ },
+ {
+  "clave": "ideas.guia.foda",
+  "texto": "मज़बूत और कमज़ोर पक्ष आपके अपने हैं; अवसर और ख़तरे बाहर से आते हैं। शक हो तो ख़ुद से पूछें कि यह आप पर निर्भर करता है या नहीं।"
+ },
+ {
+  "clave": "ideas.guia.eisenhower",
+  "texto": "अहम ऊपर, ज़रूरी बाईं ओर। “समय तय करें” वाला हिस्सा वही है जो असल फ़र्क़ लाता है: अगर वह ख़ाली रह जाए, तो पूरा दिन आग बुझाने में निकल जाता है।"
+ },
+ {
+  "clave": "ideas.guia.decision",
+  "texto": "हर शाखा एक विकल्प है और उससे उसके नतीजे लटकते हैं। उन्हें लिख लें, भले ही वे साफ़ लगें: जो लिखा नहीं गया, उसकी किसी से तुलना नहीं हो सकती।"
+ },
+ {
+  "clave": "ideas.guia.tier",
+  "texto": "S सबसे अच्छा है और D सबसे ख़राब। जिसे अभी रैंक नहीं किया जा सका, वह नीचे “अवर्गीकृत” में रहता है: पक्का होने पर उसे उसकी पंक्ति में खींच लें।"
+ },
+ {
+  "clave": "ideas.guia.ishikawa",
+  "texto": "सिर समस्या है और हर हड्डी कारणों का एक परिवार (तरीक़ा, उपकरण, सामग्री, माप…)। समाधान नहीं, कारण खोजें: वे बाद में आएंगे।"
+ },
+ {
+  "clave": "ideas.mapa.impulsan",
+  "texto": "धकेलते हैं"
+ },
+ {
+  "clave": "ideas.mapa.frenan",
+  "texto": "रोकते हैं"
+ },
+ {
+  "clave": "ideas.mapa.hacer",
+  "texto": "अभी करें"
+ },
+ {
+  "clave": "ideas.mapa.agendar",
+  "texto": "समय तय करें"
+ },
+ {
+  "clave": "ideas.mapa.delegar",
+  "texto": "सौंप दें"
+ },
+ {
+  "clave": "ideas.mapa.quitar",
+  "texto": "छोड़ दें"
+ },
+ {
+  "clave": "ideas.mapa.cima",
+  "texto": "शिखर"
+ },
+ {
+  "clave": "ideas.mapa.nivel3",
+  "texto": "स्तर 3"
+ },
+ {
+  "clave": "ideas.mapa.nivel2",
+  "texto": "स्तर 2"
+ },
+ {
+  "clave": "ideas.mapa.base",
+  "texto": "आधार"
+ },
+ {
+  "clave": "ideas.mapa.sinClasificar",
+  "texto": "बिना रैंक"
+ },
+ {
+  "clave": "ideas.mapa.peso",
+  "texto": "यह कितना भारी है (1-5)"
+ },
+ {
+  "clave": "ideas.mapa.pesoMas",
+  "texto": "ज़्यादा भारी"
+ },
+ {
+  "clave": "ideas.mapa.pesoMenos",
+  "texto": "कम भारी"
+ },
+ {
+  "clave": "ideas.mapa.total",
+  "texto": "कुल"
+ },
+ {
+  "clave": "ideas.tipo.proscontras",
+  "texto": "फ़ायदे और नुक़सान"
+ },
+ {
+  "clave": "ideas.tipo.foda",
+  "texto": "SWOT विश्लेषण"
+ },
+ {
+  "clave": "ideas.tipo.ishikawa",
+  "texto": "इशिकावा"
+ },
+ {
+  "clave": "ideas.tipoDesc.proscontras",
+  "texto": "दो कॉलम में एक फ़ैसला: क्या फ़ायदे में जुड़ता है और क्या नहीं।"
+ },
+ {
+  "clave": "ideas.tipoDesc.foda",
+  "texto": "चार हिस्से: मज़बूत पक्ष, अवसर, कमज़ोर पक्ष और ख़तरे।"
+ },
+ {
+  "clave": "ideas.tipoDesc.ishikawa",
+  "texto": "फ़िशबोन: एक समस्या और उसके पीछे के कारण।"
+ },
+ {
+  "clave": "ideas.mapa.ventajas",
+  "texto": "फ़ायदे"
+ },
+ {
+  "clave": "ideas.mapa.desventajas",
+  "texto": "नुक़सान"
+ },
+ {
+  "clave": "ideas.mapa.fortalezas",
+  "texto": "मज़बूत पक्ष"
+ },
+ {
+  "clave": "ideas.mapa.debilidades",
+  "texto": "कमज़ोर पक्ष"
+ },
+ {
+  "clave": "ideas.mapa.oportunidades",
+  "texto": "अवसर"
+ },
+ {
+  "clave": "ideas.mapa.amenazas",
+  "texto": "ख़तरे"
+ },
+ {
+  "clave": "ideas.mapa.causa",
+  "texto": "कारण"
+ },
+ {
+  "clave": "ideas.mapa.categoria",
+  "texto": "श्रेणी"
+ },
+ {
+  "clave": "ideas.diagramas.volver",
+  "texto": "आरेखों पर वापस"
+ },
+ {
+  "clave": "ideas.diagramas.placeholder",
+  "texto": "विश्लेषण के लिए निर्णय या समस्या…"
+ },
+ {
+  "clave": "ideas.diagramas.generar",
+  "texto": "AI से आरेख बनवाएं"
+ },
+ {
+  "clave": "ideas.diagramas.generando",
+  "texto": "आरेख तैयार किया जा रहा है…"
+ },
+ {
+  "clave": "ideas.diagramas.errorIA",
+  "texto": "AI आरेख नहीं बना सका:"
+ },
+ {
+  "clave": "ideas.diagramas.vacio",
+  "texto": "एक फ़ॉर्मैट चुनें और उस फ़ैसले को सुलझाएं जो दिमाग़ में घूम रहा है।"
+ },
+ {
+  "clave": "ideas.diario.enLluvia",
+  "texto": "विचार-मंथन: {tema}"
+ },
+ {
+  "clave": "ideas.diario.cerrarLluvia",
+  "texto": "विचार-मंथन बंद करें"
+ },
+ {
+  "clave": "ideas.diario.temaPlaceholder",
+  "texto": "यह विचार-मंथन किस बारे में है?"
+ },
+ {
+  "clave": "ideas.diario.empezar",
+  "texto": "शुरू करें"
+ },
+ {
+  "clave": "ideas.diario.nuevaLluvia",
+  "texto": "विचार-मंथन शुरू करें"
+ },
+ {
+  "clave": "ideas.diario.placeholder",
+  "texto": "अभी ख़याल आया कि…"
+ },
+ {
+  "clave": "ideas.diario.placeholderLluvia",
+  "texto": "एक और विचार बिना छानबीन के डालें…"
+ },
+ {
+  "clave": "ideas.diario.anotar",
+  "texto": "लिख लें"
+ },
+ {
+  "clave": "ideas.diario.masIdeas",
+  "texto": "और विचार लाएं"
+ },
+ {
+  "clave": "ideas.diario.aMapa",
+  "texto": "इसे मैप में बदलें"
+ },
+ {
+  "clave": "ideas.diario.arbolEtimo",
+  "texto": "व्युत्पत्ति वृक्ष"
+ },
+ {
+  "clave": "ideas.diario.arbolEtimoGenerando",
+  "texto": "शब्द को खोला जा रहा है…"
+ },
+ {
+  "clave": "ideas.diario.errorArbol",
+  "texto": "AI वृक्ष नहीं बना सका:"
+ },
+ {
+  "clave": "ideas.diario.porDia",
+  "texto": "दिन-वार"
+ },
+ {
+  "clave": "ideas.diario.favoritas",
+  "texto": "पसंदीदा"
+ },
+ {
+  "clave": "ideas.diario.soloFav",
+  "texto": "सिर्फ़ पसंदीदा"
+ },
+ {
+  "clave": "ideas.diario.vacio",
+  "texto": "यहां वह सब कुछ जमा होता है जो दिमाग़ में आए; उसे बाद में व्यवस्थित किया जा सकता है।"
+ },
+ {
+  "clave": "ideas.diario.iaTitulo",
+  "texto": "और विचार"
+ },
+ {
+  "clave": "ideas.diario.iaDesc",
+  "texto": "“{tema}” के लिए सुझाए गए विचार:"
+ },
+ {
+  "clave": "ideas.diario.listo",
+  "texto": "हो गया"
+ },
+ {
+  "clave": "ideas.diario.destacar",
+  "texto": "स्टार करें"
+ },
+ {
+  "clave": "ideas.diario.retomar",
+  "texto": "यह विचार-मंथन फिर से शुरू करें"
+ },
+ {
+  "clave": "ideas.diario.encarpetar",
+  "texto": "किसी फ़ोल्डर में सेव करें"
+ },
+ {
+  "clave": "ideas.diario.enCarpeta",
+  "texto": "“{carpeta}” में · ले जाने के लिए टैप करें"
+ },
+ {
+  "clave": "ideas.diario.encarpetarTit",
+  "texto": "“{idea}” को सेव करें…"
+ },
+ {
+  "clave": "ideas.mover.cerrar",
+  "texto": "बंद करें"
+ },
+ {
+  "clave": "ideas.mover.raiz",
+  "texto": "बिना फ़ोल्डर के — डायरी में"
+ },
+ {
+  "clave": "ideas.mover.sinCarpetas",
+  "texto": "अभी तक कोई फ़ोल्डर नहीं है: उन्हें डायरी के “फ़ोल्डर” व्यू में बनाएं।"
+ },
+ {
+  "clave": "ideas.vista.sinPuntos",
+  "texto": "विचार अभी तक विकसित नहीं हुआ है।"
+ },
+ {
+  "clave": "ideas.diario.porCarpeta",
+  "texto": "फ़ोल्डर"
+ },
+ {
+  "clave": "ideas.diario.caeEn",
+  "texto": "“{carpeta}” में जाता है"
+ },
+ {
+  "clave": "ideas.diario.caeSuelta",
+  "texto": "यह डायरी में अलग से आ जाती है; बाद में उसे किसी फ़ोल्डर में ले जाया जा सकता है।"
+ },
+ {
+  "clave": "ideas.diario.lluviaDesc",
+  "texto": "एक विषय खोलें और ऊपर जो कुछ भी नोट करेंगे वह उससे जुड़ जाएगा। जब ढेर इकट्ठा हो जाए, तो उसे व्यवस्थित करने के लिए मैप में बदल दें।"
+ },
+ {
+  "clave": "ideas.diario.nPuntos",
+  "texto": "{hechos}/{total} बिंदु"
+ },
+ {
+  "clave": "ideas.carp.todas",
+  "texto": "सभी विचार"
+ }
+]

@@ -1,0 +1,562 @@
+[
+ {
+  "clave": "garage.detalle.placas",
+  "texto": "नंबर प्लेट: {n}"
+ },
+ {
+  "clave": "garage.tram.seccion",
+  "texto": "कार्रवाई"
+ },
+ {
+  "clave": "garage.tram.programar",
+  "texto": "शेड्यूल करें"
+ },
+ {
+  "clave": "garage.tram.nuevo",
+  "texto": "कार्रवाई शेड्यूल करें"
+ },
+ {
+  "clave": "garage.tram.editar",
+  "texto": "कार्रवाई संपादित करें"
+ },
+ {
+  "clave": "garage.tram.tipo",
+  "texto": "प्रकार"
+ },
+ {
+  "clave": "garage.tram.titulo",
+  "texto": "नाम *"
+ },
+ {
+  "clave": "garage.tram.fecha",
+  "texto": "अगली नियत तारीख़ *"
+ },
+ {
+  "clave": "garage.tram.hora",
+  "texto": "रिमाइंडर का समय"
+ },
+ {
+  "clave": "garage.tram.repite",
+  "texto": "दोहराव"
+ },
+ {
+  "clave": "garage.tram.aviso",
+  "texto": "मुझे सूचित करें"
+ },
+ {
+  "clave": "garage.tram.costo",
+  "texto": "अनुमानित लागत (MXN)"
+ },
+ {
+  "clave": "garage.tram.folio",
+  "texto": "पॉलिसी / संदर्भ संख्या"
+ },
+ {
+  "clave": "garage.tram.taller",
+  "texto": "कहां होता है"
+ },
+ {
+  "clave": "garage.tram.sinTaller",
+  "texto": "कोई संपर्क नहीं"
+ },
+ {
+  "clave": "garage.tram.nota",
+  "texto": "नोट्स"
+ },
+ {
+  "clave": "garage.tram.pista",
+  "texto": "यह कार्रवाई आपके कैलेंडर में दिखेगी और सही समय पर याद दिलाएगी।"
+ },
+ {
+  "clave": "garage.tram.guardar",
+  "texto": "सहेजें"
+ },
+ {
+  "clave": "garage.tram.cancelar",
+  "texto": "रद्द करें"
+ },
+ {
+  "clave": "garage.tram.sinPlaca",
+  "texto": "बिना नंबर प्लेट के सिर्फ़ बुनियादी चीज़ें दिखती हैं। टैक्स, फिटनेस जांच, आरसी और बीमा शेड्यूल करने के लिए वाहन की जानकारी में नंबर जोड़ें।"
+ },
+ {
+  "clave": "garage.tram.vacio",
+  "texto": "फिटनेस जांच या नियमित सर्विस शेड्यूल करें, हम आपको समय पर याद दिला देंगे।"
+ },
+ {
+  "clave": "garage.tram.vacioSinPlaca",
+  "texto": "नियमित सर्विस शेड्यूल करें, हम समय पर याद दिला देंगे। नंबर प्लेट जोड़ने पर फिटनेस जांच भी खुल जाती है।"
+ },
+ {
+  "clave": "garage.doc.seccion",
+  "texto": "दस्तावेज़"
+ },
+ {
+  "clave": "garage.doc.agregar",
+  "texto": "जोड़ें"
+ },
+ {
+  "clave": "garage.doc.nuevo",
+  "texto": "नया दस्तावेज़"
+ },
+ {
+  "clave": "garage.doc.editar",
+  "texto": "दस्तावेज़ संपादित करें"
+ },
+ {
+  "clave": "garage.doc.pista",
+  "texto": "यह दस्तावेज़ आपके कैलेंडर में दिखेगा और समय ख़त्म होने से पहले आगाह करेगा।"
+ },
+ {
+  "clave": "garage.doc.vacio",
+  "texto": "यहां आरसी, बीमा पॉलिसी और टैक्स को उनके संदर्भ नंबर और समय-सीमा के साथ रखें: समय ख़त्म होने से पहले हम आगाह कर देंगे।"
+ },
+ {
+  "clave": "garage.doc.vacioSinPlaca",
+  "texto": "इस वाहन के कोई कागज़ात नहीं हैं। जानकारी में नंबर जोड़ें और टैक्स, आरसी व बीमा खुल जाएंगे।"
+ },
+ {
+  "clave": "garage.tram.vencidoHace",
+  "texto": "{n} दिन से बकाया"
+ },
+ {
+  "clave": "garage.tram.hoy",
+  "texto": "आज देय"
+ },
+ {
+  "clave": "garage.tram.faltan",
+  "texto": "{n} दिन बाकी"
+ },
+ {
+  "clave": "garage.tram.avisoPrevio",
+  "texto": "{n} दिन पहले"
+ },
+ {
+  "clave": "garage.tram.folioNota",
+  "texto": "संदर्भ संख्या: {n}"
+ },
+ {
+  "clave": "garage.tram.hecho",
+  "texto": "हो गया"
+ },
+ {
+  "clave": "garage.tram.hechoAyuda",
+  "texto": "यह इतिहास में सहेजा जाएगा और अगली अवधि पर चला जाएगा"
+ },
+ {
+  "clave": "garage.tram.hechoUnicoAyuda",
+  "texto": "यह इतिहास में सहेजा जाएगा और संग्रहित हो जाएगा"
+ },
+ {
+  "clave": "garage.tram.recordatorio",
+  "texto": "जल्द ही: {n}"
+ },
+ {
+  "clave": "garage.tram.sinVehiculo",
+  "texto": "वाहन"
+ },
+ {
+  "clave": "garage.tram.venceHace",
+  "texto": "{n} दिन से बकाया ({f})"
+ },
+ {
+  "clave": "garage.tram.venceHoy",
+  "texto": "आज देय"
+ },
+ {
+  "clave": "garage.tram.venceEn",
+  "texto": "{n} दिन में ({f})"
+ },
+ {
+  "clave": "garage.tramTipo.mantenimiento",
+  "texto": "नियमित सर्विस"
+ },
+ {
+  "clave": "garage.tramTipo.tenencia",
+  "texto": "रोड टैक्स"
+ },
+ {
+  "clave": "garage.tramTipo.verificacion",
+  "texto": "फिटनेस जांच"
+ },
+ {
+  "clave": "garage.tramTipo.circulacion",
+  "texto": "आरसी"
+ },
+ {
+  "clave": "garage.tramTipo.seguro",
+  "texto": "बीमा"
+ },
+ {
+  "clave": "garage.tramTipo.otro",
+  "texto": "अन्य कार्रवाई"
+ },
+ {
+  "clave": "garage.tramCada.0",
+  "texto": "सिर्फ़ एक बार"
+ },
+ {
+  "clave": "garage.tramCada.1",
+  "texto": "हर महीने"
+ },
+ {
+  "clave": "garage.tramCada.3",
+  "texto": "हर 3 महीने"
+ },
+ {
+  "clave": "garage.tramCada.6",
+  "texto": "हर 6 महीने"
+ },
+ {
+  "clave": "garage.tramCada.12",
+  "texto": "हर साल"
+ },
+ {
+  "clave": "garage.tramCada.24",
+  "texto": "हर 2 साल"
+ },
+ {
+  "clave": "garage.tramCada.36",
+  "texto": "हर 3 साल"
+ },
+ {
+  "clave": "garage.tramAviso.0",
+  "texto": "सिर्फ़ उसी दिन"
+ },
+ {
+  "clave": "garage.tramAviso.7",
+  "texto": "एक हफ़्ता पहले"
+ },
+ {
+  "clave": "garage.tramAviso.15",
+  "texto": "पंद्रह दिन पहले"
+ },
+ {
+  "clave": "garage.tramAviso.30",
+  "texto": "एक महीना पहले"
+ },
+ {
+  "clave": "garage.taller.añadir",
+  "texto": "संपर्क जोड़ें"
+ },
+ {
+  "clave": "garage.taller.nuevo",
+  "texto": "नया संपर्क"
+ },
+ {
+  "clave": "garage.taller.editar",
+  "texto": "संपर्क संपादित करें"
+ },
+ {
+  "clave": "garage.taller.nombre",
+  "texto": "नाम *"
+ },
+ {
+  "clave": "garage.taller.tipo",
+  "texto": "प्रकार"
+ },
+ {
+  "clave": "garage.taller.telefono",
+  "texto": "फ़ोन"
+ },
+ {
+  "clave": "garage.taller.correo",
+  "texto": "ईमेल"
+ },
+ {
+  "clave": "garage.taller.direccion",
+  "texto": "पता"
+ },
+ {
+  "clave": "garage.taller.vehiculo",
+  "texto": "सेवा देता है"
+ },
+ {
+  "clave": "garage.taller.todos",
+  "texto": "मेरे सभी वाहन"
+ },
+ {
+  "clave": "garage.taller.atiendeA",
+  "texto": "{n} वाहनों की सेवा"
+ },
+ {
+  "clave": "garage.taller.notas",
+  "texto": "नोट्स"
+ },
+ {
+  "clave": "garage.taller.guardar",
+  "texto": "सहेजें"
+ },
+ {
+  "clave": "garage.taller.cancelar",
+  "texto": "रद्द करें"
+ },
+ {
+  "clave": "garage.taller.vacio",
+  "texto": "यहां भरोसेमंद वर्कशॉप, बीमा कंपनी, फिटनेस सेंटर और टोइंग सेवा रखें: कार्रवाई के वक़्त हमेशा हाथ में।"
+ },
+ {
+  "clave": "garage.tallerTipo.taller",
+  "texto": "वर्कशॉप / मैकेनिक"
+ },
+ {
+  "clave": "garage.tallerTipo.aseguradora",
+  "texto": "बीमा कंपनी"
+ },
+ {
+  "clave": "garage.tallerTipo.verificentro",
+  "texto": "फिटनेस सेंटर"
+ },
+ {
+  "clave": "garage.tallerTipo.refaccionaria",
+  "texto": "पार्ट्स की दुकान"
+ },
+ {
+  "clave": "garage.tallerTipo.grua",
+  "texto": "टोइंग / सड़क सहायता"
+ },
+ {
+  "clave": "garage.tallerTipo.otro",
+  "texto": "अन्य संपर्क"
+ },
+ {
+  "clave": "diario.titulo",
+  "texto": "आज का अख़बार"
+ },
+ {
+  "clave": "diario.tab.titulares",
+  "texto": "आज की सुर्खियां"
+ },
+ {
+  "clave": "diario.tab.efemerides",
+  "texto": "इतिहास में आज"
+ },
+ {
+  "clave": "diario.actualizar",
+  "texto": "ताज़ा करें"
+ },
+ {
+  "clave": "diario.reintentar",
+  "texto": "फिर से कोशिश करें"
+ },
+ {
+  "clave": "diario.error",
+  "texto": "स्रोतों से कनेक्ट नहीं हो सका। अपना इंटरनेट जांचें और फिर कोशिश करें।"
+ },
+ {
+  "clave": "diario.vacio",
+  "texto": "आज सुर्खियां लोड नहीं हो सकीं। रीफ़्रेश करके देखें।"
+ },
+ {
+  "clave": "diario.cat.todo",
+  "texto": "सभी"
+ },
+ {
+  "clave": "diario.cat.mundo",
+  "texto": "विश्व"
+ },
+ {
+  "clave": "diario.cat.economia",
+  "texto": "अर्थव्यवस्था"
+ },
+ {
+  "clave": "diario.cat.tecnologia",
+  "texto": "तकनीक"
+ },
+ {
+  "clave": "diario.cat.salud",
+  "texto": "स्वास्थ्य"
+ },
+ {
+  "clave": "diario.cat.deportes",
+  "texto": "खेल"
+ },
+ {
+  "clave": "diario.cat.entretenimiento",
+  "texto": "मनोरंजन"
+ },
+ {
+  "clave": "diario.ef.historia",
+  "texto": "इतिहास का एक दिन"
+ },
+ {
+  "clave": "diario.ef.arte",
+  "texto": "आज की कलाकृति"
+ },
+ {
+  "clave": "diario.ef.libro",
+  "texto": "आज की किताब"
+ },
+ {
+  "clave": "diario.ef.personalidad",
+  "texto": "आज का व्यक्तित्व"
+ },
+ {
+  "clave": "diario.ef.especie",
+  "texto": "आज की प्रजाति"
+ },
+ {
+  "clave": "diario.ef.palabra",
+  "texto": "आज का शब्द"
+ },
+ {
+  "clave": "diario.ef.frase",
+  "texto": "आज का उद्धरण"
+ },
+ {
+  "clave": "diario.ef.vacio",
+  "texto": "आज की 'इतिहास में आज' सामग्री लोड नहीं हो सकी। रीफ़्रेश करके देखें।"
+ },
+ {
+  "clave": "diario.ef.profundizar",
+  "texto": "लाइब्रेरी में और जानें"
+ },
+ {
+  "clave": "diario.ef.profundizarTitulo",
+  "texto": "लाइब्रेरी के गुरु के साथ और जानें"
+ },
+ {
+  "clave": "diario.ef.leerMas",
+  "texto": "और पढ़ें ▾"
+ },
+ {
+  "clave": "diario.ef.leerMenos",
+  "texto": "कम पढ़ें ▴"
+ },
+ {
+  "clave": "diario.reparto.titulo",
+  "texto": "सहायकों से डिलीवरी"
+ },
+ {
+  "clave": "diario.reparto.desc",
+  "texto": "तय करें कि हर सहायक अपनी चैट में आपको कौन-सी फ़ीड लाए: तय समय पर या दिन के किसी अचानक पल में (जब ऐप खुला हो)।"
+ },
+ {
+  "clave": "diario.reparto.vacio",
+  "texto": "कोई शेड्यूल नहीं। एक जोड़ें ताकि कोई सहायक आपके लिए अख़बार लाए।"
+ },
+ {
+  "clave": "diario.reparto.agregar",
+  "texto": "शेड्यूल जोड़ें"
+ },
+ {
+  "clave": "diario.reparto.grupoTitulares",
+  "texto": "सुर्खियां"
+ },
+ {
+  "clave": "diario.reparto.grupoEfemerides",
+  "texto": "इतिहास में आज"
+ },
+ {
+  "clave": "diario.reparto.todas",
+  "texto": "सभी"
+ },
+ {
+  "clave": "diario.reparto.ninguna",
+  "texto": "कोई नहीं"
+ },
+ {
+  "clave": "diario.reparto.eliminar",
+  "texto": "शेड्यूल हटाएं"
+ },
+ {
+  "clave": "diario.reparto.modo.hora",
+  "texto": "समय तय करें"
+ },
+ {
+  "clave": "diario.reparto.modo.aleatoria",
+  "texto": "रैंडम"
+ },
+ {
+  "clave": "diario.reparto.pendiente",
+  "texto": "आज {hora} बजे"
+ },
+ {
+  "clave": "diario.reparto.entregada",
+  "texto": "आज डिलीवर हो गया"
+ },
+ {
+  "clave": "diario.reparto.plantillaTitulo",
+  "texto": "🗞️ आपका आज का अख़बार!"
+ },
+ {
+  "clave": "diario.reparto.sinContenido",
+  "texto": "🗞️ आज आपके अख़बार के सेक्शन में कोई सामग्री नहीं थी।"
+ },
+ {
+  "clave": "respaldo.titulo",
+  "texto": "डेटा बैकअप"
+ },
+ {
+  "clave": "respaldo.desc",
+  "texto": "इस डिवाइस पर सहेजे गए डेटा को एक्सपोर्ट, रीस्टोर या डिलीट करें।"
+ },
+ {
+  "clave": "respaldo.persistente.si",
+  "texto": "✓ स्टोरेज सुरक्षित: जगह की कमी के कारण ब्राउज़र आपका डेटा नहीं हटाएगा"
+ },
+ {
+  "clave": "respaldo.persistente.no",
+  "texto": "⚠ स्टोरेज स्थायी नहीं है: ब्राउज़र आपका डेटा हटा सकता है; बार-बार बैकअप लें"
+ },
+ {
+  "clave": "respaldo.ultimo",
+  "texto": "आखिरी बैकअप: {fecha}"
+ },
+ {
+  "clave": "respaldo.sinRespaldo",
+  "texto": "अभी तक कोई बैकअप एक्सपोर्ट नहीं हुआ है।"
+ },
+ {
+  "clave": "respaldo.total",
+  "texto": "कुल रिकॉर्ड"
+ },
+ {
+  "clave": "respaldo.exportar",
+  "texto": "सब कुछ JSON के रूप में एक्सपोर्ट करें"
+ },
+ {
+  "clave": "respaldo.restaurar",
+  "texto": "बैकअप से रीस्टोर करें"
+ },
+ {
+  "clave": "respaldo.confirm.titulo",
+  "texto": "रीस्टोर की पुष्टि करें"
+ },
+ {
+  "clave": "respaldo.confirm.desc",
+  "texto": "{nombre} में {n} रिकॉर्ड हैं। रीस्टोर करने से सारा मौजूदा डेटा बदल जाएगा और घर एक्सपोर्ट के समय जैसा हो जाएगा।"
+ },
+ {
+  "clave": "respaldo.confirm.omitir",
+  "texto": "इस वर्शन में अज्ञात टेबल छोड़ दी जाएंगी: {tablas}।"
+ },
+ {
+  "clave": "respaldo.confirm.cancelar",
+  "texto": "रद्द करें"
+ },
+ {
+  "clave": "respaldo.confirm.restaurar",
+  "texto": "बैकअप रीस्टोर करें"
+ },
+ {
+  "clave": "respaldo.archivoInvalido",
+  "texto": "यह फ़ाइल Mind Planner Home का मान्य बैकअप नहीं है।"
+ },
+ {
+  "clave": "respaldo.sinRegistros",
+  "texto": "इस फ़ाइल में रीस्टोर करने के लिए कोई रिकॉर्ड नहीं है।"
+ },
+ {
+  "clave": "respaldo.restaurado",
+  "texto": "✓ बैकअप रीस्टोर हो गया ({n} रिकॉर्ड)। रीलोड हो रहा है…"
+ },
+ {
+  "clave": "respaldo.errorRestaura",
+  "texto": "रीस्टोर नहीं हो सका; आपका मौजूदा डेटा नहीं बदला।"
+ },
+ {
+  "clave": "respaldo.danger.titulo",
+  "texto": "खतरे का क्षेत्र"
+ }
+]

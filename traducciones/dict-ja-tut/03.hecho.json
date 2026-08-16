@@ -1,0 +1,126 @@
+[
+ {
+  "clave": "tut.menu-cuartos.6.texto",
+  "texto": "「部屋を作成」を押すと、ブラシを構えたマップエディターが開きます。新しい部屋の形も大きさも置き場所も思いのままです。スマホなら、ツールホイール › 建築 › 部屋 のショートカットが便利です。パネルを開かずにマップへ直接描けます。"
+ },
+ {
+  "clave": "tut.menu-cuartos.7.texto",
+  "texto": "まとめると、カスタマイズは「編集」、アプリを使うのは「入る」です。このメニューの他のタブには、それぞれ専用のチュートリアルがあります。"
+ },
+ {
+  "clave": "tut.menu-plantillas.1.texto",
+  "texto": "テンプレートは1つのアプリです（キッチン、ジム、家計など）。部屋のオブジェクトに割り当てると、入ったときに開きます。"
+ },
+ {
+  "clave": "tut.menu-plantillas.2.titulo",
+  "texto": "2つの表示"
+ },
+ {
+  "clave": "tut.menu-plantillas.2.texto",
+  "texto": "「部屋」はおなじみのアプリで、それぞれがオブジェクトに入ります。「エクストラ」は別物です。サーキット、コート、菜園、牧場、ペイントボールは、部屋を使わずに地面へ直接建てます。"
+ },
+ {
+  "clave": "tut.menu-plantillas.3.titulo",
+  "texto": "カタログ"
+ },
+ {
+  "clave": "tut.menu-plantillas.3.texto",
+  "texto": "標準のアプリと自作のアプリが、グループごとに並びます。タップすると部屋に割り当てられます。「エクストラ」なら、タップしてマップに建てます。"
+ },
+ {
+  "clave": "tut.menu-plantillas.4.titulo",
+  "texto": "自分だけのテンプレート"
+ },
+ {
+  "clave": "tut.menu-plantillas.4.texto",
+  "texto": "ブロックを組み合わせて、自分だけのテンプレートを作れます。メモ、チェックリスト、カウンター、習慣、ギャラリーなど。このボタンで専用のエディターが開きます。チュートリアルも別にあります。"
+ },
+ {
+  "clave": "tut.menu-plantillas.5.texto",
+  "texto": "1つの部屋に複数のアプリを置けます。入るとランチャーが出て、どれを開くか選べます。"
+ },
+ {
+  "clave": "tut.plantillas-custom.1.texto",
+  "texto": "このエディターでは、自分のアプリをゼロから組み立てます。名前と絵文字とブロックで形にすると、標準のアプリと並んでカタログに入ります。"
+ },
+ {
+  "clave": "tut.plantillas-custom.2.titulo",
+  "texto": "名前・絵文字・色"
+ },
+ {
+  "clave": "tut.plantillas-custom.2.texto",
+  "texto": "名前と、メニュー・カタログ・カレンダーで表示される色です。このアプリの予定を入れたときも、この色になります。"
+ },
+ {
+  "clave": "tut.plantillas-custom.3.titulo",
+  "texto": "ツール"
+ },
+ {
+  "clave": "tut.plantillas-custom.3.texto",
+  "texto": "ブロックは12種類です。メモ、チェックリスト、カウンター、習慣、セッション、カウントダウン、ギャラリー、記録、評価、進捗、リスト、リンク。追加したものが、そのままアプリのセクションになります。"
+ },
+ {
+  "clave": "tut.plantillas-custom.4.titulo",
+  "texto": "順番が大事"
+ },
+ {
+  "clave": "tut.plantillas-custom.4.texto",
+  "texto": "追加したブロックは矢印で並べ替え、✕で外せます。外したブロックのデータは保存時に消えるので、確定する前に確認してください。「メニュー」のドロップダウンを使えば、何も失わずに別のタブへ移せます。"
+ },
+ {
+  "clave": "tut.plantillas-custom.5.titulo",
+  "texto": "保存"
+ },
+ {
+  "clave": "tut.plantillas-custom.5.texto",
+  "texto": "名前とブロックが1つあれば、「保存」でカタログに並びます。あとは標準のテンプレートと同じように、オブジェクトへ割り当てるだけです。"
+ },
+ {
+  "clave": "tut.plantillas-custom.6.texto",
+  "texto": "あとからいつでも編集できます。ブロックもデータもそのままで、変えたところだけが変わります。"
+ },
+ {
+  "clave": "tut.menu-inventario.1.texto",
+  "texto": "インベントリです。家に置けるオブジェクトがすべて並び、そのままドラッグできます。"
+ },
+ {
+  "clave": "tut.menu-inventario.2.titulo",
+  "texto": "オブジェクト"
+ },
+ {
+  "clave": "tut.menu-inventario.2.texto",
+  "texto": "カテゴリーとフォルダで整理したオブジェクトのライブラリです。名前を変えて並べ替えておけば、次からすぐ見つかります。"
+ },
+ {
+  "clave": "tut.menu-inventario.3.titulo",
+  "texto": "特別なオブジェクト"
+ },
+ {
+  "clave": "tut.menu-inventario.3.texto",
+  "texto": "飾るだけでなく、何かをするオブジェクトです。乗り物、おもちゃの銃、噴水、遊具、照明があります。"
+ },
+ {
+  "clave": "tut.menu-inventario.4.titulo",
+  "texto": "配置"
+ },
+ {
+  "clave": "tut.menu-inventario.4.texto",
+  "texto": "このメニューを開いたまま、サムネイルを3Dシーンへドラッグすると、好きな場所に置けます。"
+ },
+ {
+  "clave": "tut.menu-inventario.5.texto",
+  "texto": "すでに置いたものを動かす・塗る・消すには、エディターの「オブジェクト」タブを使います。このメニューは、新しいものをシーンに出すためだけのものです。"
+ },
+ {
+  "clave": "tut.editor-mapa.1.texto",
+  "texto": "家のエディターには4つのタブがあります。マップ、キャラクター、オブジェクト、設定です。このツアーは「マップ」のもので、残りの3つにもそれぞれのツアーがあります。"
+ },
+ {
+  "clave": "tut.editor-mapa.2.titulo",
+  "texto": "見取り図"
+ },
+ {
+  "clave": "tut.editor-mapa.2.texto",
+  "texto": "上から見たグリッドに描いていきます。部屋、壁、ドア、窓、床を、上部バーのモードとブラシで描けます。描いたものは読み込み直さなくても、すぐ3Dに現れます。"
+ }
+]

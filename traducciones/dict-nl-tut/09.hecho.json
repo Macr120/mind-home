@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "Dit is de moestuin van Peps opvang: echte percelen met een jaar werk erin. Niets hiervan is een voorbeeld — het leeft, het groeit in real time en je mag eraan zitten."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "Eten en Boerderij delen dezelfde editor: wat je hier oogst, vult de voorraad van de dieren hiernaast. Het is één keten."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "Water is de baas"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "Kijk naar de percelen: een net gezaaid zaadje, half gegroeide planten, een zonnebloem die klaar is… en een wortel die Pep expres zonder water liet. De blauwe druppel waarschuwt voor dorst; wat verwelkt is, red je niet meer."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "Automatisch water"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "De tomaat heeft een sproeier: die begiet voorgoed zijn eigen vakje en de acht buren. Zo laat je de moestuin alleen zonder dat er iets verwelkt."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "Oogsten"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "De zonnebloem is klaar: één tik en hij gaat de mand in. Je kunt ook oogsten door over rijpe gewassen te lopen, zonder deze editor te openen."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "Een jaar in de mand"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "Elk perceel houdt zijn eigen oogsten bij en de mand verzamelt die van het hele jaar — ruim 400 stuks. Hiervan eten de dieren van de opvang."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "Alles loopt door als je weggaat. In de demo kun je echt water geven, oogsten en zaaien: probeer het voordat je vertrekt."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "Eerst de grond"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "Met Perceel tik je op een vakje van de kaart en ligt de grond klaar. In de opvang staan twee lege percelen op je te wachten."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "Kiezen wat je zaait"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "Zes soorten, en onder elke soort hoelang hij erover doet en hoe vaak hij om water vraagt: de wortel in 3 minuten, de pompoen in 2 uur."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "De snelle"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "Wil je de hele cyclus vandaag zien? Zaai een wortel in een vrij perceel: hij is klaar voordat jij bent uitgewandeld."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "Ongedaan maken"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "Verwijderen gaat laag voor laag op hetzelfde vakje: eerst de plant, dan de sproeier en als laatste het perceel."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "Dat is het hele vak: grond, soort en geduld. Wat je in de demo zaait, groeit echt terwijl jij de rest verkent."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "Dit is de opvang van Pep: de hokken van de geredde dieren en, in het zuiden, de moestuin waar ze van eten. Laten we samen naar beneden gaan."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Dit zijn de geredde dieren van Peps opvang: elk met zijn naam, zijn honger en zijn humeur, allemaal in real time. Niets is een voorbeeld — je kunt echt voor ze zorgen."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "De voorraad van het jaar"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "Voeren haalt uit de mand, en de mand vul je door de moestuin hiernaast te oogsten. Pep liet een jaar aan voorraad achter: gebruik die."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "Voeren"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "Eén tik op het hok voert iedereen die honger heeft, te beginnen bij de hongerigste. De kip vraagt elke 4 uur; de koe houdt het 12 uur vol."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "Aaien"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "Zes uur zonder aandacht en ze vervelen zich (twee keer zo snel in een vies hok). Eén tik aait het hele hok."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "Het vieze hok"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "Het kleine hok is al acht dagen niet schoongemaakt — dat zie je aan het stro. Tik erop met Schoonmaken en het is weer als nieuw: in de demo mag dat."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "De nieuwkomer"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "Het varken kwam vanochtend ziek binnen. Een ziek dier stopt met eten en alleen Genezen krijgt het weer overeind — het heeft een week voordat het te laat is. Genees het zelf."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "Voor alledag hoef je dit niet te openen: loop langs een hok en de bubbel toont Voeren en Aaien, en je kunt het me ook via de chat vragen."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "Het hok"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "Tik op een vrij vakje en er ontstaat een hok van 1×1; tik op een aangrenzend vakje en het rekt uit. Er passen drie dieren per vakje: kijk naar de twee van de opvang, een groot weidehok en een klein hok voor pluimvee."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "De soorten"
+  }
+]

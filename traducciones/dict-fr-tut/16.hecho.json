@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "Avec ton poids, ta taille et ton activité, l’app calcule ce dont tu as besoin chaque jour et répartit les macros. Pep s’est fixé 2 400 calories et un objectif de poids dont il reste moins d’un kilo."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "Étape 2 : ce que tu as mangé aujourd’hui"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "Petit-déjeuner, déjeuner, dîner et un petit truc entre les deux : chaque saisie remplit les anneaux du jour. L’eau a son propre objectif, et c’est celui que la maison regarde pour valider la journée."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "Étape 3 : 74 kilos, 67 kilos"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "La courbe de l’année entière, avec son plateau pendant le mois de la blessure et le kilo pris au Japon. En dessous, à quel rythme tu vas et quand tu y arriverais en continuant comme ça."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "Une année en couleurs"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "Vert, c’est un jour dans l’objectif ; ambre, un jour un peu dépassé ; rouge, un jour parti bien plus loin. Le mois du voyage se voit du premier coup d’œil. Touche n’importe quel jour pour l’ouvrir."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "Des régimes, pas des régimes de magazine"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "Ici, un régime est un plan avec ses recettes dedans. Pep en a gardé deux : la semaine du marathon et le retour du Japon, en plus de ceux que l’app apporte."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "Le livre de recettes"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "Chaque recette garde ses ingrédients, ses étapes et ses macros par portion, et se range dans des dossiers. Depuis une recette, tu peux enregistrer le repas ou envoyer ses ingrédients à la liste de courses."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "Demander la recette à l’IA"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "Décris ce que tu veux cuisiner et l’IA monte la recette complète avec la photo du plat. C’est l’IA qui s’en charge : tu l’actives dans Éditeur › Paramètres › Compte."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "De la recette à la liste de courses"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "« Créer une liste » réunit ce qui manque dans plusieurs recettes en une seule course : chaque ingrédient devine sa catégorie (légumes, produits laitiers…) et tu peux la corriger."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "Les listes enregistrées"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "Chaque liste garde ce qu’il reste à acheter et ce qui est déjà dans les placards. Si tu mets les prix, le total peut partir dans les dépenses du Bureau."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "L’objectif de poids, par phases"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "C’est l’IA qui s’en charge : tu l’actives dans Éditeur › Paramètres › Compte. Sans elle, les objectifs se créent et se modifient pareil, simplement à la main."
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "Cent points, trois parties"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "La durée en vaut cinquante, la régularité de ton heure de coucher trente et les interruptions vingt. Dormir beaucoup un jour ne rattrape pas les couchers à pas d’heure de tous les autres."
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "La dernière semaine"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "Sept barres face à la ligne de ton objectif. C’est la vue qui dit d’un coup d’œil si cette semaine tu dors ce que tu voulais."
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "L’année entière"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "L’historique se garde par année, mois et semaine. Descends jusqu’aux premiers mois de Pep et compare-les aux derniers : coucher après une heure du matin et cinq heures de sommeil."
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "De onze heures et demie à sept heures"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "Fais glisser les extrémités de la barre pour déplacer ton heure de coucher et celle du réveil ; le ciel au-dessus change avec elles. Ce bloc apparaît aussi dans le calendrier, à cheval sur minuit."
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "Alarme et rappels"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "Tu peux choisir la sonnerie du réveil, demander qu’on te prévienne quand c’est l’heure d’aller au lit et lâcher les écrans une heure avant. Les rappels sont facultatifs : ici, ils arrivent désactivés."
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "Enregistrer la nuit"
+  }
+]

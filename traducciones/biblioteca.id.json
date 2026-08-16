@@ -1,0 +1,638 @@
+[
+  {
+    "ruta": "entradas.0.titulo",
+    "texto": "Tiga hukum Newton, dibaca ulang pelan-pelan"
+  },
+  {
+    "ruta": "entradas.0.resumen",
+    "texto": "Aku belajar ini waktu SMA dan yakin banget sudah paham. Ternyata belum: hukum pertama itu enggak sesederhana kelihatannya, karena katanya gerak enggak butuh sebab, yang butuh sebab itu perubahannya. Aku baru benar-benar mengerti waktu mengerem sepeda dan merasakan tas ranselku terus melaju."
+  },
+  {
+    "ruta": "entradas.0.puntosClave.0",
+    "texto": "Tanpa gaya total, keadaan gerak tetap bertahan, bukan cuma keadaan diam"
+  },
+  {
+    "ruta": "entradas.0.puntosClave.1",
+    "texto": "F = ma bicara soal perubahan momentum, bukan soal seberapa cepat kamu bergerak"
+  },
+  {
+    "ruta": "entradas.0.puntosClave.2",
+    "texto": "Aksi dan reaksi bekerja pada dua benda yang berbeda, makanya keduanya tidak saling meniadakan"
+  },
+  {
+    "ruta": "entradas.1.titulo",
+    "texto": "Turunan sebagai kecepatan sesaat"
+  },
+  {
+    "ruta": "entradas.1.resumen",
+    "texto": "Dulu aku menurunkan fungsi hanya dengan mengikuti rumus, seperti mengikuti resep masakan. Minggu ini aku akhirnya paham apa yang sebenarnya diukur: seberapa cepat sesuatu berubah per satuan waktu, tepat di satu momen. Aku menggambar grafik posisi sepedaku menuju kafe, dan kemiringannya menceritakan seluruh kisah perjalanan itu."
+  },
+  {
+    "ruta": "entradas.1.puntosClave.0",
+    "texto": "Ini limit dari hasil bagi selisih ketika selangnya mendekati nol"
+  },
+  {
+    "ruta": "entradas.1.puntosClave.1",
+    "texto": "Turunan kedua adalah percepatan: kelengkungan grafiknya"
+  },
+  {
+    "ruta": "entradas.1.puntosClave.2",
+    "texto": "Kontinu tidak berarti bisa diturunkan: di titik lancip tidak ada satu kemiringan yang pasti"
+  },
+  {
+    "ruta": "entradas.2.titulo",
+    "texto": "Usaha dan energi: jalan pintas penyelamat soal-soal"
+  },
+  {
+    "ruta": "entradas.2.resumen",
+    "texto": "Aku menemukan bahwa banyak soal yang biasa kupecahkan dengan tiga persamaan langsung selesai kalau memakai energi. Aku enggak perlu tahu detail jalurnya, cukup titik awal dan titik akhirnya. Ini pertama kalinya fisika terasa hemat, bukan melelahkan."
+  },
+  {
+    "ruta": "entradas.2.puntosClave.0",
+    "texto": "Hanya komponen gaya searah gerak yang melakukan usaha"
+  },
+  {
+    "ruta": "entradas.2.puntosClave.1",
+    "texto": "Teorema usaha-energi: usaha total sama dengan perubahan energi kinetik"
+  },
+  {
+    "ruta": "entradas.2.puntosClave.2",
+    "texto": "Dengan gaya konservatif, jalur yang ditempuh jadi tidak penting dan muncullah energi potensial"
+  },
+  {
+    "ruta": "entradas.3.titulo",
+    "texto": "Momentum linear dan tumbukan"
+  },
+  {
+    "ruta": "entradas.3.resumen",
+    "texto": "Momentum adalah yang tetap terjaga bahkan saat energi hilang jadi suara dan panas. Aku mencoba tumbukan dua troli kecil di lab, dan angkanya keluar nyaris pas; sementara energi kinetiknya hilang sepertiga. Aku suka melihat satu hukum bertahan di saat hukum lain menyerah."
+  },
+  {
+    "ruta": "entradas.3.puntosClave.0",
+    "texto": "p = mv, dan gaya adalah laju perubahan momentum"
+  },
+  {
+    "ruta": "entradas.3.puntosClave.1",
+    "texto": "Dalam tumbukan apa pun, momentum total sistem selalu kekal"
+  },
+  {
+    "ruta": "entradas.3.puntosClave.2",
+    "texto": "Pusat massa terus bergerak di lintasannya seolah tidak terjadi apa-apa"
+  },
+  {
+    "ruta": "entradas.4.titulo",
+    "texto": "Gerak melingkar: siapa yang membelokkan siapa"
+  },
+  {
+    "ruta": "entradas.4.resumen",
+    "texto": "Bertahun-tahun aku percaya ada gaya sentrifugal karena aku merasakannya saat menikung dengan sepeda. Padahal itu tidak ada dalam kerangka inersial: yang ada hanya gesekan yang mendorong ke arah pusat dan tubuhku yang ingin terus lurus. Memahami ini bahkan mengubah cara aku memiringkan badan di tikungan."
+  },
+  {
+    "ruta": "entradas.4.puntosClave.0",
+    "texto": "Percepatan sentripetal mengarah ke pusat dan besarnya v²/r"
+  },
+  {
+    "ruta": "entradas.4.puntosClave.1",
+    "texto": "Sensasi terlempar ke luar itu inersia, bukan gaya sungguhan"
+  },
+  {
+    "ruta": "entradas.4.puntosClave.2",
+    "texto": "Kalau gesekan kurang, lintasan jadi lurus: itulah sebabnya terjadi selip"
+  },
+  {
+    "ruta": "entradas.5.titulo",
+    "texto": "Momentum sudut dan trik pemain skate"
+  },
+  {
+    "ruta": "entradas.5.resumen",
+    "texto": "Contoh klasik pemain skate yang berputar makin cepat saat merapatkan lengan, tapi kali ini dengan angka-angka. Energi tidak muncul dari ketiadaan: usahanya dia lakukan sendiri saat menarik lengan ke dalam. Laika melakukan hal serupa saat jatuh dan meliuk di udara."
+  },
+  {
+    "ruta": "entradas.5.puntosClave.0",
+    "texto": "L = Iω, dan momen inersia bergantung pada bagaimana massa itu tersebar"
+  },
+  {
+    "ruta": "entradas.5.puntosClave.1",
+    "texto": "Tanpa torsi dari luar, momentum sudut total tetap kekal"
+  },
+  {
+    "ruta": "entradas.5.puntosClave.2",
+    "texto": "Berputar lebih cepat dengan inersia lebih kecil tetap butuh energi: ada yang menyumbangnya"
+  },
+  {
+    "ruta": "entradas.6.titulo",
+    "texto": "Osilator harmonik ada di mana-mana"
+  },
+  {
+    "ruta": "entradas.6.resumen",
+    "texto": "Pegas, bandul, tali, atom dalam kisi kristal: cukup dekat dengan titik setimbang, semuanya berosilasi dengan cara yang sama. Ini soal yang paling sering kupecahkan tahun ini dan yang paling sedikit membosankan. Di sinilah aku mulai curiga bahwa fisika mengulang sedikit ide dengan banyak kedok."
+  },
+  {
+    "ruta": "entradas.6.puntosClave.0",
+    "texto": "Gaya pemulih yang sebanding dengan simpangan menghasilkan solusi sinusoidal"
+  },
+  {
+    "ruta": "entradas.6.puntosClave.1",
+    "texto": "Untuk amplitudo kecil, periode tidak bergantung pada amplitudo"
+  },
+  {
+    "ruta": "entradas.6.puntosClave.2",
+    "texto": "Dengan gesekan muncul peredaman; dengan gaya paksa, muncul resonansi"
+  },
+  {
+    "ruta": "entradas.7.titulo",
+    "texto": "Hukum ke-nol: apa sebenarnya suhu itu"
+  },
+  {
+    "ruta": "entradas.7.resumen",
+    "texto": "Termodinamika dimulai, dan hukum pertama yang kutemui justru yang tidak punya nomor sendiri. Isinya sederhana tapi penting: kalau A setimbang dengan C dan B juga setimbang dengan C, maka A dan B setimbang satu sama lain. Itulah yang membuat termometer punya arti."
+  },
+  {
+    "ruta": "entradas.7.puntosClave.0",
+    "texto": "Kesetimbangan termal bersifat transitif, dan itulah yang mendefinisikan suhu"
+  },
+  {
+    "ruta": "entradas.7.puntosClave.1",
+    "texto": "Suhu bukan kalor: yang satu keadaan, yang lain energi yang sedang berpindah"
+  },
+  {
+    "ruta": "entradas.7.puntosClave.2",
+    "texto": "Skala mutlak kelvin menghindarkan omong kosong suhu negatif"
+  },
+  {
+    "ruta": "entradas.8.titulo",
+    "texto": "Hukum pertama: pembukuan energi"
+  },
+  {
+    "ruta": "entradas.8.resumen",
+    "texto": "ΔU = Q − W pada dasarnya adalah buku kas di mana tidak ada yang hilang. Yang sempat membingungkanku adalah U hanya bergantung pada keadaan, sementara Q dan W bergantung pada jalur yang kamu tempuh untuk sampai ke sana. Persis seperti anggaranku: saldo ya saldo, tapi caramu sampai ke sana tetap penting."
+  },
+  {
+    "ruta": "entradas.8.puntosClave.0",
+    "texto": "Energi dalam adalah fungsi keadaan; kalor dan usaha bukan"
+  },
+  {
+    "ruta": "entradas.8.puntosClave.1",
+    "texto": "Menutup satu siklus mengembalikan U ke titik awal, tapi tidak dengan biaya yang dikeluarkan"
+  },
+  {
+    "ruta": "entradas.8.puntosClave.2",
+    "texto": "Tidak ada mesin yang menghasilkan energi lebih banyak dari yang dikonsumsinya"
+  },
+  {
+    "ruta": "entradas.9.titulo",
+    "texto": "Teori kinetik dan distribusi kecepatan"
+  },
+  {
+    "ruta": "entradas.9.resumen",
+    "texto": "Tekanan berhenti jadi sekadar angka di soal dan berubah menjadi jutaan tumbukan per detik. Bagian terbaiknya adalah ekor distribusinya: selalu ada molekul yang jauh lebih cepat dari rata-rata. Itu sebabnya kopi bisa menguap tanpa perlu mendidih."
+  },
+  {
+    "ruta": "entradas.9.puntosClave.0",
+    "texto": "Tekanan berasal dari pertukaran momentum saat tumbukan dengan dinding"
+  },
+  {
+    "ruta": "entradas.9.puntosClave.1",
+    "texto": "Suhu sebanding dengan energi kinetik rata-rata, bukan energi satu molekul saja"
+  },
+  {
+    "ruta": "entradas.9.puntosClave.2",
+    "texto": "Ekor cepat distribusi Maxwell-Boltzmann menjelaskan penguapan"
+  },
+  {
+    "ruta": "entradas.10.titulo",
+    "texto": "Entropi tanpa mistik"
+  },
+  {
+    "ruta": "entradas.10.resumen",
+    "texto": "Aku menolak berhenti pada slogan bahwa entropi itu ketidakteraturan. Dengan definisi Boltzmann, aku melihatnya sebagai hitungan: berapa banyak susunan mikroskopis yang menghasilkan keadaan makro yang sama seperti yang kulihat. Merapikan kamarku tidak melanggar apa pun, itu cuma mengekspor kekacauan dalam bentuk panas."
+  },
+  {
+    "ruta": "entradas.10.puntosClave.0",
+    "texto": "Definisi termodinamika: dS adalah δQ reversibel dibagi T"
+  },
+  {
+    "ruta": "entradas.10.puntosClave.1",
+    "texto": "Definisi statistik: S = k ln Ω, benar-benar hitungan jumlah mikrostatus"
+  },
+  {
+    "ruta": "entradas.10.puntosClave.2",
+    "texto": "Hukum kedua memberi arah pada waktu, bukan melarang keteraturan lokal"
+  },
+  {
+    "ruta": "entradas.11.titulo",
+    "texto": "Carnot dan batas atas yang tak seorang pun bisa lampaui"
+  },
+  {
+    "ruta": "entradas.11.resumen",
+    "texto": "Sebuah siklus yang mustahil dibuat, tapi berguna untuk tahu sejauh mana mesin nyata bisa mencapai. Efisiensinya hanya bergantung pada dua suhu, dan itu luar biasa bersih. Aku suka tahu bahwa fisika punya ide-ide berguna justru karena idenya fiksi."
+  },
+  {
+    "ruta": "entradas.11.puntosClave.0",
+    "texto": "Efisiensi maksimum: 1 − Tdingin/Tpanas, dengan suhu mutlak"
+  },
+  {
+    "ruta": "entradas.11.puntosClave.1",
+    "texto": "Tidak ada mesin nyata yang mengalahkan Carnot di antara dua reservoir yang sama"
+  },
+  {
+    "ruta": "entradas.11.puntosClave.2",
+    "texto": "Reversibilitas menuntut kelambatan tak terhingga: makanya ini cuma batas ideal"
+  },
+  {
+    "ruta": "entradas.12.titulo",
+    "texto": "Kalor laten, atau kenapa uap memanaskan begitu cepat"
+  },
+  {
+    "ruta": "entradas.12.resumen",
+    "texto": "Aku belajar perubahan fase dan tiba-tiba pekerjaanku punya teorinya sendiri. Saat mengembun, uap melepaskan energi luar biasa banyak tanpa suhunya turun, itu sebabnya susu bisa berubah dari dingin jadi siap saji dalam dua puluh detik. Sekarang aku memandang termometer sambil memikirkan diagram fase."
+  },
+  {
+    "ruta": "entradas.12.puntosClave.0",
+    "texto": "Selama perubahan fase, energi diserap tanpa suhu ikut naik"
+  },
+  {
+    "ruta": "entradas.12.puntosClave.1",
+    "texto": "Kalor laten penguapan jauh lebih besar daripada kalor laten peleburan"
+  },
+  {
+    "ruta": "entradas.12.puntosClave.2",
+    "texto": "Diagram fase dan titik tripel merapikan seluruh gambaran besarnya"
+  },
+  {
+    "ruta": "entradas.13.titulo",
+    "texto": "Ketidakpastian: yang dipaksa oleh lab untuk kupelajari"
+  },
+  {
+    "ruta": "entradas.13.resumen",
+    "texto": "Nilaiku dipotong karena menulis 9,81734 m/s² padahal stopwatchku cuma jempolku sendiri. Ketidakpastian bukan hiasan di akhir laporan, itu bagian dari hasilnya. Sejak itu aku memulai lab dengan bertanya dari mana kesalahannya berasal, bukan di akhir sesi."
+  },
+  {
+    "ruta": "entradas.13.puntosClave.0",
+    "texto": "Kesalahan acak berkurang dengan pengulangan; kesalahan sistematik tidak"
+  },
+  {
+    "ruta": "entradas.13.puntosClave.1",
+    "texto": "Untuk variabel-variabel bebas, kesalahan dijumlahkan secara kuadratur"
+  },
+  {
+    "ruta": "entradas.13.puntosClave.2",
+    "texto": "Angka penting tidak boleh menjanjikan presisi lebih dari yang sebenarnya ada"
+  },
+  {
+    "ruta": "entradas.14.titulo",
+    "texto": "Kuadrat terkecil: mencocokkan kurva tanpa menipu diri sendiri"
+  },
+  {
+    "ruta": "entradas.14.resumen",
+    "texto": "Tiga minggu tidak bisa lari karena lutut memberiku sore-sore panjang di meja belajar. Aku belajar bahwa R² yang tinggi bisa saja menemani hasil pencocokan yang buruk kalau modelnya salah. Yang benar-benar membongkarnya adalah melihat residu dan memeriksa apakah mereka menertawakanmu dalam bentuk kurva."
+  },
+  {
+    "ruta": "entradas.14.puntosClave.0",
+    "texto": "Jumlah kuadrat residu itulah yang diminimalkan"
+  },
+  {
+    "ruta": "entradas.14.puntosClave.1",
+    "texto": "Chi-kuadrat tereduksi yang mendekati 1 menandakan kesalahan yang diestimasi dengan baik"
+  },
+  {
+    "ruta": "entradas.14.puntosClave.2",
+    "texto": "Residu harus terlihat acak: pola apa pun adalah petunjuk"
+  },
+  {
+    "ruta": "entradas.15.titulo",
+    "texto": "Dua postulat dan kekacauan soal kesimultanan"
+  },
+  {
+    "ruta": "entradas.15.resumen",
+    "texto": "Relativitas dimulai, dan yang aneh bukan rumus-rumusnya, melainkan menerima bahwa dua kejadian yang simultan bagiku belum tentu simultan bagi orang yang lewat naik kereta. Postulatnya singkat, hampir keras kepala, dan dari situ semua yang lain muncul. Aku menghabiskan satu sore penuh menggambar kereta dan senter."
+  },
+  {
+    "ruta": "entradas.15.puntosClave.0",
+    "texto": "Hukum-hukum fisika sama di setiap kerangka inersial"
+  },
+  {
+    "ruta": "entradas.15.puntosClave.1",
+    "texto": "Kecepatan cahaya sama untuk pengamat mana pun"
+  },
+  {
+    "ruta": "entradas.15.puntosClave.2",
+    "texto": "Kesimultanan tidak mutlak: bergantung pada keadaan geraknya"
+  },
+  {
+    "ruta": "entradas.16.titulo",
+    "texto": "Dilatasi waktu dan muon yang seharusnya tidak sampai"
+  },
+  {
+    "ruta": "entradas.16.resumen",
+    "texto": "Kasus muon kosmik lebih meyakinkanku daripada penurunan rumus mana pun. Dengan waktu paruhnya, mereka seharusnya meluruh sebelum mencapai tanah, tapi kita tetap mendeteksinya. Tergantung siapa yang melihat, entah jamnya yang berjalan lambat atau atmosfernya yang menyusut, dan kedua versi itu memberi angka yang sama."
+  },
+  {
+    "ruta": "entradas.16.puntosClave.0",
+    "texto": "Faktor gamma hanya membesar cepat ketika mendekati kecepatan cahaya"
+  },
+  {
+    "ruta": "entradas.16.puntosClave.1",
+    "texto": "Dilatasi waktu dan kontraksi panjang adalah cerita yang sama dari dua sisi"
+  },
+  {
+    "ruta": "entradas.16.puntosClave.2",
+    "texto": "Ini bukan ilusi pengukuran: jam-jam fisik itu sungguh menunjukkan waktu yang berbeda"
+  },
+  {
+    "ruta": "entradas.17.titulo",
+    "texto": "Minkowski: yang diukur sama oleh semua orang"
+  },
+  {
+    "ruta": "entradas.17.resumen",
+    "texto": "Sepulang dari perjalanan aku kembali ke catatan dan akhirnya ruang-waktu itu masuk akal. Kalau waktu dan ruang meregang tergantung pengamatnya, harus ada sesuatu yang invarian, dan itulah selang ruang-waktu. Dengan itu, E = mc² berhenti jadi slogan di kaus dan menjadi kasus khusus saja."
+  },
+  {
+    "ruta": "entradas.17.puntosClave.0",
+    "texto": "Selang antara dua kejadian sama untuk semua pengamat"
+  },
+  {
+    "ruta": "entradas.17.puntosClave.1",
+    "texto": "Energi dan momentum membentuk satu vektor-empat tunggal"
+  },
+  {
+    "ruta": "entradas.17.puntosClave.2",
+    "texto": "Massa tidak berubah menjadi energi: massa adalah energi diam sistem itu sendiri"
+  },
+  {
+    "ruta": "entradas.18.titulo",
+    "texto": "Kenapa piano terdengar seperti piano"
+  },
+  {
+    "ruta": "entradas.18.resumen",
+    "texto": "Sudah sepuluh bulan aku bermain piano, dan minggu ini aku mempelajari apa yang terjadi di dalam senarnya. Timbre bukan soal nada, itu soal campuran harmonik dan milidetik pertama saat palu memukul senar. Yang paling menarik adalah menemukan bahwa senar sungguhan itu kaku, dan justru karena itu oktafnya disetel diregangkan."
+  },
+  {
+    "ruta": "entradas.18.puntosClave.0",
+    "texto": "Senar yang terikat kedua ujungnya bergetar dalam moda-moda: nada dasar ditambah harmonik-harmonik yang lebih tinggi"
+  },
+  {
+    "ruta": "entradas.18.puntosClave.1",
+    "texto": "Timbre bergantung pada campuran amplitudo dan serangan awal bunyi, bukan cuma pada frekuensi"
+  },
+  {
+    "ruta": "entradas.18.puntosClave.2",
+    "texto": "Ketakharmonisan senar sungguhan memaksa penyetel piano meregangkan oktaf"
+  },
+  {
+    "ruta": "entradas.19.titulo",
+    "texto": "Lubang hitam: horizon itu bukan tembok"
+  },
+  {
+    "ruta": "entradas.19.resumen",
+    "texto": "Aku mengerjakan metrik Schwarzschild dengan tenang dan menghitung jari-jarinya untuk Matahari, untuk Bumi, dan iseng-iseng untuk Laika. Horizon bukan permukaan yang bisa disentuh: itu titik di mana tidak ada lintasan yang bisa kembali. Yang paling membuatku terganggu adalah melihat seseorang jatuh tapi tidak pernah melihatnya benar-benar sampai."
+  },
+  {
+    "ruta": "entradas.19.puntosClave.0",
+    "texto": "Jari-jari Schwarzschild sebanding dengan massa objeknya"
+  },
+  {
+    "ruta": "entradas.19.puntosClave.1",
+    "texto": "Horizon adalah batas kausal, bukan benda fisik"
+  },
+  {
+    "ruta": "entradas.19.puntosClave.2",
+    "texto": "Bagi pengamat yang jauh, jatuhnya benda itu tampak membeku dan memerah"
+  },
+  {
+    "ruta": "entradas.20.titulo",
+    "texto": "Kehidupan bintang-bintang dalam satu diagram"
+  },
+  {
+    "ruta": "entradas.20.resumen",
+    "texto": "Diagram Hertzsprung-Russell kelihatan seperti grafik yang jelek sampai kamu sadar itu adalah sensus nasib. Sebuah bintang adalah pertarungan yang sangat panjang antara gravitasi yang menekan dan tekanan yang menahan. Dan yang menentukan akhirnya adalah massa, hampir tidak ada yang lain."
+  },
+  {
+    "ruta": "entradas.20.puntosClave.0",
+    "texto": "Kesetimbangan hidrostatik: gravitasi ke dalam, tekanan ke luar"
+  },
+  {
+    "ruta": "entradas.20.puntosClave.1",
+    "texto": "Massa awal menentukan laju fusi dan akhir kisahnya"
+  },
+  {
+    "ruta": "entradas.20.puntosClave.2",
+    "texto": "Deret utama adalah tempat bintang menghabiskan hampir seluruh hidupnya"
+  },
+  {
+    "ruta": "entradas.21.titulo",
+    "texto": "Benda hitam: tempat fisika klasik runtuh"
+  },
+  {
+    "ruta": "entradas.21.resumen",
+    "texto": "Aku mulai membaca fisika kuantum sendiri untuk keperluan pendaftaran pascasarjana, dan aku jatuh ke masalah benda hitam. Teori klasik memprediksi energi tak terhingga di daerah ultraviolet, yang merupakan cara elegan untuk bilang bahwa teorinya salah. Planck mengkuantisasi karena putus asa dan ternyata berhasil; aku terhibur bahwa ide-ide besar dimulai sebagai tambalan."
+  },
+  {
+    "ruta": "entradas.21.puntosClave.0",
+    "texto": "Prediksi klasik divergen di frekuensi tinggi: bencana ultraviolet"
+  },
+  {
+    "ruta": "entradas.21.puntosClave.1",
+    "texto": "Planck mengasumsikan energi datang dalam paket yang sebanding dengan frekuensi"
+  },
+  {
+    "ruta": "entradas.21.puntosClave.2",
+    "texto": "Konstanta h muncul dari mengukur spektrum termal, bukan dari berfilsafat"
+  },
+  {
+    "ruta": "entradas.22.titulo",
+    "texto": "Bayes, atau cara memperbarui apa yang kupercaya"
+  },
+  {
+    "ruta": "entradas.22.resumen",
+    "texto": "Aku menyisakan ini untuk akhir tahun, dan andai saja aku mengenalnya sebelum lab pertamaku. Idenya sederhana: mulai dari apa yang kamu percaya, hadapkan dengan data, lalu simpan versi yang sudah diperbarui. Di astrofisika ini dipakai terus-menerus untuk menyesuaikan model dengan data yang sedikit dan derau yang banyak."
+  },
+  {
+    "ruta": "entradas.22.puntosClave.0",
+    "texto": "Posterior sebanding dengan likelihood dikali prior"
+  },
+  {
+    "ruta": "entradas.22.puntosClave.1",
+    "texto": "Menyatakan prior secara terbuka bukan curang; menyembunyikannya baru curang"
+  },
+  {
+    "ruta": "entradas.22.puntosClave.2",
+    "texto": "Makin banyak data, makin kecil pengaruh prior"
+  },
+  {
+    "ruta": "charlas.0.titulo",
+    "texto": "Kenapa momentum itu kekal"
+  },
+  {
+    "ruta": "charlas.0.pregunta",
+    "texto": "Aku hafal luar kepala bahwa momentum kekal saat tumbukan, tapi enggak paham kenapa. Ini hukum tersendiri atau diturunkan dari hukum Newton?"
+  },
+  {
+    "ruta": "charlas.0.respuesta",
+    "texto": "Ini muncul dari hukum Newton: kalau dua benda hanya saling mendorong, gayanya sama besar dan berlawanan arah, jadi momentum yang didapat satu benda persis sama dengan yang hilang dari benda lainnya. Totalnya tidak berubah karena tidak ada gaya dari luar sistem. Yang penting adalah bagaimana kamu memilih batas sistemnya: kalau kamu keluarkan lantai atau dinding dari perhitungan, akan muncul momentum yang seolah-olah hilang. Ada juga alasan yang lebih dalam: kekekalan momentum itu setara dengan hukum fisika yang sama di sini dan satu meter di sana."
+  },
+  {
+    "ruta": "charlas.0.ramas.0",
+    "texto": "Simetri dan teorema Noether"
+  },
+  {
+    "ruta": "charlas.0.ramas.1",
+    "texto": "Tumbukan tidak lenting"
+  },
+  {
+    "ruta": "charlas.1.titulo",
+    "texto": "Entropi tanpa kata “kekacauan”"
+  },
+  {
+    "ruta": "charlas.1.pregunta",
+    "texto": "Semua video bilang entropi itu kekacauan, tapi kalau begitu aku enggak paham kenapa aku boleh merapikan kamarku tanpa melanggar hukum kedua. Sebenarnya apa sih entropi itu?"
+  },
+  {
+    "ruta": "charlas.1.respuesta",
+    "texto": "Pikirkan itu sebagai hitungan, bukan soal rapi-tidaknya: entropi mengukur berapa banyak susunan mikroskopis yang cocok dengan apa yang kamu lihat pada skala besar. Keadaan yang bisa dicapai dengan banyak cara itu lebih mungkin terjadi, makanya sistem cenderung bergerak ke arah situ. Waktu kamu merapikan kamar, kamu menurunkan entropi di wilayah kecil itu, tapi tubuhmu melepaskan panas ke udara dan totalnya tetap naik. Hukum kedua bicara soal seluruh alam semesta, bukan soal tiap sudut secara terpisah."
+  },
+  {
+    "ruta": "charlas.1.ramas.0",
+    "texto": "Mikrostatus dan probabilitas"
+  },
+  {
+    "ruta": "charlas.1.ramas.1",
+    "texto": "Setan Maxwell"
+  },
+  {
+    "ruta": "charlas.2.titulo",
+    "texto": "Cara tahu apakah pencocokan kurvaku benar"
+  },
+  {
+    "ruta": "charlas.2.pregunta",
+    "texto": "Di laporan lab, R²-ku keluar 0,99 tapi garisnya enggak melewati separuh dari bar kesalahanku. Angka mana yang harus kupercaya?"
+  },
+  {
+    "ruta": "charlas.2.respuesta",
+    "texto": "Enggak ada yang bisa kamu percaya sendirian. R² cuma menunjukkan seberapa banyak variasi yang kamu jelaskan, dan dengan rentang data yang lebar, angkanya bisa tinggi meski modelnya salah. Yang perlu kamu perhatikan adalah chi-kuadrat tereduksi, yang membandingkan residu dengan ketidakpastianmu: kalau jauh lebih besar dari 1, berarti modelnya salah atau kamu meremehkan kesalahannya. Dan sebelum apa-apa, plot dulu residunya: kalau membentuk kurva, berarti ada suku yang hilang dari modelmu."
+  },
+  {
+    "ruta": "charlas.2.ramas.0",
+    "texto": "Chi-kuadrat tereduksi"
+  },
+  {
+    "ruta": "charlas.2.ramas.1",
+    "texto": "Membaca residu"
+  },
+  {
+    "ruta": "charlas.3.titulo",
+    "texto": "Kenapa piano terdengar seperti piano"
+  },
+  {
+    "ruta": "charlas.3.pregunta",
+    "texto": "Aku memainkan nada A di keyboard-ku dan di piano tegak di sekolah, dan bunyinya terdengar seperti dua alat yang berbeda padahal notanya sama. Apa sih yang sebenarnya berubah secara fisik?"
+  },
+  {
+    "ruta": "charlas.3.respuesta",
+    "texto": "Frekuensi dasarnya sama persis, tapi yang telingamu sebut sebagai bunyi itu adalah seluruh paketnya: campuran harmonik yang lebih tinggi dan bagaimana bunyi itu berubah seiring waktu. Di piano sungguhan, senarnya kaku, jadi harmoniknya tidak jatuh tepat di kelipatan bulat, dan itulah yang memberi kecemerlangan khasnya. Serangan awal bunyi juga sangat berpengaruh, milidetik pertama dari pukulan palu dan suara mekanismenya, yang biasanya disederhanakan oleh keyboard murah. Kalau kamu rekam kedua nada itu dan lihat spektrumnya, perbedaannya kelihatan sebelum kamu mendengarnya."
+  },
+  {
+    "ruta": "charlas.3.ramas.0",
+    "texto": "Ketakharmonisan senar"
+  },
+  {
+    "ruta": "charlas.3.ramas.1",
+    "texto": "Temperamen sama rata"
+  },
+  {
+    "ruta": "charlas.4.titulo",
+    "texto": "Apa yang perlu diulang untuk pascasarjana"
+  },
+  {
+    "ruta": "charlas.4.pregunta",
+    "texto": "Aku mau mendaftar pascasarjana astrofisika dan aku takut dasar relativitas umumku masih level amatir. Dari mana aku mulai menambalnya?"
+  },
+  {
+    "ruta": "charlas.4.respuesta",
+    "texto": "Dengan yang sudah kamu punya sekarang saja kamu sudah bisa mulai: relativitas khusus yang kuat, mekanika Lagrangian, dan statistik data itulah fondasi nyata sehari-hari. Sebelum langsung menerjang tensor secara kasar, luangkan beberapa minggu untuk geometri diferensial minimal dan metrik Schwarzschild yang benar-benar dikuasai. Untuk pendaftaran, proyek kecil yang selesai lebih berbobot daripada daftar panjang topik yang cuma dibaca sekilas: hasil pencocokan kurva cahayamu lebih berharga dari yang kamu kira. Dan pilih kelompok riset berdasarkan orang yang akan membimbingmu, bukan cuma nama kampusnya."
+  },
+  {
+    "ruta": "charlas.4.ramas.0",
+    "texto": "Kalkulus tensor minimal"
+  },
+  {
+    "ruta": "charlas.4.ramas.1",
+    "texto": "Memilih pembimbing dan kelompok riset"
+  },
+  {
+    "ruta": "notasEstudio.0.nota",
+    "texto": "Dua jam kinematika setelah shift kerja; ketiduran di atas buku catatan, tapi diagram benda bebasnya sudah selesai."
+  },
+  {
+    "ruta": "notasEstudio.1.nota",
+    "texto": "Bidang miring dengan gesekan: aku paham fisikanya, tapi selalu tersesat di tanda plus-minusnya."
+  },
+  {
+    "ruta": "notasEstudio.2.nota",
+    "texto": "Sesi soal pertama bareng Marta, teman sekelas: tiga dari lima benar, jauh lebih baik daripada sendirian."
+  },
+  {
+    "ruta": "notasEstudio.3.nota",
+    "texto": "Osilator harmonik di perpustakaan sampai tutup; dapat solusinya tanpa buka buku sama sekali."
+  },
+  {
+    "ruta": "notasEstudio.4.nota",
+    "texto": "Termodinamika dimulai: baca hukum ke-nol dan pertama dua kali, di bacaan kedua baru masuk akal."
+  },
+  {
+    "ruta": "notasEstudio.5.nota",
+    "texto": "Soal gas ideal di sela-sela melayani pesanan; buku catatannya jadi bau kopi."
+  },
+  {
+    "ruta": "notasEstudio.6.nota",
+    "texto": "Simulasi UTS: delapan dari sepuluh soal benar, soal Carnot salah gara-gara hitungan, bukan teorinya."
+  },
+  {
+    "ruta": "notasEstudio.7.nota",
+    "texto": "UTS termo sudah dikumpulkan; keluar ruangan dengan perasaan aneh karena benar-benar merasa paham."
+  },
+  {
+    "ruta": "notasEstudio.8.nota",
+    "texto": "Sambil mengompres lutut, satu sore penuh untuk kuadrat terkecil: kalau enggak bisa lari, setidaknya ada kemajuan di sini."
+  },
+  {
+    "ruta": "notasEstudio.9.nota",
+    "texto": "Relativitas dimulai: setengah jam nonton rekaman kuliah, satu jam menggambar kereta dan jam."
+  },
+  {
+    "ruta": "notasEstudio.10.nota",
+    "texto": "Mengulang transformasi Lorentz lalu menutup map sampai pulang dari perjalanan."
+  },
+  {
+    "ruta": "notasEstudio.11.nota",
+    "texto": "Kembali belajar dengan kepala masih capek habis perjalanan: baca ulang catatan sebelum berangkat dan enggak bisa membaca tulisan sendiri."
+  },
+  {
+    "ruta": "notasEstudio.12.nota",
+    "texto": "Setengah sesi fisika bunyi, setengah lagi menyetel keyboard; tetap kuhitung sebagai belajar."
+  },
+  {
+    "ruta": "notasEstudio.13.nota",
+    "texto": "Metrik Schwarzschild pelan-pelan; menghitung jari-jari Matahari, dan iseng-iseng, jari-jari Laika."
+  },
+  {
+    "ruta": "notasEstudio.14.nota",
+    "texto": "Benda hitam dan Planck: akhirnya kelihatan di mana termodinamika klasik itu runtuh."
+  },
+  {
+    "ruta": "notasEstudio.15.nota",
+    "texto": "Ulangan umum untuk ujian akhir dan draf pertama esai pendaftaran."
+  },
+  {
+    "ruta": "notasEstudio.16.nota",
+    "texto": "Sesi singkat statistik Bayes dan daftar artikel untuk dibaca saat liburan."
+  },
+  {
+    "ruta": "metas.termo",
+    "texto": "Menyelesaikan termodinamika sebelum UTS"
+  },
+  {
+    "ruta": "metas.posgrado",
+    "texto": "Menyiapkan pendaftaran pascasarjana astrofisika"
+  }
+]

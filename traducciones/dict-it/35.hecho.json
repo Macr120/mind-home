@@ -1,0 +1,214 @@
+[
+  {
+    "clave": "tut.cuenta-ia.resumen",
+    "texto": "L'IA si attiva in Editor › Impostazioni. Ogni operazione —una risposta, un piano, un'immagine, un modello 3D— ha la sua tariffa in crediti, visibile prima di richiederla. Con la tua chiave del fornitore non si spendono crediti: lo paghi direttamente."
+  },
+  {
+    "clave": "tut.ejemplos.titulo",
+    "texto": "Iniziare con un esempio"
+  },
+  {
+    "clave": "tut.ejemplos.resumen",
+    "texto": "Quasi ogni app ha una barra per vedere un esempio pronto con i dati già inseriti, e nasconderlo dopo senza perdere nulla di tuo. Non compare nella casa demo: lì l'anno intero È GIÀ l'esempio."
+  },
+  {
+    "clave": "tut.hoy.titulo",
+    "texto": "Oggi"
+  },
+  {
+    "clave": "tut.hoy.resumen",
+    "texto": "La lista Oggi di ogni app riunisce tre cose in un unico posto: i traguardi del giorno di quell'app, quello che hai programmato per oggi e i passi dei tuoi obiettivi attivi. Un passo si completa perché la registrazione esiste già nell'app, non perché qualcuno l'ha spuntato a mano."
+  },
+  {
+    "clave": "tut.progreso.titulo",
+    "texto": "I tuoi progressi"
+  },
+  {
+    "clave": "tut.progreso.resumen",
+    "texto": "Il tuo personaggio vive della tua attività reale: il suo umore, il suo livello, la Montagna di Sisifo (grado e distintivi) e il radar XP per stanza. Tutto si calcola da quello che hai già registrato, niente si imposta a mano."
+  },
+  {
+    "clave": "tut.wrapped.titulo",
+    "texto": "Wrapped: il tuo riepilogo"
+  },
+  {
+    "clave": "tut.wrapped.resumen",
+    "texto": "Il riepilogo del periodo —settimana, mese o anno— raccontato in slide, con musica di sottofondo e confronto con il periodo precedente. Si condivide come testo direttamente dalla slide stessa."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.titulo",
+    "texto": "Il ciclo dell'orto"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.resumen",
+    "texto": "Una passeggiata nell'orto vivo del santuario: le fasi di ogni coltura, l'irrigazione, il raccolto e il cesto con un anno di lavoro."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.titulo",
+    "texto": "Seminare da zero"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.resumen",
+    "texto": "Come si prepara la terra, si sceglie la specie e si annulla un errore — provandolo davvero nel santuario."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.titulo",
+    "texto": "Prendersi cura del santuario"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.resumen",
+    "texto": "Nutrire, coccolare, pulire e curare i salvati del santuario — con un recinto sporco e un maiale malato che ti aspettano davvero."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.titulo",
+    "texto": "Recinti e capienza"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.resumen",
+    "texto": "Come si costruisce un recinto, si popola con le sue specie, gli si mettono giocattoli e nomi."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.titulo",
+    "texto": "Correre in pista"
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.resumen",
+    "texto": "La pista della demo, il traguardo, come avviare una gara in sella e la classifica dei record di Pep che puoi battere."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.titulo",
+    "texto": "Pista, rotaia e ottovolante"
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.resumen",
+    "texto": "I tre tipi di tracciato della mappa e come si disegnano nella tua casa."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.titulo",
+    "texto": "Giocare nei campi"
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.resumen",
+    "texto": "Il complesso sportivo della demo: come parte ogni gioco entrando in campo e i punteggi di Pep che puoi migliorare."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.titulo",
+    "texto": "Battaglia di paintball"
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.resumen",
+    "texto": "Come organizzare una battaglia 1v1, 2v2 o campale contro gli assistenti, con tutta la casa come campo di battaglia."
+  },
+  {
+    "clave": "bienvenida.titulo",
+    "texto": "Ti diamo il benvenuto a Mind Planner Home"
+  },
+  {
+    "clave": "bienvenida.paso",
+    "texto": "Passo {n} di {m}"
+  },
+  {
+    "clave": "bienvenida.idioma.titulo",
+    "texto": "In che lingua vuoi la casa?"
+  },
+  {
+    "clave": "bienvenida.idioma.desc",
+    "texto": "Puoi cambiarlo dopo in Impostazioni."
+  },
+  {
+    "clave": "bienvenida.intereses.titulo",
+    "texto": "Cosa vuoi monitorare qui?"
+  },
+  {
+    "clave": "bienvenida.intereses.desc",
+    "texto": "Ogni interesse diventa una stanza della tua casa con la sua app. Scegli quelli che vuoi."
+  },
+  {
+    "clave": "bienvenida.intereses.todas",
+    "texto": "La tua casa ha già tutte le app disponibili."
+  },
+  {
+    "clave": "bienvenida.apariencia.titulo",
+    "texto": "Come vuoi vedere l'interfaccia?"
+  },
+  {
+    "clave": "bienvenida.personaje.titulo",
+    "texto": "Che personaggio vuoi essere?"
+  },
+  {
+    "clave": "bienvenida.personaje.desc",
+    "texto": "Questo sarà il tuo corpo nella casa. Puoi continuare a personalizzarlo dopo nell'editor."
+  },
+  {
+    "clave": "bienvenida.personaje.generando",
+    "texto": "Preparazione delle anteprime…"
+  },
+  {
+    "clave": "bienvenida.asistente.titulo",
+    "texto": "Chi ti accompagna?"
+  },
+  {
+    "clave": "bienvenida.asistente.desc",
+    "texto": "Il tuo assistente parla con te in chat e vive nella mappa."
+  },
+  {
+    "clave": "bienvenida.atras",
+    "texto": "Indietro"
+  },
+  {
+    "clave": "bienvenida.siguiente",
+    "texto": "Avanti"
+  },
+  {
+    "clave": "bienvenida.crear",
+    "texto": "Crea la mia casa"
+  },
+  {
+    "clave": "bienvenida.creando",
+    "texto": "Creazione della tua casa…"
+  },
+  {
+    "clave": "bienvenida.final.titulo",
+    "texto": "La tua casa è pronta!"
+  },
+  {
+    "clave": "bienvenida.cuenta",
+    "texto": "Crea un account o accedi (sincronizza la tua casa)"
+  },
+  {
+    "clave": "bienvenida.guia.desc",
+    "texto": "Tre passi per prenderci la mano."
+  },
+  {
+    "clave": "bienvenida.guia.empezar",
+    "texto": "Inizia"
+  },
+  {
+    "clave": "bienvenida.guia.repetir",
+    "texto": "Ripeti"
+  },
+  {
+    "clave": "bienvenida.guia.salir",
+    "texto": "Vai alla casa"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.titulo",
+    "texto": "Crea una stanza"
+  },
+  {
+    "clave": "bienvenida.guia.cuarto.desc",
+    "texto": "Ti mostro come creare una stanza e assegnarle la sua app."
+  },
+  {
+    "clave": "bienvenida.guia.tour.titulo",
+    "texto": "Visita la tua casa"
+  },
+  {
+    "clave": "bienvenida.guia.tour.desc",
+    "texto": "Un giro tra il menu, il movimento, l'orologio e la chat."
+  },
+  {
+    "clave": "bienvenida.guia.explorar.titulo",
+    "texto": "Esplora da solo"
+  }
+]

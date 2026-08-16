@@ -1,0 +1,122 @@
+[
+  {
+    "clave": "tut.app-cocina--alimentacion.1.texto",
+    "texto": "Na podstawie twojej wagi, wzrostu i aktywności aplikacja wylicza dzienne zapotrzebowanie i dzieli makroskładniki. Pep ma ustawione 2.400 kalorii i wagę docelową, do której brakuje mniej niż kilograma."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.titulo",
+    "texto": "Krok 2: dzisiejsze posiłki"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.2.texto",
+    "texto": "Śniadanie, obiad, kolacja i przekąska: każdy wpis dokłada się do pierścieni dnia. Woda ma własny cel — i to na niego patrzy dom, żeby uznać dzień za zaliczony."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.titulo",
+    "texto": "Krok 3: 74 kilogramy, 67 kilogramów"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.3.texto",
+    "texto": "Krzywa całego roku, z płaskowyżem w miesiącu kontuzji i kilogramem przybranym w Japonii. Niżej widać, w jakim tempie idziesz i kiedy dotrzesz do celu, jeśli tak dalej pójdzie."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.titulo",
+    "texto": "Rok w kolorach"
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.4.texto",
+    "texto": "Zielony to dzień w normie, bursztynowy taki, który trochę przekroczył cel, a czerwony taki, który poszedł zupełnie mimo. Miesiąc podróży widać od razu. Dotknij dowolnego dnia, żeby go otworzyć."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.titulo",
+    "texto": "Diety, nie diety z kolorowych pism"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.1.texto",
+    "texto": "Dieta jest tu planem z przepisami w środku. Pep ma zapisane dwie własne: tydzień maratonu i powrót z Japonii, obok tych, które przychodzą z aplikacją."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.titulo",
+    "texto": "Książka przepisów"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.2.texto",
+    "texto": "Każdy przepis zapisuje składniki, przygotowanie i makroskładniki na porcję, a wszystko układa się w folderach. Z poziomu przepisu możesz zarejestrować posiłek albo wysłać jego składniki na listę zakupów."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.titulo",
+    "texto": "Poproś AI o przepis"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.3.texto",
+    "texto": "Opisz, co chcesz ugotować, a AI ułoży cały przepis wraz ze zdjęciem dania. Robi to AI: włącza się w Edytor › Ustawienia › Konto."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.titulo",
+    "texto": "Z przepisu na listę zakupów"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.4.texto",
+    "texto": "„Utwórz listę” zbiera to, czego brakuje z kilku przepisów, w jedne zakupy: każdy składnik sam zgaduje swoją kategorię (warzywa, nabiał…) i można ją zmienić."
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.titulo",
+    "texto": "Zapisane listy"
+  },
+  {
+    "clave": "tut.app-cocina--recetario.5.texto",
+    "texto": "Każda lista zapisuje to, co zostało do kupienia, i to, co już kupione. Jeśli dopiszesz ceny, rachunek można zarejestrować jako wydatek w Gabinecie."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.titulo",
+    "texto": "Cel wagowy w etapach"
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.2.texto",
+    "texto": "Robi to AI: włącza się w Edytor › Ustawienia › Konto. Bez niej cele tworzy się i edytuje tak samo, tylko ręcznie."
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.titulo",
+    "texto": "Sto punktów, trzy części"
+  },
+  {
+    "clave": "tut.app-descanso--noche.1.texto",
+    "texto": "Czas trwania jest wart pięćdziesiąt, regularna pora snu trzydzieści, a przerwy dwadzieścia. Jeden długi sen nie nadrobi kładzenia się o dziwnych porach przez wszystkie pozostałe dni."
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.titulo",
+    "texto": "Ostatni tydzień"
+  },
+  {
+    "clave": "tut.app-descanso--noche.2.texto",
+    "texto": "Siedem słupków na tle linii twojego celu snu. To widok, który jednym spojrzeniem mówi, czy w tym tygodniu sypiasz tyle, ile chcesz."
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.titulo",
+    "texto": "Cały rok"
+  },
+  {
+    "clave": "tut.app-descanso--noche.3.texto",
+    "texto": "Historia zapisuje się według roku, miesiąca i tygodnia. Zjedź do pierwszych miesięcy Pepa i porównaj je z ostatnimi: pora snu po pierwszej w nocy i pięć godzin snu."
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.titulo",
+    "texto": "Od wpół do dwunastej do siódmej"
+  },
+  {
+    "clave": "tut.app-descanso--horario.1.texto",
+    "texto": "Przeciągnij końce paska, żeby przesunąć porę snu i pobudkę; niebo powyżej zmienia się razem z nimi. Ten blok pojawia się także w kalendarzu, przechodząc przez północ."
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.titulo",
+    "texto": "Budzik i przypomnienia"
+  },
+  {
+    "clave": "tut.app-descanso--horario.2.texto",
+    "texto": "Możesz wybrać dźwięk budzika, poprosić o przypomnienie o śnie i o odłożenie ekranów godzinę wcześniej. Przypomnienia są opcjonalne: tutaj są wyłączone."
+  },
+  {
+    "clave": "tut.app-descanso--horario.3.titulo",
+    "texto": "Zapisz swoją noc"
+  }
+]

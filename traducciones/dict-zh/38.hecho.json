@@ -1,0 +1,506 @@
+[
+ {
+  "clave": "ia.calidad.buena.desc",
+  "texto": "细节更丰富，图片内的文字也更清晰。"
+ },
+ {
+  "clave": "ia.tarifas",
+  "texto": "回复1点 · 长计划3点 · 图片{img} · 3D模型10点。"
+ },
+ {
+  "clave": "ia.precios.pie",
+  "texto": "由服务器负责计费：这是你提出请求前就能看到的预计费用。"
+ },
+ {
+  "clave": "ia.precios.pieSinCuenta",
+  "texto": "使用自己的AI密钥不消耗点数：你直接向服务商付费。"
+ },
+ {
+  "clave": "ia.grupo.chat",
+  "texto": "家庭聊天"
+ },
+ {
+  "clave": "ia.grupo.editor",
+  "texto": "家庭编辑器"
+ },
+ {
+  "clave": "ia.grupo.metas",
+  "texto": "目标与日程"
+ },
+ {
+  "clave": "ia.donde.chat",
+  "texto": "家庭聊天"
+ },
+ {
+  "clave": "ia.donde.casa",
+  "texto": "家（自动）"
+ },
+ {
+  "clave": "ia.donde.editorObjetos",
+  "texto": "编辑器 › 物件"
+ },
+ {
+  "clave": "ia.donde.editorPersonajes",
+  "texto": "编辑器 › 角色"
+ },
+ {
+  "clave": "ia.donde.editorCuarto",
+  "texto": "编辑器 › 地板、墙壁、天花板、门和网格"
+ },
+ {
+  "clave": "ia.donde.editorFondo",
+  "texto": "天空背景"
+ },
+ {
+  "clave": "ia.donde.asistentes",
+  "texto": "助手"
+ },
+ {
+  "clave": "ia.donde.metas",
+  "texto": "食物、运动、图书馆、语言、客厅、爱好、书房、娱乐"
+ },
+ {
+  "clave": "ia.op.chat.mensaje",
+  "texto": "发给助手的消息"
+ },
+ {
+  "clave": "ia.op.chat.modelo3d",
+  "texto": "在聊天中“制作3D…”"
+ },
+ {
+  "clave": "ia.op.chat.modelo3d.nota",
+  "texto": "两次调用：读取指令的回合，加上生成本身。"
+ },
+ {
+  "clave": "ia.op.chat.imagen",
+  "texto": "在聊天中“创建一张…的图片”"
+ },
+ {
+  "clave": "ia.op.chat.mapaIdeas",
+  "texto": "在聊天中“帮我做一张思维导图”"
+ },
+ {
+  "clave": "ia.op.chat.mapaIdeas.nota",
+  "texto": "如果第一次生成不理想，会重试一次。"
+ },
+ {
+  "clave": "ia.op.chat.latido",
+  "texto": "角色的即兴发言"
+ },
+ {
+  "clave": "ia.op.chat.latido.nota",
+  "texto": "仅限订阅用户，且每10次心跳只有1次触发。"
+ },
+ {
+  "clave": "ia.op.editor.objeto3d",
+  "texto": "物件或建筑的3D模型"
+ },
+ {
+  "clave": "ia.op.editor.personaje3d",
+  "texto": "角色的3D模型"
+ },
+ {
+  "clave": "ia.op.editor.ropa3d",
+  "texto": "衣柜服装"
+ },
+ {
+  "clave": "ia.op.editor.asistente3d",
+  "texto": "助手的外形"
+ },
+ {
+  "clave": "ia.op.editor.asistenteVoz",
+  "texto": "助手的AI语音"
+ },
+ {
+  "clave": "ia.op.editor.textura",
+  "texto": "地板、墙壁、天花板、门或地图的贴图"
+ },
+ {
+  "clave": "ia.op.editor.fondo",
+  "texto": "天空背景贴图"
+ },
+ {
+  "clave": "ia.op.metas.plan",
+  "texto": "目标的AI✨计划"
+ },
+ {
+  "clave": "ia.op.metas.plan.nota",
+  "texto": "日程、旅行行程、学习计划和财务计划。"
+ },
+ {
+  "clave": "ia.op.cocina.receta",
+  "texto": "用AI创建食谱"
+ },
+ {
+  "clave": "ia.op.cocina.dieta",
+  "texto": "完整饮食方案或膳食计划"
+ },
+ {
+  "clave": "ia.op.cocina.dieta.nota",
+  "texto": "方案本身和每道菜谱分别生成，每道菜都会配图。"
+ },
+ {
+  "clave": "ia.op.cocina.macros",
+  "texto": "计算热量和营养素"
+ },
+ {
+  "clave": "ia.op.cocina.portada",
+  "texto": "食谱或饮食方案的图片"
+ },
+ {
+  "clave": "ia.donde.cocina.recetario",
+  "texto": "食谱"
+ },
+ {
+  "clave": "ia.donde.cocina.dietas",
+  "texto": "饮食方案 · 膳食计划"
+ },
+ {
+  "clave": "ia.donde.cocina.registro",
+  "texto": "饮食记录"
+ },
+ {
+  "clave": "ia.donde.cocina.detalle",
+  "texto": "食谱或饮食方案详情"
+ },
+ {
+  "clave": "ia.op.ejercicio.imagen",
+  "texto": "为动作绘制插图"
+ },
+ {
+  "clave": "ia.op.ejercicio.lote",
+  "texto": "为缺少插图的动作批量绘制"
+ },
+ {
+  "clave": "ia.op.ejercicio.lote.nota",
+  "texto": "每个缺少插图的动作生成一张图，总数取决于缺失的数量。"
+ },
+ {
+  "clave": "ia.donde.ejercicio.catalogo",
+  "texto": "动作目录"
+ },
+ {
+  "clave": "ia.op.biblioteca.charla",
+  "texto": "与智者聊天的一轮对话"
+ },
+ {
+  "clave": "ia.op.biblioteca.charlaNueva",
+  "texto": "新对话的第一轮"
+ },
+ {
+  "clave": "ia.op.biblioteca.charlaNueva.nota",
+  "texto": "包括回复本身，加上为其命名并放入树状结构的调用，再加上提炼词条的调用。"
+ },
+ {
+  "clave": "ia.op.biblioteca.clasificar",
+  "texto": "对聊天进行分类与提炼✨"
+ },
+ {
+  "clave": "ia.op.biblioteca.ramificar",
+  "texto": "分出新的树枝🌿"
+ },
+ {
+  "clave": "ia.op.biblioteca.destilar",
+  "texto": "离开对话时更新词条"
+ },
+ {
+  "clave": "ia.op.biblioteca.destilar.nota",
+  "texto": "仅在提炼后对话又有新内容时才会触发。"
+ },
+ {
+  "clave": "ia.op.biblioteca.material",
+  "texto": "从词条生成学习资料"
+ },
+ {
+  "clave": "ia.op.biblioteca.ilustrar",
+  "texto": "为词条配图"
+ },
+ {
+  "clave": "ia.donde.biblioteca.charlas",
+  "texto": "对话"
+ },
+ {
+  "clave": "ia.donde.biblioteca.enciclopedia",
+  "texto": "百科全书"
+ },
+ {
+  "clave": "ia.op.idiomas.charla",
+  "texto": "与老师聊天的一轮对话"
+ },
+ {
+  "clave": "ia.op.idiomas.charlaNueva",
+  "texto": "新对话的第一轮"
+ },
+ {
+  "clave": "ia.op.idiomas.charlaNueva.nota",
+  "texto": "包括回复本身，加上将其归入教材大纲的调用。"
+ },
+ {
+  "clave": "ia.op.idiomas.clasificar",
+  "texto": "对聊天进行分类✨"
+ },
+ {
+  "clave": "ia.op.idiomas.extraerTarjetas",
+  "texto": "从对话中提取卡片"
+ },
+ {
+  "clave": "ia.op.idiomas.generarTarjetas",
+  "texto": "为主题生成卡片"
+ },
+ {
+  "clave": "ia.op.idiomas.imagenTarjeta",
+  "texto": "卡片的记忆图像"
+ },
+ {
+  "clave": "ia.donde.idiomas.charlas",
+  "texto": "对话"
+ },
+ {
+  "clave": "ia.donde.idiomas.vocabulario",
+  "texto": "词汇 · 教材"
+ },
+ {
+  "clave": "ia.donde.idiomas.vocabularioRepaso",
+  "texto": "词汇 · 复习"
+ },
+ {
+  "clave": "ia.op.ideas.mapa",
+  "texto": "AI生成的概念图"
+ },
+ {
+  "clave": "ia.op.ideas.mapa.nota",
+  "texto": "如果第一次生成的图不可用，会重试一次，费用加倍。"
+ },
+ {
+  "clave": "ia.op.ideas.expandir",
+  "texto": "更多想法（展开、充实或相关创意）"
+ },
+ {
+  "clave": "ia.donde.ideas.mapas",
+  "texto": "地图与图表 · 头脑风暴"
+ },
+ {
+  "clave": "ia.donde.ideas.diario",
+  "texto": "想法日记 · 想法详情 · 地图画布"
+ },
+ {
+  "clave": "ia.op.entretenimiento.ficha",
+  "texto": "用AI填写词条"
+ },
+ {
+  "clave": "ia.op.entretenimiento.resumen",
+  "texto": "作品简介"
+ },
+ {
+  "clave": "ia.op.entretenimiento.programa",
+  "texto": "剧集、书籍或游戏片单"
+ },
+ {
+  "clave": "ia.donde.entretenimiento.archivo",
+  "texto": "存档"
+ },
+ {
+  "clave": "ia.donde.entretenimiento.programas",
+  "texto": "片单"
+ },
+ {
+  "clave": "ia.op.diario.efemerides",
+  "texto": "当日文化纪事"
+ },
+ {
+  "clave": "ia.op.diario.efemerides.nota",
+  "texto": "每天一次，仅限订阅用户。"
+ },
+ {
+  "clave": "ia.op.diario.reparto",
+  "texto": "助手投递报纸"
+ },
+ {
+  "clave": "ia.op.diario.reparto.nota",
+  "texto": "每次预定配送一次，仅限订阅用户。"
+ },
+ {
+  "clave": "ia.donde.diario",
+  "texto": "报纸（自动）"
+ },
+ {
+  "clave": "ia.op.descanso.evidencia",
+  "texto": "关闭闹钟所需的照片证明"
+ },
+ {
+  "clave": "ia.donde.descanso",
+  "texto": "闹钟"
+ },
+ {
+  "clave": "ia.op.computo.formula",
+  "texto": "根据描述编写公式"
+ },
+ {
+  "clave": "ia.op.computo.explicar",
+  "texto": "逐步讲解或求解"
+ },
+ {
+  "clave": "ia.op.computo.hoja",
+  "texto": "创建带公式的电子表格"
+ },
+ {
+  "clave": "ia.op.computo.analizar",
+  "texto": "解读所选数据"
+ },
+ {
+  "clave": "ia.donde.computo.formulario",
+  "texto": "公式集 · 新建公式"
+ },
+ {
+  "clave": "ia.donde.computo.calculadora",
+  "texto": "计算器"
+ },
+ {
+  "clave": "ia.donde.computo.hojas",
+  "texto": "电子表格 · 新建表格"
+ },
+ {
+  "clave": "chat.cuotaAgotada",
+  "texto": "你已用完本月的AI额度，可在编辑器→设置→账户中查看使用情况。"
+ },
+ {
+  "clave": "chat.sinPro",
+  "texto": "你的账户没有有效订阅。"
+ },
+ {
+  "clave": "cuenta.pago.comprar",
+  "texto": "升级Pro"
+ },
+ {
+  "clave": "cuenta.pago.comprarPrecio",
+  "texto": "升级Pro — {p}/月"
+ },
+ {
+  "clave": "cuenta.pago.renovar",
+  "texto": "续订 — {p}/月"
+ },
+ {
+  "clave": "cuenta.pago.comprarWeb",
+  "texto": "在网页端升级Pro"
+ },
+ {
+  "clave": "cuenta.pago.cancelado",
+  "texto": "购买未完成。"
+ },
+ {
+  "clave": "cuenta.pago.gestionar",
+  "texto": "管理我的订阅"
+ },
+ {
+  "clave": "cuenta.olvide",
+  "texto": "忘记密码了？"
+ },
+ {
+  "clave": "cuenta.olvide.sinCorreo",
+  "texto": "请先在上方输入邮箱。"
+ },
+ {
+  "clave": "cuenta.olvide.enviado",
+  "texto": "我们已发送重置邮件给你。"
+ },
+ {
+  "clave": "cuenta.eliminar",
+  "texto": "删除账户"
+ },
+ {
+  "clave": "cuenta.eliminar.confirma",
+  "texto": "删除账户及服务器上的所有数据吗？此操作无法撤销，本设备上的本地数据会保留。"
+ },
+ {
+  "clave": "cuenta.eliminar.confirma2",
+  "texto": "最后确认：永久删除账户吗？"
+ },
+ {
+  "clave": "cuenta.eliminar.borrando",
+  "texto": "删除中…"
+ },
+ {
+  "clave": "cuenta.renovar.titulo",
+  "texto": "你的订阅已到期"
+ },
+ {
+  "clave": "cuenta.renovar.cuerpo",
+  "texto": "续订后AI和同步会恢复，你的数据仍保留在本设备上。"
+ },
+ {
+  "clave": "cuenta.renovar.cta",
+  "texto": "续订"
+ },
+ {
+  "clave": "cuenta.renovar.corto",
+  "texto": "你的订阅已到期。"
+ },
+ {
+  "clave": "cuenta.cuota.titulo",
+  "texto": "你本月的点数用完了"
+ },
+ {
+  "clave": "cuenta.cuota.tituloSin",
+  "texto": "使用AI需要点数"
+ },
+ {
+  "clave": "cuenta.cuota.cuerpo",
+  "texto": "你的点数将于{f}更新。"
+ },
+ {
+  "clave": "cuenta.cuota.cuerpoLocal",
+  "texto": "应用和数据完全免费，属于你自己。只有AI收费：可以随时充值点数，或订阅每月领取。"
+ },
+ {
+  "clave": "cuenta.cuota.cuerpoVencida",
+  "texto": "你的数据仍保留在本设备上。续订可恢复每月点数和同步，或购买一次性充值。"
+ },
+ {
+  "clave": "cuenta.cuota.recarga",
+  "texto": "+600点 — {p}"
+ },
+ {
+  "clave": "cuenta.cuota.recargaN",
+  "texto": "+{n}点 — {p}"
+ },
+ {
+  "clave": "cuenta.cuota.recargaLista",
+  "texto": "充值已完成：额外点数已到账。"
+ },
+ {
+  "clave": "cuenta.cuota.suscribirse",
+  "texto": "查看订阅"
+ },
+ {
+  "clave": "cuenta.cuota.nativo",
+  "texto": "点数在你的账户中管理。"
+ },
+ {
+  "clave": "cuenta.cuota.web",
+  "texto": "在我的账户购买点数"
+ },
+ {
+  "clave": "cuenta.creditos.faltan",
+  "texto": "你的AI点数用完了。"
+ },
+ {
+  "clave": "comun.entendido",
+  "texto": "知道了"
+ },
+ {
+  "clave": "demo.aviso.titulo",
+  "texto": "你正在体验演示之家"
+ },
+ {
+  "clave": "demo.aviso.cuerpo",
+  "texto": "尽情尝试吧：你可以编辑房子，使用装满Pep一年生活记录的应用。不会保存任何内容——重新加载后，房子会恢复原状。"
+ },
+ {
+  "clave": "demo.aviso.seguir",
+  "texto": "继续探索"
+ },
+ {
+  "clave": "demo.salir",
+  "texto": "退出演示"
+ }
+]

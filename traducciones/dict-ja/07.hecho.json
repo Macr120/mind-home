@@ -1,0 +1,550 @@
+[
+ {
+  "clave": "despacho.patr.efectivoOjo",
+  "texto": "最初からの入出金をすべて記録している場合のみ合います。上ですでに口座を登録しているなら、オフのままにしてください。同じお金を二重に数えることになります。"
+ },
+ {
+  "clave": "despacho.patr.nueva",
+  "texto": "追加"
+ },
+ {
+  "clave": "despacho.patr.vacio",
+  "texto": "まだ何もありません。持っているもの、または借りているものを記録しましょう。"
+ },
+ {
+  "clave": "despacho.patr.phFisico",
+  "texto": "例：マンション、車"
+ },
+ {
+  "clave": "despacho.patr.phLiquido",
+  "texto": "例：給与口座"
+ },
+ {
+  "clave": "despacho.patr.phPasivo",
+  "texto": "例：住宅ローン"
+ },
+ {
+  "clave": "despacho.patr.phMonto",
+  "texto": "金額"
+ },
+ {
+  "clave": "despacho.patr.escrito",
+  "texto": "入力した額"
+ },
+ {
+  "clave": "despacho.patr.porTasas",
+  "texto": "設定した利率から"
+ },
+ {
+  "clave": "despacho.patr.verEscrito",
+  "texto": "入力額のみ表示"
+ },
+ {
+  "clave": "despacho.patr.verEstimado",
+  "texto": "利率を反映して表示"
+ },
+ {
+  "clave": "despacho.patr.detalles",
+  "texto": "時間とともにどう変わるか"
+ },
+ {
+  "clave": "despacho.patr.phTasaActivo",
+  "texto": "年間の増減率 %"
+ },
+ {
+  "clave": "despacho.patr.phTasaPasivo",
+  "texto": "ローン金利 %"
+ },
+ {
+  "clave": "despacho.patr.phPago",
+  "texto": "月々の支払い"
+ },
+ {
+  "clave": "despacho.patr.ayudaTasaActivo",
+  "texto": "車のように価値が下がるならマイナスにします。"
+ },
+ {
+  "clave": "despacho.patr.tasaBanco",
+  "texto": "銀行が提示した年利と、毎月の支払い額です。"
+ },
+ {
+  "clave": "despacho.patr.alAno",
+  "texto": "%／年"
+ },
+ {
+  "clave": "despacho.patr.cuota",
+  "texto": "{n}／月"
+ },
+ {
+  "clave": "despacho.patr.eran",
+  "texto": "以前は{n}"
+ },
+ {
+  "clave": "despacho.patr.editar",
+  "texto": "この項目を編集"
+ },
+ {
+  "clave": "despacho.patr.monto",
+  "texto": "価値"
+ },
+ {
+  "clave": "despacho.patr.fechaValor",
+  "texto": "開始日"
+ },
+ {
+  "clave": "despacho.patr.tasaActivo",
+  "texto": "年間の上昇率 %"
+ },
+ {
+  "clave": "despacho.patr.tasaPasivo",
+  "texto": "年利 %"
+ },
+ {
+  "clave": "despacho.patr.pagoMensual",
+  "texto": "月々の支払い"
+ },
+ {
+  "clave": "despacho.patr.borrar",
+  "texto": "削除"
+ },
+ {
+  "clave": "despacho.patr.borrarTitulo",
+  "texto": "この項目を削除しますか？"
+ },
+ {
+  "clave": "despacho.patr.borrarMsg",
+  "texto": "「{n}」は純資産の計算に含まれなくなります。"
+ },
+ {
+  "clave": "despacho.patr.borrarOk",
+  "texto": "削除"
+ },
+ {
+  "clave": "despacho.patr.hoy",
+  "texto": "今日"
+ },
+ {
+  "clave": "despacho.patr.deMeta",
+  "texto": "「{n}」に連携"
+ },
+ {
+  "clave": "despacho.patr.metaIda",
+  "texto": "連携先の目標は削除されました"
+ },
+ {
+  "clave": "despacho.patr.metaIdaSoltar",
+  "texto": "連携先の目標は削除されました。タップして連携を解除してください。"
+ },
+ {
+  "clave": "despacho.patr.montoOriginal",
+  "texto": "当初の借入額"
+ },
+ {
+  "clave": "despacho.patr.valorAparte",
+  "texto": "別枠の価値"
+ },
+ {
+  "clave": "despacho.patr.abonarEnMetas",
+  "texto": "目標›借金で払う"
+ },
+ {
+  "clave": "despacho.patr.aportarEnMetas",
+  "texto": "目標で積み立てる"
+ },
+ {
+  "clave": "despacho.patr.desenlazar",
+  "texto": "目標との連携を解除しますか？"
+ },
+ {
+  "clave": "despacho.patr.desenlazarMsg",
+  "texto": "再びそれぞれ独立した項目になります。この項目は{n}のまま残り、目標は単独で続きます。"
+ },
+ {
+  "clave": "despacho.patr.desenlazarOk",
+  "texto": "解除"
+ },
+ {
+  "clave": "despacho.patr.soltar",
+  "texto": "解除"
+ },
+ {
+  "clave": "despacho.patr.crearMetaDeuda",
+  "texto": "借金の目標として追跡する"
+ },
+ {
+  "clave": "despacho.patr.crearMetaAhorro",
+  "texto": "貯蓄の目標として追跡する"
+ },
+ {
+  "clave": "despacho.patr.enlazarMeta",
+  "texto": "すでにある目標と連携する…"
+ },
+ {
+  "clave": "despacho.patr.objetivoTitulo",
+  "texto": "どこまで到達したいですか？"
+ },
+ {
+  "clave": "despacho.patr.objetivoMsg",
+  "texto": "すでにここには{n}あります。"
+ },
+ {
+  "clave": "despacho.meta.verEnPasivos",
+  "texto": "純資産›負債で見る"
+ },
+ {
+  "clave": "despacho.meta.verEnActivos",
+  "texto": "純資産›資産で見る"
+ },
+ {
+  "clave": "despacho.meta.anadirAPasivos",
+  "texto": "負債に追加する（金利と期間つき）"
+ },
+ {
+  "clave": "despacho.meta.anadirAActivos",
+  "texto": "資産に追加する（利回りつき）"
+ },
+ {
+  "clave": "despacho.tab.simulacion",
+  "texto": "予測"
+ },
+ {
+  "clave": "despacho.sim.sinDatos",
+  "texto": "まだ予測するものがありません。資産に持っているもの、負債に借りているものを記録して利率を設定すると、ここでその行方が見えます。"
+ },
+ {
+  "clave": "despacho.sim.netoHoy",
+  "texto": "今日の純資産"
+ },
+ {
+  "clave": "despacho.sim.netoFinal",
+  "texto": "{n}か月後"
+ },
+ {
+  "clave": "despacho.sim.interesesFuturos",
+  "texto": "今後支払う利息"
+ },
+ {
+  "clave": "despacho.sim.aportado",
+  "texto": "積み立てる予定額"
+ },
+ {
+  "clave": "despacho.sim.horizonte",
+  "texto": "予測期間（か月）"
+ },
+ {
+  "clave": "despacho.sim.inflacion",
+  "texto": "年間インフレ率 %"
+ },
+ {
+  "clave": "despacho.sim.dineroDeHoy",
+  "texto": "今日の価値で見る"
+ },
+ {
+  "clave": "despacho.sim.dineroDeHoyAyuda",
+  "texto": "インフレの影響を差し引きます。紙幣の枚数ではなく、そのお金が実際にどれだけの価値を持つかを示します。"
+ },
+ {
+  "clave": "despacho.sim.flujoMensual",
+  "texto": "毎月の貯蓄額を加える"
+ },
+ {
+  "clave": "despacho.sim.flujoAyuda",
+  "texto": "記録から：毎月{i}が入り、{g}が出ています。"
+ },
+ {
+  "clave": "despacho.sim.crecIngreso",
+  "texto": "収入の年間上昇率 %"
+ },
+ {
+  "clave": "despacho.sim.crecGasto",
+  "texto": "支出の年間上昇率 %"
+ },
+ {
+  "clave": "despacho.sim.pagosYaEnGastos",
+  "texto": "借金の返済はすでにその支出に含まれている"
+ },
+ {
+  "clave": "despacho.sim.pagosDeudaMes",
+  "texto": "借金は毎月{n}かかります。支出として記録していない場合は、これをオフにすると別枠で差し引かれます。"
+ },
+ {
+  "clave": "despacho.sim.activos",
+  "texto": "資産"
+ },
+ {
+  "clave": "despacho.sim.pasivos",
+  "texto": "負債"
+ },
+ {
+  "clave": "despacho.sim.neto",
+  "texto": "純資産"
+ },
+ {
+  "clave": "despacho.sim.hoy",
+  "texto": "今日"
+ },
+ {
+  "clave": "despacho.sim.hitoLiquidas",
+  "texto": "「{n}」は{f}で完済します"
+ },
+ {
+  "clave": "despacho.sim.hitoPositivo",
+  "texto": "{f}に純資産がマイナスでなくなります"
+ },
+ {
+  "clave": "despacho.sim.hitoDoble",
+  "texto": "{f}に純資産が2倍になります"
+ },
+ {
+  "clave": "despacho.sim.noBaja",
+  "texto": "「{n}」は月々{p}では減りません。利息だけで{i}かかるためです。"
+ },
+ {
+  "clave": "despacho.sim.creceSinPago",
+  "texto": "「{n}」には利率が設定されていますが月々の支払いがないため、増える一方です。"
+ },
+ {
+  "clave": "despacho.sim.avisoCorta",
+  "texto": "これは予測であり、約束ではありません。"
+ },
+ {
+  "clave": "despacho.sim.controles",
+  "texto": "シナリオを調整"
+ },
+ {
+  "clave": "despacho.periodo.anterior",
+  "texto": "前の期間"
+ },
+ {
+  "clave": "despacho.periodo.siguiente",
+  "texto": "次の期間"
+ },
+ {
+  "clave": "despacho.sim.aviso",
+  "texto": "入力した利率から算出しています。シナリオを比較するためのもので、実際に何が起こるかを示すものではありません。"
+ },
+ {
+  "clave": "despacho.meta.hasPuesto",
+  "texto": "{n}を積み立て済み"
+ },
+ {
+  "clave": "despacho.meta.pediste",
+  "texto": "{n}を借入済み"
+ },
+ {
+  "clave": "despacho.meta.valenHoy",
+  "texto": "現在{n}の価値"
+ },
+ {
+  "clave": "despacho.meta.debesHoy",
+  "texto": "現在{n}を借りている"
+ },
+ {
+  "clave": "despacho.meta.deRendimiento",
+  "texto": "利回り分"
+ },
+ {
+  "clave": "despacho.meta.deIntereses",
+  "texto": "利息分"
+ },
+ {
+  "clave": "despacho.meta.tasaPuesta",
+  "texto": "年{n}%"
+ },
+ {
+  "clave": "despacho.meta.ponerTasaDeuda",
+  "texto": "利率を設定する"
+ },
+ {
+  "clave": "despacho.meta.ponerTasaAhorro",
+  "texto": "利回りを設定する"
+ },
+ {
+  "clave": "despacho.meta.tasaDeuda",
+  "texto": "年利 %"
+ },
+ {
+  "clave": "despacho.meta.tasaAhorro",
+  "texto": "年間利回り %"
+ },
+ {
+  "clave": "despacho.meta.desde",
+  "texto": "開始日"
+ },
+ {
+  "clave": "despacho.meta.ayudaTasaDeuda",
+  "texto": "銀行が提示した利率です。記録した支払いはその日から利息の対象外になります。"
+ },
+ {
+  "clave": "despacho.meta.ayudaTasaAhorro",
+  "texto": "各積立は最初からではなく、行った日から利回りが発生します。"
+ },
+ {
+  "clave": "despacho.meta.movs",
+  "texto": "記録（{n}件）"
+ },
+ {
+  "clave": "despacho.meta.borrarTitulo",
+  "texto": "この目標を削除しますか？"
+ },
+ {
+  "clave": "despacho.meta.borrarMsg",
+  "texto": "「{n}」は削除されますが、記録は連携が解除された状態で履歴に残ります。"
+ },
+ {
+  "clave": "despacho.meta.borrarOk",
+  "texto": "削除"
+ },
+ {
+  "clave": "despacho.meta.deshacer",
+  "texto": "この支払いを取り消す"
+ },
+ {
+  "clave": "despacho.metas.disponible",
+  "texto": "今月使える額"
+ },
+ {
+  "clave": "despacho.metas.disponibleDetalle",
+  "texto": "収入{i} − 支出{g}"
+ },
+ {
+  "clave": "despacho.plan.titulo",
+  "texto": "目標"
+ },
+ {
+  "clave": "despacho.plan.desc",
+  "texto": "大きな目標を時間軸の上に。✨でAIが積み立てプランを組み立てます。"
+ },
+ {
+  "clave": "despacho.plan.ejAhorro",
+  "texto": "緊急資金"
+ },
+ {
+  "clave": "despacho.plan.material",
+  "texto": "お金の出どころ"
+ },
+ {
+  "clave": "despacho.plan.ejDeuda",
+  "texto": "クレジットカードを完済する"
+ },
+ {
+  "clave": "despacho.calc.titulo",
+  "texto": "お金の計算ツール"
+ },
+ {
+  "clave": "despacho.calc.tab.fondoEmergencia",
+  "texto": "緊急資金"
+ },
+ {
+  "clave": "despacho.calc.tab.libertadFinanciera",
+  "texto": "経済的自立"
+ },
+ {
+  "clave": "despacho.calc.tab.reglaCincuenta",
+  "texto": "50/30/20"
+ },
+ {
+  "clave": "despacho.calc.tab.reglaAuto",
+  "texto": "車の20/4/10ルール"
+ },
+ {
+  "clave": "despacho.calc.crearMeta",
+  "texto": "この金額で目標を作る"
+ },
+ {
+  "clave": "despacho.calc.metaCreada",
+  "texto": "目標を作成しました — 上で確認できます"
+ },
+ {
+  "clave": "despacho.calc.gastoEsencial",
+  "texto": "月々の必須支出"
+ },
+ {
+  "clave": "despacho.calc.mesesColchon",
+  "texto": "備えたい月数"
+ },
+ {
+  "clave": "despacho.calc.fondoObjetivo",
+  "texto": "目標額"
+ },
+ {
+  "clave": "despacho.calc.fondoNota",
+  "texto": "{g} × {n}か月"
+ },
+ {
+  "clave": "despacho.calc.nombreFondo",
+  "texto": "緊急資金"
+ },
+ {
+  "clave": "despacho.calc.gastoDeseado",
+  "texto": "希望する月々の支出"
+ },
+ {
+  "clave": "despacho.calc.tasaRetiro",
+  "texto": "安全な引き出し率 %"
+ },
+ {
+  "clave": "despacho.calc.libertadObjetivo",
+  "texto": "必要な投資額"
+ },
+ {
+  "clave": "despacho.calc.libertadNota",
+  "texto": "年間支出 × {n}"
+ },
+ {
+  "clave": "despacho.calc.nombreLibertad",
+  "texto": "経済的自立"
+ },
+ {
+  "clave": "despacho.calc.ingresoMensual",
+  "texto": "月収"
+ },
+ {
+  "clave": "despacho.calc.pctNecesidades",
+  "texto": "必需品 %"
+ },
+ {
+  "clave": "despacho.calc.pctCaprichos",
+  "texto": "欲しいもの %"
+ },
+ {
+  "clave": "despacho.calc.pctAhorro",
+  "texto": "貯蓄 %"
+ },
+ {
+  "clave": "despacho.calc.noSuman100",
+  "texto": "割合の合計が{n}%になっています。100%ではありません。"
+ },
+ {
+  "clave": "despacho.calc.necesidades",
+  "texto": "必需品"
+ },
+ {
+  "clave": "despacho.calc.caprichos",
+  "texto": "欲しいもの"
+ },
+ {
+  "clave": "despacho.calc.ahorroTxt",
+  "texto": "貯蓄"
+ },
+ {
+  "clave": "despacho.calc.nombreCaprichos",
+  "texto": "自由に使える予算"
+ },
+ {
+  "clave": "despacho.calc.precioAuto",
+  "texto": "車の価格"
+ },
+ {
+  "clave": "despacho.calc.pctEnganche",
+  "texto": "頭金 %"
+ },
+ {
+  "clave": "despacho.calc.plazoMax",
+  "texto": "最長期間（か月）"
+ },
+ {
+  "clave": "despacho.calc.pctIngresoAuto",
+  "texto": "収入に対する上限 %"
+ }
+]

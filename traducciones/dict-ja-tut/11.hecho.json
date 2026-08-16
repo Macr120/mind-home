@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "これがPepさんの日記です。1年分、週に2〜3件のエントリー。始まりのうんざりした気持ちから2週間前のマラソンまで、1年の流れがすべてここにあります。"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "書き方"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "その日の気分を選び、よければタイトルをつけて、書いて、写真を添えます。写真だけでも大丈夫。文章はなくてもかまいません。"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "色で見る1年"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "一日一日がその日の気分の色で塗られます。7か月目の落ち込み（ケガ）と、日本がどれだけ明るく見えるかを見てください。日をタップすると、その日のエントリーだけが残ります。"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "フォルダの履歴"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "エントリーは年・月・週のフォルダに自動でしまわれます。日本の週を開いて、旅を丸ごと読んでみてください。"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "Pepさんの1年の節目には写真がついています。中古のキーボード、Laikaが来た日、日本からの絵はがき2枚、そしてマラソンのメダル。"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "履歴で探す"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "2か月目（キーボード）、9か月目（日本）、2週間前（メダル）を開いてみてください。写真をタップすると全画面で開きます。"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "エントリーを書くたびに連続記録が伸び、キャラクターが目を覚まします。ここに書くことも、家のお世話のひとつです。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "積み重ねた落ち着き"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "練習の1分1分がこの庭を潤します。Pepさんの庭は1年かけて、種から静かな森になりました。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "音とともに瞑想"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "サウンドトラック（森の音、波の音、雨、チベタンシンギングボウル）と時間を選びます。鐘だけの静かな瞑想もできます。セッションは終わると自動で保存されます。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "1年分のセッション"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "これがPepさんの1年です。週3回から始まり、7か月目——ケガと車の出費——にはほぼ毎日になりました。あの落ち込みを支えたのはこれでした。"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "呼吸法"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "ガイド付きのパターンが2つ。落ち着きたいときは「ボックス呼吸法 4-4-4-4」、一日を手放したいときは「4-7-8呼吸法」。画面が一緒に呼吸します。"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "今日感謝すること…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "1日に3行。ひとつで十分、3つならもっといい。1日1件が保存され、あとからでも直せます。"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "Pepさんの記録"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "90日分の本当の感謝が並びます。キーボード、ノートの上で眠るLaika、治っていくひざ、日本から帰ってきたこと。ゆっくり読んでみてください。"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "この部屋には連続記録がなく、休んでも責められません。わざとそうしています。落ち着きは競うものではありません。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "趣味ふたつ、1年"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "Pepさんが記録したのは2つ。ピアノ（その年のプロジェクト、週4日の目標）と天体写真です。カードには今週の様子と連続記録が出ます。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "ピアノの中身"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "連続記録、最長記録、合計、活動日数、1日平均。鍵盤と過ごした1年——日本での正直な中断つきで。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "ヒートマップ"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "四角ひとつが1日です。2か月目の始まり、7か月目の落ち込みをピアノが支えたこと、日本での3週間の空白が見えます。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "セッション"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "練習ごとに分数が残り、多くにはメモもついています。「手が痛い」から「Clair de Lune」を通しで弾けるまで。"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "プロジェクト"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "目的のある練習です。最初の1曲（5か月目に完成）と「Clair de Lune」、1週間前に家族の前で弾きました。"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "ピアノのプロジェクト"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "プロジェクトは、そこに使ったセッションをまとめます。何回で何分になったかが、ここで分かります。"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "写真で見る進捗"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "「Clair de Lune」には書き込みのある楽譜が残っています。天体写真では、満月12回のプロジェクトがその年のベストショットを集めています。"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "セッションはチャットからも記録できます（「ピアノを30分練習した」）。プロジェクトの目標はプランナーで計画できます。"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "趣味を登録する"
+  }
+]

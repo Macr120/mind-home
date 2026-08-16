@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "In de header van elke app zit de knop Doelen, net als die in de kalender maar dan beperkt tot deze app. Hij opent een paneel met twee lagen: bovenaan de checklist van vandaag, eronder de doelen en plannen van de app."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "De eigen doelen van de app (water, calorieën), wat je vandaag in de kalender hebt ingepland, en de stappen van je lopende doelen: alles samen, gegroepeerd onder het plan of doel waar elke stap vandaan komt."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "En als je iets mist, maakt «Nieuwe checklist» je eigen lijst: een lijst van deze app die elke dag terugkomt. Onder de sectie Vandaag staat de volledige planner — Doelen, Plannen en Planning — met alle doelen van de app."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "De doelen van je hobby's en projecten leven in de knop Doelen in de header: dezelfde planner Doelen · Plannen · Planning uit de kalender, beperkt tot deze app. Vraag de AI om een plan met fases en data."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "Doelen leven in de knop Doelen in de header, de planning van de kalender zelf: «thermodynamica afronden vóór het tentamen» is al gehaald; de voorbereiding op de master loopt nog."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "De knop Doelen in de header bewaart de vier behaalde doelen — de 5K, de 10K, de halve marathon en de marathon — en het doel dat nog open staat. Doelen met een datum verschijnen ook in de huiskalender."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "De knop Doelen in de header opent dezelfde planning die de huiskalender gebruikt, beperkt tot de doelen van de Keuken: maak een doel aan (bijv. «3 kilo afvallen») en vraag de AI om het plan — die vraagt je streefdatum en plant subdoelen met hun eigen datum."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "De knop Doelen in de header bewaart deze doelen op de tijdlijn: geef er eentje een datum en het verschijnt tussen je kalenderdagen. Met ✨ stelt de AI een spaarplan voor."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "Het opgeslagen programma leeft in de knop Doelen in de header: elke titel bewaart zijn notitie over waarom hij op de lijst staat, en als je er een datum aan geeft, komt hij net als elk ander doel in de kalender terecht."
+  }
+]

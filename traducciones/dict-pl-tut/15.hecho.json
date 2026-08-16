@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "Tablica"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "Te same zadania w trzech kolumnach: Do zrobienia, W trakcie i Zrobione. Przytrzymaj kartę, żeby przeciągnąć ją do innej kolumny — upuszczenie jej w „Zrobione” odhacza ją także w kalendarzu — albo przesuń ją strzałkami."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "Rok kolana"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "Dietetyk co kilka miesięcy, stomatologia i sześć sesji fizjoterapii w 7. miesiącu: kontuzja, która zatrzymała Pepa, jest zapisana właśnie tutaj."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "Leki"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "Każdy lek tworzy w kalendarzu jeden blok na dawkę. Lek przeciwzapalny po kontuzji trwał trzy tygodnie i trafił do archiwum; witamina wciąż jest w użyciu."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "Laika"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "Kotka ma własną kartę z wagą i weterynarzem, a do tego swoją opiekę z okresem: szczepienie co roku, odrobaczanie co trzy miesiące, kąpiel co miesiąc. Gdy oznaczysz je jako zrobione, następny termin wylicza się sam."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "Krąg Pepa"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "Rodzina, przyjaciele, ludzie z pracy i ze studiów — każdy w swoim folderze. Z telefonem, adresem i tym, czego nie chcesz zapomnieć."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "Urodziny, o których się nie zapomina"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "Gdy zapiszesz datę urodzenia, urodziny powtarzają się co roku w kalendarzu i przypominają o sobie. Wiek aplikacja wylicza sama."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "Plany z ludźmi wiążą się z ich kontaktem: dzięki temu widzisz datę ostatniego spotkania z daną osobą."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "Rok w trzech liczbach"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "Aktywna seria liczy kolejne dni z jakimkolwiek wpisem, a Zgodność zestawia dni aktywności z tymi, które sobie założono. Na początku roku dwie przecznice truchtem były dla Pepa poza zasięgiem."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "Trzy dyscypliny"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "Paski mierzą twój dorobek na tle celów: sesje siłowe, minuty wytrzymałości i minuty elastyczności. Cel dostosowuje się do okresu wybranego u góry."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "Cele roku"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "Katalog, rutyny i postęp"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "Każda dyscyplina jest ułożona tak samo: katalog ćwiczeń, twoje rutyny z ich historią i postęp. Zacznijmy od tego, co Pep ma już za sobą w bieganiu."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "Każdy bieg zostaje zapisany"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "Historia grupuje się według roku, miesiąca i tygodnia. Duże biegi zachowują dodatkowo ślad trasy i jej odcinki: tam jest maraton, ze swoimi odcinkami co dziesięć kilometrów."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "Mapa aktywności nie kłamie"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "Puste miejsca też opowiadają tę historię: miesiąc kontuzji kolana jest pusty, a trzy tygodnie w Japonii prawie. Obok widać łączne km, najdłuższą i najlepsze tempo."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "Serie, powtórzenia i ciężar"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "Każda sesja zapisuje swoje ćwiczenia razem z podniesionym ciężarem. Aplikacja sama pamięta, ile było ostatnim razem, więc nie trzeba tego szukać, i sumuje objętość całego dnia."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "Krzywa całego roku"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "Wybierz ćwiczenie, a zobaczysz, jak rosło: przysiad Pepa poszedł z czterdziestu kilogramów na siedemdziesiąt. W miesiącu kontuzji trenowano tylko górne partie ciała, a ta krzywa nawet tego nie zauważyła."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "Twoje rekordy, bez proszenia"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "Przy każdym ćwiczeniu zapisuje się najlepszy ciężar, maks. powtórzeń i szacowane 1RM. Te z masą ciała, jak podciągnięcia, są oznaczone osobno."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "Krok 1: dokąd zmierzasz"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "es": "En el encabezado de cada app vive su botón Metas, como el del calendario pero acotado a esta app. Abre su panel con dos pisos: arriba la checklist de hoy, debajo sus metas y planes.",
+    "en": "In every app's header, next to the music button, lives its daily checklist chip: it only carries the day's count and it's born closed, so it doesn't eat up the screen."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "es": "Los objetivos propios de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo junto, agrupado bajo el plan o la meta del que sale cada paso.",
+    "en": "The app's own targets (water, calories), what you scheduled for today in the calendar, and the steps from your active goals: all together, grouped under the plan or the goal each step comes from."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "es": "Y si te falta algo, «Nueva checklist» crea la tuya: una lista propia de esta app que se repite cada día. Debajo de la sección Hoy está el planificador completo — Metas, Planes y Cronograma — con todas las metas de la app.",
+    "en": "And if something's missing, «New checklist» creates your own: a list of this app's that repeats every day. At the foot of the panel you hide what's finished or turn the whole checklist off in the apps where you don't want it."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "es": "Las metas de tus hobbies y proyectos viven en el botón Metas del encabezado: el mismo planificador Metas · Planes · Cronograma del calendario, acotado a esta app. Pídele a la IA un plan con fases y fechas.",
+    "en": "The goals of your hobbies and projects live in the Goals button of the header: the same Goals · Plans · Timeline planner from the calendar, scoped to this app. Ask the AI for a plan with phases and dates."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "es": "Las metas viven en el botón Metas del encabezado, el mismo cronograma del calendario: «terminar termodinámica antes del parcial» ya está cumplida; preparar el posgrado sigue en curso.",
+    "en": "Goals live in the Goals button of the header, the calendar's own timeline: «finish thermodynamics before the midterm» is already done; preparing for grad school is still going."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "es": "El botón Metas del encabezado guarda sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.",
+    "en": "The Goals button in the header keeps the four goals Pep@ ticked off — the 5K, the 10K, the half marathon and the marathon — plus the one still open. Goals with a date also show up in the house calendar."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "es": "El botón Metas del encabezado abre el mismo cronograma que usa el calendario de la casa, acotado a las metas de Cocina: crea una meta (p. ej. «Bajar 3 kilos») y pídele el plan a la IA — pregunta tu fecha objetivo y agenda sub-metas con su fecha.",
+    "en": "The Goals button in the header opens the same timeline the home calendar uses, scoped to Kitchen's goals: create a goal (e.g. \"Lose 3 kilos\") and ask the AI for the plan — it asks your target date and schedules sub-goals with their own date."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "es": "El botón Metas del encabezado guarda estas metas sobre el eje del tiempo: le pones fechas a una y aparece entre tus días del calendario. Con ✨ la IA propone el plan de aportaciones.",
+    "en": "The Goals button in the header keeps these goals on the timeline: give one dates and it shows up among your calendar days. With ✨ the AI suggests the payment plan."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "es": "El programa guardado vive en el botón Metas del encabezado: cada título guarda su nota de por qué está en la lista, y si le pones fechas baja al calendario como cualquier otra meta.",
+    "en": "The saved program lives in the Goals button of the header: each title keeps its note about why it is on the list, and if you give it dates it drops into the calendar like any other goal."
+  }
+]

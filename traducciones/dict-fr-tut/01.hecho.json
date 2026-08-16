@@ -1,0 +1,38 @@
+[
+  {
+    "clave": "tut.hoy.1.texto",
+    "texto": "Dans l'en-tête de chaque appli vit son bouton Objectifs, comme celui du calendrier mais limité à cette appli. Il ouvre un panneau à deux étages : en haut la checklist du jour, en dessous ses objectifs et ses plans."
+  },
+  {
+    "clave": "tut.hoy.2.texto",
+    "texto": "Les objectifs propres à l'appli (l'eau, les calories), ce que tu as programmé pour aujourd'hui dans le calendrier et les étapes de tes objectifs en cours : tout ensemble, regroupé sous le plan ou l'objectif dont vient chaque étape."
+  },
+  {
+    "clave": "tut.hoy.7.texto",
+    "texto": "Et s'il te manque quelque chose, « Nouvelle checklist » crée la tienne : une liste propre à cette appli qui se répète chaque jour. Sous la section Aujourd'hui se trouve le planificateur complet — Objectifs, Plans et Planning — avec tous les objectifs de l'appli."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.4.texto",
+    "texto": "Les objectifs de tes loisirs et de tes projets vivent dans le bouton Objectifs de l'en-tête : le même planificateur Objectifs · Plans · Planning du calendrier, limité à cette appli. Demande à l'IA un plan avec des phases et des dates."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.texto",
+    "texto": "Les objectifs vivent dans le bouton Objectifs de l'en-tête, le planning du calendrier lui-même : « finir la thermodynamique avant le partiel » est déjà atteint ; préparer le master est encore en cours."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.texto",
+    "texto": "Le bouton Objectifs de l'en-tête garde ses quatre objectifs cochés — le 5 km, le 10 km, le semi-marathon et le marathon — et celui qui reste en cours. Les objectifs avec une date apparaissent aussi dans le calendrier de la maison."
+  },
+  {
+    "clave": "tut.app-cocina--cronograma.1.texto",
+    "texto": "Le bouton Objectifs de l'en-tête ouvre le même planning que celui du calendrier de la maison, limité aux objectifs de la Cuisine : crée un objectif (par ex. « Perdre 3 kilos ») et demande le plan à l'IA — elle demande ta date cible et programme des sous-objectifs avec leur propre date."
+  },
+  {
+    "clave": "tut.app-despacho--metas.2.texto",
+    "texto": "Le bouton Objectifs de l'en-tête garde ces objectifs sur l'axe du temps : tu mets des dates sur l'un d'eux et il apparaît parmi tes jours du calendrier. Avec ✨ l'IA propose le plan de versements."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.texto",
+    "texto": "Le programme enregistré vit dans le bouton Objectifs de l'en-tête : chaque titre garde sa note sur pourquoi il est dans la liste, et si tu lui mets des dates il descend dans le calendrier comme n'importe quel autre objectif."
+  }
+]

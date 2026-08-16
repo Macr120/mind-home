@@ -1,0 +1,1268 @@
+[
+  {
+    "clave": "ajustes.idioma",
+    "es": "Idioma",
+    "en": "Language"
+  },
+  {
+    "clave": "diario.nacidoAbrev",
+    "es": "n.",
+    "en": "b."
+  },
+  {
+    "clave": "ajustes.tema",
+    "es": "Tema de la interfaz",
+    "en": "Interface theme"
+  },
+  {
+    "clave": "ajustes.modo",
+    "es": "Apariencia",
+    "en": "Appearance"
+  },
+  {
+    "clave": "ajustes.modo.claro",
+    "es": "Claro",
+    "en": "Light"
+  },
+  {
+    "clave": "ajustes.modo.oscuro",
+    "es": "Oscuro",
+    "en": "Dark"
+  },
+  {
+    "clave": "ajustes.modo.transparente",
+    "es": "Transparente",
+    "en": "Transparent"
+  },
+  {
+    "clave": "ajustes.iconos",
+    "es": "Estilo de iconos",
+    "en": "Icon style"
+  },
+  {
+    "clave": "ajustes.iconos.emoji",
+    "es": "Emojis",
+    "en": "Emojis"
+  },
+  {
+    "clave": "ajustes.iconos.profesional",
+    "es": "Profesional",
+    "en": "Professional"
+  },
+  {
+    "clave": "ajustes.tipografia",
+    "es": "Tipografía",
+    "en": "Typography"
+  },
+  {
+    "clave": "ajustes.abrir",
+    "en": "Settings"
+  },
+  {
+    "clave": "tipografia.sistema",
+    "en": "System"
+  },
+  {
+    "clave": "tipografia.serif",
+    "en": "Serif"
+  },
+  {
+    "clave": "tipografia.mono",
+    "en": "Monospace"
+  },
+  {
+    "clave": "tipografia.redondeada",
+    "en": "Rounded"
+  },
+  {
+    "clave": "tipografia.manuscrita",
+    "en": "Handwritten"
+  },
+  {
+    "clave": "temaUI.medianoche",
+    "en": "Midnight"
+  },
+  {
+    "clave": "temaUI.neon",
+    "en": "Neon"
+  },
+  {
+    "clave": "temaUI.bosque",
+    "en": "Forest"
+  },
+  {
+    "clave": "temaUI.ambar",
+    "en": "Amber"
+  },
+  {
+    "clave": "temaUI.ciruela",
+    "en": "Plum"
+  },
+  {
+    "clave": "room.cocina.nombre",
+    "en": "Kitchen"
+  },
+  {
+    "clave": "room.ejercicio.nombre",
+    "en": "Gym"
+  },
+  {
+    "clave": "room.recamara.nombre",
+    "en": "Bedroom"
+  },
+  {
+    "clave": "room.descanso.nombre",
+    "en": "Bed · Rest"
+  },
+  {
+    "clave": "room.anecdotario.nombre",
+    "en": "Desk · Journal"
+  },
+  {
+    "clave": "room.despacho.nombre",
+    "en": "Office"
+  },
+  {
+    "clave": "room.biblioteca.nombre",
+    "en": "Library"
+  },
+  {
+    "clave": "room.entretenimiento.nombre",
+    "en": "Entertainment"
+  },
+  {
+    "clave": "room.sala.nombre",
+    "en": "Living room"
+  },
+  {
+    "clave": "room.jardin.nombre",
+    "en": "Garden"
+  },
+  {
+    "clave": "room.garage.nombre",
+    "en": "Garage"
+  },
+  {
+    "clave": "room.diario.nombre",
+    "en": "Daily news"
+  },
+  {
+    "clave": "room.hobbies.nombre",
+    "en": "Hobbies"
+  },
+  {
+    "clave": "room.idiomas.nombre",
+    "en": "Languages"
+  },
+  {
+    "clave": "room.caminos.nombre",
+    "es": "Circuitos",
+    "en": "Circuits"
+  },
+  {
+    "clave": "room.canchas.nombre",
+    "es": "Canchas",
+    "en": "Courts"
+  },
+  {
+    "clave": "room.huerto.nombre",
+    "es": "Comida",
+    "en": "Food"
+  },
+  {
+    "clave": "room.granja.nombre",
+    "es": "Granja",
+    "en": "Farm"
+  },
+  {
+    "clave": "room.ideas.nombre",
+    "en": "Ideas"
+  },
+  {
+    "clave": "room.computo.nombre",
+    "en": "Computing"
+  },
+  {
+    "clave": "room.agenda.nombre",
+    "en": "Schedule"
+  },
+  {
+    "clave": "room.cocina.sub",
+    "en": "Nutrition"
+  },
+  {
+    "clave": "room.ejercicio.sub",
+    "en": "Strength & fitness routines"
+  },
+  {
+    "clave": "room.recamara.sub",
+    "en": "Sleep & anecdotes"
+  },
+  {
+    "clave": "room.descanso.sub",
+    "en": "Sleep & alarm"
+  },
+  {
+    "clave": "room.anecdotario.sub",
+    "en": "Personal journal"
+  },
+  {
+    "clave": "room.despacho.sub",
+    "en": "Finance"
+  },
+  {
+    "clave": "room.biblioteca.sub",
+    "en": "Learning"
+  },
+  {
+    "clave": "room.entretenimiento.sub",
+    "en": "Archive & board games"
+  },
+  {
+    "clave": "room.sala.sub",
+    "en": "Trips"
+  },
+  {
+    "clave": "room.jardin.sub",
+    "en": "Mindfulness"
+  },
+  {
+    "clave": "room.garage.sub",
+    "en": "Vehicle maintenance"
+  },
+  {
+    "clave": "room.diario.sub",
+    "en": "Daily news"
+  },
+  {
+    "clave": "room.hobbies.sub",
+    "en": "Pastimes & projects"
+  },
+  {
+    "clave": "room.calendario.sub",
+    "en": "Events & routines"
+  },
+  {
+    "clave": "room.ideas.sub",
+    "en": "Concept maps on a free canvas"
+  },
+  {
+    "clave": "room.computo.sub",
+    "en": "Calculator & spreadsheets"
+  },
+  {
+    "clave": "room.agenda.sub",
+    "en": "Work, health & people"
+  },
+  {
+    "clave": "hud.plegar",
+    "es": "Plegar controles",
+    "en": "Collapse controls"
+  },
+  {
+    "clave": "hud.desplegar",
+    "es": "Mostrar controles",
+    "en": "Show controls"
+  },
+  {
+    "clave": "nav3d.aria",
+    "es": "Controles de vista",
+    "en": "View controls"
+  },
+  {
+    "clave": "nav3d.vistaCuarto",
+    "es": "Vista del cuarto",
+    "en": "Room view"
+  },
+  {
+    "clave": "nav3d.vistaInterior",
+    "es": "Mirando la pared",
+    "en": "Looking at wall"
+  },
+  {
+    "clave": "nav3d.rotarIzq",
+    "es": "Rotar vista a la izquierda",
+    "en": "Rotate view left"
+  },
+  {
+    "clave": "nav3d.rotarDer",
+    "es": "Rotar vista a la derecha",
+    "en": "Rotate view right"
+  },
+  {
+    "clave": "nav3d.acercar",
+    "en": "Zoom in"
+  },
+  {
+    "clave": "nav3d.alejar",
+    "en": "Zoom out"
+  },
+  {
+    "clave": "nav3d.restaurarCuarto",
+    "en": "Reset room zoom and focus"
+  },
+  {
+    "clave": "nav3d.vistaInicial",
+    "en": "Initial view"
+  },
+  {
+    "clave": "nav3d.centrarCuarto",
+    "en": "Center room"
+  },
+  {
+    "clave": "nav3d.reiniciar",
+    "en": "Reset view"
+  },
+  {
+    "clave": "nav3d.editor3d",
+    "es": "Editor 3D",
+    "en": "3D Editor"
+  },
+  {
+    "clave": "nav3d.editor3dOn",
+    "es": "Cerrar editor",
+    "en": "Close editor"
+  },
+  {
+    "clave": "nav3d.editor3dHint",
+    "es": "Editar el mundo en perspectiva: toca un objeto, piso, muro o personaje para editarlo",
+    "en": "Edit the world in perspective: tap an object, floor, wall or character to edit it"
+  },
+  {
+    "clave": "nav3d.verFlechas",
+    "es": "Volver a las flechas de movimiento",
+    "en": "Back to the movement arrows"
+  },
+  {
+    "clave": "nav3d.verCubo",
+    "es": "Plegar las flechas y ver el cubo de vistas",
+    "en": "Fold the arrows and see the view cube"
+  },
+  {
+    "clave": "nav3d.verFlechasBtn",
+    "es": "Ver flechas",
+    "en": "Show arrows"
+  },
+  {
+    "clave": "nav3d.verCuboBtn",
+    "es": "Ver vistas",
+    "en": "Show view"
+  },
+  {
+    "clave": "herr.boton",
+    "es": "Herramientas",
+    "en": "Tools"
+  },
+  {
+    "clave": "herr.rueda",
+    "es": "Rueda de herramientas",
+    "en": "Tools wheel"
+  },
+  {
+    "clave": "herr.cubo",
+    "es": "Cubo",
+    "en": "Cube"
+  },
+  {
+    "clave": "herr.saltar",
+    "es": "Saltar",
+    "en": "Jump"
+  },
+  {
+    "clave": "herr.correr",
+    "es": "Correr",
+    "en": "Run"
+  },
+  {
+    "clave": "herr.bailar",
+    "es": "Bailar",
+    "en": "Dance"
+  },
+  {
+    "clave": "herr.laser",
+    "es": "Láser",
+    "en": "Laser"
+  },
+  {
+    "clave": "herr.volverCubo",
+    "en": "Back to the view cube"
+  },
+  {
+    "clave": "herr.saltarBtn",
+    "es": "¡Saltar!",
+    "en": "Jump!"
+  },
+  {
+    "clave": "herr.corriendo",
+    "es": "Corriendo",
+    "en": "Running"
+  },
+  {
+    "clave": "herr.bailando",
+    "es": "Bailando",
+    "en": "Dancing"
+  },
+  {
+    "clave": "herr.disparar",
+    "es": "Disparar",
+    "en": "Fire"
+  },
+  {
+    "clave": "herr.invocar",
+    "en": "Summon"
+  },
+  {
+    "clave": "herr.soloPlantaBaja",
+    "es": "Baja a la planta baja para invocarlo",
+    "en": "Go down to the ground floor to summon it"
+  },
+  {
+    "clave": "herr.veh.bicicleta",
+    "en": "Bicycle"
+  },
+  {
+    "clave": "herr.veh.motocicleta",
+    "en": "Motorbike"
+  },
+  {
+    "clave": "herr.veh.automovil",
+    "en": "Car"
+  },
+  {
+    "clave": "herr.veh.ovni",
+    "en": "UFO"
+  },
+  {
+    "clave": "herr.cat.movimientos",
+    "es": "Movimientos",
+    "en": "Moves"
+  },
+  {
+    "clave": "herr.cat.juguetes",
+    "es": "Juguetes",
+    "en": "Toys"
+  },
+  {
+    "clave": "herr.cat.vehiculos",
+    "es": "Vehículos",
+    "en": "Vehicles"
+  },
+  {
+    "clave": "herr.cat.construccion",
+    "es": "Construcción",
+    "en": "Building"
+  },
+  {
+    "clave": "herr.construir",
+    "es": "Construir",
+    "en": "Build"
+  },
+  {
+    "clave": "herr.constrDibujar",
+    "en": "Draw"
+  },
+  {
+    "clave": "herr.abrirEditor",
+    "es": "Abrir editor",
+    "en": "Open editor"
+  },
+  {
+    "clave": "herr.atras",
+    "es": "Atrás",
+    "en": "Back"
+  },
+  {
+    "clave": "herr.cuerda",
+    "es": "Saltar la cuerda",
+    "en": "Jump rope"
+  },
+  {
+    "clave": "herr.mortal",
+    "es": "Mortal",
+    "en": "Flip"
+  },
+  {
+    "clave": "herr.saludar",
+    "es": "Saludar",
+    "en": "Wave"
+  },
+  {
+    "clave": "herr.mover",
+    "es": "Mover",
+    "en": "Move"
+  },
+  {
+    "clave": "herr.moverAcercate",
+    "es": "Acércate a un objeto o cuarto",
+    "en": "Get close to an object or room"
+  },
+  {
+    "clave": "herr.agarrar",
+    "es": "Agarrar",
+    "en": "Grab"
+  },
+  {
+    "clave": "herr.agarrarCuarto",
+    "es": "Agarrar cuarto",
+    "en": "Grab room"
+  },
+  {
+    "clave": "herr.moverCargandoObjeto",
+    "es": "Cargando el objeto",
+    "en": "Carrying the object"
+  },
+  {
+    "clave": "herr.moverCargandoCuarto",
+    "es": "Cargando el cuarto",
+    "en": "Carrying the room"
+  },
+  {
+    "clave": "herr.soltar",
+    "es": "Soltar",
+    "en": "Drop"
+  },
+  {
+    "clave": "ctx.interactuar",
+    "es": "Interactuar",
+    "en": "Interact"
+  },
+  {
+    "clave": "ctx.entrarApp",
+    "es": "Entrar a la app",
+    "en": "Open the app"
+  },
+  {
+    "clave": "ctx.cambiarLetrero",
+    "es": "Cambiar letrero",
+    "en": "Edit sign"
+  },
+  {
+    "clave": "ctx.usar",
+    "es": "Usar",
+    "en": "Use"
+  },
+  {
+    "clave": "ctx.subirte",
+    "es": "Subirte",
+    "en": "Get on"
+  },
+  {
+    "clave": "ctx.subirteDona",
+    "es": "Subirte a la dona",
+    "en": "Get on the float"
+  },
+  {
+    "clave": "ctx.cosechar",
+    "es": "Cosechar",
+    "en": "Harvest"
+  },
+  {
+    "clave": "ctx.recoger",
+    "es": "Recoger",
+    "en": "Pick up"
+  },
+  {
+    "clave": "ctx.bajarte",
+    "es": "Bajarte",
+    "en": "Get off"
+  },
+  {
+    "clave": "ctx.correr",
+    "es": "Correr",
+    "en": "Race"
+  },
+  {
+    "clave": "ctx.revisarTu",
+    "es": "Revisar tu",
+    "en": "Check your"
+  },
+  {
+    "clave": "ctx.subirA",
+    "es": "Subir a",
+    "en": "Go up to"
+  },
+  {
+    "clave": "ctx.bajarA",
+    "es": "Bajar a",
+    "en": "Go down to"
+  },
+  {
+    "clave": "ctx.nivelN",
+    "es": "Nivel {n}",
+    "en": "Level {n}"
+  },
+  {
+    "clave": "ctx.plantaBaja",
+    "es": "Planta baja",
+    "en": "Ground floor"
+  },
+  {
+    "clave": "ctx.jugar.futbol",
+    "en": "Play football"
+  },
+  {
+    "clave": "ctx.jugar.tenis",
+    "en": "Play tennis"
+  },
+  {
+    "clave": "ctx.jugar.basket",
+    "en": "Play basketball"
+  },
+  {
+    "clave": "ctx.jugar.beisbol",
+    "en": "Play baseball"
+  },
+  {
+    "clave": "herr.portales",
+    "es": "Portales",
+    "en": "Portals"
+  },
+  {
+    "clave": "herr.fuegos",
+    "es": "Fuegos",
+    "en": "Fireworks"
+  },
+  {
+    "clave": "herr.burbujas",
+    "es": "Burbujas",
+    "en": "Bubbles"
+  },
+  {
+    "clave": "herr.cuerdaOn",
+    "es": "Saltando la cuerda",
+    "en": "Jumping rope"
+  },
+  {
+    "clave": "herr.mortalBtn",
+    "es": "¡Mortal!",
+    "en": "Flip!"
+  },
+  {
+    "clave": "herr.saludarBtn",
+    "es": "¡Hola!",
+    "en": "Wave!"
+  },
+  {
+    "clave": "herr.portalColocar",
+    "es": "Colocar portal",
+    "en": "Place portal"
+  },
+  {
+    "clave": "herr.portalQuitar",
+    "es": "Quitar portales",
+    "en": "Remove portals"
+  },
+  {
+    "clave": "herr.fuegosBtn",
+    "es": "¡Lanzar!",
+    "en": "Launch!"
+  },
+  {
+    "clave": "herr.burbujasOn",
+    "es": "Soplando burbujas",
+    "en": "Blowing bubbles"
+  },
+  {
+    "clave": "herr.quitar",
+    "es": "Quitar herramienta",
+    "en": "Remove tool"
+  },
+  {
+    "clave": "herr.grafiti",
+    "es": "Grafiti",
+    "en": "Graffiti"
+  },
+  {
+    "clave": "herr.grafitiPintar",
+    "es": "Pintar pared",
+    "en": "Paint wall"
+  },
+  {
+    "clave": "herr.grafitiSinMuro",
+    "es": "Acércate a una pared",
+    "en": "Get close to a wall"
+  },
+  {
+    "clave": "herr.grafitiMuroPuerta",
+    "es": "Los muros con puerta no se pintan",
+    "en": "Walls with doors can't be painted"
+  },
+  {
+    "clave": "herr.grafitiMuroCurvo",
+    "es": "Los muros curvos no se pintan",
+    "en": "Curved walls can't be painted"
+  },
+  {
+    "clave": "graf.titulo",
+    "es": "Grafiti",
+    "en": "Graffiti"
+  },
+  {
+    "clave": "graf.pincel",
+    "es": "Pincel",
+    "en": "Brush"
+  },
+  {
+    "clave": "graf.spray",
+    "es": "Spray",
+    "en": "Spray"
+  },
+  {
+    "clave": "graf.borrador",
+    "es": "Borrador",
+    "en": "Eraser"
+  },
+  {
+    "clave": "graf.bote",
+    "es": "Rellenar todo de un color",
+    "en": "Fill all with one color"
+  },
+  {
+    "clave": "graf.grosor",
+    "es": "Grosor",
+    "en": "Size"
+  },
+  {
+    "clave": "graf.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "graf.deshacer",
+    "es": "Deshacer",
+    "en": "Undo"
+  },
+  {
+    "clave": "graf.limpiar",
+    "es": "Limpiar",
+    "en": "Clear"
+  },
+  {
+    "clave": "graf.borrar",
+    "es": "Borrar grafiti",
+    "en": "Delete graffiti"
+  },
+  {
+    "clave": "graf.guardar",
+    "es": "Guardar",
+    "en": "Save"
+  },
+  {
+    "clave": "graf.salir",
+    "es": "Salir sin guardar",
+    "en": "Exit without saving"
+  },
+  {
+    "clave": "despacho.tab.balance",
+    "en": "Cash flow"
+  },
+  {
+    "clave": "despacho.tab.mercados",
+    "en": "Markets"
+  },
+  {
+    "clave": "despacho.tab.divisas",
+    "en": "Forex"
+  },
+  {
+    "clave": "despacho.tab.criptos",
+    "en": "Crypto"
+  },
+  {
+    "clave": "despacho.tab.acciones",
+    "en": "Stocks"
+  },
+  {
+    "clave": "despacho.tab.commodities",
+    "en": "Commodities"
+  },
+  {
+    "clave": "despacho.sub.balance",
+    "en": "Balance"
+  },
+  {
+    "clave": "despacho.tab.gastos",
+    "en": "Expenses"
+  },
+  {
+    "clave": "despacho.tab.ingresos",
+    "en": "Income"
+  },
+  {
+    "clave": "despacho.tab.metas",
+    "en": "Goals"
+  },
+  {
+    "clave": "despacho.tab.financieras",
+    "en": "Financial"
+  },
+  {
+    "clave": "despacho.tab.ahorroInversion",
+    "en": "Savings/Investing"
+  },
+  {
+    "clave": "despacho.tab.ahorro",
+    "es": "Ahorro",
+    "en": "Savings"
+  },
+  {
+    "clave": "despacho.tab.inversion",
+    "es": "Inversión",
+    "en": "Investing"
+  },
+  {
+    "clave": "despacho.tab.deuda",
+    "en": "Debt"
+  },
+  {
+    "clave": "despacho.r.ingresos",
+    "es": "Ingresos",
+    "en": "Income"
+  },
+  {
+    "clave": "despacho.r.gastos",
+    "es": "Gastos",
+    "en": "Expenses"
+  },
+  {
+    "clave": "despacho.r.balance",
+    "es": "Balance",
+    "en": "Balance"
+  },
+  {
+    "clave": "despacho.presupuesto",
+    "es": "Presupuesto mensual",
+    "en": "Monthly budget"
+  },
+  {
+    "clave": "despacho.presupuesto.equivale",
+    "en": "That is {n} for this period"
+  },
+  {
+    "clave": "despacho.patrimonio",
+    "es": "Patrimonio total",
+    "en": "Net worth"
+  },
+  {
+    "clave": "despacho.patrimonio.ayuda",
+    "es": "Tus activos menos tus pasivos, en la pestaña Patrimonio. Aquí solo se ve cómo queda si el periodo cierra así.",
+    "en": "Your assets minus your liabilities, over in the Net worth tab. Here you only see how it ends up if the period closes like this."
+  },
+  {
+    "clave": "despacho.excedido",
+    "en": "Budget exceeded by {n}"
+  },
+  {
+    "clave": "despacho.progreso",
+    "en": "You have {used} of {total} ({pct}%)"
+  },
+  {
+    "clave": "despacho.catGastos",
+    "es": "Gastos por categoría",
+    "en": "Expenses by category"
+  },
+  {
+    "clave": "despacho.sinGastos",
+    "es": "Sin gastos en este periodo.",
+    "en": "No expenses in this period."
+  },
+  {
+    "clave": "despacho.periodo.dia",
+    "en": "Day"
+  },
+  {
+    "clave": "despacho.periodo.semana",
+    "en": "Week"
+  },
+  {
+    "clave": "despacho.periodo.mes",
+    "en": "Month"
+  },
+  {
+    "clave": "despacho.periodo.anio",
+    "en": "Year"
+  },
+  {
+    "clave": "despacho.plazo.dia",
+    "en": "Every day"
+  },
+  {
+    "clave": "despacho.plazo.semana",
+    "en": "Every week"
+  },
+  {
+    "clave": "despacho.plazo.mes",
+    "en": "Every month"
+  },
+  {
+    "clave": "despacho.plazo.anio",
+    "en": "Every year"
+  },
+  {
+    "clave": "despacho.tendencia.dia",
+    "en": "Balance · last 6 days"
+  },
+  {
+    "clave": "despacho.tendencia.semana",
+    "en": "Balance · last 6 weeks"
+  },
+  {
+    "clave": "despacho.tendencia.mes",
+    "en": "Balance · last 6 months"
+  },
+  {
+    "clave": "despacho.tendencia.anio",
+    "en": "Balance · last 6 years"
+  },
+  {
+    "clave": "despacho.m.monto",
+    "es": "Monto",
+    "en": "Amount"
+  },
+  {
+    "clave": "despacho.m.nota",
+    "es": "Nota (opcional)",
+    "en": "Note (optional)"
+  },
+  {
+    "clave": "despacho.m.categoria",
+    "es": "Categoría",
+    "en": "Category"
+  },
+  {
+    "clave": "despacho.m.categoriaPh",
+    "es": "Escribe la tuya o elige una conocida",
+    "en": "Write your own or pick a known one"
+  },
+  {
+    "clave": "despacho.m.tipoMov",
+    "es": "¿Variable o fijo?",
+    "en": "Variable or fixed?"
+  },
+  {
+    "clave": "despacho.m.variable",
+    "es": "Variable",
+    "en": "Variable"
+  },
+  {
+    "clave": "despacho.m.fijo",
+    "es": "Fijo",
+    "en": "Fixed"
+  },
+  {
+    "clave": "despacho.m.plazo",
+    "es": "¿Cada cuánto?",
+    "en": "How often?"
+  },
+  {
+    "clave": "despacho.m.plazoAyuda",
+    "es": "Se repite solo desde la fecha que pusiste, sin volver a capturarlo.",
+    "en": "It repeats on its own from the date you set — no need to log it again."
+  },
+  {
+    "clave": "despacho.m.repetidos",
+    "es": "Fijos",
+    "en": "Fixed"
+  },
+  {
+    "clave": "despacho.m.alMes",
+    "en": "≈ {n} per month"
+  },
+  {
+    "clave": "despacho.m.desde",
+    "en": "since {f}"
+  },
+  {
+    "clave": "despacho.m.llevas",
+    "en": "{n} so far"
+  },
+  {
+    "clave": "despacho.m.acumuladoTotal",
+    "es": "Acumulado de tus fijos hasta hoy",
+    "en": "Your fixed items so far"
+  },
+  {
+    "clave": "despacho.r.deLosFijos",
+    "en": "From your fixed items: +{i} · −{g}"
+  },
+  {
+    "clave": "despacho.sim.titulo",
+    "en": "Simulator · next {n} months"
+  },
+  {
+    "clave": "despacho.sim.meses",
+    "es": "meses",
+    "en": "months"
+  },
+  {
+    "clave": "despacho.sim.base",
+    "es": "Proyecta tus fijos a su vencimiento y lo variable con el promedio mensual de lo que llevas registrado.",
+    "en": "It projects your fixed items to their due dates and the variable ones with the monthly average of what you have logged."
+  },
+  {
+    "clave": "despacho.sim.sinPatrimonio",
+    "en": "Without net worth · in {n} months"
+  },
+  {
+    "clave": "despacho.sim.conPatrimonio",
+    "en": "With net worth · in {n} months"
+  },
+  {
+    "clave": "despacho.sim.faltaPatrimonio",
+    "es": "Apunta tu patrimonio arriba para ver también el escenario con él.",
+    "en": "Log your net worth above to also see the scenario with it."
+  },
+  {
+    "clave": "despacho.m.agregar",
+    "es": "Agregar movimiento",
+    "en": "Add transaction"
+  },
+  {
+    "clave": "despacho.m.movs",
+    "en": "{n} transactions"
+  },
+  {
+    "clave": "despacho.m.nuevoGasto",
+    "es": "Nuevo gasto",
+    "en": "New expense"
+  },
+  {
+    "clave": "despacho.m.nuevoIngreso",
+    "es": "Nuevo ingreso",
+    "en": "New income"
+  },
+  {
+    "clave": "despacho.m.sinGastos",
+    "es": "Sin gastos registrados.",
+    "en": "No expenses logged."
+  },
+  {
+    "clave": "despacho.m.sinIngresos",
+    "es": "Sin ingresos registrados.",
+    "en": "No income logged."
+  },
+  {
+    "clave": "despacho.meta.nueva",
+    "en": "New savings goal"
+  },
+  {
+    "clave": "despacho.meta.ph.nombre",
+    "en": "E.g. Trip to Japan"
+  },
+  {
+    "clave": "despacho.meta.ph.objetivo",
+    "en": "Goal"
+  },
+  {
+    "clave": "despacho.meta.crear",
+    "es": "Crear meta",
+    "en": "Create goal"
+  },
+  {
+    "clave": "despacho.meta.vacio",
+    "en": "No goals yet. Create your first savings goal!"
+  },
+  {
+    "clave": "despacho.meta.ph.abono",
+    "en": "Add"
+  },
+  {
+    "clave": "despacho.meta.abonar",
+    "en": "Add"
+  },
+  {
+    "clave": "despacho.meta.nuevaInv",
+    "en": "New investment goal"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreInv",
+    "en": "E.g. Index fund"
+  },
+  {
+    "clave": "despacho.meta.vacioInv",
+    "en": "No investment goals yet. Set how much you want to invest and contribute as you go."
+  },
+  {
+    "clave": "despacho.meta.aportar",
+    "en": "Contribute"
+  },
+  {
+    "clave": "despacho.meta.ph.aporte",
+    "en": "Contribute"
+  },
+  {
+    "clave": "despacho.meta.nuevaDeuda",
+    "en": "New debt to pay off"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreDeuda",
+    "en": "E.g. Credit card"
+  },
+  {
+    "clave": "despacho.meta.ph.deuda",
+    "en": "Debt"
+  },
+  {
+    "clave": "despacho.meta.vacioDeuda",
+    "en": "No debts logged. Write down what you owe and log each payment."
+  },
+  {
+    "clave": "despacho.meta.pagar",
+    "en": "Pay"
+  },
+  {
+    "clave": "despacho.meta.ph.pago",
+    "en": "Pay"
+  },
+  {
+    "clave": "despacho.tab.simuladores",
+    "en": "Simulate"
+  },
+  {
+    "clave": "despacho.s.simulador",
+    "es": "Simulador",
+    "en": "Simulator"
+  },
+  {
+    "clave": "despacho.s.usarDeuda",
+    "es": "Usar una de tus deudas…",
+    "en": "Use one of your debts…"
+  },
+  {
+    "clave": "despacho.s.compuesto",
+    "es": "Compuesto",
+    "en": "Compound"
+  },
+  {
+    "clave": "despacho.s.simple",
+    "es": "Simple",
+    "en": "Simple"
+  },
+  {
+    "clave": "despacho.s.meta",
+    "en": "Goal"
+  },
+  {
+    "clave": "despacho.s.credito",
+    "en": "Loan"
+  },
+  {
+    "clave": "despacho.s.inicial",
+    "es": "Capital inicial",
+    "en": "Initial capital"
+  },
+  {
+    "clave": "despacho.s.aporteMes",
+    "es": "Aportación mensual",
+    "en": "Monthly deposit"
+  },
+  {
+    "clave": "despacho.s.tasaAnual",
+    "es": "Tasa anual %",
+    "en": "Annual rate %"
+  },
+  {
+    "clave": "despacho.s.anos",
+    "es": "Años",
+    "en": "Years"
+  },
+  {
+    "clave": "despacho.s.capitalizacion",
+    "es": "Capitalización",
+    "en": "Compounding"
+  },
+  {
+    "clave": "despacho.s.cap.12",
+    "es": "Mensual",
+    "en": "Monthly"
+  },
+  {
+    "clave": "despacho.s.cap.4",
+    "es": "Trimestral",
+    "en": "Quarterly"
+  },
+  {
+    "clave": "despacho.s.cap.2",
+    "es": "Semestral",
+    "en": "Semiannual"
+  },
+  {
+    "clave": "despacho.s.cap.1",
+    "es": "Anual",
+    "en": "Yearly"
+  },
+  {
+    "clave": "despacho.s.saldoFinal",
+    "es": "Saldo final",
+    "en": "Final balance"
+  },
+  {
+    "clave": "despacho.s.aportado",
+    "es": "Aportado",
+    "en": "Deposited"
+  },
+  {
+    "clave": "despacho.s.interesGanado",
+    "es": "Interés ganado",
+    "en": "Interest earned"
+  },
+  {
+    "clave": "despacho.s.porAno",
+    "es": "Año por año",
+    "en": "Year by year"
+  },
+  {
+    "clave": "despacho.s.col.ano",
+    "es": "Año",
+    "en": "Year"
+  },
+  {
+    "clave": "despacho.s.col.aportado",
+    "es": "Aportado",
+    "en": "Deposited"
+  },
+  {
+    "clave": "despacho.s.col.interes",
+    "es": "Interés",
+    "en": "Interest"
+  },
+  {
+    "clave": "despacho.s.col.saldo",
+    "es": "Saldo",
+    "en": "Balance"
+  },
+  {
+    "clave": "despacho.s.interesGenerado",
+    "es": "Interés generado",
+    "en": "Interest generated"
+  },
+  {
+    "clave": "despacho.s.total",
+    "es": "Total final",
+    "en": "Final total"
+  },
+  {
+    "clave": "despacho.s.vsCompuesto",
+    "en": "With compound interest (yearly compounding) you would have {x} — {d} more."
+  },
+  {
+    "clave": "despacho.s.usarMeta",
+    "en": "Use one of your goals…"
+  },
+  {
+    "clave": "despacho.s.objetivo",
+    "en": "Target amount $"
+  },
+  {
+    "clave": "despacho.s.metaLista",
+    "en": "With your initial capital and that rate you already reach the goal without extra deposits."
+  },
+  {
+    "clave": "despacho.s.aporteNecesario",
+    "en": "Required monthly deposit"
+  },
+  {
+    "clave": "despacho.s.durante",
+    "en": "for {n} months"
+  }
+]

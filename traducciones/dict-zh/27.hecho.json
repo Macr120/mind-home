@@ -1,0 +1,342 @@
+[
+ {
+  "clave": "chat.destino.menu.plantillas",
+  "texto": "查看模板"
+ },
+ {
+  "clave": "chat.destino.rutinas",
+  "texto": "查看我的日常安排"
+ },
+ {
+  "clave": "chat.foto",
+  "texto": "添加照片（食物、小票等）"
+ },
+ {
+  "clave": "chat.fotoLista",
+  "texto": "可发送的照片"
+ },
+ {
+  "clave": "chat.fotoSinIa",
+  "texto": "照片需要用到AI：点击右侧按钮选择模型"
+ },
+ {
+  "clave": "chat.imagenFallo",
+  "texto": "图片生成失败，请重试。"
+ },
+ {
+  "clave": "chat.imagenLista",
+  "texto": "做好了！这是你的图片🎨"
+ },
+ {
+  "clave": "chat.manual",
+  "texto": "使用手册"
+ },
+ {
+  "clave": "chat.manual.abrir",
+  "texto": "使用手册：你可以说什么"
+ },
+ {
+  "clave": "chat.manual.aviso.caminos",
+  "texto": "建造类指令会打开全屏编辑器，聊天会关闭，直到你点击✕退出；养护类操作无需离开聊天即可完成。"
+ },
+ {
+  "clave": "chat.manual.aviso.granja",
+  "texto": "建造类指令会打开全屏编辑器，聊天会关闭，直到你点击✕退出；养护类操作无需离开聊天即可完成。"
+ },
+ {
+  "clave": "chat.manual.aviso.huerto",
+  "texto": "建造类指令会打开全屏编辑器，聊天会关闭，直到你点击✕退出；养护类操作无需离开聊天即可完成。"
+ },
+ {
+  "clave": "chat.manual.cat.configuraciones",
+  "texto": "设置"
+ },
+ {
+  "clave": "chat.manual.cat.cuartos",
+  "texto": "房间"
+ },
+ {
+  "clave": "chat.manual.cat.interfaz",
+  "texto": "房子与界面"
+ },
+ {
+  "clave": "chat.manual.cat.mapa",
+  "texto": "地图与结构"
+ },
+ {
+  "clave": "chat.manual.cat.memoria",
+  "texto": "记忆与记录"
+ },
+ {
+  "clave": "chat.manual.cat.objetos",
+  "texto": "物件"
+ },
+ {
+  "clave": "chat.manual.cat.personaje",
+  "texto": "角色与载具"
+ },
+ {
+  "clave": "chat.manual.cat.calendario",
+  "texto": "日历"
+ },
+ {
+  "clave": "chat.manual.cat.superficies",
+  "texto": "颜色、地板与屋顶"
+ },
+ {
+  "clave": "chat.manual.cat.teclado",
+  "texto": "键盘（电脑）"
+ },
+ {
+  "clave": "chat.manual.grupo.abrir",
+  "texto": "打开与菜单"
+ },
+ {
+  "clave": "chat.manual.grupo.acciones",
+  "texto": "操作"
+ },
+ {
+  "clave": "chat.manual.grupo.ia",
+  "texto": "使用AI"
+ },
+ {
+  "clave": "chat.manual.grupo.jugar",
+  "texto": "玩乐"
+ },
+ {
+  "clave": "chat.manual.grupo.registrar",
+  "texto": "记录"
+ },
+ {
+  "clave": "chat.manual.intro",
+  "texto": "打开一个文件夹，点击示例就会输入到聊天框。大多数功能无需AI即可使用。"
+ },
+ {
+  "clave": "chat.manual.leyenda.comando",
+  "texto": "蓝色：指令"
+ },
+ {
+  "clave": "chat.manual.leyenda.ia",
+  "texto": "紫色：消耗一次AI调用"
+ },
+ {
+  "clave": "chat.manual.leyenda.variable",
+  "texto": "黄色：可自由修改"
+ },
+ {
+  "clave": "chat.manual.nota.biblioteca",
+  "texto": "里面住着智者（AI聊天），会把内容提炼成百科条目和主题树。"
+ },
+ {
+  "clave": "chat.manual.nota.calendario",
+  "texto": "汇总所有应用的目标和事件；它的日程还能生成AI计划（✨）。"
+ },
+ {
+  "clave": "chat.manual.nota.caminos",
+  "texto": "画好赛道和终点线后，可以和时间或助手比赛；从铁轨上车即可乘火车。"
+ },
+ {
+  "clave": "chat.manual.nota.canchas",
+  "texto": "走进球场即可开始比赛，靠近球即可操控它。"
+ },
+ {
+  "clave": "chat.manual.nota.cocina",
+  "texto": "使用AI还能识别你菜品的照片（自动估算营养并记录）。在聊天中要的食谱和饮食方案会附带图片，出现得稍慢，并按显示的点数扣费。"
+ },
+ {
+  "clave": "chat.manual.nota.cuartos",
+  "texto": "创建、重命名和整理房间。“删除”会把房间从房子里移除。"
+ },
+ {
+  "clave": "chat.manual.nota.despacho",
+  "texto": "使用AI还能附上小票照片，自动记录这笔支出。"
+ },
+ {
+  "clave": "chat.manual.nota.diario",
+  "texto": "当天的文化板块和助手推送都在应用内使用AI。"
+ },
+ {
+  "clave": "chat.manual.nota.ejercicio",
+  "texto": "使用AI：在日程里生成训练计划（✨按钮），应用内还有配图讲解动作。"
+ },
+ {
+  "clave": "chat.manual.nota.entretenimiento",
+  "texto": "桌游：贪吃蛇、俄罗斯方块、国际象棋、跳棋、数独、记忆翻牌、乒乓、冰球、西蒙、四子棋、太空、恐龙……"
+ },
+ {
+  "clave": "chat.manual.nota.garage",
+  "texto": "你骑的载具（自行车、摩托车、汽车、UFO）在“角色与载具”里。"
+ },
+ {
+  "clave": "chat.manual.nota.granja",
+  "texto": "动物：母鸡、猪、山羊、绵羊、牛和马。它们吃你在“食”里收获的东西。"
+ },
+ {
+  "clave": "chat.manual.nota.hobbies",
+  "texto": "在它的日程里可以要一份AI计划（✨）来推进项目。"
+ },
+ {
+  "clave": "chat.manual.nota.huerto",
+  "texto": "作物：胡萝卜、生菜、向日葵、番茄、玉米和南瓜。"
+ },
+ {
+  "clave": "chat.manual.nota.idiomas",
+  "texto": "里面有分级会话老师、来自聊天的卡片和按主题生成的卡片（AI）。"
+ },
+ {
+  "clave": "chat.manual.nota.configuraciones",
+  "texto": "编辑器“设置”标签页里的一切：语言、外观（浅色、深色、透明）、图标风格、界面主题和字体、面板玻璃质感、地图的视觉风格（普通、漫画、微缩、复古、霓虹）及其特效、通知和备份。"
+ },
+ {
+  "clave": "chat.manual.aviso.configuraciones",
+  "texto": "登录、恢复备份和删除数据都不能在聊天里完成：助手会打开对应界面，由你自己确认。"
+ },
+ {
+  "clave": "chat.manual.nota.interfaz",
+  "texto": "房子主题、天空背景、环境音乐和你的Wrapped年度回顾。音乐氛围：calma, festivo, nocturno, chiptune, acogedor, energia, estudio, arcade, bosque, viaje, carrera, cajita。"
+ },
+ {
+  "clave": "chat.manual.nota.mapa",
+  "texto": "方向：北、南、东、西（也可以说上、下、左、右）。"
+ },
+ {
+  "clave": "chat.manual.nota.memoria",
+  "texto": "助手会记住跨会话的信息。用回形针添加照片，或用麦克风口述；用@应用可以强制指定记录位置。"
+ },
+ {
+  "clave": "chat.manual.nota.objetos",
+  "texto": "无AI目录：台灯、椅子、桌子、植物、吉他、地毯、箱子、画、球和书。其他物件都会由AI生成3D模型并存入物品栏。2D图片用“帮我画一张……的图片”来获取，会留在聊天里。"
+ },
+ {
+  "clave": "chat.manual.nota.personaje",
+  "texto": "服装：帽子、眼镜……部位：头、躯干和腿。载具：自行车、摩托车、汽车和UFO（用Space/Shift飞行）。视角：等距、第三人称和第一人称（V键）。"
+ },
+ {
+  "clave": "chat.manual.nota.sala",
+  "texto": "使用AI时，新地点会自动定位，并以图钉显示在世界地图上。"
+ },
+ {
+  "clave": "chat.manual.nota.superficies",
+  "texto": "颜色：红、蓝、绿……或输入#开头的十六进制代码。地板材质和屋顶形状来自编辑器目录。"
+ },
+ {
+  "clave": "chat.manual.nota.teclado",
+  "texto": "用键盘玩耍的快捷键。它们不是在聊天里输入的，而是在房子里直接使用。在输入框打字或打开房间时不会生效。"
+ },
+ {
+  "clave": "chat.manual.notaSeccion.apps",
+  "texto": "每个应用都会用你的话记录自己的数据（用@应用可强制指定去向），说出名字就能打开对应菜单。“使用AI”的示例总会消耗一次AI调用（Pro方案或你自己的密钥）；你的自定义模板也能通过聊天记录，并按名字打开。注意：离线解析只懂西班牙语，所以中文下大多数指令都要经过AI。"
+ },
+ {
+  "clave": "chat.manual.notaSeccion.mapa",
+  "texto": "花园、农场、赛道和球场在房间之外，在3D地图上。"
+ },
+ {
+  "clave": "chat.manual.seccion.apps",
+  "texto": "家庭应用"
+ },
+ {
+  "clave": "chat.manual.seccion.asistente",
+  "texto": "助手与帮助"
+ },
+ {
+  "clave": "chat.manual.seccion.casa",
+  "texto": "房子与编辑器"
+ },
+ {
+  "clave": "chat.manual.seccion.mapa",
+  "texto": "户外地图"
+ },
+ {
+  "clave": "chat.manual.seccion.precios",
+  "texto": "AI的费用"
+ },
+ {
+  "clave": "chat.manual.preciosCargando",
+  "texto": "正在加载表格……"
+ },
+ {
+  "clave": "chat.manual.titulo",
+  "texto": "使用手册：你可以说什么"
+ },
+ {
+  "clave": "chat.memorias",
+  "texto": "我记得关于你的事"
+ },
+ {
+  "clave": "chat.modelo",
+  "texto": "AI模型：{prov}"
+ },
+ {
+  "clave": "chat.mapa.abrir",
+  "texto": "在创意里查看地图"
+ },
+ {
+  "clave": "chat.mapa.descartar",
+  "texto": "暂时不要"
+ },
+ {
+  "clave": "chat.mapa.dibujar",
+  "texto": "画出来"
+ },
+ {
+  "clave": "chat.mapa.dibujando",
+  "texto": "正在绘制地图……"
+ },
+ {
+  "clave": "chat.mapa.fallo",
+  "texto": "没能画出那张地图。"
+ },
+ {
+  "clave": "chat.mapa.ofrecer",
+  "texto": "要把它画成“{tema}”的{tipo}吗？"
+ },
+ {
+  "clave": "chat.modelo.clave",
+  "texto": "{prov}的API密钥"
+ },
+ {
+  "clave": "chat.modelo.local",
+  "texto": "需要在你的设备上运行Ollama（11434端口）。免费且私密。"
+ },
+ {
+  "clave": "chat.modelo.priv",
+  "texto": "仅保存在本设备上。没有密钥时：使用关键词本地模式。"
+ },
+ {
+  "clave": "chat.modelo.titulo",
+  "texto": "助手的AI模型"
+ },
+ {
+  "clave": "chat.olvidar",
+  "texto": "忘记"
+ },
+ {
+  "clave": "chat.plegar",
+  "texto": "收起聊天"
+ },
+ {
+  "clave": "chat.quitarFoto",
+  "texto": "移除照片"
+ },
+ {
+  "clave": "chat.rutinaCreada",
+  "texto": "⏰日常安排“{n}”已创建，可以在日常安排面板中查看。"
+ },
+ {
+  "clave": "chat.sinApps",
+  "texto": "还没有分配应用。请把它分配给房间里的一个物件。"
+ },
+ {
+  "clave": "chat.voz",
+  "texto": "语音输入"
+ },
+ {
+  "clave": "chat.voz.error",
+  "texto": "无法使用语音输入（{motivo}）。"
+ },
+ {
+  "clave": "chat.voz.idioma",
+  "texto": "你的浏览器不支持这种语言的语音输入。"
+ }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.calendario.4.texto",
+    "texto": "Le app si mettono in agenda da sole: gli appuntamenti dell'Agenda, il sonno di Riposo, i momenti di studio della Biblioteca. Con il filtro ne lasci vedere una sola."
+  },
+  {
+    "clave": "tut.calendario.5.titulo",
+    "texto": "Muoversi nell'anno"
+  },
+  {
+    "clave": "tut.calendario.5.texto",
+    "texto": "Le frecce ‹ › scorrono il periodo e Oggi ti riporta al presente. Tutto l'anno di Pep è qui, settimana per settimana. Con + Nuova crei un evento, oppure lo tracci direttamente sulla griglia."
+  },
+  {
+    "clave": "tut.calendario.6.titulo",
+    "texto": "Abitudine per abitudine"
+  },
+  {
+    "clave": "tut.calendario.6.texto",
+    "texto": "Ogni riga è una routine e ogni colonna un giorno: verde se l'hai fatta. Qui si spunta al volo, e la percentuale in alto riassume il periodo che stai guardando."
+  },
+  {
+    "clave": "tut.calendario.7.titulo",
+    "texto": "L'arco dell'anno"
+  },
+  {
+    "clave": "tut.calendario.7.texto",
+    "texto": "Nella vista Anno il grafico racconta tutta la storia: Pep ha iniziato rispettando un terzo di quello che si proponeva e ha chiuso sopra l'85%. La costanza si è costruita, non è arrivata da sola."
+  },
+  {
+    "clave": "tut.calendario.8.titulo",
+    "texto": "Anche le cadute contano"
+  },
+  {
+    "clave": "tut.calendario.8.texto",
+    "texto": "I due buchi sono veri: l'infortunio al ginocchio del mese 7 e le tre settimane in Giappone. Saltare dei giorni non cancella i progressi — il pannello mostra l'anno com'è stato, non come sarebbe dovuto essere. E una routine conta solo dal giorno in cui l'hai creata."
+  },
+  {
+    "clave": "tut.metas.1.titulo",
+    "texto": "Prima di tutto, gli obiettivi"
+  },
+  {
+    "clave": "tut.metas.1.texto",
+    "texto": "La vista si apre su Obiettivi, raggruppati per l'app che li segue: la corsa in Palestra, la laurea in fisica in Biblioteca. «Casa» non è un'app — quella categoria se l'è inventata Pep per i lavori della cucina."
+  },
+  {
+    "clave": "tut.metas.2.titulo",
+    "texto": "Dall'obiettivo al suo piano"
+  },
+  {
+    "clave": "tut.metas.2.texto",
+    "texto": "Ogni riga si legge come una bacheca: il suo numero nella cartella, la scadenza, l'avanzamento e lo stato — da fare, in corso o fatto, a seconda di quanto è già spuntato. Un clic apre l'obiettivo: il suo piano se ce l'ha (il ✨ lo annuncia) e, se no, il suo foglio con i sotto-obiettivi, le date e i passi."
+  },
+  {
+    "clave": "tut.metas.3.titulo",
+    "texto": "Tre piani, tre stati"
+  },
+  {
+    "clave": "tut.metas.3.texto",
+    "texto": "La cucina e la prossima maratona sono ancora proposte; la domanda per il post-laurea è già nel programma. Quello della maratona è stato chiesto senza scadenza: l'IA ha calcolato che servono 24 settimane e lo dice nel suo riassunto."
+  },
+  {
+    "clave": "tut.metas.4.titulo",
+    "texto": "Il foglio del piano"
+  },
+  {
+    "clave": "tut.metas.4.texto",
+    "texto": "Sei fasi con i loro sotto-obiettivi, ognuna con il suo periodo. Finché è una proposta si modifica tutta: rinominare, spostare date, aggiungere o togliere nodi senza scombinare gli altri."
+  },
+  {
+    "clave": "tut.metas.5.titulo",
+    "texto": "Spuntare senza impegnarsi"
+  },
+  {
+    "clave": "tut.metas.5.texto",
+    "texto": "Le spunte di una proposta vivono nel foglio, non nei tuoi obiettivi: puoi segnare quello che hai fatto senza toccare il tuo programma. Le barre si riempiono da sole verso l'alto — la pianificazione della cucina è già chiusa."
+  },
+  {
+    "clave": "tut.metas.6.titulo",
+    "texto": "Sposta nel programma reale"
+  },
+  {
+    "clave": "tut.metas.6.texto",
+    "texto": "Questo pulsante trasforma ogni fase e ogni sotto-obiettivo in obiettivi veri, con le loro date già messe e appesi all'obiettivo originale. Quello che l'obiettivo aveva già si conserva."
+  },
+  {
+    "clave": "tut.metas.7.titulo",
+    "texto": "Accettato: una sola verità"
+  },
+  {
+    "clave": "tut.metas.7.texto",
+    "texto": "Il piano del post-laurea si è già spostato. Ora le sue spunte sono quelle dei sotto-obiettivi reali e la barra è quella del tuo programma: il foglio smette di tenere un conto a parte."
+  },
+  {
+    "clave": "tut.metas.8.titulo",
+    "texto": "Ed eccoli, sull'asse"
+  },
+  {
+    "clave": "tut.metas.8.texto",
+    "texto": "I sotto-obiettivi nati dal piano occupano il loro periodo nel programma, con il piano sovrapposto in viola: la proposta e il reale, sullo stesso asse."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.titulo",
+    "texto": "Un anno di studi, in un albero"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.1.texto",
+    "texto": "Pep studia Fisica: meccanica all'inizio dell'anno, termodinamica verso il parziale del mese 6, relatività e astrofisica alla fine. Ogni ramo si apre per vedere le sue voci."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.titulo",
+    "texto": "L'albero cresce con te"
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.texto",
+    "texto": "Filmy, seriale, książki i gry wideo, ułożone według tego, kiedy zostały skończone. W siódmym miesiącu widać maraton oglądania (przy kontuzji kolana kanapy nie brakowało), a potem trzytygodniowa dziura: Japonia."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.titulo",
+    "texto": "Pozycja"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.2.texto",
+    "texto": "Tytuł, autor lub reżyser, gatunek, status i gwiazdki. Recenzja to wrażenia Pepa, a nie streszczenie fabuły: za rok tylko to się przyda."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.titulo",
+    "texto": "Cztery sposoby porządkowania"
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.3.texto",
+    "texto": "Według gatunku, według kategorii (film, serial, książka, gra wideo), według autora albo według daty. W widoku według gatunku foldery można przeciągać: ustaw na początku to, co oglądasz najczęściej."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.titulo",
+    "texto": "Lista do obejrzenia"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.1.texto",
+    "texto": "Program Pepa zbiera klasyki fantastyki naukowej do obejrzenia. AI generuje go według tematu („horrory z lat 80.”), ale można go też napisać ręcznie."
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.2.titulo",
+    "texto": "Każdy tytuł to cel"
+  },
+  {
+    "clave": "tut.app-entretenimiento--programas.3.texto",
+    "texto": "A w drugiej zakładce jest cyfrowy stół: ponad dwadzieścia gier planszowych i zręcznościowych do zagrania od razu."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.1.texto",
+    "texto": "1–2 graczy albo 3+: filtr chowa to, co nie pasuje do grupy, którą masz przed sobą. Gry oznaczone „2+” działają w obu sekcjach."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.titulo",
+    "texto": "Według rodziny"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.2.texto",
+    "texto": "Planszowe, Łamigłówki, Zręcznościowe, Karty i kasyno, Dla grupy: każda rodzina ma własny kolor. Szachy, Warcaby, Domino, Blackjack, Tetris, Saper i ponad tuzin innych."
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.titulo",
+    "texto": "Jedno dotknięcie i grasz"
+  },
+  {
+    "clave": "tut.app-entretenimiento--juegos.3.texto",
+    "texto": "Każda karta otwiera grę na pełnym ekranie; te, które to obsługują, mają u góry własny wybór poziomu trudności. Przycisk „Wróć” przenosi dokładnie tutaj, bez utraty miejsca."
+  },
+  {
+    "clave": "tut.app-diario--habito.1.titulo",
+    "texto": "Dzisiejsze nagłówki"
+  },
+  {
+    "clave": "tut.app-diario--habito.1.texto",
+    "texto": "Świat, gospodarka, technologia, zdrowie, sport i rozrywka, z prawdziwych źródeł. Chipy u góry filtrują według sekcji."
+  },
+  {
+    "clave": "tut.app-diario--habito.2.titulo",
+    "texto": "Odnawia się sama"
+  },
+  {
+    "clave": "tut.app-diario--habito.2.texto",
+    "texto": "Wydanie na dany dzień pobiera się samo, a o północy wymienia się w całości: tutaj nic się nie odkłada, jak w prawdziwej gazecie."
+  },
+  {
+    "clave": "tut.app-diario--habito.3.titulo",
+    "texto": "Ten dzień w historii"
+  },
+  {
+    "clave": "tut.app-diario--habito.3.texto",
+    "texto": "Druga połowa: co wydarzyło się w taki dzień jak dziś, dzieło, książka, gatunek, słowo. To dobry pretekst, żeby tu zajrzeć, nawet gdy na wiadomości nie ma ochoty."
+  },
+  {
+    "clave": "tut.app-diario--habito.4.texto",
+    "texto": "W roku Pepa jest jakieś dwieście dni z gazetą: dużo na początku, prawie nic w tym złym miesiącu i każdy dzień z ostatnich trzech tygodni. Seria Pepa żyje właśnie z tego."
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.titulo",
+    "texto": "Dostawa"
+  },
+  {
+    "clave": "tut.app-diario--reparto.1.texto",
+    "texto": "Tutaj ustawiasz, kto co ci przynosi. To nie jest kolejne powiadomienie: przychodzi jako wiadomość od asystenta, jego głosem."
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.titulo",
+    "texto": "Dwie dostawy"
+  },
+  {
+    "clave": "tut.app-diario--reparto.2.texto",
+    "texto": "Mag przynosi Pepowi świat, technologię i gospodarkę o 7:30. Laika przynosi to, co lekkie, kiedy jej się zachce. Każdy asystent wybiera swoje sekcje i swój tryb."
+  }
+]

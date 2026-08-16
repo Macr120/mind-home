@@ -1,0 +1,850 @@
+[
+  {
+    "clave": "editor.techoCuarto.propagarMapa",
+    "es": "Con el techo activo, el techo es una sola losa: usa el + de cada dirección para extenderlo de forma uniforme sobre cuartos vecinos, y − para retraer ese borde.",
+    "en": "With the roof on, the roof is a single slab: use each direction’s + to extend it uniformly over neighboring rooms, and − to retract that edge."
+  },
+  {
+    "clave": "editor.techoCuarto.quitarColor",
+    "es": "↺ Nativo",
+    "en": "↺ Native"
+  },
+  {
+    "clave": "editor.techoCuarto.reset",
+    "es": "↺ Volver al techo de la casa",
+    "en": "↺ Back to the house roof"
+  },
+  {
+    "clave": "editor.techoCuarto.subirImagen",
+    "es": "Subir imagen",
+    "en": "Upload image"
+  },
+  {
+    "clave": "editor.techoCuarto.usarImagen",
+    "es": "Usar imagen",
+    "en": "Use image"
+  },
+  {
+    "clave": "editor.tema.ajustesDe",
+    "es": "Ajustes de",
+    "en": "Settings for"
+  },
+  {
+    "clave": "editor.tema.ambiente",
+    "es": "Luz ambiental",
+    "en": "Ambient light"
+  },
+  {
+    "clave": "editor.tema.cascaron",
+    "es": "Colores del cascarón",
+    "en": "Shell colors"
+  },
+  {
+    "clave": "editor.tema.emissive",
+    "es": "Brillo (color)",
+    "en": "Glow (color)"
+  },
+  {
+    "clave": "editor.tema.emissiveInt",
+    "es": "Brillo (fuerza)",
+    "en": "Glow (strength)"
+  },
+  {
+    "clave": "editor.tema.exposicion",
+    "es": "Exposición",
+    "en": "Exposure"
+  },
+  {
+    "clave": "editor.tema.focos",
+    "es": "Focos nocturnos",
+    "en": "Night lights"
+  },
+  {
+    "clave": "editor.tema.fondo",
+    "es": "Fondo del cielo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "editor.tema.fondoTinte",
+    "es": "Fondo y tinte",
+    "en": "Background and tint"
+  },
+  {
+    "clave": "editor.tema.fuerza",
+    "es": "Fuerza del tinte",
+    "en": "Tint strength"
+  },
+  {
+    "clave": "editor.tema.ibl",
+    "es": "Reflejos",
+    "en": "Reflections"
+  },
+  {
+    "clave": "editor.tema.intSol",
+    "es": "Intensidad del sol",
+    "en": "Sun intensity"
+  },
+  {
+    "clave": "editor.tema.luzNiebla",
+    "es": "Luz y niebla",
+    "en": "Light and fog"
+  },
+  {
+    "clave": "editor.tema.materiales",
+    "es": "Materiales",
+    "en": "Materials"
+  },
+  {
+    "clave": "editor.tema.metalness",
+    "es": "Metalidad",
+    "en": "Metalness"
+  },
+  {
+    "clave": "editor.tema.muroExt",
+    "es": "Fachada",
+    "en": "Facade"
+  },
+  {
+    "clave": "editor.tema.muroInt",
+    "es": "Muro interior",
+    "en": "Interior wall"
+  },
+  {
+    "clave": "editor.tema.niebla",
+    "es": "Niebla (color)",
+    "en": "Fog (color)"
+  },
+  {
+    "clave": "editor.tema.nieblaCerca",
+    "es": "Niebla cerca",
+    "en": "Fog near"
+  },
+  {
+    "clave": "editor.tema.nieblaLejos",
+    "es": "Niebla lejos",
+    "en": "Fog far"
+  },
+  {
+    "clave": "editor.tema.piso",
+    "es": "Piso",
+    "en": "Floor"
+  },
+  {
+    "clave": "editor.tema.restaurar",
+    "es": "Restaurar",
+    "en": "Restore"
+  },
+  {
+    "clave": "editor.tema.roughness",
+    "es": "Rugosidad",
+    "en": "Roughness"
+  },
+  {
+    "clave": "editor.tema.sol",
+    "es": "Sol (tinte)",
+    "en": "Sun (tint)"
+  },
+  {
+    "clave": "editor.tema.techo",
+    "es": "Techo",
+    "en": "Roof"
+  },
+  {
+    "clave": "editor.tema.tinte",
+    "es": "Tinte de objetos",
+    "en": "Object tint"
+  },
+  {
+    "clave": "editor.titulo",
+    "es": "Editor",
+    "en": "Editor"
+  },
+  {
+    "clave": "ejercicio.confirmarGenerarImagenes",
+    "es": "Se generarán {n} imágenes y costará {c} créditos. ¿Continuar?",
+    "en": "{n} images will be generated with {proveedor}. This may have a cost. Continue?"
+  },
+  {
+    "clave": "ejercicio.f.volumen",
+    "es": "Volumen",
+    "en": "Volume"
+  },
+  {
+    "clave": "ejercicio.graf.max",
+    "es": "máx",
+    "en": "max"
+  },
+  {
+    "clave": "ejercicio.graf.min",
+    "es": "mín",
+    "en": "min"
+  },
+  {
+    "clave": "ejercicio.img.generar",
+    "es": "Generar faltantes ({n})",
+    "en": "Generate missing ({n})"
+  },
+  {
+    "clave": "ejercicio.img.generarUna",
+    "es": "Generar con IA",
+    "en": "Generate with AI"
+  },
+  {
+    "clave": "ejercicio.img.generarOtra",
+    "es": "Generar otra",
+    "en": "Generate another"
+  },
+  {
+    "clave": "ejercicio.img.generando",
+    "es": "Generando…",
+    "en": "Generating…"
+  },
+  {
+    "clave": "ejercicio.img.subir",
+    "es": "Subir foto",
+    "en": "Upload photo"
+  },
+  {
+    "clave": "ejercicio.img.ver",
+    "es": "Ver imagen",
+    "en": "View image"
+  },
+  {
+    "clave": "ejercicio.img.anadir",
+    "es": "Añadir imagen",
+    "en": "Add image"
+  },
+  {
+    "clave": "ejercicio.img.sinIa",
+    "es": "Configura la IA en el chat para generar imágenes.",
+    "en": "Set up AI in the chat to generate images."
+  },
+  {
+    "clave": "ejercicio.img.listas",
+    "es": "Listas:",
+    "en": "Done:"
+  },
+  {
+    "clave": "ejercicio.ph.reps",
+    "en": "reps"
+  },
+  {
+    "clave": "ejercicio.ph.seg",
+    "en": "sec"
+  },
+  {
+    "clave": "ejercicio.r.porSemana",
+    "es": "· sem",
+    "en": "· wk"
+  },
+  {
+    "clave": "ejercicio.vivo.ppm",
+    "es": "Pulso (ppm)",
+    "en": "Heart rate (bpm)"
+  },
+  {
+    "clave": "mapa.listo",
+    "es": "Listo",
+    "en": "Done"
+  },
+  {
+    "clave": "editor.salirCuarto",
+    "es": "Salir del cuarto (volver al mapa)",
+    "en": "Exit room (back to map)"
+  },
+  {
+    "clave": "editor.salirCuartoBoton",
+    "es": "Salir del cuarto",
+    "en": "Exit room"
+  },
+  {
+    "clave": "editor.moverObjetos.listo",
+    "es": "Terminar de mover objetos",
+    "en": "Finish moving objects"
+  },
+  {
+    "clave": "nav.asignar",
+    "es": "+ Asignar",
+    "en": "+ Assign"
+  },
+  {
+    "clave": "nav.asignarApp",
+    "es": "Asignar una app a este cuarto",
+    "en": "Assign an app to this room"
+  },
+  {
+    "clave": "nav.crearCuarto",
+    "es": "Crear cuarto",
+    "en": "Create room"
+  },
+  {
+    "clave": "nav.sinCuartos",
+    "es": "Aún no hay cuartos. Crea el primero abajo.",
+    "en": "No rooms yet. Create the first one below."
+  },
+  {
+    "clave": "nav3d.ayuda1P",
+    "es": "Clic derecho o joystick; rueda para zoom",
+    "en": "Right-click or joystick; wheel to zoom"
+  },
+  {
+    "clave": "nav3d.ayuda3P",
+    "es": "Clic derecho o joystick; rueda para zoom",
+    "en": "Right-click or joystick; wheel to zoom"
+  },
+  {
+    "clave": "nav3d.cambiarVista",
+    "es": "Cambiar vista (tecla V)",
+    "en": "Switch view (V key)"
+  },
+  {
+    "clave": "nav3d.centrarMapa",
+    "es": "Centrar en el mapa",
+    "en": "Center on the map"
+  },
+  {
+    "clave": "nav3d.vista1Corta",
+    "es": "1ª",
+    "en": "1st"
+  },
+  {
+    "clave": "nav3d.vista3Corta",
+    "es": "3ª",
+    "en": "3rd"
+  },
+  {
+    "clave": "nav3d.vistaIso",
+    "es": "Vista isométrica",
+    "en": "Isometric view"
+  },
+  {
+    "clave": "nav3d.vistaIsoCorta",
+    "es": "Iso",
+    "en": "Iso"
+  },
+  {
+    "clave": "nav3d.vistaPrimera",
+    "es": "Primera persona",
+    "en": "First person"
+  },
+  {
+    "clave": "nav3d.vistaTercera",
+    "es": "Tercera persona",
+    "en": "Third person"
+  },
+  {
+    "clave": "paredes.alto",
+    "es": "Altura",
+    "en": "Height"
+  },
+  {
+    "clave": "paredes.altoGen",
+    "es": "Alto",
+    "en": "Height"
+  },
+  {
+    "clave": "paredes.altoPuerta",
+    "es": "Alto",
+    "en": "Door height"
+  },
+  {
+    "clave": "paredes.altoTodos",
+    "es": "Aplicar a todas las paredes del cuarto",
+    "en": "Apply to all walls of the room"
+  },
+  {
+    "clave": "paredes.anchoGen",
+    "es": "Ancho",
+    "en": "Width"
+  },
+  {
+    "clave": "paredes.anchoVano",
+    "es": "Ancho",
+    "en": "Opening width"
+  },
+  {
+    "clave": "paredes.borrar",
+    "es": "Borrar imagen",
+    "en": "Delete image"
+  },
+  {
+    "clave": "paredes.cambiar",
+    "es": "Cambiar",
+    "en": "Change"
+  },
+  {
+    "clave": "paredes.cambiarFoto",
+    "es": "Cambiar la foto",
+    "en": "Change the photo"
+  },
+  {
+    "clave": "paredes.caraExterior",
+    "es": "Cara exterior",
+    "en": "Outer face"
+  },
+  {
+    "clave": "paredes.imagenPuerta",
+    "es": "Imagen de la puerta",
+    "en": "Door image"
+  },
+  {
+    "clave": "paredes.quitarImagenPuerta",
+    "es": "Quitar la imagen",
+    "en": "Remove the image"
+  },
+  {
+    "clave": "paredes.imagenPuertaAyuda",
+    "es": "Viste la hoja de la puerta (recta, doble o corredera). El portón de láminas conserva su color.",
+    "en": "It dresses the door leaf (single, double or sliding). Slatted gates keep their colour."
+  },
+  {
+    "clave": "paredes.caraInterior",
+    "es": "Cara interior",
+    "en": "Inner face"
+  },
+  {
+    "clave": "paredes.color",
+    "es": "Color",
+    "en": "Color"
+  },
+  {
+    "clave": "paredes.cont.cuadro",
+    "en": "Picture"
+  },
+  {
+    "clave": "paredes.cont.espejo",
+    "en": "Mirror"
+  },
+  {
+    "clave": "paredes.cont.ventana",
+    "en": "Window"
+  },
+  {
+    "clave": "paredes.cristal",
+    "es": "Cristal",
+    "en": "Glass"
+  },
+  {
+    "clave": "paredes.espejoNota",
+    "es": "La luna refleja en tiempo real lo que tiene enfrente.",
+    "en": "The glass reflects whatever is in front of it in real time."
+  },
+  {
+    "clave": "paredes.fotoAyuda",
+    "es": "La foto llena la forma del marco en la cara elegida del muro.",
+    "en": "The photo fills the frame shape on the chosen face of the wall."
+  },
+  {
+    "clave": "paredes.fotoCuadro",
+    "es": "Foto",
+    "en": "Photo"
+  },
+  {
+    "clave": "paredes.desactivar",
+    "es": "Desactivar",
+    "en": "Disable"
+  },
+  {
+    "clave": "paredes.editando",
+    "es": "Editando",
+    "en": "Editing"
+  },
+  {
+    "clave": "paredes.editarBorde",
+    "es": "Editar este borde",
+    "en": "Edit this edge"
+  },
+  {
+    "clave": "paredes.forma.arco",
+    "en": "Arch"
+  },
+  {
+    "clave": "paredes.forma.recta",
+    "en": "Straight"
+  },
+  {
+    "clave": "paredes.forma.triangulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "paredes.formaAlto",
+    "es": "Alto del arco",
+    "en": "Arch height"
+  },
+  {
+    "clave": "paredes.formaAltoPico",
+    "es": "Alto del pico",
+    "en": "Peak height"
+  },
+  {
+    "clave": "paredes.formaAncho",
+    "es": "Ancho",
+    "en": "Width"
+  },
+  {
+    "clave": "paredes.formaDividir",
+    "es": "Color propio en la silueta",
+    "en": "Split into two bodies (own texture)"
+  },
+  {
+    "clave": "paredes.formaPosX",
+    "es": "Posición del pico",
+    "en": "Peak position"
+  },
+  {
+    "clave": "paredes.formaVano",
+    "es": "Forma del vano",
+    "en": "Opening shape"
+  },
+  {
+    "clave": "paredes.formas",
+    "es": "Forma",
+    "en": "Parametric shapes"
+  },
+  {
+    "clave": "paredes.imagen",
+    "es": "Imagen de fondo",
+    "en": "Background image"
+  },
+  {
+    "clave": "paredes.mosaico",
+    "es": "Mosaico",
+    "en": "Tiling"
+  },
+  {
+    "clave": "paredes.multicolor",
+    "es": "Multicolor",
+    "en": "Multicolor"
+  },
+  {
+    "clave": "paredes.posXPuerta",
+    "es": "Posición horizontal",
+    "en": "Horizontal position"
+  },
+  {
+    "clave": "paredes.quitarCuadro",
+    "es": "Quitar el cuadro",
+    "en": "Remove the picture"
+  },
+  {
+    "clave": "paredes.quitarEspejo",
+    "es": "Quitar el espejo",
+    "en": "Remove the mirror"
+  },
+  {
+    "clave": "paredes.quitarFoto",
+    "es": "Quitar la foto",
+    "en": "Remove the photo"
+  },
+  {
+    "clave": "paredes.quitarPuerta",
+    "es": "Quitar la puerta (dejar muro)",
+    "en": "Remove the door (leave wall)"
+  },
+  {
+    "clave": "paredes.quitarVentana",
+    "es": "Quitar la ventana",
+    "en": "Remove the window"
+  },
+  {
+    "clave": "paredes.subirFoto",
+    "es": "Subir una foto",
+    "en": "Upload a photo"
+  },
+  {
+    "clave": "paredes.subirImagen",
+    "es": "Subir imagen",
+    "en": "Upload image"
+  },
+  {
+    "clave": "paredes.textura",
+    "es": "Textura",
+    "en": "Texture"
+  },
+  {
+    "clave": "paredes.tocaBordeModo",
+    "es": "Toca un borde para editarlo como",
+    "en": "Tap an edge to edit it as"
+  },
+  {
+    "clave": "paredes.usarImagen",
+    "es": "Usar imagen",
+    "en": "Use image"
+  },
+  {
+    "clave": "paredes.ventAlto",
+    "es": "Alto",
+    "en": "Window height"
+  },
+  {
+    "clave": "paredes.ventAncho",
+    "es": "Ancho",
+    "en": "Window width"
+  },
+  {
+    "clave": "paredes.ventForma.cuadrado",
+    "en": "Square"
+  },
+  {
+    "clave": "paredes.ventForma.circulo",
+    "en": "Circle"
+  },
+  {
+    "clave": "paredes.ventForma.triangulo",
+    "en": "Triangle"
+  },
+  {
+    "clave": "paredes.ventRot",
+    "en": "Rotation"
+  },
+  {
+    "clave": "paredes.ventPosX",
+    "es": "Posición horizontal",
+    "en": "Horizontal position"
+  },
+  {
+    "clave": "paredes.ventPosY",
+    "es": "Posición vertical",
+    "en": "Vertical position"
+  },
+  {
+    "clave": "paredes.ventana",
+    "es": "Ventana",
+    "en": "Window"
+  },
+  {
+    "clave": "plano.controles",
+    "es": "Rueda: zoom · Shift/Alt + arrastrar: mover · Doble clic en margen: encajar",
+    "en": "Wheel: zoom · Shift/Alt + drag: pan · Double-click the margin: fit"
+  },
+  {
+    "clave": "planos.arista",
+    "es": "Arista",
+    "en": "Edge"
+  },
+  {
+    "clave": "planos.celdasPiso",
+    "es": "loseta de piso",
+    "en": "floor tile"
+  },
+  {
+    "clave": "planos.confirmarNombre",
+    "es": "Confirmar nombre",
+    "en": "Confirm name"
+  },
+  {
+    "clave": "planos.detalle.celda",
+    "es": "Celdas normales",
+    "en": "Normal cells"
+  },
+  {
+    "clave": "planos.detalle.subcelda",
+    "es": "Celdas finas (½)",
+    "en": "Fine cells (½)"
+  },
+  {
+    "clave": "planos.eliminarCuarto",
+    "es": "Eliminar cuarto",
+    "en": "Delete room"
+  },
+  {
+    "clave": "planos.grupo.interiorDesc",
+    "es": "{cuartos} cuartos · {zonas} básicos · Nivel {n}",
+    "en": "{cuartos} rooms · {zonas} basic · Level {n}"
+  },
+  {
+    "clave": "planos.grupo.interiorVacio",
+    "es": "No hay pisos interiores en este nivel",
+    "en": "No interior floors on this level"
+  },
+  {
+    "clave": "planos.moverZonaHint",
+    "es": "Arrastra el cuarto en el plano para moverlo.",
+    "en": "Drag the room on the plan to move it."
+  },
+  {
+    "clave": "planos.nombrarHint",
+    "es": "El cuarto ya tiene paredes, piso y techo genéricos. Elige un nombre para identificarlo.",
+    "en": "The room already has generic walls, floor and roof. Pick a name to identify it."
+  },
+  {
+    "clave": "planos.nombrarTitulo",
+    "es": "Nombra tu cuarto",
+    "en": "Name your room"
+  },
+  {
+    "clave": "planos.paredesHint",
+    "es": "Toca una pared en el croquis o en el mapa 3D para ponerle muro, puerta o ventana.",
+    "en": "Tap a wall on the sketch or the 3D map to add a wall, door or window."
+  },
+  {
+    "clave": "planos.pisosHint",
+    "es": "Selecciona cuartos o marca varias celdas exteriores (clic repetido). Elige textura y color en el panel.",
+    "en": "Select rooms or mark several exterior cells (repeated click). Pick texture and color in the panel."
+  },
+  {
+    "clave": "planos.preview.mostrar",
+    "es": "Mostrar previsualización 3D",
+    "en": "Show 3D preview"
+  },
+  {
+    "clave": "planos.preview.ocultar",
+    "es": "Ocultar previsualización 3D",
+    "en": "Hide 3D preview"
+  },
+  {
+    "clave": "planos.props.paredesZona",
+    "es": "Edita la arista del cuarto básico.",
+    "en": "Edit the basic room's edge."
+  },
+  {
+    "clave": "plantillaCustom.arrastrarGrupo",
+    "es": "Arrastrar para reordenar",
+    "en": "Drag to reorder"
+  },
+  {
+    "clave": "plantillaCustom.borrarGrupo",
+    "es": "Borrar carpeta",
+    "en": "Delete folder"
+  },
+  {
+    "clave": "plantillaCustom.borrarGrupoConfirm",
+    "es": "¿Borrar esta carpeta? Sus plantillas pasan a la primera.",
+    "en": "Delete this folder? Its templates move to the first one."
+  },
+  {
+    "clave": "plantillaCustom.desplegarGrupo",
+    "es": "Desplegar carpeta",
+    "en": "Expand folder"
+  },
+  {
+    "clave": "plantillaCustom.enUsoTag",
+    "es": "en uso",
+    "en": "in use"
+  },
+  {
+    "clave": "plantillaCustom.grupo",
+    "es": "Grupo",
+    "en": "Group"
+  },
+  {
+    "clave": "plantillaCustom.grupoVacio",
+    "es": "Carpeta vacía · arrastra plantillas aquí",
+    "en": "Empty folder · drag templates here"
+  },
+  {
+    "clave": "plantillaCustom.nuevoGrupo",
+    "es": "Nuevo grupo",
+    "en": "New group"
+  },
+  {
+    "clave": "plantillaCustom.nuevoGrupoNombre",
+    "es": "Nuevo grupo",
+    "en": "New group"
+  },
+  {
+    "clave": "plantillaCustom.plegarGrupo",
+    "es": "Plegar carpeta",
+    "en": "Collapse folder"
+  },
+  {
+    "clave": "plantillaCustom.renombrarGrupo",
+    "es": "Renombrar carpeta",
+    "en": "Rename folder"
+  },
+  {
+    "clave": "plantillaCustom.unidadPh",
+    "es": "kg, $, págs…",
+    "en": "kg, $, pages…"
+  },
+  {
+    "clave": "preview.girar",
+    "es": "Arrastra para girar · rueda para acercar",
+    "en": "Drag to rotate · wheel to zoom"
+  },
+  {
+    "clave": "preview.tocarEditar",
+    "es": "Toca una parte para editarla · arrastra para girar",
+    "en": "Tap a part to edit it · drag to rotate"
+  },
+  {
+    "clave": "preview.fondoClaro",
+    "es": "Fondo claro",
+    "en": "Light background"
+  },
+  {
+    "clave": "preview.fondoOscuro",
+    "es": "Fondo oscuro",
+    "en": "Dark background"
+  },
+  {
+    "clave": "preview.techo",
+    "es": "Mostrar/ocultar techo",
+    "en": "Show/hide roof"
+  },
+  {
+    "clave": "preview.techoOff",
+    "es": "Sin techo",
+    "en": "No roof"
+  },
+  {
+    "clave": "preview.techoOn",
+    "es": "Techo",
+    "en": "Roof"
+  },
+  {
+    "clave": "preview.objetos",
+    "es": "Mostrar/ocultar objetos",
+    "en": "Show/hide objects"
+  },
+  {
+    "clave": "preview.objetosOff",
+    "es": "Sin objetos",
+    "en": "No objects"
+  },
+  {
+    "clave": "preview.objetosOn",
+    "es": "Objetos",
+    "en": "Objects"
+  },
+  {
+    "clave": "preview.moverObjetos",
+    "es": "Mover objetos en el mapa",
+    "en": "Move objects on the map"
+  },
+  {
+    "clave": "mover.adelante",
+    "es": "Mover hacia adelante",
+    "en": "Move forward"
+  },
+  {
+    "clave": "mover.atras",
+    "es": "Mover hacia atrás",
+    "en": "Move backward"
+  },
+  {
+    "clave": "mover.izquierda",
+    "es": "Mover a la izquierda",
+    "en": "Move left"
+  },
+  {
+    "clave": "mover.derecha",
+    "es": "Mover a la derecha",
+    "en": "Move right"
+  },
+  {
+    "clave": "progreso.nv",
+    "es": "Nv",
+    "en": "Lv"
+  },
+  {
+    "clave": "prop.restablecer",
+    "es": "Restablecer",
+    "en": "Reset"
+  },
+  {
+    "clave": "respaldo.ahora",
+    "es": "Respaldar",
+    "en": "Back up"
+  }
+]

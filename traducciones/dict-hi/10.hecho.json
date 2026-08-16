@@ -1,0 +1,522 @@
+[
+ {
+  "clave": "idiomas.rep.paraHoy",
+  "texto": "{idioma} में आज रिवीज़न के लिए कार्ड"
+ },
+ {
+  "clave": "idiomas.rep.empezar",
+  "texto": "रिवीज़न शुरू करें"
+ },
+ {
+  "clave": "idiomas.rep.sinTarjetas",
+  "texto": "अभी रिवीज़न के लिए कुछ नहीं है: शब्दावली टैब में कार्ड बनाएं या ट्यूटर से बात करें।"
+ },
+ {
+  "clave": "idiomas.rep.alDia",
+  "texto": "आज के लिए सब पूरा है: कोई कार्ड बाकी नहीं। कल वापस आएं या फ्री रिवीज़न करें।"
+ },
+ {
+  "clave": "idiomas.rep.libre",
+  "texto": "फ्री रिवीज़न"
+ },
+ {
+  "clave": "idiomas.rep.libreTag",
+  "texto": "फ्री रिवीज़न"
+ },
+ {
+  "clave": "idiomas.rep.quedan",
+  "texto": "{n} बाकी"
+ },
+ {
+  "clave": "idiomas.rep.marcador",
+  "texto": "{aciertos}/{hecho} सही"
+ },
+ {
+  "clave": "idiomas.rep.mostrar",
+  "texto": "जवाब दिखाएं"
+ },
+ {
+  "clave": "idiomas.rep.noSabia",
+  "texto": "याद नहीं है"
+ },
+ {
+  "clave": "idiomas.rep.siSabia",
+  "texto": "याद है"
+ },
+ {
+  "clave": "idiomas.rep.salir",
+  "texto": "आज के लिए बस"
+ },
+ {
+  "clave": "idiomas.rep.ilustrar",
+  "texto": "इस कार्ड में तस्वीर जोड़ें"
+ },
+ {
+  "clave": "idiomas.rep.cambiarIlustracion",
+  "texto": "तस्वीर बदलें"
+ },
+ {
+  "clave": "idiomas.rep.verMazo",
+  "texto": "डेक देखें"
+ },
+ {
+  "clave": "idiomas.rep.verMazoHoy",
+  "texto": "आज के कार्ड देखें"
+ },
+ {
+  "clave": "idiomas.ilustrar.cerrar",
+  "texto": "बंद करें"
+ },
+ {
+  "clave": "idiomas.ilustrar.nota",
+  "texto": "जवाब खुलते ही तस्वीर दिखती है: यही मतलब को याद रखने की कड़ी है।"
+ },
+ {
+  "clave": "idiomas.ilustrar.nota2",
+  "texto": "तस्वीर और आवाज़ साथ में: वह कड़ी जो कार्ड के अभ्यास में आने पर मतलब याद दिलाती है।"
+ },
+ {
+  "clave": "idiomas.rep.fin",
+  "texto": "सेशन पूरा हुआ!"
+ },
+ {
+  "clave": "idiomas.rep.finDetalle",
+  "texto": "{total} में से {aciertos} सही"
+ },
+ {
+  "clave": "idiomas.rep.listo",
+  "texto": "हो गया"
+ },
+ {
+  "clave": "idiomas.ej.modo.opcion",
+  "texto": "इसका मतलब क्या है?"
+ },
+ {
+  "clave": "idiomas.ej.modo.inverso",
+  "texto": "उल्टा"
+ },
+ {
+  "clave": "idiomas.ej.modo.cloze",
+  "texto": "भरें"
+ },
+ {
+  "clave": "idiomas.ej.descOpcion",
+  "texto": "{idioma} में एक शब्द दिखेगा, और उसका अनुवाद चुनना है।"
+ },
+ {
+  "clave": "idiomas.ej.descInverso",
+  "texto": "अनुवाद दिखेगा, और {idioma} में सही शब्द चुनना है।"
+ },
+ {
+  "clave": "idiomas.ej.descCloze",
+  "texto": "उदाहरण वाक्य में जो शब्द छूटा है, वह भरना है।"
+ },
+ {
+  "clave": "idiomas.ej.pocas",
+  "texto": "अभ्यास बनाने के लिए कम से कम 4 {idioma} कार्ड चाहिए।"
+ },
+ {
+  "clave": "idiomas.ej.pocas2",
+  "texto": "अभ्यास बनाने के लिए कम से कम 4 {idioma} कार्ड चाहिए: इन्हें पाठ्यक्रम में बनाएं, ट्यूटर से बात करें या AI से मांगें।"
+ },
+ {
+  "clave": "idiomas.ej.fuente",
+  "texto": "क्या रिवीज़न करना है"
+ },
+ {
+  "clave": "idiomas.ej.fuenteTip",
+  "texto": "जो कार्ड राउंड में शामिल होंगे"
+ },
+ {
+  "clave": "idiomas.ej.fuenteHoy",
+  "texto": "आज जो बाकी है ({n})"
+ },
+ {
+  "clave": "idiomas.ej.fuenteTodo",
+  "texto": "पूरी शब्दावली ({n})"
+ },
+ {
+  "clave": "idiomas.ej.temaVacio",
+  "texto": "इस विषय में अभी कोई कार्ड नहीं है। कोई और चुनें या पाठ्यक्रम से बनाएं।"
+ },
+ {
+  "clave": "idiomas.ej.sinCloze",
+  "texto": "किसी भी कार्ड में शब्द वाला उदाहरण वाक्य नहीं है: भरने का अभ्यास करने के लिए उदाहरण जोड़ें।"
+ },
+ {
+  "clave": "idiomas.ej.empezar",
+  "texto": "अभ्यास शुरू करें"
+ },
+ {
+  "clave": "idiomas.ej.siguiente",
+  "texto": "अगला"
+ },
+ {
+  "clave": "idiomas.ej.verResumen",
+  "texto": "सारांश देखें"
+ },
+ {
+  "clave": "idiomas.ej.fin",
+  "texto": "{total} में से {aciertos} सही"
+ },
+ {
+  "clave": "idiomas.ej.cambiarModo",
+  "texto": "मोड बदलें"
+ },
+ {
+  "clave": "idiomas.ej.otraRonda",
+  "texto": "एक और राउंड"
+ },
+ {
+  "clave": "idiomas.ej.reto.libre",
+  "texto": "आराम से"
+ },
+ {
+  "clave": "idiomas.ej.reto.vidas",
+  "texto": "तीन जानें"
+ },
+ {
+  "clave": "idiomas.ej.reto.contrarreloj",
+  "texto": "समय के खिलाफ"
+ },
+ {
+  "clave": "idiomas.ej.descLibre",
+  "texto": "{n} सवालों का राउंड, बिना जल्दी के।"
+ },
+ {
+  "clave": "idiomas.ej.descVidas",
+  "texto": "जब तक जानें बची हैं, खेल चलता रहता है: हर गलती पर एक जान जाती है।"
+ },
+ {
+  "clave": "idiomas.ej.descReloj",
+  "texto": "{n} सेकंड में जितने हो सकें उतने सवाल; तेज़ जवाब पर ज़्यादा पॉइंट मिलते हैं।"
+ },
+ {
+  "clave": "idiomas.ej.mult",
+  "texto": "{n}×"
+ },
+ {
+  "clave": "idiomas.ej.vidas",
+  "texto": "{n} जानें"
+ },
+ {
+  "clave": "idiomas.ej.terminar",
+  "texto": "राउंड खत्म करें"
+ },
+ {
+  "clave": "idiomas.ej.mejorCombo",
+  "texto": "सबसे लंबा सिलसिला {n}"
+ },
+ {
+  "clave": "idiomas.medalla.perfecta",
+  "texto": "परफेक्ट राउंड"
+ },
+ {
+  "clave": "idiomas.medalla.combo10",
+  "texto": "लगातार दस"
+ },
+ {
+  "clave": "idiomas.medalla.relampago",
+  "texto": "बिजली"
+ },
+ {
+  "clave": "idiomas.medalla.superviviente",
+  "texto": "सर्वाइवर"
+ },
+ {
+  "clave": "idiomas.medalla.maraton",
+  "texto": "मैराथन"
+ },
+ {
+  "clave": "idiomas.mis.titulo",
+  "texto": "आज की चुनौतियां"
+ },
+ {
+  "clave": "idiomas.mis.resp20",
+  "texto": "20 अभ्यास हल करें"
+ },
+ {
+  "clave": "idiomas.mis.resp40",
+  "texto": "40 अभ्यास हल करें"
+ },
+ {
+  "clave": "idiomas.mis.acierta15",
+  "texto": "15 सही करें"
+ },
+ {
+  "clave": "idiomas.mis.acierta30",
+  "texto": "30 सही करें"
+ },
+ {
+  "clave": "idiomas.mis.combo8",
+  "texto": "लगातार 8 सही जवाब दें"
+ },
+ {
+  "clave": "idiomas.mis.combo12",
+  "texto": "लगातार 12 सही जवाब दें"
+ },
+ {
+  "clave": "idiomas.mis.partidas2",
+  "texto": "2 राउंड खेलें"
+ },
+ {
+  "clave": "idiomas.mis.partidas4",
+  "texto": "4 राउंड खेलें"
+ },
+ {
+  "clave": "idiomas.mis.perfecta1",
+  "texto": "एक परफेक्ट राउंड पूरा करें"
+ },
+ {
+  "clave": "idiomas.mis.modos3",
+  "texto": "तीनों मोड आज़माएं"
+ },
+ {
+  "clave": "idiomas.rec.titulo",
+  "texto": "अभ्यास के रिकॉर्ड"
+ },
+ {
+  "clave": "idiomas.rec.mejorCombo",
+  "texto": "सबसे लंबा सिलसिला"
+ },
+ {
+  "clave": "idiomas.rec.vacio",
+  "texto": "अभी तक कोई राउंड नहीं खेला गया।"
+ },
+ {
+  "clave": "idiomas.nivel.A1",
+  "texto": "शुरुआती"
+ },
+ {
+  "clave": "idiomas.nivel.A2",
+  "texto": "प्रारंभिक"
+ },
+ {
+  "clave": "idiomas.nivel.B1",
+  "texto": "मध्यम"
+ },
+ {
+  "clave": "idiomas.nivel.B2",
+  "texto": "मध्यम से ऊपर"
+ },
+ {
+  "clave": "idiomas.nivel.C1",
+  "texto": "उन्नत"
+ },
+ {
+  "clave": "idiomas.nivel.C2",
+  "texto": "निपुणता"
+ },
+ {
+  "clave": "idiomas.tem.tuNivel",
+  "texto": "आपका स्तर"
+ },
+ {
+  "clave": "idiomas.tem.cobertura",
+  "texto": "{c}/{total} विषयों में शब्दावली"
+ },
+ {
+  "clave": "idiomas.tem.nTarjetas",
+  "texto": "इस विषय के {n} कार्ड"
+ },
+ {
+  "clave": "idiomas.tem.prompt.temas",
+  "texto": "मुझे «{tema}» का अभ्यास करना है। शुरू करते हैं।"
+ },
+ {
+  "clave": "idiomas.tem.prompt.pronunciacion",
+  "texto": "मुझे अपने उच्चारण पर काम करना है: «{tema}»। इसे समझाएं और दोहराने के लिए उदाहरण दें।"
+ },
+ {
+  "clave": "idiomas.tem.prompt.gramatica",
+  "texto": "«{tema}» का व्याकरण उदाहरणों के साथ समझाएं, फिर अभ्यास दें।"
+ },
+ {
+  "clave": "idiomas.tem.charlarTip",
+  "texto": "यह विषय ट्यूटर के साथ अभ्यास करें"
+ },
+ {
+  "clave": "idiomas.tem.verTarjetasTip",
+  "texto": "इस विषय के कार्ड देखें"
+ },
+ {
+  "clave": "idiomas.tem.generarTip",
+  "texto": "AI से इस विषय की शब्दावली जनरेट करें"
+ },
+ {
+  "clave": "idiomas.tem.materialTip",
+  "texto": "इस विषय के आपके नोट्स और तस्वीरें"
+ },
+ {
+  "clave": "idiomas.tem.practicarTip",
+  "texto": "इस विषय के कार्ड से अभ्यास"
+ },
+ {
+  "clave": "idiomas.tem.sinTarjetas",
+  "texto": "इस विषय में अभी कोई कार्ड नहीं है।"
+ },
+ {
+  "clave": "idiomas.tem.edicionDesc",
+  "texto": "पूरा पाठ्यक्रम अपने मुताबिक बनाएं: श्रेणियां, स्तर, विषय और उप-विषय जोड़े जा सकते हैं, उनका नाम बदला जा सकता है, क्रम बदला जा सकता है और उन्हें मिटाया भी जा सकता है।"
+ },
+ {
+  "clave": "idiomas.tem.modoEdicion",
+  "texto": "पाठ्यक्रम एडिट करें"
+ },
+ {
+  "clave": "idiomas.tem.subir",
+  "texto": "ऊपर"
+ },
+ {
+  "clave": "idiomas.tem.bajar",
+  "texto": "नीचे"
+ },
+ {
+  "clave": "idiomas.tem.izquierda",
+  "texto": "बाएं"
+ },
+ {
+  "clave": "idiomas.tem.derecha",
+  "texto": "दाएं"
+ },
+ {
+  "clave": "idiomas.tem.renombrar",
+  "texto": "नाम बदलें"
+ },
+ {
+  "clave": "idiomas.tem.borrar",
+  "texto": "विषय डिलीट करें"
+ },
+ {
+  "clave": "idiomas.tem.nuevoTema",
+  "texto": "«{nivel}» में नया विषय"
+ },
+ {
+  "clave": "idiomas.tem.nuevoTemaTit",
+  "texto": "नया विषय"
+ },
+ {
+  "clave": "idiomas.tem.nuevoTemaMsg",
+  "texto": "{nivel} · {area} में"
+ },
+ {
+  "clave": "idiomas.tem.nuevoSubtema",
+  "texto": "नया उप-विषय"
+ },
+ {
+  "clave": "idiomas.tem.subtemaTip",
+  "texto": "अंदर उप-विषय जोड़ें"
+ },
+ {
+  "clave": "idiomas.tem.nSubtemas",
+  "texto": "यहां अंदर {n} उप-विषय"
+ },
+ {
+  "clave": "idiomas.tem.dentroDe",
+  "texto": "«{padre}» के अंदर"
+ },
+ {
+  "clave": "idiomas.tem.verNivel",
+  "texto": "इस स्तर के विषय देखें"
+ },
+ {
+  "clave": "idiomas.tem.nuevoNivel",
+  "texto": "{area} में नया स्तर"
+ },
+ {
+  "clave": "idiomas.tem.nuevoNivelTit",
+  "texto": "नया स्तर"
+ },
+ {
+  "clave": "idiomas.tem.nuevoNivelMsg",
+  "texto": "«{area}» के अंदर आपका अपना स्तर; इसका बैज पहले तीन अक्षर होंगे।"
+ },
+ {
+  "clave": "idiomas.tem.borrarNivel",
+  "texto": "स्तर डिलीट करें"
+ },
+ {
+  "clave": "idiomas.tem.areaActiva",
+  "texto": "श्रेणी «{n}»"
+ },
+ {
+  "clave": "idiomas.tem.nuevaArea",
+  "texto": "नई श्रेणी"
+ },
+ {
+  "clave": "idiomas.tem.nuevaAreaMsg",
+  "texto": "इस भाषा के लिए आपकी अपनी श्रेणी, पहले से बनी श्रेणियों के साथ। यह खाली शुरू होती है: अंदर इसके स्तर बनाने हैं।"
+ },
+ {
+  "clave": "idiomas.tem.borrarArea",
+  "texto": "श्रेणी डिलीट करें"
+ },
+ {
+  "clave": "idiomas.tem.sinAreas",
+  "texto": "पाठ्यक्रम खाली है। ✏️ ऑन करें और पहली श्रेणी बनाएं।"
+ },
+ {
+  "clave": "idiomas.tem.sinNiveles",
+  "texto": "इस श्रेणी में अभी कोई स्तर नहीं है। ✏️ ऑन करें और पहला स्तर बनाएं।"
+ },
+ {
+  "clave": "idiomas.tem.prompt.propia",
+  "texto": "मुझे «{tema}» का अभ्यास करना है। शुरू करते हैं।"
+ },
+ {
+  "clave": "idiomas.tem.crear",
+  "texto": "बनाएं"
+ },
+ {
+  "clave": "idiomas.tem.borrarTit",
+  "texto": "«{n}» डिलीट करें?"
+ },
+ {
+  "clave": "idiomas.tem.borrarMsgHijos",
+  "texto": "इसके अंदर जो कुछ भी है, वह भी साथ चला जाता है।"
+ },
+ {
+  "clave": "idiomas.tem.borrarMsgTarjetas",
+  "texto": "इसके {n} कार्ड डिलीट नहीं होते: वे «बिना विषय» में चले जाते हैं।"
+ },
+ {
+  "clave": "idiomas.tem.borrarMsg",
+  "texto": "यह इस भाषा के पाठ्यक्रम से हट जाता है।"
+ },
+ {
+  "clave": "idiomas.tem.sinClasificar",
+  "texto": "बिना विषय"
+ },
+ {
+  "clave": "idiomas.tem.sinClasificarDesc",
+  "texto": "{n} कार्ड जो अभी किसी विषय में नहीं हैं"
+ },
+ {
+  "clave": "idiomas.tem.clasificar",
+  "texto": "— विषय —"
+ },
+ {
+  "clave": "idiomas.tem.clasificarTip",
+  "texto": "इसे पाठ्यक्रम के किसी विषय में भेजें"
+ },
+ {
+  "clave": "idiomas.area.temas",
+  "texto": "विषय"
+ },
+ {
+  "clave": "idiomas.area.pronunciacion",
+  "texto": "उच्चारण"
+ },
+ {
+  "clave": "idiomas.area.gramatica",
+  "texto": "व्याकरण"
+ },
+ {
+  "clave": "idiomas.area.temas.desc",
+  "texto": "किस बारे में बात करें: हर स्तर की शब्दावली और स्थितियां।"
+ },
+ {
+  "clave": "idiomas.area.pronunciacion.desc",
+  "texto": "भाषा कैसी सुनाई देती है: आवाज़ें, शब्दों पर ज़ोर, लय और सुर के उतार-चढ़ाव।"
+ }
+]

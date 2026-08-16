@@ -1,0 +1,914 @@
+[
+  {
+    "clave": "entre.j.damas.regla",
+    "texto": "Capture obligatoire : si tu peux prendre, tu dois prendre."
+  },
+  {
+    "clave": "entre.j.ajedrez.nombre",
+    "texto": "Échecs"
+  },
+  {
+    "clave": "entre.j.ajedrez.desc",
+    "texto": "Le grand classique de la stratégie, jusqu’à l’échec et mat."
+  },
+  {
+    "clave": "entre.j.ajedrez.iaDesc",
+    "texto": "Tu joues les blancs"
+  },
+  {
+    "clave": "entre.j.ajedrez.blancas",
+    "texto": "Blancs"
+  },
+  {
+    "clave": "entre.j.ajedrez.negras",
+    "texto": "Noirs"
+  },
+  {
+    "clave": "entre.j.ajedrez.jaque",
+    "texto": "Échec"
+  },
+  {
+    "clave": "entre.j.ajedrez.mateBlancas",
+    "texto": "♔ Échec et mat : les blancs gagnent"
+  },
+  {
+    "clave": "entre.j.ajedrez.mateNegras",
+    "texto": "♚ Échec et mat : les noirs gagnent"
+  },
+  {
+    "clave": "entre.j.ajedrez.tablas",
+    "texto": "½–½ Pat — match nul"
+  },
+  {
+    "clave": "entre.j.ajedrez.promo",
+    "texto": "Les pions sont automatiquement promus en dame."
+  },
+  {
+    "clave": "entre.j.blackjack.nombre",
+    "texto": "Blackjack"
+  },
+  {
+    "clave": "entre.j.blackjack.desc",
+    "texto": "Atteins 21 et bats le croupier."
+  },
+  {
+    "clave": "entre.j.bj.crupier",
+    "texto": "Croupier"
+  },
+  {
+    "clave": "entre.j.bj.tu",
+    "texto": "Ta main"
+  },
+  {
+    "clave": "entre.j.bj.apuesta",
+    "texto": "Mise"
+  },
+  {
+    "clave": "entre.j.bj.quitar",
+    "texto": "Effacer"
+  },
+  {
+    "clave": "entre.j.bj.repartir",
+    "texto": "Distribuer"
+  },
+  {
+    "clave": "entre.j.bj.pedir",
+    "texto": "Tirer"
+  },
+  {
+    "clave": "entre.j.bj.plantarse",
+    "texto": "Rester"
+  },
+  {
+    "clave": "entre.j.bj.doblar",
+    "texto": "Doubler"
+  },
+  {
+    "clave": "entre.j.bj.nuevaMano",
+    "texto": "Nouvelle main"
+  },
+  {
+    "clave": "entre.j.bj.blackjack",
+    "texto": "Blackjack ! Paie 3:2 🎉"
+  },
+  {
+    "clave": "entre.j.bj.empate",
+    "texto": "Égalité : ta mise est remboursée"
+  },
+  {
+    "clave": "entre.j.bj.pierde",
+    "texto": "Le croupier gagne"
+  },
+  {
+    "clave": "entre.j.bj.pasaste",
+    "texto": "Tu as dépassé 21"
+  },
+  {
+    "clave": "entre.j.bj.crupierPasa",
+    "texto": "Le croupier dépasse 21 : tu gagnes !"
+  },
+  {
+    "clave": "entre.j.bj.regla",
+    "texto": "Le croupier reste à 17. Le blackjack paie 3:2."
+  },
+  {
+    "clave": "entre.j.ruleta.nombre",
+    "texto": "Roulette"
+  },
+  {
+    "clave": "entre.j.ruleta.desc",
+    "texto": "Mise sur le rouge, le noir ou ton numéro porte-bonheur."
+  },
+  {
+    "clave": "entre.j.rul.ficha",
+    "texto": "Jeton"
+  },
+  {
+    "clave": "entre.j.rul.girar",
+    "texto": "Lancer"
+  },
+  {
+    "clave": "entre.j.rul.limpiar",
+    "texto": "Effacer"
+  },
+  {
+    "clave": "entre.j.rul.repetir",
+    "texto": "Remiser"
+  },
+  {
+    "clave": "entre.j.rul.col",
+    "texto": "Col."
+  },
+  {
+    "clave": "entre.j.rul.d1",
+    "texto": "1re douzaine"
+  },
+  {
+    "clave": "entre.j.rul.d2",
+    "texto": "2e douzaine"
+  },
+  {
+    "clave": "entre.j.rul.d3",
+    "texto": "3e douzaine"
+  },
+  {
+    "clave": "entre.j.rul.par",
+    "texto": "PAIR"
+  },
+  {
+    "clave": "entre.j.rul.impar",
+    "texto": "IMPAIR"
+  },
+  {
+    "clave": "entre.j.rul.rojo",
+    "texto": "ROUGE"
+  },
+  {
+    "clave": "entre.j.rul.negro",
+    "texto": "NOIR"
+  },
+  {
+    "clave": "entre.j.rul.gano",
+    "texto": "Tu as gagné {n} jetons ! 🎉"
+  },
+  {
+    "clave": "entre.j.rul.nada",
+    "texto": "Pas de chance cette fois"
+  },
+  {
+    "clave": "entre.j.rul.ultimos",
+    "texto": "Derniers numéros"
+  },
+  {
+    "clave": "entre.j.buscaminas.nombre",
+    "texto": "Démineur"
+  },
+  {
+    "clave": "entre.j.buscaminas.desc",
+    "texto": "Déminer le terrain sans toucher de mine."
+  },
+  {
+    "clave": "entre.j.buscaminas.modoBandera",
+    "texto": "Mode drapeau"
+  },
+  {
+    "clave": "entre.j.buscaminas.perdiste",
+    "texto": "💥 Boum ! Tu as marché sur une mine."
+  },
+  {
+    "clave": "entre.j.domino.nombre",
+    "texto": "Dominos"
+  },
+  {
+    "clave": "entre.j.domino.desc",
+    "texto": "Double-six contre l’ordinateur, avec une pioche."
+  },
+  {
+    "clave": "entre.j.domino.pozo",
+    "texto": "Pioche"
+  },
+  {
+    "clave": "entre.j.domino.robar",
+    "texto": "Piocher"
+  },
+  {
+    "clave": "entre.j.domino.pasar",
+    "texto": "Passer"
+  },
+  {
+    "clave": "entre.j.domino.pasoIA",
+    "texto": "L’ordinateur passe"
+  },
+  {
+    "clave": "entre.j.domino.robaIA",
+    "texto": "L’ordinateur a pioché {n}"
+  },
+  {
+    "clave": "entre.j.domino.eliges",
+    "texto": "Quel côté ?"
+  },
+  {
+    "clave": "entre.j.domino.trancado",
+    "texto": "Partie bloquée"
+  },
+  {
+    "clave": "entre.j.domino.ganasteRonda",
+    "texto": "Tu gagnes la manche : +{n} points"
+  },
+  {
+    "clave": "entre.j.domino.rondaIA",
+    "texto": "L’ordinateur gagne la manche : +{n} points"
+  },
+  {
+    "clave": "entre.j.domino.empateRonda",
+    "texto": "Égalité : personne ne marque"
+  },
+  {
+    "clave": "entre.j.domino.siguienteRonda",
+    "texto": "Manche suivante"
+  },
+  {
+    "clave": "entre.j.conocerse.nombre",
+    "texto": "Apprendre à se connaître"
+  },
+  {
+    "clave": "entre.j.conocerse.desc",
+    "texto": "100 questions en 3 niveaux pour vraiment se découvrir."
+  },
+  {
+    "clave": "entre.j.debates.nombre",
+    "texto": "Débats"
+  },
+  {
+    "clave": "entre.j.debates.desc",
+    "texto": "100 questions pour lancer la conversation."
+  },
+  {
+    "clave": "entre.j.cartas.barajar",
+    "texto": "Mélanger"
+  },
+  {
+    "clave": "entre.j.cartas.carta",
+    "texto": "Carte {n} sur {t}"
+  },
+  {
+    "clave": "entre.j.cartas.toca",
+    "texto": "Touche la carte pour passer à la suivante"
+  },
+  {
+    "clave": "entre.j.cartas.fin",
+    "texto": "Plus de questions"
+  },
+  {
+    "clave": "entre.j.cartas.reiniciar",
+    "texto": "Remélanger"
+  },
+  {
+    "clave": "entre.j.cartas.siguiente",
+    "texto": "Suivant"
+  },
+  {
+    "clave": "entre.j.cartas.g.rompehielos",
+    "texto": "Brise-glace"
+  },
+  {
+    "clave": "entre.j.cartas.g.personal",
+    "texto": "Personnel"
+  },
+  {
+    "clave": "entre.j.cartas.g.profundo",
+    "texto": "Profond"
+  },
+  {
+    "clave": "entre.j.cartas.g.sociedad",
+    "texto": "Société"
+  },
+  {
+    "clave": "entre.j.cartas.g.etica",
+    "texto": "Éthique"
+  },
+  {
+    "clave": "entre.j.cartas.g.tecnologia",
+    "texto": "Technologie"
+  },
+  {
+    "clave": "entre.j.cartas.g.cultura",
+    "texto": "Culture"
+  },
+  {
+    "clave": "entre.j.cartas.g.futuro",
+    "texto": "Futur"
+  },
+  {
+    "clave": "entre.j.pausa",
+    "texto": "Pause"
+  },
+  {
+    "clave": "entre.j.seguir",
+    "texto": "Reprendre"
+  },
+  {
+    "clave": "entre.j.jugar",
+    "texto": "Jouer"
+  },
+  {
+    "clave": "entre.j.viborita.nombre",
+    "texto": "Snake"
+  },
+  {
+    "clave": "entre.j.viborita.desc",
+    "texto": "Mange les pommes sans te mordre la queue."
+  },
+  {
+    "clave": "entre.j.viborita.fin",
+    "texto": "Aïe ! Le serpent s’est écrasé."
+  },
+  {
+    "clave": "entre.j.space.nombre",
+    "texto": "Space Defender"
+  },
+  {
+    "clave": "entre.j.space.desc",
+    "texto": "Abats les vagues d’envahisseurs."
+  },
+  {
+    "clave": "entre.j.space.ayuda",
+    "texto": "← → ou glisse · tir automatique"
+  },
+  {
+    "clave": "entre.j.space.fin",
+    "texto": "La flotte t’a eu."
+  },
+  {
+    "clave": "entre.j.dino.nombre",
+    "texto": "Dino Runner"
+  },
+  {
+    "clave": "entre.j.dino.desc",
+    "texto": "Saute par-dessus les cactus et continue de courir."
+  },
+  {
+    "clave": "entre.j.dino.ayuda",
+    "texto": "Espace, ↑ ou touche l’écran pour sauter"
+  },
+  {
+    "clave": "entre.j.pong.nombre",
+    "texto": "Pong"
+  },
+  {
+    "clave": "entre.j.pong.desc",
+    "texto": "Le classique de la raquette, seul ou à deux."
+  },
+  {
+    "clave": "entre.j.pong.iaDesc",
+    "texto": "Tu contrôles la raquette du bas"
+  },
+  {
+    "clave": "entre.j.pong.j1",
+    "texto": "Joueur 1"
+  },
+  {
+    "clave": "entre.j.pong.j2",
+    "texto": "Joueur 2"
+  },
+  {
+    "clave": "entre.j.pong.gana",
+    "texto": "{j} gagne"
+  },
+  {
+    "clave": "entre.j.pong.ayuda2j",
+    "texto": "Bas : ← →  ·  Haut : A / D  ·  ou glisse dans ta moitié"
+  },
+  {
+    "clave": "entre.j.pong.ayudaIa",
+    "texto": "Déplace-toi avec ← → ou en glissant"
+  },
+  {
+    "clave": "entre.j.hockey.nombre",
+    "texto": "Hockey sur air"
+  },
+  {
+    "clave": "entre.j.hockey.desc",
+    "texto": "Envoie le palet dans le but adverse."
+  },
+  {
+    "clave": "entre.j.hockey.iaDesc",
+    "texto": "Tu défends le but du bas"
+  },
+  {
+    "clave": "entre.j.hockey.ayuda",
+    "texto": "Glisse ton maillet pour frapper le palet"
+  },
+  {
+    "clave": "entre.j.billar.nombre",
+    "texto": "Billard"
+  },
+  {
+    "clave": "entre.j.billar.desc",
+    "texto": "Vise, tire et vide la table."
+  },
+  {
+    "clave": "entre.j.billar.solo",
+    "texto": "Solo"
+  },
+  {
+    "clave": "entre.j.billar.soloDesc",
+    "texto": "Vide la table en le moins de coups possible"
+  },
+  {
+    "clave": "entre.j.billar.tiros",
+    "texto": "Coups"
+  },
+  {
+    "clave": "entre.j.billar.falta",
+    "texto": "Faute : la blanche est rentrée"
+  },
+  {
+    "clave": "entre.j.billar.sigue",
+    "texto": "Bille rentrée, à toi de rejouer !"
+  },
+  {
+    "clave": "entre.j.billar.fin1j",
+    "texto": "Table vidée en {n} coups"
+  },
+  {
+    "clave": "entre.j.billar.ayuda",
+    "texto": "Glisse depuis la table et relâche pour tirer (élastique)"
+  },
+  {
+    "clave": "entre.j.tetris.nombre",
+    "texto": "Tetris"
+  },
+  {
+    "clave": "entre.j.tetris.desc",
+    "texto": "Emboîte les pièces et complète des lignes."
+  },
+  {
+    "clave": "entre.j.tetris.fin",
+    "texto": "Plateau plein. Belle partie !"
+  },
+  {
+    "clave": "entre.j.tetris.siguiente",
+    "texto": "Suivant"
+  },
+  {
+    "clave": "entre.j.tetris.lineas",
+    "texto": "Lignes"
+  },
+  {
+    "clave": "entre.j.tetris.nivel",
+    "texto": "Niveau"
+  },
+  {
+    "clave": "entre.j.memorama.nombre",
+    "texto": "Memory"
+  },
+  {
+    "clave": "entre.j.memorama.desc",
+    "texto": "Trouve les paires en le moins d’essais possible."
+  },
+  {
+    "clave": "entre.j.memorama.intentos",
+    "texto": "Essais"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.nombre",
+    "texto": "Puissance 4"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.desc",
+    "texto": "Aligne quatre pions avant ton adversaire."
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.iaDesc",
+    "texto": "Tu joues les pions rouges"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.rojas",
+    "texto": "Rouges"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.amarillas",
+    "texto": "Jaunes"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.empate",
+    "texto": "Égalité : plateau plein"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.ganaMaquina",
+    "texto": "L’ordinateur gagne"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.gana",
+    "texto": "{color} gagne !"
+  },
+  {
+    "clave": "entre.j.simon.nombre",
+    "texto": "Simon"
+  },
+  {
+    "clave": "entre.j.simon.desc",
+    "texto": "Répète la séquence de couleurs."
+  },
+  {
+    "clave": "entre.j.simon.ronda",
+    "texto": "Manche"
+  },
+  {
+    "clave": "entre.j.simon.observa",
+    "texto": "Observe…"
+  },
+  {
+    "clave": "entre.j.simon.tuTurno",
+    "texto": "À toi !"
+  },
+  {
+    "clave": "entre.j.simon.fallaste",
+    "texto": "Tu as échoué à la manche {n}"
+  },
+  {
+    "clave": "entre.j.simon.regla",
+    "texto": "Répète la séquence de couleurs : chaque manche en ajoute une de plus."
+  },
+  {
+    "clave": "entre.j.ahorcado.nombre",
+    "texto": "Le pendu"
+  },
+  {
+    "clave": "entre.j.ahorcado.desc",
+    "texto": "Devine le mot lettre par lettre."
+  },
+  {
+    "clave": "entre.j.ahorcado.racha",
+    "texto": "Série"
+  },
+  {
+    "clave": "entre.j.ahorcado.otra",
+    "texto": "Autre mot"
+  },
+  {
+    "clave": "entre.j.ahorcado.fallos",
+    "texto": "Erreurs"
+  },
+  {
+    "clave": "entre.j.ahorcado.perdiste",
+    "texto": "Tu as perdu cette manche"
+  },
+  {
+    "clave": "entre.j.ahorcado.siguiente",
+    "texto": "Mot suivant"
+  },
+  {
+    "clave": "nav.irHoy",
+    "texto": "Aller à aujourd’hui"
+  },
+  {
+    "clave": "nav.sem.prev",
+    "texto": "‹ Semaine"
+  },
+  {
+    "clave": "nav.sem.next",
+    "texto": "Semaine ›"
+  },
+  {
+    "clave": "cocina.enfoque.peso",
+    "texto": "Contrôle nutritionnel"
+  },
+  {
+    "clave": "cocina.ia.sinClave",
+    "texto": "Configure l’IA dans le chat pour créer des recettes et des régimes avec images."
+  },
+  {
+    "clave": "cocina.ia.costoReceta",
+    "texto": "La recette et sa photo"
+  },
+  {
+    "clave": "cocina.ia.costoRecetaSinFoto",
+    "texto": "Recette seule : pas de fournisseur d’images"
+  },
+  {
+    "clave": "cocina.ia.costoDieta",
+    "texto": "Le régime, jusqu’à {n} recettes et leurs photos"
+  },
+  {
+    "clave": "cocina.ia.costoDietaSinFoto",
+    "texto": "Le régime et jusqu’à {n} recettes, sans photos"
+  },
+  {
+    "clave": "cocina.enfoque.recetario",
+    "texto": "Livre de recettes"
+  },
+  {
+    "clave": "cocina.tab.diario",
+    "texto": "Journal"
+  },
+  {
+    "clave": "cocina.tab.planComidas",
+    "texto": "Plan repas"
+  },
+  {
+    "clave": "cocina.tab.plan",
+    "texto": "Régime"
+  },
+  {
+    "clave": "cocina.tab.metas",
+    "texto": "Objectifs"
+  },
+  {
+    "clave": "cocina.tab.progreso",
+    "texto": "Progrès"
+  },
+  {
+    "clave": "cocina.periodo.dia",
+    "texto": "Jour"
+  },
+  {
+    "clave": "cocina.periodo.semana",
+    "texto": "Semaine"
+  },
+  {
+    "clave": "cocina.periodo.mes",
+    "texto": "Mois"
+  },
+  {
+    "clave": "cocina.periodo.anio",
+    "texto": "Année"
+  },
+  {
+    "clave": "cocina.periodo.todo",
+    "texto": "Tout"
+  },
+  {
+    "clave": "cocina.prog.alimentacion",
+    "texto": "Alimentation"
+  },
+  {
+    "clave": "cocina.prog.diasRegistrados",
+    "texto": "{n} jours enregistrés"
+  },
+  {
+    "clave": "cocina.prog.sinDatos",
+    "texto": "Aucun enregistrement sur cette période."
+  },
+  {
+    "clave": "cocina.prog.kcalDia",
+    "texto": "kcal/jour"
+  },
+  {
+    "clave": "cocina.prog.promedio",
+    "texto": "Moyenne"
+  },
+  {
+    "clave": "cocina.prog.diasCumplidos",
+    "texto": "{n} % des jours dans l’objectif"
+  },
+  {
+    "clave": "cocina.prog.litrosDia",
+    "texto": "L/jour"
+  },
+  {
+    "clave": "cocina.prog.pesajeDia",
+    "texto": "Pesée du jour : {n} kg"
+  },
+  {
+    "clave": "cocina.cal.leyOk",
+    "texto": "Dans l’objectif (±10 %)"
+  },
+  {
+    "clave": "cocina.cal.leyCerca",
+    "texto": "Proche (±25 %)"
+  },
+  {
+    "clave": "cocina.cal.leyPasado",
+    "texto": "Bien au-dessus"
+  },
+  {
+    "clave": "cocina.cal.leyCorto",
+    "texto": "Bien en dessous"
+  },
+  {
+    "clave": "cocina.peso.enRango",
+    "texto": "kg sur cette période"
+  },
+  {
+    "clave": "cocina.peso.ph",
+    "texto": "Pèse-toi aujourd’hui… (kg)"
+  },
+  {
+    "clave": "cocina.peso.ponMeta",
+    "texto": "Indique ton poids cible pour suivre ta progression"
+  },
+  {
+    "clave": "cocina.peso.lineaMeta",
+    "texto": "Cible {n} kg"
+  },
+  {
+    "clave": "cocina.semana.titulo",
+    "texto": "Ta semaine"
+  },
+  {
+    "clave": "cocina.semana.balance",
+    "texto": "Bilan"
+  },
+  {
+    "clave": "cocina.semana.balanceSub",
+    "texto": "kcal vs objectif"
+  },
+  {
+    "clave": "cocina.semana.ritmoComida",
+    "texto": "D’après ce que tu manges"
+  },
+  {
+    "clave": "cocina.semana.kgSemana",
+    "texto": "kg/semaine estimés"
+  },
+  {
+    "clave": "cocina.semana.pocosDatos",
+    "texto": "Estimation approximative : enregistre au moins {n} jours pour que ce soit fiable."
+  },
+  {
+    "clave": "cocina.ajuste.titulo",
+    "texto": "Ton poids ne suit pas le rythme prévu"
+  },
+  {
+    "clave": "cocina.ajuste.subir",
+    "texto": "Essaie de manger {n} kcal de plus par jour."
+  },
+  {
+    "clave": "cocina.ajuste.bajar",
+    "texto": "Essaie de manger {n} kcal de moins par jour."
+  },
+  {
+    "clave": "cocina.ajuste.aplicar",
+    "texto": "Définir {n} kcal comme objectif"
+  },
+  {
+    "clave": "cocina.ajuste.aplicado",
+    "texto": "C’est fait, ton objectif est maintenant {n} kcal par jour."
+  },
+  {
+    "clave": "cocina.ajustar.abrir",
+    "texto": "Ajuster l’objectif"
+  },
+  {
+    "clave": "cocina.calHoy",
+    "texto": "Calories aujourd’hui"
+  },
+  {
+    "clave": "cocina.calRestantes",
+    "texto": "{n} kcal restantes pour ton objectif"
+  },
+  {
+    "clave": "cocina.calSuperado",
+    "texto": "Tu as dépassé ton objectif calorique du jour"
+  },
+  {
+    "clave": "cocina.faltan",
+    "texto": "{n} {u} restants pour ton objectif"
+  },
+  {
+    "clave": "cocina.cumplido",
+    "texto": "Objectif atteint"
+  },
+  {
+    "clave": "cocina.metrica.calorias",
+    "texto": "Calories aujourd’hui"
+  },
+  {
+    "clave": "cocina.metrica.proteinas",
+    "texto": "Protéines"
+  },
+  {
+    "clave": "cocina.metrica.carbohidratos",
+    "texto": "Glucides"
+  },
+  {
+    "clave": "cocina.metrica.grasas",
+    "texto": "Lipides"
+  },
+  {
+    "clave": "cocina.metrica.agua",
+    "texto": "Eau"
+  },
+  {
+    "clave": "cocina.metricaCorta.calorias",
+    "texto": "Kcal"
+  },
+  {
+    "clave": "cocina.metricaCorta.proteinas",
+    "texto": "Prot"
+  },
+  {
+    "clave": "cocina.metricaCorta.carbohidratos",
+    "texto": "Gluc"
+  },
+  {
+    "clave": "cocina.metricaCorta.grasas",
+    "texto": "Lip"
+  },
+  {
+    "clave": "cocina.metricaCorta.agua",
+    "texto": "Eau"
+  },
+  {
+    "clave": "cocina.adherencia7d",
+    "texto": "Suivi 7j"
+  },
+  {
+    "clave": "cocina.adherenciaSub",
+    "texto": "±10 % de l’objectif"
+  },
+  {
+    "clave": "cocina.aguaMeta",
+    "texto": "Eau"
+  },
+  {
+    "clave": "cocina.proteina",
+    "texto": "Protéines"
+  },
+  {
+    "clave": "cocina.carbos",
+    "texto": "Glucides"
+  },
+  {
+    "clave": "cocina.grasas",
+    "texto": "Lipides"
+  },
+  {
+    "clave": "cocina.hidratacion",
+    "texto": "Hydratation"
+  },
+  {
+    "clave": "cocina.registro.ia",
+    "texto": "Calculer calories et macros"
+  },
+  {
+    "clave": "cocina.registro.manual",
+    "texto": "Saisir à la main"
+  },
+  {
+    "clave": "cocina.registro.confirmar",
+    "texto": "Vérifie les valeurs et confirme ; tu peux les corriger."
+  },
+  {
+    "clave": "cocina.registro.desdeReceta",
+    "texto": "Depuis une recette…"
+  },
+  {
+    "clave": "cocina.ph.comiste",
+    "texto": "Qu’as-tu mangé ? Ex : 2 tacos au porc"
+  },
+  {
+    "clave": "cocina.ph.nota",
+    "texto": "Note (facultatif)"
+  },
+  {
+    "clave": "cocina.añadir",
+    "texto": "Ajouter à {momento}"
+  },
+  {
+    "clave": "cocina.registroDia",
+    "texto": "Journal du jour"
+  },
+  {
+    "clave": "cocina.sinComidas",
+    "texto": "Aucun repas enregistré."
+  },
+  {
+    "clave": "cocina.momento.desayuno",
+    "texto": "Petit-déjeuner"
+  },
+  {
+    "clave": "cocina.momento.comida",
+    "texto": "Déjeuner"
+  },
+  {
+    "clave": "cocina.momento.cena",
+    "texto": "Dîner"
+  },
+  {
+    "clave": "cocina.momento.snack",
+    "texto": "Collation"
+  }
+]

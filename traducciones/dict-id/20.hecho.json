@@ -1,0 +1,818 @@
+[
+  {
+    "clave": "ascensos.sinAccesoSotano",
+    "texto": "Gali ruangan bawah tanah untuk menempatkan tangga kolam."
+  },
+  {
+    "clave": "ascensos.escaleraMarina",
+    "texto": "Tangga kolam"
+  },
+  {
+    "clave": "ascensos.hintSotano",
+    "texto": "Seret di peta 3D untuk memindahkannya ke dinding lain di lubang tersebut. Karakter turun dan naik dengan berjalan di atas kolam."
+  },
+  {
+    "clave": "planos.cerrar",
+    "texto": "Keluar dari denah lantai"
+  },
+  {
+    "clave": "planos.capa.titulo",
+    "texto": "Lapisan"
+  },
+  {
+    "clave": "planos.capa.cuartos",
+    "texto": "Ruangan"
+  },
+  {
+    "clave": "planos.capa.paredes",
+    "texto": "Dinding"
+  },
+  {
+    "clave": "planos.capa.pisos",
+    "texto": "Lantai"
+  },
+  {
+    "clave": "planos.capa.techos",
+    "texto": "Atap"
+  },
+  {
+    "clave": "planos.herr.seleccionar",
+    "texto": "Pilih"
+  },
+  {
+    "clave": "planos.herr.muro",
+    "texto": "Dinding"
+  },
+  {
+    "clave": "planos.herr.puerta",
+    "texto": "Pintu"
+  },
+  {
+    "clave": "planos.herr.ventana",
+    "texto": "Jendela"
+  },
+  {
+    "clave": "planos.herr.mover",
+    "texto": "Pindah"
+  },
+  {
+    "clave": "planos.herr.agrupar",
+    "texto": "Kelompokkan"
+  },
+  {
+    "clave": "planos.herr.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "planos.herr.expandir",
+    "texto": "Perluas"
+  },
+  {
+    "clave": "planos.muro.pared",
+    "texto": "Dinding"
+  },
+  {
+    "clave": "planos.muro.puerta",
+    "texto": "Pintu"
+  },
+  {
+    "clave": "planos.muro.abierto",
+    "texto": "Terbuka"
+  },
+  {
+    "clave": "planos.accion.regresar",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "planos.accion.cambios",
+    "texto": "Bersihkan"
+  },
+  {
+    "clave": "planos.accion.confirmar",
+    "texto": "Konfirmasi"
+  },
+  {
+    "clave": "planos.volverSecciones",
+    "texto": "Bagian editor"
+  },
+  {
+    "clave": "planos.ayuda",
+    "texto": "Pilih bentuk di kiri bawah dan ketuk sketsa atau peta 3D untuk menggambar ruangan."
+  },
+  {
+    "clave": "planos.props.paredes",
+    "texto": "Edit tepi yang dipilih pada sketsa."
+  },
+  {
+    "clave": "planos.props.techo",
+    "texto": "Gunakan + dan − pada tepi atap untuk memperpanjang atau menarik kembali garis penuh."
+  },
+  {
+    "clave": "planos.props.zonaPiso",
+    "texto": "Material lantai zona: per sel segera hadir."
+  },
+  {
+    "clave": "planos.nombre",
+    "texto": "Nama"
+  },
+  {
+    "clave": "planos.forma",
+    "texto": "Bentuk"
+  },
+  {
+    "clave": "planos.formaHint",
+    "texto": "Gunakan − pada sel tepi untuk menghapus sebagian area:"
+  },
+  {
+    "clave": "planos.quitarCelda",
+    "texto": "Hapus sel"
+  },
+  {
+    "clave": "planos.celdaVacia",
+    "texto": "Sel"
+  },
+  {
+    "clave": "planos.colocarApp",
+    "texto": "Tempatkan app"
+  },
+  {
+    "clave": "planos.nuevaZona",
+    "texto": "Ruangan dasar baru"
+  },
+  {
+    "clave": "planos.nombreZona",
+    "texto": "Nama ruangan"
+  },
+  {
+    "clave": "planos.extenderCuarto",
+    "texto": "Perluas ruangan yang ada"
+  },
+  {
+    "clave": "planos.limpiar",
+    "texto": "Bersihkan pilihan"
+  },
+  {
+    "clave": "planos.appsFuera",
+    "texto": "App di luar peta"
+  },
+  {
+    "clave": "planos.eliminarZona",
+    "texto": "Hapus ruangan dasar"
+  },
+  {
+    "clave": "planos.celdas",
+    "texto": "sel"
+  },
+  {
+    "clave": "planos.menu.cielo",
+    "texto": "Latar langit"
+  },
+  {
+    "clave": "planos.menu.cieloTitulo",
+    "texto": "Latar langit"
+  },
+  {
+    "clave": "planos.menu.cieloDesc",
+    "texto": "Mengubah langit 3D dan margin denah."
+  },
+  {
+    "clave": "planos.menu.cerrar",
+    "texto": "Tutup"
+  },
+  {
+    "clave": "planos.menu.superficie",
+    "texto": "Permukaan peta"
+  },
+  {
+    "clave": "planos.superficie.titulo",
+    "texto": "Permukaan peta"
+  },
+  {
+    "clave": "planos.superficie.desc",
+    "texto": "Memengaruhi kertas denah, garis kisi-kisi, dan dasar peta 3D."
+  },
+  {
+    "clave": "planos.superficie.relleno",
+    "texto": "Isian denah"
+  },
+  {
+    "clave": "planos.superficie.color",
+    "texto": "Warna"
+  },
+  {
+    "clave": "planos.superficie.foto",
+    "texto": "Foto latar"
+  },
+  {
+    "clave": "planos.superficie.subir",
+    "texto": "+ Unggah"
+  },
+  {
+    "clave": "planos.superficie.usar",
+    "texto": "Gunakan di denah"
+  },
+  {
+    "clave": "planos.superficie.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "planos.superficie.sinFoto",
+    "texto": "Unggah gambar untuk kertas sketsa dan dasar 3D."
+  },
+  {
+    "clave": "planos.superficie.rejilla",
+    "texto": "Kisi-kisi"
+  },
+  {
+    "clave": "planos.superficie.tamCelda",
+    "texto": "Ukuran sel"
+  },
+  {
+    "clave": "planos.superficie.tamCeldaHint",
+    "texto": "Ruangan, dinding, atap, dan lapangan ikut berskala dengan sel; karakter dan objek lainnya mempertahankan ukurannya."
+  },
+  {
+    "clave": "planos.superficie.rejillaFuerte",
+    "texto": "Garis utama"
+  },
+  {
+    "clave": "planos.superficie.rejillaSuave",
+    "texto": "Garis sekunder"
+  },
+  {
+    "clave": "planos.superficie.borde",
+    "texto": "Batas kertas"
+  },
+  {
+    "clave": "planos.superficie.restaurar",
+    "texto": "Kembalikan ke default"
+  },
+  {
+    "clave": "planos.zoom.encajar",
+    "texto": "Sesuaikan denah ke layar"
+  },
+  {
+    "clave": "planos.zoom.ayuda",
+    "texto": "Roda: zoom · Shift/Alt + seret: geser · Klik dua kali margin: sesuaikan"
+  },
+  {
+    "clave": "editor.cuarto.apariencia",
+    "texto": "Tampilan ruangan"
+  },
+  {
+    "clave": "editor.cuarto.piso",
+    "texto": "Lantai ruangan"
+  },
+  {
+    "clave": "editor.cuarto.forma",
+    "texto": "Bentuk ruangan"
+  },
+  {
+    "clave": "editor.cuarto.paredes",
+    "texto": "Dinding dan pintu"
+  },
+  {
+    "clave": "editor.cuarto.objetos",
+    "texto": "Objek ruangan"
+  },
+  {
+    "clave": "editor.avatar.titulo",
+    "texto": "Avatar karakter"
+  },
+  {
+    "clave": "editor.avatar.cabeza",
+    "texto": "🟡 Kepala"
+  },
+  {
+    "clave": "editor.avatar.torso",
+    "texto": "🔴 Badan"
+  },
+  {
+    "clave": "editor.avatar.piernas",
+    "texto": "🔵 Kaki"
+  },
+  {
+    "clave": "editor.avatar.reset",
+    "texto": "↺ Pulihkan avatar asli"
+  },
+  {
+    "clave": "editor.avatar.forma3d",
+    "texto": "Bentuk 3D kustom"
+  },
+  {
+    "clave": "editor.avatar.formaPh",
+    "texto": "Deskripsikan: \"robot biru dengan jubah merah\""
+  },
+  {
+    "clave": "editor.avatar.formaSinIa",
+    "texto": "Mendeskripsikan bentuk memerlukan AI (pilih model di bilah)"
+  },
+  {
+    "clave": "editor.avatar.formaGenerar",
+    "texto": "Buat bentuk dengan AI"
+  },
+  {
+    "clave": "editor.avatar.formaError",
+    "texto": "Aku tidak bisa membuat bentuknya. Periksa model AI dan coba lagi."
+  },
+  {
+    "clave": "editor.avatar.subirGlb",
+    "texto": "Unggah model .glb"
+  },
+  {
+    "clave": "editor.avatar.quitarGlb",
+    "texto": "Hapus model yang diunggah"
+  },
+  {
+    "clave": "editor.avatar.quitarFormaIa",
+    "texto": "Hapus bentuk buatan AI"
+  },
+  {
+    "clave": "editor.avatar.usandoGlb",
+    "texto": "Menggunakan model .glb kamu sendiri. Warna tidak berlaku untuk model ini."
+  },
+  {
+    "clave": "editor.avatar.usandoIa",
+    "texto": "Menggunakan bentuk buatan AI. Warna tidak berlaku untuk bentuk ini."
+  },
+  {
+    "clave": "editor.tema.titulo",
+    "texto": "Tema rumah"
+  },
+  {
+    "clave": "editor.tema.desc",
+    "texto": "Menerapkan gaya pada ruangan, latar, lantai, dan atap. Mengaktifkan animasi mikro di langit."
+  },
+  {
+    "clave": "editor.tema.sin",
+    "texto": "Tanpa tema"
+  },
+  {
+    "clave": "editor.tema.misTemas",
+    "texto": "Tema saya"
+  },
+  {
+    "clave": "editor.tema.guardar",
+    "texto": "+ Simpan yang sekarang"
+  },
+  {
+    "clave": "editor.tema.guardarTitulo",
+    "texto": "Simpan tema ini"
+  },
+  {
+    "clave": "editor.tema.guardarMensaje",
+    "texto": "Tema disimpan persis seperti sekarang: warna, cangkang, cahaya, kabut, gaya, dan latar langit."
+  },
+  {
+    "clave": "editor.tema.guardarOk",
+    "texto": "Simpan"
+  },
+  {
+    "clave": "editor.tema.sinTemasPropios",
+    "texto": "Simpan tema yang sedang kamu pakai supaya bisa memakainya lagi kapan saja."
+  },
+  {
+    "clave": "editor.tema.sinTemaParaGuardar",
+    "texto": "Pilih tema dan sesuaikan: nanti kamu bisa menyimpannya di sini dengan nama."
+  },
+  {
+    "clave": "editor.tema.usar",
+    "texto": "Pakai"
+  },
+  {
+    "clave": "editor.tema.borrarPropio",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "editor.tema.borrarTitulo",
+    "texto": "Hapus tema"
+  },
+  {
+    "clave": "editor.tema.borrarOk",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "editor.cuartos.titulo",
+    "texto": "Ruangan rumah"
+  },
+  {
+    "clave": "editor.cuartos.desc",
+    "texto": "Warna dan nama kustom. Perubahan langsung muncul di rumah 3D."
+  },
+  {
+    "clave": "editor.cuartos.editado",
+    "texto": "diedit"
+  },
+  {
+    "clave": "editor.cuartos.color",
+    "texto": "Warna"
+  },
+  {
+    "clave": "editor.cuartos.nombre",
+    "texto": "Nama kustom"
+  },
+  {
+    "clave": "editor.cuartos.reset",
+    "texto": "↺ Reset"
+  },
+  {
+    "clave": "editor.fondo.titulo",
+    "texto": "Latar langit"
+  },
+  {
+    "clave": "editor.fondo.desc",
+    "texto": "Dipilih otomatis saat kamu mengganti tema. Kamu juga bisa mengubahnya secara manual."
+  },
+  {
+    "clave": "editor.fondo.anim",
+    "texto": "Animasi mikro"
+  },
+  {
+    "clave": "editor.fondo.animDesc",
+    "texto": "Pilih mana yang kamu inginkan di langit atau biarkan otomatis"
+  },
+  {
+    "clave": "editor.fondo.animIntensidad",
+    "texto": "Intensitas"
+  },
+  {
+    "clave": "editor.fondo.animAuto",
+    "texto": "Otomatis"
+  },
+  {
+    "clave": "editor.fondo.animTipo",
+    "texto": "Jenis animasi"
+  },
+  {
+    "clave": "anim.nubes",
+    "texto": "Awan"
+  },
+  {
+    "clave": "anim.aves",
+    "texto": "Burung"
+  },
+  {
+    "clave": "anim.copos",
+    "texto": "Salju"
+  },
+  {
+    "clave": "anim.cometas",
+    "texto": "Komet"
+  },
+  {
+    "clave": "anim.fugaz",
+    "texto": "Bintang jatuh"
+  },
+  {
+    "clave": "anim.polvo",
+    "texto": "Debu bercahaya"
+  },
+  {
+    "clave": "anim.dragones",
+    "texto": "Naga"
+  },
+  {
+    "clave": "anim.murcielagos",
+    "texto": "Kelelawar"
+  },
+  {
+    "clave": "anim.bruma",
+    "texto": "Kabut"
+  },
+  {
+    "clave": "anim.corazones",
+    "texto": "Hati"
+  },
+  {
+    "clave": "anim.rayas",
+    "texto": "Garis neon"
+  },
+  {
+    "clave": "editor.fondo.misImagenes",
+    "texto": "Gambar saya"
+  },
+  {
+    "clave": "editor.fondo.subir",
+    "texto": "+ Unggah gambar"
+  },
+  {
+    "clave": "editor.fondo.sinImagenes",
+    "texto": "Unggah gambar untuk digunakan sebagai latar langit."
+  },
+  {
+    "clave": "editor.fondo.presets",
+    "texto": "Latar bawaan"
+  },
+  {
+    "clave": "editor.fondo.previewTitulo",
+    "texto": "Sesuaikan latar — seret gambarnya; bingkai adalah layarmu"
+  },
+  {
+    "clave": "editor.fondo.previewAria",
+    "texto": "Pratinjau latar"
+  },
+  {
+    "clave": "editor.fondo.previewMapa",
+    "texto": "Peta di atas langit"
+  },
+  {
+    "clave": "editor.fondo.nombre",
+    "texto": "Nama"
+  },
+  {
+    "clave": "editor.fondo.zoom",
+    "texto": "Zoom"
+  },
+  {
+    "clave": "editor.fondo.cancelar",
+    "texto": "Batal"
+  },
+  {
+    "clave": "editor.fondo.guardar",
+    "texto": "Simpan latar"
+  },
+  {
+    "clave": "editor.fondo.guardando",
+    "texto": "Menyimpan…"
+  },
+  {
+    "clave": "editor.fondo.ajustar",
+    "texto": "Sesuaikan"
+  },
+  {
+    "clave": "editor.fondo.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "editor.fondo.confirmBorrar",
+    "texto": "Hapus latar tersimpan ini?"
+  },
+  {
+    "clave": "editor.piso.desc",
+    "texto": "Pilih material atau biarkan “Kustom” untuk hanya menggunakan warna."
+  },
+  {
+    "clave": "editor.piso.personalizado",
+    "texto": "Kustom"
+  },
+  {
+    "clave": "editor.pisoCuarto.desc",
+    "texto": "Material lantai di dalam ruangan. “Default” mengikuti warna ruangan."
+  },
+  {
+    "clave": "editor.pisoCuarto.defecto",
+    "texto": "Default"
+  },
+  {
+    "clave": "editor.techo.titulo",
+    "texto": "Atap rumah"
+  },
+  {
+    "clave": "editor.techo.desc",
+    "texto": "Aktifkan tampilan 🏠 untuk melihatnya. Memilih tema akan menerapkan atap yang sesuai."
+  },
+  {
+    "clave": "editor.techo.genericos",
+    "texto": "Umum"
+  },
+  {
+    "clave": "editor.techo.porTema",
+    "texto": "Berdasarkan tema"
+  },
+  {
+    "clave": "editor.techo.porCuarto",
+    "texto": "Berdasarkan ruangan"
+  },
+  {
+    "clave": "editor.perfil.titulo",
+    "texto": "👤 Profil kamu"
+  },
+  {
+    "clave": "editor.perfil.emoji",
+    "texto": "Emoji"
+  },
+  {
+    "clave": "editor.perfil.nombre",
+    "texto": "Nama"
+  },
+  {
+    "clave": "editor.perfil.tuNombre",
+    "texto": "Nama kamu"
+  },
+  {
+    "clave": "editor.perfil.ph.nombre",
+    "texto": "Siapa nama kamu?"
+  },
+  {
+    "clave": "editor.perfil.nacimiento",
+    "texto": "Tanggal lahir"
+  },
+  {
+    "clave": "editor.perfil.bio",
+    "texto": "Bio"
+  },
+  {
+    "clave": "editor.perfil.ph.bio",
+    "texto": "Satu kalimat tentang kamu..."
+  },
+  {
+    "clave": "editor.perfil.guardar",
+    "texto": "Simpan profil"
+  },
+  {
+    "clave": "editor.perfil.guardado",
+    "texto": "✓ Tersimpan"
+  },
+  {
+    "clave": "editor.perfil.edad",
+    "texto": "{n} tahun"
+  },
+  {
+    "clave": "editor.room.color",
+    "texto": "Warna lantai"
+  },
+  {
+    "clave": "editor.room.nombre",
+    "texto": "Nama kustom"
+  },
+  {
+    "clave": "editor.room.aplicar",
+    "texto": "Terapkan"
+  },
+  {
+    "clave": "editor.room.reset",
+    "texto": "↺ Pulihkan tampilan asli"
+  },
+  {
+    "clave": "editor.inv.titulo",
+    "texto": "Inventaris lengkap"
+  },
+  {
+    "clave": "editor.inv.desc",
+    "texto": "Pilih objek: objek akan muncul di peta dan kamu bisa menyeretnya ke mana pun."
+  },
+  {
+    "clave": "editor.inv.deco",
+    "texto": "🎨 Dekorasi umum"
+  },
+  {
+    "clave": "editor.inv.mapa",
+    "texto": "Di peta ({n})"
+  },
+  {
+    "clave": "editor.inv.quitar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "editor.inv.desagrupar",
+    "texto": "Lepas grup"
+  },
+  {
+    "clave": "editor.inv.agrupar",
+    "texto": "🔗 Kelompokkan yang dipilih ({n})"
+  },
+  {
+    "clave": "editor.obj.desc",
+    "texto": "Seret objek di adegan 3D. Tandai ★ untuk titik masuk ruangan."
+  },
+  {
+    "clave": "editor.obj.cuarto",
+    "texto": "Ruangan"
+  },
+  {
+    "clave": "editor.obj.marcarPrincipal",
+    "texto": "Jadikan objek utama"
+  },
+  {
+    "clave": "editor.obj.esPrincipal",
+    "texto": "Objek utama (titik masuk ruangan)"
+  },
+  {
+    "clave": "editor.obj.ultimoObjeto",
+    "texto": "Setidaknya harus ada satu objek yang tersisa di ruangan"
+  },
+  {
+    "clave": "editor.obj.vacio",
+    "texto": "Belum ada objek. Tambahkan satu di atas."
+  },
+  {
+    "clave": "editor.obj.cargando",
+    "texto": "Memuat…"
+  },
+  {
+    "clave": "editor.obj.agregar",
+    "texto": "Tambahkan ke {room}"
+  },
+  {
+    "clave": "editor.obj.deco",
+    "texto": "Dekorasi umum"
+  },
+  {
+    "clave": "editor.obj.colocados",
+    "texto": "Objek ruangan ({n})"
+  },
+  {
+    "clave": "editor.obj.agrupar",
+    "texto": "Kelompokkan yang dipilih ({n})"
+  },
+  {
+    "clave": "editor.obj.quitar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "editor.obj.objeto",
+    "texto": "Objek"
+  },
+  {
+    "clave": "editor.sec.reordenar",
+    "texto": "Seret untuk mengurutkan ulang"
+  },
+  {
+    "clave": "editor.sec.reordenarSec",
+    "texto": "Urutkan ulang {titulo}"
+  },
+  {
+    "clave": "editor.sec.contraer",
+    "texto": "Ciutkan {titulo}"
+  },
+  {
+    "clave": "editor.sec.expandir",
+    "texto": "Perluas {titulo}"
+  },
+  {
+    "clave": "editor.sec.contraerMapa",
+    "texto": "Ciutkan Peta"
+  },
+  {
+    "clave": "editor.sec.expandirMapa",
+    "texto": "Perluas Peta"
+  },
+  {
+    "clave": "config.grupo.interfaz",
+    "texto": "Antarmuka dan bahasa"
+  },
+  {
+    "clave": "editor.forma.desc",
+    "texto": "Gunakan tombol + dan − pada ruangan di adegan untuk memperluas atau memangkasnya sel demi sel (ruangan bisa membesar sampai menutupi seluruh peta atau membentuk huruf L)."
+  },
+  {
+    "clave": "editor.anim.titulo",
+    "texto": "Animasi"
+  },
+  {
+    "clave": "editor.anim.preset",
+    "texto": "Gerakan"
+  },
+  {
+    "clave": "editor.anim.ninguno",
+    "texto": "Tanpa gerakan"
+  },
+  {
+    "clave": "editor.anim.p.girar",
+    "texto": "Putar"
+  },
+  {
+    "clave": "editor.anim.p.flotar",
+    "texto": "Melayang"
+  },
+  {
+    "clave": "editor.anim.p.pulsar",
+    "texto": "Berdenyut"
+  },
+  {
+    "clave": "editor.anim.p.mecerse",
+    "texto": "Bergoyang"
+  },
+  {
+    "clave": "editor.anim.p.rebotar",
+    "texto": "Memantul"
+  },
+  {
+    "clave": "editor.anim.p.temblar",
+    "texto": "Bergetar"
+  },
+  {
+    "clave": "editor.anim.p.vida",
+    "texto": "Hidupkan"
+  },
+  {
+    "clave": "editor.hist.deshacer",
+    "texto": "Urungkan"
+  },
+  {
+    "clave": "editor.hist.rehacer",
+    "texto": "Ulangi"
+  },
+  {
+    "clave": "editor.anim.velocidad",
+    "texto": "Kecepatan"
+  },
+  {
+    "clave": "editor.anim.intensidad",
+    "texto": "Intensitas"
+  },
+  {
+    "clave": "editor.anim.zona",
+    "texto": "Area jelajah"
+  }
+]

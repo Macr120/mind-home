@@ -1,0 +1,430 @@
+[
+  {
+    "ruta": "carpetas.0.nombre",
+    "texto": "الفيزياء 2"
+  },
+  {
+    "ruta": "carpetas.1.nombre",
+    "texto": "الاختبارات النصفية"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.nombre",
+    "texto": "الموضع مع التسارع الثابت"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.0.nombre",
+    "texto": "الموضع الابتدائي"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.1.nombre",
+    "texto": "السرعة الابتدائية"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.2.nombre",
+    "texto": "التسارع"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.3.nombre",
+    "texto": "الزمن"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.nombre",
+    "texto": "توريتشيلي (السرعة بدون زمن)"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.0.nombre",
+    "texto": "السرعة الابتدائية"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.1.nombre",
+    "texto": "التسارع"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.2.nombre",
+    "texto": "الإزاحة"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.nombre",
+    "texto": "الطاقة الحركية"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.descripcion",
+    "texto": "بكتلتي الثابتة: أحسبها غالبًا لنفسي أثناء الجري."
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.0.nombre",
+    "texto": "الكتلة"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.1.nombre",
+    "texto": "السرعة"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.nombre",
+    "texto": "قانون هوك"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.0.nombre",
+    "texto": "ثابت النابض"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.1.nombre",
+    "texto": "الاستطالة"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.nombre",
+    "texto": "الدور الزمني للبندول البسيط"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.0.nombre",
+    "texto": "الطول"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.1.nombre",
+    "texto": "الجاذبية الأرضية"
+  },
+  {
+    "ruta": "carpetas.2.nombre",
+    "texto": "المقهى"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.nombre",
+    "texto": "التكلفة لكل كوب"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.descripcion",
+    "texto": "تكلفة تقديم كوب واحد، بدون احتساب الوقت."
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.0.nombre",
+    "texto": "سعر كيلوغرام القهوة"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.1.nombre",
+    "texto": "غرامات لكل كوب"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.2.nombre",
+    "texto": "تكلفة الحليب"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.3.nombre",
+    "texto": "الكوب والغطاء"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.nombre",
+    "texto": "الهامش على السعر"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.tex",
+    "texto": "margin = \\dfrac{price - cost}{price} \\times 100"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.0.nombre",
+    "texto": "سعر البيع"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.1.nombre",
+    "texto": "تكلفة الكوب"
+  },
+  {
+    "ruta": "carpetas.3.nombre",
+    "texto": "الجري"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.nombre",
+    "texto": "الوتيرة لكل كيلومتر"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.tex",
+    "texto": "pace = \\dfrac{minutes}{km}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.0.nombre",
+    "texto": "إجمالي الدقائق"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.1.nombre",
+    "texto": "الكيلومترات"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.nombre",
+    "texto": "الوتيرة المطلوبة لهدف الماراثون"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.variables.0.nombre",
+    "texto": "الهدف بالدقائق"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.nombre",
+    "texto": "VO₂ الأقصى التقريبي"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.tex",
+    "texto": "VO_{2}\\,max \\approx 15.3\\,\\dfrac{HR_{max}}{HR_{rest}}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.descripcion",
+    "texto": "معادلة أوث: تقريبية، لكنها كافية لمعرفة ما إذا كنت أتحسن."
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.nombre",
+    "texto": "أقصى معدل لضربات القلب"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.unidad",
+    "texto": "نبضة/د"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.nombre",
+    "texto": "معدل ضربات القلب في الراحة"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.unidad",
+    "texto": "نبضة/د"
+  },
+  {
+    "ruta": "hojas.0.nombre",
+    "texto": "ميزانية اليابان"
+  },
+  {
+    "ruta": "hojas.0.celdas.A1.crudo",
+    "texto": "اليوم"
+  },
+  {
+    "ruta": "hojas.0.celdas.B1.crudo",
+    "texto": "الطعام"
+  },
+  {
+    "ruta": "hojas.0.celdas.C1.crudo",
+    "texto": "المواصلات"
+  },
+  {
+    "ruta": "hojas.0.celdas.D1.crudo",
+    "texto": "التذاكر"
+  },
+  {
+    "ruta": "hojas.0.celdas.E1.crudo",
+    "texto": "التسوق"
+  },
+  {
+    "ruta": "hojas.0.celdas.A2.crudo",
+    "texto": "اليوم 1"
+  },
+  {
+    "ruta": "hojas.0.celdas.A3.crudo",
+    "texto": "اليوم 2"
+  },
+  {
+    "ruta": "hojas.0.celdas.A4.crudo",
+    "texto": "اليوم 3"
+  },
+  {
+    "ruta": "hojas.0.celdas.A5.crudo",
+    "texto": "اليوم 4"
+  },
+  {
+    "ruta": "hojas.0.celdas.A6.crudo",
+    "texto": "اليوم 5"
+  },
+  {
+    "ruta": "hojas.0.celdas.A7.crudo",
+    "texto": "اليوم 6"
+  },
+  {
+    "ruta": "hojas.0.celdas.A8.crudo",
+    "texto": "اليوم 7"
+  },
+  {
+    "ruta": "hojas.0.celdas.A9.crudo",
+    "texto": "اليوم 8"
+  },
+  {
+    "ruta": "hojas.0.celdas.A10.crudo",
+    "texto": "اليوم 9"
+  },
+  {
+    "ruta": "hojas.0.celdas.A11.crudo",
+    "texto": "اليوم 10"
+  },
+  {
+    "ruta": "hojas.0.celdas.A12.crudo",
+    "texto": "اليوم 11"
+  },
+  {
+    "ruta": "hojas.0.celdas.A13.crudo",
+    "texto": "اليوم 12"
+  },
+  {
+    "ruta": "hojas.0.celdas.A14.crudo",
+    "texto": "اليوم 13"
+  },
+  {
+    "ruta": "hojas.0.celdas.A15.crudo",
+    "texto": "اليوم 14"
+  },
+  {
+    "ruta": "hojas.0.celdas.A18.crudo",
+    "texto": "المتوسط اليومي"
+  },
+  {
+    "ruta": "hojas.0.celdas.A20.crudo",
+    "texto": "مجموع الرحلة ¥"
+  },
+  {
+    "ruta": "hojas.0.celdas.A21.crudo",
+    "texto": "سعر الصرف (MXN/¥)"
+  },
+  {
+    "ruta": "hojas.0.celdas.A22.crudo",
+    "texto": "الإجمالي بالبيسو"
+  },
+  {
+    "ruta": "hojas.1.nombre",
+    "texto": "خطة 18 أسبوعًا"
+  },
+  {
+    "ruta": "hojas.1.celdas.A1.crudo",
+    "texto": "الأسبوع"
+  },
+  {
+    "ruta": "hojas.1.celdas.B1.crudo",
+    "texto": "الكيلومترات"
+  },
+  {
+    "ruta": "hojas.1.celdas.C1.crudo",
+    "texto": "التغير %"
+  },
+  {
+    "ruta": "hojas.1.celdas.D1.crudo",
+    "texto": "الجري الطويل"
+  },
+  {
+    "ruta": "hojas.1.celdas.A2.crudo",
+    "texto": "الأسبوع 1"
+  },
+  {
+    "ruta": "hojas.1.celdas.A3.crudo",
+    "texto": "الأسبوع 2"
+  },
+  {
+    "ruta": "hojas.1.celdas.A4.crudo",
+    "texto": "الأسبوع 3"
+  },
+  {
+    "ruta": "hojas.1.celdas.A5.crudo",
+    "texto": "الأسبوع 4"
+  },
+  {
+    "ruta": "hojas.1.celdas.A6.crudo",
+    "texto": "الأسبوع 5"
+  },
+  {
+    "ruta": "hojas.1.celdas.A7.crudo",
+    "texto": "الأسبوع 6"
+  },
+  {
+    "ruta": "hojas.1.celdas.A8.crudo",
+    "texto": "الأسبوع 7"
+  },
+  {
+    "ruta": "hojas.1.celdas.A9.crudo",
+    "texto": "الأسبوع 8"
+  },
+  {
+    "ruta": "hojas.1.celdas.A10.crudo",
+    "texto": "الأسبوع 9"
+  },
+  {
+    "ruta": "hojas.1.celdas.A11.crudo",
+    "texto": "الأسبوع 10"
+  },
+  {
+    "ruta": "hojas.1.celdas.A12.crudo",
+    "texto": "الأسبوع 11"
+  },
+  {
+    "ruta": "hojas.1.celdas.A13.crudo",
+    "texto": "الأسبوع 12"
+  },
+  {
+    "ruta": "hojas.1.celdas.A14.crudo",
+    "texto": "الأسبوع 13"
+  },
+  {
+    "ruta": "hojas.1.celdas.A15.crudo",
+    "texto": "الأسبوع 14"
+  },
+  {
+    "ruta": "hojas.1.celdas.A16.crudo",
+    "texto": "الأسبوع 15"
+  },
+  {
+    "ruta": "hojas.1.celdas.A17.crudo",
+    "texto": "الأسبوع 16"
+  },
+  {
+    "ruta": "hojas.1.celdas.A18.crudo",
+    "texto": "الأسبوع 17"
+  },
+  {
+    "ruta": "hojas.1.celdas.A19.crudo",
+    "texto": "الأسبوع 18"
+  },
+  {
+    "ruta": "hojas.1.celdas.A22.crudo",
+    "texto": "أسبوع الذروة"
+  },
+  {
+    "ruta": "hojas.1.celdas.A23.crudo",
+    "texto": "المتوسط"
+  },
+  {
+    "ruta": "hojas.2.nombre",
+    "texto": "درجات الفيزياء 2"
+  },
+  {
+    "ruta": "hojas.2.celdas.A1.crudo",
+    "texto": "التقييم"
+  },
+  {
+    "ruta": "hojas.2.celdas.B1.crudo",
+    "texto": "الوزن"
+  },
+  {
+    "ruta": "hojas.2.celdas.C1.crudo",
+    "texto": "الدرجة"
+  },
+  {
+    "ruta": "hojas.2.celdas.D1.crudo",
+    "texto": "المساهمة"
+  },
+  {
+    "ruta": "hojas.2.celdas.A2.crudo",
+    "texto": "الاختبار النصفي 1"
+  },
+  {
+    "ruta": "hojas.2.celdas.A3.crudo",
+    "texto": "الاختبار النصفي 2"
+  },
+  {
+    "ruta": "hojas.2.celdas.A4.crudo",
+    "texto": "الواجبات"
+  },
+  {
+    "ruta": "hojas.2.celdas.A5.crudo",
+    "texto": "المختبر"
+  },
+  {
+    "ruta": "hojas.2.celdas.A8.crudo",
+    "texto": "الوزن المتراكم"
+  },
+  {
+    "ruta": "hojas.2.celdas.A9.crudo",
+    "texto": "لدي حتى الآن"
+  },
+  {
+    "ruta": "hojas.2.celdas.A10.crudo",
+    "texto": "ما أحتاجه في الاختبار النهائي"
+  }
+]

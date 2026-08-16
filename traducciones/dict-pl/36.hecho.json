@@ -1,0 +1,518 @@
+[
+  {
+    "clave": "bienvenida.guia.explorar.desc",
+    "texto": "Gotowe. Każde menu i każda aplikacja mają własny samouczek pod przyciskiem ?."
+  },
+  {
+    "clave": "ajustes.bienvenida",
+    "texto": "Powitanie"
+  },
+  {
+    "clave": "ajustes.bienvenida.btn",
+    "texto": "Zobacz powitanie ponownie"
+  },
+  {
+    "clave": "ajustes.bienvenida.desc",
+    "texto": "Menu pierwszego uruchomienia: wybierz aplikacje, awatar i motyw. Nie duplikuje tego, co już masz."
+  },
+  {
+    "clave": "ajustes.tutoriales",
+    "texto": "Samouczki i powitanie"
+  },
+  {
+    "clave": "ajustes.tutoriales.hud",
+    "texto": "Pokaż na głównym ekranie"
+  },
+  {
+    "clave": "ajustes.tutoriales.hudDesc",
+    "texto": "Wyłączone: dom wygląda czyściej, a samouczki uruchamia się stąd."
+  },
+  {
+    "clave": "ajustes.tutoriales.voz",
+    "texto": "Czytaj kroki na głos"
+  },
+  {
+    "clave": "ajustes.tutoriales.vozDesc",
+    "texto": "Mag opowiada każdy krok głosem ze swojego profilu. Można to też włączyć głośnikiem na karcie."
+  },
+  {
+    "clave": "ajustes.tutoriales.enPantalla",
+    "texto": "Wybierz samouczek na ekranie"
+  },
+  {
+    "clave": "ajustes.tutoriales.casa",
+    "texto": "Dom i jego menu"
+  },
+  {
+    "clave": "ajustes.tutoriales.apps",
+    "texto": "Aplikacje"
+  },
+  {
+    "clave": "ajustes.tutoriales.infra",
+    "texto": "Budowle na mapie"
+  },
+  {
+    "clave": "ajustes.tutoriales.nucleo",
+    "texto": "Kalendarz i cele"
+  },
+  {
+    "clave": "wrapped.menu",
+    "texto": "Twoje podsumowanie"
+  },
+  {
+    "clave": "wrapped.titulo",
+    "texto": "Twoje podsumowanie"
+  },
+  {
+    "clave": "wrapped.cargando",
+    "texto": "Przygotowywanie twojego podsumowania…"
+  },
+  {
+    "clave": "wrapped.cerrar",
+    "texto": "Zamknij"
+  },
+  {
+    "clave": "wrapped.anterior",
+    "texto": "Poprzedni okres"
+  },
+  {
+    "clave": "wrapped.siguiente",
+    "texto": "Następny okres"
+  },
+  {
+    "clave": "wrapped.enCurso",
+    "texto": "(w toku)"
+  },
+  {
+    "clave": "wrapped.tipo.semana",
+    "texto": "Tydzień"
+  },
+  {
+    "clave": "wrapped.tipo.mes",
+    "texto": "Miesiąc"
+  },
+  {
+    "clave": "wrapped.tipo.anio",
+    "texto": "Rok"
+  },
+  {
+    "clave": "wrapped.portada.semana",
+    "texto": "Twój tydzień w Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.mes",
+    "texto": "Twój miesiąc w Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.anio",
+    "texto": "Twój rok w Mind Planner Home"
+  },
+  {
+    "clave": "wrapped.portada.sub",
+    "texto": "Rzut oka na wszystko, co zarejestrowano."
+  },
+  {
+    "clave": "wrapped.actividad.titulo",
+    "texto": "Twoja obecność"
+  },
+  {
+    "clave": "wrapped.diasActivos",
+    "texto": "z {total} dni z aktywnością"
+  },
+  {
+    "clave": "wrapped.registros",
+    "texto": "wpisy"
+  },
+  {
+    "clave": "wrapped.registros.mayus",
+    "texto": "Wpisy"
+  },
+  {
+    "clave": "wrapped.mejorRacha",
+    "texto": "dni z rzędu (najlepsza seria)"
+  },
+  {
+    "clave": "wrapped.topApp.titulo",
+    "texto": "Twój pokój-gwiazda"
+  },
+  {
+    "clave": "wrapped.topApp.n",
+    "texto": "{n} wpisów"
+  },
+  {
+    "clave": "wrapped.ej.titulo",
+    "texto": "Ruch ciała"
+  },
+  {
+    "clave": "wrapped.ej.min",
+    "texto": "ćwiczeń"
+  },
+  {
+    "clave": "wrapped.ej.sesiones",
+    "texto": "sesje"
+  },
+  {
+    "clave": "wrapped.ej.km",
+    "texto": "przebyte"
+  },
+  {
+    "clave": "wrapped.ej.kg",
+    "texto": "podniesione"
+  },
+  {
+    "clave": "wrapped.calma.titulo",
+    "texto": "Chwila spokoju"
+  },
+  {
+    "clave": "wrapped.calma.min",
+    "texto": "spokoju"
+  },
+  {
+    "clave": "wrapped.calma.sesiones",
+    "texto": "sesje"
+  },
+  {
+    "clave": "wrapped.calma.gratitud",
+    "texto": "dni wdzięczności"
+  },
+  {
+    "clave": "wrapped.calma.animo",
+    "texto": "nastroju po każdej sesji"
+  },
+  {
+    "clave": "wrapped.estudio.titulo",
+    "texto": "Pokarm dla umysłu"
+  },
+  {
+    "clave": "wrapped.estudio.min",
+    "texto": "nauki"
+  },
+  {
+    "clave": "wrapped.estudio.sesiones",
+    "texto": "sesje"
+  },
+  {
+    "clave": "wrapped.idiomas.titulo",
+    "texto": "Praktyka języków"
+  },
+  {
+    "clave": "wrapped.idiomas.repasos",
+    "texto": "powtórki"
+  },
+  {
+    "clave": "wrapped.idiomas.aciertos",
+    "texto": "celności"
+  },
+  {
+    "clave": "wrapped.hobbies.titulo",
+    "texto": "Czas na hobby"
+  },
+  {
+    "clave": "wrapped.hobbies.min",
+    "texto": "praktyki"
+  },
+  {
+    "clave": "wrapped.hobbies.sesiones",
+    "texto": "sesje"
+  },
+  {
+    "clave": "wrapped.hobbies.top",
+    "texto": "twoje hobby-gwiazda ({min})"
+  },
+  {
+    "clave": "wrapped.sueno.titulo",
+    "texto": "Twój odpoczynek"
+  },
+  {
+    "clave": "wrapped.sueno.horas",
+    "texto": "średniego snu"
+  },
+  {
+    "clave": "wrapped.sueno.noches",
+    "texto": "zarejestrowanych nocy"
+  },
+  {
+    "clave": "wrapped.sueno.calidad",
+    "texto": "średnia jakość"
+  },
+  {
+    "clave": "wrapped.cocina.titulo",
+    "texto": "W kuchni"
+  },
+  {
+    "clave": "wrapped.cocina.comidas",
+    "texto": "zarejestrowanych posiłków"
+  },
+  {
+    "clave": "wrapped.cocina.agua",
+    "texto": "wody"
+  },
+  {
+    "clave": "wrapped.cocina.peso",
+    "texto": "zmiany wagi"
+  },
+  {
+    "clave": "wrapped.fin.titulo",
+    "texto": "Twoje finanse"
+  },
+  {
+    "clave": "wrapped.fin.ingresos",
+    "texto": "przychodów"
+  },
+  {
+    "clave": "wrapped.fin.gastos",
+    "texto": "wydatków"
+  },
+  {
+    "clave": "wrapped.fin.topCategoria",
+    "texto": "kategoria z największymi wydatkami"
+  },
+  {
+    "clave": "wrapped.heatmap.titulo",
+    "texto": "Twoja mapa systematyczności"
+  },
+  {
+    "clave": "wrapped.heatmap.pie",
+    "texto": "Każda komórka to jeden dzień; im więcej koloru, tym więcej wpisów."
+  },
+  {
+    "clave": "wrapped.hitos.titulo",
+    "texto": "Twoje kamienie milowe"
+  },
+  {
+    "clave": "wrapped.hito.lugares",
+    "texto": "{n} odwiedzonych miejsc"
+  },
+  {
+    "clave": "wrapped.hito.recuerdos",
+    "texto": "{n} wspomnień z podróży"
+  },
+  {
+    "clave": "wrapped.hito.peliculas",
+    "texto": "{n} filmów"
+  },
+  {
+    "clave": "wrapped.hito.series",
+    "texto": "{n} seriali"
+  },
+  {
+    "clave": "wrapped.hito.libros",
+    "texto": "{n} książek"
+  },
+  {
+    "clave": "wrapped.hito.videojuegos",
+    "texto": "{n} gier wideo"
+  },
+  {
+    "clave": "wrapped.hito.anecdotas",
+    "texto": "{n} zapisanych wspomnień"
+  },
+  {
+    "clave": "wrapped.hito.proyectos",
+    "texto": "{n} ukończonych projektów"
+  },
+  {
+    "clave": "wrapped.hito.mantenimientos",
+    "texto": "{n} prac konserwacyjnych"
+  },
+  {
+    "clave": "wrapped.hito.rutinas",
+    "texto": "{n} ukończonych dni rutyny"
+  },
+  {
+    "clave": "wrapped.comparativa.titulo",
+    "texto": "W porównaniu z poprzednim okresem"
+  },
+  {
+    "clave": "wrapped.comparativa.dias",
+    "texto": "Aktywne dni"
+  },
+  {
+    "clave": "wrapped.comparativa.ejercicio",
+    "texto": "Ćwiczenia"
+  },
+  {
+    "clave": "wrapped.comparativa.calma",
+    "texto": "Spokój"
+  },
+  {
+    "clave": "wrapped.cierre.top",
+    "texto": "Nie do zatrzymania! Aktywność niemal każdego dnia."
+  },
+  {
+    "clave": "wrapped.cierre.bien",
+    "texto": "Dobre tempo: ponad połowa dni."
+  },
+  {
+    "clave": "wrapped.cierre.animo",
+    "texto": "Każdy zarejestrowany dzień się liczy. Tak trzymaj."
+  },
+  {
+    "clave": "wrapped.cierre.nav",
+    "texto": "Użyj ‹ › i selektora powyżej, aby zobaczyć inne okresy."
+  },
+  {
+    "clave": "wrapped.vacio",
+    "texto": "Brak wpisów w tym okresie. Podsumowania budują się same z tego, co zarejestrujesz w swoich aplikacjach."
+  },
+  {
+    "clave": "wrapped.aviso.titulo.semana",
+    "texto": "✨ Twoje tygodniowe podsumowanie jest gotowe"
+  },
+  {
+    "clave": "wrapped.aviso.titulo.mes",
+    "texto": "✨ Twoje miesięczne podsumowanie jest gotowe"
+  },
+  {
+    "clave": "wrapped.aviso.titulo.anio",
+    "texto": "✨ Twoje roczne podsumowanie jest gotowe"
+  },
+  {
+    "clave": "wrapped.aviso.cuerpo",
+    "texto": "Zobacz swoje postępy z tego okresu."
+  },
+  {
+    "clave": "wrapped.aviso.abrir",
+    "texto": "Zobacz"
+  },
+  {
+    "clave": "wrapped.mute",
+    "texto": "Wycisz muzykę"
+  },
+  {
+    "clave": "wrapped.compartir",
+    "texto": "Udostępnij ten slajd"
+  },
+  {
+    "clave": "wrapped.compartir.titulo",
+    "texto": "Moje podsumowanie z Mind Planner Home · {periodo}"
+  },
+  {
+    "clave": "wrapped.compartir.copiarManual",
+    "texto": "Nie udało się skopiować automatycznie. Zaznacz tekst i skopiuj go (Ctrl+C):"
+  },
+  {
+    "clave": "wrapped.compartir.cerrarManual",
+    "texto": "Zamknij"
+  },
+  {
+    "clave": "wrapped.nuevo",
+    "texto": "Nowe"
+  },
+  {
+    "clave": "wrapped.nuevoTitulo",
+    "texto": "Masz nowe podsumowanie"
+  },
+  {
+    "clave": "notif.wrapped",
+    "texto": "Podsumowanie okresu (Wrapped)"
+  },
+  {
+    "clave": "sisifo.titulo",
+    "texto": "Góra Syzyfa"
+  },
+  {
+    "clave": "sisifo.menu",
+    "texto": "Góra"
+  },
+  {
+    "clave": "sisifo.dia",
+    "texto": "Dzień"
+  },
+  {
+    "clave": "sisifo.insignias",
+    "texto": "odznaki"
+  },
+  {
+    "clave": "sisifo.gracias",
+    "texto": "Dni ochronne"
+  },
+  {
+    "clave": "sisifo.cerrar",
+    "texto": "Zamknij"
+  },
+  {
+    "clave": "sisifo.rangos",
+    "texto": "Rangi"
+  },
+  {
+    "clave": "sisifo.bloqueada",
+    "texto": "Zablokowana odznaka"
+  },
+  {
+    "clave": "sisifo.comoFunciona",
+    "texto": "Jak to działa"
+  },
+  {
+    "clave": "sisifo.ayuda1",
+    "texto": "Każdy dzień z aktywnością w twoich aplikacjach to jeden stopień w górę. Szczyt to 365 dni."
+  },
+  {
+    "clave": "sisifo.ayuda2",
+    "texto": "Co 7 stopni zdobywasz odznakę (52 łącznie), a każdy odcinek tygodni podnosi twoją rangę (12 łącznie)."
+  },
+  {
+    "clave": "sisifo.ayuda3",
+    "texto": "Jeśli ominiesz dzień, masz 2 dni ochronne w miesiącu: nic się nie dzieje. Gdy się skończą, głaz cofa się do początku obecnej rangi."
+  },
+  {
+    "clave": "sisifo.ayuda4",
+    "texto": "Po dotarciu na szczyt zdobywasz trwałą gwiazdę i zaczynasz od nowa od podstawy."
+  },
+  {
+    "clave": "sisifo.frase",
+    "texto": "Trzeba wyobrażać sobie Syzyfa szczęśliwym."
+  },
+  {
+    "clave": "sisifo.aviso.genial",
+    "texto": "Świetnie!"
+  },
+  {
+    "clave": "sisifo.aviso.estrella.titulo",
+    "texto": "Góra zdobyta!"
+  },
+  {
+    "clave": "sisifo.aviso.estrella.cuerpo",
+    "texto": "Zdobyto trwałą gwiazdę. Wspinaczka zaczyna się od nowa."
+  },
+  {
+    "clave": "sisifo.aviso.rango.titulo",
+    "texto": "Awans rangi!"
+  },
+  {
+    "clave": "sisifo.aviso.rango.cuerpo",
+    "texto": "Teraz jesteś: {nombre}."
+  },
+  {
+    "clave": "sisifo.aviso.insignia.titulo",
+    "texto": "Nowa odznaka!"
+  },
+  {
+    "clave": "wrapped.sisifo.titulo",
+    "texto": "Twoja wspinaczka"
+  },
+  {
+    "clave": "wrapped.sisifo.estrellas",
+    "texto": "zdobyte gwiazdy"
+  },
+  {
+    "clave": "ajustes.musica",
+    "texto": "Muzyka"
+  },
+  {
+    "clave": "ajustes.musica.ambiental",
+    "texto": "Muzyka w tle w domu"
+  },
+  {
+    "clave": "ajustes.musica.ambientalDesc",
+    "texto": "Gra, gdy spacerujesz po domu; z powodu przeglądarki uruchamia się po pierwszym kliknięciu."
+  },
+  {
+    "clave": "ajustes.musica.hud",
+    "texto": "Pokaż na głównym ekranie"
+  },
+  {
+    "clave": "musica.hudNota",
+    "texto": "Wyłączone: muzykę ustawia się w Edytorze › Ustawienia › Muzyka."
+  }
+]

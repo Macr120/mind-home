@@ -1,0 +1,450 @@
+[
+  {
+    "clave": "editor.anim.vidaDesc",
+    "texto": "Nesne kendi alanında dolaşır, acıkır ve sıkılır. Yaklaştığında beliren düğmelerle onu besle ve okşa."
+  },
+  {
+    "clave": "editor.anim.vidaAviso",
+    "texto": "Duvarların ve mobilyaların içinden geçer: bir odanın içine koyarsan ona küçük bir alan ver."
+  },
+  {
+    "clave": "editor.anim.activacion",
+    "texto": "Oynatılır"
+  },
+  {
+    "clave": "editor.anim.apagado",
+    "texto": "Kapalı"
+  },
+  {
+    "clave": "editor.anim.siempre",
+    "texto": "Her zaman"
+  },
+  {
+    "clave": "editor.anim.cerca",
+    "texto": "Sana yakın"
+  },
+  {
+    "clave": "editor.anim.poses",
+    "texto": "Pozlar (özel animasyon)"
+  },
+  {
+    "clave": "editor.anim.posesDesc",
+    "texto": "Parçaları düzenleyiciyle (dişli) ayarla ve her pozu yakala. 2 veya daha fazlasıyla model bunlar arasında döngüyle geçer."
+  },
+  {
+    "clave": "editor.anim.pose",
+    "texto": "Poz"
+  },
+  {
+    "clave": "editor.anim.capturar",
+    "texto": "Geçerli pozu yakala"
+  },
+  {
+    "clave": "editor.anim.cargar",
+    "texto": "Düzenle"
+  },
+  {
+    "clave": "editor.anim.cargarTip",
+    "texto": "Parçaları bu poza getirir, böylece üzerinde oynayabilirsin"
+  },
+  {
+    "clave": "editor.anim.actualizar",
+    "texto": "Güncelle"
+  },
+  {
+    "clave": "editor.anim.actualizarTip",
+    "texto": "Bu pozu geçerli şekille değiştirir"
+  },
+  {
+    "clave": "editor.anim.quitar",
+    "texto": "Kaldır"
+  },
+  {
+    "clave": "editor.anim.quitarPose",
+    "texto": "Bu pozu kaldır"
+  },
+  {
+    "clave": "editor.anim.necesitaDos",
+    "texto": "Animasyonu oynatmak için 2 veya daha fazla poz gerekir."
+  },
+  {
+    "clave": "editor.anim.duracion",
+    "texto": "Poz başına süre"
+  },
+  {
+    "clave": "editor.anim.reproducir",
+    "texto": "Animasyonu oynat"
+  },
+  {
+    "clave": "editor.anim.pausar",
+    "texto": "Animasyonu duraklat"
+  },
+  {
+    "clave": "editor.pers.anim",
+    "texto": "Animasyon"
+  },
+  {
+    "clave": "editor.pers.animFlote",
+    "texto": "Hareket, karakterin doğal süzülmesinin yerini alır; el sallama korunur."
+  },
+  {
+    "clave": "editor.pers.animSinPiezas",
+    "texto": "Poz animasyonları oluşturmak için Gövde sekmesinde 3D parçalarla bedeni oluştur."
+  },
+  {
+    "clave": "room.cocina.desc",
+    "texto": "Beslenme: öğünlerini, makrolarını, suyunu ve haftalık planını kaydet."
+  },
+  {
+    "clave": "room.ejercicio.desc",
+    "texto": "Hedefli güç, dayanıklılık ve esneklik rutinleri."
+  },
+  {
+    "clave": "room.recamara.desc",
+    "texto": "Dinlenmeni takip et ve kişisel anı defterini yaz."
+  },
+  {
+    "clave": "room.descanso.desc",
+    "texto": "Uykun bir gece göğü gibi: program, alarm, puan ve gece kaydı."
+  },
+  {
+    "clave": "room.anecdotario.desc",
+    "texto": "Anı defterin: fotoğraflı anılar ve günlük ruh halin."
+  },
+  {
+    "clave": "room.despacho.desc",
+    "texto": "Finans: sabit ve değişken gider ve gelirlerle bütçe, simülatörlü hedefler (finansal hesaplayıcılar, tasarruf/yatırım, borç) ve canlı piyasalar."
+  },
+  {
+    "clave": "room.biblioteca.desc",
+    "texto": "Sohbet ansiklopedisi: yapay zekâ sohbetleri, wiki maddeleri ve çalışma oturumları."
+  },
+  {
+    "clave": "room.entretenimiento.desc",
+    "texto": "Film, dizi, kitap ve masa oyunları arşivi."
+  },
+  {
+    "clave": "room.sala.desc",
+    "texto": "Seyahatlerini planla: güzergâh, giderler, kontrol listesi ve istek listesi."
+  },
+  {
+    "clave": "room.jardin.desc",
+    "texto": "Sakinlik: rehberli meditasyonlar, nefes egzersizleri ve şükran günlüğü."
+  },
+  {
+    "clave": "room.garage.desc",
+    "texto": "Araçlarının ve servislerinin bakımı."
+  },
+  {
+    "clave": "room.diario.desc",
+    "texto": "Kategoriye göre günlük haber merkezi."
+  },
+  {
+    "clave": "room.hobbies.desc",
+    "texto": "Uğraşların ve yaratıcı projelerin."
+  },
+  {
+    "clave": "room.idiomas.desc",
+    "texto": "Dil öğren: yapay zekâ öğretmeni, aralıklı tekrarlı kelime dağarcığı, seviye müfredatı ve alıştırmalar."
+  },
+  {
+    "clave": "room.calendario.desc",
+    "texto": "Takvimin: gün, hafta ve aya göre etkinlikler ve rutinler."
+  },
+  {
+    "clave": "room.caminos.desc",
+    "texto": "Haritaya yarış pistleri, tren rayları ve hız trenleri döşe."
+  },
+  {
+    "clave": "room.canchas.desc",
+    "texto": "Haritaya futbol, tenis, basketbol ve beyzbol sahaları yerleştir."
+  },
+  {
+    "clave": "room.huerto.desc",
+    "texto": "Parseller hazırla, ekin ek, sula ve gerçek zamanlı hasat et."
+  },
+  {
+    "clave": "room.granja.desc",
+    "texto": "Tavuk, domuz, keçi, koyun, inek ve at yetiştir; yemlerini aynı düzenleyicide üret."
+  },
+  {
+    "clave": "room.ideas.desc",
+    "texto": "Fikir günlüğün ve beyin fırtınaların, serbest tuvalde on kavram haritası biçimi (zihin haritası, ağaç, zaman çizelgesi, döngü, piramit, Venn…) ve karar vermene yardımcı sekiz diyagram (artı-eksi, güç alanı, SWOT, Eisenhower, karar ağacı, sıralama listesi, ağırlıklı karar matrisi ve Ishikawa), elle veya yapay zekâ ile."
+  },
+  {
+    "clave": "room.computo.desc",
+    "texto": "Bilgisayar odası: yanında asılı formül defteriyle (Matematik, Fizik ve Kimya hazır ve düzenlenebilir) bilimsel bir hesap makinesi ve sekiz mod — dört türlü çizici (2D, polar, parametrik ve 3D yüzey), ikilik ve on altılık taban, matrisler, denklem sistemleri, birim dönüştürme, bahşiş ve üçlü kural; ayrıca Excel ve PDF’e aktarılabilen hesap tabloları."
+  },
+  {
+    "clave": "computo.tab.calculadora",
+    "texto": "Hesap Makinesi"
+  },
+  {
+    "clave": "computo.tab.hojas",
+    "texto": "E-Tablolar"
+  },
+  {
+    "clave": "computo.menu.formulario",
+    "texto": "Formül Defteri"
+  },
+  {
+    "clave": "computo.meta.calculos",
+    "texto": "Bir şeyi çöz"
+  },
+  {
+    "clave": "computo.motor.error",
+    "texto": "Hesaplama motoru yüklenemedi. Bağlantını kontrol et."
+  },
+  {
+    "clave": "computo.motor.reintentar",
+    "texto": "Yeniden dene"
+  },
+  {
+    "clave": "computo.error.sintaxis",
+    "texto": "Bu ifade anlaşılamadı"
+  },
+  {
+    "clave": "computo.error.simbolo",
+    "texto": "Bilinmeyen sembol"
+  },
+  {
+    "clave": "computo.error.dominio",
+    "texto": "Bu değerlerle çalışmıyor"
+  },
+  {
+    "clave": "computo.plan.ejemplo",
+    "texto": "Bir konunun formüllerine hâkim ol ve uygula"
+  },
+  {
+    "clave": "computo.plan.material",
+    "texto": "Planın formülleri"
+  },
+  {
+    "clave": "computo.form.buscar",
+    "texto": "Formül ara…"
+  },
+  {
+    "clave": "computo.form.sinResultados",
+    "texto": "Bu adla bir şey yok."
+  },
+  {
+    "clave": "computo.form.editar",
+    "texto": "Düzenle"
+  },
+  {
+    "clave": "computo.form.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "computo.form.cerrarFicha",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "computo.form.imprimir",
+    "texto": "Yazdır veya PDF olarak kaydet"
+  },
+  {
+    "clave": "computo.form.imprimirCarpeta",
+    "texto": "Klasörü yazdır"
+  },
+  {
+    "clave": "computo.form.carpetaNueva",
+    "texto": "Klasör"
+  },
+  {
+    "clave": "computo.form.nuevaCarpeta",
+    "texto": "Yeni klasör"
+  },
+  {
+    "clave": "computo.form.nuevaCarpetaMsg",
+    "texto": "Adı ne olsun?"
+  },
+  {
+    "clave": "computo.form.subcarpeta",
+    "texto": "Alt klasör"
+  },
+  {
+    "clave": "computo.form.formulaNueva",
+    "texto": "Formül"
+  },
+  {
+    "clave": "computo.form.borrarCarpeta",
+    "texto": "«{nombre}» öğesini sil"
+  },
+  {
+    "clave": "computo.form.borrarCarpetaMsg",
+    "texto": "{n} formülü ve alt klasörleri de silinir."
+  },
+  {
+    "clave": "computo.form.borrarCarpetaVacia",
+    "texto": "Klasör, alt klasörleriyle birlikte silinir."
+  },
+  {
+    "clave": "computo.form.borrarFormula",
+    "texto": "«{nombre}» öğesini sil"
+  },
+  {
+    "clave": "computo.form.constantes",
+    "texto": "Sabitler: {lista}"
+  },
+  {
+    "clave": "computo.form.vacio",
+    "texto": "Henüz formül yok. Bir klasör oluştur ve kendi formülünü yaz."
+  },
+  {
+    "clave": "computo.form.masAcciones",
+    "texto": "Diğer işlemler"
+  },
+  {
+    "clave": "computo.form.editarCarpeta",
+    "texto": "Klasörü düzenle"
+  },
+  {
+    "clave": "computo.form.arrastrar",
+    "texto": "Taşımak için sürükle"
+  },
+  {
+    "clave": "computo.carpeta.titulo",
+    "texto": "Klasörü düzenle"
+  },
+  {
+    "clave": "computo.carpeta.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "computo.carpeta.nombre",
+    "texto": "Klasör adı"
+  },
+  {
+    "clave": "computo.carpeta.emoji",
+    "texto": "Simge"
+  },
+  {
+    "clave": "computo.carpeta.emojiLibre",
+    "texto": "Başka emoji"
+  },
+  {
+    "clave": "computo.carpeta.color",
+    "texto": "Renk"
+  },
+  {
+    "clave": "computo.carpeta.colorPista",
+    "texto": "Kendi rengi olmayan alt klasörler bunu devralır."
+  },
+  {
+    "clave": "computo.carpeta.guardar",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "computo.carpeta.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "computo.editor.titulo.nueva",
+    "texto": "Yeni formül"
+  },
+  {
+    "clave": "computo.editor.titulo.editar",
+    "texto": "Formülü düzenle"
+  },
+  {
+    "clave": "computo.editor.cerrar",
+    "texto": "Kapat"
+  },
+  {
+    "clave": "computo.editor.carpeta",
+    "texto": "Şuraya kaydet"
+  },
+  {
+    "clave": "computo.editor.nombre",
+    "texto": "Ad («Kinetik enerji»)"
+  },
+  {
+    "clave": "computo.editor.resultado",
+    "texto": "Sonuç sembolü"
+  },
+  {
+    "clave": "computo.editor.descripcion",
+    "texto": "Not (ne zaman kullanılır, nereden geldi)"
+  },
+  {
+    "clave": "computo.editor.variables",
+    "texto": "Değişkenler"
+  },
+  {
+    "clave": "computo.editor.varNombre",
+    "texto": "ad"
+  },
+  {
+    "clave": "computo.editor.varUnidad",
+    "texto": "birim"
+  },
+  {
+    "clave": "computo.editor.varValor",
+    "texto": "değer"
+  },
+  {
+    "clave": "computo.editor.constante",
+    "texto": "Sabit: sorulmaz, değeri doğrudan kullanılır"
+  },
+  {
+    "clave": "computo.editor.guardar",
+    "texto": "Kaydet"
+  },
+  {
+    "clave": "computo.editor.faltaNombre",
+    "texto": "Bir ad ver"
+  },
+  {
+    "clave": "computo.editor.faltaExpresion",
+    "texto": "İfadeyi yaz"
+  },
+  {
+    "clave": "computo.editor.resultadoReservado",
+    "texto": "O sembol mathjs’e ait; başka bir tane seç"
+  },
+  {
+    "clave": "computo.editor.resultadoInvalido",
+    "texto": "Sonuç sembolü geçerli değil"
+  },
+  {
+    "clave": "computo.editor.noSeEntiende",
+    "texto": "Bir şey kapatılmamış ya da fazladan bir sembol var."
+  },
+  {
+    "clave": "computo.editor.implicita",
+    "texto": "«{simbolos}» tek bir değişken olarak okunuyor. Çarpmak istiyorsan yıldız işaretlerini yaz: m * g * h."
+  },
+  {
+    "clave": "computo.calc.placeholder",
+    "texto": "2*sin(pi/4) + log(100, 10)"
+  },
+  {
+    "clave": "computo.calc.borrar",
+    "texto": "Sil"
+  },
+  {
+    "clave": "computo.calc.grados",
+    "texto": "Derece"
+  },
+  {
+    "clave": "computo.calc.radianes",
+    "texto": "Radyan"
+  },
+  {
+    "clave": "computo.calc.resolver",
+    "texto": "Çöz"
+  },
+  {
+    "clave": "computo.calc.pulsaResolver",
+    "texto": "«Çöz» düğmesine bas"
+  },
+  {
+    "clave": "computo.calc.soluciones",
+    "texto": "Çözümler"
+  },
+  {
+    "clave": "computo.calc.exactas",
+    "texto": "Polinomun kesin kökleri."
+  }
+]

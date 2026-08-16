@@ -1,12 +1,12 @@
 import type { Dict } from './dict'
 
 /**
- * Textos de PASO de los tutoriales en Portugués. Capa aparte porque solo hacen
- * falta con un tour corriendo. Los títulos y resúmenes NO están aquí: los pinta
- * el selector sin abrir nada.
+ * Textos de PASO de los tutoriales en pt. Capa aparte porque solo hacen
+ * falta con un tour corriendo.
  *
- * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
+ * Lo monta `traducir-a-mano.mjs meter-dict` — no lo edites a mano.
  */
+
 export const PT_TUT: Dict = {
   'tut.app-computo--formulario.1.titulo': 'Fica pendurado na calculadora',
   'tut.app-computo--formulario.1.texto':
@@ -351,7 +351,7 @@ export const PT_TUT: Dict = {
     'A qualidade de imagem é o único fator que muda o preço da tabela inteira: Rápida é boa e barata (a usada por padrão); Boa dá mais detalhe e melhor texto dentro da imagem.',
   'tut.cuenta-ia.5.titulo': 'Uma unidade, muitas operações',
   'tut.cuenta-ia.5.texto':
-    'Uma resposta custa 1 crédito, um plano longo 3, uma imagem ou um modelo 3D 10 — a regra é a mesma em todos os cômodos, esta tabela só a detalha uma por uma.',
+    'Uma resposta custa 1 crédito, um plano longo 4, uma imagem ou um modelo 3D 10 — a regra é a mesma em todos os cômodos, esta tabela só a detalha uma por uma.',
   'tut.ejemplos.1.texto':
     'Esta barra aparece em quase todos os apps enquanto ainda não têm dados seus: um botão para vê-lo cheio de exemplo, em vez de começar diante de uma tela vazia.',
   'tut.ejemplos.2.texto':
@@ -359,10 +359,10 @@ export const PT_TUT: Dict = {
   'tut.ejemplos.3.texto':
     'Dentro da casa demo esta barra não aparece: o ano inteiro de Pep@ já cumpre esse papel, então não precisa de um exemplo à parte.',
   'tut.hoy.1.texto':
-    'Sob o cabeçalho de cada app vive sua lista Hoje: nasce recolhida, com o resumo do dia em uma única linha para não ocupar a tela.',
+    'No cabeçalho de cada app fica o botão Metas, igual ao do calendário mas restrito a este app. Ele abre um painel com dois andares: em cima o checklist de hoje, embaixo suas metas e planos.',
   'tut.hoy.2.titulo': 'Três fontes, uma lista',
   'tut.hoy.2.texto':
-    'Os objetivos próprios do app (a água, as calorias), o que você agendou para hoje no calendário e os passos das suas metas em andamento: tudo aparece junto, em ordem de horário.',
+    'Os objetivos próprios do app (a água, as calorias), o que você agendou para hoje no calendário e os passos das suas metas em curso: tudo junto, agrupado sob o plano ou a meta de onde vem cada passo.',
   'tut.hoy.3.titulo': 'Risca porque o dado existe',
   'tut.hoy.3.texto':
     'O botão da linha registra o dado REAL no app — um copo de água, uma refeição — e o passo se risca sozinho porque esse registro já está ali, não porque alguém o marcou. Apertar de novo com o passo cumprido não duplica nada: o botão desaparece.',
@@ -376,7 +376,7 @@ export const PT_TUT: Dict = {
   'tut.hoy.6.texto':
     'Desce para «Feitos», recolhido: ver o registro surtir efeito é parte da recompensa, e de lá dá para desfazer se entrou um a mais.',
   'tut.hoy.7.texto':
-    'Esta lista substituiu a antiga barra de um único objetivo por app — agora reúne calendário, metas e objetivos próprios no mesmo lugar, app por app.',
+    'E se faltar algo, «Novo checklist» cria o seu: uma lista própria deste app que se repete todo dia. Embaixo da seção Hoje está o planejador completo — Metas, Planos e Cronograma — com todas as metas do app.',
   'tut.progreso.1.texto':
     'A carta do seu personagem: Pep@ tem um ano inteiro de atividade real por trás, então cada número aqui tem uma história real que o explica.',
   'tut.progreso.2.titulo': 'O personagem',
@@ -583,7 +583,7 @@ export const PT_TUT: Dict = {
   'tut.app-hobbies--gestion.3.texto':
     'Minutos rápidos com um toque, ou o número exato; o projeto é opcional e a nota é para o que você quiser lembrar dessa sessão.',
   'tut.app-hobbies--gestion.4.texto':
-    'O cronograma do hobby (ou de um projeto) é o mesmo planejador Metas · Planos · Cronograma do calendário, limitado a esse hobby: peça à IA um plano com fases e datas.',
+    'As metas dos seus hobbies e projetos ficam no botão Metas do cabeçalho: o mesmo planejador Metas · Planos · Cronograma do calendário, restrito a este app. Peça à IA um plano com fases e datas.',
   'tut.app-ideas--diario.1.titulo': 'A caixa de entrada',
   'tut.app-ideas--diario.1.texto':
     'Escreva a ideia e pronto. Pep@ soltou aqui uns 90 lampejos no ano: de física, da cafeteria, do treino. A estrela marca as favoritas.',
@@ -683,7 +683,7 @@ export const PT_TUT: Dict = {
     'O + de cada linha escreve uma entrada ali mesmo, com o campo e o tema já definidos. E o botão do lápis faz a árvore crescer: esse mesmo + adiciona ramos, o da Semente cria campos novos, e você pode renomear, reordenar e apagar. O número com o raminho diz quantos subíndices estão pendurados ali.',
   'tut.app-biblioteca--estudio.2.titulo': 'O plano de estudo',
   'tut.app-biblioteca--estudio.2.texto':
-    'As metas vivem no mesmo cronograma do calendário: «terminar termodinâmica antes da prova» já está cumprida; preparar a pós-graduação segue em andamento.',
+    'As metas ficam no botão Metas do cabeçalho, o mesmo cronograma do calendário: «terminar termodinâmica antes da prova» já está cumprida; se preparar para a pós-graduação segue em andamento.',
   'tut.app-biblioteca--estudio.3.texto':
     'Você pode pedir um plano para cada meta: a IA pergunta sua data-alvo e suas horas disponíveis, e agenda os momentos de estudo no seu calendário.',
   'tut.app-biblioteca--resumen.1.texto':
@@ -733,6 +733,9 @@ export const PT_TUT: Dict = {
   'tut.app-agenda--salud.3.titulo': 'Laika',
   'tut.app-agenda--salud.3.texto':
     'A gata tem sua ficha com peso e veterinário, e seus cuidados com periodicidade: vacina anual, vermífugo a cada três meses, banho todo mês. Ao dar como feitos, a próxima data se recalcula sozinha.',
+  'tut.app-agenda--salud.4.titulo': 'O que se repete',
+  'tut.app-agenda--salud.4.texto':
+    'O check-up anual, a limpeza no dentista, os exames: cuidados com período próprio. Ao marcá-los como feitos, a próxima data pula sozinha, então o calendário nunca aponta para algo que você já fez.',
   'tut.app-agenda--personas.1.titulo': 'O círculo de Pep@',
   'tut.app-agenda--personas.1.texto':
     'Família, amizades, gente do trabalho e da faculdade, cada um na sua pasta. Com telefone, endereço e o que você não quer esquecer.',
@@ -749,7 +752,7 @@ export const PT_TUT: Dict = {
     'As barras medem o que você já fez em relação às suas metas: sessões de força, minutos de corrida e minutos de mobilidade. O objetivo se ajusta ao período que você escolher acima.',
   'tut.app-ejercicio--anio.3.titulo': 'As metas do ano',
   'tut.app-ejercicio--anio.3.texto':
-    'Aqui estão as quatro metas cumpridas — os 5K, os 10K, a meia maratona e a maratona — e a que ainda está de pé. As metas com data também aparecem no calendário da casa.',
+    'O botão Metas do cabeçalho guarda suas quatro metas cumpridas —os 5K, os 10K, a meia maratona e a maratona— e a que ainda está ativa. Metas com data também aparecem no calendário da casa.',
   'tut.app-ejercicio--carrera.1.titulo': 'Catálogo, rotinas e progresso',
   'tut.app-ejercicio--carrera.1.texto':
     'Cada modalidade se organiza igual: o catálogo de exercícios, suas rotinas com o histórico e o progresso. Vamos começar pelo que Pep@ já correu.',
@@ -768,6 +771,17 @@ export const PT_TUT: Dict = {
   'tut.app-ejercicio--fuerza.3.titulo': 'Seus recordes, sem pedir',
   'tut.app-ejercicio--fuerza.3.texto':
     'De cada exercício ficam salvos o melhor peso, o máximo de repetições e uma estimativa do seu 1RM. Os de peso corporal, como as barras, aparecem à parte.',
+  'tut.app-ejercicio--flexibilidad.1.titulo': 'Alongamento e mobilidade',
+  'tut.app-ejercicio--flexibilidad.1.texto':
+    'O catálogo traz os exercícios de sempre —posteriores, quadril, ombros— cada um com sua miniatura ilustrada, gerada por IA na primeira vez que é preciso.',
+  'tut.app-ejercicio--flexibilidad.2.titulo': 'Séries por tempo, não por peso',
+  'tut.app-ejercicio--flexibilidad.2.texto':
+    'Cada exercício leva segundos e repetições em vez de peso. O Player guiado roda a rotina exercício por exercício com um timer que avisa quando trocar.',
+  'tut.app-ejercicio--flexibilidad.3.titulo': 'O mesmo mapa de calor',
+  'tut.app-ejercicio--flexibilidad.3.texto':
+    'Minutos e sessões do mês, com o mesmo heatmap das outras duas modalidades: a constância da mobilidade se lê tão fácil quanto a da corrida.',
+  'tut.app-ejercicio--flexibilidad.4.texto':
+    'As três modalidades compartilham o Cardio ao vivo do relógio: quando você corre ou pedala com o timer ligado, o minuto a minuto se salva sozinho ao terminar.',
   'tut.app-cocina--alimentacion.1.titulo': 'Passo 1: para onde você vai',
   'tut.app-cocina--alimentacion.1.texto':
     'Com seu peso, sua altura e sua atividade, o app calcula quanto você precisa por dia e distribui os macros. Pep@ definiu 2.400 calorias e uma meta de peso que está a menos de um quilo.',
@@ -797,7 +811,7 @@ export const PT_TUT: Dict = {
     'Cada lista guarda o que ainda falta comprar e o que já está na despensa. Se você colocar preços, o total pode ir para os gastos do Escritório.',
   'tut.app-cocina--cronograma.1.titulo': 'A meta de peso, em fases',
   'tut.app-cocina--cronograma.1.texto':
-    'O mesmo cronograma que o calendário da casa usa, limitado às metas da Cozinha: crie uma meta (por exemplo, «Perder 3 quilos») e peça o plano para a IA — ela pergunta sua data alvo e agenda submetas com data própria.',
+    'O botão Metas do cabeçalho abre o mesmo cronograma que o calendário da casa usa, restrito às metas da Cozinha: crie uma meta (por exemplo, «Perder 3 quilos») e peça o plano à IA — ela pergunta sua data-alvo e agenda submetas com data própria.',
   'tut.app-cocina--cronograma.2.texto':
     'Isso é feito pela IA: ative em Editor › Configurações › Conta. Sem ela, as metas são criadas e editadas do mesmo jeito, só na mão.',
   'tut.app-descanso--noche.1.titulo': 'Cem pontos, três partes',
@@ -855,13 +869,28 @@ export const PT_TUT: Dict = {
     'A viagem ao Japão, a 100%: onze meses de poupança, as aulas particulares, o décimo terceiro e o que ganhou de aniversário. Abaixo, a reserva de emergência que começou na volta e um pequeno investimento.',
   'tut.app-despacho--metas.2.titulo': 'A meta no tempo',
   'tut.app-despacho--metas.2.texto':
-    'Toda meta pode descer ao calendário: você põe datas e ela aparece entre os seus dias. Com ✨ a IA propõe o plano de aportes.',
+    'O botão Metas do cabeçalho guarda essas metas na linha do tempo: você coloca datas em uma e ela aparece entre os seus dias do calendário. Com ✨ a IA propõe o plano de aportes.',
   'tut.app-despacho--metas.3.titulo': 'O que devia',
   'tut.app-despacho--metas.3.texto':
     'O consertodo carro foi pago no cartão e levou meses para ser quitado. As dívidas ficam à parte porque se leem ao contrário: aqui, descer é ganhar.',
   'tut.app-despacho--metas.4.titulo': 'Mercados',
   'tut.app-despacho--metas.4.texto':
     'Pep@ acompanha o iene desde que decidiu a viagem e agora o won, para a próxima. Moedas, cripto, ações e commodities ao vivo (precisa de internet).',
+  'tut.app-despacho--patrimonio.1.titulo': 'O que vale hoje',
+  'tut.app-despacho--patrimonio.1.texto':
+    'Ativos menos passivos. Quando uma linha tem taxa, este número é o que vale HOJE, não o que valia no dia em que você anotou — e abaixo dá para ver o detalhamento, ou voltar ao que você escreveu.',
+  'tut.app-despacho--patrimonio.2.titulo': 'De onde vem',
+  'tut.app-despacho--patrimonio.2.texto':
+    'Os últimos dois anos deste grupo. Abra qualquer linha e você verá do que ela depende: quanto vale, desde quando, e quanto sobe ou desce por ano. O que você escreve nunca se reescreve sozinho.',
+  'tut.app-despacho--patrimonio.3.titulo': 'E para onde vai',
+  'tut.app-despacho--patrimonio.3.texto':
+    'A terceira aba segue essa mesma linha para a frente: sólida o que aconteceu, pontilhada o que suas taxas dariam.',
+  'tut.app-despacho--patrimonio.4.titulo': 'Três linhas',
+  'tut.app-despacho--patrimonio.4.texto':
+    'O que você tem em verde, o que deve em vermelho e o líquido em azul. A linha vertical é hoje: à esquerda dela está o que aconteceu de verdade.',
+  'tut.app-despacho--patrimonio.5.titulo': 'Mexa em tudo',
+  'tut.app-despacho--patrimonio.5.texto':
+    'Quantos meses, quanta inflação você supõe, e se soma o que você poupa por mês com seu próprio ritmo de alta. Nada disso toca seus dados: pode testar sem medo.',
   'tut.app-despacho--calculadoras.1.texto':
     'Quatro regras de finanças pessoais, cada uma na sua aba: reserva de emergência, liberdade financeira, 50/30/20 e a entrada do carro (20/4/10).',
   'tut.app-despacho--calculadoras.2.titulo': 'Já com o seu saldo',
@@ -928,14 +957,6 @@ export const PT_TUT: Dict = {
   'tut.app-entretenimiento--archivo.3.titulo': 'Quatro formas de organizar',
   'tut.app-entretenimiento--archivo.3.texto':
     'Por gênero, por categoria (filme, série, livro, videogame), por autor ou por data. Na visão por gênero as pastas se arrastam: coloque na frente o que você mais vê.',
-  'tut.app-entretenimiento--programas.1.titulo': 'A lista de pendentes',
-  'tut.app-entretenimiento--programas.1.texto':
-    'Pep@ montou sua seleção de clássicos de ficção científica para ver. Com IA ela é gerada por tema («terror dos anos 80»), mas também dá para escrever à mão.',
-  'tut.app-entretenimiento--programas.2.titulo': 'Cada título, uma meta',
-  'tut.app-entretenimiento--programas.2.texto':
-    'Os três primeiros já estão marcados. Cada título guarda sua nota sobre por que está na lista, e se você colocar datas ele desce para o calendário como qualquer outra meta.',
-  'tut.app-entretenimiento--programas.3.texto':
-    'E na outra aba está a mesa digital: mais de vinte jogos de tabuleiro e arcade para jogar ali mesmo.',
   'tut.app-entretenimiento--juegos.1.texto':
     '1–2 jogadores ou 3+: o filtro esconde o que não serve para o grupo que está na sua frente. Os jogos marcados «2+» valem nas duas seções.',
   'tut.app-entretenimiento--juegos.2.titulo': 'Por família',

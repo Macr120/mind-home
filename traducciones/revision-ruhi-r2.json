@@ -1,0 +1,1862 @@
+[
+  {
+    "idioma": "ru",
+    "clave": "despacho.patrimonio.ayuda",
+    "problema": "Usa «обязательства» para los pasivos, pero la pestaña a la que la propia frase remite se llama «Пассивы» (despacho.tab.pasivos). El glosario fija Активы/Пассивы y prohíbe Обязательства.",
+    "sugerencia": "Твои активы минус твои пассивы — на вкладке «Капитал». Здесь видно только то, как всё будет выглядеть, если период закроется вот так."
+  },
+  {
+    "idioma": "ru",
+    "clave": "room.computo.nombre",
+    "problema": "El cuarto tiene tres nombres: «Вычисления» aquí, «Компьютерная комната» en room.computo.desc y «Компьютерная» en computo.export.pie. El término fijado es Компьютерная.",
+    "sugerencia": "Компьютерная"
+  },
+  {
+    "idioma": "ru",
+    "clave": "despacho.mk.commodities",
+    "problema": "Mismo concepto que despacho.tab.commodities («Сырьё») dentro de la MISMA pestaña de Mercados, con dos nombres distintos.",
+    "sugerencia": "Сырьё"
+  },
+  {
+    "idioma": "ru",
+    "clave": "cocina.rec.editar",
+    "problema": "Único «Edit» traducido como «Редактировать»; las otras 11 claves con el mismo original usan «Изменить» (ui.editar, ejercicio.editar, ideas.editar…).",
+    "sugerencia": "Изменить"
+  },
+  {
+    "idioma": "ru",
+    "clave": "ejercicio.check.marcar",
+    "problema": "Concuerda mal y difiere de meta.marcar («Отметить как выполненное») para el mismo original «Mark as done».",
+    "sugerencia": "Отметить как выполненное"
+  },
+  {
+    "idioma": "ru",
+    "clave": "editor.obj.marcarPrincipal",
+    "problema": "Duplica plantillas.hacerPrincipal («Сделать главным») con una etiqueta más larga para la misma acción; regla 7 (botones estrechos).",
+    "sugerencia": "Сделать главным"
+  },
+  {
+    "idioma": "ru",
+    "clave": "descanso.score.horario",
+    "problema": "Etiqueta de métrica en tarjeta estrecha: 19 caracteres para el «Bedtime» inglés de 7. «Отбой» es el término ruso corriente y cabe.",
+    "sugerencia": "Отбой"
+  },
+  {
+    "idioma": "ru",
+    "clave": "chat.reclasificar",
+    "problema": "«Переклассифицировать» (20 caracteres) es impronunciable para un botón; además el mismo gesto se llama «Распределить» en biblioteca.charla.reclasificar.",
+    "sugerencia": "Переместить"
+  },
+  {
+    "idioma": "ru",
+    "clave": "idiomas.charla.clasificar",
+    "problema": "El original «Classify» se tradujo «Разобрать» aquí y «Распределить» en biblioteca.charla.reclasificar: son pantallas gemelas (charla de Biblioteca / charla de Idiomas).",
+    "sugerencia": "Распределить"
+  },
+  {
+    "idioma": "hi",
+    "clave": "room.computo.nombre",
+    "problema": "El cuarto tiene tres nombres: «गणना» aquí, «कंप्यूटिंग रूम» en room.computo.desc y «कंप्यूटिंग कक्ष» en computo.export.pie. Además «गणना» choca con su uso como nombre común en objetos.funcion.computo y cocina.registro.ia.",
+    "sugerencia": "कंप्यूटिंग कक्ष"
+  },
+  {
+    "idioma": "hi",
+    "clave": "room.computo.desc",
+    "problema": "Abre con «कंप्यूटिंग रूम» mientras computo.export.pie dice «कंप्यूटिंग कक्ष»: mismo cuarto, रूम vs कक्ष.",
+    "sugerencia": "कंप्यूटिंग कक्ष: फ़ॉर्मूला बुक के साथ साइंटिफ़िक कैलकुलेटर (गणित, भौतिकी और रसायन शामिल और संपादन-योग्य) और आठ मोड — चार तरह का प्लॉटर (2D, ध्रुवीय, पैरामेट्रिक और 3D सतह), बाइनरी और हेक्साडेसिमल, मैट्रिक्स, समीकरण-तंत्र, इकाई बदलाव, टिप और त्रैराशिक; और Excel व PDF में एक्सपोर्ट होने वाली स्प्रेडशीट।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.proscontras",
+    "problema": "Verbo duplicado: «नीचे जुड़कर जुड़ जाता है» («sumándose se suma»).",
+    "sugerencia": "हर बिंदु का वज़न 1 से 5 तक होता है: उसे चुनें और नीचे की पट्टी में − + का इस्तेमाल करें। हर कॉलम का जोड़ नीचे दिखता है, इसलिए फ़ैसला अब “कौन-सी लिस्ट लंबी है” नहीं रह जाता।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.nuevoCampoMsg",
+    "problema": "Escribe «ज्ञान-क्षेत्र» con guion; las otras cuatro menciones del mismo concepto (biblioteca.desc, biblioteca.sinIA, biblioteca.charla.campoTip, biblioteca.charla.vacia) usan «ज्ञान क्षेत्र» sin guion.",
+    "sugerencia": "आपका अपना ज्ञान क्षेत्र, पहले से बने क्षेत्रों के साथ।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "plantillaCustom.borrarMenuTitulo",
+    "problema": "Comillas rectas (\"{nombre}\") donde el resto del diccionario y el inglés usan las tipográficas (“{nombre}”), como en computo.form.borrarCarpeta.",
+    "sugerencia": "“{nombre}” हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "plantillaCustom.borrarBloqueTitulo",
+    "problema": "Comillas rectas (\"{nombre}\") donde el resto del diccionario y el inglés usan las tipográficas (“{nombre}”).",
+    "sugerencia": "“{nombre}” हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "cocina.metas.plazo",
+    "problema": "Sin nuqta («तारीख») mientras garage.mant.proxFecha y otras 14 claves escriben «तारीख़»; el diccionario sí pone nuqta sistemáticamente en ज़्यादा, फ़ोटो y ख़ाना.",
+    "sugerencia": "अंतिम तारीख़"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.nombrar.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "plantillaCustom.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.form.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ejercicio.catalogo.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.form.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ui.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "garage.mant.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.tema.guardarOk",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.carpeta.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.editor.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: «सेव करें» (préstamo) vs «सहेजें» (nativo) en pantallas gemelas — idiomas.gen.guardar dice «सेव करें» y idiomas.dest.guardar «सहेजें» para el mismo botón. Se fija «सहेजें» (convención de Android/Google en hindi y más corto para botón).",
+    "sugerencia": "सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.fondo.guardando",
+    "problema": "Término inconsistente entre lotes — mismo par सेव/सहेज: entre.prog.guardando ya usa «सहेजा जा रहा है…».",
+    "sugerencia": "सहेजा जा रहा है…"
+  },
+  {
+    "idioma": "hi",
+    "clave": "canchas.editar",
+    "problema": "Término inconsistente entre lotes — editar: tres formas para «Edit» (संपादित करें / बदलें / एडिट करें). Se fija «बदलें», la mayoritaria (8 claves) y la más corta.",
+    "sugerencia": "बदलें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "cocina.rec.editar",
+    "problema": "Término inconsistente entre lotes — editar: tres formas para «Edit» (संपादित करें / बदलें / एडिट करें). Se fija «बदलें», la mayoritaria (8 claves) y la más corta.",
+    "sugerencia": "बदलें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "garage.detalle.editar",
+    "problema": "Término inconsistente entre lotes — editar: tres formas para «Edit» (संपादित करें / बदलें / एडिट करें). Se fija «बदलें», la mayoritaria (8 claves) y la más corta.",
+    "sugerencia": "बदलें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.editar",
+    "problema": "Término inconsistente entre lotes — editar: tres formas para «Edit» (संपादित करें / बदलें / एडिट करें). Se fija «बदलें», la mayoritaria y la más corta.",
+    "sugerencia": "बदलें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.form.editarTitulo",
+    "problema": "Término inconsistente entre lotes — editar: biblioteca.ent.editar ya dice «एंट्री बदलें» para el mismo original.",
+    "sugerencia": "एंट्री बदलें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.voc.siBorrar",
+    "problema": "Término inconsistente entre lotes — borrar: cuatro formas conviven (मिटाएं / हटाएं / डिलीट करें / निकालें). Se fija मिटाना para «borrar/eliminar» (destructivo) y हटाना para «quitar» (reversible).",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.charla.destilar",
+    "problema": "Término inconsistente entre lotes — quitar: editor.anim.quitar y computo.graf.quitar usan «निकालें» donde las otras 11 claves de «quitar» usan «हटाएं».",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.anim.quitar",
+    "problema": "Término inconsistente entre lotes — quitar: editor.anim.quitar y computo.graf.quitar usan «निकालें» donde las otras 11 claves de «quitar» usan «हटाएं».",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.graf.quitar",
+    "problema": "Término inconsistente entre lotes — quitar: editor.anim.quitar y computo.graf.quitar usan «निकालें» donde las otras 11 claves de «quitar» usan «हटाएं».",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.mk.reintentar",
+    "problema": "Término inconsistente entre lotes — reintentar: «फिर कोशिश करें» (4 claves) vs «फिर से कोशिश करें» (3). Se fija la forma completa, que es la natural.",
+    "sugerencia": "फिर से कोशिश करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.charla.reintentar",
+    "problema": "Término inconsistente entre lotes — reintentar: «फिर कोशिश करें» (4 claves) vs «फिर से कोशिश करें» (3). Se fija la forma completa, que es la natural.",
+    "sugerencia": "फिर से कोशिश करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.charla.reintentar",
+    "problema": "Término inconsistente entre lotes — reintentar: «फिर कोशिश करें» (4 claves) vs «फिर से कोशिश करें» (3). Se fija la forma completa, que es la natural.",
+    "sugerencia": "फिर से कोशिश करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.motor.reintentar",
+    "problema": "Término inconsistente entre lotes — reintentar: «फिर कोशिश करें» (4 claves) vs «फिर से कोशिश करें» (3). Se fija la forma completa, que es la natural.",
+    "sugerencia": "फिर से कोशिश करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "plantillaCustom.tipo.sesiones",
+    "problema": "Término inconsistente entre lotes — sesión: «सत्र» (formal, institucional) vs «सेशन» (préstamo asentado). Se fija «सेशन», mayoritario (7 claves de Biblioteca y Ejercicio) y lo que se dice de verdad para una sesión de estudio o de entrenamiento; el glosario prefiere el préstamo asentado.",
+    "sugerencia": "सेशन"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.proy.sesiones",
+    "problema": "Término inconsistente entre lotes — sesión: «सत्र» (formal, institucional) vs «सेशन» (préstamo asentado). Se fija «सेशन», mayoritario (7 claves de Biblioteca y Ejercicio) y lo que se dice de verdad para una sesión de estudio o de entrenamiento; el glosario prefiere el préstamo asentado.",
+    "sugerencia": "सेशन"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.sesion.historial",
+    "problema": "Término inconsistente entre lotes — sesión: biblioteca.est.historial y ejercicio.ultimas ya dicen «हाल के सेशन» para el mismo original.",
+    "sugerencia": "हाल के सेशन"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.gen.guardar",
+    "problema": "Término inconsistente entre lotes — guardar: idiomas.dest.guardar ya dice «{n} कार्ड सहेजें» para el mismo original, en la misma app.",
+    "sugerencia": "{n} कार्ड सहेजें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.form.editar",
+    "problema": "Término inconsistente entre lotes — editar: «एडिट करें» es la transliteración cruda; el resto del diccionario usa «बदलें» (8 claves).",
+    "sugerencia": "कार्ड बदलें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.voc.editar",
+    "problema": "Término inconsistente entre lotes — editar: «एडिट करें» es la transliteración cruda; el resto del diccionario usa «बदलें» (8 claves).",
+    "sugerencia": "कार्ड बदलें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ejercicio.preset.cardio",
+    "problema": "Término inconsistente entre lotes — resistencia: ejercicio.tab.resistencia ya dice «सहनशक्ति» para el mismo original, en la MISMA app; «एंड्योरेंस» es transliteración cruda.",
+    "sugerencia": "सहनशक्ति"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.mat.idea",
+    "problema": "Término inconsistente entre lotes — idea: biblioteca.mat.idea dice «आइडिया» y ideas.mapa.idea «विचार»; el material de Biblioteca y las ideas de Ideas son la misma entidad.",
+    "sugerencia": "विचार"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.mat.nuevaIdea",
+    "problema": "Término inconsistente entre lotes — idea: ideas.mapa.nuevaIdea ya dice «नया विचार» para el mismo original.",
+    "sugerencia": "नया विचार"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav3d.acercar",
+    "problema": "Término inconsistente entre lotes — zoom: nav3d.acercar sin «करें», computo.graf.acercar e ideas.mapa.acercar con él.",
+    "sugerencia": "ज़ूम इन करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav3d.alejar",
+    "problema": "Término inconsistente entre lotes — zoom: nav3d.alejar sin «करें», computo.graf.alejar e ideas.mapa.alejar con él.",
+    "sugerencia": "ज़ूम आउट करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.port.lote.cancelar",
+    "problema": "Término inconsistente entre lotes — pausa: jardin.ses.pausar dice «रोकें» donde Biblioteca y Ejercicio dicen «पॉज़».",
+    "sugerencia": "पॉज़"
+  },
+  {
+    "idioma": "hi",
+    "clave": "descanso.alarma.detener",
+    "problema": "Término inconsistente entre lotes — pausa: jardin.ses.pausar dice «रोकें» donde Biblioteca y Ejercicio dicen «पॉज़».",
+    "sugerencia": "पॉज़"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.ses.pausar",
+    "problema": "Término inconsistente entre lotes — pausa: jardin.ses.pausar dice «रोकें» donde Biblioteca y Ejercicio dicen «पॉज़».",
+    "sugerencia": "पॉज़"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.resp.sosten",
+    "problema": "Término inconsistente entre lotes — pausa: jardin.ses.pausar dice «रोकें» donde Biblioteca y Ejercicio dicen «पॉज़».",
+    "sugerencia": "पॉज़"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.ses.reanudar",
+    "problema": "Término inconsistente entre lotes — reanudar: jardin.ses.reanudar difiere de las otras cuatro claves con el mismo original.",
+    "sugerencia": "जारी रखें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.proy.reabrir",
+    "problema": "Término inconsistente entre lotes — reanudar: jardin.ses.reanudar difiere de las otras cuatro claves con el mismo original.",
+    "sugerencia": "जारी रखें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.ses.pausada",
+    "problema": "Término inconsistente entre lotes — pausado: jardin.ses.pausada difiere de entre.j.pausa para el mismo original «Paused».",
+    "sugerencia": "पॉज़"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.charla.clasificar",
+    "problema": "Término inconsistente entre lotes — clasificar: idiomas.charla.clasificar vs biblioteca.charla.reclasificar, pantallas gemelas con el mismo original «Classify».",
+    "sugerencia": "वर्गीकृत करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ejercicio.check.marcar",
+    "problema": "Término inconsistente entre lotes — marcar hecho: ejercicio.check.marcar vs meta.marcar para el mismo original.",
+    "sugerencia": "पूरा हुआ चिह्नित करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.obj.marcarPrincipal",
+    "problema": "Término inconsistente entre lotes — objeto principal: duplica plantillas.hacerPrincipal con una etiqueta más larga; regla 7 (botones estrechos).",
+    "sugerencia": "मुख्य के रूप में सेट करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.s.mensualidad",
+    "problema": "Término inconsistente entre lotes — pago mensual: despacho.s.mensualidad vs despacho.patr.phPago y despacho.patr.pagoMensual, todos «Monthly payment» dentro de Finanzas.",
+    "sugerencia": "मासिक भुगतान"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.s.tasaAnual",
+    "problema": "Término inconsistente entre lotes — tasa anual: despacho.s.tasaAnual vs despacho.calc.tasaAuto y despacho.patr.tasaPasivo, dentro de Finanzas.",
+    "sugerencia": "सालाना दर %"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.res.rehacer",
+    "problema": "Término inconsistente entre lotes — rehacer: entre.res.rehacer vs editor.hist.rehacer y computo.hojas.rehacer para el mismo original «Redo».",
+    "sugerencia": "फिर से करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "diario.actualizar",
+    "problema": "Término inconsistente entre lotes — actualizar: diario.actualizar vs despacho.mk.actualizar para el mismo original «Refresh».",
+    "sugerencia": "ताज़ा करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.charla.borrar",
+    "problema": "Término inconsistente entre lotes — borrar: biblioteca.charla.borrar dice «चैट मिटाएँ» (मिटाना = borrar) y esta «चैट हटाएं» (हटाना = quitar); son pantallas gemelas.",
+    "sugerencia": "चैट मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.entrarCuarto",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "{nombre} में जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.subirCuarto",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सूची में ऊपर ले जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.bajarCuarto",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सूची में नीचे ले जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.borrarCuarto",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कमरा मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.borrarCuartoTitulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "«{nombre}» मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.borrarCuartoMsg",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "इसकी दीवारें, सजावट और वस्तुएं भी साथ मिट जाएंगी।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.borrarCuartoOk",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "nav.todosColocados",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "सभी कमरे पहले से आपके घर में हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.subObjetos",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "वस्तुएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.subEspeciales",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खास वस्तुएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.ropa.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "कपड़े आपके किरदार पर पहनाए जाते हैं, नक्शे पर नहीं रखे जाते। किसी कपड़े पर टैप करें अलमारी खोलने के लिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.animales.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "जानवर फ़ार्म के बाड़ों में रहते हैं। किसी एक पर टैप करें उसका बाड़ा बनाने के लिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.casa.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "आपका घर किस चीज़ से बना है और हर चीज़ कितनी है। ये प्लान एडिटर में रंगी जाती हैं, इन्हें खींचकर नहीं रखा जाता।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.casa.vacia",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "अभी तक कुछ नहीं बना। नक्शे पर एक कमरा रखें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.casa.ventanas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खिड़कियां और खुलाव"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.casa.accesos",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सीढ़ियां और लिफ़्ट"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.casa.pieza.estructura.patios",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खुले आंगन"
+  },
+  {
+    "idioma": "hi",
+    "clave": "inv.casa.pieza.techos.dos_aguas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ढलवां छत"
+  },
+  {
+    "idioma": "hi",
+    "clave": "infra.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "ये टेम्पलेट किसी कमरे में नहीं होते: इन्हें 3D नक्शे पर उनके अपने एडिटर से बनाया जाता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "infra.plegar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "विकल्प छिपाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "infra.construir",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "नक्शे पर बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "infra.salirEditor",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "एडिटर से बाहर जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "infra.resumen.ayuda",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यह टेम्पलेट 3D नक्शे पर बनता है: मेनू → टेम्पलेट → अतिरिक्त → बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "caminos.herr.pintar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खंड बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "caminos.herr.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खंड मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "caminos.herr.subir",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ऊंचाई बढ़ाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "caminos.herr.bajar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ऊंचाई घटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "trazo.herr.punto",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बिंदु लगाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "trazo.herr.mover",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बिंदु खिसकाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "trazo.borrarTodo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ट्रैक मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "trazo.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "नक्शे पर टैप करें बिंदु लगाने के लिए, और किसी बिंदु पर टैप करें उसे मिटाने के लिए। पहला बिंदु फिनिश लाइन है: उस पर टैप करें ट्रैक बंद करने और रेस शुरू करने के लिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "carrera.salir",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बाहर जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "room.paintball.desc",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "अपने सहायकों के खिलाफ़ पेंटबॉल लड़ाई (1 बनाम 1, 2 बनाम 2 या सब आपस में), घर को नक्शे की तरह इस्तेमाल करते हुए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.royaleDesc",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "सब आपस में: आप अपने सहायकों के खिलाफ़, पूरे घर में।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.reglas",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "हर किसी को 3 वार झेलने होते हैं। आखिर तक टिकी टीम जीतती है। घर ही मैदान है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.posicionate",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "छिप जाएं!"
+  },
+  {
+    "idioma": "hi",
+    "clave": "herr.miraEnPerspectiva",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "क्रॉसहेयर से निशाना लगाने के लिए तीसरे या पहले व्यक्ति के नज़रिए में जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "tiro.apuntarConRaton",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "माउस को सीन पर घुमाकर निशाना लगाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.salir",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बाहर जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.msg.nivel",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "खेलने के लिए ग्राउंड फ़्लोर पर जाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.msg.sinAsistentes",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "खेलने के लिए एक सहायक बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.msg.faltan",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "2 बनाम 2 के लिए कम से कम 3 सहायक चाहिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.resumen.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यह मोड 3D नक्शे पर खेला जाता है: मेनू → टेम्पलेट → अतिरिक्त → खेलें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paintball.resumen.nota",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "1 बनाम 1, 2 बनाम 2 या सब आपस में चुनें, अपने सहायकों के खिलाफ़: हर किसी को 3 वार झेलने होते हैं और पूरा घर मैदान है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "caminos.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "लागू करने के लिए नक्शे के किसी ख़ाने पर टैप करें; कैमरा घुमाने के लिए खींचें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "canchas.rotar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "घुमाएं (R)"
+  },
+  {
+    "idioma": "hi",
+    "clave": "canchas.quitar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मैदान हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "canchas.tocaParaEditar",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "नक्शे पर किसी मैदान पर टैप करें उसे संपादित करने के लिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "canchas.ayuda",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "रखने के लिए नक्शे पर टैप करें; संपादन में, किसी मैदान पर टैप करें उसका रंग, आकार या दिशा बदलने के लिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "canchas.resumen.nota",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "रखे जाने के बाद, मैदान नक्शे की किसी भी वस्तु की तरह खिसकता और मिटता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "huerto.herr.sembrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बोएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "huerto.herr.quitar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "huerto.etiqueta.guardar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सूचना हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "huerto.ayuda",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "फ़सलें असली समय में बढ़ती हैं और पानी मांगती हैं: नीली बूंद चेतावनी देती है; बिना पानी के वे मुरझा जाती हैं और थोड़ी देर बाद क्यारी अपने आप साफ़ हो जाती है। स्प्रिंकलर अपनी क्यारी और आसपास की 8 क्यारियों को अपने आप सींचता है। फ़सल टोकरी में जाती है (तैयार फ़सल पर चलने से भी): इन्हीं से जानवरों को खिलाया जाता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "huerto.stat.parcelas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "क्यारियां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "huerto.resumen.nota",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "फ़सलें असली समय में बढ़ती हैं; समय पर पानी दें वरना मुरझा जाएंगी।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.herr.alimentar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खिलाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.herr.quitar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.sinComida",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "टोकरी खाली है: जानवरों को खिलाने के लिए बगीचे से फ़सल काटें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.corralLleno",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "बाड़ा भरा हुआ है: इसे बड़ा करें या दूसरा बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.noCabe",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यहां जगह नहीं है: यह नक्शे से बाहर जाता है या किसी और बाड़े पर आता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.nombrar.elegir",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "किसी बाड़े पर टैप करें उसके जानवर देखने के लिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.nombrar.vacio",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "इस बाड़े में कोई जानवर नहीं है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.burbuja.alimentar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खिलाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.hayEnfermos",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "कुछ जानवर बीमार हैं: उन्हें ठीक करें ताकि वे फिर से खाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.sinEnfermos",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "इस बाड़े में कोई बीमार नहीं है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.yaLimpio",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यह बाड़ा पहले से साफ़ था; हफ़्ता फिर से शुरू होता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.aviso.enfermo.cuerpo",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "फ़ार्म पर इसका इलाज करें: {dias} दिन बचे हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.aviso.muerte.cuerpo",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "बहुत दिनों से बीमार था और इलाज नहीं हुआ।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.ayuda",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार · punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "बाड़ा टूल से बाड़े बनते हैं और बगल की क्यारी पर टैप करने से बड़े होते हैं। कई जानवर जोड़ें, उन्हें अपनी फ़सल से खिलाएं, दुलार करें और खिलौने दें। जो बहुत दिनों से नहीं खाता वह बीमार पड़ जाता है: एक हफ़्ते के अंदर इलाज करें। हर बाड़े को हफ़्ते में एक बार साफ़ करें, वरना मूड दोगुनी रफ़्तार से गिरेगा।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "granja.resumen.nota",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "इन्हें «खाना» की टोकरी से खिलाया जाता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "juego.hintTenis",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "अपनी दिशा से निशाना लगाएं और सर्व या शॉट के लिए टैप करें (स्पेस)"
+  },
+  {
+    "idioma": "hi",
+    "clave": "juego.batear",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बैट चलाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "progreso.humor.feliz",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यह खुश है! अपना सिलसिला जारी रखें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "progreso.humor.contento",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यह संतुष्ट है। आज एक और एंट्री इसे खुश कर देगी।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "progreso.humor.triste",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यह उदास है… इसे खुश करने के लिए अपने ऐप में कुछ दर्ज करें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "progreso.humor.dormido",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "यह सो रहा है। इसे जगाने के लिए अपने ऐप इस्तेमाल करें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.vacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यहां अभी कुछ नहीं है। जो आपके पास है वह लिखें — या जो आप पर बकाया है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.verEscrito",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सिर्फ़ दर्ज राशि दिखाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.verEstimado",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "दरों सहित दिखाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.borrarTitulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस एंट्री को मिटाएं?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.borrarOk",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.desenlazarMsg",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "फिर से दो अलग चीज़ें हो जाएंगी: इस एंट्री में {n} बना रहेगा, और लक्ष्य अपने आप आगे बढ़ता रहेगा।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.objetivoTitulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कितनी राशि तक पहुंचना है?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.patr.objetivoMsg",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यहां पहले से {n} मौजूद है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.sim.sinDatos",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "अभी अनुमान लगाने के लिए कुछ नहीं है। जो आपके पास है उसे «संपत्ति» में और जो देनदारी है उसे «देनदारियां» में जोड़ें, उनकी दर डालें, और यहां दिख जाएगा कि सब कहां जा रहा है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.meta.borrarTitulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस लक्ष्य को मिटाएं?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.meta.borrarOk",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.plan.material",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "पैसा कहां से आएगा"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.plan.ejDeuda",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "क्रेडिट कार्ड चुकाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.calc.crearMeta",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस राशि से लक्ष्य बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.calc.pctCaprichos",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इच्छाएं %"
+  },
+  {
+    "idioma": "hi",
+    "clave": "despacho.calc.caprichos",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इच्छाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.charla.volver",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चैट पर वापस जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.charla.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चैट मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.charla.campoTip",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ज्ञान क्षेत्र जहां यह चैट सहेजी जाती है"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.ramas.titulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ट्री में शाखाएं जोड़ें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.ramas.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस चैट से «{tema}» के अंतर्गत नई शाखाएं:"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.ramas.cargando",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "गुरु नई शाखाएं ढूंढ रहे हैं…"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.charla.confirmarBorrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चैट मिटाएं? इससे बनी एंट्री बनी रहेगी।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.charla.siBorrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.charla.error",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "गुरु जवाब नहीं दे सके। सेटिंग्स में अपना AI जांचें या फिर से कोशिश करें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.mat.agregar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सामग्री बनाएं या जोड़ें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.mat.vacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस विषय को पढ़ने के लिए इस्तेमाल होने वाली स्प्रेडशीट और मैप यहां जोड़ें — वे अपने कमरे में खुलती हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.mat.quitar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "लिंक हटाएं (सामग्री नहीं मिटेगी)"
+  },
+  {
+    "idioma": "hi",
+    "clave": "material.estudiasEn",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इसका अध्ययन यहां होता है"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.mat.vacio2",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस विषय पर AI से यहां मैप या नोट्स बनाएं, या पढ़ाई में इस्तेमाल हो रही स्प्रेडशीट और मैप यहां जोड़ें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.ent.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "एंट्री मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.ent.confirmarBorrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस एंट्री को मिटाएं? मूल चैट पर कोई असर नहीं पड़ेगा।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.promptTema",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मुझे {tema} के बारे में बताएं। {desc}"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.edicionDesc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इंडेक्स को अपना बनाएं: हर पंक्ति के + से किसी भी स्तर पर शाखा जोड़ी जा सकती है, यहां तक कि बीज से भी। नाम बदलना, क्रम बदलना और मिटाना भी मुमकिन है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.moverEntradaA",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "«{n}» को ले जाएं…"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.entradaAqui",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यहां एक एंट्री लिखें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.borrarNodo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.borrarTit",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "«{n}» मिटाएं?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.enc.crear",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "biblioteca.r.vacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "आपकी लाइब्रेरी इंतज़ार में है: गुरु से बात करें, एंट्री बनाएं और टाइमर से पढ़ाई करें — ये चार्ट बढ़ते हुए देखें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.sel.confirmarBorrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "{idioma} के {tarjetas} कार्ड और {charlas} चैट डिलीट हो जाएंगे। यह वापस नहीं होगा।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.sel.cambiarTip",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "{idioma} पर जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.voc.vacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "अभी {idioma} का कोई कार्ड नहीं है। पहला कार्ड बनाएं, ट्यूटर से बात करें या AI से कोई विषय जनरेट करें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.voc.cajaTip",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "रिवीज़न बॉक्स: जितना ऊंचा, उतना कम बार दोहराव"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.gen.fallo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "AI कार्ड नहीं बना सका। फिर कोशिश करें या खुद एक कार्ड बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.rep.sinTarjetas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "अभी रिवीज़न के लिए कुछ नहीं है: शब्दावली टैब में कार्ड बनाएं या ट्यूटर से बात करें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.rep.alDia",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "आज के लिए सब पूरा है: कोई कार्ड बाकी नहीं। कल वापस आएं या फ्री रिवीज़न करें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.rep.mostrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "जवाब दिखाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.ej.pocas2",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "अभ्यास बनाने के लिए कम से कम 4 {idioma} कार्ड चाहिए: इन्हें पाठ्यक्रम में बनाएं, ट्यूटर से बात करें या AI से मांगें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.ej.temaVacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस विषय में अभी कोई कार्ड नहीं है। कोई और चुनें या पाठ्यक्रम से बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.mis.titulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "आज की चुनौतियां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.mis.modos3",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "तीनों मोड आज़माएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.prompt.pronunciacion",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मुझे अपने उच्चारण पर काम करना है: «{tema}»। इसे समझाएं और दोहराने के लिए उदाहरण दें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.prompt.gramatica",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "«{tema}» का व्याकरण उदाहरणों के साथ समझाएं, फिर अभ्यास दें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.edicionDesc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "पूरा पाठ्यक्रम अपने मुताबिक बनाएं: श्रेणियां, स्तर, विषय और उप-विषय जोड़े जा सकते हैं, उनका नाम बदला जा सकता है, क्रम बदला जा सकता है और उन्हें मिटाया भी जा सकता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.izquierda",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.derecha",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "दाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.nSubtemas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यहां अंदर {n} उप-विषय"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.sinAreas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "पाठ्यक्रम खाली है। ✏️ ऑन करें और पहली श्रेणी बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.sinNiveles",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस श्रेणी में अभी कोई स्तर नहीं है। ✏️ ऑन करें और पहला स्तर बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.tem.crear",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.area.temas.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "किस बारे में बात करें: हर स्तर की शब्दावली और स्थितियां।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "idiomas.mat.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस विषय के नोट्स और फ़ोटो यहां रखें: क्लास का बोर्ड, क्रिया-रूपांतरण की तालिका, स्क्रीनशॉट या अपने नोट्स।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.j.fam.ingenio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "पहेलियां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.j.bj.repartir",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बांटें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.j.viborita.nombre",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सांप"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.j.viborita.fin",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "आह! सांप टकरा गया।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.j.simon.regla",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "रंगों का क्रम दोहराएं: हर राउंड में एक रंग और जुड़ जाता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ejercicio.pilar.flex",
+    "problema": "punto ASCII «.» como final de frase en vez del danda «।»; el resto del diccionario (698 apariciones) usa danda",
+    "sugerencia": "योग, मोबिलिटी और शरीर के हिस्से के अनुसार स्ट्रेचिंग।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "sala.hoja.actividades",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "गतिविधियां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "respaldo.danger.btn",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सारा डेटा मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "respaldo.danger.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हां, सब मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.det.eliminar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "शौक हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.det.confirmar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सब मिटाएं?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.det.si",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.sesion.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सत्र हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.proy.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "प्रोजेक्ट हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.proy.volver",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "शौक पर वापस जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "hobbies.proy.borrarFoto",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "फ़ोटो हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ui.volverCasa",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "‹ घर वापस जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ui.techo.quitar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "छत हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ui.techo.ver",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "छत लगाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.techoCuarto.soloPlano",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "इस कमरे के ऊपर एक मंज़िल है, इसलिए इसकी छत सपाट दिखती है (मंज़िल गुंबद पर नहीं टिक सकती)। इसका आकार वापस पाने के लिए ऊपर वाली मंज़िल हटाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ui.eliminar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ui.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "paredes.muro.vitraje",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कांच"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ciclo.solLuna",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सूरज और चांद"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ciclo.volverVivo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "लाइव पर वापस जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "construir.donde",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "आप इसे कहां बना रहे हैं?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "construir.apilar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यह किसी और के ऊपर टिकता है और हवा में रहता है, जब तक आप घर पर छत न लगाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "construir.escalera.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सीढ़ियां एक केंद्रीय खंभे के चारों ओर घूमती हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "construir.elevador.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कांच का केबिन जो अपने आप ऊपर-नीचे जाता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "entre.tarjeta.eliminar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.resp.inhala",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सांस लें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.resp.exhala",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सांस छोड़ें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.resp.comenzar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सांस लेना शुरू करें"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.resp.caja.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सांस अंदर, रोकें, सांस बाहर, रोकें: हर चरण 4 सेकंड। संतुलन और ध्यान केंद्रित करने के लिए।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "jardin.resp.478.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "4 सेकंड सांस अंदर, 7 सेकंड रोकें, 8 सेकंड सांस बाहर। नर्वस सिस्टम को आराम देता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.nivelNuevo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ऊपर एक नई मंज़िल बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "constructor.modo.ventanas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खिड़कियां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.cerrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "फ़्लोर प्लान से बाहर जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.herr.ventana",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "खिड़कियां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.herr.mover",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हिलाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.herr.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.quitarCelda",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सेल हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.colocarApp",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ऐप लगाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.extenderCuarto",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मौजूदा कमरा बढ़ाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.limpiar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चयन हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.eliminarZona",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बेसिक कमरा हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.superficie.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "planos.superficie.tamCeldaHint",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कमरे, दीवारें, छतें और मैदान सेल के साथ स्केल होते हैं; किरदार और बाकी वस्तुएं अपना आकार बनाए रखती हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.cuarto.objetos",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कमरे की वस्तुएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.avatar.formaGenerar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "AI से आकार बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.avatar.formaError",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "आकार नहीं बन सका। AI मॉडल जांचें और फिर कोशिश करें।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.avatar.quitarGlb",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "अपलोड की गई मॉडल हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.avatar.quitarFormaIa",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "AI से बना आकार हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.tema.guardarMensaje",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "थीम वैसी ही सेव होगी जैसी अभी है: रंग, ढांचा, रोशनी, धुंध, स्टाइल और आसमान का बैकग्राउंड।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.tema.sinTemaParaGuardar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "एक थीम चुनें और उसे कस्टमाइज़ करें: बाद में आप उसे यहां नाम देकर सेव कर सकते हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.tema.borrarPropio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.tema.borrarTitulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "थीम हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.tema.borrarOk",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "anim.rayas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "नियॉन धारियां"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.fondo.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.fondo.confirmBorrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यह सेव किया गया बैकग्राउंड हटाएं?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.inv.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कोई वस्तु चुनें: वह मैप पर आ जाएगी और आप उसे जहां चाहें खींच सकते हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.inv.quitar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.inv.agrupar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "🔗 चुनी गई वस्तुएं ग्रुप करें ({n})"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.obj.colocados",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कमरे की वस्तुएं ({n})"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.obj.agrupar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चुनी गई वस्तुएं ग्रुप करें ({n})"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.obj.quitar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "editor.forma.desc",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सीन में कमरे पर + और − बटन का इस्तेमाल करके इसे सेल-दर-सेल बढ़ाएं या घटाएं (यह पूरे मैप को घेर सकता है या L आकार ले सकता है)।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.hojas.mover",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "ले जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.hojas.borrarCeldas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "मिटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.hojas.pegarManual",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यह ब्राउज़र क्लिपबोर्ड पढ़ने नहीं देता। यहां वह पेस्ट करें जो आपने कॉपी किया था, वह {ref} से शुरू होकर बैठ जाएगा।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.hojas.graficar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चयन का चार्ट बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.hojas.asaMover",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चयन को खींचकर ले जाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.grafica.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चार्ट हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.grafica.tipo.lineas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "रेखाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.ia.escribirFormula",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "AI से लिखवाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.ia.explicar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "चरण दर चरण समझाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "computo.ia.armarHoja",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "AI से बनवाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.borrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.tipoDesc.mental",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बीच में एक मुख्य विचार और हर दिशा में फैली शाखाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.tipoDesc.llaves",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "पूरी चीज़ और उसके हिस्से, बाएं से दाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.mapas.crear",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "बनाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.mapas.generar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "AI से मैप बनवाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.mapas.vacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "एक फ़ॉर्मैट चुनें और जो भी विषय दिमाग़ में है, उस पर अपना पहला मैप बनाएं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.mapas.confirmarBorrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हटाएं?"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.mapa.confirmarBorrar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "{n} हटाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.tipoDesc.decision",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हर विकल्प और वह कहां ले जाता है — शाखा दर शाखा।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.tipoDesc.tier",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "S से D तक की पंक्तियां, ताकि किसी भी चीज़ को स्तर के हिसाब से रैंक किया जा सके।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.tipoDesc.matriz",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कई विकल्प, उन मानदंडों पर आंके गए जो आपके लिए सच में मायने रखते हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.matriz",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "हर मानदंड का वज़न इस पर निर्भर करता है कि वह आपके लिए कितना मायने रखता है (1-5), और हर विकल्प को उस पर 1 से 5 तक आंका जाता है। कुल स्कोर, स्कोर को वज़न से गुणा करके निकलता है, इसलिए कोई भी सिर्फ़ उस चीज़ में अच्छा होकर नहीं जीतता जिसकी आपको परवाह नहीं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.mental",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "माइंड मैप किसी विषय को हर दिशा में खोलता है: बीच में मुख्य विचार, उसके चारों ओर बड़ी शाखाएं और उनसे लटकते उनके विवरण। यह किसी क्रम में बांधने से पहले दिमाग़ को खाली करने के लिए है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.arbol",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "वृक्ष सामान्य से विशेष की ओर जाता है, जैसे संगठन चार्ट। इसका इस्तेमाल तब करें जब आपके पास श्रेणियां हों जो उप-श्रेणियों में बंटती हैं, बिखरे विचार नहीं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.etimologia",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "व्युत्पत्ति वृक्ष किसी शब्द को खोलकर दिखाता है: वह कहां से आया, उसका क्या मतलब है, वह कैसे इस्तेमाल होता है और कौन-से शब्द उसके परिवार में आते हैं। किसी विचार-मंथन से पहले किसी अवधारणा को गहराई से समझने या किसी चीज़ का नाम रखने के लिए काम का।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.llaves",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "कोष्ठक किसी पूरी चीज़ को बाएं से दाएं उसके हिस्सों में बांटते हैं — क्लासिक आउटलाइन। किसी चीज़ को खोलकर देखने के लिए अच्छा कि वह किससे बनी है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.circulo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "वृत्त किसी विषय को बीच में रखता है और उसके चारों ओर वह सब कुछ रखता है जो उसके बारे में मालूम है, बिना किसी पदानुक्रम के। किसी अवधारणा को खंगालने या परीक्षा से पहले दोहराने के लिए काम का।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.flujo",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "फ़्लोचार्ट चरणों को तीरों से जोड़ता है। किसी चरण पर टैप करें और उसे शुरुआत, निर्णय या अंत बनाने के लिए शेप बटन का इस्तेमाल करें: हीरे के आकार हां/नहीं वाले सवाल होते हैं।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.venn",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "वेन दो समूहों को आमने-सामने रखता है और जो उनमें साझा है वह ओवरलैप वाले हिस्से में आता है। जोड़ने से पहले नीचे की पट्टी में क्षेत्र चुनें, या किसी आइटम को दूसरे पर खींच दें और वह अपने-आप वहां चला जाएगा।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.guia.ishikawa",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "सिर समस्या है और हर हड्डी कारणों का एक परिवार (तरीक़ा, उपकरण, सामग्री, माप…)। समाधान नहीं, कारण खोजें: वे बाद में आएंगे।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.diagramas.generar",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "AI से आरेख बनवाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.diagramas.vacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "एक फ़ॉर्मैट चुनें और उस फ़ैसले को सुलझाएं जो दिमाग़ में घूम रहा है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.diario.masIdeas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "और विचार लाएं"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.diario.vacio",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "यहां वह सब कुछ जमा होता है जो दिमाग़ में आए; उसे बाद में व्यवस्थित किया जा सकता है।"
+  },
+  {
+    "idioma": "hi",
+    "clave": "ideas.mover.sinCarpetas",
+    "problema": "चंद्रबिंदु (ँ) donde el resto del diccionario usa अनुस्वार (ं): 37 palabras aparecen escritas de las dos formas (हटाएँ/हटाएं, जाएँ/जाएं, यहाँ/यहां, जाँचें/जांचें). Se fija अनुस्वार",
+    "sugerencia": "अभी तक कोई फ़ोल्डर नहीं है: उन्हें डायरी के “फ़ोल्डर” व्यू में बनाएं।"
+  }
+]

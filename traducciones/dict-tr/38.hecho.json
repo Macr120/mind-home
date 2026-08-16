@@ -1,0 +1,506 @@
+[
+  {
+    "clave": "ia.calidad.buena.desc",
+    "texto": "Görselin içinde daha fazla ayrıntı ve daha iyi metin."
+  },
+  {
+    "clave": "ia.tarifas",
+    "texto": "Bir yanıt 1 kredi tutar · uzun bir plan 4 · bir görsel {img} · bir 3D model 10."
+  },
+  {
+    "clave": "ia.precios.pie",
+    "texto": "Ücretlendirmeyi sunucu yapar: istemeden önce maliyeti budur."
+  },
+  {
+    "clave": "ia.precios.pieSinCuenta",
+    "texto": "Kendi Yapay Zeka anahtarınla kredi harcanmaz: doğrudan sağlayıcına ödersin."
+  },
+  {
+    "clave": "ia.grupo.chat",
+    "texto": "Ev sohbeti"
+  },
+  {
+    "clave": "ia.grupo.editor",
+    "texto": "Ev düzenleyici"
+  },
+  {
+    "clave": "ia.grupo.metas",
+    "texto": "Hedefler ve zaman çizelgesi"
+  },
+  {
+    "clave": "ia.donde.chat",
+    "texto": "Ev sohbeti"
+  },
+  {
+    "clave": "ia.donde.casa",
+    "texto": "Ev (otomatik)"
+  },
+  {
+    "clave": "ia.donde.editorObjetos",
+    "texto": "Düzenleyici › Nesneler"
+  },
+  {
+    "clave": "ia.donde.editorPersonajes",
+    "texto": "Düzenleyici › Karakterler"
+  },
+  {
+    "clave": "ia.donde.editorCuarto",
+    "texto": "Düzenleyici › Zemin, Duvarlar, Tavan, Kapılar ve Izgara"
+  },
+  {
+    "clave": "ia.donde.editorFondo",
+    "texto": "Gökyüzü arka planı"
+  },
+  {
+    "clave": "ia.donde.asistentes",
+    "texto": "Asistanlar"
+  },
+  {
+    "clave": "ia.donde.metas",
+    "texto": "Mutfak, Spor Salonu, Kütüphane, Diller, Oturma Odası, Hobiler, Çalışma Odası ve Eğlence"
+  },
+  {
+    "clave": "ia.op.chat.mensaje",
+    "texto": "Asistanına mesaj"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d",
+    "texto": "Sohbette «3 boyutlu bir şey yap…»"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d.nota",
+    "texto": "İki çağrı: isteği okuyan tur ve üretimin kendisi."
+  },
+  {
+    "clave": "ia.op.chat.imagen",
+    "texto": "Sohbette «bir görsel oluştur…»"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas",
+    "texto": "Sohbette «bana bir fikir haritası yap»"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas.nota",
+    "texto": "Harita ilk seferde doğru çıkmazsa bir kez daha dener."
+  },
+  {
+    "clave": "ia.op.chat.latido",
+    "texto": "Karakterinden kendiliğinden gelen bir söz"
+  },
+  {
+    "clave": "ia.op.chat.latido.nota",
+    "texto": "Sadece abonelikle ve her 10 kalp atışından yalnızca 1’inde."
+  },
+  {
+    "clave": "ia.op.editor.objeto3d",
+    "texto": "Bir nesnenin veya yapının 3D modeli"
+  },
+  {
+    "clave": "ia.op.editor.personaje3d",
+    "texto": "Bir karakterin 3D modeli"
+  },
+  {
+    "clave": "ia.op.editor.ropa3d",
+    "texto": "Gardırop kıyafeti"
+  },
+  {
+    "clave": "ia.op.editor.asistente3d",
+    "texto": "Bir asistanın şekli"
+  },
+  {
+    "clave": "ia.op.editor.asistenteVoz",
+    "texto": "Bir asistan için Yapay Zeka sesi"
+  },
+  {
+    "clave": "ia.op.editor.textura",
+    "texto": "Zemin, duvar, tavan, kapı veya harita için doku"
+  },
+  {
+    "clave": "ia.op.editor.fondo",
+    "texto": "Gökyüzü arka planı dokusu"
+  },
+  {
+    "clave": "ia.op.metas.plan",
+    "texto": "Bir hedef için Yapay Zeka ✨ planı"
+  },
+  {
+    "clave": "ia.op.metas.plan.nota",
+    "texto": "Zaman çizelgeleri, seyahat programları, çalışma planları ve mali planlar."
+  },
+  {
+    "clave": "ia.op.cocina.receta",
+    "texto": "Yapay Zeka ile tarif oluştur"
+  },
+  {
+    "clave": "ia.op.cocina.dieta",
+    "texto": "Tam diyet veya öğün planı"
+  },
+  {
+    "clave": "ia.op.cocina.dieta.nota",
+    "texto": "Plan ve her bir tarifi ayrı ayrı yazılır, her yemeğin kendi fotoğrafı olur."
+  },
+  {
+    "clave": "ia.op.cocina.macros",
+    "texto": "Kalori ve makroları hesapla"
+  },
+  {
+    "clave": "ia.op.cocina.portada",
+    "texto": "Bir tarif veya diyet için fotoğraf"
+  },
+  {
+    "clave": "ia.donde.cocina.recetario",
+    "texto": "Tarif defteri"
+  },
+  {
+    "clave": "ia.donde.cocina.dietas",
+    "texto": "Diyetler · Öğün planı"
+  },
+  {
+    "clave": "ia.donde.cocina.registro",
+    "texto": "Öğün kaydı"
+  },
+  {
+    "clave": "ia.donde.cocina.detalle",
+    "texto": "Tarif veya diyet ayrıntısı"
+  },
+  {
+    "clave": "ia.op.ejercicio.imagen",
+    "texto": "Bir egzersizi görselleştir"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote",
+    "texto": "Eksik egzersizleri görselleştir"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote.nota",
+    "texto": "Görseli olmayan her egzersiz için bir görsel: toplam, kaç tanesinin eksik olduğuna bağlıdır."
+  },
+  {
+    "clave": "ia.donde.ejercicio.catalogo",
+    "texto": "Egzersiz kataloğu"
+  },
+  {
+    "clave": "ia.op.biblioteca.charla",
+    "texto": "Bilge ile sohbette bir tur"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva",
+    "texto": "Yeni bir sohbetin ilk turu"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva.nota",
+    "texto": "Yanıt, artı ona başlık verip ağacına yerleştiren çağrı, artı girdisini damıtan çağrı."
+  },
+  {
+    "clave": "ia.op.biblioteca.clasificar",
+    "texto": "Bir sohbeti sınıflandır ve damıt ✨"
+  },
+  {
+    "clave": "ia.op.biblioteca.ramificar",
+    "texto": "Ağacı dallandır 🌿"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar",
+    "texto": "Sohbetten çıkarken girdiyi güncelle"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar.nota",
+    "texto": "Sadece sohbet damıtıldıktan sonra büyümüşse."
+  },
+  {
+    "clave": "ia.op.biblioteca.material",
+    "texto": "Bir girdiden çalışma materyali oluştur"
+  },
+  {
+    "clave": "ia.op.biblioteca.ilustrar",
+    "texto": "Bir girdiyi görselleştir"
+  },
+  {
+    "clave": "ia.donde.biblioteca.charlas",
+    "texto": "Sohbetler"
+  },
+  {
+    "clave": "ia.donde.biblioteca.enciclopedia",
+    "texto": "Ansiklopedi"
+  },
+  {
+    "clave": "ia.op.idiomas.charla",
+    "texto": "Öğretmenle sohbette bir tur"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva",
+    "texto": "Yeni bir sohbetin ilk turu"
+  },
+  {
+    "clave": "ia.op.idiomas.charlaNueva.nota",
+    "texto": "Yanıt, artı onu müfredatına yerleştiren çağrı."
+  },
+  {
+    "clave": "ia.op.idiomas.clasificar",
+    "texto": "Bir sohbeti sınıflandır ✨"
+  },
+  {
+    "clave": "ia.op.idiomas.extraerTarjetas",
+    "texto": "Sohbetten kartlar çıkar"
+  },
+  {
+    "clave": "ia.op.idiomas.generarTarjetas",
+    "texto": "Bir konu için kartlar oluştur"
+  },
+  {
+    "clave": "ia.op.idiomas.imagenTarjeta",
+    "texto": "Bir kart için akılda kalıcı görsel"
+  },
+  {
+    "clave": "ia.donde.idiomas.charlas",
+    "texto": "Sohbetler"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabulario",
+    "texto": "Kelime dağarcığı · Müfredat"
+  },
+  {
+    "clave": "ia.donde.idiomas.vocabularioRepaso",
+    "texto": "Kelime dağarcığı · Tekrar"
+  },
+  {
+    "clave": "ia.op.ideas.mapa",
+    "texto": "Yapay Zeka ile kavram haritası"
+  },
+  {
+    "clave": "ia.op.ideas.mapa.nota",
+    "texto": "Harita ilk seferde kullanılamaz çıkarsa bir kez daha dener ve iki katı ücretlendirilir."
+  },
+  {
+    "clave": "ia.op.ideas.expandir",
+    "texto": "Daha fazla fikir (genişlet, detaylandır veya eşlik eden fikirler)"
+  },
+  {
+    "clave": "ia.donde.ideas.mapas",
+    "texto": "Haritalar ve diyagramlar · Beyin fırtınası"
+  },
+  {
+    "clave": "ia.donde.ideas.diario",
+    "texto": "Fikir günlüğü · Fikir ayrıntısı · Harita tuvali"
+  },
+  {
+    "clave": "ia.op.entretenimiento.ficha",
+    "texto": "Girdiyi Yapay Zeka ile doldur"
+  },
+  {
+    "clave": "ia.op.entretenimiento.resumen",
+    "texto": "Bir eserin özeti"
+  },
+  {
+    "clave": "ia.op.entretenimiento.programa",
+    "texto": "Dizi, kitap veya oyunlardan program"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.archivo",
+    "texto": "Arşiv"
+  },
+  {
+    "clave": "ia.donde.entretenimiento.programas",
+    "texto": "Programlar"
+  },
+  {
+    "clave": "ia.op.diario.efemerides",
+    "texto": "Günün kültürel olayları"
+  },
+  {
+    "clave": "ia.op.diario.efemerides.nota",
+    "texto": "Günde bir kez ve sadece abonelikle."
+  },
+  {
+    "clave": "ia.op.diario.reparto",
+    "texto": "Bir asistan tarafından gazete dağıtımı"
+  },
+  {
+    "clave": "ia.op.diario.reparto.nota",
+    "texto": "Planlanan her dağıtım için bir tane ve sadece abonelikle."
+  },
+  {
+    "clave": "ia.donde.diario",
+    "texto": "Gazete (otomatik)"
+  },
+  {
+    "clave": "ia.op.descanso.evidencia",
+    "texto": "Alarmı kapatmak için fotoğraf kanıtı"
+  },
+  {
+    "clave": "ia.donde.descanso",
+    "texto": "Çalar saat"
+  },
+  {
+    "clave": "ia.op.computo.formula",
+    "texto": "Açıklamasından bir formül yaz"
+  },
+  {
+    "clave": "ia.op.computo.explicar",
+    "texto": "Adım adım açıkla veya çöz"
+  },
+  {
+    "clave": "ia.op.computo.hoja",
+    "texto": "Formülleriyle bir e-tablo oluştur"
+  },
+  {
+    "clave": "ia.op.computo.analizar",
+    "texto": "Seçilen verileri yorumla"
+  },
+  {
+    "clave": "ia.donde.computo.formulario",
+    "texto": "Formül defteri · Yeni formül"
+  },
+  {
+    "clave": "ia.donde.computo.calculadora",
+    "texto": "Hesap makinesi"
+  },
+  {
+    "clave": "ia.donde.computo.hojas",
+    "texto": "E-tablolar · Yeni e-tablo"
+  },
+  {
+    "clave": "chat.cuotaAgotada",
+    "texto": "Bu ayki Yapay Zeka kotanı tükettin. Kullanımını Düzenleyici → Ayarlar → Hesap bölümünden kontrol et."
+  },
+  {
+    "clave": "chat.sinPro",
+    "texto": "Hesabında aktif bir abonelik yok."
+  },
+  {
+    "clave": "cuenta.pago.comprar",
+    "texto": "Pro’ya geç"
+  },
+  {
+    "clave": "cuenta.pago.comprarPrecio",
+    "texto": "Pro’ya geç — {p}/ay"
+  },
+  {
+    "clave": "cuenta.pago.renovar",
+    "texto": "Aboneliği yenile — {p}/ay"
+  },
+  {
+    "clave": "cuenta.pago.comprarWeb",
+    "texto": "Web’de Pro’ya geç"
+  },
+  {
+    "clave": "cuenta.pago.cancelado",
+    "texto": "Satın alma tamamlanmadı."
+  },
+  {
+    "clave": "cuenta.pago.gestionar",
+    "texto": "Aboneliğimi yönet"
+  },
+  {
+    "clave": "cuenta.olvide",
+    "texto": "Şifreni mi unuttun?"
+  },
+  {
+    "clave": "cuenta.olvide.sinCorreo",
+    "texto": "Önce yukarıya e-postanı yaz."
+  },
+  {
+    "clave": "cuenta.olvide.enviado",
+    "texto": "Sıfırlaman için sana bir e-posta gönderdik."
+  },
+  {
+    "clave": "cuenta.eliminar",
+    "texto": "Hesabı sil"
+  },
+  {
+    "clave": "cuenta.eliminar.confirma",
+    "texto": "Hesabını ve sunuculardaki tüm verilerini silmek istediğine emin misin? Bu işlem geri alınamaz. Bu cihazdaki yerel veriler korunur."
+  },
+  {
+    "clave": "cuenta.eliminar.confirma2",
+    "texto": "Son onay: hesap kalıcı olarak silinsin mi?"
+  },
+  {
+    "clave": "cuenta.eliminar.borrando",
+    "texto": "Siliniyor…"
+  },
+  {
+    "clave": "cuenta.renovar.titulo",
+    "texto": "Aboneliğin sona erdi"
+  },
+  {
+    "clave": "cuenta.renovar.cuerpo",
+    "texto": "Yapay Zeka ve senkronizasyon, yenilediğinde geri döner. Verilerin bu cihazda kalmaya devam eder."
+  },
+  {
+    "clave": "cuenta.renovar.cta",
+    "texto": "Aboneliği yenile"
+  },
+  {
+    "clave": "cuenta.renovar.corto",
+    "texto": "Aboneliğin sona erdi."
+  },
+  {
+    "clave": "cuenta.cuota.titulo",
+    "texto": "Bu ayki kredilerin bitti"
+  },
+  {
+    "clave": "cuenta.cuota.tituloSin",
+    "texto": "Yapay Zeka kullanmak için kredin gerekiyor"
+  },
+  {
+    "clave": "cuenta.cuota.cuerpo",
+    "texto": "Kredilerin {f} tarihinde yenilenir."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoLocal",
+    "texto": "Uygulama ve verilerin hiçbir ücret ödemeden senindir. Sadece Yapay Zeka ücretlidir: ihtiyacın olduğunda kredi yükle ya da abone olup her ay al."
+  },
+  {
+    "clave": "cuenta.cuota.cuerpoVencida",
+    "texto": "Verilerin bu cihazda kalmaya devam eder. Aylık kredilerini ve senkronizasyonu geri almak için yenile, ya da tek seferlik kredi satın al."
+  },
+  {
+    "clave": "cuenta.cuota.recarga",
+    "texto": "+600 kredi — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaN",
+    "texto": "+{n} kredi — {p}"
+  },
+  {
+    "clave": "cuenta.cuota.recargaLista",
+    "texto": "Yükleme uygulandı: ekstra kredilerin hesabında."
+  },
+  {
+    "clave": "cuenta.cuota.suscribirse",
+    "texto": "Aboneliği görüntüle"
+  },
+  {
+    "clave": "cuenta.cuota.nativo",
+    "texto": "Krediler hesabından yönetilir."
+  },
+  {
+    "clave": "cuenta.cuota.web",
+    "texto": "Hesabımdan kredi satın al"
+  },
+  {
+    "clave": "cuenta.creditos.faltan",
+    "texto": "Yapay Zeka kredilerin bitti."
+  },
+  {
+    "clave": "comun.entendido",
+    "texto": "Anladım"
+  },
+  {
+    "clave": "demo.aviso.titulo",
+    "texto": "Demo evdesin"
+  },
+  {
+    "clave": "demo.aviso.cuerpo",
+    "texto": "Her şeyi dene: evi düzenleyebilir ve içinde Pep’in bir yıllık hayatıyla uygulamaları kullanabilirsin. Hiçbir şey kaydedilmez — sayfayı yeniden yüklediğinde ev eski haline döner."
+  },
+  {
+    "clave": "demo.aviso.seguir",
+    "texto": "Keşfetmeye devam et"
+  },
+  {
+    "clave": "demo.salir",
+    "texto": "Demodan çık"
+  }
+]

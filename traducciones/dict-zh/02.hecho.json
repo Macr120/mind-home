@@ -1,0 +1,698 @@
+[
+ {
+  "clave": "canchas.tocaParaEditar",
+  "texto": "点击地图上的球场即可编辑。"
+ },
+ {
+  "clave": "canchas.ayuda",
+  "texto": "点击地图放置；开启编辑后点击球场可更改颜色、尺寸或朝向。"
+ },
+ {
+  "clave": "canchas.resumen.nota",
+  "texto": "放置后的球场可以像地图上其他物件一样移动和删除。"
+ },
+ {
+  "clave": "huerto.herr.parcela",
+  "texto": "地块"
+ },
+ {
+  "clave": "huerto.herr.sembrar",
+  "texto": "播种"
+ },
+ {
+  "clave": "huerto.herr.regar",
+  "texto": "浇水"
+ },
+ {
+  "clave": "huerto.herr.cosechar",
+  "texto": "收获"
+ },
+ {
+  "clave": "huerto.herr.aspersor",
+  "texto": "喷灌器"
+ },
+ {
+  "clave": "huerto.herr.quitar",
+  "texto": "移除"
+ },
+ {
+  "clave": "huerto.etiqueta.listo",
+  "texto": "已成熟"
+ },
+ {
+  "clave": "huerto.etiqueta.marchito",
+  "texto": "枯萎"
+ },
+ {
+  "clave": "huerto.etiqueta.ver",
+  "texto": "查看详情"
+ },
+ {
+  "clave": "huerto.etiqueta.guardar",
+  "texto": "关闭提醒"
+ },
+ {
+  "clave": "huerto.aviso.listo",
+  "texto": "可以收获了！"
+ },
+ {
+  "clave": "huerto.aspersor.auto",
+  "texto": "自动浇水"
+ },
+ {
+  "clave": "huerto.especie.zanahoria",
+  "texto": "胡萝卜"
+ },
+ {
+  "clave": "huerto.especie.lechuga",
+  "texto": "生菜"
+ },
+ {
+  "clave": "huerto.especie.girasol",
+  "texto": "向日葵"
+ },
+ {
+  "clave": "huerto.especie.tomate",
+  "texto": "番茄"
+ },
+ {
+  "clave": "huerto.especie.maiz",
+  "texto": "玉米"
+ },
+ {
+  "clave": "huerto.especie.calabaza",
+  "texto": "南瓜"
+ },
+ {
+  "clave": "huerto.ayuda",
+  "texto": "作物实时生长，需要浇水：蓝色水滴会提醒你；不浇水就会枯萎，过一阵子地块会自动清空。喷灌器会自动浇灌自己所在的格子和周围8个格子。收获会进入篮子（走过成熟的作物上方也会自动收获）：用来喂动物。"
+ },
+ {
+  "clave": "huerto.stat.parcelas",
+  "texto": "地块"
+ },
+ {
+  "clave": "huerto.stat.creciendo",
+  "texto": "生长中"
+ },
+ {
+  "clave": "huerto.stat.listos",
+  "texto": "已成熟"
+ },
+ {
+  "clave": "huerto.stat.marchitos",
+  "texto": "枯萎"
+ },
+ {
+  "clave": "huerto.stat.cosechas",
+  "texto": "收获次数"
+ },
+ {
+  "clave": "huerto.resumen.nota",
+  "texto": "作物实时生长；不及时浇水就会枯萎。"
+ },
+ {
+  "clave": "huerto.cesta",
+  "texto": "篮子"
+ },
+ {
+  "clave": "granja.animal.gallina",
+  "texto": "鸡"
+ },
+ {
+  "clave": "granja.animal.cerdo",
+  "texto": "猪"
+ },
+ {
+  "clave": "granja.animal.cabra",
+  "texto": "山羊"
+ },
+ {
+  "clave": "granja.animal.oveja",
+  "texto": "绵羊"
+ },
+ {
+  "clave": "granja.animal.vaca",
+  "texto": "奶牛"
+ },
+ {
+  "clave": "granja.animal.caballo",
+  "texto": "马"
+ },
+ {
+  "clave": "granja.come",
+  "texto": "进食间隔"
+ },
+ {
+  "clave": "granja.herr.corral",
+  "texto": "围栏"
+ },
+ {
+  "clave": "granja.herr.animal",
+  "texto": "动物"
+ },
+ {
+  "clave": "granja.herr.alimentar",
+  "texto": "喂食"
+ },
+ {
+  "clave": "granja.herr.mimar",
+  "texto": "抚摸"
+ },
+ {
+  "clave": "granja.herr.curar",
+  "texto": "治疗"
+ },
+ {
+  "clave": "granja.herr.limpiar",
+  "texto": "清洁"
+ },
+ {
+  "clave": "granja.herr.accesorio",
+  "texto": "玩具"
+ },
+ {
+  "clave": "granja.herr.nombrar",
+  "texto": "命名"
+ },
+ {
+  "clave": "granja.herr.quitar",
+  "texto": "移除"
+ },
+ {
+  "clave": "granja.accesorio.lodo",
+  "texto": "泥坑"
+ },
+ {
+  "clave": "granja.accesorio.tina",
+  "texto": "浴盆"
+ },
+ {
+  "clave": "granja.accesorio.pelota",
+  "texto": "球"
+ },
+ {
+  "clave": "granja.cestaVacia",
+  "texto": "空——在“食物”里收获"
+ },
+ {
+  "clave": "granja.sinComida",
+  "texto": "篮子里什么都没有：去“食物”收获后即可喂食。"
+ },
+ {
+  "clave": "granja.corralLleno",
+  "texto": "围栏已满：扩大它或再建一个。"
+ },
+ {
+  "clave": "granja.noCabe",
+  "texto": "这里放不下：会超出地图或与其他围栏重叠。"
+ },
+ {
+  "clave": "granja.nombrar.elegir",
+  "texto": "点击围栏可查看其中的动物。"
+ },
+ {
+  "clave": "granja.nombrar.titulo",
+  "texto": "点击动物即可重命名"
+ },
+ {
+  "clave": "granja.nombrar.placeholder",
+  "texto": "名字"
+ },
+ {
+  "clave": "granja.nombrar.guardar",
+  "texto": "保存"
+ },
+ {
+  "clave": "granja.nombrar.vacio",
+  "texto": "这个围栏里没有动物。"
+ },
+ {
+  "clave": "granja.capacidad",
+  "texto": "容量"
+ },
+ {
+  "clave": "granja.burbuja.alimentar",
+  "texto": "喂食"
+ },
+ {
+  "clave": "granja.burbuja.acariciar",
+  "texto": "抚摸"
+ },
+ {
+  "clave": "granja.burbuja.curar",
+  "texto": "治疗"
+ },
+ {
+  "clave": "granja.burbuja.limpiar",
+  "texto": "清洁"
+ },
+ {
+  "clave": "granja.barra.comida",
+  "texto": "食物"
+ },
+ {
+  "clave": "granja.barra.animo",
+  "texto": "心情"
+ },
+ {
+  "clave": "granja.hayEnfermos",
+  "texto": "有动物生病了：治疗后才能重新进食。"
+ },
+ {
+  "clave": "granja.sinEnfermos",
+  "texto": "那个围栏里没有生病的动物。"
+ },
+ {
+  "clave": "granja.yaLimpio",
+  "texto": "那个围栏已经是干净的了；新的一周重新开始。"
+ },
+ {
+  "clave": "granja.etiqueta.enfermo",
+  "texto": "生病"
+ },
+ {
+  "clave": "granja.etiqueta.dias",
+  "texto": "{n}天"
+ },
+ {
+  "clave": "granja.aviso.enfermo.titulo",
+  "texto": "🤒 {nombre}生病了"
+ },
+ {
+  "clave": "granja.aviso.enfermo.cuerpo",
+  "texto": "在农场治疗它：你还有{dias}天。"
+ },
+ {
+  "clave": "granja.aviso.muerte.titulo",
+  "texto": "💔 {nombre}去世了"
+ },
+ {
+  "clave": "granja.aviso.muerte.cuerpo",
+  "texto": "它生病太久却一直没有得到治疗。"
+ },
+ {
+  "clave": "granja.ayuda",
+  "texto": "“围栏”用来建造围栏，点击相邻格子可以扩大它。加入多只动物，用收获物喂养它们，抚摸它们并给它们玩具。太久不进食会生病：请在一周内治疗。每周清洁一次围栏，否则心情下降速度会翻倍。"
+ },
+ {
+  "clave": "granja.stat.hambrientos",
+  "texto": "饥饿"
+ },
+ {
+  "clave": "granja.stat.aburridos",
+  "texto": "无聊"
+ },
+ {
+  "clave": "granja.stat.enfermos",
+  "texto": "生病"
+ },
+ {
+  "clave": "granja.stat.sucios",
+  "texto": "脏围栏"
+ },
+ {
+  "clave": "granja.resumen.nota",
+  "texto": "用“食物”篮子喂养它们。"
+ },
+ {
+  "clave": "tren.bajarte",
+  "texto": "下车"
+ },
+ {
+  "clave": "tren.montarTren",
+  "texto": "乘坐火车"
+ },
+ {
+  "clave": "tren.montarCarrito",
+  "texto": "乘坐过山车"
+ },
+ {
+  "clave": "juego.tu",
+  "texto": "你"
+ },
+ {
+  "clave": "juego.rival",
+  "texto": "对手"
+ },
+ {
+  "clave": "juego.gol",
+  "texto": "进球啦！🎉"
+ },
+ {
+  "clave": "juego.golRival",
+  "texto": "对手进球了…"
+ },
+ {
+  "clave": "juego.canasta2",
+  "texto": "进球！+2 🎉"
+ },
+ {
+  "clave": "juego.canasta3",
+  "texto": "三分球！+3 🎉"
+ },
+ {
+  "clave": "juego.canastaRival",
+  "texto": "对手进球了…"
+ },
+ {
+  "clave": "juego.fallo",
+  "texto": "投篮不中…"
+ },
+ {
+  "clave": "juego.puntoTenis",
+  "texto": "你得分了！🎉"
+ },
+ {
+  "clave": "juego.puntoTenisRival",
+  "texto": "对手得分…"
+ },
+ {
+  "clave": "juego.comoJugar",
+  "texto": "你想怎么玩？"
+ },
+ {
+  "clave": "juego.solo",
+  "texto": "单人游玩"
+ },
+ {
+  "clave": "juego.soloFronton",
+  "texto": "单人游玩（对墙练习）"
+ },
+ {
+  "clave": "juego.soloMaquina",
+  "texto": "单人游玩（发球机）"
+ },
+ {
+  "clave": "juego.contraIA",
+  "texto": "或者对战助手："
+ },
+ {
+  "clave": "juego.peloteo",
+  "texto": "好球！+1"
+ },
+ {
+  "clave": "juego.seEscapo",
+  "texto": "球飞走了…"
+ },
+ {
+  "clave": "juego.aLaRed",
+  "texto": "挂网了…"
+ },
+ {
+  "clave": "juego.fuera",
+  "texto": "出界！"
+ },
+ {
+  "clave": "juego.dificultad",
+  "texto": "难度"
+ },
+ {
+  "clave": "juego.perspectiva",
+  "texto": "视角"
+ },
+ {
+  "clave": "juego.vistaIso",
+  "texto": "等距视角"
+ },
+ {
+  "clave": "juego.vista3",
+  "texto": "第三人称"
+ },
+ {
+  "clave": "juego.patear",
+  "texto": "踢"
+ },
+ {
+  "clave": "juego.tirar",
+  "texto": "投篮"
+ },
+ {
+  "clave": "juego.golpear",
+  "texto": "击球"
+ },
+ {
+  "clave": "juego.hintFutbol",
+  "texto": "按住蓄力，松开射门（空格）"
+ },
+ {
+  "clave": "juego.hintBasket",
+  "texto": "按住调整力度，松开投篮（空格）"
+ },
+ {
+  "clave": "juego.hintTenis",
+  "texto": "用面朝方向瞄准，点按发球或击球（空格）"
+ },
+ {
+  "clave": "juego.batear",
+  "texto": "挥棒"
+ },
+ {
+  "clave": "juego.hintBeisbol",
+  "texto": "按住蓄力挥棒，球到你面前时松开（空格）"
+ },
+ {
+  "clave": "juego.homerun",
+  "texto": "本垒打！+3 🎉"
+ },
+ {
+  "clave": "juego.hit",
+  "texto": "安打！+1"
+ },
+ {
+  "clave": "juego.foul",
+  "texto": "界外球…"
+ },
+ {
+  "clave": "juego.strike",
+  "texto": "好球！"
+ },
+ {
+  "clave": "juego.ponche",
+  "texto": "三振出局！三个好球…"
+ },
+ {
+  "clave": "dif.muyFacil",
+  "texto": "非常简单"
+ },
+ {
+  "clave": "dif.facil",
+  "texto": "简单"
+ },
+ {
+  "clave": "dif.normal",
+  "texto": "普通"
+ },
+ {
+  "clave": "dif.dificil",
+  "texto": "困难"
+ },
+ {
+  "clave": "dif.experto",
+  "texto": "专家"
+ },
+ {
+  "clave": "juego.juegos",
+  "texto": "局"
+ },
+ {
+  "clave": "juego.sets",
+  "texto": "盘"
+ },
+ {
+  "clave": "juego.peloteoActual",
+  "texto": "回合"
+ },
+ {
+  "clave": "juego.record",
+  "texto": "纪录"
+ },
+ {
+  "clave": "juego.juegoTuyo",
+  "texto": "你赢得一局！🎉"
+ },
+ {
+  "clave": "juego.juegoRival",
+  "texto": "对手赢得一局…"
+ },
+ {
+  "clave": "juego.setTuyo",
+  "texto": "你赢得一盘！🎉"
+ },
+ {
+  "clave": "juego.setRival",
+  "texto": "对手赢得一盘…"
+ },
+ {
+  "clave": "juego.partidoTuyo",
+  "texto": "你赢得了比赛！🏆"
+ },
+ {
+  "clave": "juego.partidoRival",
+  "texto": "对手赢得了比赛…"
+ },
+ {
+  "clave": "juego.nuevoRecord",
+  "texto": "新纪录！🎉"
+ },
+ {
+  "clave": "progreso.cargando",
+  "texto": "正在计算你的进度…"
+ },
+ {
+  "clave": "progreso.jugador",
+  "texto": "你的角色"
+ },
+ {
+  "clave": "progreso.editarAvatar",
+  "texto": "编辑你的角色"
+ },
+ {
+  "clave": "progreso.humor.feliz",
+  "texto": "它很开心！继续保持连续天数吧。"
+ },
+ {
+  "clave": "progreso.humor.contento",
+  "texto": "它挺满足的。今天再记录一次会让它更开心。"
+ },
+ {
+  "clave": "progreso.humor.triste",
+  "texto": "它很难过……在应用里记录点什么让它开心起来吧。"
+ },
+ {
+  "clave": "progreso.humor.dormido",
+  "texto": "它睡着了。使用应用来叫醒它吧。"
+ },
+ {
+  "clave": "progreso.radarCuartos",
+  "texto": "各房间XP"
+ },
+ {
+  "clave": "meta.generica",
+  "texto": "今天记录点什么吧"
+ },
+ {
+  "clave": "meta.cumplida",
+  "texto": "已完成！"
+ },
+ {
+  "clave": "meta.pendiente",
+  "texto": "待完成"
+ },
+ {
+  "clave": "meta.apagada",
+  "texto": "无目标"
+ },
+ {
+  "clave": "meta.aMano",
+  "texto": "手动"
+ },
+ {
+  "clave": "meta.auto",
+  "texto": "恢复自动"
+ },
+ {
+  "clave": "meta.marcar",
+  "texto": "标记为已完成"
+ },
+ {
+  "clave": "meta.desmarcar",
+  "texto": "标记为未完成"
+ },
+ {
+  "clave": "meta.agendar",
+  "texto": "添加到日历"
+ },
+ {
+  "clave": "hoy.titulo",
+  "texto": "今天"
+ },
+ {
+  "clave": "hoy.alDia",
+  "texto": "今天的都完成了"
+ },
+ {
+  "clave": "hoy.hechos",
+  "texto": "已完成（{n}）"
+ },
+ {
+  "clave": "hoy.registrar",
+  "texto": "记录"
+ },
+ {
+  "clave": "hoy.objetivo",
+  "texto": "每日目标（设为0可关闭）"
+ },
+ {
+  "clave": "cal.meta.mientrasDure",
+  "texto": "只要它还在，就可以向我要"
+ },
+ {
+  "clave": "cal.meta.unObjetivo",
+  "texto": "每日目标"
+ },
+ {
+  "clave": "cal.meta.unaActividad",
+  "texto": "每周活动"
+ },
+ {
+  "clave": "cal.meta.diasRitmo",
+  "texto": "{hechos}/{pedidos}天"
+ },
+ {
+  "clave": "rutinas.sinApp",
+  "texto": "无应用（家庭事件）"
+ },
+ {
+  "clave": "cocina.metaDiaria",
+  "texto": "今天的饮水"
+ },
+ {
+  "clave": "cocina.objetivo.comidas",
+  "texto": "今天的饮食"
+ },
+ {
+  "clave": "cocina.objetivo.vaso",
+  "texto": "一杯"
+ },
+ {
+  "clave": "ejercicio.metaDiaria",
+  "texto": "今天锻炼"
+ },
+ {
+  "clave": "hobbies.metaDiaria",
+  "texto": "今天练习"
+ },
+ {
+  "clave": "jardin.metaDiaria",
+  "texto": "今天的平静"
+ },
+ {
+  "clave": "idiomas.metaDiaria",
+  "texto": "今天的复习"
+ },
+ {
+  "clave": "biblioteca.metaDiaria",
+  "texto": "今天的学习"
+ },
+ {
+  "clave": "diario.metaDiaria",
+  "texto": "阅读今天的新闻"
+ },
+ {
+  "clave": "descanso.metaDiaria",
+  "texto": "记录你的夜晚"
+ },
+ {
+  "clave": "sala.evento.viaje",
+  "texto": "旅行"
+ },
+ {
+  "clave": "sala.evento.dia",
+  "texto": "第{n}天"
+ },
+ {
+  "clave": "ejercicio.tab.cronograma",
+  "texto": "目标"
+ }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "Ad, emoji, renk ve —isteğe bağlı— gün cinsinden haftalık bir hedef. Takibe başlamak için gereken tek şey bu form."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "Haftalık hedef"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "Piyano için haftada 4 gün konuldu: haftanın satırı pratik yapılan her günle boyanır, üstte de hedefe karşı kaç gün topladığın yazar."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "Pratiği kaydet"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "Tek dokunuşla hızlı dakikalar ya da tam sayı; proje isteğe bağlı, not ise o seanstan hatırlamak istediğin ne varsa onun için."
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "Gelen kutusu"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "Aklına geleni yaz, o kadar. Pep bir yılda buraya ~90 fikir bıraktı: fizikten, kafeden, antrenmandan. Yıldız, en sevdiklerini işaretler."
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "Konuya göre beyin fırtınası"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "Beyin fırtınası her şeyi tek bir konunun altında toplar. Pep’inkileri ara: kediye isim bulma (Laika kazandı), Japonya’nın parası nasıl denkleşir ve yolculuğa ne götürülür."
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "Bir beyin fırtınası olgunlaştığında bir düğme onu zihin haritasına dönüştürür, sen de tuvalde düzenlemeye devam edersin."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "On biçim"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "Her biçim farklı çizer. Aşağıda Pep’in yıl boyunca yaptığı haritalar var: sabah rutini akış şemasında, termodinamik ağaçta, fizik ve müzik Venn şemasında."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "«İdeal hayatım»"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "Yılın İLK haritası, 1. aydan: Pep’in istediği hayat. Acele etmeden bak — buradakilerin neredeyse hepsi sonunda gerçekten oldu."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "Tuvalde: seçmek için bir düğüme dokun, yazmak için bir daha dokun; sürükle, iki parmakla sıkıştırarak yakınlaş ve alttaki çubukla fikir ekle."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "Tek konudan koca bir harita"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "Yapay zekaya bir konu ver, düğümleri baştan düzenlenmiş halde haritanın tamamını kursun: nereden başlayıp düzenleyeceğini bilmediğin bir konu için çıkış noktası."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "Bir düğümü yapay zeka ile genişletmek"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "Bir haritanın içindeyken herhangi bir düğüm genişletilebilir: yapay zeka, çevresine daha önce yazdıklarına bakarak alt düğümler önerir, senin yapını bozmadan."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "Karar vermenin sekiz yolu"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "Pep bunları gerçekten kullandı: vize haftasında bir Eisenhower, yılın ortasında bir SWOT ve kamera seçmek için bir matris."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "Yüksek lisans mı, iş mi?"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "Yıl kapanırken açık kalan ASIL karar: her tarafın 1’den 5’e ağırlığı, altta da toplamı. Hâlâ karara bağlanmadı — ciddi ciddi düşünmek böyle görünür."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "Bölgeli biçimlerde her öğe bir bölgede yaşar: eklemeden önce aşağıdan seç ya da öğeyi başka bir bölgeye sürükle, kendiliğinden değişsin."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "Ağırlıklı karar matrisi"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "Bu bir tuval değil, bir tablo: her seçenek her kriterle karşı karşıya, o kriterin senin için taşıdığı öneme göre 1’den 5’e bir ağırlıkla. Toplam, seçenekleri kendiliğinden sıralar."
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "Saat"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "Takvim bir oda değil: evin saatinde yaşar, o yüzden nerede olursan ol oradan açılır."
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "Gerçek bir hafta"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "Kafedeki vardiyalar, fizik dersleri, şafakta koşu, geceleri piyano. Her blok kendi saati ve rengi olan bir rutindir; taşımak için sürüklenir, süresini değiştirmek için uzatılır."
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "Dört bakış biçimi"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "Gün ve Hafta saatlik ızgarayı gösterir; Ay ve Yıl koca yılın panoramasını verir. İlk düğme çift iş görür: «Bugün» yazar ve seni bugüne getirir, başka bir tarihe bakıyorsan «Gün» der."
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "Her blok nereden geliyor"
+  }
+]

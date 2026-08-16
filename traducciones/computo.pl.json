@@ -1,0 +1,430 @@
+[
+  {
+    "ruta": "carpetas.0.nombre",
+    "texto": "Fizyka II"
+  },
+  {
+    "ruta": "carpetas.1.nombre",
+    "texto": "Kolokwia"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.nombre",
+    "texto": "Położenie przy stałym przyspieszeniu"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.0.nombre",
+    "texto": "położenie początkowe"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.1.nombre",
+    "texto": "prędkość początkowa"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.2.nombre",
+    "texto": "przyspieszenie"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.3.nombre",
+    "texto": "czas"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.nombre",
+    "texto": "Torricelli (prędkość bez czasu)"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.0.nombre",
+    "texto": "prędkość początkowa"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.1.nombre",
+    "texto": "przyspieszenie"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.2.nombre",
+    "texto": "przemieszczenie"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.nombre",
+    "texto": "Energia kinetyczna"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.descripcion",
+    "texto": "Przy stałej masie: najczęściej liczę to dla siebie, biegając."
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.0.nombre",
+    "texto": "masa"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.1.nombre",
+    "texto": "prędkość"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.nombre",
+    "texto": "Prawo Hooke'a"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.0.nombre",
+    "texto": "stała sprężystości"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.1.nombre",
+    "texto": "odkształcenie"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.nombre",
+    "texto": "Okres wahadła matematycznego"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.0.nombre",
+    "texto": "długość"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.1.nombre",
+    "texto": "przyspieszenie ziemskie"
+  },
+  {
+    "ruta": "carpetas.2.nombre",
+    "texto": "Kawiarnia"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.nombre",
+    "texto": "Koszt za filiżankę"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.descripcion",
+    "texto": "Ile kosztuje podanie jednej filiżanki, nie licząc czasu."
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.0.nombre",
+    "texto": "cena kilograma kawy"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.1.nombre",
+    "texto": "gramy na filiżankę"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.2.nombre",
+    "texto": "koszt mleka"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.3.nombre",
+    "texto": "kubek i wieczko"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.nombre",
+    "texto": "Marża na cenie"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.tex",
+    "texto": "marża = \\dfrac{cena - koszt}{cena} \\times 100"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.0.nombre",
+    "texto": "cena sprzedaży"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.1.nombre",
+    "texto": "koszt filiżanki"
+  },
+  {
+    "ruta": "carpetas.3.nombre",
+    "texto": "Bieganie"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.nombre",
+    "texto": "Tempo na kilometr"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.tex",
+    "texto": "tempo = \\dfrac{minuty}{km}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.0.nombre",
+    "texto": "łączne minuty"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.1.nombre",
+    "texto": "kilometry"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.nombre",
+    "texto": "Tempo na cel maratonu"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.variables.0.nombre",
+    "texto": "cel w minutach"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.nombre",
+    "texto": "Przybliżone VO₂ maks"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.tex",
+    "texto": "VO_{2}\\,maks \\approx 15.3\\,\\dfrac{T_{maks}}{T_{spocz}}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.descripcion",
+    "texto": "Wzór Utha: przybliżony, ale wystarcza, żeby zobaczyć, czy się poprawiam."
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.nombre",
+    "texto": "tętno maksymalne"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.unidad",
+    "texto": "ud./min"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.nombre",
+    "texto": "tętno spoczynkowe"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.unidad",
+    "texto": "ud./min"
+  },
+  {
+    "ruta": "hojas.0.nombre",
+    "texto": "Budżet Japonia"
+  },
+  {
+    "ruta": "hojas.0.celdas.A1.crudo",
+    "texto": "Dzień"
+  },
+  {
+    "ruta": "hojas.0.celdas.B1.crudo",
+    "texto": "Jedzenie"
+  },
+  {
+    "ruta": "hojas.0.celdas.C1.crudo",
+    "texto": "Transport"
+  },
+  {
+    "ruta": "hojas.0.celdas.D1.crudo",
+    "texto": "Bilety"
+  },
+  {
+    "ruta": "hojas.0.celdas.E1.crudo",
+    "texto": "Zakupy"
+  },
+  {
+    "ruta": "hojas.0.celdas.A2.crudo",
+    "texto": "Dzień 1"
+  },
+  {
+    "ruta": "hojas.0.celdas.A3.crudo",
+    "texto": "Dzień 2"
+  },
+  {
+    "ruta": "hojas.0.celdas.A4.crudo",
+    "texto": "Dzień 3"
+  },
+  {
+    "ruta": "hojas.0.celdas.A5.crudo",
+    "texto": "Dzień 4"
+  },
+  {
+    "ruta": "hojas.0.celdas.A6.crudo",
+    "texto": "Dzień 5"
+  },
+  {
+    "ruta": "hojas.0.celdas.A7.crudo",
+    "texto": "Dzień 6"
+  },
+  {
+    "ruta": "hojas.0.celdas.A8.crudo",
+    "texto": "Dzień 7"
+  },
+  {
+    "ruta": "hojas.0.celdas.A9.crudo",
+    "texto": "Dzień 8"
+  },
+  {
+    "ruta": "hojas.0.celdas.A10.crudo",
+    "texto": "Dzień 9"
+  },
+  {
+    "ruta": "hojas.0.celdas.A11.crudo",
+    "texto": "Dzień 10"
+  },
+  {
+    "ruta": "hojas.0.celdas.A12.crudo",
+    "texto": "Dzień 11"
+  },
+  {
+    "ruta": "hojas.0.celdas.A13.crudo",
+    "texto": "Dzień 12"
+  },
+  {
+    "ruta": "hojas.0.celdas.A14.crudo",
+    "texto": "Dzień 13"
+  },
+  {
+    "ruta": "hojas.0.celdas.A15.crudo",
+    "texto": "Dzień 14"
+  },
+  {
+    "ruta": "hojas.0.celdas.A18.crudo",
+    "texto": "Średnia dzienna"
+  },
+  {
+    "ruta": "hojas.0.celdas.A20.crudo",
+    "texto": "Suma za podróż ¥"
+  },
+  {
+    "ruta": "hojas.0.celdas.A21.crudo",
+    "texto": "Kurs wymiany (MXN/¥)"
+  },
+  {
+    "ruta": "hojas.0.celdas.A22.crudo",
+    "texto": "Razem w peso"
+  },
+  {
+    "ruta": "hojas.1.nombre",
+    "texto": "Plan na 18 tygodni"
+  },
+  {
+    "ruta": "hojas.1.celdas.A1.crudo",
+    "texto": "Tydzień"
+  },
+  {
+    "ruta": "hojas.1.celdas.B1.crudo",
+    "texto": "Kilometry"
+  },
+  {
+    "ruta": "hojas.1.celdas.C1.crudo",
+    "texto": "Zmiana %"
+  },
+  {
+    "ruta": "hojas.1.celdas.D1.crudo",
+    "texto": "Długi bieg"
+  },
+  {
+    "ruta": "hojas.1.celdas.A2.crudo",
+    "texto": "Tydzień 1"
+  },
+  {
+    "ruta": "hojas.1.celdas.A3.crudo",
+    "texto": "Tydzień 2"
+  },
+  {
+    "ruta": "hojas.1.celdas.A4.crudo",
+    "texto": "Tydzień 3"
+  },
+  {
+    "ruta": "hojas.1.celdas.A5.crudo",
+    "texto": "Tydzień 4"
+  },
+  {
+    "ruta": "hojas.1.celdas.A6.crudo",
+    "texto": "Tydzień 5"
+  },
+  {
+    "ruta": "hojas.1.celdas.A7.crudo",
+    "texto": "Tydzień 6"
+  },
+  {
+    "ruta": "hojas.1.celdas.A8.crudo",
+    "texto": "Tydzień 7"
+  },
+  {
+    "ruta": "hojas.1.celdas.A9.crudo",
+    "texto": "Tydzień 8"
+  },
+  {
+    "ruta": "hojas.1.celdas.A10.crudo",
+    "texto": "Tydzień 9"
+  },
+  {
+    "ruta": "hojas.1.celdas.A11.crudo",
+    "texto": "Tydzień 10"
+  },
+  {
+    "ruta": "hojas.1.celdas.A12.crudo",
+    "texto": "Tydzień 11"
+  },
+  {
+    "ruta": "hojas.1.celdas.A13.crudo",
+    "texto": "Tydzień 12"
+  },
+  {
+    "ruta": "hojas.1.celdas.A14.crudo",
+    "texto": "Tydzień 13"
+  },
+  {
+    "ruta": "hojas.1.celdas.A15.crudo",
+    "texto": "Tydzień 14"
+  },
+  {
+    "ruta": "hojas.1.celdas.A16.crudo",
+    "texto": "Tydzień 15"
+  },
+  {
+    "ruta": "hojas.1.celdas.A17.crudo",
+    "texto": "Tydzień 16"
+  },
+  {
+    "ruta": "hojas.1.celdas.A18.crudo",
+    "texto": "Tydzień 17"
+  },
+  {
+    "ruta": "hojas.1.celdas.A19.crudo",
+    "texto": "Tydzień 18"
+  },
+  {
+    "ruta": "hojas.1.celdas.A22.crudo",
+    "texto": "Tydzień szczytowy"
+  },
+  {
+    "ruta": "hojas.1.celdas.A23.crudo",
+    "texto": "Średnia"
+  },
+  {
+    "ruta": "hojas.2.nombre",
+    "texto": "Oceny z fizyki II"
+  },
+  {
+    "ruta": "hojas.2.celdas.A1.crudo",
+    "texto": "Składnik"
+  },
+  {
+    "ruta": "hojas.2.celdas.B1.crudo",
+    "texto": "Waga"
+  },
+  {
+    "ruta": "hojas.2.celdas.C1.crudo",
+    "texto": "Ocena"
+  },
+  {
+    "ruta": "hojas.2.celdas.D1.crudo",
+    "texto": "Wkład"
+  },
+  {
+    "ruta": "hojas.2.celdas.A2.crudo",
+    "texto": "Kolokwium 1"
+  },
+  {
+    "ruta": "hojas.2.celdas.A3.crudo",
+    "texto": "Kolokwium 2"
+  },
+  {
+    "ruta": "hojas.2.celdas.A4.crudo",
+    "texto": "Zadania domowe"
+  },
+  {
+    "ruta": "hojas.2.celdas.A5.crudo",
+    "texto": "Laboratorium"
+  },
+  {
+    "ruta": "hojas.2.celdas.A8.crudo",
+    "texto": "Waga dotychczasowa"
+  },
+  {
+    "ruta": "hojas.2.celdas.A9.crudo",
+    "texto": "Na razie mam"
+  },
+  {
+    "ruta": "hojas.2.celdas.A10.crudo",
+    "texto": "Potrzebuję na koniec"
+  }
+]

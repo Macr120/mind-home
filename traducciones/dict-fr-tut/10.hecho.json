@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "Six espèces, chacune avec sa fenêtre de faim. Touche dans un enclos qui a de la place et l’animal apparaît, déjà baptisé."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "Jouets"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "Flaque de boue, baignoire et ballon, un par case : les animaux y vont tout seuls et jouer leur remonte le moral. Le sanctuaire a déjà les trois, répartis."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "Les noms"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "Avec Nommer, tu touches un enclos et tu vois sa liste avec la capacité utilisée ; touche un animal pour le renommer."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "C’est tout le métier : l’enclos, la capacité, les jouets et l’affection. Dans la démo, tu peux agrandir le sanctuaire si le cœur t’en dit."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "Voici la piste de Pep : un ovale d’asphalte avec sa ligne d’arrivée à damier. C’est la seule ligne d’arrivée du plan — tout le mode course tourne autour d’elle."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "La voilà, la ligne d’arrivée. Approche-toi du vélo ou de la voiture dans la cour et monte avec son bouton ; une fois sur le véhicule, franchis cette ligne et le feu de départ s’allume."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "Colle-toi à l’ovale et dérape dans les virages pour ne pas perdre de vitesse. Tu peux aussi courir contre un assistant, objets à la clé : banane, turbo et bombe."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "À côté de la ligne d’arrivée vit le tableau des meilleurs temps : le vélo de Pep affiche 38 victoires et un meilleur tour de 41,8 s. Bats-le — les records que tu fais dans la démo sont gardés."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "Le rail qui fait le tour du plan et les montagnes russes de la fête foraine sont des circuits eux aussi : marche sur la voie et « Monter » apparaît. Chaque tracé est son propre réseau."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "Il y a trois tracés, et d’ici on voit les trois : circuit de course (pour les courses), rail de train (celui qui fait le tour du plan) et montagnes russes (avec une hauteur par case). Ils ne se mélangent pas, même s’ils se touchent : chacun ne cherche que des voisins de son type."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "Les montagnes russes de la fête foraine montent jusqu’à six niveaux, et les rampes d’une case à l’autre s’interpolent toutes seules. Monte : le wagonnet fait le tour du circuit fermé."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "Chez toi, tu les dessines case par case avec l’éditeur Circuits, ou à main levée avec le tracé libre par secteurs. Ici, dans la démo, le plan est déjà tracé."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "Voici le complexe sportif de Pep : football, basket, tennis et baseball, côte à côte. Chaque terrain est un rectangle sur le plan — y entrer à pied lance son jeu."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "Le bouton de charge apparaît dans l’emplacement du cube de navigation et tire là où regarde ton personnage : vise d’abord, charge ensuite."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "En bas, le terrain de baseball et celui de tennis : le tennis a du rebond et des échanges, le baseball n’est que de la frappe, contre une machine ou un lanceur."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "En haut, le terrain de football et celui de basket. Le football se joue en dribblant et en tirant ; le basket, en dosant la puissance du tir."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "Le score est gardé terrain par terrain : Pep a laissé un 21-15 au basket et une série de 18 échanges au tennis. Dans la démo, les matchs comptent — fais mieux."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "Ouvre la roue d’outils : c’est là que vit Paintball, dans la catégorie construction et jeux, à côté des véhicules."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "Choisis le mode : 1 contre 1, 2 contre 2 ou chacun pour soi. Tes adversaires sont les assistants du plan — Laika compte — et ça se joue au rez-de-chaussée."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "La maison entière est le champ de bataille : mets-toi à couvert derrière les murs, sors la tête pour tirer et surveille tes arrières. Les éclaboussures restent peintes pendant toute la bataille."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "Le tableau de Pep affiche 47 victoires pour 23 défaites. Dans la démo, les batailles comptent pour de vrai : fais-le grimper avant de partir."
+  }
+]

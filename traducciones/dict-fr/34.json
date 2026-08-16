@@ -1,0 +1,613 @@
+[
+  {
+    "clave": "ajustes.musica.sfxDesc",
+    "es": "Blaster, portales, fuegos, juegos y vehículos. Independiente del volumen de la música.",
+    "en": "Blaster, portals, fireworks, games and vehicles. Independent from the music volume."
+  },
+  {
+    "clave": "musica.control",
+    "es": "Música",
+    "en": "Music"
+  },
+  {
+    "clave": "musica.cerrar",
+    "es": "Cerrar",
+    "en": "Close"
+  },
+  {
+    "clave": "voz.escuchar",
+    "es": "Escuchar",
+    "en": "Listen"
+  },
+  {
+    "clave": "voz.callar",
+    "es": "Dejar de leer",
+    "en": "Stop reading"
+  },
+  {
+    "clave": "voz.autoOn",
+    "es": "Lee sus respuestas en voz alta",
+    "en": "Reads their replies out loud"
+  },
+  {
+    "clave": "voz.autoOff",
+    "es": "Leer sus respuestas en voz alta",
+    "en": "Read their replies out loud"
+  },
+  {
+    "clave": "musica.temaCuarto",
+    "es": "Tema de este cuarto",
+    "en": "This room’s theme"
+  },
+  {
+    "clave": "musica.temaCuarto.auto",
+    "es": "Auto (ambiente global)",
+    "en": "Auto (house vibe)"
+  },
+  {
+    "clave": "musica.temaCuarto.autoCon",
+    "es": "Auto · {tema}",
+    "en": "Auto · {tema}"
+  },
+  {
+    "clave": "musica.temaCuarto.silencio",
+    "es": "Silencio",
+    "en": "Silence"
+  },
+  {
+    "clave": "musica.temaCuartoDesc",
+    "es": "Suena al abrir el cuarto o al caminar dentro.",
+    "en": "Plays when you open the room or walk inside it."
+  },
+  {
+    "clave": "musica.ambienteGlobal",
+    "es": "Ambiente de la casa",
+    "en": "House vibe"
+  },
+  {
+    "clave": "ajustes.musica.volumen",
+    "es": "Volumen",
+    "en": "Volume"
+  },
+  {
+    "clave": "ajustes.musica.pistas",
+    "es": "Mis pistas",
+    "en": "My tracks"
+  },
+  {
+    "clave": "ajustes.musica.subir",
+    "es": "Subir pista",
+    "en": "Upload track"
+  },
+  {
+    "clave": "ajustes.musica.grande",
+    "es": "Archivo muy grande (máx. {n} MB).",
+    "en": "File too big (max {n} MB)."
+  },
+  {
+    "clave": "ajustes.musica.sinPistas",
+    "es": "Aún no hay pistas. Sube tu propia música (mp3, ogg…).",
+    "en": "No tracks yet. Upload your own music (mp3, ogg…)."
+  },
+  {
+    "clave": "ajustes.musica.todas",
+    "es": "Sin pista elegida (●), suenan todas en aleatorio.",
+    "en": "With no track chosen (●), they all shuffle."
+  },
+  {
+    "clave": "ajustes.musica.reproducir",
+    "es": "Reproducir",
+    "en": "Play"
+  },
+  {
+    "clave": "ajustes.musica.parar",
+    "es": "Parar",
+    "en": "Stop"
+  },
+  {
+    "clave": "ajustes.musica.usar",
+    "es": "Usar esta pista",
+    "en": "Use this track"
+  },
+  {
+    "clave": "ajustes.musica.renombrar",
+    "es": "Renombrar",
+    "en": "Rename"
+  },
+  {
+    "clave": "ajustes.musica.borrar",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "ajustes.musica.borrarConfirma",
+    "es": "¿Borrar «{n}»?",
+    "en": "Delete “{n}”?"
+  },
+  {
+    "clave": "ajustes.musica.carpetaNueva",
+    "es": "Carpeta nueva",
+    "en": "New folder"
+  },
+  {
+    "clave": "ajustes.musica.carpetaNombre",
+    "es": "¿Cómo se llama?",
+    "en": "What is it called?"
+  },
+  {
+    "clave": "ajustes.musica.carpetaRenombrar",
+    "es": "Renombrar carpeta",
+    "en": "Rename folder"
+  },
+  {
+    "clave": "ajustes.musica.carpetaBorrar",
+    "es": "Borrar carpeta",
+    "en": "Delete folder"
+  },
+  {
+    "clave": "ajustes.musica.carpetaBorrarConfirma",
+    "es": "¿Borrar «{n}»? Sus pistas no se borran: quedan sueltas.",
+    "en": "Delete “{n}”? Its tracks are kept, just unfiled."
+  },
+  {
+    "clave": "ajustes.musica.carpetaVacia",
+    "es": "Vacía: arrastra pistas aquí.",
+    "en": "Empty: drag tracks here."
+  },
+  {
+    "clave": "ajustes.musica.sinCarpeta",
+    "es": "Sin carpeta",
+    "en": "Unfiled"
+  },
+  {
+    "clave": "ajustes.musica.usarCarpeta",
+    "es": "Sonar solo esta carpeta",
+    "en": "Play only this folder"
+  },
+  {
+    "clave": "ajustes.musica.soloCarpeta",
+    "es": "Suena solo la carpeta marcada (●), en aleatorio.",
+    "en": "Only the marked folder (●) plays, shuffled."
+  },
+  {
+    "clave": "musica.toggle",
+    "en": "Ambient music"
+  },
+  {
+    "clave": "cuenta.titulo",
+    "es": "Cuenta",
+    "en": "Account"
+  },
+  {
+    "clave": "cuenta.sinBackend",
+    "es": "Esta instalación no tiene backend configurado: todo se guarda solo en este dispositivo.",
+    "en": "This install has no backend configured: everything is stored on this device only."
+  },
+  {
+    "clave": "cuenta.cargando",
+    "es": "Cargando…",
+    "en": "Loading…"
+  },
+  {
+    "clave": "cuenta.intro",
+    "es": "Con una cuenta, tu plan y tu casa te siguen a cualquier dispositivo.",
+    "en": "With an account, your plan and your home follow you to any device."
+  },
+  {
+    "clave": "cuenta.email",
+    "es": "Correo",
+    "en": "Email"
+  },
+  {
+    "clave": "cuenta.contrasena",
+    "es": "Contraseña",
+    "en": "Password"
+  },
+  {
+    "clave": "cuenta.entrar",
+    "es": "Entrar",
+    "en": "Sign in"
+  },
+  {
+    "clave": "cuenta.registrar",
+    "es": "Crear cuenta",
+    "en": "Create account"
+  },
+  {
+    "clave": "cuenta.cambioRegistrar",
+    "es": "No tengo cuenta: crear una",
+    "en": "I don't have an account: create one"
+  },
+  {
+    "clave": "cuenta.cambioEntrar",
+    "es": "Ya tengo cuenta: entrar",
+    "en": "I already have an account: sign in"
+  },
+  {
+    "clave": "cuenta.confirmaCorreo",
+    "es": "Cuenta creada: revisa tu correo y confírmalo para poder entrar.",
+    "en": "Account created: check your email and confirm it before signing in."
+  },
+  {
+    "clave": "cuenta.salir",
+    "es": "Cerrar sesión",
+    "en": "Sign out"
+  },
+  {
+    "clave": "cuenta.plan.pro",
+    "es": "Pro",
+    "en": "Pro"
+  },
+  {
+    "clave": "cuenta.plan.local",
+    "es": "Local",
+    "en": "Local"
+  },
+  {
+    "clave": "cuenta.plan.expira",
+    "es": "Renueva o vence: {f}",
+    "en": "Renews or expires: {f}"
+  },
+  {
+    "clave": "cuenta.uso.titulo",
+    "es": "Uso de IA este mes",
+    "en": "AI usage this month"
+  },
+  {
+    "clave": "cuenta.uso.tituloLocal",
+    "es": "Tus créditos de IA",
+    "en": "Your AI credits"
+  },
+  {
+    "clave": "cuenta.uso.creditos",
+    "es": "Créditos",
+    "en": "Credits"
+  },
+  {
+    "clave": "cuenta.uso.extra",
+    "es": "Créditos extra (recargas): {n}",
+    "en": "Extra credits (top-ups): {n}"
+  },
+  {
+    "clave": "cuenta.uso.notaImagen",
+    "es": "1 respuesta = 1 crédito · un plan largo = 3 · una imagen o un modelo 3D = 10",
+    "en": "1 reply = 1 credit · a long plan = 3 · an image or a 3D model = 10"
+  },
+  {
+    "clave": "creditos.n",
+    "en": "{n} credits"
+  },
+  {
+    "clave": "creditos.ayuda",
+    "es": "1 respuesta = 1 crédito · un plan largo = 4 · una imagen 3 o 10 · un modelo 3D = 10",
+    "en": "1 reply = 1 credit · a long plan = 4 · an image 3 or 10 · a 3D model = 10"
+  },
+  {
+    "clave": "creditos.porCada",
+    "es": "{n} c/u",
+    "en": "{n} each"
+  },
+  {
+    "clave": "creditos.uno",
+    "es": "1 crédito",
+    "en": "1 credit"
+  },
+  {
+    "clave": "gastoByok.total",
+    "es": "Gastado con tu clave: {monto}",
+    "en": "Spent with your key: {monto}"
+  },
+  {
+    "clave": "gastoByok.ayuda",
+    "es": "Lo que han costado tus llamadas con tu propia clave, por tipo.",
+    "en": "What your calls with your own key have cost, by type."
+  },
+  {
+    "clave": "gastoByok.titulo",
+    "es": "Gasto con tu propia clave",
+    "en": "Spending with your own key"
+  },
+  {
+    "clave": "gastoByok.reiniciar",
+    "es": "Reiniciar",
+    "en": "Reset"
+  },
+  {
+    "clave": "gastoByok.totalLabel",
+    "es": "Total",
+    "en": "Total"
+  },
+  {
+    "clave": "gastoByok.nota",
+    "es": "Estimado, no exacto — revisa tu cuenta del proveedor para el monto real.",
+    "en": "Estimated, not exact — check your provider account for the real amount."
+  },
+  {
+    "clave": "gastoByok.chat",
+    "es": "Chat",
+    "en": "Chat"
+  },
+  {
+    "clave": "gastoByok.imagen",
+    "es": "Imágenes",
+    "en": "Images"
+  },
+  {
+    "clave": "gastoByok.modelo3d",
+    "es": "Modelos 3D",
+    "en": "3D models"
+  },
+  {
+    "clave": "gastoByok.voz",
+    "es": "Dictado",
+    "en": "Dictation"
+  },
+  {
+    "clave": "gastoByok.tts",
+    "es": "Voz con IA",
+    "en": "AI voice"
+  },
+  {
+    "clave": "ia.titulo",
+    "es": "IA: activar y precios",
+    "en": "AI: turn on and pricing"
+  },
+  {
+    "clave": "ia.precios.titulo",
+    "es": "Precios de la IA",
+    "en": "AI pricing"
+  },
+  {
+    "clave": "ia.activar.titulo",
+    "es": "Activar la IA",
+    "en": "Turn on the AI"
+  },
+  {
+    "clave": "ia.activar.porCuenta",
+    "es": "Activa con tu cuenta: cada cosa que pidas gasta créditos.",
+    "en": "On, using your account: everything you ask for spends credits."
+  },
+  {
+    "clave": "ia.activar.porClave",
+    "es": "Activa con tu clave de {prov}. No gasta créditos: te lo cobra {prov}.",
+    "en": "On, using your {prov} key. It spends no credits: {prov} bills you directly."
+  },
+  {
+    "clave": "ia.activar.sinActivar",
+    "es": "La IA está apagada. Inicia sesión para usar créditos, o pega abajo la clave de un proveedor.",
+    "en": "The AI is off. Sign in to use credits, or paste a provider key below."
+  },
+  {
+    "clave": "ia.activar.priv",
+    "es": "Se guarda solo en este dispositivo y nunca sale de él salvo hacia {prov}.",
+    "en": "Stored on this device only, and it never leaves it except towards {prov}."
+  },
+  {
+    "clave": "ia.calidad.titulo",
+    "es": "Calidad de las imágenes",
+    "en": "Image quality"
+  },
+  {
+    "clave": "ia.calidad.rapida",
+    "es": "Rápida",
+    "en": "Fast"
+  },
+  {
+    "clave": "ia.calidad.rapida.desc",
+    "es": "Buena y barata. Es la que uso salvo que digas otra cosa.",
+    "en": "Good and cheap. The one I use unless you say otherwise."
+  },
+  {
+    "clave": "ia.calidad.buena",
+    "es": "Buena",
+    "en": "Best"
+  },
+  {
+    "clave": "ia.calidad.buena.desc",
+    "es": "Más detalle y mejor texto dentro de la imagen.",
+    "en": "More detail and better text inside the image."
+  },
+  {
+    "clave": "ia.tarifas",
+    "es": "Una respuesta cuesta 1 crédito · un plan largo 3 · una imagen {img} · un modelo 3D 10.",
+    "en": "A reply costs 1 credit · a long plan 3 · an image {img} · a 3D model 10."
+  },
+  {
+    "clave": "ia.precios.pie",
+    "es": "El cobro lo hace el servidor: esto es lo que costará antes de pedirlo.",
+    "en": "The server does the charging: this is what it will cost before you ask."
+  },
+  {
+    "clave": "ia.precios.pieSinCuenta",
+    "es": "Con tu propia clave de IA no se gastan créditos: pagas directo a tu proveedor.",
+    "en": "With your own AI key no credits are spent: you pay your provider directly."
+  },
+  {
+    "clave": "ia.grupo.chat",
+    "en": "House chat"
+  },
+  {
+    "clave": "ia.grupo.editor",
+    "en": "House editor"
+  },
+  {
+    "clave": "ia.grupo.metas",
+    "en": "Goals and schedule"
+  },
+  {
+    "clave": "ia.donde.chat",
+    "en": "House chat"
+  },
+  {
+    "clave": "ia.donde.casa",
+    "en": "The house (automatic)"
+  },
+  {
+    "clave": "ia.donde.editorObjetos",
+    "en": "Editor › Objects"
+  },
+  {
+    "clave": "ia.donde.editorPersonajes",
+    "en": "Editor › Characters"
+  },
+  {
+    "clave": "ia.donde.editorCuarto",
+    "en": "Editor › Floor, Walls, Ceiling, Doors and Grid"
+  },
+  {
+    "clave": "ia.donde.editorFondo",
+    "en": "Sky background"
+  },
+  {
+    "clave": "ia.donde.asistentes",
+    "en": "Assistants"
+  },
+  {
+    "clave": "ia.donde.metas",
+    "en": "Kitchen, Exercise, Library, Languages, Living room, Hobbies, Office and Entertainment"
+  },
+  {
+    "clave": "ia.op.chat.mensaje",
+    "en": "Message to your assistant"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d",
+    "en": "“Make a 3D…” from chat"
+  },
+  {
+    "clave": "ia.op.chat.modelo3d.nota",
+    "en": "Two calls: the turn that reads the order and the generation itself."
+  },
+  {
+    "clave": "ia.op.chat.imagen",
+    "en": "“Create an image of…” from chat"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas",
+    "en": "“Make me an idea map” from chat"
+  },
+  {
+    "clave": "ia.op.chat.mapaIdeas.nota",
+    "en": "If the map does not come out right the first time, it retries once."
+  },
+  {
+    "clave": "ia.op.chat.latido",
+    "en": "Spontaneous line from your character"
+  },
+  {
+    "clave": "ia.op.chat.latido.nota",
+    "en": "Only with a subscription and only on 1 in 10 heartbeats."
+  },
+  {
+    "clave": "ia.op.editor.objeto3d",
+    "en": "3D model of an object or structure"
+  },
+  {
+    "clave": "ia.op.editor.personaje3d",
+    "en": "3D model of a character"
+  },
+  {
+    "clave": "ia.op.editor.ropa3d",
+    "en": "Wardrobe garment"
+  },
+  {
+    "clave": "ia.op.editor.asistente3d",
+    "en": "Shape of an assistant"
+  },
+  {
+    "clave": "ia.op.editor.asistenteVoz",
+    "en": "AI voice for an assistant"
+  },
+  {
+    "clave": "ia.op.editor.textura",
+    "en": "Texture for floor, wall, ceiling, door or map"
+  },
+  {
+    "clave": "ia.op.editor.fondo",
+    "en": "Sky background texture"
+  },
+  {
+    "clave": "ia.op.metas.plan",
+    "en": "AI ✨ plan for a goal"
+  },
+  {
+    "clave": "ia.op.metas.plan.nota",
+    "en": "Schedules, travel itineraries, study plans and financial plans."
+  },
+  {
+    "clave": "ia.op.cocina.receta",
+    "en": "Create a recipe with AI"
+  },
+  {
+    "clave": "ia.op.cocina.dieta",
+    "en": "Full diet or meal plan"
+  },
+  {
+    "clave": "ia.op.cocina.dieta.nota",
+    "en": "The plan and each of its recipes are written separately, and every dish gets its photo."
+  },
+  {
+    "clave": "ia.op.cocina.macros",
+    "en": "Work out calories and macros"
+  },
+  {
+    "clave": "ia.op.cocina.portada",
+    "en": "Photo for a recipe or diet"
+  },
+  {
+    "clave": "ia.donde.cocina.recetario",
+    "en": "Recipe book"
+  },
+  {
+    "clave": "ia.donde.cocina.dietas",
+    "en": "Diets · Meal plan"
+  },
+  {
+    "clave": "ia.donde.cocina.registro",
+    "en": "Meal log"
+  },
+  {
+    "clave": "ia.donde.cocina.detalle",
+    "en": "Recipe or diet detail"
+  },
+  {
+    "clave": "ia.op.ejercicio.imagen",
+    "en": "Illustrate an exercise"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote",
+    "en": "Illustrate the missing exercises"
+  },
+  {
+    "clave": "ia.op.ejercicio.lote.nota",
+    "en": "One image per unillustrated exercise: the total depends on how many are missing."
+  },
+  {
+    "clave": "ia.donde.ejercicio.catalogo",
+    "en": "Exercise catalogue"
+  },
+  {
+    "clave": "ia.op.biblioteca.charla",
+    "en": "Turn of a chat with the Sage"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva",
+    "en": "First turn of a new chat"
+  },
+  {
+    "clave": "ia.op.biblioteca.charlaNueva.nota",
+    "en": "The reply, plus the call that titles it and places it in your tree, plus the one that distils its entry."
+  },
+  {
+    "clave": "ia.op.biblioteca.clasificar",
+    "en": "Classify and distil a chat ✨"
+  },
+  {
+    "clave": "ia.op.biblioteca.ramificar",
+    "en": "Branch out the tree 🌿"
+  },
+  {
+    "clave": "ia.op.biblioteca.destilar",
+    "en": "Update the entry when leaving the chat"
+  }
+]

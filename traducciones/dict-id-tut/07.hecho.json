@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "texto": "Hubungkan aplikasi membuka pemilihnya: kamu pilih aplikasinya dulu, lalu bagian mana di dalamnya (kalau punya beberapa bagian tempat mencatat)."
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "texto": "Chip yang sudah terpasang"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "texto": "Kalau chip-nya sudah terpasang, menyentuhnya membuka aplikasi itu langsung di bagian tersebut. Menghapusnya tidak menghapus target maupun tanggalnya: hanya melepas tautannya."
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "texto": "Hanya aplikasi yang ditugaskan ke sebuah objek di suatu ruangan yang muncul sebagai tujuan: menautkan ke aplikasi tanpa ruangan berarti chip yang tidak membawamu ke mana-mana."
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "texto": "Tombol ini membuka kontrol musik rumah."
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "texto": "Nyalakan atau matikan"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "texto": "Satu sakelar untuk seluruh musik ambien di rumah. Saat mati, rumah jadi sunyi kecuali suara dari aksi-aksi tertentu."
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "texto": "Tema per ruangan"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "texto": "Setiap ruangan bisa terdengar berbeda: otomatis mengikuti aplikasinya, satu tema yang kamu pilih sendiri, atau sunyi total di ruangan itu tanpa mengubah sisa rumah."
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "texto": "Dari mana suaranya berasal"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "texto": "Dihasilkan (menggubah sendiri sesuai suasana), Trek saya (yang kamu unggah) atau Sistem (yang sedang kamu putar di luar aplikasi, tanpa tertimpa)."
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "texto": "Volume terpisah"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "texto": "Musik dan suara aksi (langkah kaki, klik, pencapaian) diatur terpisah — kamu bisa mengecilkan musiknya dan membiarkan efeknya, atau sebaliknya."
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "texto": "Tombol HUD bisa dihilangkan dari layar utama; musiknya tetap bisa diatur di Editor › Pengaturan › Musik."
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "texto": "Di sinilah AI rumah dinyalakan: tanpa ini, obrolan tetap jalan lewat kata kunci, dan fitur seperti membuat resep, rencana, atau gambar tetap mati."
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "texto": "Dengan atau tanpa akun"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "texto": "Kamu bisa memakai AI dengan kunci penyedia milikmu sendiri (tanpa akun, tanpa kredit) atau dengan akun yang membawa kredit dan menyinkronkan antarperangkat."
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "texto": "Harga AI"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "texto": "Tabel ini tetap informatif meski kamu tidak punya akun: persis yang kamu butuhkan untuk memutuskan apakah sepadan. Ditampilkan per ruangan, operasi demi operasi."
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "texto": "Satu-satunya pengubah"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "texto": "Kualitas gambar adalah satu-satunya hal yang mengubah harga di seluruh tabel: Cepat itu bagus dan murah (yang dipakai secara bawaan); Terbaik memberi lebih banyak detail dan teks yang lebih rapi di dalam gambar."
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "texto": "Satu satuan, banyak operasi"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "texto": "Satu jawaban berharga 1 kredit, rencana panjang 4, gambar atau model 3D 10 — aturannya sama untuk semua ruangan, tabel ini hanya membentangkannya satu per satu."
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "texto": "Bilah ini muncul di hampir semua aplikasi selama belum ada datamu di dalamnya: satu tombol untuk melihatnya penuh contoh, alih-alih memulai dari layar kosong."
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "texto": "Melihat contoh tidak menghapus atau mencampur apa pun milikmu: itu baris tersendiri, ditandai sebagai contoh, yang disembunyikan (bukan dihapus) saat kamu mematikannya. Menyalakannya lagi mengembalikannya persis seperti semula."
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "texto": "Di dalam rumah demo bilah ini tidak muncul: satu tahun penuh milik Pep sudah mengisi peran itu, jadi tidak perlu contoh terpisah."
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "texto": "Tiga sumber, satu daftar"
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "texto": "Tercoret karena datanya ada"
+  }
+]

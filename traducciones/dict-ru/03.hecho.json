@@ -1,0 +1,542 @@
+[
+  {
+    "clave": "ejercicio.cronograma.desc",
+    "texto": "Твои большие цели на оси времени. С ✨ ИИ составляет план и подсказывает, какие рутины стоит добавить в расписание."
+  },
+  {
+    "clave": "sala.tab.cronograma",
+    "texto": "Цели"
+  },
+  {
+    "clave": "avisos.rutinaPasos",
+    "texto": "Тебе нужно сделать {n} шагов."
+  },
+  {
+    "clave": "avisos.rutinaHora",
+    "texto": "Пора."
+  },
+  {
+    "clave": "avisos.abrir",
+    "texto": "Открыть"
+  },
+  {
+    "clave": "avisos.metaFalta",
+    "texto": "Пройдено {hecho} из {objetivo}."
+  },
+  {
+    "clave": "notif.titulo",
+    "texto": "Уведомления"
+  },
+  {
+    "clave": "notif.general",
+    "texto": "Уведомлять меня"
+  },
+  {
+    "clave": "notif.rutinas",
+    "texto": "События и рутины по времени"
+  },
+  {
+    "clave": "notif.metas",
+    "texto": "Невыполненные цели дня"
+  },
+  {
+    "clave": "notif.porApp",
+    "texto": "По приложениям"
+  },
+  {
+    "clave": "notif.denegado",
+    "texto": "Браузер заблокировал уведомления для этого сайта: разблокировать их можно только через значок замка. А пока напоминания будут приходить через твоего помощника."
+  },
+  {
+    "clave": "notif.noSoportado",
+    "texto": "В этом браузере нет уведомлений — напоминания приходят через твоего помощника."
+  },
+  {
+    "clave": "horario.agendar",
+    "texto": "Запланировать"
+  },
+  {
+    "clave": "horario.titulo",
+    "texto": "Расписание"
+  },
+  {
+    "clave": "horario.plegar",
+    "texto": "Готово"
+  },
+  {
+    "clave": "horario.hora",
+    "texto": "Время"
+  },
+  {
+    "clave": "horario.frecuencia",
+    "texto": "Повтор"
+  },
+  {
+    "clave": "horario.dias",
+    "texto": "Дни"
+  },
+  {
+    "clave": "horario.sinDias",
+    "texto": "Ничего не отмечено — значит, каждый день."
+  },
+  {
+    "clave": "horario.sinHora",
+    "texto": "Без времени"
+  },
+  {
+    "clave": "horario.todosDias",
+    "texto": "каждый день"
+  },
+  {
+    "clave": "horario.avisar",
+    "texto": "Напомнить в это время"
+  },
+  {
+    "clave": "horario.avisar.hint",
+    "texto": "Придёт уведомление."
+  },
+  {
+    "clave": "horario.avisar.hintSinPermiso",
+    "texto": "Напомним прямо в приложении."
+  },
+  {
+    "clave": "horario.avisar.on",
+    "texto": "Да"
+  },
+  {
+    "clave": "horario.avisar.off",
+    "texto": "Нет"
+  },
+  {
+    "clave": "horario.hechoHoy",
+    "texto": "Сделано сегодня"
+  },
+  {
+    "clave": "horario.masOpciones",
+    "texto": "Больше опций ›"
+  },
+  {
+    "clave": "horario.quitar",
+    "texto": "Убрать"
+  },
+  {
+    "clave": "rutinas.avisar",
+    "texto": "Напомнить в это время"
+  },
+  {
+    "clave": "rutinas.avisar.hint",
+    "texto": "Придёт уведомление."
+  },
+  {
+    "clave": "rutinas.avisar.hintSinPermiso",
+    "texto": "Напомним прямо в приложении."
+  },
+  {
+    "clave": "rutinas.avisar.on",
+    "texto": "Да"
+  },
+  {
+    "clave": "rutinas.avisar.off",
+    "texto": "Нет"
+  },
+  {
+    "clave": "avisoAct.cuerpo",
+    "texto": "Время ({hora})."
+  },
+  {
+    "clave": "avisoAct.ahoraNo",
+    "texto": "Не сейчас"
+  },
+  {
+    "clave": "avisoAct.ir",
+    "texto": "Перейти и записать"
+  },
+  {
+    "clave": "hobbies.registrarMin",
+    "texto": "Записать {n} мин"
+  },
+  {
+    "clave": "hobbies.plan.tipo",
+    "texto": "Практика"
+  },
+  {
+    "clave": "hobbies.plan.ejemplo",
+    "texto": "Сыграть 3 песни целиком"
+  },
+  {
+    "clave": "hobbies.plan.ejProyecto",
+    "texto": "Завершить {proyecto}"
+  },
+  {
+    "clave": "hobbies.plan.material",
+    "texto": "Проекты плана"
+  },
+  {
+    "clave": "ejercicio.registrarSesion",
+    "texto": "Записать {n} мин"
+  },
+  {
+    "clave": "ejercicio.plan.ejemplo",
+    "texto": "Пробежать 5 км без остановки"
+  },
+  {
+    "clave": "ejercicio.plan.material",
+    "texto": "Рутины плана"
+  },
+  {
+    "clave": "cocina.horarios",
+    "texto": "Время приёма пищи"
+  },
+  {
+    "clave": "cocina.plan.tipoComida",
+    "texto": "Приём пищи"
+  },
+  {
+    "clave": "cocina.plan.material",
+    "texto": "Рецепты плана"
+  },
+  {
+    "clave": "cocina.plan.ejemplo",
+    "texto": "Попробовать средиземноморскую диету"
+  },
+  {
+    "clave": "cocina.plan.ejBajar",
+    "texto": "Снизить вес до {kg} кг"
+  },
+  {
+    "clave": "cocina.plan.ejSubir",
+    "texto": "Набрать вес до {kg} кг"
+  },
+  {
+    "clave": "cocina.plan.ejMantener",
+    "texto": "Удерживать вес {kg} кг"
+  },
+  {
+    "clave": "biblioteca.plan.ejemplo",
+    "texto": "Освоить основы статистики"
+  },
+  {
+    "clave": "biblioteca.plan.material",
+    "texto": "Из твоей энциклопедии"
+  },
+  {
+    "clave": "idiomas.plan.ejemplo",
+    "texto": "Свободно говорить в следующей поездке"
+  },
+  {
+    "clave": "idiomas.plan.ejemploNivel",
+    "texto": "Достичь уровня {nivel} по {idioma}"
+  },
+  {
+    "clave": "idiomas.plan.material",
+    "texto": "Темы плана"
+  },
+  {
+    "clave": "sala.plan.ejemplo",
+    "texto": "Маршрут на 5 дней по Киото"
+  },
+  {
+    "clave": "sala.plan.ejLugar",
+    "texto": "Маршрут поездки в {lugar}"
+  },
+  {
+    "clave": "sala.plan.material",
+    "texto": "Из твоего списка «Хочу увидеть»"
+  },
+  {
+    "clave": "entret.plan.ejemplo",
+    "texto": "Досмотреть сагу «Крёстный отец»"
+  },
+  {
+    "clave": "entret.plan.material",
+    "texto": "Из твоего архива"
+  },
+  {
+    "clave": "descanso.plan.ejemplo",
+    "texto": "Засыпать меньше чем за 15 минут"
+  },
+  {
+    "clave": "anecdotario.plan.ejemplo",
+    "texto": "Записать поездку этого года"
+  },
+  {
+    "clave": "jardin.plan.ejemplo",
+    "texto": "Десять минут покоя в день"
+  },
+  {
+    "clave": "ideas.plan.ejemplo",
+    "texto": "Превратить идею из дневника в реальность"
+  },
+  {
+    "clave": "ideas.plan.material",
+    "texto": "Идеи плана"
+  },
+  {
+    "clave": "diario.plan.ejemplo",
+    "texto": "Читать утренний выпуск каждый день"
+  },
+  {
+    "clave": "garage.plan.ejemplo",
+    "texto": "Подготовить машину к зиме"
+  },
+  {
+    "clave": "garage.plan.material",
+    "texto": "Документы плана"
+  },
+  {
+    "clave": "agenda.plan.ejemplo",
+    "texto": "Сдать проект вовремя"
+  },
+  {
+    "clave": "agenda.plan.material",
+    "texto": "Задачи плана"
+  },
+  {
+    "clave": "cocina.horarios.ayuda",
+    "texto": "Когда ты ешь каждый приём пищи. Они появляются в твоём календаре и могут присылать напоминания."
+  },
+  {
+    "clave": "jardin.med.reservar",
+    "texto": "Твоё время покоя"
+  },
+  {
+    "clave": "jardin.med.bloque",
+    "texto": "Медитировать"
+  },
+  {
+    "clave": "jardin.registrarMin",
+    "texto": "Записать {n} мин"
+  },
+  {
+    "clave": "biblioteca.est.reservar",
+    "texto": "Твоё время учёбы"
+  },
+  {
+    "clave": "biblioteca.est.bloque",
+    "texto": "Учиться"
+  },
+  {
+    "clave": "biblioteca.registrarMin",
+    "texto": "Записать {n} мин"
+  },
+  {
+    "clave": "idiomas.rep.reservar",
+    "texto": "Твоё время повторения"
+  },
+  {
+    "clave": "idiomas.rep.bloque",
+    "texto": "Повторить {idioma}"
+  },
+  {
+    "clave": "notif.ayudaCerrada",
+    "texto": "Напоминания приходят, пока приложение открыто, даже в фоне. Если вкладка закрыта, браузер не может его разбудить — для этого нужно установить приложение на телефон."
+  },
+  {
+    "clave": "progreso.nivel",
+    "texto": "Уровень"
+  },
+  {
+    "clave": "progreso.racha",
+    "texto": "Серия"
+  },
+  {
+    "clave": "progreso.dias",
+    "texto": "дней"
+  },
+  {
+    "clave": "progreso.hoy",
+    "texto": "Сегодня"
+  },
+  {
+    "clave": "progreso.semana",
+    "texto": "7 дней"
+  },
+  {
+    "clave": "plantillas.ayuda",
+    "texto": "Перетащи шаблон в другую папку; коснись значка, чтобы попробовать приложение, и названия папки, чтобы переименовать её."
+  },
+  {
+    "clave": "plantillas.entrar",
+    "texto": "Открыть приложение"
+  },
+  {
+    "clave": "plantillas.cerrarPrevia",
+    "texto": "‹ Закрыть"
+  },
+  {
+    "clave": "plantillas.asistente",
+    "texto": "Помощник, который её ведёт"
+  },
+  {
+    "clave": "plantillas.sinAsistente",
+    "texto": "Без помощника (её ведут все)"
+  },
+  {
+    "clave": "plantillas.asignar",
+    "texto": "Назначить объекту или комнате"
+  },
+  {
+    "clave": "plantillas.asignarObjeto",
+    "texto": "+ Назначить объекту…"
+  },
+  {
+    "clave": "plantillas.asignarA",
+    "texto": "+ Назначить комнате…"
+  },
+  {
+    "clave": "plantillas.sinCuartos",
+    "texto": "Сначала создай комнату"
+  },
+  {
+    "clave": "plantillas.objetoPrincipal",
+    "texto": "Главный объект (вход в комнату)"
+  },
+  {
+    "clave": "plantillas.traeObjetos",
+    "texto": "Объекты, которые добавляет приложение"
+  },
+  {
+    "clave": "plantillas.esPrincipal",
+    "texto": "Главный объект"
+  },
+  {
+    "clave": "plantillas.hacerPrincipal",
+    "texto": "Сделать главным"
+  },
+  {
+    "clave": "plantillas.quitarObjeto",
+    "texto": "Убрать объект"
+  },
+  {
+    "clave": "plantillas.agregarObjeto",
+    "texto": "Добавить объект"
+  },
+  {
+    "clave": "selObjeto.titulo",
+    "texto": "Добавить объект"
+  },
+  {
+    "clave": "plantillas.todasAsignadas",
+    "texto": "Все приложения уже живут в комнатах. Если удалить комнату, её шаблон вернётся сюда."
+  },
+  {
+    "clave": "plantillaCustom.crear",
+    "texto": "Создать шаблон"
+  },
+  {
+    "clave": "plantillaCustom.editar",
+    "texto": "Изменить шаблон"
+  },
+  {
+    "clave": "plantillaCustom.eliminar",
+    "texto": "Удалить шаблон"
+  },
+  {
+    "clave": "plantillaCustom.confirmarBorrar",
+    "texto": "Удалить этот шаблон и все его данные?"
+  },
+  {
+    "clave": "plantillaCustom.enUso",
+    "texto": "Твои используемые шаблоны"
+  },
+  {
+    "clave": "plantillaCustom.nombrePh",
+    "texto": "Напр. Переезд, растения, питомец…"
+  },
+  {
+    "clave": "plantillaCustom.emojiLibre",
+    "texto": "Другой эмодзи"
+  },
+  {
+    "clave": "plantillaCustom.herramientas",
+    "texto": "Инструменты шаблона"
+  },
+  {
+    "clave": "plantillaCustom.sinBloques",
+    "texto": "Добавь хотя бы один инструмент — он станет разделом твоего приложения."
+  },
+  {
+    "clave": "plantillaCustom.quitarBloque",
+    "texto": "Убрать (при сохранении данные удалятся)"
+  },
+  {
+    "clave": "plantillaCustom.menusAyuda",
+    "texto": "Раздели блоки по вкладкам. Без меню приложение — это один экран."
+  },
+  {
+    "clave": "plantillaCustom.agregarMenu",
+    "texto": "Меню"
+  },
+  {
+    "clave": "plantillaCustom.agregarAqui",
+    "texto": "Добавить инструмент"
+  },
+  {
+    "clave": "plantillaCustom.agregarSubmenu",
+    "texto": "Подменю этого меню"
+  },
+  {
+    "clave": "plantillaCustom.menuNuevo",
+    "texto": "Меню {n}"
+  },
+  {
+    "clave": "plantillaCustom.submenuNuevo",
+    "texto": "Подменю {n}"
+  },
+  {
+    "clave": "plantillaCustom.menuSinNombre",
+    "texto": "Меню"
+  },
+  {
+    "clave": "plantillaCustom.menuNombrePh",
+    "texto": "Название меню"
+  },
+  {
+    "clave": "plantillaCustom.menuEmoji",
+    "texto": "Эмодзи меню (необязательно)"
+  },
+  {
+    "clave": "plantillaCustom.borrarMenu",
+    "texto": "Удалить меню (его блоки перейдут в первое)"
+  },
+  {
+    "clave": "plantillaCustom.menuBloque",
+    "texto": "Меню"
+  },
+  {
+    "clave": "plantillaCustom.menuVacio",
+    "texto": "В этом меню пока нет блоков."
+  },
+  {
+    "clave": "plantillaCustom.submenu",
+    "texto": "Подменю"
+  },
+  {
+    "clave": "plantillaCustom.editarApp",
+    "texto": "Изменить приложение"
+  },
+  {
+    "clave": "plantillaCustom.listo",
+    "texto": "Готово"
+  },
+  {
+    "clave": "plantillaCustom.editorCompleto",
+    "texto": "Полный редактор"
+  },
+  {
+    "clave": "plantillaCustom.borrar",
+    "texto": "Удалить"
+  },
+  {
+    "clave": "plantillaCustom.borrarMenuTitulo",
+    "texto": "Удалить «{nombre}»"
+  },
+  {
+    "clave": "plantillaCustom.borrarMenuMsj",
+    "texto": "Его инструменты вместе с данными перейдут в первое меню."
+  },
+  {
+    "clave": "plantillaCustom.borrarBloqueTitulo",
+    "texto": "Удалить «{nombre}»"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "clave": "tut.respaldo.3.texto",
+    "es": "Restaurar REEMPLAZA todos los datos actuales por los del archivo — pide confirmación antes y muestra cuántos registros trae, así que no hay sorpresas.",
+    "en": "Restoring REPLACES all current data with the file's — it asks for confirmation first and shows how many records it carries, so there are no surprises."
+  },
+  {
+    "clave": "tut.respaldo.4.texto",
+    "es": "Conviene respaldar antes de cambiar de dispositivo, de navegador, o simplemente de vez en cuando: es la única copia que tienes sin cuenta.",
+    "en": "Worth backing up before switching devices, changing browsers, or just now and then: it's the only copy you have without an account."
+  },
+  {
+    "clave": "tut.editor-cuarto.1.texto",
+    "es": "Estás editando un cuarto concreto: el croquis y la cámara se enfocan en él, no en toda la casa.",
+    "en": "You're editing a specific room: the blueprint and the camera focus on it, not the whole home."
+  },
+  {
+    "clave": "tut.editor-cuarto.2.titulo",
+    "es": "Qué se edita",
+    "en": "What you can edit"
+  },
+  {
+    "clave": "tut.editor-cuarto.2.texto",
+    "es": "Forma, piso, muros, puertas, color y nombre del cuarto, y sus objetos. La app asignada también se cambia desde aquí: es lo que más trae a la gente a este panel.",
+    "en": "Shape, floor, walls, doors, color and name of the room, and its objects. The assigned app also changes from here: it's what brings most people to this panel."
+  },
+  {
+    "clave": "tut.editor-cuarto.3.titulo",
+    "es": "Volver al mapa",
+    "en": "Back to the map"
+  },
+  {
+    "clave": "tut.editor-cuarto.3.texto",
+    "es": "Esta flecha vuelve al mapa completo sin cerrar el editor, para seguir trabajando en otro cuarto.",
+    "en": "This arrow returns to the full map without closing the editor, so you can keep working on another room."
+  },
+  {
+    "clave": "tut.editor-cuarto.4.texto",
+    "es": "También hay un botón flotante «Salir del cuarto» sobre el propio cuarto en el 3D, por si prefieres tocarlo ahí.",
+    "en": "There's also a floating \"Exit room\" button over the room itself in 3D, in case you'd rather tap it there."
+  },
+  {
+    "clave": "tut.herramientas.1.texto",
+    "es": "Este botón abre la rueda de herramientas de tu personaje.",
+    "en": "This button opens your character's tool wheel."
+  },
+  {
+    "clave": "tut.herramientas.2.titulo",
+    "es": "Dos niveles",
+    "en": "Two levels"
+  },
+  {
+    "clave": "tut.herramientas.2.texto",
+    "es": "Primero eliges categoría y luego la herramienta concreta dentro de ella. Puedes equipar hasta 3 herramientas a la vez, de categorías distintas o repetidas.",
+    "en": "First pick a category, then the specific tool inside it. You can equip up to 3 tools at once, from the same category or different ones."
+  },
+  {
+    "clave": "tut.herramientas.3.titulo",
+    "es": "La cuarta categoría",
+    "en": "The fourth category"
+  },
+  {
+    "clave": "tut.herramientas.3.texto",
+    "es": "Construcción no equipa un juguete: activa el modo de dibujo del mapa (cuartos, muros, puertas, ventanas, pisos, techos) sin pasar por el editor completo. Es el mismo croquis, solo que se llega más rápido.",
+    "en": "Construction doesn't equip a toy: it turns on the map's drawing mode (rooms, walls, doors, windows, floors, roofs) without going through the full editor. Same blueprint, just a faster way in."
+  },
+  {
+    "clave": "tut.herramientas.4.titulo",
+    "es": "El centro",
+    "en": "The center"
+  },
+  {
+    "clave": "tut.herramientas.4.texto",
+    "es": "El centro suelta todo lo equipado y devuelve el hueco de la esquina a su estado normal (el cubo de vistas u otro contextual, según lo que tengas cerca).",
+    "en": "The center drops everything equipped and returns the corner control to normal (the view cube or another contextual one, depending on what's nearby)."
+  },
+  {
+    "clave": "tut.herramientas.5.texto",
+    "es": "Se cierra tocando fuera de la rueda. Pruébala cuando quieras: nada de esto se guarda como permanente, es solo mientras la llevas puesta.",
+    "en": "It closes by tapping outside the wheel. Try it whenever you like: none of this is saved as permanent, it only lasts while you're wearing it."
+  },
+  {
+    "clave": "tut.navegacion.1.texto",
+    "es": "Tres cámaras: Iso (vista de casa de muñecas), 3ª y 1ª persona. Cambia aquí o con la tecla V.",
+    "en": "Three cameras: Iso (dollhouse view), 3rd and 1st person. Switch here or with the V key."
+  },
+  {
+    "clave": "tut.navegacion.2.titulo",
+    "es": "Orientarse",
+    "en": "Orienting"
+  },
+  {
+    "clave": "tut.navegacion.2.texto",
+    "es": "En iso, el cubo gira la cámara por caras; en 3ª/1ª, arrastra el pad para mirar alrededor.",
+    "en": "In iso, the cube turns the camera by faces; in 3rd/1st, drag the pad to look around."
+  },
+  {
+    "clave": "tut.navegacion.3.titulo",
+    "es": "Cuando hay algo cerca",
+    "en": "When something's nearby"
+  },
+  {
+    "clave": "tut.navegacion.3.texto",
+    "es": "Ese mismo hueco deja de ser cámara al acercarte a algo interactivo: una cancha ofrece su botón de jugar, un vehículo el de subirte, una silla el de sentarte. Solo una cosa a la vez, y siempre por proximidad — nunca automático.",
+    "en": "That same corner stops being a camera control once you approach something interactive: a court offers its play button, a vehicle its mount button, a chair its sit button. Only one thing at a time, always by proximity — never automatic."
+  },
+  {
+    "clave": "tut.navegacion.4.titulo",
+    "es": "Rotar y centrar",
+    "en": "Rotate and center"
+  },
+  {
+    "clave": "tut.navegacion.4.texto",
+    "es": "Rota la vista a los lados o céntrala de nuevo en el mapa si te perdiste explorando.",
+    "en": "Rotate the view sideways or center it back on the map if you wandered off exploring."
+  },
+  {
+    "clave": "tut.navegacion.5.titulo",
+    "es": "Moverse",
+    "en": "Moving"
+  },
+  {
+    "clave": "tut.navegacion.5.texto",
+    "es": "Camina con el joystick, WASD o las flechas. En el agua nadas; con un vehículo montado, conduces con los mismos controles.",
+    "en": "Walk with the joystick, WASD or the arrows. In water you swim; on a mounted vehicle, you drive with the same controls."
+  },
+  {
+    "clave": "tut.navegacion.6.texto",
+    "es": "En 3ª/1ª persona aparece el botón Editor 3D: toca objetos, muros o personajes para editarlos justo donde están, sin volver a la vista isométrica.",
+    "en": "In 3rd/1st person the 3D Editor button appears: touch objects, walls or characters to edit them right where they are, without switching to isometric view."
+  },
+  {
+    "clave": "tut.chat.1.texto",
+    "es": "El chat del arquitecto: registra tu día, edita la casa y responde tus dudas, todo desde el mismo cuadro.",
+    "en": "The architect's chat: log your day, edit the home and get your questions answered, all from the same box."
+  },
+  {
+    "clave": "tut.chat.2.titulo",
+    "es": "Escribir",
+    "en": "Writing"
+  },
+  {
+    "clave": "tut.chat.2.texto",
+    "es": "Escribe libre: «corrí 20 min», «gasté 250 en el súper»… El chip de al lado muestra a qué app irá. Usa @cuarto para forzar destino si lo adivina mal.",
+    "en": "Write freely: \"ran 20 min\", \"spent 250 on groceries\"… The chip next to it shows which app it will go to. Use @room to force a destination if it guesses wrong."
+  },
+  {
+    "clave": "tut.chat.3.titulo",
+    "es": "Dictar por voz",
+    "en": "Dictate by voice"
+  },
+  {
+    "clave": "tut.chat.3.texto",
+    "es": "El micrófono transcribe lo que digas al cuadro de texto — útil para registrar sin soltar lo que traes en las manos.",
+    "en": "The microphone transcribes what you say into the text box — handy for logging without letting go of what's in your hands."
+  },
+  {
+    "clave": "tut.chat.4.titulo",
+    "es": "Enviar una foto",
+    "en": "Send a photo"
+  },
+  {
+    "clave": "tut.chat.4.texto",
+    "es": "Con IA activa, una foto del ticket, del platillo o de la báscula se interpreta sola. Sin IA, este botón queda deshabilitado.",
+    "en": "With AI on, a photo of the receipt, the dish or the scale gets read on its own. Without AI, this button stays disabled."
+  },
+  {
+    "clave": "tut.chat.5.titulo",
+    "es": "Asistentes",
+    "en": "Assistants"
+  },
+  {
+    "clave": "tut.chat.5.texto",
+    "es": "Tu asistente pone cara y voz a las respuestas. Tócalo para ver la conversación, cambiar de asistente o crear más.",
+    "en": "Your assistant gives the replies a face and a voice. Tap it to see the conversation, switch assistants or create more."
+  },
+  {
+    "clave": "tut.chat.6.titulo",
+    "es": "El manual",
+    "en": "The manual"
+  }
+]

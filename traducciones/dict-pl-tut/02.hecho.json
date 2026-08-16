@@ -1,0 +1,154 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "texto": "To twój dom: każdy pokój przechowuje jedną aplikację. Pokażę ci podstawowe sterowanie."
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "texto": "Menu główne"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "texto": "Ten przycisk otwiera menu: twoje pokoje, katalog szablonów (aplikacji) i ekwipunek obiektów."
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "texto": "Poruszanie się"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "texto": "Chodzisz joystickiem, klawiszami WASD albo strzałkami. Kiedy przechodzisz przez drzwi pokoju, wchodzisz do niego, a jego aplikacja otwiera się sama."
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "texto": "Trzy sposoby patrzenia"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "texto": "Izometryczny, trzecia i pierwsza osoba (albo klawisz V). W 3./1. osobie pojawia się dodatkowo przycisk do edytowania świata w trakcie spaceru po nim."
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "texto": "Jedno miejsce, wielu właścicieli"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "texto": "Ten róg to nie tylko kostka widoków: kiedy podchodzisz do czegoś, z czym da się wejść w interakcję — krzesła, pojazdu, boiska — zmienia się sam na to, co masz w pobliżu. Nic nie włącza się, dopóki nie podejdziesz."
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "texto": "Koło narzędzi"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "texto": "Ruchy, zabawki, pojazdy i budowa, do 3 wyposażonych naraz. Otwiera się tutaj albo z tego samego rogu, kiedy masz wolne ręce."
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "texto": "Zegar"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "texto": "Godzina w domu. Stąd otwierają się pełny kalendarz i panel rutyn z tym, co zostało ci na dziś."
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "texto": "Muzyka domu"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "texto": "Każdy pokój może mieć swój własny motyw albo pozwolić grać ogólnemu tłu domu. Da się ją wyłączyć zupełnie, jeśli wolisz ciszę."
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "texto": "Czat"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "texto": "Czat architekta: opowiedz mu, co udało ci się zrobić, a zapisze to w odpowiedniej aplikacji, albo poproś go o zmiany w domu."
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "texto": "To podstawy. Przycisk Edytor na górze otwiera pełną personalizację, a każde menu i każda aplikacja mają własny przycisk ? ze swoim samouczkiem."
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "texto": "Na początek: jak buduje się dom. Wszystko zaczyna się w zakładce Pokoje."
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "texto": "Utwórz pokój"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "texto": "Tym przyciskiem rysujesz nowe pokoje na mapie. Żeby pokazać ci resztę drogi, teraz stworzę ci jeden…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "texto": "Twój nowy pokój"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "texto": "Oto on! Świeżo utworzony pokój, jeszcze bez aplikacji: dlatego na jego przycisku widnieje + Przypisz."
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "texto": "Przypisz aplikację"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "texto": "Przyciskiem + Przypisz pokój dostał swoją aplikację: zobacz, jak przejął jej nazwę, ikonę i meble, a jego przycisk mówi teraz Wejdź."
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "texto": "Wejdź"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "texto": "Wchodzimy: to jest aplikacja pokoju. Podczas spaceru wchodzisz też, przekraczając jego drzwi, a wychodzisz przez ‹ Wróć do domu."
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "texto": "Pokój zostaje w twoim domu, z gotową aplikacją. Tak samo powstaje reszta: jeden pokój na każdą rzecz, którą chcesz tu prowadzić."
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "texto": "Zakładka Pokoje wypisuje wszystkie pokoje twojego domu, pogrupowane według kategorii."
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "texto": "Twoje podsumowanie"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "texto": "Twoja postać żyje z twojej prawdziwej aktywności: tutaj widzisz jej nastrój, poziom i serię. Zapisz coś w dowolnej aplikacji, a zobaczysz ją zadowoloną; kilka dni bez niczego i robi się smutna — nigdy nie karze i nigdy się nie zeruje."
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "texto": "Karty"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "texto": "Każda karta to pokój: jego ikona, nazwa i postęp jego aplikacji, pogrupowane w Ciało, Umysł, Dodatki i Ustawienia. Pokoje bez przypisanej aplikacji trafiają na sam koniec."
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "texto": "Edytuj"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "texto": "Edytuj otwiera edytor pokoju: kształt, kolory, ściany i obiekty. (Nie naciskaj go teraz: zamknęłoby to menu.)"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "texto": "Wejdź i Przypisz"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "texto": "Wejdź otwiera aplikację pokoju. Jeśli pokój nie ma jeszcze aplikacji, zobaczysz w tym miejscu + Przypisz, żeby wybrać mu jedną z katalogu."
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "texto": "Utwórz pokój"
+  }
+]

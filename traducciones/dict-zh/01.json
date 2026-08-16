@@ -1,0 +1,886 @@
+[
+  {
+    "clave": "app.brand",
+    "es": "Mind Planner Home",
+    "en": "Mind Planner Home"
+  },
+  {
+    "clave": "app.brandCorto",
+    "es": "MPH",
+    "en": "MPH"
+  },
+  {
+    "clave": "nav.ariaMenu",
+    "es": "Menú de cuartos",
+    "en": "Rooms menu"
+  },
+  {
+    "clave": "nav.retraer",
+    "es": "Retraer menú",
+    "en": "Collapse menu"
+  },
+  {
+    "clave": "nav.abrir",
+    "es": "Abrir menú",
+    "en": "Open menu"
+  },
+  {
+    "clave": "nav.editarCuarto",
+    "es": "Editar este cuarto",
+    "en": "Edit this room"
+  },
+  {
+    "clave": "nav.entrar",
+    "en": "Enter ›"
+  },
+  {
+    "clave": "nav.ayuda.tarjetaTexto",
+    "es": "Toca un cuarto para abrir su app; el engrane abre sus opciones (moverlo, borrarlo, editarlo).",
+    "en": "Tap a room to open its app; the gear opens its options (move, delete, edit)."
+  },
+  {
+    "clave": "nav.entrarCuarto",
+    "es": "Entrar a {nombre}",
+    "en": "Enter {nombre}"
+  },
+  {
+    "clave": "nav.ajustesCuarto",
+    "es": "Opciones del cuarto",
+    "en": "Room options"
+  },
+  {
+    "clave": "nav.subirCuarto",
+    "es": "Subir en la lista",
+    "en": "Move up the list"
+  },
+  {
+    "clave": "nav.bajarCuarto",
+    "es": "Bajar en la lista",
+    "en": "Move down the list"
+  },
+  {
+    "clave": "nav.borrarCuarto",
+    "es": "Borrar el cuarto",
+    "en": "Delete the room"
+  },
+  {
+    "clave": "nav.borrarCuartoTitulo",
+    "es": "Borrar «{nombre}»",
+    "en": "Delete «{nombre}»"
+  },
+  {
+    "clave": "nav.borrarCuartoMsg",
+    "es": "Se van también sus muros, su decoración y sus objetos.",
+    "en": "Its walls, decoration and objects go with it."
+  },
+  {
+    "clave": "nav.borrarCuartoOk",
+    "es": "Borrar",
+    "en": "Delete"
+  },
+  {
+    "clave": "nav.agregarCuarto",
+    "en": "Add room"
+  },
+  {
+    "clave": "nav.agregarCasa",
+    "en": "Add to the house"
+  },
+  {
+    "clave": "nav.todosColocados",
+    "en": "All rooms are already in your house."
+  },
+  {
+    "clave": "nav.menu.cuartos",
+    "es": "Cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "nav.menu.inventarios",
+    "es": "Inventario",
+    "en": "Inventory"
+  },
+  {
+    "clave": "inv.plantillas",
+    "es": "Plantillas",
+    "en": "Templates"
+  },
+  {
+    "clave": "inv.subObjetos",
+    "es": "Objetos",
+    "en": "Objects"
+  },
+  {
+    "clave": "inv.subEspeciales",
+    "es": "Objetos especiales",
+    "en": "Special objects"
+  },
+  {
+    "clave": "inv.subPlantCuartos",
+    "es": "Cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "inv.subPlantInfra",
+    "es": "Complementos",
+    "en": "Extras"
+  },
+  {
+    "clave": "inv.grupo.mobiliario",
+    "en": "Furniture"
+  },
+  {
+    "clave": "inv.grupo.casa",
+    "en": "House"
+  },
+  {
+    "clave": "inv.grupo.ropa",
+    "en": "Clothing"
+  },
+  {
+    "clave": "inv.grupo.animales",
+    "en": "Animals"
+  },
+  {
+    "clave": "inv.grupo.agua",
+    "en": "Water"
+  },
+  {
+    "clave": "inv.grupo.luz",
+    "en": "Light & fire"
+  },
+  {
+    "clave": "inv.grupo.movimiento",
+    "en": "They move on their own"
+  },
+  {
+    "clave": "inv.grupo.conducir",
+    "en": "You ride them"
+  },
+  {
+    "clave": "inv.grupo.disparar",
+    "en": "They shoot"
+  },
+  {
+    "clave": "inv.grupo.reflejo",
+    "en": "Reflection & image"
+  },
+  {
+    "clave": "inv.ropa.ayuda",
+    "es": "La ropa se le pone al personaje, no se coloca en el mapa. Toca una prenda para abrir el guardarropa.",
+    "en": "Clothes go on your character, not on the map. Tap a garment to open the wardrobe."
+  },
+  {
+    "clave": "inv.animales.ayuda",
+    "es": "Los animales viven en los corrales de la granja. Toca uno para ir a construir su corral.",
+    "en": "Animals live in the farm pens. Tap one to go build its pen."
+  },
+  {
+    "clave": "inv.casa.ayuda",
+    "es": "De qué está hecha tu casa y cuánto hay de cada cosa. Se pintan en el editor de planos, no se arrastran.",
+    "en": "What your house is made of and how much of each. You paint these in the plan editor, you do not drag them."
+  },
+  {
+    "clave": "inv.casa.vacia",
+    "es": "Aún no has construido nada. Levanta un cuarto en el mapa.",
+    "en": "Nothing built yet. Put a room on the map."
+  },
+  {
+    "clave": "inv.casa.estructura",
+    "en": "Structure"
+  },
+  {
+    "clave": "inv.casa.muros",
+    "en": "Walls"
+  },
+  {
+    "clave": "inv.casa.siluetas",
+    "en": "Wall tops"
+  },
+  {
+    "clave": "inv.casa.puertas",
+    "en": "Doors"
+  },
+  {
+    "clave": "inv.casa.ventanas",
+    "en": "Windows & openings"
+  },
+  {
+    "clave": "inv.casa.techos",
+    "en": "Roofs"
+  },
+  {
+    "clave": "inv.casa.losetas",
+    "en": "Floor tiles"
+  },
+  {
+    "clave": "inv.casa.pisoInterior",
+    "en": "Indoor floor"
+  },
+  {
+    "clave": "inv.casa.pisoExterior",
+    "en": "Outdoor floor"
+  },
+  {
+    "clave": "inv.casa.accesos",
+    "en": "Stairs & lifts"
+  },
+  {
+    "clave": "inv.casa.unidad.muros",
+    "en": "per span"
+  },
+  {
+    "clave": "inv.casa.unidad.techos",
+    "en": "per roofed cell"
+  },
+  {
+    "clave": "inv.casa.unidad.losetas",
+    "en": "per cell"
+  },
+  {
+    "clave": "inv.casa.unidad.pisoInterior",
+    "en": "per room"
+  },
+  {
+    "clave": "inv.casa.unidad.pisoExterior",
+    "en": "per cell"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.cuartos",
+    "en": "Rooms"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.basicos",
+    "en": "Basic spaces"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.niveles",
+    "en": "Floors"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.sotanos",
+    "en": "Basements"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.albercas",
+    "en": "Pools"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.patios",
+    "en": "Open yards"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.libre-recto",
+    "en": "Free-standing wall"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.libre-diagonal",
+    "en": "Diagonal wall"
+  },
+  {
+    "clave": "inv.casa.pieza.estructura.libre-curvo",
+    "en": "Curved wall"
+  },
+  {
+    "clave": "inv.casa.pieza.siluetas.recta",
+    "en": "Flat top"
+  },
+  {
+    "clave": "inv.casa.pieza.siluetas.arco",
+    "en": "Arch"
+  },
+  {
+    "clave": "inv.casa.pieza.siluetas.esquinas",
+    "en": "Battlements"
+  },
+  {
+    "clave": "inv.casa.pieza.siluetas.triangulo",
+    "en": "Gable"
+  },
+  {
+    "clave": "inv.casa.pieza.techos.plano",
+    "en": "Flat roof"
+  },
+  {
+    "clave": "inv.casa.pieza.techos.dos_aguas",
+    "en": "Pitched roof"
+  },
+  {
+    "clave": "inv.casa.pieza.techos.abovedado",
+    "en": "Vault"
+  },
+  {
+    "clave": "inv.casa.pieza.techos.cupula",
+    "en": "Dome"
+  },
+  {
+    "clave": "inv.casa.pieza.losetas.cuadrado",
+    "en": "Square tile"
+  },
+  {
+    "clave": "inv.casa.pieza.losetas.triangular",
+    "en": "Diagonal tile"
+  },
+  {
+    "clave": "inv.casa.pieza.losetas.circular",
+    "en": "Curved tile"
+  },
+  {
+    "clave": "inv.casa.pieza.accesos.escalera",
+    "en": "Staircase"
+  },
+  {
+    "clave": "inv.casa.pieza.accesos.elevador",
+    "en": "Lift"
+  },
+  {
+    "clave": "inv.casa.pieza.accesos.resbaladilla",
+    "en": "Slide"
+  },
+  {
+    "clave": "inv.casa.pieza.accesos.escalera-marina",
+    "en": "Pool ladder"
+  },
+  {
+    "clave": "inv.casa.pieza.muros.solido",
+    "en": "Solid"
+  },
+  {
+    "clave": "inv.casa.pieza.muros.ventana",
+    "en": "With window"
+  },
+  {
+    "clave": "inv.casa.pieza.muros.ladrillo",
+    "en": "Brick"
+  },
+  {
+    "clave": "inv.casa.pieza.muros.madera",
+    "en": "Wood"
+  },
+  {
+    "clave": "inv.casa.pieza.muros.vitraje",
+    "en": "Glass"
+  },
+  {
+    "clave": "inv.casa.pieza.puertas.recta",
+    "en": "Straight"
+  },
+  {
+    "clave": "inv.casa.pieza.puertas.sin",
+    "en": "Doorway"
+  },
+  {
+    "clave": "inv.casa.pieza.puertas.doble",
+    "en": "Double"
+  },
+  {
+    "clave": "inv.casa.pieza.puertas.porton",
+    "en": "Gate"
+  },
+  {
+    "clave": "inv.casa.pieza.puertas.corredera",
+    "en": "Sliding"
+  },
+  {
+    "clave": "inv.casa.pieza.ventanas.cuadrado",
+    "en": "Square window"
+  },
+  {
+    "clave": "inv.casa.pieza.ventanas.circulo",
+    "en": "Porthole"
+  },
+  {
+    "clave": "inv.casa.pieza.ventanas.triangulo",
+    "en": "Triangular window"
+  },
+  {
+    "clave": "inv.casa.pieza.ventanas.cuadro",
+    "en": "Built-in picture"
+  },
+  {
+    "clave": "inv.casa.pieza.ventanas.espejo",
+    "en": "Built-in mirror"
+  },
+  {
+    "clave": "infra.ayuda",
+    "es": "Estas plantillas no viven en un cuarto: se construyen sobre el mapa 3D con su propio editor.",
+    "en": "These templates don’t live in a room: you build them on the 3D map with their own editor."
+  },
+  {
+    "clave": "infra.construidas",
+    "es": "Construidas",
+    "en": "Built"
+  },
+  {
+    "clave": "infra.desplegar",
+    "es": "Elegir tipo",
+    "en": "Choose type"
+  },
+  {
+    "clave": "infra.plegar",
+    "es": "Ocultar opciones",
+    "en": "Hide options"
+  },
+  {
+    "clave": "infra.sub.animales",
+    "es": "Animales",
+    "en": "Animals"
+  },
+  {
+    "clave": "infra.construir",
+    "es": "Construir en el mapa",
+    "en": "Build on the map"
+  },
+  {
+    "clave": "infra.salirEditor",
+    "es": "Salir del editor",
+    "en": "Exit editor"
+  },
+  {
+    "clave": "infra.resumen.ayuda",
+    "es": "Esta plantilla se construye en el mapa 3D: menú → Plantillas → Complementos → Construir.",
+    "en": "This template is built on the 3D map: menu → Templates → Extras → Build."
+  },
+  {
+    "clave": "caminos.tipo.pista",
+    "es": "Pista de carreras",
+    "en": "Race track"
+  },
+  {
+    "clave": "caminos.tipo.riel",
+    "es": "Riel de tren",
+    "en": "Train rail"
+  },
+  {
+    "clave": "caminos.tipo.coaster",
+    "es": "Montaña rusa",
+    "en": "Roller coaster"
+  },
+  {
+    "clave": "caminos.herr.pintar",
+    "es": "Pintar tramos",
+    "en": "Paint segments"
+  },
+  {
+    "clave": "caminos.herr.borrar",
+    "es": "Borrar tramos",
+    "en": "Erase segments"
+  },
+  {
+    "clave": "caminos.herr.subir",
+    "es": "Subir altura",
+    "en": "Raise height"
+  },
+  {
+    "clave": "caminos.herr.bajar",
+    "es": "Bajar altura",
+    "en": "Lower height"
+  },
+  {
+    "clave": "caminos.herr.meta",
+    "es": "Línea de meta",
+    "en": "Finish line"
+  },
+  {
+    "clave": "caminos.tipo.trazo",
+    "es": "Trazo libre",
+    "en": "Freehand track"
+  },
+  {
+    "clave": "trazo.herr.punto",
+    "es": "Poner puntos",
+    "en": "Place points"
+  },
+  {
+    "clave": "trazo.herr.mover",
+    "es": "Mover puntos",
+    "en": "Move points"
+  },
+  {
+    "clave": "trazo.abierto",
+    "es": "Circuito abierto",
+    "en": "Open circuit"
+  },
+  {
+    "clave": "trazo.cerrado",
+    "es": "Circuito cerrado",
+    "en": "Closed circuit"
+  },
+  {
+    "clave": "trazo.borrarTodo",
+    "es": "Borrar la pista",
+    "en": "Delete the track"
+  },
+  {
+    "clave": "trazo.ayuda",
+    "es": "Toca el mapa para poner puntos y toca un punto para borrarlo. El primero es la meta: tócalo para cerrar el circuito y poder correr.",
+    "en": "Tap the map to place points, and tap a point to delete it. The first one is the finish line: tap it to close the circuit and race."
+  },
+  {
+    "clave": "carrera.titulo",
+    "es": "Carrera",
+    "en": "Race"
+  },
+  {
+    "clave": "carrera.mejor",
+    "es": "Mejor vuelta",
+    "en": "Best lap"
+  },
+  {
+    "clave": "carrera.vueltas",
+    "es": "Vueltas",
+    "en": "Laps"
+  },
+  {
+    "clave": "carrera.solo",
+    "es": "Correr solo (contrarreloj)",
+    "en": "Race solo (time trial)"
+  },
+  {
+    "clave": "carrera.contraIA",
+    "es": "O contra un asistente:",
+    "en": "Or against an assistant:"
+  },
+  {
+    "clave": "carrera.vuelta",
+    "es": "Vuelta",
+    "en": "Lap"
+  },
+  {
+    "clave": "carrera.abandonar",
+    "es": "Abandonar",
+    "en": "Quit"
+  },
+  {
+    "clave": "carrera.ya",
+    "es": "¡YA!",
+    "en": "GO!"
+  },
+  {
+    "clave": "carrera.ganaste",
+    "es": "¡GANASTE LA CARRERA! 🏆",
+    "en": "YOU WON THE RACE! 🏆"
+  },
+  {
+    "clave": "carrera.perdiste",
+    "es": "El rival ganó la carrera…",
+    "en": "Your rival won the race…"
+  },
+  {
+    "clave": "carrera.fin",
+    "es": "¡Carrera terminada! 🏁",
+    "en": "Race finished! 🏁"
+  },
+  {
+    "clave": "carrera.total",
+    "es": "Total",
+    "en": "Total"
+  },
+  {
+    "clave": "carrera.otraVez",
+    "es": "Otra vez",
+    "en": "Race again"
+  },
+  {
+    "clave": "carrera.salir",
+    "es": "Salir",
+    "en": "Exit"
+  },
+  {
+    "clave": "carrera.msg.record",
+    "en": "New lap record! 🎉"
+  },
+  {
+    "clave": "carrera.msg.vuelta",
+    "en": "Lap complete!"
+  },
+  {
+    "clave": "carrera.msg.corta",
+    "en": "The track is too short for a race…"
+  },
+  {
+    "clave": "carrera.tabla.titulo",
+    "es": "Mejores tiempos",
+    "en": "Best times"
+  },
+  {
+    "clave": "carrera.tabla.vueltaCol",
+    "es": "Vuelta",
+    "en": "Lap"
+  },
+  {
+    "clave": "carrera.tabla.totalCol",
+    "es": "Total",
+    "en": "Total"
+  },
+  {
+    "clave": "carrera.tabla.vd",
+    "es": "V/D",
+    "en": "W/L"
+  },
+  {
+    "clave": "carrera.usarItem",
+    "es": "Usar ítem (E)",
+    "en": "Use item (E)"
+  },
+  {
+    "clave": "room.paintball.nombre",
+    "en": "Paintball"
+  },
+  {
+    "clave": "room.paintball.desc",
+    "en": "Paintball battles against your assistants (1v1, 2v2 or free-for-all) using the house as the map."
+  },
+  {
+    "clave": "paintball.titulo",
+    "es": "Paintball",
+    "en": "Paintball"
+  },
+  {
+    "clave": "paintball.jugar",
+    "es": "Jugar en el mapa",
+    "en": "Play on the map"
+  },
+  {
+    "clave": "paintball.marcador",
+    "es": "Victorias",
+    "en": "Wins"
+  },
+  {
+    "clave": "paintball.derrotas",
+    "es": "Derrotas",
+    "en": "Losses"
+  },
+  {
+    "clave": "paintball.m1v1",
+    "es": "1 vs 1",
+    "en": "1 vs 1"
+  },
+  {
+    "clave": "paintball.m2v2",
+    "es": "2 vs 2",
+    "en": "2 vs 2"
+  },
+  {
+    "clave": "paintball.mRoyale",
+    "es": "Batalla campal",
+    "en": "Free-for-all"
+  },
+  {
+    "clave": "paintball.eligeRival",
+    "es": "Elige a tu rival:",
+    "en": "Pick your rival:"
+  },
+  {
+    "clave": "paintball.eligeCompanero",
+    "es": "Elige a tu compañero (los rivales salen al azar):",
+    "en": "Pick your teammate (rivals are drawn at random):"
+  },
+  {
+    "clave": "paintball.royaleDesc",
+    "es": "Todos contra todos: tú contra tus asistentes por toda la casa.",
+    "en": "Free-for-all: you against your assistants all over the house."
+  },
+  {
+    "clave": "paintball.empezar",
+    "es": "Empezar la batalla",
+    "en": "Start the battle"
+  },
+  {
+    "clave": "paintball.reglas",
+    "es": "Cada quien aguanta 3 bolazos. Gana el último equipo en pie. La casa es el campo de batalla.",
+    "en": "Everyone takes 3 hits. Last team standing wins. The house is the battlefield."
+  },
+  {
+    "clave": "paintball.posicionate",
+    "es": "¡Busca cobertura!",
+    "en": "Take cover!"
+  },
+  {
+    "clave": "paintball.ya",
+    "es": "¡YA!",
+    "en": "GO!"
+  },
+  {
+    "clave": "paintball.tu",
+    "es": "Tú",
+    "en": "You"
+  },
+  {
+    "clave": "paintball.abandonar",
+    "es": "Abandonar",
+    "en": "Quit"
+  },
+  {
+    "clave": "paintball.hintDisparar",
+    "en": "Hold to shoot (Space)"
+  },
+  {
+    "clave": "paintball.hintApuntar",
+    "en": "Hold to aim (right click on PC)"
+  },
+  {
+    "clave": "paintball.cambiarVista",
+    "es": "Cambiar entre 1ª y 3ª persona (tecla V)",
+    "en": "Switch between 1st and 3rd person (V key)"
+  },
+  {
+    "clave": "paintball.vista",
+    "es": "Vista",
+    "en": "View"
+  },
+  {
+    "clave": "paintball.vista1",
+    "es": "1ª persona",
+    "en": "1st person"
+  },
+  {
+    "clave": "paintball.vista3",
+    "es": "3ª persona",
+    "en": "3rd person"
+  },
+  {
+    "clave": "herr.pintura",
+    "es": "Pintura",
+    "en": "Paint"
+  },
+  {
+    "clave": "herr.apuntar",
+    "en": "Aim"
+  },
+  {
+    "clave": "herr.apuntando",
+    "en": "Aiming"
+  },
+  {
+    "clave": "herr.miraEnPerspectiva",
+    "es": "Cambia a 3ª o 1ª persona para apuntar con la mira",
+    "en": "Switch to 3rd or 1st person to aim with the crosshair"
+  },
+  {
+    "clave": "tiro.hintDisparar",
+    "es": "Mantén para disparar (clic izquierdo o Espacio)",
+    "en": "Hold to shoot (left click or Space)"
+  },
+  {
+    "clave": "tiro.hintApuntar",
+    "es": "Apuntar (clic derecho en PC; con el dedo, toca para fijar)",
+    "en": "Aim (right click on PC; tap to lock with touch)"
+  },
+  {
+    "clave": "tiro.apuntarConRaton",
+    "es": "Apunta moviendo el ratón sobre la escena",
+    "en": "Aim by moving the mouse over the scene"
+  },
+  {
+    "clave": "paintball.ganaste",
+    "es": "¡GANASTE LA BATALLA! 🏆",
+    "en": "YOU WON THE BATTLE! 🏆"
+  },
+  {
+    "clave": "paintball.perdiste",
+    "es": "Te llenaron de pintura… 🎨",
+    "en": "They covered you in paint… 🎨"
+  },
+  {
+    "clave": "paintball.impactos",
+    "es": "Impactos",
+    "en": "Hits"
+  },
+  {
+    "clave": "paintball.fuera",
+    "es": "Fuera",
+    "en": "Out"
+  },
+  {
+    "clave": "paintball.enPie",
+    "es": "En pie",
+    "en": "Standing"
+  },
+  {
+    "clave": "paintball.otraVez",
+    "es": "Otra vez",
+    "en": "Again"
+  },
+  {
+    "clave": "paintball.salir",
+    "es": "Salir",
+    "en": "Exit"
+  },
+  {
+    "clave": "paintball.msg.fuera",
+    "en": "{nombre} is out!"
+  },
+  {
+    "clave": "paintball.msg.teDieron",
+    "en": "You got hit! You lose a life"
+  },
+  {
+    "clave": "paintball.msg.nivel",
+    "en": "Go down to the ground floor to play."
+  },
+  {
+    "clave": "paintball.msg.sinAsistentes",
+    "en": "Create an assistant to play against."
+  },
+  {
+    "clave": "paintball.msg.faltan",
+    "en": "You need at least 3 assistants for 2 vs 2."
+  },
+  {
+    "clave": "paintball.resumen.ayuda",
+    "es": "Este modo se juega en el mapa 3D: menú → Plantillas → Complementos → Jugar.",
+    "en": "This mode is played on the 3D map: menu → Templates → Extras → Play."
+  },
+  {
+    "clave": "paintball.resumen.nota",
+    "es": "Elige 1 vs 1, 2 vs 2 o batalla campal contra tus asistentes: cada quien aguanta 3 bolazos y la casa entera es el campo de batalla.",
+    "en": "Choose 1 vs 1, 2 vs 2 or free-for-all against your assistants: everyone takes 3 hits and the whole house is the battlefield."
+  },
+  {
+    "clave": "caminos.ayuda",
+    "es": "Toca una celda del mapa para aplicar; arrastra para mover la cámara.",
+    "en": "Tap a map cell to apply; drag to move the camera."
+  },
+  {
+    "clave": "caminos.resumen.unidad",
+    "es": "Los conteos son tramos (celdas del mapa con camino).",
+    "en": "Counts are segments (map cells with a path)."
+  },
+  {
+    "clave": "canchas.clase.futbol",
+    "en": "Soccer"
+  },
+  {
+    "clave": "canchas.clase.tenis",
+    "en": "Tennis"
+  },
+  {
+    "clave": "canchas.clase.basket",
+    "en": "Basketball"
+  },
+  {
+    "clave": "canchas.clase.beisbol",
+    "en": "Baseball"
+  },
+  {
+    "clave": "canchas.rotar",
+    "es": "Rotar (R)",
+    "en": "Rotate (R)"
+  },
+  {
+    "clave": "canchas.quitar",
+    "es": "Quitar cancha",
+    "en": "Remove court"
+  },
+  {
+    "clave": "canchas.editar",
+    "es": "Editar cancha",
+    "en": "Edit"
+  },
+  {
+    "clave": "canchas.tamano",
+    "es": "Tamaño",
+    "en": "Size"
+  }
+]

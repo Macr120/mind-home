@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.2.texto",
+    "texto": "Gli argomenti del catalogo ci sono già; quelli che pendono sciolti li ha aperti una chat. Tocca una voce per leggere il suo riepilogo, i suoi punti chiave e la sua illustrazione."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.3.texto",
+    "texto": "Una voce si scrive a mano oppure si distilla da una conversazione. Quella del buco nero e quella della fisica del pianoforte hanno un disegno: l'app può illustrarle per te."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.titulo",
+    "texto": "I dubbi dell'anno"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.1.texto",
+    "texto": "Qui ci sono le conversazioni che Pep ha avuto mentre studiava: entropia, dilatazione del tempo, perché un pianoforte suona da pianoforte. Ognuna è rimasta salvata."
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.2.titulo",
+    "texto": "Dalla chat all'albero"
+  },
+  {
+    "clave": "tut.app-biblioteca--charlas.3.texto",
+    "texto": "Così l'enciclopedia non si riempie di teoria copiata, ma di quello che hai chiesto davvero."
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.titulo",
+    "texto": "L'indice è tuo"
+  },
+  {
+    "clave": "tut.app-biblioteca--enciclopedia.4.texto",
+    "texto": "Il + di ogni riga scrive una voce lì stesso, con il campo e l'argomento già impostati. E con il pulsante della matita fai crescere l'albero: quello stesso + aggiunge rami, quello del Seme crea campi nuovi, e puoi rinominare, riordinare ed eliminare. Il numero con il rametto dice quanti sottoindici pendono da lì."
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.2.titulo",
+    "texto": "Il piano di studio"
+  },
+  {
+    "clave": "tut.app-biblioteca--estudio.3.texto",
+    "texto": "A ogni obiettivo puoi chiedere un piano: l'IA ti chiede la data obiettivo e le ore che hai, e mette i momenti di studio nel tuo calendario."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.1.texto",
+    "texto": "Quante voci ha la tua enciclopedia e quanti campi e argomenti dell'indice hai già coperto. Gli argomenti aperti da una chat si contano a parte."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.titulo",
+    "texto": "Quattro numeri"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.2.texto",
+    "texto": "Chat con il Saggio, minuti di studio in totale e nella settimana, e la tua serie di giorni di studio di fila."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.titulo",
+    "texto": "Dov'è lo squilibrio"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.3.texto",
+    "texto": "La barra più lunga è il campo che ti ha preso più attenzione — per Pep, la termodinamica nella settimana del parziale."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.titulo",
+    "texto": "I giorni di studio"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.4.texto",
+    "texto": "Un quadratino al giorno: si vedono l'abbuffata di studio prima del parziale e il vuoto delle tre settimane in Giappone, senza aprire lo storico completo."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.titulo",
+    "texto": "Dove sono finite le ore"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.5.texto",
+    "texto": "Lo stesso di sopra ma in minuti: un conto è avere tante voci di un campo, un altro è averci dedicato tempo davvero."
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.titulo",
+    "texto": "Un anno di sessioni"
+  },
+  {
+    "clave": "tut.app-biblioteca--resumen.6.texto",
+    "texto": "E se vuoi il dettaglio, lo storico conserva ogni sessione con i suoi minuti e il suo campo, archiviata per anno, mese e settimana."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.titulo",
+    "texto": "Quello che tocca oggi"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.1.texto",
+    "texto": "Pep va avanti da un anno e ha ancora ripassi in sospeso: il sistema non ti chiede tutto il vocabolario, solo quello che stai per dimenticare."
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.titulo",
+    "texto": "Un anno di costanza"
+  },
+  {
+    "clave": "tut.app-idiomas--repaso.3.texto",
+    "texto": "Lo storico conserva quante ne hai ripassate ogni giorno e quante ne hai azzeccate. Pep all'inizio ne sbagliava parecchie e alla fine le indovinava quasi tutte — e in Giappone ha ripassato più che mai."
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.titulo",
+    "texto": "Due lingue insieme"
+  },
+  {
+    "clave": "tut.app-idiomas--vocabulario.2.texto",
+    "texto": "In alto si cambia lingua: oltre alla principale, Pep ha messo su un giapponese di sopravvivenza tra il mese 4 e il viaggio. Al ritorno l'ha quasi mollato, e si vede nelle sue scatole."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.titulo",
+    "texto": "Tre aree, sei livelli"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.1.texto",
+    "texto": "Dall'A1 al C2, ogni livello con i suoi argomenti di vocabolario, i suoi punti di pronuncia e la sua grammatica. Sai cosa ti manca senza cercare un corso fuori."
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.titulo",
+    "texto": "A che punto sei"
+  },
+  {
+    "clave": "tut.app-idiomas--temario.2.texto",
+    "texto": "Carte padroneggiate, ripassi del mese e il tuo livello attuale. Pep ha iniziato l'anno in A2 e oggi è intorno al B1."
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.titulo",
+    "texto": "La lista dei da fare"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.1.texto",
+    "texto": "Quello che va fatto ma non ha ancora un giorno vive qui, con la sua priorità. Niente ti obbliga a metterci una data solo per annotarlo."
+  }
+]

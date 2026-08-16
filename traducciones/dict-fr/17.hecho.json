@@ -1,0 +1,662 @@
+[
+  {
+    "clave": "editor.avatar.formaPh",
+    "texto": "Décris-la : « robot bleu à cape rouge »"
+  },
+  {
+    "clave": "editor.avatar.formaSinIa",
+    "texto": "Décrire la forme nécessite l’IA (choisis un modèle dans la barre)"
+  },
+  {
+    "clave": "editor.avatar.formaGenerar",
+    "texto": "Créer la forme avec l’IA"
+  },
+  {
+    "clave": "editor.avatar.formaError",
+    "texto": "Impossible de créer la forme. Vérifie le modèle d’IA et réessaie."
+  },
+  {
+    "clave": "editor.avatar.subirGlb",
+    "texto": "Importer un modèle .glb"
+  },
+  {
+    "clave": "editor.avatar.quitarGlb",
+    "texto": "Supprimer le modèle importé"
+  },
+  {
+    "clave": "editor.avatar.quitarFormaIa",
+    "texto": "Supprimer la forme créée par l’IA"
+  },
+  {
+    "clave": "editor.avatar.usandoGlb",
+    "texto": "Tu utilises ton propre modèle .glb. Les couleurs ne s’appliquent pas à ce modèle."
+  },
+  {
+    "clave": "editor.avatar.usandoIa",
+    "texto": "Tu utilises une forme créée par l’IA. Les couleurs ne s’appliquent pas à cette forme."
+  },
+  {
+    "clave": "editor.tema.titulo",
+    "texto": "Thème de la maison"
+  },
+  {
+    "clave": "editor.tema.desc",
+    "texto": "Applique un style aux pièces, au fond, au sol et au toit. Active les micro-animations dans le ciel."
+  },
+  {
+    "clave": "editor.tema.sin",
+    "texto": "Aucun thème"
+  },
+  {
+    "clave": "editor.tema.misTemas",
+    "texto": "Mes thèmes"
+  },
+  {
+    "clave": "editor.tema.guardar",
+    "texto": "+ Enregistrer l’actuel"
+  },
+  {
+    "clave": "editor.tema.guardarTitulo",
+    "texto": "Enregistrer ce thème"
+  },
+  {
+    "clave": "editor.tema.guardarMensaje",
+    "texto": "Le thème est enregistré tel que tu l’as maintenant : couleurs, coque, lumière, brouillard, style et fond de ciel."
+  },
+  {
+    "clave": "editor.tema.guardarOk",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "editor.tema.sinTemasPropios",
+    "texto": "Enregistre le thème que tu utilises pour le remettre quand tu veux."
+  },
+  {
+    "clave": "editor.tema.sinTemaParaGuardar",
+    "texto": "Choisis un thème et personnalise-le : tu pourras ensuite l’enregistrer ici avec un nom."
+  },
+  {
+    "clave": "editor.tema.usar",
+    "texto": "Utiliser"
+  },
+  {
+    "clave": "editor.tema.borrarPropio",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "editor.tema.borrarTitulo",
+    "texto": "Supprimer le thème"
+  },
+  {
+    "clave": "editor.tema.borrarOk",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "editor.cuartos.titulo",
+    "texto": "Pièces de la maison"
+  },
+  {
+    "clave": "editor.cuartos.desc",
+    "texto": "Couleurs et noms personnalisés. Les changements apparaissent aussitôt dans la maison 3D."
+  },
+  {
+    "clave": "editor.cuartos.editado",
+    "texto": "modifié"
+  },
+  {
+    "clave": "editor.cuartos.color",
+    "texto": "Couleur"
+  },
+  {
+    "clave": "editor.cuartos.nombre",
+    "texto": "Nom personnalisé"
+  },
+  {
+    "clave": "editor.cuartos.reset",
+    "texto": "↺ Réinitialiser"
+  },
+  {
+    "clave": "editor.fondo.titulo",
+    "texto": "Fond de ciel"
+  },
+  {
+    "clave": "editor.fondo.desc",
+    "texto": "Il est choisi automatiquement quand tu changes de thème. Tu peux aussi le changer toi-même."
+  },
+  {
+    "clave": "editor.fondo.anim",
+    "texto": "Micro-animations"
+  },
+  {
+    "clave": "editor.fondo.animDesc",
+    "texto": "Choisis celles que tu veux dans le ciel ou laisse en automatique"
+  },
+  {
+    "clave": "editor.fondo.animIntensidad",
+    "texto": "Intensité"
+  },
+  {
+    "clave": "editor.fondo.animAuto",
+    "texto": "Automatique"
+  },
+  {
+    "clave": "editor.fondo.animTipo",
+    "texto": "Type d’animation"
+  },
+  {
+    "clave": "anim.nubes",
+    "texto": "Nuages"
+  },
+  {
+    "clave": "anim.aves",
+    "texto": "Oiseaux"
+  },
+  {
+    "clave": "anim.copos",
+    "texto": "Neige"
+  },
+  {
+    "clave": "anim.cometas",
+    "texto": "Comètes"
+  },
+  {
+    "clave": "anim.fugaz",
+    "texto": "Étoiles filantes"
+  },
+  {
+    "clave": "anim.polvo",
+    "texto": "Poussière lumineuse"
+  },
+  {
+    "clave": "anim.dragones",
+    "texto": "Dragons"
+  },
+  {
+    "clave": "anim.murcielagos",
+    "texto": "Chauves-souris"
+  },
+  {
+    "clave": "anim.bruma",
+    "texto": "Brume"
+  },
+  {
+    "clave": "anim.corazones",
+    "texto": "Cœurs"
+  },
+  {
+    "clave": "anim.rayas",
+    "texto": "Traînées néon"
+  },
+  {
+    "clave": "editor.fondo.misImagenes",
+    "texto": "Mes images"
+  },
+  {
+    "clave": "editor.fondo.subir",
+    "texto": "+ Importer une image"
+  },
+  {
+    "clave": "editor.fondo.sinImagenes",
+    "texto": "Importe une image pour l’utiliser comme fond de ciel."
+  },
+  {
+    "clave": "editor.fondo.presets",
+    "texto": "Fonds prédéfinis"
+  },
+  {
+    "clave": "editor.fondo.previewTitulo",
+    "texto": "Ajuste le fond — fais glisser l’image ; le cadre, c’est ton écran"
+  },
+  {
+    "clave": "editor.fondo.previewAria",
+    "texto": "Aperçu du fond"
+  },
+  {
+    "clave": "editor.fondo.previewMapa",
+    "texto": "Plan sur le ciel"
+  },
+  {
+    "clave": "editor.fondo.nombre",
+    "texto": "Nom"
+  },
+  {
+    "clave": "editor.fondo.zoom",
+    "texto": "Zoom"
+  },
+  {
+    "clave": "editor.fondo.cancelar",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "editor.fondo.guardar",
+    "texto": "Enregistrer le fond"
+  },
+  {
+    "clave": "editor.fondo.guardando",
+    "texto": "Enregistrement…"
+  },
+  {
+    "clave": "editor.fondo.ajustar",
+    "texto": "Ajuster"
+  },
+  {
+    "clave": "editor.fondo.borrar",
+    "texto": "Supprimer"
+  },
+  {
+    "clave": "editor.fondo.confirmBorrar",
+    "texto": "Supprimer ce fond enregistré ?"
+  },
+  {
+    "clave": "editor.piso.desc",
+    "texto": "Choisis un matériau ou laisse « Personnalisé » pour utiliser juste une couleur."
+  },
+  {
+    "clave": "editor.piso.personalizado",
+    "texto": "Personnalisé"
+  },
+  {
+    "clave": "editor.pisoCuarto.desc",
+    "texto": "Matériau du sol à l’intérieur de la pièce. « Par défaut » suit la couleur de la pièce."
+  },
+  {
+    "clave": "editor.pisoCuarto.defecto",
+    "texto": "Par défaut"
+  },
+  {
+    "clave": "editor.techo.titulo",
+    "texto": "Toits de la maison"
+  },
+  {
+    "clave": "editor.techo.desc",
+    "texto": "Active la vue 🏠 pour les voir. Choisir un thème applique le toit correspondant."
+  },
+  {
+    "clave": "editor.techo.genericos",
+    "texto": "Génériques"
+  },
+  {
+    "clave": "editor.techo.porTema",
+    "texto": "Par thème"
+  },
+  {
+    "clave": "editor.techo.porCuarto",
+    "texto": "Par pièce"
+  },
+  {
+    "clave": "editor.perfil.titulo",
+    "texto": "👤 Ton profil"
+  },
+  {
+    "clave": "editor.perfil.emoji",
+    "texto": "Émoji"
+  },
+  {
+    "clave": "editor.perfil.nombre",
+    "texto": "Nom"
+  },
+  {
+    "clave": "editor.perfil.tuNombre",
+    "texto": "Ton nom"
+  },
+  {
+    "clave": "editor.perfil.ph.nombre",
+    "texto": "Comment tu t’appelles ?"
+  },
+  {
+    "clave": "editor.perfil.nacimiento",
+    "texto": "Date de naissance"
+  },
+  {
+    "clave": "editor.perfil.bio",
+    "texto": "Bio"
+  },
+  {
+    "clave": "editor.perfil.ph.bio",
+    "texto": "Une phrase sur toi..."
+  },
+  {
+    "clave": "editor.perfil.guardar",
+    "texto": "Enregistrer le profil"
+  },
+  {
+    "clave": "editor.perfil.guardado",
+    "texto": "✓ Enregistré"
+  },
+  {
+    "clave": "editor.perfil.edad",
+    "texto": "{n} ans"
+  },
+  {
+    "clave": "editor.room.color",
+    "texto": "Couleur du sol"
+  },
+  {
+    "clave": "editor.room.nombre",
+    "texto": "Nom personnalisé"
+  },
+  {
+    "clave": "editor.room.aplicar",
+    "texto": "Appliquer"
+  },
+  {
+    "clave": "editor.room.reset",
+    "texto": "↺ Restaurer l’apparence d’origine"
+  },
+  {
+    "clave": "editor.inv.titulo",
+    "texto": "Inventaire complet"
+  },
+  {
+    "clave": "editor.inv.desc",
+    "texto": "Choisis un objet : il apparaît sur le plan et tu le fais glisser où tu veux."
+  },
+  {
+    "clave": "editor.inv.deco",
+    "texto": "🎨 Décoration générique"
+  },
+  {
+    "clave": "editor.inv.mapa",
+    "texto": "Sur le plan ({n})"
+  },
+  {
+    "clave": "editor.inv.quitar",
+    "texto": "Retirer"
+  },
+  {
+    "clave": "editor.inv.desagrupar",
+    "texto": "Dégrouper"
+  },
+  {
+    "clave": "editor.inv.agrupar",
+    "texto": "🔗 Grouper la sélection ({n})"
+  },
+  {
+    "clave": "editor.obj.desc",
+    "texto": "Fais glisser les objets dans la scène 3D. Marque ★ pour le point d’entrée de la pièce."
+  },
+  {
+    "clave": "editor.obj.cuarto",
+    "texto": "Pièce"
+  },
+  {
+    "clave": "editor.obj.marcarPrincipal",
+    "texto": "Définir comme objet principal"
+  },
+  {
+    "clave": "editor.obj.esPrincipal",
+    "texto": "Objet principal (point d’entrée de la pièce)"
+  },
+  {
+    "clave": "editor.obj.ultimoObjeto",
+    "texto": "Il doit rester au moins un objet dans la pièce"
+  },
+  {
+    "clave": "editor.obj.vacio",
+    "texto": "Pas encore d’objet. Ajoutes-en un ci-dessus."
+  },
+  {
+    "clave": "editor.obj.cargando",
+    "texto": "Chargement…"
+  },
+  {
+    "clave": "editor.obj.agregar",
+    "texto": "Ajouter à {room}"
+  },
+  {
+    "clave": "editor.obj.deco",
+    "texto": "Décoration générique"
+  },
+  {
+    "clave": "editor.obj.colocados",
+    "texto": "Objets de la pièce ({n})"
+  },
+  {
+    "clave": "editor.obj.agrupar",
+    "texto": "Grouper la sélection ({n})"
+  },
+  {
+    "clave": "editor.obj.quitar",
+    "texto": "Retirer"
+  },
+  {
+    "clave": "editor.obj.objeto",
+    "texto": "Objet"
+  },
+  {
+    "clave": "editor.sec.reordenar",
+    "texto": "Fais glisser pour réorganiser"
+  },
+  {
+    "clave": "editor.sec.reordenarSec",
+    "texto": "Réorganiser {titulo}"
+  },
+  {
+    "clave": "editor.sec.contraer",
+    "texto": "Réduire {titulo}"
+  },
+  {
+    "clave": "editor.sec.expandir",
+    "texto": "Développer {titulo}"
+  },
+  {
+    "clave": "editor.sec.contraerMapa",
+    "texto": "Réduire le plan"
+  },
+  {
+    "clave": "editor.sec.expandirMapa",
+    "texto": "Développer le plan"
+  },
+  {
+    "clave": "config.grupo.interfaz",
+    "texto": "Interface et langue"
+  },
+  {
+    "clave": "editor.forma.desc",
+    "texto": "Utilise les boutons + et − sur la pièce dans la scène pour l’agrandir ou la réduire case par case (elle peut s’étendre sur tout le plan ou prendre une forme en L)."
+  },
+  {
+    "clave": "editor.anim.titulo",
+    "texto": "Animation"
+  },
+  {
+    "clave": "editor.anim.preset",
+    "texto": "Mouvement"
+  },
+  {
+    "clave": "editor.anim.ninguno",
+    "texto": "Aucun mouvement"
+  },
+  {
+    "clave": "editor.anim.p.girar",
+    "texto": "Tourner"
+  },
+  {
+    "clave": "editor.anim.p.flotar",
+    "texto": "Flotter"
+  },
+  {
+    "clave": "editor.anim.p.pulsar",
+    "texto": "Pulser"
+  },
+  {
+    "clave": "editor.anim.p.mecerse",
+    "texto": "Se balancer"
+  },
+  {
+    "clave": "editor.anim.p.rebotar",
+    "texto": "Rebondir"
+  },
+  {
+    "clave": "editor.anim.p.temblar",
+    "texto": "Trembler"
+  },
+  {
+    "clave": "editor.anim.p.vida",
+    "texto": "Donner vie"
+  },
+  {
+    "clave": "editor.hist.deshacer",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "editor.hist.rehacer",
+    "texto": "Rétablir"
+  },
+  {
+    "clave": "editor.anim.velocidad",
+    "texto": "Vitesse"
+  },
+  {
+    "clave": "editor.anim.intensidad",
+    "texto": "Intensité"
+  },
+  {
+    "clave": "editor.anim.zona",
+    "texto": "Zone de balade"
+  },
+  {
+    "clave": "editor.anim.vidaDesc",
+    "texto": "L’objet erre dans sa zone, a faim et s’ennuie. Nourris-le et caresse-le avec les boutons qui apparaissent quand tu t’approches."
+  },
+  {
+    "clave": "editor.anim.vidaAviso",
+    "texto": "Il traverse les murs et les meubles : donne-lui une petite zone si tu le places dans une pièce."
+  },
+  {
+    "clave": "editor.anim.activacion",
+    "texto": "S’anime"
+  },
+  {
+    "clave": "editor.anim.apagado",
+    "texto": "Désactivé"
+  },
+  {
+    "clave": "editor.anim.siempre",
+    "texto": "Toujours"
+  },
+  {
+    "clave": "editor.anim.cerca",
+    "texto": "Près de toi"
+  },
+  {
+    "clave": "editor.anim.poses",
+    "texto": "Poses (animation personnalisée)"
+  },
+  {
+    "clave": "editor.anim.posesDesc",
+    "texto": "Ajuste les pièces avec l’éditeur (engrenage) et capture chaque pose. Avec 2 poses ou plus, le modèle passe de l’une à l’autre en boucle."
+  },
+  {
+    "clave": "editor.anim.pose",
+    "texto": "Pose"
+  },
+  {
+    "clave": "editor.anim.capturar",
+    "texto": "Capturer la pose actuelle"
+  },
+  {
+    "clave": "editor.anim.cargar",
+    "texto": "Modifier"
+  },
+  {
+    "clave": "editor.anim.cargarTip",
+    "texto": "Place les pièces dans cette pose pour la retoucher"
+  },
+  {
+    "clave": "editor.anim.actualizar",
+    "texto": "Mettre à jour"
+  },
+  {
+    "clave": "editor.anim.actualizarTip",
+    "texto": "Remplace cette pose par la forme actuelle"
+  },
+  {
+    "clave": "editor.anim.quitar",
+    "texto": "Retirer"
+  },
+  {
+    "clave": "editor.anim.quitarPose",
+    "texto": "Retirer cette pose"
+  },
+  {
+    "clave": "editor.anim.necesitaDos",
+    "texto": "Il faut au moins 2 poses pour lire l’animation."
+  },
+  {
+    "clave": "editor.anim.duracion",
+    "texto": "Durée par pose"
+  },
+  {
+    "clave": "editor.anim.reproducir",
+    "texto": "Lire l’animation"
+  },
+  {
+    "clave": "editor.anim.pausar",
+    "texto": "Mettre l’animation en pause"
+  },
+  {
+    "clave": "editor.pers.anim",
+    "texto": "Animation"
+  },
+  {
+    "clave": "editor.pers.animFlote",
+    "texto": "Le mouvement remplace le flottement naturel du personnage ; le salut est conservé."
+  },
+  {
+    "clave": "editor.pers.animSinPiezas",
+    "texto": "Pour créer des animations avec des poses, construis le corps avec des pièces 3D dans l’onglet Corps."
+  },
+  {
+    "clave": "room.cocina.desc",
+    "texto": "Nutrition : note tes repas, macros, eau et ton plan de la semaine."
+  },
+  {
+    "clave": "room.ejercicio.desc",
+    "texto": "Routines de force, d’endurance et de souplesse avec objectifs."
+  },
+  {
+    "clave": "room.recamara.desc",
+    "texto": "Suis ton repos et écris ton carnet de souvenirs personnel."
+  },
+  {
+    "clave": "room.descanso.desc",
+    "texto": "Ton sommeil sous forme de ciel nocturne : horaire, alarme, score et journal de nuit."
+  },
+  {
+    "clave": "room.anecdotario.desc",
+    "texto": "Ton journal personnel : souvenirs avec photos et humeur du jour."
+  },
+  {
+    "clave": "room.despacho.desc",
+    "texto": "Finances : budget avec dépenses et revenus (fixes et variables), objectifs (calculatrices financières, épargne/investissement, dettes) avec simulateurs, et marchés en direct."
+  },
+  {
+    "clave": "room.biblioteca.desc",
+    "texto": "Encyclopédie conversationnelle : discussions avec l’IA, articles wiki et sessions d’étude."
+  },
+  {
+    "clave": "room.entretenimiento.desc",
+    "texto": "Archive de films, séries, livres et jeux de société."
+  },
+  {
+    "clave": "room.sala.desc",
+    "texto": "Planifie tes voyages : itinéraire, dépenses, liste de tâches et liste d’envies."
+  },
+  {
+    "clave": "room.jardin.desc",
+    "texto": "Calme : méditations guidées, respiration et journal de gratitude."
+  },
+  {
+    "clave": "room.garage.desc",
+    "texto": "Entretien de tes véhicules et de leurs révisions."
+  },
+  {
+    "clave": "room.diario.desc",
+    "texto": "Centre d’actualités quotidiennes, par catégorie."
+  },
+  {
+    "clave": "room.hobbies.desc",
+    "texto": "Tes loisirs et projets créatifs."
+  }
+]

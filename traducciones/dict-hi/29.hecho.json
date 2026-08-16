@@ -1,0 +1,610 @@
+[
+  {
+    "clave": "editor.obj.editarVacio",
+    "texto": "मैप टैब में कोई वस्तु चुनें या नई बनाएं।"
+  },
+  {
+    "clave": "editor.obj.eliminar",
+    "texto": "वस्तु हटाएं"
+  },
+  {
+    "clave": "editor.obj.estilo",
+    "texto": "शैली"
+  },
+  {
+    "clave": "editor.obj.estiloBloques",
+    "texto": "ब्लॉक (वॉक्सेल)"
+  },
+  {
+    "clave": "editor.obj.estiloDetallado",
+    "texto": "विस्तृत"
+  },
+  {
+    "clave": "editor.obj.estiloMinimalista",
+    "texto": "मिनिमलिस्ट"
+  },
+  {
+    "clave": "editor.obj.estiloNormal",
+    "texto": "सामान्य"
+  },
+  {
+    "clave": "editor.obj.estiloRedondeado",
+    "texto": "गोल"
+  },
+  {
+    "clave": "editor.obj.forma",
+    "texto": "आकृति"
+  },
+  {
+    "clave": "editor.obj.formaError",
+    "texto": "आकृति नहीं बन पाई। एआई मॉडल जांचें और फिर से कोशिश करें।"
+  },
+  {
+    "clave": "editor.obj.cambiarFoto",
+    "texto": "फ़ोटो बदलें"
+  },
+  {
+    "clave": "editor.obj.foto",
+    "texto": "फ़ोटो"
+  },
+  {
+    "clave": "editor.obj.fotoAyuda",
+    "texto": "फ़्रेम आपकी फ़ोटो के अनुपात में ढल जाता है।"
+  },
+  {
+    "clave": "editor.obj.fotoAyudaPanel",
+    "texto": "फ़ोटो पूरे पैनल में भर जाती है; टेक्स्ट उसके ऊपर एक पट्टी पर रहता है।"
+  },
+  {
+    "clave": "editor.obj.formaGenerar",
+    "texto": "एआई से बनाएं"
+  },
+  {
+    "clave": "editor.obj.formaPhArq",
+    "texto": "इसका वर्णन करें: \"आधार वाला ग्रीक स्तंभ\""
+  },
+  {
+    "clave": "editor.obj.formaPhObj",
+    "texto": "इसका वर्णन करें: \"लाल कुशन वाली लकड़ी की कुर्सी\""
+  },
+  {
+    "clave": "editor.obj.formaSinIa",
+    "texto": "आकृति का वर्णन करने के लिए एआई चाहिए (बार में मॉडल चुनें)"
+  },
+  {
+    "clave": "editor.obj.fxAgua",
+    "texto": "पानी की तीव्रता"
+  },
+  {
+    "clave": "editor.obj.fxJuego",
+    "texto": "राइड की गति"
+  },
+  {
+    "clave": "editor.obj.fxLuz",
+    "texto": "रोशनी की तीव्रता"
+  },
+  {
+    "clave": "editor.obj.grupoAccion",
+    "texto": "विशेष कार्य"
+  },
+  {
+    "clave": "editor.obj.grupoNinguno",
+    "texto": "— (कोई नहीं)"
+  },
+  {
+    "clave": "editor.obj.grupoAsiento",
+    "texto": "बैठें"
+  },
+  {
+    "clave": "editor.obj.grupoAcostarse",
+    "texto": "लेटें"
+  },
+  {
+    "clave": "editor.obj.grupoVehiculo",
+    "texto": "चलाएं"
+  },
+  {
+    "clave": "editor.obj.girDer",
+    "texto": "90° दाएं घुमाएं"
+  },
+  {
+    "clave": "editor.obj.girIzq",
+    "texto": "90° बाएं घुमाएं"
+  },
+  {
+    "clave": "editor.obj.girar",
+    "texto": "घुमाव (Y)"
+  },
+  {
+    "clave": "editor.obj.glbError",
+    "texto": "यह .glb मॉडल प्रोसेस नहीं हो पाया। क्या यह सही फ़ाइल है?"
+  },
+  {
+    "clave": "editor.obj.inclinarX",
+    "texto": "झुकाव (X)"
+  },
+  {
+    "clave": "editor.obj.inclinarZ",
+    "texto": "झुकाव (Z)"
+  },
+  {
+    "clave": "editor.obj.mapa",
+    "texto": "नक्शा"
+  },
+  {
+    "clave": "editor.obj.nombrePh",
+    "texto": "वस्तु का नाम"
+  },
+  {
+    "clave": "editor.obj.optimizando",
+    "texto": "मॉडल ऑप्टिमाइज़ हो रहा है…"
+  },
+  {
+    "clave": "editor.obj.quitarApp",
+    "texto": "ऐप निकालें"
+  },
+  {
+    "clave": "editor.obj.quitarFoto",
+    "texto": "फ़ोटो निकालें"
+  },
+  {
+    "clave": "editor.obj.sinObjetos",
+    "texto": "अभी कोई वस्तु नहीं है। इन्हें बनाएं टैब में बनाएं।"
+  },
+  {
+    "clave": "editor.obj.subirFoto",
+    "texto": "फ़ोटो अपलोड करें"
+  },
+  {
+    "clave": "editor.obj.subirGlb",
+    "texto": ".glb मॉडल अपलोड करें"
+  },
+  {
+    "clave": "editor.obj.tabCrear",
+    "texto": "बनाएं"
+  },
+  {
+    "clave": "editor.obj.tabEditar",
+    "texto": "बदलें"
+  },
+  {
+    "clave": "editor.obj.tamano",
+    "texto": "साइज़"
+  },
+  {
+    "clave": "editor.obj.texto",
+    "texto": "टेक्स्ट"
+  },
+  {
+    "clave": "editor.obj.textoAyuda",
+    "texto": "Enter से नई लाइन जुड़ती है। खाली = नमूना टेक्स्ट।"
+  },
+  {
+    "clave": "editor.obj.textoPh",
+    "texto": "आपके घर का नाम या कोई वाक्य…"
+  },
+  {
+    "clave": "editor.obj.tipoArq",
+    "texto": "वास्तुकला"
+  },
+  {
+    "clave": "editor.obj.tipoObjeto",
+    "texto": "वस्तु"
+  },
+  {
+    "clave": "editor.pers.color",
+    "texto": "रंग"
+  },
+  {
+    "clave": "editor.pers.colorGrupo",
+    "texto": "इस रंग से {n} हिस्से रंगें"
+  },
+  {
+    "clave": "editor.pers.colorPieza",
+    "texto": "चुने गए हिस्से और उसी रंग के सभी हिस्सों को रंगता है (पूरे कपड़े या पूरा शरीर)। गियर खुला होने पर व्यूअर में किसी हिस्से पर टैप करें ताकि दूसरा सेट चुन सकें।"
+  },
+  {
+    "clave": "editor.pers.colorPrenda",
+    "texto": "कपड़े का रंग"
+  },
+  {
+    "clave": "editor.pers.prenda.sombrero",
+    "texto": "टोपी"
+  },
+  {
+    "clave": "editor.pers.prenda.gorroChef",
+    "texto": "शेफ़ की टोपी"
+  },
+  {
+    "clave": "editor.pers.prenda.gorra",
+    "texto": "कैप"
+  },
+  {
+    "clave": "editor.pers.prenda.lentes",
+    "texto": "चश्मा"
+  },
+  {
+    "clave": "editor.pers.prenda.bufanda",
+    "texto": "स्कार्फ़"
+  },
+  {
+    "clave": "editor.pers.prenda.corbata",
+    "texto": "टाई"
+  },
+  {
+    "clave": "editor.pers.prenda.camisa",
+    "texto": "शर्ट"
+  },
+  {
+    "clave": "editor.pers.prenda.chamarra",
+    "texto": "जैकेट"
+  },
+  {
+    "clave": "editor.pers.prenda.playera",
+    "texto": "टी-शर्ट"
+  },
+  {
+    "clave": "editor.pers.prenda.capa",
+    "texto": "केप"
+  },
+  {
+    "clave": "editor.pers.prenda.vestido",
+    "texto": "ड्रेस"
+  },
+  {
+    "clave": "editor.pers.prenda.falda",
+    "texto": "स्कर्ट"
+  },
+  {
+    "clave": "editor.pers.prenda.pantalon",
+    "texto": "पैंट"
+  },
+  {
+    "clave": "editor.pers.prenda.shorts",
+    "texto": "शॉर्ट्स"
+  },
+  {
+    "clave": "editor.pers.prenda.botas",
+    "texto": "बूट्स"
+  },
+  {
+    "clave": "editor.pers.prenda.tenis",
+    "texto": "स्नीकर्स"
+  },
+  {
+    "clave": "editor.pers.prenda.guantes",
+    "texto": "दस्ताने"
+  },
+  {
+    "clave": "editor.pers.prenda.mochila",
+    "texto": "बैकपैक"
+  },
+  {
+    "clave": "editor.pers.rostro",
+    "texto": "चेहरा"
+  },
+  {
+    "clave": "editor.pers.rostroImagen",
+    "texto": "चेहरे की फ़ोटो"
+  },
+  {
+    "clave": "editor.pers.rostroImagenPuesta",
+    "texto": "फ़ोटो सिर के अगले हिस्से को ढक देती है (यह एक्सप्रेशन पर हावी रहती है)।"
+  },
+  {
+    "clave": "editor.pers.rostroQuitar",
+    "texto": "फ़ोटो निकालें"
+  },
+  {
+    "clave": "editor.pers.rostroProcesando",
+    "texto": "फ़ोटो प्रोसेस हो रही है…"
+  },
+  {
+    "clave": "editor.pers.rostroCambiar",
+    "texto": "फ़ोटो बदलें"
+  },
+  {
+    "clave": "editor.pers.rostroSubir",
+    "texto": "चेहरे की फ़ोटो अपलोड करें"
+  },
+  {
+    "clave": "editor.pers.rostroExpresion",
+    "texto": "भाव"
+  },
+  {
+    "clave": "editor.pers.rostroSustituye",
+    "texto": "भाव चुनने या फ़ोटो अपलोड करने से डिफ़ॉल्ट आंखें बदल जाती हैं।"
+  },
+  {
+    "clave": "editor.pers.rostroSoloAvatar",
+    "texto": "चेहरा (फ़ोटो और भाव) सिर्फ़ आपके मुख्य किरदार के लिए है। सहायकों का चेहरा पहले से उनके आकार के हिसाब से तय होता है।"
+  },
+  {
+    "clave": "editor.pers.rostroNoAplica",
+    "texto": "इस मॉडल का अपना चेहरा पहले से है (हेलमेट, मास्क, फ़र…): एडिटर का चेहरा और हेयरस्टाइल इस पर लागू नहीं होते।"
+  },
+  {
+    "clave": "editor.pers.expresion.neutral",
+    "texto": "तटस्थ"
+  },
+  {
+    "clave": "editor.pers.expresion.feliz",
+    "texto": "खुश"
+  },
+  {
+    "clave": "editor.pers.expresion.sonrisa",
+    "texto": "मुस्कान"
+  },
+  {
+    "clave": "editor.pers.expresion.sorpresa",
+    "texto": "हैरानी"
+  },
+  {
+    "clave": "editor.pers.expresion.guino",
+    "texto": "विंक"
+  },
+  {
+    "clave": "editor.pers.expresion.serio",
+    "texto": "गंभीर"
+  },
+  {
+    "clave": "editor.pers.expresion.ternura",
+    "texto": "प्यारा"
+  },
+  {
+    "clave": "editor.pers.expresion.ninguno",
+    "texto": "कोई चेहरा नहीं"
+  },
+  {
+    "clave": "editor.pers.modelos",
+    "texto": "मॉडल"
+  },
+  {
+    "clave": "editor.pers.modeloBase",
+    "texto": "इंसान"
+  },
+  {
+    "clave": "editor.pers.modelosNota",
+    "texto": "कोई तैयार शरीर चुनें। हिस्सों वाले शरीर को आप नीचे एडिट करते रह सकते हैं; आकृतियों का अपना चेहरा बना रहता है।"
+  },
+  {
+    "clave": "editor.pers.cuerpo.astronauta",
+    "texto": "एस्ट्रोनॉट"
+  },
+  {
+    "clave": "editor.pers.cuerpo.androide",
+    "texto": "एंड्रॉइड"
+  },
+  {
+    "clave": "editor.pers.cuerpo.ninja",
+    "texto": "निंजा"
+  },
+  {
+    "clave": "editor.pers.cuerpo.alien",
+    "texto": "एलियन"
+  },
+  {
+    "clave": "editor.pers.cuerpo.osito",
+    "texto": "टेडी"
+  },
+  {
+    "clave": "editor.pers.cuerpo.princesa",
+    "texto": "राजकुमारी"
+  },
+  {
+    "clave": "editor.pers.peinado",
+    "texto": "हेयरस्टाइल"
+  },
+  {
+    "clave": "editor.pers.peloColor",
+    "texto": "बालों का रंग"
+  },
+  {
+    "clave": "editor.pers.peinado.ninguno",
+    "texto": "बाल नहीं"
+  },
+  {
+    "clave": "editor.pers.peinado.corto",
+    "texto": "छोटे"
+  },
+  {
+    "clave": "editor.pers.peinado.puntas",
+    "texto": "स्पाइकी"
+  },
+  {
+    "clave": "editor.pers.peinado.coleta",
+    "texto": "पोनीटेल"
+  },
+  {
+    "clave": "editor.pers.peinado.chongo",
+    "texto": "जूड़ा"
+  },
+  {
+    "clave": "editor.pers.peinado.largo",
+    "texto": "लंबे"
+  },
+  {
+    "clave": "editor.pers.peinado.afro",
+    "texto": "अफ़्रो"
+  },
+  {
+    "clave": "editor.pers.peinado.mohawk",
+    "texto": "मोहॉक"
+  },
+  {
+    "clave": "editor.pers.peinado.tazon",
+    "texto": "बाउल कट"
+  },
+  {
+    "clave": "editor.pers.guardarropa",
+    "texto": "कस्टम वॉर्डरोब"
+  },
+  {
+    "clave": "editor.pers.ropaCustomPh",
+    "texto": "इसका वर्णन करें: \"सुनहरी पंखों वाली वेस्ट\""
+  },
+  {
+    "clave": "editor.pers.ropaCustomSinIa",
+    "texto": "एआई से कपड़े बनाने के लिए बार में मॉडल चुनना ज़रूरी है"
+  },
+  {
+    "clave": "editor.pers.ropaCustomGenerar",
+    "texto": "एआई से कपड़ा बनाएं"
+  },
+  {
+    "clave": "editor.pers.ropaCustomError",
+    "texto": "कपड़ा नहीं बन पाया। एआई मॉडल जांचें और फिर से कोशिश करें।"
+  },
+  {
+    "clave": "editor.pers.ropaCustomManual",
+    "texto": "हाथ से बनाएं"
+  },
+  {
+    "clave": "editor.pers.ropaCustomVacio",
+    "texto": "आपके पास अभी तक कोई कस्टम कपड़ा नहीं है। एआई से बनाएं या हाथ से बनाएं।"
+  },
+  {
+    "clave": "editor.pers.ropaCustomNombre",
+    "texto": "कपड़े का नाम"
+  },
+  {
+    "clave": "editor.pers.ropaCustomSinNombre",
+    "texto": "कपड़ा"
+  },
+  {
+    "clave": "editor.pers.cancelar",
+    "texto": "रद्द करें"
+  },
+  {
+    "clave": "editor.pers.guardar",
+    "texto": "सेव करें"
+  },
+  {
+    "clave": "editor.pers.editar",
+    "texto": "बदलें"
+  },
+  {
+    "clave": "editor.pers.borrar",
+    "texto": "हटाएं"
+  },
+  {
+    "clave": "editor.pers.categoria.cabeza",
+    "texto": "सिर"
+  },
+  {
+    "clave": "editor.pers.categoria.cuello",
+    "texto": "गर्दन"
+  },
+  {
+    "clave": "editor.pers.categoria.torso",
+    "texto": "धड़"
+  },
+  {
+    "clave": "editor.pers.categoria.cintura",
+    "texto": "कमर और टांगें"
+  },
+  {
+    "clave": "editor.pers.categoria.pies",
+    "texto": "पैर"
+  },
+  {
+    "clave": "editor.pers.categoria.accesorios",
+    "texto": "एक्सेसरीज़"
+  },
+  {
+    "clave": "editor.ropa.carpetaNueva",
+    "texto": "नया फ़ोल्डर"
+  },
+  {
+    "clave": "editor.ropa.carpetaNombre",
+    "texto": "इसका नाम क्या हो?"
+  },
+  {
+    "clave": "editor.ropa.renombrar",
+    "texto": "नाम बदलें"
+  },
+  {
+    "clave": "editor.ropa.ocultar",
+    "texto": "«{nombre}» को छिपाएं"
+  },
+  {
+    "clave": "editor.ropa.ocultarMsg",
+    "texto": "फ़ोल्डर लिस्ट में दिखना बंद हो जाता है, पर कुछ भी नहीं खोता: जो कपड़े आपने पहले से पहन रखे हैं वे पहने ही रहते हैं और आप इन्हें जब चाहें वापस ला सकते हैं।"
+  },
+  {
+    "clave": "editor.ropa.ocultarOk",
+    "texto": "छिपाएं"
+  },
+  {
+    "clave": "editor.ropa.ocultarTip",
+    "texto": "फ़ोल्डर छिपाएं"
+  },
+  {
+    "clave": "editor.ropa.borrar",
+    "texto": "«{nombre}» को हटाएं"
+  },
+  {
+    "clave": "editor.ropa.borrarMsg",
+    "texto": "इसकी चीज़ें उसी कैटेगरी के दूसरे फ़ोल्डर में चली जाती हैं; कोई भी कपड़ा नहीं हटता।"
+  },
+  {
+    "clave": "editor.ropa.borrarOk",
+    "texto": "हटाएं"
+  },
+  {
+    "clave": "editor.ropa.borrarTip",
+    "texto": "फ़ोल्डर हटाएं"
+  },
+  {
+    "clave": "editor.ropa.ocultas",
+    "texto": "छिपे हुए फ़ोल्डर"
+  },
+  {
+    "clave": "editor.ropa.hornear",
+    "texto": "«{nombre}» को बदलें"
+  },
+  {
+    "clave": "editor.ropa.hornearMsg",
+    "texto": "{n} हिस्सों की एक बदली जा सकने वाली कॉपी बनती है। यह कॉपी अब दूसरे शरीरों के हिसाब से नहीं ढलती; ओरिजिनल फ़ोल्डर में ही रहता है।"
+  },
+  {
+    "clave": "editor.ropa.hornearMsgMarcha",
+    "texto": "{n} हिस्सों की एक बदली जा सकने वाली कॉपी बनती है। यह कॉपी अब आपके कदमों के साथ नहीं हिलती और न ही दूसरे शरीरों के हिसाब से ढलती है; ओरिजिनल फ़ोल्डर में ही रहता है।"
+  },
+  {
+    "clave": "editor.ropa.hornearOk",
+    "texto": "बदली जा सकने वाली कॉपी बनाएं"
+  },
+  {
+    "clave": "editor.ropa.hornearTip",
+    "texto": "हिस्सा-दर-हिस्सा बदली जा सकने वाली कॉपी बनाएं"
+  },
+  {
+    "clave": "editor.ropa.copiaDe",
+    "texto": "मेरा: {nombre}"
+  },
+  {
+    "clave": "editor.ropa.soloAvatar",
+    "texto": "कस्टम कपड़े सिर्फ़ मुख्य किरदार के लिए हैं: सहायक सिर्फ़ फ़ैक्टरी के कपड़े पहनते हैं।"
+  },
+  {
+    "clave": "editor.pers.atuendos",
+    "texto": "आउटफ़िट"
+  },
+  {
+    "clave": "editor.pers.atuendosSugeridos",
+    "texto": "सुझाए गए"
+  },
+  {
+    "clave": "editor.pers.atuendosTuyos",
+    "texto": "आपके आउटफ़िट"
+  },
+  {
+    "clave": "editor.pers.atuendoCrear",
+    "texto": "आउटफ़िट बनाएं"
+  },
+  {
+    "clave": "editor.pers.atuendoNombrePh",
+    "texto": "आउटफ़िट का नाम"
+  }
+]

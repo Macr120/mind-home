@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "chat.manual.cat.ayuda",
+    "texto": "Yardım ve öğreticiler"
+  },
+  {
+    "clave": "chat.manual.nota.ayuda",
+    "texto": "Herhangi bir uygulamanın veya menünün nasıl çalıştığını sor, ya da öğreticisini iste: sihirbaz onu ekranda adım adım gösterir. İngilizce’de düzenleyici, sohbet ve menü için ekran turları hazır; gerisini asistan (Yapay Zeka) yanıtlar."
+  },
+  {
+    "clave": "tut.casa.titulo",
+    "texto": "Evin"
+  },
+  {
+    "clave": "tut.casa.resumen",
+    "texto": "Ev, uygulamalarının haritasıdır: her oda bir tanesini barındırır. Joystick veya WASD ile hareket edersin, V ile görünüm değiştirirsin ve sol üstteki düğmeyle menüyü açarsın. Köşedeki küp, yakınında ne olduğuna göre kendiliğinden değişir; saat takvimi, rutinleri ve müziği taşır."
+  },
+  {
+    "clave": "tut.primeros.titulo",
+    "texto": "İlk adımlar"
+  },
+  {
+    "clave": "tut.primeros.resumen",
+    "texto": "Menüden bir oda oluştur, ona uygulamasını ata ve görmek için içine gir."
+  },
+  {
+    "clave": "tut.primeros.2a.titulo",
+    "texto": "Araç çarkı"
+  },
+  {
+    "clave": "tut.primeros.2a.texto",
+    "texto": "Telefonda odalar panel açmadan doğrudan haritanın üstüne çizilir. Her şey joystick’in yanındaki bu düğmeden çıkar: araç çarkı."
+  },
+  {
+    "clave": "tut.primeros.2b.titulo",
+    "texto": "İnşaat"
+  },
+  {
+    "clave": "tut.primeros.2b.texto",
+    "texto": "Çarkın iki seviyesi var. Dördüncü kategorisi evi ayağa kaldıran kategoridir: odalar, duvarlar, kapılar, pencereler, zeminler ve çatılar."
+  },
+  {
+    "clave": "tut.primeros.2c.titulo",
+    "texto": "Odalar modu"
+  },
+  {
+    "clave": "tut.primeros.2c.texto",
+    "texto": "Odalar, fırçayı hazır bırakır: çark kapanır ve zemine her dokunuş yeni bir oda kaldırır. Sana yolun geri kalanını göstermek için şimdi sana bir tane oluşturuyorum…"
+  },
+  {
+    "clave": "tut.menu-cuartos.titulo",
+    "texto": "Menü · Odalar"
+  },
+  {
+    "clave": "tut.menu-cuartos.resumen",
+    "texto": "Odalar sekmesi, evinin odalarını kategoriye göre ve ilerlemesiyle birlikte listeler. Her kartta Düzenle (odayı özelleştir) ve Gir (uygulamasını aç) ya da henüz uygulaması yoksa + Ata bulunur. Üstte özetin yer alır: ruh hali, rütbe ve seri; altta yeni odalar oluşturabilirsin."
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.titulo",
+    "texto": "Rütbe, rozetler ve özet"
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.texto",
+    "texto": "Karakterinin yanındaki iki halka Sisifos Dağı’dır (1’den 12’ye rütbe ve rozetler); altta ise Wrapped var: haftanın, ayın ya da yılın özeti. İkisinin de kendi öğreticisi var."
+  },
+  {
+    "clave": "tut.menu-plantillas.titulo",
+    "texto": "Menü · Şablonlar"
+  },
+  {
+    "clave": "tut.menu-plantillas.resumen",
+    "texto": "Şablonlar, evin uygulamalarıdır: bir odadaki bir nesneye atanırlar. Bu sekmenin iki görünümü var —Odalar (her zamanki uygulamalar) ve Ekler (doğrudan haritaya inşa edilenler)— ve katalog, kendi bloklarınla oluşturduğun şablonları da içerir."
+  },
+  {
+    "clave": "tut.plantillas-custom.titulo",
+    "texto": "Kendi şablonların"
+  },
+  {
+    "clave": "tut.plantillas-custom.resumen",
+    "texto": "Kendi şablon düzenleyicisi, bloklarla eksiksiz bir uygulama kurar: notlar, kontrol listesi, sayaç, bağlantılar, alışkanlık, galeri ve daha fazlası. Ona bir isim, emoji ve renk verirsin, bloklarını seçersin ve diğer her uygulama gibi atamaya hazır olur."
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.titulo",
+    "texto": "Menüler ve alt menüler"
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.texto",
+    "texto": "Uygulaman büyürse üst sekmelere böl: her menünün kendi adı ve emojisi vardır, alt menüleri olabilir ve araçları istediğinin içine eklersin. Menü yoksa her şey tek bir ekranda yaşar."
+  },
+  {
+    "clave": "tut.menu-inventario.titulo",
+    "texto": "Menü · Envanter"
+  },
+  {
+    "clave": "tut.menu-inventario.resumen",
+    "texto": "Envanter, evi süslemek için nesneleri saklar: kategoriye göre kütüphane ve özel nesneler (araçlar, çeşmeler, oyun parkı ekipmanları, ışıklar). Menü açıkken bunları doğrudan haritaya sürükleyebilirsin."
+  },
+  {
+    "clave": "tut.editor-mapa.titulo",
+    "texto": "Düzenleyici · Harita"
+  },
+  {
+    "clave": "tut.editor-mapa.resumen",
+    "texto": "Düzenleyici, evin tamamını 4 sekmede özelleştirir: Harita, Karakterler, Nesneler ve Ayarlar — her birinin kendi öğreticisi var. Harita sekmesi, anında 3D’de görünen bir plan üzerinde odalar, duvarlar, kapılar, pencereler, zeminler ve çatılar çizer; ayrıca seviyeler de sunar: üst üste yığılabilen katlar ve bir bodrum."
+  },
+  {
+    "clave": "tut.editor-personajes.titulo",
+    "texto": "Düzenleyici · Karakterler"
+  },
+  {
+    "clave": "tut.editor-personajes.resumen",
+    "texto": "Avatarın ve asistanların aynı düzenleyiciyi paylaşır: vücut, yüz (fotoğrafla), renk, boyut, kıyafet ve animasyonlar, 3D önizlemeyle. Avatarın ayrıca kişiye özel bir gardırobu vardır ve her odada farklı giyinebilir."
+  },
+  {
+    "clave": "tut.editor-objetos.titulo",
+    "texto": "Düzenleyici · Nesneler"
+  }
+]

@@ -1,0 +1,562 @@
+[
+  {
+    "clave": "agenda.ciclo.recienActivado",
+    "texto": "記録がオンになりました。誤ってタップしましたか？"
+  },
+  {
+    "clave": "agenda.ciclo.deshacer",
+    "texto": "元に戻す"
+  },
+  {
+    "clave": "agenda.ciclo.mantener",
+    "texto": "そのままにする"
+  },
+  {
+    "clave": "agenda.ciclo.ajustes",
+    "texto": "設定"
+  },
+  {
+    "clave": "agenda.ciclo.diaN",
+    "texto": "周期{n}日目"
+  },
+  {
+    "clave": "agenda.ciclo.sinRegistro",
+    "texto": "まだ記録がありません"
+  },
+  {
+    "clave": "agenda.ciclo.sinDatos",
+    "texto": "生理の初日を記録して始めましょう"
+  },
+  {
+    "clave": "agenda.ciclo.hoyToca",
+    "texto": "今日開始予定です"
+  },
+  {
+    "clave": "agenda.ciclo.faltan",
+    "texto": "あと{n}日(予測)"
+  },
+  {
+    "clave": "agenda.ciclo.proximo",
+    "texto": "次回の生理"
+  },
+  {
+    "clave": "agenda.ciclo.fertil",
+    "texto": "妊娠しやすい期間"
+  },
+  {
+    "clave": "agenda.ciclo.base",
+    "texto": "直近{n}周期からの予測(平均{d}日)。"
+  },
+  {
+    "clave": "agenda.ciclo.baseSinDatos",
+    "texto": "設定の日数({d}日)から予測:まだ2回分の生理データがありません。"
+  },
+  {
+    "clave": "agenda.ciclo.historial",
+    "texto": "最近の生理"
+  },
+  {
+    "clave": "agenda.ciclo.duroDias",
+    "texto": "{n}日間"
+  },
+  {
+    "clave": "agenda.ciclo.sangrado",
+    "texto": "出血量"
+  },
+  {
+    "clave": "agenda.ciclo.ninguno",
+    "texto": "なし"
+  },
+  {
+    "clave": "agenda.ciclo.leve",
+    "texto": "少ない"
+  },
+  {
+    "clave": "agenda.ciclo.medio",
+    "texto": "普通"
+  },
+  {
+    "clave": "agenda.ciclo.abundante",
+    "texto": "多い"
+  },
+  {
+    "clave": "agenda.ciclo.sintomas",
+    "texto": "症状"
+  },
+  {
+    "clave": "agenda.ciclo.animo",
+    "texto": "気分"
+  },
+  {
+    "clave": "agenda.ciclo.leyRegistrado",
+    "texto": "記録済み"
+  },
+  {
+    "clave": "agenda.ciclo.leyEstimado",
+    "texto": "予測"
+  },
+  {
+    "clave": "agenda.ciclo.duracionCiclo",
+    "texto": "周期の長さ(日)"
+  },
+  {
+    "clave": "agenda.ciclo.duracionPeriodo",
+    "texto": "生理の長さ(日)"
+  },
+  {
+    "clave": "agenda.ciclo.ayudaDuracion",
+    "texto": "2回分の生理が記録されるまでの仮の値です。記録され次第、実際の平均が優先されます。"
+  },
+  {
+    "clave": "agenda.ciclo.avisarAntes",
+    "texto": "何日前に知らせるか"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivo",
+    "texto": "避妊薬の時間"
+  },
+  {
+    "clave": "agenda.ciclo.avisoRutina",
+    "texto": "生理が始まる予定です"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivoRutina",
+    "texto": "避妊薬"
+  },
+  {
+    "clave": "agenda.ciclo.sint.colicos",
+    "texto": "腹痛"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cabeza",
+    "texto": "頭痛"
+  },
+  {
+    "clave": "agenda.ciclo.sint.hinchazon",
+    "texto": "膨満感"
+  },
+  {
+    "clave": "agenda.ciclo.sint.senos",
+    "texto": "胸の張り"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cansancio",
+    "texto": "疲労感"
+  },
+  {
+    "clave": "agenda.ciclo.sint.antojos",
+    "texto": "食欲の変化"
+  },
+  {
+    "clave": "agenda.ciclo.sint.acne",
+    "texto": "ニキビ"
+  },
+  {
+    "clave": "agenda.ciclo.sint.irritable",
+    "texto": "イライラ"
+  },
+  {
+    "clave": "agenda.salud.nuevaCita",
+    "texto": "新しい予約"
+  },
+  {
+    "clave": "agenda.salud.medicamentos",
+    "texto": "薬"
+  },
+  {
+    "clave": "agenda.salud.nuevoMedicamento",
+    "texto": "新しい薬"
+  },
+  {
+    "clave": "agenda.editarMedicamento",
+    "texto": "治療を編集"
+  },
+  {
+    "clave": "agenda.vacio.citas",
+    "texto": "予約はまだありません。"
+  },
+  {
+    "clave": "agenda.vacio.medicamentos",
+    "texto": "進行中の治療はありません。"
+  },
+  {
+    "clave": "agenda.med.dosis",
+    "texto": "用量"
+  },
+  {
+    "clave": "agenda.med.horas",
+    "texto": "服用時間"
+  },
+  {
+    "clave": "agenda.med.agregarToma",
+    "texto": "服用時間を追加"
+  },
+  {
+    "clave": "agenda.med.dias",
+    "texto": "曜日"
+  },
+  {
+    "clave": "agenda.med.todosDias",
+    "texto": "何も選択しなければ毎日です。"
+  },
+  {
+    "clave": "agenda.med.desde",
+    "texto": "開始"
+  },
+  {
+    "clave": "agenda.med.hasta",
+    "texto": "終了(任意)"
+  },
+  {
+    "clave": "agenda.med.pausar",
+    "texto": "一時停止"
+  },
+  {
+    "clave": "agenda.med.reanudar",
+    "texto": "再開"
+  },
+  {
+    "clave": "agenda.med.sinHoras",
+    "texto": "リマインダーなし"
+  },
+  {
+    "clave": "agenda.med.avisoAppAbierta",
+    "texto": "服用リマインダーはアプリを開いているときだけ鳴ります。"
+  },
+  {
+    "clave": "agenda.dia.0",
+    "texto": "日"
+  },
+  {
+    "clave": "agenda.dia.1",
+    "texto": "月"
+  },
+  {
+    "clave": "agenda.dia.2",
+    "texto": "火"
+  },
+  {
+    "clave": "agenda.dia.3",
+    "texto": "水"
+  },
+  {
+    "clave": "agenda.dia.4",
+    "texto": "木"
+  },
+  {
+    "clave": "agenda.dia.5",
+    "texto": "金"
+  },
+  {
+    "clave": "agenda.dia.6",
+    "texto": "土"
+  },
+  {
+    "clave": "agenda.personas.nuevoContacto",
+    "texto": "新しい連絡先"
+  },
+  {
+    "clave": "agenda.editarContacto",
+    "texto": "連絡先を編集"
+  },
+  {
+    "clave": "agenda.personas.nuevoPlan",
+    "texto": "予定を追加"
+  },
+  {
+    "clave": "agenda.persona.relacion",
+    "texto": "関係"
+  },
+  {
+    "clave": "agenda.persona.phRelacion",
+    "texto": "家族、仕事…"
+  },
+  {
+    "clave": "agenda.persona.telefono",
+    "texto": "電話番号"
+  },
+  {
+    "clave": "agenda.persona.correo",
+    "texto": "メール"
+  },
+  {
+    "clave": "agenda.persona.cumple",
+    "texto": "誕生日"
+  },
+  {
+    "clave": "agenda.persona.horaCumple",
+    "texto": "通知時刻"
+  },
+  {
+    "clave": "agenda.persona.direccion",
+    "texto": "住所"
+  },
+  {
+    "clave": "agenda.persona.foto",
+    "texto": "写真"
+  },
+  {
+    "clave": "agenda.persona.edad",
+    "texto": "{n}歳になります"
+  },
+  {
+    "clave": "agenda.persona.hoyCumple",
+    "texto": "今日です！"
+  },
+  {
+    "clave": "agenda.persona.faltan",
+    "texto": "あと{n}日"
+  },
+  {
+    "clave": "agenda.persona.hoy",
+    "texto": "今日"
+  },
+  {
+    "clave": "agenda.persona.enDias",
+    "texto": "{n}日"
+  },
+  {
+    "clave": "agenda.vacio.contactos",
+    "texto": "連絡先はまだ空です。大切な人を追加しましょう。"
+  },
+  {
+    "clave": "agenda.vacio.eventosContacto",
+    "texto": "この人との予定はありません。"
+  },
+  {
+    "clave": "agenda.salud.mascotas",
+    "texto": "ペット"
+  },
+  {
+    "clave": "agenda.salud.nuevaMascota",
+    "texto": "新しいペット"
+  },
+  {
+    "clave": "agenda.salud.nuevoProjimo",
+    "texto": "新しい大切な人"
+  },
+  {
+    "clave": "agenda.vacio.mascotas",
+    "texto": "ペットはまだいません。頼っている子を追加しましょう。"
+  },
+  {
+    "clave": "agenda.vacio.cuidados",
+    "texto": "予定されているお世話はありません:ワクチン、駆虫、シャンプー…"
+  },
+  {
+    "clave": "agenda.vacio.citasMascota",
+    "texto": "このペットの予約はありません。"
+  },
+  {
+    "clave": "agenda.mascota.editar",
+    "texto": "ペットを編集"
+  },
+  {
+    "clave": "agenda.mascota.especie",
+    "texto": "種類"
+  },
+  {
+    "clave": "agenda.mascota.raza",
+    "texto": "品種"
+  },
+  {
+    "clave": "agenda.mascota.nacimiento",
+    "texto": "生年月日"
+  },
+  {
+    "clave": "agenda.mascota.peso",
+    "texto": "体重(kg)"
+  },
+  {
+    "clave": "agenda.mascota.veterinario",
+    "texto": "獣医"
+  },
+  {
+    "clave": "agenda.mascota.phNotas",
+    "texto": "アレルギー、フード、マイクロチップ…"
+  },
+  {
+    "clave": "agenda.mascota.cuidados",
+    "texto": "お世話"
+  },
+  {
+    "clave": "agenda.mascota.nuevoCuidado",
+    "texto": "新しいお世話"
+  },
+  {
+    "clave": "agenda.mascota.citas",
+    "texto": "動物病院の予約"
+  },
+  {
+    "clave": "agenda.mascota.meses",
+    "texto": "{n}か月"
+  },
+  {
+    "clave": "agenda.mascota.anio",
+    "texto": "1歳"
+  },
+  {
+    "clave": "agenda.mascota.anios",
+    "texto": "{n}歳"
+  },
+  {
+    "clave": "agenda.mascota.sinFicha",
+    "texto": "ペット"
+  },
+  {
+    "clave": "agenda.especie.perro",
+    "texto": "犬"
+  },
+  {
+    "clave": "agenda.especie.gato",
+    "texto": "猫"
+  },
+  {
+    "clave": "agenda.especie.ave",
+    "texto": "鳥"
+  },
+  {
+    "clave": "agenda.especie.pez",
+    "texto": "魚"
+  },
+  {
+    "clave": "agenda.especie.roedor",
+    "texto": "げっ歯類"
+  },
+  {
+    "clave": "agenda.especie.reptil",
+    "texto": "爬虫類"
+  },
+  {
+    "clave": "agenda.especie.caballo",
+    "texto": "馬"
+  },
+  {
+    "clave": "agenda.especie.otro",
+    "texto": "その他"
+  },
+  {
+    "clave": "agenda.cuidado.vacuna",
+    "texto": "ワクチン"
+  },
+  {
+    "clave": "agenda.cuidado.desparasitacion",
+    "texto": "駆虫"
+  },
+  {
+    "clave": "agenda.cuidado.veterinario",
+    "texto": "健康診断"
+  },
+  {
+    "clave": "agenda.cuidado.bano",
+    "texto": "シャンプー"
+  },
+  {
+    "clave": "agenda.cuidado.peluqueria",
+    "texto": "トリミング"
+  },
+  {
+    "clave": "agenda.cuidado.alimento",
+    "texto": "フードの購入"
+  },
+  {
+    "clave": "agenda.cuidado.otro",
+    "texto": "その他"
+  },
+  {
+    "clave": "agenda.cuidado.editar",
+    "texto": "お世話を編集"
+  },
+  {
+    "clave": "agenda.cuidado.tipo",
+    "texto": "種類"
+  },
+  {
+    "clave": "agenda.cuidado.titulo",
+    "texto": "内容"
+  },
+  {
+    "clave": "agenda.cuidado.proxima",
+    "texto": "次回"
+  },
+  {
+    "clave": "agenda.cuidado.cada",
+    "texto": "繰り返し"
+  },
+  {
+    "clave": "agenda.cuidado.unaVez",
+    "texto": "一度だけ"
+  },
+  {
+    "clave": "agenda.cuidado.mensual",
+    "texto": "毎月"
+  },
+  {
+    "clave": "agenda.cuidado.anual",
+    "texto": "毎年"
+  },
+  {
+    "clave": "agenda.cuidado.meses",
+    "texto": "{n}か月ごと"
+  },
+  {
+    "clave": "agenda.cuidado.aviso",
+    "texto": "完了にすると、日付は自動で次回に更新されます。"
+  },
+  {
+    "clave": "agenda.cuidado.hecho",
+    "texto": "完了"
+  },
+  {
+    "clave": "agenda.cuidado.ultima",
+    "texto": "前回:{f}"
+  },
+  {
+    "clave": "agenda.cuidado.vencido",
+    "texto": "期限切れ"
+  },
+  {
+    "clave": "agenda.form.paraQuien",
+    "texto": "誰のためですか？"
+  },
+  {
+    "clave": "agenda.form.paraMi",
+    "texto": "—自分—"
+  },
+  {
+    "clave": "widgets.titulo",
+    "texto": "今日"
+  },
+  {
+    "clave": "widgets.nivel",
+    "texto": "レベル{n}"
+  },
+  {
+    "clave": "widgets.metas",
+    "texto": "目標{h}/{t}"
+  },
+  {
+    "clave": "widgets.sisifo",
+    "texto": "{d}日目・称号:{r}"
+  },
+  {
+    "clave": "widgets.proximoTitulo",
+    "texto": "次の予定"
+  },
+  {
+    "clave": "widgets.sinProximo",
+    "texto": "時間指定の予定はありません"
+  },
+  {
+    "clave": "widgets.efemerideTitulo",
+    "texto": "今日は何の日"
+  },
+  {
+    "clave": "widgets.vacio",
+    "texto": "今日の予定はありません"
+  },
+  {
+    "clave": "widgets.desactualizado",
+    "texto": "タップして更新"
+  }
+]

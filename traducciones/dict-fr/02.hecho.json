@@ -1,0 +1,1114 @@
+[
+  {
+    "clave": "ajustes.idioma",
+    "texto": "Langue"
+  },
+  {
+    "clave": "diario.nacidoAbrev",
+    "texto": "n."
+  },
+  {
+    "clave": "ajustes.tema",
+    "texto": "Thème de l’interface"
+  },
+  {
+    "clave": "ajustes.modo",
+    "texto": "Apparence"
+  },
+  {
+    "clave": "ajustes.modo.claro",
+    "texto": "Clair"
+  },
+  {
+    "clave": "ajustes.modo.oscuro",
+    "texto": "Sombre"
+  },
+  {
+    "clave": "ajustes.modo.transparente",
+    "texto": "Transparent"
+  },
+  {
+    "clave": "ajustes.iconos",
+    "texto": "Style d’icônes"
+  },
+  {
+    "clave": "ajustes.iconos.emoji",
+    "texto": "Emojis"
+  },
+  {
+    "clave": "ajustes.iconos.profesional",
+    "texto": "Professionnel"
+  },
+  {
+    "clave": "ajustes.tipografia",
+    "texto": "Typographie"
+  },
+  {
+    "clave": "ajustes.abrir",
+    "texto": "Paramètres"
+  },
+  {
+    "clave": "tipografia.sistema",
+    "texto": "Système"
+  },
+  {
+    "clave": "tipografia.serif",
+    "texto": "Serif"
+  },
+  {
+    "clave": "tipografia.mono",
+    "texto": "Monospace"
+  },
+  {
+    "clave": "tipografia.redondeada",
+    "texto": "Arrondie"
+  },
+  {
+    "clave": "tipografia.manuscrita",
+    "texto": "Manuscrite"
+  },
+  {
+    "clave": "temaUI.medianoche",
+    "texto": "Minuit"
+  },
+  {
+    "clave": "temaUI.neon",
+    "texto": "Néon"
+  },
+  {
+    "clave": "temaUI.bosque",
+    "texto": "Forêt"
+  },
+  {
+    "clave": "temaUI.ambar",
+    "texto": "Ambre"
+  },
+  {
+    "clave": "temaUI.ciruela",
+    "texto": "Prune"
+  },
+  {
+    "clave": "room.cocina.nombre",
+    "texto": "Cuisine"
+  },
+  {
+    "clave": "room.ejercicio.nombre",
+    "texto": "Gym"
+  },
+  {
+    "clave": "room.recamara.nombre",
+    "texto": "Chambre"
+  },
+  {
+    "clave": "room.descanso.nombre",
+    "texto": "Lit · Repos"
+  },
+  {
+    "clave": "room.anecdotario.nombre",
+    "texto": "Secrétaire · Journal"
+  },
+  {
+    "clave": "room.despacho.nombre",
+    "texto": "Bureau"
+  },
+  {
+    "clave": "room.biblioteca.nombre",
+    "texto": "Bibliothèque"
+  },
+  {
+    "clave": "room.entretenimiento.nombre",
+    "texto": "Divertissement"
+  },
+  {
+    "clave": "room.sala.nombre",
+    "texto": "Salon"
+  },
+  {
+    "clave": "room.jardin.nombre",
+    "texto": "Jardin"
+  },
+  {
+    "clave": "room.garage.nombre",
+    "texto": "Garage"
+  },
+  {
+    "clave": "room.diario.nombre",
+    "texto": "Actualités"
+  },
+  {
+    "clave": "room.hobbies.nombre",
+    "texto": "Loisirs"
+  },
+  {
+    "clave": "room.idiomas.nombre",
+    "texto": "Langues"
+  },
+  {
+    "clave": "room.caminos.nombre",
+    "texto": "Circuits"
+  },
+  {
+    "clave": "room.canchas.nombre",
+    "texto": "Terrains"
+  },
+  {
+    "clave": "room.huerto.nombre",
+    "texto": "Nourriture"
+  },
+  {
+    "clave": "room.granja.nombre",
+    "texto": "Ferme"
+  },
+  {
+    "clave": "room.ideas.nombre",
+    "texto": "Idées"
+  },
+  {
+    "clave": "room.computo.nombre",
+    "texto": "Calcul"
+  },
+  {
+    "clave": "room.agenda.nombre",
+    "texto": "Agenda"
+  },
+  {
+    "clave": "room.cocina.sub",
+    "texto": "Nutrition"
+  },
+  {
+    "clave": "room.ejercicio.sub",
+    "texto": "Routines de force et fitness"
+  },
+  {
+    "clave": "room.recamara.sub",
+    "texto": "Sommeil et anecdotes"
+  },
+  {
+    "clave": "room.descanso.sub",
+    "texto": "Sommeil et alarme"
+  },
+  {
+    "clave": "room.anecdotario.sub",
+    "texto": "Journal personnel"
+  },
+  {
+    "clave": "room.despacho.sub",
+    "texto": "Finances"
+  },
+  {
+    "clave": "room.biblioteca.sub",
+    "texto": "Apprentissage"
+  },
+  {
+    "clave": "room.entretenimiento.sub",
+    "texto": "Archives et jeux de société"
+  },
+  {
+    "clave": "room.sala.sub",
+    "texto": "Voyages"
+  },
+  {
+    "clave": "room.jardin.sub",
+    "texto": "Pleine conscience"
+  },
+  {
+    "clave": "room.garage.sub",
+    "texto": "Entretien des véhicules"
+  },
+  {
+    "clave": "room.diario.sub",
+    "texto": "Actualités du jour"
+  },
+  {
+    "clave": "room.hobbies.sub",
+    "texto": "Passe-temps et projets"
+  },
+  {
+    "clave": "room.calendario.sub",
+    "texto": "Événements et routines"
+  },
+  {
+    "clave": "room.ideas.sub",
+    "texto": "Cartes conceptuelles sur une toile libre"
+  },
+  {
+    "clave": "room.computo.sub",
+    "texto": "Calculatrice et feuilles de calcul"
+  },
+  {
+    "clave": "room.agenda.sub",
+    "texto": "Travail, santé et personnes"
+  },
+  {
+    "clave": "hud.plegar",
+    "texto": "Réduire les contrôles"
+  },
+  {
+    "clave": "hud.desplegar",
+    "texto": "Afficher les contrôles"
+  },
+  {
+    "clave": "nav3d.aria",
+    "texto": "Contrôles de vue"
+  },
+  {
+    "clave": "nav3d.vistaCuarto",
+    "texto": "Vue de la pièce"
+  },
+  {
+    "clave": "nav3d.vistaInterior",
+    "texto": "Face au mur"
+  },
+  {
+    "clave": "nav3d.rotarIzq",
+    "texto": "Tourner la vue à gauche"
+  },
+  {
+    "clave": "nav3d.rotarDer",
+    "texto": "Tourner la vue à droite"
+  },
+  {
+    "clave": "nav3d.acercar",
+    "texto": "Zoom avant"
+  },
+  {
+    "clave": "nav3d.alejar",
+    "texto": "Zoom arrière"
+  },
+  {
+    "clave": "nav3d.restaurarCuarto",
+    "texto": "Réinitialiser le zoom et le centrage de la pièce"
+  },
+  {
+    "clave": "nav3d.vistaInicial",
+    "texto": "Vue initiale"
+  },
+  {
+    "clave": "nav3d.centrarCuarto",
+    "texto": "Centrer la pièce"
+  },
+  {
+    "clave": "nav3d.reiniciar",
+    "texto": "Réinitialiser la vue"
+  },
+  {
+    "clave": "nav3d.editor3d",
+    "texto": "Éditeur 3D"
+  },
+  {
+    "clave": "nav3d.editor3dOn",
+    "texto": "Fermer l’éditeur"
+  },
+  {
+    "clave": "nav3d.editor3dHint",
+    "texto": "Modifie le monde en perspective : touche un objet, un sol, un mur ou un personnage pour le modifier"
+  },
+  {
+    "clave": "nav3d.verFlechas",
+    "texto": "Revenir aux flèches de déplacement"
+  },
+  {
+    "clave": "nav3d.verCubo",
+    "texto": "Replier les flèches et afficher le cube de vues"
+  },
+  {
+    "clave": "nav3d.verFlechasBtn",
+    "texto": "Voir les flèches"
+  },
+  {
+    "clave": "nav3d.verCuboBtn",
+    "texto": "Voir la vue"
+  },
+  {
+    "clave": "herr.boton",
+    "texto": "Outils"
+  },
+  {
+    "clave": "herr.rueda",
+    "texto": "Roue d’outils"
+  },
+  {
+    "clave": "herr.cubo",
+    "texto": "Cube"
+  },
+  {
+    "clave": "herr.saltar",
+    "texto": "Sauter"
+  },
+  {
+    "clave": "herr.correr",
+    "texto": "Courir"
+  },
+  {
+    "clave": "herr.bailar",
+    "texto": "Danser"
+  },
+  {
+    "clave": "herr.laser",
+    "texto": "Laser"
+  },
+  {
+    "clave": "herr.volverCubo",
+    "texto": "Revenir au cube de vues"
+  },
+  {
+    "clave": "herr.saltarBtn",
+    "texto": "Saute !"
+  },
+  {
+    "clave": "herr.corriendo",
+    "texto": "Court"
+  },
+  {
+    "clave": "herr.bailando",
+    "texto": "Danse"
+  },
+  {
+    "clave": "herr.disparar",
+    "texto": "Tirer"
+  },
+  {
+    "clave": "herr.invocar",
+    "texto": "Invoquer"
+  },
+  {
+    "clave": "herr.soloPlantaBaja",
+    "texto": "Descends au rez-de-chaussée pour l’invoquer"
+  },
+  {
+    "clave": "herr.veh.bicicleta",
+    "texto": "Vélo"
+  },
+  {
+    "clave": "herr.veh.motocicleta",
+    "texto": "Moto"
+  },
+  {
+    "clave": "herr.veh.automovil",
+    "texto": "Voiture"
+  },
+  {
+    "clave": "herr.veh.ovni",
+    "texto": "OVNI"
+  },
+  {
+    "clave": "herr.cat.movimientos",
+    "texto": "Mouvements"
+  },
+  {
+    "clave": "herr.cat.juguetes",
+    "texto": "Jouets"
+  },
+  {
+    "clave": "herr.cat.vehiculos",
+    "texto": "Véhicules"
+  },
+  {
+    "clave": "herr.cat.construccion",
+    "texto": "Construction"
+  },
+  {
+    "clave": "herr.construir",
+    "texto": "Construire"
+  },
+  {
+    "clave": "herr.constrDibujar",
+    "texto": "Dessiner"
+  },
+  {
+    "clave": "herr.abrirEditor",
+    "texto": "Ouvrir l’éditeur"
+  },
+  {
+    "clave": "herr.atras",
+    "texto": "Retour"
+  },
+  {
+    "clave": "herr.cuerda",
+    "texto": "Corde à sauter"
+  },
+  {
+    "clave": "herr.mortal",
+    "texto": "Flip"
+  },
+  {
+    "clave": "herr.saludar",
+    "texto": "Saluer"
+  },
+  {
+    "clave": "herr.mover",
+    "texto": "Déplacer"
+  },
+  {
+    "clave": "herr.moverAcercate",
+    "texto": "Approche-toi d’un objet ou d’une pièce"
+  },
+  {
+    "clave": "herr.agarrar",
+    "texto": "Attraper"
+  },
+  {
+    "clave": "herr.agarrarCuarto",
+    "texto": "Attraper la pièce"
+  },
+  {
+    "clave": "herr.moverCargandoObjeto",
+    "texto": "Transport de l’objet"
+  },
+  {
+    "clave": "herr.moverCargandoCuarto",
+    "texto": "Transport de la pièce"
+  },
+  {
+    "clave": "herr.soltar",
+    "texto": "Lâcher"
+  },
+  {
+    "clave": "ctx.interactuar",
+    "texto": "Interagir"
+  },
+  {
+    "clave": "ctx.entrarApp",
+    "texto": "Ouvrir l’app"
+  },
+  {
+    "clave": "ctx.cambiarLetrero",
+    "texto": "Modifier le panneau"
+  },
+  {
+    "clave": "ctx.usar",
+    "texto": "Utiliser"
+  },
+  {
+    "clave": "ctx.subirte",
+    "texto": "Monter"
+  },
+  {
+    "clave": "ctx.subirteDona",
+    "texto": "Monter sur la bouée"
+  },
+  {
+    "clave": "ctx.cosechar",
+    "texto": "Récolter"
+  },
+  {
+    "clave": "ctx.recoger",
+    "texto": "Ramasser"
+  },
+  {
+    "clave": "ctx.bajarte",
+    "texto": "Descendre"
+  },
+  {
+    "clave": "ctx.correr",
+    "texto": "Faire la course"
+  },
+  {
+    "clave": "ctx.revisarTu",
+    "texto": "Vérifier ton"
+  },
+  {
+    "clave": "ctx.subirA",
+    "texto": "Monter à"
+  },
+  {
+    "clave": "ctx.bajarA",
+    "texto": "Descendre à"
+  },
+  {
+    "clave": "ctx.nivelN",
+    "texto": "Niveau {n}"
+  },
+  {
+    "clave": "ctx.plantaBaja",
+    "texto": "Rez-de-chaussée"
+  },
+  {
+    "clave": "ctx.jugar.futbol",
+    "texto": "Jouer au foot"
+  },
+  {
+    "clave": "ctx.jugar.tenis",
+    "texto": "Jouer au tennis"
+  },
+  {
+    "clave": "ctx.jugar.basket",
+    "texto": "Jouer au basket"
+  },
+  {
+    "clave": "ctx.jugar.beisbol",
+    "texto": "Jouer au baseball"
+  },
+  {
+    "clave": "herr.portales",
+    "texto": "Portails"
+  },
+  {
+    "clave": "herr.fuegos",
+    "texto": "Feux d’artifice"
+  },
+  {
+    "clave": "herr.burbujas",
+    "texto": "Bulles"
+  },
+  {
+    "clave": "herr.cuerdaOn",
+    "texto": "Saute à la corde"
+  },
+  {
+    "clave": "herr.mortalBtn",
+    "texto": "Flip !"
+  },
+  {
+    "clave": "herr.saludarBtn",
+    "texto": "Salut !"
+  },
+  {
+    "clave": "herr.portalColocar",
+    "texto": "Placer un portail"
+  },
+  {
+    "clave": "herr.portalQuitar",
+    "texto": "Retirer les portails"
+  },
+  {
+    "clave": "herr.fuegosBtn",
+    "texto": "Lancer !"
+  },
+  {
+    "clave": "herr.burbujasOn",
+    "texto": "Souffle des bulles"
+  },
+  {
+    "clave": "herr.quitar",
+    "texto": "Retirer l’outil"
+  },
+  {
+    "clave": "herr.grafiti",
+    "texto": "Graffiti"
+  },
+  {
+    "clave": "herr.grafitiPintar",
+    "texto": "Peindre le mur"
+  },
+  {
+    "clave": "herr.grafitiSinMuro",
+    "texto": "Approche-toi d’un mur"
+  },
+  {
+    "clave": "herr.grafitiMuroPuerta",
+    "texto": "Les murs avec porte ne se peignent pas"
+  },
+  {
+    "clave": "herr.grafitiMuroCurvo",
+    "texto": "Les murs courbes ne se peignent pas"
+  },
+  {
+    "clave": "graf.titulo",
+    "texto": "Graffiti"
+  },
+  {
+    "clave": "graf.pincel",
+    "texto": "Pinceau"
+  },
+  {
+    "clave": "graf.spray",
+    "texto": "Spray"
+  },
+  {
+    "clave": "graf.borrador",
+    "texto": "Gomme"
+  },
+  {
+    "clave": "graf.bote",
+    "texto": "Tout remplir d’une seule couleur"
+  },
+  {
+    "clave": "graf.grosor",
+    "texto": "Épaisseur"
+  },
+  {
+    "clave": "graf.color",
+    "texto": "Couleur"
+  },
+  {
+    "clave": "graf.deshacer",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "graf.limpiar",
+    "texto": "Effacer"
+  },
+  {
+    "clave": "graf.borrar",
+    "texto": "Supprimer le graffiti"
+  },
+  {
+    "clave": "graf.guardar",
+    "texto": "Enregistrer"
+  },
+  {
+    "clave": "graf.salir",
+    "texto": "Quitter sans enregistrer"
+  },
+  {
+    "clave": "despacho.tab.balance",
+    "texto": "Trésorerie"
+  },
+  {
+    "clave": "despacho.tab.mercados",
+    "texto": "Marchés"
+  },
+  {
+    "clave": "despacho.tab.divisas",
+    "texto": "Forex"
+  },
+  {
+    "clave": "despacho.tab.criptos",
+    "texto": "Crypto"
+  },
+  {
+    "clave": "despacho.tab.acciones",
+    "texto": "Actions"
+  },
+  {
+    "clave": "despacho.tab.commodities",
+    "texto": "Matières premières"
+  },
+  {
+    "clave": "despacho.sub.balance",
+    "texto": "Solde"
+  },
+  {
+    "clave": "despacho.tab.gastos",
+    "texto": "Dépenses"
+  },
+  {
+    "clave": "despacho.tab.ingresos",
+    "texto": "Revenus"
+  },
+  {
+    "clave": "despacho.tab.metas",
+    "texto": "Objectifs"
+  },
+  {
+    "clave": "despacho.tab.financieras",
+    "texto": "Finances"
+  },
+  {
+    "clave": "despacho.tab.ahorroInversion",
+    "texto": "Épargne/Investissement"
+  },
+  {
+    "clave": "despacho.tab.ahorro",
+    "texto": "Épargne"
+  },
+  {
+    "clave": "despacho.tab.inversion",
+    "texto": "Investissement"
+  },
+  {
+    "clave": "despacho.tab.deuda",
+    "texto": "Dette"
+  },
+  {
+    "clave": "despacho.r.ingresos",
+    "texto": "Revenus"
+  },
+  {
+    "clave": "despacho.r.gastos",
+    "texto": "Dépenses"
+  },
+  {
+    "clave": "despacho.r.balance",
+    "texto": "Solde"
+  },
+  {
+    "clave": "despacho.presupuesto",
+    "texto": "Budget mensuel"
+  },
+  {
+    "clave": "despacho.presupuesto.equivale",
+    "texto": "Soit {n} pour cette période"
+  },
+  {
+    "clave": "despacho.patrimonio",
+    "texto": "Patrimoine net"
+  },
+  {
+    "clave": "despacho.patrimonio.ayuda",
+    "texto": "Tes actifs moins tes passifs, dans l’onglet Patrimoine net. Ici, tu vois seulement ce que ça donnerait si la période se terminait ainsi."
+  },
+  {
+    "clave": "despacho.excedido",
+    "texto": "Budget dépassé de {n}"
+  },
+  {
+    "clave": "despacho.progreso",
+    "texto": "Tu as {used} sur {total} ({pct} %)"
+  },
+  {
+    "clave": "despacho.catGastos",
+    "texto": "Dépenses par catégorie"
+  },
+  {
+    "clave": "despacho.sinGastos",
+    "texto": "Aucune dépense sur cette période."
+  },
+  {
+    "clave": "despacho.periodo.dia",
+    "texto": "Jour"
+  },
+  {
+    "clave": "despacho.periodo.semana",
+    "texto": "Semaine"
+  },
+  {
+    "clave": "despacho.periodo.mes",
+    "texto": "Mois"
+  },
+  {
+    "clave": "despacho.periodo.anio",
+    "texto": "Année"
+  },
+  {
+    "clave": "despacho.plazo.dia",
+    "texto": "Chaque jour"
+  },
+  {
+    "clave": "despacho.plazo.semana",
+    "texto": "Chaque semaine"
+  },
+  {
+    "clave": "despacho.plazo.mes",
+    "texto": "Chaque mois"
+  },
+  {
+    "clave": "despacho.plazo.anio",
+    "texto": "Chaque année"
+  },
+  {
+    "clave": "despacho.tendencia.dia",
+    "texto": "Solde · 6 derniers jours"
+  },
+  {
+    "clave": "despacho.tendencia.semana",
+    "texto": "Solde · 6 dernières semaines"
+  },
+  {
+    "clave": "despacho.tendencia.mes",
+    "texto": "Solde · 6 derniers mois"
+  },
+  {
+    "clave": "despacho.tendencia.anio",
+    "texto": "Solde · 6 dernières années"
+  },
+  {
+    "clave": "despacho.m.monto",
+    "texto": "Montant"
+  },
+  {
+    "clave": "despacho.m.nota",
+    "texto": "Note (facultatif)"
+  },
+  {
+    "clave": "despacho.m.categoria",
+    "texto": "Catégorie"
+  },
+  {
+    "clave": "despacho.m.categoriaPh",
+    "texto": "Écris la tienne ou choisis-en une connue"
+  },
+  {
+    "clave": "despacho.m.tipoMov",
+    "texto": "Variable ou fixe ?"
+  },
+  {
+    "clave": "despacho.m.variable",
+    "texto": "Variable"
+  },
+  {
+    "clave": "despacho.m.fijo",
+    "texto": "Fixe"
+  },
+  {
+    "clave": "despacho.m.plazo",
+    "texto": "À quelle fréquence ?"
+  },
+  {
+    "clave": "despacho.m.plazoAyuda",
+    "texto": "Ça se répète tout seul depuis la date que tu as choisie, sans avoir à le ressaisir."
+  },
+  {
+    "clave": "despacho.m.repetidos",
+    "texto": "Fixes"
+  },
+  {
+    "clave": "despacho.m.alMes",
+    "texto": "≈ {n} par mois"
+  },
+  {
+    "clave": "despacho.m.desde",
+    "texto": "depuis {f}"
+  },
+  {
+    "clave": "despacho.m.llevas",
+    "texto": "{n} pour l’instant"
+  },
+  {
+    "clave": "despacho.m.acumuladoTotal",
+    "texto": "Le cumul de tes charges fixes à ce jour"
+  },
+  {
+    "clave": "despacho.r.deLosFijos",
+    "texto": "De tes charges fixes : +{i} · −{g}"
+  },
+  {
+    "clave": "despacho.sim.titulo",
+    "texto": "Simulateur · {n} prochains mois"
+  },
+  {
+    "clave": "despacho.sim.meses",
+    "texto": "mois"
+  },
+  {
+    "clave": "despacho.sim.base",
+    "texto": "Ça projette tes charges fixes jusqu’à leur échéance, et le variable avec la moyenne mensuelle de ce que tu as déjà enregistré."
+  },
+  {
+    "clave": "despacho.sim.sinPatrimonio",
+    "texto": "Sans patrimoine net · dans {n} mois"
+  },
+  {
+    "clave": "despacho.sim.conPatrimonio",
+    "texto": "Avec patrimoine net · dans {n} mois"
+  },
+  {
+    "clave": "despacho.sim.faltaPatrimonio",
+    "texto": "Renseigne ton patrimoine net ci-dessus pour voir aussi ce scénario."
+  },
+  {
+    "clave": "despacho.m.agregar",
+    "texto": "Ajouter une transaction"
+  },
+  {
+    "clave": "despacho.m.movs",
+    "texto": "{n} transactions"
+  },
+  {
+    "clave": "despacho.m.nuevoGasto",
+    "texto": "Nouvelle dépense"
+  },
+  {
+    "clave": "despacho.m.nuevoIngreso",
+    "texto": "Nouveau revenu"
+  },
+  {
+    "clave": "despacho.m.sinGastos",
+    "texto": "Aucune dépense enregistrée."
+  },
+  {
+    "clave": "despacho.m.sinIngresos",
+    "texto": "Aucun revenu enregistré."
+  },
+  {
+    "clave": "despacho.meta.nueva",
+    "texto": "Nouvel objectif d’épargne"
+  },
+  {
+    "clave": "despacho.meta.ph.nombre",
+    "texto": "Ex. Voyage au Japon"
+  },
+  {
+    "clave": "despacho.meta.ph.objetivo",
+    "texto": "Objectif"
+  },
+  {
+    "clave": "despacho.meta.crear",
+    "texto": "Créer l’objectif"
+  },
+  {
+    "clave": "despacho.meta.vacio",
+    "texto": "Pas encore d’objectif. Crée ton premier objectif d’épargne !"
+  },
+  {
+    "clave": "despacho.meta.ph.abono",
+    "texto": "Ajouter"
+  },
+  {
+    "clave": "despacho.meta.abonar",
+    "texto": "Ajouter"
+  },
+  {
+    "clave": "despacho.meta.nuevaInv",
+    "texto": "Nouvel objectif d’investissement"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreInv",
+    "texto": "Ex. Fonds indiciel"
+  },
+  {
+    "clave": "despacho.meta.vacioInv",
+    "texto": "Pas encore d’objectif d’investissement. Fixe combien tu veux investir et ajoute tes apports au fil du temps."
+  },
+  {
+    "clave": "despacho.meta.aportar",
+    "texto": "Contribuer"
+  },
+  {
+    "clave": "despacho.meta.ph.aporte",
+    "texto": "Contribuer"
+  },
+  {
+    "clave": "despacho.meta.nuevaDeuda",
+    "texto": "Nouvelle dette à rembourser"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreDeuda",
+    "texto": "Ex. Carte de crédit"
+  },
+  {
+    "clave": "despacho.meta.ph.deuda",
+    "texto": "Dette"
+  },
+  {
+    "clave": "despacho.meta.vacioDeuda",
+    "texto": "Pas encore de dette enregistrée. Note ce que tu dois et enregistre chaque paiement."
+  },
+  {
+    "clave": "despacho.meta.pagar",
+    "texto": "Payer"
+  },
+  {
+    "clave": "despacho.meta.ph.pago",
+    "texto": "Payer"
+  },
+  {
+    "clave": "despacho.tab.simuladores",
+    "texto": "Simuler"
+  },
+  {
+    "clave": "despacho.s.simulador",
+    "texto": "Simulateur"
+  },
+  {
+    "clave": "despacho.s.usarDeuda",
+    "texto": "Utiliser une de tes dettes…"
+  },
+  {
+    "clave": "despacho.s.compuesto",
+    "texto": "Composé"
+  },
+  {
+    "clave": "despacho.s.simple",
+    "texto": "Simple"
+  },
+  {
+    "clave": "despacho.s.meta",
+    "texto": "Objectif"
+  },
+  {
+    "clave": "despacho.s.credito",
+    "texto": "Crédit"
+  },
+  {
+    "clave": "despacho.s.inicial",
+    "texto": "Capital initial"
+  },
+  {
+    "clave": "despacho.s.aporteMes",
+    "texto": "Versement mensuel"
+  },
+  {
+    "clave": "despacho.s.tasaAnual",
+    "texto": "Taux annuel %"
+  },
+  {
+    "clave": "despacho.s.anos",
+    "texto": "Années"
+  },
+  {
+    "clave": "despacho.s.capitalizacion",
+    "texto": "Capitalisation"
+  },
+  {
+    "clave": "despacho.s.cap.12",
+    "texto": "Mensuelle"
+  },
+  {
+    "clave": "despacho.s.cap.4",
+    "texto": "Trimestrielle"
+  },
+  {
+    "clave": "despacho.s.cap.2",
+    "texto": "Semestrielle"
+  },
+  {
+    "clave": "despacho.s.cap.1",
+    "texto": "Annuelle"
+  },
+  {
+    "clave": "despacho.s.saldoFinal",
+    "texto": "Solde final"
+  },
+  {
+    "clave": "despacho.s.aportado",
+    "texto": "Versé"
+  },
+  {
+    "clave": "despacho.s.interesGanado",
+    "texto": "Intérêts gagnés"
+  },
+  {
+    "clave": "despacho.s.porAno",
+    "texto": "Année par année"
+  },
+  {
+    "clave": "despacho.s.col.ano",
+    "texto": "Année"
+  },
+  {
+    "clave": "despacho.s.col.aportado",
+    "texto": "Versé"
+  },
+  {
+    "clave": "despacho.s.col.interes",
+    "texto": "Intérêt"
+  },
+  {
+    "clave": "despacho.s.col.saldo",
+    "texto": "Solde"
+  },
+  {
+    "clave": "despacho.s.interesGenerado",
+    "texto": "Intérêts générés"
+  },
+  {
+    "clave": "despacho.s.total",
+    "texto": "Total final"
+  },
+  {
+    "clave": "despacho.s.vsCompuesto",
+    "texto": "Avec des intérêts composés (capitalisation annuelle), tu aurais {x} — {d} de plus."
+  },
+  {
+    "clave": "despacho.s.usarMeta",
+    "texto": "Utiliser un de tes objectifs…"
+  },
+  {
+    "clave": "despacho.s.objetivo",
+    "texto": "Montant cible $"
+  },
+  {
+    "clave": "despacho.s.metaLista",
+    "texto": "Avec ton capital initial et ce taux, tu atteins déjà l’objectif sans versement supplémentaire."
+  },
+  {
+    "clave": "despacho.s.aporteNecesario",
+    "texto": "Versement mensuel nécessaire"
+  },
+  {
+    "clave": "despacho.s.durante",
+    "texto": "pendant {n} mois"
+  }
+]

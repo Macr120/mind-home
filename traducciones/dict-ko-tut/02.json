@@ -1,0 +1,192 @@
+[
+  {
+    "clave": "tut.casa.1.texto",
+    "es": "Esta es tu casa: cada cuarto guarda una app. Te muestro los controles básicos.",
+    "en": "This is your home: each room holds an app. Let me show you the basic controls."
+  },
+  {
+    "clave": "tut.casa.2.titulo",
+    "es": "El menú principal",
+    "en": "The main menu"
+  },
+  {
+    "clave": "tut.casa.2.texto",
+    "es": "Este botón abre el menú: tus cuartos, el catálogo de plantillas (apps) y el inventario de objetos.",
+    "en": "This button opens the menu: your rooms, the template catalog (apps) and the object inventory."
+  },
+  {
+    "clave": "tut.casa.3.titulo",
+    "es": "Moverse",
+    "en": "Moving around"
+  },
+  {
+    "clave": "tut.casa.3.texto",
+    "es": "Camina con el joystick, con WASD o con las flechas del teclado. Al cruzar la puerta de un cuarto, entras y su app se abre sola.",
+    "en": "Walk with the joystick, WASD or the arrow keys. Cross a room's door to enter it and its app opens on its own."
+  },
+  {
+    "clave": "tut.casa.4.titulo",
+    "es": "Tres formas de mirar",
+    "en": "Three ways to look"
+  },
+  {
+    "clave": "tut.casa.4.texto",
+    "es": "Isométrica, tercera y primera persona (o la tecla V). En 3ª/1ª persona aparece además un botón para editar el mundo caminando por él.",
+    "en": "Isometric, third and first person (or the V key). In 3rd/1st person a button also appears to edit the world while walking through it."
+  },
+  {
+    "clave": "tut.casa.5.titulo",
+    "es": "Un hueco, varios dueños",
+    "en": "One corner, several owners"
+  },
+  {
+    "clave": "tut.casa.5.texto",
+    "es": "Esa esquina no es solo el cubo de vistas: al acercarte a algo con lo que se puede interactuar —una silla, un vehículo, una cancha— cambia sola por lo que tienes cerca. Nada se activa sin que te acerques.",
+    "en": "That corner isn't just the view cube: get close to something interactive — a chair, a vehicle, a court — and it switches on its own to match what's nearby. Nothing activates without you approaching."
+  },
+  {
+    "clave": "tut.casa.6.titulo",
+    "es": "La rueda de herramientas",
+    "en": "The tool wheel"
+  },
+  {
+    "clave": "tut.casa.6.texto",
+    "es": "Movimientos, juguetes, vehículos y construcción, hasta 3 equipados a la vez. Se abre aquí o desde el mismo hueco de la esquina cuando vas con las manos libres.",
+    "en": "Moves, toys, vehicles and construction, up to 3 equipped at once. Open it here or from that same corner when you're empty-handed."
+  },
+  {
+    "clave": "tut.casa.7.titulo",
+    "es": "El reloj",
+    "en": "The clock"
+  },
+  {
+    "clave": "tut.casa.7.texto",
+    "es": "La hora de la casa. Desde aquí se abren el calendario completo y el panel de rutinas con lo que te falta hoy.",
+    "en": "The home's time. From here you open the full calendar and the routines panel with what you still owe today."
+  },
+  {
+    "clave": "tut.casa.8.titulo",
+    "es": "La música de la casa",
+    "en": "The home's music"
+  },
+  {
+    "clave": "tut.casa.8.texto",
+    "es": "Cada cuarto puede tener su propio tema, o dejar que suene el ambiente general de la casa. Se apaga del todo si prefieres silencio.",
+    "en": "Each room can have its own theme, or let the home's general ambience play. You can turn it off entirely for silence."
+  },
+  {
+    "clave": "tut.casa.9.titulo",
+    "es": "El chat",
+    "en": "The chat"
+  },
+  {
+    "clave": "tut.casa.9.texto",
+    "es": "El chat del arquitecto: cuéntale qué hiciste y lo registra en la app correcta, o pídele cambios en la casa.",
+    "en": "The architect's chat: tell it what you did and it logs it in the right app, or ask for changes to the home."
+  },
+  {
+    "clave": "tut.casa.10.texto",
+    "es": "Eso es lo básico. El botón Editor de arriba abre la personalización completa, y cada menú y cada app tienen su propio botón ? con su tutorial.",
+    "en": "That's the basics. The Editor button up top opens full customization, and every menu and every app has its own ? button with its tutorial."
+  },
+  {
+    "clave": "tut.primeros.1.texto",
+    "es": "Lo primero: cómo se arma la casa. Todo empieza en la pestaña Cuartos.",
+    "en": "First things first: how the house gets built. Everything starts in the Rooms tab."
+  },
+  {
+    "clave": "tut.primeros.2.titulo",
+    "es": "Crear cuarto",
+    "en": "Create room"
+  },
+  {
+    "clave": "tut.primeros.2.texto",
+    "es": "Con este botón dibujas cuartos nuevos en el mapa. Para enseñarte el resto del camino, ahora te creo uno…",
+    "en": "This button lets you draw new rooms on the map. To show you the rest of the way, I'll create one for you now…"
+  },
+  {
+    "clave": "tut.primeros.3.titulo",
+    "es": "Tu cuarto nuevo",
+    "en": "Your new room"
+  },
+  {
+    "clave": "tut.primeros.3.texto",
+    "es": "¡Aquí está! Un cuarto recién creado, todavía sin app: por eso su botón dice + Asignar.",
+    "en": "Here it is! A brand-new room, still without an app: that's why its button says + Assign."
+  },
+  {
+    "clave": "tut.primeros.4.titulo",
+    "es": "Asignar una app",
+    "en": "Assign an app"
+  },
+  {
+    "clave": "tut.primeros.4.texto",
+    "es": "Con + Asignar le di su app: mira cómo el cuarto tomó su nombre, su icono y sus muebles, y su botón ahora dice Entrar.",
+    "en": "With + Assign I gave it its app: see how the room took its name, its icon and its furniture, and its button now says Enter."
+  },
+  {
+    "clave": "tut.primeros.5.titulo",
+    "es": "Entrar",
+    "en": "Enter"
+  },
+  {
+    "clave": "tut.primeros.5.texto",
+    "es": "Entramos: esta es la app del cuarto. Al pasear también entras cruzando su puerta, y sales con ‹ Volver a la casa.",
+    "en": "We're in: this is the room's app. While walking around you also enter by crossing its door, and you leave with ‹ Back to the house."
+  },
+  {
+    "clave": "tut.primeros.6.texto",
+    "es": "El cuarto se queda en tu casa, con su app lista. Así se arma el resto: un cuarto por cada cosa que quieras llevar.",
+    "en": "The room stays in your house, app and all. That is how you build the rest: one room per thing you want to keep here."
+  },
+  {
+    "clave": "tut.menu-cuartos.1.texto",
+    "es": "La pestaña Cuartos lista todos los cuartos de tu casa, agrupados por categoría.",
+    "en": "The Rooms tab lists every room in your home, grouped by category."
+  },
+  {
+    "clave": "tut.menu-cuartos.2.titulo",
+    "es": "Tu resumen",
+    "en": "Your summary"
+  },
+  {
+    "clave": "tut.menu-cuartos.2.texto",
+    "es": "Tu personaje vive de tu actividad real: aquí ves su humor, su nivel y su racha. Registra algo en cualquier app y lo notarás contento; unos días sin nada y se pone triste — nunca se castiga ni se reinicia.",
+    "en": "Your character lives off your real activity: here you see its mood, its level and its streak. Log something in any app and it perks up; a few days with nothing and it turns sad — it never resets or punishes you."
+  },
+  {
+    "clave": "tut.menu-cuartos.3.titulo",
+    "es": "Las tarjetas",
+    "en": "The cards"
+  },
+  {
+    "clave": "tut.menu-cuartos.3.texto",
+    "es": "Cada tarjeta es un cuarto: su icono, su nombre y el progreso de su app, agrupados en Cuerpo, Mente, Complemento y Configuración. Los cuartos sin app asignada quedan al final del todo.",
+    "en": "Each card is a room: its icon, name and app progress, grouped into Body, Mind, Complement and Settings. Rooms with no app assigned sit at the very end."
+  },
+  {
+    "clave": "tut.menu-cuartos.4.titulo",
+    "es": "Editar",
+    "en": "Edit"
+  },
+  {
+    "clave": "tut.menu-cuartos.4.texto",
+    "es": "Editar abre el editor del cuarto: forma, colores, muros y objetos. (No lo pulses ahora: cerraría este menú.)",
+    "en": "Edit opens the room's editor: shape, colors, walls and objects. (Don't press it now: it would close this menu.)"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.titulo",
+    "es": "Entrar y Asignar",
+    "en": "Enter and Assign"
+  },
+  {
+    "clave": "tut.menu-cuartos.5.texto",
+    "es": "Entrar abre la app del cuarto. Si un cuarto no tiene app todavía, verás + Asignar en su lugar para elegirle una del catálogo.",
+    "en": "Enter opens the room's app. If a room has no app yet, you'll see + Assign there instead, to pick one from the catalog."
+  },
+  {
+    "clave": "tut.menu-cuartos.6.titulo",
+    "es": "Crear cuarto",
+    "en": "Create room"
+  }
+]

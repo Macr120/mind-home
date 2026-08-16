@@ -1,0 +1,442 @@
+[
+ {
+  "clave": "despacho.calc.tasaAuto",
+  "texto": "年利 %"
+ },
+ {
+  "clave": "despacho.calc.enganche",
+  "texto": "必要な頭金"
+ },
+ {
+  "clave": "despacho.calc.mensualidadMax",
+  "texto": "最大月々の支払い"
+ },
+ {
+  "clave": "despacho.calc.autoCabe",
+  "texto": "収まります。見込みの支払いは{m}です。"
+ },
+ {
+  "clave": "despacho.calc.autoNoCabe",
+  "texto": "この条件では収まりません。見込みの支払い（{m}）が上限を超えています。"
+ },
+ {
+  "clave": "despacho.calc.nombreEnganche",
+  "texto": "車の頭金"
+ },
+ {
+  "clave": "biblioteca.desc",
+  "texto": "自分だけの百科事典。賢者とどんな話題でも語り合い、学んだことを分野ごとに残し、タイマーで勉強できます。"
+ },
+ {
+  "clave": "biblioteca.tab.charlas",
+  "texto": "チャット"
+ },
+ {
+  "clave": "biblioteca.tab.enciclopedia",
+  "texto": "百科事典"
+ },
+ {
+  "clave": "biblioteca.tab.estudio",
+  "texto": "学習"
+ },
+ {
+  "clave": "biblioteca.tab.resumen",
+  "texto": "概要"
+ },
+ {
+  "clave": "biblioteca.sinIA",
+  "texto": "賢者と話すには、設定→人工知能でAIを設定してください。それまでは百科事典に手動で項目を作成できます。"
+ },
+ {
+  "clave": "biblioteca.charla.nuevaBtn",
+  "texto": "賢者との新しいチャット"
+ },
+ {
+  "clave": "biblioteca.charla.todas",
+  "texto": "すべて"
+ },
+ {
+  "clave": "biblioteca.charla.vacio",
+  "texto": "まだチャットがありません。「空はなぜ青いの？」など何でも聞いてみてください。図書館が分野ごとに自動で整理します。"
+ },
+ {
+  "clave": "biblioteca.charla.sinTitulo",
+  "texto": "無題のチャット"
+ },
+ {
+  "clave": "biblioteca.charla.porClasificar",
+  "texto": "未分類"
+ },
+ {
+  "clave": "biblioteca.charla.nueva",
+  "texto": "新しいチャット"
+ },
+ {
+  "clave": "biblioteca.charla.sub",
+  "texto": "百科事典のチャット"
+ },
+ {
+  "clave": "biblioteca.charla.volver",
+  "texto": "チャット一覧に戻る"
+ },
+ {
+  "clave": "biblioteca.charla.renombrar",
+  "texto": "タップして名前を変更"
+ },
+ {
+  "clave": "biblioteca.charla.destilar",
+  "texto": "抽出"
+ },
+ {
+  "clave": "biblioteca.charla.reDestilar",
+  "texto": "項目を更新"
+ },
+ {
+  "clave": "biblioteca.charla.destilarTip",
+  "texto": "AIがチャットを要約して百科事典の項目にします"
+ },
+ {
+  "clave": "biblioteca.charla.destilarFallo",
+  "texto": "AIがチャットを要約できませんでした。項目を手動で入力してください。"
+ },
+ {
+  "clave": "biblioteca.charla.borrar",
+  "texto": "チャットを削除"
+ },
+ {
+  "clave": "biblioteca.charla.campoTip",
+  "texto": "チャットが分類される分野"
+ },
+ {
+  "clave": "biblioteca.charla.reclasificar",
+  "texto": "分類"
+ },
+ {
+  "clave": "biblioteca.charla.reclasificarTip",
+  "texto": "チャットを索引に分類し、項目を作成します"
+ },
+ {
+  "clave": "biblioteca.charla.verEntrada",
+  "texto": "項目"
+ },
+ {
+  "clave": "biblioteca.charla.verEntradaTip",
+  "texto": "このチャットから作成された項目を見る"
+ },
+ {
+  "clave": "biblioteca.charla.irANodo",
+  "texto": "百科事典で「{n}」を見る"
+ },
+ {
+  "clave": "biblioteca.charla.ramificarTip",
+  "texto": "分岐：このチャットから索引に小項目を追加"
+ },
+ {
+  "clave": "biblioteca.charla.ramificarSinTema",
+  "texto": "このチャットはまだ索引に属していません"
+ },
+ {
+  "clave": "biblioteca.ramas.titulo",
+  "texto": "索引を分岐する"
+ },
+ {
+  "clave": "biblioteca.ramas.desc",
+  "texto": "このチャットから「{tema}」の下に追加する新しい分岐："
+ },
+ {
+  "clave": "biblioteca.ramas.cargando",
+  "texto": "賢者が新しい分岐を探しています…"
+ },
+ {
+  "clave": "biblioteca.ramas.vacio",
+  "texto": "このテーマに提案できる新しい分岐はありません。"
+ },
+ {
+  "clave": "biblioteca.ramas.agregar",
+  "texto": "選択したものを追加"
+ },
+ {
+  "clave": "biblioteca.ramas.ahoraNo",
+  "texto": "今はしない"
+ },
+ {
+  "clave": "biblioteca.ramas.charlarSug",
+  "texto": "追加してこの分岐について話す"
+ },
+ {
+  "clave": "biblioteca.charla.confirmarBorrar",
+  "texto": "このチャットを削除しますか？作成済みの項目は残ります。"
+ },
+ {
+  "clave": "biblioteca.charla.siBorrar",
+  "texto": "削除"
+ },
+ {
+  "clave": "biblioteca.charla.vacia",
+  "texto": "{sabio}に何でも聞いてみてください。チャットは分野ごとに自動で整理されます"
+ },
+ {
+  "clave": "biblioteca.charla.error",
+  "texto": "賢者が応答できませんでした。設定でAIを確認するか、再試行してください。"
+ },
+ {
+  "clave": "biblioteca.charla.reintentar",
+  "texto": "再試行"
+ },
+ {
+  "clave": "biblioteca.charla.placeholder",
+  "texto": "どんな話題でも聞いてください…"
+ },
+ {
+  "clave": "biblioteca.charla.sinIA",
+  "texto": "チャットするには設定でAIを設定してください"
+ },
+ {
+  "clave": "biblioteca.ent.nueva",
+  "texto": "新しい項目"
+ },
+ {
+  "clave": "biblioteca.ent.editar",
+  "texto": "項目を編集"
+ },
+ {
+  "clave": "biblioteca.ent.editarBtn",
+  "texto": "編集"
+ },
+ {
+  "clave": "biblioteca.ent.titulo",
+  "texto": "タイトル"
+ },
+ {
+  "clave": "biblioteca.ent.tituloPh",
+  "texto": "例：エントロピー"
+ },
+ {
+  "clave": "biblioteca.ent.campo",
+  "texto": "分野"
+ },
+ {
+  "clave": "biblioteca.ent.tema",
+  "texto": "索引のテーマ"
+ },
+ {
+  "clave": "biblioteca.ent.sinTema",
+  "texto": "— なし —"
+ },
+ {
+  "clave": "biblioteca.ent.resumen",
+  "texto": "要約"
+ },
+ {
+  "clave": "biblioteca.ent.resumenPh",
+  "texto": "学んだことを3〜5文で。"
+ },
+ {
+  "clave": "biblioteca.ent.puntos",
+  "texto": "要点（1行に1つ）"
+ },
+ {
+  "clave": "biblioteca.ent.puntosPh",
+  "texto": "要点1\n要点2"
+ },
+ {
+  "clave": "biblioteca.ent.puntosTitulo",
+  "texto": "要点"
+ },
+ {
+  "clave": "biblioteca.mat.titulo",
+  "texto": "資料"
+ },
+ {
+  "clave": "biblioteca.mat.agregar",
+  "texto": "資料を生成または連携"
+ },
+ {
+  "clave": "biblioteca.mat.vacio",
+  "texto": "このテーマの学習に使うシートやマップをここに連携できます。それぞれの部屋で開きます。"
+ },
+ {
+  "clave": "biblioteca.mat.hoja",
+  "texto": "表計算シート"
+ },
+ {
+  "clave": "biblioteca.mat.mapa",
+  "texto": "マップまたは図"
+ },
+ {
+  "clave": "biblioteca.mat.idea",
+  "texto": "アイデア"
+ },
+ {
+  "clave": "biblioteca.mat.nuevaHoja",
+  "texto": "新しい表計算シート"
+ },
+ {
+  "clave": "biblioteca.mat.nuevoMapa",
+  "texto": "新しいマップまたは図"
+ },
+ {
+  "clave": "biblioteca.mat.nuevaIdea",
+  "texto": "新しいアイデア"
+ },
+ {
+  "clave": "biblioteca.mat.crearTit",
+  "texto": "新規：{tipo}"
+ },
+ {
+  "clave": "biblioteca.mat.existente",
+  "texto": "すでにある{tipo}を連携する"
+ },
+ {
+  "clave": "biblioteca.mat.enlazar",
+  "texto": "— 連携する —"
+ },
+ {
+  "clave": "biblioteca.mat.quitar",
+  "texto": "連携を解除（資料自体は削除されません）"
+ },
+ {
+  "clave": "biblioteca.mat.roto",
+  "texto": "削除済み"
+ },
+ {
+  "clave": "computo.vista.vacia",
+  "texto": "シートはまだ空です。"
+ },
+ {
+  "clave": "biblioteca.mat.sinCuarto",
+  "texto": "そのアプリの部屋を家に配置すると資料を開けます。"
+ },
+ {
+  "clave": "material.estudiasEn",
+  "texto": "学習先"
+ },
+ {
+  "clave": "material.abrirEntrada",
+  "texto": "百科事典で「{n}」を開く"
+ },
+ {
+  "clave": "material.sinBiblioteca",
+  "texto": "図書館の部屋を家に配置すると百科事典を開けます。"
+ },
+ {
+  "clave": "biblioteca.mat.vacio2",
+  "texto": "AIでこのテーマのマップやノートを生成するか、すでに使っているシートやマップを連携できます。"
+ },
+ {
+  "clave": "biblioteca.mat.ver",
+  "texto": "ここで見る"
+ },
+ {
+  "clave": "biblioteca.mat.abrirEn",
+  "texto": "編集するには部屋で開く"
+ },
+ {
+  "clave": "biblioteca.mat.generarTip",
+  "texto": "この項目の内容をもとにAIに作らせる"
+ },
+ {
+  "clave": "biblioteca.mat.falloIA",
+  "texto": "AIが資料を生成できませんでした。"
+ },
+ {
+  "clave": "biblioteca.ent.cancelar",
+  "texto": "キャンセル"
+ },
+ {
+  "clave": "biblioteca.ent.guardar",
+  "texto": "保存"
+ },
+ {
+  "clave": "biblioteca.ent.borrar",
+  "texto": "項目を削除"
+ },
+ {
+  "clave": "biblioteca.ent.confirmarBorrar",
+  "texto": "この項目を削除しますか？元のチャットはそのまま残ります。"
+ },
+ {
+  "clave": "biblioteca.ent.verCharla",
+  "texto": "元のチャットを見る"
+ },
+ {
+  "clave": "biblioteca.enc.sub",
+  "texto": "{c}分野に{n}件の項目"
+ },
+ {
+  "clave": "biblioteca.enc.nEntradas",
+  "texto": "{n}件の項目"
+ },
+ {
+  "clave": "biblioteca.enc.buscarTema",
+  "texto": "テーマを検索…"
+ },
+ {
+  "clave": "biblioteca.enc.verEntrada",
+  "texto": "このテーマの項目を見る"
+ },
+ {
+  "clave": "biblioteca.enc.charlarTema",
+  "texto": "賢者とこれについて話す"
+ },
+ {
+  "clave": "biblioteca.enc.promptTema",
+  "texto": "{tema}について教えてください。{desc}"
+ },
+ {
+  "clave": "biblioteca.enc.arbolDesc",
+  "texto": "知識をひとつの索引に。チャットはそれぞれの場所に自動で整理され、分岐させるたびに育っていきます。"
+ },
+ {
+  "clave": "biblioteca.enc.semilla",
+  "texto": "種"
+ },
+ {
+  "clave": "biblioteca.enc.sinResultados",
+  "texto": "索引の中に検索に一致するものがありません。"
+ },
+ {
+  "clave": "biblioteca.enc.nuevo",
+  "texto": "新着"
+ },
+ {
+  "clave": "biblioteca.enc.subtemas",
+  "texto": "{n}件の小テーマ"
+ },
+ {
+  "clave": "biblioteca.enc.nSubindices",
+  "texto": "この下に{n}件の小索引"
+ },
+ {
+  "clave": "biblioteca.enc.modoEdicion",
+  "texto": "索引を編集"
+ },
+ {
+  "clave": "biblioteca.enc.edicionDesc",
+  "texto": "索引を自分好みにしましょう。各行の＋で、種から直接でもどの階層にも分岐を追加できます。名前の変更、並べ替え、削除もできます。"
+ },
+ {
+  "clave": "biblioteca.enc.renombrar",
+  "texto": "名前を変更"
+ },
+ {
+  "clave": "biblioteca.enc.agregarHijo",
+  "texto": "中に追加"
+ },
+ {
+  "clave": "biblioteca.enc.moverEntradaA",
+  "texto": "「{n}」を移動…"
+ },
+ {
+  "clave": "biblioteca.enc.entradaAqui",
+  "texto": "ここに項目を書く"
+ },
+ {
+  "clave": "biblioteca.enc.borrarNodo",
+  "texto": "削除"
+ },
+ {
+  "clave": "biblioteca.enc.borrarTit",
+  "texto": "「{n}」を削除しますか？"
+ }
+]

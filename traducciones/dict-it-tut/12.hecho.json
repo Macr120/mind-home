@@ -1,0 +1,134 @@
+[
+  {
+    "clave": "tut.app-hobbies--gestion.1.texto",
+    "texto": "Nome, emoji, colore e —facoltativo— un obiettivo settimanale in giorni. Quel modulo è tutto quello che serve per iniziare a tenerne traccia."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.titulo",
+    "texto": "L'obiettivo settimanale"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.2.texto",
+    "texto": "Il pianoforte si è dato 4 giorni a settimana: la riga della settimana si colora a ogni giorno praticato, e in alto vedi a quanti sei rispetto all'obiettivo."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.titulo",
+    "texto": "Registrare una pratica"
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.3.texto",
+    "texto": "Minuti rapidi con un tocco, o il numero esatto; il progetto è facoltativo e la nota serve per quello che vuoi ricordare di quella sessione."
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.titulo",
+    "texto": "La cassetta delle idee"
+  },
+  {
+    "clave": "tut.app-ideas--diario.1.texto",
+    "texto": "Scrivi quello che ti passa per la testa e basta. Pep ne ha buttate qui ~90 in un anno: di fisica, del bar, dell'allenamento. La stella segna le preferite."
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.titulo",
+    "texto": "Brainstorming per tema"
+  },
+  {
+    "clave": "tut.app-ideas--diario.2.texto",
+    "texto": "Un brainstorming raccoglie tutto sotto un tema. Cerca quelli di Pep: i nomi per la gatta (ha vinto Laika), come pagarsi il Giappone e cosa mettere in valigia."
+  },
+  {
+    "clave": "tut.app-ideas--diario.3.texto",
+    "texto": "Quando un brainstorming è maturo, un pulsante lo trasforma in mappa mentale e continui a ordinarlo sulla tela."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.titulo",
+    "texto": "Dieci formati"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.1.texto",
+    "texto": "Ogni formato disegna in modo diverso. Sotto ci sono le mappe che Pep ha fatto durante l'anno: la sua routine del mattino come flusso, la termodinamica ad albero, fisica e musica in Venn."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.titulo",
+    "texto": "«La mia vita ideale»"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.2.texto",
+    "texto": "La PRIMA mappa dell'anno, del mese 1: la vita che Pep voleva. Guardala con calma — quasi tutto quello che c'è qui è poi successo davvero."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.3.texto",
+    "texto": "Sulla tela: tocca un nodo per selezionarlo e ancora per scrivere; trascinalo, fai zoom con le dita e aggiungi idee con la barra in basso."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.titulo",
+    "texto": "Una mappa intera, da un argomento"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.4.texto",
+    "texto": "Dai un argomento all'IA e ti costruisce la mappa completa, con i nodi già organizzati: il punto di partenza quando un argomento non sai da che parte prenderlo."
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.titulo",
+    "texto": "Espandere un nodo con l'IA"
+  },
+  {
+    "clave": "tut.app-ideas--mapas.5.texto",
+    "texto": "Una volta dentro una mappa, qualsiasi nodo si può espandere: l'IA propone dei sotto-nodi a partire da quello che hai già scritto intorno, senza rompere la tua struttura."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.titulo",
+    "texto": "Otto modi di decidere"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.1.texto",
+    "texto": "Pep li ha usati sul serio: un Eisenhower nella settimana degli esami, uno SWOT a metà anno e una matrice per scegliere la fotocamera."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.titulo",
+    "texto": "Magistrale o lavoro?"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.2.texto",
+    "texto": "LA decisione aperta di fine anno: ogni lato con il suo peso da 1 a 5 e il totale in fondo. Non è ancora presa — ecco che aspetto ha pensarci sul serio."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.3.texto",
+    "texto": "Nei formati a zone ogni elemento vive in una zona: scegliela sotto prima di aggiungerlo, oppure trascinalo in un'altra e si sposta da solo."
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.titulo",
+    "texto": "La matrice ponderata"
+  },
+  {
+    "clave": "tut.app-ideas--decidir.4.texto",
+    "texto": "Non è una tela, è una tabella: ogni opzione contro ogni criterio, con un peso da 1 a 5 secondo quanto ti importa quel criterio. Il totale ordina le opzioni da solo."
+  },
+  {
+    "clave": "tut.calendario.1.titulo",
+    "texto": "L'orologio"
+  },
+  {
+    "clave": "tut.calendario.1.texto",
+    "texto": "Il calendario non è una stanza: vive nell'orologio della casa, così si apre da dove sei."
+  },
+  {
+    "clave": "tut.calendario.2.titulo",
+    "texto": "Una settimana vera"
+  },
+  {
+    "clave": "tut.calendario.2.texto",
+    "texto": "Turni al bar, lezioni di fisica, corsa all'alba, pianoforte la sera. Ogni blocco è una routine con la sua ora e il suo colore; si trascinano per spostarle e si allungano per cambiarne la durata."
+  },
+  {
+    "clave": "tut.calendario.3.titulo",
+    "texto": "Quattro modi di guardare"
+  },
+  {
+    "clave": "tut.calendario.3.texto",
+    "texto": "Giorno e Settimana mostrano la griglia per ore; Mese e Anno danno il panorama dell'anno intero. Il primo pulsante fa doppio lavoro: dice «Oggi» e ti riporta al presente, oppure «Giorno» se stai già guardando un'altra data."
+  },
+  {
+    "clave": "tut.calendario.4.titulo",
+    "texto": "Da dove arriva ogni blocco"
+  }
+]

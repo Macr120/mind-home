@@ -1,0 +1,894 @@
+[
+  {
+    "ruta": "recetas.0.nombre",
+    "texto": "Hafer vom Vorabend"
+  },
+  {
+    "ruta": "recetas.0.carpeta",
+    "texto": "Läufer"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.0",
+    "texto": "60 g Haferflocken"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.1",
+    "texto": "150 ml Milch (oder Haferdrink)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.2",
+    "texto": "100 g griechischer Naturjoghurt"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.3",
+    "texto": "1 EL Chiasamen (12 g)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.4",
+    "texto": "1 reife Banane"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.5",
+    "texto": "1 TL Honig"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.6",
+    "texto": "1 Prise Zimt"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.7",
+    "texto": "1 Prise Salz"
+  },
+  {
+    "ruta": "recetas.0.pasos.0",
+    "texto": "In einem Glas die Haferflocken, Chiasamen, Zimt und Salz vermischen."
+  },
+  {
+    "ruta": "recetas.0.pasos.1",
+    "texto": "Milch und Joghurt dazugeben und verrühren, bis keine trockenen Klümpchen mehr da sind."
+  },
+  {
+    "ruta": "recetas.0.pasos.2",
+    "texto": "Eine halbe Banane mit einer Gabel zerdrücken und unterrühren; die andere Hälfte im Kühlschrank aufbewahren."
+  },
+  {
+    "ruta": "recetas.0.pasos.3",
+    "texto": "Zudecken und 6 bis 10 Stunden in den Kühlschrank stellen."
+  },
+  {
+    "ruta": "recetas.0.pasos.4",
+    "texto": "Am Morgen mit dem Rest der Banane in Scheiben und dem Honig toppen. 90 Minuten vor dem Laufen essen."
+  },
+  {
+    "ruta": "recetas.1.nombre",
+    "texto": "Kohlenhydrat-Pasta vom Vorabend"
+  },
+  {
+    "ruta": "recetas.1.carpeta",
+    "texto": "Läufer"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.0",
+    "texto": "200 g Spaghetti"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.1",
+    "texto": "400 g gehackte Tomaten"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.2",
+    "texto": "2 Knoblauchzehen"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.3",
+    "texto": "2 EL Olivenöl"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.4",
+    "texto": "1 TL getrockneter Oregano"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.5",
+    "texto": "1 TL Zucker"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.6",
+    "texto": "40 g geriebener Parmesan"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.7",
+    "texto": "6 frische Basilikumblätter"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.8",
+    "texto": "Salz"
+  },
+  {
+    "ruta": "recetas.1.pasos.0",
+    "texto": "Einen großen Topf mit reichlich Salzwasser zum Kochen bringen."
+  },
+  {
+    "ruta": "recetas.1.pasos.1",
+    "texto": "In der Zwischenzeit den in Scheiben geschnittenen Knoblauch bei mittlerer bis niedriger Hitze 2 Minuten im Öl leicht anbräunen, ohne dass er verbrennt."
+  },
+  {
+    "ruta": "recetas.1.pasos.2",
+    "texto": "Tomaten, Oregano, Zucker und eine Prise Salz dazugeben; 15 Minuten bei milder Hitze köcheln lassen."
+  },
+  {
+    "ruta": "recetas.1.pasos.3",
+    "texto": "Die Pasta eine Minute kürzer kochen als auf der Packung angegeben und ein halbes Glas Nudelwasser aufheben."
+  },
+  {
+    "ruta": "recetas.1.pasos.4",
+    "texto": "Die Pasta 1 Minute mit einem Schuss vom aufgehobenen Wasser in der Sauce schwenken."
+  },
+  {
+    "ruta": "recetas.1.pasos.5",
+    "texto": "Mit Parmesan und Basilikum servieren. Fettarmes Abendessen, ohne Schärfe: morgen ist Rennen."
+  },
+  {
+    "ruta": "recetas.2.nombre",
+    "texto": "Hähnchen-Bowl für die ganze Woche"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.0",
+    "texto": "600 g Hähnchenbrust"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.1",
+    "texto": "300 g Vollkornreis (roh)"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.2",
+    "texto": "400 g Süßkartoffel, gewürfelt"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.3",
+    "texto": "400 g Brokkoliröschen"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.4",
+    "texto": "3 EL Olivenöl"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.5",
+    "texto": "1 TL süßes Paprikapulver"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.6",
+    "texto": "1 TL gemahlener Kreuzkümmel"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.7",
+    "texto": "200 g griechischer Naturjoghurt"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.8",
+    "texto": "1 Zitrone"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.9",
+    "texto": "Salz und Pfeffer"
+  },
+  {
+    "ruta": "recetas.2.pasos.0",
+    "texto": "Den Backofen auf 200 °C vorheizen."
+  },
+  {
+    "ruta": "recetas.2.pasos.1",
+    "texto": "Die Süßkartoffel mit 1 EL Öl, Salz und Pfeffer vermischen; 25 Minuten backen."
+  },
+  {
+    "ruta": "recetas.2.pasos.2",
+    "texto": "Das Hähnchen salzen und pfeffern, mit Paprikapulver, Kreuzkümmel und 1 EL Öl einreiben und in der Pfanne 6 Minuten pro Seite braten. 5 Minuten ruhen lassen und in Streifen schneiden."
+  },
+  {
+    "ruta": "recetas.2.pasos.3",
+    "texto": "Den Vollkornreis 25 Minuten in Salzwasser kochen und abgießen."
+  },
+  {
+    "ruta": "recetas.2.pasos.4",
+    "texto": "Den Brokkoli 5 Minuten dämpfen: Er muss bissfest bleiben, damit er bis Donnerstag hält."
+  },
+  {
+    "ruta": "recetas.2.pasos.5",
+    "texto": "Den Joghurt mit dem Saft einer halben Zitrone, Salz und dem restlichen Esslöffel Öl verrühren."
+  },
+  {
+    "ruta": "recetas.2.pasos.6",
+    "texto": "Alles auf vier Dosen verteilen und die Sauce getrennt aufbewahren. Hält sich vier Tage im Kühlschrank."
+  },
+  {
+    "ruta": "recetas.3.nombre",
+    "texto": "Japanisches Curry aus der eigenen Küche"
+  },
+  {
+    "ruta": "recetas.3.carpeta",
+    "texto": "Aus Japan"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.0",
+    "texto": "500 g Hähnchenschenkelfilet, gewürfelt"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.1",
+    "texto": "2 Zwiebeln, in Streifen geschnitten"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.2",
+    "texto": "2 Karotten, in dicken Scheiben"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.3",
+    "texto": "400 g Kartoffeln, gewürfelt"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.4",
+    "texto": "40 g Butter"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.5",
+    "texto": "40 g Mehl"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.6",
+    "texto": "2 EL Currypulver"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.7",
+    "texto": "1 TL Garam Masala"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.8",
+    "texto": "1 EL Sojasauce"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.9",
+    "texto": "1 TL Honig"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.10",
+    "texto": "700 ml Hühnerbrühe"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.11",
+    "texto": "1 EL Öl"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.12",
+    "texto": "300 g Rundkornreis (roh)"
+  },
+  {
+    "ruta": "recetas.3.pasos.0",
+    "texto": "Die Mehlschwitze zubereiten: die Butter schmelzen, das Mehl einrühren und bei niedriger Hitze 5 Minuten rühren, bis sie haselnussbraun ist. Currypulver und Garam Masala einrühren, 1 Minute weiterrühren und vom Herd nehmen."
+  },
+  {
+    "ruta": "recetas.3.pasos.1",
+    "texto": "In einem Topf das Hähnchen im Öl anbraten und herausnehmen."
+  },
+  {
+    "ruta": "recetas.3.pasos.2",
+    "texto": "Die Zwiebel 8 Minuten dünsten, bis sie goldbraun ist; Karotte und Kartoffel dazugeben und 2 Minuten mitdünsten."
+  },
+  {
+    "ruta": "recetas.3.pasos.3",
+    "texto": "Das Hähnchen zurück in den Topf geben, mit der Brühe bedecken und 20 Minuten bei mittlerer Hitze köcheln lassen."
+  },
+  {
+    "ruta": "recetas.3.pasos.4",
+    "texto": "Die Mehlschwitze mit einer Kelle heißer Brühe glattrühren und in den Topf geben. Noch 5 Minuten unter Rühren köcheln lassen, bis es sämig wird."
+  },
+  {
+    "ruta": "recetas.3.pasos.5",
+    "texto": "Sojasauce und Honig dazugeben, abschmecken und über frisch gekochtem Reis servieren."
+  },
+  {
+    "ruta": "recetas.4.nombre",
+    "texto": "Schnelles Miso-Ramen"
+  },
+  {
+    "ruta": "recetas.4.carpeta",
+    "texto": "Aus Japan"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.0",
+    "texto": "200 g getrocknete Ramen-Nudeln"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.1",
+    "texto": "900 ml Hühnerbrühe"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.2",
+    "texto": "2 EL Miso-Paste"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.3",
+    "texto": "1 EL Sojasauce"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.4",
+    "texto": "1 TL Sesamöl"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.5",
+    "texto": "2 Knoblauchzehen, gehackt"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.6",
+    "texto": "10 g geriebener Ingwer"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.7",
+    "texto": "200 g Schweinebauch oder Hähnchen, in Streifen"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.8",
+    "texto": "2 Eier"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.9",
+    "texto": "100 g Zuckermais"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.10",
+    "texto": "2 Frühlingszwiebeln, in Ringen"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.11",
+    "texto": "1 Blatt Nori"
+  },
+  {
+    "ruta": "recetas.4.pasos.0",
+    "texto": "Die Eier 6 Minuten und 30 Sekunden kochen, in Eiswasser abschrecken und schälen."
+  },
+  {
+    "ruta": "recetas.4.pasos.1",
+    "texto": "Den Schweinebauch oder das Hähnchen in einem Topf im Sesamöl anbraten; Knoblauch und Ingwer 1 Minute mitbraten."
+  },
+  {
+    "ruta": "recetas.4.pasos.2",
+    "texto": "Die Brühe angießen und 15 Minuten sanft köcheln lassen. Vom Herd nehmen."
+  },
+  {
+    "ruta": "recetas.4.pasos.3",
+    "texto": "Die Miso-Paste in einer Kelle Brühe auflösen und zusammen mit der Sojasauce zurück in den Topf geben. Nicht mehr aufkochen lassen."
+  },
+  {
+    "ruta": "recetas.4.pasos.4",
+    "texto": "Die Nudeln getrennt nach Packungsanleitung kochen und gut abtropfen lassen."
+  },
+  {
+    "ruta": "recetas.4.pasos.5",
+    "texto": "Die Schalen anrichten: Nudeln, Brühe, Fleisch, Mais, halbiertes Ei, Frühlingszwiebel und Nori."
+  },
+  {
+    "ruta": "recetas.5.nombre",
+    "texto": "Bananenbrot wie vom Café"
+  },
+  {
+    "ruta": "recetas.5.carpeta",
+    "texto": "Süßes"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.0",
+    "texto": "3 sehr reife Bananen (350 g geschält)"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.1",
+    "texto": "2 Eier"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.2",
+    "texto": "80 g brauner Zucker"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.3",
+    "texto": "60 ml Sonnenblumenöl"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.4",
+    "texto": "220 g Weizenmehl"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.5",
+    "texto": "1 TL Backpulver"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.6",
+    "texto": "1/2 TL Natron"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.7",
+    "texto": "1 TL Zimt"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.8",
+    "texto": "1/2 TL Salz"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.9",
+    "texto": "60 g gehackte Walnüsse"
+  },
+  {
+    "ruta": "recetas.5.pasos.0",
+    "texto": "Den Backofen auf 175 °C vorheizen und eine 22 cm lange Kastenform mit Backpapier auslegen."
+  },
+  {
+    "ruta": "recetas.5.pasos.1",
+    "texto": "Die Bananen mit einer Gabel zu einem stückigen Püree zerdrücken."
+  },
+  {
+    "ruta": "recetas.5.pasos.2",
+    "texto": "Die Eier mit Zucker und Öl verquirlen und das Bananenpüree unterrühren."
+  },
+  {
+    "ruta": "recetas.5.pasos.3",
+    "texto": "Getrennt Mehl, Backpulver, Natron, Zimt und Salz vermischen."
+  },
+  {
+    "ruta": "recetas.5.pasos.4",
+    "texto": "Die trockenen und feuchten Zutaten mit einem Spatel vermengen, ohne zu viel zu rühren, und die Walnüsse unterheben."
+  },
+  {
+    "ruta": "recetas.5.pasos.5",
+    "texto": "In die Form füllen und 50-55 Minuten backen, bis die Stäbchenprobe sauber ausfällt."
+  },
+  {
+    "ruta": "recetas.5.pasos.6",
+    "texto": "Aus der Form lösen und auf einem Gitter abkühlen lassen. In zehn Scheiben geschnitten hält es sich, in Papier gewickelt, drei Tage."
+  },
+  {
+    "ruta": "recetas.6.nombre",
+    "texto": "Cremesuppe aus roten Linsen"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.0",
+    "texto": "250 g rote Linsen"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.1",
+    "texto": "1 Zwiebel, gehackt"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.2",
+    "texto": "2 Karotten, gewürfelt"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.3",
+    "texto": "2 Knoblauchzehen"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.4",
+    "texto": "1 TL gemahlener Kreuzkümmel"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.5",
+    "texto": "1 TL Kurkuma"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.6",
+    "texto": "1 Liter Gemüsebrühe"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.7",
+    "texto": "2 EL Olivenöl"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.8",
+    "texto": "100 ml Kokosmilch"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.9",
+    "texto": "1 Zitrone"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.10",
+    "texto": "Salz und Pfeffer"
+  },
+  {
+    "ruta": "recetas.6.pasos.0",
+    "texto": "Die Zwiebel und die Karotte 8 Minuten mit einer Prise Salz im Öl dünsten."
+  },
+  {
+    "ruta": "recetas.6.pasos.1",
+    "texto": "Den gehackten Knoblauch, den Kreuzkümmel und die Kurkuma dazugeben und 1 Minute anrösten."
+  },
+  {
+    "ruta": "recetas.6.pasos.2",
+    "texto": "Die Linsen abspülen, mit der Brühe dazugeben und aufkochen lassen."
+  },
+  {
+    "ruta": "recetas.6.pasos.3",
+    "texto": "20 Minuten bei mittlerer bis niedriger Hitze köcheln lassen, dabei ab und zu umrühren."
+  },
+  {
+    "ruta": "recetas.6.pasos.4",
+    "texto": "Mit dem Stabmixer pürieren, die Kokosmilch und den Saft einer halben Zitrone dazugeben und mit Salz abschmecken."
+  },
+  {
+    "ruta": "recetas.6.pasos.5",
+    "texto": "Auf Dosen verteilen; lässt sich gut in Einzelportionen einfrieren."
+  },
+  {
+    "ruta": "recetas.7.nombre",
+    "texto": "Teriyaki-Lachs mit Spinat"
+  },
+  {
+    "ruta": "recetas.7.carpeta",
+    "texto": "Aus Japan"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.0",
+    "texto": "2 Lachsfilets à 150 g"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.1",
+    "texto": "3 EL Sojasauce"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.2",
+    "texto": "2 EL Mirin"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.3",
+    "texto": "1 EL Zucker"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.4",
+    "texto": "1 TL geriebener Ingwer"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.5",
+    "texto": "1 TL Speisestärke"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.6",
+    "texto": "1 EL Öl"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.7",
+    "texto": "150 g Rundkornreis (roh)"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.8",
+    "texto": "200 g frischer Spinat"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.9",
+    "texto": "1 TL Sesam"
+  },
+  {
+    "ruta": "recetas.7.pasos.0",
+    "texto": "Den Reis nach Packungsanleitung kochen."
+  },
+  {
+    "ruta": "recetas.7.pasos.1",
+    "texto": "Sojasauce, Mirin, Zucker, Ingwer und Speisestärke in einem Glas verrühren."
+  },
+  {
+    "ruta": "recetas.7.pasos.2",
+    "texto": "Den Lachs gut trockentupfen und mit der Hautseite nach unten 4 Minuten in der Pfanne mit dem Öl anbraten."
+  },
+  {
+    "ruta": "recetas.7.pasos.3",
+    "texto": "Wenden, 2 Minuten weiterbraten und die Sauce angießen; 2 Minuten kochen, bis sie eindickt, und den Fisch dabei mit einem Löffel übergießen."
+  },
+  {
+    "ruta": "recetas.7.pasos.4",
+    "texto": "Den Spinat 2 Minuten in derselben Pfanne, neben dem Lachs, mit einer Prise Salz andünsten."
+  },
+  {
+    "ruta": "recetas.7.pasos.5",
+    "texto": "Über dem Reis servieren, mit der Sauce beträufeln und mit Sesam bestreuen."
+  },
+  {
+    "ruta": "recetas.8.nombre",
+    "texto": "Tacos mit rauchigen Linsen"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.0",
+    "texto": "400 g gekochte braune Linsen, abgetropft"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.1",
+    "texto": "1 Zwiebel, gehackt"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.2",
+    "texto": "1 rote Paprika, gewürfelt"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.3",
+    "texto": "2 Knoblauchzehen"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.4",
+    "texto": "1 TL Kreuzkümmel"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.5",
+    "texto": "1 TL geräuchertes Paprikapulver"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.6",
+    "texto": "200 g gehackte Tomaten"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.7",
+    "texto": "2 EL Olivenöl"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.8",
+    "texto": "8 Maistortillas"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.9",
+    "texto": "1 Avocado"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.10",
+    "texto": "1 Limette"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.11",
+    "texto": "Frischer Koriander"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.12",
+    "texto": "100 g Naturjoghurt"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.13",
+    "texto": "Salz"
+  },
+  {
+    "ruta": "recetas.8.pasos.0",
+    "texto": "Die Zwiebel und die Paprika 8 Minuten im Öl anbraten."
+  },
+  {
+    "ruta": "recetas.8.pasos.1",
+    "texto": "Knoblauch, Kreuzkümmel und Paprikapulver dazugeben und 1 Minute anrösten."
+  },
+  {
+    "ruta": "recetas.8.pasos.2",
+    "texto": "Tomaten und Linsen dazugeben und 10 Minuten köcheln lassen, dabei mit dem Löffel etwas zerdrücken, damit alles bindet."
+  },
+  {
+    "ruta": "recetas.8.pasos.3",
+    "texto": "Salzen und den Saft einer halben Limette dazugeben."
+  },
+  {
+    "ruta": "recetas.8.pasos.4",
+    "texto": "Die Tortillas in einer trockenen Pfanne 30 Sekunden pro Seite erwärmen."
+  },
+  {
+    "ruta": "recetas.8.pasos.5",
+    "texto": "Mit den Linsen, der in Scheiben geschnittenen Avocado, dem Joghurt und dem Koriander füllen. Zwei Tacos pro Person."
+  },
+  {
+    "ruta": "recetas.9.nombre",
+    "texto": "Regenerations-Shake"
+  },
+  {
+    "ruta": "recetas.9.carpeta",
+    "texto": "Läufer"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.0",
+    "texto": "1 gefrorene Banane, in Scheiben"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.1",
+    "texto": "200 ml Milch"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.2",
+    "texto": "150 g griechischer Naturjoghurt"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.3",
+    "texto": "100 g gefrorene Beeren"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.4",
+    "texto": "1 EL Erdnussbutter (16 g)"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.5",
+    "texto": "1 TL reines Kakaopulver"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.6",
+    "texto": "1 Prise Salz"
+  },
+  {
+    "ruta": "recetas.9.pasos.0",
+    "texto": "Alles in den Mixer geben, zuerst die Flüssigkeiten."
+  },
+  {
+    "ruta": "recetas.9.pasos.1",
+    "texto": "45 Sekunden mixen, bis es cremig ist; falls zu dickflüssig, einen Schuss Milch dazugeben."
+  },
+  {
+    "ruta": "recetas.9.pasos.2",
+    "texto": "Innerhalb von 30 Minuten nach dem langen Lauf trinken, direkt aus dem Mixbecher, um weniger abwaschen zu müssen."
+  },
+  {
+    "ruta": "dietas.0.nombre",
+    "texto": "Marathonwoche"
+  },
+  {
+    "ruta": "dietas.0.descripcion",
+    "texto": "Die sieben Tage vor dem Rennen. Von Montag bis Donnerstag esse ich wie immer (Hähnchen-Bowl aus dem Sonntags-Batch, Hafer vor den lockeren Läufen); von Freitag bis Samstag erhöhe ich die Kohlenhydrate und senke Ballaststoffe und Fett. Am Abend davor Pasta mit Tomate und keine Experimente. Der Shake ist für die halbe Stunde nach dem Zieleinlauf, zusammen mit dem Stück Bananenbrot, das ich am Donnerstag vorbereitet hatte."
+  },
+  {
+    "ruta": "dietas.0.recetas.0",
+    "texto": "Hafer vom Vorabend"
+  },
+  {
+    "ruta": "dietas.0.recetas.1",
+    "texto": "Kohlenhydrat-Pasta vom Vorabend"
+  },
+  {
+    "ruta": "dietas.0.recetas.2",
+    "texto": "Hähnchen-Bowl für die ganze Woche"
+  },
+  {
+    "ruta": "dietas.0.recetas.3",
+    "texto": "Regenerations-Shake"
+  },
+  {
+    "ruta": "dietas.0.recetas.4",
+    "texto": "Bananenbrot wie vom Café"
+  },
+  {
+    "ruta": "dietas.1.nombre",
+    "texto": "Zurück aus Japan, leicht"
+  },
+  {
+    "ruta": "dietas.1.descripcion",
+    "texto": "Drei Wochen Ramen, Konbini-Essen und Katsu-Curry haben mir einen schweren Körper und einen leeren Kühlschrank beschert. Zwei Wochen mit leichten Abendessen voller Hülsenfrüchte und Gemüse, einmal die Woche eine ordentliche Fischmahlzeit und Frühstücke, die am Abend vorher vorbereitet werden, damit ich vor der Sieben-Uhr-Schicht nicht improvisieren muss. Ein Gruß an Japan, aber zu Hause gekocht und mit Maß."
+  },
+  {
+    "ruta": "dietas.1.recetas.0",
+    "texto": "Cremesuppe aus roten Linsen"
+  },
+  {
+    "ruta": "dietas.1.recetas.1",
+    "texto": "Tacos mit rauchigen Linsen"
+  },
+  {
+    "ruta": "dietas.1.recetas.2",
+    "texto": "Teriyaki-Lachs mit Spinat"
+  },
+  {
+    "ruta": "dietas.1.recetas.3",
+    "texto": "Hafer vom Vorabend"
+  },
+  {
+    "ruta": "dietas.1.recetas.4",
+    "texto": "Regenerations-Shake"
+  },
+  {
+    "ruta": "listas.0.nombre",
+    "texto": "Einkauf für die Marathonwoche"
+  },
+  {
+    "ruta": "listas.0.items.0",
+    "texto": "1 kg Spaghetti"
+  },
+  {
+    "ruta": "listas.0.items.1",
+    "texto": "800 g gehackte Tomaten"
+  },
+  {
+    "ruta": "listas.0.items.2",
+    "texto": "1,2 kg Hähnchenbrust"
+  },
+  {
+    "ruta": "listas.0.items.3",
+    "texto": "1 kg Vollkornreis"
+  },
+  {
+    "ruta": "listas.0.items.4",
+    "texto": "500 g Haferflocken"
+  },
+  {
+    "ruta": "listas.0.items.5",
+    "texto": "12 Bananen"
+  },
+  {
+    "ruta": "listas.0.items.6",
+    "texto": "1 kg Süßkartoffeln"
+  },
+  {
+    "ruta": "listas.0.items.7",
+    "texto": "2 Liter Milch"
+  },
+  {
+    "ruta": "listas.0.items.8",
+    "texto": "1 kg griechischer Joghurt"
+  },
+  {
+    "ruta": "listas.0.items.9",
+    "texto": "6 Eier"
+  },
+  {
+    "ruta": "listas.0.items.10",
+    "texto": "1 Knolle Knoblauch"
+  },
+  {
+    "ruta": "listas.0.items.11",
+    "texto": "1 Glas Erdnussbutter, 350 g"
+  },
+  {
+    "ruta": "listas.0.items.12",
+    "texto": "250 g Walnüsse"
+  },
+  {
+    "ruta": "listas.0.items.13",
+    "texto": "2 Zitronen"
+  },
+  {
+    "ruta": "listas.1.nombre",
+    "texto": "Erster Einkauf nach der Rückkehr aus Japan"
+  },
+  {
+    "ruta": "listas.1.items.0",
+    "texto": "500 g rote Linsen"
+  },
+  {
+    "ruta": "listas.1.items.1",
+    "texto": "2 Dosen gekochte braune Linsen, 400 g je Dose"
+  },
+  {
+    "ruta": "listas.1.items.2",
+    "texto": "1 Liter Gemüsebrühe"
+  },
+  {
+    "ruta": "listas.1.items.3",
+    "texto": "2 große Karotten"
+  },
+  {
+    "ruta": "listas.1.items.4",
+    "texto": "3 Zwiebeln"
+  },
+  {
+    "ruta": "listas.1.items.5",
+    "texto": "1 rote Paprika"
+  },
+  {
+    "ruta": "listas.1.items.6",
+    "texto": "400 ml Kokosmilch"
+  },
+  {
+    "ruta": "listas.1.items.7",
+    "texto": "2 Lachsfilets à 150 g"
+  },
+  {
+    "ruta": "listas.1.items.8",
+    "texto": "1 Packung mit 12 Maistortillas"
+  },
+  {
+    "ruta": "listas.1.items.9",
+    "texto": "2 Avocados"
+  },
+  {
+    "ruta": "listas.1.items.10",
+    "texto": "1 Bund Koriander"
+  },
+  {
+    "ruta": "listas.1.items.11",
+    "texto": "2 Limetten"
+  },
+  {
+    "ruta": "listas.1.items.12",
+    "texto": "500 g frischer Spinat"
+  },
+  {
+    "ruta": "listas.1.items.13",
+    "texto": "1 Glas gemahlener Kreuzkümmel"
+  }
+]

@@ -1,0 +1,562 @@
+[
+  {
+    "clave": "agenda.ciclo.recienActivado",
+    "texto": "ट्रैकिंग चालू हो गई। गलती से हो गया?"
+  },
+  {
+    "clave": "agenda.ciclo.deshacer",
+    "texto": "पूर्ववत करें"
+  },
+  {
+    "clave": "agenda.ciclo.mantener",
+    "texto": "रहने दें"
+  },
+  {
+    "clave": "agenda.ciclo.ajustes",
+    "texto": "सेटिंग्स"
+  },
+  {
+    "clave": "agenda.ciclo.diaN",
+    "texto": "चक्र का दिन {n}"
+  },
+  {
+    "clave": "agenda.ciclo.sinRegistro",
+    "texto": "अभी तक कुछ दर्ज नहीं"
+  },
+  {
+    "clave": "agenda.ciclo.sinDatos",
+    "texto": "शुरू करने के लिए अपने पीरियड का पहला दिन मार्क करें"
+  },
+  {
+    "clave": "agenda.ciclo.hoyToca",
+    "texto": "अनुमान है कि आज से शुरू होगा"
+  },
+  {
+    "clave": "agenda.ciclo.faltan",
+    "texto": "{n} दिन बाकी (अनुमानित)"
+  },
+  {
+    "clave": "agenda.ciclo.proximo",
+    "texto": "अगला पीरियड"
+  },
+  {
+    "clave": "agenda.ciclo.fertil",
+    "texto": "उपजाऊ दिन"
+  },
+  {
+    "clave": "agenda.ciclo.base",
+    "texto": "आपके पिछले {n} चक्रों के आधार पर अनुमान (औसत {d} दिन)।"
+  },
+  {
+    "clave": "agenda.ciclo.baseSinDatos",
+    "texto": "आपकी सेटिंग्स की अवधि के आधार पर अनुमान ({d} दिन): मापने के लिए अभी दो पीरियड नहीं हैं।"
+  },
+  {
+    "clave": "agenda.ciclo.historial",
+    "texto": "आपके हाल के पीरियड"
+  },
+  {
+    "clave": "agenda.ciclo.duroDias",
+    "texto": "{n} दिन तक रहा"
+  },
+  {
+    "clave": "agenda.ciclo.sangrado",
+    "texto": "ब्लीडिंग"
+  },
+  {
+    "clave": "agenda.ciclo.ninguno",
+    "texto": "कोई नहीं"
+  },
+  {
+    "clave": "agenda.ciclo.leve",
+    "texto": "हल्की"
+  },
+  {
+    "clave": "agenda.ciclo.medio",
+    "texto": "मध्यम"
+  },
+  {
+    "clave": "agenda.ciclo.abundante",
+    "texto": "भारी"
+  },
+  {
+    "clave": "agenda.ciclo.sintomas",
+    "texto": "लक्षण"
+  },
+  {
+    "clave": "agenda.ciclo.animo",
+    "texto": "मूड"
+  },
+  {
+    "clave": "agenda.ciclo.leyRegistrado",
+    "texto": "दर्ज किया गया"
+  },
+  {
+    "clave": "agenda.ciclo.leyEstimado",
+    "texto": "अनुमानित"
+  },
+  {
+    "clave": "agenda.ciclo.duracionCiclo",
+    "texto": "चक्र की अवधि (दिन)"
+  },
+  {
+    "clave": "agenda.ciclo.duracionPeriodo",
+    "texto": "पीरियड की अवधि (दिन)"
+  },
+  {
+    "clave": "agenda.ciclo.ayudaDuracion",
+    "texto": "जब तक दो पीरियड दर्ज न हों तभी तक इस्तेमाल होते हैं: जैसे ही वे मिल जाएं, आपका असली औसत काम करेगा।"
+  },
+  {
+    "clave": "agenda.ciclo.avisarAntes",
+    "texto": "मुझे पहले बताएं (दिन)"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivo",
+    "texto": "गर्भनिरोधक के लिए समय"
+  },
+  {
+    "clave": "agenda.ciclo.avisoRutina",
+    "texto": "पीरियड शुरू होने का अनुमान"
+  },
+  {
+    "clave": "agenda.ciclo.anticonceptivoRutina",
+    "texto": "गर्भनिरोधक"
+  },
+  {
+    "clave": "agenda.ciclo.sint.colicos",
+    "texto": "ऐंठन"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cabeza",
+    "texto": "सिरदर्द"
+  },
+  {
+    "clave": "agenda.ciclo.sint.hinchazon",
+    "texto": "सूजन"
+  },
+  {
+    "clave": "agenda.ciclo.sint.senos",
+    "texto": "स्तनों में दर्द"
+  },
+  {
+    "clave": "agenda.ciclo.sint.cansancio",
+    "texto": "थकान"
+  },
+  {
+    "clave": "agenda.ciclo.sint.antojos",
+    "texto": "खाने की क्रेविंग"
+  },
+  {
+    "clave": "agenda.ciclo.sint.acne",
+    "texto": "मुंहासे"
+  },
+  {
+    "clave": "agenda.ciclo.sint.irritable",
+    "texto": "चिड़चिड़ापन"
+  },
+  {
+    "clave": "agenda.salud.nuevaCita",
+    "texto": "नई अपॉइंटमेंट"
+  },
+  {
+    "clave": "agenda.salud.medicamentos",
+    "texto": "दवाइयां"
+  },
+  {
+    "clave": "agenda.salud.nuevoMedicamento",
+    "texto": "नई दवा"
+  },
+  {
+    "clave": "agenda.editarMedicamento",
+    "texto": "इलाज बदलें"
+  },
+  {
+    "clave": "agenda.vacio.citas",
+    "texto": "कोई अपॉइंटमेंट दर्ज नहीं है।"
+  },
+  {
+    "clave": "agenda.vacio.medicamentos",
+    "texto": "फ़िलहाल कोई इलाज चल नहीं रहा।"
+  },
+  {
+    "clave": "agenda.med.dosis",
+    "texto": "खुराक"
+  },
+  {
+    "clave": "agenda.med.horas",
+    "texto": "लेने का समय"
+  },
+  {
+    "clave": "agenda.med.agregarToma",
+    "texto": "समय जोड़ें"
+  },
+  {
+    "clave": "agenda.med.dias",
+    "texto": "दिन"
+  },
+  {
+    "clave": "agenda.med.todosDias",
+    "texto": "कुछ भी चुना नहीं — यानी हर दिन।"
+  },
+  {
+    "clave": "agenda.med.desde",
+    "texto": "से"
+  },
+  {
+    "clave": "agenda.med.hasta",
+    "texto": "तक (वैकल्पिक)"
+  },
+  {
+    "clave": "agenda.med.pausar",
+    "texto": "रोकें"
+  },
+  {
+    "clave": "agenda.med.reanudar",
+    "texto": "फिर से शुरू करें"
+  },
+  {
+    "clave": "agenda.med.sinHoras",
+    "texto": "बिना रिमाइंडर"
+  },
+  {
+    "clave": "agenda.med.avisoAppAbierta",
+    "texto": "दवा लेने के रिमाइंडर तभी बजते हैं जब ऐप खुला हो।"
+  },
+  {
+    "clave": "agenda.dia.0",
+    "texto": "र"
+  },
+  {
+    "clave": "agenda.dia.1",
+    "texto": "सो"
+  },
+  {
+    "clave": "agenda.dia.2",
+    "texto": "मं"
+  },
+  {
+    "clave": "agenda.dia.3",
+    "texto": "बु"
+  },
+  {
+    "clave": "agenda.dia.4",
+    "texto": "गु"
+  },
+  {
+    "clave": "agenda.dia.5",
+    "texto": "शु"
+  },
+  {
+    "clave": "agenda.dia.6",
+    "texto": "श"
+  },
+  {
+    "clave": "agenda.personas.nuevoContacto",
+    "texto": "नया संपर्क"
+  },
+  {
+    "clave": "agenda.editarContacto",
+    "texto": "संपर्क बदलें"
+  },
+  {
+    "clave": "agenda.personas.nuevoPlan",
+    "texto": "कुछ शेड्यूल करें"
+  },
+  {
+    "clave": "agenda.persona.relacion",
+    "texto": "रिश्ता"
+  },
+  {
+    "clave": "agenda.persona.phRelacion",
+    "texto": "परिवार, काम…"
+  },
+  {
+    "clave": "agenda.persona.telefono",
+    "texto": "फ़ोन"
+  },
+  {
+    "clave": "agenda.persona.correo",
+    "texto": "ईमेल"
+  },
+  {
+    "clave": "agenda.persona.cumple",
+    "texto": "जन्मदिन"
+  },
+  {
+    "clave": "agenda.persona.horaCumple",
+    "texto": "याद दिलाने का समय"
+  },
+  {
+    "clave": "agenda.persona.direccion",
+    "texto": "पता"
+  },
+  {
+    "clave": "agenda.persona.foto",
+    "texto": "फ़ोटो"
+  },
+  {
+    "clave": "agenda.persona.edad",
+    "texto": "{n} साल का जन्मदिन"
+  },
+  {
+    "clave": "agenda.persona.hoyCumple",
+    "texto": "आज ही है!"
+  },
+  {
+    "clave": "agenda.persona.faltan",
+    "texto": "{n} दिन बाकी"
+  },
+  {
+    "clave": "agenda.persona.hoy",
+    "texto": "आज"
+  },
+  {
+    "clave": "agenda.persona.enDias",
+    "texto": "{n} दिन"
+  },
+  {
+    "clave": "agenda.vacio.contactos",
+    "texto": "आपकी संपर्क बुक खाली है। अपने लोगों को जोड़ें।"
+  },
+  {
+    "clave": "agenda.vacio.eventosContacto",
+    "texto": "इस व्यक्ति के साथ कुछ भी शेड्यूल नहीं है।"
+  },
+  {
+    "clave": "agenda.salud.mascotas",
+    "texto": "पालतू जानवर"
+  },
+  {
+    "clave": "agenda.salud.nuevaMascota",
+    "texto": "नया पालतू जानवर"
+  },
+  {
+    "clave": "agenda.salud.nuevoProjimo",
+    "texto": "नया प्रियजन"
+  },
+  {
+    "clave": "agenda.vacio.mascotas",
+    "texto": "कोई पालतू जानवर नहीं। उन्हें जोड़ें जो आप पर भी निर्भर हैं।"
+  },
+  {
+    "clave": "agenda.vacio.cuidados",
+    "texto": "कोई देखभाल शेड्यूल नहीं: वैक्सीन, कृमि मुक्ति, नहलाना…"
+  },
+  {
+    "clave": "agenda.vacio.citasMascota",
+    "texto": "इस पालतू जानवर के लिए कोई अपॉइंटमेंट नहीं।"
+  },
+  {
+    "clave": "agenda.mascota.editar",
+    "texto": "पालतू जानवर बदलें"
+  },
+  {
+    "clave": "agenda.mascota.especie",
+    "texto": "प्रजाति"
+  },
+  {
+    "clave": "agenda.mascota.raza",
+    "texto": "नस्ल"
+  },
+  {
+    "clave": "agenda.mascota.nacimiento",
+    "texto": "जन्मतिथि"
+  },
+  {
+    "clave": "agenda.mascota.peso",
+    "texto": "वज़न (किलो)"
+  },
+  {
+    "clave": "agenda.mascota.veterinario",
+    "texto": "पशु चिकित्सक"
+  },
+  {
+    "clave": "agenda.mascota.phNotas",
+    "texto": "एलर्जी, खाना, चिप…"
+  },
+  {
+    "clave": "agenda.mascota.cuidados",
+    "texto": "देखभाल"
+  },
+  {
+    "clave": "agenda.mascota.nuevoCuidado",
+    "texto": "नई देखभाल"
+  },
+  {
+    "clave": "agenda.mascota.citas",
+    "texto": "पशु चिकित्सक की अपॉइंटमेंट"
+  },
+  {
+    "clave": "agenda.mascota.meses",
+    "texto": "{n} महीने"
+  },
+  {
+    "clave": "agenda.mascota.anio",
+    "texto": "1 साल"
+  },
+  {
+    "clave": "agenda.mascota.anios",
+    "texto": "{n} साल"
+  },
+  {
+    "clave": "agenda.mascota.sinFicha",
+    "texto": "पालतू जानवर"
+  },
+  {
+    "clave": "agenda.especie.perro",
+    "texto": "कुत्ता"
+  },
+  {
+    "clave": "agenda.especie.gato",
+    "texto": "बिल्ली"
+  },
+  {
+    "clave": "agenda.especie.ave",
+    "texto": "पक्षी"
+  },
+  {
+    "clave": "agenda.especie.pez",
+    "texto": "मछली"
+  },
+  {
+    "clave": "agenda.especie.roedor",
+    "texto": "कृंतक"
+  },
+  {
+    "clave": "agenda.especie.reptil",
+    "texto": "सरीसृप"
+  },
+  {
+    "clave": "agenda.especie.caballo",
+    "texto": "घोड़ा"
+  },
+  {
+    "clave": "agenda.especie.otro",
+    "texto": "अन्य"
+  },
+  {
+    "clave": "agenda.cuidado.vacuna",
+    "texto": "वैक्सीन"
+  },
+  {
+    "clave": "agenda.cuidado.desparasitacion",
+    "texto": "कृमि मुक्ति"
+  },
+  {
+    "clave": "agenda.cuidado.veterinario",
+    "texto": "पशु चिकित्सक की जांच"
+  },
+  {
+    "clave": "agenda.cuidado.bano",
+    "texto": "नहलाना"
+  },
+  {
+    "clave": "agenda.cuidado.peluqueria",
+    "texto": "बाल या नाखून कटवाना"
+  },
+  {
+    "clave": "agenda.cuidado.alimento",
+    "texto": "खाना खरीदें"
+  },
+  {
+    "clave": "agenda.cuidado.otro",
+    "texto": "अन्य"
+  },
+  {
+    "clave": "agenda.cuidado.editar",
+    "texto": "देखभाल बदलें"
+  },
+  {
+    "clave": "agenda.cuidado.tipo",
+    "texto": "प्रकार"
+  },
+  {
+    "clave": "agenda.cuidado.titulo",
+    "texto": "यह क्या है"
+  },
+  {
+    "clave": "agenda.cuidado.proxima",
+    "texto": "अगली बार"
+  },
+  {
+    "clave": "agenda.cuidado.cada",
+    "texto": "दोहराव"
+  },
+  {
+    "clave": "agenda.cuidado.unaVez",
+    "texto": "सिर्फ़ एक बार"
+  },
+  {
+    "clave": "agenda.cuidado.mensual",
+    "texto": "हर महीने"
+  },
+  {
+    "clave": "agenda.cuidado.anual",
+    "texto": "हर साल"
+  },
+  {
+    "clave": "agenda.cuidado.meses",
+    "texto": "हर {n} महीने"
+  },
+  {
+    "clave": "agenda.cuidado.aviso",
+    "texto": "इसे पूरा हुआ मार्क करने पर, तारीख़ अपने आप अगली बार पर चली जाती है।"
+  },
+  {
+    "clave": "agenda.cuidado.hecho",
+    "texto": "हो गया"
+  },
+  {
+    "clave": "agenda.cuidado.ultima",
+    "texto": "पिछली बार: {f}"
+  },
+  {
+    "clave": "agenda.cuidado.vencido",
+    "texto": "देर हो गई"
+  },
+  {
+    "clave": "agenda.form.paraQuien",
+    "texto": "यह किसके लिए है?"
+  },
+  {
+    "clave": "agenda.form.paraMi",
+    "texto": "— मेरे लिए —"
+  },
+  {
+    "clave": "widgets.titulo",
+    "texto": "आज"
+  },
+  {
+    "clave": "widgets.nivel",
+    "texto": "स्तर {n}"
+  },
+  {
+    "clave": "widgets.metas",
+    "texto": "लक्ष्य {h}/{t}"
+  },
+  {
+    "clave": "widgets.sisifo",
+    "texto": "दिन {d} · रैंक {r}"
+  },
+  {
+    "clave": "widgets.proximoTitulo",
+    "texto": "आगे"
+  },
+  {
+    "clave": "widgets.sinProximo",
+    "texto": "समय के साथ कोई पेंडिंग टास्क नहीं"
+  },
+  {
+    "clave": "widgets.efemerideTitulo",
+    "texto": "आज के दिन"
+  },
+  {
+    "clave": "widgets.vacio",
+    "texto": "आज के लिए कुछ भी शेड्यूल नहीं है"
+  },
+  {
+    "clave": "widgets.desactualizado",
+    "texto": "अपडेट करने के लिए टैप करें"
+  }
+]

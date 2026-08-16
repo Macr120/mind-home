@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.infra-huerto--ciclo.1.texto",
+    "texto": "Voici le potager du sanctuaire de Pep : des parcelles réelles, avec un an de travail dessus. Rien de tout ça n’est un exemple — c’est vivant, ça pousse en temps réel et tu peux y toucher."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.2.texto",
+    "texto": "Nourriture et Ferme partagent le même éditeur : ce que tu récoltes ici remplit le garde-manger des animaux d’à côté. C’est une seule et même chaîne."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.titulo",
+    "texto": "L’arrosage fait la loi"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.3.texto",
+    "texto": "Regarde les parcelles : une graine tout juste semée, des plantes à mi-croissance, un tournesol prêt… et une carotte que Pep a laissé faner exprès. La goutte bleue annonce la soif ; ce qui est fané ne se rattrape plus."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.titulo",
+    "texto": "Arrosage automatique"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.4.texto",
+    "texto": "Le plant de tomate a un arroseur : il arrose sa case et les huit voisines, pour toujours. C’est comme ça qu’on laisse le potager seul sans que rien ne fane."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.titulo",
+    "texto": "Récolter"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.5.texto",
+    "texto": "Le tournesol est prêt : une touche et hop, dans le panier. Tu peux aussi récolter en marchant sur ce qui est prêt, sans ouvrir cet éditeur."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.titulo",
+    "texto": "Une année dans le panier"
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.6.texto",
+    "texto": "Chaque parcelle compte ses récoltes et le panier cumule celles de toute l’année — plus de 400 unités. C’est de là que mangent les animaux du sanctuaire."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.7.texto",
+    "texto": "Tout continue de tourner quand tu sors. Dans la démo, tu peux arroser, récolter et semer pour de vrai : essaie avant de partir."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.titulo",
+    "texto": "D’abord, la terre"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.1.texto",
+    "texto": "Avec Parcelle, tu touches une case du plan et la terre est prête. Au sanctuaire, deux parcelles vides t’attendent."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.titulo",
+    "texto": "Choisir quoi semer"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.2.texto",
+    "texto": "Six espèces, et sous chacune le temps qu’elle met et la fréquence à laquelle elle réclame de l’eau : la carotte en 3 minutes, la citrouille en 2 heures."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.titulo",
+    "texto": "La rapide"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.3.texto",
+    "texto": "Pour voir le cycle complet aujourd’hui, sème une carotte dans une parcelle libre : elle sera prête avant la fin de ta balade."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.titulo",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.4.texto",
+    "texto": "Retirer y va couche par couche sur la même case : d’abord la plante, puis l’arroseur, et enfin la parcelle."
+  },
+  {
+    "clave": "tut.infra-huerto--parcelas.5.texto",
+    "texto": "C’est tout : de la terre, une espèce et de la patience. Ce que tu sèmes dans la démo pousse pour de vrai pendant que tu explores le reste."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.8.texto",
+    "texto": "Voici le sanctuaire de Pep : les enclos des animaux recueillis et, au sud, le potager qui les nourrit. Descendons avec eux."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.1.texto",
+    "texto": "Voici les animaux recueillis par Pep : chacun avec son nom, sa faim et son humeur qui courent en temps réel. Rien n’est un exemple — tu peux vraiment t’en occuper."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.titulo",
+    "texto": "Le garde-manger de l’année"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.2.texto",
+    "texto": "Nourrir puise dans le panier, et le panier se remplit en récoltant le potager d’à côté. Pep a laissé un an de réserves : sers-t’en."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.titulo",
+    "texto": "Nourrir"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.3.texto",
+    "texto": "Une touche sur l’enclos donne à manger à tous ceux qui ont faim, en commençant par le plus affamé. La poule réclame toutes les 4 heures ; la vache tient 12."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.titulo",
+    "texto": "Câliner"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.4.texto",
+    "texto": "Six heures sans affection et ils s’ennuient (deux fois plus vite si l’enclos est sale). Une touche caresse tout l’enclos."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.titulo",
+    "texto": "L’enclos sale"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.5.texto",
+    "texto": "Le petit enclos n’a pas été nettoyé depuis huit jours — ça se voit à la paille. Touche-le avec Nettoyer et rends-le comme neuf : dans la démo, c’est permis."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.titulo",
+    "texto": "Le nouveau venu"
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.6.texto",
+    "texto": "Le cochon est arrivé malade au sanctuaire ce matin. Un animal malade cesse de manger et seul Soigner le remet debout — il a une semaine avant qu’il soit trop tard. Soigne-le toi-même."
+  },
+  {
+    "clave": "tut.infra-granja--cuidar.7.texto",
+    "texto": "Au quotidien, pas besoin d’ouvrir tout ça : en passant près d’un enclos, sa bulle propose Nourrir et Caresser, et tu peux aussi me le demander par chat."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.titulo",
+    "texto": "L’enclos"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.1.texto",
+    "texto": "Touche une case libre et un enclos 1×1 naît ; touche une case collée et il s’étire. Trois animaux tiennent par case : regarde les deux du sanctuaire, un grand pour le pâturage et un petit pour la volaille."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.2.titulo",
+    "texto": "Les espèces"
+  }
+]

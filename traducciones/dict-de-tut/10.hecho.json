@@ -1,0 +1,94 @@
+[
+  {
+    "clave": "tut.infra-granja--corrales.2.texto",
+    "texto": "Sechs Arten, jede mit ihrem eigenen Hungerfenster. Tipp in ein Gehege mit freier Kapazität und das Tier erscheint – mit Namen."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.titulo",
+    "texto": "Spielzeug"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.3.texto",
+    "texto": "Schlammpfütze, Badewanne und Ball, eines pro Zelle: Die Tiere gehen von allein hin, und das Spielen hebt ihre Laune. Auf dem Gnadenhof sind alle drei schon verteilt."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.titulo",
+    "texto": "Namen"
+  },
+  {
+    "clave": "tut.infra-granja--corrales.4.texto",
+    "texto": "Mit Benennen tippst du ein Gehege an und siehst seine Liste mit der belegten Kapazität; tipp auf ein Tier, um es umzubenennen."
+  },
+  {
+    "clave": "tut.infra-granja--corrales.5.texto",
+    "texto": "Das ist das ganze Handwerk: Gehege, Kapazität, Spielzeug und Zuwendung. In der Demo darfst du den Gnadenhof erweitern, wenn du magst."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.1.texto",
+    "texto": "Das ist Peps Rennstrecke: ein Asphaltoval mit karierter Ziellinie. Es ist die einzige Ziellinie der Karte – der ganze Rennmodus dreht sich um sie."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.2.texto",
+    "texto": "Da ist die Ziellinie. Geh zum Fahrrad oder zum Auto im Hof und steig mit seinem Button auf; sitzt du im Fahrzeug, fahr über diese Linie und die Ampel erscheint."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.3.texto",
+    "texto": "Halt dich dicht ans Oval und drifte durch die Kurven, um kein Tempo zu verlieren. Du kannst auch gegen einen Assistenten fahren, mit Items dazwischen: Banane, Turbo und Bombe."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.4.texto",
+    "texto": "Neben der Ziellinie stehen die besten Zeiten: Peps Fahrrad hat 38 Siege und eine beste Runde von 41,8 s. Schlag sie – die Rekorde, die du in der Demo aufstellst, bleiben gespeichert."
+  },
+  {
+    "clave": "tut.infra-caminos--carrera.5.texto",
+    "texto": "Die Zugschiene rund um die Karte und die Achterbahn auf dem Jahrmarkt sind auch Strecken: Stell dich auf das Gleis und „Aufsteigen“ erscheint. Jeder Streckenzug ist sein eigenes Netz."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.1.texto",
+    "texto": "Es gibt drei Streckenarten, und von hier oben siehst du alle drei: Rennstrecke (zum Fahren), Zugschiene (der Zug rund um die Karte) und Achterbahn (mit Höhen pro Zelle). Sie mischen sich nie, auch wenn sie sich berühren: Jede sucht nur Nachbarn ihrer eigenen Art."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.2.texto",
+    "texto": "Die Achterbahn auf dem Jahrmarkt steigt bis auf sechs Level, und die Rampen zwischen den Zellen ergeben sich von allein. Steig ein: Der Wagen fährt den geschlossenen Rundkurs ab."
+  },
+  {
+    "clave": "tut.infra-caminos--trazos.3.texto",
+    "texto": "In deinem eigenen Haus zeichnest du sie Zelle für Zelle mit dem Editor von Strecken – oder freihändig mit der Freihandstrecke über ganze Abschnitte. Hier in der Demo ist die Karte schon gezeichnet."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.1.texto",
+    "texto": "Das ist Peps Sportanlage: Fußball, Basketball, Tennis und Baseball, einer neben dem anderen. Jeder Platz ist ein Rechteck auf der Karte – gehst du hinein, startet sein Spiel."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.2.texto",
+    "texto": "Der Ladebutton erscheint im Feld des Navigationswürfels und schießt dorthin, wohin deine Figur blickt: erst zielen, dann laden."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.3.texto",
+    "texto": "Unten das Baseballfeld und der Tennisplatz: Tennis kennt die Wand und den Ballwechsel, Baseball ist reines Schlagen – gegen die Wurfmaschine oder gegen einen Pitcher."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.5.texto",
+    "texto": "Oben der Fußball- und der Basketballplatz. Fußball spielst du mit Dribbling und Schuss; Basketball, indem du die Kraft des Wurfs dosierst."
+  },
+  {
+    "clave": "tut.infra-canchas--jugar.4.texto",
+    "texto": "Der Punktestand wird pro Platz gespeichert: Pep hat ein 21:15 im Basketball hinterlassen und eine Serie von 18 Ballwechseln im Tennis. In der Demo zählen die Spiele – übertriff sie."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.1.texto",
+    "texto": "Öffne das Werkzeugrad: Dort wohnt Paintball, in der Kategorie Bauen bei den Spielen, gleich neben den Fahrzeugen."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.2.texto",
+    "texto": "Wähl den Modus: 1 gegen 1, 2 gegen 2 oder Jeder gegen jeden. Deine Gegner sind die Assistenten auf der Karte – Laika zählt mit – und gespielt wird im Erdgeschoss."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.3.texto",
+    "texto": "Das ganze Haus ist das Spielfeld: Geh hinter den Mauern in Deckung, lehn dich zum Schießen heraus und pass auf deinen Rücken auf. Die Farbspritzer bleiben die ganze Schlacht über an der Wand."
+  },
+  {
+    "clave": "tut.infra-paintball--batalla.4.texto",
+    "texto": "Peps Bilanz steht bei 47 Siegen zu 23 Niederlagen. In der Demo zählen die Schlachten wirklich: Verbessere sie, bevor du gehst."
+  }
+]

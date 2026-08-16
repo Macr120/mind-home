@@ -1,0 +1,778 @@
+[
+ {
+  "clave": "app.brand",
+  "texto": "Mind Planner Home"
+ },
+ {
+  "clave": "app.brandCorto",
+  "texto": "MPH"
+ },
+ {
+  "clave": "nav.ariaMenu",
+  "texto": "방 메뉴"
+ },
+ {
+  "clave": "nav.retraer",
+  "texto": "메뉴 접기"
+ },
+ {
+  "clave": "nav.abrir",
+  "texto": "메뉴 열기"
+ },
+ {
+  "clave": "nav.editarCuarto",
+  "texto": "이 방 편집"
+ },
+ {
+  "clave": "nav.entrar",
+  "texto": "입장 ›"
+ },
+ {
+  "clave": "nav.ayuda.tarjetaTexto",
+  "texto": "방을 탭하면 앱이 열려요. 톱니바퀴 아이콘을 누르면 옵션(이동·삭제·편집)을 볼 수 있어요."
+ },
+ {
+  "clave": "nav.entrarCuarto",
+  "texto": "{nombre} 입장"
+ },
+ {
+  "clave": "nav.ajustesCuarto",
+  "texto": "방 옵션"
+ },
+ {
+  "clave": "nav.subirCuarto",
+  "texto": "위로 이동"
+ },
+ {
+  "clave": "nav.bajarCuarto",
+  "texto": "아래로 이동"
+ },
+ {
+  "clave": "nav.borrarCuarto",
+  "texto": "방 삭제"
+ },
+ {
+  "clave": "nav.borrarCuartoTitulo",
+  "texto": "“{nombre}” 삭제"
+ },
+ {
+  "clave": "nav.borrarCuartoMsg",
+  "texto": "벽과 장식, 오브젝트도 함께 사라져요."
+ },
+ {
+  "clave": "nav.borrarCuartoOk",
+  "texto": "삭제"
+ },
+ {
+  "clave": "nav.agregarCuarto",
+  "texto": "방 추가"
+ },
+ {
+  "clave": "nav.agregarCasa",
+  "texto": "집에 추가"
+ },
+ {
+  "clave": "nav.todosColocados",
+  "texto": "모든 방이 이미 집에 있어요."
+ },
+ {
+  "clave": "nav.menu.cuartos",
+  "texto": "방"
+ },
+ {
+  "clave": "nav.menu.inventarios",
+  "texto": "인벤토리"
+ },
+ {
+  "clave": "inv.plantillas",
+  "texto": "템플릿"
+ },
+ {
+  "clave": "inv.subObjetos",
+  "texto": "오브젝트"
+ },
+ {
+  "clave": "inv.subEspeciales",
+  "texto": "특수 오브젝트"
+ },
+ {
+  "clave": "inv.subPlantCuartos",
+  "texto": "방"
+ },
+ {
+  "clave": "inv.subPlantInfra",
+  "texto": "확장"
+ },
+ {
+  "clave": "inv.grupo.mobiliario",
+  "texto": "가구"
+ },
+ {
+  "clave": "inv.grupo.casa",
+  "texto": "집"
+ },
+ {
+  "clave": "inv.grupo.ropa",
+  "texto": "옷"
+ },
+ {
+  "clave": "inv.grupo.animales",
+  "texto": "동물"
+ },
+ {
+  "clave": "inv.grupo.agua",
+  "texto": "물"
+ },
+ {
+  "clave": "inv.grupo.luz",
+  "texto": "조명과 불"
+ },
+ {
+  "clave": "inv.grupo.movimiento",
+  "texto": "스스로 움직여요"
+ },
+ {
+  "clave": "inv.grupo.conducir",
+  "texto": "타고 조종해요"
+ },
+ {
+  "clave": "inv.grupo.disparar",
+  "texto": "발사해요"
+ },
+ {
+  "clave": "inv.grupo.reflejo",
+  "texto": "반사와 이미지"
+ },
+ {
+  "clave": "inv.ropa.ayuda",
+  "texto": "옷은 캐릭터에게 입히는 거라 지도에는 놓을 수 없어요. 옷을 탭하면 옷장이 열려요."
+ },
+ {
+  "clave": "inv.animales.ayuda",
+  "texto": "동물은 농장 우리에서 지내요. 동물을 탭하면 우리를 지으러 이동해요."
+ },
+ {
+  "clave": "inv.casa.ayuda",
+  "texto": "집이 무엇으로 이루어져 있고 각각 얼마나 있는지 보여줘요. 평면도 편집기에서 칠하는 거라 드래그할 수 없어요."
+ },
+ {
+  "clave": "inv.casa.vacia",
+  "texto": "아직 아무것도 짓지 않았어요. 지도에 방을 지어보세요."
+ },
+ {
+  "clave": "inv.casa.estructura",
+  "texto": "구조"
+ },
+ {
+  "clave": "inv.casa.muros",
+  "texto": "벽"
+ },
+ {
+  "clave": "inv.casa.siluetas",
+  "texto": "벽 상단"
+ },
+ {
+  "clave": "inv.casa.puertas",
+  "texto": "문"
+ },
+ {
+  "clave": "inv.casa.ventanas",
+  "texto": "창문과 개구부"
+ },
+ {
+  "clave": "inv.casa.techos",
+  "texto": "지붕"
+ },
+ {
+  "clave": "inv.casa.losetas",
+  "texto": "바닥 타일"
+ },
+ {
+  "clave": "inv.casa.pisoInterior",
+  "texto": "실내 바닥"
+ },
+ {
+  "clave": "inv.casa.pisoExterior",
+  "texto": "실외 바닥"
+ },
+ {
+  "clave": "inv.casa.accesos",
+  "texto": "계단과 엘리베이터"
+ },
+ {
+  "clave": "inv.casa.unidad.muros",
+  "texto": "구간당"
+ },
+ {
+  "clave": "inv.casa.unidad.techos",
+  "texto": "지붕 칸당"
+ },
+ {
+  "clave": "inv.casa.unidad.losetas",
+  "texto": "칸당"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoInterior",
+  "texto": "방당"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoExterior",
+  "texto": "칸당"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.cuartos",
+  "texto": "방"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.basicos",
+  "texto": "기본 공간"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.niveles",
+  "texto": "층"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.sotanos",
+  "texto": "지하실"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.albercas",
+  "texto": "수영장"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.patios",
+  "texto": "야외 마당"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-recto",
+  "texto": "독립된 벽"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-diagonal",
+  "texto": "대각선 벽"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-curvo",
+  "texto": "곡선 벽"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.recta",
+  "texto": "평평한 상단"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.arco",
+  "texto": "아치"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.esquinas",
+  "texto": "성가퀴"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.triangulo",
+  "texto": "박공"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.plano",
+  "texto": "평지붕"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.dos_aguas",
+  "texto": "경사 지붕"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.abovedado",
+  "texto": "아치형 지붕"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.cupula",
+  "texto": "돔"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.cuadrado",
+  "texto": "사각 타일"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.triangular",
+  "texto": "대각선 타일"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.circular",
+  "texto": "곡선 타일"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera",
+  "texto": "계단"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.elevador",
+  "texto": "엘리베이터"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.resbaladilla",
+  "texto": "미끄럼틀"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera-marina",
+  "texto": "수영장 사다리"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.solido",
+  "texto": "막힌 벽"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ventana",
+  "texto": "창문 있음"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ladrillo",
+  "texto": "벽돌"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.madera",
+  "texto": "나무"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.vitraje",
+  "texto": "유리"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.recta",
+  "texto": "외여닫이"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.sin",
+  "texto": "문간"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.doble",
+  "texto": "양여닫이"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.porton",
+  "texto": "대문"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.corredera",
+  "texto": "미닫이"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadrado",
+  "texto": "사각 창문"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.circulo",
+  "texto": "둥근 창"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.triangulo",
+  "texto": "삼각 창문"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadro",
+  "texto": "벽 액자"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.espejo",
+  "texto": "벽거울"
+ },
+ {
+  "clave": "infra.ayuda",
+  "texto": "이 템플릿들은 방 안에 있지 않아요. 전용 편집기로 3D 지도 위에 직접 지어요."
+ },
+ {
+  "clave": "infra.construidas",
+  "texto": "완공"
+ },
+ {
+  "clave": "infra.desplegar",
+  "texto": "종류 선택"
+ },
+ {
+  "clave": "infra.plegar",
+  "texto": "옵션 숨기기"
+ },
+ {
+  "clave": "infra.sub.animales",
+  "texto": "동물"
+ },
+ {
+  "clave": "infra.construir",
+  "texto": "지도에 짓기"
+ },
+ {
+  "clave": "infra.salirEditor",
+  "texto": "편집기 나가기"
+ },
+ {
+  "clave": "infra.resumen.ayuda",
+  "texto": "이 템플릿은 3D 지도 위에 지어요: 메뉴 → 템플릿 → 확장 → 짓기."
+ },
+ {
+  "clave": "caminos.tipo.pista",
+  "texto": "경주 트랙"
+ },
+ {
+  "clave": "caminos.tipo.riel",
+  "texto": "기차 선로"
+ },
+ {
+  "clave": "caminos.tipo.coaster",
+  "texto": "롤러코스터"
+ },
+ {
+  "clave": "caminos.herr.pintar",
+  "texto": "구간 그리기"
+ },
+ {
+  "clave": "caminos.herr.borrar",
+  "texto": "구간 지우기"
+ },
+ {
+  "clave": "caminos.herr.subir",
+  "texto": "높이 올리기"
+ },
+ {
+  "clave": "caminos.herr.bajar",
+  "texto": "높이 내리기"
+ },
+ {
+  "clave": "caminos.herr.meta",
+  "texto": "결승선"
+ },
+ {
+  "clave": "caminos.tipo.trazo",
+  "texto": "자유 트랙"
+ },
+ {
+  "clave": "trazo.herr.punto",
+  "texto": "점 찍기"
+ },
+ {
+  "clave": "trazo.herr.mover",
+  "texto": "점 이동"
+ },
+ {
+  "clave": "trazo.abierto",
+  "texto": "열린 트랙"
+ },
+ {
+  "clave": "trazo.cerrado",
+  "texto": "닫힌 트랙"
+ },
+ {
+  "clave": "trazo.borrarTodo",
+  "texto": "트랙 삭제"
+ },
+ {
+  "clave": "trazo.ayuda",
+  "texto": "지도를 탭해 점을 찍고, 점을 탭하면 지워요. 첫 번째 점이 결승선이에요: 탭하면 트랙이 닫히고 경주를 시작할 수 있어요."
+ },
+ {
+  "clave": "carrera.titulo",
+  "texto": "레이스"
+ },
+ {
+  "clave": "carrera.mejor",
+  "texto": "베스트 랩"
+ },
+ {
+  "clave": "carrera.vueltas",
+  "texto": "랩 수"
+ },
+ {
+  "clave": "carrera.solo",
+  "texto": "혼자 달리기(타임트라이얼)"
+ },
+ {
+  "clave": "carrera.contraIA",
+  "texto": "아니면 어시스턴트와 대결:"
+ },
+ {
+  "clave": "carrera.vuelta",
+  "texto": "랩"
+ },
+ {
+  "clave": "carrera.abandonar",
+  "texto": "그만두기"
+ },
+ {
+  "clave": "carrera.ya",
+  "texto": "출발!"
+ },
+ {
+  "clave": "carrera.ganaste",
+  "texto": "레이스에서 승리했어요! 🏆"
+ },
+ {
+  "clave": "carrera.perdiste",
+  "texto": "상대가 레이스에서 승리했어요…"
+ },
+ {
+  "clave": "carrera.fin",
+  "texto": "레이스 종료! 🏁"
+ },
+ {
+  "clave": "carrera.total",
+  "texto": "합계"
+ },
+ {
+  "clave": "carrera.otraVez",
+  "texto": "다시 하기"
+ },
+ {
+  "clave": "carrera.salir",
+  "texto": "나가기"
+ },
+ {
+  "clave": "carrera.msg.record",
+  "texto": "신기록 랩! 🎉"
+ },
+ {
+  "clave": "carrera.msg.vuelta",
+  "texto": "랩 완료!"
+ },
+ {
+  "clave": "carrera.msg.corta",
+  "texto": "트랙이 너무 짧아서 레이스를 할 수 없어요…"
+ },
+ {
+  "clave": "carrera.tabla.titulo",
+  "texto": "베스트 기록"
+ },
+ {
+  "clave": "carrera.tabla.vueltaCol",
+  "texto": "랩"
+ },
+ {
+  "clave": "carrera.tabla.totalCol",
+  "texto": "합계"
+ },
+ {
+  "clave": "carrera.tabla.vd",
+  "texto": "승/패"
+ },
+ {
+  "clave": "carrera.usarItem",
+  "texto": "아이템 사용(E)"
+ },
+ {
+  "clave": "room.paintball.nombre",
+  "texto": "Paintball"
+ },
+ {
+  "clave": "room.paintball.desc",
+  "texto": "집을 지도 삼아 어시스턴트와 페인트볼 대결을 펼쳐요(1대1, 2대2, 배틀로얄)."
+ },
+ {
+  "clave": "paintball.titulo",
+  "texto": "Paintball"
+ },
+ {
+  "clave": "paintball.jugar",
+  "texto": "지도에서 플레이"
+ },
+ {
+  "clave": "paintball.marcador",
+  "texto": "승리"
+ },
+ {
+  "clave": "paintball.derrotas",
+  "texto": "패배"
+ },
+ {
+  "clave": "paintball.m1v1",
+  "texto": "1 vs 1"
+ },
+ {
+  "clave": "paintball.m2v2",
+  "texto": "2 vs 2"
+ },
+ {
+  "clave": "paintball.mRoyale",
+  "texto": "배틀로얄"
+ },
+ {
+  "clave": "paintball.eligeRival",
+  "texto": "상대를 선택하세요:"
+ },
+ {
+  "clave": "paintball.eligeCompanero",
+  "texto": "팀원을 선택하세요(상대는 무작위로 정해져요):"
+ },
+ {
+  "clave": "paintball.royaleDesc",
+  "texto": "배틀로얄: 집 곳곳에서 모든 어시스턴트와 맞붙어요."
+ },
+ {
+  "clave": "paintball.empezar",
+  "texto": "대결 시작"
+ },
+ {
+  "clave": "paintball.reglas",
+  "texto": "모두 3발까지 견뎌요. 마지막까지 남은 팀이 승리해요. 집 전체가 전장이에요."
+ },
+ {
+  "clave": "paintball.posicionate",
+  "texto": "엄폐하세요!"
+ },
+ {
+  "clave": "paintball.ya",
+  "texto": "출발!"
+ },
+ {
+  "clave": "paintball.tu",
+  "texto": "나"
+ },
+ {
+  "clave": "paintball.abandonar",
+  "texto": "그만두기"
+ },
+ {
+  "clave": "paintball.hintDisparar",
+  "texto": "길게 눌러 발사(스페이스)"
+ },
+ {
+  "clave": "paintball.hintApuntar",
+  "texto": "길게 눌러 조준(PC는 우클릭)"
+ },
+ {
+  "clave": "paintball.cambiarVista",
+  "texto": "1인칭과 3인칭 전환(V키)"
+ },
+ {
+  "clave": "paintball.vista",
+  "texto": "시점"
+ },
+ {
+  "clave": "paintball.vista1",
+  "texto": "1인칭"
+ },
+ {
+  "clave": "paintball.vista3",
+  "texto": "3인칭"
+ },
+ {
+  "clave": "herr.pintura",
+  "texto": "페인트"
+ },
+ {
+  "clave": "herr.apuntar",
+  "texto": "조준"
+ },
+ {
+  "clave": "herr.apuntando",
+  "texto": "조준 중"
+ },
+ {
+  "clave": "herr.miraEnPerspectiva",
+  "texto": "조준선을 사용하려면 3인칭이나 1인칭으로 전환하세요"
+ },
+ {
+  "clave": "tiro.hintDisparar",
+  "texto": "길게 눌러 발사(왼쪽 클릭 또는 스페이스)"
+ },
+ {
+  "clave": "tiro.hintApuntar",
+  "texto": "조준(PC는 우클릭, 터치는 탭으로 고정)"
+ },
+ {
+  "clave": "tiro.apuntarConRaton",
+  "texto": "화면 위에서 마우스를 움직여 조준해요"
+ },
+ {
+  "clave": "paintball.ganaste",
+  "texto": "대결에서 승리했어요! 🏆"
+ },
+ {
+  "clave": "paintball.perdiste",
+  "texto": "페인트를 뒤집어썼어요… 🎨"
+ },
+ {
+  "clave": "paintball.impactos",
+  "texto": "피격"
+ },
+ {
+  "clave": "paintball.fuera",
+  "texto": "아웃"
+ },
+ {
+  "clave": "paintball.enPie",
+  "texto": "생존"
+ },
+ {
+  "clave": "paintball.otraVez",
+  "texto": "다시 하기"
+ },
+ {
+  "clave": "paintball.salir",
+  "texto": "나가기"
+ },
+ {
+  "clave": "paintball.msg.fuera",
+  "texto": "{nombre}님이 아웃됐어요!"
+ },
+ {
+  "clave": "paintball.msg.teDieron",
+  "texto": "맞았어요! 목숨이 하나 줄었어요"
+ },
+ {
+  "clave": "paintball.msg.nivel",
+  "texto": "플레이하려면 1층으로 내려가세요."
+ },
+ {
+  "clave": "paintball.msg.sinAsistentes",
+  "texto": "대결하려면 어시스턴트를 만들어보세요."
+ },
+ {
+  "clave": "paintball.msg.faltan",
+  "texto": "2대2를 하려면 어시스턴트가 최소 3명 필요해요."
+ },
+ {
+  "clave": "paintball.resumen.ayuda",
+  "texto": "이 모드는 3D 지도에서 플레이해요: 메뉴 → 템플릿 → 확장 → 플레이."
+ },
+ {
+  "clave": "paintball.resumen.nota",
+  "texto": "어시스턴트와 1대1, 2대2, 배틀로얄 중에서 선택하세요: 모두 3발까지 견디고, 집 전체가 전장이 돼요."
+ },
+ {
+  "clave": "caminos.ayuda",
+  "texto": "지도 칸을 탭해 적용해요. 드래그하면 카메라를 움직일 수 있어요."
+ },
+ {
+  "clave": "caminos.resumen.unidad",
+  "texto": "개수는 구간(경로가 있는 지도 칸) 기준이에요."
+ },
+ {
+  "clave": "canchas.clase.futbol",
+  "texto": "축구"
+ },
+ {
+  "clave": "canchas.clase.tenis",
+  "texto": "테니스"
+ },
+ {
+  "clave": "canchas.clase.basket",
+  "texto": "농구"
+ },
+ {
+  "clave": "canchas.clase.beisbol",
+  "texto": "야구"
+ },
+ {
+  "clave": "canchas.rotar",
+  "texto": "회전(R)"
+ },
+ {
+  "clave": "canchas.quitar",
+  "texto": "코트 제거"
+ },
+ {
+  "clave": "canchas.editar",
+  "texto": "코트 편집"
+ },
+ {
+  "clave": "canchas.tamano",
+  "texto": "크기"
+ }
+]

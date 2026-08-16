@@ -1,0 +1,894 @@
+[
+  {
+    "ruta": "recetas.0.nombre",
+    "texto": "Gece yulafı"
+  },
+  {
+    "ruta": "recetas.0.carpeta",
+    "texto": "Koşucu"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.0",
+    "texto": "60 g yulaf ezmesi"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.1",
+    "texto": "150 ml süt (veya yulaf sütü)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.2",
+    "texto": "100 g sade Yunan yoğurdu"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.3",
+    "texto": "1 yemek kaşığı chia tohumu (12 g)"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.4",
+    "texto": "1 olgun muz"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.5",
+    "texto": "1 çay kaşığı bal"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.6",
+    "texto": "1 tutam tarçın"
+  },
+  {
+    "ruta": "recetas.0.ingredientes.7",
+    "texto": "1 tutam tuz"
+  },
+  {
+    "ruta": "recetas.0.pasos.0",
+    "texto": "Cam bir kavanozda yulafı, chia tohumunu, tarçını ve tuzu karıştır."
+  },
+  {
+    "ruta": "recetas.0.pasos.1",
+    "texto": "Sütü ve yoğurdu ekle, kuru topak kalmayana kadar karıştır."
+  },
+  {
+    "ruta": "recetas.0.pasos.2",
+    "texto": "Yarım muzu çatalla ezip karışıma kat; diğer yarısını buzdolabında sakla."
+  },
+  {
+    "ruta": "recetas.0.pasos.3",
+    "texto": "Kapağını kapat, 6-10 saat buzdolabında dinlendir."
+  },
+  {
+    "ruta": "recetas.0.pasos.4",
+    "texto": "Sabah, kalan muzu dilimleyip üzerine koy, balı gezdir. Koşuya çıkmadan 90 dakika önce ye."
+  },
+  {
+    "ruta": "recetas.1.nombre",
+    "texto": "Yarış öncesi gece karbo makarnası"
+  },
+  {
+    "ruta": "recetas.1.carpeta",
+    "texto": "Koşucu"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.0",
+    "texto": "200 g spagetti"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.1",
+    "texto": "400 g ezilmiş domates"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.2",
+    "texto": "2 diş sarımsak"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.3",
+    "texto": "2 yemek kaşığı zeytinyağı"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.4",
+    "texto": "1 çay kaşığı kuru kekik"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.5",
+    "texto": "1 çay kaşığı şeker"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.6",
+    "texto": "40 g rendelenmiş parmesan peyniri"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.7",
+    "texto": "6 yaprak taze fesleğen"
+  },
+  {
+    "ruta": "recetas.1.ingredientes.8",
+    "texto": "Tuz"
+  },
+  {
+    "ruta": "recetas.1.pasos.0",
+    "texto": "Büyük bir tencerede bol tuzlu suyu kaynat."
+  },
+  {
+    "ruta": "recetas.1.pasos.1",
+    "texto": "Bu sırada, ince dilimlenmiş sarımsağı orta-kısık ateşte yağda 2 dakika, yakmadan kavur."
+  },
+  {
+    "ruta": "recetas.1.pasos.2",
+    "texto": "Domatesi, kekiği, şekeri ve bir tutam tuzu ekle; kısık ateşte 15 dakika pişir."
+  },
+  {
+    "ruta": "recetas.1.pasos.3",
+    "texto": "Makarnayı paket üzerindeki süreden bir dakika az haşla ve haşlama suyundan yarım bardak ayır."
+  },
+  {
+    "ruta": "recetas.1.pasos.4",
+    "texto": "Makarnayı ayırdığın sudan biraz ekleyerek sosun içinde 1 dakika çevir."
+  },
+  {
+    "ruta": "recetas.1.pasos.5",
+    "texto": "Parmesan ve fesleğenle servis et. Az yağlı, acısız bir akşam yemeği: yarın yarış var."
+  },
+  {
+    "ruta": "recetas.2.nombre",
+    "texto": "Haftalık tavuk kâsesi"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.0",
+    "texto": "600 g tavuk göğsü"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.1",
+    "texto": "300 g esmer pirinç (çiğ)"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.2",
+    "texto": "400 g küp doğranmış tatlı patates"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.3",
+    "texto": "400 g brokoli (çiçeklerine ayrılmış)"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.4",
+    "texto": "3 yemek kaşığı zeytinyağı"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.5",
+    "texto": "1 çay kaşığı tatlı paprika"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.6",
+    "texto": "1 çay kaşığı öğütülmüş kimyon"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.7",
+    "texto": "200 g sade Yunan yoğurdu"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.8",
+    "texto": "1 limon"
+  },
+  {
+    "ruta": "recetas.2.ingredientes.9",
+    "texto": "Tuz ve karabiber"
+  },
+  {
+    "ruta": "recetas.2.pasos.0",
+    "texto": "Fırını 200 °C’ye ısıt."
+  },
+  {
+    "ruta": "recetas.2.pasos.1",
+    "texto": "Tatlı patatesi 1 yemek kaşığı yağ, tuz ve karabiberle karıştır; 25 dakika fırınla."
+  },
+  {
+    "ruta": "recetas.2.pasos.2",
+    "texto": "Tavuğu tuzla, karabiberle, paprika ve kimyonla ovup 1 yemek kaşığı yağla ızgarada her yüzünü 6 dakika pişir. 5 dakika dinlendirip şeritler halinde doğra."
+  },
+  {
+    "ruta": "recetas.2.pasos.3",
+    "texto": "Esmer pirinci tuzlu suda 25 dakika haşla ve süz."
+  },
+  {
+    "ruta": "recetas.2.pasos.4",
+    "texto": "Brokoliyi 5 dakika buharda pişir: perşembeye kadar dayanması için diri kalmalı."
+  },
+  {
+    "ruta": "recetas.2.pasos.5",
+    "texto": "Yoğurdu yarım limonun suyu, tuz ve kalan yemek kaşığı yağla çırp."
+  },
+  {
+    "ruta": "recetas.2.pasos.6",
+    "texto": "Her şeyi dört kaba paylaştır, sosu ayrı sakla. Buzdolabında dört gün dayanır."
+  },
+  {
+    "ruta": "recetas.3.nombre",
+    "texto": "Evde Japon körisi"
+  },
+  {
+    "ruta": "recetas.3.carpeta",
+    "texto": "Japonya’dan"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.0",
+    "texto": "500 g küp doğranmış tavuk but eti"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.1",
+    "texto": "2 soğan, ince dilimlenmiş"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.2",
+    "texto": "2 havuç, kalın dilimlenmiş"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.3",
+    "texto": "400 g küp doğranmış patates"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.4",
+    "texto": "40 g tereyağı"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.5",
+    "texto": "40 g un"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.6",
+    "texto": "2 yemek kaşığı köri tozu"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.7",
+    "texto": "1 çay kaşığı garam masala"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.8",
+    "texto": "1 yemek kaşığı soya sosu"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.9",
+    "texto": "1 çay kaşığı bal"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.10",
+    "texto": "700 ml tavuk suyu"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.11",
+    "texto": "1 yemek kaşığı yağ"
+  },
+  {
+    "ruta": "recetas.3.ingredientes.12",
+    "texto": "300 g kısa taneli pirinç (çiğ)"
+  },
+  {
+    "ruta": "recetas.3.pasos.0",
+    "texto": "Roux’yu hazırla: tereyağını erit, unu ekle ve kısık ateşte fındık rengi alana kadar 5 dakika karıştır. Köri tozunu ve garam masalayı ekleyip 1 dakika karıştır, sonra ocaktan al."
+  },
+  {
+    "ruta": "recetas.3.pasos.1",
+    "texto": "Bir tencerede tavuğu yağda kızart ve çıkar."
+  },
+  {
+    "ruta": "recetas.3.pasos.2",
+    "texto": "Soğanı altın rengi alana kadar 8 dakika kavur; havuç ve patatesi ekleyip 2 dakika daha kavur."
+  },
+  {
+    "ruta": "recetas.3.pasos.3",
+    "texto": "Tavuğu geri ekle, üzerini suyla kapat ve orta ateşte 20 dakika pişir."
+  },
+  {
+    "ruta": "recetas.3.pasos.4",
+    "texto": "Roux’yu bir kepçe sıcak suyla ez, sonra tencereye ekle. Koyulaşana kadar karıştırarak 5 dakika daha pişir."
+  },
+  {
+    "ruta": "recetas.3.pasos.5",
+    "texto": "Soya sosunu ve balı ekle, tuzunu kontrol et ve taze pişmiş pirincin üzerine servis et."
+  },
+  {
+    "ruta": "recetas.4.nombre",
+    "texto": "Hızlı miso ramen"
+  },
+  {
+    "ruta": "recetas.4.carpeta",
+    "texto": "Japonya’dan"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.0",
+    "texto": "200 g kuru ramen eriştesi"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.1",
+    "texto": "900 ml tavuk suyu"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.2",
+    "texto": "2 yemek kaşığı miso ezmesi"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.3",
+    "texto": "1 yemek kaşığı soya sosu"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.4",
+    "texto": "1 çay kaşığı susam yağı"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.5",
+    "texto": "2 diş ince kıyılmış sarımsak"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.6",
+    "texto": "10 g rendelenmiş zencefil"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.7",
+    "texto": "200 g domuz göbeği veya şerit tavuk"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.8",
+    "texto": "2 yumurta"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.9",
+    "texto": "100 g tatlı mısır"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.10",
+    "texto": "2 adet dilimlenmiş taze soğan"
+  },
+  {
+    "ruta": "recetas.4.ingredientes.11",
+    "texto": "1 yaprak nori yosunu"
+  },
+  {
+    "ruta": "recetas.4.pasos.0",
+    "texto": "Yumurtaları 6 dakika 30 saniye haşla, buzlu suda soğutup soy."
+  },
+  {
+    "ruta": "recetas.4.pasos.1",
+    "texto": "Domuz göbeğini ya da tavuğu susam yağıyla bir tencerede kızart; sarımsağı ve zencefili ekleyip 1 dakika pişir."
+  },
+  {
+    "ruta": "recetas.4.pasos.2",
+    "texto": "Suyu ekle ve kısık ateşte 15 dakika kaynat. Ocaktan al."
+  },
+  {
+    "ruta": "recetas.4.pasos.3",
+    "texto": "Misoyu bir kepçe suda eritip soya sosuyla birlikte tencereye geri ekle. Tekrar kaynamasına izin verme."
+  },
+  {
+    "ruta": "recetas.4.pasos.4",
+    "texto": "Erişteyi paket talimatına göre ayrıca haşla ve iyice süz."
+  },
+  {
+    "ruta": "recetas.4.pasos.5",
+    "texto": "Kâseleri hazırla: erişte, çorba, et, mısır, ikiye bölünmüş yumurta, taze soğan ve nori."
+  },
+  {
+    "ruta": "recetas.5.nombre",
+    "texto": "Kafedeki muzlu kek"
+  },
+  {
+    "ruta": "recetas.5.carpeta",
+    "texto": "Tatlı"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.0",
+    "texto": "3 adet çok olgun muz (350 g, kabuksuz)"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.1",
+    "texto": "2 yumurta"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.2",
+    "texto": "80 g esmer şeker"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.3",
+    "texto": "60 ml ayçiçek yağı"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.4",
+    "texto": "220 g buğday unu"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.5",
+    "texto": "1 çay kaşığı kabartma tozu"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.6",
+    "texto": "1/2 çay kaşığı karbonat"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.7",
+    "texto": "1 çay kaşığı tarçın"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.8",
+    "texto": "1/2 çay kaşığı tuz"
+  },
+  {
+    "ruta": "recetas.5.ingredientes.9",
+    "texto": "60 g iri doğranmış ceviz"
+  },
+  {
+    "ruta": "recetas.5.pasos.0",
+    "texto": "Fırını 175 °C’ye ısıt ve 22 cm’lik kek kalıbını yağlı kâğıtla kapla."
+  },
+  {
+    "ruta": "recetas.5.pasos.1",
+    "texto": "Muzları çatalla, içinde küçük parçalar kalacak şekilde ez."
+  },
+  {
+    "ruta": "recetas.5.pasos.2",
+    "texto": "Yumurtaları şeker ve yağla çırp, sonra muz püresini kat."
+  },
+  {
+    "ruta": "recetas.5.pasos.3",
+    "texto": "Ayrı bir kapta unu, kabartma tozunu, karbonatı, tarçını ve tuzu karıştır."
+  },
+  {
+    "ruta": "recetas.5.pasos.4",
+    "texto": "Kuru ve ıslak karışımları spatulayla, fazla çırpmadan birleştir ve cevizleri ekle."
+  },
+  {
+    "ruta": "recetas.5.pasos.5",
+    "texto": "Kalıba dök ve kürdan temiz çıkana kadar 50-55 dakika pişir."
+  },
+  {
+    "ruta": "recetas.5.pasos.6",
+    "texto": "Kalıptan çıkar ve ızgara üzerinde soğut. On dilime kesildiğinde, kâğıda sarılı üç gün dayanır."
+  },
+  {
+    "ruta": "recetas.6.nombre",
+    "texto": "Kırmızı mercimek çorbası"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.0",
+    "texto": "250 g kırmızı mercimek"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.1",
+    "texto": "1 doğranmış soğan"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.2",
+    "texto": "2 küp doğranmış havuç"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.3",
+    "texto": "2 diş sarımsak"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.4",
+    "texto": "1 çay kaşığı öğütülmüş kimyon"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.5",
+    "texto": "1 çay kaşığı zerdeçal"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.6",
+    "texto": "1 litre sebze suyu"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.7",
+    "texto": "2 yemek kaşığı zeytinyağı"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.8",
+    "texto": "100 ml hindistancevizi sütü"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.9",
+    "texto": "1 limon"
+  },
+  {
+    "ruta": "recetas.6.ingredientes.10",
+    "texto": "Tuz ve karabiber"
+  },
+  {
+    "ruta": "recetas.6.pasos.0",
+    "texto": "Soğanı ve havucu yağda bir tutam tuzla 8 dakika kavur."
+  },
+  {
+    "ruta": "recetas.6.pasos.1",
+    "texto": "Kıyılmış sarımsağı, kimyonu ve zerdeçalı ekleyip 1 dakika karıştır."
+  },
+  {
+    "ruta": "recetas.6.pasos.2",
+    "texto": "Mercimekleri yıka, suyla birlikte ekle ve kaynamaya bırak."
+  },
+  {
+    "ruta": "recetas.6.pasos.3",
+    "texto": "Orta-kısık ateşte ara sıra karıştırarak 20 dakika pişir."
+  },
+  {
+    "ruta": "recetas.6.pasos.4",
+    "texto": "Blenderdan geçir, hindistancevizi sütünü ve yarım limonun suyunu ekle, tuzunu ayarla."
+  },
+  {
+    "ruta": "recetas.6.pasos.5",
+    "texto": "Kaplara paylaştır; tek kişilik porsiyonlar hâlinde iyi donar."
+  },
+  {
+    "ruta": "recetas.7.nombre",
+    "texto": "Ispanaklı teriyaki somon"
+  },
+  {
+    "ruta": "recetas.7.carpeta",
+    "texto": "Japonya’dan"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.0",
+    "texto": "150 g’lık 2 somon fileto"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.1",
+    "texto": "3 yemek kaşığı soya sosu"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.2",
+    "texto": "2 yemek kaşığı mirin"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.3",
+    "texto": "1 yemek kaşığı şeker"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.4",
+    "texto": "1 çay kaşığı rendelenmiş zencefil"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.5",
+    "texto": "1 çay kaşığı mısır nişastası"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.6",
+    "texto": "1 yemek kaşığı yağ"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.7",
+    "texto": "150 g kısa taneli pirinç (çiğ)"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.8",
+    "texto": "200 g taze ıspanak"
+  },
+  {
+    "ruta": "recetas.7.ingredientes.9",
+    "texto": "1 çay kaşığı susam"
+  },
+  {
+    "ruta": "recetas.7.pasos.0",
+    "texto": "Pirinci paket talimatına göre pişirmeye başla."
+  },
+  {
+    "ruta": "recetas.7.pasos.1",
+    "texto": "Soya sosunu, mirini, şekeri, zencefili ve mısır nişastasını bir bardakta karıştır."
+  },
+  {
+    "ruta": "recetas.7.pasos.2",
+    "texto": "Somonu iyice kurula ve tavada yağla derili tarafından 4 dakika pişir."
+  },
+  {
+    "ruta": "recetas.7.pasos.3",
+    "texto": "Çevir, 2 dakika daha pişir ve sosu ekle; koyulaşana kadar 2 dakika pişirip kaşıkla balığın üzerine gezdir."
+  },
+  {
+    "ruta": "recetas.7.pasos.4",
+    "texto": "Aynı tavada somonun yanında, ıspanağı bir tutam tuzla 2 dakika sotele."
+  },
+  {
+    "ruta": "recetas.7.pasos.5",
+    "texto": "Pirincin üzerine koy, sosu gezdir ve susamı serp."
+  },
+  {
+    "ruta": "recetas.8.nombre",
+    "texto": "Füme mercimek tacosu"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.0",
+    "texto": "400 g haşlanmış ve süzülmüş kahverengi mercimek"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.1",
+    "texto": "1 doğranmış soğan"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.2",
+    "texto": "1 küp doğranmış kırmızı dolmalık biber"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.3",
+    "texto": "2 diş sarımsak"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.4",
+    "texto": "1 çay kaşığı kimyon"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.5",
+    "texto": "1 çay kaşığı füme paprika"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.6",
+    "texto": "200 g ezilmiş domates"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.7",
+    "texto": "2 yemek kaşığı zeytinyağı"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.8",
+    "texto": "8 mısır tortillası"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.9",
+    "texto": "1 avokado"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.10",
+    "texto": "1 lime"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.11",
+    "texto": "Taze kişniş"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.12",
+    "texto": "100 g sade yoğurt"
+  },
+  {
+    "ruta": "recetas.8.ingredientes.13",
+    "texto": "Tuz"
+  },
+  {
+    "ruta": "recetas.8.pasos.0",
+    "texto": "Soğanı ve dolmalık biberi yağda 8 dakika kavur."
+  },
+  {
+    "ruta": "recetas.8.pasos.1",
+    "texto": "Sarımsağı, kimyonu ve paprikayı ekleyip 1 dakika karıştır."
+  },
+  {
+    "ruta": "recetas.8.pasos.2",
+    "texto": "Domatesi ve mercimekleri ekle, kaşıkla hafifçe ezerek bağlanması için 10 dakika pişir."
+  },
+  {
+    "ruta": "recetas.8.pasos.3",
+    "texto": "Tuzla ve yarım lime’nin suyunu ekle."
+  },
+  {
+    "ruta": "recetas.8.pasos.4",
+    "texto": "Tortillaları kuru bir tavada her yüzü 30 saniye olacak şekilde ısıt."
+  },
+  {
+    "ruta": "recetas.8.pasos.5",
+    "texto": "Mercimek, dilim dilim avokado, yoğurt ve kişnişle doldur. Kişi başı iki taco."
+  },
+  {
+    "ruta": "recetas.9.nombre",
+    "texto": "Toparlanma smoothie’si"
+  },
+  {
+    "ruta": "recetas.9.carpeta",
+    "texto": "Koşucu"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.0",
+    "texto": "1 dilimlenmiş dondurulmuş muz"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.1",
+    "texto": "200 ml süt"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.2",
+    "texto": "150 g sade Yunan yoğurdu"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.3",
+    "texto": "100 g dondurulmuş kırmızı meyveler"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.4",
+    "texto": "1 yemek kaşığı fıstık ezmesi (16 g)"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.5",
+    "texto": "1 çay kaşığı saf kakao tozu"
+  },
+  {
+    "ruta": "recetas.9.ingredientes.6",
+    "texto": "1 tutam tuz"
+  },
+  {
+    "ruta": "recetas.9.pasos.0",
+    "texto": "Her şeyi blendere at, önce sıvıları."
+  },
+  {
+    "ruta": "recetas.9.pasos.1",
+    "texto": "Kremamsı olana kadar 45 saniye çek; çok koyu olursa biraz süt ekle."
+  },
+  {
+    "ruta": "recetas.9.pasos.2",
+    "texto": "Uzun antrenmandan sonraki 30 dakika içinde, bulaşık biriktirmemek için direkt blender haznesinden iç."
+  },
+  {
+    "ruta": "dietas.0.nombre",
+    "texto": "Maraton haftası"
+  },
+  {
+    "ruta": "dietas.0.descripcion",
+    "texto": "Yarıştan önceki yedi gün. Pazartesiden Perşembeye normal (Pazar günü hazırlanan tavuk kâsesi, hafif koşulardan önce yulaf); Cumadan Cumartesiye karbonhidratı artırıp lif ve yağı azaltıyorum. Yarıştan önceki gece, domatesli makarna ve hiç deney yok. Smoothie, bitiş çizgisinden sonraki yarım saat için; Perşembe günü hazırladığım muzlu kek diliminin yanında."
+  },
+  {
+    "ruta": "dietas.0.recetas.0",
+    "texto": "Gece yulafı"
+  },
+  {
+    "ruta": "dietas.0.recetas.1",
+    "texto": "Yarış öncesi gece karbo makarnası"
+  },
+  {
+    "ruta": "dietas.0.recetas.2",
+    "texto": "Haftalık tavuk kâsesi"
+  },
+  {
+    "ruta": "dietas.0.recetas.3",
+    "texto": "Toparlanma smoothie’si"
+  },
+  {
+    "ruta": "dietas.0.recetas.4",
+    "texto": "Kafedeki muzlu kek"
+  },
+  {
+    "ruta": "dietas.1.nombre",
+    "texto": "Japonya dönüşü, hafif"
+  },
+  {
+    "ruta": "dietas.1.descripcion",
+    "texto": "Üç hafta ramen, konbini yemekleri ve katsu köri, vücudumu ağırlaştırdı, buzdolabımı da boşalttı. Bol baklagilli ve sebzeli hafif akşam yemekleriyle iki hafta, haftada bir doyurucu bir balık yemeği ve yediye başlamadan önce doğaçlama yapmamak için bir gece öncesinden hazırlanan kahvaltılar. Japonya’ya bir selam, ama evde ve ölçülü yapılmış."
+  },
+  {
+    "ruta": "dietas.1.recetas.0",
+    "texto": "Kırmızı mercimek çorbası"
+  },
+  {
+    "ruta": "dietas.1.recetas.1",
+    "texto": "Füme mercimek tacosu"
+  },
+  {
+    "ruta": "dietas.1.recetas.2",
+    "texto": "Ispanaklı teriyaki somon"
+  },
+  {
+    "ruta": "dietas.1.recetas.3",
+    "texto": "Gece yulafı"
+  },
+  {
+    "ruta": "dietas.1.recetas.4",
+    "texto": "Toparlanma smoothie’si"
+  },
+  {
+    "ruta": "listas.0.nombre",
+    "texto": "Maraton haftası alışverişi"
+  },
+  {
+    "ruta": "listas.0.items.0",
+    "texto": "1 kg spagetti"
+  },
+  {
+    "ruta": "listas.0.items.1",
+    "texto": "800 g ezilmiş domates"
+  },
+  {
+    "ruta": "listas.0.items.2",
+    "texto": "1,2 kg tavuk göğsü"
+  },
+  {
+    "ruta": "listas.0.items.3",
+    "texto": "1 kg esmer pirinç"
+  },
+  {
+    "ruta": "listas.0.items.4",
+    "texto": "500 g yulaf ezmesi"
+  },
+  {
+    "ruta": "listas.0.items.5",
+    "texto": "12 muz"
+  },
+  {
+    "ruta": "listas.0.items.6",
+    "texto": "1 kg tatlı patates"
+  },
+  {
+    "ruta": "listas.0.items.7",
+    "texto": "2 litre süt"
+  },
+  {
+    "ruta": "listas.0.items.8",
+    "texto": "1 kg Yunan yoğurdu"
+  },
+  {
+    "ruta": "listas.0.items.9",
+    "texto": "6 yumurta"
+  },
+  {
+    "ruta": "listas.0.items.10",
+    "texto": "1 baş sarımsak"
+  },
+  {
+    "ruta": "listas.0.items.11",
+    "texto": "350 g’lık 1 kavanoz fıstık ezmesi"
+  },
+  {
+    "ruta": "listas.0.items.12",
+    "texto": "250 g ceviz"
+  },
+  {
+    "ruta": "listas.0.items.13",
+    "texto": "2 limon"
+  },
+  {
+    "ruta": "listas.1.nombre",
+    "texto": "Japonya dönüşü market alışverişi"
+  },
+  {
+    "ruta": "listas.1.items.0",
+    "texto": "500 g kırmızı mercimek"
+  },
+  {
+    "ruta": "listas.1.items.1",
+    "texto": "400 g’lık 2 kutu haşlanmış kahverengi mercimek"
+  },
+  {
+    "ruta": "listas.1.items.2",
+    "texto": "1 litre sebze suyu"
+  },
+  {
+    "ruta": "listas.1.items.3",
+    "texto": "2 büyük havuç"
+  },
+  {
+    "ruta": "listas.1.items.4",
+    "texto": "3 soğan"
+  },
+  {
+    "ruta": "listas.1.items.5",
+    "texto": "1 kırmızı dolmalık biber"
+  },
+  {
+    "ruta": "listas.1.items.6",
+    "texto": "400 ml hindistancevizi sütü"
+  },
+  {
+    "ruta": "listas.1.items.7",
+    "texto": "150 g’lık 2 somon fileto"
+  },
+  {
+    "ruta": "listas.1.items.8",
+    "texto": "12’lik 1 paket mısır tortillası"
+  },
+  {
+    "ruta": "listas.1.items.9",
+    "texto": "2 avokado"
+  },
+  {
+    "ruta": "listas.1.items.10",
+    "texto": "1 demet kişniş"
+  },
+  {
+    "ruta": "listas.1.items.11",
+    "texto": "2 lime"
+  },
+  {
+    "ruta": "listas.1.items.12",
+    "texto": "500 g taze ıspanak"
+  },
+  {
+    "ruta": "listas.1.items.13",
+    "texto": "1 kavanoz öğütülmüş kimyon"
+  }
+]

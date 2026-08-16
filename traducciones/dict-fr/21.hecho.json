@@ -1,0 +1,634 @@
+[
+  {
+    "clave": "ideas.guia.venn",
+    "texto": "Le Venn oppose deux ensembles, et ce qu’ils partagent tombe là où ils se chevauchent. Choisis la zone dans la barre du bas avant d’ajouter, ou fais glisser un élément sur un autre et il se déplace tout seul."
+  },
+  {
+    "clave": "ideas.guia.comparacion",
+    "texto": "La comparaison met deux sujets en colonnes et ce qu’ils partagent au milieu. C’est le Venn version tableau : plus rapide à lire quand il y a beaucoup de points de chaque côté."
+  },
+  {
+    "clave": "ideas.guia.proscontras",
+    "texto": "Chaque point pèse de 1 à 5 : sélectionne-le et utilise − + dans la barre du bas. Chaque colonne s’additionne en bas, donc la décision ne se résume plus à « quelle liste est la plus longue »."
+  },
+  {
+    "clave": "ideas.guia.fuerzas",
+    "texto": "Le champ de forces regarde un changement : ce qui le pousse à gauche, ce qui le freine à droite, chacun avec son poids. Si le côté droit l’emporte, attaque d’abord la force la plus lourde."
+  },
+  {
+    "clave": "ideas.guia.foda",
+    "texto": "Les forces et les faiblesses sont LES TIENNES ; les opportunités et les menaces viennent de l’extérieur. En cas de doute, demande-toi si ça dépend de toi ou non."
+  },
+  {
+    "clave": "ideas.guia.eisenhower",
+    "texto": "Important en haut, urgent à gauche. Le quadrant « à planifier » est celui qui fait vraiment avancer les choses : s’il reste vide, tu passes ta journée à éteindre des incendies."
+  },
+  {
+    "clave": "ideas.guia.decision",
+    "texto": "Chaque branche est une option, et ses conséquences en découlent. Écris-les même quand elles semblent évidentes : ce qui n’est pas écrit ne se compare à rien."
+  },
+  {
+    "clave": "ideas.guia.tier",
+    "texto": "S est le meilleur et D le pire. Ce que tu ne peux pas encore classer attend en bas dans « Non classé » : fais-le glisser vers sa rangée une fois sûr."
+  },
+  {
+    "clave": "ideas.guia.ishikawa",
+    "texto": "La tête est le problème et chaque arête une famille de causes (méthode, équipement, matériaux, mesure…). Cherche des CAUSES, pas des solutions : elles viendront plus tard."
+  },
+  {
+    "clave": "ideas.mapa.impulsan",
+    "texto": "Moteurs"
+  },
+  {
+    "clave": "ideas.mapa.frenan",
+    "texto": "Freins"
+  },
+  {
+    "clave": "ideas.mapa.hacer",
+    "texto": "À faire maintenant"
+  },
+  {
+    "clave": "ideas.mapa.agendar",
+    "texto": "À planifier"
+  },
+  {
+    "clave": "ideas.mapa.delegar",
+    "texto": "À déléguer"
+  },
+  {
+    "clave": "ideas.mapa.quitar",
+    "texto": "À abandonner"
+  },
+  {
+    "clave": "ideas.mapa.cima",
+    "texto": "Sommet"
+  },
+  {
+    "clave": "ideas.mapa.nivel3",
+    "texto": "Niveau 3"
+  },
+  {
+    "clave": "ideas.mapa.nivel2",
+    "texto": "Niveau 2"
+  },
+  {
+    "clave": "ideas.mapa.base",
+    "texto": "Base"
+  },
+  {
+    "clave": "ideas.mapa.sinClasificar",
+    "texto": "Non classé"
+  },
+  {
+    "clave": "ideas.mapa.peso",
+    "texto": "Combien ça pèse (1 à 5)"
+  },
+  {
+    "clave": "ideas.mapa.pesoMas",
+    "texto": "Pèse plus"
+  },
+  {
+    "clave": "ideas.mapa.pesoMenos",
+    "texto": "Pèse moins"
+  },
+  {
+    "clave": "ideas.mapa.total",
+    "texto": "Total"
+  },
+  {
+    "clave": "ideas.tipo.proscontras",
+    "texto": "Pour et contre"
+  },
+  {
+    "clave": "ideas.tipo.foda",
+    "texto": "SWOT"
+  },
+  {
+    "clave": "ideas.tipo.ishikawa",
+    "texto": "Ishikawa"
+  },
+  {
+    "clave": "ideas.tipoDesc.proscontras",
+    "texto": "Une décision en deux colonnes : ce qui joue pour et ce qui joue contre."
+  },
+  {
+    "clave": "ideas.tipoDesc.foda",
+    "texto": "Quatre quadrants : forces, opportunités, faiblesses et menaces."
+  },
+  {
+    "clave": "ideas.tipoDesc.ishikawa",
+    "texto": "Arête de poisson : un problème et les causes qui l’expliquent."
+  },
+  {
+    "clave": "ideas.mapa.ventajas",
+    "texto": "Pour"
+  },
+  {
+    "clave": "ideas.mapa.desventajas",
+    "texto": "Contre"
+  },
+  {
+    "clave": "ideas.mapa.fortalezas",
+    "texto": "Forces"
+  },
+  {
+    "clave": "ideas.mapa.debilidades",
+    "texto": "Faiblesses"
+  },
+  {
+    "clave": "ideas.mapa.oportunidades",
+    "texto": "Opportunités"
+  },
+  {
+    "clave": "ideas.mapa.amenazas",
+    "texto": "Menaces"
+  },
+  {
+    "clave": "ideas.mapa.causa",
+    "texto": "Cause"
+  },
+  {
+    "clave": "ideas.mapa.categoria",
+    "texto": "Catégorie"
+  },
+  {
+    "clave": "ideas.diagramas.volver",
+    "texto": "Retour aux diagrammes"
+  },
+  {
+    "clave": "ideas.diagramas.placeholder",
+    "texto": "Décision ou problème à analyser…"
+  },
+  {
+    "clave": "ideas.diagramas.generar",
+    "texto": "Générer le diagramme avec l’IA"
+  },
+  {
+    "clave": "ideas.diagramas.generando",
+    "texto": "Assemblage du diagramme…"
+  },
+  {
+    "clave": "ideas.diagramas.errorIA",
+    "texto": "L’IA n’a pas pu générer le diagramme :"
+  },
+  {
+    "clave": "ideas.diagramas.vacio",
+    "texto": "Choisis un format et démêle cette décision qui te trotte dans la tête."
+  },
+  {
+    "clave": "ideas.diario.enLluvia",
+    "texto": "Remue-méninges : {tema}"
+  },
+  {
+    "clave": "ideas.diario.cerrarLluvia",
+    "texto": "Fermer le remue-méninges"
+  },
+  {
+    "clave": "ideas.diario.temaPlaceholder",
+    "texto": "Sur quoi porte le remue-méninges ?"
+  },
+  {
+    "clave": "ideas.diario.empezar",
+    "texto": "Commencer"
+  },
+  {
+    "clave": "ideas.diario.nuevaLluvia",
+    "texto": "Faire un remue-méninges"
+  },
+  {
+    "clave": "ideas.diario.placeholder",
+    "texto": "Je viens de penser que…"
+  },
+  {
+    "clave": "ideas.diario.placeholderLluvia",
+    "texto": "Lâche une autre idée, sans filtrer…"
+  },
+  {
+    "clave": "ideas.diario.anotar",
+    "texto": "Noter"
+  },
+  {
+    "clave": "ideas.diario.masIdeas",
+    "texto": "Apporter plus d’idées"
+  },
+  {
+    "clave": "ideas.diario.aMapa",
+    "texto": "En faire une carte"
+  },
+  {
+    "clave": "ideas.diario.arbolEtimo",
+    "texto": "Arbre étymologique"
+  },
+  {
+    "clave": "ideas.diario.arbolEtimoGenerando",
+    "texto": "Décomposition du mot…"
+  },
+  {
+    "clave": "ideas.diario.errorArbol",
+    "texto": "L’IA n’a pas pu construire l’arbre :"
+  },
+  {
+    "clave": "ideas.diario.porDia",
+    "texto": "Par jour"
+  },
+  {
+    "clave": "ideas.diario.favoritas",
+    "texto": "Favoris"
+  },
+  {
+    "clave": "ideas.diario.soloFav",
+    "texto": "Favoris uniquement"
+  },
+  {
+    "clave": "ideas.diario.vacio",
+    "texto": "Tout ce qui te passe par la tête atterrit ici ; tu trieras plus tard."
+  },
+  {
+    "clave": "ideas.diario.iaTitulo",
+    "texto": "Plus d’idées"
+  },
+  {
+    "clave": "ideas.diario.iaDesc",
+    "texto": "Idées proposées pour « {tema} » :"
+  },
+  {
+    "clave": "ideas.diario.listo",
+    "texto": "Terminé"
+  },
+  {
+    "clave": "ideas.diario.destacar",
+    "texto": "Favori"
+  },
+  {
+    "clave": "ideas.diario.retomar",
+    "texto": "Reprendre ce remue-méninges"
+  },
+  {
+    "clave": "ideas.diario.encarpetar",
+    "texto": "L’enregistrer dans un dossier"
+  },
+  {
+    "clave": "ideas.diario.enCarpeta",
+    "texto": "Dans « {carpeta} » · toucher pour la déplacer"
+  },
+  {
+    "clave": "ideas.diario.encarpetarTit",
+    "texto": "Enregistrer « {idea} » dans…"
+  },
+  {
+    "clave": "ideas.mover.cerrar",
+    "texto": "Fermer"
+  },
+  {
+    "clave": "ideas.mover.raiz",
+    "texto": "Libre dans le journal"
+  },
+  {
+    "clave": "ideas.mover.sinCarpetas",
+    "texto": "Tu n’as pas encore de dossiers : crée-les dans la vue Dossiers du journal."
+  },
+  {
+    "clave": "ideas.vista.sinPuntos",
+    "texto": "Idée pas encore développée."
+  },
+  {
+    "clave": "ideas.diario.porCarpeta",
+    "texto": "Dossiers"
+  },
+  {
+    "clave": "ideas.diario.caeEn",
+    "texto": "Atterrit dans « {carpeta} »"
+  },
+  {
+    "clave": "ideas.diario.caeSuelta",
+    "texto": "Atterrit libre dans le journal ; tu pourras la déplacer dans un dossier plus tard."
+  },
+  {
+    "clave": "ideas.diario.lluviaDesc",
+    "texto": "Ouvre un sujet et tout ce que tu notes au-dessus s’y attache. Une fois que tu as le tas, transforme-le en carte pour le trier."
+  },
+  {
+    "clave": "ideas.diario.nPuntos",
+    "texto": "{hechos}/{total} points"
+  },
+  {
+    "clave": "ideas.carp.todas",
+    "texto": "Toutes les idées"
+  },
+  {
+    "clave": "ideas.carp.nueva",
+    "texto": "Nouveau dossier"
+  },
+  {
+    "clave": "ideas.carp.nuevaSub",
+    "texto": "Nouveau sous-dossier"
+  },
+  {
+    "clave": "ideas.carp.crear",
+    "texto": "Créer"
+  },
+  {
+    "clave": "ideas.carp.renombrar",
+    "texto": "Renommer le dossier"
+  },
+  {
+    "clave": "ideas.carp.plegar",
+    "texto": "Replier"
+  },
+  {
+    "clave": "ideas.carp.borrarTit",
+    "texto": "Supprimer « {n} » ?"
+  },
+  {
+    "clave": "ideas.carp.borrarMsg",
+    "texto": "Ses sous-dossiers sont supprimés aussi. Les idées ne sont PAS perdues : elles remontent au dossier du dessus."
+  },
+  {
+    "clave": "ideas.detalle.volver",
+    "texto": "Retour au journal"
+  },
+  {
+    "clave": "ideas.detalle.resuelto",
+    "texto": "Résolu ou abandonné"
+  },
+  {
+    "clave": "ideas.detalle.subir",
+    "texto": "Monter"
+  },
+  {
+    "clave": "ideas.detalle.bajar",
+    "texto": "Descendre"
+  },
+  {
+    "clave": "ideas.detalle.nuevoPunto",
+    "texto": "Ajoute un point…"
+  },
+  {
+    "clave": "ideas.detalle.convertir",
+    "texto": "Transformer en points"
+  },
+  {
+    "clave": "ideas.detalle.desarrollar",
+    "texto": "Développer"
+  },
+  {
+    "clave": "ideas.detalle.desarrollarDesc",
+    "texto": "Points qui développent « {idea} » :"
+  },
+  {
+    "clave": "ideas.detalle.complementarias",
+    "texto": "Idées complémentaires"
+  },
+  {
+    "clave": "ideas.detalle.complementariasDesc",
+    "texto": "Nouvelles idées qui accompagnent « {idea} » :"
+  },
+  {
+    "clave": "ajustes.ajusteEfectos",
+    "texto": "Réglage des effets"
+  },
+  {
+    "clave": "ajustes.efectos",
+    "texto": "Effets visuels"
+  },
+  {
+    "clave": "ajustes.efectos.desc",
+    "texto": "Occlusion, lueurs et styles de rendu. Désactive-les si le plan rame."
+  },
+  {
+    "clave": "ajustes.efectos.off",
+    "texto": "Désactivés"
+  },
+  {
+    "clave": "ajustes.efectos.on",
+    "texto": "Activés"
+  },
+  {
+    "clave": "ajustes.estiloAplica",
+    "texto": "S’applique à :"
+  },
+  {
+    "clave": "ajustes.estiloMapa",
+    "texto": "Style visuel du plan"
+  },
+  {
+    "clave": "ajustes.vidrio",
+    "texto": "Style de l’interface"
+  },
+  {
+    "clave": "ajustes.vidrio.transparencia",
+    "texto": "Transparence"
+  },
+  {
+    "clave": "ajustes.vidrio.intensidad",
+    "texto": "Intensité"
+  },
+  {
+    "clave": "ajustes.vidrio.desc",
+    "texto": "À quel point les panneaux et les boutons qui flottent sur le plan sont transparents et flous."
+  },
+  {
+    "clave": "estilo.normal",
+    "texto": "Normal"
+  },
+  {
+    "clave": "estilo.normal.desc",
+    "texto": "L’apparence habituelle, avec une finition soignée."
+  },
+  {
+    "clave": "estilo.comic",
+    "texto": "BD"
+  },
+  {
+    "clave": "estilo.comic.desc",
+    "texto": "Éclairage en aplats et contours façon dessin animé."
+  },
+  {
+    "clave": "estilo.miniatura",
+    "texto": "Miniature"
+  },
+  {
+    "clave": "estilo.miniatura.desc",
+    "texto": "La maison en diorama miniature."
+  },
+  {
+    "clave": "estilo.retro",
+    "texto": "Rétro"
+  },
+  {
+    "clave": "estilo.retro.desc",
+    "texto": "Gros pixels, jeu vidéo années 90."
+  },
+  {
+    "clave": "estilo.neon",
+    "texto": "Néon"
+  },
+  {
+    "clave": "estilo.neon.desc",
+    "texto": "Lumières et reflets lumineux."
+  },
+  {
+    "clave": "efecto.oclusion",
+    "texto": "Occlusion"
+  },
+  {
+    "clave": "efecto.oclusion.desc",
+    "texto": "Ombre de contact dans les coins et les arêtes."
+  },
+  {
+    "clave": "efecto.bloom",
+    "texto": "Lueur"
+  },
+  {
+    "clave": "efecto.bloom.desc",
+    "texto": "Lueur des lumières et des surfaces claires."
+  },
+  {
+    "clave": "efecto.contornos",
+    "texto": "Contours"
+  },
+  {
+    "clave": "efecto.contornos.desc",
+    "texto": "Traits façon dessin animé sur les silhouettes."
+  },
+  {
+    "clave": "efecto.toon",
+    "texto": "Ombrage cartoon"
+  },
+  {
+    "clave": "efecto.toon.desc",
+    "texto": "Éclairage en aplats (cel-shading)."
+  },
+  {
+    "clave": "efecto.miniatura",
+    "texto": "Miniature"
+  },
+  {
+    "clave": "efecto.miniatura.desc",
+    "texto": "Flou diorama façon tilt-shift."
+  },
+  {
+    "clave": "efecto.pixelado",
+    "texto": "Pixelisé"
+  },
+  {
+    "clave": "efecto.pixelado.desc",
+    "texto": "Gros pixels façon rétro."
+  },
+  {
+    "clave": "efecto.byn",
+    "texto": "Noir et blanc"
+  },
+  {
+    "clave": "efecto.byn.desc",
+    "texto": "Retire la couleur pour passer en niveaux de gris."
+  },
+  {
+    "clave": "efecto.sepia",
+    "texto": "Sépia"
+  },
+  {
+    "clave": "efecto.sepia.desc",
+    "texto": "Ton chaud façon vieille photo."
+  },
+  {
+    "clave": "efecto.vineta",
+    "texto": "Vignettage"
+  },
+  {
+    "clave": "efecto.vineta.desc",
+    "texto": "Assombrit les coins."
+  },
+  {
+    "clave": "efecto.grano",
+    "texto": "Grain"
+  },
+  {
+    "clave": "efecto.grano.desc",
+    "texto": "Bruit façon film ou télé analogique."
+  },
+  {
+    "clave": "asignar.titulo",
+    "texto": "Assigner une app"
+  },
+  {
+    "clave": "cal.anio",
+    "texto": "Année"
+  },
+  {
+    "clave": "cal.armarMeta",
+    "texto": "Sélectionne pour la tracer sur le calendrier"
+  },
+  {
+    "clave": "cal.cancelarTrazo",
+    "texto": "Annuler"
+  },
+  {
+    "clave": "cal.cron.acercar",
+    "texto": "Zoomer"
+  },
+  {
+    "clave": "cal.cron.alejar",
+    "texto": "Dézoomer"
+  },
+  {
+    "clave": "cal.cron.apagarRejilla",
+    "texto": "Désactiver la grille"
+  },
+  {
+    "clave": "cal.cron.encenderRejilla",
+    "texto": "Activer la grille"
+  },
+  {
+    "clave": "cal.cron.nivel.dia",
+    "texto": "Jours"
+  },
+  {
+    "clave": "cal.cron.nivel.mes",
+    "texto": "Mois"
+  },
+  {
+    "clave": "cal.cron.nivel.semana",
+    "texto": "Semaines"
+  },
+  {
+    "clave": "cal.cron.nivel.anio",
+    "texto": "Années"
+  },
+  {
+    "clave": "cal.cron.ajustar",
+    "texto": "Ajuster"
+  },
+  {
+    "clave": "cal.cron.ajustarAncho",
+    "texto": "Fais glisser pour ajuster la largeur de la liste"
+  },
+  {
+    "clave": "cal.cron.ajustarAyuda",
+    "texto": "Cadrer toutes les périodes"
+  },
+  {
+    "clave": "cal.cron.avance",
+    "texto": "{n} % fait"
+  },
+  {
+    "clave": "cal.cron.buscar",
+    "texto": "Rechercher…"
+  },
+  {
+    "clave": "cal.cron.desplegarTodo",
+    "texto": "Tout déplier"
+  },
+  {
+    "clave": "cal.cron.hechas",
+    "texto": "Faites"
+  },
+  {
+    "clave": "cal.cron.ocultarHechas",
+    "texto": "Masquer les terminées"
+  },
+  {
+    "clave": "cal.cron.plegarTodo",
+    "texto": "Tout replier"
+  }
+]

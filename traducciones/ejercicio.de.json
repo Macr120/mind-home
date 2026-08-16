@@ -1,0 +1,502 @@
+[
+  {
+    "ruta": "titulos.fuerza.0",
+    "texto": "Kompletter Unterkörper"
+  },
+  {
+    "ruta": "titulos.fuerza.1",
+    "texto": "Oberkörper-Push"
+  },
+  {
+    "ruta": "titulos.fuerza.2",
+    "texto": "Rücken-Pull"
+  },
+  {
+    "ruta": "titulos.fuerza.3",
+    "texto": "Core und Stabilität"
+  },
+  {
+    "ruta": "titulos.fuerza.4",
+    "texto": "Ganzkörper-Zirkel"
+  },
+  {
+    "ruta": "titulos.fuerza.5",
+    "texto": "Beine und Po"
+  },
+  {
+    "ruta": "titulos.fuerza.6",
+    "texto": "Erhaltungstraining"
+  },
+  {
+    "ruta": "titulos.fuerza.7",
+    "texto": "Kurze Gym-Session"
+  },
+  {
+    "ruta": "titulos.resistencia.0",
+    "texto": "Lockerer Lauf"
+  },
+  {
+    "ruta": "titulos.resistencia.1",
+    "texto": "Intervalle auf der Bahn"
+  },
+  {
+    "ruta": "titulos.resistencia.2",
+    "texto": "Langer Lauf"
+  },
+  {
+    "ruta": "titulos.resistencia.3",
+    "texto": "Hügel im Viertel"
+  },
+  {
+    "ruta": "titulos.resistencia.4",
+    "texto": "Gleichmäßiges Tempo"
+  },
+  {
+    "ruta": "titulos.resistencia.5",
+    "texto": "Regenerationslauf"
+  },
+  {
+    "ruta": "titulos.resistencia.6",
+    "texto": "Fartlek im Park"
+  },
+  {
+    "ruta": "titulos.resistencia.7",
+    "texto": "Lauf nach der Schicht"
+  },
+  {
+    "ruta": "titulos.resistencia.8",
+    "texto": "Cardio zu Hause"
+  },
+  {
+    "ruta": "titulos.resistencia.9",
+    "texto": "Lauf bei Sonnenaufgang"
+  },
+  {
+    "ruta": "titulos.flexibilidad.0",
+    "texto": "Allgemeine Mobilität"
+  },
+  {
+    "ruta": "titulos.flexibilidad.1",
+    "texto": "Morgen-Yoga"
+  },
+  {
+    "ruta": "titulos.flexibilidad.2",
+    "texto": "Dehnen nach dem Lauf"
+  },
+  {
+    "ruta": "titulos.flexibilidad.3",
+    "texto": "Boden und Atmung"
+  },
+  {
+    "ruta": "titulos.flexibilidad.4",
+    "texto": "Hüftmobilität"
+  },
+  {
+    "ruta": "titulos.flexibilidad.5",
+    "texto": "Beine lockern"
+  },
+  {
+    "ruta": "titulos.flexibilidad.6",
+    "texto": "Sanftes Abend-Yoga"
+  },
+  {
+    "ruta": "titulos.flexibilidad.7",
+    "texto": "Physio-Routine"
+  },
+  {
+    "ruta": "enfoquesFlex.0",
+    "texto": "Hüfte"
+  },
+  {
+    "ruta": "enfoquesFlex.1",
+    "texto": "Beinbeuger"
+  },
+  {
+    "ruta": "enfoquesFlex.2",
+    "texto": "Unterer Rücken"
+  },
+  {
+    "ruta": "enfoquesFlex.3",
+    "texto": "Schultern und Nacken"
+  },
+  {
+    "ruta": "enfoquesFlex.4",
+    "texto": "Waden und Knöchel"
+  },
+  {
+    "ruta": "enfoquesFlex.5",
+    "texto": "Quadrizeps"
+  },
+  {
+    "ruta": "actividades.correr",
+    "texto": "Laufen"
+  },
+  {
+    "ruta": "actividades.caminar",
+    "texto": "Gehen"
+  },
+  {
+    "ruta": "actividades.trote",
+    "texto": "Lockeres Joggen"
+  },
+  {
+    "ruta": "actividades.bici",
+    "texto": "Rad"
+  },
+  {
+    "ruta": "actividades.cuerda",
+    "texto": "Seilspringen"
+  },
+  {
+    "ruta": "hitos.0.titulo",
+    "texto": "Der erste Lauf"
+  },
+  {
+    "ruta": "hitos.0.nota",
+    "texto": "Ich bin losgelaufen, ohne zu wissen, ob ich es bis zur Ecke schaffe. Zurückgekommen bin ich mit rotem Kopf – und mit einer seltsamen Lust, das gleich noch mal zu machen."
+  },
+  {
+    "ruta": "hitos.1.titulo",
+    "texto": "Der Plan startet"
+  },
+  {
+    "ruta": "hitos.1.nota",
+    "texto": "Ich habe mir einen Plan heruntergeladen und ihn an den Kühlschrank geklebt. Laufen war nicht mehr improvisieren, sondern etwas zum Abhaken."
+  },
+  {
+    "ruta": "hitos.2.titulo",
+    "texto": "Mein erstes Rennen"
+  },
+  {
+    "ruta": "hitos.2.nota",
+    "texto": "Startnummer, Nervosität und Leute, die wildfremden Menschen zujubeln. Ich bin ins Ziel gelaufen, ohne ein einziges Mal zu gehen, und habe wie ein Idiot auf meine Uhr gestarrt."
+  },
+  {
+    "ruta": "hitos.3.titulo",
+    "texto": "Doppelte Distanz"
+  },
+  {
+    "ruta": "hitos.3.nota",
+    "texto": "Ich habe mich fast aus Neugier angemeldet, um zu sehen, wie weit ich komme. Das letzte Stück tat weh, aber ich bin nicht stehen geblieben."
+  },
+  {
+    "ruta": "hitos.4.titulo",
+    "texto": "Längster Lauf bisher"
+  },
+  {
+    "ruta": "hitos.4.nota",
+    "texto": "So lange am Stück war ich noch nie gelaufen. Ich kam leer und glücklich nach Hause und aß im Stehen Brot in der Küche."
+  },
+  {
+    "ruta": "hitos.5.titulo",
+    "texto": "Der letzte gute Lauf"
+  },
+  {
+    "ruta": "hitos.5.nota",
+    "texto": "Ich lief leicht, alles passte, sogar die Atmung. Ich hatte keine Ahnung, dass das wochenlang der letzte Lauf sein würde."
+  },
+  {
+    "ruta": "hitos.6.titulo",
+    "texto": "Etwas ist kaputtgegangen"
+  },
+  {
+    "ruta": "hitos.6.nota",
+    "texto": "Ein Stich im Knie, und der Heimweg wurde ein sehr langsamer Spaziergang. Ich kam wütend, verängstigt und ohne Lust auf Gespräche zurück."
+  },
+  {
+    "ruta": "hitos.7.titulo",
+    "texto": "Erste Physio-Sitzung"
+  },
+  {
+    "ruta": "hitos.7.nota",
+    "texto": "Sie haben genau dort gedrückt, wo es am meisten wehtat, und mir stinklangweilige Übungen mit nach Hause gegeben. Ich kam mit einem Plan raus, und genau den brauchte ich."
+  },
+  {
+    "ruta": "hitos.8.titulo",
+    "texto": "Vorsichtiger Wiedereinstieg"
+  },
+  {
+    "ruta": "hitos.8.nota",
+    "texto": "Joggen und Gehen im Wechsel, den Stolz in der Tasche verstaut. Ich habe bei jedem Schritt auf das Knie gehört, und es hat sich nicht gemeldet."
+  },
+  {
+    "ruta": "hitos.9.titulo",
+    "texto": "Ganz Japan zu Fuß"
+  },
+  {
+    "ruta": "hitos.9.nota",
+    "texto": "Keinen einzigen Tag der Reise bin ich gelaufen, aber von morgens bis abends war ich zu Fuß unterwegs – zwischen Tempeln, Bahnhöfen und Straßen, die ich noch nie gesehen hatte. Die Füße haben protestiert, und die Beine kamen stärker zurück."
+  },
+  {
+    "ruta": "hitos.10.titulo",
+    "texto": "Das Knie hält"
+  },
+  {
+    "ruta": "hitos.10.nota",
+    "texto": "Der erste richtige lange Lauf im neuen Plan. Am Ende habe ich mehr ans Abendessen gedacht als an die Verletzung, und genau das war das Geschenk."
+  },
+  {
+    "ruta": "hitos.11.titulo",
+    "texto": "Halbmarathon"
+  },
+  {
+    "ruta": "hitos.11.nota",
+    "texto": "Ich bin vorsichtig gestartet und habe auf der letzten Strecke noch Leute überholt. Im Ziel musste ich an den Tag denken, an dem ich es nicht mal bis zur Ecke geschafft habe."
+  },
+  {
+    "ruta": "hitos.12.titulo",
+    "texto": "Der Monsterlauf"
+  },
+  {
+    "ruta": "hitos.12.nota",
+    "texto": "Der längste Lauf im ganzen Plan und der, vor dem ich am meisten Angst hatte. Von der Haustür bis zur Dusche bin ich nur noch gehumpelt, aber ich habe es geschafft."
+  },
+  {
+    "ruta": "hitos.13.titulo",
+    "texto": "Mein schnellster Tag"
+  },
+  {
+    "ruta": "hitos.13.nota",
+    "texto": "Ich wollte im Tempo laufen, und die Beine liefen von allein. Damit hatte ich mitten in einer Woche voller Schichten und Prüfungen nicht gerechnet."
+  },
+  {
+    "ruta": "hitos.14.titulo",
+    "texto": "Tapering"
+  },
+  {
+    "ruta": "hitos.14.nota",
+    "texto": "Weniger von allem, und der Kopf dreht durch. Die Beine zu schonen ist schwerer, als zu trainieren."
+  },
+  {
+    "ruta": "hitos.15.titulo",
+    "texto": "Der Marathon"
+  },
+  {
+    "ruta": "hitos.15.nota",
+    "texto": "Ich bin zu Tode verängstigt gestartet und weinend ins Ziel gekommen, ohne genau zu wissen, warum. Ein Jahr zuvor konnte ich nicht mal zwei Blocks am Stück joggen."
+  },
+  {
+    "ruta": "hitos.16.titulo",
+    "texto": "Der erste Lauf danach"
+  },
+  {
+    "ruta": "hitos.16.nota",
+    "texto": "Der erste Lauf danach, kurz und ohne auf die Uhr zu schauen. Die Beine erinnerten sich an alles, aber ich bin lächelnd gelaufen."
+  },
+  {
+    "ruta": "notas.0.nota",
+    "texto": "Ich wollte joggen gehen und bin nach zwei Blocks schon wieder gegangen. Ist mir peinlich, aber ich trage es trotzdem ein."
+  },
+  {
+    "ruta": "notas.1.nota",
+    "texto": "Dehnen fand ich reine Zeitverschwendung – bis ich ohne Stöhnen vom Boden aufgestanden bin."
+  },
+  {
+    "ruta": "notas.2.nota",
+    "texto": "Erster Tag mit geliehenen Kurzhanteln. Am nächsten Tag tat sogar das Lachen weh."
+  },
+  {
+    "ruta": "notas.3.nota",
+    "texto": "Ganz lockeres Joggen im Park. Der Kopf war eine Weile still, und das ist schon viel."
+  },
+  {
+    "ruta": "notas.4.nota",
+    "texto": "Beintag. Die Treppe im Hausflur runterzugehen war der eigentliche Test."
+  },
+  {
+    "ruta": "notas.5.nota",
+    "texto": "Ich bin nach der Schicht rausgegangen, noch mit Kaffeegeruch in der Kleidung. Besser, als nur an die Decke zu starren."
+  },
+  {
+    "ruta": "notas.6.nota",
+    "texto": "Laika ist mir mitten in der Einheit auf den Schoß gesprungen. Die Hüfte hat es trotzdem gedankt."
+  },
+  {
+    "ruta": "notas.7.nota",
+    "texto": "Ich habe das Gewicht etwas erhöht, und die Technik ist komplett flötengegangen. Gewicht runter, noch mal gemacht, kein Drama."
+  },
+  {
+    "ruta": "notas.8.nota",
+    "texto": "Erster Tag, an dem ich den ganzen Lauf durchgehalten habe, ohne zu gehen. Klein, aber ich feiere es."
+  },
+  {
+    "ruta": "notas.9.nota",
+    "texto": "Rücken verspannt vom stundenlangen Stehen in der Schicht. Nach der Einheit habe ich anders geatmet."
+  },
+  {
+    "ruta": "notas.10.nota",
+    "texto": "Kurze Einheit vor der Uni. Weniger, als ich wollte, aber gemacht."
+  },
+  {
+    "ruta": "notas.11.nota",
+    "texto": "Intervalle. Ich habe jeden schnellen Abschnitt gehasst und den letzten geliebt."
+  },
+  {
+    "ruta": "notas.12.nota",
+    "texto": "Ich habe mich aus dem Augenwinkel im Spiegel gesehen und meine eigene Haltung nicht erkannt. Da verändert sich etwas."
+  },
+  {
+    "ruta": "notas.13.nota",
+    "texto": "Nervös vor dem Rennen, also bin ich locker rausgejoggt, nur um runterzukommen."
+  },
+  {
+    "ruta": "notas.14.nota",
+    "texto": "Knöchel und Waden. Alles hat geknackt, und danach bin ich gegangen, als würde ich schweben."
+  },
+  {
+    "ruta": "notas.15.nota",
+    "texto": "Langer Lauf mit einem Wissenschaftspodcast. Ist wie im Flug vergangen."
+  },
+  {
+    "ruta": "notas.16.nota",
+    "texto": "Core-Training. Ich habe am ganzen Körper gezittert und trotzdem den letzten Satz durchgezogen."
+  },
+  {
+    "ruta": "notas.17.nota",
+    "texto": "Hügel. Bergauf langsam, bergab noch schlimmer, aber ich habe nichts vom Plan ausgelassen."
+  },
+  {
+    "ruta": "notas.18.nota",
+    "texto": "Beinbeuger hart wie Gitarrensaiten. Eine ganze Weile am Boden, dann hat etwas nachgegeben."
+  },
+  {
+    "ruta": "notas.19.nota",
+    "texto": "Oberkörper-Push. Ich bin überrascht, was ich jetzt schaffe, verglichen mit dem Anfang."
+  },
+  {
+    "ruta": "notas.20.nota",
+    "texto": "Langer Lauf am Wochenende. Am Ende ging es um den Kopf, nicht um die Beine."
+  },
+  {
+    "ruta": "notas.21.nota",
+    "texto": "Hüfte total verspannt vom täglichen Radeln zur Arbeit. Lange und verdiente Einheit."
+  },
+  {
+    "ruta": "notas.22.nota",
+    "texto": "Komisches Gefühl im Knie, und ich habe es einfach ignoriert. Ich ahne, dass mir das noch auf die Füße fällt."
+  },
+  {
+    "ruta": "notas.23.nota",
+    "texto": "Nur Oberkörper. Das Knie hat mir klargemacht, dass an Beintraining nicht zu denken ist."
+  },
+  {
+    "ruta": "notas.24.nota",
+    "texto": "Sanfte Mobilität und Eis. Ich hasse es, nicht laufen zu können – so, wie es dasteht."
+  },
+  {
+    "ruta": "notas.25.nota",
+    "texto": "Armtraining mit schlechter Laune. Wenigstens lässt mich dieser Körper irgendetwas machen."
+  },
+  {
+    "ruta": "notas.26.nota",
+    "texto": "Die Physio-Übungen auf dem Wohnzimmerboden. Stinklangweilig und notwendig."
+  },
+  {
+    "ruta": "notas.27.nota",
+    "texto": "Ganz sanftes Ergometer, offiziell erlaubt. Wieder zu schwitzen hat meine Laune gerettet."
+  },
+  {
+    "ruta": "notas.28.nota",
+    "texto": "Joggen und Gehen im Wechsel. Ich habe jeden Schritt gezählt, als würde ich über Eis gehen."
+  },
+  {
+    "ruta": "notas.29.nota",
+    "texto": "Po und Hüfte, die üblichen Übungen. Ich habe Muskeln entdeckt, die ich jahrelang nicht benutzt hatte."
+  },
+  {
+    "ruta": "notas.30.nota",
+    "texto": "Lange Mobilitätseinheit. Jetzt verstehe ich endlich, wofür das alles gut war."
+  },
+  {
+    "ruta": "notas.31.nota",
+    "texto": "Der erste Lauf, bei dem ich kein einziges Mal ans Knie gedacht habe. Dieses Gefühl hatte ich schon vergessen."
+  },
+  {
+    "ruta": "notas.32.nota",
+    "texto": "Dehnen auf dem Boden der Unterkunft, mit Füßen, die vom ganztägigen Laufen fix und fertig waren."
+  },
+  {
+    "ruta": "notas.33.nota",
+    "texto": "Noch ein Tag mit dem Rucksack von Bahnhof zu Bahnhof. Ich zähle das als Training, weil ich es so will."
+  },
+  {
+    "ruta": "notas.34.nota",
+    "texto": "Erster Lauf nach der Rückkehr. Die Beine kamen stark von der Reise zurück, und man hat es gemerkt."
+  },
+  {
+    "ruta": "notas.35.nota",
+    "texto": "Zurück ans Gewicht nach Wochen Pause. Ich habe fast bei null angefangen, und es war mir völlig egal."
+  },
+  {
+    "ruta": "notas.36.nota",
+    "texto": "Wieder Intervalle. Mir gefällt diese Version von mir, die nicht mit dem Plan verhandelt."
+  },
+  {
+    "ruta": "notas.37.nota",
+    "texto": "Schultermobilität. Die Theke im Café macht sie jede Schicht fertig."
+  },
+  {
+    "ruta": "notas.38.nota",
+    "texto": "Langer Lauf im Regen. Ich kam klatschnass und glücklich zurück – etwas, das ich früher nicht verstanden hätte."
+  },
+  {
+    "ruta": "notas.39.nota",
+    "texto": "Schweres Beintraining vor der großen Woche. Zum ersten Mal seit Monaten keine Angst wegen des Knies."
+  },
+  {
+    "ruta": "notas.40.nota",
+    "texto": "Lockerer Lauf nach dem Rennen. Überraschenderweise alles noch heil."
+  },
+  {
+    "ruta": "notas.41.nota",
+    "texto": "Beinbeuger und Waden, reine Erhaltung. Der Teil des Plans, auf den ich am wenigsten Lust habe und der mich am meisten rettet."
+  },
+  {
+    "ruta": "notas.42.nota",
+    "texto": "Letzter richtiger langer Lauf. Ich bin ängstlich losgelaufen und ruhig zurückgekommen – genau das habe ich gebraucht."
+  },
+  {
+    "ruta": "notas.43.nota",
+    "texto": "Kurze Einheit, alles locker. Jetzt ist nicht die Zeit für Heldentaten."
+  },
+  {
+    "ruta": "notas.44.nota",
+    "texto": "Mobilität und sonst nicht viel. Ich schone die Beine, und das macht mich nervös."
+  },
+  {
+    "ruta": "notas.45.nota",
+    "texto": "Treppen runtergehen ist immer noch das Schlimmste. Ich watschle wie ein Pinguin und habe diesen Muskelkater irgendwie liebgewonnen."
+  },
+  {
+    "ruta": "notas.46.nota",
+    "texto": "Kurzer Lauf, um den Rost abzuschütteln. Die Beine erinnerten sich an alles."
+  },
+  {
+    "ruta": "notas.47.nota",
+    "texto": "Sanfte Rückkehr zum Gewichtheben, mit lächerlich leichten Gewichten. Ich überlege schon, was ich mir fürs nächste Jahr ausdenke."
+  },
+  {
+    "ruta": "notas.48.nota",
+    "texto": "Boden, Atmung und Dehnen, mit Laika als Zeugin. Der Körper fühlt sich nicht mehr wie ein Gegner an."
+  },
+  {
+    "ruta": "metas.cinco",
+    "texto": "Erster Volkslauf"
+  },
+  {
+    "ruta": "metas.diez",
+    "texto": "Doppelte Distanz"
+  },
+  {
+    "ruta": "metas.medio",
+    "texto": "Halbmarathon"
+  },
+  {
+    "ruta": "metas.maraton",
+    "texto": "Marathon finishen"
+  },
+  {
+    "ruta": "metas.siguiente",
+    "texto": "Nächster Marathon, ohne Verletzung"
+  }
+]

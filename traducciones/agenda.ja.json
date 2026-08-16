@@ -1,0 +1,354 @@
+[
+  {
+    "ruta": "trabajo.0.titulo",
+    "texto": "力学 中間試験1"
+  },
+  {
+    "ruta": "trabajo.0.lugar",
+    "texto": "理学部 12号教室"
+  },
+  {
+    "ruta": "trabajo.1.titulo",
+    "texto": "実験レポート提出:自由落下"
+  },
+  {
+    "ruta": "trabajo.1.lugar",
+    "texto": "物理学実験室I"
+  },
+  {
+    "ruta": "trabajo.2.titulo",
+    "texto": "カウンターの月次棚卸し"
+  },
+  {
+    "ruta": "trabajo.2.lugar",
+    "texto": "カフェ・ミラソル"
+  },
+  {
+    "ruta": "trabajo.3.titulo",
+    "texto": "臨時シフト:シングルオリジンのカッピング会"
+  },
+  {
+    "ruta": "trabajo.3.lugar",
+    "texto": "カフェ・ミラソル"
+  },
+  {
+    "ruta": "trabajo.4.titulo",
+    "texto": "学期プロジェクトのキックオフミーティング"
+  },
+  {
+    "ruta": "trabajo.4.lugar",
+    "texto": "エレナ先生の研究室"
+  },
+  {
+    "ruta": "trabajo.5.titulo",
+    "texto": "波動・光学 中間試験"
+  },
+  {
+    "ruta": "trabajo.5.lugar",
+    "texto": "理学部"
+  },
+  {
+    "ruta": "trabajo.6.titulo",
+    "texto": "実験レポート提出:連成振り子"
+  },
+  {
+    "ruta": "trabajo.6.lugar",
+    "texto": "物理学実験室II"
+  },
+  {
+    "ruta": "trabajo.7.titulo",
+    "texto": "地元のお祭りでダブルシフト"
+  },
+  {
+    "ruta": "trabajo.8.titulo",
+    "texto": "パスポートの更新"
+  },
+  {
+    "ruta": "trabajo.8.lugar",
+    "texto": "パスポートセンター"
+  },
+  {
+    "ruta": "trabajo.9.titulo",
+    "texto": "エレナとのプロジェクト進捗確認"
+  },
+  {
+    "ruta": "trabajo.9.lugar",
+    "texto": "理学部"
+  },
+  {
+    "ruta": "trabajo.10.titulo",
+    "texto": "整備工場:車のエンジン点検"
+  },
+  {
+    "ruta": "trabajo.10.lugar",
+    "texto": "ルイス整備工場"
+  },
+  {
+    "ruta": "trabajo.11.titulo",
+    "texto": "自動車保険の手続き"
+  },
+  {
+    "ruta": "trabajo.11.lugar",
+    "texto": "中央支店"
+  },
+  {
+    "ruta": "trabajo.12.titulo",
+    "texto": "熱力学 中間試験"
+  },
+  {
+    "ruta": "trabajo.12.lugar",
+    "texto": "理学部"
+  },
+  {
+    "ruta": "trabajo.13.titulo",
+    "texto": "実験レポート提出:熱量測定"
+  },
+  {
+    "ruta": "trabajo.13.lugar",
+    "texto": "物理学実験室II"
+  },
+  {
+    "ruta": "trabajo.14.titulo",
+    "texto": "旅行のための休暇をマリソルに頼む"
+  },
+  {
+    "ruta": "trabajo.14.lugar",
+    "texto": "カフェ・ミラソル"
+  },
+  {
+    "ruta": "trabajo.15.titulo",
+    "texto": "新しいマシンの研修"
+  },
+  {
+    "ruta": "trabajo.15.lugar",
+    "texto": "カフェ・ミラソル"
+  },
+  {
+    "ruta": "trabajo.16.titulo",
+    "texto": "プロジェクト成果報告会議"
+  },
+  {
+    "ruta": "trabajo.16.lugar",
+    "texto": "理学部"
+  },
+  {
+    "ruta": "trabajo.17.titulo",
+    "texto": "電磁気学 中間試験"
+  },
+  {
+    "ruta": "trabajo.17.lugar",
+    "texto": "理学部"
+  },
+  {
+    "ruta": "trabajo.18.titulo",
+    "texto": "実験レポートの最終提出"
+  },
+  {
+    "ruta": "trabajo.18.lugar",
+    "texto": "物理学実験室II"
+  },
+  {
+    "ruta": "trabajo.19.titulo",
+    "texto": "学期プロジェクトの発表審査"
+  },
+  {
+    "ruta": "trabajo.19.lugar",
+    "texto": "講堂B"
+  },
+  {
+    "ruta": "trabajo.20.titulo",
+    "texto": "特別シフト:冬のお茶の試飲会"
+  },
+  {
+    "ruta": "trabajo.20.lugar",
+    "texto": "カフェ・ミラソル"
+  },
+  {
+    "ruta": "salud.0.titulo",
+    "texto": "初回の栄養相談"
+  },
+  {
+    "ruta": "salud.0.lugar",
+    "texto": "アルダナ健康センター"
+  },
+  {
+    "ruta": "salud.1.titulo",
+    "texto": "ライカの年次ワクチン接種"
+  },
+  {
+    "ruta": "salud.1.lugar",
+    "texto": "ロス・アラモス動物病院"
+  },
+  {
+    "ruta": "salud.2.titulo",
+    "texto": "栄養フォローアップ"
+  },
+  {
+    "ruta": "salud.2.lugar",
+    "texto": "アルダナ健康センター"
+  },
+  {
+    "ruta": "salud.3.titulo",
+    "texto": "整形外科:膝の痛み"
+  },
+  {
+    "ruta": "salud.3.lugar",
+    "texto": "サン・ビセンテ・クリニック"
+  },
+  {
+    "ruta": "salud.4.titulo",
+    "texto": "理学療法 1/6"
+  },
+  {
+    "ruta": "salud.4.lugar",
+    "texto": "サン・ビセンテ・クリニック"
+  },
+  {
+    "ruta": "salud.5.titulo",
+    "texto": "理学療法 2/6"
+  },
+  {
+    "ruta": "salud.5.lugar",
+    "texto": "サン・ビセンテ・クリニック"
+  },
+  {
+    "ruta": "salud.6.titulo",
+    "texto": "理学療法 3/6"
+  },
+  {
+    "ruta": "salud.6.lugar",
+    "texto": "サン・ビセンテ・クリニック"
+  },
+  {
+    "ruta": "salud.7.titulo",
+    "texto": "理学療法 4/6"
+  },
+  {
+    "ruta": "salud.7.lugar",
+    "texto": "サン・ビセンテ・クリニック"
+  },
+  {
+    "ruta": "salud.8.titulo",
+    "texto": "理学療法 5/6"
+  },
+  {
+    "ruta": "salud.8.lugar",
+    "texto": "サン・ビセンテ・クリニック"
+  },
+  {
+    "ruta": "salud.9.titulo",
+    "texto": "理学療法 6/6:ランニング再開の許可"
+  },
+  {
+    "ruta": "salud.9.lugar",
+    "texto": "サン・ビセンテ・クリニック"
+  },
+  {
+    "ruta": "salud.10.titulo",
+    "texto": "歯のクリーニング"
+  },
+  {
+    "ruta": "salud.10.lugar",
+    "texto": "オルモス歯科クリニック"
+  },
+  {
+    "ruta": "salud.11.titulo",
+    "texto": "ライカ:健診と駆虫"
+  },
+  {
+    "ruta": "salud.11.lugar",
+    "texto": "ロス・アラモス動物病院"
+  },
+  {
+    "ruta": "salud.12.titulo",
+    "texto": "栄養フォローアップ"
+  },
+  {
+    "ruta": "salud.12.lugar",
+    "texto": "アルダナ健康センター"
+  },
+  {
+    "ruta": "salud.13.titulo",
+    "texto": "年次健康診断"
+  },
+  {
+    "ruta": "salud.13.lugar",
+    "texto": "アルダナ健康センター"
+  },
+  {
+    "ruta": "personas.0.titulo",
+    "texto": "愚痴だらけのロングコーヒー"
+  },
+  {
+    "ruta": "personas.1.titulo",
+    "texto": "日曜日の自宅ディナー"
+  },
+  {
+    "ruta": "personas.2.titulo",
+    "texto": "イケルの誕生日"
+  },
+  {
+    "ruta": "personas.3.titulo",
+    "texto": "5kmレース後の朝食"
+  },
+  {
+    "ruta": "personas.4.titulo",
+    "texto": "SF映画マラソン"
+  },
+  {
+    "ruta": "personas.5.titulo",
+    "texto": "母の誕生日"
+  },
+  {
+    "ruta": "personas.6.titulo",
+    "texto": "愚痴を吐き出すカフェタイム"
+  },
+  {
+    "ruta": "personas.7.titulo",
+    "texto": "メキシコへ出発前の送別ディナー"
+  },
+  {
+    "ruta": "personas.8.titulo",
+    "texto": "オアハカからのビデオ通話"
+  },
+  {
+    "ruta": "personas.9.titulo",
+    "texto": "旅行写真の夜"
+  },
+  {
+    "ruta": "personas.10.titulo",
+    "texto": "ナディアの誕生日"
+  },
+  {
+    "ruta": "personas.11.titulo",
+    "texto": "カフェの仲間とブランチ"
+  },
+  {
+    "ruta": "personas.12.titulo",
+    "texto": "おうちコンサート:月の光"
+  },
+  {
+    "ruta": "personas.13.titulo",
+    "texto": "カフェで:大学院か就職か？"
+  },
+  {
+    "ruta": "pendientes.0",
+    "texto": "試験のため金曜のシフトを交代する"
+  },
+  {
+    "ruta": "pendientes.1",
+    "texto": "履歴書に今学期のプロジェクトを追加する"
+  },
+  {
+    "ruta": "pendientes.2",
+    "texto": "今月のチップの領収書を整理する"
+  },
+  {
+    "ruta": "pendientes.3",
+    "texto": "エレナからのポスターについてのメールに返信する"
+  },
+  {
+    "ruta": "pendientes.4",
+    "texto": "カウンター用の新しいグラインダーの見積もりを取る"
+  }
+]

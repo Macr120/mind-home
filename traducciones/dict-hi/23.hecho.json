@@ -1,0 +1,542 @@
+[
+ {
+  "clave": "computo.hojas.deshacer",
+  "texto": "पूर्ववत करें"
+ },
+ {
+  "clave": "computo.hojas.rehacer",
+  "texto": "फिर से करें"
+ },
+ {
+  "clave": "computo.hojas.copiar",
+  "texto": "कॉपी करें"
+ },
+ {
+  "clave": "computo.hojas.cortar",
+  "texto": "काटें"
+ },
+ {
+  "clave": "computo.hojas.pegar",
+  "texto": "पेस्ट करें"
+ },
+ {
+  "clave": "computo.hojas.mover",
+  "texto": "ले जाएं"
+ },
+ {
+  "clave": "computo.hojas.moverDestino",
+  "texto": "मंज़िल पर टैप करें"
+ },
+ {
+  "clave": "computo.hojas.borrarCeldas",
+  "texto": "मिटाएं"
+ },
+ {
+  "clave": "computo.hojas.rellenar",
+  "texto": "भरने के लिए खींचें"
+ },
+ {
+  "clave": "computo.hojas.cancelar",
+  "texto": "रद्द करें"
+ },
+ {
+  "clave": "computo.hojas.pegarManual",
+  "texto": "यह ब्राउज़र क्लिपबोर्ड पढ़ने नहीं देता। यहां वह पेस्ट करें जो आपने कॉपी किया था, वह {ref} से शुरू होकर बैठ जाएगा।"
+ },
+ {
+  "clave": "computo.hojas.plantilla.blanco",
+  "texto": "खाली"
+ },
+ {
+  "clave": "computo.hojas.plantilla.presupuesto",
+  "texto": "बजट"
+ },
+ {
+  "clave": "computo.hojas.plantilla.notas",
+  "texto": "भारित औसत"
+ },
+ {
+  "clave": "computo.hojas.plantilla.mediciones",
+  "texto": "मापन लॉग"
+ },
+ {
+  "clave": "computo.hojas.graficar",
+  "texto": "चयन का चार्ट बनाएं"
+ },
+ {
+  "clave": "computo.hojas.rangoTactil",
+  "texto": "आख़िरी सेल पर टैप करें"
+ },
+ {
+  "clave": "computo.hojas.selTodo",
+  "texto": "पूरी शीट चुनें"
+ },
+ {
+  "clave": "computo.hojas.selCol",
+  "texto": "कॉलम {col} चुनें"
+ },
+ {
+  "clave": "computo.hojas.selFila",
+  "texto": "पंक्ति {n} चुनें"
+ },
+ {
+  "clave": "computo.hojas.asaMover",
+  "texto": "चयन को खींचकर ले जाएं"
+ },
+ {
+  "clave": "computo.grafica.sinTitulo",
+  "texto": "{rango} का चार्ट"
+ },
+ {
+  "clave": "computo.grafica.sinDatos",
+  "texto": "इस रेंज में चार्ट बनाने के लिए कोई संख्या नहीं है।"
+ },
+ {
+  "clave": "computo.grafica.rangoMalo",
+  "texto": "रेंज “{rango}” मान्य नहीं है।"
+ },
+ {
+  "clave": "computo.grafica.ajustes",
+  "texto": "चार्ट की सेटिंग"
+ },
+ {
+  "clave": "computo.grafica.borrar",
+  "texto": "चार्ट हटाएं"
+ },
+ {
+  "clave": "computo.grafica.borrarMsg",
+  "texto": "शीट का डेटा जैसा है वैसा ही रहेगा।"
+ },
+ {
+  "clave": "computo.grafica.tipo.barras",
+  "texto": "बार"
+ },
+ {
+  "clave": "computo.grafica.tipo.lineas",
+  "texto": "रेखाएं"
+ },
+ {
+  "clave": "computo.grafica.tipo.area",
+  "texto": "क्षेत्र"
+ },
+ {
+  "clave": "computo.grafica.tipo.pastel",
+  "texto": "पाई"
+ },
+ {
+  "clave": "computo.grafica.tipo.dispersion",
+  "texto": "स्कैटर"
+ },
+ {
+  "clave": "computo.grafica.tituloPlaceholder",
+  "texto": "चार्ट का शीर्षक"
+ },
+ {
+  "clave": "computo.grafica.rango",
+  "texto": "डेटा की रेंज"
+ },
+ {
+  "clave": "computo.grafica.encFila",
+  "texto": "पहली पंक्ति में नाम हैं"
+ },
+ {
+  "clave": "computo.grafica.encCol",
+  "texto": "पहले कॉलम में लेबल हैं"
+ },
+ {
+  "clave": "computo.grafica.encColX",
+  "texto": "पहले कॉलम में X के मान हैं"
+ },
+ {
+  "clave": "computo.grafica.listo",
+  "texto": "हो गया"
+ },
+ {
+  "clave": "computo.ia.pensando",
+  "texto": "सोचा जा रहा है…"
+ },
+ {
+  "clave": "computo.ia.sinIa",
+  "texto": "AI इस्तेमाल करने के लिए, उसे सेटिंग्स › AI: चालू करना और कीमतें में चालू करें।"
+ },
+ {
+  "clave": "computo.ia.formulaPlaceholder",
+  "texto": "उसका विवरण दें: “कटे हुए शंकु का क्षेत्रफल”"
+ },
+ {
+  "clave": "computo.ia.escribirFormula",
+  "texto": "AI से लिखवाएं"
+ },
+ {
+  "clave": "computo.ia.falloFormula",
+  "texto": "फ़ॉर्मूला नहीं लिखा जा सका।"
+ },
+ {
+  "clave": "computo.ia.explicar",
+  "texto": "चरण दर चरण समझाएं"
+ },
+ {
+  "clave": "computo.ia.falloExplicar",
+  "texto": "समझाया नहीं जा सका।"
+ },
+ {
+  "clave": "computo.ia.cerrarPasos",
+  "texto": "स्पष्टीकरण बंद करें"
+ },
+ {
+  "clave": "computo.ia.hojaPlaceholder",
+  "texto": "उसका विवरण दें: “इस महीने के ख़र्च की सूची”"
+ },
+ {
+  "clave": "computo.ia.armarHoja",
+  "texto": "AI से बनवाएं"
+ },
+ {
+  "clave": "computo.ia.falloHoja",
+  "texto": "शीट नहीं बन सकी।"
+ },
+ {
+  "clave": "computo.ia.analizar",
+  "texto": "चुने हुए डेटा को पढ़ें"
+ },
+ {
+  "clave": "computo.ia.falloAnalizar",
+  "texto": "डेटा नहीं पढ़ा जा सका।"
+ },
+ {
+  "clave": "computo.ia.cerrarAnalisis",
+  "texto": "विश्लेषण बंद करें"
+ },
+ {
+  "clave": "computo.ia.insertarSugerida",
+  "texto": "वह चार्ट जोड़ें"
+ },
+ {
+  "clave": "computo.export.pie",
+  "texto": "Mind Planner Home · कंप्यूटिंग कक्ष"
+ },
+ {
+  "clave": "computo.export.sinImprimir",
+  "texto": "प्रिंट करना केवल वेब पर काम करता है"
+ },
+ {
+  "clave": "computo.export.sinImprimirMsg",
+  "texto": "Android ऐप में प्रिंट डायलॉग नहीं है। इसे ब्राउज़र में खोलकर PDF के रूप में सेव करें।"
+ },
+ {
+  "clave": "tut.app-computo--formulario.titulo",
+  "texto": "सूत्र पुस्तिका"
+ },
+ {
+  "clave": "tut.app-computo--formulario.resumen",
+  "texto": "सूत्र पुस्तिका आपकी है। इसमें गणित, भौतिकी और रसायन विज्ञान पहले से भरे हैं, लेकिन ये अलग कैटलॉग नहीं हैं: ये आपके अपने सूत्र हैं, इन्हें वैसे ही एडिट, मूव या डिलीट किया जा सकता है जैसे ख़ुद लिखे सूत्रों को।"
+ },
+ {
+  "clave": "tut.app-computo--calculadora.titulo",
+  "texto": "गणना और चार्ट"
+ },
+ {
+  "clave": "tut.app-computo--calculadora.resumen",
+  "texto": "इतिहास वाला एक वैज्ञानिक कैलकुलेटर, आठ मोड उन सबके लिए जो एक बार का हिसाब नहीं है — उनमें चार तरह के ग्राफ़ बनाने वाला मोड भी शामिल है — और एक इक्वेशन सॉल्वर जो जब संभव हो तो सटीक मूल देता है।"
+ },
+ {
+  "clave": "tut.app-computo--hojas.titulo",
+  "texto": "स्प्रेडशीट"
+ },
+ {
+  "clave": "tut.app-computo--hojas.resumen",
+  "texto": "A1 संदर्भों और फ़ॉर्मूला (=SUMA(B2:B15)) वाली स्प्रेडशीट। ये फ़ॉर्मूला बनाए रखते हुए Excel में एक्सपोर्ट होती हैं, या प्रिंट के ज़रिए PDF में।"
+ },
+ {
+  "clave": "ideas.editar",
+  "texto": "बदलें"
+ },
+ {
+  "clave": "ideas.borrar",
+  "texto": "हटाएं"
+ },
+ {
+  "clave": "ideas.cerrar",
+  "texto": "बंद करें"
+ },
+ {
+  "clave": "ideas.tipo.mental",
+  "texto": "माइंड मैप"
+ },
+ {
+  "clave": "ideas.tipo.arbol",
+  "texto": "वृक्ष"
+ },
+ {
+  "clave": "ideas.tipo.llaves",
+  "texto": "कोष्ठक"
+ },
+ {
+  "clave": "ideas.tipo.circulo",
+  "texto": "वृत्त"
+ },
+ {
+  "clave": "ideas.tipo.flujo",
+  "texto": "फ़्लोचार्ट"
+ },
+ {
+  "clave": "ideas.tipo.venn",
+  "texto": "वेन आरेख"
+ },
+ {
+  "clave": "ideas.tipo.comparacion",
+  "texto": "तुलना"
+ },
+ {
+  "clave": "ideas.tipoDesc.mental",
+  "texto": "बीच में एक मुख्य विचार और हर दिशा में फैली शाखाएं।"
+ },
+ {
+  "clave": "ideas.tipoDesc.arbol",
+  "texto": "ऊपर से नीचे पदानुक्रम, जैसे संगठन चार्ट।"
+ },
+ {
+  "clave": "ideas.tipoDesc.llaves",
+  "texto": "पूरी चीज़ और उसके हिस्से, बाएं से दाएं।"
+ },
+ {
+  "clave": "ideas.tipoDesc.circulo",
+  "texto": "बीच में एक विषय और चारों ओर वह सब कुछ जो उसके बारे में मालूम है।"
+ },
+ {
+  "clave": "ideas.tipoDesc.flujo",
+  "texto": "तीरों के साथ क्रम में चरण — एक शुरुआत, निर्णय और एक अंत।"
+ },
+ {
+  "clave": "ideas.tipoDesc.venn",
+  "texto": "दो या तीन ओवरलैप करते समूह और जो उनमें साझा है।"
+ },
+ {
+  "clave": "ideas.tipoDesc.comparacion",
+  "texto": "दो विषय आमने-सामने: हर एक की अपनी बात और जो दोनों में साझा है।"
+ },
+ {
+  "clave": "ideas.mapas.volver",
+  "texto": "मैप्स पर वापस"
+ },
+ {
+  "clave": "ideas.mapas.placeholder",
+  "texto": "नए मैप का विषय…"
+ },
+ {
+  "clave": "ideas.mapas.crear",
+  "texto": "बनाएं"
+ },
+ {
+  "clave": "ideas.mapas.generar",
+  "texto": "AI से मैप बनवाएं"
+ },
+ {
+  "clave": "ideas.mapas.generando",
+  "texto": "मैप बनाया जा रहा है…"
+ },
+ {
+  "clave": "ideas.mapas.errorIA",
+  "texto": "AI मैप नहीं बना सका:"
+ },
+ {
+  "clave": "ideas.ia.sinClave",
+  "texto": "मैप और डायग्राम बनाने के लिए चैट में AI सेट करें।"
+ },
+ {
+  "clave": "ideas.mapas.vacio",
+  "texto": "एक फ़ॉर्मैट चुनें और जो भी विषय दिमाग़ में है, उस पर अपना पहला मैप बनाएं।"
+ },
+ {
+  "clave": "ideas.mapas.confirmarBorrar",
+  "texto": "हटाएं?"
+ },
+ {
+  "clave": "ideas.mapa.nuevaIdea",
+  "texto": "नया विचार"
+ },
+ {
+  "clave": "ideas.mapa.acercar",
+  "texto": "ज़ूम इन करें"
+ },
+ {
+  "clave": "ideas.mapa.alejar",
+  "texto": "ज़ूम आउट करें"
+ },
+ {
+  "clave": "ideas.mapa.encajar",
+  "texto": "मैप को फ़िट करें"
+ },
+ {
+  "clave": "ideas.mapa.idea",
+  "texto": "विचार"
+ },
+ {
+  "clave": "ideas.mapa.hijo",
+  "texto": "उप-विचार"
+ },
+ {
+  "clave": "ideas.mapa.elemento",
+  "texto": "आइटम"
+ },
+ {
+  "clave": "ideas.mapa.forma",
+  "texto": "चरण का आकार बदलें"
+ },
+ {
+  "clave": "ideas.mapa.expandir",
+  "texto": "AI से विस्तार करें"
+ },
+ {
+  "clave": "ideas.mapa.confirmarBorrar",
+  "texto": "{n} हटाएं"
+ },
+ {
+  "clave": "ideas.mapa.iaTitulo",
+  "texto": "मैप का विस्तार करें"
+ },
+ {
+  "clave": "ideas.mapa.iaDescZona",
+  "texto": "“{zona}” के लिए सुझाए गए आइटम:"
+ },
+ {
+  "clave": "ideas.mapa.iaDescNodo",
+  "texto": "“{nodo}” से जोड़ने के लिए सुझाए गए विचार:"
+ },
+ {
+  "clave": "ideas.mapa.ayuda",
+  "texto": "किसी नोड को चुनने के लिए उस पर टैप करें, एडिट करने के लिए फिर टैप करें और जमाने के लिए खींचें। ज़ूम के लिए पिंच करें।"
+ },
+ {
+  "clave": "ideas.mapa.temaA",
+  "texto": "विषय A"
+ },
+ {
+  "clave": "ideas.mapa.temaB",
+  "texto": "विषय B"
+ },
+ {
+  "clave": "ideas.mapa.conjuntoA",
+  "texto": "समूह A"
+ },
+ {
+  "clave": "ideas.mapa.conjuntoB",
+  "texto": "समूह B"
+ },
+ {
+  "clave": "ideas.mapa.enComun",
+  "texto": "साझा"
+ },
+ {
+  "clave": "ideas.mapa.soloX",
+  "texto": "केवल {x}"
+ },
+ {
+  "clave": "ideas.ia.cargando",
+  "texto": "विचार सोचे जा रहे हैं…"
+ },
+ {
+  "clave": "ideas.ia.vacio",
+  "texto": "इस बार AI कुछ नया नहीं ला पाया; थोड़ी देर में फिर कोशिश करें।"
+ },
+ {
+  "clave": "ideas.ia.ahoraNo",
+  "texto": "अभी नहीं"
+ },
+ {
+  "clave": "ideas.ia.agregar",
+  "texto": "जोड़ें"
+ },
+ {
+  "clave": "ideas.tab.diario",
+  "texto": "डायरी"
+ },
+ {
+  "clave": "ideas.tab.mapas",
+  "texto": "मैप्स"
+ },
+ {
+  "clave": "ideas.tab.diagramas",
+  "texto": "आरेख"
+ },
+ {
+  "clave": "ideas.tipo.linea",
+  "texto": "समयरेखा"
+ },
+ {
+  "clave": "ideas.tipo.ciclo",
+  "texto": "चक्र"
+ },
+ {
+  "clave": "ideas.tipo.piramide",
+  "texto": "पिरामिड"
+ },
+ {
+  "clave": "ideas.tipo.fuerzas",
+  "texto": "बल क्षेत्र"
+ },
+ {
+  "clave": "ideas.tipo.eisenhower",
+  "texto": "आइज़नहावर"
+ },
+ {
+  "clave": "ideas.tipo.decision",
+  "texto": "निर्णय वृक्ष"
+ },
+ {
+  "clave": "ideas.tipo.tier",
+  "texto": "टियर लिस्ट"
+ },
+ {
+  "clave": "ideas.tipoDesc.linea",
+  "texto": "एक रेखा पर क्रम से मील के पत्थर — पहले से आख़िरी तक।"
+ },
+ {
+  "clave": "ideas.tipoDesc.ciclo",
+  "texto": "चरण जो एक चक्र में दोहराते हैं और फिर से शुरू होते हैं।"
+ },
+ {
+  "clave": "ideas.tipoDesc.piramide",
+  "texto": "एक के ऊपर एक स्तर: सहारा नीचे, शिखर ऊपर।"
+ },
+ {
+  "clave": "ideas.tipoDesc.fuerzas",
+  "texto": "बदलाव को क्या आगे धकेलता है, उसके मुक़ाबले क्या रोकता है — और कितनी ताक़त से।"
+ },
+ {
+  "clave": "ideas.tipoDesc.eisenhower",
+  "texto": "ज़रूरी बनाम अहम: अभी क्या करना है, क्या शेड्यूल करना है और क्या छोड़ देना है।"
+ },
+ {
+  "clave": "ideas.tipoDesc.decision",
+  "texto": "हर विकल्प और वह कहां ले जाता है — शाखा दर शाखा।"
+ },
+ {
+  "clave": "ideas.tipoDesc.tier",
+  "texto": "S से D तक की पंक्तियां, ताकि किसी भी चीज़ को स्तर के हिसाब से रैंक किया जा सके।"
+ },
+ {
+  "clave": "ideas.tipo.matriz",
+  "texto": "निर्णय मैट्रिक्स"
+ },
+ {
+  "clave": "ideas.tipoDesc.matriz",
+  "texto": "कई विकल्प, उन मानदंडों पर आंके गए जो आपके लिए सच में मायने रखते हैं।"
+ },
+ {
+  "clave": "ideas.guia.matriz",
+  "texto": "हर मानदंड का वज़न इस पर निर्भर करता है कि वह आपके लिए कितना मायने रखता है (1-5), और हर विकल्प को उस पर 1 से 5 तक आंका जाता है। कुल स्कोर, स्कोर को वज़न से गुणा करके निकलता है, इसलिए कोई भी सिर्फ़ उस चीज़ में अच्छा होकर नहीं जीतता जिसकी आपको परवाह नहीं।"
+ },
+ {
+  "clave": "ideas.matriz.criterio",
+  "texto": "मानदंड"
+ },
+ {
+  "clave": "ideas.matriz.opcion",
+  "texto": "विकल्प"
+ },
+ {
+  "clave": "ideas.matriz.peso",
+  "texto": "वज़न"
+ }
+]

@@ -1,0 +1,642 @@
+[
+  {
+    "ruta": "itinerarioJapon.0.inicio",
+    "texto": "上海·浦东国际机场"
+  },
+  {
+    "ruta": "itinerarioJapon.0.destino",
+    "texto": "东京·浅草"
+  },
+  {
+    "ruta": "itinerarioJapon.0.hospedaje",
+    "texto": "黑猫浅草旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.0.actividades",
+    "texto": "直飞三小时落地,放下背包就出门,走到快十一点时几乎空无一人的浅草寺。在旅舍门口的台阶上坐着吃了一个便利店饭团当晚饭。"
+  },
+  {
+    "ruta": "itinerarioJapon.0.transporte",
+    "texto": "上海–成田直飞 + 京成Skyliner"
+  },
+  {
+    "ruta": "itinerarioJapon.1.inicio",
+    "texto": "东京·浅草"
+  },
+  {
+    "ruta": "itinerarioJapon.1.destino",
+    "texto": "东京·浅草和上野"
+  },
+  {
+    "ruta": "itinerarioJapon.1.hospedaje",
+    "texto": "黑猫浅草旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.1.actividades",
+    "texto": "七点又去了寺庙,那会儿还在扫院子,后来在阿美横町市场迷了路,到处找相机电池。下午顶着倒时差在上野公园的长椅上写了两个小时的东西。"
+  },
+  {
+    "ruta": "itinerarioJapon.1.transporte",
+    "texto": "步行 + 银座线地铁"
+  },
+  {
+    "ruta": "itinerarioJapon.2.inicio",
+    "texto": "东京·浅草"
+  },
+  {
+    "ruta": "itinerarioJapon.2.destino",
+    "texto": "东京·涩谷和下北泽"
+  },
+  {
+    "ruta": "itinerarioJapon.2.hospedaje",
+    "texto": "黑猫浅草旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.2.actividades",
+    "texto": "在涩谷十字路口来回穿了好几趟,就为了看人群是怎么互不相撞地走过去的,然后一头扎进下北泽的二手唱片店。在一家只有七个座位的拉面馆吃了晚饭,用按钮机点单。"
+  },
+  {
+    "ruta": "itinerarioJapon.3.inicio",
+    "texto": "东京·浅草"
+  },
+  {
+    "ruta": "itinerarioJapon.3.destino",
+    "texto": "东京·新宿和黄金街"
+  },
+  {
+    "ruta": "itinerarioJapon.3.hospedaje",
+    "texto": "黑猫浅草旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.3.actividades",
+    "texto": "整个上午都在新宿御苑一棵大树下看书,晚上跑到黄金街一家只有六个座位的小酒馆收了尾。跟酒保还有一对来自名古屋的情侣练了练我的生存日语。"
+  },
+  {
+    "ruta": "itinerarioJapon.3.transporte",
+    "texto": "丸之内线地铁 + 步行"
+  },
+  {
+    "ruta": "itinerarioJapon.4.inicio",
+    "texto": "东京·浅草"
+  },
+  {
+    "ruta": "itinerarioJapon.4.destino",
+    "texto": "东京·谷中和秋叶原"
+  },
+  {
+    "ruta": "itinerarioJapon.4.hospedaje",
+    "texto": "黑猫浅草旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.4.actividades",
+    "texto": "在旅舍洗了衣服,然后穿过谷中灵园,一路都是猫和给墓碑浇水的老太太。在秋叶原买了一支二手50mm镜头,想着冬天可以拍星空。"
+  },
+  {
+    "ruta": "itinerarioJapon.4.transporte",
+    "texto": "JR山手线 + 千代田线地铁"
+  },
+  {
+    "ruta": "itinerarioJapon.5.inicio",
+    "texto": "东京·浅草"
+  },
+  {
+    "ruta": "itinerarioJapon.5.hospedaje",
+    "texto": "月见庄旅馆"
+  },
+  {
+    "ruta": "itinerarioJapon.5.actividades",
+    "texto": "抱着一个便当坐上了浪漫特快列车,到了一间铺着榻榻米、闻起来全是新稻草味的房间。在大涌谷的蒸汽和硫磺味里吃了一颗黑蛋,晚上第一次泡了温泉。"
+  },
+  {
+    "ruta": "itinerarioJapon.5.transporte",
+    "texto": "小田急浪漫特快 + 箱根登山缆车"
+  },
+  {
+    "ruta": "itinerarioJapon.6.destino",
+    "texto": "河口湖·湖北岸"
+  },
+  {
+    "ruta": "itinerarioJapon.6.hospedaje",
+    "texto": "富士见庵民宿"
+  },
+  {
+    "ruta": "itinerarioJapon.6.actividades",
+    "texto": "坐大巴翻过山,租了辆自行车绕湖骑,富士山被云挡了整整一个下午。快六点的时候云散开了十分钟,我站在湖边一动不动,直到它又被藏了起来。"
+  },
+  {
+    "ruta": "itinerarioJapon.6.transporte",
+    "texto": "山间巴士 + 租赁自行车"
+  },
+  {
+    "ruta": "itinerarioJapon.7.destino",
+    "texto": "京都·祇园"
+  },
+  {
+    "ruta": "itinerarioJapon.7.hospedaje",
+    "texto": "菊乃屋町屋"
+  },
+  {
+    "ruta": "itinerarioJapon.7.actividades",
+    "texto": "坐大巴下到三岛,再换新干线,一路上感觉是国家在动而我没动。晚上才到町屋,一进门就被横梁磕了脑袋,在街角吃了碗乌冬面收尾。"
+  },
+  {
+    "ruta": "itinerarioJapon.7.transporte",
+    "texto": "巴士至三岛 + 光号新干线"
+  },
+  {
+    "ruta": "itinerarioJapon.8.inicio",
+    "texto": "京都·祇园"
+  },
+  {
+    "ruta": "itinerarioJapon.8.destino",
+    "texto": "京都·岚山"
+  },
+  {
+    "ruta": "itinerarioJapon.8.hospedaje",
+    "texto": "菊乃屋町屋"
+  },
+  {
+    "ruta": "itinerarioJapon.8.actividades",
+    "texto": "五点就定了闹钟,想在没人的时候进竹林,一直撑到八点都还清净。后来爬了猴山,九月的湿气闷得我一身汗,在河边吃了豆腐。"
+  },
+  {
+    "ruta": "itinerarioJapon.8.transporte",
+    "texto": "JR嵯峨野线"
+  },
+  {
+    "ruta": "itinerarioJapon.9.inicio",
+    "texto": "京都·祇园"
+  },
+  {
+    "ruta": "itinerarioJapon.9.destino",
+    "texto": "京都·伏见稻荷和东福寺"
+  },
+  {
+    "ruta": "itinerarioJapon.9.hospedaje",
+    "texto": "菊乃屋町屋"
+  },
+  {
+    "ruta": "itinerarioJapon.9.actividades",
+    "texto": "赶在热起来之前爬完了千本鸟居,在山顶喝了一罐冰咖啡,脚下的城市一片平坦。回町屋像老爷子一样睡了个午觉,傍晚又出了门。"
+  },
+  {
+    "ruta": "itinerarioJapon.9.transporte",
+    "texto": "京阪电车 + 步行"
+  },
+  {
+    "ruta": "itinerarioJapon.10.inicio",
+    "texto": "京都·祇园"
+  },
+  {
+    "ruta": "itinerarioJapon.10.destino",
+    "texto": "奈良·奈良公园和东大寺"
+  },
+  {
+    "ruta": "itinerarioJapon.10.hospedaje",
+    "texto": "菊乃屋町屋"
+  },
+  {
+    "ruta": "itinerarioJapon.10.actividades",
+    "texto": "一只鹿在我到东大寺之前就把揣在口袋里的地图吃掉了。下午在春日大社的石灯笼间待了一阵,回程在电车上吃着柿叶寿司。"
+  },
+  {
+    "ruta": "itinerarioJapon.10.transporte",
+    "texto": "近铁电车,往返"
+  },
+  {
+    "ruta": "itinerarioJapon.11.inicio",
+    "texto": "京都·祇园"
+  },
+  {
+    "ruta": "itinerarioJapon.11.destino",
+    "texto": "京都·东山和清水寺"
+  },
+  {
+    "ruta": "itinerarioJapon.11.hospedaje",
+    "texto": "菊乃屋町屋"
+  },
+  {
+    "ruta": "itinerarioJapon.11.actividades",
+    "texto": "七点走在二年坂,店铺都还没开门,整条街都是湿木头的味道。下午下起大雨,躲进一家喫茶店两个小时,喝了虹吸壶煮的咖啡。"
+  },
+  {
+    "ruta": "itinerarioJapon.11.transporte",
+    "texto": "206路巴士 + 步行"
+  },
+  {
+    "ruta": "itinerarioJapon.12.inicio",
+    "texto": "京都·祇园"
+  },
+  {
+    "ruta": "itinerarioJapon.12.destino",
+    "texto": "京都·金阁寺和西阵"
+  },
+  {
+    "ruta": "itinerarioJapon.12.hospedaje",
+    "texto": "菊乃屋町屋"
+  },
+  {
+    "ruta": "itinerarioJapon.12.actividades",
+    "texto": "和两百多个人一起看了金阁寺,反而更喜欢后面那片苔藓庭院。在西阵跟一个学生换了一小时中文换一小时日语,还买了茶和咖啡准备带回家。"
+  },
+  {
+    "ruta": "itinerarioJapon.12.transporte",
+    "texto": "205路巴士"
+  },
+  {
+    "ruta": "itinerarioJapon.13.inicio",
+    "texto": "京都·祇园"
+  },
+  {
+    "ruta": "itinerarioJapon.13.hospedaje",
+    "texto": "惠比寿难波旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.13.actividades",
+    "texto": "中午离开町屋,到了大阪,一进街区就感觉比京都吵闹得多。第一口章鱼烧就把嘴烫了,晚上站着在一个吧台吃饭,旁边的大叔没问就给我倒了啤酒。"
+  },
+  {
+    "ruta": "itinerarioJapon.13.transporte",
+    "texto": "阪急特急电车"
+  },
+  {
+    "ruta": "itinerarioJapon.14.destino",
+    "texto": "大阪·大阪城和新世界"
+  },
+  {
+    "ruta": "itinerarioJapon.14.hospedaje",
+    "texto": "惠比寿难波旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.14.actividades",
+    "texto": "一早去了大阪城,与其说是看城,不如说是逛公园,在新世界吃了串炸,严格遵守酱汁不能蘸第二次的规矩。晚上和旅舍认识的两个人去了卡拉OK,唱了一堆九十年代的歌。"
+  },
+  {
+    "ruta": "itinerarioJapon.14.transporte",
+    "texto": "御堂筋线 + 堺筋线地铁"
+  },
+  {
+    "ruta": "itinerarioJapon.15.hospedaje",
+    "texto": "晓宾馆"
+  },
+  {
+    "ruta": "itinerarioJapon.15.actividades",
+    "texto": "上午到的,在和平纪念馆和公园里待了四个小时,没什么心情跟人说话。沿着河一直走到天黑,和六个陌生人围着铁板吃了广岛烧。"
+  },
+  {
+    "ruta": "itinerarioJapon.15.transporte",
+    "texto": "希望号新干线"
+  },
+  {
+    "ruta": "itinerarioJapon.16.hospedaje",
+    "texto": "晓宾馆"
+  },
+  {
+    "ruta": "itinerarioJapon.16.actividades",
+    "texto": "退潮时坐渡轮过去,踩着湿沙子一直走到大鸟居,近看全是老木头和钉子。爬到半山腰,天太热就放弃了,下来在街上吃了烤生蚝。"
+  },
+  {
+    "ruta": "itinerarioJapon.16.transporte",
+    "texto": "JR山阳线 + 渡轮"
+  },
+  {
+    "ruta": "itinerarioJapon.17.hospedaje",
+    "texto": "北梅田胶囊旅馆"
+  },
+  {
+    "ruta": "itinerarioJapon.17.actividades",
+    "texto": "回到大阪,泡在中崎町的老咖啡馆里,一路开着手机计算器买礼物。在胶囊旅馆的地板上重新整理行李,发现还剩两盒茶没送完。"
+  },
+  {
+    "ruta": "itinerarioJapon.17.transporte",
+    "texto": "樱号新干线"
+  },
+  {
+    "ruta": "itinerarioJapon.18.destino",
+    "texto": "东京·中目黑"
+  },
+  {
+    "ruta": "itinerarioJapon.18.hospedaje",
+    "texto": "星町中目黑旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.18.actividades",
+    "texto": "带着车站买的便当坐上新干线,富士山从右边车窗一闪而过。在中目黑沿着河道散了步,泡在一家椅子很不舒服的书店里直到打烊。"
+  },
+  {
+    "ruta": "itinerarioJapon.18.transporte",
+    "texto": "希望号新干线 + 东急东横线"
+  },
+  {
+    "ruta": "itinerarioJapon.19.inicio",
+    "texto": "东京·中目黑"
+  },
+  {
+    "ruta": "itinerarioJapon.19.destino",
+    "texto": "东京·下北泽和涩谷"
+  },
+  {
+    "ruta": "itinerarioJapon.19.hospedaje",
+    "texto": "星町中目黑旅舍"
+  },
+  {
+    "ruta": "itinerarioJapon.19.actividades",
+    "texto": "完整的最后一天:寄了明信片,晚上七点买了给妹妹的礼物,坐下来喝了杯滤挂咖啡,把这三周想留住的东西写进本子。晚上又回涩谷十字路口告别了一次。"
+  },
+  {
+    "ruta": "itinerarioJapon.20.inicio",
+    "texto": "东京·中目黑"
+  },
+  {
+    "ruta": "itinerarioJapon.20.destino",
+    "texto": "成田机场·第一航站楼,回家的航班"
+  },
+  {
+    "ruta": "itinerarioJapon.20.hospedaje",
+    "texto": "直飞回程"
+  },
+  {
+    "ruta": "itinerarioJapon.20.actividades",
+    "texto": "在站台上吃了最后一个饭团,拖着比来时重了五公斤的箱子上了成田特快。在登机口数了数手里剩下的日元,全花在了路上要喝的罐装咖啡上。"
+  },
+  {
+    "ruta": "itinerarioJapon.20.transporte",
+    "texto": "成田特快 + 成田–上海直飞"
+  },
+  {
+    "ruta": "itinerarioJapon.21.inicio",
+    "texto": "东京·中目黑"
+  },
+  {
+    "ruta": "itinerarioJapon.21.destino",
+    "texto": "成田机场·第一航站楼,回家的航班"
+  },
+  {
+    "ruta": "itinerarioJapon.21.hospedaje",
+    "texto": "直飞回程"
+  },
+  {
+    "ruta": "itinerarioJapon.21.actividades",
+    "texto": "在站台上吃了最后一个饭团,拖着比来时重了五公斤的箱子上了成田特快。"
+  },
+  {
+    "ruta": "itinerarioJapon.21.transporte",
+    "texto": "成田特快 + 成田–上海直飞"
+  },
+  {
+    "ruta": "itinerarioCorea.0.inicio",
+    "texto": "上海"
+  },
+  {
+    "ruta": "itinerarioCorea.0.destino",
+    "texto": "首尔·待定"
+  },
+  {
+    "ruta": "itinerarioCorea.0.hospedaje",
+    "texto": "待定"
+  },
+  {
+    "ruta": "itinerarioCorea.0.actividades",
+    "texto": "还没开始计划。"
+  },
+  {
+    "ruta": "itinerarioCorea.0.transporte",
+    "texto": "待定"
+  },
+  {
+    "ruta": "itinerarioCorea.1.inicio",
+    "texto": "上海"
+  },
+  {
+    "ruta": "itinerarioCorea.1.destino",
+    "texto": "首尔·弘大"
+  },
+  {
+    "ruta": "itinerarioCorea.1.hospedaje",
+    "texto": "南木弘大民宿"
+  },
+  {
+    "ruta": "itinerarioCorea.1.actividades",
+    "texto": "落地已经累垮了,放下背包,什么计划都不定,就在弘大瞎逛,一直逛到倒时差把我撂倒为止。看什么最香就吃什么,当晚就把交通卡买好,免得耽误第二天早上。"
+  },
+  {
+    "ruta": "itinerarioCorea.1.transporte",
+    "texto": "上海–仁川直飞 + AREX机场铁路"
+  },
+  {
+    "ruta": "itinerarioCorea.2.inicio",
+    "texto": "首尔·弘大"
+  },
+  {
+    "ruta": "itinerarioCorea.2.destino",
+    "texto": "首尔·北村和景福宫"
+  },
+  {
+    "ruta": "itinerarioCorea.2.hospedaje",
+    "texto": "南木弘大民宿"
+  },
+  {
+    "ruta": "itinerarioCorea.2.actividades",
+    "texto": "赶在人多之前一早去逛宫殿,然后带着相机在北村的巷子里瞎转悠迷路。想在仁寺洞的茶馆结束这一天,喝杯冰大麦茶,顺便写写日记。"
+  },
+  {
+    "ruta": "itinerarioCorea.2.transporte",
+    "texto": "地铁3号线 + 走很多路"
+  },
+  {
+    "ruta": "itinerarioCorea.3.inicio",
+    "texto": "首尔·弘大"
+  },
+  {
+    "ruta": "itinerarioCorea.3.destino",
+    "texto": "首尔·圣水洞和汉江"
+  },
+  {
+    "ruta": "itinerarioCorea.3.hospedaje",
+    "texto": "南木弘大民宿"
+  },
+  {
+    "ruta": "itinerarioCorea.3.actividades",
+    "texto": "咖啡日:圣水洞的烘焙店都开在老厂房里,打算至少比较三家的手冲,一点都不觉得对不起自己。下午租辆自行车沿汉江骑,太阳落下去以后轻松跑个八公里。"
+  },
+  {
+    "ruta": "itinerarioCorea.3.transporte",
+    "texto": "地铁2号线 + 公共自行车"
+  },
+  {
+    "ruta": "itinerarioCorea.4.inicio",
+    "texto": "首尔·弘大"
+  },
+  {
+    "ruta": "itinerarioCorea.4.destino",
+    "texto": "首尔·广藏市场和益善洞"
+  },
+  {
+    "ruta": "itinerarioCorea.4.hospedaje",
+    "texto": "南木弘大民宿"
+  },
+  {
+    "ruta": "itinerarioCorea.4.actividades",
+    "texto": "在广藏市场站着吃,就算菜单看不懂一半:绿豆煎饼,还有大妈指给我的随便什么。晚上沿着老城墙爬到骆山,从上面看灯火通明的城市。"
+  },
+  {
+    "ruta": "itinerarioCorea.4.transporte",
+    "texto": "地铁1号线 + 步行上山"
+  },
+  {
+    "ruta": "itinerarioCorea.5.inicio",
+    "texto": "首尔"
+  },
+  {
+    "ruta": "itinerarioCorea.5.hospedaje",
+    "texto": "月光海云台旅舍"
+  },
+  {
+    "ruta": "itinerarioCorea.5.actividades",
+    "texto": "一早坐KTX,手里一罐咖啡,看着窗外的风景变了两个半小时。到了以后什么都不管,先把脚伸进海里,哪怕水冰得要命。"
+  },
+  {
+    "ruta": "itinerarioCorea.5.transporte",
+    "texto": "KTX首尔–釜山 + 地铁"
+  },
+  {
+    "ruta": "itinerarioCorea.6.destino",
+    "texto": "釜山·甘川洞和札嘎其"
+  },
+  {
+    "ruta": "itinerarioCorea.6.hospedaje",
+    "texto": "月光海云台旅舍"
+  },
+  {
+    "ruta": "itinerarioCorea.6.actividades",
+    "texto": "上午爬上甘川文化村,顺着彩色的台阶慢慢往下走,想在哪儿停就在哪儿停。然后去札嘎其鱼市场,晚饭在吧台随便指最新鲜的吃。"
+  },
+  {
+    "ruta": "itinerarioCorea.6.transporte",
+    "texto": "当地巴士 + 地铁1号线"
+  },
+  {
+    "ruta": "itinerarioCorea.7.destino",
+    "texto": "釜山·海东龙宫寺和松亭"
+  },
+  {
+    "ruta": "itinerarioCorea.7.hospedaje",
+    "texto": "月光海云台旅舍"
+  },
+  {
+    "ruta": "itinerarioCorea.7.actividades",
+    "texto": "一大早就去悬崖上的寺庙,那会儿人还不多,还能听见海浪的声音。最后在松亭海边喝杯露天咖啡,翻开本子算算这趟旅行的收支。"
+  },
+  {
+    "ruta": "itinerarioCorea.7.transporte",
+    "texto": "181路巴士 + 沿海列车"
+  },
+  {
+    "ruta": "itinerarioCorea.8.destino",
+    "texto": "仁川·回程航班"
+  },
+  {
+    "ruta": "itinerarioCorea.8.hospedaje",
+    "texto": "直飞回程"
+  },
+  {
+    "ruta": "itinerarioCorea.8.actividades",
+    "texto": "KTX留足了时间往回赶,不想再在车站里狂奔一次。登机前把剩下的韩元花在茶叶和给莱卡的礼物上。"
+  },
+  {
+    "ruta": "itinerarioCorea.8.transporte",
+    "texto": "KTX + AREX + 仁川–上海直飞"
+  },
+  {
+    "ruta": "recuerdos.0.texto",
+    "texto": "直飞三小时落地,几个月练下来的那些日语句子在过海关排队的时候全忘光了。从成田开出来的电车干干净净的,一股新塑料和肥皂的味道,没人大声说话。浅草的旅舍给了我一把挂着木牌的钥匙,还有一张手绘地图,圈出三家咖啡馆。快到半夜的时候,背包都没卸,就坐在门口台阶上吃了个金枪鱼饭团。早早睡下,三点又醒了,盯着天花板,想着为了这个天花板攒了一年的小费。"
+  },
+  {
+    "ruta": "recuerdos.1.texto",
+    "texto": "在涩谷十字路口来回穿了四趟,就为了看大家是怎么谁也不撞谁地走过去的。下着细雨,柏油路映出招牌的红光;我坐在二楼咖啡馆的窗边,坐到杯子里的东西都凉了。在下北泽一家二手唱片店待了一个半小时,一股潮纸箱的味道,买了一张根本没法放的唱片。晚饭在一家只有七个座位的拉面馆吃的,用按钮机点单;按错了按钮,来了双份蛋,还是照样吃完了。六点手机就没电了,靠着现学的生存日语一路问路才摸回旅舍,十次里能对两次。"
+  },
+  {
+    "ruta": "recuerdos.2.texto",
+    "texto": "昨晚第一次泡了温泉,足足十分钟才敢把毛巾放下,后来又待了四十分钟不想出来。今天坐巴士翻山到河口湖,富士山被云挡了整整一个下午,租了辆自行车绕湖骑,心情也跟着低落下去。快六点的时候云突然散开,山就在那儿,又大又灰又蓝,像是一直在等我别再找它。手里一罐热咖啡焐着一只手,一动不动地站着,直到它又藏了起来。给妈妈发了照片,虽然家里那边是凌晨三点。"
+  },
+  {
+    "ruta": "recuerdos.3.texto",
+    "texto": "五点就定了闹钟,想在别人之前进竹林,少睡的每一分钟都值得。头顶有干燥的吱呀声,像老船的木头,空气比外面凉了差不多十度。到八点已经聚了三百个人举着自拍杆,那份宁静就散了。后来爬了猴山,九月的湿气闷出一身汗,衬衫贴在背上,脚后跟还磨出个新水泡。在河边吃了豆腐,菜单看不懂就靠手指,这是我最拿手的点菜方式。京都跟东京味道不一样:木头味、香味、还有河道的水汽。"
+  },
+  {
+    "ruta": "recuerdos.4.texto",
+    "texto": "一只鹿在我到东大寺之前就把揣在后口袋的地图吃掉了。它们先鞠躬要饼干,你要是慢了就用头顶你;有一只还啃了我外套的拉链。殿里的大佛太大了,有好一阵我都忘了拍照。傍晚在春日大社的石灯笼间走,光线很暗,几乎没什么人,在台阶上坐了半个小时。回京都的电车上吃着柿叶寿司,手上还留着鹿饼干的味道。"
+  },
+  {
+    "ruta": "recuerdos.5.texto",
+    "texto": "七点走在二年坂,店铺都还关着门,整条街都是湿木头的味道。下午下起一场天气预报根本没提的大雨,躲进一家喫茶店,坐的是红天鹅绒椅子。老板不紧不慢地用虹吸壶煮咖啡,一只猫趴在音响上睡觉。我用日语跟他说很好喝,他慢慢地回答,像老师一样有耐心,就这样聊了二十分钟,两个人加起来大概也就两百个词。雨停了才出门,石板路湿漉漉地发着光;那是这趟旅行最好的一天,清单上一件事都没做。"
+  },
+  {
+    "ruta": "recuerdos.6.texto",
+    "texto": "大阪很吵,在京都安静了那么久之后,我反倒挺喜欢。第一口章鱼烧站着吃,没等凉就下嘴,把上颚烫伤了,两天过去还觉得怪怪的。道顿堀的霓虹灯映进河里,人人都在拍那张固江跑者的照片,我也不例外。晚饭在一个站着吃的吧台,旁边一个穿西装的大叔用杯垫给我讲日本棒球,我大概只听懂一半。凌晨一点跑去唱卡拉OK,跟旅舍认识的两个人一起,一个来自釜山,一个来自曼彻斯特,把九十年代的歌唱得乱七八糟。走回去的路上买了个便利店鸡蛋三明治,城市的灯还全亮着。"
+  },
+  {
+    "ruta": "recuerdos.7.texto",
+    "texto": "昨天在和平纪念馆待了四个小时,出来的时候完全不想跟人说话。有一块停在8点15分的表,还有一辆烧毁的三轮车,怎么都忘不掉;在公园长椅上坐了好一会儿,喉咙里的那个结才慢慢松开。晚饭跟六个陌生人围着铁板吃广岛烧,做饭的师傅一直聊着棒球,好像这座城市是故意选择继续活下去似的。今天退潮时坐渡轮去了宫岛,踩着沙子走到大鸟居,近看全是老木头和嵌满硬币的钉眼。爬了半座山,天太热就放弃了,下来在街边吃了三只烤生蚝。在本子上写下,想带一个能当面听我讲这些的人再来一次。"
+  },
+  {
+    "ruta": "recuerdos.8.texto",
+    "texto": "和两个朋友去了四天鹿儿岛,正赶上天文馆商店街的黑豚串烧摊冒烟的点,那股炭火味整晚都黏在衣服上。控制饮食三个星期,第一天就全破了功:黑豚涮涮锅、萨摩炸鱼饼,还有一杯芋烧酒呛得我直咳嗽,老板娘在旁边笑我。回程的路上出了岔子——从雾岛回来的巴士晚了两个小时,结果我坐在一块石头上看日落,手机只剩4%的电。就在那儿冥想的,没开app,没计时器,只听着背后有人说鹿儿岛方言。清晨六点半沿着天文馆的商店街跑了两趟步,整座城市飘着面包和湿灰泥的味道。回来时带了五条枕崎的鲣鱼干,还多了一个念头:只要计划得好,我一个人也能去旅行。"
+  },
+  {
+    "ruta": "recuerdos.9.texto",
+    "texto": "半程马拉松结束两周后,我一个人跑去长野躲了个周末,主要是想试试腿能不能扛得住爬坡。周六在土路上跑了十二公里,一直跑到一处观景台,1800米的空气提醒我,我已经不是一年前那个人了。晚上去看萤火虫,没想到会那么静:几百只萤火虫一起飞的时候,几乎听不见声音,只有溪水和草丛的动静。向导让我们安静站十分钟,那是我在自己房间以外做过最接近冥想的事。当晚我在湖边支起三脚架,拍到了今年最好的一张星空照,虽然镜头起雾了两次,擦了半小时才弄好。周日回来的时候,本子上写满了读研还是工作的对比图,什么都没决定,但那样也挺好。"
+  },
+  {
+    "ruta": "lugares.0.nota",
+    "texto": "还没来得及写。"
+  },
+  {
+    "ruta": "lugares.1.nota",
+    "texto": "五天的电车、旧书店和一个我现在闭着眼都记得的路口;这座城市又大又意外地温柔。"
+  },
+  {
+    "ruta": "lugares.2.nota",
+    "texto": "泡温泉泡好了我的腰,还有睡在榻榻米上的第一晚,雨打在旅馆屋顶上的声音。"
+  },
+  {
+    "ruta": "lugares.3.nota",
+    "texto": "在云里等了富士山两天,它在清晨六点露了十五分钟脸,刚好是我快要放弃的时候。"
+  },
+  {
+    "ruta": "lugares.4.nota",
+    "texto": "六天的早起、竹林,还有一家有只猫在睡觉的喫茶店,那里我用两百个日语单词聊了这趟旅行里最好的一次天。"
+  },
+  {
+    "ruta": "lugares.5.nota",
+    "texto": "一日游遇上会鞠躬又会啃地图的鹿;东大寺里面感觉像站在一片木头的天空底下。"
+  },
+  {
+    "ruta": "lugares.6.nota",
+    "texto": "喧闹、霓虹灯,还有把上颚烫伤的章鱼烧,以及凌晨一点跟当天下午才认识的人一起唱的卡拉OK。"
+  },
+  {
+    "ruta": "lugares.7.nota",
+    "texto": "纪念馆让我沉默了四个小时,后来这座城市又用广岛烧配着棒球话题给我接上了气;宫岛退潮的那一幕收得很好。"
+  },
+  {
+    "ruta": "lugares.8.nota",
+    "texto": "四天的黑豚、芋烧酒和天文馆商店街的清晨慢跑:这趟旅行让我相信自己真的可以一个人出门。"
+  },
+  {
+    "ruta": "lugares.9.nota",
+    "texto": "能练腿力的山坡、听起来像下雨的萤火虫,还有我到目前为止拍过最好的一张星空照。"
+  },
+  {
+    "ruta": "lugares.10.nota",
+    "texto": "下一站:八天,包含釜山,从一月就开始存钱,顺便找个理由从零开始学一门新语言。"
+  },
+  {
+    "ruta": "lugares.11.nota",
+    "texto": "等哪年有钱又有力气:想连着走好几天路,睡在完全没信号的地方。"
+  },
+  {
+    "ruta": "lugares.12.nota",
+    "texto": "长远清单上的一项:冬天带着三脚架去,哪怕冻僵双手也要试着拍一次极光。"
+  }
+]

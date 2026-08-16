@@ -1,0 +1,778 @@
+[
+ {
+  "clave": "app.brand",
+  "texto": "Mind Planner Home"
+ },
+ {
+  "clave": "app.brandCorto",
+  "texto": "MPH"
+ },
+ {
+  "clave": "nav.ariaMenu",
+  "texto": "कमरों का मेनू"
+ },
+ {
+  "clave": "nav.retraer",
+  "texto": "मेनू छोटा करें"
+ },
+ {
+  "clave": "nav.abrir",
+  "texto": "मेनू खोलें"
+ },
+ {
+  "clave": "nav.editarCuarto",
+  "texto": "इस कमरे को संपादित करें"
+ },
+ {
+  "clave": "nav.entrar",
+  "texto": "अंदर ›"
+ },
+ {
+  "clave": "nav.ayuda.tarjetaTexto",
+  "texto": "कमरे पर टैप करें ताकि उसका ऐप खुले; गियर से उसके विकल्प मिलते हैं (खिसकाना, मिटाना, संपादित करना)."
+ },
+ {
+  "clave": "nav.entrarCuarto",
+  "texto": "{nombre} में जाएं"
+ },
+ {
+  "clave": "nav.ajustesCuarto",
+  "texto": "कमरे के विकल्प"
+ },
+ {
+  "clave": "nav.subirCuarto",
+  "texto": "सूची में ऊपर ले जाएं"
+ },
+ {
+  "clave": "nav.bajarCuarto",
+  "texto": "सूची में नीचे ले जाएं"
+ },
+ {
+  "clave": "nav.borrarCuarto",
+  "texto": "कमरा मिटाएं"
+ },
+ {
+  "clave": "nav.borrarCuartoTitulo",
+  "texto": "«{nombre}» मिटाएं"
+ },
+ {
+  "clave": "nav.borrarCuartoMsg",
+  "texto": "इसकी दीवारें, सजावट और वस्तुएं भी साथ मिट जाएंगी।"
+ },
+ {
+  "clave": "nav.borrarCuartoOk",
+  "texto": "मिटाएं"
+ },
+ {
+  "clave": "nav.agregarCuarto",
+  "texto": "कमरा जोड़ें"
+ },
+ {
+  "clave": "nav.agregarCasa",
+  "texto": "घर में जोड़ें"
+ },
+ {
+  "clave": "nav.todosColocados",
+  "texto": "सभी कमरे पहले से आपके घर में हैं।"
+ },
+ {
+  "clave": "nav.menu.cuartos",
+  "texto": "कमरे"
+ },
+ {
+  "clave": "nav.menu.inventarios",
+  "texto": "इन्वेंट्री"
+ },
+ {
+  "clave": "inv.plantillas",
+  "texto": "टेम्पलेट"
+ },
+ {
+  "clave": "inv.subObjetos",
+  "texto": "वस्तुएं"
+ },
+ {
+  "clave": "inv.subEspeciales",
+  "texto": "खास वस्तुएं"
+ },
+ {
+  "clave": "inv.subPlantCuartos",
+  "texto": "कमरे"
+ },
+ {
+  "clave": "inv.subPlantInfra",
+  "texto": "अतिरिक्त"
+ },
+ {
+  "clave": "inv.grupo.mobiliario",
+  "texto": "फ़र्नीचर"
+ },
+ {
+  "clave": "inv.grupo.casa",
+  "texto": "घर"
+ },
+ {
+  "clave": "inv.grupo.ropa",
+  "texto": "कपड़े"
+ },
+ {
+  "clave": "inv.grupo.animales",
+  "texto": "जानवर"
+ },
+ {
+  "clave": "inv.grupo.agua",
+  "texto": "पानी"
+ },
+ {
+  "clave": "inv.grupo.luz",
+  "texto": "रोशनी और आग"
+ },
+ {
+  "clave": "inv.grupo.movimiento",
+  "texto": "खुद चलते हैं"
+ },
+ {
+  "clave": "inv.grupo.conducir",
+  "texto": "इन पर सवारी होती है"
+ },
+ {
+  "clave": "inv.grupo.disparar",
+  "texto": "फायर करते हैं"
+ },
+ {
+  "clave": "inv.grupo.reflejo",
+  "texto": "प्रतिबिंब और तस्वीर"
+ },
+ {
+  "clave": "inv.ropa.ayuda",
+  "texto": "कपड़े आपके किरदार पर पहनाए जाते हैं, नक्शे पर नहीं रखे जाते। किसी कपड़े पर टैप करें अलमारी खोलने के लिए।"
+ },
+ {
+  "clave": "inv.animales.ayuda",
+  "texto": "जानवर फ़ार्म के बाड़ों में रहते हैं। किसी एक पर टैप करें उसका बाड़ा बनाने के लिए।"
+ },
+ {
+  "clave": "inv.casa.ayuda",
+  "texto": "आपका घर किस चीज़ से बना है और हर चीज़ कितनी है। ये प्लान एडिटर में रंगी जाती हैं, इन्हें खींचकर नहीं रखा जाता।"
+ },
+ {
+  "clave": "inv.casa.vacia",
+  "texto": "अभी तक कुछ नहीं बना। नक्शे पर एक कमरा रखें।"
+ },
+ {
+  "clave": "inv.casa.estructura",
+  "texto": "ढांचा"
+ },
+ {
+  "clave": "inv.casa.muros",
+  "texto": "दीवारें"
+ },
+ {
+  "clave": "inv.casa.siluetas",
+  "texto": "दीवार का शीर्ष"
+ },
+ {
+  "clave": "inv.casa.puertas",
+  "texto": "दरवाज़े"
+ },
+ {
+  "clave": "inv.casa.ventanas",
+  "texto": "खिड़कियां और खुलाव"
+ },
+ {
+  "clave": "inv.casa.techos",
+  "texto": "छतें"
+ },
+ {
+  "clave": "inv.casa.losetas",
+  "texto": "फ़र्श की टाइलें"
+ },
+ {
+  "clave": "inv.casa.pisoInterior",
+  "texto": "अंदर का फ़र्श"
+ },
+ {
+  "clave": "inv.casa.pisoExterior",
+  "texto": "बाहर का फ़र्श"
+ },
+ {
+  "clave": "inv.casa.accesos",
+  "texto": "सीढ़ियां और लिफ़्ट"
+ },
+ {
+  "clave": "inv.casa.unidad.muros",
+  "texto": "प्रति खंड"
+ },
+ {
+  "clave": "inv.casa.unidad.techos",
+  "texto": "प्रति छत वाला ख़ाना"
+ },
+ {
+  "clave": "inv.casa.unidad.losetas",
+  "texto": "प्रति ख़ाना"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoInterior",
+  "texto": "प्रति कमरा"
+ },
+ {
+  "clave": "inv.casa.unidad.pisoExterior",
+  "texto": "प्रति ख़ाना"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.cuartos",
+  "texto": "कमरे"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.basicos",
+  "texto": "बुनियादी जगहें"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.niveles",
+  "texto": "मंज़िलें"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.sotanos",
+  "texto": "बेसमेंट"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.albercas",
+  "texto": "स्विमिंग पूल"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.patios",
+  "texto": "खुले आंगन"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-recto",
+  "texto": "अलग खड़ी दीवार"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-diagonal",
+  "texto": "तिरछी दीवार"
+ },
+ {
+  "clave": "inv.casa.pieza.estructura.libre-curvo",
+  "texto": "घुमावदार दीवार"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.recta",
+  "texto": "सपाट ऊपरी हिस्सा"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.arco",
+  "texto": "मेहराब"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.esquinas",
+  "texto": "मुंडेर"
+ },
+ {
+  "clave": "inv.casa.pieza.siluetas.triangulo",
+  "texto": "त्रिकोण शिखर"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.plano",
+  "texto": "सपाट छत"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.dos_aguas",
+  "texto": "ढलवां छत"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.abovedado",
+  "texto": "मेहराबदार छत"
+ },
+ {
+  "clave": "inv.casa.pieza.techos.cupula",
+  "texto": "गुंबद"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.cuadrado",
+  "texto": "चौकोर टाइल"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.triangular",
+  "texto": "तिरछी टाइल"
+ },
+ {
+  "clave": "inv.casa.pieza.losetas.circular",
+  "texto": "गोल टाइल"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera",
+  "texto": "सीढ़ी"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.elevador",
+  "texto": "लिफ़्ट"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.resbaladilla",
+  "texto": "फिसलपट्टी"
+ },
+ {
+  "clave": "inv.casa.pieza.accesos.escalera-marina",
+  "texto": "पूल की सीढ़ी"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.solido",
+  "texto": "ठोस"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ventana",
+  "texto": "खिड़की सहित"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.ladrillo",
+  "texto": "ईंट"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.madera",
+  "texto": "लकड़ी"
+ },
+ {
+  "clave": "inv.casa.pieza.muros.vitraje",
+  "texto": "शीशा"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.recta",
+  "texto": "सीधा"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.sin",
+  "texto": "खुला रास्ता"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.doble",
+  "texto": "डबल"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.porton",
+  "texto": "फाटक"
+ },
+ {
+  "clave": "inv.casa.pieza.puertas.corredera",
+  "texto": "सरकने वाला"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadrado",
+  "texto": "चौकोर खिड़की"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.circulo",
+  "texto": "गोल खिड़की"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.triangulo",
+  "texto": "त्रिकोण खिड़की"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.cuadro",
+  "texto": "जड़ी हुई तस्वीर"
+ },
+ {
+  "clave": "inv.casa.pieza.ventanas.espejo",
+  "texto": "जड़ा हुआ आईना"
+ },
+ {
+  "clave": "infra.ayuda",
+  "texto": "ये टेम्पलेट किसी कमरे में नहीं होते: इन्हें 3D नक्शे पर उनके अपने एडिटर से बनाया जाता है।"
+ },
+ {
+  "clave": "infra.construidas",
+  "texto": "बने हुए"
+ },
+ {
+  "clave": "infra.desplegar",
+  "texto": "प्रकार चुनें"
+ },
+ {
+  "clave": "infra.plegar",
+  "texto": "विकल्प छिपाएं"
+ },
+ {
+  "clave": "infra.sub.animales",
+  "texto": "जानवर"
+ },
+ {
+  "clave": "infra.construir",
+  "texto": "नक्शे पर बनाएं"
+ },
+ {
+  "clave": "infra.salirEditor",
+  "texto": "एडिटर से बाहर जाएं"
+ },
+ {
+  "clave": "infra.resumen.ayuda",
+  "texto": "यह टेम्पलेट 3D नक्शे पर बनता है: मेनू → टेम्पलेट → अतिरिक्त → बनाएं।"
+ },
+ {
+  "clave": "caminos.tipo.pista",
+  "texto": "रेस ट्रैक"
+ },
+ {
+  "clave": "caminos.tipo.riel",
+  "texto": "ट्रेन की पटरी"
+ },
+ {
+  "clave": "caminos.tipo.coaster",
+  "texto": "रोलर कोस्टर"
+ },
+ {
+  "clave": "caminos.herr.pintar",
+  "texto": "खंड बनाएं"
+ },
+ {
+  "clave": "caminos.herr.borrar",
+  "texto": "खंड मिटाएं"
+ },
+ {
+  "clave": "caminos.herr.subir",
+  "texto": "ऊंचाई बढ़ाएं"
+ },
+ {
+  "clave": "caminos.herr.bajar",
+  "texto": "ऊंचाई घटाएं"
+ },
+ {
+  "clave": "caminos.herr.meta",
+  "texto": "फिनिश लाइन"
+ },
+ {
+  "clave": "caminos.tipo.trazo",
+  "texto": "फ्रीहैंड ट्रैक"
+ },
+ {
+  "clave": "trazo.herr.punto",
+  "texto": "बिंदु लगाएं"
+ },
+ {
+  "clave": "trazo.herr.mover",
+  "texto": "बिंदु खिसकाएं"
+ },
+ {
+  "clave": "trazo.abierto",
+  "texto": "खुला ट्रैक"
+ },
+ {
+  "clave": "trazo.cerrado",
+  "texto": "बंद ट्रैक"
+ },
+ {
+  "clave": "trazo.borrarTodo",
+  "texto": "ट्रैक मिटाएं"
+ },
+ {
+  "clave": "trazo.ayuda",
+  "texto": "नक्शे पर टैप करें बिंदु लगाने के लिए, और किसी बिंदु पर टैप करें उसे मिटाने के लिए। पहला बिंदु फिनिश लाइन है: उस पर टैप करें ट्रैक बंद करने और रेस शुरू करने के लिए।"
+ },
+ {
+  "clave": "carrera.titulo",
+  "texto": "रेस"
+ },
+ {
+  "clave": "carrera.mejor",
+  "texto": "सबसे तेज़ चक्कर"
+ },
+ {
+  "clave": "carrera.vueltas",
+  "texto": "चक्कर"
+ },
+ {
+  "clave": "carrera.solo",
+  "texto": "अकेले रेस (टाइम ट्रायल)"
+ },
+ {
+  "clave": "carrera.contraIA",
+  "texto": "या किसी सहायक के खिलाफ़:"
+ },
+ {
+  "clave": "carrera.vuelta",
+  "texto": "चक्कर"
+ },
+ {
+  "clave": "carrera.abandonar",
+  "texto": "छोड़ें"
+ },
+ {
+  "clave": "carrera.ya",
+  "texto": "शुरू!"
+ },
+ {
+  "clave": "carrera.ganaste",
+  "texto": "रेस में जीत! 🏆"
+ },
+ {
+  "clave": "carrera.perdiste",
+  "texto": "रेस में प्रतिद्वंद्वी की जीत… "
+ },
+ {
+  "clave": "carrera.fin",
+  "texto": "रेस खत्म! 🏁"
+ },
+ {
+  "clave": "carrera.total",
+  "texto": "कुल"
+ },
+ {
+  "clave": "carrera.otraVez",
+  "texto": "फिर से रेस"
+ },
+ {
+  "clave": "carrera.salir",
+  "texto": "बाहर जाएं"
+ },
+ {
+  "clave": "carrera.msg.record",
+  "texto": "नया चक्कर रिकॉर्ड! 🎉"
+ },
+ {
+  "clave": "carrera.msg.vuelta",
+  "texto": "चक्कर पूरा!"
+ },
+ {
+  "clave": "carrera.msg.corta",
+  "texto": "रेस के लिए ट्रैक बहुत छोटा है…"
+ },
+ {
+  "clave": "carrera.tabla.titulo",
+  "texto": "सबसे अच्छा समय"
+ },
+ {
+  "clave": "carrera.tabla.vueltaCol",
+  "texto": "चक्कर"
+ },
+ {
+  "clave": "carrera.tabla.totalCol",
+  "texto": "कुल"
+ },
+ {
+  "clave": "carrera.tabla.vd",
+  "texto": "ज/हा"
+ },
+ {
+  "clave": "carrera.usarItem",
+  "texto": "आइटम इस्तेमाल करें (E)"
+ },
+ {
+  "clave": "room.paintball.nombre",
+  "texto": "पेंटबॉल"
+ },
+ {
+  "clave": "room.paintball.desc",
+  "texto": "अपने सहायकों के खिलाफ़ पेंटबॉल लड़ाई (1 बनाम 1, 2 बनाम 2 या सब आपस में), घर को नक्शे की तरह इस्तेमाल करते हुए।"
+ },
+ {
+  "clave": "paintball.titulo",
+  "texto": "पेंटबॉल"
+ },
+ {
+  "clave": "paintball.jugar",
+  "texto": "नक्शे पर खेलें"
+ },
+ {
+  "clave": "paintball.marcador",
+  "texto": "जीत"
+ },
+ {
+  "clave": "paintball.derrotas",
+  "texto": "हार"
+ },
+ {
+  "clave": "paintball.m1v1",
+  "texto": "1 बनाम 1"
+ },
+ {
+  "clave": "paintball.m2v2",
+  "texto": "2 बनाम 2"
+ },
+ {
+  "clave": "paintball.mRoyale",
+  "texto": "सब आपस में"
+ },
+ {
+  "clave": "paintball.eligeRival",
+  "texto": "अपना प्रतिद्वंद्वी चुनें:"
+ },
+ {
+  "clave": "paintball.eligeCompanero",
+  "texto": "अपना साथी चुनें (प्रतिद्वंद्वी अपने आप तय होंगे):"
+ },
+ {
+  "clave": "paintball.royaleDesc",
+  "texto": "सब आपस में: आप अपने सहायकों के खिलाफ़, पूरे घर में।"
+ },
+ {
+  "clave": "paintball.empezar",
+  "texto": "लड़ाई शुरू करें"
+ },
+ {
+  "clave": "paintball.reglas",
+  "texto": "हर किसी को 3 वार झेलने होते हैं। आखिर तक टिकी टीम जीतती है। घर ही मैदान है।"
+ },
+ {
+  "clave": "paintball.posicionate",
+  "texto": "छिप जाएं!"
+ },
+ {
+  "clave": "paintball.ya",
+  "texto": "शुरू!"
+ },
+ {
+  "clave": "paintball.tu",
+  "texto": "आप"
+ },
+ {
+  "clave": "paintball.abandonar",
+  "texto": "छोड़ें"
+ },
+ {
+  "clave": "paintball.hintDisparar",
+  "texto": "दबाए रखें फायर करने के लिए (स्पेस)"
+ },
+ {
+  "clave": "paintball.hintApuntar",
+  "texto": "दबाए रखें निशाना लगाने के लिए (PC पर राइट क्लिक)"
+ },
+ {
+  "clave": "paintball.cambiarVista",
+  "texto": "पहले और तीसरे व्यक्ति के नज़रिए में बदलें (V key)"
+ },
+ {
+  "clave": "paintball.vista",
+  "texto": "नज़रिया"
+ },
+ {
+  "clave": "paintball.vista1",
+  "texto": "पहला व्यक्ति"
+ },
+ {
+  "clave": "paintball.vista3",
+  "texto": "तीसरा व्यक्ति"
+ },
+ {
+  "clave": "herr.pintura",
+  "texto": "रंग"
+ },
+ {
+  "clave": "herr.apuntar",
+  "texto": "निशाना"
+ },
+ {
+  "clave": "herr.apuntando",
+  "texto": "निशाना लगाते हुए"
+ },
+ {
+  "clave": "herr.miraEnPerspectiva",
+  "texto": "क्रॉसहेयर से निशाना लगाने के लिए तीसरे या पहले व्यक्ति के नज़रिए में जाएं"
+ },
+ {
+  "clave": "tiro.hintDisparar",
+  "texto": "दबाए रखें फायर करने के लिए (लेफ्ट क्लिक या स्पेस)"
+ },
+ {
+  "clave": "tiro.hintApuntar",
+  "texto": "निशाना (PC पर राइट क्लिक; टच में टैप करके लॉक करें)"
+ },
+ {
+  "clave": "tiro.apuntarConRaton",
+  "texto": "माउस को सीन पर घुमाकर निशाना लगाएं"
+ },
+ {
+  "clave": "paintball.ganaste",
+  "texto": "लड़ाई में जीत! 🏆"
+ },
+ {
+  "clave": "paintball.perdiste",
+  "texto": "आपको रंग से भिगो दिया… 🎨"
+ },
+ {
+  "clave": "paintball.impactos",
+  "texto": "वार"
+ },
+ {
+  "clave": "paintball.fuera",
+  "texto": "बाहर"
+ },
+ {
+  "clave": "paintball.enPie",
+  "texto": "मैदान में"
+ },
+ {
+  "clave": "paintball.otraVez",
+  "texto": "फिर से"
+ },
+ {
+  "clave": "paintball.salir",
+  "texto": "बाहर जाएं"
+ },
+ {
+  "clave": "paintball.msg.fuera",
+  "texto": "{nombre} बाहर!"
+ },
+ {
+  "clave": "paintball.msg.teDieron",
+  "texto": "वार लगा! एक जान गई"
+ },
+ {
+  "clave": "paintball.msg.nivel",
+  "texto": "खेलने के लिए ग्राउंड फ़्लोर पर जाएं।"
+ },
+ {
+  "clave": "paintball.msg.sinAsistentes",
+  "texto": "खेलने के लिए एक सहायक बनाएं।"
+ },
+ {
+  "clave": "paintball.msg.faltan",
+  "texto": "2 बनाम 2 के लिए कम से कम 3 सहायक चाहिए।"
+ },
+ {
+  "clave": "paintball.resumen.ayuda",
+  "texto": "यह मोड 3D नक्शे पर खेला जाता है: मेनू → टेम्पलेट → अतिरिक्त → खेलें।"
+ },
+ {
+  "clave": "paintball.resumen.nota",
+  "texto": "1 बनाम 1, 2 बनाम 2 या सब आपस में चुनें, अपने सहायकों के खिलाफ़: हर किसी को 3 वार झेलने होते हैं और पूरा घर मैदान है।"
+ },
+ {
+  "clave": "caminos.ayuda",
+  "texto": "लागू करने के लिए नक्शे के किसी ख़ाने पर टैप करें; कैमरा घुमाने के लिए खींचें।"
+ },
+ {
+  "clave": "caminos.resumen.unidad",
+  "texto": "गिनती खंडों में है (रास्ते वाले नक्शे के ख़ाने)."
+ },
+ {
+  "clave": "canchas.clase.futbol",
+  "texto": "फ़ुटबॉल"
+ },
+ {
+  "clave": "canchas.clase.tenis",
+  "texto": "टेनिस"
+ },
+ {
+  "clave": "canchas.clase.basket",
+  "texto": "बास्केटबॉल"
+ },
+ {
+  "clave": "canchas.clase.beisbol",
+  "texto": "बेसबॉल"
+ },
+ {
+  "clave": "canchas.rotar",
+  "texto": "घुमाएं (R)"
+ },
+ {
+  "clave": "canchas.quitar",
+  "texto": "मैदान हटाएं"
+ },
+ {
+  "clave": "canchas.editar",
+  "texto": "बदलें"
+ },
+ {
+  "clave": "canchas.tamano",
+  "texto": "आकार"
+ }
+]

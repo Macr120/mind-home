@@ -1,0 +1,138 @@
+[
+  {
+    "clave": "tut.app-despacho--calculadoras.3.texto",
+    "texto": "Jednym dotknięciem wynik zamienia się w prawdziwy cel oszczędnościowy, gotowy, by zejść do Harmonogramu i dostać datę. (Nie naciskaj tego w demie: powstałby prawdziwy cel.)"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.titulo",
+    "texto": "Czy coś jest pilne?"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.1.texto",
+    "texto": "Jedna sygnalizacja świetlna, żeby nie czytać dwóch list: czerwone, gdy coś jest zaległe, bursztynowe, gdy coś nadchodzi, zielone, gdy w garażu spokój."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.titulo",
+    "texto": "Ile to już kosztowało"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.2.texto",
+    "texto": "Ile pojazdów, ile otwartych formalności i ile wydatków w tym roku. Pepa ten samochód sporo kosztował."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.titulo",
+    "texto": "Rower na co dzień"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.3.texto",
+    "texto": "Prawdziwy środek transportu Pepa: łańcuch, dętki, hamulce — każde w swoim wierszu, w tym samym archiwum folderów roku i miesiąca, którego używają inne aplikacje. Zobacz, jak serwisy zbijają się w ostatnich miesiącach: to treningi do maratonu zbierają swoje żniwo."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.titulo",
+    "texto": "I odziedziczony samochód"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.4.texto",
+    "texto": "Tu jest awaria z 7. miesiąca: samochód stanął w drodze, przyjechała pomoc drogowa i poszło prawie dziesięć tysięcy pesos, których nie było. Każdy serwis zachowuje swój koszt, przebieg i warsztat, w którym się odbył."
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.titulo",
+    "texto": "Karta pojazdu"
+  },
+  {
+    "clave": "tut.app-garage--vehiculos.5.texto",
+    "texto": "Marka, model, rok, tablice i przebieg na dziś. Gdy tablice są wpisane, garaż odblokowuje formalności, które dotyczą tylko samochodu."
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.titulo",
+    "texto": "Co nadchodzi"
+  },
+  {
+    "clave": "tut.app-garage--tramites.1.texto",
+    "texto": "Każda formalność zachowuje swój najbliższy termin, co ile miesięcy się powtarza i ile kosztuje. Po odhaczeniu data sama przeskakuje na kolejny."
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.titulo",
+    "texto": "Rower nie płaci podatku od pojazdu"
+  },
+  {
+    "clave": "tut.app-garage--tramites.2.texto",
+    "texto": "Bez tablic garaż chowa formalności, które nie dotyczą pojazdu: rowerowi proponuje tylko przegląd okresowy."
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.titulo",
+    "texto": "Zeszyt kontaktów"
+  },
+  {
+    "clave": "tut.app-garage--tramites.3.texto",
+    "texto": "Zaufany warsztat, ubezpieczyciel, stacja kontroli pojazdów, osiedlowy serwis rowerowy i pomoc drogowa z tamtej nocy — z telefonem i adresem na jedno dotknięcie."
+  },
+  {
+    "clave": "tut.app-garage--tramites.4.texto",
+    "texto": "Wszystkie te formalności są też w kalendarzu domu, razem z wcześniejszym przypomnieniem. I uwaga: pojazdy, którymi jeździ się po mapie, to co innego — mieszkają w Ekwipunku."
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.titulo",
+    "texto": "Odwiedzone miejsca"
+  },
+  {
+    "clave": "tut.app-sala--mapa.1.texto",
+    "texto": "Cztery kraje i kilka miast: prawie wszystkie z jednej podróży. Dotknij któregokolwiek z trzech liczników, żeby zobaczyć listę pod mapą."
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.titulo",
+    "texto": "Pinezki"
+  },
+  {
+    "clave": "tut.app-sala--mapa.2.texto",
+    "texto": "Siedem pinezek skupionych w Japonii to trzy tygodnie tamtej podróży. Bursztynowe — Seul, Patagonia, Islandia — to jeszcze nie. Dotknięcie mapy stawia nową pinezkę tam, gdzie chcesz."
+  },
+  {
+    "clave": "tut.app-sala--japon.1.titulo",
+    "texto": "Albumy"
+  },
+  {
+    "clave": "tut.app-sala--japon.1.texto",
+    "texto": "Jeden folder na kraj, ze zdjęciem okładki. W środku karta na każde miejsce, a w każdej z nich zapiski Pepa z tamtego dnia."
+  },
+  {
+    "clave": "tut.app-sala--japon.2.titulo",
+    "texto": "Zapiski stamtąd"
+  },
+  {
+    "clave": "tut.app-sala--japon.2.texto",
+    "texto": "Osiem wpisów z podróży, każdy ze swoim zdjęciem: Fudżi o świcie, bambusy w Arashiyamie, jelenie w Narze. Pisze się je na miejscu, z zapachem jeszcze na ubraniu."
+  },
+  {
+    "clave": "tut.app-sala--japon.3.texto",
+    "texto": "W każdym miejscu przycisk „Plan podróży” otwiera kartę wyprawy: dzień po dniu, skąd dokąd, gdzie był nocleg, czym się jeździło i ile to kosztowało."
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.titulo",
+    "texto": "Do poznania"
+  },
+  {
+    "clave": "tut.app-sala--proximo.1.texto",
+    "texto": "Trzy zapisane marzenia. Seul ma już datę i plan; Patagonia i Islandia są jeszcze pomysłem. Te z datą pojawiają się w twoim kalendarzu."
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.titulo",
+    "texto": "Z kartki w cel"
+  },
+  {
+    "clave": "tut.app-sala--proximo.2.texto",
+    "texto": "Osiem dni w Korei sumuje się w koszt całej podróży, a ta suma zapisuje się jako cel oszczędnościowy w Gabinecie: patrzeć, jak rośnie tam, to patrzeć, jak zbliża się tutaj."
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.titulo",
+    "texto": "Trasy"
+  },
+  {
+    "clave": "tut.app-sala--proximo.3.texto",
+    "texto": "Trasa łączy miejsca po kolei i rysuje je na mapie. Ta japońska to przebyta droga; koreańska — ta, która dopiero czeka."
+  },
+  {
+    "clave": "tut.app-entretenimiento--archivo.1.titulo",
+    "texto": "Trzydzieści tytułów, jeden rok"
+  }
+]

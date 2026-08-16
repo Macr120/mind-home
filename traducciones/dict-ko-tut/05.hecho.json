@@ -1,0 +1,146 @@
+[
+  {
+    "clave": "tut.respaldo.3.texto",
+    "texto": "'복원'은 지금 있는 데이터를 전부 파일의 내용으로 바꿔요. 먼저 확인을 묻고 레코드가 몇 개인지도 보여주니까 갑작스러운 일은 없어요."
+  },
+  {
+    "clave": "tut.respaldo.4.texto",
+    "texto": "기기를 바꾸기 전, 브라우저를 바꾸기 전, 아니면 그냥 가끔씩 백업해 두면 좋아요. 계정이 없다면 이게 유일한 사본이에요."
+  },
+  {
+    "clave": "tut.editor-cuarto.1.texto",
+    "texto": "지금은 특정 방을 편집하고 있어요. 도면과 카메라가 집 전체가 아니라 그 방에 초점을 맞춰요."
+  },
+  {
+    "clave": "tut.editor-cuarto.2.titulo",
+    "texto": "편집할 수 있는 것"
+  },
+  {
+    "clave": "tut.editor-cuarto.2.texto",
+    "texto": "방의 모양, 바닥, 벽, 문, 색, 이름, 그리고 오브젝트예요. 배정된 앱도 여기서 바꿔요. 이 패널을 여는 가장 흔한 이유가 그거예요."
+  },
+  {
+    "clave": "tut.editor-cuarto.3.titulo",
+    "texto": "지도로 돌아가기"
+  },
+  {
+    "clave": "tut.editor-cuarto.3.texto",
+    "texto": "이 화살표는 에디터를 닫지 않고 전체 지도로 돌아가요. 그대로 다른 방을 계속 작업할 수 있어요."
+  },
+  {
+    "clave": "tut.editor-cuarto.4.texto",
+    "texto": "3D에서 방 위에도 '방 나가기' 플로팅 버튼이 있어요. 거기서 누르는 게 편하면 그렇게 해도 돼요."
+  },
+  {
+    "clave": "tut.herramientas.1.texto",
+    "texto": "이 버튼으로 캐릭터의 도구 휠이 열려요."
+  },
+  {
+    "clave": "tut.herramientas.2.titulo",
+    "texto": "두 레벨"
+  },
+  {
+    "clave": "tut.herramientas.2.texto",
+    "texto": "먼저 카테고리를 고르고, 그 안에서 구체적인 도구를 골라요. 최대 3개까지 동시에 장착할 수 있고, 카테고리는 같아도 달라도 괜찮아요."
+  },
+  {
+    "clave": "tut.herramientas.3.titulo",
+    "texto": "네 번째 카테고리"
+  },
+  {
+    "clave": "tut.herramientas.3.texto",
+    "texto": "'건축'은 장난감을 장착하지 않아요. 전체 에디터를 거치지 않고 지도의 그리기 모드(방, 벽, 문, 창문, 바닥, 지붕)를 켜요. 같은 도면인데, 더 빨리 닿을 뿐이에요."
+  },
+  {
+    "clave": "tut.herramientas.4.titulo",
+    "texto": "가운데"
+  },
+  {
+    "clave": "tut.herramientas.4.texto",
+    "texto": "가운데를 누르면 장착한 걸 전부 내려놓고, 구석 버튼을 원래 상태로 되돌려요(시점 큐브, 아니면 근처에 있는 것에 따라 다른 버튼이에요)."
+  },
+  {
+    "clave": "tut.herramientas.5.texto",
+    "texto": "휠 바깥을 누르면 닫혀요. 언제든 시험해 보세요. 여기서 고른 건 저장되지 않고, 장착하고 있는 동안만 유지돼요."
+  },
+  {
+    "clave": "tut.navegacion.1.texto",
+    "texto": "카메라는 셋이에요. 아이소(인형의 집 시점), 3인칭, 1인칭. 여기서 바꾸거나 V 키로 바꿔요."
+  },
+  {
+    "clave": "tut.navegacion.2.titulo",
+    "texto": "방향 잡기"
+  },
+  {
+    "clave": "tut.navegacion.2.texto",
+    "texto": "아이소에서는 큐브가 면 단위로 카메라를 돌려요. 3인칭·1인칭에서는 패드를 끌어서 둘러봐요."
+  },
+  {
+    "clave": "tut.navegacion.3.titulo",
+    "texto": "근처에 뭔가 있을 때"
+  },
+  {
+    "clave": "tut.navegacion.3.texto",
+    "texto": "상호작용할 수 있는 것에 가까이 가면 그 자리는 더 이상 카메라가 아니에요. 코트는 경기 버튼, 탈것은 타기 버튼, 의자는 앉기 버튼을 내줘요. 한 번에 하나만, 그리고 항상 가까이 갔을 때만 나와요. 저절로 되는 일은 없어요."
+  },
+  {
+    "clave": "tut.navegacion.4.titulo",
+    "texto": "회전과 중앙 이동"
+  },
+  {
+    "clave": "tut.navegacion.4.texto",
+    "texto": "시점을 좌우로 돌리거나, 돌아다니다 길을 잃었으면 다시 지도 중앙으로 맞출 수 있어요."
+  },
+  {
+    "clave": "tut.navegacion.5.titulo",
+    "texto": "이동하기"
+  },
+  {
+    "clave": "tut.navegacion.5.texto",
+    "texto": "조이스틱, WASD, 방향키로 걸어요. 물에서는 헤엄치고, 탈것에 타면 같은 조작으로 운전해요."
+  },
+  {
+    "clave": "tut.navegacion.6.texto",
+    "texto": "3인칭·1인칭에서는 '3D 에디터' 버튼이 나와요. 오브젝트나 벽, 캐릭터를 누르면 아이소메트릭 시점으로 돌아가지 않고 그 자리에서 편집해요."
+  },
+  {
+    "clave": "tut.chat.1.texto",
+    "texto": "건축가 채팅이에요. 하루를 기록하고, 집을 편집하고, 궁금한 걸 물어보는 걸 전부 같은 입력창에서 해요."
+  },
+  {
+    "clave": "tut.chat.2.titulo",
+    "texto": "쓰기"
+  },
+  {
+    "clave": "tut.chat.2.texto",
+    "texto": "자유롭게 써요. '20분 뛰었어', '마트에서 250 썼어'… 옆의 칩이 어느 앱으로 갈지 보여줘요. 잘못 짚으면 '@방'으로 목적지를 정할 수 있어요."
+  },
+  {
+    "clave": "tut.chat.3.titulo",
+    "texto": "음성으로 입력하기"
+  },
+  {
+    "clave": "tut.chat.3.texto",
+    "texto": "마이크가 말한 내용을 입력창에 받아 적어요. 손에 뭔가 들고 있어도 기록할 수 있어서 편해요."
+  },
+  {
+    "clave": "tut.chat.4.titulo",
+    "texto": "사진 보내기"
+  },
+  {
+    "clave": "tut.chat.4.texto",
+    "texto": "AI를 켜 두면 영수증이나 음식, 체중계 사진을 알아서 읽어요. AI가 없으면 이 버튼은 비활성화돼요."
+  },
+  {
+    "clave": "tut.chat.5.titulo",
+    "texto": "어시스턴트"
+  },
+  {
+    "clave": "tut.chat.5.texto",
+    "texto": "어시스턴트가 답변에 얼굴과 목소리를 붙여줘요. 누르면 대화를 보거나, 다른 어시스턴트로 바꾸거나, 더 만들 수 있어요."
+  },
+  {
+    "clave": "tut.chat.6.titulo",
+    "texto": "매뉴얼"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "clave": "tut.enlaces.2.texto",
+    "texto": "« Relier une app » ouvre le sélecteur : d’abord tu choisis l’app, puis quelle partie (si elle a plusieurs endroits où enregistrer)."
+  },
+  {
+    "clave": "tut.enlaces.3.titulo",
+    "texto": "La puce une fois posée"
+  },
+  {
+    "clave": "tut.enlaces.3.texto",
+    "texto": "Une fois la puce posée, un toucher ouvre cette app directement sur cette section. La retirer n’efface ni l’objectif ni ses dates : ça défait juste le lien."
+  },
+  {
+    "clave": "tut.enlaces.4.texto",
+    "texto": "Seules les apps assignées à un objet d’une pièce apparaissent comme destination : relier une app sans pièce donnerait une puce qui ne mène nulle part."
+  },
+  {
+    "clave": "tut.musica.1.texto",
+    "texto": "Ce bouton ouvre le contrôle de la musique de la maison."
+  },
+  {
+    "clave": "tut.musica.2.titulo",
+    "texto": "Allumer ou éteindre"
+  },
+  {
+    "clave": "tut.musica.2.texto",
+    "texto": "Un seul interrupteur pour toute la musique d’ambiance de la maison. Éteint, la maison reste silencieuse, sauf les sons des actions précises."
+  },
+  {
+    "clave": "tut.musica.3.titulo",
+    "texto": "Thème par pièce"
+  },
+  {
+    "clave": "tut.musica.3.texto",
+    "texto": "Chaque pièce peut sonner autrement : automatique selon son app, un thème choisi à la main, ou silence complet dans cette pièce sans toucher au reste de la maison."
+  },
+  {
+    "clave": "tut.musica.4.titulo",
+    "texto": "D’où vient le son"
+  },
+  {
+    "clave": "tut.musica.4.texto",
+    "texto": "Générée (elle compose toute seule selon l’ambiance), Mes pistes (ce que tu as importé) ou Système (ce que tu écoutes déjà en dehors de l’app, sans rien écraser)."
+  },
+  {
+    "clave": "tut.musica.5.titulo",
+    "texto": "Des volumes séparés"
+  },
+  {
+    "clave": "tut.musica.5.texto",
+    "texto": "La musique et les sons d’action (pas, clics, réussites) se règlent séparément — tu peux baisser la musique et garder les effets, ou l’inverse."
+  },
+  {
+    "clave": "tut.musica.6.texto",
+    "texto": "Le bouton du HUD peut être retiré de l’écran principal ; il reste disponible dans Éditeur › Paramètres › Musique."
+  },
+  {
+    "clave": "tut.cuenta-ia.1.texto",
+    "texto": "C’est ici que s’allume l’IA de la maison : sans elle, le chat continue de marcher par mots-clés, mais générer une recette, un plan ou une image reste éteint."
+  },
+  {
+    "clave": "tut.cuenta-ia.2.titulo",
+    "texto": "Avec ou sans compte"
+  },
+  {
+    "clave": "tut.cuenta-ia.2.texto",
+    "texto": "Tu peux utiliser l’IA avec ta propre clé de fournisseur (sans compte, sans crédits) ou avec un compte qui apporte des crédits et synchronise entre tes appareils."
+  },
+  {
+    "clave": "tut.cuenta-ia.3.titulo",
+    "texto": "Tarifs de l’IA"
+  },
+  {
+    "clave": "tut.cuenta-ia.3.texto",
+    "texto": "Ce tableau reste informatif même sans compte : c’est exactement ce qu’il faut pour décider si ça vaut le coup. Il se lit pièce par pièce, opération par opération."
+  },
+  {
+    "clave": "tut.cuenta-ia.4.titulo",
+    "texto": "Le seul levier"
+  },
+  {
+    "clave": "tut.cuenta-ia.4.texto",
+    "texto": "La qualité des images est la seule chose qui change le tarif de tout le tableau : Rapide est bonne et pas chère (celle utilisée par défaut) ; Meilleure donne plus de détails et un meilleur texte dans l’image."
+  },
+  {
+    "clave": "tut.cuenta-ia.5.titulo",
+    "texto": "Une unité, beaucoup d’opérations"
+  },
+  {
+    "clave": "tut.cuenta-ia.5.texto",
+    "texto": "Une réponse coûte 1 crédit, un plan long 3, une image ou un modèle 3D 10 — la règle est la même dans toutes les pièces, ce tableau ne fait que la détailler une par une."
+  },
+  {
+    "clave": "tut.ejemplos.1.texto",
+    "texto": "Cette barre apparaît dans presque toutes les apps tant qu’elles n’ont aucune donnée à toi : un bouton pour la voir remplie d’exemples, au lieu de démarrer devant un écran vide."
+  },
+  {
+    "clave": "tut.ejemplos.2.texto",
+    "texto": "Voir un exemple n’efface ni ne mélange rien de ce qui t’appartient : ce sont ses propres lignes, marquées comme exemple, qui se cachent (sans s’effacer) quand tu le désactives. Le réactiver les ramène exactement comme elles étaient."
+  },
+  {
+    "clave": "tut.ejemplos.3.texto",
+    "texto": "Dans la maison de démo, cette barre n’apparaît pas : l’année entière de Pep joue déjà ce rôle, pas besoin d’un exemple à part."
+  },
+  {
+    "clave": "tut.hoy.2.titulo",
+    "texto": "Trois sources, une liste"
+  },
+  {
+    "clave": "tut.hoy.3.titulo",
+    "texto": "C’est barré parce que la donnée existe"
+  }
+]

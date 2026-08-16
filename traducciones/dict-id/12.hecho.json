@@ -1,0 +1,818 @@
+[
+  {
+    "clave": "entre.res.invalido",
+    "texto": "AI tidak mengembalikan ringkasan yang bisa dipakai."
+  },
+  {
+    "clave": "entre.prog.titulo",
+    "texto": "Program"
+  },
+  {
+    "clave": "entre.prog.desc",
+    "texto": "Minta AI membuatkan program untuk ditonton, dibaca, atau dimainkan berdasarkan topik, genre, atau penulis (misalnya “film horor 80-an”). Setiap judul adalah target di linimasa: centang yang sudah kamu selesaikan, dan jika mau, atur tanggalnya atau minta rencana ke â¨ untuk melihatnya di kalender."
+  },
+  {
+    "clave": "entre.prog.nuevo",
+    "texto": "Buat program dengan AI"
+  },
+  {
+    "clave": "entre.prog.ocultar",
+    "texto": "Sembunyikan generator"
+  },
+  {
+    "clave": "entre.prog.tema",
+    "texto": "Topik, genre, atau penulis (misalnya horor 80-an)"
+  },
+  {
+    "clave": "entre.prog.cuantos",
+    "texto": "Judul"
+  },
+  {
+    "clave": "entre.prog.generar",
+    "texto": "Buat program"
+  },
+  {
+    "clave": "entre.prog.generando",
+    "texto": "Menyusun program…"
+  },
+  {
+    "clave": "entre.prog.error",
+    "texto": "Program tidak berhasil dibuat."
+  },
+  {
+    "clave": "entre.prog.desconocido",
+    "texto": "AI tidak berhasil menyusun program dari topik itu."
+  },
+  {
+    "clave": "entre.prog.invalido",
+    "texto": "AI tidak mengembalikan program yang bisa dipakai."
+  },
+  {
+    "clave": "entre.prog.nombre",
+    "texto": "Nama program"
+  },
+  {
+    "clave": "entre.prog.guardar",
+    "texto": "Simpan program ({n})"
+  },
+  {
+    "clave": "entre.prog.guardando",
+    "texto": "Menyimpan…"
+  },
+  {
+    "clave": "entre.prog.descartar",
+    "texto": "Batalkan"
+  },
+  {
+    "clave": "entre.port.buscar",
+    "texto": "Cari sampul"
+  },
+  {
+    "clave": "entre.port.buscando",
+    "texto": "Mencari sampul…"
+  },
+  {
+    "clave": "entre.port.sinResultado",
+    "texto": "Tanpa sampul"
+  },
+  {
+    "clave": "entre.port.quitar",
+    "texto": "Hapus sampul"
+  },
+  {
+    "clave": "entre.j.volver",
+    "texto": "Kembali"
+  },
+  {
+    "clave": "entre.j.fam.tablero",
+    "texto": "Permainan Papan"
+  },
+  {
+    "clave": "entre.j.fam.ingenio",
+    "texto": "Asah Otak"
+  },
+  {
+    "clave": "entre.j.fam.arcade",
+    "texto": "Arcade"
+  },
+  {
+    "clave": "entre.j.fam.cartas",
+    "texto": "Permainan Kartu"
+  },
+  {
+    "clave": "entre.j.fam.grupo",
+    "texto": "Permainan Kelompok"
+  },
+  {
+    "clave": "entre.j.seccion.12",
+    "texto": "1-2 pemain"
+  },
+  {
+    "clave": "entre.j.seccion.3mas",
+    "texto": "3+ pemain"
+  },
+  {
+    "clave": "entre.j.nueva",
+    "texto": "Permainan baru"
+  },
+  {
+    "clave": "entre.j.deshacer",
+    "texto": "Batalkan"
+  },
+  {
+    "clave": "entre.j.mejor",
+    "texto": "Terbaik"
+  },
+  {
+    "clave": "entre.j.puntos",
+    "texto": "Skor"
+  },
+  {
+    "clave": "entre.j.movs",
+    "texto": "Langkah"
+  },
+  {
+    "clave": "entre.j.turno",
+    "texto": "Giliran"
+  },
+  {
+    "clave": "entre.j.tu",
+    "texto": "Kamu"
+  },
+  {
+    "clave": "entre.j.maquina",
+    "texto": "Komputer"
+  },
+  {
+    "clave": "entre.j.ganaste",
+    "texto": "Kamu menang! 🎉"
+  },
+  {
+    "clave": "entre.j.saldo",
+    "texto": "Saldo"
+  },
+  {
+    "clave": "entre.j.recargar",
+    "texto": "Dapatkan 500 koin"
+  },
+  {
+    "clave": "entre.j.dificultad",
+    "texto": "Kesulitan"
+  },
+  {
+    "clave": "entre.j.dif.facil",
+    "texto": "Mudah"
+  },
+  {
+    "clave": "entre.j.dif.medio",
+    "texto": "Sedang"
+  },
+  {
+    "clave": "entre.j.dif.dificil",
+    "texto": "Sulit"
+  },
+  {
+    "clave": "entre.j.modo.titulo",
+    "texto": "Kamu mau main gimana?"
+  },
+  {
+    "clave": "entre.j.modo.2j",
+    "texto": "2 pemain"
+  },
+  {
+    "clave": "entre.j.modo.2jDesc",
+    "texto": "Di perangkat yang sama"
+  },
+  {
+    "clave": "entre.j.modo.ia",
+    "texto": "Melawan komputer"
+  },
+  {
+    "clave": "entre.j.modo.cambiar",
+    "texto": "Ganti mode"
+  },
+  {
+    "clave": "entre.j.sudoku.nombre",
+    "texto": "Sudoku"
+  },
+  {
+    "clave": "entre.j.sudoku.desc",
+    "texto": "Isi kotak 9×9 tanpa mengulang angka."
+  },
+  {
+    "clave": "entre.j.sudoku.notas",
+    "texto": "Pensil"
+  },
+  {
+    "clave": "entre.j.sudoku.borrar",
+    "texto": "Hapus"
+  },
+  {
+    "clave": "entre.j.solitario.nombre",
+    "texto": "Solitaire"
+  },
+  {
+    "clave": "entre.j.solitario.desc",
+    "texto": "Klondike klasik: susun ke-52 kartu."
+  },
+  {
+    "clave": "entre.j.sol.auto",
+    "texto": "Otomatis"
+  },
+  {
+    "clave": "entre.j.sol.vueltas",
+    "texto": "Sisa putaran dek"
+  },
+  {
+    "clave": "entre.j.j2048.nombre",
+    "texto": "2048"
+  },
+  {
+    "clave": "entre.j.j2048.desc",
+    "texto": "Geser dan gabungkan sampai mencapai 2048."
+  },
+  {
+    "clave": "entre.j.2048.fin",
+    "texto": "Tidak ada langkah tersisa. Main lagi?"
+  },
+  {
+    "clave": "entre.j.2048.logro",
+    "texto": "Kamu mencapai 2048! Bisa terus lanjut."
+  },
+  {
+    "clave": "entre.j.damas.nombre",
+    "texto": "Dam"
+  },
+  {
+    "clave": "entre.j.damas.desc",
+    "texto": "Loncat dan tangkap semua bidak lawan."
+  },
+  {
+    "clave": "entre.j.damas.iaDesc",
+    "texto": "Kamu memakai bidak terang"
+  },
+  {
+    "clave": "entre.j.damas.claras",
+    "texto": "Terang"
+  },
+  {
+    "clave": "entre.j.damas.oscuras",
+    "texto": "Gelap"
+  },
+  {
+    "clave": "entre.j.damas.gana",
+    "texto": "{color} menang!"
+  },
+  {
+    "clave": "entre.j.damas.ganaMaquina",
+    "texto": "Komputer menang"
+  },
+  {
+    "clave": "entre.j.damas.regla",
+    "texto": "Makan wajib: kalau bisa makan, kamu harus makan."
+  },
+  {
+    "clave": "entre.j.ajedrez.nombre",
+    "texto": "Catur"
+  },
+  {
+    "clave": "entre.j.ajedrez.desc",
+    "texto": "Klasik strategi, sampai skakmat."
+  },
+  {
+    "clave": "entre.j.ajedrez.iaDesc",
+    "texto": "Kamu memakai bidak putih"
+  },
+  {
+    "clave": "entre.j.ajedrez.blancas",
+    "texto": "Putih"
+  },
+  {
+    "clave": "entre.j.ajedrez.negras",
+    "texto": "Hitam"
+  },
+  {
+    "clave": "entre.j.ajedrez.jaque",
+    "texto": "Skak"
+  },
+  {
+    "clave": "entre.j.ajedrez.mateBlancas",
+    "texto": "♔ Skakmat: putih menang"
+  },
+  {
+    "clave": "entre.j.ajedrez.mateNegras",
+    "texto": "♚ Skakmat: hitam menang"
+  },
+  {
+    "clave": "entre.j.ajedrez.tablas",
+    "texto": "½–½ Buntu — remis"
+  },
+  {
+    "clave": "entre.j.ajedrez.promo",
+    "texto": "Bidak otomatis naik menjadi ratu."
+  },
+  {
+    "clave": "entre.j.blackjack.nombre",
+    "texto": "Blackjack"
+  },
+  {
+    "clave": "entre.j.blackjack.desc",
+    "texto": "Capai 21 dan kalahkan bandar."
+  },
+  {
+    "clave": "entre.j.bj.crupier",
+    "texto": "Bandar"
+  },
+  {
+    "clave": "entre.j.bj.tu",
+    "texto": "Tanganmu"
+  },
+  {
+    "clave": "entre.j.bj.apuesta",
+    "texto": "Taruhan"
+  },
+  {
+    "clave": "entre.j.bj.quitar",
+    "texto": "Bersihkan"
+  },
+  {
+    "clave": "entre.j.bj.repartir",
+    "texto": "Bagikan"
+  },
+  {
+    "clave": "entre.j.bj.pedir",
+    "texto": "Minta kartu"
+  },
+  {
+    "clave": "entre.j.bj.plantarse",
+    "texto": "Berhenti"
+  },
+  {
+    "clave": "entre.j.bj.doblar",
+    "texto": "Gandakan"
+  },
+  {
+    "clave": "entre.j.bj.nuevaMano",
+    "texto": "Tangan baru"
+  },
+  {
+    "clave": "entre.j.bj.blackjack",
+    "texto": "Blackjack! Bayar 3:2 🎉"
+  },
+  {
+    "clave": "entre.j.bj.empate",
+    "texto": "Seri: taruhanmu dikembalikan"
+  },
+  {
+    "clave": "entre.j.bj.pierde",
+    "texto": "Bandar menang"
+  },
+  {
+    "clave": "entre.j.bj.pasaste",
+    "texto": "Bust — lewat 21"
+  },
+  {
+    "clave": "entre.j.bj.crupierPasa",
+    "texto": "Bandar bust: kamu menang!"
+  },
+  {
+    "clave": "entre.j.bj.regla",
+    "texto": "Bandar berhenti di 17. Blackjack membayar 3:2."
+  },
+  {
+    "clave": "entre.j.ruleta.nombre",
+    "texto": "Rolet"
+  },
+  {
+    "clave": "entre.j.ruleta.desc",
+    "texto": "Bertaruh di merah, hitam, atau angka keberuntunganmu."
+  },
+  {
+    "clave": "entre.j.rul.ficha",
+    "texto": "Koin"
+  },
+  {
+    "clave": "entre.j.rul.girar",
+    "texto": "Putar"
+  },
+  {
+    "clave": "entre.j.rul.limpiar",
+    "texto": "Bersihkan"
+  },
+  {
+    "clave": "entre.j.rul.repetir",
+    "texto": "Ulangi taruhan"
+  },
+  {
+    "clave": "entre.j.rul.col",
+    "texto": "Kol."
+  },
+  {
+    "clave": "entre.j.rul.d1",
+    "texto": "Lusin ke-1"
+  },
+  {
+    "clave": "entre.j.rul.d2",
+    "texto": "Lusin ke-2"
+  },
+  {
+    "clave": "entre.j.rul.d3",
+    "texto": "Lusin ke-3"
+  },
+  {
+    "clave": "entre.j.rul.par",
+    "texto": "GENAP"
+  },
+  {
+    "clave": "entre.j.rul.impar",
+    "texto": "GANJIL"
+  },
+  {
+    "clave": "entre.j.rul.rojo",
+    "texto": "MERAH"
+  },
+  {
+    "clave": "entre.j.rul.negro",
+    "texto": "HITAM"
+  },
+  {
+    "clave": "entre.j.rul.gano",
+    "texto": "Kamu menang {n} koin! 🎉"
+  },
+  {
+    "clave": "entre.j.rul.nada",
+    "texto": "Belum beruntung kali ini"
+  },
+  {
+    "clave": "entre.j.rul.ultimos",
+    "texto": "Angka terakhir"
+  },
+  {
+    "clave": "entre.j.buscaminas.nombre",
+    "texto": "Penyapu Ranjau"
+  },
+  {
+    "clave": "entre.j.buscaminas.desc",
+    "texto": "Bersihkan ladang tanpa menginjak ranjau."
+  },
+  {
+    "clave": "entre.j.buscaminas.modoBandera",
+    "texto": "Mode bendera"
+  },
+  {
+    "clave": "entre.j.buscaminas.perdiste",
+    "texto": "💥 Duar! Kamu menginjak ranjau."
+  },
+  {
+    "clave": "entre.j.domino.nombre",
+    "texto": "Domino"
+  },
+  {
+    "clave": "entre.j.domino.desc",
+    "texto": "Domino ganda-enam melawan komputer, dengan bank kartu."
+  },
+  {
+    "clave": "entre.j.domino.pozo",
+    "texto": "Bank"
+  },
+  {
+    "clave": "entre.j.domino.robar",
+    "texto": "Ambil dari bank"
+  },
+  {
+    "clave": "entre.j.domino.pasar",
+    "texto": "Lewat"
+  },
+  {
+    "clave": "entre.j.domino.pasoIA",
+    "texto": "Komputer lewat"
+  },
+  {
+    "clave": "entre.j.domino.robaIA",
+    "texto": "Komputer mengambil {n}"
+  },
+  {
+    "clave": "entre.j.domino.eliges",
+    "texto": "Ujung yang mana?"
+  },
+  {
+    "clave": "entre.j.domino.trancado",
+    "texto": "Permainan buntu"
+  },
+  {
+    "clave": "entre.j.domino.ganasteRonda",
+    "texto": "Kamu memenangkan ronde: +{n} poin"
+  },
+  {
+    "clave": "entre.j.domino.rondaIA",
+    "texto": "Komputer memenangkan ronde: +{n} poin"
+  },
+  {
+    "clave": "entre.j.domino.empateRonda",
+    "texto": "Seri: tidak ada yang dapat poin"
+  },
+  {
+    "clave": "entre.j.domino.siguienteRonda",
+    "texto": "Ronde berikutnya"
+  },
+  {
+    "clave": "entre.j.conocerse.nombre",
+    "texto": "Saling Mengenal"
+  },
+  {
+    "clave": "entre.j.conocerse.desc",
+    "texto": "100 pertanyaan dalam 3 level untuk benar-benar saling mengenal."
+  },
+  {
+    "clave": "entre.j.debates.nombre",
+    "texto": "Debat"
+  },
+  {
+    "clave": "entre.j.debates.desc",
+    "texto": "100 pertanyaan untuk memantik obrolan seru."
+  },
+  {
+    "clave": "entre.j.cartas.barajar",
+    "texto": "Kocok"
+  },
+  {
+    "clave": "entre.j.cartas.carta",
+    "texto": "Kartu {n} dari {t}"
+  },
+  {
+    "clave": "entre.j.cartas.toca",
+    "texto": "Ketuk kartu untuk lanjut ke berikutnya"
+  },
+  {
+    "clave": "entre.j.cartas.fin",
+    "texto": "Pertanyaan sudah habis"
+  },
+  {
+    "clave": "entre.j.cartas.reiniciar",
+    "texto": "Kocok lagi"
+  },
+  {
+    "clave": "entre.j.cartas.siguiente",
+    "texto": "Berikutnya"
+  },
+  {
+    "clave": "entre.j.cartas.g.rompehielos",
+    "texto": "Pemecah Es"
+  },
+  {
+    "clave": "entre.j.cartas.g.personal",
+    "texto": "Personal"
+  },
+  {
+    "clave": "entre.j.cartas.g.profundo",
+    "texto": "Mendalam"
+  },
+  {
+    "clave": "entre.j.cartas.g.sociedad",
+    "texto": "Masyarakat"
+  },
+  {
+    "clave": "entre.j.cartas.g.etica",
+    "texto": "Etika"
+  },
+  {
+    "clave": "entre.j.cartas.g.tecnologia",
+    "texto": "Teknologi"
+  },
+  {
+    "clave": "entre.j.cartas.g.cultura",
+    "texto": "Budaya"
+  },
+  {
+    "clave": "entre.j.cartas.g.futuro",
+    "texto": "Masa Depan"
+  },
+  {
+    "clave": "entre.j.pausa",
+    "texto": "Dijeda"
+  },
+  {
+    "clave": "entre.j.seguir",
+    "texto": "Lanjutkan"
+  },
+  {
+    "clave": "entre.j.jugar",
+    "texto": "Main"
+  },
+  {
+    "clave": "entre.j.viborita.nombre",
+    "texto": "Ular"
+  },
+  {
+    "clave": "entre.j.viborita.desc",
+    "texto": "Makan apel tanpa menggigit ekormu sendiri."
+  },
+  {
+    "clave": "entre.j.viborita.fin",
+    "texto": "Aduh! Ularnya menabrak."
+  },
+  {
+    "clave": "entre.j.space.nombre",
+    "texto": "Pembela Antariksa"
+  },
+  {
+    "clave": "entre.j.space.desc",
+    "texto": "Tembak jatuh gelombang penyerang."
+  },
+  {
+    "clave": "entre.j.space.ayuda",
+    "texto": "← → atau seret · tembak otomatis"
+  },
+  {
+    "clave": "entre.j.space.fin",
+    "texto": "Armada mengalahkanmu."
+  },
+  {
+    "clave": "entre.j.dino.nombre",
+    "texto": "Lari Dino"
+  },
+  {
+    "clave": "entre.j.dino.desc",
+    "texto": "Lompati kaktus dan terus berlari."
+  },
+  {
+    "clave": "entre.j.dino.ayuda",
+    "texto": "Spasi, ↑, atau ketuk untuk melompat"
+  },
+  {
+    "clave": "entre.j.pong.nombre",
+    "texto": "Pong"
+  },
+  {
+    "clave": "entre.j.pong.desc",
+    "texto": "Klasik permainan bet, sendiri atau bersama teman."
+  },
+  {
+    "clave": "entre.j.pong.iaDesc",
+    "texto": "Kamu mengendalikan bet bawah"
+  },
+  {
+    "clave": "entre.j.pong.j1",
+    "texto": "Pemain 1"
+  },
+  {
+    "clave": "entre.j.pong.j2",
+    "texto": "Pemain 2"
+  },
+  {
+    "clave": "entre.j.pong.gana",
+    "texto": "{j} menang"
+  },
+  {
+    "clave": "entre.j.pong.ayuda2j",
+    "texto": "Bawah: ← →  ·  Atas: A / D  ·  atau seret di bagianmu"
+  },
+  {
+    "clave": "entre.j.pong.ayudaIa",
+    "texto": "Gerakkan dengan ← → atau dengan menyeret"
+  },
+  {
+    "clave": "entre.j.hockey.nombre",
+    "texto": "Hoki Udara"
+  },
+  {
+    "clave": "entre.j.hockey.desc",
+    "texto": "Kirim puck ke gawang lawan."
+  },
+  {
+    "clave": "entre.j.hockey.iaDesc",
+    "texto": "Kamu menjaga gawang bawah"
+  },
+  {
+    "clave": "entre.j.hockey.ayuda",
+    "texto": "Seret pemukulmu untuk memukul puck"
+  },
+  {
+    "clave": "entre.j.billar.nombre",
+    "texto": "Bilyar"
+  },
+  {
+    "clave": "entre.j.billar.desc",
+    "texto": "Bidik, pukul, dan bersihkan meja."
+  },
+  {
+    "clave": "entre.j.billar.solo",
+    "texto": "Solo"
+  },
+  {
+    "clave": "entre.j.billar.soloDesc",
+    "texto": "Bersihkan meja dengan pukulan sesedikit mungkin"
+  },
+  {
+    "clave": "entre.j.billar.tiros",
+    "texto": "Pukulan"
+  },
+  {
+    "clave": "entre.j.billar.falta",
+    "texto": "Foul: bola putih masuk lubang"
+  },
+  {
+    "clave": "entre.j.billar.sigue",
+    "texto": "Bola masuk, giliranmu lagi!"
+  },
+  {
+    "clave": "entre.j.billar.fin1j",
+    "texto": "Meja bersih dalam {n} pukulan"
+  },
+  {
+    "clave": "entre.j.billar.ayuda",
+    "texto": "Seret dari meja dan lepas untuk memukul (seperti ketapel)"
+  },
+  {
+    "clave": "entre.j.tetris.nombre",
+    "texto": "Tetris"
+  },
+  {
+    "clave": "entre.j.tetris.desc",
+    "texto": "Susun balok dan bersihkan baris."
+  },
+  {
+    "clave": "entre.j.tetris.fin",
+    "texto": "Papan penuh. Permainan bagus!"
+  },
+  {
+    "clave": "entre.j.tetris.siguiente",
+    "texto": "Berikutnya"
+  },
+  {
+    "clave": "entre.j.tetris.lineas",
+    "texto": "Baris"
+  },
+  {
+    "clave": "entre.j.tetris.nivel",
+    "texto": "Level"
+  },
+  {
+    "clave": "entre.j.memorama.nombre",
+    "texto": "Permainan Memori"
+  },
+  {
+    "clave": "entre.j.memorama.desc",
+    "texto": "Temukan pasangan dengan percobaan sesedikit mungkin."
+  },
+  {
+    "clave": "entre.j.memorama.intentos",
+    "texto": "Percobaan"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.nombre",
+    "texto": "Sambung Empat"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.desc",
+    "texto": "Sambungkan empat bidak sebelum lawanmu."
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.iaDesc",
+    "texto": "Kamu memakai bidak merah"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.rojas",
+    "texto": "Merah"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.amarillas",
+    "texto": "Kuning"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.empate",
+    "texto": "Seri: papan penuh"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.ganaMaquina",
+    "texto": "Komputer menang"
+  },
+  {
+    "clave": "entre.j.cuatroenlinea.gana",
+    "texto": "{color} menang!"
+  },
+  {
+    "clave": "entre.j.simon.nombre",
+    "texto": "Simon Bilang"
+  },
+  {
+    "clave": "entre.j.simon.desc",
+    "texto": "Ulangi urutan warnanya."
+  },
+  {
+    "clave": "entre.j.simon.ronda",
+    "texto": "Ronde"
+  },
+  {
+    "clave": "entre.j.simon.observa",
+    "texto": "Perhatikan…"
+  },
+  {
+    "clave": "entre.j.simon.tuTurno",
+    "texto": "Giliranmu!"
+  },
+  {
+    "clave": "entre.j.simon.fallaste",
+    "texto": "Kamu salah di ronde {n}"
+  }
+]

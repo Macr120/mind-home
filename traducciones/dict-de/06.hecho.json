@@ -1,0 +1,638 @@
+[
+  {
+    "clave": "despacho.m.categoriaPh",
+    "texto": "Schreib deine eigene oder wähle eine bekannte"
+  },
+  {
+    "clave": "despacho.m.tipoMov",
+    "texto": "Variabel oder fest?"
+  },
+  {
+    "clave": "despacho.m.variable",
+    "texto": "Variabel"
+  },
+  {
+    "clave": "despacho.m.fijo",
+    "texto": "Fest"
+  },
+  {
+    "clave": "despacho.m.plazo",
+    "texto": "Wie oft?"
+  },
+  {
+    "clave": "despacho.m.plazoAyuda",
+    "texto": "Wiederholt sich von selbst ab dem Datum, das du eingegeben hast — du musst es nicht erneut erfassen."
+  },
+  {
+    "clave": "despacho.m.repetidos",
+    "texto": "Feste"
+  },
+  {
+    "clave": "despacho.m.alMes",
+    "texto": "≈ {n} pro Monat"
+  },
+  {
+    "clave": "despacho.m.desde",
+    "texto": "seit {f}"
+  },
+  {
+    "clave": "despacho.m.llevas",
+    "texto": "bisher {n}"
+  },
+  {
+    "clave": "despacho.m.acumuladoTotal",
+    "texto": "Deine festen Posten bis heute"
+  },
+  {
+    "clave": "despacho.r.deLosFijos",
+    "texto": "Aus deinen festen Posten: +{i} · −{g}"
+  },
+  {
+    "clave": "despacho.sim.titulo",
+    "texto": "Simulator · nächste {n} Monate"
+  },
+  {
+    "clave": "despacho.sim.meses",
+    "texto": "Monate"
+  },
+  {
+    "clave": "despacho.sim.base",
+    "texto": "Projiziert deine festen Posten bis zu ihrer Fälligkeit und die variablen mit dem monatlichen Durchschnitt deiner bisherigen Einträge."
+  },
+  {
+    "clave": "despacho.sim.sinPatrimonio",
+    "texto": "Ohne Vermögen · in {n} Monaten"
+  },
+  {
+    "clave": "despacho.sim.conPatrimonio",
+    "texto": "Mit Vermögen · in {n} Monaten"
+  },
+  {
+    "clave": "despacho.sim.faltaPatrimonio",
+    "texto": "Trag oben dein Vermögen ein, um auch dieses Szenario zu sehen."
+  },
+  {
+    "clave": "despacho.m.agregar",
+    "texto": "Buchung hinzufügen"
+  },
+  {
+    "clave": "despacho.m.movs",
+    "texto": "{n} Buchungen"
+  },
+  {
+    "clave": "despacho.m.nuevoGasto",
+    "texto": "Neue Ausgabe"
+  },
+  {
+    "clave": "despacho.m.nuevoIngreso",
+    "texto": "Neue Einnahme"
+  },
+  {
+    "clave": "despacho.m.sinGastos",
+    "texto": "Keine Ausgaben erfasst."
+  },
+  {
+    "clave": "despacho.m.sinIngresos",
+    "texto": "Keine Einnahmen erfasst."
+  },
+  {
+    "clave": "despacho.meta.nueva",
+    "texto": "Neues Sparziel"
+  },
+  {
+    "clave": "despacho.meta.ph.nombre",
+    "texto": "Z. B. Reise nach Japan"
+  },
+  {
+    "clave": "despacho.meta.ph.objetivo",
+    "texto": "Ziel"
+  },
+  {
+    "clave": "despacho.meta.crear",
+    "texto": "Ziel erstellen"
+  },
+  {
+    "clave": "despacho.meta.vacio",
+    "texto": "Noch keine Ziele. Erstelle dein erstes Sparziel!"
+  },
+  {
+    "clave": "despacho.meta.ph.abono",
+    "texto": "Einzahlen"
+  },
+  {
+    "clave": "despacho.meta.abonar",
+    "texto": "Einzahlen"
+  },
+  {
+    "clave": "despacho.meta.nuevaInv",
+    "texto": "Neues Anlageziel"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreInv",
+    "texto": "Z. B. Indexfonds"
+  },
+  {
+    "clave": "despacho.meta.vacioInv",
+    "texto": "Noch keine Anlageziele. Lege fest, wie viel du investieren willst, und zahl nach und nach ein."
+  },
+  {
+    "clave": "despacho.meta.aportar",
+    "texto": "Einzahlen"
+  },
+  {
+    "clave": "despacho.meta.ph.aporte",
+    "texto": "Einzahlen"
+  },
+  {
+    "clave": "despacho.meta.nuevaDeuda",
+    "texto": "Neue Schuld zum Abzahlen"
+  },
+  {
+    "clave": "despacho.meta.ph.nombreDeuda",
+    "texto": "Z. B. Kreditkarte"
+  },
+  {
+    "clave": "despacho.meta.ph.deuda",
+    "texto": "Schulden"
+  },
+  {
+    "clave": "despacho.meta.vacioDeuda",
+    "texto": "Keine Schulden erfasst. Trag ein, was du schuldest, und erfasse jede Zahlung."
+  },
+  {
+    "clave": "despacho.meta.pagar",
+    "texto": "Zahlen"
+  },
+  {
+    "clave": "despacho.meta.ph.pago",
+    "texto": "Zahlen"
+  },
+  {
+    "clave": "despacho.tab.simuladores",
+    "texto": "Simulieren"
+  },
+  {
+    "clave": "despacho.s.simulador",
+    "texto": "Simulator"
+  },
+  {
+    "clave": "despacho.s.usarDeuda",
+    "texto": "Eine deiner Schulden verwenden…"
+  },
+  {
+    "clave": "despacho.s.compuesto",
+    "texto": "Zinseszins"
+  },
+  {
+    "clave": "despacho.s.simple",
+    "texto": "Einfach"
+  },
+  {
+    "clave": "despacho.s.meta",
+    "texto": "Ziel"
+  },
+  {
+    "clave": "despacho.s.credito",
+    "texto": "Kredit"
+  },
+  {
+    "clave": "despacho.s.inicial",
+    "texto": "Startkapital"
+  },
+  {
+    "clave": "despacho.s.aporteMes",
+    "texto": "Monatliche Einzahlung"
+  },
+  {
+    "clave": "despacho.s.tasaAnual",
+    "texto": "Jahreszins %"
+  },
+  {
+    "clave": "despacho.s.anos",
+    "texto": "Jahre"
+  },
+  {
+    "clave": "despacho.s.capitalizacion",
+    "texto": "Verzinsung"
+  },
+  {
+    "clave": "despacho.s.cap.12",
+    "texto": "Monatlich"
+  },
+  {
+    "clave": "despacho.s.cap.4",
+    "texto": "Vierteljährlich"
+  },
+  {
+    "clave": "despacho.s.cap.2",
+    "texto": "Halbjährlich"
+  },
+  {
+    "clave": "despacho.s.cap.1",
+    "texto": "Jährlich"
+  },
+  {
+    "clave": "despacho.s.saldoFinal",
+    "texto": "Endsaldo"
+  },
+  {
+    "clave": "despacho.s.aportado",
+    "texto": "Eingezahlt"
+  },
+  {
+    "clave": "despacho.s.interesGanado",
+    "texto": "Erzielte Zinsen"
+  },
+  {
+    "clave": "despacho.s.porAno",
+    "texto": "Jahr für Jahr"
+  },
+  {
+    "clave": "despacho.s.col.ano",
+    "texto": "Jahr"
+  },
+  {
+    "clave": "despacho.s.col.aportado",
+    "texto": "Eingezahlt"
+  },
+  {
+    "clave": "despacho.s.col.interes",
+    "texto": "Zinsen"
+  },
+  {
+    "clave": "despacho.s.col.saldo",
+    "texto": "Saldo"
+  },
+  {
+    "clave": "despacho.s.interesGenerado",
+    "texto": "Erzielte Zinsen"
+  },
+  {
+    "clave": "despacho.s.total",
+    "texto": "Endsumme"
+  },
+  {
+    "clave": "despacho.s.vsCompuesto",
+    "texto": "Mit Zinseszins (jährliche Verzinsung) hättest du {x} — {d} mehr."
+  },
+  {
+    "clave": "despacho.s.usarMeta",
+    "texto": "Eines deiner Ziele verwenden…"
+  },
+  {
+    "clave": "despacho.s.objetivo",
+    "texto": "Zielbetrag $"
+  },
+  {
+    "clave": "despacho.s.metaLista",
+    "texto": "Mit deinem Startkapital und diesem Zinssatz erreichst du das Ziel schon ohne weitere Einzahlungen."
+  },
+  {
+    "clave": "despacho.s.aporteNecesario",
+    "texto": "Nötige monatliche Einzahlung"
+  },
+  {
+    "clave": "despacho.s.durante",
+    "texto": "für {n} Monate"
+  },
+  {
+    "clave": "despacho.s.deTuBolsillo",
+    "texto": "Aus eigener Tasche"
+  },
+  {
+    "clave": "despacho.s.generaInteres",
+    "texto": "Zinsen decken"
+  },
+  {
+    "clave": "despacho.s.montoCredito",
+    "texto": "Kreditbetrag"
+  },
+  {
+    "clave": "despacho.s.plazoMeses",
+    "texto": "Laufzeit (Monate)"
+  },
+  {
+    "clave": "despacho.s.mensualidad",
+    "texto": "Monatsrate"
+  },
+  {
+    "clave": "despacho.s.totalPagado",
+    "texto": "Insgesamt gezahlt"
+  },
+  {
+    "clave": "despacho.s.intereses",
+    "texto": "Zinsen gesamt"
+  },
+  {
+    "clave": "despacho.s.col.capital",
+    "texto": "Kapital"
+  },
+  {
+    "clave": "despacho.s.col.restante",
+    "texto": "Restsaldo"
+  },
+  {
+    "clave": "despacho.ejemplo.vacio",
+    "texto": "Weißt du nicht, wo du anfangen sollst? Lade ein Beispiel und schau es dir von innen an."
+  },
+  {
+    "clave": "despacho.ejemplo.cargado",
+    "texto": "Alles, was du hier als Beispiel siehst, lässt sich mit einem Klick löschen."
+  },
+  {
+    "clave": "despacho.ejemplo.cargar",
+    "texto": "Ein Beispiel laden"
+  },
+  {
+    "clave": "despacho.ejemplo.borrar",
+    "texto": "Beispiel löschen"
+  },
+  {
+    "clave": "despacho.ejemplo.confirmar",
+    "texto": "Ja, Beispiel löschen"
+  },
+  {
+    "clave": "despacho.mk.divisas",
+    "texto": "Devisen"
+  },
+  {
+    "clave": "despacho.mk.criptos",
+    "texto": "Kryptowährungen"
+  },
+  {
+    "clave": "despacho.mk.acciones",
+    "texto": "Aktien"
+  },
+  {
+    "clave": "despacho.mk.commodities",
+    "texto": "Rohstoffe"
+  },
+  {
+    "clave": "despacho.mk.dias30",
+    "texto": "30 Tage"
+  },
+  {
+    "clave": "despacho.mk.dias7",
+    "texto": "7 Tage"
+  },
+  {
+    "clave": "despacho.mk.top10cap",
+    "texto": "Top 10 nach Marktkapitalisierung · USD"
+  },
+  {
+    "clave": "despacho.mk.top10capNyse",
+    "texto": "Top 10 nach Marktkapitalisierung · USD · NYSE/Nasdaq"
+  },
+  {
+    "clave": "despacho.mk.top10pares",
+    "texto": "die 10 meistgehandelten Paare"
+  },
+  {
+    "clave": "despacho.mk.col.activo",
+    "texto": "Titel"
+  },
+  {
+    "clave": "despacho.mk.col.precio",
+    "texto": "Preis"
+  },
+  {
+    "clave": "despacho.mk.col.dia",
+    "texto": "Tag"
+  },
+  {
+    "clave": "despacho.mk.col.cap",
+    "texto": "Kap."
+  },
+  {
+    "clave": "despacho.mk.col.30d",
+    "texto": "30 T"
+  },
+  {
+    "clave": "despacho.mk.col.etf",
+    "texto": "ETF"
+  },
+  {
+    "clave": "despacho.mk.viaEtf",
+    "texto": "über ETF · USD"
+  },
+  {
+    "clave": "despacho.mk.sinCapDivisas",
+    "texto": "Ein Währungspaar hat keine Marktkapitalisierung: Stattdessen wird die 30-Tage-Veränderung angezeigt."
+  },
+  {
+    "clave": "despacho.mk.notaEtf",
+    "texto": "Der Preis ist der des ETF, der den jeweiligen Rohstoff abbildet, nicht der Spotpreis; eine Marktkapitalisierung gibt es hier ebenfalls nicht."
+  },
+  {
+    "clave": "despacho.mk.fuenteDivisas",
+    "texto": "Quelle: EZB (Frankfurter)"
+  },
+  {
+    "clave": "despacho.mk.fuenteCripto",
+    "texto": "Quelle: CoinGecko · 7 Tage"
+  },
+  {
+    "clave": "despacho.mk.fuenteAcciones",
+    "texto": "Quelle: Finnhub"
+  },
+  {
+    "clave": "despacho.mk.miLista",
+    "texto": "Meine Watchlist"
+  },
+  {
+    "clave": "despacho.mk.cargando",
+    "texto": "Märkte werden geladen…"
+  },
+  {
+    "clave": "despacho.mk.cargandoBtn",
+    "texto": "Lädt…"
+  },
+  {
+    "clave": "despacho.mk.error",
+    "texto": "Verbindung zu den Marktquellen fehlgeschlagen. Prüf deine Internetverbindung."
+  },
+  {
+    "clave": "despacho.mk.reintentar",
+    "texto": "Erneut versuchen"
+  },
+  {
+    "clave": "despacho.mk.cacheAviso",
+    "texto": "Eine Quelle ist nicht erreichbar — zeigt die zuletzt gespeicherten Daten."
+  },
+  {
+    "clave": "despacho.mk.clave",
+    "texto": "Finnhub-API-Schlüssel"
+  },
+  {
+    "clave": "despacho.mk.clave.ph",
+    "texto": "Schlüssel von finnhub.io"
+  },
+  {
+    "clave": "despacho.mk.clave.guardada",
+    "texto": "Schlüssel gespeichert — füge einen neuen ein, um ihn zu ersetzen"
+  },
+  {
+    "clave": "despacho.mk.guardar",
+    "texto": "Speichern"
+  },
+  {
+    "clave": "despacho.mk.claveInvalida",
+    "texto": "Ungültiger Finnhub-Schlüssel. Ändere ihn über den Button API (kostenlos auf finnhub.io)."
+  },
+  {
+    "clave": "despacho.mk.sinDatos",
+    "texto": "Keine Daten"
+  },
+  {
+    "clave": "despacho.mk.vacia",
+    "texto": "Füge Aktien hinzu, um sie hier zu verfolgen."
+  },
+  {
+    "clave": "despacho.mk.misDivisas",
+    "texto": "Meine Währungspaare"
+  },
+  {
+    "clave": "despacho.mk.vaciaDivisa",
+    "texto": "Füge ein Währungspaar hinzu, um es hier zu verfolgen."
+  },
+  {
+    "clave": "despacho.mk.misCriptos",
+    "texto": "Meine Kryptowährungen"
+  },
+  {
+    "clave": "despacho.mk.vaciaCripto",
+    "texto": "Suche eine Kryptowährung, um sie hier zu verfolgen."
+  },
+  {
+    "clave": "despacho.mk.buscarCripto.ph",
+    "texto": "Suchen (z. B. Cardano)"
+  },
+  {
+    "clave": "despacho.mk.misMaterias",
+    "texto": "Meine Rohstoffe"
+  },
+  {
+    "clave": "despacho.mk.vaciaMateria",
+    "texto": "Füge den ETF eines Rohstoffs hinzu, den du verfolgen willst."
+  },
+  {
+    "clave": "despacho.mk.nombreMateria.ph",
+    "texto": "Name (z. B. Palladium)"
+  },
+  {
+    "clave": "despacho.mk.etf.ph",
+    "texto": "ETF (z. B. PALL)"
+  },
+  {
+    "clave": "despacho.mk.ticker.ph",
+    "texto": "Ticker (z. B. AAPL)"
+  },
+  {
+    "clave": "despacho.mk.agregar",
+    "texto": "Hinzufügen"
+  },
+  {
+    "clave": "despacho.mk.actualizar",
+    "texto": "Aktualisieren"
+  },
+  {
+    "clave": "despacho.mk.com.oro",
+    "texto": "Gold"
+  },
+  {
+    "clave": "despacho.mk.com.plata",
+    "texto": "Silber"
+  },
+  {
+    "clave": "despacho.mk.com.platino",
+    "texto": "Platin"
+  },
+  {
+    "clave": "despacho.mk.com.petroleo",
+    "texto": "Öl (WTI)"
+  },
+  {
+    "clave": "despacho.mk.com.gas",
+    "texto": "Erdgas"
+  },
+  {
+    "clave": "despacho.mk.com.cobre",
+    "texto": "Kupfer"
+  },
+  {
+    "clave": "despacho.mk.com.maiz",
+    "texto": "Mais"
+  },
+  {
+    "clave": "despacho.mk.com.trigo",
+    "texto": "Weizen"
+  },
+  {
+    "clave": "despacho.mk.com.soya",
+    "texto": "Sojabohnen"
+  },
+  {
+    "clave": "despacho.mk.com.agricolas",
+    "texto": "Agrarkorb"
+  },
+  {
+    "clave": "despacho.tab.patrimonio",
+    "texto": "Vermögen"
+  },
+  {
+    "clave": "despacho.tab.activos",
+    "texto": "Aktiva"
+  },
+  {
+    "clave": "despacho.tab.pasivos",
+    "texto": "Passiva"
+  },
+  {
+    "clave": "despacho.patr.neto",
+    "texto": "Nettovermögen"
+  },
+  {
+    "clave": "despacho.patr.ayudaCorta",
+    "texto": "Was du besitzt, minus was du schuldest."
+  },
+  {
+    "clave": "despacho.patr.ayuda",
+    "texto": "Sparen, Investitionen und Schulden fließen automatisch aus deinen Zielen ein; der Saldo des Zeitraums wird HIER NICHT addiert — er zeigt, was mit dieser Zahl passieren wird, nicht zusätzliches Geld."
+  },
+  {
+    "clave": "despacho.patr.efectivoOjoCorta",
+    "texto": "Wann ist das sinnvoll?"
+  },
+  {
+    "clave": "despacho.ui.masAyuda",
+    "texto": "Mehr Details"
+  },
+  {
+    "clave": "despacho.patr.fisicos",
+    "texto": "Eigentum und Besitz"
+  },
+  {
+    "clave": "despacho.patr.liquidos",
+    "texto": "Geld und Investitionen"
+  },
+  {
+    "clave": "despacho.patr.deudas",
+    "texto": "Schulden, Kredite und Hypotheken"
+  },
+  {
+    "clave": "despacho.patr.deMetas",
+    "texto": "aus deinen Zielen"
+  },
+  {
+    "clave": "despacho.patr.efectivo",
+    "texto": "Bargeld · aus deinen Buchungen"
+  },
+  {
+    "clave": "despacho.patr.deMovs",
+    "texto": "alle Einnahmen − Ausgaben"
+  },
+  {
+    "clave": "despacho.patr.efectivoAuto",
+    "texto": "Hier hinzurechnen, was von meinen Buchungen übrig bleibt (alle meine Einnahmen minus alle meine Ausgaben)"
+  }
+]

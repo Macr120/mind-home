@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "tut.hoy.3.texto",
+    "texto": "Tombol di baris itu mencatat data ASLI di aplikasinya — segelas air, satu kali makan — dan langkahnya tercoret semata karena catatan itu sudah ada di sana, bukan karena ada yang menandainya. Menekannya lagi setelah langkahnya selesai tidak menggandakan apa pun: tombolnya menghilang."
+  },
+  {
+    "clave": "tut.hoy.4.titulo",
+    "texto": "Angkamu setiap hari"
+  },
+  {
+    "clave": "tut.hoy.4.texto",
+    "texto": "Langkah dengan angka yang bisa diatur mengubahnya di sini juga. Menyetelnya ke 0 mematikan target hari itu tanpa menghapus riwayat hari-hari sebelumnya."
+  },
+  {
+    "clave": "tut.hoy.5.titulo",
+    "texto": "Dari target jadi rutinitas"
+  },
+  {
+    "clave": "tut.hoy.5.texto",
+    "texto": "Kalender menjadwalkan target yang sama dengan jam tetap: yang terbuka adalah editor yang sama dengan rutinitas di jam, jadi semuanya tercatat di dua tempat sekaligus."
+  },
+  {
+    "clave": "tut.hoy.6.titulo",
+    "texto": "Yang selesai tidak hilang"
+  },
+  {
+    "clave": "tut.hoy.6.texto",
+    "texto": "Ia turun ke “Selesai”, dalam keadaan terlipat: melihat catatanmu berdampak adalah bagian dari hadiahnya, dan dari sana kamu bisa membatalkannya kalau ada satu yang terlanjur masuk."
+  },
+  {
+    "clave": "tut.progreso.1.texto",
+    "texto": "Kartu karaktermu: Pep punya satu tahun penuh aktivitas nyata di belakangnya, jadi setiap angka di sini punya cerita nyata yang menjelaskannya."
+  },
+  {
+    "clave": "tut.progreso.2.titulo",
+    "texto": "Karakternya"
+  },
+  {
+    "clave": "tut.progreso.2.texto",
+    "texto": "Menyentuhnya membuka editor karakter. Suasana hatinya —bahagia, senang, sedih, atau tertidur— naik setiap ada catatan baru dan hanya turun kalau berhari-hari tidak ada satu pun; tidak pernah disetel ulang sekaligus."
+  },
+  {
+    "clave": "tut.progreso.3.titulo",
+    "texto": "Pangkat Sisifus"
+  },
+  {
+    "clave": "tut.progreso.3.texto",
+    "texto": "Dua belas pangkat pendakian: setiap hari dengan aktivitas menaikkanmu satu anak tangga dari 365. Pep sudah mengumpulkan beberapa pangkat; sentuh untuk melihat gunungnya secara utuh."
+  },
+  {
+    "clave": "tut.progreso.4.titulo",
+    "texto": "Anak tangga dan hari tenggang"
+  },
+  {
+    "clave": "tut.progreso.4.texto",
+    "texto": "Setiap 7 anak tangga datang satu lencana, setiap rentang beberapa minggu menaikkan pangkat. Bolong satu hari tidak merusak apa pun: ada 2 hari tenggang tiap bulan sebelum kamu mundur ke awal pangkat yang sekarang."
+  },
+  {
+    "clave": "tut.progreso.5.titulo",
+    "texto": "52 lencana per keluarga"
+  },
+  {
+    "clave": "tut.progreso.5.texto",
+    "texto": "Dikelompokkan menurut keluarga geologisnya, tetap jadi misteri sampai kamu memperolehnya: tidak ada nama maupun keterangan yang terlihat sebelum terbuka."
+  },
+  {
+    "clave": "tut.progreso.6.titulo",
+    "texto": "Rangkumanmu"
+  },
+  {
+    "clave": "tut.progreso.6.texto",
+    "texto": "Wrapped menyusun rangkuman minggu, bulan, atau tahunmu dalam bentuk slide — ia punya tutorialnya sendiri, dengan data berlimpah pada tahun seperti milik Pep."
+  },
+  {
+    "clave": "tut.progreso.7.titulo",
+    "texto": "Radar per ruangan"
+  },
+  {
+    "clave": "tut.progreso.7.texto",
+    "texto": "Setiap sudutnya adalah satu ruangan di rumah, dan ukurannya adalah jumlah XP dari aplikasi yang ditugaskan ke sana. Ruangan yang kosong dari aktivitas langsung kelihatan: sudutnya melesak ke tengah."
+  },
+  {
+    "clave": "tut.wrapped.1.texto",
+    "texto": "Gaya stories: sentuh sisi kanan untuk maju, sisi kiri untuk mundur, dan tahan untuk menjeda di satu slide."
+  },
+  {
+    "clave": "tut.wrapped.2.titulo",
+    "texto": "Minggu, bulan, atau tahun"
+  },
+  {
+    "clave": "tut.wrapped.2.texto",
+    "texto": "Setiap jenis menyusun slide-nya sendiri dengan datanya sendiri — rangkuman tahunan Pep yang paling panjang, lengkap dengan momen tertinggi dan terendah sepanjang tahun."
+  },
+  {
+    "clave": "tut.wrapped.3.titulo",
+    "texto": "Berpindah antarperiode"
+  },
+  {
+    "clave": "tut.wrapped.3.texto",
+    "texto": "Panah ‹ › menyusuri periode yang sudah tertutup: kamu tidak bisa maju melewati hari ini, jadi perbandingannya selalu dengan sesuatu yang nyata."
+  },
+  {
+    "clave": "tut.wrapped.4.titulo",
+    "texto": "Membagikan satu slide"
+  },
+  {
+    "clave": "tut.wrapped.4.texto",
+    "texto": "Menyalin teks dari slide yang sedang kamu lihat, siap ditempel ke mana pun kamu mau — tanpa perlu tangkapan layar."
+  },
+  {
+    "clave": "tut.wrapped.5.texto",
+    "texto": "Sebuah titik di samping tombol yang membukanya memberi tahu kalau ada rangkuman baru yang belum kamu lihat; membukanya memadamkan titik itu."
+  },
+  {
+    "clave": "tut.infra-huerto--ciclo.8.texto",
+    "texto": "Ini tempat perlindungan Pep: di satu sisi kandang-kandangnya dan di sisi lain kebun sayur yang memberi mereka makan. Ayo ke petak-petaknya."
+  }
+]

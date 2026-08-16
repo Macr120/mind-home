@@ -1,0 +1,690 @@
+[
+ {
+  "clave": "editor.techoCuarto.propagarMapa",
+  "texto": "屋根が有効なとき、屋根は1枚の板になります。各方向の「+」で隣の部屋まで均一に広げ、「−」でその端を縮めます。"
+ },
+ {
+  "clave": "editor.techoCuarto.quitarColor",
+  "texto": "↺ ネイティブ"
+ },
+ {
+  "clave": "editor.techoCuarto.reset",
+  "texto": "↺ 家の屋根に戻す"
+ },
+ {
+  "clave": "editor.techoCuarto.subirImagen",
+  "texto": "画像をアップロード"
+ },
+ {
+  "clave": "editor.techoCuarto.usarImagen",
+  "texto": "画像を使う"
+ },
+ {
+  "clave": "editor.tema.ajustesDe",
+  "texto": "設定"
+ },
+ {
+  "clave": "editor.tema.ambiente",
+  "texto": "環境光"
+ },
+ {
+  "clave": "editor.tema.cascaron",
+  "texto": "外郭の色"
+ },
+ {
+  "clave": "editor.tema.emissive",
+  "texto": "発光（色）"
+ },
+ {
+  "clave": "editor.tema.emissiveInt",
+  "texto": "発光（強さ）"
+ },
+ {
+  "clave": "editor.tema.exposicion",
+  "texto": "露出"
+ },
+ {
+  "clave": "editor.tema.focos",
+  "texto": "夜間照明"
+ },
+ {
+  "clave": "editor.tema.fondo",
+  "texto": "空の背景"
+ },
+ {
+  "clave": "editor.tema.fondoTinte",
+  "texto": "背景と色調"
+ },
+ {
+  "clave": "editor.tema.fuerza",
+  "texto": "色調の強さ"
+ },
+ {
+  "clave": "editor.tema.ibl",
+  "texto": "反射"
+ },
+ {
+  "clave": "editor.tema.intSol",
+  "texto": "太陽の強さ"
+ },
+ {
+  "clave": "editor.tema.luzNiebla",
+  "texto": "光と霧"
+ },
+ {
+  "clave": "editor.tema.materiales",
+  "texto": "マテリアル"
+ },
+ {
+  "clave": "editor.tema.metalness",
+  "texto": "金属質"
+ },
+ {
+  "clave": "editor.tema.muroExt",
+  "texto": "外壁"
+ },
+ {
+  "clave": "editor.tema.muroInt",
+  "texto": "内壁"
+ },
+ {
+  "clave": "editor.tema.niebla",
+  "texto": "霧（色）"
+ },
+ {
+  "clave": "editor.tema.nieblaCerca",
+  "texto": "霧（近）"
+ },
+ {
+  "clave": "editor.tema.nieblaLejos",
+  "texto": "霧（遠）"
+ },
+ {
+  "clave": "editor.tema.piso",
+  "texto": "床"
+ },
+ {
+  "clave": "editor.tema.restaurar",
+  "texto": "復元"
+ },
+ {
+  "clave": "editor.tema.roughness",
+  "texto": "粗さ"
+ },
+ {
+  "clave": "editor.tema.sol",
+  "texto": "太陽（色調）"
+ },
+ {
+  "clave": "editor.tema.techo",
+  "texto": "屋根"
+ },
+ {
+  "clave": "editor.tema.tinte",
+  "texto": "オブジェクトの色調"
+ },
+ {
+  "clave": "editor.titulo",
+  "texto": "エディター"
+ },
+ {
+  "clave": "ejercicio.confirmarGenerarImagenes",
+  "texto": "{proveedor}で{n}枚の画像を生成します。料金が発生する場合があります。続けますか？"
+ },
+ {
+  "clave": "ejercicio.f.volumen",
+  "texto": "ボリューム"
+ },
+ {
+  "clave": "ejercicio.graf.max",
+  "texto": "最大"
+ },
+ {
+  "clave": "ejercicio.graf.min",
+  "texto": "最小"
+ },
+ {
+  "clave": "ejercicio.img.generar",
+  "texto": "不足分を生成（{n}）"
+ },
+ {
+  "clave": "ejercicio.img.generarUna",
+  "texto": "AIで生成"
+ },
+ {
+  "clave": "ejercicio.img.generarOtra",
+  "texto": "別の画像を生成"
+ },
+ {
+  "clave": "ejercicio.img.generando",
+  "texto": "生成中…"
+ },
+ {
+  "clave": "ejercicio.img.subir",
+  "texto": "写真をアップロード"
+ },
+ {
+  "clave": "ejercicio.img.ver",
+  "texto": "画像を見る"
+ },
+ {
+  "clave": "ejercicio.img.anadir",
+  "texto": "画像を追加"
+ },
+ {
+  "clave": "ejercicio.img.sinIa",
+  "texto": "画像を生成するには、チャットでAIを設定してください。"
+ },
+ {
+  "clave": "ejercicio.img.listas",
+  "texto": "完了："
+ },
+ {
+  "clave": "ejercicio.ph.reps",
+  "texto": "回数"
+ },
+ {
+  "clave": "ejercicio.ph.seg",
+  "texto": "秒"
+ },
+ {
+  "clave": "ejercicio.r.porSemana",
+  "texto": "・週"
+ },
+ {
+  "clave": "ejercicio.vivo.ppm",
+  "texto": "心拍数（bpm）"
+ },
+ {
+  "clave": "mapa.listo",
+  "texto": "完了"
+ },
+ {
+  "clave": "editor.salirCuarto",
+  "texto": "部屋を出る（マップに戻る）"
+ },
+ {
+  "clave": "editor.salirCuartoBoton",
+  "texto": "部屋を出る"
+ },
+ {
+  "clave": "editor.moverObjetos.listo",
+  "texto": "オブジェクトの移動を終了"
+ },
+ {
+  "clave": "nav.asignar",
+  "texto": "+ 割り当て"
+ },
+ {
+  "clave": "nav.asignarApp",
+  "texto": "この部屋にアプリを割り当てる"
+ },
+ {
+  "clave": "nav.crearCuarto",
+  "texto": "部屋を作成"
+ },
+ {
+  "clave": "nav.sinCuartos",
+  "texto": "まだ部屋がありません。下から最初の部屋を作成しましょう。"
+ },
+ {
+  "clave": "nav3d.ayuda1P",
+  "texto": "右クリックまたはジョイスティック、ホイールでズーム"
+ },
+ {
+  "clave": "nav3d.ayuda3P",
+  "texto": "右クリックまたはジョイスティック、ホイールでズーム"
+ },
+ {
+  "clave": "nav3d.cambiarVista",
+  "texto": "視点を切り替え（Vキー）"
+ },
+ {
+  "clave": "nav3d.centrarMapa",
+  "texto": "マップを中央に表示"
+ },
+ {
+  "clave": "nav3d.vista1Corta",
+  "texto": "1人称"
+ },
+ {
+  "clave": "nav3d.vista3Corta",
+  "texto": "3人称"
+ },
+ {
+  "clave": "nav3d.vistaIso",
+  "texto": "アイソメトリック視点"
+ },
+ {
+  "clave": "nav3d.vistaIsoCorta",
+  "texto": "アイソ"
+ },
+ {
+  "clave": "nav3d.vistaPrimera",
+  "texto": "一人称視点"
+ },
+ {
+  "clave": "nav3d.vistaTercera",
+  "texto": "三人称視点"
+ },
+ {
+  "clave": "paredes.alto",
+  "texto": "高さ"
+ },
+ {
+  "clave": "paredes.altoGen",
+  "texto": "高さ"
+ },
+ {
+  "clave": "paredes.altoPuerta",
+  "texto": "ドアの高さ"
+ },
+ {
+  "clave": "paredes.altoTodos",
+  "texto": "部屋のすべての壁に適用"
+ },
+ {
+  "clave": "paredes.anchoGen",
+  "texto": "幅"
+ },
+ {
+  "clave": "paredes.anchoVano",
+  "texto": "開口部の幅"
+ },
+ {
+  "clave": "paredes.borrar",
+  "texto": "画像を削除"
+ },
+ {
+  "clave": "paredes.cambiar",
+  "texto": "変更"
+ },
+ {
+  "clave": "paredes.cambiarFoto",
+  "texto": "写真を変更"
+ },
+ {
+  "clave": "paredes.caraExterior",
+  "texto": "外側の面"
+ },
+ {
+  "clave": "paredes.imagenPuerta",
+  "texto": "ドアの画像"
+ },
+ {
+  "clave": "paredes.quitarImagenPuerta",
+  "texto": "画像を削除"
+ },
+ {
+  "clave": "paredes.imagenPuertaAyuda",
+  "texto": "ドアの扉（片開き・両開き・引き戸）を装飾します。ルーバー門扉は色をそのまま保ちます。"
+ },
+ {
+  "clave": "paredes.caraInterior",
+  "texto": "内側の面"
+ },
+ {
+  "clave": "paredes.color",
+  "texto": "色"
+ },
+ {
+  "clave": "paredes.cont.cuadro",
+  "texto": "絵画"
+ },
+ {
+  "clave": "paredes.cont.espejo",
+  "texto": "鏡"
+ },
+ {
+  "clave": "paredes.cont.ventana",
+  "texto": "窓"
+ },
+ {
+  "clave": "paredes.cristal",
+  "texto": "ガラス"
+ },
+ {
+  "clave": "paredes.espejoNota",
+  "texto": "鏡はその前にあるものをリアルタイムに映します。"
+ },
+ {
+  "clave": "paredes.fotoAyuda",
+  "texto": "写真は、壁の選んだ面にあるフレームの形に合わせて表示されます。"
+ },
+ {
+  "clave": "paredes.fotoCuadro",
+  "texto": "写真"
+ },
+ {
+  "clave": "paredes.desactivar",
+  "texto": "無効にする"
+ },
+ {
+  "clave": "paredes.editando",
+  "texto": "編集中"
+ },
+ {
+  "clave": "paredes.editarBorde",
+  "texto": "この端を編集"
+ },
+ {
+  "clave": "paredes.forma.arco",
+  "texto": "アーチ"
+ },
+ {
+  "clave": "paredes.forma.recta",
+  "texto": "直線"
+ },
+ {
+  "clave": "paredes.forma.triangulo",
+  "texto": "三角形"
+ },
+ {
+  "clave": "paredes.formaAlto",
+  "texto": "アーチの高さ"
+ },
+ {
+  "clave": "paredes.formaAltoPico",
+  "texto": "頂点の高さ"
+ },
+ {
+  "clave": "paredes.formaAncho",
+  "texto": "幅"
+ },
+ {
+  "clave": "paredes.formaDividir",
+  "texto": "シルエットごとに色分け（別テクスチャ）"
+ },
+ {
+  "clave": "paredes.formaPosX",
+  "texto": "頂点の位置"
+ },
+ {
+  "clave": "paredes.formaVano",
+  "texto": "開口部の形"
+ },
+ {
+  "clave": "paredes.formas",
+  "texto": "パラメトリック形状"
+ },
+ {
+  "clave": "paredes.imagen",
+  "texto": "背景画像"
+ },
+ {
+  "clave": "paredes.mosaico",
+  "texto": "タイリング"
+ },
+ {
+  "clave": "paredes.multicolor",
+  "texto": "マルチカラー"
+ },
+ {
+  "clave": "paredes.posXPuerta",
+  "texto": "水平位置"
+ },
+ {
+  "clave": "paredes.quitarCuadro",
+  "texto": "絵画を外す"
+ },
+ {
+  "clave": "paredes.quitarEspejo",
+  "texto": "鏡を外す"
+ },
+ {
+  "clave": "paredes.quitarFoto",
+  "texto": "写真を外す"
+ },
+ {
+  "clave": "paredes.quitarPuerta",
+  "texto": "ドアを外す（壁に戻す）"
+ },
+ {
+  "clave": "paredes.quitarVentana",
+  "texto": "窓を外す"
+ },
+ {
+  "clave": "paredes.subirFoto",
+  "texto": "写真をアップロード"
+ },
+ {
+  "clave": "paredes.subirImagen",
+  "texto": "画像をアップロード"
+ },
+ {
+  "clave": "paredes.textura",
+  "texto": "テクスチャ"
+ },
+ {
+  "clave": "paredes.tocaBordeModo",
+  "texto": "端をタップして、次として編集："
+ },
+ {
+  "clave": "paredes.usarImagen",
+  "texto": "画像を使う"
+ },
+ {
+  "clave": "paredes.ventAlto",
+  "texto": "窓の高さ"
+ },
+ {
+  "clave": "paredes.ventAncho",
+  "texto": "窓の幅"
+ },
+ {
+  "clave": "paredes.ventForma.cuadrado",
+  "texto": "四角形"
+ },
+ {
+  "clave": "paredes.ventForma.circulo",
+  "texto": "円形"
+ },
+ {
+  "clave": "paredes.ventForma.triangulo",
+  "texto": "三角形"
+ },
+ {
+  "clave": "paredes.ventRot",
+  "texto": "回転"
+ },
+ {
+  "clave": "paredes.ventPosX",
+  "texto": "水平位置"
+ },
+ {
+  "clave": "paredes.ventPosY",
+  "texto": "垂直位置"
+ },
+ {
+  "clave": "paredes.ventana",
+  "texto": "窓"
+ },
+ {
+  "clave": "plano.controles",
+  "texto": "ホイール：ズーム・Shift/Alt+ドラッグ：移動・余白をダブルクリック：全体表示"
+ },
+ {
+  "clave": "planos.arista",
+  "texto": "辺"
+ },
+ {
+  "clave": "planos.celdasPiso",
+  "texto": "床タイル"
+ },
+ {
+  "clave": "planos.confirmarNombre",
+  "texto": "名前を確定"
+ },
+ {
+  "clave": "planos.detalle.celda",
+  "texto": "通常セル"
+ },
+ {
+  "clave": "planos.detalle.subcelda",
+  "texto": "細分セル（½）"
+ },
+ {
+  "clave": "planos.eliminarCuarto",
+  "texto": "部屋を削除"
+ },
+ {
+  "clave": "planos.grupo.interiorDesc",
+  "texto": "{cuartos}部屋・ベーシック{zonas}・{n}階"
+ },
+ {
+  "clave": "planos.grupo.interiorVacio",
+  "texto": "この階には室内の床がありません"
+ },
+ {
+  "clave": "planos.moverZonaHint",
+  "texto": "図面上で部屋をドラッグして移動します。"
+ },
+ {
+  "clave": "planos.nombrarHint",
+  "texto": "この部屋にはすでに標準の壁・床・屋根があります。名前を付けて識別しましょう。"
+ },
+ {
+  "clave": "planos.nombrarTitulo",
+  "texto": "部屋に名前を付ける"
+ },
+ {
+  "clave": "planos.paredesHint",
+  "texto": "見取り図または3Dマップで壁をタップすると、壁・ドア・窓を設定できます。"
+ },
+ {
+  "clave": "planos.pisosHint",
+  "texto": "部屋を選ぶか、複数の屋外セルをクリックして選択します。パネルでテクスチャと色を選べます。"
+ },
+ {
+  "clave": "planos.preview.mostrar",
+  "texto": "3Dプレビューを表示"
+ },
+ {
+  "clave": "planos.preview.ocultar",
+  "texto": "3Dプレビューを隠す"
+ },
+ {
+  "clave": "planos.props.paredesZona",
+  "texto": "ベーシックな部屋の辺を編集します。"
+ },
+ {
+  "clave": "plantillaCustom.arrastrarGrupo",
+  "texto": "ドラッグして並べ替え"
+ },
+ {
+  "clave": "plantillaCustom.borrarGrupo",
+  "texto": "フォルダを削除"
+ },
+ {
+  "clave": "plantillaCustom.borrarGrupoConfirm",
+  "texto": "このフォルダを削除しますか？中のテンプレートは最初のフォルダに移動します。"
+ },
+ {
+  "clave": "plantillaCustom.desplegarGrupo",
+  "texto": "フォルダを展開"
+ },
+ {
+  "clave": "plantillaCustom.enUsoTag",
+  "texto": "使用中"
+ },
+ {
+  "clave": "plantillaCustom.grupo",
+  "texto": "グループ"
+ },
+ {
+  "clave": "plantillaCustom.grupoVacio",
+  "texto": "空のフォルダ・ここにテンプレートをドラッグ"
+ },
+ {
+  "clave": "plantillaCustom.nuevoGrupo",
+  "texto": "新しいグループ"
+ },
+ {
+  "clave": "plantillaCustom.nuevoGrupoNombre",
+  "texto": "新しいグループ"
+ },
+ {
+  "clave": "plantillaCustom.plegarGrupo",
+  "texto": "フォルダを折りたたむ"
+ },
+ {
+  "clave": "plantillaCustom.renombrarGrupo",
+  "texto": "フォルダ名を変更"
+ },
+ {
+  "clave": "plantillaCustom.unidadPh",
+  "texto": "kg、$、ページ…"
+ },
+ {
+  "clave": "preview.girar",
+  "texto": "ドラッグして回転・ホイールでズーム"
+ },
+ {
+  "clave": "preview.tocarEditar",
+  "texto": "パーツをタップして編集・ドラッグで回転"
+ },
+ {
+  "clave": "preview.fondoClaro",
+  "texto": "明るい背景"
+ },
+ {
+  "clave": "preview.fondoOscuro",
+  "texto": "暗い背景"
+ },
+ {
+  "clave": "preview.techo",
+  "texto": "屋根の表示/非表示"
+ },
+ {
+  "clave": "preview.techoOff",
+  "texto": "屋根なし"
+ },
+ {
+  "clave": "preview.techoOn",
+  "texto": "屋根"
+ },
+ {
+  "clave": "preview.objetos",
+  "texto": "オブジェクトの表示/非表示"
+ },
+ {
+  "clave": "preview.objetosOff",
+  "texto": "オブジェクトなし"
+ },
+ {
+  "clave": "preview.objetosOn",
+  "texto": "オブジェクト"
+ },
+ {
+  "clave": "preview.moverObjetos",
+  "texto": "マップ上でオブジェクトを移動"
+ },
+ {
+  "clave": "mover.adelante",
+  "texto": "前に移動"
+ },
+ {
+  "clave": "mover.atras",
+  "texto": "後ろに移動"
+ },
+ {
+  "clave": "mover.izquierda",
+  "texto": "左に移動"
+ },
+ {
+  "clave": "mover.derecha",
+  "texto": "右に移動"
+ },
+ {
+  "clave": "progreso.nv",
+  "texto": "Lv"
+ },
+ {
+  "clave": "prop.restablecer",
+  "texto": "リセット"
+ },
+ {
+  "clave": "respaldo.ahora",
+  "texto": "バックアップ"
+ }
+]

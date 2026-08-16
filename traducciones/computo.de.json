@@ -1,0 +1,430 @@
+[
+  {
+    "ruta": "carpetas.0.nombre",
+    "texto": "Physik II"
+  },
+  {
+    "ruta": "carpetas.1.nombre",
+    "texto": "Klausuren"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.nombre",
+    "texto": "Ort bei konstanter Beschleunigung"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.0.nombre",
+    "texto": "Anfangsposition"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.1.nombre",
+    "texto": "Anfangsgeschwindigkeit"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.2.nombre",
+    "texto": "Beschleunigung"
+  },
+  {
+    "ruta": "carpetas.1.formulas.0.variables.3.nombre",
+    "texto": "Zeit"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.nombre",
+    "texto": "Torricelli (Geschwindigkeit ohne Zeit)"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.0.nombre",
+    "texto": "Anfangsgeschwindigkeit"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.1.nombre",
+    "texto": "Beschleunigung"
+  },
+  {
+    "ruta": "carpetas.1.formulas.1.variables.2.nombre",
+    "texto": "Verschiebung"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.nombre",
+    "texto": "Kinetische Energie"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.descripcion",
+    "texto": "Bei fester eigener Masse: Ich berechne sie fast immer für mich selbst beim Laufen."
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.0.nombre",
+    "texto": "Masse"
+  },
+  {
+    "ruta": "carpetas.1.formulas.2.variables.1.nombre",
+    "texto": "Geschwindigkeit"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.nombre",
+    "texto": "Hookesches Gesetz"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.0.nombre",
+    "texto": "Federkonstante"
+  },
+  {
+    "ruta": "carpetas.1.formulas.3.variables.1.nombre",
+    "texto": "Auslenkung"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.nombre",
+    "texto": "Periode des mathematischen Pendels"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.0.nombre",
+    "texto": "Länge"
+  },
+  {
+    "ruta": "carpetas.1.formulas.4.variables.1.nombre",
+    "texto": "Erdbeschleunigung"
+  },
+  {
+    "ruta": "carpetas.2.nombre",
+    "texto": "Das Café"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.nombre",
+    "texto": "Kosten pro Tasse"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.descripcion",
+    "texto": "Was es kostet, eine Tasse zu servieren, ohne meine Zeit mitzurechnen."
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.0.nombre",
+    "texto": "Preis pro Kilo Kaffee"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.1.nombre",
+    "texto": "Gramm pro Tasse"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.2.nombre",
+    "texto": "Kosten für die Milch"
+  },
+  {
+    "ruta": "carpetas.2.formulas.0.variables.3.nombre",
+    "texto": "Becher und Deckel"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.nombre",
+    "texto": "Marge auf den Preis"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.tex",
+    "texto": "Marge = \\dfrac{Preis - Kosten}{Preis} \\times 100"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.0.nombre",
+    "texto": "Verkaufspreis"
+  },
+  {
+    "ruta": "carpetas.2.formulas.1.variables.1.nombre",
+    "texto": "Kosten pro Tasse"
+  },
+  {
+    "ruta": "carpetas.3.nombre",
+    "texto": "Laufen"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.nombre",
+    "texto": "Tempo pro Kilometer"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.tex",
+    "texto": "Tempo = \\dfrac{Minuten}{km}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.0.nombre",
+    "texto": "Minuten insgesamt"
+  },
+  {
+    "ruta": "carpetas.3.formulas.0.variables.1.nombre",
+    "texto": "Kilometer"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.nombre",
+    "texto": "Tempo für das Marathonziel"
+  },
+  {
+    "ruta": "carpetas.3.formulas.1.variables.0.nombre",
+    "texto": "Ziel in Minuten"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.nombre",
+    "texto": "Ungefähres VO₂max"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.tex",
+    "texto": "VO_{2}\\,max \\approx 15.3\\,\\dfrac{HF_{max}}{HF_{ruhe}}"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.descripcion",
+    "texto": "Die Uth-Formel: ungefähr, aber gut genug, um zu sehen, ob ich mich verbessere."
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.nombre",
+    "texto": "Maximale Herzfrequenz"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.0.unidad",
+    "texto": "Schläge/min"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.nombre",
+    "texto": "Herzfrequenz in Ruhe"
+  },
+  {
+    "ruta": "carpetas.3.formulas.2.variables.1.unidad",
+    "texto": "Schläge/min"
+  },
+  {
+    "ruta": "hojas.0.nombre",
+    "texto": "Budget Japan"
+  },
+  {
+    "ruta": "hojas.0.celdas.A1.crudo",
+    "texto": "Tag"
+  },
+  {
+    "ruta": "hojas.0.celdas.B1.crudo",
+    "texto": "Essen"
+  },
+  {
+    "ruta": "hojas.0.celdas.C1.crudo",
+    "texto": "Transport"
+  },
+  {
+    "ruta": "hojas.0.celdas.D1.crudo",
+    "texto": "Tickets"
+  },
+  {
+    "ruta": "hojas.0.celdas.E1.crudo",
+    "texto": "Einkäufe"
+  },
+  {
+    "ruta": "hojas.0.celdas.A2.crudo",
+    "texto": "Tag 1"
+  },
+  {
+    "ruta": "hojas.0.celdas.A3.crudo",
+    "texto": "Tag 2"
+  },
+  {
+    "ruta": "hojas.0.celdas.A4.crudo",
+    "texto": "Tag 3"
+  },
+  {
+    "ruta": "hojas.0.celdas.A5.crudo",
+    "texto": "Tag 4"
+  },
+  {
+    "ruta": "hojas.0.celdas.A6.crudo",
+    "texto": "Tag 5"
+  },
+  {
+    "ruta": "hojas.0.celdas.A7.crudo",
+    "texto": "Tag 6"
+  },
+  {
+    "ruta": "hojas.0.celdas.A8.crudo",
+    "texto": "Tag 7"
+  },
+  {
+    "ruta": "hojas.0.celdas.A9.crudo",
+    "texto": "Tag 8"
+  },
+  {
+    "ruta": "hojas.0.celdas.A10.crudo",
+    "texto": "Tag 9"
+  },
+  {
+    "ruta": "hojas.0.celdas.A11.crudo",
+    "texto": "Tag 10"
+  },
+  {
+    "ruta": "hojas.0.celdas.A12.crudo",
+    "texto": "Tag 11"
+  },
+  {
+    "ruta": "hojas.0.celdas.A13.crudo",
+    "texto": "Tag 12"
+  },
+  {
+    "ruta": "hojas.0.celdas.A14.crudo",
+    "texto": "Tag 13"
+  },
+  {
+    "ruta": "hojas.0.celdas.A15.crudo",
+    "texto": "Tag 14"
+  },
+  {
+    "ruta": "hojas.0.celdas.A18.crudo",
+    "texto": "Tagesdurchschnitt"
+  },
+  {
+    "ruta": "hojas.0.celdas.A20.crudo",
+    "texto": "Reisesumme ¥"
+  },
+  {
+    "ruta": "hojas.0.celdas.A21.crudo",
+    "texto": "Wechselkurs (MXN/¥)"
+  },
+  {
+    "ruta": "hojas.0.celdas.A22.crudo",
+    "texto": "Gesamt in Pesos"
+  },
+  {
+    "ruta": "hojas.1.nombre",
+    "texto": "18-Wochen-Plan"
+  },
+  {
+    "ruta": "hojas.1.celdas.A1.crudo",
+    "texto": "Woche"
+  },
+  {
+    "ruta": "hojas.1.celdas.B1.crudo",
+    "texto": "Kilometer"
+  },
+  {
+    "ruta": "hojas.1.celdas.C1.crudo",
+    "texto": "Änderung %"
+  },
+  {
+    "ruta": "hojas.1.celdas.D1.crudo",
+    "texto": "Langer Lauf"
+  },
+  {
+    "ruta": "hojas.1.celdas.A2.crudo",
+    "texto": "Woche 1"
+  },
+  {
+    "ruta": "hojas.1.celdas.A3.crudo",
+    "texto": "Woche 2"
+  },
+  {
+    "ruta": "hojas.1.celdas.A4.crudo",
+    "texto": "Woche 3"
+  },
+  {
+    "ruta": "hojas.1.celdas.A5.crudo",
+    "texto": "Woche 4"
+  },
+  {
+    "ruta": "hojas.1.celdas.A6.crudo",
+    "texto": "Woche 5"
+  },
+  {
+    "ruta": "hojas.1.celdas.A7.crudo",
+    "texto": "Woche 6"
+  },
+  {
+    "ruta": "hojas.1.celdas.A8.crudo",
+    "texto": "Woche 7"
+  },
+  {
+    "ruta": "hojas.1.celdas.A9.crudo",
+    "texto": "Woche 8"
+  },
+  {
+    "ruta": "hojas.1.celdas.A10.crudo",
+    "texto": "Woche 9"
+  },
+  {
+    "ruta": "hojas.1.celdas.A11.crudo",
+    "texto": "Woche 10"
+  },
+  {
+    "ruta": "hojas.1.celdas.A12.crudo",
+    "texto": "Woche 11"
+  },
+  {
+    "ruta": "hojas.1.celdas.A13.crudo",
+    "texto": "Woche 12"
+  },
+  {
+    "ruta": "hojas.1.celdas.A14.crudo",
+    "texto": "Woche 13"
+  },
+  {
+    "ruta": "hojas.1.celdas.A15.crudo",
+    "texto": "Woche 14"
+  },
+  {
+    "ruta": "hojas.1.celdas.A16.crudo",
+    "texto": "Woche 15"
+  },
+  {
+    "ruta": "hojas.1.celdas.A17.crudo",
+    "texto": "Woche 16"
+  },
+  {
+    "ruta": "hojas.1.celdas.A18.crudo",
+    "texto": "Woche 17"
+  },
+  {
+    "ruta": "hojas.1.celdas.A19.crudo",
+    "texto": "Woche 18"
+  },
+  {
+    "ruta": "hojas.1.celdas.A22.crudo",
+    "texto": "Spitzenwoche"
+  },
+  {
+    "ruta": "hojas.1.celdas.A23.crudo",
+    "texto": "Durchschnitt"
+  },
+  {
+    "ruta": "hojas.2.nombre",
+    "texto": "Physik-II-Noten"
+  },
+  {
+    "ruta": "hojas.2.celdas.A1.crudo",
+    "texto": "Bewertung"
+  },
+  {
+    "ruta": "hojas.2.celdas.B1.crudo",
+    "texto": "Gewichtung"
+  },
+  {
+    "ruta": "hojas.2.celdas.C1.crudo",
+    "texto": "Note"
+  },
+  {
+    "ruta": "hojas.2.celdas.D1.crudo",
+    "texto": "Beitrag"
+  },
+  {
+    "ruta": "hojas.2.celdas.A2.crudo",
+    "texto": "Klausur 1"
+  },
+  {
+    "ruta": "hojas.2.celdas.A3.crudo",
+    "texto": "Klausur 2"
+  },
+  {
+    "ruta": "hojas.2.celdas.A4.crudo",
+    "texto": "Hausaufgaben"
+  },
+  {
+    "ruta": "hojas.2.celdas.A5.crudo",
+    "texto": "Labor"
+  },
+  {
+    "ruta": "hojas.2.celdas.A8.crudo",
+    "texto": "Bisherige Gewichtung"
+  },
+  {
+    "ruta": "hojas.2.celdas.A9.crudo",
+    "texto": "Zwischenstand"
+  },
+  {
+    "ruta": "hojas.2.celdas.A10.crudo",
+    "texto": "Nötig in der Endklausur"
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "La bacheca"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "Le stesse cose da fare, in tre colonne: da fare, in corso e fatto. Tieni premuta una scheda per trascinarla in un'altra colonna —lasciarla su «fatto» la spunta anche nel calendario—, oppure spostala con le frecce."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "L'anno del ginocchio"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "Nutrizione ogni pochi mesi, il dentista e le sei sedute di fisioterapia del settimo mese: l'infortunio che ha fermato Pep è registrato qui."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "Farmaci"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "Ogni farmaco crea un blocco per ogni assunzione nel calendario. L'antinfiammatorio dell'infortunio è durato tre settimane ed è finito in archivio; la vitamina continua."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "Laika"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "La gatta ha la sua scheda con peso e veterinario, e le sue cure ricorrenti: vaccino ogni anno, sverminazione ogni tre mesi, bagno ogni mese. Quando le dai per fatte, la prossima data si ricalcola da sola."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "La cerchia di Pep"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "Famiglia, amicizie, gente del lavoro e dell'università, ognuno nella sua cartella. Con il telefono, l'indirizzo e quello che non vuoi dimenticare."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "Compleanni che non si dimenticano"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "Quando salvi una data di nascita, il compleanno si ripete ogni anno nel calendario e ti avvisa. L'età la calcola l'app da sola."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "Quello che programmi con qualcuno resta agganciato al suo contatto: così vedi a quando risale l'ultima volta che vi siete visti."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "Un anno in tre numeri"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "La serie conta i giorni di fila con qualcosa di registrato, e l'aderenza confronta i giorni attivi con quelli che ti eri dato come obiettivo. Pep ha iniziato l'anno senza riuscire a correre due isolati."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "Le tre discipline"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "Le barre misurano quello che hai fatto rispetto ai tuoi obiettivi: sessioni di forza, minuti di corsa e minuti di mobilità. L'obiettivo si adatta al periodo che scegli qui sopra."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "Gli obiettivi dell'anno"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "Catalogo, routine e progresso"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "Ogni disciplina è organizzata allo stesso modo: il catalogo degli esercizi, le tue routine con il loro storico e il progresso. Iniziamo da quello che Pep ha già corso."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "Ogni uscita resta scritta"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "Lo storico si raggruppa per anno, mese e settimana. Le gare importanti conservano anche il tracciato del percorso e i suoi tratti: lì c'è la maratona, con i suoi parziali di dieci chilometri."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "La mappa di calore non mente"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "Anche i vuoti raccontano la storia: il mese dell'infortunio al ginocchio è vuoto e le tre settimane in Giappone quasi. Di fianco compaiono i chilometri totali, l'uscita più lunga e il miglior ritmo."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "Serie, ripetizioni e peso"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "Ogni sessione conserva i suoi esercizi con il peso che hai sollevato. L'app ricorda l'ultima volta, così non devi cercarla, e somma il volume totale del giorno."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "La curva di un anno"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "Scegli un esercizio e vedrai come è salita: lo squat di Pep è passato da quaranta chili a settanta. Nel mese dell'infortunio ha allenato solo la parte superiore, e quella curva non se n'è nemmeno accorta."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "I tuoi record, senza chiederli"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "Di ogni esercizio si conservano il miglior peso, il massimo di ripetizioni e una stima del tuo 1RM. Quelli a peso corporeo, come le trazioni alla sbarra, si segnano a parte."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "Passo 1: dove vuoi arrivare"
+  }
+]

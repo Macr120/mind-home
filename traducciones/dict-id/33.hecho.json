@@ -1,0 +1,118 @@
+[
+  {
+    "clave": "chat.manual.cat.ayuda",
+    "texto": "Bantuan dan tutorial"
+  },
+  {
+    "clave": "chat.manual.nota.ayuda",
+    "texto": "Tanyakan cara kerja aplikasi atau menu apa pun, atau minta tutorialnya: penyihir menunjukkannya di layar langkah demi langkah. Dalam bahasa Inggris, tur di layar sudah tersedia untuk editor, chat, dan menu; sisanya dijawab oleh asisten (AI)."
+  },
+  {
+    "clave": "tut.casa.titulo",
+    "texto": "Rumahmu"
+  },
+  {
+    "clave": "tut.casa.resumen",
+    "texto": "Rumah adalah peta aplikasimu: setiap ruangan menampung satu aplikasi. Kamu bergerak dengan joystick atau WASD, mengganti tampilan dengan V, dan membuka menu dengan tombol di kiri atas. Kubus di pojok berubah sendiri sesuai apa yang ada di dekatmu; jamnya menyimpan kalender, rutinitas, dan musik."
+  },
+  {
+    "clave": "tut.primeros.titulo",
+    "texto": "Langkah pertama"
+  },
+  {
+    "clave": "tut.primeros.resumen",
+    "texto": "Buat ruangan dari menu, tetapkan aplikasinya, dan masuk untuk melihatnya."
+  },
+  {
+    "clave": "tut.primeros.2a.titulo",
+    "texto": "Roda alat"
+  },
+  {
+    "clave": "tut.primeros.2a.texto",
+    "texto": "Di ponsel, ruangan digambar langsung di atas peta, tanpa membuka panel. Semuanya berawal dari tombol ini di sebelah joystick: roda alat."
+  },
+  {
+    "clave": "tut.primeros.2b.titulo",
+    "texto": "Bangunan"
+  },
+  {
+    "clave": "tut.primeros.2b.texto",
+    "texto": "Roda ini punya dua level. Kategori keempatnya adalah yang membangun rumah: ruangan, dinding, pintu, jendela, lantai, dan atap."
+  },
+  {
+    "clave": "tut.primeros.2c.titulo",
+    "texto": "Mode Ruangan"
+  },
+  {
+    "clave": "tut.primeros.2c.texto",
+    "texto": "Ruangan menyiapkan kuasnya: roda menutup dan setiap sentuhan di tanah membangun ruangan baru. Supaya bisa menunjukkan sisa jalannya, sekarang aku buatkan satu untukmu…"
+  },
+  {
+    "clave": "tut.menu-cuartos.titulo",
+    "texto": "Menu · Ruangan"
+  },
+  {
+    "clave": "tut.menu-cuartos.resumen",
+    "texto": "Tab Ruangan mencantumkan ruangan-ruangan rumahmu per kategori, lengkap dengan progresnya. Setiap kartu punya Edit (menyesuaikan ruangan) dan Masuk (membuka aplikasinya), atau + Tetapkan jika belum punya aplikasi. Di atas ada ringkasanmu: suasana hati, pangkat, dan runtunan; di bawah kamu bisa membuat ruangan baru."
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.titulo",
+    "texto": "Pangkat, lencana, dan ringkasan"
+  },
+  {
+    "clave": "tut.menu-cuartos.2b.texto",
+    "texto": "Dua cincin di samping karaktermu adalah Gunung Sisifus (pangkat 1 sampai 12 dan lencana), dan di bawahnya ada Wrapped-mu, ringkasan minggu, bulan, atau tahunmu. Keduanya punya tutorialnya sendiri."
+  },
+  {
+    "clave": "tut.menu-plantillas.titulo",
+    "texto": "Menu · Templat"
+  },
+  {
+    "clave": "tut.menu-plantillas.resumen",
+    "texto": "Templat adalah aplikasi-aplikasi rumah: ditetapkan ke sebuah objek di suatu ruangan. Tab ini punya dua tampilan —Ruangan (aplikasi biasa) dan Ekstra (yang dibangun langsung di peta)— dan katalognya juga mencakup templat yang kamu susun sendiri dari blok."
+  },
+  {
+    "clave": "tut.plantillas-custom.titulo",
+    "texto": "Templat buatanmu sendiri"
+  },
+  {
+    "clave": "tut.plantillas-custom.resumen",
+    "texto": "Editor templat sendiri menyusun aplikasi lengkap dari blok: catatan, checklist, penghitung, tautan, kebiasaan, galeri, dan lainnya. Kamu beri nama, emoji, dan warna, pilih bloknya, dan siap ditetapkan seperti aplikasi lainnya."
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.titulo",
+    "texto": "Menu dan submenu"
+  },
+  {
+    "clave": "tut.plantillas-custom.menus.texto",
+    "texto": "Kalau aplikasimu berkembang, bagi ke dalam tab atas: setiap menu punya nama dan emojinya sendiri, bisa punya submenu, dan kamu menambahkan alat ke menu mana pun yang kamu mau. Tanpa menu, semuanya ada di satu layar saja."
+  },
+  {
+    "clave": "tut.menu-inventario.titulo",
+    "texto": "Menu · Inventaris"
+  },
+  {
+    "clave": "tut.menu-inventario.resumen",
+    "texto": "Inventaris menyimpan objek untuk mendekorasi rumah: perpustakaan per kategori dan objek khusus (kendaraan, air mancur, wahana taman bermain, lampu). Dengan menu terbuka kamu bisa menyeretnya langsung ke peta."
+  },
+  {
+    "clave": "tut.editor-mapa.titulo",
+    "texto": "Editor · Peta"
+  },
+  {
+    "clave": "tut.editor-mapa.resumen",
+    "texto": "Editor menyesuaikan seluruh rumah dalam 4 tab: Peta, Karakter, Objek, dan Pengaturan — masing-masing dengan tutorialnya sendiri. Tab Peta menggambar ruangan, dinding, pintu, jendela, lantai, dan atap di atas denah yang langsung terlihat dalam 3D, dan juga memberi level: lantai yang bisa ditumpuk dan ruang bawah tanah."
+  },
+  {
+    "clave": "tut.editor-personajes.titulo",
+    "texto": "Editor · Karakter"
+  },
+  {
+    "clave": "tut.editor-personajes.resumen",
+    "texto": "Avatarmu dan asistenmu berbagi editor yang sama: tubuh, wajah (dengan foto), warna, ukuran, pakaian, dan animasi, dengan pratinjau 3D. Avatarnya juga punya lemari pakaian sesuai kebutuhan dan bisa berpakaian berbeda di setiap ruangan."
+  },
+  {
+    "clave": "tut.editor-objetos.titulo",
+    "texto": "Editor · Objek"
+  }
+]

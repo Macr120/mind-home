@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "هذا دفتر ذكريات بيب: سنة كاملة، ومدخلان أو ثلاثة كل أسبوع. هنا تُروى الحكاية كاملة — من الضجر في البداية إلى الماراثون قبل أسبوعين."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "طريقة الكتابة"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "اختر مزاج اليوم، وأضف عنوانًا إن أردت، ثم اكتب وأرفق صورًا. تكفي صورة واحدة: لا حاجة إلى نص."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "السنة بالألوان"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "كل يوم يأخذ لون مزاجه. انظر إلى انخفاض الشهر 7 (الإصابة) وكم تبدو اليابان مشرقة. المس يومًا لتصفية مدخلاته."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "الأرشيف"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "تُحفظ المدخلات وحدها في مجلدات حسب السنة والشهر والأسبوع. افتح أسابيع اليابان واقرأ الرحلة كاملة."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "محطات سنة بيب الفارقة تحمل صورة: البيانو المستعمل، ووصول لايكا، وبطاقتان بريديتان من اليابان، وميدالية الماراثون."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "ابحث عنها في السجل"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "افتح الشهر 2 (البيانو)، أو الشهر 9 (اليابان)، أو ما قبل أسبوعين (الميدالية). المس أي صورة وستفتح بملء الشاشة."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "كل مدخل يغذي السلسلة ويوقظ الشخصية: الكتابة هنا هي أيضًا عناية بالبيت."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "الهدوء المتراكم"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "كل دقيقة من الممارسة تسقي هذه الحديقة. حديقة بيب نمت سنة كاملة: من بذرة إلى غابة."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "التأمل مع الصوت"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "اختر مقطعًا صوتيًا (الغابة، المحيط، المطر، الأوعية التبتية) ومدة، أو تأمل في صمت مع جرس. تُحفظ الجلسة وحدها عند انتهائها."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "سنة من الجلسات"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "هذه سنة بيب: بدأت بثلاث مرات في الأسبوع، وفي الشهر 7 — الإصابة، ومصروف السيارة — صارت الممارسة شبه يومية. وهي ما جعل تجاوز ذلك الانخفاض ممكنًا."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "التنفس"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "نمطان موجهان: التنفس الصندوقي 4-4-4-4 لاستعادة تركيزك، والتنفس 4-7-8 لتترك اليوم يمضي. الشاشة تتنفس معك."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "اليوم أشكر على…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "ثلاثة أسطر في اليوم. سطر واحد يكفي، وثلاثة أفضل. يُحفظ إدخال واحد لكل يوم، ويمكن تصحيحه أثناء الكتابة."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "امتنان بيب"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "تسعون يومًا من امتنان حقيقي: البيانو، ولايكا نائمة فوق الملاحظات، والركبة وهي تتعافى، والعودة من اليابان. اقرأها على مهل."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "هذه الغرفة لا تحسب سلاسل ولا تعاقب على يوم فائت: هذا مقصود. الهدوء ليس مسابقة."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "هوايتان، سنة واحدة"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "لدى بيب هوايتان: البيانو (مشروع السنة، بهدف 4 أيام في الأسبوع) والتصوير الفلكي. كل بطاقة تعرض الأسبوع الجاري والسلسلة."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "البيانو من الداخل"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "السلسلة، وأفضل سلسلة، وإجمالي الممارسة، والأيام النشطة، والمتوسط. سنة على مفاتيح البيانو — مع فترة التوقف الصادقة في اليابان."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "خريطة النشاط"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "كل مربع صغير هو يوم. يظهر الانطلاق في الشهر 2، وكيف حمل البيانو انخفاض الشهر 7، وفجوة الأسابيع الثلاثة في اليابان."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "الجلسات"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "كل ممارسة بدقائقها، وكثير منها بملاحظة: من «تؤلمني يداي» إلى عزف «Clair de Lune» كاملة."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "المشاريع"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "الممارسة بوجهة: القطعة الأولى (اكتملت في الشهر 5) و«Clair de Lune» التي عزفت للعائلة قبل أسبوع."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "مشاريع البيانو"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "المشروع يجمع الجلسات التي خصصتها له: يظهر هنا عددها وكم دقيقة يحمل كل مشروع."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "التقدم بالصور"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "«Clair de Lune» يحفظ النوتة الموسيقية بملاحظاتها. وفي التصوير الفلكي، يجمع مشروع الأقمار المكتملة الاثني عشر أفضل لقطات السنة."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "يمكنك أيضًا تسجيل الجلسات عبر المحادثة («تدربت على البيانو 30 دقيقة») وتخطيط أهداف المشروع من الجدول الزمني."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "إضافة هواية"
+  }
+]

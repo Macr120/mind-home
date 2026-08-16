@@ -1,0 +1,130 @@
+[
+  {
+    "clave": "tut.editor-mapa.3.texto",
+    "texto": "屋顶是按格子来的：每个格子都能有自己的形状或材质，所以同一个房间可以拼出不同的坡面，而不只是一整块平屋顶。"
+  },
+  {
+    "clave": "tut.editor-mapa.4.texto",
+    "texto": "家还有层数：向上可叠加楼层，向下有地下室。每个新楼层生来就自带上去的方式——一段楼梯，或者楼板上的一个开口——它会穿透上面那层地板。"
+  },
+  {
+    "clave": "tut.editor-mapa.5.titulo",
+    "texto": "完成"
+  },
+  {
+    "clave": "tut.editor-mapa.5.texto",
+    "texto": "编辑时一切都会自动保存。“完成”会关闭编辑器，带你回到游戏，家还是你离开时的样子。"
+  },
+  {
+    "clave": "tut.editor-personajes.1.texto",
+    "texto": "你的主角和助手都在同一个编辑器里：在上方选择要编辑谁，工具就会换成适合对方的那些。"
+  },
+  {
+    "clave": "tut.editor-personajes.2.titulo",
+    "texto": "脸部和照片"
+  },
+  {
+    "clave": "tut.editor-personajes.2.texto",
+    "texto": "表情、发型和发色，或者直接用你的照片，让角色长得像你。不是所有身体都支持自定义脸部。"
+  },
+  {
+    "clave": "tut.editor-personajes.3.titulo",
+    "texto": "按分类穿衣"
+  },
+  {
+    "clave": "tut.editor-personajes.3.texto",
+    "texto": "每件衣物都能单独穿上、脱下和换色：上衣、裤子、鞋子、配饰。可以随意搭配。"
+  },
+  {
+    "clave": "tut.editor-personajes.4.titulo",
+    "texto": "保存的穿搭"
+  },
+  {
+    "clave": "tut.editor-personajes.4.texto",
+    "texto": "把一整套衣物保存成一个穿搭，点一下就能整身换好，不用每次一件件重新搭。"
+  },
+  {
+    "clave": "tut.editor-personajes.5.titulo",
+    "texto": "按房间的衣柜"
+  },
+  {
+    "clave": "tut.editor-personajes.5.texto",
+    "texto": "给每个房间分配不同的穿搭：你的虚拟形象进“健身房”时穿着跑步装，走到“厨房”就自动换掉。"
+  },
+  {
+    "clave": "tut.editor-personajes.6.texto",
+    "texto": "身体、颜色和大小还是照旧编辑；开启AI后，你还可以生成专属的3D模型，而不用从预设里挑。"
+  },
+  {
+    "clave": "tut.editor-objetos.1.texto",
+    "texto": "点一下场景里（或列表里）的物件就能编辑：颜色、大小和旋转是所有物件共有的三项设置。"
+  },
+  {
+    "clave": "tut.editor-objetos.2.texto",
+    "texto": "分配了应用的物件，进入房间时会打开它的模板；没分配的就只是装饰——两者的编辑方式一样。"
+  },
+  {
+    "clave": "tut.editor-objetos.3.texto",
+    "texto": "物件上的齿轮⚙️能让它按零件来编辑：用基本形状组合出自己的模型，或者描述一下，让AI给你做一个。"
+  },
+  {
+    "clave": "tut.editor-config.1.texto",
+    "texto": "8个可折叠的区块，而不是一长串列表：点标题，只展开你关心的那个。"
+  },
+  {
+    "clave": "tut.editor-config.2.titulo",
+    "texto": "账户与AI"
+  },
+  {
+    "clave": "tut.editor-config.2.texto",
+    "texto": "登录、你的套餐，以及这个月用掉多少AI；旁边就是每项操作的价目表。两者都有各自的详细教程。"
+  },
+  {
+    "clave": "tut.editor-config.3.titulo",
+    "texto": "视觉风格"
+  },
+  {
+    "clave": "tut.editor-config.3.texto",
+    "texto": "地图的主题（光线、雾气、照明）和后期处理风格，全都按需加载，不会白白增加负担。"
+  },
+  {
+    "clave": "tut.editor-config.4.titulo",
+    "texto": "界面与语言"
+  },
+  {
+    "clave": "tut.editor-config.4.texto",
+    "texto": "语言、界面主题（浅色/深色/自动）、图标样式和密度——都是改变家“看起来怎么样”的东西，而不是里面装着什么。"
+  },
+  {
+    "clave": "tut.editor-config.5.titulo",
+    "texto": "通知"
+  },
+  {
+    "clave": "tut.editor-config.5.texto",
+    "texto": "哪些提醒会来，哪些保持安静：日常安排、计划通知和提醒事项都能单独关掉。"
+  },
+  {
+    "clave": "tut.editor-config.6.texto",
+    "texto": "“音乐”和“教程”有各自的导览；“数据备份”也有，而且换设备前最值得先看看的就是它。"
+  },
+  {
+    "clave": "tut.respaldo.1.titulo",
+    "texto": "你的家住在哪里"
+  },
+  {
+    "clave": "tut.respaldo.1.texto",
+    "texto": "没有账户也没有同步时，你的数据只存在这台设备上。上面的提示会告诉你，浏览器有没有权限保护它不被自动清理掉。"
+  },
+  {
+    "clave": "tut.respaldo.2.titulo",
+    "texto": "导出"
+  },
+  {
+    "clave": "tut.respaldo.2.texto",
+    "texto": "下载一个JSON文件，里面装着你所有的表：房间、目标、记录，全都有。这就是你手动的备份。"
+  },
+  {
+    "clave": "tut.respaldo.3.titulo",
+    "texto": "恢复"
+  }
+]

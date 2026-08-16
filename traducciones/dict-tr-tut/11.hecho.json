@@ -1,0 +1,162 @@
+[
+  {
+    "clave": "tut.app-anecdotario--diario.1.texto",
+    "texto": "Bu, Pep’in anı defteri: koca bir yıl, haftada iki üç kayıt. Hikâyenin TAMAMI burada anlatılıyor — baştaki bıkkınlıktan iki hafta önceki maratona kadar."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.titulo",
+    "texto": "Böyle yazılır"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.2.texto",
+    "texto": "Günün ruh halini seç, istersen bir başlık koy, yaz ve fotoğraf ekle. Tek bir fotoğraf yeter: metin şart değil."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.titulo",
+    "texto": "Renklerle bir yıl"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.3.texto",
+    "texto": "Her gün kendi ruh haliyle boyanır. 7. aydaki çukura bak (sakatlık) ve Japonya’nın ne kadar parlak göründüğüne. Kayıtlarını süzmek için bir güne dokun."
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.titulo",
+    "texto": "Arşiv"
+  },
+  {
+    "clave": "tut.app-anecdotario--diario.4.texto",
+    "texto": "Kayıtlar kendiliğinden yıla, aya ve haftaya göre klasörlere düşer. Japonya haftalarını aç ve yolculuğun tamamını oku."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.1.texto",
+    "texto": "Pep’in yılındaki dönüm noktalarının fotoğrafı var: ikinci el klavye, Laika’nın gelişi, Japonya’dan iki kartpostal ve maraton madalyası."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.titulo",
+    "texto": "Geçmişte ara"
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.2.texto",
+    "texto": "2. ayı (klavye), 9. ayı (Japonya) ya da iki hafta öncesini (madalya) aç. Herhangi bir fotoğrafa dokun, tam ekran açılsın."
+  },
+  {
+    "clave": "tut.app-anecdotario--fotos.3.texto",
+    "texto": "Her kayıt seriyi besler ve karakteri uyandırır: burada yazmak da evi kollamaktır."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.titulo",
+    "texto": "Birikmiş huzur"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.1.texto",
+    "texto": "Her pratik dakikası bu bahçeyi sular. Pep’inki koca bir yıl büyüdü: tohumdan ormana."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.titulo",
+    "texto": "Sesle meditasyon"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.2.texto",
+    "texto": "Bir ses parçası (orman, deniz, yağmur, çanaklar) ve bir süre seç, ya da çanla sessizce meditasyon yap. Seans bitince kendiliğinden kaydedilir."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.titulo",
+    "texto": "Bir yıllık seanslar"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.3.texto",
+    "texto": "Pep’in yılı burada: haftada üçle başladı, 7. ayda —sakatlık, arabanın masrafı— pratik neredeyse günlük hale geldi. Çukurda onu ayakta tutan da bu oldu."
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.titulo",
+    "texto": "Nefes"
+  },
+  {
+    "clave": "tut.app-jardin--practicar.4.texto",
+    "texto": "İki rehberli desen: odaklanmak için kutu nefesi 4-4-4-4, günü bırakmak için 4-7-8. Ekran seninle birlikte nefes alır."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.titulo",
+    "texto": "Bugün minnettarım…"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.1.texto",
+    "texto": "Günde üç satır. Bir tanesi yeter; üç, daha iyi. Günde tek kayıt tutulur ve gidişata göre düzeltilebilir."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.titulo",
+    "texto": "Pep’inkiler"
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.2.texto",
+    "texto": "Doksan günlük gerçek şükran: klavye, notların üstünde uyuyakalan Laika, iyileşen diz, Japonya’dan dönmek. Acele etmeden oku."
+  },
+  {
+    "clave": "tut.app-jardin--gratitud.3.texto",
+    "texto": "Bu odada seri yok, bir günü kaçırmanın cezası da: bilerek böyle. Huzur yarış değildir."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.titulo",
+    "texto": "İki hobi, bir yıl"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.1.texto",
+    "texto": "Pep iki tane tuttu: piyano (yılın projesi, haftada 4 gün hedefi) ve astrofotoğrafçılık. Her kart yürüyen haftayı ve seriyi gösterir."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.titulo",
+    "texto": "Piyanonun içinde"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.2.texto",
+    "texto": "Seri, en iyi seri, toplam pratik, aktif gün ve ortalama. Tuşların başında bir yıl — Japonya’daki dürüst molasıyla birlikte."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.titulo",
+    "texto": "Isı haritası"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.3.texto",
+    "texto": "Her kare bir gün. 2. aydaki başlangıç, piyanonun 7. aydaki çukuru nasıl AYAKTA TUTTUĞU ve Japonya’daki üç haftanın boşluğu görülüyor."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.titulo",
+    "texto": "Seanslar"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.4.texto",
+    "texto": "Her pratik dakikalarıyla, çoğu da notuyla: «ellerim ağrıyor»dan «Clair de Lune»ü baştan sona çıkarmaya kadar."
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.titulo",
+    "texto": "Projeler"
+  },
+  {
+    "clave": "tut.app-hobbies--piano.5.texto",
+    "texto": "Yönü olan pratik: ilk parça (5. ayda bitti) ve bir hafta önce aileye çalınan «Clair de Lune»."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.titulo",
+    "texto": "Piyanonun projeleri"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.1.texto",
+    "texto": "Bir proje, ona ayırdığın seansları bir araya toplar: burada her birinin kaç seans ve kaç dakika biriktirdiğini görürsün."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.titulo",
+    "texto": "Fotoğraflarla ilerleme"
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.2.texto",
+    "texto": "«Clair de Lune» üzerine not düşülmüş notayı saklar. Astrofotoğrafçılıkta ise on iki dolunay projesi yılın en iyi karelerini bir araya getirir."
+  },
+  {
+    "clave": "tut.app-hobbies--proyectos.3.texto",
+    "texto": "Seansları sohbetten de kaydedebilirsin («30 dk piyano çalıştım») ve projenin hedeflerini planlayıcıyla planlayabilirsin."
+  },
+  {
+    "clave": "tut.app-hobbies--gestion.1.titulo",
+    "texto": "Hobi eklemek"
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "clave": "tut.app-agenda--trabajo.3.titulo",
+    "texto": "Das Board"
+  },
+  {
+    "clave": "tut.app-agenda--trabajo.3.texto",
+    "texto": "Dieselben Aufgaben, in drei Spalten: offen, in Arbeit und erledigt. Halte eine Karte gedrückt, um sie in eine andere Spalte zu ziehen – lässt du sie auf „Erledigt“ los, wird sie auch im Kalender abgehakt –, oder verschieb sie mit den Pfeilen."
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.titulo",
+    "texto": "Das Jahr des Knies"
+  },
+  {
+    "clave": "tut.app-agenda--salud.1.texto",
+    "texto": "Ernährungsberatung alle paar Monate, Zahnarzt und die sechs Physiotherapie-Sitzungen im 7. Monat: Die Verletzung, die Pep ausgebremst hat, steht hier."
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.titulo",
+    "texto": "Medikamente"
+  },
+  {
+    "clave": "tut.app-agenda--salud.2.texto",
+    "texto": "Jedes Medikament erzeugt für jede Einnahme einen Block im Kalender. Der Entzündungshemmer nach der Verletzung hielt drei Wochen und wurde archiviert; das Vitamin läuft weiter."
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.titulo",
+    "texto": "Laika"
+  },
+  {
+    "clave": "tut.app-agenda--salud.3.texto",
+    "texto": "Die Katze hat ihren eigenen Steckbrief mit Gewicht und Tierarzt, dazu ihre Pflege mit Rhythmus: Impfung jedes Jahr, Entwurmung alle drei Monate, Baden jeden Monat. Hakst du eine ab, rechnet sich der nächste Termin von selbst aus."
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.titulo",
+    "texto": "Peps Kreis"
+  },
+  {
+    "clave": "tut.app-agenda--personas.1.texto",
+    "texto": "Familie, Freunde, Leute aus der Arbeit und von der Uni, jeder in seinem Ordner. Mit Telefon, Adresse und allem, was du nicht vergessen willst."
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.titulo",
+    "texto": "Geburtstage, die du nicht vergisst"
+  },
+  {
+    "clave": "tut.app-agenda--personas.2.texto",
+    "texto": "Speicherst du ein Geburtsdatum, wiederholt sich der Geburtstag jedes Jahr im Kalender und meldet sich bei dir. Das Alter rechnet die App von selbst aus."
+  },
+  {
+    "clave": "tut.app-agenda--personas.3.texto",
+    "texto": "Pläne mit Leuten hängen an ihrem Kontakt: So siehst du, wann du jemanden zuletzt gesehen hast."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.titulo",
+    "texto": "Ein Jahr in drei Zahlen"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.1.texto",
+    "texto": "Die Serie zählt die Tage am Stück mit einem Eintrag, und die Einhaltung vergleicht deine aktiven Tage mit denen, die du dir vorgenommen hast. Pep konnte am Anfang des Jahres keine zwei Straßenblocks joggen."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.titulo",
+    "texto": "Die drei Disziplinen"
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.2.texto",
+    "texto": "Die Balken messen, was du geschafft hast, gegen deine Ziele: Kraft-Einheiten, Laufminuten und Minuten für Beweglichkeit. Das Ziel passt sich dem Zeitraum an, den du oben wählst."
+  },
+  {
+    "clave": "tut.app-ejercicio--anio.3.titulo",
+    "texto": "Die Ziele des Jahres"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.titulo",
+    "texto": "Katalog, Routinen und Fortschritt"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.1.texto",
+    "texto": "Jede Disziplin ist gleich aufgebaut: der Katalog der Übungen, deine Routinen mit ihrem Verlauf und der Fortschritt. Fangen wir mit dem an, was Pep schon gelaufen ist."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.titulo",
+    "texto": "Jede Runde wird festgehalten"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.2.texto",
+    "texto": "Der Verlauf ist nach Jahr, Monat und Woche gruppiert. Große Läufe speichern zusätzlich die Linie der Strecke und ihre Abschnitte: Da ist der Marathon, mit seinen Zwischenzeiten alle zehn Kilometer."
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.titulo",
+    "texto": "Die Heatmap lügt nicht"
+  },
+  {
+    "clave": "tut.app-ejercicio--carrera.3.texto",
+    "texto": "Auch die Lücken erzählen die Geschichte: Der Monat mit der Knieverletzung ist leer und die drei Wochen in Japan fast. Daneben stehen die Gesamtkilometer, der längste Lauf und das beste Tempo."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.titulo",
+    "texto": "Sätze, Wiederholungen und Gewicht"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.1.texto",
+    "texto": "Jede Einheit speichert ihre Übungen mit dem Gewicht, das du gestemmt hast. Die App merkt sich das letzte Mal, damit du nicht danach suchen musst, und zählt das Gesamtvolumen des Tages zusammen."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.titulo",
+    "texto": "Die Kurve eines Jahres"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.2.texto",
+    "texto": "Wähl eine Übung und schau ihr beim Steigen zu: Peps Kniebeuge ging von vierzig auf siebzig Kilo. Im Monat der Verletzung wurde nur der Oberkörper trainiert, und diese Kurve hat davon nichts gemerkt."
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.titulo",
+    "texto": "Deine Rekorde, ungefragt"
+  },
+  {
+    "clave": "tut.app-ejercicio--fuerza.3.texto",
+    "texto": "Von jeder Übung werden das beste Gewicht, die maximalen Wiederholungen und eine Schätzung deines 1RM gespeichert. Übungen mit Körpergewicht, wie Klimmzüge, stehen extra markiert."
+  },
+  {
+    "clave": "tut.app-cocina--alimentacion.1.titulo",
+    "texto": "Schritt 1: Wohin du willst"
+  }
+]
