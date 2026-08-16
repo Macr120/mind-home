@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { db, GRUPOS_PLANTILLA_BASE, type GrupoPlantilla } from '../data/db'
+import type { TFunc } from '../i18n/useT'
 
 /**
  * Carpetas del catálogo de plantillas: agrupan apps del sistema y plantillas
@@ -13,6 +14,23 @@ import { db, GRUPOS_PLANTILLA_BASE, type GrupoPlantilla } from '../data/db'
 // Semilla inicial (solo la primera vez); después el usuario la personaliza. Vive
 // en db.ts porque la migración v101 reparte exactamente igual a quien ya la tenía.
 const SEED = GRUPOS_PLANTILLA_BASE
+
+/**
+ * Nombre visible de una carpeta: las de fábrica se traducen SOLO mientras
+ * conserven su nombre sembrado (mismo criterio que `campoBase` de mascotas);
+ * un nombre puesto por el usuario se respeta tal cual.
+ */
+const CLAVE_CARPETA: Record<string, string> = {
+  'Cuerpo': 'plantillas.carpeta.cuerpo',
+  'Estudio': 'plantillas.carpeta.estudio',
+  'Administración': 'plantillas.carpeta.admin',
+  'Pasatiempos': 'plantillas.carpeta.pasatiempos',
+  'Memorias y salud mental': 'plantillas.carpeta.memorias',
+}
+export function nombreCarpeta(t: TFunc, nombre: string): string {
+  const clave = CLAVE_CARPETA[nombre]
+  return clave ? t(clave, nombre) : nombre
+}
 
 interface GruposPlantillaState {
   grupos: GrupoPlantilla[]

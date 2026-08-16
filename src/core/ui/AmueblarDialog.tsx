@@ -51,7 +51,7 @@ export function AmueblarDialog() {
           <button
             type="button"
             onClick={() => void confirmar(false)}
-            className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10"
+            className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-start transition hover:bg-white/10"
           >
             <span className="text-xl"><Icono nombre="sofa" /></span>
             <span className="min-w-0">
@@ -66,7 +66,7 @@ export function AmueblarDialog() {
           <button
             type="button"
             onClick={() => void confirmar(true)}
-            className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10"
+            className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-start transition hover:bg-white/10"
           >
             <span className="text-xl"><Icono nombre="cuarto-bodega" /></span>
             <span className="min-w-0">

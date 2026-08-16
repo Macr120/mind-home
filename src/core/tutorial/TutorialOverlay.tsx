@@ -239,7 +239,7 @@ export function TutorialOverlay() {
       {/* El mago presentador, en su esquina (cede el lado si el paso la ocupa). */}
       <div
         className={`pointer-events-none absolute bottom-4 flex flex-col items-center gap-1.5 transition-all duration-300 ${
-          magoDer ? 'right-4' : 'left-4'
+          magoDer ? 'end-4' : 'start-4'
         }`}
       >
         <div
@@ -269,7 +269,7 @@ export function TutorialOverlay() {
         {/* Pico del bocadillo cuando la tarjeta habla desde el mago. */}
         {!cajaFinal && !magoDer && (
           <div
-            className="absolute -left-1.5 bottom-6 h-3 w-3 rotate-45"
+            className="absolute -start-1.5 bottom-6 h-3 w-3 rotate-45"
             style={{ background: 'var(--ui-panel-solido, var(--ui-panel))' }}
           />
         )}
@@ -304,7 +304,7 @@ export function TutorialOverlay() {
           <button
             type="button"
             onClick={() => void useTutorial.getState().salir()}
-            className="ml-auto rounded-lg px-2 py-1 text-xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/80"
+            className="ms-auto rounded-lg px-2 py-1 text-xs font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/80"
           >
             {t('tut.salir', 'Salir')}
           </button>

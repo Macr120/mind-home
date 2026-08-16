@@ -29,6 +29,17 @@ dist-web
 *.sln
 *.sw?
 
+# Marketing: masters y derivados pesados del video (los .json/.srt sí van al repo)
+dist-mascara
+# Copia de marketing/mascara/public/mediapipe (la hace scripts/copiar-mediapipe.mjs)
+/public/mediapipe/
+marketing/video/*/original.mp4
+marketing/video/*/musica.mp3
+marketing/video/*/pantalla.mov
+marketing/video/*/tts/
+marketing/video/*/salida/
+marketing/publicaciones.log.json
+
 # Android (Capacitor) — solo la config del proyecto nativo, no lo generado/local
 android/app/build
 android/build

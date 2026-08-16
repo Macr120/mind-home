@@ -9,7 +9,7 @@ export function BarraTiempo({ frac, className }: { frac: number; className?: str
   return (
     <div className={`relative h-0.5 ${className ?? ''}`}>
       <div
-        className="absolute inset-y-0 left-0 rounded-full"
+        className="absolute inset-y-0 start-0 rounded-full"
         style={{ width: `${Math.max(0, Math.min(1, frac)) * 100}%`, backgroundColor: COLOR_TIEMPO }}
       />
     </div>

@@ -64,7 +64,7 @@ export function PlanoAccionesFlotantes() {
         type="button"
         title={t('planos.menu.superficie', 'Superficie del mapa')}
         onClick={() => toggleMenuPlano('superficie')}
-        className={[btnFlotante(menuPlano === 'superficie'), 'border-l border-stone-200'].join(' ')}
+        className={[btnFlotante(menuPlano === 'superficie'), 'border-s border-stone-200'].join(' ')}
       >
         <IconoPlano activo={menuPlano === 'superficie'} />
       </button>

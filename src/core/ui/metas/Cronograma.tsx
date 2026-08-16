@@ -16,6 +16,7 @@ import {
   rangoConHijas,
 } from '../../metas'
 import { COLORES_RUTINA } from '../coloresRutina'
+import { useArrastre } from '../comun/arrastre'
 import { Icono } from '../iconos/Icono'
 import type { NombreIcono } from '../iconos/catalogo'
 import { filasPlan, rangoDePlan, type FilaPlan } from '../../planMeta'
@@ -129,8 +130,6 @@ export function Cronograma({
   const [ocultarHechas, setOcultarHechas] = useState(false)
   const [nombre, setNombre] = useState('')
   const [agregandoRaiz, setAgregandoRaiz] = useState(false)
-  const [arrastrada, setArrastrada] = useState<Rutina | null>(null)
-  const [enRaiz, setEnRaiz] = useState(false)
   const [anchoArbol, setAnchoArbol] = useState(ANCHO_ARBOL_DEFECTO)
   const scrollRef = useRef<HTMLDivElement>(null)
   // Plan por encuadrar en cuanto el eje exista: quien entra desde el botón «Plan» de
@@ -476,21 +475,41 @@ export function Cronograma({
   }
 
   /** Soltar sobre una fila: dentro de ella, o antes si son hermanas. */
-  const soltarEnFila = (destino: Rutina) => {
-    const r = arrastrada
-    setArrastrada(null)
-    if (!r || destino.id == null || r.id === destino.id) return
+  const soltarEnFila = (r: Rutina, destino: Rutina) => {
+    if (destino.id == null || r.id === destino.id) return
     if (r.padreId === destino.padreId) void moverMeta(metas, r, destino.padreId, destino.id)
     else if (puedeSoltarEn(metas, r, destino)) void moverMeta(metas, r, destino.id)
   }
 
-  /** Soltar en el fondo de la lista: la meta sube al primer nivel. */
-  const soltarEnRaiz = () => {
-    const r = arrastrada
-    setArrastrada(null)
-    setEnRaiz(false)
-    if (r && r.padreId != null) void moverMeta(metas, r, undefined)
-  }
+  // El gesto de arrastre del árbol (el compartido de la casa, sin asa): soltar
+  // sobre una fila mete la meta dentro (o antes, si son hermanas) y soltar en el
+  // fondo de la lista la sube al primer nivel.
+  const arrFilas = useArrastre<{ tipo: 'fila'; fila: Rutina } | { tipo: 'raiz' }>(
+    (e, mano) => {
+      const r = metas.find((m) => String(m.id) === mano)
+      if (!r) return null
+      const bajo = document.elementFromPoint(e.clientX, e.clientY)
+      const fila = bajo?.closest('[data-rama]')
+      if (fila) {
+        const destino = metas.find((m) => String(m.id) === fila.getAttribute('data-rama'))
+        if (!destino || destino.id === r.id) return null
+        if (r.padreId === destino.padreId || puedeSoltarEn(metas, r, destino))
+          return { tipo: 'fila', fila: destino }
+        return null
+      }
+      if (r.padreId != null && bajo?.closest('[data-zona-raiz]')) return { tipo: 'raiz' }
+      return null
+    },
+    (mano, d) => {
+      const r = metas.find((m) => String(m.id) === mano)
+      if (!r) return
+      if (d.tipo === 'raiz') {
+        if (r.padreId != null) void moverMeta(metas, r, undefined)
+      } else soltarEnFila(r, d.fila)
+    },
+  )
+  const metaEnMano = arrFilas.enMano ? metas.find((m) => String(m.id) === arrFilas.enMano) ?? null : null
+  const enRaiz = arrFilas.destino?.tipo === 'raiz'
 
   const filtrando = busca.trim() !== '' || ocultarHechas
 
@@ -604,7 +623,7 @@ export function Cronograma({
           </select>
         )}
 
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ms-auto flex items-center gap-1.5">
           <button
             type="button"
             onClick={irAHoy}
@@ -724,7 +743,7 @@ export function Cronograma({
             {filasEje.map(({ unidad, columnas }, fila) => (
               <div key={unidad} className="flex">
                 <div
-                  className={`${COL_ARBOL} ui-panel-2 relative sticky left-0 z-10 flex items-center border-r px-1 border-white/10 ${
+                  className={`${COL_ARBOL} ui-panel-2 relative sticky start-0 z-10 flex items-center border-e px-1 border-white/10 ${
                     fila === filasEje.length - 1 ? 'border-b' : ''
                   }`}
                   style={{ minWidth: anchoArbol, maxWidth: anchoArbol, height: ALTO_FILA_EJE }}
@@ -816,7 +835,7 @@ export function Cronograma({
                     <div
                       key={i}
                       style={{ width: c.ancho }}
-                      className={`shrink-0 truncate border-r px-1 text-[9px] tabular-nums ${
+                      className={`shrink-0 truncate border-e px-1 text-[9px] tabular-nums ${
                         c.finde ? 'bg-white/[0.04] text-white/25' : 'text-white/40'
                       } ${
                         fila === 0 ? 'border-white/10 font-bold uppercase tracking-wider' : 'border-white/5'
@@ -830,28 +849,14 @@ export function Cronograma({
             ))}
           </div>
 
-          <div
-            onDragOver={(e) => {
-              if (!arrastrada || arrastrada.padreId == null) return
-              e.preventDefault()
-              e.dataTransfer.dropEffect = 'move'
-              setEnRaiz(true)
-            }}
-            onDragLeave={() => setEnRaiz(false)}
-            onDrop={(e) => {
-              if (!arrastrada || arrastrada.padreId == null) return
-              e.preventDefault()
-              soltarEnRaiz()
-            }}
-            className={enRaiz ? 'bg-emerald-500/5' : ''}
-          >
+          <div data-zona-raiz="1" className={enRaiz ? 'bg-accent/5' : ''}>
             {/* Meta y barra son hermanas de la MISMA fila flex (ver el truco de
                 layout de arriba): la fila de un plan reutiliza el envoltorio tal
                 cual y solo cambia sus dos hijos. */}
             {filas.map((f) => (
               <div key={claveFila(f)} className={`flex ${rejilla ? 'border-b border-white/5' : ''}`}>
                 <div
-                  className={`${COL_ARBOL} ui-panel-2 sticky left-0 z-10 border-r border-white/10`}
+                  className={`${COL_ARBOL} ui-panel-2 sticky start-0 z-10 border-e border-white/10`}
                   style={{ minWidth: anchoArbol, maxWidth: anchoArbol }}
                 >
                   {f.tipo === 'meta' && (
@@ -863,11 +868,18 @@ export function Cronograma({
                       onPlegar={(a) => f.meta.id != null && plegar(f.meta.id, a)}
                       metaArmada={metaArmada}
                       onArmar={onArmar}
-                      arrastrada={arrastrada}
-                      onArrastrar={setArrastrada}
-                      onSoltar={soltarEnFila}
+                      // Cronograma embebido en una app: reordenar el árbol se
+                      // hace en el calendario, así que la fila va sin gesto.
+                      gesto={ambito || f.meta.id == null ? undefined : arrFilas.props(String(f.meta.id))}
+                      enMano={metaEnMano?.id === f.meta.id}
+                      encima={
+                        arrFilas.destino?.tipo === 'fila' && arrFilas.destino.fila.id === f.meta.id
+                          ? metaEnMano?.padreId === f.meta.padreId
+                            ? 'antes'
+                            : 'dentro'
+                          : null
+                      }
                       onPlanIA={conIA ? (r) => irAPlanes({ tipo: 'generar', meta: r }) : undefined}
-                      sinArrastre={!!ambito}
                     />
                   )}
                   {f.tipo === 'planCabecera' && (
@@ -922,7 +934,7 @@ export function Cronograma({
             {base.length === 0 && !planVisible && (
               <div className="flex">
                 <div
-                  className={`${COL_ARBOL} ui-panel-2 sticky left-0 z-10 border-r border-white/10 py-2 text-center text-[10px] text-white/25`}
+                  className={`${COL_ARBOL} ui-panel-2 sticky start-0 z-10 border-e border-white/10 py-2 text-center text-[10px] text-white/25`}
                   style={{ minWidth: anchoArbol, maxWidth: anchoArbol }}
                 >
                   {filtrando

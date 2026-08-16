@@ -104,7 +104,7 @@ export function MatrizHabitos({
             ] as const
           ).map(([label, valor]) => (
             <div key={label} className="contents">
-              <p className="truncate pr-2 text-[10px] font-semibold text-white/45">{label}</p>
+              <p className="truncate pe-2 text-[10px] font-semibold text-white/45">{label}</p>
               {columnas.map((c, i) => (
                 <p key={c.columna.clave} className="text-center text-[9px] tabular-nums text-white/60">
                   {valor(i)}
@@ -139,7 +139,7 @@ function FilaHabitoUI({
       <button
         type="button"
         onClick={onDesplegar}
-        className="flex min-w-0 items-center gap-1.5 pr-2 text-left transition hover:text-white"
+        className="flex min-w-0 items-center gap-1.5 pe-2 text-start transition hover:text-white"
       >
         <span className={`w-2 shrink-0 text-[9px] text-white/30 ${abierta ? '' : 'opacity-60'}`}>
           {abierta ? '▾' : '▸'}

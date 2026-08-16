@@ -21,7 +21,7 @@ import { CASA } from '../calendario/apps'
 import { COLORES_RUTINA } from '../coloresRutina'
 import { vivo } from '../estilos'
 import { Icono } from '../iconos/Icono'
-import { iniciarArrastre } from '../arrastre'
+import { useArrastre, type PropsArrastre } from '../comun/arrastre'
 import {
   carpetaDeClave,
   claveDeMeta,
@@ -139,15 +139,6 @@ export function TableroMetas({
   // Carpeta en la que se está escribiendo una meta nueva (solo en «Por hacer»).
   const [altaEn, setAltaEn] = useState<string | null>(null)
   const [nombre, setNombre] = useState('')
-  // Lo que va en la mano: una meta (con su columna y su carpeta) o una carpeta
-  // entera. Guardar la carpeta de origen es lo que permite exigir que se suelte
-  // en la suya.
-  const [arrastrada, setArrastrada] = useState<{
-    meta: Rutina
-    columna: EstadoMeta
-    carpeta: string
-  } | null>(null)
-  const [carpetaEnMano, setCarpetaEnMano] = useState<string | null>(null)
   const propias = useCategoriasMeta((s) => s.propias)
   // Agrupadas por carpeta o en una sola lista por urgencia. Preferencia del
   // dispositivo, como la disposición del panel: se recuerda sin pasar por la BD.
@@ -259,23 +250,56 @@ export function TableroMetas({
    * En AGRUPADAS solo se acepta dentro de su misma carpeta: ahí lo que se ordena
    * es la carpeta, y la carpeta entera se mueve arrastrando su cabecera.
    */
-  const soltarEn = async (columna: EstadoMeta, antesDe?: Rutina) => {
-    const mano = arrastrada
-    setArrastrada(null)
-    if (!mano || mano.columna !== columna) return
+  const soltarEn = async (mano: Rutina, columna: EstadoMeta, antesDe?: Rutina) => {
     if (modo === 'importancia') {
-      await priorizarMeta(listaPorColumna.get(columna) ?? [], mano.meta, antesDe)
+      await priorizarMeta(listaPorColumna.get(columna) ?? [], mano, antesDe)
       return
     }
-    if (antesDe && claveDeMeta(antesDe) !== mano.carpeta) return
-    await soltarMeta(metas, mano.meta, carpetaDeClave(mano.carpeta, t), antesDe)
+    await soltarMeta(metas, mano, carpetaDeClave(claveDeMeta(mano), t), antesDe)
   }
 
+  const metaDeClave = (clave: string) => raices.find((m) => String(m.id) === clave)
+
+  /**
+   * El gesto de las tarjetas (compartido con toda la casa: pulsación larga o
+   * arrastre directo, fantasma que viaja con el puntero). El destino es otra
+   * tarjeta de su columna (cae ANTES de ella) o el hueco de su carpeta (cae al
+   * final). La validación vive aquí, no en cada tarjeta.
+   */
+  const arrTarjetas = useArrastre<{ col: EstadoMeta; antesDe?: Rutina; carpeta?: string }>(
+    (e, mano) => {
+      const m = metaDeClave(mano)
+      if (!m) return null
+      const col = estadoMeta(metas, m)
+      const bajo = document.elementFromPoint(e.clientX, e.clientY)
+      const carta = bajo?.closest('[data-tarjeta]')
+      if (carta) {
+        const clave = carta.getAttribute('data-tarjeta')
+        if (!clave || clave === mano) return null
+        if (carta.getAttribute('data-col') !== col) return null
+        if (modo === 'agrupadas' && carta.getAttribute('data-carpeta') !== claveDeMeta(m)) return null
+        const antesDe = metaDeClave(clave)
+        return antesDe ? { col, antesDe } : null
+      }
+      const zona = bajo?.closest('[data-zona-carpeta]')
+      if (
+        zona &&
+        modo === 'agrupadas' &&
+        zona.getAttribute('data-col') === col &&
+        zona.getAttribute('data-zona-carpeta') === claveDeMeta(m)
+      )
+        return { col, carpeta: claveDeMeta(m) }
+      return null
+    },
+    (mano, destino) => {
+      const m = metaDeClave(mano)
+      if (m) void soltarEn(m, destino.col, destino.antesDe)
+    },
+  )
+
   /** Soltar una carpeta entera: se coloca antes de aquella sobre la que cae. */
-  const soltarCarpeta = (destino: string) => {
-    const mueve = carpetaEnMano
-    setCarpetaEnMano(null)
-    if (!mueve || mueve === destino) return
+  const soltarCarpeta = (mueve: string, destino: string) => {
+    if (mueve === destino) return
     // Se parte del orden que se ve ahora mismo (con las carpetas que aún no se
     // habían tocado ya colocadas), no del guardado: si no, mover la tercera con
     // la lista vacía la mandaría al principio.
@@ -289,6 +313,16 @@ export function TableroMetas({
     setOrdenCarpetas(fila)
     localStorage.setItem(LS_ORDEN_CARPETAS, JSON.stringify(fila))
   }
+
+  /** El mismo gesto para las cabeceras: mueve la carpeta entera. */
+  const arrCarpetas = useArrastre<string>(
+    (e, mano) => {
+      const cab = document.elementFromPoint(e.clientX, e.clientY)?.closest('[data-cabecera]')
+      const clave = cab?.getAttribute('data-cabecera')
+      return clave && clave !== mano ? clave : null
+    },
+    (mano, destino) => soltarCarpeta(mano, destino),
+  )
 
   const confirmarAlta = async (carpeta: CarpetaMeta) => {
     if (!nombre.trim()) return
@@ -364,16 +398,15 @@ export function TableroMetas({
                           // Sin cabeceras, la carpeta va DENTRO de la tarjeta: si
                           // no, no se sabría de qué cuarto es cada una.
                           carpeta={carpeta}
+                          carpetaClave={claveDeMeta(m)}
                           conPlan={m.id != null && planPorMeta?.has(m.id)}
                           onAbrir={onAbrirMeta}
                           // Cualquier tarjeta de la columna vale como destino: la
                           // lista es una sola y lo que se decide aquí es el orden
                           // de importancia, no a qué carpeta pertenece.
-                          arrastrada={arrastrada?.columna === col ? arrastrada.meta : null}
-                          onArrastrar={(r) =>
-                            setArrastrada(r ? { meta: r, columna: col, carpeta: claveDeMeta(r) } : null)
-                          }
-                          onSoltar={(antesDe) => void soltarEn(col, antesDe)}
+                          gesto={arrTarjetas.props(String(m.id))}
+                          enMano={arrTarjetas.enMano === String(m.id)}
+                          encima={arrTarjetas.destino?.antesDe?.id === m.id}
                         />
                       )
                     })}
@@ -383,25 +416,23 @@ export function TableroMetas({
                       <div
                         key={g.carpeta.clave}
                         // Soltar en el hueco de la carpeta: la meta cae al final de
-                        // ella, siempre que sea la suya y venga de esta columna.
-                        onDragOver={(e) => {
-                          if (arrastrada?.columna !== col || arrastrada.carpeta !== g.carpeta.clave) return
-                          e.preventDefault()
-                          e.dataTransfer.dropEffect = 'move'
-                        }}
-                        onDrop={(e) => {
-                          if (arrastrada?.columna !== col || arrastrada.carpeta !== g.carpeta.clave) return
-                          e.preventDefault()
-                          void soltarEn(col)
-                        }}
-                        className="space-y-1"
+                        // ella, siempre que sea la suya y venga de esta columna
+                        // (lo valida `destinoDe` del gesto).
+                        data-zona-carpeta={g.carpeta.clave}
+                        data-col={col}
+                        className={`space-y-1 rounded-lg ${
+                          arrTarjetas.destino?.carpeta === g.carpeta.clave &&
+                          arrTarjetas.destino.col === col
+                            ? 'ring-1 ring-accent/50'
+                            : ''
+                        }`}
                       >
                         <CabeceraCarpeta
                           carpeta={g.carpeta}
                           cuantas={g.metas.length}
-                          enMano={carpetaEnMano}
-                          onArrastrar={setCarpetaEnMano}
-                          onSoltar={soltarCarpeta}
+                          gesto={arrCarpetas.props(g.carpeta.clave)}
+                          enMano={arrCarpetas.enMano === g.carpeta.clave}
+                          encima={arrCarpetas.destino === g.carpeta.clave}
                         />
                         {g.metas.map((m) => (
                           <Tarjeta
@@ -410,17 +441,12 @@ export function TableroMetas({
                             meta={m}
                             columna={col}
                             color={g.carpeta.color}
+                            carpetaClave={g.carpeta.clave}
                             conPlan={m.id != null && planPorMeta?.has(m.id)}
                             onAbrir={onAbrirMeta}
-                            arrastrada={
-                              arrastrada?.columna === col && arrastrada.carpeta === g.carpeta.clave
-                                ? arrastrada.meta
-                                : null
-                            }
-                            onArrastrar={(r) =>
-                              setArrastrada(r ? { meta: r, columna: col, carpeta: g.carpeta.clave } : null)
-                            }
-                            onSoltar={(antesDe) => void soltarEn(col, antesDe)}
+                            gesto={arrTarjetas.props(String(m.id))}
+                            enMano={arrTarjetas.enMano === String(m.id)}
+                            encima={arrTarjetas.destino?.antesDe?.id === m.id}
                           />
                         ))}
                         {conAlta && (
@@ -471,50 +497,24 @@ export function TableroMetas({
 function CabeceraCarpeta({
   carpeta,
   cuantas,
+  gesto,
   enMano,
-  onArrastrar,
-  onSoltar,
+  encima,
 }: {
   carpeta: CarpetaMeta
   cuantas: number
-  enMano: string | null
-  onArrastrar: (clave: string | null) => void
-  onSoltar: (destino: string) => void
+  gesto: PropsArrastre
+  enMano: boolean
+  encima: boolean
 }) {
-  const [encima, setEncima] = useState(false)
-  const puedeSoltar = !!enMano && enMano !== carpeta.clave
-
   return (
     <p
-      draggable
-      onDragStart={(e) => {
-        e.stopPropagation()
-        iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-        onArrastrar(carpeta.clave)
-      }}
-      onDragEnd={() => {
-        onArrastrar(null)
-        setEncima(false)
-      }}
-      onDragOver={(e) => {
-        if (!puedeSoltar) return
-        e.preventDefault()
-        e.stopPropagation()
-        e.dataTransfer.dropEffect = 'move'
-        setEncima(true)
-      }}
-      onDragLeave={() => setEncima(false)}
-      onDrop={(e) => {
-        if (!puedeSoltar) return
-        e.preventDefault()
-        e.stopPropagation()
-        setEncima(false)
-        onSoltar(carpeta.clave)
-      }}
-      className={`flex items-center gap-1 px-1 text-[10px] font-bold uppercase tracking-wide texto-vivo ${
-        encima ? 'border-t border-emerald-400' : ''
-      } ${enMano === carpeta.clave ? 'opacity-40' : ''}`}
-      style={vivo(carpeta.color)}
+      {...gesto}
+      data-cabecera={carpeta.clave}
+      className={`flex cursor-grab items-center gap-1 px-1 text-[10px] font-bold uppercase tracking-wide texto-vivo ${
+        encima ? 'border-t border-accent' : ''
+      } ${enMano ? 'opacity-40' : ''}`}
+      style={{ ...gesto.style, ...vivo(carpeta.color) }}
     >
       <Icono emoji={carpeta.icon} />
       <span className="min-w-0 flex-1 truncate">{nombreCorto(carpeta)}</span>
@@ -631,7 +631,7 @@ function OtrasCarpetas({
               key={c.clave}
               type="button"
               onClick={() => onAbrir(c.clave)}
-              className="flex w-full items-center gap-1.5 rounded px-1.5 py-0.5 text-left text-[11px] text-white/70 transition hover:bg-white/10 hover:text-white/95"
+              className="flex w-full items-center gap-1.5 rounded px-1.5 py-0.5 text-start text-[11px] text-white/70 transition hover:bg-white/10 hover:text-white/95"
             >
               <span className="texto-vivo" style={vivo(c.color)}>
                 <Icono emoji={c.icon} />
@@ -652,11 +652,12 @@ function Tarjeta({
   columna,
   color,
   carpeta,
+  carpetaClave,
   conPlan,
   onAbrir,
-  arrastrada,
-  onArrastrar,
-  onSoltar,
+  gesto,
+  enMano,
+  encima,
 }: {
   metas: Rutina[]
   meta: Rutina
@@ -664,54 +665,33 @@ function Tarjeta({
   color: string
   /** Con valor, la tarjeta enseña de qué carpeta es (no hay cabecera que lo diga). */
   carpeta?: CarpetaMeta
+  /** La clave de su carpeta, para que el gesto valide el destino. */
+  carpetaClave: string
   conPlan?: boolean
   onAbrir: (r: Rutina) => void
-  /** La tarjeta que va en la mano, si viene de ESTA columna y ESTA carpeta. */
-  arrastrada?: Rutina | null
-  onArrastrar: (r: Rutina | null) => void
-  onSoltar: (antesDe: Rutina) => void
+  /** Se agarra la tarjeta entera: sin asa ni icono de arrastre. */
+  gesto: PropsArrastre
+  enMano: boolean
+  encima: boolean
 }) {
   const t = useT()
-  const [encima, setEncima] = useState(false)
   const resumen = resumenAlcance(metas, meta)
   const avance = progresoDe(metas, meta)
   const hecho = columna === 'hecho'
-  const puedeSoltar = !!arrastrada && arrastrada.id !== meta.id
   const fin = finDe(meta)
 
   return (
     <button
       type="button"
       onClick={() => onAbrir(meta)}
-      // Se agarra la tarjeta entera: sin asa ni icono de arrastre.
-      draggable
-      onDragStart={(e) => {
-        iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-        onArrastrar(meta)
-      }}
-      onDragEnd={() => {
-        onArrastrar(null)
-        setEncima(false)
-      }}
-      onDragOver={(e) => {
-        if (!puedeSoltar) return
-        e.preventDefault()
-        e.stopPropagation()
-        e.dataTransfer.dropEffect = 'move'
-        setEncima(true)
-      }}
-      onDragLeave={() => setEncima(false)}
-      onDrop={(e) => {
-        if (!puedeSoltar) return
-        e.preventDefault()
-        e.stopPropagation()
-        setEncima(false)
-        onSoltar(meta)
-      }}
-      className={`block w-full rounded-lg border px-2 py-1.5 text-left transition hover:brightness-125 ${
-        encima ? 'border-t-2 border-t-emerald-400' : ''
-      } ${arrastrada?.id === meta.id ? 'opacity-40' : ''}`}
-      style={{ borderColor: `${color}44`, backgroundColor: `${color}12` }}
+      {...gesto}
+      data-tarjeta={String(meta.id)}
+      data-col={columna}
+      data-carpeta={carpetaClave}
+      className={`block w-full cursor-grab rounded-lg border px-2 py-1.5 text-start transition hover:brightness-125 ${
+        encima ? 'border-t-2 border-t-accent' : ''
+      } ${enMano ? 'opacity-40' : ''}`}
+      style={{ ...gesto.style, borderColor: `${color}44`, backgroundColor: `${color}12` }}
     >
       {carpeta && (
         <p

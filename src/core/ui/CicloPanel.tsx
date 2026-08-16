@@ -128,7 +128,7 @@ function PasoTiempoSwitch() {
     >
       <span
         className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition ${
-          activo ? 'left-[18px]' : 'left-0.5'
+          activo ? 'start-[18px]' : 'start-0.5'
         }`}
       />
     </button>
@@ -365,7 +365,7 @@ export function RelojWidget() {
           type="button"
           onClick={() => abrirCalendario()}
           title={t('ciclo.abrirCal', 'Abrir calendario de rutinas')}
-          className="rounded-lg px-1.5 py-0.5 text-left transition hover:bg-white/10"
+          className="rounded-lg px-1.5 py-0.5 text-start transition hover:bg-white/10"
         >
           <RelojInfo compacto />
         </button>
@@ -384,7 +384,7 @@ export function RelojWidget() {
       {abierto && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setAbierto(false)} />
-          <div className="ui-panel-glass ui-pop absolute right-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 p-3 shadow-xl backdrop-blur-md">
+          <div className="ui-panel-glass ui-pop absolute end-0 top-full z-50 mt-2 w-64 rounded-2xl border border-white/10 p-3 shadow-xl backdrop-blur-md">
             <MenuCiclo />
           </div>
         </>

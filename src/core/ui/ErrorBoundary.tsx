@@ -22,6 +22,17 @@ export class ErrorBoundary extends Component<Props, State> {
     console.error('[MPH]', error, info.componentStack)
   }
 
+  /** `React.lazy` cachea el rechazo de un chunk caído: reintentar re-montando
+   *  re-lanza el mismo error para siempre; solo recargar la página repara. */
+  private reintentar = () => {
+    const msj = this.state.error?.message ?? ''
+    if (/dynamically imported module|Importing a module script|Failed to fetch/i.test(msj)) {
+      location.reload()
+      return
+    }
+    this.setState({ error: null })
+  }
+
   render() {
     if (this.state.error) {
       return (
@@ -32,7 +43,7 @@ export class ErrorBoundary extends Component<Props, State> {
           <p className="mt-2 text-sm text-white/60">{this.state.error.message}</p>
           <button
             type="button"
-            onClick={() => this.setState({ error: null })}
+            onClick={this.reintentar}
             className="mt-4 rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold hover:bg-white/20"
           >
             {this.props.textoReintentar ?? 'Reintentar'}

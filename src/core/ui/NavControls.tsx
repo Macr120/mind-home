@@ -173,12 +173,12 @@ export function NavControls() {
 
   // En el editor 3D los controles van a la izquierda del panel (que ocupa la derecha).
   const posControles = editor3d
-    ? 'right-[21rem]'
+    ? 'end-[21rem]'
     : !editMode
-      ? 'right-4'
+      ? 'end-4'
       : planosActivo
-        ? 'right-[21rem]'
-        : 'left-4'
+        ? 'end-[21rem]'
+        : 'start-4'
   // El selector de vistas y el botón de editor 3D se ven en juego y en el editor 3D
   // (no en el editor iso, que usa su propio panel).
   const mostrarVistas = !editMode || editor3d
@@ -299,7 +299,7 @@ export function NavControls() {
               <div className="relative">
                 {/* Conduciendo: el derrape (u ↑/↓ del OVNI) a la IZQUIERDA del panel
                     del vehículo, sin ensanchar la columna (queda fuera de su flujo). */}
-                <div className="absolute right-full top-0 mr-1">
+                <div className="absolute end-full top-0 me-1">
                   <ControlesConduccion />
                 </div>
                 <ControlHerramienta />
@@ -310,7 +310,8 @@ export function NavControls() {
               <ViewCube />
             )}
           </div>
-          <div data-tut="nav.rotar" className="ui-hud flex w-full overflow-hidden rounded-lg border border-white/10">
+          {/* dir=ltr: par direccional (rotar izq/der) — el orden visual no se espeja en RTL */}
+          <div dir="ltr" data-tut="nav.rotar" className="ui-hud flex w-full overflow-hidden rounded-lg border border-white/10">
             <button
               type="button"
               onClick={() => rotar(-1)}
@@ -362,7 +363,7 @@ export function NavControls() {
                   <div className="relative w-full">
                     {/* Conduciendo: el derrape (u ↑/↓ del OVNI) a la izquierda, fuera
                         del flujo, igual que en la vista isométrica. */}
-                    <div className="absolute right-full top-0 mr-1">
+                    <div className="absolute end-full top-0 me-1">
                       <ControlesConduccion />
                     </div>
                     <ControlHerramienta />

@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { useArrastre } from '../comun/arrastre'
 import {
   leerColapso,
   guardarColapso,
@@ -10,13 +11,15 @@ import {
 } from './editorSecciones'
 import { leerOrdenConfig, guardarOrdenConfig, type ConfigGrupoId } from './configSecciones'
 
+/** Qué destino hay bajo el puntero, leyendo el data-attribute de las secciones. */
+const bajoElPuntero = (e: { clientX: number; clientY: number }, attr: string) =>
+  document.elementFromPoint(e.clientX, e.clientY)?.closest(`[${attr}]`)?.getAttribute(attr) ?? null
+
 export function useEditorSeccionesMapa() {
   // localStorage viejo puede traer secciones desconocidas: se sanitiza al leer
   // (se persiste ya limpio la próxima vez que el usuario reordena o colapsa).
   const [orden, setOrden] = useState(() => sanitizarOrdenMapa(leerOrdenMapa()))
   const [colapso, setColapso] = useState(leerColapso)
-  const [arrastrando, setArrastrando] = useState<SeccionMapaId | null>(null)
-  const [objetivo, setObjetivo] = useState<SeccionMapaId | null>(null)
 
   const abierto = useCallback(
     (id: SeccionMapaId) => colapso[id] !== true,
@@ -31,45 +34,29 @@ export function useEditorSeccionesMapa() {
     })
   }, [])
 
-  const iniciarArrastre = useCallback((id: SeccionMapaId) => {
-    setArrastrando(id)
-    setObjetivo(id)
-  }, [])
-
-  const entrarObjetivo = useCallback((id: SeccionMapaId) => {
-    setObjetivo(id)
-  }, [])
-
-  const soltar = useCallback((destino: SeccionMapaId) => {
-    if (!arrastrando || arrastrando === destino) {
-      setArrastrando(null)
-      setObjetivo(null)
-      return
-    }
-    setOrden((prev) => {
-      const next = reordenar(prev, arrastrando, destino)
-      guardarOrdenMapa(next)
-      return next
-    })
-    setArrastrando(null)
-    setObjetivo(null)
-  }, [arrastrando])
-
-  const finArrastre = useCallback(() => {
-    setArrastrando(null)
-    setObjetivo(null)
-  }, [])
+  // El gesto compartido de la casa: la sección en mano se coloca ANTES de
+  // aquella sobre la que se suelta (`reordenar`, la lógica de siempre).
+  const { props, enMano, destino } = useArrastre<SeccionMapaId>(
+    (e, mano) => {
+      const id = bajoElPuntero(e, 'data-seccion')
+      return id && id !== mano ? (id as SeccionMapaId) : null
+    },
+    (mano, dest) => {
+      setOrden((prev) => {
+        const next = reordenar(prev, mano as SeccionMapaId, dest)
+        guardarOrdenMapa(next)
+        return next
+      })
+    },
+  )
 
   return {
     orden,
     abierto,
     toggle,
-    arrastrando,
-    objetivo,
-    iniciarArrastre,
-    entrarObjetivo,
-    soltar,
-    finArrastre,
+    arrastre: props,
+    arrastrando: enMano as SeccionMapaId | null,
+    objetivo: destino,
   }
 }
 
@@ -80,76 +67,50 @@ export function useEditorSeccionesMapa() {
  */
 export function useEditorSeccionesConfig() {
   const [orden, setOrden] = useState(leerOrdenConfig)
-  const [arrastrando, setArrastrando] = useState<ConfigGrupoId | null>(null)
-  const [objetivo, setObjetivo] = useState<ConfigGrupoId | null>(null)
 
-  const iniciarArrastre = useCallback((id: ConfigGrupoId) => {
-    setArrastrando(id)
-    setObjetivo(id)
-  }, [])
-
-  const entrarObjetivo = useCallback((id: ConfigGrupoId) => {
-    setObjetivo(id)
-  }, [])
-
-  const soltar = useCallback((destino: ConfigGrupoId) => {
-    if (!arrastrando || arrastrando === destino) {
-      setArrastrando(null)
-      setObjetivo(null)
-      return
-    }
-    setOrden((prev) => {
-      const next = reordenar(prev, arrastrando, destino)
-      guardarOrdenConfig(next)
-      return next
-    })
-    setArrastrando(null)
-    setObjetivo(null)
-  }, [arrastrando])
-
-  const finArrastre = useCallback(() => {
-    setArrastrando(null)
-    setObjetivo(null)
-  }, [])
-
-  return { orden, arrastrando, objetivo, iniciarArrastre, entrarObjetivo, soltar, finArrastre }
-}
-
-/**
- * Reordenamiento por arrastre de una lista de filas con id numérico (carpetas y
- * elementos del guardarropa). A diferencia de los dos anteriores no guarda el
- * orden: los ids ya ordenados salen por `onReordenar`, que decide dónde
- * persistirlos (Dexie, en este caso).
- */
-export function useReordenRopa(onReordenar: (ids: number[]) => void) {
-  const [arrastrando, setArrastrando] = useState<number | null>(null)
-  const [objetivo, setObjetivo] = useState<number | null>(null)
-
-  const finArrastre = useCallback(() => {
-    setArrastrando(null)
-    setObjetivo(null)
-  }, [])
-
-  const soltar = useCallback(
-    (destino: number, ids: number[]) => {
-      if (arrastrando != null && arrastrando !== destino) {
-        onReordenar(reordenar(ids, arrastrando, destino))
-      }
-      finArrastre()
+  const { props, enMano, destino } = useArrastre<ConfigGrupoId>(
+    (e, mano) => {
+      const id = bajoElPuntero(e, 'data-grupo')
+      return id && id !== mano ? (id as ConfigGrupoId) : null
     },
-    [arrastrando, onReordenar, finArrastre],
+    (mano, dest) => {
+      setOrden((prev) => {
+        const next = reordenar(prev, mano as ConfigGrupoId, dest)
+        guardarOrdenConfig(next)
+        return next
+      })
+    },
   )
 
   return {
-    arrastrando,
-    objetivo,
-    iniciarArrastre: useCallback((id: number) => {
-      setArrastrando(id)
-      setObjetivo(id)
-    }, []),
-    entrarObjetivo: useCallback((id: number) => setObjetivo(id), []),
-    soltar,
-    finArrastre,
+    orden,
+    arrastre: props,
+    arrastrando: enMano as ConfigGrupoId | null,
+    objetivo: destino,
   }
 }
 
+/**
+ * Reordenamiento por arrastre de una lista de filas con id numérico (las
+ * carpetas de ropa). A diferencia de los dos anteriores no guarda el orden: los
+ * ids ya ordenados salen por `onReordenar`, que decide dónde persistirlos
+ * (Dexie, en este caso).
+ */
+export function useReordenRopa(ids: number[], onReordenar: (ids: number[]) => void) {
+  const { props, enMano, destino } = useArrastre<number>(
+    (e, mano) => {
+      const attr = bajoElPuntero(e, 'data-carpeta-ropa')
+      if (!attr || attr === mano) return null
+      const id = Number(attr)
+      // Fuera de su categoría no hay destino: cada lista reordena solo la suya.
+      return ids.includes(id) ? id : null
+    },
+    (mano, dest) => onReordenar(reordenar(ids, Number(mano), dest)),
+  )
+
+  return {
+    props,
+    arrastrando: enMano == null ? null : Number(enMano),
+    objetivo: destino,
+  }
+}

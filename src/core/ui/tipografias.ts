@@ -49,11 +49,25 @@ export const TIPOGRAFIAS: Tipografia[] = [
 
 export const TIPOGRAFIA_DEFAULT: TipografiaId = 'sistema'
 
+/**
+ * Pilas que solo tienen glifos latinos (Comic Sans, Segoe Print, SF Pro Rounded…).
+ * En japonés, chino, coreano, hindi o árabe el navegador las completaría con
+ * fuentes sustitutas letra a letra: media frase manuscrita y media no. Lo limpio
+ * es caer a la pila base en esos idiomas.
+ */
+const SOLO_LATINAS: TipografiaId[] = ['redondeada', 'manuscrita']
+const ESCRITURA_NO_LATINA = ['ja', 'zh', 'ko', 'hi', 'ar']
+
 function getTipografia(id: TipografiaId): Tipografia {
   return TIPOGRAFIAS.find((t) => t.id === id) ?? TIPOGRAFIAS[0]
 }
 
-/** Aplica la pila de fuentes al documento mediante la variable `--ui-font`. */
-export function aplicarTipografia(id: TipografiaId): void {
-  document.documentElement.style.setProperty('--ui-font', getTipografia(id).stack)
+/**
+ * Aplica la pila de fuentes al documento mediante la variable `--ui-font`.
+ * El idioma activo puede degradar la elección (ver `SOLO_LATINAS`).
+ */
+export function aplicarTipografia(id: TipografiaId, idioma?: string): void {
+  const efectiva =
+    idioma && ESCRITURA_NO_LATINA.includes(idioma) && SOLO_LATINAS.includes(id) ? 'sistema' : id
+  document.documentElement.style.setProperty('--ui-font', getTipografia(efectiva).stack)
 }

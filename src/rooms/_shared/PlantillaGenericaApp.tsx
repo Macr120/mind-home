@@ -19,6 +19,7 @@ import {
 } from '../../core/plantillaSecciones'
 import { emojiTipo } from '../../core/ui/paletaBloques'
 import { BarraEdicion, CabeceraBloqueEdicion } from './PlantillaEdicion'
+import { PestanasCarpeta } from './PestanasCarpeta'
 import { useT } from '../../core/i18n/useT'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { comprimirFoto, Foto } from './fotos'
@@ -50,6 +51,7 @@ export default function PlantillaGenericaApp({ plantillaId }: { plantillaId: str
   )
   const [editando, setEditando] = useState(false)
   const [editorAbierto, setEditorAbierto] = useState(false)
+  const [plegado, setPlegado] = useState(false)
 
   if (!def) {
     return (
@@ -74,7 +76,7 @@ export default function PlantillaGenericaApp({ plantillaId }: { plantillaId: str
           type="button"
           data-tut="plantilla.editar"
           onClick={() => setEditando((v) => !v)}
-          className={`ml-auto rounded-lg px-2.5 py-1.5 text-xs font-semibold transition ${
+          className={`ms-auto rounded-lg px-2.5 py-1.5 text-xs font-semibold transition ${
             editando ? 'texto-cta' : 'bg-white/5 text-white/60 hover:bg-white/10'
           }`}
           style={editando ? { background: def.color } : undefined}
@@ -96,111 +98,96 @@ export default function PlantillaGenericaApp({ plantillaId }: { plantillaId: str
       {editando && <BarraEdicion def={def} activa={activa} onIrA={setDeseada} />}
 
       {raiz.length > 1 && (
-        <div data-tut="plantilla.menus" className="flex gap-1.5 overflow-x-auto pb-0.5">
-          {raiz.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => setDeseada(s.id)}
-              className={`shrink-0 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-                raizActiva === s.id ? 'texto-cta' : 'bg-white/5 hover:bg-white/10'
-              }`}
-              style={raizActiva === s.id ? { background: def.color } : undefined}
-            >
-              {s.emoji ? (
-                <>
-                  <Icono emoji={s.emoji} />{' '}
-                </>
-              ) : null}
-              {s.nombre}
-            </button>
-          ))}
+        <div data-tut="plantilla.menus">
+          <PestanasCarpeta
+            items={raiz.map((s) => ({ id: s.id, emoji: s.emoji || undefined, label: s.nombre }))}
+            activo={raizActiva}
+            onCambio={setDeseada}
+            color={def.color}
+            variante="raiz"
+            desplazable
+            plegado={plegado}
+            onAlternarPliegue={() => setPlegado((v) => !v)}
+          />
         </div>
       )}
 
-      {subs.length > 0 && (
-        <div className="flex gap-1.5 overflow-x-auto pb-0.5">
-          {subs.map((s) => (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => setDeseada(s.id)}
-              className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
-                activa === s.id ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-              }`}
-            >
-              {s.emoji ? (
-                <>
-                  <Icono emoji={s.emoji} />{' '}
-                </>
-              ) : null}
-              {s.nombre}
-            </button>
-          ))}
-        </div>
-      )}
+      {!plegado && (
+        <>
+          {subs.length > 0 && (
+            <PestanasCarpeta
+              items={subs.map((s) => ({ id: s.id, emoji: s.emoji || undefined, label: s.nombre }))}
+              activo={activa}
+              onCambio={setDeseada}
+              color={def.color}
+              variante="sub"
+              desplazable
+            />
+          )}
 
-      <div data-tut="plantilla.bloques" className="space-y-4">
-        {visibles.length === 0 && (
-          <p className="rounded-xl border border-dashed border-white/15 px-3 py-6 text-center text-sm text-white/45">
-            {t('plantillaCustom.menuVacio', 'Este menú aún no tiene bloques.')}
-          </p>
-        )}
-        {visibles.map((b, pos) => {
-          const deBloque = items.filter((i) => i.bloqueId === b.id)
-          return (
-            <section key={b.id} className="rounded-xl border border-white/10 bg-white/5 p-4">
-              {editando ? (
-                <CabeceraBloqueEdicion
-                  def={def}
-                  bloque={b}
-                  primero={pos === 0}
-                  ultimo={pos === visibles.length - 1}
-                />
-              ) : (
-                <h2 className="mb-3 flex items-center gap-2 text-sm font-bold text-white/85">
-                  <span><Icono emoji={emojiTipo(b.tipo)} /></span>
-                  <span className="min-w-0 truncate">{b.titulo}</span>
-                </h2>
-              )}
-              {b.tipo === 'notas' && (
-                <BloqueNotas plantillaId={def.id} bloque={b} fila={deBloque[0]} />
-              )}
-              {b.tipo === 'checklist' && (
-                <BloqueChecklist plantillaId={def.id} bloque={b} items={deBloque} />
-              )}
-              {b.tipo === 'contador' && (
-                <BloqueContador plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
-              )}
-              {b.tipo === 'enlaces' && (
-                <BloqueEnlaces plantillaId={def.id} bloque={b} items={deBloque} />
-              )}
-              {b.tipo === 'lista' && (
-                <BloqueLista plantillaId={def.id} bloque={b} items={deBloque} />
-              )}
-              {b.tipo === 'valoracion' && (
-                <BloqueValoracion plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
-              )}
-              {b.tipo === 'bitacora' && (
-                <BloqueBitacora plantillaId={def.id} bloque={b} items={deBloque} />
-              )}
-              {b.tipo === 'progreso' && (
-                <BloqueProgreso plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
-              )}
-              {b.tipo === 'habito' && (
-                <BloqueHabito plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
-              )}
-              {b.tipo === 'sesiones' && (
-                <BloqueSesiones plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
-              )}
-              {b.tipo === 'cuenta' && <BloqueCuenta bloque={b} color={def.color} />}
-              {b.tipo === 'galeria' && (
-                <BloqueGaleria plantillaId={def.id} bloque={b} items={deBloque} />
-              )}
-            </section>
-          )
-        })}
-      </div>
+          <div data-tut="plantilla.bloques" className="space-y-4">
+            {visibles.length === 0 && (
+              <p className="rounded-xl border border-dashed border-white/15 px-3 py-6 text-center text-sm text-white/45">
+                {t('plantillaCustom.menuVacio', 'Este menú aún no tiene bloques.')}
+              </p>
+            )}
+            {visibles.map((b, pos) => {
+              const deBloque = items.filter((i) => i.bloqueId === b.id)
+              return (
+                <section key={b.id} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                  {editando ? (
+                    <CabeceraBloqueEdicion
+                      def={def}
+                      bloque={b}
+                      primero={pos === 0}
+                      ultimo={pos === visibles.length - 1}
+                    />
+                  ) : (
+                    <h2 className="mb-3 flex items-center gap-2 text-sm font-bold text-white/85">
+                      <span><Icono emoji={emojiTipo(b.tipo)} /></span>
+                      <span className="min-w-0 truncate">{b.titulo}</span>
+                    </h2>
+                  )}
+                  {b.tipo === 'notas' && (
+                    <BloqueNotas plantillaId={def.id} bloque={b} fila={deBloque[0]} />
+                  )}
+                  {b.tipo === 'checklist' && (
+                    <BloqueChecklist plantillaId={def.id} bloque={b} items={deBloque} />
+                  )}
+                  {b.tipo === 'contador' && (
+                    <BloqueContador plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
+                  )}
+                  {b.tipo === 'enlaces' && (
+                    <BloqueEnlaces plantillaId={def.id} bloque={b} items={deBloque} />
+                  )}
+                  {b.tipo === 'lista' && (
+                    <BloqueLista plantillaId={def.id} bloque={b} items={deBloque} />
+                  )}
+                  {b.tipo === 'valoracion' && (
+                    <BloqueValoracion plantillaId={def.id} bloque={b} fila={deBloque[0]} color={def.color} />
+                  )}
+                  {b.tipo === 'bitacora' && (
+                    <BloqueBitacora plantillaId={def.id} bloque={b} items={deBloque} />
+                  )}
+                  {b.tipo === 'progreso' && (
+                    <BloqueProgreso plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
+                  )}
+                  {b.tipo === 'habito' && (
+                    <BloqueHabito plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
+                  )}
+                  {b.tipo === 'sesiones' && (
+                    <BloqueSesiones plantillaId={def.id} bloque={b} items={deBloque} color={def.color} />
+                  )}
+                  {b.tipo === 'cuenta' && <BloqueCuenta bloque={b} color={def.color} />}
+                  {b.tipo === 'galeria' && (
+                    <BloqueGaleria plantillaId={def.id} bloque={b} items={deBloque} />
+                  )}
+                </section>
+              )
+            })}
+          </div>
+        </>
+      )}
 
       {editorAbierto && (
         <Suspense fallback={null}>
@@ -379,7 +366,7 @@ function BloqueContador({
               style={{ width: `${progreso}%`, background: color }}
             />
           </div>
-          <p className="mt-1 text-right text-[11px] text-white/45">
+          <p className="mt-1 text-end text-[11px] text-white/45">
             {valor} / {bloque.meta}
           </p>
         </div>
@@ -757,7 +744,7 @@ function BarraMeta({
       <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
         <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: color }} />
       </div>
-      <p className="mt-1 text-right text-[11px] text-white/45">
+      <p className="mt-1 text-end text-[11px] text-white/45">
         {valor} / {meta}
         {unidad ? ` ${unidad}` : ''}
       </p>
@@ -839,7 +826,7 @@ function BloqueSesiones({
               {i.valor} min
             </span>
             {i.texto && <span className="min-w-0 flex-1 truncate text-sm text-white/70">{i.texto}</span>}
-            <span className="ml-auto shrink-0 text-[10px] text-white/35">{fechaCorta(i.creadoEn)}</span>
+            <span className="ms-auto shrink-0 text-[10px] text-white/35">{fechaCorta(i.creadoEn)}</span>
             <button
               type="button"
               onClick={() => i.id != null && void itemsPlantillaRepo.remove(i.id)}
@@ -925,7 +912,7 @@ function BloqueHabito({
           </div>
         ))}
       </div>
-      <p className="text-right text-[11px] text-white/40">
+      <p className="text-end text-[11px] text-white/40">
         {dias.size} {t('plantillaCustom.habitoDias', 'días activos')}
       </p>
     </div>
@@ -1010,7 +997,7 @@ function BloqueGaleria({
                   type="button"
                   onClick={() => i.id != null && void itemsPlantillaRepo.remove(i.id)}
                   title={t('plantillaCustom.borrarItem', 'Borrar')}
-                  className="ui-noche absolute right-1 top-1 rounded bg-black/60 px-1.5 text-white/80 opacity-0 transition hover:bg-black/80 group-hover:opacity-100"
+                  className="ui-noche absolute end-1 top-1 rounded bg-black/60 px-1.5 text-white/80 opacity-0 transition hover:bg-black/80 group-hover:opacity-100"
                 >
                   <Icono nombre="cerrar" />
                 </button>

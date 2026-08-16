@@ -29,6 +29,16 @@ const CARGADORES: Partial<Record<Idioma, () => Promise<ManualTraducido>>> = {
   fr: () => import('./manual.fr').then((m) => m.MANUAL_FR),
   de: () => import('./manual.de').then((m) => m.MANUAL_DE),
   it: () => import('./manual.it').then((m) => m.MANUAL_IT),
+  ja: () => import('./manual.ja').then((m) => m.MANUAL_JA),
+  zh: () => import('./manual.zh').then((m) => m.MANUAL_ZH),
+  ko: () => import('./manual.ko').then((m) => m.MANUAL_KO),
+  ru: () => import('./manual.ru').then((m) => m.MANUAL_RU),
+  hi: () => import('./manual.hi').then((m) => m.MANUAL_HI),
+  tr: () => import('./manual.tr').then((m) => m.MANUAL_TR),
+  id: () => import('./manual.id').then((m) => m.MANUAL_ID),
+  pl: () => import('./manual.pl').then((m) => m.MANUAL_PL),
+  ar: () => import('./manual.ar').then((m) => m.MANUAL_AR),
+  nl: () => import('./manual.nl').then((m) => m.MANUAL_NL),
 }
 
 // Mismo mecanismo que los diccionarios de `i18n/dict.ts`: un mapa abierto que

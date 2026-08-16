@@ -83,7 +83,7 @@ export function MisTemas() {
                 <button
                   type="button"
                   onClick={() => void aplicarTemaPropio(tp.id!)}
-                  className="flex w-full items-center gap-2 px-2 py-1.5 text-left transition hover:bg-white/5"
+                  className="flex w-full items-center gap-2 px-2 py-1.5 text-start transition hover:bg-white/5"
                   title={base?.nombre}
                 >
                   <span className="text-base"><Icono emoji={base?.icon ?? '🎨'} /></span>
@@ -108,7 +108,7 @@ export function MisTemas() {
                   <button
                     type="button"
                     onClick={() => void borrar(tp.id!, tp.nombre)}
-                    className="flex-1 border-l border-white/10 py-1 text-[9px] text-red-400/70 hover:bg-red-500/10"
+                    className="flex-1 border-s border-white/10 py-1 text-[9px] text-red-400/70 hover:bg-red-500/10"
                   >
                     {t('editor.tema.borrarPropio', 'Borrar')}
                   </button>

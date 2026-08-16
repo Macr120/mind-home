@@ -282,7 +282,7 @@ export function GuardarropaEditor({
                   onClick={() =>
                     puesta ? void quitar(p.id!) : void poner(p.id!, parsePiezas(p.piezas), p.nombre)
                   }
-                  className="flex min-w-0 flex-1 items-center gap-2 text-left"
+                  className="flex min-w-0 flex-1 items-center gap-2 text-start"
                 >
                   <span className="text-base leading-none">
                     <Icono emoji="🧵" />

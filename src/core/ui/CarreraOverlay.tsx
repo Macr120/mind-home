@@ -64,7 +64,7 @@ function PilaCarrera({ t }: { t: (k: string, d: string) => string }) {
   const item = useCarrera((s) => s.item)
   const refTope = useTopeHud('carrera')
   return (
-    <div ref={refTope} className="pointer-events-none absolute bottom-4 right-4 z-30 flex flex-col items-center gap-2">
+    <div ref={refTope} className="pointer-events-none absolute bottom-4 end-4 z-30 flex flex-col items-center gap-2">
       <button
         type="button"
         onClick={() => useCarrera.getState().usarItem()}
@@ -196,7 +196,7 @@ export function CarreraOverlay() {
 
   if (fase === 'previa') {
     return (
-      <div className="pointer-events-none absolute left-0 right-0 top-14 z-30 flex justify-center px-3">
+      <div className="pointer-events-none absolute start-0 end-0 top-14 z-30 flex justify-center px-3">
         <div className="ui-hud ui-pop pointer-events-auto flex w-full max-w-sm flex-col gap-2 rounded-2xl border border-white/10 p-3">
           <p className="text-center text-sm font-black text-white">
             <Icono nombre="bandera" /> {t('carrera.titulo', 'Carrera')} · {def.nombre}
@@ -308,7 +308,7 @@ export function CarreraOverlay() {
     return (
       <>
         {/* En vertical baja bajo la fila de botones de arriba (casa / engrane). */}
-        <div className="pointer-events-none absolute left-0 right-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
+        <div className="pointer-events-none absolute start-0 end-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
           <div className="ui-hud pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-white/10 px-4 py-1.5 text-sm font-black text-white">
             <Icono nombre="bandera" />
             <span className="tabular-nums text-base">{fmtMs(cronoVuelta)}</span>
@@ -349,7 +349,7 @@ export function CarreraOverlay() {
         )}
         {/* Posición en vivo contra el rival. */}
         {rivalId && (
-          <div className="pointer-events-none absolute left-4 top-16 z-30">
+          <div className="pointer-events-none absolute start-4 top-16 z-30">
             <span
               className={`text-5xl font-black drop-shadow-lg ${
                 carreraFrame.posicion === 1 ? 'text-amber-300' : 'text-white/70'
@@ -367,7 +367,7 @@ export function CarreraOverlay() {
   // Terminada: resultados y revancha.
   const total = tiempos.reduce((a, b) => a + b, 0)
   return (
-    <div className="pointer-events-none absolute left-0 right-0 top-14 z-30 flex justify-center px-3">
+    <div className="pointer-events-none absolute start-0 end-0 top-14 z-30 flex justify-center px-3">
       <div className="ui-hud ui-pop pointer-events-auto flex w-full max-w-sm flex-col gap-2 rounded-2xl border border-white/10 p-3">
         <p className="text-center text-lg font-black text-white">
           {resultado === 'ganaste'

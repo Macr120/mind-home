@@ -45,7 +45,7 @@ export function DestinoObjetoDialog() {
           <button
             type="button"
             onClick={() => elegir(MAPA_ROOM)}
-            className="flex w-full items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10"
+            className="flex w-full items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-start transition hover:bg-white/10"
           >
             <span className="text-xl"><Icono nombre="mapa" /></span>
             <span className="min-w-0">
@@ -72,7 +72,7 @@ export function DestinoObjetoDialog() {
                 type="button"
                 onClick={() => elegir(c.id)}
                 title={c.nombre}
-                className="flex items-center gap-2 rounded-xl border p-2.5 text-left transition hover:bg-white/8"
+                className="flex items-center gap-2 rounded-xl border p-2.5 text-start transition hover:bg-white/8"
                 style={{ borderColor: `${c.color}44`, background: `${c.color}10` }}
               >
                 <span

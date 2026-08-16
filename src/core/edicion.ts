@@ -1,12 +1,20 @@
 /**
- * Modelo de negocio: la app se usa de DOS maneras.
+ * Modelo de negocio (ago 2026): app de PAGO ÚNICO con primer mes incluido.
  *
- * - **Local** (gratis, sin cuenta): la app entera funciona offline sobre Dexie.
- *   La IA se paga con recargas de créditos que no caducan; sin créditos, las
- *   superficies siguen visibles y al usarlas sale el modal de recarga. No hay
- *   sincronización entre dispositivos.
+ * - **Demo** (gratis, sin cuenta): la casa de Pep@, no persistente. Es la única
+ *   vía gratuita; la puerta (`PuertaUnlock`) ofrece entrar aquí.
+ * - **Unlock** (`tieneUnlock()`, $10.99 pago único): persiste TU casa para
+ *   siempre e incluye el primer mes (plan `trial`: 30 días con el pool de 700
+ *   créditos + sync, sin tarjeta). Las instalaciones previas a esta versión
+ *   quedan desbloqueadas por derechos adquiridos (`mh.unlockLocal`), y un build
+ *   sin backend (.env ausente) no tiene puerta: 100% local, como siempre.
+ * - **Trial** (`esTrial()`): el mes incluido del unlock. Al vencer, conserva la
+ *   app y sus datos; pierde pool y sync hasta suscribirse.
  * - **Pro** (`esPro()`, 4.99 USD/mes): créditos mensuales + sync. Se compra solo
  *   en la web (la app nativa nunca muestra pagos, ver `plataforma.ts`).
+ * - **Local / vencido**: la IA se paga con recargas de créditos que no caducan;
+ *   sin créditos, las superficies siguen visibles y al usarlas sale el modal
+ *   de recarga. No hay sincronización entre dispositivos.
  * - **Ex-suscriptor** (`fuePro()` sin Pro): es un usuario local con historial.
  *   Sus créditos de recarga siguen sirviendo; el pool mensual queda en 0 y el
  *   servidor responde 429, que abre el aviso de renovación.
@@ -42,8 +50,15 @@ export const LS_PLAN_REAL = 'mh.planReal'
 export const LS_PLAN_EXPIRA = 'mh.planExpira'
 /** Espejo de «pagó alguna vez» (nunca se revierte, salvo cerrar sesión). */
 export const LS_FUE_PRO = 'mh.fuePro'
+/** Espejo de la compra única (`perfiles.unlock`); lo escribe solo sesionStore. */
+export const LS_UNLOCK = 'mh.unlock'
+/**
+ * Derechos adquiridos: la instalación ya tenía casa cuando llegó la versión de
+ * pago único. Se escribe UNA vez (ver `tieneUnlock`) y no se revierte.
+ */
+export const LS_UNLOCK_LOCAL = 'mh.unlockLocal'
 
-export type Plan = 'local' | 'pro'
+export type Plan = 'local' | 'pro' | 'trial'
 
 // Congelado a la carga: cambiar de modo SIEMPRE pasa por location.reload(),
 // porque la BD ya abrió con un nombre y los stores ya hidrataron de ella.
@@ -91,6 +106,40 @@ export function esPro(): boolean {
 /** ¿La cuenta pagó la suscripción alguna vez? (decide el copy de los avisos) */
 export function fuePro(): boolean {
   return localStorage.getItem(LS_FUE_PRO) === '1'
+}
+
+/** ¿Corre el mes incluido del unlock? (plan `trial` vigente, espejo del backend) */
+export function esTrial(): boolean {
+  if (localStorage.getItem(LS_PLAN_REAL) !== 'trial') return false
+  const expira = localStorage.getItem(LS_PLAN_EXPIRA)
+  return !expira || Date.parse(expira) > Date.now()
+}
+
+/** ¿Hay pool mensual y sync? (Pro o el mes incluido del unlock) */
+export function tieneAcceso(): boolean {
+  return esPro() || esTrial()
+}
+
+/**
+ * ¿La app está desbloqueada? (compra única, derechos adquiridos, o build sin
+ * backend). Lo consulta `PuertaUnlock`; la demo no pasa por aquí.
+ *
+ * El grandfather es perezoso e idempotente: `mh.bienvenida` la escribe la casa
+ * real cuando la bienvenida se vio o la casa ya estaba armada
+ * (`bienvenida/bienvenidaStore.ts` — literal repetido a propósito: importar el
+ * store desde aquí crearía un ciclo). Si existe, esta instalación es anterior a
+ * la puerta y no se le cobra lo que ya tenía.
+ */
+export function tieneUnlock(): boolean {
+  // Sin backend no hay compras posibles: la app queda 100% local e idéntica.
+  if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) return true
+  if (localStorage.getItem(LS_UNLOCK) === '1') return true
+  if (localStorage.getItem(LS_UNLOCK_LOCAL) === '1') return true
+  if (localStorage.getItem('mh.bienvenida') === '1') {
+    localStorage.setItem(LS_UNLOCK_LOCAL, '1')
+    return true
+  }
+  return false
 }
 
 /**

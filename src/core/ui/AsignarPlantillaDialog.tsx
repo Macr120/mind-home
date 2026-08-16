@@ -1,6 +1,7 @@
+import { useShallow } from 'zustand/react/shallow'
 import { plantillasCuarto, DESCRIPCIONES } from '../registry'
 import { useAsignar } from '../state/asignarStore'
-import { useDiseño } from '../state/disenoStore'
+import { useDiseño, idsPlantillasAsignadas } from '../state/disenoStore'
 import { getCuarto } from '../state/cuartosStore'
 import { iniciarAsignacion } from '../state/amueblarStore'
 import { useT } from '../i18n/useT'
@@ -13,18 +14,27 @@ import { Icono } from './iconos/Icono'
  * en el catálogo de Plantillas del inventario).
  * - Si `objetoId` viene definido, fija la plantilla en ese objeto.
  * - Si no, siembra el conjunto y liga la app al objeto principal.
+ *
+ * Cáscara + interior: el diálogo está montado SIEMPRE (App.tsx) y suscribirse a
+ * `s.objetos` crudo aquí lo re-renderizaba a 60 Hz al cargar/mover un objeto.
+ * La cáscara solo mira el store del diálogo; el selector de objetos vive en el
+ * interior, montado únicamente con el diálogo abierto — y devuelve ids
+ * (useShallow), no el array.
  */
 export function AsignarPlantillaDialog() {
-  const t = useT()
   const cuartoId = useAsignar((s) => s.cuartoId)
+  if (!cuartoId) return null
+  return <AsignarPlantillaInterior cuartoId={cuartoId} />
+}
+
+function AsignarPlantillaInterior({ cuartoId }: { cuartoId: string }) {
+  const t = useT()
   const objetoId = useAsignar((s) => s.objetoId)
   const cerrar = useAsignar((s) => s.cerrar)
-  const objetos = useDiseño((s) => s.objetos)
+  const idsAsignadas = useDiseño(useShallow((s) => idsPlantillasAsignadas(s.objetos)))
 
-  if (!cuartoId) return null
   const cuarto = getCuarto(cuartoId)
-
-  const asignadas = new Set(objetos.map((o) => o.plantillaId).filter(Boolean))
+  const asignadas = new Set(idsAsignadas)
   const disponibles = plantillasCuarto().filter((p) => !asignadas.has(p.id))
 
   const elegir = async (plantillaId: string) => {
@@ -49,7 +59,7 @@ export function AsignarPlantillaDialog() {
           <button
             type="button"
             onClick={cerrar}
-            className="ml-auto rounded-lg bg-white/10 px-2.5 py-1 text-sm font-semibold text-white/80 transition hover:bg-white/20"
+            className="ms-auto rounded-lg bg-white/10 px-2.5 py-1 text-sm font-semibold text-white/80 transition hover:bg-white/20"
           >
             ✕
           </button>
@@ -69,7 +79,7 @@ export function AsignarPlantillaDialog() {
               key={p.id}
               type="button"
               onClick={() => elegir(p.id)}
-              className="flex flex-col items-start gap-1.5 rounded-xl border p-3 text-left transition hover:bg-white/8"
+              className="flex flex-col items-start gap-1.5 rounded-xl border p-3 text-start transition hover:bg-white/8"
               style={{ borderColor: `${p.color}44`, background: `${p.color}10` }}
               title={DESCRIPCIONES[p.id] ?? p.nombre}
             >

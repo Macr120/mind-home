@@ -9,13 +9,12 @@ import {
   crearMeta,
   hijasDe,
   progresoPasos,
-  puedeSoltarEn,
   raizDe,
   resumenAlcance,
   toggleMeta,
   vencida,
 } from '../../metas'
-import { iniciarArrastre } from '../arrastre'
+import type { PropsArrastre } from '../comun/arrastre'
 import { colorDe, colorPorProfundidad } from '../coloresRutina'
 import { Icono } from '../iconos/Icono'
 import { PildoraCuenta } from './CuentaRegresiva'
@@ -43,13 +42,12 @@ export function FilaMeta({
   onPlegar,
   metaArmada,
   onArmar,
-  arrastrada,
-  onArrastrar,
-  onSoltar,
+  gesto,
+  enMano,
+  encima,
   onPlanIA,
   plan,
   onAbrirPlan,
-  sinArrastre,
 }: {
   metas: Rutina[]
   meta: Rutina
@@ -58,16 +56,17 @@ export function FilaMeta({
   onPlegar: (abierta: boolean) => void
   metaArmada: Rutina | null
   onArmar: (r: Rutina) => void
-  arrastrada: Rutina | null
-  onArrastrar: (r: Rutina | null) => void
-  onSoltar: (destino: Rutina) => void
+  /** El gesto de arrastre compartido; sin él esta fila no se reordena. */
+  gesto?: PropsArrastre
+  /** Va en la mano: se atenúa como hueco. */
+  enMano?: boolean
+  /** Lo arrastrado caería aquí: antes de la fila o dentro de ella. */
+  encima?: 'antes' | 'dentro' | null
   /** Sin valor = la IA está apagada: el ✨ no se dibuja. */
   onPlanIA?: (r: Rutina) => void
   /** El plan que esta meta YA tiene generado; sin él la fila no ofrece ninguno. */
   plan?: PlanMeta
   onAbrirPlan?: (p: PlanMeta) => void
-  /** Cronograma embebido en una app: reordenar el árbol se hace en el calendario. */
-  sinArrastre?: boolean
 }) {
   const t = useT()
   const [renombrando, setRenombrando] = useState(false)
@@ -75,7 +74,6 @@ export function FilaMeta({
   const [agregando, setAgregando] = useState(false)
   const [nombreHija, setNombreHija] = useState('')
   const [detalle, setDetalle] = useState(false)
-  const [encima, setEncima] = useState(false)
 
   const hijas = hijasDe(metas, meta.id)
   const pasos = progresoPasos(meta)
@@ -116,55 +114,21 @@ export function FilaMeta({
     if (ok) await borrarMetaConDescendencia(meta.id)
   }
 
-  /**
-   * Qué haría soltar aquí lo que se arrastra. Sin peldaños, meter una meta dentro
-   * de otra vale casi siempre: solo el ciclo es imposible. Ordenar entre hermanas
-   * (soltar ANTES de una fila) se reserva a las que ya comparten madre — si no,
-   * "antes de" y "dentro de" competirían por el mismo gesto en cada fila.
-   */
-  const modoSoltar: 'dentro' | 'antes' | null = !arrastrada
-    ? null
-    : arrastrada.padreId === meta.padreId && arrastrada.id !== meta.id
-      ? 'antes'
-      : puedeSoltarEn(metas, arrastrada, meta)
-        ? 'dentro'
-        : null
-
+  // Qué haría soltar aquí lo que se arrastra —antes de la fila (hermanas) o
+  // dentro de ella— lo decide el gesto compartido en `Cronograma` y llega ya
+  // resuelto en `encima`.
   return (
     <div>
       <div
-        style={{ paddingLeft: profundidad * SANGRIA }}
-        draggable={!renombrando && !sinArrastre}
-        onDragStart={(e) => {
-          iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-          onArrastrar(meta)
-        }}
-        onDragEnd={() => {
-          onArrastrar(null)
-          setEncima(false)
-        }}
-        // La fila vive dentro de la caja de la lista, que también acepta soltar: sin
-        // cortar la propagación se ejecutarían los dos y ganaría el de la lista.
-        onDragOver={(e) => {
-          if (!modoSoltar) return
-          e.preventDefault()
-          e.stopPropagation()
-          e.dataTransfer.dropEffect = 'move'
-          setEncima(true)
-        }}
-        onDragLeave={() => setEncima(false)}
-        onDrop={(e) => {
-          if (!modoSoltar) return
-          e.preventDefault()
-          e.stopPropagation()
-          setEncima(false)
-          onSoltar(meta)
-        }}
-        className={`flex items-center gap-1 rounded-lg px-1 py-0.5 transition ${
-          encima && modoSoltar === 'dentro' ? 'bg-emerald-500/20 ring-1 ring-emerald-400/70' : ''
-        } ${encima && modoSoltar === 'antes' ? 'border-t-2 border-emerald-400' : ''} ${
+        // Mientras se renombra el gesto se suelta: teclear no debe arrastrar.
+        {...(gesto && !renombrando ? gesto : {})}
+        data-rama={meta.id != null ? String(meta.id) : undefined}
+        style={{ ...(gesto && !renombrando ? gesto.style : {}), paddingLeft: profundidad * SANGRIA }}
+        className={`flex items-center gap-1 rounded-lg px-1 py-0.5 transition ${gesto ? 'cursor-grab' : ''} ${
+          encima === 'dentro' ? 'bg-accent/20 ring-1 ring-accent/70' : ''
+        } ${encima === 'antes' ? 'border-t-2 border-accent' : ''} ${
           armada ? 'bg-emerald-500/10 ring-1 ring-emerald-400/40' : 'hover:bg-white/5'
-        } ${arrastrada?.id === meta.id ? 'opacity-40' : ''}`}
+        } ${enMano ? 'opacity-40' : ''}`}
       >
         <button
           type="button"
@@ -210,7 +174,7 @@ export function FilaMeta({
               setRenombrando(true)
             }}
             title={t('cal.meta.armarORenombrar', 'Clic: trazarla en el calendario · Doble clic: renombrar')}
-            className="flex min-w-0 flex-1 items-center gap-1.5 text-left text-xs text-white/85"
+            className="flex min-w-0 flex-1 items-center gap-1.5 text-start text-xs text-white/85"
           >
             <span
               className="h-2 w-2 shrink-0 rounded-full"
@@ -298,7 +262,7 @@ export function FilaMeta({
       )}
 
       {agregando && (
-        <div style={{ paddingLeft: (profundidad + 1) * SANGRIA }} className="py-0.5 pr-1">
+        <div style={{ paddingLeft: (profundidad + 1) * SANGRIA }} className="py-0.5 pe-1">
           <input
             autoFocus
             value={nombreHija}

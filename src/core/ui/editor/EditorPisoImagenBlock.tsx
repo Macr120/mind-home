@@ -55,7 +55,7 @@ export function EditorPisoImagenBlock({
           >
             <img src={previewUrl} alt="" className="h-full w-full object-cover" draggable={false} />
             {imagenActiva && (
-              <div className="absolute right-1.5 top-1.5 rounded bg-emerald-600 px-1.5 py-0.5 text-[9px] font-bold texto-cta">
+              <div className="absolute end-1.5 top-1.5 rounded bg-emerald-600 px-1.5 py-0.5 text-[9px] font-bold texto-cta">
                 {t('editor.imgActiva', 'ACTIVA')}
               </div>
             )}

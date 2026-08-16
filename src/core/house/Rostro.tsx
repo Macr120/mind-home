@@ -64,6 +64,24 @@ function Boca({ exp, y, z, k }: { exp: ExpresionId; y: number; z: number; k: num
       </mesh>
     )
   }
+  if (exp === 'enojado') {
+    // Línea corta y apretada.
+    return (
+      <mesh position={[0, y, z]}>
+        <boxGeometry args={[0.11 * k, 0.03 * k, 0.02]} />
+        <meshStandardMaterial color={BOCA} />
+      </mesh>
+    )
+  }
+  if (exp === 'triste') {
+    // Media dona con la curva hacia abajo (esquinas caídas).
+    return (
+      <mesh position={[0, y - 0.02 * k, z]}>
+        <torusGeometry args={[0.07 * k, 0.016 * k, 8, 16, Math.PI]} />
+        <meshStandardMaterial color={BOCA} />
+      </mesh>
+    )
+  }
   // Sonrisa (feliz = más ancha y gruesa): media dona con la curva hacia arriba.
   const ancho = exp === 'feliz' ? 0.09 : 0.07
   const grosor = exp === 'feliz' ? 0.02 : 0.016
@@ -96,10 +114,14 @@ function RostroDibujado({ anclas, exp }: { anclas: AnclasRopa; exp: ExpresionId 
       ) : (
         <Ojo x={sep} y={eyesY} z={z} r={ojoR} />
       )}
-      {/* Cejas enojadas (solo «serio»). */}
-      {exp === 'serio' &&
+      {/* Cejas: en V para «serio»/«enojado» (más agresivas), caídas para «triste». */}
+      {(exp === 'serio' || exp === 'enojado' || exp === 'triste') &&
         [-1, 1].map((s) => (
-          <mesh key={s} position={[s * sep, eyesY + 0.08 * k, z]} rotation={[0, 0, s * -0.45]}>
+          <mesh
+            key={s}
+            position={[s * sep, eyesY + 0.08 * k, z]}
+            rotation={[0, 0, s * (exp === 'triste' ? 0.35 : exp === 'enojado' ? -0.6 : -0.45)]}
+          >
             <boxGeometry args={[0.12 * k, 0.03 * k, 0.02]} />
             <meshStandardMaterial color={OJO} />
           </mesh>

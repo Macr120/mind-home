@@ -102,7 +102,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
                 <p className="truncate text-sm text-white/85">
                   {nombreAsistente(t, a)}
                   {activo && (
-                    <span className="ml-1.5 text-[10px] font-semibold text-accent">
+                    <span className="ms-1.5 text-[10px] font-semibold text-accent">
                       ● {t('chat.config.activo', 'activo')}
                     </span>
                   )}
@@ -160,7 +160,7 @@ export function AsistentesConfig({ onCerrar }: { onCerrar: () => void }) {
         </button>
         {ocultos.length > 0 && (
           <>
-            <span className="ml-1 text-[10px] text-white/35">
+            <span className="ms-1 text-[10px] text-white/35">
               {t('chat.config.restaurar', 'Restaurar:')}
             </span>
             {ocultos.map((a) => (
@@ -228,7 +228,7 @@ function FormAsistente({
   }
 
   return (
-    <div className="mb-1 ml-10 space-y-1.5 rounded-xl border border-white/10 bg-white/5 p-2">
+    <div className="mb-1 ms-10 space-y-1.5 rounded-xl border border-white/10 bg-white/5 p-2">
       <div className="flex gap-1.5">
         <input
           value={a.nombre}
@@ -270,7 +270,7 @@ function FormAsistente({
       <div className="space-y-1 rounded-lg border border-white/10 bg-white/5 p-1.5">
         <p className="px-0.5 text-[10px] text-white/40">
           {t('chat.config.cuartos', 'Asignar apps')}
-          <span className="ml-1 text-white/25">
+          <span className="ms-1 text-white/25">
             {a.cuartos.length === 0
               ? t('chat.config.cuartosTodos', '(ninguna marcada = todas)')
               : `(${a.cuartos.length})`}
@@ -330,7 +330,7 @@ function FormAsistente({
             type="color"
             value={a.color || COLOR_FORMA[a.forma]}
             onChange={(e) => guardar({ ...a, color: e.target.value })}
-            className="ml-auto h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
+            className="ms-auto h-7 w-9 cursor-pointer rounded border border-white/10 bg-transparent"
             title={t('chat.config.color', 'Color del personaje')}
           />
         </div>
@@ -399,7 +399,7 @@ function FormAsistente({
           type="button"
           onClick={() => guardar({ ...a, vozLeer: !a.vozLeer })}
           disabled={!hayVoz() && !a.vozIA}
-          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-[11px] font-semibold transition disabled:opacity-30 ${
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-[11px] font-semibold transition disabled:opacity-30 ${
             a.vozLeer
               ? 'ui-accent-bg border-transparent'
               : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
@@ -415,7 +415,7 @@ function FormAsistente({
           <button
             type="button"
             onClick={() => guardar({ ...a, vozIA: !a.vozIA })}
-            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-[11px] font-semibold transition ${
+            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-[11px] font-semibold transition ${
               a.vozIA
                 ? 'ui-accent-bg border-transparent'
                 : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
@@ -487,7 +487,7 @@ function FormAsistente({
                 className="min-w-0 flex-1"
                 style={{ accentColor: 'var(--ui-accent)' }}
               />
-              <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+              <span className="w-10 shrink-0 text-end text-[10px] tabular-nums text-white/40">
                 ×{(a.vozPitch ?? VOZ_FORMA[a.forma].pitch).toFixed(2)}
               </span>
             </div>
@@ -505,7 +505,7 @@ function FormAsistente({
                 className="min-w-0 flex-1"
                 style={{ accentColor: 'var(--ui-accent)' }}
               />
-              <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+              <span className="w-10 shrink-0 text-end text-[10px] tabular-nums text-white/40">
                 ×{(a.vozRate ?? VOZ_FORMA[a.forma].rate).toFixed(2)}
               </span>
             </div>
@@ -526,7 +526,7 @@ function FormAsistente({
             className="min-w-0 flex-1"
             style={{ accentColor: 'var(--ui-accent)' }}
           />
-          <span className="w-10 shrink-0 text-right text-[10px] tabular-nums text-white/40">
+          <span className="w-10 shrink-0 text-end text-[10px] tabular-nums text-white/40">
             {Math.round((a.vozVolumen ?? 1) * 100)}%
           </span>
         </div>
@@ -537,7 +537,7 @@ function FormAsistente({
         <button
           type="button"
           onClick={() => guardar({ ...a, espontaneo: a.espontaneo === false })}
-          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-[11px] font-semibold transition ${
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-[11px] font-semibold transition ${
             a.espontaneo !== false
               ? 'ui-accent-bg border-transparent'
               : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'

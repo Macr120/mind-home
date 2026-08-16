@@ -189,7 +189,7 @@ export default function MontanaSisifoOverlay() {
           <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-white/50">
             {t('sisifo.comoFunciona', 'Cómo funciona')}
           </h3>
-          <ul className="list-disc space-y-1 pl-4">
+          <ul className="list-disc space-y-1 ps-4">
             <li>{t('sisifo.ayuda1', 'Cada día con actividad en tus apps sube un escalón. La cima son 365 días.')}</li>
             <li>{t('sisifo.ayuda2', 'Cada 7 escalones ganas una insignia (52 en total) y cada tramo de semanas sube tu rango (12 en total).')}</li>
             <li>{t('sisifo.ayuda3', 'Si fallas un día tienes 2 días de gracia al mes: no pasa nada. Si se acaban, la piedra retrocede al inicio del rango actual.')}</li>

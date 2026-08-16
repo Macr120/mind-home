@@ -21,6 +21,9 @@ import { categoriaMarcha } from './cuerpos'
 import { Prendas } from './Prendas'
 import { Rostro } from './Rostro'
 import { Peinado } from './Peinado'
+import { GestoEmocion } from './GestoEmocion'
+import { ReaccionEmoji } from './ReaccionEmoji'
+import { useExpresionViva } from '../state/emocionesStore'
 import { anclasDe, muestraRostro, soportaPeinado } from './apariencia'
 import { dragChar } from './characterDrag'
 
@@ -226,6 +229,7 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
   const group = useRef<THREE.Group>(null)
   const brazo = useRef<THREE.Group>(null)
   const seleccionar = useSeleccionarEnEditor(asistente.id)
+  const expViva = useExpresionViva(asistente.id, asistente.expresion)
   // Con un preset activo, el preset manda: se apaga el flote/marcha integrados (el saludo sigue).
   const presetOn = !!asistente.animacion?.preset && asistente.animacion.activacion !== 'apagado'
   const categoria = categoriaMarcha(asistente)
@@ -328,30 +332,33 @@ function AsistenteActivo({ asistente }: { asistente: Asistente }) {
     <group ref={group} {...seleccionar}>
       <GrupoAnimado anim={asistente.animacion}>
         <group scale={asistente.escala ?? 1}>
-          <ModeloMascota
-            forma={asistente.forma}
-            color={asistente.color}
-            modelo3d={asistente.modelo3d}
-            modeloGlb={asistente.modeloGlb}
-            cuerpoPresetId={asistente.cuerpoPresetId}
-            brazoRef={brazo}
-            anim={asistente.animacion}
-            estado={marcha.current}
-            sinOjos={muestraRostro(asistente)}
-          />
-          <Prendas
-            ropa={asistente.ropa}
-            anclas={anclasDe(asistente)}
-            marcha={categoria !== 'flotan'}
-            marchaEstado={marcha.current}
-            esJugador={false}
-          />
-          {muestraRostro(asistente) && (
-            <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
-          )}
-          {soportaPeinado(asistente) && (
-            <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
-          )}
+          <GestoEmocion asistenteId={asistente.id}>
+            <ModeloMascota
+              forma={asistente.forma}
+              color={asistente.color}
+              modelo3d={asistente.modelo3d}
+              modeloGlb={asistente.modeloGlb}
+              cuerpoPresetId={asistente.cuerpoPresetId}
+              brazoRef={brazo}
+              anim={asistente.animacion}
+              estado={marcha.current}
+              sinOjos={muestraRostro(asistente)}
+            />
+            <Prendas
+              ropa={asistente.ropa}
+              anclas={anclasDe(asistente)}
+              marcha={categoria !== 'flotan'}
+              marchaEstado={marcha.current}
+              esJugador={false}
+            />
+            {muestraRostro(asistente) && (
+              <Rostro anclas={anclasDe(asistente)} expresion={expViva} rostro={asistente.rostro} />
+            )}
+            {soportaPeinado(asistente) && (
+              <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
+            )}
+          </GestoEmocion>
+          <ReaccionEmoji asistenteId={asistente.id} altura={1.9} />
         </group>
       </GrupoAnimado>
     </group>
@@ -365,6 +372,7 @@ function Companero({ asistente }: { asistente: Asistente }) {
   const gridCols = useLayout((s) => s.gridCols)
   const gridRows = useLayout((s) => s.gridRows)
   const seleccionar = useSeleccionarEnEditor(asistente.id)
+  const expViva = useExpresionViva(asistente.id, asistente.expresion)
   const colocado = useRef(false)
   const paseo = useRef<Paseo>({ destino: null, descansaHasta: 0 })
   // Con un preset activo, el preset manda: se apaga el flote/marcha integrados.
@@ -439,30 +447,33 @@ function Companero({ asistente }: { asistente: Asistente }) {
     <group ref={group} {...seleccionar}>
       <GrupoAnimado anim={asistente.animacion}>
         <group scale={asistente.escala ?? 1}>
-          <ModeloMascota
-            forma={asistente.forma}
-            color={asistente.color}
-            modelo3d={asistente.modelo3d}
-            modeloGlb={asistente.modeloGlb}
-            cuerpoPresetId={asistente.cuerpoPresetId}
-            brazoRef={brazo}
-            anim={asistente.animacion}
-            estado={marcha.current}
-            sinOjos={muestraRostro(asistente)}
-          />
-          <Prendas
-            ropa={asistente.ropa}
-            anclas={anclasDe(asistente)}
-            marcha={categoria !== 'flotan'}
-            marchaEstado={marcha.current}
-            esJugador={false}
-          />
-          {muestraRostro(asistente) && (
-            <Rostro anclas={anclasDe(asistente)} expresion={asistente.expresion} rostro={asistente.rostro} />
-          )}
-          {soportaPeinado(asistente) && (
-            <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
-          )}
+          <GestoEmocion asistenteId={asistente.id}>
+            <ModeloMascota
+              forma={asistente.forma}
+              color={asistente.color}
+              modelo3d={asistente.modelo3d}
+              modeloGlb={asistente.modeloGlb}
+              cuerpoPresetId={asistente.cuerpoPresetId}
+              brazoRef={brazo}
+              anim={asistente.animacion}
+              estado={marcha.current}
+              sinOjos={muestraRostro(asistente)}
+            />
+            <Prendas
+              ropa={asistente.ropa}
+              anclas={anclasDe(asistente)}
+              marcha={categoria !== 'flotan'}
+              marchaEstado={marcha.current}
+              esJugador={false}
+            />
+            {muestraRostro(asistente) && (
+              <Rostro anclas={anclasDe(asistente)} expresion={expViva} rostro={asistente.rostro} />
+            )}
+            {soportaPeinado(asistente) && (
+              <Peinado anclas={anclasDe(asistente)} peinado={asistente.peinado} color={asistente.peloColor} />
+            )}
+          </GestoEmocion>
+          <ReaccionEmoji asistenteId={asistente.id} altura={1.9} />
         </group>
       </GrupoAnimado>
     </group>

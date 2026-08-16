@@ -165,12 +165,12 @@ export function PistaPlan({
               <span
                 onPointerDown={(e) => arrancarGesto(e, 'ini')}
                 style={{ width: ASA }}
-                className="absolute inset-y-0 left-0 cursor-ew-resize"
+                className="absolute inset-y-0 start-0 cursor-ew-resize"
               />
               <span
                 onPointerDown={(e) => arrancarGesto(e, 'fin')}
                 style={{ width: ASA }}
-                className="absolute inset-y-0 right-0 cursor-ew-resize"
+                className="absolute inset-y-0 end-0 cursor-ew-resize"
               />
             </>
           )}

@@ -29,7 +29,7 @@ export const cuerpoHoy: CuerpoTutorial = {
       },
       texto: T(
         'tut.hoy.1.texto',
-        'Bajo el encabezado de cada app vive su lista Hoy: nace plegada, con el resumen del día en una sola línea para no comerse la pantalla.',
+        'En el encabezado de cada app vive su botón Metas, como el del calendario pero acotado a esta app. Abre su panel con dos pisos: arriba la checklist de hoy, debajo sus metas y planes.',
       ),
     },
     {
@@ -37,7 +37,7 @@ export const cuerpoHoy: CuerpoTutorial = {
       titulo: T('tut.hoy.2.titulo', 'Tres fuentes, una lista'),
       texto: T(
         'tut.hoy.2.texto',
-        'Los objetivos propios de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo aparece junto, ordenado por hora.',
+        'Los objetivos propios de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo junto, agrupado bajo el plan o la meta del que sale cada paso.',
       ),
     },
     {
@@ -67,7 +67,9 @@ export const cuerpoHoy: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'hoy.hechos',
+      // Con «Ocultar terminados» encendido este plegable no existe: se cae a la
+      // lista entera en vez de dejar el paso sin nada que señalar.
+      sel: () => (document.querySelector('[data-tut="hoy.hechos"]') ? 'hoy.hechos' : 'hoy.lista'),
       titulo: T('tut.hoy.6.titulo', 'Lo cumplido no desaparece'),
       texto: T(
         'tut.hoy.6.texto',
@@ -77,7 +79,7 @@ export const cuerpoHoy: CuerpoTutorial = {
     {
       texto: T(
         'tut.hoy.7.texto',
-        'Esta lista sustituyó a la vieja barra de un solo objetivo por app — ahora reúne calendario, metas y objetivos propios en el mismo sitio, app por app.',
+        'Y si te falta algo, «Nueva checklist» crea la tuya: una lista propia de esta app que se repite cada día. Debajo de la sección Hoy está el planificador completo — Metas, Planes y Cronograma — con todas las metas de la app.',
       ),
     },
   ],

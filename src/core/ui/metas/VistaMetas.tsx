@@ -11,8 +11,15 @@ import { COLORES_RUTINA } from '../coloresRutina'
 import { confirmar } from '../../state/confirmarStore'
 import { vivo } from '../estilos'
 import { Icono } from '../iconos/Icono'
+import { useArrastre, type PropsArrastre } from '../comun/arrastre'
 import { carpetaDeClave, claveDeMeta, PREFIJO_CAT, soltarMeta, type CarpetaMeta } from './carpetas'
 import { FilaMetaCard } from './FilaMetaCard'
+
+/** Dónde caería la meta que va en la mano: antes de una fila o al final de un grupo. */
+interface DestinoMeta {
+  grupo: string
+  antesDe?: Rutina
+}
 
 /** Una carpeta con las metas que le tocan. */
 interface GrupoMetas extends CarpetaMeta {
@@ -68,8 +75,6 @@ export function VistaMetas({
   const [gruposPlegados, setGruposPlegados] = useState<Set<string>>(new Set())
   const [agregandoEn, setAgregandoEn] = useState<string | null>(null)
   const [nombre, setNombre] = useState('')
-  // La meta que va en la mano. El arrastre no tiene asa: se agarra la fila.
-  const [arrastrada, setArrastrada] = useState<Rutina | null>(null)
   const propias = useCategoriasMeta((s) => s.propias)
   const quitarCategoria = useCategoriasMeta((s) => s.quitar)
   // Las apps que el usuario tiene en su casa: sus carpetas salen aunque estén
@@ -146,11 +151,32 @@ export function VistaMetas({
     setNombre('')
   }
 
-  const soltarEn = async (grupo: GrupoMetas, antesDe?: Rutina) => {
-    const mueve = arrastrada
-    setArrastrada(null)
-    if (mueve) await soltarMeta(metas, mueve, grupo, antesDe)
-  }
+  // El arrastre no tiene asa: se agarra la fila. El gesto (compartido con toda
+  // la casa) mira qué hay bajo el dedo: otra fila (la meta cae ANTES de ella,
+  // aunque sea de otra carpeta) o la caja de un grupo (cae al final de él).
+  // Embebido en una app (`ambito`) no se arrastra: la lista viene re-enraizada
+  // y reordenarla escribiría un padre falso, desgajando la rama.
+  const arr = useArrastre<DestinoMeta>(
+    (e, mano) => {
+      if (ambito) return null
+      const bajo = document.elementFromPoint(e.clientX, e.clientY)
+      const fila = bajo?.closest('[data-meta-fila]')
+      if (fila) {
+        const id = fila.getAttribute('data-meta-fila')
+        const grupo = fila.getAttribute('data-grupo')
+        if (!id || id === mano || !grupo) return null
+        const antesDe = metas.find((m) => String(m.id) === id)
+        return antesDe ? { grupo, antesDe } : null
+      }
+      const grupo = bajo?.closest('[data-zona-grupo]')?.getAttribute('data-zona-grupo')
+      return grupo ? { grupo } : null
+    },
+    (mano, destino) => {
+      const mueve = metas.find((m) => String(m.id) === mano)
+      const g = grupos.find((x) => x.clave === destino.grupo)
+      if (mueve && g) void soltarMeta(metas, mueve, g, destino.antesDe)
+    },
+  )
 
   const plegarGrupo = (clave: string) =>
     setGruposPlegados((p) => {
@@ -196,12 +222,10 @@ export function VistaMetas({
               onNombre={setNombre}
               onConfirmarAlta={() => void confirmarAlta(g)}
               ejemplo={ejemplo}
-              // El arrastre solo en el panel general: embebida en una app, esta
-              // lista viene re-enraizada (las filas mienten sobre su `padreId`) y
-              // reordenarlas escribiría ese padre falso, desgajando la rama.
-              arrastrada={ambito ? null : arrastrada}
-              onArrastrar={ambito ? undefined : setArrastrada}
-              onSoltar={ambito ? undefined : (antesDe) => void soltarEn(g, antesDe)}
+              // El arrastre solo en el panel general (ver el comentario del gesto).
+              gestoDe={ambito ? undefined : (m) => arr.props(String(m.id))}
+              enManoId={arr.enMano}
+              destino={arr.destino}
             />
           ))}
         </div>
@@ -238,9 +262,9 @@ function SeccionMetas({
   onNombre,
   onConfirmarAlta,
   ejemplo,
-  arrastrada,
-  onArrastrar,
-  onSoltar,
+  gestoDe,
+  enManoId,
+  destino,
 }: {
   grupo: GrupoMetas
   /** Embebido en una app: sin cabecera, la sección es toda la vista. */
@@ -258,13 +282,12 @@ function SeccionMetas({
   onNombre: (v: string) => void
   onConfirmarAlta: () => void
   ejemplo?: string
-  arrastrada?: Rutina | null
-  onArrastrar?: (r: Rutina | null) => void
-  /** Sin `antesDe`, la meta cae al final de esta carpeta. */
-  onSoltar?: (antesDe?: Rutina) => void
+  /** El gesto de arrastre de cada fila; sin él, esta sección no reordena. */
+  gestoDe?: (m: Rutina) => PropsArrastre
+  enManoId?: string | null
+  destino?: DestinoMeta | null
 }) {
   const t = useT()
-  const [encima, setEncima] = useState(false)
   // Las de primer nivel: las que no tienen madre, o cuya madre no está en este
   // grupo (la lista puede venir filtrada por app o por el filtro del calendario).
   // El orden es el mismo que usa `hijasDe` en el resto de la app: lo que el
@@ -291,7 +314,7 @@ function SeccionMetas({
   if (q && filas.length === 0) return null
 
   const alta = (
-    <div className="pl-1 pr-1 pt-0.5">
+    <div className="ps-1 pe-1 pt-0.5">
       {agregando ? (
         <input
           autoFocus
@@ -335,30 +358,16 @@ function SeccionMetas({
       color={grupo.color || '#94a3b8'}
       conPlan={m.id != null && planPorMeta?.has(m.id)}
       onAbrir={onAbrirMeta}
-      arrastrada={arrastrada}
-      onArrastrar={onArrastrar}
-      onSoltar={onSoltar}
+      gesto={gestoDe?.(m)}
+      grupoClave={grupo.clave}
+      enMano={enManoId === String(m.id)}
+      encima={destino?.antesDe?.id === m.id}
     />
   ))
 
-  /** La carpeta entera acepta soltar: cae al final de su lista. */
-  const zonaSoltar = onSoltar
-    ? {
-        onDragOver: (e: React.DragEvent) => {
-          if (!arrastrada) return
-          e.preventDefault()
-          e.dataTransfer.dropEffect = 'move'
-          setEncima(true)
-        },
-        onDragLeave: () => setEncima(false),
-        onDrop: (e: React.DragEvent) => {
-          if (!arrastrada) return
-          e.preventDefault()
-          setEncima(false)
-          onSoltar()
-        },
-      }
-    : {}
+  /** La carpeta entera acepta soltar (cae al final): la valida el gesto. */
+  const encima = !!destino && destino.grupo === grupo.clave && !destino.antesDe
+  const zonaSoltar = gestoDe ? { 'data-zona-grupo': grupo.clave } : {}
 
   if (anonima)
     return (
@@ -372,7 +381,7 @@ function SeccionMetas({
     <div
       data-tut="cal.metas.grupo"
       {...zonaSoltar}
-      className={`overflow-hidden rounded-xl border ${encima ? 'ring-1 ring-emerald-400/70' : ''}`}
+      className={`overflow-hidden rounded-xl border ${encima ? 'ring-1 ring-accent/70' : ''}`}
       // El color de la app tiñe la carpeta entera: es lo que la distingue de un
       // vistazo entre doce. Los textos van en `texto-vivo` para que el modo claro
       // siga siendo legible (ver index.css).
@@ -382,7 +391,7 @@ function SeccionMetas({
         <button
           type="button"
           onClick={onPlegarGrupo}
-          className="flex min-w-0 flex-1 items-center gap-2 text-left"
+          className="flex min-w-0 flex-1 items-center gap-2 text-start"
         >
           <span className="w-2 shrink-0 text-[9px] text-white/40">{plegada ? '▸' : '▾'}</span>
           <span

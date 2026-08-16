@@ -163,7 +163,7 @@ export function EditorAjustesSection({ embed }: { embed?: boolean } = {}) {
                   style={{ background: tema.vars[modoBase(modoUI)]['--ui-accent'] }}
                 />
                 <Icono emoji={tema.icon} />
-                <span className="flex-1 text-left">
+                <span className="flex-1 text-start">
                   {t(`temaUI.${tema.id}`, tema.nombre)}
                 </span>
                 {activo && <span className="text-accent">●</span>}

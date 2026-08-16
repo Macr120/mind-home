@@ -45,7 +45,7 @@ export function AccesoNivelDialog() {
           </div>
           <button
             onClick={cancelar}
-            className="ml-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
+            className="ms-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
           >
             <Icono nombre="cerrar" />
           </button>
@@ -56,7 +56,7 @@ export function AccesoNivelDialog() {
             <button
               key={a.tipo}
               onClick={() => void confirmar(a.tipo)}
-              className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-left transition hover:bg-white/10"
+              className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-3 text-start transition hover:bg-white/10"
             >
               <span className="text-2xl"><Icono emoji={a.icon} /></span>
               <span className="min-w-0">

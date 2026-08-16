@@ -88,6 +88,30 @@ export const DESCRIPCIONES: Record<string, string> = {
   agenda: 'Tu agenda: pendientes de trabajo con tablero Kanban; salud en tres partes (la tuya con citas por especialidad, medicamentos, cuidados que se repiten y seguimiento de ciclo; las personas a tu cuidado; y las mascotas), y la libreta de contactos con sus cumpleaños.',
 }
 
+/**
+ * Descripción de TRES PALABRAS de cada app de cuarto (bienvenida: bajo el
+ * preview del cuarto no cabe un párrafo). Solo las plantillas de cuarto: la
+ * infraestructura y las apps propias del usuario no salen en ese paso.
+ */
+export const CORTAS: Record<string, string> = {
+  cocina: 'Comidas, macros y recetas',
+  ejercicio: 'Rutinas, fuerza y metas',
+  descanso: 'Horario, despertador y noches',
+  anecdotario: 'Anécdotas, fotos y ánimo',
+  despacho: 'Presupuesto, metas y mercados',
+  biblioteca: 'Charlas, wiki y estudio',
+  entretenimiento: 'Películas, series y juegos',
+  sala: 'Mapamundi, rutas y bitácora',
+  jardin: 'Meditación, respiración y calma',
+  garage: 'Vehículos, trámites y talleres',
+  diario: 'Titulares, imágenes y efemérides',
+  hobbies: 'Practica, avanza y proyecta',
+  idiomas: 'Tutor, vocabulario y ejercicios',
+  ideas: 'Ideas, mapas y decisiones',
+  computo: 'Calculadora, gráficas y hojas',
+  agenda: 'Pendientes, salud y personas',
+}
+
 /** Ids personalizados publicados la última vez: sus descripciones se retiran al reemplazarlos. */
 let idsCustom: string[] = []
 

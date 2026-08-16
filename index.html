@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport-fit=cover: sin él, env(safe-area-inset-*) devuelve 0 en el
+         teléfono y la UI quedaría debajo de la muesca al empaquetar con Capacitor. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <!-- Instalable: hace falta para que las notificaciones lleguen con la
          ventana en segundo plano (ver public/sw.js). -->
     <link rel="manifest" href="/manifest.webmanifest" />

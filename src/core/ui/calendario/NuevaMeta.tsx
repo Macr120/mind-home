@@ -54,7 +54,7 @@ export function NuevaMeta({
       <button
         type="button"
         onClick={() => setAbierto(true)}
-        className="ml-auto flex shrink-0 items-center gap-1 rounded-lg border border-white/15 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
+        className="ms-auto flex shrink-0 items-center gap-1 rounded-lg border border-white/15 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
       >
         <Icono nombre="agregar" /> {t('cal.meta.nueva', 'Meta')}
       </button>
@@ -63,7 +63,7 @@ export function NuevaMeta({
 
   if (preguntando) {
     return (
-      <div className="ml-auto flex shrink-0 items-center gap-1 text-[11px]">
+      <div className="ms-auto flex shrink-0 items-center gap-1 text-[11px]">
         <span className="text-white/45">{t('cal.meta.conHorario', '¿Con horario fijo?')}</span>
         <button
           type="button"
@@ -94,7 +94,7 @@ export function NuevaMeta({
         else if (e.key === 'Escape') cerrar()
       }}
       placeholder={t('cal.meta.nuevaMetaPlaceholder', 'Nueva meta…')}
-      className="ml-auto w-32 shrink-0 rounded-lg border border-white/15 bg-black/30 px-2 py-1 text-[11px] text-white/90 placeholder:text-white/30 focus:outline-none"
+      className="ms-auto w-32 shrink-0 rounded-lg border border-white/15 bg-black/30 px-2 py-1 text-[11px] text-white/90 placeholder:text-white/30 focus:outline-none"
     />
   )
 }

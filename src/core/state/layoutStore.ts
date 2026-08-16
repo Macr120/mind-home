@@ -7,6 +7,8 @@ import { useInteractUi } from './interactUiStore'
 import { useEditorUi } from './editorUiStore'
 import { usePlanos } from './planosStore'
 import { useHouse } from './houseStore'
+import { playerPos } from './playerPosition'
+import { cuadranteDePosicion, rectMundo } from '../house/cuadrantesMapa'
 import {
   cellId,
   cabeEnRejilla,
@@ -812,6 +814,7 @@ export const useLayout = create<LayoutState>((set, get) => ({
       if (!persp) useCam.getState().setVista('iso')
     } else {
       usePlanos.getState().setActivo(false)
+      usePlanos.getState().setCuadranteVista(null)
     }
     const editingAntes = get().editingRoomId
     set({
@@ -826,8 +829,17 @@ export const useLayout = create<LayoutState>((set, get) => ({
       editingRoomId: v || opts?.mantenerVista ? editingAntes : null,
     })
     if (v && !editingAntes && !persp) {
-      // Centrar la cámara en toda la casa (todos los niveles).
-      useCam.setState({ focus: mapFocusPos(), zoom: zoomEncuadre() })
+      // Con cuadrantes, la cámara encuadra el del personaje (y enciende su recorte
+      // de vista); sin ellos —o si no cae en ninguno— toda la casa (todos los niveles).
+      const { gridCols, gridRows, cuadrantes } = get()
+      const q = cuadranteDePosicion(playerPos.x, playerPos.z, gridCols, gridRows, cuadrantes)
+      if (q) {
+        usePlanos.getState().setCuadranteVista(q.id)
+        // Import dinámico a propósito: zonaMapa importa este store (ciclo si fuera estático).
+        void import('../tutorial/zonaMapa').then((m) => m.enfocarRegion(rectMundo(q)))
+      } else {
+        useCam.setState({ focus: mapFocusPos(), zoom: zoomEncuadre() })
+      }
     } else if (!v) {
       // Al salir, la vista en perspectiva se conserva (solo iso vuelve a su encuadre).
       // `mantenerVista`: cerrar sin mover la cámara ni salir del cuarto.

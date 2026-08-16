@@ -1,8 +1,9 @@
-import { Suspense, useState } from 'react'
+import { Suspense, useState, useSyncExternalStore } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { useHouse } from '../state/houseStore'
 import { getCuarto } from '../state/cuartosStore'
-import { getPlantilla, type Plantilla } from '../registry'
+import { catalogoPlantillasStore, getPlantilla, type Plantilla } from '../registry'
+import { acento, tono } from '../../rooms/_shared/acento'
 import { intencionAppActiva } from '../state/intencionApp'
 import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
@@ -42,6 +43,9 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
   const [seleccionada, setSeleccionada] = useState<string | null>(null)
   // Marca de la última intención de chat aplicada (para aplicarla una sola vez).
   const [intencionVista, setIntencionVista] = useState<number | null>(null)
+  // Re-render cuando llegan las plantillas custom de Dexie: sin esto, entrar al
+  // cuarto antes de que resuelvan dejaba «sin app asignada» hasta recargar.
+  useSyncExternalStore(catalogoPlantillasStore.subscribe, catalogoPlantillasStore.getSnapshot)
 
   if (!cuarto) return null
 
@@ -66,10 +70,21 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
   const App = activa?.App
 
   return (
-    <div className="ui-app absolute inset-0 z-20 flex flex-col">
+    // El color de la app abierta baja como acento a todo su 2D (`--ui-accent*`):
+    // los `ui-accent-bg` de formularios y chips heredan el tono de formularios
+    // sin que cada archivo tenga que importar su color.
+    <div
+      className="ui-app ui-app-entra absolute inset-0 z-20 flex flex-col"
+      style={activa ? acento(tono(activa.color, 3)) : undefined}
+    >
+      {/* El hueco del menú flotante se reserva a la medida del móvil (su chip
+          plegado mide ~114 px) y solo a partir de `sm` al ancho completo: con
+          208 px reservados en 375 no cabían ni el chip ni «Volver a la casa». */}
       <header
         data-tut="room.header"
-        className={`flex items-center gap-3 border-b border-white/10 py-3 pr-4 ${menuFlotante ? 'pl-52' : 'pl-4'}`}
+        className={`flex items-center gap-2 border-b border-white/10 pb-3 pt-[calc(0.75rem+var(--safe-top))] pe-4 sm:gap-3 ${
+          menuFlotante ? 'ps-32 sm:ps-52' : 'ps-4'
+        }`}
         style={{ borderTopColor: color }}
       >
         {activa && apps.length > 1 && (
@@ -82,7 +97,7 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
             ‹
           </button>
         )}
-        <h1 className="texto-vivo min-w-0 truncate text-lg font-bold" style={vivo(color)}>
+        <h1 className="texto-vivo min-w-0 flex-1 truncate text-lg font-bold" style={vivo(color)}>
           {nombre}
           {activa && (
             <span className="text-white/40">
@@ -91,26 +106,30 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
             </span>
           )}
         </h1>
-        {/* Música: el tema de este cuarto y la ambiental, sin salir de la app. */}
-        <ControlMusica cuartoId={cuarto.id} className="ml-auto" />
+        {/* El `ms-auto` va en el grupo y no en la música: la checklist se esconde
+            sola (sin pasos, o apagada en esa app) y se llevaría el empuje. */}
+        <div className="ms-auto flex shrink-0 items-center gap-3">
+          {/* La checklist diaria de la app abierta (objetivos, lo agendado y sus
+              metas): un chip aquí, montado una vez y no en cada app. */}
+          {activa && <ListaHoy plantillaId={activa.id} color={activa.color} />}
+          {/* Música: el tema de este cuarto y la ambiental, sin salir de la app. */}
+          <ControlMusica cuartoId={cuarto.id} />
+        </div>
         {/* Tutorial de la app abierta, a la izquierda de «Volver a la casa». */}
         {activa && <BotonTutorialApp plantilla={activa} montada />}
+        {/* En móvil solo la flecha: con el chip de la checklist, la etiqueta
+            entera empujaba este botón fuera de la pantalla. */}
         <button
           type="button"
           data-tut="room.volver"
           onClick={closeRoom}
+          title={t('ui.volverCasa', '‹ Volver a la casa')}
           className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
         >
-          {t('ui.volverCasa', '‹ Volver a la casa')}
+          <span className="sm:hidden">‹</span>
+          <span className="hidden sm:inline">{t('ui.volverCasa', '‹ Volver a la casa')}</span>
         </button>
       </header>
-      {/* Los pasos de hoy de la app abierta (objetivos, lo agendado y sus metas):
-          montados aquí una vez, y no en cada app. */}
-      {activa && (
-        <div data-tut="room.meta" data-tut-zona="hoy">
-          <ListaHoy plantillaId={activa.id} color={activa.color} />
-        </div>
-      )}
       <main
         data-tut-zona={activa ? `app:${activa.id}` : undefined}
         className="min-h-0 flex-1 overflow-auto p-4 md:p-6"

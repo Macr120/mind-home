@@ -114,7 +114,7 @@ export function DespliegueFila({
           type="button"
           onClick={() => void borrar()}
           title={t('rutinas.borrar', 'Borrar')}
-          className="ml-auto px-1 text-[10px] text-white/30 transition hover:text-red-400"
+          className="ms-auto px-1 text-[10px] text-white/30 transition hover:text-red-400"
         >
           <Icono nombre="basura" />
         </button>

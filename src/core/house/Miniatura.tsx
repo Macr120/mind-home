@@ -1,10 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { create } from 'zustand'
 import { Canvas, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { ObjetoView } from './catalogo'
 import { TemaContext } from './primitivas'
-import { getTema, type Tema, type TemaId } from './temas'
+import { getTema, mezclar, type Tema, type TemaId } from './temas'
+import { tipoYColor, type Siembra } from './modelosRecursos'
+import { SIZE, WALL_H } from './walls'
 import type { Pieza3D } from '../chat/mascotas'
 
 /**
@@ -30,6 +32,8 @@ interface Peticion {
   foto?: Blob
   /** Anuncios: el texto del letrero. */
   texto?: string
+  /** Cuartos: el conjunto de objetos de una app en vez de un modelo suelto. */
+  siembra?: Siembra[]
 }
 
 interface ThumbState {
@@ -66,6 +70,44 @@ const claveDe = (
   `${tipo}|${tema?.id ?? 'base'}|${color}${piezas ? `|${JSON.stringify(piezas)}` : ''}${
     idObjeto != null ? `|${idObjeto}` : ''
   }${foto ? `|f${foto.size}` : ''}${texto ? `|t${texto}` : ''}`
+
+/**
+ * Cuarto amueblado en miniatura: el conjunto de objetos de una app sobre su
+ * piso, con los dos muros del fondo (los de delante taparían la vista). Colores
+ * como en `Room3D`: el color de la app teñido por el shell del tema.
+ */
+function EscenaCuarto({ siembra, color }: { siembra: Siembra[]; color: string }) {
+  const tema = useContext(TemaContext)
+  const muro = tema ? mezclar(color, tema.shell.muroInt, 0.4) : color
+  const piso = tema ? mezclar(color, tema.shell.piso, 0.3) : mezclar(muro, '#ffffff', 0.14)
+  const m = SIZE / 2
+  return (
+    <group>
+      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[SIZE, SIZE]} />
+        <meshStandardMaterial color={piso} roughness={0.9} />
+      </mesh>
+      <mesh position={[0, WALL_H / 2, -m]}>
+        <boxGeometry args={[SIZE, WALL_H, 0.1]} />
+        <meshStandardMaterial color={muro} roughness={0.9} />
+      </mesh>
+      <mesh position={[-m, WALL_H / 2, 0]}>
+        <boxGeometry args={[0.1, WALL_H, SIZE]} />
+        <meshStandardMaterial color={muro} roughness={0.9} />
+      </mesh>
+      {siembra.map((s, i) => (
+        <group
+          key={i}
+          position={[s.x, 0, s.z]}
+          rotation-y={((s.rotY ?? 0) * Math.PI) / 180}
+          scale={s.escala ?? 1}
+        >
+          <ObjetoView {...tipoYColor(s)} sinReflejo />
+        </group>
+      ))}
+    </group>
+  )
+}
 
 /** Centra y escala el contenido a ~2 unidades en el origen. */
 function ajustar(g: THREE.Group) {
@@ -120,7 +162,11 @@ function Captura({ req }: { req: Peticion }) {
     <group ref={ref}>
       <TemaContext.Provider value={getTema(req.temaId)}>
         {/* sinReflejo: en el canvas oculto no hay escena que reflejar. */}
-        <ObjetoView tipo={req.tipo} color={req.color} piezas={req.piezas} modeloGlb={req.modeloGlb} foto={req.foto} texto={req.texto} sinReflejo />
+        {req.siembra ? (
+          <EscenaCuarto siembra={req.siembra} color={req.color} />
+        ) : (
+          <ObjetoView tipo={req.tipo} color={req.color} piezas={req.piezas} modeloGlb={req.modeloGlb} foto={req.foto} texto={req.texto} sinReflejo />
+        )}
       </TemaContext.Provider>
     </group>
   )
@@ -179,6 +225,33 @@ export function MiniaturaModelo({
   useEffect(() => {
     if (!url) pedir({ clave, tipo, color, temaId: tema?.id ?? null, piezas, modeloGlb, foto, texto })
   }, [clave, url, tipo, color, tema, pedir, piezas, modeloGlb, foto, texto])
+  return url ? (
+    <img src={url} className={className} alt="" draggable={false} />
+  ) : (
+    <div className={className} />
+  )
+}
+
+/** Miniatura (imagen) del cuarto que arma una app: su conjunto de objetos ya colocado. */
+export function MiniaturaCuarto({
+  siembra,
+  color,
+  tema,
+  className,
+}: {
+  /** Conjunto de objetos de la app (`objetosDe`); el conjunto entero decide la imagen. */
+  siembra: Siembra[]
+  /** Color de la app: viste muros y piso, como el color del cuarto en la casa. */
+  color: string
+  tema: Tema | null
+  className?: string
+}) {
+  const clave = `cuarto|${tema?.id ?? 'base'}|${color}|${JSON.stringify(siembra)}`
+  const url = useThumbs((s) => s.urls[clave])
+  const pedir = useThumbs((s) => s.pedir)
+  useEffect(() => {
+    if (!url) pedir({ clave, tipo: 'cuarto', color, temaId: tema?.id ?? null, siembra })
+  }, [clave, url, color, tema, pedir, siembra])
   return url ? (
     <img src={url} className={className} alt="" draggable={false} />
   ) : (

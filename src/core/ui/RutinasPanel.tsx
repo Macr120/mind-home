@@ -67,7 +67,7 @@ export function RutinasPanel() {
   return (
     <>
       {abierto && (
-        <div data-tut="rutinas.panel" data-tut-zona="calendario" className="ui-panel-glass absolute right-3 top-24 z-20 flex max-h-[70vh] w-80 max-w-[calc(100vw-1.5rem)] flex-col rounded-2xl border border-white/10 shadow-xl backdrop-blur-md">
+        <div data-tut="rutinas.panel" data-tut-zona="calendario" className="ui-panel-glass absolute end-3 top-24 z-20 flex max-h-[70vh] w-80 max-w-[calc(100vw-1.5rem)] flex-col rounded-2xl border border-white/10 shadow-xl backdrop-blur-md">
           <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
             <p className="flex-1 text-sm font-semibold"><Icono nombre="alarma" /> {t('rutinas.titulo', 'Rutinas')}</p>
             <button
@@ -201,7 +201,7 @@ function TarjetaHoy({ rutina, hechos, pendiente }: { rutina: Rutina; hechos: Set
               key={i}
               type="button"
               onClick={() => togglePaso(rutina, i)}
-              className="flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left transition hover:bg-white/10"
+              className="flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-start transition hover:bg-white/10"
             >
               <span
                 className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] ${

@@ -79,7 +79,7 @@ export function ActivarIASection() {
               }`}
             >
               <Icono emoji={p.emoji} />
-              <span className="min-w-0 flex-1 truncate text-left">{p.nombre}</span>
+              <span className="min-w-0 flex-1 truncate text-start">{p.nombre}</span>
               {listo && <span className="shrink-0 text-[10px]">●</span>}
             </button>
           )

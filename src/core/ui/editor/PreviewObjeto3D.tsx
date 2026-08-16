@@ -185,11 +185,11 @@ export function PreviewObjeto3D({
       ) : (
         <>
           {!animPlay && onActivarPiezas && <EngraneActivarPiezas onActivar={onActivarPiezas} />}
-          <div className="absolute left-1.5 top-1.5">
+          <div className="absolute start-1.5 top-1.5">
             <BotonPreviewClaro />
           </div>
           <span
-            className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+            className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
               claro ? 'text-black/45' : 'text-[#ffffff]/35'
             }`}
           >
@@ -199,7 +199,7 @@ export function PreviewObjeto3D({
       )}
       {/* ▶/⏸: previsualiza la animación del objeto (oculta la edición mientras reproduce). */}
       {animable && (
-        <div className="absolute bottom-1.5 right-1.5">
+        <div className="absolute bottom-1.5 end-1.5">
           <BotonOverlay
             title={play ? t('editor.anim.pausar', 'Pausar animación') : t('editor.anim.reproducir', 'Reproducir animación')}
             onClick={() => setPlay(!play)}

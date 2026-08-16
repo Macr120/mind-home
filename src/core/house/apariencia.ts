@@ -82,7 +82,7 @@ export const PRENDA_COLOR_DEFAULT = Object.fromEntries(
  * la cabeza lisa como antes.
  */
 export type ExpresionId =
-  | 'neutral' | 'feliz' | 'sonrisa' | 'sorpresa' | 'guino' | 'serio' | 'ternura' | 'ninguno'
+  | 'neutral' | 'feliz' | 'sonrisa' | 'sorpresa' | 'guino' | 'serio' | 'ternura' | 'triste' | 'enojado' | 'ninguno'
 
 /** Expresión por defecto (cara amable) cuando el avatar no tiene una elegida. */
 export const EXPRESION_DEFAULT: ExpresionId = 'neutral'
@@ -96,6 +96,8 @@ export const EXPRESIONES: { id: ExpresionId; nombre: string; emoji: string }[] =
   { id: 'guino', nombre: 'Guiño', emoji: '😉' },
   { id: 'serio', nombre: 'Serio', emoji: '😠' },
   { id: 'ternura', nombre: 'Ternura', emoji: '🥰' },
+  { id: 'triste', nombre: 'Triste', emoji: '😢' },
+  { id: 'enojado', nombre: 'Enojado', emoji: '😡' },
   { id: 'ninguno', nombre: 'Sin rostro', emoji: '⭕' },
 ]
 

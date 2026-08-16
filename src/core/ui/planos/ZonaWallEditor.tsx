@@ -63,7 +63,7 @@ export function ZonaWallEditor({
               key={est}
               type="button"
               onClick={() => void paintZonaMuro(zonaId, off, side, est)}
-              className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-left text-[11px] font-medium transition${activo ? ' texto-vivo' : ''}`}
+              className={`flex items-center gap-2 rounded-lg px-2.5 py-2 text-start text-[11px] font-medium transition${activo ? ' texto-vivo' : ''}`}
               style={
                 activo
                   ? {

@@ -42,7 +42,7 @@ export function EliminarCuartoDialog() {
           </div>
           <button
             onClick={cancelar}
-            className="ml-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
+            className="ms-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
           >
             <Icono nombre="cerrar" />
           </button>

@@ -110,8 +110,8 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
                 <div
                   className={`max-w-[80%] rounded-2xl px-3 py-1.5 text-sm ${
                     esUsuario
-                      ? 'rounded-br-sm bg-emerald-500/25 text-white/95'
-                      : 'rounded-bl-sm bg-white/10 text-white/85'
+                      ? 'rounded-ee-sm bg-emerald-500/25 text-white/95'
+                      : 'rounded-es-sm bg-white/10 text-white/85'
                   }`}
                 >
                   <p className="whitespace-pre-line break-words">{m.texto}</p>
@@ -156,7 +156,7 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
         {/* Oferta de dibujar la explicación como mapa (solo gasta IA si acepta) */}
         {sugerencia && defMapa && !dibujando && (
           <div className="flex justify-start">
-            <div className="max-w-[85%] rounded-2xl rounded-bl-sm border border-accent/30 bg-accent/10 px-3 py-2">
+            <div className="max-w-[85%] rounded-2xl rounded-es-sm border border-accent/30 bg-accent/10 px-3 py-2">
               <p className="text-[12px] leading-snug text-white/80">
                 <span className="text-accent">
                   <Icono nombre={defMapa.icono} />
@@ -187,7 +187,7 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
         )}
         {dibujando && (
           <div className="flex justify-start">
-            <div className="rounded-2xl rounded-bl-sm bg-white/10 px-3 py-1.5 text-sm text-white/60">
+            <div className="rounded-2xl rounded-es-sm bg-white/10 px-3 py-1.5 text-sm text-white/60">
               <span className="animate-pulse">
                 <Icono nombre="brillo" /> {t('chat.mapa.dibujando', 'Dibujando el mapa…')}
               </span>
@@ -198,7 +198,7 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
         {/* La IA está preparando la respuesta */}
         {escribiendo && (
           <div className="flex justify-start">
-            <div className="rounded-2xl rounded-bl-sm bg-white/10 px-3 py-1.5 text-sm text-white/60">
+            <div className="rounded-2xl rounded-es-sm bg-white/10 px-3 py-1.5 text-sm text-white/60">
               <span className="animate-pulse tracking-widest"><Icono emoji={asistente.emoji} /> …</span>
             </div>
           </div>

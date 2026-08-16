@@ -5,7 +5,7 @@ import { useAjustes, type FuenteMusica } from '../../state/ajustesStore'
 import { confirmar, pedirTexto } from '../../state/confirmarStore'
 import { MOODS_LISTA } from '../../audio/temas'
 import { useT } from '../../i18n/useT'
-import { iniciarArrastre } from '../arrastre'
+import { useArrastre } from '../comun/arrastre'
 import { Carpeta } from '../comun/Carpeta'
 import { Icono } from '../iconos/Icono'
 import { VisualizadorMusica } from '../VisualizadorMusica'
@@ -64,7 +64,6 @@ export function EditorMusicaSection({
   const [editando, setEditando] = useState<{ id: number; texto: string } | null>(null)
   const [renombrando, setRenombrando] = useState<{ carpetaId: string; texto: string } | null>(null)
   const [plegadas, setPlegadas] = useState<Set<string>>(new Set())
-  const [arrastrada, setArrastrada] = useState<number | null>(null)
   const [aviso, setAviso] = useState('')
   const [avisoSistema, setAvisoSistema] = useState('')
   // Re-render al conectar/desconectar la captura del sistema (estado de módulo).
@@ -217,13 +216,23 @@ export function EditorMusicaSection({
     await borrarCarpetaPista(carpetaId)
   }
 
-  /** Suelta la pista arrastrada dentro de una carpeta (null = sacarla de todas). */
-  const soltarEn = async (carpetaId: string | null) => {
-    const id = arrastrada
-    setArrastrada(null)
-    if (id == null) return
-    await pistasMusicaRepo.update(id, { carpetaId: carpetaId ?? undefined })
-  }
+  /**
+   * El gesto compartido de la casa: una pista en mano se suelta dentro de una
+   * carpeta (la cadena vacía es la bandeja «Sin carpeta»). Soltarla donde ya
+   * está no es destino: no cambia nada.
+   */
+  const arr = useArrastre<string>(
+    (e, mano) => {
+      const destino = document
+        .elementFromPoint(e.clientX, e.clientY)
+        ?.closest('[data-carpeta-pista]')
+        ?.getAttribute('data-carpeta-pista')
+      if (destino == null) return null
+      const p = (pistas ?? []).find((x) => String(x.id) === mano)
+      return (p?.carpetaId ?? '') === destino ? null : destino
+    },
+    (mano, carpetaId) => void pistasMusicaRepo.update(Number(mano), { carpetaId: carpetaId || undefined }),
+  )
 
   const alternarPlegada = (k: string) =>
     setPlegadas((prev) => {
@@ -233,19 +242,14 @@ export function EditorMusicaSection({
       return n
     })
 
-  /** Una pista: reproducir, renombrar, marcarla como la única y borrarla. */
+  /** Una pista: reproducir, renombrar, marcarla como la única y borrarla. Se
+      agarra la fila entera para llevarla a otra carpeta. */
   const filaPista = (p: PistaMusica) => (
     <div
       key={p.id}
-      draggable
-      onDragStart={(e) => {
-        if (p.id == null) return
-        iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-        setArrastrada(p.id)
-      }}
-      onDragEnd={() => setArrastrada(null)}
-      className={`flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 ${
-        arrastrada === p.id ? 'opacity-30' : ''
+      {...arr.props(String(p.id))}
+      className={`flex cursor-grab items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 ${
+        arr.enMano === String(p.id) ? 'opacity-40' : ''
       }`}
     >
       <button
@@ -277,7 +281,7 @@ export function EditorMusicaSection({
           type="button"
           onClick={() => setEditando({ id: p.id!, texto: p.nombre })}
           title={t('ajustes.musica.renombrar', 'Renombrar')}
-          className="min-w-0 flex-1 truncate text-left text-xs text-white/85"
+          className="min-w-0 flex-1 truncate text-start text-xs text-white/85"
         >
           {p.nombre}
         </button>
@@ -318,7 +322,7 @@ export function EditorMusicaSection({
         <button
           type="button"
           onClick={() => setMusicaAmbiental(!musicaAmbiental)}
-          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
             musicaAmbiental
               ? 'ui-accent-bg border-transparent'
               : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
@@ -342,7 +346,7 @@ export function EditorMusicaSection({
         <button
           type="button"
           onClick={() => setHudMusica(!hudMusica)}
-          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
             hudMusica
               ? 'ui-accent-bg border-transparent'
               : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
@@ -527,15 +531,8 @@ export function EditorMusicaSection({
               {listaCarpetas.map((c) => (
                 <div
                   key={c.carpetaId}
-                  onDragOver={(e) => {
-                    if (arrastrada == null) return
-                    e.preventDefault()
-                    e.dataTransfer.dropEffect = 'move'
-                  }}
-                  onDrop={(e) => {
-                    e.preventDefault()
-                    void soltarEn(c.carpetaId)
-                  }}
+                  data-carpeta-pista={c.carpetaId}
+                  className={arr.destino === c.carpetaId ? 'rounded-lg ring-1 ring-accent/70' : ''}
                 >
                   <Carpeta
                     nivel={0}
@@ -616,16 +613,8 @@ export function EditorMusicaSection({
 
               {/* Pistas sin carpeta: también aceptan que sueltes una encima */}
               <div
-                onDragOver={(e) => {
-                  if (arrastrada == null) return
-                  e.preventDefault()
-                  e.dataTransfer.dropEffect = 'move'
-                }}
-                onDrop={(e) => {
-                  e.preventDefault()
-                  void soltarEn(null)
-                }}
-                className="space-y-1.5"
+                data-carpeta-pista=""
+                className={`space-y-1.5 ${arr.destino === '' ? 'rounded-lg ring-1 ring-accent/70' : ''}`}
               >
                 {listaCarpetas.length > 0 && sueltas.length > 0 && (
                   <p className="px-1 pt-1 text-[10px] font-bold uppercase tracking-wider text-white/25">

@@ -55,7 +55,7 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
                 key={c.id}
                 type="button"
                 onClick={() => setCalidad(c.id)}
-                className={`flex flex-col items-start gap-1 rounded-md border px-2 py-1.5 text-left transition ${
+                className={`flex flex-col items-start gap-1 rounded-md border px-2 py-1.5 text-start transition ${
                   activo
                     ? 'ui-accent-bg border-transparent'
                     : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
@@ -76,7 +76,7 @@ export function EditorIASection({ embed, sinTitulo }: { embed?: boolean; sinTitu
       <p className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[10px] leading-relaxed text-white/45">
         {t(
           'ia.tarifas',
-          'Una respuesta cuesta 1 crédito · un plan largo 3 · una imagen {img} · un modelo 3D 10.',
+          'Una respuesta cuesta 1 crédito · un plan largo 4 · una imagen {img} · un modelo 3D 10.',
           { img: String(CREDITOS[calidad === 'buena' ? 'imagen_alta' : 'imagen']) },
         )}
       </p>

@@ -239,7 +239,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
                   <button
                     type="button"
                     onClick={() => void setFondoImagenActivo(item.id!)}
-                    className="block w-full text-left"
+                    className="block w-full text-start"
                     title={item.nombre}
                   >
                     <div className="aspect-video w-full overflow-hidden bg-black/30">
@@ -261,7 +261,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
                     <button
                       type="button"
                       onClick={() => void borrar(item.id!)}
-                      className="flex-1 border-l border-white/10 py-1 text-[9px] text-red-400/70 hover:bg-red-500/10"
+                      className="flex-1 border-s border-white/10 py-1 text-[9px] text-red-400/70 hover:bg-red-500/10"
                     >
                       {t('editor.fondo.borrar', 'Borrar')}
                     </button>
@@ -299,7 +299,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
             key={f.id}
             type="button"
             onClick={() => void setFondoId(f.id)}
-            className="flex flex-col items-start gap-1 rounded-lg border px-2 py-2 text-left transition"
+            className="flex flex-col items-start gap-1 rounded-lg border px-2 py-2 text-start transition"
             style={{
               borderColor:
                 fondoImagenActivo == null && fondoId === f.id
@@ -347,7 +347,7 @@ export function EditorFondoSection({ embed }: { embed?: boolean } = {}) {
             <span
               className={[
                 'absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition',
-                animacionesFondo ? 'left-[22px]' : 'left-0.5',
+                animacionesFondo ? 'start-[22px]' : 'start-0.5',
               ].join(' ')}
             />
           </button>

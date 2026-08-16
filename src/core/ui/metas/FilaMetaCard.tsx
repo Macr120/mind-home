@@ -4,7 +4,7 @@ import { rutinasRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
 import { agendada, estadoMeta, progresoDe, resumenAlcance, vencida, type EstadoMeta } from '../../metas'
 import { fechaLocalISO } from '../../fechaLocal'
-import { iniciarArrastre } from '../arrastre'
+import type { PropsArrastre } from '../comun/arrastre'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
 import { PildoraCuenta } from './CuentaRegresiva'
@@ -39,9 +39,10 @@ export function FilaMetaCard({
   color,
   conPlan,
   onAbrir,
-  arrastrada,
-  onArrastrar,
-  onSoltar,
+  gesto,
+  grupoClave,
+  enMano,
+  encima,
 }: {
   /** El grupo entero: el progreso de una meta cuenta el de sus sub-metas. */
   metas: Rutina[]
@@ -53,18 +54,17 @@ export function FilaMetaCard({
   /** Ya tiene un plan guardado: se marca, porque el clic abrirá su hoja. */
   conPlan?: boolean
   onAbrir: (r: Rutina) => void
-  /** La meta que va en la mano ahora mismo, si hay alguna. */
-  arrastrada?: Rutina | null
-  onArrastrar?: (r: Rutina | null) => void
-  /** Soltar aquí: la arrastrada se coloca JUSTO ANTES de esta meta. */
-  onSoltar?: (antesDe: Rutina) => void
+  /** Se arrastra la fila entera, sin asa (el gesto compartido de la casa). */
+  gesto?: PropsArrastre
+  /** La carpeta a la que pertenece, para que el gesto resuelva el destino. */
+  grupoClave?: string
+  /** Esta fila va en la mano: se atenúa como hueco. */
+  enMano?: boolean
+  /** Lo arrastrado caería JUSTO ANTES de esta fila. */
+  encima?: boolean
 }) {
   const t = useT()
   const [editandoNota, setEditandoNota] = useState(false)
-  const [encima, setEncima] = useState(false)
-  // Se arrastra la fila entera, sin asa: agarrarla por donde sea y soltarla
-  // sobre otra la coloca antes. Soltarse encima de sí misma no hace nada.
-  const puedeSoltar = !!arrastrada && !!onSoltar && arrastrada.id !== meta.id
 
   const estado = estadoMeta(metas, meta)
   const resumen = resumenAlcance(metas, meta)
@@ -88,38 +88,15 @@ export function FilaMetaCard({
   return (
     <div
       data-tut="cal.metas.fila"
-      draggable={!!onArrastrar && !editandoNota}
-      onDragStart={(e) => {
-        if (!onArrastrar) return
-        iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-        onArrastrar(meta)
-      }}
-      onDragEnd={() => {
-        onArrastrar?.(null)
-        setEncima(false)
-      }}
-      // La fila vive dentro de la caja de la carpeta, que también acepta soltar:
-      // sin cortar la propagación se ejecutarían los dos.
-      onDragOver={(e) => {
-        if (!puedeSoltar) return
-        e.preventDefault()
-        e.stopPropagation()
-        e.dataTransfer.dropEffect = 'move'
-        setEncima(true)
-      }}
-      onDragLeave={() => setEncima(false)}
-      onDrop={(e) => {
-        if (!puedeSoltar) return
-        e.preventDefault()
-        e.stopPropagation()
-        setEncima(false)
-        onSoltar?.(meta)
-      }}
+      // Mientras se escribe la nota el gesto se suelta: teclear no debe arrastrar.
+      {...(gesto && !editandoNota ? gesto : {})}
+      data-meta-fila={meta.id != null ? String(meta.id) : undefined}
+      data-grupo={grupoClave}
       className={`group rounded-lg border bg-white/[0.02] px-1.5 py-1 transition hover:border-white/15 hover:bg-white/5 ${
-        encima ? 'border-t-2 border-t-emerald-400' : 'border-white/5'
-      } ${arrastrada?.id === meta.id ? 'opacity-40' : ''}`}
+        gesto ? 'cursor-grab' : ''
+      } ${encima ? 'border-t-2 border-t-accent' : 'border-white/5'} ${enMano ? 'opacity-40' : ''}`}
     >
-      <button type="button" onClick={() => onAbrir(meta)} className="flex w-full items-center gap-2 text-left">
+      <button type="button" onClick={() => onAbrir(meta)} className="flex w-full items-center gap-2 text-start">
         {/* El número de la meta dentro de su carpeta: sustituye al check. */}
         <span
           className="grid h-5 w-5 shrink-0 place-items-center rounded-md text-[10px] font-bold tabular-nums texto-vivo"
@@ -188,7 +165,7 @@ export function FilaMetaCard({
             else if (e.key === 'Escape') setEditandoNota(false)
           }}
           placeholder={t('cal.notaPlaceholder', 'Nota (opcional)')}
-          className="ml-7 mt-0.5 w-[calc(100%-1.75rem)] rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-[11px] text-white/80 placeholder:text-white/25 focus:outline-none"
+          className="ms-7 mt-0.5 w-[calc(100%-1.75rem)] rounded border border-white/15 bg-black/30 px-1.5 py-0.5 text-[11px] text-white/80 placeholder:text-white/25 focus:outline-none"
         />
       ) : (
         <button
@@ -197,7 +174,7 @@ export function FilaMetaCard({
           // Sin nota, la invitación solo se ve al pasar por encima, pero su línea
           // se reserva igual: si apareciera y desapareciera, la lista daría saltos
           // cada vez que el ratón cruza una fila.
-          className={`ml-7 block max-w-[calc(100%-1.75rem)] truncate text-left text-[11px] transition ${
+          className={`ms-7 block max-w-[calc(100%-1.75rem)] truncate text-start text-[11px] transition ${
             meta.nota
               ? 'text-white/40 hover:text-white/70'
               : 'text-white/20 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100'

@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type Key, type ReactNode } from 'react'
 import { deIso, fechaLocalISO, inicioSemana, isoMasDias } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
+import { useArrastre } from '../../core/ui/comun/arrastre'
 import { Carpeta } from '../../core/ui/comun/Carpeta'
 
 /** Lunes de la semana de una fecha ISO: es la clave de la carpeta semanal. */
@@ -221,8 +222,6 @@ export function CarpetasPorEtiqueta<T>({
 }) {
   const t = useT()
   const [tocadas, setTocadas] = useState<ReadonlySet<string>>(new Set())
-  const [arrastrada, setArrastrada] = useState<string | null>(null)
-  const [encima, setEncima] = useState<string | null>(null)
 
   // Se agrupa sin distinguir mayúsculas ni acentos sueltos («Terror» = «terror»)
   // y se muestra la primera forma que escribió el usuario.
@@ -253,13 +252,21 @@ export function CarpetasPorEtiqueta<T>({
   const abierta = (k: string) => (grupos[0]?.titulo === k) !== tocadas.has(k)
 
   /** Suelta la carpeta arrastrada justo antes de `destino`. */
-  const soltar = (destino: string) => {
-    if (!onReordenar || !arrastrada || arrastrada === destino) return
+  const soltar = (arrastrada: string, destino: string) => {
+    if (!onReordenar || arrastrada === destino) return
     const titulos = grupos.map((g) => g.titulo).filter((x) => x !== arrastrada)
     const at = titulos.indexOf(destino)
     titulos.splice(at < 0 ? titulos.length : at, 0, arrastrada)
     onReordenar(titulos)
   }
+
+  // El gesto compartido de la casa: pulsación larga (o mover con el ratón)
+  // levanta la carpeta entera y cae justo antes de aquella sobre la que se suelta.
+  const arrastre = useArrastre<string>((e, mano) => {
+    const cab = document.elementFromPoint(e.clientX, e.clientY)?.closest('[data-carpeta]')
+    const destino = cab?.getAttribute('data-carpeta')
+    return destino && destino !== mano ? destino : null
+  }, soltar)
 
   if (items.length === 0) {
     return <p className="py-4 text-center text-sm text-white/40">{t('carpetas.vacio', 'Aún no hay registros.')}</p>
@@ -274,16 +281,10 @@ export function CarpetasPorEtiqueta<T>({
           titulo={grupo.titulo}
           conteo={grupo.items.length}
           abierta={abierta(grupo.titulo)}
-          arrastrable={!!onReordenar}
-          marcada={encima === grupo.titulo && arrastrada !== grupo.titulo}
-          onArrastrar={() => setArrastrada(grupo.titulo)}
-          onEntrar={() => setEncima(grupo.titulo)}
-          onSalir={() => setEncima((v) => (v === grupo.titulo ? null : v))}
-          onSoltar={() => {
-            soltar(grupo.titulo)
-            setArrastrada(null)
-            setEncima(null)
-          }}
+          gesto={onReordenar ? arrastre.props(grupo.titulo) : undefined}
+          claveArrastre={onReordenar ? grupo.titulo : undefined}
+          enMano={arrastre.enMano === grupo.titulo}
+          marcada={arrastre.destino === grupo.titulo}
           onAlternar={() =>
             setTocadas((prev) => {
               const copia = new Set(prev)

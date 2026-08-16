@@ -91,14 +91,14 @@ export function CabeceraPlan({
   }
 
   return (
-    <div className="space-y-1 py-1 pl-1 pr-1">
+    <div className="space-y-1 py-1 ps-1 pe-1">
       <div className="flex items-center gap-1">
         <span className="shrink-0 text-[10px] text-violet-300/80">
           <Icono nombre="brillo" />
         </span>
         <span className="min-w-0 flex-1 truncate text-[11px] font-semibold text-violet-200/90">
           {etiqueta ?? plan.nombre}
-          <span className="ml-1 font-normal text-white/30">
+          <span className="ms-1 font-normal text-white/30">
             {dias > 0 ? t('cal.plan.duracion', '{n} días', { n: dias }) : t('cal.plan.sinPlazo', 'Sin plazo')}
           </span>
         </span>
@@ -135,7 +135,7 @@ export function CabeceraPlan({
           <button
             type="button"
             onClick={() => setVerMaterial((v) => !v)}
-            className="w-full text-left text-[9px] text-white/40 transition hover:text-white/70"
+            className="w-full text-start text-[9px] text-white/40 transition hover:text-white/70"
           >
             {verMaterial ? '▾' : '▸'} {t('cal.plan.material.n', 'Material del plan ({n})', { n: material.length })}
           </button>

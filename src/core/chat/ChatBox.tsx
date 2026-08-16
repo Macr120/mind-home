@@ -2,7 +2,6 @@ import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRe
 import { getPlantilla } from '../registry'
 import { getCuarto, useCuartos } from '../state/cuartosStore'
 import { bitacoraRepo, memoriasRepo, mensajesChatRepo, ultimosMensajesAsistente, useUltimosMensajes } from '../data/repository'
-import { useAjustes } from '../state/ajustesStore'
 import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useMascota } from '../state/mascotaStore'
 import { useDialogo } from '../state/dialogoStore'
@@ -13,7 +12,8 @@ import { playerPos } from '../state/houseStore'
 import { getCatalogoItem } from '../house/catalogo'
 import { escribiendoEnCampo, hayCuartoAbierto } from '../house/movement'
 import { interpretar, appsAsignadas } from './dispatcher'
-import { interpretarEdicionLocal, tomarUltimoMapa } from './editorAcciones'
+import { hayIntencionEditor, tomarUltimoMapa } from './editorIntencion'
+import type { EdicionLocal } from './editorAcciones'
 import { destinoDeTool } from './destinoChat'
 import type { DestinoChat } from '../data/db'
 import { interpretarAyuda, type AyudaDetectada } from './ayuda'
@@ -24,6 +24,7 @@ import { lanzarFlujo } from '../tutorial/registro'
 import {
   iaActiva,
   interpretarIA,
+  pdfNativo,
   PROVEEDORES,
   getProveedor,
   setProveedor,
@@ -34,6 +35,8 @@ import {
   type ProveedorId,
 } from './ia'
 import { responder, nombreAsistente, saludoAsistente, type EventoTipo } from './mascotas'
+import { EMOCION_POR_EVENTO } from './emociones'
+import { reaccionar } from '../state/emocionesStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { ChatConversacion } from './ChatConversacion'
 // Paneles que solo existen tras pulsar su botón: fuera del arranque (18 KB gz).
@@ -43,42 +46,42 @@ const AsistentesConfig = lazy(() =>
 const ManualComandos = lazy(() =>
   import('./ManualComandos').then((m) => ({ default: m.ManualComandos })),
 )
+
+/**
+ * Espejo del módulo diferido de edición: `interpretarEdicionLocal` corre en un
+ * useMemo POR TECLA y no puede esperar un await, así que el módulo (120 KB) se
+ * descarga al primer texto escrito y el memo re-computa cuando aterriza.
+ */
+let editorLocal: typeof import('./editorAcciones') | null = null
+
+/** Interpretación diferida para el envío: cierra el hueco de teclear+Enter muy rápido. */
+async function interpretarEdicionDiferida(texto: string): Promise<EdicionLocal | null> {
+  editorLocal ??= await import('./editorAcciones')
+  const e = editorLocal.interpretarEdicionLocal(texto)
+  return e?.soloSinIA && iaActiva() ? null : e
+}
 import { useT } from '../i18n/useT'
-import { datosIdioma } from '../i18n/idiomas'
 import { Icono } from '../ui/iconos/Icono'
 import { useHud } from '../state/hudStore'
 import { BotonPlegarHud } from '../ui/HudPlegable'
 import { useTopeHud } from '../ui/hudMedida'
 import { vivo } from '../ui/estilos'
 import { iaHabilitada } from '../edicion'
-import { ErrorIA } from '../cuenta/api'
-import { hayDictadoFallback, forzarDictadoIA, transcribir } from '../audio/dictado'
+import { ErrorIA, usarViaCuenta } from '../cuenta/api'
+import { blobABase64, comprimirImagen } from '../imagenIA'
+import { useMascaraUi } from '../state/mascaraUiStore'
+import { useChatArUi } from '../state/chatArUiStore'
+import { useDictado } from '../audio/useDictado'
 import { GastoByok } from '../ui/GastoByok'
 
-/** Mínimo de la Web Speech API que usamos (no viene en lib.dom). */
-interface ReconocimientoVoz {
-  lang: string
-  interimResults: boolean
-  continuous: boolean
-  onresult: ((ev: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null
-  onend: (() => void) | null
-  onerror: ((ev: { error?: string }) => void) | null
-  start(): void
-  stop(): void
-}
-
-const CtorVoz = (window as unknown as {
-  SpeechRecognition?: new () => ReconocimientoVoz
-  webkitSpeechRecognition?: new () => ReconocimientoVoz
-}).SpeechRecognition ?? (window as unknown as {
-  webkitSpeechRecognition?: new () => ReconocimientoVoz
-}).webkitSpeechRecognition
-
-/** Imagen adjunta lista para previsualizar y enviar al modelo. */
-interface ImagenLocal {
-  dataUrl: string
+/** Adjunto listo para previsualizar y enviar al modelo (imagen o PDF). */
+interface AdjuntoLocal {
+  tipo: 'imagen' | 'pdf'
   base64: string
   mediaType: string
+  nombre: string
+  /** Miniatura del chip de preview (solo imagen). */
+  dataUrl?: string
 }
 
 /** Cuarto colocado en el mapa más cercano al avatar (para soltar objetos ahí). */
@@ -115,23 +118,23 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const plegado = useHud((s) => s.plegado.chat)
   const movilVertical = useHud((s) => s.movilVertical)
   const [retagId, setRetagId] = useState<number | null>(null)
-  const [imagen, setImagen] = useState<ImagenLocal | null>(null)
+  const [adjunto, setAdjunto] = useState<AdjuntoLocal | null>(null)
   // Mapa ofrecido tras una explicación: aquí solo se pinta si su conversación
   // NO está abierta (con el hilo abierto la oferta vive dentro, como un mensaje).
   const sugerencia = useSugerenciaMapa((s) => s.sugerencia)
   const dibujando = useSugerenciaMapa((s) => s.dibujando)
-  const [grabando, setGrabando] = useState(false)
-  const [transcribiendo, setTranscribiendo] = useState(false)
   const [menuModelo, setMenuModelo] = useState(false)
+  const [menuAdjuntar, setMenuAdjuntar] = useState(false)
   const [provId, setProvId] = useState<ProveedorId>(() => getProveedor().id)
   const [claveDraft, setClaveDraft] = useState(() => getIaKey(getProveedor().id))
   const [modeloLocalDraft, setModeloLocalDraft] = useState(() => getModeloLocal())
-  const recRef = useRef<ReconocimientoVoz | null>(null)
-  const mediaRecRef = useRef<MediaRecorder | null>(null)
   const areaRef = useRef<HTMLTextAreaElement>(null)
-  // Input propio para la cámara del widget: el botón + de la barra elige de la
-  // galería, y `capture` en ese mismo input se saltaría el selector de archivos.
+  // Input propio para la cámara («Tomar foto» del menú + y el widget de Android):
+  // `capture` en el input de galería se saltaría el selector de archivos.
   const camaraRef = useRef<HTMLInputElement>(null)
+  // Los otros dos inputs del menú «+»: galería y PDF.
+  const galeriaRef = useRef<HTMLInputElement>(null)
+  const pdfRef = useRef<HTMLInputElement>(null)
   // Medición de la barra para decidir si la caja de texto se lleva un renglón entero.
   const barraRef = useRef<HTMLDivElement>(null)
   const cajaRef = useRef<HTMLDivElement>(null)
@@ -143,7 +146,6 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const [medida, setMedida] = useState(0)
   // Barra del chat: publica su alto para que los prompts se apilen encima de ella.
   const refTope = useTopeHud('chat')
-  const idioma = useAjustes((s) => s.idioma)
   const entradas = bitacoraRepo.useAll()
   const memorias = memoriasRepo.useAll()
   const addRoomGround = useLayout((s) => s.addRoomGround)
@@ -157,6 +159,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const cerrarConversacion = useMascota((s) => s.cerrarConversacion)
   const setPensando = useMascota((s) => s.setPensando)
   const asistentes = useAsistentes((s) => s.lista)
+  // Dictado por voz compartido (nativo o fallback Whisper): ver audio/useDictado.
+  const {
+    soportado: vozSoportada,
+    grabando,
+    transcribiendo,
+    toggle: toggleVoz,
+  } = useDictado({ onTexto: setTexto, onError: (m) => hablar(m) })
   const [configAbierto, setConfigAbierto] = useState(false)
   const [manualAbierto, setManualAbierto] = useState(false)
   // El hilo nace apartado (nunca se abre solo al arrancar la app) y, una vez
@@ -251,13 +260,28 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
 
   // Previsualización en vivo de a dónde irá la entrada.
   const interp = useMemo(() => interpretar(texto), [texto])
+  // El intérprete de edición vive en el módulo diferido: se descarga al primer
+  // texto escrito (una sola vez por sesión) y el flag re-computa el memo.
+  const [editorListo, setEditorListo] = useState(() => editorLocal != null)
+  useEffect(() => {
+    if (editorLocal || !texto.trim()) return
+    let vivo = true
+    void import('./editorAcciones').then((m) => {
+      editorLocal = m
+      if (vivo) setEditorListo(true)
+    })
+    return () => {
+      vivo = false
+    }
+  }, [texto])
   // Orden de edición de la casa detectada sin IA (pintar, tema, avatar, etc.).
   // Los atajos `soloSinIA` se dejan pasar al modelo cuando hay IA: él hace más
   // (p. ej. dibuja el mapa entero en vez de crearlo en blanco).
   const edicion = useMemo(() => {
-    const e = interpretarEdicionLocal(texto)
+    if (!editorListo || !editorLocal) return null
+    const e = editorLocal.interpretarEdicionLocal(texto)
     return e?.soloSinIA && iaActiva() ? null : e
-  }, [texto])
+  }, [texto, editorListo])
   // Petición de ayuda/tutorial detectada sin IA («¿cómo funciona la cocina?»).
   const ayuda = useMemo(() => interpretarAyuda(texto), [texto])
   // El id detectado puede ser una APP (captura/recordar) o un CUARTO (comando):
@@ -290,6 +314,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
     const quien = asistentes.find((a) => a.id === destinoId) ?? mascota
     hablar(responder(quien.forma, { tipo, cuarto, objeto }, t), { asistenteId: quien.id, destinos: chips })
+    reaccionar(quien.id, EMOCION_POR_EVENTO[tipo])
   }
 
   /** Abre la conversación tipo chat con un asistente (cierra los otros paneles). */
@@ -300,110 +325,37 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     abrirConversacion(id)
   }
 
-  /** Lee la foto elegida y la deja lista (dataURL → base64 + mediaType). */
-  const cargarImagen = (file: File) => {
+  /** Comprime la foto elegida a 1280px (el tope que asume el proxy) y la deja lista. */
+  const cargarImagen = async (file: File) => {
+    const blob = await comprimirImagen(file, 1280)
+    const base64 = await blobABase64(blob)
+    setAdjunto({
+      tipo: 'imagen',
+      base64,
+      mediaType: blob.type,
+      nombre: file.name,
+      dataUrl: `data:${blob.type};base64,${base64}`,
+    })
+  }
+
+  /** Deja el PDF listo (base64 tal cual). El tope evita el rechazo del proxy (~2 MB). */
+  const cargarPdf = (file: File) => {
+    const topeMB = usarViaCuenta() ? 2 : 5
+    if (file.size > topeMB * 1024 * 1024) {
+      hablar(t('chat.pdfGrande', 'El PDF pesa más de {mb} MB, usa uno más ligero.', { mb: topeMB }))
+      return
+    }
     const reader = new FileReader()
     reader.onload = () => {
       const dataUrl = reader.result as string
-      const coma = dataUrl.indexOf(',')
-      const mediaType = dataUrl.slice(5, dataUrl.indexOf(';'))
-      setImagen({ dataUrl, base64: dataUrl.slice(coma + 1), mediaType })
+      setAdjunto({
+        tipo: 'pdf',
+        base64: dataUrl.slice(dataUrl.indexOf(',') + 1),
+        mediaType: 'application/pdf',
+        nombre: file.name,
+      })
     }
     reader.readAsDataURL(file)
-  }
-
-  /**
-   * Fallback de dictado (MediaRecorder + Whisper) para cuando no hay
-   * `SpeechRecognition` nativo (WebView de Android). Tope de 30s: mismo margen
-   * de costo que asume el proxy `ia-voz`.
-   */
-  const grabarConFallback = async () => {
-    let stream: MediaStream
-    try {
-      stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-    } catch {
-      hablar(t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'))
-      return
-    }
-    const rec = new MediaRecorder(stream)
-    const trozos: Blob[] = []
-    const inicio = performance.now()
-    rec.ondataavailable = (ev) => {
-      if (ev.data.size > 0) trozos.push(ev.data)
-    }
-    rec.onstop = async () => {
-      stream.getTracks().forEach((tr) => tr.stop())
-      setGrabando(false)
-      const blob = new Blob(trozos, { type: rec.mimeType || 'audio/webm' })
-      if (!blob.size) return
-      setTranscribiendo(true)
-      try {
-        setTexto(await transcribir(blob, idioma, (performance.now() - inicio) / 1000))
-      } catch (e) {
-        // ErrorIA de cuota-agotada ya abrió su propio modal (exigirTransporteVoz).
-        if (!(e instanceof ErrorIA)) {
-          hablar(t('chat.voz.error', 'No pude usar el dictado ({motivo}).', { motivo: e instanceof Error ? e.message : '' }))
-        }
-      } finally {
-        setTranscribiendo(false)
-      }
-    }
-    mediaRecRef.current = rec
-    setGrabando(true)
-    rec.start()
-    setTimeout(() => {
-      if (rec.state !== 'inactive') rec.stop()
-    }, 30_000)
-  }
-
-  /**
-   * Dictado por voz: Web Speech API nativa, o el fallback de Whisper si no
-   * existe (o si se fuerza por pruebas: `window.mhDictadoIA(true)` en consola,
-   * útil en escritorio, donde el nativo siempre existe y el fallback nunca se
-   * ejercitaría de otro modo).
-   */
-  const toggleVoz = () => {
-    const usaNativo = CtorVoz && !forzarDictadoIA()
-    if (grabando) {
-      if (usaNativo) recRef.current?.stop()
-      else mediaRecRef.current?.stop()
-      return
-    }
-    if (usaNativo) {
-      const rec = new CtorVoz()
-      rec.lang = datosIdioma(idioma).locale
-      rec.interimResults = true
-      rec.continuous = false
-      rec.onresult = (ev) => {
-        let s = ''
-        for (let i = 0; i < ev.results.length; i++) s += ev.results[i][0].transcript
-        setTexto(s)
-      }
-      rec.onend = () => setGrabando(false)
-      // El error más común es el permiso del micrófono: dilo claro, no falles en silencio.
-      rec.onerror = (ev) => {
-        setGrabando(false)
-        const motivo = ev.error ?? ''
-        if (motivo === 'no-speech') return // terminó sin oír nada, no es un error real
-        const MENSAJES: Record<string, string> = {
-          'not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
-          'service-not-allowed': t('chat.voz.permiso', 'El navegador bloqueó el micrófono. Actívalo en el candado junto a la dirección.'),
-          'audio-capture': t('chat.voz.sinMic', 'No encontré ningún micrófono en este equipo.'),
-          network: t('chat.voz.red', 'El dictado del navegador necesita internet.'),
-          'language-not-supported': t('chat.voz.idioma', 'Tu navegador no soporta dictado en este idioma.'),
-        }
-        hablar(MENSAJES[motivo] ?? t('chat.voz.error', 'No pude usar el dictado ({motivo}).', { motivo }))
-      }
-      recRef.current = rec
-      setGrabando(true)
-      try {
-        rec.start()
-      } catch {
-        setGrabando(false)
-      }
-      return
-    }
-    if (hayDictadoFallback()) void grabarConFallback()
   }
 
   const elegirProveedor = (id: ProveedorId) => {
@@ -447,7 +399,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     ).toLowerCase()
 
   const enviar = async () => {
-    if (!interp.texto.trim() && !imagen) return
+    if (!interp.texto.trim() && !adjunto) return
     useSugerenciaMapa.getState().descartar() // la oferta anterior caduca con el mensaje nuevo
     // Hilo de destino: el diálogo cara a cara manda; luego la conversación abierta; si no, el activo.
     const destinoId = useDialogo.getState().asistenteId ?? conversacion ?? mascotaId
@@ -533,15 +485,19 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     }
 
     // Edición de la casa pedida por chat (pintar, tema, avatar…): funciona con o sin IA.
-    if (edicion) {
-      const msg = await edicion.ejecutar()
+    // Si se tecleó y envió antes de que el import() del intérprete aterrizara, el memo
+    // quedó null: se re-interpreta aquí esperando el módulo (solo si huele a edición).
+    const edicionLista = edicion ?? (hayIntencionEditor([texto]) ? await interpretarEdicionDiferida(texto) : null)
+    if (edicionLista) {
+      const msg = await edicionLista.ejecutar()
       await bitacoraRepo.add({
         texto: interp.texto,
         creado: new Date().toISOString(),
         procesado: true,
       })
-      const chip = destinoDeTool(edicion.tool)
+      const chip = destinoDeTool(edicionLista.tool)
       hablar(msg, { asistenteId: destinoId, mapaId: tomarUltimoMapa(), destinos: chip ? [chip] : undefined })
+      reaccionar(destinoId, 'aprobacion')
       setTexto('')
       return
     }
@@ -553,15 +509,32 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       try {
         // Burbuja "pensando…" inmediata: feedback de que el Enter sí envió.
         setPensando(true, destinoId)
-        const textoMsg = interp.texto.trim() || 'Registra lo que muestra la imagen.'
-        const r = await interpretarIA(
-          textoMsg,
-          destinoId,
-          imagen ? { base64: imagen.base64, mediaType: imagen.mediaType } : null,
-          historial,
-        )
+        const textoMsg =
+          interp.texto.trim() ||
+          (adjunto?.tipo === 'pdf' ? 'Resume y registra lo que contenga el documento.' : 'Registra lo que muestra la imagen.')
+        let textoEnvio = textoMsg
+        let adj = adjunto ? { base64: adjunto.base64, mediaType: adjunto.mediaType } : null
+        // Proveedor sin PDF nativo (ChatGPT/DeepSeek/Ollama): el texto se extrae
+        // aquí (pdfjs, lazy) y viaja dentro del mensaje, sin adjunto.
+        if (adjunto?.tipo === 'pdf' && !pdfNativo()) {
+          try {
+            const { extraerTextoPdf } = await import('./pdf')
+            textoEnvio = `${textoMsg}\n\nContenido del PDF «${adjunto.nombre}» (texto extraído):\n${await extraerTextoPdf(adjunto.base64)}`
+            adj = null
+          } catch {
+            setPensando(false)
+            hablar(
+              t('chat.pdfSinTexto', 'No pude leer texto en ese PDF (¿es escaneado?). Con Claude sí puedo verlo completo.'),
+              { asistenteId: destinoId },
+            )
+            return
+          }
+        }
+        const r = await interpretarIA(textoEnvio, destinoId, adj, historial)
+        // La emoción etiquetada por el modelo; las ramas de evento (decir) pueden pisarla.
+        reaccionar(destinoId, r.emocion)
         await bitacoraRepo.add({
-          texto: interp.texto.trim() || '📷 Foto',
+          texto: interp.texto.trim() || (adjunto?.tipo === 'pdf' ? `📄 ${adjunto.nombre}` : '📷 Foto'),
           roomId: r.roomIds[0],
           creado: new Date().toISOString(),
           procesado: r.capturado || r.ediciones.length > 0 || !!r.creado3d || !!r.imagen,
@@ -587,7 +560,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           useSugerenciaMapa.getState().ofrecer(textoMsg, r.respuesta, destinoId)
         }
         setTexto('')
-        setImagen(null)
+        setAdjunto(null)
         return
       } catch (err) {
         // Sin plan o sin cuota: mensaje claro con CTA, no el fallback silencioso.
@@ -599,12 +572,12 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             { asistenteId: destinoId },
           )
           setTexto('')
-          setImagen(null)
+          setAdjunto(null)
           return
         }
         console.warn('[MPH] IA no disponible, usando dispatcher local:', err)
         setPensando(false)
-        setImagen(null) // el dispatcher local no puede ver fotos
+        setAdjunto(null) // el dispatcher local no puede ver fotos ni PDFs
       }
     }
     if (!interp.texto.trim()) return // solo había foto y la IA falló
@@ -708,6 +681,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     setConfigAbierto(false)
     setManualAbierto(false)
     setMenuModelo(false)
+    setMenuAdjuntar(false)
     cerrarConversacion()
     setHiloOculto(true)
   }, [cerrarConversacion, setHiloOculto])
@@ -720,7 +694,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
    * ese vive fuera del chat y cerrar por detrás dejaría la pregunta huérfana.
    */
   useEffect(() => {
-    if (!otroPanel && !hiloVisible) return
+    if (!otroPanel && !hiloVisible && !menuModelo && !menuAdjuntar) return
     const fuera = (e: PointerEvent) => {
       if (useConfirmar.getState().pendiente) return
       // `contains` LANZA si el target no es un Node (eventos que nacen en
@@ -739,7 +713,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       window.removeEventListener('pointerdown', fuera)
       window.removeEventListener('keydown', escape)
     }
-  }, [otroPanel, hiloVisible, cerrarPaneles])
+  }, [otroPanel, hiloVisible, menuModelo, menuAdjuntar, cerrarPaneles])
 
   // Al cambiar el ANCHO de la barra (abrir el menú lateral, girar el teléfono…)
   // hay que rehacer la cuenta: la altura cambia sola al crecer el texto.
@@ -760,7 +734,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const angostoMovil = chatPlegado && movilVertical
 
   return (
-    // left-44: margen al joystick (izq.); right-48: deja hueco con el cubo/botones de rotación (der.).
+    // start-44: margen al joystick (izq.); end-48: deja hueco con el cubo/botones de rotación (der.).
     // Con menú lateral: anclado a la derecha del sidebar (w-60 = 15rem).
     <div
       ref={raizRef}
@@ -769,7 +743,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           ? 'absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
           : [
               'absolute bottom-4 z-20 min-w-0 select-none',
-              menuAbierto ? 'left-60 right-4 sm:right-48' : 'left-4 right-4 sm:left-44 sm:right-48',
+              menuAbierto ? 'start-60 end-4 sm:end-48' : 'start-4 end-4 sm:start-44 sm:end-48',
             ].join(' ')
       }
     >
@@ -896,7 +870,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                   key={m.id}
                   type="button"
                   onClick={() => abrirConv(m.id)}
-                  className="flex w-full items-center gap-2.5 rounded-xl px-2 py-2 text-left transition hover:bg-white/5"
+                  className="flex w-full items-center gap-2.5 rounded-xl px-2 py-2 text-start transition hover:bg-white/5"
                 >
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 text-xl">
                     <Icono emoji={m.emoji} />
@@ -1001,7 +975,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                   </div>
                 </div>
                 {enRetag && (
-                  <div className="mb-1 ml-8 flex flex-wrap gap-1">
+                  <div className="mb-1 ms-8 flex flex-wrap gap-1">
                     {appsAsignadas().length === 0 && (
                       <span className="px-1 py-1 text-[10px] text-white/35">
                         {t('chat.sinApps', 'No hay apps asignadas. Asígnalas a un objeto en un cuarto.')}
@@ -1044,7 +1018,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         <div ref={refTope}>
       {/* Mapa ofrecido tras una explicación (si el hilo se ve, lo pinta él) */}
       {sugerencia && defMapa && !dibujando && !hiloVisible && (
-        <div className="ui-panel-glass mb-2 flex items-center gap-2 rounded-xl border border-white/10 py-1.5 pl-2.5 pr-1.5 shadow-xl backdrop-blur-md">
+        <div className="ui-panel-glass mb-2 flex items-center gap-2 rounded-xl border border-white/10 py-1.5 ps-2.5 pe-1.5 shadow-xl backdrop-blur-md">
           <span className="shrink-0 text-base text-accent">
             <Icono nombre={defMapa.icono} />
           </span>
@@ -1082,16 +1056,24 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
         </div>
       )}
 
-      {/* Foto adjunta (la interpreta la IA al enviar) */}
-      {imagen && (
+      {/* Adjunto (imagen o PDF: lo interpreta la IA al enviar) */}
+      {adjunto && (
         <div className="ui-panel-glass mb-2 inline-flex items-center gap-2 rounded-xl border border-white/10 p-1.5 shadow-xl backdrop-blur-md">
-          <img src={imagen.dataUrl} alt="" className="h-12 w-12 rounded-lg object-cover" />
-          <span className="text-[11px] text-white/50">{t('chat.fotoLista', 'Foto lista para enviar')}</span>
+          {adjunto.tipo === 'imagen' ? (
+            <img src={adjunto.dataUrl} alt="" className="h-12 w-12 rounded-lg object-cover" />
+          ) : (
+            <span className="grid h-12 w-12 place-items-center rounded-lg bg-white/5 text-2xl">
+              <Icono nombre="pdf" />
+            </span>
+          )}
+          <span className="max-w-40 truncate text-[11px] text-white/50">
+            {adjunto.tipo === 'imagen' ? t('chat.fotoLista', 'Foto lista para enviar') : adjunto.nombre}
+          </span>
           <button
             type="button"
-            onClick={() => setImagen(null)}
+            onClick={() => setAdjunto(null)}
             className="px-1.5 text-xs text-white/40 transition hover:text-white/80"
-            title={t('chat.quitarFoto', 'Quitar foto')}
+            title={t('chat.quitarAdjunto', 'Quitar adjunto')}
           >
             ✕
           </button>
@@ -1119,7 +1101,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
       <div ref={barraRef} data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex min-w-0 flex-1 flex-wrap items-end gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
         {/* Selector de modelo de IA (solo Pro / pruebas internas) */}
         {iaHabilitada() && menuModelo && (
-          <div data-tut="chat.modelo.panel" className="ui-panel-glass absolute bottom-full right-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+          <div data-tut="chat.modelo.panel" className="ui-panel-glass absolute bottom-full end-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
             <p className="mb-1.5 px-1 text-[11px] font-semibold text-white/50">
               <Icono nombre="memoria" /> {t('chat.modelo.titulo', 'Modelo de IA de los asistentes')}
             </p>
@@ -1139,7 +1121,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                     }`}
                   >
                     <span><Icono emoji={p.emoji} /></span>
-                    <span className="flex-1 text-left">{p.nombre}</span>
+                    <span className="flex-1 text-start">{p.nombre}</span>
                     {listo && <span className="text-[10px] text-accent">●</span>}
                   </button>
                 )
@@ -1204,33 +1186,97 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           <Icono emoji={mascota.emoji} />
         </button>
 
-        {/* Adjuntar foto/archivo (requiere IA activa para interpretarla) */}
-        <label
+        {/* Menú del «+»: imagen/PDF/foto (piden IA) + máscara AR (sin IA) */}
+        {menuAdjuntar && (
+          <div className="ui-panel-glass absolute bottom-full start-0 mb-2 w-60 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+            <div className="space-y-1">
+              {(
+                [
+                  { icono: 'imagen', texto: t('chat.menu.imagen', 'Subir imagen'), ref: galeriaRef },
+                  { icono: 'pdf', texto: t('chat.menu.pdf', 'Subir PDF'), ref: pdfRef },
+                  { icono: 'foto', texto: t('chat.menu.foto', 'Tomar foto'), ref: camaraRef },
+                ] as const
+              ).map((op) => (
+                <button
+                  key={op.icono}
+                  type="button"
+                  disabled={!conIA}
+                  onClick={() => {
+                    setMenuAdjuntar(false)
+                    op.ref.current?.click()
+                  }}
+                  className={`flex w-full items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold transition ${
+                    conIA ? 'text-white/70 hover:bg-white/10' : 'cursor-not-allowed text-white/25'
+                  }`}
+                  title={conIA ? undefined : t('chat.fotoSinIa', 'Las fotos requieren IA: elige un modelo en el botón de la derecha')}
+                >
+                  <Icono nombre={op.icono} />
+                  <span className="flex-1 text-start">{op.texto}</span>
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => {
+                  cerrarPaneles()
+                  useMascaraUi.getState().abrir()
+                }}
+                className="flex w-full items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/70 transition hover:bg-white/10"
+              >
+                <Icono nombre="mascara" />
+                <span className="flex-1 text-start">{t('chat.menu.mascara', 'Máscara AR')}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  cerrarPaneles()
+                  useChatArUi.getState().abrir()
+                }}
+                className="flex w-full items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/70 transition hover:bg-white/10"
+              >
+                <Icono nombre="chat-ar" />
+                <span className="flex-1 text-start">{t('chat.menu.chatAr', 'Chat AR')}</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Adjuntar: imagen, PDF, foto de cámara o entrar a la máscara AR */}
+        <button
+          type="button"
           data-tut="chat.foto"
-          className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-2xl font-light leading-none transition ${
-            conIA
-              ? 'cursor-pointer text-white/45 hover:bg-white/10 hover:text-white/85'
-              : 'cursor-not-allowed text-white/15'
+          onClick={() => {
+            setMenuModelo(false)
+            setMenuAdjuntar((v) => !v)
+          }}
+          className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl text-2xl font-light leading-none transition hover:bg-white/10 ${
+            menuAdjuntar ? 'bg-white/10 text-white/85' : 'text-white/45 hover:text-white/85'
           }`}
-          title={
-            conIA
-              ? t('chat.foto', 'Adjuntar foto (comida, ticket…)')
-              : t('chat.fotoSinIa', 'Las fotos requieren IA: elige un modelo en el botón de la derecha')
-          }
+          title={t('chat.adjuntar', 'Adjuntar imagen o PDF, tomar foto o abrir la máscara AR')}
         >
           +
-          <input
-            type="file"
-            accept="image/*"
-            className="hidden"
-            disabled={!conIA}
-            onChange={(e) => {
-              const f = e.target.files?.[0]
-              if (f) cargarImagen(f)
-              e.target.value = ''
-            }}
-          />
-        </label>
+        </button>
+        <input
+          ref={galeriaRef}
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files?.[0]
+            if (f) cargarImagen(f)
+            e.target.value = ''
+          }}
+        />
+        <input
+          ref={pdfRef}
+          type="file"
+          accept="application/pdf,.pdf"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files?.[0]
+            if (f) cargarPdf(f)
+            e.target.value = ''
+          }}
+        />
 
         {/* Cámara directa: no tiene botón en la barra, la dispara el widget de Android. */}
         <input
@@ -1256,7 +1302,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           <span
             ref={medidorRef}
             aria-hidden
-            className="pointer-events-none invisible absolute left-0 top-0 whitespace-pre text-sm leading-snug"
+            className="pointer-events-none invisible absolute start-0 top-0 whitespace-pre text-sm leading-snug"
           >
             {texto}
           </span>
@@ -1310,7 +1356,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                 <span><Icono nombre={interp.comando === 'agregar' ? 'agregar' : 'quitar'} /></span>
                 <span>{destino ? nombreCortoT(destino.id) : '?'}</span>
                 {destino && (
-                  <span className="ml-0.5 text-[10px] opacity-60">
+                  <span className="ms-0.5 text-[10px] opacity-60">
                     {placed[destino.id] ? t('chat.chip.enMapa', '(en mapa)') : t('chat.chip.fuera', '(fuera)')}
                   </span>
                 )}
@@ -1321,18 +1367,18 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
                 <span className="max-w-[7rem] truncate">
                   {destino ? nombreCortoT(destino.id) : t('chat.sinClasificar', 'Sin clasificar')}
                 </span>
-                {destinoCaptura?.capturar && <span className="ml-0.5 text-[10px] opacity-60"><Icono nombre="energia" /></span>}
+                {destinoCaptura?.capturar && <span className="ms-0.5 text-[10px] opacity-60"><Icono nombre="energia" /></span>}
               </>
             )}
           </span>
         )}
 
-        {/* Grupo pegado a la derecha (ml-auto): cuando la caja se lleva su renglón,
+        {/* Grupo pegado a la derecha (ms-auto): cuando la caja se lleva su renglón,
             dictado/modelo/enviar quedan en la orilla y plegar y el asistente en la
             otra. En una sola fila no cambia nada: la caja ya se come el hueco. */}
-        <div className="ml-auto flex shrink-0 items-center gap-2">
+        <div className="ms-auto flex shrink-0 items-center gap-2">
           {/* Dictado por voz: nativo, o fallback de Whisper si no hay SpeechRecognition */}
-          {(CtorVoz || hayDictadoFallback()) && (
+          {vozSoportada && (
             <button
               type="button"
               data-tut="chat.voz"
@@ -1362,7 +1408,10 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             <button
               type="button"
               data-tut="chat.modelo"
-              onClick={() => setMenuModelo((v) => !v)}
+              onClick={() => {
+                setMenuAdjuntar(false)
+                setMenuModelo((v) => !v)
+              }}
               className={`relative grid h-9 w-9 shrink-0 place-items-center rounded-xl text-lg transition hover:bg-white/10 ${
                 menuModelo ? 'bg-white/10' : ''
               }`}
@@ -1370,7 +1419,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
             >
               <Icono emoji={proveedor.emoji} />
               <span
-                className={`absolute right-1 top-1 h-1.5 w-1.5 rounded-full ${
+                className={`absolute end-1 top-1 h-1.5 w-1.5 rounded-full ${
                   conIA ? 'bg-accent' : 'bg-white/20'
                 }`}
               />
@@ -1380,7 +1429,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           <button
             type="button"
             onClick={enviar}
-            disabled={!interp.texto.trim() && !imagen}
+            disabled={!interp.texto.trim() && !adjunto}
             className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-lg text-accent-ink transition hover:bg-accent disabled:opacity-30"
             title={t('chat.registrar', 'Registrar')}
           >

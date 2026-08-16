@@ -148,13 +148,13 @@ export function BarraMeta({
         {progreso > 0 && (
           <span
             style={{ width: `${progreso * 100}%`, background: `${color}${meta.completada ? 'cc' : '88'}` }}
-            className="absolute inset-y-0 left-0"
+            className="absolute inset-y-0 start-0"
           />
         )}
 
         {dentro && (
           <span
-            className={`pointer-events-none absolute inset-y-0 left-1.5 right-1.5 flex items-center truncate text-[10px] font-medium leading-none text-white/90 ${
+            className={`pointer-events-none absolute inset-y-0 start-1.5 end-1.5 flex items-center truncate text-[10px] font-medium leading-none text-white/90 ${
               meta.completada ? 'line-through opacity-60' : ''
             }`}
           >
@@ -168,12 +168,12 @@ export function BarraMeta({
             <span
               onPointerDown={(e) => arrancar(e, 'ini')}
               style={{ width: ASA }}
-              className="absolute inset-y-0 left-0 cursor-ew-resize"
+              className="absolute inset-y-0 start-0 cursor-ew-resize"
             />
             <span
               onPointerDown={(e) => arrancar(e, 'fin')}
               style={{ width: ASA }}
-              className="absolute inset-y-0 right-0 cursor-ew-resize"
+              className="absolute inset-y-0 end-0 cursor-ew-resize"
             />
           </>
         )}

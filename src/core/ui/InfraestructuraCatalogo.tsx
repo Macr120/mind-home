@@ -114,11 +114,17 @@ export function InfraestructuraCatalogo({ alConstruir }: { alConstruir: () => vo
   const caminos = caminosRepo.useAll() ?? VACIO
   const cultivos = cultivosRepo.useAll() ?? VACIO
   const animales = animalesRepo.useAll() ?? VACIO
-  const objetos = useDiseño((s) => s.objetos)
+  // Solo el CONTEO (primitivo): `s.objetos` crudo re-renderizaba el catálogo
+  // con cualquier movimiento de cualquier objeto.
+  const numCanchas = useDiseño((s) => {
+    let n = 0
+    for (const o of s.objetos) if (esCancha(o.tipo)) n++
+    return n
+  })
   // Piezas construidas por plantilla (tramos / canchas / animales + parcelas).
   const conteos: Record<string, number> = {
     caminos: caminos.length,
-    canchas: objetos.filter((o) => esCancha(o.tipo)).length,
+    canchas: numCanchas,
     granja: animales.length + cultivos.length,
   }
   // Comida y Granja comparten editor: una sola tarjeta (Granja) lo abre y

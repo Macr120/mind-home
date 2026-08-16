@@ -52,7 +52,7 @@ export function carpetaDeClave(clave: string, t: TFunc): CarpetaMeta {
   const p = getPlantilla(clave)
   return {
     clave,
-    nombre: p?.nombre ?? clave,
+    nombre: p ? t(`room.${p.id}.nombre`, p.nombre) : clave,
     icon: p?.icon ?? '🎯',
     color: p?.color ?? COLOR_CATEGORIA,
     propia: false,

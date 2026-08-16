@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 import { Shapes } from 'lucide-react'
 import { useAjustes, type EstiloIconos } from '../state/ajustesStore'
 import { useT } from '../i18n/useT'
@@ -12,7 +12,9 @@ import { CUERPOS_PRESET } from '../house/cuerpos'
 import { CapturaPersonajes, PERSONAJES_ONBOARDING } from './CapturaPersonajes'
 import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
-import { plantillasCuarto, getPlantilla, DESCRIPCIONES } from '../registry'
+import { plantillasCuarto, getPlantilla, CORTAS } from '../registry'
+import { MiniaturaCuarto } from '../house/Miniatura'
+import { objetosDe } from '../state/objetosPlantillaStore'
 import { asignarPlantillaACuarto } from '../gamificacion/plantillaBundle'
 import { hayBackend } from '../cuenta/supabase'
 import { useEditorUi } from '../state/editorUiStore'
@@ -23,7 +25,6 @@ import type { TutorialDef } from '../tutorial/tipos'
 import {
   useBienvenida,
   appsAsignadas,
-  evaluarPrimeraVez,
   LS_BIENVENIDA,
   type PasoGuia,
 } from './bienvenidaStore'
@@ -34,21 +35,13 @@ import {
  * apariencia se aplican en vivo; el resto, al confirmar. Al terminar toma el
  * relevo la guía de 3 pasos (`GuiaPasos`). (El plan no se elige aquí: se entra
  * en modo local sin decidir nada, y la cuenta vive en Configuraciones → Cuenta.)
+ *
+ * OJO: este componente es LAZY y solo se monta con `abierto` (App.tsx); el
+ * disparo de la primera vez (`evaluarPrimeraVez`) vive en `PrimeraVezGate`,
+ * que sí está montado siempre — aquí ya no puede vivir.
  */
 export function BienvenidaOverlay() {
-  const abierto = useBienvenida((s) => s.abierto)
   const guia = useBienvenida((s) => s.guia)
-  const cargadoDiseno = useDiseño((s) => s.cargado)
-  const cargadoLayout = useLayout((s) => s.cargado)
-  const cargadoCuartos = useCuartos((s) => s.cargado)
-  const cargado = cargadoDiseno && cargadoLayout && cargadoCuartos
-
-  // Primera vez: con la casa ya cargada decide si mostrar la bienvenida.
-  useEffect(() => {
-    if (cargado) evaluarPrimeraVez()
-  }, [cargado])
-
-  if (!abierto) return null
   return guia ? <GuiaPasos /> : <Wizard />
 }
 
@@ -268,8 +261,6 @@ function Wizard() {
     }
   }
 
-  // Banderas: excepción deliberada, se muestran igual en ambos estilos de iconos.
-  const idiomas = IDIOMAS.map((i) => ({ ...i, label: t(i.clave, i.label) }))
   const modos: { id: ModoUI; label: string; icono: 'dia' | 'noche' | 'burbujas' }[] = [
     { id: 'claro', label: t('ajustes.modo.claro', 'Claro'), icono: 'dia' },
     { id: 'oscuro', label: t('ajustes.modo.oscuro', 'Oscuro'), icono: 'noche' },
@@ -321,22 +312,24 @@ function Wizard() {
             <p className="text-sm text-white/60">
               {t('bienvenida.idioma.desc', 'Puedes cambiarlo después en Configuraciones.')}
             </p>
-            <div className="grid grid-cols-2 gap-2">
-              {idiomas.map((it) => {
+            {/* Cada chip lleva su endónimo (banderas: excepción deliberada a <Icono>). */}
+            <div className="grid grid-cols-3 gap-1.5 sm:grid-cols-4">
+              {IDIOMAS.map((it) => {
                 const activo = idioma === it.id
                 return (
                   <button
                     key={it.id}
                     type="button"
+                    lang={it.id}
                     onClick={() => setIdioma(it.id)}
-                    className={`flex items-center justify-center gap-2 rounded-xl border px-3 py-4 text-sm font-semibold transition ${
+                    className={`flex flex-col items-center justify-center gap-1 rounded-xl border px-1.5 py-2.5 text-xs font-semibold leading-tight transition ${
                       activo
                         ? 'ui-accent-bg border-transparent'
                         : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
                     }`}
                   >
-                    <span className="text-xl">{it.flag}</span>
-                    <span>{it.label}</span>
+                    <span className="text-lg">{it.flag}</span>
+                    <span className="text-center">{it.endonimo}</span>
                   </button>
                 )
               })}
@@ -360,7 +353,7 @@ function Wizard() {
               <div className="grid grid-cols-2 gap-2">
                 {disponibles.map((p) => {
                   const activo = seleccion.has(p.id)
-                  const desc = DESCRIPCIONES[p.id]
+                  const corta = CORTAS[p.id]
                   return (
                     <button
                       key={p.id}
@@ -373,22 +366,26 @@ function Wizard() {
                           return n
                         })
                       }
-                      className={`flex items-start gap-2 rounded-xl border p-2.5 text-left transition ${
+                      className={`flex flex-col gap-1 rounded-xl border p-2 text-start transition ${
                         activo
                           ? 'border-accent bg-white/10'
                           : 'border-white/10 bg-white/5 hover:bg-white/10'
                       }`}
                     >
-                      <span className="text-lg">
-                        <Icono emoji={p.icon} />
-                      </span>
+                      {/* El cuarto que arma la app, con sus objetos ya colocados. */}
+                      <MiniaturaCuarto
+                        siembra={objetosDe(p.id)}
+                        color={p.color}
+                        tema={null}
+                        className="h-16 w-full object-contain"
+                      />
                       <span className="min-w-0">
                         <span className="block text-xs font-semibold text-white/90">
                           {t(`room.${p.id}.nombre`, p.nombre).split(' · ')[0]}
                         </span>
-                        {desc && (
+                        {corta && (
                           <span className="block text-[10px] leading-snug text-white/45">
-                            {t(`room.${p.id}.desc`, desc)}
+                            {t(`room.${p.id}.corta`, corta)}
                           </span>
                         )}
                       </span>
@@ -477,7 +474,7 @@ function Wizard() {
                         style={{ background: tema.vars[modoBase(modoUI)]['--ui-accent'] }}
                       />
                       <Icono emoji={tema.icon} />
-                      <span className="flex-1 text-left">{t(`temaUI.${tema.id}`, tema.nombre)}</span>
+                      <span className="flex-1 text-start">{t(`temaUI.${tema.id}`, tema.nombre)}</span>
                       {activo && <span className="text-accent">●</span>}
                     </button>
                   )
@@ -549,15 +546,20 @@ function Wizard() {
                     key={m.id}
                     type="button"
                     onClick={() => setMascotaSel(m.id)}
-                    className={`flex items-center gap-3 rounded-xl border p-2.5 text-left transition ${
+                    className={`flex items-center gap-3 rounded-xl border p-2.5 text-start transition ${
                       activo
                         ? 'border-accent bg-white/10'
                         : 'border-white/10 bg-white/5 hover:bg-white/10'
                     }`}
                   >
-                    <span className="text-2xl">
-                      <Icono emoji={m.emoji} />
-                    </span>
+                    {/* El personaje 3D, ya capturado en el paso anterior (mismo id). */}
+                    {capturas?.[m.id] ? (
+                      <img src={capturas[m.id]} alt="" className="h-10 w-10 shrink-0 object-contain" />
+                    ) : (
+                      <span className="text-2xl">
+                        <Icono emoji={m.emoji} />
+                      </span>
+                    )}
                     <span className="min-w-0">
                       <span className="block text-sm font-semibold text-white/90">
                         {t(`mascota.${m.id}.nombre`, m.nombre)}

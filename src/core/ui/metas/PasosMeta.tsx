@@ -28,7 +28,7 @@ export function PasosMeta({ meta, sangria }: { meta: Rutina; sangria: number }) 
   }
 
   return (
-    <div style={{ paddingLeft: sangria }} className="space-y-0.5 py-0.5 pr-1">
+    <div style={{ paddingLeft: sangria }} className="space-y-0.5 py-0.5 pe-1">
       {meta.pasos.map((p, i) => (
         <div key={i} className="flex items-center gap-1.5">
           <button
@@ -65,7 +65,7 @@ export function PasosMeta({ meta, sangria }: { meta: Rutina; sangria: number }) 
               type="button"
               onDoubleClick={() => setEditando(i)}
               title={t('cal.meta.pasoRenombrar', 'Doble clic para renombrar el paso')}
-              className={`min-w-0 flex-1 truncate text-left text-[11px] text-white/70 ${
+              className={`min-w-0 flex-1 truncate text-start text-[11px] text-white/70 ${
                 hechos.has(i) ? 'line-through opacity-50' : ''
               }`}
             >

@@ -126,6 +126,12 @@ interface PlanosState {
   muroSelHover: { roomId: string; off: Cell; side: SideKey } | { muroLibreId: number } | null
   /** Cuadrante del mapa enfocado (id; null = mapa completo). Solo resalta, no se guarda. */
   cuadranteActivo: string | null
+  /**
+   * Cuadrante EN VISTA durante el editor (id; null = casa entera): fuera de él los
+   * cuartos pierden sus objetos (recorte de render, ver `RoomEnMapa`). SOLO es de
+   * vista/culling: nunca restringe la edición (eso es `cuadranteActivo` + zonas).
+   */
+  cuadranteVista: string | null
   /** Modo "dibujar cuadrante": el arrastre en el croquis marca el rectángulo a enfocar. */
   dibujandoCuadrante: boolean
   /** Sección del panel lateral (fondo / superficie). */
@@ -161,6 +167,7 @@ interface PlanosState {
   setMuroHover: (h: PlanosState['muroHover']) => void
   setMuroSelHover: (h: PlanosState['muroSelHover']) => void
   setCuadranteActivo: (id: string | null) => void
+  setCuadranteVista: (id: string | null) => void
   setDibujandoCuadrante: (v: boolean) => void
   toggleMenuPlano: (id: 'cielo' | 'superficie') => void
   setMenuPlano: (m: MenuPlanoAccion) => void
@@ -201,6 +208,7 @@ export const usePlanos = create<PlanosState>((set) => ({
   muroHover: null,
   muroSelHover: null,
   cuadranteActivo: null,
+  cuadranteVista: null,
   dibujandoCuadrante: false,
   menuPlano: null,
   modo: 'grid',
@@ -288,6 +296,7 @@ export const usePlanos = create<PlanosState>((set) => ({
   setMuroHover: (h) => set({ muroHover: h }),
   setMuroSelHover: (h) => set({ muroSelHover: h }),
   setCuadranteActivo: (id) => set({ cuadranteActivo: id }),
+  setCuadranteVista: (id) => set({ cuadranteVista: id }),
   setDibujandoCuadrante: (v) => set({ dibujandoCuadrante: v }),
   toggleMenuPlano: (id) =>
     set((st) => ({ menuPlano: st.menuPlano === id ? null : id })),

@@ -45,7 +45,7 @@ export function DetalleMeta({
   }
 
   return (
-    <div style={{ paddingLeft: sangria }} className="space-y-1 py-1 pr-1">
+    <div style={{ paddingLeft: sangria }} className="space-y-1 py-1 pe-1">
       {/*
         Las fechas se ponen trazando sobre el eje; estos campos son para la
         fecha exacta que a golpe de ratón no sale (o para quitarla). El fin no
@@ -83,7 +83,7 @@ export function DetalleMeta({
             type="button"
             onClick={() => onPlanIA(meta)}
             title={t('cal.plan.ia', 'Planear con IA')}
-            className="ml-auto shrink-0 rounded-full border border-violet-400/50 bg-violet-500/20 px-1.5 py-0.5 text-[10px] text-violet-200 transition hover:bg-violet-500/35 hover:text-violet-100"
+            className="ms-auto shrink-0 rounded-full border border-violet-400/50 bg-violet-500/20 px-1.5 py-0.5 text-[10px] text-violet-200 transition hover:bg-violet-500/35 hover:text-violet-100"
           >
             <Icono nombre="brillo" />
           </button>

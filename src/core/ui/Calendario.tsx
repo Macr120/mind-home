@@ -809,7 +809,7 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
 
         {/* Editor de evento: notificación flotante (no bloquea ni empuja la rejilla) */}
         {editando && (
-          <div className="ui-notif pointer-events-none absolute inset-x-3 top-3 z-30 flex justify-end sm:inset-x-auto sm:right-3">
+          <div className="ui-notif pointer-events-none absolute inset-x-3 top-3 z-30 flex justify-end sm:inset-x-auto sm:end-3">
             <div className="ui-panel-glass pointer-events-auto w-full max-w-sm overflow-hidden rounded-xl border border-white/10 shadow-2xl backdrop-blur-md">
               <div className="flex items-center gap-2 border-b border-white/10 px-3 py-2">
                 <span className="text-amber-400/90"><Icono nombre="campana" /></span>
@@ -1062,7 +1062,7 @@ function RejillaTiempo({
 
       {/* Semana: barra de avance bajo los días — dice por dónde va la semana sin
           apagar ninguna columna (en Día ese papel lo hace la barra del margen). */}
-      {nCols > 1 && <BarraTiempo frac={fraccionSemana(dias[0], ahora)} className="ml-12" />}
+      {nCols > 1 && <BarraTiempo frac={fraccionSemana(dias[0], ahora)} className="ms-12" />}
 
       {/* Banda "sin hora": lo que ocupa días enteros, arriba y de una pieza. Antes
           cada día pintaba su propio chip y, además, la columna entera se lavaba de
@@ -1083,15 +1083,15 @@ function RejillaTiempo({
                   ? t('cal.metas.desplegar', 'Ver las metas de estos días')
                   : t('cal.metas.plegar', 'Plegar las metas')
               }
-              className="absolute left-0 top-1 w-10 pr-2 text-right text-[9px] text-white/40 transition hover:text-white/80"
+              className="absolute start-0 top-1 w-10 pe-2 text-end text-[9px] text-white/40 transition hover:text-white/80"
             >
               {metasPlegadas ? '▸' : '▾'}
             </button>
           ) : (
-            <div className="absolute left-0 top-1 w-10 pr-2 text-right text-[9px] text-white/30">⋯</div>
+            <div className="absolute start-0 top-1 w-10 pe-2 text-end text-[9px] text-white/30">⋯</div>
           )}
           {dias.map((_, i) => (
-            <div key={i} className="absolute bottom-0 top-0 border-l border-white/5" style={{ left: izquierda(i) }} />
+            <div key={i} className="absolute bottom-0 top-0 border-s border-white/5" style={{ left: izquierda(i) }} />
           ))}
           {/* Plegadas: una sola fila con cuántas metas ocupan cada día. */}
           {filaMetas &&
@@ -1102,7 +1102,7 @@ function RejillaTiempo({
                   type="button"
                   onClick={() => onPlegarMetas(false)}
                   title={t('cal.metas.desplegar', 'Ver las metas de estos días')}
-                  className="absolute flex items-center gap-1 truncate rounded border border-white/15 bg-white/10 px-1 text-left text-[10px] font-semibold leading-4 text-white/70 transition hover:bg-white/15 hover:text-white/90"
+                  className="absolute flex items-center gap-1 truncate rounded border border-white/15 bg-white/10 px-1 text-start text-[10px] font-semibold leading-4 text-white/70 transition hover:bg-white/15 hover:text-white/90"
                   style={{
                     left: `calc(${izquierda(i)} + 2px)`,
                     width: ancho,
@@ -1127,10 +1127,10 @@ function RejillaTiempo({
                   ? onDetalle(tr.rutina, fechaISO(dias[tr.colIni]))
                   : tr.evento && abrirApp(tr.evento.plantillaId, tr.evento.seccion)
               }
-              className={`absolute flex items-center gap-1 border px-1 text-left text-[10px] leading-4 text-white/90 transition hover:brightness-125 ${
+              className={`absolute flex items-center gap-1 border px-1 text-start text-[10px] leading-4 text-white/90 transition hover:brightness-125 ${
                 // Sin esquina del lado por el que el tramo se sale de la ventana:
                 // se lee que sigue más allá sin escribirlo.
-                tr.cortaIzq ? 'rounded-r' : tr.cortaDer ? 'rounded-l' : 'rounded'
+                tr.cortaIzq ? 'rounded-e' : tr.cortaDer ? 'rounded-s' : 'rounded'
               }`}
               style={{
                 left: `calc(${izquierda(tr.colIni)} + 2px)`,
@@ -1168,15 +1168,15 @@ function RejillaTiempo({
       >
         {/* Líneas de hora y etiquetas */}
         {horas.map((h, i) => (
-          <div key={h} className="absolute left-0 right-0 border-t border-white/10" style={{ top: i * ALTO_HORA }}>
-            <span className="absolute -top-1.5 w-10 pr-2 text-right text-[9px] tabular-nums text-white/30">
+          <div key={h} className="absolute start-0 end-0 border-t border-white/10" style={{ top: i * ALTO_HORA }}>
+            <span className="absolute -top-1.5 w-10 pe-2 text-end text-[9px] tabular-nums text-white/30">
               {String(h).padStart(2, '0')}:00
             </span>
           </div>
         ))}
         {/* Líneas verticales de columnas */}
         {dias.map((_, i) => (
-          <div key={i} className="absolute bottom-0 top-0 border-l border-white/10" style={{ left: izquierda(i) }} />
+          <div key={i} className="absolute bottom-0 top-0 border-s border-white/10" style={{ left: izquierda(i) }} />
         ))}
 
         {/* Capas de color por día: contexto (año/mes/semana) + la franja horaria del día */}
@@ -1270,16 +1270,16 @@ function RejillaTiempo({
                     {aHHMM(enGesto ? ini : rango.ini)} – {aHHMM(enGesto ? fin : rango.fin)}
                   </p>
                   {/* Asa de duración (borde inferior) */}
-                  <div className="absolute bottom-0 left-0 right-0 h-2 cursor-ns-resize" />
+                  <div className="absolute bottom-0 start-0 end-0 h-2 cursor-ns-resize" />
                   {/* Asas de repetir en días seguidos (lados); en vista Día no hay a dónde estirar */}
                   {nCols > 1 && !bloque.cola && (
                     <>
                       <div
-                        className="absolute inset-y-0 left-0 w-2 cursor-ew-resize"
+                        className="absolute inset-y-0 start-0 w-2 cursor-ew-resize"
                         title={t('cal.estirarRepetir', 'Estira para repetirlo en días seguidos')}
                       />
                       <div
-                        className="absolute inset-y-0 right-0 w-2 cursor-ew-resize"
+                        className="absolute inset-y-0 end-0 w-2 cursor-ew-resize"
                         title={t('cal.estirarRepetir', 'Estira para repetirlo en días seguidos')}
                       />
                     </>
@@ -1333,7 +1333,7 @@ function RejillaTiempo({
             la línea de la hora actual sobre la columna de hoy. */}
         {nCols === 1 && fraccionDia(fechaISO(dias[0]), ahora) > 0 && (
           <div
-            className="pointer-events-none absolute left-0 top-0 z-30 w-1 rounded-full"
+            className="pointer-events-none absolute start-0 top-0 z-30 w-1 rounded-full"
             style={{
               height: fraccionDia(fechaISO(dias[0]), ahora) * (TOTAL_MIN / 60) * ALTO_HORA,
               backgroundColor: COLOR_TIEMPO,
@@ -1348,7 +1348,7 @@ function RejillaTiempo({
             <div className="pointer-events-none absolute z-30" style={{ left: izquierda(col), width: ancho, top }}>
               <div className="h-px w-full" style={{ backgroundColor: COLOR_TIEMPO }} />
               <div
-                className="absolute -left-0.5 -top-1 h-2 w-2 rounded-full"
+                className="absolute -start-0.5 -top-1 h-2 w-2 rounded-full"
                 style={{ backgroundColor: COLOR_TIEMPO }}
               />
             </div>
@@ -1529,7 +1529,7 @@ function DetalleRutina({
                 <span className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] ${hecho ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400' : 'border-white/25'}`}>
                   {hecho ? '✓' : ''}
                 </span>
-                <span className={`flex-1 truncate text-left text-xs text-white/80 ${hecho ? 'line-through opacity-50' : ''}`}>{p.titulo}</span>
+                <span className={`flex-1 truncate text-start text-xs text-white/80 ${hecho ? 'line-through opacity-50' : ''}`}>{p.titulo}</span>
                 {p.esquemaId && <span className="text-[10px] text-amber-400/80"><Icono nombre="energia" /></span>}
                 <span className="text-xs opacity-60">{room && <Icono emoji={room.icon} />}</span>
               </>
@@ -1758,7 +1758,7 @@ function VistaAño({
             <button
               type="button"
               onClick={() => onMes(m)}
-              className="mb-1 w-full truncate text-left text-xs font-bold capitalize text-white/80 transition hover:text-white"
+              className="mb-1 w-full truncate text-start text-xs font-bold capitalize text-white/80 transition hover:text-white"
             >
               {primero.toLocaleDateString(locale, { month: 'long' })}
             </button>
@@ -1890,7 +1890,7 @@ function VistaMes({
                 type="button"
                 data-dia={iso}
                 onClick={() => onDia(d)}
-                className={`ui-panel flex min-h-0 flex-col items-stretch gap-0.5 overflow-hidden p-1 text-left transition hover:bg-white/5 ${esMes ? '' : 'opacity-40'} ${
+                className={`ui-panel flex min-h-0 flex-col items-stretch gap-0.5 overflow-hidden p-1 text-start transition hover:bg-white/5 ${esMes ? '' : 'opacity-40'} ${
                   enTrazo(iso) || enEstiron(iso) ? 'ring-1 ring-emerald-400 ring-inset' : ''
                 }`}
                 style={{ backgroundImage: componerFondo(capaTiempoDia(iso, ahora), capasFondo(rutinas, d)) }}
@@ -1935,12 +1935,12 @@ function VistaMes({
                       {completa ? '✓ ' : ''}<Icono emoji={r.emoji} /> {r.nombre}
                       {/* Asas de repetir en días seguidos (mismo gesto que en Semana) */}
                       <span
-                        className="absolute inset-y-0 left-0 w-1.5 cursor-ew-resize touch-none"
+                        className="absolute inset-y-0 start-0 w-1.5 cursor-ew-resize touch-none"
                         title={t('cal.estirarRepetir', 'Estira para repetirlo en días seguidos')}
                         onPointerDown={(e) => iniciar(e, r, tramo.fin, iso)}
                       />
                       <span
-                        className="absolute inset-y-0 right-0 w-1.5 cursor-ew-resize touch-none"
+                        className="absolute inset-y-0 end-0 w-1.5 cursor-ew-resize touch-none"
                         title={t('cal.estirarRepetir', 'Estira para repetirlo en días seguidos')}
                         onPointerDown={(e) => iniciar(e, r, tramo.ini, iso)}
                       />

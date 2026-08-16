@@ -1,5 +1,6 @@
 import type { Cuarto, ObjetoCuarto } from '../data/db'
 import { normalizar, buscarCuarto, OBJETOS } from './dispatcher'
+import { marcarUltimoMapa } from './editorIntencion'
 import type { ToolNeutra } from './ia'
 import { plantillasCuarto, type Plantilla, type ComandoApp } from '../appContrato'
 import { useCuartos } from '../state/cuartosStore'
@@ -8,6 +9,8 @@ import { useLayout, roomWorldPos } from '../state/layoutStore'
 import { useAjustes, type MoodMusica } from '../state/ajustesStore'
 import { IDIOMAS } from '../i18n/idiomas'
 import { useWrappedUi } from '../state/wrappedUiStore'
+import { useMascaraUi } from '../state/mascaraUiStore'
+import { useChatArUi } from '../state/chatArUiStore'
 import { useRutinasUI, type VistaCalendario } from '../state/rutinasUiStore'
 import { useCam } from '../state/cameraStore'
 import { useMontura } from '../state/monturaStore'
@@ -385,20 +388,6 @@ const str = (i: Record<string, unknown>, k: string): string | undefined =>
 const num = (i: Record<string, unknown>, k: string): number | undefined =>
   typeof i[k] === 'number' ? (i[k] as number) : undefined
 const bool = (i: Record<string, unknown>, k: string): boolean => i[k] === true
-
-/**
- * Último mapa de Ideas dibujado por `editor_mapa_ideas`. El ejecutor solo puede
- * devolver texto, así que el id viaja por aquí: quien acaba de llamar a la tool
- * lo RECOGE (se consume) para colgarlo del mensaje del asistente y enseñar la
- * miniatura en la conversación.
- */
-let ultimoMapa: number | null = null
-
-export function tomarUltimoMapa(): number | undefined {
-  const v = ultimoMapa
-  ultimoMapa = null
-  return v ?? undefined
-}
 
 /** Resuelve el cuarto desde el input de una tool (campo `cuarto`). */
 function cuartoDeInput(i: Record<string, unknown>): Cuarto | null {
@@ -953,7 +942,7 @@ export async function ejecutarToolEditor(
         console.warn('[MPH] no pude dibujar el mapa desde el chat:', e)
         return 'No pude dibujar el mapa: la IA no devolvió nada usable. Prueba otra vez o con un tema más concreto.'
       }
-      ultimoMapa = id
+      marcarUltimoMapa(id)
       const roomId = abrirApp('ideas', def.familia, String(id))
       const etiqueta = def.nombreEs.toLowerCase()
       return roomId
@@ -1231,6 +1220,14 @@ export async function ejecutarToolEditor(
       const periodo = p === 'mes' || p === 'anio' ? p : 'semana'
       useWrappedUi.getState().abrir(periodo)
       return `Abrí tu resumen ${periodo === 'semana' ? 'semanal' : periodo === 'mes' ? 'mensual' : 'anual'}.`
+    }
+    case 'editor_mascara': {
+      useMascaraUi.getState().abrir()
+      return 'Abrí la máscara AR: mírate a la cámara.'
+    }
+    case 'editor_chat_ar': {
+      useChatArUi.getState().abrir()
+      return 'Abrí el Chat AR: aquí estoy, en tu cámara.'
     }
     case 'editor_vista': {
       const v = str(input, 'vista')
@@ -1915,6 +1912,18 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
     },
   },
   {
+    name: 'editor_mascara',
+    description:
+      'Abre la máscara AR: la cámara frontal con la cabeza del avatar puesta sobre la cara del usuario (para verse y grabarse).',
+    schema: { type: 'object', properties: {} },
+  },
+  {
+    name: 'editor_chat_ar',
+    description:
+      'Abre el Chat AR: la cámara del dispositivo con el asistente 3D encima, para conversar con él cara a cara por voz o texto.',
+    schema: { type: 'object', properties: {} },
+  },
+  {
     name: 'editor_vista',
     description:
       'Cambia la vista de la cámara: iso (isométrica clásica), tercera (tercera persona siguiendo al personaje) o primera (primera persona).',
@@ -1938,26 +1947,8 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
 ]
 
 // ───────────────────────── Capa determinista (sin IA) ─────────────────────────
-
-/**
- * ¿El mensaje huele a edición/control de la casa? Red AMPLIA a propósito
- * (falso positivo = solo tokens de más; falso negativo = el modelo no podría
- * editar en ese turno): basta CUALQUIER verbo imperativo o sustantivo del
- * dominio para enviar las TOOLS_EDITOR. Se evalúa sobre el mensaje actual +
- * los últimos turnos del hilo (los follow-ups «ahora en azul» conservan tools
- * porque la confirmación previa del asistente menciona el tema).
- * Patrones sin tildes: operan sobre texto pasado por `normalizar()`.
- */
-const RE_EDITOR_VERBOS =
-  /\b(pinta\w*|cambia\w*|pon(le|te|er|me|gan)?|crea\w*|renombra\w*|elimina\w*|borra\w*|quita\w*|mueve|mover|agranda\w*|crece\w*|encoge\w*|achica\w*|apila\w*|coloca\w*|agrega\w*|anade\w*|abre|abrir|abreme|muestra\w*|activa\w*|desactiva\w*|enciende\w*|apaga\w*|sube\w*|baja\w*|reproduce|toca\w*|viste\w*|vestir|monta\w*|conduce|maneja\w*|construye|construir|decora\w*|riega|regar|cosecha\w*|alimenta\w*|redimensiona\w*|rota\w*|gira\w*|agrupa\w*|desagrupa\w*|edita\w*|personaliza\w*|dibuja\w*|jueg\w*|jugar|organiza\w*|resume\w*)\b/
-
-const RE_EDITOR_TEMAS =
-  /\b(cuartos?|habitacion\w*|recamaras?|casa|mapa|muros?|pared\w*|pisos?|suelo|techos?|tejado|objetos?|muebles?|inventario|avatar|personajes?|ropa|prendas?|atuendos?|guardarropa|color\w*|temas?|fondo|cielo|estacion\w*|idiomas?|ingles|espanol|interfaz|iconos?|emojis?|tipografia|fuente|letra|apariencia|claro|oscuro|transparente|vidrio|configuracion\w*|ajustes|preferencias|notificacion\w*|avisos?|respaldo|backup|bienvenida|tutorial\w*|musica|cancion\w*|volumen|camaras?|vistas?|isometric\w*|primera persona|tercera persona|vehiculos?|coche|carro|auto|moto|tren|ovni|nave|bici\w*|wrapped|resumen|huertos?|granjas?|cultivos?|canchas?|futbol|basquet|tenis|pistas?|carreras?|montana rusa|vias?|grafiti|efectos?|animacion\w*|paintball|marcadora|bolazos?|diagrama\w*|esquemas?|venn|organigrama|lluvia de ideas)\b/
-
-export function hayIntencionEditor(textos: string[]): boolean {
-  const n = normalizar(textos.join(' \n '))
-  return RE_EDITOR_VERBOS.test(n) || RE_EDITOR_TEMAS.test(n)
-}
+// `hayIntencionEditor` (el gate que decide si este módulo hace falta) vive en
+// `editorIntencion.ts`: tiene que poder evaluarse SIN descargar este archivo.
 
 export interface EdicionLocal {
   /** Resumen corto para el chip y el placeholder. */
@@ -2399,6 +2390,16 @@ export function interpretarEdicionLocal(texto: string): EdicionLocal | null {
     if (/\b(musica|cancion|melodia)\b/.test(n) && /\b(pon|ponme|enciende|activa|quiero|reproduce|toca|dale)\b/.test(n)) {
       return edicion('🎵 Encender la música', 'editor_musica', { accion: 'encender' })
     }
+  }
+
+  // Máscara AR: abrirla no necesita IA (la cámara con la cabeza del avatar).
+  if (/\bmascara\b/.test(n) && /\b(abre|abrir|abreme|pon|ponme|quiero|entra|entrar|activa)\b/.test(n)) {
+    return edicion('🎭 Máscara AR', 'editor_mascara', {})
+  }
+
+  // Chat AR: tampoco necesita IA para abrirse (la cámara con el asistente encima).
+  if (/\bchat ?ar\b/.test(n) && /\b(abre|abrir|abreme|pon|ponme|quiero|entra|entrar|activa)\b/.test(n)) {
+    return edicion('🤳 Chat AR', 'editor_chat_ar', {})
   }
 
   // Wrapped / resumen del periodo. Exige "wrapped" o resumen+periodo para no

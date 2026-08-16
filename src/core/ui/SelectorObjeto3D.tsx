@@ -78,7 +78,7 @@ export function SelectorObjeto3D({
           <button
             type="button"
             onClick={onCerrar}
-            className="ml-auto rounded-lg bg-white/10 px-2.5 py-1 text-sm font-semibold text-white/80 transition hover:bg-white/20"
+            className="ms-auto rounded-lg bg-white/10 px-2.5 py-1 text-sm font-semibold text-white/80 transition hover:bg-white/20"
           >
             ✕
           </button>

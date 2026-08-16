@@ -58,6 +58,17 @@ const LS_SFX_VOLUMEN = 'mh.sfx.volumen'
 const LS_HUD_MUSICA = 'mh.hud.musica'
 const LS_HUD_TUTORIALES = 'mh.hud.tutoriales'
 const LS_VOZ_TUTORIALES = 'mh.voz.tutoriales'
+const LS_NOMBRE_APP = 'mh.nombreApp'
+const LS_CHECKLIST_APPS = 'mh.checklist.apps'
+
+/**
+ * Ajustes de la checklist diaria de una app; sin fila = con los hechos abajo.
+ * La checklist no se puede apagar: siempre está en el header de su app.
+ */
+export interface AjusteChecklist {
+  /** No pintar el plegable de los pasos ya cumplidos. */
+  ocultarHechos?: boolean
+}
 
 /** De dónde sale la música: generada con Web Audio, pistas subidas o el audio del sistema capturado. */
 export type FuenteMusica = 'generada' | 'pistas' | 'sistema'
@@ -161,6 +172,16 @@ function leerNotifApps(): Record<string, boolean> {
   }
 }
 
+/** Ajustes de la checklist diaria por app; ausente = todo por defecto. */
+function leerChecklistApps(): Record<string, AjusteChecklist> {
+  try {
+    const raw = localStorage.getItem(LS_CHECKLIST_APPS)
+    return raw ? (JSON.parse(raw) as Record<string, AjusteChecklist>) : {}
+  } catch {
+    return {}
+  }
+}
+
 interface AjustesState {
   idioma: Idioma
   temaUI: TemaUIId
@@ -183,6 +204,8 @@ interface AjustesState {
   notifHoraMetas: string
   /** Apps con el aviso apagado (por id); ausente = encendida. */
   notifApps: Record<string, boolean>
+  /** Checklist diaria de cada app (por id); ausente = con los hechos abajo. */
+  checklistApps: Record<string, AjusteChecklist>
   /** Aviso "tu wrapped está listo" al cerrar semana/mes/año. */
   notifWrapped: boolean
   /** Volumen maestro de la música (0..1). */
@@ -203,6 +226,8 @@ interface AjustesState {
   hudTutoriales: boolean
   /** El mago lee cada paso del tutorial en voz alta. Nace apagado: no todos lo quieren. */
   vozTutoriales: boolean
+  /** Nombre propio que el usuario le puso a su casa; vacío = el de fábrica traducido. */
+  nombreApp: string
   setIdioma: (idioma: Idioma) => void
   toggleIdioma: () => void
   setTemaUI: (tema: TemaUIId) => void
@@ -217,6 +242,7 @@ interface AjustesState {
   setNotifMetas: (v: boolean) => void
   setNotifHoraMetas: (hora: string) => void
   setNotifApp: (plantillaId: string, v: boolean) => void
+  setChecklistApp: (plantillaId: string, cambios: AjusteChecklist) => void
   setNotifWrapped: (v: boolean) => void
   setMusicaVolumen: (v: number) => void
   setMusicaAmbiental: (v: boolean) => void
@@ -228,6 +254,7 @@ interface AjustesState {
   setHudMusica: (v: boolean) => void
   setHudTutoriales: (v: boolean) => void
   setVozTutoriales: (v: boolean) => void
+  setNombreApp: (v: string) => void
 }
 
 export const useAjustes = create<AjustesState>((set, get) => ({
@@ -244,6 +271,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   notifMetas: leerSiNo(LS_NOTIF_METAS, true),
   notifHoraMetas: localStorage.getItem(LS_NOTIF_HORA_METAS) || HORA_METAS_DEFAULT,
   notifApps: leerNotifApps(),
+  checklistApps: leerChecklistApps(),
   notifWrapped: leerSiNo(LS_NOTIF_WRAPPED, true),
   musicaVolumen: leer01(LS_MUSICA_VOLUMEN, 0.5),
   musicaAmbiental: leerSiNo(LS_MUSICA_AMBIENTAL, false),
@@ -263,10 +291,17 @@ export const useAjustes = create<AjustesState>((set, get) => ({
   hudMusica: leerSiNo(LS_HUD_MUSICA, true),
   hudTutoriales: leerSiNo(LS_HUD_TUTORIALES, true),
   vozTutoriales: leerSiNo(LS_VOZ_TUTORIALES, false),
+  nombreApp: localStorage.getItem(LS_NOMBRE_APP) ?? '',
 
   setIdioma: (idioma) => {
     localStorage.setItem(LS_IDIOMA, idioma)
     document.documentElement.lang = idioma
+    // El árabe NO espeja la interfaz (pedido 14 ago 2026): el layout queda LTR
+    // y solo el TEXTO se ordena RTL vía `unicode-bidi: plaintext` (index.css).
+    document.documentElement.dir = 'ltr'
+    // La manuscrita y la redondeada no tienen glifos CJK, devanagari ni árabes:
+    // al cambiar de idioma hay que recalcular cuál se aplica de verdad.
+    aplicarTipografia(get().tipografia, idioma)
     set({ idioma })
   },
 
@@ -290,7 +325,7 @@ export const useAjustes = create<AjustesState>((set, get) => ({
 
   setTipografia: (tipografia) => {
     localStorage.setItem(LS_TIPOGRAFIA, tipografia)
-    aplicarTipografia(tipografia)
+    aplicarTipografia(tipografia, get().idioma)
     set({ tipografia })
   },
 
@@ -343,6 +378,12 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     const apps = { ...get().notifApps, [plantillaId]: v }
     localStorage.setItem(LS_NOTIF_APPS, JSON.stringify(apps))
     set({ notifApps: apps })
+  },
+
+  setChecklistApp: (plantillaId, cambios) => {
+    const apps = { ...get().checklistApps, [plantillaId]: { ...get().checklistApps[plantillaId], ...cambios } }
+    localStorage.setItem(LS_CHECKLIST_APPS, JSON.stringify(apps))
+    set({ checklistApps: apps })
   },
 
   setNotifWrapped: (v) => {
@@ -406,6 +447,14 @@ export const useAjustes = create<AjustesState>((set, get) => ({
     set({ vozTutoriales: v })
   },
 
+  // Vaciarlo devuelve el nombre de fábrica (que además se traduce con el idioma).
+  setNombreApp: (v) => {
+    const nombre = v.trim().slice(0, 40)
+    if (nombre) localStorage.setItem(LS_NOMBRE_APP, nombre)
+    else localStorage.removeItem(LS_NOMBRE_APP)
+    set({ nombreApp: nombre })
+  },
+
 }))
 
 /** ¿Está encendido el aviso de esta app? (fuera de React: lo usa el reloj de avisos). */
@@ -426,6 +475,7 @@ export const avisoActivo = (plantillaId?: string): boolean => {
   aplicarTemaUI(temaUI, modoUI, baseSegunLuz(colorFondo(cielo, null), 'claro'))
 }
 aplicarVidrioUI(useAjustes.getState().vidrioTransparencia, useAjustes.getState().vidrioIntensidad)
-aplicarTipografia(useAjustes.getState().tipografia)
+aplicarTipografia(useAjustes.getState().tipografia, useAjustes.getState().idioma)
 document.documentElement.lang = useAjustes.getState().idioma
+document.documentElement.dir = 'ltr'
 document.documentElement.dataset.estiloIconos = useAjustes.getState().estiloIconos

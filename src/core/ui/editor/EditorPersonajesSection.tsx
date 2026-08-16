@@ -1162,7 +1162,7 @@ function SeccionRopa({
             ? t('editor.sec.contraer', `Contraer ${titulo}`, { titulo })
             : t('editor.sec.expandir', `Expandir ${titulo}`, { titulo })
         }
-        className="flex w-full items-center gap-2 px-2.5 py-2 text-left transition hover:bg-white/10"
+        className="flex w-full items-center gap-2 px-2.5 py-2 text-start transition hover:bg-white/10"
       >
         <span className="text-base leading-none">
           <Icono emoji={emoji} />

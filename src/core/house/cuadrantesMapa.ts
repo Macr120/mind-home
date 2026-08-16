@@ -1,4 +1,4 @@
-import { cellToWorld, SPACING, type Cell } from './walls'
+import { cellToWorld, worldToCell, SPACING, type Cell, type Footprint } from './walls'
 import type { CuadranteMapa } from '../data/db'
 
 /**
@@ -111,6 +111,32 @@ export function celdaEnCuadrante(col: number, row: number, q: CuadranteMapa): bo
     row >= q.row - 0.5 &&
     row < q.row + q.rows
   )
+}
+
+/**
+ * Cuadrante que contiene una posición de MUNDO (el personaje, un objeto…), con la
+ * misma prioridad que `cuadrantePorId`: primero las zonas dibujadas, luego los
+ * bloques automáticos. `null` si la rejilla no da para cuadrantes o no cae en ninguno.
+ */
+export function cuadranteDePosicion(
+  x: number,
+  z: number,
+  cols: number,
+  rows: number,
+  propios: CuadranteMapa[],
+): CuadranteMapa | null {
+  if (!hayCuadrantes(cols, rows)) return null
+  const { col, row } = worldToCell(x, z)
+  return (
+    propios.find((q) => celdaEnCuadrante(col, row, q)) ??
+    cuadrantesAuto(cols, rows).find((q) => celdaEnCuadrante(col, row, q)) ??
+    null
+  )
+}
+
+/** ¿Alguna celda del cuarto (ancla + huella) cae en el cuadrante? Para el recorte de vista. */
+export function cuartoEnCuadrante(cell: Cell, fp: Footprint, q: CuadranteMapa): boolean {
+  return fp.some((c) => celdaEnCuadrante(cell.col + c.col, cell.row + c.row, q))
 }
 
 /** Centro y tamaño en unidades de mundo de un cuadrante (para encuadrar la cámara). */

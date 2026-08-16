@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { Rutina } from '../../data/db'
 import type { EventoResuelto } from '../../eventosApps'
 import { useCalendarioFiltro } from '../../state/calendarioFiltroStore'
-import { useGruposPlantilla } from '../../state/gruposPlantillaStore'
+import { useGruposPlantilla, nombreCarpeta } from '../../state/gruposPlantillaStore'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { vivo } from '../estilos'
@@ -59,11 +59,11 @@ export function FiltroApps({
         <>
           {/* Capta el clic de fuera para cerrar, sin tapar el calendario. */}
           <div className="fixed inset-0 z-40" onClick={() => setAbierto(false)} />
-          <div className="ui-panel-glass absolute right-0 z-50 mt-1 max-h-[60vh] w-60 overflow-y-auto rounded-xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
+          <div className="ui-panel-glass absolute end-0 z-50 mt-1 max-h-[60vh] w-60 overflow-y-auto rounded-xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
             <button
               type="button"
               onClick={limpiar}
-              className={`mb-1.5 w-full rounded-lg px-2 py-1 text-left text-[11px] font-bold transition ${
+              className={`mb-1.5 w-full rounded-lg px-2 py-1 text-start text-[11px] font-bold transition ${
                 apps.size === 0 ? 'bg-emerald-500/20 text-emerald-300' : 'text-white/55 hover:bg-white/10'
               }`}
             >
@@ -86,7 +86,7 @@ export function FiltroApps({
                         ? t('cal.filtro.carpetaQuitar', 'Quitar esta carpeta del filtro')
                         : t('cal.filtro.carpetaSolo', 'Ver solo lo de esta carpeta')
                     }
-                    className={`flex w-full items-center gap-1.5 rounded px-1 py-0.5 text-left text-[10px] font-bold uppercase tracking-wider transition ${
+                    className={`flex w-full items-center gap-1.5 rounded px-1 py-0.5 text-start text-[10px] font-bold uppercase tracking-wider transition ${
                       todas
                         ? 'bg-amber-500/15 text-amber-300'
                         : algunas
@@ -95,7 +95,7 @@ export function FiltroApps({
                     }`}
                   >
                     {g.emoji && <Icono emoji={g.emoji} />}
-                    <span className="min-w-0 flex-1 truncate">{g.nombre}</span>
+                    <span className="min-w-0 flex-1 truncate">{nombreCarpeta(t, g.nombre)}</span>
                     {/* A medias, el conteo dice cuánto de la carpeta está encendido. */}
                     {algunas && (
                       <span className="shrink-0 tabular-nums text-white/35">
@@ -116,7 +116,7 @@ export function FiltroApps({
                           key={a.id}
                           type="button"
                           onClick={() => alternar(a.id)}
-                          className={`flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-left text-xs transition ${
+                          className={`flex w-full items-center gap-2 rounded-lg px-1.5 py-1 text-start text-xs transition ${
                             activa ? 'bg-white/15' : 'hover:bg-white/5'
                           }`}
                         >
@@ -125,7 +125,7 @@ export function FiltroApps({
                             className={`min-w-0 flex-1 truncate ${activa ? 'font-bold texto-vivo' : 'text-white/70'}`}
                             style={activa ? vivo(a.color) : undefined}
                           >
-                            <Icono emoji={a.icon} /> {a.nombre}
+                            <Icono emoji={a.icon} /> {t(`room.${a.id}.nombre`, a.nombre).split(' · ')[0]}
                           </span>
                         </button>
                       )

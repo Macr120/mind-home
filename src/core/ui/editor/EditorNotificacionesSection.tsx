@@ -22,7 +22,7 @@ function Fila({
       <button
         type="button"
         onClick={onToggle}
-        className={`flex min-w-0 flex-1 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+        className={`flex min-w-0 flex-1 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
           activo
             ? 'ui-accent-bg border-transparent'
             : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'

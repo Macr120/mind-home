@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useSyncExternalStore } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 import type { Pieza3D } from '../chat/mascotas'
@@ -17,7 +17,8 @@ import { nuevoPaseoVida, posObjetosVivos, tickVida, RADIO_VIVO_OBJETO } from './
 import { Corazones, SenalAburrido, SenalHambre } from './senalesVida'
 import { estaAburridoVida, tieneHambreVida } from '../state/vidaObjetoStore'
 import { registrarAncla, quitarAncla } from './etiquetasMapa'
-import { useDiseño } from '../state/disenoStore'
+import { relojVida } from './relojVida'
+import { useDiseño, objetoPorId } from '../state/disenoStore'
 import { playerPos, useHouse } from '../state/houseStore'
 import type { ObjetoCuarto } from '../data/db'
 
@@ -63,8 +64,6 @@ export function GrupoAnimado({
   )
 }
 
-/** Cada cuánto se recalculan hambre y ánimo (ms): decaen en horas, no en segundos. */
-const MS_RELOJ_VIDA = 30_000
 /** Altura sobre el objeto donde se ancla su barra de estado. */
 const ALTURA_ETIQUETA_VIDA = 1.2
 
@@ -92,15 +91,15 @@ function GrupoVida({
   // Selectores PRIMITIVOS: la función corre en cada cambio del store, pero el
   // re-render solo llega cuando cambian estas dos marcas (nunca al mover un
   // objeto). Suscribirse a `s.objetos` crudo repintaría medio mapa por frame.
-  const comidaEn = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.vidaComidaEn)
-  const mimoEn = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.vidaMimoEn)
+  // `objetoPorId` es O(1) (índice memoizado): el `.find()` por objeto animado
+  // barría el array entero en cada cambio del store.
+  const comidaEn = useDiseño((s) => (objetoId != null ? objetoPorId(s.objetos, objetoId)?.vidaComidaEn : undefined))
+  const mimoEn = useDiseño((s) => (objetoId != null ? objetoPorId(s.objetos, objetoId)?.vidaMimoEn : undefined))
 
-  // Hambre y ánimo decaen en horas: basta re-evaluarlas cada medio minuto.
-  const [ahora, setAhora] = useState(() => Date.now())
-  useEffect(() => {
-    const id = window.setInterval(() => setAhora(Date.now()), MS_RELOJ_VIDA)
-    return () => window.clearInterval(id)
-  }, [])
+  // Hambre y ánimo decaen en horas: medio minuto de resolución sobra. Reloj
+  // COMPARTIDO: un solo setInterval para todos los animados montados (antes
+  // eran uno por instancia — 30 objetos = 30 timers).
+  const ahora = useSyncExternalStore(relojVida.subscribe, relojVida.getSnapshot)
 
   const fila = { vidaComidaEn: comidaEn, vidaMimoEn: mimoEn } as ObjetoCuarto
   const hambre = tieneHambreVida(fila, ahora)

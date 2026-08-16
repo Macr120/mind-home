@@ -87,7 +87,7 @@ export function ControlMusica({
           {/* En pantalla estrecha se ancla al borde de la VENTANA, no al botón: en
               el HUD este botón lleva el reloj y «Editor» a su derecha, así que un
               panel de 18 rem colgado de él se salía por la izquierda. */}
-          <div data-tut="musica.panel" className="ui-panel-glass ui-pop fixed right-2 top-16 z-50 w-72 space-y-3 rounded-xl border border-white/10 p-3 text-left shadow-xl backdrop-blur-md sm:absolute sm:right-0 sm:top-auto sm:mt-2">
+          <div data-tut="musica.panel" className="ui-panel-glass ui-pop fixed end-2 top-16 z-50 w-72 space-y-3 rounded-xl border border-white/10 p-3 text-start shadow-xl backdrop-blur-md sm:absolute sm:end-0 sm:top-auto sm:mt-2">
             {/* Música ambiental sí/no */}
             <button
               type="button"
@@ -96,7 +96,7 @@ export function ControlMusica({
                 desbloquearAudio()
                 setMusicaAmbiental(!musicaAmbiental)
               }}
-              className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+              className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
                 musicaAmbiental
                   ? 'ui-accent-bg border-transparent'
                   : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
@@ -245,7 +245,7 @@ export function ControlMusica({
                   setHudMusica(!hudMusica)
                   setAbierto(false)
                 }}
-                className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+                className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
                   hudMusica
                     ? 'ui-accent-bg border-transparent'
                     : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'

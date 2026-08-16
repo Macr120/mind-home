@@ -56,7 +56,7 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
   // Plegado: queda solo el engrane, que devuelve música + reloj + Editor.
   if (plegado) {
     return (
-      <div className="absolute right-4 top-4 z-20">
+      <div className="absolute end-4 top-4 z-20">
         <TiradorHud zona="supDer">
           <Icono nombre="ajustes" />
         </TiradorHud>
@@ -65,7 +65,7 @@ function ToolbarPermanente({ onEditar }: { onEditar: () => void }) {
   }
 
   return (
-    <div className="absolute right-4 top-4 z-20 flex items-start gap-2">
+    <div className="absolute end-4 top-4 z-20 flex items-start gap-2">
       <div className="flex flex-col items-center gap-1">
         {/* El botón de música puede apagarse en Configuraciones › Música. */}
         {hudMusica && (
@@ -176,8 +176,9 @@ export function FlechasMoverObjeto() {
     )
   }
 
+  // dir=ltr: es un D-pad, geometría real — «izquierda» debe quedar a la izquierda también en RTL.
   return (
-    <div className="ui-hud grid w-full grid-cols-3 grid-rows-3 gap-1 rounded-lg border border-white/10 p-1.5">
+    <div dir="ltr" className="ui-hud grid w-full grid-cols-3 grid-rows-3 gap-1 rounded-lg border border-white/10 p-1.5">
       <div />
       <BotonFlecha icono="subir" titulo={t('mover.adelante', 'Mover hacia adelante')} onClick={() => mover(0, 1)} />
       <div />

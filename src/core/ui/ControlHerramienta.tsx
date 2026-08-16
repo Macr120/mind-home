@@ -290,22 +290,23 @@ function VariantesConstruir() {
             ))}
           </div>
         )}
-        {/* Expandir: crecer/recortar/eliminar cuartos con los +/− del 3D.
-            Mover: arrastrar un cuarto entero a otra celda. */}
+        {/* Mover: arrastrar un cuarto entero a otra celda.
+            Expandir: crecer/recortar/eliminar cuartos con los +/− del 3D.
+            En este orden para que coincidan con el editor de Mapa. */}
         <div className="flex gap-1">
-          <button
-            type="button"
-            onClick={() => usePlanos.getState().setHerramienta('expandir')}
-            className={chipConstr(pincelForma == null && herrPlano === 'expandir')}
-          >
-            {t('planos.herr.expandir', 'Expandir')}
-          </button>
           <button
             type="button"
             onClick={() => usePlanos.getState().setHerramienta('mover')}
             className={chipConstr(pincelForma == null && herrPlano === 'mover')}
           >
             {t('planos.herr.mover', 'Mover')}
+          </button>
+          <button
+            type="button"
+            onClick={() => usePlanos.getState().setHerramienta('expandir')}
+            className={chipConstr(pincelForma == null && herrPlano === 'expandir')}
+          >
+            {t('planos.herr.expandir', 'Expandir')}
           </button>
         </div>
       </div>

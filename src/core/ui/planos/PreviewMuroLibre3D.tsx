@@ -42,7 +42,7 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
     <div
       className={`sticky top-0 z-10 overflow-hidden rounded-xl border border-white/10 ${claseFondoPreview(claro)}`}
     >
-      <div className="absolute left-2 top-2 z-10 flex flex-col gap-1">
+      <div className="absolute start-2 top-2 z-10 flex flex-col gap-1">
         {onOcultar && (
           <button
             type="button"
@@ -85,7 +85,7 @@ export function PreviewMuroLibre3D({ muroId, onOcultar }: { muroId: number; onOc
         </Canvas>
       </div>
       <span
-        className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+        className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
           claro ? 'text-black/45' : 'text-[#ffffff]/35'
         }`}
       >

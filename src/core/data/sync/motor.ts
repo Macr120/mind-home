@@ -17,7 +17,8 @@
 import { esDemo } from '../../edicion'
 import { db, type EntradaOutbox } from '../db'
 import { exportarRespaldo } from '../respaldo'
-import { supabase } from '../../cuenta/supabase'
+import type { SupabaseClient } from '@supabase/supabase-js'
+import { hayBackend, obtenerSupabase } from '../../cuenta/supabase'
 import { useSesion } from '../../cuenta/sesionStore'
 import { tGlobal } from '../../i18n/useT'
 import { conectarAvisoEscritura, marcarEscrituraSilenciosa } from './middleware'
@@ -119,7 +120,7 @@ async function push(userId: string): Promise<void> {
 
   for (let i = 0; i < cambios.length; i += LOTE_PUSH) {
     const lote = cambios.slice(i, i + LOTE_PUSH)
-    const { data, error } = await supabase!.rpc('sync_push', {
+    const { data, error } = await cliente!.rpc('sync_push', {
       p_cambios: lote.map((c) => c.cuerpo),
     })
     if (error) throw new Error(`sync_push: ${error.message}`)
@@ -260,7 +261,7 @@ async function dedupeSingletons(): Promise<void> {
 async function pull(vistos?: Map<string, Set<string>>): Promise<void> {
   let cursor = ((await db._syncMeta.get('cursor'))?.valor as number | undefined) ?? 0
   for (;;) {
-    const { data, error } = await supabase!
+    const { data, error } = await cliente!
       .from('registros')
       .select('tabla, uid, datos, deleted, updated_at, server_seq')
       .gt('server_seq', cursor)
@@ -380,18 +381,25 @@ async function bootstrap(): Promise<void> {
 let sincronizando = false
 let falloSeguido = 0
 let proximoIntento = 0
+/** Cliente vivo del ciclo actual: lo fija `sincronizar()` antes de push/pull. */
+let cliente: SupabaseClient | null = null
 
 /** Ciclo completo push+pull. Seguro de llamar en cualquier momento. */
 export async function sincronizar(manual = false): Promise<void> {
   // Cinturón además del candado de main.tsx: la BD demo jamás toca la nube.
   if (esDemo()) return
   const { usuario, plan } = useSesion.getState()
-  if (!supabase || !usuario || sincronizando) return
-  // El sync es parte de Pro: sin plan vigente ni se intenta (el servidor
-  // igual lo rechazaría con 'sin-pro'). El _outbox sigue encolando local.
-  if (plan !== 'pro') return
+  if (!hayBackend() || !usuario || sincronizando) return
+  // El sync es parte de Pro y del mes trial del unlock: sin plan vigente ni se
+  // intenta (el servidor igual lo rechazaría con 'sin-pro'). El _outbox sigue
+  // encolando local.
+  if (plan !== 'pro' && plan !== 'trial') return
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return
   if (!manual && Date.now() < proximoIntento) return
+
+  // El SDK se carga bajo demanda: sin cliente (fallo de red) se reintenta luego.
+  cliente = await obtenerSupabase()
+  if (!cliente) return
 
   await navigator.locks.request('mh-sync', { ifAvailable: true }, async (lock) => {
     if (!lock) return
@@ -468,8 +476,9 @@ function detener(): void {
  * `iniciar()` sola cuando `refrescarPerfil()` aterriza.
  */
 export function conectarMotorSync(): void {
-  if (!supabase) return
-  const activo = (s: { usuario: unknown; plan: string }) => !!s.usuario && s.plan === 'pro'
+  if (!hayBackend()) return
+  const activo = (s: { usuario: unknown; plan: string }) =>
+    !!s.usuario && (s.plan === 'pro' || s.plan === 'trial')
   useSesion.subscribe((s, prev) => {
     if (activo(s) && !activo(prev)) iniciar()
     else if (!activo(s) && activo(prev)) detener()

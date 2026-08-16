@@ -115,7 +115,7 @@ export function PreviewCuarto3D({
           />
         </Canvas>
 
-        <div className="absolute left-2 top-2 flex flex-col gap-1">
+        <div className="absolute start-2 top-2 flex flex-col gap-1">
           {onOcultar && (
             <button
               type="button"
@@ -130,7 +130,7 @@ export function PreviewCuarto3D({
         </div>
 
         {/* Toggles de visibilidad (techo y objetos), apilados arriba a la derecha. */}
-        <div className="absolute right-2 top-2 flex flex-col items-end gap-1">
+        <div className="absolute end-2 top-2 flex flex-col items-end gap-1">
           <button
             type="button"
             onClick={() => setVerTecho((v) => !v)}
@@ -164,7 +164,7 @@ export function PreviewCuarto3D({
         </div>
 
         <span
-          className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+          className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
             claro ? 'text-black/45' : 'text-[#ffffff]/35'
           }`}
         >

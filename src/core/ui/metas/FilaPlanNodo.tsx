@@ -56,7 +56,7 @@ export function FilaPlanNodo({
   }
 
   return (
-    <div style={{ paddingLeft: profundidad * SANGRIA + 4 }} className="py-0.5 pr-1">
+    <div style={{ paddingLeft: profundidad * SANGRIA + 4 }} className="py-0.5 pe-1">
       <div className="group flex items-center gap-1.5">
         <span className="shrink-0 text-[9px]" style={{ color: `${color}cc` }}>
           <Icono nombre="brillo" />

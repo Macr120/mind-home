@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { db, type DisenoRoom, type FondoImagen, type ObjetoCuarto, type TemaPropio } from '../data/db'
 import { claveLS, esDemo } from '../edicion'
 import { esAppNativa } from '../plataforma'
+import { esGamaBaja } from '../gamaDispositivo'
 import { filaSeed } from '../data/sync/syncables'
 import { esMueblePrincipal } from '../house/muebles'
 import { aplicarOverridesTema, TEMAS, type TemaId, type TemaOverride } from '../house/temas'
@@ -691,16 +692,19 @@ export function objetosDeCuarto(objetos: ObjetoCuarto[], roomId: string) {
  */
 let idxObjetos: ObjetoCuarto[] | null = null
 let idxPorRoom = new Map<string, ObjetoCuarto[]>()
+let idxPorId = new Map<number, ObjetoCuarto>()
 const SIN_OBJETOS: ObjetoCuarto[] = []
 
 function reindexar(objetos: ObjetoCuarto[]) {
   if (objetos === idxObjetos) return
   idxObjetos = objetos
   idxPorRoom = new Map()
+  idxPorId = new Map()
   for (const o of objetos) {
     const lista = idxPorRoom.get(o.roomId)
     if (lista) lista.push(o)
     else idxPorRoom.set(o.roomId, [o])
+    if (o.id != null) idxPorId.set(o.id, o)
   }
 }
 
@@ -708,6 +712,27 @@ function reindexar(objetos: ObjetoCuarto[]) {
 export function objetosDeCuartoIdx(objetos: ObjetoCuarto[], roomId: string): ObjetoCuarto[] {
   reindexar(objetos)
   return idxPorRoom.get(roomId) ?? SIN_OBJETOS
+}
+
+/**
+ * Un objeto por id en O(1) (mismo índice memoizado). Para los consumidores POR
+ * FRAME (`Animado`, etiquetas, armas): un `.find()` sobre el array entero por
+ * objeto montado era O(N×M) mientras se carga/mueve algo.
+ */
+export function objetoPorId(objetos: ObjetoCuarto[], id: number): ObjetoCuarto | undefined {
+  reindexar(objetos)
+  return idxPorId.get(id)
+}
+
+/**
+ * Ids de plantillas asignadas a algún objeto, ordenados. Para selectores con
+ * `useShallow`: los catálogos que solo necesitan «qué apps están en uso» no
+ * deben suscribirse a `s.objetos` crudo (re-render a 60 Hz al cargar/mover).
+ */
+export function idsPlantillasAsignadas(objetos: ObjetoCuarto[]): string[] {
+  const ids: string[] = []
+  for (const o of objetos) if (o.plantillaId && !ids.includes(o.plantillaId)) ids.push(o.plantillaId)
+  return ids.sort()
 }
 
 /** Los objetos LIBRES del mapa, con la misma referencia estable. */
@@ -757,10 +782,10 @@ export const useDiseño = create<DisenoState>((set, get) => ({
   temasOverrides: {},
   temaRev: 0,
   estiloVisual: 'normal',
-  efectosVisuales: !esAppNativa(),
+  efectosVisuales: !esAppNativa() && !esGamaBaja(),
   efectosConfig: configDeEstilo('normal'),
   estiloSinTema: 'normal',
-  efectosSinTema: !esAppNativa(),
+  efectosSinTema: !esAppNativa() && !esGamaBaja(),
   efectosConfigSinTema: configDeEstilo('normal'),
   techoTipo: null,
   fondoId: 'auto',
@@ -1014,10 +1039,11 @@ export const useDiseño = create<DisenoState>((set, get) => ({
     const temasOverrides: Partial<Record<TemaId, TemaOverride>> = {}
     const temaOvIds: Partial<Record<TemaId, number[]>> = {}
     let estiloSinTema: EstiloVisualId = 'normal'
-    // En la app nativa (Capacitor) el postprocesado (oclusión + bloom) es demasiado
-    // caro para el GPU del teléfono: arranca apagado por defecto (el usuario lo
-    // puede encender igual desde Configuraciones si su equipo aguanta).
-    let efectosSinTema = !esAppNativa()
+    // En la app nativa (Capacitor) y en la web de un equipo de gama baja, el
+    // postprocesado (oclusión + bloom) es demasiado caro para el GPU: arranca
+    // apagado por defecto (el usuario lo puede encender igual desde
+    // Configuraciones si su equipo aguanta).
+    let efectosSinTema = !esAppNativa() && !esGamaBaja()
     let efectosConfigSinTema: EfectosConfig = configDeEstilo('normal')
     let techoTipo: TechoTipoId | null = null
     let fondoId: FondoId = 'auto'

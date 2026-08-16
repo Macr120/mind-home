@@ -14,7 +14,7 @@ import {
   type ClaseCancha,
 } from '../state/canchasStore'
 import { useJuegoCancha, juegoFrame } from '../state/juegoCanchaStore'
-import { useDiseño, esObjetoMapa } from '../state/disenoStore'
+import { useDiseño, esObjetoMapa, objetoPorId } from '../state/disenoStore'
 
 /** Nº de tramos del arco del jardín (forma del piso, barda y warning track). */
 const ARCO_SEGMENTOS = 40
@@ -509,7 +509,7 @@ function ContornoCancha({ largo, ancho, color }: { largo: number; ancho: number;
 /** Resaltado en vivo de la cancha seleccionada en modo Editar. */
 function ContornoSeleccion() {
   const sel = useCanchas((s) => s.sel)
-  const obj = useDiseño((s) => s.objetos.find((o) => o.id === sel))
+  const obj = useDiseño((s) => (sel != null ? objetoPorId(s.objetos, sel) : undefined))
   if (!obj || !esCancha(obj.tipo)) return null
   const def = CANCHAS[claseDeCancha(obj.tipo)]
   const esc = escalaCancha(obj.escala)

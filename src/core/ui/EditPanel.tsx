@@ -133,7 +133,7 @@ export function EditPanel() {
   const tituloHeader = room ? nombreCuarto(room) : t('editor.titulo', 'Editor')
 
   return (
-    <div data-tut-zona="editor-mapa" className="ui-panel-glass absolute right-0 top-0 z-[35] flex h-full w-80 flex-col border-l border-white/10 backdrop-blur-md">
+    <div data-tut-zona="editor-mapa" className="ui-panel-glass ui-desliza-fin absolute end-0 top-0 z-[35] flex h-full w-80 flex-col border-s border-white/10 pt-[var(--safe-top)] pb-[var(--safe-bottom)] backdrop-blur-md">
       <header className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
         {/* Editando un cuarto: botón para SALIR del cuarto y volver al editor de mapa completo. */}
         {room && (
@@ -142,7 +142,7 @@ export function EditPanel() {
             data-tut="editor.volverMapa"
             onClick={() => editar(null)}
             title={t('editor.salirCuarto', 'Salir del cuarto (volver al mapa)')}
-            className="-ml-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-white/70 transition hover:bg-white/10 hover:text-white"
+            className="-ms-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-white/70 transition hover:bg-white/10 hover:text-white"
           >
             <Icono nombre="volver" />
           </button>
@@ -150,7 +150,7 @@ export function EditPanel() {
         <span className="texto-vivo truncate text-base font-black" style={vivo(color)}>
           <Icono nombre="editar" /> {tituloHeader}
         </span>
-        <div className="ml-auto flex items-center gap-1">
+        <div className="ms-auto flex items-center gap-1">
           <button
             type="button"
             disabled={pasos === 0}
@@ -245,10 +245,7 @@ export function EditPanel() {
                     id={id}
                     icono={g.icono}
                     titulo={g.titulo(t)}
-                    onDragStart={(x) => secConfig.iniciarArrastre(x as ConfigGrupoId)}
-                    onDragEnter={(x) => secConfig.entrarObjetivo(x as ConfigGrupoId)}
-                    onDragEnd={secConfig.finArrastre}
-                    onDrop={(x) => secConfig.soltar(x as ConfigGrupoId)}
+                    gesto={secConfig.arrastre(id)}
                     esObjetivo={secConfig.objetivo === id && secConfig.arrastrando !== id}
                     esArrastrado={secConfig.arrastrando === id}
                   >

@@ -349,7 +349,7 @@ export function PlanoPanelProps() {
                   key={r.id}
                   type="button"
                   onClick={() => void colocarApp(r.id, seleccion.col, seleccion.row)}
-                  className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs text-white/80 hover:bg-white/10"
+                  className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs text-white/80 hover:bg-white/10"
                 >
                   <Icono emoji={r.icon} /> {r.nombre.split(' · ')[0]}
                 </button>
@@ -398,7 +398,7 @@ export function PlanoPanelProps() {
                   void toggleRoom(r.id)
                   setSeleccion({ tipo: 'cuarto', roomId: r.id })
                 }}
-                className="rounded-lg border border-dashed border-white/15 px-2 py-1.5 text-left text-xs text-white/60 hover:border-emerald-400/40 hover:text-white"
+                className="rounded-lg border border-dashed border-white/15 px-2 py-1.5 text-start text-xs text-white/60 hover:border-emerald-400/40 hover:text-white"
               >
                 + <Icono emoji={r.icon} /> {r.nombre.split(' · ')[0]}
               </button>

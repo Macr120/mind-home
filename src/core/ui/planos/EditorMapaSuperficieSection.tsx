@@ -186,7 +186,7 @@ export function EditorMapaSuperficieSection({ embed }: { embed?: boolean } = {})
               <button
                 type="button"
                 onClick={() => void eliminarRoomPisoImagen(MAPA_SUPERFICIE_ID)}
-                className="flex-1 border-l border-white/10 py-1.5 text-[10px] text-red-400/70 hover:bg-red-500/10"
+                className="flex-1 border-s border-white/10 py-1.5 text-[10px] text-red-400/70 hover:bg-red-500/10"
               >
                 {t('planos.superficie.borrar', 'Borrar')}
               </button>

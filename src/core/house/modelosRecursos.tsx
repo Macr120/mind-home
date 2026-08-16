@@ -2,11 +2,12 @@ import { mezclar, type TemaId } from './temas'
 import { piezasDesdeElemento } from './piezasDesdeModelo'
 import type { Pieza3D } from '../chat/mascotas'
 import {
+  META_ESPECIAL_PLANTILLA,
   TIPO_OLLA, TIPO_DESPERTADOR, TIPO_LIBRERO_LIBRO, TIPO_GLOBO,
   TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE,
   TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA,
-  TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO,
+  TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO, TIPO_LIBRETA,
 } from './especialesPlantillaMeta'
 
 /**
@@ -1341,6 +1342,12 @@ export interface Siembra {
   escala?: number
 }
 
+/** Tipo 3D y color por defecto de una entrada de siembra (recurso del catálogo o especial). */
+export function tipoYColor(s: { tipo?: string; recurso?: number }): { tipo: string; color: string } {
+  if (s.tipo) return { tipo: s.tipo, color: META_ESPECIAL_PLANTILLA[s.tipo]?.color ?? '#94a3b8' }
+  return { tipo: `recurso:${s.recurso}`, color: MODELOS[s.recurso!]?.defaultColor ?? '#94a3b8' }
+}
+
 /** Auto-colocación inicial de indispensables por cuarto (separados). */
 export const SIEMBRA: Record<string, Siembra[]> = {
   cocina: [
@@ -1372,9 +1379,23 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { tipo: TIPO_DESPERTADOR, x: 1.7, z: -1.4, principal: true },
     { recurso: 41, x: -2.4, z: 1.2 },
   ],
+  // NADA debe tapar el paso de una puerta. El vano se centra en su fachada y mide
+  // DOOR_W (walls.ts), o sea ±1.1 del centro del muro, y `puertaInicialCuarto`
+  // puede ponerla en CUALQUIERA de las cuatro: por eso el mueble pegado a un muro
+  // va a las ESQUINAS (fuera de esa franja central) y el ancho —escritorios,
+  // libreros, muebles de tele— se coloca en medio del cuarto, donde se rodea.
+  // Si un objeto invade el vano, `Character.objColliders` le anula la colisión y
+  // queda atravesable: se ve roto, no solo estorba.
+  // Los modelos miran a +Z: contra el muro ESTE (x positivo) hay que girarlos
+  // 270°, no 90° (con 90° el frente queda mirando al muro); contra el OESTE, 90°.
   anecdotario: [
-    { tipo: TIPO_PERIODICO, x: -1.4, z: -2.3, principal: true, escala: 1.2 },
-    { recurso: 40, x: 1.6, z: -2.1 },
+    { tipo: TIPO_PERIODICO, x: -1.85, z: -2.3, principal: true, escala: 1.2 },
+    { recurso: 49, x: -1.55, z: -1.35, rotY: 180 },
+    { recurso: 41, x: 2.3, z: -2.4 },
+    { recurso: 22, x: 2.3, z: 2.4 },
+    { recurso: 31, x: -2.45, z: 2.3 },
+    { recurso: 104, x: 1.6, z: 2.5 },
+    { recurso: 107, x: 1.5, z: -2.5 },
   ],
   // La caja fuerte va PRIMERA porque `addObjeto` marca `permanente` al primero
   // del cuarto, y `asignarPlantillaACuarto` recorre esta lista en orden. La
@@ -1423,11 +1444,51 @@ export const SIEMBRA: Record<string, Siembra[]> = {
   // El calendario de pared cuelga en Noticias desde que dejó de ser una app: no es
   // el principal (la app se abre por el sillón), decora y sigue pintando el mes real.
   diario: [
-    { tipo: TIPO_SILLON, x: -1.4, z: -2.3, principal: true },
-    { tipo: TIPO_CALENDARIO, x: -2.1, z: -2.4 },
+    { tipo: TIPO_SILLON, x: -1.8, z: -2.25, principal: true },
+    { tipo: TIPO_CALENDARIO, x: -2.6, z: -2.0, rotY: 90 },
+    { recurso: 67, x: -0.6, z: -1.2 },
+    { recurso: 68, x: 0, z: 1.3, rotY: 180 },
+    { recurso: 69, x: 0, z: 1.45, rotY: 180 },
+    { recurso: 31, x: 2.45, z: -2.4 },
+    { recurso: 104, x: -2.45, z: 2.4 },
   ],
-  hobbies: [{ tipo: TIPO_GUITARRA, x: -2.0, z: -2.2, principal: true }],
-  idiomas: [{ tipo: TIPO_PLANTA_REGAR, x: -1.6, z: -1.6, principal: true }],
-  ideas: [{ tipo: TIPO_PIZARRA, x: -1.8, z: -2.2, principal: true }],
-  agenda: [{ tipo: TIPO_AGENDA, x: -1.7, z: -2.15, principal: true }],
+  hobbies: [
+    { tipo: TIPO_GUITARRA, x: -2.0, z: -2.2, principal: true },
+    { recurso: 21, x: 0.8, z: -0.9 },
+    { recurso: 22, x: 2.3, z: -2.4 },
+    { recurso: 89, x: 2.4, z: 2.35 },
+    { tipo: TIPO_LIBRETA, x: -1.7, z: 2.0 },
+    { recurso: 31, x: -2.45, z: 1.5 },
+    { recurso: 104, x: 1.5, z: 2.45 },
+  ],
+  // El globo terráqueo se ancla a la altura de la mesa de centro (67): van en la
+  // MISMA posición, como en la sala.
+  idiomas: [
+    { tipo: TIPO_PLANTA_REGAR, x: -1.3, z: -1.3, principal: true },
+    { recurso: 22, x: 2.3, z: -2.4 },
+    { recurso: 67, x: 2.1, z: 1.7 },
+    { tipo: TIPO_GLOBO, x: 2.1, z: 1.7 },
+    { recurso: 30, x: 0.3, z: 0.9, rotY: 180 },
+    { recurso: 31, x: -2.45, z: 2.3 },
+    { recurso: 107, x: -2.4, z: -2.4 },
+  ],
+  // El monitor (50) no se sostiene solo: su base arranca a la altura de la
+  // cubierta del escritorio (48), así que comparten posición.
+  ideas: [
+    { tipo: TIPO_PIZARRA, x: -1.8, z: -2.2, principal: true },
+    { recurso: 48, x: 0.6, z: -0.9 },
+    { recurso: 50, x: 0.6, z: -0.9 },
+    { recurso: 49, x: 0.6, z: 0.2, rotY: 180 },
+    { tipo: TIPO_LIBRETA, x: -2.3, z: 1.5 },
+    { recurso: 31, x: 2.45, z: -2.3 },
+    { recurso: 104, x: 2.45, z: 2.3 },
+  ],
+  agenda: [
+    { tipo: TIPO_AGENDA, x: -1.7, z: -2.15, principal: true },
+    { recurso: 49, x: -1.5, z: -1.15, rotY: 180 },
+    { recurso: 22, x: 2.3, z: -2.4 },
+    { recurso: 89, x: 2.4, z: 2.35 },
+    { recurso: 31, x: -2.45, z: 2.3 },
+    { recurso: 104, x: 1.6, z: -2.45 },
+  ],
 }

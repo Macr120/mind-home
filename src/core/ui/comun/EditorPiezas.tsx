@@ -348,7 +348,7 @@ export function EngraneActivarPiezas({ onActivar }: { onActivar: () => void }) {
   const setAbierto = useEditorUi((s) => s.setPiezasControles)
   return (
     <div className="pointer-events-none absolute inset-0 p-1.5">
-      <div className="absolute right-1.5 top-1.5">
+      <div className="absolute end-1.5 top-1.5">
         <BotonOverlay
           title={t('editor.piezas.activar', 'Editar con piezas 3D')}
           onClick={() => {
@@ -425,7 +425,7 @@ export function ControlesPiezasOverlay({
   return (
     <div className="pointer-events-none absolute inset-0 p-1.5">
       {/* Esquina sup-der: rotación (si está abierto) + engrane que abre/cierra los controles */}
-      <div className="absolute right-1.5 top-1.5 flex items-start gap-1.5">
+      <div className="absolute end-1.5 top-1.5 flex items-start gap-1.5">
         {abierto && (
           <div className="flex flex-col items-center gap-0.5">
             <div className="flex gap-0.5">
@@ -453,7 +453,7 @@ export function ControlesPiezasOverlay({
       </div>
 
       {/* Arriba-izq: toggle de fondo claro/oscuro (siempre) + pieza activa (solo abierto). */}
-      <div className="absolute left-1.5 top-1.5 flex flex-col items-start gap-1">
+      <div className="absolute start-1.5 top-1.5 flex flex-col items-start gap-1">
         {abierto && (
           <button
             type="button"
@@ -473,7 +473,7 @@ export function ControlesPiezasOverlay({
       {abierto && (
         <>
           {/* Abajo-izq: posición — diagonales isométricas (X/Z) con subir/bajar (Y) al centro */}
-          <div className="absolute bottom-1.5 left-1.5 flex flex-col items-center gap-0.5">
+          <div className="absolute bottom-1.5 start-1.5 flex flex-col items-center gap-0.5">
             <div className="grid grid-cols-3 gap-0.5">
               <BotonOverlay title={t('editor.piezas.izq', 'Izquierda (X−)')} onClick={() => mover(0, -0.1)}>↖</BotonOverlay>
               <BotonOverlay title={t('editor.piezas.subir', 'Subir (Y+)')} onClick={() => mover(1, 0.1)}>▲</BotonOverlay>
@@ -486,7 +486,7 @@ export function ControlesPiezasOverlay({
           </div>
 
           {/* Abajo-der: tamaño */}
-          <div className="absolute bottom-1.5 right-1.5 flex flex-col items-center gap-0.5">
+          <div className="absolute bottom-1.5 end-1.5 flex flex-col items-center gap-0.5">
             <div className="flex gap-0.5">
               <BotonOverlay title={t('editor.piezas.reducir', 'Reducir tamaño')} onClick={() => escalar(1 / 1.1)}>
                 −
@@ -501,7 +501,7 @@ export function ControlesPiezasOverlay({
       )}
       {!abierto && (
         <span
-          className={`pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] ${
+          className={`pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] ${
             claro ? 'text-black/45' : 'text-[#ffffff]/35'
           }`}
         >

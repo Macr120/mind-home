@@ -140,7 +140,7 @@ export function VistaPlanes({
                   key={m.id}
                   type="button"
                   onClick={() => onDestino({ tipo: 'generar', meta: m })}
-                  className={`flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-xs transition hover:bg-white/10 ${
+                  className={`flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start text-xs transition hover:bg-white/10 ${
                     metaArmada?.id === m.id ? 'bg-white/10' : ''
                   }`}
                 >
@@ -244,7 +244,7 @@ function TarjetaPlan({
           type="button"
           data-tut={`cal.plan.tarjeta.${aceptado ? 'aceptado' : 'propuesta'}`}
           onClick={onAbrir}
-          className="min-w-0 flex-1 text-left"
+          className="min-w-0 flex-1 text-start"
         >
           {/* De quién es el plan, con el color de su cuarto. El título grande es la
               META: es lo que se busca al recorrer la lista, no «Plan A». */}

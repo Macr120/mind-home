@@ -473,7 +473,7 @@ export function GeneradorPlan({
                 </p>
                 <p className="text-sm font-semibold text-white/90">
                   {t('cal.plan.semanas', '{n} semanas', { n: Math.max(1, Math.round(diasPropuestos / 7)) })}
-                  <span className="ml-1 font-normal text-white/40">
+                  <span className="ms-1 font-normal text-white/40">
                     ({t('cal.plan.duracion', '{n} días', { n: diasPropuestos })}
                     {!sinFechas && (
                       <>

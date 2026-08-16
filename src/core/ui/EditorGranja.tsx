@@ -225,7 +225,7 @@ function PanelNombrar({ corralId }: { corralId: number }) {
       <p className="text-center text-[11px] text-white/60">
         {t('granja.nombrar.titulo', 'Toca un animal para cambiarle el nombre')}
         {corral && (
-          <span className="ml-1 text-white/40">
+          <span className="ms-1 text-white/40">
             · {t('granja.capacidad', 'Capacidad')} {animales.length}/{capacidadCorral(corral)}
           </span>
         )}
@@ -265,7 +265,7 @@ function PanelNombrar({ corralId }: { corralId: number }) {
                 setEditando(a.id!)
                 setTexto(a.nombre ?? '')
               }}
-              className="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-left text-xs font-semibold text-white transition hover:bg-white/15 active:scale-[0.98]"
+              className="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-start text-xs font-semibold text-white transition hover:bg-white/15 active:scale-[0.98]"
             >
               <span className="text-base leading-none">
                 <Icono emoji={ANIMALES[a.tipo].icon} />

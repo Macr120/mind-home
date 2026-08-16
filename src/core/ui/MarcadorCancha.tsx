@@ -70,7 +70,7 @@ export function MarcadorCancha() {
 
   if (fase === 'eligiendo') {
     return (
-      <div className="pointer-events-none absolute left-0 right-0 top-14 z-30 flex justify-center px-3">
+      <div className="pointer-events-none absolute start-0 end-0 top-14 z-30 flex justify-center px-3">
         <div className="ui-hud ui-pop pointer-events-auto flex w-full max-w-sm flex-col gap-2 rounded-2xl border border-white/10 p-3">
           <p className="text-center text-sm font-black text-white">
             <Icono emoji={CANCHAS[clase].icon} /> {t(`canchas.clase.${clase}`, CANCHAS[clase].corto)} ·{' '}
@@ -147,7 +147,7 @@ export function MarcadorCancha() {
   const pts = tenisIA ? etiquetaTenis(yo, rival) : null
   // En vertical el marcador baja bajo la fila de botones de arriba (casa / engrane).
   return (
-    <div className="pointer-events-none absolute left-0 right-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
+    <div className="pointer-events-none absolute start-0 end-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
       <div className="ui-hud flex items-center gap-2 rounded-full border border-white/10 px-4 py-1.5 text-sm font-black text-white">
         <Icono emoji={CANCHAS[clase].icon} />
         {tenisIA && pts ? (
@@ -162,7 +162,7 @@ export function MarcadorCancha() {
         ) : clase === 'tenis' ? (
           <span>
             {t('juego.peloteoActual', 'Peloteo')} {yo}
-            <span className="ml-2 text-[10px] font-semibold text-white/50">
+            <span className="ms-2 text-[10px] font-semibold text-white/50">
               {t('juego.record', 'Récord')} {mejorPeloteo}
             </span>
           </span>

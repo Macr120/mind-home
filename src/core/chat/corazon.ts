@@ -10,6 +10,8 @@ import { tGlobal } from '../i18n/useT'
 import { datosIdioma } from '../i18n/idiomas'
 import { usarViaCuenta } from '../cuenta/api'
 import { conversarIA, iaOperativa } from './ia'
+import { detectarEmocion } from './emociones'
+import { reaccionar } from '../state/emocionesStore'
 import type { Asistente, MascotaId } from './mascotas'
 
 /**
@@ -161,6 +163,7 @@ async function hablarLatido(a: Asistente) {
   const m = useMascota.getState()
   if (m.mensaje || m.pensando || m.conversacion || hayCuartoAbierto()) return
   m.decir(frase, { asistenteId: a.id, persistir: false })
+  reaccionar(a.id, detectarEmocion(frase))
 }
 
 // Agenda de latidos por asistente (módulo: sobrevive re-renders, no recargas).

@@ -443,7 +443,7 @@ export function EditorTechoCuartoSection({ room }: { room: Cuarto }) {
             >
               <img src={techoImagen} alt={t('editor.techo.alt', 'Techo personalizado')} className="h-full w-full object-cover" />
               {imagenActiva && (
-                <div className="absolute right-1.5 top-1.5 rounded bg-amber-600 px-1.5 py-0.5 text-[9px] font-bold texto-cta">
+                <div className="absolute end-1.5 top-1.5 rounded bg-amber-600 px-1.5 py-0.5 text-[9px] font-bold texto-cta">
                   {t('editor.imgActiva', 'ACTIVA')}
                 </div>
               )}

@@ -55,7 +55,7 @@ export function EditorTutorialesSection({
         <button
           type="button"
           onClick={() => setHudTutoriales(!hudTutoriales)}
-          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+          className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
             hudTutoriales
               ? 'ui-accent-bg border-transparent'
               : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
@@ -80,7 +80,7 @@ export function EditorTutorialesSection({
           <button
             type="button"
             onClick={() => setVozTutoriales(!vozTutoriales)}
-            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
               vozTutoriales
                 ? 'ui-accent-bg border-transparent'
                 : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
@@ -120,7 +120,7 @@ export function EditorTutorialesSection({
               key={def.id}
               type="button"
               onClick={() => lanzar(def)}
-              className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
+              className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
             >
               <span className="min-w-0 flex-1 truncate">{t(def.titulo.clave, def.titulo.es)}</span>
               <Icono nombre="play" />
@@ -146,7 +146,7 @@ export function EditorTutorialesSection({
                   useLayout.getState().setEditMode(false)
                   void lanzarFlujo(clave, def)
                 }}
-                className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
+                className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
               >
                 <span className="min-w-0 flex-1 truncate">{t(def.titulo.clave, def.titulo.es)}</span>
                 <Icono nombre="play" />

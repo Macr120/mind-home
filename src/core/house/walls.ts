@@ -402,7 +402,6 @@ export function ladoAlCentro(col: number, row: number): SideKey {
 
 /** Esquina de una celda (NO, NE, SO, SE): donde se ancla un ascenso de piso alto. */
 export type EsquinaKey = 'NO' | 'NE' | 'SO' | 'SE'
-export const ESQUINA_KEYS: EsquinaKey[] = ['NO', 'NE', 'SO', 'SE']
 
 /** Signo (x,z) de cada esquina respecto al centro de la celda. */
 export const ESQUINA_DIR: Record<EsquinaKey, { sx: -1 | 1; sz: -1 | 1 }> = {

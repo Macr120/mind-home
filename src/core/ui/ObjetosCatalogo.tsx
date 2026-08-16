@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import type { ObjetoCuarto } from '../data/db'
 import { RECURSOS } from '../house/recursos'
+import { useShallow } from 'zustand/react/shallow'
 import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { pedirDestinoObjeto } from '../state/destinoObjetoStore'
 import { useLayout } from '../state/layoutStore'
@@ -8,6 +9,8 @@ import { useEditorUi } from '../state/editorUiStore'
 import { getTema } from '../house/temas'
 import { MiniaturaModelo } from '../house/Miniatura'
 import { TIPO_PIEZAS, funcionEspecialDe } from '../house/catalogo'
+import { META_ESPECIAL_PLANTILLA } from '../house/especialesPlantillaMeta'
+import { TIPO_FLOTADOR, NOMBRE_FLOTADOR } from '../state/flotadorStore'
 import { tieneAnimacion } from '../house/animacion'
 import { plantillaObjetoPiezas } from './comun/EditorPiezas'
 import { claveLS, esDemo, esDemoAutor } from '../edicion'
@@ -15,8 +18,8 @@ import { CATEGORIAS_PRENDA, PRENDAS } from '../house/apariencia'
 import { ANIMALES, useGranja } from '../state/granjaStore'
 import type { TipoAnimal } from '../data/db'
 import { murosLibresRepo, pisosExteriorRepo, zonasRepo, VACIO } from '../data/repository'
-import { useT } from '../i18n/useT'
-import { iniciarArrastre } from './arrastre'
+import { useT, type TFunc } from '../i18n/useT'
+import { useArrastre } from './comun/arrastre'
 import { catalogoCasa, type CuartoConstruido } from './catalogoCasa'
 import { Carpeta } from './comun/Carpeta'
 import { Icono } from './iconos/Icono'
@@ -72,11 +75,52 @@ const leerGruposPlegados = (): string[] => {
   }
 }
 
-const nombreObjeto = (o: ObjetoCuarto) =>
-  o.nombre || (o.tipo === TIPO_PIEZAS ? 'Objeto de piezas' : 'Objeto')
+const RECURSO_POR_ID = new Map(RECURSOS.map((r) => [r.id, r]))
 
-/** Lo que se está arrastrando en el inventario: una carpeta o un objeto (con su carpeta actual). */
-type Arrastre = { tipo: 'carpeta'; cat: string } | { tipo: 'objeto'; id: number; cat: string }
+/** Nombres que siembra `sembrarLibreriaBase` SIN baseId (vehículos, cuadro y
+ *  espejo, fuentes, flotador, parque, luces, anuncios y principales de
+ *  plantilla): tipo → nombre sembrado. Se traducen con `recursoExtra.<tipo>`. */
+const NOMBRE_SEMBRADO_POR_TIPO: Record<string, string> = {
+  bicicleta: 'Bicicleta',
+  motocicleta: 'Motocicleta',
+  automovil: 'Automóvil',
+  ovni: 'Platillo OVNI',
+  'cuadro-foto': 'Cuadro con foto',
+  espejo: 'Espejo',
+  fuente: 'Fuente clásica',
+  estanque: 'Estanque con chorro',
+  'cascada-pared': 'Cascada de pared',
+  [TIPO_FLOTADOR]: NOMBRE_FLOTADOR,
+  resbaladilla: 'Resbaladilla',
+  pasamanos: 'Pasamanos',
+  carrusel: 'Carrusel',
+  columpio: 'Columpio',
+  antorcha: 'Antorcha',
+  farol: 'Farol',
+  'lampara-pie': 'Lámpara de pie',
+  vela: 'Vela',
+  espectacular: 'Espectacular de carretera',
+  'letrero-vegas': 'Letrero Las Vegas',
+  'letrero-neon': 'Letrero de neón',
+  ...Object.fromEntries(Object.entries(META_ESPECIAL_PLANTILLA).map(([tipo, m]) => [tipo, m.nombre])),
+}
+
+/** Nombre a mostrar de un objeto. El nombre sembrado (desde RECURSOS o desde
+ *  `sembrarLibreriaBase`) se traduce SOLO si sigue intacto (mismo criterio que
+ *  `campoBase` de mascotas): un nombre puesto por el usuario se respeta tal cual. */
+const nombreObjeto = (t: TFunc, o: ObjetoCuarto) => {
+  if (!o.nombre) {
+    return o.tipo === TIPO_PIEZAS
+      ? t('objetos.nombrePiezas', 'Objeto de piezas')
+      : t('objetos.nombreGenerico', 'Objeto')
+  }
+  const base = o.baseId != null ? RECURSO_POR_ID.get(o.baseId) : undefined
+  if (base && o.nombre === base.nombre) return t(`recurso.${base.id}`, o.nombre)
+  return o.nombre === NOMBRE_SEMBRADO_POR_TIPO[o.tipo] ? t(`recursoExtra.${o.tipo}`, o.nombre) : o.nombre
+}
+
+/** Dónde caería lo que va en la mano: la cabecera de una carpeta u otro objeto (con su carpeta). */
+type Destino = { tipo: 'carpeta'; cat: string } | { tipo: 'objeto'; id: number; cat: string }
 
 /** Ningún cuarto ocupa nada: para niveles que aún no existen en el mapa. */
 const SIN_OCUPACION: Set<string> = new Set()
@@ -95,7 +139,11 @@ const SIN_OCUPACION: Set<string> = new Set()
  */
 export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] } = {}) {
   const t = useT()
-  const objetos = useDiseño((s) => s.objetos)
+  // Solo biblioteca + instancias colocadas de biblioteca (useShallow): con
+  // `s.objetos` crudo, mover CUALQUIER mueble de la casa repintaba el inventario.
+  const objetos = useDiseño(
+    useShallow((s) => s.objetos.filter((o) => esObjetoLibreria(o) || o.libreriaId != null)),
+  )
   const sembrarLibreriaBase = useDiseño((s) => s.sembrarLibreriaBase)
   const addObjetoLibreria = useDiseño((s) => s.addObjetoLibreria)
   const instanciarEnMapa = useDiseño((s) => s.instanciarObjetoEnMapa)
@@ -111,8 +159,6 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
   const [renombrando, setRenombrando] = useState<string | null>(null)
   const [nombreTmp, setNombreTmp] = useState('')
   const [ordenCategorias, setOrdenCategorias] = useState<string[]>(leerOrdenCategorias)
-  const [arrastre, setArrastre] = useState<Arrastre | null>(null)
-  const [sobre, setSobre] = useState<string | null>(null)
   const [gruposPlegados, setGruposPlegados] = useState<Set<string>>(() => new Set(leerGruposPlegados()))
 
   // Siembra inicial (una sola vez): crea la biblioteca con el catálogo base.
@@ -230,8 +276,8 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
 
   const borrar = async (o: ObjetoCuarto) => {
     if (o.id == null) return
-    const msg = t('objetos.borrarConfirm', `¿Borrar "${nombreObjeto(o)}"? No se puede deshacer.`, {
-      nombre: nombreObjeto(o),
+    const msg = t('objetos.borrarConfirm', `¿Borrar "${nombreObjeto(t, o)}"? No se puede deshacer.`, {
+      nombre: nombreObjeto(t, o),
     })
     if (!window.confirm(msg)) return
     await removeObjeto(o.id)
@@ -315,20 +361,42 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
     await reordenarLibreria(cambios)
   }
 
-  const soltarEnCarpeta = (cat: string) => {
-    if (arrastre?.tipo === 'carpeta') moverCarpetaAntesDe(arrastre.cat, cat)
-    else if (arrastre?.tipo === 'objeto') void moverObjetoAFinDe(arrastre.id, arrastre.cat, cat)
-    setArrastre(null)
-    setSobre(null)
-  }
+  /** Categoría actual de un objeto de la biblioteca (de dónde sale al arrastrarlo). */
+  const catDe = (id: number) => objetos.find((o) => o.id === id)?.categoria || 'Otros'
 
-  const soltarEnObjeto = (o: ObjetoCuarto, cat: string) => {
-    if (arrastre?.tipo === 'objeto' && o.id != null) {
-      void moverObjetoAntesDe(arrastre.id, arrastre.cat, o.id, cat)
-    }
-    setArrastre(null)
-    setSobre(null)
-  }
+  /**
+   * El gesto compartido de la casa. Claves: `c:<categoría>` (cabecera de carpeta)
+   * y `o:<id>` (objeto). El destino es lo que hay bajo el dedo: otro objeto (se
+   * inserta antes de él) o una carpeta (una carpeta se coloca antes de ella; un
+   * objeto cae al final de ella).
+   */
+  const gesto = useArrastre<Destino>(
+    (e, mano) => {
+      const bajo = document.elementFromPoint(e.clientX, e.clientY)
+      if (mano.startsWith('o:')) {
+        const id = Number(mano.slice(2))
+        const obj = bajo?.closest('[data-obj]')
+        if (obj) {
+          const idDestino = Number(obj.getAttribute('data-obj'))
+          const cat = obj.getAttribute('data-obj-cat') ?? ''
+          return idDestino !== id ? { tipo: 'objeto', id: idDestino, cat } : null
+        }
+        const cat = bajo?.closest('[data-carpeta]')?.getAttribute('data-carpeta')
+        return cat && cat !== catDe(id) ? { tipo: 'carpeta', cat } : null
+      }
+      const cat = bajo?.closest('[data-carpeta]')?.getAttribute('data-carpeta')
+      return cat && cat !== mano.slice(2) ? { tipo: 'carpeta', cat } : null
+    },
+    (mano, destino) => {
+      if (mano.startsWith('c:')) {
+        if (destino.tipo === 'carpeta') moverCarpetaAntesDe(mano.slice(2), destino.cat)
+        return
+      }
+      const id = Number(mano.slice(2))
+      if (destino.tipo === 'carpeta') void moverObjetoAFinDe(id, catDe(id), destino.cat)
+      else void moverObjetoAntesDe(id, catDe(id), destino.id, destino.cat)
+    },
+  )
 
   /** Una carpeta (categoría) con sus objetos: lo que va dentro de cada grupo. */
   const renderCategoria = (cat: string) => {
@@ -338,41 +406,24 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
         return (
           <div
             key={cat}
-            onDragOver={(e) => {
-              if (!arrastre) return
-              e.preventDefault()
-              setSobre(`carpeta:${cat}`)
-            }}
-            onDragLeave={() => setSobre((s) => (s === `carpeta:${cat}` ? null : s))}
-            onDrop={(e) => {
-              e.preventDefault()
-              soltarEnCarpeta(cat)
-            }}
+            data-carpeta={cat}
             className={`rounded-lg border border-white/[0.06] bg-white/[0.02] transition ${
               // Soltar un objeto dentro de la carpeta: se resalta toda la carpeta.
-              arrastre?.tipo === 'objeto' && sobre === `carpeta:${cat}`
-                ? 'ring-2 ring-accent/70 bg-accent/[0.06]'
+              gesto.enMano?.startsWith('o:') && gesto.destino?.tipo === 'carpeta' && gesto.destino.cat === cat
+                ? 'ring-1 ring-accent/70 bg-accent/[0.06]'
                 : ''
             } ${
               // Reordenar carpetas: línea de inserción sobre la carpeta destino.
-              arrastre?.tipo === 'carpeta' && arrastre.cat !== cat && sobre === `carpeta:${cat}`
-                ? 'shadow-[0_-3px_0_0_var(--ui-accent)]'
+              gesto.enMano?.startsWith('c:') && gesto.destino?.tipo === 'carpeta' && gesto.destino.cat === cat
+                ? 'border-t-2 border-t-accent'
                 : ''
             }`}
           >
             {/* Cabecera: arrastrar para reordenar + plegar + renombrar carpeta */}
             <div
-              draggable={!editando}
-              onDragStart={(e) => {
-                iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-                setArrastre({ tipo: 'carpeta', cat })
-              }}
-              onDragEnd={() => {
-                setArrastre(null)
-                setSobre(null)
-              }}
+              {...(editando ? {} : gesto.props(`c:${cat}`))}
               className={`flex items-center gap-1 px-2 py-1.5 ${!editando ? 'cursor-grab active:cursor-grabbing' : ''} ${
-                arrastre?.tipo === 'carpeta' && arrastre.cat === cat ? 'opacity-30' : ''
+                gesto.enMano === `c:${cat}` ? 'opacity-40' : ''
               }`}
             >
               <span className="text-base leading-none"><Icono emoji="📁" /></span>
@@ -393,7 +444,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                   <button
                     type="button"
                     onClick={() => togglePlegada(cat)}
-                    className="flex min-w-0 flex-1 items-center gap-2 text-left"
+                    className="flex min-w-0 flex-1 items-center gap-2 text-start"
                   >
                     <span className="min-w-0 flex-1 truncate text-sm font-semibold text-white/85">{cat}</span>
                     <span className="shrink-0 text-[10px] font-bold text-white/40">{objs.length}</span>
@@ -421,42 +472,18 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                   <div
                     role="button"
                     tabIndex={0}
-                    draggable
-                    onDragStart={(e) => {
-                      e.stopPropagation()
-                      if (o.id == null) return
-                      iniciarArrastre(e.currentTarget, e.dataTransfer, e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-                      setArrastre({ tipo: 'objeto', id: o.id, cat })
-                    }}
-                    onDragEnd={(e) => {
-                      e.stopPropagation()
-                      setArrastre(null)
-                      setSobre(null)
-                    }}
-                    onDragOver={(e) => {
-                      if (arrastre?.tipo !== 'objeto') return
-                      e.preventDefault()
-                      e.stopPropagation()
-                      setSobre(`objeto:${o.id}`)
-                    }}
-                    onDragLeave={(e) => {
-                      e.stopPropagation()
-                      setSobre((s) => (s === `objeto:${o.id}` ? null : s))
-                    }}
-                    onDrop={(e) => {
-                      e.preventDefault()
-                      e.stopPropagation()
-                      soltarEnObjeto(o, cat)
-                    }}
+                    {...(o.id != null ? gesto.props(`o:${o.id}`) : {})}
+                    data-obj={o.id}
+                    data-obj-cat={cat}
                     onClick={() => alMapa(o)}
                     onKeyDown={(e) => e.key === 'Enter' && alMapa(o)}
                     title={t('objetos.alMapa', 'Colocar en el mapa o en un cuarto')}
-                    className={`flex cursor-pointer items-center gap-2 rounded-md bg-white/[0.03] p-1.5 transition hover:bg-white/[0.07] ${
+                    className={`flex cursor-grab items-center gap-2 rounded-md bg-white/[0.03] p-1.5 transition hover:bg-white/[0.07] ${
                       // Línea de inserción (dónde caerá) al reordenar objetos.
-                      arrastre?.tipo === 'objeto' && arrastre.id !== o.id && sobre === `objeto:${o.id}`
-                        ? 'shadow-[0_-3px_0_0_#34d399]'
+                      gesto.destino?.tipo === 'objeto' && gesto.destino.id === o.id
+                        ? 'border-t-2 border-accent'
                         : ''
-                    } ${arrastre?.tipo === 'objeto' && arrastre.id === o.id ? 'opacity-30' : ''}`}
+                    } ${gesto.enMano === `o:${o.id}` ? 'opacity-40' : ''}`}
                   >
                     <span className="relative shrink-0">
                       <span
@@ -482,7 +509,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                       {tieneAnimacion(o.animacion) && (
                         <span
                           title={t('objetos.animado', 'Objeto animado')}
-                          className="pointer-events-none absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
+                          className="pointer-events-none absolute -end-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
                         >
                           <Icono nombre="brillo" />
                         </span>
@@ -493,7 +520,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                           funcion && (
                             <span
                               title={t(funcion.clave, funcion.texto)}
-                              className="pointer-events-none absolute -left-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
+                              className="pointer-events-none absolute -start-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
                             >
                               <Icono nombre="mano" />
                             </span>
@@ -502,7 +529,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                       })()}
                     </span>
                     <span className="min-w-0 flex-1 truncate text-[11px] text-white/75">
-                      {nombreObjeto(o)}
+                      {nombreObjeto(t, o)}
                     </span>
                     <button
                       type="button"
@@ -521,7 +548,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                   {(instanciasPorLib.get(o.id!) ?? []).map((inst) => (
                     <div
                       key={inst.id}
-                      className="ml-5 flex items-center gap-2 rounded-md border-l-2 border-accent/25 bg-white/[0.02] p-1.5"
+                      className="ms-5 flex items-center gap-2 rounded-md border-s-2 border-accent/25 bg-white/[0.02] p-1.5"
                     >
                       <span className="relative shrink-0">
                         <span
@@ -544,7 +571,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                         {tieneAnimacion(inst.animacion) && (
                           <span
                             title={t('objetos.animado', 'Objeto animado')}
-                            className="pointer-events-none absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
+                            className="pointer-events-none absolute -end-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
                           >
                             <Icono nombre="brillo" />
                           </span>
@@ -555,7 +582,7 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
                             funcion && (
                               <span
                                 title={t(funcion.clave, funcion.texto)}
-                                className="pointer-events-none absolute -left-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
+                                className="pointer-events-none absolute -start-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black/80 text-[9px] shadow"
                               >
                                 <Icono nombre="mano" />
                               </span>

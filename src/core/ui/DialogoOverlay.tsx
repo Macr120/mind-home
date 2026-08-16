@@ -122,7 +122,7 @@ function DialogoActivo({ id }: { id: string }) {
 
       {/* Cabecera: quién habla + historial + salir */}
       <div className="absolute left-1/2 top-[7vh] z-10 -translate-x-1/2">
-        <div className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border border-white/10 py-1.5 pl-3 pr-1.5 shadow-xl backdrop-blur-md">
+        <div className="ui-panel-glass pointer-events-auto flex items-center gap-2 rounded-full border border-white/10 py-1.5 ps-3 pe-1.5 shadow-xl backdrop-blur-md">
           <span className="text-base"><Icono emoji={a.emoji} /></span>
           <span className="max-w-48 truncate text-sm font-semibold text-white/90">
             {nombreAsistente(t, a)}
@@ -150,7 +150,7 @@ function DialogoActivo({ id }: { id: string }) {
       <div className="absolute inset-x-0 z-10 flex justify-center px-4" style={{ bottom: bottomCaja }}>
         <div className="relative w-full max-w-2xl">
           {/* Escuchar esta réplica + lectura automática, junto al texto que leen. */}
-          <div className="pointer-events-auto absolute right-3 top-3 z-10 flex items-center gap-0.5 text-sm">
+          <div className="pointer-events-auto absolute end-3 top-3 z-10 flex items-center gap-0.5 text-sm">
             <BotonVoz texto={texto} asistenteId={id} />
             <ToggleVozAuto asistenteId={id} />
           </div>
@@ -160,10 +160,10 @@ function DialogoActivo({ id }: { id: string }) {
             onClick={() => setReveladas(texto.length)}
             // Tope de alto: una respuesta larga scrollea dentro de la caja en vez
             // de crecer hasta tapar la cabecera con el botón de salir.
-            className="ui-panel-glass pointer-events-auto max-h-[55vh] w-full cursor-pointer overflow-y-auto rounded-2xl border border-white/10 px-4 py-3 text-left shadow-2xl backdrop-blur-md"
+            className="ui-panel-glass pointer-events-auto max-h-[55vh] w-full cursor-pointer overflow-y-auto rounded-2xl border border-white/10 px-4 py-3 text-start shadow-2xl backdrop-blur-md"
             title={t('dialogo.completar', 'Mostrar todo el texto')}
           >
-            <p className="mb-1 pr-14 text-[10px] font-bold uppercase tracking-wider text-white/40">
+            <p className="mb-1 pe-14 text-[10px] font-bold uppercase tracking-wider text-white/40">
               <Icono emoji={a.emoji} /> {nombreAsistente(t, a)}
             </p>
             {pensando ? (

@@ -16,11 +16,11 @@ export function InfraNota() {
   const mascota = MASCOTAS.find((m) => m.id === mascotaId) ?? MASCOTAS[0]
 
   return (
-    <div className="pointer-events-none absolute left-0 right-0 top-14 z-50 flex justify-center px-3">
+    <div className="pointer-events-none absolute start-0 end-0 top-14 z-50 flex justify-center px-3">
       <button
         type="button"
         onClick={limpiar}
-        className="ui-hud ui-pop pointer-events-auto flex max-w-md items-start gap-2 rounded-xl border border-violet-400/40 px-3 py-2 text-left text-xs leading-snug text-white transition hover:bg-white/10"
+        className="ui-hud ui-pop pointer-events-auto flex max-w-md items-start gap-2 rounded-xl border border-violet-400/40 px-3 py-2 text-start text-xs leading-snug text-white transition hover:bg-white/10"
       >
         <span className="text-base leading-none">
           <Icono emoji={mascota.emoji} />

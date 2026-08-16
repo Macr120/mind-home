@@ -107,7 +107,7 @@ export function CapturaPersonajes({ onListo }: { onListo: (capturas: Record<stri
   const actual = PERSONAJES_ONBOARDING[indice]
 
   return (
-    <div className="pointer-events-none fixed left-[-9999px] top-0 h-64 w-64" aria-hidden>
+    <div className="pointer-events-none fixed start-[-9999px] top-0 h-64 w-64" aria-hidden>
       <Canvas
         dpr={[1, 1.5]}
         gl={{ preserveDrawingBuffer: true }}

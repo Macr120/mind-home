@@ -4,11 +4,20 @@ import { useTutorial } from './tutorialStore'
 import { flujosDeApp, lanzarFlujo } from './registro'
 import type { TutorialDef } from './tipos'
 import type { Plantilla } from '../registry'
+import { Icono } from '../ui/iconos/Icono'
+import { esDemo } from '../edicion'
+import { entrarDemo } from '../../demo/modo'
+import { BUILDERS_DEMO } from '../../demo/builders'
 
 /**
  * "?" del encabezado de una app. Con UN tutorial lo lanza directo (comportamiento
  * clásico); con varios FLUJOS abre un menú para elegir cuál. Los flujos corren
  * sobre el año de datos de la casa demo (desde la casa real, saltan a ella).
+ *
+ * El menú suma la entrada «El año de Pep@ en [App]»: abre la app DEMO con su año
+ * de datos para explorar libremente, sin tour (`entrarDemo` sin `tour`). Dentro
+ * del demo la entrada sobra (ya se está ahí) y las apps sin builder (las de
+ * infraestructura) no tienen año que enseñar.
  *
  * `montada`: la app ya está en pantalla (previa del catálogo), así que el tour
  * no debe abrir su cuarto — se le quita el `preparar`.
@@ -26,6 +35,7 @@ export function BotonTutorialApp({
   const tourActivo = useTutorial((s) => !!s.def)
   const [abierto, setAbierto] = useState(false)
   const flujos = flujosDeApp(plantilla.id)
+  const conPep = !esDemo() && !!BUILDERS_DEMO[plantilla.id]
 
   const elegir = (def: TutorialDef) => {
     setAbierto(false)
@@ -36,7 +46,7 @@ export function BotonTutorialApp({
     <div className="relative shrink-0">
       <button
         type="button"
-        onClick={() => (flujos.length > 1 ? setAbierto((v) => !v) : elegir(flujos[0]))}
+        onClick={() => (flujos.length > 1 || conPep ? setAbierto((v) => !v) : elegir(flujos[0]))}
         title={t('tut.boton', 'Ver tutorial')}
         aria-label={t('tut.boton', 'Ver tutorial')}
         className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border text-sm font-bold transition ${
@@ -48,7 +58,7 @@ export function BotonTutorialApp({
         ?
       </button>
       {abierto && (
-        <div className="ui-panel absolute right-0 top-9 z-30 w-56 space-y-1 rounded-xl border border-white/10 p-1.5 shadow-xl">
+        <div className="ui-panel absolute end-0 top-9 z-30 w-56 space-y-1 rounded-xl border border-white/10 p-1.5 shadow-xl">
           <p className="px-1 text-[10px] font-bold uppercase tracking-wider text-white/35">
             {t('tut.flujos.titulo', 'Tutoriales de esta app')}
           </p>
@@ -57,11 +67,29 @@ export function BotonTutorialApp({
               key={def.id}
               type="button"
               onClick={() => elegir(def)}
-              className="block w-full rounded-md px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
+              className="block w-full rounded-md px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
             >
               {t(def.titulo.clave, def.titulo.es)}
             </button>
           ))}
+          {conPep && (
+            <>
+              <div className="mx-1 border-t border-white/10" />
+              {/* Sin tour: aterriza en la app demo con el año de Pep@ y a explorar. */}
+              <button
+                type="button"
+                onClick={() => entrarDemo({ app: plantilla.id })}
+                className="flex w-full items-center gap-1.5 rounded-md px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
+              >
+                <Icono nombre="casa" />
+                <span className="min-w-0 truncate">
+                  {t('demo.anioPep.app', 'El año de Pep@ en {app}', {
+                    app: t(`room.${plantilla.id}.nombre`, plantilla.nombre).split(' · ')[0],
+                  })}
+                </span>
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>

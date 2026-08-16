@@ -1,17 +1,9 @@
 import { useDiseño, objetosDeCuarto } from '../state/disenoStore'
 import { useCuartos } from '../state/cuartosStore'
-import { MODELOS } from '../house/modelosRecursos'
-import { META_ESPECIAL_PLANTILLA } from '../house/especialesPlantillaMeta'
+import { tipoYColor } from '../house/modelosRecursos'
 import { objetosDe } from '../state/objetosPlantillaStore'
 import { getPlantilla } from '../registry'
-import type { SiembraGuardada } from '../data/db'
 import type { SideKey } from '../house/walls'
-
-/** Tipo 3D y color por defecto de una entrada de siembra (recurso del catálogo o especial). */
-function tipoYColor(s: SiembraGuardada): { tipo: string; color: string } {
-  if (s.tipo) return { tipo: s.tipo, color: META_ESPECIAL_PLANTILLA[s.tipo]?.color ?? '#94a3b8' }
-  return { tipo: `recurso:${s.recurso}`, color: MODELOS[s.recurso!]?.defaultColor ?? '#94a3b8' }
-}
 
 /** Objeto 3D por defecto que encarna una app cuando su plantilla no tiene conjunto. */
 const TIPO_OBJETO_APP = 'mesa'

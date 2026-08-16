@@ -26,6 +26,12 @@ export default defineConfig({
             // (`EditPanel-*`, por el `lazy()` de EditorHud, ~73 KB gz) y reparte
             // lo compartido donde toca. Medido: 1 166,8 → 1 097,2 KB gz.
             //
+            // Auditoría ago 2026: los 10 idiomas nuevos + Chat AR subieron el
+            // arranque a 1 408,8 KB gz; tras excluir manuales/ChatAr/editorAcciones
+            // del grupo, diferir Calendario+metas, iconos SVG y Supabase, y partir
+            // los demo.data.i18n por idioma: 1 250,4 KB gz (suma gz de los
+            // modulepreload de dist/index.html).
+            //
             // El grupo `chat` SÍ conviene: quitarlo también sube a 1 105,5 KB y
             // parte el arranque en 27 archivos.
             //
@@ -33,12 +39,15 @@ export default defineConfig({
             // Un grupo con un único módulo del grafo eager se descarga entero.
             // Comprobar siempre con los `modulepreload` de `dist/index.html`, no
             // con el tamaño del chunk.
-            // Los dos paneles bajo demanda del chat quedan FUERA del grupo: si
-            // entran, el grupo los mete en su chunk y el `lazy()` de ChatBox no
-            // sirve de nada (probado: 0,6 KB de diferencia).
+            // Todo lo bajo demanda del chat queda FUERA del grupo: si entra, el
+            // grupo lo mete en su chunk eager y su `import()`/`lazy()` no sirve
+            // de nada. Excluidos: los dos paneles de ChatBox, los 14 manuales
+            // traducidos (`manual.<idioma>.ts`, cargados por manualI18n), el
+            // overlay del Chat AR (lazy en App.tsx) y `editorAcciones` (las 54
+            // tools del editor, diferidas tras `hayIntencionEditor`).
             {
               name: 'chat',
-              test: /src[\\/]core[\\/]chat[\\/](?!ManualComandos|AsistentesConfig)/,
+              test: /src[\\/]core[\\/]chat[\\/](?!ManualComandos|AsistentesConfig|ChatArOverlay|manual\.|editorAcciones)/,
             },
           ],
         },

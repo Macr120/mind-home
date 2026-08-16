@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { BloqueDef, PlantillaCustom, SeccionDef, TipoBloque } from '../data/db'
 import { usePlantillasCustom } from '../state/plantillasCustomStore'
-import { useGruposPlantilla } from '../state/gruposPlantillaStore'
+import { useGruposPlantilla, nombreCarpeta } from '../state/gruposPlantillaStore'
 import { conSeccionNueva, menusRaiz, nuevoId, sinSeccion, submenusDe } from '../plantillaSecciones'
 import { emojiTipo, nombreTipoDe, PaletaTipos } from './paletaBloques'
 import { useT } from '../i18n/useT'
@@ -289,7 +289,7 @@ export function PlantillaCustomEditor({
     return (
       <div
         key={s.id}
-        className={`space-y-2 ${esSub ? 'ml-3 border-l border-white/10 pl-3' : 'rounded-xl border border-white/10 bg-black/20 p-2.5'}`}
+        className={`space-y-2 ${esSub ? 'ms-3 border-s border-white/10 ps-3' : 'rounded-xl border border-white/10 bg-black/20 p-2.5'}`}
       >
         <div className="flex items-center gap-1.5">
           <input
@@ -368,7 +368,7 @@ export function PlantillaCustomEditor({
           <button
             type="button"
             onClick={onCerrar}
-            className="ml-auto rounded-lg bg-white/10 px-2.5 py-1 text-sm font-semibold text-white/80 transition hover:bg-white/20"
+            className="ms-auto rounded-lg bg-white/10 px-2.5 py-1 text-sm font-semibold text-white/80 transition hover:bg-white/20"
           >
             ✕
           </button>
@@ -431,7 +431,7 @@ export function PlantillaCustomEditor({
                 {grupos.map((g) => (
                   <option key={g.id} value={g.id}>
                     {g.emoji ? `${g.emoji} ` : ''}
-                    {g.nombre}
+                    {nombreCarpeta(t, g.nombre)}
                   </option>
                 ))}
               </select>
@@ -451,7 +451,7 @@ export function PlantillaCustomEditor({
                   'plantillaCustom.menusAyuda',
                   'Reparte los bloques en pestañas. Sin menús, tu app es una sola pantalla.',
                 )}
-                className="ml-auto rounded-lg border border-dashed border-white/15 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/5"
+                className="ms-auto rounded-lg border border-dashed border-white/15 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/5"
               >
                 ＋ {t('plantillaCustom.agregarMenu', 'Menú')}
               </button>

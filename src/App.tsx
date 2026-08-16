@@ -26,18 +26,18 @@ import { InfraNota } from './core/ui/InfraNota'
 import { ChatBox } from './core/chat/ChatBox'
 import { RutinasPanel } from './core/ui/RutinasPanel'
 import { AvisoRespaldo } from './core/ui/AvisoRespaldo'
-import { Calendario } from './core/ui/Calendario'
 import { AsistenteBurbuja } from './core/ui/AsistenteBurbuja'
 import { AsistenteCercaOverlay } from './core/ui/AsistenteCercaOverlay'
 import { DialogoOverlay } from './core/ui/DialogoOverlay'
 import { GeneradorMiniaturas } from './core/house/Miniatura'
-import { TutorialOverlay } from './core/tutorial/TutorialOverlay'
+import { useTutorial } from './core/tutorial/tutorialStore'
 import { SelectorTutorialOverlay } from './core/tutorial/SelectorTutorial'
 import { AvisosPlan } from './core/ui/AvisosPlan'
 import { BarraDemo } from './demo/BarraDemo'
 import { VolverDemoDialog } from './demo/VolverDemoDialog'
 import { esDemo } from './core/edicion'
-import { BienvenidaOverlay } from './core/bienvenida/BienvenidaOverlay'
+import { useBienvenida } from './core/bienvenida/bienvenidaStore'
+import { PrimeraVezGate } from './core/bienvenida/PrimeraVezGate'
 import { useHouse } from './core/state/houseStore'
 import { useLayout } from './core/state/layoutStore'
 import { useGrafitis } from './core/state/grafitiStore'
@@ -57,12 +57,33 @@ import { useVidrioSegunLuz } from './core/ui/useVidrioSegunLuz'
 import { useWrappedUi } from './core/state/wrappedUiStore'
 import { useHud } from './core/state/hudStore'
 import { useSisifoUi } from './core/state/sisifoUiStore'
+import { useMascaraUi } from './core/state/mascaraUiStore'
+import { useChatArUi } from './core/state/chatArUiStore'
+import { usePreviaPlantilla } from './core/state/previaPlantillaStore'
+import { useRutinasUI } from './core/state/rutinasUiStore'
 import { SisifoFestejo } from './core/gamificacion/SisifoFestejo'
 
 // Wrapped (resumen del periodo): lazy, solo se descarga al abrirlo.
 const WrappedOverlay = lazy(() => import('./core/wrapped/WrappedOverlay'))
 // Montaña de Sísifo (ascenso anual): lazy, solo se descarga al abrirla.
 const MontanaSisifoOverlay = lazy(() => import('./core/gamificacion/MontanaSisifoOverlay'))
+// Máscara AR (cámara + MediaPipe): lazy, solo se descarga al abrirla desde el chat.
+const MascaraOverlay = lazy(() => import('./core/ui/MascaraOverlay'))
+// Chat AR (cámara + asistente 3D para conversar): lazy, se abre desde el menú «+» del chat.
+const ChatArOverlay = lazy(() => import('./core/chat/ChatArOverlay'))
+// Previa de una app del catálogo («Entrar a la app»): en la raíz para que su
+// `fixed` no quede encajonado por el stacking context del menú lateral.
+const PlantillaPreviaOverlay = lazy(() => import('./core/ui/PlantillaPreviaOverlay'))
+// Calendario (y todo `ui/calendario` + el grueso de `ui/metas`): ~400 KB de
+// fuente que solo hacen falta al abrir el reloj del HUD — lazy.
+const Calendario = lazy(() => import('./core/ui/Calendario').then((m) => ({ default: m.Calendario })))
+// Bienvenida (primera vez) y tutorial activo: lazy, casi nunca están abiertos.
+const BienvenidaOverlay = lazy(() =>
+  import('./core/bienvenida/BienvenidaOverlay').then((m) => ({ default: m.BienvenidaOverlay })),
+)
+const TutorialOverlay = lazy(() =>
+  import('./core/tutorial/TutorialOverlay').then((m) => ({ default: m.TutorialOverlay })),
+)
 
 export default function App() {
   // Reloj del diario: rollover de medianoche + reparto de noticias por asistentes.
@@ -101,6 +122,12 @@ export default function App() {
   )
   const wrappedAbierto = useWrappedUi((s) => s.abierto)
   const sisifoAbierto = useSisifoUi((s) => s.abierto)
+  const mascaraAbierta = useMascaraUi((s) => s.abierto)
+  const chatArAbierto = useChatArUi((s) => s.abierto)
+  const previaAbierta = usePreviaPlantilla((s) => !!s.plantillaId)
+  const calendarioAbierto = useRutinasUI((s) => s.calendario)
+  const bienvenidaAbierta = useBienvenida((s) => s.abierto)
+  const tourActivo = useTutorial((s) => !!s.def)
   // En diálogo cara a cara la caja RPG sustituye a la burbuja flotante.
   const dialogoActivo = useDialogo((s) => !!s.asistenteId)
   // Vive en hudStore (no como estado local) para que ToolbarPermanente sepa que debe
@@ -123,9 +150,10 @@ export default function App() {
   )
 
   /**
-   * Abrir la app de un cuarto también cierra el menú lateral: si no, la app se
-   * abre en el hueco que deja el menú (en vertical, casi sin ancho). Al salir de
-   * la app el menú NO se reabre solo; se vuelve con el botón flotante.
+   * Abrir la app de un cuarto también cierra el menú lateral: aunque el menú ya
+   * no roba ancho (flota encima), taparía el borde izquierdo de la app recién
+   * abierta. Al salir de la app el menú NO se reabre solo; se vuelve con el
+   * botón flotante.
    */
   useEffect(
     () =>
@@ -158,9 +186,8 @@ export default function App() {
   // El fondo lo pinta `#root`: esta raíz no lleva `ui-app` para que el vidrio del
   // modo transparente afecte solo a las apps, no al contenedor de todo.
   return (
-    <div className="relative flex h-full w-full overflow-hidden">
-      {sidebarOpen && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
-      <div className="relative min-h-0 min-w-0 flex-1 h-full">
+    <div className="relative h-full w-full overflow-hidden">
+      <div className="relative h-full w-full">
         <House />
         {!sidebarOpen && (
           // Abrir MPH solo OCULTA el editor si estaba abierto (un solo panel a la
@@ -195,7 +222,13 @@ export default function App() {
         {!editMode && !activeRoom && !construyendo && !enCarrera && !enPaintball && <ChatBox menuAbierto={sidebarOpen} />}
         {!editMode && !activeRoom && !construyendo && <RutinasPanel />}
         {!editMode && !activeRoom && <AvisoRespaldo />}
-        <Calendario />
+        {/* Montaje condicional: su chunk (calendario + metas) solo se descarga al
+            abrir el reloj; su propio `if (!abierto) return null` queda de red. */}
+        {calendarioAbierto && (
+          <Suspense fallback={null}>
+            <Calendario />
+          </Suspense>
+        )}
         <RoomOverlay menuFlotante={!sidebarOpen} />
         {!editMode && <EditorGrafiti />}
         {!editMode && <EditorCaminos />}
@@ -205,6 +238,9 @@ export default function App() {
         {/* Respuesta del chat dentro de un editor (allí el ChatBox está desmontado). */}
         {construyendo && <InfraNota />}
       </div>
+      {/* Menú lateral SUPERPUESTO (nunca en flujo): la app y la casa conservan su
+          ancho completo detrás; ver el cazaclics dentro del propio menú. */}
+      {sidebarOpen && <RoomSideMenu onToggle={() => setSidebarOpen(false)} />}
       <AsignarPlantillaDialog />
       <AmueblarDialog />
       <DestinoObjetoDialog />
@@ -212,8 +248,14 @@ export default function App() {
       <EliminarCuartoDialog />
       {/* Confirmaciones y peticiones de texto de toda la app (`confirmar`/`pedirTexto`). */}
       <ConfirmarDialog />
-      {/* Menú de bienvenida de primera vez (idioma → apariencia → gustos → personaje → asistente). */}
-      <BienvenidaOverlay />
+      {/* Menú de bienvenida de primera vez (idioma → apariencia → gustos → personaje → asistente).
+          El gate (siempre montado) decide la primera vez; el overlay es lazy. */}
+      <PrimeraVezGate />
+      {bienvenidaAbierta && (
+        <Suspense fallback={null}>
+          <BienvenidaOverlay />
+        </Suspense>
+      )}
       {/* Único canvas oculto que rasteriza las miniaturas del catálogo/inventario: montado
           aquí (fuera de ambos paneles) para no duplicar el generador entre ellos. */}
       <GeneradorMiniaturas />
@@ -232,8 +274,30 @@ export default function App() {
           <MontanaSisifoOverlay />
         </Suspense>
       )}
+      {/* Máscara AR: la cámara con la cabeza del avatar, a pantalla completa. */}
+      {mascaraAbierta && (
+        <Suspense fallback={null}>
+          <MascaraOverlay />
+        </Suspense>
+      )}
+      {/* Chat AR: la cámara con el asistente 3D encima para conversar cara a cara. */}
+      {chatArAbierto && (
+        <Suspense fallback={null}>
+          <ChatArOverlay />
+        </Suspense>
+      )}
+      {/* Previa de una app del catálogo, a pantalla completa sobre el menú. */}
+      {previaAbierta && (
+        <Suspense fallback={null}>
+          <PlantillaPreviaOverlay />
+        </Suspense>
+      )}
       {/* Tutorial guiado activo (spotlight + mago): por encima de todos los diálogos. */}
-      <TutorialOverlay />
+      {tourActivo && (
+        <Suspense fallback={null}>
+          <TutorialOverlay />
+        </Suspense>
+      )}
       {/* Selector de tutoriales (botón "?"): ilumina en amarillo las zonas con tour. */}
       <SelectorTutorialOverlay />
       {/* Avisos del plan: renovar suscripción (ex-Pro) y cuota de IA agotada. */}

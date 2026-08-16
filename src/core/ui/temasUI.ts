@@ -282,4 +282,6 @@ export function aplicarTemaUI(id: TemaUIId, modo: ModoUI, baseTransparente?: Mod
   // Los re-mapeos del modo claro en index.css cuelgan de la BASE, para que
   // `transparente` los herede sin duplicar cada selector.
   root.dataset.baseUi = base
+  // La barra de estado (Android/PWA) acompaña al fondo del tema activo.
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', vars['--ui-bg'])
 }

@@ -33,6 +33,7 @@ export function EditorCuadrantesSection() {
   const eliminarCuadrante = useLayout((s) => s.eliminarCuadrante)
   const activo = usePlanos((s) => s.cuadranteActivo)
   const setActivo = usePlanos((s) => s.setCuadranteActivo)
+  const setVista = usePlanos((s) => s.setCuadranteVista)
   const dibujando = usePlanos((s) => s.dibujandoCuadrante)
   const setDibujando = usePlanos((s) => s.setDibujandoCuadrante)
   const [editandoId, setEditandoId] = useState<string | null>(null)
@@ -45,10 +46,13 @@ export function EditorCuadrantesSection() {
     const { centro, ancho, largo } = rectMundo(q)
     useCam.getState().enfocarZona(centro, ancho, largo)
     setActivo(q.id)
+    // El recorte de render sigue al cuadrante enfocado (ver `RoomEnMapa`).
+    setVista(q.id)
   }
   const verTodo = () => {
     useCam.getState().centrarIso(mapFocusPos())
     setActivo(null)
+    setVista(null)
   }
 
   return (
@@ -125,7 +129,7 @@ export function EditorCuadrantesSection() {
                   onClick={() => enfocar(q)}
                   onDoubleClick={() => setEditandoId(q.id)}
                   title={t('constructor.cuadrantes.enfocarRenombrar', 'Enfocar (doble clic para renombrar)')}
-                  className={`${BOTON} flex min-w-0 flex-1 items-center gap-2 text-left ${
+                  className={`${BOTON} flex min-w-0 flex-1 items-center gap-2 text-start ${
                     activo === q.id ? ACTIVO : NEUTRO
                   }`}
                 >

@@ -96,7 +96,7 @@ export function GenerarTexturaIA({
         className="flex w-full items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-violet-400/80 transition hover:text-violet-400"
       >
         <Icono nombre="brillo" />
-        <span className="flex-1 text-left">{t('editor.texturaIA.titulo', 'Crear con IA')}</span>
+        <span className="flex-1 text-start">{t('editor.texturaIA.titulo', 'Crear con IA')}</span>
         <Creditos op={superficie === 'fondo' ? OP_FONDO : OP_TEXTURA} />
         <span className="text-[11px]">{abierto ? '▾' : '▸'}</span>
       </button>

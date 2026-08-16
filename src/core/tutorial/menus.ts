@@ -904,7 +904,7 @@ export const cuerpoCuentaIA: CuerpoTutorial = {
       titulo: T('tut.cuenta-ia.5.titulo', 'Una unidad, muchas operaciones'),
       texto: T(
         'tut.cuenta-ia.5.texto',
-        'Una respuesta cuesta 1 crédito, un plan largo 3, una imagen o un modelo 3D 10 — la regla es la misma para todos los cuartos, esta tabla solo la despliega una por una.',
+        'Una respuesta cuesta 1 crédito, un plan largo 4, una imagen o un modelo 3D 10 — la regla es la misma para todos los cuartos, esta tabla solo la despliega una por una.',
       ),
     },
   ],

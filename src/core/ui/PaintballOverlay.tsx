@@ -50,7 +50,7 @@ function PilaPaintball({ t }: { t: TFunc }) {
   const vista = useCam((s) => s.vista)
   const primera = vista === 'primera'
   return (
-    <div ref={refTope} className="pointer-events-none absolute bottom-4 right-4 z-30 flex flex-col items-center gap-2">
+    <div ref={refTope} className="pointer-events-none absolute bottom-4 end-4 z-30 flex flex-col items-center gap-2">
       <button
         type="button"
         onClick={() => usePaintball.getState().setVistaCombate(primera ? 'tercera' : 'primera')}
@@ -130,7 +130,7 @@ export function PaintballOverlay() {
       { id: 'royale', etiqueta: t('paintball.mRoyale', 'Batalla campal') },
     ]
     return (
-      <div className="pointer-events-none absolute left-0 right-0 top-14 z-30 flex justify-center px-3">
+      <div className="pointer-events-none absolute start-0 end-0 top-14 z-30 flex justify-center px-3">
         <div className="ui-hud ui-pop pointer-events-auto flex w-full max-w-sm flex-col gap-2 rounded-2xl border border-white/10 p-3">
           <p className="text-center text-sm font-black text-white">
             <Icono nombre="paintball" /> {t('paintball.titulo', 'Paintball')}
@@ -289,7 +289,7 @@ export function PaintballOverlay() {
     return (
       <>
         {/* En vertical baja bajo la fila de botones de arriba (casa / engrane). */}
-        <div className="pointer-events-none absolute left-0 right-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
+        <div className="pointer-events-none absolute start-0 end-0 top-16 z-30 flex flex-col items-center gap-2 sm:top-3">
           <div className="ui-hud pointer-events-auto flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-white/10 px-3 py-1.5 text-white">
             {equipo0.map((j) => (
               <ChipJugador key={j.id} j={j} t={t} />
@@ -327,7 +327,7 @@ export function PaintballOverlay() {
   // Terminada: resultados y revancha.
   const cfg = configAnterior()
   return (
-    <div className="pointer-events-none absolute left-0 right-0 top-14 z-30 flex justify-center px-3">
+    <div className="pointer-events-none absolute start-0 end-0 top-14 z-30 flex justify-center px-3">
       <div className="ui-hud ui-pop pointer-events-auto flex w-full max-w-sm flex-col gap-2 rounded-2xl border border-white/10 p-3">
         <p className="text-center text-lg font-black text-white">
           {resultado === 'ganaste'

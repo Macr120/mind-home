@@ -1,3 +1,5 @@
+import { sonar } from '../../audio/sfx'
+import { vibrar } from '../../audio/vibrar'
 import { fijarObjetivoDiario } from '../../data/repository'
 import type { PasoHoy } from '../../hoy'
 import { useT } from '../../i18n/useT'
@@ -34,6 +36,12 @@ export function FilaHoy({
   const { accion } = paso
 
   const alternar = async () => {
+    // Sonido de logro SOLO al completar (despalomar es corregir, no celebrar);
+    // lo gobierna el volumen de SFX (a 0, silencio).
+    if (!paso.hecho) {
+      sonar('anotacion')
+      vibrar(15)
+    }
     if (accion.tipo === 'objetivo') {
       await marcarMetaDiaria(accion.plantillaId, fecha, !paso.hecho, accion.clave)
     } else if (accion.tipo === 'rutina') {
@@ -99,7 +107,7 @@ export function FilaHoy({
         type="button"
         onClick={irARegistrar}
         disabled={!paso.seccion}
-        className="min-w-0 flex-1 text-left disabled:cursor-default"
+        className="min-w-0 flex-1 text-start disabled:cursor-default"
       >
         <p className={`truncate text-xs font-semibold ${paso.hecho ? 'text-white/40 line-through' : 'text-white/85'}`}>
           {paso.urgente && <Icono nombre="alarma" />} {paso.titulo}

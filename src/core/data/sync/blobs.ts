@@ -4,7 +4,7 @@
  * pull, el marcador se descarga y vuelve a ser `Blob` antes de escribir en
  * Dexie. El hash SHA-256 evita re-subir lo que no cambió (caché en `_syncMeta`).
  */
-import { supabase } from '../../cuenta/supabase'
+import { obtenerSupabase } from '../../cuenta/supabase'
 import { db } from '../db'
 
 const BUCKET = 'sync-blobs'
@@ -30,7 +30,9 @@ async function subirBlob(path: string, blob: Blob): Promise<MarcadorBlob> {
   const hash = await sha256(blob)
   const previo = (await db._syncMeta.get(claveHash(path)))?.valor as { hash?: string } | undefined
   if (previo?.hash !== hash) {
-    const { error } = await supabase!.storage
+    const sb = await obtenerSupabase()
+    if (!sb) throw new Error('Storage (subir): sin backend')
+    const { error } = await sb.storage
       .from(BUCKET)
       .upload(path, blob, { upsert: true, contentType: mime })
     if (error) throw new Error(`Storage (subir): ${error.message}`)
@@ -76,7 +78,9 @@ export async function extraerBlobs(
 export async function rehidratarBlobs(valor: unknown): Promise<unknown> {
   if (esMarcador(valor)) {
     const { path, mime, hash } = valor.__mhBlob
-    const { data, error } = await supabase!.storage.from(BUCKET).download(path)
+    const sb = await obtenerSupabase()
+    if (!sb) throw new Error('Storage (bajar): sin backend')
+    const { data, error } = await sb.storage.from(BUCKET).download(path)
     if (error || !data) throw new Error(`Storage (bajar): ${error?.message ?? 'sin datos'}`)
     // El hash queda cacheado: el próximo push de este registro no re-sube.
     await db._syncMeta.put({ clave: claveHash(path), valor: { hash } })
@@ -97,12 +101,13 @@ export async function rehidratarBlobs(valor: unknown): Promise<unknown> {
 
 /** Borra en Storage la carpeta de un registro eliminado (best-effort). */
 export async function borrarBlobsDeRegistro(userId: string, tabla: string, uid: string): Promise<void> {
-  if (!supabase) return
+  const sb = await obtenerSupabase()
+  if (!sb) return
   try {
     const carpeta = `${userId}/${tabla}/${uid}`
-    const { data } = await supabase.storage.from(BUCKET).list(carpeta)
+    const { data } = await sb.storage.from(BUCKET).list(carpeta)
     const nombres = (data ?? []).map((f) => `${carpeta}/${f.name}`)
-    if (nombres.length) await supabase.storage.from(BUCKET).remove(nombres)
+    if (nombres.length) await sb.storage.from(BUCKET).remove(nombres)
   } catch {
     // Huérfanos aceptados como deuda conocida.
   }

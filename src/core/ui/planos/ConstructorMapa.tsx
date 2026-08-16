@@ -183,8 +183,8 @@ function ResizeBordesCroquis() {
     <>
       <div className="absolute left-1/2 top-1.5 z-30 -translate-x-1/2">{par('N', false)}</div>
       <div className="absolute bottom-1.5 left-1/2 z-30 -translate-x-1/2">{par('S', false)}</div>
-      <div className="absolute left-1.5 top-1/2 z-30 -translate-y-1/2">{par('O', true)}</div>
-      <div className="absolute right-1.5 top-1/2 z-30 -translate-y-1/2">{par('E', true)}</div>
+      <div className="absolute start-1.5 top-1/2 z-30 -translate-y-1/2">{par('O', true)}</div>
+      <div className="absolute end-1.5 top-1/2 z-30 -translate-y-1/2">{par('E', true)}</div>
     </>
   )
 }
@@ -210,7 +210,7 @@ function NivelOverlay({
 }) {
   const t = useT()
   return (
-    <div className="ui-panel-glass absolute left-1.5 top-1.5 z-30 flex items-center gap-1 rounded-lg px-1.5 py-1 shadow-sm backdrop-blur">
+    <div className="ui-panel-glass absolute start-1.5 top-1.5 z-30 flex items-center gap-1 rounded-lg px-1.5 py-1 shadow-sm backdrop-blur">
       <span className="px-0.5 text-[9px] font-bold uppercase tracking-wider text-white/45">
         {t('planos.nivel', 'Nivel')}
       </span>
@@ -323,7 +323,7 @@ function DetalleOverlay({
     )
   }
   return (
-    <div className="ui-panel-glass absolute right-1.5 top-1.5 z-30 flex items-center gap-0.5 rounded-lg px-1 py-1 shadow-sm backdrop-blur">
+    <div className="ui-panel-glass absolute end-1.5 top-1.5 z-30 flex items-center gap-0.5 rounded-lg px-1 py-1 shadow-sm backdrop-blur">
       {btn('celda', false)}
       {btn('subcelda', true)}
     </div>
@@ -365,7 +365,7 @@ function FormaMuroOverlay({
     { rot: 270, label: t('constructor.muro.curvaSupIzq', 'Curva sup. izquierda'), d: 'M13,0 A13,13 0 0,1 0,13' },
   ]
   return (
-    <div className="ui-panel-glass absolute bottom-1.5 left-1.5 z-30 flex items-center gap-0.5 rounded-lg px-1 py-1 shadow-sm backdrop-blur">
+    <div className="ui-panel-glass absolute bottom-1.5 start-1.5 z-30 flex items-center gap-0.5 rounded-lg px-1 py-1 shadow-sm backdrop-blur">
       {FORMAS.map((f) => {
         const activo = forma === f.id
         return (
@@ -526,7 +526,7 @@ function FormaCuartoOverlay({
   const ROTS: (0 | 90 | 180 | 270)[] = [0, 90, 180, 270]
   const formaConVariantes = forma === 'triangular' || forma === 'circular'
   return (
-    <div className="ui-panel-glass absolute bottom-1.5 left-1.5 z-30 flex items-center gap-0.5 rounded-lg px-1 py-1 shadow-sm backdrop-blur">
+    <div className="ui-panel-glass absolute bottom-1.5 start-1.5 z-30 flex items-center gap-0.5 rounded-lg px-1 py-1 shadow-sm backdrop-blur">
       {FORMAS.map((f) => {
         const activo = forma === f.id
         return (
@@ -677,7 +677,7 @@ function CuartosPanel() {
           onClick={() => void cambiarAgua(room.id, !conAgua[room.id])}
           accent="#38bdf8"
         >
-          <span className="mr-1"><Icono emoji="💧" /></span>
+          <span className="me-1"><Icono emoji="💧" /></span>
           {t('constructor.cuarto.agua', 'Llenar de agua (alberca)')}
         </Chip>
       )}
@@ -704,7 +704,7 @@ function CuartosPanel() {
                 key={r.id}
                 type="button"
                 onClick={() => setSeleccion({ tipo: 'cuarto', roomId: r.id })}
-                className={`flex w-full items-center gap-1.5 rounded-lg px-2 py-1 text-left text-[11px] transition${activo ? ' texto-vivo' : ''}`}
+                className={`flex w-full items-center gap-1.5 rounded-lg px-2 py-1 text-start text-[11px] transition${activo ? ' texto-vivo' : ''}`}
                 style={
                   activo
                     ? { ...vivo(r.color), background: `${r.color}22`, boxShadow: `inset 0 0 0 1px ${r.color}55` }
@@ -779,7 +779,7 @@ function AscensosPanel() {
             activo={acceso.tipo === a.tipo}
             onClick={() => acceso.id != null && void setAccesoTipo(acceso.id, a.tipo)}
           >
-            <span className="mr-1"><Icono emoji={a.icon} /></span>
+            <span className="me-1"><Icono emoji={a.icon} /></span>
             {t(`construir.${a.tipo}.label` as Parameters<typeof t>[0], a.labelEs)}
           </Chip>
         ))}
@@ -1021,7 +1021,7 @@ export function ConstructorMapa() {
                       activo={herramienta === h.id}
                       onClick={() => setHerramienta(h.id)}
                     >
-                      <span className="mr-1"><Icono emoji={h.icon} /></span>
+                      <span className="me-1"><Icono emoji={h.icon} /></span>
                       {t(`planos.herr.${h.id}`, h.labelEs)}
                     </Chip>
                   ))}
@@ -1065,11 +1065,11 @@ export function ConstructorMapa() {
                   activo={herramienta === 'seleccionar'}
                   onClick={() => setHerramienta('seleccionar')}
                 >
-                  <span className="mr-1"><Icono nombre="apunta" /></span>
+                  <span className="me-1"><Icono nombre="apunta" /></span>
                   {t('constructor.muro.seleccionar', 'Seleccionar')}
                 </Chip>
                 <Chip activo={herramienta === 'muro'} onClick={() => setHerramienta('muro')}>
-                  <span className="mr-1"><Icono nombre="editar" /></span>
+                  <span className="me-1"><Icono nombre="editar" /></span>
                   {t('constructor.muro.crear', 'Crear')}
                 </Chip>
               </div>

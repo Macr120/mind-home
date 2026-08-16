@@ -1017,7 +1017,7 @@ export function ManualComandos({
                     <button
                       type="button"
                       onClick={() => toggle(carpeta.id)}
-                      className="flex w-full items-center gap-2 px-2 py-1.5 text-left transition hover:bg-white/5"
+                      className="flex w-full items-center gap-2 px-2 py-1.5 text-start transition hover:bg-white/5"
                     >
                       <span className={`text-[10px] text-white/35 transition-transform ${abierta ? 'rotate-90' : ''}`}>
                         ▸
@@ -1072,20 +1072,20 @@ export function ManualComandos({
                                     key={ej.frase}
                                     type="button"
                                     onClick={() => onUsar(sinMarcado(fraseDe(ej)))}
-                                    className={`rounded-lg border px-2 py-1 text-left text-[11px] text-white/70 transition hover:text-white/90 ${
+                                    className={`rounded-lg border px-2 py-1 text-start text-[11px] text-white/70 transition hover:text-white/90 ${
                                       grupo.id === 'ia'
                                         ? 'border-violet-400/20 bg-violet-400/5 hover:bg-violet-400/15'
                                         : 'border-white/10 bg-white/5 hover:bg-white/15'
                                     }`}
                                   >
                                     {ej.roomId && (
-                                      <span className="mr-1"><Icono emoji={getPlantilla(ej.roomId)?.icon ?? '🗒️'} /></span>
+                                      <span className="me-1"><Icono emoji={getPlantilla(ej.roomId)?.icon ?? '🗒️'} /></span>
                                     )}
                                     {segmentar(fraseDe(ej)).map((seg, i) => (
                                       <span key={i} className={COLOR_SEG[seg.tipo]}>{seg.texto}</span>
                                     ))}
                                     {ej.creditos != null && (
-                                      <span className="ml-1.5 inline-block align-middle">
+                                      <span className="ms-1.5 inline-block align-middle">
                                         <Creditos n={ej.creditos} aprox />
                                       </span>
                                     )}
@@ -1114,7 +1114,7 @@ export function ManualComandos({
             <button
               type="button"
               onClick={() => toggle('precios')}
-              className="flex w-full items-center gap-2 px-2 py-1.5 text-left transition hover:bg-white/5"
+              className="flex w-full items-center gap-2 px-2 py-1.5 text-start transition hover:bg-white/5"
             >
               <span
                 className={`text-[10px] text-white/35 transition-transform ${abiertas.precios ? 'rotate-90' : ''}`}

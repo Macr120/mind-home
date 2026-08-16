@@ -3,7 +3,7 @@ import type { TipoMapa } from '../data/db'
 import { useMascota } from '../state/mascotaStore'
 import { tGlobal } from '../i18n/useT'
 import { normalizar } from './dispatcher'
-import { ejecutarToolEditor, tomarUltimoMapa } from './editorAcciones'
+import { tomarUltimoMapa } from './editorIntencion'
 
 /**
  * ¿La charla que acaba de tener el usuario pide dibujarse?
@@ -140,6 +140,8 @@ export const useSugerenciaMapa = create<SugerenciaState>((set, get) => ({
     const mascota = useMascota.getState()
     set({ sugerencia: null, dibujando: true })
     mascota.setPensando(true, s.asistenteId)
+    // `editorAcciones` es diferido (120 KB): se descarga al aceptar el ofrecimiento.
+    const { ejecutarToolEditor } = await import('./editorAcciones')
     const msg = await ejecutarToolEditor('editor_mapa_ideas', { tema: s.tema, tipo: s.tipo })
     set({ dibujando: false })
     mascota.decir(msg ?? tGlobal('chat.mapa.fallo', 'No pude dibujar ese mapa.'), {

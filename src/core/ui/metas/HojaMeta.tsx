@@ -142,9 +142,9 @@ export function HojaMeta({
                 setRenombrando(true)
               }}
               title={t('cal.meta.renombrar', 'Renombrar')}
-              className="min-w-0 flex-1 truncate text-left text-sm font-semibold text-white/90"
+              className="min-w-0 flex-1 truncate text-start text-sm font-semibold text-white/90"
             >
-              <span className="mr-1 inline-block h-2 w-2 rounded-full align-middle" style={{ background: color }} />
+              <span className="me-1 inline-block h-2 w-2 rounded-full align-middle" style={{ background: color }} />
               <Icono emoji={meta.emoji} /> {meta.nombre}
             </button>
           )}

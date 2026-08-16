@@ -152,7 +152,7 @@ function SlideTopApp({ resumen }: PropsSlide) {
           const pl = getPlantilla(a.plantillaId)
           if (!pl) return null
           return (
-            <div key={a.plantillaId} className="flex items-center gap-2 text-left">
+            <div key={a.plantillaId} className="flex items-center gap-2 text-start">
               <span className="w-6 shrink-0 text-center text-base">
                 <Icono emoji={pl.icon} />
               </span>
@@ -444,12 +444,12 @@ function FilaComparativa({
   const sube = ahora > antes
   const igual = ahora === antes
   return (
-    <div className="flex items-center gap-3 text-left">
+    <div className="flex items-center gap-3 text-start">
       <span className="min-w-0 flex-1 truncate text-sm text-white/70">{etiqueta}</span>
       <span className="text-xs text-white/40">{fmt(antes)} →</span>
       <span className="text-sm font-bold text-white/90">{fmt(ahora)}</span>
       <span
-        className={`w-14 text-right text-xs font-bold ${
+        className={`w-14 text-end text-xs font-bold ${
           igual ? 'text-white/40' : sube ? 'text-emerald-400' : 'text-rose-400'
         }`}
       >

@@ -255,15 +255,37 @@ let codigo: Plantilla[] = []
 /** Plantillas personalizadas sintetizadas (las publica plantillasCustomStore). */
 const custom = new Map<string, Plantilla>()
 
+/* Las custom llegan de Dexie DESPUÉS del primer render: sin esta señal, un
+ * componente que resolvió `getPlantilla()` antes de tiempo se queda con el
+ * catálogo viejo para siempre (cuarto «sin app asignada» hasta recargar). */
+let versionCatalogo = 0
+const oyentesCatalogo = new Set<() => void>()
+
+/** Suscripción/versión para que React re-renderice cuando cambia el catálogo (useSyncExternalStore). */
+export const catalogoPlantillasStore = {
+  subscribe(fn: () => void): () => void {
+    oyentesCatalogo.add(fn)
+    return () => oyentesCatalogo.delete(fn)
+  },
+  getSnapshot: () => versionCatalogo,
+}
+
+const notificarCatalogo = () => {
+  versionCatalogo++
+  for (const fn of oyentesCatalogo) fn()
+}
+
 /** La llama SOLO `registry.ts`, que es quien conoce las 21 apps de código. */
 export const registrarPlantillasCodigo = (lista: Plantilla[]) => {
   codigo = lista
+  notificarCatalogo()
 }
 
 /** Reemplaza las plantillas personalizadas (la llama `registrarPlantillasCustom`). */
 export const fijarPlantillasCustom = (lista: Plantilla[]) => {
   custom.clear()
   for (const p of lista) custom.set(p.id, p)
+  notificarCatalogo()
 }
 
 export const getPlantilla = (id: string) => codigo.find((p) => p.id === id) ?? custom.get(id)

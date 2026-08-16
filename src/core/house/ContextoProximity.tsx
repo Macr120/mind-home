@@ -69,6 +69,10 @@ const RADIO_SENTARSE = 1.3
 const RADIO_COSECHA = 2.0
 /** Radio para recoger una pistola colocada en el mapa (antes en `arma.tsx`). */
 const RADIO_TOMAR = 1.1
+/** Margen de empate del foco: a distancias casi iguales gana quien abre app.
+ *  (Caso real: la olla de la cocina comparte x/z con la isla animada y el
+ *  desempate por orden de inserción dejaba la app inaccesible.) */
+const EMPATE_FOCO = 0.6
 
 /** Los 6 objetos de plantilla que el personaje usa con una pose guionizada. */
 const USABLE_PLANTILLA: Record<string, TipoAccionCuarto> = {
@@ -188,8 +192,14 @@ export function ContextoProximity() {
     const enAgua = L.subCeldasAgua.has(subJugador)
     const equipadas = useHerramienta.getState().equipadas
     /** Objeto más cercano que ofrece algo: de él salen TODOS los botones (no se
-     *  mezclan acciones de dos objetos distintos en la misma pila). */
-    let foco: { acciones: AccionContextual[]; d: number } | null = null
+     *  mezclan acciones de dos objetos distintos en la misma pila). `prio` 1 =
+     *  alguna acción abre app: gana a un decorativo a distancia casi igual. */
+    let foco: { acciones: AccionContextual[]; d: number; prio: 0 | 1 } | null = null
+    const ganaFoco = (d: number, prio: 0 | 1) =>
+      !foco ||
+      (prio > foco.prio && d <= foco.d + EMPATE_FOCO) || // abre app y está prácticamente igual de cerca
+      (prio === foco.prio && d < foco.d) || // misma prioridad: el más cercano
+      (prio < foco.prio && d < foco.d - EMPATE_FOCO) // menos prioridad: solo si está CLARAMENTE más cerca
 
     for (const o of objetos) {
       if (o.id == null || esObjetoLibreria(o)) continue
@@ -220,7 +230,8 @@ export function ContextoProximity() {
         mejorCarga = { tipo: 'objeto', id: o.id }
       }
 
-      if (foco && d >= foco.d) continue
+      // Poda coherente con `ganaFoco`: nadie a más de `foco.d + EMPATE` puede ganar.
+      if (foco && d > foco.d + EMPATE_FOCO) continue
       const acciones: AccionContextual[] = []
       const rotY = ((o.rotY ?? 0) * Math.PI) / 180
 
@@ -267,7 +278,10 @@ export function ContextoProximity() {
           }
         }
       }
-      if (acciones.length > 0) foco = { acciones, d }
+      if (acciones.length > 0) {
+        const prio: 0 | 1 = acciones.some((a) => a.tipo === 'interactuar' && a.plantillaId) ? 1 : 0
+        if (ganaFoco(d, prio)) foco = { acciones, d, prio }
+      }
     }
 
     // --- Cosecha: las parcelas no son objetos, van por su propia tabla.
@@ -280,7 +294,7 @@ export function ContextoProximity() {
         const d = Math.hypot(playerPos.x - wx, playerPos.z - wz)
         if (d > RADIO_COSECHA) continue
         if (estadoCultivo(f, ahora, regadas.get(`${f.col},${f.row}`))?.etapa !== 'listo') continue
-        if (!foco || d < foco.d) foco = { acciones: [{ tipo: 'cosechar', id: f.id }], d }
+        if (ganaFoco(d, 0)) foco = { acciones: [{ tipo: 'cosechar', id: f.id }], d, prio: 0 }
         break
       }
     }

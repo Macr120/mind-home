@@ -27,7 +27,7 @@ import { PreviewObjeto3D } from './PreviewObjeto3D'
 import { EditorPiezas, plantillaObjetoPiezas } from '../comun/EditorPiezas'
 import { EditorAnimacion } from './EditorAnimacion'
 import { SliderProp } from '../comun/SliderProp'
-import { useT } from '../../i18n/useT'
+import { useT, type TFunc } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import type { NombreIcono } from '../iconos/catalogo'
 
@@ -44,9 +44,9 @@ const nombreRecurso = (id: number) =>
   RECURSOS.find((r) => r.id === id)?.nombre ?? `Recurso ${id}`
 
 /** Nombre legible de un objeto colocado. */
-function nombreObjeto(o: ObjetoCuarto): string {
+function nombreObjeto(o: ObjetoCuarto, t: TFunc): string {
   if (o.nombre) return o.nombre
-  if (o.tipo === TIPO_PIEZAS) return 'Objeto de piezas'
+  if (o.tipo === TIPO_PIEZAS) return t('objetos.nombrePiezas', 'Objeto de piezas')
   if (o.tipo === TIPO_GLB) return 'Modelo subido'
   if (o.tipo === TIPO_CUADRO_FOTO) return 'Cuadro con foto'
   if (o.tipo === TIPO_ESPEJO) return 'Espejo'
@@ -272,7 +272,7 @@ export function EditorObjetosSection() {
                   if (o.id != null) setObjetoSel(o.id)
                   setTab('editar')
                 }}
-                title={nombreObjeto(o)}
+                title={nombreObjeto(o, t)}
                 className={`flex items-center justify-center rounded-lg border p-1.5 transition ${
                   sel
                     ? 'border-accent/60 bg-accent/10'
@@ -370,7 +370,7 @@ export function EditorObjetosSection() {
               </button>
             </div>
           ) : (
-            <p className="text-sm font-semibold text-white/85">{nombreObjeto(seleccionado)}</p>
+            <p className="text-sm font-semibold text-white/85">{nombreObjeto(seleccionado, t)}</p>
           )}
 
           {/* Biblioteca: generar con IA o subir un .glb para ESTE objeto (queda en su carpeta). */}

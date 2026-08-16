@@ -7,10 +7,34 @@
 @theme {
   --color-accent: var(--ui-accent);
   --color-accent-ink: var(--ui-accent-ink);
+  /* Curva de movimiento de la casa (la misma de ui-notif): un ease-out
+     expresivo que frena suave. Genera la utilidad `ease-fluida`. */
+  --ease-fluida: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Peldaño entre text-xs (12px) y los text-[11px] sueltos: 11px con aire.
+     Para código nuevo; los text-[11px] existentes migran al pasar por ellos. */
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1.35;
 }
+
+/*
+ * CONVENCIONES DE SUPERFICIE. No son tokens: viven en las primitivas de
+ * `rooms/_shared/ui.tsx` y aquí como referencia para código nuevo.
+ *  - Radios: botón/input `rounded-lg` · tarjeta `rounded-xl` · modal/panel
+ *    raíz `rounded-2xl` · chip `rounded-full`. Regla concéntrica: el
+ *    contenedor va un paso por encima de sus hijos (ver PestanasCarpeta).
+ *  - Z-index: app de cuarto 20 · paneles del editor 35 · modal de app 50 ·
+ *    tope global 70 · ConfirmarDialog 75.
+ *  - Movimiento: `var(--ease-fluida)` para entradas de paneles y overlays;
+ *    deshabilitado: `disabled:opacity-40`.
+ */
 
 /* Variables del tema de interfaz (se sobreescriben en <html> desde temasUI.ts). */
 :root {
+  /* Muescas del teléfono: 0 fuera de Capacitor (index.html lleva
+     viewport-fit=cover). Las consumen SOLO los contenedores pegados a un borde
+     (cabecera de RoomOverlay, EditPanel): la escena 3D sangra a pantalla entera. */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
   --ui-bg: #0f1115;
   --ui-panel: #12151c;
   --ui-panel-2: #171b24;
@@ -46,6 +70,9 @@ body,
 #root {
   height: 100%;
   margin: 0;
+  /* Sin rebote ni pull-to-refresh accidental sobre la escena 3D (y en el
+     WebView de Android, sin scroll encadenado desde las listas al documento). */
+  overscroll-behavior: none;
   background: var(--ui-bg);
   color: var(--ui-ink);
   font-family: var(--ui-font);
@@ -59,6 +86,32 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Cortes de línea por escritura (el idioma activo vive en <html lang>).
+   El japonés y el chino no separan palabras con espacios y cortan en cualquier
+   carácter: `strict` evita que una línea empiece por 、。 o por un signo pequeño.
+   El coreano SÍ tiene espacios y el navegador, por defecto, lo trata como CJK y
+   parte las palabras a la mitad; `keep-all` lo impide (las clases `break-words`
+   siguen valiendo de último recurso para una cadena larga sin espacios). */
+:lang(ja),
+:lang(zh) {
+  line-break: strict;
+}
+:lang(ko) {
+  word-break: keep-all;
+}
+
+/* Árabe SIN espejo (ago 2026): el <html> se queda en LTR a propósito —los menús,
+   el HUD y las columnas no se invierten— y solo el TEXTO se ordena RTL: con
+   `unicode-bidi: plaintext` cada elemento decide por su primer carácter fuerte,
+   así la puntuación árabe queda en su sitio y `text-align: start` alinea esas
+   líneas a la derecha sin mover ninguna caja. OJO: nada de contenedores (div,
+   li, ul) en esta lista — una fila de botones inline se reordenaría entera. */
+:lang(ar) :where(h1, h2, h3, h4, h5, h6, p, span, a, label, th, td,
+    figcaption, button, summary, option),
+:lang(ar):where(input, textarea) {
+  unicode-bidi: plaintext;
 }
 
 /* Selección de texto y anillo de foco con el acento del tema. */
@@ -181,10 +234,74 @@ html[data-base-ui='claro'] .texto-vivo:where(:not(.ui-noche *)) {
   }
 }
 .ui-pop {
-  animation: ui-pop 0.18s ease-out both;
+  animation: ui-pop 0.22s var(--ease-fluida) both;
 }
 @media (prefers-reduced-motion: reduce) {
   .ui-pop {
+    animation: none;
+  }
+}
+
+/* Telón de los modales: posición y fondo aquí; el z-index y el centrado los
+   pone cada consumidor. Funde en vez de aparecer de golpe: el panel de encima
+   ya hace su ui-pop y el corte duro del fondo era lo que se notaba «sin pulir». */
+@keyframes ui-scrim {
+  from {
+    opacity: 0;
+  }
+}
+.ui-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(4px);
+  animation: ui-scrim 0.2s var(--ease-fluida) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-scrim {
+    animation: none;
+  }
+}
+
+/* Entrada de la app de un cuarto (RoomOverlay): sube y asienta. OJO: mientras
+   el transform corre, `.ui-app` es containing block de sus `fixed` hijos; dura
+   0.28 s y ningún modal se abre antes — si algún flujo automático lo hiciera,
+   degradar a animar solo opacity aquí y el translate en un wrapper del main. */
+@keyframes ui-app-entra {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+}
+.ui-app-entra {
+  animation: ui-app-entra 0.28s var(--ease-fluida) both;
+}
+
+/* Paneles laterales: deslizamiento PARCIAL (24 px), no desde fuera de la
+   pantalla — asienta sin golpe. `-fin` para los anclados al final (derecha en
+   LTR; el <html> nunca es RTL: el árabe va sin espejo) y `-inicio` al inicio. */
+@keyframes ui-desliza-fin {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+}
+.ui-desliza-fin {
+  animation: ui-desliza-fin 0.25s var(--ease-fluida) both;
+}
+@keyframes ui-desliza-inicio {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+}
+.ui-desliza-inicio {
+  animation: ui-desliza-inicio 0.25s var(--ease-fluida) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ui-app-entra,
+  .ui-desliza-fin,
+  .ui-desliza-inicio {
     animation: none;
   }
 }
@@ -521,4 +638,12 @@ html[data-modo-ui='transparente']
 }
 .sin-deslizador::-webkit-scrollbar {
   display: none;
+}
+
+/* En pantalla táctil los botones del kit (`rooms/_shared/ui.tsx`) crecen al
+   objetivo de 44 px de la HIG sin tocar el diseño de escritorio. */
+@media (pointer: coarse) {
+  .ui-boton {
+    min-height: 2.75rem;
+  }
 }

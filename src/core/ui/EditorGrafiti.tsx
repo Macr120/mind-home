@@ -52,7 +52,7 @@ export function EditorGrafiti() {
       />
 
       {/* Encabezado: título y salir sin guardar. */}
-      <div className="pointer-events-none absolute left-0 right-0 top-3 flex items-start justify-center">
+      <div className="pointer-events-none absolute start-0 end-0 top-3 flex items-start justify-center">
         <div className="ui-hud ui-pop pointer-events-auto flex items-center gap-2 rounded-lg border border-white/10 px-3 py-1.5 text-sm font-semibold text-white">
           <Icono nombre="paleta" /> {t('graf.titulo', 'Grafiti')}
           <button
@@ -60,7 +60,7 @@ export function EditorGrafiti() {
             onClick={() => g.salir()}
             title={t('graf.salir', 'Salir sin guardar')}
             aria-label={t('graf.salir', 'Salir sin guardar')}
-            className="ml-2 rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
+            className="ms-2 rounded px-1 text-white/60 transition hover:bg-white/10 hover:text-white active:scale-95"
           >
             ✕
           </button>
@@ -68,7 +68,7 @@ export function EditorGrafiti() {
       </div>
 
       {/* Barra tipo Paint. */}
-      <div className="pointer-events-none absolute bottom-3 left-0 right-0 flex justify-center px-2">
+      <div className="pointer-events-none absolute bottom-3 start-0 end-0 flex justify-center px-2">
         <div className="ui-hud ui-pop pointer-events-auto flex max-w-full flex-col gap-2 rounded-xl border border-white/10 p-2">
           <div className="flex flex-wrap items-center justify-center gap-1.5">
             {COLORES.map((c) => (

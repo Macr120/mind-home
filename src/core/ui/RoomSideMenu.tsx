@@ -39,6 +39,10 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   const openRoom = useHouse((s) => s.openRoom)
   const activeRoom = useHouse((s) => s.activeRoom)
   const modoUI = useAjustes((s) => s.modoUI)
+  const nombreApp = useAjustes((s) => s.nombreApp)
+  const setNombreApp = useAjustes((s) => s.setNombreApp)
+  // El nombre de la casa se cambia en el sitio, desde su propio encabezado.
+  const [editandoNombre, setEditandoNombre] = useState(false)
   const roomColors = useDiseño((s) => s.roomColors)
   const nombreCuarto = useNombreCuarto()
   // Primera app por cuarto (estable al mover objetos): el menú no depende de posiciones.
@@ -94,9 +98,9 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
   /** App (plantilla) asignada a algún objeto del cuarto, si la hay. */
   const appDe = (id: string) => appPorCuarto[id]
 
-  // En modo transparente el menú flota SOBRE la escena (si no, su vidrio solo
-  // dejaría ver el fondo de la app) y deja el ancho completo a lo que abra:
-  // con una app abierta se queda por debajo, así se ve a pantalla completa.
+  // El menú SIEMPRE flota sobre la escena/app (nunca en flujo): abrirlo con una
+  // app abierta ya no la comprime — se ve completa detrás. `flotante` queda solo
+  // para la capa de vidrio del modo transparente.
   const flotante = modoUI === 'transparente'
 
   return (
@@ -107,18 +111,25 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
       {flotante && !activeRoom && (
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-20 w-60"
+          className="pointer-events-none absolute inset-y-0 start-0 z-20 w-60"
           style={{ backdropFilter: 'blur(var(--ui-vidrio-blur, 12px))' }}
         />
       )}
-      {/* El "?" vive FUERA del panel, flotando junto a su borde: es el único
-          resto del HUD izquierdo que sigue a la vista con el menú abierto.
-          Con una app abierta estorbaría sobre su encabezado (ella trae el suyo). */}
+      {/* Columna que vive FUERA del panel, flotando junto a su borde: el "?" y los
+          controles de la vista 3D (separar pisos y quitar techo). Estos dos iban en
+          el encabezado del menú, donde le comían el ancho al nombre de la casa; en
+          vertical aquí ya no lo tapan.
+          Con una app abierta estorbarían sobre su encabezado (ella trae el suyo). */}
       {!activeRoom && (
-        <div className="absolute left-[15.75rem] top-3 z-[35]">
+        <div className="absolute start-[15.75rem] top-3 z-[35] flex flex-col items-center gap-2">
           <BotonTutoriales />
+          <ExplotarToggleButton />
+          <TechoToggleButton />
         </div>
       )}
+      {/* z-30: sobre la app abierta (RoomOverlay z-20) y bajo los diálogos (z-40)
+          y la previa de plantilla (z-50). La columna del «?» (z-[35]) solo existe
+          sin app abierta y debe quedar por encima. */}
       <aside
       data-tut-zona={
         menu === 'plantillas'
@@ -127,9 +138,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             ? 'menu-inventario'
             : 'menu-cuartos'
       }
-      className={`ui-panel flex h-full min-h-0 w-60 shrink-0 flex-col border-r border-white/10 ${
-        flotante ? `absolute inset-y-0 left-0 shadow-2xl ${activeRoom ? 'z-10' : 'z-[35]'}` : ''
-      }`}
+      className="ui-panel ui-desliza-inicio absolute inset-y-0 start-0 z-30 flex h-full min-h-0 w-60 flex-col border-e border-white/10 shadow-2xl"
       aria-label={t('nav.ariaMenu', 'Menú de cuartos')}
     >
       <div className="border-b border-white/10 px-4 py-4">
@@ -145,11 +154,45 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
             <span className="h-0.5 w-4 rounded bg-white/70" />
             <span className="h-0.5 w-4 rounded bg-white/70" />
           </button>
-          <h1 className="min-w-0 flex-1 truncate text-lg font-black tracking-tight text-white/90">
-            <Icono nombre="casa" /> {t('app.brand', 'Mind Planner Home')}
-          </h1>
-          <ExplotarToggleButton />
-          <TechoToggleButton />
+          {editandoNombre ? (
+            // Sin controlar: el valor se lee del DOM al salir, así Escape puede
+            // cancelar simplemente desmontando el input.
+            <input
+              autoFocus
+              defaultValue={nombreApp}
+              maxLength={40}
+              placeholder={t('app.brand', 'Mind Planner Home')}
+              aria-label={t('app.brandNombre', 'Nombre de la casa')}
+              onBlur={(e) => {
+                setNombreApp(e.currentTarget.value)
+                setEditandoNombre(false)
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  setNombreApp(e.currentTarget.value)
+                  setEditandoNombre(false)
+                } else if (e.key === 'Escape') setEditandoNombre(false)
+              }}
+              className="min-w-0 flex-1 rounded-md border border-white/20 bg-black/30 px-2 py-1 text-base font-black tracking-tight text-white/90 outline-none focus:border-white/40"
+            />
+          ) : (
+            <>
+              {/* Hasta dos líneas: el nombre de fábrica no cabe en una sola y ya
+                  nadie le quita ancho, así que se lee entero en vez de cortarse. */}
+              <h1 className="line-clamp-2 min-w-0 flex-1 text-base leading-tight font-black tracking-tight text-white/90">
+                <Icono nombre="casa" /> {nombreApp || t('app.brand', 'Mind Planner Home')}
+              </h1>
+              <button
+                type="button"
+                onClick={() => setEditandoNombre(true)}
+                title={t('app.brandEditar', 'Cambiar el nombre')}
+                aria-label={t('app.brandEditar', 'Cambiar el nombre')}
+                className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-sm text-white/40 transition hover:bg-white/10 hover:text-white/90"
+              >
+                <Icono nombre="editar" />
+              </button>
+            </>
+          )}
         </div>
         <div className="mt-3 flex overflow-hidden rounded-lg border border-white/10 bg-black/30">
           <button
@@ -330,10 +373,10 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                             ? t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })
                             : t('nav.asignarApp', 'Asignar una app a este cuarto')
                         }
-                        className="block w-full rounded-lg px-2 py-1.5 text-left transition hover:bg-white/[0.07]"
+                        className="block w-full rounded-lg px-2 py-1.5 text-start transition hover:bg-white/[0.07]"
                       >
-                        {/* `pr-9`: el hueco que ocupa el engrane sobre esta fila. */}
-                        <div className="flex items-start gap-2 pr-9">
+                        {/* `pe-9`: el hueco que ocupa el engrane sobre esta fila. */}
+                        <div className="flex items-start gap-2 pe-9">
                           <span
                             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md text-lg"
                             style={{ background: `${color}33` }}
@@ -363,7 +406,7 @@ export function RoomSideMenu({ onToggle }: { onToggle: () => void }) {
                         onClick={() => setAjustesCuarto((a) => (a === cuarto.id ? null : cuarto.id))}
                         aria-expanded={ajustesCuarto === cuarto.id}
                         title={t('nav.ajustesCuarto', 'Opciones del cuarto')}
-                        className={`absolute right-2 top-1.5 grid h-8 w-8 place-items-center rounded-md border text-sm transition ${
+                        className={`absolute end-2 top-1.5 grid h-8 w-8 place-items-center rounded-md border text-sm transition ${
                           ajustesCuarto === cuarto.id
                             ? 'border-white/25 bg-white/15 text-white/90'
                             : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/12'
@@ -468,6 +511,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   // Con una app abierta, su overlay tapa la casa: los controles de la vista 3D y el
   // selector de tutoriales estorban sobre su encabezado (la app tiene su propio "?").
   const appAbierta = useHouse((s) => !!s.activeRoom)
+  const nombreApp = useAjustes((s) => s.nombreApp)
   const editMode = useLayout((s) => s.editMode)
   const movilVertical = useHud((s) => s.movilVertical)
   // Los editores de infraestructura traen su propio encabezado centrado arriba:
@@ -480,7 +524,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   // Plegado: queda solo la casa (con una app abierta se ignora, es el único acceso al menú).
   if (plegado && !appAbierta) {
     return (
-      <div className="absolute left-3 top-3 z-30">
+      <div className="absolute start-3 top-3 z-30">
         <TiradorHud zona="supIzq">
           <Icono nombre="casa" />
         </TiradorHud>
@@ -489,7 +533,7 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
   }
 
   return (
-    <div className="absolute left-3 top-3 z-30 flex items-start gap-2">
+    <div className="absolute start-3 top-3 z-30 flex items-start gap-2">
       <button
         type="button"
         data-tut="menu.abrir"
@@ -503,9 +547,10 @@ export function FloatingMenuButton({ onToggle }: { onToggle: () => void }) {
           <span className="h-0.5 w-4 rounded bg-white/80" />
           <span className="h-0.5 w-4 rounded bg-white/80" />
         </span>
-        <span className="text-sm font-black text-white/90">
-          {/* Botón flotante: cabe la sigla, no el nombre entero. */}
-          <Icono nombre="casa" /> {t('app.brandCorto', 'MPH')}
+        <span className="max-w-[7rem] truncate text-sm font-black text-white/90">
+          {/* Botón flotante: del nombre de fábrica cabe solo la sigla; el que
+              haya puesto el usuario ya es corto (o se recorta). */}
+          <Icono nombre="casa" /> {nombreApp || t('app.brandCorto', 'MPH')}
         </span>
       </button>
       {!appAbierta && (

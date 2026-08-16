@@ -2,9 +2,10 @@ import { memo, useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { Canvas, useThree } from '@react-three/fiber'
 import { useShallow } from 'zustand/react/shallow'
-import type { Cuarto } from '../data/db'
+import type { Cuarto, CuadranteMapa } from '../data/db'
 import { useHouse } from '../state/houseStore'
 import { useDiseño } from '../state/disenoStore'
+import { esGamaBaja } from '../gamaDispositivo'
 import { useLayout } from '../state/layoutStore'
 import { useCuartos } from '../state/cuartosStore'
 import { Character } from './Character'
@@ -24,9 +25,11 @@ import {
   SPACING,
   nivelBaseY,
   cellToWorld,
+  worldToCeldaEntera,
   tileOcupado,
   FOOTPRINT_DEFAULT,
 } from './walls'
+import { celdaEnCuadrante, cuadrantePorId, cuartoEnCuadrante } from './cuadrantesMapa'
 import { useTemaActivo } from './useTema'
 import { CieloDiaNoche } from './CieloDiaNoche'
 import { EfectosPost } from './EfectosPost'
@@ -170,7 +173,11 @@ function RejillaMapa({
 }
 
 /** Objetos LIBRES sobre el mapa (fuera de cuartos): coordenadas de mundo. */
-const ObjetosMapa = memo(function ObjetosMapa() {
+const ObjetosMapa = memo(function ObjetosMapa({
+  cuadranteVista,
+}: {
+  cuadranteVista: CuadranteMapa | null
+}) {
   // Solo los objetos del mapa: mover objetos DE CUARTO no re-renderiza esta lista.
   const objetos = useDiseño((s) => objetosMapaIdx(s.objetos))
   const draggingObjeto = useDiseño((s) => s.draggingObjeto)
@@ -180,6 +187,7 @@ const ObjetosMapa = memo(function ObjetosMapa() {
   const editingRoomId = useLayout((s) => s.editingRoomId)
   const tab = useEditorUi((s) => s.tab)
   const setObjetoSel = useEditorUi((s) => s.setObjetoSel)
+  const objetoSel = useEditorUi((s) => s.objetoSel)
   const setTab = useEditorUi((s) => s.setTab)
   const editor3d = useEditorUi((s) => s.editor3d)
   const inventarioObjetosActivo = useEditorUi((s) => s.inventarioObjetosActivo)
@@ -192,11 +200,21 @@ const ObjetosMapa = memo(function ObjetosMapa() {
   const editables =
     editor3d || (editMode && !editingRoomId && tab === 'objetos') || inventarioObjetosActivo
   // Fuera del radio del foco no se montan: son los árboles, la fuente, el
-  // espectacular… de la otra punta del mapa. Editando sí, que ahí se colocan.
+  // espectacular… de la otra punta del mapa. Editando sí, que ahí se colocan —
+  // salvo con un cuadrante en vista, cuyo recorte manda también en el editor
+  // (con excepción del objeto seleccionado o en arrastre).
+  const enVista = (x: number, z: number) => {
+    if (!cuadranteVista) return true
+    const { col, row } = worldToCeldaEntera(x, z)
+    return celdaEnCuadrante(col, row, cuadranteVista)
+  }
   const items = objetos.filter(
     (o) =>
       o.id !== montadoId &&
-      (editables || cercaDelFocoMundo(o.x ?? 0, o.z ?? 0, centro)),
+      (draggingObjeto === o.id ||
+        (o.id != null && o.id === objetoSel) ||
+        (enVista(o.x ?? 0, o.z ?? 0) &&
+          (editables || cercaDelFocoMundo(o.x ?? 0, o.z ?? 0, centro)))),
   )
   if (items.length === 0) return null
   return (
@@ -261,7 +279,13 @@ const ObjetosMapa = memo(function ObjetosMapa() {
  * arrastre, atenuado/resaltado): mover o editar un cuarto no re-renderiza a los demás,
  * y los re-renders de House no cascan en los cuartos (memo con prop `room` estable).
  */
-const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
+const RoomEnMapa = memo(function RoomEnMapa({
+  room,
+  cuadranteVista,
+}: {
+  room: Cuarto
+  cuadranteVista: CuadranteMapa | null
+}) {
   const arrastrando = useLayout((s) => s.draggingId === room.id)
   const editMode = useLayout((s) => s.editMode)
   // Cargado con la herramienta "mover": se dibuja sobre la cabeza del personaje
@@ -286,10 +310,15 @@ const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
   const forzarTecho = usePlanos((s) => (s.activo ? s.modo === 'techos' : undefined))
   // Lejos del foco de cámara el cuarto conserva su casco (la silueta del mapa no
   // debe parpadear) pero se queda sin objetos, que es la masa de mallas y de
-  // lejos casi no se distinguen. Editando o arrastrando NO se recorta: ahí el
-  // usuario está mirando ese cuarto en concreto.
+  // lejos casi no se distinguen. En el editor el mismo recorte lo gobierna el
+  // cuadrante en vista: fuera de él, casco. Arrastrando, cargado o editándose
+  // NO se recorta: ahí el usuario está mirando ese cuarto en concreto.
+  const editandoEste = useLayout((s) => s.editingRoomId === room.id)
   const centro = useCercania((s) => s.centro)
-  const lejos = !editMode && !arrastrando && !cargado && !cercaDelFoco(cell, centro)
+  const fueraDeVista =
+    cuadranteVista != null && !editandoEste && !cuartoEnCuadrante(cell, fp, cuadranteVista)
+  const lejos =
+    !arrastrando && !cargado && (editMode ? fueraDeVista : !cercaDelFoco(cell, centro))
   const [x, , z] = centroCuarto3D(cell, fp)
   const y = nivelBaseY(nivel, apilado)
   const otroNivel = planosActivo && nivel !== planosNivel
@@ -306,8 +335,11 @@ const RoomEnMapa = memo(function RoomEnMapa({ room }: { room: Cuarto }) {
   )
 })
 
+/** Resolución de render: fija por sesión (la gama del equipo no cambia en caliente). */
+const DPR: [number, number] = esGamaBaja() ? [1, 1] : [1, 1.5]
+
 export function House() {
-  const { placed, niveles, gridCols, gridRows, tamCelda, editMode } = useLayout(
+  const { placed, niveles, gridCols, gridRows, tamCelda, editMode, cuadrantesPropios } = useLayout(
     useShallow((s) => ({
       placed: s.placed,
       niveles: s.niveles,
@@ -315,6 +347,7 @@ export function House() {
       gridRows: s.gridRows,
       tamCelda: s.tamCelda,
       editMode: s.editMode,
+      cuadrantesPropios: s.cuadrantes,
     })),
   )
   const cuartos = useCuartos((s) => s.cuartos)
@@ -355,10 +388,22 @@ export function House() {
     ? cuartos.filter((r) => placed[r.id] && (niveles[r.id] ?? 0) === planosNivel)
     : []
 
+  // Cuadrante en vista del editor, resuelto UNA vez: cuartos y objetos del mapa solo
+  // comparan sus celdas contra él. Fuera del editor —o caminando en el editor 3D—
+  // no recorta nada (queda el recorte por cercanía de siempre).
+  const cuadranteVistaId = usePlanos((s) => s.cuadranteVista)
+  const cuadranteVista = useMemo(
+    () =>
+      editMode && !editor3d
+        ? cuadrantePorId(cuadranteVistaId, gridCols, gridRows, cuadrantesPropios)
+        : null,
+    [editMode, editor3d, cuadranteVistaId, gridCols, gridRows, cuadrantesPropios],
+  )
+
   return (
     <>
       <div className="absolute inset-0 flex flex-col">
-        <div className={`relative min-h-0 flex-1 ${modoPlanos ? 'pr-80' : ''}`}>
+        <div className={`relative min-h-0 flex-1 ${modoPlanos ? 'pe-80' : ''}`}>
       <Canvas
         // Remonta la escena al cambiar el tamaño de celda: TODA la geometría memoizada
         // (pisos, muros, techos, agua) se regenera con el SIZE nuevo.
@@ -370,7 +415,9 @@ export function House() {
         // esquinas del mapa quedaban fuera del volumen ortográfico y se recortaban.
         camera={{ position: [22, 22, 22], zoom: 17, near: -400, far: 800 }}
         style={{ position: 'absolute', inset: 0 }}
-        dpr={[1, 1.5]}
+        // Gama baja: rasterizar a dpr 1 (en una pantalla DPR 3, 1.5 son 2.25×
+        // los píxeles de 1 — demasiado para su GPU).
+        dpr={DPR}
         gl={{ toneMapping: THREE.ACESFilmicToneMapping }}
         onCreated={({ gl }) => {
           // La casa es estática: renderiza la sombra UNA vez y congélala.
@@ -412,7 +459,7 @@ export function House() {
       {cuartos
         .filter((room) => placed[room.id])
         .map((room) => (
-          <RoomEnMapa key={room.id} room={room} />
+          <RoomEnMapa key={room.id} room={room} cuadranteVista={cuadranteVista} />
         ))}
 
       {!aislarCuarto && <ZonasPlano3D />}
@@ -438,7 +485,7 @@ export function House() {
       {!aislarCuarto && <MinijuegosCanchas />}
       {!aislarCuarto && <GranjaProximity />}
       {!aislarCuarto && <AsistenteProximity />}
-      {!aislarCuarto && <ObjetosMapa />}
+      {!aislarCuarto && <ObjetosMapa cuadranteVista={cuadranteVista} />}
       {!aislarCuarto && <RafagasLaser />}
       {!aislarCuarto && <PaintballController />}
       {!aislarCuarto && <Portales />}

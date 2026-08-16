@@ -43,7 +43,7 @@ export function EditorPanelMapa() {
           <button
             type="button"
             onClick={() => s.toggle('mapa')}
-            className="min-w-0 flex-1 truncate text-left text-sm font-semibold text-white/85"
+            className="min-w-0 flex-1 truncate text-start text-sm font-semibold text-white/85"
           >
             {t('editor.mapa.mapa', 'Mapa')}
           </button>
@@ -62,10 +62,7 @@ export function EditorPanelMapa() {
           titulo={t(`editor.mapa.${id}`, TITULOS_MAPA[id])}
           abierto={s.abierto(id)}
           onToggle={s.toggle}
-          onDragStart={s.iniciarArrastre}
-          onDragEnter={s.entrarObjetivo}
-          onDragEnd={s.finArrastre}
-          onDrop={s.soltar}
+          gesto={s.arrastre(id)}
           esObjetivo={s.objetivo === id && s.arrastrando !== id}
           esArrastrado={s.arrastrando === id}
         >

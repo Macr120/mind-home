@@ -1,6 +1,7 @@
-import type { CSSProperties } from 'react'
+import { useSyncExternalStore, type CSSProperties } from 'react'
 import { useAjustes } from '../../state/ajustesStore'
-import { CATALOGO, iconoDe, type NombreIcono } from './catalogo'
+import { EMOJIS, iconoDe, type NombreIcono } from './catalogo'
+import { getSvgs, svgStore } from './svgStore'
 
 /**
  * Icono de interfaz conmutable: emoji (vista clásica) o SVG de lucide
@@ -10,6 +11,10 @@ import { CATALOGO, iconoDe, type NombreIcono } from './catalogo'
  * - `emoji`: emoji proveniente de un catálogo de dominio o de la BD; se
  *   resuelve por mapa inverso. Si no tiene equivalente se muestra el emoji
  *   tal cual (los datos libres del usuario degradan con elegancia).
+ *
+ * Los SVG viven en un chunk diferido (`svgStore`): en el instante entre el
+ * primer render y su llegada se pinta el EMOJI equivalente — nunca un hueco —
+ * y al aterrizar hay un solo swap emoji→SVG.
  *
  * El SVG usa `currentColor` y `1em`: hereda color y tamaño del texto que lo
  * rodea (`text-3xl`, `text-white/60`…), así que no altera los layouts.
@@ -28,19 +33,20 @@ const ESTILO_SVG: CSSProperties = { verticalAlign: '-0.125em' }
 
 export function Icono({ nombre, emoji, className, size = '1em', title }: Props) {
   const estilo = useAjustes((s) => s.estiloIconos)
+  // Re-render cuando el chunk de SVGs aterriza (no-op si ya estaba).
+  useSyncExternalStore(svgStore.subscribe, svgStore.getSnapshot)
 
   const resuelto = nombre ?? (emoji ? iconoDe(emoji) : null)
-  const def = resuelto ? CATALOGO[resuelto] : null
+  const Svg = resuelto && estilo === 'profesional' ? getSvgs()?.[resuelto] : null
 
-  if (estilo === 'emoji' || !def) {
+  if (!Svg) {
     return (
       <span aria-hidden={!title} title={title} className={className}>
-        {def?.emoji ?? emoji}
+        {(resuelto ? EMOJIS[resuelto] : undefined) ?? emoji}
       </span>
     )
   }
 
-  const Svg = def.Svg
   return (
     <Svg
       aria-hidden={!title}

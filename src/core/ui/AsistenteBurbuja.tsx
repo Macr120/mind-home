@@ -44,19 +44,19 @@ export function AsistenteBurbuja() {
         <BotonVoz
           texto={texto}
           asistenteId={m.id}
-          className="ui-panel-glass pointer-events-auto absolute -right-2 -top-2 z-10 rounded-full border border-white/10 py-0.5 shadow-lg backdrop-blur-md"
+          className="ui-panel-glass pointer-events-auto absolute -end-2 -top-2 z-10 rounded-full border border-white/10 py-0.5 shadow-lg backdrop-blur-md"
         />
       )}
       <button
         type="button"
         onClick={() => abrirConversacion(m.id)}
         title={t('chat.verConv', 'Ver la conversación completa')}
-        className="ui-panel-glass pointer-events-auto relative max-w-[16rem] cursor-pointer rounded-2xl border border-white/10 px-3.5 py-2 text-left text-sm text-white/90 shadow-xl backdrop-blur-md transition hover:border-emerald-400/40"
+        className="ui-panel-glass pointer-events-auto relative max-w-[16rem] cursor-pointer rounded-2xl border border-white/10 px-3.5 py-2 text-start text-sm text-white/90 shadow-xl backdrop-blur-md transition hover:border-emerald-400/40"
       >
         {texto ? (
           <>
             <span className="line-clamp-4 whitespace-pre-line">
-              <span className="mr-1"><Icono emoji={m.emoji} /></span>
+              <span className="me-1"><Icono emoji={m.emoji} /></span>
               {texto}
             </span>
             {texto.length > 150 && (
@@ -67,13 +67,13 @@ export function AsistenteBurbuja() {
           </>
         ) : (
           <>
-            <span className="mr-1"><Icono emoji={m.emoji} /></span>
+            <span className="me-1"><Icono emoji={m.emoji} /></span>
             <span className="animate-pulse tracking-widest"><Icono nombre="brillo" /> …</span>
           </>
         )}
       </button>
       <span
-        className="ui-panel-glass -mt-px h-3 w-3 rotate-45 border-b border-r border-white/10"
+        className="ui-panel-glass -mt-px h-3 w-3 rotate-45 border-b border-e border-white/10"
         aria-hidden
       />
     </div>

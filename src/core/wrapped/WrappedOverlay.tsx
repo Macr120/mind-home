@@ -255,7 +255,7 @@ export default function WrappedOverlay() {
           <span className="min-w-0 truncate text-center text-sm font-semibold capitalize text-white/85">
             {etiqueta}
             {esEnCurso(p) && (
-              <span className="ml-1 text-[11px] font-normal text-white/45">
+              <span className="ms-1 text-[11px] font-normal text-white/45">
                 {t('wrapped.enCurso', '(en curso)')}
               </span>
             )}

@@ -14,7 +14,7 @@ import {
 } from '../state/granjaStore'
 import { useAnimalSel } from '../state/animalSelStore'
 import { useContexto } from '../state/contextoStore'
-import { useDiseño } from '../state/disenoStore'
+import { useDiseño, objetoPorId } from '../state/disenoStore'
 import { barraComidaVida, barraAnimoVida } from '../state/vidaObjetoStore'
 import { cellToWorld } from '../house/walls'
 import { registrarAncla, quitarAncla, registrarDom, quitarDom } from '../house/etiquetasMapa'
@@ -88,9 +88,11 @@ function TarjetaObjetoVivo() {
 
 function EtiquetaObjetoVivo({ objetoId }: { objetoId: number }) {
   const t = useT()
-  const nombre = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.nombre)
-  const comidaEn = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.vidaComidaEn)
-  const mimoEn = useDiseño((s) => s.objetos.find((o) => o.id === objetoId)?.vidaMimoEn)
+  // `objetoPorId` es O(1) (índice memoizado): tres `.find()` por etiqueta
+  // barrían el array entero en cada cambio del store.
+  const nombre = useDiseño((s) => objetoPorId(s.objetos, objetoId)?.nombre)
+  const comidaEn = useDiseño((s) => objetoPorId(s.objetos, objetoId)?.vidaComidaEn)
+  const mimoEn = useDiseño((s) => objetoPorId(s.objetos, objetoId)?.vidaMimoEn)
 
   // Hambre y ánimo decaen en horas: medio minuto de resolución sobra.
   const [ahora, setAhora] = useState(() => Date.now())
@@ -108,7 +110,7 @@ function EtiquetaObjetoVivo({ objetoId }: { objetoId: number }) {
         if (el) registrarDom(id, el)
         else quitarDom(id)
       }}
-      className="absolute left-0 top-0"
+      className="absolute start-0 top-0"
       style={{ display: 'none' }}
     >
       <div className="ui-hud pointer-events-none flex -translate-x-1/2 -translate-y-full flex-col gap-1 whitespace-nowrap rounded-md border border-white/10 px-2 py-1 text-[10px] font-semibold text-white">
@@ -195,7 +197,7 @@ function EtiquetaParcela({
         if (el) registrarDom(id, el)
         else quitarDom(id)
       }}
-      className="absolute left-0 top-0"
+      className="absolute start-0 top-0"
       style={{ display: 'none' }}
     >
       <button
@@ -299,7 +301,7 @@ function EtiquetaAnimal({ fila, sucio, ahora }: { fila: AnimalGranja; sucio: boo
         if (el) registrarDom(id, el)
         else quitarDom(id)
       }}
-      className="absolute left-0 top-0"
+      className="absolute start-0 top-0"
       style={{ display: 'none' }}
     >
       <div className="ui-hud pointer-events-none flex -translate-x-1/2 -translate-y-full flex-col gap-1 whitespace-nowrap rounded-md border border-white/10 px-2 py-1 text-[10px] font-semibold text-white">

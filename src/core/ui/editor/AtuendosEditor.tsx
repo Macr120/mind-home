@@ -170,7 +170,7 @@ export function AtuendosEditor() {
                 <button
                   type="button"
                   onClick={() => void aplicar(parseRopaGuardada(a.ropa))}
-                  className="flex min-w-0 flex-1 items-center gap-2 text-left"
+                  className="flex min-w-0 flex-1 items-center gap-2 text-start"
                 >
                   <span className="text-base leading-none">
                     <Icono nombre="ropa" />

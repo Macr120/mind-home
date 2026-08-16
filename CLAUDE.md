@@ -49,8 +49,9 @@ src/
      visible hardcodeado (tampoco en `title`, `placeholder`, `alt` o `aria-label`).
    - **Icono nuevo** → siempre `<Icono nombre="...">` de `src/core/ui/iconos/` (o
      `<Icono emoji={dato}>` si el emoji viene de datos/BD); nunca un emoji crudo en JSX.
-     Si no existe la entrada, añade `{ emoji, Svg }` al `CATALOGO` de
-     `src/core/ui/iconos/catalogo.ts`. No incrustes emojis dentro de los textos de `t()`.
+     Si no existe la entrada, añade el emoji a `EMOJIS` en `src/core/ui/iconos/catalogo.ts`
+     Y su SVG a `SVGS` en `catalogo.svg.ts` (mismo nombre; el tipado obliga a ambos).
+     No incrustes emojis dentro de los textos de `t()`.
    - **Excepciones que sí conservan emoji**: `<option>` de selects, `placeholder` de inputs,
      mensajes de celebración/notificación («¡Ganaste! 🎉»), frases de mascota
      (`core/chat/mascotas.ts`), etiquetas `<text>` dentro de SVG (croquis/diales) y

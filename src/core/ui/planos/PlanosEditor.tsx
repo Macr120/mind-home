@@ -6,7 +6,7 @@ import { IconoOjo } from '../editor/IconoOjo'
 import { usePlanos } from '../../state/planosStore'
 import { useT } from '../../i18n/useT'
 
-/** Croquis con zoom/pan y botones flotantes. `compacto` = dentro del panel lateral (sin pr-80 ni menús). */
+/** Croquis con zoom/pan y botones flotantes. `compacto` = dentro del panel lateral (sin pe-80 ni menús). */
 export function PlanosEditor({ compacto = false }: { compacto?: boolean }) {
   const t = useT()
   const fitRef = useRef<(() => void) | null>(null)
@@ -26,13 +26,13 @@ export function PlanosEditor({ compacto = false }: { compacto?: boolean }) {
       ((modo === 'cuartos' || modo === 'piso-int' || modo === 'techos') && seleccion?.tipo === 'cuarto'))
 
   return (
-    <div className={`relative flex h-full min-h-0 w-full flex-1 flex-col ${compacto ? '' : 'pr-80'}`}>
+    <div className={`relative flex h-full min-h-0 w-full flex-1 flex-col ${compacto ? '' : 'pe-80'}`}>
       {/* Área del croquis (sin contar el padding del panel lateral). */}
       <div className="relative min-h-0 flex-1 w-full">
         <PlanoCanvas onFitRef={(fit) => { fitRef.current = fit }} />
         <div
           className={`pointer-events-none absolute z-30 flex flex-col items-stretch gap-1.5 ${
-            compacto ? 'bottom-2 right-2' : 'bottom-4 right-4'
+            compacto ? 'bottom-2 end-2' : 'bottom-4 end-4'
           }`}
           style={compacto ? undefined : { width: VIEW_CUBE_PX }}
         >

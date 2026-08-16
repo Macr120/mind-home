@@ -29,6 +29,7 @@ export type NombreSfx =
   | 'turbo'
   | 'banana'
   | 'bomba'
+  | 'tick'
 
 let ctx: AudioContext | null = null
 let bus: GainNode | null = null
@@ -137,6 +138,7 @@ const MIN_MS: Partial<Record<NombreSfx, number>> = {
   mortal: 200,
   turbo: 200,
   banana: 200,
+  tick: 90,
 }
 const ultimo = new Map<string, number>()
 
@@ -218,6 +220,11 @@ export function sonar(nombre: NombreSfx): void {
     case 'bomba':
       soplo({ dur: 0.6, hz: 700, vol: 0.28 })
       tono({ de: 95, a: 32, dur: 0.6, vol: 0.28 })
+      break
+    case 'tick':
+      // El único sonido de la UI 2D (cambio de pestaña): casi un roce, nunca
+      // debe hacerse notar por encima del contenido.
+      tono({ de: 1100, dur: 0.02, onda: 'triangle', vol: 0.05 })
       break
   }
 }

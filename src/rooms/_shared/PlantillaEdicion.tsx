@@ -87,7 +87,7 @@ export function BarraEdicion({
   return (
     <div className="space-y-2 rounded-xl border border-dashed border-white/15 bg-black/20 p-2.5">
       {enEdicion.map((menu) => (
-        <div key={menu.id} className={`flex items-center gap-1.5 ${menu.padreId ? 'pl-4' : ''}`}>
+        <div key={menu.id} className={`flex items-center gap-1.5 ${menu.padreId ? 'ps-4' : ''}`}>
           <input
             // key: al cambiar de pestaña el campo tiene que releer el valor.
             key={`e${menu.id}`}

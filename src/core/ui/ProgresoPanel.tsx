@@ -149,7 +149,7 @@ function CabeceraPlegable({
     <button
       type="button"
       onClick={onToggle}
-      className="flex w-full items-center gap-2 px-3 py-2 text-left"
+      className="flex w-full items-center gap-2 px-3 py-2 text-start"
     >
       {children}
       <span className="shrink-0 text-[10px] text-white/40">{abierto ? '▾' : '▸'}</span>
@@ -207,7 +207,7 @@ function AroSisifo({
       >
         <Icono nombre={icono} />
       </span>
-      {ping && <span className="ui-accent-bg absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full" />}
+      {ping && <span className="ui-accent-bg absolute -end-0.5 -top-0.5 h-2 w-2 rounded-full" />}
     </button>
   )
 }
@@ -275,7 +275,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
             <div className="relative mx-auto h-32 w-full">
               {/* Rango actual (Montaña de Sísifo): a la altura de la cabeza, a la izquierda. */}
               {sisifo && (
-                <div data-tut="progreso.sisifo.rango" className="absolute left-0 top-1 z-10 flex flex-col items-center gap-1">
+                <div data-tut="progreso.sisifo.rango" className="absolute start-0 top-1 z-10 flex flex-col items-center gap-1">
                   <AroSisifo
                     valor={sisifo.altura / DIAS_META}
                     color={RANGOS[sisifo.rango - 1].color}
@@ -297,7 +297,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
               </button>
               {/* Insignias ganadas (Montaña de Sísifo): a la altura de la cabeza, a la derecha. */}
               {sisifo && (
-                <div data-tut="progreso.sisifo.insignias" className="absolute right-0 top-1 z-10 flex flex-col items-center gap-1">
+                <div data-tut="progreso.sisifo.insignias" className="absolute end-0 top-1 z-10 flex flex-col items-center gap-1">
                   <AroSisifo
                     valor={sisifo.insignias / 52}
                     color={colorArcoiris(Math.max(1, sisifo.insignias))}
@@ -331,7 +331,7 @@ export function ResumenJugador({ progreso }: { progreso: ProgresoJugador | undef
             <RadarCuartos enfoques={progreso.enfoques} />
 
             {/* ── Nivel y racha ── */}
-            <div className="mt-3 space-y-1.5 border-t border-white/10 pt-3 text-left">
+            <div className="mt-3 space-y-1.5 border-t border-white/10 pt-3 text-start">
               <div className="flex items-center gap-2">
                 <Barra valor={progreso.avanceNivel} color="#34d399" />
                 <span className="shrink-0 text-[10px] text-white/40">

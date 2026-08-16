@@ -305,7 +305,7 @@ export function SelectorTutorialOverlay() {
           onClick={() => useSelectorTut.getState().cerrar()}
           title={t('tut.selector.cerrar', 'Cerrar')}
           aria-label={t('tut.selector.cerrar', 'Cerrar')}
-          className="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-lg text-white/45 transition hover:bg-white/10 hover:text-white/80"
+          className="absolute end-2 top-2 grid h-6 w-6 place-items-center rounded-lg text-white/45 transition hover:bg-white/10 hover:text-white/80"
         >
           <Icono nombre="cerrar" />
         </button>
@@ -422,7 +422,7 @@ export function SelectorTutorialOverlay() {
                     <span className="grid h-7 w-7 shrink-0 place-items-center text-lg">
                       {cabecera ? <Icono emoji={cabecera.icon} /> : <Icono nombre="calendario" />}
                     </span>
-                    <p className="min-w-0 flex-1 truncate text-left text-xs font-bold text-white/85">
+                    <p className="min-w-0 flex-1 truncate text-start text-xs font-bold text-white/85">
                       {cabecera
                         ? t(`room.${cabecera.id}.nombre`, cabecera.nombre).split(' · ')[0]
                         : tourNucleo && t(tourNucleo.titulo.clave, tourNucleo.titulo.es)}
@@ -437,7 +437,7 @@ export function SelectorTutorialOverlay() {
                           useSelectorTut.getState().cerrar()
                           void lanzarFlujo(appFlujos, def)
                         }}
-                        className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
+                        className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
                       >
                         <span className="min-w-0 flex-1 truncate">
                           {t(def.titulo.clave, def.titulo.es)}
@@ -518,7 +518,7 @@ export function SelectorTutorialOverlay() {
                   vive cada uno: desde aquí se lanzan de una lista, sin depender
                   de que su zona amarilla esté en pantalla. Una carpeta abierta a
                   la vez, para que la lista no se vuelva un muro de botones. */}
-              <div className="space-y-1 text-left">
+              <div className="space-y-1 text-start">
                 {GRUPOS_MENU.map((grupo) => {
                   const tours = grupo.ids
                     .map((id) => tutorialMenuPorId(id))
@@ -540,7 +540,7 @@ export function SelectorTutorialOverlay() {
                           key={def.id}
                           type="button"
                           onClick={() => lanzarTour(def)}
-                          className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-left text-xs font-semibold text-white/75 transition hover:bg-white/10"
+                          className="flex w-full items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-start text-xs font-semibold text-white/75 transition hover:bg-white/10"
                         >
                           <span className="min-w-0 flex-1 truncate">
                             {t(def.titulo.clave, def.titulo.es)}
@@ -561,7 +561,7 @@ export function SelectorTutorialOverlay() {
                     setEnHud(!enHud)
                     useSelectorTut.getState().cerrar()
                   }}
-                  className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-left text-xs font-semibold transition ${
+                  className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-xs font-semibold transition ${
                     enHud
                       ? 'ui-accent-bg border-transparent'
                       : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'

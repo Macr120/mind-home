@@ -115,6 +115,19 @@ const CABECERA = (cuarto) => `// Generado por \`npm run ejemplos:texto\` — no 
 /** Literal con las comillas simples del repo (JSON.stringify usa dobles). */
 const comillas = (s) => `'${s.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
 
+/**
+ * Ramas de idiomas del archivo existente distintas de es/en (pt, fr, de, it…):
+ * la IA solo escribe es/en, el resto se tradujo a mano, así que al regenerar se
+ * rescatan tal cual del .ts anterior para no pisarlas.
+ */
+function ramasConservadas(destino) {
+  if (!existsSync(destino)) return []
+  const texto = readFileSync(destino, 'utf8')
+  return [...texto.matchAll(/^  ([a-z]+): \{\n(?:.*\n)*?  \},?$/gm)]
+    .filter((m) => m[1] !== 'es' && m[1] !== 'en')
+    .map((m) => (m[0].endsWith(',') ? m[0] : `${m[0]},`))
+}
+
 /** El .ts del catálogo: un objeto por idioma. */
 function escribirDatos(espec, datos) {
   const bloque = (idioma) => {
@@ -124,10 +137,13 @@ function escribirDatos(espec, datos) {
     return `  ${idioma}: {\n${filas}\n  },`
   }
   const destino = path.join(RAIZ, 'src', 'rooms', espec.cuarto, 'ejemplos.data.ts')
+  const manuales = ramasConservadas(destino)
+  if (manuales.length) {
+    console.log(`  (${espec.cuarto}: conservadas ${manuales.map((r) => r.slice(2, r.indexOf(':'))).join(', ')})`)
+  }
   const cuerpo = `${CABECERA(espec.cuarto)}
 export const ${espec.constante} = {
-${bloque('es')}
-${bloque('en')}
+${[bloque('es'), bloque('en'), ...manuales].join('\n')}
 }
 `
   writeFileSync(destino, cuerpo, 'utf8')

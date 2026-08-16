@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useConfirmar, type PeticionConfirmar } from '../state/confirmarStore'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
@@ -32,17 +32,24 @@ function Dialogo({ pendiente }: { pendiente: PeticionConfirmar }) {
     responder(limpio || null)
   }
 
+  // Escape en `document`: puesto en el panel dejaba de funcionar en cuanto el
+  // foco salía de él (p. ej. tras un clic en el telón).
+  useEffect(() => {
+    const alTeclear = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') responder(esTexto ? null : false)
+    }
+    document.addEventListener('keydown', alTeclear)
+    return () => document.removeEventListener('keydown', alTeclear)
+  }, [responder, esTexto])
+
   return (
-    <div
-      className="fixed inset-0 z-[75] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
-      onClick={cancelar}
-    >
+    <div className="ui-scrim z-[75] flex items-center justify-center p-4" onClick={cancelar}>
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={pendiente.titulo}
         className="ui-panel ui-pop w-full max-w-md rounded-2xl border border-white/10 p-5 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
-        onKeyDown={(e) => {
-          if (e.key === 'Escape') cancelar()
-        }}
       >
         <header className="mb-4 flex items-center gap-3">
           <span
@@ -59,7 +66,7 @@ function Dialogo({ pendiente }: { pendiente: PeticionConfirmar }) {
           <button
             onClick={cancelar}
             title={t('rutinas.cerrar', 'Cerrar')}
-            className="ml-auto shrink-0 rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
+            className="ms-auto shrink-0 rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
           >
             <Icono nombre="cerrar" />
           </button>

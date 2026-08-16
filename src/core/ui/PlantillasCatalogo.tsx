@@ -1,30 +1,27 @@
-import { Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { PlantillaCustom } from '../data/db'
 import { getPlantilla, plantillasCuarto, DESCRIPCIONES, type Plantilla } from '../registry'
-import { useDiseño } from '../state/disenoStore'
+import { usePreviaPlantilla } from '../state/previaPlantillaStore'
+import { useShallow } from 'zustand/react/shallow'
+import { useDiseño, idsPlantillasAsignadas } from '../state/disenoStore'
 import { useAsistentes } from '../state/asistentesStore'
 import { nombreAsistente } from '../chat/mascotas'
 import { usePlantillasCustom } from '../state/plantillasCustomStore'
-import { useGruposPlantilla } from '../state/gruposPlantillaStore'
+import { useGruposPlantilla, nombreCarpeta } from '../state/gruposPlantillaStore'
 import { useObjetosPlantilla } from '../state/objetosPlantillaStore'
 import { asistenteDePlantilla } from '../gamificacion/asistentesPlantilla'
 import { RECURSOS } from '../house/recursos'
-import { SIEMBRA, MODELOS } from '../house/modelosRecursos'
+import { SIEMBRA, tipoYColor } from '../house/modelosRecursos'
 import { META_ESPECIAL_PLANTILLA } from '../house/especialesPlantillaMeta'
 import { MiniaturaModelo } from '../house/Miniatura'
 import { getTema } from '../house/temas'
-import { ErrorBoundary } from './ErrorBoundary'
 import { PlantillaCustomEditor } from './PlantillaCustomEditor'
 import { SelectorObjeto3D } from './SelectorObjeto3D'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
-import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
-import { vivo } from './estilos'
-import { GateAppDemo } from '../../demo/GateAppDemo'
+import { useArrastre } from './comun/arrastre'
 
 type Modo = 'asistente' | 'cuarto'
-/** Qué se está arrastrando: una carpeta (reordenar) o una plantilla (mover de grupo). */
-type Arrastre = { tipo: 'grupo'; id: number } | { tipo: 'tarjeta'; plantillaId: string }
 
 /** Nombre del recurso 3D por id (para la vista previa del conjunto de la app). */
 const nombreRecurso = (id: number): string =>
@@ -39,7 +36,8 @@ const nombreRecurso = (id: number): string =>
  */
 export function PlantillasCatalogo() {
   const t = useT()
-  const objetos = useDiseño((s) => s.objetos)
+  // Solo «qué apps están en uso»: jamás `s.objetos` crudo (re-render a 60 Hz).
+  const idsAsignadas = useDiseño(useShallow((s) => idsPlantillasAsignadas(s.objetos)))
   const asistentes = useAsistentes((s) => s.lista)
   const guardar = useAsistentes((s) => s.guardar)
   const customs = usePlantillasCustom((s) => s.lista)
@@ -54,16 +52,13 @@ export function PlantillasCatalogo() {
 
   const [abierta, setAbierta] = useState<string | null>(null)
   const [modo, setModo] = useState<Modo>('asistente')
-  const [previsualizando, setPrevisualizando] = useState<string | null>(null)
   const [editor, setEditor] = useState<PlantillaCustom | 'nueva' | null>(null)
   const [renombrando, setRenombrando] = useState<number | null>(null)
   const [nombreTmp, setNombreTmp] = useState('')
-  const [arrastre, setArrastre] = useState<Arrastre | null>(null)
-  const [sobre, setSobre] = useState<number | null>(null)
   // Plantilla a la que se le está agregando un objeto (abre el selector 3D).
   const [agregandoA, setAgregandoA] = useState<string | null>(null)
 
-  const asignadas = new Set(objetos.map((o) => o.plantillaId).filter(Boolean))
+  const asignadas = new Set(idsAsignadas)
   const idsCustom = new Set(customs.map((c) => c.id))
 
   // Reconciliación: cualquier plantilla (sistema o custom) sin carpeta cae en la primera.
@@ -110,21 +105,29 @@ export function PlantillasCatalogo() {
     await eliminarGrupo(id)
   }
 
-  // Reordena carpetas: suelta la arrastrada justo antes de la carpeta destino.
-  const soltarEnGrupo = (destinoId: number) => {
-    if (!arrastre) return
-    if (arrastre.tipo === 'tarjeta') {
-      void mover(arrastre.plantillaId, destinoId)
-    } else if (arrastre.id !== destinoId) {
-      const ids = grupos.map((g) => g.id!).filter((x) => x !== arrastre.id)
-      const idx = ids.indexOf(destinoId)
-      void reordenar([...ids.slice(0, idx), arrastre.id, ...ids.slice(idx)])
-    }
-    setArrastre(null)
-    setSobre(null)
-  }
-
-  const previa = previsualizando ? getPlantilla(previsualizando) : null
+  /**
+   * El gesto compartido de la casa. Claves: `g:<id>` (cabecera de carpeta) y
+   * `t:<plantillaId>` (tarjeta). El destino es la carpeta bajo el dedo: una
+   * tarjeta se muda a ella y una carpeta se coloca justo antes de esa.
+   */
+  const gesto = useArrastre<number>(
+    (e, mano) => {
+      const cae = document.elementFromPoint(e.clientX, e.clientY)?.closest('[data-grupo]')
+      if (!cae) return null
+      const id = Number(cae.getAttribute('data-grupo'))
+      return mano === `g:${id}` ? null : id
+    },
+    (mano, destinoId) => {
+      if (mano.startsWith('t:')) {
+        void mover(mano.slice(2), destinoId)
+      } else {
+        const id = Number(mano.slice(2))
+        const ids = grupos.map((g) => g.id!).filter((x) => x !== id)
+        const idx = ids.indexOf(destinoId)
+        void reordenar([...ids.slice(0, idx), id, ...ids.slice(idx)])
+      }
+    },
+  )
 
   /** Tarjeta de una plantilla (app del sistema o custom) dentro de su carpeta. */
   const renderTarjeta = (p: Plantilla) => {
@@ -132,26 +135,21 @@ export function PlantillasCatalogo() {
     const asistente = asistenteDePlantilla(asistentes, p.id)
     const esCustom = idsCustom.has(p.id)
     const enUso = asignadas.has(p.id)
+    const gestoTarjeta = gesto.props(`t:${p.id}`)
     return (
       <li
         key={p.id}
-        draggable
-        onDragStart={(e) => {
-          e.stopPropagation()
-          setArrastre({ tipo: 'tarjeta', plantillaId: p.id })
-        }}
-        onDragEnd={() => {
-          setArrastre(null)
-          setSobre(null)
-        }}
-        className="cursor-grab rounded-lg border active:cursor-grabbing"
-        style={{ borderColor: `${p.color}33`, background: `${p.color}0d` }}
+        {...gestoTarjeta}
+        className={`cursor-grab rounded-lg border active:cursor-grabbing ${
+          gesto.enMano === `t:${p.id}` ? 'opacity-40' : ''
+        }`}
+        style={{ ...gestoTarjeta.style, borderColor: `${p.color}33`, background: `${p.color}0d` }}
       >
         {/* Cabecera: icono de la app (entra directo) + nombre + asistente + asignar */}
         <div className="flex w-full items-center gap-2 p-2.5">
           <button
             type="button"
-            onClick={() => setPrevisualizando(p.id)}
+            onClick={() => usePreviaPlantilla.getState().abrir(p.id)}
             title={t('plantillas.entrar', 'Entrar a la app')}
             className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-base transition hover:brightness-110"
             style={{ background: `${p.color}33` }}
@@ -276,21 +274,12 @@ export function PlantillasCatalogo() {
                     }
                     className="w-full"
                   >
-                    <MiniaturaModelo
-                      tipo={s.tipo ?? `recurso:${s.recurso}`}
-                      color={
-                        s.tipo
-                          ? META_ESPECIAL_PLANTILLA[s.tipo]?.color ?? '#94a3b8'
-                          : MODELOS[s.recurso!]?.defaultColor ?? '#94a3b8'
-                      }
-                      tema={tema}
-                      className="h-12 w-full object-contain"
-                    />
+                    <MiniaturaModelo {...tipoYColor(s)} tema={tema} className="h-12 w-full object-contain" />
                   </button>
                   {s.principal && (
                     <span
                       title={t('plantillas.objetoPrincipal', 'Objeto principal (entrada del cuarto)')}
-                      className="pointer-events-none absolute left-1 top-1 text-amber-300"
+                      className="pointer-events-none absolute start-1 top-1 text-amber-300"
                     >
                       <Icono nombre="estrella" />
                     </span>
@@ -299,7 +288,7 @@ export function PlantillasCatalogo() {
                     type="button"
                     onClick={() => void eliminarObjeto(p.id, i)}
                     title={t('plantillas.quitarObjeto', 'Quitar objeto')}
-                    className="absolute right-0.5 top-0.5 rounded px-1 text-[11px] text-white/40 transition hover:text-red-400"
+                    className="absolute end-0.5 top-0.5 rounded px-1 text-[11px] text-white/40 transition hover:text-red-400"
                   >
                     ✕
                   </button>
@@ -341,22 +330,23 @@ export function PlantillasCatalogo() {
           return (
             <section
               key={g.id}
-              onDragOver={(e) => {
-                e.preventDefault()
-                if (g.id != null) setSobre(g.id)
-              }}
-              onDrop={() => g.id != null && soltarEnGrupo(g.id)}
-              className={`rounded-xl transition ${sobre === g.id && arrastre ? 'bg-white/5 ring-1 ring-white/20' : ''}`}
+              data-grupo={g.id}
+              className={`rounded-xl transition ${
+                gesto.destino === g.id && gesto.enMano
+                  ? gesto.enMano.startsWith('t:')
+                    ? // Soltar una tarjeta dentro: se resalta la carpeta entera.
+                      'bg-white/5 ring-1 ring-accent/70'
+                    : // Reordenar carpetas: línea de inserción sobre la destino.
+                      'border-t-2 border-accent'
+                  : ''
+              }`}
             >
               {/* Encabezado de carpeta: arrastrable (reordenar) + nombre editable + borrar */}
               <div
-                draggable
-                onDragStart={() => g.id != null && setArrastre({ tipo: 'grupo', id: g.id })}
-                onDragEnd={() => {
-                  setArrastre(null)
-                  setSobre(null)
-                }}
-                className="mb-1.5 flex items-center gap-1.5 px-1"
+                {...(g.id != null && renombrando !== g.id ? gesto.props(`g:${g.id}`) : {})}
+                className={`mb-1.5 flex items-center gap-1.5 px-1 ${
+                  renombrando !== g.id ? 'cursor-grab active:cursor-grabbing' : ''
+                } ${gesto.enMano === `g:${g.id}` ? 'opacity-40' : ''}`}
               >
                 <span className="cursor-grab select-none text-white/25 active:cursor-grabbing" title={t('plantillaCustom.arrastrarGrupo', 'Arrastrar para reordenar')}>
                   ⠿
@@ -399,10 +389,10 @@ export function PlantillasCatalogo() {
                       }
                     }}
                     title={t('plantillaCustom.renombrarGrupo', 'Renombrar carpeta')}
-                    className="min-w-0 flex-1 truncate text-left text-[10px] font-bold uppercase tracking-wider text-white/30 transition hover:text-white/60"
+                    className="min-w-0 flex-1 truncate text-start text-[10px] font-bold uppercase tracking-wider text-white/30 transition hover:text-white/60"
                   >
                     {g.emoji ? <><Icono emoji={g.emoji} />{' '}</> : null}
-                    {g.nombre}
+                    {nombreCarpeta(t, g.nombre)}
                   </button>
                 )}
                 {/* Plegada, el conteo dice qué se está escondiendo. */}
@@ -471,52 +461,9 @@ export function PlantillasCatalogo() {
         />
       )}
 
-      {/* Previsualización: entra a la app sin necesidad de un cuarto. */}
-      {previa && (
-        <div className="fixed inset-0 z-50 flex flex-col ui-app">
-          <header
-            className="flex items-center gap-3 border-b border-white/10 px-4 py-3"
-            style={{ borderTopColor: previa.color }}
-          >
-            <span
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-base"
-              style={{ background: `${previa.color}33` }}
-            >
-              <Icono emoji={previa.icon} />
-            </span>
-            <h1 className="texto-vivo min-w-0 flex-1 truncate text-lg font-bold" style={vivo(previa.color)}>
-              {t(`room.${previa.id}.nombre`, previa.nombre).split(' · ')[0]}
-            </h1>
-            {/* Tutorial de la app, igual que en su cuarto (aquí ya está montada). */}
-            <BotonTutorialApp plantilla={previa} montada />
-            <button
-              type="button"
-              onClick={() => setPrevisualizando(null)}
-              className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-sm font-semibold transition hover:bg-white/20"
-            >
-              {t('plantillas.cerrarPrevia', '‹ Cerrar')}
-            </button>
-          </header>
-          <main className="min-h-0 flex-1 overflow-auto p-4 md:p-6">
-            <ErrorBoundary
-              titulo={`Error en ${previa.nombre}`}
-              textoReintentar={t('ui.reintentar', 'Reintentar')}
-            >
-              <Suspense
-                fallback={
-                  <div className="flex min-h-[40vh] items-center justify-center text-white/50">
-                    {t('ui.cargando', 'Cargando…')}
-                  </div>
-                }
-              >
-                <GateAppDemo plantillaId={previa.id}>
-                  <previa.App />
-                </GateAppDemo>
-              </Suspense>
-            </ErrorBoundary>
-          </main>
-        </div>
-      )}
+      {/* La previsualización («Entrar a la app») vive en `PlantillaPreviaOverlay`,
+          montado en la raíz de App: aquí dentro del <aside> su `fixed` quedaba
+          encajonado por el stacking context del panel. */}
     </section>
   )
 }

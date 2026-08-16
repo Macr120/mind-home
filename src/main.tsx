@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { DemoGate } from './demo/DemoGate'
+import { PuertaUnlock } from './core/ui/PuertaUnlock'
 import { aplicarSpawnDemo } from './demo/spawn'
 import { bindKeyboard } from './core/house/movement'
 import { bindAtajosPersonaje } from './core/house/atajosTeclado'
@@ -42,6 +43,17 @@ if (esDemo()) aplicarSpawnDemo()
 // Pide al navegador marcar el almacenamiento como persistente: sin esto puede
 // purgar IndexedDB (todos los datos del usuario) bajo presión de disco.
 void navigator.storage?.persist?.()
+
+// Un deploy nuevo invalida los chunks con hash viejo: recargar UNA sola vez
+// (la marca evita el bucle si la recarga tampoco encuentra el chunk).
+window.addEventListener('vite:preloadError', (e) => {
+  if (sessionStorage.getItem('mh.reloadChunk')) return
+  e.preventDefault()
+  sessionStorage.setItem('mh.reloadChunk', '1')
+  location.reload()
+})
+// Arranque sano: a los 10 s se libera la marca para futuros deploys.
+setTimeout(() => sessionStorage.removeItem('mh.reloadChunk'), 10_000)
 
 /**
  * Service worker: solo notificaciones, no cachea nada (ver public/sw.js). Tocar
@@ -89,10 +101,14 @@ if (import.meta.env.DEV) void import('./demo/exportarCasa')
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* Sin puerta: la app es gratis en modo local. Lo que se cobra (créditos de
-        IA y sincronización) lo revalida el servidor, no una pantalla. */}
+    {/* La puerta del pago único: la casa PROPIA exige el unlock ($10.99 con el
+        primer mes de IA y sync incluido); la demo sigue gratis y los builds sin
+        backend ni instalaciones previas no ven puerta (edicion.ts::tieneUnlock).
+        Lo cobrable (créditos, sync) lo revalida además el servidor. */}
     <DemoGate>
-      <App />
+      <PuertaUnlock>
+        <App />
+      </PuertaUnlock>
     </DemoGate>
   </StrictMode>,
 )

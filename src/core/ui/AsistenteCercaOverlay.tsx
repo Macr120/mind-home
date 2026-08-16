@@ -54,7 +54,7 @@ function Burbuja({ asistente }: { asistente: Asistente }) {
           if (el) registrarDom(anclaId, el)
           else quitarDom(anclaId)
         }}
-        className="absolute left-0 top-0"
+        className="absolute start-0 top-0"
         style={{ display: 'none' }}
       >
         <div className="flex -translate-x-1/2 -translate-y-full select-none flex-col items-center">

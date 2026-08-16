@@ -5,7 +5,7 @@ import { esEscritorio, puedeMostrarPagos } from '../plataforma'
 import { hayPagos, obtenerRecargas, comprarRecarga, type OfertaPro } from '../cuenta/paywall'
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
 import { useSesion } from '../cuenta/sesionStore'
-import { esPro, fuePro } from '../edicion'
+import { esPro, esTrial, fuePro } from '../edicion'
 import { salirDemo } from '../../demo/modo'
 
 /**
@@ -122,8 +122,10 @@ function AvisoDemo() {
 function CuotaAgotada() {
   const t = useT()
   const abierto = useCuotaAgotada((s) => s.abierto)
+  const motivo = useCuotaAgotada((s) => s.motivo)
   const cerrar = useCuotaAgotada((s) => s.cerrar)
   const usuario = useSesion((s) => s.usuario)
+  const planCrudo = useSesion((s) => s.plan)
   const [recargas, setRecargas] = useState<OfertaPro[]>([])
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -147,17 +149,49 @@ function CuotaAgotada() {
 
   if (!abierto) return null
 
-  const pro = esPro()
+  const pro = esPro() || esTrial()
   const vencida = !pro && fuePro()
+  // El mes incluido del unlock terminó (plan sigue en 'trial' pero ya expiró).
+  const trialVencido = !pro && !vencida && planCrudo === 'trial'
   // La cuota mensual se renueva el día 1 del mes siguiente (periodo UTC).
   const ahora = new Date()
   const renueva = new Date(Date.UTC(ahora.getUTCFullYear(), ahora.getUTCMonth() + 1, 1))
+
+  // El techo es el bucket de uso REAL del mes: recargar no lo quita, así que
+  // tiene su propia cara y no ofrece compras.
+  if (motivo === 'techo') {
+    return (
+      <Marco>
+        <h2 className="text-sm font-bold text-white/90">
+          {t('cuenta.techo.titulo', 'Alcanzaste el límite de uso del mes')}
+        </h2>
+        <p className="text-xs leading-snug text-white/60">
+          {t(
+            'cuenta.techo.cuerpo',
+            'Este mes tus peticiones usaron mucho más contexto de lo normal y se llegó al límite de uso justo. Se restablece el {f}.',
+            { f: renueva.toLocaleDateString() },
+          )}
+        </p>
+        <div className="space-y-1.5 pt-1">
+          <button
+            type="button"
+            onClick={cerrar}
+            className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
+          >
+            {t('comun.entendido', 'Entendido')}
+          </button>
+        </div>
+      </Marco>
+    )
+  }
 
   const titulo = pro
     ? t('cuenta.cuota.titulo', 'Se acabaron tus créditos del mes')
     : vencida
       ? t('cuenta.renovar.titulo', 'Tu suscripción terminó')
-      : t('cuenta.cuota.tituloSin', 'Necesitas créditos para usar la IA')
+      : trialVencido
+        ? t('cuenta.cuota.tituloTrial', 'Tu mes incluido terminó')
+        : t('cuenta.cuota.tituloSin', 'Necesitas créditos para usar la IA')
 
   const cuerpo = pro
     ? t('cuenta.cuota.cuerpo', 'Tus créditos se renuevan el {f}.', { f: renueva.toLocaleDateString() })
@@ -166,10 +200,15 @@ function CuotaAgotada() {
           'cuenta.cuota.cuerpoVencida',
           'Tus datos siguen en este dispositivo. Renueva para recuperar los créditos del mes y la sincronización, o recarga créditos sueltos.',
         )
-      : t(
-          'cuenta.cuota.cuerpoLocal',
-          'La app y tus datos son tuyos sin pagar nada. Solo la IA se cobra: recarga créditos cuando los necesites, o suscríbete y recíbelos cada mes.',
-        )
+      : trialVencido
+        ? t(
+            'cuenta.cuota.cuerpoTrial',
+            'La app y tus datos son tuyos para siempre. Suscríbete a Pro para seguir con los créditos mensuales y la sincronización, o recarga créditos sueltos cuando los necesites.',
+          )
+        : t(
+            'cuenta.cuota.cuerpoLocal',
+            'La app y tus datos son tuyos sin pagar nada. Solo la IA se cobra: recarga créditos cuando los necesites, o suscríbete y recíbelos cada mes.',
+          )
 
   const alComprar = async (oferta: OfertaPro) => {
     if (ocupado) return

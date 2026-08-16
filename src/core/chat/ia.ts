@@ -3,7 +3,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import { getPlantilla } from '../appContrato'
 import type { CampoCaptura } from '../appContrato'
 import { appsAsignadas } from './dispatcher'
-import { TOOLS_EDITOR, ejecutarToolEditor, descripcionCuartos, hayIntencionEditor } from './editorAcciones'
+import { hayIntencionEditor } from './editorIntencion'
 import { memoriasRepo, rutinasRepo } from '../data/repository'
 import type { DestinoChat, PasoRutina } from '../data/db'
 import { destinoDeTool } from './destinoChat'
@@ -12,9 +12,10 @@ import { getAsistente } from '../state/asistentesStore'
 import { useDiseño } from '../state/disenoStore'
 import { TIPO_PIEZAS } from '../house/catalogo'
 import { playerPos } from '../state/houseStore'
-import type { Pieza3D } from './mascotas'
+import type { Asistente, Pieza3D } from './mascotas'
+import { extraerEmocion, INSTRUCCION_EMOCION, type EmocionId } from './emociones'
 import { fechaLocalISO } from '../fechaLocal'
-import { devIA, esPro, iaHabilitada } from '../edicion'
+import { devIA, iaHabilitada, tieneAcceso } from '../edicion'
 import { usarViaCuenta, iaChatCuenta, ErrorIA } from '../cuenta/api'
 import { hayBackend } from '../cuenta/supabase'
 import { opDeTexto } from '../cuenta/costos'
@@ -133,13 +134,25 @@ export function iaActiva(): boolean {
 }
 
 /**
+ * ¿El transporte actual manda un PDF tal cual? Proxy de la cuenta: sí (Anthropic
+ * con bloque `document`, Gemini con `inlineData`). BYOK: Claude (document) y
+ * Gemini (data URL en su capa compat). A los demás (ChatGPT/DeepSeek/Ollama) el
+ * ChatBox les extrae el texto con pdfjs antes de enviar.
+ */
+export function pdfNativo(): boolean {
+  if (usarViaCuenta()) return true
+  const id = getProveedor().id
+  return id === 'claude' || id === 'gemini'
+}
+
+/**
  * Como `iaActiva()`, pero solo si puede EJECUTAR de verdad. Para la IA de FONDO
  * (latidos, efemérides, reparto): esas llamadas no deben disparar avisos sin
  * acción del usuario NI gastar créditos de recarga por su cuenta — quien compró
  * 150 créditos no espera encontrarlos vacíos por los latidos del personaje.
  */
 export function iaOperativa(): boolean {
-  return (esPro() || devIA()) && iaActiva()
+  return (tieneAcceso() || devIA()) && iaActiva()
 }
 
 /**
@@ -320,10 +333,10 @@ function construirTools(cuartosPermitidos?: string[]): ToolNeutra[] {
 
 // ----- Interpretación -----
 
-/** Imagen adjunta del usuario (foto de comida, ticket, etc.). */
+/** Adjunto del usuario: imagen (foto de comida, ticket…) o PDF (application/pdf). */
 export interface ImagenAdjunta {
   base64: string
-  mediaType: string // ej. image/jpeg
+  mediaType: string // ej. image/jpeg o application/pdf
 }
 
 export interface ResultadoIA {
@@ -340,6 +353,8 @@ export interface ResultadoIA {
   ediciones: string[]
   /** Comentario del modelo en la voz de la mascota (null = usar plantilla). */
   respuesta: string | null
+  /** Reacción emocional que el modelo etiquetó en su respuesta (marcador ya quitado). */
+  emocion: EmocionId | null
   /**
    * Chips de navegación del mensaje: un turno puede tocar varias apps (gasto en
    * Finanzas + comida en Cocina) y cada una aporta el suyo, en orden de ejecución.
@@ -362,14 +377,33 @@ interface LlamadaTool {
   input: Record<string, unknown>
 }
 
-async function construirSystem(mascotaId: string, conImagen: boolean, conEditor: boolean): Promise<string> {
-  const mascota = getAsistente(mascotaId)
-  const memorias = (await memoriasRepo.list()).filter((m) => m.vigente)
-  const hoy = fechaLocalISO()
+/** Identidad del personaje (personalidad + historia), compartida por los system del chat y del Chat AR. */
+function lineasPersonaje(mascota: Asistente): string[] {
   return [
-    `Eres ${mascota.nombre} ${mascota.emoji}, el asistente-arquitecto de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
     mascota.personalidad ? `Personalidad: ${mascota.personalidad}` : '',
     mascota.historia ? `Tu historia/contexto como personaje: ${mascota.historia}` : '',
+  ]
+}
+
+/** Contexto común de los system del chat: la fecha de hoy y las memorias vigentes del usuario. */
+async function lineasContexto(): Promise<string[]> {
+  const memorias = (await memoriasRepo.list()).filter((m) => m.vigente)
+  return [
+    `Hoy es ${fechaLocalISO()}.`,
+    memorias.length
+      ? `Lo que recuerdas del usuario:\n${memorias.map((m) => `- ${m.hecho}`).join('\n')}`
+      : '',
+  ]
+}
+
+async function construirSystem(mascotaId: string, adjunto: 'imagen' | 'pdf' | null, conEditor: boolean): Promise<string> {
+  const mascota = getAsistente(mascotaId)
+  // El párrafo de arquitecto necesita los ids de los cuartos, que viven en el
+  // módulo diferido (para entonces `interpretarIA` ya lo está descargando).
+  const descCuartos = conEditor ? (await cargarEditor()).descripcionCuartos() : ''
+  return [
+    `Eres ${mascota.nombre} ${mascota.emoji}, el asistente-arquitecto de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
+    ...lineasPersonaje(mascota),
     mascota.cuartos.length
       ? `Eres responsable de archivar SOLO estas apps: ${mascota.cuartos
           .map((id) => getPlantilla(id)?.nombre ?? id)
@@ -378,6 +412,7 @@ async function construirSystem(mascotaId: string, conImagen: boolean, conEditor:
     'Cuando el usuario te cuente qué hizo, registra los datos con las herramientas (usa varias si el mensaje toca varios cuartos; estima valores razonables como calorías si no se mencionan). Si pide crear una rutina o hábito recurrente, usa crear_rutina con pasos concretos y, cuando el paso sea medible, su esquema y valores para auto-registro. Después de usar herramientas responde SIEMPRE con un comentario breve (1–2 frases) en tu personalidad y en el idioma del usuario.',
     'También puede platicar contigo de cualquier tema: preguntas de curiosidad o conocimiento general («¿por qué el cielo es azul?»), opiniones o charla casual. Ahí no uses herramientas ni fuerces ningún registro: contesta de verdad, con una explicación clara y correcta (2–5 frases, admite si no estás seguro de algo) en tu personalidad y en el idioma del usuario. Cuando salga natural, remata con UNA frase que conecte el tema con la vida de la casa (explorarlo a fondo en la biblioteca, la calma del jardín, probar algo en la cocina, registrarlo en un cuarto…); si no hay conexión razonable, omite el guiño en vez de forzarlo.',
     'Si recibes mensajes previos, son el contexto de una conversación continua: retómala con naturalidad, no repitas saludos y no vuelvas a registrar lo que ya quedó registrado en turnos anteriores.',
+    INSTRUCCION_EMOCION,
     'Si el usuario pide crear/generar/hacer un objeto, mueble, planta, aparato, personaje, animal o elemento arquitectónico en 3D (ej. "crea una silla de madera", "genera un gato robot", "haz una columna griega"), usa crear_modelo_3d: se generará y se guardará en su inventario, en la carpeta según el tipo.',
     imagenIaActiva()
       ? 'Si pide una IMAGEN, foto, dibujo o ilustración («una imagen de X», «dibújame X»), usa generar_imagen: la imagen aparecerá dentro de la conversación. Los objetos, muebles y personajes 3D para la casa son de crear_modelo_3d, no de generar_imagen.'
@@ -385,7 +420,7 @@ async function construirSystem(mascotaId: string, conImagen: boolean, conEditor:
     // Párrafos de arquitecto: solo cuando el mensaje trae las TOOLS_EDITOR
     // (gating por intención — ahorra ~5.5k tokens en la plática normal).
     conEditor
-      ? `También eres el arquitecto de la casa: cuando el usuario pida MODIFICAR la casa (pintar/crear/renombrar/eliminar cuartos, pisos, techos, objetos, vestir o redimensionar al personaje, tema estacional, fondo de cielo) o controlar la experiencia (música ambiental, vista de cámara, montar un vehículo, abrir su resumen Wrapped) usa las herramientas editor_* (puedes usar varias en un mismo mensaje). Para apuntar a un cuarto, usa su id. ${descripcionCuartos()}`
+      ? `También eres el arquitecto de la casa: cuando el usuario pida MODIFICAR la casa (pintar/crear/renombrar/eliminar cuartos, pisos, techos, objetos, vestir o redimensionar al personaje, tema estacional, fondo de cielo) o controlar la experiencia (música ambiental, vista de cámara, montar un vehículo, abrir su resumen Wrapped) usa las herramientas editor_* (puedes usar varias en un mismo mensaje). Para apuntar a un cuarto, usa su id. ${descCuartos}`
       : '',
     conEditor
       ? 'Las CONFIGURACIONES de la app también son tuyas: idioma, tema y tipografía de la interfaz, apariencia (claro/oscuro/transparente), estilo de iconos y vidrio de los paneles, estilo visual del mapa y sus efectos, avisos y respaldo. Aplica el cambio con su herramienta en vez de explicar dónde está el menú. Lo que NO puedes hacer por chat —iniciar sesión, restaurar un respaldo, borrar los datos— ábrelo con editor_ajustes_abrir en su grupo para que el usuario lo confirme.'
@@ -396,13 +431,13 @@ async function construirSystem(mascotaId: string, conImagen: boolean, conEditor:
     conEditor
       ? 'Cuando un tema se entienda mejor DIBUJADO —una explicación con pasos, tipos, partes o dos cosas comparadas— puedes llevarlo a la app Ideas con editor_mapa_ideas, que dibuja el mapa entero y lo abre. Hazlo cuando el usuario lo pida o acepte tu ofrecimiento; si no, basta con ofrecérselo en una frase al final de la explicación.'
       : '',
-    conImagen
+    adjunto === 'imagen'
       ? 'El mensaje incluye una imagen: interprétala y registra lo que muestre (ej. foto de un platillo → registra la comida estimando macros; un ticket → registra el gasto).'
       : '',
-    `Hoy es ${hoy}.`,
-    memorias.length
-      ? `Lo que recuerdas del usuario:\n${memorias.map((m) => `- ${m.hecho}`).join('\n')}`
+    adjunto === 'pdf'
+      ? 'El mensaje incluye un documento PDF: léelo, resume lo esencial y registra los datos que correspondan (ej. una factura → registra el gasto; un plan de entrenamiento → sus pasos).'
       : '',
+    ...(await lineasContexto()),
   ]
     .filter(Boolean)
     .join('\n\n')
@@ -428,8 +463,8 @@ async function llamarCuenta(
     maxTokens: perfil === 'calidad' ? 8192 : 2048,
     perfil,
     // El chat de la casa cabe en 1 crédito porque su entrada (tools + system)
-    // va cacheada; el modelo 3D paga aparte.
-    op: perfil === 'calidad' ? 'modelo3d' : 'chat',
+    // va cacheada; el modelo 3D y el PDF (entrada gorda por página) pagan aparte.
+    op: imagen?.mediaType === 'application/pdf' ? 'pdf' : perfil === 'calidad' ? 'modelo3d' : 'chat',
   })
   return { respuesta: r.texto?.trim() || null, llamadas: r.llamadas }
 }
@@ -451,14 +486,18 @@ async function llamarClaude(
   const client = new AnthropicSDK({ apiKey: getIaKey('claude'), dangerouslyAllowBrowser: true, maxRetries: 1 })
   const contenido: Anthropic.ContentBlockParam[] = []
   if (imagen) {
-    contenido.push({
-      type: 'image',
-      source: {
-        type: 'base64',
-        media_type: imagen.mediaType as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp',
-        data: imagen.base64,
-      },
-    })
+    contenido.push(
+      imagen.mediaType === 'application/pdf'
+        ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: imagen.base64 } }
+        : {
+            type: 'image',
+            source: {
+              type: 'base64',
+              media_type: imagen.mediaType as 'image/jpeg' | 'image/png' | 'image/gif' | 'image/webp',
+              data: imagen.base64,
+            },
+          },
+    )
   }
   contenido.push({ type: 'text', text: texto })
 
@@ -727,6 +766,32 @@ export async function conversarIA(
 }
 
 /**
+ * Conversación cara a cara del Chat AR: el personaje responde SIN herramientas
+ * (una tool de editor abriría un editor a pantalla completa debajo del overlay)
+ * y en frases cortas pensadas para decirse en voz alta. Cobra op `texto`
+ * (1 crédito vía opDeTexto). Devuelve la respuesta limpia + la emoción etiquetada.
+ */
+export async function conversarConAsistente(
+  texto: string,
+  asistenteId: string,
+  historial: MensajeIA[] = [],
+): Promise<{ respuesta: string; emocion: EmocionId | null }> {
+  const mascota = getAsistente(asistenteId)
+  const system = [
+    `Eres ${mascota.nombre} ${mascota.emoji}, un asistente de Mind Planner Home: una casa virtual donde cada cuarto registra una parte de la vida del usuario.`,
+    ...lineasPersonaje(mascota),
+    'Estás en modo cámara AR, cara a cara con el usuario a través de su cámara. Responde en 1–3 frases naturales, pensadas para decirse en voz alta, en el idioma del usuario. Si te pide registrar datos o editar la casa, sugiérele amablemente hacerlo desde el chat de la casa.',
+    INSTRUCCION_EMOCION,
+    ...(await lineasContexto()),
+  ]
+    .filter(Boolean)
+    .join('\n\n')
+  const r = await conversarIA(system, [...historial, { rol: 'usuario', texto }], 500)
+  const ex = extraerEmocion(r)
+  return { respuesta: ex.texto || r, emocion: ex.emocion }
+}
+
+/**
  * Una sola pregunta al modelo SOBRE una imagen, sin herramientas ni historial
  * (visión pura, multi-proveedor). Devuelve el texto crudo; lanza si viene vacío.
  */
@@ -826,13 +891,25 @@ export async function generarModelo3D(
 }
 
 /**
+ * `editorAcciones` (54 tools + ~40 catálogos, ~120 KB) se descarga la PRIMERA
+ * vez que un mensaje huele a edición; memoizado para el resto de la sesión.
+ */
+let modEditor: Promise<typeof import('./editorAcciones')> | null = null
+const cargarEditor = () => (modEditor ??= import('./editorAcciones'))
+
+/**
  * TOOLS_EDITOR con la última tool marcada como breakpoint de caché: el bloque
  * es estático por build y va PRIMERO en el arreglo, así el prefijo cacheado
- * (~5.5k tokens) se comparte entre TODOS los usuarios del proxy.
+ * (~5.5k tokens) se comparte entre TODOS los usuarios del proxy. Se computa una
+ * sola vez tras la primera carga: contenido y orden idénticos a cuando era
+ * estático, así que el prefijo cacheado no cambia.
  */
-const TOOLS_EDITOR_CACHE: ToolNeutra[] = TOOLS_EDITOR.map((t, i, a) =>
-  i === a.length - 1 ? { ...t, cache: true } : t,
-)
+let toolsEditorCache: ToolNeutra[] | null = null
+async function toolsEditorConCache(): Promise<ToolNeutra[]> {
+  const { TOOLS_EDITOR } = await cargarEditor()
+  toolsEditorCache ??= TOOLS_EDITOR.map((t, i, a) => (i === a.length - 1 ? { ...t, cache: true } : t))
+  return toolsEditorCache
+}
 
 export async function interpretarIA(
   texto: string,
@@ -855,14 +932,21 @@ export async function interpretarIA(
   // si el mensaje o los últimos turnos huelen a edición/control de la casa.
   const conEditor = hayIntencionEditor([...historial.slice(-2).map((m) => m.texto), texto])
   const tools = conEditor
-    ? [...TOOLS_EDITOR_CACHE, ...construirTools(getAsistente(mascotaId).cuartos)]
+    ? [...(await toolsEditorConCache()), ...construirTools(getAsistente(mascotaId).cuartos)]
     : construirTools(getAsistente(mascotaId).cuartos)
-  const system = await construirSystem(mascotaId, !!imagen, conEditor)
+  const system = await construirSystem(
+    mascotaId,
+    imagen ? (imagen.mediaType === 'application/pdf' ? 'pdf' : 'imagen') : null,
+    conEditor,
+  )
 
   const { respuesta, llamadas } =
     prov.id === 'claude'
       ? await llamarClaude(system, texto, imagen, tools, historial)
       : await llamarOpenAICompat(prov, system, texto, imagen, tools, historial)
+
+  // El marcador [[emocion:x]] se queda aquí: jamás llega a la burbuja, al TTS ni a Dexie.
+  const extraccion = respuesta ? extraerEmocion(respuesta) : null
 
   const resultado: ResultadoIA = {
     roomIds: [],
@@ -870,11 +954,13 @@ export async function interpretarIA(
     memoriaGuardada: false,
     ediciones: [],
     destinos: [],
-    respuesta,
+    respuesta: extraccion ? extraccion.texto || null : null,
+    emocion: extraccion?.emocion ?? null,
   }
 
   for (const { name, input } of llamadas) {
     if (name.startsWith('editor_')) {
+      const { ejecutarToolEditor } = await cargarEditor()
       const confirm = await ejecutarToolEditor(name, input)
       if (confirm) {
         resultado.ediciones.push(confirm)

@@ -15,7 +15,6 @@ import {
 import { hornearPrenda, PIERDE_MARCHA } from '../../house/hornearPrenda'
 import { GuardarropaEditor } from './GuardarropaEditor'
 import { useReordenRopa } from './useEditorSecciones'
-import { iniciarArrastre } from '../arrastre'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import type { CarpetaRopa } from '../../data/db'
@@ -50,7 +49,10 @@ export function CarpetasDeCategoria({
   const visibles = dePropia.filter((c) => !c.oculta)
   const ocultas = dePropia.filter((c) => c.oculta)
 
-  const arr = useReordenRopa((ids) => void reordenarCarpetas(ids))
+  const arr = useReordenRopa(
+    visibles.map((c) => c.id!),
+    (ids) => void reordenarCarpetas(ids),
+  )
 
   const nuevaCarpeta = async () => {
     const nombre = await pedirTexto({
@@ -66,7 +68,6 @@ export function CarpetasDeCategoria({
         <Carpeta
           key={c.id}
           carpeta={c}
-          hermanas={visibles}
           ropa={ropa}
           setPrenda={setPrenda}
           esAvatar={esAvatar}
@@ -103,7 +104,7 @@ function CarpetasOcultas({ carpetas }: { carpetas: CarpetaRopa[] }) {
         <Icono nombre="ver" /> {carpetas.length}
       </button>
       {abierto && (
-        <div className="absolute bottom-full right-0 z-10 mb-1 w-44 space-y-1 rounded-lg border border-white/10 bg-black/85 p-1.5 backdrop-blur">
+        <div className="absolute bottom-full end-0 z-10 mb-1 w-44 space-y-1 rounded-lg border border-white/10 bg-black/85 p-1.5 backdrop-blur">
           <p className="px-1 text-[10px] uppercase tracking-wider text-white/40">
             {t('editor.ropa.ocultas', 'Carpetas escondidas')}
           </p>
@@ -112,7 +113,7 @@ function CarpetasOcultas({ carpetas }: { carpetas: CarpetaRopa[] }) {
               key={c.id}
               type="button"
               onClick={() => void restaurar(c.id!)}
-              className="flex w-full items-center gap-1.5 rounded-md px-1.5 py-1 text-left text-[11px] text-white/70 transition hover:bg-white/10"
+              className="flex w-full items-center gap-1.5 rounded-md px-1.5 py-1 text-start text-[11px] text-white/70 transition hover:bg-white/10"
             >
               <Icono emoji={c.emoji ?? '📁'} />
               <span className="min-w-0 flex-1 truncate">{c.nombre}</span>
@@ -129,14 +130,12 @@ type Reorden = ReturnType<typeof useReordenRopa>
 
 function Carpeta({
   carpeta,
-  hermanas,
   ropa,
   setPrenda,
   esAvatar,
   arr,
 }: {
   carpeta: CarpetaRopa
-  hermanas: CarpetaRopa[]
   ropa: Ropa
   setPrenda: (id: PrendaId, color: string | null) => void
   esAvatar: boolean
@@ -183,45 +182,20 @@ function Carpeta({
 
   return (
     <div
+      data-carpeta-ropa={id}
       className={[
-        'overflow-hidden rounded-lg border bg-white/5 transition',
-        esObjetivo ? 'border-emerald-400/50 ring-1 ring-emerald-400/30' : 'border-white/10',
+        'overflow-hidden rounded-lg border border-white/10 bg-white/5 transition',
+        esObjetivo ? 'border-t-2 border-t-accent' : '',
         arr.arrastrando === id ? 'opacity-40' : 'opacity-100',
       ].join(' ')}
-      onDragEnter={(e) => {
-        e.preventDefault()
-        arr.entrarObjetivo(id)
-      }}
-      onDragOver={(e) => e.preventDefault()}
-      onDrop={(e) => {
-        e.preventDefault()
-        arr.soltar(id, hermanas.map((c) => c.id!))
-      }}
     >
-      <div className="flex items-center">
-        <button
-          type="button"
-          draggable
-          onDragStart={(e) => {
-            iniciarArrastre(
-              e.currentTarget.parentElement?.parentElement ?? e.currentTarget,
-              e.dataTransfer,
-              e.nativeEvent.offsetX,
-              e.nativeEvent.offsetY,
-            )
-            arr.iniciarArrastre(id)
-          }}
-          onDragEnd={arr.finArrastre}
-          title={t('editor.sec.reordenar', 'Arrastrar para reordenar')}
-          className="ml-0.5 flex h-7 w-6 shrink-0 cursor-grab items-center justify-center rounded text-sm leading-none text-white/35 transition hover:bg-white/10 hover:text-white/70 active:cursor-grabbing"
-        >
-          ⠿
-        </button>
+      {/* El gesto va en la cabecera entera (sin asa): agarra y arrastra. */}
+      <div {...arr.props(String(id))} className="flex cursor-grab items-center">
         <button
           type="button"
           onClick={() => toggle(`ropa-carp-${id}`)}
           aria-expanded={abierto}
-          className="flex min-w-0 flex-1 items-center gap-2 py-2 pr-1 text-left transition hover:bg-white/10"
+          className="flex min-w-0 flex-1 items-center gap-2 py-2 pe-1 ps-2 text-start transition hover:bg-white/10"
         >
           <span className="text-base leading-none">
             <Icono emoji={carpeta.emoji ?? '📁'} />
@@ -247,7 +221,7 @@ function Carpeta({
               ? t('editor.ropa.ocultarTip', 'Esconder la carpeta')
               : t('editor.ropa.borrarTip', 'Borrar la carpeta')
           }
-          className="mr-1 grid h-7 w-7 shrink-0 place-items-center text-xs text-white/40 transition hover:bg-red-500/25 hover:text-white/80"
+          className="me-1 grid h-7 w-7 shrink-0 place-items-center text-xs text-white/40 transition hover:bg-red-500/25 hover:text-white/80"
         >
           <Icono nombre={carpeta.base ? 'ocultar' : 'basura'} />
         </button>
@@ -344,7 +318,7 @@ function FilaFabrica({
       <button
         type="button"
         onClick={() => setPrenda(prendaId, puesta ? null : color)}
-        className="flex min-w-0 flex-1 items-center gap-2 text-left"
+        className="flex min-w-0 flex-1 items-center gap-2 text-start"
       >
         <span className="text-lg leading-none">
           <Icono emoji={meta?.emoji ?? '👕'} />

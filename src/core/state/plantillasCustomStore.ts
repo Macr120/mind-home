@@ -356,4 +356,4 @@ db.plantillasCustom
       publicar(rows)
     }
   })
-  .catch(() => {})
+  .catch((e) => console.warn('[MPH] Las plantillas custom no cargaron de Dexie', e))

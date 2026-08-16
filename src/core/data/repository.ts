@@ -58,7 +58,10 @@ function createRepository<T extends { id?: number }>(
           let q = table.orderBy(orderBy)
           if (reverse) q = q.reverse()
           return await (limite ? q.limit(limite) : q).toArray()
-        } catch {
+        } catch (e) {
+          // Caer aquí materializa la tabla ENTERA y ordena en JS en cada
+          // escritura: si pasa por un índice que falta, tiene que verse en DEV.
+          if (import.meta.env.DEV) console.warn(`[MPH] orderBy('${orderBy}') sin índice en ${table.name}`, e)
           const all = await table.toArray()
           if (orderBy !== 'id') {
             all.sort((a, b) => {
@@ -147,8 +150,6 @@ export const lecturasDiarioRepo = createRepository(db.lecturasDiario, 'fecha', f
 
 /** Personalización · guardarropa a medida del personaje (prendas propias). */
 export const prendasCustomRepo = createRepository(db.prendasCustom, 'creadoEn', false)
-/** Personalización · carpetas del guardarropa (Categoría › Carpeta › Elementos). */
-export const carpetasRopaRepo = createRepository(db.carpetasRopa, 'orden', false)
 /** Personalización · atuendos guardados por el usuario (combinaciones de prendas). */
 export const atuendosGuardadosRepo = createRepository(db.atuendosGuardados, 'creadoEn', false)
 
