@@ -17,19 +17,28 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
                   blobs.ts                 RevenueCat Web Billing ── Stripe
 ```
 
-- **Modelo de negocio (ago 2026)**: DOS MODOS. **Local** gratis y sin cuenta (la
-  app entera sobre Dexie; la IA se paga con recargas de créditos que no caducan) y
-  **Pro** a 4.99 USD/mes (créditos mensuales + sync), vendido únicamente en la web
-  pública (`web/`, modelo Spotify: las apps de tienda no muestran compra). No hay
-  puerta de entrada: lo cobrable lo revalida el servidor.
-- **Plan**: `perfiles.plan` (`local`/`pro`) es la fuente de verdad; lo escriben solo
-  el trigger de alta y el webhook de RevenueCat. El cliente lo espeja en
-  `localStorage mh.planReal`/`mh.planExpira`/`mh.fuePro` para que
-  `esPro()`/`fuePro()` respondan síncronos (y offline). `fue_pro` ya no es un pase
-  de entrada: solo decide el copy de los avisos.
-- **Sync solo Pro**: gate en cliente (`motor.ts`) y en servidor (`tiene_pro()` en
-  `sync_push`, policy de `registros` y policy del bucket): al cancelar, los datos
-  remotos quedan inaccesibles (sin borrarse) hasta renovar.
+- **Modelo de negocio (15-ago-2026)**: PAGO ÚNICO + suscripción opcional. La
+  **demo** (no persistente) es el free tier. El **unlock** (`unlock_casa`,
+  $10.99 pago único) desbloquea la casa propia para siempre e incluye el
+  **primer mes** (plan `trial`: 30 días con pool de 700 créditos + sync, sin
+  tarjeta). **Pro** a 4.99 USD/mes (créditos mensuales + sync), vendido
+  únicamente en la web pública (`web/`, modelo Spotify: las apps de tienda no
+  muestran compra). La IA sin plan se paga con recargas de créditos que no
+  caducan. La puerta cliente es `PuertaUnlock` (main.tsx): instalaciones
+  previas quedan con derechos adquiridos (`mh.unlockLocal`, marcado por
+  `mh.bienvenida`) y un build sin backend no tiene puerta; lo cobrable lo
+  revalida el servidor.
+- **Plan**: `perfiles.plan` (`local`/`pro`/`trial`) es la fuente de verdad; lo
+  escriben solo el trigger de alta y el webhook de RevenueCat. El cliente lo
+  espeja en `localStorage mh.planReal`/`mh.planExpira`/`mh.fuePro`/`mh.unlock`
+  para que `esPro()`/`esTrial()`/`tieneUnlock()` respondan síncronos (y
+  offline). El trial expira PEREZOSO: `plan_expira` en pasado anula pool y sync
+  sin webhook. `fue_pro` ya no es un pase de entrada: solo decide el copy de
+  los avisos.
+- **Sync solo con acceso** (Pro o trial vigentes): gate en cliente (`motor.ts`)
+  y en servidor (`tiene_pro()`, que desde `20260815000001` incluye `trial`, en
+  `sync_push`, policy de `registros` y policy del bucket): al cancelar o vencer
+  el trial, los datos remotos quedan inaccesibles (sin borrarse) hasta renovar.
 - **Recargas**: productos one-time `recarga_150` / `recarga_600` / `recarga_1500`
   ($1.99 / $4.99 / $9.99, SIN entitlement) → el webhook abona
   `perfiles.creditos_extra`; `consumir_cuota_ia` los gasta cuando el pool mensual
@@ -37,7 +46,8 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
   utilizables aunque el plan expire.
 - **IA**: con sesión y créditos, `ia.ts`/`imagenIA.ts` llaman a las Edge Functions
   con la clave del SERVIDOR y cuota en **créditos POR OPERACIÓN** (`costo_op()`:
-  chat/texto/vision = 1, imagen = 3, texto_largo = 4, modelo3d/imagen_alta = 10).
+  chat/texto/vision/voz = 1, imagen/tts = 3, texto_largo/pdf = 4,
+  modelo3d/imagen_alta = 10).
   El cliente declara la `op` y el servidor le impone su tope de `max_tokens`
   (`TOPES` en `ia-chat`) y límites de tamaño de ENTRADA (system, nº/tamaño de
   mensajes, imagen), así que declarar una op barata solo consigue una respuesta
@@ -160,10 +170,13 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
 2. Crear el producto de suscripción mensual a **4.99 USD** con precio local por
    región (la multimoneda es pura config; el cliente muestra el `formattedPrice`
    que manda RC), el entitlement `pro` y el offering `default`.
-3. Crear los **tres productos one-time, SIN entitlement**: `recarga_150` ($1.99),
-   `recarga_600` ($4.99) y `recarga_1500` ($9.99). Los ids exactos importan: el
-   webhook los mapea a +150/+600/+1500 créditos y el cliente los busca por id en
-   todos los offerings. Añadirlos a un offering. **Sin trial** en ningún producto.
+3. Crear los **cuatro productos one-time, SIN entitlement**: `unlock_casa`
+   ($10.99), `recarga_150` ($1.99), `recarga_600` ($4.99) y `recarga_1500`
+   ($9.99). Los ids exactos importan: el webhook mapea `unlock_casa` a
+   `perfiles.unlock` + plan `trial` de 30 días, y las recargas a +150/+600/+1500
+   créditos; el cliente los busca por id en todos los offerings. Añadirlos a un
+   offering. **Sin trial de RC** en ningún producto (el «primer mes» lo da el
+   webhook como plan `trial`, sin tarjeta).
 4. Copiar la public API key `rcb_...` a `.env.local` (`VITE_REVENUECAT_WEB_KEY`).
 5. Elegir un secreto largo y configurarlo en ambos lados:
    - RevenueCat → Integrations → Webhooks → Add: URL
@@ -182,24 +195,43 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
    NON_RENEWING_PURCHASE) y `npx supabase functions deploy borrar-cuenta`
    (borrado de cuenta requerido por App Store 5.1.1(v) y Play; SÍ verifica JWT).
 3. Publicar los dos builds: `npm run build` (app) y `npm run build:web` (web pública).
-4. Para probar la puerta sin pagar: `update perfiles set plan='pro', fue_pro=true
-   where user_id='<uuid>';` — o en el navegador `window.mhPuerta(false)` (la
-   desactiva) / `window.mhPuerta(true)` (la fuerza en dev).
+4. Para probar el plan Pro sin pagar: `update perfiles set plan='pro', fue_pro=true
+   where user_id='<uuid>';` (la PuertaSuscripcion y `window.mhPuerta` ya no existen:
+   la app entra directo y el gating es solo de IA/sync).
 
 ### 4. Storage (sync de blobs)
 La migración crea el bucket privado `sync-blobs` con acceso por carpeta de usuario;
 no requiere pasos manuales. (Desde jul 2026 la policy también exige Pro vigente.)
 
-### 5. Web pública (landing + /cuenta)
+### 5. Web pública (landing + /cuenta) — YA DESPLEGADA (15-ago-2026)
 - Código en `web/` (segundo build de Vite): `npm run dev:web` (puerto 5174) y
   `npm run build:web` (→ `dist-web/`). Ligera a propósito: sin three ni dexie.
-- Hosting sugerido: dos proyectos de Cloudflare Pages sobre el mismo repo —
-  landing (`npm run build:web`, output `dist-web`) en el dominio raíz y la app
-  (`npm run build`, output `dist`) en `app.<dominio>`. Definir las variables
-  `VITE_*` en ambos proyectos.
-- Supabase Auth → URL Configuration: Site URL = `https://<dominio>/cuenta`;
-  Additional Redirect URLs: `https://app.<dominio>`, `http://localhost:5173`,
-  `http://localhost:5174` (el enlace de «olvidé mi contraseña» aterriza en /cuenta).
+- **En producción**: dominio `mindplannerhome.com` (Cloudflare Registrar, renovación
+  automática, vence 15-ago-2027) y dos proyectos de Cloudflare Pages:
+  `mindplannerhome` (landing, `dist-web`) en el dominio raíz y `mindplannerhome-app`
+  (app, `dist`) en `app.mindplannerhome.com`.
+- **Se publica por subida directa, NO desde Git**: el repo de GitHub va por detrás
+  del local, así que una build en Cloudflare desplegaría código viejo. Se compila
+  aquí y se sube:
+
+  ```bash
+  npm run build && npm run build:web
+  npx wrangler pages deploy dist-web --project-name mindplannerhome --branch main --commit-dirty=true
+  npx wrangler pages deploy dist --project-name mindplannerhome-app --branch main --commit-dirty=true
+  ```
+
+  Como se compila en local, las `VITE_*` salen de `.env.local` (secretos) y de
+  `.env.production` (URLs del dominio, que pisa a `.env.local` solo al construir).
+  No hace falta definir variables en el panel de Cloudflare.
+- Supabase Auth → URL Configuration: Site URL = `https://mindplannerhome.com/cuenta`
+  (el enlace de «olvidé mi contraseña» y el de confirmar correo aterrizan ahí);
+  Redirect URLs: `https://mindplannerhome.com/**`, `https://app.mindplannerhome.com/**`
+  y los localhost de dev (5173, 5174, 53378, 53390).
+- **OAuth (Google/Apple) no conoce el dominio propio y no tiene por qué**: el
+  `redirect_uri` que ven los proveedores es SIEMPRE
+  `https://<ref>.supabase.co/auth/v1/callback`; el salto final a la app lo hace
+  Supabase, gobernado por su lista de Redirect URLs. Al cambiar de dominio solo
+  se tocan Supabase y las `VITE_URL_*`, nunca las consolas de Google ni de Apple.
 - RevenueCat Web Billing → dominios permitidos: el dominio, `app.<dominio>` y localhost.
 - Los instaladores de escritorio (fase Electron) NO caben en Pages (límite
   25 MB/archivo): servirlos desde GitHub Releases y enlazarlos en la landing.
@@ -256,18 +288,26 @@ van a Storage (no a la tabla) y `pistasMusica` no se sincroniza para proteger el
 | Plan | Pool mensual | Recargas |
 |---|---|---|
 | pro | 700 (`limites_plan.creditos_mes`) | sí, se gastan cuando el pool se agota |
+| trial (mes incluido del unlock, 30 días) | 700 | sí, igual que pro |
 | local | 0 | **único** acceso a la IA |
 
 Las recargas van a `perfiles.creditos_extra`: compra suelta, nunca automática, sin
 caducidad, y siguen sirviendo aunque el plan expire.
 
+**Bucket de uso real** (`20260815000002`): cada proxy acumula el costo REAL en
+USD de la llamada en `uso_ia.usd` (helper `_shared/costoUsd.ts`) y
+`consumir_cuota_ia` deniega con motivo `techo` cuando el gasto real supera
+`greatest(techo_piso_usd, créditos consumidos × $0.005 × techo_factor)` —
+parámetros por plan en `limites_plan` (1.1 / $0.50). Es el sello del COGS: sin
+él, la entrada de tokens viajaba sin tarifa. Detalle en `COSTOS.md § Bucket`.
+
 Precio por operación (`costo_op()`, ancla 1 crédito ≈ $0.005 USD de costo real):
 
 | `op` | Créditos | Tope de salida |
 |---|---|---|
-| `chat` · `texto` · `vision` | 1 | 2048 · 1500 · 1500 |
-| `texto_largo` (planes IA, mapas, tarjetas) | 4 | 4096 |
-| `imagen` (gpt-image-1-mini, calidad rápida) | 3 | — |
+| `chat` · `texto` · `vision` · `voz` | 1 | 2048 · 1500 · 1500 · — |
+| `texto_largo` (planes IA, mapas, tarjetas) · `pdf` | 4 | 4096 · 1500 |
+| `imagen` (gpt-image-1-mini, calidad rápida) · `tts` | 3 | — |
 | `modelo3d` (Sonnet 5) · `imagen_alta` (Gemini) | 10 | 8192 · — |
 
 El tope de `chat` (2048) es menor que el de `texto_largo` A PROPÓSITO: con el

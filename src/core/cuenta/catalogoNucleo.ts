@@ -6,6 +6,18 @@ import type { OperacionIA } from './catalogoIA'
  * `src/rooms/<id>/costosIA.ts` y llegan por el registry.
  */
 
+/** Conversación del Chat AR (cámara + asistente): exportada aparte para su badge. */
+export const OP_CHAT_AR: OperacionIA = {
+  id: 'chat.ar',
+  clave: 'ia.op.chat.ar',
+  es: 'Conversación en Chat AR',
+  dondeClave: 'ia.donde.chatAr',
+  dondeEs: 'Chat AR',
+  notaClave: 'ia.op.chat.ar.nota',
+  notaEs: 'Si el asistente tiene voz de IA, su lectura se cobra aparte como voz del asistente.',
+  partes: [{ op: 'texto' }],
+}
+
 /** Chat de la casa. Las tools que generan contenido añaden SU propia llamada. */
 export const OPS_CHAT: OperacionIA[] = [
   {
@@ -55,6 +67,7 @@ export const OPS_CHAT: OperacionIA[] = [
     notaEs: 'Solo con suscripción y solo en 1 de cada 10 latidos.',
     partes: [{ op: 'texto' }],
   },
+  OP_CHAT_AR,
 ]
 
 /** Editor de la casa: geometría 3D y texturas. */

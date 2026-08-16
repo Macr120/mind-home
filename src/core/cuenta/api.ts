@@ -11,14 +11,20 @@
  * sin créditos recibe un 429 'cuota-agotada' y el modal decide qué ofrecerle
  * según el plan — recargar, o renovar si su Pro venció.
  */
-import { esPro, fuePro } from '../edicion'
-import { supabase, hayBackend } from './supabase'
+import { fuePro, tieneAcceso } from '../edicion'
+import { obtenerSupabase, hayBackend } from './supabase'
 import { haySesion, useSesion } from './sesionStore'
 import { useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
 import type { OpIA } from './costos'
 import type { CalidadImagen } from './calidadImagen'
 
-export type CodigoErrorIA = 'sin-sesion' | 'sin-pro' | 'cuota-agotada' | 'proveedor' | 'peticion-invalida'
+export type CodigoErrorIA =
+  | 'sin-sesion'
+  | 'sin-pro'
+  | 'cuota-agotada'
+  | 'techo'
+  | 'proveedor'
+  | 'peticion-invalida'
 
 /** Error tipado de la vía cuenta; `message` ya viene listo para mostrarse. */
 export class ErrorIA extends Error {
@@ -32,17 +38,19 @@ export class ErrorIA extends Error {
 
 /**
  * ¿La IA debe salir por el proxy de la cuenta? Basta con tener sesión y algo que
- * gastar. `fuePro()` sigue contando para que un ex-suscriptor con el pool en 0
- * llegue al servidor y reciba el aviso de renovación en vez de caer a BYOK.
+ * gastar (Pro, el mes trial del unlock, o recargas). `fuePro()` sigue contando
+ * para que un ex-suscriptor con el pool en 0 llegue al servidor y reciba el
+ * aviso de renovación en vez de caer a BYOK.
  */
 export function usarViaCuenta(): boolean {
   if (!hayBackend() || !haySesion()) return false
-  return esPro() || fuePro() || useSesion.getState().creditosExtra > 0
+  return tieneAcceso() || fuePro() || useSesion.getState().creditosExtra > 0
 }
 
 export interface MensajeCuenta {
   rol: 'usuario' | 'asistente'
   texto: string
+  /** Adjunto del usuario: imagen (jpeg/png/webp/gif) o PDF (application/pdf). */
   imagen?: { base64: string; mediaType: string }
 }
 
@@ -82,8 +90,9 @@ function refrescarMedidor(uso: UsoCuenta): void {
 }
 
 async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
-  if (!supabase) throw new ErrorIA('sin-sesion', 'Sin backend configurado.')
-  const { data } = await supabase.auth.getSession()
+  const sb = await obtenerSupabase()
+  if (!sb) throw new ErrorIA('sin-sesion', 'Sin backend configurado.')
+  const { data } = await sb.auth.getSession()
   const token = data.session?.access_token
   if (!token) throw new ErrorIA('sin-sesion', 'Inicia sesión para usar la IA.')
 
@@ -101,9 +110,10 @@ async function llamarFuncion<T>(nombre: string, cuerpo: unknown): Promise<T> {
   if (!resp.ok) {
     const e = (json ?? {}) as { error?: CodigoErrorIA; mensaje?: string }
     const codigo = e.error ?? 'proveedor'
-    if (codigo === 'cuota-agotada') {
-      // El modal decide qué ofrecer (recargar o renovar) según el plan.
-      useCuotaAgotada.getState().abrir()
+    if (codigo === 'cuota-agotada' || codigo === 'techo') {
+      // El modal decide qué ofrecer según el plan; 'techo' es el bucket de uso
+      // real del mes (consumir_cuota_ia, migración 20260815000002).
+      useCuotaAgotada.getState().abrir(codigo === 'techo' ? 'techo' : 'cuota')
       // Los créditos que quedan pudieron cambiar en otro dispositivo.
       void useSesion.getState().refrescarPerfil()
     } else if (codigo === 'sin-pro') {

@@ -1,19 +1,36 @@
 /**
- * Cliente único de Supabase (cuenta, sync y Edge Functions).
+ * Cliente único de Supabase (cuenta, sync y Edge Functions), cargado BAJO
+ * DEMANDA: el SDK no entra al chunk de arranque; se descarga en la primera
+ * llamada real (hidratar la sesión, sync, Edge Functions).
  *
  * Si el build no trae las variables `VITE_SUPABASE_*` (no hay `.env.local`),
- * `supabase` es null y toda la capa de cuenta queda apagada: la app se
- * comporta 100% local, exactamente como antes de existir el backend.
+ * `obtenerSupabase()` resuelve null y toda la capa de cuenta queda apagada: la
+ * app se comporta 100% local, exactamente como antes de existir el backend.
  */
-import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
 const anon = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
 
-export const supabase: SupabaseClient | null =
-  url && anon ? createClient(url, anon) : null
+let cliente: Promise<SupabaseClient | null> | null = null
 
 /** ¿El build tiene backend configurado? (URL + anon key presentes) */
 export function hayBackend(): boolean {
-  return supabase !== null
+  return !!(url && anon)
+}
+
+/** El cliente (o null sin backend). El fallo de red NO se cachea: se reintenta. */
+export function obtenerSupabase(): Promise<SupabaseClient | null> {
+  cliente ??= (async () => {
+    if (!url || !anon) return null
+    try {
+      const { createClient } = await import('@supabase/supabase-js')
+      return createClient(url, anon)
+    } catch (e) {
+      cliente = null
+      console.warn('[MPH] No se pudo cargar el SDK de Supabase', e)
+      return null
+    }
+  })()
+  return cliente
 }

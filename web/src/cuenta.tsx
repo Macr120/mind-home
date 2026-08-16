@@ -10,14 +10,16 @@
 import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './cuenta.css'
-import { supabase, hayBackend } from '../../src/core/cuenta/supabase'
+import { obtenerSupabase, hayBackend } from '../../src/core/cuenta/supabase'
 import { iniciarSesion, useSesion } from '../../src/core/cuenta/sesionStore'
 import {
   hayPagos,
   obtenerOfertas,
   obtenerRecargas,
+  obtenerUnlock,
   comprar,
   comprarRecarga,
+  comprarUnlock,
   urlGestion,
   type OfertaPro,
 } from '../../src/core/cuenta/paywall'
@@ -25,6 +27,10 @@ import {
 iniciarSesion()
 
 const URL_APP = import.meta.env.VITE_URL_APP as string | undefined
+
+// Congelado a la carga (regla de pureza en render): para decidir si el trial
+// sigue vigente basta el instante en que se abrió la página.
+const AHORA = Date.now()
 
 // ─── Piezas de UI ────────────────────────────────────────────────────────────
 
@@ -59,6 +65,66 @@ function Marco({ children }: { children: React.ReactNode }) {
 }
 
 // ─── Acceso (login / registro / olvidé) ──────────────────────────────────────
+
+/** Login con Google/Apple. Logos en SVG en línea (marcas, no iconos de la UI). */
+function BotonesOAuth() {
+  const entrarConProveedor = useSesion((s) => s.entrarConProveedor)
+  const [error, setError] = useState<string | null>(null)
+  const [ocupado, setOcupado] = useState(false)
+
+  const con = async (proveedor: 'google' | 'apple') => {
+    if (ocupado) return
+    setOcupado(true)
+    setError(null)
+    const err = await entrarConProveedor(proveedor)
+    // Sin error, el navegador está saliendo hacia el proveedor.
+    if (err) {
+      setError(err)
+      setOcupado(false)
+    }
+  }
+
+  const botonCls =
+    'flex w-full items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-white/80 transition hover:bg-white/10 disabled:opacity-50'
+
+  return (
+    <>
+      <button type="button" onClick={() => void con('google')} disabled={ocupado} className={botonCls}>
+        <svg viewBox="0 0 48 48" className="h-4 w-4 shrink-0" aria-hidden>
+          <path
+            fill="#EA4335"
+            d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+          />
+          <path
+            fill="#4285F4"
+            d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+          />
+          <path
+            fill="#FBBC05"
+            d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+          />
+          <path
+            fill="#34A853"
+            d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+          />
+        </svg>
+        Continuar con Google
+      </button>
+      <button type="button" onClick={() => void con('apple')} disabled={ocupado} className={botonCls}>
+        <svg viewBox="0 0 384 512" className="h-4 w-4 shrink-0 fill-current" aria-hidden>
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+        </svg>
+        Continuar con Apple
+      </button>
+      {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
+      <div className="flex items-center gap-2 text-[11px] text-white/30">
+        <span className="h-px flex-1 bg-white/10" />
+        o con tu correo
+        <span className="h-px flex-1 bg-white/10" />
+      </div>
+    </>
+  )
+}
 
 function Acceso() {
   const entrar = useSesion((s) => s.entrar)
@@ -117,6 +183,7 @@ function Acceso() {
           ? 'Primero tu cuenta; después eliges tu suscripción.'
           : 'Tu suscripción y tu casa te esperan.'}
       </p>
+      <BotonesOAuth />
       <input
         type="email"
         value={email}
@@ -206,6 +273,63 @@ function NuevaContrasena({ alTerminar }: { alTerminar: () => void }) {
   )
 }
 
+// ─── Unlock (pago único de la app) ───────────────────────────────────────────
+
+function Unlock() {
+  const [oferta, setOferta] = useState<OfertaPro | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [ocupado, setOcupado] = useState(false)
+
+  useEffect(() => {
+    let vivo = true
+    obtenerUnlock()
+      .then((o) => {
+        if (vivo) setOferta(o)
+      })
+      .catch(() => {})
+    return () => {
+      vivo = false
+    }
+  }, [])
+
+  if (!hayPagos() || !oferta) return null
+
+  const alComprar = async () => {
+    if (ocupado) return
+    setOcupado(true)
+    setError(null)
+    try {
+      const ok = await comprarUnlock(oferta.paquete)
+      if (!ok) setError('El pago está en camino: recarga la página en unos segundos.')
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e))
+    } finally {
+      setOcupado(false)
+    }
+  }
+
+  return (
+    <Panel>
+      <h2 className="text-sm font-bold text-white/90">Desbloquear la app</h2>
+      <div className="space-y-2 rounded-xl border border-[#863bff]/50 bg-white/5 p-3">
+        <p className="text-2xl font-extrabold text-white/95">
+          {oferta.precio}
+          <span className="text-sm font-semibold text-white/50"> pago único</span>
+        </p>
+        <ul className="list-none space-y-1 text-xs text-white/60">
+          <li>✓ Tu casa para siempre, con todas las apps</li>
+          <li>✓ Primer mes incluido: 700 créditos de IA + sincronización</li>
+          <li>✓ Sin tarjeta y sin suscripción</li>
+        </ul>
+        <button type="button" onClick={() => void alComprar()} disabled={ocupado} className={botonPrincipal}>
+          {ocupado ? 'Procesando…' : 'Desbloquear mi casa'}
+        </button>
+      </div>
+      {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
+    </Panel>
+  )
+}
+
 // ─── Tarifas (suscribirse / renovar) ─────────────────────────────────────────
 
 function Tarifas({ titulo }: { titulo: string }) {
@@ -259,7 +383,7 @@ function Tarifas({ titulo }: { titulo: string }) {
           </p>
           <ul className="list-none space-y-1 text-xs text-white/60">
             <li>✓ Todas las apps de la casa, en todos tus dispositivos</li>
-            <li>✓ 600 créditos de IA al mes</li>
+            <li>✓ 700 créditos de IA al mes</li>
             <li>✓ Sincronización y respaldo en la nube</li>
           </ul>
           <button type="button" onClick={() => void alComprar(o)} disabled={ocupado} className={botonPrincipal}>
@@ -283,9 +407,14 @@ function MiCuenta() {
   const plan = useSesion((s) => s.plan)
   const planExpira = useSesion((s) => s.planExpira)
   const fuePro = useSesion((s) => s.fuePro)
+  const unlock = useSesion((s) => s.unlock)
   const usoIA = useSesion((s) => s.usoIA)
   const creditosExtra = useSesion((s) => s.creditosExtra)
   const salir = useSesion((s) => s.salir)
+
+  // El mes incluido del unlock: vigente se comporta como Pro (pool + sync).
+  const trialVigente = plan === 'trial' && !!planExpira && Date.parse(planExpira) > AHORA
+  const trialVencido = plan === 'trial' && !trialVigente
 
   // La compra pudo aterrizar hace segundos (webhook): refrescar al montar.
   useEffect(() => {
@@ -301,10 +430,10 @@ function MiCuenta() {
           <span className="min-w-0 flex-1 truncate text-sm text-white/80">{usuario?.email}</span>
           <span
             className={`shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
-              plan === 'pro' ? 'bg-[#863bff] text-white' : 'bg-white/10 text-white/60'
+              plan === 'pro' || trialVigente ? 'bg-[#863bff] text-white' : 'bg-white/10 text-white/60'
             }`}
           >
-            {plan === 'pro' ? 'Pro' : 'Local'}
+            {plan === 'pro' ? 'Pro' : trialVigente ? 'Primer mes' : 'Local'}
           </span>
         </div>
         {plan === 'pro' && planExpira && (
@@ -312,22 +441,35 @@ function MiCuenta() {
             Renueva o vence: {new Date(planExpira).toLocaleDateString()}
           </p>
         )}
+        {trialVigente && planExpira && (
+          <p className="text-xs text-white/45">
+            Tu mes incluido termina el {new Date(planExpira).toLocaleDateString()}.
+          </p>
+        )}
       </Panel>
 
-      {plan === 'pro' ? (
-        <ProActivo usoIA={usoIA} creditosExtra={creditosExtra} />
+      {plan === 'pro' || trialVigente ? (
+        <>
+          <ProActivo usoIA={usoIA} creditosExtra={creditosExtra} />
+          {/* Convertir el trial es el objetivo: la suscripción a la vista. */}
+          {trialVigente && <Tarifas titulo="Hazte Pro" />}
+        </>
       ) : (
         <>
           <Panel>
             <p className="text-xs leading-snug text-white/60">
               {fuePro
                 ? 'Tu suscripción terminó: la app sigue en tus dispositivos en modo local. Renueva y los créditos mensuales y la sincronización vuelven tal como los dejaste.'
-                : 'Estás en modo local: la app y tus datos son tuyos sin pagar nada. La IA se paga por uso — compra los créditos que necesites, o suscríbete y recíbelos cada mes.'}
+                : trialVencido
+                  ? 'Tu mes incluido terminó: la app y tus datos son tuyos para siempre. Suscríbete para seguir con los créditos mensuales y la sincronización, o recarga créditos sueltos.'
+                  : 'Estás en modo local: la app y tus datos son tuyos sin pagar nada. La IA se paga por uso — compra los créditos que necesites, o suscríbete y recíbelos cada mes.'}
             </p>
             {creditosExtra > 0 && (
               <p className="text-[11px] text-white/45">Créditos disponibles: {creditosExtra}</p>
             )}
           </Panel>
+          {/* Sin la compra única, lo primero es desbloquear la app. */}
+          {!unlock && <Unlock />}
           {/* Las recargas se venden sin suscripción: son el acceso a la IA en local. */}
           <Recargas />
           <Tarifas titulo={fuePro ? 'Renovar suscripción' : 'Suscribirme'} />
@@ -521,11 +663,19 @@ function Pagina() {
   // El enlace de «olvidé mi contraseña» aterriza aquí con una sesión de
   // recuperación; Supabase lo anuncia con el evento PASSWORD_RECOVERY.
   useEffect(() => {
-    if (!supabase) return
-    const { data } = supabase.auth.onAuthStateChange((evento) => {
-      if (evento === 'PASSWORD_RECOVERY') setRecovery(true)
+    let sub: { unsubscribe: () => void } | null = null
+    let vivo = true
+    void obtenerSupabase().then((sb) => {
+      if (!sb || !vivo) return
+      const { data } = sb.auth.onAuthStateChange((evento: string) => {
+        if (evento === 'PASSWORD_RECOVERY') setRecovery(true)
+      })
+      sub = data.subscription
     })
-    return () => data.subscription.unsubscribe()
+    return () => {
+      vivo = false
+      sub?.unsubscribe()
+    }
   }, [])
 
   if (!hayBackend()) {

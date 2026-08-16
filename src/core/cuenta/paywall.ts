@@ -47,6 +47,13 @@ const RECARGAS: Record<string, number> = {
   recarga_1500: 1500,
 }
 
+/**
+ * Pago único que desbloquea la app e incluye el primer mes (plan trial de 30
+ * días con pool + sync, sin tarjeta). One-time SIN entitlement; el alta real la
+ * hace el webhook al ver el `product_id`.
+ */
+export const UNLOCK_PRODUCTO = 'unlock_casa'
+
 function empaquetar(paquete: Package): OfertaPro {
   const producto = paquete.webBillingProduct
   const duracion = producto?.normalPeriodDuration ?? null
@@ -131,6 +138,39 @@ export async function comprarRecarga(paquete: Package): Promise<boolean> {
   }
   void useSesion.getState().refrescarUso()
   return true
+}
+
+/**
+ * Paquete del unlock (pago único), esté en el offering que esté — como las
+ * recargas, no vive en el `default` de la suscripción.
+ */
+export async function obtenerUnlock(): Promise<OfertaPro | null> {
+  const usuario = useSesion.getState().usuario
+  if (!usuario || !claveWeb) return null
+  const offerings = await rc(usuario.id).getOfferings()
+  for (const oferta of Object.values(offerings.all)) {
+    for (const paquete of oferta.availablePackages) {
+      if (paquete.webBillingProduct?.identifier === UNLOCK_PRODUCTO) return empaquetar(paquete)
+    }
+  }
+  return null
+}
+
+/**
+ * Compra el unlock (one-time). El alta (unlock + trial de 30 días) llega por
+ * webhook: se reintenta el refresco hasta ver `perfiles.unlock`.
+ */
+export async function comprarUnlock(paquete: Package): Promise<boolean> {
+  const usuario = useSesion.getState().usuario
+  if (!usuario) return false
+  await rc(usuario.id).purchase({ rcPackage: paquete })
+  for (let i = 0; i < 5; i++) {
+    await useSesion.getState().refrescarPerfil()
+    if (useSesion.getState().unlock) break
+    await new Promise((r) => setTimeout(r, 3000))
+  }
+  void useSesion.getState().refrescarUso()
+  return useSesion.getState().unlock
 }
 
 /** URL del portal de gestión de la suscripción (cancelar, cambiar pago). */

@@ -118,6 +118,18 @@ export function FormularioAcceso() {
       <p className="text-[11px] leading-snug text-white/45">
         {t('cuenta.intro', 'Con una cuenta, tu plan y tu casa te siguen a cualquier dispositivo.')}
       </p>
+      {/* En la app nativa (WebView) Google bloquea OAuth (disallowed_useragent):
+          ese flujo llegará con @capacitor/browser + deep link. Solo web por ahora. */}
+      {!esAppNativa() && (
+        <>
+          <BotonesOAuth />
+          <div className="flex items-center gap-2 text-[10px] text-white/30">
+            <span className="h-px flex-1 bg-white/10" />
+            {t('cuenta.oCorreo', 'o con tu correo')}
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
+        </>
+      )}
       <input
         type="email"
         value={email}
@@ -174,6 +186,66 @@ export function FormularioAcceso() {
   )
 }
 
+/**
+ * Login con Google/Apple. Los logos van en SVG en línea: son MARCAS, no iconos
+ * del catálogo (`<Icono>` es para el sistema emoji→SVG de la UI).
+ */
+function BotonesOAuth() {
+  const t = useT()
+  const entrarConProveedor = useSesion((s) => s.entrarConProveedor)
+  const [error, setError] = useState<string | null>(null)
+  const [ocupado, setOcupado] = useState(false)
+
+  const con = async (proveedor: 'google' | 'apple') => {
+    if (ocupado) return
+    setOcupado(true)
+    setError(null)
+    const err = await entrarConProveedor(proveedor)
+    // Sin error, el navegador está saliendo hacia el proveedor: se queda
+    // deshabilitado hasta la redirección.
+    if (err) {
+      setError(err)
+      setOcupado(false)
+    }
+  }
+
+  const botonCls =
+    'flex w-full items-center justify-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs font-semibold text-white/75 transition hover:bg-white/10 disabled:opacity-50'
+
+  return (
+    <div className="space-y-1.5">
+      <button type="button" onClick={() => void con('google')} disabled={ocupado} className={botonCls}>
+        <svg viewBox="0 0 48 48" className="h-3.5 w-3.5 shrink-0" aria-hidden>
+          <path
+            fill="#EA4335"
+            d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+          />
+          <path
+            fill="#4285F4"
+            d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+          />
+          <path
+            fill="#FBBC05"
+            d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+          />
+          <path
+            fill="#34A853"
+            d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+          />
+        </svg>
+        {t('cuenta.conGoogle', 'Continuar con Google')}
+      </button>
+      <button type="button" onClick={() => void con('apple')} disabled={ocupado} className={botonCls}>
+        <svg viewBox="0 0 384 512" className="h-3.5 w-3.5 shrink-0 fill-current" aria-hidden>
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+        </svg>
+        {t('cuenta.conApple', 'Continuar con Apple')}
+      </button>
+      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
+    </div>
+  )
+}
+
 function CuentaConSesion() {
   const t = useT()
   const usuario = useSesion((s) => s.usuario)
@@ -191,35 +263,46 @@ function CuentaConSesion() {
     void s.refrescarUso()
   }, [])
 
+  // El mes trial del unlock se comporta como Pro (pool + sync); solo cambia el copy.
+  const conAcceso = plan === 'pro' || plan === 'trial'
+
   return (
     <div className="space-y-1.5" data-tut="cuenta.sesion">
       <div className="flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
         <span className="min-w-0 flex-1 truncate text-xs text-white/75">{usuario?.email}</span>
         <span
           className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold ${
-            plan === 'pro' ? 'ui-accent-bg' : 'bg-white/10 text-white/60'
+            conAcceso ? 'ui-accent-bg' : 'bg-white/10 text-white/60'
           }`}
         >
-          {plan === 'pro' ? t('cuenta.plan.pro', 'Pro') : t('cuenta.plan.local', 'Local')}
+          {plan === 'pro'
+            ? t('cuenta.plan.pro', 'Pro')
+            : plan === 'trial'
+              ? t('cuenta.plan.trial', 'Primer mes')
+              : t('cuenta.plan.local', 'Local')}
         </span>
       </div>
-      {plan === 'pro' && planExpira && (
+      {conAcceso && planExpira && (
         <p className="text-[11px] text-white/45">
-          {t('cuenta.plan.expira', 'Renueva o vence: {f}', {
-            f: new Date(planExpira).toLocaleDateString(),
-          })}
+          {plan === 'trial'
+            ? t('cuenta.plan.trialExpira', 'Tu mes incluido termina el {f}.', {
+                f: new Date(planExpira).toLocaleDateString(),
+              })
+            : t('cuenta.plan.expira', 'Renueva o vence: {f}', {
+                f: new Date(planExpira).toLocaleDateString(),
+              })}
         </p>
       )}
       {/* En local no hay pool mensual que medir, pero sí saldo de recargas: sin
           esto, quien compra créditos no puede ver cuántos le quedan. */}
-      {(plan === 'pro' ? !!usoIA : creditosExtra > 0) && (
+      {(conAcceso ? !!usoIA : creditosExtra > 0) && (
         <div className="space-y-1.5 rounded-md border border-white/10 bg-white/5 px-2 py-1.5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
-            {plan === 'pro'
+            {conAcceso
               ? t('cuenta.uso.titulo', 'Uso de IA este mes')
               : t('cuenta.uso.tituloLocal', 'Tus créditos de IA')}
           </p>
-          {plan === 'pro' && usoIA && (
+          {conAcceso && usoIA && (
             <BarraUso
               label={t('cuenta.uso.creditos', 'Créditos')}
               usadas={usoIA.creditos}
@@ -234,12 +317,12 @@ function CuentaConSesion() {
           <p className="text-[10px] text-white/35">
             {t(
               'cuenta.uso.notaImagen',
-              '1 respuesta = 1 crédito · un plan largo = 3 · una imagen o un modelo 3D = 10',
+              '1 respuesta = 1 crédito · un plan largo = 4 · una imagen o un modelo 3D = 10',
             )}
           </p>
         </div>
       )}
-      {plan === 'pro' ? (
+      {conAcceso ? (
         <FilaSync />
       ) : (
         <p className="rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/45">
