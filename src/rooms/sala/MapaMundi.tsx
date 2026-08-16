@@ -341,7 +341,7 @@ export function MapaMundi({
       })}
 
       {/* Controles de zoom */}
-      <div className="ui-noche absolute right-2 top-2 flex flex-col gap-1">
+      <div className="ui-noche absolute end-2 top-2 flex flex-col gap-1">
         <button
           onPointerDown={(e) => e.stopPropagation()}
           onClick={() => zoomHacia(1.5)}

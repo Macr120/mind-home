@@ -139,7 +139,7 @@ function TarjetaTablero({
       {...arrastre}
       className={`cursor-grab rounded-lg border border-white/10 bg-black/20 p-2 ${enMano ? 'opacity-40' : ''}`}
     >
-      <button type="button" onClick={onEditar} className="w-full text-left">
+      <button type="button" onClick={onEditar} className="w-full text-start">
         <p className={`text-xs font-semibold leading-snug ${ev.hecho ? 'text-white/40 line-through' : ''}`}>
           {ev.titulo}
         </p>

@@ -206,7 +206,7 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
             <>
               {t('entre.j.billar.tiros', 'Tiros')}: {tiros}
               {record > 0 && (
-                <span className="ml-2 text-white/45">
+                <span className="ms-2 text-white/45">
                   {t('entre.j.mejor', 'Mejor')}: {record}
                 </span>
               )}
@@ -218,8 +218,8 @@ export function Billar({ dificultad = 'medio' }: PropsDificultad) {
               <span style={{ color: turno === 2 ? COLOR : undefined }}>J2 {puntos.j2}</span>
             </>
           )}
-          {aviso === 'falta' && <span className="ml-2 text-red-400">{t('entre.j.billar.falta', 'Falta: la blanca se metió')}</span>}
-          {aviso === 'sigue' && <span className="ml-2" style={{ color: COLOR }}>{t('entre.j.billar.sigue', '¡Bola dentro, sigues tú!')}</span>}
+          {aviso === 'falta' && <span className="ms-2 text-red-400">{t('entre.j.billar.falta', 'Falta: la blanca se metió')}</span>}
+          {aviso === 'sigue' && <span className="ms-2" style={{ color: COLOR }}>{t('entre.j.billar.sigue', '¡Bola dentro, sigues tú!')}</span>}
         </span>
         <div className="flex gap-2">
           <button type="button" onClick={() => reiniciar(modo)} className="rounded-lg bg-white/10 px-2.5 py-1 text-xs font-semibold">

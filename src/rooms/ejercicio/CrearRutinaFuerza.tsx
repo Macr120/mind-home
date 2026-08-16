@@ -6,6 +6,8 @@ import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { acento } from '../_shared/acento'
+import { C_FUERZA } from './constantes'
 
 /**
  * Submenú "Catálogo": se arma una rutina propia tocando ejercicios de la
@@ -106,7 +108,8 @@ export function CrearRutinaFuerza() {
           type="button"
           onClick={guardar}
           disabled={ejercicios.length === 0}
-          className="w-full rounded-xl py-2.5 font-bold bg-orange-600 texto-cta disabled:opacity-40"
+          className="ui-accent-bg w-full rounded-xl py-2.5 font-bold disabled:opacity-40"
+          style={acento(C_FUERZA)}
         >
           {t('ejercicio.crearRutina.guardar', 'Guardar rutina')}
         </button>

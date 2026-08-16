@@ -65,7 +65,7 @@ export function MisionesDia({ idiomaId }: { idiomaId: number }) {
                   style={{ width: `${(hecho / m.objetivo) * 100}%`, background: COLOR }}
                 />
               </div>
-              <p className="mt-0.5 text-right text-[9px] text-white/35">
+              <p className="mt-0.5 text-end text-[9px] text-white/35">
                 {hecho}/{m.objetivo}
               </p>
             </div>

@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import type { MomentoComida, Receta, RegistroComida } from '../../core/data/db'
 import { comidasRepo } from '../../core/data/repository'
-import { HORA_SUGERIDA, MOMENTOS } from './constantes'
+import { COLOR, HORA_SUGERIDA, MOMENTOS } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { getMomento } from './momentos'
 import { caloriasDesdeMacros } from './macros'
 import { estimarMacros } from './estimarMacros'
@@ -131,20 +132,15 @@ export function RegistroComida({
 
   return (
     <form onSubmit={agregar} className="rounded-xl bg-white/5 p-4 space-y-3 border border-white/10">
-      <div className="grid grid-cols-4 gap-1.5">
-        {MOMENTOS.map((m) => (
-          <button
-            key={m.id}
-            type="button"
-            onClick={() => setMomento(m.id)}
-            className={`rounded-lg py-2 text-xs font-semibold transition ${
-              momento === m.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            <Icono emoji={m.icon} />
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={MOMENTOS.map((m) => ({ id: m.id, emoji: m.icon }))}
+        activo={momento}
+        onCambio={setMomento}
+        color={COLOR}
+        variante="sub"
+        nivel={3}
+        flecha={false}
+      />
 
       {/* La hora del momento elegido, aquí mismo: se pone la hora de la cena
           justo donde se apunta la cena, y no en una tarjeta aparte. */}
@@ -181,7 +177,7 @@ export function RegistroComida({
             type="button"
             onClick={estimar}
             disabled={!nombre.trim() || estimando}
-            className="flex-1 rounded-xl bg-amber-600 py-2.5 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
+            className="ui-accent-bg flex-1 rounded-xl py-2.5 text-sm font-bold hover:brightness-110 disabled:opacity-40"
           >
             <Icono nombre="brillo" />{' '}
             {estimando
@@ -257,7 +253,7 @@ export function RegistroComida({
       <button
         type="submit"
         className={`w-full rounded-xl py-2.5 font-bold hover:brightness-110 ${
-          conValores || !conIA ? 'bg-amber-600 texto-cta' : 'bg-white/10'
+          conValores || !conIA ? 'ui-accent-bg' : 'bg-white/10'
         }`}
       >
         {t('cocina.añadir', `Añadir a ${getMomento(momento).label}`, { momento: getMomento(momento).label })}

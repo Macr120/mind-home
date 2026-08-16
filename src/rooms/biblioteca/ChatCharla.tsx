@@ -195,7 +195,7 @@ export function ChatCharla({
                   setTituloTmp(conv?.titulo ?? '')
                   setEditandoTitulo(true)
                 }}
-                className="block w-full truncate text-left text-sm font-semibold text-white/90"
+                className="block w-full truncate text-start text-sm font-semibold text-white/90"
                 title={t('biblioteca.charla.renombrar', 'Tocar para renombrar')}
               >
                 {tituloMostrado}
@@ -332,7 +332,7 @@ export function ChatCharla({
               <div className={`flex ${esUsuario ? 'justify-end' : 'justify-start'}`}>
                 <div
                   className={`max-w-[85%] rounded-2xl px-3 py-1.5 text-sm ${
-                    esUsuario ? 'rounded-br-sm bg-emerald-500/25 text-white/95' : 'rounded-bl-sm bg-white/10 text-white/85'
+                    esUsuario ? 'rounded-ee-sm bg-emerald-500/25 text-white/95' : 'rounded-es-sm bg-white/10 text-white/85'
                   }`}
                 >
                   {esUsuario ? (
@@ -355,7 +355,7 @@ export function ChatCharla({
         })}
         {pensando && (
           <div className="flex justify-start">
-            <div className="rounded-2xl rounded-bl-sm bg-white/10 px-3 py-1.5 text-sm text-white/60">
+            <div className="rounded-2xl rounded-es-sm bg-white/10 px-3 py-1.5 text-sm text-white/60">
               <span className="animate-pulse tracking-widest">
                 <Icono emoji={voz.emoji} /> …
               </span>
@@ -399,8 +399,7 @@ export function ChatCharla({
         <button
           type="submit"
           disabled={!conIA || !input.trim() || pensando}
-          className="rounded-xl px-4 py-2 text-sm font-semibold text-black transition disabled:opacity-40"
-          style={{ background: COLOR }}
+          className="ui-accent-bg rounded-xl px-4 py-2 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
         >
           <Icono nombre="enviar" />
         </button>

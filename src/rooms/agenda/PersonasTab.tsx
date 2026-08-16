@@ -9,6 +9,7 @@ import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastr
 import { AvatarContacto } from './AvatarContacto'
 import { BarraEjemplo } from './BarraEjemplo'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { diasParaCumple } from './cumples'
 import { DetalleContacto } from './DetalleContacto'
 import { FormContacto } from './FormContacto'
@@ -84,8 +85,8 @@ export function PersonasTab({
           type="button"
           data-tut="agenda.personas.alta"
           onClick={() => setCreando(true)}
-          className="rounded-xl px-3 py-2 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.personas }}
+          className="rounded-xl px-3 py-2 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.personas)}
         >
           <Icono nombre="agregar" />
         </button>
@@ -142,7 +143,7 @@ function FilaContacto({
     <button
       type="button"
       onClick={onAbrir}
-      className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2.5 text-left transition hover:bg-white/10"
+      className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2.5 text-start transition hover:bg-white/10"
     >
       <AvatarContacto nombre={contacto.nombre} foto={contacto.foto} />
       <span className="min-w-0 flex-1">

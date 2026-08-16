@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { ComponentType } from 'react'
 import { COLOR } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { FAMILIAS, JUEGOS_REALES, type IdJuegoReal, type JuegoReal } from './juegos/catalogo'
 import { Ahorcado } from './juegos/Ahorcado'
 import { Ajedrez } from './juegos/Ajedrez'
@@ -62,23 +63,17 @@ const COMPONENTES: Record<IdJuegoReal, ComponentType<PropsDificultad>> = {
 }
 
 function SelectorDificultad({ valor, alCambiar }: { valor: Dificultad; alCambiar: (d: Dificultad) => void }) {
-  const t = useT()
   return (
-    <div className="flex gap-1.5">
-      {DIFICULTADES.map((d) => (
-        <button
-          key={d}
-          type="button"
-          onClick={() => alCambiar(d)}
-          className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
-            valor === d ? 'text-black' : 'bg-white/10 hover:bg-white/20'
-          }`}
-          style={valor === d ? { background: COLOR } : undefined}
-        >
-          {t(`entre.j.dif.${d}`, ETIQUETAS_DIFICULTAD[d])}
-        </button>
-      ))}
-    </div>
+    <PestanasCarpeta
+      items={DIFICULTADES.map((d) => ({ id: d, labelEs: ETIQUETAS_DIFICULTAD[d] }))}
+      activo={valor}
+      onCambio={alCambiar}
+      prefijoClave="entre.j.dif"
+      color={COLOR}
+      variante="sub"
+      nivel={3}
+      flecha={false}
+    />
   )
 }
 
@@ -105,7 +100,7 @@ function JuegoAbierto({ juego, alVolver }: { juego: JuegoReal; alVolver: () => v
           <Icono emoji={juego.icono} /> {t(`entre.j.${juego.id}.nombre`, juego.nombre)}
         </h3>
         {juego.dificultad && (
-          <div className="ml-auto flex items-center gap-2">
+          <div className="ms-auto flex items-center gap-2">
             <span className="text-xs text-white/45">{t('entre.j.dificultad', 'Dificultad')}</span>
             <SelectorDificultad valor={dif} alCambiar={setDif} />
           </div>
@@ -133,25 +128,19 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
 
   return (
     <div className="space-y-4">
-      <div data-tut="entretenimiento.juegos.secciones" className="grid grid-cols-2 gap-1.5">
-        {(
-          [
-            ['12', 'entre.j.seccion.12', '1–2 jugadores'],
-            ['3mas', 'entre.j.seccion.3mas', '3+ jugadores'],
-          ] as const
-        ).map(([id, key, fallback]) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => setSeccion(id)}
-            className={`rounded-xl py-2 text-sm font-bold transition ${
-              seccion === id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
-            }`}
-            style={seccion === id ? { background: COLOR } : undefined}
-          >
-            <Icono nombre={id === '12' ? 'perfil' : 'companeros'} /> {t(key, fallback)}
-          </button>
-        ))}
+      <div data-tut="entretenimiento.juegos.secciones">
+        <PestanasCarpeta
+          items={[
+            { id: '12', icono: 'perfil', labelEs: '1–2 jugadores' },
+            { id: '3mas', icono: 'companeros', labelEs: '3+ jugadores' },
+          ]}
+          activo={seccion}
+          onCambio={setSeccion}
+          prefijoClave="entre.j.seccion"
+          color={COLOR}
+          variante="sub"
+          nivel={2}
+        />
       </div>
 
       {FAMILIAS.map((familia) => {
@@ -171,7 +160,7 @@ export function JuegosMesaTab({ juegoInicial }: { juegoInicial?: IdJuegoReal }) 
                   type="button"
                   data-tut={`entretenimiento.juegos.item.${j.id}`}
                   onClick={() => setJuegoActivo(j)}
-                  className="rounded-xl border border-white/10 bg-white/5 p-3 text-left transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
+                  className="rounded-xl border border-white/10 bg-white/5 p-3 text-start transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
                 >
                   <div className="flex items-center justify-between">
                     <span

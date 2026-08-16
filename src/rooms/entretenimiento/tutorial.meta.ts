@@ -32,16 +32,6 @@ const flujoArchivo = tour(
   'cuerpoArchivo',
 )
 
-const flujoProgramas = tour(
-  'app-entretenimiento--programas',
-  T('tut.app-entretenimiento--programas.titulo', 'Programas para ver'),
-  T(
-    'tut.app-entretenimiento--programas.resumen',
-    'Un programa es una lista de títulos por tema o género convertida en metas: palomeas lo que completas y, si quieres, les pones fecha para verlas en el calendario.',
-  ),
-  'cuerpoProgramas',
-)
-
 const flujoJuegos = tour(
   'app-entretenimiento--juegos',
   T('tut.app-entretenimiento--juegos.titulo', 'La mesa digital'),
@@ -52,4 +42,4 @@ const flujoJuegos = tour(
   'cuerpoJuegos',
 )
 
-export const flujosEntretenimiento: TutorialDef[] = [flujoArchivo, flujoProgramas, flujoJuegos]
+export const flujosEntretenimiento: TutorialDef[] = [flujoArchivo, flujoJuegos]

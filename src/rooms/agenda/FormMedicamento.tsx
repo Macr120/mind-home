@@ -5,6 +5,7 @@ import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { guardarMedicamento } from './crear'
 import { ordenarHoras } from './horas'
 import { Campo, INPUT, Modal } from './ui'
@@ -148,9 +149,9 @@ export function FormMedicamento({
                   type="button"
                   onClick={() => setDias(activo ? dias.filter((x) => x !== d.dia) : [...dias, d.dia])}
                   className={`flex-1 rounded-lg py-1.5 text-xs font-bold transition ${
-                    activo ? 'texto-cta' : 'bg-white/5 text-white/50 hover:bg-white/10'
+                    activo ? 'ui-accent-bg' : 'bg-white/5 text-white/50 hover:bg-white/10'
                   }`}
-                  style={activo ? { background: COLOR_AREA.salud } : undefined}
+                  style={activo ? acento(COLOR_AREA.salud) : undefined}
                 >
                   {t(`agenda.dia.${d.dia}`, d.es)}
                 </button>
@@ -177,8 +178,8 @@ export function FormMedicamento({
 
         <button
           type="submit"
-          className="w-full rounded-lg py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.salud }}
+          className="w-full rounded-lg py-2.5 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.salud)}
         >
           {t('agenda.guardar', 'Guardar')}
         </button>

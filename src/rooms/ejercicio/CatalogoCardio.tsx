@@ -8,6 +8,8 @@ import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { acento } from '../_shared/acento'
+import { C_CARDIO } from './constantes'
 
 /**
  * Catálogo de resistencia con la misma estructura que fuerza y flexibilidad:
@@ -72,11 +74,12 @@ export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => v
         {grupos.map((g) => (
           <div
             key={g.grupoId}
-            className={`flex items-center gap-1 rounded-lg pl-2.5 pr-1 py-1 text-xs font-semibold ${
+            className={`flex items-center gap-1 rounded-lg ps-2.5 pe-1 py-1 text-xs font-semibold ${
               grupoId === g.grupoId
-                ? 'bg-sky-600 texto-cta'
+                ? 'ui-accent-bg'
                 : 'bg-white/5 border border-white/10 hover:bg-white/10'
             }`}
+            style={grupoId === g.grupoId ? acento(C_CARDIO) : undefined}
           >
             <button type="button" onClick={() => setGrupoId(grupoId === g.grupoId ? null : g.grupoId)}>
               {t(`ejercicio.grupo.${g.grupoId}`, g.label)}
@@ -107,7 +110,8 @@ export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => v
             <button
               type="button"
               onClick={crearGrupo}
-              className="rounded-lg bg-sky-600 px-2 py-1 text-xs font-bold texto-cta"
+              className="ui-accent-bg rounded-lg px-2 py-1 text-xs font-bold"
+              style={acento(C_CARDIO)}
             >
               ✓
             </button>
@@ -144,7 +148,7 @@ export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => v
                 <button
                   type="button"
                   onClick={() => onAgregar(ej.nombre)}
-                  className="min-w-0 flex-1 text-left"
+                  className="min-w-0 flex-1 text-start"
                 >
                   <div className="flex items-center gap-2">
                     <span className="flex-1 text-sm font-semibold text-white/90">{ej.nombre}</span>
@@ -190,7 +194,8 @@ export function CatalogoCardio({ onAgregar }: { onAgregar: (nombre: string) => v
                 <button
                   type="button"
                   onClick={agregarEjercicioCatalogo}
-                  className="flex-1 rounded-lg bg-sky-600 py-1.5 text-xs font-bold texto-cta"
+                  className="ui-accent-bg flex-1 rounded-lg py-1.5 text-xs font-bold"
+                  style={acento(C_CARDIO)}
                 >
                   {t('ejercicio.catalogo.guardar', 'Guardar')}
                 </button>

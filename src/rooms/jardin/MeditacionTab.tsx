@@ -12,6 +12,7 @@ import { CheckInAnimo } from './CheckInAnimo'
 import { FinSesion } from './FinSesion'
 import { tocarCampana } from './campana'
 import { COLOR } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { hoyISO } from './fecha'
 import { DURACIONES_PISTA, PISTAS } from './pistas'
 
@@ -116,7 +117,7 @@ export function MeditacionTab({
               key={pista.id}
               type="button"
               onClick={() => setTemaSel(pista.id)}
-              className={`rounded-xl p-3 text-left border transition ${
+              className={`rounded-xl p-3 text-start border transition ${
                 temaSel === pista.id
                   ? 'border-emerald-500/60 bg-emerald-500/15'
                   : 'border-white/10 bg-black/20 hover:bg-white/10'
@@ -131,18 +132,17 @@ export function MeditacionTab({
         </div>
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs text-white/50">{t('jardin.med.duracion', 'Duración')}</span>
-          {DURACIONES_PISTA.map((d) => (
-            <button
-              key={d}
-              type="button"
-              onClick={() => setDurSel(d)}
-              className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${
-                durSel === d ? 'bg-emerald-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-              }`}
-            >
-              {d} min
-            </button>
-          ))}
+          <div className="min-w-0 flex-1">
+            <PestanasCarpeta
+              items={DURACIONES_PISTA.map((d) => ({ id: String(d), label: `${d} min` }))}
+              activo={String(durSel)}
+              onCambio={(id) => setDurSel(Number(id))}
+              color={COLOR}
+              variante="sub"
+              nivel={3}
+              flecha={false}
+            />
+          </div>
         </div>
         <button
           type="button"
@@ -194,7 +194,7 @@ export function MeditacionTab({
             onChange={(e) => setMinLibre(parseInt(e.target.value, 10))}
             className="w-full"
           />
-          <span className="w-16 shrink-0 text-right text-lg font-black tabular-nums texto-vivo" style={vivo(COLOR)}>
+          <span className="w-16 shrink-0 text-end text-lg font-black tabular-nums texto-vivo" style={vivo(COLOR)}>
             {minLibre} min
           </span>
         </div>

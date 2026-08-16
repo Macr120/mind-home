@@ -84,7 +84,7 @@ export function ArbolCarpetas({
   }
 
   const filaBase =
-    'group flex w-full items-center gap-1.5 rounded-lg px-2 py-1.5 text-left text-xs transition'
+    'group flex w-full items-center gap-1.5 rounded-lg px-2 py-1.5 text-start text-xs transition'
 
   const pintar = (n: NodoCarpeta, prof: number) => {
     const abierta = !plegadas.has(n.carpeta.carpetaId)

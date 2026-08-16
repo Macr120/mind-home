@@ -22,7 +22,7 @@ export function ElegirModo({ opciones }: { opciones: OpcionModo[] }) {
             key={o.clave}
             type="button"
             onClick={o.alElegir}
-            className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
+            className="rounded-2xl border border-white/10 bg-white/5 p-4 text-start transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-2xl">
               {o.icono}

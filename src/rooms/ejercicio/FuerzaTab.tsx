@@ -23,6 +23,12 @@ import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { StatCard } from './ResistenciaTab'
 import { FiltroPeriodo } from './FiltroPeriodo'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { acento } from '../_shared/acento'
+import { C_FUERZA, TIPOS } from './constantes'
+
+// El color de la MODALIDAD (no el rosa de la app): cada pestaña pinta el suyo.
+const COLOR_FUERZA = TIPOS.find((x) => x.id === 'fuerza')!.color
 import { hoyISO, nombreFecha } from './fecha'
 import { metaDelPeriodo, sesionesPeriodo, type Periodo } from './periodo'
 import {
@@ -276,22 +282,16 @@ export function FuerzaTab({
 
   return (
     <div className="space-y-5">
-      <div data-tut="ejercicio.fuerza.subs" className="flex gap-1.5">
-        {SUBS.map((s) => (
-          <button
-            key={s.id}
-            type="button"
-            data-tut={`ejercicio.sub.${s.id}`}
-            onClick={() => setSub(s.id)}
-            className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-semibold ${
-              sub === s.id
-                ? 'bg-orange-500/25 text-orange-400 border border-orange-500/40'
-                : 'bg-white/5 border border-white/10 hover:bg-white/10'
-            }`}
-          >
-            <Icono nombre={s.icono} /> {t(`ejercicio.sub.${s.id}`, s.labelEs)}
-          </button>
-        ))}
+      <div data-tut="ejercicio.fuerza.subs">
+        <PestanasCarpeta
+          items={[...SUBS]}
+          activo={sub}
+          onCambio={setSub}
+          prefijoClave="ejercicio.sub"
+          color={COLOR_FUERZA}
+          variante="sub"
+          nivel={2}
+        />
       </div>
 
       {planDia.length > 0 && (
@@ -311,7 +311,8 @@ export function FuerzaTab({
               <button
                 type="button"
                 onClick={() => usarProgramada(p)}
-                className="shrink-0 rounded-lg bg-orange-600 px-3 py-1 text-xs font-bold texto-cta"
+                className="ui-accent-bg shrink-0 rounded-lg px-3 py-1 text-xs font-bold"
+                style={acento(C_FUERZA)}
               >
                 {t('ejercicio.rutina.usar', 'Usar rutina')}
               </button>
@@ -348,7 +349,7 @@ export function FuerzaTab({
                     key={r.id ?? r.nombre}
                     rutina={r}
                     tipo="fuerza"
-                    acento={{ boton: 'bg-orange-600', hoverBorde: 'hover:border-orange-500/50' }}
+                    acento={{ color: C_FUERZA, hoverBorde: 'hover:border-orange-500/50' }}
                     imgPorClave={imgPorClave}
                     onUsar={() => aplicarRutina(r)}
                     onBorrar={() => r.id && rutinasFuerzaRepo.remove(r.id)}
@@ -402,11 +403,7 @@ export function FuerzaTab({
 
       {sub === 'progreso' && (
         <>
-          <FiltroPeriodo
-            valor={periodo}
-            onChange={setPeriodo}
-            acento="bg-orange-500/25 text-orange-400 border border-orange-500/40"
-          />
+          <FiltroPeriodo valor={periodo} onChange={setPeriodo} color={COLOR_FUERZA} />
           <div data-tut="ejercicio.fuerza.progreso" className="grid grid-cols-2 gap-3">
             <HeatmapMensual sesiones={sesiones} tipo="fuerza" color="#f97316" />
             <div className="grid grid-rows-2 gap-3">
@@ -609,7 +606,7 @@ function SesionForm({
                 <CheckFila
                   hecho={!!f.hecho}
                   onToggle={() => actualizarFila(i, { hecho: !f.hecho })}
-                  acento="bg-orange-600"
+                  acento={C_FUERZA}
                 />
                 <MiniaturaEjercicio
                   nombre={f.ejercicio}
@@ -648,7 +645,7 @@ function SesionForm({
                 </div>
               </div>
               {ult && (
-                <p className="pl-1 text-[10px] text-white/35">
+                <p className="ps-1 text-[10px] text-white/35">
                   {t('ejercicio.ultimaVez', 'Última vez')}: {ult.series}×{ult.repeticiones}
                   {ult.pesoKg ? ` @ ${fmtPeso(ult.pesoKg, unidades)}` : ''} · {ult.fecha.slice(8)}/
                   {ult.fecha.slice(5, 7)}
@@ -685,7 +682,8 @@ function SesionForm({
         <button
           type="submit"
           disabled={!todoHecho}
-          className="flex-1 rounded-xl py-2.5 font-bold bg-orange-600 texto-cta disabled:cursor-not-allowed disabled:opacity-40"
+          className="ui-accent-bg flex-1 rounded-xl py-2.5 font-bold disabled:cursor-not-allowed disabled:opacity-40"
+          style={acento(C_FUERZA)}
         >
           {editandoId !== null
             ? t('ejercicio.actualizar', 'Actualizar sesión')

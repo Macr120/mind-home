@@ -18,6 +18,12 @@ import { HeatmapMensual } from './HeatmapMensual'
 import { useImagenesPorClave } from './imagenIA'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { FiltroPeriodo } from './FiltroPeriodo'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { acento } from '../_shared/acento'
+import { C_CARDIO, TIPOS } from './constantes'
+
+// El color de la MODALIDAD (no el rosa de la app): cada pestaña pinta el suyo.
+const COLOR_RESISTENCIA = TIPOS.find((x) => x.id === 'resistencia')!.color
 import { hoyISO, nombreFecha } from './fecha'
 import { metaDelPeriodo, sesionesPeriodo, type Periodo } from './periodo'
 import {
@@ -267,7 +273,8 @@ export function ResistenciaTab({
               <button
                 type="button"
                 onClick={() => usarProgramada(p)}
-                className="shrink-0 rounded-lg bg-sky-600 px-3 py-1 text-xs font-bold texto-cta"
+                className="ui-accent-bg shrink-0 rounded-lg px-3 py-1 text-xs font-bold"
+                style={acento(C_CARDIO)}
               >
                 {t('ejercicio.rutina.usar', 'Usar rutina')}
               </button>
@@ -276,22 +283,16 @@ export function ResistenciaTab({
         </div>
       )}
 
-      <div data-tut="ejercicio.resistencia.subs" className="flex gap-1.5">
-        {SUBS_R.map((s) => (
-          <button
-            key={s.id}
-            type="button"
-            data-tut={`ejercicio.sub.${s.id}`}
-            onClick={() => setSubR(s.id)}
-            className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-semibold ${
-              subR === s.id
-                ? 'bg-sky-500/25 text-sky-400 border border-sky-500/40'
-                : 'bg-white/5 border border-white/10 hover:bg-white/10'
-            }`}
-          >
-            <Icono nombre={s.icono} /> {t(`ejercicio.sub.${s.id}`, s.labelEs)}
-          </button>
-        ))}
+      <div data-tut="ejercicio.resistencia.subs">
+        <PestanasCarpeta
+          items={[...SUBS_R]}
+          activo={subR}
+          onCambio={setSubR}
+          prefijoClave="ejercicio.sub"
+          color={COLOR_RESISTENCIA}
+          variante="sub"
+          nivel={2}
+        />
       </div>
 
       {subR === 'catalogo' && <CrearRutinaCardio />}
@@ -322,7 +323,7 @@ export function ResistenciaTab({
                     key={r.id ?? r.nombre}
                     rutina={r}
                     tipo="resistencia"
-                    acento={{ boton: 'bg-sky-600', hoverBorde: 'hover:border-sky-500/50' }}
+                    acento={{ color: C_CARDIO, hoverBorde: 'hover:border-sky-500/50' }}
                     imgPorClave={imgPorClave}
                     onUsar={() => aplicarRutina(r)}
                     onBorrar={() => r.id && rutinasCardioRepo.remove(r.id)}
@@ -378,7 +379,7 @@ export function ResistenciaTab({
                   <CheckFila
                     hecho={!!f.hecho}
                     onToggle={() => actualizarFila(i, { hecho: !f.hecho })}
-                    acento="bg-sky-600"
+                    acento={C_CARDIO}
                   />
                   <MiniaturaEjercicio
                     nombre={f.actividad}
@@ -460,7 +461,8 @@ export function ResistenciaTab({
               <button
                 type="submit"
                 disabled={!todoHecho}
-                className="flex-1 rounded-xl py-2.5 font-bold bg-sky-600 texto-cta disabled:cursor-not-allowed disabled:opacity-40"
+                className="ui-accent-bg flex-1 rounded-xl py-2.5 font-bold disabled:cursor-not-allowed disabled:opacity-40"
+                style={acento(C_CARDIO)}
               >
                 {editandoId !== null
                   ? t('ejercicio.actualizar', 'Actualizar sesión')
@@ -496,11 +498,7 @@ export function ResistenciaTab({
 
       {subR === 'progreso' && (
         <>
-          <FiltroPeriodo
-            valor={periodo}
-            onChange={setPeriodo}
-            acento="bg-sky-500/25 text-sky-400 border border-sky-500/40"
-          />
+          <FiltroPeriodo valor={periodo} onChange={setPeriodo} color={COLOR_RESISTENCIA} />
           <div data-tut="ejercicio.resistencia.progreso" className="grid grid-cols-2 gap-3">
             <HeatmapMensual sesiones={sesiones} tipo="resistencia" color="#38bdf8" />
             <div className="grid grid-rows-2 gap-3">

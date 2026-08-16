@@ -5,7 +5,7 @@ import { iaActiva, type MensajeIA } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
 import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR, PILAR_GENERAL, getPilar } from './constantes'
+import { PILAR_GENERAL, getPilar } from './constantes'
 import { hoyISO } from './fecha'
 import type { AnclaTema } from './arbol'
 import { EntradaForm, type EntradaFormInicial } from './EntradaForm'
@@ -83,7 +83,7 @@ interface CtxDiag {
   t: ReturnType<typeof useT>
 }
 
-/** Fila + hijos recursivos con líneas conectoras (border-l + stub horizontal). */
+/** Fila + hijos recursivos con líneas conectoras (border-s + stub horizontal). */
 function NodoDiagrama({ nodo, raiz, ctx }: { nodo: NodoDiag; raiz?: boolean; ctx: CtxDiag }) {
   const abierto = ctx.buscando || ctx.expandidos.has(nodo.id)
   const tieneHijos = nodo.hijos.length > 0
@@ -96,7 +96,7 @@ function NodoDiagrama({ nodo, raiz, ctx }: { nodo: NodoDiag; raiz?: boolean; ctx
   }, [marcado])
   const stub = raiz
     ? ''
-    : 'before:absolute before:-left-3 before:top-1/2 before:h-px before:w-3 before:bg-white/15'
+    : 'before:absolute before:-start-3 before:top-1/2 before:h-px before:w-3 before:bg-white/15'
 
   const btnEdit =
     'shrink-0 rounded px-1.5 py-1 text-[11px] text-white/35 transition hover:bg-white/10 hover:text-white/80'
@@ -133,8 +133,7 @@ function NodoDiagrama({ nodo, raiz, ctx }: { nodo: NodoDiag; raiz?: boolean; ctx
           <span className="truncate">{nodo.titulo}</span>
           {nodo.esNuevo && (
             <span
-              className="shrink-0 rounded-full px-1.5 py-px text-[8px] font-bold text-black"
-              style={{ background: COLOR }}
+              className="ui-accent-bg shrink-0 rounded-full px-1.5 py-px text-[8px] font-bold"
             >
               <Icono nombre="brillo" /> {ctx.t('biblioteca.enc.nuevo', 'nuevo')}
             </span>
@@ -153,8 +152,7 @@ function NodoDiagrama({ nodo, raiz, ctx }: { nodo: NodoDiag; raiz?: boolean; ctx
           )}
           {nodo.badgeEntradas != null && (
             <span
-              className="shrink-0 rounded-full px-1.5 py-px text-[9px] font-bold text-black"
-              style={{ background: COLOR }}
+              className="ui-accent-bg shrink-0 rounded-full px-1.5 py-px text-[9px] font-bold"
               title={ctx.t('biblioteca.enc.nEntradas', '{n} entradas', { n: String(nodo.badgeEntradas) })}
             >
               {nodo.badgeEntradas}
@@ -286,7 +284,7 @@ function NodoDiagrama({ nodo, raiz, ctx }: { nodo: NodoDiag; raiz?: boolean; ctx
         <button
           type="button"
           onClick={() => ctx.abrirEntrada(nodo.entradaHoja!)}
-          className={`relative flex w-full items-center gap-1.5 rounded-lg bg-black/20 px-2 py-1.5 text-left transition hover:bg-black/30 ${stub} ${marca}`}
+          className={`relative flex w-full items-center gap-1.5 rounded-lg bg-black/20 px-2 py-1.5 text-start transition hover:bg-black/30 ${stub} ${marca}`}
         >
           {contenido}
         </button>
@@ -300,7 +298,7 @@ function NodoDiagrama({ nodo, raiz, ctx }: { nodo: NodoDiag; raiz?: boolean; ctx
         </div>
       )}
       {abierto && tieneHijos && (
-        <div className="ml-4 mt-1 space-y-1 border-l border-white/15 pl-3">
+        <div className="ms-4 mt-1 space-y-1 border-s border-white/15 ps-3">
           {nodo.hijos.map((h) => (
             <NodoDiagrama key={h.id} nodo={h} ctx={ctx} />
           ))}
@@ -684,7 +682,7 @@ export function EnciclopediaTab({
               <p className="mb-1 text-[10px] uppercase tracking-wide text-white/40">
                 {t('biblioteca.ent.puntosTitulo', 'Puntos clave')}
               </p>
-              <ul className="list-disc space-y-1 pl-5 text-sm text-white/75">
+              <ul className="list-disc space-y-1 ps-5 text-sm text-white/75">
                 {entrada.puntosClave.map((p, i) => (
                   <li key={i}>{p}</li>
                 ))}
@@ -769,9 +767,8 @@ export function EnciclopediaTab({
           type="button"
           onClick={() => setEdicion((x) => !x)}
           className={`shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition ${
-            edicion ? 'text-black' : 'bg-white/5 text-white/60 hover:bg-white/10'
+            edicion ? 'ui-accent-bg' : 'bg-white/5 text-white/60 hover:bg-white/10'
           }`}
-          style={edicion ? { background: COLOR } : undefined}
           title={t('biblioteca.enc.modoEdicion', 'Editar el índice')}
           aria-label={t('biblioteca.enc.modoEdicion', 'Editar el índice')}
         >
@@ -781,8 +778,7 @@ export function EnciclopediaTab({
           <button
             type="button"
             onClick={() => setForm({ inicial: { titulo: '', resumen: '', puntosClave: [], pilarId: PILAR_GENERAL.id } })}
-            className="shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-black"
-            style={{ background: COLOR }}
+            className="ui-accent-bg shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition hover:brightness-110"
           >
             <Icono nombre="agregar" /> {t('biblioteca.ent.nueva', 'Nueva entrada')}
           </button>

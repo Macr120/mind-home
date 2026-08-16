@@ -20,7 +20,7 @@ import { claveLS, esDemo } from '../../core/edicion'
 import { filaSeed } from '../../core/data/sync/syncables'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { tGlobal } from '../../core/i18n/useT'
-import { catalogoActual, idCatalogo } from './catalogo'
+import { CATALOGO, catalogoActual, idCatalogo } from './catalogo'
 import { PLANTILLAS_HOJA } from './plantillasHoja'
 
 let sembrado = false
@@ -78,7 +78,7 @@ async function sembrarFormulario(): Promise<void> {
   const nuevasCarpetas: CarpetaFormula[] = []
   const nuevasFormulas: Formula[] = []
 
-  for (const [iArea, area] of catalogoActual().entries()) {
+  for (const [iArea, area] of (await catalogoActual()).entries()) {
     // Quien ya hubiera copiado del catálogo tiene una carpeta raíz con el
     // nombre del área y un `carpetaId` aleatorio: se reusa en vez de crear una
     // segunda «Física» al lado.
@@ -170,7 +170,8 @@ async function sembrarHojas(): Promise<void> {
   if (nuevas.length) await db.hojasCalculo.bulkAdd(nuevas)
 }
 
-/** Los `carpetaId` de las áreas: el árbol nace plegado por ellas. */
+/** Los `carpetaId` de las áreas: el árbol nace plegado por ellas. Los ids no
+ *  dependen del idioma, así que basta el catálogo base (síncrono). */
 export function carpetasSembradas(): string[] {
-  return catalogoActual().map((a) => `cat-${a.id}`)
+  return CATALOGO.map((a) => `cat-${a.id}`)
 }

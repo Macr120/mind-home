@@ -31,6 +31,15 @@ const CBS_SPORTS = (seccion = '') => `https://www.cbssports.com/rss/headlines/${
 const BBC = (seccion: string) => `https://feeds.bbci.co.uk/${seccion}/rss.xml`
 const GUARDIAN = (seccion: string) => `https://www.theguardian.com/${seccion}/rss`
 const EL_MUNDO = (seccion: string) => `https://e00-elmundo.uecdn.es/elmundo/rss/${seccion}.xml`
+const G1 = (seccion = '') => `https://g1.globo.com/rss/g1/${seccion}`
+const DW_ZH = (seccion: string) => `https://rss.dw.com/xml/rss-chi-${seccion}`
+const NHK = (cat: number) => `https://www3.nhk.or.jp/rss/news/cat${cat}.xml`
+const AMAR_UJALA = (seccion: string) => `https://www.amarujala.com/rss/${seccion}.xml`
+const HANI = (seccion = '') => `https://www.hani.co.kr/rss${seccion ? `/${seccion}` : ''}`
+const CNN_ID = (seccion: string) => `https://www.cnnindonesia.com/${seccion}/rss`
+const RMF24 = (seccion: string) => `https://www.rmf24.pl/${seccion}/feed`
+const CNN_AR = (seccion = '') => `https://arabic.cnn.com/api/v1/rss/${seccion ? `${seccion}/` : ''}rss.xml`
+const NOS = (feed: string) => `https://feeds.nos.nl/${feed}`
 
 const MEDIOS_ES: Medio[] = [
   { nombre: 'El País', categoria: 'mundo', url: EL_PAIS('internacional') },
@@ -118,6 +127,139 @@ const MEDIOS_EN: Medio[] = [
   { nombre: 'Variety', categoria: 'entretenimiento', url: 'https://variety.com/feed/', proxy: true },
 ]
 
+const MEDIOS_PT: Medio[] = [
+  { nombre: 'Folha de S.Paulo', categoria: 'mundo', url: 'https://feeds.folha.uol.com.br/emcimadahora/rss091.xml', proxy: true },
+  { nombre: 'G1', categoria: 'mundo', url: G1(), proxy: true },
+  { nombre: 'RTP Notícias', categoria: 'mundo', url: 'https://www.rtp.pt/noticias/rss/pais', proxy: true },
+  { nombre: 'G1 Pop & Arte', categoria: 'entretenimiento', url: G1('pop-arte/'), proxy: true },
+]
+
+const MEDIOS_FR: Medio[] = [
+  { nombre: 'Franceinfo', categoria: 'mundo', url: 'https://www.franceinfo.fr/titres.rss' },
+  { nombre: 'Le Monde', categoria: 'mundo', url: 'https://www.lemonde.fr/rss/une.xml', proxy: true },
+  { nombre: 'France 24', categoria: 'mundo', url: 'https://www.france24.com/fr/rss', proxy: true },
+  { nombre: 'Franceinfo Culture', categoria: 'entretenimiento', url: 'https://www.franceinfo.fr/culture.rss' },
+]
+
+const MEDIOS_DE: Medio[] = [
+  {
+    nombre: 'Tagesschau',
+    categoria: 'mundo',
+    url: 'https://www.tagesschau.de/infoservices/alle-meldungen-100~rss2.xml',
+    proxy: true,
+  },
+  { nombre: 'Die Zeit', categoria: 'mundo', url: 'https://newsfeed.zeit.de/index', proxy: true },
+  { nombre: 'Der Spiegel', categoria: 'mundo', url: 'https://www.spiegel.de/schlagzeilen/index.rss', proxy: true },
+  {
+    nombre: 'Der Spiegel Kultur',
+    categoria: 'entretenimiento',
+    url: 'https://www.spiegel.de/kultur/index.rss',
+    proxy: true,
+  },
+]
+
+const MEDIOS_IT: Medio[] = [
+  { nombre: 'ANSA', categoria: 'mundo', url: 'https://www.ansa.it/sito/ansait_rss.xml', proxy: true },
+  { nombre: 'Corriere della Sera', categoria: 'mundo', url: 'https://xml2.corriereobjects.it/rss/homepage.xml' },
+  {
+    nombre: 'la Repubblica',
+    categoria: 'mundo',
+    url: 'https://www.repubblica.it/rss/homepage/rss2.0.xml',
+    proxy: true,
+  },
+  {
+    nombre: 'la Repubblica Spettacoli',
+    categoria: 'entretenimiento',
+    url: 'https://www.repubblica.it/rss/spettacoli/rss2.0.xml',
+    proxy: true,
+  },
+]
+
+const MEDIOS_JA: Medio[] = [
+  { nombre: 'NHKニュース', categoria: 'mundo', url: NHK(0) },
+  { nombre: '朝日新聞', categoria: 'mundo', url: 'https://www.asahi.com/rss/asahi/newsheadlines.rdf', proxy: true },
+  { nombre: '毎日新聞', categoria: 'mundo', url: 'https://mainichi.jp/rss/etc/mainichi-flash.rss', proxy: true },
+  { nombre: 'NHKニュース 文化・エンタメ', categoria: 'entretenimiento', url: NHK(2) },
+]
+
+const MEDIOS_ZH: Medio[] = [
+  { nombre: '德国之声中文网', categoria: 'mundo', url: DW_ZH('all') },
+  { nombre: '法广RFI中文', categoria: 'mundo', url: 'https://www.rfi.fr/cn/rss', proxy: true },
+  { nombre: '纽约时报中文网', categoria: 'mundo', url: 'https://cn.nytimes.com/rss/', proxy: true },
+  { nombre: '德国之声中文网 文化', categoria: 'entretenimiento', url: DW_ZH('cul') },
+]
+
+const MEDIOS_KO: Medio[] = [
+  { nombre: '연합뉴스', categoria: 'mundo', url: 'https://www.yna.co.kr/rss/news.xml', proxy: true },
+  { nombre: '한겨레', categoria: 'mundo', url: HANI(), proxy: true },
+  { nombre: '동아일보', categoria: 'mundo', url: 'https://rss.donga.com/total.xml', proxy: true },
+  { nombre: '한겨레 문화', categoria: 'entretenimiento', url: HANI('culture'), proxy: true },
+]
+
+const MEDIOS_RU: Medio[] = [
+  { nombre: 'Meduza', categoria: 'mundo', url: 'https://meduza.io/rss/all', proxy: true },
+  { nombre: 'РБК', categoria: 'mundo', url: 'https://rssexport.rbc.ru/rbcnews/news/30/full.rss', proxy: true },
+  { nombre: 'Lenta.ru', categoria: 'mundo', url: 'https://lenta.ru/rss/news', proxy: true },
+  { nombre: 'ТАСС', categoria: 'mundo', url: 'https://tass.ru/rss/v2.xml', proxy: true },
+  { nombre: 'Lenta.ru Культура', categoria: 'entretenimiento', url: 'https://lenta.ru/rss/news/culture', proxy: true },
+]
+
+const MEDIOS_HI: Medio[] = [
+  { nombre: 'BBC News हिंदी', categoria: 'mundo', url: 'https://feeds.bbci.co.uk/hindi/rss.xml', proxy: true },
+  { nombre: 'अमर उजाला', categoria: 'mundo', url: AMAR_UJALA('breaking-news') },
+  { nombre: 'आज तक', categoria: 'mundo', url: 'https://www.aajtak.in/rssfeeds/?id=home', proxy: true },
+  { nombre: 'अमर उजाला मनोरंजन', categoria: 'entretenimiento', url: AMAR_UJALA('entertainment') },
+]
+
+const MEDIOS_TR: Medio[] = [
+  { nombre: 'Hürriyet', categoria: 'mundo', url: 'https://www.hurriyet.com.tr/rss/anasayfa', proxy: true },
+  { nombre: 'NTV', categoria: 'mundo', url: 'https://www.ntv.com.tr/turkiye.rss', proxy: true },
+  { nombre: 'Milliyet', categoria: 'mundo', url: 'https://www.milliyet.com.tr/rss/rssnew/gundem.xml', proxy: true },
+  { nombre: 'Cumhuriyet', categoria: 'mundo', url: 'https://www.cumhuriyet.com.tr/rss' },
+  {
+    nombre: 'CNN Türk Kültür Sanat',
+    categoria: 'entretenimiento',
+    url: 'https://www.cnnturk.com/feed/rss/kultur-sanat/news',
+  },
+]
+
+const MEDIOS_ID: Medio[] = [
+  { nombre: 'Antara News', categoria: 'mundo', url: 'https://www.antaranews.com/rss/terkini.xml' },
+  { nombre: 'Tempo', categoria: 'mundo', url: 'https://rss.tempo.co/nasional', proxy: true },
+  { nombre: 'CNN Indonesia', categoria: 'mundo', url: CNN_ID('nasional') },
+  { nombre: 'Republika', categoria: 'mundo', url: 'https://www.republika.co.id/rss', proxy: true },
+  { nombre: 'CNN Indonesia Hiburan', categoria: 'entretenimiento', url: CNN_ID('hiburan') },
+]
+
+const MEDIOS_PL: Medio[] = [
+  { nombre: 'RMF24', categoria: 'mundo', url: RMF24('fakty'), proxy: true },
+  { nombre: 'Onet Wiadomości', categoria: 'mundo', url: 'https://wiadomosci.onet.pl/.feed', proxy: true },
+  { nombre: 'TVN24', categoria: 'mundo', url: 'https://tvn24.pl/najnowsze.xml', proxy: true },
+  { nombre: 'Gazeta.pl', categoria: 'mundo', url: 'https://wiadomosci.gazeta.pl/pub/rss/wiadomosci.xml', proxy: true },
+  { nombre: 'RMF24 Kultura', categoria: 'entretenimiento', url: RMF24('kultura'), proxy: true },
+]
+
+const MEDIOS_AR: Medio[] = [
+  {
+    nombre: 'الجزيرة نت',
+    categoria: 'mundo',
+    url: 'https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9',
+    proxy: true,
+  },
+  { nombre: 'BBC Arabic', categoria: 'mundo', url: 'https://feeds.bbci.co.uk/arabic/rss.xml', proxy: true },
+  { nombre: 'France 24', categoria: 'mundo', url: 'https://www.france24.com/ar/rss', proxy: true },
+  { nombre: 'CNN بالعربية', categoria: 'mundo', url: CNN_AR() },
+  { nombre: 'CNN بالعربية ترفيه', categoria: 'entretenimiento', url: CNN_AR('entertainment') },
+]
+
+const MEDIOS_NL: Medio[] = [
+  { nombre: 'NOS', categoria: 'mundo', url: NOS('nosnieuwsalgemeen'), proxy: true },
+  { nombre: 'NU.nl', categoria: 'mundo', url: 'https://www.nu.nl/rss/Algemeen', proxy: true },
+  { nombre: 'de Volkskrant', categoria: 'mundo', url: 'https://www.volkskrant.nl/voorpagina/rss.xml', proxy: true },
+  { nombre: 'NRC', categoria: 'mundo', url: 'https://www.nrc.nl/rss/', proxy: true },
+  { nombre: 'NOS Cultuur & Media', categoria: 'entretenimiento', url: NOS('nosnieuwscultuurenmedia'), proxy: true },
+]
+
 /**
  * Las cabeceras por idioma. Traducir aquí no serviría de nada: un lector en
  * francés quiere prensa francesa, no El País en francés, así que cada idioma
@@ -126,6 +268,20 @@ const MEDIOS_EN: Medio[] = [
 const MEDIOS: PorIdioma<Medio[]> = {
   es: MEDIOS_ES,
   en: MEDIOS_EN,
+  pt: MEDIOS_PT,
+  fr: MEDIOS_FR,
+  de: MEDIOS_DE,
+  it: MEDIOS_IT,
+  ja: MEDIOS_JA,
+  zh: MEDIOS_ZH,
+  ko: MEDIOS_KO,
+  ru: MEDIOS_RU,
+  hi: MEDIOS_HI,
+  tr: MEDIOS_TR,
+  id: MEDIOS_ID,
+  pl: MEDIOS_PL,
+  ar: MEDIOS_AR,
+  nl: MEDIOS_NL,
 }
 
 /** Titulares que se toman de cada medio. */

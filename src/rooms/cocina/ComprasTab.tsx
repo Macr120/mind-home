@@ -2,6 +2,8 @@ import { useState } from 'react'
 import type { ItemCompra, ListaCompra } from '../../core/data/db'
 import { VACIO, finanzasRepo, itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
 import { CATEGORIAS_COMPRA, adivinarCategoria, getCategoriaCompra } from './categoriasCompra'
+import { COLOR } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { hoyISO } from './fecha'
 import { money2 } from '../despacho/mes'
 import { localeActual, useT } from '../../core/i18n/useT'
@@ -13,7 +15,6 @@ type Sub = 'crear' | 'listas'
 const CATEGORIA_GASTO = 'comida'
 
 export function ComprasTab({ items, listas }: { items: ItemCompra[]; listas: ListaCompra[] }) {
-  const t = useT()
   const [sub, setSub] = useState<Sub>('crear')
 
   // Sueltos (sin lista) = el generador "Crear lista".
@@ -21,29 +22,23 @@ export function ComprasTab({ items, listas }: { items: ItemCompra[]; listas: Lis
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-2">
-        <button
-          type="button"
-          data-tut="cocina.compras.sub.crear"
-          onClick={() => setSub('crear')}
-          className={`rounded-xl py-2.5 text-sm font-semibold transition ${
-            sub === 'crear' ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-          }`}
-        >
-          {t('cocina.comp.subCrear', 'Crear lista')}
-        </button>
-        <button
-          type="button"
-          data-tut="cocina.compras.sub.listas"
-          onClick={() => setSub('listas')}
-          className={`rounded-xl py-2.5 text-sm font-semibold transition ${
-            sub === 'listas' ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-          }`}
-        >
-          {t('cocina.comp.subListas', 'Listas')}
-          {listas.length > 0 && <span className="ml-1.5 opacity-70">({listas.length})</span>}
-        </button>
-      </div>
+      <PestanasCarpeta
+        items={[
+          { id: 'crear', labelEs: 'Crear lista', clave: 'cocina.comp.subCrear' },
+          {
+            id: 'listas',
+            labelEs: 'Listas',
+            clave: 'cocina.comp.subListas',
+            extra: listas.length > 0 ? <span className="ms-1.5 opacity-70">({listas.length})</span> : undefined,
+          },
+        ]}
+        activo={sub}
+        onCambio={setSub}
+        prefijoTut="cocina.compras.sub"
+        color={COLOR}
+        variante="sub"
+        nivel={3}
+      />
 
       {sub === 'crear' ? (
         <GeneradorCompras items={sueltos} />
@@ -93,7 +88,7 @@ function FilaAgregar({ listaId }: { listaId?: number }) {
       <button
         type="submit"
         aria-label={t('cocina.comp.añadir', 'Añadir a la lista')}
-        className="shrink-0 rounded-lg bg-amber-600 px-3 py-2 text-sm font-bold texto-cta hover:brightness-110"
+        className="ui-accent-bg shrink-0 rounded-lg px-3 py-2 text-sm font-bold hover:brightness-110"
       >
         <Icono nombre="agregar" />
       </button>
@@ -141,7 +136,7 @@ function FilaItem({ item, conCheck, conPrecio }: { item: ItemCompra; conCheck: b
           onChange={(e) => guardar({ precio: parseFloat(e.target.value) || undefined })}
           placeholder={t('cocina.comp.ph.precio', '$')}
           aria-label={t('cocina.comp.precio', 'Precio')}
-          className="w-16 shrink-0 rounded-lg bg-black/30 border border-white/10 px-1.5 py-1 text-xs text-right outline-none focus:border-amber-400/50"
+          className="w-16 shrink-0 rounded-lg bg-black/30 border border-white/10 px-1.5 py-1 text-xs text-end outline-none focus:border-amber-400/50"
         />
       )}
       <select
@@ -183,7 +178,7 @@ function ItemsPorCategoria({ items }: { items: ItemCompra[] }) {
           <div className="flex items-center gap-2 px-3 py-2 bg-white/5 text-sm font-semibold">
             <span><Icono emoji={g.icon} /></span>
             <span>{t(`cocina.cat.${g.id}`, g.label)}</span>
-            <span className="ml-auto text-xs text-white/40">{g.items.filter((i) => !i.comprado).length}</span>
+            <span className="ms-auto text-xs text-white/40">{g.items.filter((i) => !i.comprado).length}</span>
           </div>
           <ul className="divide-y divide-white/5">
             {[...g.items]
@@ -241,10 +236,10 @@ function GeneradorCompras({ items }: { items: ItemCompra[] }) {
           <button
             type="button"
             onClick={guardarEnLista}
-            className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
+            className="ui-accent-bg w-full rounded-xl py-2.5 font-bold hover:brightness-110"
           >
             {t('cocina.comp.guardarBtn', 'Guardar en lista')}
-            <span className="ml-1.5 font-normal opacity-80">
+            <span className="ms-1.5 font-normal opacity-80">
               ({t('cocina.comp.nItems', `${items.length} artículos`, { n: String(items.length) })})
             </span>
           </button>
@@ -289,7 +284,7 @@ function ListasGuardadas({ items, listas }: { items: ItemCompra[]; listas: Lista
             <button
               type="button"
               onClick={() => setSelId(l.id ?? null)}
-              className="flex w-full items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-left hover:bg-white/10 transition"
+              className="flex w-full items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-start hover:bg-white/10 transition"
             >
               <div className="min-w-0 flex-1">
                 <p className="font-semibold text-white/90 truncate">{l.nombre}</p>
@@ -360,7 +355,7 @@ function DetalleLista({
         <button
           type="button"
           onClick={eliminarLista}
-          className="ml-auto rounded-lg bg-white/5 px-3 py-1.5 text-sm text-red-300 hover:bg-red-500/20"
+          className="ms-auto rounded-lg bg-white/5 px-3 py-1.5 text-sm text-red-300 hover:bg-red-500/20"
         >
           {t('cocina.comp.eliminarLista', 'Eliminar lista')}
         </button>
@@ -460,7 +455,7 @@ function CuentaLista({ lista, items }: { lista: ListaCompra; items: ItemCompra[]
         type="button"
         onClick={registrar}
         disabled={total <= 0 || alDia}
-        className="w-full rounded-xl py-2.5 text-sm font-bold bg-amber-600 texto-cta hover:brightness-110 disabled:opacity-40"
+        className="ui-accent-bg w-full rounded-xl py-2.5 text-sm font-bold hover:brightness-110 disabled:opacity-40"
       >
         {alDia
           ? t('cocina.comp.gastoAlDia', '✓ Registrado en el Despacho')

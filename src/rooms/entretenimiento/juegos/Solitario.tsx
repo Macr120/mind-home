@@ -220,7 +220,7 @@ export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
         <span className="text-white/55">
           {t('entre.j.movs', 'Movimientos')}: <strong className="text-white/85">{estado.movimientos}</strong>
           {Number.isFinite(ajuste.vueltas) && (
-            <span className="ml-3">
+            <span className="ms-3">
               {t('entre.j.sol.vueltas', 'Vueltas al mazo')}:{' '}
               <strong className="text-white/85">{ajuste.vueltas - estado.reciclados}</strong>
             </span>
@@ -250,7 +250,7 @@ export function Solitario({ dificultad = 'medio' }: PropsDificultad) {
             {estado.mazo.length ? (
               <>
                 <CartaView carta={{ palo: '♠', valor: 1 }} bocaAbajo ancho={ANCHO} />
-                <span className="absolute -right-1 -top-1 rounded-full bg-white/20 px-1 text-[9px] font-bold">
+                <span className="absolute -end-1 -top-1 rounded-full bg-white/20 px-1 text-[9px] font-bold">
                   {estado.mazo.length}
                 </span>
               </>

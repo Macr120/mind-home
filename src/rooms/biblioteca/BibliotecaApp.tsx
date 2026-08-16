@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { intencionApp, tabInicial } from '../../core/state/intencionApp'
-import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { CharlasTab } from './CharlasTab'
 import { ejemploBiblioteca } from './ejemplos'
@@ -15,7 +14,7 @@ import type { AnclaTema } from './arbol'
 
 type Tab = 'charlas' | 'enciclopedia' | 'estudio' | 'resumen'
 
-const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+const TABS: ItemPestana<Tab>[] = [
   { id: 'charlas', icono: 'chat', labelEs: 'Charlas' },
   { id: 'enciclopedia', icono: 'cuarto-biblioteca', labelEs: 'Enciclopedia' },
   { id: 'estudio', icono: 'alarma', labelEs: 'Estudio' },
@@ -26,6 +25,7 @@ export function BibliotecaApp() {
   const t = useT()
   useAutoCierreEstudio()
   const [tab, setTab] = useState<Tab>(() => tabInicial('biblioteca', TABS.map((x) => x.id), 'charlas'))
+  const [plegado, setPlegado] = useState(false)
   const [charlaAbierta, setCharlaAbierta] = useState<number | 'nueva' | null>(null)
   const [borradorInicial, setBorradorInicial] = useState('')
   const [temaAncla, setTemaAncla] = useState<AnclaTema | null>(null)
@@ -50,12 +50,14 @@ export function BibliotecaApp() {
     setTemaAncla(ancla)
     if (id === 'nueva') setSesionCharla((s) => s + 1)
     setCharlaAbierta(id)
+    setPlegado(false)
     setTab('charlas')
   }
 
   /** Salta a la enciclopedia enseñando ese nodo del árbol o esa entrada. */
   const irAEnciclopedia = (f: { nodoId?: string; entradaId?: number }) => {
     setFoco(f)
+    setPlegado(false)
     setTab('enciclopedia')
   }
 
@@ -65,49 +67,54 @@ export function BibliotecaApp() {
         {t('biblioteca.desc', 'Tu enciclopedia personal: charla con el Sabio sobre cualquier tema, guarda lo aprendido por campo del conocimiento y estudia con temporizador.')}
       </p>
 
-      <div className="flex gap-2">
-        {TABS.map((tabItem) => (
-          <button
-            key={tabItem.id}
-            data-tut={`biblioteca.tab.${tabItem.id}`}
-            onClick={() => setTab(tabItem.id)}
-            className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
-              tab === tabItem.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
-            }`}
-            style={tab === tabItem.id ? { background: COLOR } : undefined}
-          >
-            <Icono nombre={tabItem.icono} /> {t(`biblioteca.tab.${tabItem.id}`, tabItem.labelEs)}
-            {tabItem.id === 'estudio' && estudioActivo && (
-              <span className="ml-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-current align-middle" />
-            )}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={TABS.map((x) =>
+          x.id === 'estudio' && estudioActivo
+            ? {
+                ...x,
+                extra: (
+                  <span className="ms-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-current align-middle" />
+                ),
+              }
+            : x,
+        )}
+        activo={tab}
+        onCambio={setTab}
+        prefijoClave="biblioteca.tab"
+        color={COLOR}
+        variante="raiz"
+        plegado={plegado}
+        onAlternarPliegue={() => setPlegado((v) => !v)}
+      />
 
-      {tab === 'charlas' && (
-        <CharlasTab
-          abierta={charlaAbierta}
-          onAbrir={(id) => abrirCharla(id)}
-          onCerrar={() => setCharlaAbierta(null)}
-          borradorInicial={borradorInicial}
-          anclaInicial={temaAncla}
-          sesion={sesionCharla}
-          onIrANodo={(nodoId) => irAEnciclopedia({ nodoId })}
-          onVerEntrada={(entradaId) => irAEnciclopedia({ entradaId })}
-        />
-      )}
-      {tab === 'enciclopedia' && (
-        <EnciclopediaTab
-          onConversar={(texto, ancla) => abrirCharla('nueva', texto, ancla ?? null)}
-          onAbrirCharla={(id) => abrirCharla(id)}
-          foco={foco}
-          onFocoUsado={() => setFoco(null)}
-        />
-      )}
-      {tab === 'estudio' && <EstudioTab />}
-      {tab === 'resumen' && <ResumenTab />}
+      {!plegado && (
+        <>
+          {tab === 'charlas' && (
+            <CharlasTab
+              abierta={charlaAbierta}
+              onAbrir={(id) => abrirCharla(id)}
+              onCerrar={() => setCharlaAbierta(null)}
+              borradorInicial={borradorInicial}
+              anclaInicial={temaAncla}
+              sesion={sesionCharla}
+              onIrANodo={(nodoId) => irAEnciclopedia({ nodoId })}
+              onVerEntrada={(entradaId) => irAEnciclopedia({ entradaId })}
+            />
+          )}
+          {tab === 'enciclopedia' && (
+            <EnciclopediaTab
+              onConversar={(texto, ancla) => abrirCharla('nueva', texto, ancla ?? null)}
+              onAbrirCharla={(id) => abrirCharla(id)}
+              foco={foco}
+              onFocoUsado={() => setFoco(null)}
+            />
+          )}
+          {tab === 'estudio' && <EstudioTab />}
+          {tab === 'resumen' && <ResumenTab />}
 
-      <BarraEjemplo paquete={ejemploBiblioteca} />
+          <BarraEjemplo paquete={ejemploBiblioteca} />
+        </>
+      )}
     </div>
   )
 }

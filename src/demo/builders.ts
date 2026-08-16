@@ -13,8 +13,21 @@ import { fechaLocalISO, isoMasDias } from '../core/fechaLocal'
 import type { Idioma } from '../core/i18n/idiomas'
 import { idiomaActual } from '../core/i18n/useT'
 
-/** Los idiomas que un `demo.data.i18n.ts` puede traer (el español es la base). */
-export type ExtraIdiomas<T> = Partial<Record<Idioma, T>>
+/**
+ * Los idiomas que un `demo.data.i18n.ts` puede traer (el español es la base).
+ *
+ * El valor va sin tipar A PROPÓSITO. Ese archivo lo genera el traductor
+ * copiando la rama española entera y sustituyendo solo las frases, así que su
+ * forma está garantizada por construcción; en cambio la rama española tiene
+ * tipos LITERALES (`dia: -302`, `tipo: 'meditacion'`) que ningún objeto
+ * generado puede satisfacer. Exigir esa igualdad no compraría seguridad
+ * ninguna y sí impediría compilar.
+ *
+ * Desde `partir-demo-i18n.mjs`, el valor de cada idioma ya no es la rama en
+ * línea sino un CARGADOR `() => import('./demo.data.i18n.<idioma>')`: así solo
+ * se descarga el idioma activo. `textos()` entiende ambos formatos.
+ */
+export type ExtraIdiomas = Partial<Record<Idioma, unknown>>
 
 export interface CtxDemo {
   /** Fecha local de hoy (yyyy-mm-dd): el día 0 del año demo. */
@@ -34,7 +47,7 @@ export interface CtxDemo {
    */
   textos: <B extends { es: unknown }>(
     base: B,
-    extra?: () => Promise<{ default: ExtraIdiomas<B['es']> }>,
+    extra?: () => Promise<{ default: ExtraIdiomas }>,
   ) => Promise<B['es']>
 }
 
@@ -86,9 +99,12 @@ export function crearCtxDemo(): CtxDemo {
     fecha: (off) => isoMasDias(hoy, off),
     idioma,
     async textos(base, extra) {
-      const propio = (base as ExtraIdiomas<unknown>)[idioma]
+      const propio = (base as ExtraIdiomas)[idioma]
       if (propio !== undefined) return propio as never
-      const traducido = extra && (await extra()).default[idioma]
+      const rama = extra && (await extra()).default[idioma]
+      // Índice nuevo: cargador por idioma (solo baja el activo); viejo: la rama en línea.
+      const traducido =
+        typeof rama === 'function' ? (await (rama as () => Promise<{ default: unknown }>)()).default : rama
       return (traducido ?? base.es) as never
     },
     foto: async (clave) => {

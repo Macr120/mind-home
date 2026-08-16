@@ -2,9 +2,9 @@ import { useCallback, useState } from 'react'
 import { VACIO, gratitudDiariaRepo, sesionesMindfulnessRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
-import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
+import { COLOR } from './constantes'
 import { AgradecimientosTab } from './AgradecimientosTab'
 import { CalmaHeader } from './CalmaHeader'
 import { ejemploJardin } from './ejemplos'
@@ -13,7 +13,7 @@ import { RespiracionTab } from './RespiracionTab'
 
 type Tab = 'meditacion' | 'respiracion' | 'gratitud'
 
-const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+const TABS: ItemPestana<Tab>[] = [
   { id: 'meditacion', icono: 'cuarto-jardin', labelEs: 'Meditación' },
   { id: 'respiracion', icono: 'respiracion', labelEs: 'Respiración' },
   { id: 'gratitud', icono: 'gratitud', labelEs: 'Agradecimientos' },
@@ -22,6 +22,7 @@ const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
 export function JardinApp() {
   const t = useT()
   const [tab, setTab] = useState<Tab>(() => tabInicial('jardin', TABS.map((x) => x.id), 'meditacion'))
+  const [plegado, setPlegado] = useState(false)
   // Con una sesión en curso se ocultan cabecera y tabs (modo inmersivo).
   const [enSesion, setEnSesion] = useState(false)
   const onSesion = useCallback((activa: boolean) => setEnSesion(activa), [])
@@ -43,29 +44,30 @@ export function JardinApp() {
             <CalmaHeader sesiones={sesiones} gratitudes={gratitudes} />
           </div>
 
-          <div className="flex gap-1.5 overflow-x-auto pb-0.5">
-            {TABS.map((tabItem) => (
-              <button
-                key={tabItem.id}
-                data-tut={`jardin.tab.${tabItem.id}`}
-                onClick={() => setTab(tabItem.id)}
-                className={`shrink-0 rounded-xl px-3 py-2 text-sm font-semibold transition ${
-                  tab === tabItem.id ? 'bg-emerald-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-                }`}
-              >
-                <Icono nombre={tabItem.icono} /> {t(`jardin.tab.${tabItem.id}`, tabItem.labelEs)}
-              </button>
-            ))}
-          </div>
+          <PestanasCarpeta
+            items={TABS}
+            activo={tab}
+            onCambio={setTab}
+            prefijoClave="jardin.tab"
+            color={COLOR}
+            variante="raiz"
+            desplazable
+            plegado={plegado}
+            onAlternarPliegue={() => setPlegado((v) => !v)}
+          />
         </>
       )}
 
-      {tab === 'meditacion' && <MeditacionTab onSesion={onSesion} sesiones={sesiones} />}
-      {tab === 'respiracion' && <RespiracionTab onSesion={onSesion} />}
-      {tab === 'gratitud' && <AgradecimientosTab />}
+      {!plegado && (
+        <>
+          {tab === 'meditacion' && <MeditacionTab onSesion={onSesion} sesiones={sesiones} />}
+          {tab === 'respiracion' && <RespiracionTab onSesion={onSesion} />}
+          {tab === 'gratitud' && <AgradecimientosTab />}
 
-      {/* El ejemplo trae prácticas Y agradecimientos: la barra vale para las tres pestañas. */}
-      <BarraEjemplo paquete={ejemploJardin} />
+          {/* El ejemplo trae prácticas Y agradecimientos: la barra vale para las tres pestañas. */}
+          <BarraEjemplo paquete={ejemploJardin} />
+        </>
+      )}
     </div>
   )
 }

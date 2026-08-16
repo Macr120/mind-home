@@ -119,7 +119,7 @@ export function AnecdotarioApp() {
                 <button
                   type="button"
                   onClick={() => setFotos(fotos.filter((_, j) => j !== i))}
-                  className="ui-noche absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/80 text-[10px] text-white/80 hover:text-white"
+                  className="ui-noche absolute -end-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/80 text-[10px] text-white/80 hover:text-white"
                 >
                   ✕
                 </button>
@@ -145,7 +145,7 @@ export function AnecdotarioApp() {
           </button>
           <button
             type="submit"
-            className="flex-1 rounded-lg bg-violet-600 py-2 font-bold texto-cta hover:brightness-110 transition"
+            className="ui-accent-bg flex-1 rounded-lg py-2 font-bold hover:brightness-110 transition"
           >
             {t('anec.guardar', 'Guardar anécdota')}
           </button>
@@ -170,7 +170,7 @@ export function AnecdotarioApp() {
             <button
               onClick={() => setDiaSel(null)}
               aria-label={t('anec.dia.cerrar', 'Cerrar el día')}
-              className="ml-auto text-white/30 hover:text-white/70"
+              className="ms-auto text-white/30 hover:text-white/70"
             >
               ✕
             </button>
@@ -214,7 +214,7 @@ export function AnecdotarioApp() {
           />
           <button
             onClick={() => setVisor(null)}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
+            className="absolute end-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
           >
             ✕
           </button>
@@ -225,7 +225,7 @@ export function AnecdotarioApp() {
                   e.stopPropagation()
                   setVisor({ ...visor, idx: (visor.idx - 1 + visor.fotos.length) % visor.fotos.length })
                 }}
-                className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
+                className="absolute start-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
               >
                 ‹
               </button>
@@ -234,7 +234,7 @@ export function AnecdotarioApp() {
                   e.stopPropagation()
                   setVisor({ ...visor, idx: (visor.idx + 1) % visor.fotos.length })
                 }}
-                className="absolute right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
+                className="absolute end-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
               >
                 ›
               </button>
@@ -259,7 +259,7 @@ function TarjetaAnecdota({
       <header className="flex items-center gap-2">
         <span className="text-xl"><Icono emoji={a.animo} /></span>
         <h3 className="font-bold">{a.titulo}</h3>
-        <span className="ml-auto text-xs text-white/40">{a.fecha}</span>
+        <span className="ms-auto text-xs text-white/40">{a.fecha}</span>
         <button
           onClick={() => a.id && anecdotasRepo.remove(a.id)}
           className="text-white/30 hover:text-white/70"

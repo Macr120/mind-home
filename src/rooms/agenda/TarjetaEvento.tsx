@@ -5,6 +5,7 @@ import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
 import { COLOR_AREA, PRIORIDADES } from './constantes'
+import { acento } from '../_shared/acento'
 import { alternarHecho, borrarEvento } from './crear'
 import { getEspecie } from './mascotas'
 import { BotonBorrar } from './ui'
@@ -39,9 +40,9 @@ export function TarjetaEvento({
         onClick={() => void alternarHecho(ev)}
         title={t('agenda.palomear', 'Marcar como hecho')}
         className={`mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border text-[10px] transition ${
-          ev.hecho ? 'border-transparent texto-cta' : 'border-white/25 text-transparent hover:border-white/50'
+          ev.hecho ? 'border-transparent ui-accent-bg' : 'border-white/25 text-transparent hover:border-white/50'
         }`}
-        style={ev.hecho ? { background: COLOR_AREA[ev.area] } : undefined}
+        style={ev.hecho ? acento(COLOR_AREA[ev.area]) : undefined}
       >
         <Icono nombre="confirmar" />
       </button>

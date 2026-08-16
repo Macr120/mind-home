@@ -23,13 +23,4 @@ export const OP_RESUMEN: OperacionIA = {
   partes: [{ op: 'texto' }],
 }
 
-export const OP_PROGRAMA: OperacionIA = {
-  id: 'entretenimiento.programa',
-  clave: 'ia.op.entretenimiento.programa',
-  es: 'Programa de series, libros o juegos',
-  dondeClave: 'ia.donde.entretenimiento.programas',
-  dondeEs: 'Programas',
-  partes: [{ op: 'texto_largo' }],
-}
-
-export const OPERACIONES_IA: OperacionIA[] = [OP_FICHA, OP_RESUMEN, OP_PROGRAMA]
+export const OPERACIONES_IA: OperacionIA[] = [OP_FICHA, OP_RESUMEN]

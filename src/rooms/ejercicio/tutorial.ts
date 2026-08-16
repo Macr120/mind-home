@@ -42,11 +42,11 @@ export const cuerpoAnio: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'ejercicio.cronograma',
+      sel: 'hoy.cabecera',
       titulo: T('tut.app-ejercicio--anio.3.titulo', 'Las metas del año'),
       texto: T(
         'tut.app-ejercicio--anio.3.texto',
-        'Aquí están sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.',
+        'El botón Metas del encabezado guarda sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.',
       ),
     },
   ],

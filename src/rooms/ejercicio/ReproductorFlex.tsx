@@ -127,7 +127,7 @@ export function ReproductorFlex({
             type="button"
             onClick={onCerrar}
             title={t('ejercicio.reproductor.cerrar', 'Cerrar')}
-            className="ml-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
+            className="ms-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
           >
             <Icono nombre="cerrar" />
           </button>

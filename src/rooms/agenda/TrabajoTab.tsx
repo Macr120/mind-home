@@ -3,9 +3,12 @@ import type { ContactoAgenda, EventoAgenda } from '../../core/data/db'
 import { eventosAgendaRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { Vacio } from '../_shared/ui'
 import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { BarraEjemplo } from './BarraEjemplo'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { FormEvento } from './FormEvento'
 import { Tablero } from './Tablero'
 import { TarjetaEvento } from './TarjetaEvento'
@@ -46,27 +49,23 @@ export function TrabajoTab({
   return (
     <div className="space-y-3">
       <div className="flex gap-2">
-        <div className="flex flex-1 gap-1 rounded-xl bg-white/5 p-1">
-          {VISTAS.map((v) => (
-            <button
-              key={v.id}
-              type="button"
-              data-tut={`agenda.trabajo.${v.id}`}
-              onClick={() => setVista(v.id)}
-              className={`flex-1 truncate rounded-lg px-1 py-1.5 text-xs font-semibold transition ${
-                vista === v.id ? 'bg-white/15' : 'text-white/50 hover:bg-white/10'
-              }`}
-            >
-              {t(`agenda.trabajo.${v.id}`, v.es)}
-            </button>
-          ))}
+        <div className="min-w-0 flex-1">
+          <PestanasCarpeta
+            items={VISTAS.map((v) => ({ id: v.id, labelEs: v.es }))}
+            activo={vista}
+            onCambio={setVista}
+            prefijoClave="agenda.trabajo"
+            color={COLOR_AREA.trabajo}
+            variante="sub"
+            nivel={2}
+          />
         </div>
         <button
           type="button"
           data-tut="agenda.trabajo.alta"
           onClick={() => setCreando(true)}
-          className="rounded-xl px-3 py-2 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.trabajo }}
+          className="rounded-xl px-3 py-2 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.trabajo)}
         >
           <Icono nombre="agregar" />
         </button>
@@ -74,9 +73,14 @@ export function TrabajoTab({
 
       {vista === 'pendientes' &&
         (pendientes.length === 0 ? (
-          <p className="py-6 text-center text-sm text-white/40">
-            {t('agenda.vacio.pendientes', 'Sin pendientes. Apunta lo que traes en la cabeza.')}
-          </p>
+          // El acento del área baja por la variable para que el CTA salga azul trabajo.
+          <div style={acento(COLOR_AREA.trabajo)}>
+            <Vacio
+              icono="maletin"
+              titulo={t('agenda.vacio.pendientes', 'Sin pendientes. Apunta lo que traes en la cabeza.')}
+              cta={{ texto: t('agenda.trabajo.apuntar', 'Apuntar pendiente'), onClick: () => setCreando(true) }}
+            />
+          </div>
         ) : (
           <div className="space-y-2">
             {pendientes.map((ev) => (

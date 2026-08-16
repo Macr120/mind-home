@@ -7,6 +7,7 @@ import { confirmar, pedirTexto } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { CAJA_MAX, COLOR } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { esDominada } from './srs'
 import {
   borrarNodo,
@@ -97,12 +98,12 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
         >
           {desplegado ? '▾' : '▸'}
         </button>
-        <button type="button" onClick={() => ctx.alternar(tema.id)} className="min-w-0 flex-1 text-left">
+        <button type="button" onClick={() => ctx.alternar(tema.id)} className="min-w-0 flex-1 text-start">
           <span className="block truncate text-sm text-white/85">
             {!tema.fabrica && <Icono nombre="brillo" />} {tema.titulo}
             {nSubtemas > 0 && (
               <span
-                className="ml-1.5 text-[9px] text-white/40"
+                className="ms-1.5 text-[9px] text-white/40"
                 title={t('idiomas.tem.nSubtemas', '{n} subtemas aquí dentro', { n: String(nSubtemas) })}
               >
                 <Icono nombre="rama" /> {nSubtemas}
@@ -192,7 +193,7 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
               title={t('idiomas.tem.materialTip', 'Tus apuntes e imágenes de este tema')}
             >
               <Icono nombre="carpeta" />
-              {nMaterial > 0 && <span className="ml-1 text-[10px] text-white/55">{nMaterial}</span>}
+              {nMaterial > 0 && <span className="ms-1 text-[10px] text-white/55">{nMaterial}</span>}
             </button>
             {mazo.length >= 4 && (
               <button
@@ -246,7 +247,7 @@ function FilaTema({ tema, hermanos, ctx }: { tema: NodoTema; hermanos: string[];
           </button>
 
           {tema.hijos.length > 0 && (
-            <div className="ml-2 space-y-1 border-l border-white/10 pl-2 pt-1">
+            <div className="ms-2 space-y-1 border-s border-white/10 ps-2 pt-1">
               {tema.hijos.map((h) => (
                 <FilaTema key={h.id} tema={h} hermanos={idsHijos} ctx={ctx} />
               ))}
@@ -402,28 +403,27 @@ export function TemarioTab({ perfil, onConversar, onPracticar, enfocado, onEnfoc
 
   return (
     <div className="space-y-2">
-      <div className="flex flex-wrap gap-1.5">
-        {tx.areas.map((a) => {
-          const meta = META_AREA[a.id]
-          return (
-            <button
-              key={a.id}
-              type="button"
-              onClick={() => {
-                soltarEnfoque()
-                setAreaSel(a.id)
-                setNivelSel(undefined)
-              }}
-              className={`min-w-[5rem] flex-1 rounded-xl px-1 py-2 text-[11px] font-semibold transition ${
-                area?.id === a.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
-              }`}
-              style={area?.id === a.id ? { background: COLOR } : undefined}
-            >
-              {meta ? <Icono nombre={meta.icono} /> : <Icono emoji={a.icono ?? '📁'} />}{' '}
-              <span className="truncate">{tituloNodo(a, t)}</span>
-            </button>
-          )
-        })}
+      <div className="flex flex-wrap items-center gap-1.5">
+        <div className="min-w-0 flex-1">
+          <PestanasCarpeta
+            items={tx.areas.map((a) => ({
+              id: a.id,
+              icono: META_AREA[a.id]?.icono,
+              emoji: a.icono ?? '📁',
+              label: tituloNodo(a, t),
+            }))}
+            activo={area?.id ?? ''}
+            onCambio={(id) => {
+              soltarEnfoque()
+              setAreaSel(id)
+              setNivelSel(undefined)
+            }}
+            color={COLOR}
+            variante="sub"
+            nivel={2}
+            desplazable
+          />
+        </div>
         {edicion && (
           <button
             type="button"
@@ -529,7 +529,7 @@ export function TemarioTab({ perfil, onConversar, onPracticar, enfocado, onEnfoc
         return (
           <div key={nivel.id} className="overflow-hidden rounded-xl border border-white/10 bg-white/5">
             <div className="flex w-full items-center gap-2 px-3 py-2.5 transition hover:bg-white/5">
-              <button type="button" onClick={alternarNivel} className="flex min-w-0 flex-1 items-center gap-2 text-left">
+              <button type="button" onClick={alternarNivel} className="flex min-w-0 flex-1 items-center gap-2 text-start">
                 <span
                   className="grid h-8 w-8 shrink-0 place-items-center rounded-lg text-xs font-black text-black"
                   style={{ background: COLOR }}
@@ -541,7 +541,7 @@ export function TemarioTab({ perfil, onConversar, onPracticar, enfocado, onEnfoc
                     {!nivel.fabrica && <Icono nombre="brillo" />} {tituloNodo(nivel, t)}
                     {esMiNivel && (
                       <span
-                        className="ml-2 rounded-full px-2 py-0.5 text-[9px] font-semibold text-black"
+                        className="ms-2 rounded-full px-2 py-0.5 text-[9px] font-semibold text-black"
                         style={{ background: COLOR }}
                       >
                         {t('idiomas.tem.tuNivel', 'tu nivel')}
@@ -666,7 +666,7 @@ export function TemarioTab({ perfil, onConversar, onPracticar, enfocado, onEnfoc
           <button
             type="button"
             onClick={() => setSinClasificarAbierto((x) => !x)}
-            className="flex w-full items-center gap-2 px-3 py-2.5 text-left transition hover:bg-white/5"
+            className="flex w-full items-center gap-2 px-3 py-2.5 text-start transition hover:bg-white/5"
           >
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/10 text-sm">
               <Icono nombre="registros" />

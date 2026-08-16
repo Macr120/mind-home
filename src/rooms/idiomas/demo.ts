@@ -1,7 +1,8 @@
 /**
- * Año demo de idiomas: dos perfiles — el idioma principal (inglés si la app
- * está en español, español si está en inglés) que va de A2 a B1, y el japonés
- * de supervivencia que Pep@ estudió antes del viaje y casi abandonó al volver.
+ * Año demo de idiomas: dos perfiles — el idioma principal (siempre el inglés,
+ * salvo con la app en inglés, que entonces estudia español) que va de A2 a B1,
+ * y el japonés de supervivencia que Pep@ estudió antes del viaje y casi
+ * abandonó al volver.
  *
  * Las cajas del SRS no se inventan: se SIMULA un año de repasos con el mismo
  * algoritmo Leitner de la app (`srs.ts`), día a día desde que nace cada tarjeta.
@@ -32,14 +33,65 @@ interface PerfilDemo {
   bandera: string
 }
 
+// El CÓDIGO no se traduce nunca (lo leen la voz, el dictado y el tutor); el
+// nombre y la bandera sí, porque los ve el usuario en su idioma.
 const PERFIL_PRINCIPAL: PorIdioma<PerfilDemo> = {
   es: { codigo: 'en-US', nombre: 'Inglés', bandera: '🇺🇸' },
   en: { codigo: 'es-ES', nombre: 'Spanish', bandera: '🇪🇸' },
+  pt: { codigo: 'en-US', nombre: 'Inglês', bandera: '🇺🇸' },
+  fr: { codigo: 'en-US', nombre: 'Anglais', bandera: '🇺🇸' },
+  de: { codigo: 'en-US', nombre: 'Englisch', bandera: '🇺🇸' },
+  it: { codigo: 'en-US', nombre: 'Inglese', bandera: '🇺🇸' },
+  ja: { codigo: 'en-US', nombre: '英語', bandera: '🇺🇸' },
+  zh: { codigo: 'en-US', nombre: '英语', bandera: '🇺🇸' },
+  ko: { codigo: 'en-US', nombre: '영어', bandera: '🇺🇸' },
+  ru: { codigo: 'en-US', nombre: 'Английский', bandera: '🇺🇸' },
+  hi: { codigo: 'en-US', nombre: 'अंग्रेज़ी', bandera: '🇺🇸' },
+  tr: { codigo: 'en-US', nombre: 'İngilizce', bandera: '🇺🇸' },
+  id: { codigo: 'en-US', nombre: 'Bahasa Inggris', bandera: '🇺🇸' },
+  pl: { codigo: 'en-US', nombre: 'Angielski', bandera: '🇺🇸' },
+  nl: { codigo: 'en-US', nombre: 'Engels', bandera: '🇺🇸' },
+  ar: { codigo: 'en-US', nombre: 'الإنجليزية', bandera: '🇺🇸' },
 }
 
 const PERFIL_JAPONES: PorIdioma<PerfilDemo> = {
   es: { codigo: 'ja-JP', nombre: 'Japonés', bandera: '🇯🇵' },
   en: { codigo: 'ja-JP', nombre: 'Japanese', bandera: '🇯🇵' },
+  pt: { codigo: 'ja-JP', nombre: 'Japonês', bandera: '🇯🇵' },
+  fr: { codigo: 'ja-JP', nombre: 'Japonais', bandera: '🇯🇵' },
+  de: { codigo: 'ja-JP', nombre: 'Japanisch', bandera: '🇯🇵' },
+  it: { codigo: 'ja-JP', nombre: 'Giapponese', bandera: '🇯🇵' },
+  // En la rama ja el viaje va a México: el idioma de supervivencia es el español.
+  ja: { codigo: 'es-MX', nombre: 'スペイン語', bandera: '🇲🇽' },
+  zh: { codigo: 'ja-JP', nombre: '日语', bandera: '🇯🇵' },
+  ko: { codigo: 'ja-JP', nombre: '일본어', bandera: '🇯🇵' },
+  ru: { codigo: 'ja-JP', nombre: 'Японский', bandera: '🇯🇵' },
+  hi: { codigo: 'ja-JP', nombre: 'जापानी', bandera: '🇯🇵' },
+  tr: { codigo: 'ja-JP', nombre: 'Japonca', bandera: '🇯🇵' },
+  id: { codigo: 'ja-JP', nombre: 'Bahasa Jepang', bandera: '🇯🇵' },
+  pl: { codigo: 'ja-JP', nombre: 'Japoński', bandera: '🇯🇵' },
+  nl: { codigo: 'ja-JP', nombre: 'Japans', bandera: '🇯🇵' },
+  ar: { codigo: 'ja-JP', nombre: 'اليابانية', bandera: '🇯🇵' },
+}
+
+/** La meta del cronograma: es etiqueta, no contenido, así que vive aquí. */
+const META_B1: PorIdioma<string> = {
+  es: 'Llegar a B1 antes del viaje',
+  en: 'Reach B1 before the trip',
+  pt: 'Chegar ao B1 antes da viagem',
+  fr: 'Atteindre le B1 avant le voyage',
+  de: 'Vor der Reise B1 erreichen',
+  it: 'Arrivare al B1 prima del viaggio',
+  ja: '旅行までにB1に到達する',
+  zh: '旅行前达到B1',
+  ko: '여행 전까지 B1 도달하기',
+  ru: 'Достичь B1 до поездки',
+  hi: 'यात्रा से पहले B1 तक पहुंचना',
+  tr: 'Yolculuktan önce B1’e ulaşmak',
+  id: 'Mencapai B1 sebelum perjalanan',
+  pl: 'Osiągnąć B1 przed podróżą',
+  nl: 'B1 halen vóór de reis',
+  ar: 'الوصول إلى B1 قبل الرحلة',
 }
 
 /** Un día del año en el que Pep@ se sentó a repasar ese idioma. */
@@ -63,9 +115,6 @@ function pAcierto(idioma: 'principal' | 'japones', off: number): number {
 
 export async function construirDemoIdiomas(ctx: CtxDemo): Promise<void> {
   const datos = await ctx.textos(DEMO_IDIOMAS, () => import('./demo.data.i18n'))
-  // Aquí «es» significa «no es inglés»: los idiomas que todavía no tienen
-  // su variante inline leen el español, que es el respaldo de todo.
-  const es = ctx.idioma !== 'en'
   const r = rngDemo(26011936)
   const enHora = (off: number, hora: string) => `${ctx.fecha(off)}T${hora}:00.000Z`
 
@@ -216,7 +265,7 @@ export async function construirDemoIdiomas(ctx: CtxDemo): Promise<void> {
 
   // Una meta de cronograma para el idioma principal.
   await rutinasRepo.add({
-    nombre: es ? 'Llegar a B1 antes del viaje' : 'Reach B1 before the trip',
+    nombre: enIdioma(META_B1, ctx.idioma),
     emoji: '🎯',
     dias: [],
     pasos: [],

@@ -8,8 +8,9 @@
  * se serializan explícitos a dataURL (marca `__mhBlob`), como hace el sync con
  * Storage pero inline.
  */
-import { db } from '../core/data/db'
+import { db, type ObjetoCuarto } from '../core/data/db'
 import { marcarEscrituraSilenciosa } from '../core/data/sync/middleware'
+import { esObjetoLibreria } from '../core/state/disenoStore'
 
 /** Tablas que definen la casa (hidratan los stores de casa + infra viva). */
 export const TABLAS_CASA = [
@@ -102,7 +103,13 @@ function rehidratarFila(fila: Record<string, unknown>): Record<string, unknown> 
 export async function exportarSnapshot(): Promise<SnapshotCasa> {
   const tablas: SnapshotCasa['tablas'] = {}
   for (const nombre of TABLAS_CASA) {
-    const filas = (await db.table(nombre).toArray()) as Record<string, unknown>[]
+    let filas = (await db.table(nombre).toArray()) as Record<string, unknown>[]
+    // La biblioteca de objetos NO viaja: la siembra `fotografiarDemo` en cada
+    // construcción (con uids deterministas), y su guard lee el store — que tras
+    // restaurar un snapshot está desfasado. Incluirla duplicaba los uids.
+    if (nombre === 'objetosCuarto') {
+      filas = filas.filter((f) => !esObjetoLibreria(f as unknown as ObjetoCuarto))
+    }
     tablas[nombre] = await Promise.all(filas.map(serializarFila))
   }
   return { version: 1, exportadoEn: Date.now(), tablas }

@@ -103,7 +103,7 @@ export function Proyectos({
                   type="button"
                   data-tut={`hobbies.proyecto.item.${p.id}`}
                   onClick={() => onAbrir(p)}
-                  className="flex min-w-0 flex-1 items-center gap-2 text-left"
+                  className="flex min-w-0 flex-1 items-center gap-2 text-start"
                 >
                   {portada ? (
                     <Foto blob={portada} className="h-9 w-9 shrink-0 rounded-lg object-cover" />

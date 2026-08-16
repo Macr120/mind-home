@@ -81,7 +81,7 @@ export function CharlasTab({ perfil, abierta, onAbrir, onCerrar, borradorInicial
               type="button"
               data-tut={`idiomas.charlas.item.${c.id}`}
               onClick={() => c.id != null && onAbrir(c.id)}
-              className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-left transition hover:bg-white/10"
+              className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-start transition hover:bg-white/10"
             >
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-black/25 text-lg">
                 <Icono emoji={perfil.bandera} />

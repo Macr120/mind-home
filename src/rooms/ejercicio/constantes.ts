@@ -18,4 +18,12 @@ export const TIPOS: {
   { id: 'flexibilidad', label: 'Flexibilidad', icon: '🧘', color: '#a78bfa' },
 ]
 
+/** El rosa del cuarto (mismo hex que el `color` de rooms/ejercicio/index.tsx). */
+export const COLOR = '#fb7185'
+
+// Acento POR MODALIDAD de los CTA (`ui-accent-bg` + acento()): cada pestaña pinta el suyo.
+export const C_FUERZA = '#ea580c' // orange-600
+export const C_CARDIO = '#0284c7' // sky-600
+export const C_FLEX = '#7c3aed' // violet-600
+
 // Los catálogos de ejercicios por modalidad viven en catalogo.ts

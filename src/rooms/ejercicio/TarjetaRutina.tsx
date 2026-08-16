@@ -5,6 +5,7 @@ import { HorarioActividad } from '../../core/ui/HorarioActividad'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
+import { acento as estiloAcento } from '../_shared/acento'
 
 /**
  * La tarjeta de una rutina del catálogo, con su horario. Es la misma en Fuerza,
@@ -39,8 +40,8 @@ export function TarjetaRutina({
 }: {
   rutina: RutinaCatalogo
   tipo: TipoEntrenamiento
-  /** Lo único que cambia entre las tres pestañas. */
-  acento: { boton: string; hoverBorde: string }
+  /** Lo único que cambia entre las tres pestañas: hex de la modalidad + borde hover. */
+  acento: { color: string; hoverBorde: string }
   imgPorClave: Map<string, ImagenEjercicio>
   onUsar: () => void
   /** Solo Flexibilidad: abre el reproductor guiado. Si falta, no hay botón. */
@@ -73,7 +74,8 @@ export function TarjetaRutina({
           <button
             type="button"
             onClick={onIniciar}
-            className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold texto-cta ${acento.boton}`}
+            className="ui-accent-bg shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold"
+            style={estiloAcento(acento.color)}
           >
             <Icono nombre="play" /> {t('ejercicio.rutina.iniciar', 'Iniciar')}
           </button>
@@ -82,8 +84,9 @@ export function TarjetaRutina({
           type="button"
           onClick={onUsar}
           className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold ${
-            onIniciar ? 'bg-white/10 text-white/70 hover:bg-white/15' : `texto-cta ${acento.boton}`
+            onIniciar ? 'bg-white/10 text-white/70 hover:bg-white/15' : 'ui-accent-bg'
           }`}
+          style={onIniciar ? undefined : estiloAcento(acento.color)}
         >
           {t('ejercicio.rutina.usar', 'Usar rutina')}
         </button>

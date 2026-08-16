@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import type { PerfilNutricion } from '../../core/data/db'
 import { perfilNutricionRepo } from '../../core/data/repository'
-import { OBJETIVOS, PERFIL_DEFECTO } from './constantes'
+import { COLOR, OBJETIVOS, PERFIL_DEFECTO } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { ROJO, VERDE, acento, tono } from '../_shared/acento'
 import { PISO_KCAL, derivarObjetivo, objetivosSugeridos, ritmoSugerido } from './balance'
 import { fechaEnSemanas, semanasHasta } from './fecha'
 import { caloriasDesdeMacros } from './macros'
 import type { PerfilConId } from './macros'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 
@@ -165,23 +166,21 @@ function Formulario({ p }: { p: PerfilConId }) {
           <CampoMeta label={t('cocina.tdee.altura', 'Altura cm')} value={altura} onChange={setAltura} onGuardar={guardarInfo} />
           <CampoMeta label={t('cocina.tdee.edad', 'Edad')} value={edad} onChange={setEdad} onGuardar={guardarInfo} />
         </div>
-        <div className="flex gap-2">
-          {(['m', 'f'] as const).map((s) => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => {
-                setSexo(s)
-                void persistir({ sexo: s })
-              }}
-              className={`flex-1 rounded-lg py-1.5 text-xs font-semibold ${
-                sexo === s ? 'bg-amber-600 texto-cta' : 'bg-white/5'
-              }`}
-            >
-              {s === 'm' ? t('cocina.tdee.hombre', 'Hombre') : t('cocina.tdee.mujer', 'Mujer')}
-            </button>
-          ))}
-        </div>
+        <PestanasCarpeta
+          items={[
+            { id: 'm', labelEs: 'Hombre', clave: 'cocina.tdee.hombre' },
+            { id: 'f', labelEs: 'Mujer', clave: 'cocina.tdee.mujer' },
+          ]}
+          activo={sexo}
+          onCambio={(s) => {
+            setSexo(s)
+            void persistir({ sexo: s })
+          }}
+          color={COLOR}
+          variante="sub"
+          nivel={3}
+          flecha={false}
+        />
         <select
           value={actividad}
           onChange={(e) => {
@@ -212,8 +211,14 @@ function Formulario({ p }: { p: PerfilConId }) {
             <span
               key={o.id}
               className={`flex-1 rounded-lg py-1.5 text-center text-xs font-semibold ${
-                objetivo === o.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 text-white/35'
+                objetivo === o.id ? 'ui-accent-bg' : 'bg-white/5 text-white/35'
               }`}
+              // Direccional: bajar rojo, subir verde; mantener con el ámbar de la app.
+              style={
+                objetivo === o.id
+                  ? acento(o.id === 'deficit' ? ROJO : o.id === 'superavit' ? VERDE : tono(COLOR, 3))
+                  : undefined
+              }
             >
               <Icono emoji={o.icon} /> {t(`cocina.tdee.${o.id}`, o.label)}
             </span>
@@ -319,14 +324,6 @@ function Formulario({ p }: { p: PerfilConId }) {
         <p className="text-xs text-white/40">
           {t('cocina.metas.suma', `Suma macros ≈ ${kcalSugeridas} kcal (fórmula 4-4-9)`, { n: String(kcalSugeridas) })}
         </p>
-      </div>
-
-      {/* 3. Las metas grandes sobre el eje del tiempo */}
-      <div className="space-y-3" data-tut="cocina.cronograma">
-        <p className="text-sm font-semibold">
-          <Icono nombre="calendario" /> {t('cocina.metas.cronograma', 'Metas')}
-        </p>
-        <CronogramaApp plantillaId="cocina" />
       </div>
     </div>
   )

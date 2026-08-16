@@ -183,7 +183,7 @@ export function TramitesSection({
                         ? t('garage.tram.hechoAyuda', 'Lo guarda en el historial y salta al siguiente periodo')
                         : t('garage.tram.hechoUnicoAyuda', 'Lo guarda en el historial y lo archiva')
                     }
-                    className="ml-auto inline-flex items-center gap-1 rounded-full border border-white/15 px-2.5 py-0.5 text-[11px] font-semibold transition hover:bg-white/10"
+                    className="ms-auto inline-flex items-center gap-1 rounded-full border border-white/15 px-2.5 py-0.5 text-[11px] font-semibold transition hover:bg-white/10"
                   >
                     <Icono nombre="hecho" /> {t('garage.tram.hecho', 'Ya lo hice')}
                   </button>

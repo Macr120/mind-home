@@ -19,6 +19,12 @@ import { ReproductorFlex } from './ReproductorFlex'
 import { Timer } from './Timer'
 import { minutosTipo, normalizarEjercicio, sesionesTipo } from './stats'
 import { FiltroPeriodo } from './FiltroPeriodo'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { acento } from '../_shared/acento'
+import { C_FLEX, TIPOS } from './constantes'
+
+// El color de la MODALIDAD (no el rosa de la app): cada pestaña pinta el suyo.
+const COLOR_FLEX = TIPOS.find((x) => x.id === 'flexibilidad')!.color
 import { metaDelPeriodo, sesionesPeriodo, type Periodo } from './periodo'
 import { HistorialSesiones, StatCard } from './ResistenciaTab'
 import { useT } from '../../core/i18n/useT'
@@ -231,7 +237,8 @@ export function FlexibilidadTab({
               <button
                 type="button"
                 onClick={() => usarProgramada(p)}
-                className="shrink-0 rounded-lg bg-violet-600 px-3 py-1 text-xs font-bold texto-cta"
+                className="ui-accent-bg shrink-0 rounded-lg px-3 py-1 text-xs font-bold"
+                style={acento(C_FLEX)}
               >
                 {t('ejercicio.rutina.usar', 'Usar rutina')}
               </button>
@@ -240,22 +247,16 @@ export function FlexibilidadTab({
         </div>
       )}
 
-      <div data-tut="ejercicio.flex.subs" className="flex gap-1.5">
-        {SUBS_F.map((s) => (
-          <button
-            key={s.id}
-            type="button"
-            data-tut={`ejercicio.sub.${s.id}`}
-            onClick={() => setSubF(s.id)}
-            className={`flex-1 rounded-lg px-2 py-1.5 text-xs font-semibold ${
-              subF === s.id
-                ? 'bg-violet-500/25 text-violet-400 border border-violet-500/40'
-                : 'bg-white/5 border border-white/10 hover:bg-white/10'
-            }`}
-          >
-            <Icono nombre={s.icono} /> {t(`ejercicio.sub.${s.id}`, s.labelEs)}
-          </button>
-        ))}
+      <div data-tut="ejercicio.flex.subs">
+        <PestanasCarpeta
+          items={[...SUBS_F]}
+          activo={subF}
+          onCambio={setSubF}
+          prefijoClave="ejercicio.sub"
+          color={COLOR_FLEX}
+          variante="sub"
+          nivel={2}
+        />
       </div>
 
       {subF === 'catalogo' && <CrearRutinaFlex />}
@@ -286,7 +287,7 @@ export function FlexibilidadTab({
                     key={r.id ?? r.nombre}
                     rutina={r}
                     tipo="flexibilidad"
-                    acento={{ boton: 'bg-violet-600', hoverBorde: 'hover:border-violet-500/50' }}
+                    acento={{ color: C_FLEX, hoverBorde: 'hover:border-violet-500/50' }}
                     imgPorClave={imgPorClave}
                     onUsar={() => aplicarRutina(r)}
                     onIniciar={() => setRutinaFlexActiva(r)}
@@ -337,7 +338,7 @@ export function FlexibilidadTab({
                   <CheckFila
                     hecho={!!f.hecho}
                     onToggle={() => actualizarFila(i, { hecho: !f.hecho })}
-                    acento="bg-violet-600"
+                    acento={C_FLEX}
                   />
                   <MiniaturaEjercicio
                     nombre={f.ejercicio}
@@ -400,7 +401,8 @@ export function FlexibilidadTab({
               <button
                 type="submit"
                 disabled={!todoHecho}
-                className="flex-1 rounded-xl py-2.5 font-bold bg-violet-600 texto-cta disabled:cursor-not-allowed disabled:opacity-40"
+                className="ui-accent-bg flex-1 rounded-xl py-2.5 font-bold disabled:cursor-not-allowed disabled:opacity-40"
+                style={acento(C_FLEX)}
               >
                 {editandoId !== null
                   ? t('ejercicio.actualizar', 'Actualizar sesión')
@@ -433,11 +435,7 @@ export function FlexibilidadTab({
 
       {subF === 'progreso' && (
         <>
-          <FiltroPeriodo
-            valor={periodo}
-            onChange={setPeriodo}
-            acento="bg-violet-500/25 text-violet-400 border border-violet-500/40"
-          />
+          <FiltroPeriodo valor={periodo} onChange={setPeriodo} color={COLOR_FLEX} />
           <div className="grid grid-cols-2 gap-3">
             <HeatmapMensual sesiones={sesiones} tipo="flexibilidad" color="#a78bfa" />
             <div className="grid grid-rows-2 gap-3">

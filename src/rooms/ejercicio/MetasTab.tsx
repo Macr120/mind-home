@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import type { PerfilEjercicio, SesionEjercicio, SistemaUnidades } from '../../core/data/db'
 import { perfilEjercicioRepo } from '../../core/data/repository'
-import { PERFIL_DEFECTO } from './constantes'
+import { COLOR, PERFIL_DEFECTO } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { ResumenTab } from './ResumenTab'
 import type { Periodo } from './periodo'
 import { useT } from '../../core/i18n/useT'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 
 const SISTEMAS: { id: SistemaUnidades; labelEs: string; ejemplo: string }[] = [
@@ -98,22 +98,21 @@ export function MetasTab({
           <p className="text-[10px] text-white/45">
             {t('ejercicio.metas.sistema', 'Sistema de medidas')}
           </p>
-          <div className="mt-1 flex gap-2">
-            {SISTEMAS.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => setUnidades(s.id)}
-                className={`flex-1 rounded-lg px-3 py-1.5 text-xs font-semibold ${
-                  unidades === s.id
-                    ? 'bg-rose-500/20 border border-rose-500/40 text-rose-400'
-                    : 'bg-black/30 border border-white/10 text-white/60 hover:bg-white/10'
-                }`}
-              >
-                {t(`ejercicio.sistema.${s.id}`, s.labelEs)}{' '}
-                <span className="font-normal text-white/40">{s.ejemplo}</span>
-              </button>
-            ))}
+          <div className="mt-1">
+            <PestanasCarpeta
+              items={SISTEMAS.map((s) => ({
+                id: s.id,
+                labelEs: s.labelEs,
+                extra: <span className="font-normal opacity-60"> {s.ejemplo}</span>,
+              }))}
+              activo={unidades}
+              onCambio={setUnidades}
+              prefijoClave="ejercicio.sistema"
+              color={COLOR}
+              variante="sub"
+              nivel={3}
+              flecha={false}
+            />
           </div>
           <p className="mt-1 text-[10px] text-white/35">
             {t(
@@ -126,7 +125,7 @@ export function MetasTab({
         <button
           type="button"
           onClick={guardar}
-          className="mt-4 w-full rounded-xl py-2.5 font-bold bg-rose-600 texto-cta"
+          className="ui-accent-bg mt-4 w-full rounded-xl py-2.5 font-bold"
         >
           {t('ejercicio.metas.guardar', 'Guardar metas')}
         </button>
@@ -146,26 +145,6 @@ export function MetasTab({
           <strong className="text-violet-400"><Icono nombre="cuarto-jardin" /> {t('ejercicio.tab.flexibilidad', 'Flexibilidad')}</strong>{' '}
           — {t('ejercicio.pilar.flex', 'yoga, movilidad y estiramientos por enfoque corporal.')}
         </p>
-      </div>
-
-      {/* El cronograma cierra la pestaña: las metas semanales de arriba son el «cuánto»
-          y esto el «cuándo». Alto fijo porque `Cronograma` es `flex-1 min-h-0` y sin
-          contenedor con altura se colapsaría a cero. */}
-      <div data-tut="ejercicio.cronograma" className="space-y-2">
-        <p className="text-base font-bold">
-          <Icono nombre="calendario" /> {t('ejercicio.tab.cronograma', 'Metas')}
-        </p>
-        <p className="text-xs text-white/45">
-          {t(
-            'ejercicio.cronograma.desc',
-            'Tus metas grandes sobre el eje del tiempo. Con ✨ la IA te arma el plan y te sugiere cuáles de tus rutinas agendar.',
-          )}
-        </p>
-        <div className="rounded-xl border border-white/10 bg-white/5">
-          <div className="flex h-96 flex-col">
-            <CronogramaApp plantillaId="ejercicio" />
-          </div>
-        </div>
       </div>
     </div>
   )

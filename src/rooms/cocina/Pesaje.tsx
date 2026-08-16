@@ -54,7 +54,7 @@ export function Pesaje({
             <span className="text-white/40">{t('cocina.peso.sinHoy', 'Sin pesaje')}</span>
           )}
           {perfil.pesoObjetivoKg != null && (
-            <span className="ml-1.5 text-xs text-white/40">
+            <span className="ms-1.5 text-xs text-white/40">
               {t('cocina.peso.lineaMeta', `Meta ${un(perfil.pesoObjetivoKg)} kg`, {
                 n: un(perfil.pesoObjetivoKg),
               })}

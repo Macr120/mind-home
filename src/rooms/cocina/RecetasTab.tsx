@@ -1,9 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 import type { DietaGuardada, MomentoComida, Receta } from '../../core/data/db'
 import { itemsCompraRepo, listasCompraRepo, planComidasRepo, recetasRepo } from '../../core/data/repository'
 import { adivinarCategoria } from './categoriasCompra'
 import { registrarRecetaEnDiario } from './registrar'
-import { MOMENTOS } from './constantes'
+import { COLOR, MOMENTOS } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { Spinner, Vacio } from '../_shared/ui'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { hoyISO } from './fecha'
 import { normalizar } from '../../core/chat/dispatcher'
@@ -19,11 +21,19 @@ import { imagenIaActiva } from '../../core/imagenIA'
 import { Creditos } from '../../core/ui/Creditos'
 import { useT } from '../../core/i18n/useT'
 
-export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: DietaGuardada[] }) {
+export function RecetasTab({
+  recetas,
+  dietas,
+  cargando,
+}: {
+  recetas: Receta[]
+  dietas: DietaGuardada[]
+  /** Dexie aún resolviendo: se enseña la rueda y no el vacío (evita el parpadeo). */
+  cargando?: boolean
+}) {
   const t = useT()
   const [busqueda, setBusqueda] = useState('')
   // null = todas · '__sin__' = sin carpeta · otro = nombre de carpeta
-  const [carpetaSel, setCarpetaSel] = useState<string | null>(null)
   /** Id de la dieta por la que se filtra; null = todas las recetas. */
   const [dietaSel, setDietaSel] = useState<number | null>(null)
   const [seleccionadaId, setSeleccionadaId] = useState<number | null>(null)
@@ -62,8 +72,6 @@ export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: Die
     return [...set].sort((a, b) => a.localeCompare(b))
   }, [recetas])
 
-  const hayNoCarpeta = recetas.some((r) => !r.carpeta?.trim())
-
   const filtradas = useMemo(() => {
     const q = normalizar(busqueda.trim())
     const dePlan = dietas.find((d) => d.id === dietaSel)?.recetaIds
@@ -80,8 +88,6 @@ export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: Die
 
   const grupos = useMemo(() => {
     const sinCarpeta = (r: Receta) => !r.carpeta?.trim()
-    if (carpetaSel === '__sin__') return [{ carpeta: null, items: filtradas.filter(sinCarpeta) }]
-    if (carpetaSel !== null) return [{ carpeta: carpetaSel, items: filtradas.filter((r) => r.carpeta?.trim() === carpetaSel) }]
     const gs: { carpeta: string | null; items: Receta[] }[] = carpetas.map((c) => ({
       carpeta: c,
       items: filtradas.filter((r) => r.carpeta?.trim() === c),
@@ -89,13 +95,68 @@ export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: Die
     const sin = filtradas.filter(sinCarpeta)
     if (sin.length) gs.push({ carpeta: null, items: sin })
     return gs.filter((g) => g.items.length > 0)
-  }, [filtradas, carpetas, carpetaSel])
+  }, [filtradas, carpetas])
+
+  // La IA vive DENTRO del alta (opción visible siempre; deshabilitada sin clave):
+  // el camino corto para tener receta y foto de una vez, ahora como parte de «Nueva».
+  const bloqueIA = (
+    <div className="space-y-2">
+      <button
+        type="button"
+        data-tut="cocina.ia.receta"
+        onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
+        disabled={!iaActiva()}
+        className="ui-accent-bg w-full rounded-lg py-2 text-sm font-bold hover:brightness-110 disabled:opacity-40"
+      >
+        <Icono nombre="brillo" /> {t('cocina.rec.crearIA', 'Con IA')}
+      </button>
+      {!iaActiva() && (
+        <p className="text-[11px] text-white/40">
+          {t('cocina.ia.sinClave', 'Configura la IA en el chat para crear recetas y dietas con imágenes.')}
+        </p>
+      )}
+      {peticionIA !== null && (
+        <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 space-y-2">
+          <input
+            autoFocus
+            value={peticionIA}
+            onChange={(e) => setPeticionIA(e.target.value)}
+            placeholder={t('cocina.rec.phIA', '¿Qué quieres cocinar? Ej: pollo al horno con verduras')}
+            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
+          />
+          <button
+            type="button"
+            onClick={generar}
+            disabled={!peticionIA.trim() || generando}
+            className="ui-accent-bg w-full rounded-lg py-2 text-sm font-bold hover:brightness-110 disabled:opacity-40"
+          >
+            {fase === 'receta'
+              ? t('cocina.rec.generando', 'Cocinando…')
+              : fase === 'foto'
+              ? t('cocina.rec.generandoFoto', 'Emplatando la foto…')
+              : t('cocina.rec.generar', 'Crear receta')}
+          </button>
+          <div className="flex items-center gap-2">
+            <Creditos n={costoReceta(imagenIaActiva())} />
+            <span className="text-[10px] text-white/40">
+              {imagenIaActiva()
+                ? t('cocina.ia.costoReceta', 'La receta y su foto')
+                : t('cocina.ia.costoRecetaSinFoto', 'Solo la receta: sin proveedor de imágenes')}
+            </span>
+          </div>
+          {errorIA && <p className="text-xs text-amber-300">{errorIA}</p>}
+        </div>
+      )}
+    </div>
+  )
 
   if (editando) {
     return (
       <FormReceta
+        key={editando === 'nueva' ? 'nueva' : editando.id ?? 'ia'}
         receta={editando === 'nueva' ? null : editando}
         carpetas={carpetas}
+        bloqueIA={editando === 'nueva' ? bloqueIA : undefined}
         onCerrar={() => setEditando(null)}
       />
     )
@@ -123,64 +184,15 @@ export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: Die
           placeholder={t('cocina.rec.buscar', 'Buscar receta o etiqueta...')}
           className="flex-1 rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
         />
-        {/* Siempre visible aunque no haya IA (deshabilitado): es el camino corto
-            para tener receta y foto de una vez, y oculto nadie lo descubre. */}
         <button
           type="button"
-          data-tut="cocina.ia.receta"
-          onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
-          disabled={!iaActiva()}
-          className="shrink-0 rounded-lg bg-amber-600 px-3 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
-        >
-          <Icono nombre="brillo" /> {t('cocina.rec.crearIA', 'Con IA')}
-        </button>
-        <button
-          type="button"
+          data-tut="cocina.rec.nueva"
           onClick={() => setEditando('nueva')}
           className="shrink-0 rounded-lg bg-white/10 px-3 py-2 text-sm font-bold hover:bg-white/15"
         >
           <Icono nombre="agregar" /> {t('cocina.rec.nueva', 'Nueva')}
         </button>
       </div>
-
-      {!iaActiva() && (
-        <p className="text-[11px] text-white/40">
-          {t('cocina.ia.sinClave', 'Configura la IA en el chat para crear recetas y dietas con imágenes.')}
-        </p>
-      )}
-
-      {peticionIA !== null && (
-        <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 space-y-2">
-          <input
-            autoFocus
-            value={peticionIA}
-            onChange={(e) => setPeticionIA(e.target.value)}
-            placeholder={t('cocina.rec.phIA', '¿Qué quieres cocinar? Ej: pollo al horno con verduras')}
-            className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-amber-400/50"
-          />
-          <button
-            type="button"
-            onClick={generar}
-            disabled={!peticionIA.trim() || generando}
-            className="w-full rounded-lg bg-amber-600 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
-          >
-            {fase === 'receta'
-              ? t('cocina.rec.generando', 'Cocinando…')
-              : fase === 'foto'
-              ? t('cocina.rec.generandoFoto', 'Emplatando la foto…')
-              : t('cocina.rec.generar', 'Crear receta')}
-          </button>
-          <div className="flex items-center gap-2">
-            <Creditos n={costoReceta(imagenIaActiva())} />
-            <span className="text-[10px] text-white/40">
-              {imagenIaActiva()
-                ? t('cocina.ia.costoReceta', 'La receta y su foto')
-                : t('cocina.ia.costoRecetaSinFoto', 'Solo la receta: sin proveedor de imágenes')}
-            </span>
-          </div>
-          {errorIA && <p className="text-xs text-amber-300">{errorIA}</p>}
-        </div>
-      )}
 
       {/* Dos filtros que se cruzan: la dieta dice QUÉ recetas, la carpeta cómo se
           agrupan. Las dietas van primero porque recortan mucho más. */}
@@ -198,35 +210,31 @@ export function RecetasTab({ recetas, dietas }: { recetas: Receta[]; dietas: Die
         </div>
       )}
 
-      {carpetas.length > 0 && (
-        <div className="flex gap-1.5 overflow-x-auto pb-1">
-          <ChipCarpeta activo={carpetaSel === null} onClick={() => setCarpetaSel(null)} label={t('cocina.rec.todas', 'Todas')} />
-          {carpetas.map((c) => (
-            <ChipCarpeta key={c} activo={carpetaSel === c} onClick={() => setCarpetaSel(c)} label={c} />
-          ))}
-          {hayNoCarpeta && (
-            <ChipCarpeta activo={carpetaSel === '__sin__'} onClick={() => setCarpetaSel('__sin__')} label={t('cocina.rec.sinCarpeta', 'Sin carpeta')} />
-          )}
-        </div>
-      )}
-
       {totalVisibles === 0 && (
-        <p className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm text-white/40">
-          {recetas.length === 0
-            ? t('cocina.rec.vacio', 'Tu recetario está vacío. Crea una receta o pídesela al asistente.')
-            : dietaSel !== null && !busqueda.trim()
-            ? t('cocina.rec.sinDeDieta', 'Esta dieta todavía no tiene recetas en el recetario.')
-            : t('cocina.rec.sinResultados', 'Ninguna receta coincide con la búsqueda.')}
-        </p>
+        cargando ? (
+          <p className="py-8 text-center">
+            <Spinner />
+          </p>
+        ) : recetas.length === 0 ? (
+          <Vacio
+            icono="chef"
+            titulo={t('cocina.rec.vacio', 'Tu recetario está vacío. Crea una receta o pídesela al asistente.')}
+            cta={{ texto: t('cocina.rec.nueva', 'Nueva'), onClick: () => setEditando('nueva') }}
+          />
+        ) : (
+          <p className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm text-white/40">
+            {dietaSel !== null && !busqueda.trim()
+              ? t('cocina.rec.sinDeDieta', 'Esta dieta todavía no tiene recetas en el recetario.')
+              : t('cocina.rec.sinResultados', 'Ninguna receta coincide con la búsqueda.')}
+          </p>
+        )
       )}
 
       {grupos.map((g) => (
         <div key={g.carpeta ?? '__sin__'} className="space-y-2">
-          {carpetaSel === null && (
-            <p className="px-1 text-xs font-semibold text-white/50">
-              {g.carpeta ?? t('cocina.rec.sinCarpeta', 'Sin carpeta')}
-            </p>
-          )}
+          <p className="px-1 text-xs font-semibold text-white/50">
+            {g.carpeta ?? t('cocina.rec.sinCarpeta', 'Sin carpeta')}
+          </p>
           {g.items.map((r) => (
             <TarjetaReceta key={r.id} receta={r} onClick={() => setSeleccionadaId(r.id ?? null)} />
           ))}
@@ -242,7 +250,7 @@ function ChipCarpeta({ activo, onClick, label }: { activo: boolean; onClick: () 
       type="button"
       onClick={onClick}
       className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
-        activo ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
+        activo ? 'ui-accent-bg' : 'bg-white/5 hover:bg-white/10'
       }`}
     >
       {label}
@@ -256,7 +264,7 @@ function TarjetaReceta({ receta: r, onClick }: { receta: Receta; onClick: () => 
     <button
       type="button"
       onClick={onClick}
-      className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-3 text-left hover:bg-white/10 transition"
+      className="w-full rounded-xl bg-white/5 border border-white/10 px-3 py-3 text-start hover:bg-white/10 transition"
     >
       <div className="flex items-center gap-3">
         <Portada
@@ -269,7 +277,7 @@ function TarjetaReceta({ receta: r, onClick }: { receta: Receta; onClick: () => 
         <div className="flex-1 min-w-0">
           <p className="font-semibold text-white/90 truncate">
             {r.nombre}
-            {r.fuente === 'ia' && <span className="ml-1.5 text-xs"><Icono nombre="brillo" /></span>}
+            {r.fuente === 'ia' && <span className="ms-1.5 text-xs"><Icono nombre="brillo" /></span>}
           </p>
           <p className="text-xs text-white/40">
             {r.calorias > 0 &&
@@ -372,7 +380,7 @@ export function DetalleReceta({
             <button
               type="button"
               onClick={onEditar}
-              className="ml-auto rounded-lg bg-white/5 px-3 py-1.5 text-sm hover:bg-white/10"
+              className="ms-auto rounded-lg bg-white/5 px-3 py-1.5 text-sm hover:bg-white/10"
             >
               <Icono nombre="editar" /> {t('cocina.rec.editar', 'Editar')}
             </button>
@@ -454,7 +462,7 @@ export function DetalleReceta({
               <button
                 type="button"
                 onClick={() => toggleIngrediente(i)}
-                className="flex w-full items-center gap-2 text-left text-sm"
+                className="flex w-full items-center gap-2 text-start text-sm"
               >
                 <span
                   className={`h-4 w-4 shrink-0 rounded border flex items-center justify-center text-[10px] ${
@@ -492,24 +500,19 @@ export function DetalleReceta({
 
       <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-2">
         <p className="text-sm font-semibold"><Icono nombre="tab-diario" /> {t('cocina.rec.registrar', 'Registrar al diario de hoy')}</p>
-        <div className="grid grid-cols-4 gap-1.5">
-          {MOMENTOS.map((m) => (
-            <button
-              key={m.id}
-              type="button"
-              onClick={() => setMomento(m.id)}
-              className={`rounded-lg py-2 text-xs font-semibold transition ${
-                momento === m.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-              }`}
-            >
-              <Icono emoji={m.icon} />
-            </button>
-          ))}
-        </div>
+        <PestanasCarpeta
+          items={MOMENTOS.map((m) => ({ id: m.id, emoji: m.icon }))}
+          activo={momento}
+          onCambio={setMomento}
+          color={COLOR}
+          variante="sub"
+          nivel={3}
+          flecha={false}
+        />
         <button
           type="button"
           onClick={registrarAlDiario}
-          className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
+          className="ui-accent-bg w-full rounded-xl py-2.5 font-bold hover:brightness-110"
         >
           {registrado
             ? t('cocina.rec.registrado', '✓ Registrado (1 porción)')
@@ -520,7 +523,18 @@ export function DetalleReceta({
   )
 }
 
-function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; carpetas: string[]; onCerrar: () => void }) {
+function FormReceta({
+  receta,
+  carpetas,
+  bloqueIA,
+  onCerrar,
+}: {
+  receta: Receta | null
+  carpetas: string[]
+  /** Opción «con IA» del alta: la arma RecetasTab (estados y créditos viven allá). */
+  bloqueIA?: ReactNode
+  onCerrar: () => void
+}) {
   const t = useT()
   const [nombre, setNombre] = useState(receta?.nombre ?? '')
   const [emoji, setEmoji] = useState(receta?.emoji ?? '🍲')
@@ -584,6 +598,8 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
         </p>
       </div>
 
+      {bloqueIA}
+
       <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
         {/* Foto recién generada con la receta (aún sin guardar): que se vea antes
             de confirmar. La de una receta guardada se cambia en su detalle. */}
@@ -634,7 +650,7 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
                     )
                   }
                   className={`rounded-lg py-1.5 text-[10px] font-semibold transition ${
-                    puesto ? 'bg-amber-600 texto-cta' : 'bg-white/5 text-white/50 hover:bg-white/10'
+                    puesto ? 'ui-accent-bg' : 'bg-white/5 text-white/50 hover:bg-white/10'
                   }`}
                 >
                   <Icono emoji={m.icon} /> {t(`cocina.momento.${m.id}`, m.label)}
@@ -697,7 +713,7 @@ function FormReceta({ receta, carpetas, onCerrar }: { receta: Receta | null; car
         </div>
         <button
           type="submit"
-          className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
+          className="ui-accent-bg w-full rounded-xl py-2.5 font-bold hover:brightness-110"
         >
           {t('cocina.rec.guardar', 'Guardar receta')}
         </button>

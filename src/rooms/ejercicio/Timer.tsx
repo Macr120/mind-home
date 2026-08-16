@@ -76,7 +76,7 @@ export function Timer({
             />
           </label>
         )}
-        <div className="ml-auto flex gap-1.5">
+        <div className="ms-auto flex gap-1.5">
           <button
             type="button"
             onClick={() => {

@@ -43,7 +43,24 @@ const ORDEN = -334
  * Su línea de patrimonio. Va aquí y no en `demo.data.ts` porque ese archivo lo
  * genera la IA (`npm run demo:texto`) y esto es una etiqueta, no contenido.
  */
-const AHORROS: PorIdioma<string> = { es: 'Mis ahorros', en: 'Savings' }
+const AHORROS: PorIdioma<string> = {
+  es: 'Mis ahorros',
+  en: 'Savings',
+  pt: 'Minhas economias',
+  fr: 'Mon épargne',
+  de: 'Meine Ersparnisse',
+  it: 'I miei risparmi',
+  ja: '貯金',
+  zh: '我的存款',
+  ko: '내 저축',
+  ru: 'Мои сбережения',
+  hi: 'मेरी बचत',
+  tr: 'Birikimlerim',
+  id: 'Tabunganku',
+  pl: 'Moje oszczędności',
+  ar: 'مدخراتي',
+  nl: 'Mijn spaargeld',
+}
 
 type Fila = Omit<Transaccion, 'id'>
 

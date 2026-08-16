@@ -18,6 +18,7 @@ import {
 } from './stats'
 import { hoyISO, nombreFecha } from './fecha'
 import { COLOR } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { useT } from '../../core/i18n/useT'
 import { vivo } from '../../core/ui/estilos'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -52,7 +53,6 @@ export function ProgresoTab({
   perfilRaw: PerfilConId | undefined
   onIrAMetas: () => void
 }) {
-  const t = useT()
   const hoy = hoyISO()
   const [periodo, setPeriodo] = useState<Periodo>('semana')
   const [diaSel, setDiaSel] = useState<string | null>(null)
@@ -69,19 +69,16 @@ export function ProgresoTab({
 
   return (
     <div className="space-y-4">
-      <div data-tut="cocina.prog.filtro" className="grid grid-cols-5 gap-1.5">
-        {PERIODOS.map((p) => (
-          <button
-            key={p.id}
-            type="button"
-            onClick={() => setPeriodo(p.id)}
-            className={`rounded-lg py-2 text-xs font-semibold transition ${
-              periodo === p.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 text-white/60 hover:bg-white/10'
-            }`}
-          >
-            {t(`cocina.periodo.${p.id}`, PERIODOS.find((x) => x.id === p.id)!.labelEs)}
-          </button>
-        ))}
+      <div data-tut="cocina.prog.filtro">
+        <PestanasCarpeta
+          items={PERIODOS}
+          activo={periodo}
+          onCambio={setPeriodo}
+          prefijoClave="cocina.periodo"
+          color={COLOR}
+          variante="sub"
+          nivel={3}
+        />
       </div>
 
       {periodo === 'dia' ? (
@@ -418,7 +415,7 @@ function SugerenciaAjuste({
       <button
         type="button"
         onClick={aplicar}
-        className="mt-3 w-full rounded-lg bg-amber-600 py-2 text-xs font-bold texto-cta hover:brightness-110"
+        className="ui-accent-bg mt-3 w-full rounded-lg py-2 text-xs font-bold hover:brightness-110"
       >
         {t('cocina.ajuste.aplicar', `Poner ${sugerencia.kcalPropuestas} kcal como objetivo`, {
           n: String(sugerencia.kcalPropuestas),

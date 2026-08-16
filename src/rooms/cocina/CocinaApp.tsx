@@ -22,8 +22,9 @@ import { sembrarCocina } from './seed'
 import { claveLS } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { intencionApp } from '../../core/state/intencionApp'
-import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
+import { COLOR } from './constantes'
 
 // 'plan' ya es la Dieta desde antes; 'diario' es el Registro (ese id lo
 // guardan las rutinas de los horarios de comida y no puede cambiar).
@@ -48,7 +49,7 @@ const TABS: Record<Tab, { icono: NombreIcono; labelEs: string }> = {
  * progreso. Registro es lo que ya pasó (comidas, agua, peso); Plan de comidas
  * es lo que viene (la rejilla semanal).
  */
-const ENFOQUES: { id: Enfoque; icono: NombreIcono; labelEs: string; tabs: Tab[] }[] = [
+const ENFOQUES: (ItemPestana<Enfoque> & { tabs: Tab[] })[] = [
   // El recetario va primero: manda el plan y de ahí salen las recetas y la compra.
   { id: 'recetario', icono: 'tab-recetas', labelEs: 'Recetario', tabs: ['plan', 'recetas', 'compras'] },
   {
@@ -85,6 +86,7 @@ function tabDeArranque(): Tab {
 export function CocinaApp() {
   const t = useT()
   const [tab, setTab] = useState<Tab>(tabDeArranque)
+  const [plegado, setPlegado] = useState(false)
   const [fecha, setFecha] = useState(hoyISO())
   const enfoque = enfoqueDe(tab)
 
@@ -92,7 +94,9 @@ export function CocinaApp() {
   const perfil = perfilEfectivo(perfilRaw)
   const comidas = comidasRepo.useAll() ?? VACIO
   const agua = aguaRepo.useAll() ?? VACIO
-  const recetas = recetasRepo.useAll() ?? VACIO
+  // `undefined` = Dexie aún resolviendo: el recetario distingue cargando de vacío.
+  const recetasQ = recetasRepo.useAll()
+  const recetas = recetasQ ?? VACIO
   const dietas = dietasGuardadasRepo.useAll() ?? VACIO
   const itemsCompra = itemsCompraRepo.useAll() ?? VACIO
   const listasCompra = listasCompraRepo.useAll() ?? VACIO
@@ -105,103 +109,106 @@ export function CocinaApp() {
     void sembrarCocina()
   }, [])
 
-  const cambiarEnfoque = (e: (typeof ENFOQUES)[number]) => {
-    localStorage.setItem(CLAVE_ENFOQUE, e.id)
-    setTab(e.tabs[0])
+  const cambiarEnfoque = (id: Enfoque) => {
+    localStorage.setItem(CLAVE_ENFOQUE, id)
+    setTab(ENFOQUES.find((e) => e.id === id)!.tabs[0])
   }
+
+  // En el control de alimentación las pestañas son pasos: se numeran (label ya resuelto, misma clave i18n).
+  const subItems: ItemPestana<Tab>[] = ENFOQUES.find((e) => e.id === enfoque)!.tabs.map((id, i) => ({
+    id,
+    icono: TABS[id].icono,
+    labelEs: TABS[id].labelEs,
+    ...(enfoque === 'peso' && { label: `${i + 1} · ${t(`cocina.tab.${id}`, TABS[id].labelEs)}` }),
+  }))
 
   return (
     <div className="mx-auto max-w-2xl space-y-3">
-      <div className="grid grid-cols-2 gap-2">
-        {ENFOQUES.map((e) => (
-          <button
-            key={e.id}
-            data-tut={`cocina.enfoque.${e.id}`}
-            onClick={() => cambiarEnfoque(e)}
-            className={`rounded-xl px-3 py-3 text-sm font-bold transition ${
-              enfoque === e.id ? 'bg-amber-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            <Icono nombre={e.icono} /> {t(`cocina.enfoque.${e.id}`, e.labelEs)}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={ENFOQUES}
+        activo={enfoque}
+        onCambio={cambiarEnfoque}
+        prefijoClave="cocina.enfoque"
+        color={COLOR}
+        variante="raiz"
+        plegado={plegado}
+        onAlternarPliegue={() => setPlegado((v) => !v)}
+      />
 
-      <div className="flex gap-2">
-        {ENFOQUES.find((e) => e.id === enfoque)!.tabs.map((id, i) => (
-          <button
-            key={id}
-            data-tut={`cocina.tab.${id}`}
-            onClick={() => setTab(id)}
-            className={`flex-1 rounded-xl px-2 py-2.5 text-sm font-semibold transition ${
-              tab === id ? 'bg-white/15' : 'bg-white/5 text-white/60 hover:bg-white/10'
-            }`}
-          >
-            {/* En el control de alimentación las pestañas son pasos: se numeran. */}
-            {enfoque === 'peso' && <span className="mr-1 text-xs text-white/40">{i + 1} ·</span>}
-            <Icono nombre={TABS[id].icono} /> {t(`cocina.tab.${id}`, TABS[id].labelEs)}
-          </button>
-        ))}
-      </div>
+      {!plegado && (
+        <>
+          <PestanasCarpeta
+            items={subItems}
+            activo={tab}
+            onCambio={setTab}
+            prefijoClave="cocina.tab"
+            color={COLOR}
+            variante="sub"
+          />
 
-      {TABS_CON_FECHA.includes(tab) && (
-        <div data-tut="cocina.fecha" className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
-          <button
-            type="button"
-            onClick={() => setFecha((f) => sumarDias(f, -1))}
-            className="rounded-lg px-3 py-1 text-lg hover:bg-white/10"
-          >
-            ‹
-          </button>
-          <div className="text-center">
-            <span className="font-semibold capitalize">{nombreFecha(fecha)}</span>
-            {fecha !== hoyISO() && (
+          {TABS_CON_FECHA.includes(tab) && (
+            <div data-tut="cocina.fecha" className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 border border-white/10">
               <button
                 type="button"
-                onClick={() => setFecha(hoyISO())}
-                className="block mx-auto text-[10px] text-amber-400 hover:underline"
+                onClick={() => setFecha((f) => sumarDias(f, -1))}
+                className="rounded-lg px-3 py-1 text-lg hover:bg-white/10"
               >
-                {t('nav.irHoy', 'Ir a hoy')}
+                ‹
               </button>
-            )}
-          </div>
-          <button
-            type="button"
-            onClick={() => setFecha((f) => sumarDias(f, 1))}
-            className="rounded-lg px-3 py-1 text-lg hover:bg-white/10"
-          >
-            ›
-          </button>
-        </div>
-      )}
+              <div className="text-center">
+                <span className="font-semibold capitalize">{nombreFecha(fecha)}</span>
+                {fecha !== hoyISO() && (
+                  <button
+                    type="button"
+                    onClick={() => setFecha(hoyISO())}
+                    className="block mx-auto text-[10px] text-amber-400 hover:underline"
+                  >
+                    {t('nav.irHoy', 'Ir a hoy')}
+                  </button>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => setFecha((f) => sumarDias(f, 1))}
+                className="rounded-lg px-3 py-1 text-lg hover:bg-white/10"
+              >
+                ›
+              </button>
+            </div>
+          )}
 
-      {tab === 'metas' && <MetasTab perfil={perfilRaw} />}
-      {tab === 'diario' && (
-        <DiarioTab
-          fecha={fecha}
-          comidas={comidas}
-          recetas={recetas}
-          aguaMl={aguaDia}
-          pesos={pesos}
-          perfil={perfil}
-        />
+          {tab === 'metas' && <MetasTab perfil={perfilRaw} />}
+          {tab === 'diario' && (
+            <DiarioTab
+              fecha={fecha}
+              comidas={comidas}
+              recetas={recetas}
+              aguaMl={aguaDia}
+              pesos={pesos}
+              perfil={perfil}
+            />
+          )}
+          {tab === 'planComidas' && (
+            <PlanSemanal recetas={recetas} dietas={dietas} plan={plan} comidas={comidas} perfil={perfil} />
+          )}
+          {tab === 'progreso' && (
+            <ProgresoTab
+              comidas={comidas}
+              agua={agua}
+              pesos={pesos}
+              perfil={perfil}
+              perfilRaw={perfilRaw}
+              onIrAMetas={() => {
+                setPlegado(false)
+                setTab('metas')
+              }}
+            />
+          )}
+          {tab === 'plan' && <DietasTab dietas={dietas} recetas={recetas} />}
+          {tab === 'recetas' && <RecetasTab recetas={recetas} dietas={dietas} cargando={recetasQ === undefined} />}
+          {tab === 'compras' && <ComprasTab items={itemsCompra} listas={listasCompra} />}
+        </>
       )}
-      {tab === 'planComidas' && (
-        <PlanSemanal recetas={recetas} dietas={dietas} plan={plan} comidas={comidas} perfil={perfil} />
-      )}
-      {tab === 'progreso' && (
-        <ProgresoTab
-          comidas={comidas}
-          agua={agua}
-          pesos={pesos}
-          perfil={perfil}
-          perfilRaw={perfilRaw}
-          onIrAMetas={() => setTab('metas')}
-        />
-      )}
-      {tab === 'plan' && <DietasTab dietas={dietas} recetas={recetas} />}
-      {tab === 'recetas' && <RecetasTab recetas={recetas} dietas={dietas} />}
-      {tab === 'compras' && <ComprasTab items={itemsCompra} listas={listasCompra} />}
     </div>
   )
 }

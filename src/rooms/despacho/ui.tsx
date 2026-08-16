@@ -1,13 +1,12 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { BotonPrimario as BotonPrimarioBase, INPUT } from '../_shared/ui'
 
 /**
- * Lenguaje visual de Finanzas (mismo canon que `rooms/garage/ui.tsx` y
- * `rooms/agenda/ui.tsx`): un solo azul de marca para las acciones principales,
- * la misma tarjeta y el mismo input en las cuatro pestañas, y el dinero se
- * teclea con comas de miles.
+ * Lenguaje visual de Finanzas: re-exporta el canon de `rooms/_shared/ui.tsx`
+ * (misma tarjeta, mismo input, mismos botones) con el azul de marca del cuarto,
+ * y añade lo propio de la app: el dinero se teclea con comas de miles.
  */
 
 /** Colores de datos de la app. Antes iban escritos a mano ~40 veces. */
@@ -15,10 +14,7 @@ export const VERDE = '#34d399'
 export const ROJO = '#f87171'
 export const AZUL = '#60a5fa'
 
-export const INPUT =
-  'w-full rounded-lg bg-black/30 px-3 py-2 text-sm outline-none border border-white/10 focus:border-white/30'
-
-export const TARJETA = 'rounded-xl bg-white/5 p-4 border border-white/10'
+export { INPUT, TARJETA, BotonSecundario, TituloSeccion as Seccion } from '../_shared/ui'
 
 // ----- Dinero con comas -----
 
@@ -123,7 +119,7 @@ export function CampoDinero({
 
   return (
     <span className="relative block">
-      <span aria-hidden className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm text-white/40">
+      <span aria-hidden className="pointer-events-none absolute inset-y-0 start-3 flex items-center text-sm text-white/40">
         $
       </span>
       <input
@@ -134,7 +130,7 @@ export function CampoDinero({
         onChange={cambiar}
         onBlur={onNumero ? salir : undefined}
         placeholder={placeholder}
-        className={className || `${INPUT} pl-7`}
+        className={className || `${INPUT} ps-7`}
         {...aria}
       />
     </span>
@@ -149,68 +145,17 @@ export function CampoDinero({
  * un ingreso y rojo un gasto), no para inventar variantes.
  */
 export function BotonPrimario({
-  children,
   color,
-  className = '',
   ...props
 }: {
   children: ReactNode
   color?: string
   className?: string
 } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'color'>) {
-  return (
-    <button
-      {...props}
-      className={`rounded-lg py-2 font-bold texto-cta transition hover:brightness-110 active:scale-[0.99] ${
-        color ? '' : 'bg-blue-600'
-      } ${className}`}
-      style={color ? { background: color } : undefined}
-    >
-      {children}
-    </button>
-  )
-}
-
-/** Botón de acompañamiento (cargar ejemplo, cancelar, acciones tibias). */
-export function BotonSecundario({
-  children,
-  className = '',
-  ...props
-}: {
-  children: ReactNode
-  className?: string
-} & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'className'>) {
-  return (
-    <button
-      {...props}
-      className={`rounded-lg bg-white/10 py-2 text-sm font-semibold transition hover:bg-white/15 ${className}`}
-    >
-      {children}
-    </button>
-  )
+  return <BotonPrimarioBase app={AZUL} color={color} {...props} />
 }
 
 // ----- Estructura -----
-
-/** Encabezado uniforme de bloque interno (Simulador, Metas, Controles…). */
-export function Seccion({
-  icono,
-  titulo,
-  children,
-}: {
-  icono: NombreIcono
-  titulo: string
-  children?: ReactNode
-}) {
-  return (
-    <div className="flex items-center justify-between gap-2">
-      <p className="text-sm font-semibold text-white/85">
-        <Icono nombre={icono} /> {titulo}
-      </p>
-      {children}
-    </div>
-  )
-}
 
 /** El chevron de un plegable, con su estado anunciado al lector de pantalla. */
 export function Plegable({
@@ -250,7 +195,7 @@ export function Ayuda({ resumen, detalle }: { resumen: string; detalle: string }
         onClick={() => setAbierta((v) => !v)}
         aria-expanded={abierta}
         aria-label={t('despacho.ui.masAyuda', 'Más detalles')}
-        className="text-left hover:text-white/55"
+        className="text-start hover:text-white/55"
       >
         <Icono nombre="ayuda" /> {resumen} <Icono nombre={abierta ? 'desplegado' : 'plegado'} />
       </button>

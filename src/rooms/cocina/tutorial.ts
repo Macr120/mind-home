@@ -90,6 +90,12 @@ export const cuerpoRecetario: CuerpoTutorial = {
         'tut.app-cocina--recetario.3.texto',
         'Describe qué quieres cocinar y la IA arma la receta completa con foto del platillo. Esto lo hace la IA: se enciende en Editor › Configuraciones › Cuenta.',
       ),
+      // La opción IA ahora vive DENTRO del alta: hay que abrir «Nueva» para señalarla.
+      alEntrar: async () => {
+        await irA('recetario', 'recetas')
+        await esperarTut('cocina.rec.nueva', 3000)
+        clickTut('cocina.rec.nueva')
+      },
     },
     {
       sel: 'cocina.compras.sub.crear',
@@ -121,14 +127,18 @@ export const cuerpoCronograma: CuerpoTutorial = {
   },
   pasos: [
     {
-      sel: 'cocina.cronograma',
+      // Las metas viven en el botón Metas del header: se abre su panel.
+      sel: 'cal.metas.lista',
       titulo: T('tut.app-cocina--cronograma.1.titulo', 'La meta de peso, con fases'),
       texto: T(
         'tut.app-cocina--cronograma.1.texto',
-        'El mismo cronograma que usa el calendario de la casa, acotado a las metas de Cocina: crea una meta (p. ej. «Bajar 3 kilos») y pídele el plan a la IA — pregunta tu fecha objetivo y agenda sub-metas con su fecha.',
+        'El botón Metas del encabezado abre el mismo cronograma que usa el calendario de la casa, acotado a las metas de Cocina: crea una meta (p. ej. «Bajar 3 kilos») y pídele el plan a la IA — pregunta tu fecha objetivo y agenda sub-metas con su fecha.',
       ),
-      alEntrar: () => irA('peso', 'metas'),
-      esperar: 'cocina.cronograma',
+      alEntrar: async () => {
+        clickTut('hoy.cabecera')
+        await esperarTut('cal.metas.lista', 2000)
+      },
+      esperar: 'cal.metas.lista',
     },
     {
       texto: T(

@@ -3,6 +3,7 @@ import type { CuidadoMascota, Mascota, TipoCuidadoMascota } from '../../core/dat
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { guardarCuidado } from './crear'
 import { getCuidado, HORA_CUIDADO, PERIODOS, textoPeriodo, TIPOS_CUIDADO } from './mascotas'
 import { Campo, INPUT, Modal } from './ui'
@@ -138,8 +139,8 @@ export function FormCuidado({
 
         <button
           type="submit"
-          className="w-full rounded-lg py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.salud }}
+          className="w-full rounded-lg py-2.5 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.salud)}
         >
           {t('agenda.guardar', 'Guardar')}
         </button>

@@ -282,7 +282,7 @@ export function Domino({ dificultad = 'medio' }: PropsDificultad) {
 
       <div className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2">
         <div className="flex items-center gap-1 overflow-hidden">
-          <span className="mr-1 text-sm"><Icono nombre="mascota-robot" /></span>
+          <span className="me-1 text-sm"><Icono nombre="mascota-robot" /></span>
           {ronda.manoIA.map((_, k) => (
             <Dorso key={k} tam={13} />
           ))}

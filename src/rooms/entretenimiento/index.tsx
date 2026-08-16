@@ -182,7 +182,6 @@ const entretenimiento: Plantilla = {
   comandos: [
     { seccion: 'archivo', etiqueta: 'Archivo', nombres: ['archivo', 'mis peliculas', 'mis series'] },
     { seccion: 'mesa', etiqueta: 'Juegos de mesa', nombres: ['juegos', 'juegos de mesa', 'mesa de juegos'] },
-    { seccion: 'programas', etiqueta: 'Programas', nombres: ['programas', 'programa', 'maraton'] },
     ...comandosJuegos,
   ],
 }

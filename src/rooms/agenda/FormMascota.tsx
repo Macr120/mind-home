@@ -5,6 +5,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { comprimirFoto } from '../_shared/fotos'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { guardarMascota } from './crear'
 import { ESPECIES, getEspecie } from './mascotas'
 import { Campo, INPUT, Modal } from './ui'
@@ -148,8 +149,8 @@ export function FormMascota({ inicial, onCerrar }: { inicial?: Mascota | null; o
 
         <button
           type="submit"
-          className="w-full rounded-lg py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.salud }}
+          className="w-full rounded-lg py-2.5 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.salud)}
         >
           {t('agenda.guardar', 'Guardar')}
         </button>

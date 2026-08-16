@@ -22,7 +22,7 @@
  */
 import type { VariableFormula } from '../../core/data/db'
 import { idiomaActual } from '../../core/i18n/useT'
-import { TRADUCCIONES, type TraduccionCatalogo } from './catalogoI18n'
+import { CARGADORES_CATALOGO, type TraduccionCatalogo } from './catalogoI18n'
 import type { AreaFabrica } from './constantes'
 
 export interface FormulaCatalogo {
@@ -583,13 +583,13 @@ const traducir = (t: TraduccionCatalogo): AreaCatalogo[] =>
   }))
 
 /**
- * La semilla en el idioma activo. La lee `siembra.ts` dos veces, una sola vez
- * por instalación, así que se arma al vuelo en vez de precalcular un catálogo
- * por idioma que casi nadie usaría.
+ * La semilla en el idioma activo. La lee `siembra.ts` una sola vez por
+ * instalación, así que se arma al vuelo en vez de precalcular un catálogo por
+ * idioma que casi nadie usaría. Async: la tabla del idioma baja con import().
  */
-export const catalogoActual = (): AreaCatalogo[] => {
-  const t = TRADUCCIONES[idiomaActual()]
-  return t ? traducir(t) : CATALOGO
+export const catalogoActual = async (): Promise<AreaCatalogo[]> => {
+  const cargar = CARGADORES_CATALOGO[idiomaActual()]
+  return cargar ? traducir(await cargar()) : CATALOGO
 }
 
 /** `formulaId` de una fórmula sembrada: determinista entre dispositivos. */

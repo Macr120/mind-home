@@ -22,6 +22,7 @@ import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastr
 import { BarraEjemplo } from './BarraEjemplo'
 import { CicloSection } from './CicloSection'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { CuidadosSection } from './CuidadosSection'
 import { DetalleMascota } from './DetalleMascota'
 import { DetalleProjimo } from './DetalleProjimo'
@@ -142,13 +143,13 @@ export function SaludTab({
             data-tut={`agenda.salud.sub.${s.id}`}
             onClick={() => setSub(s.id)}
             className={`flex-1 rounded-xl py-2 text-xs font-semibold transition ${
-              sub === s.id ? 'texto-cta' : 'bg-white/5 hover:bg-white/10'
+              sub === s.id ? 'ui-accent-bg' : 'bg-white/5 hover:bg-white/10'
             }`}
-            style={sub === s.id ? { background: COLOR_AREA.salud } : undefined}
+            style={sub === s.id ? acento(COLOR_AREA.salud) : undefined}
           >
             <Icono nombre={s.icono} /> {t(`agenda.salud.sub.${s.id}`, s.labelEs)}
             {s.id === 'projimos' && projimos.length > 0 && (
-              <span className="ml-1 opacity-60">{projimos.length}</span>
+              <span className="ms-1 opacity-60">{projimos.length}</span>
             )}
           </button>
         ))}
@@ -165,8 +166,8 @@ export function SaludTab({
                 type="button"
                 data-tut="agenda.salud.alta"
                 onClick={() => setCreando(true)}
-                className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-                style={{ background: COLOR_AREA.salud }}
+                className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+                style={acento(COLOR_AREA.salud)}
               >
                 <Icono nombre="agregar" /> {t('agenda.salud.nuevaCita', 'Nueva cita')}
               </button>
@@ -204,8 +205,8 @@ export function SaludTab({
                 type="button"
                 data-tut="agenda.salud.medicamentos"
                 onClick={() => setCreandoMedicina(true)}
-                className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-                style={{ background: COLOR_AREA.salud }}
+                className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+                style={acento(COLOR_AREA.salud)}
               >
                 <Icono nombre="agregar" /> {t('agenda.salud.nuevoMedicamento', 'Nuevo medicamento')}
               </button>

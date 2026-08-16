@@ -58,7 +58,7 @@ export function PlanoPolar({ motor, lista }: { motor: Motor | null; lista: Funci
         <BotonAjustar onClick={() => plano.encuadrar(encuadrarXY(curvas, AIRE_ENCUADRE) ?? VISTA_INICIAL)} />
       }
     >
-      <div className="pointer-events-none absolute bottom-1.5 left-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
+      <div className="pointer-events-none absolute bottom-1.5 start-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
         {t('computo.graf.pistaPolar', 'θ da dos vueltas completas')}
       </div>
     </PlanoSvg>

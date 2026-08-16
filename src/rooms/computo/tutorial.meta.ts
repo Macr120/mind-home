@@ -37,7 +37,7 @@ const flujoCalculadora = tour(
   T('tut.app-computo--calculadora.titulo', 'Calcular y graficar'),
   T(
     'tut.app-computo--calculadora.resumen',
-    'Una calculadora científica con historial, nueve modos para lo que no es una cuenta suelta —entre ellos la gráfica, con sus cuatro tipos— y un resolvedor de ecuaciones que da las raíces exactas cuando puede.',
+    'Una calculadora científica con historial, ocho modos para lo que no es una cuenta suelta —entre ellos la gráfica, con sus cuatro tipos— y un resolvedor de ecuaciones que da las raíces exactas cuando puede.',
   ),
   'cuerpoCalculadora',
 )

@@ -143,7 +143,7 @@ export function PlanoSvg({
         {capa}
       </svg>
 
-      <div className="absolute right-1.5 top-1.5 flex flex-col gap-1">
+      <div className="absolute end-1.5 top-1.5 flex flex-col gap-1">
         <BotonPlano etiqueta="+" titulo={t('computo.graf.acercar', 'Acercar')} onClick={() => plano.zoomCentro(1.4)} />
         <BotonPlano
           etiqueta="−"

@@ -71,7 +71,7 @@ function FilaDia({ fila, onPresupuesto }: { fila: DiaItinerario; onPresupuesto: 
             })
             onPresupuesto()
           }}
-          className={`${celdaCls} text-right tabular-nums`}
+          className={`${celdaCls} text-end tabular-nums`}
         />
       </td>
       <td className="px-1 text-center">
@@ -172,9 +172,9 @@ export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
       <div className="overflow-x-auto rounded-xl border border-white/10">
         <table className="w-full min-w-[860px] border-collapse">
           <thead>
-            <tr className="divide-x divide-white/5 border-b border-white/10 bg-white/5 text-left text-[10px] uppercase tracking-wider text-white/45">
+            <tr className="divide-x divide-white/5 border-b border-white/10 bg-white/5 text-start text-[10px] uppercase tracking-wider text-white/45">
               {COLUMNAS.map((c, i) => (
-                <th key={i} className={`px-2 py-1.5 font-semibold ${i === 0 ? 'w-10 text-center' : ''} ${i === 7 ? 'text-right' : ''}`}>
+                <th key={i} className={`px-2 py-1.5 font-semibold ${i === 0 ? 'w-10 text-center' : ''} ${i === 7 ? 'text-end' : ''}`}>
                   {c}
                 </th>
               ))}
@@ -189,10 +189,10 @@ export function HojaItinerario({ lugar }: { lugar: LugarViaje }) {
           {filas.length > 0 && (
             <tfoot>
               <tr className="border-t border-white/10 bg-white/5 text-xs font-bold">
-                <td colSpan={7} className="px-2 py-1.5 text-right text-white/60">
+                <td colSpan={7} className="px-2 py-1.5 text-end text-white/60">
                   {t('sala.hoja.total', 'Total')}
                 </td>
-                <td className="px-2 py-1.5 text-right tabular-nums text-teal-300">
+                <td className="px-2 py-1.5 text-end tabular-nums text-teal-300">
                   ${total.toLocaleString()}
                 </td>
                 <td />

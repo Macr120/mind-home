@@ -276,7 +276,7 @@ export function MenuFormulario({
                 key={formula.id}
                 type="button"
                 onClick={() => setSel(formula.id ?? null)}
-                className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left transition hover:bg-white/5"
+                className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start transition hover:bg-white/5"
               >
                 <span className="min-w-0 flex-[2] truncate text-xs">
                   {formula.nombre}
@@ -322,7 +322,7 @@ export function MenuFormulario({
                     <button
                       type="button"
                       onClick={() => plegar(carpeta.carpetaId)}
-                      className="flex min-w-0 flex-1 items-center gap-2 text-left"
+                      className="flex min-w-0 flex-1 items-center gap-2 text-start"
                     >
                       {hijas > 0 && (
                         <span className="shrink-0 text-white/30">
@@ -349,7 +349,7 @@ export function MenuFormulario({
                   </div>
 
                   {menu === carpeta.carpetaId && (
-                    <div className="ml-4 flex flex-wrap gap-1 pb-1">
+                    <div className="ms-4 flex flex-wrap gap-1 pb-1">
                       <AccionCarpeta
                         icono="carpeta"
                         texto={t('computo.form.subcarpeta', 'Subcarpeta')}
@@ -391,7 +391,7 @@ export function MenuFormulario({
                       <div
                         key={f.id}
                         data-nodo={`formula:${f.id}`}
-                        className={`ml-4 flex items-center gap-1 rounded-lg border-l border-white/10 px-2 py-1.5 pl-2 transition hover:bg-white/5 ${
+                        className={`ms-4 flex items-center gap-1 rounded-lg border-s border-white/10 px-2 py-1.5 ps-2 transition hover:bg-white/5 ${
                           sel === f.id ? 'bg-white/10' : ''
                         } ${arrastre.resalte('formula', String(f.id))}`}
                       >
@@ -406,7 +406,7 @@ export function MenuFormulario({
                         <button
                           type="button"
                           onClick={() => setSel(f.id ?? null)}
-                          className="flex min-w-0 flex-1 items-center gap-2 text-left"
+                          className="flex min-w-0 flex-1 items-center gap-2 text-start"
                         >
                           {/* El nombre y la fórmula se reparten la fila: con el
                               LaTeX pegado a la derecha, los largos se salían. */}

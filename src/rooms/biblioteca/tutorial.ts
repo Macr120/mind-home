@@ -102,11 +102,11 @@ export const cuerpoEstudio: CuerpoTutorial = {
       },
     },
     {
-      sel: 'biblioteca.estudio.plan',
+      sel: 'hoy.cabecera',
       titulo: T('tut.app-biblioteca--estudio.2.titulo', 'El plan de estudio'),
       texto: T(
         'tut.app-biblioteca--estudio.2.texto',
-        'Las metas viven en el mismo cronograma del calendario: «terminar termodinámica antes del parcial» ya está cumplida; preparar el posgrado sigue en curso.',
+        'Las metas viven en el botón Metas del encabezado, el mismo cronograma del calendario: «terminar termodinámica antes del parcial» ya está cumplida; preparar el posgrado sigue en curso.',
       ),
     },
     {

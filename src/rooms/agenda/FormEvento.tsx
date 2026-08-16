@@ -8,6 +8,7 @@ import type {
 import { VACIO, mascotasRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
 import { COLOR_AREA, PRIORIDADES } from './constantes'
+import { acento } from '../_shared/acento'
 import { guardarEvento } from './crear'
 import { sumarMin } from './horas'
 import { ESPECIALIDADES, inferirEspecialidad } from './salud'
@@ -229,8 +230,8 @@ export function FormEvento({
 
         <button
           type="submit"
-          className="w-full rounded-lg py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA[area] }}
+          className="w-full rounded-lg py-2.5 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA[area])}
         >
           {t('agenda.guardar', 'Guardar')}
         </button>

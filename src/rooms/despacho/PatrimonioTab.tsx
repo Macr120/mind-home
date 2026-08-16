@@ -81,7 +81,7 @@ export function PatrimonioTab({ vista, foco, onFocoUsado, onIrAMeta }: { vista: 
             </p>
           </div>
           <p
-            className="texto-vivo ml-auto text-2xl font-bold"
+            className="texto-vivo ms-auto text-2xl font-bold"
             style={vivo(mostrado >= 0 ? VERDE : ROJO)}
           >
             {money2(mostrado)}
@@ -98,7 +98,7 @@ export function PatrimonioTab({ vista, foco, onFocoUsado, onIrAMeta }: { vista: 
                 ? t('despacho.patr.verEstimado', 'ver con tasas')
                 : t('despacho.patr.verEscrito', 'ver solo lo escrito')
             }
-            className="mt-2 flex w-full items-center gap-2 rounded-lg bg-black/20 px-3 py-2 text-left text-[11px] hover:bg-black/30"
+            className="mt-2 flex w-full items-center gap-2 rounded-lg bg-black/20 px-3 py-2 text-start text-[11px] hover:bg-black/30"
           >
             <span className="text-white/55">
               {t('despacho.patr.escrito', 'lo que apuntaste')} {money(netoEscrito)}
@@ -107,7 +107,7 @@ export function PatrimonioTab({ vista, foco, onFocoUsado, onIrAMeta }: { vista: 
               {estimado >= 0 ? '+' : '−'} {money(Math.abs(estimado))}{' '}
               {t('despacho.patr.porTasas', 'por tus tasas')}
             </span>
-            <span className="ml-auto shrink-0 font-semibold text-white/40">
+            <span className="ms-auto shrink-0 font-semibold text-white/40">
               {soloEscrito
                 ? t('despacho.patr.verEstimado', 'ver con tasas')
                 : t('despacho.patr.verEscrito', 'ver solo lo escrito')}
@@ -166,7 +166,7 @@ export function PatrimonioTab({ vista, foco, onFocoUsado, onIrAMeta }: { vista: 
                 </span>
               </label>
               {/* La letra chica va plegada: el que la necesita la abre. */}
-              <div className="pl-6">
+              <div className="ps-6">
                 <Ayuda
                   resumen={t('despacho.patr.efectivoOjoCorta', '¿Cuándo conviene?')}
                   detalle={t(
@@ -269,7 +269,7 @@ function Grupo({
         <p className="text-sm font-semibold">
           <Icono nombre={icono} /> {titulo}
         </p>
-        <span className="ml-auto text-sm font-bold text-white/70">{money2(total)}</span>
+        <span className="ms-auto text-sm font-bold text-white/70">{money2(total)}</span>
       </div>
 
       {lineas.length === 0 && (
@@ -407,7 +407,7 @@ function Fila({ linea, foco, onFocoUsado, onIrAMeta }: { linea: LineaPatrimonio 
             </p>
           )}
         </div>
-        <div className="shrink-0 text-right">
+        <div className="shrink-0 text-end">
           <p className="text-white/85">{money2(linea.monto)}</p>
           {Math.round(cambio) !== 0 && (
             <p className="text-[11px] text-white/40">
@@ -447,7 +447,7 @@ function Fila({ linea, foco, onFocoUsado, onIrAMeta }: { linea: LineaPatrimonio 
                 defaultValue={fila.monto}
                 onNumero={(v) => revaluar(fila, v ?? 0)}
                 aria-label={t('despacho.patr.monto', 'Vale')}
-                className="w-full rounded-lg bg-black/30 py-1 pl-7 pr-2 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+                className="w-full rounded-lg bg-black/30 py-1 ps-7 pe-2 text-end text-sm outline-none border border-white/10 focus:border-white/30"
               />
             </Campo>
             <Campo label={t('despacho.patr.fechaValor', 'Desde')}>
@@ -479,7 +479,7 @@ function Fila({ linea, foco, onFocoUsado, onIrAMeta }: { linea: LineaPatrimonio 
                   const v = parseFloat(e.target.value)
                   if (fila.id) patrimonioRepo.update(fila.id, { tasaAnual: Number.isFinite(v) ? v : undefined })
                 }}
-                className="w-full rounded-lg bg-black/30 px-2 py-1 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+                className="w-full rounded-lg bg-black/30 px-2 py-1 text-end text-sm outline-none border border-white/10 focus:border-white/30"
               />
             </Campo>
             {linea.proyectable.naturaleza === 'pasivo' && (
@@ -491,7 +491,7 @@ function Fila({ linea, foco, onFocoUsado, onIrAMeta }: { linea: LineaPatrimonio 
                       patrimonioRepo.update(fila.id, { pagoMensual: v != null && v > 0 ? v : undefined })
                   }}
                   aria-label={t('despacho.patr.pagoMensual', 'Pago al mes')}
-                  className="w-full rounded-lg bg-black/30 py-1 pl-7 pr-2 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+                  className="w-full rounded-lg bg-black/30 py-1 ps-7 pe-2 text-end text-sm outline-none border border-white/10 focus:border-white/30"
                 />
               </Campo>
             )}
@@ -540,7 +540,7 @@ function Enlace({
     return (
       <button
         onClick={() => desenlazar(fila, fila.monto)}
-        className="w-full rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1.5 text-left text-[11px] text-amber-200 hover:bg-amber-500/20"
+        className="w-full rounded-lg border border-amber-500/30 bg-amber-500/10 px-2.5 py-1.5 text-start text-[11px] text-amber-200 hover:bg-amber-500/20"
       >
         <Icono nombre="alerta" />{' '}
         {t('despacho.patr.metaIdaSoltar', 'La meta enlazada ya no existe. Tócalo para soltar esta línea.')}

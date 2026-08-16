@@ -43,7 +43,7 @@ export function TecladoMath({
       <button
         type="button"
         onClick={() => setAbierto((x) => !x)}
-        className="flex w-full items-center gap-2 px-2.5 py-1.5 text-left text-xs font-semibold text-white/60 transition hover:text-white/90"
+        className="flex w-full items-center gap-2 px-2.5 py-1.5 text-start text-xs font-semibold text-white/60 transition hover:text-white/90"
       >
         <Icono nombre="sigma" />
         <span className="min-w-0 flex-1">{t('computo.not.titulo', 'Notaciones')}</span>

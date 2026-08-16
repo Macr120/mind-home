@@ -39,7 +39,7 @@ function FilaAlerta({
     <button
       type="button"
       onClick={onAbrir}
-      className="group flex w-full items-center gap-3 rounded-xl bg-black/20 px-3 py-2 text-left transition hover:bg-black/30"
+      className="group flex w-full items-center gap-3 rounded-xl bg-black/20 px-3 py-2 text-start transition hover:bg-black/30"
     >
       <span className="h-8 w-1 shrink-0 rounded-full" style={{ background: color }} />
       <span className="min-w-0 flex-1">

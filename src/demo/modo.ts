@@ -15,11 +15,12 @@
 import { claveLS, LS_DEMO, esDemo } from '../core/edicion'
 
 /** Versión del CONTENIDO demo del bundle; subirla fuerza la reconstrucción. */
-// v25: el patrimonio de Pep@ deja de ser el número suelto del modelo viejo y
-// pasa a ser una línea editable, y sus CETES cuelgan de la meta que los abona.
-// Sin subir la versión, quien ya tenga el demo construido vería su patrimonio
-// bajar: aquella fila mágica sigue en su base, pero ya nadie la lee.
-export const DEMO_VERSION = 25
+// v26: la casa viaja como snapshot commiteado (`public/demo/casa.json`) y los
+// catálogos de fábrica se siembran solo con el año de su app. OJO: al cambiar
+// el mapa demo (casaPep.ts / mapa/*.ts) hay que RE-EXPORTAR el JSON con
+// window.mhExportarCasaDemo() — mientras exista, el snapshot manda y taparía
+// los cambios de código.
+export const DEMO_VERSION = 26
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

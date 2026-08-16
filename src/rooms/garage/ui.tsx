@@ -3,39 +3,23 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { COLOR } from './constantes'
+import { BotonPrimario as BotonPrimarioBase, BotonSecundario } from '../_shared/ui'
 
 /**
- * Lenguaje visual del garaje (mismo canon que `rooms/agenda/ui.tsx`): tarjetas
- * redondeadas, un solo ámbar de marca y las acciones de fila como iconos que
- * aparecen al pasar por encima.
+ * Lenguaje visual del garaje: re-exporta el canon de `rooms/_shared/ui.tsx`
+ * (mismo input, mismos botones) con el ámbar de marca del cuarto, y conserva
+ * lo propio: acciones de fila como iconos y el pie común de sus formularios.
  *
  * El ámbar es claro, así que su tinta es OSCURA y no la blanca de `.texto-cta`:
  * blanco sobre #fbbf24 no llega ni a 2:1 de contraste.
  */
 export const TINTA_CTA = '#1c1503'
 
-export const INPUT =
-  'mt-1 w-full rounded-lg border border-white/10 bg-black/30 px-3 py-2 text-sm outline-none transition focus:border-white/30'
+export { INPUT, Campo, BotonSecundario, BotonBorrar, TituloSeccion as Cabecera } from '../_shared/ui'
 
-export const TARJETA = 'rounded-2xl border border-white/10 bg-white/5'
-
-/** Campo de formulario con su etiqueta encima. */
-export function Campo({
-  etiqueta,
-  children,
-  className = '',
-}: {
-  etiqueta: string
-  children: ReactNode
-  className?: string
-}) {
-  return (
-    <label className={`block text-xs text-white/50 ${className}`}>
-      {etiqueta}
-      {children}
-    </label>
-  )
-}
+/** Tarjeta del canon SIN el padding: aquí cada tarjeta pone el suyo (p-4 en
+    formularios, p-6 en vacíos) y el p-4 del kit chocaría con esos p-*. */
+export const TARJETA = 'rounded-xl border border-white/10 bg-white/5'
 
 /** Botón de acción principal: relleno de marca, tinta oscura. */
 export function BotonPrimario({
@@ -55,38 +39,9 @@ export function BotonPrimario({
   tut?: string
 }) {
   return (
-    <button
-      type="button"
-      data-tut={tut}
-      onClick={onClick}
-      className={`shrink-0 rounded-xl font-bold shadow-sm transition hover:brightness-110 active:scale-[0.99] ${
-        pequeno ? 'px-3 py-1.5 text-xs' : 'px-4 py-2.5 text-sm'
-      } ${className}`}
-      style={{ background: color, color: TINTA_CTA }}
-    >
+    <BotonPrimarioBase type="button" data-tut={tut} onClick={onClick} app={color} pequeno={pequeno} className={className}>
       {children}
-    </button>
-  )
-}
-
-/** Botón de acompañamiento (cancelar, volver). */
-export function BotonSecundario({
-  onClick,
-  children,
-  className = '',
-}: {
-  onClick: () => void
-  children: ReactNode
-  className?: string
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`rounded-xl bg-white/10 px-4 py-2.5 text-sm font-semibold transition hover:bg-white/15 ${className}`}
-    >
-      {children}
-    </button>
+    </BotonPrimarioBase>
   )
 }
 
@@ -105,60 +60,11 @@ export function AccionIcono({
       type="button"
       onClick={onClick}
       title={titulo}
+      aria-label={titulo}
       className="rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
     >
       <Icono nombre={nombre} />
     </button>
-  )
-}
-
-/**
- * Borrado en dos toques dentro de la propia fila: `confirm()` no encaja con el
- * tema de la casa y en móvil saca al usuario del contexto. Aquí importa más que
- * en otros cuartos: borrar un vehículo se lleva su historial y sus trámites.
- */
-export function BotonBorrar({
-  confirmando,
-  onPedir,
-  onConfirmar,
-  onCancelar,
-}: {
-  confirmando: boolean
-  onPedir: () => void
-  onConfirmar: () => void
-  onCancelar: () => void
-}) {
-  const t = useT()
-  if (!confirmando) {
-    return (
-      <button
-        type="button"
-        onClick={onPedir}
-        title={t('garage.detalle.borrar', 'Borrar')}
-        className="rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-red-400"
-      >
-        <Icono nombre="basura" />
-      </button>
-    )
-  }
-  return (
-    <span className="flex items-center gap-1 text-xs text-red-400">
-      {t('garage.borrar.confirmar', '¿Borrar?')}
-      <button
-        type="button"
-        onClick={onConfirmar}
-        className="rounded-lg bg-red-500/20 px-2 py-1 font-semibold transition hover:bg-red-500/30"
-      >
-        {t('garage.borrar.si', 'Sí')}
-      </button>
-      <button
-        type="button"
-        onClick={onCancelar}
-        className="rounded-lg bg-white/10 px-2 py-1 font-semibold text-white/70 transition hover:bg-white/15"
-      >
-        {t('garage.borrar.no', 'No')}
-      </button>
-    </span>
   )
 }
 
@@ -195,26 +101,6 @@ export function Formulario({
           {t('garage.form.cancelar', 'Cancelar')}
         </BotonSecundario>
       </div>
-    </div>
-  )
-}
-
-/** Cabecera de sección: icono + título a la izquierda, acción a la derecha. */
-export function Cabecera({
-  icono,
-  titulo,
-  children,
-}: {
-  icono: NombreIcono
-  titulo: string
-  children?: ReactNode
-}) {
-  return (
-    <div className="flex items-center justify-between gap-2">
-      <p className="text-sm font-bold text-white/80">
-        <Icono nombre={icono} /> {titulo}
-      </p>
-      {children}
     </div>
   )
 }

@@ -64,11 +64,7 @@ export function ResumenTab({
 
   return (
     <div className="space-y-5">
-      <FiltroPeriodo
-        valor={periodo}
-        onChange={setPeriodo}
-        acento="bg-rose-500/25 text-rose-400 border border-rose-500/40"
-      />
+      <FiltroPeriodo valor={periodo} onChange={setPeriodo} />
 
       <div data-tut="ejercicio.metas.resumen" className="grid grid-cols-2 gap-3">
         <div className="rounded-xl bg-white/5 p-3 border border-white/10 col-span-2">

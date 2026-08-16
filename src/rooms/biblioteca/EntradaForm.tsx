@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { entradasBiblioRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
-import { COLOR, PILAR_GENERAL } from './constantes'
+import { PILAR_GENERAL } from './constantes'
 import { campos, temasDelCampo, useIndice } from './semilla'
 
 export interface EntradaFormInicial {
@@ -176,8 +176,7 @@ export function EntradaForm({
             type="button"
             onClick={guardar}
             disabled={!puedeGuardar}
-            className="rounded-xl px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
-            style={{ background: COLOR }}
+            className="ui-accent-bg rounded-xl px-4 py-2 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
           >
             {t('biblioteca.ent.guardar', 'Guardar')}
           </button>

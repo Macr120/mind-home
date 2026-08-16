@@ -22,14 +22,8 @@ export function diasSemana(desdeLunes: string): string[] {
   return Array.from({ length: 7 }, (_, i) => sumarDias(desdeLunes, i))
 }
 
-/** Convierte "#rrggbb" + alfa en rgba(). */
-export function rgba(hex: string, alpha: number) {
-  const n = parseInt(hex.slice(1), 16)
-  const r = (n >> 16) & 255
-  const g = (n >> 8) & 255
-  const b = n & 255
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`
-}
+// La conversión "#rrggbb" + alfa ahora vive una sola vez en el heatmap compartido.
+export { rgba } from '../_shared/Heatmap'
 
 /** Minutos estudiados por fecha (yyyy-mm-dd). */
 export function minutosPorDia(sesiones: SesionEstudio[]): Map<string, number> {

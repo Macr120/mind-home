@@ -5,7 +5,6 @@ import { useT } from '../../core/i18n/useT'
 import { borrarMetasDeAmbito } from '../../core/metas'
 import { actividadId } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
 import { HeatmapAnual } from './HeatmapAnual'
@@ -293,14 +292,6 @@ export function DetalleHobby({
         sesiones={sesiones}
         onAbrir={onAbrirProyecto}
       />
-
-      {/* El cronograma de ESTE hobby: las metas generales, las que no son de un
-          proyecto concreto (esas viven dentro de cada proyecto). */}
-      <div className="rounded-xl border border-white/10 bg-white/5" data-tut="hobbies.cronograma.hobby">
-        <div className="flex h-96 flex-col">
-          <CronogramaApp plantillaId="hobbies" ambitoId={`hobby:${hobby.id}`} />
-        </div>
-      </div>
 
       {sesiones.length > 0 && (
         <div data-tut="hobbies.detalle.sesiones" className="rounded-xl border border-white/10 bg-white/5 p-3">

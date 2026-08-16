@@ -4,6 +4,8 @@ import { deIso, fechaLocalISO } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { guardarAjustesCiclo, guardarDiaCiclo } from './crear'
 import {
   duracionesPeriodo,
@@ -53,8 +55,8 @@ export function CicloSection({ ajustes, dias }: { ajustes: AjustesCiclo | null; 
               setReciente(true)
               void guardarAjustesCiclo({ activo: true })
             }}
-            className="mt-3 rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-            style={{ background: COLOR_AREA.salud }}
+            className="mt-3 rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+            style={acento(COLOR_AREA.salud)}
           >
             {t('agenda.ciclo.activar', 'Activar seguimiento de ciclo')}
           </button>
@@ -311,29 +313,25 @@ function FormDia({
       <div className="space-y-3">
         <div>
           <p className="text-xs text-white/50">{t('agenda.ciclo.sangrado', 'Sangrado')}</p>
-          <div className="mt-1 flex gap-1.5">
-            <button
-              type="button"
-              onClick={() => setSangrado(0)}
-              className={`flex-1 rounded-lg py-1.5 text-xs font-semibold transition ${
-                sangrado === 0 ? 'bg-white/20' : 'bg-white/5 text-white/55 hover:bg-white/10'
-              }`}
-            >
-              {t('agenda.ciclo.ninguno', 'Ninguno')}
-            </button>
-            {NIVELES_SANGRADO.map((n) => (
-              <button
-                key={n.valor}
-                type="button"
-                onClick={() => setSangrado(n.valor as SangradoCiclo)}
-                className={`flex-1 rounded-lg py-1.5 text-xs font-semibold transition ${
-                  sangrado === n.valor ? 'text-black' : 'bg-white/5 text-white/55 hover:bg-white/10'
-                }`}
-                style={sangrado === n.valor ? { background: n.color } : undefined}
-              >
-                {t(n.clave, n.es)}
-              </button>
-            ))}
+          <div className="mt-1">
+            <PestanasCarpeta
+              items={[
+                { id: '0', labelEs: 'Ninguno', clave: 'agenda.ciclo.ninguno' },
+                ...NIVELES_SANGRADO.map((n) => ({
+                  id: String(n.valor),
+                  labelEs: n.es,
+                  clave: n.clave,
+                  // El color por nivel es el mismo con el que el día se pinta en el calendario del ciclo.
+                  color: n.color,
+                })),
+              ]}
+              activo={String(sangrado)}
+              onCambio={(id) => setSangrado(Number(id) as SangradoCiclo)}
+              color={COLOR_AREA.salud}
+              variante="sub"
+              nivel={3}
+              flecha={false}
+            />
           </div>
         </div>
 
@@ -352,7 +350,7 @@ function FormDia({
                   className={`rounded-full px-2.5 py-1 text-[11px] font-semibold transition ${
                     activo ? 'text-black' : 'bg-white/5 text-white/55 hover:bg-white/10'
                   }`}
-                  style={activo ? { background: COLOR_AREA.salud } : undefined}
+                  style={activo ? acento(COLOR_AREA.salud) : undefined}
                 >
                   <Icono nombre={s.icono} /> {t(s.clave, s.es)}
                 </button>
@@ -386,8 +384,8 @@ function FormDia({
         <button
           type="button"
           onClick={() => void guardar()}
-          className="w-full rounded-lg py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.salud }}
+          className="w-full rounded-lg py-2.5 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.salud)}
         >
           {t('agenda.guardar', 'Guardar')}
         </button>
@@ -471,8 +469,8 @@ function FormAjustes({ ajustes, onCerrar }: { ajustes: AjustesCiclo; onCerrar: (
         <button
           type="button"
           onClick={() => void guardar()}
-          className="w-full rounded-lg py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.salud }}
+          className="w-full rounded-lg py-2.5 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.salud)}
         >
           {t('agenda.guardar', 'Guardar')}
         </button>

@@ -278,27 +278,27 @@ export function raizDeZona(tipo: TipoMapa, zona: string): number {
  * formatos por zonas, y el tema tal cual en los demás.
  */
 export function etiquetasRaiz(tipo: TipoMapa, nombre: string): string[] {
-  const T = (clave: string, es: string) => tGlobal(`ideas.mapa.${clave}`, es)
+  const tMapa = (clave: string, es: string) => tGlobal(`ideas.mapa.${clave}`, es)
   switch (tipo) {
     case 'comparacion':
-      return [T('temaA', 'Tema A'), T('temaB', 'Tema B')]
+      return [tMapa('temaA', 'Tema A'), tMapa('temaB', 'Tema B')]
     case 'venn':
-      return [T('conjuntoA', 'Conjunto A'), T('conjuntoB', 'Conjunto B')]
+      return [tMapa('conjuntoA', 'Conjunto A'), tMapa('conjuntoB', 'Conjunto B')]
     case 'proscontras':
-      return [T('ventajas', 'Ventajas'), T('desventajas', 'Desventajas')]
+      return [tMapa('ventajas', 'Ventajas'), tMapa('desventajas', 'Desventajas')]
     case 'fuerzas':
-      return [T('impulsan', 'Empujan'), T('frenan', 'Frenan')]
+      return [tMapa('impulsan', 'Empujan'), tMapa('frenan', 'Frenan')]
     case 'foda':
       return [
-        T('fortalezas', 'Fortalezas'),
-        T('debilidades', 'Debilidades'),
-        T('oportunidades', 'Oportunidades'),
-        T('amenazas', 'Amenazas'),
+        tMapa('fortalezas', 'Fortalezas'),
+        tMapa('debilidades', 'Debilidades'),
+        tMapa('oportunidades', 'Oportunidades'),
+        tMapa('amenazas', 'Amenazas'),
       ]
     case 'eisenhower':
-      return [T('hacer', 'Hazlo ya'), T('agendar', 'Agéndalo'), T('delegar', 'Delégalo'), T('quitar', 'Quítalo')]
+      return [tMapa('hacer', 'Hazlo ya'), tMapa('agendar', 'Agéndalo'), tMapa('delegar', 'Delégalo'), tMapa('quitar', 'Quítalo')]
     case 'piramide':
-      return [T('cima', 'Cima'), T('nivel3', 'Nivel 3'), T('nivel2', 'Nivel 2'), T('base', 'Base')]
+      return [tMapa('cima', 'Cima'), tMapa('nivel3', 'Nivel 3'), tMapa('nivel2', 'Nivel 2'), tMapa('base', 'Base')]
     case 'tier':
       return ['S', 'A', 'B', 'C', 'D']
     default:

@@ -63,7 +63,7 @@ export function MatrizDecision({ mapa }: { mapa: MapaIdeas }) {
       <button
         type="button"
         onClick={() => setEditando(n.nodoId)}
-        className={`${ancho} truncate text-left text-xs font-semibold`}
+        className={`${ancho} truncate text-start text-xs font-semibold`}
         title={n.texto}
       >
         {n.texto}
@@ -102,7 +102,7 @@ export function MatrizDecision({ mapa }: { mapa: MapaIdeas }) {
         <table className="w-full border-separate border-spacing-1 text-center">
           <thead>
             <tr>
-              <th className="w-32 min-w-32 text-left text-[11px] font-semibold text-white/40">
+              <th className="w-32 min-w-32 text-start text-[11px] font-semibold text-white/40">
                 {t('ideas.matriz.criterio', 'Criterio')}
               </th>
               <th className="w-10 text-[11px] font-semibold text-white/40" title={t('ideas.matriz.pesoAyuda', 'Cuánto te importa ese criterio (1-5)')}>
@@ -129,7 +129,7 @@ export function MatrizDecision({ mapa }: { mapa: MapaIdeas }) {
           <tbody>
             {m.criterios.map((c) => (
               <tr key={c.nodoId}>
-                <td className="text-left">
+                <td className="text-start">
                   <div className="flex items-center gap-1">
                     <Nombre n={c} ancho="min-w-0 flex-1" />
                     <BotonBorrar n={c} />
@@ -170,7 +170,7 @@ export function MatrizDecision({ mapa }: { mapa: MapaIdeas }) {
 
             {m.criterios.length > 0 && m.opciones.length > 0 && (
               <tr>
-                <td className="text-left text-xs font-bold" colSpan={2}>
+                <td className="text-start text-xs font-bold" colSpan={2}>
                   {t('ideas.matriz.total', 'Total')}
                 </td>
                 {m.opciones.map((o, i) => (

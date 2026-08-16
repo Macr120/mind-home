@@ -87,7 +87,7 @@ export function Ahorcado({ dificultad = 'medio' }: PropsDificultad) {
       <div className="flex items-center justify-between text-sm">
         <span className="font-semibold">
           {t('entre.j.ahorcado.racha', 'Racha')}: {racha}
-          <span className="ml-2 text-white/45">
+          <span className="ms-2 text-white/45">
             {t('entre.j.mejor', 'Mejor')}: {record}
           </span>
         </span>

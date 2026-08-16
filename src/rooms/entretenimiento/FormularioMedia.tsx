@@ -3,6 +3,7 @@ import type { MediaArchivo, ResumenMedia, TipoMedia } from '../../core/data/db'
 import { mediaArchivoRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { COLOR, ESTADOS_MEDIA, TIPOS_MEDIA, getTipoMedia } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { Estrellas } from './Estrellas'
 import { hoyISO } from './fecha'
 import { buscarPortada, imagenArticulo } from './portadaMedia'
@@ -150,21 +151,16 @@ export function FormularioMedia({
         {inicial ? t('entre.form.editarTitulo', 'Editar entrada') : t('entre.form.añadirTitulo', 'Añadir al archivo')}
       </p>
 
-      <div className="grid grid-cols-4 gap-1.5">
-        {TIPOS_MEDIA.map((tipoItem) => (
-          <button
-            key={tipoItem.id}
-            type="button"
-            onClick={() => setTipo(tipoItem.id)}
-            className={`rounded-lg py-2 text-xs font-semibold transition ${
-              tipo === tipoItem.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
-            }`}
-            style={tipo === tipoItem.id ? { background: COLOR } : undefined}
-          >
-            <Icono emoji={tipoItem.icon} /> {tipoItem.label}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={TIPOS_MEDIA.map((tipoItem) => ({ id: tipoItem.id, emoji: tipoItem.icon, label: tipoItem.label }))}
+        activo={tipo}
+        onCambio={setTipo}
+        color={COLOR}
+        variante="sub"
+        nivel={3}
+        flecha={false}
+        desplazable
+      />
 
       <input
         value={titulo}
@@ -189,7 +185,7 @@ export function FormularioMedia({
                 <button
                   type="button"
                   onClick={() => void elegir(s)}
-                  className="flex w-full items-center gap-2.5 px-2.5 py-2 text-left hover:bg-white/10"
+                  className="flex w-full items-center gap-2.5 px-2.5 py-2 text-start hover:bg-white/10"
                 >
                   {s.miniatura ? (
                     <img

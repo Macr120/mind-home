@@ -5,7 +5,9 @@ import { useResumenReal } from './useResumen'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Campo, Resultado } from './SimuladoresTab'
-import { TARJETA } from './ui'
+import { AZUL, TARJETA, VERDE } from './ui'
+import { acento } from '../_shared/acento'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 
 /**
  * Calculadoras de metas financieras (pestaña Financieras, antes Ahorro):
@@ -51,24 +53,22 @@ function useCampoLigado(real: number): [string, (v: string) => void] {
 }
 
 export function CalculadorasFinancieras() {
-  const t = useT()
   const [calc, setCalc] = useState<Calc>('fondoEmergencia')
 
   return (
     <div className="space-y-4">
-      <div data-tut="despacho.calc.tabs" className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-        {CALCS.map((c) => (
-          <button
-            key={c.id}
-            data-tut={`despacho.calc.${c.id}`}
-            onClick={() => setCalc(c.id)}
-            className={`rounded-lg py-2 text-xs font-semibold transition ${
-              calc === c.id ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            {t(`despacho.calc.tab.${c.id}`, c.labelEs)}
-          </button>
-        ))}
+      <div data-tut="despacho.calc.tabs">
+        <PestanasCarpeta
+          items={CALCS.map((c) => ({ id: c.id, labelEs: c.labelEs }))}
+          activo={calc}
+          onCambio={setCalc}
+          prefijoClave="despacho.calc.tab"
+          prefijoTut="despacho.calc"
+          color={AZUL}
+          variante="sub"
+          nivel={3}
+          desplazable
+        />
       </div>
 
       <div data-tut="despacho.calc.panel">
@@ -98,9 +98,8 @@ function BotonCrearMeta({ nombre, objetivo }: { nombre: string; objetivo: number
       data-tut="despacho.calc.crearMeta"
       onClick={() => void crear()}
       disabled={objetivo <= 0}
-      className={`w-full rounded-lg py-2.5 font-bold texto-cta transition disabled:opacity-40 ${
-        creada ? 'bg-emerald-600' : 'bg-blue-600 hover:brightness-110'
-      }`}
+      className="ui-accent-bg w-full rounded-lg py-2.5 font-bold transition hover:brightness-110 disabled:opacity-40"
+      style={acento(creada ? VERDE : AZUL)}
     >
       {creada ? (
         <>
@@ -133,19 +132,16 @@ function CalcFondoEmergencia() {
         <Campo dinero label={t('despacho.calc.gastoEsencial', 'Gasto mensual esencial')} valor={gastoMensual} setValor={setGastoMensual} />
         <div>
           <span className="text-xs text-white/55">{t('despacho.calc.mesesColchon', 'Meses de colchón')}</span>
-          <div className="mt-1 flex gap-2">
-            {MESES_COLCHON.map((m) => (
-              <button
-                key={m}
-                type="button"
-                onClick={() => setMeses(m)}
-                className={`flex-1 rounded-lg py-1.5 text-sm font-semibold transition ${
-                  meses === m ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-                }`}
-              >
-                {m}
-              </button>
-            ))}
+          <div className="mt-1">
+            <PestanasCarpeta
+              items={MESES_COLCHON.map((m) => ({ id: String(m), label: String(m) }))}
+              activo={String(meses)}
+              onCambio={(id) => setMeses(Number(id))}
+              color={AZUL}
+              variante="sub"
+              nivel={3}
+              flecha={false}
+            />
           </div>
         </div>
       </div>

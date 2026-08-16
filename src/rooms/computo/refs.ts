@@ -141,20 +141,6 @@ export const trasladar =
       ? { ...r, fila: r.fila + df, col: r.col + dc }
       : r
 
-/** Insertar `n` filas o columnas a partir de `desde`. */
-export const insertar =
-  (eje: 'fila' | 'col', desde: number, n: number): Transformacion =>
-  (r) =>
-    r[eje] >= desde ? { ...r, [eje]: r[eje] + n } : r
-
-/** Eliminar `n` filas o columnas desde `desde`; lo borrado da `#REF!`. */
-export const eliminar =
-  (eje: 'fila' | 'col', desde: number, n: number): Transformacion =>
-  (r) => {
-    if (r[eje] >= desde && r[eje] < desde + n) return null
-    return r[eje] >= desde + n ? { ...r, [eje]: r[eje] - n } : r
-  }
-
 // ── Operaciones de alto nivel (lo que llama la UI) ──────────────────────────
 
 /** Aplica una transformación a las fórmulas de TODAS las celdas dadas. */
@@ -202,37 +188,6 @@ export function pegarRango(
     base[refA1(fila, col)] = nueva
   }
   return base
-}
-
-/** Inserta filas o columnas en medio, reescribiendo todas las referencias. */
-export function insertarLinea(celdas: Celdas, eje: 'fila' | 'col', desde: number, n = 1): Celdas {
-  const movidas = mapear(celdas, insertar(eje, desde, n))
-  const salida: Celdas = {}
-  for (const [ref, celda] of Object.entries(movidas)) {
-    const p = deRef(ref)
-    if (!p) continue
-    const fila = eje === 'fila' && p.fila >= desde ? p.fila + n : p.fila
-    const col = eje === 'col' && p.col >= desde ? p.col + n : p.col
-    if (fila >= MAX_FILAS || col >= MAX_COLS) continue
-    salida[refA1(fila, col)] = celda
-  }
-  return salida
-}
-
-/** Elimina filas o columnas; lo que apuntaba a ellas queda `#REF!`. */
-export function eliminarLinea(celdas: Celdas, eje: 'fila' | 'col', desde: number, n = 1): Celdas {
-  const movidas = mapear(celdas, eliminar(eje, desde, n))
-  const salida: Celdas = {}
-  for (const [ref, celda] of Object.entries(movidas)) {
-    const p = deRef(ref)
-    if (!p) continue
-    const v = eje === 'fila' ? p.fila : p.col
-    if (v >= desde && v < desde + n) continue // la celda borrada se va
-    const fila = eje === 'fila' && p.fila >= desde + n ? p.fila - n : p.fila
-    const col = eje === 'col' && p.col >= desde + n ? p.col - n : p.col
-    salida[refA1(fila, col)] = celda
-  }
-  return salida
 }
 
 /**

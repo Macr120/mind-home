@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import type { DietaGuardada, Receta } from '../../core/data/db'
 import { dietasGuardadasRepo, itemsCompraRepo, listasCompraRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
@@ -12,6 +12,7 @@ import { aplicarObjetivosDieta, generarDietaCompleta } from './generarDieta'
 import { RECETAS_POR_DIETA, costoDieta } from './costosIA'
 import { gramosDesdePct, repartoMacros } from './macros'
 import { imagenIaActiva } from '../../core/imagenIA'
+import { normalizar } from '../../core/chat/dispatcher'
 import { Creditos } from '../../core/ui/Creditos'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -88,57 +89,24 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
     }
   }
 
-  if (editando) {
-    return (
-      <FormDieta
-        dieta={editando === 'nueva' ? null : editando}
-        recetas={recetas}
-        onCerrar={() => setEditando(null)}
-      />
-    )
-  }
-
-  const seleccionada = dietas.find((d) => d.id === selId) ?? null
-  if (seleccionada) {
-    return (
-      <DetalleDieta
-        dieta={seleccionada}
-        recetas={recetas}
-        onVolver={() => setSelId(null)}
-        onEditar={() => setEditando(seleccionada)}
-      />
-    )
-  }
-
-  return (
-    <div className="space-y-3">
-      <div className="flex gap-2">
-        {/* Siempre visible aunque no haya IA: si se ocultara, nadie sabría que la
-            dieta se puede pedir hecha (con sus recetas y sus fotos). */}
-        <button
-          type="button"
-          data-tut="cocina.ia.dieta"
-          onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
-          disabled={!iaActiva()}
-          className="flex-1 rounded-xl bg-amber-600 texto-cta py-2.5 text-sm font-bold hover:brightness-110 disabled:opacity-40"
-        >
-          <Icono nombre="brillo" /> {t('cocina.dieta.generarIA', 'Dieta con IA')}
-        </button>
-        <button
-          type="button"
-          onClick={() => setEditando('nueva')}
-          className="flex-1 rounded-xl bg-white/10 py-2.5 text-sm font-bold hover:bg-white/15"
-        >
-          {t('cocina.dieta.nueva', 'Nueva dieta')}
-        </button>
-      </div>
-
+  // La IA vive DENTRO del alta (opción visible siempre; deshabilitada sin clave):
+  // si se ocultara, nadie sabría que la dieta se puede pedir hecha con recetas y fotos.
+  const bloqueIA = (
+    <div className="space-y-2">
+      <button
+        type="button"
+        data-tut="cocina.ia.dieta"
+        onClick={() => setPeticionIA((v) => (v === null ? '' : null))}
+        disabled={!iaActiva()}
+        className="ui-accent-bg w-full rounded-xl py-2.5 text-sm font-bold hover:brightness-110 disabled:opacity-40"
+      >
+        <Icono nombre="brillo" /> {t('cocina.dieta.generarIA', 'Dieta con IA')}
+      </button>
       {!iaActiva() && (
         <p className="text-[11px] text-white/40">
           {t('cocina.ia.sinClave', 'Configura la IA en el chat para crear recetas y dietas con imágenes.')}
         </p>
       )}
-
       {peticionIA !== null && (
         <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-3 space-y-2">
           <input
@@ -152,7 +120,7 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
             type="button"
             onClick={generar}
             disabled={!peticionIA.trim() || generando}
-            className="w-full rounded-lg bg-amber-600 py-2 text-sm font-bold texto-cta hover:brightness-110 disabled:opacity-40"
+            className="ui-accent-bg w-full rounded-lg py-2 text-sm font-bold hover:brightness-110 disabled:opacity-40"
           >
             {fase === 'plan'
               ? t('cocina.dieta.generando', 'Armando tu dieta y sus recetas…')
@@ -177,6 +145,42 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
           {errorIA && <p className="text-xs text-amber-300">{errorIA}</p>}
         </div>
       )}
+    </div>
+  )
+
+  if (editando) {
+    return (
+      <FormDieta
+        key={editando === 'nueva' ? 'nueva' : editando.id ?? 'ia'}
+        dieta={editando === 'nueva' ? null : editando}
+        recetas={recetas}
+        bloqueIA={editando === 'nueva' ? bloqueIA : undefined}
+        onCerrar={() => setEditando(null)}
+      />
+    )
+  }
+
+  const seleccionada = dietas.find((d) => d.id === selId) ?? null
+  if (seleccionada) {
+    return (
+      <DetalleDieta
+        dieta={seleccionada}
+        recetas={recetas}
+        onVolver={() => setSelId(null)}
+        onEditar={() => setEditando(seleccionada)}
+      />
+    )
+  }
+
+  return (
+    <div className="space-y-3">
+      <button
+        type="button"
+        onClick={() => setEditando('nueva')}
+        className="w-full rounded-xl bg-white/10 py-2.5 text-sm font-bold hover:bg-white/15"
+      >
+        {t('cocina.dieta.nueva', 'Nueva dieta')}
+      </button>
 
       {dietas.length === 0 && (
         <p className="rounded-xl bg-white/5 border border-white/10 p-4 text-sm text-white/40">
@@ -190,7 +194,7 @@ export function DietasTab({ dietas, recetas }: { dietas: DietaGuardada[]; receta
             <button
               type="button"
               onClick={() => setSelId(d.id ?? null)}
-              className="flex w-full items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-left hover:bg-white/10 transition"
+              className="flex w-full items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-start hover:bg-white/10 transition"
             >
               <Portada
                 foto={d.foto}
@@ -295,7 +299,7 @@ function DetalleDieta({
         <button
           type="button"
           onClick={onEditar}
-          className="ml-auto rounded-lg bg-white/5 px-3 py-1.5 text-sm hover:bg-white/10"
+          className="ms-auto rounded-lg bg-white/5 px-3 py-1.5 text-sm hover:bg-white/10"
         >
           {t('cocina.rec.editar', 'Editar')}
         </button>
@@ -334,7 +338,7 @@ function DetalleDieta({
             <button
               type="button"
               onClick={aplicarObjetivos}
-              className="mt-3 w-full rounded-xl py-2 text-sm font-bold bg-amber-600 texto-cta hover:brightness-110"
+              className="ui-accent-bg mt-3 w-full rounded-xl py-2 text-sm font-bold hover:brightness-110"
             >
               {aplicado
                 ? t('cocina.dieta.aplicado', '✓ Objetivos actualizados en Metas')
@@ -368,7 +372,7 @@ function DetalleDieta({
                 <button
                   type="button"
                   onClick={() => setRecetaAbierta(r)}
-                  className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-sm hover:bg-white/5"
+                  className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start text-sm hover:bg-white/5"
                 >
                   <span className="text-xl"><Icono emoji={r.emoji} /></span>
                   <span className="flex-1 min-w-0 truncate text-white/85">{r.nombre}</span>
@@ -406,10 +410,13 @@ function BarraReparto({ dieta }: { dieta: DietaGuardada }) {
 function FormDieta({
   dieta,
   recetas,
+  bloqueIA,
   onCerrar,
 }: {
   dieta: DietaGuardada | null
   recetas: Receta[]
+  /** Opción «con IA» del alta: la arma DietasTab (estados y créditos viven allá). */
+  bloqueIA?: ReactNode
   onCerrar: () => void
 }) {
   const t = useT()
@@ -420,10 +427,22 @@ function FormDieta({
   const [carbos, setCarbos] = useState(String(dieta?.carbohidratos || ''))
   const [grasas, setGrasas] = useState(String(dieta?.grasas || ''))
   const [recetaIds, setRecetaIds] = useState<number[]>(dieta?.recetaIds ?? [])
+  const [buscaReceta, setBuscaReceta] = useState('')
 
   const toggleReceta = (id: number) => {
     setRecetaIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]))
   }
+
+  // El buscador solo recorta la lista visible: lo YA palomeado no se pierde al filtrar.
+  const q = normalizar(buscaReceta.trim())
+  const recetasVisibles = !q
+    ? recetas
+    : recetas.filter(
+        (r) =>
+          normalizar(r.nombre).includes(q) ||
+          r.etiquetas.some((e) => normalizar(e).includes(q)) ||
+          (r.carpeta ? normalizar(r.carpeta).includes(q) : false),
+      )
 
   const opcional = (v: string) => {
     const n = parseInt(v, 10)
@@ -478,6 +497,8 @@ function FormDieta({
           {dieta ? t('cocina.dieta.editarTitulo', 'Editar dieta') : t('cocina.dieta.nuevaTitulo', 'Nueva dieta')}
         </p>
       </div>
+
+      {bloqueIA}
 
       <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
         {/* Portada recién generada por la IA (aún sin guardar): que se vea lo que
@@ -560,13 +581,23 @@ function FormDieta({
         {recetas.length === 0 ? (
           <p className="text-xs text-white/40">{t('cocina.dieta.sinRecetario', 'Aún no tienes recetas. Crea recetas en la pestaña Recetas.')}</p>
         ) : (
+          <>
+            <input
+              value={buscaReceta}
+              onChange={(e) => setBuscaReceta(e.target.value)}
+              placeholder={t('cocina.rec.buscar', 'Buscar receta o etiqueta...')}
+              className="w-full rounded-lg bg-black/30 px-3 py-2 text-sm border border-white/10 outline-none focus:border-white/30"
+            />
+            {recetasVisibles.length === 0 && (
+              <p className="text-xs text-white/40">{t('cocina.rec.sinResultados', 'Ninguna receta coincide con la búsqueda.')}</p>
+            )}
           <ul className="space-y-1">
-            {recetas.map((r) => (
+            {recetasVisibles.map((r) => (
               <li key={r.id}>
                 <button
                   type="button"
                   onClick={() => r.id != null && toggleReceta(r.id)}
-                  className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-sm hover:bg-white/5"
+                  className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start text-sm hover:bg-white/5"
                 >
                   <span
                     className={`h-4 w-4 shrink-0 rounded border flex items-center justify-center text-[10px] ${
@@ -584,12 +615,13 @@ function FormDieta({
               </li>
             ))}
           </ul>
+          </>
         )}
       </div>
 
       <button
         type="submit"
-        className="w-full rounded-xl py-2.5 font-bold bg-amber-600 texto-cta hover:brightness-110"
+        className="ui-accent-bg w-full rounded-xl py-2.5 font-bold hover:brightness-110"
       >
         {t('cocina.dieta.guardar', 'Guardar dieta')}
       </button>

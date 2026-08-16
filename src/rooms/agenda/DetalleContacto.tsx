@@ -6,6 +6,7 @@ import { localeActual, useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { borrarContacto } from './crear'
 import { diasParaCumple, edadQueCumple, proximoCumple } from './cumples'
 import { FormEvento } from './FormEvento'
@@ -98,8 +99,8 @@ export function DetalleContacto({
         <button
           type="button"
           onClick={onNuevoEvento}
-          className="rounded-lg px-3 py-2 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.personas }}
+          className="rounded-lg px-3 py-2 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.personas)}
         >
           <Icono nombre="agregar" /> {t('agenda.personas.nuevoPlan', 'Agendar algo')}
         </button>

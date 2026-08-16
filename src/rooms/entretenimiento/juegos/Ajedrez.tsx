@@ -371,7 +371,7 @@ export function Ajedrez({ dificultad = 'medio' }: PropsDificultad) {
               {modo === 'ia' ? (estado.turno === 'b' ? t('entre.j.tu', 'Tú') : t('entre.j.maquina', 'Máquina')) : nombreBando(estado.turno)}
             </strong>
             {jaque && (
-              <strong className="ml-2 rounded-md bg-red-500/25 px-2 py-0.5 text-red-300">
+              <strong className="ms-2 rounded-md bg-red-500/25 px-2 py-0.5 text-red-300">
                 {t('entre.j.ajedrez.jaque', 'Jaque')}
               </strong>
             )}

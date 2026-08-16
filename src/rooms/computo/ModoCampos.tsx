@@ -54,7 +54,7 @@ export function Resultado({
     <div className="flex items-baseline gap-2 rounded-xl bg-black/25 px-3 py-2">
       <span className="shrink-0 text-xs text-white/50">{etiqueta}</span>
       <span
-        className={`texto-vivo min-w-0 flex-1 truncate text-right font-mono font-bold ${grande ? 'text-xl' : 'text-base'}`}
+        className={`texto-vivo min-w-0 flex-1 truncate text-end font-mono font-bold ${grande ? 'text-xl' : 'text-base'}`}
         style={vivo(COLOR)}
       >
         {valor}
@@ -92,7 +92,7 @@ export function CabeceraModo({ selector, children }: { selector: ReactNode; chil
   return (
     <div className="flex items-center gap-2">
       {children}
-      <div className="ml-auto shrink-0">{selector}</div>
+      <div className="ms-auto shrink-0">{selector}</div>
     </div>
   )
 }

@@ -1,9 +1,24 @@
 /**
- * El año demo de cocina en los idiomas que NO viajan en `demo.recetas.data.ts`
- * (donde están el español y el inglés). Vive aparte para que el chunk que ya
- * baja todo el mundo no engorde con seis idiomas de contenido: solo se
- * descarga si el usuario está en uno de estos.
+ * Cargadores por idioma del año demo de cocina: el español y el inglés
+ * viajan en `demo.recetas.data.ts`; cada rama extra vive en `demo.recetas.data.i18n.<idioma>.ts`
+ * y solo se descarga la del idioma activo (ver `builders.ts::textos`).
  *
- * GENERADO por `npm run traducir:i18n` — no lo edites a mano.
+ * Lo montan `partir-demo-i18n.mjs` / `traducir-a-mano.mjs meter` — no lo
+ * edites a mano.
  */
-export default {}
+export default {
+  pt: () => import('./demo.recetas.data.i18n.pt'),
+  fr: () => import('./demo.recetas.data.i18n.fr'),
+  de: () => import('./demo.recetas.data.i18n.de'),
+  it: () => import('./demo.recetas.data.i18n.it'),
+  ja: () => import('./demo.recetas.data.i18n.ja'),
+  zh: () => import('./demo.recetas.data.i18n.zh'),
+  ko: () => import('./demo.recetas.data.i18n.ko'),
+  ru: () => import('./demo.recetas.data.i18n.ru'),
+  hi: () => import('./demo.recetas.data.i18n.hi'),
+  tr: () => import('./demo.recetas.data.i18n.tr'),
+  id: () => import('./demo.recetas.data.i18n.id'),
+  pl: () => import('./demo.recetas.data.i18n.pl'),
+  nl: () => import('./demo.recetas.data.i18n.nl'),
+  ar: () => import('./demo.recetas.data.i18n.ar'),
+}

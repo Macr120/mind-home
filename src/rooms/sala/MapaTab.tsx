@@ -4,6 +4,8 @@ import type { LugarViaje } from '../../core/data/db'
 import { lugaresViajeRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { COLOR } from './constantes'
 import { eliminarLugar } from './datos'
 import { FormularioLugar } from './FormularioLugar'
 import { MapaMundi } from './MapaMundi'
@@ -86,24 +88,17 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
       </div>
 
       {/* Plano o globo: el mismo mundo con los mismos pines */}
-      <div className="flex gap-1.5">
-        {(
-          [
-            ['plano', 'mapa', 'sala.mapa.vistaPlano', 'Plano'],
-            ['globo', 'mundo', 'sala.mapa.vistaGlobo', 'Globo'],
-          ] as const
-        ).map(([id, icono, clave, etiqueta]) => (
-          <button
-            key={id}
-            onClick={() => setVista(id)}
-            className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition ${
-              vista === id ? 'bg-teal-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            <Icono nombre={icono} /> {t(clave, etiqueta)}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={[
+          { id: 'plano', icono: 'mapa', labelEs: 'Plano', clave: 'sala.mapa.vistaPlano' },
+          { id: 'globo', icono: 'mundo', labelEs: 'Globo', clave: 'sala.mapa.vistaGlobo' },
+        ]}
+        activo={vista}
+        onCambio={setVista}
+        color={COLOR}
+        variante="sub"
+        nivel={2}
+      />
 
       <div className="flex flex-wrap items-center gap-2">
         <button
@@ -133,7 +128,7 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
         </button>
         {/* Las fronteras de estados solo se dibujan en el mapa extendido. */}
         {vista === 'plano' && (
-          <label className="ml-auto flex items-center gap-1.5 text-xs text-white/60">
+          <label className="ms-auto flex items-center gap-1.5 text-xs text-white/60">
             <input
               type="checkbox"
               checked={verEstados}
@@ -192,11 +187,11 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
 
       <div className="flex gap-3 text-[11px] text-white/50">
         <span>
-          <span className="mr-1 inline-block h-2 w-2 rounded-full bg-teal-400" />
+          <span className="me-1 inline-block h-2 w-2 rounded-full bg-teal-400" />
           {t('sala.mapa.leyVisitado', 'Visitado')}
         </span>
         <span>
-          <span className="mr-1 inline-block h-2 w-2 rounded-full bg-amber-400" />
+          <span className="me-1 inline-block h-2 w-2 rounded-full bg-amber-400" />
           {t('sala.mapa.leyPendiente', 'Por conocer')}
         </span>
       </div>
@@ -229,7 +224,7 @@ export function MapaTab({ lugares, onIrABitacora }: Props) {
             <li key={l.id}>
               <button
                 onClick={() => abrirLugar(l)}
-                className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition hover:bg-white/5 ${
+                className={`flex w-full items-center gap-2 px-3 py-2 text-start text-sm transition hover:bg-white/5 ${
                   selId === l.id ? 'bg-teal-400/10' : ''
                 }`}
               >

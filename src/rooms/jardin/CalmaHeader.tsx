@@ -38,7 +38,7 @@ export function CalmaHeader({
           <p className="text-xs text-white/45">{t(`jardin.etapa.${etapa.id}`, etapa.nombre)}</p>
         </div>
         {dias > 0 && (
-          <div className="text-right shrink-0">
+          <div className="text-end shrink-0">
             <p className="text-lg font-bold texto-vivo" style={vivo(COLOR)}>
               <Icono nombre="flor" /> {dias}
             </p>

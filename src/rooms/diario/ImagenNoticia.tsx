@@ -55,7 +55,7 @@ export function ImagenNoticia({
             type="button"
             onClick={() => setAmpliada(false)}
             aria-label={t('diario.imagen.cerrar', 'Cerrar')}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
+            className="absolute end-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
           >
             <Icono nombre="cerrar" />
           </button>

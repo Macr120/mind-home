@@ -5,6 +5,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { comprimirFoto } from '../_shared/fotos'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA, HORA_CUMPLE } from './constantes'
+import { acento } from '../_shared/acento'
 import { guardarContacto } from './crear'
 import { Campo, INPUT, Modal } from './ui'
 
@@ -165,8 +166,8 @@ export function FormContacto({
         <button
           type="submit"
           data-tut="agenda.personas.cumple"
-          className="w-full rounded-lg py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.personas }}
+          className="w-full rounded-lg py-2.5 text-sm font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.personas)}
         >
           {t('agenda.guardar', 'Guardar')}
         </button>

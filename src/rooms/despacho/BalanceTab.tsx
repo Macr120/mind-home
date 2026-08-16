@@ -16,7 +16,7 @@ import {
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { SimuladorAnual } from './SimuladorAnual'
-import { CampoDinero, ROJO, TARJETA, VERDE } from './ui'
+import { AZUL, CampoDinero, ROJO, TARJETA, VERDE } from './ui'
 import { vivo } from '../../core/ui/estilos'
 
 /** Fila de `presupuestos` que no es una categoría, sino un ajuste del balance. */
@@ -101,12 +101,12 @@ export function BalanceTab({
   return (
     <div className="space-y-5">
       <div className="grid grid-cols-3 gap-3">
-        <Tarjeta titulo={t('despacho.r.ingresos', 'Ingresos')} valor={money(ingresos)} color="#34d399" />
-        <Tarjeta titulo={t('despacho.r.gastos', 'Gastos')} valor={money(gastos)} color="#f87171" />
+        <Tarjeta titulo={t('despacho.r.ingresos', 'Ingresos')} valor={money(ingresos)} color={VERDE} />
+        <Tarjeta titulo={t('despacho.r.gastos', 'Gastos')} valor={money(gastos)} color={ROJO} />
         <Tarjeta
           titulo={t('despacho.r.balance', 'Balance')}
           valor={money(balance)}
-          color={balance >= 0 ? '#60a5fa' : '#f87171'}
+          color={balance >= 0 ? AZUL : ROJO}
         />
       </div>
 
@@ -153,7 +153,7 @@ export function BalanceTab({
               placeholder="0"
               onNumero={(v) => guardarAjuste(PRESUPUESTO_KEY, presu, v ?? 0)}
               aria-label={t('despacho.presupuesto', 'Presupuesto mensual')}
-              className="w-full rounded-lg bg-black/30 py-1 pl-7 pr-2 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+              className="w-full rounded-lg bg-black/30 py-1 ps-7 pe-2 text-end text-sm outline-none border border-white/10 focus:border-white/30"
             />
           </div>
         </div>
@@ -192,8 +192,8 @@ export function BalanceTab({
               <div className="flex items-center gap-2 text-sm">
                 <span><Icono emoji={cat.icon} /></span>
                 <span className="text-white/85">{cat.nombre}</span>
-                <span className="ml-auto text-white/55">{money2(monto)}</span>
-                <span className="w-10 text-right text-white/40 text-xs">
+                <span className="ms-auto text-white/55">{money2(monto)}</span>
+                <span className="w-10 text-end text-white/40 text-xs">
                   {Math.round((monto / gastos) * 100)}%
                 </span>
               </div>
@@ -212,26 +212,51 @@ export function BalanceTab({
         <p className="text-sm font-semibold mb-3">
           {t(`despacho.tendencia.${periodo}`, TENDENCIA_ES[periodo])}
         </p>
-        <div className="flex items-stretch justify-between gap-2 h-28">
-          {tendencia.map((punto) => {
-            const h = (Math.abs(punto.balance) / maxAbs) * 100
-            const pos = punto.balance >= 0
-            return (
-              <div key={punto.ancla} className="flex-1 flex flex-col items-center gap-1">
-                <div className="flex-1 w-full flex items-end justify-center">
-                  <div
-                    className="w-5 rounded-t"
-                    style={{
-                      height: `${Math.max(4, h)}%`,
-                      background: pos ? '#60a5fa' : '#f87171',
-                    }}
-                    title={money2(punto.balance)}
-                  />
-                </div>
-                <span className="text-[10px] text-white/40">{etiquetaCorta(punto.ancla, periodo)}</span>
-              </div>
-            )
-          })}
+        <div className="h-28 grid grid-cols-[auto_1fr] grid-rows-[1fr_auto] gap-x-2">
+          {/* Eje: el máximo arriba (a la altura del 100 % de las barras) y el cero en la base */}
+          <div className="flex flex-col justify-between pt-4 text-end text-[10px] leading-none text-white/40">
+            <span>{money(maxAbs)}</span>
+            <span>0</span>
+          </div>
+          {/* Las barras pintan |balance| desde abajo: la línea de cero ES la base */}
+          <div className="relative border-b border-white/15">
+            <div className="absolute inset-x-0 top-4 bottom-0 flex items-end justify-between gap-2">
+              {tendencia.map((punto, i) => {
+                const h = (Math.abs(punto.balance) / maxAbs) * 100
+                const pos = punto.balance >= 0
+                const ultimo = i === tendencia.length - 1
+                return (
+                  // key por posición: al cambiar de periodo la columna persiste y la altura transiciona
+                  <div key={i} className="relative flex-1 flex h-full items-end justify-center">
+                    {ultimo && (
+                      <span
+                        className="texto-vivo absolute end-0 whitespace-nowrap text-xs font-semibold transition-[bottom]"
+                        style={{ bottom: `calc(${Math.max(4, h)}% + 3px)`, ...vivo(pos ? AZUL : ROJO) }}
+                      >
+                        {money(punto.balance)}
+                      </span>
+                    )}
+                    <div
+                      className="w-5 rounded-t transition-[height]"
+                      style={{
+                        height: `${Math.max(4, h)}%`,
+                        background: pos ? AZUL : ROJO,
+                      }}
+                      title={money2(punto.balance)}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+          <div />
+          <div className="pt-1 flex justify-between gap-2">
+            {tendencia.map((punto) => (
+              <span key={punto.ancla} className="flex-1 text-center text-[10px] text-white/40">
+                {etiquetaCorta(punto.ancla, periodo)}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 

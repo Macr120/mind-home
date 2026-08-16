@@ -93,7 +93,7 @@ export function DiarioTab({
               <div className="flex items-center gap-2 px-3 py-2 bg-white/5 text-sm font-semibold">
                 <span><Icono emoji={m.icon} /></span>
                 <span>{t(`cocina.momento.${m.id}`, m.label)}</span>
-                <span className="ml-auto text-amber-400">{kcal} kcal</span>
+                <span className="ms-auto text-amber-400">{kcal} kcal</span>
               </div>
               <ul className="divide-y divide-white/5">
                 {items.map((item) => (

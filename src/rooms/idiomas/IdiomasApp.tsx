@@ -2,10 +2,9 @@ import { useState } from 'react'
 import { claveLS } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
-import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { VACIO, idiomasRepo } from '../../core/data/repository'
 import { BarraEjemplo } from '../_shared/ejemplos/BarraEjemplo'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { ejemploIdiomas } from './ejemplos'
 import { AltaIdioma, SelectorIdiomas } from './SelectorIdiomas'
@@ -19,7 +18,7 @@ import type { AnclaTema } from './arbol'
 // se repasa con ejercicios y se mira el avance.
 type Tab = 'charlas' | 'temario' | 'repaso' | 'progreso'
 
-const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+const TABS: ItemPestana<Tab>[] = [
   { id: 'charlas', icono: 'chat', labelEs: 'Charlas' },
   { id: 'temario', icono: 'idiomas', labelEs: 'Temario' },
   { id: 'repaso', icono: 'repetir', labelEs: 'Repaso' },
@@ -36,6 +35,7 @@ export function IdiomasApp() {
     return v ? Number(v) : null
   })
   const [tab, setTab] = useState<Tab>(() => tabInicial('idiomas', TABS.map((x) => x.id), 'charlas'))
+  const [plegado, setPlegado] = useState(false)
   const [charlaAbierta, setCharlaAbierta] = useState<number | 'nueva' | null>(null)
   const [borradorInicial, setBorradorInicial] = useState('')
   const [temaAncla, setTemaAncla] = useState<AnclaTema | null>(null)
@@ -59,6 +59,7 @@ export function IdiomasApp() {
   /** Abre el temario en un tema concreto (enlaces del chat). */
   const irAlTemario = (temaId: string | null) => {
     setTemaEnfocado(temaId)
+    setPlegado(false)
     setTab('temario')
   }
 
@@ -68,6 +69,7 @@ export function IdiomasApp() {
     setTemaAncla(ancla)
     if (id === 'nueva') setSesionCharla((s) => s + 1)
     setCharlaAbierta(id)
+    setPlegado(false)
     setTab('charlas')
   }
 
@@ -88,23 +90,18 @@ export function IdiomasApp() {
         <>
           <SelectorIdiomas idiomas={idiomas} activoId={perfil?.id ?? null} onElegir={elegirIdioma} />
 
-          <div className="flex gap-1.5">
-            {TABS.map((tabItem) => (
-              <button
-                key={tabItem.id}
-                data-tut={`idiomas.tab.${tabItem.id}`}
-                onClick={() => setTab(tabItem.id)}
-                className={`flex-1 rounded-xl px-1 py-2.5 text-xs font-semibold transition ${
-                  tab === tabItem.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
-                }`}
-                style={tab === tabItem.id ? { background: COLOR } : undefined}
-              >
-                <Icono nombre={tabItem.icono} /> {t(`idiomas.tab.${tabItem.id}`, tabItem.labelEs)}
-              </button>
-            ))}
-          </div>
+          <PestanasCarpeta
+            items={TABS}
+            activo={tab}
+            onCambio={setTab}
+            prefijoClave="idiomas.tab"
+            color={COLOR}
+            variante="raiz"
+            plegado={plegado}
+            onAlternarPliegue={() => setPlegado((v) => !v)}
+          />
 
-          {perfil && (
+          {!plegado && perfil && (
             <>
               {tab === 'charlas' && (
                 <CharlasTab
@@ -124,6 +121,7 @@ export function IdiomasApp() {
                   onConversar={(ancla, borrador) => abrirCharla('nueva', borrador, ancla)}
                   onPracticar={(temaId) => {
                     setTemaRepaso(temaId)
+                    setPlegado(false)
                     setTab('repaso')
                   }}
                   enfocado={temaEnfocado}

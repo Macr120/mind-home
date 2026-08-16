@@ -19,17 +19,59 @@ type Pista = (typeof PISTAS)[number]
 const NOMBRE_PISTA: PorIdioma<Record<Exclude<Pista, 'libre'>, string>> = {
   es: { bosque: 'Bosque', mar: 'Mar', lluvia: 'Lluvia', cuencos: 'Cuencos' },
   en: { bosque: 'Forest', mar: 'Sea', lluvia: 'Rain', cuencos: 'Singing bowls' },
+  pt: { bosque: 'Floresta', mar: 'Mar', lluvia: 'Chuva', cuencos: 'Tigelas tibetanas' },
+  fr: { bosque: 'Forêt', mar: 'Mer', lluvia: 'Pluie', cuencos: 'Bols chantants' },
+  de: { bosque: 'Wald', mar: 'Meer', lluvia: 'Regen', cuencos: 'Klangschalen' },
+  it: { bosque: 'Foresta', mar: 'Mare', lluvia: 'Pioggia', cuencos: 'Ciotole tibetane' },
+  ja: { bosque: '森', mar: '海', lluvia: '雨', cuencos: 'シンギングボウル' },
+  zh: { bosque: '森林', mar: '海洋', lluvia: '雨声', cuencos: '颂钵' },
+  ko: { bosque: '숲', mar: '바다', lluvia: '비', cuencos: '싱잉볼' },
+  ru: { bosque: 'Лес', mar: 'Море', lluvia: 'Дождь', cuencos: 'Поющие чаши' },
+  hi: { bosque: 'जंगल', mar: 'समुद्र', lluvia: 'बारिश', cuencos: 'सिंगिंग बाउल' },
+  tr: { bosque: 'Orman', mar: 'Deniz', lluvia: 'Yağmur', cuencos: 'Tibet çanakları' },
+  id: { bosque: 'Hutan', mar: 'Laut', lluvia: 'Hujan', cuencos: 'Mangkuk tibet' },
+  pl: { bosque: 'Las', mar: 'Morze', lluvia: 'Deszcz', cuencos: 'Misy tybetańskie' },
+  ar: { bosque: 'الغابة', mar: 'البحر', lluvia: 'المطر', cuencos: 'الأوعية الصوتية التبتية' },
+  nl: { bosque: 'Bos', mar: 'Zee', lluvia: 'Regen', cuencos: 'Klankschalen' },
 }
 
 /** El título de la sesión, con la etiqueta delante del nombre de la pista. */
 const ETIQUETA_MEDITACION: PorIdioma<{ libre: string; con: string }> = {
   es: { libre: 'Meditación libre', con: 'Meditación' },
   en: { libre: 'Free meditation', con: 'Meditation' },
+  pt: { libre: 'Meditação livre', con: 'Meditação' },
+  fr: { libre: 'Méditation libre', con: 'Méditation' },
+  de: { libre: 'Freie Meditation', con: 'Meditation' },
+  it: { libre: 'Meditazione libera', con: 'Meditazione' },
+  ja: { libre: '自由瞑想', con: '瞑想' },
+  zh: { libre: '自由冥想', con: '冥想' },
+  ko: { libre: '자유 명상', con: '명상' },
+  ru: { libre: 'Свободная медитация', con: 'Медитация' },
+  hi: { libre: 'फ़्री मेडिटेशन', con: 'मेडिटेशन' },
+  tr: { libre: 'Serbest meditasyon', con: 'Meditasyon' },
+  id: { libre: 'Meditasi bebas', con: 'Meditasi' },
+  pl: { libre: 'Medytacja swobodna', con: 'Medytacja' },
+  ar: { libre: 'تأمل حر', con: 'تأمل' },
+  nl: { libre: 'Vrije meditatie', con: 'Meditatie' },
 }
 
 const TITULO_RESPIRACION: PorIdioma<{ caja: string; '478': string }> = {
   es: { caja: 'Respiración en caja 4-4-4-4', '478': 'Respiración 4-7-8' },
   en: { caja: 'Box breathing 4-4-4-4', '478': '4-7-8 breathing' },
+  pt: { caja: 'Respiração quadrada 4-4-4-4', '478': 'Respiração 4-7-8' },
+  fr: { caja: 'Respiration carrée 4-4-4-4', '478': 'Respiration 4-7-8' },
+  de: { caja: 'Box-Atmung 4-4-4-4', '478': '4-7-8-Atmung' },
+  it: { caja: 'Respirazione quadrata 4-4-4-4', '478': 'Respirazione 4-7-8' },
+  ja: { caja: 'ボックス呼吸法 4-4-4-4', '478': '4-7-8呼吸法' },
+  zh: { caja: '箱式呼吸法 4-4-4-4', '478': '4-7-8呼吸法' },
+  ko: { caja: '박스 호흡 4-4-4-4', '478': '4-7-8 호흡법' },
+  ru: { caja: 'Квадратное дыхание 4-4-4-4', '478': 'Дыхание 4-7-8' },
+  hi: { caja: 'बॉक्स ब्रीदिंग 4-4-4-4', '478': '4-7-8 ब्रीदिंग' },
+  tr: { caja: 'Kutu nefesi 4-4-4-4', '478': '4-7-8 nefes tekniği' },
+  id: { caja: 'Pernapasan kotak 4-4-4-4', '478': 'Pernapasan 4-7-8' },
+  pl: { caja: 'Oddech pudełkowy 4-4-4-4', '478': 'Oddech 4-7-8' },
+  ar: { caja: 'تنفس الصندوق 4-4-4-4', '478': 'تنفس 4-7-8' },
+  nl: { caja: 'Vierkant ademhalen 4-4-4-4', '478': '4-7-8-ademhaling' },
 }
 
 function tituloMeditacion(idioma: Idioma, pista: Pista): string {

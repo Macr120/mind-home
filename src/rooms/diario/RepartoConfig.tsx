@@ -4,6 +4,7 @@ import { useT } from '../../core/i18n/useT'
 import { useAsistentes } from '../../core/state/asistentesStore'
 import { nombreAsistente } from '../../core/chat/mascotas'
 import { CATEGORIAS, COLOR, TIPOS_EFEMERIDE } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import {
   estadoReparto,
   getProgramaciones,
@@ -193,24 +194,21 @@ export function RepartoConfig({ onCerrar }: { onCerrar: () => void }) {
               })}
 
               <div className="flex flex-wrap items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => cambiar(p.id, { modo: 'hora' })}
-                  className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition ${
-                    p.modo === 'hora' ? 'bg-white/20' : 'bg-white/5 text-white/55 hover:bg-white/10'
-                  }`}
-                >
-                  <Icono nombre="alarma" /> {t('diario.reparto.modo.hora', 'Hora fija')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => cambiar(p.id, { modo: 'aleatoria' })}
-                  className={`rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition ${
-                    p.modo === 'aleatoria' ? 'bg-white/20' : 'bg-white/5 text-white/55 hover:bg-white/10'
-                  }`}
-                >
-                  <Icono nombre="dados" /> {t('diario.reparto.modo.aleatoria', 'Aleatoria')}
-                </button>
+                <div className="min-w-0 flex-1">
+                  <PestanasCarpeta
+                    items={[
+                      { id: 'hora', icono: 'alarma', labelEs: 'Hora fija' },
+                      { id: 'aleatoria', icono: 'dados', labelEs: 'Aleatoria' },
+                    ]}
+                    activo={p.modo === 'hora' ? 'hora' : 'aleatoria'}
+                    onCambio={(id) => cambiar(p.id, { modo: id })}
+                    prefijoClave="diario.reparto.modo"
+                    color={COLOR}
+                    variante="sub"
+                    nivel={3}
+                    flecha={false}
+                  />
+                </div>
                 {p.modo === 'hora' && (
                   <input
                     type="time"

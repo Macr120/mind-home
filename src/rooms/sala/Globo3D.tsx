@@ -220,7 +220,7 @@ export default function Globo3D({
           maxDistance={5}
         />
       </Canvas>
-      <span className="pointer-events-none absolute bottom-1.5 left-0 right-0 text-center text-[10px] text-white/40">
+      <span className="pointer-events-none absolute bottom-1.5 start-0 end-0 text-center text-[10px] text-white/40">
         {t('sala.globo.girar', 'Arrastra para girar · rueda o pellizca para acercar')}
       </span>
     </div>

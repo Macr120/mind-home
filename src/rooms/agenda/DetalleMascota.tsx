@@ -14,6 +14,7 @@ import { Archivador } from '../_shared/Archivador'
 import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { borrarCuidado, borrarMascota, completarCuidado, reactivarCuidado } from './crear'
 import { FilaMedicamento } from './FilaMedicamento'
 import { FormCuidado } from './FormCuidado'
@@ -136,8 +137,8 @@ export function DetalleMascota({
           <button
             type="button"
             onClick={() => setCreandoCuidado(true)}
-            className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-            style={{ background: COLOR_AREA.salud }}
+            className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+            style={acento(COLOR_AREA.salud)}
           >
             <Icono nombre="agregar" /> {t('agenda.mascota.nuevoCuidado', 'Nuevo cuidado')}
           </button>
@@ -165,8 +166,8 @@ export function DetalleMascota({
           <button
             type="button"
             onClick={() => setCreandoCita(true)}
-            className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-            style={{ background: COLOR_AREA.salud }}
+            className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+            style={acento(COLOR_AREA.salud)}
           >
             <Icono nombre="agregar" /> {t('agenda.salud.nuevaCita', 'Nueva cita')}
           </button>
@@ -189,8 +190,8 @@ export function DetalleMascota({
           <button
             type="button"
             onClick={() => setCreandoMedicina(true)}
-            className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-            style={{ background: COLOR_AREA.salud }}
+            className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+            style={acento(COLOR_AREA.salud)}
           >
             <Icono nombre="agregar" /> {t('agenda.salud.nuevoMedicamento', 'Nuevo medicamento')}
           </button>
@@ -281,7 +282,7 @@ function FilaCuidado({
           <button
             type="button"
             onClick={() => void completarCuidado(cuidado, mascota.nombre)}
-            className="ml-auto rounded-lg bg-white/5 px-2 py-1 text-[11px] font-semibold transition hover:bg-white/10"
+            className="ms-auto rounded-lg bg-white/5 px-2 py-1 text-[11px] font-semibold transition hover:bg-white/10"
           >
             <Icono nombre="confirmar" /> {t('agenda.cuidado.hecho', 'Ya lo hice')}
           </button>
@@ -289,7 +290,7 @@ function FilaCuidado({
           <button
             type="button"
             onClick={() => void reactivarCuidado(cuidado, mascota.nombre)}
-            className="ml-auto rounded-lg bg-white/5 px-2 py-1 text-[11px] font-semibold transition hover:bg-white/10"
+            className="ms-auto rounded-lg bg-white/5 px-2 py-1 text-[11px] font-semibold transition hover:bg-white/10"
           >
             {t('agenda.med.reanudar', 'Reanudar')}
           </button>

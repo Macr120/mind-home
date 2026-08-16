@@ -109,7 +109,7 @@ export function Calculadora({ modoInicial, formularioInicial }: { modoInicial: M
                 setEntrada(c.entrada)
                 setModo('normal')
               }}
-              className="flex w-full items-baseline gap-2 rounded-lg px-2 py-1 text-left transition hover:bg-white/5"
+              className="flex w-full items-baseline gap-2 rounded-lg px-2 py-1 text-start transition hover:bg-white/5"
             >
               <span className="min-w-0 flex-1 truncate font-mono text-xs text-white/70">{c.entrada}</span>
               <span className="shrink-0 font-mono text-xs text-white/45">= {c.salida}</span>
@@ -145,7 +145,7 @@ function Desplegable({
         data-tut={ancla}
         onClick={onAlternar}
         aria-expanded={abierto}
-        className="flex w-full items-center gap-2 px-3 py-2.5 text-left text-sm font-semibold transition hover:bg-white/5"
+        className="flex w-full items-center gap-2 px-3 py-2.5 text-start text-sm font-semibold transition hover:bg-white/5"
       >
         <Icono nombre="sigma" />
         <span className="min-w-0 flex-1">{titulo}</span>
@@ -191,7 +191,7 @@ function SelectorModo({ modo, onModo }: { modo: Modo; onModo: (m: Modo) => void 
       </button>
 
       <div
-        className={`ui-panel absolute right-0 top-full z-20 mt-1 max-h-[60vh] w-48 space-y-0.5 overflow-y-auto rounded-xl border border-white/10 p-1 shadow-xl ${
+        className={`ui-panel absolute end-0 top-full z-20 mt-1 max-h-[60vh] w-48 space-y-0.5 overflow-y-auto rounded-xl border border-white/10 p-1 shadow-xl ${
           abierto ? '' : 'hidden'
         }`}
       >
@@ -204,7 +204,7 @@ function SelectorModo({ modo, onModo }: { modo: Modo; onModo: (m: Modo) => void 
               onModo(m.id)
               setAbierto(false)
             }}
-            className={`flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-left text-xs font-semibold transition ${
+            className={`flex w-full items-center gap-2 rounded-lg px-2.5 py-2 text-start text-xs font-semibold transition ${
               modo === m.id ? 'ui-accent-bg' : 'hover:bg-white/10'
             }`}
           >

@@ -145,11 +145,11 @@ export const cuerpoMetas: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'despacho.cronograma.metas',
+      sel: 'hoy.cabecera',
       titulo: T('tut.app-despacho--metas.2.titulo', 'La meta en el tiempo'),
       texto: T(
         'tut.app-despacho--metas.2.texto',
-        'Cada meta puede bajar al calendario: le pones fechas y aparece entre tus días. Con ✨ la IA propone el plan de aportaciones.',
+        'El botón Metas del encabezado guarda estas metas sobre el eje del tiempo: le pones fechas a una y aparece entre tus días del calendario. Con ✨ la IA propone el plan de aportaciones.',
       ),
     },
     {

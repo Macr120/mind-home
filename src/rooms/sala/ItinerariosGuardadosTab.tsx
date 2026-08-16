@@ -35,9 +35,9 @@ function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
       <div className="overflow-x-auto rounded-lg border border-white/10">
         <table className="w-full min-w-[780px] border-collapse text-xs">
           <thead>
-            <tr className="divide-x divide-white/5 border-b border-white/10 bg-white/5 text-left text-[10px] uppercase tracking-wider text-white/45">
+            <tr className="divide-x divide-white/5 border-b border-white/10 bg-white/5 text-start text-[10px] uppercase tracking-wider text-white/45">
               {COLUMNAS.map((c, i) => (
-                <th key={i} className={`px-2 py-1.5 font-semibold ${i === 0 ? 'w-10 text-center' : ''} ${i === 7 ? 'text-right' : ''}`}>
+                <th key={i} className={`px-2 py-1.5 font-semibold ${i === 0 ? 'w-10 text-center' : ''} ${i === 7 ? 'text-end' : ''}`}>
                   {c}
                 </th>
               ))}
@@ -53,7 +53,7 @@ function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
                 <td className="px-2 py-1.5">{f.hospedaje ?? ''}</td>
                 <td className="px-2 py-1.5">{f.actividades ?? ''}</td>
                 <td className="px-2 py-1.5">{f.transporte ?? ''}</td>
-                <td className="px-2 py-1.5 text-right tabular-nums">
+                <td className="px-2 py-1.5 text-end tabular-nums">
                   {f.presupuesto ? `$${f.presupuesto.toLocaleString()}` : ''}
                 </td>
               </tr>
@@ -62,10 +62,10 @@ function TarjetaGuardado({ it }: { it: ItinerarioGuardado }) {
           {total > 0 && (
             <tfoot>
               <tr className="border-t border-white/10 bg-white/5 text-xs font-bold">
-                <td colSpan={7} className="px-2 py-1.5 text-right text-white/60">
+                <td colSpan={7} className="px-2 py-1.5 text-end text-white/60">
                   {t('sala.hoja.total', 'Total')}
                 </td>
-                <td className="px-2 py-1.5 text-right tabular-nums text-teal-300">${total.toLocaleString()}</td>
+                <td className="px-2 py-1.5 text-end tabular-nums text-teal-300">${total.toLocaleString()}</td>
               </tr>
             </tfoot>
           )}

@@ -173,8 +173,7 @@ export function RamificarPanel({
               type="button"
               onClick={() => void agregarSeleccionadas()}
               disabled={nSel === 0 || ocupado}
-              className="rounded-xl px-4 py-2 text-sm font-semibold text-black disabled:opacity-40"
-              style={{ background: COLOR }}
+              className="ui-accent-bg rounded-xl px-4 py-2 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
             >
               {t('biblioteca.ramas.agregar', 'Agregar seleccionadas')} {nSel > 0 && `(${nSel})`}
             </button>

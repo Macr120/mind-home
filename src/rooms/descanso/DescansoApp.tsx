@@ -591,7 +591,7 @@ export function DescansoApp() {
           </label>
           <span className="flex items-center gap-1 text-sm text-white/70">
             {t('descanso.reg.calidad', 'Calidad')}
-            <span className="ml-1 flex gap-0.5">
+            <span className="ms-1 flex gap-0.5">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button
                   key={n}
@@ -702,7 +702,7 @@ export function DescansoApp() {
                 </span>
                 <button
                   onClick={() => r.id && suenoRepo.remove(r.id)}
-                  className="ml-auto text-white/30 hover:text-white/70"
+                  className="ms-auto text-white/30 hover:text-white/70"
                 >
                   ✕
                 </button>

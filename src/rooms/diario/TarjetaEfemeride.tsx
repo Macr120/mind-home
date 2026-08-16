@@ -70,7 +70,7 @@ export function TarjetaEfemeride({ efemeride }: { efemeride: Efemeride }) {
           <h3 className="text-sm font-bold leading-snug">
             {efemeride.titulo}
             {efemeride.anio && (
-              <span className="ml-2 text-xs font-semibold text-white/40">{efemeride.anio}</span>
+              <span className="ms-2 text-xs font-semibold text-white/40">{efemeride.anio}</span>
             )}
           </h3>
         )}

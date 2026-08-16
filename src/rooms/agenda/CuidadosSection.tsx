@@ -10,6 +10,7 @@ import { cuidadosRepo } from '../../core/data/repository'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { borrarCuidadoPersona, completarCuidadoPersona, reactivarCuidadoPersona } from './crear'
 import { FormCuidadoPersona } from './FormCuidadoPersona'
 import { diasHasta, textoPeriodo } from './mascotas'
@@ -57,8 +58,8 @@ export function CuidadosSection({
           type="button"
           data-tut="agenda.salud.cuidados"
           onClick={() => setCreando(true)}
-          className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.salud }}
+          className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.salud)}
         >
           <Icono nombre="agregar" /> {t('agenda.salud.nuevoCuidado', 'Nuevo cuidado')}
         </button>
@@ -113,7 +114,7 @@ function FilaCuidado({
       <span className="shrink-0 text-lg">
         <Icono nombre={def.icono} />
       </span>
-      <button type="button" onClick={onEditar} className="min-w-0 flex-1 text-left">
+      <button type="button" onClick={onEditar} className="min-w-0 flex-1 text-start">
         <span className={`block truncate text-sm font-semibold ${cuidado.activo ? '' : 'text-white/40'}`}>
           {cuidado.titulo}
         </span>

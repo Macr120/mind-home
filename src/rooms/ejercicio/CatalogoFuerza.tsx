@@ -9,6 +9,8 @@ import { normalizarEjercicio } from './stats'
 import { RUTINAS, type RutinaPlantilla } from './rutinas'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { acento } from '../_shared/acento'
+import { C_FUERZA } from './constantes'
 
 /**
  * Pirámide de especificidad: al elegir un enfoque muestra sus ejercicios
@@ -109,11 +111,12 @@ export function CatalogoFuerza({
                 esHoja ? (
                   <div
                     key={op.id}
-                    className={`flex items-center gap-1 rounded-lg pl-2.5 pr-1 py-1 text-xs font-semibold ${
+                    className={`flex items-center gap-1 rounded-lg ps-2.5 pe-1 py-1 text-xs font-semibold ${
                       splitId === op.id
-                        ? 'bg-orange-600 texto-cta'
+                        ? 'ui-accent-bg'
                         : 'bg-white/5 border border-white/10 hover:bg-white/10'
                     }`}
+                    style={splitId === op.id ? acento(C_FUERZA) : undefined}
                   >
                     <button type="button" onClick={() => setSplitId(splitId === op.id ? null : op.id)}>
                       {etiqueta(op)}
@@ -137,9 +140,10 @@ export function CatalogoFuerza({
                     onClick={() => setSplitId(splitId === op.id ? null : op.id)}
                     className={`rounded-lg px-2.5 py-1.5 text-xs font-semibold ${
                       splitId === op.id
-                        ? 'bg-orange-600 texto-cta'
+                        ? 'ui-accent-bg'
                         : 'bg-white/5 border border-white/10 hover:bg-white/10'
                     }`}
+                    style={splitId === op.id ? acento(C_FUERZA) : undefined}
                   >
                     {etiqueta(op)}
                   </button>
@@ -162,7 +166,8 @@ export function CatalogoFuerza({
                     <button
                       type="button"
                       onClick={crearGrupo}
-                      className="rounded-lg bg-orange-600 px-2 py-1 text-xs font-bold texto-cta"
+                      className="ui-accent-bg rounded-lg px-2 py-1 text-xs font-bold"
+                      style={acento(C_FUERZA)}
                     >
                       <Icono nombre="confirmar" />
                     </button>
@@ -215,7 +220,7 @@ export function CatalogoFuerza({
                         <button
                           type="button"
                           onClick={() => onAgregar(ej.nombre)}
-                          className="min-w-0 flex-1 text-left"
+                          className="min-w-0 flex-1 text-start"
                         >
                           <div className="flex items-center gap-2">
                             <span className="flex-1 text-sm font-semibold text-white/90">{ej.nombre}</span>
@@ -267,7 +272,8 @@ export function CatalogoFuerza({
                     <button
                       type="button"
                       onClick={agregarEjercicioCatalogo}
-                      className="flex-1 rounded-lg bg-orange-600 py-1.5 text-xs font-bold texto-cta"
+                      className="ui-accent-bg flex-1 rounded-lg py-1.5 text-xs font-bold"
+                      style={acento(C_FUERZA)}
                     >
                       {t('ejercicio.catalogo.guardar', 'Guardar')}
                     </button>
@@ -295,7 +301,7 @@ export function CatalogoFuerza({
                     key={r.nombre}
                     type="button"
                     onClick={() => onUsarRutina(r)}
-                    className="block w-full rounded-lg bg-white/5 hover:bg-orange-500/15 border border-white/10 px-3 py-2 text-left transition"
+                    className="block w-full rounded-lg bg-white/5 hover:bg-orange-500/15 border border-white/10 px-3 py-2 text-start transition"
                   >
                     <div className="flex items-center gap-2">
                       <span className="flex-1 text-sm font-semibold text-white/90">{r.nombre}</span>

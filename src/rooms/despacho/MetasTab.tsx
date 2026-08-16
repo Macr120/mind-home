@@ -5,7 +5,8 @@ import { CATEGORIA_ABONO } from './categorias'
 import { hoyISO, money2 } from './mes'
 import { saldoVivo, valorMeta } from './patrimonio'
 import { useFoco, type FocoFinanzas } from './foco'
-import { BotonPrimario, CampoDinero, INPUT, Plegable, TARJETA, VERDE } from './ui'
+import { AZUL, BotonPrimario, CampoDinero, INPUT, Plegable, TARJETA, VERDE } from './ui'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { useT } from '../../core/i18n/useT'
 import { confirmar } from '../../core/state/confirmarStore'
 import { Icono } from '../../core/ui/iconos/Icono'
@@ -13,7 +14,6 @@ import { SimCompuesto, SimSimple, SimCredito } from './SimuladoresTab'
 import { CalculadorasFinancieras } from './CalculadorasFinancieras'
 import { BarraEjemplo } from './BarraEjemplo'
 import { borrarEjemploMeta, cargarEjemploMeta, hayEjemploMeta } from './ejemplos'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { useResumenReal } from './useResumen'
 import { vivo } from '../../core/ui/estilos'
 
@@ -121,20 +121,19 @@ function VistaAhorroInversion({ foco, onFocoUsado, onIrAFila }: PropsFocoMetas) 
       <Disponible />
 
       <form onSubmit={crear} className={`${TARJETA} space-y-3`}>
-        <div className="flex gap-2">
-          {(['ahorro', 'inversion'] as const).map((tt) => (
-            <button
-              key={tt}
-              type="button"
-              onClick={() => setNuevoTipo(tt)}
-              className={`flex-1 rounded-lg py-1.5 text-xs font-semibold transition ${
-                nuevoTipo === tt ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-              }`}
-            >
-              {tt === 'ahorro' ? t('despacho.tab.ahorro', 'Ahorro') : t('despacho.tab.inversion', 'Inversión')}
-            </button>
-          ))}
-        </div>
+        <PestanasCarpeta
+          items={[
+            { id: 'ahorro', labelEs: 'Ahorro' },
+            { id: 'inversion', labelEs: 'Inversión' },
+          ]}
+          activo={nuevoTipo}
+          onCambio={setNuevoTipo}
+          prefijoClave="despacho.tab"
+          color={AZUL}
+          variante="sub"
+          nivel={3}
+          flecha={false}
+        />
         <p className="text-sm font-semibold">{t(...copy.nueva)}</p>
         <div className="grid grid-cols-3 gap-2">
           <input
@@ -182,22 +181,6 @@ function VistaAhorroInversion({ foco, onFocoUsado, onIrAFila }: PropsFocoMetas) 
           <Icono nombre="calculadora" /> {t('despacho.s.simulador', 'Simulador')}
         </p>
         <SimInversion />
-      </div>
-
-      {/* Alto fijo: `CronogramaApp` es `flex-1 min-h-0` y sin contenedor con
-          altura se colapsaría a cero (mismo truco que ejercicio/MetasTab). */}
-      <div data-tut="despacho.cronograma.metas" className="space-y-2">
-        <p className="text-sm font-semibold">
-          <Icono nombre="objetivo" /> {t('despacho.plan.titulo', 'Metas')}
-        </p>
-        <p className="text-xs text-white/40">
-          {t('despacho.plan.desc', 'Tu meta grande sobre el eje del tiempo. Con ✨ la IA te arma un plan de aportaciones.')}
-        </p>
-        <div className="rounded-xl border border-white/10 bg-white/5">
-          <div className="flex h-96 flex-col">
-            <CronogramaApp plantillaId="despacho" ambitoId="ahorroInversion" />
-          </div>
-        </div>
       </div>
     </div>
   )
@@ -274,19 +257,6 @@ function VistaDeuda({ foco, onFocoUsado, onIrAFila }: PropsFocoMetas) {
         <SimCredito />
       </div>
 
-      <div data-tut="despacho.cronograma.deuda" className="space-y-2">
-        <p className="text-sm font-semibold">
-          <Icono nombre="objetivo" /> {t('despacho.plan.titulo', 'Metas')}
-        </p>
-        <p className="text-xs text-white/40">
-          {t('despacho.plan.desc', 'Tu meta grande sobre el eje del tiempo. Con ✨ la IA te arma un plan de aportaciones.')}
-        </p>
-        <div className="rounded-xl border border-white/10 bg-white/5">
-          <div className="flex h-96 flex-col">
-            <CronogramaApp plantillaId="despacho" ambitoId="deuda" />
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
@@ -312,7 +282,7 @@ function Disponible() {
         </p>
       </div>
       <p
-        className="texto-vivo ml-auto text-lg font-bold"
+        className="texto-vivo ms-auto text-lg font-bold"
         style={vivo(disponible >= 0 ? '#34d399' : '#f87171')}
       >
         {money2(disponible)}
@@ -323,23 +293,21 @@ function Disponible() {
 
 /** Inversión trae dos simuladores: interés compuesto y simple. */
 function SimInversion() {
-  const t = useT()
   const [sim, setSim] = useState<'compuesto' | 'simple'>('compuesto')
   return (
     <div className="space-y-4">
-      <div className="flex gap-2">
-        {(['compuesto', 'simple'] as const).map((s) => (
-          <button
-            key={s}
-            onClick={() => setSim(s)}
-            className={`flex-1 rounded-lg py-2 text-sm font-semibold transition ${
-              sim === s ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            {t(`despacho.s.${s}`, s === 'compuesto' ? 'Compuesto' : 'Simple')}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={[
+          { id: 'compuesto', labelEs: 'Compuesto' },
+          { id: 'simple', labelEs: 'Simple' },
+        ]}
+        activo={sim}
+        onCambio={setSim}
+        prefijoClave="despacho.s"
+        color={AZUL}
+        variante="sub"
+        nivel={3}
+      />
       {sim === 'compuesto' ? <SimCompuesto /> : <SimSimple />}
     </div>
   )
@@ -459,7 +427,7 @@ function TasaMeta({
                 const v = parseFloat(e.target.value)
                 guardar({ tasaAnual: Number.isFinite(v) && v !== 0 ? v : undefined })
               }}
-              className="w-full rounded-lg bg-black/30 px-2 py-1 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+              className="w-full rounded-lg bg-black/30 px-2 py-1 text-end text-sm outline-none border border-white/10 focus:border-white/30"
             />
           </label>
           <label className="block">
@@ -637,7 +605,7 @@ function MetaCard({ meta, tipo, foco, onFocoUsado, onIrAFila }: { meta: Meta; ti
         <button
           onClick={borrar}
           aria-label={t('despacho.meta.borrarTitulo', '¿Borrar esta meta?')}
-          className="ml-auto text-white/30 hover:text-red-400"
+          className="ms-auto text-white/30 hover:text-red-400"
         >
           <Icono nombre="cerrar" />
         </button>
@@ -668,7 +636,7 @@ function MetaCard({ meta, tipo, foco, onFocoUsado, onIrAFila }: { meta: Meta; ti
             onValor={setAbono}
             placeholder={t(...copy.phAbono)}
             aria-label={t(...copy.phAbono)}
-            className="w-full rounded-lg bg-black/30 py-1.5 pl-7 pr-3 text-sm outline-none border border-white/10 focus:border-white/30"
+            className="w-full rounded-lg bg-black/30 py-1.5 ps-7 pe-3 text-sm outline-none border border-white/10 focus:border-white/30"
           />
         </div>
         {/* Verde de dinero que se mueve, como el alta de ingresos: abonar
@@ -692,7 +660,7 @@ function MetaCard({ meta, tipo, foco, onFocoUsado, onIrAFila }: { meta: Meta; ti
               {movimientos.map((m) => (
                 <li key={m.id} className="flex items-center gap-2 rounded-lg bg-black/20 px-2 py-1 text-xs">
                   <span className="text-white/40">{m.fecha}</span>
-                  <span className="ml-auto text-white/70">{money2(m.monto)}</span>
+                  <span className="ms-auto text-white/70">{money2(m.monto)}</span>
                   <button
                     onClick={() => m.id && deshacer(m.id, m.monto)}
                     aria-label={t('despacho.meta.deshacer', 'Deshacer este abono')}

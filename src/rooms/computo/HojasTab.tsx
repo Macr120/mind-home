@@ -261,7 +261,7 @@ export function HojasTab() {
             <button
               type="button"
               onClick={() => setAbiertaId(h.id ?? null)}
-              className="flex min-w-0 flex-1 items-center gap-2 py-1 text-left"
+              className="flex min-w-0 flex-1 items-center gap-2 py-1 text-start"
             >
               <Icono nombre="hoja" />
               <span className="min-w-0 flex-1 truncate text-sm">{h.nombre}</span>

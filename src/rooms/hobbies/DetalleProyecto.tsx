@@ -2,7 +2,6 @@ import { useRef, useState } from 'react'
 import type { Hobby, ProyectoHobby, SesionHobby } from '../../core/data/db'
 import { proyectosHobbyRepo } from '../../core/data/repository'
 import { useT } from '../../core/i18n/useT'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { comprimirFoto, Foto } from '../_shared/fotos'
 import { fmtMin, hoyISO, rgba } from './stats'
@@ -95,7 +94,7 @@ export function DetalleProyecto({
               setRenombrando(true)
             }}
             title={t('hobbies.proy.renombrar', 'Renombrar el proyecto')}
-            className="min-w-0 flex-1 truncate text-left text-lg font-bold hover:opacity-80"
+            className="min-w-0 flex-1 truncate text-start text-lg font-bold hover:opacity-80"
           >
             {proyecto.nombre}
           </button>
@@ -173,7 +172,7 @@ export function DetalleProyecto({
                   type="button"
                   onClick={() => void quitarFoto(i)}
                   title={t('hobbies.proy.borrarFoto', 'Borrar imagen')}
-                  className="ui-noche absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/80 text-[10px] text-white/80 hover:text-white"
+                  className="ui-noche absolute -end-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/80 text-[10px] text-white/80 hover:text-white"
                 >
                   ✕
                 </button>
@@ -181,14 +180,6 @@ export function DetalleProyecto({
             ))}
           </div>
         )}
-      </div>
-
-      {/* Las metas del proyecto: mismas funciones que el cronograma del calendario
-          (sub-metas, fechas, pasos, plan con IA), acotadas a este proyecto. */}
-      <div className="rounded-xl border border-white/10 bg-white/5" data-tut="hobbies.cronograma.proyecto">
-        <div className="flex h-96 flex-col">
-          <CronogramaApp plantillaId="hobbies" ambitoId={`proyecto:${proyecto.id}`} />
-        </div>
       </div>
 
       {visor != null && imagenes[visor] && (
@@ -200,7 +191,7 @@ export function DetalleProyecto({
           <button
             type="button"
             onClick={() => setVisor(null)}
-            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
+            className="absolute end-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
           >
             ✕
           </button>
@@ -212,7 +203,7 @@ export function DetalleProyecto({
                   e.stopPropagation()
                   setVisor((v) => ((v ?? 0) - 1 + imagenes.length) % imagenes.length)
                 }}
-                className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
+                className="absolute start-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
               >
                 ‹
               </button>
@@ -222,7 +213,7 @@ export function DetalleProyecto({
                   e.stopPropagation()
                   setVisor((v) => ((v ?? 0) + 1) % imagenes.length)
                 }}
-                className="absolute right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
+                className="absolute end-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
               >
                 ›
               </button>

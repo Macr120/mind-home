@@ -7,6 +7,8 @@ import { hoyISO } from './fecha'
 import { distanciaDesdeKm, fmtDistancia, fmtRitmo, unidadDistancia } from './unidades'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { acento } from '../_shared/acento'
+import { C_CARDIO } from './constantes'
 
 // Web Bluetooth no está en lib.dom: tipos mínimos para el servicio heart_rate.
 interface CaracteristicaBT {
@@ -237,7 +239,8 @@ export function CardioEnVivo({
             setResumen(null)
             setAbierto(false)
           }}
-          className="w-full rounded-xl bg-sky-600 py-2.5 font-bold texto-cta"
+          className="ui-accent-bg w-full rounded-xl py-2.5 font-bold"
+          style={acento(C_CARDIO)}
         >
           {t('ejercicio.vivo.listo', 'Listo')}
         </button>
@@ -381,7 +384,8 @@ export function CardioEnVivo({
           <button
             type="button"
             onClick={iniciar}
-            className="flex-1 rounded-xl bg-sky-600 py-2.5 font-bold texto-cta"
+            className="ui-accent-bg flex-1 rounded-xl py-2.5 font-bold"
+            style={acento(C_CARDIO)}
           >
             <><Icono nombre="play" /> {t('ejercicio.vivo.iniciar', 'Iniciar')}</>
           </button>
@@ -399,7 +403,8 @@ export function CardioEnVivo({
           <button
             type="button"
             onClick={reanudar}
-            className="flex-1 rounded-xl bg-sky-600 py-2.5 font-bold texto-cta"
+            className="ui-accent-bg flex-1 rounded-xl py-2.5 font-bold"
+            style={acento(C_CARDIO)}
           >
             <><Icono nombre="play" /> {t('ejercicio.vivo.reanudar', 'Reanudar')}</>
           </button>

@@ -4,7 +4,7 @@ import { fechaLocalISO } from '../../core/fechaLocal'
 import { localeActual, useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
 import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { COLOR } from './constantes'
 import { marcarVisto, obtenerEdicion } from './edicion'
 import { TitularesTab } from './TitularesTab'
@@ -13,7 +13,7 @@ import { RepartoConfig } from './RepartoConfig'
 
 type Tab = 'titulares' | 'efemerides'
 
-const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+const TABS: ItemPestana<Tab>[] = [
   { id: 'titulares', icono: 'cuarto-diario', labelEs: 'Titulares del día' },
   { id: 'efemerides', icono: 'calendario', labelEs: 'Efemérides' },
 ]
@@ -30,6 +30,7 @@ function fechaLegible(): string {
 export function DiarioApp() {
   const t = useT()
   const [tab, setTab] = useState<Tab>(() => tabInicial('diario', TABS.map((x) => x.id), 'titulares'))
+  const [plegado, setPlegado] = useState(false)
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [configAbierta, setConfigAbierta] = useState(false)
@@ -89,56 +90,56 @@ export function DiarioApp() {
         </button>
       </div>
 
-      <div className="flex gap-2">
-        {TABS.map((tabItem) => (
-          <button
-            key={tabItem.id}
-            data-tut={`diario.tab.${tabItem.id}`}
-            onClick={() => setTab(tabItem.id)}
-            className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
-              tab === tabItem.id ? 'text-black' : 'bg-white/5 hover:bg-white/10'
-            }`}
-            style={tab === tabItem.id ? { background: COLOR } : undefined}
-          >
-            <Icono nombre={tabItem.icono} /> {t(`diario.tab.${tabItem.id}`, tabItem.labelEs)}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={TABS}
+        activo={tab}
+        onCambio={setTab}
+        prefijoClave="diario.tab"
+        color={COLOR}
+        variante="raiz"
+        plegado={plegado}
+        onAlternarPliegue={() => setPlegado((v) => !v)}
+      />
 
-      {error && (
-        <div className="flex flex-wrap items-center gap-2 rounded-xl border border-red-400/30 bg-red-500/10 px-3 py-2.5">
-          <p className="min-w-0 flex-1 text-xs text-white/70">{error}</p>
-          <button
-            type="button"
-            onClick={() => void cargar(true)}
-            className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-semibold hover:bg-white/15"
-          >
-            {t('diario.reintentar', 'Reintentar')}
-          </button>
-        </div>
-      )}
-
-      {!edicion && cargando && (
-        <div className="space-y-4">
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="animate-pulse overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-            >
-              <div className="aspect-video bg-white/10" />
-              <div className="space-y-2 p-3.5">
-                <div className="h-3 w-1/4 rounded bg-white/10" />
-                <div className="h-4 w-3/4 rounded bg-white/10" />
-                <div className="h-3 w-full rounded bg-white/10" />
-              </div>
+      {!plegado && (
+        <>
+          {error && (
+            <div className="flex flex-wrap items-center gap-2 rounded-xl border border-red-400/30 bg-red-500/10 px-3 py-2.5">
+              <p className="min-w-0 flex-1 text-xs text-white/70">{error}</p>
+              <button
+                type="button"
+                onClick={() => void cargar(true)}
+                className="shrink-0 rounded-lg bg-white/10 px-3 py-1.5 text-xs font-semibold hover:bg-white/15"
+              >
+                {t('diario.reintentar', 'Reintentar')}
+              </button>
             </div>
-          ))}
-        </div>
+          )}
+
+          {!edicion && cargando && (
+            <div className="space-y-4">
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="animate-pulse overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+                >
+                  <div className="aspect-video bg-white/10" />
+                  <div className="space-y-2 p-3.5">
+                    <div className="h-3 w-1/4 rounded bg-white/10" />
+                    <div className="h-4 w-3/4 rounded bg-white/10" />
+                    <div className="h-3 w-full rounded bg-white/10" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {edicion && tab === 'titulares' && <TitularesTab titulares={edicion.titulares} />}
+          {edicion && tab === 'efemerides' && <EfemeridesTab efemerides={edicion.efemerides} />}
+        </>
       )}
 
-      {edicion && tab === 'titulares' && <TitularesTab titulares={edicion.titulares} />}
-      {edicion && tab === 'efemerides' && <EfemeridesTab efemerides={edicion.efemerides} />}
-
+      {/* El reparto se abre desde el engrane de la cabecera (visible aun plegado): vive fuera del pliegue. */}
       {configAbierta && <RepartoConfig onCerrar={() => setConfigAbierta(false)} />}
     </div>
   )

@@ -8,7 +8,8 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { Archivador } from '../_shared/Archivador'
 import { BarraEjemplo } from './BarraEjemplo'
 import { borrarEjemplo, cargarEjemplo, hayEjemplo } from './ejemplos'
-import { BotonPrimario, CampoDinero, INPUT, ROJO, TARJETA, VERDE } from './ui'
+import { AZUL, BotonPrimario, CampoDinero, INPUT, ROJO, TARJETA, VERDE } from './ui'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { vivo } from '../../core/ui/estilos'
 
 /** Cada cuánto se repite un fijo (un variable siempre es 'unico'). */
@@ -98,25 +99,20 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
         </Paso>
 
         <Paso n={2} titulo={t('despacho.m.tipoMov', '¿Variable o fijo?')}>
-          <div data-tut="despacho.mov.fijo" className="grid grid-cols-2 gap-1.5">
-            <button
-              type="button"
-              onClick={() => setFijo(false)}
-              className={`rounded-lg py-1.5 text-xs font-semibold transition ${
-                !fijo ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-              }`}
-            >
-              {t('despacho.m.variable', 'Variable')}
-            </button>
-            <button
-              type="button"
-              onClick={() => setFijo(true)}
-              className={`rounded-lg py-1.5 text-xs font-semibold transition ${
-                fijo ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-              }`}
-            >
-              <Icono nombre="repetir" /> {t('despacho.m.fijo', 'Fijo')}
-            </button>
+          <div data-tut="despacho.mov.fijo">
+            <PestanasCarpeta
+              items={[
+                { id: 'variable', labelEs: 'Variable' },
+                { id: 'fijo', icono: 'repetir', labelEs: 'Fijo' },
+              ]}
+              activo={fijo ? 'fijo' : 'variable'}
+              onCambio={(id) => setFijo(id === 'fijo')}
+              prefijoClave="despacho.m"
+              color={AZUL}
+              variante="sub"
+              nivel={3}
+              flecha={false}
+            />
           </div>
         </Paso>
 
@@ -137,19 +133,17 @@ export function MovimientosTab({ tipo, movimientos }: { tipo: 'gasto' | 'ingreso
 
         {fijo && (
           <Paso n={4} titulo={t('despacho.m.plazo', '¿Cada cuánto?')}>
-            <div data-tut="despacho.mov.plazo" className="grid grid-cols-4 gap-1.5">
-              {PLAZOS.map((p) => (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => setPlazo(p.id)}
-                  className={`rounded-lg py-1.5 text-[11px] font-semibold transition ${
-                    plazo === p.id ? 'bg-white/20' : 'bg-white/5 hover:bg-white/10'
-                  }`}
-                >
-                  {t(`despacho.plazo.${p.id}`, p.es)}
-                </button>
-              ))}
+            <div data-tut="despacho.mov.plazo">
+              <PestanasCarpeta
+                items={PLAZOS.map((p) => ({ id: p.id, labelEs: p.es }))}
+                activo={plazo}
+                onCambio={setPlazo}
+                prefijoClave="despacho.plazo"
+                color={AZUL}
+                variante="sub"
+                nivel={3}
+                flecha={false}
+              />
             </div>
             <p className="mt-1.5 text-[11px] text-white/40">
               {t('despacho.m.plazoAyuda', 'Se repite solo desde la fecha que pusiste, sin volver a capturarlo.')}
@@ -285,18 +279,18 @@ function Fila({
         </p>
       </div>
       {editable ? (
-        <div className="ml-auto w-28 shrink-0" style={vivo(color)}>
+        <div className="ms-auto w-28 shrink-0" style={vivo(color)}>
           <CampoDinero
             defaultValue={mov.monto}
             onNumero={(v) => {
               if (mov.id && v != null && v > 0 && v !== mov.monto) void finanzasRepo.update(mov.id, { monto: v })
             }}
             aria-label={t('despacho.m.monto', 'Monto')}
-            className="texto-vivo w-full rounded-lg bg-black/30 py-1 pl-7 pr-2 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+            className="texto-vivo w-full rounded-lg bg-black/30 py-1 ps-7 pe-2 text-end text-sm outline-none border border-white/10 focus:border-white/30"
           />
         </div>
       ) : (
-        <span className="texto-vivo ml-auto font-semibold text-sm" style={vivo(color)}>
+        <span className="texto-vivo ms-auto font-semibold text-sm" style={vivo(color)}>
           {signo}
           {money2(mov.monto)}
         </span>

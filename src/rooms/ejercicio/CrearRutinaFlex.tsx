@@ -6,6 +6,8 @@ import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { acento } from '../_shared/acento'
+import { C_FLEX } from './constantes'
 
 // Tiempo por defecto de cada postura al crear una rutina (segundos).
 const SEG_POR_POSTURA = 30
@@ -107,7 +109,8 @@ export function CrearRutinaFlex() {
           type="button"
           onClick={guardar}
           disabled={ejercicios.length === 0}
-          className="w-full rounded-xl py-2.5 font-bold bg-violet-600 texto-cta disabled:opacity-40"
+          className="ui-accent-bg w-full rounded-xl py-2.5 font-bold disabled:opacity-40"
+          style={acento(C_FLEX)}
         >
           {t('ejercicio.crearRutina.guardar', 'Guardar rutina')}
         </button>

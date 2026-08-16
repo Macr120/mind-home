@@ -204,7 +204,7 @@ export function MaterialEntrada({
                   type="button"
                   onClick={() => abrir(e)}
                   disabled={roto}
-                  className="flex min-w-0 flex-1 items-center gap-1.5 text-left text-xs transition disabled:cursor-not-allowed"
+                  className="flex min-w-0 flex-1 items-center gap-1.5 text-start text-xs transition disabled:cursor-not-allowed"
                   title={t('biblioteca.mat.abrirEn', 'Abrir en su cuarto para editarlo')}
                 >
                   <span className={roto ? 'text-white/25' : 'text-white/60'}>
@@ -250,7 +250,7 @@ export function MaterialEntrada({
                 <button
                   type="button"
                   onClick={() => void crear(tipo)}
-                  className="flex-1 rounded-lg bg-white/5 px-2 py-1.5 text-left text-xs text-white/75 transition hover:bg-white/10"
+                  className="flex-1 rounded-lg bg-white/5 px-2 py-1.5 text-start text-xs text-white/75 transition hover:bg-white/10"
                 >
                   <Icono nombre={ICONO[tipo]} /> {etiquetaNueva[tipo]}
                 </button>

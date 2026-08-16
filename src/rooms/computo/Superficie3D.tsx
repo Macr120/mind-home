@@ -189,17 +189,17 @@ export default function Superficie3D({
           onClick={preferido.ciclar}
           title={t('computo.graf.alto', 'Alto de la gráfica: {nivel}', { nivel: nombreAlto })}
           aria-label={t('computo.graf.alto', 'Alto de la gráfica: {nivel}', { nivel: nombreAlto })}
-          className="absolute right-1.5 top-1.5 rounded-lg bg-black/50 px-1.5 py-1 text-xs text-white/60 transition hover:text-white"
+          className="absolute end-1.5 top-1.5 rounded-lg bg-black/50 px-1.5 py-1 text-xs text-white/60 transition hover:text-white"
         >
           <Icono nombre="medida" />
         </button>
       )}
 
-      <div className="pointer-events-none absolute bottom-1.5 left-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
+      <div className="pointer-events-none absolute bottom-1.5 start-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
         {resultado} ({ejeX}, {ejeY}) · {numero(malla.min)} … {numero(malla.max)}
       </div>
       {malla.huecos > 0 && (
-        <div className="pointer-events-none absolute bottom-1.5 right-1.5 rounded-lg bg-black/60 px-2 py-0.5 text-[10px] text-amber-200/80">
+        <div className="pointer-events-none absolute bottom-1.5 end-1.5 rounded-lg bg-black/60 px-2 py-0.5 text-[10px] text-amber-200/80">
           {t('computo.sup.huecos', 'hay zonas sin definir')}
         </div>
       )}

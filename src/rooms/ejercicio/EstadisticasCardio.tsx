@@ -299,15 +299,15 @@ function TablaParciales({
                     background: esMejor ? '#4ade80' : esPeor ? '#f8717155' : `${ACENTO}55`,
                   }}
                 />
-                <span className="absolute inset-y-0 left-2 flex items-center font-semibold tabular-nums text-white/90">
+                <span className="absolute inset-y-0 start-2 flex items-center font-semibold tabular-nums text-white/90">
                   {fmtRitmoMin(p.ritmo)}
                 </span>
               </div>
-              <span className="w-12 shrink-0 text-right tabular-nums text-white/45">
+              <span className="w-12 shrink-0 text-end tabular-nums text-white/45">
                 {fmtTiempo(p.segundos)}
               </span>
               {conDesnivel && (
-                <span className="w-14 shrink-0 text-right tabular-nums text-white/35">
+                <span className="w-14 shrink-0 text-end tabular-nums text-white/35">
                   +{p.subidaM} −{p.bajadaM}
                 </span>
               )}

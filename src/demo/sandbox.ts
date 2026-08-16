@@ -94,8 +94,14 @@ export async function fotografiarTablasDemo(nombres: string[]): Promise<void> {
  */
 export async function restaurarBaseDemo(vip: Dexie): Promise<void> {
   if (!esDemo() || esDemoAutor() || !haySandboxDemoSucio()) return
+  // Cronómetro en DEV: esta reposición corre ANTES de que ningún store lea, así
+  // que es latencia de arranque directa — si crece, tiene que verse.
+  const t0 = performance.now()
   const trabajo = () => reponer(vip)
   await (navigator.locks ? navigator.locks.request('mh-demo-sandbox', trabajo) : trabajo())
+  if (import.meta.env.DEV) {
+    console.info(`[MPH] restaurarBaseDemo: ${Math.round(performance.now() - t0)} ms`)
+  }
 }
 
 async function reponer(vip: Dexie): Promise<void> {

@@ -97,7 +97,7 @@ export function ImagenCocina({
           type="button"
           onClick={generar}
           disabled={!puedeGenerar || generando}
-          className="flex items-center gap-1.5 rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110 disabled:opacity-40"
+          className="ui-accent-bg flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition hover:brightness-110 disabled:opacity-40"
         >
           <Icono nombre="brillo" />
           {foto ? t('cocina.img.regenerar', 'Generar otra') : t('cocina.img.generar', 'Generar con IA')}

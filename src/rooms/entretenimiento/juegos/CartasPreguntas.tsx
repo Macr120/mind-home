@@ -66,7 +66,7 @@ function MazoPreguntas({
         <button
           type="button"
           onClick={rebarajar}
-          className="ml-auto rounded-full bg-white/10 px-3 py-1 text-xs font-semibold hover:bg-white/20"
+          className="ms-auto rounded-full bg-white/10 px-3 py-1 text-xs font-semibold hover:bg-white/20"
         >
           <Icono nombre="barajar" /> {t('entre.j.cartas.barajar', 'Barajar')}
         </button>
@@ -82,7 +82,7 @@ function MazoPreguntas({
         className="relative flex min-h-[280px] w-full cursor-pointer select-none flex-col overflow-hidden rounded-3xl border border-white/15 p-5 shadow-xl"
         style={{ background: gradiente }}
       >
-        <span className="pointer-events-none absolute -bottom-7 -right-3 text-[120px] leading-none opacity-15">
+        <span className="pointer-events-none absolute -bottom-7 -end-3 text-[120px] leading-none opacity-15">
           <Icono emoji={icono} />
         </span>
         {pregunta ? (

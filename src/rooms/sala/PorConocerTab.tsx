@@ -4,6 +4,8 @@ import type { LugarViaje } from '../../core/data/db'
 import { lugaresViajeRepo } from '../../core/data/repository'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { useT } from '../../core/i18n/useT'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { COLOR } from './constantes'
 import { FormularioLugar } from './FormularioLugar'
 import { HojaItinerario } from './HojaItinerario'
 import { ItinerariosGuardadosTab } from './ItinerariosGuardadosTab'
@@ -115,24 +117,17 @@ export function PorConocerTab({ lugares }: Props) {
   return (
     <div data-tut="sala.porConocer" className="space-y-3">
       {/* Itinerarios activos vs. guardados a mano */}
-      <div className="flex gap-2">
-        {(
-          [
-            { id: 'activos', label: t('sala.pc.vistaItinerarios', 'Itinerarios') },
-            { id: 'guardados', label: t('sala.pc.vistaGuardados', 'Itinerarios guardados') },
-          ] as const
-        ).map((v) => (
-          <button
-            key={v.id}
-            onClick={() => setVista(v.id)}
-            className={`flex-1 rounded-xl py-2 text-sm font-semibold transition ${
-              vista === v.id ? 'bg-teal-600 texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-          >
-            {v.label}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={[
+          { id: 'activos', labelEs: 'Itinerarios', clave: 'sala.pc.vistaItinerarios' },
+          { id: 'guardados', labelEs: 'Itinerarios guardados', clave: 'sala.pc.vistaGuardados' },
+        ]}
+        activo={vista}
+        onCambio={setVista}
+        color={COLOR}
+        variante="sub"
+        nivel={2}
+      />
 
       {vista === 'guardados' ? (
         <ItinerariosGuardadosTab />
@@ -147,7 +142,7 @@ export function PorConocerTab({ lugares }: Props) {
             />
             <button
               onClick={() => setNuevo(true)}
-              className="shrink-0 rounded-lg bg-teal-600 px-3 py-2 text-sm font-bold texto-cta transition hover:brightness-110"
+              className="ui-accent-bg shrink-0 rounded-lg px-3 py-2 text-sm font-bold transition hover:brightness-110"
             >
               <Icono nombre="agregar" /> {t('sala.pc.agregar', 'Lugar')}
             </button>
@@ -161,7 +156,7 @@ export function PorConocerTab({ lugares }: Props) {
                 {o.label}
               </button>
             ))}
-            <span className="ml-auto text-[11px] text-white/40">
+            <span className="ms-auto text-[11px] text-white/40">
               {pendientes.length === 1
                 ? t('sala.pc.countUno', '1 lugar')
                 : t('sala.pc.count', '{n} lugares').replace('{n}', String(pendientes.length))}
@@ -258,7 +253,7 @@ export function PorConocerTab({ lugares }: Props) {
               </button>
               <button
                 onClick={() => void marcarVisitado(confirmarVisita)}
-                className="flex-1 rounded-lg bg-teal-600 py-2 text-sm font-bold texto-cta transition hover:brightness-110"
+                className="ui-accent-bg flex-1 rounded-lg py-2 text-sm font-bold transition hover:brightness-110"
               >
                 {t('sala.pc.confirmarSi', 'Sí, lo visité')}
               </button>

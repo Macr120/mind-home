@@ -403,7 +403,7 @@ const cocina: Plantilla = {
     {
       seccion: 'metas',
       etiqueta: 'Metas',
-      nombres: ['metas de nutricion', 'mis macros', 'cronograma de nutricion', 'mis metas de peso'],
+      nombres: ['metas de nutricion', 'mis macros', 'mis metas de peso'],
     },
     { seccion: 'diario', etiqueta: 'Registro', nombres: ['diario de comidas', 'mis comidas', 'registrar comida'] },
     { seccion: 'progreso', etiqueta: 'Progreso', nombres: ['mi progreso', 'mi peso', 'estadisticas de nutricion'] },

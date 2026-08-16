@@ -6,6 +6,7 @@ import { Icono } from '../../core/ui/iconos/Icono'
 import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { FormMascota } from './FormMascota'
 import { diasHasta, edadMascota, getEspecie } from './mascotas'
 
@@ -44,8 +45,8 @@ export function MascotasSection({
           type="button"
           data-tut="agenda.salud.mascotas"
           onClick={() => setCreando(true)}
-          className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-          style={{ background: COLOR_AREA.salud }}
+          className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+          style={acento(COLOR_AREA.salud)}
         >
           <Icono nombre="agregar" /> {t('agenda.salud.nuevaMascota', 'Nueva mascota')}
         </button>
@@ -97,7 +98,7 @@ function FilaMascota({
     <button
       type="button"
       onClick={onAbrir}
-      className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2.5 text-left transition hover:bg-white/10"
+      className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-2.5 text-start transition hover:bg-white/10"
     >
       <AvatarContacto nombre={mascota.nombre} foto={mascota.foto} icono={especie.icono} />
       <span className="min-w-0 flex-1">

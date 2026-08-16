@@ -65,7 +65,7 @@ export function AutocompleteEjercicio({
       {abierto && secciones.length > 0 && (
         <div
           onMouseDown={(e) => e.preventDefault()}
-          className="absolute left-0 right-0 top-full z-20 mt-1 max-h-56 overflow-y-auto rounded-lg border border-white/10 ui-panel shadow-xl"
+          className="absolute start-0 end-0 top-full z-20 mt-1 max-h-56 overflow-y-auto rounded-lg border border-white/10 ui-panel shadow-xl"
         >
           {secciones.map((sec) => (
             <div key={sec.id}>
@@ -81,7 +81,7 @@ export function AutocompleteEjercicio({
                     onSelect?.(item.nombre, item.grupo)
                     setAbierto(false)
                   }}
-                  className="block w-full px-2 py-1.5 text-left text-xs text-white/85 hover:bg-white/10"
+                  className="block w-full px-2 py-1.5 text-start text-xs text-white/85 hover:bg-white/10"
                 >
                   {item.nombre}
                 </button>

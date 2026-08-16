@@ -49,7 +49,7 @@ export function MoverIdeaDialog({
     return salida
   }, [carpetas])
 
-  const fila = 'flex w-full items-center gap-1.5 rounded-lg py-1.5 pr-2 text-left text-xs transition'
+  const fila = 'flex w-full items-center gap-1.5 rounded-lg py-1.5 pe-2 text-start text-xs transition'
 
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4" onClick={onCerrar}>
@@ -76,7 +76,7 @@ export function MoverIdeaDialog({
           <button
             type="button"
             onClick={() => onElegir('')}
-            className={`${fila} pl-2 ${actual === '' ? 'text-black' : 'font-semibold text-white/85 hover:bg-white/10'}`}
+            className={`${fila} ps-2 ${actual === '' ? 'text-black' : 'font-semibold text-white/85 hover:bg-white/10'}`}
             style={actual === '' ? { background: COLOR } : undefined}
           >
             <Icono nombre="lluvia" />

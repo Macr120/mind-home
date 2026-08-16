@@ -179,7 +179,7 @@ export function Sudoku({ dificultad = 'medio' }: PropsDificultad) {
               type="button"
               onClick={() => setSel(i)}
               className={`relative aspect-square text-base font-semibold sm:text-lg ${
-                c < 8 ? (c % 3 === 2 ? 'border-r-2 border-r-white/35' : 'border-r border-r-white/10') : ''
+                c < 8 ? (c % 3 === 2 ? 'border-e-2 border-e-white/35' : 'border-e border-e-white/10') : ''
               } ${f < 8 ? (f % 3 === 2 ? 'border-b-2 border-b-white/35' : 'border-b border-b-white/10') : ''} ${
                 incorrecto ? 'text-red-400' : esInicial ? '' : 'texto-vivo'
               }`}

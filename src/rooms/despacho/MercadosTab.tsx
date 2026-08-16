@@ -102,9 +102,9 @@ function TablaMercado({
         <span className="w-4 shrink-0">#</span>
         <span className="w-20 shrink-0">{t('despacho.mk.col.activo', 'Activo')}</span>
         <span className="min-w-0 flex-1">{etiquetaGrafica ?? ''}</span>
-        <span className="w-20 shrink-0 text-right">{t('despacho.mk.col.precio', 'Precio')}</span>
-        <span className="w-14 shrink-0 text-right">{sufijoCambio ?? t('despacho.mk.col.dia', 'Día')}</span>
-        {etiquetaExtra && <span className="w-16 shrink-0 text-right">{etiquetaExtra}</span>}
+        <span className="w-20 shrink-0 text-end">{t('despacho.mk.col.precio', 'Precio')}</span>
+        <span className="w-14 shrink-0 text-end">{sufijoCambio ?? t('despacho.mk.col.dia', 'Día')}</span>
+        {etiquetaExtra && <span className="w-16 shrink-0 text-end">{etiquetaExtra}</span>}
       </div>
 
       {filas.map((f, i) => {
@@ -124,15 +124,15 @@ function TablaMercado({
                 <Sparkline valores={f.historial} color={sube ? VERDE : ROJO} />
               )}
             </span>
-            <span className="w-20 shrink-0 text-right text-xs font-semibold tabular-nums">{f.precio}</span>
+            <span className="w-20 shrink-0 text-end text-xs font-semibold tabular-nums">{f.precio}</span>
             <span
-              className="texto-vivo w-14 shrink-0 text-right text-xs font-medium tabular-nums"
+              className="texto-vivo w-14 shrink-0 text-end text-xs font-medium tabular-nums"
               style={vivo(sube ? VERDE : ROJO)}
             >
               {fmtPct(f.cambioPct)}
             </span>
             {etiquetaExtra && (
-              <span className="w-16 shrink-0 text-right text-[11px] text-white/55 tabular-nums truncate">
+              <span className="w-16 shrink-0 text-end text-[11px] text-white/55 tabular-nums truncate">
                 {f.extra ?? '—'}
               </span>
             )}
@@ -196,7 +196,7 @@ function Estado({ cargando, onReintentar }: { cargando: boolean; onReintentar: (
           <p>{t('despacho.mk.error', 'No se pudo conectar a las fuentes de mercados. Revisa tu internet.')}</p>
           <button
             onClick={onReintentar}
-            className="mt-3 rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold texto-cta hover:brightness-110 transition"
+            className="ui-accent-bg mt-3 rounded-lg px-4 py-2 text-sm font-bold hover:brightness-110 transition"
           >
             {t('despacho.mk.reintentar', 'Reintentar')}
           </button>
@@ -506,11 +506,11 @@ function MisCriptos({ tick }: { tick: number }) {
               key={r.id}
               type="button"
               onClick={() => void agregar(r.id)}
-              className="flex w-full items-center gap-2 px-3 py-2 text-left text-xs hover:bg-white/10 transition border-b border-white/5 last:border-0"
+              className="flex w-full items-center gap-2 px-3 py-2 text-start text-xs hover:bg-white/10 transition border-b border-white/5 last:border-0"
             >
               <span className="font-bold shrink-0">{r.simbolo}</span>
               <span className="text-white/55 truncate">{r.nombre}</span>
-              {r.rankCap != null && <span className="ml-auto shrink-0 text-white/30">#{r.rankCap}</span>}
+              {r.rankCap != null && <span className="ms-auto shrink-0 text-white/30">#{r.rankCap}</span>}
             </button>
           ))}
         </div>
@@ -573,7 +573,7 @@ function SeccionAcciones() {
           titulo={t('despacho.mk.acciones', 'Acciones')}
           nota={t('despacho.mk.top10capNyse', 'top 10 por capitalización · NYSE/Nasdaq')}
         />
-        <ClaveApi className="ml-auto" onGuardar={actualizar} />
+        <ClaveApi className="ms-auto" onGuardar={actualizar} />
       </div>
 
       {errorClave && (
@@ -671,7 +671,7 @@ function ClaveApi({ className, onGuardar }: { className?: string; onGuardar: () 
           />
           <button
             onClick={guardar}
-            className="shrink-0 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-bold texto-cta hover:brightness-110 transition"
+            className="ui-accent-bg shrink-0 rounded-lg px-3 py-1.5 text-xs font-bold hover:brightness-110 transition"
           >
             {t('despacho.mk.guardar', 'Guardar')}
           </button>
@@ -734,7 +734,7 @@ function Watchlist({ tick }: { tick: number }) {
               <div key={w.id} className="relative rounded-lg p-2 min-h-[4.25rem]" style={{ background: fondo }}>
                 <button
                   onClick={() => w.id && watchlistRepo.remove(w.id)}
-                  className="absolute top-0.5 right-1.5 text-white/40 hover:text-white text-xs"
+                  className="absolute top-0.5 end-1.5 text-white/40 hover:text-white text-xs"
                   title={t('chat.eliminar', 'Eliminar')}
                   aria-label={t('chat.eliminar', 'Eliminar')}
                 >

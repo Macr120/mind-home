@@ -168,7 +168,7 @@ export function ModoBases({ motor, selector }: { motor: Motor | null; selector: 
           <div className="grid grid-cols-2 gap-x-3 sm:grid-cols-3">
             {BASES.map((b) => (
               <div key={b} className="flex items-baseline gap-1.5 px-1">
-                <span className="w-6 shrink-0 text-right font-mono text-[10px] text-white/35">{b}</span>
+                <span className="w-6 shrink-0 text-end font-mono text-[10px] text-white/35">{b}</span>
                 <span
                   className={`min-w-0 flex-1 truncate font-mono ${
                     base === b ? 'texto-vivo text-base font-bold' : 'text-xs text-white/55'

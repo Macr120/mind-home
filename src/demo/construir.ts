@@ -6,7 +6,8 @@
  *   1. localStorage `demo:*` a cero (flags de una construcción anterior).
  *   2. Estructura de la casa: `public/demo/casa.json` si existe; si no, el
  *      builder programático `construirCasaPep()`.
- *   3. Seeds de catálogo (cocina/ejercicio/garage).
+ *   3. Seeds de catálogo, solo de las apps que van a construirse (el resto se
+ *      siembra junto a su año en la construcción perezosa).
  *   4. Builders del año de Pep@ — TODOS: la demo es una plantilla llena.
  *   5. Foto del original + versión (los tiempos vivos del snapshot se corren
  *      por delta al restaurarlo).
@@ -64,6 +65,17 @@ const APPS_DE_TOUR: Record<string, string[]> = {
 }
 
 /**
+ * Catálogos de fábrica por app: se siembran junto a su año (al entrar o en la
+ * construcción perezosa), así entran en la foto del original y el auto-seed del
+ * App component encuentra su bandera puesta.
+ */
+const CATALOGOS_APP: Record<string, () => Promise<() => Promise<void>>> = {
+  cocina: () => import('../rooms/cocina/seed').then((m) => m.sembrarCocina),
+  ejercicio: () => import('../rooms/ejercicio/seed').then((m) => m.sembrarEjercicio),
+  garage: () => import('../rooms/garage/seed').then((m) => m.sembrarGarage),
+}
+
+/**
  * Apps cuyo año se construye AL ENTRAR: si el visitante viene a un tutorial,
  * solo la de ese tour —las demás se construyen al abrirlas (`construirAppDemo`)
  * y así el tour empieza en segundos—; si viene a explorar, todas.
@@ -112,14 +124,10 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
     guardarSpawnDemo(x, z)
 
     empezar('demo.paso.catalogos')
-    const [cocina, ejercicio, garage] = await Promise.all([
-      import('../rooms/cocina/seed'),
-      import('../rooms/ejercicio/seed'),
-      import('../rooms/garage/seed'),
-    ])
-    await cocina.sembrarCocina()
-    await ejercicio.sembrarEjercicio()
-    await garage.sembrarGarage()
+    for (const app of conBuilder) {
+      const catalogo = await CATALOGOS_APP[app]?.()
+      if (catalogo) await catalogo()
+    }
 
     const ctx = crearCtxDemo()
     for (const app of conBuilder) {
@@ -177,6 +185,10 @@ async function construirApp(app: string): Promise<void> {
   setSinOutbox(true)
   let fallo: unknown = null
   try {
+    // El catálogo de fábrica va antes que el builder y DENTRO de la colecta: sus
+    // tablas entran en la foto parcial y el auto-seed de la app ve su bandera puesta.
+    const catalogo = await CATALOGOS_APP[app]?.()
+    if (catalogo) await catalogo()
     const builder = await BUILDERS_DEMO[app]()
     await builder(crearCtxDemo())
   } catch (e) {

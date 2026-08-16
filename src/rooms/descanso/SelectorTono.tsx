@@ -123,7 +123,7 @@ export function SelectorTono({
           style={{ accentColor: 'var(--ui-accent)' }}
           aria-label={t('descanso.tono.volumen', 'Volumen')}
         />
-        <span className="w-9 text-right text-[10px] tabular-nums text-white/40">
+        <span className="w-9 text-end text-[10px] tabular-nums text-white/40">
           {Math.round(volumen * 100)}%
         </span>
       </div>

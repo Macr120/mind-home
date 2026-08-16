@@ -54,7 +54,7 @@ export function PlanoParametrico({
       trazos={trazos}
       botones={<BotonAjustar onClick={() => plano.encuadrar(encuadrarXY(curvas, AIRE_ENCUADRE) ?? VISTA_INICIAL)} />}
     >
-      <div className="pointer-events-none absolute bottom-1.5 left-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
+      <div className="pointer-events-none absolute bottom-1.5 start-1.5 rounded-lg bg-black/60 px-2 py-0.5 font-mono text-[10px] text-white/70">
         {t('computo.graf.pistaParam', 't de {a} a {b}', {
           a: rangoT[0].toFixed(2),
           b: rangoT[1].toFixed(2),

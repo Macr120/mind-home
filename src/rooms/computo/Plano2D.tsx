@@ -136,7 +136,7 @@ export function Plano2D({ motor, lista }: { motor: Motor | null; lista: FuncionG
         }
       >
         {lectura != null && (
-          <div className="pointer-events-none absolute bottom-1.5 left-1.5 rounded-lg bg-black/70 px-2 py-1 font-mono text-[11px]">
+          <div className="pointer-events-none absolute bottom-1.5 start-1.5 rounded-lg bg-black/70 px-2 py-1 font-mono text-[11px]">
             x = {lectura.toFixed(3)}
             {valoresEnCursor.map((v, i) => (
               <span key={v.id} style={{ color: colorDe(v.id) }}>

@@ -9,17 +9,15 @@ import { DetalleVehiculo } from './DetalleVehiculo'
 import { ResumenTab } from './ResumenTab'
 import { VehiculosTab } from './VehiculosTab'
 import { reconciliarGarage } from './calendario'
-import { COLOR } from './constantes'
 import { sembrarGarage } from './seed'
-import { TINTA_CTA } from './ui'
 import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
-import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
+import { COLOR } from './constantes'
 
 type Tab = 'resumen' | 'vehiculos'
 
-const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+const TABS: ItemPestana<Tab>[] = [
   { id: 'resumen', icono: 'progreso', labelEs: 'Resumen' },
   { id: 'vehiculos', icono: 'herramienta', labelEs: 'Vehículos' },
 ]
@@ -27,6 +25,7 @@ const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
 export function GarageApp() {
   const t = useT()
   const [tab, setTab] = useState<Tab>(() => tabInicial('garage', TABS.map((x) => x.id), 'resumen'))
+  const [plegado, setPlegado] = useState(false)
   const [vehiculoId, setVehiculoId] = useState<number | null>(null)
 
   const vehiculos = vehiculosRepo.useAll() ?? VACIO
@@ -60,50 +59,42 @@ export function GarageApp() {
         {t('garage.desc', 'Tus vehículos: servicios y costos, trámites agendados en el calendario y la libreta de contactos.')}
       </p>
 
-      {/* Riel de pestañas: la píldora activa se desliza dentro de un solo carril
-          en vez de botones sueltos. Los talleres se movieron a la ficha de cada
-          vehículo, junto a sus trámites y sus documentos. */}
-      <div className="flex gap-1 rounded-2xl border border-white/10 bg-white/5 p-1">
-        {TABS.map((tabItem) => {
-          const activa = tab === tabItem.id
-          return (
-            <button
-              key={tabItem.id}
-              type="button"
-              data-tut={`garage.tab.${tabItem.id}`}
-              onClick={() => setTab(tabItem.id)}
-              className={`flex-1 rounded-xl py-2 text-sm font-semibold transition ${
-                activa ? 'shadow-sm' : 'text-white/60 hover:bg-white/8 hover:text-white/90'
-              }`}
-              style={activa ? { background: COLOR, color: TINTA_CTA } : undefined}
-            >
-              <Icono nombre={tabItem.icono} />{' '}
-              <span className="align-middle">
-                {t(`garage.tab.${tabItem.id}`, tabItem.labelEs)}
-              </span>
-            </button>
-          )
-        })}
-      </div>
+      {/* Los talleres se movieron a la ficha de cada vehículo, junto a sus
+          trámites y sus documentos. */}
+      <PestanasCarpeta
+        items={TABS}
+        activo={tab}
+        onCambio={setTab}
+        prefijoClave="garage.tab"
+        color={COLOR}
+        variante="raiz"
+        plegado={plegado}
+        onAlternarPliegue={() => setPlegado((v) => !v)}
+      />
 
-      {tab === 'resumen' && (
-        <ResumenTab
-          vehiculos={vehiculos}
-          registros={registros}
-          tramites={tramites}
-          onAbrirVehiculo={(id) => {
-            setVehiculoId(id)
-            setTab('vehiculos')
-          }}
-        />
-      )}
-      {tab === 'vehiculos' && (
-        <VehiculosTab
-          vehiculos={vehiculos}
-          registros={registros}
-          tramites={tramites}
-          onAbrir={setVehiculoId}
-        />
+      {!plegado && (
+        <>
+          {tab === 'resumen' && (
+            <ResumenTab
+              vehiculos={vehiculos}
+              registros={registros}
+              tramites={tramites}
+              onAbrirVehiculo={(id) => {
+                setPlegado(false)
+                setVehiculoId(id)
+                setTab('vehiculos')
+              }}
+            />
+          )}
+          {tab === 'vehiculos' && (
+            <VehiculosTab
+              vehiculos={vehiculos}
+              registros={registros}
+              tramites={tramites}
+              onAbrir={setVehiculoId}
+            />
+          )}
+        </>
       )}
     </div>
   )

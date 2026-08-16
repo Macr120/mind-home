@@ -36,7 +36,7 @@ export function FilaMedicamento({
         <button
           type="button"
           onClick={() => void alternarMedicamento(medicina)}
-          className="ml-auto rounded-lg bg-white/5 px-2 py-1 text-[11px] font-semibold transition hover:bg-white/10"
+          className="ms-auto rounded-lg bg-white/5 px-2 py-1 text-[11px] font-semibold transition hover:bg-white/10"
         >
           {medicina.activo ? t('agenda.med.pausar', 'Pausar') : t('agenda.med.reanudar', 'Reanudar')}
         </button>

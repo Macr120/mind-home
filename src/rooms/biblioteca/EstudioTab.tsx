@@ -4,9 +4,9 @@ import { claveLS } from '../../core/edicion'
 import { useT } from '../../core/i18n/useT'
 import { actividadId } from '../../core/rutinas'
 import { HorarioActividad } from '../../core/ui/HorarioActividad'
-import { CronogramaApp } from '../../core/ui/metas/CronogramaApp'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { CICLOS_POMODORO, COLOR, DURACIONES_ESTUDIO, PILAR_GENERAL, getPilar } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { campos, useIndice } from './semilla'
 import { useEstudio, restanteMs, type CicloPomodoro, type FasePomodoro } from './estudioStore'
 import { CAMPANA_DESCANSO, tocarCampana } from './campana'
@@ -205,10 +205,6 @@ export function EstudioTab() {
   }
 
   // ----- Configuración de una sesión nueva -----
-  const pill = (activo: boolean) =>
-    `flex-1 rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-      activo ? 'text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
-    }`
   const inputMin =
     'w-14 rounded-lg border border-white/10 bg-black/30 px-1.5 py-1 text-center text-xs outline-none focus:border-white/30'
 
@@ -238,40 +234,32 @@ export function EstudioTab() {
       <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-4" data-tut="biblioteca.estudio.timer">
         <p className="text-sm font-semibold"><Icono nombre="cronometro" /> {t('biblioteca.est.titulo', 'Sesión de estudio')}</p>
 
-        <div className="flex gap-1.5">
-          <button
-            type="button"
-            onClick={() => setModo('simple')}
-            className={pill(modo === 'simple')}
-            style={modo === 'simple' ? { background: COLOR } : undefined}
-          >
-            <Icono nombre="cronometro" /> {t('biblioteca.est.modoSimple', 'Simple')}
-          </button>
-          <button
-            type="button"
-            onClick={() => setModo('pomodoro')}
-            className={pill(modo === 'pomodoro')}
-            style={modo === 'pomodoro' ? { background: COLOR } : undefined}
-          >
-            <Icono nombre="tomate" /> {t('biblioteca.est.modoPomodoro', 'Pomodoro')}
-          </button>
-        </div>
+        <PestanasCarpeta
+          items={[
+            { id: 'simple', icono: 'cronometro', labelEs: 'Simple', clave: 'biblioteca.est.modoSimple' },
+            { id: 'pomodoro', icono: 'tomate', labelEs: 'Pomodoro', clave: 'biblioteca.est.modoPomodoro' },
+          ]}
+          activo={modo}
+          onCambio={setModo}
+          color={COLOR}
+          variante="sub"
+          nivel={3}
+          flecha={false}
+        />
 
         {modo === 'simple' ? (
           <div className="flex flex-wrap items-center gap-1.5">
-            {DURACIONES_ESTUDIO.map((min) => (
-              <button
-                key={min}
-                type="button"
-                onClick={() => setDuracion(min)}
-                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                  duracion === min ? 'text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
-                }`}
-                style={duracion === min ? { background: COLOR } : undefined}
-              >
-                {min} min
-              </button>
-            ))}
+            <div className="min-w-0 flex-1">
+              <PestanasCarpeta
+                items={DURACIONES_ESTUDIO.map((min) => ({ id: String(min), label: `${min} min` }))}
+                activo={String(duracion)}
+                onCambio={(id) => setDuracion(Number(id))}
+                color={COLOR}
+                variante="sub"
+                nivel={3}
+                flecha={false}
+              />
+            </div>
             <input
               type="number"
               min={1}
@@ -296,9 +284,8 @@ export function EstudioTab() {
                     type="button"
                     onClick={() => guardarCiclo(c.ciclo)}
                     className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                      elegido ? 'text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
+                      elegido ? 'ui-accent-bg' : 'bg-white/5 text-white/70 hover:bg-white/10'
                     }`}
-                    style={elegido ? { background: COLOR } : undefined}
                   >
                     {t(`biblioteca.est.ciclo.${c.id}`, c.labelEs)} {c.ciclo.trabajoMin}/{c.ciclo.cortoMin}
                   </button>
@@ -420,8 +407,7 @@ export function EstudioTab() {
               ...(modo === 'pomodoro' ? { ciclo, fase: 'trabajo' as const, completados: 0 } : {}),
             })
           }
-          className="w-full rounded-xl py-2.5 text-sm font-semibold text-black transition"
-          style={{ background: COLOR }}
+          className="ui-accent-bg w-full rounded-xl py-2.5 text-sm font-bold transition hover:brightness-110"
         >
           <Icono nombre="play" />{' '}
           {t('biblioteca.est.iniciar', 'Iniciar {n} min', {
@@ -431,19 +417,6 @@ export function EstudioTab() {
         <p className="text-center text-[10px] text-white/35">
           {t('biblioteca.est.nota', 'El temporizador sigue corriendo aunque cierres el cuarto.')}
         </p>
-      </div>
-
-      {/* Plan de estudio: las metas de la app en el mismo cronograma del calendario.
-          El ✨ de cada meta pide el plan a la IA (fecha objetivo, horas y días
-          disponibles) y agenda plan + rato de estudio. */}
-      <div className="space-y-2" data-tut="biblioteca.estudio.plan">
-        <p className="text-sm font-semibold">
-          <Icono nombre="calendario" /> {t('biblioteca.plan.titulo', 'Plan de estudio')}
-        </p>
-        <p className="text-[11px] leading-relaxed text-white/40">
-          {t('biblioteca.plan.desc', 'Crea una meta (p. ej. «Aprender estadística») y pídele el plan a la IA: te pregunta tu fecha objetivo, horas por semana y días disponibles, y agenda el plan con tu rato de estudio en el calendario.')}
-        </p>
-        <CronogramaApp plantillaId="biblioteca" />
       </div>
     </div>
   )

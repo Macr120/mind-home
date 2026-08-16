@@ -1,0 +1,767 @@
+/**
+ * Rama «de» del año demo de anecdotario. Solo se descarga si el usuario
+ * está en ese idioma (el índice `demo.data.i18n.ts` la carga con import()).
+ *
+ * Las frases se traducen en `traducciones/anecdotario.de.json`; este
+ * archivo lo montan `partir-demo-i18n.mjs` / `traducir-a-mano.mjs meter` —
+ * no lo edites a mano.
+ */
+export default {
+  "entradas": [
+    {
+      "dia": -364,
+      "titulo": "Erster Eintrag, fast zwei Uhr nachts",
+      "texto": "Ich habe diese App vor drei Stunden installiert und sie jetzt schon zwei Stunden lang geöffnet, ohne ein Wort zu schreiben. Es ist 1:40 Uhr und morgen mache ich um sieben das Café auf. Ich bin nicht direkt traurig, ich bin einfach müde davon, auf Autopilot zu funktionieren. Ich schreibe das nur, damit es einen Beweis gibt, dass heute etwas passiert ist, und sei es nur das hier.",
+      "animo": "😔"
+    },
+    {
+      "dia": -361,
+      "titulo": "Doppelschicht und acht Euro Trinkgeld",
+      "texto": "Ich habe Nadias Schicht übernommen und bin um neun mit kaputtem Rücken rausgegangen. Acht Euro Trinkgeld und eine Kundin, die mit mir geredet hat, als wäre ich eine Kaffeemaschine mit Beinen. Ich habe im Stehen Cornflakes gegessen und bis eins aufs Handy gestarrt. Morgen habe ich um acht Uhr Laborpraktikum, und ich weiß schon, wie das laufen wird.",
+      "animo": "😣"
+    },
+    {
+      "dia": -358,
+      "titulo": "Wo ist bloß der Lohn geblieben",
+      "texto": "Ich wurde am Freitag bezahlt, und heute, Mittwoch, sind noch 41 Euro auf dem Konto. Ich habe versucht, die Ausgaben aus dem Gedächtnis zu rekonstruieren, und mir fehlen fast siebzig Euro, die ich nirgends unterbringen kann. Abos, die ich nicht nutze, Bier, Lieferessen an den Tagen, an denen ich nicht gekocht habe. Am meisten stört mich nicht das Geld, sondern dass ich nicht mal das über mein eigenes Leben weiß.",
+      "animo": "😔"
+    },
+    {
+      "dia": -355,
+      "titulo": "Wieder nur vier Stunden Schlaf",
+      "texto": "Ich bin um zwei ins Bett gegangen und der Wecker klingelte um 6:15 Uhr. Beim dritten Kaffee der Schicht hat mir beim Milchaufschäumen die Hand gezittert. Ich habe ein Glas zerbrochen und länger als nötig auf die Scherben gestarrt. Ich weiß genau, was das Problem ist, und trotzdem habe ich gestern Abend wieder bis zwei Videos geschaut.",
+      "animo": "😣"
+    },
+    {
+      "dia": -352,
+      "titulo": "Halbes Praktikum falsch gemessen",
+      "texto": "Im Labor habe ich die Widerstände notiert, ohne den Messbereich des Multimeters zu prüfen, und die ganze Tabelle war am Ende um den Faktor zehn daneben. Elías hat es erst nach anderthalb Stunden bemerkt, als keine Zeit mehr blieb, alles zu wiederholen. Es ist nicht so, dass ich die Physik nicht verstehe; ich komme einfach ohne Kopf dorthin. Ich habe abgegeben, was ich hatte, und bin gegangen, ohne etwas zu sagen.",
+      "animo": "😐"
+    },
+    {
+      "dia": -349,
+      "titulo": "Solaris wieder gesehen",
+      "texto": "Sonntag ohne Schicht, Jalousien unten, Tee und wieder Solaris. Es gibt eine Stelle, wenn die Raumstation ganz still ist, bei der ich etwas Merkwürdiges gespürt habe: Neid auf so viel Stille. Es ist absurd, einen Film über Menschen zu beneiden, die den Verstand verlieren. Aber ich bin vom Sofa aufgestanden mit dem Gefühl, seit Monaten nicht mehr allein mit mir selbst zu sein, nur abgelenkt.",
+      "animo": "😐"
+    },
+    {
+      "dia": -346,
+      "titulo": "Schreiben, obwohl nichts passiert ist",
+      "texto": "Heute ist nichts passiert: Schicht, Vorlesung, zu Hause. Ich schreibe es trotzdem auf, weil ich gelesen habe, dass es nicht auf den guten Eintrag ankommt, sondern darauf, die Lücke nicht zu lassen. Ich muss zugeben, dass ich das hier schon dreimal die Woche öffne, mehr Beständigkeit, als ich sonst bei irgendetwas habe. Laika gibt es in meinem Leben noch nicht, und die Wohnung ist sehr still.",
+      "animo": "😔"
+    },
+    {
+      "dia": -343,
+      "titulo": "Drei Stockwerke ohne Luft",
+      "texto": "Der Aufzug war kaputt, und ich bin mit dem Einkauf die drei Stockwerke hochgelaufen. Oben musste ich mich zwei lange Minuten auf den Boden vor der Wohnungstür setzen, um wieder zu Atem zu kommen. Ich bin 25. Ich habe mich beim Reinkommen gewogen: 74 Kilo und die Kondition eines Möbelstücks.",
+      "animo": "😣"
+    },
+    {
+      "dia": -340,
+      "titulo": "Die Fahrradkette ist immer noch locker",
+      "texto": "Seit fünf Wochen sage ich, ich spanne die Kette nach, und seit fünf Wochen nehme ich den Bus. Dem Auto geht es auch nicht viel besser: Es macht beim Kaltstart ein Geräusch, das ich lieber nicht genauer untersuche. Es ist überall dasselbe Muster: Ich lasse Dinge verfallen, bis sie kaputtgehen. Heute schreibe ich es wenigstens auf.",
+      "animo": "😐"
+    },
+    {
+      "dia": -337,
+      "titulo": "Ich werde alles aufschreiben",
+      "texto": "Ich habe gelesen, was ich diesen Monat geschrieben habe, und es ist deprimierend, aber es ist auch Information. Ich schlafe spät, gebe Geld aus, ohne hinzusehen, bewege mich null, und das alles wusste ich, ohne es wirklich zu wissen. Entscheidung: Ein Jahr lang notiere ich, was ich tue. Schlaf, Geld, Sport, was ich lerne. Ich verspreche nicht, mich sofort zu ändern; ich verspreche, hinzuschauen.",
+      "animo": "😐"
+    },
+    {
+      "dia": -334,
+      "titulo": "Tabellenkalkulation, erster Versuch",
+      "texto": "Zwei Stunden habe ich an einem Budget mit den echten Kategorien meines Lebens gebastelt: Miete, Essen, Verkehr, Uni, Kleinkram. Es kommen 1.180 Euro Ausgaben heraus gegenüber 1.240 Euro aus Lohn und Trinkgeld zusammen. Der Spielraum ist lächerlich, aber er existiert, und ihn schwarz auf weiß zu sehen, beruhigt mich mehr, als ich erwartet hätte. Neue Regel: Trinkgeld wird nicht am selben Tag ausgegeben.",
+      "animo": "😐"
+    },
+    {
+      "dia": -331,
+      "titulo": "Ein Wecker fürs Insbettgehen",
+      "texto": "Ich habe einen Wecker auf 23:15 Uhr gestellt, der nicht zum Aufstehen dient, sondern zum Ausschalten des Bildschirms. Die ersten beiden Nächte habe ich ihn ignoriert; heute habe ich gehorcht und bin gegen Mitternacht eingeschlafen. Ich bin vor dem Wecker aufgewacht und habe mich im Spiegel nicht gehasst. Ziel für diesen Monat: sieben Stunden an fünf von sieben Tagen.",
+      "animo": "😐"
+    },
+    {
+      "dia": -328,
+      "titulo": "Elf Minuten joggen, sieben gehen",
+      "texto": "Ich bin ohne Plan losgelaufen, mit Stoffturnschuhen und ohne Ahnung vom Tempo. Elf Minuten sehr langsames Joggen, aufgeteilt in drei Stücke, dazu sieben Minuten Gehen für den Rückweg. Am Ende war mein Gesicht rot und ich hatte einen komischen Husten, der eine Weile anhielt. Trotzdem gibt es etwas, das ich nicht erwartet hatte: In diesen elf Minuten habe ich an nichts gedacht.",
+      "animo": "😣"
+    },
+    {
+      "dia": -325,
+      "titulo": "Ein Marmeladenglas für Trinkgeld",
+      "texto": "Ich habe ein Marmeladenglas leergemacht, und da hinein kommt jetzt nach jeder Schicht das Trinkgeld. Diese Woche: 23 Euro, die früher in Abendessen außer Haus geflossen wären. Ich weiß noch nicht, wofür das Glas ist, und ich glaube, gerade das hilft: Es ist Geld ohne Eile. Es sonntags zu zählen, ist zu einem kleinen Ritual geworden.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -322,
+      "titulo": "Zwischenprüfung Mechanik: gerade so bestanden",
+      "texto": "Knapp bestanden, aber es ist die erste Prüfung dieses Jahres, die ich nach einer guten Nacht Schlaf geschrieben habe. Ich habe mich bei der Pendelaufgabe verrechnet, weil ich zu schnell war, nicht weil ich es nicht wusste. Ich weiß genau, was ich wiederholen muss, und das ist neu. Früher bin ich aus Prüfungen gegangen, ohne zu wissen, was ich überhaupt geschrieben hatte.",
+      "animo": "😐"
+    },
+    {
+      "dia": -319,
+      "titulo": "Das Klavier ist angekommen",
+      "texto": "88 Tasten, gebraucht, 90 Euro, gekauft von einem Mann, der aufgehört hat zu spielen, als seine Tochter geboren wurde. Ich habe es im Kofferraum, eingewickelt in zwei Decken, nach Hause gebracht und in die Ecke des Wohnzimmers gestellt. Beim Einschalten summt es leise, und das Pedal fehlt, aber es klingt. Ich habe zwanzig Minuten lang wahllos Töne gespielt und dabei wie ein Idiot gegrinst. Erklärtes Jahresziel: den ganzen 'Clair de Lune' lernen.",
+      "animo": "🤩",
+      "foto": "teclado"
+    },
+    {
+      "dia": -316,
+      "titulo": "Fünf Töne und zwei Finger",
+      "texto": "Erste Videostunden: Handhaltung, mittleres C, C-Dur-Tonleiter mit der rechten Hand. Meine Finger machen, was sie wollen, und der vierte antwortet kaum. Zwanzig Minuten am Tag, gestoppt, direkt nach der Schicht. Der Nachbar hat sich nicht beschwert, was ich als Zustimmung werte.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -313,
+      "titulo": "Zwanzig Minuten ohne Pause",
+      "texto": "Heute bin ich zwanzig Minuten am Stück gelaufen, ohne zu gehen, ganz langsam, durch den Park am Fluss. Ich habe herausgefunden, dass ich noch reden kann, wenn ich durch die Nase atme und die Schritte verkürze. Drei Wochen jetzt, und ich muss mich vor dem Rausgehen nicht mehr überreden; ich muss nur noch rausgehen. Neue Laufschuhe werden die erste Ausgabe aus dem Glas sein.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -310,
+      "titulo": "Die Rechnung ist aufgegangen",
+      "texto": "Zum ersten Mal seit Jahren komme ich ans Monatsende und weiß, wo jeder Euro geblieben ist. Es bleiben 62 Euro übrig, eine lächerliche Zahl und gleichzeitig riesig im Vergleich zum Dispo des letzten Monats. Ich habe zwei Abos gekündigt, und die Ausgaben für Lieferessen haben sich halbiert. Das ist keine Tugend: Ich sehe es jetzt einfach.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -307,
+      "titulo": "Ein Monat Daten, keine Wunder",
+      "texto": "Ich gehe den Monat durch: durchschnittlich 6 Stunden 50 Minuten Schlaf, elf Läufe, 340 Minuten Klavier, keine einzige der schlechten durchgemachten Nächte. Dienstags bin ich immer noch fertig, und ich weiß immer noch nicht, was ich nach dem Studium machen will. Aber wenn ich die App öffne, sehe ich eine Linie, kein Loch. Das reicht mir, um noch einen Monat weiterzumachen.",
+      "animo": "😐"
+    },
+    {
+      "dia": -304,
+      "titulo": "Die Waage sagt 74",
+      "texto": "Ich habe mich richtig gewogen, nüchtern, und es notiert: 74,2 kg. Ich suche keine Zahl, ich suche, beim Treppensteigen nicht zu ersticken. Konkrete Änderungen: ein richtiges Frühstück, weniger Gebäck von der Arbeit, Wasser statt Limo während der Schicht. Keine seltsamen Diäten, dafür habe ich weder Geld noch Energie.",
+      "animo": "😐"
+    },
+    {
+      "dia": -301,
+      "titulo": "5K-Plan am Kühlschrank",
+      "texto": "Ich habe einen Neun-Wochen-Plan ausgedruckt, um 5 Kilometer am Stück zu laufen, und ihn mit einem Magneten an den Kühlschrank geheftet. Drei Läufe pro Woche: Dienstag, Donnerstag und Sonntag, die Tage ohne Nachmittagsschicht. In zwei Monaten gibt es im Viertel einen Volkslauf; schon der Gedanke, mich anzumelden, macht mich schwindlig. Ich schreibe es hier auf, damit es schwerer wird, es leise zu vergessen.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -298,
+      "titulo": "Zehn Minuten nichts tun",
+      "texto": "Erste geführte Meditation: zehn Minuten auf dem Boden sitzend, den Rücken an die Wand gelehnt. Die ersten fünf waren eine gedankliche Einkaufsliste und eine eingebildete Diskussion mit einem Kunden. In den letzten zwei hat sich etwas in den Schultern gelöst. Dreimal pro Woche, montags, mittwochs und samstags, mal sehen, was passiert.",
+      "animo": "😐"
+    },
+    {
+      "dia": -295,
+      "titulo": "Laika",
+      "texto": "Im Tierheim gab es wunderschöne Katzen und eine zwei Jahre alte graue Katze, die mich ansah, als wollte sie sagen: 'Na los, entscheide dich.' Seit der Autofahrt heißt sie Laika, weil sie die ganze Fahrt über am Fenster klebte und in den Himmel schaute. Drei Stunden blieb sie unter dem Sofa, dann kam sie raus, um das Klavier zu inspizieren. Sie schläft in meiner Kniekehle, und die Wohnung fühlt sich nicht mehr so leer an.",
+      "animo": "🤩",
+      "foto": "laika"
+    },
+    {
+      "dia": -292,
+      "titulo": "Englischkarten zwischen den Kaffees",
+      "texto": "Ich habe mit zwanzig Englischkarten am Tag auf dem Handy angefangen, fast immer in den Lücken hinter der Theke. Ehrliches Niveau: Ich verstehe Songtexte und verstehe niemanden, der schnell spricht. Heute habe ich einer Touristin erklärt, wo der Bahnhof ist, und es kam raus, holprig, aber es kam raus. Das hat mich mehr gefreut als die bestandene Zwischenprüfung.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -289,
+      "titulo": "Sonntag der Tupperdosen",
+      "texto": "Zwei Stunden Kochen am Sonntag: Linsen, Reis, Ofenhähnchen und Gemüse für fünf Tage. Es hat 18 Euro gekostet und erspart mir den Döner nach der Nachtschicht. Laika hat sich auf die Arbeitsplatte gesetzt, um alles zu überwachen, und ich habe sie elf Mal runtergehoben. Ein voller Kühlschrank gibt mir eine Ruhe, die ich von etwas so Banalem nicht erwartet hätte.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -286,
+      "titulo": "Drei Kilometer am Stück",
+      "texto": "Woche fünf des Plans, und heute habe ich 3 km ohne Pause geschafft, in 21 Minuten. Vor zwei Monaten hielt ich keine drei Minuten durch, also habe ich mir erlaubt, mit einem guten Tee zu feiern. Die Knie sind gut, die rechte Wade etwas verspannt. Zum ersten Mal glaube ich wirklich, dass ich die fünf schaffe.",
+      "animo": "😀"
+    },
+    {
+      "dia": -283,
+      "titulo": "Laika schläft auf der Klaviatur",
+      "texto": "Sie liegt jedes Mal auf den Tasten, wenn ich den Deckel offen lasse, den Schwanz in der Sonne. Heute haben wir verhandelt: eine Decke neben dem Klavier für sie, die Tasten für mich. Ich bin bei der C-Dur-Tonleiter mit beiden Händen und einem leichten Vier-Takte-Stück, das ich schon auswendig kann. Dreißig Minuten heute; der linke kleine Finger ist immer noch ein Problem.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -280,
+      "titulo": "Meditieren in schlechter Laune",
+      "texto": "Furchtbare Schicht, eine kaputte Maschine und ein Kunde, der sich über den Preis beschwert hat, als hätte ich ihn festgelegt. Ich habe mich zum Meditieren gesetzt, ohne Lust dazu, und es wurden die zehn schlechtesten Minuten des Monats. Aber als ich aufstand, habe ich niemanden angepflaumt und kein halbes Blech Croissants gegessen. Ich fange an zu denken, das hier ist nicht für die guten Tage gedacht.",
+      "animo": "😐"
+    },
+    {
+      "dia": -277,
+      "titulo": "Verwackeltes Mondfoto",
+      "texto": "Ich bin mit dem Handy, einem alten Fernglas und viel Zuversicht aufs Dach gestiegen. Der Mond kam als zitternder Fleck heraus und Jupiter als uninteressanter Punkt, aber ich habe vierzig Minuten dort oben verbracht, ohne eine einzige Nachricht anzusehen. Es war kalt, und man hörte die Stadt darunter. Ich lese mich jetzt in günstige Stative ein; das könnte meine offizielle Ausrede werden, nachts das Haus zu verlassen.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -273,
+      "titulo": "Generalprobe über fünf Kilometer",
+      "texto": "Ich bin die kompletten 5K durch den Park gelaufen, ohne ein einziges Mal anzuhalten: 32:40 auf der Uhr. Am Ende zitterten mir die Beine, aber ich bin aus purer Sturheit bis zum Brunnen weitergetrottet. Vor drei Monaten habe ich nicht mal die Ecke ohne Keuchen geschafft, und jetzt macht mir die Distanz keine Angst mehr. Am Sonntag ist das echte Rennen.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -270,
+      "titulo": "Startnummer abgeholt, Nervosität inklusive",
+      "texto": "Ich habe nach der Schicht die Startnummer abgeholt: 1148, dazu ein Shirt, das mir viel zu groß ist. Ich habe die Laufschuhe, die guten Socken und die Sicherheitsnadel auf den Stuhl gelegt, als würde ich mich auf eine Prüfung vorbereiten. Nuri hat mir gesagt, ich soll im ersten Kilometer nicht volles Tempo gehen, und ich habe im Kopf nur halb zugehört. Ich gehe früh ins Bett, auch wenn ich vermute, dass ich eine Weile an die Decke starren werde.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -267,
+      "titulo": "Mein erster 5K: 31:12",
+      "texto": "Ich bin zu schnell gestartet, habe im dritten Kilometer die ganze Idee gehasst, und im letzten Stück hat jemand Anfeuerungen an niemand Bestimmten gerufen, und ich habe sie mir angeeignet. Beim Zieleinlauf schaute ich auf die Uhr: 31:12. Ich habe mich mit einer Banane und einem Becher Wasser auf den Bordstein gesetzt und ganz allein losgelacht. Vor vier Monaten gab es diese Person noch nicht.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -265,
+      "titulo": "Beine aus Holz",
+      "texto": "Die Treppe zu Hause runterzugehen war heute eine Komödie, und im Café habe ich mich wie ein müder Opa bewegt. Laika ist mir beim Nickerchen auf den Bauch geklettert, und ich hatte nicht mal die Kraft, mich zu wehren. Zehn Minuten gedehnt, vorsichtshalber Eis auf die Knie, und heute läuft gar nichts. Es tut auf die gute Art weh, falls das existiert.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -262,
+      "titulo": "Japan hat sich in meinem Kopf festgesetzt",
+      "texto": "Ich habe um elf Uhr abends eine Dokumentation über japanische Züge gesehen und bin bis zum Ende geblieben, mit kalt gewordenem Tee in der Hand. Danach hat mir Nuri von der eigenen Reise erzählt: die Tempel von Kyoto, im Stehen auf einem Markt essen, die Frau, die zehn Minuten auf sie eingeredet hat, ohne dass sie ein Wort verstand. Ich habe eine Landkarte mit einem Magneten vom Gemüseladen an den Kühlschrank geklebt. Wenn ich jetzt anfange zu sparen, könnte ich in fünf Monaten für drei Wochen hinfahren.",
+      "animo": "😀"
+    },
+    {
+      "dia": -259,
+      "titulo": "Zahlen für Japan",
+      "texto": "Ich habe mich mit der Haushaltstabelle hingesetzt und der Fantasie Zahlen gegeben: 2.400 insgesamt, etwa 800 für den Flug, der Rest günstige Unterkünfte, Züge und Essen. Ich habe schon 600 aus den Monaten, in denen etwas vom Budget übrig war, also fehlen mir noch etwa 360 im Monat. Es geht auf, wenn ich zwei zusätzliche Schichten im Monat übernehme und das Wochenend-Trinkgeld direkt in den Umschlag wandert. Ich habe eine neue Zeile in der App angelegt und sie einfach Japan genannt.",
+      "animo": "😀"
+    },
+    {
+      "dia": -256,
+      "titulo": "Hiragana zwischen den Bestellungen",
+      "texto": "Ich habe in den toten Minuten an der Theke mit dem Silbenalphabet angefangen und schreibe あ い う え お auf die Rückseite der Kassenbons. Ich kann fünfzehn und verwechsle drei. Ich habe auch sumimasen und arigatou gozaimasu gelernt, laut Internet neunzig Prozent des Überlebens. Ich will kein Japanisch sprechen, ich will nur auf der Straße kein Möbelstück sein.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -253,
+      "titulo": "Englisch macht mich verlegen",
+      "texto": "Heute kam ein Paar herein und fragte nach Hafermilch, und ich blieb mitten im Satz stecken, mit vertauschten Zeitformen. Später zu Hause habe ich die vierzig Karten des Tages gemacht und einen Podcast auf Mittelstufenniveau in Schneckentempo gehört. Das Present Perfect hat mich fest im Griff: Ich kenne die Regel, und sie kommt mir trotzdem nicht über die Lippen. Ab jetzt lese ich jeden Abend zehn Minuten laut, auch wenn es lächerlich klingt, während die Katze mich anschaut.",
+      "animo": "😐"
+    },
+    {
+      "dia": -250,
+      "titulo": "72,6 auf der Waage",
+      "texto": "Ich habe den dritten Monat bei 74 begonnen, und heute zeigt sie 72,6. Nichts Ausgefallenes: ein richtiges Frühstück, weniger Brot in der Nachmittagsschicht und vor zehn Uhr essen. Meine alte Jeans sitzt locker in der Hüfte, und das überzeugt mich mehr als die Zahl. Ich notiere es und mache weiter, ohne zu sehr zu feiern.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -247,
+      "titulo": "Das Auto will einen Termin",
+      "texto": "Beim Bremsen am Hügel bei mir zu Hause macht es ein neues Quietschen, das mir gar nicht gefällt. Ich habe die Werkstatt im Viertel angerufen, und der nächste freie Termin ist in zwei Wochen; der Mechaniker meinte am Telefon, es seien wahrscheinlich nur die Bremsbeläge und ich solle mir keine Sorgen machen. Das Auto ist siebzehn Jahre alt, und ich habe einen Umschlag für Japan, den ich nicht anrühren will. Ich fahre so viel wie möglich Fahrrad, wie immer.",
+      "animo": "😐"
+    },
+    {
+      "dia": -244,
+      "titulo": "Neuer Plan: zehn Kilometer",
+      "texto": "Ich habe mir einen Fünf-Wochen-Plan geschrieben: zwei lockere Läufe, ein Tag mit kurzen Intervallen und ein langer Lauf, der jeden Sonntag um einen Kilometer wächst. Die Idee ist, die 10K zu schaffen, ohne so zu leiden wie beim 5K. Heute stehen 6K in Unterhaltungstempo an, und ich habe mich gezwungen, wirklich langsam zu laufen, immer auf die Uhr schauend. Bremsen fällt schwerer als aufs Gas zu drücken.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -241,
+      "titulo": "Hände getrennt, Kopf auch",
+      "texto": "Die rechte Hand kann die Melodie, und die linke macht eine ordentliche Begleitung, aber zusammen streiten sie sich im neunten Takt. Ich habe ihn in zwei Takte geteilt und mit Metronom bei 60 dreißig Mal wiederholt. Am Ende kam es dreimal hintereinander fehlerfrei, und ich habe dort aufgehört, um es nicht wieder kaputtzumachen. Vierzig Minuten heute; der linke kleine Finger fängt an zu existieren.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -238,
+      "titulo": "Acht Kilometer und der Anstieg",
+      "texto": "Langer Sonntagslauf: 8K mit dem Anstieg am Friedhof bei Kilometer sechs, genau dort, wo ich immer mein Leben überdenke. Ich bin ihn ganz hochgejoggt, kurz und hässlich, und oben gab es Wind und einen albernen Blick über die Dächer. Zurück im Schatten, einen halben Liter Wasser getrunken und in aller Ruhe geduscht. Jede Woche einen Kilometer draufzulegen, klingt lächerlich, bis man sich den Monat ansieht.",
+      "animo": "😀"
+    },
+    {
+      "dia": -235,
+      "titulo": "Das Trinkgeld wandert in den Umschlag",
+      "texto": "Samstag mit voller Terrasse: 38 Euro Trinkgeld im Glas und ein Kunde, der für einen Cortado fünf Euro dagelassen hat. Früher wäre das unbemerkt in Bier und Essen unter der Woche gegangen. Heute habe ich die Münzen am Küchentisch gezählt und alles in die Japan-Zeile überführt. 1.010 Euro insgesamt. Die Scheine haben jetzt ein Ziel, und das verändert, wie ich arbeite.",
+      "animo": "😀"
+    },
+    {
+      "dia": -232,
+      "titulo": "Sencha, Notizbuch und Sonntag",
+      "texto": "Ruhiger Morgen: Sencha in der kleinen Kanne, das Fenster offen und das Notizbuch, um die Woche durchzugehen. Nichts Dramatisches zu notieren, und das ist im Vergleich zum Winter schon eine Nachricht wert. Ich habe den Laufplan, die Englischkarten und den Reiseumschlag durchgesehen, und alles bewegte sich einfach nur vorwärts. Laika hat während der ganzen Durchsicht auf der Stuhllehne geschlafen.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -229,
+      "titulo": "Erstes komplettes Stück",
+      "texto": "Ich habe Schumanns 'Melodie' ganz durchgespielt, von Anfang bis Ende, ohne anzuhalten und ohne Fehler, die wehgetan hätten. Es ist ein Stück für Anfänger, und das ist egal: Vor zwei Monaten wusste ich nicht mal, wo das mittlere C liegt. Ich habe es dreimal hintereinander gespielt, und beim dritten Mal konnte ich es endlich hören, statt nur meine Finger zu überwachen. Laika hat nicht geklatscht, ist aber im Zimmer geblieben, und das ist bei ihr dasselbe.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -226,
+      "titulo": "Neuneinhalb Kilometer, langsam",
+      "texto": "Ich bin um acht raus, um der Hitze zu entgehen, und bewusst langsam gelaufen, die Uhr unterm Ärmel versteckt. 9,5K in etwas über einer Stunde, ohne Heldentum. Der Trick diesen Monat war, mich beim Laufen zu langweilen: an die Einkaufsliste denken, an den neunten Takt am Klavier, an nichts. Nächsten Sonntag sind es zehn, und das fühlt sich schon nicht mehr wie eine Grenze an.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -223,
+      "titulo": "Zwischenprüfung Mechanik",
+      "texto": "Zweieinhalb Stunden Prüfung, eine Aufgabe zum starren Körper, die mir die Zeit gefressen hat, und eine Frage, die ich halb liegen gelassen habe. Ich bin mit diesem komischen Gefühl rausgegangen, nicht zu wissen, ob es eine gute oder eine mittelmäßige Note wird. Das Gute: Ich habe drei Wochen wirklich gelernt, in Blöcken, ohne die übliche durchwachte Nacht. Ich habe vor der Prüfung sieben Stunden geschlafen, und ich glaube, das war mehr wert als noch eine Wiederholungsrunde.",
+      "animo": "😐"
+    },
+    {
+      "dia": -220,
+      "titulo": "Zehn Kilometer in 58:40",
+      "texto": "Volkslauf am Flussufer, mehr Leute als erwartet, und ein Tempo, das ich bis Kilometer acht gehalten habe. Die letzten zwei waren ein Verhandeln mit mir selbst alle hundert Meter. 58:40, und unter eine Stunde zu kommen war das Einzige, was ich wollte. Ich habe eine Orange am Boden sitzend gegessen, die Plastikmedaille baumelnd, und gedacht, dass ich im ersten Monat nicht mal aufs Dach steigen konnte, ohne zu keuchen.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -217,
+      "titulo": "Acht Stunden am Stück",
+      "texto": "Ich bin diese Woche dreimal vor dem Wecker aufgewacht, etwas, das mir im Januar wie Hexerei vorgekommen wäre. Kein Handy im Bett, ab elf gedimmtes Licht, und Klavier mit Kopfhörern, falls ich noch nicht müde bin. Die Waage zeigt 72, zwei Kilo weniger als beim Start der Ernährungsumstellung. Der Schlaf ist der Teil, der alles andere am meisten verändert hat, und der, den man auf Fotos am wenigsten sieht.",
+      "animo": "😀"
+    },
+    {
+      "dia": -214,
+      "titulo": "Termin für den Reisepass",
+      "texto": "Ich habe entdeckt, dass mein Pass im Oktober abläuft, und bei der Reise im September wird es damit ziemlich knapp, und keine Airline mag knapp. Ich habe um sieben Uhr morgens online einen Termin gebucht und einen Platz in zehn Tagen bekommen. Das Foto habe ich in der Kabine im Einkaufszentrum gemacht und sehe darauf aus wie ein Verdächtiger. Ich habe die Ausgabe auch in der Japan-Zeile eingetragen, damit die Zahlen ehrlich bleiben.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -211,
+      "titulo": "Der Plan steigt auf fünfzehn",
+      "texto": "Ich habe den neuen Block geschrieben: in drei Wochen einen langen Lauf von 15K erreichen, dazu zwei lockere Läufe und einen Hügeltag beibehalten. Heute standen 12K an, und ich habe sie besser durchgehalten als gedacht, auch wenn ich das letzte Stück mit offenem Mund gelaufen bin. Ich habe mir richtige Laufsocken gekauft, der langweiligste Luxus meines Lebens. Der Kopf denkt inzwischen von selbst über längere Distanzen nach.",
+      "animo": "😀"
+    },
+    {
+      "dia": -208,
+      "titulo": "Gebrauchtes Stativ",
+      "texto": "Ich habe auf dem Flohmarkt für zwölf Euro ein altes Stativ gefunden und das Handy mit einer Plastikklemme daran befestigt. Ich bin um elf aufs Dach gestiegen, und zum ersten Mal kamen die Sterne als Punkte heraus und nicht als Würmer. Man erkennt die Plejaden und einen Teil des Orionsgürtels, unscharf, aber erkennbar. Ich war eine Stunde dort oben mit Decke und Tee; ich weiß nicht, ob das Astrofotografie ist, aber es funktioniert.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -205,
+      "titulo": "Neuer Pass in der Hand",
+      "texto": "Eine halbe Stunde Schlange, Fingerabdrücke, Unterschrift, und der Beamte fragte, ob ich irgendwohin Schönes reise. Ich habe einem Fremden laut 'Japan' gesagt, und es klang gleichzeitig völlig verrückt und völlig wahr. Der Pass riecht nach neuem Plastik, und das Foto ist eine Katastrophe. Ich habe ihn zum Umschlag mit den Flugtickets in die Papierkiste gelegt; die Reise ist keine Kühlschrank-Idee mehr.",
+      "animo": "😀"
+    },
+    {
+      "dia": -202,
+      "titulo": "Ein Blick auf Clair de Lune",
+      "texto": "Ich habe mir die komplette Partitur heruntergeladen, und mein Mut reichte für vier Takte. Es gibt Triolen gegen Duolen, Notenschlüsselwechsel und eine ganze Seite, die ich noch nicht lesen kann. Statt die Datei zu schließen, habe ich es als Jahresprojekt notiert: Ich will es im Dezember vor meiner Familie ganz durchspielen. Bis dahin: Tonleitern, Schumann und eine Burgmüller-Etüde, die wenigstens auf meinem Niveau ist.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -199,
+      "titulo": "Die Hälfte des Glases",
+      "texto": "1.210 von 2.400. Genau die Hälfte der Reise ist auf dem Konto, und es bleiben noch drei Monate Trinkgeld und Extraschichten. Ich habe zweimal nachgerechnet, weil ich es nicht glauben konnte, und es dann Laika erzählt, meiner emotionalen Buchhalterin. Am meisten überrascht mich nicht das Geld, sondern dass ich seit fünf Monaten ohne Unterbrechung jede Ausgabe notiere.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -196,
+      "titulo": "Fünfzehn Kilometer am Sonntag",
+      "texto": "Ich bin um halb acht mit zwei Gels und einer kleinen Flasche losgelaufen und um halb zehn mit durchgeschwitztem Shirt zurückgekommen. 15K, meine bisher längste Distanz, mit einem dreißigsekündigen Stopp am Brunnen bei Kilometer elf. Das Seltsame ist, dass ich mich bei 12K besser gefühlt habe als bei 8K. Ich habe wie ein Pferd gegessen und ohne jedes schlechte Gewissen anderthalb Stunden Mittagsschlaf gemacht.",
+      "animo": "😀"
+    },
+    {
+      "dia": -193,
+      "titulo": "Semesterprojekt: Spektren",
+      "texto": "Ich habe jetzt ein Thema: Spektren von Lampen zu Hause messen, mit einem Beugungsgitter aus einer CD und dem Handy. Professor Iriarte meinte, es sei bescheiden, aber wenn ich es richtig kalibriere, zähle es, und er wollte einen schriftlichen Plan. Ich habe den Nachmittag in der Bibliothek verbracht und über die Kalibrierung mit einer Natriumlampe gelesen. Es ist das erste Mal im Studium, dass ein Projekt mir Lust macht statt Trägheit.",
+      "animo": "😀"
+    },
+    {
+      "dia": -190,
+      "titulo": "Einundsiebzig",
+      "texto": "71 Kilo: drei weniger als beim Start des Essprotokolls. Es gibt keine Wunderdiät, es gibt ein richtiges Frühstück, weniger Gebäck von der Arbeit und viermal die Woche laufen. Heute bin ich mit dem Fahrrad den Hügel hoch und oben angekommen, während ich noch reden konnte, unvorstellbar im März. Verändert hat sich nicht die Zahl, sondern dass ich mich nicht mehr mit Angst wiege.",
+      "animo": "😀"
+    },
+    {
+      "dia": -187,
+      "titulo": "Reiseplan im Entwurf",
+      "texto": "Ich habe die drei Wochen in eine Tabelle gepackt: fünf Tage Tokio, zwei Tage Hakone für den Fuji, falls das Wetter mitspielt, vier Tage Kyoto, ein Tag Nara, drei Tage Osaka und zwei Tage Hiroshima. Es fehlt noch, den Bahnpass abzustimmen und zu entscheiden, ob ich die letzte Etappe im Nachtbus mache, um zu sparen. Ich habe auch meine erste Phrasenliste gemacht: Wo ist der Bahnhof, was kostet das, ohne Fleisch bitte. September ist noch zweieinhalb Monate entfernt, und zum ersten Mal fühlt sich die Reise wie ein Plan an und nicht wie ein Wunsch.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -184,
+      "titulo": "Das rechte Knie meldet sich",
+      "texto": "Beim Abstieg über das Asphaltstück am Ende des langen Laufs spürte ich ein Stechen an der Außenseite des rechten Knies, wie ein gespanntes Kabel. Die letzten fünfhundert Meter bin ich gegangen, das Vernünftigste, was ich seit Monaten getan habe. Eis, Bein hoch, und heute gar kein Laufen. Wahrscheinlich habe ich die Kilometer zu schnell gesteigert; morgen sehe ich, wie es sich anfühlt.",
+      "animo": "😐"
+    },
+    {
+      "dia": -183,
+      "titulo": "Ich kann keine Treppen runter",
+      "texto": "Die zwei Stockwerke zu Hause runterzugehen war heute Morgen das Langsamste, was ich seit Wochen gemacht habe: Die Außenseite des Knies meldet sich genau, wenn ich auftrete. Ebene Fläche geht, bergab nicht. Zwanzig Minuten Eis, Bein hoch, und noch einen Tag ganz ohne Laufen. Mich stört weniger der Schmerz als das Gefühl, dass mir der ganze Kilometerplan wegrutscht.",
+      "animo": "😔"
+    },
+    {
+      "dia": -181,
+      "titulo": "Drei Wochen ohne Laufen",
+      "texto": "Ich war in der Sprechstunde, und die Diagnose hat einen Namen: Iliotibialband-Syndrom, klassisch bei allen, die das Pensum zu schnell steigern. Drei Wochen ohne Laufen, Physiotherapie und Arbeit am Gesäßmuskel, der offenbar seinen Job nicht macht. Ich bin mit dem Übungsblatt in der Hand aus der Praxis und hatte Lust, es wegzuwerfen. Drei Wochen sind zwölf Läufe, die ich nicht mache, und ein 15K-Plan, der auf halbem Weg stehen bleibt.",
+      "animo": "😣"
+    },
+    {
+      "dia": -176,
+      "titulo": "Das Auto natürlich auch",
+      "texto": "Ich wollte losfahren, um ins Labor zu kommen, und der Motor klang wie eine Dose voller loser Schrauben. Ich habe es in die Werkstatt in der Calle Robles gebracht: Wasserpumpe und Keilriemen, 380 Euro und zwei Tage ohne Auto. Ausgerechnet diese Woche, mit lahmgelegtem Knie und Doppelschicht am Freitag. Ich habe allein auf dem Bürgersteig gelacht, weil Weinen auf dem Bürgersteig mir noch peinlicher gewesen wäre.",
+      "animo": "😣"
+    },
+    {
+      "dia": -173,
+      "titulo": "Woher kommt das Geld",
+      "texto": "Ich habe entschieden, dass die 380 Euro aus dem Notgroschen kommen und nicht aus dem Japan-Umschlag, auch wenn der Notgroschen dann bei fast nichts landet. Ich streiche diesen Monat zwei Dinge: keinen Kaffee auswärts und kein Lieferessen. Das Trinkgeld dieser Lohnperiode war mager, 46 Euro, also muss ich wirklich den Gürtel enger schnallen. Immerhin weiß ich jetzt genau, was ich habe, was ich im Oktober nicht mal ansatzweise wusste.",
+      "animo": "😔"
+    },
+    {
+      "dia": -170,
+      "titulo": "Das Klavier trägt mich",
+      "texto": "Weil ich nicht laufen kann, hat sich das Klavier still diese Lücke geschnappt. Eine gute halbe Stunde jeden Nachmittag mit dem ersten Abschnitt von Clair de Lune, Metronom bei 60, erst die linke Hand allein, dann beide zusammen. Heute kamen die ersten neun Takte am Stück ohne Pause, und ich habe meine Hände angeschaut, als gehörten sie jemand anderem. Es ist langsam und unsichtbar, aber es bewegt sich.",
+      "animo": "😐"
+    },
+    {
+      "dia": -168,
+      "titulo": "Hässlicher Eintrag, ohne Filter",
+      "texto": "Ich habe es satt, dass alles gleichzeitig kommt: Donnerstag Zwischenprüfung Elektromagnetismus, Samstag Doppelschicht, das Knie verspannt und 190 Euro auf dem Konto. Ich schreibe das mit Eis auf dem Knie und ernsthafter Lust, das ganze Jahr abzuschreiben. Ich werde nicht so tun, als hätte ich eine hübsche Lehre aus heute zu ziehen. Ich schreibe es nur auf, damit ich mich daran erinnere, dass es auch das gab.",
+      "animo": "😣"
+    },
+    {
+      "dia": -165,
+      "titulo": "Zweiundzwanzig Tage stillgesessen",
+      "texto": "Ich habe zweiundzwanzig Tage in Folge die zehn Minuten Meditation durchgehalten, und das ist die einzige Serie, die die Verletzung nicht gebrochen hat. Gute Laune bringt es mir nicht, aber es dreht die Lautstärke runter: Heute habe ich gemerkt, dass ich mich in Geldsorgen verbissen hatte, und konnte für eine Weile loslassen. Laika setzt sich fast immer daneben, als würde sie aufpassen. Es ist das Billigste, was ich am Tag mache, und im Moment das, was mir am meisten hilft.",
+      "animo": "😐"
+    },
+    {
+      "dia": -162,
+      "titulo": "Hometrainer und Schwimmbad",
+      "texto": "Wenn ich schon nicht laufen kann, bewege ich mich wenigstens ohne Belastung: vierzig Minuten Hometrainer im Campus-Fitnessraum und zwei Tage Schwimmbad, tausend sehr schlecht geschwommene Meter. Bei beidem sagt das Knie nichts, was nützliche Information ist. Das Wasser langweilt mich zutiefst, aber ich komme mit klarerem Kopf raus. Die Übungen der Physio, dreimal die Woche, ohne auszulassen.",
+      "animo": "😐"
+    },
+    {
+      "dia": -159,
+      "titulo": "Die Waage bewegt sich nicht",
+      "texto": "71,8 kg, praktisch dasselbe wie vor einem Monat, und das ergibt Sinn: weniger Bewegung und mehr Naschen an der Gebäcktheke im Café. Die Croissants am Schichtende sind meine Schwachstelle, wenn ich schlecht drauf bin. Ich werde mich nicht bestrafen, aber ich fange wieder an, das Essen zu notieren, was ich zwei Wochen lang gelassen habe. Weniger Drama, mehr Daten.",
+      "animo": "😔"
+    },
+    {
+      "dia": -156,
+      "titulo": "Termin bei der Physio",
+      "texto": "Donnerstag um elf, erste Sitzung, 35 Euro pro Termin, und ich brauche vier oder fünf. Ich habe es im Budget als Gesundheitsausgabe eingetragen und nicht als Laune, was ich im Januar noch gedacht hätte. Das Knie lässt mich inzwischen fast normal Treppen runtergehen. Ich fange an zu glauben, dass sich das regelt und ich im September problemlos durch Japan laufen kann.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -153,
+      "titulo": "Erste Physio-Sitzung",
+      "texto": "Sie hat mich auf einem Bein stehen und langsam runtergehen lassen: Das rechte Knie ist mir nach innen weggeknickt wie Pudding. Praktische Diagnose: eingeschlafener mittlerer Gesäßmuskel und keine Kontrolle über die Hüfte. Ich bin mit vier lächerlich aussehenden Übungen rausgegangen (Brücke, Band-Walks, einbeinige Kniebeuge, seitlicher Unterarmstütz) und dem Auftrag, sie täglich zu machen. Sie hat auch gesagt, ich könne so viel gehen, wie ich will. Das hat mir den Tag gerettet.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -147,
+      "titulo": "Fünfundvierzig Minuten gehen",
+      "texto": "Fünfundvierzig Minuten zügig am Flussufer gegangen, kein einziges Stechen. Auf dem Heimweg habe ich schon gerechnet, wie lange es dauert, bis ich wieder eine halbe Stunde laufen kann. Das Widerstandsband kommt mir längst nicht mehr wie Spielzeug vor: Die Hüftseite brennt bei jeder Serie. Ich spiele nach den Übungen Klavier, damit sich beides an derselben Tageszeit festsetzt.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -144,
+      "titulo": "Wieder laufen, in kleinen Stücken",
+      "texto": "Vier Sätze à vier Minuten Joggen und zwei Minuten Gehen, Schneckentempo, auf Erde statt auf Asphalt. Das Knie war die ganze Zeit still, und ich habe gegrinst, als hätte ich etwas gewonnen. Danach vorsichtshalber Eis und die Übungen. Dreiundzwanzig Tage ohne Laufen, und heute bin ich wieder jemand, der läuft.",
+      "animo": "😀"
+    },
+    {
+      "dia": -140,
+      "titulo": "Zwanzig Minuten am Stück",
+      "texto": "Zwanzig Minuten ohne Pause, sehr langsam, und das Knie hat nicht mit der Wimper gezuckt. Ich zwinge mich, nicht mehr als zehn Prozent pro Woche zu steigern, auch wenn ich morgen am liebsten eine ganze Stunde laufen würde. Die Lektion war teuer: 380 Euro und drei Wochen. Der Plan bis Japan ist einfach: vierzig bequeme Minuten und keine langen Läufe.",
+      "animo": "😀"
+    },
+    {
+      "dia": -137,
+      "titulo": "Die Kasse atmet wieder",
+      "texto": "Japan-Umschlag bei 85 Prozent des Ziels: 2.210 von 2.600 Euro. Der Notgroschen liegt nach dem Werkstatt-Schlag wieder bei 200. Noch zwei Lohnperioden, und ich schaffe es knapp, das August-Trinkgeld eingerechnet, das meistens gut ausfällt. Ich schreibe es hier auf, weil ich im Oktober nicht mal wusste, wie viel ich für Kaffee ausgab.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -134,
+      "titulo": "Überlebensjapanisch",
+      "texto": "Ich lese jetzt das ganze Hiragana und Katakana mit Mühe, buchstabiere wie ein Kind: ko-o-hi-i, ko-ro-k-ke. Ich habe fünfzehn Sätze wirklich auswendig, nicht nur auf Karteikarten: Was kostet das, ohne Fleisch bitte, wo ist der Bahnhof, die Rechnung bitte. Die Zahlen machen mir zu schaffen, besonders ab tausend. Und nebenbei mache ich weiter mit Englisch, wo mich der Probetest gerade so auf B1 gesetzt hat.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -131,
+      "titulo": "Reiseplan komplett fertig",
+      "texto": "Gekauft: Flug, Vierzehn-Tage-Bahnpass, sechs Unterkünfte und der Nachtbus von Hiroshima nach Osaka. Fünf Tage Tokio, zwei Hakone, vier Kyoto, ein Tag Nara, drei Osaka, zwei Hiroshima und der Rest als Puffer. Ich habe es ausgedruckt und wie eine Feldzugkarte an die Küchenwand geklebt. Ich fliege in vierundzwanzig Tagen, und ich glaube es selbst nicht.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -128,
+      "titulo": "Fünfunddreißig Minuten",
+      "texto": "Fünfunddreißig Minuten locker gelaufen, ohne Beschwerden, und 70,4 kg auf der Waage. Die Physio hat mich mit Bedingungen entlassen: Hüftübungen für immer und keine langen Abstiege auf Asphalt. Ich bin wieder im Körper von vor der Verletzung, aber mit deutlich weniger Lust auf Dummheiten. In Japan werde ich täglich zwanzig Kilometer gehen, und ich bin bereit dafür.",
+      "animo": "😀"
+    },
+    {
+      "dia": -126,
+      "titulo": "Koffer, Laika und Pausen",
+      "texto": "Neun-Kilo-Koffer, zwei Paar Schuhe und ein neues Heft für das Reisetagebuch. Laika bleibt bei Sam, meinem Nachbarn, der schon zweimal vorbeigekommen ist, damit sie sich an ihn gewöhnt. Ich habe beschlossen, die Serien zu Hause bewusst zu pausieren: drei Wochen lang kein Klavier und kein Krafttraining, und ich werde in der App nichts anderes vortäuschen. Was mitkommt, sind die Japanischkarten und die Laufschuhe.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -124,
+      "titulo": "Vierzehn Stunden in der Luft",
+      "texto": "Zwischenstopp in Helsinki, insgesamt vierzehn Stunden und ein Gangplatz, für den ich jedes Mal dankbar bin, wenn ich aufstehe, um das Knie zu dehnen. Ich habe einen Science-Fiction-Roman mitgenommen und bin nicht über Seite vierzig hinausgekommen, weil ich ständig auf die Flugkarte schaue. Ich habe in Fetzen geschlafen, schlecht. Als der Kapitän laut 'Tokio' sagte, hatte ich ein dummes Grinsen im Gesicht, das mich durch die ganze Einreiseschlange begleitet hat.",
+      "animo": "😀"
+    },
+    {
+      "dia": -123,
+      "titulo": "Erster Tag in Japan",
+      "texto": "Ich bin mit Jetlag und hellwach angekommen, also stand ich um sieben Uhr morgens schon unter einem riesigen Holz-Torii, Kies knirschte, und mitten in einer Millionenstadt lag Waldluft in der Luft. Meinen ersten kompletten japanischen Satz habe ich einem Getränkeautomaten gesagt, der nicht geantwortet hat, also zählt es als Erfolg. Ich habe einen kalten Tee gekauft, der nach nasser Wiese schmeckte, und fand ihn perfekt. Ein Jahr sparen, und jetzt bin ich mittendrin.",
+      "animo": "🤩",
+      "foto": "japon-torii"
+    },
+    {
+      "dia": -121,
+      "titulo": "Tokio zu Fuß, 21 km",
+      "texto": "Einundzwanzig Kilometer zwischen Shinjuku, Yanaka und einer Buchhandlung, in der ich eine Stunde verbracht habe, ohne fast irgendetwas zu verstehen. Die Züge kommen auf die Sekunde genau, und ich, der zu Hause regelmäßig zu spät zur eigenen Schicht kommt, fühle mich vom System persönlich beobachtet. Zum Abendessen aus dem Konbini: Onigiri, gekochtes Ei und eine Suppe, fünf Euro und besser als viele teure Sachen. Das Knie: still.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -119,
+      "titulo": "Markt und Takoyaki",
+      "texto": "Enge Gasse, rote Markisen, gestapelte Obstkisten und überall Grillrauch. Ich habe Takoyaki bestellt, mit Zeigen und Zählen auf Japanisch, und die Frau am Stand hat mein Zahlwort mit unendlicher Geduld korrigiert, bis es stimmte. Ich habe mir den Mund verbrannt, natürlich. Außerdem habe ich losen Tee von einem Mann gekauft, der mich erst an drei Tüten riechen ließ, bevor er mich wählen ließ.",
+      "animo": "😀",
+      "foto": "japon-mercado"
+    },
+    {
+      "dia": -117,
+      "titulo": "Wissenschaftsmuseum, mein Ort",
+      "texto": "Ich habe vier Stunden im Wissenschaftsmuseum in Odaiba verbracht und hätte den ganzen Tag bleiben können. Die im Foyer hängende Erdkugel, eine Tafel über Neutrinos und eine Erklärung zu Detektoren, die ich halb auf Englisch und halb über die Zeichnungen verstanden habe. Ich habe meiner Laborbetreuerin ein Foto geschickt mit dem Satz: schau, wo ich bin. Physik im Teilzeitstudium zwischen Schichten zu studieren, ergibt an solchen Tagen einen Sinn.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -115,
+      "titulo": "Der Fuji zeigte sich um 6:40",
+      "texto": "Gestern in Hakone gab es nur Wolken, und ich bin resigniert und mit dümmlichem Gesicht ins Bett gegangen. Heute bin ich vor dem Wecker aufgewacht, habe das Fenster geöffnet, und da war er, komplett, mit Schnee oben drauf und dem stillen See davor. Zwanzig Minuten habe ich gar nichts gemacht, kein Foto, nichts, und dann doch vierzehn. Beim Frühstück mit Reis und Fisch fühlte es sich an, als hätte ich eine Wetter-Lotterie gewonnen.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -113,
+      "titulo": "Kyoto um sechs Uhr morgens",
+      "texto": "Ich bin um sechs zum Fushimi Inari hoch, um ihn ohne Menschenmassen zu sehen, und es hat funktioniert: vierzig Minuten fast allein zwischen den orangefarbenen Torii, Vögel und die eigenen Schuhe waren alles, was ich hörte. Neunzehn Kilometer über den Tag verteilt, zwischen Tempeln, einem Moosgarten und einer Brücke voller Fahrräder. Am Nachmittag habe ich mich völlig erschöpft auf eine Bank gesetzt und bin zehn Minuten eingeschlafen. Kyoto riecht nach Holz und Räucherwerk, und das zeigt kein Foto.",
+      "animo": "😀"
+    },
+    {
+      "dia": -111,
+      "titulo": "Siphon-Kaffee, ohne Eile",
+      "texto": "Ich habe ein altes Café mit Samtstühlen gefunden, wo der Kaffee im Siphon zubereitet wird, eine Tasse nach der anderen, ohne Musik und ohne dass jemand spricht. Vierzig Minuten, eine Tasse und mein Heft: Ich habe drei Seiten des Reisetagebuchs geschrieben. Am Nachmittag geschlagenes Matcha an einem Stand in der Nishiki-Straße und ein viel zu süßes Keks. Es ist genau die Art von Moment, für die ich das ganze Jahr gespart habe.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -109,
+      "titulo": "Nara und die diebischen Hirsche",
+      "texto": "Ich habe Kekse für die Hirsche gekauft, und nach zehn Sekunden schubsten mich schon vier an der Hüfte, einer davon mit sehr wenig Manieren. Sie haben sich vor mir verbeugt, was ich für eine Reiseführer-Legende gehalten hatte, und dann meine Karte gestohlen. Der Todai-ji ist auf eine Art riesig, die Fotos nicht erklären: Neben einem einzigen Holzbalken fühlt man sich wie eine Schraube. Zurück nach Kyoto mit dem Zug, müde Beine und ohne jeden Knieschmerz.",
+      "animo": "😀"
+    },
+    {
+      "dia": -107,
+      "titulo": "Osaka und mein liebster Fehler",
+      "texto": "An einem Okonomiyaki-Stand wollte ich sagen, dass das Essen heiß ist, und habe laut dem Koch stattdessen so etwas gesagt wie 'die Stadt ist heiß'; er hat gelacht, mich korrigiert und mir noch mehr aufgetan. Dotonbori bei Nacht ist ein Übermaß an Licht, das mir woanders fürchterlich vorkäme und das ich hier liebe. Ich habe dreimal im Stehen gegessen und weniger ausgegeben als an einem einzigen Tokio-Tag. Siebzehn Tage unterwegs, und ich denke schon auf Japanisch, wenn ich nach der Rechnung frage.",
+      "animo": "😀"
+    },
+    {
+      "dia": -105,
+      "titulo": "Sechs Kilometer am Fluss",
+      "texto": "Ich bin um sechs aufgestanden und sechs Kilometer am Weg des Yodo-Flusses gelaufen, zwischen älteren Menschen, die in der Gruppe Gymnastik machten, und einem Mann beim Angeln. Es ist der erste Lauf der Reise, und das Knie hat kein einziges Wort gesagt. Ich bin zurück, habe im Hostel geduscht und um acht gefrühstückt, als hätte ich zwanzig Jahre mehr Energie. Laufen in einer fremden Stadt ist der schnellste Weg, sie zu verstehen.",
+      "animo": "😀"
+    },
+    {
+      "dia": -103,
+      "titulo": "Hiroshima in Stille",
+      "texto": "Das Museum hat mich sprachlos gemacht und mir jede Lust auf Fotos genommen; ich bin rausgegangen, habe mich der Kuppel gegenüber gesetzt und lange nicht aufs Handy geschaut. Es gibt einen Teil der Ausstellung, den mit den Kindergegenständen, den ich hier nicht beschreiben werde. Am Nachmittag bin ich bei Ebbe mit der Fähre nach Miyajima gefahren und bis zum Torii im Wasser gelaufen. Einer dieser Tage, die sich nicht in einem hübschen Satz zusammenfassen lassen.",
+      "animo": "😔"
+    },
+    {
+      "dia": -101,
+      "titulo": "Die Reisekasse",
+      "texto": "Letzte Nacht in Osaka, und ich habe die Summe gemacht: 2.480 von den 2.600 gesparten Euro, Flug, Zug, Betten und Essen eingerechnet. Es ging fast auf den Euro genau auf, was mir einen komischen, sehr buchhalterischen Stolz gibt. Ich bringe Tee von drei Orten mit, ein Heft, ein kleines Souvenir für die Klavierecke und einundsechzig geschriebene Seiten. Morgen der lange Flug, und Donnerstag die Sieben-Uhr-Schicht im Café.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -99,
+      "titulo": "Zu Hause, und Laika ist sauer",
+      "texto": "Laika hat mich zwölf volle Stunden ignoriert und ist dann auf meiner Brust eingeschlafen, also sind wir quitt. Der Jetlag hält mich um vier wach und um sechs Uhr abends bin ich fix und fertig. Der Koffer steht immer noch im Flur, und die Waage sagt 70,1 kg nach drei Wochen Reis und zwanzig Kilometern Gehen am Tag. Mein Kopf fühlt sich geordnet an, wie ich es seit Monaten nicht kannte.",
+      "animo": "😴"
+    },
+    {
+      "dia": -96,
+      "titulo": "Neustart ohne Drama",
+      "texto": "Erste komplette Woche wieder mit Routine: dreimal vierzig Minuten laufen, Hüftübungen, eine halbe Stunde Klavier und Meditation. In der App gibt es drei Wochen Lücken, und das ist völlig in Ordnung; ich war in Japan, nicht gescheitert. Ich habe die Partitur von Clair de Lune wieder aufgeschlagen, und der zweite Abschnitt macht mir Angst, was ein gutes Zeichen ist. Und zum ersten Mal habe ich ein großes Wort in den Plan geschrieben: Halbmarathon.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -93,
+      "titulo": "Ein Plan am Kühlschrank",
+      "texto": "Ich habe den Halbmarathon-Plan ausgedruckt und mit dem Magneten aus Kyoto an den Kühlschrank geklebt. Sechs Wochen: drei Läufe unter der Woche und der lange Sonntagslauf, der von zwölf auf achtzehn Kilometer wächst. Nadia, die Physio, hat ihn durchgesehen und nur eine Bedingung gestellt: die Hüftübungen keinen einzigen Tag auslassen. Das Knie ist seit zwei Monaten still, und ich will, dass das so bleibt.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -90,
+      "titulo": "Der zweite Abschnitt, Takt für Takt",
+      "texto": "Eine halbe Stunde Klavier am Tag, Metronom bei 60, nur der zweite Abschnitt von Clair de Lune. Die Arpeggien der linken Hand zwingen mich, auf die Tasten zu schauen, und das bringt mich in schlechte Laune. Trotzdem sind heute acht Takte am Stück ohne Pause gekommen. Es klingt noch wie jemand, der buchstabiert, aber es ist mein Buchstabieren.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -84,
+      "titulo": "Zwölf Kilometer ohne ans Knie zu denken",
+      "texto": "Zwölf Kilometer am Flussweg in bequemem Tempo. Erst am Ende ist mir aufgefallen, dass ich kein einziges Mal an das Bein gedacht hatte, und das war seit Juli nicht mehr vorgekommen. Ich habe eher aus Gewohnheit als aus Notwendigkeit Eis draufgelegt. Laika hat sich während der Hüftübungen auf die Matte gesetzt.",
+      "animo": "😀"
+    },
+    {
+      "dia": -81,
+      "titulo": "Budget nach der Reise",
+      "texto": "Ich habe das Umschlag-Budget nach drei Wochen ohne einen Blick darauf wieder aufgesetzt. Die Reisekasse endete bei 118 Euro, und das ist kein Scheitern: Es war genau der Plan. Neue Zeile ab dieser Lohnperiode: Notgroschen, 40 Euro pro Zahltag. Das Trinkgeld dieser Woche waren 27 Euro, komplett dorthin.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -78,
+      "titulo": "69,4 auf der Waage",
+      "texto": "69,4 kg heute Morgen. Ich habe das Jahr bei 74 begonnen, und dazwischen liegen drei Wochen japanischer Reis, also kommt mir die Zahl fast komisch vor. Nichts Ausgefallenes dahinter: ein richtiges Frühstück, weniger Weißbrot am Abend und viermal die Woche laufen. Am meisten spüre ich es nicht an der Kleidung, sondern daran, dass ich das Fahrrad ohne Keuchen nach oben trage.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -74,
+      "titulo": "Zehn Minuten auf Englisch",
+      "texto": "Ein australischer Tourist blieb zehn Minuten an der Theke, und ich habe die ganze Zeit Englisch mit ihm gesprochen. Ich habe zweimal Simple Past und Continuous verwechselt, und es war mir egal: Er hat mich verstanden, und ich ihn. Abends habe ich den Einstufungstest gemacht, und es kam ein niedriges B1 heraus, im Januar war es noch A2. Die täglichen Karten sind todlangweilig und wirken trotzdem, was eine unangenehme Wahrheit ist.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -71,
+      "titulo": "Sechzehn Kilometer im Regen",
+      "texto": "Sechzehn Kilometer bei feinem Regen von Anfang bis Ende. Die Schuhe wogen bei Kilometer zwölf doppelt so viel, und trotzdem hätte ich am Ende noch zwei weitere schaffen wollen. Lange Dusche, Toast mit Ei und eine Stunde Schlaf auf dem Sofa. Es hat etwas absurd Gutes, nass zu laufen, wenn man es selbst so gewählt hat.",
+      "animo": "😀"
+    },
+    {
+      "dia": -68,
+      "titulo": "Die Autobatterie, schon wieder",
+      "texto": "Das Auto sprang um halb sieben nicht an, und ich bin in aller Eile mit dem Fahrrad ins Café. Neue Batterie: 72 Euro aus dem gerade erst neu eingerichteten Notgroschen, der jetzt bei 8 steht. Das Auto ist neunzehn Jahre alt und erinnert mich jedes Quartal daran, dass es existiert. Wenigstens hat es diesmal nicht den ganzen Monat versenkt, nur genervt.",
+      "animo": "😔"
+    },
+    {
+      "dia": -65,
+      "titulo": "Andromeda vom Brachland aus",
+      "texto": "Klare, mondlose Nacht, also habe ich das Stativ aufs Fahrrad geschnallt und bin zum Brachland hinter der Sporthalle gefahren. Dreißig zwanzigsekündige Aufnahmen übereinandergelegt, und da erschien Andromeda, ein ovaler Fleck mit erkennbarer Struktur. Ich habe zehn Minuten lang fröstelnd und mit dümmlichem Grinsen auf den Laptop-Bildschirm gestarrt. Zweieinhalb Millionen Lichtjahre entfernt, und ich mit einer gebrauchten Kamera.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -62,
+      "titulo": "Achtzehn, und der Körper sagt ja",
+      "texto": "Achtzehn Kilometer, der längste Lauf meines Lebens, und die letzten drei waren die besten. Ich habe bei Kilometer zehn ein Gel genommen, weil ich letzten Sonntag auf halber Strecke leer war. Tempo 5:58, konstant, ohne Heldentaten. Jetzt eine Woche Tapering, und das war's: Am Sonntag, dem 21., steht eine Startnummer mit meinem Namen drauf.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -59,
+      "titulo": "Das halbe Stück am Stück",
+      "texto": "Ich habe Clair de Lune vom Anfang bis zur Mitte ohne Pause gespielt. Langsam, mit zwei Stolperern, aber ohne die Hände abzusetzen oder zurückzugehen. Zehn Monate mit diesem gebrauchten Klavier, und heute klang es zum ersten Mal wie das Stück, das ich in den Kopfhörern höre. Der dritte Teil, mit den schnellen Arpeggien, ist immer noch ein anderes Land.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -55,
+      "titulo": "Ruhige Woche, lauter Kopf",
+      "texto": "Tapering-Woche: wenig laufen, wenn der Körper laufen will, ist wirklich seltsam. Ich verbringe den Tag damit, Dinge durchzugehen, die nicht von mir abhängen, als würde die Zeit am Sonntag etwas Wichtiges entscheiden. Zehn Minuten Meditation morgens und zehn abends, das Einzige, was die Lautstärke runterdreht. Ich habe die Kleidung schon zwei Tage vorher zurechtgelegt, wie vor einer Prüfung.",
+      "animo": "😐"
+    },
+    {
+      "dia": -52,
+      "titulo": "Halbmarathon: 2:04 Stunden",
+      "texto": "Einundzwanzig Kilometer mit Startnummer, 2 Stunden 4 Minuten. Ich bin absichtlich langsam gestartet, habe ab Kilometer fünfzehn angefangen, Leute zu überholen, und bin im letzten Kilometer ohne klaren Grund in Tränen ausgebrochen. Vor einem Jahr bin ich zwei Stockwerke hoch und mir ging die Luft aus. Alkoholfreies Bier, Chips und die Medaille am Türgriff.",
+      "animo": "😀"
+    },
+    {
+      "dia": -49,
+      "titulo": "Treppen seitwärts",
+      "texto": "Ich gehe die Treppe seitwärts runter wie eine Neunzigjährige, und das bringt mich zum Lachen. Bei der Arbeit stand ich sechs Stunden, und die Beine haben die ganze Schicht protestiert. Das Merkwürdige ist, dass mir seit drei Tagen derselbe Gedanke im Kopf kreist: Wenn einundzwanzig geht, geht auch zweiundvierzig. Laut ausgesprochen habe ich es noch nicht.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -46,
+      "titulo": "Masterstudium oder Job?",
+      "texto": "Ich habe auf zwei Blättern das berühmte Diagramm gezeichnet: Masterstudium oder Job. In der einen Spalte ein Master in Messtechnik, zwei weitere Jahre Stipendien und Schlafen bei der Familie. In der anderen, gleich etwas Technisches suchen, Geld verdienen und nebenbei auf Sparflamme weiterstudieren. Entschieden habe ich nichts, aber zum ersten Mal macht mich der Anblick auf dem Papier nicht schwindlig.",
+      "animo": "😐"
+    },
+    {
+      "dia": -43,
+      "titulo": "Anmeldung erledigt: Marathon",
+      "texto": "Anmeldung erledigt: Marathon, 38 Euro, fünf Wochen Plan. Nadia hat mit zwei Bedingungen zugestimmt: alle zwei Wochen Physio, und beim ersten Warnsignal vom Knie sofort abbrechen. Es ist ehrgeizig, das weiß ich; ich weiß aber auch, dass ich seit sechs Monaten fast lückenlos Kilometer sammle. Ich habe 42,195 auf die Küchentafel geschrieben und eine Weile draufgestarrt.",
+      "animo": "😀"
+    },
+    {
+      "dia": -37,
+      "titulo": "Vierundzwanzig Kilometer und zwei Bananen",
+      "texto": "Vierundzwanzig Kilometer mit zwei Bananen und einer Flasche, versteckt hinter einer Bank. Ab Kilometer zwanzig ist alles Kopfsache: Laternen zählen, ans Frühstück denken, nicht ausrechnen, was noch fehlt. Die letzten zweihundert Meter bis zur Haustür bin ich gegangen. Danach habe ich vierzig Minuten in Laufkleidung geschlafen, mit Laika auf dem Rücken.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -33,
+      "titulo": "Optik-Labor bis neun",
+      "texto": "Optik-Labor bis neun: Das Interferometer verstellte sich jedes Mal, wenn jemand fest auftrat. Bruno und ich haben die Messung fünfmal wiederholt, um brauchbare Streifen zu bekommen. Das Semesterprojekt wird in drei Wochen abgegeben, und mir fehlt noch die ganze Fehleranalyse. Ich bin hungrig und durchgefroren rausgegangen, mit dem seltsamen Gefühl, dass mir das immer noch Spaß macht.",
+      "animo": "😐"
+    },
+    {
+      "dia": -30,
+      "titulo": "Der Mann mit dem Hammer bei Kilometer 28",
+      "texto": "Zweiunddreißig Kilometer. Bei Kilometer achtundzwanzig hat mich der Mann mit dem Hammer erwischt: Betonbeine und die Lust, mich auf eine Bank zu setzen und jemanden anzurufen. Ich habe das letzte Gel gegessen, das Tempo eine Minute gedrosselt und bin abwechselnd joggend und gehend nach Hause gekommen. Es war nicht schön, aber jetzt weiß ich, wo er wartet und wie es sich anfühlt.",
+      "animo": "😐"
+    },
+    {
+      "dia": -27,
+      "titulo": "Kaffee mit Iris und die Angst",
+      "texto": "Kaffee mit Iris nach der Schicht, und ich habe ihr erzählt, dass mir vor dem Marathon-Sonntag angst wird. Sie ist vor drei Jahren einen gelaufen und hat mir den einzigen nützlichen Satz gesagt, den ich diese Woche gehört habe: Den Marathon läufst du mit dem, was du schon getan hast, nicht mit dem, was du an dem Morgen tust. Ich habe ihn mir ins Handy getippt. Sie hat mir auch gesagt, ich soll nichts Neues ausprobieren, nicht mal Socken.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -24,
+      "titulo": "Clair de Lune ganz, endlich",
+      "texto": "Clair de Lune von Anfang bis Ende, ohne Pause. Fast im Tempo, mit dem Pedal an den richtigen Stellen und zwei unsauberen Noten in der Coda. Ich habe dieses Stück im März angefangen, als es klar die Fantasie von jemandem war, der erst sechs Wochen ein gebrauchtes Klavier hatte. Ich werde es meiner Familie vorspielen, sobald der Marathon vorbei ist.",
+      "animo": "😀"
+    },
+    {
+      "dia": -21,
+      "titulo": "Tapering und lange Nickerchen",
+      "texto": "Richtiges Tapering: vierzig lockere Minuten und ein anderthalbstündiges Nickerchen. Ich esse mehr Reis und Nudeln als sonst und schlafe zum ersten Mal seit Monaten acht Stunden. Die App zeigt zwölf Wochen ohne eine ausgelassene Meditation. Ich bin in diesem seltsamen Zustand, gespeicherte Energie zu haben und sie nicht loswerden zu können.",
+      "animo": "😴"
+    },
+    {
+      "dia": -18,
+      "titulo": "Startnummer 4412",
+      "texto": "Ich habe die Startnummer in der Halle abgeholt: 4412. In der Tüte waren ein Gel, ein hässliches T-Shirt und eine Sicherheitsnadel zu wenig, also habe ich mir welche gekauft. Die Kleidung liegt seit gestern auf dem Stuhl, die Gels sind gezählt (fünf), und das Frühstück steht fest: Toast, Banane und Kaffee um sechs. Ich gehe den Tempoplan immer wieder durch und sage mir, dass langsam zu starten keine Feigheit ist.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -14,
+      "titulo": "42,195",
+      "texto": "42,195 km in 4 Stunden 19 Minuten. Ich bin bei 6:05 gestartet und habe bis Kilometer zweiunddreißig durchgehalten, wo ich schon wusste, dass der Mann mit dem Hammer wartet; diesmal bin ich ihm hundert Meter gehend begegnet und wieder ins Joggen gekommen. Bei achtunddreißig habe ich meine Familie mit einem schrecklichen Pappschild gesehen und beim Laufen angefangen zu weinen, was sich unmöglich gut machen lässt. Ich bin ins Ziel gelaufen, und eine Helferin hat mir die Medaille umgehängt, ohne zu wissen, dass ich vor zwölf Monaten keine zehn Minuten am Stück joggen konnte.",
+      "animo": "🤩",
+      "foto": "medalla"
+    },
+    {
+      "dia": -12,
+      "titulo": "Zwei Tage danach",
+      "texto": "Ich gehe die Treppe rückwärts runter, beide Hände am Geländer. Ich habe einen Zehennagel, der sich eindeutig verabschiedet, und eine Acht-Stunden-Schicht im Stehen vor mir. Nadia war deutlich: zwei Wochen kein Laufen, gehen und keine Heldentaten. Ich habe ohne zu diskutieren gehorcht, was im März nicht passiert wäre.",
+      "animo": "😔"
+    },
+    {
+      "dia": -8,
+      "titulo": "Die Leere nach dem Ziel",
+      "texto": "Seit ein paar Tagen habe ich eine Leere, die ich nicht erwartet hatte. Elf Monate mit einem Pfeil geradeaus, und plötzlich hat der Sonntagmorgen keine Form mehr. Ich schreibe es hier auf, weil es beim Lesen die Dramatik verliert: Ich stecke nicht in einem Loch, mir fehlt ein Ziel, und das ist etwas anderes und lösbar. Drei Kandidaten auf der Liste: nächstes Jahr Korea, der Notgroschen auf drei Monatsausgaben bringen und ein neues Stück.",
+      "animo": "😔"
+    },
+    {
+      "dia": -5,
+      "titulo": "Gehen, Tee und Laika",
+      "texto": "Statt zu laufen jetzt einstündige Spaziergänge, nachmittags Tee statt Kaffee, und Laika unerträglich anhänglich. Ich habe Flüge nach Seoul in einem Jahr angeschaut, nichts gekauft, nur um auszurechnen, wie viel ich pro Lohnperiode zurücklegen müsste: etwa 55 Euro. Außerdem habe ich die Noten der Arabeske Nr. 1 rausgeholt und über mein eigenes Gesicht gelacht. Morgen spiele ich Clair de Lune dreimal durch, denn am Sonntag spiele ich es für meine Familie.",
+      "animo": "🙂"
+    },
+    {
+      "dia": -3,
+      "titulo": "Clair de Lune für meine Familie",
+      "texto": "Ich habe es ganz im Wohnzimmer meiner Eltern gespielt, auf dem verstimmten aufrechten Klavier, das meiner Großmutter gehörte. In den ersten Takten haben meine Hände gezittert, und bei den Arpeggien habe ich eine Note verschluckt, die niemand außer mir bemerkt hat. Meine Mutter hat vor der Hälfte angefangen zu weinen, und mein Bruder hat natürlich alles im Hochformat gefilmt. Vor zehn Monaten wusste ich nicht, wo das mittlere C liegt.",
+      "animo": "🤩"
+    },
+    {
+      "dia": -1,
+      "titulo": "Die Bilanz des Jahres",
+      "texto": "Ich habe eine halbe Stunde damit verbracht, das Jahr in der App durchzugehen. 74 kg damals, 67,0 heute Morgen; 1.214 gelaufene Kilometer; ein 5K, ein 10K, ein Halbmarathon und ein Marathon. 2.600 Euro gespart und in drei Wochen Japan ausgegeben, 61 Seiten Reisetagebuch und 118 Einträge hier. Was in den Zahlen nicht steht: Vor einem Jahr bin ich um zwei mit dem Handy vor dem Gesicht ins Bett gegangen.",
+      "animo": "🙂"
+    },
+    {
+      "dia": 0,
+      "titulo": "Zwölf Monate später",
+      "texto": "Heute ist es genau zwölf Monate her, dass ich angefangen habe, all das festzuhalten, mit einer riesigen Wut und ohne klare Ahnung. Ich habe mein Leben nicht repariert: gleiches Café, gleiches neunzehn Jahre altes Auto und dieselbe ungelöste Frage zwischen Masterstudium und Job, die ich im Frühling entscheiden werde. Was sich verändert hat, ist, dass ich jetzt weiß, wozu ich fähig bin, wenn ich etwas dreihundert Tage in Folge wiederhole. Neue Ziele, heute aufgeschrieben: Notgroschen für drei Monatsausgaben, die Arabeske Nr. 1 vor Juni und Korea in einem Jahr. Und morgen, eine halbe Stunde lockeres Joggen, denn es ist wieder Zeit.",
+      "animo": "😀"
+    }
+  ]
+}

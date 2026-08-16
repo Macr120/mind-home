@@ -85,7 +85,7 @@ export function AltaIdioma({ existentes, onCreado }: {
               key={c.codigo}
               type="button"
               onClick={() => setSel(c.codigo)}
-              className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-left text-xs transition ${
+              className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-start text-xs transition ${
                 activo ? 'font-semibold text-black' : 'bg-white/5 text-white/80 hover:bg-white/10'
               }`}
               style={activo ? { background: COLOR } : undefined}
@@ -97,7 +97,7 @@ export function AltaIdioma({ existentes, onCreado }: {
         <button
           type="button"
           onClick={() => setSel('otro')}
-          className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-left text-xs transition ${
+          className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-start text-xs transition ${
             sel === 'otro' ? 'font-semibold text-black' : 'bg-white/5 text-white/80 hover:bg-white/10'
           }`}
           style={sel === 'otro' ? { background: COLOR } : undefined}

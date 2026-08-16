@@ -1,5 +1,5 @@
 /**
- * Las funciones que entiende una hoja, en español.
+ * Las funciones que entiende una hoja, en español (con alias en inglés).
  *
  * No se traducen a nombres de mathjs para evaluar: se le pasan tal cual en el
  * ámbito, así que `SUMA(1,2,3)` llama directamente a la implementación de aquí.
@@ -144,3 +144,12 @@ export const NOMBRES_HOJA = Object.keys(A_OOXML)
  * acceso a propiedad), así que se aplanan antes de evaluar.
  */
 export const ALIAS_PUNTO: Record<string, string> = { 'CONTAR.SI': 'CONTARSI', 'SUMAR.SI': 'SUMARSI' }
+
+/**
+ * Los nombres canónicos de OOXML valen también al evaluar (`=SUM(A1:A5)` ≡
+ * `=SUMA(A1:A5)`): la UI en inglés y alemán enseña esas grafías. Ninguno lleva
+ * punto, y al exportar `formulaOoxml` ya los deja pasar tal cual.
+ */
+for (const [es, en] of Object.entries(A_OOXML)) {
+  FUNCIONES_HOJA[en] ??= FUNCIONES_HOJA[ALIAS_PUNTO[es] ?? es]
+}

@@ -760,7 +760,7 @@ export function LienzoMapa({ mapa }: { mapa: MapaIdeas }) {
                     número de una lista en vez de como lo que pesa el punto. */}
                 {def.pesos && !esRaiz && (
                   <span
-                    className="texto-vivo ml-1.5 rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] font-bold"
+                    className="texto-vivo ms-1.5 rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] font-bold"
                     style={vivo(color)}
                   >
                     {n.peso ?? 1}
@@ -771,7 +771,7 @@ export function LienzoMapa({ mapa }: { mapa: MapaIdeas }) {
           })}
 
         {/* Controles de zoom */}
-        <div className="absolute right-2 top-2 z-20 flex flex-col gap-1">
+        <div className="absolute end-2 top-2 z-20 flex flex-col gap-1">
           <button
             type="button"
             onPointerDown={(e) => e.stopPropagation()}

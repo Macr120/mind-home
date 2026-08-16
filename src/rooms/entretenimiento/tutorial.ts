@@ -52,39 +52,6 @@ export const cuerpoArchivo: CuerpoTutorial = {
   ],
 }
 
-export const cuerpoProgramas: CuerpoTutorial = {
-  preparar: () => {
-    abrirApp('entretenimiento', 'programas')
-  },
-  pasos: [
-    {
-      sel: 'entretenimiento.programas',
-      alEntrar: () => {
-        clickTut('entretenimiento.tab.programas')
-      },
-      titulo: T('tut.app-entretenimiento--programas.1.titulo', 'La lista de pendientes'),
-      texto: T(
-        'tut.app-entretenimiento--programas.1.texto',
-        'Pep@ armó su programa de clásicos de ciencia ficción por ver. Con IA se genera por tema («terror de los 80»), pero también se escribe a mano.',
-      ),
-    },
-    {
-      sel: 'entretenimiento.programas.cronograma',
-      titulo: T('tut.app-entretenimiento--programas.2.titulo', 'Cada título, una meta'),
-      texto: T(
-        'tut.app-entretenimiento--programas.2.texto',
-        'Las tres primeras ya están palomeadas. Cada título guarda su nota de por qué está en la lista, y si le pones fechas baja al calendario como cualquier otra meta.',
-      ),
-    },
-    {
-      texto: T(
-        'tut.app-entretenimiento--programas.3.texto',
-        'Y en la otra pestaña está la mesa digital: más de veinte juegos de mesa y arcade para jugar ahí mismo.',
-      ),
-    },
-  ],
-}
-
 export const cuerpoJuegos: CuerpoTutorial = {
   preparar: () => {
     abrirApp('entretenimiento', 'mesa')

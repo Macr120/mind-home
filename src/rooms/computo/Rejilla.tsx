@@ -589,7 +589,7 @@ export function Rejilla({
               onPointerDown={seleccionarTodo}
               title={t('computo.hojas.selTodo', 'Seleccionar toda la hoja')}
               aria-label={t('computo.hojas.selTodo', 'Seleccionar toda la hoja')}
-              className="shrink-0 border-b border-r border-white/10 text-white/25 transition hover:bg-white/10 hover:text-white/60"
+              className="shrink-0 border-b border-e border-white/10 text-white/25 transition hover:bg-white/10 hover:text-white/60"
               style={{ width: 40 }}
             >
               ◢
@@ -601,7 +601,7 @@ export function Rejilla({
                 data-cab-col={c}
                 onPointerDown={() => seleccionarCol(c)}
                 title={t('computo.hojas.selCol', 'Seleccionar la columna {col}', { col: nombreCol(c) })}
-                className={`shrink-0 border-b border-r border-white/10 text-center text-[11px] font-semibold leading-[34px] transition hover:bg-white/10 ${
+                className={`shrink-0 border-b border-e border-white/10 text-center text-[11px] font-semibold leading-[34px] transition hover:bg-white/10 ${
                   c >= rect.c0 && c <= rect.c1 ? 'bg-white/10 text-white' : 'text-white/45'
                 }`}
                 style={{ width: anchoDe(c) }}
@@ -625,7 +625,7 @@ export function Rejilla({
                   data-cab-fila={fila}
                   onPointerDown={() => seleccionarFila(fila)}
                   title={t('computo.hojas.selFila', 'Seleccionar la fila {n}', { n: String(fila + 1) })}
-                  className={`sticky left-0 z-[5] shrink-0 border-b border-r border-white/10 bg-[color:var(--ui-panel-2)] text-center text-[11px] leading-[34px] transition hover:bg-white/10 ${
+                  className={`sticky start-0 z-[5] shrink-0 border-b border-e border-white/10 bg-[color:var(--ui-panel-2)] text-center text-[11px] leading-[34px] transition hover:bg-white/10 ${
                     fila >= rect.f0 && fila <= rect.f1 ? 'text-white' : 'text-white/40'
                   }`}
                   style={{ width: 40 }}
@@ -655,7 +655,7 @@ export function Rejilla({
                         empezarSeleccion(e, fila, col)
                       }}
                       onDoubleClick={() => campo.current?.focus()}
-                      className={`relative shrink-0 overflow-visible border-b border-r border-white/10 px-1 text-[11px] leading-[32px] ${
+                      className={`relative shrink-0 overflow-visible border-b border-e border-white/10 px-1 text-[11px] leading-[32px] ${
                         esActiva ? 'ring-1 ring-inset ring-accent' : dentro ? 'bg-white/10' : ''
                       } ${res?.error ? 'text-rose-300' : ''} ${
                         celda?.fmt?.neg ? 'font-bold' : ''
@@ -667,7 +667,7 @@ export function Rejilla({
                       {esAsa && (
                         <span
                           {...arrastreMover}
-                          className="absolute -left-1 -top-1 z-10 h-3 w-3 cursor-move touch-none rounded-sm border border-accent bg-[color:var(--ui-panel-2)]"
+                          className="absolute -start-1 -top-1 z-10 h-3 w-3 cursor-move touch-none rounded-sm border border-accent bg-[color:var(--ui-panel-2)]"
                           title={t('computo.hojas.asaMover', 'Arrastra para mover la selección')}
                           aria-label={t('computo.hojas.asaMover', 'Arrastra para mover la selección')}
                         />
@@ -675,7 +675,7 @@ export function Rejilla({
                       {esEsquina && (
                         <span
                           {...arrastreRelleno}
-                          className="absolute -bottom-1 -right-1 z-10 h-3 w-3 cursor-crosshair touch-none rounded-sm bg-accent"
+                          className="absolute -bottom-1 -end-1 z-10 h-3 w-3 cursor-crosshair touch-none rounded-sm bg-accent"
                           title={t('computo.hojas.rellenar', 'Arrastra para rellenar')}
                           aria-label={t('computo.hojas.rellenar', 'Arrastra para rellenar')}
                         />
@@ -771,9 +771,9 @@ export function Rejilla({
 function alineacion(celda: CeldaHoja | undefined, valor: number | string | undefined): string {
   const puesta = celda?.fmt?.ali
   if (puesta === 'cen') return 'text-center'
-  if (puesta === 'der') return 'text-right'
-  if (puesta === 'izq') return 'text-left'
-  return typeof valor === 'number' ? 'text-right' : 'text-left'
+  if (puesta === 'der') return 'text-end'
+  if (puesta === 'izq') return 'text-start'
+  return typeof valor === 'number' ? 'text-end' : 'text-start'
 }
 
 /** Una celda vacía, para quien necesite el molde. */

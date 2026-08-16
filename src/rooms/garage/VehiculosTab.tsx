@@ -64,7 +64,7 @@ export function VehiculosTab({
                   type="button"
                   data-tut={`garage.veh.item.${v.id}`}
                   onClick={() => v.id && onAbrir(v.id)}
-                  className="min-w-0 flex-1 text-left"
+                  className="min-w-0 flex-1 text-start"
                 >
                   <h3 className="truncate font-bold text-white/95">{v.nombre}</h3>
                   <p className="truncate text-xs text-white/50">
@@ -87,7 +87,7 @@ export function VehiculosTab({
                 </div>
               </div>
 
-              <div className="mt-2 flex flex-wrap items-center gap-1.5 pl-14">
+              <div className="mt-2 flex flex-wrap items-center gap-1.5 ps-14">
                 {v.matricula && (
                   <Chip>
                     <Icono nombre="tarjeta" /> {v.matricula}

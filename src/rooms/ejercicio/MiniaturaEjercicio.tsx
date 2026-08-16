@@ -12,6 +12,8 @@ import {
 import { urlImagenPreset } from './imagenesPreset'
 import { Creditos } from '../../core/ui/Creditos'
 import { OP_IMAGEN_EJERCICIO } from './costosIA'
+import { acento } from '../_shared/acento'
+import { C_FLEX } from './constantes'
 
 /**
  * Miniatura (imagen) de un ejercicio del catálogo. Al tocarla se abre un diálogo
@@ -133,7 +135,7 @@ function DialogoImagen({
           <button
             type="button"
             onClick={onCerrar}
-            className="ml-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
+            className="ms-auto rounded-lg px-2 py-1 text-white/40 transition hover:bg-white/10 hover:text-white/80"
           >
             <Icono nombre="cerrar" />
           </button>
@@ -166,7 +168,8 @@ function DialogoImagen({
             type="button"
             onClick={generar}
             disabled={!puedeGenerar || generando}
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-violet-600 px-3 py-2.5 text-sm font-bold texto-cta transition hover:bg-violet-500 disabled:opacity-40"
+            className="ui-accent-bg flex flex-1 items-center justify-center gap-1.5 rounded-xl px-3 py-2.5 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
+            style={acento(C_FLEX)}
           >
             <Icono nombre="brillo" />
             {url

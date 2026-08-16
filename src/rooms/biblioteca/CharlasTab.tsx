@@ -3,7 +3,7 @@ import { VACIO, conversacionesBiblioRepo } from '../../core/data/repository'
 import { iaActiva } from '../../core/chat/ia'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
-import { COLOR, PILAR_GENERAL, getPilar } from './constantes'
+import { PILAR_GENERAL, getPilar } from './constantes'
 import { ChatCharla } from './ChatCharla'
 import type { AnclaTema } from './arbol'
 
@@ -63,8 +63,7 @@ export function CharlasTab({
         type="button"
         onClick={() => onAbrir('nueva')}
         disabled={!conIA}
-        className="w-full rounded-xl py-2.5 text-sm font-semibold text-black transition disabled:opacity-40"
-        style={{ background: COLOR }}
+        className="ui-accent-bg w-full rounded-xl py-2.5 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
       >
         <Icono nombre="chat" /> {t('biblioteca.charla.nuevaBtn', 'Nueva charla con el Sabio')}
       </button>
@@ -80,9 +79,8 @@ export function CharlasTab({
                 type="button"
                 onClick={() => setFiltro(id)}
                 className={`shrink-0 rounded-full px-2.5 py-1 text-xs transition ${
-                  activo ? 'text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
+                  activo ? 'ui-accent-bg' : 'bg-white/5 text-white/70 hover:bg-white/10'
                 }`}
-                style={activo ? { background: COLOR } : undefined}
               >
                 {pilar ? <><Icono emoji={pilar.icon} /> {pilar.titulo}</> : t('biblioteca.charla.todas', 'Todas')}
               </button>
@@ -105,7 +103,7 @@ export function CharlasTab({
               key={c.id}
               type="button"
               onClick={() => c.id != null && onAbrir(c.id)}
-              className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-left transition hover:bg-white/10"
+              className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-start transition hover:bg-white/10"
             >
               <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-black/25 text-lg">
                 <Icono emoji={pilar.icon} />

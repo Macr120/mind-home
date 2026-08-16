@@ -146,9 +146,9 @@ export function TablaAnual({ columnas, filas }: { columnas: string[]; filas: str
       <div className="max-h-56 overflow-y-auto">
         <table className="w-full text-xs">
           <thead>
-            <tr className="text-white/40 text-left">
+            <tr className="text-white/40 text-start">
               {columnas.map((c) => (
-                <th key={c} className="py-1 pr-2 font-medium last:text-right last:pr-0">{c}</th>
+                <th key={c} className="py-1 pe-2 font-medium last:text-end last:pe-0">{c}</th>
               ))}
             </tr>
           </thead>
@@ -156,7 +156,7 @@ export function TablaAnual({ columnas, filas }: { columnas: string[]; filas: str
             {filas.map((f) => (
               <tr key={f[0]} className="border-t border-white/5 text-white/70">
                 {f.map((v, i) => (
-                  <td key={i} className="py-1 pr-2 last:text-right last:pr-0">{v}</td>
+                  <td key={i} className="py-1 pe-2 last:text-end last:pe-0">{v}</td>
                 ))}
               </tr>
             ))}

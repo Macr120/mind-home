@@ -68,7 +68,7 @@ export function MoverNodoDialog({
                   onElegir(esCampo ? { temaId: null, pilarId: nodo.id } : { temaId: nodo.id, pilarId: nodo.pilarId })
                 }
                 style={{ paddingLeft: `${0.5 + prof * 0.9}rem` }}
-                className={`flex w-full items-center gap-1.5 rounded-lg py-1.5 pr-2 text-left text-xs transition hover:bg-white/10 ${
+                className={`flex w-full items-center gap-1.5 rounded-lg py-1.5 pe-2 text-start text-xs transition hover:bg-white/10 ${
                   esCampo ? 'font-semibold text-white/90' : 'text-white/75'
                 }`}
               >

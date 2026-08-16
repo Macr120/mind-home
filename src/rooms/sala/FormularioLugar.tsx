@@ -158,7 +158,7 @@ export function FormularioLugar({ lugar, inicial, onCerrar }: Props) {
                 <button
                   type="button"
                   onClick={() => elegirResultado(r)}
-                  className="w-full rounded-md px-2 py-1.5 text-left text-xs text-white/80 hover:bg-white/10"
+                  className="w-full rounded-md px-2 py-1.5 text-start text-xs text-white/80 hover:bg-white/10"
                 >
                   <Icono nombre="ubicacion" /> {r.etiqueta}
                 </button>

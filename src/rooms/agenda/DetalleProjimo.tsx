@@ -13,6 +13,7 @@ import { CarpetasPorEtiqueta } from '../_shared/Archivador'
 import { Arrastrable, guardarOrden, porOrden, useArrastreFilas } from './arrastre'
 import { AvatarContacto } from './AvatarContacto'
 import { COLOR_AREA } from './constantes'
+import { acento } from '../_shared/acento'
 import { CuidadosSection } from './CuidadosSection'
 import { FilaMedicamento } from './FilaMedicamento'
 import { FormContacto } from './FormContacto'
@@ -111,8 +112,8 @@ export function DetalleProjimo({
           <button
             type="button"
             onClick={() => setCreandoCita(true)}
-            className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-            style={{ background: COLOR_AREA.salud }}
+            className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+            style={acento(COLOR_AREA.salud)}
           >
             <Icono nombre="agregar" /> {t('agenda.salud.nuevaCita', 'Nueva cita')}
           </button>
@@ -142,8 +143,8 @@ export function DetalleProjimo({
           <button
             type="button"
             onClick={() => setCreandoMedicina(true)}
-            className="rounded-xl px-3 py-1.5 text-xs font-bold texto-cta transition hover:brightness-110"
-            style={{ background: COLOR_AREA.salud }}
+            className="rounded-xl px-3 py-1.5 text-xs font-bold ui-accent-bg transition hover:brightness-110"
+            style={acento(COLOR_AREA.salud)}
           >
             <Icono nombre="agregar" /> {t('agenda.salud.nuevoMedicamento', 'Nuevo medicamento')}
           </button>

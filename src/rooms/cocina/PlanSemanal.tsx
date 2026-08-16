@@ -192,7 +192,7 @@ export function PlanSemanal({
           <Icono nombre="calendario" /> {t('cocina.plan.semana', 'Plan de comidas')}
         </p>
 
-        <div className="ml-auto flex flex-wrap items-center justify-end gap-1.5">
+        <div className="ms-auto flex flex-wrap items-center justify-end gap-1.5">
           {recetas.length > 0 && (
             <>
               <button
@@ -204,7 +204,7 @@ export function PlanSemanal({
                     ? t('cocina.plan.elegirAyuda', 'Toca los huecos que quieras llenar y pulsa Generar. Sin ninguno marcado se llenan todos.')
                     : t('cocina.plan.generarAyuda', 'Rellena solo los huecos vacíos de los días que ves, respetando el momento de cada receta. Lo que ya elegiste no se toca.')
                 }
-                className="flex items-center gap-1 rounded-lg bg-amber-600 px-2 py-1 text-[10px] font-bold texto-cta transition hover:brightness-110 disabled:opacity-40"
+                className="ui-accent-bg flex items-center gap-1 rounded-lg px-2 py-1 text-[10px] font-bold transition hover:brightness-110 disabled:opacity-40"
               >
                 <Icono nombre="brillo" /> {marcados?.size ? marcados.size : libres.length}
               </button>
@@ -255,7 +255,7 @@ export function PlanSemanal({
             <button
               type="button"
               onClick={() => setAncla(hoyISO())}
-              className="ml-2 text-[10px] text-amber-400 hover:underline"
+              className="ms-2 text-[10px] text-amber-400 hover:underline"
             >
               {t('nav.irHoy', 'Ir a hoy')}
             </button>
@@ -307,7 +307,7 @@ export function PlanSemanal({
             {traspuesta
               ? dias.map((d) => (
                   <tr key={d}>
-                    <th className="text-left text-[10px] font-semibold text-white/50">
+                    <th className="text-start text-[10px] font-semibold text-white/50">
                       <span className={d === hoyISO() ? 'text-amber-400' : ''}>
                         {deIso(d).toLocaleDateString(localeActual(), { weekday: 'short', day: 'numeric' })}
                       </span>
@@ -330,12 +330,12 @@ export function PlanSemanal({
                         </td>
                       )
                     })}
-                    <td className="text-right text-[10px] font-semibold text-white/45">{kcalDia(d) || ''}</td>
+                    <td className="text-end text-[10px] font-semibold text-white/45">{kcalDia(d) || ''}</td>
                   </tr>
                 ))
               : MOMENTOS.map((m) => (
                   <tr key={m.id}>
-                    <th title={HORA_SUGERIDA[m.id]} className="text-left text-[10px] font-semibold text-white/50">
+                    <th title={HORA_SUGERIDA[m.id]} className="text-start text-[10px] font-semibold text-white/50">
                       <Icono emoji={m.icon} /> {t(`cocina.momento.${m.id}`, m.label)}
                     </th>
                     {dias.map((d) => {
@@ -361,7 +361,7 @@ export function PlanSemanal({
           {!traspuesta && (
             <tfoot>
               <tr>
-                <th className="text-left text-[10px] font-semibold text-white/40">
+                <th className="text-start text-[10px] font-semibold text-white/40">
                   {t('cocina.plan.kcal', 'kcal')}
                 </th>
                 {dias.map((d) => (
@@ -387,7 +387,7 @@ export function PlanSemanal({
               type="button"
               onClick={() => setSel(null)}
               aria-label={t('cocina.plan.cerrarCelda', 'Cerrar')}
-              className="ml-auto text-white/30 hover:text-white/70"
+              className="ms-auto text-white/30 hover:text-white/70"
             >
               ✕
             </button>
@@ -444,7 +444,7 @@ export function PlanSemanal({
                   <button
                     type="button"
                     onClick={() => elegir(r)}
-                    className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left text-sm hover:bg-white/10"
+                    className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start text-sm hover:bg-white/10"
                   >
                     <span className="text-lg">
                       <Icono emoji={r.emoji} />
@@ -572,7 +572,7 @@ function ChipsDietas({
               aria-pressed={puesta}
               onClick={() => d.id != null && alternar(d.id)}
               className={`rounded-full px-2.5 py-1 text-[10px] font-semibold transition ${
-                puesta ? 'bg-amber-600 texto-cta' : 'bg-white/5 text-white/50 hover:bg-white/10'
+                puesta ? 'ui-accent-bg' : 'bg-white/5 text-white/50 hover:bg-white/10'
               }`}
             >
               {d.nombre}
@@ -634,7 +634,7 @@ function Totales({
         <p className="text-xs font-semibold text-white/70">
           <Icono nombre="progreso" /> {t('cocina.plan.totales', 'Totales del periodo')}
         </p>
-        <span className="ml-auto text-sm font-bold text-amber-400">{suma.kcal.toLocaleString()} kcal</span>
+        <span className="ms-auto text-sm font-bold text-amber-400">{suma.kcal.toLocaleString()} kcal</span>
       </div>
 
       {enRango.length === 0 ? (

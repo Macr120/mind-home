@@ -67,7 +67,7 @@ function FormRecuerdo({ lugar, onListo }: { lugar: LugarViaje; onListo: () => vo
               <button
                 type="button"
                 onClick={() => setFotos(fotos.filter((_, j) => j !== i))}
-                className="ui-noche absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/80 text-[10px] text-white/80 hover:text-white"
+                className="ui-noche absolute -end-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-black/80 text-[10px] text-white/80 hover:text-white"
               >
                 ✕
               </button>
@@ -131,7 +131,7 @@ function TarjetaAlbum({
     <div
       onClick={onClick}
       data-tut={tut}
-      className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-white/5 text-left transition hover:border-white/25"
+      className="group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-xl border border-white/10 bg-white/5 text-start transition hover:border-white/25"
     >
       {portada ? (
         <Foto
@@ -144,7 +144,7 @@ function TarjetaAlbum({
         </div>
       )}
       {chip && (
-        <span className="ui-noche absolute right-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-white/85 backdrop-blur">
+        <span className="ui-noche absolute end-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-white/85 backdrop-blur">
           <Icono nombre="foto" /> {chip}
         </span>
       )}
@@ -155,7 +155,7 @@ function TarjetaAlbum({
             onPortada()
           }}
           title={tituloPortada}
-          className="ui-noche absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[11px] text-white/85 backdrop-blur transition hover:bg-black/85"
+          className="ui-noche absolute start-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[11px] text-white/85 backdrop-blur transition hover:bg-black/85"
         >
           <Icono nombre="imagen" />
         </button>
@@ -345,7 +345,7 @@ export function BitacoraTab({ lugares, lugarInicial }: Props) {
                 <span className="text-[11px] text-white/40">{e.fecha}</span>
                 <button
                   onClick={() => e.id && void bitacoraViajeRepo.remove(e.id)}
-                  className="ml-auto text-white/30 hover:text-white/70"
+                  className="ms-auto text-white/30 hover:text-white/70"
                 >
                   ✕
                 </button>
@@ -474,7 +474,7 @@ function VisorFotos({ visor, setVisor }: { visor: Visor; setVisor: (v: Visor | n
       <Foto blob={visor.fotos[visor.idx]} className="max-h-full max-w-full rounded-xl object-contain" />
       <button
         onClick={() => setVisor(null)}
-        className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
+        className="absolute end-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80 hover:bg-white/20"
       >
         ✕
       </button>
@@ -485,7 +485,7 @@ function VisorFotos({ visor, setVisor }: { visor: Visor; setVisor: (v: Visor | n
               e.stopPropagation()
               setVisor({ ...visor, idx: (visor.idx - 1 + visor.fotos.length) % visor.fotos.length })
             }}
-            className="absolute left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
+            className="absolute start-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
           >
             ‹
           </button>
@@ -494,7 +494,7 @@ function VisorFotos({ visor, setVisor }: { visor: Visor; setVisor: (v: Visor | n
               e.stopPropagation()
               setVisor({ ...visor, idx: (visor.idx + 1) % visor.fotos.length })
             }}
-            className="absolute right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
+            className="absolute end-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white/80 hover:bg-white/20"
           >
             ›
           </button>

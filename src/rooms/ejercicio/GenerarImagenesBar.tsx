@@ -10,6 +10,8 @@ import { costoOperacion } from '../../core/cuenta/catalogoIA'
 import { Creditos } from '../../core/ui/Creditos'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { OP_LOTE_IMAGENES } from './costosIA'
+import { acento } from '../_shared/acento'
+import { C_CARDIO, C_FLEX, C_FUERZA } from './constantes'
 
 interface EjercicioMin {
   nombre: string
@@ -21,7 +23,7 @@ interface EjercicioMin {
  * actual. El proveedor y la API key son los que ya está usando el chat (no se
  * configuran aquí); cada miniatura genera la suya por separado.
  */
-const ACENTOS = { violet: 'bg-violet-600', orange: 'bg-orange-600', sky: 'bg-sky-600' }
+const ACENTOS = { violet: C_FLEX, orange: C_FUERZA, sky: C_CARDIO }
 
 export function GenerarImagenesBar({
   ejercicios,
@@ -92,7 +94,8 @@ export function GenerarImagenesBar({
         type="button"
         onClick={generarFaltantes}
         disabled={!imagenIaActiva() || faltantes.length === 0 || generando}
-        className={`rounded-lg px-2.5 py-1 text-[11px] font-bold texto-cta disabled:opacity-40 ${btnAcc}`}
+        className="ui-accent-bg rounded-lg px-2.5 py-1 text-[11px] font-bold disabled:opacity-40"
+        style={acento(btnAcc)}
       >
         {generando
           ? `Generando ${progreso?.hechas ?? 0}/${progreso?.total ?? faltantes.length}…`

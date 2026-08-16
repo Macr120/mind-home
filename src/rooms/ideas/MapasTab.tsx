@@ -7,6 +7,7 @@ import { VACIO, borrarMapaIdeas, mapasIdeasRepo } from '../../core/data/reposito
 import type { TipoMapa } from '../../core/data/db'
 import { intencionApp } from '../../core/state/intencionApp'
 import { COLOR } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { crearEjemplo, crearMapaIA, crearMapaVacio } from './crear'
 import { ejemploDe } from './ejemplos'
 import { MatrizDecision } from './MatrizDecision'
@@ -120,7 +121,7 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
               type="button"
               onClick={() => setVerGuia((v) => !v)}
               aria-expanded={verGuia}
-              className="flex w-full items-center gap-1.5 text-left"
+              className="flex w-full items-center gap-1.5 text-start"
             >
               <Icono nombre="ayuda" />
               <span className="min-w-0 flex-1 text-xs font-semibold">
@@ -156,21 +157,18 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
   return (
     <div className="mx-auto w-full max-w-2xl space-y-3">
       <div className="space-y-2.5 rounded-2xl border border-white/10 bg-white/5 p-3" data-tut="ideas.mapas.alta">
-        <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3" data-tut="ideas.mapas.tipos">
-          {tipos.map((d) => (
-            <button
-              key={d.id}
-              type="button"
-              onClick={() => setTipo(d.id)}
-              title={t(`ideas.tipoDesc.${d.id}`, d.descripcionEs)}
-              className={`flex items-center justify-center gap-1 rounded-xl px-2.5 py-1.5 text-center text-xs font-semibold transition ${
-                tipo === d.id ? 'text-black' : 'bg-white/5 text-white/60 hover:bg-white/10'
-              }`}
-              style={tipo === d.id ? { background: COLOR } : undefined}
-            >
-              <Icono nombre={d.icono} /> {t(`ideas.tipo.${d.id}`, d.nombreEs)}
-            </button>
-          ))}
+        <div data-tut="ideas.mapas.tipos">
+          <PestanasCarpeta
+            items={tipos.map((d) => ({ id: d.id, icono: d.icono, labelEs: d.nombreEs }))}
+            activo={tipo}
+            onCambio={setTipo}
+            prefijoClave="ideas.tipo"
+            color={COLOR}
+            variante="sub"
+            nivel={3}
+            flecha={false}
+            rejilla
+          />
         </div>
         <div className="flex items-start gap-2">
           <p className="min-w-0 flex-1 text-[11px] leading-relaxed text-white/40">
@@ -204,20 +202,24 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
           </button>
         </div>
 
-        {iaActiva() && (
-          <button
-            type="button"
-            onClick={() => void generarConIA()}
-            disabled={!nombre.trim() || generando}
-            className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5 disabled:opacity-40"
-            data-tut="ideas.mapas.ia"
-          >
-            <Icono nombre="brillo" />
-            {generando
-              ? tx('generando', 'Dibujando el mapa…', 'Armando el diagrama…')
-              : tx('generar', 'Generar el mapa con IA', 'Generar el diagrama con IA')}
-            <Creditos op={OP_MAPA} />
-          </button>
+        {/* Siempre visible aunque no haya IA (deshabilitado): oculto nadie lo descubre. */}
+        <button
+          type="button"
+          onClick={() => void generarConIA()}
+          disabled={!iaActiva() || !nombre.trim() || generando}
+          className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-white/15 px-3 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/5 disabled:opacity-40"
+          data-tut="ideas.mapas.ia"
+        >
+          <Icono nombre="brillo" />
+          {generando
+            ? tx('generando', 'Dibujando el mapa…', 'Armando el diagrama…')
+            : tx('generar', 'Generar el mapa con IA', 'Generar el diagrama con IA')}
+          <Creditos op={OP_MAPA} />
+        </button>
+        {!iaActiva() && (
+          <p className="text-[11px] text-white/40">
+            {t('ideas.ia.sinClave', 'Configura la IA en el chat para generar mapas y diagramas.')}
+          </p>
         )}
         {errorIA && (
           <p className="rounded-lg bg-red-500/10 px-2.5 py-2 text-[11px] leading-relaxed text-red-300">
@@ -267,7 +269,7 @@ export function MapasTab({ familia }: { familia: 'mapas' | 'diagramas' }) {
                     type="button"
                     data-tut={`ideas.mapas.item.${m.id}`}
                     onClick={() => setAbierto(m.id ?? null)}
-                    className="min-w-0 flex-1 text-left"
+                    className="min-w-0 flex-1 text-start"
                   >
                     <span className="block truncate text-sm font-semibold">{m.nombre}</span>
                     <span className="text-[11px] text-white/40">

@@ -6,6 +6,8 @@ import { MiniaturaEjercicio } from './MiniaturaEjercicio'
 import { normalizarEjercicio } from './stats'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { acento } from '../_shared/acento'
+import { C_CARDIO } from './constantes'
 
 /**
  * Submenú "Catálogo" de resistencia: se arma una rutina tocando actividades del
@@ -101,7 +103,8 @@ export function CrearRutinaCardio() {
           type="button"
           onClick={guardar}
           disabled={ejercicios.length === 0}
-          className="w-full rounded-xl py-2.5 font-bold bg-sky-600 texto-cta disabled:opacity-40"
+          className="ui-accent-bg w-full rounded-xl py-2.5 font-bold disabled:opacity-40"
+          style={acento(C_CARDIO)}
         >
           {t('ejercicio.crearRutina.guardar', 'Guardar rutina')}
         </button>

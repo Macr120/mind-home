@@ -92,7 +92,7 @@ export function Memorama({ dificultad = 'medio' }: PropsDificultad) {
         <span className="font-semibold">
           {t('entre.j.memorama.intentos', 'Intentos')}: {intentos}
           {record > 0 && (
-            <span className="ml-2 text-white/45">
+            <span className="ms-2 text-white/45">
               {t('entre.j.mejor', 'Mejor')}: {record}
             </span>
           )}

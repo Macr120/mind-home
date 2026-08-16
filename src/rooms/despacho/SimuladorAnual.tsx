@@ -82,7 +82,7 @@ export function SimuladorAnual({ movimientos, patrimonio }: { movimientos: Trans
             value={horizonteTexto}
             onChange={(e) => setHorizonteTexto(e.target.value)}
             onBlur={() => setHorizonteTexto(String(horizonte))}
-            className="w-16 rounded-lg bg-black/30 px-2 py-1 text-right text-sm outline-none border border-white/10 focus:border-white/30"
+            className="w-16 rounded-lg bg-black/30 px-2 py-1 text-end text-sm outline-none border border-white/10 focus:border-white/30"
           />
         </label>
       </div>
@@ -169,7 +169,7 @@ function Escenario({ color, etiqueta, valor }: { color: string; etiqueta: string
     <div className="flex items-center gap-2 rounded-lg bg-black/20 px-3 py-2">
       <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />
       <span className="text-xs text-white/55">{etiqueta}</span>
-      <span className="texto-vivo ml-auto text-sm font-bold" style={vivo(color)}>
+      <span className="texto-vivo ms-auto text-sm font-bold" style={vivo(color)}>
         {valor}
       </span>
     </div>

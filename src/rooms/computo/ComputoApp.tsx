@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react'
-import { useT } from '../../core/i18n/useT'
 import { intencionApp } from '../../core/state/intencionApp'
-import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 import { Calculadora } from './Calculadora'
-import { COLOR } from './constantes'
 import { HojasTab } from './HojasTab'
 import { cargarMotor } from './motor'
 import { esModo, type Modo } from './modos'
 import { sembrarComputo } from './siembra'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
+import { COLOR } from './constantes'
 
 /**
- * La sala de cómputo en dos tiempos: la CALCULADORA —con sus nueve modos, entre
+ * La sala de cómputo en dos tiempos: la CALCULADORA —con sus ocho modos, entre
  * ellos la gráfica y el formulario— y las HOJAS para todo lo tabular.
  */
 
 type Tab = 'calculadora' | 'hojas'
 
-const TABS: { id: Tab; icono: NombreIcono; labelEs: string }[] = [
+const TABS: ItemPestana<Tab>[] = [
   { id: 'calculadora', icono: 'calculadora', labelEs: 'Calculadora' },
   { id: 'hojas', icono: 'hoja', labelEs: 'Hojas de cálculo' },
 ]
@@ -39,11 +37,11 @@ function destinoInicial(): { tab: Tab; modo: Modo; formulario: boolean } {
 }
 
 export function ComputoApp() {
-  const t = useT()
   // La intención se lee UNA vez: caduca a los 15 s y volver a mirarla en cada
   // repintado daría destinos distintos a mitad de sesión.
   const [inicio] = useState(destinoInicial)
   const [tab, setTab] = useState<Tab>(inicio.tab)
+  const [plegado, setPlegado] = useState(false)
 
   // El motor se pide al montar: cuando el usuario llega a la calculadora, ya
   // está caliente. Si falla, cada pestaña enseña su propio aviso. Y de paso se
@@ -60,24 +58,25 @@ export function ComputoApp() {
     // arriba comiéndose una franja, y lo que se pega es lo que de verdad hace
     // falta a la vista (el plano y sus funciones).
     <div className="space-y-3">
-      <div className="mx-auto flex w-full max-w-3xl gap-2">
-        {TABS.map((x) => (
-          <button
-            key={x.id}
-            data-tut={`computo.tab.${x.id}`}
-            onClick={() => setTab(x.id)}
-            className={`flex-1 rounded-xl px-1 py-2 text-xs font-semibold leading-tight transition ${
-              tab === x.id ? 'texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-            style={tab === x.id ? { background: COLOR } : undefined}
-          >
-            <Icono nombre={x.icono} /> {t(`computo.tab.${x.id}`, x.labelEs)}
-          </button>
-        ))}
+      <div className="mx-auto w-full max-w-3xl">
+        <PestanasCarpeta
+          items={TABS}
+          activo={tab}
+          onCambio={setTab}
+          prefijoClave="computo.tab"
+          color={COLOR}
+          variante="raiz"
+          plegado={plegado}
+          onAlternarPliegue={() => setPlegado((v) => !v)}
+        />
       </div>
 
-      {tab === 'calculadora' && <Calculadora modoInicial={inicio.modo} formularioInicial={inicio.formulario} />}
-      {tab === 'hojas' && <HojasTab />}
+      {!plegado && (
+        <>
+          {tab === 'calculadora' && <Calculadora modoInicial={inicio.modo} formularioInicial={inicio.formulario} />}
+          {tab === 'hojas' && <HojasTab />}
+        </>
+      )}
     </div>
   )
 }

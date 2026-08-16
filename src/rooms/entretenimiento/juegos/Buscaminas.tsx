@@ -180,9 +180,9 @@ export function Buscaminas({ dificultad = 'medio' }: PropsDificultad) {
         <button type="button" onClick={reiniciar} className="rounded-lg bg-white/10 px-3 py-1 text-xl hover:bg-white/20">
           <Icono emoji={carita} />
         </button>
-        <span className="text-right">
+        <span className="text-end">
           <Icono nombre="cronometro" /> {formatearTiempo(segundos)}
-          <span className="ml-2 text-xs font-normal text-white/45">
+          <span className="ms-2 text-xs font-normal text-white/45">
             {t('entre.j.mejor', 'Mejor')}: {record > 0 ? formatearTiempo(record) : '—'}
           </span>
         </span>

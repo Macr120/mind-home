@@ -3,6 +3,7 @@ import type { MediaArchivo } from '../../core/data/db'
 import { mediaArchivoRepo } from '../../core/data/repository'
 import { claveLS } from '../../core/edicion'
 import { COLOR, getTipoMedia } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { FormularioMedia } from './FormularioMedia'
 import { TarjetaMedia } from './TarjetaMedia'
 import { BotonPortadasLote } from './BotonPortadasLote'
@@ -100,20 +101,15 @@ export function ArchivoTab({ items }: { items: MediaArchivo[] }) {
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs text-white/40">{countText}</p>
         {lista.length > 0 && (
-          <div data-tut="entretenimiento.archivo.agrupar" className="flex flex-wrap gap-1.5">
-            {AGRUPACIONES.map((a) => (
-              <button
-                key={a.id}
-                type="button"
-                onClick={() => setAgrupacion(a.id)}
-                className={`rounded-lg px-2.5 py-1 text-xs font-semibold transition ${
-                  agrupacion === a.id ? 'text-black' : 'bg-white/10 hover:bg-white/20'
-                }`}
-                style={agrupacion === a.id ? { background: COLOR } : undefined}
-              >
-                {t(a.clave, a.etiqueta)}
-              </button>
-            ))}
+          <div data-tut="entretenimiento.archivo.agrupar">
+            <PestanasCarpeta
+              items={AGRUPACIONES.map((a) => ({ id: a.id, labelEs: a.etiqueta, clave: a.clave }))}
+              activo={agrupacion}
+              onCambio={setAgrupacion}
+              color={COLOR}
+              variante="sub"
+              nivel={2}
+            />
           </div>
         )}
       </div>

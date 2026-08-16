@@ -41,7 +41,7 @@ export function CartaView({
         <span className="block leading-none">{carta.palo}</span>
       </p>
       <span
-        className={`absolute bottom-0 right-0.5 leading-none ${roja ? 'text-red-600' : 'text-slate-900'}`}
+        className={`absolute bottom-0 end-0.5 leading-none ${roja ? 'text-red-600' : 'text-slate-900'}`}
         style={{ fontSize: Math.round(ancho * 0.42) }}
       >
         {carta.palo}

@@ -7,6 +7,8 @@ import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { vivo } from '../../core/ui/estilos'
 import { Archivador } from '../_shared/Archivador'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
+import { acento, tono } from '../_shared/acento'
 import { ArbolCarpetas } from './ArbolCarpetas'
 import { COLOR } from './constantes'
 import { crearMapaDesdeIdeas, crearMapaIA } from './crear'
@@ -172,28 +174,27 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
       </div>
 
       <div className="flex gap-1.5">
-        {(['carpetas', 'dia'] as const).map((v) => (
-          <button
-            key={v}
-            type="button"
-            onClick={() => setVista(v)}
-            className={`flex-1 rounded-xl py-1.5 text-xs font-semibold transition ${
-              vista === v ? 'text-black' : 'bg-white/5 text-white/60 hover:bg-white/10'
-            }`}
-            style={vista === v ? { background: COLOR } : undefined}
-          >
-            <Icono nombre={v === 'carpetas' ? 'carpeta' : 'calendario'} />{' '}
-            {v === 'carpetas' ? t('ideas.diario.porCarpeta', 'Carpetas') : t('ideas.diario.porDia', 'Por día')}
-          </button>
-        ))}
-        {/* Favoritas no es una vista: filtra la que esté puesta. */}
+        <div className="min-w-0 flex-[2]">
+          <PestanasCarpeta
+            items={[
+              { id: 'carpetas', icono: 'carpeta', labelEs: 'Carpetas', clave: 'ideas.diario.porCarpeta' },
+              { id: 'dia', icono: 'calendario', labelEs: 'Por día', clave: 'ideas.diario.porDia' },
+            ]}
+            activo={vista}
+            onCambio={setVista}
+            color={COLOR}
+            variante="sub"
+            nivel={2}
+          />
+        </div>
+        {/* Favoritas no es una vista: filtra la que esté puesta. Mismo tono que la fila. */}
         <button
           type="button"
           onClick={() => setSoloFav((x) => !x)}
           className={`flex-1 rounded-xl py-1.5 text-xs font-semibold transition ${
-            soloFav ? 'text-black' : 'bg-white/5 text-white/60 hover:bg-white/10'
+            soloFav ? 'ui-accent-bg' : 'bg-white/5 text-white/60 hover:bg-white/10'
           }`}
-          style={soloFav ? { background: COLOR } : undefined}
+          style={soloFav ? acento(tono(COLOR, 2)) : undefined}
           title={t('ideas.diario.soloFav', 'Solo las destacadas')}
         >
           <Icono nombre="estrella" /> {t('ideas.diario.favoritas', 'Favoritas')}
@@ -229,7 +230,7 @@ export function DiarioTab({ onAbrirMapa }: { onAbrirMapa: (mapaId: number) => vo
         <button
           type="button"
           onClick={() => setLluviaAbierta((x) => !x)}
-          className="flex w-full items-center gap-2 text-left text-xs font-semibold text-white/70 transition hover:text-white/95"
+          className="flex w-full items-center gap-2 text-start text-xs font-semibold text-white/70 transition hover:text-white/95"
         >
           <span className="texto-vivo" style={vivo(COLOR)}>
             <Icono nombre="lluvia" />
@@ -410,7 +411,7 @@ function TarjetaIdea({
       >
         <Icono nombre="estrella" />
       </button>
-      <button type="button" onClick={onAbrir} className="min-w-0 flex-1 text-left">
+      <button type="button" onClick={onAbrir} className="min-w-0 flex-1 text-start">
         <p className="text-sm">{idea.texto}</p>
         {puntos.length > 0 ? (
           <p className="mt-0.5 text-[11px] text-white/45">

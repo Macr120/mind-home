@@ -5,6 +5,7 @@ import { festejarAleatorio } from '../../core/gamificacion/festejo'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
 import { COLOR } from './constantes'
+import { PestanasCarpeta } from '../_shared/PestanasCarpeta'
 import { generarEjercicios, tarjetasConCloze, type Ejercicio, type ModoEjercicio } from './ejercicios'
 import {
   LOTE_ABIERTO,
@@ -246,37 +247,27 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
           </select>
         </div>
 
-        <div className="flex gap-1.5">
-          {MODOS.map((m) => (
-            <button
-              key={m.id}
-              type="button"
-              onClick={() => setModoEj(m.id)}
-              className={`flex-1 rounded-xl px-2 py-2 text-xs font-semibold transition ${
-                modoEj === m.id ? 'text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
-              }`}
-              style={modoEj === m.id ? { background: COLOR } : undefined}
-            >
-              {t(`idiomas.ej.modo.${m.id}`, m.labelEs)}
-            </button>
-          ))}
-        </div>
+        <PestanasCarpeta
+          items={MODOS.map((m) => ({ id: m.id, labelEs: m.labelEs }))}
+          activo={modoEj}
+          onCambio={setModoEj}
+          prefijoClave="idiomas.ej.modo"
+          color={COLOR}
+          variante="sub"
+          nivel={3}
+          flecha={false}
+        />
 
-        <div className="flex gap-1.5">
-          {RETOS.map((r) => (
-            <button
-              key={r.id}
-              type="button"
-              onClick={() => setReto(r.id)}
-              className={`flex-1 rounded-xl px-2 py-2 text-xs font-semibold transition ${
-                reto === r.id ? 'text-black' : 'bg-white/5 text-white/70 hover:bg-white/10'
-              }`}
-              style={reto === r.id ? { background: COLOR } : undefined}
-            >
-              <Icono nombre={r.icono} /> {t(`idiomas.ej.reto.${r.id}`, r.labelEs)}
-            </button>
-          ))}
-        </div>
+        <PestanasCarpeta
+          items={RETOS.map((r) => ({ id: r.id, icono: r.icono, labelEs: r.labelEs }))}
+          activo={reto}
+          onCambio={setReto}
+          prefijoClave="idiomas.ej.reto"
+          color={COLOR}
+          variante="sub"
+          nivel={3}
+          flecha={false}
+        />
 
         <p className="text-xs leading-relaxed text-white/45">
           {modoEj === 'opcion' && t('idiomas.ej.descOpcion', 'Se muestra un término en {idioma} y eliges su traducción.', { idioma: perfil.nombre })}
@@ -379,7 +370,7 @@ export function EjerciciosTab({ perfil, tarjetas, temaInicial, onTemaAplicado }:
               type="button"
               onClick={() => void responder(i)}
               disabled={elegida != null}
-              className={`rounded-xl border px-3 py-2.5 text-left text-sm transition ${
+              className={`rounded-xl border px-3 py-2.5 text-start text-sm transition ${
                 esCorrecta
                   ? 'border-emerald-400/50 bg-emerald-400/15 text-emerald-100'
                   : esErrada

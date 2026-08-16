@@ -7,27 +7,26 @@ import { VACIO,
   mascotasRepo,
   medicamentosRepo,
 } from '../../core/data/repository'
-import { useT } from '../../core/i18n/useT'
 import { tabInicial } from '../../core/state/intencionApp'
-import { Icono } from '../../core/ui/iconos/Icono'
-import type { NombreIcono } from '../../core/ui/iconos/catalogo'
+import { PestanasCarpeta, type ItemPestana } from '../_shared/PestanasCarpeta'
 import { reconciliarAgenda } from './calendario'
 import { COLOR_AREA } from './constantes'
 import { PersonasTab } from './PersonasTab'
 import { SaludTab } from './SaludTab'
 import { TrabajoTab } from './TrabajoTab'
 
-const TABS: { id: AreaAgenda; icono: NombreIcono; labelEs: string }[] = [
-  { id: 'trabajo', icono: 'maletin', labelEs: 'Trabajo' },
-  { id: 'salud', icono: 'estetoscopio', labelEs: 'Salud' },
-  { id: 'personas', icono: 'companeros', labelEs: 'Personas' },
+// El color de cada pestaña es el mismo con el que su área se pinta en el calendario.
+const TABS: ItemPestana<AreaAgenda>[] = [
+  { id: 'trabajo', icono: 'maletin', labelEs: 'Trabajo', color: COLOR_AREA.trabajo },
+  { id: 'salud', icono: 'estetoscopio', labelEs: 'Salud', color: COLOR_AREA.salud },
+  { id: 'personas', icono: 'companeros', labelEs: 'Personas', color: COLOR_AREA.personas },
 ]
 
 export function AgendaApp() {
-  const t = useT()
   const [tab, setTab] = useState<AreaAgenda>(() =>
     tabInicial('agenda', TABS.map((x) => x.id), 'trabajo'),
   )
+  const [plegado, setPlegado] = useState(false)
   const eventos = eventosAgendaRepo.useAll() ?? VACIO
   const contactos = contactosAgendaRepo.useAll() ?? VACIO
   const medicinas = medicamentosRepo.useAll() ?? VACIO
@@ -44,34 +43,31 @@ export function AgendaApp() {
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <div className="flex gap-2">
-        {TABS.map((tabItem) => (
-          <button
-            key={tabItem.id}
-            data-tut={`agenda.tab.${tabItem.id}`}
-            onClick={() => setTab(tabItem.id)}
-            className={`flex-1 rounded-xl py-2.5 text-sm font-semibold transition ${
-              tab === tabItem.id ? 'texto-cta' : 'bg-white/5 hover:bg-white/10'
-            }`}
-            // El color de la pestaña es el mismo con el que se pinta en el calendario.
-            style={tab === tabItem.id ? { background: COLOR_AREA[tabItem.id] } : undefined}
-          >
-            <Icono nombre={tabItem.icono} /> {t(`agenda.tab.${tabItem.id}`, tabItem.labelEs)}
-          </button>
-        ))}
-      </div>
+      <PestanasCarpeta
+        items={TABS}
+        activo={tab}
+        onCambio={setTab}
+        prefijoClave="agenda.tab"
+        variante="raiz"
+        plegado={plegado}
+        onAlternarPliegue={() => setPlegado((v) => !v)}
+      />
 
-      {tab === 'trabajo' && <TrabajoTab eventos={deArea('trabajo')} contactos={contactos} />}
-      {tab === 'salud' && (
-        <SaludTab
-          eventos={deArea('salud')}
-          medicinas={medicinas}
-          contactos={contactos}
-          mascotas={mascotas}
-          cuidados={cuidados}
-        />
+      {!plegado && (
+        <>
+          {tab === 'trabajo' && <TrabajoTab eventos={deArea('trabajo')} contactos={contactos} />}
+          {tab === 'salud' && (
+            <SaludTab
+              eventos={deArea('salud')}
+              medicinas={medicinas}
+              contactos={contactos}
+              mascotas={mascotas}
+              cuidados={cuidados}
+            />
+          )}
+          {tab === 'personas' && <PersonasTab eventos={eventos} contactos={contactos} />}
+        </>
       )}
-      {tab === 'personas' && <PersonasTab eventos={eventos} contactos={contactos} />}
     </div>
   )
 }

@@ -183,8 +183,6 @@ const ejercicio: Plantilla = {
     { seccion: 'fuerza', etiqueta: 'Fuerza', nombres: ['fuerza', 'pesas', 'piramide'] },
     { seccion: 'resistencia', etiqueta: 'Resistencia', nombres: ['resistencia', 'cardio'] },
     { seccion: 'flexibilidad', etiqueta: 'Flexibilidad', nombres: ['flexibilidad', 'estiramientos'] },
-    // El cronograma dejó de ser pestaña: vive al final de Metas, así que ahí lleva.
-    { seccion: 'metas', etiqueta: 'Cronograma', nombres: ['plan de ejercicio', 'plan de entrenamiento', 'cronograma de ejercicio'] },
   ],
 }
 

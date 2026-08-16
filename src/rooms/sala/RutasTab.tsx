@@ -163,7 +163,7 @@ export function RutasTab({ lugares }: Props) {
           <button
             onClick={() => void guardar()}
             disabled={!borrador.nombre.trim() || borrador.lugarIds.length < 2}
-            className="flex-1 rounded-lg bg-teal-600 py-2 text-sm font-bold texto-cta transition hover:brightness-110 disabled:opacity-40"
+            className="ui-accent-bg flex-1 rounded-lg py-2 text-sm font-bold transition hover:brightness-110 disabled:opacity-40"
           >
             {t('sala.rutas.guardar', 'Guardar ruta')}
           </button>
@@ -181,7 +181,7 @@ export function RutasTab({ lugares }: Props) {
     <div data-tut="sala.rutas" className="space-y-3">
       <button
         onClick={() => setBorrador({ nombre: '', lugarIds: [] })}
-        className="w-full rounded-xl bg-teal-600 py-2.5 text-sm font-bold texto-cta transition hover:brightness-110"
+        className="ui-accent-bg w-full rounded-xl py-2.5 text-sm font-bold transition hover:brightness-110"
       >
         <Icono nombre="brujula" /> {t('sala.rutas.crear', 'Nueva ruta')}
       </button>
