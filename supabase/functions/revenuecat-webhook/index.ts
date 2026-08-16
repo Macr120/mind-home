@@ -21,6 +21,13 @@ const RECARGAS: Record<string, number> = {
   recarga_600: 600,
   recarga_1500: 1500,
 }
+/**
+ * Pago único que desbloquea la app para siempre e incluye el «primer mes»:
+ * 30 días de plan 'trial' (pool de 700 créditos + sync) sin tarjeta ni
+ * suscripción (20260815000001). One-time SIN entitlement, como las recargas.
+ */
+const UNLOCK_PRODUCTO = 'unlock_casa'
+const TRIAL_DIAS = 30
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
 /**
@@ -107,14 +114,36 @@ Deno.serve(async (req) => {
       .eq('user_id', uid)
     if (error) return json({ error: 'bd', mensaje: error.message }, 500)
   } else if (tipo === 'NON_RENEWING_PURCHASE') {
-    // Recarga de créditos: abono atómico, solo la primera vez que llega el evento.
-    const creditos = RECARGAS[String(evento.product_id ?? '')] ?? 0
-    if (creditos > 0 && esNuevo) {
-      const { error } = await admin.rpc('sumar_creditos_extra', {
-        p_uid: uid,
-        p_creditos: creditos,
-      })
+    const producto = String(evento.product_id ?? '')
+    if (producto === UNLOCK_PRODUCTO) {
+      // unlock=true se aplica SIEMPRE (idempotente, como los updates de plan);
+      // el trial de 30 días solo la primera vez que el flag cambia y solo si el
+      // perfil sigue en 'local' (no degradar a un Pro que además compró el
+      // unlock). Así un reintento tras un update fallido sí completa el alta,
+      // y uno tras un alta exitosa no re-extiende el trial.
+      const { data: perfil, error: errSel } = await admin
+        .from('perfiles')
+        .select('plan, unlock')
+        .eq('user_id', uid)
+        .single()
+      if (errSel) return json({ error: 'bd', mensaje: errSel.message }, 500)
+      const cambios: Record<string, unknown> = { unlock: true }
+      if (perfil && !perfil.unlock && perfil.plan === 'local') {
+        cambios.plan = 'trial'
+        cambios.plan_expira = new Date(Date.now() + TRIAL_DIAS * 86_400_000).toISOString()
+      }
+      const { error } = await admin.from('perfiles').update(cambios).eq('user_id', uid)
       if (error) return json({ error: 'bd', mensaje: error.message }, 500)
+    } else {
+      // Recarga de créditos: abono atómico, solo la primera vez que llega el evento.
+      const creditos = RECARGAS[producto] ?? 0
+      if (creditos > 0 && esNuevo) {
+        const { error } = await admin.rpc('sumar_creditos_extra', {
+          p_uid: uid,
+          p_creditos: creditos,
+        })
+        if (error) return json({ error: 'bd', mensaje: error.message }, 500)
+      }
     }
   } else if (tipo === 'EXPIRATION') {
     const { error } = await admin

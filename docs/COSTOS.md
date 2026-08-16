@@ -67,12 +67,13 @@ antes de pedir: `src/core/cuenta/costos.ts`. Topes de `max_tokens`: `TOPES` en
 | `chat` | 2048 | **1** | $0.004–0.020 | Chat de la casa, con y sin `TOOLS_EDITOR`; latidos |
 | `texto` | 1500 | **1** | $0.0017–0.006 | Recetas, dietas, macros, sabio, tutor, charlas, resúmenes, expandir nodo |
 | `vision` | 1500 | **1** | ~$0.0026 | `analizarImagenIA` (evidencia de descanso) |
-| `texto_largo` | 4096 | **4** | $0.004–0.023 (medido) | Planes IA de metas, mapas conceptuales, tarjetas SRS, efemérides, programas |
+| `texto_largo` | 4096 | **4** | $0.004–0.023 (medido) | Planes IA de metas, mapas conceptuales, tarjetas SRS, efemérides |
 | `modelo3d` | 8192 | **10** | $0.032–0.049 | `generarModelo3D`: objetos, personajes, ropa, asistentes |
 | `imagen` | — | **3** | ~$0.005 | Calidad rápida (gpt-image-1-mini): la de por defecto |
 | `imagen_alta` | — | **10** | ~$0.034 | Calidad buena (Gemini), a elección del usuario |
 | `voz` | — | **1** | ~$0.003 (tope 30s) | Dictado del chat de la casa vía Whisper, fallback sin `SpeechRecognition` (WebView de Android) |
 | `tts` | — | **3** | ~$0.015 (tope 1000 car.) | Voz con IA de un asistente (OpenAI tts-1), alternativa a `speechSynthesis` nativo |
+| `pdf` | 1500 | **4** | ~$0.010–0.020 | PDF adjunto en el chat (menú «+»); la entrada del documento es lo caro |
 
 Cómo se sostiene cada número (Haiku 4.5, precio pleno):
 
@@ -98,6 +99,9 @@ Cómo se sostiene cada número (Haiku 4.5, precio pleno):
   Se cobra 1 crédito, igual que las demás ops de 1 latido.
 - **`tts`** — OpenAI tts-1 $15/1M car.; el proxy recorta la entrada a 1000
   car. ($0.015 = 3 créditos exactos). Se cobran 3, igual que `imagen`.
+- **`pdf`** — el documento viaja como entrada (tope 2.8M b64 ≈ 30–40 págs ≈
+  15–20k tokens ≈ $0.015–0.020) y la respuesta va topada a 1500. Se cobran 4,
+  como `texto_largo`: aquí lo caro es la ENTRADA, no la salida.
 
 ### Medición real de `texto_largo` (ago 2026)
 
@@ -112,7 +116,6 @@ tope de 4096 sino lo que pide cada call-site.
 |---|---|---|---|---|---|
 | Plan IA (`core/planIA.ts`) | 3000–4000 | 3 653 | 3 771 | **$0.0225** | 4.5 |
 | Mapa conceptual (`rooms/ideas/ia.ts`) | 2000 | 839 | 1 795 | $0.0098 | 2.0 |
-| Programa (`rooms/entretenimiento/programaIA.ts`) | 1600 | 742 | 1 007 | $0.0058 | 1.2 |
 | Efemérides (`rooms/diario/efemerides.ts`) | 1800 | 644 | 647 | $0.0039 | 0.8 |
 
 El plan IA es el que se pasaba: costaba 4.5 créditos y se cobraban 3. Las otras
@@ -160,6 +163,8 @@ cada imagen pasa a 10, así que las filas con imágenes se multiplican.
 | «Genera en 3D…» por chat | 1 × chat + 1 × modelo3d | **11** |
 | «Crea una imagen de…» por chat | 1 × chat + 1 × imagen | **4** |
 | «Hazme un mapa de ideas» por chat | 1 × chat + 1 × texto_largo | **5** (≈, hasta 9 con reintento) |
+| Turno de Chat AR (cámara + asistente 3D) | 1 × texto | **1** |
+| PDF adjunto en el chat (menú «+») | 1 × pdf | **4** |
 | Frase espontánea del personaje | 1 × texto | **1** (solo Pro, 1 de cada 10 latidos) |
 
 ### Editor de la casa
@@ -170,6 +175,7 @@ cada imagen pasa a 10, así que las filas con imágenes se multiplican.
 | Modelo 3D de personaje | 1 × modelo3d | **10** |
 | Prenda del guardarropa | 1 × modelo3d | **10** |
 | Forma de un asistente | 1 × modelo3d | **10** |
+| Voz con IA de un asistente (probar/regenerar) | 1 × tts | **3** |
 | Textura de piso, muro o techo | 1 × imagen | **3** |
 | Textura de fondo de cielo | 1 × imagen | **3** |
 
@@ -208,15 +214,16 @@ confirmación dice el total exacto antes de empezar.
 | Operación | Composición | Créditos |
 |---|---|---|
 | Turno de charla con el Sabio | 1 × texto | **1** |
-| Primer turno de una charla nueva | 2 × texto | **2** |
-| Clasificar una charla ✨ | 1 × texto | **1** |
+| Primer turno de una charla nueva | 3 × texto | **3** |
+| Clasificar y destilar una charla ✨ | 2 × texto | **2** |
 | Ramificar el árbol 🌿 | 1 × texto | **1** |
-| Destilar a entrada de enciclopedia | 1 × texto | **1** |
+| Actualizar la entrada al salir de la charla | 1 × texto | **1** |
+| Generar material de estudio de una entrada | 1 × texto | **1** |
 | Ilustrar una entrada | 1 × imagen | **3** |
 
-El primer turno cuesta 2 porque además de responder la IA titula la charla y la
-cuelga del nodo que le toca. Antes eran 3: se fusionaron las dos llamadas de
-fondo en una (`ubicarConversacion`).
+El primer turno cuesta 3 porque además de responder, la IA titula la charla, la
+cuelga del nodo que le toca en el árbol y la deja destilada como entrada
+(`arbol.ts::clasificarYDestilar`). Fuente: `rooms/biblioteca/costosIA.ts`.
 
 ### Idiomas
 
@@ -236,13 +243,21 @@ fondo en una (`ubicarConversacion`).
 | Mapa conceptual con IA | 1 × texto_largo | **4** (≈, 8 si reintenta) |
 | Más ideas (expandir nodo o lluvia) | 1 × texto | **1** |
 
+### Sala de cómputo
+
+| Operación | Composición | Créditos |
+|---|---|---|
+| Escribir una fórmula desde su descripción | 1 × texto | **1** |
+| Explicar o despejar paso a paso | 1 × texto | **1** |
+| Armar una hoja de cálculo con sus fórmulas | 1 × texto_largo | **4** |
+| Interpretar los datos seleccionados | 1 × texto | **1** |
+
 ### Entretenimiento
 
 | Operación | Composición | Créditos |
 |---|---|---|
 | Rellenar la ficha con IA | 1 × texto | **1** |
 | Resumen de una obra | 1 × texto | **1** |
-| Programa de series, libros o juegos | 1 × texto_largo | **4** |
 
 Las portadas no gastan créditos: salen de Wikipedia y Open Library.
 
@@ -379,28 +394,64 @@ Infraestructura: Supabase Pro $25/mes fijos (+$0.09/GB egress); repartido desde
 $2,500 MTR. **Ojo con el modo local gratis**: trae usuarios con ingreso cero que
 igual consumen auth y egress. Medirlo antes de promocionar fuerte.
 
-## Precio vigente (decisión de negocio, ago 2026)
+## Precio vigente (decisión de negocio, 15-ago-2026)
 
+**Unlock: 10.99 USD, pago único** (`unlock_casa`): desbloquea la casa para
+siempre e incluye el **primer mes** — plan `trial` de 30 días con el pool de
+700 créditos + sync, sin tarjeta ni suscripción (migración `20260815000001`,
+webhook). La demo gratis (no persistente) es el free tier. La aritmética del
+precio: $6 por la app (el unlock viejo) + $5 por el mes de IA incluido; $10.99
+por umbral psicológico.
 **Pro: 4.99 USD/mes**, precio local por región, solo mensual, vendido únicamente
-en la web (las apps de tienda no venden nada: modelo solo-consumo).
-**Recargas: 150 / 600 / 1500 créditos** ($1.99 / $4.99 / $9.99), con o sin
-suscripción, sin caducidad.
+en la web. **Recargas: 150 / 600 / 1500 créditos** ($1.99 / $4.99 / $9.99), con
+o sin suscripción, sin caducidad — siguen siendo la vía de IA sin plan.
 
 | Concepto (canal web, Stripe 2.9% + $0.30, RC 1%) | Neto | COGS | Margen |
 |---|---|---|---|
+| Unlock $10.99, comprador típico (trial ~$1.80) | ~$10.26 | ~$1.80 | **~77%** |
+| Unlock $10.99, peor caso con bucket (K=1.1 → $3.85) | ~$10.26 | ~$3.85 | **~58%** |
+| Unlock $10.99 en tienda al 30%, peor caso | ~$7.69 | ~$3.85 | **~35%** |
 | Suscriptor ponderado | ~$4.50 | ~$1.80 | **~60%** |
-| Peor caso: 700 créditos completos | ~$4.50 | ~$3.50 | **~22%** |
-| Recarga 600 ($4.99) | ~$4.50 | hasta $3.00 | **~33%** |
-| Recarga 150 ($1.99) | ~$1.63 | hasta $0.75 | **~54%** |
+| Peor caso: 700 créditos completos (con bucket) | ~$4.50 | ~$3.85 | **~14%** |
+| Recarga 600 ($4.99), tope bucket $3.30 | ~$4.50 | hasta $3.30 | **~27%** |
+| Recarga 150 ($1.99) | ~$1.63 | hasta $0.83 | **~49%** |
 
-El peor caso ya no da pérdida: esa es la diferencia entre esta tabla y la
-anterior. La recarga chica es la que más margen deja en porcentaje, pero es
-también la que más sufre la comisión fija de $0.30 — no bajar de $1.99.
+**El bucket es prerequisito del precio**: sin él, el peor caso real de 700
+créditos era ~$14 (ver «Corrección de auditoría») y el unlock vendía el mes
+incluido a pérdida. Con el bucket, el COGS por usuario queda matemáticamente
+acotado (ver la sección siguiente).
 
-**700 créditos es una propuesta, no un dato.** Sale de subir el precio 39% y
-querer dar algo a cambio. El número final debería cerrarse con la telemetría de
-`uso_ia_ops`; lo que no es negociable es que el techo quede sellado por la tabla
-de operaciones.
+Costos fijos (fuera del COGS por usuario): Supabase Pro $25/mes + dominio y
+hosting estático ~$2 + Apple Developer $99/año cuando haya iOS ≈ **$26–35/mes**.
+Con el unlock a $10.99, 4–6 ventas al mes cubren toda la infraestructura.
+Mejora estructural: la demo no toca el backend, así que todo el que consume
+auth/egress pagó al menos el unlock (adiós al riesgo del «modo local gratis» de
+la nota de arriba).
+
+## Bucket: techo de COGS en USD real (migración `20260815000002`)
+
+El crédito solo tarifa la SALIDA; el bucket sella el resto. Cada Edge Function
+calcula el costo REAL en USD de su llamada (`_shared/costoUsd.ts`: tokens por
+tarifa, o fijo en imagen/voz/tts) y lo acumula en `uso_ia.usd` vía
+`registrar_uso_ia`. `consumir_cuota_ia` deniega con motivo **`techo`** cuando:
+
+```
+usd_mes >= greatest(techo_piso_usd, (créditos consumidos + costo_op) × $0.005 × techo_factor)
+```
+
+- `techo_factor` = **1.1** y `techo_piso_usd` = **$0.50**, por plan en
+  `limites_plan` (ajustables sin migración).
+- Con K=1.1: 700 cr → tope $3.85 (< $4.50 netos de Pro web); 600 cr de recarga
+  → $3.30 (< $3.50 netos de tienda al 30%). K=1.0 castigaría usos legítimos
+  pesados (chat de editor con tools cacheadas ronda $0.0153/cr en ráfagas);
+  K=1.25 rompería el margen de recargas en tienda.
+- El techo ESCALA con los créditos consumidos: quien recarga más tiene más
+  margen. El ponderado real es $0.0033/cr, así que >97% de usuarios no lo tocan
+  nunca — es anti-abuso, no una tarifa.
+- También acota la pérdida del respaldo de imagen (rápida servida por Gemini a
+  $0.0336 cobrando 3 cr): ese costo real entra al bucket.
+- Cliente: 429 con `error: 'techo'` → cara propia de `CuotaAgotada` («límite de
+  uso del mes»); recargar no lo quita a propósito.
 
 ## Respaldo entre proveedores
 

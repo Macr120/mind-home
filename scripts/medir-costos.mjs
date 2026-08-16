@@ -32,7 +32,7 @@ const TARIFA = {
 }
 
 /** Lo que cobra `costo_op()` hoy, para comparar contra lo medido. */
-const CREDITOS = { chat: 1, texto: 1, vision: 1, texto_largo: 4, modelo3d: 10, imagen: 3, imagen_alta: 10 }
+const CREDITOS = { chat: 1, texto: 1, vision: 1, texto_largo: 4, modelo3d: 10, imagen: 3, imagen_alta: 10, voz: 1, tts: 3, pdf: 4 }
 const USD_POR_CREDITO = 0.005
 
 /** Relleno determinista para simular prompts del tamaño real de la app. */
@@ -50,7 +50,7 @@ const CASOS = [
   {
     op: 'chat',
     modelo: 'claude-haiku-4-5',
-    max: 4096,
+    max: 2048, // TOPES.chat del proxy; con 4096 la medición sobreestimaba la op
     // Chat de la casa SIN intención de editor: tools de captura + system + historial.
     system: `Eres el asistente de la casa. ${relleno(700)}`,
     user: 'Apunta que hoy comí pollo con arroz y fui a correr 5 km',

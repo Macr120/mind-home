@@ -11,6 +11,7 @@
  */
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
+import { COSTO_FIJO } from '../_shared/costoUsd.ts'
 
 /** Corta el intento para que el error sea claro en vez de colgarse esperando. */
 const TIMEOUT_MS = 30_000
@@ -84,6 +85,9 @@ Deno.serve(async (req) => {
     return json({ error: 'proveedor', mensaje: 'No se pudo verificar la cuota.' }, 502, cors)
   }
   if (!cuota?.permitido) {
+    if (cuota?.motivo === 'techo') {
+      return json({ error: 'techo', mensaje: 'Alcanzaste el límite de uso del mes.' }, 429, cors)
+    }
     return json({ error: 'cuota-agotada', mensaje: 'Te quedaste sin créditos de IA.' }, 429, cors)
   }
 
@@ -105,6 +109,7 @@ Deno.serve(async (req) => {
     p_cache_leer: 0,
     p_proveedor: 'openai',
     p_tipo: 'tts',
+    p_usd: COSTO_FIJO.tts,
   })
 
   return json(

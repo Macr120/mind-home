@@ -31,6 +31,7 @@
  */
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
+import { costoTokensUsd } from '../_shared/costoUsd.ts'
 
 const MODELO = 'claude-haiku-4-5'
 /**
@@ -69,6 +70,7 @@ const TOPES: Record<string, number> = {
   vision: 1500, // texto + imagen de entrada
   texto_largo: 4096, // planes IA, mapas conceptuales, tarjetas, efemérides
   modelo3d: 8192, // Sonnet 5 con razonamiento
+  pdf: 1500, // chat con PDF adjunto (misma salida que vision; lo caro es la entrada)
 }
 const OP_POR_DEFECTO = 'chat'
 
@@ -95,6 +97,9 @@ const LIMITES = {
   texto: 10_000, // chars por mensaje (~2.5k tokens): cabe pegar un texto largo
   tools: 80, // TOOLS_EDITOR son ~56
   imagenB64: 3_000_000, // ~2.2 MB reales; el cliente comprime a 1280px JPEG
+  // ~2 MB reales (≈30–40 páginas): cada página cuesta ~1.5–3k tokens de entrada,
+  // así que este tope es el que mantiene la op `pdf` (4 créditos) dentro de COGS.
+  pdfB64: 2_800_000,
 } as const
 const MIMES_IMAGEN = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif'])
 
@@ -108,10 +113,13 @@ function entradaInvalida(body: BodyIn, mensajes: MensajeIn[]): string | null {
       return 'Mensaje demasiado largo.'
     }
     if (m.imagen) {
-      if (typeof m.imagen.base64 !== 'string' || m.imagen.base64.length > LIMITES.imagenB64) {
-        return 'Imagen demasiado grande.'
+      if (typeof m.imagen.base64 !== 'string') return 'Imagen demasiado grande.'
+      if (m.imagen.mediaType === 'application/pdf') {
+        if (m.imagen.base64.length > LIMITES.pdfB64) return 'PDF demasiado grande.'
+      } else {
+        if (m.imagen.base64.length > LIMITES.imagenB64) return 'Imagen demasiado grande.'
+        if (!MIMES_IMAGEN.has(m.imagen.mediaType)) return 'Formato de imagen no soportado.'
       }
-      if (!MIMES_IMAGEN.has(m.imagen.mediaType)) return 'Formato de imagen no soportado.'
     }
   }
   return null
@@ -163,7 +171,7 @@ async function porAnthropic(
     m.imagen
       ? [
           {
-            type: 'image',
+            type: m.imagen.mediaType === 'application/pdf' ? 'document' : 'image',
             source: { type: 'base64', media_type: m.imagen.mediaType, data: m.imagen.base64 },
           },
           { type: 'text', text: m.texto },
@@ -396,8 +404,10 @@ Deno.serve(async (req) => {
   const calidad = body.perfil === 'calidad'
   // El perfil `calidad` manda: cuesta lo que cuesta Sonnet 5 aunque el cliente
   // declare otra cosa. Una op desconocida cae al piso ('chat'), no a un error:
-  // así un cliente viejo que aún no manda `op` sigue funcionando.
-  const op = calidad ? 'modelo3d' : body.op && body.op in TOPES ? body.op : OP_POR_DEFECTO
+  // así un cliente viejo que aún no manda `op` sigue funcionando. Y un PDF
+  // adjunto también manda: su entrada es la gorda, declare lo que declare el cliente.
+  const conPdf = mensajes.some((m) => m.imagen?.mediaType === 'application/pdf')
+  const op = calidad ? 'modelo3d' : conPdf ? 'pdf' : body.op && body.op in TOPES ? body.op : OP_POR_DEFECTO
   const maxTokens = Math.max(1, Math.min(TOPES[op], body.maxTokens ?? 1500))
 
   const { data: cuota, error: errCuota } = await admin.rpc('consumir_cuota_ia', {
@@ -412,6 +422,9 @@ Deno.serve(async (req) => {
     // corre contra una BD sin migrar durante la ventana de despliegue.
     if (cuota?.motivo === 'sin-pro') {
       return json({ error: 'sin-pro', mensaje: 'La IA es parte del plan Pro.' }, 403, cors)
+    }
+    if (cuota?.motivo === 'techo') {
+      return json({ error: 'techo', mensaje: 'Alcanzaste el límite de uso del mes.' }, 429, cors)
     }
     return json({ error: 'cuota-agotada', mensaje: 'Te quedaste sin créditos de IA.' }, 429, cors)
   }
@@ -446,6 +459,14 @@ Deno.serve(async (req) => {
   }
   if (fallos.length) console.warn(`ia-chat: respaldo ${proveedor} tras ${fallos.join(' | ')}`)
 
+  const modeloServido =
+    proveedor === 'anthropic'
+      ? calidad
+        ? MODELO_CALIDAD
+        : MODELO
+      : calidad
+        ? MODELO_GEMINI_CALIDAD
+        : MODELO_GEMINI
   await admin.rpc('registrar_uso_ia', {
     p_uid: usuario.id,
     p_entrada: salida.entrada,
@@ -454,6 +475,7 @@ Deno.serve(async (req) => {
     p_cache_leer: salida.cacheLeer,
     p_proveedor: proveedor,
     p_tipo: op,
+    p_usd: costoTokensUsd(modeloServido, salida),
   })
 
   return json(

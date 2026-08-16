@@ -19,6 +19,7 @@
  */
 import { preflight, json, corsDe } from '../_shared/cors.ts'
 import { clienteUsuario, clienteAdmin, usuarioDe } from '../_shared/auth.ts'
+import { COSTO_FIJO } from '../_shared/costoUsd.ts'
 
 function cadena(valor: string | undefined, porDefecto: string): string[] {
   return (valor ?? porDefecto)
@@ -221,6 +222,9 @@ Deno.serve(async (req) => {
     if (cuota?.motivo === 'sin-pro') {
       return json({ error: 'sin-pro', mensaje: 'La IA es parte del plan Pro.' }, 403, cors)
     }
+    if (cuota?.motivo === 'techo') {
+      return json({ error: 'techo', mensaje: 'Alcanzaste el límite de uso del mes.' }, 429, cors)
+    }
     return json({ error: 'cuota-agotada', mensaje: 'Te quedaste sin créditos de IA.' }, 429, cors)
   }
 
@@ -261,6 +265,9 @@ Deno.serve(async (req) => {
     p_cache_leer: 0,
     p_proveedor: proveedor,
     p_tipo: op,
+    // Costo fijo por PROVEEDOR servido (no por calidad pedida): así el bucket
+    // acota también la rápida servida por Gemini a pérdida.
+    p_usd: proveedor === 'gemini' ? COSTO_FIJO.imagenGemini : COSTO_FIJO.imagenOpenai,
   })
 
   return json(
