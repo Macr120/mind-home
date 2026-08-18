@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+/* «Pantalla holgada»: reemplazan a `sm:`/`md:` donde lo que se decide es cuánto
+   sitio hay de verdad, no solo el ancho. Un teléfono APAISADO mide ~800×360, así
+   que con `sm:` a secas se llevaba la escala de escritorio en 360 px de alto:
+   tarjetas altas y cinco columnas donde no caben ni dos filas. Exigiendo también
+   altura, cualquier teléfono —de pie o tumbado— se queda en el modo compacto y
+   las tablets y los monitores no se enteran. */
+@custom-variant holgado (@media (width >= 40rem) and (height >= 34rem));
+@custom-variant amplio (@media (width >= 48rem) and (height >= 34rem));
+
 /* Registra el acento del tema como color de Tailwind: genera `bg-accent`,
    `border-accent`, `ring-accent`, `accent-accent` (inputs range) y sus
    variantes de opacidad (`bg-accent/10`, etc.) apuntando siempre a

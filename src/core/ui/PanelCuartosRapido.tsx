@@ -238,10 +238,10 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
         onClick={() => (edicion ? setEdicion(false) : onCerrar())}
       >
         <div
-          className="ui-panel ui-pop flex max-h-[85vh] w-full max-w-3xl flex-col rounded-2xl border border-white/10 p-2.5 shadow-2xl sm:max-h-[80vh] sm:p-4"
+          className="ui-panel ui-pop flex max-h-[85vh] w-full max-w-3xl flex-col rounded-2xl border border-white/10 p-2.5 shadow-2xl holgado:max-h-[80vh] holgado:p-4"
           onClick={(e) => e.stopPropagation()}
         >
-          <header className="mb-2 flex items-center gap-1.5 sm:mb-3 sm:gap-2">
+          <header className="mb-2 flex items-center gap-1.5 holgado:mb-3 holgado:gap-2">
             <div className="min-w-0 flex-1">
               <p className="truncate text-base font-black text-white/90">
                 <Icono nombre="casa" />{' '}
@@ -324,7 +324,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
             // El fondo va DETRÁS DE LAS APPS, no de la ventana entera: sobre la
             // cabecera dejaba el título y los botones ilegibles.
             <ul
-              className="grid min-h-0 flex-1 grid-cols-2 content-start gap-1.5 overflow-y-auto rounded-xl p-1.5 sm:grid-cols-4 sm:gap-2 sm:p-2 md:grid-cols-5"
+              className="grid min-h-0 flex-1 grid-cols-2 content-start gap-1.5 overflow-y-auto rounded-xl p-1.5 sm:grid-cols-4 holgado:gap-2 holgado:p-2 md:grid-cols-5"
               style={fondo}
             >
               {lista.map((cuarto, i) => {
@@ -346,7 +346,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                         onCerrar()
                       }}
                       title={t('nav.entrarCuarto', 'Entrar a {nombre}', { nombre: titulo })}
-                      className={`ui-brillo flex h-full w-full flex-col items-center gap-1 rounded-xl border px-1 py-2 text-center sm:gap-1.5 sm:px-1.5 sm:py-3 ${
+                      className={`ui-brillo flex h-full w-full flex-col items-center gap-1 rounded-xl border px-1 py-2 text-center holgado:gap-1.5 holgado:px-1.5 holgado:py-3 ${
                         edicion ? 'ui-tiembla' : ''
                       }`}
                       style={{
@@ -360,8 +360,8 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                       }}
                     >
                       <span
-                        className={`flex items-center justify-center overflow-hidden rounded-xl text-xl sm:text-2xl ${
-                          vista3D && appId ? 'h-12 w-12 sm:h-16 sm:w-16' : 'h-9 w-9 sm:h-12 sm:w-12'
+                        className={`flex items-center justify-center overflow-hidden rounded-xl text-xl holgado:text-2xl ${
+                          vista3D && appId ? 'h-12 w-12 holgado:h-16 holgado:w-16' : 'h-9 w-9 holgado:h-12 holgado:w-12'
                         }`}
                         style={{ background: `color-mix(in srgb, ${color} 20%, transparent)` }}
                       >
@@ -379,7 +379,7 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
                           <IconoCuarto cuarto={cuarto} />
                         )}
                       </span>
-                      <span className="w-full truncate text-[11px] font-semibold text-white/90 sm:text-xs">{titulo}</span>
+                      <span className="w-full truncate text-[11px] font-semibold text-white/90 holgado:text-xs">{titulo}</span>
                       <CifrasApp enfoque={enfoque} color={color} metas={metasCumplidasDe(metas, appId)} />
                     </button>
 
