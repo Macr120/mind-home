@@ -715,8 +715,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const angostoMovil = chatPlegado && movilVertical
 
   return (
-    // start-52: margen al joystick MÁS el botón de la rueda, que ahora comparte su
-    // fila en vez de montarse encima (188 px + aire); end-48: hueco con el cubo (der.).
+    // start-44: margen al joystick (izq.); end-48: deja hueco con el cubo/botones de rotación (der.).
     // Con menú lateral: anclado a la derecha del sidebar (w-60 = 15rem).
     <div
       ref={raizRef}
@@ -725,7 +724,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           ? 'absolute bottom-4 left-1/2 z-20 -translate-x-1/2 select-none'
           : [
               'absolute bottom-4 z-20 min-w-0 select-none',
-              menuAbierto ? 'start-60 end-4 sm:end-48' : 'start-4 end-4 sm:start-52 sm:end-48',
+              menuAbierto ? 'start-60 end-4 sm:end-48' : 'start-4 end-4 sm:start-44 sm:end-48',
             ].join(' ')
       }
     >
