@@ -12,7 +12,13 @@ import { BotonPrimario as BotonPrimarioBase, INPUT } from '../_shared/ui'
 /** Colores de datos de la app. Antes iban escritos a mano ~40 veces. */
 export const VERDE = '#34d399'
 export const ROJO = '#f87171'
-export const AZUL = '#60a5fa'
+export const AZUL_FABRICA = '#60a5fa'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const AZUL = `var(--ui-app, ${AZUL_FABRICA})`
 
 export { INPUT, TARJETA, BotonSecundario, TituloSeccion as Seccion } from '../_shared/ui'
 

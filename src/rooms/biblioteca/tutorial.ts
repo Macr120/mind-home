@@ -106,7 +106,7 @@ export const cuerpoEstudio: CuerpoTutorial = {
       titulo: T('tut.app-biblioteca--estudio.2.titulo', 'El plan de estudio'),
       texto: T(
         'tut.app-biblioteca--estudio.2.texto',
-        'Las metas viven en el botón Metas del encabezado, el mismo cronograma del calendario: «terminar termodinámica antes del parcial» ya está cumplida; preparar el posgrado sigue en curso.',
+        'El botón Misiones del encabezado trae lo que toca hoy. Las metas de estudio viven en el cuarto de Metas, agrupadas por app: «terminar termodinámica antes del parcial» ya está cumplida; preparar el posgrado sigue en curso.',
       ),
     },
     {

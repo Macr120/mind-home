@@ -1,7 +1,13 @@
 import type { CicloPomodoro } from './estudioStore'
 import { campoDe } from './semilla'
 
-export const COLOR = '#818cf8'
+export const COLOR_FABRICA = '#818cf8'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
 /** Campo comodín para charlas y entradas aún sin clasificar. */
 export const PILAR_GENERAL = {

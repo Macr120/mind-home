@@ -11,7 +11,7 @@ import { normalizarEjercicio } from './stats'
  */
 
 // Reexportados para los componentes de la app (el motor es de core).
-export { comprimirImagen, getProveedorImagen, imagenIaActiva } from '../../core/imagenIA'
+export { comprimirImagen, imagenIaActiva } from '../../core/imagenIA'
 
 /** Imágenes guardadas, indexadas por nombre normalizado (para buscar la de cada ejercicio). */
 export function useImagenesPorClave(): Map<string, ImagenEjercicio> {

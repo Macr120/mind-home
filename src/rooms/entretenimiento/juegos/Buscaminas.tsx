@@ -191,7 +191,7 @@ export function Buscaminas({ dificultad = 'medio' }: PropsDificultad) {
           onClick={() => setModoBandera((v) => !v)}
           title={t('entre.j.buscaminas.modoBandera', 'Modo bandera')}
           className={`rounded-lg px-3 py-1 text-base ${modoBandera ? 'ring-2' : 'bg-white/10 hover:bg-white/20'}`}
-          style={modoBandera ? { background: `${COLOR}33`, borderColor: COLOR } : undefined}
+          style={modoBandera ? { background: `color-mix(in srgb, ${COLOR} 20%, transparent)`, borderColor: COLOR } : undefined}
         >
           <Icono nombre="bandera" />
         </button>

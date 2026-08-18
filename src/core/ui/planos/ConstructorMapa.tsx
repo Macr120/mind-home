@@ -25,8 +25,8 @@ import type { FormaLoseta } from '../../house/formasLoseta'
 import { EditorMapaSuperficieSection } from './EditorMapaSuperficieSection'
 import { EditorCuadrantesSection } from './EditorCuadrantesSection'
 import { EditorFondoSection } from '../editor/EditorFondoSection'
-import { footprintCells, FOOTPRINT_DEFAULT, MAX_GRID, type Footprint, type Cell, type SideKey, type TipoAcceso } from '../../house/walls'
-import { PINCELES_DEFAULT } from '../../house/murosPuertas'
+import { footprintCells, FOOTPRINT_DEFAULT, MAX_GRID, type Footprint, type Cell, type TipoAcceso } from '../../house/walls'
+import { pintarCuarto } from '../../state/pintarCuarto'
 import type { DirGrid } from '../../state/layoutStore'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
@@ -602,10 +602,7 @@ function CuartosPanel() {
   const setSeleccion = usePlanos((s) => s.setSeleccion)
   const cuartos = useCuartos((s) => s.cuartos)
   const renombrar = useCuartos((s) => s.renombrar)
-  const setColor = useCuartos((s) => s.setColor)
   const eliminarCuarto = useCuartos((s) => s.eliminar)
-  const setPinceles = useLayout((s) => s.setPinceles)
-  const setEdgeEstilo = useLayout((s) => s.setEdgeEstilo)
   const placed = useLayout((s) => s.placed)
   const nivelesLayout = useLayout((s) => s.niveles)
   const conAgua = useLayout((s) => s.conAgua)
@@ -633,19 +630,8 @@ function CuartosPanel() {
     await useDiseño.getState().sincronizarFlotadorAlberca(id, v)
   }
 
-  const cambiarColor = (id: string, color: string) => {
-    void setColor(id, color)
-    const curPin = useLayout.getState().pinceles[id] ?? PINCELES_DEFAULT
-    void setPinceles(id, { ...curPin, muro: { ...curPin.muro, color } })
-    // Actualizar edge styles existentes que tengan color de muro explícito.
-    const estilos = useLayout.getState().edgeStyles[id] ?? {}
-    for (const key of Object.keys(estilos)) {
-      if (estilos[key].muro) {
-        const parts = key.split(',')
-        void setEdgeEstilo(id, { col: Number(parts[0]), row: Number(parts[1]) }, parts[2] as SideKey, { muro: { color } })
-      }
-    }
-  }
+  // Aquí el usuario está justo en el editor de muros: se repintan siempre.
+  const cambiarColor = (id: string, color: string) => void pintarCuarto(id, color, true)
 
   const colocados = cuartos.filter((r) => placed[r.id])
 

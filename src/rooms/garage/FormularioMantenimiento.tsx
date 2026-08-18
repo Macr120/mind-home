@@ -87,7 +87,7 @@ export function FormularioMantenimiento({
             type="button"
             onClick={() => aplicarPlantilla(p)}
             className="rounded-full px-2.5 py-1 text-[11px] font-semibold transition hover:brightness-125"
-            style={{ background: `${COLOR}1f`, boxShadow: `inset 0 0 0 1px ${COLOR}3d` }}
+            style={{ background: `color-mix(in srgb, ${COLOR} 12%, transparent)`, boxShadow: `inset 0 0 0 1px color-mix(in srgb, ${COLOR} 24%, transparent)` }}
           >
             <span className="texto-vivo" style={vivo(COLOR)}>
               {p.titulo}

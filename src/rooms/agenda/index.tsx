@@ -1,7 +1,7 @@
 import type { Plantilla } from '../../core/appContrato'
 import { lazy } from 'react'
 import { esquemas } from './captura'
-import { COLOR } from './constantes'
+import { COLOR_FABRICA } from './constantes'
 import { metaAgenda } from './meta'
 import { flujosAgenda } from './tutorial.meta'
 import { planMetasAgenda } from './plan'
@@ -25,7 +25,7 @@ const agenda: Plantilla = {
   nombre: 'Agenda · Trabajo, salud y personas',
   icon: '🗓️',
   categoria: 'complemento',
-  color: COLOR,
+  color: COLOR_FABRICA,
   App: AgendaApp,
   flujos: flujosAgenda,
   // Acotamiento del planificador ✨: llevar un proyecto hasta su entrega.

@@ -138,7 +138,7 @@ export const cuerpoGestion: CuerpoTutorial = {
     {
       texto: T(
         'tut.app-hobbies--gestion.4.texto',
-        'Las metas de tus hobbies y proyectos viven en el botón Metas del encabezado: el mismo planificador Metas · Planes · Cronograma del calendario, acotado a esta app. Pídele a la IA un plan con fases y fechas.',
+        'Las metas de tus hobbies y proyectos viven en el cuarto de Metas, cada una con su plan y su cronograma. Pídele a la IA un plan con fases y fechas.',
       ),
     },
   ],

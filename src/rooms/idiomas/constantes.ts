@@ -1,6 +1,12 @@
 import type { TipoTarjeta } from '../../core/data/db'
 
-export const COLOR = '#f472b6'
+export const COLOR_FABRICA = '#f472b6'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
 /** Niveles MCER, de principiante a maestría. */
 export const NIVELES = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']

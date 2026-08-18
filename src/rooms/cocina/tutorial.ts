@@ -127,18 +127,19 @@ export const cuerpoCronograma: CuerpoTutorial = {
   },
   pasos: [
     {
-      // Las metas viven en el botón Metas del header: se abre su panel.
-      sel: 'cal.metas.lista',
-      titulo: T('tut.app-cocina--cronograma.1.titulo', 'La meta de peso, con fases'),
+      // El botón del header ya solo lleva la checklist: las metas se mudaron a su
+      // propio cuarto, así que este tour enseña de dónde sale lo de hoy.
+      sel: 'hoy.lista',
+      titulo: T('tut.app-cocina--cronograma.1.titulo', 'Lo que Cocina te pide hoy'),
       texto: T(
         'tut.app-cocina--cronograma.1.texto',
-        'El botón Metas del encabezado abre el mismo cronograma que usa el calendario de la casa, acotado a las metas de Cocina: crea una meta (p. ej. «Bajar 3 kilos») y pídele el plan a la IA — pregunta tu fecha objetivo y agenda sub-metas con su fecha.',
+        'El botón Misiones del encabezado abre la checklist del día: el agua, las comidas y los pasos que vengan de tus metas. Las metas en sí —con el plan que la IA les propone— viven en el cuarto de Metas, agrupadas por la app que las lleva.',
       ),
       alEntrar: async () => {
         clickTut('hoy.cabecera')
-        await esperarTut('cal.metas.lista', 2000)
+        await esperarTut('hoy.lista', 2000)
       },
-      esperar: 'cal.metas.lista',
+      esperar: 'hoy.lista',
     },
     {
       texto: T(

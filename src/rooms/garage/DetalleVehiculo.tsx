@@ -116,8 +116,8 @@ export function DetalleVehiculo({
         data-tut="garage.detalle.portada"
         className="overflow-hidden rounded-2xl border"
         style={{
-          borderColor: `${COLOR}3d`,
-          background: `linear-gradient(160deg, ${COLOR}22, ${COLOR}0a 60%)`,
+          borderColor: `color-mix(in srgb, ${COLOR} 24%, transparent)`,
+          background: `linear-gradient(160deg, color-mix(in srgb, ${COLOR} 13%, transparent), color-mix(in srgb, ${COLOR} 4%, transparent) 60%)`,
         }}
       >
         <div className="flex items-start gap-3 p-4">

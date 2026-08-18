@@ -235,8 +235,8 @@ function RespiracionActiva({ config, onFin }: { config: Config; onFin: (minReale
           style={{
             width: 190,
             height: 190,
-            background: `${COLOR}2b`,
-            boxShadow: `0 0 60px ${COLOR}40`,
+            background: `color-mix(in srgb, ${COLOR} 17%, transparent)`,
+            boxShadow: `0 0 60px color-mix(in srgb, ${COLOR} 25%, transparent)`,
             transform: `scale(${montado ? fase.escala : 0.78})`,
             transition: `transform ${fase.seg}s ease-in-out`,
           }}

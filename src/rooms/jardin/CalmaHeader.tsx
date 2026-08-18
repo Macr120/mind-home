@@ -25,7 +25,7 @@ export function CalmaHeader({
   const totalFmt = total >= 120 ? `${Math.floor(total / 60)} h ${total % 60} min` : `${total} min`
 
   return (
-    <div className="rounded-xl border border-white/10 p-4" style={{ background: `${COLOR}12` }}>
+    <div className="rounded-xl border border-white/10 p-4" style={{ background: `color-mix(in srgb, ${COLOR} 7%, transparent)` }}>
       <div className="flex items-center gap-3">
         <span className="text-4xl">
           <Icono emoji={etapa.icono} />

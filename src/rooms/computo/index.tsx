@@ -4,7 +4,7 @@ import { calculosComputoRepo, formulasRepo, hojasRepo, objetivoDiarioDe } from '
 import { esSeedIntacta } from '../../core/data/sync/syncables'
 import { fechaLocalISO } from '../../core/fechaLocal'
 import { registrarProveedorMaterial } from '../../core/materialApps'
-import { COLOR, COLS_INICIO, FILAS_INICIO } from './constantes'
+import { COLOR_FABRICA, COLS_INICIO, FILAS_INICIO } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 import { flujosComputo } from './tutorial.meta'
 import { planMetasComputo } from './plan'
@@ -48,7 +48,7 @@ const computo: Plantilla = {
   nombre: 'Cómputo · Calculadora y hojas',
   icon: '🧮',
   categoria: 'mente',
-  color: COLOR,
+  color: COLOR_FABRICA,
   App: ComputoApp,
   flujos: flujosComputo,
   planMetas: planMetasComputo,

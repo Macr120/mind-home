@@ -12,7 +12,7 @@ import { actividadId } from '../../core/rutinas'
 import { tGlobal } from '../../core/i18n/useT'
 import { planMetasIdiomas } from './plan'
 import { flujosIdiomas } from './tutorial.meta'
-import { COLOR, NIVELES, TIPOS_TARJETA } from './constantes'
+import { COLOR_FABRICA, NIVELES, TIPOS_TARJETA } from './constantes'
 import { tarjetasVencidas } from './srs'
 import { hoyISO } from './stats'
 import { OPERACIONES_IA } from './costosIA'
@@ -132,7 +132,7 @@ const idiomas: Plantilla = {
   nombre: 'Idiomas',
   icon: '🌐',
   categoria: 'mente',
-  color: COLOR,
+  color: COLOR_FABRICA,
   App: IdiomasApp,
   flujos: flujosIdiomas,
   capturar,

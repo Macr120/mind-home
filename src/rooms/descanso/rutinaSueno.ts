@@ -37,6 +37,11 @@ export async function sincronizarRutinaSueno(
       creadoEn: new Date().toISOString(),
       origen: 'sueno',
       avisar: false,
+      // De Descanso, aunque lo escriba el calendario: sin esto el bloque salía
+      // suelto, sin app a la que llevar al tocarlo. Lo mismo que rellena la v125
+      // en las bases que ya lo tenían creado.
+      plantillaId: 'descanso',
+      seccion: 'sueno',
     })
     return
   }

@@ -213,7 +213,7 @@ export function EstudioTab() {
       {fin && (
         <div
           className="flex items-center justify-between gap-2 rounded-xl border p-3 text-sm"
-          style={{ background: `${COLOR}18`, borderColor: `${COLOR}55` }}
+          style={{ background: `color-mix(in srgb, ${COLOR} 9%, transparent)`, borderColor: `color-mix(in srgb, ${COLOR} 33%, transparent)` }}
         >
           <span>
             <Icono nombre="campana" /> {t('biblioteca.est.fin', '¡Sesión completada! +{n} min en {campo}', {

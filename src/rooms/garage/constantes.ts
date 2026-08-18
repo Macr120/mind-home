@@ -6,7 +6,13 @@ import type {
 } from '../../core/data/db'
 import type { NombreIcono } from '../../core/ui/iconos/catalogo'
 
-export const COLOR = '#fbbf24'
+export const COLOR_FABRICA = '#fbbf24'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
 export const TIPOS_VEHICULO: { id: TipoVehiculo; label: string; icon: string }[] = [
   { id: 'bicicleta', label: 'Bicicleta', icon: '🚲' },

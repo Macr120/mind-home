@@ -47,8 +47,8 @@ export function MisionesDia({ idiomaId }: { idiomaId: number }) {
               key={m.id}
               className="rounded-xl border px-2.5 py-2"
               style={{
-                borderColor: lista ? `${COLOR}66` : 'rgb(255 255 255 / 0.1)',
-                background: lista ? `${COLOR}18` : undefined,
+                borderColor: lista ? `color-mix(in srgb, ${COLOR} 40%, transparent)` : 'rgb(255 255 255 / 0.1)',
+                background: lista ? `color-mix(in srgb, ${COLOR} 9%, transparent)` : undefined,
               }}
             >
               <p className="flex items-start gap-1 text-[11px] leading-snug text-white/80">

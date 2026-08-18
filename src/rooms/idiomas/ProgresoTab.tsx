@@ -48,7 +48,7 @@ export function ProgresoTab({ perfil }: { perfil: PerfilIdioma }) {
 
   return (
     <div className="space-y-4" data-tut="idiomas.progreso.panel">
-      <div className="rounded-xl border border-white/10 p-4" style={{ background: `${COLOR}18` }}>
+      <div className="rounded-xl border border-white/10 p-4" style={{ background: `color-mix(in srgb, ${COLOR} 9%, transparent)` }}>
         <p className="text-xs text-white/50">
           <Icono emoji={perfil.bandera} /> {t('idiomas.pr.titulo', 'Tu {idioma}', { idioma: perfil.nombre })} · {perfil.nivel}
         </p>

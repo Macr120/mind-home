@@ -1,7 +1,13 @@
 import type { AreaAgenda } from '../../core/data/db'
 
 /** Color de la app (el del chip único del filtro del calendario). */
-export const COLOR = '#a855f7'
+export const COLOR_FABRICA = '#a855f7'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
 /**
  * Un color por sección. El filtro del calendario es por app —un solo chip

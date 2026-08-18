@@ -34,7 +34,7 @@ export function TarjetaMedia({
             <div className="mt-1.5 flex flex-wrap gap-1.5 text-[10px]">
               <span
                 className="rounded-md px-2 py-0.5 font-semibold"
-                style={{ background: `${COLOR}33`, color: COLOR }}
+                style={{ background: `color-mix(in srgb, ${COLOR} 20%, transparent)`, color: COLOR }}
               >
                 {item.genero}
               </span>

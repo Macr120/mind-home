@@ -419,7 +419,7 @@ function Cierre({
   const t = useT()
   const ganadas = MEDALLAS.filter((m) => resumen.medallas.includes(m.id))
   return (
-    <div className="space-y-3 rounded-2xl border p-5 text-center" style={{ borderColor: `${COLOR}55`, background: `${COLOR}14` }}>
+    <div className="space-y-3 rounded-2xl border p-5 text-center" style={{ borderColor: `color-mix(in srgb, ${COLOR} 33%, transparent)`, background: `color-mix(in srgb, ${COLOR} 8%, transparent)` }}>
       <p className="text-3xl font-black" style={{ color: COLOR }}>
         {resumen.puntos}
       </p>

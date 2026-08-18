@@ -19,7 +19,13 @@ export const TIPOS: {
 ]
 
 /** El rosa del cuarto (mismo hex que el `color` de rooms/ejercicio/index.tsx). */
-export const COLOR = '#fb7185'
+export const COLOR_FABRICA = '#fb7185'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
 // Acento POR MODALIDAD de los CTA (`ui-accent-bg` + acento()): cada pestaña pinta el suyo.
 export const C_FUERZA = '#ea580c' // orange-600

@@ -46,7 +46,7 @@ export const cuerpoAnio: CuerpoTutorial = {
       titulo: T('tut.app-ejercicio--anio.3.titulo', 'Las metas del año'),
       texto: T(
         'tut.app-ejercicio--anio.3.texto',
-        'El botón Metas del encabezado guarda sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.',
+        'El cuarto de Metas guarda sus cuatro metas cumplidas —los 5K, los 10K, el medio maratón y el maratón— y la que sigue viva. Las metas con fecha aparecen también en el calendario de la casa.',
       ),
     },
   ],

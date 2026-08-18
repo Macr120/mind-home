@@ -74,7 +74,7 @@ export function FormularioTaller({
               style={
                 activo
                   ? { background: COLOR, color: TINTA_CTA }
-                  : { background: `${COLOR}1a`, boxShadow: `inset 0 0 0 1px ${COLOR}33` }
+                  : { background: `color-mix(in srgb, ${COLOR} 10%, transparent)`, boxShadow: `inset 0 0 0 1px color-mix(in srgb, ${COLOR} 20%, transparent)` }
               }
             >
               <span className={activo ? '' : 'texto-vivo'} style={activo ? undefined : vivo(COLOR)}>

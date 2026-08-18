@@ -1,6 +1,12 @@
 /** Constantes de la sala de cómputo: color, topes de la hoja y tolerancias. */
 
-export const COLOR = '#0ea5e9'
+export const COLOR_FABRICA = '#0ea5e9'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
 // ── Hojas de cálculo ────────────────────────────────────────────────────────
 // Topes duros. La hoja entera viaja en UNA fila de Dexie (ver `HojaCalculo`),

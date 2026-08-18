@@ -1,13 +1,14 @@
-import { Suspense, useState, useSyncExternalStore } from 'react'
+import { Suspense, useState, useSyncExternalStore, type CSSProperties } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { useHouse } from '../state/houseStore'
 import { getCuarto } from '../state/cuartosStore'
 import { catalogoPlantillasStore, getPlantilla, type Plantilla } from '../registry'
-import { acento, tono } from '../../rooms/_shared/acento'
+import { acento, tinta, tono } from '../../rooms/_shared/acento'
 import { intencionAppActiva } from '../state/intencionApp'
 import { useDiseño, useRoomVisual } from '../state/disenoStore'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ListaHoy } from './hoy/ListaHoy'
+import { VigiaRachaApp } from '../gamificacion/listas'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
 import { BotonTutorialApp } from '../tutorial/BotonTutorialApp'
@@ -68,14 +69,20 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
   const activa =
     apps.length === 1 ? apps[0] : apps.find((p) => p.id === seleccionada) ?? null
   const App = activa?.App
+  // El cuarto suele llamarse como su app (la adopta al asignarla): repetir el
+  // nombre en gris no informaba de nada, así que solo se añade si es OTRO.
+  const nombreApp = activa ? t(`room.${activa.id}.nombre`, activa.nombre).split(' · ')[0] : ''
+  const sufijoApp = nombreApp.trim() && nombreApp.trim() !== nombre.trim() ? nombreApp : ''
 
   return (
-    // El color de la app abierta baja como acento a todo su 2D (`--ui-accent*`):
-    // los `ui-accent-bg` de formularios y chips heredan el tono de formularios
-    // sin que cada archivo tenga que importar su color.
+    // El color DEL CUARTO (no el de fábrica de la app) baja a todo su 2D:
+    // `--ui-accent*` con el tono de formularios, que heredan los `ui-accent-bg`,
+    // y `--ui-app*` con el color puro, que es al que apunta el `COLOR` de cada
+    // app (`var(--ui-app, <hex de fábrica>)`). Así repintar el cuarto repinta su
+    // app entera sin que ningún archivo importe nada.
     <div
       className="ui-app ui-app-entra absolute inset-0 z-20 flex flex-col"
-      style={activa ? acento(tono(activa.color, 3)) : undefined}
+      style={{ ...acento(tono(color, 3)), '--ui-app': color, '--ui-app-ink': tinta(color) } as CSSProperties}
     >
       {/* El hueco del menú flotante se reserva a la medida del móvil (su chip
           plegado mide ~114 px) y solo a partir de `sm` al ancho completo: con
@@ -99,10 +106,10 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
         )}
         <h1 className="texto-vivo min-w-0 flex-1 truncate text-lg font-bold" style={vivo(color)}>
           {nombre}
-          {activa && (
+          {sufijoApp && (
             <span className="text-white/40">
               {' · '}
-              {t(`room.${activa.id}.nombre`, activa.nombre).split(' · ')[0]}
+              {sufijoApp}
             </span>
           )}
         </h1>
@@ -111,7 +118,10 @@ export function RoomOverlay({ menuFlotante = false }: { menuFlotante?: boolean }
         <div className="ms-auto flex shrink-0 items-center gap-3">
           {/* La checklist diaria de la app abierta (objetivos, lo agendado y sus
               metas): un chip aquí, montado una vez y no en cada app. */}
-          {activa && <ListaHoy plantillaId={activa.id} color={activa.color} />}
+          {activa && <ListaHoy plantillaId={activa.id} color={color} />}
+          {/* Celebra la racha con el primer registro del día en esta app; el
+              `key` reinicia su memoria al cambiar de cuarto. */}
+          {activa && <VigiaRachaApp key={activa.id} plantillaId={activa.id} />}
           {/* Música: el tema de este cuarto y la ambiental, sin salir de la app. */}
           <ControlMusica cuartoId={cuarto.id} />
         </div>

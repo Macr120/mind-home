@@ -170,7 +170,7 @@ export function Sudoku({ dificultad = 'medio' }: PropsDificultad) {
           // Los resaltes se mezclan con la tinta del tema (en claro, un blanco
           // literal sobre papel blanco no se vería).
           let fondo = 'transparent'
-          if (i === sel) fondo = `${COLOR}40`
+          if (i === sel) fondo = `color-mix(in srgb, ${COLOR} 25%, transparent)`
           else if (mismoNumero) fondo = 'color-mix(in srgb, var(--ui-ink) 18%, transparent)'
           else if (enUnidad) fondo = 'color-mix(in srgb, var(--ui-ink) 7%, transparent)'
           return (

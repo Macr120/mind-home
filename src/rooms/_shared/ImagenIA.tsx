@@ -5,11 +5,23 @@ import { Creditos } from '../../core/ui/Creditos'
 import { useAjustes } from '../../core/state/ajustesStore'
 import { useT } from '../../core/i18n/useT'
 import { Icono } from '../../core/ui/iconos/Icono'
+import { VisorImagen } from '../../core/ui/VisorImagen'
 
 /** Imagen desde un Blob. La URL nace y muere en el mismo efecto: así sobrevive
- * al doble montaje de StrictMode (un useMemo la reutilizaría ya revocada). */
-export function VistaBlob({ blob, className = '' }: { blob: Blob; className?: string }) {
+ * al doble montaje de StrictMode (un useMemo la reutilizaría ya revocada).
+ * Con `ampliable` se abre a pantalla completa (y se puede descargar) al tocarla. */
+export function VistaBlob({
+  blob,
+  className = '',
+  ampliable = false,
+}: {
+  blob: Blob
+  className?: string
+  ampliable?: boolean
+}) {
+  const t = useT()
   const [url, setUrl] = useState<string>()
+  const [ampliada, setAmpliada] = useState(false)
   useEffect(() => {
     const u = URL.createObjectURL(blob)
     // eslint-disable-next-line react-hooks/set-state-in-effect -- la URL debe nacer en el efecto para sobrevivir el remount de StrictMode
@@ -17,7 +29,21 @@ export function VistaBlob({ blob, className = '' }: { blob: Blob; className?: st
     return () => URL.revokeObjectURL(u)
   }, [blob])
   if (!url) return null
-  return <img src={url} alt="" className={`object-cover ${className}`} />
+  const img = <img src={url} alt="" className={`object-cover ${className}`} />
+  if (!ampliable) return img
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setAmpliada(true)}
+        aria-label={t('visor.ampliar', 'Ver la imagen en grande')}
+        className="block w-full cursor-zoom-in transition hover:brightness-110"
+      >
+        {img}
+      </button>
+      {ampliada && <VisorImagen url={url} tipo={blob.type} onCerrar={() => setAmpliada(false)} />}
+    </>
+  )
 }
 
 /**
@@ -85,7 +111,7 @@ export function ImagenIA({
               <span className="text-xs">{t('imagenIA.generando', 'Generando imagen…')}</span>
             </div>
           ) : (
-            imagen && <VistaBlob blob={imagen} className="h-full w-full" />
+            imagen && <VistaBlob blob={imagen} ampliable className="h-full w-full" />
           )}
         </div>
       )}

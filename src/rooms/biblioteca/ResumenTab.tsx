@@ -59,7 +59,7 @@ export function ResumenTab() {
 
   return (
     <div className="space-y-4">
-      <div data-tut="biblioteca.r.cabecera" className="rounded-xl border border-white/10 p-4" style={{ background: `${COLOR}18` }}>
+      <div data-tut="biblioteca.r.cabecera" className="rounded-xl border border-white/10 p-4" style={{ background: `color-mix(in srgb, ${COLOR} 9%, transparent)` }}>
         <p className="text-xs text-white/50">{t('biblioteca.r.titulo', 'Tu enciclopedia personal')}</p>
         <p className="text-3xl font-black texto-vivo" style={vivo(COLOR)}>
           {t('biblioteca.r.entradas', '{n} entradas', { n: String(entradas.length) })}

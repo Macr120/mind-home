@@ -2,7 +2,7 @@ import { lazy } from 'react'
 import type { Plantilla } from '../../core/appContrato'
 import { lecturasDiarioRepo } from '../../core/data/repository'
 import { flujosDiario } from './tutorial.meta'
-import { COLOR } from './constantes'
+import { COLOR_FABRICA } from './constantes'
 import { OPERACIONES_IA } from './costosIA'
 import { planMetasDiario } from './plan'
 
@@ -16,7 +16,7 @@ const diario: Plantilla = {
   nombre: 'Noticias · Periódico',
   icon: '📰',
   categoria: 'complemento',
-  color: COLOR,
+  color: COLOR_FABRICA,
   App: DiarioApp,
   operacionesIA: OPERACIONES_IA,
   flujos: flujosDiario,

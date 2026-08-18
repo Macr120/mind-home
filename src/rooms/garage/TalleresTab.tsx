@@ -95,7 +95,7 @@ export function TalleresTab({
                           <a
                             href={`tel:${c.telefono}`}
                             className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold transition hover:brightness-110"
-                            style={{ background: `${COLOR}22` }}
+                            style={{ background: `color-mix(in srgb, ${COLOR} 13%, transparent)` }}
                           >
                             <Icono nombre="telefono" /> {c.telefono}
                           </a>

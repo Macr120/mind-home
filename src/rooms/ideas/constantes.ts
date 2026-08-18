@@ -1,5 +1,11 @@
 /** Color de la app (ámbar foco). */
-export const COLOR = '#facc15'
+export const COLOR_FABRICA = '#facc15'
+/**
+ * Con el que se pinta la app: el color del CUARTO abierto (lo baja `RoomOverlay` en
+ * `--ui-app`) y, fuera de él, el de fábrica. Es una variable CSS, no un hex: para
+ * mezclarlo usa `color-mix`, no interpolación de alfa.
+ */
+export const COLOR = `var(--ui-app, ${COLOR_FABRICA})`
 
 /** Paleta de las ramas de primer nivel (los descendientes la heredan). */
 export const PALETA_RAMAS = [

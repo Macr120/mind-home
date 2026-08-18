@@ -149,7 +149,7 @@ export const cuerpoMetas: CuerpoTutorial = {
       titulo: T('tut.app-despacho--metas.2.titulo', 'La meta en el tiempo'),
       texto: T(
         'tut.app-despacho--metas.2.texto',
-        'El botón Metas del encabezado guarda estas metas sobre el eje del tiempo: le pones fechas a una y aparece entre tus días del calendario. Con ✨ la IA propone el plan de aportaciones.',
+        'Estas metas se guardan sobre el eje del tiempo en el cuarto de Metas: le pones fechas a una y aparece entre tus días del calendario. Con ✨ la IA propone el plan de aportaciones.',
       ),
     },
     {
