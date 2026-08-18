@@ -1,4 +1,12 @@
-import { getIaKey } from './chat/ia'
+import {
+  getBase,
+  getIaKey,
+  getModelo,
+  hayProveedorMedia,
+  localHaceImagen,
+  PROVEEDORES,
+  type ProveedorMediaId,
+} from './chat/ia'
 import { iaHabilitada } from './edicion'
 import { usarViaCuenta, iaImagenCuenta, ErrorIA } from './cuenta/api'
 import { hayBackend } from './cuenta/supabase'
@@ -13,28 +21,25 @@ import { tGlobal } from './i18n/useT'
  *
  * Mismo patrón que `chat/ia.ts`: llamada directa desde el navegador con la API
  * key del usuario (la que el chat guarda en localStorage vía `getIaKey`). Solo
- * OpenAI y Gemini generan imágenes, así que el proveedor se elige aparte del
- * proveedor de texto.
+ * OpenAI y Gemini generan imágenes (`ProveedorMediaId`), así que quien sirve la
+ * imagen puede no ser el proveedor de texto — ver `proveedorImagen()`.
  *
  * Aquí vive lo genérico (proveedores, transporte y compresión); cada app pone
  * su propio PROMPT y decide dónde guarda el Blob resultante.
  */
 
-export type ProveedorImagenId = 'openai' | 'gemini'
+/**
+ * Quién puede generar imágenes en BYOK: los dos de siempre por internet, más
+ * Ollama cuando el modelo elegido declara la capacidad `image` (los locales tipo
+ * x/z-image-turbo o x/flux2-klein), que sirve la misma API que OpenAI.
+ */
+export type ProveedorImagenId = ProveedorMediaId | 'local'
 
-export interface ProveedorImagen {
-  id: ProveedorImagenId
-  nombre: string
-  emoji: string
-  modelo: string
-  /** Proveedor de `ia.ts` del que se toma la API key (comparte clave con el chat). */
-  keyProv: 'chatgpt' | 'gemini'
+/** Modelo de imagen por proveedor (la clave es la misma del chat). */
+const MODELO_IMAGEN: Record<ProveedorMediaId, string> = {
+  chatgpt: 'gpt-image-1-mini',
+  gemini: 'gemini-3.1-flash-lite-image',
 }
-
-export const PROVEEDORES_IMAGEN: ProveedorImagen[] = [
-  { id: 'openai', nombre: 'OpenAI', emoji: '🟢', modelo: 'gpt-image-1-mini', keyProv: 'chatgpt' },
-  { id: 'gemini', nombre: 'Gemini', emoji: '♊', modelo: 'gemini-3.1-flash-lite-image', keyProv: 'gemini' },
-]
 
 /**
  * Proporción de la imagen. Los proveedores generan a un tamaño fijo y cobran
@@ -43,14 +48,35 @@ export const PROVEEDORES_IMAGEN: ProveedorImagen[] = [
  */
 export type AspectoImagen = '1:1' | '16:9' | '9:16' | '4:3' | '3:4'
 
-const LS_PROV_IMG = 'mh.imgProveedor'
+const LS_PROV_IMAGEN = 'mh.iaProvImagen'
 
-export function getProveedorImagen(): ProveedorImagen {
-  const id = localStorage.getItem(LS_PROV_IMG) as ProveedorImagenId | null
-  const elegido = PROVEEDORES_IMAGEN.find((p) => p.id === id)
-  if (elegido) return elegido
-  // Sin preferencia: el primero que tenga clave (prioriza OpenAI).
-  return PROVEEDORES_IMAGEN.find((p) => getIaKey(p.keyProv).length > 0) ?? PROVEEDORES_IMAGEN[0]
+/** Preferencia explícita del proveedor de imagen (fila «Imagen» del panel de IA). */
+export function getProvImagen(): ProveedorImagenId | null {
+  const id = localStorage.getItem(LS_PROV_IMAGEN)
+  return id === 'chatgpt' || id === 'gemini' || id === 'local' ? id : null
+}
+
+export function setProvImagen(id: ProveedorImagenId) {
+  localStorage.setItem(LS_PROV_IMAGEN, id)
+}
+
+/** ¿Ese proveedor puede generar imágenes ahora mismo? (clave puesta, o modelo local capaz). */
+function listoParaImagen(id: ProveedorImagenId): boolean {
+  return id === 'local' ? localHaceImagen() : getIaKey(id).length > 0
+}
+
+/**
+ * ¿Quién genera la imagen en BYOK? La preferencia guardada manda mientras siga
+ * siendo posible; sin preferencia, la calidad elige (rápida→OpenAI,
+ * buena→Gemini) entre los que tengan clave, y Ollama queda de último recurso
+ * (es gratis, pero solo si el modelo elegido genera imágenes).
+ */
+export function proveedorImagen(calidad: CalidadImagen = leerCalidadImagen()): ProveedorImagenId | null {
+  const pref = getProvImagen()
+  if (pref && listoParaImagen(pref)) return pref
+  const orden: ProveedorImagenId[] =
+    calidad === 'buena' ? ['gemini', 'chatgpt', 'local'] : ['chatgpt', 'gemini', 'local']
+  return orden.find(listoParaImagen) ?? null
 }
 
 /**
@@ -61,7 +87,8 @@ export function getProveedorImagen(): ProveedorImagen {
 export function imagenIaActiva(): boolean {
   if (!iaHabilitada()) return false
   if (usarViaCuenta()) return navigator.onLine // proxy con clave del servidor
-  if (getIaKey(getProveedorImagen().keyProv).length > 0) return navigator.onLine
+  if (localHaceImagen()) return true // Ollama es localhost: ni clave ni internet
+  if (hayProveedorMedia()) return navigator.onLine
   return hayBackend() && navigator.onLine
 }
 
@@ -124,39 +151,49 @@ const SIZE_OPENAI: Record<AspectoImagen, string> = {
   '3:4': '1024x1536',
 }
 
+/**
+ * Endpoints `images/generations` y `images/edits` de OpenAI. Ollama sirve los
+ * MISMOS para sus modelos de imagen, así que solo cambia la base (y allí se
+ * omiten `size`/`quality`, que son propios de OpenAI, y la clave es opcional).
+ */
 async function generarOpenAI(
   prompt: string,
   modelo: string,
   key: string,
   aspecto: AspectoImagen,
   referencia?: Blob,
+  base = 'https://api.openai.com/v1',
 ): Promise<Blob> {
+  const esOpenAI = base.startsWith('https://api.openai.com')
   const size = SIZE_OPENAI[aspecto]
+  const auth: Record<string, string> = key ? { Authorization: `Bearer ${key}` } : {}
   // Con foto de referencia se usa el endpoint de edición (multipart), no el de generación.
   const res = referencia
-    ? await fetch('https://api.openai.com/v1/images/edits', {
+    ? await fetch(`${base}/images/edits`, {
         method: 'POST',
-        headers: { Authorization: `Bearer ${key}` },
+        headers: auth,
         body: (() => {
           const fd = new FormData()
           fd.append('model', modelo)
           fd.append('prompt', prompt)
-          fd.append('size', size)
-          fd.append('quality', 'low')
+          if (esOpenAI) {
+            fd.append('size', size)
+            fd.append('quality', 'low')
+          }
           fd.append('image', new File([referencia], 'referencia.png', { type: referencia.type || 'image/png' }))
           return fd
         })(),
       })
-    : await fetch('https://api.openai.com/v1/images/generations', {
+    : await fetch(`${base}/images/generations`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
+        headers: { 'Content-Type': 'application/json', ...auth },
         // `low` basta: la imagen se reescala a 512–1024 px al guardarla.
-        body: JSON.stringify({ model: modelo, prompt, n: 1, size, quality: 'low' }),
+        body: JSON.stringify({ model: modelo, prompt, n: 1, ...(esOpenAI ? { size, quality: 'low' } : {}) }),
       })
-  if (!res.ok) throw new Error(`OpenAI ${res.status}: ${(await res.text()).slice(0, 200)}`)
+  if (!res.ok) throw new Error(`${esOpenAI ? 'OpenAI' : 'Ollama'} ${res.status}: ${(await res.text()).slice(0, 200)}`)
   const data = (await res.json()) as { data?: { b64_json?: string }[] }
   const b64 = data.data?.[0]?.b64_json
-  if (!b64) throw new Error('OpenAI no devolvió imagen')
+  if (!b64) throw new Error('No devolvió imagen')
   return base64ABlob(b64)
 }
 
@@ -203,12 +240,13 @@ async function generarGemini(
  * `referencia` (una foto del usuario) el proveedor la toma como base en vez de
  * partir de cero. Lanza si falta la API key o el proveedor falla.
  *
- * `calidad` decide proveedor Y precio: `rapida` (gpt-image-1-mini, 3 créditos) o
- * `buena` (Gemini, 10). Se lee UNA vez aquí y viaja con la petición, para que
- * cambiarla a mitad de un lote no re-precie lo ya encolado.
+ * `calidad` decide precio (y proveedor si no hay preferencia): `rapida`
+ * (gpt-image-1-mini, 3 créditos) o `buena` (Gemini, 10). Se lee UNA vez aquí y
+ * viaja con la petición, para que cambiarla a mitad de un lote no re-precie lo
+ * ya encolado.
  *
  * Vía cuenta el respaldo entre proveedores lo resuelve la Edge Function; en
- * BYOK (desarrollo) la calidad elige el proveedor directamente, sin cadena.
+ * BYOK resuelve `proveedorImagen()` (preferencia del panel → calidad), sin cadena.
  */
 export async function generarImagen(
   prompt: string,
@@ -217,12 +255,6 @@ export async function generarImagen(
   aspecto: AspectoImagen = '1:1',
   calidad: CalidadImagen = leerCalidadImagen(),
 ): Promise<Blob> {
-  // Sin cuenta con créditos ni clave propia no hay forma de pagar la imagen:
-  // el modal de recarga es mejor respuesta que un error de red.
-  if (!usarViaCuenta() && !getIaKey(getProveedorImagen().keyProv)) {
-    useCuotaAgotada.getState().abrir()
-    throw new ErrorIA('cuota-agotada', tGlobal('cuenta.creditos.faltan', 'Te quedaste sin créditos de IA.'))
-  }
   // La referencia viaja en el cuerpo de la petición: se reduce antes para no mandar megas.
   const ref = referencia ? await comprimirImagen(referencia, 768) : undefined
   // Vía cuenta: Edge Function con la clave del servidor y cuota.
@@ -235,16 +267,25 @@ export async function generarImagen(
     )
     return comprimirImagen(base64ABlob(r.base64, r.mime), max)
   }
-  // BYOK: la calidad manda sobre la preferencia guardada, para que el proveedor
-  // coincida con el precio que se anunció.
-  const preferido = PROVEEDORES_IMAGEN.find((p) => (calidad === 'buena' ? p.id === 'gemini' : p.id === 'openai'))
-  const prov = preferido && getIaKey(preferido.keyProv) ? preferido : getProveedorImagen()
-  const key = getIaKey(prov.keyProv)
-  if (!key) throw new Error(`Falta la API key de ${prov.nombre}`)
-  const blob =
-    prov.id === 'openai'
-      ? await generarOpenAI(prompt, prov.modelo, key, aspecto, ref)
-      : await generarGemini(prompt, prov.modelo, key, aspecto, ref)
-  useGastoByok.getState().sumar('imagen', costoImagenByok(prov.id))
+  // BYOK. Sin ningún proveedor de imagen con clave no hay forma de pagar:
+  // el modal de recarga es mejor respuesta que un error de red.
+  const provId = proveedorImagen(calidad)
+  if (!provId) {
+    useCuotaAgotada.getState().abrir()
+    throw new ErrorIA('cuota-agotada', tGlobal('cuenta.creditos.faltan', 'Te quedaste sin créditos de IA.'))
+  }
+  const key = getIaKey(provId)
+  let blob: Blob
+  if (provId === 'local') {
+    // Ollama: mismo protocolo que OpenAI contra el servidor del usuario, con el
+    // modelo de imagen que él eligió como cerebro (x/z-image-turbo, flux…).
+    const local = PROVEEDORES.find((p) => p.id === 'local') as (typeof PROVEEDORES)[number]
+    blob = await generarOpenAI(prompt, getModelo(local), key, aspecto, ref, getBase(local))
+  } else if (provId === 'chatgpt') {
+    blob = await generarOpenAI(prompt, MODELO_IMAGEN.chatgpt, key, aspecto, ref)
+  } else {
+    blob = await generarGemini(prompt, MODELO_IMAGEN.gemini, key, aspecto, ref)
+  }
+  useGastoByok.getState().sumar('imagen', costoImagenByok(provId))
   return comprimirImagen(blob, max)
 }

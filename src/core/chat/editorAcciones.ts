@@ -328,7 +328,13 @@ function resolverComandoApp(texto: string): { app: Plantilla; cmd: ComandoApp } 
  * `resolverComandoApp` (que recorre el catálogo) ya no lo encuentra.
  */
 const VISTAS_CALENDARIO: { vista: VistaCalendario; etiqueta: string; nombres: string[] }[] = [
-  { vista: 'cronograma', etiqueta: 'Metas', nombres: ['cronograma', 'mis metas', 'mis planes', 'linea de tiempo'] },
+  // «mis metas»/«mis planes» NO están aquí: eso es el cuarto de Metas, y lo
+  // resuelve `resolverApp` por el nombre de la plantilla.
+  {
+    vista: 'objetivos',
+    etiqueta: 'Misiones',
+    nombres: ['misiones', 'mis misiones', 'objetivos', 'mis objetivos', 'lo de hoy', 'que me toca hoy'],
+  },
   { vista: 'dia', etiqueta: 'Agenda de hoy', nombres: ['agenda de hoy', 'agenda del dia', 'mi dia'] },
   { vista: 'semana', etiqueta: 'Semana', nombres: ['agenda de la semana', 'mi semana'] },
   { vista: 'mes', etiqueta: 'Mes', nombres: ['calendario del mes', 'mi mes'] },
@@ -1719,15 +1725,15 @@ export const TOOLS_EDITOR: ToolNeutra[] = [
   {
     name: 'editor_abrir_calendario',
     description:
-      'Abre el calendario de la casa (el del reloj: no vive en ningún cuarto). Úsala cuando el usuario pida su calendario, su agenda del día o de la semana, o sus metas, planes y cronograma.',
+      'Abre el calendario de la casa (el del reloj: no vive en ningún cuarto). Úsala cuando el usuario pida su calendario, su agenda del día o de la semana, o las misiones que le tocan hoy. OJO: sus metas y planes NO están aquí — para eso se abre el cuarto «Metas» con editor_abrir_app.',
     schema: {
       type: 'object',
       properties: {
         vista: {
           type: 'string',
-          enum: ['dia', 'semana', 'mes', 'anio', 'cronograma'],
+          enum: ['dia', 'semana', 'mes', 'anio', 'objetivos'],
           description:
-            'Con qué vista abrirlo. «cronograma» es la sección de Metas (metas, planes y el eje de tiempo). Por defecto, semana.',
+            'Con qué vista abrirlo. «objetivos» son las Misiones: la checklist de hoy de todas las apps juntas. Por defecto, semana.',
         },
       },
     },

@@ -112,3 +112,38 @@ export function semillaAsistente(plantillaId: string): SemillaAsistente {
 export function asistenteDePlantilla(lista: Asistente[], plantillaId: string): Asistente | undefined {
   return lista.find((a) => a.cuartos.includes(plantillaId))
 }
+
+/**
+ * Quién se hace cargo de esta app de cara al usuario: el asistente que le asignó
+ * o, mientras no asigne ninguno, el que tiene activo en la casa.
+ *
+ * Nunca devuelve una SEMILLA: las semillas son una voz de fábrica para el prompt
+ * de la IA, no personajes que el usuario tenga. Presentar un «Chef» que no existe
+ * en su casa y que no puede abrir ni configurar es prometer a alguien que no está.
+ */
+export function asistenteResponsable(
+  lista: Asistente[],
+  plantillaId: string,
+  activoId?: string,
+): Asistente | undefined {
+  return asistenteDePlantilla(lista, plantillaId) ?? lista.find((a) => a.id === activoId) ?? lista[0]
+}
+
+/**
+ * Deja a ESTE asistente como responsable de la app y se la quita a los demás:
+ * `asistenteDePlantilla` resuelve con `find`, así que dos con la misma app
+ * marcada harían que el responsable dependiera del orden de la lista.
+ */
+export async function asignarAsistenteAApp(
+  lista: Asistente[],
+  plantillaId: string,
+  asistenteId: string,
+  guardar: (a: Asistente) => Promise<void> | void,
+): Promise<void> {
+  for (const a of lista) {
+    const tiene = a.cuartos.includes(plantillaId)
+    if (a.id === asistenteId && !tiene) await guardar({ ...a, cuartos: [...a.cuartos, plantillaId] })
+    else if (a.id !== asistenteId && tiene)
+      await guardar({ ...a, cuartos: a.cuartos.filter((c) => c !== plantillaId) })
+  }
+}

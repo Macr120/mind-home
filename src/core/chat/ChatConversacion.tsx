@@ -118,7 +118,7 @@ export function ChatConversacion({ onCerrar }: { onCerrar: () => void }) {
                   {/* Imagen generada con IA en ese turno */}
                   {m.imagen && (
                     <div className="mt-1.5 overflow-hidden rounded-xl border border-white/10">
-                      <VistaBlob blob={m.imagen} className="max-h-64 w-full object-contain" />
+                      <VistaBlob blob={m.imagen} ampliable className="max-h-64 w-full object-contain" />
                     </div>
                   )}
                   {/* Mapa dibujado en ese turno: se ve aquí y vive en la app Ideas */}

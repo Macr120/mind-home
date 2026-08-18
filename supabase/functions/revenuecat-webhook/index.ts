@@ -13,13 +13,18 @@ import { createClient } from 'npm:@supabase/supabase-js@2'
 
 const ACTIVAN = ['INITIAL_PURCHASE', 'RENEWAL', 'UNCANCELLATION', 'PRODUCT_CHANGE']
 /**
- * Compras sueltas de créditos (product_id de RC → créditos que abona). No
- * caducan y no requieren suscripción: son el único acceso a la IA en modo local.
+ * Niveles de la suscripción (product_id de RC → multiplicador del pool). El
+ * nivel se guarda en `perfiles.nivel` y `pool_mensual()` lo multiplica por los
+ * créditos base: 700 / 1400 / 2100.
+ *
+ * Sustituyen a las recargas one-time: subir o bajar de nivel es un
+ * PRODUCT_CHANGE, no una compra nueva. `creditos_extra` sigue existiendo para
+ * el saldo ya vendido, pero no se vende más.
  */
-const RECARGAS: Record<string, number> = {
-  recarga_150: 150,
-  recarga_600: 600,
-  recarga_1500: 1500,
+const NIVELES: Record<string, number> = {
+  pro_x1: 1,
+  pro_x2: 2,
+  pro_x3: 3,
 }
 /**
  * Pago único que desbloquea la app para siempre e incluye el «primer mes»:
@@ -102,6 +107,10 @@ Deno.serve(async (req) => {
   const tipo = String(evento.type)
   if (ACTIVAN.includes(tipo)) {
     const expiraMs = Number(evento.expiration_at_ms ?? 0)
+    // El nivel viaja en el product_id. PRODUCT_CHANGE (subir o bajar de nivel)
+    // entra por aquí, así que el mismo update lo actualiza. Un producto
+    // desconocido se queda en el nivel base en vez de dejar al usuario sin pool.
+    const nivel = NIVELES[String(evento.product_id ?? '')] ?? 1
     // fue_pro: sin trials configurados en RC, todo evento de ACTIVAN implica
     // cobro real. Si algún día se añade trial, excluir aquí period_type==='TRIAL'.
     const { error } = await admin
@@ -110,6 +119,7 @@ Deno.serve(async (req) => {
         plan: 'pro',
         plan_expira: expiraMs > 0 ? new Date(expiraMs).toISOString() : null,
         fue_pro: true,
+        nivel,
       })
       .eq('user_id', uid)
     if (error) return json({ error: 'bd', mensaje: error.message }, 500)
@@ -134,21 +144,15 @@ Deno.serve(async (req) => {
       }
       const { error } = await admin.from('perfiles').update(cambios).eq('user_id', uid)
       if (error) return json({ error: 'bd', mensaje: error.message }, 500)
-    } else {
-      // Recarga de créditos: abono atómico, solo la primera vez que llega el evento.
-      const creditos = RECARGAS[producto] ?? 0
-      if (creditos > 0 && esNuevo) {
-        const { error } = await admin.rpc('sumar_creditos_extra', {
-          p_uid: uid,
-          p_creditos: creditos,
-        })
-        if (error) return json({ error: 'bd', mensaje: error.message }, 500)
-      }
     }
+    // Ya no se venden compras sueltas: cualquier otro one-time queda auditado
+    // y sin efecto. `sumar_creditos_extra` sigue existiendo para el saldo viejo.
   } else if (tipo === 'EXPIRATION') {
+    // El nivel vuelve a la base: si no, quien cancela un ×3 y luego compra el
+    // unlock estrenaría el trial multiplicado.
     const { error } = await admin
       .from('perfiles')
-      .update({ plan: 'local', plan_expira: null })
+      .update({ plan: 'local', plan_expira: null, nivel: 1 })
       .eq('user_id', uid)
     if (error) return json({ error: 'bd', mensaje: error.message }, 500)
   }

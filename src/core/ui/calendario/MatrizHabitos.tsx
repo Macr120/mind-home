@@ -1,5 +1,7 @@
 import { Fragment, useState } from 'react'
 import type { Rutina } from '../../data/db'
+import { abrirEnlace } from '../../enlaceApp'
+import { esMeta } from '../../metas'
 import { useT } from '../../i18n/useT'
 import { Icono } from '../iconos/Icono'
 import { colorDe } from '../coloresRutina'
@@ -134,6 +136,17 @@ function FilaHabitoUI({
   const t = useT()
   const color = colorDe(fila.rutina)
 
+  /**
+   * Lo de una app no se palomea aquí: se va a la app y se registra de verdad,
+   * igual que en la vista de Objetivos. Palomear a mano lo que la app sabe medir
+   * sola crea una segunda verdad que nadie mantiene.
+   *
+   * Las metas quedan fuera de la regla aunque tengan app: una meta se cumple por
+   * decisión, no por un registro, y su palomita es la única forma de cerrarla.
+   * Y lo personal tampoco: no hay app a la que ir, así que se marca a mano.
+   */
+  const deApp = !esMeta(fila.rutina) && !!fila.rutina.plantillaId
+
   return (
     <div className="contents">
       <button
@@ -170,11 +183,22 @@ function FilaHabitoUI({
           <button
             key={columnas[i].columna.clave}
             type="button"
-            onClick={() => onToggle(fila.rutina, iso)}
-            title={t('cal.marcarHecho', 'Marcar como hecho')}
+            onClick={() =>
+              deApp
+                ? abrirEnlace({ plantillaId: fila.rutina.plantillaId!, seccion: fila.rutina.seccion })
+                : onToggle(fila.rutina, iso)
+            }
+            title={
+              deApp ? t('cal.irApp', 'Ir a la app a registrarlo') : t('cal.marcarHecho', 'Marcar como hecho')
+            }
             className={`mx-auto grid h-4 w-4 place-items-center rounded border text-[9px] transition ${
-              hecha ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400' : 'border-white/25 hover:border-white/60'
+              hecha
+                ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400'
+                : deApp
+                  ? 'border-white/20 hover:brightness-150'
+                  : 'border-white/25 hover:border-white/60'
             }`}
+            style={hecha || !deApp ? undefined : { borderColor: `${color}55` }}
           >
             {hecha ? '✓' : ''}
           </button>

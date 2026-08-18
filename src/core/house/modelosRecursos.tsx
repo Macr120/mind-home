@@ -7,7 +7,7 @@ import {
   TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE,
   TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA,
-  TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO, TIPO_LIBRETA,
+  TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO, TIPO_LIBRETA, TIPO_DIANA_METAS,
 } from './especialesPlantillaMeta'
 
 /**
@@ -1490,5 +1490,13 @@ export const SIEMBRA: Record<string, Siembra[]> = {
     { recurso: 89, x: 2.4, z: 2.35 },
     { recurso: 31, x: -2.45, z: 2.3 },
     { recurso: 104, x: 1.6, z: -2.45 },
+  ],
+  metas: [
+    { tipo: TIPO_DIANA_METAS, x: 0, z: -2.3, principal: true },
+    { tipo: TIPO_CALENDARIO, x: 2.1, z: -2.4 },
+    { tipo: TIPO_LIBRETA, x: -2.3, z: -1.4 },
+    { recurso: 49, x: -2.2, z: 0.4, rotY: 90 },
+    { recurso: 31, x: 2.45, z: 2.3 },
+    { recurso: 104, x: -2.4, z: 2.4 },
   ],
 }

@@ -30,6 +30,12 @@ export interface Aviso {
   accionRegistrar?: string
   /** Etiqueta del botón de abrir, ya traducida. */
   accionAbrir?: string
+  /**
+   * Quién lo dice. Sin valor habla el asistente activo, que es lo que pasaba
+   * siempre: el aviso de la cocina lo daba quien tuvieras seleccionado en el chat,
+   * no el asistente responsable de esa app.
+   */
+  asistenteId?: string
 }
 
 /** Un botón de la notificación. */
@@ -79,7 +85,7 @@ export async function pedirPermiso(): Promise<boolean> {
  * burbuja (dentro de un cuarto no se pinta) ni se diera permiso al navegador.
  */
 export async function notificar(a: Aviso): Promise<void> {
-  useMascota.getState().decir(`${a.titulo} · ${a.cuerpo}`)
+  useMascota.getState().decir(`${a.titulo} · ${a.cuerpo}`, { asistenteId: a.asistenteId })
 
   if (permisoNotificaciones() !== 'granted') return
   const datos = {

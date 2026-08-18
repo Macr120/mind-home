@@ -277,7 +277,7 @@ export function GeneradorPlan({
           onClick={onCancelar}
           className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
         >
-          ‹ {t('cal.plan.volverLista', 'Volver a los planes')}
+          ‹ {t('cal.meta.volverMetas', 'Volver a las metas')}
         </button>
         <p className="min-w-0 flex-1 truncate text-sm font-semibold">
           <Icono nombre="brillo" /> {t('cal.plan.titulo', 'Planear «{meta}»', { meta: meta.nombre })}

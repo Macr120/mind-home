@@ -29,7 +29,7 @@ export const cuerpoHoy: CuerpoTutorial = {
       },
       texto: T(
         'tut.hoy.1.texto',
-        'En el encabezado de cada app vive su botón Metas, como el del calendario pero acotado a esta app. Abre su panel con dos pisos: arriba la checklist de hoy, debajo sus metas y planes.',
+        'En el encabezado de cada app vive su botón Misiones: la checklist de lo que esa app te pide HOY. El reloj de la casa tiene el mismo botón con todas las apps juntas.',
       ),
     },
     {
@@ -37,7 +37,7 @@ export const cuerpoHoy: CuerpoTutorial = {
       titulo: T('tut.hoy.2.titulo', 'Tres fuentes, una lista'),
       texto: T(
         'tut.hoy.2.texto',
-        'Los objetivos propios de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo junto, agrupado bajo el plan o la meta del que sale cada paso.',
+        'Las misiones propias de la app (el agua, las calorías), lo que agendaste para hoy en el calendario y los pasos de tus metas vigentes: todo junto, agrupado bajo el plan o la meta del que sale cada paso.',
       ),
     },
     {
@@ -79,7 +79,7 @@ export const cuerpoHoy: CuerpoTutorial = {
     {
       texto: T(
         'tut.hoy.7.texto',
-        'Y si te falta algo, «Nueva checklist» crea la tuya: una lista propia de esta app que se repite cada día. Debajo de la sección Hoy está el planificador completo — Metas, Planes y Cronograma — con todas las metas de la app.',
+        'Y si te falta algo, «Nueva checklist» crea la tuya: una lista propia de esta app que se repite cada día. Las metas de las que salen estos pasos se planean en el cuarto de Metas.',
       ),
     },
   ],

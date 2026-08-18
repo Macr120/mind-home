@@ -15,6 +15,7 @@ export const TIPO_ESTANTERIA_HERR = 'estanteria-herramientas'
 export const TIPO_REPISA_JUEGOS = 'repisa-juegos'
 export const TIPO_AGENDA = 'agenda-escritorio'
 export const TIPO_CAJA_FUERTE = 'caja-fuerte'
+export const TIPO_DIANA_METAS = 'diana-metas'
 
 // Fase 2 — usables (el personaje ejecuta una acción; ver accionCuartoStore)
 export const TIPO_CAMINADORA = 'caminadora'
@@ -39,6 +40,7 @@ export const META_ESPECIAL_PLANTILLA: Record<string, { nombre: string; color: st
   [TIPO_REPISA_JUEGOS]: { nombre: 'Repisa de juegos', color: '#7c3aed' },
   [TIPO_AGENDA]: { nombre: 'Agenda de escritorio', color: '#a855f7' },
   [TIPO_CAJA_FUERTE]: { nombre: 'Caja fuerte', color: '#3f4b5b' },
+  [TIPO_DIANA_METAS]: { nombre: 'Diana de metas', color: '#ef4444' },
   [TIPO_CAMINADORA]: { nombre: 'Caminadora', color: '#334155' },
   [TIPO_PERIODICO]: { nombre: 'Escritorio de noticias', color: '#6b4423' },
   [TIPO_LAPTOP]: { nombre: 'Laptop de trabajo', color: '#475569' },
@@ -72,6 +74,7 @@ export const TIPOS_AMBIENTALES_PLANTILLA = new Set([
   TIPO_REPISA_JUEGOS,
   TIPO_AGENDA,
   TIPO_CAJA_FUERTE,
+  TIPO_DIANA_METAS,
   TIPO_PERIODICO,
   TIPO_GUITARRA,
   TIPO_PLANTA_REGAR,

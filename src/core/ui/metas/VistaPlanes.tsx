@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import type { PlanMeta, Rutina } from '../../data/db'
 import { planesMetaRepo } from '../../data/repository'
 import { localeActual, useT } from '../../i18n/useT'
@@ -8,53 +8,40 @@ import { colorDe } from '../coloresRutina'
 import { vivo } from '../estilos'
 import { Icono } from '../iconos/Icono'
 import { etiquetasDePlanes, textoEtiquetaPlan, type EtiquetaPlan } from './carpetas'
-import { GeneradorPlan } from './GeneradorPlan'
-import { HojaPlan } from './HojaPlan'
 
 const COLOR_PLAN = '#a78bfa'
 
 /**
- * El menú Planes: los cronogramas que la IA ha propuesto para estas metas, antes de
- * pasarlos al cronograma real. Tres pantallas en una — la lista, el generador y la
- * hoja del plan elegido.
+ * El menú Planes: la lista de los cronogramas que la IA ha propuesto para estas
+ * metas, antes de pasarlos al cronograma real.
+ *
+ * Es SOLO la lista: la hoja de un plan y el generador los monta `Cronograma`,
+ * porque también se llega a ellos desde el menú Metas y desde el eje. Aquí el
+ * único estado propio es «¿para qué meta?», que no sale de esta pantalla.
  *
  * Solo se listan los planes de las metas que esta vista sostiene. Antes el selector
  * del cronograma sacaba TODOS los de la base: dentro de una app aparecían planes de
  * metas de otra, y su botón de aceptar salía gris para siempre porque la meta origen
  * no estaba en la lista.
  */
-/**
- * En qué pantalla está la vista. Lo lleva `Cronograma` y no este componente: el ✨
- * de una meta y el «Abrir la hoja» del eje entran aquí ya apuntando a una pantalla
- * concreta, y sincronizar eso con estado propio pedía efectos.
- */
-export type DestinoPlanes =
-  | { tipo: 'lista' }
-  | { tipo: 'elegirMeta' }
-  | { tipo: 'generar'; meta: Rutina }
-  | { tipo: 'hoja'; id: number }
-
 export function VistaPlanes({
   metas,
   planes,
   metaArmada,
-  destino,
-  onDestino,
-  onVerEnCronograma,
+  onAbrirPlan,
+  onGenerar,
   onIrACronograma,
-  onVerMeta,
 }: {
   metas: Rutina[]
   planes: PlanMeta[]
   metaArmada: Rutina | null
-  destino: DestinoPlanes
-  onDestino: (d: DestinoPlanes) => void
-  onVerEnCronograma: (planId: number) => void
+  onAbrirPlan: (planId: number) => void
+  /** Pide un plan nuevo para esa meta (abre el generador ✨). */
+  onGenerar: (meta: Rutina) => void
   onIrACronograma: () => void
-  /** Abre la hoja de la meta del plan (fechas, nota, color, sub-metas sueltas). */
-  onVerMeta: (r: Rutina) => void
 }) {
   const t = useT()
+  const [eligiendo, setEligiendo] = useState(false)
 
   const mios = useMemo(() => {
     const ids = new Set(metas.map((m) => m.id))
@@ -67,36 +54,8 @@ export function VistaPlanes({
   // cabecera del cronograma, así que un plan se llama igual en las dos vistas.
   const carpetas = useMemo(() => etiquetasDePlanes(mios, metas, t), [mios, metas, t])
 
-  // Se resuelve contra la lista viva: si el plan se borra, la vista vuelve sola a la
-  // lista sin un efecto que lo vigile.
-  const hoja = destino.tipo === 'hoja' ? mios.find((p) => p.id === destino.id) : undefined
-
-  if (hoja) {
-    const suya = hoja.id != null ? carpetas.get(hoja.id) : undefined
-    return (
-      <HojaPlan
-        plan={hoja}
-        metas={metas}
-        onVolver={() => onDestino({ tipo: 'lista' })}
-        onVerEnCronograma={() => hoja.id != null && onVerEnCronograma(hoja.id)}
-        onVerMeta={onVerMeta}
-        etiqueta={suya ? textoEtiquetaPlan(suya, hoja.nombre, t) : undefined}
-      />
-    )
-  }
-
-  if (destino.tipo === 'generar')
-    return (
-      <GeneradorPlan
-        meta={destino.meta}
-        planes={planes}
-        onCancelar={() => onDestino({ tipo: 'lista' })}
-        onGuardado={(id) => onDestino({ tipo: 'hoja', id })}
-      />
-    )
-
-  const nuevoPlan = () =>
-    onDestino(metas.length === 1 ? { tipo: 'generar', meta: metas[0] } : { tipo: 'elegirMeta' })
+  // Con una sola meta no hay nada que preguntar; con varias, primero ¿para cuál?
+  const nuevoPlan = () => (metas.length === 1 ? onGenerar(metas[0]) : setEligiendo(true))
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
@@ -130,7 +89,7 @@ export function VistaPlanes({
           </p>
 
           {/* Paso previo cuando la vista tiene varias metas: ¿para cuál? */}
-          {destino.tipo === 'elegirMeta' && (
+          {eligiendo && (
             <div className="space-y-1 rounded-xl border border-violet-400/30 bg-violet-500/10 p-2.5">
               <p className="text-[11px] font-semibold text-violet-200/90">
                 {t('cal.plan.paraMeta', '¿Para qué meta?')}
@@ -139,7 +98,10 @@ export function VistaPlanes({
                 <button
                   key={m.id}
                   type="button"
-                  onClick={() => onDestino({ tipo: 'generar', meta: m })}
+                  onClick={() => {
+                    setEligiendo(false)
+                    onGenerar(m)
+                  }}
                   className={`flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-start text-xs transition hover:bg-white/10 ${
                     metaArmada?.id === m.id ? 'bg-white/10' : ''
                   }`}
@@ -152,7 +114,7 @@ export function VistaPlanes({
               ))}
               <button
                 type="button"
-                onClick={() => onDestino({ tipo: 'lista' })}
+                onClick={() => setEligiendo(false)}
                 className="w-full rounded-lg py-1 text-[11px] text-white/40 transition hover:text-white/75"
               >
                 {t('ui.cancelar', 'Cancelar')}
@@ -187,7 +149,7 @@ export function VistaPlanes({
               plan={p}
               metas={metas}
               carpeta={carpetas.get(p.id ?? -1)}
-              onAbrir={() => p.id != null && onDestino({ tipo: 'hoja', id: p.id })}
+              onAbrir={() => p.id != null && onAbrirPlan(p.id)}
             />
           ))}
         </div>

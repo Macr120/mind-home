@@ -38,7 +38,7 @@ export type { TipoModelo3D, EstiloModelo3D }
  * usuario, llena los campos y aquí se ejecuta cada `guardar()`. La respuesta
  * sale en la voz de la mascota activa (su `personalidad` va al system prompt).
  *
- * Transportes: Claude usa el SDK oficial; Gemini/ChatGPT/DeepSeek/local (Ollama)
+ * Transportes: Claude usa el SDK oficial; Gemini/ChatGPT/local (Ollama)
  * comparten el formato compatible-OpenAI, así que son UNA sola implementación.
  * Sin clave o con error → el ChatBox cae al dispatcher determinista.
  *
@@ -50,7 +50,10 @@ export type { TipoModelo3D, EstiloModelo3D }
 
 // ----- Proveedores -----
 
-export type ProveedorId = 'claude' | 'gemini' | 'chatgpt' | 'deepseek' | 'local'
+export type ProveedorId = 'claude' | 'gemini' | 'chatgpt' | 'local'
+
+/** Los únicos capaces de servir imagen y voz (TTS y dictado) en BYOK. */
+export type ProveedorMediaId = 'chatgpt' | 'gemini'
 
 export interface Proveedor {
   id: ProveedorId
@@ -68,8 +71,7 @@ export const PROVEEDORES: Proveedor[] = [
   { id: 'claude', nombre: 'Claude', emoji: '✴️', modelo: 'claude-haiku-4-5' },
   { id: 'gemini', nombre: 'Gemini', emoji: '♊', modelo: 'gemini-flash-latest', base: 'https://generativelanguage.googleapis.com/v1beta/openai' },
   { id: 'chatgpt', nombre: 'ChatGPT', emoji: '🟢', modelo: 'gpt-5-mini', base: 'https://api.openai.com/v1' },
-  { id: 'deepseek', nombre: 'DeepSeek', emoji: '🐋', modelo: 'deepseek-v4-flash', base: 'https://api.deepseek.com/v1' },
-  { id: 'local', nombre: 'Local (Ollama)', emoji: '💻', modelo: 'gemma4', base: 'http://localhost:11434/v1', sinClave: true },
+  { id: 'local', nombre: 'Local (Ollama)', emoji: '💻', modelo: 'gemma4:12b', base: 'http://localhost:11434/v1', sinClave: true },
 ]
 
 /**
@@ -86,11 +88,27 @@ const MODELO_CALIDAD = 'claude-sonnet-5'
 const LS_PROVEEDOR = 'mh.iaProveedor'
 const LS_KEY_PREFIX = 'mh.iaKey.'
 const LS_KEY_LEGADO = 'mh.iaKey' // clave de Claude guardada antes del selector
-const LS_MODELO_LOCAL = 'mh.iaModeloLocal'
+const LS_MODELO_PREFIX = 'mh.iaModelo.'
+const LS_BASE_PREFIX = 'mh.iaBase.'
+const LS_PROV_VOZ = 'mh.iaProvVoz'
+const LS_IMAGEN_LOCAL = 'mh.iaLocalImagen'
+
+// Migración ago-2026: DeepSeek salió de la lista y el modelo de Ollama pasó al
+// esquema por proveedor (`mh.iaModelo.<prov>`, el cerebro ya es editable en todos).
+localStorage.removeItem('mh.iaKey.deepseek')
+if (localStorage.getItem(LS_PROVEEDOR) === 'deepseek') localStorage.removeItem(LS_PROVEEDOR)
+{
+  const legado = localStorage.getItem('mh.iaModeloLocal')
+  if (legado) {
+    localStorage.setItem(LS_MODELO_PREFIX + 'local', legado)
+    localStorage.removeItem('mh.iaModeloLocal')
+  }
+}
 
 export function getProveedor(): Proveedor {
   const id = localStorage.getItem(LS_PROVEEDOR) as ProveedorId | null
-  return PROVEEDORES.find((p) => p.id === id) ?? PROVEEDORES[0]
+  // Sin preferencia (o con una que ya no existe): el primero que tenga clave.
+  return PROVEEDORES.find((p) => p.id === id) ?? PROVEEDORES.find((p) => getIaKey(p.id).length > 0) ?? PROVEEDORES[0]
 }
 
 export function setProveedor(id: ProveedorId) {
@@ -109,13 +127,122 @@ export function setIaKey(prov: ProveedorId, key: string) {
   else localStorage.removeItem(LS_KEY_PREFIX + prov)
 }
 
-/** Modelo del proveedor local (depende de qué tenga instalado el usuario en Ollama). */
-export function getModeloLocal(): string {
-  return localStorage.getItem(LS_MODELO_LOCAL) ?? 'gemma4'
+/** Cerebro (modelo de texto) elegido por el usuario; vacío = el default del proveedor. */
+export function getModelo(prov: Proveedor): string {
+  return localStorage.getItem(LS_MODELO_PREFIX + prov.id) || prov.modelo
 }
 
-export function setModeloLocal(modelo: string) {
-  localStorage.setItem(LS_MODELO_LOCAL, modelo.trim() || 'gemma4')
+export function setModelo(prov: ProveedorId, modelo: string) {
+  const limpio = modelo.trim()
+  if (limpio) localStorage.setItem(LS_MODELO_PREFIX + prov, limpio)
+  else localStorage.removeItem(LS_MODELO_PREFIX + prov)
+}
+
+/**
+ * Servidor del proveedor. Solo Ollama lo cambia: por defecto es el de casa
+ * (localhost:11434), pero con una clave se puede apuntar a la nube de Ollama
+ * (`https://ollama.com/v1`) o a un servidor propio detrás de autenticación.
+ */
+export function getBase(prov: Proveedor): string {
+  return localStorage.getItem(LS_BASE_PREFIX + prov.id) || (prov.base ?? '')
+}
+
+export function setBase(prov: ProveedorId, url: string) {
+  const limpia = url.trim().replace(/\/$/, '')
+  if (limpia) localStorage.setItem(LS_BASE_PREFIX + prov, limpia)
+  else localStorage.removeItem(LS_BASE_PREFIX + prov)
+}
+
+/** Preferencia explícita del proveedor de voz (fila «Voz» del panel de IA). */
+export function getProvVoz(): ProveedorMediaId | null {
+  const id = localStorage.getItem(LS_PROV_VOZ)
+  return id === 'chatgpt' || id === 'gemini' ? id : null
+}
+
+export function setProvVoz(id: ProveedorMediaId) {
+  localStorage.setItem(LS_PROV_VOZ, id)
+}
+
+/** ¿Hay alguna clave capaz de servir imagen o voz? (condición común de los avisos de UI). */
+export function hayProveedorMedia(): boolean {
+  return getIaKey('chatgpt').length > 0 || getIaKey('gemini').length > 0
+}
+
+/**
+ * ¿Quién sirve la voz (TTS y dictado) en BYOK? La preferencia guardada manda
+ * mientras su clave siga puesta; sin preferencia, el proveedor de texto activo
+ * si es capaz, y si no OpenAI antes que Gemini (Whisper acepta webm y su TTS
+ * devuelve mp3 directo — cero regresión para quien ya usaba voz).
+ */
+export function proveedorVoz(): ProveedorMediaId | null {
+  const pref = getProvVoz()
+  if (pref && getIaKey(pref).length > 0) return pref
+  const activo = getProveedor().id
+  if ((activo === 'chatgpt' || activo === 'gemini') && getIaKey(activo).length > 0) return activo
+  if (getIaKey('chatgpt').length > 0) return 'chatgpt'
+  if (getIaKey('gemini').length > 0) return 'gemini'
+  return null
+}
+
+/** Host de la API nativa de Ollama (la de `/api/*`, sin el sufijo compat-OpenAI). */
+function hostOllama(): string {
+  const local = PROVEEDORES.find((p) => p.id === 'local') as Proveedor
+  return getBase(local).replace(/\/v1$/, '')
+}
+
+/** Cabecera con la clave de Ollama, si el usuario puso una (nube o servidor propio). */
+function cabeceraOllama(): Record<string, string> {
+  const key = getIaKey('local')
+  return key ? { Authorization: `Bearer ${key}` } : {}
+}
+
+/** Tags instalados en el Ollama elegido (lista del selector de cerebro); [] si no responde. */
+export async function listarModelosOllama(): Promise<string[]> {
+  try {
+    const res = await fetch(`${hostOllama()}/api/tags`, {
+      headers: cabeceraOllama(),
+      signal: AbortSignal.timeout(1500),
+    })
+    const data = (await res.json()) as { models?: { name?: string }[] }
+    return (data.models ?? []).map((m) => m.name ?? '').filter(Boolean)
+  } catch {
+    return []
+  }
+}
+
+/**
+ * Capacidades que declara un modelo de Ollama (`completion`, `vision`, `tools`,
+ * `image`…). Es la única forma de saber si el modelo elegido GENERA imágenes
+ * (x/z-image-turbo, x/flux2-klein…) en vez de solo texto.
+ */
+export async function capacidadesOllama(modelo: string): Promise<string[]> {
+  try {
+    const res = await fetch(`${hostOllama()}/api/show`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', ...cabeceraOllama() },
+      body: JSON.stringify({ model: modelo }),
+      signal: AbortSignal.timeout(2500),
+    })
+    const data = (await res.json()) as { capabilities?: string[] }
+    return data.capabilities ?? []
+  } catch {
+    return []
+  }
+}
+
+/**
+ * ¿El modelo local elegido genera imágenes? Se guarda el NOMBRE del modelo que
+ * declaró la capacidad, no un booleano: así cambiar de modelo invalida la marca
+ * sola y `proveedorImagen()` puede responder sin esperar a la red.
+ */
+export function localHaceImagen(): boolean {
+  const local = PROVEEDORES.find((p) => p.id === 'local') as Proveedor
+  return localStorage.getItem(LS_IMAGEN_LOCAL) === getModelo(local)
+}
+
+export function recordarImagenLocal(modelo: string | null) {
+  if (modelo) localStorage.setItem(LS_IMAGEN_LOCAL, modelo)
+  else localStorage.removeItem(LS_IMAGEN_LOCAL)
 }
 
 /**
@@ -136,7 +263,7 @@ export function iaActiva(): boolean {
 /**
  * ¿El transporte actual manda un PDF tal cual? Proxy de la cuenta: sí (Anthropic
  * con bloque `document`, Gemini con `inlineData`). BYOK: Claude (document) y
- * Gemini (data URL en su capa compat). A los demás (ChatGPT/DeepSeek/Ollama) el
+ * Gemini (data URL en su capa compat). A los demás (ChatGPT/Ollama) el
  * ChatBox les extrae el texto con pdfjs antes de enviar.
  */
 export function pdfNativo(): boolean {
@@ -503,7 +630,7 @@ async function llamarClaude(
 
   const calidad = perfil === 'calidad'
   const res = await client.messages.create({
-    model: calidad ? MODELO_CALIDAD : PROVEEDORES[0].modelo,
+    model: calidad ? MODELO_CALIDAD : getModelo(PROVEEDORES[0]),
     // Holgado: una sola respuesta puede traer varias recetas completas + la
     // dieta que las agrupa + su lista del súper (varios tool_use encadenados).
     // En `calidad` el razonamiento también consume de este tope.
@@ -546,7 +673,7 @@ async function llamarClaude(
   }
   useGastoByok.getState().sumar(
     categoria,
-    costoTexto(calidad ? MODELO_CALIDAD : PROVEEDORES[0].modelo, {
+    costoTexto(calidad ? MODELO_CALIDAD : getModelo(PROVEEDORES[0]), {
       entrada: res.usage.input_tokens,
       salida: res.usage.output_tokens,
       cacheCrear: res.usage.cache_creation_input_tokens ?? undefined,
@@ -560,14 +687,14 @@ async function llamarClaude(
  * Tope de tokens en el formato que espera cada proveedor: el endpoint real de
  * OpenAI (ChatGPT) ya no acepta `max_tokens` en sus modelos de razonamiento
  * («Unsupported parameter: 'max_tokens' [...] Use 'max_completion_tokens'»);
- * los demás (Gemini vía su compat-OpenAI, DeepSeek, Ollama local) siguen
- * usando el nombre clásico.
+ * los demás (Gemini vía su compat-OpenAI, Ollama local) siguen usando el
+ * nombre clásico.
  */
 function paramTokens(prov: Proveedor, n: number): Record<string, number> {
   return prov.id === 'chatgpt' ? { max_completion_tokens: n } : { max_tokens: n }
 }
 
-/** Transporte compatible-OpenAI: Gemini, ChatGPT, DeepSeek y Ollama local. */
+/** Transporte compatible-OpenAI: Gemini, ChatGPT y Ollama local. */
 async function llamarOpenAICompat(
   prov: Proveedor,
   system: string,
@@ -580,7 +707,7 @@ async function llamarOpenAICompat(
 ): Promise<{ respuesta: string | null; llamadas: LlamadaTool[] }> {
   if (usarViaCuenta()) return llamarCuenta(system, texto, imagen, tools, historial)
   const key = getIaKey(prov.id)
-  const modelo = prov.id === 'local' ? getModeloLocal() : prov.modelo
+  const modelo = getModelo(prov)
   const contenidoUsuario = imagen
     ? [
         { type: 'text', text: texto },
@@ -588,7 +715,7 @@ async function llamarOpenAICompat(
       ]
     : texto
 
-  const res = await fetch(`${prov.base}/chat/completions`, {
+  const res = await fetch(`${getBase(prov)}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -703,11 +830,12 @@ export async function conversarIA(
   }
 
   const prov = getProveedor()
+  const modeloProv = getModelo(prov)
   if (prov.id === 'claude') {
     const { default: AnthropicSDK } = await import('@anthropic-ai/sdk')
     const client = new AnthropicSDK({ apiKey: getIaKey('claude'), dangerouslyAllowBrowser: true, maxRetries: 1 })
     const res = await client.messages.create({
-      model: prov.modelo,
+      model: modeloProv,
       max_tokens: maxTokens,
       system,
       messages: historial.map((m) => ({
@@ -723,7 +851,7 @@ export async function conversarIA(
     if (!texto) throw new Error('La IA respondió vacío')
     useGastoByok.getState().sumar(
       'chat',
-      costoTexto(prov.modelo, {
+      costoTexto(modeloProv, {
         entrada: res.usage.input_tokens,
         salida: res.usage.output_tokens,
         cacheCrear: res.usage.cache_creation_input_tokens ?? undefined,
@@ -734,15 +862,14 @@ export async function conversarIA(
   }
 
   const key = getIaKey(prov.id)
-  const modelo = prov.id === 'local' ? getModeloLocal() : prov.modelo
-  const res = await fetch(`${prov.base}/chat/completions`, {
+  const res = await fetch(`${getBase(prov)}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       ...(key ? { Authorization: `Bearer ${key}` } : {}),
     },
     body: JSON.stringify({
-      model: modelo,
+      model: modeloProv,
       ...paramTokens(prov, maxTokens),
       messages: [
         { role: 'system', content: system },
@@ -760,7 +887,7 @@ export async function conversarIA(
   if (data.usage) {
     useGastoByok
       .getState()
-      .sumar('chat', costoTexto(modelo, { entrada: data.usage.prompt_tokens ?? 0, salida: data.usage.completion_tokens ?? 0 }))
+      .sumar('chat', costoTexto(modeloProv, { entrada: data.usage.prompt_tokens ?? 0, salida: data.usage.completion_tokens ?? 0 }))
   }
   return texto
 }

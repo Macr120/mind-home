@@ -98,6 +98,8 @@ export type TipoActividad =
   | 'idioma'
   | 'jardin'
   | 'biblioteca'
+  /** Objetivo que el usuario se propuso desde el catálogo de su app. */
+  | 'objetivo'
 
 /**
  * Llave estable actividad↔Rutina. El prefijo no es decorativo: sin él `hobby:3` y

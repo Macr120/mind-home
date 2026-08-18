@@ -56,7 +56,9 @@ interface SesionState {
   fuePro: boolean
   /** ¿Compró el pago único de la app? (perfiles.unlock, nunca se revierte) */
   unlock: boolean
-  /** Créditos de recargas aún sin consumir (perfiles.creditos_extra). */
+  /** Nivel de la suscripción (1, 2 o 3): multiplica el pool mensual. */
+  nivel: number
+  /** Saldo suelto que quede de las recargas viejas (perfiles.creditos_extra). */
   creditosExtra: number
   usoIA: UsoIA | null
   estadoSync: EstadoSync
@@ -100,6 +102,7 @@ export const useSesion = create<SesionState>((set, get) => ({
   planExpira: null,
   fuePro: false,
   unlock: false,
+  nivel: 1,
   creditosExtra: 0,
   usoIA: null,
   estadoSync: 'inactivo',
@@ -175,7 +178,7 @@ export const useSesion = create<SesionState>((set, get) => ({
     if (!sb || !usuario) return
     const { data } = await sb
       .from('perfiles')
-      .select('plan, plan_expira, fue_pro, creditos_extra, unlock')
+      .select('plan, plan_expira, fue_pro, creditos_extra, unlock, nivel')
       .eq('user_id', usuario.id)
       .maybeSingle()
     if (!data) return
@@ -189,6 +192,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       planExpira: expira,
       fuePro,
       unlock,
+      nivel: (data.nivel as number | null) ?? 1,
       creditosExtra: (data.creditos_extra as number | null) ?? 0,
     })
   },
@@ -199,9 +203,11 @@ export const useSesion = create<SesionState>((set, get) => ({
     if (!sb || !usuario) return
     try {
       // Mismo criterio que el servidor: mes en UTC. El tope del medidor es el
-      // del plan REAL (pro y trial comparten 700; local marca 0).
+      // del plan REAL por su nivel, igual que `pool_mensual()` en la BD: el
+      // nivel solo multiplica con 'pro' (el trial se queda en el pool base).
       const periodo = new Date().toISOString().slice(0, 7)
       const planActual = get().plan
+      const multiplicador = planActual === 'pro' ? get().nivel : 1
       const [uso, limites] = await Promise.all([
         sb.from('uso_ia').select('creditos').eq('periodo', periodo).maybeSingle(),
         sb.from('limites_plan').select('creditos_mes').eq('plan', planActual).maybeSingle(),
@@ -213,7 +219,7 @@ export const useSesion = create<SesionState>((set, get) => ({
       set({
         usoIA: {
           creditos: uso.data?.creditos ?? 0,
-          limiteCreditos: limites.data.creditos_mes,
+          limiteCreditos: limites.data.creditos_mes * multiplicador,
         },
       })
     } catch {
@@ -279,6 +285,7 @@ export function iniciarSesion(): void {
           planExpira: null,
           fuePro: false,
           unlock: false,
+          nivel: 1,
           creditosExtra: 0,
           usoIA: null,
         })

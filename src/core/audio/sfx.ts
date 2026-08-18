@@ -25,6 +25,7 @@ export type NombreSfx =
   | 'campana'
   | 'silbato'
   | 'anotacion'
+  | 'nivel'
   | 'recoger'
   | 'turbo'
   | 'banana'
@@ -131,6 +132,7 @@ const MIN_MS: Partial<Record<NombreSfx, number>> = {
   cohete: 90,
   explosion: 110,
   anotacion: 300,
+  nivel: 500,
   campana: 300,
   silbato: 300,
   saludo: 250,
@@ -205,6 +207,15 @@ export function sonar(nombre: NombreSfx): void {
       tono({ de: 523, dur: 0.1, onda: 'triangle', vol: 0.13 })
       tono({ de: 659, dur: 0.1, onda: 'triangle', vol: 0.13, retardo: 0.09 })
       tono({ de: 784, dur: 0.18, onda: 'triangle', vol: 0.13, retardo: 0.18 })
+      break
+    case 'nivel':
+      // Fanfarria de subida de nivel: la anotación alargada que remata en la
+      // octava con un brillo por encima.
+      tono({ de: 523, dur: 0.12, onda: 'triangle', vol: 0.14 })
+      tono({ de: 659, dur: 0.12, onda: 'triangle', vol: 0.14, retardo: 0.1 })
+      tono({ de: 784, dur: 0.12, onda: 'triangle', vol: 0.14, retardo: 0.2 })
+      tono({ de: 1047, dur: 0.35, onda: 'triangle', vol: 0.16, retardo: 0.3 })
+      tono({ de: 2093, dur: 0.3, vol: 0.05, retardo: 0.3 })
       break
     case 'recoger':
       tono({ de: 880, a: 1320, dur: 0.09, onda: 'triangle', vol: 0.11 })

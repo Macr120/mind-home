@@ -36,7 +36,7 @@ import {
 } from '../metas'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { colorDe, colorPorProfundidad } from './coloresRutina'
-import { Cronograma } from './metas/Cronograma'
+import { ObjetivosCasa } from './hoy/ObjetivosCasa'
 import { PildoraCuenta } from './metas/CuentaRegresiva'
 import { EditorRutina, rutinaNueva } from './RutinasPanel'
 import { localeActual, useT } from '../i18n/useT'
@@ -77,14 +77,14 @@ import { BarraTiempo } from './calendario/BarraTiempo'
  * detalle con la checklist. Cada rutina tiene su color.
  */
 
-type Vista = 'dia' | 'semana' | 'mes' | 'anio' | 'cronograma'
+type Vista = 'dia' | 'semana' | 'mes' | 'anio' | 'objetivos'
 
 /**
- * Las vistas que pintan la rejilla del calendario. Cronograma queda fuera: no tiene
+ * Las vistas que pintan la rejilla del calendario. Objetivos queda fuera: no tiene
  * rejilla ni lista de lo agendado, así que los ajustes que solo valen ahí se tipan
  * contra esto y no hay que inventarle un valor.
  */
-type VistaRejilla = Exclude<Vista, 'cronograma'>
+type VistaRejilla = Exclude<Vista, 'objetivos'>
 
 // La rejilla cubre las 24 h: el sueño cruza la madrugada y tiene que verse.
 const HORA_INI = 0
@@ -457,7 +457,7 @@ export function Calendario() {
 
 /** ¿La vista pedida por quien abre el calendario es una de las que existen? */
 const esVista = (v?: string): v is Vista =>
-  !!v && ['dia', 'semana', 'mes', 'anio', 'cronograma'].includes(v)
+  !!v && ['dia', 'semana', 'mes', 'anio', 'objetivos'].includes(v)
 
 /**
  * El calendario en sí (cabecera + rejilla). Lo monta el modal del reloj; sin
@@ -512,8 +512,18 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
     return m
   }, [eventos, apps])
 
-  /** La lista de Metas: solo la consume el cronograma. */
+  /** Las metas que la rejilla pinta como bandas de su periodo. */
   const metas = useMemo(() => rutinasVis.filter(esMeta), [rutinasVis])
+
+  /**
+   * El planificador ya no vive aquí: «ver en el cronograma» lleva al cuarto de
+   * Metas. Hay que cerrar el calendario antes o el cuarto se abriría DEBAJO
+   * (mismo motivo que `abrirEnlace` en `core/enlaceApp.ts`).
+   */
+  const irAlCuartoDeMetas = () => {
+    useRutinasUI.getState().cerrarCalendario()
+    abrirApp('metas')
+  }
 
   // Si se pliegan las metas de Semana y Mes lo decide quien mira, y mientras no
   // lo haya decidido, cuántas metas hay puestas en el calendario. Se resuelve
@@ -525,13 +535,13 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
     if (vista === 'dia') setFecha(addDias(fecha, dir))
     else if (vista === 'semana') setFecha(addDias(fecha, dir * 7))
     else if (vista === 'anio') setFecha(new Date(fecha.getFullYear() + dir, 0, 1))
-    // El cronograma no se navega por aquí: su eje lo mueve su propio scroll.
-    else if (vista !== 'cronograma') setFecha(new Date(fecha.getFullYear(), fecha.getMonth() + dir, 1))
+    // Objetivos no se navega por aquí: siempre es lo de HOY.
+    else if (vista !== 'objetivos') setFecha(new Date(fecha.getFullYear(), fecha.getMonth() + dir, 1))
   }
 
   const titulo =
-    vista === 'cronograma'
-      ? t('cal.metas', 'Metas')
+    vista === 'objetivos'
+      ? t('hoy.titulo', 'Misiones')
       : vista === 'anio'
       ? String(fecha.getFullYear())
       : vista === 'mes'
@@ -663,26 +673,24 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
             </button>
           </div>
           <p className="min-w-0 flex-1 truncate text-sm font-bold capitalize text-white/90">{titulo}</p>
-          {/* Metas va SEPARADO del resto: no es otra rejilla del mismo calendario,
-              es la sección de metas/planes/cronograma. El rojo la distingue del
-              grupo verde-neutro de la izquierda para que no se lea como una vista
-              más. El id se queda en 'cronograma' (lo guardan las intenciones de
-              chat y los tutoriales); lo que cambió es cómo se llama: la sección
-              son las Metas, y dentro están sus tres vistas (metas, planes y el eje
-              de tiempo). */}
+          {/* Objetivos va SEPARADO del resto: no es otra rejilla del mismo
+              calendario, es la checklist de HOY de todas las apps juntas. El rojo
+              la distingue del grupo verde-neutro de la izquierda para que no se
+              lea como una vista más. Las metas y sus planes ya no están aquí:
+              viven en su propio cuarto. */}
           <button
             type="button"
-            data-tut="cal.vista.cronograma"
-            onClick={() => setVista('cronograma')}
+            data-tut="cal.vista.objetivos"
+            onClick={() => setVista('objetivos')}
             className={`rounded-lg border px-2.5 py-1 text-xs font-semibold transition ${
-              vista === 'cronograma'
+              vista === 'objetivos'
                 ? 'border-red-500 bg-red-500/90 text-white'
                 : 'border-red-500/40 text-red-400 hover:bg-red-500/10'
             }`}
           >
-            {t('cal.metas', 'Metas')}
+            {t('hoy.titulo', 'Misiones')}
           </button>
-          {/* Filtro por app: vive aquí para que valga también en el cronograma; entre
+          {/* Filtro por app: vive aquí para que valga en todas las vistas; entre
               las vistas y "+ Nueva" en vez de su propia fila, para no gastar alto. */}
           <div data-tut="cal.filtro">
             <FiltroApps rutinas={rutinas} eventos={eventos} />
@@ -706,13 +714,10 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
           )}
         </div>
 
-        {/* El cronograma se come el cuerpo entero: ni rejilla ni lista de lo agendado. */}
-        {vista === 'cronograma' ? (
-          <Cronograma
-            metas={metas}
-            metaArmada={metaArmada}
-            onArmar={(r) => setMetaArmada((prev) => (prev?.id === r.id ? null : r))}
-          />
+        {/* Objetivos se come el cuerpo entero: ni rejilla ni lista de lo agendado.
+            Siempre es HOY: la checklist de un martes de marzo no se consulta. */}
+        {vista === 'objetivos' ? (
+          <ObjetivosCasa fecha={hoyISO()} />
         ) : (
         /* Cuerpo: la rejilla sigue visible debajo (el editor flota como notificación, ver abajo) */
         <div data-scroll-cal className="min-h-0 flex-1 overflow-y-auto p-3">
@@ -774,7 +779,7 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
             detalle={vista === 'dia' || vista === 'semana'}
             onToggle={(r, iso) => (esMeta(r) ? void toggleMeta(r) : void toggleHecho(r, iso))}
             onEditar={(r) => setEditando({ ...r, pasos: r.pasos.map((p) => ({ ...p })) })}
-            onIrACronograma={() => setVista('cronograma')}
+            onIrACronograma={irAlCuartoDeMetas}
             onAbrir={(c) => (vista === 'mes' ? abrirDia(deIso(c.isos[0])) : abrirMes(deIso(c.isos[0]).getMonth()))}
           />
         </div>
@@ -791,8 +796,8 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
               <span className="text-white/90">
                 <Icono emoji={metaArmada.emoji} /> {metaArmada.nombre}
               </span>
-              {/* En el cronograma no se traza: el periodo se pone en la barra o en las fechas. */}
-              {vista !== 'cronograma' && (
+              {/* En Objetivos no se traza: ahí no hay rejilla donde arrastrar. */}
+              {vista !== 'objetivos' && (
                 <span className="text-white/45">{t(`cal.traza.${vista}`, AYUDA_TRAZO[vista])}</span>
               )}
               <button
@@ -841,8 +846,8 @@ export function CalendarioVista({ onCerrar, vistaInicial }: { onCerrar?: () => v
           idx={idx}
           metas={rutinas.filter(esMeta)}
           onIrACronograma={() => {
-            setVista('cronograma')
             setDetalle(null)
+            irAlCuartoDeMetas()
           }}
           onEditar={() => {
             setEditando({ ...detalle.rutina, pasos: detalle.rutina.pasos.map((p) => ({ ...p })) })

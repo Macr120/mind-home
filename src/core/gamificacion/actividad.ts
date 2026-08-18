@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useLiveQuery } from 'dexie-react-hooks'
 import type { Table } from 'dexie'
-import { db } from '../data/db'
+import { db, type ListaCumplida } from '../data/db'
 import { sinEjemplos } from '../data/ejemplos'
 import { esSeedIntacta } from '../data/sync/syncables'
 import { useDiseño } from '../state/disenoStore'
@@ -10,8 +10,9 @@ import { fechaLocalISO } from '../fechaLocal'
 /**
  * Gamificación tipo tamagotchi: el personaje "vive" de la actividad real del
  * usuario en las apps que eligió como enfoque (las plantillas asignadas a un
- * cuarto). No hay tabla nueva: todo se calcula de los registros existentes,
- * así el progreso siempre refleja los datos reales.
+ * cuarto). La racha, los días activos y el humor se calculan de los registros
+ * existentes, sin tabla propia; el XP es la excepción desde ago 2026 — lo dan
+ * las listas de objetivos cumplidas (`listasCumplidas`, ver `listas.ts`).
  */
 
 const hoyISO = () => fechaLocalISO()
@@ -40,8 +41,9 @@ const restarDias = (n: number) =>
  * `calendario` tampoco: ya cuenta a través de las apps cuyas rutinas proyecta.
  * No es un olvido; si algún día se quiere lo contrario, es añadirlas aquí.
  *
- * Y el XP se cuenta por REGISTRO, así que una app que apunta ocho filas al día
- * vale ocho veces más que una que apunta una — sin que el usuario haya hecho
+ * El XP ya no sale de aquí (lo dan las listas cumplidas), pero el Wrapped sigue
+ * contando REGISTROS de estas fuentes: una app que apunta ocho filas al día
+ * valdría ocho veces más que una que apunta una — sin que el usuario haya hecho
  * ocho veces más. Donde eso desequilibraba de verdad era en la cocina (ver
  * abajo): las apps que reparten un mismo hecho en varias filas cuentan por DÍA.
  */
@@ -119,9 +121,9 @@ export const FUENTES: Record<string, () => Promise<string[]>> = {
 }
 
 /**
- * Registros que una app escribió en una fecha. Reusa `FUENTES` para no duplicar el
- * conocimiento de qué tabla mira cada app: es lo que hace de motor a la meta diaria
- * genérica ("registra algo hoy") de las apps que no declaran una propia.
+ * Registros que una app escribió en una fecha. Reusa `FUENTES` para no duplicar
+ * el conocimiento de qué tabla mira cada app; la celebración de racha
+ * (`listas.ts`) vigila con esto el primer registro del día del cuarto abierto.
  */
 export async function registrosDelDia(plantillaId: string, fecha: string): Promise<number> {
   const fuente = FUENTES[plantillaId]
@@ -130,7 +132,7 @@ export async function registrosDelDia(plantillaId: string, fecha: string): Promi
 }
 
 /** Racha: días consecutivos con actividad terminando hoy (o ayer, si hoy aún no hay). */
-function racha(fechas: Set<string>): number {
+export function racha(fechas: Set<string>): number {
   let dia = 0
   if (!fechas.has(restarDias(0))) dia = 1 // la racha no se rompe hasta que pase el día
   let n = 0
@@ -147,6 +149,8 @@ export interface ProgresoPlantilla {
   /** Avance hacia el siguiente nivel (0–1). */
   avanceNivel: number
   racha: number
+  /** Listas de objetivos completadas — la moneda del XP. */
+  listas: number
   /** Registros de hoy. */
   hoy: number
   /** Días activos en los últimos 3 días. */
@@ -162,6 +166,8 @@ export interface ProgresoJugador {
   nivel: number
   avanceNivel: number
   racha: number
+  /** Listas de objetivos completadas entre todos los enfoques. */
+  listas: number
   /** Enfoques con actividad reciente (últimos 3 días) / total (0–1). */
   salud: number
   /** Enfoques con actividad HOY / total (0–1). */
@@ -170,20 +176,19 @@ export interface ProgresoJugador {
   enfoques: ProgresoPlantilla[]
 }
 
-export const XP_POR_REGISTRO = 10
-const XP_POR_NIVEL = 100
+export const XP_POR_NIVEL = 100
 
 function nivelDeXp(xp: number): { nivel: number; avance: number } {
   return { nivel: 1 + Math.floor(xp / XP_POR_NIVEL), avance: (xp % XP_POR_NIVEL) / XP_POR_NIVEL }
 }
 
-async function progresoDePlantilla(plantillaId: string): Promise<ProgresoPlantilla> {
+async function progresoDePlantilla(plantillaId: string, listas: ListaCumplida[]): Promise<ProgresoPlantilla> {
   const fechas = (await (FUENTES[plantillaId] ?? (async () => []))()).filter(Boolean)
   const setFechas = new Set(fechas)
   const hoy = hoyISO()
   const hace3 = restarDias(2)
   const hace7 = restarDias(6)
-  const xp = fechas.length * XP_POR_REGISTRO
+  const xp = listas.reduce((acc, f) => acc + f.xp, 0)
   const { nivel, avance } = nivelDeXp(xp)
   return {
     plantillaId,
@@ -192,6 +197,7 @@ async function progresoDePlantilla(plantillaId: string): Promise<ProgresoPlantil
     nivel,
     avanceNivel: avance,
     racha: racha(setFechas),
+    listas: listas.length,
     hoy: fechas.filter((f) => f === hoy).length,
     dias3: [...setFechas].filter((f) => f >= hace3 && f <= hoy).length,
     dias7: [...setFechas].filter((f) => f >= hace7 && f <= hoy).length,
@@ -218,7 +224,14 @@ export const EMOJI_HUMOR: Record<Humor, string> = {
  * lee Dexie, así que dentro de un `useLiveQuery` sigue siendo reactiva.
  */
 export async function progresoDeEnfoques(ids: string[]): Promise<ProgresoJugador> {
-  const enfoques = await Promise.all(ids.map(progresoDePlantilla))
+  // Una sola lectura de la tabla para todas las apps, no una consulta por app.
+  const porApp = new Map<string, ListaCumplida[]>()
+  for (const f of await db.listasCumplidas.toArray()) {
+    const suyas = porApp.get(f.plantillaId)
+    if (suyas) suyas.push(f)
+    else porApp.set(f.plantillaId, [f])
+  }
+  const enfoques = await Promise.all(ids.map((id) => progresoDePlantilla(id, porApp.get(id) ?? [])))
   enfoques.sort((a, b) => b.xp - a.xp)
 
   const xp = enfoques.reduce((acc, e) => acc + e.xp, 0)
@@ -239,6 +252,7 @@ export async function progresoDeEnfoques(ids: string[]): Promise<ProgresoJugador
     nivel,
     avanceNivel: avance,
     racha: rachaGlobal,
+    listas: enfoques.reduce((acc, e) => acc + e.listas, 0),
     salud,
     energia,
     humor: humorDe(salud, energia, rachaGlobal, activos),

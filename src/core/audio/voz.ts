@@ -7,6 +7,8 @@ import { VOZ_FORMA, type MascotaId, type Asistente } from '../chat/mascotas'
 import { limpiarMarkdown, quitarEmojis } from '../chat/texto'
 import { contextoAudio, gainMaestro } from './motor'
 import { hablarVozIA, callarVozIA } from './vozIA'
+import { usarViaCuenta } from '../cuenta/api'
+import { proveedorVoz } from '../chat/ia'
 
 /**
  * Voz de los asistentes (speechSynthesis del navegador). Independiente del TTS
@@ -193,12 +195,16 @@ export function useVozAsistente(): void {
 
 /**
  * Lee un texto con la voz del asistente: nativa (`speechSynthesis`) o con IA
- * (OpenAI), según su `vozIA`. Envuelve `hablarVoz`/`hablarVozIA` sin tocarlas,
- * para no romper a quien ya las llama directo.
+ * según su `vozIA`. Envuelve `hablarVoz`/`hablarVozIA` sin tocarlas, para no
+ * romper a quien ya las llama directo. Con `vozIA` pero sin transporte (ni
+ * cuenta ni proveedor de voz con clave) cae a la voz nativa ANTES de llamar:
+ * el fallback tras un `false` de `hablarVozIA` arriesga doble voz, porque ese
+ * `false` también significa «una lectura más nueva me reemplazó».
  */
 export async function hablarComoAsistente(texto: string, a: Asistente, onFin?: () => void): Promise<boolean> {
   const v = vozDeAsistente(a)
-  if (a.vozIA) return hablarVozIA(texto, { voz: a.vozIaVoz, volumen: v.volumen, onFin })
+  if (a.vozIA && (usarViaCuenta() || proveedorVoz()))
+    return hablarVozIA(texto, { voz: a.vozIaVoz, volumen: v.volumen, onFin })
   return hablarVoz(texto, { vozNombre: v.vozNombre, rate: v.rate, pitch: v.pitch, volumen: v.volumen, onFin })
 }
 

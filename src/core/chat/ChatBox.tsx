@@ -21,19 +21,7 @@ import { useSugerenciaMapa } from './sugerirMapa'
 import { TIPOS_MAPA } from '../../rooms/ideas/tiposMapa'
 import { useTutorial } from '../tutorial/tutorialStore'
 import { lanzarFlujo } from '../tutorial/registro'
-import {
-  iaActiva,
-  interpretarIA,
-  pdfNativo,
-  PROVEEDORES,
-  getProveedor,
-  setProveedor,
-  getIaKey,
-  setIaKey,
-  getModeloLocal,
-  setModeloLocal,
-  type ProveedorId,
-} from './ia'
+import { iaActiva, interpretarIA, pdfNativo, getProveedor } from './ia'
 import { responder, nombreAsistente, saludoAsistente, type EventoTipo } from './mascotas'
 import { EMOCION_POR_EVENTO } from './emociones'
 import { reaccionar } from '../state/emocionesStore'
@@ -72,7 +60,7 @@ import { blobABase64, comprimirImagen } from '../imagenIA'
 import { useMascaraUi } from '../state/mascaraUiStore'
 import { useChatArUi } from '../state/chatArUiStore'
 import { useDictado } from '../audio/useDictado'
-import { GastoByok } from '../ui/GastoByok'
+import { PanelIA } from '../ui/PanelIA'
 
 /** Adjunto listo para previsualizar y enviar al modelo (imagen o PDF). */
 interface AdjuntoLocal {
@@ -124,10 +112,9 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
   const sugerencia = useSugerenciaMapa((s) => s.sugerencia)
   const dibujando = useSugerenciaMapa((s) => s.dibujando)
   const [menuModelo, setMenuModelo] = useState(false)
+  // El panel de IA guarda en localStorage; este tick refresca el botón (emoji/punto).
+  const [, setTickIA] = useState(0)
   const [menuAdjuntar, setMenuAdjuntar] = useState(false)
-  const [provId, setProvId] = useState<ProveedorId>(() => getProveedor().id)
-  const [claveDraft, setClaveDraft] = useState(() => getIaKey(getProveedor().id))
-  const [modeloLocalDraft, setModeloLocalDraft] = useState(() => getModeloLocal())
   const areaRef = useRef<HTMLTextAreaElement>(null)
   // Input propio para la cámara («Tomar foto» del menú + y el widget de Android):
   // `capture` en el input de galería se saltaría el selector de archivos.
@@ -358,13 +345,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
     reader.readAsDataURL(file)
   }
 
-  const elegirProveedor = (id: ProveedorId) => {
-    setProveedor(id)
-    setProvId(id)
-    setClaveDraft(getIaKey(id))
-  }
-
-  const proveedor = PROVEEDORES.find((p) => p.id === provId) ?? PROVEEDORES[0]
+  const proveedor = getProveedor()
   const conIA = iaActiva()
 
   // Los tres botones del widget de chat de Android. Reactivo (y no un efecto de
@@ -514,7 +495,7 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           (adjunto?.tipo === 'pdf' ? 'Resume y registra lo que contenga el documento.' : 'Registra lo que muestra la imagen.')
         let textoEnvio = textoMsg
         let adj = adjunto ? { base64: adjunto.base64, mediaType: adjunto.mediaType } : null
-        // Proveedor sin PDF nativo (ChatGPT/DeepSeek/Ollama): el texto se extrae
+        // Proveedor sin PDF nativo (ChatGPT/Ollama): el texto se extrae
         // aquí (pdfjs, lazy) y viaja dentro del mensaje, sin adjunto.
         if (adjunto?.tipo === 'pdf' && !pdfNativo()) {
           try {
@@ -1099,68 +1080,13 @@ export function ChatBox({ menuAbierto = false }: { menuAbierto?: boolean }) {
           botones— la caja se lleva su propio renglón completo arriba (con los
           botones al lado quedaba de 3 caracteres de ancho y no se leía nada). */}
       <div ref={barraRef} data-tut="chat.caja" data-tut-zona="chat" className="ui-panel-glass relative flex min-w-0 flex-1 flex-wrap items-end gap-2 rounded-2xl border border-white/10 px-2.5 py-2 shadow-xl backdrop-blur-md">
-        {/* Selector de modelo de IA (solo Pro / pruebas internas) */}
+        {/* Panel de IA: transporte (créditos/BYOK) + proveedor, cerebro, voz e imagen. */}
         {iaHabilitada() && menuModelo && (
           <div data-tut="chat.modelo.panel" className="ui-panel-glass absolute bottom-full end-0 mb-2 w-72 rounded-2xl border border-white/10 p-2 shadow-xl backdrop-blur-md">
             <p className="mb-1.5 px-1 text-[11px] font-semibold text-white/50">
               <Icono nombre="memoria" /> {t('chat.modelo.titulo', 'Modelo de IA de los asistentes')}
             </p>
-            <div className="space-y-1">
-              {PROVEEDORES.map((p) => {
-                const activo = p.id === provId
-                const listo = p.sinClave || getIaKey(p.id).length > 0
-                return (
-                  <button
-                    key={p.id}
-                    type="button"
-                    onClick={() => elegirProveedor(p.id)}
-                    className={`flex w-full items-center gap-2 rounded-lg border px-2 py-1.5 text-xs font-semibold transition ${
-                      activo
-                        ? 'border-accent/40 bg-accent text-accent-ink'
-                        : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
-                    }`}
-                  >
-                    <span><Icono emoji={p.emoji} /></span>
-                    <span className="flex-1 text-start">{p.nombre}</span>
-                    {listo && <span className="text-[10px] text-accent">●</span>}
-                  </button>
-                )
-              })}
-            </div>
-            {proveedor.sinClave ? (
-              <div className="mt-2 space-y-1 border-t border-white/10 pt-2">
-                <input
-                  value={modeloLocalDraft}
-                  onChange={(e) => {
-                    setModeloLocalDraft(e.target.value)
-                    setModeloLocal(e.target.value)
-                  }}
-                  placeholder="gemma4"
-                  className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 placeholder:text-white/25 focus:outline-none"
-                />
-                <p className="text-[10px] leading-relaxed text-white/35">
-                  {t('chat.modelo.local', 'Requiere Ollama corriendo en tu equipo (puerto 11434). Gratis y privado.')}
-                </p>
-              </div>
-            ) : (
-              <div className="mt-2 space-y-1 border-t border-white/10 pt-2">
-                <input
-                  type="password"
-                  value={claveDraft}
-                  onChange={(e) => {
-                    setClaveDraft(e.target.value)
-                    setIaKey(provId, e.target.value)
-                  }}
-                  placeholder={t('chat.modelo.clave', 'Clave API de {prov}', { prov: proveedor.nombre })}
-                  autoComplete="off"
-                  className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/85 placeholder:text-white/25 focus:outline-none"
-                />
-                <p className="text-[10px] leading-relaxed text-white/35">
-                  {t('chat.modelo.priv', 'Se guarda solo en este dispositivo. Sin clave: modo local por palabras clave.')}
-                </p>
-                <GastoByok compacto />
-              </div>
-            )}
+            <PanelIA variante="chat" onCambio={() => setTickIA((n) => n + 1)} />
           </div>
         )}
         <button

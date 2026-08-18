@@ -1,6 +1,6 @@
 /**
  * Los dos tutoriales del calendario del reloj: la rejilla («Calendario») y el
- * recorrido Metas → Planes → Cronograma («Metas»).
+ * recorrido por las metas («Metas»: la lista, la hoja de cada una y su eje).
  *
  * No son de ninguna app —el calendario dejó de ser un cuarto y vive en el HUD—,
  * pero tampoco son tutoriales de menú normales: corren sobre el AÑO de Pep@ en
@@ -11,14 +11,15 @@
  */
 import type { CuerpoTutorial, TextoTut } from './tipos'
 import { clickTut, esperarTut } from './dom'
+import { abrirApp } from '../abrirApp'
 import { useRutinasUI } from '../state/rutinasUiStore'
 import { claveLS } from '../edicion'
 import { construirAppDemo } from '../../demo/construir'
 
 const T = (clave: string, es: string): TextoTut => ({ clave, es })
 
-/** Abre el modal del reloj en la vista pedida (el `preparar` de los dos tours). */
-const abrirEn = (vista: 'semana' | 'cronograma') => () => {
+/** Abre el modal del reloj en la vista pedida (el `preparar` de los tours). */
+const abrirEn = (vista: 'semana' | 'objetivos') => () => {
   useRutinasUI.getState().abrirCalendario(vista)
 }
 
@@ -61,11 +62,11 @@ export const cuerpoCalendario: CuerpoTutorial = {
       ),
     },
     {
-      sel: 'cal.vista.cronograma',
-      titulo: T('tut.calendario.3b.titulo', 'Y las metas, aparte'),
+      sel: 'cal.vista.objetivos',
+      titulo: T('tut.calendario.3b.titulo', 'Y las misiones, aparte'),
       texto: T(
         'tut.calendario.3b.texto',
-        'En rojo, para que no se confunda con las cuatro de arriba: Metas abre tus metas, sus planes y el cronograma.',
+        'En rojo, para que no se confunda con las cuatro de arriba: Misiones junta la checklist de hoy de todas tus apps. Tus metas y sus planes viven en su propio cuarto.',
       ),
     },
     {
@@ -118,9 +119,9 @@ export const cuerpoCalendario: CuerpoTutorial = {
 }
 
 /**
- * El recorrido Metas → Planes → Cronograma sobre los tres planes de Pep@: la
- * cocina (propuesta con fecha límite), el maratón (propuesta sin plazo) y el
- * posgrado (ya aceptado, que es el que enseña el modo espejo).
+ * El recorrido por las metas sobre los planes de Pep@: se abre una propuesta
+ * desde su fila (la hoja editable), luego el posgrado (ya aceptado, que es el
+ * que enseña el modo espejo) y desde su hoja el eje ACOTADO a esa meta.
  *
  * Nunca pulsa «Generar plan»: en la demo eso gastaría créditos y el guard del
  * sandbox tiraría el resultado.
@@ -131,11 +132,12 @@ export const cuerpoMetas: CuerpoTutorial = {
     // modo tablero, ese ancla no existiría y el tour se quedaría esperando. La
     // disposición se lee al montar, así que basta con dejarla escrita antes.
     localStorage.setItem(claveLS('mh.metas.columnas'), 'lista')
-    abrirEn('cronograma')()
-    // Los otros dos planes de Pep@ no son del calendario: el del maratón lo siembra
-    // Ejercicio y el del posgrado —el único ACEPTADO, el que enseña el modo espejo—
-    // Biblioteca. Quien entra al demo directo a este tour solo trae el año del
-    // calendario, así que se piden aquí (idempotente y sin efecto fuera del demo).
+    // Las metas viven en su propio cuarto desde que dejaron el reloj.
+    abrirApp('metas')
+    // Los planes de Pep@ los siembran sus apps: el del maratón Ejercicio y el del
+    // posgrado —el único ACEPTADO, el que enseña el modo espejo— Biblioteca. Quien
+    // entra al demo directo a este tour solo trae el año del calendario, así que se
+    // piden aquí (idempotente y sin efecto fuera del demo).
     void construirAppDemo('ejercicio')
     void construirAppDemo('biblioteca')
   },
@@ -145,14 +147,9 @@ export const cuerpoMetas: CuerpoTutorial = {
       titulo: T('tut.metas.1.titulo', 'Primero, las metas'),
       texto: T(
         'tut.metas.1.texto',
-        'La vista abre en Metas, agrupadas por la app que las lleva: correr en Ejercicio, la carrera de física en Biblioteca. «Casa» no es ninguna app — esa categoría la inventó Pep@ para la obra de la cocina.',
+        'El cuarto abre en Metas, agrupadas por la app que las lleva: correr en Ejercicio, la carrera de física en Biblioteca. «Casa» no es ninguna app — esa categoría la inventó Pep@ para la obra de la cocina.',
       ),
-      // `preparar` abre el modal, pero tarda en montar: sin esperar, este primer
-      // clic cae en el vacío y el tour arranca en Semana.
-      alEntrar: async () => {
-        await esperarTut('cal.vista.cronograma', 3000)
-        clickTut('cal.vista.cronograma')
-      },
+      // `preparar` entra al cuarto, pero la app tarda en montar (va en lazy).
       esperar: 'cal.metas.grupo',
     },
     {
@@ -180,7 +177,7 @@ export const cuerpoMetas: CuerpoTutorial = {
       titulo: T('tut.metas.4.titulo', 'La hoja del plan'),
       texto: T(
         'tut.metas.4.texto',
-        'Seis fases y sus sub-metas, cada una con su periodo. Mientras es propuesta se edita entera: renombrar, mover fechas, agregar o quitar nodos sin descuadrar a los demás.',
+        'El ✨ de una fila anuncia que la meta ya tiene plan, y su clic abre esta hoja: las fases y sus sub-metas, cada una con su periodo. Mientras es propuesta se edita entera: renombrar, mover fechas, agregar o quitar nodos sin descuadrar a los demás.',
       ),
       alEntrar: () => {
         clickTut('cal.plan.tarjeta.propuesta')
@@ -224,12 +221,20 @@ export const cuerpoMetas: CuerpoTutorial = {
       titulo: T('tut.metas.8.titulo', 'Y ahí están, en el eje'),
       texto: T(
         'tut.metas.8.texto',
-        'Las sub-metas que nacieron del plan ocupan su periodo en el cronograma, con el plan superpuesto en violeta encima: lo propuesto y lo real, en el mismo eje.',
+        'El cronograma es el de ESTA meta: sus sub-metas ocupan su periodo sobre el eje del tiempo, con el plan superpuesto en violeta encima — lo propuesto y lo real, juntos.',
       ),
       alEntrar: () => {
         clickTut('cal.plan.hoja.verCronograma')
       },
       esperar: 'cal.cron.eje',
+    },
+    {
+      sel: 'cal.cron.volver',
+      titulo: T('tut.metas.9.titulo', 'Cada meta, su eje'),
+      texto: T(
+        'tut.metas.9.texto',
+        'Este eje es el de UNA meta: aquí se le dan fechas a lo que no las tiene, se cuelgan sub-metas nuevas y «Volver» te regresa a su hoja. El menú Cronograma de arriba enseña el de todas juntas.',
+      ),
     },
   ],
 }
@@ -324,7 +329,7 @@ export const cuerpoRutinas: CuerpoTutorial = {
  */
 export const cuerpoEnlaces: CuerpoTutorial = {
   preparar: () => {
-    useRutinasUI.getState().abrirCalendario('cronograma')
+    abrirApp('metas')
   },
   pasos: [
     {
@@ -334,15 +339,16 @@ export const cuerpoEnlaces: CuerpoTutorial = {
         'tut.enlaces.1.texto',
         'Cualquier meta o paso de plan puede llevar un chip con el icono de una app: es la respuesta a «¿y esto dónde se anota?».',
       ),
+      // La hoja del plan aceptado solo lleva el chip en sus nodos; el de la META
+      // entera (el que señalan los pasos siguientes) vive en la hoja de la meta,
+      // así que se cruza a ella con «Ver la meta».
       alEntrar: async () => {
-        await esperarTut('cal.vista.cronograma', 3000)
-        clickTut('cal.vista.cronograma')
-        await esperarTut('cal.cron.modo.planes', 3000)
-        clickTut('cal.cron.modo.planes')
-        await esperarTut('cal.plan.tarjeta.aceptado', 3000)
-        clickTut('cal.plan.tarjeta.aceptado')
+        await esperarTut('cal.metas.fila.aceptado', 3000)
+        clickTut('cal.metas.fila.aceptado')
+        await esperarTut('cal.plan.verMeta', 3000)
+        clickTut('cal.plan.verMeta')
       },
-      esperar: 'cal.plan.hoja.aceptar',
+      esperar: 'cal.enlace.boton',
     },
     {
       sel: 'cal.enlace.boton',

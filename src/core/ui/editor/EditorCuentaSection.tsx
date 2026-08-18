@@ -5,9 +5,9 @@ import { useSesion } from '../../cuenta/sesionStore'
 import {
   hayPagos,
   obtenerOferta,
-  obtenerRecargas,
+  obtenerNiveles,
   comprar,
-  comprarRecarga,
+  cambiarNivel,
   urlGestion,
   type OfertaPro,
 } from '../../cuenta/paywall'
@@ -481,6 +481,7 @@ function BloquePaywall() {
   if (plan === 'pro') {
     return (
       <div className="space-y-1.5">
+        <Niveles />
         {urlG && (
           <a
             href={urlG}
@@ -491,7 +492,6 @@ function BloquePaywall() {
             {t('cuenta.pago.gestionar', 'Gestionar mi suscripción')}
           </a>
         )}
-        <BotonesRecarga />
       </div>
     )
   }
@@ -524,27 +524,27 @@ function BloquePaywall() {
             : t('cuenta.pago.comprarPrecio', 'Hazte Pro — {p}/mes', { p: oferta.precio })
           : t('cuenta.pago.comprar', 'Hazte Pro')}
       </button>
-      {/* Sin suscripción las recargas también se venden: son el acceso a la IA
-          en modo local, no un extra del Pro que se quedó corto. */}
-      <BotonesRecarga />
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )
 }
 
-/** Paquetes de créditos sueltos. Sirven con y sin suscripción. */
-function BotonesRecarga() {
+/**
+ * Los tres niveles de la suscripción, con el actual marcado. Tocar otro sube o
+ * baja de nivel al instante; cancelar del todo vive en el portal de gestión.
+ */
+function Niveles() {
   const t = useT()
-  const [recargas, setRecargas] = useState<OfertaPro[]>([])
+  const nivelActual = useSesion((s) => s.nivel)
+  const [niveles, setNiveles] = useState<OfertaPro[]>([])
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [listo, setListo] = useState(false)
 
   useEffect(() => {
     let vivo = true
-    obtenerRecargas()
-      .then((r) => {
-        if (vivo) setRecargas(r)
+    obtenerNiveles()
+      .then((n) => {
+        if (vivo) setNiveles(n)
       })
       .catch(() => {})
     return () => {
@@ -552,16 +552,14 @@ function BotonesRecarga() {
     }
   }, [])
 
-  if (!recargas.length) return null
+  if (!niveles.length) return null
 
-  const alComprar = async (oferta: OfertaPro) => {
-    if (ocupado) return
+  const alCambiar = async (oferta: OfertaPro) => {
+    if (ocupado || oferta.nivel === nivelActual) return
     setOcupado(true)
     setError(null)
-    setListo(false)
     try {
-      await comprarRecarga(oferta.paquete)
-      setListo(true)
+      await cambiarNivel(oferta.paquete, oferta.nivel)
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
     } finally {
@@ -571,22 +569,41 @@ function BotonesRecarga() {
 
   return (
     <div className="space-y-1">
-      {recargas.map((r) => (
-        <button
-          key={r.paquete.identifier}
-          type="button"
-          onClick={() => void alComprar(r)}
-          disabled={ocupado}
-          className="w-full rounded-md border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] font-semibold text-white/60 transition hover:bg-white/10 disabled:opacity-50"
-        >
-          {t('cuenta.cuota.recargaN', '+{n} créditos — {p}', { n: r.creditos, p: r.precio })}
-        </button>
-      ))}
-      {listo && (
-        <p className="text-[11px] leading-snug text-accent/90">
-          {t('cuenta.cuota.recargaLista', 'Recarga aplicada: tus créditos extra ya están en tu cuenta.')}
-        </p>
-      )}
+      <p className="text-[10px] font-bold uppercase tracking-wider text-white/35">
+        {t('cuenta.nivel.titulo', 'Tu nivel')}
+      </p>
+      {niveles.map((n) => {
+        const actual = n.nivel === nivelActual
+        return (
+          <button
+            key={n.paquete.identifier}
+            type="button"
+            onClick={() => void alCambiar(n)}
+            disabled={ocupado || actual}
+            className={`flex w-full items-center gap-2 rounded-md border px-2 py-1.5 text-[11px] font-semibold transition disabled:opacity-100 ${
+              actual
+                ? 'border-accent/40 bg-accent/10 text-white/80'
+                : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10 disabled:opacity-50'
+            }`}
+          >
+            <span className="flex-1 text-left">
+              {t('cuenta.nivel.n', 'Nivel ×{n} — {c} créditos al mes', { n: n.nivel, c: n.creditos })}
+            </span>
+            <span className="shrink-0 tabular-nums text-white/45">{n.precio}</span>
+            {actual && (
+              <span className="shrink-0 text-[10px] font-bold text-accent/90">
+                {t('cuenta.nivel.actual', 'Actual')}
+              </span>
+            )}
+          </button>
+        )
+      })}
+      <p className="text-[10px] leading-snug text-white/35">
+        {t(
+          'cuenta.nivel.nota',
+          'Puedes subir o bajar de nivel cuando quieras; el cambio se cobra a prorrata.',
+        )}
+      </p>
       {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
     </div>
   )

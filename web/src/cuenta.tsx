@@ -14,11 +14,10 @@ import { obtenerSupabase, hayBackend } from '../../src/core/cuenta/supabase'
 import { iniciarSesion, useSesion } from '../../src/core/cuenta/sesionStore'
 import {
   hayPagos,
-  obtenerOfertas,
-  obtenerRecargas,
+  obtenerNiveles,
   obtenerUnlock,
   comprar,
-  comprarRecarga,
+  cambiarNivel,
   comprarUnlock,
   urlGestion,
   type OfertaPro,
@@ -333,13 +332,15 @@ function Unlock() {
 // ─── Tarifas (suscribirse / renovar) ─────────────────────────────────────────
 
 function Tarifas({ titulo }: { titulo: string }) {
+  const nivelActual = useSesion((s) => s.nivel)
+  const plan = useSesion((s) => s.plan)
   const [ofertas, setOfertas] = useState<OfertaPro[]>([])
   const [error, setError] = useState<string | null>(null)
   const [ocupado, setOcupado] = useState(false)
 
   useEffect(() => {
     let vivo = true
-    obtenerOfertas()
+    obtenerNiveles()
       .then((o) => {
         if (vivo) setOfertas(o)
       })
@@ -351,13 +352,17 @@ function Tarifas({ titulo }: { titulo: string }) {
     }
   }, [])
 
+  // Con la suscripción activa, tocar otra tarjeta cambia de nivel; sin ella, es
+  // el alta. RevenueCat resuelve el cambio a prorrata en ambos sentidos.
+  const suscrito = plan === 'pro'
+
   const alComprar = async (o: OfertaPro) => {
     if (ocupado) return
     setOcupado(true)
     setError(null)
     try {
-      const ok = await comprar(o.paquete)
-      if (!ok) setError('La compra no se completó.')
+      const ok = suscrito ? await cambiarNivel(o.paquete, o.nivel) : await comprar(o.paquete)
+      if (!ok) setError('El cambio no se completó. Recarga la página en unos segundos.')
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
     } finally {
@@ -373,28 +378,56 @@ function Tarifas({ titulo }: { titulo: string }) {
     <Panel>
       <h2 className="text-sm font-bold text-white/90">{titulo}</h2>
       {ofertas.length === 0 && !error && <p className="text-xs text-white/45">Cargando precios…</p>}
-      {ofertas.map((o) => (
-        <div key={o.paquete.identifier} className="space-y-2 rounded-xl border border-[#863bff]/50 bg-white/5 p-3">
-          <p className="text-2xl font-extrabold text-white/95">
-            {o.precio}
-            <span className="text-sm font-semibold text-white/50">
-              {o.periodo === 'anio' ? ' /año' : o.periodo === 'mes' ? ' /mes' : ''}
-            </span>
-          </p>
-          <ul className="list-none space-y-1 text-xs text-white/60">
-            <li>✓ Todas las apps de la casa, en todos tus dispositivos</li>
-            <li>✓ 700 créditos de IA al mes</li>
-            <li>✓ Sincronización y respaldo en la nube</li>
-          </ul>
-          <button type="button" onClick={() => void alComprar(o)} disabled={ocupado} className={botonPrincipal}>
-            {ocupado ? 'Procesando…' : titulo}
-          </button>
-        </div>
-      ))}
+      {ofertas.map((o) => {
+        const actual = suscrito && o.nivel === nivelActual
+        return (
+          <div
+            key={o.paquete.identifier}
+            className={`space-y-2 rounded-xl border bg-white/5 p-3 ${
+              actual ? 'border-[#863bff]' : 'border-white/10'
+            }`}
+          >
+            <div className="flex items-baseline gap-2">
+              <p className="text-2xl font-extrabold text-white/95">
+                {o.precio}
+                <span className="text-sm font-semibold text-white/50">
+                  {o.periodo === 'anio' ? ' /año' : o.periodo === 'mes' ? ' /mes' : ''}
+                </span>
+              </p>
+              {actual && (
+                <span className="rounded-full bg-[#863bff] px-2 py-0.5 text-[11px] font-bold text-white">
+                  Tu nivel
+                </span>
+              )}
+            </div>
+            <ul className="list-none space-y-1 text-xs text-white/60">
+              <li>✓ Nivel ×{o.nivel}: {o.creditos} créditos de IA al mes</li>
+              <li>✓ Todas las apps de la casa, en todos tus dispositivos</li>
+              <li>✓ Sincronización y respaldo en la nube</li>
+            </ul>
+            <button
+              type="button"
+              onClick={() => void alComprar(o)}
+              disabled={ocupado || actual}
+              className={botonPrincipal}
+            >
+              {actual
+                ? 'Es tu nivel actual'
+                : ocupado
+                  ? 'Procesando…'
+                  : suscrito
+                    ? o.nivel > nivelActual
+                      ? `Subir a ×${o.nivel}`
+                      : `Bajar a ×${o.nivel}`
+                    : titulo}
+            </button>
+          </div>
+        )
+      })}
       {error && <p className="text-xs leading-snug text-red-400/90">{error}</p>}
       <p className="text-[11px] leading-snug text-white/35">
-        Sin permanencia. Si cancelas, la app sigue en tus dispositivos en modo local, sin IA ni
-        sincronización.
+        Sin permanencia: subes, bajas o cancelas cuando quieras y solo pagas la diferencia. Si
+        cancelas, la app sigue en tus dispositivos en modo local, sin IA ni sincronización.
       </p>
     </Panel>
   )
@@ -451,8 +484,9 @@ function MiCuenta() {
       {plan === 'pro' || trialVigente ? (
         <>
           <ProActivo usoIA={usoIA} creditosExtra={creditosExtra} />
-          {/* Convertir el trial es el objetivo: la suscripción a la vista. */}
-          {trialVigente && <Tarifas titulo="Hazte Pro" />}
+          {/* Con Pro, las tarjetas sirven para subir o bajar de nivel; con el
+              trial, para convertir, que es el objetivo. */}
+          <Tarifas titulo={trialVigente ? 'Hazte Pro' : 'Cambiar de nivel'} />
         </>
       ) : (
         <>
@@ -470,8 +504,6 @@ function MiCuenta() {
           </Panel>
           {/* Sin la compra única, lo primero es desbloquear la app. */}
           {!unlock && <Unlock />}
-          {/* Las recargas se venden sin suscripción: son el acceso a la IA en local. */}
-          <Recargas />
           <Tarifas titulo={fuePro ? 'Renovar suscripción' : 'Suscribirme'} />
         </>
       )}
@@ -545,72 +577,7 @@ function ProActivo({
           </a>
         )}
       </Panel>
-      <Recargas />
     </>
-  )
-}
-
-/**
- * Paquetes de créditos sueltos. Se venden con y sin suscripción: en modo local
- * son la única forma de usar la IA, y con Pro son el desahogo del que se quedó
- * corto a mitad de mes. No caducan.
- */
-function Recargas() {
-  const [recargas, setRecargas] = useState<OfertaPro[]>([])
-  const [ocupado, setOcupado] = useState(false)
-  const [aviso, setAviso] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    let vivo = true
-    obtenerRecargas()
-      .then((r) => {
-        if (vivo) setRecargas(r)
-      })
-      .catch(() => {})
-    return () => {
-      vivo = false
-    }
-  }, [])
-
-  if (!recargas.length) return null
-
-  const alRecargar = async (oferta: OfertaPro) => {
-    if (ocupado) return
-    setOcupado(true)
-    setError(null)
-    setAviso(null)
-    try {
-      await comprarRecarga(oferta.paquete)
-      setAviso('Recarga aplicada: tus créditos ya están en tu cuenta.')
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e))
-    } finally {
-      setOcupado(false)
-    }
-  }
-
-  return (
-    <Panel>
-      <p className="text-xs font-semibold text-white/70">Comprar créditos</p>
-      <p className="text-[11px] leading-snug text-white/45">
-        Se gastan solo cuando pides algo y no caducan. 1 respuesta = 1 crédito · un plan largo
-        = 3 · una imagen o un modelo 3D = 10.
-      </p>
-      {recargas.map((r) => (
-        <button
-          key={r.paquete.identifier}
-          type="button"
-          onClick={() => void alRecargar(r)}
-          disabled={ocupado}
-          className={botonSecundario}
-        >
-          {ocupado ? 'Procesando…' : `+${r.creditos} créditos — ${r.precio}`}
-        </button>
-      ))}
-      {aviso && <p className="text-[11px] leading-snug text-emerald-300/90">{aviso}</p>}
-      {error && <p className="text-[11px] leading-snug text-red-400/90">{error}</p>}
-    </Panel>
   )
 }
 

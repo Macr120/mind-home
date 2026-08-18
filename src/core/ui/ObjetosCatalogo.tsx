@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useState } from 'react'
+import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { ObjetoCuarto } from '../data/db'
 import { RECURSOS } from '../house/recursos'
 import { useShallow } from 'zustand/react/shallow'
@@ -6,15 +6,18 @@ import { useDiseño, esObjetoLibreria } from '../state/disenoStore'
 import { pedirDestinoObjeto } from '../state/destinoObjetoStore'
 import { useLayout } from '../state/layoutStore'
 import { useEditorUi } from '../state/editorUiStore'
-import { getTema } from '../house/temas'
-import { MiniaturaModelo } from '../house/Miniatura'
+import { getTema, type Tema } from '../house/temas'
+import { MiniaturaEscena, MiniaturaModelo } from '../house/Miniatura'
+import { escenaPiezaCasa } from '../house/previewPiezas'
+import { CuerpoAnimal } from '../house/granja'
+import { Prendas } from '../house/Prendas'
 import { TIPO_PIEZAS, funcionEspecialDe } from '../house/catalogo'
 import { META_ESPECIAL_PLANTILLA } from '../house/especialesPlantillaMeta'
 import { TIPO_FLOTADOR, NOMBRE_FLOTADOR } from '../state/flotadorStore'
 import { tieneAnimacion } from '../house/animacion'
 import { plantillaObjetoPiezas } from './comun/EditorPiezas'
 import { claveLS, esDemo, esDemoAutor } from '../edicion'
-import { CATEGORIAS_PRENDA, PRENDAS } from '../house/apariencia'
+import { ANCLAS_AVATAR, CATEGORIAS_PRENDA, PRENDAS } from '../house/apariencia'
 import { ANIMALES, useGranja } from '../state/granjaStore'
 import type { TipoAnimal } from '../data/db'
 import { murosLibresRepo, pisosExteriorRepo, zonasRepo, VACIO } from '../data/repository'
@@ -23,6 +26,7 @@ import { useArrastre } from './comun/arrastre'
 import { catalogoCasa, type CuartoConstruido } from './catalogoCasa'
 import { Carpeta } from './comun/Carpeta'
 import { Icono } from './iconos/Icono'
+import type { NombreIcono } from './iconos/catalogo'
 import {
   GRUPOS_ESPECIALES,
   GRUPOS_OBJETOS,
@@ -666,11 +670,11 @@ export function ObjetosCatalogo({ soloCategorias }: { soloCategorias?: string[] 
             onAlternar={() => alternarGrupo(g.id)}
           >
             {g.id === GRUPO_ROPA ? (
-              <CarpetaRopa />
+              <CarpetaRopa tema={tema} />
             ) : g.id === GRUPO_ANIMALES ? (
-              <CarpetaAnimales />
+              <CarpetaAnimales tema={tema} />
             ) : g.id === GRUPO_CASA ? (
-              <CarpetaCasa />
+              <CarpetaCasa tema={tema} />
             ) : (
               <div className="flex flex-col gap-1.5">{cats.map(renderCategoria)}</div>
             )}
@@ -767,12 +771,91 @@ function useCatalogoCasa() {
   )
 }
 
-function CarpetaCasa() {
+/**
+ * Carpeta del inventario para lo que NO son objetos de la biblioteca (piezas de
+ * la casa, prendas, animales): mismo marco, cabecera y plegado que las carpetas
+ * de categoría de `renderCategoria`, pero sin arrastre ni renombre — estas
+ * carpetas las fija el catálogo, no el usuario.
+ */
+function CarpetaFija({
+  titulo,
+  icono,
+  conteo,
+  nota,
+  children,
+}: {
+  titulo: string
+  /** Icono de la cabecera; sin él, la carpeta genérica. */
+  icono?: NombreIcono
+  conteo: number
+  /** Aclara la unidad de lo que se cuenta («por tramo», «por celda»). */
+  nota?: string
+  children: ReactNode
+}) {
+  const [abierta, setAbierta] = useState(true)
+  return (
+    <div className="rounded-lg border border-white/[0.06] bg-white/[0.02]">
+      <div className="flex items-center gap-1 px-2 py-1.5">
+        <span className="text-base leading-none">
+          {icono ? <Icono nombre={icono} /> : <Icono emoji="📁" />}
+        </span>
+        <button
+          type="button"
+          onClick={() => setAbierta((v) => !v)}
+          className="flex min-w-0 flex-1 items-center gap-2 text-start"
+        >
+          <span className="min-w-0 flex-1 truncate text-sm font-semibold text-white/85">{titulo}</span>
+          {nota && <span className="shrink-0 text-[10px] text-white/25">{nota}</span>}
+          <span className="shrink-0 text-[10px] font-bold text-white/40">{conteo}</span>
+          <span className="shrink-0 text-[10px] text-white/40">{abierta ? '▾' : '▸'}</span>
+        </button>
+      </div>
+      {abierta && <div className="space-y-1 px-2 pb-2">{children}</div>}
+    </div>
+  )
+}
+
+/**
+ * Fila de una pieza dentro de una carpeta fija: la misma que la de un objeto
+ * (miniatura + nombre), con la acción a la derecha o ninguna. Con `onClick` es
+ * un botón; sin él, una fila de solo lectura (el recuento de la casa).
+ */
+function FilaPieza({
+  miniatura,
+  nombre,
+  insignia,
+  onClick,
+}: {
+  miniatura: ReactNode
+  nombre: string
+  insignia?: ReactNode
+  onClick?: () => void
+}) {
+  const cuerpo = (
+    <>
+      <span className="relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-md bg-black/25 text-[11px] text-white/50">
+        {miniatura}
+      </span>
+      <span className="min-w-0 flex-1 truncate text-[11px] text-white/75">{nombre}</span>
+      {insignia}
+    </>
+  )
+  const clases = 'flex w-full items-center gap-2 rounded-md bg-white/[0.03] p-1.5 text-start'
+  return onClick ? (
+    <button type="button" onClick={onClick} className={`${clases} transition hover:bg-white/[0.07]`}>
+      {cuerpo}
+    </button>
+  ) : (
+    <div className={clases}>{cuerpo}</div>
+  )
+}
+
+function CarpetaCasa({ tema }: { tema: Tema | null }) {
   const t = useT()
   const secciones = useCatalogoCasa()
 
   return (
-    <div className="space-y-1.5">
+    <div className="flex flex-col gap-1.5">
       <p className="px-1 text-[11px] leading-snug text-white/45">
         {t('inv.casa.ayuda', 'De qué está hecha tu casa y cuánto hay de cada cosa. Se pintan en el editor de planos, no se arrastran.')}
       </p>
@@ -782,42 +865,41 @@ function CarpetaCasa() {
         </p>
       ) : (
         secciones.map((s) => (
-          <div key={s.id}>
-            <p className="mb-0.5 px-1 text-[9px] font-bold uppercase tracking-wider text-white/30">
-              <Icono nombre={s.icono} /> {t(`inv.casa.${s.id}`, s.nombre)}
-              {/* La unidad se dice cuando cambia entre secciones: un piso interior
-                  se cuenta por cuarto y el exterior por celda. */}
-              {s.unidad && (
-                <span className="font-normal normal-case tracking-normal text-white/20">
-                  {' · '}
-                  {t(`inv.casa.unidad.${s.id}`, s.unidad)}
-                </span>
-              )}
-            </p>
-            <div className="space-y-1">
-              {s.piezas.map((p) => (
-                <div
-                  key={p.id}
-                  className="flex items-center gap-2 rounded-md bg-white/[0.03] px-2 py-1.5"
-                >
-                  {/* Muros y puertas traen su gradiente CSS del catálogo; el
-                      resto, un icono sobre el color de la pieza. */}
-                  <span
-                    className="grid h-6 w-6 shrink-0 place-items-center rounded border border-white/10 text-[11px]"
-                    style={p.preview ? { background: p.preview } : { backgroundColor: p.color ?? '#334155' }}
-                  >
+          <CarpetaFija
+            key={s.id}
+            titulo={t(`inv.casa.${s.id}`, s.nombre)}
+            icono={s.icono}
+            // El conteo de la carpeta suma las piezas repetidas, como el del grupo «Casa».
+            conteo={s.piezas.reduce((n, p) => n + p.cuantas, 0)}
+            // La unidad se dice cuando cambia entre carpetas: un piso interior se
+            // cuenta por cuarto y el exterior por celda.
+            nota={s.unidad ? t(`inv.casa.unidad.${s.id}`, s.unidad) : undefined}
+          >
+            {s.piezas.map((p) => (
+              <FilaPieza
+                key={p.id}
+                nombre={t(`inv.casa.pieza.${s.id}.${p.id}`, p.nombre)}
+                miniatura={
+                  <>
+                    {/* Miniatura 3D de la pieza real, como los muebles. El icono del
+                        catálogo queda debajo: es lo que se ve mientras se rasteriza. */}
                     {p.icono ? <Icono nombre={p.icono} /> : p.emoji ? <Icono emoji={p.emoji} /> : null}
-                  </span>
-                  <span className="min-w-0 flex-1 truncate text-[11px] text-white/75">
-                    {t(`inv.casa.pieza.${s.id}.${p.id}`, p.nombre)}
-                  </span>
+                    <MiniaturaEscena
+                      clave={`casa|${s.id}|${p.id}|${p.color ?? ''}`}
+                      tema={tema}
+                      escena={() => escenaPiezaCasa(s.id, p.id, p.color, tema)}
+                      className="absolute inset-0 h-full w-full object-contain"
+                    />
+                  </>
+                }
+                insignia={
                   <span className="shrink-0 rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/60">
                     ×{p.cuantas}
                   </span>
-                </div>
-              ))}
-            </div>
-          </div>
+                }
+              />
+            ))}
+          </CarpetaFija>
         ))
       )}
     </div>
@@ -828,7 +910,7 @@ function CarpetaCasa() {
  * Carpeta «Ropa»: no guarda objetos colocables — la ropa se pone al personaje.
  * Lista las prendas por su parte del cuerpo y cada una lleva al guardarropa.
  */
-function CarpetaRopa() {
+function CarpetaRopa({ tema }: { tema: Tema | null }) {
   const t = useT()
   const setTab = useEditorUi((s) => s.setTab)
   const setEditMode = useLayout((s) => s.setEditMode)
@@ -839,7 +921,7 @@ function CarpetaRopa() {
   }
 
   return (
-    <div className="space-y-1.5">
+    <div className="flex flex-col gap-1.5">
       <p className="px-1 text-[11px] leading-snug text-white/45">
         {t('inv.ropa.ayuda', 'La ropa se le pone al personaje, no se coloca en el mapa. Toca una prenda para abrir el guardarropa.')}
       </p>
@@ -847,24 +929,33 @@ function CarpetaRopa() {
         const prendas = PRENDAS.filter((p) => p.categoria === c.id)
         if (prendas.length === 0) return null
         return (
-          <div key={c.id}>
-            <p className="mb-0.5 px-1 text-[9px] font-bold uppercase tracking-wider text-white/30">
-              {t(`editor.pers.categoria.${c.id}`, c.nombre)}
-            </p>
-            <div className="flex flex-wrap gap-1">
-              {prendas.map((p) => (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={alGuardarropa}
-                  className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/70 transition hover:bg-white/15 hover:text-white/90"
-                >
-                  <Icono emoji={p.emoji} />
-                  <span>{t(`editor.pers.prenda.${p.id}`, p.nombre)}</span>
-                </button>
-              ))}
-            </div>
-          </div>
+          <CarpetaFija
+            key={c.id}
+            titulo={t(`editor.pers.categoria.${c.id}`, c.nombre)}
+            conteo={prendas.length}
+          >
+            {prendas.map((p) => (
+              <FilaPieza
+                key={p.id}
+                nombre={t(`editor.pers.prenda.${p.id}`, p.nombre)}
+                onClick={alGuardarropa}
+                miniatura={
+                  <>
+                    {/* La prenda misma, con las medidas del avatar; debajo, su emoji. */}
+                    <Icono emoji={p.emoji} />
+                    <MiniaturaEscena
+                      clave={`prenda|${p.id}|${p.color}`}
+                      tema={tema}
+                      escena={() => (
+                        <Prendas ropa={{ [p.id]: { color: p.color } }} anclas={ANCLAS_AVATAR} />
+                      )}
+                      className="absolute inset-0 h-full w-full object-contain"
+                    />
+                  </>
+                }
+              />
+            ))}
+          </CarpetaFija>
         )
       })}
     </div>
@@ -875,7 +966,7 @@ function CarpetaRopa() {
  * Carpeta «Animales»: los de granja no son objetos, viven en corrales. Tocar uno
  * abre el editor de la granja con esa especie ya elegida.
  */
-function CarpetaAnimales() {
+function CarpetaAnimales({ tema }: { tema: Tema | null }) {
   const t = useT()
 
   const alaGranja = (tipo: TipoAnimal) => {
@@ -883,26 +974,35 @@ function CarpetaAnimales() {
     useGranja.setState({ tipo, herramienta: 'animal' })
   }
 
+  const animales = Object.entries(ANIMALES) as [TipoAnimal, { nombre: string; icon: string }][]
+
   return (
-    <div className="space-y-1.5">
+    <div className="flex flex-col gap-1.5">
       <p className="px-1 text-[11px] leading-snug text-white/45">
         {t('inv.animales.ayuda', 'Los animales viven en los corrales de la granja. Toca uno para ir a construir su corral.')}
       </p>
-      <div className="flex flex-wrap gap-1">
-        {(Object.entries(ANIMALES) as [TipoAnimal, { nombre: string; icon: string }][]).map(
-          ([tipo, def]) => (
-            <button
-              key={tipo}
-              type="button"
-              onClick={() => alaGranja(tipo)}
-              className="flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/70 transition hover:bg-white/15 hover:text-white/90"
-            >
-              <Icono emoji={def.icon} />
-              <span>{t(`granja.animal.${tipo}`, def.nombre)}</span>
-            </button>
-          ),
-        )}
-      </div>
+      {/* Una sola carpeta: todas las especies son de granja. */}
+      <CarpetaFija titulo={t('room.granja.nombre', 'Granja')} conteo={animales.length}>
+        {animales.map(([tipo, def]) => (
+          <FilaPieza
+            key={tipo}
+            nombre={t(`granja.animal.${tipo}`, def.nombre)}
+            onClick={() => alaGranja(tipo)}
+            miniatura={
+              <>
+                {/* El animal tal como se ve en su corral; debajo, su emoji. */}
+                <Icono emoji={def.icon} />
+                <MiniaturaEscena
+                  clave={`animal|${tipo}`}
+                  tema={tema}
+                  escena={() => <CuerpoAnimal tipo={tipo} />}
+                  className="absolute inset-0 h-full w-full object-contain"
+                />
+              </>
+            }
+          />
+        ))}
+      </CarpetaFija>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Rutina } from '../../data/db'
+import type { PlanMeta, Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { useT } from '../../i18n/useT'
 import { agendada, estadoMeta, progresoDe, resumenAlcance, vencida, type EstadoMeta } from '../../metas'
@@ -37,7 +37,7 @@ export function FilaMetaCard({
   meta,
   indice,
   color,
-  conPlan,
+  plan,
   onAbrir,
   gesto,
   grupoClave,
@@ -51,8 +51,9 @@ export function FilaMetaCard({
   indice: number
   /** Color de la carpeta (el de la app o el de la categoría). */
   color: string
-  /** Ya tiene un plan guardado: se marca, porque el clic abrirá su hoja. */
-  conPlan?: boolean
+  /** El plan que ya tiene guardado: se marca (el clic abrirá su hoja) y el ancla
+   * del tour se discrimina por su estado. */
+  plan?: PlanMeta
   onAbrir: (r: Rutina) => void
   /** Se arrastra la fila entera, sin asa (el gesto compartido de la casa). */
   gesto?: PropsArrastre
@@ -87,7 +88,9 @@ export function FilaMetaCard({
 
   return (
     <div
-      data-tut="cal.metas.fila"
+      // Discriminado por plan: los tours abren «una meta con plan propuesto» o «la
+      // del plan aceptado» sin depender del orden de la lista.
+      data-tut={plan ? `cal.metas.fila.${plan.aceptadoEn ? 'aceptado' : 'propuesta'}` : 'cal.metas.fila'}
       // Mientras se escribe la nota el gesto se suelta: teclear no debe arrastrar.
       {...(gesto && !editandoNota ? gesto : {})}
       data-meta-fila={meta.id != null ? String(meta.id) : undefined}
@@ -140,7 +143,7 @@ export function FilaMetaCard({
 
         {/* Tiene plan: no es un botón (la fila entera ya lleva a su hoja), solo
             avisa de que ahí dentro hay un cronograma escrito. */}
-        {conPlan && (
+        {plan && (
           <span className="shrink-0 text-[10px] text-violet-300/80" title={t('cal.meta.tienePlan', 'Tiene un plan')}>
             <Icono nombre="brillo" />
           </span>

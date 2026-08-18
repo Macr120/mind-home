@@ -3,8 +3,8 @@
  *
  * `usarViaCuenta()` decide el transporte en `chat/ia.ts` e `imagenIA.ts`: con
  * sesión y algo que gastar (pool del mes o créditos de recarga) la IA sale por
- * aquí; el camino BYOK con claves del navegador queda solo para desarrollo
- * (`devIA()`).
+ * aquí — salvo que el usuario haya elegido «BYOK» en el panel de IA, que fuerza
+ * sus propias claves (u Ollama) aunque tenga Pro.
  *
  * Ya NO hace falta suscripción para usar la IA: el modo local compra recargas
  * (créditos que no caducan) y las gasta por este mismo camino. Quien se queda
@@ -36,14 +36,29 @@ export class ErrorIA extends Error {
   }
 }
 
+/** Transporte elegido en el panel de IA: créditos de la cuenta o claves propias. */
+export type TransporteIA = 'creditos' | 'byok'
+
+const LS_TRANSPORTE = 'mh.iaTransporte'
+
+export function getTransporte(): TransporteIA {
+  return localStorage.getItem(LS_TRANSPORTE) === 'byok' ? 'byok' : 'creditos'
+}
+
+export function setTransporte(t: TransporteIA) {
+  localStorage.setItem(LS_TRANSPORTE, t)
+}
+
 /**
  * ¿La IA debe salir por el proxy de la cuenta? Basta con tener sesión y algo que
  * gastar (Pro, el mes trial del unlock, o recargas). `fuePro()` sigue contando
  * para que un ex-suscriptor con el pool en 0 llegue al servidor y reciba el
- * aviso de renovación en vez de caer a BYOK.
+ * aviso de renovación en vez de caer a BYOK. Elegir «BYOK» en el panel apaga la
+ * vía cuenta por completo (estricto: sin clave puesta NO se cae a créditos).
  */
 export function usarViaCuenta(): boolean {
   if (!hayBackend() || !haySesion()) return false
+  if (getTransporte() === 'byok') return false
   return tieneAcceso() || fuePro() || useSesion.getState().creditosExtra > 0
 }
 

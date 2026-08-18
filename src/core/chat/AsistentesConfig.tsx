@@ -12,8 +12,9 @@ import {
   type Asistente,
 } from './mascotas'
 import { hayVoz, hablarComoAsistente, vocesDisponibles, langVoz } from '../audio/voz'
-import { VOCES_IA } from '../audio/vozIA'
-import { iaActiva, generarModelo3D } from './ia'
+import { vocesIaDisponibles } from '../audio/vozIA'
+import { iaActiva, generarModelo3D, proveedorVoz } from './ia'
+import { usarViaCuenta } from '../cuenta/api'
 import { iaHabilitada } from '../edicion'
 import { Creditos } from '../ui/Creditos'
 import { OP_ASISTENTE_3D, OP_ASISTENTE_VOZ } from '../cuenta/catalogoNucleo'
@@ -412,21 +413,29 @@ function FormAsistente({
         </button>
 
         {iaHabilitada() && (
-          <button
-            type="button"
-            onClick={() => guardar({ ...a, vozIA: !a.vozIA })}
-            className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-[11px] font-semibold transition ${
-              a.vozIA
-                ? 'ui-accent-bg border-transparent'
-                : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
-            }`}
-          >
-            <span className="shrink-0 text-[11px]">{a.vozIA ? '✓' : '○'}</span>
-            <span className="min-w-0 flex-1 truncate">
-              {t('chat.config.vozIA', 'Voz con IA (OpenAI, más natural)')}
-            </span>
-            <Creditos op={OP_ASISTENTE_VOZ} />
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={() => guardar({ ...a, vozIA: !a.vozIA })}
+              disabled={!usarViaCuenta() && !proveedorVoz()}
+              className={`flex w-full min-w-0 items-center gap-2 rounded-md border px-2 py-1.5 text-start text-[11px] font-semibold transition disabled:opacity-30 ${
+                a.vozIA
+                  ? 'ui-accent-bg border-transparent'
+                  : 'border-white/10 bg-white/5 text-white/50 hover:bg-white/10'
+              }`}
+            >
+              <span className="shrink-0 text-[11px]">{a.vozIA ? '✓' : '○'}</span>
+              <span className="min-w-0 flex-1 truncate">
+                {t('chat.config.vozIA', 'Voz con IA (más natural)')}
+              </span>
+              <Creditos op={OP_ASISTENTE_VOZ} />
+            </button>
+            {!usarViaCuenta() && !proveedorVoz() && (
+              <p className="text-[10px] leading-snug text-white/35">
+                {t('ia.media.sinClave', 'Para generar imágenes y usar la voz con IA añade una clave de OpenAI o Gemini.')}
+              </p>
+            )}
+          </>
         )}
 
         <div className="flex items-center gap-1.5">
@@ -435,11 +444,12 @@ function FormAsistente({
           </span>
           {a.vozIA ? (
             <select
-              value={a.vozIaVoz ?? 'alloy'}
+              // Si la voz guardada no existe en el proveedor resuelto, cae a la primera.
+              value={vocesIaDisponibles().includes(a.vozIaVoz ?? '') ? (a.vozIaVoz ?? '') : vocesIaDisponibles()[0]}
               onChange={(e) => guardar({ ...a, vozIaVoz: e.target.value })}
               className={`${inputCls} min-w-0 flex-1`}
             >
-              {VOCES_IA.map((v) => (
+              {vocesIaDisponibles().map((v) => (
                 <option key={v} value={v}>
                   {v}
                 </option>

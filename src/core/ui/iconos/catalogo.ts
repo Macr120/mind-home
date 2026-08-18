@@ -314,7 +314,6 @@ export const EMOJIS = {
   'ia-claude': '✴️',
   'ia-gemini': '♊',
   'ia-chatgpt': '🟢',
-  'ia-deepseek': '🐋',
   'ia-local': '💻',
 
   // — Mascotas / asistentes —

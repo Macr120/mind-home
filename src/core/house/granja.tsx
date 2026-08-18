@@ -184,7 +184,7 @@ function Accesorio3D({ tipo }: { tipo: TipoAccesorio }) {
 }
 
 /** Cuerpo del animal por especie (primitivas estilo Roblox, mirando a +z). */
-function CuerpoAnimal({ tipo, hambriento }: { tipo: TipoAnimal; hambriento: boolean }) {
+export function CuerpoAnimal({ tipo, hambriento = false }: { tipo: TipoAnimal; hambriento?: boolean }) {
   // Cabeza baja cuando tiene hambre (todo el cuerpo se inclina un poco).
   const inclinacion = hambriento ? 0.22 : 0
 

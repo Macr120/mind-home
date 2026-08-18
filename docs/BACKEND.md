@@ -39,11 +39,20 @@ src/core/data/sync/ middleware.ts (DBCore)     · revenuecat-webhook · borrar-c
   y en servidor (`tiene_pro()`, que desde `20260815000001` incluye `trial`, en
   `sync_push`, policy de `registros` y policy del bucket): al cancelar o vencer
   el trial, los datos remotos quedan inaccesibles (sin borrarse) hasta renovar.
-- **Recargas**: productos one-time `recarga_150` / `recarga_600` / `recarga_1500`
-  ($1.99 / $4.99 / $9.99, SIN entitlement) → el webhook abona
-  `perfiles.creditos_extra`; `consumir_cuota_ia` los gasta cuando el pool mensual
-  se agota, y en modo local son el único camino. No caducan y siguen siendo
-  utilizables aunque el plan expire.
+- **Niveles de suscripción (15-ago-2026)**: sustituyen a las recargas one-time.
+  Tres productos de la MISMA suscripción — `pro_x1` ($5), `pro_x2` ($10) y
+  `pro_x3` ($15), todos con entitlement `pro` — y el webhook guarda el
+  multiplicador en `perfiles.nivel` (1-3). El pool sale de `pool_mensual()`:
+  `creditos_mes × nivel` = 700 / 1400 / 2100. Subir o bajar es un
+  PRODUCT_CHANGE (prorrateado por RC), no una compra nueva, y cancelar sigue
+  siendo el portal de `urlGestion()`. **`pool_mensual()` es el único sitio donde
+  se calcula el pool**: antes el mismo SELECT estaba duplicado en
+  `consumir_cuota_ia` y `devolver_cuota_ia`, con un comentario avisando de que
+  si divergían el crédito volvía a la bolsa equivocada.
+  El nivel multiplica SOLO con plan `pro`: si no, quien cancela un ×3 y compra
+  el unlock estrenaría el trial con 2100 créditos. EXPIRATION lo devuelve a 1.
+- **`creditos_extra` (recargas viejas)**: la columna, su consumo y su reintegro
+  siguen vivos para el saldo ya vendido; simplemente no se vende más.
 - **IA**: con sesión y créditos, `ia.ts`/`imagenIA.ts` llaman a las Edge Functions
   con la clave del SERVIDOR y cuota en **créditos POR OPERACIÓN** (`costo_op()`:
   chat/texto/vision/voz = 1, imagen/tts = 3, texto_largo/pdf = 4,
@@ -167,16 +176,20 @@ Opcionales, todos con default y sin redeploy al cambiarlos:
 ### 3. RevenueCat (pagos)
 1. Crear cuenta en RevenueCat → proyecto → añadir plataforma **Web Billing**
    (pide conectar una cuenta de **Stripe**).
-2. Crear el producto de suscripción mensual a **4.99 USD** con precio local por
-   región (la multimoneda es pura config; el cliente muestra el `formattedPrice`
-   que manda RC), el entitlement `pro` y el offering `default`.
-3. Crear los **cuatro productos one-time, SIN entitlement**: `unlock_casa`
-   ($10.99), `recarga_150` ($1.99), `recarga_600` ($4.99) y `recarga_1500`
-   ($9.99). Los ids exactos importan: el webhook mapea `unlock_casa` a
-   `perfiles.unlock` + plan `trial` de 30 días, y las recargas a +150/+600/+1500
-   créditos; el cliente los busca por id en todos los offerings. Añadirlos a un
-   offering. **Sin trial de RC** en ningún producto (el «primer mes» lo da el
-   webhook como plan `trial`, sin tarjeta).
+2. Crear los **tres niveles de suscripción mensual** con precio local por región
+   (la multimoneda es pura config; el cliente muestra el `formattedPrice` que
+   manda RC), los tres con el entitlement `pro` y en el offering `default`:
+   `pro_x1` ($5), `pro_x2` ($10) y `pro_x3` ($15). Deben ir en el MISMO grupo de
+   suscripción para que cambiar de nivel sea un PRODUCT_CHANGE prorrateado y no
+   dos suscripciones a la vez.
+3. Crear el **pago único `unlock_casa` ($10.99), SIN entitlement**, y añadirlo a
+   un offering. El webhook lo mapea a `perfiles.unlock` + plan `trial` de 30
+   días; el cliente lo busca por id en TODOS los offerings. **Sin trial de RC**
+   en ningún producto (el «primer mes» lo da el webhook, sin tarjeta).
+
+   Los ids exactos importan en los cinco productos (`pro_x1`, `pro_x2`,
+   `pro_x3`, `unlock_casa`): tanto el webhook como el cliente los buscan por
+   nombre. Un guion de más y la compra se cobra sin conceder nada.
 4. Copiar la public API key `rcb_...` a `.env.local` (`VITE_REVENUECAT_WEB_KEY`).
 5. Elegir un secreto largo y configurarlo en ambos lados:
    - RevenueCat → Integrations → Webhooks → Add: URL

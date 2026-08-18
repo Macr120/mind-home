@@ -18,6 +18,7 @@
  */
 import { ejecucionesRutinaRepo, rutinasRepo } from '../core/data/repository'
 import { deIso } from '../core/fechaLocal'
+import { idActividadSugerencia } from '../core/objetivosSugeridos'
 import { rngDemo, type CtxDemo } from './builders'
 import { bloqueFijo } from './horarioPep'
 import { PLANES_DEMO, sembrarPlanDemo } from './planesPep'
@@ -28,6 +29,13 @@ import { enIdioma } from '../core/i18n/porIdioma'
  * se escriben aquí: salen de `SEMANA_PEP` (`horarioPep.ts`), que es lo que
  * garantiza que estos bloques no se pisen entre ellos ni con lo que proyectan
  * la agenda y el garaje.
+ *
+ * `app`/`sug` los atan al catálogo de objetivos sugeridos (`objetivosSugeridos.ts`):
+ * con ellos, el hábito de Pep@ ES el objetivo de esa app —sale palomeado en su
+ * catálogo y su fila lleva al sitio donde se registra—, en vez de una fila suelta
+ * que no sabe de dónde viene. Turno y clases se quedan SIN app a propósito: son
+ * los objetivos personales de la casa, y el catálogo no tiene (ni debe tener) un
+ * equivalente honesto para un turno de cafetería.
  */
 const HABITOS = [
   {
@@ -50,6 +58,9 @@ const HABITOS = [
     emoji: '📚',
     color: '#a78bfa',
     nace: -350,
+    app: 'biblioteca',
+    seccion: 'estudio',
+    sug: 'estudiar',
   },
   {
     clave: 'pantallas',
@@ -57,6 +68,9 @@ const HABITOS = [
     emoji: '😴',
     color: '#64748b',
     nace: -334,
+    app: 'descanso',
+    seccion: 'sueno',
+    sug: 'pantallas',
   },
   {
     clave: 'piano',
@@ -64,6 +78,9 @@ const HABITOS = [
     emoji: '🎹',
     color: '#f472b6',
     nace: -334,
+    app: 'hobbies',
+    seccion: 'hobbies',
+    sug: 'practicar',
   },
   {
     clave: 'idioma',
@@ -71,6 +88,9 @@ const HABITOS = [
     emoji: '🌐',
     color: '#14b8a6',
     nace: -320,
+    app: 'idiomas',
+    seccion: 'repaso',
+    sug: 'repaso',
   },
   {
     clave: 'meditar',
@@ -78,6 +98,9 @@ const HABITOS = [
     emoji: '🧘',
     color: '#10b981',
     nace: -304,
+    app: 'jardin',
+    seccion: 'meditacion',
+    sug: 'meditar',
   },
   {
     clave: 'correr',
@@ -85,6 +108,9 @@ const HABITOS = [
     emoji: '🏃',
     color: '#ef4444',
     nace: -300,
+    app: 'ejercicio',
+    seccion: 'resistencia',
+    sug: 'cardio',
   },
 ] as const
 
@@ -154,9 +180,15 @@ export async function construirDemoCalendario(ctx: CtxDemo): Promise<void> {
       repeticion: fijo.dias.length > 0 ? 'semanal' : 'indefinido',
       fechaInicio: ctx.fecha(h.nace),
       color: h.color,
+      // SIN pasos, y no es un olvido: el año de cumplimiento se escribe abajo con
+      // `hecho: true` y `pasosHechos: []`, y una rutina CON pasos deja de mirar
+      // `hecho` para mirar `pasosHechos` (ver la cabecera de este archivo). Darles
+      // registro de un toque tiraría el 81 % del panel a cero de un plumazo.
       pasos: [],
       activa: true,
       avisar: true,
+      // Lo que los ata a su app: el objetivo del catálogo que Pep@ ya tenía puesto.
+      ...('app' in h ? { plantillaId: h.app, seccion: h.seccion, actividadId: idActividadSugerencia(h.app, h.sug) } : {}),
       // Retrofechado: es lo que decide `naceEn` y, con él, todo el histórico.
       creadoEn: `${ctx.fecha(h.nace)}T09:00:00.000Z`,
       ...(h.clave === 'turno' ? { excepciones: [ctx.fecha(DIA_MOVIDO)] } : {}),

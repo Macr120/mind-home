@@ -43,15 +43,46 @@ const PLANTA_BAJA: { app: string; col: number; row: number }[] = [
   { app: 'garage', col: 3, row: 3 },
 ]
 
-// Piso 1, 2×3 sobre la mitad oeste: lo íntimo y lo mental.
+// Piso 1: lo íntimo y lo mental sobre la mitad oeste, más el cuarto de Metas en
+// la esquina NE — arriba del todo, que es donde se mira lo que uno se propuso.
 const PISO_UNO: { app: string; col: number; row: number }[] = [
   { app: 'descanso', col: 1, row: 1 },
   { app: 'anecdotario', col: 2, row: 1 },
+  { app: 'metas', col: 3, row: 1 },
   { app: 'biblioteca', col: 1, row: 2 },
   { app: 'idiomas', col: 2, row: 2 },
   { app: 'hobbies', col: 1, row: 3 },
   { app: 'ideas', col: 2, row: 3 },
 ]
+
+/** Un cuarto de una celda con su app dentro, en el sitio que le toca del mapa. */
+async function crearCuartoApp(app: string, col: number, row: number, nivel: number) {
+  const p = getPlantilla(app)
+  const id = await useCuartos
+    .getState()
+    .crearEnCeldas({ color: p?.color, categoria: p?.categoria }, [{ col, row }], nivel)
+  await asignarPlantillaACuarto(id, app)
+  return id
+}
+
+/**
+ * Los cuartos de las apps del mapa que la casa cargada NO traiga.
+ *
+ * `public/demo/casa.json` se exporta a mano y se queda congelado, así que una app
+ * añadida después no tendría cuarto en la demo hasta volver a exportarlo — y su
+ * tour, que entra con `abrirApp`, se quedaría esperando. Es idempotente: si la
+ * app ya está puesta en algún objeto, no toca nada.
+ */
+export async function completarCuartosDeApps(): Promise<void> {
+  // Se lee la BD, NO el store: al restaurar el snapshot las tablas ya están
+  // escritas pero `useDiseño` puede ir un tick por detrás, y con su lista vacía
+  // esto reconstruiría la casa entera por segunda vez (cuartos duplicados).
+  const puestas = new Set(
+    (await db.objetosCuarto.toArray()).map((o) => o.plantillaId).filter((id): id is string => !!id),
+  )
+  for (const c of PLANTA_BAJA) if (!puestas.has(c.app)) await crearCuartoApp(c.app, c.col, c.row, 0)
+  for (const c of PISO_UNO) if (!puestas.has(c.app)) await crearCuartoApp(c.app, c.col, c.row, 1)
+}
 
 export async function construirCasa({
   jardinEnPatio,
@@ -59,15 +90,7 @@ export async function construirCasa({
   jardinEnPatio: boolean
 }): Promise<Record<string, string>> {
   const L = useLayout.getState
-  const C = useCuartos.getState
   const D = useDiseño.getState
-
-  const crearCuartoApp = async (app: string, col: number, row: number, nivel: number) => {
-    const p = getPlantilla(app)
-    const id = await C().crearEnCeldas({ color: p?.color, categoria: p?.categoria }, [{ col, row }], nivel)
-    await asignarPlantillaACuarto(id, app)
-    return id
-  }
 
   const ids: Record<string, string> = {}
   for (const c of PLANTA_BAJA) ids[c.app] = await crearCuartoApp(c.app, c.col, c.row, 0)
@@ -86,6 +109,8 @@ export async function construirCasa({
   // ── Figuras: tres esquinas redondeadas y dos chaflanes rectos ────────────
   await L().pintarSubformaCelda(ids.cocina, 0, 0, 0, 'circular') // NO de la casa
   await L().pintarSubformaCelda(ids.entretenimiento, 0, 0, 1, 'circular') // NE
+  // Metas va justo encima: sin la misma curva, su losa volaría sobre el vacío.
+  await L().pintarSubformaCelda(ids.metas, 0, 0, 1, 'circular')
   await L().pintarSubformaCelda(ids.ejercicio, 0, 0, 2, 'circular') // SO
   await L().pintarSubformaCelda(ids.hobbies, 0, 0, 2, 'triangular') // SO del piso 1
   await L().pintarSubformaCelda(ids.ideas, 0, 0, 3, 'triangular') // SE del piso 1
@@ -109,8 +134,9 @@ export async function construirCasa({
   await techo(ids.hobbies, 'dos_aguas', { aguas: 2, dir: 0 })
   // Con recorte fino solo se fabrican plano, faldones y tienda (`cupula`).
   await techo(ids.ideas, 'cupula', { altura: 1.1 })
-  // La columna 3 no tiene piso encima: sus techos también se ven.
-  await techo(ids.entretenimiento, 'dos_aguas', { aguas: 2, dir: 1 }, 'tejas_oscuras')
+  // De la columna 3 solo la esquina NE ganó piso (Metas): los otros dos techos
+  // siguen a la vista.
+  await techo(ids.metas, 'cupula', { altura: 1.15 }, 'losa_pizarra')
   await techo(ids.agenda, 'dos_aguas', { aguas: 1, dir: 1 })
   await techo(ids.garage, 'plano', { inclinacion: 0.4, dir: 2 }, 'metal')
 

@@ -94,7 +94,9 @@ export const useHud = create<HudState>((set, get) => ({
   plegado: arranqueMovil ? TODO() : leer(),
   movilVertical: arranqueMovil,
   topes: {},
-  menuAbierto: true,
+  // Arranca CERRADO (casa real y demo): al abrir, lo primero debe ser la casa
+  // entera, no una columna que la tapa. Se abre con la hamburguesa.
+  menuAbierto: false,
 
   setTope: (clave, px) =>
     set((s) => (s.topes[clave] === px ? s : { topes: { ...s.topes, [clave]: px } })),

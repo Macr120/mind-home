@@ -1,11 +1,9 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { registrosDelDia } from './gamificacion/actividad'
 import { db, type EjecucionRutina, type Rutina } from './data/db'
 import {
   borrarMetaDiariaManual,
   fijarMetaDiariaManual,
   metasDiariasManualRepo,
-  objetivoDiarioDe,
   rutinasRepo,
 } from './data/repository'
 import { DIA_MS, fechaLocalISO } from './fechaLocal'
@@ -25,32 +23,23 @@ import { marcarHecho, tocaFecha } from './rutinas'
  * contrario). El override es por día, así que caduca solo a medianoche.
  */
 
-/** Objetivo por defecto del genérico: un registro basta. */
-const OBJETIVO_GENERICO = 1
-
-/** El genérico de una app: cualquier registro de hoy lo cumple. */
-function metaGenerica(plantillaId: string): ObjetivoDia {
-  return {
-    clave: 'meta.generica',
-    etiquetaEs: 'Registra algo hoy',
-    ajustable: true,
-    del: async (fecha) => ({
-      hecho: await registrosDelDia(plantillaId, fecha),
-      objetivo: await objetivoDiarioDe(plantillaId, OBJETIVO_GENERICO),
-    }),
-  }
-}
-
 /**
- * Los objetivos del día de una app: los suyos, el genérico, o ninguno si se
- * excluyó. El primero es el PRINCIPAL — el que avisa, el que sale en el widget y
- * el que se palomea sin clave.
+ * Los objetivos del día de una app: los que ella declara, o ninguno.
+ *
+ * Antes, una app sin objetivos propios recibía uno sintético —«Registra algo
+ * hoy»— y eso llenaba las listas de filas que NADIE se había propuesto: media
+ * docena de recordatorios idénticos que el usuario no puso y no podía quitar.
+ * Un objetivo es algo que uno decide; si aquí no hay ninguno, la app lo dice y
+ * ofrece ponerlo, que es la respuesta honesta.
+ *
+ * El primero es el PRINCIPAL — el que avisa, el que sale en el widget y el que
+ * se palomea sin clave.
  */
-export function objetivosDiaDe(plantillaId: string): ObjetivoDia[] {
-  const plantilla = getPlantilla(plantillaId)
+export function objetivosDiaDe(plantillaId: string | undefined): ObjetivoDia[] {
+  const plantilla = plantillaId ? getPlantilla(plantillaId) : undefined
   if (!plantilla || plantilla.sinMetaDiaria) return []
   if (plantilla.objetivosDia?.length) return plantilla.objetivosDia
-  return [plantilla.metaDiaria ?? metaGenerica(plantillaId)]
+  return plantilla.metaDiaria ? [plantilla.metaDiaria] : []
 }
 
 /** El objetivo principal de una app (la vieja meta diaria), o ninguno. */

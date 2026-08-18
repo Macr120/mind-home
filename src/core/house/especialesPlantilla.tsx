@@ -21,6 +21,7 @@ import {
   TIPO_OLLA, TIPO_DESPERTADOR, TIPO_LIBRERO_LIBRO, TIPO_GLOBO, TIPO_ESTANTERIA_HERR, TIPO_REPISA_JUEGOS,
   TIPO_CAMINADORA, TIPO_PERIODICO, TIPO_LAPTOP, TIPO_TAPETE, TIPO_GUITARRA, TIPO_PLANTA_REGAR, TIPO_LIBRETA,
   TIPO_SILLON, TIPO_CALENDARIO, TIPO_PIZARRA, TIPO_AGENDA, TIPO_CAJA_FUERTE, TIPO_ESTACION_COMPUTO,
+  TIPO_DIANA_METAS,
 } from './especialesPlantillaMeta'
 
 export { esEspecialPlantilla } from './especialesPlantillaMeta'
@@ -1449,6 +1450,97 @@ interface EspProps {
 
 type UsableProps = { color: string }
 
+/**
+ * La diana del cuarto de Metas: un tablero sobre su pie con tres dardos
+ * clavados. Al acercarse, el tablero gira despacio y el dardo del centro se
+ * hunde un poco más — «apuntar y dar».
+ */
+export function DianaMetas({ color, simple = false, nivel = null, objetoId }: EspProps) {
+  const raiz = useRef<THREE.Group>(null!)
+  const tablero = useRef<THREE.Group>(null!)
+  const dardoCentro = useRef<THREE.Group>(null!)
+  const energia = useRef(0)
+  useFrame(({ clock }) => {
+    if (simple || !raiz.current) return
+    const e = actualizarEnergia(raiz.current, PROX, nivel, energia, objetoId)
+    if (tablero.current) tablero.current.rotation.z = clock.elapsedTime * 0.35 * e
+    // Se clava un pelín más hondo al despertar; el suavizado evita el tirón.
+    if (dardoCentro.current) dardoCentro.current.position.z = 0.16 - 0.04 * (e * e * (3 - 2 * e))
+  })
+
+  // Anillos de la diana, de fuera hacia dentro; el último es el centro.
+  const anillos: [number, string][] = [
+    [0.62, '#f8fafc'],
+    [0.5, color],
+    [0.36, '#f8fafc'],
+    [0.22, color],
+    [0.1, '#fbbf24'],
+  ]
+
+  return (
+    <group ref={raiz}>
+      {/* Pie y poste */}
+      <mesh position={[0, 0.04, 0]} castShadow receiveShadow>
+        <cylinderGeometry args={[0.34, 0.4, 0.08, 16]} />
+        <meshStandardMaterial color="#1f2937" roughness={0.85} />
+      </mesh>
+      <mesh position={[0, 0.5, 0]} castShadow>
+        <cylinderGeometry args={[0.05, 0.06, 0.92, 10]} />
+        <meshStandardMaterial color="#374151" metalness={0.4} roughness={0.5} />
+      </mesh>
+
+      {/* El tablero: los anillos van en planos apilados hacia el jugador para que
+          no peleen por el mismo pixel (z-fighting). */}
+      <group ref={tablero} position={[0, 1.28, 0]}>
+        {/* El cilindro nace con el eje en Y: se tumba para que su cara mire al
+            jugador (+Z). Los anillos son hermanos, no hijos, así que sus
+            `circleGeometry` ya miran bien sin rotar. */}
+        <mesh rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
+          <cylinderGeometry args={[0.7, 0.7, 0.09, 28]} />
+          <meshStandardMaterial color="#0f172a" roughness={0.9} />
+        </mesh>
+        {anillos.map(([r, c], i) => (
+          <mesh key={r} position={[0, 0, 0.046 + i * 0.004]} rotation={[0, 0, 0]}>
+            <circleGeometry args={[r, 28]} />
+            <meshStandardMaterial color={c} roughness={0.75} />
+          </mesh>
+        ))}
+      </group>
+
+      {/* Tres dardos: dos de adorno y el del centro, que es el que se hunde. */}
+      <group ref={dardoCentro} position={[0, 1.28, 0.16]}>
+        <Dardo />
+      </group>
+      <group position={[0.17, 1.4, 0.16]} rotation={[0, 0, -0.35]}>
+        <Dardo />
+      </group>
+      <group position={[-0.2, 1.16, 0.16]} rotation={[0, 0, 0.4]}>
+        <Dardo />
+      </group>
+    </group>
+  )
+}
+
+/** Un dardo clavado: aguja, cuerpo y aleta. Mira hacia +Z (fuera del tablero). */
+function Dardo() {
+  return (
+    <group rotation={[Math.PI / 2, 0, 0]}>
+      <mesh position={[0, -0.05, 0]}>
+        <cylinderGeometry args={[0.008, 0.008, 0.1, 6]} />
+        <meshStandardMaterial color="#cbd5e1" metalness={0.9} roughness={0.2} />
+      </mesh>
+      <mesh position={[0, 0.06, 0]} castShadow>
+        <cylinderGeometry args={[0.026, 0.02, 0.13, 8]} />
+        <meshStandardMaterial color="#334155" metalness={0.6} roughness={0.4} />
+      </mesh>
+      <mesh position={[0, 0.15, 0]}>
+        <coneGeometry args={[0.04, 0.08, 4]} />
+        <meshStandardMaterial color="#22c55e" roughness={0.7} />
+      </mesh>
+    </group>
+  )
+}
+
 /** Despacha el componente del objeto principal según su `tipo` (o null si no es especial). */
 export function EspecialPlantilla({
   tipo,
@@ -1494,6 +1586,8 @@ export function EspecialPlantilla({
       return <CalendarioPared color={color} />
     case TIPO_CAJA_FUERTE:
       return <CajaFuerte color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
+    case TIPO_DIANA_METAS:
+      return <DianaMetas color={color} simple={simple} nivel={nivel} objetoId={objetoId} />
     case TIPO_ESTACION_COMPUTO:
       return <EstacionComputo color={color} />
     default:

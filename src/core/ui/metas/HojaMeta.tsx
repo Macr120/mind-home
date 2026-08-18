@@ -38,6 +38,7 @@ export function HojaMeta({
   metas,
   onVolver,
   onPlanIA,
+  onVerCronograma,
 }: {
   meta: Rutina
   /** El árbol entero (o el de la app): de aquí salen sus sub-metas y su avance. */
@@ -45,6 +46,8 @@ export function HojaMeta({
   onVolver: () => void
   /** Sin valor = la IA está apagada: el ✨ no se dibuja. */
   onPlanIA?: (r: Rutina) => void
+  /** Abre el eje acotado a esta meta: su subárbol sobre el tiempo. */
+  onVerCronograma?: () => void
 }) {
   const t = useT()
   const [renombrando, setRenombrando] = useState(false)
@@ -146,6 +149,17 @@ export function HojaMeta({
             >
               <span className="me-1 inline-block h-2 w-2 rounded-full align-middle" style={{ background: color }} />
               <Icono emoji={meta.emoji} /> {meta.nombre}
+            </button>
+          )}
+          {/* La salida al eje de ESTA meta: su lista sobre el tiempo. */}
+          {onVerCronograma && (
+            <button
+              type="button"
+              data-tut="cal.meta.hoja.verCronograma"
+              onClick={onVerCronograma}
+              className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+            >
+              <Icono nombre="calendario" /> {t('cal.meta.verEnCronograma', 'Ver en el Cronograma')}
             </button>
           )}
           <button

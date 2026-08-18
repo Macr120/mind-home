@@ -2,6 +2,10 @@ import { useEffect } from 'react'
 import { db } from './data/db'
 import { esDemo } from './edicion'
 import { fechaLocalISO, isoMasDias } from './fechaLocal'
+import type { Asistente } from './chat/mascotas'
+import { asistenteResponsable } from './gamificacion/asistentesPlantilla'
+import { otorgarSiDiaCerradoCompleto, sembrarListasHistoricas } from './gamificacion/listas'
+import { armarPasosHoy } from './hoy'
 import {
   estadoMetaDiaria,
   metaDiariaDe,
@@ -10,10 +14,12 @@ import {
   sincronizarMetasDeApp,
 } from './metaDiaria'
 import { notificar } from './notificaciones'
-import { plantillasAgendables } from './registry'
+import { plantillasAgendables, plantillasTodas } from './registry'
 import { debeAvisar } from './rutinas'
 import { avisoActivo, useAjustes } from './state/ajustesStore'
+import { useAsistentes } from './state/asistentesStore'
 import { useDiseño } from './state/disenoStore'
+import { useMascota } from './state/mascotaStore'
 import { useWrappedUi } from './state/wrappedUiStore'
 import { tGlobal } from './i18n/useT'
 import { ultimoCerrado, type TipoPeriodo } from './wrapped/periodo'
@@ -84,6 +90,20 @@ function toca(hora: string): boolean {
   return delta >= 0 && delta <= VENTANA_TARDE_MIN
 }
 
+/**
+ * Quién avisa de esta app: el asistente que el usuario le asignó y, mientras no
+ * asigne ninguno, el que tiene activo. El mismo que enseña su cara en el panel de
+ * Objetivos — el aviso y la cara tienen que ser la misma persona.
+ */
+const asistenteDeApp = (plantillaId?: string): Asistente | undefined =>
+  plantillaId
+    ? asistenteResponsable(
+        useAsistentes.getState().lista,
+        plantillaId,
+        useMascota.getState().mascota,
+      )
+    : undefined
+
 /** Rutinas y eventos con hora que ya tocaron y siguen sin hacerse. */
 async function avisarRutinas(estado: EstadoAvisos, fecha: string) {
   const rutinas = await db.rutinas.toArray()
@@ -111,6 +131,7 @@ async function avisarRutinas(estado: EstadoAvisos, fecha: string) {
       rutinaId: r.id,
       accionRegistrar: paso?.esquemaId ? paso.titulo : undefined,
       accionAbrir: r.plantillaId ? tGlobal('avisos.abrir', 'Abrir') : undefined,
+      asistenteId: asistenteDeApp(r.plantillaId)?.id,
     })
   }
 }
@@ -147,6 +168,9 @@ async function mantenimientoDiario(fecha: string) {
     const estado = await estadoMetaDiaria(p.id, fecha)
     if (estado) await sincronizarAgendaDeMeta(p.id, fecha, estado.cumplida)
     await sellarDia(p.id, cerrado)
+    // Red de seguridad del XP: si ese día cerrado quedó con la lista completa
+    // sin que ningún panel lo viera, se otorga aquí (sin celebración).
+    await otorgarSiDiaCerradoCompleto(p.id, cerrado)
   }
 }
 
@@ -182,6 +206,51 @@ async function avisarMetas(estado: EstadoAvisos, fecha: string) {
         }),
       plantillaId: p.id,
       seccion: meta.seccion,
+      asistenteId: asistenteDeApp(p.id)?.id,
+    })
+  }
+}
+
+/**
+ * Lo que el usuario se propuso en una app y hoy sigue pendiente **sin hora**: los
+ * objetivos del catálogo se ponen marcando días, no relojes, así que nunca pasan
+ * por `avisarRutinas`. Aquí los recoge su asistente una vez al día, a la misma
+ * hora que las metas.
+ *
+ * Se salta la app si `avisarMetas` ya habló hoy de ella: dos avisos seguidos del
+ * mismo cuarto y el mismo asistente es ruido, no insistencia.
+ */
+async function avisarObjetivos(estado: EstadoAvisos, fecha: string) {
+  const asignadas = appsEnLaCasa()
+
+  for (const p of plantillasTodas()) {
+    if (!asignadas.has(p.id) || !avisoActivo(p.id)) continue
+    if (estado.avisados[`meta:${p.id}|${fecha}`]) continue
+    const clave = `objetivos:${p.id}|${fecha}`
+    if (estado.avisados[clave]) continue
+
+    // Solo lo agendado sin hora: lo que la tiene ya avisó (o avisará) a la suya, y
+    // los objetivos propios de la app son cosa de `avisarMetas`.
+    const pasos = await armarPasosHoy(p.id, fecha)
+    const pendientes = pasos.filter((x) => x.origen === 'rutina' && !x.hora && !x.hecho)
+    if (pendientes.length === 0) continue
+
+    marcarAvisado(estado, clave)
+    const quien = asistenteDeApp(p.id)
+    await notificar({
+      clave,
+      titulo: quien ? `${quien.emoji} ${quien.nombre}` : `${p.icon} ${p.nombre.split(' · ')[0]}`,
+      cuerpo:
+        pendientes.length === 1
+          ? pendientes[0].titulo
+          : tGlobal('avisos.objetivos', 'Te faltan {n} misiones en {app}.', {
+              n: pendientes.length,
+              app: tGlobal(`room.${p.id}.nombre`, p.nombre).split(' · ')[0],
+            }),
+      plantillaId: p.id,
+      seccion: pendientes[0].seccion,
+      accionAbrir: tGlobal('avisos.abrir', 'Abrir'),
+      asistenteId: quien?.id,
     })
   }
 }
@@ -229,6 +298,10 @@ export function useAvisos() {
     // Casa demo: sin recordatorios (notificarían las rutinas de Pep@ y
     // `sincronizarAgendaDeMeta` chocaría con el guard de solo lectura).
     if (esDemo()) return
+    // Una vez por dispositivo: el histórico aproximado de listas cumplidas.
+    void sembrarListasHistoricas().catch((err) =>
+      console.warn('[MPH] Falló la siembra de listas cumplidas:', err),
+    )
     const tick = () => {
       void (async () => {
         const fecha = fechaLocalISO()
@@ -247,7 +320,10 @@ export function useAvisos() {
         if (!notif) return
         try {
           if (notifRutinas) await avisarRutinas(estado, fecha)
-          if (notifMetas && toca(notifHoraMetas)) await avisarMetas(estado, fecha)
+          if (notifMetas && toca(notifHoraMetas)) {
+            await avisarMetas(estado, fecha)
+            await avisarObjetivos(estado, fecha)
+          }
           if (notifWrapped) await avisarWrapped()
         } catch (err) {
           console.warn('[MPH] Falló la revisión de avisos:', err)

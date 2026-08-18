@@ -55,6 +55,7 @@ export function HojaPlan({
   plan,
   metas,
   onVolver,
+  volverA,
   onVerEnCronograma,
   onVerMeta,
   etiqueta,
@@ -62,6 +63,8 @@ export function HojaPlan({
   plan: PlanMeta
   metas: Rutina[]
   onVolver: () => void
+  /** A dónde devuelve el ‹ (a las metas o a los planes, según de dónde se entró). */
+  volverA?: string
   onVerEnCronograma: () => void
   /** Abre la hoja de la meta: aquí solo se toca el plan, no sus fechas ni su nota. */
   onVerMeta?: (r: Rutina) => void
@@ -200,7 +203,7 @@ export function HojaPlan({
             onClick={onVolver}
             className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
           >
-            ‹ {t('cal.plan.volverLista', 'Volver a los planes')}
+            ‹ {volverA ?? t('cal.meta.volverMetas', 'Volver a las metas')}
           </button>
           {/* La meta manda en el título; de qué plan es, en pequeño encima. */}
           <div className="min-w-0 flex-1">
@@ -214,6 +217,7 @@ export function HojaPlan({
           {origen && onVerMeta && (
             <button
               type="button"
+              data-tut="cal.plan.verMeta"
               onClick={() => onVerMeta(origen)}
               className="shrink-0 rounded-lg px-1.5 py-0.5 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
             >
@@ -411,16 +415,28 @@ export function HojaPlan({
                 </button>
               </>
             ) : (
-              <button
-                type="button"
-                // Espejo del anterior: solo existe mientras el plan es propuesta.
-                data-tut="cal.plan.hoja.aceptar"
-                onClick={() => void aceptar()}
-                disabled={ocupado}
-                className="flex items-center gap-1.5 rounded-lg bg-emerald-500/90 px-3 py-1.5 text-xs font-bold text-black transition hover:bg-emerald-400 disabled:opacity-40"
-              >
-                <Icono nombre="hecho" /> {t('cal.plan.aceptar', 'Mover a cronograma real')}
-              </button>
+              <>
+                <button
+                  type="button"
+                  // Ancla propia (NO `verCronograma`): esa solo existe en la hoja de
+                  // un plan ACEPTADO y los tours la usan como discriminador.
+                  data-tut="cal.plan.hoja.verEje"
+                  onClick={onVerEnCronograma}
+                  className="flex items-center gap-1.5 rounded-lg border border-violet-400/30 bg-violet-400/10 px-3 py-1.5 text-xs font-semibold text-violet-200 transition hover:bg-violet-400/20"
+                >
+                  <Icono nombre="calendario" /> {t('cal.plan.verCronograma', 'Ver en el cronograma')}
+                </button>
+                <button
+                  type="button"
+                  // Espejo de `verCronograma`: solo existe mientras el plan es propuesta.
+                  data-tut="cal.plan.hoja.aceptar"
+                  onClick={() => void aceptar()}
+                  disabled={ocupado}
+                  className="flex items-center gap-1.5 rounded-lg bg-emerald-500/90 px-3 py-1.5 text-xs font-bold text-black transition hover:bg-emerald-400 disabled:opacity-40"
+                >
+                  <Icono nombre="hecho" /> {t('cal.plan.aceptar', 'Mover a cronograma real')}
+                </button>
+              </>
             )}
           </div>
         </div>

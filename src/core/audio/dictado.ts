@@ -1,17 +1,17 @@
 import { usarViaCuenta, iaVozCuenta, ErrorIA } from '../cuenta/api'
-import { getIaKey } from '../chat/ia'
+import { getIaKey, proveedorVoz } from '../chat/ia'
 import { blobABase64 } from '../imagenIA'
 import { useGastoByok } from '../cuenta/gastoByok'
-import { costoVoz } from '../cuenta/tarifasByok'
+import { costoVoz, costoVozGemini } from '../cuenta/tarifasByok'
 import { useCuotaAgotada } from '../state/avisosPlanStore'
 import { tGlobal } from '../i18n/useT'
 
 /**
- * Dictado por Whisper: fallback de `ChatBox` cuando `SpeechRecognition` no
- * existe (WebView de Android vía Capacitor). Mismo patrón cuenta-vs-BYOK que
- * `imagenIA.ts`: vía cuenta pasa por el proxy `ia-voz`; en BYOK llama directo
- * a OpenAI con la clave del navegador (Whisper solo lo sirve OpenAI, por eso
- * aquí no hay selector de proveedor).
+ * Dictado con IA: fallback de `ChatBox` cuando `SpeechRecognition` no existe
+ * (WebView de Android vía Capacitor). Mismo patrón cuenta-vs-BYOK que
+ * `imagenIA.ts`: vía cuenta pasa por el proxy `ia-voz` (Whisper); en BYOK
+ * despacha por `proveedorVoz()` — Whisper con clave de OpenAI, o transcripción
+ * multimodal de Gemini (su modelo de chat entiende audio, no hay endpoint aparte).
  */
 
 const EXT_POR_MIME: Record<string, string> = {
@@ -48,13 +48,37 @@ if (typeof window !== 'undefined') {
 
 /**
  * Corta ANTES de grabar cuando no hay forma de pagar la transcripción: ni
- * cuenta con créditos ni clave de OpenAI propia.
+ * cuenta con créditos ni proveedor de voz con clave propia.
  */
 function exigirTransporteVoz(): void {
   if (usarViaCuenta()) return
-  if (getIaKey('chatgpt').length > 0) return
+  if (proveedorVoz()) return
   useCuotaAgotada.getState().abrir()
   throw new ErrorIA('cuota-agotada', tGlobal('cuenta.creditos.faltan', 'Te quedaste sin créditos de IA.'))
+}
+
+/**
+ * Transcripción con Gemini: audio en `inlineData` al modelo de chat. El prompt
+ * exige SOLO el texto para que no comente ni traduzca.
+ */
+async function sttGemini(blob: Blob, mime: string, key: string, idioma?: string): Promise<string> {
+  const prompt = `Transcribe literalmente este audio${idioma ? ` (idioma: ${idioma})` : ''}. Responde SOLO con el texto transcrito, sin comentarios.`
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${encodeURIComponent(key)}`
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }, { inlineData: { mimeType: mime, data: await blobABase64(blob) } }] }],
+    }),
+  })
+  if (!res.ok) throw new Error(`Gemini ${res.status}: ${(await res.text()).slice(0, 200)}`)
+  const data = (await res.json()) as { candidates?: { content?: { parts?: { text?: string }[] } }[] }
+  const texto = (data.candidates?.[0]?.content?.parts ?? [])
+    .map((p) => p.text ?? '')
+    .join('')
+    .trim()
+  if (!texto) throw new Error('Gemini no devolvió texto')
+  return texto
 }
 
 /**
@@ -69,7 +93,14 @@ export async function transcribir(blob: Blob, idioma?: string, duracionSeg?: num
   if (usarViaCuenta()) {
     return iaVozCuenta(await blobABase64(blob), mime, idioma)
   }
-  // BYOK: llamada directa a Whisper con la clave del navegador.
+  // BYOK: despacho por el proveedor de voz resuelto.
+  const provId = proveedorVoz()
+  if (provId === 'gemini') {
+    const texto = await sttGemini(blob, mime, getIaKey('gemini'), idioma)
+    if (duracionSeg) useGastoByok.getState().sumar('voz', costoVozGemini(duracionSeg))
+    return texto
+  }
+  // Whisper con la clave de OpenAI del navegador.
   const key = getIaKey('chatgpt')
   const fd = new FormData()
   fd.append('model', 'whisper-1')

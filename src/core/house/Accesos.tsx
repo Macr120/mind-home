@@ -82,12 +82,12 @@ function EscaleraEspiral({
 }
 
 /** Cabina de cristal del elevador (estática por ahora; se anima en la transición). */
-function CabinaCristal({ baseY, acceso }: { baseY: number; acceso: Acceso }) {
+function CabinaCristal({ baseY, acceso }: { baseY: number; acceso?: Acceso }) {
   const ref = useRef<THREE.Group>(null)
   useFrame(() => {
     if (!ref.current) return
     const t = useHouse.getState().transicion
-    const activo = t != null && t.acceso.id === acceso.id
+    const activo = t != null && acceso != null && t.acceso.id === acceso.id
     // En transición la cabina sigue al personaje; si no, reposa cerca del piso de abajo.
     const objetivo = activo ? playerPos.y - baseY : 1
     ref.current.position.y += (objetivo - ref.current.position.y) * (activo ? 1 : 0.12)
@@ -114,7 +114,7 @@ function CabinaCristal({ baseY, acceso }: { baseY: number; acceso: Acceso }) {
 }
 
 /** Elevador: estructura cuadrada de postes con una cabina de cristal que sube/baja. */
-function Elevador({ altura, baseY, acceso, detalle }: { altura: number; baseY: number; acceso: Acceso; detalle: string }) {
+function Elevador({ altura, baseY, acceso, detalle }: { altura: number; baseY: number; acceso?: Acceso; detalle: string }) {
   const postes: [number, number][] = [
     [-HUECO, -HUECO],
     [HUECO, -HUECO],
@@ -201,7 +201,8 @@ function EscaleraMarina({ altura, base, detalle }: { altura: number; base: strin
   )
 }
 
-function Estructura({
+/** La estructura de un acceso. Sin `acceso` es decorativa (la miniatura del inventario). */
+export function Estructura({
   tipo,
   altura,
   landing,
@@ -212,7 +213,7 @@ function Estructura({
   altura: number
   landing: number
   baseY: number
-  acceso: Acceso
+  acceso?: Acceso
 }) {
   const c = COLOR[tipo]
   if (tipo === 'elevador')

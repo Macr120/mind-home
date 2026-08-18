@@ -127,9 +127,9 @@ export interface Asistente {
   vozRate?: number
   /** Voz TTS: volumen 0–1 (ausente = 1). */
   vozVolumen?: number
-  /** Voz con IA (OpenAI tts-1) en vez de la del sistema (ausente = no). */
+  /** Voz con IA (OpenAI o Gemini, según proveedorVoz) en vez de la del sistema (ausente = no). */
   vozIA?: boolean
-  /** Voz TTS IA: una de `VOCES_IA` (vacío = 'alloy'). Solo aplica con `vozIA`. */
+  /** Voz TTS IA: una de `VOCES_IA` del proveedor (vacío = la primera). Solo aplica con `vozIA`. */
   vozIaVoz?: string
   /** Comenta cosas por su cuenta mientras pasea (ausente = sí). */
   espontaneo?: boolean

@@ -20,7 +20,11 @@ import { claveLS, LS_DEMO, esDemo } from '../core/edicion'
 // el mapa demo (casaPep.ts / mapa/*.ts) hay que RE-EXPORTAR el JSON con
 // window.mhExportarCasaDemo() — mientras exista, el snapshot manda y taparía
 // los cambios de código.
-export const DEMO_VERSION = 26
+// v30: el XP por lista cumplida bajó de 50 a 20. En una BD normal lo corrige la
+// migración v127, pero la demo se repone desde su foto (`demo/sandbox.ts`) y
+// volvería a la tarifa vieja: hay que rehacerla para que `sembrarListasDemo`
+// siembre con la vigente.
+export const DEMO_VERSION = 30
 const LS_VERSION = 'mh.demo.version'
 const LS_INTENT = 'mh.demo.intent'
 

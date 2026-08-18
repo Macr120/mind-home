@@ -671,7 +671,6 @@ export const SVGS: Record<NombreIcono, LucideIcon> = {
   'ia-claude': Sparkle,
   'ia-gemini': Gem,
   'ia-chatgpt': Sparkles,
-  'ia-deepseek': Waves,
   'ia-local': Laptop,
 
   // — Mascotas / asistentes —

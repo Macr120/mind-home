@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef, type ReactNode } from 'react'
 import { create } from 'zustand'
 import { Canvas, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
@@ -34,6 +34,8 @@ interface Peticion {
   texto?: string
   /** Cuartos: el conjunto de objetos de una app en vez de un modelo suelto. */
   siembra?: Siembra[]
+  /** Escena a medida (piezas de la casa, ropa, animales): el JSX lo arma quien la pide. */
+  nodo?: ReactNode
 }
 
 interface ThumbState {
@@ -162,7 +164,9 @@ function Captura({ req }: { req: Peticion }) {
     <group ref={ref}>
       <TemaContext.Provider value={getTema(req.temaId)}>
         {/* sinReflejo: en el canvas oculto no hay escena que reflejar. */}
-        {req.siembra ? (
+        {req.nodo ? (
+          req.nodo
+        ) : req.siembra ? (
           <EscenaCuarto siembra={req.siembra} color={req.color} />
         ) : (
           <ObjetoView tipo={req.tipo} color={req.color} piezas={req.piezas} modeloGlb={req.modeloGlb} foto={req.foto} texto={req.texto} sinReflejo />
@@ -225,6 +229,39 @@ export function MiniaturaModelo({
   useEffect(() => {
     if (!url) pedir({ clave, tipo, color, temaId: tema?.id ?? null, piezas, modeloGlb, foto, texto })
   }, [clave, url, tipo, color, tema, pedir, piezas, modeloGlb, foto, texto])
+  return url ? (
+    <img src={url} className={className} alt="" draggable={false} />
+  ) : (
+    <div className={className} />
+  )
+}
+
+/**
+ * Miniatura (imagen) de una escena a medida: lo que no es un objeto del catálogo
+ * —las piezas de la casa, una prenda, un animal— trae su propio JSX 3D. `escena`
+ * solo se llama cuando la imagen no está aún en caché.
+ */
+export function MiniaturaEscena({
+  clave,
+  escena,
+  tema,
+  className,
+}: {
+  /** Identifica la escena en la caché (el tema se añade solo). */
+  clave: string
+  escena: () => ReactNode
+  tema: Tema | null
+  className?: string
+}) {
+  const claveTema = `escena|${clave}|${tema?.id ?? 'base'}`
+  const url = useThumbs((s) => s.urls[claveTema])
+  const pedir = useThumbs((s) => s.pedir)
+  // El JSX cambia de identidad en cada render; la clave es lo único que decide.
+  const ultima = useRef(escena)
+  ultima.current = escena
+  useEffect(() => {
+    if (!url) pedir({ clave: claveTema, tipo: '', color: '', temaId: tema?.id ?? null, nodo: ultima.current() })
+  }, [claveTema, url, tema, pedir])
   return url ? (
     <img src={url} className={className} alt="" draggable={false} />
   ) : (

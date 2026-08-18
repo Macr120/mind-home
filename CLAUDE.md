@@ -96,6 +96,7 @@ src/
 | F | Ideas | Diario de ideas y lluvias, mapas conceptuales y diagramas para decidir | ✅ |
 | G | Agenda | Trabajo (bandeja de pendientes y tablero Kanban), Salud en tres submenús (tú: citas por especialidad, medicamentos, cuidados y ciclo · prójimos · mascotas) y Personas (contactos y cumpleaños) | ✅ |
 | H | Sala de cómputo | Dos pestañas: **Calculadora** —con el formulario de fórmulas en carpetas (Matemáticas, Física y Química de fábrica) colgando como menú plegable, notaciones en vez de teclado científico, y ocho modos que le cambian la vista entera (normal · **gráfica**, con sus cuatro tipos 2D/polar/paramétrica/superficie 3D · bases 2-16 · matrices · sistemas de ecuaciones · unidades · propina · regla de tres)— y **Hojas de cálculo** con exportación a Excel y PDF | ✅ |
+| I | Metas | El planificador de TODA la casa en tres menús: **Metas** (la lista, agrupada por la app que las lleva), **Planes** (los cronogramas que propone la IA) y **Cronograma** (el eje del tiempo). Desde una meta se abre su hoja, y desde ella su eje acotado. No registra datos propios: lee las metas (`rutinas` con `esMeta`) y los planes (`planesMeta`) de las demás apps | ✅ |
 
 **Infraestructura** (plantillas `tipo: 'infraestructura'`: se construyen directo en el
 mapa 3D, no ocupan un cuarto): Caminos (pistas, rieles, montañas rusas), Canchas (fútbol,
@@ -103,9 +104,15 @@ tenis, básquet), Huerto (parcelas y cultivos), Granja (cría de animales) y Pai
 (batallas 1v1/2v2/campal vs. asistentes). Todas ✅.
 
 **El calendario NO es un cuarto**: vive en el reloj del HUD (`core/ui/Calendario.tsx`, a pantalla
-completa) y reúne las metas, planes y eventos de todas las apps. Sus dos tutoriales
-(«Calendario» y «Metas») viven en `core/tutorial/calendario.ts` y su año demo en
-`src/demo/anioCalendario.ts`.
+completa) con las vistas Día/Semana/Mes/Año más **Misiones** (el botón rojo: la checklist
+de HOY de todas las apps juntas, `core/ui/hoy/ObjetivosCasa.tsx`). Las metas y sus planes
+NO están ahí: viven en el cuarto **Metas**. Sus tutoriales («Calendario», «Metas», «Rutinas»
+y «Enlaces») viven en `core/tutorial/calendario.ts` y su año demo en `src/demo/anioCalendario.ts`.
+
+**Misiones vs Metas**: el botón del encabezado de cada cuarto («Misiones», `core/ui/hoy/ListaHoy.tsx`)
+solo lleva la checklist del día de ESA app —dentro se titula «Misiones del día»— y arriba
+enseña, plegables, las metas de esa app; planear es cosa del cuarto Metas. El nombre en
+pantalla es «Misiones»: en el código las claves y los archivos siguen diciendo `objetivos`.
 
 **Personalización de la casa** (colores, avatar, objetos, perfil): modo **✏️ Editar mapa** → panel derecho (`EditPanel`).
 

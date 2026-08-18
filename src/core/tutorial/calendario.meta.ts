@@ -34,7 +34,7 @@ export const tutorialMetas = tour(
   T('tut.metas.titulo', 'Metas'),
   T(
     'tut.metas.resumen',
-    'Las tres pantallas de una meta: la lista donde nace, el plan que la desarrolla (la IA lo propone y tú lo palomeas) y el cronograma donde sus fases ocupan su periodo, ya como sub-metas reales.',
+    'La lista de metas y, dentro de cada una, su hoja: el plan que la desarrolla (la IA lo propone y tú lo palomeas) y su cronograma, donde sus fases ocupan su periodo ya como sub-metas reales.',
   ),
   'cuerpoMetas',
 )

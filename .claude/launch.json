@@ -11,7 +11,7 @@
     {
       "name": "mind-home-pruebas",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--", "--port", "53378"],
+      "runtimeArgs": ["run", "dev"],
       "port": 53378,
       "autoPort": true
     },

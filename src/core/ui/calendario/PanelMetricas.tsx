@@ -1,12 +1,11 @@
 import { useMemo, useState } from 'react'
 import type { Rutina } from '../../data/db'
-import { fechaLocalISO } from '../../fechaLocal'
 import { useT } from '../../i18n/useT'
 import { esMeta } from '../../metas'
 import { Icono } from '../iconos/Icono'
+import { AnadirObjetivo } from '../hoy/AnadirObjetivo'
 import { GraficaArea } from './GraficaArea'
 import { MatrizHabitos } from './MatrizHabitos'
-import { NuevaMeta } from './NuevaMeta'
 import { ResumenPeriodos } from './ResumenPeriodos'
 import { colorPct, metricasRango, type ColumnaRango, type IndiceEjecuciones } from './metricas'
 
@@ -14,10 +13,13 @@ import { colorPct, metricasRango, type ColumnaRango, type IndiceEjecuciones } fr
 const COLOR = '#dc2626'
 
 /**
- * «Metas»: para el calendario una rutina que se repite y una meta del cronograma
- * con periodo son lo mismo — algo que toca un día y se palomea — así que viven en
- * UN solo panel en vez de dos (antes había una lista de lo agendado Y, aparte,
- * este cumplimiento).
+ * «Objetivos»: lo que toca hacer estos días y se palomea. Para el calendario una
+ * rutina que se repite y una meta del cronograma con periodo son lo mismo —algo
+ * que toca un día y se cumple— así que viven en UN solo panel en vez de dos.
+ *
+ * Se llamaba «Metas» y el nombre mentía: aquí abajo están los objetivos (los de
+ * las apps y los personales), mientras que las metas se ven arriba, en la banda
+ * de la propia rejilla. Por eso su botón de alta crea un OBJETIVO y no una meta.
  *
  * En Día y Semana se ve hábito por hábito y se palomea desde aquí; en Mes y Año
  * ya no se listan ocurrencias sueltas, solo el resumen por semana/mes, y el
@@ -48,9 +50,9 @@ export function PanelMetricas({
 }) {
   const t = useT()
   const [desplegada, setDesplegada] = useState<number | null>(null)
+  const [anadiendo, setAnadiendo] = useState(false)
   const metricas = useMemo(() => metricasRango(rutinas, columnas, idx), [rutinas, columnas, idx])
   const metas = useMemo(() => rutinas.filter(esMeta), [rutinas])
-  const ancla = columnas[0]?.isos[0] ?? fechaLocalISO()
 
   return (
     <div data-tut="cal.metas" className="mt-4 border-t border-white/10 pt-3">
@@ -58,16 +60,29 @@ export function PanelMetricas({
         <span className="text-sm text-amber-400/80">
           <Icono nombre="objetivo" />
         </span>
-        <p className="text-xs font-bold uppercase tracking-wider text-white/70">{t('cal.metas', 'Metas')}</p>
+        <p className="text-xs font-bold uppercase tracking-wider text-white/70">
+          {t('cal.objetivos', 'Misiones')}
+        </p>
         <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-bold tabular-nums text-white/60">
           {metricas.hechas}/{metricas.total}
         </span>
         {metricas.total > 0 && (
           <span className="text-xs font-black tabular-nums text-white/80">{metricas.pct}%</span>
         )}
-        {/* La recién creada se abre sola: casi siempre hay que ponerle algo más. */}
-        {detalle && <NuevaMeta rutinas={rutinas} ancla={ancla} onCreada={(r) => setDesplegada(r.id ?? null)} />}
+        {/* Del catálogo de las apps o personal, con sus días: el mismo alta que el
+            panel de Objetivos de cada cuarto, aquí sin app dada de antemano. */}
+        {detalle && (
+          <button
+            type="button"
+            onClick={() => setAnadiendo(true)}
+            className="ms-auto flex shrink-0 items-center gap-1 rounded-lg border border-white/15 px-2 py-1 text-[11px] font-semibold text-white/60 transition hover:bg-white/10"
+          >
+            <Icono nombre="agregar" /> {t('cal.objetivo.nuevo', 'Misión')}
+          </button>
+        )}
       </div>
+
+      {anadiendo && <AnadirObjetivo onCerrar={() => setAnadiendo(false)} />}
 
       {metricas.total === 0 ? (
         <p className="py-3 text-center text-[11px] text-white/35">

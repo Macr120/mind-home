@@ -24,6 +24,7 @@ export function FilaHoy({
   color,
   onAgendar,
   onDescartar,
+  onIr,
 }: {
   paso: PasoHoy
   plantillaId: string
@@ -31,6 +32,13 @@ export function FilaHoy({
   color: string
   onAgendar?: (paso: PasoHoy) => void
   onDescartar?: (paso: PasoHoy) => void
+  /**
+   * Llevar a la app en vez de registrar aquí. Lo pasa la lista de TODA la casa
+   * (el botón rojo del calendario): allí no estás dentro de ninguna app, así que
+   * registrar de un toque escribiría a ciegas en un cuarto que no tienes
+   * delante. Con esto puesto, la fila se convierte en un enlace a su sección.
+   */
+  onIr?: (paso: PasoHoy) => void
 }) {
   const t = useT()
   const { accion } = paso
@@ -76,7 +84,8 @@ export function FilaHoy({
     }
   }
 
-  const irARegistrar = () => lanzarIntencionApp({ appId: plantillaId, seccion: paso.seccion })
+  const irARegistrar = () =>
+    onIr ? onIr(paso) : lanzarIntencionApp({ appId: plantillaId, seccion: paso.seccion })
 
   return (
     <div
@@ -85,7 +94,22 @@ export function FilaHoy({
         paso.urgente ? 'ui-pop border border-amber-400/40 bg-amber-400/10' : 'hover:bg-white/5'
       }`}
     >
-      {/* Apagado no se palomea: no hay nada que cumplir hasta que tenga cifra. */}
+      {/* En la lista de toda la casa, lo PENDIENTE no se palomea: ahí no se cumple
+          nada a mano, se va a la app. El botón de ir ocupa EXACTAMENTE el hueco de
+          la palomita —mismo tamaño y mismo sitio— para que las dos columnas sigan
+          alineadas fila a fila. Lo ya cumplido conserva su palomita, que es como se
+          deshace un palomeo equivocado. */}
+      {onIr && !paso.hecho ? (
+        <button
+          type="button"
+          onClick={irARegistrar}
+          title={t('hoy.irApp', 'Ir a la app a registrarlo')}
+          className="grid size-5 shrink-0 place-items-center rounded-full border text-[10px] transition hover:brightness-125"
+          style={{ borderColor: `${color}66`, color }}
+        >
+          <Icono nombre="derecha" />
+        </button>
+      ) : (
       <button
         type="button"
         onClick={() => void alternar()}
@@ -101,16 +125,20 @@ export function FilaHoy({
       >
         <Icono nombre="confirmar" />
       </button>
+      )}
 
       {/* Tocar el paso lleva a donde se registra: la sección la puso quien lo creó. */}
       <button
         type="button"
         onClick={irARegistrar}
-        disabled={!paso.seccion}
+        // Con `onIr` siempre se puede ir: sin sección se abre la portada de la
+        // app, que ya es más de lo que hacía antes (nada).
+        disabled={!onIr && !paso.seccion}
         className="min-w-0 flex-1 text-start disabled:cursor-default"
       >
         <p className={`truncate text-xs font-semibold ${paso.hecho ? 'text-white/40 line-through' : 'text-white/85'}`}>
-          {paso.urgente && <Icono nombre="alarma" />} {paso.titulo}
+          {paso.urgente && <Icono nombre="alarma" />}
+          {paso.emoji && <Icono emoji={paso.emoji} />} {paso.titulo}
         </p>
         <div className="flex items-center gap-1.5 text-[10px] text-white/40">
           {paso.hora && <span className="shrink-0 tabular-nums">{paso.hora}</span>}
@@ -121,12 +149,18 @@ export function FilaHoy({
             <span className="shrink-0 rounded bg-white/10 px-1 text-white/50">{t('meta.aMano', 'a mano')}</span>
           )}
         </div>
-        {/* Barra solo donde hay cuenta que llevar: en un sí/no no dice nada. */}
-        {paso.origen === 'objetivo' && !paso.hecho && paso.detalle && (
+        {/* La barra del día va en TODAS las filas, no solo en las que llevan cuenta:
+            es lo que le da un pulso a la lista de un vistazo. En un sí/no marca 0 o
+            100, y ahí el riel vacío ya dice «esto sigue pendiente». Solo se calla
+            en un objetivo apagado, que no tiene nada que cumplir. */}
+        {!paso.apagado && (
           <div className="mt-1 h-1 w-full overflow-hidden rounded-full bg-white/10">
             <div
               className="h-full rounded-full transition-all"
-              style={{ width: `${Math.round(paso.frac * 100)}%`, background: color }}
+              style={{
+                width: `${Math.round(paso.frac * 100)}%`,
+                background: paso.hecho ? 'rgb(52 211 153)' : color,
+              }}
             />
           </div>
         )}
@@ -150,25 +184,31 @@ export function FilaHoy({
             className="w-12 rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] tabular-nums text-white/60 focus:outline-none"
           />
         )}
-        {!paso.hecho && !paso.apagado && registro && (
-          <button
-            type="button"
-            data-tut="hoy.registrar"
-            onClick={() => void registrar()}
-            className="rounded-lg px-2 py-1 text-[11px] font-bold texto-cta transition hover:brightness-110"
-            style={{ background: color }}
-          >
-            {t(registro.clave, registro.etiquetaEs)}
-          </button>
-        )}
-        {paso.urgente && !registro && paso.seccion && (
-          <button
-            type="button"
-            onClick={irARegistrar}
-            className="rounded-lg border border-white/15 px-2 py-1 text-[11px] font-bold text-white/70 transition hover:text-white"
-          >
-            {t('avisoAct.ir', 'Ir a registrar')}
-          </button>
+        {/* Fuera de la app no se registra: se va a donde se registra, y de eso ya
+            se encarga el botón que ocupa el hueco de la palomita. */}
+        {onIr ? null : (
+          <>
+            {!paso.hecho && !paso.apagado && registro && (
+              <button
+                type="button"
+                data-tut="hoy.registrar"
+                onClick={() => void registrar()}
+                className="rounded-lg px-2 py-1 text-[11px] font-bold texto-cta transition hover:brightness-110"
+                style={{ background: color }}
+              >
+                {t(registro.clave, registro.etiquetaEs)}
+              </button>
+            )}
+            {paso.urgente && !registro && paso.seccion && (
+              <button
+                type="button"
+                onClick={irARegistrar}
+                className="rounded-lg border border-white/15 px-2 py-1 text-[11px] font-bold text-white/70 transition hover:text-white"
+              >
+                {t('avisoAct.ir', 'Ir a registrar')}
+              </button>
+            )}
+          </>
         )}
         {paso.urgente && onDescartar && (
           <button

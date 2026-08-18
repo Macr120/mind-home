@@ -6,8 +6,8 @@ import { create } from 'zustand'
  * store porque el widget y los paneles están en árboles distintos.
  */
 
-/** Las vistas del calendario ('cronograma' es la sección de Metas). */
-export type VistaCalendario = 'dia' | 'semana' | 'mes' | 'anio' | 'cronograma'
+/** Las vistas del calendario ('objetivos' es la checklist de hoy de toda la casa). */
+export type VistaCalendario = 'dia' | 'semana' | 'mes' | 'anio' | 'objetivos'
 
 interface RutinasUIState {
   panel: boolean

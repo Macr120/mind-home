@@ -356,7 +356,7 @@ function SeccionMetas({
       // El número es su sitio en la CARPETA, no en el resultado de la búsqueda.
       indice={raices.indexOf(m) + 1}
       color={grupo.color || '#94a3b8'}
-      conPlan={m.id != null && planPorMeta?.has(m.id)}
+      plan={m.id != null ? planPorMeta?.get(m.id) : undefined}
       onAbrir={onAbrirMeta}
       gesto={gestoDe?.(m)}
       grupoClave={grupo.clave}

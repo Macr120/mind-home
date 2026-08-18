@@ -1,6 +1,6 @@
 /**
  * Extracción de texto de un PDF en el cliente: el respaldo para proveedores sin
- * PDF nativo (ChatGPT, DeepSeek, Ollama) — ver `pdfNativo()` en ia.ts. pdfjs se
+ * PDF nativo (ChatGPT, Ollama) — ver `pdfNativo()` en ia.ts. pdfjs se
  * importa dinámico (como mathjs/katex): jamás debe entrar al bundle de arranque.
  */
 

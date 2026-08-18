@@ -49,8 +49,6 @@ export interface PiezaCasa {
   /** Id estable dentro de su sección (`solido`, `cupula`, `escalera`…). */
   id: string
   nombre: string
-  /** Vista previa CSS de muros y puertas; el resto trae icono del catálogo. */
-  preview?: string
   /** Nombre de `ui/iconos/catalogo.ts` — nunca un emoji crudo, que degrada en silencio. */
   icono?: NombreIcono
   /** Emoji SOLO para los materiales de piso, que lo traen como dato en `PISOS`. */
@@ -325,7 +323,7 @@ export function catalogoCasa(
       nombre: 'Muros',
       icono: 'muro',
       unidad: 'por tramo',
-      piezas: desde(TIPOS_MURO, muros, (d) => ({ preview: d.preview, color: d.defaultColor })),
+      piezas: desde(TIPOS_MURO, muros, (d) => ({ color: d.defaultColor })),
     },
     {
       id: 'siluetas',
@@ -337,7 +335,7 @@ export function catalogoCasa(
       id: 'puertas',
       nombre: 'Puertas',
       icono: 'cuartos',
-      piezas: desde(TIPOS_PUERTA, puertas, (d) => ({ preview: d.preview, color: d.defaultColor })),
+      piezas: desde(TIPOS_PUERTA, puertas, (d) => ({ color: d.defaultColor })),
     },
     {
       id: 'ventanas',

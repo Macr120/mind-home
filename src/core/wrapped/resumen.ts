@@ -1,7 +1,7 @@
 import type { Table } from 'dexie'
 import { db } from '../data/db'
 import type { TipoMedia } from '../data/db'
-import { FUENTES, XP_POR_REGISTRO } from '../gamificacion/actividad'
+import { FUENTES } from '../gamificacion/actividad'
 import { estadoSisifoActual } from '../gamificacion/sisifo'
 import { DIA_MS, deIso, fechaLocalISO, isoMasDias } from '../fechaLocal'
 import { periodoDe, type Periodo, type TipoPeriodo } from './periodo'
@@ -161,6 +161,12 @@ export async function resumenPeriodo(tipo: TipoPeriodo, ancla: string): Promise<
   )
   porApp.sort((a, b) => b.registros - a.registros)
 
+  // El XP del periodo sale de las listas cumplidas, no de los registros: es la
+  // misma moneda que pinta la card de cada cuarto (gamificacion/listas.ts).
+  const xpGanado = (
+    await db.listasCumplidas.where('fecha').between(desde, hasta, true, true).toArray()
+  ).reduce((acc, f) => acc + f.xp, 0)
+
   const dominios: ResumenWrapped['dominios'] = {}
 
   if (sesEj.length)
@@ -276,7 +282,7 @@ export async function resumenPeriodo(tipo: TipoPeriodo, ancla: string): Promise<
     diasActivos: actividadPorDia.size,
     diasTotales,
     registrosTotales,
-    xpGanado: registrosTotales * XP_POR_REGISTRO,
+    xpGanado,
     mejorRacha: mejorRachaEn(new Set(actividadPorDia.keys())),
     actividadPorDia,
     porApp,

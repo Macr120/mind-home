@@ -23,6 +23,9 @@ import {
   tablasSucias,
   terminarColectaPerezosa,
 } from '../core/data/demoGuard'
+import { FUENTES } from '../core/gamificacion/actividad'
+import { XP_POR_LISTA } from '../core/gamificacion/listas'
+import { fechaLocalISO } from '../core/fechaLocal'
 import { marcarEscrituraSilenciosa, setSinOutbox } from '../core/data/sync/middleware'
 import { claveLS, esDemo, esDemoAutor } from '../core/edicion'
 import { BUILDERS_DEMO, crearCtxDemo } from './builders'
@@ -112,6 +115,10 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
       // Los tiempos vivos del snapshot quedaron congelados al exportar: se
       // corren por el delta (el camino casaPep no lo necesita: nacen vivos).
       await correrTiemposVivos(Date.now() - (snap.exportadoEn ?? Date.now()))
+      // El snapshot es de la fecha en que se exportó: las apps añadidas después
+      // no tienen cuarto en él y sus tours no tendrían dónde entrar.
+      const { completarCuartosDeApps } = await import('./mapa/casa')
+      await completarCuartosDeApps()
     } else {
       // Sin snapshot commiteado: la casa de Pep@ se construye por código.
       const { construirCasaPep } = await import('./casaPep')
@@ -136,6 +143,8 @@ async function construir(onProgreso?: ProgresoDemo, apps?: string[]): Promise<vo
       await builder(ctx)
       marcarAppConstruida(app)
     }
+    // Las listas cumplidas del año (la moneda del XP de las cards del menú).
+    await sembrarListasDemo(conBuilder)
 
     empezar('demo.paso.final')
     // El año de paintball vive solo en localStorage (su único almacén): el
@@ -191,6 +200,8 @@ async function construirApp(app: string): Promise<void> {
     if (catalogo) await catalogo()
     const builder = await BUILDERS_DEMO[app]()
     await builder(crearCtxDemo())
+    // Dentro de la colecta: `listasCumplidas` debe entrar en la foto parcial.
+    await sembrarListasDemo([app])
   } catch (e) {
     // Se cierra la colecta pase lo que pase: abierta, dejaría el aviso del demo
     // mudo para siempre. El fallo se relanza tras cerrarla.
@@ -205,6 +216,31 @@ async function construirApp(app: string): Promise<void> {
   // Lo ÚLTIMO: marcar antes daría por buena una construcción a medias, y al
   // reabrir la app saldría con la mitad de su año y sin manera de rehacerlo.
   marcarAppConstruida(app)
+}
+
+/** Hash determinista: la misma app y fecha dan lo mismo en toda reconstrucción. */
+function hashDemo(s: string): number {
+  let h = 0
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0
+  return Math.abs(h)
+}
+
+/**
+ * El año de listas cumplidas de Pep@: ~2 de cada 3 días con actividad de cada
+ * app cuentan como lista completa. Sin esto, las cards del menú dirían
+ * «Nv 1 · 0 XP» con un año entero de registros detrás. Solo días pasados: el de
+ * hoy queda por ganar, que es donde viven las celebraciones.
+ */
+async function sembrarListasDemo(apps: string[]): Promise<void> {
+  const hoy = fechaLocalISO()
+  for (const app of apps) {
+    const fuente = FUENTES[app]
+    if (!fuente) continue
+    const filas = [...new Set(await fuente())]
+      .filter((f) => f && f < hoy && hashDemo(`${app}|${f}`) % 3 !== 0)
+      .map((fecha) => ({ plantillaId: app, fecha, xp: XP_POR_LISTA }))
+    if (filas.length) await db.listasCumplidas.bulkAdd(filas)
+  }
 }
 
 async function cargarSnapshot(): Promise<SnapshotCasa | null> {

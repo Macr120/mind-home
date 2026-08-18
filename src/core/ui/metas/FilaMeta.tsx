@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { PlanMeta, Rutina } from '../../data/db'
+import type { Rutina } from '../../data/db'
 import { rutinasRepo } from '../../data/repository'
 import { confirmar } from '../../state/confirmarStore'
 import { useT } from '../../i18n/useT'
@@ -46,8 +46,7 @@ export function FilaMeta({
   enMano,
   encima,
   onPlanIA,
-  plan,
-  onAbrirPlan,
+  edicion = false,
 }: {
   metas: Rutina[]
   meta: Rutina
@@ -64,9 +63,12 @@ export function FilaMeta({
   encima?: 'antes' | 'dentro' | null
   /** Sin valor = la IA está apagada: el ✨ no se dibuja. */
   onPlanIA?: (r: Rutina) => void
-  /** El plan que esta meta YA tiene generado; sin él la fila no ofrece ninguno. */
-  plan?: PlanMeta
-  onAbrirPlan?: (p: PlanMeta) => void
+  /**
+   * Mandos a la vista. Apagado (lo normal) la fila es solo lo que se lee de un
+   * vistazo —nombre y plazo—; encendido salen la palomita, «+ sub-meta», el
+   * detalle y el borrar. Lo gobierna el botón ✏️ del eje.
+   */
+  edicion?: boolean
 }) {
   const t = useT()
   const [renombrando, setRenombrando] = useState(false)
@@ -140,18 +142,20 @@ export function FilaMeta({
           {abierta ? '▾' : '▸'}
         </button>
 
-        <button
-          type="button"
-          onClick={() => void toggleMeta(meta)}
-          title={t('cal.marcarHecho', 'Marcar como hecho')}
-          className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] transition ${
-            meta.completada
-              ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400'
-              : 'border-white/25 hover:border-white/50'
-          }`}
-        >
-          {meta.completada ? '✓' : ''}
-        </button>
+        {edicion && (
+          <button
+            type="button"
+            onClick={() => void toggleMeta(meta)}
+            title={t('cal.marcarHecho', 'Marcar como hecho')}
+            className={`grid h-4 w-4 shrink-0 place-items-center rounded border text-[10px] transition ${
+              meta.completada
+                ? 'border-emerald-400 bg-emerald-500/30 text-emerald-400'
+                : 'border-white/25 hover:border-white/50'
+            }`}
+          >
+            {meta.completada ? '✓' : ''}
+          </button>
+        )}
 
         {renombrando ? (
           <input
@@ -169,11 +173,21 @@ export function FilaMeta({
           <button
             type="button"
             onClick={() => onArmar(meta)}
-            onDoubleClick={() => {
-              setNombreTmp(meta.nombre)
-              setRenombrando(true)
-            }}
-            title={t('cal.meta.armarORenombrar', 'Clic: trazarla en el calendario · Doble clic: renombrar')}
+            // Renombrar es editar: sin el modo puesto, un doble clic de más no
+            // debe abrir el input encima de lo que se está leyendo.
+            onDoubleClick={
+              edicion
+                ? () => {
+                    setNombreTmp(meta.nombre)
+                    setRenombrando(true)
+                  }
+                : undefined
+            }
+            title={
+              edicion
+                ? t('cal.meta.armarORenombrar', 'Clic: trazarla en el calendario · Doble clic: renombrar')
+                : t('cal.meta.armar', 'Trazarla en el calendario')
+            }
             className="flex min-w-0 flex-1 items-center gap-1.5 text-start text-xs text-white/85"
           >
             <span
@@ -195,7 +209,7 @@ export function FilaMeta({
         )}
 
         {/* Pasos + sub-metas completos, contra el total que hace falta para el alcance completo. */}
-        {resumen.total > 0 && (
+        {edicion && resumen.total > 0 && (
           <span
             className="shrink-0 text-[10px] tabular-nums text-white/35"
             title={t('cal.meta.alcance', 'Pasos y sub-metas completados')}
@@ -204,64 +218,47 @@ export function FilaMeta({
           </span>
         )}
 
-        {/* Atajo a lo que la meta ya tiene planeado: aceptado lleva al eje (sus fases
-            ya son sub-metas reales) y propuesto, a la hoja donde se decide. Solo se
-            dibuja si el plan existe: nunca es una invitación a generarlo — ese es el
-            ✨ del detalle. */}
-        {plan && onAbrirPlan && (
-          <button
-            type="button"
-            onClick={() => onAbrirPlan(plan)}
-            title={
-              plan.aceptadoEn
-                ? t('cal.meta.planEnCronograma', 'Ver su plan en el cronograma')
-                : t('cal.meta.planHoja', 'Abrir la hoja de su plan')
-            }
-            className={`flex shrink-0 items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-[10px] font-semibold transition ${
-              plan.aceptadoEn
-                ? 'border-emerald-400/40 bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/30'
-                : 'border-violet-400/50 bg-violet-500/20 text-violet-200 hover:bg-violet-500/35'
-            }`}
-          >
-            <Icono nombre="brillo" /> {t('cal.meta.plan', 'Plan')}
-          </button>
+        {edicion && (
+          <>
+            <button
+              type="button"
+              onClick={() => setAgregando((v) => !v)}
+              title={t('cal.meta.agregarHija', 'Agregar una sub-meta')}
+              className={`shrink-0 px-1 text-[10px] font-medium transition ${
+                agregando ? 'text-emerald-400' : 'text-white/30 hover:text-white/70'
+              }`}
+            >
+              + {etiquetaHija}
+            </button>
+            <button
+              type="button"
+              onClick={() => setDetalle((v) => !v)}
+              title={t('cal.meta.detalle', 'Fechas, pasos y nota')}
+              className={`shrink-0 px-0.5 text-[10px] transition ${
+                detalle || meta.nota || pasos.total > 0 ? 'text-sky-400' : 'text-white/30 hover:text-white/70'
+              }`}
+            >
+              <Icono nombre="lista" />
+            </button>
+            <button
+              type="button"
+              onClick={() => void borrar()}
+              title={t('rutinas.borrar', 'Borrar')}
+              className="shrink-0 px-0.5 text-white/30 transition hover:text-red-400"
+            >
+              <Icono nombre="basura" />
+            </button>
+          </>
         )}
-
-        <button
-          type="button"
-          onClick={() => setAgregando((v) => !v)}
-          title={t('cal.meta.agregarHija', 'Agregar una sub-meta')}
-          className={`shrink-0 px-1 text-[10px] font-medium transition ${
-            agregando ? 'text-emerald-400' : 'text-white/30 hover:text-white/70'
-          }`}
-        >
-          + {etiquetaHija}
-        </button>
-        <button
-          type="button"
-          onClick={() => setDetalle((v) => !v)}
-          title={t('cal.meta.detalle', 'Fechas, pasos y nota')}
-          className={`shrink-0 px-0.5 text-[10px] transition ${
-            detalle || meta.nota || pasos.total > 0 ? 'text-sky-400' : 'text-white/30 hover:text-white/70'
-          }`}
-        >
-          <Icono nombre="lista" />
-        </button>
-        <button
-          type="button"
-          onClick={() => void borrar()}
-          title={t('rutinas.borrar', 'Borrar')}
-          className="shrink-0 px-0.5 text-white/30 transition hover:text-red-400"
-        >
-          <Icono nombre="basura" />
-        </button>
       </div>
 
-      {detalle && (
+      {/* Los dos cuelgan del modo, no solo de su botón: apagar la edición con uno
+          abierto los dejaría sueltos bajo una fila que ya no los ofrece. */}
+      {edicion && detalle && (
         <DetalleMeta meta={meta} sangria={(profundidad + 1) * SANGRIA} onPlanIA={onPlanIA} />
       )}
 
-      {agregando && (
+      {edicion && agregando && (
         <div style={{ paddingLeft: (profundidad + 1) * SANGRIA }} className="py-0.5 pe-1">
           <input
             autoFocus

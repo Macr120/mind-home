@@ -182,7 +182,7 @@ export function MientrasDure({ meta }: { meta: Rutina }) {
             onChange={(e) => e.target.value && void ponerObjetivo(e.target.value)}
             className="rounded border border-white/10 bg-black/30 px-1 py-0.5 text-[10px] text-white/60 focus:outline-none"
           >
-            <option value="">+ {t('cal.meta.unObjetivo', 'un objetivo del día')}</option>
+            <option value="">+ {t('cal.meta.unObjetivo', 'una misión del día')}</option>
             {libres.map((o) => (
               <option key={o.clave} value={o.clave}>
                 {t(o.clave, o.etiquetaEs)}

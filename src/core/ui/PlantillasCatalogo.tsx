@@ -19,6 +19,7 @@ import { PlantillaCustomEditor } from './PlantillaCustomEditor'
 import { SelectorObjeto3D } from './SelectorObjeto3D'
 import { useT } from '../i18n/useT'
 import { Icono } from './iconos/Icono'
+import { vivo } from './estilos'
 import { useArrastre } from './comun/arrastre'
 
 type Modo = 'asistente' | 'cuarto'
@@ -140,10 +141,10 @@ export function PlantillasCatalogo() {
       <li
         key={p.id}
         {...gestoTarjeta}
-        className={`cursor-grab rounded-lg border active:cursor-grabbing ${
+        className={`ui-brillo cursor-grab rounded-lg border active:cursor-grabbing ${
           gesto.enMano === `t:${p.id}` ? 'opacity-40' : ''
         }`}
-        style={{ ...gestoTarjeta.style, borderColor: `${p.color}33`, background: `${p.color}0d` }}
+        style={{ ...gestoTarjeta.style, ...vivo(p.color), borderColor: `${p.color}33` }}
       >
         {/* Cabecera: icono de la app (entra directo) + nombre + asistente + asignar */}
         <div className="flex w-full items-center gap-2 p-2.5">

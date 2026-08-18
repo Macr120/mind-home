@@ -16,8 +16,8 @@
  * ver— es una de cada:
  *   · metas cumplidas, vivas y sin fecha (esas viven solo en la lista);
  *   · metas con pasos, con sub-metas y con plan;
- *   · planes PROPUESTOS (esperando en la pestaña Planes) y ya ACEPTADOS (con sus
- *     fases convertidas en sub-metas del cronograma);
+ *   · planes PROPUESTOS (esperando como propuesta en la hoja de su meta) y ya
+ *     ACEPTADOS (con sus fases convertidas en sub-metas del cronograma);
  *   · metas de un sub-ámbito (un hobby, un idioma, el ahorro del despacho).
  */
 import type { NivelPartida, PasoRutina } from '../core/data/db'

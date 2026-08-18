@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useT } from '../i18n/useT'
 import { useAvisoDemo, useAvisoRenovar, useCuotaAgotada } from '../state/avisosPlanStore'
 import { esEscritorio, puedeMostrarPagos } from '../plataforma'
-import { hayPagos, obtenerRecargas, comprarRecarga, type OfertaPro } from '../cuenta/paywall'
+import { hayPagos, obtenerNiveles, cambiarNivel, type OfertaPro } from '../cuenta/paywall'
 import { URL_WEB as urlWeb } from '../cuenta/urlWeb'
 import { useSesion } from '../cuenta/sesionStore'
 import { esPro, esTrial, fuePro } from '../edicion'
@@ -126,20 +126,21 @@ function CuotaAgotada() {
   const cerrar = useCuotaAgotada((s) => s.cerrar)
   const usuario = useSesion((s) => s.usuario)
   const planCrudo = useSesion((s) => s.plan)
-  const [recargas, setRecargas] = useState<OfertaPro[]>([])
+  const nivelActual = useSesion((s) => s.nivel)
+  const [niveles, setNiveles] = useState<OfertaPro[]>([])
   const [ocupado, setOcupado] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // La recarga se compra dentro de la app SOLO en web y con sesión: en Electron
-  // el checkout va al navegador (enlace) y en tiendas ni se ofrece.
+  // El cambio de nivel se hace dentro de la app SOLO en web y con sesión: en
+  // Electron el checkout va al navegador (enlace) y en tiendas ni se ofrece.
   const compraEmbebida = !!usuario && puedeMostrarPagos() && !esEscritorio() && hayPagos()
 
   useEffect(() => {
     if (!abierto || !compraEmbebida) return
     let vivo = true
-    obtenerRecargas()
-      .then((r) => {
-        if (vivo) setRecargas(r)
+    obtenerNiveles()
+      .then((n) => {
+        if (vivo) setNiveles(n)
       })
       .catch(() => {})
     return () => {
@@ -194,28 +195,36 @@ function CuotaAgotada() {
         : t('cuenta.cuota.tituloSin', 'Necesitas créditos para usar la IA')
 
   const cuerpo = pro
-    ? t('cuenta.cuota.cuerpo', 'Tus créditos se renuevan el {f}.', { f: renueva.toLocaleDateString() })
+    ? t(
+        'cuenta.cuota.cuerpoNivel',
+        'Tus créditos se renuevan el {f}. Si se te quedan cortos cada mes, sube de nivel.',
+        { f: renueva.toLocaleDateString() },
+      )
     : vencida
       ? t(
           'cuenta.cuota.cuerpoVencida',
-          'Tus datos siguen en este dispositivo. Renueva para recuperar los créditos del mes y la sincronización, o recarga créditos sueltos.',
+          'Tus datos siguen en este dispositivo. Renueva para recuperar los créditos del mes y la sincronización.',
         )
       : trialVencido
         ? t(
             'cuenta.cuota.cuerpoTrial',
-            'La app y tus datos son tuyos para siempre. Suscríbete a Pro para seguir con los créditos mensuales y la sincronización, o recarga créditos sueltos cuando los necesites.',
+            'La app y tus datos son tuyos para siempre. Suscríbete a Pro para seguir con los créditos mensuales y la sincronización.',
           )
         : t(
             'cuenta.cuota.cuerpoLocal',
-            'La app y tus datos son tuyos sin pagar nada. Solo la IA se cobra: recarga créditos cuando los necesites, o suscríbete y recíbelos cada mes.',
+            'La app y tus datos son tuyos sin pagar nada. Solo la IA se cobra: suscríbete y recibe créditos cada mes.',
           )
 
-  const alComprar = async (oferta: OfertaPro) => {
+  // Solo se ofrecen los niveles por encima del actual: bajar de nivel a mitad
+  // de mes con la cuota agotada no arreglaría nada.
+  const superiores = pro ? niveles.filter((n) => n.nivel > nivelActual) : []
+
+  const alSubir = async (oferta: OfertaPro) => {
     if (ocupado) return
     setOcupado(true)
     setError(null)
     try {
-      await comprarRecarga(oferta.paquete)
+      await cambiarNivel(oferta.paquete, oferta.nivel)
       cerrar()
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
@@ -230,15 +239,19 @@ function CuotaAgotada() {
       <p className="text-xs leading-snug text-white/60">{cuerpo}</p>
       <div className="space-y-1.5 pt-1">
         {compraEmbebida &&
-          recargas.map((r) => (
+          superiores.map((n) => (
             <button
-              key={r.paquete.identifier}
+              key={n.paquete.identifier}
               type="button"
-              onClick={() => void alComprar(r)}
+              onClick={() => void alSubir(n)}
               disabled={ocupado}
               className="ui-accent-bg w-full rounded-md px-2 py-1.5 text-xs font-bold transition disabled:opacity-50"
             >
-              {t('cuenta.cuota.recargaN', '+{n} créditos — {p}', { n: r.creditos, p: r.precio })}
+              {t('cuenta.nivel.subir', 'Subir a ×{n} — {c} créditos al mes por {p}', {
+                n: n.nivel,
+                c: n.creditos,
+                p: n.precio,
+              })}
             </button>
           ))}
         {/* Sin compra embebida (escritorio, sin sesión) el checkout vive en la web. */}
@@ -249,7 +262,7 @@ function CuotaAgotada() {
             rel="noreferrer"
             className="ui-accent-bg block w-full rounded-md px-2 py-1.5 text-center text-xs font-bold"
           >
-            {t('cuenta.cuota.web', 'Comprar créditos en mi cuenta')}
+            {t('cuenta.cuota.web', 'Ver mi suscripción')}
           </a>
         )}
         {/* Al que nunca pagó se le ofrece además el plan: sale más barato por crédito. */}

@@ -19,6 +19,7 @@ import paintball from '../rooms/paintball'
 import ideas from '../rooms/ideas'
 import computo from '../rooms/computo'
 import agenda from '../rooms/agenda'
+import metas from '../rooms/metas'
 import { fijarPlantillasCustom, registrarPlantillasCodigo, type Plantilla } from './appContrato'
 
 /**
@@ -57,6 +58,7 @@ export const plantillas: Plantilla[] = [
   ideas,
   computo,
   agenda,
+  metas,
 ]
 
 // Publica las apps de código en el catálogo hoja, de donde las leen todos.
@@ -86,6 +88,7 @@ export const DESCRIPCIONES: Record<string, string> = {
   computo:
     'Sala de cómputo: una calculadora científica de la que cuelga tu formulario de fórmulas en carpetas (Matemáticas, Física y Química de fábrica, editables), con ocho modos —un graficador con cuatro tipos (2D, polar, paramétrica y superficie 3D), binario y hexadecimal, matrices, sistemas de ecuaciones, conversión de unidades, propina y regla de tres—; y hojas de cálculo que se exportan a Excel y a PDF.',
   agenda: 'Tu agenda: pendientes de trabajo con tablero Kanban; salud en tres partes (la tuya con citas por especialidad, medicamentos, cuidados que se repiten y seguimiento de ciclo; las personas a tu cuidado; y las mascotas), y la libreta de contactos con sus cumpleaños.',
+  metas: 'Lo que te propusiste, de toda la casa: la lista de metas con sus sub-metas y pasos, los planes que la IA propone para cada una (fases con fecha que se vuelven sub-metas reales) y el cronograma donde todo ocupa su periodo sobre el eje del tiempo.',
 }
 
 /**
@@ -110,6 +113,7 @@ export const CORTAS: Record<string, string> = {
   ideas: 'Ideas, mapas y decisiones',
   computo: 'Calculadora, gráficas y hojas',
   agenda: 'Pendientes, salud y personas',
+  metas: 'Metas, planes y cronograma',
 }
 
 /** Ids personalizados publicados la última vez: sus descripciones se retiran al reemplazarlos. */

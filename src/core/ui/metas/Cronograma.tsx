@@ -8,14 +8,17 @@ import { fechaLocalISO } from '../../fechaLocal'
 import { localeActual, useT, type TFunc } from '../../i18n/useT'
 import {
   crearMeta,
+  descendientes,
   filasVisibles,
   hijasDe,
   moverMeta,
+  profundidadDe,
   puedeSoltarEn,
   raices,
+  raizDe,
   rangoConHijas,
 } from '../../metas'
-import { COLORES_RUTINA } from '../coloresRutina'
+import { colorDe, colorPorProfundidad, COLORES_RUTINA } from '../coloresRutina'
 import { useArrastre } from '../comun/arrastre'
 import { Icono } from '../iconos/Icono'
 import type { NombreIcono } from '../iconos/catalogo'
@@ -25,12 +28,16 @@ import { etiquetasDePlanes, textoEtiquetaPlan } from './carpetas'
 import { anchoTotal, columnasDe, isoMasDias, NIVELES_ZOOM, nivelQueEncuadra, ventana, xDeIso } from './escala'
 import { FilaMeta } from './FilaMeta'
 import { FilaPlanNodo } from './FilaPlanNodo'
+import { GeneradorPlan } from './GeneradorPlan'
 import { HojaMeta } from './HojaMeta'
+import { HojaPlan } from './HojaPlan'
 import { TableroMetas } from './TableroMetas'
 import { PistaMeta } from './PistaMeta'
 import { PistaPlan } from './PistaPlan'
 import { VistaMetas } from './VistaMetas'
-import { VistaPlanes, type DestinoPlanes } from './VistaPlanes'
+import { VistaPlanes } from './VistaPlanes'
+import { PestanasCarpeta, type ItemPestana } from '../../../rooms/_shared/PestanasCarpeta'
+import { COLOR } from '../../../rooms/metas/constantes'
 
 /** Color de lo propuesto: fijo y fuera de la paleta de metas, para que "esto todavía
  *  no es tuyo" se lea sin pensar. */
@@ -55,14 +62,36 @@ const ANCHO_ARBOL_MAX = 32 * 16
 /** Alto de cada fila de la cabecera (contexto y detalle). */
 const ALTO_FILA_EJE = 16
 
-/** Las tres pantallas, en el orden en que se recorren. */
+/** Los tres menús del cuarto, en el orden en que se recorren. */
 type Modo = 'metas' | 'planes' | 'cronograma'
-const MODOS: Modo[] = ['metas', 'planes', 'cronograma']
-const ETIQUETA_MODO: Record<Modo, [string, string]> = {
-  metas: ['cal.metas', 'Metas'],
-  planes: ['cal.plan.menu', 'Planes'],
-  cronograma: ['cal.cronograma', 'Cronograma'],
-}
+
+/**
+ * Los menús como los de cualquier otra app de la casa (`PestanasCarpeta`). Van con
+ * `clave` propia porque sus rótulos ya estaban traducidos bajo esos nombres desde
+ * que esto vivía en el calendario.
+ */
+const MENUS: ItemPestana<Modo>[] = [
+  { id: 'metas', icono: 'objetivo', clave: 'cal.metas', labelEs: 'Metas' },
+  { id: 'planes', icono: 'brillo', clave: 'cal.plan.menu', labelEs: 'Planes' },
+  { id: 'cronograma', icono: 'calendario', clave: 'cal.cronograma', labelEs: 'Cronograma' },
+]
+
+/**
+ * Lo que se está mirando DENTRO del menú activo. `lista` es la portada de cada
+ * menú (las metas, los planes o el eje completo); el resto son las pantallas de
+ * detalle, que se abren desde cualquiera de los tres y al cerrarse devuelven al
+ * menú del que salieron.
+ *
+ * Cada id se resuelve contra la lista viva: si la meta o el plan se borran, la
+ * vista vuelve sola a su portada sin un efecto que lo vigile.
+ */
+type Pantalla =
+  | { tipo: 'lista' }
+  | { tipo: 'hojaMeta'; metaId: number }
+  | { tipo: 'hojaPlan'; planId: number }
+  | { tipo: 'generar'; metaId: number; desde: Pantalla }
+  /** El eje ACOTADO a una meta: su subárbol y su plan, sin el resto de la casa. */
+  | { tipo: 'eje'; metaId: number }
 
 /** Cómo se disponen las metas en el panel. */
 type Disposicion = 'lista' | 'rejilla' | 'tablero'
@@ -82,15 +111,17 @@ const TITULO_DISPOSICION: Record<Disposicion, (t: TFunc) => string> = {
 }
 
 /**
- * Vista Cronograma: la lista de Metas a la izquierda y sus periodos como barras a
- * la derecha, sobre un eje de tiempo con zoom.
+ * El planificador de la casa, en tres menús: **Metas** (la lista, agrupada por
+ * app), **Planes** (los cronogramas que la IA propuso) y **Cronograma** (el eje
+ * del tiempo con todas). Desde cualquiera se entra a la hoja de una meta o de su
+ * plan, y desde la hoja al eje ACOTADO a esa meta — su subárbol solo.
  *
- * Truco del layout: la barra de una meta va en la MISMA fila del DOM que la meta,
- * no en un panel aparte. Las filas de la lista tienen alto variable (detalle,
- * pasos, nota), así que alinearlas por separado obligaría a medirlas; siendo
- * hermanas de la misma fila flex, la alineación sale sola. La columna de la lista
- * es `sticky` y necesita fondo opaco (`ui-panel-2`), o las barras se le verían por
- * debajo.
+ * Truco del layout del eje: la barra de una meta va en la MISMA fila del DOM que
+ * la meta, no en un panel aparte. Las filas de la lista tienen alto variable
+ * (detalle, pasos, nota), así que alinearlas por separado obligaría a medirlas;
+ * siendo hermanas de la misma fila flex, la alineación sale sola. La columna de
+ * la lista es `sticky` y necesita fondo opaco (`ui-panel-2`), o las barras se le
+ * verían por debajo.
  */
 export function Cronograma({
   metas,
@@ -128,28 +159,37 @@ export function Cronograma({
   const [plegados, setPlegados] = useState<Set<number>>(new Set())
   const [busca, setBusca] = useState('')
   const [ocultarHechas, setOcultarHechas] = useState(false)
+  // Mandos del eje a la vista (palomear, colgar sub-metas, detalle, borrar y el
+  // arrastre). Apagados, cada fila es solo su nombre y su plazo. Como en el
+  // índice de Biblioteca, no se recuerda: se enciende para retocar y se apaga.
+  const [edicion, setEdicion] = useState(false)
   const [nombre, setNombre] = useState('')
   const [agregandoRaiz, setAgregandoRaiz] = useState(false)
   const [anchoArbol, setAnchoArbol] = useState(ANCHO_ARBOL_DEFECTO)
   const scrollRef = useRef<HTMLDivElement>(null)
-  // Plan por encuadrar en cuanto el eje exista: quien entra desde el botón «Plan» de
-  // una meta lo hace con la lista en pantalla, y encuadrar mide el área visible del eje.
-  const encuadrePendiente = useRef<PlanMeta | null>(null)
+  // Rangos por encuadrar en cuanto el eje exista: se entra desde una hoja, y
+  // encuadrar necesita medir el área visible del eje ya montado.
+  const encuadrePendiente = useRef<{ ini: string; fin: string }[] | null>(null)
+  // Arrancar centrado en hoy, una sola vez por eje: sin este guard, cada zoom (que
+  // también cambia `xHoy`) volvería a saltar a hoy y taparía el recentrado de `irANivel`.
+  const centradoInicial = useRef(false)
   // El recorrido se lee en este orden: primero las metas, luego los planes que las
-  // desarrollan y al final el eje donde caen. Se abre en Metas, que es la pantalla
-  // que nunca está vacía.
+  // desarrollan y al final el eje donde caen. Abre en Metas, que es el menú que
+  // nunca está vacío.
   const [modo, setModo] = useState<Modo>('metas')
-  // En qué pantalla está la vista Planes. Vive aquí porque el ✨ de una meta y el
-  // «Abrir la hoja» del eje entran ya apuntando a una en concreto.
-  const [destinoPlanes, setDestinoPlanes] = useState<DestinoPlanes>({ tipo: 'lista' })
-  // Meta abierta en su hoja (las que no tienen plan). Se guarda el id y no la fila:
-  // así lo que se pinta sale siempre de la lista viva, y borrarla o palomearla se
-  // ve al momento sin un efecto que lo vigile.
-  const [hojaMetaId, setHojaMetaId] = useState<number | null>(null)
+  // Re-pulsar el menú activo esconde su cuerpo, como en el resto de las apps.
+  const [plegado, setPlegado] = useState(false)
+  const [pantalla, setPantalla] = useState<Pantalla>({ tipo: 'lista' })
+  // Qué plan se superpone al eje GLOBAL (en el acotado manda el de su meta).
+  const [planVisibleId, setPlanVisibleId] = useState<number | null>(null)
 
-  const irAPlanes = (destino: DestinoPlanes) => {
-    setDestinoPlanes(destino)
-    setModo('planes')
+  /** Cambiar de menú cierra lo que hubiera abierto encima. */
+  const irAModo = (m: Modo) => {
+    setModo(m)
+    setPantalla({ tipo: 'lista' })
+    // El eje global se centra en hoy al abrirlo, aunque antes se haya mirado el
+    // de una meta (ese consumió el guard con su propio encuadre).
+    if (m === 'cronograma') centradoInicial.current = false
   }
 
   // Disposición del panel de Metas. Es preferencia del dispositivo, como el zoom:
@@ -186,16 +226,6 @@ export function Cronograma({
   // de la misma lista, así que un plan lleva el mismo número en las dos.
   const etiquetasPlan = useMemo(() => etiquetasDePlanes(planesMios, metas, t), [planesMios, metas, t])
   const conIA = iaHabilitada()
-  const [planVisibleId, setPlanVisibleId] = useState<number | null>(null)
-  // Se resuelve contra la lista viva: si el plan se borra, la vista vuelve sola a
-  // "Real" sin un efecto que lo vigile.
-  //
-  // Cualquier plan entra aquí, tenga fechas o no: es sobre el eje donde se las das,
-  // arrastrando en la franja de cada fase que todavía no las tiene.
-  const planVisible = useMemo(
-    () => planesMios.find((p) => p.id === planVisibleId) ?? null,
-    [planesMios, planVisibleId],
-  )
 
   /**
    * El plan que ofrece la fila de cada meta en el panel de Metas. Una meta puede
@@ -211,40 +241,83 @@ export function Cronograma({
     return m
   }, [planesMios])
 
+  // Cada pantalla se resuelve contra la lista viva: borrar la meta (o el plan)
+  // desde su hoja devuelve solo a la lista, sin dejar una hoja huérfana en pantalla.
+  const hojaMeta = pantalla.tipo === 'hojaMeta' ? (metas.find((m) => m.id === pantalla.metaId) ?? null) : null
+  const hojaPlan = pantalla.tipo === 'hojaPlan' ? (planesMios.find((p) => p.id === pantalla.planId) ?? null) : null
+  const metaGenerar = pantalla.tipo === 'generar' ? (metas.find((m) => m.id === pantalla.metaId) ?? null) : null
+  const metaEje = pantalla.tipo === 'eje' ? (metas.find((m) => m.id === pantalla.metaId) ?? null) : null
+  // La portada del menú activo; es también el fondo al que se cae cuando el id de
+  // una pantalla ya no existe.
+  const enLista = !hojaMeta && !hojaPlan && !metaGenerar && !metaEje
+  /** El eje se pinta acotado a una meta, o entero desde el menú Cronograma. */
+  const ejeGlobal = enLista && modo === 'cronograma'
+  const enEje = !!metaEje || ejeGlobal
+  /** Su fila entera sobra en Planes, en las hojas y con el menú plegado: no hay
+   *  sobre qué buscar ni qué encuadrar. */
+  const conHerramientas = !plegado && ((enLista && modo !== 'planes') || enEje)
+
+  /**
+   * Lo que ve el eje: el subárbol de la meta acotada (que `filasVisibles`
+   * re-enraíza solo) o el árbol entero en el menú Cronograma.
+   */
+  const metasEje = useMemo(
+    () => (!enEje ? [] : metaEje?.id != null ? [metaEje, ...descendientes(metas, metaEje.id)] : metas),
+    [metas, metaEje, enEje],
+  )
+  /**
+   * El plan superpuesto: acotado manda el de SU meta (propuesta o aceptado — el
+   * eje de una meta se abre justo para ver su plan sobre lo real); en el eje
+   * global lo elige el selector de la barra.
+   */
+  const planVisible = useMemo(
+    () => planesMios.find((p) => p.id === planVisibleId) ?? null,
+    [planesMios, planVisibleId],
+  )
+  const planEje = metaEje?.id != null ? (planPorMeta.get(metaEje.id) ?? null) : planVisible
+
   /**
    * Un clic en una meta del panel abre SU HOJA: la del plan si lo tiene (ahí están
    * las fases y las sub-metas, propuesta o ya aceptada) y, si no, la de la meta.
-   *
-   * El plan aceptado ya no salta al eje: desde su hoja se llega con «Ver en el
-   * cronograma», y aterrizar de golpe en el eje se llevaba por delante lo que se
-   * venía a mirar — el desglose.
+   * Al eje se llega desde la hoja, nunca de golpe: aterrizar en él se llevaba por
+   * delante lo que se venía a mirar — el desglose.
    */
   const abrirMeta = (r: Rutina) => {
-    const plan = r.id != null ? planPorMeta.get(r.id) : undefined
-    if (plan?.id != null) irAPlanes({ tipo: 'hoja', id: plan.id })
-    else if (r.id != null) setHojaMetaId(r.id)
+    if (r.id == null) return
+    const plan = planPorMeta.get(r.id)
+    if (plan?.id != null) setPantalla({ tipo: 'hojaPlan', planId: plan.id })
+    else setPantalla({ tipo: 'hojaMeta', metaId: r.id })
   }
 
-  // Se resuelve contra la lista viva: borrar la meta desde su hoja devuelve solo a
-  // la lista, sin dejar una hoja huérfana en pantalla.
-  const hojaMeta = useMemo(
-    () => (hojaMetaId == null ? null : (metas.find((m) => m.id === hojaMetaId) ?? null)),
-    [metas, hojaMetaId],
-  )
+  /**
+   * Abre el eje acotado a una meta dejando pedido su encuadre: el subárbol y su
+   * plan, que es lo que se viene a ver. El centrado en hoy se re-arma por si esos
+   * rangos no existen (meta sin fechas).
+   */
+  const irAlEje = (metaId: number) => {
+    const m = metas.find((x) => x.id === metaId)
+    const plan = planPorMeta.get(metaId)
+    encuadrePendiente.current = [m ? rangoConHijas(metas, m) : null, plan ? rangoDePlan(plan) : null].filter(
+      (r): r is { ini: string; fin: string } => r != null,
+    )
+    centradoInicial.current = false
+    setPantalla({ tipo: 'eje', metaId })
+  }
 
   // `rangoConHijas` recorre la descendencia de cada meta: llamarlo por fila y por
-  // gesto sería cuadrático. Se resuelve una vez por cambio de datos.
+  // gesto sería cuadrático. Se resuelve una vez por cambio de datos, y solo sobre
+  // el subárbol acotado: la ventana temporal del eje se estrecha sola.
   //
-  // El plan visible entra aquí: si no, un plan que se sale de los periodos reales se
-  // cortaría en el borde del eje, y "Ajustar" lo ignoraría justo cuando lo que se
-  // quiere es encuadrar los dos para compararlos.
+  // El plan superpuesto entra aquí: si no, un plan que se sale de los periodos
+  // reales se cortaría en el borde del eje, y "Ajustar" lo ignoraría justo cuando
+  // lo que se quiere es encuadrar los dos para compararlos.
   const rangos = useMemo(() => {
-    const reales = metas
-      .map((m) => rangoConHijas(metas, m))
+    const reales = metasEje
+      .map((m) => rangoConHijas(metasEje, m))
       .filter((r): r is { ini: string; fin: string } => r != null)
-    const delPlan = planVisible ? rangoDePlan(planVisible) : null
+    const delPlan = planEje ? rangoDePlan(planEje) : null
     return delPlan ? [...reales, delPlan] : reales
-  }, [metas, planVisible])
+  }, [metasEje, planEje])
 
   const hoy = useMemo(() => new Date(), [])
   const hoyIso = fechaLocalISO(hoy)
@@ -261,8 +334,8 @@ export function Cronograma({
   const xHoy = xDeIso(desde, hoyIso, pxPerDia)
 
   const base = useMemo(
-    () => filasVisibles(metas, plegados, { ocultarHechas, busca }),
-    [metas, plegados, ocultarHechas, busca],
+    () => filasVisibles(metasEje, plegados, { ocultarHechas, busca }),
+    [metasEje, plegados, ocultarHechas, busca],
   )
 
   /**
@@ -273,8 +346,8 @@ export function Cronograma({
    */
   const filas = useMemo(() => {
     const reales: FilaCron[] = base.map((f) => ({ tipo: 'meta', ...f }))
-    if (!planVisible) return reales
-    const i = reales.findIndex((f) => f.tipo === 'meta' && f.meta.id === planVisible.metaId)
+    if (!planEje) return reales
+    const i = reales.findIndex((f) => f.tipo === 'meta' && f.meta.id === planEje.metaId)
     let at = reales.length
     if (i !== -1) {
       const prof = (reales[i] as { profundidad: number }).profundidad
@@ -282,11 +355,11 @@ export function Cronograma({
       at = j === -1 ? reales.length : j
     }
     const bloque: FilaCron[] = [
-      { tipo: 'planCabecera', plan: planVisible },
-      ...filasPlan(planVisible).map((f): FilaCron => ({ tipo: 'plan', ...f })),
+      { tipo: 'planCabecera', plan: planEje },
+      ...filasPlan(planEje).map((f): FilaCron => ({ tipo: 'plan', ...f })),
     ]
     return [...reales.slice(0, at), ...bloque, ...reales.slice(at)]
-  }, [base, planVisible])
+  }, [base, planEje])
 
   const claveFila = (f: FilaCron) =>
     f.tipo === 'meta' ? `m${f.meta.id}` : f.tipo === 'plan' ? `p${f.nodo.id}` : `ph${f.plan.id}`
@@ -308,9 +381,6 @@ export function Cronograma({
     return xs
   }, [rejilla, filasEje, unidadRejilla])
 
-  // Arrancar centrado en hoy, una sola vez: sin este guard, cada zoom (que también
-  // cambia `xHoy`) volvería a saltar a hoy y taparía el recentrado de `irANivel`.
-  const centradoInicial = useRef(false)
   useLayoutEffect(() => {
     const el = scrollRef.current
     if (!el || centradoInicial.current) return
@@ -361,27 +431,32 @@ export function Cronograma({
   }
 
   /**
-   * El encuadre que dejó pedido `abrirPlanDeMeta`, ya con el eje montado y medible.
-   * Se encuadra el periodo DEL PLAN, no todos los rangos como hace «Ajustar»: quien
-   * llega desde una meta viene a ver ese plan, y las metas de la casa abarcan años
-   * — el eje se abriría en trimestres y el plan sería una raya.
+   * El encuadre que dejó pedido `irAlEje`, ya con el eje montado y medible. Se
+   * encuadra el subárbol de la meta y su plan, no «todo» como hace «Ajustar» —
+   * es lo que se vino a ver. Sin rangos (meta sin fechas ni plan fechado), el
+   * eje se centra en hoy.
    */
   useLayoutEffect(() => {
-    const plan = encuadrePendiente.current
+    const pendientes = encuadrePendiente.current
     const el = scrollRef.current
-    if (!plan || modo !== 'cronograma' || !el) return
+    if (!pendientes || pantalla.tipo !== 'eje' || !el) return
     encuadrePendiente.current = null
-    // Un plan sin fases no tiene periodo que encuadrar: el eje se queda donde está.
-    const r = rangoDePlan(plan)
-    if (!r) return
-    const destino = nivelQueEncuadra([r], el.clientWidth - anchoArbol)
+    // Este posicionamiento manda sobre el centrado de arranque: sin el guard, un
+    // cambio posterior de deps del otro efecto saltaría a hoy por su cuenta.
+    centradoInicial.current = true
+    if (pendientes.length === 0) {
+      el.scrollLeft = Math.max(0, xHoy - (el.clientWidth - anchoArbol) / 3)
+      return
+    }
+    const destino = nivelQueEncuadra(pendientes, el.clientWidth - anchoArbol)
+    const ini = pendientes.map((r) => r.ini).reduce((a, b) => (a < b ? a : b))
     // Al mismo zoom no hay repintado que esperar: el scroll se pone ya.
-    if (destino === nivel) el.scrollLeft = Math.max(0, xDeIso(desde, r.ini, pxPerDia) - 24)
+    if (destino === nivel) el.scrollLeft = Math.max(0, xDeIso(desde, ini, pxPerDia) - 24)
     else {
-      zoomObjetivo.current = { iso: r.ini, offset: 24 }
+      zoomObjetivo.current = { iso: ini, offset: 24 }
       setNivel(destino)
     }
-  }, [modo, anchoArbol, nivel, desde, pxPerDia])
+  }, [pantalla, anchoArbol, nivel, desde, pxPerDia, xHoy])
 
   const onWheel = (e: React.WheelEvent) => {
     if (!e.ctrlKey && !e.metaKey) return
@@ -416,22 +491,33 @@ export function Cronograma({
 
   /** Con alguna abierta, plegar todo; con todas plegadas, abrirlas. */
   const conHijas = useMemo(
-    () => metas.filter((m) => m.id != null && hijasDe(metas, m.id).length > 0).map((m) => m.id!),
-    [metas],
+    () => metasEje.filter((m) => m.id != null && hijasDe(metasEje, m.id).length > 0).map((m) => m.id!),
+    [metasEje],
   )
   const todoPlegado = conHijas.length > 0 && conHijas.every((id) => plegados.has(id))
   const plegarTodo = () => setPlegados(todoPlegado ? new Set() : new Set(conHijas))
 
   const confirmarAlta = async (): Promise<Rutina | undefined> => {
     if (!nombre.trim()) return
-    const nueva = await crearMeta(
-      metas,
-      nombre,
-      undefined,
-      COLORES_RUTINA[raices(metas).length % COLORES_RUTINA.length],
-      ambito,
-      ambitoId,
-    )
+    // En el eje acotado el alta crea una SUB-meta de la meta enfocada: una raíz
+    // nueva sería invisible en la pantalla en la que estás.
+    const nueva = metaEje
+      ? await crearMeta(
+          metas,
+          nombre,
+          metaEje,
+          colorPorProfundidad(colorDe(raizDe(metas, metaEje)), profundidadDe(metas, metaEje) + 1),
+          ambito,
+          ambitoId,
+        )
+      : await crearMeta(
+          metas,
+          nombre,
+          undefined,
+          COLORES_RUTINA[raices(metas).length % COLORES_RUTINA.length],
+          ambito,
+          ambitoId,
+        )
     setNombre('')
     return nueva
   }
@@ -450,7 +536,7 @@ export function Cronograma({
   const abrirPlanIA = async () => {
     const nueva = await confirmarAlta()
     setAgregandoRaiz(false)
-    if (nueva) irAPlanes({ tipo: 'generar', meta: nueva })
+    if (nueva?.id != null) setPantalla({ tipo: 'generar', metaId: nueva.id, desde: pantalla })
   }
 
   /** Arrastra la manija de la cabecera para ensanchar o angostar la lista. */
@@ -497,14 +583,20 @@ export function Cronograma({
           return { tipo: 'fila', fila: destino }
         return null
       }
-      if (r.padreId != null && bajo?.closest('[data-zona-raiz]')) return { tipo: 'raiz' }
+      // En el eje acotado la zona raíz significa «al primer nivel del ámbito»:
+      // colgar la fila directo de la meta enfocada, nunca desgajarla del árbol.
+      if (bajo?.closest('[data-zona-raiz]')) {
+        if (metaEje ? r.padreId !== metaEje.id : r.padreId != null) return { tipo: 'raiz' }
+      }
       return null
     },
     (mano, d) => {
       const r = metas.find((m) => String(m.id) === mano)
       if (!r) return
       if (d.tipo === 'raiz') {
-        if (r.padreId != null) void moverMeta(metas, r, undefined)
+        if (metaEje?.id != null) {
+          if (r.padreId !== metaEje.id) void moverMeta(metas, r, metaEje.id)
+        } else if (r.padreId != null) void moverMeta(metas, r, undefined)
       } else soltarEnFila(r, d.fila)
     },
   )
@@ -515,46 +607,52 @@ export function Cronograma({
 
   return (
     <div className="flex min-h-0 flex-1 flex-col">
-      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 px-3 pt-2">
-        <span className="text-sm text-amber-400/80">
-          <Icono nombre="objetivo" />
-        </span>
-        <p className="text-xs font-bold uppercase tracking-wider text-white/70">{t('cal.metas', 'Metas')}</p>
+      {/* Metas → Planes → Cronograma: el borrador va antes que el eje, no al revés. */}
+      <div className="mx-auto w-full max-w-2xl shrink-0 px-3 pt-1">
+        <PestanasCarpeta
+          items={MENUS}
+          activo={modo}
+          onCambio={irAModo}
+          prefijoTut="cal.cron.modo"
+          variante="raiz"
+          color={COLOR}
+          plegado={plegado}
+          onAlternarPliegue={() => setPlegado((v) => !v)}
+        />
+      </div>
 
-        {/* Metas → Planes → Cronograma: el borrador va antes que el eje, no al revés. */}
-        <div className="flex rounded-lg border border-white/10 p-0.5">
-          {MODOS.map((m) => (
-            <button
-              key={m}
-              type="button"
-              data-tut={`cal.cron.modo.${m}`}
-              onClick={() => setModo(m)}
-              className={`rounded-md px-2 py-0.5 text-[10px] font-semibold transition ${
-                modo === m ? 'bg-white/15 text-white' : 'text-white/45 hover:text-white/80'
-              }`}
-            >
-              {t(...ETIQUETA_MODO[m])}
-            </button>
-          ))}
-        </div>
-
-        {/* El buscador es de los dos modos con lista; el resto de controles solo
-            tienen sentido sobre el eje. */}
-        {modo !== 'planes' && (
-          <input
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-            placeholder={t('cal.cron.buscar', 'Buscar…')}
-            className="w-28 rounded-lg border border-white/10 bg-black/30 px-2 py-0.5 text-[11px] text-white/85 placeholder:text-white/25 focus:outline-none"
-          />
+      {/* Las herramientas de la pantalla activa, en su propia fila: compartiendo la
+          de los menús no se distinguía el «dónde estoy» del «qué puedo hacer aquí». */}
+      {conHerramientas && (
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 px-3 pt-2">
+        {/* El eje acotado es de UNA meta: se entra desde su hoja y este es el
+            camino de vuelta (el global no lo lleva: su vuelta son las pestañas). */}
+        {metaEje && (
+          <button
+            type="button"
+            data-tut="cal.cron.volver"
+            onClick={() => abrirMeta(metaEje)}
+            className="rounded-lg px-2 py-1 text-[11px] font-semibold text-white/45 transition hover:bg-white/10 hover:text-white/85"
+          >
+            ‹ {t('cal.cron.volver', 'Volver a la meta')}
+          </button>
         )}
 
-        {modo === 'metas' && !ambito && (
+        {/* El buscador sale en todas las pantallas de esta fila (metas y eje): es la
+            misma condición que la de la fila, así que no lleva guardia propia. */}
+        <input
+          value={busca}
+          onChange={(e) => setBusca(e.target.value)}
+          placeholder={t('cal.cron.buscar', 'Buscar…')}
+          className="w-36 rounded-lg border border-white/10 bg-black/30 px-2.5 py-1 text-[11px] text-white/85 placeholder:text-white/25 focus:outline-none"
+        />
+
+        {enLista && modo === 'metas' && !ambito && (
           <>
             <button
               type="button"
               onClick={() => void nuevaCategoria()}
-              className="rounded-lg border border-white/15 px-2 py-0.5 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
+              className="rounded-lg border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-white/70 transition hover:bg-white/10"
             >
               + {t('cal.metas.categoria', 'categoría')}
             </button>
@@ -567,7 +665,7 @@ export function Cronograma({
                   type="button"
                   onClick={() => cambiarDisposicion(d)}
                   title={TITULO_DISPOSICION[d](t)}
-                  className={`rounded-md px-1.5 py-0.5 text-[11px] transition ${
+                  className={`rounded-md px-2 py-1 text-[11px] transition ${
                     disposicion === d ? 'bg-white/15 text-white' : 'text-white/40 hover:text-white/80'
                   }`}
                 >
@@ -578,13 +676,28 @@ export function Cronograma({
           </>
         )}
 
-        {modo === 'cronograma' && (
+        {enEje && (
         <>
+        {/* El eje se lee de corrido —nombre y plazo— y solo enseña sus mandos
+            cuando se pide: con doce filas, siete botones por fila tapaban lo
+            único que se viene a mirar aquí, que son las barras. */}
+        <button
+          type="button"
+          onClick={() => setEdicion((v) => !v)}
+          title={t('cal.cron.editar', 'Editar las metas')}
+          aria-label={t('cal.cron.editar', 'Editar las metas')}
+          aria-pressed={edicion}
+          className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
+            edicion ? 'ui-accent-bg border-transparent' : 'border-white/10 text-white/45 hover:text-white/80'
+          }`}
+        >
+          <Icono nombre="editar" />
+        </button>
         <button
           type="button"
           onClick={() => setOcultarHechas((v) => !v)}
           title={t('cal.cron.ocultarHechas', 'Ocultar las completadas')}
-          className={`rounded-lg border px-2 py-0.5 text-[10px] font-semibold transition ${
+          className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
             ocultarHechas ? 'border-emerald-400/50 bg-emerald-500/15 text-emerald-300' : 'border-white/10 text-white/45 hover:text-white/80'
           }`}
         >
@@ -595,19 +708,20 @@ export function Cronograma({
           onClick={plegarTodo}
           disabled={conHijas.length === 0}
           title={todoPlegado ? t('cal.cron.desplegarTodo', 'Desplegar todo') : t('cal.cron.plegarTodo', 'Plegar todo')}
-          className="rounded-lg border border-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/45 transition hover:text-white/80 disabled:opacity-25"
+          className="rounded-lg border border-white/10 px-2.5 py-1 text-[11px] font-semibold text-white/45 transition hover:text-white/80 disabled:opacity-25"
         >
           {todoPlegado ? '▸▸' : '▾▾'}
         </button>
 
-        {/* Qué se ve sobre el eje: tu cronograma, o uno de los planes propuestos
-            encima de él. Uno a la vez: comparar tres a la vez no se lee. */}
-        {planesMios.length > 0 && (
+        {/* Qué se ve sobre el eje entero: tu cronograma real, o uno de los planes
+            propuestos encima de él. Uno a la vez: comparar tres no se lee. En el
+            eje de UNA meta no hace falta — ahí manda el plan de esa meta. */}
+        {ejeGlobal && planesMios.length > 0 && (
           <select
             value={planVisibleId ?? ''}
             onChange={(e) => setPlanVisibleId(e.target.value ? Number(e.target.value) : null)}
             title={t('cal.plan.vista', 'Qué cronograma ves')}
-            className={`rounded-lg border bg-black/30 px-1.5 py-0.5 text-[10px] font-semibold outline-none transition ${
+            className={`rounded-lg border bg-black/30 px-2 py-1 text-[11px] font-semibold outline-none transition ${
               planVisible ? 'border-violet-400/50 text-violet-200' : 'border-white/10 text-white/45'
             }`}
           >
@@ -627,7 +741,7 @@ export function Cronograma({
           <button
             type="button"
             onClick={irAHoy}
-            className="rounded-lg border border-white/15 px-2 py-0.5 text-[11px] font-semibold text-white/75 transition hover:bg-white/10"
+            className="rounded-lg border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:bg-white/10"
           >
             {t('cal.hoy', 'Hoy')}
           </button>
@@ -636,7 +750,7 @@ export function Cronograma({
             onClick={ajustar}
             disabled={rangos.length === 0}
             title={t('cal.cron.ajustarAyuda', 'Encuadrar todos los periodos')}
-            className="rounded-lg border border-white/15 px-2 py-0.5 text-[11px] font-semibold text-white/75 transition hover:bg-white/10 disabled:opacity-25"
+            className="rounded-lg border border-white/15 px-2.5 py-1 text-[11px] font-semibold text-white/75 transition hover:bg-white/10 disabled:opacity-25"
           >
             {t('cal.cron.ajustar', 'Ajustar')}
           </button>
@@ -644,7 +758,7 @@ export function Cronograma({
             type="button"
             onClick={() => setRejilla((v) => !v)}
             title={rejilla ? t('cal.cron.apagarRejilla', 'Apagar la rejilla') : t('cal.cron.encenderRejilla', 'Encender la rejilla')}
-            className={`rounded-lg border p-1 text-[11px] transition ${
+            className={`rounded-lg border p-1.5 text-[11px] transition ${
               rejilla ? 'border-white/25 bg-white/10 text-white/80' : 'border-white/10 text-white/40 hover:text-white/70'
             }`}
           >
@@ -656,11 +770,11 @@ export function Cronograma({
               onClick={() => irANivel(nivel + 1)}
               disabled={nivel >= NIVELES_ZOOM.length - 1}
               title={t('cal.cron.alejar', 'Alejar')}
-              className="w-6 rounded-md py-0.5 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
+              className="w-7 rounded-md py-1 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
             >
               −
             </button>
-            <span className="w-16 truncate text-center text-[10px] font-semibold text-white/50">
+            <span className="w-16 truncate text-center text-[11px] font-semibold text-white/50">
               {t(`cal.cron.nivel.${NIVELES_ZOOM[nivel].clave}`, NIVELES_ZOOM[nivel].nombre)}
             </span>
             <button
@@ -668,7 +782,7 @@ export function Cronograma({
               onClick={() => irANivel(nivel - 1)}
               disabled={nivel <= 0}
               title={t('cal.cron.acercar', 'Acercar')}
-              className="w-6 rounded-md py-0.5 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
+              className="w-7 rounded-md py-1 text-xs font-bold text-white/60 transition hover:bg-white/10 disabled:opacity-25"
             >
               +
             </button>
@@ -676,17 +790,57 @@ export function Cronograma({
         </div>
         </>
         )}
-      </div>
+        </div>
+      )}
 
-      {modo === 'metas' ? (
-        hojaMeta ? (
-          <HojaMeta
-            meta={hojaMeta}
-            metas={metas}
-            onVolver={() => setHojaMetaId(null)}
-            onPlanIA={conIA ? (r) => irAPlanes({ tipo: 'generar', meta: r }) : undefined}
-          />
-        ) : disposicion === 'tablero' && !ambito ? (
+      {plegado ? null : hojaMeta ? (
+        <HojaMeta
+          meta={hojaMeta}
+          metas={metas}
+          onVolver={() => setPantalla({ tipo: 'lista' })}
+          onPlanIA={
+            conIA
+              ? (r) => r.id != null && setPantalla({ tipo: 'generar', metaId: r.id, desde: pantalla })
+              : undefined
+          }
+          onVerCronograma={() => hojaMeta.id != null && irAlEje(hojaMeta.id)}
+        />
+      ) : hojaPlan ? (
+        <HojaPlan
+          plan={hojaPlan}
+          metas={metas}
+          onVolver={() => setPantalla({ tipo: 'lista' })}
+          volverA={modo === 'planes' ? t('cal.plan.volverLista', 'Volver a los planes') : undefined}
+          onVerEnCronograma={() => irAlEje(hojaPlan.metaId)}
+          onVerMeta={(r) => r.id != null && setPantalla({ tipo: 'hojaMeta', metaId: r.id })}
+          etiqueta={textoEtiquetaPlan(etiquetasPlan.get(hojaPlan.id ?? -1), hojaPlan.nombre, t)}
+        />
+      ) : metaGenerar ? (
+        <GeneradorPlan
+          meta={metaGenerar}
+          // `planesMios`, no `planes`: con el filtro del calendario puesto (o dentro
+          // de una app) se numeraría contra planes de metas que ya no se ven.
+          planes={planesMios}
+          onCancelar={() => setPantalla(pantalla.tipo === 'generar' ? pantalla.desde : { tipo: 'lista' })}
+          // Los planes anteriores de la meta se conservan (el menú Planes los
+          // sigue listando): la fila de la meta ofrece el aceptado, o el más
+          // reciente si aún ninguno lo está.
+          onGuardado={(id) => setPantalla({ tipo: 'hojaPlan', planId: id })}
+        />
+      ) : enLista && modo === 'planes' ? (
+        <VistaPlanes
+          metas={metas}
+          // `planesMios`, no `planes`: con el filtro del calendario puesto (o dentro
+          // de una app) la lista enseñaba planes de metas que ya no se ven, y su
+          // tarjeta salía sin meta a la que volver.
+          planes={planesMios}
+          metaArmada={metaArmada}
+          onAbrirPlan={(id) => setPantalla({ tipo: 'hojaPlan', planId: id })}
+          onGenerar={(m) => m.id != null && setPantalla({ tipo: 'generar', metaId: m.id, desde: pantalla })}
+          onIrACronograma={() => irAModo('cronograma')}
+        />
+      ) : enLista && modo === 'metas' ? (
+        disposicion === 'tablero' && !ambito ? (
           <TableroMetas
             metas={metas}
             busca={busca}
@@ -705,27 +859,6 @@ export function Cronograma({
             ejemplo={ejemplo}
           />
         )
-      ) : modo === 'planes' ? (
-        <VistaPlanes
-          metas={metas}
-          // `planesMios`, no `planes`: con el filtro del calendario puesto (o dentro
-          // de una app) la lista enseñaba planes de metas que ya no se ven, y su
-          // tarjeta salía sin meta a la que volver.
-          planes={planesMios}
-          metaArmada={metaArmada}
-          destino={destinoPlanes}
-          onDestino={setDestinoPlanes}
-          onVerEnCronograma={(id) => {
-            setPlanVisibleId(id)
-            setModo('cronograma')
-          }}
-          onIrACronograma={() => setModo('cronograma')}
-          onVerMeta={(r) => {
-            if (r.id == null) return
-            setHojaMetaId(r.id)
-            setModo('metas')
-          }}
-        />
       ) : (
       <div
         ref={scrollRef}
@@ -766,8 +899,8 @@ export function Cronograma({
                   )}
                   {/* Alta a la altura de la fila de fechas, no en su propia fila:
                       `crearMeta` ya inserta la nueva primera en `orden`, así que se ve
-                      aquí arriba sin más. Botón que revela el input al pulsarlo, mismo
-                      patrón que "+ paso"/"+ nota" en FilaMeta. */}
+                      aquí arriba sin más. En el eje acotado siempre nace una SUB-meta
+                      de la meta enfocada (el chip de ejemplo es cosa de la lista). */}
                   {fila === filasEje.length - 1 &&
                     (agregandoRaiz ? (
                       <div className="flex w-full items-center gap-1">
@@ -782,9 +915,11 @@ export function Cronograma({
                             else if (e.key === 'Escape') setAgregandoRaiz(false)
                           }}
                           placeholder={
-                            ejemplo
-                              ? t('cal.meta.ejemplo', 'Ej.: {ejemplo}', { ejemplo })
-                              : t('cal.metaPlaceholder', 'Agregar una meta…')
+                            metaEje
+                              ? t('cal.meta.nuevaHija', 'Sub-meta…')
+                              : ejemplo
+                                ? t('cal.meta.ejemplo', 'Ej.: {ejemplo}', { ejemplo })
+                                : t('cal.metaPlaceholder', 'Agregar una meta…')
                           }
                           className="min-w-0 flex-1 rounded border border-white/10 bg-black/30 px-1.5 text-[10px] leading-none text-white/90 placeholder:text-white/25 focus:border-white/25 focus:outline-none"
                         />
@@ -804,30 +939,16 @@ export function Cronograma({
                         )}
                       </div>
                     ) : (
-                      <div className="flex min-w-0 items-center gap-1">
-                        <button
-                          type="button"
-                          onClick={() => setAgregandoRaiz(true)}
-                          className="shrink-0 rounded px-1.5 py-0.5 text-xs font-bold leading-none text-emerald-300/90 transition hover:bg-emerald-500/15 hover:text-emerald-200"
-                        >
-                          + {t('cal.meta.etiquetaMeta', 'meta')}
-                        </button>
-                        {/* El apartado de la meta particular de la app: el ejemplo se
-                            toca, cae en el input y se personaliza antes de crearla. */}
-                        {ejemplo && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setNombre(ejemplo)
-                              setAgregandoRaiz(true)
-                            }}
-                            title={t('cal.meta.usarEjemplo', 'Usar el ejemplo y personalizarlo')}
-                            className="min-w-0 truncate rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] leading-none text-white/45 transition hover:bg-white/10 hover:text-white/75"
-                          >
-                            {t('cal.meta.ejemplo', 'Ej.: {ejemplo}', { ejemplo })}
-                          </button>
-                        )}
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setAgregandoRaiz(true)}
+                        className="shrink-0 rounded px-1.5 py-0.5 text-xs font-bold leading-none text-emerald-300/90 transition hover:bg-emerald-500/15 hover:text-emerald-200"
+                      >
+                        +{' '}
+                        {metaEje
+                          ? t('cal.meta.prefijoSub', 'sub') + t('cal.meta.sufijoMeta', 'meta')
+                          : t('cal.meta.etiquetaMeta', 'meta')}
+                      </button>
                     ))}
                 </div>
                 <div className="ui-panel-2 flex" style={{ width: ancho, height: ALTO_FILA_EJE }}>
@@ -861,16 +982,24 @@ export function Cronograma({
                 >
                   {f.tipo === 'meta' && (
                     <FilaMeta
-                      metas={metas}
+                      metas={metasEje}
                       meta={f.meta}
                       profundidad={f.profundidad}
                       abierta={f.meta.id == null || !plegados.has(f.meta.id)}
                       onPlegar={(a) => f.meta.id != null && plegar(f.meta.id, a)}
                       metaArmada={metaArmada}
                       onArmar={onArmar}
-                      // Cronograma embebido en una app: reordenar el árbol se
-                      // hace en el calendario, así que la fila va sin gesto.
-                      gesto={ambito || f.meta.id == null ? undefined : arrFilas.props(String(f.meta.id))}
+                      edicion={edicion}
+                      // Reordenar es editar: sin el modo puesto, arrastrar una fila
+                      // solo servía para moverla sin querer mientras se lee el eje.
+                      // Tampoco lo lleva la meta enfocada (soltarla en la zona raíz
+                      // la desgajaría) ni el cronograma embebido en una app, donde
+                      // el `padreId` re-enraizado es de mentira.
+                      gesto={
+                        !edicion || ambito || f.meta.id == null || f.meta.id === metaEje?.id
+                          ? undefined
+                          : arrFilas.props(String(f.meta.id))
+                      }
                       enMano={metaEnMano?.id === f.meta.id}
                       encima={
                         arrFilas.destino?.tipo === 'fila' && arrFilas.destino.fila.id === f.meta.id
@@ -879,16 +1008,22 @@ export function Cronograma({
                             : 'dentro'
                           : null
                       }
-                      onPlanIA={conIA ? (r) => irAPlanes({ tipo: 'generar', meta: r }) : undefined}
+                      onPlanIA={
+                        conIA
+                          ? (r) => r.id != null && setPantalla({ tipo: 'generar', metaId: r.id, desde: pantalla })
+                          : undefined
+                      }
                     />
                   )}
                   {f.tipo === 'planCabecera' && (
                     <CabeceraPlan
                       plan={f.plan}
                       etiqueta={textoEtiquetaPlan(etiquetasPlan.get(f.plan.id ?? -1), f.plan.nombre, t)}
-                      onAceptado={() => setPlanVisibleId(null)}
-                      onBorrado={() => setPlanVisibleId(null)}
-                      onAbrirHoja={() => f.plan.id != null && irAPlanes({ tipo: 'hoja', id: f.plan.id })}
+                      // El bloque se resuelve vivo contra `planPorMeta`: al aceptar se
+                      // queda (marcado), y al borrarse desaparece solo.
+                      onAceptado={() => {}}
+                      onBorrado={() => {}}
+                      onAbrirHoja={() => f.plan.id != null && setPantalla({ tipo: 'hojaPlan', planId: f.plan.id })}
                     />
                   )}
                   {f.tipo === 'plan' && (
@@ -898,14 +1033,14 @@ export function Cronograma({
                       color={COLOR_PLAN}
                       // Personalizable mientras sea propuesta; aceptado, lo editable
                       // son las sub-metas reales que nacieron de él.
-                      plan={planVisible && !planVisible.aceptadoEn ? planVisible : undefined}
+                      plan={planEje && !planEje.aceptadoEn ? planEje : undefined}
                     />
                   )}
                 </div>
 
                 {f.tipo === 'meta' ? (
                   <PistaMeta
-                    metas={metas}
+                    metas={metasEje}
                     meta={f.meta}
                     ancho={ancho}
                     desde={desde}
@@ -914,15 +1049,15 @@ export function Cronograma({
                     hoyIso={hoyIso}
                     onArmar={onArmar}
                   />
-                ) : f.tipo === 'plan' && planVisible ? (
+                ) : f.tipo === 'plan' && planEje ? (
                   <PistaPlan
-                    plan={planVisible}
+                    plan={planEje}
                     nodo={f.nodo}
                     color={COLOR_PLAN}
                     ancho={ancho}
                     desde={desde}
                     pxPerDia={pxPerDia}
-                    editable={!planVisible.aceptadoEn}
+                    editable={!planEje.aceptadoEn}
                   />
                 ) : (
                   <div style={{ width: ancho }} />
@@ -931,7 +1066,7 @@ export function Cronograma({
             ))}
 
             {/* Un plan sobre una lista filtrada a cero sigue teniendo que verse. */}
-            {base.length === 0 && !planVisible && (
+            {base.length === 0 && !planEje && (
               <div className="flex">
                 <div
                   className={`${COL_ARBOL} ui-panel-2 sticky start-0 z-10 border-e border-white/10 py-2 text-center text-[10px] text-white/25`}

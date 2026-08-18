@@ -62,6 +62,7 @@ import { useChatArUi } from './core/state/chatArUiStore'
 import { usePreviaPlantilla } from './core/state/previaPlantillaStore'
 import { useRutinasUI } from './core/state/rutinasUiStore'
 import { SisifoFestejo } from './core/gamificacion/SisifoFestejo'
+import { CelebracionesOverlay } from './core/gamificacion/CelebracionesOverlay'
 
 // Wrapped (resumen del periodo): lazy, solo se descarga al abrirlo.
 const WrappedOverlay = lazy(() => import('./core/wrapped/WrappedOverlay'))
@@ -262,6 +263,9 @@ export default function App() {
       {/* Festejo del personaje: notificación de rango/insignia + festejo silencioso al
           salir de un cuarto con algo registrado. Siempre montado (no depende de la UI). */}
       <SisifoFestejo />
+      {/* Celebraciones de racha, lista cumplida y nivel. Siempre montado (las encola
+          la gamificación al otorgar, sin acción del usuario); nulo en reposo. */}
+      <CelebracionesOverlay />
       {/* Wrapped: resumen del periodo a pantalla completa. */}
       {wrappedAbierto && (
         <Suspense fallback={null}>
