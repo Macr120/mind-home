@@ -270,8 +270,14 @@ export function MenuHerramientas() {
 
   return (
     <>
-      {/* Con la esquina plegada el abanico baja al hueco del joystick, con su chevron al lado. */}
-      <div ref={refTope} className={`absolute start-4 z-10 flex items-center gap-1 ${plegado ? 'bottom-4' : 'bottom-32'}`}>
+      {/* El abanico comparte la fila del joystick en vez de montarse encima: apilado
+          se comía 7 rem de alto, que en 1ª/3ª persona y con el teléfono tumbado es
+          justo lo que no sobra. Con la esquina plegada el joystick no está y el
+          abanico ocupa su hueco, con el chevron al lado. */}
+      <div
+        ref={refTope}
+        className={`absolute bottom-4 z-10 flex items-center gap-1 ${plegado ? 'start-4' : 'start-36'}`}
+      >
         <button
           type="button"
           data-tut="herr.boton"
