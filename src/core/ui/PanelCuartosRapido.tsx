@@ -234,11 +234,13 @@ export function PanelCuartosRapido({ onCerrar }: { onCerrar: () => void }) {
   return createPortal(
     <>
       <div
-        className="ui-scrim z-40 grid place-items-center p-4"
+        // En el teléfono el panel se queda a dos dedos del borde: con `p-4` el hueco
+        // era más estrecho que su propio contenido y se salía por la derecha.
+        className="ui-scrim z-40 grid place-items-center p-2 holgado:p-4"
         onClick={() => (edicion ? setEdicion(false) : onCerrar())}
       >
         <div
-          className="ui-panel ui-pop flex max-h-[85vh] w-full max-w-3xl flex-col rounded-2xl border border-white/10 p-2.5 shadow-2xl holgado:max-h-[80vh] holgado:p-4"
+          className="ui-panel ui-pop flex max-h-[85vh] w-full min-w-0 max-w-3xl flex-col rounded-2xl border border-white/10 p-2.5 shadow-2xl holgado:max-h-[80vh] holgado:p-4"
           onClick={(e) => e.stopPropagation()}
         >
           <header className="mb-2 flex items-center gap-1.5 holgado:mb-3 holgado:gap-2">
